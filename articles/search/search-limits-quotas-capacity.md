@@ -1,22 +1,23 @@
 ---
-title: 層級和 sku 的服務限制 - Azure 搜尋服務
-description: 容量計劃中使用的服務限制，以及 Azure 搜尋服務要求和回應的最大限制。
-author: HeidiSteen
+title: 層級和 sku 的服務限制
+titleSuffix: Azure Cognitive Search
+description: 用於容量規劃的服務限制，以及 Azure 認知搜尋要求和回應的最大限制。
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947786"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793566"
 ---
-# <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
-儲存體、工作負載的最大限制，以及索引、檔和其他物件的數量上限，取決於您是否**在免費**、**基本**、**標準**或**儲存體優化**定價層布建[Azure 搜尋服務](search-create-service-portal.md)。
+# <a name="service-limits-in-azure-cognitive-search"></a>Azure 認知搜尋中的服務限制
+
+儲存體、工作負載的最大限制，以及索引、檔和其他物件的數量上限，取決於您是否在**免費**、**基本**、**標準**或**儲存體優化**定價層布建[Azure 認知搜尋](search-create-service-portal.md).
 
 + **免費** 的是 Azure 訂用帳戶隨附的多租用戶共用服務。 編制索引和查詢要求會在其他租使用者所使用的複本和分割區上執行。
 
@@ -24,7 +25,7 @@ ms.locfileid: "71947786"
 
 + **標準**是在專用的機器上執行，在各層級具有更多的儲存和處理容量。 標準共有四個等級︰S1、S2、S3 及 S3 HD。
 
-+ **儲存體優化**會在儲存體、儲存體頻寬和記憶體總計高於**標準**的專用電腦上執行。 儲存體優化分為兩個層級：L1 和 L2
++ **儲存體優化**會在儲存體、儲存體頻寬和記憶體總計高於**標準**的專用電腦上執行。 儲存體優化分為兩個層級： L1 和 L2
 
 > [!NOTE]
 > 從7月1日起，所有層均已正式運作，包括儲存體優化層。 您可以在 [[定價詳細資料](https://azure.microsoft.com/pricing/details/search/)] 頁面上找到所有定價。
@@ -45,7 +46,7 @@ ms.locfileid: "71947786"
 
 ## <a name="index-limits"></a>索引限制
 
-| Resource | 免費 | 基本&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| 資源 | 免費 | 基本&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | 索引上限 |3 |5 或 15 |50 |200 |200 |每個分割區 1000 個或每個服務 3000 個 |10 |10 |
 | 每個索引的簡單欄位數目上限 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -68,11 +69,11 @@ ms.locfileid: "71947786"
 
   ![使用量圖格](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup>雖然沒有任何 SKU 特定檔限制，但每個索引仍然受限於最大的安全限制，以確保服務的穩定性。 這是來自 Lucene 的限制。 每個 Azure 搜尋服務檔會在內部編制為一或多個 Lucene 檔的索引。 每個 Azure 搜尋服務檔的 Lucene 檔數目取決於複雜集合欄位中的元素總數。 每個元素都會以個別的 Lucene 檔編制索引。 例如，在複雜集合欄位中包含3個元素的檔，將會以 4 Lucene 檔的形式編制索引，而針對該檔本身，則會以3個為元素。 Lucene 檔的最大數目大約是每個索引25000000000。
+<sup>1</sup>雖然沒有任何 SKU 特定檔限制，但每個索引仍然受限於最大的安全限制，以確保服務的穩定性。 這是來自 Lucene 的限制。 每個 Azure 認知搜尋檔都會在內部編制為一或多個 Lucene 檔的索引。 每個搜尋檔的 Lucene 檔數目取決於複雜集合欄位中的元素總數。 每個元素都會以個別的 Lucene 檔編制索引。 例如，在複雜集合欄位中包含3個元素的檔，將會以 4 Lucene 檔的形式編制索引，而針對該檔本身，則會以3個為元素。 Lucene 檔的最大數目大約是每個索引25000000000。
 
 ### <a name="regions-previously-having-document-limits"></a>先前具有文件限制的區域
 
-如果入口網站指出文件限制，則您的服務可能是在 2017 年底之前建立，或在使用較低容量叢集來裝載 Azure 搜尋服務的資料中心上建立：
+如果入口網站指出檔限制，則您的服務是在2017以後建立，或是在使用較低容量叢集來裝載 Azure 認知搜尋服務的資料中心上建立的：
 
 + 澳大利亞東部
 + 東亞
@@ -84,7 +85,7 @@ ms.locfileid: "71947786"
 
 |  免費 | 基本 | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 @ no__t-0million |每個分割區 1500 萬個或每個服務 1 億 8 千萬個 |每個分割區 6000 萬個或每個服務 7 億 2 千萬個 |每個分割區 1 億 2 千萬個或每個服務 14 億個 |每個索引 1 百萬個或每個分割區 2 億個 |
+|  10,000 |1 @ no__t_0_ 百萬 |每個分割區 1500 萬個或每個服務 1 億 8 千萬個 |每個分割區 6000 萬個或每個服務 7 億 2 千萬個 |每個分割區 1 億 2 千萬個或每個服務 14 億個 |每個索引 1 百萬個或每個分割區 2 億個 |
 
 如果您的服務具有封鎖您的限制，請建立新的服務，然後將所有內容重新發佈至該服務。 沒有任何機制可以在幕後順暢地將您的服務重新佈建到新硬體上。
 
@@ -105,7 +106,7 @@ ms.locfileid: "71947786"
 最長的執行時間是為了提供整體服務的平衡和穩定性，但較大的資料集所需的索引時間可能比允許的最大值還多。 如果索引作業無法在允許的時間上限內完成，請按照排程嘗試執行索引作業。 排程器會追蹤索引狀態。 如果排定的索引作業因故中斷，索引子可以在下次排定的執行時間繼續從上次停止處進行。
 
 
-| Resource | 免費&nbsp;<sup>1</sup> | 基本&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| 資源 | 免費&nbsp;<sup>1</sup> | 基本&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | 索引子上限 |3 |5 或 15|50 |200 |200 |N/A |10 |10 |
 | 資料來源上限 |3 |5 或 15 |50 |200 |200 |N/A |10 |10 |
@@ -115,7 +116,7 @@ ms.locfileid: "71947786"
 | 執行時間上限 <sup>5</sup> | 1-3 分鐘 |24 小時 |24 小時 |24 小時 |24 小時 |N/A  |24 小時 |24 小時 |
 | 影像分析的認知搜尋技能集或 Blob 索引適用的執行時間上限 <sup>5</sup> | 3-10 分鐘 |2 小時 |2 小時 |2 小時 |2 小時 |N/A  |2 小時 |2 小時 |
 | Blob 索引子︰Blob 大小上限，MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Blob 索引子︰從 Blob 擷取的內容字元數上限 |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |N/A |4 @ no__t-0million |4 @ no__t-0million |
+| Blob 索引子︰從 Blob 擷取的內容字元數上限 |32,000 |64,000 |4 @ no__t_0_ 萬 |4 @ no__t_0_ 萬 |4 @ no__t_0_ 萬 |N/A |4 @ no__t_0_ 萬 |4 @ no__t_0_ 萬 |
 
 <sup>1</sup> 免費服務有索引子執行時間上限，針對 Blob 來源為 3 分鐘，針對其他所有資料來源為 1 分鐘。 對於呼叫認知服務的 AI 索引，免費服務限制為每天20個免費交易，其中的交易會定義為成功通過擴充管線的檔。
 
@@ -131,7 +132,7 @@ ms.locfileid: "71947786"
 
 允許的同義字對應數目上限會依定價層而有所不同。 每個規則最多可以有20個擴充，其中的擴充是 equivalvent 的詞彙。 例如，假設有「cat」，與 "小貓"、"貓科" 和 "felis" （貓的 genus）的關聯會計算為3個擴充。
 
-| Resource | 免費 | 基本 | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| 資源 | 免費 | 基本 | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | 同義字地圖的最大值 |3 |3|5 |10 |20 |20 | 10 | 10 |
 | 每個對應的規則數目上限 |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -140,13 +141,13 @@ ms.locfileid: "71947786"
 
 每個客戶必須獨立開發 QPS 估計值。 索引大小和複雜性、查詢大小和複雜性、流量，這三者是 QPS 的主要決定因素。 不知道這些因素，便無法提供有意義的估計值。
 
-計算在專用資源 (基本和標準層) 上執行的服務，更容易預測估計值。 由於可控制較多的參數，所以能更準確地估計 QPS。 如需有關如何進行估計的指引，請參閱 [Azure 搜尋服務的效能與最佳化](search-performance-optimization.md)。
+計算在專用資源 (基本和標準層) 上執行的服務，更容易預測估計值。 由於可控制較多的參數，所以能更準確地估計 QPS。 如需如何進行估計的指引，請參閱[Azure 認知搜尋效能和優化](search-performance-optimization.md)。
 
 針對儲存體優化層，您應該預期較低的查詢輸送量和比標準層更高的延遲。  評估您將遇到之查詢效能的方法，與標準層相同。
 
-## <a name="data-limits-cognitive-search"></a>資料限制 (認知搜尋)
+## <a name="data-limits-ai-enrichment"></a>資料限制（AI 擴充）
 
-對「文字分析」發出呼叫以進行[實體辨識](cognitive-search-skill-entity-recognition.md)、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、[情感分析](cognitive-search-skill-sentiment.md)及[語言偵測](cognitive-search-skill-language-detection.md)的[認知搜尋管線](cognitive-search-concept-intro.md)會受到資料限制約束。 記錄的大小上限應為50000個字元，如[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)所測量。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+針對[實體](cognitive-search-skill-entity-recognition.md)辨識、[關鍵字組提取](cognitive-search-skill-keyphrases.md)、[情感分析](cognitive-search-skill-sentiment.md)和[語言偵測](cognitive-search-skill-language-detection.md)呼叫文字分析資源的[AI 擴充管線](cognitive-search-concept-intro.md)，受限於資料限制。 記錄的大小上限應為50000個字元，如[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)所測量。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="throttling-limits"></a>節流限制
 
@@ -156,9 +157,9 @@ ms.locfileid: "71947786"
 
 + 列出索引（GET/indexes）：每個搜尋單位每秒5個
 + 取得索引（GET/indexes/myindex）：每個搜尋單位每秒10次
-+ 建立索引（POST/indexes）：每個搜尋單位12每分鐘
-+ 建立或更新索引（PUT/indexes/myindex）：每個搜尋單位每秒6個
-+ 刪除索引（刪除/indexes/myindex）：每個搜尋單位12每分鐘 
++ 建立索引（POST/indexes）：每個搜尋單位每分鐘12次
++ 建立或更新索引（PUT/indexes/myindex）：每個搜尋單位每秒6次
++ 刪除索引（刪除/indexes/myindex）：每個搜尋單位每分鐘12次 
 
 ## <a name="api-request-limits"></a>API 要求限制
 * 每個要求最多 16 MB <sup>1</sup>
@@ -167,7 +168,7 @@ ms.locfileid: "71947786"
 * $orderby 子句中最多 32 個欄位
 * 最大搜尋詞彙的大小是 utf-8 編碼文字的 32,766 個位元組 (32 KB 減 2 個位元組)
 
-<sup>1</sup> 在「Azure 搜尋服務」中，要求主體的上限是 16 MB，這會針對不受理論上限制約束之個別欄位或集合的內容強加實際限制 (如需有關欄位組合和限制的詳細資訊，請參閱[支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types))。
+<sup>1</sup>在「Azure 認知搜尋」中，要求的主體受限於 16 MB 的上限，限制不受理論限制約束之個別欄位或集合的內容實際限制（請參閱[支援的資料類型）](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)如需欄位組合和限制的詳細資訊）。
 
 ## <a name="api-response-limits"></a>API 回應限制
 * 每一頁搜尋結果最多傳回 1000 個文件

@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097627"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791300"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的版本控制
 
@@ -24,11 +24,11 @@ ms.locfileid: "70097627"
 
 有幾個重大變更的例子需要注意。 本文討論最常見的重大變更。 所有重大變更背後的主題都是：變更函式程式碼會影響新的和現有的函式協調流程。
 
-### <a name="changing-activity-function-signatures"></a>變更活動函式簽章
+### <a name="changing-activity-or-entity-function-signatures"></a>變更活動或實體函式簽章
 
-簽章變更是指函式的名稱、輸入或輸出有所變更。 如果活動函式發生這種變更，則會中斷依賴此函式的協調器函式。 如果您更新協調器函式來配合此變更，可能會中斷現有的執行中執行個體。
+簽章變更是指函式的名稱、輸入或輸出有所變更。 如果對活動或實體函式進行這種變更，它可能會中斷相依于它的任何協調器函式。 如果您更新協調器函式來配合此變更，可能會中斷現有的執行中執行個體。
 
-舉例來說，假設我們有下列函式。
+例如，假設我們有下列協調器函式。
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-此變更會在 **Foo** 和 **Bar** 之間新增呼叫 **SendNotification** 函式。 簽章不變。 當現有的執行個體在呼叫 **Bar** 之後繼續時，就發生問題。 在重新執行期間，如果原始呼叫 **Foo** 傳回 `true`，則協調器重新執行會呼叫 **SendNotification**，但這不在其執行記錄中。 結果，「永久性工作架構」會失敗，並傳回 `NonDeterministicOrchestrationException`，因為原本認為應該呼叫 **Bar**，但卻發現呼叫 **SendNotification**。
+此變更會在 **Foo** 和 **Bar** 之間新增呼叫 **SendNotification** 函式。 簽章不變。 當現有的執行個體在呼叫 **Bar** 之後繼續時，就發生問題。 在重新執行期間，如果原始呼叫 **Foo** 傳回 `true`，則協調器重新執行會呼叫 **SendNotification**，但這不在其執行記錄中。 結果，「永久性工作架構」會失敗，並傳回 `NonDeterministicOrchestrationException`，因為原本認為應該呼叫 **Bar**，但卻發現呼叫 **SendNotification**。 新增任何對「持久」 Api 的呼叫（包括 `CreateTimer`、`WaitForExternalEvent`等）時，可能會發生相同類型的問題。
 
 ## <a name="mitigation-strategies"></a>風險降低策略
 
@@ -112,9 +112,9 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 為了確保安全地部署重大變更，將重大變更與舊版並存部署就能萬無一失。 您可以採取下列任何技術：
 
-* 將所有更新部署為全新的函式 (新名稱)。
+* 將所有更新部署為全新的函式，以保持現有的功能。 這可能會很棘手，因為新函式版本的呼叫端也必須遵循相同的指導方針進行更新。
 * 以不同的儲存體帳戶，將所有更新部署為新的函式應用程式。
-* 以更新的 `TaskHub` 名稱來部署函式應用程式的新複本。 這是建議使用的技巧。
+* 使用相同的儲存體帳戶部署函式應用程式的新複本，但使用已更新的 `taskHub` 名稱。 這是建議使用的技巧。
 
 ### <a name="how-to-change-task-hub-name"></a>如何變更工作中樞名稱
 
@@ -125,21 +125,31 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Functions 2.x
 
-預設值為 `DurableFunctionsHub`。
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-所有 Azure 儲存體實體都是依據 `HubName` 設定值來命名。 只要指定新名稱給工作中樞，就可以確保為應用程式的新版本建立個別的佇列和記錄資料表。
+Durable Functions v1. x 的預設值是 `DurableFunctionsHub`。 從 Durable Functions v2.0 開始，預設的工作中樞名稱與 Azure 中的函式應用程式名稱相同，或 `TestHubName` （如果在 Azure 外部執行）。
 
-建議您將函式應用程式的新版本部署到新的[部署位置](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)。 部署位置可讓您並存執行函式應用程式的多個複本，而且其中只有一個是作用中的「生產」位置。 當您準備將新的協調流程邏輯公開到現有的基礎結構時，只要將新的版本調換到生產位置即可，就是這麼簡單。
+所有 Azure 儲存體實體都是依據 `hubName` 設定值來命名。 只要指定新名稱給工作中樞，就可以確保為應用程式的新版本建立個別的佇列和記錄資料表。 不過，函數應用程式會停止處理協調流程的事件，或在先前的工作中樞名稱底下建立的實體。
+
+建議您將函式應用程式的新版本部署到新的[部署位置](../functions-deployment-slots.md)。 部署位置可讓您並存執行函式應用程式的多個複本，而且其中只有一個是作用中的「生產」位置。 當您準備將新的協調流程邏輯公開到現有的基礎結構時，只要將新的版本調換到生產位置即可，就是這麼簡單。
 
 > [!NOTE]
-> 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 對於非 HTTP 觸發程式 (例如佇列或事件中樞), 觸發程序定義應該衍生自在交換作業中更新的[應用程式設定](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)。
+> 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 對於非 HTTP 觸發程式（例如佇列或事件中樞），觸發程序定義應該衍生自在交換作業中更新的[應用程式設定](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)。
 
 ## <a name="next-steps"></a>後續步驟
 

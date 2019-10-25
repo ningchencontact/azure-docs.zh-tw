@@ -1,27 +1,27 @@
 ---
-title: 範例：多層級 facet-Azure 搜尋服務
+title: 範例：多層級 facet
+titleSuffix: Azure Cognitive Search
 description: 了解如何建置多層級分類的 Facet 結構，以建立可包含在應用程式頁面上的巢狀導覽結構。
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70274089"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792950"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>範例： Azure 搜尋服務中的多層級 facet
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>範例： Azure 認知搜尋中的多層級 facet
 
-Azure 搜尋服務結構描述並未明確支援多層級的分類類別，但您可藉由在編製索引之前操控內容，然後對結果進行某種特殊處理，來模擬這些類別。 
+Azure 認知搜尋架構不會明確支援多層級的分類法分類，但您可以在編制索引之前操控內容，然後對結果套用一些特殊的處理。 
 
 ## <a name="start-with-the-data"></a>從資料著手
 
-本文中的範例以先前的範例[將 AdventureWorks 詳細目錄資料庫模型化](search-example-adventureworks-modeling.md)為基礎，以示範 Azure 搜尋服務中的多層級 Facet。
+本文中的範例是以先前的範例為基礎，這是建立[AdventureWorks 清查資料庫的模型](search-example-adventureworks-modeling.md)，以示範 Azure 認知搜尋中的多層級 facet。
 
 AdventureWorks 採用簡單的雙層分類，具有父子式關聯性。 針對此結構的固定長度分類深度，可使用簡單的 SQL 聯結查詢將分類分組：
 
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>編製集合欄位的索引
 
-在包含此結構的索引中，於 Azure 搜尋服務結構描述中建立 **Collection(Edm.String)** 欄位來儲存此資料，以確定欄位包含可搜尋、可篩選、可 Facet 和可擷取的屬性。
+在包含此結構的索引中，于 Azure 認知搜尋架構中建立**集合（Edm）** 欄位來儲存此資料，並確定欄位屬性包括可搜尋、可篩選、facetable 及可供使用。
 
 現在，當您為參照特定分類類別的內容編製索引時，以各層分類中的文字所組成的陣列提交分類。 例如，針對具有 `ProductCategoryId = 5 (Mountain Bikes)` 的實體，請提交 `[ "Bikes", "Bikes|Mountain Bikes"]` 形式的欄位
 
@@ -99,4 +99,4 @@ categories.count = sum;
 
 ## <a name="see-also"></a>請參閱
 
-[範例： Azure 搜尋服務的 AdventureWorks 清查資料庫模型](search-example-adventureworks-modeling.md)
+[範例：為 Azure 認知搜尋的 AdventureWorks 清查資料庫建立模型](search-example-adventureworks-modeling.md)

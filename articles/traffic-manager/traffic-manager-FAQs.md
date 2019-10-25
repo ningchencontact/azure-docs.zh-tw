@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511011"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784838"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -59,7 +59,7 @@ ms.locfileid: "69511011"
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>我可以使用具有「naked」功能變數名稱的流量管理員嗎？
 
-是的。 若要瞭解如何建立功能變數名稱頂點的別名記錄以參考 Azure 流量管理員設定檔, 請參閱[使用流量管理員設定別名記錄以支援頂點功能變數名稱](../dns/tutorial-alias-tm.md)。
+可以。 若要瞭解如何建立功能變數名稱頂點的別名記錄以參考 Azure 流量管理員設定檔，請參閱[使用流量管理員設定別名記錄以支援頂點功能變數名稱](../dns/tutorial-alias-tm.md)。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>處理 DNS 查詢時，流量管理員會考量用戶端子網路位址嗎？ 
 
@@ -172,7 +172,7 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 
 我們無法保證每個查詢都會傳回同一組端點。 這也會受到下列事實的影響：有些端點未包含在回應時可能會狀況不良
 
-## <a name="real-user-measurements"></a>實際使用者度量
+## <a name="real-user-measurements"></a>真實使用者度量單位
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>使用「實際使用者度量」有哪些優點？
 
@@ -310,7 +310,7 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>我可以使用流量管理員來設定雲端服務「預備」位置嗎？
 
-是的。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。
+可以。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>流量管理員是否支援 IPv6 端點？
 
@@ -324,7 +324,7 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 
 ### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>如何? 將我流量管理員設定檔的 Azure 端點移至不同的資源群組或訂用帳戶嗎？
 
-與流量管理員設定檔相關聯的 Azure 端點，是使用其資源識別碼來追蹤的。 當當做端點使用的 Azure 資源 (例如, 公用 IP、傳統雲端服務、WebApp, 或以嵌套方式使用的另一個流量管理員設定檔) 移至不同的資源群組或訂用帳戶時, 其資源識別碼會變更。 在此情況下，目前您必須先刪除端點，然後再將端點加回設定檔中，以更新流量管理員設定檔。
+與流量管理員設定檔相關聯的 Azure 端點，是使用其資源識別碼來追蹤的。 當當做端點使用的 Azure 資源（例如，公用 IP、傳統雲端服務、WebApp，或以嵌套方式使用的另一個流量管理員設定檔）移至不同的資源群組或訂用帳戶時，其資源識別碼會變更。 在此情況下，目前您必須先刪除端點，然後再將端點加回設定檔中，以更新流量管理員設定檔。
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 
@@ -351,7 +351,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-monitor-https-endpoints"></a>我可以監視 HTTPS 端點嗎？
 
-是的。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
+可以。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
 
 流量管理員無法提供任何憑證驗證，包括：
 
@@ -406,17 +406,20 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 是，可以，但有下列例外：MultiValue 類型的設定檔不能是巢狀設定檔集合中的父設定檔。
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我在流量管理員設定檔中停止了 web 應用程式端點, 但我在重新開機後仍未收到任何流量。 我該怎麼辦？
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我在流量管理員設定檔中停止了 web 應用程式端點，但我在重新開機後仍未收到任何流量。 我該怎麼辦？
 
-當 Azure web 應用程式端點停止時流量管理員會停止檢查其健康情況, 並只在偵測到端點已重新開機之後才重新開機健康狀態檢查。 若要避免這種延遲，在重新啟動該端點之後，請在「流量管理員」設定檔中停用然後重新啟用該端點。
+當 Azure web 應用程式端點停止時流量管理員會停止檢查其健康情況，並只在偵測到端點已重新開機之後才重新開機健康狀態檢查。 若要避免這種延遲，在重新啟動該端點之後，請在「流量管理員」設定檔中停用然後重新啟用該端點。
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>即使我的應用程式不支援 HTTP 或 HTTPS 也可以使用流量管理員嗎？
 
-是的。 您可以指定 TCP 作為監視通訊協定，流量管理員可以起始 TCP 連線，並且等待端點的回應。 如果端點在逾時期間內以建立連線的回應來回覆連線要求，則該端點會標示為狀況良好。
+可以。 您可以指定 TCP 作為監視通訊協定，流量管理員可以起始 TCP 連線，並且等待端點的回應。 如果端點在逾時期間內以建立連線的回應來回覆連線要求，則該端點會標示為狀況良好。
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>使用 TCP 監視時需要端點的哪些特定回應？
 
-使用 TCP 監視時，流量管理員會啟動三向 TCP 交握，方法是將 SYN 要求傳送至端點的指定連接埠。 接著會等待一段時間 (在逾時設定中指定) 讓端點回應。 如果端點在監視設定指定的逾時期間內以 SYN-ACK 回應 SYN 要求，則該端點視為狀況良好。 如果收到 SYN-ACK 回應，流量管理員會藉由再回應 RST 以重設連線。
+使用 TCP 監視時，流量管理員會啟動三向 TCP 交握，方法是將 SYN 要求傳送至端點的指定連接埠。 然後，它會等待來自端點的 SYN ACK 回應一段時間（在 [超時設定] 中指定）。
+
+- 如果在監視設定中指定的超時時間內收到 SYN ACK 回應，則會將該端點視為狀況良好。 FIN 或 FIN 通知是定期終止通訊端時，來自流量管理員的預期回應。
+- 如果在指定的超時時間之後收到 SYN ACK 回應，流量管理員將會以 RST 回應，以重設連接。
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>流量管理員將我的使用者從狀況不良的端點移開時間有多快？
 
@@ -469,7 +472,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>在同一個「流量管理員」設定檔中，是否可以將其他端點類型與巢狀子設定檔混合使用？
 
-是的。 對於在設定檔內如何結合不同類型的端點，並沒有任何限制。
+可以。 對於在設定檔內如何結合不同類型的端點，並沒有任何限制。
 
 ### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>巢狀設定檔如何套用計費模型？
 
@@ -477,14 +480,14 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 流量管理員計費有兩個要素︰端點健康狀態檢查和數百萬個 DNS 查詢
 
-* 端點健康情況檢查：當子設定檔被設定為父設定檔中的端點時，並不會針對該子設定檔收費。 監視子設定檔中的端點將以一般方式計費。
+* 端點健康情況檢查︰當子設定檔被設定為父設定檔中的端點時，並不會針對該子設定檔收費。 監視子設定檔中的端點將以一般方式計費。
 * DNS 查詢：每個查詢只計算一次。 查詢父設定檔而從子設定檔傳回端點時，只計入父設定檔內。
 
 如需完整的詳細資料，請參閱[流量管理員定價頁面](https://azure.microsoft.com/pricing/details/traffic-manager/)。
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>巢狀設定檔是否會對效能造成影響？
 
-資料分割 使用巢狀設定檔不會影響效能。
+不會。 使用巢狀設定檔不會影響效能。
 
 在處理每個 DNS 查詢時，流量管理員名稱伺服器會周遊設定檔階層內部。 父設定檔的 DNS 查詢可能會收到從子設定檔傳回端點的 DNS 回應。 不論您使用單一設定檔或巢狀設定檔，都只會使用單一 CNAME 記錄。 不需要為階層中的每個設定檔建立 CNAME 記錄。
 
@@ -502,7 +505,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 | CheckingEndpoints。 至少有一個子設定檔端點是 'CheckingEndpoint'。 沒有端點是「線上」或「已降級」。 |同上。 | |
 | 非使用中。 所有子設定檔端點不是「已停用」就是「已停止」，或者此設定檔沒有任何端點 |已停止 | |
 
-## <a name="next-steps"></a>後續步驟:
+## <a name="next-steps"></a>接下來的步驟：
 
 - 深入了解「流量管理員」的 [端點監視和自動容錯移轉](../traffic-manager/traffic-manager-monitoring.md)。
 - 深入了解「流量管理員」的 [流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566422"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791747"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>使用 Azure 監視器記錄監視 SQL 資料同步 
 
@@ -31,19 +31,19 @@ ms.locfileid: "68566422"
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>所有同步群組的監視儀表板 
 
-當您要尋找問題時，再也不用分別查看每個同步群組的記錄。 您可以使用自訂的 Azure 監視器 view, 在同一個位置監視任何訂用帳戶中的所有同步處理群組。 此檢視會呈現 SQL 資料同步客戶重視的相關資訊。
+當您要尋找問題時，再也不用分別查看每個同步群組的記錄。 您可以使用自訂的 Azure 監視器 view，在同一個位置監視任何訂用帳戶中的所有同步處理群組。 此檢視會呈現 SQL 資料同步客戶重視的相關資訊。
 
 ![資料同步監視儀表板](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>自動電子郵件通知
 
-您再也不用在 Azure 入口網站中手動檢查記錄檔，也不用透過 PowerShell 或 REST API 來進行。 有了[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), 您就可以建立警示, 在發生錯誤時直接前往需要查看他們的電子郵件地址。
+您再也不用在 Azure 入口網站中手動檢查記錄檔，也不用透過 PowerShell 或 REST API 來進行。 有了[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)，您就可以建立警示，在發生錯誤時直接前往需要查看他們的電子郵件地址。
 
 ![資料同步電子郵件通知](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>如何設定這些監視功能？ 
 
-藉由執行下列動作, 在不到一小時內執行 SQL 資料同步的自訂 Azure 監視器記錄監視解決方案:
+藉由執行下列動作，在不到一小時內執行 SQL 資料同步的自訂 Azure 監視器記錄監視解決方案：
 
 您必須設定三個元件：
 
@@ -71,7 +71,7 @@ ms.locfileid: "68566422"
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>可取得 SQL 資料同步記錄的 PowerShell Runbook 
 
-使用裝載于 Azure 自動化中的 PowerShell runbook 來提取 SQL 資料同步記錄資料, 並將它傳送至 Azure 監視器記錄。 隨附範例指令碼。 必要條件是您必須具備 Azure 自動化帳戶。 然後您需要建立 Runbook 並排程執行。 
+使用裝載于 Azure 自動化中的 PowerShell runbook 來提取 SQL 資料同步記錄資料，並將它傳送至 Azure 監視器記錄。 隨附範例指令碼。 必要條件是您必須具備 Azure 自動化帳戶。 然後您需要建立 Runbook 並排程執行。 
 
 ### <a name="create-a-runbook"></a>建立 Runbook
 
@@ -101,7 +101,7 @@ ms.locfileid: "68566422"
 
     2.  同步群組資訊。
 
-    3.  Azure 監視器記錄資訊。 在 Azure 入口網站 | 設定 | 連接的來源中，尋找這項資訊。 如需將資料傳送至 Azure 監視器記錄的詳細資訊, 請參閱[使用 HTTP 資料收集器 API (預覽) 將資料傳送至 Azure 監視器記錄](../azure-monitor/platform/data-collector-api.md)。
+    3.  Azure 監視器記錄資訊。 在 Azure 入口網站 | 設定 | 連接的來源中，尋找這項資訊。 如需將資料傳送至 Azure 監視器記錄的詳細資訊，請參閱[使用 HTTP 資料收集器 API （預覽）將資料傳送至 Azure 監視器記錄](../azure-monitor/platform/data-collector-api.md)。
 
 11. 在 [測試] 窗格中執行 Runbook。 檢查並確定已順利完成。
 
@@ -131,13 +131,13 @@ ms.locfileid: "68566422"
 
 ## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>建立電子郵件通知的 Azure 監視器讀取器警示
 
-若要建立使用 Azure 監視器記錄的警示, 請執行下列動作。 必要條件是, 您需要有與 Log Analytics 工作區連結的 Azure 監視器記錄。
+若要建立使用 Azure 監視器記錄的警示，請執行下列動作。 必要條件是，您需要有與 Log Analytics 工作區連結的 Azure 監視器記錄。
 
 1.  在 Azure 入口網站中，選取 [記錄搜尋]。
 
-2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如:
+2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如：
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
 3.  執行查詢之後，選取代表**警示**的鈴鐺圖示。
 
@@ -145,7 +145,7 @@ ms.locfileid: "68566422"
 
     1.  將 [彙總值] 設為 [大於]。
 
-    2.  在 [大於] 之後，輸入要在經過多久閾值後收到通知。 資料同步中可能有暫時性錯誤。建議您將閾值設為 5，以減少雜訊。
+    2.  在 [大於] 之後，輸入要在經過多久閾值後收到通知。 資料同步中應該要有暫時性錯誤。若要減少雜訊，請將閾值設定為5。
 
 5.  在 [動作] 下方，將 [電子郵件通知] 設為 [是]。 輸入所需的電子郵件收件者。
 
@@ -153,7 +153,7 @@ ms.locfileid: "68566422"
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>建立用於監視的 Azure 監視器 View
 
-此步驟會建立一個 Azure 監視器視圖, 以視覺化方式監視所有指定的同步處理群組。 這個檢視包含數個元件：
+此步驟會建立一個 Azure 監視器視圖，以視覺化方式監視所有指定的同步處理群組。 這個檢視包含數個元件：
 
 -   概觀圖格，其中顯示所有同步群組的錯誤次數、成功次數和警告次數。
 
@@ -161,9 +161,9 @@ ms.locfileid: "68566422"
 
 -   每個同步群組的圖格，其會顯示錯誤次數、成功次數和警告次數，以及最近的錯誤訊息。
 
-若要設定 Azure 監視器視圖, 請執行下列動作:
+若要設定 Azure 監視器視圖，請執行下列動作：
 
-1.  在 Log Analytics 工作區的 [首頁] 上, 選取左側的加號以開啟 [ **view designer**]。
+1.  在 Log Analytics 工作區的 [首頁] 上，選取左側的加號以開啟 [ **view designer**]。
 
 2.  選取檢視表設計工具頂端列的 [匯入]。 然後選取 "DataSyncLogOMSView" 範例檔案。
 
@@ -187,7 +187,7 @@ ms.locfileid: "68566422"
 
 **Azure 自動化：** 根據使用量而定，Azure 自動化帳戶可能會產生費用。 每個月的前 500 分鐘作業執行時間為免費。 在大部分情況下，這個解決方案每個月只會用到 500 分鐘以內的使用量。 若要避免費用，請將 Runbook 排程為間隔兩個小時以上執行。 如需詳細資訊，請參閱[自動化定價](https://azure.microsoft.com/pricing/details/automation/)。
 
-**Azure 監視器記錄:** 根據您的使用量而定, 可能會產生與 Azure 監視器記錄相關聯的費用。 免費層包含一天 500 MB 的內嵌資料。 在大部分情況下，這個解決方案一天只會內嵌 500 MB 以內的資料量。 若要減少使用量，可使用 Runbook 隨附的僅限失敗篩選功能。 如果您一天使用超過 500 MB，請升級到付費層，以避免因達到限制而停止分析的風險。 如需詳細資訊, 請參閱[Azure 監視器記錄定價](https://azure.microsoft.com/pricing/details/log-analytics/)。
+**Azure 監視器記錄：** 根據您的使用量而定，可能會產生與 Azure 監視器記錄相關聯的費用。 免費層包含一天 500 MB 的內嵌資料。 在大部分情況下，這個解決方案一天只會內嵌 500 MB 以內的資料量。 若要減少使用量，可使用 Runbook 隨附的僅限失敗篩選功能。 如果您一天使用超過 500 MB，請升級到付費層，以避免因達到限制而停止分析的風險。 如需詳細資訊，請參閱[Azure 監視器記錄定價](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
 ## <a name="code-samples"></a>程式碼範例
 

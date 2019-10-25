@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d460688392ae017c0d87ce60fa980701e5d47d3
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528187"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792846"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure 監視器進行大規模監視
 
@@ -29,7 +29,7 @@ Azure 備份在復原服務保存庫中提供內[建的監視和警示功能](ba
 ## <a name="using-log-analytics-workspace"></a>使用 Log Analytics 工作區
 
 > [!NOTE]
-> 來自 Azure VM 備份、Azure 備份代理程式、System Center Data Protection Manager、Azure Vm 中的 SQL 備份，以及 Azure 檔案儲存體共用備份的資料，會透過診斷設定抽出至 Log Analytics 工作區。
+> 來自 Azure VM 備份、Azure 備份代理程式、System Center Data Protection Manager、Azure Vm 中的 SQL 備份，以及 Azure 檔案儲存體共用備份的資料，會透過診斷設定抽出至 Log Analytics 工作區。 即將加入 Microsoft Azure 備份 Server （MABS）的支援
 
 若要大規模監視/報告，您需要兩個 Azure 服務的功能。 *診斷設定*會將多個 Azure Resource Manager 資源的資料傳送至另一個資源。 *Log Analytics*會產生自訂警示，您可以在其中使用動作群組來定義其他通知通道。
 

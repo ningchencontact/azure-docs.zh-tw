@@ -1,5 +1,6 @@
 ---
-title: 在 macOS 和 iOS 上設定 SSO |Microsoft 身分識別平臺
+title: 在 macOS 和 iOS 上設定 SSO
+titleSuffix: Microsoft identity platform
 description: 瞭解如何在 macOS 和 iOS 上設定單一登入（SSO）。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b43319f3a456c7ea56ee3c6d5b3f9a1a4526bbe0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268930"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802501"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>HOW TO：在 macOS 和 iOS 上設定 SSO
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>如何：在 macOS 和 iOS 上設定 SSO
 
 適用于 macOS 和 iOS 的 Microsoft 驗證程式庫（MSAL）支援 macOS/iOS 應用程式與瀏覽器之間的單一登入（SSO）。 本文涵蓋下列 SSO 案例：
 
@@ -69,9 +70,9 @@ MSAL 支援透過 iOS keychain 存取群組進行 SSO 共用。
 
 若要讓 Microsoft 身分識別平臺知道哪些應用程式可以共用權杖，那些應用程式必須共用相同的用戶端識別碼或應用程式識別碼。 這是您在入口網站中註冊第一個應用程式時提供給您的唯一識別碼。
 
-Microsoft 身分識別平臺會告訴使用相同應用程式識別碼的應用程式，其方式就是重新**導向 uri**。 每個應用程式可以在上架的入口網站中註冊多個重新導向 URI。 組件中的每個應用程式將會有不同的重新導向 URI。 例如:
+Microsoft 身分識別平臺會告訴使用相同應用程式識別碼的應用程式，其方式就是重新**導向 uri**。 每個應用程式可以在上架的入口網站中註冊多個重新導向 URI。 組件中的每個應用程式將會有不同的重新導向 URI。 例如：
 
-App1 重新導向 URI：`msauth.com.contoso.mytestapp1://auth`App2 重新導向 URI：`msauth.com.contoso.mytestapp2://auth`App3 重新導向 URI：`msauth.com.contoso.mytestapp3://auth`
+App1 重新導向 URI： `msauth.com.contoso.mytestapp1://auth` App2 重新導向 URI： `msauth.com.contoso.mytestapp2://auth` App3 重新導向 URI： `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
 > 重新導向 uri 的格式必須與 MSAL 支援的格式相容，如[MSAL 重新導向 URI 格式需求](redirect-uris-ios.md#msal-redirect-uri-format-requirements)中所述。
@@ -80,7 +81,7 @@ App1 重新導向 URI：`msauth.com.contoso.mytestapp1://auth`App2 重新導向 
 
 請參閱 Apple 的[新增功能](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html)文章，以啟用 keychain 共用。 重要的是，您決定要呼叫 keychain 的內容，並將該功能新增至所有將包含在 SSO 中的應用程式。
 
-當您正確設定權利時，您會在專案目錄中`entitlements.plist`看到一個檔案，其中包含如下列範例所示的內容：
+當您正確設定權利時，您會在專案目錄中看到 `entitlements.plist` 檔案，其中包含如下列範例所示的內容：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,7 +97,7 @@ App1 重新導向 URI：`msauth.com.contoso.mytestapp1://auth`App2 重新導向 
 </plist>
 ```
 
-一旦您已在每個應用程式中啟用 keychain 權利，而且您已準備好使用 SSO，請`MSALPublicClientApplication`使用您的 keychain 存取群組進行設定，如下列範例所示：
+一旦您已在每個應用程式中啟用 keychain 權利，而且您已準備好使用 SSO，請使用您的 keychain 存取群組來設定 `MSALPublicClientApplication`，如下列範例所示：
 
 Objective-C：
 
@@ -108,7 +109,7 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
-快速
+Swift：
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
@@ -129,7 +130,7 @@ do {
 > 如果您的應用程式依賴權杖來執行背景工作，這就特別影響力。
 > 共用 keychain 表示當您的應用程式使用 Microsoft 身分識別 SDK 移除作業時，您必須非常小心。
 
-就這麼容易！ Microsoft 身分識別 SDK 現在將會在您所有的應用程式之間共用認證。 帳戶清單也會在應用程式實例之間共用。
+就這麼簡單！ Microsoft 身分識別 SDK 現在將會在您所有的應用程式之間共用認證。 帳戶清單也會在應用程式實例之間共用。
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>透過 iOS 上的驗證代理程式進行 SSO
 
@@ -137,7 +138,7 @@ MSAL 可支援 Microsoft Authenticator 的代理驗證。 Microsoft Authenticato
 
 下列步驟說明如何使用您應用程式的驗證代理人來啟用 SSO：
 
-1. 在應用程式的資訊中，為應用程式註冊 broker 相容的重新導向 URI 格式。 plist。 Broker 相容的重新導向 URI 格式`msauth.<app.bundle.id>://auth`為。 以您應用程式的套件組合識別碼取代 ' < app.config. id > ' '。 例如:
+1. 在應用程式的資訊中，為應用程式註冊 broker 相容的重新導向 URI 格式。 plist。 Broker 相容的重新導向 URI 格式為 `msauth.<app.bundle.id>://auth`。 以您應用程式的套件組合識別碼取代 ' < app.config. id > ' '。 例如：
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -146,7 +147,7 @@ MSAL 可支援 Microsoft Authenticator 的代理驗證。 Microsoft Authenticato
     </array>
     ```
 
-1. 將下列配置新增至您應用程式的資訊。 `LSApplicationQueriesSchemes`plist：
+1. 將下列配置新增至您應用程式的資訊. plist 底下的 `LSApplicationQueriesSchemes`：
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -156,7 +157,7 @@ MSAL 可支援 Microsoft Authenticator 的代理驗證。 Microsoft Authenticato
     </array>
     ```
 
-1. 將下列內容新增至`AppDelegate.m`您的檔案以處理回呼：
+1. 將下列內容新增至您的 `AppDelegate.m` 檔案以處理回呼：
 
     Objective-C：
     
@@ -167,7 +168,7 @@ MSAL 可支援 Microsoft Authenticator 的代理驗證。 Microsoft Authenticato
     }
     ```
     
-    快速
+    Swift：
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -175,8 +176,8 @@ MSAL 可支援 Microsoft Authenticator 的代理驗證。 Microsoft Authenticato
     }
     ```
     
-**如果您使用的是 Xcode 11**，則應該改為將 MSAL `SceneDelegate`回呼放入檔案中。
-如果您同時支援 UISceneDelegate 和 UIApplicationDelegate 以與舊版 iOS 相容，則必須將 MSAL 回呼放在這兩個檔案中。
+**如果您使用的是 Xcode 11**，則應該改為將 MSAL 回呼放入 `SceneDelegate` 檔案。
+如果您同時支援 UISceneDelegate 和 UIApplicationDelegate 以便與舊版 iOS 相容，則必須將 MSAL 回呼放入這兩個檔案。
 
 Objective-C：
 
@@ -191,7 +192,7 @@ Objective-C：
  }
 ```
 
-快速
+Swift：
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -209,4 +210,4 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)
+深入了解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)

@@ -1,26 +1,25 @@
 ---
-title: 建立索引定義與概念 - Azure 搜尋服務
-description: 介紹 Azure 搜尋服務中的索引字詞和概念，包括元件部分和實體結構。
-author: HeidiSteen
+title: 建立索引定義和概念
+titleSuffix: Azure Cognitive Search
+description: Azure 認知搜尋中的索引詞彙和概念簡介，包括元件部分和實體結構。
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 11/04/2019
+ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69647360"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794202"
 ---
-# <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
+# <a name="create-a-basic-index-in-azure-cognitive-search"></a>在 Azure 認知搜尋中建立基本索引
 
-在 Azure 搜尋服務中，*索引*是 Azure 搜尋服務上的*文件*及其他用於經篩選和全文搜尋的建構所做的持續性儲存。 就概念而言，文件是索引中可搜尋資料的單一單位。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
+在「Azure 認知搜尋」中，「*索引*」是一種持續性的*檔*和其他結構的存放區，用於 Azure 認知搜尋服務上的篩選和全文檢索搜尋。 就概念而言，文件是索引中可搜尋資料的單一單位。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
 
-當您新增或上傳索引時，Azure 搜尋服務會根據您提供的結構描述建立實體結構。 例如，如果您索引中的某個欄位被標記為可搜尋，系統便會針對該欄位建立反向的索引。 當您稍後新增或上傳文件，或提交搜尋查詢到 Azure 搜尋服務時，您是將要求傳送到搜尋服務中的特定索引。 載入具有文件值的欄位，被稱為「編製索引」或資料擷取。
+當您新增或上傳索引時，Azure 認知搜尋會根據您提供的架構來建立實體結構。 例如，如果您索引中的某個欄位被標記為可搜尋，系統便會針對該欄位建立反向的索引。 之後，當您新增或上傳檔，或提交搜尋查詢到 Azure 認知搜尋時，您會將要求傳送到搜尋服務中的特定索引。 載入具有文件值的欄位，被稱為「編製索引」或資料擷取。
 
 您可以在入口網站、[REST API](search-create-index-rest-api.md) 或 [.NET SDK](search-create-index-dotnet.md)中建立索引。
 
@@ -40,7 +39,7 @@ ms.locfileid: "69647360"
 
    您會在此時切換到程式碼式方法。 入口網站不太適合用於反覆運算，因為您無法編輯已經建立的索引。 但您可以使用 Postman 和 REST 進行剩餘的工作。
 
-4. [隨著資料載入您的索引](search-what-is-data-import.md)。 Azure 搜尋服務可接受 JSON 文件。 若要以程式設計方式載入資料，您可以使用 Postman 搭配要求承載中的 JSON 文件。 如果您的資料不會輕易地表示為 JSON，此步驟將最耗費人力。
+4. [隨著資料載入您的索引](search-what-is-data-import.md)。 Azure 認知搜尋會接受 JSON 檔。 若要以程式設計方式載入資料，您可以使用 Postman 搭配要求承載中的 JSON 文件。 如果您的資料不會輕易地表示為 JSON，此步驟將最耗費人力。
 
 5. 在您開始查看您所預期的結果之前，查詢索引、檢查結果，以及進一步逐一查看索引結構描述。 您可以使用[**搜尋總管**](search-explorer.md)或 Postman 來查詢索引。
 
@@ -52,7 +51,7 @@ ms.locfileid: "69647360"
 
 ## <a name="components-of-an-index"></a>索引的元件
 
-就結構描述而言，Azure 搜尋服務索引會包含下列元素。 
+方式，Azure 認知搜尋索引是由下列元素所組成。 
 
 「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他元素包括[建議工具](#suggesters)、[評分設定檔](#scoring-profiles)、具有元件部分的[分析器](#analyzers)，以支援自訂、 [CORS](#cors)和[加密金鑰](#encryption-key)選項。
 
@@ -157,7 +156,7 @@ ms.locfileid: "69647360"
 | *Edm.DateTimeOffset* |以 OData V4 格式表示的日期時間值 (例如 `yyyy-MM-ddTHH:mm:ss.fffZ` 或 `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`)。 |
 | *Edm.GeographyPoint* |代表地球上地理位置的一點。 |
 
-您可以在這裡找到有關 Azure 搜尋服務 [支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)的詳細資訊。
+您可以在這裡找到更多有關 Azure 認知搜尋[支援之資料類型](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)的詳細資訊。
 
 ### <a name="index-attributes"></a>索引屬性
 
@@ -190,7 +189,7 @@ ms.locfileid: "69647360"
 支援篩選和排序的索引會按比例大於只支援全文檢索搜尋的索引。 原因在於篩選和排序會查詢完全相符項目，所以儲存的文件保持不變。 相較之下，支援全文檢索和模糊搜尋的可搜尋欄位會使用倒置索引，其中會填入比完整文件取用較少空間的權杖化字詞。
 
 > [!Note]
-> 儲存體架構可視為 Azure 搜尋服務的實作詳細資料，如有變更，恕不另行通知。 不保證未來會保存目前的行為。
+> 儲存體架構會被視為 Azure 認知搜尋的執行詳細資料，而且可能會變更，恕不另行通知。 不保證未來會保存目前的行為。
 
 ## <a name="suggesters"></a>建議工具
 建議工具是結構描述的區段，其定義索引中有哪些欄位會被用來支援搜尋中的自動完成或預先輸入查詢。 通常會在使用者輸入搜尋查詢期間將部分搜尋字串傳送到[建議 (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions)，而此 API 會傳回一組建議的片語。 
@@ -205,7 +204,7 @@ ms.locfileid: "69647360"
 
 ## <a name="analyzers"></a>分析器
 
-分析器元素會設定要用於欄位之語言分析器的名稱。 如需您可用的分析器範圍詳細資訊，請參閱[將分析器新增至 Azure 搜尋服務索引](search-analyzers.md)。 分析器只能搭配可搜尋的欄位使用。 將分析器指派給欄位後，除非重建索引，否則無法變更。
+分析器元素會設定要用於欄位之語言分析器的名稱。 如需可供您使用之分析器範圍的詳細資訊，請參閱[將分析器新增至 Azure 認知搜尋索引](search-analyzers.md)。 分析器只能搭配可搜尋的欄位使用。 將分析器指派給欄位後，除非重建索引，否則無法變更。
 
 ## <a name="cors"></a>CORS
 
@@ -221,7 +220,7 @@ ms.locfileid: "69647360"
 
 ## <a name="encryption-key"></a>加密金鑰
 
-雖然所有 Azure 搜尋服務索引預設都會使用 Microsoft 管理的金鑰進行加密，但在 Key Vault 中，可以將索引設定為使用**客戶管理的金鑰**進行加密。 若要深入瞭解，請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。
+雖然所有 Azure 認知搜尋索引預設都會使用 Microsoft 管理的金鑰進行加密，但您可以將索引設定為使用 Key Vault 中**客戶管理的金鑰**進行加密。 若要深入瞭解，請參閱[在 Azure 認知搜尋中管理加密金鑰](search-security-manage-encryption-keys.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

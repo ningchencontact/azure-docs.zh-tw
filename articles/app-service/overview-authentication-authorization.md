@@ -15,20 +15,20 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e308b44fffff451daa92cbf19209a1bcbfd4bff6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087973"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808745"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
+# <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證和授權
 
 > [!NOTE]
-> 目前, Azure App 服務和 Azure Functions 不支援 AAD V2 (包括 MSAL)。 請回來查看是否有更新。
+> 目前，Azure App 服務和 Azure Functions 不支援 AAD V2 （包括 MSAL）。 請回來查看是否有更新。
 >
 
-Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用程式、RESTful API 和行動裝置後端以及 [Azure Functions](../azure-functions/functions-overview.md) 中幾乎不需要寫入或完全無需寫入程式碼，即可登入使用者及存取資料。 本文說明 App Service 如何協助您簡化應用程式的驗證和授權。 
+Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用程式、RESTful API 和行動裝置後端以及 [Azure Functions](../azure-functions/functions-overview.md) 中幾乎不需要寫入或完全無需寫入程式碼，即可登入使用者及存取資料。 本文說明 App Service 如何協助您簡化應用程式的驗證和授權。
 
 若要有安全的驗證和授權，必須對安全性有深入了解，包括同盟、加密、[JSON Web 權杖 (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 管理、[授與類型](https://oauth.net/2/grant-types/)等等。 App Service 會提供這些公用程式，以便您可以將更多的時間和精力花在為客戶提供商務價值上。
 
@@ -55,7 +55,7 @@ Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用
 
 ### <a name="user-claims"></a>使用者宣告
 
-在所有語言架構中，App Service 都會將使用者的宣告插入要求標頭內以供程式碼使用。 在 ASP.NET 4.6 應用程式中，App Service 會使用已驗證的使用者宣告填入 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)，因此您可以遵循標準的 .NET 程式碼模式，包括 `[Authorize]` 屬性。 同樣地，在 PHP 應用程式中，App Service 會填入 `_SERVER['REMOTE_USER']` 變數。 針對 JAVA 應用程式,[可從 Tomcat servlet 存取](containers/configure-language-java.md#authenticate-users-easy-auth)宣告。
+在所有語言架構中，App Service 都會將使用者的宣告插入要求標頭內以供程式碼使用。 在 ASP.NET 4.6 應用程式中，App Service 會使用已驗證的使用者宣告填入 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)，因此您可以遵循標準的 .NET 程式碼模式，包括 `[Authorize]` 屬性。 同樣地，在 PHP 應用程式中，App Service 會填入 `_SERVER['REMOTE_USER']` 變數。 針對 JAVA 應用程式，[可從 Tomcat servlet 存取](containers/configure-language-java.md#authenticate-users-easy-auth)宣告。
 
 在 [Azure Functions](../azure-functions/functions-overview.md) 中，系統不會針對 .NET 程式碼將 `ClaimsPrincipal.Current` 序列化，不過您仍可以在要求標頭中找到使用者宣告。
 
@@ -78,7 +78,7 @@ App Service 會提供內建的權杖存放區，也就是與 Web 應用程式、
 
 如果您[啟用應用程式記錄](troubleshoot-diagnostic-logs.md)，則會直接在記錄檔中看到驗證和授權追蹤。 如果您看到非預期的驗證錯誤，可以在現有的應用程式記錄中查看，輕鬆地找到所有詳細資料。 如果您啟用[失敗要求追蹤](troubleshoot-diagnostic-logs.md)，就可以看到驗證和授權模組可能在失敗要求中所扮演的確切角色。 在追蹤記錄中，尋找名為 `EasyAuthModule_32/64` 的模組參考。 
 
-## <a name="identity-providers"></a>身分識別提供者
+## <a name="identity-providers"></a>識別提供者
 
 App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_identity)，由第三方識別提供者為您管理使用者身分識別和驗證流程。 預設可用的識別提供者有五個： 
 
@@ -87,7 +87,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft 帳戶](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
-| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 當您利用上述其中一個提供者啟用驗證和授權時，其登入端點即可用來驗證使用者，以及用來驗證提供者的驗證權杖。 您可以輕鬆地為使用者提供任何數目的上述登入選項。 您也可以整合其他身分識別提供者或[您自己的自訂身分識別解決方案][custom-auth]。
@@ -107,10 +107,10 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 | 步驟 | 不使用提供者 SDK | 使用提供者 SDK |
 | - | - | - |
-| 1.將使用者登入 | 將用戶端重新導向至 `/.auth/login/<provider>`。 | 用戶端程式碼會直接使用提供者的 SDK 將使用者登入，並接收驗證權杖。 如需詳細資訊，請參閱提供者的文件。 |
-| 2.後續驗證 | 提供者會將用戶端重新導向至 `/.auth/login/<provider>/callback`。 | 用戶端程式碼會將[提供者的權杖](app-service-authentication-how-to.md#validate-tokens-from-providers)公佈至 `/.auth/login/<provider>` 以進行驗證。 |
-| 3.建立已驗證的工作階段 | App Service 會將已驗證的 Cookie 新增至回應。 | App Service 會將自己的驗證權杖傳回至用戶端程式碼。 |
-| 4.提供已驗證的內容 | 用戶端會在後續要求中包含驗證 Cookie (瀏覽器會自動處理)。 | 用戶端程式碼會在 `X-ZUMO-AUTH` 標頭中顯示驗證權杖 (Mobile Apps 用戶端 SDK 會自動處理)。 |
+| 1. 將使用者登入 | 將用戶端重新導向至 `/.auth/login/<provider>`。 | 用戶端程式碼會直接使用提供者的 SDK 將使用者登入，並接收驗證權杖。 如需詳細資訊，請參閱提供者的文件。 |
+| 2. 驗證後 | 提供者會將用戶端重新導向至 `/.auth/login/<provider>/callback`。 | 用戶端程式碼會將[提供者的權杖](app-service-authentication-how-to.md#validate-tokens-from-providers)公佈至 `/.auth/login/<provider>` 以進行驗證。 |
+| 3. 建立已驗證的會話 | App Service 會將已驗證的 Cookie 新增至回應。 | App Service 會將自己的驗證權杖傳回至用戶端程式碼。 |
+| 4. 提供已驗證的內容 | 用戶端會在後續要求中包含驗證 Cookie (瀏覽器會自動處理)。 | 用戶端程式碼會在 `X-ZUMO-AUTH` 標頭中顯示驗證權杖 (Mobile Apps 用戶端 SDK 會自動處理)。 |
 
 對於用戶端瀏覽器，App Service 可以自動將所有未經驗證的使用者導向至 `/.auth/login/<provider>`。 您也可以向使用者顯示一或多個 `/.auth/login/<provider>` 連結，讓其使用選擇的提供者登入您的應用程式。
 
@@ -118,13 +118,13 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 ## <a name="authorization-behavior"></a>授權行為
 
-在[Azure 入口網站](https://portal.azure.com)中, 您可以在未驗證傳入要求時, 使用一些行為來設定 App Service 授權。
+在[Azure 入口網站](https://portal.azure.com)中，您可以在未驗證傳入要求時，使用一些行為來設定 App Service 授權。
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 下列標題會說明可用選項。
 
-### <a name="allow-anonymous-requests-no-action"></a>允許匿名要求 (無動作)
+### <a name="allow-anonymous-requests-no-action"></a>允許匿名要求（無動作）
 
 此選項會將未驗證流量的授權延遲到您的應用程式程式碼。 對於已驗證的要求，App Service 也會在 HTTP 標頭中一起傳送驗證資訊。 
 
@@ -137,11 +137,11 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 使用此選項時，您不需要在應用程式中撰寫任何驗證程式碼。 您可以藉由檢查使用者的宣告來處理更精細的授權 (例如特定角色授權，請參閱[存取使用者宣告](app-service-authentication-how-to.md#access-user-claims))。
 
 > [!CAUTION]
-> 以這種方式限制存取適用于應用程式的所有呼叫, 這對於想要公開使用首頁的應用程式 (如許多單頁應用程式), 可能不是理想的做法。
+> 以這種方式限制存取適用于應用程式的所有呼叫，這對於想要公開使用首頁的應用程式（如許多單頁應用程式），可能不是理想的做法。
 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
-[教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權 (Windows)](app-service-web-tutorial-auth-aad.md)  
+[教學課程：在 Azure App Service 中端對端驗證和授權使用者 (Windows)](app-service-web-tutorial-auth-aad.md)  
 [教學課程：在適用於 Linux 的 Azure App Service 中端對端驗證和授權使用者](containers/tutorial-auth-aad.md)  
 [自訂 App Service 中的驗證與授權](app-service-authentication-how-to.md)
 
@@ -152,7 +152,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 * [如何設定 App 以使用 Google 登入][Google]
 * [如何設定 App 以使用 Microsoft 帳戶登入][MSA]
 * [如何設定 App 以使用 Twitter 登入][Twitter]
-* [如何：針對應用程式使用自訂驗證][custom-auth]
+* [做法：針對應用程式使用自訂驗證][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

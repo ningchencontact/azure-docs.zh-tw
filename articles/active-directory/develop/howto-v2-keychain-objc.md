@@ -1,5 +1,6 @@
 ---
-title: 設定 keychain |Microsoft 身分識別平臺
+title: 設定 keychain
+titleSuffix: Microsoft identity platform
 description: 瞭解如何設定 keychain，讓您的應用程式可以在 keychain 中快取權杖。
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264190"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803798"
 ---
 # <a name="configure-keychain"></a>設定 keychain
 
@@ -34,13 +35,13 @@ ms.locfileid: "72264190"
 
 ### <a name="ios"></a>iOS
 
-IOS 上的 MSAL 預設會使用 @no__t 0 存取群組。 這是 MSAL 和 Azure AD 驗證程式庫（ADAL） Sdk 所使用的共用存取群組，可確保來自相同發行者的多個應用程式之間的最佳單一登入（SSO）體驗。
+IOS 上的 MSAL 預設會使用 `com.microsoft.adalcache` 存取群組。 這是 MSAL 和 Azure AD 驗證程式庫（ADAL） Sdk 所使用的共用存取群組，可確保來自相同發行者的多個應用程式之間的最佳單一登入（SSO）體驗。
 
-在 iOS 上，將 `com.microsoft.adalcache` keychain 群組新增至您的應用程式在 XCode 中的權利，其位於**專案設定** > **功能** > **keychain 共用**
+在 iOS 上，將 `com.microsoft.adalcache` keychain 群組新增至您的應用程式在 XCode 中的權利，其位於 **專案設定** > **功能** > **keychain**
 
 ### <a name="macos"></a>macOS
 
-根據預設，MSAL on macOS 會使用 `com.microsoft.identity.universalstorage` 存取群組。
+MSAL on macOS 預設會使用 `com.microsoft.identity.universalstorage` 存取群組。
 
 由於 macOS keychain 的限制，MSAL 的 `access group` 不會直接轉譯為 KSecAttrAccessGroup 10.14 和更早版本上的 keychain 存取群組屬性（請參閱[macOS](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)）。 不過，其行為類似于 SSO 的觀點，確保相同的 Apple 開發人員所散發的多個應用程式可以具有無訊息 SSO。
 
@@ -48,7 +49,7 @@ IOS 上的 MSAL 預設會使用 @no__t 0 存取群組。 這是 MSAL 和 Azure A
 
 ## <a name="custom-keychain-access-group"></a>自訂 keychain 存取群組
 
-如果您想要使用不同的 keychain 存取群組，在建立 `MSALPublicClientApplication` 之前，您可以在建立 `MSALPublicClientApplicationConfig` 之前傳遞自訂群組，如下所示：
+如果您想要使用不同的 keychain 存取群組，在建立 `MSALPublicClientApplication`之前，您可以先傳遞自訂 `MSALPublicClientApplicationConfig` 組，如下所示：
 
 Objective-C：
 

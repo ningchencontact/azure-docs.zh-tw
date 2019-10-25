@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 69104cdaeb4abfc15e2ac4209e1ddbc610656c13
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310591"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793990"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 角色和權限
 
@@ -23,7 +23,7 @@ Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Conta
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 擁有者 | X | X | X | X | X | X |  |  
 | 參與者 | X | X | X |  X | X | X |  |  
-| 讀取者 | X |  |  |  |  |  |  |
+| 讀取者 | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -63,7 +63,7 @@ Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Conta
 
 ## <a name="delete-image-data"></a>刪除映像資料
 
-從登錄中[刪除容器映射](container-registry-delete.md), 或刪除其他[支援](container-registry-image-formats.md)的成品 (例如 Helm 圖表) 的功能。
+從登錄中[刪除容器映射](container-registry-delete.md)，或刪除其他[支援](container-registry-image-formats.md)的成品（例如 Helm 圖表）的功能。
 
 ## <a name="change-policies"></a>變更原則
 

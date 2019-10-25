@@ -1,23 +1,23 @@
 ---
-title: 在 Azure 入口網站中建立 Azure 搜尋服務索引 - Azure 搜尋服務
-description: 瞭解如何使用內建入口網站索引設計工具建立 Azure 搜尋服務的索引。
+title: 在 Azure 入口網站中建立 Azure 認知搜尋索引
+titleSuffix: Azure Cognitive Search
+description: 瞭解如何使用內建入口網站索引設計工具，建立 Azure 認知搜尋的索引。
 manager: nitinme
-author: heidisteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71937273"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792447"
 ---
-# <a name="create-an-azure-search-index-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務索引
+# <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>在入口網站中建立 Azure 認知搜尋索引
 
-Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計工具，或可供建立在您的 Azure 搜尋服務上裝載的[搜尋索引](search-what-is-an-index.md)。 此工具使用於結構描述建構。 當您儲存定義時，空的索引就會變成完全以 Azure 搜尋服務表示。 您可以自行決定如何使用可搜尋的內容來載入它。
+Azure 認知搜尋包含入口網站中的內建索引設計工具，適用于原型，或建立裝載于 Azure 認知搜尋服務的[搜尋索引](search-what-is-an-index.md)。 此工具使用於結構描述建構。 當您儲存定義時，空的索引會在 Azure 認知搜尋中完全表示。 您可以自行決定如何使用可搜尋的內容來載入它。
 
 索引設計工具只是建立索引的一種方法。 或者，您可以使用 [匯[入資料] wizard](search-get-started-portal.md)來建立和載入索引。 Wizard 僅適用于其本身建立的索引。 以程式設計方式，您可使用 [.NET](search-create-index-dotnet.md) 或 [REST](search-create-index-rest-api.md) API 建立索引。
 
@@ -29,7 +29,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
    ![在命令列中新增索引連結](media/search-create-index-portal/add-index.png "在命令列中新增索引連結")
 
-3. 為 Azure 搜尋服務索引命名。 在編製索引和查詢作業中會參考索引名稱。 索引名稱會成為連至索引之連線上所使用端點 URL 的一部分，並用來在 Azure 搜尋服務 REST API 中傳送 HTTP 要求。
+3. 命名您的 Azure 認知搜尋索引。 在編製索引和查詢作業中會參考索引名稱。 索引名稱會成為端點 URL 的一部分，用來連接到索引，以及在 Azure 認知搜尋 REST API 中傳送 HTTP 要求。
 
    * 以字母開頭。
    * 僅使用小寫字母、數字或連字號 ("-")。
@@ -43,11 +43,11 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 1. 如果內送資料本質上為階層式，則您的架構應該包含[複雜類型](search-howto-complex-data-types.md)來代表嵌套結構。 內建的範例資料集飯店會使用位址（包含多個子欄位）來說明複雜型別，這些型別與每個飯店具有一對一關聯性，還有一個會議室複雜的集合，其中有多個房間與每個飯店相關聯。 
 
-1. 指定 Edm.String 類型的 *key* 欄位。 對於每個 Azure 搜尋服務索引而言，索引鍵欄位是必要的且必須為字串。 此欄位的值必須唯一地識別每個文件。 根據預設，已將該欄位命名為 id，但您可以將它重新命名，只要字串符合[命名規則](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)即可。 例如，如果您的欄位集合包含 *hotel-id*，您就會針對您的索引鍵選擇它。 
+1. 指定 Edm.String 類型的 *key* 欄位。 每個 Azure 認知搜尋索引都必須要有一個金鑰欄位，而且它必須是一個字串。 此欄位的值必須唯一地識別每個文件。 根據預設，已將該欄位命名為 id，但您可以將它重新命名，只要字串符合[命名規則](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)即可。 例如，如果您的欄位集合包含 *hotel-id*，您就會針對您的索引鍵選擇它。 
 
 1. 在每個欄位上設定屬性。 索引設計工具會排除對資料類型為無效的任何屬性，但不會建議要包含哪些。 請檢閱下一節中的指導方針，以了解有哪些屬性及其用途為何。
 
-    Azure 搜尋服務 API 文件包含具有簡單 hotels 索引功能的程式碼範例。 在以下的螢幕擷取畫面中，您可以看到索引定義，包括在索引定義期間指定的法文語言分析器，而您可以在入口網站中重新建立以當作練習。
+    Azure 認知搜尋 API 檔包含採用簡單*飯店*索引的程式碼範例。 在以下的螢幕擷取畫面中，您可以看到索引定義，包括在索引定義期間指定的法文語言分析器，而您可以在入口網站中重新建立以當作練習。
 
     ![飯店示範索引](media/search-create-index-portal/field-definitions.png "飯店示範索引")
 
@@ -76,7 +76,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 ## <a name="next-steps"></a>後續步驟
 
-建立 Azure 搜尋服務索引之後，您可以移到下一個步驟：[將可搜尋的資料上傳至索引](search-what-is-data-import.md)。
+建立 Azure 認知搜尋索引之後，您可以移至下一個步驟：將可搜尋[的資料上傳至索引](search-what-is-data-import.md)。
 
 或者，您可能也需要[深入探討索引](search-what-is-an-index.md)。 除了欄位集合之外，索引也會指定分析器、建議工具、評分設定檔和 CORS 設定。 入口網站提供索引標籤頁面來定義最常見的元素：欄位、分析器及建議工具。 若要建立或修改其他元素，您可以使用 REST API 或 .NET SDK。
 

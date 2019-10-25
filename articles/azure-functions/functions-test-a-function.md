@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596847"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809638"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -309,7 +309,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-此模組實作 `IsPastDue` 屬性，以作為假計時器執行個體。
+
+此模組實作 `IsPastDue` 屬性，以作為假計時器執行個體。 這裡不需要像 NCRONTAB 運算式之類的計時器設定，因為測試控管直接呼叫函式來測試結果。
 
 接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](/azure/javascript/tutorial-vscode-serverless-node-01)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
 

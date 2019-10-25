@@ -1,6 +1,7 @@
 ---
-title: Xamarin Android 考慮 (適用于 .NET 的 Microsoft 驗證程式庫) |Azure
-description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 使用 Xamarin Android 時的特定考慮。
+title: Xamarin Android 考慮（適用于 .NET 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
+description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）使用 Xamarin Android 時的特定考慮。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -17,26 +18,26 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2d6af9753887ffa593a44fba9faa3376066417a8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532464"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802642"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin Android 特定考慮
-本文討論使用 Xamarin Android 搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 時的特定考慮。
+本文討論使用 Xamarin Android 搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 
 ## <a name="set-the-parent-activity"></a>設定父活動
 
-在 Xamarin 上, 您必須設定父活動, 讓權杖在互動發生後返回。
+在 Xamarin 上，您必須設定父活動，讓權杖在互動發生後返回。
 
 ```csharp
 var authResult = AcquireTokenInteractive(scopes)
  .WithParentActivityOrWindow(parentActivity)
  .ExecuteAsync();
 ```
-您也可以在 PublicClientApplication 層級 (在 MSAL 4.2 + 中) 透過回呼來設定此項。
+您也可以在 PublicClientApplication 層級（在 MSAL 4.2 + 中）透過回呼來設定此項。
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -46,7 +47,7 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-建議您在[這裡](https://github.com/jamesmontemagno/CurrentActivityPlugin)使用 CurrentActivityPlugin。  接著, 您的 PublicClientApplication 產生器程式碼看起來會像這樣:
+建議您在[這裡](https://github.com/jamesmontemagno/CurrentActivityPlugin)使用 CurrentActivityPlugin。  接著，您的 PublicClientApplication 產生器程式碼看起來會像這樣：
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -57,8 +58,8 @@ var pca = PublicClientApplicationBuilder
 ```
 
 
-## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>確保在驗證流程的互動部分結束後, 控制權回到 MSAL
-在 Android 上, 您必須覆寫`OnActivityResult`的方法`Activity` , 並呼叫 AuthenticationContinuationHelper MSAL 類別的 SetAuthenticationContinuationEventArgs 方法。
+## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>確保在驗證流程的互動部分結束後，控制權回到 MSAL
+在 Android 上，您必須覆寫 `Activity` 的 `OnActivityResult` 方法，並呼叫 AuthenticationContinuationHelper MSAL 類別的 SetAuthenticationContinuationEventArgs 方法。
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -71,10 +72,10 @@ protected override void OnActivityResult(int requestCode,
 }
 
 ```
-這一行可確保在驗證流程的互動部分結束後, 控制項會回到 MSAL。
+這一行可確保在驗證流程的互動部分結束後，控制項會回到 MSAL。
 
 ## <a name="update-the-android-manifest"></a>更新 Android 資訊清單
-`AndroidManifest.xml`應該包含下列值:
+`AndroidManifest.xml` 應包含下列值：
 ```csharp
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -86,9 +87,9 @@ protected override void OnActivityResult(int requestCode,
 </activity>
 ```
 
-## <a name="use-the-embedded-web-view-optional"></a>使用內嵌的 web view (選擇性)
+## <a name="use-the-embedded-web-view-optional"></a>使用內嵌的 web view （選擇性）
 
-根據預設, MSAL.NET 會使用系統 web 瀏覽器, 這可讓您取得 Web 應用程式和其他應用程式的 SSO。 在某些罕見的情況下, 您可能會想要指定要使用內嵌的 web view。 如需詳細資訊, 請參閱[MSAL.NET 使用網頁瀏覽器](msal-net-web-browsers.md)和[Android 系統瀏覽器](msal-net-system-browser-android-considerations.md)。
+根據預設，MSAL.NET 會使用系統 web 瀏覽器，這可讓您取得 Web 應用程式和其他應用程式的 SSO。 在某些罕見的情況下，您可能會想要指定要使用內嵌的 web view。 如需詳細資訊，請參閱[MSAL.NET 使用網頁瀏覽器](msal-net-web-browsers.md)和[Android 系統瀏覽器](msal-net-system-browser-android-considerations.md)。
 
 ```csharp
 bool useEmbeddedWebView = !app.IsSystemWebViewAvailable;
@@ -100,22 +101,22 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 
 ## <a name="troubleshooting"></a>疑難排解
-如果您建立新的 Xamarin Forms 應用程式, 並新增對 MSAL.Net NuGet 套件的參考, 這會是可行的。
-不過, 如果您想要將現有的 Xamarin Forms 應用程式升級為 MSAL.NET preview 1.1.2 或更新版本, 可能會遇到組建問題。
+如果您建立新的 Xamarin Forms 應用程式，並新增對 MSAL.Net NuGet 套件的參考，這會是可行的。
+不過，如果您想要將現有的 Xamarin Forms 應用程式升級為 MSAL.NET preview 1.1.2 或更新版本，可能會遇到組建問題。
 
-若要疑難排解這些問題, 您應該:
+若要疑難排解這些問題，您應該：
 - 將現有的 MSAL.NET NuGet 套件更新為 MSAL.NET preview 1.1.2 或更新版本
-- 檢查 Xamarin 是否自動更新為版本 2.5.0.122203 (如果不是, 則更新為此版本)
-- 檢查是否已自動將支援更新為版本 25.4.0.2 (如果不是, 則更新為此版本)
+- 檢查 Xamarin 是否自動更新為版本2.5.0.122203 （如果不是，則更新為此版本）
+- 檢查是否已自動將支援更新為版本25.4.0.2 （如果不是，則更新為此版本）
 - 所有的 Xamarin. 支援套件都應該以版本25.4.0.2 為目標
 - 清除/重建
-- 嘗試在 Visual Studio (選項-> 專案和方案-> 組建和執行-> 平行專案組建的最大數目) 中, 將最大平行專案組建設定為1。
-- 或者, 如果您是從命令列建立, 請嘗試從命令中移除/m (如果您使用它的話)。
+- 嘗試在 Visual Studio （選項-> 專案和方案-> 組建和執行-> 平行專案組建的最大數目）中，將最大平行專案組建設定為1。
+- 或者，如果您是從命令列建立，請嘗試從命令中移除/m （如果您使用它的話）。
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>錯誤:名稱 ' AuthenticationContinuationHelper ' 不存在於目前的內容中
+### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>錯誤：名稱 ' AuthenticationContinuationHelper ' 不存在於目前的內容中
 
-這可能是因為 Visual Studio 未正確更新 Android .csproj * 檔案。 有時候,  **\<HintPath >** filepath 不正確地包含 netstandard13, 而不是**monoandroid90**。
+這可能是因為 Visual Studio 未正確更新 Android .csproj * 檔案。 有時候， **\<HintPath >** filepath 不正確地包含 netstandard13，而不是**monoandroid90**。
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -126,8 +127,8 @@ var authResult = AcquireTokenInteractive(scopes)
 
 ## <a name="next-steps"></a>後續步驟
 
-如需更多詳細資料和範例, 請在下列範例的 readme.md 檔案的[Android 特定考慮](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)段落中提供:
+如需更多詳細資料和範例，請在下列範例的 readme.md 檔案的[Android 特定考慮](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)段落中提供：
 
-| 樣本 | 平台 | 描述 |
+| 範例 | 平台 | 描述 |
 | ------ | -------- | ----------- |
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 簡單的 Xamarin Forms 應用程式展示如何使用 MSAL 來驗證 MSA 和透過新增 v2.0 端點的 Azure AD, 並使用產生的權杖來存取 Microsoft Graph。 <br>![拓撲](media/msal-net-xamarin-android-considerations/topology.png) |
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 簡單的 Xamarin Forms 應用程式展示如何使用 MSAL 來驗證 MSA 和透過新增 v2.0 端點的 Azure AD，並使用產生的權杖來存取 Microsoft Graph。 <br>![拓撲](media/msal-net-xamarin-android-considerations/topology.png) |

@@ -1,5 +1,6 @@
 ---
-title: 如何在 Azure Active Directory 註冊的應用程式中新增應用程式角色，並且在權杖中接收這些角色
+title: 在 Azure Active Directory 註冊的應用程式中新增應用程式角色，並在權杖中接收它們
+titleSuffix: Microsoft identity platform
 description: 了解如何在 Azure Active Directory 註冊的應用程式中新增應用程式角色、將使用者和群組指派給這些角色，以及在權杖的 `roles` 中宣告接收它們。
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87660c6ef8266d3ebfbad1b7a8a7cb98b936e9c6
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299151"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803367"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>HOW TO：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>如何：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
 角色型存取控制 (RBAC) 是一個熱門的機制，可在應用程式中強制授權。 使用 RBAC 時，系統管理員會將權限授與給角色，而非授與個別使用者或群組。 系統管理員可以接著將角色指派給不同的使用者和群組，控制誰可以存取哪些內容和功能。
 
@@ -39,21 +40,21 @@ ms.locfileid: "66299151"
 ### <a name="declare-app-roles-using-azure-portal"></a>使用 Azure 入口網站宣告應用程式角色
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在頂端列上，選取您的帳戶，然後 [切換目錄]  。
-1. [目錄 + 訂用帳戶]  窗格開啟後，從 [我的最愛]  或 [所有目錄]  清單中，選擇您要註冊應用程式的 Active Directory 租用戶。
-1. 選取左側導覽區中的 [所有服務]  ，然後選擇 [Azure Active Directory]  。
-1. 在 [Azure Active Directory]  窗格中，選取 [應用程式註冊]  以檢視所有應用程式的清單。
+1. 在頂端列上，選取您的帳戶，然後 [切換目錄]。
+1. [目錄 + 訂用帳戶] 窗格開啟後，從 [我的最愛] 或 [所有目錄] 清單中，選擇您要註冊應用程式的 Active Directory 租用戶。
+1. 選取左側導覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
+1. 在 [Azure Active Directory] 窗格中，選取 [應用程式註冊] 以檢視所有應用程式的清單。
 
-     如果看不到您希望在此顯示的應用程式，請使用 [應用程式註冊]  清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
+     如果看不到您希望在此顯示的應用程式，請使用 [應用程式註冊] 清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
 
 1. 選取您要在其中定義應用程式角色的應用程式。
-1. 在應用程式的刀鋒視窗中，選取 [資訊清單]  。
+1. 在應用程式的刀鋒視窗中，選取 [資訊清單]。
 1. 找出 `appRoles` 設定並新增所有的應用程式角色，以編輯應用程式資訊清單。
 
      > [!NOTE]
-     > 此資訊清單中的每個應用程式角色定義必須具有不同有效的 GUID，如`id`屬性。 
+     > 此資訊清單中的每個應用程式角色定義都必須有不同的 `id` 屬性的有效 GUID。 
      > 
-     > `value`的每個應用程式角色定義的屬性應完全符合應用程式中的程式碼中使用的字串。 `value`屬性不能包含空格。 若是如此，您會收到錯誤，當您儲存資訊清單。
+     > 每個應用程式角色定義的 `value` 屬性，都應該與應用程式中程式碼所使用的字串完全相符。 `value` 屬性不能包含空格。 如果有，當您儲存資訊清單時，將會收到錯誤。
      
 1. 儲存資訊清單。
 
@@ -82,9 +83,9 @@ ms.locfileid: "66299151"
 ```
 
 > [!NOTE]
->`displayName`不能包含空格。
+>`displayName` 不能包含空格。
 
-您可以將應用程式角色定義成以 `users`、`applications` 或兩者為目標。 可供 `applications` 使用時，應用程式角色就會在 [必要權限]  刀鋒視窗中顯示為應用程式權限。 下列範例顯示以 `Application` 為目標的應用程式角色。
+您可以將應用程式角色定義成以 `users`、`applications` 或兩者為目標。 可供 `applications` 使用時，應用程式角色就會在 [必要權限] 刀鋒視窗中顯示為應用程式權限。 下列範例顯示以 `Application` 為目標的應用程式角色。
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -103,33 +104,33 @@ ms.locfileid: "66299151"
 "availableToOtherTenants": false,
 ```
 
-角色定義的數量會影響應用程式資訊清單有限制。 它們具有已更詳細討論[資訊清單限制](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits)頁面。
+定義的角色數目會影響應用程式資訊清單所擁有的限制。 它們已在 [[資訊清單限制](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits)] 頁面中詳細討論。
 
 ### <a name="assign-users-and-groups-to-roles"></a>將使用者和群組指派給角色
 
 在應用程式中新增應用程式角色之後，您即可將使用者和群組指派給這些角色。
 
-1. 在 [Azure Active Directory]  窗格中，選取 [Azure Active Directory]  左側導覽功能表中的 [企業應用程式]  。
-1. 選取 [所有應用程式]  ，以檢視所有應用程式的清單。
+1. 在 [Azure Active Directory] 窗格中，選取 [Azure Active Directory] 左側導覽功能表中的 [企業應用程式]。
+1. 選取 [所有應用程式]，以檢視所有應用程式的清單。
 
-     如果看不到您希望在此顯示的應用程式，請使用 [所有應用程式]  清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
+     如果看不到您希望在此顯示的應用程式，請使用 [所有應用程式] 清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出應用程式。
 
 1. 選取您想要在其中將使用者或安全性群組指派給角色的應用程式。
-1. 選取應用程式左側導覽功能表中的 [使用者和群組]  窗格。
-1. 在 [使用者和群組]  清單頂端，選取 [新增使用者]  按鈕，以開啟 [新增指派]  窗格。
-1. 選取 [新增指派]  窗格中的 [使用者和群組]  選取器。
+1. 選取應用程式左側導覽功能表中的 [使用者和群組] 窗格。
+1. 在 [使用者和群組] 清單頂端，選取 [新增使用者] 按鈕，以開啟 [新增指派] 窗格。
+1. 選取 [新增指派] 窗格中的 [使用者和群組] 選取器。
 
-     將會顯示使用者和安全性群組清單，以及用來搜尋並找出特定使用者或群組的文字方塊。 此畫面可讓您一次選取多個使用者和群組。
+     隨即會顯示使用者和安全性群組清單，以及用來搜尋並找出特定使用者或群組的文字方塊。 此畫面可讓您一次選取多個使用者和群組。
 
-1. 在您選好使用者和群組後，請按 [選取]  底部的按鈕以移至下一個部分。
-1. 選擇 [新增指派]  窗格中的 [選取角色]  選取器。 將會顯示先前在應用程式資訊清單中宣告的所有角色。
-1. 選擇角色，然後按 [選取]  按鈕。
-1. 按底部的 [指派]  按鈕，即可將使用者和群組指派給應用程式。
-1. 確認您新增的使用者和群組有顯示在更新後的 [使用者和群組]  清單中。
+1. 在您選好使用者和群組後，請按底部的 [選取] 按鈕，以移至下一個部分。
+1. 選擇 [新增指派] 窗格中的 [選取角色] 選取器。 將會顯示先前在應用程式資訊清單中宣告的所有角色。
+1. 選擇角色，然後按 [選取] 按鈕。
+1. 按底部的 [指派] 按鈕，即可將使用者和群組指派給應用程式。
+1. 確認您新增的使用者和群組有顯示在更新後的 [使用者和群組] 清單中。
 
 ## <a name="more-information"></a>詳細資訊
 
-- [使用 Azure AD 應用程式角色在 Web 應用程式中授權 &amp; 角色宣告 (範例)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
+- [使用 Azure AD 應用程式角色在 Web 應用程式中授權 &amp; 角色宣告 (範例)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [在您的應用程式中使用安全性群組和應用程式角色 (影片)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory 現在具有群組宣告和應用程式角色](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Azure Active Directory 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

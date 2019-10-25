@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553947"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793856"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -69,7 +69,10 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 - 使用者名稱：系統管理帳戶的電子郵件地址。
 - 租用戶識別碼：Office 365 訂用帳戶的唯一識別碼。
-- 用戶端識別碼：16 個字元的字串，用來表示 Office 365 用戶端。
+
+在 Azure Active Directory 中建立和設定 Office 365 應用程式期間，應該會收集下列資訊：
+
+- 應用程式（用戶端）識別碼：16個字元的字串，代表 Office 365 用戶端。
 - 用戶端密碼：驗證所需的加密字串。
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>在 Azure Active Directory 中建立 Office 365 應用程式
@@ -87,6 +90,9 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 1. 按一下 [**註冊**並驗證應用程式資訊]。
 
     ![註冊的應用程式](media/solution-office-365/registered-app.png)
+
+1. 儲存應用程式（用戶端）識別碼，以及先前收集到的其餘資訊。
+
 
 ### <a name="configure-application-for-office-365"></a>設定 Office 365 的應用程式
 
@@ -117,7 +123,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     ![金鑰](media/solution-office-365/secret.png)
  
 1. 輸入新金鑰的 [描述] 和 [持續時間]。
-1. 按一下 [**新增**]，然後複製所產生的**值**。
+1. 按一下 [**新增**]，然後將產生的**值**儲存為用戶端密碼，以及先前收集到的其餘資訊。
 
     ![金鑰](media/solution-office-365/keys.png)
 
@@ -188,7 +194,12 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     
     ![系統管理員同意](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> 您可能會被重新導向至不存在的頁面。 請將它視為成功。
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>訂閱 Log Analytics 工作區
+
+最後一個步驟將應用程式訂閱到您的 Log Analytics 工作區。 您也可以利用 PowerShell 指令碼來完成此作業。
 
 最後一個步驟將應用程式訂閱到您的 Log Analytics 工作區。 您也可以利用 PowerShell 指令碼來完成此作業。
 
@@ -236,18 +247,20 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -271,7 +284,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -315,7 +328,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     

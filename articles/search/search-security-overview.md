@@ -1,30 +1,29 @@
 ---
-title: 安全性和資料隱私權 - Azure 搜尋服務
-description: Azure 搜尋服務符合 SOC 2、HIPAA 及其他認證規範。 連線與加密、驗證，以及透過「Azure 搜尋服務」篩選條件中的使用者和群組安全性識別碼來進行的身分識別存取。
-author: HeidiSteen
+title: 安全性和資料隱私權
+titleSuffix: Azure Cognitive Search
+description: Azure 認知搜尋符合 SOC 2、HIPAA 和其他認證的規範。 連接和資料加密、驗證，以及透過篩選條件運算式中的使用者和群組安全識別碼來存取身分識別。
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 3a6ac7ff22c04bff5948193c163a7071cf2c2ff5
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320401"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794341"
 ---
-# <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜尋服務中的安全性和資料隱私權
+# <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Azure 認知搜尋中的安全性和資料隱私權
 
-Azure 搜尋服務中內建完整的安全性功能及存取控制，藉此確保私用內容會可保持原樣。 本文將列舉 Azure 搜尋服務內建的安全性功能和標準合規性。
+Azure 認知搜尋內建完整的安全性功能和存取控制，以確保私人內容保持不變。 本文列舉 Azure 認知搜尋內建的安全性功能和標準合規性。
 
-Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及全平台標準合規性的安全性架構。 在操作方面，「Azure 搜尋服務」只接受經過驗證的要求。 您可以視需要透過安全性篩選，在內容上新增個別使用者存取控制。 本文涵蓋每一層的安全性，但主要著重於資料和作業如何在「Azure 搜尋服務」中受到保護。
+Azure 認知搜尋安全性架構涵蓋實體安全性、加密傳輸、加密儲存體及全平臺標準合規性。 進行操作時，Azure 認知搜尋只接受已驗證的要求。 您可以視需要透過安全性篩選，在內容上新增個別使用者存取控制。 本文會討論每個層級的安全性，但主要著重于 Azure 認知搜尋中的資料和作業的保護方式。
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>標準合規性：ISO 27001、SOC 2、HIPAA
 
-如 [2018 年 6 月的公告](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)，Azure 搜尋服務已通過下列標準的認證：
+Azure 認知搜尋已通過下列標準認證，如[2018 年6月所公告](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)：
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 Type 2 合規性](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) 如需完整的報告，請移至 [Azure - 和 Azure Government SOC 2 Type II 報告](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) \(英文\)。 
@@ -38,17 +37,17 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 ## <a name="encrypted-transmission-and-storage"></a>加密的傳輸和儲存體
 
-加密會延伸至整個索引編製管線：從連線到傳輸，再到儲存在「Azure 搜尋服務」中已編製索引的資料。
+加密會延伸整個索引管線：從連接、透過傳輸，到 Azure 認知搜尋中儲存的索引資料。
 
 | 安全性階層 | 描述 |
 |----------------|-------------|
-| 傳輸中加密 <br>(HTTPS/SSL/TLS) | 「Azure 搜尋服務」會在 HTTPS 連接埠 443 上進行接聽。 在整個平台上，連至 Azure 服務的連線都會受到加密。 <br/><br/>用戶端對服務的所有 Azure 搜尋服務互動都支援 SSL/TLS 1.2。  請務必對服務的 SSL 連線使用 TLSv1.2。|
-| 待用加密 <br>Microsoft 管理的金鑰 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。<br><br> 加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。<br><br>待用加密是在2018年1月24日宣佈，適用于所有區域中的所有服務層級，包括免費層。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。|
-| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理的金鑰進行加密是免費服務無法使用的**預覽**功能。 針對付費服務，它僅適用于在2019年1月或之後使用最新預覽 api 版本（api 版本 = 2019-05 06-01.5.1-Preview）建立的搜尋服務。<br><br>Azure 搜尋服務索引和同義字對應現在可以使用 Azure Key Vault 中的客戶金鑰管理金鑰來進行待用加密。 若要深入瞭解，請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能並不會取代預設的待用加密，而是改為套用。<br>啟用這項功能將會增加索引大小，並降低查詢效能。 根據 date 的觀察值，您可以預期在查詢時間中會看到 30%-60% 的增加，雖然實際的效能會隨著索引定義和查詢類型而有所不同。 基於此效能的影響，建議您只在真正需要的索引上啟用這項功能。
+| 傳輸中加密 <br>(HTTPS/SSL/TLS) | Azure 認知搜尋會接聽 HTTPS 埠443。 在整個平台上，連至 Azure 服務的連線都會受到加密。 <br/><br/>所有用戶端對服務的 Azure 認知搜尋互動都支援 SSL/TLS 1.2。  請務必對服務的 SSL 連線使用 TLSv1.2。|
+| 待用加密 <br>Microsoft 管理的金鑰 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。<br><br> 加密是 Azure 認知搜尋的內部，其中包含由 Microsoft 內部管理的憑證和加密金鑰，並會全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。<br><br>待用加密是在2018年1月24日宣佈，適用于所有區域中的所有服務層級，包括免費層。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。|
+| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理的金鑰進行加密是免費服務無法使用的**預覽**功能。 針對付費服務，它僅適用于在2019年1月或之後使用最新預覽 api 版本（api 版本 = 2019-05 06-01.5.1-Preview）建立的搜尋服務。<br><br>Azure 認知搜尋索引和同義字對應現在可以在 Azure Key Vault 中使用客戶金鑰管理的金鑰進行待用加密。 若要深入瞭解，請參閱[在 Azure 認知搜尋中管理加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能並不會取代預設的待用加密，而是改為套用。<br>啟用這項功能將會增加索引大小，並降低查詢效能。 根據 date 的觀察值，您可以預期在查詢時間中會看到 30%-60% 的增加，雖然實際的效能會隨著索引定義和查詢類型而有所不同。 基於此效能的影響，建議您只在真正需要的索引上啟用這項功能。
 
 ## <a name="azure-wide-user-access-controls"></a>整個 Azure 的使用者存取控制
 
-整個 Azure 有數個可用的安全性機制，因此會自動提供給您建立的「Azure 搜尋服務」資源使用。
+有數個適用于 Azure 範圍的安全性機制，因此會自動提供給您所建立的 Azure 認知搜尋資源。
 
 + [可防止刪除的訂用帳戶或資源層級鎖定](../azure-resource-manager/resource-group-lock-resources.md)
 + [可控制對資訊和系統管理作業之存取的角色型存取控制 (RBAC)](../role-based-access-control/overview.md)
@@ -59,7 +58,7 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 ## <a name="service-access-and-authentication"></a>服務存取與驗證
 
-雖然「Azure 搜尋服務」繼承 Azure 平台的安全性防護措施，但它也提供自己的金鑰型驗證。 API 金鑰是由隨機產生的數字和字母所組成的字串。 金鑰的類型 (管理或查詢) 會決定存取層級。 提交有效的金鑰可證明要求源自受信任的實體。 
+雖然 Azure 認知搜尋會繼承 Azure 平臺的安全性保護措施，但它也會提供自己的金鑰型驗證。 API 金鑰是由隨機產生的數字和字母所組成的字串。 金鑰的類型 (管理或查詢) 會決定存取層級。 提交有效的金鑰可證明要求源自受信任的實體。 
 
 搜尋服務的存取權有兩個層級，透過兩個類型的金鑰來存取：
 
@@ -74,17 +73,17 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 ## <a name="index-access"></a>索引存取權
 
-在「Azure 搜尋服務」中，個別索引是無法保護的物件。 取而代之的是，會在服務層搭配作業的內容來決定對索引的存取權 (讀取或寫入存取權)。
+在 Azure 認知搜尋中，個別索引不是安全物件。 取而代之的是，會在服務層搭配作業的內容來決定對索引的存取權 (讀取或寫入存取權)。
 
 就使用者存取來說，您可以將查詢要求建構成使用查詢金鑰來進行連線 (這可讓所有查詢都變成唯讀)，並且包含應用程式所使用的特定索引。 在查詢要求中，並沒有聯結索引或同時存取多個索引的概念，所以所有要求都會依據定義以單一索引為目標。 因此，查詢要求本身的結構 (一個金鑰加上單一目標索引) 即可定義安全性界限。
 
-系統管理員和開發人員對索引的存取權並無差別：兩者都需要有寫入存取權，才能建立、刪除及更新服務所管理的物件。 任何人只要擁有您服務的管理金鑰，便可讀取、修改或刪除該相同服務中的任何索引。 在防止發生意外或惡意刪除索引的情況方面，您內部對程式碼資產實施的來源控制，將會是反轉不需要之索引刪除或修改的補救措施。 「Azure 搜尋服務」在叢集內具有容錯移轉功能來確保可用性，但它不會儲存或執行用來建立或載入索引的專屬程式碼。
+系統管理員和開發人員對索引的存取權並無差別：兩者都需要有寫入存取權，才能建立、刪除及更新服務所管理的物件。 任何人只要擁有您服務的管理金鑰，便可讀取、修改或刪除該相同服務中的任何索引。 在防止發生意外或惡意刪除索引的情況方面，您內部對程式碼資產實施的來源控制，將會是反轉不需要之索引刪除或修改的補救措施。 Azure 認知搜尋會在叢集中進行容錯移轉以確保可用性，但不會儲存或執行用來建立或載入索引的專屬程式碼。
 
-以需要索引層級之安全性界限的多組織用戶管理解決方案來說，這類解決方案通常會包含可供客戶用來處理索引隔離的中間層。 如需有關多租用戶使用案例的詳細資訊，請參閱[多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式](search-modeling-multitenant-saas-applications.md)。
+以需要索引層級之安全性界限的多組織用戶管理解決方案來說，這類解決方案通常會包含可供客戶用來處理索引隔離的中間層。 如需多租使用者使用案例的詳細資訊，請參閱多租使用者[SaaS 應用程式的設計模式和 Azure 認知搜尋](search-modeling-multitenant-saas-applications.md)。
 
 ## <a name="admin-access"></a>系統管理員存取權
 
-[角色型存取（RBAC）](https://docs.microsoft.com/azure/role-based-access-control/overview)會決定您是否可以存取服務及其內容的控制項。 如果您是 Azure 搜尋服務服務的擁有者或參與者，則可以使用入口網站或 PowerShell **Az. Search**模組來建立、更新或刪除服務上的物件。 您也可以使用[Azure 搜尋服務管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
+[角色型存取（RBAC）](https://docs.microsoft.com/azure/role-based-access-control/overview)會決定您是否可以存取服務及其內容的控制項。 如果您是 Azure 認知搜尋服務的擁有者或參與者，則可以使用入口網站或 PowerShell **Az. Search**模組來建立、更新或刪除服務上的物件。 您也可以使用[Azure 認知搜尋管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
 
 ## <a name="user-access"></a>使用者存取
 
@@ -99,9 +98,9 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 ## <a name="table-permissioned-operations"></a>表格：許可的作業
 
-下表摘要說明「Azure 搜尋服務」中允許的作業，以及哪個金鑰可開啟對特定作業的存取權。
+下表摘要說明 Azure 認知搜尋中允許的作業，以及哪些金鑰可解除鎖定特定操作。
 
-| 運算 | Permissions |
+| 作業 | 使用權限 |
 |-----------|-------------------------|
 | 建立服務 | Azure 訂用帳戶持有者|
 | 調整服務規模 | 管理金鑰、資源的 RBAC 擁有者或參與者  |
@@ -119,10 +118,10 @@ Microsoft 資料中心提供業界頂尖的實體安全性，符合一組廣泛�
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [開始使用 .NET (使用管理金鑰來建立索引以進行示範)](search-create-index-dotnet.md)
 + [開始使用 REST (使用管理金鑰來建立索引以進行示範)](search-create-index-rest-api.md)
-+ [使用 Azure 搜尋服務篩選來進行身分識別型存取控制](search-security-trimming-for-azure-search.md)
-+ [使用 Azure 搜尋服務篩選來進行 Active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
-+ [Azure 搜尋服務中的篩選條件](search-filters.md)
++ [使用 Azure 認知搜尋篩選器的身分識別型存取控制](search-security-trimming-for-azure-search.md)
++ [使用 Azure 認知搜尋篩選器 Active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
++ [Azure 認知搜尋中的篩選](search-filters.md)

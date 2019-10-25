@@ -1,6 +1,7 @@
 ---
-title: 已知問題的瀏覽器 (Microsoft Authentication Library for JavaScript) |Azure
-description: 深入了解已知問題，使用 Microsoft Authentication Library for JavaScript (MSAL.js) 時使用 Safari 瀏覽器。
+title: 瀏覽器的已知問題（適用于 JavaScript 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
+description: 瞭解使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）與 Safari 瀏覽器時的已知問題。
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,30 +18,30 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb89b1ef4dbbef234fba3152d7f85bbadfbdc64a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51d800ea2fbbc733a6213d7bc4f61f955612aba0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873881"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803079"
 ---
-# <a name="known-issues-on-safari-browser-with-msaljs"></a>MSAL.js 使用 Safari 瀏覽器上的已知的問題 
+# <a name="known-issues-on-safari-browser-with-msaljs"></a>使用 MSAL 的 Safari 瀏覽器已知問題 
 
-## <a name="silent-token-renewal-on-safari-12-and-itp-20"></a>無訊息更新權杖上的 Safari 12 和 ITP 2.0
+## <a name="silent-token-renewal-on-safari-12-and-itp-20"></a>Safari 12 和 ITP 2.0 上的無訊息權杖更新
 
-包含的版本 12 的 Apple iOS 和 MacOS 10.14 operating systems [Safari 12 瀏覽器](https://developer.apple.com/safari/whats-new/)。 基於安全性和隱私權的資訊，包括 Safari 12[智慧型追蹤預防 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/)。 基本上，這會導致卸除所設定的第三方 cookie 的瀏覽器。 ITP 2.0 也會將為第三方 cookie 的身分識別提供者所設定的 cookie。
+Apple iOS 12 和 MacOS 10.14 作業系統包含[Safari 12 瀏覽器](https://developer.apple.com/safari/whats-new/)的版本。 基於安全性和隱私權的目的，Safari 12 包含[智慧型追蹤防護 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/)。 這基本上會導致瀏覽器卸載所設定的協力廠商 cookie。 ITP 2.0 也會將身分識別提供者所設定的 cookie 視為協力廠商 cookie。
 
-### <a name="impact-on-msaljs"></a>MSAL.js 影響
+### <a name="impact-on-msaljs"></a>對 MSAL 的影響
 
-MSAL.js 使用隱藏的 Iframe 來執行無訊息的權杖取得和更新的一部分`acquireTokenSilent`呼叫。 無訊息的權杖要求需要能夠存取由 Azure AD 所設定的 cookie 驗證的使用者工作階段在 Iframe 上。 防止存取這些 cookie ITP 2.0 MSAL.js 無法以無訊息方式取得和更新權杖，而且這會導致`acquireTokenSilent`失敗。
+MSAL 會使用隱藏的 Iframe 來執行無訊息的權杖取得和更新，做為 `acquireTokenSilent` 呼叫的一部分。 無訊息權杖要求依賴 Iframe 可存取由 Azure AD 所設定之 cookie 所表示的已驗證使用者會話。 透過 ITP 2.0 防止存取這些 cookie，MSAL 無法以無訊息方式取得和更新權杖，這會導致 `acquireTokenSilent` 失敗。
 
-沒有此問題的解決方案的這個時候，我們會評估與標準社群的選項。
+目前沒有解決此問題的解決方案，我們正在評估具有標準社區的選項。
 
-### <a name="work-around"></a>因應措施
+### <a name="work-around"></a>解決方法
 
-根據預設 ITP 設定已啟用 Safari 瀏覽器上。 您可以瀏覽至連線，停用此設定**喜好設定** -> **隱私權**核取**防止跨站台追蹤**選項。
+根據預設，會在 Safari 瀏覽器上啟用 ITP 設定。 您可以藉由流覽至 [**喜好**設定] -> [**隱私權**]，並取消核取 [**防止跨網站追蹤**] 選項來停用此設定
 
 ![safari 設定](./media/msal-js-known-issue-safari-browser/safari.png)
 
-您必須處理`acquireTokenSilent`失敗與互動式取得權杖的呼叫，會提示使用者登入。
-若要避免重複的登入，您可以實作一個方法是將處理`acquireTokenSilent`失敗，並提供使用者一個選項來進行互動式的呼叫之前，先停用在 Safari 中的 [ITP] 設定。 一旦停用此設定之後，後續的無訊息權杖更新作業應該會成功。
+您將需要使用互動式取得權杖呼叫來處理 `acquireTokenSilent` 失敗，這會提示使用者登入。
+若要避免重複登入，您可以執行的方法是處理 `acquireTokenSilent` 失敗，並提供使用者一個選項來停用 Safari 中的 ITP 設定，然後再繼續進行互動式呼叫。 停用設定後，後續的無訊息權杖更新應該就會成功。

@@ -1,22 +1,22 @@
 ---
-title: 調整資料分割和複本以進行查詢和編制索引-Azure 搜尋服務
-description: 在「Azure 搜尋服務」中調整分割區和複本電腦資源，其中每個資源都是以計費搜尋單位來計價。
-author: HeidiSteen
+title: 相應增加資料分割和複本，以增加查詢和索引工作負載的容量
+titleSuffix: Azure Cognitive Search
+description: 調整 Azure 認知搜尋中的磁碟分割和複本電腦資源，其中每個資源都是以可計費的搜尋單位計價。
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/01/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69650071"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792511"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>在 Azure 搜尋服務中調整資料分割和複本以進行查詢和編制索引工作負載
+# <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>相應增加資料分割和複本，以在 Azure 認知搜尋中新增查詢和索引工作負載的容量
+
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
 
 當您在[基本層](https://aka.ms/azuresearchbasic)或其中一個[標準或儲存體優化層](search-limits-quotas-capacity.md)中設定服務時，可以使用資源設定。 對於這些層的服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
@@ -24,7 +24,7 @@ ms.locfileid: "69650071"
 使用較少 SU，帳單費用也會相應降低。 只要服務處於已設定的狀態，就會持續計費。 如果您暫時不使用某項服務，避免計費的唯一方法就是刪除該服務，然後當您需要該服務時再予以重建。
 
 > [!Note]
-> 刪除服務會刪除它上面的一切。 Azure 搜尋服務內沒有任何機制可備份和還原持續性搜尋資料。 若要將現有的索引重新部署在新的服務上，您應該執行原先用來建立和載入此索引的程式。 
+> 刪除服務會刪除它上面的一切。 Azure 認知搜尋中沒有任何設備可用於備份和還原保存的搜尋資料。 若要將現有的索引重新部署在新的服務上，您應該執行原先用來建立和載入此索引的程式。 
 
 ## <a name="terminology-replicas-and-partitions"></a>術語：複本和分割區
 複本和分割區是回到搜尋服務的主要資源。
@@ -40,7 +40,7 @@ ms.locfileid: "69650071"
 
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>如何配置複本和分割區
-在「Azure 搜尋服務」中，一開始會為服務配置由一個分割區和一個複本組成的最低層級資源。 如果階層支援，您便可以增量調整運算資源，方法是在您需要較多的儲存體和 I/O 時新增分割區，或新增更多複本來因應較大的查詢磁碟區或提供較佳的效能。 單一服務必須具有足夠的資源，才能處理所有工作負載 (編製索引和查詢)。 您無法將多個服務之間的工作負載再加以細分。
+在「Azure 認知搜尋」中，一開始會配置一項服務，其中包含一個資料分割和一個複本的最低層級資源。 如果階層支援，您便可以增量調整運算資源，方法是在您需要較多的儲存體和 I/O 時新增分割區，或新增更多複本來因應較大的查詢磁碟區或提供較佳的效能。 單一服務必須具有足夠的資源，才能處理所有工作負載 (編製索引和查詢)。 您無法將多個服務之間的工作負載再加以細分。
 
 若要增加或變更複本和分割區的配置，建議使用 Azure 入口網站。 入口網站會對允許的組合強制執行限制，而這會維持在最大限制之下。 如果您需要以腳本為基礎或以程式碼為基礎的布建方法， [Azure PowerShell](search-manage-powershell.md)或[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services)為替代解決方案。
 
@@ -72,7 +72,7 @@ ms.locfileid: "69650071"
 
 
 > [!NOTE]
-> 服務在佈建之後，即無法升級到較高的 SKU。 您必須在新層中建立搜尋服務，然後重新載入您的索引。 如需有關服務佈建的說明，請參閱 [在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md) 。
+> 服務在佈建之後，即無法升級到較高的 SKU。 您必須在新層中建立搜尋服務，然後重新載入您的索引。 如需有關服務布建的說明，請參閱[在入口網站中建立 Azure 認知搜尋服務](search-create-service-portal.md)。
 >
 >
 
@@ -97,7 +97,7 @@ ms.locfileid: "69650071"
 SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。
 
 > [!NOTE]
-> 複本數和資料分割數可整除 12 (明確來說就是 1、2、3、4、6、12)。 這是因為「Azure 搜尋服務」會將每個索引預先劃分成 12 個分區，以便將其平均散佈到所有分割區。 例如，如果您的服務有三個資料分割，而您建立了索引，則每個資料分割將會包含 4 個該索引的分區。 Azure 搜尋服務將索引分區的方法是實作細節，有可能在未來版本中變更。 雖然現在分區數為 12，但您不應預期未來該數字永遠都會是 12。
+> 複本數和資料分割數可整除 12 (明確來說就是 1、2、3、4、6、12)。 這是因為 Azure 認知搜尋會將每個索引預先分割成12個分區，以便將其分散到所有資料分割的相同部分。 例如，如果您的服務有三個資料分割，而您建立了索引，則每個資料分割將會包含 4 個該索引的分區。 Azure 認知搜尋如何分區索引是一個執行詳細資料，在未來的版本中可能有所變更。 雖然現在分區數為 12，但您不應預期未來該數字永遠都會是 12。
 >
 
 
@@ -112,16 +112,16 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 * 針對讀寫工作負載 (查詢再加上新增、更新或刪除個別文件時的索引編製)，需有 3 個或更多個複本才能達到高可用性
 
-「Azure 搜尋服務」的「服務等級協定」(SLA) 是針對查詢作業和由新增、更新或刪除文件所組成的索引更新。
+Azure 認知搜尋的服務等級協定（SLA）是以查詢作業和包含新增、更新或刪除檔的索引更新為目標。
 
 基本層最多一個分割區和三個複本。 如果想要具備立即回應檢索和查詢輸送量需求波動的彈性，請考慮標準層的其中一個。  如果您發現儲存體需求的成長速度比查詢輸送量快，請考慮其中一個儲存體優化層級。
 
 ### <a name="index-availability-during-a-rebuild"></a>索引在重建期間的可用性
 
-「Azure 搜尋服務」的高可用性與查詢和不涉及重建索引的索引更新相關。 如果您刪除欄位、變更資料類型，或是重新命名欄位，您必須重建索引。 若要重建索引，您必須刪除索引、重新建立索引，並重新載入資料。
+Azure 認知搜尋的高可用性適用于不需要重建索引的查詢和索引更新。 如果您刪除欄位、變更資料類型，或是重新命名欄位，您必須重建索引。 若要重建索引，您必須刪除索引、重新建立索引，並重新載入資料。
 
 > [!NOTE]
-> 您可以將新欄位新增至 Azure 搜尋服務索引，而不需重建索引。 所有已在索引中之文件的新欄位值將為 null。
+> 您可以將新欄位新增至 Azure 認知搜尋索引，而不需重建索引。 所有已在索引中之文件的新欄位值將為 null。
 
 若要讓索引在重建期間保持可用，您必須在相同服務上有使用不同名稱的索引副本，或在不同服務上有相同名稱的索引副本，然後在您的程式碼中提供重新導向或容錯移轉邏輯。
 
@@ -133,7 +133,7 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 我們無法提供固定的每秒查詢數目 (QPS) 預估值：查詢效能取決於查詢和競爭工作負載的複雜性。 雖然新增複本會明顯獲得更好的效能，但是最終結果並不會完全地呈線性關係：新增 3 個複本並不保證有 3 倍的輸送量。
 
-如需有關評估工作負載 QPS 的指引，請參閱 [Azure 搜尋服務的效能與最佳化考量](search-performance-optimization.md)。
+如需估計工作負載之 QPS 的指引，請參閱[Azure 認知搜尋效能和優化考慮](search-performance-optimization.md)。
 
 ## <a name="increase-indexing-performance-with-partitions"></a>使用資料分割提高編製索引的效能
 要求近乎即時資料重新整理的搜尋應用程式，按比例需要比複本更多的資料分割數。 新增資料分割可將讀取/寫入作業分配到更大量的計算資源。 它也提供更多磁碟空間來儲存額外的索引和文件。
@@ -143,4 +143,4 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 ## <a name="next-steps"></a>後續步驟
 
-[選擇 Azure 搜尋服務的定價層](search-sku-tier.md)
+[選擇 Azure 認知搜尋的定價層](search-sku-tier.md)

@@ -1,5 +1,6 @@
 ---
-title: 設定應用程式的發行者網域 |Azure
+title: 設定應用程式的發行者網域
+titleSuffix: Microsoft identity platform
 description: 瞭解如何設定應用程式的發行者網域，讓使用者知道其資訊的傳送位置。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257923"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803340"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>HOW TO：設定應用程式的發行者網域（預覽）
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>如何：設定應用程式的發行者網域（預覽）
 
 應用程式的發行者網域會在[應用程式的同意提示](application-consent-experience.md)中顯示給使用者，讓使用者知道其資訊的傳送位置。 在 2019 5 月21日之後註冊的多租使用者應用程式，沒有發行者網域會顯示為未**驗證**。 多租使用者應用程式是支援單一組織目錄以外之帳戶的應用程式;例如，支援所有 Azure AD 帳戶，或支援所有 Azure AD 帳戶和個人 Microsoft 帳戶。
 
@@ -38,9 +39,9 @@ ms.locfileid: "71257923"
 
 | 租使用者驗證的網域 | 發行者網域的預設值 |
 |-------------------------|----------------------------|
-| Null | Null |
-| *.onmicrosoft.com | *.onmicrosoft.com |
-| - *.onmicrosoft.com<br/>-domain1.com<br/>-domain2.com （主要） | domain2.com |
+| null | null |
+| *. onmicrosoft.com | *. onmicrosoft.com |
+| -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com （主要） | domain2.com |
 
 如果未設定多租使用者應用程式的發行者網域，或其設定為 onmicrosoft.com 結尾的網域，則應用程式的同意提示會顯示 [未**驗證**] 以取代發行者網域。
 
@@ -69,13 +70,13 @@ ms.locfileid: "71257923"
    - 如果您尚未設定網域，請選取 [**設定網域**]。
    - 如果已設定網域，請選取 [**更新網域**]。
 
-如果您的應用程式已在租使用者中註冊，您會看到兩個索引標籤可供您選取：**選取已驗證的網域**，並**驗證新的網域**。
+如果您的應用程式已在租使用者中註冊，您會看到兩個索引標籤可供您選取：**選取已驗證的網域**並**驗證新的網域**。
 
 如果您的應用程式未在租使用者中註冊，您只會看到為您的應用程式驗證新網域的選項。
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>驗證應用程式的新網域
 
-1. 建立名為`microsoft-identity-association.json`的檔案，並貼上下列 JSON 程式碼片段。
+1. 建立名為 `microsoft-identity-association.json` 的檔案，並貼上下列 JSON 程式碼片段。
 
    ```json
    {
@@ -98,7 +99,7 @@ ms.locfileid: "71257923"
 - 如果您的租使用者已驗證網域，請從 [**選取已驗證的網域**] 下拉式清單中選取其中一個網域。
 
 >[!Note]
-> 應傳回的預期 ' Content-type ' 標頭為`application/json`。 如果您使用任何其他專案，則可能會收到錯誤，如下所述`application/json; charset=utf-8` 
+> 應傳回的預期 ' Content-type ' 標頭為 `application/json`。 如果您使用任何其他專案（例如），您可能會收到如下所述的錯誤 `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

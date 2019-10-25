@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030549"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793902"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -50,7 +50,7 @@ ms.locfileid: "72030549"
 
 1. **找出要解決的 ML 問題**：分類、預測或回歸
 
-1. 指定已加上**標籤之定型資料的來源和格式**：Numpy 陣列或 Pandas 資料框架
+1. **指定標示定型資料的來源和格式**： Numpy 陣列或 Pandas 資料框架
 
 1. **設定用於模型定型的計算目標**，例如[本機電腦、Azure Machine Learning 計算、遠端 vm 或 Azure Databricks](how-to-set-up-training-targets.md)。  瞭解[遠端資源](how-to-auto-train-remote.md)的自動化訓練。
 
@@ -81,7 +81,7 @@ ms.locfileid: "72030549"
 
 在每個自動化機器學習實驗中，您的資料都會自動調整或正規化，以協助演算法執行得很好。  在模型定型期間，下列其中一個調整或正規化技術將會套用至每個模型。
 
-|調整 @ no__t-0 @ no__t-1 @ no__t-2normalization| 描述 |
+|調整&nbsp;&&nbsp;正規化| 描述 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 藉由移除平均值並調整為單位變異數，將功能標準化  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 藉由依該資料行的最小值和最大值調整每項功能來轉換功能  |
@@ -95,9 +95,9 @@ ms.locfileid: "72030549"
 
 也可以使用其他的先進前置處理和特徵化，例如遺漏值插補、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。 啟用此設定的方式：
 
-+ Azure 入口網站：[使用這些步驟](how-to-create-portal-experiments.md)**選取 [** **Advanced] 設定**中的 [前置處理] 核取方塊。
++ Azure 入口網站：[使用這些步驟](how-to-create-portal-experiments.md)選取 [**高級設定** **] 中**的 [前置處理] 核取方塊。
 
-+ Python SDK：指定[@no__t 2 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)的 `"preprocess": True`。
++ Python SDK：指定[`AutoMLConfig` 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)的 `"preprocess": True`。
 
 
 ## <a name="time-series-forecasting"></a>時間序列預測
@@ -108,6 +108,8 @@ ms.locfileid: "72030549"
 深入瞭解並查看[適用于時間序列預測的自動化機器學習](how-to-auto-train-forecast.md)範例。 或者，如需先進預測設定的詳細程式碼範例，請參閱[能源需求筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)，包括：
 
 * 假日偵測和特徵化
+* 時間序列和 DNN 學習工具（自動 ARIMA、Prophet、ForecastTCN）
+* 透過群組的許多模型支援
 * 復原原始的交叉驗證
 * 可設定延遲
 * 滾動視窗匯總功能
@@ -119,7 +121,7 @@ ms.locfileid: "72030549"
 * **投票**：根據預測類別機率（適用于分類工作）或預測回歸目標（用於回歸工作）的加權平均值進行預測。
 * **堆疊**：堆疊結合了異類模型，並根據個別模型的輸出來訓練中繼模型。 目前的預設中繼模型是針對分類工作和回歸/預測工作的 ElasticNet 而 LogisticRegression 的。
 
-具有已排序集團初始化的[Caruana 集團選取演算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)會用來決定要在集團中使用的模型。 就高層級而言，此演算法會使用最多5個具有最佳個別分數的模型來初始化集團，並確認這些模型是在最佳分數的 5% 臨界值內，以避免初始集團不佳。 然後針對每個集團反復專案，將新的模型加入至現有的集團，並計算產生的分數。 如果新模型已改善現有的集團分數，集團會更新以包含新的模型。
+具有已排序集團初始化的[Caruana 集團選取演算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)會用來決定要在集團中使用的模型。 就高層級而言，此演算法會使用最多5個具有最佳個別分數的模型來初始化集團，並確認這些模型是在最佳分數的5% 臨界值內，以避免初始集團不佳。 然後針對每個集團反復專案，將新的模型加入至現有的集團，並計算產生的分數。 如果新模型已改善現有的集團分數，集團會更新以包含新的模型。
 
 請參閱[如何](how-to-configure-auto-train.md#ensemble)變更自動化機器學習服務中的預設集團設定。
 
@@ -172,7 +174,7 @@ ms.locfileid: "72030549"
 
 請參閱範例，並瞭解如何使用自動化機器學習來建立模型：
 
-+ 遵循 [Tutorial：使用 Azure 自動化將回歸模型自動定型 Machine Learning @ no__t-0
++ 遵循[教學課程：使用 Azure 自動化將回歸模型自動定型 Machine Learning](tutorial-auto-train-models.md)
 
 + 設定自動訓練實驗的設定：
   + 在 Azure 入口網站介面或工作區登陸頁面（預覽）中，[使用下列步驟](how-to-create-portal-experiments.md)。

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/30/2019
-ms.author: kevin
+ms.date: 10/21/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 90544e182eb25f53232cee9a4dd0c05bd25508a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1cf6444b155830326f4876d2d65bcdaa5923fc35
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988481"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788804"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 
@@ -25,11 +25,11 @@ ms.locfileid: "68988481"
 
 「資料倉儲快照集」會建立還原點，您可以利用此還原點將資料倉儲還原或複製到先前的狀態。  由於 SQL 資料倉儲是一個分散式系統，所以一個資料倉儲快照集會由位於 Azure 儲存體中的許多檔案組成。 快照集會從資料倉儲中儲存的資料內擷取增量變更。
 
-「資料倉儲還原」係指從現有或已刪除的資料倉儲還原點建立的新資料倉儲。 還原資料倉儲是所有商務持續性和災害復原策略中不可或缺的一部分，因為它可在您的資料發生意外損毀或刪除之後重新建立該資料。 資料倉儲也是功能強大的機制，可建立資料倉儲的副本，以用於測試或開發。  SQL 資料倉儲的還原速率會根據來源和目標資料倉儲的資料庫大小和位置而有所不同。 平均相同區域內的還原速率通常需要大約20分鐘的時間。 
+「資料倉儲還原」係指從現有或已刪除的資料倉儲還原點建立的新資料倉儲。 還原資料倉儲是所有商務持續性和災害復原策略中不可或缺的一部分，因為它可在您的資料發生意外損毀或刪除之後重新建立該資料。 資料倉儲也是功能強大的機制，可建立資料倉儲的副本，以用於測試或開發。  SQL 資料倉儲的還原速率會根據來源和目標資料倉儲的資料庫大小和位置而有所不同。 
 
 ## <a name="automatic-restore-points"></a>自動還原點
 
-快照集是服務的內建功能, 可建立還原點。 您不需啟用此功能。 使用者目前無法刪除自動還原點，因為服務會使用這些還原點來維護用於還原的 SLA。
+快照集是服務的內建功能，可建立還原點。 您不需啟用此功能。 不過，資料倉儲應處於作用中狀態，才能建立還原點。 如果資料倉儲經常暫停，可能就不會建立自動還原點，因此請務必先建立使用者定義的還原點，然後再暫停資料倉儲。 使用者目前無法刪除自動還原點，因為服務會使用這些還原點來維護修復的 Sla。
 
 SQL 資料倉儲可快照還原點建立那天一整天的資料倉儲，而此快照集可保留七天。 此保留期無法變更。 SQL 資料倉儲支援八小時的復原點目標 (RPO)。 您可以透過過去七天內所建立的任一個快照集，在主要區域中還原資料倉儲。
 
@@ -44,14 +44,14 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>使用者定義的還原點
 
-這項功能可讓您手動觸發快照集, 以在大型修改前後建立資料倉儲的還原點。 這項功能可確保還原點在邏輯上一致, 以在發生任何工作負載中斷或使用者錯誤時, 針對快速復原時間提供額外的資料保護。 使用者定義的還原點可保留七天，而且會自動刪除。 您無法變更使用者定義還原點的保留期。 **只保證在任何時間點設定 42 個使用者定義的還原點**，因此必須先[刪除還原點](https://go.microsoft.com/fwlink/?linkid=875299)，才能再建立另一個還原點。 您可以透過 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) 或 Azure 入口網站觸發快照集，以建立使用者定義的還原點。
+這項功能可讓您手動觸發快照集，以在大型修改前後建立資料倉儲的還原點。 這項功能可確保還原點在邏輯上一致，以在發生任何工作負載中斷或使用者錯誤時，針對快速復原時間提供額外的資料保護。 使用者定義的還原點可保留七天，而且會自動刪除。 您無法變更使用者定義還原點的保留期。 **只保證在任何時間點設定 42 個使用者定義的還原點**，因此必須先[刪除還原點](https://go.microsoft.com/fwlink/?linkid=875299)，才能再建立另一個還原點。 您可以透過 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) 或 Azure 入口網站觸發快照集，以建立使用者定義的還原點。
 
 > [!NOTE]
 > 如果您需要保留還原點超過 7 天，請[在此](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points)投票給這項功能。 您也可以建立使用者定義的還原點，並從新建立的還原點還原到新資料倉儲。 還原之後，資料倉儲會上線，而您可以無限期地暫停它來節省計算成本。 暫停的資料庫會產生儲存體費用，以「Azure 進階儲存體」費率計費。 如果您需要作用中的已還原資料倉儲副本，您可以讓其恢復上線 (只需幾分鐘的時間)。
 
 ### <a name="restore-point-retention"></a>還原點保留
 
-以下列出還原點保留期間的詳細資料:
+以下列出還原點保留期間的詳細資料：
 
 1. 在達到 7 天還原期間，**以及**總共至少有 42 個還原點 (包含使用者定義和自動定義) 時，SQL 資料倉儲會刪除還原點
 2. 資料倉儲暫停時不會擷取快照集
@@ -61,7 +61,7 @@ order by run_id desc
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>資料倉儲被卸除時的快照集保留期
 
-當您卸除資料倉儲時，SQL 資料倉儲會建立最後的快照集，並將它儲存七天。 您可以將資料倉儲還原到刪除期間建立的最後一個還原點。
+當您卸除資料倉儲時，SQL 資料倉儲會建立最後的快照集，並將它儲存七天。 您可以將資料倉儲還原到刪除期間建立的最後一個還原點。 如果資料倉儲處於暫停狀態，則不會建立快照集。 在這種情況下，請務必先建立使用者定義的還原點，然後再卸載資料倉儲。
 
 > [!IMPORTANT]
 > 如果您刪除邏輯 SQL Server 執行個體，所有屬於該執行個體的資料庫也會一併刪除，且無法復原。 您無法還原已刪除的伺服器。
@@ -69,8 +69,6 @@ order by run_id desc
 ## <a name="geo-backups-and-disaster-recovery"></a>異地備份和災害復原
 
 SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availability-paired-regions.md)執行一次異地備份。 異地還原的 RPO 為 24 小時。 您可以在任何 SQL 資料倉儲支援的區域中將異地備份還原到伺服器。 萬一您無法存取主要地區中的還原點，異地備份可以確保您能夠還原資料倉儲。
-
-預設會開啟異地備份。 如果您的資料倉儲是 Gen1，則可以視需要[選擇退出](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy)。 您無法選擇退出 Gen2 的異地備份，因為資料保護是既定的保證。
 
 > [!NOTE]
 > 如果您的異地備份需要較短的 RPO，請[在此](https://feedback.azure.com/forums/307516-sql-data-warehouse)投票給這項功能。 您也可以建立使用者定義的還原點，並從新建立的還原點還原到不同區域中的新資料倉儲。 還原之後，資料倉儲會上線，而您可以無限期地暫停它來節省計算成本。 暫停的資料庫會產生儲存體費用，以「Azure 進階儲存體」費率計費。 如果您需要作用中的資料倉儲副本，您可以讓其恢復運上線 (只需幾分鐘的時間)。
@@ -83,7 +81,7 @@ SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availab
 
 如果您正在使用異地備援儲存體，您會收到個別的儲存體收費項目。 異地備援儲存體是依據標準讀取權限異地備援儲存體 (RA-GRS) 費率收費。
 
-如需 SQL 資料倉儲定價的詳細資訊, 請參閱 [SQL 資料倉儲定價]。 跨區域還原時, 您不需支付資料輸出的費用。
+如需 SQL 資料倉儲價格的相關詳細資訊，請參閱 [SQL 資料倉儲價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/)。 跨區域還原時，您不需支付資料輸出的費用。
 
 ## <a name="restoring-from-restore-points"></a>從還原點還原
 
@@ -97,7 +95,7 @@ SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availab
 
 ## <a name="cross-subscription-restore"></a>跨訂用帳戶還原
 
-如果您需要在訂用帳戶之間直接還原, 請[在這裡](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)投票這項功能。 還原至不同的邏輯伺服器, 並在訂用帳戶之間「[移動](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)」伺服器, 以執行跨訂閱還原。 
+如果您需要在訂用帳戶之間直接還原，請[在這裡](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)投票這項功能。 還原至不同的邏輯伺服器，並在訂用帳戶之間「[移動](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)」伺服器，以執行跨訂閱還原。 
 
 ## <a name="geo-redundant-restore"></a>異地備援還原
 

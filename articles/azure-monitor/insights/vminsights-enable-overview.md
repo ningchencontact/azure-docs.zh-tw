@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/24/2019
-ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555233"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809467"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用適用於 VM 的 Azure 監視器（預覽）總覽
 
@@ -157,12 +157,12 @@ ms.locfileid: "72555233"
 
 適用於 VM 的 Azure 監視器中的對應功能會從 Microsoft Dependency agent 取得其資料。 Dependency Agent 須憑藉 Log Analytics 代理程式才能連線至 Log Analytics。 因此，您的系統必須已安裝 Log Analytics 代理程式，並使用 Dependency agent 進行設定。
 
-無論您為單一 Azure VM 啟用適用於 VM 的 Azure 監視器，或使用大規模部署方法，請使用 Azure VM Dependency agent 擴充功能來安裝代理程式，以作為體驗的一部分。
+無論您為單一 Azure VM 啟用適用於 VM 的 Azure 監視器，或使用大規模部署方法，請使用適用于[Windows](../../virtual-machines/extensions/agent-dependency-windows.md)或[LINUX](../../virtual-machines/extensions/agent-dependency-linux.md)的 Azure VM Dependency agent 擴充功能，將代理程式安裝為體驗的一部分。
 
 >[!NOTE]
 >本節所述的下列資訊也適用于[服務對應解決方案](service-map.md)。  
 
-在混合式環境中，您可以手動下載並安裝 Dependency agent。 如果您的 Vm 是在 Azure 外部託管，請使用自動化部署方法。
+在混合式環境中，您可以手動下載並安裝 Dependency agent，或使用自動化的方法。
 
 下表說明對應功能在混合式環境中支援的連線來源。
 

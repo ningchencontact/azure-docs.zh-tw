@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561322"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786743"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -54,19 +54,19 @@ ms.locfileid: "69561322"
 
 ## <a name="authentication-methods"></a>驗證方法
 
-如果已啟用 SSPR，您必須針對驗證方法至少選取下面其中一個選項。 有時這些選項會被稱為「閘道」。 強烈建議您**選擇兩個或多個驗證方法**，以便使用者在需要卻無法存取時，能擁有更大的彈性。 如需下列方法的其他詳細資料, 請參閱[什麼是驗證方法？](concept-authentication-methods.md)一文。
+如果已啟用 SSPR，您必須針對驗證方法至少選取下面其中一個選項。 有時這些選項會被稱為「閘道」。 強烈建議您**選擇兩個或多個驗證方法**，以便使用者在需要卻無法存取時，能擁有更大的彈性。 如需下列方法的其他詳細資料，請參閱[什麼是驗證方法？](concept-authentication-methods.md)一文。
 
-* 行動裝置應用程式通知
-* 行動應用程式程式碼
-* Email
+* 行動應用程式通知
+* 行動應用程式代碼
+* 電子郵件
 * 行動電話
-* 公司電話
+* 辦公室電話
 * 安全性問題
 
 使用者只有在系統管理員已啟用的驗證方法中有資料存在時，才能夠重設其密碼。
 
 > [!IMPORTANT]
-> 自2019年3月起, Azure AD 租使用者的免費/試用版中, 將無法使用通話選項進行 MFA 和 SSPR。 這項變更不會影響 SMS 訊息。 付費 Azure AD 租使用者中的使用者將可繼續使用通話。 這種變更只會影響 Azure AD 租使用者的免費/試用版。
+> 自2019年3月起，Azure AD 租使用者的免費/試用版中，將無法使用通話選項進行 MFA 和 SSPR。 這項變更不會影響 SMS 訊息。 付費 Azure AD 租使用者中的使用者將可繼續使用通話。 這種變更只會影響 Azure AD 租使用者的免費/試用版。
 
 > [!WARNING]
 > 已指派 Azure 系統管理員角色的帳戶將必須使用[系統管理員重設原則差異](concept-sspr-policy.md#administrator-reset-policy-differences)一節中所定義的方法。
@@ -88,7 +88,7 @@ ms.locfileid: "69561322"
 * 當系統管理員需要一個可用來重設密碼的方法時，驗證碼是唯一可用的選項。
 * 當系統管理員需要兩種可用來重設密碼的方法時，使用者除了任何其他已啟用的方法之外，還能夠使用通知**或**驗證碼。
 
-| 需要重設的方法數 | 一個 | 兩個 |
+| 需要重設的方法數 | 一個 | 二 |
 | :---: | :---: | :---: |
 | 可用的行動應用程式功能 | 程式碼 | 程式碼或通知 |
 
@@ -96,6 +96,12 @@ ms.locfileid: "69561322"
 
 > [!WARNING]
 > 您必須先啟用[自助密碼重設和 Azure Multi-Factor Authentication 的聚合式註冊 (公開預覽)](concept-registration-mfa-sspr-converged.md)，然後使用者才能在 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) 上存取新體驗。
+
+> [!IMPORTANT]
+> 設定1閘道原則時，無法選取驗證器應用程式作為唯一的驗證方法。 同樣地，設定兩個閘道原則時，驗證器應用程式也不能選取一個額外的方法。
+> 然後，在設定包含驗證器應用程式做為方法的 SSPR 原則時，至少應該在設定一個閘道原則時選取額外的方法，並在設定雙閘道原則時至少選取兩個額外的方法。
+> 這項需求的原因是因為目前的 SSPR 註冊體驗並未包含註冊驗證器應用程式的選項。 註冊驗證器應用程式的選項隨附于[自助式密碼重設和 Azure 多重要素驗證（公開預覽）](concept-registration-mfa-sspr-converged.md)的新聚合式註冊。
+> 允許只使用驗證器應用程式的原則（適用于1閘道原則），或驗證器應用程式以及只有一個額外的方法（針對2閘道原則），可能會導致封鎖使用者註冊 SSPR，直到他們設定為使用新的註冊體驗。
 
 ### <a name="change-authentication-methods"></a>變更驗證方法
 
@@ -109,19 +115,19 @@ ms.locfileid: "69561322"
 
 如果您變更使用者可使用的驗證方法類型，可能會不小心導致使用者在沒有最基本可用資料量時無法使用 SSPR。
 
-範例:
+範例：
 1. 原始原則已設定兩個必要的驗證方法。 該原則僅使用辦公室電話號碼和安全性問題。 
 2. 管理員將原則變更為不再使用安全性問題，但允許使用行動電話和備用電子郵件。
 3. 使用者若未填入行動電話或備用電子郵件欄位，便無法重設其密碼。
 
-## <a name="registration"></a>登錄
+## <a name="registration"></a>註冊
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>登入時要求使用者註冊
 
 如果使用者使用 Azure AD 登入任何應用程式，啟用此選項需要使用者完成密碼重設註冊。 此工作流程包括下列應用程式︰
 
 * Office 365
-* Azure 入口網站
+* Azure Portal
 * 存取面板
 * 同盟應用程式
 * 使用 Azure AD 自訂應用程式
@@ -149,7 +155,7 @@ ms.locfileid: "69561322"
 
 如果此選項設定為 [是]，則*所有管理員*會收到一封電子郵件 (送至 Azure AD 中歸檔的主要電子郵件地址)。 此電子郵件會通知他們有其他管理員已使用 SSPR 變更其密碼。
 
-範例:環境中有四個系統管理員。 管理員 A 使用 SSPR 重設其密碼。 管理員 B、C 和 D 收到一封電子郵件，警示他們密碼已重設。
+範例︰環境中有四個系統管理員。 管理員 A 使用 SSPR 重設其密碼。 管理員 B、C 和 D 收到一封電子郵件，警示他們密碼已重設。
 
 ## <a name="on-premises-integration"></a>內部部署整合
 
@@ -188,7 +194,7 @@ Azure AD 自助式密碼重設會執行等同 Active Directory 中管理員起�
 
 所有企業對企業 (B2B) 組態完全支援密碼重設和變更。 下列三種案例支援 B2B 使用者密碼重設：
 
-* **使用者來自具備現有 Azure AD 租用戶的合作夥伴組織**：如果您合作的組織具備現有的 Azure AD 租用戶，我們會「遵守該租用戶中啟用的任何密碼重設原則」。 若要讓密碼重設得以運作，合作夥伴組織只需要確定已啟用 Azure AD SSPR。 若為 Office 365 的客戶，則不需收取額外費用，按照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟即可啟用。
+* **來自具備現有 Azure AD 租用戶之合作夥伴組織的使用者**：如果您合作的組織具備現有的 Azure AD 租用戶，我們會*遵守該租用戶中啟用的任何密碼重設原則*。 若要讓密碼重設得以運作，合作夥伴組織只需要確定已啟用 Azure AD SSPR。 若為 Office 365 的客戶，則不需收取額外費用，按照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟即可啟用。
 * **使用自助式註冊功能註冊的使用者**：如果您合作的組織是使用[自助式註冊](../users-groups-roles/directory-self-service-signup.md)功能進入租用戶，我們會讓他們利用其註冊的電子郵件重設密碼。
 * **B2B 使用者**：任何使用新的 [Azure AD B2B 功能](../active-directory-b2b-what-is-azure-ad-b2b.md)建立的新 B2B 使用者，也能夠利用其在邀請程序期間註冊的電子郵件重設其密碼。
 
@@ -211,7 +217,7 @@ Azure AD 自助式密碼重設會執行等同 Active Directory 中管理員起�
 * [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
-* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [我認為有些東西已中斷。如何? SSPR 疑難排解？](active-directory-passwords-troubleshoot.md)
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "可供使用的 Azure AD 驗證方法和所需的數量"

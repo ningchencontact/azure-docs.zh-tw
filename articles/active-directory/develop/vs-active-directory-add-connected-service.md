@@ -1,5 +1,5 @@
 ---
-title: 在 Visual Studio 中使用已連接服務加入 Azure Active Directory
+title: 在 Visual Studio 中使用已連線的服務新增 Azure Active Directory |Azure
 description: 使用 Visual Studio 的 [加入已連接服務] 對話方塊加入 Azure Active Directory
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c02821a41faa976f8f35984ecf48f425239e6fd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04c8b6bfeaabfa20b9b9b884584d40de7f09e9ac
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881185"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802482"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連接服務加入 Azure Active Directory
 
@@ -46,7 +46,7 @@ ms.locfileid: "70881185"
 
     ![[簡介] 頁面](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. 在 [單一登入] 頁面上，從 [網域] 下拉式清單中選取網域。 清單包含 Visual Studio [帳戶設定] 對話方塊 (**檔案 > 帳戶設定...** ) 中所列之帳戶可存取的所有網域。或者，如果您找不到所要尋找的網域 (例如 `mydomain.onmicrosoft.com`)，則可以輸入網域名稱。 您可以選擇可建立 Azure Active Directory 應用程式的選項，或是使用來自現有 Azure Active Directory 應用程式的設定。 完成時，選取 [下一步]。
+1. 在 [單一登入] 頁面上，從 [網域] 下拉式清單中選取網域。 此清單包含 Visual Studio 的 [帳戶設定] 對話方塊中列出的帳戶所存取的所有網域（[檔案 **> 帳戶設定 ...** ]）。或者，如果您找不到所要尋找的功能變數名稱，例如 `mydomain.onmicrosoft.com`，則可以輸入該名稱。 您可以選擇可建立 Azure Active Directory 應用程式的選項，或是使用來自現有 Azure Active Directory 應用程式的設定。 完成時，選取 [下一步]。
 
     ![[單一登入] 頁面](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

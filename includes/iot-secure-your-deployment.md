@@ -8,24 +8,22 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e696db3ad452152f6478701876b7760d7fed355b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174635"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793095"
 ---
-# <a name="secure-your-internet-of-things-iot-deployment"></a>保護您的物聯網 (IoT) 部署
-
 本文針對以 Azure IoT 為主的物聯網 (IoT) 基礎結構提供更進一層的詳細資料。 它會連結到設定及部署每個元件的實作層級詳細資料。 另外也會提供各種競爭方法之間的比較和選擇。
 
 保護 Azure IoT 部署可分為下列三個安全性區域：
 
-* **裝置安全性**:部署在現實世界時，請保護 IoT 裝置。
+* **裝置安全性**：在真實世界中部署 IoT 裝置時保護裝置安全。
 
-* **連線安全性**:確保在 IoT 裝置與 IoT 中樞之間傳輸的所有資料有加密並防止竄改。
+* **連線安全性**︰確保在 IoT 裝置與 IoT 中樞之間傳輸的所有資料均有加密並防止竄改。
 
-* **雲端安全性**:提供一種方法來保護資料，而它通過，並儲存在雲端。
+* **雲端安全性**：提供方法保護資料在雲端移動和儲存的安全性。
 
 ![三個安全性區域](./media/iot-secure-your-deployment/overview.png)
 
@@ -53,11 +51,11 @@ IoT 中樞使用安全性權杖來驗證裝置和服務，以避免透過網路�
 
 [IoT 中樞支援 MQTT、AMQP 與 HTTP 之類的通訊協定](../articles//iot-hub/iot-hub-devguide-security.md)。 這些通訊協定會各自以不同的方式使用 IoT 裝置到 IoT 中樞的安全性權杖：
 
-* AMQP：SASL PLAIN 和 AMQP 宣告式安全性 (`{policyName}@sas.root.{iothubName}`與 IoT 中樞層級權杖;`{deviceId}`與裝置範圍權杖)。
+* AMQP：SASL PLAIN 和 AMQP 宣告式安全性 (若為 IoT 中樞層級權杖時為 `{policyName}@sas.root.{iothubName}`；若為裝置範圍權杖時為 `{deviceId}`)。
 
-* MQTT：使用 CONNECT 封包`{deviceId}`做為`{ClientId}`，`{IoThubhostname}/{deviceId}`中**使用者名稱**欄位和 SAS 權杖，在**密碼**欄位。
+* MQTT：CONNECT 封包使用 `{deviceId}` 作為 `{ClientId}`，在 [使用者名稱] 欄位中使用 `{IoThubhostname}/{deviceId}`，而在 [密碼] 欄位中則使用 SAS 權杖。
 
-* HTTP:有效權杖位於授權要求標頭。
+* HTTP︰有效權杖位於驗證要求標頭中。
 
 IoT 中樞身分識別登錄可用來設定每一裝置的安全性認證和存取控制。 但是，如果 IoT 解決方案已經大幅投資[自訂裝置身分識別登錄和/或驗證配置](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)，則可透過建立權杖服務，將現有基礎結構與 IoT 中樞整合。
 
@@ -101,15 +99,15 @@ Azure IoT 中樞和可能屬於解決方案的其他服務，能允許使用 Azu
 
 由 Azure IoT 中樞內嵌的資料可供各種不同服務使用，例如 Azure 串流分析和 Azure Blob 儲存體。 這些服務允許管理存取。 深入了解這些服務和可用選項：
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)：管理裝置的中繼資料的半結構化資料的可調整且完全編製索引的資料庫服務您佈建，例如屬性、 組態及安全性內容。 Azure Cosmos DB 提供高效能且高輸送量的處理、無從驗證結構描述的資料索引編製，以及豐富的 SQL 查詢介面。
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)：一個適用於半結構化資料的可調整、已完全編製索引的資料庫服務，可管理您所佈建裝置的中繼資料，例如屬性、設定與安全性屬性。 Azure Cosmos DB 提供高效能且高輸送量的處理、無從驗證結構描述的資料索引編製，以及豐富的 SQL 查詢介面。
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/):雲端可讓您能夠快速開發並部署低成本的分析解決方案來探索即時深入資訊從裝置、 感應器、 基礎結構和應用程式中處理的即時資料流。 來自這個完全受控服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
+* [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)：雲端中處理的即時串流讓您能夠快速開發並部署低成本的分析方案，以在第一時間提供裝置、感應器、基礎結構與應用程式的深入剖析資料。 來自這個完全受控服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
 
-* [在 azure App Service](https://azure.microsoft.com/services/app-service/):雲端平台來建置強大的 web 和行動裝置連接到任何地方; 資料的應用程式在雲端或內部部署。 建置吸引客戶參與的 iOS、Android 和 Windows 版行動應用程式。 與軟體即服務 (SaaS) 和企業應用程式整合，讓您能夠立即連線到數十種雲端服務和企業應用程式。 使用您愛用的語言 (.NET、Node.JS、PHP、Python 或 Java) 和整合式開發環境 (IDE) 撰寫程式碼，以前所未有的速度建置 Web 應用程式和 API。
+* [Azure App Service](https://azure.microsoft.com/services/app-service/)：一個雲端平台，可供建置功能強大的 Web 與行動應用程式來連接各地的資料；不論是在雲端還是內部部署環境內。 建置吸引客戶參與的 iOS、Android 和 Windows 版行動應用程式。 與軟體即服務 (SaaS) 和企業應用程式整合，讓您能夠立即連線到數十種雲端服務和企業應用程式。 使用您愛用的語言 (.NET、Node.JS、PHP、Python 或 Java) 和整合式開發環境 (IDE) 撰寫程式碼，以前所未有的速度建置 Web 應用程式和 API。
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/):Azure App service 的 Logic Apps 功能可協助您 IoT 解決方案整合到現有的特定業務系統並自動化工作流程。 Logic Apps 可讓開發人員設計從觸發程序開始，然後執行一系列步驟的工作流程 — 使用功能強大的連接器來與您的商務程序整合的規則和動作。 Logic Apps 提供與 SaaS、雲端架構及內部部署應用程式的廣大生態系統的即時連接。
+* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/)：Azure App Service 的 Logic Apps 功能可協助您將 IoT 解決方案整合到現有的企業營運系統並自動化工作流程處理。 Logic Apps 可讓開發人員設計從觸發程序開始，然後執行一系列步驟的工作流程 — 使用功能強大的連接器來與您的商務程序整合的規則和動作。 Logic Apps 提供與 SaaS、雲端架構及內部部署應用程式的廣大生態系統的即時連接。
 
-* [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/):您的裝置傳送至雲端之資料的可靠且符合經濟效益的雲端儲存體。
+* [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/)：可靠且符合經濟效益的雲端儲存體，適用於裝置要傳送到雲端的資料。
 
 ## <a name="conclusion"></a>結論
 

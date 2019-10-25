@@ -1,5 +1,6 @@
 ---
-title: 將使用 Microsoft Authenticator 從 ADAL.NET 到 MSAL.NET 的 Xamarin iOS 應用程式遷移 |Azure
+title: 將使用 Microsoft Authenticator ADAL.NET 的 Xamarin iOS 應用程式遷移至 MSAL.NET
+titleSuffix: Microsoft identity platform
 description: 瞭解如何將使用 Microsoft Authenticator 的 Xamarin iOS 應用程式，從適用于 .NET 的 Azure AD 驗證程式庫（ADAL.NET）遷移至 Microsoft Authentication Library for .NET （MSAL.NET）。
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfb2d7d33111f1adf998cd75446576d2010a365
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b05c93d5c13b0f0a462d566dc69b4238adfd34c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257784"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802801"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>將使用 Microsoft Authenticator 從 ADAL.NET 到 MSAL.NET 的 iOS 應用程式遷移
 
@@ -46,21 +47,21 @@ ms.locfileid: "71257784"
 
 ## <a name="migrate-from-adal-to-msal"></a>從 ADAL 遷移至 MSAL
 
-### <a name="step-1-enable-the-broker"></a>步驟 1:啟用訊息代理程式
+### <a name="step-1-enable-the-broker"></a>步驟1：啟用訊息代理程式
 
 <table>
 <tr><td>目前的 ADAL 程式碼：</td><td>MSAL 對應：</td></tr>
 <tr><td>
 在 ADAL.NET 中，已根據每個驗證內容來啟用 broker 支援。 此功能預設為停用。 您必須設定 
 
-`useBroker`在用來呼叫訊息`PlatformParameters`代理程式的函式中，將旗標設為 true：
+在 `PlatformParameters` 的函式中，`useBroker` 旗標設為 true，以呼叫訊息代理程式：
 
 ```CSharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
-此外，在此範例的平臺特定程式碼中，于 iOS 的頁面轉譯器中設定`useBroker` 
+此外，在此範例的平臺特定程式碼中，于 iOS 的頁面轉譯器中設定 `useBroker` 
 旗標設為 true：
 ```CSharp
 page.BrokerParameters = new PlatformParameters(
@@ -84,7 +85,7 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 在 MSAL.NET 中，會以每個 PublicClientApplication 為基礎啟用訊息代理程式支援。 此功能預設為停用。 若要啟用它，請使用 
 
-`WithBroker()`參數（預設為 true），以便呼叫訊息代理程式：
+`WithBroker()` 參數（預設為 true），以便呼叫訊息代理程式：
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -101,14 +102,14 @@ result = await app.AcquireTokenInteractive(scopes)
 ```
 </table>
 
-### <a name="step-2-set-a-uiviewcontroller"></a>步驟 2:設定 UIViewController （）
-在 ADAL.NET 中，您會在中傳入 UIViewController `PlatformParameters`。 （請參閱步驟1中的範例）。在 MSAL.NET 中，為了讓開發人員有更大的彈性，會使用物件視窗，但是一般 iOS 使用方式並不需要。 若要使用訊息代理程式，請設定 [物件] 視窗，以便傳送和接收來自訊息代理程式的回應。 
+### <a name="step-2-set-a-uiviewcontroller"></a>步驟2：設定 UIViewController （）
+在 ADAL.NET 中，您是以 `PlatformParameters`的一部分傳入 UIViewController。 （請參閱步驟1中的範例）。在 MSAL.NET 中，為了讓開發人員有更大的彈性，會使用物件視窗，但是一般 iOS 使用方式並不需要。 若要使用訊息代理程式，請設定 [物件] 視窗，以便傳送和接收來自訊息代理程式的回應。 
 <table>
 <tr><td>目前的 ADAL 程式碼：</td><td>MSAL 對應：</td></tr>
 <tr><td>
 UIViewController 會傳入 
 
-`PlatformParameters`在 iOS 特定平臺中。
+在 iOS 特定平臺中 `PlatformParameters`。
 
 ```CSharp
 page.BrokerParameters = new PlatformParameters(
@@ -119,8 +120,8 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 在 MSAL.NET 中，您會執行兩件事來設定 iOS 的物件視窗：
 
-1. 在`AppDelegate.cs`中， `App.RootViewController`將設定為`UIViewController()`新的。 此指派可確保有 UIViewController 與訊息代理程式的呼叫。 如果設定不正確，您可能會收到此錯誤：`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-1. 在 AcquireTokenInteractive 呼叫上，使用`.WithParentActivityOrWindow(App.RootViewController)`，並傳入您將使用之物件視窗的參考。
+1. 在 `AppDelegate.cs`中，將 `App.RootViewController` 設定為新的 `UIViewController()`。 此指派可確保有 UIViewController 與訊息代理程式的呼叫。 如果設定不正確，您可能會收到此錯誤： `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. 在 AcquireTokenInteractive 呼叫上，使用 `.WithParentActivityOrWindow(App.RootViewController)`，並傳入您將使用之物件視窗的參考。
 
 **例如：**
 
@@ -142,13 +143,13 @@ result = await app.AcquireTokenInteractive(scopes)
 
 </table>
 
-### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>步驟 3：更新 AppDelegate 以處理回呼
-ADAL 和 MSAL 都會呼叫 broker，而訊息代理程式會透過`OpenUrl` `AppDelegate`類別的方法，再次呼叫您的應用程式。 如需詳細資訊，請參閱[這份文件](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback)。
+### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>步驟3：更新 AppDelegate 以處理回呼
+ADAL 和 MSAL 都會呼叫 broker，而訊息代理程式會透過 `AppDelegate` 類別的 `OpenUrl` 方法，再次呼叫您的應用程式。 如需詳細資訊，請參閱[這份文件](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback)。
 
 ADAL.NET 與 MSAL.NET 之間沒有任何變更。
 
-### <a name="step-4-register-a-url-scheme"></a>步驟 4：註冊 URL 配置
-ADAL.NET 和 MSAL.NET 會使用 Url 叫用訊息代理程式，並將 broker 回應傳回給應用程式。 在應用程式的`Info.plist`檔案中註冊 URL 配置，如下所示：
+### <a name="step-4-register-a-url-scheme"></a>步驟4：註冊 URL 配置
+ADAL.NET 和 MSAL.NET 會使用 Url 叫用訊息代理程式，並將 broker 回應傳回給應用程式。 在應用程式的 `Info.plist` 檔案中註冊 URL 配置，如下所示：
 
 <table>
 <tr><td>目前的 ADAL 程式碼：</td><td>MSAL 對應：</td></tr>
@@ -157,11 +158,11 @@ URL 配置對您的應用程式而言是唯一的。
 </td><td>
 此 
 
-`CFBundleURLSchemes`名稱必須包含 
+`CFBundleURLSchemes` 名稱必須包含 
 
 `msauth.`
 
-作為前置詞，後面接著您的`CFBundleURLName`
+做為前置詞，後面接著您的 `CFBundleURLName`
 
 例如：`$"msauth.(BundleId")`
 
@@ -186,14 +187,14 @@ URL 配置對您的應用程式而言是唯一的。
 
 </table>
 
-### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>步驟 5：將 broker 識別碼新增至 LSApplicationQueriesSchemes 區段
+### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>步驟5：將 broker 識別碼新增至 LSApplicationQueriesSchemes 區段
 
-ADAL.NET 和 MSAL.NET 都用`-canOpenURL:`來檢查代理程式是否已安裝在裝置上。 將 iOS 代理程式的正確識別碼新增至 plist 檔案的 LSApplicationQueriesSchemes 區段，如下所示：
+ADAL.NET 和 MSAL.NET 都使用 `-canOpenURL:` 來檢查訊息代理程式是否已安裝在裝置上。 將 iOS 代理程式的正確識別碼新增至 plist 檔案的 LSApplicationQueriesSchemes 區段，如下所示：
 
 <table>
 <tr><td>目前的 ADAL 程式碼：</td><td>MSAL 對應：</td></tr>
 <tr><td>
-使用 
+使用方法 
 
 `msauth`
 
@@ -205,7 +206,7 @@ ADAL.NET 和 MSAL.NET 都用`-canOpenURL:`來檢查代理程式是否已安裝�
 </array>
 ```
 </td><td>
-使用 
+使用方法 
 
 `msauthv2`
 
@@ -218,7 +219,7 @@ ADAL.NET 和 MSAL.NET 都用`-canOpenURL:`來檢查代理程式是否已安裝�
 ```
 </table>
 
-### <a name="step-6-register-your-redirect-uri-in-the-portal"></a>步驟 6：在入口網站中註冊您的重新導向 URI
+### <a name="step-6-register-your-redirect-uri-in-the-portal"></a>步驟6：在入口網站中註冊您的重新導向 URI
 
 ADAL.NET 和 MSAL.NET 會在以訊息代理程式為目標時，對重新導向 URI 增加額外的需求。 在入口網站中向您的應用程式註冊重新導向 URI。
 <table>

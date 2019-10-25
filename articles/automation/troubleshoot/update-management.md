@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693397"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786051"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -163,7 +163,7 @@ Windows Update 可以由數個登錄機碼修改，其中任何一個都可以�
 
 ### <a name="resolution"></a>解析度
 
-藉[由編輯](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry)登錄和[用來管理重新開機](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)的登錄機碼來檢查列于 [設定自動更新] 底下的登錄機碼，以確保您的電腦已正確設定。
+藉[由編輯](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)登錄和[用來管理重新開機](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)的登錄機碼來檢查列于 [設定自動更新] 底下的登錄機碼，以確保您的電腦已正確設定。
 
 ## <a name="failed-to-start"></a>案例：電腦在更新部署中顯示「無法啟動」
 
@@ -210,7 +210,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>解析度
 
-@No__t_0 登錄機碼預設為4：**自動下載並安裝**的設定。
+`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` 登錄機碼預設為4：**自動下載並安裝**的設定。
 
 針對更新管理用戶端，建議您將此機碼設為3：**自動下載，但不要自動安裝**。
 
@@ -334,7 +334,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 > [!NOTE]
 > [Windows Update 疑難排解](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)員檔會指出它是用於 windows 用戶端，但它也適用于 windows Server。
 
-## <a name="scenario-update-run-returns-failed-status"></a>案例：更新執行會傳回「失敗」狀態
+## <a name="scenario-update-run-returns-failed-status-linux"></a>案例：更新執行會傳回「失敗」狀態（Linux）
 
 ### <a name="issue"></a>問題
 
@@ -367,7 +367,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 ### <a name="machines-dont-install-updates"></a>電腦不會安裝更新
 
 * 請嘗試直接在機器上執行更新。 如果電腦無法套用更新，請參閱[疑難排解指南中的潛在錯誤清單](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult)。
-* 如果更新在本機執行，請遵循[從更新管理移除 VM 中](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management)的指引，在電腦上移除並重新安裝代理程式。
+* 如果更新在本機執行，請遵循[從更新管理移除 VM 中](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources)的指引，在電腦上移除並重新安裝代理程式。
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>我知道有可用的更新，但它們在我的機器上並未顯示為可用
 

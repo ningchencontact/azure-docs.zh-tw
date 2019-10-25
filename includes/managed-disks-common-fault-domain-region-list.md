@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 984b6aed6ae1b36432b932afb7d0f9dfb0b2dc15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72247099"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72783549"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>每個區域的容錯網域數目
 
-| 區域              | 容錯網域的數目上限  |
+| 地區              | 容錯網域的數目上限  |
 |---------------------|-------------------------|
-| East US             | 3                       |
+| 美國東部             | 3                       |
 | 美國東部 2           | 3                       |
 | 美國西部             | 3                       |
 | 美國西部 2           | 2                       |
@@ -46,16 +46,16 @@ ms.locfileid: "72247099"
 | 中國東部 2        | 2                       |
 | 中國北部         | 2                       |
 | 中國北部 2       | 2                       |
-|
-| 澳洲東部      | 2                       |
+|                     |                         |
+| 澳大利亞東部      | 2                       |
 | 澳大利亞東南部 | 2                       |
-| 澳大利亞中部   | 2                       |
-| 澳大利亞中部 2 | 2                       |
+| 澳洲中部   | 2                       |
+| 澳洲中部 2 | 2                       |
 |                     |                         |
 | 巴西南部        | 2                       |
 |                     |                         |
-| 美國政府維吉尼亞州     | 2                       |
-| 美國政府德克薩斯州        | 2                       |
-| 美國政府亞利桑那州      | 2                       |
-| 美國國防部中央      | 2                       |
-| 美國 DoD 東部         | 2                       |
+| US Gov 維吉尼亞州     | 2                       |
+| US Gov 德克薩斯州        | 2                       |
+| US Gov 亞利桑那州      | 2                       |
+| US DoD 中部      | 2                       |
+| US DoD 東部         | 2                       |

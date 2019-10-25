@@ -1,21 +1,21 @@
 ---
-title: 將認知搜尋擴充的輸入欄位對應至輸出欄位 - Azure 搜尋服務
-description: 擷取並擴充來源資料欄位，並對應至 Azure 搜尋服務索引中的輸出欄位。
+title: 將 AI 豐富的輸入欄位對應至輸出欄位
+titleSuffix: Azure Cognitive Search
+description: 將源資料欄位解壓縮並擴充，並對應至 Azure 認知搜尋索引中的輸出欄位。
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265512"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792111"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>如何將擴充的欄位對應至可搜尋的索引
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>如何將 AI 擴充的欄位對應至可搜尋的索引
 
 在本文中，您可以了解如何將擴充的輸入欄位對應至可搜尋索引中的輸出欄位。 一旦具備[定義的技能集](cognitive-search-defining-skillset.md)，即必須將直接提供值之任何技能的輸出欄位，對應至搜尋索引中的指定欄位。 將內容從擴充的文件移至索引需要欄位對應。
 
@@ -72,4 +72,4 @@ sourceFieldName 中的路徑可以代表一個元素或多個元素。 在上述
 ## <a name="next-steps"></a>後續步驟
 一旦您將擴充欄位對應至可搜尋欄位，即可為每個可搜尋欄位將欄位屬性設定為[索引定義的一部分](search-what-is-an-index.md)。
 
-如需欄位對應的詳細資訊，請參閱 [Azure 搜尋服務索引子中的欄位對應](search-indexer-field-mappings.md)。
+如需欄位對應的詳細資訊，請參閱[Azure 認知搜尋索引子中的欄位](search-indexer-field-mappings.md)對應。

@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C （適用于 Android 的 Microsoft 驗證程式庫） |Azure
+title: Azure AD B2C （適用于 Android 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
 description: 瞭解使用 Azure AD B2C 搭配適用于 Android 的 Microsoft 驗證程式庫（MSAL）時的特定考慮。面向
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55356b19c8150c76858efb4edc593406c1722a4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679733"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803248"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>搭配 B2C 使用適用于 Android 的 MSAL
 
@@ -38,7 +39,7 @@ Microsoft 驗證程式庫 (MSAL) 可讓應用程式開發人員使用 [Azure Act
 - 編輯設定檔
     * 呼叫 `B2C_1_EditProfile`
 
-應用程式的設定檔會宣告兩個 `authorities`。 每個原則各一個。 每個授權單位的 `type` 屬性是 `B2C`。
+應用程式的設定檔會宣告兩個 `authorities`。 每個原則各一個。 每個授權單位的 `type` 屬性 `B2C`。
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -58,7 +59,7 @@ Microsoft 驗證程式庫 (MSAL) 可讓應用程式開發人員使用 [Azure Act
 }
 ```
 
-@No__t-0 必須在應用程式設定中註冊，也可以在 `AndroidManifest.xml` 中，以在[授權碼授與流程](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)期間支援重新導向。
+`redirect_uri` 必須在應用程式設定中註冊，也可以在 `AndroidManifest.xml` 中，以在[授權碼授與流程](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)期間支援重新導向。
 
 ## <a name="initialize-ipublicclientapplication"></a>初始化 IPublicClientApplication
 
@@ -85,7 +86,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>以互動方式取得權杖
 
-若要以互動方式使用 MSAL 取得權杖，請建立 @no__t 0 實例，並將其提供給 @no__t 1 方法。 下面的權杖要求會使用 @no__t 0 授權單位。
+若要以互動方式使用 MSAL 取得權杖，請建立 `AcquireTokenParameters` 實例，並將其提供給 `acquireToken` 方法。 下面的權杖要求會使用 `default` 授權單位。
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -116,7 +117,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>以無訊息方式更新權杖
 
-若要使用 MSAL 以無訊息方式取得權杖，請建立 @no__t 0 實例，並將其提供給 @no__t 1 方法。 不同于 `acquireToken` 方法，必須指定 `authority`，以無訊息方式取得權杖。
+若要使用 MSAL 以無訊息方式取得權杖，請建立 `AcquireTokenSilentParameters` 實例，並將其提供給 `acquireTokenSilentAsync` 方法。 不同于 `acquireToken` 方法，必須指定 `authority` 以無訊息方式取得權杖。
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -143,7 +144,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>指定原則
 
-因為 B2C 中的原則是以個別的授權單位來表示，所以當您在建立 `acquireToken` 或 @no__t 2 參數時指定 @no__t 0 子句，就可以叫用預設值以外的原則。  例如:
+因為 B2C 中的原則是以個別的授權單位來表示，所以當您在建立 `acquireToken` 或 `acquireTokenSilent` 參數時指定 `fromAuthority` 子句，就可以叫用預設值以外的原則。  例如：
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -161,7 +162,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 相反地，錯誤碼 `AADB2C90118` 會傳回給您的應用程式。 您的應用程式應該藉由執行可重設密碼的特定使用者流程來處理此錯誤碼。
 
-若要攔截密碼重設錯誤碼，可以在 `AuthenticationCallback` 內使用下列執行：
+若要攔截密碼重設錯誤碼，可以在 `AuthenticationCallback`內使用下列執行：
 
 ```java
 new AuthenticationCallback() {
@@ -189,7 +190,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>使用 IAuthenticationResult
 
-成功取得權杖會導致 @no__t 0 物件。 其中包含存取權杖、使用者宣告和中繼資料。
+成功取得權杖會產生 `IAuthenticationResult` 物件。 其中包含存取權杖、使用者宣告和中繼資料。
 
 ### <a name="get-the-access-token-and-related-properties"></a>取得存取權杖和相關屬性
 
@@ -219,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function
@@ -231,15 +232,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken 宣告
 
-IdToken 中傳回的宣告會由安全性權杖服務（STS）填入，而不是由 MSAL。 視所使用的識別提供者（IdP）而定，某些宣告可能不存在。 有些 Idp 目前未提供 @no__t 0 的宣告。 由於 MSAL 會使用此宣告來進行快取，因此會在其位置使用預留位置值 `MISSING FROM THE TOKEN RESPONSE`。 如需有關 B2C IdToken 宣告的詳細資訊，請參閱[Azure Active Directory B2C 中的權杖總覽](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims)。
+IdToken 中傳回的宣告會由安全性權杖服務（STS）填入，而不是由 MSAL。 視所使用的識別提供者（IdP）而定，某些宣告可能不存在。 某些 Idp 目前未提供 `preferred_username` 宣告。 由於 MSAL 會使用此宣告來進行快取，因此會在其位置使用預留位置值 `MISSING FROM THE TOKEN RESPONSE`。 如需有關 B2C IdToken 宣告的詳細資訊，請參閱[Azure Active Directory B2C 中的權杖總覽](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims)。
 
 ## <a name="managing-accounts-and-policies"></a>管理帳戶和原則
 
-B2C 會將每個原則視為個別的授權單位。 因此，從每個原則傳回的存取權杖、重新整理權杖和識別碼權杖無法互換。 這表示每個原則會傳回個別的 @no__t 0 物件，其權杖無法用來叫用其他原則。
+B2C 會將每個原則視為個別的授權單位。 因此，從每個原則傳回的存取權杖、重新整理權杖和識別碼權杖無法互換。 這表示每個原則都會傳回不同的 `IAccount` 物件，其權杖無法用來叫用其他原則。
 
-每個原則都會將 `IAccount` 新增至每個使用者的快取。 如果使用者登入應用程式，並叫用兩個原則，則會有兩個 @no__t 0-0。 若要從快取中移除此使用者，您必須針對每個原則呼叫 `removeAccount()`。
+每個原則都會將 `IAccount` 新增至每個使用者的快取。 如果使用者登入應用程式，並叫用兩個原則，則會有兩個 `IAccount`s。 若要從快取中移除此使用者，您必須針對每個原則呼叫 `removeAccount()`。
 
-當您使用 `acquireTokenSilent` 來更新原則的權杖時，請提供從先前的原則調用傳回給 `AcquireTokenSilentParameters` 的相同 `IAccount`。 提供另一個原則所傳回的帳戶會導致錯誤。
+當您使用 `acquireTokenSilent`來更新原則的權杖時，請提供從先前的原則調用傳回給 `AcquireTokenSilentParameters`的相同 `IAccount`。 提供另一個原則所傳回的帳戶會導致錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 

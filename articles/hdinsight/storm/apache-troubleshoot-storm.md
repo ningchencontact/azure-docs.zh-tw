@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70030c9014e83984b2cd493ba0d3b2a36180feb3
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: f307d6245b107fdbd3c6d6baafa5a162988235da
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575079"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800002"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Storm 進行疑難排解
 
@@ -36,7 +36,7 @@ ms.locfileid: "69575079"
 
 `https://<cluster DNS name>/stormui`
 
-範例： `https://stormcluster.azurehdinsight.net/stormui`
+範例：`https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm 事件中樞 Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲？
 
@@ -46,9 +46,9 @@ ms.locfileid: "69575079"
 
 事件中樞 Spout 會將位移的檢查點資料儲存在 ZooKeeper 的兩個根路徑中：
 
-- 非交易式 spout 檢查點`/eventhubspout`會儲存在中。
+- 非交易式 spout 檢查點會儲存在 `/eventhubspout`中。
 
-- 交易式 spout 檢查點資料會`/transactional`儲存在中。
+- 交易式 spout 檢查點資料會儲存在 `/transactional`中。
 
 ### <a name="how-to-restore"></a>還原方式
 
@@ -65,7 +65,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 #### <a name="export-offset-metadata"></a>匯出位移中繼資料
 
 1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯出檢查點位移。
-2. 執行下列命令 (在您更新 HDP 版本字串之後), 以將 ZooKeeper 位移資料匯出至`/stormmetadta/zkdata` HDFS 路徑:
+2. 執行下列命令（在您更新 HDP 版本字串之後），以將 ZooKeeper 位移資料匯出至 `/stormmetadta/zkdata` HDFS 路徑：
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +74,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 #### <a name="import-offset-metadata"></a>匯入位移中繼資料
 
 1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯入檢查點位移。
-2. 執行下列命令 (在您更新 HDP 版本字串之後), 以將 ZooKeeper 位移資料從 HDFS 路徑`/stormmetadata/zkdata`匯入到目標叢集上的 ZooKeeper 伺服器:
+2. 執行下列命令（在您更新 HDP 版本字串之後），以將 ZooKeeper 位移資料從 HDFS 路徑匯入到目標叢集上的 ZooKeeper 伺服器 `/stormmetadata/zkdata`：
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +91,9 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>如何找出叢集上的 Storm 二進位檔？
 
-目前 HDP 堆疊`/usr/hdp/current/storm-client`的風暴二進位檔位於。 前端節點和背景工作節點使用相同的位置。
+目前 HDP 堆疊的風暴二進位檔在 `/usr/hdp/current/storm-client`中。 前端節點和背景工作節點使用相同的位置。
 
-/Usr/hdp 中的特定 HDP 版本可能會有多個二進位檔 ( `/usr/hdp/2.5.0.1233/storm`例如)。 此`/usr/hdp/current/storm-client`資料夾會了符號連結至叢集中執行的最新版本。
+/Usr/hdp 中的特定 HDP 版本可能會有多個二進位檔（例如 `/usr/hdp/2.5.0.1233/storm`）。 `/usr/hdp/current/storm-client` 資料夾會了符號連結到在叢集上執行的最新版本。
 
 如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/) \(英文\)。
 
@@ -104,7 +104,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 * 閘道節點
 * 前端節點
 * ZooKeeper 節點
-* 背景工作節點
+* 背景工作角色節點
 
 ### <a name="gateway-nodes"></a>閘道節點
 
@@ -124,7 +124,7 @@ HDInsight 隨附一個三節點的 ZooKeeper 仲裁。 仲裁大小是固定的�
 
 叢集中的 Storm 服務已設定為自動使用 ZooKeeper 仲裁。
 
-### <a name="worker-nodes"></a>背景工作節點
+### <a name="worker-nodes"></a>背景工作角色節點
 
 Storm 背景工作節點執行下列服務：
 * 監督員
@@ -137,7 +137,7 @@ Storm 背景工作節點執行下列服務：
 
 ### <a name="java-based-topology"></a>Java 型拓撲
 
-[使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C# 型拓撲 (HDInsight 3.4+ Linux Storm 叢集上的 Mono)
 
@@ -145,7 +145,7 @@ Storm 背景工作節點執行下列服務：
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>適用於 HDInsight 3.5+ Linux Storm 叢集的最新 Apache Storm 事件中樞 Spout 二進位檔
 
-若要瞭解如何使用與 HDInsight 3.5 + Linux 風暴叢集搭配運作的最新風暴事件中樞 spout, 請參閱[mvn-存放庫讀我檔案](https://github.com/hdinsight/mvn-repo/blob/master/README.md)。
+若要瞭解如何使用與 HDInsight 3.5 + Linux 風暴叢集搭配運作的最新風暴事件中樞 spout，請參閱[mvn-存放庫讀我檔案](https://github.com/hdinsight/mvn-repo/blob/master/README.md)。
 
 ### <a name="source-code-examples"></a>原始程式碼範例
 
@@ -157,15 +157,15 @@ Storm 背景工作節點執行下列服務：
 
 ### <a name="on-head-nodes"></a>在前端節點上
 
-Nimbus Log4J 設定是從`/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`讀取。
+Nimbus Log4J 設定是從 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`讀取。
 
 ### <a name="on-worker-nodes"></a>在背景工作節點上
 
-監督員 Log4J 設定是從`/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`讀取。
+`/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`會讀取監督員 Log4J 設定。
 
-背景工作 Log4J 設定檔是從`/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`讀取。
+背景工作 Log4J 設定檔會從 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`讀取。
 
-典型`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+範例： `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ## <a name="next-steps"></a>後續步驟
@@ -174,6 +174,6 @@ Nimbus Log4J 設定是從`/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`讀�
 
 - 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+- 連接[@AzureSupport](https://twitter.com/azuresupport) -用來改善客戶體驗的官方 Microsoft Azure 帳戶。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

@@ -1,18 +1,18 @@
 ---
-title: 設定 MACsec-ExpressRoute：Azure | Microsoft Docs
+title: 設定 MACsec-ExpressRoute： Azure |Microsoft Docs
 description: 本文可協助您設定 MACsec，以保護您的邊緣路由器與 Microsoft 邊緣路由器之間的連線。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: eeaa709b88ca795d906fe3688301b4cd7d8c726e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 39cf6b2d0f6d8ea3e894e46a9294a671780225d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244123"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793853"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>在 ExpressRoute Direct 埠上設定 MACsec
 
@@ -38,7 +38,7 @@ ms.locfileid: "72244123"
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1.建立 Azure Key Vault、MACsec 秘密和使用者身分識別
+## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. 建立 Azure Key Vault、MACsec 秘密和使用者身分識別
 
 1. 建立 Key Vault 實例，以將 MACsec 秘密儲存在新的資源群組中。
 
@@ -85,7 +85,7 @@ ms.locfileid: "72244123"
     $erIdentity = New-AzExpressRoutePortIdentity -UserAssignedIdentityId $identity.Id
     ```
  
-## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2.在 ExpressRoute Direct 埠上設定 MACsec
+## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. 在 ExpressRoute Direct 埠上設定 MACsec
 
 ### <a name="to-enable-macsec"></a>若要啟用 MACsec
 
@@ -97,10 +97,10 @@ ms.locfileid: "72244123"
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
     $erDirect.Links[0]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[0]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[0]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[0]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.Links[1]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[1]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[1]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[1]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```

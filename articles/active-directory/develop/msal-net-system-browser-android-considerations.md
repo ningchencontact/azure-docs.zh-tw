@@ -1,6 +1,7 @@
 ---
-title: Xamarin Android 考慮 (適用于 .NET 的 Microsoft 驗證程式庫) |Azure
-description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 使用 Xamarin Android 時的特定考慮。
+title: Xamarin Android 考慮（適用于 .NET 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
+description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）使用 Xamarin Android 時的特定考慮。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -17,39 +18,39 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b0c810097913e896027245b15600ed75aabcd25
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 8f5caad4b136c9ef2686cc4befc70e6720e27855
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532570"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802745"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin Android 特定考慮
-本文討論在 Xamarin Android 上使用系統瀏覽器搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 時的特定考慮。
+本文討論在 Xamarin Android 上使用系統瀏覽器搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 
-從 MSAL.NET 2.4.0-preview 開始, MSAL.NET 支援 Chrome 以外的瀏覽器, 且不再需要在 Android 裝置上安裝 Chrome 來進行驗證。
+從 MSAL.NET 2.4.0-preview 開始，MSAL.NET 支援 Chrome 以外的瀏覽器，且不再需要在 Android 裝置上安裝 Chrome 來進行驗證。
 
-建議您使用支援自訂索引標籤的瀏覽器, 例如:
+建議您使用支援自訂索引標籤的瀏覽器，例如：
 
 | 具有自訂索引標籤支援的瀏覽器 | 封裝名稱 |
 |------| ------- |
-|Chrome | com.android.chrome|
-|Microsoft Edge | com.microsoft.emmx|
+|Chrome | .com. chrome|
+|Microsoft Edge | emmx|
 |Firefox | 組織 mozilla. firefox|
-|Ecosia | com.ecosia.android|
-|奇異果 | com.kiwibrowser.browser|
-|美麗 | com.brave.browser|
+|Ecosia | ecosia android|
+|奇異果 | kiwibrowser. 瀏覽器|
+|美麗 | 美麗. 瀏覽器|
 
-除了具有自訂索引標籤支援的瀏覽器, 根據我們的測試, 有些不支援自訂索引標籤的瀏覽器也適用于驗證:Opera、Opera 迷你、InBrowser 和 Maxthon。 如需詳細資訊, 請參閱[資料表以取得測試結果](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested)。
+除了具有自訂索引標籤支援的瀏覽器，根據我們的測試，有些不支援自訂索引標籤的瀏覽器也適用于驗證： Opera、Opera 迷你、InBrowser 和 Maxthon。 如需詳細資訊，請參閱[資料表以取得測試結果](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested)。
 
 ## <a name="known-issues"></a>已知問題
 
-- 如果使用者未在裝置上啟用瀏覽器, MSAL.NET 將會擲`AndroidActivityNotFound`回例外狀況。 
-  - **降低風險**：通知使用者他們應該在其裝置上啟用瀏覽器 (最好是具有自訂索引標籤的帳戶)。
+- 如果使用者未在裝置上啟用瀏覽器，MSAL.NET 將會擲回 `AndroidActivityNotFound` 例外狀況。 
+  - **緩和**：通知使用者他們應該在其裝置上啟用瀏覽器（最好是具有自訂索引標籤的帳戶）。
 
-- 如果驗證失敗 (例如 驗證會以 DuckDuckGo 啟動), MSAL.NET 將會`AuthenticationCanceled MsalClientException`傳回。 
-  - **根本問題**:裝置上未啟用具有自訂索引標籤支援的瀏覽器。 以替代的瀏覽器啟動驗證, 但無法完成驗證。 
-  - **降低風險**：通知使用者他們應該在其裝置上安裝瀏覽器 (最好是具有自訂索引標籤支援的應用程式)。
+- 如果驗證失敗（例如 驗證會以 DuckDuckGo 啟動），MSAL.NET 會傳回 `AuthenticationCanceled MsalClientException`。 
+  - **根本問題**：裝置上未啟用具有自訂索引標籤支援的瀏覽器。 以替代的瀏覽器啟動驗證，但無法完成驗證。 
+  - **緩和**：通知使用者他們應該在其裝置上安裝瀏覽器（最好是具有自訂索引標籤支援的應用程式）。
 
 ## <a name="devices-and-browsers-tested"></a>已測試的裝置和瀏覽器
 下表列出已測試過的裝置和瀏覽器。
@@ -57,7 +58,7 @@ ms.locfileid: "69532570"
 | | 瀏覽器&ast;     |  結果  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/一 + | Chrome&ast; | 通過|
-| Huawei/一 + | 下邊&ast; | 通過|
+| Huawei/一 + | Edge&ast; | 通過|
 | Huawei/一 + | Firefox&ast; | 通過|
 | Huawei/一 + | 美麗&ast; | 通過|
 | 一個 + | Ecosia&ast; | 通過|
@@ -72,7 +73,7 @@ ms.locfileid: "69532570"
 | 一個 + | CM 瀏覽器 | 使用者已取消驗證|
 | Huawei/一 + | 未安裝 | AndroidActivityNotFound ex|
 
-&ast;支援自訂索引標籤
+&ast; 支援自訂索引標籤
 
 ## <a name="next-steps"></a>後續步驟
-如需有關在 Xamarin Android 上使用系統瀏覽器的程式碼片段和其他資訊, 請閱讀本[指南](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)。  
+如需有關在 Xamarin Android 上使用系統瀏覽器的程式碼片段和其他資訊，請閱讀本[指南](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)。  

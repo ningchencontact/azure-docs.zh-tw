@@ -1,6 +1,7 @@
 ---
-title: 使用適用于 .NET 的 Microsoft 驗證程式庫清除權杖快取-Azure
-description: 瞭解如何使用適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 清除權杖快取。
+title: 使用適用于 .NET 的 Microsoft 驗證程式庫清除權杖快取
+titleSuffix: Microsoft identity platform
+description: 瞭解如何使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）清除權杖快取。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -17,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cee6443db0b019f79a80cf5b7c0e2a7a50240f2
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 4bd48078ec87b085a71ee23006d18917881894bf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532654"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802922"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>使用 MSAL.NET 清除權杖快取
 
-當您使用適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET)[取得存取權杖](msal-acquire-cache-tokens.md)時, 會快取權杖。 當應用程式需要權杖時, 它應該會先呼叫`AcquireTokenSilent`方法, 以確認快取中是否有可接受的 token。 
+當您使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）[取得存取權杖](msal-acquire-cache-tokens.md)時，會快取權杖。 當應用程式需要權杖時，應該先呼叫 `AcquireTokenSilent` 方法，以確認快取中是否有可接受的 token。 
 
-藉由從快取中移除帳戶來清除快取。 但這不會移除瀏覽器中的工作階段 Cookie。  下列範例會具現化公用用戶端應用程式、取得應用程式的帳戶, 並移除帳戶。
+藉由從快取中移除帳戶來清除快取。 但這不會移除瀏覽器中的工作階段 Cookie。  下列範例會具現化公用用戶端應用程式、取得應用程式的帳戶，並移除帳戶。
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -50,4 +51,4 @@ while (accounts.Any())
 
 ```
 
-若要深入瞭解如何取得和快取權杖, 請參閱[取得存取權杖](msal-acquire-cache-tokens.md)。
+若要深入瞭解如何取得和快取權杖，請參閱[取得存取權杖](msal-acquire-cache-tokens.md)。

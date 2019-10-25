@@ -1,19 +1,19 @@
 ---
-title: 範例：使用 Bing 實體搜尋 API 建立自訂認知技能-Azure 搜尋服務
-description: 示範在 Azure 搜尋服務中對應至認知搜尋索引管線的自訂技能中，使用 Bing 實體搜尋服務。
+title: 範例：使用 Bing 實體搜尋 API 建立自訂認知技能
+titleSuffix: Azure Cognitive Search
+description: 示範如何在 Azure 認知搜尋中對應至 AI 擴充索引管線的自訂技能中使用 Bing 實體搜尋服務。
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: ab2f9e8859fba0c906e181727aab923254e9b620
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692207"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784941"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>範例：使用 Bing 實體搜尋 API 建立自訂技能
 
@@ -69,7 +69,7 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {

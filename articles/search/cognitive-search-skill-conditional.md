@@ -1,24 +1,23 @@
 ---
-title: 條件式認知搜尋技能（Azure 搜尋服務） |Microsoft Docs
-description: 條件式技能可讓您篩選、建立預設值，以及合併值。
-services: search
+title: 條件式認知技能
+titleSuffix: Azure Cognitive Search
+description: Azure 認知搜尋中的條件式技能可讓您篩選、建立預設值，以及合併技能集定義中的值。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265804"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792036"
 ---
-#   <a name="conditional-skill"></a>條件式技能
+# <a name="conditional-cognitive-skill"></a>條件式認知技能
 
-*條件式技能*可讓需要布耳運算的 Azure 搜尋服務案例判斷要指派給輸出的資料。 這些案例包括篩選、指派預設值，以及根據條件來合併資料。
+**條件**式技能可讓需要布耳運算的 Azure 認知搜尋案例，判斷要指派給輸出的資料。 這些案例包括篩選、指派預設值，以及根據條件來合併資料。
 
 下列虛擬代碼示範條件式技能的完成：
 
@@ -33,7 +32,7 @@ else
 > 這項技能不會系結至 Azure 認知服務 API，您不需支付使用它的費用。 不過，您仍然應該[附加認知服務資源](cognitive-search-attach-cognitive-services.md)來覆寫「免費」資源選項，這會限制您每天的少量擴充。
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ConditionalSkill
+Util. ConditionalSkill
 
 
 ## <a name="evaluated-fields"></a>評估的欄位
@@ -44,14 +43,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 -   注釋路徑（運算式中的路徑必須以 "$ （" 和 "）" 分隔）
  <br/>
-    例如：
+    範例：
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
 -  常值（字串、數位、true、false、null） <br/>
-    例如：
+    範例：
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
@@ -60,21 +59,21 @@ Microsoft.Skills.Util.ConditionalSkill
     ```
 
 -  使用比較運算子（= =、！ =、> =、>、< =、<）的運算式 <br/>
-    例如：
+    範例：
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
 -   使用布林運算子（& &、| |、！、^）的運算式 <br/>
-    例如：
+    範例：
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
--   使用數值運算子（+、-、 \*、/、%）的運算式 <br/>
-    例如： 
+-   使用數值運算子（+、-、\*、/、%）的運算式 <br/>
+    範例： 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
         "= $(/document/totalValue) * 1.10"       // multiplication
@@ -86,18 +85,18 @@ Microsoft.Skills.Util.ConditionalSkill
 ## <a name="skill-inputs"></a>技能輸入
 輸入會區分大小寫。
 
-| Input   | 描述 |
+| 輸入   | 描述 |
 |-------------|-------------|
-| condition (條件)   | 此輸入是一個[評估的欄位](#evaluated-fields)，代表要評估的條件。 此條件應評估為布林值（*true*或*false*）。   <br/>  例如： <br/> "= true" <br/> "= $ （/document/language） = = ' fr '" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | 如果條件評估為*true*，則此輸入是一個已[評估的欄位](#evaluated-fields)，代表要傳回的值。 常數位符串應該以單引號（' 和 '）來傳回。 <br/>範例值： <br/> "= 'contract'"<br/>"= $ （/document/contractType）" <br/> "= $ （/document/entities/\*）" <br/> |
-| whenFalse   | 如果條件評估為*false*，則此輸入是一個[評估的欄位](#evaluated-fields)，代表要傳回的值。 <br/>範例值： <br/> "= 'contract'"<br/>"= $ （/document/contractType）" <br/> "= $ （/document/entities/\*）" <br/>
+| condition   | 此輸入是一個[評估的欄位](#evaluated-fields)，代表要評估的條件。 此條件應評估為布林值（*true*或*false*）。   <br/>  範例： <br/> "= true" <br/> "= $ （/document/language） = = ' fr '" <br/> "= $ （/document/pages/\*/language） = = $ （/document/expectedLanguage）" <br/> |
+| whenTrue    | 如果條件評估為*true*，則此輸入是一個已[評估的欄位](#evaluated-fields)，代表要傳回的值。 常數位符串應該以單引號（' 和 '）來傳回。 <br/>範例值： <br/> "= ' 合約 '"<br/>"= $ （/document/contractType）" <br/> "= $ （/document/entities/\*）" <br/> |
+| whenFalse   | 如果條件評估為*false*，則此輸入是一個[評估的欄位](#evaluated-fields)，代表要傳回的值。 <br/>範例值： <br/> "= ' 合約 '"<br/>"= $ （/document/contractType）" <br/> "= $ （/document/entities/\*）" <br/>
 
 ## <a name="skill-outputs"></a>技能輸出
 有一個簡單的輸出，就是所謂的「輸出」。 如果條件為 false，則會傳回*whenFalse*值，如果條件為 true，則傳回*whenTrue* 。
 
 ## <a name="examples"></a>範例
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>範例技能定義1：篩選檔以僅傳回法文檔
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>範例技能定義1：篩選檔以只傳回法文檔
 
 如果檔的語言為法文，下列輸出會傳回句子的陣列（"/document/frenchSentences"）。 如果語言不是法文，此值會設定為*null*。
 
@@ -133,7 +132,7 @@ Microsoft.Skills.Util.ConditionalSkill
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>範例技能定義3：將兩個欄位的值合併成一個
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>範例技能定義3：將兩個欄位中的值合併成一個
 
 在此範例中，有些句子具有*frenchSentiment*屬性。 每當*frenchSentiment*屬性為 null 時，我們會想要使用*englishSentiment*值。 我們會將輸出指派給名為*情感*（"/document/sentiment/*/sentiment"）的成員。
 
@@ -176,5 +175,5 @@ Microsoft.Skills.Util.ConditionalSkill
 
 ## <a name="next-steps"></a>後續步驟
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [內建技能](cognitive-search-predefined-skills.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md)

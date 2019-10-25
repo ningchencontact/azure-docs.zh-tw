@@ -1,27 +1,27 @@
 ---
-title: 範例：將 AdventureWorks 詳細目錄資料庫模型化 - Azure 搜尋服務
-description: 了解如何在「Azure 搜尋服務」中將關聯式資料模型化、將其轉換成扁平化資料集，以供編製索引及進行全文檢索搜尋。
+title: 範例：模型 AdventureWorks 清查資料庫
+titleSuffix: Azure Cognitive Search
+description: 瞭解如何建立關聯式資料的模型，並將其轉換成簡維資料集，以便在 Azure 認知搜尋中編制索引和進行全文檢索搜尋。
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
-ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274027"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792998"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>範例：為 Azure 認知搜尋的 AdventureWorks 清查資料庫建立模型
 
-Azure 搜尋服務接受壓平合併的資料列集做為[索引 (資料內嵌) 管線](search-what-is-an-index.md)的輸入。 如果您的來源資料源自 SQL Server 關係資料庫, 本文將示範如何使用 AdventureWorks 範例資料庫做為範例, 在編制索引之前建立簡維資料列集的一種方法。
+Azure 認知搜尋會接受壓平合併的資料列集做為[索引（資料內嵌）管線](search-what-is-an-index.md)的輸入。 如果您的來源資料源自 SQL Server 關係資料庫，本文將示範如何使用 AdventureWorks 範例資料庫做為範例，在編制索引之前建立簡維資料列集的一種方法。
 
 ## <a name="about-adventureworks"></a>關於 AdventureWorks
 
-如果您有 SQL Server 實例, 您可能會熟悉[AdventureWorks 範例資料庫](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)。 在此資料庫所包含的資料表中，有 5 個公開產品資訊的資料表。
+如果您有 SQL Server 實例，您可能會熟悉[AdventureWorks 範例資料庫](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)。 在此資料庫所包含的資料表中，有 5 個公開產品資訊的資料表。
 
 + **ProductModel**：name
 + **Product**：name、color、cost、size、weight、image、category (每個資料列都聯結至特定 ProductModel)
@@ -29,7 +29,7 @@ Azure 搜尋服務接受壓平合併的資料列集做為[索引 (資料內嵌) 
 + **ProductModelProductDescription**：locale (每個資料列都將 ProductModel 聯結至特定語言的特定 ProductDescription)
 + **ProductCategory**：name、parent category
 
-將所有這項資料結合成一個可內嵌到搜尋索引的簡維資料列集, 就是這個範例的目標。 
+將所有這項資料結合成一個可內嵌到搜尋索引的簡維資料列集，就是這個範例的目標。 
 
 ## <a name="considering-our-options"></a>考量我們的選項
 
@@ -43,13 +43,13 @@ Azure 搜尋服務接受壓平合併的資料列集做為[索引 (資料內嵌) 
 
 ## <a name="use-a-collection-data-type"></a>使用 Collection 資料類型
 
-「正確的方法」是利用在資料庫模型中沒有直接相似功能的搜尋結構描述功能：**Collection(Edm.String)** 。 此結構定義于 Azure 搜尋服務索引架構中。 當您需要代表個別字串的清單, 而不是非常長的 (單一) 字串時, 會使用集合資料類型。 如果您有標籤或關鍵字，便會將 Collection 資料類型用於此欄位。
+「正確的方法」是利用在資料庫模型中沒有直接平行的搜尋架構功能： **Collection （Edm. String）** 。 此結構定義于 Azure 認知搜尋索引架構中。 當您需要代表個別字串的清單，而不是非常長的（單一）字串時，會使用集合資料類型。 如果您有標籤或關鍵字，便會將 Collection 資料類型用於此欄位。
 
 藉由為 "color"、"size" 及 "image 定義 **Collection(Edm.String)** 的多重值索引欄位，便得以保留輔助資訊以供建立 Facet 和篩選，而不會因重複項目而弄亂索引。 同樣地，請將彙總函式套用至數值 Product 欄位，其中為 **minListPrice** 編製索引，而不要為每個單一產品 **listPrice** 編製索引。
 
 如果索引具有這些結構，則搜尋「登山車」時，會顯示離散的單車型號，同時又保留重要的中繼資料，例如色彩、大小及最低價格。 以下螢幕擷取畫面提供說明。
 
-  ![登山車搜尋範例](./media/search-example-adventureworks/mountain-bikes-visual.png "登山車搜尋範例")
+  ![山區自行車搜尋範例](./media/search-example-adventureworks/mountain-bikes-visual.png "山區自行車搜尋範例")
 
 ## <a name="use-script-for-data-manipulation"></a>使用指令碼來操作資料
 
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [範例：Azure 搜尋服務中的多層級 Facet 分類法](search-example-adventureworks-multilevel-faceting.md)
+> [範例： Azure 認知搜尋中的多層級 facet 分類](search-example-adventureworks-multilevel-faceting.md)

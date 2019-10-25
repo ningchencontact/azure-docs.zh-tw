@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 7b9d3791d44e9541df7fc95c34b5e8c83a4295b3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5632ccf6c9b9cb67d169c5b60f1adefd85b576b8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078397"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791651"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
 
@@ -71,13 +71,13 @@ ms.locfileid: "70078397"
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
 * [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [適用于 SAP On Linux 的 Azure 虛擬機器規劃和執行][planning-guide]指南。
-* [適用于 SAP On Linux 的 Azure 虛擬機器部署][deployment-guide](本文)。
+* [適用于 SAP On Linux 的 Azure 虛擬機器部署][deployment-guide]（本文）。
 * [適用于 SAP On Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]指南。
 * [適用于 SAP 應用程式的 SUSE Linux Enterprise Server 12 SP3 最佳做法指南][sles-for-sap-bp]
   * 設定 SAP HANA SR 效能最佳化基礎結構 (SLES for SAP Applications 12 SP1)。 此指南包含所有必要資訊，可供您設定 SAP HANA 系統複寫以供內部部署開發之用。 請使用此指南做為基礎。
   * 設定 SAP HANA SR 成本最佳化基礎結構 (SLES for SAP Applications 12 SP1)
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 為了達到高可用性，SAP HANA 會安裝在兩個虛擬機器上。 資料會使用「HANA 系統複寫」進行複寫。
 
@@ -85,7 +85,7 @@ ms.locfileid: "70078397"
 
 SAP HANA 系統複寫設定會使用專用的虛擬主機名稱和虛擬 IP 位址。 在 Azure 上必須有負載平衡器才能使用虛擬 IP 位址。 下列清單顯示負載平衡器的組態：
 
-* 前端組態：hn1-db 的 IP 位址 10.0.0.13
+* 前端組態：IP 位址 10.0.0.13 (針對 hn1-db)
 * 後端組態：連線到應屬於 HANA 系統複寫一部分的所有虛擬機器的主要網路介面
 * 探查連接埠：連接埠 62503
 * 負載平衡規則：30313 TCP、30315 TCP、30317 TCP
@@ -101,18 +101,18 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 若要部署範本，請遵循下列步驟：
 
 1. 在 Azure 入口網站上開啟[資料庫範本][template-multisid-db]或交集[範本][template-converged]。 
-    資料庫範本只會針對資料庫建立負載平衡規則。 交集範本還會針對 ASCS/SCS 和 ERS (僅限 Linux) 執行個體建立負載平衡規則。 如果您計畫安裝以 SAP NetWeaver 為基礎的系統, 而您想要在相同的電腦上安裝 ASCS/SCS 實例, 請使用交集[範本][template-converged]。
+    資料庫範本只會針對資料庫建立負載平衡規則。 交集範本還會針對 ASCS/SCS 和 ERS (僅限 Linux) 執行個體建立負載平衡規則。 如果您計畫安裝以 SAP NetWeaver 為基礎的系統，而您想要在相同的電腦上安裝 ASCS/SCS 實例，請使用交集[範本][template-converged]。
 
 1. 輸入下列參數：
-    - **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
-    - **堆疊類型**：(此參數只有在您使用交集範本時才適用)。選取 SAP NetWeaver 堆疊類型。
-    - **OS 類型**：選取一個 Linux 發行版本。 在此範例中，請選取 **SLES 12**。
+    - **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
+    - **堆疊類型**：（此參數只有在您使用交集範本時才適用）。選取 [SAP NetWeaver] 堆疊類型。
+    - **OS 類型**：選取其中一個 Linux 發行版本。 在此範例中，請選取 **SLES 12**。
     - **DB 類型**：選取 **HANA**。
     - **SAP 系統大小**：輸入新系統要提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
-    - **系統可用性**：選取 **HA**。
-    - **管理員使用者名稱和管理員密碼**：隨即會建立新的使用者, 以用來登入電腦。
-    - **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-    - **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示： **/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>** 。
+    - **系統可用性**選取 [HA]。
+    - **管理員使用者名稱和管理員密碼**：建立的新使用者可以用來登入電腦。
+    - **新的或現有的子網路**︰決定應該建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
+    - **子網路識別碼**：如果您想要將 VM 部署至您已定義應將 VM 指派到之目標子網路的現有 VNet，請提供該特定子網路的識別碼。 識別碼通常如下所示： **/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>** 。
 
 ### <a name="manual-deployment"></a>手動部署
 
@@ -190,10 +190,10 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    1. 選取 [確定]。
    1. 針對連接埠 3**03**41 和 3**03**42 重複這些步驟。
 
-如需 SAP Hana 之必要端口的詳細資訊, 請參閱[SAP Hana 租使用者資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6)指南中的[租使用者資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)連線一章或[SAP 附注 2388694][2388694]。
+如需 SAP Hana 之必要端口的詳細資訊，請參閱[SAP Hana 租使用者資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6)指南中的[租使用者資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)連線一章或[SAP 附注 2388694][2388694]。
 
 > [!IMPORTANT]
-> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp _timestamps**設定為**0**。 如需詳細資訊, 請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
+> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp _timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
 > 另請參閱 SAP 附注[2382421](https://launchpad.support.sap.com/#/notes/2382421)。 
 
 ## <a name="create-a-pacemaker-cluster"></a>建立 Pacemaker 叢集
@@ -207,7 +207,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 - **[1]** ：此步驟僅適用於節點 1。
 - **[2]** ：此步驟僅適用於 Pacemaker 叢集的節點 2。
 
-1. **[A]** 設定磁碟配置：**邏輯磁碟區管理 (LVM)** 。
+1. **[A]** 設定磁碟配置：**邏輯磁碟區管理員 (LVM)** 。
 
    建議您針對儲存資料和記錄檔的磁碟區使用 LVM。 下列範例假設虛擬機器已連接四個資料磁碟，這些資料磁碟會用來建立兩個磁碟區。
 
@@ -323,30 +323,30 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    * 輸入安裝路徑 [/hana/shared]：選取 Enter 鍵。
    * 輸入本機主機名稱 [..]：選取 Enter 鍵。
    * 您是否要將其他主機新增至系統？ (y/n) [n]：選取 Enter 鍵。
-   * 輸入 SAP HANA 系統識別碼︰輸入 HANA 的 SID，例如：**HN1**。
-   * 輸入執行個體號碼 [00]：輸入 HANA 執行個體編號。 如果您使用了 Azure 範本或遵循了本文的手動部署章節，請輸入 **03**。
+   * 輸入 SAP HANA 系統識別碼：輸入 HANA 的 SID，例如：**HN1**。
+   * 輸入執行個體號碼 [00]：輸入 HANA 執行個體號碼。 如果您使用了 Azure 範本或遵循了本文的手動部署章節，請輸入 **03**。
    * 選取資料庫模式 / 輸入索引 [1]：選取 Enter 鍵。
-   * 選取系統使用量 / 輸入索引 [4]：選取系統使用量。
+   * 選取系統使用量 / 輸入索引 [4]：選取系統使用量的值。
    * 輸入資料磁碟區的位置 [/hana/data/HN1]：選取 Enter 鍵。
    * 輸入記錄磁碟區的位置 [/hana/log/HN1]：選取 Enter 鍵。
    * 是否限制記憶體配置上限？ [n]：選取 Enter 鍵。
    * 輸入主機的憑證主機名稱 '...' [...]：選取 Enter 鍵。
    * 輸入 SAP 主機代理程式使用者 (sapadm) 密碼：輸入主機代理程式使用者密碼。
-   * 確認 SAP 主機代理程式使用者 (sapadm) 密碼：再次輸入主機代理程式使用者密碼以進行確認。
+   * 確認 SAP 主機代理程式使用者 (sapadm) 密碼：再次輸入主機代理程式使用者密碼以做確認。
    * 輸入系統管理員 (hdbadm) 密碼：輸入系統管理員密碼。
-   * 確認系統管理員 (hdbadm) 密碼：再次輸入系統管理員密碼以進行確認。
+   * 確認系統管理員 (hdbadm) 密碼：再次輸入系統管理員密碼以做確認。
    * 輸入系統管理員主目錄 [/usr/sap/HN1/home]：選取 Enter 鍵。
-   * 輸入系統管理員登入殼層 [/bin/sh]：->選取 Enter 鍵。
+   * 輸入系統管理員登入殼層 [/bin/sh]：選取 Enter 鍵。
    * 輸入系統管理員使用者識別碼 [1001]：選取 Enter 鍵。
    * 輸入使用者群組 (sapsys) 的識別碼 [79]：選取 Enter 鍵。
    * 輸入資料庫使用者 (SYSTEM) 密碼：輸入資料庫使用者密碼。
-   * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以進行確認。
+   * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以做確認。
    * 是否在電腦重新開機後重新啟動系統？ [n]：選取 Enter 鍵。
    * 是否要繼續？ (y/n)：驗證摘要。 輸入 **y** 繼續。
 
 1. **[A]** 升級 SAP 主機代理程式。
 
-   從[Sap 軟體中心][sap-swcenter]下載最新的 Sap 主機代理程式封存, 然後執行下列命令來升級代理程式。 取代封存檔的路徑以指向您所下載的檔案：
+   從[Sap 軟體中心][sap-swcenter]下載最新的 Sap 主機代理程式封存，然後執行下列命令來升級代理程式。 取代封存檔的路徑以指向您所下載的檔案：
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -363,14 +363,14 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
    如果您使用 SAP HANA 2.0 或 MDC，請為您的 SAP NetWeaver 系統建立租用戶資料庫。 請將 **NW1** 取代為您 SAP 系統的 SID。
 
-   以 < hanasid>adm 身分\>adm 執行下列命令:
+   以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 在第一個節點上設定系統複寫：
 
-   將資料庫備份為 < hanasid>adm 身分\>adm:
+   將資料庫備份為 < hanasid>adm 身分\>adm：
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -390,7 +390,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[2]** 在第二個節點上設定系統複寫：
     
-   註冊第二個節點，以啟動系統複寫。 以 < hanasid>adm 身分\>adm 執行下列命令:
+   註冊第二個節點，以啟動系統複寫。 以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -416,7 +416,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[A]** 建立金鑰儲存區項目。
 
-   以 root 身分執行下列命令, 以建立新的金鑰儲存區專案:
+   以 root 身分執行下列命令，以建立新的金鑰儲存區專案：
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -424,7 +424,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[1]** 備份資料庫。
 
-   以 root 的身分備份資料庫:
+   以 root 的身分備份資料庫：
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -437,7 +437,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[1]** 在第一個節點上設定系統複寫。
 
-   建立主要網站做為 < hanasid>adm 身分\>adm:
+   以 < hanasid>adm 身分\>adm 建立主要網站：
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -445,7 +445,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[2]** 在次要節點上設定系統複寫。
 
-   將次要網站註冊為 < hanasid>adm 身分\>adm:
+   將次要網站註冊為 < hanasid>adm 身分\>adm：
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -472,6 +472,10 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 
 接下來，建立 HANA 資源：
 
+> [!IMPORTANT]
+> 最近的測試顯示的情況下，netcat 會因待處理專案而停止回應要求，而且其限制只會處理一個連接。 Netcat 資源會停止接聽 Azure 負載平衡器要求，而浮動 IP 會變成無法使用。  
+> 針對現有的 Pacemaker 叢集，我們建議以 socat 取代 netcat，並遵循[Azure 負載平衡器偵測強化](https://www.suse.com/support/kb/doc/?id=7024128)中的指示。 請注意，變更將需要短暫的停機時間。  
+
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
 sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
@@ -495,7 +499,7 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   params ip="<b>10.0.0.13</b>"
 
 sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
-  params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
+  params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:625<b>03</b>,backlog=10,fork,reuseaddr /dev/null" \
   op monitor timeout=20s interval=10 depth=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
@@ -708,7 +712,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   在 node hn1-db-0\>上, 以 < hanasid>adm 身分 adm 執行下列命令:
+   在 node hn1-db-0 上，以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -749,7 +753,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   執行下列命令, 如同在 node\>hn1 上 < hanasid>adm 身分 adm-db-1:
+   在節點 hn1-db-1 上，以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -790,7 +794,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   在 node hn1-db-0\>上, 以 < hanasid>adm 身分 adm 執行下列命令:
+   在 node hn1-db-0 上，以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -831,7 +835,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   執行下列命令, 如同在 node\>hn1 上 < hanasid>adm 身分 adm-db-1:
+   在節點 hn1-db-1 上，以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -974,7 +978,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   執行下列命令, 如同在 node\>hn1 上 < hanasid>adm 身分 adm-db-1:
+   在節點 hn1-db-1 上，以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1011,7 +1015,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   執行下列命令, 如同在 node\>hn1 上 < hanasid>adm 身分 adm-db-1:
+   在節點 hn1-db-1 上，以 < hanasid>adm 身分\>adm 執行下列命令：
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

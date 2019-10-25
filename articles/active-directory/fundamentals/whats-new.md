@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c475bfc6179f3604ed6b83cafc75d34f4359513f
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 4e732e62afcc7af0a2b90d7c525a6de5e65195aa
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532845"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809247"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
->藉由複製並貼上此 URL，取得何時要重新流覽此頁面以取得更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 放入 ![RSS 摘要讀取器圖示 ](./media/whats-new/feed-icon-16x16.png) 摘要讀取器。
+>藉由複製並貼上此 URL，取得何時要重新流覽此頁面以取得更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 至 ![RSS 摘要讀取器圖示](./media/whats-new/feed-icon-16x16.png) 摘要讀取器。
 
 Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -39,7 +39,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
-## <a name="october-2019"></a>2019年10月
+## <a name="october-2019"></a>2019 年 10 月
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Azure AD Identity Protection 風險偵測的 identityRiskEvent API 已淘汰  
 
@@ -55,13 +55,13 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ## <a name="september-2019"></a>2019 年 9 月
 
-### <a name="deprecation-of-the-power-bi-content-packs"></a>取代 Power BI 內容套件
+### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更：已淘汰 Power BI 內容套件
 
-**類型：** 已被取代  
+**類型：** 方案變更  
 **服務類別：** 報告  
 **產品功能：** 監視和報告
 
-Power BI 是從其存放區淘汰內容套件，而從**2019 年10月 1**日起，我們不再支援 Azure AD Power BI 內容套件。 目前使用內容套件的客戶可以繼續使用它，即使基礎 Api 是較舊的版本也一樣。 除了此內容套件之外，您還可以使用 Azure AD 活頁簿（建基於 Log Analytics）來深入瞭解您的 Azure AD 相關服務。
+從2019年10月1日開始，Power BI 將開始取代所有內容套件，包括 Azure AD Power BI 內容套件。 除了此內容套件之外，您還可以使用 Azure AD 活頁簿，深入瞭解您的 Azure AD 相關服務。 其他活頁簿即將推出，包括有關僅限報表模式中的條件式存取原則、以應用程式同意為基礎的深入解析等等的活頁簿。
 
 如需活頁簿的詳細資訊，請參閱[如何使用 Azure Active Directory 報表的 Azure 監視器活頁簿](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)。 如需有關取代內容套件的詳細資訊，請參閱[宣佈 Power BI 範本應用程式正式](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/)運作的 blog 文章。
 
@@ -192,18 +192,6 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 ---
 
 ## <a name="august-2019"></a>2019 年 8 月
-
-### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更：已淘汰 Power BI 內容套件
-
-**類型：** 方案變更  
-**服務類別：** 報告  
-**產品功能：** 監視和報告
-
-從2019年10月1日開始，Power BI 將開始取代所有內容套件，包括 Azure AD Power BI 內容套件。 除了此內容套件之外，您還可以使用 Azure AD 活頁簿，深入瞭解您的 Azure AD 相關服務。 其他活頁簿即將推出，包括有關僅限報表模式中的條件式存取原則、以應用程式同意為基礎的深入解析等等的活頁簿。
-
-如需活頁簿的詳細資訊，請參閱[如何使用 Azure Active Directory 報表的 Azure 監視器活頁簿](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)。 如需有關取代內容套件的詳細資訊，請參閱[宣佈 Power BI 範本應用程式正式](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/)運作的 blog 文章。
-
----
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>群組的增強搜尋、篩選和排序功能可在 Azure AD 入口網站中取得（公開預覽）
 

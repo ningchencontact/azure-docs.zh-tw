@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003941"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804034"
 ---
 # <a name="azure-encryption-overview"></a>Azure 加密概觀
 
 本文提供如何在 Microsoft Azure 中使用加密的概觀。 它涵蓋加密的主要領域，包括待用加密、傳輸中加密，以及使用 Azure Key Vault 的金鑰管理。 每節都包含更詳細資訊的連結。
 
-## <a name="encryption-of-data-at-rest"></a>加密待用資料
+## <a name="encryption-of-data-at-rest"></a>待用資料加密
 
 待用資料包含位於實體媒體之永續性儲存體中任何數位格式的資訊。 這個媒體包括磁性或光學媒體上的檔案、已封存的資料，以及資料備份。 Microsoft Azure 提供各種資料儲存體解決方案來符合不同的需求，包括檔案、磁碟、Blob 和資料表儲存體。 Microsoft 也提供加密來保護 [Azure SQL Database](../../sql-database/sql-database-technical-overview.md)、[Azure Cosmos DB](../../data-factory/introduction.md) 和 Azure Data Lake。
 
@@ -59,7 +59,7 @@ Azure 支援各種加密模型，包括使用下列方式進行的伺服器端�
 
 ### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 
-您可以使用 [Azure 磁碟加密](/azure/security/azure-security-disk-encryption)來保護 Windows 和 Linux 虛擬機器，其會使用 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) \(英文\) 技術和 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) \(英文\)，透過完整磁碟區加密來保護作業系統磁碟和資料磁碟。
+您可以使用 [Azure 磁碟加密](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)來保護 Windows 和 Linux 虛擬機器，其會使用 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) \(英文\) 技術和 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) \(英文\)，透過完整磁碟區加密來保護作業系統磁碟和資料磁碟。
 
 加密金鑰和祕密會在您的 [Azure Key Vault 訂用帳戶](../../key-vault/key-vault-overview.md)中受到保護。 使用 Azure 備份服務，您可以備份及還原使用金鑰加密金鑰 (KEK) 設定的已加密虛擬機器 (VM)。
 
@@ -181,7 +181,7 @@ Azure 提供許多機制，可在將資料從一個位置移至另一個位置�
 
 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI，來設定虛擬網路的站對站 VPN 連線。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 [在 Azure 入口網站中建立站對站連線](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

@@ -1,5 +1,6 @@
 ---
-title: 了解 Azure AD 應用程式同意體驗 | Microsoft Docs
+title: 了解 Azure AD 應用程式同意體驗
+titleSuffix: Microsoft identity platform
 description: 深入了解 Azure AD 同意的運作方式，以了解如何在管理和開發搭配 Azure AD 執行的應用程式時使用它
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835241"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803912"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 應用程式同意體驗
 
@@ -45,14 +46,14 @@ ms.locfileid: "68835241"
 
 ![同意提示的建置組塊](./media/application-consent-experience/consent_prompt.png)
 
-| # | 元件 | 用途 |
+| # | 元件 | 目的 |
 | ----- | ----- | ----- |
 | 1 | 使用者識別碼 | 此識別碼代表所要求的用戶端應用程式使用者存取受保護的資源。 |
-| 2 | 標題 | 標題變更取決於使用者是否要進行使用者或管理員同意流程。 在使用者同意流程中，標題為「所要求權限」，而在管理員同意流程中，標題則會有額外一行「為組織接受」。 |
+| 2 | 課程名稱 | 標題變更取決於使用者是否要進行使用者或管理員同意流程。 在使用者同意流程中，標題為「所要求權限」，而在管理員同意流程中，標題則會有額外一行「為組織接受」。 |
 | 3 | 應用程式標誌 | 此映像應為使用者提供視覺提示，說明此應用程式是否為使用者要存取的應用程式。 此映像由應用程式開發人員提供，且此映像的擁有權不得驗證。 |
 | 4 | 應用程式名稱 | 此值應可告知使用者要求存取其資料的應用程式為何。 請注意，此名稱由應用程式開發人員提供，且此應用程式名稱的擁有權不得驗證。 |
 | 5 | 發行者網域 | 此值應為使用者提供網域，以評估可信度。 此網域由應用程式開發人員提供，且此發行者網域的擁有權不得驗證。 |
-| 6 | Permissions | 此清單包含用戶端應用程式所要求的權限。 使用者務必評估要求的權限類型，以了解用戶端應用程式會獲得授權的資料內容，以在其接受時代為存取。 應用程式開發人員應以最低權限要求權限的存取權。 |
+| 6 | 使用權限 | 此清單包含用戶端應用程式所要求的權限。 使用者務必評估要求的權限類型，以了解用戶端應用程式會獲得授權的資料內容，以在其接受時代為存取。 應用程式開發人員應以最低權限要求權限的存取權。 |
 | 7 | 權限描述 | 此值是由公開權限的服務所提供。 若要查看權限描述，您必須切換權限旁的 > 形箭號。 |
 | 8 | 應用程式條款 | 這些條款包含應用程式的服務條款和隱私權聲明連結。 發行者需負責為其服務條款的規則製作大綱。 此外，發行者需負責揭露其使用的方式，並分享其隱私權聲明中的使用者資料。 如果發行者未將這些值的連結提供給多租用戶應用程式，同意提示即會顯示粗體警告。 |
 | 9 | https://myapps.microsoft.com | 使用者可以使用這個連結檢閱和移除任何目前擁有其資料存取權的非 Microsoft 應用程式。 |

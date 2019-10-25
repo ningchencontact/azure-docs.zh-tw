@@ -1,5 +1,6 @@
 ---
-title: 管理權杖 (Microsoft 驗證程式庫) | Azure
+title: 管理權杖（Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
 description: 了解如何使用 Microsoft 驗證程式庫 (MSAL) 取得和快取權杖。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f7914744073f82d8a35d3679a1c65459e10b2f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532879"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803219"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>使用 MSAL 取得和快取權杖
 [存取權杖](access-tokens.md)可讓用戶端安全地呼叫受 Azure 保護的 Web API。 使用 Microsoft 驗證程式庫 (MSAL) 取得權杖的方法很多。 有些方法需要使用者透過網頁瀏覽器進行互動。 有些方法則不需要使用者互動。 一般情況下，用來取得權杖的方法會取決於應用程式是公用用戶端應用程式 (桌面或行動應用程式) 還是機密用戶端應用程式 (Web 應用程式、Web API 或精靈應用程式，如 Windows 服務)。

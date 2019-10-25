@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343407"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800189"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 從事件中樞接收事件
 
@@ -28,8 +28,8 @@ ms.locfileid: "60343407"
 
 如需事件中樞接收模式的詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
 
-## <a name="prerequisites"></a>先決條件
-快速入門中，您開始之前**建立事件中樞命名空間和事件中樞**。 使用[Azure 入口網站](https://portal.azure.com)建立類型為事件中樞的命名空間，並取得您的應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 
+## <a name="prerequisites"></a>必要條件
+開始使用快速入門之前，請先**建立事件中樞命名空間和事件中樞**。 使用[Azure 入口網站](https://portal.azure.com)建立事件中樞類型的命名空間，並取得應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 
 
 ## <a name="create-project-and-add-code"></a>建立專案並新增程式碼
 
@@ -42,12 +42,12 @@ ms.locfileid: "60343407"
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. 在 Eclipse 中，建立新的 Maven 專案 (依序按一下 [檔案]  、[新增]  、[專案]  )。
+4. 在 Eclipse 中，建立新的 Maven 專案 (依序按一下 [檔案]、[新增]、[專案])。
    
     ![[檔案] > [新增] > [專案]][12]
-5. 選取 [使用預設工作區位置]  ，然後按 [下一步]  。
-6. 選取 [maven-archetype-quickstart]  原型，然後按 [下一步]  。
-7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [完成]  。
+5. 選取 [使用預設工作區位置]，然後按 [下一步]。
+6. 選取 [maven-archetype-quickstart] 原型，然後按 [下一步]。
+7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [完成]。
 8. 在 **pom.xml** 中，於 `<dependency>` 節點中新增下列相依性。
 
     ```xml  
@@ -245,14 +245,14 @@ ms.locfileid: "60343407"
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀][Event Hubs overview]
+* [事件中心概觀][Event Hubs overview]
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[採用事件中樞的 HDInsight Storm 範例]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[採用事件中樞的 HDInsight Storm 範例]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

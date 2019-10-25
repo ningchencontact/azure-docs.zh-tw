@@ -1,5 +1,6 @@
 ---
 title: Azure Active Directory 中的應用程式和服務主體物件
+titleSuffix: Microsoft identity platform
 description: 了解 Azure Active Directory 中應用程式物件與服務主體物件之間的關聯性。
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,18 +19,18 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c1a4d9301894c6a98abd8244fdd6c10a058a26ad
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853314"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803432"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的應用程式和服務主體物件
 
 在 Azure Active Directory (Azure AD) 的內容中使用「應用程式」這個詞彙時，有時會誤解其意義。 本文釐清 Azure AD 應用程式整合的概念和具體層面，並舉例說明如何註冊和同意[多租用戶應用程式](developer-glossary.md#multi-tenant-application)，提供更清楚的說明。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 已與 Azure AD 整合的應用程式，其含意已超出軟體層面。 「應用程式」經常當作概念詞彙，不僅指應用程式軟體，在執行階段的驗證/授權「對話」中，也是指其 Azure AD 註冊和角色。
 
@@ -45,7 +46,7 @@ ms.locfileid: "68853314"
 
 ## <a name="application-registration"></a>應用程式註冊
 
-當您在[Azure 入口網站][AZURE-Portal]中註冊 Azure AD 應用程式時, 您的 Azure AD 租使用者中會建立兩個物件:
+當您在[Azure 入口網站][AZURE-Portal]中註冊 Azure AD 應用程式時，您的 Azure AD 租使用者中會建立兩個物件：
 
 - 應用程式物件，以及
 - 服務主體物件
@@ -96,8 +97,8 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 ## <a name="next-steps"></a>後續步驟
 
 - 您可以使用[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)來查詢應用程式和服務主體物件。
-- 您可以使用 Microsoft Graph API、 [Azure 入口網站的][AZURE-Portal]應用程式資訊清單編輯器, 或[Azure AD PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)(以其 OData[應用程式實體][MS-Graph-App-Entity]表示) 來存取應用程式的應用程式物件。
-- 您可以透過 Microsoft Graph API 或[Azure AD PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)來存取應用程式的服務主體物件, 如其 OData [ServicePrincipal 實體][MS-Graph-Sp-Entity]所表示。
+- 您可以使用 Microsoft Graph API、 [Azure 入口網站的][AZURE-Portal]應用程式資訊清單編輯器，或[Azure AD PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)（以其 OData[應用程式實體][MS-Graph-App-Entity]表示）來存取應用程式的應用程式物件。
+- 您可以透過 Microsoft Graph API 或[Azure AD PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)來存取應用程式的服務主體物件，如其 OData [ServicePrincipal 實體][MS-Graph-Sp-Entity]所表示。
 
 <!--Image references-->
 

@@ -4,37 +4,37 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0880d60f9cc7ca989194a98d96f9d5f118f028d0
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ef3dc13bd7d36e11f3109ef96a6f453b59afe145
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71692024"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809334"
 ---
 ## <a name="trigger"></a>觸發程序
 
-使用函數觸發程式來回應傳送至事件中樞事件資料流程的事件。 您必須擁有基礎事件中樞的讀取存取權, 才能設定觸發程式。 觸發函式時, 傳遞至函數的訊息會以字串的形式輸入。
+使用函數觸發程式來回應傳送至事件中樞事件資料流程的事件。 您必須擁有基礎事件中樞的讀取存取權，才能設定觸發程式。 觸發函式時，傳遞至函數的訊息會以字串的形式輸入。
 
 ## <a name="trigger---scaling"></a>觸發程序 - 調整規模
 
-事件所觸發之函式的每個實例都是由單一[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例所支援。 觸發程式 (由事件中樞提供技術支援) 可確保只有一個[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例可以在指定的分割區上取得租用。
+事件所觸發之函式的每個實例都是由單一[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例所支援。 觸發程式（由事件中樞提供技術支援）可確保只有一個[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例可以在指定的分割區上取得租用。
 
 例如，請考慮以下事件中樞：
 
 * 10個磁碟分割
-* 1000個事件會平均分散到所有分割區, 每個分割區中有100個訊息
+* 1000個事件會平均分散到所有分割區，每個分割區中有100個訊息
 
-當您的函式首次啟用時，只會有 1 個該函式的執行個體。 讓我們呼叫第一個函式`Function_0`實例。 此`Function_0`函式具有單一[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例, 可保存所有十個數據分割的租用。 此執行個體會從分割區 0-9 讀取事件。 從這裡開始，會發生下列其中一件事：
+當您的函式首次啟用時，只會有 1 個該函式的執行個體。 讓我們呼叫第一個函式實例 `Function_0`。 `Function_0` 函式具有單一[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例，可保存所有十個數據分割的租用。 此執行個體會從分割區 0-9 讀取事件。 從這裡開始，會發生下列其中一件事：
 
-* **不需要新的**函式實例`Function_0` : 能夠在函數調整邏輯生效之前處理所有1000事件。 在此情況下, 所有1000訊息都會由`Function_0`處理。
+* **不需要新的**函式實例： `Function_0` 能夠在函數調整邏輯生效之前處理所有1000事件。 在此情況下，所有1000訊息都會由 `Function_0`處理。
 
-* **再新增 1 個函式執行個體**：如果函式調整邏輯判斷所`Function_0`擁有的訊息數目比它可處理的還多, 則會`Function_1`建立新的函式應用程式實例 ()。 這個新函數也有相關聯的[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例。 當基礎事件中樞偵測到新的主控制項實例正在嘗試讀取訊息時, 它會將資料分割的負載平衡到其主機實例上。 例如，分割區 0-4 可能會指派給 `Function_0`，分割區 5-9 則指派給 `Function_1`。
+* **加入額外的函式實例**：如果函式調整邏輯判斷 `Function_0` 的訊息數目超過它可以處理的數量，則會建立新的函式應用程式實例（`Function_1`）。 這個新函數也有相關聯的[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例。 當基礎事件中樞偵測到新的主控制項實例正在嘗試讀取訊息時，它會將資料分割的負載平衡到其主機實例上。 例如，分割區 0-4 可能會指派給 `Function_0`，分割區 5-9 則指派給 `Function_1`。
 
-* **再新增 N 個函式執行個體**：如果函式調整邏輯判斷`Function_0`和`Function_1`所擁有的訊息比它們可以處理的還多`Functions_N` , 則會建立新的函式應用程式實例。  應用程式會建立到大於事件`N`中樞分割區數目的點。 在本例中，事件中樞同樣會將分割區負載平衡，在此案例中，會跨執行個體 `Function_0`...`Functions_9` 來進行。
+* **新增多個**函式實例：如果函式調整邏輯判斷 `Function_0` 和 `Function_1` 的訊息數目超過其處理能力，則會建立新的 `Functions_N` 函數應用程式實例。  應用程式會建立到 `N` 大於事件中樞分割區數目的點。 在本例中，事件中樞同樣會將分割區負載平衡，在此案例中，會跨執行個體 `Function_0`...`Functions_9` 來進行。
 
-當函式調整`N`時, 實例是大於事件中樞分割區數目的數位。 這是為了確保[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例可用來在資料分割上取得鎖定, 因為它們可供其他實例使用。 您只需針對函式實例執行時所使用的資源付費。 換句話說, 您不需支付此過度布建費用。
+當函式調整時，`N` 實例是大於事件中樞分割區數目的數位。 這是為了確保[EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)實例可用來在資料分割上取得鎖定，因為它們可供其他實例使用。 您只需針對函式實例執行時所使用的資源付費。 換句話說，您不需支付此過度布建費用。
 
-當所有函式執行完成時 (不論有無錯誤)，系統就會在相關聯的儲存體帳戶中新增檢查點。 當檢查指標成功時, 永遠不會再次抓取所有1000訊息。
+當所有函式執行完成時 (不論有無錯誤)，系統就會在相關聯的儲存體帳戶中新增檢查點。 當檢查指標成功時，永遠不會再次抓取所有1000訊息。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
@@ -361,11 +361,11 @@ public void eventHubProcessor(
  }
 ```
 
- 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自事件中樞的參數使用 `EventHubTrigger` 註釋。 具有這些附註的參數會使得函式在事件抵達時執行。  此注釋可以搭配原生 JAVA 類型、pojo 或可為 null 的值使用\<選擇性的 T >。
+ 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自事件中樞的參數使用 `EventHubTrigger` 註釋。 具有這些附註的參數會使得函式在事件抵達時執行。  此注釋可以搭配原生 JAVA 類型、Pojo 或可為 null 的值使用（選擇性）\<T >。
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在 [C# 類別庫](../articles/azure-functions/functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 屬性。
+在 [C# 類別庫](../articles/azure-functions/functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 屬性。
 
 此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序組態](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
 
@@ -388,12 +388,12 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**type** | n/a | 必須設為 `eventHubTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中事件項目的變數名稱。 |
-|**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，可設定用來訂閱中樞內事件的[取用者群組](../articles/event-hubs/event-hubs-features.md#event-consumers)。 如果省略，則會使用 `$Default` 取用者群組。 |
 |**基數** | n/a | 適用於 JavaScript。 設定為 `many` 才能啟用批次處理。  如果省略或設訂為 `one`，會傳遞單一訊息至函數。 |
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
-|**path**|**EventHubName**|事件中樞的名稱。 可透過應用程式設定 `%eventHubName%` 參照|
+|**路徑**|**EventHubName**|事件中樞的名稱。 可透過應用程式設定 `%eventHubName%` 參照|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -401,7 +401,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 事件中樞觸發程序提供數個[中繼資料屬性](../articles/azure-functions/./functions-bindings-expressions-patterns.md)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
 
-|屬性|類型|描述|
+|屬性|Type|描述|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
 |`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
@@ -419,11 +419,11 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 [!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
 使用事件中樞輸出繫結將事件寫入事件串流。 您必須具備事件中樞的傳送權限，才能將事件寫入其中。
 
-請確定所需的套件參考已就緒︰Functions 1.x 或 Functions 2.x
+請確定所需的套件參考已就緒：函數1.x 或函數2。x
 
 ## <a name="output---example"></a>輸出 - 範例
 
@@ -450,7 +450,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-下列範例示範如何使用`IAsyncCollector`介面來傳送一批訊息。 當您處理來自某個事件中樞的訊息, 並將結果傳送至另一個事件中樞時, 此案例很常見。
+下列範例顯示如何使用 `IAsyncCollector` 介面來傳送訊息批次。 當您處理來自某個事件中樞的訊息，並將結果傳送至另一個事件中樞時，此案例很常見。
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -679,7 +679,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 |**type** | n/a | 必須設定為 "eventHub"。 |
 |**direction** | n/a | 必須設定為 "out"。 當您在 Azure 入口網站中建立繫結時，會自動設定此參數。 |
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 |
-|**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
 
@@ -693,9 +693,9 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
-| 繫結 | 參考資料 |
+| 繫結 | 參考 |
 |---|---|
-| 事件中樞 | [操作指南](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) \(英文\) |
+| Event Hub | [操作指南](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) \(英文\) |
 
 <a name="host-json"></a>  
 
@@ -721,7 +721,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }  
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
 |maxBatchSize|64|每個接收迴圈接收到的事件計數上限。|
 |prefetchCount|n/a|基礎 EventProcessorHost 將使用的預設 PrefetchCount。|

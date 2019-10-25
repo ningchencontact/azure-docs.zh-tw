@@ -1,20 +1,19 @@
 ---
 title: 從 Azure Blob 索引子將一個 blob 索引到許多搜尋索引檔以進行全文檢索搜尋
-description: 使用 Azure 搜尋服務 Blob 索引子來編目適用于文字內容的 Azure blob。 每個 blob 可能會產生一或多個 Azure 搜尋服務的索引檔。
-ms.date: 05/02/2019
-author: arv100kri
+description: 使用 Azure 識別搜尋 Blob 索引子來編目適用于文字內容的 Azure blob。 每個 blob 可能會產生一或多個搜尋索引檔。
 manager: nitinme
+author: arv100kri
 ms.author: arjagann
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: 585d1e64ae124dce8cb0d4165ecbf0f503560405
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.date: 11/04/2019
+ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533693"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793735"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>編制 blob 的索引以產生多個搜尋檔
 根據預設，blob 索引子會將 blob 的內容視為單一搜尋檔。 某些**parsingMode**值支援個別 blob 可能會導致多個搜尋檔的案例。 不同類型的**parsingMode**可讓索引子從 blob 解壓縮一個以上的搜尋檔，如下所示：
@@ -23,11 +22,11 @@ ms.locfileid: "72533693"
 + `jsonLines`
 
 ## <a name="one-to-many-document-key"></a>一對多檔索引鍵
-顯示在 Azure 搜尋服務索引中的每份檔都是由檔索引鍵唯一識別。 
+顯示在 Azure 認知搜尋索引中的每份檔都是由檔索引鍵唯一識別。 
 
-當未指定剖析模式時，如果索引中沒有索引鍵欄位的明確對應，Azure 搜尋服務會自動將 `metadata_storage_path` 屬性[對應](search-indexer-field-mappings.md)為索引鍵。 此對應可確保每個 blob 都會顯示為不同的搜尋檔。
+當未指定剖析模式時，如果索引中沒有索引鍵欄位的明確對應，Azure 認知搜尋會自動將 `metadata_storage_path` 屬性[對應](search-indexer-field-mappings.md)為金鑰。 此對應可確保每個 blob 都會顯示為不同的搜尋檔。
 
-使用上述任何一種剖析模式時，一個 blob 會對應至「多個」搜尋檔，只根據不適用的 blob 中繼資料來製作檔索引鍵。 為了克服此條件約束，Azure 搜尋服務能夠為從 blob 解壓縮的每個個別實體產生「一對多」檔金鑰。 這個屬性的名稱為 `AzureSearch_DocumentKey`，而且會新增至從 blob 解壓縮的每個個別實體。 對於_跨 blob_的每個個別實體，此屬性的值一定是唯一的，而且實體會顯示為個別的搜尋檔。
+使用上述任何一種剖析模式時，一個 blob 會對應至「多個」搜尋檔，只根據不適用的 blob 中繼資料來製作檔索引鍵。 為了克服此條件約束，Azure 認知搜尋能夠針對從 blob 解壓縮的每個個別實體，產生「一對多」檔索引鍵。 這個屬性的名稱為 `AzureSearch_DocumentKey`，而且會新增至從 blob 解壓縮的每個個別實體。 對於_跨 blob_的每個個別實體，此屬性的值一定是唯一的，而且實體會顯示為個別的搜尋檔。
 
 根據預設，如果未指定索引鍵索引欄位的明確欄位對應，則會使用 `base64Encode` 欄位對應函式來對應 `AzureSearch_DocumentKey`。
 
@@ -58,7 +57,7 @@ _Blob2 json_
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-這項設定會導致 Azure 搜尋服務索引包含下列資訊（為了簡潔起見，已縮短 base64 編碼識別碼）
+此設定會導致 Azure 認知搜尋索引包含下列資訊（為了簡潔起見，已縮短 base64 編碼識別碼）
 
 | id | 溫度 | pressure | timestamp |
 |----|-------------|----------|-----------|
@@ -95,11 +94,11 @@ _Blob2 json_
 如果您想要設定明確的欄位對應，請確定_sourceField_在**所有 blob**的個別實體中都是相異的。
 
 > [!NOTE]
-> @No__t_0 確保每個已解壓縮實體的唯一性都有可能變更，因此您不應該依賴它的價值來滿足您的應用程式需求。
+> `AzureSearch_DocumentKey` 確保每個已解壓縮實體的唯一性都有可能變更，因此您不應該依賴它的價值來滿足您的應用程式需求。
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您還不熟悉 blob 索引編制的基本結構和工作流程，您應該先參閱[Azure 搜尋服務的索引編制 Azure Blob 儲存體](search-howto-index-json-blobs.md)。 如需不同 blob 內容類型剖析模式的詳細資訊，請參閱下列文章。
+如果您還不熟悉 blob 索引編制的基本結構和工作流程，您應該先參閱[使用 Azure 識別搜尋編制索引 Azure Blob 儲存體](search-howto-index-json-blobs.md)。 如需不同 blob 內容類型剖析模式的詳細資訊，請參閱下列文章。
 
 > [!div class="nextstepaction"]
 > [編制 CSV blob 的索引](search-howto-index-csv-blobs.md)

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3cef2bd16907de6e60db2678516f70346a20285
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844310"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803601"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -28,9 +28,16 @@ ms.locfileid: "70844310"
 
 一旦您為群組設定到期日：
 
-- 群組擁有者會在到期日快到時收到更新群組的通知
+- 具有使用者活動的群組會在到期時自動更新
+- 如果群組未自動更新，群組的擁有者會收到更新群組的通知
 - 未更新的群組會遭到刪除
 - 群組擁有者或系統管理員可在 30 天內還原已刪除的任何 Office 365 群組
+
+下列動作會導致群組自動更新：
+
+- SharePoint-查看、編輯、下載、移動、共用和上傳檔案
+- Outlook-加入群組、讀取/寫入群組訊息，以及贊訊息
+- 小組-造訪小組頻道
 
 目前在一個租用戶上，只能為 Office 365 群組設定一個到期原則。
 
@@ -43,10 +50,10 @@ ms.locfileid: "70844310"
 
 以下是可以針對 Azure AD 中的 Office 365 群組設定及使用到期日的角色。
 
-角色 | Permissions
+角色 | 使用權限
 -------- | --------
 全域管理員或使用者管理員 | 可以建立、讀取、更新或刪除 Office 365 群組到期日原則設定<br>可以更新任何 Office 365 群組
-使用者 | 可以更新它們所擁有的 Office 365 群組<br>可以還原它們所擁有的 Office 365 群組<br>可以讀取到期原則設定
+User | 可以更新它們所擁有的 Office 365 群組<br>可以還原它們所擁有的 Office 365 群組<br>可以讀取到期原則設定
 
 如需有關將已刪除群組還原之權限的詳細資訊，請參閱[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)。
 
@@ -69,7 +76,7 @@ ms.locfileid: "70844310"
   - 當您完成時，選取 [儲存] 會儲存您的設定。
 
 > [!NOTE]
-> 當您第一次設定到期日時，任何早于到期間隔的群組都會設定為30天，直到到期為止，除非擁有者加以更新。 第一封續訂通知電子郵件會在第一天發出。
+> 當您第一次設定到期日時，任何早于到期間隔的群組都會設定為35天，直到到期為止，除非該群組已自動更新，或擁有者予以續訂為止。 
 >
 > 刪除並還原動態群組時，會將它視為新的群組，並根據規則重新填入。 此程式最多可能需要24小時的時間。
 >
@@ -77,7 +84,7 @@ ms.locfileid: "70844310"
 
 ## <a name="email-notifications"></a>電子郵件通知
 
-這種電子郵件通知會在群組到期前 30 天、前 15 天和前 1 天傳送給 Office 365 群組擁有者。 電子郵件的語言是由群組擁有者的慣用語言或 Azure AD 語言設定來決定。 如果群組擁有者已定義慣用語言，或多個擁有者都有相同的慣用語言，則會使用該語言。 若是其他所有情況，則會使用 Azure AD 語言設定。
+如果未自動更新群組，則會在群組到期前30天、15天和1天，將這類電子郵件通知傳送給 Office 365 群組擁有者。 電子郵件的語言是由群組擁有者的慣用語言或 Azure AD 語言設定來決定。 如果群組擁有者已定義慣用語言，或多個擁有者都有相同的慣用語言，則會使用該語言。 若是其他所有情況，則會使用 Azure AD 語言設定。
 
 ![到期電子郵件通知](./media/groups-lifecycle/expiration-notification.png)
 
@@ -119,7 +126,7 @@ ms.locfileid: "70844310"
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
    ```
 
-1. 擷取現有的原則 Get-AzureADMSGroupLifecyclePolicy：此 Cmdlet 會擷取已設定的目前 Office 365 群組到期設定。 在此範例中，您可以看見：
+1. 擷取現有的原則 Get-AzureADMSGroupLifecyclePolicy：此 Cmdlet 會擷取目前已設定的 Office 365 群組到期設定。 在此範例中，您可以看見：
 
    - 原則識別碼
    - Azure AD 組織中所有 Office 365 群組的存留期皆設定為365天
@@ -133,7 +140,7 @@ ms.locfileid: "70844310"
    26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
    ```
 
-1. 更新現有的原則 Set-AzureADMSGroupLifecyclePolicy：此 Cmdlet 用來更新現有的原則。 在以下範例中，現有原則中的群組存留期會從 365 天變更為 180 天。
+1. 更新現有的原則 Set-AzureADMSGroupLifecyclePolicy：此 Cmdlet 可用來更新現有的原則。 在以下範例中，現有原則中的群組存留期會從 365 天變更為 180 天。
   
    ```powershell
    Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
@@ -145,7 +152,7 @@ ms.locfileid: "70844310"
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. 移除現有的原則 Remove-AzureADMSGroupLifecyclePolicy：此 Cmdlet 會刪除 Office 365 群組到期設定，但需要有原則識別碼。 這會停用 Office 365 群組的到期日。
+1. 移除現有的原則 Remove-AzureADMSGroupLifecyclePolicy：此 Cmdlet 會刪除 Office 365 群組到期設定，但需要原則識別碼。 這會停用 Office 365 群組的到期日。
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"

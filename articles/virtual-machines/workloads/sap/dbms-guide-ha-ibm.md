@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428069"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783773"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -341,11 +341,15 @@ Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
 - **[2]** ：僅適用于節點2
 
 **[A] Pacemaker 設定**的必要條件：
-1. 使用使用者 db2 @ no__t-0sid > 來關閉這兩個資料庫伺服器，並 db2stop。
-1. 將 db2 @ no__t-0sid > 使用者的 shell 環境變更為 */bin/ksh*。 建議您使用 Yast 工具。 
+1. 使用 db2stop > 的使用者 db2\<sid 來關閉這兩個資料庫伺服器。
+1. 將 db2\<sid > 使用者的 shell 環境變更為 */bin/ksh*。 建議您使用 Yast 工具。 
 
 
 ### <a name="pacemaker-configuration"></a>Pacemaker 設定
+
+> [!IMPORTANT]
+> 最近的測試顯示的情況下，netcat 會因待處理專案而停止回應要求，而且其限制只會處理一個連接。 Netcat 資源會停止接聽 Azure 負載平衡器要求，而浮動 IP 會變成無法使用。  
+> 針對現有的 Pacemaker 叢集，我們建議以 socat 取代 netcat，並遵循[Azure 負載平衡器偵測強化](https://www.suse.com/support/kb/doc/?id=7024128)中的指示。 請注意，變更將需要短暫的停機時間。  
 
 **[1]** IBM Db2 HADR 特定的 Pacemaker 設定：
 <pre><code># Put Pacemaker into maintenance mode
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>
@@ -558,7 +562,7 @@ SAP 系統中的原始狀態記載于 Transaction DBACOCKPIT > Configuration > �
 > 開始測試之前，請先確定：
 > * Pacemaker 沒有任何失敗的動作（crm 狀態）。
 > * 沒有位置條件約束（leftovers 的遷移測試）
-> * IBM Db2 HADR 同步處理運作正常。 檢查使用者 db2 @ no__t-0sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * IBM Db2 HADR 同步處理運作正常。 檢查使用者 db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 藉由執行下列命令，遷移正在執行主要 Db2 資料庫的節點：
@@ -592,8 +596,8 @@ SAP 系統中的原始狀態記載于 Transaction DBACOCKPIT > Configuration > �
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm 資源遷移 \<res_name > \<host >：** 建立位置條件約束，並可能造成接管問題
-- **crm 資源清除 \<res_name >** ：清除位置條件約束
+- **crm 資源遷移 \<res_name > \<主機 >：** 建立位置條件約束，並可能造成接管問題
+- **crm 資源 clear \<res_name >** ：清除位置條件約束
 - **crm 資源清理 \<res_name >** ：清除資源的所有錯誤
 
 ### <a name="test-the-fencing-agent"></a>測試隔離代理程式
@@ -767,7 +771,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-As user db2 @ no__t-0sid > 執行命令 db2stop force：
+As user db2\<sid > 執行命令 db2stop force：
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

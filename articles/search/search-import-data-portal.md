@@ -1,24 +1,23 @@
 ---
-title: 使用 Azure 入口網站將資料匯入搜尋索引 - Azure 搜尋服務
+title: 使用 Azure 入口網站將資料匯入搜尋索引
+titleSuffix: Azure Cognitive Search
 description: 了解如何在 Azure 入口網站中使用匯入資料精靈，以從 Cosmos DB、Blob 儲存體、表格儲存體、SQL Database 和 Azure VM 上的 SQL Server 對 Azure 資料進行編目。
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936916"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793684"
 ---
-# <a name="import-data-wizard-for-azure-search"></a>Azure 搜尋服務的匯入資料精靈
+# <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure 認知搜尋的匯入資料嚮導
 
-Azure 入口網站會在 [Azure 搜尋服務] 儀表板上提供 [匯**入資料**] wizard，以便原型化和載入索引。 本文涵蓋使用 wizard、輸入和輸出，以及一些使用資訊的優點和限制。 如需使用內建範例資料逐步執行嚮導的實際操作指南，請參閱[使用 Azure 入口網站快速入門建立 Azure 搜尋服務索引](search-get-started-portal.md)。
+此 Azure 入口網站會在 Azure 認知搜尋儀表板上提供 [匯**入資料**] 嚮導，用於原型化和載入索引。 本文涵蓋使用 wizard、輸入和輸出，以及一些使用資訊的優點和限制。 如需使用內建範例資料逐步執行嚮導的實際操作指南，請參閱[使用 Azure 入口網站快速入門建立 Azure 認知搜尋索引](search-get-started-portal.md)。
 
 此 wizard 執行的作業包括：
 
@@ -34,7 +33,7 @@ Azure 入口網站會在 [Azure 搜尋服務] 儀表板上提供 [匯**入資料
 
 ## <a name="advantages-and-limitations"></a>優點和限制
 
-撰寫任何程式碼之前，您可以使用 wizard 來進行原型設計和概念證明測試。 此 wizard 會連接到外部資料源、範例資料以建立初始索引，然後將資料以 JSON 檔的形式匯入 Azure 搜尋服務的索引中。 
+撰寫任何程式碼之前，您可以使用 wizard 來進行原型設計和概念證明測試。 此 wizard 會連接到外部資料源、範例資料以建立初始索引，然後將資料當做 JSON 檔匯入 Azure 認知搜尋的索引中。 
 
 取樣是一種用來推斷索引架構的進程，而且有一些限制。 建立資料來源時，嚮導會挑選檔範例，以決定哪些資料行是資料來源的一部分。 並非所有檔案都是讀取的，因為非常大的資料來源可能需要數小時的時間。 指定檔的選項時，會使用來源中繼資料（例如功能變數名稱或類型）在索引架構中建立 fields 集合。 視來源資料的複雜度而定，您可能需要編輯初始架構以取得精確度，或將其延伸以確保完整性。 您可以在 [索引定義] 頁面上以內嵌方式進行變更。
 
@@ -56,18 +55,18 @@ Azure 入口網站會在 [Azure 搜尋服務] 儀表板上提供 [匯**入資料
 
 ## <a name="data-source-input"></a>資料來源輸入
 
-「匯**入資料**」 wizard 會使用 Azure 搜尋服務索引子所提供的內部邏輯來連接到外部資料源，其可取樣來源、讀取中繼資料、破解檔以讀取內容和結構，以及將內容序列化為的 JSON後續匯入至 Azure 搜尋服務。
+「匯**入資料**」 wizard 會使用 Azure 認知搜尋索引子所提供的內部邏輯來連接到外部資料源，這些是可取樣來源、讀取中繼資料、破解檔以讀取內容和結構，以及序列化內容作為後續匯入至 Azure 認知搜尋的 JSON。
 
 您只能從單一資料表、資料庫檢視或對等的資料結構匯入，但結構可以包含階層式或嵌套子結構。 如需詳細資訊，請參閱[如何建立複雜類型的模型](search-howto-complex-data-types.md)。
 
 在執行 wizard 之前，您應該先建立這個單一資料表或視圖，而且它必須包含內容。 基於明顯的理由，在空的資料來源上執行「匯**入資料**」 wizard 沒有意義。
 
-|  選取範圍 | 描述 |
+|  選取項目 | 描述 |
 | ---------- | ----------- |
-| **現有的資料來源** |如果您已經在搜尋服務中定義索引子，您可能會有可以重複使用的現有資料來源定義。 在 Azure 搜尋服務中，只有索引子會使用資料來源物件。 您可以用程式設計方式或透過 [匯**入資料**] wizard 來建立資料來源物件，並視需要加以重複使用。|
-| **範例**| Azure 搜尋服務提供兩個內建的範例資料來源，用於教學課程和快速入門：房地產 SQL database 和裝載于 Cosmos DB 上的飯店資料庫。 如需以飯店範例為基礎的逐步解說，請參閱 Azure 入口網站快速入門[中的建立索引](search-get-started-portal.md)。 |
+| **現有的資料來源** |如果您已經在搜尋服務中定義索引子，您可能會有可以重複使用的現有資料來源定義。 在 Azure 認知搜尋中，資料來源物件只會由索引子使用。 您可以用程式設計方式或透過 [匯**入資料**] wizard 來建立資料來源物件，並視需要加以重複使用。|
+| **範例**| Azure 認知搜尋提供兩個內建的範例資料來源，用於教學課程和快速入門： Cosmos DB 上的房地產 SQL database 和飯店資料庫。 如需以飯店範例為基礎的逐步解說，請參閱 Azure 入口網站快速入門[中的建立索引](search-get-started-portal.md)。 |
 | [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |您可以在頁面上或透過 ADO.NET 連接字串指定服務名稱、具有讀取權限的資料庫使用者認證以及資料庫名稱。 選擇連接字串選項以檢視或自訂屬性。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。|
-| **在 Azure VM 上的 SQL Server** |指定完整服務名稱、使用者識別碼與密碼以及資料庫作為連接字串。 若要使用此資料來源，您必須先前就已在本機存放區中安裝用來加密連線的憑證。 如需指示，請參閱 [SQL VM 到 Azure 搜尋服務的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。 |
+| **在 Azure VM 上的 SQL Server** |指定完整服務名稱、使用者識別碼與密碼以及資料庫作為連接字串。 若要使用此資料來源，您必須先前就已在本機存放區中安裝用來加密連線的憑證。 如需指示，請參閱[Azure 認知搜尋的 SQL VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)連線。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。 |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|需求包括帳戶、資料庫和集合。 集合中的所有文件將會包含在索引中。 您可以定義要壓平合併或篩選資料列集的查詢，或將查詢保留空白。 在此 wizard 中不需要查詢。|
 | [**Azure Blob 儲存體**](search-howto-indexing-azure-blob-storage.md) |需求包括儲存體帳戶和容器。 如果 Blob 名稱為了分組而遵循虛擬命名慣例，您可以指定名稱的虛擬目錄部分做為容器下的資料夾 (選擇性)。 如需詳細資訊，請參閱[為 Blob 儲存體編製索引](search-howto-indexing-azure-blob-storage.md)。 |
 | [**Azure 表格儲存體**](search-howto-indexing-azure-tables.md) |需求包括儲存體帳戶和資料表名稱。 您可以指定要擷取資料表子集的查詢 (選擇性)。 如需詳細資訊，請參閱[為表格儲存體編製索引](search-howto-indexing-azure-tables.md)。 |
@@ -76,7 +75,7 @@ Azure 入口網站會在 [Azure 搜尋服務] 儀表板上提供 [匯**入資料
 
 在幕後，嚮導會建立、設定和叫用下列物件。 在嚮導執行之後，您可以在入口網站頁面中找到其輸出。 服務的 [總覽] 頁面包含索引、索引子、資料來源和技能集的清單。 您可以在入口網站中以完整 JSON 來查看索引定義。 針對其他定義，您可以使用[REST API](https://docs.microsoft.com/rest/api/searchservice/)來取得特定物件。
 
-| 物件 | 描述 | 
+| Object | 描述 | 
 |--------|-------------|
 | [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 將連接資訊保存到來源資料，包括認證。 資料來源物件是以獨佔方式使用於索引子。 | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | 用於全文檢索搜尋和其他查詢的實體資料結構。 | 
@@ -92,9 +91,9 @@ Azure 入口網站會在 [Azure 搜尋服務] 儀表板上提供 [匯**入資料
 
 2. 在頂端的 [服務概觀] 頁面中，按一下 [匯入資料]。
 
-   ![在入口網站匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
+   ![入口網站中的匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
 
-您也可以從其他 Azure 服務啟動匯**入資料**，包括 Azure Cosmos DB、Azure SQL Database 和 Azure Blob 儲存體。 在 [服務概觀] 頁面上的左側導覽窗格中，尋找 [新增 Azure 搜尋服務]。
+您也可以從其他 Azure 服務啟動匯**入資料**，包括 Azure Cosmos DB、Azure SQL Database 和 Azure Blob 儲存體。 在 [服務總覽] 頁面的左側導覽窗格中，尋找 [**新增 Azure 認知搜尋**]。
 
 <a name="index-definition"></a>
 
@@ -104,9 +103,9 @@ Wizard 會產生不完整的索引，其中會填入從輸入資料來源取得�
 
 1. 欄位清單是否完成？ 加入取樣遺漏的新欄位，並移除任何不會將值加入搜尋體驗中，或不會在[篩選運算式](search-query-odata-filter.md)或[評分設定檔](index-add-scoring-profiles.md)中使用的欄位。
 
-1. 資料類型是否適用于傳入資料？ Azure 搜尋服務支援[entity data model （EDM）資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)。 針對 Azure SQL 資料，有對應的對應[圖表](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types)會配置對等的值。 如需更多背景，請參閱[欄位對應和轉換](search-indexer-field-mappings.md)。
+1. 資料類型是否適用于傳入資料？ Azure 認知搜尋支援[entity data model （EDM）資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)。 針對 Azure SQL 資料，有對應的對應[圖表](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping)會配置對等的值。 如需更多背景，請參閱[欄位對應和轉換](search-indexer-field-mappings.md)。
 
-1. 您有一個可作為*金鑰*的欄位嗎？ 此欄位必須是 Edm 字串，而且必須唯一識別檔。 對於關聯式資料，它可能會對應到主鍵。 對於 blob，它可能是 `metadata-storage-path`。 如果欄位值包含空格或連字號，您必須在 [建立索引子] 步驟的 [進階選項] 底下設定 [Base-64 編碼金鑰] 選項，以隱藏這些字元的驗證檢查。
+1. 您有一個可作為*金鑰*的欄位嗎？ 此欄位必須是 Edm 字串，而且必須唯一識別檔。 對於關聯式資料，它可能會對應到主鍵。 若是 blob，則可能是 `metadata-storage-path`。 如果欄位值包含空格或連字號，您必須在 [建立索引子] 步驟的 [進階選項] 底下設定 [Base-64 編碼金鑰] 選項，以隱藏這些字元的驗證檢查。
 
 1. 設定屬性，以決定該欄位在索引中的使用方式。 
 
@@ -134,4 +133,4 @@ Wizard 會產生不完整的索引，其中會填入從輸入資料來源取得�
 瞭解 wizard 優點和限制的最佳方式，就是逐步執行它。 下列快速入門會引導您完成每個步驟。
 
 > [!div class="nextstepaction"]
-> [使用 Azure 入口網站建立 Azure 搜尋服務索引](search-get-started-portal.md)
+> [使用 Azure 入口網站建立 Azure 認知搜尋索引](search-get-started-portal.md)

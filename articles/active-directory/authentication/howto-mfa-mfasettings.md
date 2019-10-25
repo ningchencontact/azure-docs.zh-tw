@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 62ceff25b022866e47e6fdd488b01dd647cf550f
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075506"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808216"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
 本文可協助您在 Azure 入口網站中管理 Multi-Factor Authentication 設定。 本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。 並非所有功能都適用于每個 Azure 多重要素驗證版本。
 
-您可以流覽至**Azure Active Directory**  >  **MFA**，以從 Azure 入口網站存取 Azure 多重要素驗證的相關設定。
+藉由流覽至**Azure Active Directory** > **MFA**，您可以從 Azure 入口網站存取 Azure 多重要素驗證的相關設定。
 
 ![Azure 入口網站 - Azure AD Multi-Factor Authentication 設定](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "71075506"
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [封鎖/解除封鎖使用者]。
 3. 選取 [新增] 以封鎖使用者。
-4. 選取 [複寫群組]。 將 [封鎖的使用者] 的使用者名稱輸入為**username\@domain.com**。 在 [原因] 欄位中輸入註解。
+4. 選取 [複寫群組]。 將 [封鎖的使用者名稱] 輸入為**username\@domain.com**。 在 [**原因**] 欄位中輸入批註。
 5. 選取 [新增] 以完成封鎖使用者。
 
 ### <a name="unblock-a-user"></a>解除封鎖使用者
@@ -86,7 +86,7 @@ ms.locfileid: "71075506"
 3. 將 [允許使用者提交詐騙警示] 設定設為 [開啟]。
 4. 選取 [儲存]。
 
-### <a name="configuration-options"></a>設定選項
+### <a name="configuration-options"></a>組態選項
 
 * **回報詐騙時封鎖使用者**：如果使用者回報詐騙，他們的帳戶會遭封鎖 90 天，或是封鎖到系統管理員解除封鎖其帳戶為止。 系統管理員可以使用登入報告來檢閱登入，並採取適當的動作以避免未來的詐騙。 系統管理員接著可以[解除封鎖](#unblock-a-user)使用者的帳戶。
 * **初始問候語期間以代碼報告詐騙**：當使用者收到電話以執行雙步驟驗證時，他們一般會按下 **#** 來確認登入。 若要報告詐騙，則需要在按 **#** 之前輸入代碼。 根據預設，此代碼是 **0**，但您可以自訂。
@@ -98,7 +98,7 @@ ms.locfileid: "71075506"
 ### <a name="view-fraud-reports"></a>檢視詐騙報告
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [Azure Active Directory] > [登入]。詐騙報告現在是標準 Azure AD 登入報告的一部分。
+2. 選取**Azure Active Directory** > 登**入**。詐騙報告現在是標準 Azure AD 登入報告的一部分。
 
 ## <a name="notifications"></a>通知
 
@@ -157,7 +157,7 @@ ms.locfileid: "71075506"
 | 訊息名稱 | 指令碼 |
 | --- | --- |
 | 驗證成功 | 已成功驗證您的登入。 不用. |
-| 分機提示 | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵以繼續。 |
+| 延伸模組提示 | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵以繼續。 |
 | 詐騙確認 | 已提交詐騙警示。 若要解除鎖定您的帳戶，請洽詢您公司的 IT 支援人員。 |
 | 詐騙問候語（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 如果您未起始此驗證，可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組，並封鎖進一步的驗證嘗試。 |
 | 詐騙回報已提交詐騙警示。 | 若要解除鎖定您的帳戶，請洽詢您公司的 IT 支援人員。 |
@@ -168,12 +168,12 @@ ms.locfileid: "71075506"
 | 問候（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
 | 詐騙問候語（PIN） | 感謝您使用 Microsoft 的登入驗證系統。  請輸入您的 PIN，然後按井字鍵完成您的驗證。 如果您未起始此驗證，可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組，並封鎖進一步的驗證嘗試。 |
 | 重試（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
-| 數字後提示分機 | 如果已在此延伸模組中，請按井字鍵以繼續。 |
-| 拒絕驗證 | 很抱歉，我們目前無法將您登入。 請稍後再試一次。 |
+| 數位之後的延伸提示 | 如果已在此延伸模組中，請按井字鍵以繼續。 |
+| 拒絕驗證 | 很抱歉，我們目前無法將您登入。 請稍後再試。 |
 | 啟用問候語（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
 | 啟用重試（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
 | 啟用問候語（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
-| 數字前提示分機 | 感謝您使用 Microsoft 的登入驗證系統。 請將此來電轉接至延伸模組 。 |
+| 數位前的延伸提示 | 感謝您使用 Microsoft 的登入驗證系統。 請將此來電轉接至延伸模組 。 |
 
 ## <a name="one-time-bypass"></a>一次性略過
 
@@ -185,7 +185,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [單次許可]。
 3. 選取 [新增]。
 4. 如有必要，請選取此許可的複寫群組。
-5. 輸入使用者名稱 **\@domain.com**作為使用者名稱。 輸入許可需持續的秒數。 輸入許可的原因。
+5. 在 [使用者**名稱]\@domain.com**中輸入使用者名稱。 輸入許可需持續的秒數。 輸入許可的原因。
 6. 選取 [新增]。 時間限制會立即生效。 使用者必須在單次許可到期之前登入。
 
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
@@ -285,7 +285,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 使用者也可以在註冊後建立應用程式密碼。 如需使用者的詳細資訊和詳細步驟，請參閱[什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
-## <a name="trusted-ips"></a>可信任 IP
+## <a name="trusted-ips"></a>信任的 IP
 
 受控或同盟租用戶的系統管理員會使用 Azure Multi-Factor Authentication 的_信任 IP_ 功能。 此功能會略過從公司內部網路登入之使用者的雙步驟驗證。 完整版 Azure Multi-Factor Authentication 提供此功能給管理員使用，免費版則不提供。 如需有關如何取得完整版 Azure Multi-Factor Authentication 的詳細資訊，請參閱[ Azure Multi-Factor Authentication](multi-factor-authentication.md)。
 
@@ -314,7 +314,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>使用條件式存取啟用命名位置
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [ **Azure Active Directory**  > **安全性** > ]**條件式存取** > （**名為 [位置**]）。
+2. 在左側，選取 [ **Azure Active Directory** > **安全性**] > [**條件式存取**] > **名為 [位置**]。
 3. 選取 [新增位置]。
 4. 輸入位置的名稱。
 5. 選取 [標記為受信任的位置]。
@@ -324,7 +324,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>使用條件式存取啟用信任的 Ip 功能
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [ **Azure Active Directory**  > **安全性** >  ]**條件式存取** > （**名為 [位置**]）。
+2. 在左側，選取 [ **Azure Active Directory** > **安全性**] >  [**條件式存取**] > **名為 [位置**]。
 3. 選取 [設定 MFA 信任的 IP]。
 4. 在 [服務設定] 頁面的 [信任的 IP] 下方，選擇下列兩個選項中的任一項：
 
@@ -347,11 +347,11 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面的 [信任的 IP] 下方，選擇下列兩個選項中的一或兩項：
 
-   * **適用於從我的內部網路的同盟使用者提出的要求**：若要選擇此選項，請選取核取方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：
+   * **適用於從我的內部網路上的同盟使用者提出的要求**：若要選擇此選項，請選取核取方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **適用於從特定 IP 位址子網路範圍提出的要求**：若要選擇此選項，請在文字方塊中，使用 CIDR 表示法輸入 IP 位址。
+   * **適用於從特定範圍之 IP 位址子網路提出的要求**：若要選擇此選項，請在文字方塊中，使用 CIDR 表示法輸入 IP 位址。
       * 對於範圍在 xxx.xxx.xxx.1 到 xxx.xxx.xxx.254 的 IP 位址，使用如 **xxx.xxx.xxx.0/24** 的標記法。
       * 針對單一 IP 位址，使用如 **xxx.xxx.xxx.xxx/32** 標記法。
       * 最多輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
@@ -368,8 +368,8 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 |:--- |:--- |
 | 電話通話 |撥打自動語音電話。 使用者可接聽電話並按電話鍵盤上的 # 進行驗證。 此電話號碼不會同步到內部部署 Active Directory。 |
 | 電話簡訊 |傳送包含驗證碼的簡訊。 系統會提示使用者在登入介面中輸入這個驗證碼。 此程序稱為「單向 SMS」。 雙向 SMS 表示使用者必須以簡訊回傳特定驗證碼。 雙向 SMS 已淘汰，且在 2018 年 11 月 14 之後不支援。 屆時，已設定雙向 SMS 的使用者將自動切換成_電話通話_驗證。|
-| 行動應用程式的通知 |將推播通知傳送至您的電話或已註冊的裝置。 使用者會看到通知，然後選取 [驗證] 來完成驗證。 Microsoft Authenticator 應用程式適用於 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。 |
-| 來自行動應用程式或硬體 Token 的驗證碼 |Microsoft Authenticator 應用程式每隔 30 秒會產生新的 OATH 驗證碼。 使用者會在登入介面中輸入此驗證碼。 Microsoft Authenticator 應用程式適用於 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。 |
+| 行動應用程式的通知 |將推播通知傳送至您的電話或已註冊的裝置。 使用者會看到通知，然後選取 [驗證] 來完成驗證。 Microsoft Authenticator 應用程式適用於 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。 |
+| 來自行動應用程式或硬體 Token 的驗證碼 |Microsoft Authenticator 應用程式每隔 30 秒會產生新的 OATH 驗證碼。 使用者會在登入介面中輸入此驗證碼。 Microsoft Authenticator 應用程式適用於 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。 |
 
 ### <a name="enable-and-disable-verification-methods"></a>啟用和停用驗證方法
 

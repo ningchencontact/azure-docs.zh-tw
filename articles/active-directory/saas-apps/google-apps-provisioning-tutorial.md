@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0187d17f8210800aef1c68def0614ce26913e09a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555018"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802211"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
@@ -32,7 +32,7 @@ ms.locfileid: "72555018"
 > [!NOTE]
 > G Suite 連接器最近已于2019年10月更新。 對 G Suite 連接器所做的變更包括：
 - 已新增對其他 G Suite 使用者和群組屬性的支援。 
-- 已更新 G Suite 目標屬性名稱，以符合[這裡]()定義的內容。
+- 已更新 G Suite 目標屬性名稱，以符合[這裡](/azure/active-directory/manage-apps/customize-application-attributes)定義的內容。
 - 已更新預設屬性對應。
 
 ## <a name="prerequisites"></a>必要條件

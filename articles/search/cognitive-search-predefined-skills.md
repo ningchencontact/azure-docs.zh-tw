@@ -1,31 +1,31 @@
 ---
-title: 內建資料擷取、自然語言、影像處理功能 - Azure 搜尋服務
-description: 資料擷取、自然語言、影像處理認知等技能會在 Azure 搜尋服務管線中對原始內容新增語意和結構。
+title: 內建資料提取、自然語言、影像處理
+titleSuffix: Azure Cognitive Search
+description: 資料提取、自然語言、影像處理認知技能會在 Azure 認知搜尋管線中，將語法和結構新增至原始內容。
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 061d969269eb526b8f02f14de58e2da20c459a38
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 435635018dc25ed2af0aec3d542c0388af8ab885
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265480"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792092"
 ---
-# <a name="predefined-skills-for-content-enrichment-azure-search"></a>內容擴充的預先定義技能 (Azure 搜尋服務)
+# <a name="built-in-cognitive-skills-for-content-enrichment-azure-cognitive-search"></a>Content 擴充的內建認知技能（Azure 認知搜尋）
 
-在本文中，您會了解 Azure 搜尋服務所提供的認知技能。 *認知技能*是一種以某種方式轉換內容的作業。 它通常是一種擷取資料或推斷結構的元件，因此能提高我們對輸入資料的了解。 輸出幾乎都是以文字為基礎的。 *技能集*是定義擴充管線的技能集合。 
+在本文中，您將瞭解 Azure 認知搜尋所提供的認知技能。 *認知技能*是一種以某種方式轉換內容的作業。 它通常是一種擷取資料或推斷結構的元件，因此能提高我們對輸入資料的了解。 輸出幾乎都是以文字為基礎的。 *技能集*是定義擴充管線的技能集合。 
 
 > [!NOTE]
-> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您需要[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 Api 時，會產生費用，並在 Azure 認知搜尋中以檔破解階段的形式進行映射解壓縮。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 [Azure 認知搜尋定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)會說明影像提取定價。
 
 
-## <a name="predefined-skills"></a>預先定義的技能
+## <a name="built-in-skills"></a>內建技能
 
 有數種技能所取用或產生的內容都很具彈性。 一般而言，大部分的技能乃是依據預先定型的模型，這表示您無法使用自己的定型資料來定型模型。 下表列舉並說明 Microsoft 所提供的技能。 
 
@@ -42,13 +42,13 @@ ms.locfileid: "71265480"
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | 光學字元辨識。 |
 | [Util. ConditionalSkill](cognitive-search-skill-conditional.md) | 允許篩選、指派預設值，以及根據條件來合併資料。|
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | 將輸出對應到複雜類型 (多部分的資料類型，可用於全名、多行地址，或姓氏與個人識別碼的組合)。 |
-| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | 可藉由將 HTTP 呼叫發到自訂 Web API 來擴充認知搜尋管線 |
+| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | 藉由對自訂 Web API 進行 HTTP 呼叫，允許 AI 擴充管線的擴充性 |
 
 
-如需建立[自訂技能](cognitive-search-custom-skill-web-api.md)的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例：建立認知搜尋](cognitive-search-create-custom-skill-example.md)的自訂技能。
+如需建立[自訂技能](cognitive-search-custom-skill-web-api.md)的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例：建立 AI 擴充的自訂技能](cognitive-search-create-custom-skill-example.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [如何定義技能集](cognitive-search-defining-skillset.md)
 + [自訂技能介面定義](cognitive-search-custom-skill-interface.md)
-+ [教學課程：擴充認知搜尋的編製索引](cognitive-search-tutorial-blob.md)
++ [教學課程：使用 AI 擴充索引](cognitive-search-tutorial-blob.md)

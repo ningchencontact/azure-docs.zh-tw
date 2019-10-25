@@ -1,24 +1,23 @@
 ---
-title: 自訂認知搜尋技能 - Azure 搜尋服務
-description: 透過向外呼叫 Web API 擴充認知搜尋技能的功能
-services: search
+title: 擴充管線中的自訂 Web API 技能
+titleSuffix: Azure Cognitive Search
+description: 藉由向外呼叫 Web Api 來擴充 Azure 認知搜尋技能集的功能。 使用自訂 Web API 技能來整合您的自訂程式碼。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693300"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784897"
 ---
-# <a name="custom-web-api-skill"></a>自訂 Web API 技能
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure 認知搜尋擴充管線中的自訂 Web API 技能
 
-**自訂 WEB api**技能可讓您向外呼叫提供自訂作業的 Web API 端點，以擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+**自訂 WEB api**技能可讓您藉由向外呼叫提供自訂作業的 Web API 端點，來擴充 AI 擴充。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
@@ -204,5 +203,5 @@ Microsoft.Skills.Custom.WebApiSkill
 
 + [電力技能：自訂技能的存放庫](https://aka.ms/powerskills)
 + [如何定義技能集](cognitive-search-defining-skillset.md)
-+ [在認知搜尋中加入自訂技能](cognitive-search-custom-skill-interface.md)
-+ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
++ [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
++ [範例：建立 AI 擴充的自訂技能（認知-搜尋-建立-自訂技能-example.md）

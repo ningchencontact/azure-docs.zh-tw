@@ -1,5 +1,6 @@
 ---
-title: 自訂瀏覽器和網站 |Microsoft 身分識別平臺
+title: 自訂瀏覽器和 WebViews
+titleSuffix: Microsoft identity platform
 description: 瞭解如何自訂 MSAL for iOS 和 macOS 用來登入使用者的瀏覽器體驗
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264194"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803369"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>作法：自訂適用于 iOS/macOS 的瀏覽器和網站
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>How to：自訂 iOS/macOS 的瀏覽器和網站
 
 互動式驗證需要 web 瀏覽器。 在 iOS 上，Microsoft 驗證程式庫（MSAL）預設會使用系統 web 瀏覽器（可能會出現在您的應用程式頂端），以進行互動式驗證以登入使用者。 使用 [系統瀏覽器] 的優點是可以與其他應用程式和 web 應用程式共用單一登入（SSO）狀態。
 
@@ -44,11 +45,11 @@ MSAL for macOS 僅支援 `WKWebView`。
 
 ## <a name="system-browsers"></a>系統瀏覽器
 
-若是 iOS，`ASWebAuthenticationSession`，`SFAuthenticationSession`，而 `SFSafariViewController` 則視為系統瀏覽器。 一般而言，系統瀏覽器會與 Safari 瀏覽器應用程式共用 cookie 和其他網站資料。
+針對 iOS，`ASWebAuthenticationSession`、`SFAuthenticationSession`和 `SFSafariViewController` 視為系統瀏覽器。 一般而言，系統瀏覽器會與 Safari 瀏覽器應用程式共用 cookie 和其他網站資料。
 
-根據預設，MSAL 會動態偵測 iOS 版本，並選取該版本上所提供的建議系統瀏覽器。 在 iOS 12 上，它會 `ASWebAuthenticationSession`。 
+根據預設，MSAL 會動態偵測 iOS 版本，並選取該版本上所提供的建議系統瀏覽器。 在 iOS 12 上，將會 `ASWebAuthenticationSession`。 
 
-| Version | Web 瀏覽器 |
+| 版本 | Web 瀏覽器 |
 |:-------------:|:-------------:|
 | iOS 12 + | ASWebAuthenticationSession |
 | iOS 11 | SFAuthenticationSession |
@@ -56,7 +57,7 @@ MSAL for macOS 僅支援 `WKWebView`。
 
 開發人員也可以針對 MSAL 應用程式選取不同的系統瀏覽器：
 
-- `SFAuthenticationSession` 是 `ASWebAuthenticationSession` 的 iOS 11 版本。
+- `SFAuthenticationSession` 是 `ASWebAuthenticationSession`的 iOS 11 版本。
 - `SFSafariViewController` 是較一般的用途，並提供用於流覽 web 的介面，也可用於登入目的。 在 iOS 9 和10中，cookie 和其他網站資料會與 Safari 共用，但不會在 iOS 11 和更新版本中。
 
 ## <a name="in-app-browser"></a>應用程式內瀏覽器
@@ -67,19 +68,19 @@ MSAL for macOS 僅支援 `WKWebView`。
 
 您使用的瀏覽器會影響 SSO 體驗，因為它們共用 cookie 的方式。 下表摘要說明每個瀏覽器的 SSO 體驗。
 
-| Technology    | 瀏覽器類型  | iOS 可用性 | macOS 可用性 | 共用 cookie 和其他資料  | MSAL 可用性 | SSO |
+| 技術    | 瀏覽器類型  | iOS 可用性 | macOS 可用性 | 共用 cookie 和其他資料  | MSAL 可用性 | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | 系統 | iOS12 和 up | macOS 10.15 及更新的 | 是 | 僅限 iOS | w/Safari 實例
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 系統 | iOS11 和 up | N/A | 是 | 僅限 iOS |  w/Safari 實例
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 系統 | iOS11 和 up | N/A | 否 | 僅限 iOS | 否 * *
-| **SFSafariViewController** | 系統 | iOS10 | N/A | 是 | 僅限 iOS |  w/Safari 實例
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 和 up | macOS 10.15 及更新的 | 是 | 僅限 iOS | w/Safari 實例
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 和 up | N/A | 是 | 僅限 iOS |  w/Safari 實例
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 和 up | N/A | 否 | 僅限 iOS | 否 * *
+| **SFSafariViewController** | System | iOS10 | N/A | 是 | 僅限 iOS |  w/Safari 實例
 | **WKWebView**  | 應用程式內 | iOS8 和 up | macOS 10.10 及更新的 | 否 | iOS 和 macOS | 否 * *
 
 \* * 若要讓 SSO 正常執行，必須在應用程式之間共用權杖。 這需要權杖快取或 broker 應用程式，例如適用于 iOS 的 Microsoft Authenticator。
 
 ## <a name="change-the-default-browser-for-the-request"></a>變更要求的預設瀏覽器
 
-您可以根據您的 UX 需求，使用應用程式內瀏覽器或特定的系統瀏覽器，方法是在 `MSALWebviewParameters` 中變更下列屬性：
+您可以在 `MSALWebviewParameters`中變更下列屬性，以根據您的 UX 需求使用應用程式內瀏覽器或特定的系統瀏覽器：
 
 ```objc
 @property (nonatomic) MSALWebviewType webviewType;
@@ -91,7 +92,7 @@ MSAL for macOS 僅支援 `WKWebView`。
 
 此外，MSAL 支援藉由設定 `MSALInteractiveTokenParameters.webviewParameters.customWebView` 屬性來傳入自訂 `WKWebView`。
 
-例如:
+例如：
 
 Objective-C
 ```objc
@@ -135,7 +136,7 @@ extern NSString *MSALWebAuthDidCompleteNotification;
 extern NSString *MSALWebAuthWillSwitchToBrokerApp;
 ```
 
-### <a name="options"></a>選項。
+### <a name="options"></a>選項
 
 所有 MSAL 支援的網頁瀏覽器類型都會在[MSALWebviewType 列舉](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALDefinitions.h#L47)中宣告
 

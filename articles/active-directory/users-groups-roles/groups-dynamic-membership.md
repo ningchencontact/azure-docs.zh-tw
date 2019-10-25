@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241162"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808965"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -70,7 +70,7 @@ user.department -eq "Sales"
 
 - 屬性
 - 運算子
-- 值
+- Value
 
 運算式內的部分順序很重要，可避免發生語法錯誤。
 
@@ -79,21 +79,21 @@ user.department -eq "Sales"
 有三種類型的屬性可用來建構成員資格規則。
 
 - Boolean
-- 字串
+- String
 - 字串集合
 
 以下是您可用來建立單一運算式的使用者屬性。
 
 ### <a name="properties-of-type-boolean"></a>布林型別的屬性
 
-| 屬性 | 允許的值 | 使用量 |
+| 屬性 | 允許的值 | 用量 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>字串類型的屬性
 
-| 屬性 | 允許的值 | 使用量 |
+| 屬性 | 允許的值 | 用量 |
 | --- | --- | --- |
 | city |任何字串值或 *null* |(user.city -eq "value") |
 | country |任何字串值或 *null* |(user.country -eq "value") |
@@ -124,7 +124,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
 
-| 屬性 | 允許的值 | 使用量 |
+| 屬性 | 允許的值 | 用量 |
 | --- | --- | --- |
 | otherMails |任何字串值 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -138,7 +138,7 @@ user.department -eq "Sales"
 | 運算子 | 語法 |
 | --- | --- |
 | Not Equals |-ne |
-| Equals |-eq |
+| 等於 |-eq |
 | Not Starts With |-notStartsWith |
 | 開頭為 |-startsWith |
 | Not Contains |-notContains |
@@ -160,7 +160,7 @@ user.department -eq "Sales"
 
 
 ### <a name="using-the--match-operator"></a>使用 -match 運算子 
-**-match** 運算子可用來比對任何規則運算式。 例如：
+**-match** 運算子可用來比對任何規則運算式。 範例：
 
 ```
 user.displayName -match "Da.*"   
@@ -249,7 +249,7 @@ David 會評估為 true，Da 則會評估為 false。
 
 多重值屬性是相同類型之物件的集合。 它們可以用來建立使用 -any 和 -all 邏輯運算子的成員資格規則。
 
-| 屬性 | 值 | 使用量 |
+| 屬性 | 值 | 用量 |
 | --- | --- | --- |
 | assignedPlans | 集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -369,8 +369,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  裝置屬性  | 值 | 範例
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | 任何字串值 |(device.displayName -eq "Rob iPhone")
- deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>（Device.deviceostype-包含 "AndroidEnterprise"）<br>(device.deviceOSType -eq "AndroidForWork")
+ displayName | 任何字串值 |（device. displayName-eq "竊取 iPhone"）
+ deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>（Device.deviceostype-包含 "AndroidEnterprise"）<br>（Device.deviceostype-eq "AndroidForWork"）
  deviceOSVersion | 任何字串值 | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 有效的裝置類別名稱 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 任何字串值 | (device.deviceManufacturer -eq "Samsung")
@@ -379,8 +379,10 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  enrollmentProfileName | Apple 裝置註冊設定檔、裝置註冊-公司裝置識別碼（Android-Kiosk）或 Windows Autopilot 設定檔名稱 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (適用於行動裝置)<br>PC (適用於 Intune PC 代理程式管理的電腦) | (device.managementType -eq "MDM")
+ organizationalUnit | 有效的內部部署組織單位（OU） | （organizationalUnit-包含「膝上型電腦」）
  deviceId | 有效的 Azure AD 裝置識別碼 | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 有效的 Azure AD 物件識別碼 |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ devicePhysicalIds | Autopilot 所使用的任何字串值，例如所有 Autopilot 裝置、訂單或 PurchaseOrderID  | （devicePhysicalIDs-any _-contains "[ZTDId]"）（devicePhysicalIds-any _-eq "[訂單]： 179887111881"）（devicePhysicalIds-any _-eq "[PurchaseOrderId]： 76222342342"）
  systemLabels | 比對 Intune 裝置屬性以觸發新式工作場所的裝置的任何字串 | （systemLabels-包含 "M365Managed"）
 
 > [!Note]  

@@ -1,22 +1,21 @@
 ---
-title: 參考認知搜尋管線中的輸入和輸出 - Azure 搜尋服務
-description: 說明註解語法，以及如何在 Azure 搜尋服務中參考認知搜尋管線中某技能集之輸入和輸出內的註解。
-services: search
+title: AI 擴充管線中的參考輸入和輸出
+titleSuffix: Azure Cognitive Search
+description: 說明注釋語法，以及如何在 Azure 認知搜尋中的 AI 擴充管線中，參考技能集的輸入和輸出中的注釋。
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265542"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787767"
 ---
-# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何參考認知搜尋技能集中的註釋
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>如何參考 Azure 認知搜尋技能集中的批註
 
 在本文中，我們將使用範例說明各種案例，讓您了解如何參考技能定義中的註解。 當文件內容流經技能集時，將會增添註解而有所擴充。 註解可以作為進一步下游擴充的輸入，或對應至索引中的輸出欄位。 
  
@@ -26,7 +25,7 @@ ms.locfileid: "71265542"
 
 在檢閱語法之前，讓我們先回顧幾個重要的概念，以深入了解本文稍後所提供的範例。
 
-| 詞彙 | 描述 |
+| 條款 | 描述 |
 |------|-------------|
 | 擴充的文件 | 擴充的文件是管線所建立及使用的內部結構，用來保存與文件相關的所有註解。 請將擴充的文件設想為註解的樹狀結構。 一般而言，從上一個註解建立的註解將會成為其子系。<p/>只有在技能集執行期間，才會有擴充的文件。 在內容對應至搜尋索引後，即不再需要擴充的文件。 雖然您無法直接擴充的文件互動，但在建立技能集時，具有文件的心智模型將有所幫助。 |
 | 擴充內容 | 執行擴充所在的內容，以擴充何種元素的觀點來表示。 根據預設，擴充內容會在 `"/document"` 層級上，其範圍僅限於個別文件。 當技能執行時，該技能的輸出會成為[已定義內容的屬性](#example-2)。|
@@ -96,7 +95,7 @@ ms.locfileid: "71265542"
 
 有時候，您必須將特定類型的所有註解分組在一起，以將其傳遞至特定技能。 請考慮建立假設性的自訂技能，以從擷取自範例 2 的所有姓氏中識別出最常見的姓氏。 若只要將姓氏提供給自訂技能，請將內容指定為 `"/document"`，並將輸入指定為 `"/document/people/*/lastname"`。
 
-請注意，的基數`"/document/people/*/lastname"`大於檔的基數。 姓氏節點可能有 10 個，而此文件只有一個文件節點。 在此情況下，系統會自動建立一個 `"/document/people/*/lastname"` 陣列，其中包含文件中的所有元素。
+請注意，`"/document/people/*/lastname"` 的基數大於檔的基數。 姓氏節點可能有 10 個，而此文件只有一個文件節點。 在此情況下，系統會自動建立一個 `"/document/people/*/lastname"` 陣列，其中包含文件中的所有元素。
 
 ```json
   {
@@ -121,7 +120,7 @@ ms.locfileid: "71265542"
 
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 + [如何將自訂技能整合到擴充管線中](cognitive-search-custom-skill-interface.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

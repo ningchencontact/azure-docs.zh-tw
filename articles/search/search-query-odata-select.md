@@ -1,13 +1,13 @@
 ---
-title: OData 選取參考-Azure 搜尋服務
-description: Azure 搜尋服務查詢中 select 語法的 OData 語言參考。
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: OData 選取參考
+titleSuffix: Azure Cognitive Search
+description: Azure 認知搜尋查詢中 select 語法的 OData 語言參考。
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64e9ad75d88f595ab5def6fe8b63fee9407ae0fe
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647882"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793256"
 ---
-# <a name="odata-select-syntax-in-azure-search"></a>Azure 搜尋服務中的 OData $select 語法
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Azure 認知搜尋中的 OData $select 語法
 
- 您可以使用[OData **$select**參數](query-odata-filter-orderby-syntax.md), 從 Azure 搜尋服務選擇要包含在搜尋結果中的欄位。 本文會詳細說明 **$select**的語法。 如需有關如何在呈現搜尋結果時使用 **$select**的一般資訊, 請參閱[如何在 Azure 搜尋服務中使用搜尋結果](search-pagination-page-layout.md)。
+ 您可以使用[OData **$select**參數](query-odata-filter-orderby-syntax.md)，從 Azure 認知搜尋選擇要包含在搜尋結果中的欄位。 本文會詳細說明 **$select**的語法。 如需有關如何在呈現搜尋結果時使用 **$select**的一般資訊，請參閱[如何在 Azure 認知搜尋中使用搜尋結果](search-pagination-page-layout.md)。
 
 ## <a name="syntax"></a>語法
 
-**$Select**參數會決定要在查詢結果集中傳回每份檔的哪些欄位。 下列 EBNF ([Extended 巴克斯-Backus-naur 表單](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 定義 **$select**參數的文法:
+**$Select**參數會決定要在查詢結果集中傳回每份檔的哪些欄位。 下列 EBNF （[Extended 巴克斯-Backus-naur 表單](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)）定義 **$select**參數的文法：
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -42,30 +42,30 @@ select_expression ::= '*' | field_path(',' field_path)*
 field_path ::= identifier('/'identifier)*
 ```
 
-也提供互動式語法圖:
+也提供互動式語法圖：
 
 > [!div class="nextstepaction"]
-> [Azure 搜尋服務的 OData 語法圖表](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Azure 認知搜尋的 OData 語法圖表](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> 如需完整 EBNF 的 Azure 搜尋服務, 請參閱[OData 運算式語法參考](search-query-odata-syntax-reference.md)。
+> 如需完整的 EBNF，請參閱[Azure 認知搜尋的 OData 運算式語法參考](search-query-odata-syntax-reference.md)。
 
-**$Select**參數的形式有兩種:
+**$Select**參數的形式有兩種：
 
-1. 單一星形 (`*`), 表示應該傳回所有可抓取的欄位, 或
-1. 以逗號分隔的欄位路徑清單, 可識別應傳回的欄位。
+1. 單一星形（`*`），表示應該傳回所有可抓取的欄位，或
+1. 以逗號分隔的欄位路徑清單，可識別應傳回的欄位。
 
-使用第二個表單時, 您只能在清單中指定可抓取的欄位。
+使用第二個表單時，您只能在清單中指定可抓取的欄位。
 
-如果您在不明確指定子欄位的情況下列出複雜欄位, 所有可抓取的子欄位都會包含在查詢結果集中。 例如, 假設您的索引有一個`Address`欄位, `Street`其中`City`包含、 `Country`和子欄位全都可供取得。 如果您在`Address` **$select**中指定, 則查詢結果會包含三個子欄位。
+如果您在不明確指定子欄位的情況下列出複雜欄位，所有可抓取的子欄位都會包含在查詢結果集中。 例如，假設您的索引有一個 [`Address`] 欄位，其中含有 `Street`、`City`，以及所有可取得的 `Country` 子欄位。 如果您在 **$select**中指定 `Address`，查詢結果會包含三個子欄位。
 
 ## <a name="examples"></a>範例
 
-`HotelName` `Rating` `City`在結果中包含`Address`、和最上層欄位, 以及的子欄位: `HotelId`
+在結果中包含 [`HotelId`]、[`HotelName`] 和 [`Rating` 最上層] 欄位，以及 `Address`的 [`City`] 子欄位：
 
     $select=HotelId, HotelName, Rating, Address/City
 
-範例結果可能如下所示:
+範例結果可能如下所示：
 
 ```json
 {
@@ -78,11 +78,11 @@ field_path ::= identifier('/'identifier)*
 }
 ```
 
-`Rooms` `BaseRate` `Type` `Address`將最上層欄位包含在結果中, 以及的所有子欄位, 以及集合中每個物件的和子欄位: `HotelName`
+在結果中包含 `HotelName` 最上層欄位，以及 `Address`的所有子欄位，以及 `Rooms` 集合中每個物件的 `Type` 和 `BaseRate` 子欄位：
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
-範例結果可能如下所示:
+範例結果可能如下所示：
 
 ```json
 {
@@ -110,7 +110,7 @@ field_path ::= identifier('/'identifier)*
 
 ## <a name="next-steps"></a>後續步驟  
 
-- [如何在 Azure 搜尋服務中使用搜尋結果](search-pagination-page-layout.md)
-- [Azure 搜尋服務的 OData 運算式語言總覽](query-odata-filter-orderby-syntax.md)
-- [Azure 搜尋服務的 OData 運算式語法參考](search-query-odata-syntax-reference.md)
-- [搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [如何在 Azure 認知搜尋中使用搜尋結果](search-pagination-page-layout.md)
+- [Azure 認知搜尋的 OData 運算式語言總覽](query-odata-filter-orderby-syntax.md)
+- [Azure 認知搜尋的 OData 運算式語法參考](search-query-odata-syntax-reference.md)
+- [搜尋檔&#40;Azure 認知搜尋 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

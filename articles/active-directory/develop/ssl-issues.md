@@ -1,5 +1,6 @@
 ---
-title: 針對目標的 MSAL 進行疑難排解-C 問題 |Microsoft 身分識別平臺
+title: 針對目標的 MSAL 進行疑難排解-C 問題
+titleSuffix: Microsoft identity platform
 description: 瞭解搭配 MSAL 使用 SSL 憑證的各種問題。目標-C 程式庫。
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76892686beec8ea18d56166519353fb5a2495124
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: fc918502cd252b4e53af8bcbd209a8387ef4d8c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268904"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803662"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>HOW TO：針對 iOS 和 macOS SSL 問題的 MSAL 進行疑難排解
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>如何：針對 iOS 和 macOS SSL 問題的 MSAL 進行疑難排解
 
 本文提供的資訊可協助您疑難排解在使用[適用于 iOS 和 macOS 的 Microsoft 驗證程式庫（MSAL）](reference-v2-libraries.md)時可能會遇到的問題
 
@@ -32,7 +33,7 @@ ms.locfileid: "71268904"
 
 **錯誤-1200**：「發生 SSL 錯誤，無法建立與伺服器的安全連線。」
 
-此錯誤表示連接不安全。 當憑證無效時，就會發生此錯誤。 如需詳細資訊（包括 SSL 檢查失敗的伺服器），請參閱`NSURLErrorFailingURLErrorKey`錯誤物件`userInfo`字典中的。
+此錯誤表示連接不安全。 當憑證無效時，就會發生此錯誤。 如需詳細資訊（包括 SSL 檢查失敗的伺服器），請參閱錯誤物件之 `userInfo` 字典中的 `NSURLErrorFailingURLErrorKey`。
 
 此錯誤來自 Apple 的網路程式庫。 NSURL 錯誤碼的完整清單位於 macOS 和 iOS Sdk 的 NSURLError 中。 如需有關此錯誤的詳細資訊，請參閱[URL 載入系統錯誤碼](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc)。
 

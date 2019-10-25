@@ -1,13 +1,13 @@
 ---
-title: Lucene 查詢語法 - Azure 搜尋服務
-description: 用於 Azure 搜尋服務的完整 Lucene 語法參考。
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Lucene 查詢語法
+titleSuffix: Azure Cognitive Search
+description: 完整 Lucene 語法的參考，與 Azure 認知搜尋搭配使用。
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650053"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786276"
 ---
-# <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜尋服務中的 Lucene 查詢語法
-您可以基礎根據適用於特殊查詢形式的豐富 [Lucene 查詢剖析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)語法，為 Azure 搜尋服務撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、規則運算式只是其中一些範例。 大部分的 Lucene 查詢剖析器語法都可[完整移植到 Azure 搜尋服務中實作](search-lucene-query-architecture.md)，唯一的例外是*範圍搜尋*，這必須在 Azure 搜尋服務中透過 `$filter` 運算式來建構。 
+# <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure 認知搜尋中的 Lucene 查詢語法
+
+您可以根據特殊化查詢格式的豐富[Lucene 查詢](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)剖析器語法，針對 Azure 認知搜尋撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、正則運算式是一些範例。 大部分的 Lucene 查詢剖析器語法會[在 Azure 認知搜尋中原封不動地執行](search-lucene-query-architecture.md)，但*範圍搜尋*除外，會在 azure 認知搜尋中透過 `$filter` 運算式來進行。 
 
 ## <a name="how-to-invoke-full-parsing"></a>如何叫用完整剖析
 
@@ -56,10 +57,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-如需其他範例，請參閱[在 Azure 搜尋服務中建置查詢的 Lucene 查詢語法範例](search-query-lucene-examples.md)。 如需關於指定各種可用查詢參數的詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
+如需其他範例，請參閱[Lucene 查詢語法範例，以在 Azure 認知搜尋中建立查詢](search-query-lucene-examples.md)。 如需有關指定完整的查詢參數的詳細資訊，請參閱[搜尋檔&#40;Azure 認知&#41;搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
 
 > [!NOTE]  
->  Azure 搜尋服務也支援[簡單查詢語法](query-simple-syntax.md)，這種簡單又健全的查詢語言可用於單純的關鍵字搜尋。  
+>  Azure 認知搜尋也支援[簡單的查詢語法](query-simple-syntax.md)，這是一種簡單且健全的查詢語言，可用於簡單的關鍵字搜尋。  
 
 ##  <a name="bkmk_syntax"></a>語法基礎  
  下列語法基礎適用於所有使用 Lucene 語法的查詢。  
@@ -79,11 +80,11 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
  特殊字元必須逸出，才可作為搜尋文字的一部分。 在其前面加上反斜線 (\\) 即可加以逸出。 需要逸出的特殊字元包括：  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- 例如, 若要將萬用字元轉義, 請使用\\。 \*
+ 例如，若要將萬用字元轉義，請使用 \\\*。
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>為 URL 中的 Unsafe 字元和保留字元編碼
 
- 請確定所有 Unsafe 字元和保留字元在 URL 中都已編碼。 例如，'#' 是 Unsafe 字元，因為它是 URL 中的片段/錨點識別碼。 此字元在 URL 中使用時必須編碼為 `%23`。 '&' 和 '=' 是保留字元的範例，因為它們用來分隔參數，以及指定 Azure 搜尋服務中的值。 請參閱 [RFC1738：統一資源定位器 (URL)](https://www.ietf.org/rfc/rfc1738.txt)，以取得詳細資訊。
+ 請確定所有 Unsafe 字元和保留字元在 URL 中都已編碼。 例如，'#' 是 Unsafe 字元，因為它是 URL 中的片段/錨點識別碼。 此字元在 URL 中使用時必須編碼為 `%23`。 ' & ' 和 ' = ' 是保留字元的範例，因為它們會將參數分隔，並在 Azure 認知搜尋中指定值。 如需詳細資訊，請參閱[RFC1738：統一資源定位器（URL）](https://www.ietf.org/rfc/rfc1738.txt) 。
 
  Unsafe 字元包括 ``" ` < > # % { } | \ ^ ~ [ ]``。 保留字元包括 `; / ? : @ = + &`。
 
@@ -93,9 +94,9 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 欄位分組也相類似，但分組的範圍會限定於單一欄位。 例如，`hotelAmenities:(gym+(wifi||pool))` 會在 "hotelAmenities" 欄位中搜尋 "gym" 和 "wifi"，或搜尋 "gym" 和 "pool"。  
 
 ### <a name="searchmode-parameter-considerations"></a>SearchMode 參數考量  
- 如同 [Azure 搜尋服務中的簡單查詢語法](query-simple-syntax.md)所說明，`searchMode` 對於查詢的影響同樣適用於 Lucene 查詢語法。 也就是說，如果您不清楚您設定參數的方式會有何影響，`searchMode` 與 NOT 運算子搭配使用時可能會產生出乎您預期的查詢結果。 如果您保留預設值 `searchMode=any`，並使用 NOT 運算子，則會以 OR 動作計算作業，而使 "New York" NOT "Seattle" 傳回所有不是 Seattle 的城市。  
+ 如[Azure 認知搜尋中的簡單查詢語法](query-simple-syntax.md)所述，對查詢 `searchMode` 的影響，同樣適用于 Lucene 查詢語法。 也就是說，如果您不清楚您設定參數的方式會有何影響，`searchMode` 與 NOT 運算子搭配使用時可能會產生出乎您預期的查詢結果。 如果您保留預設值 `searchMode=any`，並使用 NOT 運算子，則會以 OR 動作計算作業，而使 "New York" NOT "Seattle" 傳回所有不是 Seattle 的城市。  
 
-##  <a name="bkmk_boolean"></a>布林運算子 (AND、OR、NOT) 
+##  <a name="bkmk_boolean"></a>布林運算子（AND、OR、NOT） 
  文字布林運算子 (AND、OR、NOT) 須一律全部以大寫指定。  
 
 ### <a name="or-operator-or-or-"></a>OR 運算子 `OR` 或 `||`
@@ -116,13 +117,13 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 使用 `searchMode=all` 則會包含較少結果而提高查詢的精確度，且依預設 - 會解譯為 "AND NOT"。 例如，`wifi -luxury` 會比對出包含 `wifi` 一詞且不含 `luxury` 一詞的文件。 就 - 運算子而言，這算是較直覺化的行為。 因此，如果您想要最佳化搜尋的精確度而不是召回率，*且*您的使用者在搜尋中經常使用 `-` 運算子，您即應考慮選擇 `searchMode=all` 而非 `searchMode=any`。
 
 ##  <a name="bkmk_querysizelimits"></a>查詢大小限制  
- 可傳送至 Azure 搜尋服務的查詢大小有所限制。 具體來說，您最多可以有 1024 個子句 (以 AND、OR 等運算子分隔的運算式)。 此外，查詢中任何個別字詞的大小也有約 32 KB 的限制。 如果您的應用程式以程式設計方式產生搜尋查詢，建議您依照此方式設計，以避免產生無大小限制的查詢。  
+ 您可以傳送至 Azure 認知搜尋的查詢大小有限制。 具體來說，您最多可以有 1024 個子句 (以 AND、OR 等運算子分隔的運算式)。 此外，查詢中任何個別字詞的大小也有約 32 KB 的限制。 如果您的應用程式以程式設計方式產生搜尋查詢，建議您依照此方式設計，以避免產生無大小限制的查詢。  
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a>萬用字元和 regex 查詢的評分
- Azure 搜尋服務對文字查詢會使用以頻率為基礎的評分 ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))。 不過，針對字詞範圍可能很廣泛的萬用字元和 regex 查詢，則會忽略頻率因素，以防止罕見字詞的相符項目誤獲較高的排名。 系統對於萬用字元和 regex 搜尋的所有相符項目，會同等視之。
+ Azure 認知搜尋會使用以頻率為基礎的評分（[TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)）來查詢文字。 不過，針對字詞範圍可能很廣泛的萬用字元和 regex 查詢，則會忽略頻率因素，以防止罕見字詞的相符項目誤獲較高的排名。 系統對於萬用字元和 regex 搜尋的所有相符項目，會同等視之。
 
 ##  <a name="bkmk_fields"></a>回復搜尋  
-您可以使用`fieldName:searchExpression`語法定義回復搜尋作業, 其中搜尋運算式可以是單一單字或片語, 或是以括弧括住的更複雜運算式 (選擇性地使用布林運算子)。 以下為部分範例：  
+您可以使用 `fieldName:searchExpression` 語法來定義回復搜尋作業，其中搜尋運算式可以是單一單字或片語，或是以括弧括住的更複雜運算式（選擇性地使用布林運算子）。 某些範例包括以下內容：  
 
 - genre:jazz NOT history  
 
@@ -133,14 +134,14 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 `fieldName:searchExpression` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
 
 > [!NOTE]
-> 使用回復搜尋運算式時, 您不需要使用`searchFields`參數, 因為每個回復搜尋運算式都已明確指定功能變數名稱。 不過, 如果您想要執行`searchFields`查詢, 其中某些部分的範圍設定為特定欄位, 則您仍然可以使用參數, 其餘的可能會套用至數個欄位。 例如, `search=genre:jazz NOT history&searchFields=description`查詢只`NOT history`符合`jazz` `genre`欄位, 而與欄位相符。 `description` 中`fieldName:searchExpression`提供的功能變數名稱一律優先`searchFields`于參數, 這就是為什麼在此範例中, 我們不`searchFields`需要在參數中包含`genre` 。
+> 使用回復搜尋運算式時，您不需要使用 `searchFields` 參數，因為每個回復搜尋運算式都已明確指定功能變數名稱。 不過，如果您想要執行一個查詢，其中某些部分的範圍設定為特定欄位，則您仍然可以使用 `searchFields` 參數，其餘的部分則適用于數個欄位。 例如，查詢 `search=genre:jazz NOT history&searchFields=description` 只會比對 `genre` 欄位的 `jazz`，而與 `description` 欄位相符的 `NOT history`。 `fieldName:searchExpression` 中提供的功能變數名稱一律優先于 `searchFields` 參數，因此在此範例中，我們不需要在 `searchFields` 參數中包含 `genre`。
 
 ##  <a name="bkmk_fuzzy"></a>模糊搜尋  
  模糊搜尋會尋找具有類似建構的相符項目。 在每個 [Lucene 文件](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)中，模糊搜尋以 [Damerau-Levenshtein 距離](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)為基礎。 模糊搜尋可將一個字詞擴充為最多 50 個符合距離準則的字詞。 
 
  若要執行模糊搜尋，請在單一文字結尾使用波狀符號 "~"，加上選擇性參數，介於 0 和 2 (預設值) 之間且指定編輯距離的數值。 例如，"blue~" 或 "blue~1" 會傳回 "blue"、"blues" 和 "glue"。
 
- 模糊搜尋只能套用至詞彙, 而不能套用至片語, 但是您可以在多部分名稱或片語中個別附加波狀符號到每個詞彙。 例如, "Unviersty ~ of" Wshington ~ "會符合「華盛頓大學」的結果。
+ 模糊搜尋只能套用至詞彙，而不能套用至片語，但是您可以在多部分名稱或片語中個別附加波狀符號到每個詞彙。 例如，"Unviersty ~ of" Wshington ~ "會符合「華盛頓大學」的結果。
  
 
 ##  <a name="bkmk_proximity"></a>鄰近搜尋  
@@ -168,8 +169,8 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 >  您無法使用 * 或 ? 符號做為搜尋的第一個字元。  
 >  對萬用字元搜尋查詢不會執行文字分析。 在查詢時，萬用字元查詢字詞將會與搜尋索引中已分析的字詞進行比對，並進行擴充。
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
 
 + [搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [篩選和排序的 OData 運算式語法](query-odata-filter-orderby-syntax.md)   
-+ [Azure 搜尋服務中的簡單查詢語法](query-simple-syntax.md)   
++ [Azure 認知搜尋中的簡單查詢語法](query-simple-syntax.md)   

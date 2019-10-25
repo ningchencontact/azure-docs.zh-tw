@@ -1,5 +1,6 @@
 ---
-title: 針對 Azure AD 中的企業應用程式設定 SAML 權杖發出的角色宣告 | Microsoft Docs
+title: 在 Azure AD 中設定企業應用程式的角色宣告
+titleSuffix: Microsoft identity platform
 description: 了解如何針對 Azure Active Directory 中的企業應用程式設定 SAML 權杖中發出的角色宣告
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207199"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803504"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>HOW TO：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
 藉由使用 Azure Active Directory (Azure AD)，您可以針對在授權應用程式之後所收到回應權杖中的角色宣告，自訂其宣告類型。
 
@@ -59,11 +60,11 @@ ms.locfileid: "70207199"
 
     ![屬性頁面](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. 在另一個視窗中開啟[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) , 並採取下列步驟:
+6. 在另一個視窗中開啟[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) ，並採取下列步驟：
 
     a. 使用您租用戶的全域管理員或共同管理員認證來登入 [Graph 總管] 網站。
 
-    b. 您必須有足夠的權限才能建立角色。 選取 [修改權限] 來取得權限。
+    b.這是另一個 C# 主控台應用程式。 您必須有足夠的權限才能建立角色。 選取 [修改權限] 來取得權限。
 
       ![[修改權限] 按鈕](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
@@ -80,7 +81,7 @@ ms.locfileid: "70207199"
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      如果您使用多個目錄，則請依照此模式： `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![[Graph 總管] 對話方塊，具有用於擷取服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -140,7 +141,7 @@ ms.locfileid: "70207199"
 
       ![具有成功訊息的修補作業](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. 將服務主體修補成具有更多角色之後，您可以將使用者指派給各自的角色。 您可以移至入口網站並瀏覽至應用程式，來指派使用者。 選取 [使用者和群組] 索引標籤。此索引標籤會列出已指派給應用程式的所有使用者和群組。 您可以對新角色新增使用者。 您也可以選取現有使用者，然後選取 [編輯] 以變更角色。
+7. 將服務主體修補成具有更多角色之後，您可以將使用者指派給各自的角色。 您可以移至入口網站並瀏覽至應用程式，來指派使用者。 選取 [**使用者和群組**] 索引標籤。此索引標籤會列出已指派給應用程式的所有使用者和群組。 您可以對新角色新增使用者。 您也可以選取現有使用者，然後選取 [編輯] 以變更角色。
 
     ![[使用者和群組] 索引標籤](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -160,13 +161,13 @@ ms.locfileid: "70207199"
     | 角色名稱  | user.assignedroles |
 
     >[!NOTE]
-    >如果角色宣告值為 null, 則 Azure AD 不會在權杖中傳送此值, 而這預設會依設計而成。
+    >如果角色宣告值為 null，則 Azure AD 不會在權杖中傳送此值，而這預設會依設計而成。
 
     a. 按一下 [**編輯**] 圖示以開啟 [**使用者屬性] & [宣告**] 對話方塊。
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. 在 [**管理使用者宣告**] 對話方塊中, 按一下 [新增宣告] 來新增 [SAML 權杖] 屬性。
+    b.這是另一個 C# 主控台應用程式。 在 [**管理使用者宣告**] 對話方塊中，按一下 [新增宣告] 來新增 [SAML 權杖]**屬性。**
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -178,7 +179,7 @@ ms.locfileid: "70207199"
 
     e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
 
-    f. 選取 [ **儲存**]。
+    f. 選取 [儲存]。
 
 10. 若要在識別提供者所起始的單一登入中測試應用程式，請登入[存取面板](https://myapps.microsoft.com)，並選取應用程式圖格。 在 SAML 權杖中，您應該會看到具有所指定宣告名稱之使用者的所有指派角色。
 
@@ -194,7 +195,7 @@ ms.locfileid: "70207199"
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    如果您使用多個目錄，則請依照此模式： `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![[Graph 總管] 對話方塊，具有用於擷取服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -214,7 +215,7 @@ ms.locfileid: "70207199"
 
     a. 將方法從 **GET** 變更為 **PATCH**。
 
-    b. 複製現有角色，然後貼到 [要求本文] 底下。
+    b.這是另一個 C# 主控台應用程式。 複製現有角色，然後貼到 [要求本文] 底下。
 
     c. 視需要藉由更新角色描述、角色值或角色顯示名稱，來更新角色的值。
 
@@ -232,7 +233,7 @@ ms.locfileid: "70207199"
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    如果您使用多個目錄，則請依照此模式： `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![[Graph 總管] 對話方塊，具有用於擷取服務主體清單的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -252,7 +253,7 @@ ms.locfileid: "70207199"
 
     a. 將方法從 **GET** 變更為 **PATCH**。
 
-    b. 從應用程式複製現有的角色，然後貼到 [要求本文] 底下。
+    b.這是另一個 C# 主控台應用程式。 從應用程式複製現有的角色，然後貼到 [要求本文] 底下。
 
     c. 針對您要刪除的角色，將 **IsEnabled** 值設定為 **false**。
 

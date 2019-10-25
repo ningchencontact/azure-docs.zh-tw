@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 04753ca4c9b14d7ccc265cfcf971b3fd63c861ae
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 11cd90da1b1ca85893dbdad2ced191326af51238
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72384150"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793878"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 
@@ -56,8 +56,9 @@ ms.locfileid: "72384150"
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN 分類器](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN 線性分類器](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[線性回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[線性回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[自動 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|||ForecastTCN
 
 請使用 `AutoMLConfig` 的函式中的 `task` 參數來指定您的實驗類型。
 
@@ -70,28 +71,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>資料來源和格式
 
-自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可以讀入 Pandas 資料框架或 Azure Machine Learning 資料集。 下列程式碼範例示範如何以這些格式儲存資料。 [深入瞭解 datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md)。
+自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可以讀入**Pandas 資料框架**或**Azure Machine Learning 的 TabularDataset**中。  [深入瞭解 datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md)。
+
+定型資料的需求：
+- 資料必須是表格式格式。
+- 要預測的值（目標資料行）必須在資料中。
+
+下列程式碼範例示範如何以這些格式儲存資料。
 
 * TabularDataset
+  ```python
+  from azureml.core.dataset import Dataset
+  
+  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+  label = "Label"
+  ```
+
 * Pandas 資料框架
-
->[!Important]
-> 定型資料的需求：
->* 資料必須是表格式格式。
->* 您想要預測的值（目標資料行）必須存在於資料中。
-
-範例：
-
-* TabularDataset
-```python
-    from azureml.core.dataset import Dataset
-
-    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-    label = "Label"
-```
-
-*   Pandas 資料框架
 
     ```python
     import pandas as pd
@@ -109,7 +106,7 @@ automl_config = AutoMLConfig(task = "classification")
 * 輕鬆地將靜態檔案或 URL 來源中的資料傳輸至您的工作區
 * 在雲端計算資源上執行時，將您的資料提供給訓練腳本
 
-如需使用 @no__t 1 類別將資料掛接至計算目標的範例，請參閱 how [to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 。
+如需使用 `Dataset` 類別將資料掛接至計算目標的範例，請參閱 how [to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 。
 
 ## <a name="train-and-validation-data"></a>訓練和驗證資料
 
@@ -174,7 +171,7 @@ automl_config = AutoMLConfig(task = "classification")
         n_cross_validations=5)
     ```
 
-三個不同的 `task` 參數值（第三個工作類型為 `forecasting`，並使用與 @no__t 2 工作相同的演算法集區）來決定要套用的模型清單。 您可以使用 `whitelist` 或 `blacklist` 參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
+三個不同的 `task` 參數值（第三個工作類型為 `forecasting`，並使用與 `regression` 工作相同的演算法集區）來決定要套用的模型清單。 您可以使用 `whitelist` 或 `blacklist` 參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
 
 ### <a name="primary-metric"></a>主要計量
 主要度量會決定要在模型定型期間使用的計量，以進行優化。 您可以選取的可用計量取決於您選擇的工作類型，下表顯示每種工作類型的有效主要度量。
@@ -201,7 +198,7 @@ automl_config = AutoMLConfig(task = "classification")
 ### <a name="time-series-forecasting"></a>時間序列預測
 時間序列 `forecasting` 工作需要 configuration 物件中的其他參數：
 
-1. `time_column_name`：必要參數，定義包含有效時間序列之定型資料中的資料行名稱。
+1. `time_column_name`：在定型資料中，定義包含有效時間序列之資料行名稱的必要參數。
 1. `max_horizon`：根據定型資料的週期，定義您想要預測的時間長度。 例如，如果您有每日時間粒紋的定型資料，您就會定義要將模型定型的天數。
 1. `grain_column_names`：定義資料行的名稱，其中包含定型資料中的個別時間序列資料。 例如，如果您是依商店預測特定品牌的銷售量，您會將商店和品牌資料行定義為您的資料行。 系統會針對每個細微性/群組建立個別的時間序列和預測。 
 
@@ -246,7 +243,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 * `stack_meta_learner_train_percentage`：指定要保留給定型學習模組的定型集比例（選擇定型和驗證類型時）。 預設值為 `0.2`。
 * `stack_meta_learner_kwargs`：要傳遞至中繼學習模組之初始化運算式的選擇性參數。 這些參數和參數類型會從對應的模型構造函式進行鏡像，並將它們轉送到模型的函式。
 
-下列程式碼顯示在 @no__t 0 物件中指定自訂集團行為的範例。
+下列程式碼顯示在 `AutoMLConfig` 物件中指定自訂集團行為的範例。
 
 ```python
 ensemble_settings = {
@@ -272,7 +269,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-集團訓練預設為啟用，但可以使用 `enable_voting_ensemble` 和 `enable_stack_ensemble` 布林值參數來停用。
+預設會啟用集團定型，但可以使用 `enable_voting_ensemble` 和 `enable_stack_ensemble` 布林值參數來停用。
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -317,8 +314,8 @@ run = experiment.submit(automl_config, show_output=True)
 您可以定義幾個選項來結束實驗。
 1. 無準則：如果您未定義任何結束參數，實驗會繼續進行，直到您的主要計量沒有進一步的進度為止。
 1. 反覆運算次數：您可以定義要執行之實驗的反覆運算次數。 您可以選擇性地加入 `iteration_timeout_minutes` 來定義每個反復專案的時間限制（以分鐘為單位）。
-1. 在一段時間後結束：在您的設定中使用 `experiment_timeout_minutes`，可讓您定義實驗繼續執行的時間長度（以分鐘為單位）。
-1. 達到分數後結束：使用 `experiment_exit_score` 會在達到主要度量分數後，完成實驗。
+1. 在一段時間後結束：使用設定中的 `experiment_timeout_minutes` 可讓您定義實驗繼續執行的時間長度（以分鐘為單位）。
+1. 達到分數後結束：使用 `experiment_exit_score` 將會在達到主要度量分數後完成實驗。
 
 ### <a name="explore-model-metrics"></a>探索模型計量
 
@@ -350,7 +347,7 @@ best_run, fitted_model = automl_run.get_output()
 
 在適合模型的第一個步驟中使用這2個 Api，以深入瞭解。  請參閱[此範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)。
 
-+ API 1： `get_engineered_feature_names()` 會傳回工程化功能名稱的清單。
++ API 1： `get_engineered_feature_names()` 傳回工程功能名稱的清單。
 
   Usage :
   ```python

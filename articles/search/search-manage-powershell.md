@@ -1,22 +1,22 @@
 ---
-title: 使用 Az. Search 模組的 PowerShell 腳本-Azure 搜尋服務
-description: 使用 PowerShell 建立和設定 Azure 搜尋服務服務。 您可以相應增加或減少服務、管理管理和查詢 api 金鑰，以及查詢系統資訊。
-author: HeidiSteen
+title: 使用 Az. Search 模組的 PowerShell 腳本
+titleSuffix: Azure Cognitive Search
+description: 使用 PowerShell 建立及設定 Azure 認知搜尋服務。 您可以相應增加或減少服務、管理管理和查詢 api 金鑰，以及查詢系統資訊。
 manager: nitinme
-services: search
-ms.service: search
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331251"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793533"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜尋服務
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>使用 PowerShell 管理您的 Azure 認知搜尋服務
 > [!div class="op_single_selector"]
 > * [入口網站](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "72331251"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python (英文)](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-您可以在 Windows、Linux 或[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)中執行 PowerShell Cmdlet 和腳本，以建立和設定 Azure 搜尋服務。 **Az. Search**模組會將 Azure PowerShell] 延伸至[Azure 搜尋服務管理 REST api](https://docs.microsoft.com/rest/api/searchmanagement)的完整同位。 使用 Azure PowerShell 和**Az. Search**，您可以執行下列工作：
+您可以在 Windows、Linux 或[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)中執行 PowerShell Cmdlet 和腳本，以建立及設定 Azure 認知搜尋。 **Az. Search**模組會將 Azure PowerShell] 延伸到[Azure 認知搜尋管理 REST api](https://docs.microsoft.com/rest/api/searchmanagement)的完整同位。 使用 Azure PowerShell 和**Az. Search**，您可以執行下列工作：
 
 > [!div class="checklist"]
 > * [列出您訂用帳戶中的所有搜尋服務](#list-search-services)
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-search-services-in-your-subscription"></a>列出訂用帳戶中的所有 Azure 搜尋服務服務
+## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>列出您訂用帳戶中的所有 Azure 認知搜尋服務
 
 下列命令來自[**Az. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)，傳回您的訂用帳戶中已布建的現有資源和服務的相關資訊。 如果您不知道已經建立多少搜尋服務，這些命令會傳回該資訊，讓您能為您節省入口網站的旅程。
 
@@ -201,7 +201,7 @@ Tags
 
 如您所預期，如果您重新產生金鑰而不更新用戶端程式代碼，則使用舊金鑰的要求將會失敗。 重新產生所有新金鑰並不會永久鎖定您的服務，而且您仍然可以透過入口網站存取服務。 重新產生主要和次要金鑰之後，您可以更新用戶端程式代碼以使用新的金鑰，而作業將會據此繼續進行。
 
-API 金鑰的值是由服務產生。 您無法提供自訂金鑰供 Azure 搜尋服務使用。 同樣地，系統管理員 API 金鑰沒有使用者定義的名稱。 索引鍵的參考是固定字串，可以是 `primary` 或 `secondary`。 
+API 金鑰的值是由服務產生。 您無法提供自訂金鑰供 Azure 認知搜尋使用。 同樣地，系統管理員 API 金鑰沒有使用者定義的名稱。 索引鍵的參考是固定字串，可以是 `primary` 或 `secondary`。 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -217,9 +217,9 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>建立或刪除查詢金鑰
 
-[**AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0)是用來建立查詢[API 金鑰](search-security-api-keys.md)，以進行從用戶端應用程式到 Azure 搜尋服務索引的唯讀存取。 查詢金鑰是用來驗證特定的索引，以取得搜尋結果的目的。 查詢金鑰不會授與服務上其他專案的唯讀存取權，例如索引、資料來源或索引子。
+[**AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0)是用來建立查詢[API 金鑰](search-security-api-keys.md)，以進行從用戶端應用程式到 Azure 認知搜尋索引的唯讀存取。 查詢金鑰是用來驗證特定的索引，以取得搜尋結果的目的。 查詢金鑰不會授與服務上其他專案的唯讀存取權，例如索引、資料來源或索引子。
 
-您無法提供 Azure 搜尋服務要使用的金鑰。 API 金鑰是由服務產生。
+您無法提供 Azure 認知搜尋要使用的金鑰。 API 金鑰是由服務產生。
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -257,7 +257,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 使用入口網站、REST Api 或 .NET SDK 來建立[索引](search-what-is-an-index.md)、[查詢索引](search-query-overview.md)。
 
-* [在 Azure 入口網站中建立 Azure 搜尋服務索引](search-create-index-portal.md)
+* [在 Azure 入口網站中建立 Azure 認知搜尋索引](search-create-index-portal.md)
 * [設定索引子以從其他服務載入資料](search-indexer-overview.md)
-* [在 Azure 入口網站中使用搜尋總管查詢 Azure 搜尋服務索引](search-explorer.md)
-* [如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)
+* [在 Azure 入口網站中使用搜尋瀏覽器查詢 Azure 認知搜尋索引](search-explorer.md)
+* [如何在 .NET 中使用 Azure 認知搜尋](search-howto-dotnet-sdk.md)

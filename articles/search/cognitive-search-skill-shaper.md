@@ -1,22 +1,21 @@
 ---
-title: 增強認知搜尋技能 - Azure 搜尋服務
-description: 從非結構化資料中擷取中繼資料和結構化資訊，並在 Azure 搜尋服務擴充管線中塑形為複雜類型。
-services: search
+title: 塑形器認知技能
+titleSuffix: Azure Cognitive Search
+description: 從非結構化資料中解壓縮中繼資料和結構化資訊，並在 Azure 認知搜尋的 AI 擴充管線中將其塑造為複雜類型。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265360"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791866"
 ---
-#   <a name="shaper-cognitive-skill"></a>塑形器認知技能
+# <a name="shaper-cognitive-skill"></a>塑形器認知技能
 
 **整形**程式技能會將數個輸入合併成[複雜類型](search-howto-complex-data-types.md)，稍後可在擴充管線中加以參考。 **塑形器**技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。 在搜尋案例中有用的匯總欄位範例包括將名字和姓氏結合成單一結構、城市和州/省成單一結構，或名稱和出生日組成單一結構，以建立唯一的身分識別。
 
@@ -32,7 +31,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>案例1：複雜類型
 
-假設您要建立一個稱為 *analyzedText* 的結構，此結構有兩個成員，分別為：*text* 和 *sentiment*。 在 Azure 搜尋服務索引中，多部分可搜尋的欄位稱為*複雜型*別，而當來源資料具有對應的複雜結構時，通常會建立它。
+假設您要建立一個稱為 *analyzedText* 的結構，此結構有兩個成員，分別為：*text* 和 *sentiment*。 在索引中，多部分可搜尋的欄位稱為*複雜型*別，而且通常會在來源資料具有對應的複雜結構時建立。
 
 不過，建立複雜類型的另一種方法是透過**整形**程式技能。 藉由在技能集中包含此技能，在技能集處理期間的記憶體中作業可以輸出具有嵌套結構的資料圖形，然後可以對應至索引中的複雜類型。 
 
@@ -110,7 +109,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ### <a name="skill-output"></a>技能輸出
 
-**塑形器**技能會產生一個稱為 *analyzedText* 的新元素。此新元素結合了 *text* 和 *sentiment* 的元素。 此輸出符合索引架構。 它將會在 Azure 搜尋服務索引中匯入和編制索引。
+**塑形器**技能會產生一個稱為 *analyzedText* 的新元素。此新元素結合了 *text* 和 *sentiment* 的元素。 此輸出符合索引架構。 它將會在 Azure 認知搜尋索引中匯入和編制索引。
 
 ```json
 {
@@ -247,10 +246,10 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [內建技能](cognitive-search-predefined-skills.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md)
 + [如何使用複雜類型](search-howto-complex-data-types.md)
-+ [知識存放區概觀](knowledge-store-concept-intro.md)
++ [知識存放區（預覽）](knowledge-store-concept-intro.md)
 + [如何開始使用知識存放區](knowledge-store-howto.md)

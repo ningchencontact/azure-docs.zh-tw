@@ -1,5 +1,5 @@
 ---
-title: Azure 儲存體佇列和服務匯流排佇列異同比較 | Microsoft Docs
+title: 比較 Azure 儲存體佇列和服務匯流排佇列
 description: 分析 Azure 所提供之兩種佇列類型之間的差異和相似性。
 services: service-bus-messaging
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376341"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792692"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
-此文章分析 Microsoft Azure 目前提供之下列兩種不同類型佇列的差異與相同處：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
+本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用此資訊，您可以比較及對照對應的技術，並能在掌握更多資訊的情況下做出最符合您需求的決策。
 
 ## <a name="introduction"></a>簡介
 Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**。
@@ -52,7 +52,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 您想要讓應用程式將訊息當成長時間執行的平行資料流來處理 (訊息是透過訊息上的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 屬性與資料流相關聯)。 在這個模型中，取用端應用程式中的每個節點都會競爭取得資料流而不是訊息。 將資料流提供給取用端節點時，節點可以檢查應用程式資料流使用交易的狀態。
 * 從佇列傳送或接收多個訊息時，您的方案需要交易行為和不可部分完成性。
 * 您的應用程式所處理的訊息可能會超過 64 KB，但是不太可能會接近 256 KB 的限制。
-* 您需要提供角色型存取模型給佇列，並且針對傳送者和接收者提供不同的權限。 如需詳細資訊，請參閱下列文章：
+* 您需要提供角色型存取模型給佇列，並且針對傳送者和接收者提供不同的權限。 如需詳細資訊，請參閱下列文章。
     - [使用受控識別進行驗證](service-bus-managed-service-identity.md)
     - [從應用程式進行驗證](authenticate-application.md)
 * 您的佇列大小不會成長超過 80 GB。
@@ -67,7 +67,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 ## <a name="foundational-capabilities"></a>基本功能
 本節將比較儲存體佇列和服務匯流排佇列所提供的一些基本佇列功能。
 
-| 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
+| 比較準則 | 儲存體佇列 | Service Bus queues |
 | --- | --- | --- |
 | 排序保證 |**否** <br/><br>如需詳細資訊，請參閱＜其他資訊＞一節的第一個注意事項。</br> |**是 - 先進先出 (FIFO)**<br/><br>(透過使用訊息工作階段) |
 | 傳遞保證 |**至少一次** |至少**一次**（使用 PeekLock 接收模式-這是預設值） <br/><br/>**最多一次**（使用 ReceiveAndDelete 接收模式） <br/> <br/> 深入瞭解各種[接收模式](service-bus-queues-topics-subscriptions.md#receive-modes)  |
@@ -99,7 +99,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 ## <a name="advanced-capabilities"></a>進階功能
 本節將比較儲存體佇列和服務匯流排佇列所提供的進階功能。
 
-| 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
+| 比較準則 | 儲存體佇列 | Service Bus queues |
 | --- | --- | --- |
 | 排程傳遞 |**是** |**是** |
 | 自動處理無效信件 |**否** |**是** |
@@ -130,7 +130,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 ## <a name="capacity-and-quotas"></a>容量和配額
 本節將從可能適用之[容量和配額](service-bus-quotas.md)的觀點來比較儲存體佇列和服務匯流排佇列。
 
-| 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
+| 比較準則 | 儲存體佇列 | Service Bus queues |
 | --- | --- | --- |
 | 佇列大小上限 |**500 TB**<br/><br/>(限制為[單一儲存體帳戶容量](../storage/common/storage-introduction.md#queue-storage)) |**1 GB 到 80 GB**<br/><br/>(在建立佇列和[啟用分割](service-bus-partitioning.md)時定義 - 請參閱＜其他資訊＞一節) |
 | 訊息大小上限 |**64 KB**<br/><br/>(使用 **Base64** 編碼時則為 48 KB)<br/><br/>Azure 可以結合佇列和 Blob 來支援大型訊息，因此您最多可以將 200 GB 的單一項目加入佇列。 |**256 KB** 或 **1 MB**<br/><br/>(包括標頭和主體，標頭大小上限：64 KB)。<br/><br/>取決於[服務層級](service-bus-premium-messaging.md)。 |
@@ -149,7 +149,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 ## <a name="management-and-operations"></a>管理和作業
 本節將比較儲存體佇列和服務匯流排佇列所提供的管理功能。
 
-| 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
+| 比較準則 | 儲存體佇列 | Service Bus queues |
 | --- | --- | --- |
 | 管理通訊協定 |**REST 透過 HTTP/HTTPS** |**REST 透過 HTTPS** |
 | 執行階段通訊協定 |**REST 透過 HTTP/HTTPS** |**REST 透過 HTTPS**<br/><br/>**AMQP 1.0 標準 (具 TLS 的 TCP)** |
@@ -170,12 +170,12 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 儲存體佇列名稱長度可以是 3-63 個字元，而且可以包含小寫字母、數字和連字號。 如需詳細資訊，請參閱[為佇列和中繼資料命名](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)。
 * 服務匯流排佇列名稱長度最多 260 個字元，而且命名規則的限制較少。 服務匯流排佇列名稱可以包含字母、數字、句號、連字號和底線。
 
-## <a name="authentication-and-authorization"></a>驗證和授權
+## <a name="authentication-and-authorization"></a>驗證與授權
 本節將討論儲存體佇列和服務匯流排佇列所支援的驗證和授權功能。
 
-| 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
+| 比較準則 | 儲存體佇列 | Service Bus queues |
 | --- | --- | --- |
-| 驗證 |**對稱金鑰** |**對稱金鑰** |
+| Authentication |**對稱金鑰** |**對稱金鑰** |
 | 安全性模型 |透過 SAS 權杖進行委派存取。 |SAS |
 | 識別提供者同盟 |**否** |**是** |
 

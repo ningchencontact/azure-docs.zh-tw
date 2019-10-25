@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: 88a66506b5102a4efaeefe1c7033b337dff9889a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/22/2019
+ms.openlocfilehash: 97bcb4e6fad9c766f2ad059469e75ffd5ab8ec8c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949249"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800227"
 ---
 # <a name="public-preview-service-limits"></a>公開預覽服務限制
 
@@ -70,7 +70,8 @@ Azure Digital Twins 管理 API 的要求比率限制如下：
 
 下列限制是裝置可傳送至 Azure Digital Twins 執行個體的所有訊息總數上限：
 
-- 每秒 100 個訊息
+- 所有裝置上每秒100個訊息
+-   每個裝置每秒25則訊息
 
 ## <a name="next-steps"></a>後續步驟
 

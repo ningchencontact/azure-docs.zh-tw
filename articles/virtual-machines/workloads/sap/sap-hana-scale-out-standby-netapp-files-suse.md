@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 22ecfc6ac31fcbf9cf3953a5bd204ea615ae3750
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 11b0746c3e9e137775b2466af776b4cd9ba1e5df
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694580"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791663"
 ---
 # <a name="sap-hana-scale-out-with-standby-node-on-azure-vms-with-azure-netapp-files-on-suse-linux-enterprise-server"></a>使用 SUSE Linux Enterprise Server 上的 Azure NetApp Files 在 Azure Vm 上以待命節點 SAP Hana 相應放大 
 
@@ -100,9 +100,9 @@ ms.locfileid: "72694580"
 
 針對此範例設定，子網為：  
 
-  - `storage` 10.23.0.0/24  
-  - `hana` 10.23.2.0/24  
-  - `client` 10.23.3.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `client` 10.23.0.0/24  
   - `anf` 10.23.1.0/26  
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>設定 Azure NetApp Files 基礎結構 
@@ -482,7 +482,7 @@ Azure NetApp volume 的輸送量是磁片區大小和服務層級的功能，如
      * 輸入根使用者密碼：輸入根目錄的密碼
      * 選取主機 hanadb2 的角色：輸入**1** （針對背景工作）
      * 輸入主機 hanadb2 的主機容錯移轉群組 [預設]：按 Enter 以接受預設值
-     * 輸入主機 hanadb2 的存放磁碟分割編號 [< <assign automatically> >]：按 Enter 以接受預設值
+     * 輸入主機 hanadb2 的存放磁碟分割編號 [<<assign automatically>>]：按 Enter 以接受預設值
      * 輸入用於主機 hanadb2 的背景工作角色群組 [預設]：按 Enter 以接受預設值
      * 選取主機 hanadb3 的角色：輸入**2** （適用于待命）
      * 輸入主機 hanadb3 的主機容錯移轉群組 [預設]：按 Enter 以接受預設值

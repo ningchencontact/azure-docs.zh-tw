@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 7af5663b399556d66f86213310858780369215af
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0e4daaa3417ce349111fbc811be36a4615058c76
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101059"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791714"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性
 
@@ -51,7 +51,7 @@ ms.locfileid: "70101059"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 本文說明如何部署虛擬機器、設定虛擬機器、安裝叢集架構，以及安裝可用來儲存高可用性 SAP 系統之共用資料的高可用性 NFS 伺服器。
-本指南說明如何設定供兩個 SAP 系統 (NW1 和 NW2) 使用的高可用性 NFS 伺服器。 範例中的資源名稱 (例如虛擬機器、虛擬網路) 假設您已使用具有資源前置詞**生產**的[SAP 檔案伺服器範本][template-file-server]。
+本指南說明如何設定供兩個 SAP 系統 (NW1 和 NW2) 使用的高可用性 NFS 伺服器。 範例中的資源名稱（例如虛擬機器、虛擬網路）假設您已使用具有資源前置詞**生產**的[SAP 檔案伺服器範本][template-file-server]。
 
 請先閱讀下列 SAP Note 和文件
 
@@ -71,14 +71,14 @@ ms.locfileid: "70101059"
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
 * [適用于 SAP on Linux 的 Azure 虛擬機器規劃和執行][planning-guide]
-* [適用于 SAP on Linux 的 Azure 虛擬機器部署 (本文)][deployment-guide]
+* [適用于 SAP on Linux 的 Azure 虛擬機器部署（本文）][deployment-guide]
 * [適用于 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 * [SUSE Linux Enterprise 高可用性擴充功能 12 SP3 最佳做法指南][sles-hae-guides]
   * 搭配 DRBD 與 Pacemaker 的高可用性 NFS 儲存體
 * [適用于 SAP 應用程式的 SUSE Linux Enterprise Server 12 SP3 最佳做法指南][sles-for-sap-bp]
 * [SUSE 高可用性擴充功能 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 為了實現高可用性，SAP NetWeaver 需要使用 NFS 伺服器。 NFS 伺服器會設定於不同叢集中，並可供多個 SAP 系統使用。
 
@@ -107,7 +107,7 @@ NFS 伺服器會針對每個使用此 NFS 伺服器的 SAP 系統，使用專用
 ### <a name="deploy-linux-via-azure-template"></a>透過 Azure 範本部署 Linux
 
 Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 的映像，讓您可用來部署新的虛擬機器。
-您可以使用 GitHub 上的其中一個快速入門範本來部署所有必要資源。 範本會部署虛擬機器、負載平衡器、可用性設定組等。請遵循下列步驟來部署範本：
+您可以使用 GitHub 上的其中一個快速入門範本來部署所有必要資源。 此範本會部署虛擬機器、負載平衡器、可用性設定組等。請遵循下列步驟來部署範本：
 
 1. 在 Azure 入口網站中開啟[SAP 檔案伺服器範本][template-file-server]   
 1. 輸入下列參數
@@ -120,7 +120,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    4. 管理員使用者名稱和管理員密碼  
       建立可用來登入電腦的新使用者。
    5. 子網路識別碼  
-      如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/ **&lt;訂用帳戶識別碼&gt;** /resourceGroups/ **&lt;資源群組名稱&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;虛擬網路名稱&gt;** /subnets/ **&lt;子網路名稱&gt;**
+      如果您想要將 VM 部署至現有的 VNet 中，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/ **&lt;訂用帳戶識別碼&gt;** /resourceGroups/ **&lt;資源群組名稱&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;虛擬網路名稱&gt;** /subnets/ **&lt;子網路名稱&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>透過 Azure 入口網站手動部署 Linux
 
@@ -180,7 +180,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          * 重複上述步驟來為 NW2 設定連接埠 2049 和 UDP
 
 > [!IMPORTANT]
-> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp _timestamps**設定為**0**。 如需詳細資訊, 請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
+> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp _timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
 
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 
@@ -426,7 +426,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[A]** 設定 drbd 核心分裂偵測
 
-   使用 drbd 將資料從一部主機同步處理至另一部主機時，可能發生所謂的核心分裂。 核心分裂係指兩個叢集節點都將 drbd 裝置升階成主要裝置，而造成不同步的情況。這種情況可能相當罕見，但您仍然會想要儘快處理和解決核心分裂問題。 因此，在發生核心分裂時收到通知便相當重要。
+   使用 drbd 將資料從一部主機同步處理至另一部主機時，可能發生所謂的核心分裂。 分割的大腦是一種案例，其中兩個叢集節點會將 drbd 裝置升級為主要複本，並進行同步處理。這可能是很罕見的情況，但您仍然想要盡可能快速地處理和解決分裂的大腦。 因此，在發生核心分裂時收到通知便相當重要。
 
    如需了解如何設定核心分裂通知，請參閱[官方 drbd 文件](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) \(英文\)。
 
@@ -435,6 +435,10 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 ### <a name="configure-cluster-framework"></a>設定叢集架構
 
 1. **[1]** 將 SAP 系統 NW1 的 NFS drbd 裝置新增至叢集設定
+
+   > [!IMPORTANT]
+   > 最近的測試顯示的情況下，netcat 會因待處理專案而停止回應要求，而且其限制只會處理一個連接。 Netcat 資源會停止接聽 Azure 負載平衡器要求，而浮動 IP 會變成無法使用。  
+   > 針對現有的 Pacemaker 叢集，我們建議以 socat 取代 netcat，並遵循[Azure 負載平衡器偵測強化](https://www.suse.com/support/kb/doc/?id=7024128)中的指示。 請注意，變更將需要短暫的停機時間。  
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -473,7 +477,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    
    sudo crm configure primitive nc_<b>NW1</b>_nfs \
      anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61000</b>" op monitor timeout=20s interval=10 depth=0
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61000</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -518,7 +522,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    
    sudo crm configure primitive nc_<b>NW2</b>_nfs \
      anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61001</b>" op monitor timeout=20s interval=10 depth=0
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61001</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
@@ -542,4 +546,4 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 * [適用于 SAP 的 Azure 虛擬機器部署][deployment-guide]
 * [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 * 若要了解如何建立高可用性並為 Azure 上的 SAP HANA 規劃災害復原，請參閱 [Azure 上的 SAP HANA (大型執行個體) 高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
-* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復, 請參閱[azure 虛擬機器 (vm) 上 SAP Hana 的高可用性][sap-hana-ha]
+* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]

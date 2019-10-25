@@ -1,6 +1,7 @@
 ---
-title: 避免頁面重載 (適用于 JavaScript 的 Microsoft 驗證程式庫) |Azure
-description: 瞭解如何在使用適用于 JavaScript 的 Microsoft 驗證程式庫 (MSAL) 以無訊息方式取得和更新權杖時, 避免頁面重載。
+title: 避免頁面重載（適用于 JavaScript 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
+description: 瞭解如何在使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）以無訊息方式取得和更新權杖時，避免頁面重載。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -17,31 +18,31 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c382c78cf631def74272768b78ee489e49820d04
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 29edafdc27a3835653f82ec36d576a4871e66155
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532826"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803097"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>使用 MSAL 以無訊息方式取得和更新權杖時, 避免頁面重載
-適用于 JavaScript 的 Microsoft 驗證程式庫 (MSAL) 會`iframe`使用隱藏的元素, 在背景中以無訊息方式取得和更新權杖。 Azure AD 會將權杖傳回至權杖要求中指定的已註冊 redirect_uri (根據預設, 這是應用程式的根頁面)。 因為回應是 302, 所以會導致 HTML 對應至`redirect_uri` `iframe`中載入的。 應用程式`redirect_uri`通常是根頁面, 而這會使其重載。
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>使用 MSAL 以無訊息方式取得和更新權杖時，避免頁面重載
+適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）會使用隱藏的 `iframe` 專案，在背景中以無訊息方式取得和更新權杖。 Azure AD 會將權杖傳回至權杖要求中指定的已註冊 redirect_uri （根據預設，這是應用程式的根頁面）。 因為回應是302，所以會導致 HTML 對應至 `iframe`中載入的 `redirect_uri`。 應用程式的 `redirect_uri` 通常是根頁面，而這會使其重載。
 
-在其他情況下, 如果流覽至應用程式的根頁面需要驗證, 則可能會導致`iframe`嵌套元素`X-Frame-Options: deny`或錯誤。
+在其他情況下，如果流覽至應用程式的根頁面需要驗證，則可能會導致嵌套 `iframe` 元素或 `X-Frame-Options: deny` 錯誤。
 
-由於 MSAL 無法關閉 Azure AD 發行的 302, 而且必須處理傳回的權杖, 因此無法防止`redirect_uri`在`iframe`中載入。
+由於 MSAL 無法關閉 Azure AD 發行的302，而且必須處理傳回的權杖，因此無法防止 `redirect_uri` 載入 `iframe`。
 
-若要避免再次重載整個應用程式或因此問題而造成的其他錯誤, 請遵循這些因應措施。
+若要避免再次重載整個應用程式或因此問題而造成的其他錯誤，請遵循這些因應措施。
 
 ## <a name="specify-different-html-for-the-iframe"></a>為 iframe 指定不同的 HTML
 
-將 config `redirect_uri`上的屬性設定為不需要驗證的簡單頁面。 您必須確保它符合 Azure 入口網站中註冊的`redirect_uri` 。 這不會影響使用者的登入體驗, 因為當使用者開始登入程式, 並在登入完成後重新導向至正確的位置時, MSAL 會儲存起始頁。
+將 config 上的 `redirect_uri` 屬性設定為不需要驗證的簡單頁面。 您必須確定它符合 Azure 入口網站中註冊的 `redirect_uri`。 這不會影響使用者的登入體驗，因為當使用者開始登入程式，並在登入完成後重新導向至正確的位置時，MSAL 會儲存起始頁。
 
 ## <a name="initialization-in-your-main-app-file"></a>在您的主要應用程式檔中初始化
 
-如果您的應用程式結構化, 因此有一個中央 JAVAscript 檔案定義應用程式的初始化、路由和其他專案, 您可以根據應用程式是否在中`iframe`載入, 而有條件地載入應用程式模組。 例如:
+如果您的應用程式結構化，因此有一個中央 JAVAscript 檔案可定義應用程式的初始化、路由和其他內容，您可以根據應用程式是否在 `iframe` 中載入，有條件地載入應用程式模組。 例如：
 
-在 AngularJS 中: app .js
+在 AngularJS 中： app .js
 
 ```javascript
 // Check that the window is an iframe and not popup
@@ -78,7 +79,7 @@ else {
 }
 ```
 
-在 [角度] 中: app. 模組 ts
+在 [角度] 中： app. 模組 ts
 
 ```javascript
 // Imports...
@@ -150,4 +151,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>後續步驟
-深入瞭解如何使用 MSAL[建立單一頁面應用程式 (SPA)](scenario-spa-overview.md) 。
+深入瞭解如何使用 MSAL[建立單一頁面應用程式（SPA）](scenario-spa-overview.md) 。

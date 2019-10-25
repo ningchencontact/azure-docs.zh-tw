@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 661e1b6e3811ff2b5ae25e4fd59764a69e9ebe48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596664"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802037"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>開始使用 Azure 成本管理合作夥伴
 
@@ -30,10 +30,10 @@ CSP 合作夥伴會使用成本管理來執行下列動作：
 - 啟用可提供客戶存取成本管理資料的 Azure Resource Manager 原則。 接著，客戶可以使用[隨用隨付費率](https://azure.microsoft.com/pricing/calculator/)來查看其訂用帳戶的耗用量成本資料。
 
 以下範例顯示所有客戶的成本。
-![Example 顯示所有客戶的成本 ](./media/get-started-partners/customer-costs1.png)
+![範例顯示所有客戶的成本](./media/get-started-partners/customer-costs1.png)
 
 以下範例顯示單一客戶的成本。
-![Example 顯示單一客戶 ](./media/get-started-partners/customer-costs2.png) 的成本
+![範例顯示單一客戶](./media/get-started-partners/customer-costs2.png) 的成本
 
 Azure 成本管理中提供的所有功能也適用于 REST Api。 使用 Api 將成本管理工作自動化。
 
@@ -101,7 +101,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。 您�
 
 只有具備**全域管理員**和系統**管理員代理程式**角色的使用者，才能夠直接在合作夥伴的 Azure 租使用者中管理和查看帳單帳戶、帳單設定檔和客戶的成本。 如需合作夥伴中心角色的詳細資訊，請參閱[指派使用者角色和許可權](/partner-center/permissions-overview)。
 
-### <a name="enable-cost-management-in-the-customer-tenant"></a>在客戶租使用者中啟用成本管理
+## <a name="enable-cost-management-in-the-customer-tenant"></a>在客戶租使用者中啟用成本管理
 
 合作夥伴可以在客戶上架至 Microsoft 客戶合約之後，啟用成本管理的存取權。 接著，合作夥伴可以啟用原則，讓客戶能夠以隨用隨付零售費率來查看其計算成本。 成本會針對其在 RBAC 訂用帳戶和資源群組範圍內使用的使用量，顯示在客戶的帳單貨幣中。
 
@@ -122,7 +122,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。 您�
 在 [**設定**] 底下，按一下 [**原則**]。
 
 針對所選客戶的訂用帳戶相關聯的**Azure 使用**費用，會顯示目前的成本可見度原則。
-![Policy，以允許客戶查看隨用隨付費用 ](./media/get-started-partners/cost-management-billing-policies.png)
+![原則，以允許客戶查看隨用隨付費用](./media/get-started-partners/cost-management-billing-policies.png)
 
 當原則設定為 [**否**] 時，Azure 成本管理不適用於與客戶相關聯的訂用帳戶使用者。 除非由合作夥伴啟用，否則所有訂用帳戶使用者的成本可見度原則預設為停用。
 

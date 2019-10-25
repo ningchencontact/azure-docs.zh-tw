@@ -1,20 +1,19 @@
 ---
-title: 文字翻譯認知搜尋技能-Azure 搜尋服務
-description: 評估文字，並針對每一筆記錄，傳回轉譯為 Azure 搜尋服務擴充管線中指定目的語言的文字。
-services: search
+title: 文字翻譯認知技能
+titleSuffix: Azure Cognitive Search
+description: 評估文字，並針對每一筆記錄，傳回在 Azure 認知搜尋的 AI 擴充管線中轉譯為指定目的語言的文字。
 manager: nitinme
 author: careyjmac
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 06/25/2019
 ms.author: chalton
-ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265702"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791864"
 ---
 #   <a name="text-translation-cognitive-skill"></a>文字翻譯認知技能
 
@@ -22,18 +21,18 @@ ms.locfileid: "71265702"
 
 如果您預期檔可能並非全部都使用一種語言，這項功能就很有用，在這種情況下，您可以將文字標準化為單一語言，然後再進行搜尋的索引。  這也適用于當地語系化使用案例，您可能會想要有多種語言的相同文字複本。
 
-[翻譯工具文字 API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)是非區域認知服務，這表示您的資料不一定會與您的 Azure 搜尋服務或附加認知服務資源保持在相同的區域中。
+[翻譯工具文字 API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)是非區域認知服務，這表示您的資料不一定會與您的 Azure 認知搜尋或附加認知服務資源保持在相同的區域。
 
 > [!NOTE]
-> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您需要[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 Api 時，會產生費用，並在 Azure 認知搜尋中以檔破解階段的形式進行映射解壓縮。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 [Azure 認知搜尋定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)會說明影像提取定價。
 
 ## <a name="odatatype"></a>@odata.type  
 TranslationSkill。
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應為50000個字元，如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要在將資料傳送到文字翻譯技能之前先將其分解，請考慮使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為50000個字元，如[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)所測量。 如果您需要在將資料傳送到文字翻譯技能之前先將其分解，請考慮使用[文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -49,7 +48,7 @@ TranslationSkill。
 
 | 輸入名稱     | 描述 |
 |--------------------|-------------|
-| 文字 | 要轉譯的文字。|
+| text | 要轉譯的文字。|
 | toLanguageCode    | 字串，表示文字應轉譯成的語言。 如果未指定此輸入，將會使用 defaultToLanguageCode 來轉譯文字。 <br/>請參閱[支援語言的完整清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
 | fromLanguageCode  | 字串，表示文字的目前語言。 如果未指定此參數，則會使用 defaultFromLanguageCode （如果未提供 defaultFromLanguageCode，則會自動偵測語言）將會用來轉譯文字。 <br/>請參閱[支援語言的完整清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
 
@@ -149,7 +148,7 @@ TranslationSkill。
 如果您的文字是空白的，則會產生警告。
 如果您的文字大於50000個字元，則只會轉譯前50000個字元，併發出警告。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [內建技能](cognitive-search-predefined-skills.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md)

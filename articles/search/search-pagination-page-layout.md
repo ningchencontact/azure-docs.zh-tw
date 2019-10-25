@@ -1,31 +1,29 @@
 ---
-title: 如何使用搜尋結果：Azure 搜尋服務
-description: 在 Azure 搜尋服務中，組織和排序搜尋結果、取得文件數量，並將內容瀏覽功能新增至搜尋結果之中。
-author: HeidiSteen
+title: 如何使用搜尋結果
+titleSuffix: Azure Cognitive Search
+description: 結構和排序搜尋結果、取得檔計數，以及在 Azure 認知搜尋中將內容導覽新增至搜尋結果。
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: ''
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647713"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793458"
 ---
-# <a name="how-to-work-with-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中使用搜尋結果
-本文會講解如何實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。 發表資料或資訊到您的搜尋結果的頁面相關選項，會由傳送到 Azure 搜尋服務的[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)要求所指定。 
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中使用搜尋結果
+本文會講解如何實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。 將資料或資訊提供給搜尋結果的頁面相關選項，會透過傳送至 Azure 認知搜尋服務的[搜尋檔](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)要求來指定。 
 
 在 REST API 中，要求會包含 GET 命令、路徑和查詢參數，這些會對服務通知要求是什麼，以及如何制訂回應。 在.NET SDK 中，對等 API 是 [DocumentSearchResult 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)。
 
-這裡有數個包含 Web 前端介面的程式碼範例：[New York City 工作示範應用程式](https://azjobsdemo.azurewebsites.net/)和 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)。
+有幾個程式碼範例包含 web 前端介面，您可以在這裡找到：[紐約市作業示範應用程式](https://azjobsdemo.azurewebsites.net/)和[CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)。
 
 > [!NOTE]
-> 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。 為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。 如需要求語法的詳細資訊, 請參閱[Azure 搜尋服務服務 REST](https://docs.microsoft.com/rest/api/searchservice)。
+> 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。 為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。 如需要求語法的詳細資訊，請參閱[Azure 認知搜尋 REST api](https://docs.microsoft.com/rest/api/searchservice)。
 >
 
 ## <a name="total-hits-and-page-counts"></a>總點擊數和頁面計數
@@ -34,7 +32,7 @@ ms.locfileid: "69647713"
 
 ![][1]
 
-在 Azure 搜尋服務中，您可以使用 `$count`、`$top` 和 `$skip` 參數來傳回這些值。 下列範例顯示名為「線上-目錄」之索引的點擊總數範例要求, 傳回為`@odata.count`:
+在「Azure 認知搜尋」中，您可以使用 `$count`、`$top`和 `$skip` 參數來傳回這些值。 下列範例會顯示名為「線上-目錄」之索引的點擊總數範例要求，以 `@odata.count`傳回：
 
     GET /indexes/online-catalog/docs?$count=true
 
@@ -50,13 +48,13 @@ ms.locfileid: "69647713"
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>版面配置
+## <a name="layout"></a>Layout
 
 在搜尋結果頁面中，您可能會想要顯示縮圖、欄位子集以及完整產品頁面的連結。
 
  ![][2]
 
-在 Azure 搜尋服務中, 您會`$select`使用和[搜尋 API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)來執行這項體驗。
+在 Azure 認知搜尋中，您會使用 `$select` 和[搜尋 API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)來執行這項體驗。
 
 若要傳回並排版面配置的欄位子集：
 
@@ -74,7 +72,7 @@ ms.locfileid: "69647713"
 
  ![][3]
 
-在 Azure 搜尋服務中，對於所有索引編製為 `"Sortable": true.` 的欄位，會根據 `$orderby` 運算式來排序。`$orderby` 子句是 OData 運算式。 如需語法的資訊，請參閱[篩選子句和 order-by 子句的 OData 運算式語法](query-odata-filter-orderby-syntax.md)。
+在「Azure 認知搜尋」中，排序是以 `$orderby` 運算式為基礎，而所有索引為 `"Sortable": true.` `$orderby` 子句為 OData 運算式的欄位。 如需語法的資訊，請參閱[篩選子句和 order-by 子句的 OData 運算式語法](query-odata-filter-orderby-syntax.md)。
 
 相關性和評分設定檔密切相關。 您可使用預設評分，這會依賴文字分析和統計資料來對所有結果排名次序，與搜尋詞彙有更多或更密切符合的文件會有更高的評分。
 
@@ -92,24 +90,24 @@ ms.locfileid: "69647713"
 
 ## <a name="faceted-navigation"></a>多面向導覽
 
-搜尋導覽常見於結果頁面上，通常位於頁面的一側或頂端。 在 Azure 搜尋服務中，多面向導覽會根據預先定義的篩選器提供自我導向的搜尋。 如需詳細資訊，請參閱 [Azure 搜尋服務中的多面向導覽](search-faceted-navigation.md) 。
+搜尋導覽常見於結果頁面上，通常位於頁面的一側或頂端。 在 Azure 認知搜尋中，多面向導覽會根據預先定義的篩選準則提供自我導向的搜尋。 如需詳細資訊，請參閱[Azure 認知搜尋中](search-faceted-navigation.md)的多面向導覽。
 
 ## <a name="filters-at-the-page-level"></a>頁面層級的篩選器
 
-如果您的解決方案設計包含特定內容類型的專用搜尋頁面 (例如, 在頁面頂端列出部門的線上零售應用程式), 您可以將[篩選條件運算式](search-filters.md)與**onClick**事件一起插入至以預先篩選的狀態開啟頁面。
+如果您的解決方案設計包含特定內容類型的專用搜尋頁面（例如，在頁面頂端列出部門的線上零售應用程式），您可以將[篩選條件運算式](search-filters.md)與**onClick**事件一起插入至以預先篩選的狀態開啟頁面。
 
 您可以傳送篩選器，但不一定要有搜尋運算式。 例如，下列要求會篩選品牌名稱，只傳回符合該名稱的文件。
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
+如需 `$filter` 運算式的詳細資訊，請參閱[搜尋檔（Azure 認知搜尋 API）](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 。
 
 ## <a name="see-also"></a>另請參閱
 
-- [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice)
+- [Azure 認知搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice)
 - [索引作業](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [文件作業](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Azure 搜尋服務中的多面向導覽](search-faceted-navigation.md)
+- [Azure 認知搜尋中的多面向導覽](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

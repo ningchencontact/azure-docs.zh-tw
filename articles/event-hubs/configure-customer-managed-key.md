@@ -8,17 +8,17 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260863"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809377"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 入口網站，設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
 Azure 事件中樞使用 Azure 儲存體服務加密（Azure SSE）提供待用資料的加密。 事件中樞依賴 Azure 儲存體來儲存資料，而且根據預設，與 Azure 儲存體一起儲存的所有資料都會使用 Microsoft 管理的金鑰進行加密。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的金鑰（攜帶您自己的金鑰– BYOK）來加密待用資料的選項。 這項功能可讓您建立、輪替、停用及撤銷用來加密待用資料 Azure 事件中樞的客戶管理金鑰的存取權。
 
 啟用 BYOK 功能是在命名空間上進行的一次性設定程式。
@@ -28,10 +28,10 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 
 您可以使用 Azure Key Vault 來管理金鑰，並審核金鑰使用方式。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault Api 來產生金鑰。 如需 Azure 金鑰保存庫的詳細資訊，請參閱 [什麼是 Azure 金鑰保存庫？](../key-vault/key-vault-overview.md)
 
-本文說明如何使用 Azure 入口網站，以客戶管理的金鑰來設定金鑰保存庫。 若要瞭解如何使用 Azure 入口網站建立金鑰保存庫，請參閱 [] 快速入門：使用 Azure 入口網站] （..，從 Azure Key Vault 設定和取出秘密。/key-vault/quick-create-portal.md).
+本文說明如何使用 Azure 入口網站，以客戶管理的金鑰來設定金鑰保存庫。 若要瞭解如何使用 Azure 入口網站建立金鑰保存庫，請參閱[快速入門：使用 Azure 入口網站從 Azure Key Vault 設定和取出秘密](../key-vault/quick-create-portal.md)。
 
 > [!IMPORTANT]
-> 將客戶管理的金鑰與 Azure 事件中樞搭配使用時，金鑰保存庫必須設定兩個必要的屬性。 其中包括：虛**刪除**和**不要清除**。 當您在 Azure 入口網站中建立新的金鑰保存庫時，預設會啟用這些屬性。 不過，如果您需要在現有的金鑰保存庫上啟用這些屬性，則必須使用 PowerShell 或 Azure CLI。
+> 將客戶管理的金鑰與 Azure 事件中樞搭配使用時，金鑰保存庫必須設定兩個必要的屬性。 它們是：虛**刪除**且**不會清除**。 當您在 Azure 入口網站中建立新的金鑰保存庫時，預設會啟用這些屬性。 不過，如果您需要在現有的金鑰保存庫上啟用這些屬性，則必須使用 PowerShell 或 Azure CLI。
 
 ## <a name="enable-customer-managed-keys"></a>啟用客戶管理的金鑰
 若要在 Azure 入口網站中啟用客戶管理的金鑰，請遵循下列步驟：
@@ -109,12 +109,12 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 | TaskName | 失敗工作的描述。 |
 | ActivityId | 用於追蹤的內部識別碼。 |
 | category | 定義工作的分類。 例如，如果您的金鑰保存庫中的金鑰已停用，則它會是資訊類別目錄，或者，如果無法解除包裝金鑰，可能會發生錯誤。 |
-| resourceId | Azure Resource Manager 資源識別碼 |
-| KeyVault | 金鑰保存庫的完整名稱。 |
+| ResourceId | Azure Resource Manager 資源識別碼 |
+| keyVault | 金鑰保存庫的完整名稱。 |
 | key | 用來加密事件中樞命名空間的索引鍵名稱。 |
-| 版本 | 所使用的金鑰版本。 |
+| version | 所使用的金鑰版本。 |
 | operation | 金鑰保存庫中金鑰上執行的作業。 例如，停用/啟用金鑰、換行或解除包裝 |
-| code | 與作業相關聯的程式碼。 範例：錯誤碼，404表示找不到索引鍵。 |
+| code | 與作業相關聯的程式碼。 範例：錯誤碼404表示找不到索引鍵。 |
 | message | 與作業相關聯的任何錯誤訊息 |
 
 以下是客戶管理的金鑰的記錄範例：
@@ -154,7 +154,7 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 
 以下是啟用 BYOK 加密時，要尋找的常見錯誤代碼。
 
-| Action | 錯誤碼 | 產生的資料狀態 |
+| 行動 | 錯誤碼 | 產生的資料狀態 |
 | ------ | ---------- | ----------------------- | 
 | 從金鑰保存庫移除 wrap/解除包裝許可權 | 403 |    無法存取 |
 | 從授與 wrap/解除包裝許可權的 AAD 主體移除 AAD 角色成員資格 | 403 |  無法存取 |

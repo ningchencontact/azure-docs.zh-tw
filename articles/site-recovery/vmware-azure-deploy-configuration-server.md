@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f5fe49130742d116775b75f17c726b56150c574f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331966"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792343"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -28,7 +28,7 @@ ms.locfileid: "72331966"
 
 ## <a name="prerequisites"></a>必要條件
 
-下表彙總了設定伺服器的最基本硬體需求。
+下列各節將摘要說明設定伺服器的最低硬體需求。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -37,31 +37,19 @@ ms.locfileid: "72331966"
 您需要具有 AAD 中的**下列其中一個**許可權的使用者（Azure Active Directory），才能向 Azure Site Recovery 服務註冊設定伺服器。
 
 1. 使用者應該具有「應用程式開發人員」角色，才能建立應用程式。
-   1. 若要確認，請登入 Azure 入口網站</br>
-   1. 流覽至 Azure Active Directory > 角色和系統管理員</br>
-   1. 確認是否已將 "應用程式開發人員" 角色指派給使用者。 如果沒有，請使用具有此許可權的使用者，或與[系統管理員聯繫以啟用許可權](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)。
+    - 若要確認，請登入 Azure 入口網站</br>
+    - 流覽至 Azure Active Directory > 角色和系統管理員</br>
+    - 確認是否已將 "應用程式開發人員" 角色指派給使用者。 如果沒有，請使用具有此許可權的使用者，或與[系統管理員聯繫以啟用許可權](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)。
     
-1. 如果無法指派「應用程式開發人員」角色，請確定已將 [使用者可註冊應用程式] 旗標設定為 [true]，讓使用者建立身分識別。 若要啟用上述許可權，
-   1. 登入 Azure 入口網站
-   1. 流覽至 Azure Active Directory > 使用者設定
-   1. 在 [應用程式註冊] 底下的 [使用者可以註冊應用程式] 應該選擇為 [是]。
+2. 如果無法指派「應用程式開發人員」角色，請確定已將 [使用者可註冊應用程式] 旗標設定為 [true]，讓使用者建立身分識別。 若要啟用上述許可權，
+    - 登入 Azure 入口網站
+    - 流覽至 Azure Active Directory > 使用者設定
+    - 在 [應用程式註冊] 底下的 [使用者可以註冊應用程式] 應該選擇為 [是]。
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > **不支援**ACTIVE DIRECTORY 同盟服務（ADFS）。 請使用透過[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)管理的帳戶。
-
-## <a name="capacity-planning"></a>容量規劃
-
-組態伺服器的大小需求取決於可能的資料變更率。 請使用下表作為指南。
-
-| **CPU** | **記憶體** | **快取磁碟大小** | **資料變更率** | **受保護的機器** |
-| --- | --- | --- | --- | --- |
-| 8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5GHz) |16 GB |300 GB |500 GB 或更少 |複寫少於 100 部電腦。 |
-| 12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5GHz) |18 GB |600 GB |500 GB 至 1 TB |複寫 100-150 部機器。 |
-| 16 個 vCPU (2 個插槽 * 8 核心 \@ 2.5GHz) |32 GB |1 TB |1 TB 至 2 TB |複寫 150-200 部機器。 |
-
-如果您要複寫多個 VMware VM，請參閱[容量規劃考量](site-recovery-plan-capacity-vmware.md)。 執行用於 VMware 複寫的[部署規劃工具](site-recovery-deployment-planner.md)。
 
 ## <a name="download-the-template"></a>下載範本
 
@@ -149,7 +137,7 @@ ms.locfileid: "72331966"
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
-若要將組態伺服器升級為最新版本，請遵循[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟。 如需如何升級所有 Site Recovery 元件的詳細指示，請按一下[此處](service-updates-how-to.md)。
+若要將組態伺服器升級為最新版本，請遵循[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟。 如需如何升級所有 Site Recovery 元件的詳細指示，請造訪[服務更新管理](service-updates-how-to.md)。
 
 ## <a name="manage-the-configuration-server"></a>管理組態伺服器
 
@@ -157,9 +145,9 @@ ms.locfileid: "72331966"
 
 ## <a name="faq"></a>常見問題集
 
-1. 透過 OVF 部署之設定伺服器上提供的授權有效期間多長？ 如果我未重新啟用授權，會發生什麼事？
+1. 透過 OVF 部署的設定伺服器上所提供的授權有效期限是多久？ 如果我未重新啟用授權，會發生什麼事？
 
-    OVA 範本所提供的授權是有效期限為180天的評估授權。 您必須在到期之前啟用授權。 否則，這會導致組態伺服器頻繁關機，因而阻礙複寫活動。
+    OVA 範本所提供的授權是有效期限為180天的評估授權。 您必須在到期之前啟用授權。 否則，它可能會導致設定伺服器頻繁關機，因而導致阻礙複寫活動。 如需其他詳細資訊，請參閱[管理設定伺服器授權](vmware-azure-manage-configuration-server.md#update-windows-license)一文。
 
 2. 是否可以將已安裝組態伺服器的 VM 用於不同用途？
 

@@ -1,6 +1,7 @@
 ---
-title: 呼叫 web Api 的行動應用程式-呼叫 Web API |Microsoft 身分識別平臺
-description: 瞭解如何建立會呼叫 web Api 的行動應用程式 (呼叫 Web API)
+title: 呼叫 web Api 的行動應用程式-呼叫 Web API
+titleSuffix: Microsoft identity platform
+description: 瞭解如何建立會呼叫 web Api 的行動應用程式（呼叫 Web API）
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,37 +17,37 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ada6ee6247deb3d4c72edb8237a40a0f47f96be
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268322"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802557"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>呼叫 web Api 的行動應用程式-呼叫 Web API
 
-在您的應用程式已登入使用者並收到權杖之後, MSAL 會公開有關使用者、使用者的環境和所發出權杖的幾個資訊片段。 您的應用程式可以使用這些值來呼叫 Web API 或向使用者顯示歡迎訊息。
+在您的應用程式已登入使用者並收到權杖之後，MSAL 會公開有關使用者、使用者的環境和所發出權杖的幾個資訊片段。 您的應用程式可以使用這些值來呼叫 Web API 或向使用者顯示歡迎訊息。
 
-首先, 我們將探討 MSAL 結果。 然後, 我們將探討如何使用`AuthenticationResult`或`result`中的存取權杖來呼叫受保護的 Web API。
+首先，我們將探討 MSAL 結果。 然後，我們將探討如何使用 `AuthenticationResult` 或 `result` 中的存取權杖來呼叫受保護的 Web API。
 
 ## <a name="msal-result"></a>MSAL 結果
-MSAL 提供下列值: 
+MSAL 提供下列值： 
 
-- `AccessToken`:用來在 HTTP 持有人要求中呼叫受保護的 web Api。
-- `IdToken`:包含有關已登入使用者的實用資訊, 例如使用者名稱、主租使用者和儲存體的唯一識別碼。
-- `ExpiresOn`:權杖的到期時間。 MSAL 會處理應用程式的自動重新整理。
-- `TenantId`:使用者用來登入的租使用者識別碼。 對於來賓使用者 (Azure Active Directory B2B), 此值會識別使用者登入的租使用者, 而不是使用者的主租使用者。  
-- `Scopes`:已授與您的權杖的範圍。 授與的範圍可能是您所要求範圍的子集。
+- `AccessToken`：用來在 HTTP 持有人要求中呼叫受保護的 web Api。
+- `IdToken`：包含有關已登入使用者的實用資訊，例如使用者名稱、主租使用者，以及儲存體的唯一識別碼。
+- `ExpiresOn`：權杖的到期時間。 MSAL 會處理應用程式的自動重新整理。
+- `TenantId`：使用者用來登入的租使用者識別碼。 對於來賓使用者（Azure Active Directory B2B），此值會識別使用者登入的租使用者，而不是使用者的主租使用者。  
+- `Scopes`：已授與您的權杖的範圍。 授與的範圍可能是您所要求範圍的子集。
 
-MSAL 也會提供的抽象概念`Account`。 `Account`代表目前使用者的已登入帳戶。
+MSAL 也會提供 `Account`的抽象概念。 `Account` 代表目前使用者的已登入帳戶。
 
-- `HomeAccountIdentifier`:使用者的主租使用者識別碼。
-- `UserName`:使用者慣用的使用者名稱。 對於 Azure Active Directory B2C 使用者而言, 這可能是空的。
-- `AccountIdentifier`:已登入使用者的識別碼。 在大部分情況下, 此值會`HomeAccountIdentifier`與值相同, 除非使用者是另一個租使用者中的來賓。
+- `HomeAccountIdentifier`：使用者的主租使用者識別碼。
+- `UserName`：使用者慣用的使用者名稱。 對於 Azure Active Directory B2C 使用者而言，這可能是空的。
+- `AccountIdentifier`：已登入使用者的識別碼。 在大部分情況下，此值會與 `HomeAccountIdentifier` 值相同，除非使用者是另一個租使用者中的來賓。
 
 ## <a name="call-an-api"></a>呼叫 API
 
-取得存取權杖之後, 就可以輕鬆地呼叫 Web API。 您的應用程式會使用權杖來建立 HTTP 要求, 然後執行要求。
+取得存取權杖之後，就可以輕鬆地呼叫 Web API。 您的應用程式會使用權杖來建立 HTTP 要求，然後執行要求。
 
 ### <a name="android"></a>Android
 
@@ -88,9 +89,9 @@ MSAL 也會提供的抽象概念`Account`。 `Account`代表目前使用者的�
         queue.add(request);
 ```
 
-### <a name="msal-for-ios-and-macos"></a>適用于 iOS 和 macOS 的 MSAL
+### <a name="msal-for-ios-and-macos"></a>適用於 iOS 和 macOS 的 MSAL
 
-取得權杖`MSALResult`的方法會傳回物件。 `MSALResult`公開可用於呼叫 Web API 的屬性。`accessToken` 存取權杖應新增至 HTTP 授權標頭，才能進行呼叫以存取受保護的 Web API。
+取得權杖的方法會傳回 `MSALResult` 物件。 `MSALResult` 會公開可用於呼叫 Web API 的 `accessToken` 屬性。 存取權杖應新增至 HTTP 授權標頭，才能進行呼叫以存取受保護的 Web API。
 
 Objective-C：
 
@@ -106,7 +107,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-快速
+Swift：
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -124,14 +125,14 @@ task.resume()
 
 ## <a name="making-several-api-requests"></a>建立數個 API 要求
 
-如果您需要呼叫相同的 API 數次, 或如果您需要呼叫多個 Api, 請在建立應用程式時考慮下列事項:
+如果您需要呼叫相同的 API 數次，或如果您需要呼叫多個 Api，請在建立應用程式時考慮下列事項：
 
-- **增量同意**:Microsoft 身分識別平臺可讓應用程式在需要許可權時取得使用者同意, 而不是在一開始就進行。 每次您的應用程式準備好呼叫 API 時, 它應該只要求其需要使用的範圍。
-- **條件式存取**:在某些情況下, 當您進行數個 API 要求時, 您可能會收到額外的條件式存取需求。 如果第一個要求未套用條件式存取原則, 而您的應用程式嘗試以無訊息方式存取需要條件式存取的新 API, 就會發生這種情況。 若要處理這種情況, 請務必攔截無訊息要求的錯誤, 並準備好進行互動式要求。  若要深入瞭解, 請參閱[條件式存取的指引](conditional-access-dev-guide.md)。
+- **增量同意**： Microsoft 身分識別平臺可讓應用程式在需要許可權時取得使用者同意，而不是在一開始就完成所有動作。 每次您的應用程式準備好呼叫 API 時，它應該只要求其需要使用的範圍。
+- **條件式存取**：在某些情況下，當您進行數個 API 要求時，您可能會收到額外的條件式存取需求。 如果第一個要求未套用條件式存取原則，而您的應用程式嘗試以無訊息方式存取需要條件式存取的新 API，就會發生這種情況。 若要處理這種情況，請務必攔截無訊息要求的錯誤，並準備好進行互動式要求。  若要深入瞭解，請參閱[條件式存取的指引](conditional-access-dev-guide.md)。
 
 ## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>以 Xamarin 或 UWP 呼叫數個 Api-累加同意和條件式存取
 
-如果您需要為相同的使用者呼叫數個 api，一旦您取得使用者的權杖，您可以藉由後續呼叫`AcquireTokenSilent`來取得權杖，以避免重複要求使用者提供認證。
+如果您需要為相同的使用者呼叫數個 Api，一旦您取得使用者的權杖，您可以藉由後續呼叫 `AcquireTokenSilent` 來取得權杖，以避免重複要求使用者提供認證。
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")

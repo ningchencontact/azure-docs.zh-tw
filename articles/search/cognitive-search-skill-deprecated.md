@@ -1,27 +1,26 @@
 ---
-title: 已淘汰的認知技能 - Azure 搜尋服務
-description: 此頁面包含已淘汰的認知搜尋技能清單，且即將不再支援。
-services: search
+title: 已淘汰的認知技能
+titleSuffix: Azure Cognitive Search
+description: 此頁面包含被視為已淘汰的認知技能清單，在不久的未來 Azure 認知搜尋技能集中不會提供支援。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e78852ec8b92f1a9e37a4dbcbbcb371c0ac0f97
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265445"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792024"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>已淘汰的認知搜尋技能
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Azure 認知搜尋中已淘汰的認知技能
 
 本文件描述已淘汰的認知技能。 使用下列指南取得內容：
 
 * 技能名稱：即將淘汰的技能名稱，其對應至 @odata.type 屬性。
-* 最後一個可用的 API 版本：可用於建立/更新包含對應已淘汰技能之技能集的 Azure 搜尋服務公用 API 最後一個版本。
+* 上次可用的 api 版本： Azure 認知搜尋公用 API 的最後一個版本，您可以在其中建立/更新包含對應已淘汰技能的技能集。
 * 結束支援：對應技能已視為不受支援後的最後一天。 先前建立的技能集應會繼續運作，但建議使用者遷移出已淘汰的技能。
 * 建議：將路徑遷移至受支援的技能。 建議使用者遵循建議，以便繼續獲得支援。
 
@@ -146,8 +145,8 @@ ms.locfileid: "71265445"
         }
         ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [內建技能](cognitive-search-predefined-skills.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md)
 + [實體辨識技能](cognitive-search-skill-entity-recognition.md)

@@ -1,24 +1,24 @@
 ---
-title: 監視搜尋服務的資源使用量和查詢計量 - Azure 搜尋服務
-description: 從「Azure 搜尋服務」啟用記錄功能、取得查詢活動計量、資源使用量及其他系統資料。
-author: HeidiSteen
+title: 監視資源使用量和查詢計量
+titleSuffix: Azure Cognitive Search
+description: 啟用記錄、取得查詢活動計量、資源使用量，以及來自 Azure 認知搜尋服務的其他系統資料。
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72331220"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793494"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>監視 Azure 認知搜尋中的資源耗用量和查詢活動
 
-在您「Azure 搜尋服務」的 [概觀] 頁面中，您可以檢視有關資源使用量、查詢計量及有多少配額可供建立更多索引、索引子和資料來源的系統資料。 您也可以使用入口網站來設定記錄分析，或另一個用於持續性資料收集的資源。 
+在 Azure 認知搜尋服務的 [總覽] 頁面中，您可以查看有關資源使用量、查詢計量，以及可用來建立更多索引、索引子和資料來源的配額等的系統資料。 您也可以使用入口網站來設定記錄分析，或另一個用於持續性資料收集的資源。 
 
 設定記錄對於自我診斷和保留操作歷程記錄相當有用。 就內部而言，記錄會短暫地存在於後端，足以在您提出支援票證時應付調查和分析。 如果您想要控制和存取記錄資訊，您應該設定本文中所述的其中一個解決方案。
 
@@ -52,7 +52,7 @@ ms.locfileid: "72331220"
 
 ## <a name="add-on-monitoring-solutions"></a>附加的監視解決方案
 
-「Azure 搜尋服務」不會儲存所管理物件以外的任何資料，這表示記錄資料必須儲存在外部。 如果您想要保存記錄資料，可以設定下方任何資源。 
+Azure 認知搜尋不會儲存其所管理物件以外的任何資料，這表示記錄資料必須儲存在外部。 如果您想要保存記錄資料，可以設定下方任何資源。 
 
 下表將儲存記錄與透過 Application Insights 新增服務作業和查詢工作負載之深入監視的選項做比較。
 
@@ -64,17 +64,17 @@ ms.locfileid: "72331220"
 
 Azure 監視器記錄和 Blob 儲存體皆以免費服務的形式提供，因此您可以在 Azure 訂用帳戶的存留期免費試用。 Application Insights 可供免費註冊和使用，只要應用程式資料大小在特定限制範圍內即可 (如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/monitor/))。
 
-下一節將逐步解說啟用及使用 Azure Blob 儲存體來收集和存取「Azure 搜尋服務」作業所建立記錄資料的步驟。
+下一節將逐步引導您啟用及使用 Azure Blob 儲存體，以收集和存取 Azure 認知搜尋作業所建立的記錄資料。
 
 ## <a name="enable-logging"></a>啟用記錄
 
-索引編製和查詢工作負載的記錄功能預設為關閉，並且取決於記錄功能基礎結構和長期外部儲存體的附加解決方案。 單獨就「Azure 搜尋服務」而言，其唯一保存的資料是它所建立和管理的物件，因此記錄必須儲存在其他位置。
+索引編製和查詢工作負載的記錄功能預設為關閉，並且取決於記錄功能基礎結構和長期外部儲存體的附加解決方案。 本身，Azure 認知搜尋中唯一保存的資料是它所建立和管理的物件，因此記錄檔必須儲存在其他地方。
 
 在本節中，您將了解如何使用 Blob 儲存體來儲存所記錄的事件和計量資料。
 
-1. 如果您還沒有儲存體帳戶，請[建立一個儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。 您可以將它放在與「Azure 搜尋服務」相同的資源群組中，以在稍後當您想要刪除本練習中使用的所有資源時，可簡化清除步驟。
+1. 如果您還沒有儲存體帳戶，請[建立一個儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。 您可以將它放在與 Azure 認知搜尋相同的資源群組中，以便稍後在您想要刪除本練習中使用的所有資源時，簡化清除工作。
 
-   您的儲存體帳戶必須與 Azure 搜尋服務位於相同的區域。
+   您的儲存體帳戶必須存在於與 Azure 認知搜尋相同的區域中。
 
 2. 開啟您的搜尋服務 [概觀] 頁面。 在左側導覽窗格中，向下捲動至 [監視]，然後按一下 [啟用監視]。
 
@@ -158,14 +158,14 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 1. 在 Azure 入口網站中，開啟您的儲存體帳戶。 
 
-2. 在左側導覽窗格中，按一下 [Blob]。 您應該會看到 **insights-logs-operationlogs** 和 **insights-metrics-pt1m**。 這些容器是將記錄資料匯出至 Blob 儲存體時，「Azure 搜尋服務」所建立的容器。
+2. 在左側導覽窗格中，按一下 [Blob]。 您應該會看到 **insights-logs-operationlogs** 和 **insights-metrics-pt1m**。 當記錄資料匯出到 Blob 儲存體時，Azure 認知搜尋會建立這些容器。
 
 3. 在資料夾階層中一路往下點選，直到抵達 .json 檔案為止。  請使用操作功能表來下載檔案。
 
 下載檔案之後，在 JSON 編輯器中開啟它以檢視內容。
 
 ## <a name="use-system-apis"></a>使用系統 API
-「Azure 搜尋服務」REST API 和 .NET SDK 都可讓您以程式設計方式存取服務計量、索引和索引子資訊，以及文件計數。
+Azure 認知搜尋 REST API 和 .NET SDK 都可讓您以程式設計方式存取服務計量、索引和索引子資訊，以及檔計數。
 
 * [取得服務統計資料](/rest/api/searchservice/get-service-statistics)
 * [取得索引統計資料](/rest/api/searchservice/get-index-statistics)

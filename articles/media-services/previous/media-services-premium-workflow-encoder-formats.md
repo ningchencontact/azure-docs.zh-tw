@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015030"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792595"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
 
 > [!NOTE]
-> 如有進階編碼器的問題，請傳送電子郵件到 mepd@microsoft.com。
-> 
 > 本主題中討論的媒體編碼器高階工作流程媒體處理器無法在中國使用。 
 
 本文包含 **Media Encoder Premium Workflow** 編碼器公開預覽版本支援的輸入與輸出檔案格式以及轉碼器清單。
@@ -100,8 +98,6 @@ ms.locfileid: "69015030"
 * JPEG 縮圖建立
 * HEVC (H.265、8 位元和 10 位元、主要和主要 10 設定檔)
 
-  特定案例提供 HDR 10 支援，請連絡 mepd@microsoft.com 以取得詳細資訊
-
 
 ### <a name="output-audio-codecs"></a>輸出音訊轉碼器
 
@@ -141,6 +137,9 @@ ms.locfileid: "69015030"
 
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。 
 
+## <a name="need-help"></a>需要協助嗎？
+
+您可以流覽至 [[新增支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)] 來開啟支援票證
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

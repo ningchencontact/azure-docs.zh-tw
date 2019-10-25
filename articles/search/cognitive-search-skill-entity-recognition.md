@@ -1,36 +1,35 @@
 ---
-title: 實體辨識認知搜尋技能 - Azure 搜尋服務
-description: 從 Azure 搜尋服務認知搜尋管線中的文字，擷取不同類型的實體。
-services: search
+title: 實體辨識認知技能
+titleSuffix: Azure Cognitive Search
+description: 在 Azure 認知搜尋中，從擴充管線中的文字解壓縮不同類型的實體。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: ad2fef96491c2d1a15ad9ff5f57d2911dfecaa36
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265797"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792018"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>實體辨識認知技能
+#   <a name="entity-recognition-cognitive-skill"></a>實體辨識認知技能
 
 **實體辨識**技能會從文字擷取實體。 這項技能會使用認知服務中[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)所提供的機器學習模型。
 
 > [!NOTE]
-> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您需要[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 Api 時，會產生費用，並在 Azure 認知搜尋中以檔破解階段的形式進行映射解壓縮。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 [Azure 認知搜尋定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)會說明影像提取定價。
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應為50000個字元，如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為50000個字元，如[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)所測量。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -49,8 +48,8 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 | 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
-| languageCode  | 選擇性。 預設值為 `"en"`。  |
-| 文字          | 要分析的文字。          |
+| languageCode  | 選用。 預設值為 `"en"`。  |
+| text          | 要分析的文字。          |
 
 ## <a name="skill-outputs"></a>技能輸出
 
@@ -60,7 +59,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 輸出名稱     | 描述                   |
 |---------------|-------------------------------|
 | 人員      | 字串陣列，其中每個字串代表人員名稱。 |
-| locations  | 字串陣列，其中每個字串代表位置。 |
+| 位置  | 字串陣列，其中每個字串代表位置。 |
 | 組織  | 字串陣列，其中每個字串代表組織。 |
 | 數量  | 字串陣列，其中每個字串代表數量。 |
 | 日期時間  | 字串陣列，其中每個字串代表日期時間 (如其在文字中所示) 值。 |
@@ -192,7 +191,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 ## <a name="error-cases"></a>錯誤案例
 如果文件的語言程式碼不受支援，則會傳回錯誤，且不會擷取任何實體。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [內建技能](cognitive-search-predefined-skills.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md)

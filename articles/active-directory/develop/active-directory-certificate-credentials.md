@@ -1,5 +1,6 @@
 ---
-title: Azure AD 中的憑證認證 | Microsoft Docs
+title: Azure AD 中的憑證認證
+titleSuffix: Microsoft identity platform
 description: 本文討論如何註冊和使用憑證認證來進行應用程式驗證
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835468"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803532"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
 
@@ -46,12 +47,12 @@ Azure Active Directory (Azure AD) 可讓應用程式使用自己的認證進行�
 
 | 參數 |  備註 |
 | --- | --- |
-| `aud` | Audience：應該是 **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | 對象︰應該是 **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | 到期日：權杖到期的日期。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖有效時間到期的秒數。|
 | `iss` | 簽發者︰應該是 client_id (用戶端服務的應用程式識別碼) |
 | `jti` | GUID：JWT ID |
 | `nbf` | 生效時間：無法在此日期之前使用權杖。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖發出時間的秒數。 |
-| `sub` | 主旨：至於 `iss`，應該是 client_id (用戶端服務的應用程式識別碼) |
+| `sub` | 主旨：對於 `iss`，應該是 client_id (用戶端服務的應用程式識別碼) |
 
 ### <a name="signature"></a>簽章
 
@@ -99,9 +100,9 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 在用戶端應用程式的 Azure 應用程式註冊中：
 1. 選取 [憑證和秘密]。 
-2. 按一下 [上**傳憑證**], 然後選取要上傳的憑證檔案。
+2. 按一下 [上**傳憑證**]，然後選取要上傳的憑證檔案。
 3. 按一下 [新增]。
-  憑證上傳之後, 即會顯示 [指紋]、[開始日期] 和 [到期] 值。 
+  憑證上傳之後，即會顯示 [指紋]、[開始日期] 和 [到期] 值。 
 
 ### <a name="updating-the-application-manifest"></a>更新應用程式資訊清單
 

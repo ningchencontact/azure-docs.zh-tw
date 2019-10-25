@@ -1,21 +1,18 @@
 ---
 title: Azure Functions 中支援的語言
 description: 了解支援哪些語言 (GA) 以及哪些語言仍在實驗性或預覽版階段。
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eac67c43915edb0aed273df40e7b08ca846062bf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148804"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802467"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支援的語言
 
@@ -29,7 +26,7 @@ ms.locfileid: "65148804"
 * **預覽** - 尚未支援，但預期未來會正式推出。
 * **實驗性** - 不支援，且未來可能會放棄，不保證最後會提供預覽或正式推出。
 
-## <a name="languages-in-runtime-1x-and-2x"></a>執行階段 1.x 和 2.x 中的語言
+## <a name="languages-by-runtime-version"></a>依執行階段版本的語言 
 
 提供[兩種版本的 Azure Functions 執行階段](functions-versions.md)。 以下表格說明每個執行階段版本支援哪些語言。
 
@@ -45,23 +42,16 @@ ms.locfileid: "65148804"
 
 ### <a name="language-extensibility"></a>語言擴充性
 
-2\.x 執行階段是針對提供[語言擴充性](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility) \(英文\) 所設計。 2\.x 執行階段中的 JavaScript 和 Java 語言是使用此擴充性來建置。
+從2.x 版開始，執行時間是為了提供[語言](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)擴充性而設計的。 2\.x 執行階段中的 JavaScript 和 Java 語言是使用此擴充性來建置。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解如何在 Azure Functions 中使用其中一種 GA 或預覽版語言，請參閱下列資源：
+若要深入瞭解如何以支援的語言開發函數，請參閱下列資源：
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
-
-> [!div class="nextstepaction"]
-> [Python](functions-reference-python.md)
++ [C#類別庫開發人員參考](functions-dotnet-class-library.md)
++ [C#腳本開發人員參考](functions-reference-csharp.md)
++ [JAVA 開發人員參考](functions-reference-java.md)
++ [JavaScript 開發人員參考](functions-reference-node.md)
++ [PowerShell 開發人員參考](functions-reference-powershell.md)
++ [Python 開發人員參考](functions-reference-python.md)
++ [TypeScript 開發人員參考](functions-reference-node.md#typescript)

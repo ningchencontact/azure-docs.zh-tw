@@ -1,22 +1,21 @@
 ---
-title: 在入口網站中設定 Azure 管理存取權的 RBAC 角色 - Azure 搜尋服務
-description: Azure 入口網站中的角色型管理控制項 (RBAC) 可用於控制和委派 Azure 搜尋服務管理的管理工作。
-author: HeidiSteen
+title: 在入口網站中設定 Azure 系統管理存取權的 RBAC 角色
+titleSuffix: Azure Cognitive Search
+description: Azure 入口網站中以角色為基礎的系統管理控制（RBAC），用於控制和委派 Azure 認知搜尋管理的系統管理工作。
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 04/05/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 924d2529e3477c299d4a90c076fe9e6c8faf11f3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 321aabb26d5929f7587dd61e7d4059701f7ad526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647399"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794332"
 ---
-# <a name="set-rbac-roles-for-administrative-access"></a>設定系統管理存取權的 RBAC 角色
+# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>設定 Azure 認知搜尋的系統管理存取權的 RBAC 角色
 
 Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務提供[全域角色型授權模型](../role-based-access-control/role-assignments-portal.md)。 「擁有者」、「參與者」和「讀取者」角色可針對指派給各角色的 Active Directory 使用者、群組和安全性主體，決定*服務管理*層級。 
 
@@ -25,19 +24,19 @@ Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務�
 
 ## <a name="management-tasks-by-role"></a>依角色管理工作
 
-對於 Azure 搜尋服務，角色與支援以下管理工作的權限等級相關聯：
+針對 Azure 認知搜尋，角色會與支援下列管理工作的許可權層級相關聯：
 
-| Role | 工作 |
+| 角色 | Task |
 | --- | --- |
 | 擁有者 |建立或刪除服務或服務上的任何物件，包括 api 索引鍵、索引、索引子、索引子資料來源和索引子排程。<p>檢視服務狀態，包括計數和儲存體大小。<p>新增或刪除角色成員資格 (只有「擁有者」可以管理角色成員資格)。<p>訂用帳戶管理員和服務擁有者在擁有者角色具有自動成員資格。 |
 | 參與者 |與「擁有者」相同層級的存取權，減去 RBAC 角色管理。 例如，參與者可以建立或刪除物件，或檢視和重新產生 [API 金鑰](search-security-api-keys.md)，但不能修改角色成員資格。 |
 | [搜尋服務參與者內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | 等同於參與者角色。 |
-| 讀者 |檢視服務的基本資訊和計量。 此角色的成員無法檢視索引、索引子、資料來源，或索引鍵資訊。  |
+| 讀取者 |檢視服務的基本資訊和計量。 此角色的成員無法檢視索引、索引子、資料來源，或索引鍵資訊。  |
 
 角色不會授與服務端點的存取權限。 搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [使用 Powershell 管理](search-manage-powershell.md) 
-+ [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)
++ [Azure 認知搜尋中的效能和優化](search-performance-optimization.md)
 + [在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。

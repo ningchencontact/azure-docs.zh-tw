@@ -1,13 +1,13 @@
 ---
-title: 新增語言分析器 - Azure 搜尋服務
-description: Azure 搜尋服務中適用於非英文查詢和索引的多語言語彙文字分析。
-ms.date: 02/14/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: 將語言分析器新增至索引中的字串欄位
+titleSuffix: Azure Cognitive Search
+description: Azure 認知搜尋中非英文查詢和索引的多語言詞法文字分析。
+manager: nitinme
 author: Yahnoosh
 ms.author: jlembicz
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e54fa449e0ed7f3208d9924b69946c6598a00444
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648816"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790146"
 ---
-# <a name="add-language-analyzers-to-an-azure-search-index"></a>將語言分析器新增至 Azure 搜尋服務索引
+# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>將語言分析器新增至 Azure 認知搜尋索引
 
 「語言分析器」是特定類型的[文字分析器](search-analyzers.md)，能使用目標語言的語言規則來執行語彙分析。 每個可搜尋的欄位都會有 **analyzer** 屬性。 如果您的索引包含已翻譯的字串 (例如適用於英文和中文文字的個別欄位)，您可以在每個欄位上指定語言分析器，以存取由那些分析器所提供的豐富語言功能。  
 
-Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專屬的 Microsoft 自然語言處理技術所支援的 50 種分析器 (此技術同樣用於 Office 和 Bing 中)。
+Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing 中使用之專利 Microsoft 自然語言處理技術所支援的50分析器。
 
 ## <a name="comparing-analyzers"></a>比較分析器
 
@@ -52,7 +52,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 
 使用 **searchFields** 查詢參數來指定針對查詢所要搜尋的語言特定欄位。 您可以在[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) \(英文\) 中檢閱包含分析器屬性的查詢範例。 
 
-如需索引屬性的詳細資訊，請參閱[建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。 如需 Azure 搜尋服務中分析的詳細資訊，請參閱 [Azure 搜尋服務中的分析器](https://docs.microsoft.com/azure/search/search-analyzers)。
+如需索引屬性的詳細資訊，請參閱[建立索引&#40;Azure 認知&#41;搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)。 如需有關 Azure 認知搜尋中分析的詳細資訊，請參閱[Azure 認知搜尋中的分析器](https://docs.microsoft.com/azure/search/search-analyzers)。
 
 <a name="language-analyzer-list"></a>
 
@@ -73,7 +73,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |捷克文|cs.microsoft|cs.lucene|  
 |丹麥文|da.microsoft|da.lucene|  
 |荷蘭文|nl.microsoft|nl.lucene|  
-|英文|en.microsoft|en.lucene|  
+|繁體中文|en.microsoft|en.lucene|  
 |愛沙尼亞文|et.microsoft||  
 |芬蘭文|fi.microsoft|fi.lucene|  
 |法文|fr.microsoft|fr.lucene|  
@@ -89,7 +89,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |愛爾蘭文||ga.lucene|  
 |義大利文|it.microsoft|it.lucene|  
 |日文|ja.microsoft|ja.lucene|  
-|坎那達文|kn.microsoft||  
+|坎那達文|kn。 microsoft||  
 |韓文|ko.microsoft|ko.lucene|  
 |拉脫維亞文|lv.microsoft|lv.lucene|  
 |立陶宛文|lt.microsoft||  
@@ -111,7 +111,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |西班牙文|es.microsoft|es.lucene|  
 |瑞典文|sv.microsoft|sv.lucene|  
 |坦米爾文|ta.microsoft||  
-|特拉古文|te.microsoft||  
+|泰盧固文|te.microsoft||  
 |泰文|th.microsoft|th.lucene|  
 |土耳其文|tr.microsoft|tr.lucene|  
 |烏克蘭文|uk.microsoft||  
@@ -120,8 +120,9 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 
  所有名稱加上 **Lucene** 註解的分析器都是由 [Apache Lucene 的語言分析器](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ) \(英文\) 所提供。
 
-## <a name="see-also"></a>另請參閱  
- [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  
- [AnalyzerName 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername) \(英文\)  
- [影片：Azure 搜尋服務 MVA 簡報的課程模組 7](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07) \(英文\)。  
+## <a name="see-also"></a>請參閱  
+
++ [建立索引&#40;Azure 認知搜尋 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+
++ [AnalyzerName 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername) \(英文\)  
 

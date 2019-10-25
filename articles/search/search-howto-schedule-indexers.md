@@ -1,31 +1,31 @@
 ---
-title: 如何排程索引子-Azure 搜尋服務
-description: 排程 Azure 搜尋服務索引子來定期或在特定時間為內容編制索引。
-ms.date: 05/31/2019
+title: 如何排程索引子
+titleSuffix: Azure Cognitive Search
+description: 排程 Azure 認知搜尋索引子，以定期或在特定時間為內容編制索引。
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: ''
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533616"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793702"
 ---
-# <a name="how-to-schedule-indexers-for-azure-search"></a>如何排程 Azure 搜尋服務的索引子
+# <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中排程索引子
+
 索引子通常會在建立之後立即執行一次。 您可以使用入口網站、REST API 或 .NET SDK，視需要再次執行它。 您也可以設定依排程定期執行的索引子。
 
 索引子排程非常有用的一些情況：
 
-* 來源資料會隨著時間變更，而您希望 Azure 搜尋服務索引子自動處理已變更的資料。
+* 來源資料會隨著時間變更，而您想要讓 Azure 認知搜尋索引子自動處理已變更的資料。
 * 索引會從多個資料來源填入，而您想要確保索引子在不同的時間執行，以減少衝突。
-* 來源資料很大，而且您想要在一段時間內散佈索引子處理。 如需索引大量資料的詳細資訊，請參閱[如何在 Azure 搜尋服務中為大型資料集編制索引](search-howto-large-index.md)。
+* 來源資料很大，而且您想要在一段時間內散佈索引子處理。 如需索引大量資料的詳細資訊，請參閱[如何在 Azure 認知搜尋中為大型資料集編制索引](search-howto-large-index.md)。
 
-排程器是 Azure 搜尋服務的內建功能。 您無法使用外部排程器來控制搜尋索引子。
+排程器是 Azure 認知搜尋的內建功能。 您無法使用外部排程器來控制搜尋索引子。
 
 ## <a name="define-schedule-properties"></a>定義排程屬性
 
@@ -88,7 +88,7 @@ ms.locfileid: "72533616"
 
 ## <a name="schedule-using-the-net-sdk"></a>使用 .NET SDK 進行排程
 
-您可以使用 Azure 搜尋服務 .NET SDK 來定義索引子的排程。 若要這麼做，請在建立或更新索引子時加入**排程**屬性。
+您可以使用 Azure 認知搜尋 .NET SDK 來定義索引子的排程。 若要這麼做，請在建立或更新索引子時加入**排程**屬性。
 
 下列C#範例會使用預先定義的資料來源和索引來建立索引子，並將其排程設定為從現在起算的30分鐘每天執行一次：
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 004010983b87c333adeb4b20abbe851581917a3a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937441"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802190"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -24,12 +24,10 @@ ms.locfileid: "71937441"
 
 下表摘要說明 Hyper-v Vm 的支援案例。
 
-**部署** | **說明***
+**部署** | **詳細資料***
 --- | ---
 **評估內部部署 Hyper-v Vm** | [設定](tutorial-prepare-hyper-v.md)您的第一個評估。<br/><br/> [執行](scale-hyper-v-assessment.md)大規模的評量。
 **將 Hyper-V VM 遷移至 Azure** | [嘗試](tutorial-migrate-hyper-v.md)遷移至 Azure。
-
-Azure Migrate 伺服器遷移不支援遷移以 System Center Virtual Machine Manager （VMM）管理的 Hyper-v 伺服器。
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 專案
 
@@ -37,20 +35,20 @@ Azure Migrate 伺服器遷移不支援遷移以 System Center Virtual Machine Ma
 --- | ---
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權，才能建立 Azure Migrate 專案。
 Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm，最多可達評量限制。
-地理 | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定地區建立專案，但您可以針對其他目標位置評估或遷移電腦。 專案地理位置只會用來儲存探索到的資料。
+[地理位置] | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定地區建立專案，但您可以針對其他目標位置評估或遷移電腦。 專案地理位置只會用來儲存探索到的資料。
 
   **地理位置** | **中繼資料儲存位置**
   --- | ---
-  Azure Government | US Gov 維吉尼亞州
+  Azure 政府機構 | US Gov 維吉尼亞州
   亞太地區 | 東亞或東南亞
-  澳大利亞 | 澳大利亞東部或澳大利亞東南部
+  澳洲 | 澳大利亞東部或澳大利亞東南部
   巴西 | 巴西南部
   加拿大 | 加拿大中部或加拿大東部
   歐洲 | 北歐或西歐
   法國 | 法國中部
   印度 | 印度中部或印度南部
   日本 |  日本東部或日本西部
-  韓國 | 韓國中部或南韓南部
+  南韓 | 韓國中部或南韓南部
   英國 | 英國南部或英國西部
   美國 | 美國中部或美國西部2
 
@@ -64,7 +62,7 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
 | **主機部署**       | Hyper-v 主機可以是獨立或部署在叢集中。 |
-| **Permissions**           | 您需要 Hyper-v 主機的系統管理員許可權。 <br/> 或者，如果您不想要指派系統管理員許可權，請建立本機或網域使用者帳戶，並將使用者新增至這些群組-遠端系統管理使用者、Hyper-v 系統管理員和效能監視器使用者。 |
+| **權限**           | 您需要 Hyper-v 主機的系統管理員許可權。 <br/> 或者，如果您不想要指派系統管理員許可權，請建立本機或網域使用者帳戶，並將使用者新增至這些群組-遠端系統管理使用者、Hyper-v 系統管理員和效能監視器使用者。 |
 | **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2012 的 Hyper-V 主機上的 VM。 |
 | **PowerShell 遠端處理**   | 必須在每部主機上啟用。 |
 | **Hyper-v 複本**       | 如果您使用 Hyper-v 複本（或您有多個 vm 具有相同的 VM 識別碼），並使用 Azure Migrate 探索原始和複寫的 Vm，則 Azure Migrate 所產生的評量可能不正確。 |
@@ -106,7 +104,7 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 **URL** | **詳細資料**  
 --- | ---
 *.portal.azure.com | 導覽至 Azure 入口網站
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶：
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 management.azure.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 dc.services.visualstudio.com | 記錄和監視
@@ -122,7 +120,7 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 
 **裝置** | **連接**
 --- | ---
-**台** | TCP 通訊埠3389上的輸入連線，以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線，可使用 URL 從遠端存取應用裝置管理應用程式：``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443、5671和5672上的輸出連線，以將探索和效能中繼資料傳送至 Azure Migrate。
+**台** | TCP 通訊埠3389上的輸入連線，以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線，可使用 URL 從遠端存取應用裝置管理應用程式： ``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443、5671和5672上的輸出連線，以將探索和效能中繼資料傳送至 Azure Migrate。
 **Hyper-v 主機/叢集** | WinRM 埠5985（HTTP）和5986（HTTPS）上的輸入連線，可使用通用訊息模型（CIM）會話提取 Hyper-v Vm 的設定和效能中繼資料。
 
 ## <a name="migration-limitations"></a>遷移-限制
@@ -133,7 +131,7 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
 | **主機部署**       | Hyper-v 主機可以是獨立或部署在叢集中。 |
-| **Permissions**           | 您需要 Hyper-v 主機的系統管理員許可權。 |
+| **權限**           | 您需要 Hyper-v 主機的系統管理員許可權。 |
 | **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。 |
 
 ## <a name="migration-hyper-v-vm-requirements"></a>遷移-Hyper-v VM 需求
@@ -141,9 +139,9 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 | **支援**                  | **詳細資料**               
 | :----------------------------- | :------------------- |
 | **作業系統** | Azure 支援的所有[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統。 |
-| **Permissions**           | 您需要您想要評估的每部 Hyper-v VM 上的系統管理員許可權。 |
+| **權限**           | 您需要您想要評估的每部 Hyper-v VM 上的系統管理員許可權。 |
 | **Integration Services**       | [Hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)必須在您評估的 vm 上執行，才能捕捉作業系統資訊。 |
-| **Azure 的必要變更** | 有些 Vm 可能需要變更，才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更：<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統，您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
+| **Azure 的必要變更** | 有些 VM 可能需要變更，才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更：<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統，您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
 | **Linux 開機**                 | 如果/boot 是在專用磁碟分割上，它應該位於 OS 磁片上，而不會散佈到多個磁片上。<br/> 如果/boot 是根（/）分割區的一部分，則 '/' 磁碟分割應該位於 OS 磁片上，而不是跨越其他磁片。 |
 | **UEFI 開機**                  | Azure 中已遷移的 VM 會自動轉換為 BIOS 開機 VM。 VM 應僅執行 Windows Server 2012 和更新版本。 OS 磁片最多隻能有五個磁碟分割或更少，且 OS 磁片的大小應小於 300 GB。
   |
@@ -155,7 +153,7 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 | **NFS**                        | 裝載為 Vm 上之磁片區的 NFS 磁片區不會複寫。 |
 | **ISCSI**                      | 不支援具有 iSCSI 目標的 Vm 進行遷移。
 | **目標磁片**                | 您只能使用受控磁片遷移至 Azure Vm。 |
-| **IPv6** | 不支援。
+| **Ipv4** | 不支援。
 | **NIC Teaming** | 不支援。
 | **Azure Site Recovery** | 如果 VM 已啟用 Azure Site Recovery 的複寫，您就無法使用 Azure Migrate Server 遷移進行複寫。
 

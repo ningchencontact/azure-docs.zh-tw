@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555603"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802317"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -184,9 +184,9 @@ ms.locfileid: "72555603"
 
 您可能想要以程式設計方式查詢針對您的訂用帳戶所產生的警示。 這可能是在 Azure 入口網站外部建立自訂的視圖，或是用來分析您的警示以識別模式和趨勢。
 
-您可以使用[警示管理 REST API](https://aka.ms/alert-management-api)或使用警示的 [ [Azure Resource Graph] REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)來查詢針對您的訂用帳戶所產生的警示。
+您可以使用[警示管理 REST API](https://aka.ms/alert-management-api)或使用警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)）來查詢針對您的訂用帳戶所產生的警示。
 
-警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)可讓您大規模查詢警示實例。 當您必須管理跨多個訂用帳戶所產生的警示時，建議使用此選項。 
+警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)）可讓您大規模查詢警示實例。 當您必須管理跨多個訂用帳戶所產生的警示時，建議使用此選項。 
 
 下列對 API 的範例要求會傳回一個訂用帳戶內的警示計數：
 

@@ -12,12 +12,12 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: eb8451272ecb5bc7b9a7c670545170cd74621883
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 6e5a8eda3891b3b356e0cbd7b6d2e22e4a70c278
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680315"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799717"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP 端點呼叫、觸發或嵌套邏輯應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "72680315"
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > 雖然這些範例使用 [要求] 觸發程序，但是您可以使用任何列出的 HTTP 觸發程序，而且所有的原則都會同樣地套用到其他觸發程序類型。
+   > 雖然這些範例會使用**要求**觸發程式，但是您可以使用任何列出的以要求為基礎的觸發程式，而所有的原則也同樣適用于其他觸發程式類型。
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>設定邏輯應用程式的 HTTP 端點
 
@@ -40,22 +40,21 @@ ms.locfileid: "72680315"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com "Azure Portal")。 移至邏輯應用程式，並開啟邏輯應用程式設計工具。
 
-2. 新增可讓邏輯應用程式接收傳入要求的觸發程序。 例如，將**要求**觸發程序新增至邏輯應用程式。
+1. 新增可讓邏輯應用程式接收傳入要求的觸發程序。 例如，將**要求**觸發程序新增至邏輯應用程式。
 
-3.  在 [要求本文 JSON 結構描述] 下方，您可以選擇針對預期要觸發程序收到的承載 (資料) 輸入 JSON 結構描述。
+1. 在 [要求本文 JSON 結構描述] 下方，您可以選擇針對預期要觸發程序收到的承載 (資料) 輸入 JSON 結構描述。
 
-    設計工具會使用此結構描述來產生權杖，而邏輯應用程式可以使用權杖以透過工作流程從觸發程序中取用、剖析和傳遞資料。 
-    深入了解[從 JSON 結構描述產生的權杖](#generated-tokens)。
+   設計工具會使用此結構描述來產生權杖，而邏輯應用程式可以使用權杖以透過工作流程從觸發程序中取用、剖析和傳遞資料。 深入瞭解[從 JSON 架構產生的權杖](#generated-tokens)。
 
-    在此範例中，輸入設計工具中所顯示的結構描述︰
+   在此範例中，請輸入此架構，如設計工具中所示：
 
-    ```json
-    {
+   ```json
+   {
       "type": "object",
       "properties": {
-        "address": {
-          "type": "string"
-        }
+         "address": {
+            "type": "string"
+         }
       },
       "required": [
         "address"
@@ -63,52 +62,50 @@ ms.locfileid: "72680315"
     }
     ```
 
-    ![新增要求動作][1]
+   ![新增要求動作](./media/logic-apps-http-endpoint/manualtrigger.png)
 
-    > [!TIP]
-    > 
-    > 您可以從 [jsonschema.net](https://jsonschema.net/) 這類工具產生範例 JSON 承載的結構描述，或在 [要求] 觸發程序中選擇 [請使用範例承載產生結構描述] 來產生範例 JSON 承載的結構描述。 
-    > 輸入您的範例承載，然後選擇 [完成]。
+   > [!TIP]
+   >
+   > 您可以藉由選擇 [**使用範例承載來產生架構**]，從[jsonschema.net](https://jsonschema.net/)之類的工具或在**要求**觸發程式中產生範例 JSON 承載的架構。 輸入您的範例承載，然後選擇 [完成]。
 
-    例如，此範例裝載︰
+   例如，此範例裝載︰
 
-    ```json
-    {
-       "address": "21 2nd Street, New York, New York"
-    }
-    ```
+   ```json
+   {
+      "address": "21 2nd Street, New York, New York"
+   }
+   ```
 
-    產生此結構描述︰
+   產生此架構：
 
-    ```json
-    {
-       "type": "object",
-       "properties": {
-          "address": {
-             "type": "string" 
-          }
-       }
-    }
-    ```
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "address": {
+            "type": "string"
+         }
+      }
+   }
+   ```
 
-4.  儲存您的邏輯應用程式。 在 [此 URL 的 HTTP POST] 下方，您現在應該會找到產生的回呼 URL，如下列範例所示：
+1. 儲存您的邏輯應用程式。 在 [此 URL 的 HTTP POST] 下方，您現在應該會找到產生的回呼 URL，如下列範例所示：
 
-    ![為端點產生的回呼 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
+   ![為端點產生的回呼 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-    此 URL 的查詢參數中包含用於驗證的共用存取簽章 (SAS) 金鑰。 
-    您也可以從 Azure 入口網站的邏輯應用程式概觀中取得 HTTP 端點 URL。 在 [觸發程序記錄] 下方，選取觸發程序：
+   此 URL 的查詢參數中包含用於驗證的共用存取簽章 (SAS) 金鑰。 您也可以從 Azure 入口網站的邏輯應用程式概觀中取得 HTTP 端點 URL。 在 [觸發程序記錄] 下方，選取觸發程序：
 
-    ![從 Azure 入口網站取得 HTTP 端點 URL][2]
+   ![從 Azure 入口網站取得 HTTP 端點 URL](./media/logic-apps-http-endpoint/manualtriggerurl.png)
 
-    或者，您可以進行這個呼叫來取得 URL：
+   或者，您可以進行這個呼叫來取得 URL：
 
-    ```
-    POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
+    ```http
+    POST https://management.azure.com/{logic-app-resource-ID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
     ```
 
 ## <a name="change-the-http-method-for-your-trigger"></a>變更觸發程序的 HTTP 方法
 
-根據預設，[要求] 觸發程序會預期 HTTP POST 要求，但您可以使用不同的 HTTP 方法。 
+根據預設，[要求] 觸發程序會預期 HTTP POST 要求，但您可以使用不同的 HTTP 方法。
 
 > [!NOTE]
 > 您只能指定一種方法類型。
@@ -117,10 +114,10 @@ ms.locfileid: "72680315"
 
 2. 開啟 [方法] 清單。 在此範例中，選取 **GET**，稍後測試 HTTP 端點的 URL。
 
-    > [!NOTE]
-    > 您可以選取任何其他 HTTP 方法，或指定專屬邏輯應用程式的自訂方法。
+   > [!NOTE]
+   > 您可以選取任何其他 HTTP 方法，或指定專屬邏輯應用程式的自訂方法。
 
-    ![變更 HTTP 方法](./media/logic-apps-http-endpoint/change-method.png)
+   ![變更 HTTP 方法](./media/logic-apps-http-endpoint/change-method.png)
 
 ## <a name="accept-parameters-through-your-http-endpoint-url"></a>透過 HTTP 端點 URL 接受參數
 
@@ -130,37 +127,36 @@ ms.locfileid: "72680315"
 
 2. 在 [方法] 下方，指定您想要要求使用的 HTTP 方法。 在此範例中，選取 **GET** 方法 (如果還沒有這麼做的話)，以測試 HTTP 端點的 URL。
 
-      > [!NOTE]
-      > 當您指定觸發程序的相對路徑時，也必須明確地指定觸發程序的 HTTP 方法。
+   > [!NOTE]
+   > 當您指定觸發程序的相對路徑時，也必須明確地指定觸發程序的 HTTP 方法。
 
 3. 在 [相對路徑] 下方，指定您 URL 應該接受之參數的相對路徑，例如，`customers/{customerID}`。
 
-    ![指定參數的 HTTP 方法和相對路徑](./media/logic-apps-http-endpoint/relativeurl.png)
+   ![指定參數的 HTTP 方法和相對路徑](./media/logic-apps-http-endpoint/relativeurl.png)
 
 4. 若要使用參數，請將 [回應] 動作新增至邏輯應用程式 (在觸發程序下方，選擇 [新增步驟] > [新增動作] > [回應])。 
 
 5. 在您回應的 [本文] 中，包括觸發程序相對路徑中所指定參數的權杖。
 
-    例如，若要傳回 `Hello {customerID}`，請使用 `Hello {customerID token}` 來更新回應的 [本文]。 
-    動態內容清單應該會出現，並顯示 `customerID` 權杖以供您選取。
+   例如，若要傳回 `Hello {customerID}`，請使用 `Hello {customerID token}` 來更新回應的 [本文]。 動態內容清單應該會出現，並顯示 `customerID` 權杖以供您選取。
 
-    ![將參數新增至回應本文](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   ![將參數新增至回應本文](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-    您的 [本文] 應該如下列範例所示：
+   您的 [本文] 應該如下列範例所示：
 
-    ![含參數的回應本文](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   ![含參數的回應本文](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. 儲存您的邏輯應用程式。 
 
     HTTP 端點 URL 現在包括相對路徑，例如︰ 
 
-    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    ```http
+    https://prod-00.southcentralus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/customers/{customerID}...
+    ```
 
 7. 若要測試 HTTP 端點，請複製更新過的 URL，並將其貼入另一個瀏覽器視窗中，但將 `{customerID}` 取代為 `123456`，然後按 Enter 鍵。
 
-    您的瀏覽器應該顯示下列文字︰ 
-
-    `Hello 123456`
+   您的瀏覽器應該會顯示下列文字： `Hello 123456`
 
 <a name="generated-tokens"></a>
 
@@ -215,16 +211,16 @@ ms.locfileid: "72680315"
 
 ```json
 {
-    "headers": {
-        "content-type" : "application/json"
-    },
-    "body": {
-        "myProperty" : "property value"
-    }
+   "headers": {
+      "content-type" : "application/json"
+   },
+   "body": {
+      "myProperty" : "property value"
+   }
 }
 ```
 
-若要特別存取 `body` 屬性，您可以使用 `@triggerBody()` 捷徑。 
+若要特別存取 `body` 屬性，您可以使用 `@triggerBody()` 捷徑。
 
 ## <a name="respond-to-requests"></a>回應要求
 
@@ -237,7 +233,7 @@ ms.locfileid: "72680315"
 
 您可以在回應本文中包括數個標頭和任何類型的內容。 在範例回應中，標頭指定回應的內容類型為 `application/json`。 而根據先前針對 [要求] 觸發程序所更新的 JSON 結構描述，本文會包含 `title` 和 `name`。
 
-![HTTP 回應動作][3]
+![HTTP 回應動作](./media/logic-apps-http-endpoint/response.png)
 
 回應具有下列屬性：
 
@@ -251,18 +247,18 @@ ms.locfileid: "72680315"
 
 ``` json
 "Response": {
+   "type": "Response",
    "inputs": {
       "body": {
          "title": "@{triggerBody()?['title']}",
          "name": "@{triggerBody()?['name']}"
       },
       "headers": {
-           "content-type": "application/json"
+         "content-type": "application/json"
       },
       "statusCode": 200
    },
-   "runAfter": {},
-   "type": "Response"
+   "runAfter": {}
 }
 ```
 
@@ -283,11 +279,11 @@ ms.locfileid: "72680315"
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>問︰我可以進一步設定 HTTP 端點嗎？
 
-答︰可以，HTTP 端點透過 [**API 管理**](../api-management/api-management-key-concepts.md)來支援更進階的設定。 此服務也可讓您透過一致的方式管理所有 API，包括邏輯應用程式、設定自訂網域名稱、使用其他驗證方法等等，例如︰
+答：是，HTTP 端點透過[AZURE API 管理](../api-management/api-management-key-concepts.md)來支援更多的設定。 此服務也可讓您透過一致的方式管理所有 API，包括邏輯應用程式、設定自訂網域名稱、使用其他驗證方法等等，例如︰
 
-* [變更要求方法](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
-* [變更要求的 URL 區段](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* 在[Azure 入口網站](https://portal.azure.com/ "Azure Portal")中設定您的 API 管理網域
+* [變更要求方法](../api-management/api-management-advanced-policies.md#SetRequestMethod)
+* [變更要求的 URL 區段](../api-management/api-management-transformation-policies.md#RewriteURL)
+* 在[Azure 入口網站](https://portal.azure.com/)中設定您的 API 管理網域
 * 設定檢查基本驗證的原則
 
 #### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>問︰從 2014 年 12 月 1 日預覽版升級結構描述時的變更內容為何？
@@ -304,17 +300,7 @@ ms.locfileid: "72680315"
 | 透過 `@triggerOutputs().body.Content` 參考傳入本文 |透過 `@triggerOutputs().body` 參考 |
 | **傳送 HTTP 回應** 動作 |按一下 [回應 HTTP 要求] \(不需要 API 應用程式) |
 
-## <a name="get-help"></a>取得說明
-
-若要提出問題、回答問題以及了解其他 Azure Logic Apps 使用者的做法，請造訪 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-
-若要改善 Azure Logic Apps 和連接器，請在 [Azure Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)上票選或提交想法。
-
 ## <a name="next-steps"></a>後續步驟
 
-* [撰寫邏輯應用程式定義](./logic-apps-author-definitions.md)
-* [處理錯誤和例外狀況](./logic-apps-exception-handling.md)
-
-[1]: ./media/logic-apps-http-endpoint/manualtrigger.png
-[2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
-[3]: ./media/logic-apps-http-endpoint/response.png
+* [撰寫邏輯應用程式定義](logic-apps-author-definitions.md)
+* [處理錯誤和例外狀況](logic-apps-exception-handling.md)

@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: eb34395e0a9ec881c2f5e303383555fa6544369d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: aba404842658aaa946a14a3cde03853c2fb3062d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090909"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792579"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>處理 SQL Database 連線問題和暫時性錯誤
 
@@ -91,7 +91,7 @@ ms.locfileid: "71090909"
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。 錯誤是：
 
 - **SqlException.Number** = 11001
-- 訊息：「不知道這種主機」
+- 訊息：「未知的主機」
 
 第一次重試時，您可以將用戶端電腦重新連線到網路，然後嘗試連接。
 
@@ -109,7 +109,7 @@ ms.locfileid: "71090909"
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。 錯誤是：
 
 - **SqlException.Number** = 18456
-- 訊息：「使用者 ' WRONG_MyUserName ' 登入失敗。」
+- 錯誤將為：「使用者 'WRONG_MyUserName' 登入失敗。」
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連線。
 
@@ -134,12 +134,12 @@ ms.locfileid: "71090909"
 當您為 [SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 物件建立**連接字串**時，請調整下列參數的值：
 
 - **ConnectRetryCount**：&nbsp;&nbsp;預設值為 1。 範圍是 0 到 255。
-- **ConnectRetryInterval** &nbsp; ：&nbsp;預設值為10秒。 範圍是 1 到 60。
+- **ConnectRetryInterval**：&nbsp;&nbsp;預設值為10秒。 範圍是 1 到 60。
 - **Connection Timeout**：&nbsp;&nbsp;預設值為 15 秒。 範圍是 0 到 2147483647。
 
-具體來說，您選擇的值應該會讓下列等式成立：Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
+具體來說，您選擇的值應該會讓下列等式成立：連線逾時 = ConnectRetryCount * ConnectionRetryInterval
 
-例如，如果計數等於3，且間隔等於10秒，則只有29秒的時間才會讓系統有足夠的時間來進行第三個和最後一次的重試連接：29 < 3 * 10。
+例如，如果計數等於 3，且間隔等於 10 秒，則僅只 29 秒的逾時無法讓系統有足夠的時間進行第三次及最後一次的連線重試：29 < 3 * 10。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -162,7 +162,7 @@ ms.locfileid: "71090909"
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>連線：連接字串
+### <a name="connection-connection-string"></a>連接：連接字串
 
 連線到 Azure SQL Database 所需的連接字串與用於連線到 SQL Server 的字串稍有不同。 您可以從 [Azure 入口網站](https://portal.azure.com/)複製資料庫的連接字串。
 
@@ -170,7 +170,7 @@ ms.locfileid: "71090909"
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-### <a name="connection-ip-address"></a>連線：IP 位址
+### <a name="connection-ip-address"></a>連接：IP 位址
 
 您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。 若要設定此組態，請透過 [Azure 入口網站](https://portal.azure.com/)編輯防火牆設定。
 
@@ -181,7 +181,7 @@ ms.locfileid: "71090909"
 如需詳細資訊，請參閱[在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>連線：連接埠
+### <a name="connection-ports"></a>連接：連接埠
 
 通常，您只需要在裝載用戶端程式的電腦上確定已開啟連接埠 1433 進行輸出通訊。
 
@@ -215,11 +215,11 @@ ms.locfileid: "71090909"
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>診斷
+## <a name="diagnostics"></a>診斷程式
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>檢測測試公用程式是否可以連接
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>診斷：測試公用程式是否可以連接
 
 如果您的程式無法連線到 SQL Database，有一個診斷選項可嘗試透過公用程式連線。 在理想的情況下，此公用程式會使用您的程式使用的同一程式庫進行連線。
 
@@ -232,14 +232,14 @@ ms.locfileid: "71090909"
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>檢測檢查開啟的埠
+### <a name="diagnostics-check-the-open-ports"></a>診斷：檢查開啟的連接埠
 
 如果您懷疑連線嘗試因為連接埠問題而失敗，您可以在報告連接埠組態的電腦上執行公用程式。
 
 下列公用程式在 Linux 上可能很有用：
 
 - `netstat -nap`
-- `nmap -sS -O 127.0.0.1`:將範例值變更為您的 IP 位址。
+- `nmap -sS -O 127.0.0.1`：將範例值變更為您的 IP 位址。
 
 在 Windows 上，[PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) 公用程式可能很有用。 以下是在 SQL Database 伺服器上查詢連接埠情況，以及在膝上型電腦上執行的範例執行：
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>檢測記錄您的錯誤
+### <a name="diagnostics-log-your-errors"></a>診斷：記錄您的錯誤
 
 有時診斷間歇問題的最好方式，就是數天或數週偵測一般模式。
 
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。 您可以使記錄項目與 SQL Database 本身內部記錄的錯誤資料相互關聯。
 
-Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊， [請參閱 5-簡單地關閉記錄檔：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731.aspx)。
+Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊，請參閱 [5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731.aspx)。
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>檢測檢查系統記錄是否有錯誤
+### <a name="diagnostics-examine-system-logs-for-errors"></a>診斷：檢查系統記錄找出錯誤
 
 以下是一些可查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
 
@@ -282,7 +282,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如�
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>檢測在 SQL Database 記錄檔中搜尋問題事件
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>診斷：在 SQL Database 記錄中搜尋問題事件
 
 您可以在 SQL Database 記錄中搜尋有關問題事件的項目。 在 *master* 資料庫中嘗試下列 Transact-SQL SELECT 陳述式：
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 SQL Database 服務。 若要找出 EntLib60 所能協助之每個領域的專用主題，請參閱 [Enterprise Library 6 - 2013 年 4 月](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)。
 
-在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊， [請參閱 4-堅持是，all 成功秘方的秘密：使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
+在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊，請參閱 [4 - 堅持是所有成功的秘方：使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
 
 > [!NOTE]
 > EntLib60 的原始程式碼可從[下載中心](https://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
@@ -354,13 +354,13 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 以下是 EntLib60 相關資訊的一些連結：
 
-- 免費書籍下載：[Microsoft Enterprise Library 第2版的開發人員指南](https://www.microsoft.com/download/details.aspx?id=41145)。
-- 最佳做法：[重試一般指引](../best-practices-retry-general.md)提供重試邏輯的絕佳深入討論。
-- NuGet 下載：[企業程式庫-暫時性錯誤處理應用程式區塊 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
+- 免費書籍下載：[Microsoft Enterprise Library 開發人員指南第 2 版](https://www.microsoft.com/download/details.aspx?id=41145)。
+- 最佳作法： [重試一般指引](../best-practices-retry-general.md) 深入探討重試邏輯。
+- NuGet 下載：[Enterprise Library - 暫時性錯誤處理應用程式區塊 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60記錄區塊
+### <a name="entlib60-the-logging-block"></a>EntLib60：記錄區塊
 
 - 記錄區塊是高度彈性且可設定的解決方案，您可用於：
   - 建立記錄訊息，並儲存在各種不同的位置中。
@@ -368,7 +368,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
   - 收集有助於偵錯和追蹤的內容資訊，以及用於稽核和一般記錄需求的內容資訊。
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
-如需詳細資訊， [請參閱 5-簡單地關閉記錄檔：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
+如需詳細資訊，請參閱 [5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -451,6 +451,6 @@ public bool IsTransient(Exception ex)
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

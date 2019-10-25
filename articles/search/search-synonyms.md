@@ -1,37 +1,35 @@
 ---
-title: 透過搜尋索引擴大查詢的同義字 - Azure 搜尋服務
-description: 建立同義字地圖以擴大 Azure 搜尋服務索引的搜尋查詢範圍。 範圍會擴大納入您清單所提供的對等詞彙。
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+title: 搜尋索引上的查詢展開同義字
+titleSuffix: Azure Cognitive Search
+description: 建立同義字對應，以在 Azure 認知搜尋索引上擴充搜尋查詢的範圍。 範圍會擴大納入您清單所提供的對等詞彙。
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331184"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794215"
 ---
-# <a name="synonyms-in-azure-search"></a>Azure 搜尋服務的同義字
+# <a name="synonyms-in-azure-cognitive-search"></a>Azure 認知搜尋中的同義字
 
 搜尋引擎中與對等詞彙相關聯的同義字，讓使用者不必實際提供詞彙，就能以隱含方式擴充查詢範圍。 例如，給定詞彙「狗」與關聯的同義字「犬科動物」和「小狗」，任何包含「狗」、「犬科動物」和「小狗」的文件都會包含在查詢範圍內。
 
-在 Azure 搜尋服務中，同義字擴充在查詢同時就已完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps 屬性新增至欄位定義。
+在 Azure 認知搜尋中，同義字展開會在查詢期間完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps 屬性新增至欄位定義。
 
 ## <a name="create-synonyms"></a>建立同義字
 
-不支援建立同義字的入口網站，但您可以使用 REST API 或 .NET SDK。 若要開始使用 REST，建議[使用 Postman](search-get-started-postman.md) ，並使用此 API 來表述要求：[建立同義字對應](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 對於C#開發人員，您可以開始使用[在 Azure 搜尋C#中新增同義字](search-synonyms-tutorial-sdk.md)。
+不支援建立同義字的入口網站，但您可以使用 REST API 或 .NET SDK。 若要開始使用 REST，建議[使用 Postman](search-get-started-postman.md) ，並使用此 API 來表述要求：[建立同義字對應](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 對於C#開發人員，您可以開始使用[在 Azure 認知搜尋C#中新增同義字](search-synonyms-tutorial-sdk.md)。
 
 或者，如果您使用[客戶管理的金鑰](search-security-manage-encryption-keys.md)來進行服務端待用加密，您可以將該保護套用至同義字對應的內容。
 
 ## <a name="use-synonyms"></a>使用同義字
 
-Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提供同義字支援。 這些地圖由獨立資源構成 (例如索引或資料資源)，且可以在您搜尋服務索引中的任何可搜尋欄位使用。
+在 Azure 認知搜尋中，同義字支援是以您定義並上傳至服務的同義字地圖為基礎。 這些地圖由獨立資源構成 (例如索引或資料資源)，且可以在您搜尋服務索引中的任何可搜尋欄位使用。
 
 同義字地圖和索引會分開維護。 一旦您定義同義字地圖，並上傳至服務後，您可以透過在欄位定義中新增 **synonymMaps** 屬性，啟用同義字功能。 建立、 更新及刪除同義字地圖永遠是全文件的作業，這表示您無法以累加方式建立、 更新或刪除同義字地圖中的部分內容。 即便只是更新一個項目也需要重新載入。
 

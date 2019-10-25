@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 7483d31b5e4d375d817019b1f81de98a05ef7530
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5399ebaa9526bd2c92a8d12eaa5cd8e5f53b1037
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550241"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799356"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -109,8 +109,8 @@ ms.locfileid: "72550241"
 
 | Name | 限制 | 注意 |
 |------|-------|-------|
-| 基礎單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 提供每分鐘 ~ 4000 個動作執行，也就是每個月 ~ 160000000 個動作執行次數 | |
-| 縮放單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 每個縮放單位可提供 ~ 2000 每分鐘額外的動作執行，也就是每個月 ~ 80000000 個更多動作執行次數 | |
+| 基礎單位執行限制 | 當基礎結構容量達到80% 時，系統節流 | 提供每分鐘 ~ 4000 個動作執行，也就是每個月 ~ 160000000 個動作執行次數 | |
+| 縮放單位執行限制 | 當基礎結構容量達到80% 時，系統節流 | 每個縮放單位可提供 ~ 2000 每分鐘額外的動作執行，也就是每個月 ~ 80000000 個更多動作執行次數 | |
 | 可新增的縮放單位上限 | 10 | |
 ||||
 
@@ -177,7 +177,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 | Name | 限制 |
 | ---- | ----- |
-| 每個 Azure 訂用帳戶都有系統指派受控識別的邏輯應用程式數目。 | 100 |
+| 在 Azure 訂用帳戶中，每個區域具有系統指派身分識別的邏輯應用程式數目 | 100 |
 |||
 
 <a name="integration-account-limits"></a>

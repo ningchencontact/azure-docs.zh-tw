@@ -1,25 +1,20 @@
 ---
-title: Azure Cloud Shell 快速入門 |Microsoft Docs
-description: Azure Cloud Shell 的快速入門
-services: Azure
-documentationcenter: ''
+title: Azure Cloud Shell 快速入門-PowerShell
+description: 瞭解如何在您的瀏覽器中使用 Azure Cloud Shell 的 PowerShell。
 author: maertendmsft
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: damaerte
-ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224558"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791605"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的快速入門
 
@@ -27,8 +22,6 @@ ms.locfileid: "71224558"
 
 > [!NOTE]
 > 也提供 [Azure Cloud Shell 中的 Bash](quickstart.md) 快速入門。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="start-cloud-shell"></a>啟動 Cloud Shell
 
@@ -297,7 +290,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="install-custom-modules"></a>安裝自訂模組
 
-您可以執行`Install-Module`以從[PowerShell 資源庫][gallery]安裝模組。
+您可以執行 `Install-Module`，從[PowerShell 資源庫][gallery]安裝模組。
 
 ## <a name="get-help"></a>Get-Help
 

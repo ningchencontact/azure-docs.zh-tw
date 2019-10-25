@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ef9b55dd17a6f1d190282f369ccb8b9386e65d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 39b727d14419634d413e0f649a43d455c4aeba20
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324284"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803542"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 身分識別平臺存取權杖
 
@@ -108,7 +108,7 @@ JWT 分成三個部分：
 | `hasgroups` | Boolean | 如果有的話，一律為 `true`，表示使用者在至少一個群組中。 如果完整 groups 宣告會將 URI 片段延伸超出 URL 長度限制 (目前為 6 個或更多群組)，則使用於取代隱含授與流程中 JWT 的 `groups` 宣告。 表示用戶端應該使用 Graph 來判斷使用者的群組 (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`)。 |
 | `groups:src1` | JSON 物件 | 若為沒有長度限制 (請參閱上面的 `hasgroups`) 但是對權杖而言仍然太大的權杖要求，則會包含使用者的完整 groups 清單連結。 在 JWT 中以分散式宣告形式取代 `groups` 宣告，在 SAML 中則以新宣告形式取代。 <br><br>**範例 JWT 值**： <br> `"groups":"src1"` <br> `"_claim_sources`：`"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `sub` | 字串，GUID | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查 (例如當權杖用於存取資源時)，並可做為資料庫資料表中的索引鍵。 由於主體一律是存在於 Azure AD 所簽發的權杖中，因此建議您在一般用途的授權系統中使用此值。 不過，主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。 因此，如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式會收到兩個不同的主體宣告值。 視您的架構和隱私權需求而定，這不一定是您想要的。 另請參閱 `oid` 宣告（這在租使用者內的應用程式中保持不變）。 |
-| `oid` | 字串，GUID | 物件在 Microsoft 身分識別平台中的不可變識別碼，在此案例為使用者帳戶。 它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。 因此，在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用 `oid`。 Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。 因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
+| `oid` | 字串，GUID | 物件在 Microsoft 身分識別平台中的不可變識別碼，在此案例為使用者帳戶。 它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。 因此，在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用 `oid`。 Microsoft Graph 會傳回此識別碼做為指定[使用者帳戶](/graph/api/resources/user)的 `id` 屬性。 因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
 | `tid` | 字串，GUID | 代表使用者是來自哪個 Azure AD 租用戶。 就工作和學校帳戶而言，GUID 是使用者所屬組織的不可變租用戶識別碼。 就個人帳戶而言，此值會是 `9188040d-6c67-4c5b-b112-36a304b66dad`。 需要 `profile` 範圍才能接收此宣告。 |
 | `unique_name` | String | 只存在於 v1.0 權杖中。 提供人類看得懂的值，用以識別權杖的主體。 此值不保證是租用戶中的唯一值，而且應僅用於顯示目的。 |
 | `uti` | 不透明字串 | Azure 用來重新驗證權杖的內部宣告。 資源不應該使用此宣告。 |
@@ -193,7 +193,7 @@ Azure AD 所簽發的權杖是使用業界標準非對稱式加密演算法 (例
 }
 ```
 
-@No__t-0 宣告表示用來簽署權杖的演算法，而 @no__t 1 宣告則表示用來驗證權杖的特定公開金鑰。
+`alg` 宣告表示用來簽署權杖的演算法，而 `kid` 宣告則表示用來驗證權杖的特定公開金鑰。
 
 在任何指定的時間點，Azure AD 可能會使用一組特定公開-私密金鑰組的其中一個金鑰組來簽署 id_token。 Azure AD 會定期替換一組可能的金鑰，所以應將您的應用程式撰寫成自動處理這些金鑰變更。 檢查 Azure AD 所用公開金鑰的更新的合理頻率為每 24 小時。
 
@@ -209,26 +209,26 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 此中繼資料文件：
 
 * 是 JSON 物件，其中包含數個有用的資訊片段，例如執行 OpenID Connect 驗證所需的各種端點位置。
-* 包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組位置。 位於 `jwks_uri` 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告選取本文件中已用來簽署特定權杖的公開金鑰。 然後，它可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
+* 包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組位置。 位於 `jwks_uri` 的 JSON Web 金鑰（JWK）包含在該特定時間點使用的所有公開金鑰資訊。  JWK 格式如[RFC 7517](https://tools.ietf.org/html/rfc7517)中所述。  您的應用程式可以使用 JWT 標頭中的 `kid` 宣告選取本文件中已用來簽署特定權杖的公開金鑰。 然後，它可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
 
 > [!NOTE]
 > v1.0 端點會傳回 `x5t` 和 `kid` 宣告，而 v2.0 端點只會以 `kid` 宣告進行回應。 往後，建議您使用 `kid` 宣告來驗證權杖。
 
 簽章驗證不在本檔的討論範圍內-有許多開放原始碼程式庫可用來協助您在必要時執行此動作。  不過，Microsoft 身分識別平臺具有標準-自訂簽署金鑰的一個權杖簽署延伸模組。  
 
-如果您的應用程式具有自訂簽署金鑰做為使用[宣告對應](active-directory-claims-mapping.md)功能的結果，您必須附加包含應用程式識別碼的 @no__t 1 查詢參數，才能取得指向應用程式簽署金鑰資訊的 `jwks_uri`，這應該用於驗證。 例如： `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 包含 `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 的 `jwks_uri`。
+如果您的應用程式具有自訂簽署金鑰做為使用[宣告對應](active-directory-claims-mapping.md)功能的結果，您必須附加包含應用程式識別碼的 `appid` 查詢參數，才能取得指向應用程式簽署金鑰資訊的 `jwks_uri`，這應該用於驗證。 例如： `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 包含 `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`的 `jwks_uri`。
 
 ### <a name="claims-based-authorization"></a>以宣告為基礎的授權
 
 您應用程式的商務邏輯會左右此步驟，以下列出一些常見的授權方法。
 
-* 檢查 `scp` 或 @no__t 1 宣告，以確認所有現有的範圍都符合您的 API 所公開的範圍，並允許用戶端執行要求的動作。
+* 檢查 `scp` 或 `roles` 宣告，以確認所有現有的範圍都符合您的 API 所公開的範圍，並允許用戶端執行要求的動作。
 * 請確定呼叫用戶端可以使用 `appid` 宣告來呼叫您的 API。
 * 使用 `appidacr` 驗證呼叫用戶端的驗證狀態-如果公用用戶端不允許呼叫您的 API，則不應為0。
-* 檢查過去 @no__t 0 個宣告的清單，以確認權杖不會重新執行。
+* 檢查過去 `nonce` 宣告的清單，以確認權杖不會重新執行。
 * 檢查 `tid` 是否符合允許呼叫您 API 的租用戶。
 * 使用 `acr` 宣告確認使用者已執行 MFA。 這應該使用條件式[存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)來強制執行。
-* 如果您已在存取權杖中要求 `roles` 或 @no__t 1 宣告，請確認使用者是否位於允許執行此動作的群組中。
+* 如果您已要求存取權杖中的 `roles` 或 `groups` 宣告，請確認使用者是否位於允許執行此動作的群組中。
   * 針對使用隱含流程擷取的權杖，您可能需要查詢此資料的 [Microsoft Graph](https://developer.microsoft.com/graph/)，因為這通常會太大，而無法放入權杖。
 
 ## <a name="user-and-application-tokens"></a>使用者和應用程式權杖
@@ -237,7 +237,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 * 僅限應用程式的權杖不會有 `scp` 的宣告，而會改為使用 `roles` 宣告。 這是會記錄應用程式權限 (而不是委派的權限) 的位置。 如需委派權限和應用程式權限的詳細資訊，請在 [v1.0](v1-permissions-and-consent.md) 和 [v2.0](v2-permissions-and-consent.md) 中參閱權限和同意。
 * 許多人為特定的宣告都將遺失，例如 `name` 或 `upn`。
-* @No__t-0 和 @no__t 1 宣告會相同。 
+* `sub` 和 `oid` 宣告會相同。 
 
 ## <a name="token-revocation"></a>權杖撤銷
 

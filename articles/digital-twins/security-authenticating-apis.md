@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: c75db8d1885c8680dd316952a5f67e11dc26edb1
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53b53fa5185ade87dfdd21f0805641657d49d676
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949787"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800222"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>連接至 Api 並進行驗證
 
@@ -28,11 +28,11 @@ Azure Digital Twins 會使用 Azure Active Directory (Azure AD) 來驗證使用�
 
 Azure AD 支援[五個主要應用程式案例](../active-directory/develop/v2-app-types.md)：
 
-* 單一頁面應用程式（SPA）：使用者必須登入 Azure AD 所保護的單一頁面應用程式。
-* Web 瀏覽器到 web 應用程式：使用者必須登入 Azure AD 所保護的 web 應用程式。
-* 要 Web API 的原生應用程式：在手機、平板電腦或 PC 上執行的原生應用程式需要驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源。
-* 要 Web API 的 Web 應用程式：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
-* 要 Web API 的 Daemon 或伺服器應用程式：沒有 web UI 的背景程式應用程式或伺服器應用程式，必須從 Azure AD 保護的 Web API 取得資源。
+* 單頁應用程式 (SPA)：使用者必須登入 Azure AD 所保護的單頁應用程式。
+* 網頁瀏覽器到 Web 應用程式：使用者必須登入 Azure AD 所保護的 Web 應用程式。
+* 原生應用程式到 Web API：在手機、平板電腦或電腦上執行的原生應用程式必須驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源。
+* Web 應用程式到 Web API：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
+* 精靈或伺服器應用程式到 Web API：無 Web UI 的精靈應用程式或伺服器應用程式必須從 Azure AD 所保護的 Web API 取得資源。
 
 > [!IMPORTANT]
 > Azure 數位 Twins 支援下列兩種驗證程式庫：
@@ -49,7 +49,7 @@ Azure AD 支援[五個主要應用程式案例](../active-directory/develop/v2-a
 
 1. 所取得的權杖接著用於進行驗證，或使用代理者流程呼叫更下游的 API
 
-如需如何協調代理者流程的相關指示，請參閱 [OAuth 2.0 代理者流程](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)。 您也可以在[呼叫下游 Web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/) 中檢視程式碼範例。
+如需如何協調代理者流程的相關指示，請參閱 [OAuth 2.0 代理者流程](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)。 您也可以在[呼叫下游 Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) 中檢視程式碼範例。
 
 ## <a name="next-steps"></a>後續步驟
 

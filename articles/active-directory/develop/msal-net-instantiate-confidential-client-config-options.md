@@ -1,5 +1,6 @@
 ---
-title: 使用選項具現化機密用戶端應用程式（適用于 .NET 的 Microsoft 驗證程式庫） |Azure
+title: 使用選項具現化機密用戶端應用程式（適用于 .NET 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
 description: 瞭解如何使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET），以設定選項具現化機密用戶端應用程式。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a05959311b7f62f88a7b474b907982e005b98b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e382a8d0b5d6f08eafc5621d0e7591111a5e286b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532624"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802823"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>使用 MSAL.NET 以設定選項具現化機密用戶端應用程式
 
@@ -37,7 +38,7 @@ ms.locfileid: "69532624"
 - 對於 web 應用程式，有時也適用于公用用戶端應用程式（特別是當您的應用程式需要使用訊息代理程式時），您也會設定 redirectUri，其中身分識別提供者會使用安全性權杖來與您的應用程式連線。
 
 ## <a name="configure-the-application-from-the-config-file"></a>從設定檔設定應用程式
-MSAL.NET 中選項的屬性名稱符合 ASP.NET Core `AzureADOptions`中的屬性名稱，因此您不需要撰寫任何粘連程式碼。
+MSAL.NET 中選項的屬性名稱符合 ASP.NET Core 中 `AzureADOptions` 的屬性名稱，因此您不需要撰寫任何粘連程式碼。
 
 ASP.NET Core 的應用程式設定會在*appsettings*中描述：
 
@@ -64,7 +65,7 @@ ASP.NET Core 的應用程式設定會在*appsettings*中描述：
 
 從 MSAL.NET v3. x 開始，您可以從設定檔設定您的機密用戶端應用程式。
 
-在您要設定並具現化應用程式的類別中，您需要`ConfidentialClientApplicationOptions`宣告物件。  使用`IConfigurationRoot.Bind()` [來自下列的](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)方法，將從來源（包括 appconfig 檔案）讀取的設定系結至應用程式選項的實例：
+在您要設定並具現化應用程式的類別中，您需要宣告 `ConfidentialClientApplicationOptions` 物件。  `IConfigurationRoot.Bind()` 使用來自 appconfig 的應用程式選項實例，將從來源讀取的設定（包括檔案）系結至應用程式選項的[實例：](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -74,7 +75,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-這可讓*appsettings*檔案的 "AzureAD" 區段內容系結至`ConfidentialClientApplicationOptions`物件的對應屬性。  接下來，建立`ConfidentialClientApplication`物件：
+這可讓*appsettings*的 "AzureAD" 區段內容系結至 `ConfidentialClientApplicationOptions` 物件的對應屬性。  接下來，建立 `ConfidentialClientApplication` 物件：
 
 ```csharp
 IConfidentialClientApplication app;

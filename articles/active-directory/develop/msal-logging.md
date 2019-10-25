@@ -1,5 +1,6 @@
 ---
-title: 在 Microsoft 驗證程式庫（MSAL）應用程式中記錄 |Azure
+title: Microsoft 驗證程式庫（MSAL）應用程式中的記錄
+titleSuffix: Microsoft identity platform
 description: 了解 Microsoft 驗證程式庫 (MSAL) 應用程式中的記錄。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 87102e3ea71695006e465d1becad0f2ece2a426b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678042"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802966"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 應用程式中的記錄
 
@@ -32,10 +33,10 @@ Microsoft 驗證程式庫（MSAL）應用程式會產生記錄訊息，以協助
 
 MSAL 提供數種層級的記錄詳細資料：
 
-- Error:指出已發生問題並產生錯誤。 用來進行偵錯及識別問題。
+- 錯誤：指出發生錯誤，並產生錯誤。 用來進行偵錯及識別問題。
 - 警告：不一定會發生錯誤或失敗，但適用于診斷和查明問題。
-- Info：MSAL 記錄事件的原因為資訊性的目的，而不一定是為了進行偵錯。
-- Verbose：預設值。 MSAL 會記錄程式庫行為的完整詳細資料。
+- Info： MSAL 會記錄適用于資訊目的的事件，不一定是用於進行偵錯工具。
+- 詳細資訊：預設值。 MSAL 會記錄程式庫行為的完整詳細資料。
 
 ## <a name="personal-and-organizational-data"></a>個人和組織資料
 
@@ -48,9 +49,9 @@ MSAL 提供數種層級的記錄詳細資料：
 
 在 MSAL 3.x 中，記錄必須在每個應用程式的建立期間，使用 `.WithLogging` 建立器修飾詞針對該應用程式進行個別設定。 此方法可接受選擇性參數：
 
-- `Level` 可讓您決定您想要的記錄層級。 將它設定為 Errors 將只會取得錯誤
+- `Level` 可讓您決定想要的記錄層級。 將它設定為 Errors 將只會取得錯誤
 - 如果設定為 true，`PiiLoggingEnabled` 可讓您記錄個人和組織的資料。 此參數預設為 false，這會使您的應用程式不會記錄個人資料。
-- `LogCallback` 設定為執行記錄的委派。 如果 `PiiLoggingEnabled` 為 true，則這個方法會收到兩次訊息：一次是使用 `containsPii` 參數等於 false，而不含個人資料的訊息，第二次的 `containsPii` 參數等於 true，而訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+- `LogCallback` 設定為執行記錄的委派。 如果 `PiiLoggingEnabled` 為 true，則這個方法會收到兩次訊息：一次，其中 `containsPii` 參數等於 false，而不含個人資料的訊息，第二次的 `containsPii` 參數等於 true，而訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
 - `DefaultLoggingEnabled` 會啟用平臺的預設記錄。 根據預設，它是 false。 如果您將它設定為 true，它會使用桌面/UWP 應用程式中的事件追蹤、iOS 上的 NSLog，以及 Android 上的 logcat。
 
 ```csharp
@@ -85,9 +86,9 @@ class Program
 藉由建立記錄回呼，在應用程式建立時開啟登入。 回呼會採用下列參數：
 
 - `tag` 是程式庫傳遞至回呼的字串。 它會與記錄專案相關聯，並可用於排序記錄訊息。
-- `logLevel` 可讓您決定您想要的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info` 和 `Verbose`。
+- `logLevel` 可讓您決定想要的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info`和 `Verbose`。
 - `message` 是記錄專案的內容。
-- `containsPII` 指定是否記錄包含個人資料或組織資料的訊息。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 如果 `containsPII` 是 `true`，這個方法將會收到兩次訊息：一次，將 `containsPII` 參數設為 `false`，而第二次將 `containsPii` 參數設定為 `true`，而訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+- `containsPII` 指定是否記錄包含個人資料或組織資料的訊息。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 如果 `true``containsPII`，這個方法將會收到兩次訊息：一次是將 `containsPII` 參數設為 `false`，而不含個人資料，第二次將 `message` 參數設定為 `containsPii` 而且訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
 
 ```java
 private StringBuilder mLogs;
@@ -126,9 +127,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  藉由在建立 `UserAgentApplication` 實例的設定期間傳遞記錄器物件，在 MSAL 中啟用記錄。 此記錄器物件具有下列屬性：
 
 - `localCallback`：可由開發人員提供的回呼實例，以自訂的方式取用和發行記錄。 請依您想要將記錄重新導向的方式實作 localCallback 方法。
-- `level`（選擇性）：可設定的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info` 和 `Verbose`。 預設為 `Info`。
-- `piiLoggingEnabled` （選擇性）：如果設定為 true，則記錄個人和組織資料。 根據預設，此值為 false，因此您的應用程式不會記錄個人資料。 個人資料記錄永遠不會被寫入如 Console、Logcat 或 NSLog 等的預設輸出。
-- `correlationId`（選擇性）：唯一識別碼，用來將要求對應至用於進行偵錯工具的回應。 預設為 RFC4122 4 版 guid (128 位元)。
+- `level` （選用）：可設定的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info`和 `Verbose`。 預設值為 `Info`。
+- `piiLoggingEnabled` （選用）：如果設定為 true，則會記錄個人和組織資料。 根據預設，此值為 false，因此您的應用程式不會記錄個人資料。 個人資料記錄永遠不會被寫入如 Console、Logcat 或 NSLog 等的預設輸出。
+- `correlationId` （選用）：唯一識別碼，用來將要求對應至用於進行偵錯工具的回應。 預設為 RFC4122 4 版 guid (128 位元)。
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -172,7 +173,7 @@ var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-例如:
+例如：
 
 Objective-C
 ```objc
@@ -235,11 +236,11 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 |---------|---------|
 | `MSALLogLevelNothing`| 停用所有記錄 |
 | `MSALLogLevelError` | 預設層級，只有在發生錯誤時才會列印資訊 |
-| `MSALLogLevelWarning` | 警告 |
+| `MSALLogLevelWarning` | 消息 |
 | `MSALLogLevelInfo` |  程式庫進入點，包含參數和各種 keychain 作業 |
 |`MSALLogLevelVerbose`     |  API 追蹤       |
 
-例如:
+例如：
 
 Objective-C
 ```objc
@@ -253,9 +254,9 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>記錄訊息格式
 
-MSAL 記錄訊息的訊息部分格式為`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 記錄訊息的訊息部分格式為 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-例如:
+例如：
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 

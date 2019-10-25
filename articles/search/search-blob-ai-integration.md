@@ -5,15 +5,15 @@ description: 在 Azure 搜尋服務中使用 AI 擴充管線，將語義、自�
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678425"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792461"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>使用 AI 來瞭解 Blob 儲存體資料
 
@@ -68,7 +68,7 @@ AI 擴充指的是可尋找模式或特性的模組，然後據以執行操作�
 
 在 Azure 搜尋服務中，*技能*是 AI 處理的個別元件，您可以單獨使用或與其他技能結合。 
 
-+ 內建技能的支援認知服務、以電腦視覺為基礎的影像分析，以及以文字分析為基礎的自然語言處理。 您可以在[content 擴充的預先定義技能](cognitive-search-predefined-skills.md)中，查看內建技能的完整清單。
++ 內建技能的支援認知服務、以電腦視覺為基礎的影像分析，以及以文字分析為基礎的自然語言處理。 如需完整清單，請參閱[content 擴充的內建技能](cognitive-search-predefined-skills.md)。
 
 + 自訂技能是包裝在[介面定義](cognitive-search-custom-skill-interface.md)中的自訂程式碼，可讓您整合到管線中。 在客戶解決方案中，常見的作法是使用這兩種方式，搭配提供開放原始碼、協力廠商或第一方 AI 模組的自訂技能。
 

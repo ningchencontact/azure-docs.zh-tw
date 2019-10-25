@@ -1,22 +1,21 @@
 ---
-title: 文字分割認知搜尋技能 - Azure 搜尋服務
-description: 您可以根據 Azure 搜尋服務擴充管線中的長度，將文字分成文字之區塊或頁面。
-services: search
+title: 文字分割認知技能
+titleSuffix: Azure Cognitive Search
+description: 在 Azure 認知搜尋中，根據 AI 擴充管線中的長度，將文字分割成文字的區塊或分頁。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265674"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784839"
 ---
-#   <a name="text-split-cognitive-skill"></a>文字分割認知技能
+# <a name="text-split-cognitive-skill"></a>文字分割認知技能
 
 **文字分割**技能將文字分成文字區塊。 您可以指定是否想要將文字分成句子或特定長度的頁面。 如果其他技能下游有最大文字長度需求，此技能特別有用。 
 
@@ -41,7 +40,7 @@ Microsoft.Skills.Text.SplitSkill
 
 | 參數名稱       | 描述      |
 |----------------------|------------------|
-| 文字  | 要分割成子字串的文字。 |
+| text  | 要分割成子字串的文字。 |
 | languageCode  | (選用) 文件的語言代碼。  |
 
 ## <a name="skill-outputs"></a>技能輸出 
@@ -131,7 +130,7 @@ Microsoft.Skills.Text.SplitSkill
 ## <a name="error-cases"></a>錯誤案例
 如果不支援某語言，則會產生警告，而且會在字元界限分割文字。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [內建技能](cognitive-search-predefined-skills.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md)

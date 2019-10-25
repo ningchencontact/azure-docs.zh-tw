@@ -1,6 +1,7 @@
 ---
-title: 在驗證要求中傳遞自訂狀態 (適用于 JavaScript 的 Microsoft 驗證程式庫) |Azure
-description: 瞭解如何使用適用于 JavaScript 的 Microsoft 驗證程式庫 (MSAL), 在驗證要求中傳遞自訂狀態參數值。
+title: 在驗證要求中傳遞自訂狀態（適用于 JavaScript 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
+description: 瞭解如何使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL），在驗證要求中傳遞自訂狀態參數值。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -17,17 +18,17 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ae12624b3d897f05437f7795d1a1eee32ca37a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 8d2fa7d7d294d38d29ce8ace744e13bd1bf2d533
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532739"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803045"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>使用 MSAL 在驗證要求中傳遞自訂狀態
-*狀態*參數 (如 OAuth 2.0 所定義) 包含在驗證要求中, 也會在權杖回應中傳回, 以防止跨網站偽造要求攻擊。 根據預設, 適用于 JavaScript 的 Microsoft 驗證程式庫 (MSAL) 會在驗證要求中傳遞隨機產生的唯一*狀態*參數值。
+*狀態*參數（如 OAuth 2.0 所定義）包含在驗證要求中，也會在權杖回應中傳回，以防止跨網站偽造要求攻擊。 根據預設，適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）會在驗證要求中傳遞隨機產生的唯一*狀態*參數值。
 
-State 參數也可以在重新導向之前用來編碼應用程式狀態的資訊。 您可以在應用程式中傳遞使用者的狀態, 例如其所在的頁面或視圖, 做為此參數的輸入。 MSAL 程式庫可讓您在`Request`物件中傳遞自訂狀態作為狀態參數:
+State 參數也可以在重新導向之前用來編碼應用程式狀態的資訊。 您可以在應用程式中傳遞使用者的狀態，例如其所在的頁面或視圖，做為此參數的輸入。 MSAL 程式庫可讓您將自訂狀態傳遞為 `Request` 物件中的 state 參數：
 
 ```javascript
 // Request type
@@ -46,7 +47,7 @@ export type AuthenticationParameters = {
 };
 ```
 
-例如:
+例如：
 
 ```javascript
 let loginRequest = {
@@ -57,7 +58,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-傳送要求時, 傳入的狀態會附加至 MSAL 所設定的唯一 GUID。 傳迴響應時, MSAL 會檢查狀態是否相符, 然後將`Response`物件中的自訂傳入狀態傳回為。 `accountState`
+傳送要求時，傳入的狀態會附加至 MSAL 所設定的唯一 GUID。 傳迴響應時，MSAL 會檢查狀態是否相符，然後將 `Response` 物件中的自訂傳入狀態傳回 `accountState`。
 
 ```javascript
 export type AuthResponse = {
@@ -73,4 +74,4 @@ export type AuthResponse = {
 };
 ```
 
-若要深入瞭解, 請參閱使用 MSAL[建立單一頁面應用程式 (SPA)](scenario-spa-overview.md) 。
+若要深入瞭解，請參閱使用 MSAL[建立單一頁面應用程式（SPA）](scenario-spa-overview.md) 。

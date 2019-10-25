@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: akjosh
-ms.openlocfilehash: 3a999b93ce7246a91db8dd3df7536513b6e11029
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 86c05519e7027ec8b7434919bf43f9b4602b0300
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174035"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789964"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -38,7 +38,7 @@ Linux 自訂指令碼擴充功能有兩個：
 
 ### <a name="operating-system"></a>作業系統
 
-Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS 上執行。如需詳細資訊，請參閱這篇[文章](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems)。
+Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS 上執行。如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。
 
 ### <a name="script-location"></a>指令碼位置
 
@@ -55,7 +55,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 * 請確定在指令碼執行時，不需要使用者輸入。
 * 指令碼可執行的時間為 90 分鐘。若超過這個時間，將會導致擴充功能佈建失敗。
 * 請不要在指令碼內放置重新開機指令，這會造成正在安裝的其他擴充功能發生問題。也不要放置後續重新開機指令，因為擴充功能在重新啟動後不會繼續執行。 
-* 如果您的指令碼將會造成重新開機，則請安裝應用程式，然後執行指令碼等等。您應該使用 Cron 作業，或使用 DSC、Chef 或 Puppet 擴充功能之類的工具，以排程重新開機。
+* 如果您的腳本將會造成重新開機，則請安裝應用程式並執行腳本等。您應該使用 Cron 作業，或使用 DSC、Chef、Puppet 擴充功能之類的工具來排程重新開機。
 * 擴充功能只會執行指令碼一次。如果您想要在每次開機時執行指令碼，則可以使用 [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)，並使用 [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 模組。 或者，您可以使用指令碼來建立 Systemd 服務單位。
 * 如果您想要排程指令碼的執行時間，則應該使用擴充功能來建立 Cron 作業。 
 * 當指令碼正在執行時，只能從 Azure 入口網站或 CLI 看到「正在轉換」擴充功能狀態。 如果您需要執行中指令碼更頻繁的狀態更新，便必須建立自己的解決方案。
@@ -110,12 +110,12 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | string |
-| 型別 | CustomScript | string |
+| 類型 | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | string |
-| 指令碼 | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
-| skipDos2Unix (範例) | false | boolean |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| skipDos2Unix (範例) | false | 布林值 |
 | timestamp (範例) | 123456789 | 32 位元整數 |
 | storageAccountName (例如) | examplestorageacct | string |
 | storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |

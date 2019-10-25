@@ -1,24 +1,26 @@
 ---
-title: 為 Azure Blob 儲存體內容編製索引以用於全文檢索搜尋 - Azure 搜尋服務
-description: 了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字。
-ms.date: 05/02/2019
-author: mgottein
+title: 為 Azure Blob 儲存體內容編制索引以進行全文檢索搜尋
+titleSuffix: Azure Cognitive Search
+description: 瞭解如何使用 Azure 認知搜尋來編制 Azure Blob 儲存體的索引，以及從檔中將文字解壓縮。
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 11/04/2019
+ms.openlocfilehash: b093525fcabc31074b398444a2fceffd0f6d3493
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842538"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791782"
 ---
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
-本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
+# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>如何使用 Azure 認知搜尋在 Azure Blob 儲存體中編制檔的索引
+
+本文說明如何使用 Azure 認知搜尋來對儲存在 Azure Blob 儲存體中的檔（例如 Pdf、Microsoft Office 檔和數個其他常見格式）編制索引。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
+
+<a name="SupportedFormats"></a>
 
 ## <a name="supported-document-formats"></a>支援的文件格式
 blob 索引子可以從下列文件格式擷取文字：
@@ -29,8 +31,8 @@ blob 索引子可以從下列文件格式擷取文字：
 您可以使用下列項目設定 Azure Blob 儲存體索引子︰
 
 * [Azure 入口網站](https://ms.portal.azure.com)
-* Azure 搜尋服務 [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure 搜尋服務 [.NET SDK](https://aka.ms/search-sdk)
+* Azure 認知搜尋[REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure 認知搜尋[.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
 > 某些功能 (例如，欄位對應) 尚未在入口網站中提供使用，而必須以程式設計方式來使用。
@@ -44,7 +46,7 @@ blob 索引子可以從下列文件格式擷取文字：
 若要為 Blob 編製索引，資料來源必須具有下列必要屬性︰
 
 * **名稱**是搜尋服務中資料來源的唯一名稱。
-* **類型**必須是 `azureblob`。
+* **type** 必須是 `azureblob`。
 * **認證**可提供儲存體帳戶連接字串來做為 `credentials.connectionString` 參數。 請參閱下面的[如何指定認證](#Credentials)了解詳細資訊。
 * **容器**會指定儲存體帳戶中的容器。 根據預設，容器內的所有 Blob 都可擷取。 如果您只想要在特定虛擬目錄為 Blob 編製索引，您可以使用選擇性的**查詢**參數指定該目錄。
 
@@ -68,9 +70,9 @@ blob 索引子可以從下列文件格式擷取文字：
 
 您可以採取下列其中一種方式提供 blob 容器的認證︰
 
-- **完整存取儲存體帳戶連接字串**：`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`您可以從 Azure 入口網站取得連接字串，方法是流覽至 [儲存體帳戶] 分頁，> 設定 > 金鑰（適用于傳統儲存體帳戶）或 > 存取金鑰的設定（適用于 Azure Resource Manager 儲存體帳戶）。
-- **儲存體帳戶共用存取簽章** (SAS) 連接字串︰`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`SAS 對於容器和物件 (在此案例中為 blob) 應該擁有列出和讀取權限。
--  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`SAS 對於容器應該擁有列出和讀取權限。
+- **完整存取儲存體帳戶連接字串**： `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 您可以從 Azure 入口網站取得連接字串，方法是流覽至儲存體帳戶分頁 > 設定 > 金鑰（適用于傳統儲存體帳戶）或設定 > 存取金鑰（適用于 AzureResource Manager 儲存體帳戶）。
+- **儲存體帳戶共用存取簽章** (SAS) 連接字串：`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS 應該有容器和物件 (在此案例中為 Blob) 上的列出和讀取權限。
+-  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS 應該有容器上的列出和讀取權限。
 
 如需儲存體共用存取簽章的詳細資訊，請參閱[使用共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
@@ -116,9 +118,11 @@ blob 索引子可以從下列文件格式擷取文字：
 
 如需建立索引子 API 的詳細資訊，請參閱 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 
-如需定義索引子排程的詳細資訊，請參閱[如何排定 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
+如需定義索引子排程的詳細資訊，請參閱[如何排定 Azure 認知搜尋的索引子](search-howto-schedule-indexers.md)。
 
-## <a name="how-azure-search-indexes-blobs"></a>Azure 搜尋服務如何編製 blob 的索引
+<a name="how-azure-search-indexes-blobs"></a>
+
+## <a name="how-azure-cognitive-search-indexes-blobs"></a>Azure 認知搜尋如何為 blob 編制索引
 
 取決於[組態](#PartsOfBlobToIndex)，blob 索引子只可以編製儲存體中繼資料的索引 (僅當您關注中繼資料且無須編製 blob 內容的索引時很有用)，儲存體和內容中繼資料，或中繼資料和文字內容。 根據預設，索引子會擷取中繼資料和內容。
 
@@ -130,31 +134,31 @@ blob 索引子可以從下列文件格式擷取文字：
 * 文件的文字內容會擷取至名為 `content` 的字串欄位。
 
 > [!NOTE]
-> Azure 搜尋服務會根據定價層來限制其擷取的文字量：免費層為 32,000 個字元、基本層為 64,000 個字元，而標準、標準 S2 及標準 S3 層為 4 百萬個字元。 在已截斷的文件中，索引子的狀態回應會包含警告。  
+> Azure 認知搜尋會根據定價層限制所要解壓縮的文字數目：免費層的32000個字元、基本64000，以及標準、標準 S2 和標準 S3 層的4000000。 在已截斷的文件中，索引子的狀態回應會包含警告。  
 
 * 顯示在 blob 中的使用者指定中繼資料屬性 (如果有的話)，會逐字擷取。
 * 標準 blob 中繼資料屬性會擷取到下列欄位：
 
   * **metadata\_storage\_name** (Edm.String) - blob 的檔案名稱。 例如，如果您有 blob /my-container/my-folder/subfolder/resume.pdf，這個欄位的值是 `resume.pdf`。
-  * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如： `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如，`https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String) - 內容類型，如同您用來上傳 blob 的程式碼所指定。 例如： `application/octet-stream` 。
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - 上次修改 blob 的時間戳記。 Azure 搜尋服務會使用此時間戳記來識別已變更的 blob，以避免在初始編製索引之後重新對所有項目編制索引。
+  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - 上次修改 blob 的時間戳記。 Azure 認知搜尋會使用此時間戳記來識別已變更的 blob，以避免在初始編制索引之後重新編制所有的專案。
   * **metadata\_storage\_size** (Edm.Int64) - blob 大小 (位元組)。
   * **metadata\_storage\_content\_md5** (Edm.String) - blob 內容的 MD5 雜湊，如果有的話。
-  * **元\_資料儲存\_ sas\_權杖**（Edm. String）-可供[自訂技能](cognitive-search-custom-skill-interface.md)用來存取 blob 的暫存 sas 權杖。 此標記不應該儲存以供日後使用，因為它可能會過期。
+  * **中繼資料\_儲存體\_sas\_token** （Edm 字串）-可供[自訂技能](cognitive-search-custom-skill-interface.md)用來存取 blob 的暫存 sas 權杖。 此標記不應該儲存以供日後使用，因為它可能會過期。
 
 * 每個文件格式特有的中繼資料屬性會擷取到[這裡](#ContentSpecificMetadata)列出的欄位。
 
 您不需要在您的搜尋索引中針對上述所有屬性定義欄位 - 只擷取您的應用程式所需的屬性。
 
 > [!NOTE]
-> 通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。 您可以使用 [欄位對應] 將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。 您會在下面看到使用欄位對應的範例。
+> 通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。 您可以使用**欄位**對應，將 Azure 認知搜尋提供的屬性名稱對應至您搜尋索引中的功能變數名稱。 您會在下面看到使用欄位對應的範例。
 >
 >
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>定義文件索引鍵和欄位對應
-在 Azure 搜尋服務中，文件索引鍵會唯一識別文件。 每個搜尋索引必須確實具有一個 Edm.String 類型的索引鍵欄位。 要新增至索引的每個文件需要有索引鍵欄位 (實際上它是唯一必要的欄位)。  
+在 Azure 認知搜尋中，檔索引鍵會唯一識別檔。 每個搜尋索引必須確實具有一個 Edm.String 類型的索引鍵欄位。 要新增至索引的每個文件需要有索引鍵欄位 (實際上它是唯一必要的欄位)。  
 
 您應該仔細考慮哪一個擷取的欄位應該對應至您的索引的索引鍵欄位。 候選對象是：
 
@@ -163,7 +167,7 @@ blob 索引子可以從下列文件格式擷取文字：
 * 如果上述任何選項都不適合，您可以在 blob 中新增自訂中繼資料屬性。 但是，此選項需要您的 blob 上傳程序，將該中繼資料屬性新增至所有 blob。 因為索引鍵是必要屬性，所以沒有該屬性的所有 blob 都無法編製索引。
 
 > [!IMPORTANT]
-> 如果在索引中沒有索引鍵欄位的明確對應，Azure 搜尋服務會自動使用 `metadata_storage_path` 做為索引鍵，而 base-64 會編碼索引鍵值 (上述的第二個選項)。
+> 如果索引中的索引鍵欄位沒有明確對應，Azure 認知搜尋會自動使用 `metadata_storage_path` 做為金鑰，而以64為基礎的編碼金鑰值（上述的第二個選項）。
 >
 >
 
@@ -223,7 +227,7 @@ blob 索引子可以從下列文件格式擷取文字：
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-如果同時有 `indexedFileNameExtensions` 和 `excludedFileNameExtensions` 參數，Azure 搜尋服務會先查看 `indexedFileNameExtensions`，再查看 `excludedFileNameExtensions`。 這表示，如果兩份清單中有相同的副檔名，就會排除在索引編製外。
+如果 `indexedFileNameExtensions` 和 `excludedFileNameExtensions` 參數都存在，Azure 認知搜尋會先查看 `indexedFileNameExtensions`，然後在 `excludedFileNameExtensions`。 這表示，如果兩份清單中有相同的副檔名，就會排除在索引編製外。
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>控制要編製 blob 哪些部分的索引
@@ -268,15 +272,15 @@ blob 索引子可以從下列文件格式擷取文字：
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-對於某些 blob，Azure 搜尋服務無法判斷內容類型，或無法處理受支援內容類型的文件。 若要略過此失敗模式，請將 `failOnUnprocessableDocument` 組態參數設定為 false：
+針對某些 blob，Azure 認知搜尋無法判斷內容類型，或無法處理其他支援之內容類型的檔。 若要略過此失敗模式，請將 `failOnUnprocessableDocument` 組態參數設定為 false：
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 [Azure 搜尋服務中的限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)。 預設會將過大的 Blob 視為錯誤。 不過，如果您將 `indexStorageMetadataOnlyForOversizedDocuments` 組態參數設為 true，仍可以針對過大 Blob 的儲存體中繼資料編列索引： 
+Azure 認知搜尋會限制已編制索引的 blob 大小。 這些限制記載于[Azure 認知搜尋的服務限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)中。 預設會將過大的 Blob 視為錯誤。 不過，如果您將 `indexStorageMetadataOnlyForOversizedDocuments` 組態參數設為 true，仍可以針對過大 Blob 的儲存體中繼資料編列索引： 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如:
+如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如：
 
     {
       ... other parts of indexer definition
@@ -291,7 +295,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 若要支援刪除文件，請使用「虛刪除」方法。 如果您直接刪除 blob，對應的文件將不會在搜尋索引中移除。 相反地，請使用下列步驟：  
 
-1. 在 blob 中新增自訂中繼資料屬性，向 Azure 搜尋服務指出它在邏輯上已遭到刪除
+1. 將自訂中繼資料屬性新增至 blob，以向 Azure 認知搜尋指出其以邏輯方式刪除
 2. 在資料來源上設定虛刪除偵測原則
 3. 索引子處理過 blob 後 (如索引子狀態 API 所示)，您就可以實際刪除 blob
 
@@ -318,7 +322,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 編製 blob 的索引可能會是耗時的程序。 在您要編製數以百萬計的 blob 索引情況下，您可以分割資料並使用多個索引子以平行方式處理資料來加速編製索引。 下列是您可以如此設定的方式：
 
 - 將資料分割成多個 blob 容器或虛擬資料夾
-- 設定數個 Azure 搜尋服務資料來源，每個容器或資料夾一個。 若要指向 blob 資料夾，則使用 `query` 參數︰
+- 設定數個 Azure 認知搜尋資料來源，每個容器或資料夾一個。 若要指向 blob 資料夾，則使用 `query` 參數︰
 
     ```
     {
@@ -331,13 +335,13 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 - 針對每個資料來源建立對應的索引子。 所有索引子可以指向相同的目標搜尋索引。  
 
-- 服務中的單一搜尋單位一次只能執行一個索引子。 以上述方式建立多個索引子，只有在這些索引子都以平行的方式執行時才會有幫助。 若要平行執行多個索引子，請透過建立適當數目的磁碟分割和複本，來對搜尋服務進行相應放大。 例如，如果您的搜尋服務具有 6 個搜尋單位 (例如 2 個磁碟分割 x 3 個複本)，則 6 個索引子將可以同時執行，並使編製索引的輸送量提升六倍。 若要深入了解調整與容量規劃，請參閱[在 Azure 搜尋服務中調整適用於查詢和編製索引工作負載的資源等級](search-capacity-planning.md)。
+- 服務中的單一搜尋單位一次只能執行一個索引子。 以上述方式建立多個索引子，只有在這些索引子都以平行的方式執行時才會有幫助。 若要平行執行多個索引子，請透過建立適當數目的磁碟分割和複本，來對搜尋服務進行相應放大。 例如，如果您的搜尋服務具有 6 個搜尋單位 (例如 2 個磁碟分割 x 3 個複本)，則 6 個索引子將可以同時執行，並使編製索引的輸送量提升六倍。 若要深入瞭解調整和容量規劃，請參閱[在 Azure 認知搜尋中針對查詢和編制索引工作負載調整資源層級](search-capacity-planning.md)。
 
 ## <a name="indexing-documents-along-with-related-data"></a>為文件及相關資料編製索引
 
 您可能會想在索引中「組合」來自多個來源的文件。 例如，您可能會想要將來自 Blob 的文字與儲存在 Cosmos DB 中的其他中繼資料合併。 您甚至可以搭配各種索引子使用推送編製索引 API，以建立來自多個部分的搜尋文件。 
 
-若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需本主題的其他詳細資料，請參閱為[多個 Azure 資料來源編制索引](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources)。 如需詳細的逐步解說，請參閱這篇外部文章：將[檔與 Azure 搜尋服務中的其他資料結合](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)。
+若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需本主題的其他詳細資料，請參閱為[多個 Azure 資料來源編制索引](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources)。 如需詳細的逐步解說，請參閱這篇外部文章：[在 Azure 認知搜尋中將檔與其他資料結合](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)。
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>編制純文字的索引 
@@ -363,7 +367,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>內容類型特定的中繼資料屬性
-下表摘要說明針對每個文件格式完成的處理，並且說明 Azure 搜尋服務擷取的中繼資料屬性。
+下表摘要說明針對每個檔案格式完成的處理，並描述 Azure 認知搜尋所解壓縮的中繼資料屬性。
 
 | 文件格式/內容類型 | 內容類型特定的中繼資料屬性 | 處理詳細資料 |
 | --- | --- | --- |
@@ -394,5 +398,5 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 | 純文字 (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | 擷取文字|
 
 
-## <a name="help-us-make-azure-search-better"></a>協助我們改進 Azure 搜尋服務
+## <a name="help-us-make-azure-cognitive-search-better"></a>協助我們改善 Azure 認知搜尋
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search/)與我們連絡。

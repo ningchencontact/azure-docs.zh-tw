@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 39a7e78085f297838a028489de23c1991b6d672f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693440"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789797"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火牆設定 Azure HDInsight 叢集的輸出網路流量（預覽）
 
@@ -151,7 +151,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 當您不知道所有應用程式相依性時，第一次讓應用程式運作時，將 Azure 防火牆與 Azure 監視器記錄整合會很有用。 您可以從[分析 Azure 監視器中的記錄資料](../azure-monitor/log-query/log-query-overview.md)深入了解 Azure 監視器記錄
 
-若要深入瞭解 Azure 防火牆和要求增加的規模限制，請參閱[這](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits)份檔。
+若要深入瞭解 Azure 防火牆和要求增加的規模限制，請參閱[這](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits)份檔或參閱[常見問題](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq)。 
 
 ## <a name="access-to-the-cluster"></a>存取叢集
 成功設定防火牆之後，您可以使用內部端點（`https://<clustername>-int.azurehdinsight.net`）從 VNET 內部存取 Ambari。 

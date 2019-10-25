@@ -1,5 +1,6 @@
 ---
-title: 使用 PowerShell 建立 Azure App 的身分識別 | Microsoft Docs
+title: 使用 PowerShell 建立 Azure 應用程式的身分識別
+titleSuffix: Microsoft identity platform
 description: 描述如何使用 Azure PowerShell 建立 Azure Active Directory 應用程式和服務主體，並透過角色型存取控制將存取權授與資源。 它示範如何使用憑證來驗證應用程式。
 services: active-directory
 documentationcenter: na
@@ -17,14 +18,14 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7c75a567dbefc71b4b0fea595dae56a03def5ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fcf52bc5a6d177c18d9ebb792d1a147d09746afd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295454"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803812"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>作法：使用 Azure PowerShell 建立具有憑證的服務主體
+# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>操作說明：使用 Azure PowerShell 建立具有憑證的服務主體
 
 當您有 App 或指令碼需要存取資源時，可以設定 App 的身分識別，並使用 App 自己的認證進行驗證。 此身分識別就是所謂的服務主體。 這種方法可讓您︰
 
@@ -72,7 +73,7 @@ Sleep 20
 New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
 ```
 
-範例會休眠 20 秒，留一些時間讓新的服務主體在整個 Azure AD 中傳播。 如果您的指令碼等得不夠久，您會看到錯誤，其指出：「目錄 {DIR-ID} 中不存在主體 {ID}。」 若要解決這個錯誤，請稍待片刻後，再次執行 **New-AzRoleAssignment** 命令。
+範例會休眠 20 秒，留一些時間讓新的服務主體在整個 Azure AD 中傳播。 如果您的指令碼等得不夠久，您會看到錯誤指出：「主體 {ID} 不存在於目錄 {DIR-ID} 中」。 若要解決這個錯誤，請稍待片刻後，再次執行 **New-AzRoleAssignment** 命令。
 
 您可以使用 **ResourceGroupName** 參數將角色指派的範圍限定為特定的資源群組。 您也可以使用 **ResourceType** 與 **ResourceName** 將範圍限制為特定的資源。 
 
@@ -220,7 +221,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 建立服務主體時，您可能會遇到下列錯誤︰
 
-* **Authentication_Unauthorized」** 或 **「在內容中找不到訂用帳戶。」** - 當您的帳戶在 Azure AD 上未具備註冊應用程式的[必要權限](#required-permissions)時，您就會看到此錯誤。 一般來說，只有在僅 Azure Active Directory 中的管理使用者可以註冊應用程式，且您的帳戶不是系統管理員時，就會看到此錯誤。要求系統管理員將您指派給系統管理員角色，或是讓使用者註冊應用程式。
+* **Authentication_Unauthorized」** 或 **「在內容中找不到訂用帳戶。」** - 當您的帳戶在 Azure AD 上未具備註冊應用程式的[必要權限](#required-permissions)時，您就會看到此錯誤。 通常，只有在 Azure Active Directory 中的系統管理使用者可以註冊應用程式，且您的帳戶不是系統管理員時，您才會看到此錯誤。請要求您的系統管理員將您指派給系統管理員角色，或讓使用者註冊應用程式。
 
 * 您的帳戶 **「沒有在範圍 '/subscriptions/{guid}' 中執行 'Microsoft.Authorization/roleAssignments/write' 動作的權限。」** - 當您的帳戶沒有足夠權限可將角色指派給身分識別時，您就會看到此錯誤。 要求訂用帳戶管理員將您新增至「使用者存取系統管理員」角色。
 

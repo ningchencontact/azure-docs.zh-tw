@@ -1,23 +1,22 @@
 ---
-title: 入口網站中 Azure 搜尋服務的服務管理 - Azure 搜尋服務
-description: 使用 Azure 入口網站來管理 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務)。
-author: HeidiSteen
+title: 在入口網站中進行 Azure 認知搜尋的服務管理
+titleSuffix: Azure Cognitive Search
+description: 使用 Azure 入口網站，在 Microsoft Azure 上管理 Azure 認知搜尋服務（託管的雲端搜尋服務）。
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 03/08/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331261"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793508"
 ---
-# <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
+# <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure 入口網站中的 Azure 認知搜尋服務管理
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
@@ -25,14 +24,14 @@ ms.locfileid: "72331261"
 > * [入口網站](search-manage.md)
 > * [Python (英文)](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來在自訂應用程式內建置豐富的搜尋經驗。 本文章涵蓋服務管理工作，可供您在 [Azure 入口網站](https://portal.azure.com)中針對已佈建的搜尋服務執行。 服務管理原先的設計是輕量級的，限定於下列工作︰
+Azure 認知搜尋是完全受控的雲端式搜尋服務，用來在自訂應用程式中建立豐富的搜尋體驗。 本文章涵蓋服務管理工作，可供您在 [Azure 入口網站](https://portal.azure.com)中針對已佈建的搜尋服務執行。 服務管理原先的設計是輕量級的，限定於下列工作︰
 
 > [!div class="checklist"]
 > * 管理 API 金鑰 (用於讀取或寫入您的服務存取權) 的存取權。
 > * 變更資料分割和複本的配置來調整服務容量。
 > * 監視資源使用量，相對於服務層級的最大限制。
 
-請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
+請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資訊，請參閱[建立 Azure 認知搜尋服務](search-create-service-portal.md)。
 
 您可以監視查詢量和其他計量，並使用這些深入解析來調整您的服務，以獲得更快的回應時間。 如需詳細資訊，請參閱[監視使用量和查詢度量](search-monitor-usage.md)和[效能和最佳化](search-performance-optimization.md)。
 
@@ -43,12 +42,12 @@ Azure 訂用帳戶管理員或共同管理員可以佈建或解除委任服務�
 
 在服務中，任何有服務 URL 和系統管理 API 金鑰存取權的人員，都有服務的讀寫存取權限。 讀寫存取權限提供新增、刪除或修改伺服器物件的能力，這些物件包含 API 金鑰、索引、索引子、資料來源、排程，以及透過 [RBAC 定義的角色](search-security-rbac.md)實作的角色指派。
 
-與 Azure 搜尋服務互動的所有使用者皆屬於下列模式之一︰讀寫存取服務 (系統管理員權限) 或唯讀存取服務 (查詢權限)。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
+所有使用者與 Azure 認知搜尋的互動都屬於下列其中一種模式：服務的讀寫存取權（系統管理員許可權），或服務（查詢許可權）的唯讀存取權。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
 
 <a id="sys-info"></a>
 
 ## <a name="logging-and-system-information"></a>記錄與系統資訊
-Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服務的記錄檔。 在基本層以上，Microsoft 會監視所有 Azure 搜尋服務以達到服務等級協定 (SLA) 的 99.9%可用性。 如果服務很慢或要求輸送量低於 SLA 閾值，支援團隊會檢閱他們可用的記錄檔並解決問題。
+Azure 認知搜尋不會透過入口網站或程式設計介面來公開個別服務的記錄檔。 在基本層和以上版本中，Microsoft 會針對每個服務等級協定（SLA）監視所有 Azure 認知搜尋服務是否有99.9% 可用性。 如果服務很慢或要求輸送量低於 SLA 閾值，支援團隊會檢閱他們可用的記錄檔並解決問題。
 
 就關於您服務的一般資訊而言，您可以透過下列方式取得資訊︰
 
@@ -59,26 +58,26 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>監視資源使用量
-在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要捕獲並保存已記錄的事件，您可以布建外部資源，例如 Azure 監視。 如需詳細資訊，請參閱[監視 Azure 搜尋服務](search-monitor-usage.md)。
+在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要捕獲並保存已記錄的事件，您可以布建外部資源，例如 Azure 監視。 如需詳細資訊，請參閱[監視 Azure 認知搜尋](search-monitor-usage.md)。
 
-使用搜尋服務 REST API，可以程式設計的方式取得文件和索引的計數： 
+使用搜尋服務 REST API，您可以透過程式設計方式取得檔和索引的計數： 
 
 * [取得索引統計資料](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [文件計數](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>災害復原和服務中斷
 
-雖然我們可以回收您的資料，但如果中斷發生在叢集或資料中心層級，Azure 搜尋服務將無法提供立即的服務容錯移轉。 如果叢集在資料中心內失敗，作業小組將會偵測並處理以還原服務。 您在服務還原期間將會遇到停止運作的狀況，但可以根據[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 要求服務信用額度作為無法使用服務的補償。 
+雖然我們可以搶救您的資料，但如果叢集或資料中心層級發生中斷，Azure 認知搜尋不會提供服務的立即容錯移轉。 如果叢集在資料中心內失敗，作業小組將會偵測並處理以還原服務。 您在服務還原期間將會遇到停止運作的狀況，但可以根據[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 要求服務信用額度作為無法使用服務的補償。 
 
 如果在遇到 Microsoft 控制之外的災難性失敗時，需要持續的服務，您可以在不同區域[佈建額外的服務](search-create-service-portal.md)並實作異地複寫策略，以確保索引在所有服務之間皆具有完整備援。
 
-使用[索引子](search-indexer-overview.md)來填入及重新整理索引的客戶，可以透過使用相同資料來源的地理特定索引子來處理災害復原。 在不同區域中的兩個服務 (每個都執行一個索引子)，可以從相同相同的資料來源建立索引，以達到異地備援的目的。 如果從同為異地備援的資料來源建立索引，請留意，Azure 搜尋服務索引子只能在主要複本執行遞增索引。 在容錯移轉事件中，請務必將索引子重新指向新的主要複本。 
+使用[索引子](search-indexer-overview.md)來填入及重新整理索引的客戶，可以透過使用相同資料來源的地理特定索引子來處理災害復原。 在不同區域中的兩個服務 (每個都執行一個索引子)，可以從相同相同的資料來源建立索引，以達到異地備援的目的。 如果您是從也是異地多餘的資料來源編制索引，請注意 Azure 認知搜尋索引子只能從主要複本執行累加式索引編制。 在容錯移轉事件中，請務必將索引子重新指向新的主要複本。 
 
-若不使用索引子，您可以使用應用程式程式碼將物件和資料平行推送到不同的搜尋服務。 如需詳細資訊，請參閱 [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)。
+若不使用索引子，您可以使用應用程式程式碼將物件和資料平行推送到不同的搜尋服務。 如需詳細資訊，請參閱[Azure 認知搜尋中的效能和優化](search-performance-optimization.md)。
 
 ## <a name="backup-and-restore"></a>備份及還原
 
-因為 Azure 搜尋服務不是主要的資料儲存體解決方案，所以我們不提供自助備份及還原的正式機制。 不過，您可以使用此[Azure 搜尋服務 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原範例程式**代碼，將您的索引定義和快照集備份至一系列 JSON 檔案，然後視需要使用這些檔案來還原索引。 此工具也可以在服務層之間移動索引。
+因為 Azure 認知搜尋並非主要的資料儲存體解決方案，所以我們不提供自助備份和還原的正式機制。 不過，您可以使用此[Azure 認知搜尋 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原**範例程式碼，將您的索引定義和快照集備份至一系列 JSON 檔案，然後視需要使用這些檔案來還原索引。 此工具也可以在服務層之間移動索引。
 
 否則，如果您不小心刪除索引，則用來建立和填入索引的應用程式程式碼就是 [原本就還原] 選項。 若要重建索引，請先將索引刪除 (假設它存在)，在服務中重新建立索引，然後從您的主要資料存放區擷取資料以重新載入。
 
@@ -113,23 +112,12 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 
 若要協助進行未來規劃，您可能需要檢查儲存體 (使用[取得索引統計資料](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) 以了解實際上您可以使用的空間大小。 
 
-<a id="advanced-deployment"></a>
-
-## <a name="best-practices-on-scale-and-deployment"></a>調整和部署的最佳作法
-在這段 30 分鐘的影片中，會檢閱進階部署案例的最佳作法，包括地理位置分散工作負載。 您也可以查看 [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)，以取得涵蓋相同要點的說明頁面。
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
-> 
-
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>後續步驟
 當您了解服務管理背後的概念之後，請考慮使用 [PowerShell](search-manage-powershell.md) 來將工作自動化。
 
 也建議您檢視[效能與最佳化文章](search-performance-optimization.md)。
-
-另一個建議是觀看先前小節所提及的影片。 影片涵蓋在本節中所提及技術的詳細資訊。
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

@@ -1,23 +1,22 @@
 ---
-title: 升級至 Azure 搜尋服務 .NET SDK 版本 1.1 - Azure 搜尋服務
+title: 升級至 Azure 搜尋服務 .NET SDK 1.1 版
+titleSuffix: Azure Cognitive Search
 description: 從舊版的 API，將程式碼移轉至 Azure 搜尋服務.NET SDK 1.1 版。 了解新功能與需要哪些程式碼變更。
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 8227e1b372af1eee43db59da2cfad165d67be9ae
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183263"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792387"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>升級至 Azure 搜尋服務 .NET SDK 版本 1.1
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>升級至 Azure 搜尋服務 .NET SDK 1.1 版
 
 如果您使用 1.0.2 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文會協助您將應用程式升級為使用 1.1 版。
 
@@ -174,7 +173,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
         };
 
 ### <a name="model-class-changes"></a>模型類別變更
-由於[作業方法變更](#OperationMethodChanges)中所述的簽章變更，`Microsoft.Azure.Search.Models` 命名空間中的許多類別都已重新命名或移除。 例如:
+由於[作業方法變更](#OperationMethodChanges)中所述的簽章變更，`Microsoft.Azure.Search.Models` 命名空間中的許多類別都已重新命名或移除。 例如：
 
 * `IndexDefinitionResponse` 已由 `AzureOperationResponse<Index>` 取代
 * `DocumentSearchResponse` 已重新命名為 `DocumentSearchResult`
@@ -345,7 +344,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 
 而且您將 `IntValue` 設定為 0，該值現在會在線路上正確序列化為 0，並且在索引中儲存為 0。 來回行程也如預期般運作。
 
-這種方法有一個可能需要注意的問題：如果您使用具有不可為 null 屬性的模型類型，您必須**保證**索引中沒有任何文件對於對應欄位包含 null 值。 SDK 和 Azure 搜尋服務 REST API 都不會協助您強制執行。
+這種方法有一個需要注意的可能問題：如果您使用具有不可為 null 屬性的模型類型，您必須保證 索引中沒有任何文件對於對應欄位包含 null 值。 SDK 和 Azure 搜尋服務 REST API 都不會協助您強制執行。
 
 這不只是假設性的問題：如果您在類型為 `Edm.Int32` 的現有索引中新增欄位， 更新索引定義之後，所有文件對於該新的欄位具有 null 值 (因為所有類型在 Azure 搜尋服務中都可為 null)。 如果您接著對該欄位使用 `int` 屬性不可為 Null 的模型類別，就會在嘗試擷取文件時得到類似這樣的 `JsonSerializationException`：
 

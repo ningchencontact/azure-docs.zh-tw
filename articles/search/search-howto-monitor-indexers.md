@@ -1,25 +1,24 @@
 ---
-title: 如何監視索引子狀態和結果-Azure 搜尋服務
-description: 使用 REST API 或 .NET SDK，監視 Azure 入口網站中 Azure 搜尋服務索引子的狀態、進度和結果。
-ms.date: 06/28/2019
-author: RobDixon22
+title: 如何監視索引子狀態和結果
+titleSuffix: Azure Cognitive Search
+description: 使用 REST API 或 .NET SDK，在 Azure 入口網站中監視 Azure 認知搜尋索引子的狀態、進度和結果。
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533711"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793792"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>如何監視 Azure 搜尋服務索引子狀態和結果
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>如何監視 Azure 認知搜尋索引子的狀態和結果
 
-Azure 搜尋服務提供有關每個索引子的目前和歷程記錄執行狀態和監視資訊。
+Azure 認知搜尋提供有關每個索引子的目前和歷程記錄執行狀態和監視資訊。
 
 當您想要執行下列動作時，索引子監視非常有用：
 
@@ -75,7 +74,7 @@ Azure 搜尋服務提供有關每個索引子的目前和歷程記錄執行狀�
 
 警告在某些類型的索引子中是常見的，而且不一定表示有問題。 例如，使用認知服務的索引子可以在影像或 PDF 檔案不包含任何要處理的文字時報告警告。
 
-如需調查索引子錯誤和警告的詳細資訊，請參閱針對[Azure 搜尋服務中常見的索引子問題進行疑難排解](search-indexer-troubleshooting.md)。
+如需調查索引子錯誤和警告的詳細資訊，請參閱針對[Azure 認知搜尋中的常見索引子問題進行疑難排解](search-indexer-troubleshooting.md)。
 
 <a name="restapi"></a>
 
@@ -128,7 +127,7 @@ Azure 搜尋服務提供有關每個索引子的目前和歷程記錄執行狀�
 
 ## <a name="monitor-using-the-net-sdk"></a>使用 .NET SDK 進行監視
 
-您可以使用 Azure 搜尋服務 .NET SDK 來定義索引子的排程。 若要這麼做，請在建立或更新索引子時加入**排程**屬性。
+您可以使用 Azure 認知搜尋 .NET SDK 來定義索引子的排程。 若要這麼做，請在建立或更新索引子時加入**排程**屬性。
 
 下列C#範例會將索引子狀態的相關資訊，以及其最近（或進行中）執行的結果寫入主控台。
 

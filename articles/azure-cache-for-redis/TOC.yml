@@ -89,6 +89,8 @@
           href: 'cache-administration.md#schedule-updates'
         - name: 設定 redis-cli.exe 存取
           href: cache-how-to-redis-cli-tool.md
+        - name: 取代使用 TLS 1.0 和 1.1
+          href: cache-deprecate-tls-10-11.md
     - name: 監視
       items:
         - name: 在 Azure 入口網站中監視

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 572255cfcd34b97a6ba0f784f7fc7ed1c0df040a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3764ae9ff3a20de6d31f0438b73597933080e372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213262"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791742"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files
 
@@ -78,7 +78,7 @@ ms.locfileid: "71213262"
 * SAP Note [2243692][2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
 * SAP Note [1984787][1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
 * SAP Note [1999351][1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
-* Sap 社區 WIKI] （ https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 具有適用于 Linux 的所有必要 SAP 附注）。
+* SAP 社區 WIKI] （ https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含適用于 Linux 的所有必要 SAP 附注。
 * [適用于 SAP on Linux 的 Azure 虛擬機器規劃和執行][planning-guide]
 * [適用于 SAP on Linux 的 Azure 虛擬機器部署][deployment-guide]
 * [適用于 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
@@ -86,7 +86,7 @@ ms.locfileid: "71213262"
 * [SUSE 高可用性擴充功能 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
 * [使用 Azure NetApp Files 在 Microsoft Azure 的 NetApp SAP 應用程式][anf-sap-applications-azure]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 SAP Netweaver 中央服務的高可用性（HA）需要共用儲存體。
 若要在 SUSE Linux 上達到此目的，您必須建立個別的高可用性 NFS 叢集。 
@@ -136,7 +136,7 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>設定 Azure NetApp Files 基礎結構 
 
-SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 Azure NetApp files 基礎結構的設定之前，請先熟悉[Azure Netapp files][anf-azure-doc]檔。 檢查您選取的 Azure 區域是否提供 Azure NetApp Files。 下列連結會依 Azure 區域顯示 Azure NetApp Files 的可用性：Azure [NetApp Files Azure 區域可用性][anf-avail-matrix]。
+SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 Azure NetApp files 基礎結構的設定之前，請先熟悉[Azure Netapp files][anf-azure-doc]檔。 檢查您選取的 Azure 區域是否提供 Azure NetApp Files。 下列連結會依 Azure 區域顯示 Azure NetApp Files 的可用性： azure [Netapp files By Azure 區域的可用性][anf-avail-matrix]。
 
 Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)中都有提供。 在部署 Azure NetApp Files 之前，請在註冊 azure netapp files[指示][anf-register]之後，要求上線至 Azure netapp files。 
 
@@ -213,7 +213,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
          1. 開啟負載平衡器，選取前端 IP 集區，然後按一下 [新增]
          1. 輸入新前端 IP 集區的名稱（例如前端） **。QAS.ASCS**）
          1. 將 [指派] 設定為 [靜態]，然後輸入 IP 位址（例如**10.1.1.20**）
-         1. 按一下 [確定]
+         1. Click OK
       1. ASCS ERS 的 IP 位址10.1.1.21
          * 在 "a" 底下重複上述步驟，以建立 ERS 的 IP 位址（例如**10.1.1.21**和前端） **。QAS.ERS**）
    1. 建立後端集區
@@ -223,13 +223,13 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
          1. 按一下 [新增虛擬機器]。
          1. 選取您稍早為 ASCS 建立的可用性設定組 
          1. 選取 (A)SCS 叢集的虛擬機器
-         1. 按一下 [確定]
+         1. Click OK
    1. 建立健康狀態探查
       1. 針對 ASCS 是連接埠 620**00**
          1. 開啟負載平衡器，選取健康情況探查，然後按一下 [新增]
          1. 輸入新健康狀態探查的名稱（例如**健全狀況）。QAS.ASCS**）
          1. 選取 [TCP] 作為通訊協定、連接埠 620**00**，保留 [間隔] 5 和 [狀況不良閾值] 2
-         1. 按一下 [確定]
+         1. Click OK
       1. 適用于 ASCS ERS 的埠 621**01**
             * 在 "c" 底下重複上述步驟，以建立 ERS 的健康情況探查（例如 621**01**和**健全狀況）。QAS.ERS**）
    1. 負載平衡規則
@@ -240,7 +240,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
          1. 保留通訊協定 [TCP]，輸入連接埠 **3200**
          1. 將閒置逾時增加為 30 分鐘
          1. **務必啟用浮動 IP**
-         1. 按一下 [確定]
+         1. Click OK
       1. ASCS 的其他連接埠
          * 針對 ASCS 的埠 36**00**、39**00**、81**00**、5**00**13、5**00**14、5**00**16 和 TCP，重複上述的步驟 "d"
       1. ASCS ERS 的其他連接埠
@@ -363,7 +363,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    > [!NOTE]
    > 目前，Azure NetApp Files 僅支援 NFSv3。 不要省略 nfsvers = 3 參數。
    
-   重新`autofs`啟動以掛接新的共用
+   重新開機 `autofs` 以掛接新的共用
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -393,6 +393,10 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
 1. **[1]** 為 ASCS 執行個體建立虛擬 IP 資源和健康情況探查
 
+   > [!IMPORTANT]
+   > 最近的測試顯示的情況下，netcat 會因待處理專案而停止回應要求，而且其限制只會處理一個連接。 Netcat 資源會停止接聽 Azure 負載平衡器要求，而浮動 IP 會變成無法使用。  
+   > 針對現有的 Pacemaker 叢集，我們建議以 socat 取代 netcat，並遵循[Azure 負載平衡器偵測強化](https://www.suse.com/support/kb/doc/?id=7024128)中的指示。 請注意，變更將需要短暫的停機時間。  
+
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
@@ -405,7 +409,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
@@ -460,10 +464,10 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>01</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>01</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
@@ -732,7 +736,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
    </code></pre>
 
-   重新`autofs`啟動以掛接新的共用
+   重新開機 `autofs` 以掛接新的共用
 
    <pre><code>
    sudo systemctl enable autofs
@@ -757,7 +761,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   重新`autofs`啟動以掛接新的共用
+   重新開機 `autofs` 以掛接新的共用
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1085,7 +1089,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   例如，透過編輯交易 su01 中的使用者來建立佇列鎖定。 在 ASCS 實例執行所在的節點\>上，以 < sapsid adm 的形式執行下列命令。 這些命令會停止 ASCS 執行個體，並重新啟動它。 如果使用佇列伺服器1架構，此測試中的佇列鎖定應該會遺失。 如果使用佇列伺服器2架構，將會保留排入佇列。 
+   例如，透過編輯交易 su01 中的使用者來建立佇列鎖定。 在執行 ASCS 實例的節點上，以 < sapsid\>adm 的形式執行下列命令。 這些命令會停止 ASCS 執行個體，並重新啟動它。 如果使用佇列伺服器1架構，此測試中的佇列鎖定應該會遺失。 如果使用佇列伺服器2架構，將會保留排入佇列。 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1231,7 +1235,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   如果您只執行一次命令， `sapstart`將會重新開機進程。 如果您經常執行它， `sapstart`就不會重新開機進程，而且資源會處於停止狀態。 以 root 身份執行下列命令，以在測試之後清除 ERS 執行個體的資源狀態。
+   如果您只執行一次命令，`sapstart` 將會重新開機進程。 如果您經常執行它，`sapstart` 將不會重新開機進程，而且資源會處於停止狀態。 以 root 身份執行下列命令，以在測試之後清除 ERS 執行個體的資源狀態。
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>
@@ -1302,4 +1306,4 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 * [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 * 瞭解如何建立高可用性並規劃 SAP 的嚴重損壞修復 
 * HANA on Azure （大型實例），請參閱[azure 上的 SAP Hana （大型實例）高可用性和嚴重損壞修復](hana-overview-high-availability-disaster-recovery.md)。
-* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復, 請參閱[azure 虛擬機器 (vm) 上 SAP Hana 的高可用性][sap-hana-ha]
+* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]

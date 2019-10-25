@@ -1,5 +1,6 @@
 ---
 title: 將應用程式新增至 Azure Active Directory 的方式和原因
+titleSuffix: Microsoft identity platform
 description: 對於應用程式來說，新增至 Azure AD 有何意義，以及要如何新增？
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835380"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803445"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 
@@ -59,7 +60,7 @@ ms.locfileid: "68835380"
 * 本機使用者和群組應用程式角色指派的記錄
 * 針對已授與應用程式的本機使用者和系統管理員權限所做的記錄
   * 例如：應用程式用來存取特定使用者電子郵件的權限
-* 本機原則的記錄, 包括條件式存取原則
+* 本機原則的記錄，包括條件式存取原則
 * 應用程式替代本機設定的記錄
   * 宣告轉換規則
   * 屬性對應 (使用者佈建)

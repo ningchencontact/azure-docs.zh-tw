@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5215a7d899af15dc028189aee5760a6ec5b6577d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595105"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803982"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>使用 Azure CLI 將 vhd 上傳至 Azure
 
 本文說明如何將 vhd 從本機電腦上傳至 Azure 受控磁片。 之前，您必須遵循更牽涉的程式，其中包含將您的資料放在儲存體帳戶中，並管理該儲存體帳戶。 現在，您不再需要管理儲存體帳戶，或在其中暫存資料來上傳 vhd。 相反地，您會建立空的受控磁片，並直接將 vhd 上傳至其中。 這可簡化將內部部署 Vm 上傳至 Azure 的工作，並可讓您直接將 vhd 上傳至 32 TiB 到大型受控磁片。
 
-如果您在 Azure 中提供 IaaS Vm 的備份解決方案，建議您使用直接上傳來將客戶備份還原至受控磁片。 如果您要從 Azure 外部的電腦上傳 VHD，則速度會視您的本機頻寬而定。 如果您使用 Azure VM，則您的頻寬會與標準 Hdd 相同。
+如果您在 Azure 中提供 IaaS Vm 的備份解決方案，建議您使用直接上傳來將客戶備份還原至受控磁片。 如果您要從 Azure 外部的電腦上傳 VHD，速度將取決於您的本機頻寬。 如果您使用 Azure VM，則您的頻寬會與標準 Hdd 相同。
 
 目前，標準 HDD、標準 SSD 和 premium SSD 受控磁片支援直接上傳。 Ultra Ssd 尚不支援此程式。
 
@@ -29,7 +29,7 @@ ms.locfileid: "72595105"
 - 下載最新[版本的 AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)。
 - [安裝 Azure CLI](/cli/azure/install-azure-cli)。
 - 儲存在本機的 vhd 檔案
-- 如果您想要從 on pem 上傳 vhd：已[針對 Azure 準備](../windows/prepare-for-upload-vhd-image.md)的 vhd，儲存在本機上。
+- 如果您想要從內部部署環境上傳 vhd：已[針對 Azure 準備](../windows/prepare-for-upload-vhd-image.md)的 vhd，儲存在本機上。
 - 或者，如果您想要執行複製動作，則是 Azure 中的受控磁片。
 
 ## <a name="create-an-empty-managed-disk"></a>建立空的受控磁片
@@ -124,6 +124,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已成功將 vhd 上傳至受控磁片，您可以將磁片連結至 VM 並開始使用它。
+既然您已成功將 vhd 上傳至受控磁片，您可以將該磁片當做[資料磁片連接到現有的 vm](add-disk.md) ，或[將磁片連結至 VM 作為 OS 磁片](upload-vhd.md#create-the-vm)，以建立新的 vm。 
 
-若要瞭解如何將磁片連接至 VM，請參閱主題：[將磁片新增至 LINUX VM](add-disk.md)中的文章。

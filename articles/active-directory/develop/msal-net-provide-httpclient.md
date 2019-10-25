@@ -1,5 +1,6 @@
 ---
-title: 提供 HttpClient 和 Proxy (MSAL.NET) | Azure
+title: 提供 HttpClient 和 proxy （MSAL.NET）
+titleSuffix: Microsoft identity platform
 description: 了解如何使用 Microsoft Authentication Library for .NET (MSAL.NET)，來提供您自己的 HttpClient 和 Proxy 以連線到 Azure AD。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daae88cd8e76d0ae1af04c45a7191027e9adece9
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 259c796cb3653ebdd330f5e65db76cc29c181467
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834947"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802772"
 ---
 # <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>使用 MSAL.NET 提供您自己的 HttpClient 和 Proxy
 [將公用用戶端應用程式初始化](msal-net-initializing-client-applications.md)時，您可以使用 `.WithHttpClientFactory method` 來提供自己的 HttpClient。  提供您自己的 HttpClient 會啟用如下的進階案例：精確控制 HTTP Proxy、自訂使用者代理程式標頭，或強制 MSAL 使用特定的 HttpClient (例如，在 ASP.NET Core Web 應用程式/API 中)。

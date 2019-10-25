@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 36b0ea7233b449584bd83450b45276da5baa135b
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264334"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804254"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP webhook，建立並執行自動化事件型工作流程
 
@@ -49,7 +49,7 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 已部署的端點或 API 的 URL，可支援[邏輯應用程式中](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)的 webhook 的 webhook 訂閱和取消訂閱模式，或[邏輯應用程式](../logic-apps/logic-apps-create-api-app.md#webhook-actions)中適當的 webhook 動作
 
@@ -75,7 +75,7 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
 1. 若要加入其他可用的參數，請開啟 [**加入新的參數**] 清單，然後選取您想要的參數。
 
-   如需適用于 HTTP Webhook 之驗證類型的詳細資訊，請參閱[驗證 HTTP 觸發程式和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)。
+   如需適用于 HTTP Webhook 之驗證類型的詳細資訊，請參閱[將驗證新增至輸出呼叫](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。
 
 1. 請使用當引發觸發程序時執行的動作，繼續建置邏輯應用程式的工作流程。
 
@@ -111,7 +111,7 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
 1. 若要加入其他可用的參數，請開啟 [**加入新的參數**] 清單，然後選取您想要的參數。
 
-   如需適用于 HTTP Webhook 之驗證類型的詳細資訊，請參閱[驗證 HTTP 觸發程式和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)。
+   如需適用于 HTTP Webhook 之驗證類型的詳細資訊，請參閱[將驗證新增至輸出呼叫](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。
 
 1. 當您完成時，請記得儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
@@ -125,14 +125,14 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
 | 屬性名稱 | Type | 描述 |
 |---------------|------|-------------|
-| headers | object | 要求的標頭 |
+| 標頭 | object | 要求的標頭 |
 | body | object | JSON 物件 | 具有來自要求之本文內容的物件 |
-| status code | int | 來自要求的狀態碼 |
+| 狀態碼 | int | 來自要求的狀態碼 |
 |||
 
-| status code | 描述 |
+| 狀態碼 | 描述 |
 |-------------|-------------|
-| 200 | [確定] |
+| 200 | 確定 |
 | 202 | 已接受 |
 | 400 | 不正確的要求 |
 | 401 | 未經授權 |

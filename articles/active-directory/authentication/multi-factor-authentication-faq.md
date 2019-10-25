@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 23ecec4d0701f6f55385937f872151a373b2f62e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68811824"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808103"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -59,13 +59,13 @@ ms.locfileid: "68811824"
    * 759731 
    * 673801
 
-Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 除了美國和加拿大以外的國家/地區, Microsoft 不支援簡短代碼。
+Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 除了美國和加拿大以外的國家/地區，Microsoft 不支援簡短代碼。
 
-## <a name="billing"></a>帳務
+## <a name="billing"></a>計費
 
 大部分計費問題可以從 [Multi-Factor Authentication 價格頁面](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)或有關[如何取得 Azure Multi-Factor Authentication](concept-mfa-licensing.md)的文件中得到解答。
 
-**問：若為了驗證而撥打電話或傳送簡訊，我的組織是否須為此付費？**
+**問︰若為了驗證而撥打電話或傳送簡訊，我的組織是否須為此付費？**
 
 不用，您不需為透過 Azure Multi-Factor Authentication 對使用者撥打個別通話或傳送簡訊支付費用。 如果您使用的 MFA 提供者是以驗證次數計費，則您需要為每次驗證支付費用，但無須支付使用方式的費用。
 
@@ -87,7 +87,7 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 在某些情況下，是的。
 
-適用于 Azure 系統管理員的多重要素驗證提供免費的 Azure MFA 功能子集, 以存取 Microsoft 線上服務, 包括[Azure 入口網站](https://portal.azure.com)和 Microsoft 365 系統[管理中心](https://admin.microsoft.com)。 若 Azure Active Directory 執行個體中的全域系統管理員沒有透過 MFA 授權、組合或以獨立使用作為基礎的提供者取得完整版 Azure MFA，則僅適用此供應項目。 如果您的管理員是使用免費版本，然後您購買完整版的 Azure MFA，就會自動將所有全域管理員提升為付費版本。
+適用于 Azure 系統管理員的多重要素驗證提供免費的 Azure MFA 功能子集，以存取 Microsoft 線上服務，包括[Azure 入口網站](https://portal.azure.com)和 Microsoft 365 系統[管理中心](https://admin.microsoft.com)。 若 Azure Active Directory 執行個體中的全域系統管理員沒有透過 MFA 授權、組合或以獨立使用作為基礎的提供者取得完整版 Azure MFA，則僅適用此供應項目。 如果您的管理員是使用免費版本，然後您購買完整版的 Azure MFA，就會自動將所有全域管理員提升為付費版本。
 
 適用於 Office 365 使用者的 Multi-Factor Authentication 提供免費的 Azure MFA 功能子集，讓您可存取 Office 365 服務，包括 Exchange Online 和 SharePoint Online。 若使用者擁有指派的 Office 365 授權，但相對應的 Azure Active Directory 執行個體沒有透過 MFA 授權、組合或獨立使用型提供者取得完整版 Azure MFA 時，則適用此供應項目。
 
@@ -115,7 +115,7 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 ## <a name="manage-and-support-user-accounts"></a>管理和支援使用者帳戶
 
-**問：如果我的使用者未在手機上收到回應，我該告訴他們如何處理？**
+**問：如果我的使用者在電話上未收到回應，該怎麼辦？**
 
 讓使用者在 5 分鐘內最多嘗試 5 次進行電話通話或簡訊的驗證。 Microsoft 會使用多個提供者提供電話及簡訊。 如果這個作法無效，請向 Microsoft 提出支援案例，進行後續疑難排解。
 
@@ -123,7 +123,7 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 您可以將使用者引導至[終端使用者疑難排解指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
 
-**問：如果我的使用者無法登入他們的帳戶，我該怎麼做？**
+**問︰如果我的使用者無法登入他們的帳戶，我該怎麼做？**
 
 您可以讓使用者再次進行註冊程序，以重設使用者的帳戶。 深入了解 [在雲端使用 Azure Multi-Factor Authentication 管理使用者和裝置設定](howto-mfa-userdevicesettings.md)。
 
@@ -140,17 +140,17 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 > [!NOTE]
 > 適用於 Office 2013 用戶端的新式驗證
 >
-> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在, 執行 Office 2013 的2015年3月或更新版本的任何客戶都可以使用新式驗證。 如需詳細資訊, 請參閱 blog 文章[更新的 Office 365 新式驗證](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
+> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在，執行 Office 2013 的2015年3月或更新版本的任何客戶都可以使用新式驗證。 如需詳細資訊，請參閱 blog 文章[更新的 Office 365 新式驗證](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
 
-**問：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
+**問︰我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 
 因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包括目的地國家/地區、行動電話貨運公司和信號強度。
 
-如果您的使用者時常無法收到簡訊，請告訴他們改用行動裝置應用程式或撥打電話的方式。 行動應用程式可以透過行動數據和 Wi-Fi 連接接收通知。 此外，即使裝置收不到訊號，行動應用程式可以產生驗證碼。 Microsoft 驗證器應用程式適用於 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[IOS](https://go.microsoft.com/fwlink/?Linkid=825073)和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
+如果您的使用者時常無法收到簡訊，請告訴他們改用行動裝置應用程式或撥打電話的方式。 行動應用程式可以透過行動數據和 Wi-Fi 連接接收通知。 此外，即使裝置收不到訊號，行動應用程式可以產生驗證碼。 Microsoft 驗證器應用程式適用於 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[IOS](https://go.microsoft.com/fwlink/?Linkid=825073)和 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)。
 
-如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向 SMS 較可靠, 可防止使用者產生全域 SMS 費用, 而無法回復從另一個國家/地區傳送的文字訊息。
+如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向 SMS 較可靠，可防止使用者產生全域 SMS 費用，而無法回復從另一個國家/地區傳送的文字訊息。
 
-**問：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
+**問︰可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
 
 在某些情況下是可以的。 
 
@@ -198,9 +198,9 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 - 組織建立已套用至使用者的 MFA 註冊原則並加以啟用。
 - 使用者先前已註冊過 MFA，但選擇的驗證方法已由系統管理員停用。 使用者必須因此再次進行 MFA 註冊，以選取新的預設驗證方法。
 
-## <a name="errors"></a>錯誤
+## <a name="errors"></a>Errors
 
-**問：如果使用者在使用行動應用程式通知時，看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
+**問：如果使用者在使用行動應用程式通知時看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
 
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰
 

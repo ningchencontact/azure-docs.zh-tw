@@ -1,5 +1,6 @@
 ---
-title: 錯誤和例外狀況（MSAL） |Microsoft 身分識別平臺
+title: 錯誤和例外狀況（MSAL）
+titleSuffix: Microsoft identity platform
 description: 瞭解如何處理 MSAL 應用程式中的錯誤和例外狀況、條件式存取和宣告挑戰。
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 09/08/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 635793d18bf33752a2672788bb632571743410b7
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: cc5139cb4d463b88f21b0c7a2c7e0383abdb9e1f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982774"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803115"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>處理 MSAL 的例外狀況和錯誤
 
@@ -39,18 +40,18 @@ Microsoft 驗證程式庫 (MSAL) 中的例外狀況僅供應用程式開發人�
 
 錯誤的完整清單會列在[MSALError 列舉](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128)中。
 
-所有產生的 MSAL 錯誤都會傳回 `MSALErrorDomain` 網域。 
+所有 MSAL 產生的錯誤都會以 `MSALErrorDomain` 網域傳回。 
 
-對於系統錯誤，MSAL 會從系統 API 傳回原始的 @no__t 0。 例如，如果權杖取得因為缺少網路連線而失敗，MSAL 會傳回錯誤，其中包含 `NSURLErrorDomain` 網域和 @no__t 1 程式碼。
+對於系統錯誤，MSAL 會從系統 API 傳回原始 `NSError`。 例如，如果權杖取得因為缺少網路連線而失敗，MSAL 會傳回錯誤，其中包含 `NSURLErrorDomain` 網域和 `NSURLErrorNotConnectedToInternet` 程式碼。
 
 我們建議您在用戶端至少處理下列兩個 MSAL 錯誤：
 
-- `MSALErrorInteractionRequired`:使用者必須執行互動式要求。 有許多狀況可能會導致此錯誤，例如過期的驗證會話，或需要額外的驗證需求。 呼叫 MSAL 互動式權杖取得 API 以進行復原。 
+- `MSALErrorInteractionRequired`：使用者必須執行互動式要求。 有許多狀況可能會導致此錯誤，例如過期的驗證會話，或需要額外的驗證需求。 呼叫 MSAL 互動式權杖取得 API 以進行復原。 
 
-- `MSALErrorServerDeclinedScopes`:已拒絕部分或所有範圍。 決定是否只以授與的範圍繼續進行，或停止登入程式。
+- `MSALErrorServerDeclinedScopes`：已拒絕部分或所有範圍。 決定是否只以授與的範圍繼續進行，或停止登入程式。
 
 > [!NOTE]
-> @No__t-0 列舉應該僅用於參考和偵錯工具。 請勿嘗試在執行時間自動處理這些錯誤。 如果您的應用程式遇到任何落在 `MSALInternalError` 之下的錯誤，您可能會想要顯示一般使用者面向的訊息，說明發生了什麼事。
+> `MSALInternalError` 列舉只應用於參考和偵錯工具。 請勿嘗試在執行時間自動處理這些錯誤。 如果您的應用程式遇到 `MSALInternalError`下的任何錯誤，您可能會想要顯示一般使用者面向的訊息，說明發生了什麼事。
 
 例如，`MSALInternalErrorBrokerResponseNotReceived` 表示使用者未完成驗證，並以手動方式傳回至應用程式。 在此情況下，您的應用程式應該會顯示一般錯誤訊息，說明驗證未完成，並建議他們再次嘗試驗證。
 
@@ -253,26 +254,26 @@ Swift
 
 以下是可能會擲回的常見例外狀況和一些可能的緩和措施：  
 
-| 例外狀況 | 錯誤碼 | 風險降低|
+| 例外狀況 | 錯誤碼 | 緩和|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員未同意使用識別碼為 '{appId}'、名稱為 '{appName}' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core （不具有任何 Web UI），請呼叫（僅限一次） `AcquireTokeninteractive`。 如果您使用的是 .NET core，或不想要 `AcquireTokenInteractive`，使用者可以流覽至 URL 以提供同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 。 若要呼叫 `AcquireTokenInteractive`： `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員尚未同意使用識別碼為 ' {appId} ' 且名為 ' {appName} ' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core （不具有任何 Web UI），請呼叫（僅限一次） `AcquireTokeninteractive`。 如果您使用 .NET core 或不想要執行 `AcquireTokenInteractive`，使用者可以流覽至 URL 以提供同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 。 若要呼叫 `AcquireTokenInteractive`： `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079：使用者必須使用多重要素驗證（MFA）。| 不會降低風險。 如果已為您的租使用者設定 MFA，而 Azure Active Directory （AAD）決定強制執行，則您必須回到互動式流程，例如 `AcquireTokenInteractive` 或 `AcquireTokenByDeviceCode`。|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010： */Common*或 */consumers*端點不支援授與類型。 請使用 */organizations* 或租用戶專屬端點。 您使用的是 */common*。| 如 Azure AD 的訊息所說明，授權單位必須有一個租用戶或 */organizations*。|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010：不支援 */common*或 */Consumers*端點上的授與類型。 請使用 */organizations* 或租用戶專屬端點。 您使用的是 */common*。| 如 Azure AD 的訊息所說明，授權單位必須有一個租用戶或 */organizations*。|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002：要求主體必須包含下列參數： `client_secret or client_assertion`。| 如果您的應用程式未在 Azure AD 中註冊為公用用戶端應用程式，則會擲回這個例外狀況。 在 Azure 入口網站中，編輯應用程式的資訊清單，並將 `allowPublicClient` 設定為 `true`。 |
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`:無法識別登入的使用者| 程式庫無法查詢目前 Windows 登入的使用者，或此使用者未加入 AD 或 AAD （不支援工作-加入的使用者）。 風險降低措施 1：在 UWP 上，確認應用程式具有下列功能：企業驗證、私人網路 (用戶端和伺服器)、使用者帳戶資訊。 降低風險 2：實作您自己的邏輯以擷取使用者名稱 (例如john@contoso.com)，並使用採用該使用者名稱的 `AcquireTokenByIntegratedWindowsAuth` 表單。|
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| 此方法需依賴由 Active Directory (AD) 公開的通訊協定。 如果使用者建立於不具 AD 支援 (「受控」使用者) 的 Azure Active Directory 中，此方法將會失敗。 使用者若建立於 AD 中，並且受 AAD 支援(「同盟」使用者)，則可受益於這種非互動式的驗證方法。 風險降低措施：使用互動式驗證。|
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`：無法識別登入的使用者| 程式庫無法查詢目前 Windows 登入的使用者，或此使用者未加入 AD 或 AAD （不支援工作-加入的使用者）。 緩和措施1：在 UWP 上，檢查應用程式是否具有下列功能：企業驗證、私人網路（用戶端和伺服器）、使用者帳戶資訊。 緩和措施2：執行您自己的邏輯來提取使用者名稱（例如 john@contoso.com），並使用採用使用者名稱的 `AcquireTokenByIntegratedWindowsAuth` 表單。|
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| 此方法需依賴由 Active Directory (AD) 公開的通訊協定。 如果使用者建立於不具 AD 支援 (「受控」使用者) 的 Azure Active Directory 中，此方法將會失敗。 使用者若建立於 AD 中，並且受 AAD 支援(「同盟」使用者)，則可受益於這種非互動式的驗證方法。 緩和：使用互動式驗證。|
 
 ### `MsalUiRequiredException`
 
-呼叫 `AcquireTokenSilent()` 時，從 MSAL.NET 傳回的其中一個常見狀態碼為 `MsalError.InvalidGrantError`。 此狀態碼表示應用程式應該再次呼叫驗證程式庫，但在互動模式中（適用于公用用戶端應用程式的 AcquireTokenInteractive 或 AcquireTokenByDeviceCodeFlow，並在 Web apps 中執行挑戰）。 這是因為在可以發行驗證權杖之前，需要額外的使用者互動。
+`MsalError.InvalidGrantError`呼叫 `AcquireTokenSilent()` 時，從 MSAL.NET 傳回的其中一個常見狀態碼。 此狀態碼表示應用程式應該再次呼叫驗證程式庫，但在互動模式中（適用于公用用戶端應用程式的 AcquireTokenInteractive 或 AcquireTokenByDeviceCodeFlow，並在 Web apps 中執行挑戰）。 這是因為在可以發行驗證權杖之前，需要額外的使用者互動。
 
-在大部分的情況下 `AcquireTokenSilent` 會失敗，這是因為權杖快取沒有符合您要求的權杖。 存取權杖會在1小時後過期，`AcquireTokenSilent` 會嘗試根據重新整理權杖來提取新的權杖（在 OAuth2 中，這是「重新整理權杖」流程）。 此流程也可能因各種原因而失敗，例如，租使用者系統管理員設定更嚴格的登入原則。 
+`AcquireTokenSilent` 失敗的大部分時間都是因為權杖快取沒有符合您要求的權杖。 存取權杖會在1小時後過期，而 `AcquireTokenSilent` 會嘗試根據重新整理權杖來提取新的權杖（以 OAuth2 的詞彙而言，這是「重新整理權杖」流程）。 此流程也可能因各種原因而失敗，例如，租使用者系統管理員設定更嚴格的登入原則。 
 
 互動的目標是讓使用者執行動作。 其中有些條件可讓使用者輕鬆解決（例如，只要按一下就能接受使用規定），而有些則無法使用目前的設定來解析（例如，有問題的電腦需要連線到特定的公司網路）。 有些可協助使用者設定多重要素驗證，或在其裝置上安裝 Microsoft Authenticator。
 
 ### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException` 分類列舉
 
-MSAL 會公開 `Classification` 欄位，您可以加以閱讀以提供更佳的使用者體驗，例如，告訴使用者其密碼已過期，或需要同意使用一些資源。 支援的值為 `UiRequiredExceptionClassification` 列舉的一部分：
+MSAL 會公開 `Classification` 欄位，您可以加以閱讀以提供更佳的使用者體驗，例如告訴使用者其密碼已過期，或他們必須同意使用一些資源。 支援的值為 `UiRequiredExceptionClassification` 列舉的一部分：
 
 | 分類    | 意義           | 建議的處理 |
 |-------------------|-------------------|----------------------|
@@ -364,24 +365,24 @@ export class AuthError extends Error {
 ```
 
 藉由擴充錯誤類別，您將可存取下列屬性：
-* **AuthError.message：** 與 errorMessage 相同。
-* **AuthError.stack：** 擲回錯誤的堆疊追蹤。 可用來追蹤錯誤的原點。
+* **AuthError。訊息：** 與 errorMessage 相同。
+* **AuthError：** 擲回錯誤的堆疊追蹤。 可用來追蹤錯誤的原點。
 
 ### <a name="error-types"></a>錯誤類型
 
 可用的錯誤類型如下：
 
-- `AuthError`:MSAL.js 程式庫的基本錯誤類別，也可用於非預期的錯誤。
+- `AuthError`： MSAL 程式庫的基底錯誤類別，也用於非預期的錯誤。
 
-- `ClientAuthError`:Error 類別，這表示用戶端驗證的問題。 來自程式庫的錯誤大多為 ClientAuthError。 當登入已在進行時呼叫登入方法、使用者取消登入等等，會導致這些錯誤。
+- `ClientAuthError`： Error 類別，這表示用戶端驗證的問題。 來自程式庫的錯誤大多為 ClientAuthError。 當登入已在進行時呼叫登入方法、使用者取消登入等等，會導致這些錯誤。
 
-- `ClientConfigurationError`:錯誤類別，會在指定的使用者設定參數格式不正確或遺失時，在要求發出之前，擴充 `ClientAuthError`。
+- `ClientConfigurationError`： Error 類別，會在指定的使用者設定參數格式不正確或遺失時，擴充在要求發出之前擲回的 `ClientAuthError`。
 
-- `ServerError`:Error 類別，代表驗證服務器所傳送的錯誤字串。 這些可能是要求格式或參數無效之類的錯誤，或導致伺服器無法對使用者進行驗證或授權的任何其他錯誤。
+- `ServerError`： Error 類別，代表驗證服務器所傳送的錯誤字串。 這些可能是要求格式或參數無效之類的錯誤，或導致伺服器無法對使用者進行驗證或授權的任何其他錯誤。
 
-- `InteractionRequiredAuthError`:Error 類別，會擴充 `ServerError`，以表示需要互動式呼叫的伺服器錯誤。 如果使用者需要與伺服器互動以提供認證或同意驗證/授權，則會擲回此錯誤 `acquireTokenSilent`。 錯誤碼包括 `"interaction_required"`、`"login_required"` 和 `"consent_required"`。
+- `InteractionRequiredAuthError`： Error 類別會擴充 `ServerError` 以代表需要互動式呼叫的伺服器錯誤。 如果使用者需要與伺服器互動以提供認證或同意驗證/授權，則 `acquireTokenSilent` 會擲回此錯誤。 錯誤碼包括 `"interaction_required"`、`"login_required"`和 `"consent_required"`。
 
-對於使用重新導向方法（`loginRedirect`，`acquireTokenRedirect`）的驗證流程中的錯誤處理，您必須註冊回呼，這會在使用 `handleRedirectCallback()` 方法重新導向之後，以成功或失敗來呼叫，如下所示：
+對於使用重新導向方法（`loginRedirect`，`acquireTokenRedirect`）的驗證流程中的錯誤處理，您必須註冊回呼，這會在使用 `handleRedirectCallback()` 方法重新導向之後以成功或失敗來呼叫，如下所示：
 
 ```javascript
 function authCallback(error, response) {
@@ -444,7 +445,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 
 處理此錯誤的模式是使用 MSAL 以互動方式取得權杖。 以互動方式取得權杖時，系統會對使用者發出提示，讓他們有機會符合所需的條件式存取原則。
 
-在某些情況下，當您呼叫需要條件式存取的 API 時，您可能會在 API 發出的錯誤中收到宣告挑戰。 例如，如果條件式存取原則是必須具有受控裝置 (Intune)，則錯誤可能會是 [AADSTS53000：您的裝置必須受到管理才能存取此資源](reference-aadsts-error-codes.md)，或類似的錯誤。 在此情況下，您可以在取得權杖的呼叫中傳入宣告，讓系統提示使用者符合適當的原則。
+在某些情況下，當您呼叫需要條件式存取的 API 時，您可能會在 API 發出的錯誤中收到宣告挑戰。 例如，如果條件式存取原則是使用受控裝置（Intune），則錯誤會類似[AADSTS53000：您的裝置必須受到管理才能存取此資源](reference-aadsts-error-codes.md)或類似的內容。 在此情況下，您可以在取得權杖的呼叫中傳入宣告，讓系統提示使用者符合適當的原則。
 
 ### <a name="net"></a>.NET
 
@@ -452,9 +453,9 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 
 若要處理索賠挑戰，您必須使用 `PublicClientApplicationBuilder` 類別的 `.WithClaim()` 方法。
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
-使用 MSAL 以無訊息方式（使用 `acquireTokenSilent`）取得權杖時，您的應用程式可能會在您嘗試存取的 API 需要[條件式存取宣告挑戰](conditional-access-dev-guide.md)（例如 MFA 原則）時收到錯誤。
+使用 MSAL 以無訊息方式取得權杖（使用 `acquireTokenSilent`）時，您的應用程式可能會在您嘗試存取的 API 需要[條件式存取宣告挑戰](conditional-access-dev-guide.md)（例如 MFA 原則）時收到錯誤。
 
 處理此錯誤的模式，是發出在 MSAL.js 中取得權杖的互動式呼叫 (例如 `acquireTokenPopup` 或 `acquireTokenRedirect`)，如下列範例所示：
 
@@ -477,7 +478,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 以互動方式取得權杖時，系統會對使用者發出提示，讓他們有機會符合所需的條件式存取原則。
 
-當您呼叫需要條件式存取的 API 時，您可能會在 API 發出的錯誤中收到宣告挑戰。 在此情況下，您可以將錯誤中傳回的宣告傳遞給 @no__t 1 類別的 `claimsRequest` 欄位，以滿足適當的原則。 
+當您呼叫需要條件式存取的 API 時，您可能會在 API 發出的錯誤中收到宣告挑戰。 在此情況下，您可以將錯誤中傳回的宣告傳遞給 `AuthenticationParameters.ts` 類別的 `claimsRequest` 欄位，以滿足適當的原則。 
 
 如需詳細資訊，請參閱[要求額外的宣告](active-directory-optional-claims.md)。
 
@@ -485,7 +486,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 適用于 iOS 和 macOS 的 MSAL 可讓您在互動式和無訊息的權杖取得案例中，要求特定的宣告。
 
-若要要求自訂宣告，請在 `MSALSilentTokenParameters` 或 `MSALInteractiveTokenParameters` 中指定 `claimsRequest`。
+若要要求自訂宣告，請在 `MSALSilentTokenParameters` 或 `MSALInteractiveTokenParameters`中指定 `claimsRequest`。
 
 如需詳細資訊，請參閱[使用適用于 iOS 和 macOS 的 MSAL 要求自訂宣告](request-custom-claims.md)。
 
@@ -499,11 +500,11 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 ### <a name="http-429"></a>HTTP 429
 
-當服務權杖伺服器（STS）因為要求太多而超載時，它會傳回 HTTP 錯誤429，並提示您在 [`Retry-After`] 回應欄位中再試一次。
+當服務權杖伺服器（STS）因為要求太多而超載時，它會傳回 HTTP 錯誤429，並提示您多久才能在 [`Retry-After` 回應] 欄位中再試一次。
 
 ### <a name="net"></a>.NET
 
-[MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)介面 `System.Net.Http.Headers.HttpResponseHeaders` 做為屬性 `namedHeaders`。 您可以使用錯誤碼的其他資訊來改善應用程式的可靠性。 在描述的案例中，您可以使用 `RetryAfterproperty` （屬於類型 `RetryConditionHeaderValue`），並計算何時重試。
+[MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)介面 `System.Net.Http.Headers.HttpResponseHeaders` 為屬性 `namedHeaders`。 您可以使用錯誤碼的其他資訊來改善應用程式的可靠性。 在描述的案例中，您可以使用 `RetryAfterproperty` （屬於 `RetryConditionHeaderValue`類型）和計算時機來重試。
 
 以下是使用用戶端認證流程的 daemon 應用程式範例。 您可以將其調整為任何取得權杖的方法。
 

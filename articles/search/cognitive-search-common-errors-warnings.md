@@ -1,24 +1,23 @@
 ---
-title: 常見錯誤和警告-Azure 搜尋服務
-description: 本文提供在 Azure 搜尋服務的 AI 擴充期間可能會遇到的常見錯誤和警告的資訊和解決方案。
-services: search
-manager: heidist
+title: 常見的錯誤和警告
+titleSuffix: Azure Cognitive Search
+description: 本文提供您在 Azure 認知搜尋中 AI 擴充時可能會遇到的常見錯誤和警告的資訊和解決方案。
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: a8d5fc30299dbb16373b1cfbbd89563bad471f39
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553604"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787983"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Azure 搜尋服務中 AI 擴充管線的常見錯誤和警告
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure 認知搜尋中 AI 擴充管線的常見錯誤和警告
 
-本文提供在 Azure 搜尋服務的 AI 擴充期間可能會遇到的常見錯誤和警告的資訊和解決方案。
+本文提供您在 Azure 認知搜尋中 AI 擴充時可能會遇到的常見錯誤和警告的資訊和解決方案。
 
 ## <a name="errors"></a>Errors
 當錯誤計數超過[' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)時，就會停止編制索引。 
@@ -116,7 +115,7 @@ ms.locfileid: "72553604"
 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 欄位包含太大的詞彙 | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | 檔太大，無法編制索引 | [如何為大型資料集編制索引](search-howto-large-index.md)
 | 無法連接到目標索引（在重試後仍會繼續），因為服務正在進行其他負載，例如查詢或索引。 | 無法建立連接以更新索引。 搜尋服務正在負荷過重。 | [相應增加您的搜尋服務](search-capacity-planning.md)
-| 搜尋服務正在修補以進行服務更新，或處於拓撲重新設定的過程中。 | 無法建立連接以更新索引。 搜尋服務目前已關閉/搜尋服務正在進行轉換。 | 以至少3個複本設定服務，每個[SLA 檔](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的可用性 99.9%
+| 搜尋服務正在修補以進行服務更新，或處於拓撲重新設定的過程中。 | 無法建立連接以更新索引。 搜尋服務目前已關閉/搜尋服務正在進行轉換。 | 以至少3個複本設定服務，每個[SLA 檔](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的可用性99.9%
 | 基礎計算/網路資源（罕見）中的失敗 | 無法建立連接以更新索引。 發生未知的失敗。 | 設定要依照[排程執行](search-howto-schedule-indexers.md)的索引子，以從失敗狀態中收取。
 
 ### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>無法索引檔，因為索引的索引子資料無效
@@ -210,3 +209,14 @@ ms.locfileid: "72553604"
 
 ### <a name="web-api-skill-response-contains-warnings"></a>Web API 技能回應包含警告
 索引子可以在技能集中執行技能，但是來自 Web API 要求的回應表示在執行期間出現警告。 請參閱警告以瞭解資料受到影響的方式，以及是否需要採取動作。
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>目前的索引子設定不支援增量進度
+只有 Cosmos DB 資料來源才會發生此警告。
+
+建立索引期間，採累加進度能確保當索引子執行因暫時性失敗或執行時間限制而中斷，索引子仍能夠在下次執行時從中斷的部分繼續建立索引，而不需要重新建立整個集合的索引。 這在建立大型集合的索引時尤其重要。
+
+繼續未完成之索引工作的功能，是前提在擁有以 `_ts` 資料行排序的檔時。 索引子會使用時間戳來決定下一個要挑選的檔。 如果 `_ts` 資料行遺失，或索引子無法判斷自訂查詢是否依其排序，則索引子會在開始時啟動，而您會看到這個警告。
+
+您可以覆寫此行為，使用 [`assumeOrderByHighWatermarkColumn` 設定] 屬性來啟用累加進度，並隱藏這個警告。
+
+[Cosmos DB 增量進度和自訂查詢的詳細資訊。](https://go.microsoft.com/fwlink/?linkid=2099593)

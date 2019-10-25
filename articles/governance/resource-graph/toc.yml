@@ -17,6 +17,11 @@
     - name: 執行您的第一個查詢 - PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+- name: 教學課程
+  items:
+    - name: 在 Azure 入口網站中建立和共用查詢
+      displayName: 'query, portal'
+      href: ./tutorials/create-share-query.md
 - name: 範例
   items:
     - name: 入門查詢

@@ -1,22 +1,22 @@
 ---
 title: Azure SQL Database 和 SQL 資料倉儲連線性架構 |Microsoft Docs
-description: 本檔說明 azure SQL 連線架構, 用於從 Azure 內或從 Azure 外部的資料庫連線。
+description: 本檔說明 azure SQL 連線架構，用於從 Azure 內或從 Azure 外部的資料庫連線。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828857"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72807925"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -38,9 +38,9 @@ ms.locfileid: "71828857"
 
 Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定選項：
 
-- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要啟用連線, 用戶端必須允許在埠11000-11999 使用網路安全性群組 (NSG) 搭配[服務](../virtual-network/security-overview.md#service-tags)標籤的區域中的所有 Azure IP 位址進行輸出防火牆規則, 而不只是埠1433上的 Azure SQL Database 閘道 IP 位址。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
+- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要啟用連線，用戶端必須允許使用網路安全性群組（NSG）與埠11000-11999 的[服務](../virtual-network/security-overview.md#service-tags)標籤，在區域中的所有 Azure IP 位址進行輸出防火牆規則，而不只是埠1433上的 Azure SQL Database 閘道 IP 位址。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
 - **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道 Proxy。 若要啟用連線，用戶端必須具有只允許 Azure SQL Database 閘道 IP 位址 (通常每一區域有兩個 IP 位址) 的輸出防火牆規則。 視工作負載的本質而定，選擇此模式可能會導致延遲提高和輸送量降低。 為了將延遲降到最低及將輸送量提升到最高，強烈建議您採用 `Redirect` 連線原則，而不要採用 `Proxy` 連線原則。
-- **預設值：** 除非您明確地將連線原則更改成 `Proxy` 或 `Redirect`，否則這會是所有伺服器在建立後生效的連線原則。 有效原則取決於連線源自 Azure 內部 (`Redirect`) 還是 Azure 外部 (`Proxy`)。
+- **預設：** 這是在建立之後所有伺服器上生效的連線原則，除非您明確地將連線原則變更為 `Proxy` 或 `Redirect`。 有效原則取決於連線源自 Azure 內部 (`Redirect`) 還是 Azure 外部 (`Proxy`)。
 
 ## <a name="connectivity-from-within-azure"></a>從 Azure 內部連線
 
@@ -56,14 +56,14 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 閘道 IP 位址
 
-下表依區域列出閘道的 IP 位址。 若要連線到 Azure SQL Database, 您需要允許網路流量從該區域的**所有**閘道 &。
+下表依區域列出閘道的 IP 位址。 若要連線到 Azure SQL Database，您需要允許網路流量從該區域的**所有**閘道 &。
 
-在下列文章中，如何將流量遷移至特定區域中新閘道的詳細資料：[Azure SQL Database 流量遷移至較新的閘道](sql-database-gateway-migration.md)
+如何將流量遷移至特定區域中新閘道的詳細資料，請參閱下列文章： [Azure SQL Database 流量遷移至較新的閘道](sql-database-gateway-migration.md)
 
 
-| 區域名稱          | 閘道 IP 位址 |
+| 地區名稱          | 閘道 IP 位址 |
 | --- | --- |
-| 澳大利亞中部    | 20.36.105.0 |
+| 澳洲中部    | 20.36.105.0 |
 | 澳大利亞 Central2   | 20.36.113.0 |
 | 澳大利亞東部       | 13.75.149.87, 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109, 13.73.109.251 |
@@ -76,7 +76,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 | 中國北部          | 139.219.15.17      |
 | 中國北部 2        | 40.73.50.0         |
 | 東亞            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| 美國東部              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | 美國東部 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | 法國中部       | 40.79.137.0, 40.79.129.1 |
 | 德國中部      | 51.4.144.100       |
@@ -115,7 +115,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 下列腳本需要[Azure PowerShell 模組](/powershell/azure/install-az-ps)。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 下列腳本需要[Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 下列 PowerShell 指令碼會示範如何變更連線原則。
 
@@ -164,7 +164,7 @@ az resource update --ids $ids --set properties.connectionType=Proxy
 > [!IMPORTANT]
 > 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-下列 CLI 腳本顯示如何從 Windows 命令提示字元 (已安裝 Azure CLI) 變更連線原則。
+下列 CLI 腳本顯示如何從 Windows 命令提示字元（已安裝 Azure CLI）變更連線原則。
 
 ```azurecli
 # Get SQL Server ID and set URI

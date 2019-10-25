@@ -1,10 +1,9 @@
 ---
-title: 將現有的 Azure 服務匯流排標準命名空間遷移至高階層 |Microsoft Docs
+title: 遷移 Azure 服務匯流排命名空間-標準至 premium
 description: 允許將現有的 Azure 服務匯流排標準命名空間遷移至 premium 的指南
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: darosa
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69611914"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790385"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>將現有的 Azure 服務匯流排標準命名空間遷移至進階層
 之前，Azure 服務匯流排只會在標準層上提供命名空間。 命名空間是針對低輸送量和開發人員環境優化的多租使用者的設置。 進階層會針對每個命名空間提供專用資源，以獲得可預測的延遲，並以固定價格增加輸送量。 Premium 層已針對需要額外企業功能的高輸送量和生產環境進行優化。
@@ -94,30 +93,30 @@ ms.locfileid: "69611914"
 使用 Azure 入口網站的遷移與使用命令進行遷移的邏輯流程相同。 請遵循下列步驟，使用 Azure 入口網站進行遷移。
 
 1. 在左窗格的**導覽**功能表上，選取 [**遷移至 premium**]。 按一下 [**開始**使用] 按鈕，繼續前往下一個頁面。
-    ![Migration 登陸頁面 ][]
+    ![遷移登陸頁面][]
 
 1. 完成**設定**。
-   ![Setup 命名空間 ][]
+   ![安裝程式命名空間][]
    1. 建立並指派 premium 命名空間，以將現有的標準命名空間遷移至。
-        ![Setup 命名空間-建立 premium 命名空間 ][]
+        ![安裝程式命名空間-建立 premium 命名空間][]
    1. 選擇 [**遷移後的名稱**]。 在完成遷移之後，您將使用此名稱來存取標準命名空間。
-        ![Setup 命名空間-挑選文章遷移後的名稱 ][]
+        ![安裝程式命名空間-挑選文章遷移後的名稱][]
    1. 選取 **[下一步]** 以繼續。
 1. 同步處理 standard 和 premium 命名空間之間的實體。
-    ![Setup 命名空間-同步處理實體-開始 ][]
+    ![安裝程式命名空間-同步處理實體-開始][]
 
    1. 選取 [**開始同步**處理]，開始同步處理實體。
    1. 在對話方塊中選取 **[是**]，確認並啟動同步處理。
    1. 等待同步處理完成。 狀態可在狀態列上取得。
-        ![Setup 命名空間-同步處理實體-進度 ][]
+        ![安裝程式命名空間-同步處理實體-進度][]
         >[!IMPORTANT]
         > 如果您因為任何原因而需要中止遷移，請參閱本檔的常見問題一節中的中止流程。
    1. 同步完成之後，請選取頁面底部的 **[下一步]** 。
 
 1. 查看 [摘要] 頁面上的變更。 選取 [**完成遷移**] 來切換命名空間，並完成遷移。
-    ![Switch 命名空間-切換功能表 ][]  
+    ![交換器命名空間-切換功能表][]  
     當遷移完成時，會出現 [確認] 頁面。
-    ![Switch 命名空間-成功 ][]
+    ![交換器命名空間-成功][]
 
 ## <a name="caveats"></a>需要注意的事項
 
@@ -179,8 +178,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-![Abort 流程-中止同步處理 ][]
- ![Abort 流程-中止完成 ][]
+![中止流程-中止同步處理][]
+![中止流程-中止完成][]
 
 當遷移程式中止時，它會中止將實體（主題、訂用帳戶和篩選）從標準複製到高階命名空間的程式，並中斷配對。
 

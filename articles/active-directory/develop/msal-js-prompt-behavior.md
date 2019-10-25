@@ -1,6 +1,7 @@
 ---
-title: 提示行為中的互動式要求 (Microsoft Authentication Library for JavaScript) |Azure
-description: 了解如何自訂中使用的 Microsoft Authentication Library for JavaScript (MSAL.js) 的互動式呼叫提示的行為。
+title: 互動式要求中的提示行為（適用于 JavaScript 的 Microsoft 驗證程式庫）
+titleSuffix: Microsoft identity platform
+description: 瞭解如何使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL），在互動式呼叫中自訂提示行為。
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,20 +18,20 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd0d736345f312f1a1d6f8f029b41429a3e5f0a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d6c4415a3eeb28c999d95b838c6dd7c0f6e606
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544277"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803023"
 ---
-# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>MSAL.js 互動式要求中的提示行為
+# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>MSAL 中的提示行為互動式要求
 
-當使用者已建立作用中的 Azure AD 與多個使用者帳戶的工作階段時，Azure AD 登入頁面會依預設提示使用者選取帳戶，才能繼續登入。 使用者看不到如果只有單一驗證的工作階段與 Azure AD 會遇到帳戶選取項目。
+當使用者使用多個使用者帳戶建立 active Azure AD 會話時，Azure AD 登入 頁面預設會提示使用者選取帳戶，然後再繼續登入。 如果只有一個已驗證的會話與 Azure AD，則使用者不會看到帳戶選取體驗。
 
-MSAL.js 程式庫 （從 v0.2.4） 不會傳送互動式要求期間的提示參數 (`loginRedirect`， `loginPopup`，`acquireTokenRedirect`和`acquireTokenPopup`)，並因此不會強制使用任何提示的行為。 使用無訊息的權杖要求`acquireTokenSilent`方法，MSAL.js 傳遞提示的參數設定為`none`。
+MSAL 程式庫（從 v 0.2.4 開始）不會在互動式要求（`loginRedirect`、`loginPopup`、`acquireTokenRedirect` 和 `acquireTokenPopup`）期間傳送提示參數，因此不會強制執行任何提示行為。 針對使用 `acquireTokenSilent` 方法的無訊息 token 要求，MSAL 會將提示參數設定為 `none`。
 
-根據您的應用程式案例，您可以控制中的要求參數的提示參數傳遞給方法的互動式要求所設定的提示行為。 例如，如果您想要叫用的帳戶選取項目體驗：
+根據您的應用程式案例，您可以在傳遞給方法的要求參數中設定 prompt 參數，以控制互動式要求的提示行為。 例如，如果您想要叫用帳戶選取體驗：
 
 ```javascript
 var request = {
@@ -42,16 +43,16 @@ userAgentApplication.loginRedirect(request);
 ```
 
 
-向 Azure AD 進行驗證時，可以傳遞下列提示的值：
+使用 Azure AD 進行驗證時，可以傳遞下列提示值：
 
-**登入：** 這個值會強制使用者在驗證要求上輸入認證。
+**登入：** 此值會強制使用者輸入驗證要求的認證。
 
-**select_account:** 這個值會為使用者提供與工作階段中列出的所有帳戶的帳戶選取項目體驗。
+**select_account：** 這個值會提供使用者一個帳戶選取體驗，列出會話中的所有帳戶。
 
-**同意：** 這個值會叫用可讓使用者應用程式的權限授與 OAuth 同意對話方塊。
+**同意：** 此值將會叫用 OAuth 同意對話方塊，讓使用者授與許可權給應用程式。
 
-**None:** 此值可確保使用者不會看到任何互動式提示。 建議您未將此值傳遞至 MSAL.js 中的互動式方法，因為它會對非預期的行為。 請改用`acquireTokenSilent`達到無訊息呼叫的方法。
+**無：** 此值可確保使用者看不到任何互動式提示。 建議您不要將此值傳遞至 MSAL 中的互動式方法，因為它可能會有未預期的行為。 相反地，請使用 `acquireTokenSilent` 方法來達到無訊息呼叫。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解`prompt`中的參數[OAuth 2.0 隱含授權](v2-oauth2-implicit-grant-flow.md)哪些 MSAL.js 程式庫會使用的通訊協定。
+深入瞭解 MSAL 的[OAuth 2.0 隱含授](v2-oauth2-implicit-grant-flow.md)與通訊協定中的 `prompt` 參數，其使用。

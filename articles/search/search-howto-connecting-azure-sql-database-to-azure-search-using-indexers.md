@@ -1,29 +1,28 @@
 ---
-title: 與 Azure SQL Database 連線並使用索引子為內容編製索引 - Azure 搜尋服務
-description: 了解如何為 Azure 搜尋服務中的全文檢索搜尋使用索引子，在 Azure SQL Database 中搜耙資料。 本文涵蓋連線、索引子設定以及資料擷取。
-ms.date: 05/02/2019
-author: mgottein
+title: 使用索引子連接 Azure SQL Database 內容並為其編制索引
+titleSuffix: Azure Cognitive Search
+description: 使用索引子從 Azure SQL Database 匯入資料，以在 Azure 認知搜尋中進行全文檢索搜尋。 本文涵蓋連線、索引子設定以及資料擷取。
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656225"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792201"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>使用 Azure 認知搜尋索引子連接到 Azure SQL Database 內容並為其編制索引
 
-您必須先填入資料，才能搜尋 [Azure 搜尋服務索引](search-what-is-an-index.md)。 如果資料已存在於 Azure SQL 資料庫中，**適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**) 就能將編製索引的程序自動化，這表示可減少編寫程式碼的工作，並減少需要處理的基礎結構。
+您必須先填入資料，才可以查詢[Azure 認知搜尋索引](search-what-is-an-index.md)。 如果資料位於 Azure SQL 資料庫中，**適用于 Azure SQL Database 的 Azure 認知搜尋索引子**（或簡稱**Azure SQL 索引子**）可以自動化編制索引程式，這表示較少的程式碼會寫入，而不是要在意的基礎結構。
 
 本文不僅介紹使用[索引子](search-indexer-overview.md)的機制，也會說明只在 Azure SQL 資料庫上出現的功能 (例如，整合變更追蹤)。 
 
-除了 Azure SQL 資料庫，Azure 搜尋服務也會針對 [Azure Cosmos DB](search-howto-index-cosmosdb.md)、[Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md) 及 [Azure 表格儲存體](search-howto-indexing-azure-tables.md)提供索引子。 如需其他資料來源的支援，請在 [Azure 搜尋服務意見反應論壇](https://feedback.azure.com/forums/263029-azure-search/) \(英文\) 上提供您的寶貴意見。
+除了 Azure SQL 資料庫以外，Azure 認知搜尋還提供[Azure Cosmos DB](search-howto-index-cosmosdb.md)、 [azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)和[azure 資料表儲存體](search-howto-indexing-azure-tables.md)的索引子。 若要要求其他資料來源的支援，請在[Azure 認知搜尋意見反應論壇](https://feedback.azure.com/forums/263029-azure-search/)上提供您的意見反應。
 
 ## <a name="indexers-and-data-sources"></a>索引子和資料來源
 
@@ -40,8 +39,8 @@ ms.locfileid: "69656225"
 您可以使用下列方式安裝及設定 Azure SQL 索引子︰
 
 * [Azure 入口網站](https://portal.azure.com)中的匯入資料精靈
-* Azure 搜尋服務 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure 搜尋服務 [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
+* Azure 認知搜尋[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure 認知搜尋[REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 在本文中，我們將使用 REST API 來建立**索引子**與**資料來源**。
 
@@ -51,12 +50,12 @@ ms.locfileid: "69656225"
 | 準則 | 詳細資料 |
 |----------|---------|
 | 資料來自單一資料表或檢視 | 如果資料散布在多個資料表中，您可以建立資料的單一檢視。 但是，如果您使用檢視，就不能使用 SQL Server 整合變更偵測，使用累加的變更來重新整理索引。 如需詳細資訊，請參閱下列的[擷取變更及刪除的資料列](#CaptureChangedRows)。 |
-| 資料類型是可相容的 | Azure 搜尋服務索引中支援大部分但並非所有的 SQL 類型。 如需清單，請參閱[對應資料類型](#TypeMapping)。 |
+| 資料類型是可相容的 | Azure 認知搜尋索引中支援大部分但並非所有的 SQL 類型。 如需清單，請參閱[對應資料類型](#TypeMapping)。 |
 | 不需要即時同步處理資料 | 索引子最多可以每隔五分鐘重新編製資料表的索引。 若您經常變更資料，且變更需要在幾秒或幾分鐘內反映到索引中，我們建議您使用 [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) 或 [.NET SDK](search-import-data-dotnet.md)，直接推送更新的資料列。 |
-| 累加式編製索引是可行的 | 若您擁有大量資料集且計畫按照排程執行索引子，Azure 搜尋服務必須能夠有效識別新增、變更或刪除的資料列。 如果您會視需要 (而非排程) 編製索引，或要編製索引的資料列少於 100,000 個，則僅允許進行非累加的編製索引。 如需詳細資訊，請參閱下列的[擷取變更及刪除的資料列](#CaptureChangedRows)。 |
+| 累加式編製索引是可行的 | 如果您有大型資料集，並打算依照排程執行索引子，Azure 認知搜尋必須能夠有效率地識別新的、已變更或已刪除的資料列。 如果您會視需要 (而非排程) 編製索引，或要編製索引的資料列少於 100,000 個，則僅允許進行非累加的編製索引。 如需詳細資訊，請參閱下列的[擷取變更及刪除的資料列](#CaptureChangedRows)。 |
 
 > [!NOTE] 
-> Azure 搜尋服務僅支援 SQL Server 驗證。 如果您需要 Azure Active Directory 密碼驗證的支援，請針對這個 [UserVoice 建議](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)進行投票。
+> Azure 認知搜尋僅支援 SQL Server 驗證。 如果您需要 Azure Active Directory 密碼驗證的支援，請針對這個 [UserVoice 建議](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)進行投票。
 
 ## <a name="create-an-azure-sql-indexer"></a>建立 Azure SQL 索引子
 
@@ -77,7 +76,7 @@ ms.locfileid: "69656225"
 
    您可以從 [Azure 入口網站](https://portal.azure.com)取得連接字串；使用 `ADO.NET connection string` 選項。
 
-2. 建立目標 Azure 搜尋服務索引 (如果您尚未建立)。 您可以使用[入口網站](https://portal.azure.com)或[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 來建立索引。 請確定目標索引的結構描述可與來源資料表的結構描述相容 - 請參閱 [SQL 和 Azure 搜尋服務資料類型之間的對應](#TypeMapping)。
+2. 建立目標 Azure 認知搜尋索引（如果您還沒有的話）。 您可以使用[入口網站](https://portal.azure.com)或[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 來建立索引。 請確定目標索引的架構與來源資料表的架構相容-請參閱[SQL 和 Azure 認知搜尋資料類型之間的對應](#TypeMapping)。
 
 3. 利用命名及參考資料來源和目標索引來建立索引子：
 
@@ -158,18 +157,18 @@ ms.locfileid: "69656225"
 
 **間隔** 參數是必需的。 間隔指兩個連續索引子開始執行的時間。 允許的最小間隔為 5 分鐘；最長間隔為一天。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 間隔的模式為： `P(nD)(T(nH)(nM))`。 範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
 
-如需定義索引子排程的詳細資訊, 請參閱[如何排定 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
+如需定義索引子排程的詳細資訊，請參閱[如何排定 Azure 認知搜尋的索引子](search-howto-schedule-indexers.md)。
 
 <a name="CaptureChangedRows"></a>
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>擷取新增、變更和刪除的資料列
 
-Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子執行時必須重新編製整個資料表或檢視的索引。 Azure 搜尋服務提供兩個變更偵測原則來支援累加式編製索引。 
+Azure 認知搜尋會使用累加**式編制索引**，以避免每次執行索引子時都必須重新編制整個資料表或視圖的索引。 Azure 認知搜尋提供兩個變更偵測原則，以支援累加式編制索引。 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 整合變更追蹤原則
-如果您的 SQL 資料庫支援 [變更追蹤](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)，則建議您使用 **SQL 整合式變更追蹤原則**。 這是最有效率的原則。 此外，它可讓 Azure 搜尋服務識別出已刪除的資料列，而不需在資料表中加入明確的「虛刪除」資料行。
+如果您的 SQL 資料庫支援 [變更追蹤](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)，則建議您使用 **SQL 整合式變更追蹤原則**。 這是最有效率的原則。 此外，它可讓 Azure 認知搜尋識別已刪除的資料列，而不需在資料表中加入明確的「虛刪除」資料行。
 
-#### <a name="requirements"></a>需求 
+#### <a name="requirements"></a>要求 
 
 + 資料庫版本需求：
   * SQL Server 2012 SP3 和更新版本 (若您在 Azure VM 上使用 SQL Server)。
@@ -178,7 +177,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 + 在資料庫上，針對資料表[啟用變更追蹤](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)。 
 + 資料表上沒有複合主索引鍵 (主索引鍵包含一個以上的資料行)。  
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 若要使用此原則，請以下列方式建立或更新您的資料來源：
 
@@ -203,9 +202,9 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 
 這個變更偵測原則依賴在上次更新資料列時擷取版本或時間的「上限標準」資料行。 若您使用檢視，就必須使用上限標準原則。 上限標準資料行必須符合下列需求。
 
-#### <a name="requirements"></a>需求 
+#### <a name="requirements"></a>要求 
 
-* 所有插入都有指定資料行的值。
+* 所有插入都指定資料行的值。
 * 所有項目更新變更資料行的值。
 * 每次插入或更新都會增加此資料行的值。
 * 具有下列 WHERE 和 ORDER BY 子句的查詢可以有效率地執行︰`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
@@ -213,7 +212,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 > [!IMPORTANT] 
 > 我們強烈建議針對上限標記資料行使用 [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) 資料類型。 如果使用其他任何資料類型，就無法保證變更追蹤會擷取與索引子查詢同時執行之交易中發生的所有變更。 在具備唯讀複本的設定中使用 **rowversion** 時，您必須指向主要複本上的索引子。 只有主要複本可用於資料同步處理案例。
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 若要使用高標原則，請以下列方式建立或更新您的資料來源：
 
@@ -229,7 +228,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
     }
 
 > [!WARNING]
-> 如果來源資料表沒有上限標準資料行的索引，SQL 索引子所使用的查詢可能會逾時。特別是，當資料表包含許多資料列時，`ORDER BY [High Water Mark Column]` 子句需要索引才能有效率地執行。
+> 如果來源資料表沒有上限標記資料行上的索引，SQL 索引子所使用的查詢可能會超時。特別是，當資料表包含許多資料列時，`ORDER BY [High Water Mark Column]` 子句需要索引才能有效率地執行。
 >
 >
 
@@ -250,9 +249,9 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
     }
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>虛刪除資料行刪除偵測原則
-當從來源資料表中刪除資料列時，您應該也想刪除在搜尋索引內的那些資料列。 若您使用 SQL 整合變更追蹤原則，就能幫您處理這件工作。 但是，上限標準變更追蹤原則無法幫助您刪除資料列。 怎麼辦？
+當從來源資料表中刪除資料列時，您應該也想刪除在搜尋索引內的那些資料列。 若您使用 SQL 整合變更追蹤原則，就能幫您處理這件工作。 但是，上限標準變更追蹤原則無法幫助您刪除資料列。 該怎麼做？
 
-若資料列已實際從資料表內移除，Azure 搜尋服務便無法推斷出不復存在的記錄。  不過，您可以使用「虛刪除」技術，以邏輯方式刪除資料列，而不需從資料表加以移除。 在資料表或檢視中新增資料行，並使用該資料行將資料列標記為已刪除。
+如果資料列已實際從資料表中移除，Azure 認知搜尋無法推斷已不存在的記錄存在。  不過，您可以使用「虛刪除」技術，以邏輯方式刪除資料列，而不需從資料表加以移除。 在資料表或檢視中新增資料行，並使用該資料行將資料列標記為已刪除。
 
 當您使用虛刪除技術時，可以在建立或升級資料來源時，按照下列方式指定虛刪除原則：
 
@@ -269,14 +268,14 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-and-azure-search-data-types"></a>SQL 與 Azure 搜尋服務資料類型之間的對應
+## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>SQL 與 Azure 認知搜尋資料類型之間的對應
 | SQL 資料類型 | 允許的目標索引欄位類型 | 注意 |
 | --- | --- | --- |
 | bit |Edm.Boolean、Edm.String | |
 | int、smallint、tinyint |Edm.Int32、Edm.Int64、Edm.String | |
-| Bigint |Edm.Int64、Edm.String | |
+| bigint |Edm.Int64、Edm.String | |
 | real、float |Edm.Double、Edm.String | |
-| smallmoney、money 十進位數值 |Edm.String |Azure 搜尋服務不支援將十進位類型轉換為 Edm.Double，因為這麼做會降低準確度。 |
+| smallmoney、money 十進位數值 |Edm.String |Azure 認知搜尋不支援將十進位類型轉換成 Edm。 Double，因為這會遺失有效位數 |
 | char、nchar、varchar、nvarchar |Edm.String<br/>Collection(Edm.String) |如果 SQL 字串代表下列 JSON 字串陣列，該字串可用來填入 Collection(Edm.String) 欄位：`["red", "white", "blue"]` |
 | smalldatetime、datetime、datetime2、date、datetimeoffset |Edm.DateTimeOffset、Edm.String | |
 | uniqueidentifer |Edm.String | |
@@ -287,7 +286,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 ## <a name="configuration-settings"></a>組態設定
 SQL 索引子公開數個組態設定︰
 
-| 設定 | 資料類型 | 用途 | 預設值 |
+| 設定 | Data type | 目的 | 預設值 |
 | --- | --- | --- | --- |
 | queryTimeout |string |設定 SQL 查詢執行的逾時 |5 分鐘 ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |導致上限標準原則所使用的 SQL 查詢省略 ORDER BY 子句。 請參閱[上限標準原則](#HighWaterMarkPolicy) |false |
@@ -304,29 +303,29 @@ SQL 索引子公開數個組態設定︰
 
 **問：我可以在 Azure 中搭配在 IaaS VM 上執行的 SQL 資料庫，使用 Azure SQL 索引子嗎？**
 
-是的。 不過，您需要允許搜尋服務連接到資料庫。 如需詳細資訊，請參閱[在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。
+可以。 不過，您需要允許搜尋服務連接到資料庫。 如需詳細資訊，請參閱在[AZURE VM 上設定從 Azure 認知搜尋索引子到 SQL Server 的連接](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。
 
 **問：我可以搭配在內部部署執行的 SQL 資料庫，使用 Azure SQL 索引子嗎？**
 
-無法直接進行。 我們不建議或不支援直接連線，因為這樣做需要您開啟資料庫以接收網際網路流量。 客戶需要使用像是 Azure Data Factory 的橋接器技術，才能成功執行此案例。 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料推送到 Azure 搜尋服務索引](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)。
+無法直接進行。 我們不建議或不支援直接連線，因為這樣做需要您開啟資料庫以接收網際網路流量。 客戶需要使用像是 Azure Data Factory 的橋接器技術，才能成功執行此案例。 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料推送至 Azure 認知搜尋索引](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)。
 
 **問：在 Azure 上，除了在 IaaS 中執行的 SQL Server，能夠搭配其他資料庫使用 Azure SQL 索引子嗎？**
 
-資料分割 我們不支援這類案例，因為我們尚未使用 SQL Server 以外的資料庫來測試索引子。  
+不會。 我們不支援這類案例，因為我們尚未使用 SQL Server 以外的資料庫來測試索引子。  
 
 **問：可以建立多個依照排程執行的索引子嗎？**
 
-是的。 但是一次只能在一個節點上執行一個索引子。 如果您需要多個同時執行的索引子，請考慮將搜尋服務調整大於一個搜尋單位。
+可以。 但是一次只能在一個節點上執行一個索引子。 如果您需要多個同時執行的索引子，請考慮將搜尋服務調整大於一個搜尋單位。
 
 **問：執行索引子會影響我的查詢工作負載嗎？**
 
-是的。 索引子會在您搜尋服務中的其中一個節點執行，且節點上的資源會在索引及服務查詢流量和其他 API 要求之間共用。 如果您密集執行索引及查詢工作負載，且經常遇到 503 錯誤或回應次數增加，請考慮[調整您的搜尋服務](search-capacity-planning.md)。
+可以。 索引子會在您搜尋服務中的其中一個節點執行，且節點上的資源會在索引及服務查詢流量和其他 API 要求之間共用。 如果您密集執行索引及查詢工作負載，且經常遇到 503 錯誤或回應次數增加，請考慮[調整您的搜尋服務](search-capacity-planning.md)。
 
 **問：是否可以在[容錯移轉叢集](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)中使用次要複本作為資料來源？**
 
-這要看狀況。 針對完整編製索引的資料表或檢視，您可以使用次要複本。 
+視情況而定。 針對完整編製索引的資料表或檢視，您可以使用次要複本。 
 
-針對累加式編製索引，Azure 搜尋服務支援兩個變更偵測原則：SQL 整合變更追蹤與上限標準。
+針對累加式編制索引，Azure 認知搜尋支援兩種變更偵測原則： SQL 整合式變更追蹤和上限標準。
 
 在唯讀複本中，SQL 資料庫不支援整合變更追蹤。 因此，您必須使用上限標準原則。 
 
@@ -340,6 +339,6 @@ SQL 索引子公開數個組態設定︰
 
 我們不建議這樣做。 僅允許使用 **rowversion** 進行可靠的資料同步處理。 不過，根據您的應用程式邏輯而定，如果符合下列情況，則它可能是安全：
 
-+ 您可以確保在索引子執行時，已編製索引的資料表上沒有任何未完成的交易 (例如，所有資料表更新均會在排程中以批次形式執行，以及已設定 Azure 搜尋服務索引子排程以防止與資料表更新排程重疊)。  
++ 您可以確保在索引子執行時，資料表上沒有已編制索引的未完成交易（例如，所有資料表更新都是以批次的排程方式進行，而 Azure 認知搜尋索引子排程則設定為避免與資料表重迭）更新排程）。  
 
 + 您會定期進行完整的重新編製索引，以挑選出任何遺失的資料列。 

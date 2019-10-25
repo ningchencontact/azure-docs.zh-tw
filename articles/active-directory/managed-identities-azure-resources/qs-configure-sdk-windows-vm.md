@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/28/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29446f6f0a86a00cc92fe46211caddd22aaa4859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4f5a26f240656911fb9627d273de8b69edff6a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112569"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809163"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>使用 Azure SDK 以 Azure 資源管理的受控識別設定 VM
 
@@ -44,7 +44,7 @@ Azure 透過一系列的 [Azure SDK](https://azure.microsoft.com/downloads) 來�
 | Java   | [從 Azure 資源的受控識別啟用的虛擬機器管理儲存體](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [建立已啟用系統指派受控識別的虛擬機器](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [建立已啟用系統指派受控識別的虛擬機器](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [建立已啟用系統指派身分識別的 Azure VM](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| 拼音   | [建立已啟用系統指派身分識別的 Azure VM](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>後續步驟
 

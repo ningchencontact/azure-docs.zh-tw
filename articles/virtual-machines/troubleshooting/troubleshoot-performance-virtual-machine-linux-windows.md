@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170287"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790869"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>執行 Linux 或 Windows 的 Azure 虛擬機器的一般效能疑難排解
 
-本文說明透過監視和觀察瓶頸的虛擬機器（VM）一般效能疑難排解，並針對可能發生的問題提供可能的補救措施。
+本文說明透過監視和觀察瓶頸的虛擬機器（VM）一般效能疑難排解，並針對可能發生的問題提供可能的補救措施。 除了監視，您也可以使用 Perfinsights，它可以提供具有最佳做法建議的報告，以及 IO/CPU/記憶體的關鍵瓶頸。 Perfinsights 適用于 Azure 中的[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights)和[Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM。
+
+本文將逐步解說如何使用監視來診斷效能瓶頸。
 
 ## <a name="enabling-monitoring"></a>啟用監視
 
@@ -34,32 +36,55 @@ ms.locfileid: "72170287"
  
 ### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>透過 microsoft Azure 入口網站啟用 VM 診斷
 
-若要啟用 VM 診斷，請移至 VM，按一下 [**設定**]，然後按一下 [**診斷**]。
+若要啟用 VM 診斷：
 
-![依序按一下 [設定] 和 [診斷]](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. 移至 VM
+2. 按一下 [**診斷設定**]
+3. 選取儲存體帳戶，然後按一下 [**啟用來賓層級監視**]。
+
+   ![依序按一下 [設定] 和 [診斷]](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+您可以從 [**診斷設定**] 下的 [**代理**程式] 索引標籤中，檢查用於診斷設定的儲存體帳戶。
+
+![檢查儲存體帳戶](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>透過 Azure 入口網站啟用儲存體帳戶診斷
 
-首先，藉由選取 VM 來識別您的 VM 所使用的儲存體帳戶（或帳戶）。 按一下 [**設定**]，然後按一下 [**磁片**]：
+當我們想要分析 Azure 中虛擬機器的 IO 效能時，儲存體是非常重要的一層。 針對儲存體相關的計量，我們需要啟用診斷做為額外的步驟。 如果我們只想要分析儲存體相關的計數器，也可以啟用此功能。
 
-![依序按一下 [設定]、[磁片]](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. 藉由選取 VM，識別您 VM 所使用的儲存體帳戶（或帳戶）。 按一下 [**設定**]，然後按一下 [**磁片**]：
 
-在入口網站中，移至 VM 的儲存體帳戶（或帳戶），然後執行下列步驟：
+   ![依序按一下 [設定]、[磁片]](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![選取 Blob 計量](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. 選取 [**所有設定**]。
-2. 開啟診斷。
-3. 選取 [  **Blob*計量*]，並將 [保留] 設定為**30**天。
-4. 儲存變更。
+2. 在入口網站中，移至 VM 的儲存體帳戶（或帳戶），然後執行下列步驟：
+
+   1. 針對您在上面的步驟中找到的儲存體帳戶按一下 [總覽]。
+   2. 會顯示預設計量。 
+
+    ![預設度量](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. 按一下任何計量，將會顯示另一個具有更多選項的分頁來設定及新增計量。
+
+   ![Add metrics](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+若要設定這些選項：
+
+1.  選取 [計量]。
+2.  選取**資源**（儲存體帳戶）。
+3.  選取**命名空間**
+4.  選取 [**度量**]。
+5.  選取**匯總**的類型
+6.  您可以在儀表板上釘選此視圖。
 
 ## <a name="observing-bottlenecks"></a>觀察瓶頸
+
+當我們完成所需計量的初始設定程式，並在啟用 VM 和相關儲存體帳戶的診斷後，我們就可以轉移到分析階段。
 
 ### <a name="accessing-the-monitoring"></a>存取監視
 
 選取您想要調查的 Azure VM，然後選取 [**監視**]。
 
-![選取監視](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![選取監視](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>觀察的時間軸
 
@@ -67,11 +92,11 @@ ms.locfileid: "72170287"
 
 ### <a name="check-for-cpu-bottleneck"></a>檢查 CPU 瓶頸
 
-![檢查 CPU 瓶頸](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![檢查 CPU 瓶頸](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. 編輯圖形。
 2. 設定時間範圍。
-3. 接著，您必須在計數器中新增：CPU 百分比的客體作業系統
+3. 接著，您必須在計數器中新增： CPU 百分比的客體作業系統
 4. 儲存。
 
 ### <a name="cpu-observe-trends"></a>CPU 觀察趨勢
@@ -93,7 +118,9 @@ Artificial spiking – Artificial spiking 可能與已排程的工作/已知事�
 * 若要立即降低，請將 VM 的大小增加到具有更多核心的大小
 * 瞭解問題–尋找應用程式/進程，並據以進行疑難排解。
 
-如果您已增加 VM，而且 CPU 仍在執行 95%，請判斷此設定是否提供較佳的效能，或更高的應用程式輸送量至可接受的層級。 如果不是，請針對個別 application\process. 進行疑難排解
+如果您已增加 VM，而且 CPU 仍在執行95%，請判斷此設定是否提供較佳的效能，或更高的應用程式輸送量至可接受的層級。 如果不是，請針對個別 application\process. 進行疑難排解
+
+您可以使用適用于[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights)或[Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux)的 Perfinsights 來分析哪個進程會驅動 CPU 耗用量。 
 
 ## <a name="check-for-memory-bottleneck"></a>檢查記憶體瓶頸
 
@@ -112,7 +139,7 @@ Artificial spiking – Artificial spiking 可能與已排程的工作/已知事�
 
 穩定增加的耗用量–可能是應用程式的「準備」，這種耗用量在資料庫引擎啟動時很常見。 不過，它也可能是應用程式中記憶體流失的跡象。 識別應用程式，並瞭解是否預期行為。
 
-頁面或交換檔案使用方式–請檢查您是否使用 Windows 分頁檔案（位於 D： \) 或 Linux 交換檔案（位於 `/dev/sdb`）是否大量使用。 如果您沒有這些檔案的任何內容，請檢查這些磁片上的高讀取/寫入。 這個問題表示記憶體不足的情況。
+頁面或交換檔案使用方式–請檢查您是否使用 Windows 分頁檔案（位於 D：\) 或 Linux 交換檔案（位於 `/dev/sdb`上）是否大量使用。 如果您沒有這些檔案的任何內容，請檢查這些磁片上的高讀取/寫入。 這個問題表示記憶體不足的情況。
 
 ### <a name="high-memory-utilization-remediation"></a>高記憶體使用量補救
 
@@ -122,11 +149,15 @@ Artificial spiking – Artificial spiking 可能與已排程的工作/已知事�
 * 瞭解問題–找出應用程式/進程和疑難排解，以識別高耗用量記憶體應用程式。
 * 如果您知道應用程式，請查看記憶體配置是否可為上限。
 
-如果升級至較大的 VM 之後，您發現仍有持續穩定的增加，直到 100%、識別應用程式/進程和疑難排解。
+如果升級至較大的 VM 之後，您發現仍有持續穩定的增加，直到100%、識別應用程式/進程和疑難排解。
+
+您可以使用適用于[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights)或[Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux)的 Perfinsights 來分析哪個進程正在驅動記憶體耗用量。 
 
 ## <a name="check-for-disk-bottleneck"></a>檢查磁碟瓶頸
 
 若要檢查 VM 的儲存子系統，請使用 VM 診斷中的計數器，以及儲存體帳戶診斷來檢查 Azure VM 層級的診斷。
+
+針對 VM 特定的疑難排解，您可以使用適用于[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights)或[Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux)的 Perfinsights，這有助於分析正在驅動 IO 的進程。 
 
 請注意，我們沒有適用于區域多餘和進階儲存體帳戶的計數器。 對於與這些計數器相關的問題，請提出支援案例。
 
@@ -134,7 +165,7 @@ Artificial spiking – Artificial spiking 可能與已排程的工作/已知事�
 
 若要處理下列專案，請在入口網站中移至 VM 的儲存體帳戶：
 
-![在監視中查看儲存體帳戶診斷](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![在監視中查看儲存體帳戶診斷](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. 編輯監視圖形。
 2. 設定時間範圍。
@@ -147,11 +178,11 @@ Artificial spiking – Artificial spiking 可能與已排程的工作/已知事�
 
 針對以下每個檢查，尋找問題發生時的主要趨勢。
 
-#### <a name="check-azure-storage-availability--add-the-storage-account-metric-availability"></a>檢查 azure 儲存體可用性-新增儲存體帳戶度量：可用性
+#### <a name="check-azure-storage-availability--add-the-storage-account-metric-availability"></a>檢查 Azure 儲存體可用性-新增儲存體帳戶度量：可用性
 
 如果您看到 [可用性] 已下降，可能是平臺發生問題，請檢查[Azure 狀態](https://azure.microsoft.com/status/)。 如果沒有顯示任何問題，請提出新的支援要求。
 
-#### <a name="check-for-azure-storage-timeout---add-the-storage-account-metrics"></a>檢查 azure 儲存體是否已超時-新增儲存體帳戶計量：
+#### <a name="check-for-azure-storage-timeout---add-the-storage-account-metrics"></a>檢查 Azure 儲存體是否已超時-新增儲存體帳戶計量：
 
 * ClientTimeOutError
 * ServerTimeOutError
@@ -165,7 +196,7 @@ TimeOutErrors 中的 AverageServerLatency 會同時增加，可能是平臺問�
 
 AverageE2ELatency 代表用戶端延遲。 確認應用程式正在執行 IOPS 的方式。 尋找增加或持續的高 TotalRequests 度量。 此度量代表 IOPS。 如果您要開始達到儲存體帳戶或單一 VHD 的限制，延遲可能會與節流相關。
 
-#### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>檢查 Azure 儲存體節流-新增儲存體帳戶計量：ThrottlingError
+#### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>檢查 Azure 儲存體節流-新增儲存體帳戶計量： ThrottlingError
 
 「節流」的值表示您正在進行儲存體帳戶層級的節流處理，這表示您已達到帳戶的 IOPS 限制。 您可以檢查 [計量] **TotalRequests**，判斷是否達到 IOPs 閾值。
 
@@ -175,11 +206,15 @@ AverageE2ELatency 代表用戶端延遲。 確認應用程式正在執行 IOPS �
 
 若要識別您是否達到 IOPS 限制，請移至儲存體帳戶診斷並檢查 TotalRequests，並查看是否接近 20000 TotalRequests。 識別模式中的變更，不論您是第一次看到限制，或在特定時間是否發生此限制。
 
+透過標準儲存體下的新磁片供應專案，IOPS 和輸送量限制可能不同，但標準儲存體帳戶的累計限制為 20000 IOPS （Premium 儲存體在帳戶或磁片層級有不同的限制）。 深入瞭解不同的標準儲存體磁片供應專案和每個磁片的限制：
+
+* [Windows 上 VM 磁片的擴充性和效能目標](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets)。
+
 #### <a name="references"></a>參考
 
 * [虛擬機器磁片的擴充性目標](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
 
-儲存體帳戶的頻寬是以儲存體帳戶計量來測量：TotalIngress 和 TotalEgress。 根據您的冗余和區欄位型別而定，您的頻寬會有不同的閾值。
+儲存體帳戶的頻寬是以儲存體帳戶計量來測量： TotalIngress 和 TotalEgress。 根據您的冗余和區欄位型別而定，您的頻寬會有不同的閾值。
 
 * [Blob、佇列、資料表和檔案的擴充性目標](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
 
@@ -187,7 +222,9 @@ AverageE2ELatency 代表用戶端延遲。 確認應用程式正在執行 IOPS �
 
 檢查連接至 VM 之 Vhd 的輸送量限制。 新增 VM 計量磁片讀取和寫入。
 
-每個 VHD 最多可支援 60 MB/秒（IOPS 不會針對每個 VHD 公開）。 查看資料，查看您是否已達到 VM 層級的 VHD 結合輸送量 MB 的限制（使用磁片讀取和寫入），然後將您的 VM 存放裝置設定優化，以調整超過單一 VHD 限制。
+標準儲存體下的新磁片供應專案有不同的 IOPS 和輸送量限制（IOPS 不會針對每個 VHD 公開）。 查看資料，查看您是否已達到 VM 層級的 VHD 結合輸送量 MB 的限制（使用磁片讀取和寫入），然後將您的 VM 存放裝置設定優化，以調整超過單一 VHD 限制。 深入瞭解不同的標準儲存體磁片供應專案和每個磁片的限制：
+
+* [Windows 上 VM 磁片的擴充性和效能目標](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets)。
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>高磁片使用率/延遲修復
 
