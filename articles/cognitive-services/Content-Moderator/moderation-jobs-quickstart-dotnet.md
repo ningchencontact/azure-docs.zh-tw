@@ -3,19 +3,19 @@ title: 使用 .NET 進行審核作業-內容仲裁
 titleSuffix: Azure Cognitive Services
 description: 使用內容仲裁 .NET SDK，針對 Azure 內容仲裁中的影像或文字內容起始端對端內容審核作業。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: c6925b979e5a93a2d73c2d6e8ac48f62714a5cd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242892"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757331"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>定義和使用審核作業（.NET）
 
@@ -240,7 +240,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 ```
 
 > [!NOTE]
-> 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
+> Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
 >
 > 免費層金鑰有一個 RPS 速率限制。
 
