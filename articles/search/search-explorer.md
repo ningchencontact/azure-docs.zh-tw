@@ -1,26 +1,25 @@
 ---
-title: 使用搜尋瀏覽器工具來查詢 Azure 入口網站 Azure 搜尋服務中的資料
-description: 搜尋瀏覽器內建于 Azure 入口網站中，適用于在 Azure 搜尋服務中探索內容和驗證查詢。 輸入詞彙或片語搜尋的字串，或使用 advanced 語法的完整搜尋運算式。
+title: 使用搜尋瀏覽器工具來查詢 Azure 入口網站中的資料
+titleSuffix: Azure Cognitive Search
+description: 搜尋瀏覽器內建于 Azure 入口網站中，適用于在 Azure 認知搜尋中探索內容和驗證查詢。 輸入詞彙或片語搜尋的字串，或使用 advanced 語法的完整搜尋運算式。
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178146"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792954"
 ---
-# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>在 Azure 入口網站中使用 [搜尋瀏覽器] 來查詢檔 Azure 搜尋服務 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>在 Azure 入口網站中使用搜尋瀏覽器來查詢 Azure 認知搜尋中的檔 
 
-本文說明如何在 Azure 入口網站中使用**搜尋總管**查詢現有的 Azure 搜尋服務索引。 您可以從命令列啟動 [搜尋瀏覽器]，將簡單或完整的 Lucene 查詢運算式提交至服務中任何現有的索引。 
+本文說明如何使用 Azure 入口網站中的 **搜尋瀏覽器** 來查詢現有的 Azure 認知搜尋索引。 您可以從命令列啟動 [搜尋瀏覽器]，將簡單或完整的 Lucene 查詢運算式提交至服務中任何現有的索引。 
 
-   ![入口網站中的搜尋總管命令](./media/search-explorer/search-explorer-cmd2.png "入口網站中的搜尋總管命令")
+   ![入口網站中的搜尋瀏覽器命令](./media/search-explorer/search-explorer-cmd2.png "入口網站中的搜尋瀏覽器命令")
 
 ## <a name="basic-search-strings"></a>基本搜尋字串
 
@@ -42,7 +41,7 @@ ms.locfileid: "71178146"
 
 ### <a name="example-2---free-text-search"></a>範例 2 - 任意文字搜尋
 
-自由格式查詢 (包含或不包含運算子) 可用於模擬從自訂應用程式傳送至 Azure 搜尋服務的使用者定義查詢。 請注意，當您提供查詢字詞或運算式時，搜尋排名可派上用場。 以下透過範例說明任意文字搜尋。
+自由格式查詢（不論是否有運算子）適用于模擬從自訂應用程式傳送到 Azure 認知搜尋的使用者定義查詢。 請注意，當您提供查詢字詞或運算式時，搜尋排名可派上用場。 以下透過範例說明任意文字搜尋。
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -52,7 +51,7 @@ ms.locfileid: "71178146"
 
    您可以使用 Ctrl-F 來搜尋結果中感興趣的特定字詞。
 
-   ![任意文字查詢範例](./media/search-explorer/search-explorer-example-freetext.png "任意文字查詢範例")
+   ![自由文字查詢範例](./media/search-explorer/search-explorer-example-freetext.png "自由文字查詢範例")
 
 ### <a name="example-3---count-of-matching-documents"></a>範例 3 - 相符文件的計數 
 
@@ -63,7 +62,7 @@ ms.locfileid: "71178146"
    ```
    **結果**
 
-   ![文件範例的計數](./media/search-explorer/search-explorer-example-count.png "索引中相符文件的計數")
+   ![檔計數範例](./media/search-explorer/search-explorer-example-count.png "相符的檔在索引中的計數")
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>範例 4 - 限制搜尋結果中的欄位
 
@@ -79,7 +78,7 @@ ms.locfileid: "71178146"
 
 ### <a name="example-5---return-next-batch-of-results"></a>範例 5 - 傳回下一個批次的結果
 
-Azure 搜尋服務會根據搜尋排名傳回前 50 個相符項目。 若要取得下一組相符文件，請附加 **$top=100,&$skip=50** 以將結果集增加到 100 份文件 (預設值為 50，最大值為 1000)，略過前 50 個文件。 回想一下，您必須提供搜尋準則，例如查詢字詞或運算式，以取得高排序結果。 請注意，搜尋分數會降低您在搜尋結果中的深度。
+Azure 認知搜尋會根據搜尋次序傳回前50個相符專案。 若要取得下一組相符文件，請附加 **$top=100,&$skip=50** 以將結果集增加到 100 份文件 (預設值為 50，最大值為 1000)，略過前 50 個文件。 回想一下，您必須提供搜尋準則，例如查詢字詞或運算式，以取得高排序結果。 請注意，搜尋分數會降低您在搜尋結果中的深度。
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -87,7 +86,7 @@ Azure 搜尋服務會根據搜尋排名傳回前 50 個相符項目。 若要取
 
    **結果**
 
-   ![批次搜尋結果](./media/search-explorer/search-explorer-example-topskip.png "傳回下一個批次的搜尋結果")
+   ![Batch 搜尋結果](./media/search-explorer/search-explorer-example-topskip.png "傳回搜尋結果的下一個批次")
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>篩選條件運算式 (大於、小於、等於)
 
@@ -123,7 +122,7 @@ Azure 搜尋服務會根據搜尋排名傳回前 50 個相符項目。 若要取
 
 2. 在 [服務概觀] 頁面中，按一下 [搜尋總管]。
 
-   ![入口網站中的搜尋總管命令](./media/search-explorer/search-explorer-cmd2.png "入口網站中的搜尋總管命令")
+   ![入口網站中的搜尋瀏覽器命令](./media/search-explorer/search-explorer-cmd2.png "入口網站中的搜尋瀏覽器命令")
 
 3. 選取要查詢的索引。
 
@@ -143,7 +142,7 @@ Azure 搜尋服務會根據搜尋排名傳回前 50 個相符項目。 若要取
 
 + 自由格式查詢類似於您在商業 Web 瀏覽器中輸入的內容，適合用於測試使用者體驗。 比方說，假設內建的房地產 範例索引，您可以輸入 "Seattle apartments lake washington"，然後您可以使用 Ctrl-F 在搜尋結果中尋找字詞。 
 
-+ 查詢和篩選條件運算式必須以 Azure 搜尋服務所支援的語法表達。 預設值是[簡單語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)，但您可以選擇使用[完整 Lucene 功能](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)進行更強大的查詢。 [篩選條件運算式](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)是 OData 語法。
++ 查詢和篩選運算式必須以 Azure 認知搜尋支援的語法來表達。 預設值是[簡單語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)，但您可以選擇使用[完整 Lucene 功能](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)進行更強大的查詢。 [篩選條件運算式](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)是 OData 語法。
 
 
 ## <a name="next-steps"></a>後續步驟
