@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 入口網站中的登入活動報告錯誤碼 | Microsoft Docs
+title: Azure Active Directory 入口網站中的錯誤碼 |Microsoft Docs
 description: 登入活動報告錯誤碼參考。
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383180"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820867"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -116,7 +116,7 @@ ms.locfileid: "70383180"
 |50143|工作階段不符 - 工作階段無效，原因是由於資源不同而導致使用者租用戶與網域提示不符。請使用相互關聯識別碼、要求識別碼和錯誤碼 [開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得更多詳細資料。|
 |50144|使用者的 Active Directory 密碼已到期。 為使用者產生新密碼，或讓終端使用者使用自助式重設工具。|
 |50146|在設定此應用程式時，必須使用應用程式專屬的簽署金鑰。 在設定應用程式時未使用這樣的金鑰，或該金鑰已過期或尚未生效。 請連絡應用程式擁有者。|
-|50148|code_verifier 與 PKCE 的授權要求中所提供的 code_challenge 不符。 請連絡應用程式開發人員。 |
+|50148|code_verifier 與 PKCE 的授權要求中所提供的 code_challenge 不符。 聯絡應用程式開發人員。 |
 |50155|此使用者的裝置驗證失敗。|
 |50158|不符合外部安全性挑戰。|
 |50161|外部提供者所傳送的宣告不足，或是遺漏向外部提供者所要求的宣告。|
@@ -137,7 +137,7 @@ ms.locfileid: "70383180"
 |53002|使用的應用程式不是條件式存取的已核准應用程式。 使用者所使用的應用程式，必須是已核准使用的應用程式清單其中一個，才能取得存取權。|
 |53003|因為條件式存取原則，所以已封鎖存取。|
 |53004|使用者必須先完成多重要素驗證註冊程序，才能存取此內容。 使用者應該註冊多重要素驗證。|
-|65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。請將授權要求傳送給租用戶管理員，以代表應用程式Y 針對資源Z 採取行動。|
+|65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。將授權要求傳送給租用戶管理員，以代表應用程式 Y 對資源 Z 採取行動。|
 |65004|使用者不同意存取應用程式。 讓使用者重試登入，並同意應用程式|
 |65005|應用程式所需資源存取清單不包含資源可探索的應用程式，或用戶端應用程式已要求存取未在其所需資源存取清單中指定的資源，或 Graph 服務傳回不正確的要求或找不到資源。 如果應用程式支援 SAML，則可能是您在設定應用程式時所使用的識別碼 (實體) 不正確。 請嘗試使用下列連結中針對 SAML 所列出的解決方案：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|授與無效，原因如下：<ul><li>所要求 SAML 2.0 判斷提示的主體確認方法無效</li><li>V2 上不支援應用程式 OnBehalfOf 流程</li><li>未使用工作階段金鑰簽署主要的重新整理權杖</li><li>外部重新整理權杖無效</li><li>所取得的存取權授與，是不同租用戶的。</li></ul>|
@@ -162,15 +162,15 @@ ms.locfileid: "70383180"
 |75011|使用者用來向服務進行驗證的驗證方法，與所要求的驗證方法不符。 請連絡應用程式擁有者。|
 |75016|SAML2 驗證要求所具有的 NameIdPolicy 無效。 請連絡應用程式擁有者。|
 |80001|驗證代理程式無法連線至 Active Directory。 請確定能看到使用者登入要求處理 DC、且已加入網域的機器上，已安裝驗證代理程式。|
-|80002|內部錯誤。 密碼驗證要求逾時。我們無法將驗證要求傳送至內部的混合式識別服務。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80002|內部錯誤。 密碼驗證要求已超時。我們無法將驗證要求傳送給內部的混合式身分識別服務。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80003|驗證代理程式收到無效的回應。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
-|80005|驗證代理程式：處理「驗證代理程式」所傳來的回應時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80005|驗證代理程式：處理驗證代理程式所傳來的回應時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80007|驗證代理程式無法驗證使用者的密碼。|
 |80010|驗證代理程式無法連線將密碼解密。 |
 |80011|驗證代理程式無法擷取加密金鑰。|
 |80012|使用者在允許的時間外 (此值是在 AD 中指定的) 嘗試登入。|
 |80013|無法完成驗證嘗試，因為執行驗證代理程式的機器和 AD 之間有時間差異。 請修正時間同步問題|
-|80014|驗證代理程式逾時。請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，其中包含錯誤碼、相互關聯識別碼和日期時間，可取得更多關於此錯誤的詳細資料。|
+|80014|驗證代理程式已超時。開啟包含錯誤碼、相互關聯識別碼和日期時間的[支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關此錯誤的詳細資料。|
 |81001|使用者的 Kerberos 票證太大。 如果使用者位於過多群組，以致於 Kerberos 票證包含過多群組成員資格，便會發生此錯誤。 降低使用者的群組成員資格，並再試一次。|
 |81005|驗證套件不受支援。|
 |81007|租用戶未啟用無縫 SSO。|

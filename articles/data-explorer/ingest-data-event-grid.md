@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028372"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881555"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>訂閱 Event Grid 通知，以便將 Blob 擷取至 Azure 資料總管
 
@@ -53,7 +53,7 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
     | 端點 | *test-hub* | 您建立的事件中樞。 |
     | | |
 
-1. 如果您想要追蹤特定容器中的檔案，選取 [其他功能] 索引標籤。 設定通知的篩選條件，如下所示：
+1. 如果您想要追蹤特定容器中的檔案，請選取 [**篩選**] 索引標籤。 設定通知的篩選條件，如下所示：
     * [主旨開頭為] 欄位是 Blob 容器的*常值*前置詞。 由於套用的模式是 *startswith*，因此它可以跨越多個容器。 不允許使用萬用字元。
      它*必須*設定如下： *`/blobServices/default/containers/`* [容器前置詞]
     * [主旨結尾為] 欄位是 Blob 的*常值*後置詞。 不允許使用萬用字元。
@@ -94,7 +94,7 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
 
     ![資料擷取](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  選取連線類型：**Blob 儲存體**。
+1.  選取 連線類型： **Blob 儲存體**。
 
 1. 在表單中填寫下列資訊，並選取 [建立]。
 
@@ -107,7 +107,7 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
     | 資料連線名稱 | *test-hub-connection* | 您想要在 Azure 資料總管中建立的連線名稱。|
     | 儲存體帳戶訂用帳戶 | 訂用帳戶識別碼 | 您儲存體帳戶所在的訂用帳戶識別碼。|
     | 儲存體帳戶 | *gridteststorage* | 您先前建立之儲存體帳戶的名稱。|
-    | Event Grid | *test-grid-connection* | 您建立之事件格線的名稱。 |
+    | 事件格線 | *test-grid-connection* | 您建立之事件格線的名稱。 |
     | 事件中樞名稱 | *test-hub* | 您建立的事件中樞。 此欄位會在您挑選事件格線時自動填入。 |
     | 取用者群組 | *test-group* | 在您所建立事件中樞中定義的取用者群組。 |
     | | |
@@ -116,8 +116,8 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
-    | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 支援的壓縮選項：Zip 和 GZip |
+    | 表格 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
+    | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 支援的壓縮選項： Zip 和 GZip |
     | 資料行對應 | *TestMapping* | 您在 **TestDatabase** 中建立的對應，會將傳入的 JSON 資料對應至 **TestTable** 的資料行名稱與資料類型。|
     | | |
     

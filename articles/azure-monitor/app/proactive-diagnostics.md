@@ -1,28 +1,23 @@
 ---
 title: Azure Application Insights 中的智慧型偵測 | Microsoft Docs
 description: Application Insights 會自動深入分析您的 App 遙測，並且警告您有潛在的問題。
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/07/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 8ee2dea364253d871d5624242d15d8a81ab6f08f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.date: 02/07/2019
+ms.openlocfilehash: ae9af5721e53277f6c939840721ca50ea67ca51e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465905"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818808"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智慧型偵測
- 智慧型偵測會自動警告您潛在的效能問題和 web 應用程式中的失敗異常。 它會針對您應用程式傳送給 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遙測執行主動式分析。 如果失敗率急遽上升或是用戶端或伺服器效能出現異常模式，您就會收到警示。 這項功能不需要進行任何設定。 只要您的應用程式傳送的遙測足夠，它就能發揮作用。
+ 智慧型偵測會自動警告您 web 應用程式中潛在的效能問題和失敗異常。 它會針對您應用程式傳送給 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遙測執行主動式分析。 如果失敗率急遽上升或是用戶端或伺服器效能出現異常模式，您就會收到警示。 這項功能不需要進行任何設定。 只要您的應用程式傳送的遙測足夠，它就能發揮作用。
 
-您可以從電子郵件收到，並從 [智慧型偵測] 刀鋒視窗，「 智慧型偵測所發出的偵測。
+您可以從您收到的電子郵件，以及從智慧偵測分頁，存取智慧型偵測所發出的偵測。
 
 ## <a name="review-your-smart-detections"></a>檢閱智慧型偵測
 您可以透過兩種方式探索偵測︰
@@ -32,26 +27,26 @@ ms.locfileid: "67465905"
     ![電子郵件警示](./media/proactive-diagnostics/03.png)
   
     按一下大型按鈕以在入口網站中開啟更多詳細資料。
-* **[智慧型偵測] 刀鋒視窗**Application Insights 中。 選取 **智慧型偵測**下方**調查**功能表來看到一份最近的偵測。
+* Application Insights 中**的 [智慧型偵測**] 分頁。 選取 [**調查**] 功能表底下的 [**智慧型偵測**]，以查看最近偵測的清單。
 
 ![檢視最近的偵測](./media/proactive-diagnostics/04.png)
 
-選取 偵測，以查看其詳細資料。
+選取偵測以查看其詳細資料。
 
 ## <a name="what-problems-are-detected"></a>可偵測到哪些問題？
-智慧型偵測會偵測並通知有關各種問題，例如：
+「智慧型偵測」會偵測並通知各種問題，例如：
 
 * [智慧型偵測 - 失敗異常](../../azure-monitor/app/proactive-failure-diagnostics.md)。 我們使用機器學習服務來為應用程式設定預期的失敗要求率，其會與負載和其他因素相互關聯。 如果失敗率超過預期限制，我們便會傳送警示。
 * [智慧型偵測 - 效能異常](../../azure-monitor/app/proactive-performance-diagnostics.md)。 如果作業或相依性持續時間的回應時間變得比歷史基準慢，或如果我們在回應時間或頁面載入時間發現異常模式，您就會收到通知。   
-* 一般效能降低和問題、 喜歡[追蹤降低](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity)，[記憶體流失](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak)， [Abnormal 升高的磁碟區例外狀況](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume)和[安全性反向模式](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* 一般降低和問題，例如[追蹤降低](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity)、[記憶體](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak)流失、[例外狀況磁片區的異常增加](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume)和[安全性反模式](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack)。
 
 (每個通知中的說明連結會帶您前往相關文章。)
 
 ## <a name="smart-detection-email-notifications"></a>智慧型偵測電子郵件通知
 
-所有的智慧偵測規則，除了標示為的規則_預覽_，發現偵測時，傳送電子郵件通知的預設設定。
+除了標示為_預覽_的規則以外，所有的智慧偵測規則，預設都會設定為在找到偵測時傳送電子郵件通知。
 
-開啟智慧型偵測 [設定]  刀鋒視窗，然後選取規則，即會開啟 [編輯規則]  刀鋒視窗，然後便可設定特定智慧偵測規則的電子郵件通知。
+開啟智慧型偵測 [設定] 刀鋒視窗，然後選取規則，即會開啟 [編輯規則] 刀鋒視窗，然後便可設定特定智慧偵測規則的電子郵件通知。
 
 或者，您也可以使用 Azure Resource Manager 範本來變更設定。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)。
 

@@ -5,18 +5,16 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387068"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880133"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文提供 Azure Data Factory 常見問題集的解答。  
@@ -180,32 +178,19 @@ Data Factory 中的連結服務，有兩個用途：
 
 ## <a name="mapping-data-flows"></a>對應資料流程
 
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>我使用哪個 Data Factory 版本來建立資料流程？
-使用 Data Factory V2 版本來建立資料流程。
-  
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>我是先前使用了資料流程的私人預覽客戶，而且我使用了 Data Factory V2 preview 版本來進行資料流程。
-此版本現在已過時。 為數據流使用 Data Factory V2。
-  
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>對於資料流程而言，從私人預覽變更為有限公開預覽的內容為何？
-您不再需要攜帶自己的 Azure Databricks 叢集。 Data Factory 將會管理叢集的建立和細分。 Blob 資料集和 Azure Data Lake Storage Gen2 資料集會分成分隔的文字和 Apache Parquet 資料集。 您仍然可以使用 Data Lake Storage Gen2 和 Blob 儲存體來儲存這些檔案。 針對那些儲存引擎使用適當的連結服務。
-
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>我可以將私人預覽工廠遷移至 Data Factory V2 嗎？
-
-可以。 [依照指示](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)進行。
-
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>我需要疑難排解我的資料流程邏輯的協助。 我需要提供哪些資訊才能取得協助？
 
-當 Microsoft 提供資料流程的協助或疑難排解時，請提供 DSL 程式碼方案。 若要這樣做，請遵循下列步驟：
+當 Microsoft 提供資料流程的協助或疑難排解時，請提供資料流程腳本。 這是來自您的資料流程圖形的程式碼後置腳本。 從 ADF UI 中，開啟您的資料流程，然後按一下右上角的 [腳本] 按鈕。 複製並貼上此腳本，或將它儲存在文字檔中。
 
-1. 從 [資料流程設計師] 中，選取右上角的 [程式**代碼**]。 這會顯示資料流程的可編輯 JSON 程式碼。
-2. 在 [程式碼] 視圖中，選取右上角的 [**計畫**]。 此切換會從 JSON 切換到唯讀格式的 DSL 腳本計畫。
-3. 複製並貼上此腳本，或將它儲存在文字檔中。
-
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>如何? 使用 Data Factory 中的其他80資料集類型來存取資料嗎？
+### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>如何? 使用 Data Factory 中的其他90資料集類型來存取資料嗎？
 
 對應資料流程功能目前允許從 Azure Blob 儲存體或 Azure Data Lake Storage Gen2 Azure SQL Database、Azure SQL 資料倉儲、分隔的文字檔，以及從 Blob 儲存體 Parquet 檔案，或針對來源和接收以原生方式 Data Lake Storage Gen2 的檔案。 
 
 使用 [複製] 活動從任何其他連接器暫存資料，然後執行 [資料流程] 活動，以在暫存資料後加以轉換。 例如，您的管線會先複製到 Blob 儲存體，然後資料流程活動會使用來源中的資料集來轉換該資料。
+
+### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>自我裝載整合執行時間是否適用于資料流程？
+
+自我裝載 IR 是一種 ADF 管線結構，您可以搭配使用複製活動，從內部內部部署或以 VM 為基礎的資料來源和接收，取得或移動資料。 請先使用複本來暫存資料，然後再以轉換的資料流程作為後續的複本，如果您需要將轉換後的資料移回內部部署存放區。
 
 ## <a name="next-steps"></a>後續步驟
 如需建立資料處理站的逐步指示，請參閱下列教學課程：

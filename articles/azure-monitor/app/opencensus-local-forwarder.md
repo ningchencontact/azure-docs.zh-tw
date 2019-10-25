@@ -1,25 +1,21 @@
 ---
-title: Azure 應用程式 Insights OpenCensus 分散式追蹤本機轉寄站 (預覽) |Microsoft 檔
+title: Azure 應用程式 Insights OpenCensus 分散式追蹤本機轉寄站（預覽） |Microsoft 檔
 description: 將 OpenCensus 分散式追蹤 (trace) 和跨度 (span) 從 Python 和 Go 等語言轉送給 Azure Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.author: mbullwin
-ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348163"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819215"
 ---
-# <a name="local-forwarder-preview"></a>本機轉寄站 (預覽)
+# <a name="local-forwarder-preview"></a>本機轉寄站（預覽）
 
 本機轉送工具是會從各種 SDK 收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遙測資料的代理程式，並且會將這些資料路由至 Application Insights。 此工具能夠在 Windows 和 Linux 下執行。 您也可以在 macOS 下執行，但目前尚未正式支援。
 

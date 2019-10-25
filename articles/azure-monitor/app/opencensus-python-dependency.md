@@ -1,22 +1,18 @@
 ---
 title: 使用 OpenCensus Python Azure 應用程式深入解析中的相依性追蹤 |Microsoft Docs
 description: 透過 OpenCensus Python 監視 Python 應用程式的相依性呼叫。
-services: application-insights
-author: lzchen
-manager: carmonm
-ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/15/2019
+author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 4d2e1fe5a3f337c2a6c96b556f3effe0ad9748c7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 00ebf86bf6d0d57b29d660f78aae3dd828d44ded
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559498"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819137"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>使用 OpenCensus Python 追蹤相依性
 

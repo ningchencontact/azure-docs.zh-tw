@@ -1,23 +1,19 @@
 ---
 title: 使用 Application Insights Profiler 來分析 ASP.NET Core Azure Linux Web 應用程式 | Microsoft Docs
 description: 關於如何使用 Application Insights Profiler 的概念敍述及逐步教學課程。
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.reviewer: mbullwin
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/23/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/23/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: a300aa066bdef40c4768ac5e278537aec1a8b3b7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306457"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820547"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>使用 Application Insights Profiler 來分析 ASP.NET Core Azure Linux Web 應用程式
 
@@ -25,11 +21,11 @@ ms.locfileid: "60306457"
 
 了解在使用 [Application Insights ](../../azure-monitor/app/app-insights-overview.md) 時，即時 Web 應用程式的每個方法各使用了多少時間。 Application Insights Profiler 現在可在 Azure App Service 上供裝載於 Linux 中的 ASP.NET Core Web 應用程式使用。 本指南提供逐步指示，說明如何針對 ASP.NET Core Linux Web 應用程式收集分析工具追蹤。
 
-完成此逐步解說之後，您的應用程式可以收集分析工具追蹤，例如圖中所示的追蹤。 在此範例中，分析工具追蹤會指出特定的 Web 要求變慢是因為將時間花在等候上。 程式碼中使應用程式變慢的「最忙碌路徑」  之前會加上火焰圖示。 **HomeController** 區段中的 **About** 方法使 Web 應用程式速度變慢，因為此方法呼叫 **Thread.Sleep** 函式。
+完成此逐步解說之後，您的應用程式可以收集分析工具追蹤，例如圖中所示的追蹤。 在此範例中，分析工具追蹤會指出特定的 Web 要求變慢是因為將時間花在等候上。 程式碼中使應用程式變慢的「最忙碌路徑」之前會加上火焰圖示。 **HomeController** 區段中的 **About** 方法使 Web 應用程式速度變慢，因為此方法呼叫 **Thread.Sleep** 函式。
 
 ![分析工具追蹤](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 下列指示適用於所有 Windows、Linux 和 Mac 開發環境：
 
 * 安裝 [.NET Core SDK 2.1.2 或更新版本](https://dotnet.microsoft.com/download/archives)。
@@ -53,7 +49,7 @@ ms.locfileid: "60306457"
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. 啟用在 Program.cs 中的 Application Insights:
+1. 啟用 Program.cs 中的 Application Insights：
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -62,7 +58,7 @@ ms.locfileid: "60306457"
             .UseStartup<Startup>();
     ```
     
-1. 啟用 Profiler 在 Startup.cs 中：
+1. 在 Startup.cs 中啟用 Profiler：
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -166,18 +162,18 @@ ms.locfileid: "60306457"
 
     應用程式的設定變更時，網站會自動重新啟動。 一旦套用新的設定後，分析工具會立即執行 2 分鐘。 之後，分析工具會每小時執行兩分鐘。
 
-3. 產生一些流向網站的流量。 您可以重新整理網站的 [關於]  網頁幾次以產生流量。
+3. 產生一些流向網站的流量。 您可以重新整理網站的 [關於] 網頁幾次以產生流量。
 
 4. 等待 2-5 分鐘，讓事件彙總至 Application Insights。
 
-5. 在 Azure 入口網站中瀏覽至 Application Insights [效能]  窗格。 您可以檢視在窗格右下角的分析工具追蹤。
+5. 在 Azure 入口網站中瀏覽至 Application Insights [效能] 窗格。 您可以檢視在窗格右下角的分析工具追蹤。
 
     ![檢視分析工具追蹤](./media/profiler-aspnetcore-linux/view-traces.png)
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>現在按鈕不適用於 Linux Profiler 的設定檔
-App Insights profiler 的 Linux 版本還不支援隨選分析現在使用設定檔 按鈕。
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Linux Profiler 的 [立即分析] 按鈕無法使用
+Linux 版本的 App Insights profiler 尚未使用 [立即設定檔] 按鈕來支援點播分析。
 
 
 ## <a name="next-steps"></a>後續步驟

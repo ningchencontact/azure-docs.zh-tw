@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure 診斷與 Azure Application Insights 的整合對 Azure 雲端服務的問題發出警示 | Microsoft Docs
 description: 使用 Azure Application Insights，監視 Azure 雲端服務中如啟動失敗、當機和角色回收迴圈等問題
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.author: mbullwin
-ms.openlocfilehash: 219ba632d7688f1a428378309828b689698d2fe5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4404f033f5bdf221590e155640e4c0442601e18
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409497"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820643"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>使用 Azure 診斷與 Azure Application Insights 的整合對 Azure 雲端服務的問題發出警示
 
@@ -89,32 +84,32 @@ EventLogs
 
 ## <a name="create-an-alert"></a>建立警示
 
-在 Application Insights 資源內的導覽功能表中，移至 [警示]  ，然後選取 [新增警示規則]  。
+在 Application Insights 資源內的導覽功能表中，移至 [警示]，然後選取 [新增警示規則]。
 
 ![建立規則的螢幕擷取畫面](./media/proactive-cloud-services/001.png)
 
-在 [建立規則]  視窗的 [定義警示條件]  區段底下，按一下 [新增準則]  ，然後選取 [自訂記錄檔搜尋]  。
+在 [建立規則] 視窗的 [定義警示條件] 區段底下，按一下 [新增準則]，然後選取 [自訂記錄檔搜尋]。
 
 ![定義警示之條件準則的螢幕擷取畫面](./media/proactive-cloud-services/002.png)
 
-在 [搜尋查詢]  方塊中，貼入您在上一個步驟中備妥的合併查詢。
+在 [搜尋查詢] 方塊中，貼入您在上一個步驟中備妥的合併查詢。
 
-然後，繼續前往 [閾值]  方塊，並將其值設定為 0。 您可能會選擇調整 [期間]  和 [頻率]  欄位。
-按一下 [完成]  。
+然後，繼續前往 [閾值] 方塊，並將其值設定為 0。 您可能會選擇調整 [期間] 和 [頻率] 欄位。
+按一下 [完成]。
 
 ![設定訊號邏輯查詢的螢幕擷取畫面](./media/proactive-cloud-services/003.png)
 
-在 [定義警示詳細資料]  區段底下，提供警示規則的 [名稱]  和 [描述]  ，並設定其 [嚴重性]  。
-另外，請確定 [在建立時啟用規則]  按鈕設定為 [是]  。
+在 [定義警示詳細資料] 區段底下，提供警示規則的 [名稱] 和 [描述]，並設定其 [嚴重性]。
+另外，請確定 [在建立時啟用規則] 按鈕設定為 [是]。
 
 ![警示詳細資料的螢幕擷取畫面](./media/proactive-cloud-services/004.png)
 
-在 [定義動作群組]  區段底下，您可以選取現有的 [動作群組]  ，或建立一個新的動作群組。
+在 [定義動作群組] 區段底下，您可以選取現有的 [動作群組]，或建立一個新的動作群組。
 您可以選擇讓動作群組包含各種類型的多個動作。
 
 ![螢幕擷取畫面的動作群組](./media/proactive-cloud-services/005.png)
 
-定義動作群組之後，請確認您的變更，然後按一下 [建立警示規則]  。
+定義動作群組之後，請確認您的變更，然後按一下 [建立警示規則]。
 
 ## <a name="next-steps"></a>後續步驟
 

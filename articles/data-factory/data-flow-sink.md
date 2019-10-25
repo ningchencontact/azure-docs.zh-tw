@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596527"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882433"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>資料流程的接收轉換
 
@@ -53,8 +53,8 @@ ms.locfileid: "72596527"
 
 選取 **[清除資料夾**] 以截斷接收資料夾的內容，然後在該目的檔案夾中寫入目的地檔案。
 
-## <a name="rule-based-mapping"></a>以規則為基礎的對應
-當關閉自動對應時，您可以加入宣告以資料行為基礎的對應（固定對應）或以規則為基礎的對應。 以規則為基礎的對應可讓您撰寫具有模式比對的運算式。 
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>固定對應與以規則為基礎的對應
+當您關閉自動對應時，您可以加入宣告以資料行為基礎的對應（固定對應）或以規則為基礎的對應。 以規則為基礎的對應可讓您撰寫具有模式比對的運算式，而固定對應則會對應邏輯和實體資料行名稱。
 
 ![以規則為基礎的對應](media/data-flow/rules4.png "以規則為基礎的對應")
 
@@ -65,6 +65,12 @@ ms.locfileid: "72596527"
 您也可以在使用以規則為基礎的比對時輸入正則運算式模式，方法是展開資料列，然後在 [名稱符合：] 旁輸入正則運算式。
 
 ![Regex 對應](media/data-flow/scdt1g4.png "Regex 對應")
+
+如果您想要將所有傳入的欄位對應到目標中的相同名稱，就是以規則為基礎的對應與固定對應的基本常見範例。 在固定對應的情況下，您會列出資料表中的每個個別資料行。 針對以規則為基礎的對應，您會有一個規則，將使用 ```true()``` 的所有欄位對應到 ```$$```所表示的相同內送功能變數名稱。
+
+### <a name="sink-association-with-dataset"></a>與資料集的接收關聯
+
+您為接收器選取的資料集不一定會有定義于資料集定義中的架構。 如果沒有已定義的架構，則您必須允許架構漂移。 當您定義固定對應時，邏輯對機構名稱對應將會保存在接收轉換中。 如果您變更資料集的架構定義，則可能會中斷您的接收對應。 若要避免這種情況，請使用以規則為基礎的對應。 以規則為基礎的對應會一般化，這表示資料集上的架構變更不會中斷對應。
 
 ## <a name="file-name-options"></a>檔案名稱選項
 

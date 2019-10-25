@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights 概觀儀表板 | Microsoft Docs
 description: 使用 Azure Application Insights 和概觀儀表板的功能監控應用程式。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/03/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/03/2019
+ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497157"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819163"
 ---
 # <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
@@ -35,7 +30,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ![時間範圍](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
-整體效能已大幅提升。 只要按一下，就能存取常用功能，例如**搜尋**和**分析**。 預設的每個動態更新 KPI 圖格均可讓您了解對應的 Application Insights 功能。 若要深入了解失敗的要求，請選取 [調查]  標題下的 [失敗]  ：
+整體效能已大幅提升。 只要按一下，就能存取常用功能，例如**搜尋**和**分析**。 預設的每個動態更新 KPI 圖格均可讓您了解對應的 Application Insights 功能。 若要深入了解失敗的要求，請選取 [調查] 標題下的 [失敗]：
 
 ![失敗](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
@@ -43,7 +38,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 應用程式儀表板會使用 Azure 中現有的儀表板技術，提供可完全自訂的單一窗格，讓您檢視應用程式的健康情況和效能。
 
-若要使用預設儀表板，請選取左上角的 [應用程式儀表板]  。
+若要使用預設儀表板，請選取左上角的 [應用程式儀表板]。
 
 ![儀表板檢視](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
@@ -62,7 +57,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果您選取**圖格設定**並且設定了自訂時間範圍，超過 31 天的儀表板將不會超過 31 天的資料，即使有 90 天的預設資料保留期的方式顯示。 目前這個問題沒有因應措施。
+如果您選取 [設定**磚設定**]，並將自訂的時間範圍設為超過31天，則您的儀表板不會顯示超過31天的資料，即使預設資料保留期為90天。 這種行為目前沒有任何因應措施。
 
 ## <a name="next-steps"></a>後續步驟
 

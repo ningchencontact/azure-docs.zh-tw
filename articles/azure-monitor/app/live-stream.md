@@ -1,26 +1,21 @@
 ---
 title: Azure Application Insights 中具有自訂計量和診斷功能的即時計量資料流 | Microsoft Docs
 description: 透過自訂計量即時監視您的 Web 應用程式，並透過失敗、追蹤和事件的即時摘要診斷問題。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d85688d297eb0df00e71f388b2a3350eabe5f6d5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012744"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817193"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷
 
 使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 與[Profiler](../../azure-monitor/app/profiler.md)、[快照偵錯工具](../../azure-monitor/app/snapshot-debugger.md)搭配使用。 即時計量資料流為您的即時網站提供強大且非侵入性的診斷工具。
 
@@ -52,9 +47,9 @@ ms.locfileid: "70012744"
 
 ### <a name="nodejs"></a>Node.js
 
-若要搭配使用即時計量與 node.js, 您必須更新至1.30 版或更高版本的 SDK。 根據預設, 會停用 node.js SDK 中的即時計量。 若要啟用即時計量`setSendLiveMetrics(true)` , 請在初始化 SDK 時新增至您的設定[方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
+若要搭配使用即時計量與 node.js，您必須更新至1.30 版或更高版本的 SDK。 根據預設，會停用 node.js SDK 中的即時計量。 若要啟用即時計量，請在初始化 SDK 時，將 `setSendLiveMetrics(true)` 新增至您的設定[方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
 
-### <a name="no-data-check-your-server-firewall"></a>沒有資料？ 請檢查您的伺服器防火牆
+### <a name="no-data-check-your-server-firewall"></a>沒有資料嗎？ 請檢查您的伺服器防火牆
 
 檢查是否已開啟您伺服器防火牆中[即時計量資料流的連出連接埠](../../azure-monitor/app/ip-addresses.md#outgoing-ports)。 
 
@@ -85,7 +80,7 @@ ms.locfileid: "70012744"
 
 即時計量會在兩個地方進行彙總︰在每一部伺服器上本機進行，以及在所有伺服器上進行。 您可以選取個別下拉式清單中的其他選項，在任一位置變更預設。
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>遙測範例：自訂即時診斷事件
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>範例遙測︰自訂即時診斷事件
 依預設，事件的即時摘要會顯示失敗要求和相依性呼叫、例外狀況、事件以及追蹤的範例。 按一下篩選圖示可查看任一時間點套用的準則。 
 
 ![預設的即時摘要](./media/live-stream/live-stream-eventsdefault.png)
@@ -94,7 +89,7 @@ ms.locfileid: "70012744"
 
 ![自訂即時摘要](./media/live-stream/live-stream-events.png)
 
-注意:目前針對以例外狀況訊息為基礎的準則，請使用最外部的例外狀況訊息。 在上述範例中，若要使用內部例外狀況訊息 (後接 "<--" 分隔符號)「用戶端中斷連線。」將良性的例外狀況篩選掉， 請使用不包含「讀取要求內容時發生錯誤」準則的訊息。
+請注意︰目前針對以例外狀況訊息為基礎的準則，請使用最外部的例外狀況訊息。 在上述範例中，若要使用內部例外狀況訊息 (後接 "<--" 分隔符號)「用戶端中斷連線。」將良性的例外狀況篩選掉， 請使用不包含「讀取要求內容時發生錯誤」準則的訊息。
 
 按一下即時摘要中的項目，以查看它的詳細資料。 您可以按一下 [暫停] 或只向下捲動，或是按一下項目來將摘要暫停。 在您捲動回到頂端後，或是按一下暫停時所收集到的項目計數器，即時摘要就會繼續進行。
 
@@ -112,7 +107,7 @@ ms.locfileid: "70012744"
 [Application Insights SDK for Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 的 2.4.0-beta2 版或更新版本提供「自訂即時計量串流」。 請記得選取 NuGet 套件管理員的 [包括預先發行] 選項。
 
 ### <a name="nodejs"></a>Node.js
-即時計量資料流可用於適用于 node.js 的[APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)版本1.3.0 或更新版本。 在您的`setSendLiveMetrics(true)`程式碼中設定 SDK 時, 請記得使用。
+即時計量資料流可用於適用于 node.js 的[APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)版本1.3.0 或更新版本。 在您的程式碼中設定 SDK 時，請記得使用 `setSendLiveMetrics(true)`。
 
 ## <a name="secure-the-control-channel"></a>保護控制通道
 您指定的自訂篩選條件準則會傳回給 Application Insights SDK 中的即時計量元件。 篩選條件可能會包含機密資訊，例如 customerIDs。 除了檢測金鑰之外，您還可以利用祕密 API 金鑰來保護頻道安全。
@@ -200,7 +195,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="troubleshooting"></a>疑難排解
 
-沒有資料？ 如果您的應用程式是在受保護的網路中︰即時計量資料流會使用與其他 Application Insights 遙測不同的 IP 位址。 請確定[這些 IP 位址](../../azure-monitor/app/ip-addresses.md)在您的防火牆中為開啟狀態。
+沒有資料嗎？ 如果您的應用程式是在受保護的網路中︰即時計量串流會使用與其他 Application Insights 遙測不同的 IP 位址。 請確定[這些 IP 位址](../../azure-monitor/app/ip-addresses.md)在您的防火牆中為開啟狀態。
 
 
 

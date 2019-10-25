@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: de8f31a02b62164a8a6b099a90297a207aefae80
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5dae8c4da46c750f69057f33d593f5bb7396a99e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240807"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882244"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>從 Azure AD Identity Protection 連接資料
 
@@ -37,7 +37,7 @@ ms.locfileid: "71240807"
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>連接到 Azure AD Identity Protection
 
-如果您已經有 Azure AD Identity Protection，請確定已[在您的網路上啟用該功能](../active-directory/identity-protection/enable.md)。
+如果您已經有 Azure AD Identity Protection，請確定已[在您的網路上啟用該功能](../active-directory/identity-protection/overview-identity-protection.md)。
 如果 Azure AD Identity Protection 已部署並取得資料，則可以輕鬆地將警示資料串流至 Azure Sentinel。
 
 

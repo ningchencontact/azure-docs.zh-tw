@@ -4,19 +4,19 @@ description: 本教學課程會示範如何在 Azure 入口網站中建立 Linux
 services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
-ms.date: 12/5/2018
+ms.date: 10/22/2019
 ms.topic: conceptual
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cd87477da15d5c18f94b66cac855672b4a2a3523
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 85d2396a05e7496b56bd83bd834150aa6d864c62
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091340"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882727"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 入口網站中佈建 Linux SQL Server 虛擬機器
 
@@ -26,7 +26,7 @@ ms.locfileid: "70091340"
 
 在本快速入門教學課程中，您會使用 Azure 入口網站來建立已安裝 SQL Server 2017 的 Linux 虛擬機器。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 * [從資源庫建立 Linux SQL VM](#create)
 * [透過 SSH 連線到您新的 VM](#connect)
@@ -35,7 +35,7 @@ ms.locfileid: "70091340"
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a id="create"></a>建立已安裝 SQL Server 的 Linux VM
 
@@ -49,23 +49,19 @@ ms.locfileid: "70091340"
 
    ![查看所有 VM 映像](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. 在搜尋方塊中，輸入 **SQL Server 2017**，然後選取 **Enter** 鍵以開始搜尋。
+1. 在 [搜尋] 方塊中，輸入**SQL Server 2019**，然後選取**Enter**以開始搜尋。
 
-1. 選取 [作業系統] > [Redhat]來限制搜尋結果。 然後，在 [發行者] 底下，選擇 [Microsoft]。
+1. 選取 [作業系統] > [Redhat]來限制搜尋結果。
 
-    ![SQL Server 2017 VM 映像的搜尋篩選器](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![SQL Server 2019 VM 映射的搜尋篩選](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. 從搜尋結果中選取 SQL Server 2017 Linux 映像。 本教學課程使用**免費的 SQL Server 授權：Red Hat Enterprise Linux 7.4 上的 SQL Server 2017 Developer**。
+1. 從搜尋結果中選取 SQL Server 2019 Linux 映射。 本教學課程使用**RHEL74 上的 SQL Server 2019**。
 
    > [!TIP]
    > Developer Edition 可讓您使用 Enterprise Edition 的功能來進行測試或開發，但無須支付 SQL Server 授權費用。 您只需支付執行 Linux VM 的費用。
 
-1. 在 [選取部署模型] 底下，選擇符合您工作負載需求的部署模型。
+1. 選取 [建立]。 
 
-    > [!Note]
-    > 針對新工作負載，使用 [Resource Manager]。 若要連線至現有的虛擬網路，請為工作負載選取虛擬網路的部署方法。 如需有關部署模型的詳細資訊，請參閱 [Azure Resource Manager 和傳統部署模型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)。
-
-1. 選取 [建立]。
 
 ### <a name="set-up-your-linux-vm"></a>設定您的 Linux VM
 
@@ -76,24 +72,24 @@ ms.locfileid: "70091340"
 1. 在 [虛擬機器名稱] 中，輸入新 Linux VM 的名稱。
 1. 接著，輸入或選取下列值：
    * **區域**：選取適合您的 Azure 區域。
-   * **可用性選項**：選擇最適合您應用程式和資料的可用性與備援選項。
-   * **變更大小**：選取此選項可挑選機器大小，完成時，請選擇 [選取]。 如需關於 VM 機器大小的詳細資訊，請參閱 [Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)。
+   * **可用性選項**：選擇最適合您的應用程式和資料的 [可用性] 和 [冗余] 選項。
+   * **變更大小**：選取此選項以挑選電腦大小，完成時，請選擇 [**選取**]。 如需關於 VM 機器大小的詳細資訊，請參閱 [Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)。
 
      ![選擇 VM 大小](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > 針對開發和功能測試，請使用 **DS2** 或更高等級的 VM 大小。 針對效能測試，使用 **DS13** 或更高版本。
 
-   * **驗證類型**：選取 [SSH 公開金鑰]。
+   * **驗證類型**：選取 [ **SSH 公開金鑰**]。
 
      > [!Note]
      > 您可以選擇使用 SSH 公開金鑰或密碼進行驗證。 SSH 較為安全。 如需有關如何產生 SSH 金鑰的指示，請參閱[在 Linux 和 Mac 上為 Azure 中的 Linux VM 建立 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)。
 
-   * **使用者名稱**：輸入 VM 的系統管理員名稱。
-   * **SSH 公開金鑰**：輸入 RSA 公開金鑰。
-   * **公用輸入連接埠**：選擇 [允許選取的連接埠]，然後挑選 [選取公用輸入連接埠] 清單中的 [SSH (22)] 連接埠。 在本快速入門中，必須執行此步驟，才能連線並完成 SQL Server 設定。 如果您想要從遠端連線至 SQL Server，請同時選取 [MS SQL (1433)]，以開啟網際網路連線所需的連接埠 1433。
+   * **Username**：輸入 VM 的系統管理員名稱。
+   * **SSH 公開金鑰**：輸入您的 RSA 公用金鑰。
+   * **公用輸入埠**：選擇 [**允許選取的埠**]，然後挑選 [**選取公用輸入埠**] 清單中的 [ **SSH （22）** ] 埠。 在本快速入門中，必須執行此步驟，才能連線並完成 SQL Server 設定。 如果您想要從遠端連線到 SQL Server，您必須手動允許在建立虛擬機器之後，透過網際網路連接的預設埠（1433 Microsoft SQL Server）的流量。
 
-   ![輸入連接埠](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+     ![輸入連接埠](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. 對下列額外索引標籤中的設定進行您想要的任何變更，或保留預設設定。
     * **磁碟**

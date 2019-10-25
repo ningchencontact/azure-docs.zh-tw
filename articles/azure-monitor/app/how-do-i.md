@@ -1,23 +1,18 @@
 ---
 title: 我如何在 Azure Application Insights 中... | Microsoft Docs
 description: Application Insights 中的常見問題集。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 04/04/2017
+ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795518"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817379"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -29,9 +24,9 @@ ms.locfileid: "67795518"
 
 ![](./media/how-do-i/030-server.png)
 
-您的 app 也可能會藉由傳回失敗碼顯示資源耗盡的徵兆。 針對 [失敗的要求]  設定警示。
+您的 app 也可能會藉由傳回失敗碼顯示資源耗盡的徵兆。 針對 [失敗的要求]設定警示。
 
-如果您想要針對 [伺服器例外狀況]  設定警示，可能必須進行 [一些其他設定](../../azure-monitor/app/asp-net-exceptions.md) 才能看到資料。
+如果您想要針對 [伺服器例外狀況]設定警示，可能必須進行 [一些其他設定](../../azure-monitor/app/asp-net-exceptions.md) 才能看到資料。
 
 ### <a name="email-on-exceptions"></a>傳送電子郵件的例外狀況
 1. [設定例外狀況監視](../../azure-monitor/app/asp-net-exceptions.md)
@@ -82,9 +77,9 @@ ms.locfileid: "67795518"
 
 ## <a name="separate-telemetry-from-different-versions"></a>區分不同版本的遙測
 
-* 在一個應用程式中檢視多個角色：使用單一 Application Insights 資源，並依據 [cloud_Rolename](../../azure-monitor/app/app-map.md) 進行篩選。
-* 區分開發、測試和發行版本：使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入了解](../../azure-monitor/app/separate-resources.md)
-* 報告組建版本：使用遙測初始設定式新增屬性。 [深入了解](../../azure-monitor/app/separate-resources.md)
+* 應用程式中的多個角色：使用單一 Application Insights 資源，並在[cloud_Rolename](../../azure-monitor/app/app-map.md)上進行篩選。
+* 區分開發、測試和發行版本︰使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入瞭解](../../azure-monitor/app/separate-resources.md)
+* 報告組建版本︰使用遙測初始設定式新增屬性。 [深入了解](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>監視後端伺服器與桌面應用程式
 [使用 Windows Server SDK 模組](../../azure-monitor/app/windows-desktop.md)。
@@ -103,7 +98,7 @@ ms.locfileid: "67795518"
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>篩選出匿名或已驗證的使用者
-如果您的使用者登入，您可以設定[驗證使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)。(它不會自動重新整理)。
+如果您的使用者登入，您可以設定[已驗證的使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)。（它不會自動發生）。
 
 接著，您可以：
 
@@ -146,16 +141,16 @@ ms.locfileid: "67795518"
 ```
 
 ### <a name="other-applications"></a>其他應用程式
-不建議使用`TelemetryConfiguration.Active`主控台或 ASP.NET Core 應用程式上的單一物件。
-如果您建立`TelemetryConfiguration`執行個體單獨設定`DisableTelemetry`至`true`。
+不建議在主控台或 ASP.NET Core 應用程式上使用 `TelemetryConfiguration.Active` singleton。
+如果您自行建立 `TelemetryConfiguration` 實例-將 `DisableTelemetry` 設定為 [`true`]。
 
-您可以針對 ASP.NET Core 應用程式存取`TelemetryConfiguration`執行個體[ASP.NET Core 的相依性插入](/aspnet/core/fundamentals/dependency-injection/)。 請參閱 詳細資料請參閱[ASP.NET Core 應用程式的 application Insights](../../azure-monitor/app/asp-net-core.md)文章。
+針對 ASP.NET Core 應用程式，您可以使用 ASP.NET Core 相依性[插入](/aspnet/core/fundamentals/dependency-injection/)來存取 `TelemetryConfiguration` 實例。 請在[ApplicationInsights for ASP.NET Core 應用程式](../../azure-monitor/app/asp-net-core.md)文章中找到更多詳細資料。
 
 ## <a name="disable-selected-standard-collectors"></a>停用選取的標準收集器
-您可以停用 （例如，效能計數器、 HTTP 要求或相依性） 的標準收集器
+您可以停用標準收集器（例如效能計數器、HTTP 要求或相依性）
 
-* **ASP.NET 應用程式**-刪除或標記為註解中的相關行[ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core 應用程式**-請依照下列中的遙測模組設定選項[ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET 應用程式**-刪除或批註[ApplicationInsights](../../azure-monitor/app/configuration-with-applicationinsights-config.md)中的相關行
+* **ASP.NET Core 應用程式**-遵循 ApplicationInsights 中的遙測模組設定選項[ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>檢視系統效能計數器
 您可以在計量總管中顯示的計量資訊是一組系統效能計數器。 有一個預先定義且標題為 **伺服器** 的刀鋒視窗會顯示它們其中幾個。

@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 9376493cdd1a8a9790f4de8ee3769acf8dca5ade
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595581"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819808"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>建立新的 Dynamics 365 Business Central 供應專案
 
@@ -101,7 +101,7 @@ ms.locfileid: "72595581"
 
 ### <a name="industry"></a>產業
 
-您可以選擇性地選取最多兩個產業，以協助在 marketplace 中將您的供應專案分類。 如果您的供應專案不是特定產業，請將此區段保留空白。 請務必在供應專案描述中，呼叫您的供應專案如何支援選取的產業。 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>應用程式版本
 

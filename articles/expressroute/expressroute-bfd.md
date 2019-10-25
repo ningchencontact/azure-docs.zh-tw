@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33e90d988251afde630401bed165a4d3614d2cd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367657"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881456"
 ---
 # <a name="configure-bfd-over-expressroute"></a>透過 ExpressRoute 設定 BFD
 
-ExpressRoute 支援透過私用對等互連進行雙向轉送偵測 (BFD) 。 藉由透過 ExpressRoute 啟用 BFD，您可以加速 Microsoft Enterprise Edge (MSEE) 裝置與您終止 ExpressRoute 線路 (PE) 所在之路由器間的連結失敗偵測。 您可以透過客戶 Edge 路由裝置或協力廠商 Edge 路由裝置來終止 ExpressRoute (前提是您已使用受控的第 3 層連線服務)。 本文件將逐步引導您了解 BFD 的需求，以及如何透過 ExpressRoute 啟用 BFD。
+ExpressRoute 支援透過私用對等互連進行雙向轉送偵測 (BFD) 。 藉由在 ExpressRoute 上啟用 BFD，您可以加速 Microsoft Enterprise edge （MSEE）裝置與您終止 ExpressRoute 線路（PE/CE）的路由器之間的連結失敗偵測。 您可以透過客戶 Edge 路由裝置或協力廠商 Edge 路由裝置來終止 ExpressRoute (前提是您已使用受控的第 3 層連線服務)。 本文件將逐步引導您了解 BFD 的需求，以及如何透過 ExpressRoute 啟用 BFD。
 
 ## <a name="need-for-bfd"></a>需要 BFD
 
@@ -34,9 +34,9 @@ ExpressRoute 支援透過私用對等互連進行雙向轉送偵測 (BFD) 。 �
 
 ## <a name="enabling-bfd"></a>啟用 BFD
 
-BFD 預設會設定於 MSEE 上所有新建立的 ExpressRoute 私用對等互連介面上。 因此，若要啟用 BFD，您只需在 PE 上設定 BFD。 設定 BFD 是雙步驟程序：您需要在介面上設定 BFD，然後將它連結到 BGP 工作階段。
+BFD 預設會設定於 MSEE 上所有新建立的 ExpressRoute 私用對等互連介面上。 因此，若要啟用 BFD，您只需要在您的 Pe/CEs 上設定 BFD （在您的主要和次要裝置上）。 設定 BFD 是兩個步驟的程式：您必須在介面上設定 BFD，然後將它連結至 BGP 會話。
 
-範例 PE (使用 Cisco IOS XE) 設定如下所示。 
+範例 PE/CE （使用 Cisco IOS XE）設定如下所示。 
 
     interface TenGigabitEthernet2/0/0.150
       description private peering to Azure
@@ -71,8 +71,8 @@ BFD 預設會設定於 MSEE 上所有新建立的 ExpressRoute 私用對等互�
 
 如需詳細資訊或協助，請看看下列連結：
 
-- [建立和修改 ExpressRoute 路線][CreateCircuit]
-- [建立和修改 ExpressRoute 路線的路由][CreatePeering]
+- [建立和修改 ExpressRoute 線路][CreateCircuit]
+- [建立和修改 ExpressRoute 線路的路由][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-bfd/BFD_Need.png "BFD 會加速連結失敗推算時間"

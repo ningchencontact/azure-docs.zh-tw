@@ -14,38 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61131726"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881902"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 入口網站分析您的媒體 
-> [!NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
-> 
-> 
 
-## <a name="overview"></a>總覽
+> [!IMPORTANT]
+> 查看一些媒體處理器的[淘汰計畫](media-services-analytics-overview.md#retirement-plans)。
+
+## <a name="overview"></a>概觀
 Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相容性、安全性和遍及全球的觸角)，讓組織和企業從其影片檔輕鬆製作出能採取行動的深入見解內容。 如需更為詳細的 Azure 媒體服務分析概觀，請參閱[此主題](media-services-analytics-overview.md)。 
 
 本主題討論如何使用 Azure 入口網站，以媒體分析媒體處理器 (MP) 處理您的媒體。 媒體分析 MP 會產生 MP4 檔案或 JSON 檔案。 如果媒體處理器產生了 MP4 檔案，您可以漸進式下載檔案。 如果媒體處理器產生了 JSON 檔案，您可以從 Azure Blob 儲存體下載檔案。 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>選擇您要分析的資產
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
-2. 在 [設定]  視窗中，選取 [資產]  。  
+2. 在 [設定] 視窗中，選取 [資產]。  
    
     ![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
-3. 選取您要分析的資產，並按下 [分析]  按鈕。
+3. 選取您要分析的資產，並按下 [分析] 按鈕。
    
     ![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-4. 在 [以媒體分析處理媒體資產]  視窗中，選取處理器。 
+4. 在 [以媒體分析處理媒體資產] 視窗中，選取處理器。 
    
     本文其餘部分會說明各個處理器的使用原因和方式。 
-5. 按下 [建立]  來啟動作業。
+5. 按下 [建立] 來啟動作業。
 
-## <a name="azure-media-indexer"></a>Azure Media Indexer
+## <a name="azure-media-indexer"></a>Azure 媒體索引器
 **Azure 媒體索引器**媒體處理器可讓您將媒體檔案和內容設為可供搜尋，並產生隱藏式輔助字幕追蹤。 本節會提供一些可為此 MP 指定之選項的詳細資料。
 
 ![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
@@ -136,10 +135,10 @@ Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相
 
 ![仲裁影片](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Version 
+### <a name="version"></a>版本 
 使用 "2.0"。
 
-### <a name="mode"></a>模式
+### <a name="mode"></a>Mode
 2\.0 版忽略 `Mode` 設定。
 
 ## <a name="next-steps"></a>後續步驟

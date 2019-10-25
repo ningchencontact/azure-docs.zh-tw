@@ -1,23 +1,18 @@
 ---
 title: 建立 Application Insights 資源的 PowerShell 指令碼 | Microsoft Docs
 description: 自動建立 Application Insights 資源。
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/19/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/19/2016
+ms.openlocfilehash: 11245d0f9d6e6b86a5d0249df65b33f851bee9d7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254487"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820679"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>建立 Application Insights 資源的 PowerShell 指令碼
 
@@ -110,7 +105,7 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [從範本建立 Application Insights 和 Web 測試資源](powershell.md)
 * [Set 使用 PowerShell 設定 Azure 診斷的監視](powershell-azure-diagnostics.md) 
 * [使用 PowerShell 設定警示](powershell-alerts.md)

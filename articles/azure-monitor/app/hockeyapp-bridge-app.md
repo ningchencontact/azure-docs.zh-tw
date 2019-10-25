@@ -1,23 +1,18 @@
 ---
 title: 在 Azure Application Insights 中探索 HockeyApp 資料 | Microsoft Docs
 description: 使用 Application Insights 分析 Azure 應用程式的使用量和效能。
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/30/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/30/2017
+ms.openlocfilehash: b14cd38a1db6804a00883ded0b38511fa46c3a52
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898683"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819574"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中探索 HockeyApp 資料
 
@@ -51,12 +46,12 @@ HockeyApp 橋接器欄位隨即出現。
 
 ![等候資料的 Application Insights 資源](./media/hockeyapp-bridge-app/04.png)
 
-就這麼容易！ 從現在開始在 HockeyApp 檢測的應用程式中收集的自訂和追蹤資料，也可供您在 Application Insights 的分析和連續匯出功能中使用。
+就這麼簡單！ 從現在開始在 HockeyApp 檢測的應用程式中收集的自訂和追蹤資料，也可供您在 Application Insights 的分析和連續匯出功能中使用。
 
 讓我們簡短地回顧一下您現在可以使用的功能。
 
 ## <a name="analytics"></a>分析
-分析是功能強大的工具進行臨機操作查詢的資料，可讓您診斷和分析遙測資料並快速找出根本原因和模式。
+分析是一種功能強大的工具，可供您對資料進行臨機操作查詢，讓您能夠診斷和分析您的遙測，並快速找出根本原因和模式。
 
 ![分析](./media/hockeyapp-bridge-app/05.png)
 

@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678227"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817380"
 ---
 # <a name="multi-step-web-tests"></a>多重步驟 Web 效能測試
 
@@ -27,45 +27,19 @@ ms.locfileid: "72678227"
 * Visual Studio 2017 企業版或更新版本。
 * Visual Studio web 效能和負載測試工具。
 
-找出必要的測試控管。 @No__t_1**個別元件**啟動**Visual Studio 安裝程式**， > **調試和測試** > **Web 效能和負載測試工具**。
+找出必要的測試控管。  > **個別元件**啟動**Visual Studio 安裝程式**， > **調試和測試** > **Web 效能和負載測試工具**。
 
 ![[Visual Studio 安裝程式] UI 的螢幕擷取畫面，其中已選取個別元件，並在 Web 效能和負載測試工具專案旁邊有核取方塊](./media/availability-multistep/web-performance-load-testing.png)
 
 > [!NOTE]
 > 多步驟 web 測試具有相關聯的額外成本。 若要深入瞭解，請參閱[官方定價指南](https://azure.microsoft.com/pricing/details/application-insights/)。
 
-## <a name="record-a-multi-step-web-test"></a>錄製多步驟 web 測試
+## <a name="record-a-multi-step-web-test"></a>錄製多步驟 web 測試 
 
-若要建立多重步驟測試，您可以使用 Visual Studio Enterprise 來記錄案例，然後將記錄結果上傳至 Application Insights。 Application Insights 依設定的間隔重新執行案例，並確認回應。
+> [!WARNING]
+> 我們不再建議使用多步驟錄製器。 錄製器是針對具有基本互動的靜態 HTML 網頁所開發，並不提供現代化網頁的功能體驗。
 
-> [!IMPORTANT]
-> * 您無法在測試中使用已編碼的函式或迴圈。 測試必須完全包含於 .webtest 指令碼中。 不過，您可以使用標準外掛程式。
-> * 多重步驟 Web 測試僅支援英文字元。 如果您在 Visual Studio 中使用其他語言，請更新 Web 測試的定義檔，以轉譯/排除非英文字元。
-
-使用 Visual Studio Enterprise 來記錄 Web 工作階段。
-
-1. 建立 Web 效能和負載測試專案。 檔案  > **新**的  > **專案** > **Visual C#**   > **測試**
-
-    ![Visual Studio 新增專案 UI](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. 開啟 `.webtest` 檔案並開始錄製。
-
-    ![Visual Studio 測試錄製 UI](./media/availability-multistep/open-web-test.png)
-
-3. 在錄製過程中，按一下您想要測試模擬的步驟。
-
-    ![瀏覽器錄製 UI](./media/availability-multistep/record.png)
-
-4. 編輯本測試以進行下列事項：
-
-    * 加入驗證以檢查收到的文字和回應碼。
-    * 移除任何 uneccesary 互動。 您也可以移除圖片的相依要求，或加入與您認為測試成功無關的追蹤網站。
-    
-    請記住，您只能編輯測試腳本，您可以加入自訂程式碼或呼叫其他 web 測試。 請勿在此測試中插入迴圈。 您可以使用標準 Web 測試的外掛程式。
-
-5. 在 Visual Studio 中執行測試，以進行驗證並確定其運作正常。
-
-    Web 測試執行器會開啟網頁瀏覽器，並重複您已記錄的動作。 請確定所有內容都如預期般運作。
+如需建立 Visual Studio web 測試的指引，請參閱[官方 Visual Studio 2019 檔](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)。
 
 ## <a name="upload-the-web-test"></a>上傳 web 測試
 
@@ -96,7 +70,7 @@ ms.locfileid: "72678227"
 |**傳統** | 我們不再建議使用傳統警示來進行新的可用性測試。|
 |**警示位置閾值**|建議至少為位置數的 3/5。 警示位置閾值與測試位置數目之間的最佳關聯性是  =  測試位置數目的**警示位置閾值** **-2，最少五個測試位置。**|
 
-## <a name="advanced-configuration"></a>進階組態
+## <a name="configuration"></a>組態
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>將時間和亂數字插入您的測試中
 

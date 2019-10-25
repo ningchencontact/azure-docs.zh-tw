@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure Active Directory 報表使用 Azure 監視器活頁簿 |Microsoft Docs
+title: 報表的 Azure 監視器活頁簿 |Microsoft Docs
 description: 瞭解如何使用 Azure 監視器活頁簿來 Azure Active Directory 報表。
 services: active-directory
 author: cawrites
@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5e498dcb39f62fc870bc7efa989b91caeac0dedc
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255656"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819711"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure Active Directory 報表 Azure 監視器活頁簿
 
@@ -102,7 +102,7 @@ ms.locfileid: "72255656"
 
 - 應用程式
 
-- 使用者
+- 使用者人數
 
 ![登入分析](./media/howto-use-azure-monitor-workbooks/43.png)
 
@@ -136,7 +136,7 @@ ms.locfileid: "72255656"
 
 - 應用程式
 
-- 使用者
+- 使用者人數
 
 - 通訊協定
 
@@ -160,7 +160,7 @@ ms.locfileid: "72255656"
 
 - 應用程式
 
-- 使用者
+- 使用者人數
 
 ![使用條件式存取登入](./media/howto-use-azure-monitor-workbooks/49.png)
 
@@ -197,7 +197,7 @@ ms.locfileid: "72255656"
 
 - 應用程式
 
-- 使用者
+- 使用者人數
 
 ![藉由授與控制項來登入](./media/howto-use-azure-monitor-workbooks/50.png)
 
@@ -237,7 +237,7 @@ ms.locfileid: "72255656"
 
 - 應用程式
 
-- 使用者
+- 使用者人數
 
 ![對登入進行疑難排解](./media/howto-use-azure-monitor-workbooks/52.png)
 

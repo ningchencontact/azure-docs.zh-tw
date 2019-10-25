@@ -1,30 +1,25 @@
 ---
 title: 監視 Linux - Azure 上的 Java Web 應用程式效能 | Microsoft Docs
 description: 使用 Application Insights 的 CollectD 外掛程式擴充您的 Java 網站的應用程式效能監視功能。
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: c6e947dfed3169f346f43ab08225056815e8b487
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 03/14/2019
+ms.openlocfilehash: 6c74684ac45a040be154a1e6406c1e7a5e0dd253
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061190"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817142"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 效能計量
 
 
 若要在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中瀏覽 Linux 系統效能度量，請安裝 [collectd](https://collectd.org/) 以及其 Application Insights 外掛程式。 這個開放原始碼解決方案會收集各種系統和網路統計資料。
 
-如果您已[使用 Application Insights 檢測您的 Java Web 服務][java]，通常您會使用 collectd。 提供給您更多資料來幫助您增強應用程式的效能或診斷問題。 
+如果您已使用[Application Insights 檢測 JAVA web 服務][java]，通常會使用 collectd。 提供給您更多資料來幫助您增強應用程式的效能或診斷問題。 
 
 ## <a name="get-your-instrumentation-key"></a>取得檢測金鑰
 在 [Microsoft Azure 入口網站](https://portal.azure.com)中，開啟您要顯示資料的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 資源。 (或[建立新的資源](../../azure-monitor/app/create-new-resource.md )。)
@@ -91,7 +86,7 @@ ms.locfileid: "67061190"
 根據其 [手冊](https://collectd.org/wiki/index.php/First_steps)重新啟動 collectd。
 
 ## <a name="view-the-data-in-application-insights"></a>在 Application Insights 中檢視資料
-在 Application Insights 資源中，開啟[計量並新增圖表][metrics]，選取您想要從 [自訂] 類別中查看的度量。
+在您的 Application Insights 資源中，開啟 [[計量] 和 [新增圖表][metrics]]，從 [自訂] 類別選取您想要查看的度量。
 
 根據預設，會對收集度量來源的所有主機電腦彙總度量。 若要檢視每一主機的度量，在圖表的 [詳細資料] 刀鋒視窗中，開啟 [群組]，然後選擇依 CollectD-Host 群組。
 
@@ -103,17 +98,17 @@ ms.locfileid: "67061190"
 * 編輯組態檔。 
 * 在 `<Plugin ApplicationInsightsWriter>`中，加入指示詞行，如下所示：
 
-| 指示詞 | 效果 |
+| 指示詞 | 影響 |
 | --- | --- |
 | `Exclude disk` |排除 `disk` 外掛程式所收集的所有資料 |
 | `Exclude disk:read,write` |排除來自 `disk` 外掛程式名為 `read` 和 `write` 的來源。 |
 
 以新行分隔個別指示詞。
 
-## <a name="problems"></a>有問題嗎？
+## <a name="problems"></a>有問題？
 *我在入口網站中看不到任何資料*
 
-* 開啟[搜尋][diagnostic]以查看原始事件是否已抵達。 有時需要較長的時間才會在計量瀏覽器中顯示。
+* 開啟 [[搜尋][diagnostic]]，以查看原始事件是否已抵達。 有時需要較長的時間才會在計量瀏覽器中顯示。
 * 您可能需要 [設定輸出資料的防火牆例外狀況](../../azure-monitor/app/ip-addresses.md)
 * 在 Application Insights 外掛程式中啟用追蹤。 在 `<Plugin ApplicationInsightsWriter>`內加入這一行：
   * `SDKLogger true`
@@ -124,7 +119,7 @@ ms.locfileid: "67061190"
 
 Application Insights 的「寫入」外掛程式與某些「讀取」外掛程式不相容。 有些外掛程式有時會在 Application Insights 外掛程式預期要有浮點數的位置傳送 "NaN"。
 
-徵狀：collectd 記錄會顯示包含下列資訊的錯誤：「AI: ...SyntaxError:未預期的權杖 N」。
+徵兆： collectd 記錄檔會顯示錯誤，其中包括「AI： .。。SyntaxError：未預期的 token N」。
 
 因應措施：排除有問題的「寫入」外掛程式所收集的資料。 
 

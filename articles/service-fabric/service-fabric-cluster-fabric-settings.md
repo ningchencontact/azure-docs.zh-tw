@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376129"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882008"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -185,6 +185,9 @@ ms.locfileid: "72376129"
 |EnableRestartManagement |布林值，預設值為 false |動態|這是為了讓伺服器重新啟動。 |
 |EnableServiceFabricAutomaticUpdates |布林值，預設值為 false |動態|這是為了讓網狀架構能夠透過 Windows Update 自動更新。 |
 |EnableServiceFabricBaseUpgrade |布林值，預設值為 false |動態|這是為了讓伺服器進行基底更新。 |
+|FailureReportingExpeditedReportingIntervalEnabled | 布林值，預設值為 true | 靜態 | 當 Fabrichost 進行處於失敗報告模式時，讓 DCA 中的上傳速率更快。 |
+|FailureReportingTimeout | 時間範圍，預設值為 Common::TimeSpan::FromSeconds(60) | 靜態 |以秒為單位指定時間範圍。 在案例中，Fabrichost 進行發生早期階段啟動失敗時，DCA 失敗報告的時間。 | 
+|RunDCAOnStartupFailure | 布林值，預設值為 true | 靜態 |決定在 Fabrichost 進行中面對啟動問題時，是否要啟動 DCA 來上傳記錄。 | 
 |StartTimeout |時間 (秒)，預設值為 300 |動態|以秒為單位指定時間範圍。 fabricactivationmanager 的啟動逾時。 |
 |StopTimeout |時間 (秒)，預設值為 300 |動態|以秒為單位指定時間範圍。 託管服務的啟用、停用和升級逾時。 |
 
@@ -279,7 +282,7 @@ ms.locfileid: "72376129"
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan，預設值為 Common：： TimeSpan：： FromMinutes （5）|動態|以秒為單位指定時間範圍。 當磁片接近空間時，檢查磁碟空間以進行報告健全狀況事件的時間間隔。 |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |時間範圍，預設值為 Common::TimeSpan::FromMinutes(15)|動態|以秒為單位指定時間範圍。 當磁片上有足夠的空間時，檢查磁碟空間以進行報告健全狀況事件的時間間隔。 |
 |EnableImageStoreHealthReporting |布林值，預設值為 TRUE |靜態|設定，以判斷檔案存放區服務是否應該報告其健全狀況。 |
-|FreeDiskSpaceNotificationSizeInKB|int64，預設值為 25 @ no__t-01024 |動態|可能發生健康情況警告的可用磁碟空間大小。 此設定和 FreeDiskSpaceNotificationThresholdPercentage config 的最小值是用來決定傳送健康情況警告。 |
+|FreeDiskSpaceNotificationSizeInKB|int64，預設值為 25\*1024 |動態|可能發生健康情況警告的可用磁碟空間大小。 此設定和 FreeDiskSpaceNotificationThresholdPercentage config 的最小值是用來決定傳送健康情況警告。 |
 |FreeDiskSpaceNotificationThresholdPercentage|double，預設值為0.02 |動態|可能發生健康情況警告的可用磁碟空間百分比。 此設定和 FreeDiskSpaceNotificationInMB config 的最小值是用來判斷健康情況警告的傳送。 |
 |GenerateV1CommonNameAccount| 布林值，預設值為 TRUE|靜態|指定是否要透過使用者名稱 V1 產生演算法來產生帳戶。 從 Service Fabric 6.1 版開始，一律會建立具有 v2 產生的帳戶。 需要 V1 帳戶，才能升級自/至不支援 V2 產生 (6.1 之前) 的版本。|
 |MaxCopyOperationThreads | 單位，預設值為 0 |動態| 次要複寫器可從主要複寫器複製的平行檔案數上限。 '0' == 核心數目。 |
@@ -353,6 +356,7 @@ ms.locfileid: "72376129"
 |DeploymentRetryBackoffInterval| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(10)|動態|以秒為單位指定時間範圍。 部署失敗的輪詢間隔。 在每個連續的部署失敗發生時，系統最多會將部署重試 MaxDeploymentFailureCount 次。 重試間隔是連續部署失敗和部署輪詢間隔的乘積。 |
 |DisableContainers|布林值，預設值為 FALSE|靜態|停用容器的設定 - 用來取代 DisableContainerServiceStartOnContainerActivatorOpen (此為淘汰的設定) |
 |DisableDockerRequestRetry|布林值，預設值為 FALSE |動態| 當 SF 與 DD (Docker 精靈) 進行通訊時，針對傳送給 DD 的每個 HTTP 要求，逾時會預設為 'DockerRequestTimeout'。 如果 DD 沒有在此期間內回應；當最上層作業仍有剩餘時間時，SF 就會重新傳送要求。  使用 HyperV 容器時；DD 有時會花費更長的時間來啟動或停用容器。 在這種情況下，從 SF 的觀點看來會是 DD 要求逾時，而 SF 就會重試該作業。 有時，這似乎會給 DD 增加更多壓力。 此設定可讓您停用此重試以等候 DD 回應。 |
+|DnsServerListTwoIps | 布林值，預設值為 FALSE | 靜態 | 此旗標會新增本機 dns 伺服器兩次，以協助減輕間歇性的解決問題。 |
 |EnableActivateNoWindow| 布林值，預設值為 FALSE|動態| 已啟動的程序會建立在沒有任何主控台的背景中。 |
 |EnableContainerServiceDebugMode|布林值，預設值為 TRUE|靜態|啟用/停用 Docker 容器的記錄。  僅限 Windows。|
 |EnableDockerHealthCheckIntegration|布林值，預設值為 TRUE|靜態|啟用 docker HEALTHCHECK 事件與 Service Fabric 系統健康狀態報告的整合 |

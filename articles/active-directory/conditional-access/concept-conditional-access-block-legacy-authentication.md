@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453052"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819734"
 ---
 # <a name="blocking-legacy-authentication"></a>封鎖舊版驗證
  
@@ -33,9 +33,11 @@ ms.locfileid: "72453052"
 
 1. 流覽至 Azure 入口網站 > Azure Active Directory > 登入。
 1. 新增 [用戶端應用程式] 資料行，如果未顯示，請按一下 [> 用戶端應用程式的資料行]。
-1. 依用戶端應用程式篩選 > 其他用戶端，然後按一下 [套用]。
+1. 依用戶端應用程式篩選 > 檢查顯示的所有其他用戶端選項，然後按一下 [套用]。
+1. 依狀態篩選 > 成功，然後按一下 套用。 
+1. 如有必要，請使用日期篩選器來展開您的日期範圍。
 
-篩選只會顯示舊版驗證通訊協定所進行的登入嘗試。 按一下每個個別的登入嘗試，將會顯示其他詳細資料。 [基本資訊] 索引標籤下的 [用戶端應用程式] 欄位會指出所使用的舊版驗證通訊協定。 這些記錄會指出哪些使用者仍會根據傳統驗證，以及哪些應用程式使用舊版通訊協定來提出驗證要求。 對於不會出現在這些記錄中且已確認不會使用舊版驗證的使用者，請執行條件式存取原則，或啟用基準原則：僅針對這些使用者封鎖舊版驗證。
+篩選只會顯示選取的舊版驗證通訊協定所進行的成功登入嘗試。 按一下每個個別的登入嘗試，將會顯示其他詳細資料。 選取個別資料列之後，[基本資訊] 索引標籤下的 [用戶端應用程式] 資料行或 [用戶端應用程式] 欄位會指出使用了哪一個舊版驗證通訊協定。 這些記錄會指出哪些使用者仍會根據傳統驗證，以及哪些應用程式使用舊版通訊協定來提出驗證要求。 對於不會出現在這些記錄中且已確認不會使用舊版驗證的使用者，請執行條件式存取原則，或啟用基準原則：僅針對這些使用者封鎖舊版驗證。
 
 ## <a name="moving-away-from-legacy-authentication"></a>離開舊版驗證 
 
@@ -47,8 +49,8 @@ ms.locfileid: "72453052"
 
 啟用新式驗證的第一個步驟，是確定您的目錄支援新式驗證。 2017年8月1日當天或之後所建立的目錄，預設會啟用新式驗證。 如果您的目錄是在此日期之前建立的，您必須使用下列步驟，為您的目錄手動啟用新式驗證：
 
-1. 執行 @ no__t-0 @ no__t-1from the [商務用 Skype Online PowerShell 模組](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)，以查看您的目錄是否已支援新式驗證。
-1. 如果您的命令傳回空白 @ no__t-0 @ no__t-1property，則會停用新式驗證。 將設定更新為使用 @ no__t-0 啟用新式驗證。 如果您的 @ no__t-0 @ no__t-1property 包含一個專案，您就可以開始使用了。
+1. 從 [商務用 Skype Online PowerShell 模組](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)執行 `Get-CsOAuthConfiguration` ，查看您的目錄是否已支援新式驗證。
+1. 如果您的命令傳回空的 `OAuthServers` 屬性，則會停用新式驗證。 更新設定，以使用 `Set-CsOAuthConfiguration`啟用新式驗證。 如果您的 `OAuthServers` 屬性包含一個專案，您就可以開始使用了。
 
 請務必先完成此步驟，再繼續進行。 請務必先變更目錄設定，因為這些設定會規定所有 Office 用戶端將使用的通訊協定。 即使您使用的是支援新式驗證的 Office 用戶端，如果您的目錄上已停用新式驗證，則會預設為使用舊版通訊協定。
 

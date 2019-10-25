@@ -1,21 +1,18 @@
 ---
 title: Azure Application Insights - 相依性自動收集 | Microsoft Docs
 description: Application Insights 會自動收集相依項目，並將其視覺化
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: reference
-ms.date: 10/16/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 10/16/2018
+ms.openlocfilehash: 1d3259c32de7f937d4e5ac8e21c8cab60b9cc635
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699200"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819167"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 套件
 
@@ -43,6 +40,22 @@ ms.locfileid: "60699200"
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | 「Application Insights 效能計數器收集器」可讓您將「效能計數器」所收集的資料傳送給 Application Insights。 | [下載套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet 套件可為 .NET 應用程式自動收集 Application Insights 遙測資料。 此套件可用來作為 Application Insights 平台特定套件的相依套件，或作為平台特定套件未涵蓋之 .NET 應用程式的獨立套件 (例如針對 .NET 背景工作角色)。 | [下載套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | 提供遙測通道給將在離線情況下保留遙測資料的 Application Insights Windows Server SDK。 | [下載套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+
+## <a name="common-packages-for-python-using-opencensus"></a>使用 OpenCensus 的 Python 通用套件
+| 封裝名稱 | 穩定版 | 描述 | 下載 |
+|-------------------------------|-----------------------|------------|----|
+| opencensus-ext-azure | 1.0.0 | 透過 OpenCensus 在 Azure 監視器下 Application Insights Python 應用程式。 | [下載套件](https://pypi.org/project/opencensus-ext-azure/) |
+| opencensus-ext-django | 0.7.2 版 | 此套件提供與 Python [django](https://pypi.org/project/django/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-django/) |
+| opencensus-ext-flask | iisnode-inspector-0.7.3.dll | 此套件提供與 Python [flask](https://pypi.org/project/flask/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-flask/) |
+| opencensus-ext-HTTPlib | 0.7.2 版 | 此套件會與適用于 Python2 的 Python3 和[HTTPlib](https://docs.python.org/2/library/httplib.html)的 Python [HTTP. 用戶端](https://docs.python.org/3/library/http.client.html)程式庫整合。 | [下載套件](https://pypi.org/project/opencensus-ext-httplib/) |
+| opencensus-ext-記錄 | 0.1.0 | 此封裝會來擴充具有追蹤資料的記錄檔記錄。 | [下載套件](https://pypi.org/project/opencensus-ext-logging/) |
+| opencensus-ext-mysql | 0.1.2 | 此套件提供與 Python [mysql-連接器](https://pypi.org/project/mysql-connector/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-mysql/) |
+| opencensus-ext-于 postgresql | 0.1.2 | 此套件提供與 Python [psycopg2](https://pypi.org/project/psycopg2/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-postgresql/) |
+| opencensus-ext-pymongo | 0.7.1 | 此套件提供與 Python [pymongo](https://pypi.org/project/pymongo/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-pymongo/) |
+| opencensus-ext-pymysql | 0.1.2 | 此套件提供與 Python [PyMySQL](https://pypi.org/project/PyMySQL/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-pymysql/) |
+| opencensus-ext-金字塔 | 0.7.1 | 此套件提供與 Python[金字塔](https://pypi.org/project/pyramid/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-pyramid/) |
+| opencensus-ext-要求 | 0.7.2 版 | 此套件會提供與 Python[要求](https://pypi.org/project/requests/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-requests/) |
+| opencensus-ext-sqlalchemy | 0.1.2 | 此套件提供與 Python [SQLAlchemy](https://pypi.org/project/SQLAlchemy/)程式庫的整合。 | [下載套件](https://pypi.org/project/opencensus-ext-sqlalchemy/) |
 
 ## <a name="listenerscollectorsappenders"></a>接聽程式/收集器/附加器
 

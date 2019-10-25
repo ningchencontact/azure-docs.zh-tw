@@ -1,26 +1,24 @@
 ---
 title: 使用 Azure Application Insights 進行 OpenCensus Go 追蹤 | Microsoft Docs
 description: 提供使用本機轉送工具和 Application Insights 來整合 OpenCensus Go 追蹤的指示
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990293"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819277"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>從 Go 收集分散式追蹤 (預覽)
 
 透過與 [OpenCensus](https://opencensus.io) 和新型[本機轉送工具](./opencensus-local-forwarder.md)的整合，Application Insights 現在已可支援 Go 應用程式的分散式追蹤。 本文將逐步引導您完成程序，以設定適用於 Go 的 OpenCensus，以及將追蹤資料傳入 Application Insights。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您需要 Azure 訂用帳戶。
 - 您應安裝 Go，本文將使用 1.11 版 [Go Download](https://golang.org/dl/)。
@@ -36,26 +34,26 @@ ms.locfileid: "67990293"
 
 首先，您必須建立會產生檢測金鑰 (ikey) 的 Application Insights 資源。 接著，ikey 會用來設定本機轉送工具，將分散式追蹤從 OpenCensus 所檢測的應用程式傳送到 Application Insights。   
 
-1. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
+1. 選取 [建立資源] > [開發人員工具] > [Application Insights]。
 
    ![新增 Application Insights 資源](./media/opencensus-Go/0001-create-resource.png)
 
  > [!NOTE]
-   >如果這是您第一次建立 Application Insights 資源, 您可以造訪[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)一文以深入瞭解。
+   >如果這是您第一次建立 Application Insights 資源，您可以參閱[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) \(部分機器翻譯\) 一文以深入了解。
 
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
-    | 設定        | 值           | 描述  |
+    | 設定        | Value           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
-   | **Location** | East US | 選擇您附近或接近應用程式裝載位置的地點 |
+   | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
-2. 按一下 [建立]  。
+2. 按一下 [建立]。
 
 ## <a name="configure-local-forwarder"></a>設定本機轉送工具
 
-1. 選取 [概觀]   >  **[程式集]** > 複製應用程式的 [檢測金鑰]  。
+1. 選取 [概觀] >  **[程式集]** > 複製應用程式的 [檢測金鑰]。
 
    ![檢測金鑰的螢幕擷取畫面](./media/opencensus-Go/0003-instrumentation-key.png)
 
@@ -196,7 +194,7 @@ ms.locfileid: "67990293"
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
-1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀]  頁面，以檢視目前執行中應用程式的詳細資料。 選取 [即時計量串流]  。
+1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀] 頁面，以檢視目前執行中應用程式的詳細資料。 選取 [即時計量串流]。
 
    ![紅色方塊中選取了 [即時計量串流] 的 [概觀] 窗格螢幕擷取畫面](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
@@ -204,7 +202,7 @@ ms.locfileid: "67990293"
 
    ![顯示了效能資料的即時計量串流螢幕擷取畫面](./media/opencensus-go/0006-stream.png)
 
-3. 瀏覽回到 [概觀]  頁面，然後選取 [應用程式對應]  ，以顯示應用程式元件之間相依性關係和呼叫計時的視覺化配置。
+3. 瀏覽回到 [概觀] 頁面，然後選取 [應用程式對應]，以顯示應用程式元件之間相依性關係和呼叫計時的視覺化配置。
 
     ![基本應用程式對應的螢幕擷取畫面](./media/opencensus-go/0007-application-map.png)
 
@@ -212,11 +210,11 @@ ms.locfileid: "67990293"
 
    ![應用程式對應](media/opencensus-go/application-map.png)
 
-4. 選取 [調查效能]  以執行詳細的效能分析，並判斷效能緩慢的根本原因。
+4. 選取 [調查效能] 以執行詳細的效能分析，並判斷效能緩慢的根本原因。
 
     ![效能窗格的螢幕擷取畫面](./media/opencensus-go/0008-performance.png)
 
-5. 選取 [範例]  ，然後按一下出現在右窗格中的任何範例，就會啟動端對端交易詳細資料體驗。 儘管應用程式範例只會向我們顯示單一事件，但更複雜的應用程式將可讓您瀏覽到個別事件呼叫堆疊層級的端對端交易。
+5. 選取 [範例]，然後按一下出現在右窗格中的任何範例，就會啟動端對端交易詳細資料體驗。 儘管應用程式範例只會向我們顯示單一事件，但更複雜的應用程式將可讓您瀏覽到個別事件呼叫堆疊層級的端對端交易。
 
      ![端對端交易介面的螢幕擷取畫面](./media/opencensus-go/0009-end-to-end-transaction.png)
 

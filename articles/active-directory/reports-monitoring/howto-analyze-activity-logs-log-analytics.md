@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器記錄來分析 Azure Active Directory 活動記錄 |Microsoft Docs
+title: 使用 Azure 監視器記錄來分析活動記錄 |Microsoft Docs
 description: 瞭解如何使用 Azure 監視器記錄來分析 Azure Active Directory 活動記錄
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1670c93f83ecd6f5bd557d24ec754998a225db0c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 52ab1bd445f8af0bf58dcb6b1176904aa073877a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255618"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820959"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來分析 Azure AD 活動記錄
 
@@ -104,9 +104,9 @@ AuditLogs
 
 您也可以下載 Azure AD 活動記錄的預建記錄分析檢視。 檢視會提供數個常見案例的相關報告，包含稽核和登入事件。 您也可以使用上一節中所述的步驟，在報表所提供的任何資料上設定警示。
 
-* **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗次數、更新的使用者數目和更新失敗次數，以及取消佈建的使用者數目和對應的失敗次數。    
-* **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告 (例如依應用程式、使用者、裝置區分的登入)，以及追蹤一段時間內登入次數的摘要檢視。
-* **執行同意的使用者**：此檢視會顯示與使用者同意有關的報告，例如依使用者區分的同意授與、依授與同意的使用者區分的登入，以及就所有以同意為基礎的應用程式而言，依應用程式區分的登入。 
+* **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗、更新的使用者數目和更新失敗，以及取消佈建的使用者數目和對應的失敗。    
+* **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告，例如依應用程式、使用者、裝置顯示的登入，以及追蹤一段時間內登入次數的摘要檢視。
+* **Users Performing Consent**：此檢視會顯示與使用者同意有關的報告，例如使用者的同意授與、授與同意的使用者所執行的登入，以及應用程式為所有以同意為基礎的應用程式執行的登入。 
 
 了解如何[安裝與使用適用於 Azure AD 活動記錄的記錄分析檢視](howto-install-use-log-analytics-views.md)。 
 

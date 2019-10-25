@@ -1,30 +1,26 @@
 ---
 title: 使用 Azure Application Insights Profiler 設定窗格 | Microsoft Docs
 description: 查看 Profiler 狀態並開始分析工作階段
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 12cb8e31617ee6b1e0c8515e66e265f4eccdf3df
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338039"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820484"
 ---
 # <a name="configure-application-insights-profiler"></a>設定 Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>已更新 Profiler 代理程式
 觸發程式功能只適用于2.6 版或更新版本的 profiler 代理程式。 如果您正在執行 Azure App Service，您的代理程式會自動更新。 如果您移至網站的 Kudu URL 並將 \DiagnosticServices 附加至它的結尾，您可以查看正在執行的代理程式版本，如下所示： https://yourwebsite.scm.azurewebsites.net/diagnosticservices 。 Application Insights Profiler Webjob 應為2.6 或更新版本。 您可以重新開機 web 應用程式來強制升級。 
 
-如果您是在 VM 或雲端服務上執行分析工具，您必須安裝 Windows Azure 診斷（WAD）延伸模組版本16.0.4 版或更新版本。 您可以藉由登入您的 VM 並查看此目錄，來檢查 WAD 的版本：C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. 目錄名稱是已安裝的 WAD 版本。 當有新版本可用時，Azure VM 代理程式會自動更新 WAD。
+如果您是在 VM 或雲端服務上執行分析工具，您必須安裝 Windows Azure 診斷（WAD）延伸模組版本16.0.4 版或更新版本。 您可以藉由登入您的 VM 並查看此目錄，來檢查 WAD 的版本： C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4。 目錄名稱是已安裝的 WAD 版本。 當有新版本可用時，Azure VM 代理程式會自動更新 WAD。
 
 ## <a name="profiler-settings-page"></a>Profiler 設定頁面
 
@@ -42,7 +38,7 @@ ms.locfileid: "71338039"
 |-|-|
 立即分析 | 開始為所有連結至此 Application Insights 執行個體的應用程式分析工作階段。
 觸發程序 | 可讓您設定導致 profiler 執行的觸發程式。 
-最近分析的工作階段 | 顯示過往分析工作階段的相關資訊。
+最近的分析會話 | 顯示過往分析工作階段的相關資訊。
 
 ## <a name="profile-now"></a>立即分析
 此選項可讓您視需要啟動分析會話。 當您按一下此連結時，傳送資料至此 Application Insights 實例的所有 profiler 代理程式都會開始捕獲設定檔。 5到10分鐘後，設定檔會話會顯示在下列清單中。
@@ -58,7 +54,7 @@ ms.locfileid: "71338039"
 |-|-|
 開啟/關閉按鈕 | 在上：此觸發程式可以啟動 profiler;Off：此觸發程式不會啟動 profiler。
 記憶體閾值 | 當此百分比的記憶體使用中時，就會啟動 profiler。
-Duration | 設定觸發時，分析工具將執行的時間長度。
+課程時間 | 設定觸發時，分析工具將執行的時間長度。
 Cooldown | 設定分析工具在觸發後再次檢查記憶體或 CPU 使用量之前，所要等待的時間長度。
 
 ## <a name="recent-profiling-sessions"></a>最近的分析會話
@@ -80,7 +76,7 @@ CPU % | Profiler 執行時所使用的 CPU 百分比。
 
 以下幾節將說明此案例的運作方式：
 
-### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>步驟 1:啟動 Web 效能測試來產生 Web 應用程式的流量
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>步驟1：啟動 web 效能測試來產生 web 應用程式的流量
 
 如果您的 Web 應用程式已經有連入流量，或您只想要以手動方式產生流量，請略過本節，並繼續執行步驟 2。
 
@@ -100,7 +96,7 @@ CPU % | Profiler 執行時所使用的 CPU 百分比。
 
     ![負載測試正在執行中][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>步驟 2:啟動隨選 Profiler 工作階段
+### <a name="step-2-start-a-profiler-on-demand-session"></a>步驟2：啟動 Profiler 隨選會話
 
 1. 負載測試開始執行時，請啟動 Profiler，以在 Web 應用程式接收負載時擷取其追蹤。
 

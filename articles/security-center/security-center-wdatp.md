@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028075"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819881"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>使用 Azure 資訊安全中心的 Microsoft Defender Advanced 威脅防護
 
@@ -28,19 +28,19 @@ Azure 資訊安全中心藉由與[Microsoft Defender Advanced 威脅防護](http
 
 當您使用 Microsoft Defender ATP 時，您會取得：
 
-- **先進的入侵後偵測感應器**：適用于 Windows 伺服器的 Microsoft Defender ATP 感應器可收集大量行為信號。
+- **先進的入侵後偵測感應器**：適用于 Windows 伺服器的 MICROSOFT Defender ATP 感應器可收集大量行為信號。
 
-- **以分析為基礎、以雲端為架構的後缺口偵測功能**：Microsoft Defender ATP 可快速適應不斷變化的威脅。 並使用進階分析與巨量資料。 Microsoft Defender ATP 透過 Windows、Azure 和 Office 等信號的 Intelligent Security Graph 功能來擴大，以偵測不明的威脅。 它提供採取行動警示，讓您得以快速回應。
+- 以**分析為基礎、雲端式的後置缺口偵測**： MICROSOFT Defender ATP 可快速適應不斷變化的威脅。 並使用進階分析與巨量資料。 Microsoft Defender ATP 透過 Windows、Azure 和 Office 等信號的 Intelligent Security Graph 功能來擴大，以偵測不明的威脅。 它提供採取行動警示，讓您得以快速回應。
 
-- **威脅情報**：當 Microsoft Defender ATP 識別攻擊者的工具、技術和程式時，會產生警示。 它會使用由 Microsoft 威脅獵人和安全小組提供的資料，利用合作夥伴提供的情報變得更強大。
+- **威脅情報**：當 MICROSOFT Defender ATP 識別攻擊者的工具、技術和程式時，會產生警示。 它會使用由 Microsoft 威脅獵人和安全小組提供的資料，利用合作夥伴提供的情報變得更強大。
 
 Azure 資訊安全中心現在提供下列功能：
 
-- **自動化上架**：Microsoft Defender ATP 感應器會針對上架為 Azure 資訊安全中心的 Windows 伺服器自動啟用。
+- **自動**上線： MICROSOFT Defender ATP 感應器會針對上架為 Azure 資訊安全中心的 Windows 伺服器自動啟用。
 
-- **單一窗口**：Azure 資訊安全中心主控台會顯示 Microsoft Defender ATP 警示。
+- **單一玻璃**： Azure 資訊安全中心主控台會顯示 MICROSOFT Defender ATP 警示。
 
-- **詳細的機器調查**：Azure 資訊安全中心客戶可以使用 Microsoft Defender ATP 主控台進行詳細調查，以找出缺口的範圍。
+- **詳細的機器調查**： Azure 資訊安全中心客戶可以使用 MICROSOFT Defender ATP 主控台進行詳細調查，以找出缺口的範圍。
 
 ![Azure 資訊安全中心會顯示一份警示和每個警示的一般資訊的清單](media/security-center-wdatp/image1.png)
 
@@ -50,7 +50,7 @@ Azure 資訊安全中心現在提供下列功能：
 
 ## <a name="platform-support"></a>平台支援
 
-資訊安全中心中的 Microsoft Defender ATP 支援在標準服務訂用帳戶中的 Windows Server 2016、2012 R2 和 2008 R2 SP1 作業系統上進行偵測。
+資訊安全中心中的 Microsoft Defender ATP 支援在 Windows Server 2016、2012 R2 和 2008 R2 SP1 上偵測，針對 Azure Vm，您需要標準層訂用帳戶，而非 Azure Vm 則只需要在工作區層級中使用標準層。
 
 > [!NOTE]
 > 當您使用 Azure 資訊安全中心來監視伺服器時，系統會自動建立 Microsoft Defender ATP 租使用者，而且 Microsoft Defender ATP 資料預設會儲存在歐洲。 如果您需要將資料移至另一個位置，您必須聯絡 Microsoft 支援服務以重設租使用者。 已針對 Office 365 GCC 客戶停用利用此整合的伺服器端點監視。
@@ -70,7 +70,7 @@ Azure 資訊安全中心現在提供下列功能：
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>啟用 Microsoft Defender ATP 整合
 
-若要查看是否已啟用 Microsoft Defender ATP 整合，請選取 資訊**安全中心**  > **定價 & 設定** > 按一下您的訂用帳戶。
+若要查看 Microsoft Defender ATP 整合是否已啟用，請選取 [資訊**安全中心**] > [**定價 & 設定**] > 按一下您的訂用帳戶。
 您可以在這裡查看目前已啟用的整合內容。
 
   ![已啟用 Microsoft Defender ATP 整合的 Azure 資訊安全中心威脅偵測設定頁面](media/security-center-wdatp/enable-integrations.png)

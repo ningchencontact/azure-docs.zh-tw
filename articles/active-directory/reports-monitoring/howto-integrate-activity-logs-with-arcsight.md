@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 監視器將 Azure Active Directory 記錄與 ArcSight 整合 |Microsoft Docs
+title: 使用 Azure 監視器將記錄與 ArcSight 整合 |Microsoft Docs
 description: 瞭解如何使用 Azure 監視器將 Azure Active Directory 記錄與 ArcSight 整合
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d202cb0cc2d073326a5bcc8fb0d540c232afa98
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 037240e6006b5e0625bf8fb75492d8e458899a8e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240900"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820892"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>使用 Azure 監視器整合 Azure Active Directory 記錄與 ArcSight
 

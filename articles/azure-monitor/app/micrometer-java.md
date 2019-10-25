@@ -1,23 +1,18 @@
 ---
 title: 如何搭配 Azure Application Insights SDK 使用 Micrometer | Microsoft Docs
 description: '搭配 Application Insights Spring Boot 和非 Spring Boot 應用程式使用 Micrometer 的逐步解說指南。 '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/01/2018
+author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 5bef5a6037c6eb29d0dc48e313958e2d243904eb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 11/01/2018
+ms.openlocfilehash: 267665c97f683740c05ae6602a416225c79aa44c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299578"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819317"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何搭配 Azure Application Insights Java SDK 使用 Micrometer
 Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼的計量，並可讓您將資料匯出到您慣用的監視系統。 這篇文章會教導您如何搭配 Application Insights Spring Boot 和非 Spring Boot 應用程式使用 Micrometer。
@@ -87,9 +82,9 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
 預設度量：
 
 *    針對 Tomcat、JVM、Logback 度量、Log4J 度量、執行時間度量、處理器度量，以及 FileDescriptorMetrics 自動設定的度量。
-*    例如, 如果類別路徑上有 Netflix Hystrix, 我們也會取得這些計量。 
+*    例如，如果類別路徑上有 Netflix Hystrix，我們也會取得這些計量。 
 *    下列計量可以藉由新增個別的 bean 來提供使用。 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
+        - CacheMetrics （CaffeineCache，EhCache2，GuavaCache，HazelcastCache，JCache）     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -144,7 +139,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
         </dependency>
      ```
 
-2. 將`ApplicationInsights.xml`檔案放在 resources 資料夾中：
+2. 將 `ApplicationInsights.xml` 檔案放在 resources 資料夾中：
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

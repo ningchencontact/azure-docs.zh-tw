@@ -1,23 +1,18 @@
 ---
 title: 疑難排解 Java Web 專案中的 Application Insights
 description: 疑難排解指南 - 使用 Application Insights 監視即時的 Java 應用程式。
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a26302b0c0b4361fe3e7aae6aba798f433c72ade
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 03/14/2019
+ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742188"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820814"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [JAVA 中 Azure 應用程式深入][java]解析的問題或問題嗎？ 以下是一些秘訣。
@@ -25,7 +20,7 @@ ms.locfileid: "68742188"
 ## <a name="build-errors"></a>建置錯誤
 **在 Eclipse 或 Intellij Idea 中，透過 Maven 或 Gradle 加入 Application Insights SDK 時，我收到建置或總和檢查碼驗證錯誤。**
 
-* 如果相依性 `<version>` 元素使用具有萬用字元的模式 (例如(Maven) `<version>[2.0,)</version>` 或 (Gradle) `version:'2.0.+'`)，請嘗試改為指定特定版本 (例如 `2.0.1`)。 請參閱最新版本的 [版本資訊](https://github.com/Microsoft/ApplicationInsights-Java/releases) 。
+* 如果相依性 `<version>` 元素使用具有萬用字元的模式 (例如 (Maven) `<version>[2.0,)</version>` 或 (Gradle) `version:'2.0.+'`)，請嘗試改為指定特定版本 (例如 `2.0.1`)。 請參閱最新版本的 [版本資訊](https://github.com/Microsoft/ApplicationInsights-Java/releases) 。
 
 ## <a name="no-data"></a>沒有資料
 **我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。**
@@ -35,7 +30,7 @@ ms.locfileid: "68742188"
 * 確認 xml 檔案中沒有 `<DisableTelemetry>true</DisableTelemetry>` 節點。
 * 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com。 請參閱 [完整的防火牆例外狀況清單](../../azure-monitor/app/ip-addresses.md)
 * 在 Microsoft Azure 開始面板中，查看服務狀態對應。 如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
-* 藉由在 ApplicationInsights 中的`<SDKLogger />`根節點底下新增專案 (在專案的 resources 資料夾中), 然後檢查前面加上 AI 的專案, 以[開啟記錄](#debug-data-from-the-sdk):INFO/WARN/ERROR 的項目，確認是否有任何可疑的記錄。 
+* 藉由在 ApplicationInsights 的根節點下新增 `<SDKLogger />` 專案（在專案的 resources 資料夾中），然後檢查是否有任何可疑記錄的專案前面加上 AI： INFO/警告/ERROR，藉以[開啟記錄](#debug-data-from-the-sdk)。 
 * 藉由查看主控台的輸出訊息「已成功找到組態檔」陳述式，確定 Java SDK 已成功載入正確的 ApplicationInsights.xml 檔案。
 * 如果找不到組態檔，請檢查輸出訊息以查看在何處搜尋組態檔，並確定 ApplicationInsights.xml 位在這些搜尋位置中的其中一個位置。 根據經驗法則，您可以將組態檔置於 Application Insights SDK JAR 附近。 例如：在 Tomcat 中，這可能表示 WEB-INF/classes 資料夾。 在開發過程中，您可以將 ApplicationInsights.xml 放在您 Web 專案的 resources 資料夾中。
 * 另外也請查看 [GitHub 問題頁面](https://github.com/Microsoft/ApplicationInsights-Java/issues) \(英文\) 以了解 SDK 的已知問題。
@@ -43,12 +38,12 @@ ms.locfileid: "68742188"
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>我曾經看到資料，但是已停止
 * 檢查 [狀態部落格](https://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定]/[配額和定價] 以找出。若是如此，您可以升級您的方案，或支付額外的容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 * 您最近是否升級了 SDK？ 請確定專案目錄中只有「唯一」的 SDK jar。 不應該有兩個不同版本的 SDK 存在。
 * 正在尋找適當的 AI 資源嗎？ 請比對應用程式的 iKey 與您預期遙測的資源。 它們應該相同。
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料
-* 開啟 [使用量和估計成本] 頁面，並檢查[取樣](../../azure-monitor/app/sampling.md)是否正在運作。 (100% 傳輸表示目前未進行取樣。)Application Insights 服務可以設定為只接受來自您的應用程式的一小部分遙測。 這有助於您維持在每月的遙測配額內。
+* 開啟 [使用量和估計成本] 頁面，並檢查[取樣](../../azure-monitor/app/sampling.md)是否正在運作。 （100% 傳輸表示取樣不在作業中。）Application Insights 服務可以設定為只接受從您的應用程式抵達的一小部分遙測。 這有助於您維持在每月的遙測配額內。
 * 您是否已開啟 SDK 取樣？ 如果是，則應該會針對所有適用的類型以指定的速率進行資料取樣。
 * 您正在執行較舊版本的 Java SDK？ 從 2.0.1 版開始，我們引進容錯機制來處理間歇性的網路和後端失敗，以及本機磁碟上的資料持續性。
 * 是否因為過多的遙測而遭到節流？ 如果您開啟 INFO 記錄，將會看到記錄訊息「應用程式已節流」。 我們目前的限制為每秒 32,000 個遙測項目。
@@ -62,9 +57,9 @@ ms.locfileid: "68742188"
 ## <a name="no-usage-data"></a>沒有使用狀況資料
 **我看到要求和回應時間的相關資料，但沒有看到頁面檢視、瀏覽器或使用者資料的相關資料。**
 
-您已成功設定應用程式從伺服器傳送遙測。 現在, 您的下一步是[設定網頁, 以從網頁瀏覽器傳送遙測][usage]。
+您已成功設定應用程式從伺服器傳送遙測。 現在，您的下一步是[設定網頁，以從網頁瀏覽器傳送遙測][usage]。
 
-或者, 如果您的用戶端是[手機或其他裝置][platforms]中的應用程式, 您可以從該處傳送遙測。
+或者，如果您的用戶端是[手機或其他裝置][platforms]中的應用程式，您可以從該處傳送遙測。
 
 使用相同的檢測機碼來設定用戶端和伺服器遙測。 資料會出現在相同的 Application Insights 資源中，而且您可以相互關聯來自用戶端和伺服器的事件。
 
@@ -119,7 +114,7 @@ ms.locfileid: "68742188"
 
 ### <a name="spring-boot-starter"></a>春季開機 Starter
 
-若要使用 Application Insights 春季開機 Starter 來啟用具有春季開機應用程式的 SDK 記錄, 請將`application.properties`下列內容新增至檔案:
+若要使用 Application Insights 春季開機 Starter 來啟用具有春季開機應用程式的 SDK 記錄，請將下列內容新增至 `application.properties` 檔案：
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -127,7 +122,7 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
-或列印到標準錯誤:
+或列印到標準錯誤：
 
 ```yaml
 azure.application-insights.logger.type=console
@@ -136,7 +131,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>JAVA 代理程式
 
-若要啟用 JVM 代理程式記錄, 請更新[ai-agent.xml](java-agent.md):
+若要啟用 JVM 代理程式記錄，請更新[ai-agent.xml](java-agent.md)：
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
@@ -149,26 +144,26 @@ azure.application-insights.logger.level=trace
 ### <a name="java-command-line-properties"></a>JAVA 命令列屬性
 _自版本2.4。0_
 
-若要使用命令列選項來啟用記錄, 而不變更設定檔:
+若要使用命令列選項來啟用記錄，而不變更設定檔：
 
 ```
 java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
 ```
 
-或列印到標準錯誤:
+或列印到標準錯誤：
 
 ```
 java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 ```
 
 ## <a name="the-azure-start-screen"></a>Azure 開始畫面
-**我正在查看 [Azure 入口網站](https://portal.azure.com)。地圖是否告知有關我的應用程式的相關資訊？**
+**我正在查看[Azure 入口網站](https://portal.azure.com)。地圖會告訴我我的應用程式有什麼問題嗎？**
 
 否，它會顯示世界各地 Azure 伺服器的健全狀況。
 
 *從 Azure 開始面板 (主畫面) 中，如何找到我應用程式的相關資料？*
 
-假設您已[設定 Application Insights 的應用程式][java], 請按一下 [流覽], 選取 [Application Insights], 然後選取您為應用程式建立的應用程式資源。 日後若要更快速地從該處開始，您可以將應用程式釘選至開始面板。
+假設您已[設定 Application Insights 的應用程式][java]，請按一下 [流覽]，選取 [Application Insights]，然後選取您為應用程式建立的應用程式資源。 日後若要更快速地從該處開始，您可以將應用程式釘選至開始面板。
 
 ## <a name="intranet-servers"></a>內部網路伺服器
 **可以在我的內部網路上監視伺服器嗎？**
@@ -178,7 +173,7 @@ java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 
 ## <a name="data-retention"></a>資料保留
-**資料保留在入口網站多久的時間？是否安全？**
+**資料保留在入口網站多久的時間？ 是否安全？**
 
 請參閱[資料保留和隱私權][data]。
 

@@ -1,42 +1,37 @@
 ---
 title: Azure Application Insights 中 Java Web 應用程式的效能監視 | Microsoft Docs
 description: 使用 Application Insights 延伸 Java 網站的效能和使用量監視。
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 01/10/2019
+ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338097"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819409"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 JAVA web 應用程式中的相依性、攔截到的例外狀況和方法執行時間
 
 
-如果您已[使用 Application Insights 來檢測您的 JAVA web 應用程式][java], 您可以使用 JAVA 代理程式來取得更深入的見解, 而不需要變更任何程式碼:
+如果您已[使用 Application Insights 來檢測您的 JAVA web 應用程式][java]，您可以使用 JAVA 代理程式來取得更深入的見解，而不需要變更任何程式碼：
 
-* **相依性：** 您的應用程式對其他元件呼叫的相關資料，包括：
-  * 系統會攔截透過 Apache HttpClient、OkHttp 和`java.net.HttpURLConnection`所發出的**傳出 HTTP 呼叫**。
+* **相依性** ：您的應用程式對其他元件呼叫的相關資料，包括：
+  * 系統會攔截透過 Apache HttpClient、OkHttp 和 `java.net.HttpURLConnection` 提出的**傳出 HTTP 呼叫**。
   * 系統會攔截透過 Jedis 用戶端所提出的**Redis 呼叫**。
-  * **JDBC 查詢**-針對 MySQL 和于 postgresql, 如果呼叫所花費的時間超過10秒, 代理程式就會報告查詢計劃。
+  * **JDBC 查詢**-針對 MySQL 和于 postgresql，如果呼叫所花費的時間超過10秒，代理程式就會報告查詢計劃。
 
-* **應用程式記錄:** 使用 HTTP 要求和其他遙測來捕獲應用程式記錄並使其相互關聯
+* **應用程式記錄：** 使用 HTTP 要求和其他遙測來捕獲應用程式記錄並使其相互關聯
   * **Log4j 1。2**
   * **Log4j2**
   * **Logback**
 
-* **更好的作業命名:** (用於入口網站中的要求匯總)
-  * 以**春季**為基礎`@RequestMapping`。
-  * **JAX-RS** -以為`@Path`基礎。 
+* **更好的作業命名：** （用於入口網站中的要求匯總）
+  * 以 `@RequestMapping`為基礎的**春季**。
+  * **JAX-RS** -以 `@Path`為基礎。 
 
 若要使用 Java 代理程式，您要在伺服器上安裝它。 您的 web 應用程式必須使用[Application Insights JAVA SDK][java]進行檢測。 
 
@@ -84,23 +79,23 @@ ms.locfileid: "71338097"
 </ApplicationInsightsAgent>
 ```
 
-## <a name="additional-config-spring-boot"></a>其他設定 (彈簧開機)
+## <a name="additional-config-spring-boot"></a>其他設定（彈簧開機）
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-針對 Azure App 服務, 請執行下列動作:
+針對 Azure App 服務，請執行下列動作：
 
 * 選取 [設定] > [應用程式設定]
 * 在 [應用程式設定] 之下，新增索引鍵值組︰
 
-機碼：`JAVA_OPTS`Value`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+機碼： `JAVA_OPTS` 值： `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-如需最新版本的 JAVA 代理程式, 請在[這裡](https://github.com/Microsoft/ApplicationInsights-Java/releases
+如需最新版本的 JAVA 代理程式，請在[這裡](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )查看版本。 
 
-代理程式必須封裝為專案中的資源, 因此它最後會在 D:/home/site/wwwroot/目錄中。 您可以前往 [**開發工具** > ] [**高級工具** > ] [**偵錯主控台**], 然後檢查網站目錄的內容, 以確認您的代理程式是否在正確的 App Service 目錄中。    
+代理程式必須封裝為專案中的資源，因此它最後會在 D：/home/site/wwwroot/目錄中。 您可以前往 [**開發工具**] > [ **Advanced tools** ] > **偵錯主控台**並檢查網站目錄的內容，以確認您的代理程式是否在正確的 App Service 目錄中。    
 
-* 儲存設定並重新啟動您的應用程式。 (這些步驟僅適用于在 Windows 上執行的應用程式服務)。
+* 儲存設定並重新啟動您的應用程式。 （這些步驟僅適用于在 Windows 上執行的應用程式服務）。
 
 > [!NOTE]
 > AI-Agent.xml 與代理程式 jar 檔案應在同一個資料夾中。 它們通常一起放在專案的 `/resources` 資料夾中。  
@@ -125,14 +120,14 @@ ms.locfileid: "71338097"
 確定 **[傳入](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps)與傳出 (代理程式) 設定兩者**完全相同。
 
 ## <a name="view-the-data"></a>檢視資料
-在 Application Insights 資源中, 匯總的遠端相依性和方法執行時間會出現[在 [效能] 磚之下][metrics]。
+在 Application Insights 資源中，匯總的遠端相依性和方法執行時間會出現[在 [效能] 磚之下][metrics]。
 
-若要搜尋相依性、例外狀況和方法報表的個別實例, 請開啟 [[搜尋][diagnostic]]。
+若要搜尋相依性、例外狀況和方法報表的個別實例，請開啟 [[搜尋][diagnostic]]。
 
 [診斷相依性問題 - 深入了解](../../azure-monitor/app/asp-net-dependencies.md#diagnosis)。
 
-## <a name="questions-problems"></a>有疑問嗎？ 有問題嗎？
-* 沒有資料？ [設定防火牆例外狀況](../../azure-monitor/app/ip-addresses.md)
+## <a name="questions-problems"></a>有問題？ 有問題？
+* 沒有資料嗎？ [設定防火牆例外狀況](../../azure-monitor/app/ip-addresses.md)
 * [疑難排解 Java](java-troubleshoot.md)
 
 <!--Link references-->

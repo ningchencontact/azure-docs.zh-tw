@@ -1,5 +1,5 @@
 ---
-title: 疑難排解：已下載的 Azure Active Directory 活動記錄中遺漏資料 | Microsoft Docs
+title: 疑難排解：下載的活動記錄中遺漏資料 |Microsoft Docs
 description: 提供您已下載的 Azure Active Directory 活動記錄中遺漏資料的解決方案。
 services: active-directory
 documentationcenter: ''
@@ -17,26 +17,26 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f120c1b86efe94f4ff6316e6116b9049582b07e9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: db96bd99a25ca7803dbdfe412e2cddbbcb57c0e4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987992"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817517"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>我在下載的 Azure Active Directory 活動記錄中無法找到所有資料
 
 ## <a name="symptoms"></a>徵兆
 
-我已下載活動記錄 (稽核或登入)，卻沒看到我所選擇時間的所有記錄。 為何? 
+我已下載活動記錄 (稽核或登入)，卻沒看到我所選擇時間的所有記錄。 為什麼呢？ 
 
- ![報表](./media/troubleshoot-missing-data-download/01.png)
+ ![報告](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>原因
 
-當您下載 Azure 入口網站中的活動記錄時, 我們會將縮放比例限制為250000筆記錄 (依最新的第一個排序)。 
+當您下載 Azure 入口網站中的活動記錄時，我們會將縮放比例限制為250000筆記錄（依最新的第一個排序）。 
 
-## <a name="resolution"></a>解決方法
+## <a name="resolution"></a>解析度
 
 您可以利用 [Azure AD 報告 API](concept-reporting-api.md) 在任何指定時間點擷取最多一萬筆記錄。
 

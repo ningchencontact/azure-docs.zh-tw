@@ -1,23 +1,18 @@
 ---
 title: JavaScript Web App 適用的 Azure Application Insights | Microsoft Docs
 description: 取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。 Detect exceptions and performance issues in JavaScript web pages.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 09/20/2019
+ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430204"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819373"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -50,7 +45,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>以程式碼片段為基礎的設定
 
-如果您的應用程式不使用 npm，您可以在每個頁面的頂端貼上此程式碼片段，直接使用 Application Insights 檢測您的網頁。 最好是 @no__t 0 區段中的第一個腳本，讓它可以監視所有相依性的任何潛在問題。 如果您使用 Blazor 伺服器應用程式，請在 `<head>` 區段中的 `_Host.cshtml` 的檔案頂端新增程式碼片段。
+如果您的應用程式不使用 npm，您可以在每個頁面的頂端貼上此程式碼片段，直接使用 Application Insights 檢測您的網頁。 最好是 `<head>` 區段中的第一個腳本，讓它可以監視所有相依性的任何潛在問題。 如果您使用 Blazor 伺服器應用程式，請在檔案頂端的 `<head>` 區段中新增程式碼片段 `_Host.cshtml`。
 
 ```html
 <script type="text/javascript">
@@ -85,7 +80,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ### <a name="telemetry-initializers"></a>遙測初始化運算式
 遙測初始化運算式是用來在從使用者的瀏覽器傳送之前，修改所收集遙測的內容。 它們也可以用來防止傳送特定遙測，方法是傳回 `false`。 您可以將多個遙測初始化運算式新增至您的 Application Insights 實例，並依加入它們的循序執行。
 
-@No__t-0 的輸入引數是回呼，其接受[`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer)做為引數，並傳回 `boolean` 或 `void`。 如果傳回 `false`，則不會傳送遙測專案，否則會繼續進行下一個遙測初始化運算式（如果有的話），或傳送至遙測集合端點。
+`addTelemetryInitializer` 的輸入引數是回呼，其接受[`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer)做為引數，並傳回 `boolean` 或 `void`。 如果傳回 `false`，則不會傳送遙測專案，否則會繼續進行下一個遙測初始化運算式（如果有的話），或傳送至遙測集合端點。
 
 使用遙測初始化運算式的範例：
 ```ts
@@ -178,7 +173,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ### <a name="analytics"></a>分析 
 
-若要查詢 JavaScript SDK 所收集的遙測資料，請選取 [**記錄（分析）** ] 按鈕中的 [查看]。 藉由新增 `where` 的語句 `client_Type == "Browser"`，您只會看到來自 JavaScript SDK 的資料，而其他 Sdk 所收集的任何伺服器端遙測也會被排除。
+若要查詢 JavaScript SDK 所收集的遙測資料，請選取 [**記錄（分析）** ] 按鈕中的 [查看]。 藉由新增 `client_Type == "Browser"`的 `where` 語句，您只會看到來自 JavaScript SDK 的資料，而其他 Sdk 所收集的任何伺服器端遙測也會被排除。
  
 ```kusto
 // average pageView duration by name
@@ -200,7 +195,7 @@ dataset
 您可以在 Azure 入口網站中 unminified 例外狀況遙測的縮減呼叫堆疊。 [例外狀況詳細資料] 面板上的所有現有整合都會使用新 unminified 的呼叫堆疊。 拖放來源對應 unminifying 支援所有現有和未來的 JS Sdk （+ node.js），因此您不需要升級 SDK 版本。 若要查看您的 unminified 呼叫堆疊，
 1. 在 Azure 入口網站中選取例外狀況遙測專案，以查看其「端對端交易詳細資料」
 2. 識別與此呼叫堆疊對應的來源對應。 來源對應必須符合堆疊框架的原始程式檔，但尾碼為 `.map`
-3. 將來源對應拖放到 Azure 入口網站 @no__t 中的呼叫堆疊-0
+3. 將來源對應拖放到 Azure 入口網站的呼叫堆疊 ![](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web 基本
 
@@ -219,7 +214,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 SDK V2 版本中的重大變更：
 - 為了讓 API 簽章變得更好，某些 API 呼叫（例如 trackPageView）已更新。 不支援在 IE8 或較低版本的瀏覽器中執行。
 - 遙測信封因數據架構更新而有欄位名稱和結構變更。
-- 已將 `context.operation` 移至 `context.telemetryTrace`。 某些欄位也已變更（`operation.id` @ no__t-1 @ no__t-2）
+- 已將 `context.operation` 移至 `context.telemetryTrace`。 某些欄位也已變更（`operation.id` --> `telemetryTrace.traceID`）
   - 如果您想要手動重新整理目前的 pageview 識別碼（例如，在 SPA 應用程式中），可以使用 `appInsights.properties.context.telemetryTrace.traceID = Util.newId()` 來完成此作業
 
 如果您使用目前的 application insights 生產 SDK （1.0.20），而且想要查看新的 SDK 是否在執行時間中運作，請根據您目前的 SDK 載入案例更新 URL。

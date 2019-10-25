@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 10/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5a6ed66efa0f73f957c3acb048136a5328f9c264
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 5de62fd52360511fe660255dc023721a2837fe85
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750172"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819787"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權
 
@@ -156,6 +156,40 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ## <a name="list-access"></a>列出存取權
 
 在 RBAC 中，若要列出存取權，您可以列出角色指派。
+
+### <a name="list-all-role-assignments-in-a-subscription"></a>列出訂用帳戶中的所有角色指派
+
+若要取得目前訂用帳戶中所有角色指派的清單（包括從根和管理群組繼承的角色指派），最簡單的方式是使用[new-azroleassignment](/powershell/module/az.resources/get-azroleassignment) ，而不需要任何參數。
+
+```azurepowershell
+Get-AzRoleAssignment
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+DisplayName        : Alain
+SignInName         : alain@example.com
+RoleDefinitionName : Storage Blob Data Reader
+RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Marketing
+SignInName         :
+RoleDefinitionName : Contributor
+RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
+ObjectId           : 22222222-2222-2222-2222-222222222222
+ObjectType         : Group
+CanDelegate        : False
+
+...
+```
 
 ### <a name="list-role-assignments-for-a-user"></a>列出使用者的角色指派
 

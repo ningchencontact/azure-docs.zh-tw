@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 59c888b1f18b1c9f700e1b79c4786a466f2c55fb
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173914"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821956"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中使用受控磁碟
 
@@ -224,10 +224,10 @@ ms.locfileid: "67173914"
 
 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
 
-* Microsoft.Compute 的 apiVersion  必須設定為 `2018-04-01` (或更新版本)
-* 將 managedDisk.storageAccountType  指定為 `StandardSSD_LRS`
+* Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
+* 將 managedDisk.storageAccountType 指定為 `StandardSSD_LRS`
 
-下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk  區段：
+下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk 區段：
 
 ```json
 "osDisk": {
@@ -252,7 +252,6 @@ ms.locfileid: "67173914"
 * 如需使用受控磁碟的完整範本，請瀏覽下列「Azure 快速入門存放庫」連結。
     * [使用受控磁碟的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) \(英文\)
     * [使用受控磁碟的 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) \(英文\)
-    * [受控磁碟範本的完整清單](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) \(英文\)
 * 瀏覽 [Azure 受控磁碟概觀](../articles/virtual-machines/windows/managed-disks-overview.md)文件，深入了解受控磁碟。
 * 瀏覽 [Microsoft.Compute/virtualMachines 範本參考](/azure/templates/microsoft.compute/virtualmachines)文件，檢閱虛擬機器資源的範本參考文件。
 * 瀏覽 [Microsoft.Compute/disks 範本參考](/azure/templates/microsoft.compute/disks)文件，檢閱磁碟資源的範本參考文件。

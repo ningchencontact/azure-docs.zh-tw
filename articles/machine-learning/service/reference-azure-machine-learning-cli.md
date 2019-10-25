@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 08/20/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 597cc4e03257b544187fc2bc131974954b64c84b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997090"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819878"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>使用適用于 Azure Machine Learning 的 CLI 擴充功能
 
@@ -32,7 +32,7 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 它是一種互補的�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+* 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 
@@ -40,7 +40,7 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 它是一種互補的�
 
 尋找[適用于 Azure CLI 的 azure cli-ml 擴充功能的完整參考](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)檔。
 
-## <a name="install-the-extension"></a>安裝延伸模組
+## <a name="install-the-extension"></a>安裝擴充功能
 
 若要安裝 Machine Learning CLI 擴充功能，請使用下列命令：
 
@@ -100,9 +100,9 @@ az extension remove -n azure-cli-ml
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    此命令會建立`.azureml`一個子目錄, 其中包含範例 runconfig 和 conda 環境檔案。 它也包含`config.json`用來與您的 Azure Machine Learning 工作區通訊的檔案。
+    此命令會建立一個 `.azureml` 子目錄，其中包含範例 runconfig 和 conda 環境檔案。 它也包含用來與您的 Azure Machine Learning 工作區通訊的 `config.json` 檔案。
 
-    如需詳細資訊, 請參閱[az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)。
+    如需詳細資訊，請參閱[az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)。
 
 + 將 Azure blob 容器附加為數據存放區。
 
@@ -138,20 +138,20 @@ az extension remove -n azure-cli-ml
 
 ## <a id="experiments"></a>執行實驗
 
-* 開始您的實驗回合。 使用此命令時, 請指定 runconfig 檔案的名稱 (如果您要查看\*檔案系統, 則為 runconfig), 並針對-c 參數。
+* 開始您的實驗回合。 使用此命令時，請指定 runconfig 檔的名稱（如果您要查看檔案系統，則 \*為 runconfig），並針對-c 參數。
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > 命令會建立一個`.azureml`子目錄，其中包含兩個範例 runconfig 檔案。 `az ml folder attach` 
+    > `az ml folder attach` 命令會建立 `.azureml` 子目錄，其中包含兩個範例 runconfig 檔案。 
     >
-    > 如果您有以程式設計方式建立回合設定物件的 Python 腳本, 您可以使用[RunConfig ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-)將它儲存為 RunConfig 檔案。
+    > 如果您有以程式設計方式建立回合設定物件的 Python 腳本，您可以使用[RunConfig （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-)將它儲存為 RunConfig 檔案。
     >
-    > 如需更多範例 runconfig 檔案[https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml), 請參閱。
+    > 如需更多範例 runconfig 檔案，請參閱[https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)。
 
-    如需詳細資訊, 請參閱[az ml 執行提交-腳本](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)。
+    如需詳細資訊，請參閱[az ml 執行提交-腳本](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)。
 
 * 查看實驗清單：
 
@@ -159,7 +159,7 @@ az extension remove -n azure-cli-ml
     az ml experiment list
     ```
 
-    如需詳細資訊, 請參閱[az ml 實驗清單](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)。
+    如需詳細資訊，請參閱[az ml 實驗清單](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)。
 
 ## <a name="environment-management"></a>環境管理
 
@@ -196,6 +196,40 @@ az extension remove -n azure-cli-ml
     ```
 
     如需詳細資訊，請參閱[az ml 環境下載](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download)。
+
+## <a name="ml-pipeline-management"></a>ML 管線管理
+
+下列命令示範如何使用機器學習管線：
+
++ 建立機器學習管線：
+
+    ```azurecli-interactive
+    az ml pipeline create -n mypipeline -y mypipeline.yml
+    ```
+
+    如需詳細資訊，請參閱[az ml 管線 create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create)。
+
+    如需管線 YAML 檔的詳細資訊，請參閱[在 YAML 中定義機器學習管線](reference-pipeline-yaml.md)。
+
++ 執行管線：
+
+    ```azurecli-interactive
+    az ml run submit-pipeline -n myexperiment -y mypipeline.yml
+    ```
+
+    如需詳細資訊，請參閱[az ml run submit-管線](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-pipeline)。
+
+    如需管線 YAML 檔的詳細資訊，請參閱[在 YAML 中定義機器學習管線](reference-pipeline-yaml.md)。
+
++ 排程管線：
+
+    ```azurecli-interactive
+    az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
+    ```
+
+    如需詳細資訊，請參閱[az ml 管線 create-schedule](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create-schedule)。
+
+    如需有關管線排程 YAML 檔的詳細資訊，請參閱[在 YAML 中定義機器學習管線](reference-pipeline-yaml.md#schedules)。
 
 ## <a name="model-registration-profiling-deployment"></a>模型註冊，分析，部署
 

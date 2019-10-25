@@ -1,30 +1,25 @@
 ---
 title: 從 Application Insights 連續匯出遙測 | Microsoft Docs
 description: 匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/25/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 07/25/2019
+ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516955"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819548"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
-想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 您可以從這裡下載您的資料, 並撰寫所需的任何程式碼來處理它。  
+想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 您可以從這裡下載您的資料，並撰寫所需的任何程式碼來處理它。  
 
 在設定連續匯出之前，您可能要考慮某些替代作法︰
 
-* [計量] 或 [搜尋] 索引標籤頂端的 [匯出] 按鈕, 可讓您將資料表和圖表傳送至 Excel 試算表。
+* [計量] 或 [搜尋] 索引標籤頂端的 [匯出] 按鈕，可讓您將資料表和圖表傳送至 Excel 試算表。
 
 * [分析](../../azure-monitor/app/analytics.md) 可提供功能強大的遙測查詢語言。 它也可以匯出結果。
 * 如果您想要 [在 Power BI 中探索資料](../../azure-monitor/app/export-power-bi.md )，不需要用到「連續匯出」也可以這麼做。
@@ -35,7 +30,7 @@ ms.locfileid: "68516955"
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>連續匯出的先進儲存設定
 
-連續匯出不**支援**下列 Azure 儲存體功能/設定:
+連續匯出不**支援**下列 Azure 儲存體功能/設定：
 
 * 搭配 Azure Blob 儲存體使用[VNET/Azure 儲存體防火牆](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
@@ -45,13 +40,13 @@ ms.locfileid: "68516955"
 
 ## <a name="setup"></a> 建立連續匯出
 
-1. 在您應用程式的 Application Insights 資源中, 于左側的 [設定] 下, 開啟 [連續匯出], 然後選擇 [**新增**]:
+1. 在您應用程式的 Application Insights 資源中，于左側的 [設定] 下，開啟 [連續匯出]，然後選擇 [**新增**]：
 
 2. 選擇您想要匯出的遙測資料類型。
 
-3. 建立或選取要用來儲存資料的 [Azure 儲存體帳戶](../../storage/common/storage-introduction.md)。 如需儲存體定價選項的詳細資訊, 請造訪[官方定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
+3. 建立或選取要用來儲存資料的 [Azure 儲存體帳戶](../../storage/common/storage-introduction.md)。 如需儲存體定價選項的詳細資訊，請造訪[官方定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
 
-     按一下 [新增]、[匯出目的地]、[儲存體帳戶], 然後建立新的存放區或選擇現有的存放區。
+     按一下 [新增]、[匯出目的地]、[儲存體帳戶]，然後建立新的存放區或選擇現有的存放區。
 
     > [!Warning]
     > 根據預設，儲存體位置將設為與您 Application Insights 資源相同的地理區域。 如果您儲存在不同的區域中，可能會產生傳輸費用。
@@ -64,7 +59,7 @@ ms.locfileid: "68516955"
 
 ### <a name="to-edit-continuous-export"></a>若要編輯連續匯出
 
-按一下 [連續匯出], 然後選取要編輯的儲存體帳戶。
+按一下 [連續匯出]，然後選取要編輯的儲存體帳戶。
 
 ### <a name="to-stop-continuous-export"></a>若要停止連續匯出
 
@@ -73,10 +68,10 @@ ms.locfileid: "68516955"
 若要永久停止匯出，請刪除它。 這麼做不會將您的資料從儲存體刪除。
 
 ### <a name="cant-add-or-change-an-export"></a>無法加入或變更匯出？
-* 若要加入或變更匯出, 您需要擁有者、參與者或 Application Insights 參與者存取權限。 [瞭解角色][roles]。
+* 若要加入或變更匯出，您需要擁有者、參與者或 Application Insights 參與者存取權限。 [瞭解角色][roles]。
 
 ## <a name="analyze"></a> 您取得什麼事件？
-匯出的資料是我們從您的應用程式收到的原始遙測, 但我們會新增位置資料, 我們會從用戶端 IP 位址進行計算。
+匯出的資料是我們從您的應用程式收到的原始遙測，但我們會新增位置資料，我們會從用戶端 IP 位址進行計算。
 
 [取樣](../../azure-monitor/app/sampling.md) 已捨棄的資料不會包含在匯出的資料中。
 
@@ -90,9 +85,9 @@ ms.locfileid: "68516955"
 >
 
 ## <a name="get"></a> 檢查資料
-您可以直接在入口網站中檢查儲存體。 按一下最左邊功能表中的 [首頁], 在頂端顯示 [Azure 服務], 選取 [**儲存體帳戶**], 選取儲存體帳戶名稱, 在 [總覽] 頁面上選取 [服務] 底下的 [ **blob** ], 最後選取容器名稱。
+您可以直接在入口網站中檢查儲存體。 按一下最左邊功能表中的 [首頁]，在頂端顯示 [Azure 服務]，選取 [**儲存體帳戶**]，選取儲存體帳戶名稱，在 [總覽] 頁面上選取 [服務] 底下的 [ **blob** ]，最後選取容器名稱。
 
-若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。 (如果您沒有該功能表命令，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 Visual C# / Cloud 並選擇 [取得 Microsoft Azure SDK for .NET]。)
+若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。 (如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
 
 當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。 衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。 (資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
@@ -104,7 +99,7 @@ ms.locfileid: "68516955"
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-位置
+Where
 
 * `blobCreationTimeUtc` 是在內部暫存儲存體中建立 Blob 的時間
 * `blobDeliveryTimeUtc` 是將 Blob 複製到匯出目的地儲存體的時間
@@ -125,7 +120,7 @@ ms.locfileid: "68516955"
 [屬性類型和值的詳細資料模型參考。](export-data-model.md)
 
 ## <a name="processing-the-data"></a>處理資料
-就小型規模而言，您可以編寫一些程式碼來取出您的資料，將它讀取為試算表等等。 例如:
+就小型規模而言，您可以編寫一些程式碼來取出您的資料，將它讀取為試算表等等。 例如：
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -144,15 +139,15 @@ ms.locfileid: "68516955"
       }
     }
 
-如需較大的程式碼範例, 請參閱[使用背景工作角色][exportasa]。
+如需較大的程式碼範例，請參閱[使用背景工作角色][exportasa]。
 
 ## <a name="delete"></a>刪除舊資料
-您必須負責管理儲存體容量, 並在必要時刪除舊資料。
+您必須負責管理儲存體容量，並在必要時刪除舊資料。
 
 ## <a name="if-you-regenerate-your-storage-key"></a>如果您重新產生儲存體金鑰...
 如果您變更儲存體的金鑰，連續匯出將停止運作。 您將在 Azure 帳戶中看到通知。
 
-開啟 [連續匯出] 索引標籤, 並編輯您的匯出。 編輯 [匯出目的地]，但只保留選取相同的儲存體。 按一下 [確定] 以確認。
+開啟 [連續匯出] 索引標籤，並編輯您的匯出。 編輯 [匯出目的地]，但只保留選取相同的儲存體。 按一下 [確定] 以確認。
 
 連續匯出將重新開始。
 
@@ -163,10 +158,10 @@ ms.locfileid: "68516955"
 
 就更大型規模而言，請考慮 [HDInsight](https://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。 HDInsight 提供各種管理和分析巨量資料的技術，您可以使用它來處理已從 Application Insights 匯出的資料。
 
-## <a name="q--a"></a>問答集
+## <a name="q--a"></a>問與答
 * *但我想要的只是一次性下載圖表。*  
 
-    是的，您可以這麼做。 在索引標籤頂端, 按一下 [**匯出資料**]。
+    是的，您可以這麼做。 在索引標籤頂端，按一下 [**匯出資料**]。
 * *我設定匯出，但我的儲存區中沒有資料。*
 
     自從設定匯出之後，Application Insights 是否從您的應用程式收到任何遙測？ 您將只會收到新資料。
@@ -178,17 +173,17 @@ ms.locfileid: "68516955"
     否，抱歉。 我們的匯出引擎目前僅適用於 Azure 儲存體。  
 * *放置在我的儲存區中的資料量有任何限制？*
 
-    資料分割 我們將持續送入資料，直到刪除匯出為止。 如果我們到達 Blob 儲存體的外部限制，將會停止，但那個限制很大。 您可以自行控制使用的儲存體數量。  
+    不會。 我們將持續送入資料，直到刪除匯出為止。 如果我們到達 Blob 儲存體的外部限制，將會停止，但那個限制很大。 您可以自行控制使用的儲存體數量。  
 * *應該在儲存體中看到多少 Blob？*
 
   * 針對您選取要匯出的每個資料類型，會每分鐘建立一個新的 Blob (如果有可用的資料)。
-  * 此外，針對具有高流量的應用程式，則會配置額外的分割單位。 在此情況下, 每個單位每分鐘會建立一個 blob。
+  * 此外，針對具有高流量的應用程式，則會配置額外的分割單位。 在此情況下，每個單位每分鐘會建立一個 blob。
 * *我對我的儲存體重新產生了金鑰，或變更了容器的名稱，現在匯出沒有作用。*
 
-    編輯匯出並開啟 [匯出目的地] 索引標籤。照舊保留選取相關的儲存體，並按一下 [確定] 來確認。 匯出將重新開始。 如果變更是在最近幾天內，您不會遺失資料。
+    編輯匯出並開啟 [匯出目的地] 索引標籤。保留與先前相同的儲存區，然後按一下 [確定] 以確認。 匯出將重新開始。 如果變更是在最近幾天內，您不會遺失資料。
 * *我可以暫停匯出嗎？*
 
-    是的。 按一下 [停用]。
+    可以。 按一下 [停用]。
 
 ## <a name="code-samples"></a>程式碼範例
 

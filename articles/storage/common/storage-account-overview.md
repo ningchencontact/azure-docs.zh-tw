@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671319"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882575"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -44,7 +44,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 ### <a name="general-purpose-v1-accounts"></a>一般用途 v1 帳戶
 
-一般用途 v1 帳戶可讓使用者存取所有 Azure 儲存體服務，但可能不包含最新功能，每 GB 的定價也並非最低。 一般用途 v1 儲存體帳戶支援這些 Azure 儲存體服務：
+一般用途 v1 儲存體帳戶提供所有 Azure 儲存體服務的存取權，但可能沒有最新功能或每 gb 的最低定價。 一般用途 v1 儲存體帳戶支援這些 Azure 儲存體服務：
 
 - Blobs (所有類型)
 - 檔案
@@ -60,17 +60,19 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 * 您使用早於 2014-02-14 的 [儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 版本，或版本低於 4.x 的用戶端程式庫，所以無法升級您的應用程式。
 
-### <a name="block-blob-storage-accounts"></a>區塊 blob 儲存體帳戶
+### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 帳戶
 
-區塊 blob 儲存體帳戶是特殊的儲存體帳戶，可將非結構化物件資料儲存為區塊 blob。 此儲存體帳戶類型支援區塊 blob 和附加 blob，但不支援分頁 blob、資料表或佇列。
+BlockBlobStorage 帳戶是特殊的儲存體帳戶，用來將非結構化物件資料儲存為區塊 blob，並建立 premium 區塊 blob。 此儲存體帳戶種類支援區塊 blob 和附加 blob，但不支援分頁 blob、資料表或佇列。
 
-相較于一般用途 v2 和 blob 儲存體帳戶，區塊 blob 儲存體帳戶提供低和一致的延遲，以及更高的交易速率。
+相較于一般用途 v2 和 BlobStorage 帳戶，BlockBlobStorage 帳戶可提供低和一致的延遲，以及更高的交易速率。
 
-區塊 blob 儲存體帳戶目前不支援對經常性、非經常性或封存存取層進行分層。
+BlockBlobStorage 帳戶目前不支援對經常性、非經常性或封存存取層進行分層。
 
-### <a name="filestorage-storage-accounts"></a>FileStorage 儲存體帳戶
+### <a name="filestorage-accounts"></a>FileStorage 帳戶
 
-FileStorage 儲存體帳戶是特殊的儲存體帳戶，用來儲存和建立 premium 檔案共用。 FileStorage 儲存體帳戶提供獨特的效能專用特性，例如 IOPS 高載。 如需這些特性的詳細資訊，請參閱檔規劃指南的檔案[共用效能層](../files/storage-files-planning.md#file-share-performance-tiers)一節。
+FileStorage 帳戶是特殊的儲存體帳戶，用來儲存和建立 premium 檔案共用。 此儲存體帳戶種類支援檔案，但不支援區塊 blob、附加 blob、分頁 blob、資料表或佇列。 
+
+FileStorage 帳戶提供獨特的效能專用特性，例如 IOPS 負載平衡。 如需這些特性的詳細資訊，請參閱檔規劃指南的檔案[共用效能層](../files/storage-files-planning.md#file-share-performance-tiers)一節。
 
 ## <a name="naming-storage-accounts"></a>儲存體帳戶命名
 
@@ -86,7 +88,7 @@ FileStorage 儲存體帳戶是特殊的儲存體帳戶，用來儲存和建立 p
 * 標準效能層可供儲存 Blob、檔案、資料表、佇列和 Azure 虛擬機器磁碟。
 * 進階效能層僅供儲存非受控虛擬機器磁碟。
 
-區塊 blob 儲存體帳戶會提供高階效能層來儲存區塊 blob 和附加 blob。
+BlockBlobStorage 儲存體帳戶可提供高階效能層來儲存區塊 blob 和附加 blob。
 
 FileStorage 儲存體帳戶可提供 Azure 檔案共用的 premium 效能層級。
 
@@ -143,7 +145,7 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 - **Azure Active Directory：** 使用 Azure Active Directory （Azure AD）認證來驗證使用者、群組或其他身分識別，以便存取 blob 和佇列資料。 如果身分識別驗證成功，Azure AD 會傳回一個權杖，以使用於對 Azure Blob 儲存體或佇列儲存體的要求授權。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。
 - **共用金鑰授權：** 使用儲存體帳戶存取金鑰來建構一個連接字串，以便您的應用程式在執行階段用來存取 Azure 儲存體。 連接字串中的值用來建構會傳遞至 Azure 儲存體的「授權」標頭。 如需詳細資訊，請參閱[設定 Azure 儲存體連接字串](storage-configure-connection-string.md)。
-- **共用存取簽章：** 如果您不是使用 Azure AD 授權，請使用共用存取簽章來委派儲存體帳戶中資源的存取權。 共用存取簽章是一個權杖，可封裝在 URL 上對 Azure 儲存體的要求授權所需的資訊。 您可以將儲存體資源、授與的權限，以及權限有效的間隔指定為共用存取簽章的一部分。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-sas-overview.md)。
+- **共用存取**簽章：如果您不是使用 Azure AD 授權，請使用共用存取簽章來委派儲存體帳戶中資源的存取權。 共用存取簽章是一個權杖，可封裝在 URL 上對 Azure 儲存體的要求授權所需的資訊。 您可以將儲存體資源、授與的權限，以及權限有效的間隔指定為共用存取簽章的一部分。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-sas-overview.md)。
 
 > [!NOTE]
 > 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 
@@ -186,5 +188,5 @@ AzCopy 為 Windows 命令列公用程式，可以極高效能將資料複製到 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要瞭解如何建立一般用途的 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
-* 若要瞭解如何建立區塊 blob 儲存體帳戶，請參閱[建立區塊 blob 儲存體帳戶](../blobs/storage-blob-create-account-block-blob.md)。
+* 若要瞭解如何建立 BlockBlobStorage 帳戶，請參閱[建立區塊 blob 儲存體帳戶](../blobs/storage-blob-create-account-block-blob.md)。
 * 若要管理或刪除現有的儲存體帳戶，請參閱[管理 Azure 儲存體帳戶](storage-account-manage.md)。

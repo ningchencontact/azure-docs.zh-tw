@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "66376915"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72887746"
 ---
 下列限制適用于 Azure 事件方格系統主題和自訂主題，而*不*是事件網域。
 
-| Resource | 限制 |
+| 資源 | 限制 |
 | --- | --- |
 | 每個 Azure 訂用帳戶的自訂主題 | 100 |
 | 每個主題的事件訂用帳戶 | 500 |
@@ -27,10 +27,11 @@ ms.locfileid: "66376915"
 
 下列限制僅適用于事件網域。
 
-| Resource | 限制 |
+| 資源 | 限制 |
 | --- | --- |
-| 每個事件網域的主題 | 公開預覽期間 1,000 個 |
-| 網域內每個主題的事件訂閱 | 公開預覽期間 50 個 |
-| 網域範圍事件訂閱 | 公開預覽期間 50 個 |
-| 事件網域的發佈速率（輸入） | 公開預覽期間每秒 5,000 個事件 |
+| 每個事件網域的主題 | 100,000 家 |
+| 網域內每個主題的事件訂閱 | 500 |
+| 網域範圍事件訂閱 | 50 |
+| 事件網域的發佈速率（輸入） | 每秒5000個事件 |
 | 發行要求 | 每秒250 |
+| 每個 Azure 訂用帳戶的事件網域 | 100 |

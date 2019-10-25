@@ -4,15 +4,15 @@ description: AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675867"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882502"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -58,6 +58,8 @@ tar -xf azcopy.tar.gz
 若要瞭解特定的命令，請只包含命令的名稱（例如： `azcopy list -h`）。
 
 ![內嵌說明](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+若要尋找每個命令和命令參數的詳細參考檔，請參閱[azcopy](storage-ref-azcopy.md)
 
 > [!NOTE] 
 > 身為 Azure 儲存體帳戶的擁有者，您不會自動獲指派存取資料的許可權。 您必須先決定要如何將授權認證提供給儲存體服務，才可以執行任何有意義的 AzCopy。 
