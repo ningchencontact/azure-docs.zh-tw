@@ -120,7 +120,7 @@
         - name: 'C# 中的 REST API 範例'
           href: samples-rest.md
         - name: 其他 Azure 範例
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator'
+          href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator'
     - name: Azure 網路研討會系列
       href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: 價格和限制
