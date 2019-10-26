@@ -1,6 +1,6 @@
 ---
 title: 在 Visual Studio 中檢視 Azure 串流分析工作
-description: 本文說明如何在 Visual Studio 中查看和管理 Azure 串流分析作業。
+description: 瞭解如何使用 Visual Studio 來觀看、啟動和停止、測試連線、檢查結果，以及匯出您的 Azure 串流分析作業。
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: ae532ed19c2273e43aa739e84d5a68cadb717b86
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173017"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893545"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>使用 Visual Studio 檢視 Azure 串流分析工作
 
@@ -38,8 +38,6 @@ ms.locfileid: "70173017"
 
     ![串流分析伺服器總管清單](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-
-
 2. 展開作業節點並按兩下 [作業檢視] 節點來開啟作業檢視。
     
    ![展開的作業節點](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
@@ -50,13 +48,11 @@ ms.locfileid: "70173017"
     
    ![串流分析工作控制項](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-
 ## <a name="check-job-results"></a>檢查工作結果
 
 適用於 Visual Studio 的串流分析工具目前支援 Azure Data Lake Storage 和 Blob 儲存體的輸出預覽。 若要檢視結果，只要按兩下 [作業檢視] 中工作圖表的輸出節點，然後輸入適當的認證。
 
    ![串流分析工作輸出](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
-
 
 ## <a name="export-jobs-to-a-project"></a>將工作匯出到專案
 
@@ -87,6 +83,6 @@ ms.locfileid: "70173017"
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Visual Studio 監視和管理 Azure 串流分析工作](stream-analytics-monitor-jobs-use-vs.md)
-* [快速入門：使用 Visual Studio 建立串流分析作業](stream-analytics-quick-create-vs.md)
+* [快速入門：使用 Visual Studio 建立串流分析工作](stream-analytics-quick-create-vs.md)
 * [教學課程：使用 Azure Pipelines 部署具有 CI/CD 的 Azure 串流分析作業](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [使用串流分析工具持續進行整合及開發](stream-analytics-tools-for-visual-studio-cicd.md)

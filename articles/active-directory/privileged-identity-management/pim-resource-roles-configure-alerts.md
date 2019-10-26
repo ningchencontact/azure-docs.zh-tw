@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中設定 Azure 資源角色的安全性警示-Azure Active Directory |Microsoft Docs
+title: 在 Privileged Identity Management Azure Active Directory 中設定 Azure 資源角色的安全性警示 |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中設定 Azure 資源角色的安全性警示。
 services: active-directory
 documentationcenter: ''
@@ -11,41 +11,45 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/02/2018
+ms.date: 10/23/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177f61392c3e441c891ba1b531301b3dae8c0db2
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7f191eac841bd9f79844a09cd25725de7ea8b154
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804228"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895784"
 ---
-# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>在 PIM 中設定 Azure 資源角色的安全性警示
-當您的環境中有可疑或不安全的活動時，Azure Active Directory （Azure AD） Privileged Identity Management （PIM）會產生警示。 觸發後的警示會顯示在 [警示] 頁面上。 
+# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中設定 Azure 資源角色的安全性警示
+
+當您的 Azure Active Directory （Azure AD）組織中有可疑或不安全的活動時，Privileged Identity Management （PIM）會產生警示。 觸發後的警示會顯示在 [警示] 頁面上。
 
 ![Azure 資源-列出警示、風險層級和計數的警示頁面](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>檢閱警示
-選取警示，以查看列出觸發警示的使用者或角色以及補救建議的報告。
+
+選取警示以查看列出觸發警示之使用者或角色的報告，以及補救指導方針。
 
 ![警示報表，顯示上次掃描時間、描述、風險降低步驟、類型、嚴重性、安全性影響，以及如何預防下一次](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>警示
-| 警示 | Severity | 觸發程序 | 建議 |
+
+| 警示 | 嚴重性 | 觸發程序 | 建議 |
 | --- | --- | --- | --- |
-| **指派了太多的擁有者到資源** |中等 |太多使用者具有擁有者角色。 |檢閱清單中的使用者，然後將部分使用者重新指派給較少特殊權限的角色。 |
-| **指派太多永久擁有者過到資源** |中等 |太多使用者永久指派給某個角色。 |檢閱清單中的使用者，然後重新指派部分使用者以要求啟用角色。 |
-| **建立了重複的角色** |中等 |多個角色具有相同的準則。 |僅使用其中一個角色。 |
+| **指派了太多的擁有者到資源** |中 |太多使用者具有擁有者角色。 |檢閱清單中的使用者，然後將部分使用者重新指派給較少特殊權限的角色。 |
+| **指派太多永久擁有者過到資源** |中 |太多使用者永久指派給某個角色。 |檢閱清單中的使用者，然後重新指派部分使用者以要求啟用角色。 |
+| **建立了重複的角色** |中 |多個角色具有相同的準則。 |僅使用其中一個角色。 |
 
+### <a name="severity"></a>嚴重性
 
-### <a name="severity"></a>Severity
-* **高**：因為發生原則違規而需要立即採取行動。 
-* **中**：不需要立即採取行動，但表示可能發生原則違規。
-* **低**：不需要立即採取行動，但建議進行慣用的原則變更。
+- **高**：因為發生原則違規而需要立即採取行動。 
+- **中**：不需要立即採取行動，但表示可能發生原則違規。
+- **低**：不需要立即採取行動，但建議進行慣用的原則變更。
 
 ## <a name="configure-security-alert-settings"></a>設定安全性警示設定
+
 從 [警示] 頁面中移至 [設定]。
 
 ![已反白顯示設定的警示頁面](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
@@ -56,4 +60,4 @@ ms.locfileid: "70804228"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中設定 Azure 資源角色設定](pim-resource-roles-configure-role-settings.md)
+- [在 Privileged Identity Management 中設定 Azure 資源角色設定](pim-resource-roles-configure-role-settings.md)

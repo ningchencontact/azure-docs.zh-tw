@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 交易診斷 | Microsoft Docs
 description: Application Insights 端對端交易診斷
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783578"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899562"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>整合跨元件交易診斷
 
@@ -74,9 +70,9 @@ ms.locfileid: "60783578"
 
 [Application Insights 分析工具](../../azure-monitor/app/profiler.md)或[快照集偵錯工具](snapshot-debugger.md)能協助您從程式碼層級診斷效能和失敗問題。 透過這項體驗，只要按一下按鈕，您就可以查看任何元件的分析工具追蹤或快照集。
 
-如果您無法取得 Profiler 工作，請連絡**serviceprofilerhelp\@microsoft.com**
+如果您無法讓 Profiler 運作，請與**serviceprofilerhelp\@microsoft.com**
 
-如果您無法取得快照集偵錯工具工作，請連絡**snapshothelp\@microsoft.com**
+如果您無法快照偵錯工具運作，請聯繫**snapshothelp\@microsoft.com**
 
 ![分析工具整合](media/transaction-diagnostics/profilerTraces.png)
 
@@ -92,7 +88,7 @@ ms.locfileid: "60783578"
 
 如果您擁有存取權限，而且元件是由最新的 Application Insights SDK 進行檢測，請透過右上角的意見反應管道告訴我們。
 
-*我看到重複的相依性資料列。這是預期行為嗎？*
+*我看到相依性有重複的資料列。這是預期的嗎？*
 
 現階段我們會分別顯示輸出相依性呼叫和輸入要求。 這兩項呼叫看起來通常會一樣，唯一的差異在於持續時間值會因網路來回時間而有所不同。 主要圖示和樣式分明的持續時間橫條有助於區分兩者。 用這樣的方法呈現資料是否會混淆？ 請提供意見給我們！
 
@@ -102,4 +98,4 @@ ms.locfileid: "60783578"
 
 *為什麼新體驗遺漏大部分的相關項目查詢？*
 
-這是原廠設定。 左側 (上方和下方區段) 已有全部元件的所有相關項目。 新體驗的左側未涵蓋兩項相關項目：此事件前後五分鐘的所有遙測資料和使用者時間軸。
+原先的設計就是如此。 左側 (上方和下方區段) 已有全部元件的所有相關項目。 新體驗的左側未涵蓋兩項相關項目：此事件前後五分鐘的所有遙測資料和使用者時間軸。

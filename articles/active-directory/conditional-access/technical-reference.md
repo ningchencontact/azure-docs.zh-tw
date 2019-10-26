@@ -4,19 +4,19 @@ description: 在 Azure Active Directory 的條件式存取原則中，取得支�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274179"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893467"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -102,7 +102,7 @@ ms.locfileid: "72274179"
 
 在您的條件式存取原則中，您可以設定[用戶端應用程式](conditions.md#client-apps)條件，將原則系結至已起始存取嘗試的用戶端應用程式。 當有人從下列類型的用戶端應用程式嘗試存取時，將用戶端應用程式條件設定為授與或封鎖存取：
 
-- Browser
+- 瀏覽器
 - 行動裝置應用程式和桌面應用程式
 
 ![控制對用戶端應用程式的存取](./media/technical-reference/03.png)
@@ -142,19 +142,19 @@ ms.locfileid: "72274179"
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| 路徑 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (字串) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPs @ no__t-0//clients2. google .com/service/update2/crx users |
+| 資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPs\://clients2.google.com/service/update2/crx |
 
 如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| 路徑 | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
 | Type | REG_SZ (字串) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| 資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。
 
@@ -209,7 +209,7 @@ ms.locfileid: "72274179"
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Microsoft Intune 受控瀏覽器
+- Microsoft Intune Managed Browser
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher

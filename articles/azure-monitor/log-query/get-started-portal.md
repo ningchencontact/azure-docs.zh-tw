@@ -1,19 +1,18 @@
 ---
 title: 開始使用 Azure 監視器 Log Analytics |Microsoft Docs
 description: 本文提供教學課程來說明如何在 Analytics 入口網站中使用 Log Analytics 撰寫查詢。
-services: log-analytics
-author: bwren
-manager: carmonm
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 07/19/2019
+ms.openlocfilehash: 1babd0828e21f0125dba55199d808a579a10f049
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076830"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900355"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>在 Azure 監視器中開始使用 Log Analytics
 
@@ -41,7 +40,7 @@ Log Analytics 是用來撰寫和執行 Azure 監視器記錄查詢的 web 工具
 ## <a name="firewall-requirements"></a>防火牆需求
 若要使用 Log Analytics，您的瀏覽器需要存取下列位址。 如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
 
-| URI | IP | 連接埠 |
+| Uri | IP | 連接埠 |
 |:---|:---|:---|
 | portal.loganalytics.io | 動態 | 80,443 |
 | api.loganalytics.io | 動態 | 80,443 |
@@ -77,7 +76,7 @@ search in (Event) "error"
 ## <a name="understand-the-schema"></a>了解結構描述
 結構描述會將以視覺化方式分組在邏輯類別之下的資料表集合起來。 有幾個類別來自監視解決方案。 _LogManagement_類別包含一般資料，例如 Windows 和 Syslog 事件、效能資料，以及代理程式心跳。
 
-![架構](media/get-started-portal/schema.png)
+![結構描述](media/get-started-portal/schema.png)
 
 在每個資料表中，資料會組織到不同資料類型 (如資料行名稱旁的圖示所示) 的資料行中。 例如，螢幕擷取畫面中所示的「Event」資料表就包含了「Computer」資料行 (這是文字)、「EventCategory」資料行 (這是數字)，和「TimeGenerated」資料行 (這是日期/時間)。
 
@@ -107,7 +106,7 @@ Log Analytics 會依下列方式自動限制結果的範圍：
 
 按一下資料行標題旁的 [篩選] 圖示，然後在快顯視窗中選取「開頭為」「錯誤」文字的值：
 
-![篩選器](media/get-started-portal/filter.png)
+![篩選](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>排序和群組結果
@@ -122,7 +121,7 @@ Log Analytics 會依下列方式自動限制結果的範圍：
 ## <a name="select-columns-to-display"></a>選取要顯示的資料行
 結果資料表通常包含許多資料行。 您可能會發現某些傳回的資料行依預設並不會顯示出來，或者，您可能想要移除某些顯示出來的資料行。 若要選取要顯示的資料行，請按一下 [資料行] 按鈕：
 
-![Select columns](media/get-started-portal/select-columns.png)
+![選取欄位](media/get-started-portal/select-columns.png)
 
 
 ## <a name="select-a-time-range"></a>選取時間範圍
@@ -181,7 +180,7 @@ Event
 ![儲存函式](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->支援下列字元- `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`儲存或編輯已儲存的查詢時，在 [**名稱**] 欄位中。
+>儲存或編輯儲存的查詢時，支援下列字元-在 [**名稱**] 欄位中 `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`。
 
 Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區的其他使用者共用。
 

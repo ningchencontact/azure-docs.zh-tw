@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/11/2019
+ms.date: 10/24/2019
 ms.author: ramkris
-ms.openlocfilehash: 9da994550609b0be44362e0f0059844b288aabbd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0ff281e54df0273cc4c72d1780f4a99fe9719aec
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388069"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900178"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
 
@@ -69,6 +69,10 @@ ms.locfileid: "72388069"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * 已將 .NET Standard 2.0 新增為其中一個支援的目標架構，讓大量執行程式程式庫可與 .NET Core 應用程式搭配使用。
+
+### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5 版
+
+* 已移除 SDK 版本的鎖定。 套件現在相依于 SDK > = 2.5.1。
 
 ### <a name="a-name184184"></a><a name="1.8.4"/>1.8。4
 

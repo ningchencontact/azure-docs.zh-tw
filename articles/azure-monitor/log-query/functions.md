@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器記錄查詢中的函式 | Microsoft Docs
 description: 本文說明如何在 Azure 監視器中使用函式從另一個記錄查詢呼叫查詢。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/15/2018
+ms.openlocfilehash: 8d8473b88327d3d17346a0351d0a9fc510152cd8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076708"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894185"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用函式
 
@@ -31,9 +25,9 @@ ms.locfileid: "71076708"
 | 設定 | 描述 |
 |:---|:---|
 | Name           | 在 [查詢總管] 中顯示查詢名稱。 |
-| 另存新檔        | 函數 |
+| 另存新檔        | 函式 |
 | 函式別名 | 簡短名稱，以在其他查詢中使用函式。 不能包含空格，且必須是唯一的。 |
-| Category       | 在 [查詢總管] 用來組織已儲存查詢與函式的類別。 |
+| 類別       | 在 [查詢總管] 用來組織已儲存查詢與函式的類別。 |
 
 > [!NOTE]
 > Azure 監視器中的函式不能包含另一個函式。

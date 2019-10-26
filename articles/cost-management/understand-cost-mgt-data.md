@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6870297eea194b89a84a89e1e8ef8decf5c1788e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0b93f898924d73636c31826b6b63a228f75fc8ba
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374538"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900172"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
 本文可協助您進一步瞭解 Azure 成本管理所包含的 Azure 成本和使用量資料。 它會說明處理、收集、顯示和關閉資料的頻率。 您須按月支付使用 Azure 的費用。 雖然計費週期是每月期間，週期的開始和結束日期會因訂用帳戶類型而有所不同。 「成本管理」接收使用量資料的頻率會隨著不同的因素而改變。 這類因素包括處理資料所需的時間，以及 Azure 服務向計費系統發出使用量資料的頻率。
 
-成本管理包括所有使用量和購買專案，包括 Enterprise 合約（EA）帳戶的保留和協力廠商供應專案。 Microsoft 客戶合約（MCA）帳戶，以及隨用隨付費率的個別訂用帳戶，只包含 Azure 和 Marketplace 服務的使用量。 不包含支援和其他成本。 成本會預估到發票產生且不會納入信用額度。
+成本管理包括所有使用量和購買專案，包括 Enterprise 合約（EA）帳戶的保留和協力廠商供應專案。 使用隨用隨付費率的 Microsoft 客戶合約帳戶和個別訂閱僅包含 Azure 和 Marketplace 服務的使用量。 不包含支援和其他成本。 成本會預估到發票產生且不會納入信用額度。
 
 ## <a name="supported-microsoft-azure-offers"></a>支援的 Microsoft Azure 優惠
 
@@ -34,7 +34,7 @@ ms.locfileid: "72374538"
 | **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 5 月<sup>1</sup> |
 | **Microsoft 客戶合約** | [Microsoft Azure 計畫](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | 2019年3月<sup>3</sup>日 |
 | **Microsoft 客戶合約** | [開發/測試的 Microsoft Azure 計畫](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | 2019年3月<sup>3</sup>日 |
-| **Microsoft 合作夥伴合約** | Microsoft Azure 方案 | CSP_2015-05-01、CSP_MG_2017-12-01、CSPDEVTEST_2018-05-01 | N/A | 2019年10月 |
+| **合作夥伴支援的 Microsoft 客戶合約** | Microsoft Azure 方案 | CSP_2015-05-01、CSP_MG_2017-12-01 和 CSPDEVTEST_2018-05-01<br><br>配額識別碼會重複用於 Microsoft 客戶合約和舊版 CSP 訂用帳戶。 目前僅支援 Microsoft 客戶合約訂閱。 | N/A | 2019 年 10 月 |
 | **Microsoft Developer Network (MSDN)** | [MSDN 平臺](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018年10月<sup>2 日</sup> |
 | **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018年10月<sup>2 日</sup> |
 | **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018年10月<sup>2 日</sup> |

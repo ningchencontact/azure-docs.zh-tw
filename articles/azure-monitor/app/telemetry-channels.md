@@ -1,58 +1,53 @@
 ---
-title: Azure Application Insights 中的遙測通道 |Microsoft Docs
-description: 如何自訂遙測通道，在 Azure Application Insights Sdk for.NET 和.NET Core。
-services: application-insights
-documentationcenter: .net
-author: cijothomas
-manager: carmonm
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure 應用程式 Insights 中的遙測通道 |Microsoft Docs
+description: 如何在適用于 .NET 和 .NET Core 的 Azure 應用程式 Insights Sdk 中自訂遙測通道。
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: cijothomas
+ms.author: cithomas
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.author: cithomas
-ms.openlocfilehash: af00641123354831c7bf174a743ded2886343579
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: cb7b9047e1036a2ab4bfd94cca88589dcdcd0ca3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561355"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899557"
 ---
-# <a name="telemetry-channels-in-application-insights"></a>在 Application Insights 的遙測通道
+# <a name="telemetry-channels-in-application-insights"></a>Application Insights 中的遙測通道
 
-遙測通道是不可或缺的一部分[Azure Application Insights Sdk](../../azure-monitor/app/app-insights-overview.md)。 他們管理緩衝處理及傳輸遙測資料至 Application Insights 服務。 .NET 和.NET Core Sdk 的版本有兩個內建遙測通道：`InMemoryChannel`和`ServerTelemetryChannel`。 本文說明每個通道，在 詳細資料，包括如何自訂通道的行為。
+遙測通道是[Azure 應用程式 Insights sdk](../../azure-monitor/app/app-insights-overview.md)不可或缺的一部分。 它們會管理遙測的緩衝處理和傳輸到 Application Insights 服務。 .NET 和 .NET Core 版本的 Sdk 有兩個內建的遙測通道： `InMemoryChannel` 和 `ServerTelemetryChannel`。 本文詳細說明每個通道，包括如何自訂通道行為。
 
-## <a name="what-are-telemetry-channels"></a>遙測通道有哪些？
+## <a name="what-are-telemetry-channels"></a>什麼是遙測通道？
 
-遙測通道負責緩衝遙測項目，並傳送至 Application Insights 服務，它們用來儲存的查詢和分析。 遙測通道是實作任何類別都[ `Microsoft.ApplicationInsights.ITelemetryChannel` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet)介面。
+遙測通道會負責緩衝處理遙測專案，並將它們傳送至 Application Insights 服務，並在其中儲存以供查詢和分析。 遙測通道是任何可執行[`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet)介面的類別。
 
-`Send(ITelemetry item)`之後所有遙測初始設定式會呼叫方法的遙測通道，稱為遙測處理器。 因此，任何遙測處理器來卸除的項目不會到達通道。 `Send()` 不通常將項目傳送至後端立即。 一般而言，它在記憶體中緩衝處理它們，並將它們以進行有效率的傳輸批次方式傳送。
+呼叫所有遙測初始化運算式和遙測處理器之後，會呼叫遙測通道的 `Send(ITelemetry item)` 方法。 因此，遙測處理器捨棄的任何專案都不會到達通道。 `Send()` 通常不會立即將專案傳送到後端。 一般來說，它會在記憶體中將它們緩衝，並以批次方式傳送它們，以有效率地傳輸。
 
-[即時計量 Stream](live-stream.md)也有提供遙測資料的即時資料流的自訂通道。 此通道是獨立的一般遙測通道，以及這份文件不會套用到它。
+[即時計量資料流](live-stream.md)也有自訂通道，可為遙測的即時串流提供動力。 此通道與一般遙測通道無關，這份檔並不適用。
 
 ## <a name="built-in-telemetry-channels"></a>內建遙測通道
 
-Application Insights.NET 和.NET Core Sdk 隨附兩個內建的通道：
+Application Insights .NET 和 .NET Core Sdk 隨附兩個內建的通道：
 
-* `InMemoryChannel`:緩衝在記憶體中的項目，直到它們會被傳送的輕量級通道。 項目會在記憶體中緩衝處理和排清之後每隔 30 秒，或每當 500 個項目會進行緩衝處理。 因為它不會將遙測傳送重試失敗後，此通道會提供最少的可靠性保證。 這個通道也不會讓項目在磁碟上，因此會永久地在應用程式關閉時遺失任何未傳送的項目 (依正常程序與否)。 此通道會實作`Flush()`可以用來強制排清記憶體中的遙測中的任何項目同步的方法。 此通道非常適合用於短期執行的應用程式和同步排清適合的位置。
+* `InMemoryChannel`：輕量通道，會在記憶體中將專案緩衝，直到傳送它們為止。 專案會在記憶體中緩衝處理，並每隔30秒排清一次，或每次緩衝處理500專案。 此通道提供最低可靠性保證，因為它不會在失敗後重試傳送遙測。 此通道也不會將專案保留在磁片上，因此任何未傳送的專案都會在應用程式關閉時永久遺失（正常或不會）。 這個通道會執行 `Flush()` 方法，可用來以同步方式強制清除任何記憶體中的遙測專案。 此通道非常適合執行同步排清的短期應用程式。
 
-    此通道是較大的 Microsoft.ApplicationInsights NuGet 套件的一部分，SDK 會使用任何其他的設定時的預設通道。
+    此通道是較大 ApplicationInsights NuGet 套件的一部分，而且是 SDK 在未設定任何其他內容時所使用的預設通道。
 
-* `ServerTelemetryChannel`:更進階的通道可重試原則和本機磁碟上儲存資料的功能。 如果發生暫時性錯誤，此通道重試傳送遙測。 這個通道也會使用本機磁碟儲存體磁碟上保留的項目，在網路中斷或高的遙測資料的磁碟區。 因為這些重試機制和本機磁碟儲存體中，此通道會被視為更可靠，而且建議針對所有實際執行案例。 此通道是預設值[ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)並[ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)所根據的官方文件中設定應用程式。 此通道最適合與長時間執行處理序伺服器案例。 [ `Flush()` ](#which-channel-should-i-use)未同步此通道所實作的方法。
+* `ServerTelemetryChannel`：具有重試原則的更先進通道，以及將資料儲存在本機磁片上的功能。 若發生暫時性錯誤，此通道會重試傳送遙測。 此通道也會使用本機磁片儲存體，在網路中斷或高遙測磁片區期間，將專案保留在磁片上。 由於這些重試機制和本機磁片儲存體，此通道會被視為較可靠，而且建議用於所有生產案例。 此頻道是根據官方檔設定之[ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)和[ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)應用程式的預設值。 此通道已針對具有長時間執行之進程的伺服器案例進行優化。 此通道所執行的[`Flush()`](#which-channel-should-i-use)方法不是同步的。
 
-    此通道 Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel NuGet 套件的形式隨附，以及當您使用 Microsoft.ApplicationInsights.Web 或 Microsoft.ApplicationInsights.AspNetCore NuGet 會自動取得封裝。
+    此頻道是以 ApplicationInsights. WindowsServer. TelemetryChannel NuGet 套件的形式出貨，而且當您使用 ApplicationInsights 時，就會自動取得。 ApplicationInsights NuGet包裹.
 
 ## <a name="configure-a-telemetry-channel"></a>設定遙測通道
 
-您可以將它設定為使用中的遙測組態設定遙測通道。 ASP.NET 應用程式，設定牽涉到將遙測通道執行個體設定為`TelemetryConfiguration.Active`，或藉由修改`ApplicationInsights.config`。 對於 ASP.NET Core 應用程式，設定牽涉到將通道新增至相依性插入容器。
+您可以設定遙測通道，方法是將它設為作用中的遙測設定。 針對 ASP.NET 應用程式，設定牽涉到將遙測通道實例設為 `TelemetryConfiguration.Active`，或藉由修改 `ApplicationInsights.config`。 針對 ASP.NET Core 的應用程式，設定牽涉到將通道加入至相依性插入容器。
 
-下列各節顯示的設定範例`StorageFolder`設定中各種應用程式類型的通道。 `StorageFolder` 只是可設定的設定。 組態設定的完整清單，請參閱[[設定] 區段](telemetry-channels.md#configurable-settings-in-channels)本文稍後。
+下列各節顯示在各種應用程式類型中設定通道之 `StorageFolder` 設定的範例。 `StorageFolder` 只是其中一個可設定的設定。 如需完整的設定清單，請參閱本文稍後[的設定一節](telemetry-channels.md#configurable-settings-in-channels)。
 
-### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>透過 ApplicationInsights.config 的 ASP.NET 應用程式的組態
+### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>使用 ASP.NET 應用程式的 ApplicationInsights 設定
 
-下一節[ApplicationInsights.config](configuration-with-applicationinsights-config.md)示範`ServerTelemetryChannel`通道設有`StorageFolder`設定自訂位置：
+下列來自[ApplicationInsights](configuration-with-applicationinsights-config.md)的區段顯示設定為自訂位置 `StorageFolder` 的 `ServerTelemetryChannel` 通道：
 
 ```xml
     <TelemetrySinks>
@@ -67,9 +62,9 @@ Application Insights.NET 和.NET Core Sdk 隨附兩個內建的通道：
     </TelemetrySinks>
 ```
 
-### <a name="configuration-in-code-for-aspnet-applications"></a>在 ASP.NET 應用程式的程式碼中的組態
+### <a name="configuration-in-code-for-aspnet-applications"></a>ASP.NET 應用程式的程式碼設定
 
-下列程式碼會設定具有 'ServerTelemetryChannel' 執行個體`StorageFolder`設定自訂的位置。 加入這個程式碼的應用程式時，開頭通常`Application_Start()`中的 Global.aspx.cs 方法。
+下列程式碼會設定 `StorageFolder` 設定為自訂位置的 ' ServerTelemetryChannel ' 實例。 在應用程式的開頭新增此程式碼，通常在 Global.aspx.cs 的 `Application_Start()` 方法中。
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -83,9 +78,9 @@ protected void Application_Start()
 }
 ```
 
-### <a name="configuration-in-code-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的程式碼中設定
+### <a name="configuration-in-code-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的程式碼設定
 
-修改`ConfigureServices`方法的`Startup.cs`類別如下所示：
+修改 `Startup.cs` 類別的 `ConfigureServices` 方法，如下所示：
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -102,11 +97,11 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!IMPORTANT]
-> 使用設定通道`TelemetryConfiguration.Active`不建議用於 ASP.NET Core 應用程式。
+> ASP.NET Core 應用程式不建議使用 `TelemetryConfiguration.Active` 設定通道。
 
-### <a name="configuration-in-code-for-netnet-core-console-applications"></a>.NET/.NET Core 主控台應用程式的程式碼中設定
+### <a name="configuration-in-code-for-netnet-core-console-applications"></a>適用于 .NET/.NET Core 主控台應用程式的程式碼設定
 
-針對主控台應用程式，程式碼也適用於.NET 和.NET Core:
+針對主控台應用程式，.NET 和 .NET Core 的程式碼都相同：
 
 ```csharp
 var serverTelemetryChannel = new ServerTelemetryChannel();
@@ -115,65 +110,65 @@ serverTelemetryChannel.Initialize(TelemetryConfiguration.Active);
 TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 ```
 
-## <a name="operational-details-of-servertelemetrychannel"></a>ServerTelemetryChannel 的作業詳細資料
+## <a name="operational-details-of-servertelemetrychannel"></a>ServerTelemetryChannel 的操作詳細資料
 
-`ServerTelemetryChannel` 到達記憶體緩衝區中的項目存放區。 項目會序列化、 壓縮，並儲存至`Transmission`執行個體一次每隔 30 秒，或當已緩衝 500 個項目。 單一`Transmission`執行個體包含最多 500 個項目，而代表透過 Application Insights 服務的單一 HTTPS 呼叫已傳送的遙測批次。
+`ServerTelemetryChannel` 會將抵達的專案儲存在記憶體內部緩衝區中。 這些專案會每隔30秒進行序列化、壓縮，並儲存至 `Transmission` 實例一次，或當已緩衝處理500專案時。 單一 `Transmission` 實例包含最多500個專案，代表透過單一 HTTPS 呼叫傳送至 Application Insights 服務的遙測批次。
 
-根據預設，最多 10 個`Transmission`執行個體可以傳送以平行方式。 如果遙測抵達更快的速度，或如果網路或 Application Insights 將端是速度慢，`Transmission`執行個體儲存在記憶體中。 此記憶體中的預設容量`Transmission`緩衝區是 5 MB。 已超過記憶體容量，`Transmission`執行個體儲存在本機的磁碟，上限是 50 MB。 `Transmission` 執行個體時，儲存在本機磁碟上也有網路問題。 只有儲存在本機的磁碟的項目才會存留應用程式當機。 每次應用程式一次啟動時，他們正在傳送。
+根據預設，最多可以平行傳送10個 `Transmission` 實例。 如果遙測以較快的速率抵達，或如果網路或 Application Insights 後端緩慢，`Transmission` 實例會儲存在記憶體中。 此記憶體內部 `Transmission` 緩衝區的預設容量為 5 MB。 超過記憶體中的容量時，`Transmission` 實例會儲存在本機磁片上，最多可達 50 MB 的限制。 當網路有問題時，`Transmission` 實例也會儲存在本機磁片上。 只有儲存在本機磁片上的專案會在應用程式損毀時存留下來。 每當應用程式重新開機時，就會傳送它們。
 
-## <a name="configurable-settings-in-channels"></a>在頻道中可設定的設定
+## <a name="configurable-settings-in-channels"></a>通道中的可設定設定
 
-可設定的設定，每個通道的完整清單，請參閱：
+如需每個通道可設定之設定的完整清單，請參閱：
 
 * [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
 
 * [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
-以下是最常用的設定`ServerTelemetryChannel`:
+以下是 `ServerTelemetryChannel`最常使用的設定：
 
-1. `MaxTransmissionBufferCapacity`:以位元組為單位，到緩衝區在記憶體中的傳輸通道所使用的記憶體最大數量。 當到達此容量時，新的項目會儲存到本機的磁碟直接。 預設值是 5 MB。 設定較高的值會導致較少的磁碟使用量，但請記住，是否應用程式當機，在記憶體中的項目將會遺失。
+1. `MaxTransmissionBufferCapacity`：通道在記憶體中緩衝傳輸所使用的最大記憶體數量（以位元組為單位）。 當達到此容量時，新的專案會直接儲存到本機磁片。 預設值是 5 MB。 設定較高的值會導致磁片使用量較少，但請記住，如果應用程式當機，記憶體中的專案將會遺失。
 
-1. `MaxTransmissionSenderCapacity`:最大數目`Transmission`會同時傳送至 Application Insights 的執行個體。 預設值為 10。 此設定較高的數目，就會產生大量遙測時，建議使用。 高容量通常會發生在負載測試，或取樣關閉時。
+1. `MaxTransmissionSenderCapacity`：將同時傳送至 Application Insights 的 `Transmission` 實例數目上限。 預設值為10。 這項設定可以設定為較高的數目，這在產生大量遙測資料時建議使用。 高容量通常發生于負載測試或關閉取樣時。
 
-1. `StorageFolder`:由通道用來儲存至磁碟所需的項目資料夾。 在 Windows 中，%LOCALAPPDATA%或 %TEMP%如果會使用明確指定任何其他路徑。 在非 Windows 環境中，您必須指定有效的位置或遙測資料不會儲存到本機磁碟。
+1. `StorageFolder`：通道用來將專案儲存至磁片的資料夾（如有需要）。 在 Windows 中，如果未明確指定其他路徑，則會使用% LOCALAPPDATA% 或% TEMP%。 在 Windows 以外的環境中，您必須指定有效的位置，否則遙測不會儲存到本機磁片。
 
-## <a name="which-channel-should-i-use"></a>我應該使用哪個通道？
+## <a name="which-channel-should-i-use"></a>我應該使用哪一個頻道？
 
-`ServerTelemetryChannel` 建議針對大部分的實際執行案例牽涉到長時間執行的應用程式。 `Flush()`方法實作`ServerTelemetryChannel`不同步的而它也不保證傳送所有擱置中的項目從記憶體或磁碟。 如果您使用這個通道在案例中，應用程式即將關閉，我們建議您引入了一些延遲之後呼叫, `Flush()`。 延遲，您可能需要的確切量不是可預測的。 這取決於因素，例如多少項目或`Transmission`執行個體是在記憶體、 磁碟上有多少，多少會傳送到後端，以及通道是否中間指數退避法案例。
+對於涉及長時間執行之應用程式的大部分生產案例，建議使用 `ServerTelemetryChannel`。 `ServerTelemetryChannel` 所實的 `Flush()` 方法不是同步的，也不保證會從記憶體或磁片傳送所有暫止的專案。 如果您在應用程式即將關閉的案例中使用此通道，建議您在呼叫 `Flush()`之後，引入一些延遲。 您可能需要的確切延遲量不是可預測的。 它取決於記憶體中有多少專案或 `Transmission` 的實例、磁片上有多少、要傳輸到後端的數目，以及通道是否在指數輪詢的情況下。
 
-如果您需要執行同步排清，我們建議您改用`InMemoryChannel`。
+如果您需要執行同步清除，建議您使用 `InMemoryChannel`。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Application Insights 通道是否保證傳遞遙測？ 如果沒有，遙測可能會遺失的案例是什麼？
+### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Application Insights 通道是否保證遙測傳遞？ 如果不是，可能會遺失遙測的案例有哪些？
 
-簡短的答案是沒有任何內建的通道提供的遙測傳送至後端的交易類型保證。 `ServerTelemetryChannel` 更進階的比較與`InMemoryChannel`，可靠的傳遞，但它也會只傳送遙測的最佳嘗試。 在許多情況下，包括這些常見的案例，可能仍會遺失遙測：
+最簡短的答案是，沒有任何內建通道提供對後端的遙測傳遞交易類型保證。 相較于可靠傳遞的 `InMemoryChannel`，`ServerTelemetryChannel` 更先進，但它也只會盡力傳送遙測資料。 在數種情況下，遙測仍然可能遺失，包括下列常見案例：
 
-1. 應用程式損毀時，會遺失記憶體中的項目。
+1. 當應用程式當機時，記憶體中的專案就會遺失。
 
-1. 在很長的網路問題，遙測會遺失。 在網路中斷，或當使用 Application Insights 的後端發生問題，遙測會儲存到本機磁碟。 不過，早於 24 小時內的項目都會被捨棄。
+1. 遙測會在網路問題延伸期間遺失。 遙測會在網路中斷時或 Application Insights 後端發生問題時，儲存到本機磁片。 不過，早于24小時的專案會被捨棄。
 
-1. 將遙測資料儲存在 Windows 中的預設磁碟位置是 %LOCALAPPDATA%或 %TEMP%。 這些位置是通常是本機電腦。 如果應用程式移轉實體從一個位置之間，儲存在原始位置中的任何遙測將會遺失。
+1. 在 Windows 中儲存遙測資料的預設磁片位置為% LOCALAPPDATA% 或% TEMP%。 這些位置通常是本機電腦。 如果應用程式從一個位置實際遷移到另一個位置，則儲存在原始位置的任何遙測都會遺失。
 
-1. 在 Windows 上的 Web 應用程式的預設磁碟儲存體位置會是 D:\local\LocalAppData。 此位置不會持續保存。 它被抹除應用程式重新啟動、 小數位數挑出和其他這類作業，導致遺失儲存在其中任何遙測。 您可以覆寫預設值，並指定儲存體來保存的位置，例如 D:\home。 不過，這類保存的位置由遠端儲存體來提供，因此可能會很慢。
+1. 在 Windows 的 Web Apps 中，預設磁片儲存位置為 D:\local\LocalAppData。 此位置不會保存。 它會在應用程式重新開機、相應放大和其他這類作業中被抹除，因而導致遺失儲存在該處的任何遙測。 您可以覆寫預設值，並指定儲存體到保存的位置，例如 D:\home。 不過，這類保存的位置是由遠端存放裝置提供，因此可能會變慢。
 
-### <a name="does-servertelemetrychannel-work-on-systems-other-than-windows"></a>ServerTelemetryChannel 未在 Windows 以外的系統上運作？
+### <a name="does-servertelemetrychannel-work-on-systems-other-than-windows"></a>ServerTelemetryChannel 是否能在非 Windows 的系統上運作？
 
-雖然其套件和命名空間的名稱包含"WindowsServer"，此通道被支援不是 Windows，發生下列例外狀況的系統。 在 Windows 以外的系統，通道不會預設建立的本機儲存體資料夾。 您必須建立本機儲存體資料夾，並設定要使用的通道。 設定本機儲存體之後，通道會在所有系統運作方式相同。
+雖然其封裝和命名空間的名稱包含 "WindowsServer"，但 Windows 以外的系統也支援此通道，但有下列例外狀況。 在 Windows 以外的系統上，通道預設不會建立本機儲存體資料夾。 您必須建立本機儲存體資料夾，並設定通道來使用它。 設定本機儲存體之後，通道在所有系統上的運作方式都相同。
 
-### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>SDK 是否會建立暫存本機儲存體？ 在儲存體加密的資料嗎？
+### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>SDK 是否會建立暫存本機儲存體？ 資料是否會在儲存體中加密？
 
-SDK 會將遙測項目儲存在本機儲存體中，期間節流或網路問題的期間。 這項資料不會在本機加密。
+SDK 會在網路問題或節流期間，將遙測專案儲存在本機儲存體中。 此資料不會在本機加密。
 
-適用於 Windows 系統，SDK，自動建立暫時的本機資料夾中的 %TEMP%或 %LOCALAPPDATA%目錄，並限制系統管理員 」 和 「 目前使用者的存取進行相關的設定。
+對於 Windows 系統，SDK 會在% TEMP% 或% LOCALAPPDATA% 目錄中自動建立暫存本機資料夾，並限制只有系統管理員和目前使用者的存取權。
 
-適用於 Windows 以外的系統，sdk，會自動建立任何本機存放裝置，並因此沒有資料儲存在本機的預設值。 您可以自行建立儲存體目錄，並設定要使用的通道。 在此情況下，您必須負責確保目錄受到保護。
-深入了解[資料保護和隱私權](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)。
+對於 Windows 以外的系統，SDK 不會自動建立本機儲存體，因此預設不會在本機儲存任何資料。 您可以自行建立儲存體目錄，並設定通道來使用它。 在此情況下，您必須負責確保目錄受到保護。
+閱讀更多有關[資料保護和隱私權](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)的資訊。
 
 ## <a name="open-source-sdk"></a>開放原始碼 SDK
-每個適用於 Application Insights SDK，例如通道是開放原始碼。 讀取和貢獻程式碼或回報問題，在[官方 GitHub 存放庫](https://github.com/Microsoft/ApplicationInsights-dotnet)。
+和每個 Application Insights 的 SDK 一樣，通道都是開放原始碼。 閱讀並參與[官方 GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet)存放庫中的程式碼或報告問題。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [取樣](../../azure-monitor/app/sampling.md)
-* [SDK 進行疑難排解](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [SDK 疑難排解](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)

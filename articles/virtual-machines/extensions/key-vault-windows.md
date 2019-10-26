@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 53daa634374c10d48c42f5985459db7e068f293d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 43c4b363f223c61bac3d3f7dbd272519a0cd014d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301889"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899051"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>適用於 Windows 的金鑰保存庫虛擬機器擴充功能
 
@@ -28,7 +28,7 @@ Key Vault 的 VM 擴充功能支援下列版本的 Windows：
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示金鑰保存庫 VM 擴充功能的結構描述。 延伸模組不需要受保護的設定，其所有設定都會被視為公開資訊。 延伸模組需要受監視的憑證清單、輪詢頻率和目的地憑證存放區。 尤其是：  
+下列 JSON 顯示金鑰保存庫 VM 擴充功能的結構描述。 延伸模組不需要受保護的設定，其所有設定都會被視為公開資訊。 延伸模組需要受監視的憑證清單、輪詢頻率和目的地憑證存放區。 具體而言：  
 
 ```json
     {
@@ -59,9 +59,9 @@ Key Vault 的 VM 擴充功能支援下列版本的 Windows：
 ```
 
 > [!NOTE]
-> 您觀察到的憑證 Url 的格式應為 `https://myVaultName.vault.azure.net/secrets/myCertName`。
+> 您觀察到的憑證 Url 的格式應該是 `https://myVaultName.vault.azure.net/secrets/myCertName`。
 > 
-> 這是因為 `/secrets` 路徑會傳回完整憑證（包括私密金鑰），而 @no__t 1 路徑則不會。 如需憑證的詳細資訊，請參閱：[Key Vault 憑證](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> 這是因為 `/secrets` 路徑會傳回完整憑證，包括私密金鑰，而 `/certificates` 路徑則不會。 如需憑證的詳細資訊，請參閱： [Key Vault 憑證](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>屬性值
 
@@ -69,13 +69,13 @@ Key Vault 的 VM 擴充功能支援下列版本的 Windows：
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault.Edp | string |
-| 型別 | KeyVaultForWindows | string |
+| 類型 | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | int |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | boolean |
+| linkOnRenewal | false | 布林值 |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | boolean |
+| requiredInitialSync | true | 布林值 |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 字串陣列
 
 
@@ -83,7 +83,7 @@ Key Vault 的 VM 擴充功能支援下列版本的 Windows：
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署一或多部需要部署後重新整理憑證的虛擬機器時，很適合使用範本。 擴充功能可以部署到個別的 Vm 或虛擬機器擴展集。 結構描述與組態對於這兩種範本類型都是通用的。 
 
-虛擬機器擴充功能的 JSON 設定必須嵌套在範本的虛擬機器資源片段中，特別是針對虛擬機器範本 `"resources": []` 物件，以及在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 物件下的虛擬機器擴展集案例中。
+虛擬機器擴充功能的 JSON 設定必須嵌套在範本的虛擬機器資源片段中，特別是 `"resources": []` 虛擬機器範本的物件，以及在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 物件下的虛擬機器擴展集案例中。
 
 ```json
     {
@@ -168,7 +168,7 @@ Azure CLI 可以用來將 Key Vault VM 擴充功能部署到現有的虛擬機�
          az vm extension set -n "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
-         --vm-name "<vmName>" `
+         --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
@@ -179,7 +179,7 @@ Azure CLI 可以用來將 Key Vault VM 擴充功能部署到現有的虛擬機�
         az vmss extension set -n "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
-         --vm-name "<vmName>" `
+         --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 

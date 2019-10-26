@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173392"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897574"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中樞裝置佈建服務的裝置概念
 
@@ -44,7 +44,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ## <a name="registration-id"></a>註冊識別碼
 
-註冊識別碼是裝置佈建服務中之裝置的唯一識別碼。 在布建服務[識別碼範圍](#id-scope)中，註冊識別碼必須是唯一的。 每個裝置都必須要有註冊識別碼。 註冊識別碼中有英數字元、小寫字母且可能包含連字號。
+註冊識別碼是裝置佈建服務中之裝置的唯一識別碼。 每個裝置識別碼在佈建服務的[識別碼範圍](#id-scope)中都必須是獨一無二的。 每個裝置都必須要有註冊識別碼。 註冊識別碼是英數位元、不區分大小寫，而且可能包含特殊字元，包括冒號、句號、底線和連字號。
 
 * 若為 TPM，TPM 本身會提供註冊識別碼。
 * 若為 X.509 式證明方法，則會提供註冊識別碼作為憑證的主體名稱。

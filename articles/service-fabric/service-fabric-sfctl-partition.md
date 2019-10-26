@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI - sfctl partition | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl partition 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 54cf0a60c86e82880573dd18dcb80ece8e1e51f2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 2c2ebb7cb08cb6b6b2130290c81fa9e07766b5e2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035017"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901089"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -29,17 +30,17 @@ ms.locfileid: "69035017"
 | --- | --- |
 | data-loss | 此 API 會引發所指定分割區的資料遺失。 |
 | data-loss-status | 針對使用 StartDataLoss API 啟動的分割區資料遺失作業，取得作業的進度。 |
-| 健康狀態 | 取得指定 Service Fabric 分割區的健康情況。 |
-| 資訊 | 取得 Service Fabric 分割區的相關資訊。 |
-| 清單 | 取得 Service Fabric 服務的分割區清單。 |
-| 載入 | 取得所指定 Service Fabric 分割區的負載資訊。 |
+| 醫療 | 取得指定 Service Fabric 分割區的健康情況。 |
+| info | 取得 Service Fabric 分割區的相關資訊。 |
+| list | 取得 Service Fabric 服務的分割區清單。 |
+| load | 取得所指定 Service Fabric 分割區的負載資訊。 |
 | load-reset | 重設 Service Fabric 分割區目前的負載。 |
 | quorum-loss | 導致指定具狀態服務分割區的仲裁遺失。 |
 | quorum-loss-status | 針對在分割區上使用 StartQuorumLoss API 啟動的仲裁遺失作業，取得作業的進度。 |
 | recover | 表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的特定分割區。 |
 | recover-all | 指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的所有服務 (包括系統服務)。 |
 | report-health | 傳送 Service Fabric 分割區的健康情況報告。 |
-| 重新啟動 | 此 API 會重新啟動所指定分割區的部分或全部複本或執行個體。 |
+| restart | 此 API 會重新啟動所指定分割區的部分或全部複本或執行個體。 |
 | restart-status | 針對使用 StartPartitionRestart 啟動的 PartitionRestart 作業，取得作業的進度。 |
 | svc-name | 取得分割區的 Service Fabric 服務名稱。 |
 
@@ -48,9 +49,8 @@ ms.locfileid: "69035017"
 
 這會觸發對分割區 OnDataLossAsync API 的呼叫。  此 API 會引發所指定分割區的資料遺失。 這會觸發對分割區 OnDataLoss API 的呼叫。 實際的資料遺失將取決於指定的 DataLossMode。  <br> - PartialDataLoss - 只會移除複本仲裁，並且會為分割區觸發 OnDataLoss，但實際資料遺失取決於是否有進行中的複寫存在。  <br> - FullDataLoss - 將會移除所有複本，因此會遺失所有資料，並且會觸發 OnDataLoss。 應該只使用具狀態服務作為目標來呼叫此 API。 不建議使用系統服務作為目標來呼叫此 API。
 
-> [!NOTE] 
+> [!NOTE]   
 > 一旦呼叫此 API，即無法回復。 呼叫 CancelOperation 只會停止執行並清除內部系統狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原資料。 您可以使用相同的 OperationId 來呼叫 GetDataLossProgress API，以傳回使用此 API 所啟動作業的相關資訊。
-
 ### <a name="arguments"></a>引數
 
 |引數|描述|
@@ -59,7 +59,7 @@ ms.locfileid: "69035017"
 | --operation-id   [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id   [必要] | 分割區的識別。 |
 | --service-id     [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -83,7 +83,7 @@ ms.locfileid: "69035017"
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --service-id   [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -108,7 +108,7 @@ ms.locfileid: "69035017"
 | --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因而此值可以是使用位元 'OR' 運算子所取得這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
 | --exclude-health-statistics | 指出是否應該在查詢結果中一併傳回健康情況統計資料。 預設為 False。 統計資料會顯示健康情況狀態為 Ok、Warning 及 Error 的子實體數目。 |
 | --replicas-health-state-filter | 允許篩選分割區上的 ReplicaHealthState 物件集合。 可以從 HealthStateFilter 成員或對這些成員的位元運算取得值。 只會傳回符合篩選條件的複本。 所有複本都會用來評估彙總的健康情況狀態。 若未指定，則會傳回所有項目。狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。 此參數的可能值包括下列其中一個健康情況狀態的整數值。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -130,7 +130,7 @@ ms.locfileid: "69035017"
 |引數|描述|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -153,7 +153,7 @@ ms.locfileid: "69035017"
 | --- | --- |
 | --service-id [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -175,7 +175,7 @@ ms.locfileid: "69035017"
 |引數|描述|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -197,7 +197,7 @@ ms.locfileid: "69035017"
 |引數|描述|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -223,7 +223,7 @@ ms.locfileid: "69035017"
 | --quorum-loss-duration [必要] | 分割區將維持在仲裁遺失狀態的時間長度。  必須以秒為單位來指定此值。 |
 | --quorum-loss-mode     [必要] | 此列舉會傳遞給 StartQuorumLoss API 以指出要引發哪一種類型的仲裁遺失。 |
 | --service-id           [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -247,7 +247,7 @@ ms.locfileid: "69035017"
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --service-id   [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -269,7 +269,7 @@ ms.locfileid: "69035017"
 |引數|描述|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -290,7 +290,7 @@ ms.locfileid: "69035017"
 
 |引數|描述|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -319,7 +319,7 @@ ms.locfileid: "69035017"
 | --immediate | 指出是否應該立即傳送報告的旗標。 <br><br> 健康情況報告會傳送給 Service Fabric 閘道應用程式，再由其轉送給健康狀態資料存放區。 如果將 Immediate 設定為 true，則不論「HTTP 閘道應用程式」使用什麼網狀架構用戶端設定，都會從「HTTP 閘道」立即將報告傳送給健康狀態資料存放區。 這對於應該儘快傳送的重要報告來說，相當有用。 視時機和其他條件而定，傳送報告時仍可能失敗，例如在「HTTP 閘道」關閉或訊息未觸達閘道的情況下。 如果將 Immediate 設定為 false，就會根據來自「HTTP 閘道」的健康情況用戶端設定來傳送報告。 因此，會根據 HealthReportSendInterval 設定進行批次處理。 這是建議的設定，因為這除了可讓健康情況用戶端將健康情況報告處理最佳化之外，也可將傳送給健康狀態資料存放區的健康情況報告訊息最佳化。 預設不會立即傳送報告。 |
 | --remove-when-expired | 指出是否要在報告到期時將報告自健康狀態資料存放區中移除的值。 <br><br> 如果設定為 true，就會在報告到期後，將報告自健康狀態資料存放區中移除。 如果設定為 false，則會在報告到期後，將報告視為錯誤。 此屬性的值預設為 false。 當用戶端會定期回報時，應該將 RemoveWhenExpired 設定為 false (預設值)。 如此一來，如果報告程式發生問題 (例如死結) 而無法回報，在健康情況報告到期時，系統就會將實體評估為錯誤。 這會將實體標幟為處於「錯誤」健康情況狀態。 |
 | --sequence-number | 此健康情況報告的序號 (以數值字串表示)。 <br><br> 健康狀態資料存放區會使用報告序號來偵測過時的報告。 如果未指定，就會在新增報告時，由健康情況用戶端自動產生序號。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 預設值\: 60。 |
 | --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -345,7 +345,7 @@ ms.locfileid: "69035017"
 | --partition-id [必要] | 分割區的識別。 |
 | --restart-partition-mode [必要] | 描述要重新啟動哪個分割區。 |
 | --service-id [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -369,7 +369,7 @@ ms.locfileid: "69035017"
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --service-id   [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -391,7 +391,7 @@ ms.locfileid: "69035017"
 |引數|描述|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 

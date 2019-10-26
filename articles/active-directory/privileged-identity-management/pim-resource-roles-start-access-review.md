@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中建立 Azure 資源角色的存取權審查-Azure Active Directory |Microsoft Docs
+title: 在 Privileged Identity Management Azure Active Directory 中建立 Azure 資源角色的存取權審查 |Microsoft Docs
 description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中建立 Azure 資源角色的存取權審查。
 services: active-directory
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/29/2019
+ms.date: 10/23/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba674c143cd8d85b9764c8ade776b52dd1d3598d
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 56ccab2162a8f0ea9405d834e3f25558d8236b52
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804153"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895418"
 ---
-# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>在 PIM 中建立 Azure 資源角色的存取權審查
+# <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中建立 Azure 資源角色的存取權審查
 
 員工的特殊許可權 Azure 資源角色的存取權會隨時間而改變。 若要降低與過時角色指派相關聯的風險，您應該定期查看存取權。 您可以使用 Azure Active Directory （Azure AD） Privileged Identity Management （PIM）來建立特殊許可權 Azure 資源角色的存取權審查。 您也可以設定自動進行的週期性存取審查。
 
@@ -30,7 +30,7 @@ ms.locfileid: "70804153"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [特殊許可權角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[特殊許可權角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>開啟存取權審查
 
@@ -38,17 +38,15 @@ ms.locfileid: "70804153"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 在左側功能表中，按一下 [ **Azure 資源**]。
+1. 在左側功能表中，選取 [ **Azure 資源**]。
 
-1. 按一下您想要管理的資源，例如訂用帳戶或管理群組。
+1. 選取您想要管理的資源，例如訂用帳戶或管理群組。
 
-1. 在 [管理] 底下，按一下 [**存取評論**]。
+1. 在 [管理] 下，選取 [**存取評論**]。
 
     ![Azure 資源-存取評論清單，顯示所有評論的狀態](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>開始存取權檢閱
 

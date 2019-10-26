@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 16ac8ef9e0fb876103b57b1cc463bdae5b2362b7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5842d6fcb5f03754fc8f5922e299d0d9c30d21db
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828115"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900820"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>在 Windows 上使用虛擬 TPM 建立及布建模擬的 IoT Edge 裝置
 
 Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
+
+DPS 支援在個別註冊和群組註冊中 IoT Edge 裝置的對稱金鑰證明。 針對群組註冊，如果您在對稱金鑰證明中核取 [IoT Edge 裝置] 選項設為 true，則在該註冊群組下註冊的所有裝置都會標示為 [IoT Edge 裝置]。 
 
 本文說明如何使用下列步驟，在模擬的 IoT Edge 裝置上測試自動布建：
 
@@ -71,9 +73,9 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 
-IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。
+IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在邊緣上執行程式碼。
 
-布建您的裝置時, 您將需要下列資訊:
+布建您的裝置時，您將需要下列資訊：
 
 * DPS**識別碼範圍**值
 * 您所建立的裝置**註冊識別碼**
@@ -87,16 +89,16 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 1. 在系統管理員模式下開啟 [Azure PowerShell] 視窗。 安裝 IoT Edge 時，請務必使用 PowerShell 的 AMD64 會話，而不是 PowerShell （x86）。
 
-1. **IoTEdge**命令會檢查您的 Windows 電腦是否在支援的版本上, 開啟 [容器] 功能, 然後下載 moby 執行時間和 IoT Edge 執行時間。 命令預設為使用 Windows 容器。
+1. **IoTEdge**命令會檢查您的 Windows 電腦是否在支援的版本上，開啟 [容器] 功能，然後下載 moby 執行時間和 IoT Edge 執行時間。 命令預設為使用 Windows 容器。
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. 此時, IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此, 請立即重新開機您的裝置。 一旦您的裝置準備就緒, 請再次以系統管理員身分執行 PowerShell。
+1. 此時，IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此，請立即重新開機您的裝置。 一旦您的裝置準備就緒，請再次以系統管理員身分執行 PowerShell。
 
-1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 `-Dps`使用旗標來使用裝置布建服務, 而不是手動布建。
+1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 使用 `-Dps` 旗標來使用裝置布建服務，而不是手動布建。
 
    以您稍早收集的資料取代 `{scope_id}` 和 `{registration_id}` 的預留位置值。
 

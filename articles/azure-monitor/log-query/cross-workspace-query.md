@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure 監視器跨資源查詢 | Microsoft Docs
 description: 本文說明如何針對來自訂用帳戶中多個工作區和 App Insights 應用程式的資源執行查詢。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/05/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 06/05/2019
+ms.openlocfilehash: e74c81956ab0590b8b7237d3ecf60ae242a43b73
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650144"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894479"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure 監視器中執行跨資源記錄查詢  
 
@@ -29,8 +23,8 @@ ms.locfileid: "69650144"
 ## <a name="cross-resource-query-limits"></a>跨資源查詢限制 
 
 * 您可以包含在單一查詢中的 Application Insights 資源和 Log Analytics 工作區數目限制為100。
-* View Designer 不支援跨資源查詢。 您可以在 Log Analytics 中撰寫查詢, 並將它釘選到 Azure 儀表板, 以將[記錄查詢視覺化](../learn/tutorial-logs-dashboards.md)。 
-* 新的[SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)支援記錄警示中的跨資源查詢。 根據預設，Azure 監視器會使用[舊版 Log Analytics 警示 API](../platform/api-alerts.md) 從 Azure 入口網站建立新的記錄警示規則，除非您從[舊版記錄警示 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 切換。 切換之後，新的 API 將成為 Azure 入口網站中新警示規則的預設值，並允許您建立跨資源查詢記錄警示規則。 您可以使用[SCHEDULEDQUERYRULES api 的 Azure Resource Manager 範本](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)來建立跨資源查詢記錄警示規則, 而不需進行切換, 但此警示規則可透過[scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)進行管理, 而不是從 Azure 入口網站.
+* View Designer 不支援跨資源查詢。 您可以在 Log Analytics 中撰寫查詢，並將它釘選到 Azure 儀表板，以將[記錄查詢視覺化](../learn/tutorial-logs-dashboards.md)。 
+* 新的[SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)支援記錄警示中的跨資源查詢。 根據預設，Azure 監視器會使用[舊版 Log Analytics 警示 API](../platform/api-alerts.md) 從 Azure 入口網站建立新的記錄警示規則，除非您從[舊版記錄警示 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 切換。 切換之後，新的 API 將成為 Azure 入口網站中新警示規則的預設值，並允許您建立跨資源查詢記錄警示規則。 您可以使用[SCHEDULEDQUERYRULES api 的 Azure Resource Manager 範本](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)來建立跨資源查詢記錄警示規則，而不需進行切換，但此警示規則可透過[scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)進行管理，而不是從 Azure 入口網站.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>跨 Log Analytics 工作區和從 Application Insights 查詢
@@ -59,7 +53,7 @@ ms.locfileid: "69650144"
 
 * Azure 資源識別碼 – Azure 定義的工作區唯一身分識別。 當資源名稱語意模糊時，您可以使用資源識別碼。  就工作區而言，格式為： */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*。  
 
-    例如:
+    例如：
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -90,7 +84,7 @@ ms.locfileid: "69650144"
 
 * Azure 資源識別碼 – Azure 定義的應用程式唯一身分識別。 當資源名稱語意模糊時，您可以使用資源識別碼。 格式為： */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*。  
 
-    例如:
+    例如：
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -136,7 +130,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->這個方法無法搭配記錄警示使用, 因為警示規則資源 (包括工作區和應用程式) 的存取驗證是在警示建立期間執行。 不支援在建立警示之後, 將新資源新增至函式。 如果您想要針對記錄警示中的資源範圍使用函式, 您必須在入口網站中編輯警示規則, 或使用 Resource Manager 範本來更新已設定範圍的資源。 或者, 您可以在記錄警示查詢中包含資源的清單。
+>這個方法無法搭配記錄警示使用，因為警示規則資源（包括工作區和應用程式）的存取驗證是在警示建立期間執行。 不支援在建立警示之後，將新資源新增至函式。 如果您想要針對記錄警示中的資源範圍使用函式，您必須在入口網站中編輯警示規則，或使用 Resource Manager 範本來更新已設定範圍的資源。 或者，您可以在記錄警示查詢中包含資源的清單。
 
 
 ![時間圖](media/cross-workspace-query/chart.png)

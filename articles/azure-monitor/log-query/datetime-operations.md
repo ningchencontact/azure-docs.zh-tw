@@ -1,24 +1,18 @@
 ---
 title: 在 Azure 監視器記錄查詢中處理日期時間值 | Microsoft Docs
 description: 說明如何在 Azure 監視器記錄查詢中處理日期和時間資料。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112352"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894224"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中處理日期時間值
 
@@ -38,11 +32,11 @@ Kusto 查詢語言有兩個與日期和時間關聯的主要資料類型：「�
 |縮寫   | 時間單位    |
 |:---|:---|
 |d           | day          |
-|h           | hour         |
-|m           | 分鐘       |
+|小時           | 小時         |
+|分鐘           | 分鐘       |
 |s           | 秒       |
 |ms          | 毫秒  |
-|microsecond | 微秒  |
+|微秒 | 微秒  |
 |tick        | 奈秒   |
 
 您可以透過使用 `todatetime` 運算子轉換字串來建立。 例如，若要檢閱在特定時間範圍內傳送的 VM 活動訊號，請使用 `between` 運算子來指定時間範圍。
@@ -91,7 +85,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-`timeAgo` 資料行保存的值如下："00:09:31.5118992"，表示格式為 hh:mm:ss.fffffff。 若您想要將這些值的格式設定為從開始時間算起的分鐘數 `numver`，將該值除以「1 分鐘」即可：
+`timeAgo` 資料行包含下列值： "00：09： 31.5118992"，這表示它們的格式會是 hh： mm： ss. fffffff。 若您想要將這些值的格式設定為從開始時間算起的分鐘數 `numver`，將該值除以「1 分鐘」即可：
 
 ```Kusto
 Event
@@ -117,12 +111,12 @@ Event
 
 |TimeGenerated(UTC)|events_count|
 |--|--|
-|2018-08-01T09:30:00.000|54|
-|2018-08-01T09:35:00.000|41|
-|2018-08-01T09:40:00.000|42|
-|2018-08-01T09:45:00.000|41|
-|2018-08-01T09:50:00.000|41|
-|2018-08-01T09:55:00.000|16|
+|2018-08-01T09：30：00.000|54|
+|2018-08-01T09：35：00.000|41|
+|2018-08-01T09：40：00.000|42|
+|2018-08-01T09：45：00.000|41|
+|2018-08-01T09：50：00.000|41|
+|2018-08-01T09：55：00.000|16|
 
 建立結果貯體的另一個方式是使用函式，例如 `startofday`：
 
@@ -136,11 +130,11 @@ Event
 
 |timestamp|count_|
 |--|--|
-|2018-07-28T00:00:00.000|7,136|
-|2018-07-29T00:00:00.000|12,315|
-|2018-07-30T00:00:00.000|16,847|
-|2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416|
+|2018-07-28T00：00：00.000|7,136|
+|2018-07-29T00：00：00.000|12,315|
+|2018-07-30T00：00：00.000|16,847|
+|2018-07-31T00：00：00.000|12,616|
+|2018-08-01T00：00：00.000|5,416|
 
 
 ## <a name="time-zones"></a>時區
@@ -153,7 +147,7 @@ Event
 
 ## <a name="related-functions"></a>相關函式
 
-| Category | 函數 |
+| 類別 | 函式 |
 |:---|:---|
 | 轉換資料類型 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 將值四捨五入為間隔大小 | [bin](/azure/kusto/query/binfunction) |

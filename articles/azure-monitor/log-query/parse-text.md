@@ -1,22 +1,18 @@
 ---
 title: 剖析 Azure 監視器記錄中的文字資料 | Microsoft Docs
 description: 說明在擷取資料時，以及在查詢中取出資料時，剖析 Azure 監視器記錄中記錄資料的不同選項，並比較各個選項的相對優點。
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/04/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/04/2018
+ms.openlocfilehash: 5a3b6852563955bfac940073bdda7d0afa02e77f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61426726"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900254"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>剖析 Azure 監視器記錄中的文字資料
 Azure 監視器所收集的部分記錄資料將在單一屬性中包含多個資訊片段。 將此資料剖析成多個屬性可讓您更輕鬆地在查詢中使用。 常見的範例為[自訂記錄檔](../../log-analytics/log-analytics-data-sources-custom-logs.md)，可將具有多個值的整個記錄檔項目收集成單一屬性。 您可以針對不同的值建立不同的屬性，以便在每個屬性中搜尋並彙總。
@@ -150,7 +146,7 @@ MyCustomCSVLog_CL
 - [使用者代理程式](/azure/kusto/query/parse-useragentfunction)
 - [版本字串](/azure/kusto/query/parse-versionfunction)
 
-下列範例查詢會剖析 _AzureActivity_ 資料表 (JSON 結構) 的 [屬性]  欄位。 它會將結果儲存到稱為 _parsedProp_ 的動態屬性，其中包括 JSON 中的個別命名值。 這些值用來篩選和彙總查詢結果。
+下列範例查詢會剖析 _AzureActivity_ 資料表 (JSON 結構) 的 [屬性] 欄位。 它會將結果儲存到稱為 _parsedProp_ 的動態屬性，其中包括 JSON 中的個別命名值。 這些值用來篩選和彙總查詢結果。
 
 ```Kusto
 AzureActivity

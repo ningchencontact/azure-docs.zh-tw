@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI- sfctl chaos| Microsoft Docs
 description: 描述 Service Fabric CLI sfctl choas 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035104"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901765"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
@@ -31,9 +32,9 @@ ms.locfileid: "69035104"
 
 |命令|描述|
 | --- | --- |
-| 事件 | 根據接續權杖或時間範圍取得 Chaos 事件的下一個區段。 |
+| 活動 | 根據接續權杖或時間範圍取得 Chaos 事件的下一個區段。 |
 | get | 取得 Chaos 的狀態。 |
-| 開始 | 在叢集中啟動 Chaos。 |
+| start | 在叢集中啟動 Chaos。 |
 | stop | 如果 Chaos 正在叢集中執行，便將它停止，並讓 Chaos 排程處於已停止狀態。 |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events
@@ -46,10 +47,10 @@ ms.locfileid: "69035104"
 |引數|描述|
 | --- | --- |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
-| --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
+| --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
 | --max-results | 分頁式查詢時傳回的最大結果數目。 此參數定義傳回結果數目的上限。 根據設定中所定義的訊息大小限制上限，如果所傳回的結果無法放入訊息中，則它們可以小於指定的結果上限。 如果此參數為零或未指定，則分頁式查詢會在傳回訊息中盡可能包含較多結果。 |
-| --start-time-utc | 表示要產生 Chaos 報告之時間範圍開始時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --start-time-utc | 表示要產生 Chaos 報告之時間範圍開始時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -70,7 +71,7 @@ ms.locfileid: "69035104"
 
 |引數|描述|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -85,7 +86,7 @@ ms.locfileid: "69035104"
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 在叢集中啟動 Chaos。
 
-如果 Chaos 尚未在叢集中執行，此命令會使用傳入的 Chaos 參數啟動 Chaos。 如果在進行這個呼叫時 Chaos 已在執行中，則呼叫會失敗，錯誤碼為 FABRIC_E_CHAOS_ALREADY_RUNNING。
+如果 Chaos 尚未在叢集中執行，此命令會使用傳入的 Chaos 參數啟動 Chaos。 如果在進行這個呼叫時 Chaos 已在執行中，則呼叫會失敗，錯誤碼為 FABRIC_E_CHAOS_ALREADY_RUNNING。 如需詳細資訊，請參閱在[Service Fabric 叢集中引發受控制的混亂](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)一文。
 
 ### <a name="arguments"></a>引數
 
@@ -96,13 +97,13 @@ ms.locfileid: "69035104"
 | --context | (string, string) 類型之索引鍵-值組的 JSON 編碼對應。 此對應可用於記錄混亂執行的相關資訊。 此類組合不能超過 100 個，且每個字串 (索引鍵或值) 最多為 4095 個字元長。 此對應由混亂執行的起始者設定，以選擇性地儲存特定執行的相關內容。 |
 | --disable-move-replica-faults | 停用移動主要錯誤和移動次要錯誤。 |
 | --max-cluster-stabilization | 等待所有叢集實體變成穩定且狀況良好的時間長度上限。  預設值\: 60。 <br><br> Chaos 會在反覆項目中執行，並且在每個反覆項目開始時它會驗證叢集實體的健康情況。 在驗證期間，如果叢集實體在 MaxClusterStabilizationTimeoutInSeconds 內不穩定且狀況不良，Chaos 就會產生驗證失敗事件。 |
-| --max-concurrent-faults | 每個反覆運算引發的最大並行錯誤數。 Chaos 會在反覆項目中執行，而兩個連續的反覆項目之間會以驗證階段分隔。 並行程度越高，就越容易發生插入錯誤的情況 -- 導致一系列更複雜的狀態而更不易找出錯誤 (bug)。 建議從值為 2 或 3 開始，上調此值時請小心謹慎。  預設值\: 1。 |
+| --max-concurrent-faults | 每個反覆運算引發的最大並行錯誤數。 Chaos 會在反覆項目中執行，而兩個連續的反覆項目之間會以驗證階段分隔。 並行程度越高，就越容易發生插入錯誤的情況 -- 導致一系列更複雜的狀態而更不易找出錯誤 (bug)。 建議從值為 2 或 3 開始，上調此值時請小心謹慎。  預設值：1。 |
 | --max-percent-unhealthy-apps | 在 Chaos 期間評估叢集健康情況時，於回報錯誤之前，可允許的狀況不良應用程式百分比上限。 <br><br> 在報告錯誤之前，允許健康情況不良應用程式的最大百分比。 例如，若要允許 10% 的應用程式健康情況不良，這個值會是 10。 百分比表示在系統將叢集視為錯誤之前，容許應用程式健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的應用程式，則健康情況會評估為 Warning。 此計算是將健康情況不良的應用程式數目除以叢集中應用程式執行個體的總數而得，但不包括 ApplicationTypeHealthPolicyMap 所包含之應用程式類型的應用程式。 針對少量的應用程式數目，計算會四捨五入以容許一個失敗。 預設百分比是零。 |
 | --max-percent-unhealthy-nodes | 在 Chaos 期間評估叢集健康情況時，於回報錯誤之前，可允許的狀況不良節點百分比上限。 <br><br> 在報告錯誤之前，允許健康情況不良節點的最大百分比。 例如，若要允許 10% 的節點健康情況不良，這個值會是 10。 百分比表示在叢集被視為處於錯誤狀態之前，容許節點健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的節點，則健康情況會評估為 Warning。 百分比是將健康情況不良節點數目除以叢集中的節點總數計算而得。 針對較少的節點數目，計算會四捨五入以容許一個失敗。 預設百分比是零。 在大型叢集中，永遠都有一些節點會關閉或需要修復，因此應設定此百分比來容許這種情形。 |
-| --time-to-run | Chaos 在自動停止之前，將執行的總時間 (秒)。 可允許的最大值為 4,294,967,295 (System.UInt32.MaxValue)。  預設值\: 4294967295。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
-| --wait-time-between-faults | 單一反覆項目內連續錯誤之間的等候時間 (秒)。  預設值\: 20。 <br><br> 值越大，錯誤之間的重疊越低，且叢集歷經的狀態轉換順序會越簡單。 建議從 1 到 5 之間的值來開始，上調此值時請小心謹慎。 |
-| --wait-time-between-iterations | Chaos 的兩個連續反覆項目之間的時間區隔 (秒)。 值越大，錯誤插入率越低。  預設值\: 30。 |
+| --time-to-run | Chaos 在自動停止之前，將執行的總時間 (秒)。 可允許的最大值為 4,294,967,295 (System.UInt32.MaxValue)。  預設值：4294967295。 |
+| --timeout -t | 預設值\: 60。 |
+| --wait-time-between-faults | 單一反覆項目內連續錯誤之間的等候時間 (秒)。  預設值：20。 <br><br> 值越大，錯誤之間的重疊越低，且叢集歷經的狀態轉換順序會越簡單。 建議從 1 到 5 之間的值來開始，上調此值時請小心謹慎。 |
+| --wait-time-between-iterations | Chaos 的兩個連續反覆項目之間的時間區隔 (秒)。 值越大，錯誤插入率越低。  預設值︰30。 |
 | --warning-as-error | 可指示是否將具有相同嚴重性的警告視為錯誤。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -124,7 +125,7 @@ ms.locfileid: "69035104"
 
 |引數|描述|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 

@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器記錄查詢中的彙總 | Microsoft Docs
 description: 說明 Azure 監視器記錄查詢中提供實用方式來分析資料的彙總函式。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602722"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900418"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的彙總
 
@@ -31,7 +25,7 @@ ms.locfileid: "65602722"
 
 ## <a name="counts"></a>計數
 
-### <a name="count"></a>count
+### <a name="count"></a>計數
 計算套用任何篩選之後結果集中的列數。 下列範例會傳回過去 30 分鐘內 _Perf_ 表中的總列數。 除非您指定特定欄名，否則結果會以名為 *count_* 的欄傳回：
 
 
@@ -79,7 +73,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>評估子群組
-若要為您資料中的子群組執行計算或其他彙總，請使用 `by` 關鍵字。 例如，若要計算每個國家/地區傳送活動訊號的不同 Linux 電腦數目：
+若要為您資料中的子群組執行計算或其他彙總，請使用 `by` 關鍵字。 例如，若要計算在每個國家/地區傳送了心跳的相異 Linux 電腦數目：
 
 ```Kusto
 Heartbeat 
@@ -96,7 +90,7 @@ Heartbeat
 |荷蘭      | 2                   |
 
 
-若要分析更小的資料子群組，請將額外欄名加到 `by` 區段。 比方說，您可能想要計算每個國家/地區每 OSType 從不同的電腦：
+若要分析更小的資料子群組，請將額外欄名加到 `by` 區段。 例如，您可能會想要計算每個 OSType 每個國家/地區的相異電腦數：
 
 ```Kusto
 Heartbeat 

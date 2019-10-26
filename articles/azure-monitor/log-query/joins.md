@@ -1,29 +1,23 @@
 ---
 title: Azure 監視器記錄查詢中的聯結 | Microsoft Docs
 description: 此文章包括在 Azure 監視器查詢語言中使用聯結的課程。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520098"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900291"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的聯結
 
 > [!NOTE]
-> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)並[Azure 監視器的記錄檔查詢](get-started-queries.md)之前完成這一課。
+> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)並[Azure 監視器記錄查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -95,7 +89,7 @@ SecurityEvent
 | leftsemi | 來自左側且與右側相符的記錄會包括在結果中。 結果資料表只有來自左側的資料行。 |
 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 為獲得最佳效能，請考慮以下各點：
 

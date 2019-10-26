@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 39e6273382133493a77321deed2baec4718bc912
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383657"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900202"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric 中的 ASP.NET Core Reliable Services
 
@@ -54,20 +54,20 @@ ASP.NET Core 和 Service Fabric 應用程式都可以在 .NET Core 或完整 .NE
 
 但應用程式進入點並不是在可靠的服務中建立 WebHost 的正確位置。 這是因為應用程式進入點只會用來向 Service Fabric 執行時間註冊服務類型，讓它可以建立該服務類型的實例。 WebHost 應該建立在可靠的服務本身中。 在服務主機進程內，服務實例和（或）複本可以經歷多個生命週期。 
 
-Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `StatefulService` 的服務類別代表。 服務的通訊堆疊包含在您服務類別中的 `ICommunicationListener` 實作。 @No__t-0 NuGet 套件包含 `ICommunicationListener` 的實作為，可在可靠的服務中啟動和管理 Kestrel 或 HTTP.sys 的 ASP.NET Core WebHost。
+Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `StatefulService` 的服務類別代表。 服務的通訊堆疊包含在您服務類別中的 `ICommunicationListener` 實作。 `Microsoft.ServiceFabric.AspNetCore.*` NuGet 套件包含 `ICommunicationListener` 的執行，可在可靠的服務中啟動和管理 Kestrel 或 HTTP.sys 的 ASP.NET Core WebHost。
 
 ![在可靠的服務中裝載 ASP.NET Core 的圖表][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-在 `Microsoft.ServiceFabric.AspNetCore.*` NuGet 套件中，Kestrel 和 HTTP.sys 的 @no__t 0 會有類似的使用模式。 但是，它們執行的動作與每一部 web 伺服器稍有不同。 
+`Microsoft.ServiceFabric.AspNetCore.*` NuGet 套件中的 Kestrel 和 HTTP.sys `ICommunicationListener` 的執行方式有類似的使用模式。 但是，它們執行的動作與每一部 web 伺服器稍有不同。 
 
 這兩種通訊接聽程式都會提供使用下列引數的建構函式︰
- - **`ServiceContext serviceContext`** ：這是包含執行中服務相關資訊的 @no__t 2 物件。
- - **`string endpointName`** ：這是 ServiceManifest 中 @no__t 2 設定的名稱。 這主要是兩個通訊接聽程式不同的地方。 Http.sys*需要*`Endpoint` 設定，而 Kestrel 則否。
+ - **`ServiceContext serviceContext`** ：這是包含執行中服務相關資訊的 `ServiceContext` 物件。
+ - **`string endpointName`** ：這是 ServiceManifest 中 `Endpoint` 設定的名稱。 這主要是兩個通訊接聽程式不同的地方。 Http.sys*需要*`Endpoint` 設定，而 Kestrel 則否。
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** ：這是您所執行的 lambda，您可以在其中建立並傳回 `IWebHost`。 它可讓您以平常在 ASP.NET Core 應用程式中的方式設定 `IWebHost`。 Lambda 會提供為您產生的 URL，視您使用的 Service Fabric 整合選項和您提供的 `Endpoint` 設定而定。 然後您可以修改或使用該 URL 來啟動 web 伺服器。
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 整合中介軟體
-@No__t-0 NuGet 封裝在 `IWebHostBuilder` 上包含 @no__t 1 擴充方法，可新增 Service Fabric 感知中介軟體。 此中介軟體會設定 Kestrel 或 HTTP.SYS `ICommunicationListener`，以 Service Fabric 命名服務註冊唯一的服務 URL。 然後，它會驗證用戶端要求，以確保用戶端連線至正確的服務。 
+`Microsoft.ServiceFabric.AspNetCore` NuGet 套件會在新增 Service Fabric 感知中介軟體的 `IWebHostBuilder` 上包含 `UseServiceFabricIntegration` 擴充方法。 此中介軟體會設定 Kestrel 或 HTTP.SYS `ICommunicationListener`，以 Service Fabric 命名服務註冊唯一的服務 URL。 然後，它會驗證用戶端要求，以確保用戶端連線至正確的服務。 
 
 若要防止用戶端不小心連線到錯誤的服務，則必須執行此步驟。 這是因為在共用主機環境（例如 Service Fabric）中，多個 web 應用程式可以在相同的實體或虛擬機器上執行，但不會使用唯一的主機名稱。 此案例會在下一節中詳細說明。
 
@@ -96,9 +96,9 @@ Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `Stateful
 
 ![Service Fabric ASP.NET Core 整合][2]
 
-Kestrel 和 HTTP.SYS @no__t 0 的執行都是以完全相同的方式使用這項機制。 雖然 HTTP.sys 可以使用基礎**HTTP.sys**埠共用功能，根據唯一的 URL 路徑來內部區分要求，但 HTTP.sys `ICommunicationListener` 執行並*不*會使用該功能。 這是因為它會在稍早所述的案例中產生 HTTP 503 和 HTTP 404 錯誤狀態碼。 這會讓用戶端難以判斷錯誤的意圖，因為 HTTP 503 和 HTTP 404 通常用來表示其他錯誤。 
+Kestrel 和 HTTP.SYS `ICommunicationListener` 的執行都會以完全相同的方式使用這項機制。 雖然 HTTP.sys 可以使用基礎**HTTP.sys**埠共用功能，根據唯一的 URL 路徑來內部區分要求，但 HTTP.sys `ICommunicationListener` 執行並*不*會使用該功能。 這是因為它會在稍早所述的案例中產生 HTTP 503 和 HTTP 404 錯誤狀態碼。 這會讓用戶端難以判斷錯誤的意圖，因為 HTTP 503 和 HTTP 404 通常用來表示其他錯誤。 
 
-因此，Kestrel 和 HTTP.SYS @no__t 0 會在 @no__t 1 擴充方法所提供的中介軟體上標準化。 因此，用戶端只需要在 HTTP 410 回應上執行服務端點重新解析動作。
+因此，Kestrel 和 HTTP.SYS `ICommunicationListener` 會在 `UseServiceFabricIntegration` 擴充方法所提供的中介軟體上標準化。 因此，用戶端只需要在 HTTP 410 回應上執行服務端點重新解析動作。
 
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services 中的 HTTP.sys
 您可以藉由匯入**ServiceFabric. AspNetCore. HttpSys** NuGet 封裝，在 Reliable Services 中使用 HTTP.sys。 此套件包含 `HttpSysCommunicationListener`，也就是 `ICommunicationListener` 的執行。 `HttpSysCommunicationListener` 可讓您使用 HTTP.SYS 作為 web 伺服器，在可靠的服務內建立 ASP.NET Core WebHost。
@@ -144,7 +144,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 使用 Windows HTTP 伺服器 API 的 web 伺服器（包括 HTTP.SYS）需要 `Endpoint` 設定。 使用 Windows HTTP 伺服器 API 的 Web 服務器必須先使用 HTTP.SYS 來保留其 URL （這通常是使用[netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)工具來完成）。 
 
-此動作需要您的服務預設不具有的更高許可權。 ServiceManifest 中 @no__t 1 設定之 `Protocol` 屬性的 "HTTP" 或 "HTTPs" 選項，專門用來指示 Service Fabric 執行時間代表您向 HTTP.SYS 註冊 URL。 它會使用[*強式萬用字元*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx)URL 前置詞來執行這項工作。
+此動作需要您的服務預設不具有的更高許可權。 ServiceManifest 中 `Endpoint` 設定之 `Protocol` 屬性的 "HTTP" 或 "HTTPs" 選項，專門用來指示 Service Fabric 執行時間代表您向 HTTP.SYS 註冊 URL。 它會使用[*強式萬用字元*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx)URL 前置詞來執行這項工作。
 
 例如，若要為服務保留 `http://+:80`，請在 ServiceManifest 中使用下列設定：
 
@@ -195,7 +195,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
   </Resources>
 ```
 
-由 @no__t 0 設定所配置的動態埠，只會*針對每個主機進程*提供一個埠。 目前的 Service Fabric 裝載模型可讓多個服務實例和/或複本在相同的進程中主控。 這表示當透過 `Endpoint` 設定配置時，每個通訊埠都會共用相同的埠。 多個**HTTP.sys**實例可以使用基礎的**HTTP.sys**埠共用功能來共用埠。 但由於它針對用戶端要求所帶來的複雜性，因此不支援 `HttpSysCommunicationListener`。 針對動態埠使用方式，Kestrel 是建議的 web 伺服器。
+`Endpoint` 設定所配置的動態埠只會*針對每個主機進程*提供一個埠。 目前的 Service Fabric 裝載模型可讓多個服務實例和/或複本在相同的進程中主控。 這表示當透過 `Endpoint` 設定配置時，每個通訊埠都會共用相同的埠。 多個**HTTP.sys**實例可以使用基礎的**HTTP.sys**埠共用功能來共用埠。 但由於它針對用戶端要求所帶來的複雜性，因此不支援 `HttpSysCommunicationListener`。 針對動態埠使用方式，Kestrel 是建議的 web 伺服器。
 
 ## <a name="kestrel-in-reliable-services"></a>Reliable Services 中的 Kestrel
 您可以藉由匯入**ServiceFabric. AspNetCore. Kestrel** NuGet 封裝，在 Reliable Services 中使用 Kestrel。 此套件包含 `KestrelCommunicationListener`，也就是 `ICommunicationListener` 的執行。 `KestrelCommunicationListener` 可讓您使用 Kestrel 作為 web 伺服器，在可靠的服務內建立 ASP.NET Core WebHost。
@@ -255,7 +255,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
-在此範例中，`IReliableStateManager` 的單一執行個體會提供給 WebHost 相依性插入容器。 這不是絕對必要的，但可讓您在 MVC 控制器動作方法中使用 @no__t 0 和可靠的集合。
+在此範例中，`IReliableStateManager` 的單一執行個體會提供給 WebHost 相依性插入容器。 這不是絕對必要，但它可讓您在 MVC 控制器動作方法中使用 `IReliableStateManager` 和可靠的集合。
 
 `Endpoint` 組態名稱*不*提供給具狀態服務中的 `KestrelCommunicationListener`。 我們會在下列各節中詳細說明這個部分。
 
@@ -306,10 +306,10 @@ serviceContext =>
 ### <a name="endpoint-configuration"></a>端點組態
 不需要 `Endpoint` 設定就能使用 Kestrel。 
 
-Kestrel 是簡單的獨立 web 伺服器。 不同于 HTTP.sys （或 HttpListener），它不需要在 ServiceManifest 中設定 @no__t 0，因為在啟動之前，它不需要 URL 註冊。 
+Kestrel 是簡單的獨立 web 伺服器。 與 HTTP.sys （或 HttpListener）不同的是，它不需要 ServiceManifest 中的 `Endpoint` 設定，因為在啟動之前，它不需要 URL 註冊。 
 
 #### <a name="use-kestrel-with-a-static-port"></a>搭配使用 Kestrel 與靜態連接埠
-您可以在 ServiceManifest 的 @no__t 0 設定中設定靜態通訊埠，以與 Kestrel 搭配使用。 雖然這並非絕對必要，但它提供兩個可能的優點：
+您可以在 ServiceManifest 的 `Endpoint` 設定中設定靜態通訊埠，以與 Kestrel 搭配使用。 雖然這並非絕對必要，但它提供兩個可能的優點：
  - 如果埠不在應用程式埠範圍內，則會藉由 Service Fabric，透過 OS 防火牆加以開啟。
  - 透過 `KestrelCommunicationListener` 提供給您的 URL 會使用此連接埠。
 
@@ -330,9 +330,9 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 如果 ServiceManifest 未使用 `Endpoint` 設定，請省略 `KestrelCommunicationListener` 的函式中的名稱。 在此情況下，它會使用動態埠。 如需這方面的詳細資訊，請參閱下一節。
 
 #### <a name="use-kestrel-with-a-dynamic-port"></a>搭配使用 Kestrel 與動態連接埠
-Kestrel 無法從 ServiceManifest 中的 @no__t 0 設定使用自動埠指派。 這是因為從 @no__t 0 設定的自動埠指派會指派每一*主機進程*的唯一端口，而單一主機進程可以包含多個 Kestrel 實例。 這不會與 Kestrel 搭配使用，因為它不支援埠共用。 因此，每個 Kestrel 實例都必須在唯一的埠上開啟。
+Kestrel 無法從 ServiceManifest 中的 `Endpoint` 設定使用自動埠指派。 這是因為從 `Endpoint` 設定的自動埠指派會指派每一*主機進程*的唯一端口，而單一主機進程可以包含多個 Kestrel 實例。 這不會與 Kestrel 搭配使用，因為它不支援埠共用。 因此，每個 Kestrel 實例都必須在唯一的埠上開啟。
 
-若要搭配 Kestrel 使用動態通訊埠指派，請省略 ServiceManifest 中的 `Endpoint` 設定，而不要將端點名稱傳遞給 @no__t 1 的函式，如下所示：
+若要搭配 Kestrel 使用動態通訊埠指派，請省略 ServiceManifest 中的 `Endpoint` 設定，而不要將端點名稱傳遞給 `KestrelCommunicationListener` 的「檢查程式」，如下所示：
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
@@ -340,13 +340,16 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 在此組態中，`KestrelCommunicationListener` 會自動從應用程式連接埠範圍選取未使用的連接埠。
 
+針對 HTTPS，它應該有以 HTTPS 通訊協定設定的端點，而不需在 ServiceManifest 中指定埠，並將端點名稱傳遞至 KestrelCommunicationListener 的函式。
+
+
 ## <a name="service-fabric-configuration-provider"></a>Service Fabric 設定提供者
 ASP.NET Core 中的應用程式設定是以設定提供者所建立的機碼值組為基礎。 閱讀[ASP.NET Core 中](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/)的設定，以深入瞭解一般 ASP.NET Core 設定支援。
 
 本節說明如何藉由匯入 `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet 封裝，將 Service Fabric 設定提供者與 ASP.NET Core 設定整合。
 
 ### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration 啟動擴充功能
-匯入 `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet 套件之後，您必須向 ASP.NET Core 設定 API 註冊 Service Fabric 設定來源。 若要執行這項操作，請檢查 @no__t 1 命名空間中的**AddServiceFabricConfiguration**延伸模組是否 `IConfigurationBuilder`。
+匯入 `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet 套件之後，您必須向 ASP.NET Core 設定 API 註冊 Service Fabric 設定來源。 若要這麼做，您可以根據 `IConfigurationBuilder`檢查 `Microsoft.ServiceFabric.AspNetCore.Configuration` 命名空間中的**AddServiceFabricConfiguration**延伸模組。
 
 ```csharp
 using Microsoft.ServiceFabric.AspNetCore.Configuration;
@@ -417,7 +420,7 @@ public Startup()
 }
 ```
 #### <a name="custom-key-mapping-value-extraction-and-data-population"></a>自訂索引鍵對應、值提取和資料填入
-Service Fabric 的設定提供者也支援更高階的案例，以自訂具有 @no__t 0 的金鑰組應，並使用 `ExtractValueFunc` 將值自訂為解壓縮。 您甚至可以使用 `ConfigAction`，將從 Service Fabric 設定填入資料的整個程式變更為 ASP.NET Core 設定。
+Service Fabric 的設定提供者也支援更高階的案例，以自訂具有 `ExtractKeyFunc` 的金鑰組應，並自訂以 `ExtractValueFunc`將值解壓縮。 您甚至可以使用 `ConfigAction`，將從 Service Fabric 設定填入資料的整個程式變更為 ASP.NET Core 設定。
 
 下列範例說明如何使用 `ConfigAction` 來自訂資料填入：
 ```csharp
@@ -513,7 +516,7 @@ Kestrel 是適用于前端服務的建議 web 伺服器，會公開外部、網�
 
 |  |  | **注意事項** |
 | --- | --- | --- |
-| Web 伺服器 | Kestrel | @No__t-0 並非設計成可讓複本共用主機進程的具狀態服務使用。 |
+| Web 伺服器 | Kestrel | `HttpSysCommunicationListener` 不是設計成可讓複本共用主機進程的具狀態服務使用。 |
 | 連接埠組態 | 動態指派 | 具狀態服務的多個複本可能會共用主機進程或主機作業系統，因此將需要唯一的埠。 |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 使用動態連接埠指派，此設定可防止稍早所述的誤用識別問題。 |
 

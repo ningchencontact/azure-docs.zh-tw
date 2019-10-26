@@ -1,21 +1,19 @@
 ---
 title: Azure 監視器中的 Azure SQL 分析解決方案 |Microsoft Docs
 description: Azure SQL 分析解決方案可協助您管理 Azure SQL 資料庫
-services: log-analytics
-ms.service: log-analytics
-ms.custom: ''
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f27ea984e2c11be03d69295d206c1b99791a3f72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.reviewer: carlrab
+ms.openlocfilehash: 75e8cffea08c7db4526c647a32ed92be2d1779f1
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693287"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899136"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -34,7 +32,7 @@ Azure SQL 分析是一個進階雲端監視解決方案，可以透過單一窗�
 
 Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL 資料庫 (單一、集區，以及受控執行個體資料庫) 的診斷遙測串流。 因為解決方案不會使用代理程式來連線到 Azure 監視器，所以解決方案不支援監視內部部署或 Vm 中裝載的 SQL Server，請參閱下面的相容性表格。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援的 | 描述 |
 | --- | --- | --- |
 | [診斷設定](../platform/diagnostic-settings.md) | **是** | Azure 計量和記錄資料會直接傳送至 Azure 監視器的記錄。 |
 | [Azure 儲存體帳戶](../platform/collect-azure-metrics-logs.md) | 否 | Azure 監視器不會從儲存體帳戶讀取資料。 |
@@ -101,12 +99,12 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL
 
 下表概述兩個儀表板版本所支援的檢視方塊，一個適用於 Azure SQL 資料庫和彈性集區，另一個適用於受控執行個體。
 
-| 檢視方塊 | 說明 | SQL Database 和彈性集區支援 | 受控執行個體支援 |
+| 檢視方塊 | 描述 | SQL Database 和彈性集區支援 | 受控執行個體支援 |
 | --- | ------- | ----- | ----- |
 | 資源 (依類型) | 可計算所有受監視資源的檢視方塊。 | 是 | 是 |
-| 深入解析 | 可透過階層的方式，向下鑽研至 Intelligent Insights 乃至效能。 | 是 | 是 |
-| 錯誤數 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 | 是 | 是 |
-| Timeouts | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 | 是 | 否 |
+| 深入資訊 | 可透過階層的方式，向下鑽研至 Intelligent Insights 乃至效能。 | 是 | 是 |
+| Errors | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 | 是 | 是 |
+| 逾時 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 | 是 | 否 |
 | 封鎖 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 封鎖。 | 是 | 否 |
 | 資料庫等候 | 可透過階層的方式，向下鑽研至資料庫層級的 SQL 等候統計資料。 包含總等候時間及每種等候類型等候時間的摘要。 |是 | 是 |
 | 查詢持續時間 | 可透過階層的方式，向下鑽研至查詢執行統計資料，例如查詢持續時間、CPU 使用量、資料 IO 使用量、記錄 IO 使用量。 | 是 | 是 |

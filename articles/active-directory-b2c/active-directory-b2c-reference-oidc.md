@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45ecfc896132eace3ca0babde509e82896c9a394
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b3f3727fe3705d686f25faedf1871e5aacb74352
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533102"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893269"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -48,11 +48,11 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | 出租 | 是 | Azure AD B2C 租使用者的名稱 |
-| 策略 | 是 | 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如： `b2c_1_sign_in`、`b2c_1_sign_up` 或 `b2c_1_edit_profile`。 |
+| 策略 | 是 | 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如： `b2c_1_sign_in`、`b2c_1_sign_up`或 `b2c_1_edit_profile`。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | nonce | 是 | 包含在要求中的值（由應用程式所產生），以宣告形式包含在產生的識別碼權杖中。 然後，應用程式可以驗證此值，以減輕權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | response_type | 是 | 必須包含 OpenID Connect 的識別碼權杖。 如果您的 web 應用程式也需要權杖來呼叫 Web API，您可以使用 `code+id_token`。 |
-| scope | 是 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 @No__t_0 範圍對於 web 應用程式而言是選擇性的。 這表示您的應用程式將需要重新整理*權杖*，才能延伸資源的存取權。 |
+| scope | 是 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 `offline_access` 範圍對於 web 應用程式而言是選擇性的。 這表示您的應用程式將需要重新整理*權杖*，才能延伸資源的存取權。 |
 | prompt | 否 | 需要的使用者互動類型。 此時唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 |
 | redirect_uri | 否 | 應用程式的 `redirect_uri` 參數，您的應用程式可以在其中傳送及接收驗證回應。 它必須完全符合您在 Azure 入口網站中註冊的其中一個 `redirect_uri` 參數，不同之處在于它必須以 URL 編碼。 |
 | response_mode | 否 | 用來將產生的授權碼傳回給應用程式的方法。 它可以是 `query`、`form_post` 或 `fragment`。  如需最佳安全性，建議使用 `form_post` 回應模式。 |
@@ -149,11 +149,11 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | 出租 | 是 | Azure AD B2C 租使用者的名稱 |
 | 策略 | 是 | 用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串，而不是 POST 主體。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
-| client_secret | 是 | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 定期變更此用戶端密碼。 |
+| client_secret | 是，在 Web Apps | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 在此流程中，用戶端密碼會用於 Web 應用程式案例，讓用戶端可以安全地儲存用戶端密碼。 針對原生應用程式（公用用戶端）案例，無法安全地儲存用戶端密碼，此流程上未使用 threfore。 如果使用用戶端密碼，請定期進行變更。 |
 | code | 是 | 您在使用者流程開頭取得的授權碼。 |
 | grant_type | 是 | 授與的類型，針對授權碼流程來說，必須是 `authorization_code` 。 |
 | redirect_uri | 是 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
-| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可以用來取得應用程式本身後端 Web API 的權杖，這是由與用戶端相同的應用程式識別碼所表示。 @No__t_0 範圍表示您的應用程式需要重新整理權杖，才能延伸資源的存取權。 |
+| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可以用來取得應用程式本身後端 Web API 的權杖，這是由與用戶端相同的應用程式識別碼所表示。 `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能延伸資源的存取權。 |
 
 成功的權杖回應看起來如下：
 
@@ -175,7 +175,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | access_token | 您所要求已簽署的 JWT 權杖。 |
 | scope | 權杖有效的範圍。 |
 | expires_in | 存取權杖的有效時間長度 (以秒為單位)。 |
-| refresh_token | OAuth 2.0 重新整理權杖。 應用程式可以使用此權杖來取得目前權杖過期後的其他權杖。 重新整理權杖可用於長期保留資源的存取權。 @No__t_0 的範圍必須同時用於授權和權杖要求中，才能接收重新整理權杖。 |
+| refresh_token | OAuth 2.0 重新整理權杖。 應用程式可以使用此權杖來取得目前權杖過期後的其他權杖。 重新整理權杖可用於長期保留資源的存取權。 `offline_access` 的範圍必須同時用於授權和權杖要求中，才能接收重新整理權杖。 |
 
 錯誤回應看起來如下：
 
@@ -218,11 +218,11 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | 出租 | 是 | Azure AD B2C 租使用者的名稱 |
 | 策略 | 是 | 用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串，而不是 POST 主體。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
-| client_secret | 是 | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 定期變更此用戶端密碼。 |
+| client_secret | 是，在 Web Apps | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 在此流程中，用戶端密碼會用於 Web 應用程式案例，讓用戶端可以安全地儲存用戶端密碼。 針對原生應用程式（公用用戶端）案例，無法安全地儲存用戶端密碼，threfore 不會用於此呼叫。 如果使用用戶端密碼，請定期進行變更。 |
 | grant_type | 是 | 授與的類型，必須是授權碼流程中這個部分的重新整理權杖。 |
 | refresh_token | 是 | 在流程的第二個部分中取得的原始重新整理權杖。 必須同時在授權和權杖要求中使用 `offline_access` 範圍，才能接收重新整理權杖。 |
 | redirect_uri | 否 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
-| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API，這是由與用戶端相同的應用程式識別碼來表示。 @No__t_0 範圍表示您的應用程式需要重新整理權杖，才能延伸資源的存取權。 |
+| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API，這是由與用戶端相同的應用程式識別碼來表示。 `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能延伸資源的存取權。 |
 
 成功的權杖回應看起來如下：
 
@@ -274,7 +274,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | 出租 | 是 | Azure AD B2C 租使用者的名稱 |
 | 策略 | 是 | 您想要用來將使用者登出應用程式的使用者流程。 |
-| id_token_hint| 否 | 先前發行的識別碼權杖，用來傳遞至登出端點，做為與用戶端目前已驗證的會話相關的提示。 @No__t_0 可確保 `post_logout_redirect_uri` 在您的 Azure AD B2C 應用程式設定中是已註冊的回復 URL。 |
+| id_token_hint| 否 | 先前發行的識別碼權杖，用來傳遞至登出端點，做為與用戶端目前已驗證的會話相關的提示。 `id_token_hint` 可確保 `post_logout_redirect_uri` 在您的 Azure AD B2C 應用程式設定中是已註冊的回復 URL。 |
 | post_logout_redirect_uri | 否 | 使用者在成功登出後應重新導向至的 URL。如果未包含，Azure AD B2C 會向使用者顯示一般訊息。 除非您提供 `id_token_hint`，否則不應在您的 Azure AD B2C 應用程式設定中，將此 URL 註冊為 [回復 URL]。 |
 | state | 否 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值是否相同。 |
 

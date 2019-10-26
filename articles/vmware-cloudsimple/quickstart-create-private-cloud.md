@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285779"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901463"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私人雲端環境
 
@@ -25,7 +25,7 @@ ms.locfileid: "72285779"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-a-private-cloud"></a>建立私人雲端
 
@@ -42,12 +42,12 @@ ms.locfileid: "72285779"
 
 5. 在 CloudSimple 入口網站中，提供私人雲端的 [名稱]。
 6. 選取私人雲端的 [**位置**]。
-7. 選取 [**節點類型**]，與您在 Azure 上購買的內容一致。
+7. 選取 [**節點類型**]，與您在 Azure 上布建的內容一致。
 8. 指定**節點計數**。  至少需要三個節點，才能建立私人雲端。
 
     ![建立私用雲端-基本資訊](media/create-private-cloud-basic-info.png)
 
-9. 按一下 **下一步Advanced options @ no__t-0。
+9. 按 **[下一步： Advanced Options]** 。
 10. 輸入 vSphere/vSAN 子網的 CIDR 範圍。 請確定 CIDR 範圍不會與您的任何內部部署或其他 Azure 子網（虛擬網路）或閘道子網重迭。
 
     **CIDR 範圍選項：** /24、/23、/22 或/21。 A/24 CIDR 範圍最多支援26個節點，/23 CIDR 範圍最多支援58個節點，而/22 和/21 CIDR 範圍支援64個節點（私人雲端中的節點數目上限）。  若要深入瞭解 Vlan 和子網，請參閱[vlan 和子網總覽](cloudsimple-vlans-subnets.md)。
@@ -55,7 +55,7 @@ ms.locfileid: "72285779"
       > [!IMPORTANT]
       > VSphere/vSAN CIDR 範圍中的 IP 位址會保留供私人雲端基礎結構使用。  請勿在任何虛擬機器上使用此範圍內的 IP 位址。
 
-11. 按一下 **下一步請參閱並建立 @ no__t-0。
+11. 按 **[下一步]： [審查並建立]** 。
 12. 檢查設定。 如果您需要變更任何設定，請按一下 [**上一步**]。
 13. 按一下 [建立]。
 
@@ -159,7 +159,7 @@ CloudSimple 為您的私用雲端提供 ExpressRoute 線路。 您可以將 Azur
 
 2. 選取您慣用的 vSphere 用戶端來存取 vCenter，並使用您的使用者名稱和密碼登入。  預設值為：
     * 使用者名稱： **CloudOwner@cloudsimple.local**
-    * 密碼：**CloudSimple123!**  
+    * 密碼： **CloudSimple123！**  
 
 下一個程式中的 vCenter 畫面是來自 vSphere （HTML5）用戶端。
 
@@ -170,13 +170,13 @@ CloudSimple 建議您在第一次登入 vCenter 時變更密碼。
 
 * 最長存留期：密碼必須每365天變更一次
 * 限制重複使用：使用者無法重複使用前五個密碼
-* 長度：8-20 個字元
+* 長度： 8-20 個字元
 * 特殊字元：至少一個特殊字元
-* 字母字元：至少一個大寫字元、a-z 和至少一個小寫字元，a-z
-* 有理數至少一個數位字元，0-9
-* 最多相同的相鄰字元：三
+* 字母字元：至少一個大寫字元、a-z 和至少一個小寫字元 a-z
+* 數位：至少一個數位字元，0-9
+* 最大相同相鄰字元數：三
 
-    範例：可以接受 CC 或副本作為密碼的一部分，但 CCCC 並不是。
+    範例： CC 或副本可接受作為密碼的一部分，但 CCCC 則不會。
 
 如果您設定的密碼不符合需求：
 
@@ -188,7 +188,7 @@ CloudSimple 建議您在第一次登入 vCenter 時變更密碼。
 使用預設密碼部署了「NSX 管理員」。 
 
 * 使用者名稱： **admin**
-* 密碼：**CloudSimple123!**
+* 密碼： **CloudSimple123！**
 
 您可以在 CloudSimple 入口網站上找到 NSX manager 的完整功能變數名稱（FQDN）和 IP 位址。
 

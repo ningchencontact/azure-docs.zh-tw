@@ -1,29 +1,23 @@
 ---
 title: 在 Azure 監視器記錄查詢中使用字串 |Microsoft Docs
-description: 本文提供使用 Azure 入口網站中的 Azure 監視 Log Analytics 查詢和分析 Azure 監視器中的記錄資料的教學課程。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: 本文提供的教學課程可讓您使用 Azure 入口網站中的 Azure 監視器 Log Analytics 來查詢和分析 Azure 監視器中的記錄資料。
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519619"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894315"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中處理 JSON 與資料結構
 
 > [!NOTE]
-> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)並[開始使用 Azure 監視器記錄檔查詢](get-started-queries.md)之前完成這一課。
+> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)和[開始使用 Azure 監視器記錄查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

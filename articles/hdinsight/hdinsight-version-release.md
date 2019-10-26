@@ -1,18 +1,18 @@
 ---
 title: HDInsight 4.0 概觀 - Azure
 description: 比較 HDInsight 3.6 與 HDInsight 4.0 功能、限制及升級建議。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 10/22/2019
+ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879321"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901517"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 概觀
 
@@ -40,7 +40,7 @@ Hive 現在支援動態具體化檢視，或者預先計算的相關摘要，可
 
 HDI 4.0 包括 Apache Hive 3，其需要針對位於 Hive 資料倉儲的交易式資料表具備不可部分完成性、一致性、隔離和持久性 (ACID) 的合規性。 符合 ACID 規範的資料表和資料表資料均會透過 Hive 進行存取與管理。 建立、擷取、更新和刪除 (CRUD) 資料表中的資料必須具備已最佳化的資料列資料行 (ORC) 檔案格式，但只能插入的資料表支援所有檔案格式。
 
-* ACID v2 已對儲存體格式和執行引擎進行效能改進。 
+* ACID v2 已對儲存體格式和執行引擎進行效能改進。
 
 * 預設會啟用 ACID 以完整支援資料更新。
 
@@ -71,7 +71,6 @@ HDInsight 4.0 上的 Apache Spark 支援下列案例：
 
 深入了解 [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html) \(英文\)。
 
-
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1 隨附於 HDI 4.0，並包含下列變更：
@@ -86,14 +85,14 @@ Apache Oozie 4.3.1 隨附於 HDI 4.0，並包含下列變更：
 
 就像使用任何主要版本，在生產環境中實作最新版本之前，請務必徹底測試您的元件。 HDInsight 4.0 可供您用來開始升級程序，但 HDInsight 3.6 是可用來防止意外事故的預設選項。
 
-不支援從舊版 HDInsight 升級到 HDInsight 4.0 的路徑。 由於中繼存放區和 Blob 資料格式已變更，因此 HDInsight 4.0 與舊版不相容。 務必使新的 HDInsight 4.0 環境與您目前的生產環境保持分隔狀態。 如果您將 HDInsight 4.0 部署到目前的環境中，則您的中繼存放區將會升級且無法還原。  
+沒有從舊版 HDInsight 到 HDInsight 4.0 的支援升級路徑。 由於中繼存放區和 blob 資料格式已變更，因此 HDInsight 4.0 與先前的版本不相容。 請務必讓新的 HDInsight 4.0 環境與您目前的生產環境分開。 如果您將 HDInsight 4.0 部署到目前的環境，您的中繼存放區將會升級且無法還原。  
 
 ## <a name="limitations"></a>限制
 
-* HDInsight 4.0 不支援適用於 Apache Hive 的 MapReduce。 請改用 Apache Tez。 深入了解 [Apache Tez](https://tez.apache.org/) \(英文\)。
-* HDInsight 4.0 不支援 Apache Storm。 
-* HDInsight 4.0 中已不再提供 Hive 檢視。 
-* Apache Zeppelin 中的殼層解譯器在 Spark 和互動式查詢叢集中不受支援。
+* HDInsight 4.0 不支援 Apache Hive 的 MapReduce。 請改用 Apache Tez。 深入了解 [Apache Tez](https://tez.apache.org/) \(英文\)。
+* HDInsight 4.0 不支援 Apache Storm。
+* HDInsight 4.0 中已不再提供 Hive 檢視。
+* Spark 和互動式查詢叢集不支援 Apache Zeppelin 中的 Shell 解譯器。
 * 您不能「停用」Spark-LLAP 叢集上的 LLAP。 您只能關閉 LLAP。
 * Azure Data Lake Storage Gen2 無法在 Spark 叢集中儲存 Juypter Notebook。
 

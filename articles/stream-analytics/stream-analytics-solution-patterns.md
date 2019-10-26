@@ -1,18 +1,18 @@
 ---
 title: Azure 串流分析解決方案模式
-description: 瞭解 Azure 串流分析的不同常見解決方案模式。
+description: 瞭解 Azure 串流分析的常見解決方案模式，例如儀表板管理、事件訊息、資料存放區、參考資料擴充和監視。
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cbc9ffe9510cf0888e8d8b62ea112b6517117eed
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d936a538a54edce9e3f13ea7865d57b8243c4a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173046"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901682"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure 串流分析解決方案模式
 

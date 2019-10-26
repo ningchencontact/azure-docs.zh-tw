@@ -1,23 +1,19 @@
 ---
 title: 使用 Azure Application Insights 撰寫程式碼來追蹤要求 | Microsoft Docs
 description: 使用 Application Insights 撰寫程式碼來追蹤要求，以取得要求的設定檔。
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 4782e560b580b7f565724dbb35ed9876bffdc256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 3f449c98ed44f13fb6b3849ef2457cd8fbd916de
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730849"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900020"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>使用 Application Insights 撰寫程式碼來追蹤要求
 
@@ -51,7 +47,7 @@ ms.locfileid: "60730849"
         }
         ```
 
-        不支援在另一個 `StartOperation<RequestTelemetry>` 範圍內呼叫 `StartOperation<RequestTelemetry>`。 您可以改為在巢狀範圍中使用 `StartOperation<DependencyTelemetry>`。 例如:  
+        不支援在另一個 `StartOperation<RequestTelemetry>` 範圍內呼叫 `StartOperation<RequestTelemetry>`。 您可以改為在巢狀範圍中使用 `StartOperation<DependencyTelemetry>`。 例如：  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

@@ -1,24 +1,18 @@
 ---
 title: 開始使用 Azure 監視器中的記錄查詢 | Microsoft Docs
 description: 本文提供教學課程來說明如何在 Azure 監視器中開始撰寫記錄查詢。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/09/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 05/09/2019
+ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076749"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894293"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>開始使用 Azure 監視器中的記錄查詢
 
@@ -112,7 +106,7 @@ SecurityEvent
 
 在撰寫篩選條件時，您可以使用下列運算式：
 
-| 運算式 | 描述 | 範例 |
+| 運算是 | 描述 | 範例 |
 |:---|:---|:---|
 | == | 檢查是否相等<br>(區分大小寫) | `Level == 8` |
 | =~ | 檢查是否相等<br>(不區分大小寫) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

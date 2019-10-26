@@ -11,18 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248320"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893425"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 
 若要管理 Azure Active Directory Domain Services （Azure AD DS）中的使用者安全性，您可以定義更細緻的密碼原則，以控制帳戶鎖定設定或最小密碼長度和複雜度。 系統會建立預設的更細緻密碼原則，並將其套用至 Azure AD DS 受控網域中的所有使用者。 若要提供更細微的控制，並符合特定的商務或合規性需求，可以建立額外的原則，並將其套用至特定的使用者群組。
 
 本文說明如何使用 Active Directory 管理中心在 Azure AD DS 中建立及設定更細緻的密碼原則。
+
+> [!NOTE]
+> 密碼原則僅適用于使用 Resource Manager 部署模型建立的 Azure AD DS 受控網域。 針對使用傳統建立的較舊受控網域，請[從傳統虛擬網路模型遷移至 Resource Manager][migrate-from-classic]。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -34,6 +37,7 @@ ms.locfileid: "72248320"
   * 如果需要，請[建立 Azure Active Directory 租用戶][create-azure-ad-tenant]或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
 * 已在您的 Azure AD 租用戶中啟用並設定 Azure Active Directory Domain Services 受控網域。
   * 如有需要，請完成教學課程，以[建立及設定 Azure Active Directory Domain Services 實例][create-azure-ad-ds-instance]。
+  * Azure AD DS 實例必須已使用 Resource Manager 部署模型建立。 如有需要，請[從傳統虛擬網路模型遷移至 Resource Manager][migrate-from-classic]。
 * 已加入 Azure AD DS 受控網域的 Windows Server 管理 VM。
   * 如有需要，請完成教學課程以[建立管理 VM][tutorial-create-management-vm]。
 * 屬於您 Azure AD 租用戶中 Azure AD DC 系統管理員群組成員的使用者帳戶。
@@ -65,7 +69,7 @@ ms.locfileid: "72248320"
 
 針對在 Azure AD DS 受控網域中手動建立的使用者帳戶，也會從預設原則套用下列額外的密碼設定。 這些設定不適用於從 Azure AD 同步處理的使用者帳戶，因為使用者無法直接在 Azure AD DS 中更新其密碼。
 
-* **最小密碼長度（字元數）：** 7
+* **密碼長度下限（字元數）：** 7
 * **密碼必須符合複雜性需求**
 
 您無法修改預設密碼原則中的帳戶鎖定或密碼設定。 相反地， *AAD DC 系統管理員*群組的成員可以建立自訂密碼原則，並將它設定為覆寫（優先于）預設的內建原則，如下一節所示。
@@ -130,3 +134,4 @@ ms.locfileid: "72248320"
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

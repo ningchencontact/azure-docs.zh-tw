@@ -8,48 +8,48 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845536"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899024"
 ---
 # <a name="cloudsimple-nodes-overview"></a>CloudSimple 節點總覽
 
 節點是私用雲端的基礎構件。 節點為：
 
 * 已安裝 VMware ESXi 程式管理程式的專用裸機計算主機  
-* 您可以購買或保留來建立私人雲端的計算單位
-* 可在 CloudSimple 服務上市的區域中購買或保留
+* 您可以布建或保留以建立私人雲端的計算單位
+* 可在 CloudSimple 服務可供使用的區域中布建或保留
 
-您可以從已購買的節點建立私人雲端。 若要建立私人雲端，您至少需要相同 SKU 的三個節點。 若要擴充私人雲端，請新增其他節點。  您可以將節點新增至現有的叢集，或在 Azure 入口網站中購買節點，並將其與 CloudSimple 服務建立關聯，以建立新的叢集。  所有已購買的節點都會顯示在 CloudSimple 服務底下。  
+您可以從已布建的節點建立私人雲端。 若要建立私人雲端，您至少需要相同 SKU 的三個節點。 若要擴充私人雲端，請新增其他節點。  您可以將節點新增至現有的叢集，或藉由在 Azure 入口網站中布建節點來建立新的叢集，並將它們與 CloudSimple 服務產生關聯。  所有已布建的節點都會顯示在 CloudSimple 服務底下。  
 
-## <a name="purchased-nodes"></a>購買的節點
+## <a name="provisioned-nodes"></a>已布建的節點
 
-購買的節點提供隨用隨付容量。 購買節點可協助您視需要快速調整 VMware 叢集。 您可以視需要新增節點，或刪除已購買的節點，以相應減少您的 VMware 叢集。 購買的節點會按月計費，並向購買的訂用帳戶收取費用。
+布建的節點提供隨用隨付容量。 布建節點可協助您視需要快速調整 VMware 叢集。 您可以視需要新增節點，或刪除已布建的節點，以相應減少您的 VMware 叢集。 已布建的節點會每月計費，並向其布建所在的訂用帳戶收費。
 
 * 如果您使用信用卡支付您的 Azure 訂用帳戶費用，則卡片會立即計費。
 * 如果您是按發票計費，則費用會顯示在下一個發票上。
 
 ## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>依 CloudSimple 節點 SKU 的 VMware 解決方案
 
-以下是可供購買或保留的節點類型。
+以下是可供布建或保留的節點類型。
 
 | SKU           | CS28-Node                 | CS36-Node                 | CS36m-Node                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| 區域        | 美國東部、美國西部            | 美國東部、美國西部            | 西歐                 |
+| 地區        | 美國東部、美國西部            | 美國東部、美國西部            | 西歐                 |
 | CPU           | 2x 2.2 GHz，28核心（56 HT） | 2x 2.3 GHz，36核心（72 HT） | 2x 2.3 GHz，36核心（72 HT） |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | 快取磁碟    | 1.6-TB NVMe                 | 3.2-TB NVMe                 | 3.2-TB NVMe                 |
 | 容量磁片 | 5.625 TB 原始                | 11.25 TB 原始                | 15.36 TB 原始                |
 | 儲存體類型  | All Flash                   | All Flash                   | All Flash                   |
 
-## <a name="limits"></a>限制
+## <a name="limits"></a>Limits
 
 下列節點限制適用于私人雲端。
 
-| Resource | 限制 |
+| 資源 | 限制 |
 |----------|-------|
 | 建立私人雲端的節點數目下限 | 3 |
 | 私人雲端上叢集中的節點數目上限 | 16 |
@@ -58,5 +58,5 @@ ms.locfileid: "71845536"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 瞭解如何[購買節點](create-nodes.md)
+* 瞭解如何布建[節點](create-nodes.md)
 * 瞭解[私人](cloudsimple-private-cloud.md)雲端

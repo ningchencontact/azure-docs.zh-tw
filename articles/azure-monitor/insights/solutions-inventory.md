@@ -1,44 +1,38 @@
 ---
-title: 監視解決方案在 Azure 中的清查 |Microsoft Docs
-description: Azure 監視器中的監視解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。  本文提供監視解決方案，可從 Microsoft 和其方法和資料收集頻率的相關詳細資料的清單。
-services: log-analytics
-documentationcenter: ''
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Azure 中監視解決方案的清查 |Microsoft Docs
+description: Azure 監視器中的監視解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。  本文提供 Microsoft 提供的監視解決方案清單，以及其資料收集方法和頻率的詳細資訊。
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 06/26/2018
+author: MGoedtel
 ms.author: bwren
-ms.openlocfilehash: 9398815ea75c0eacd99a6e40c569254fac671cbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.date: 06/26/2018
+ms.openlocfilehash: 1f93ada1a6fb6b87c79a3713e80ebfefae9fe56f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234023"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900645"
 ---
-# <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>監視 Azure 中的解決方案的清查和資料收集詳細資料
-[監視解決方案](solutions.md)運用在 Azure 中提供額外的深入解析成特定的應用程式或服務作業的服務。 監視解決方案通常會收集記錄資料，並提供查詢和檢視來分析所收集的資料。 您可以針對您使用的任何應用程式和服務，將監視解決方案新增至 Azure 監視器。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。
+# <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>在 Azure 中監視解決方案的清查和資料收集詳細資料
+[監視解決方案](solutions.md)會利用 Azure 中的服務，針對特定應用程式或服務的作業提供額外的深入解析。 監視解決方案通常會收集記錄資料，並提供查詢和檢視來分析所收集的資料。 您可以針對您使用的任何應用程式和服務，將監視解決方案新增至 Azure 監視器。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。
 
-本文包含一份[montioring 解決方案](solutions.md)可從 Microsoft 取得連結至其詳細文件。  此外，還提供資料收集到 Azure 監視器中的方法和頻率相關資訊。  您可以在本文中使用的資訊，來識別不同的可用解決方案，以及了解不同的監視解決方案的資料流量和連線需求。
+本文包含 Microsoft 所提供的[montioring 解決方案](solutions.md)清單，其中包含其詳細檔的連結。  此外，還提供資料收集到 Azure 監視器中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及瞭解不同監視解決方案的資料流程和連接需求。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="list-of-monitoring-solutions"></a>監視解決方案的清單
+## <a name="list-of-monitoring-solutions"></a>監視解決方案清單
 
-下表列出[監視解決方案](solutions.md)Microsoft 所提供的 Azure 中。 欄中的項目表示解決方案會使用該方法將資料收集到 Azure 監視器中。  如果解決方案未選取任何欄，則它會從另一個 Azure 服務直接寫入至 Azure 監視器。 請遵循各自的連結來連到其詳細的文件，以取得詳細資訊。
+下表列出 Microsoft 提供的 Azure[監視解決方案](solutions.md)。 欄中的項目表示解決方案會使用該方法將資料收集到 Azure 監視器中。  如果解決方案未選取任何欄，則它會從另一個 Azure 服務直接寫入至 Azure 監視器。 請遵循各自的連結來連到其詳細的文件，以取得詳細資訊。
 
 各欄的說明如下所示：
 
-- **Microsoft 監視代理程式**-代理程式在 Windows 和 Linux 上用於從 SCOM 執行管理組件，並監視來自 Azure 的解決方案。 在此組態中，代理程式會直接連線到 Azure 監視器，而不需連線至 Operations Manager 管理群組。 
+- **Microsoft monitoring agent** -Windows 和 Linux 上用來從 SCOM 執行管理套件，以及從 Azure 監視解決方案的代理程式。 在此組態中，代理程式會直接連線到 Azure 監視器，而不需連線至 Operations Manager 管理群組。 
 - **Operations Manager** - 與 Microsoft Monitoring Agent 相同的代理程式。 在此組態中，它會[連線到 Operations Manager 管理群組](../platform/om-agents.md)，而該管理群組已連線到 Azure 監視器。 
 -  **Azure 儲存體** - 解決方案會從 Azure 儲存體帳戶收集資料。 
-- **是否需要 Operations Manager？** -監視解決方案所需要的資料收集已連線的 Operations Manager 管理群組。 
+- **是否需要 Operations Manager？** -監視解決方案需要有連線的 Operations Manager 管理群組，才能進行資料收集。 
 - **透過管理群組傳送的 Operations Manager 代理程式資料** - 如果代理程式[已連線到 SCOM 管理群組](../platform/om-agents.md)，則會從管理伺服器將資料傳送到 Azure 監視器。 在此情況下，代理程式不需要直接連線到 Azure 監視器。 如果未選取此方塊，即使代理程式已連線到 SCOM 管理群組，也會從代理程式直接將資料傳送到 Azure 監視器。 它必須能夠透過 [Azure 監視器閘道](../platform/gateway.md)與 Log Analytics 通訊。
-- **收集頻率**-指定的頻率監視解決方案所收集資料。 
+- **收集頻率**-指定監視解決方案收集資料的頻率。 
 
 
 
@@ -60,8 +54,8 @@ ms.locfileid: "66234023"
 | [Azure SQL Analytics (預覽)](azure-sql.md) | Windows | | | | | | 1 分鐘 |
 | [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
 | [容量與效能 (預覽)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
-| [變更追蹤](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [變更追蹤](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [變更追蹤](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[差異](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [變更追蹤](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[差異](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [容器](containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
 | [金鑰保存庫分析](azure-key-vault.md) |Windows | | | | | |與通知同時 |
 | [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
@@ -82,5 +76,5 @@ ms.locfileid: "66234023"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 了解如何[安裝和使用監視解決方案](solutions.md)。
+* 瞭解如何[安裝和使用監視解決方案](solutions.md)。
 * 了解如何[建立查詢](../log-query/log-query-overview.md)，以分析監視解決方案所收集的資料。

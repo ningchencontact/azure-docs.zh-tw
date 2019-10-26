@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI - sfctl mesh secretvalue | Microsoft Docs
 description: 介紹 Service Fabric CLI 的 sfctl mesh secretvalue 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 96ce4efe00d89c136a0c11d445170b2f67be6fcd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035926"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901183"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 取得和刪除網狀結構 mesh secretvalue 資源。
@@ -27,9 +28,9 @@ ms.locfileid: "69035926"
 
 |命令|描述|
 | --- | --- |
-| 刪除 | 刪除選定祕密資源的指定值。 |
-| 清單 | 列出指定祕密資源所有值的名稱。 |
-| 顯示 | 擷取祕密資源指定版本的值。 |
+| delete | 刪除選定祕密資源的指定值。 |
+| list | 列出指定祕密資源所有值的名稱。 |
+| 顯示 | 列出秘密資源的指定值。 |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
 刪除選定祕密資源的指定值。
@@ -75,7 +76,7 @@ ms.locfileid: "69035926"
 | --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
-擷取祕密資源指定版本的值。
+列出秘密資源的指定值。
 
 ### <a name="arguments"></a>引數
 

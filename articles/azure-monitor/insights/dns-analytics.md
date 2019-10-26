@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器中的 DNS 分析解決方案 | Microsoft Docs
 description: 在 Azure 監視器中設定並使用 DNS 分析解決方案，以收集關於 DNS 基礎結構在安全性、效能及作業方面的深入解析。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/20/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ad61743751ace9ca0c7eba12ffcea5f15e1157d5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.date: 03/20/2018
+ms.openlocfilehash: a4123ed4633cbb8195639766e7b23e3ea9f14e71
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316189"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899098"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -40,7 +34,7 @@ DNS 分析可協助您︰
 
 下表描述此方案支援的連線來源：
 
-| **連線的來源** | **支援** | **描述** |
+| **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
 | [Windows 代理程式](../platform/agent-windows.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
 | [Linux 代理程式](../learn/quick-collect-linux-computer.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
@@ -60,11 +54,11 @@ DNS 分析可協助您︰
 
 不需要進一步設定，此解決方案就會開始收集資料。 不過，您可以使用下列組態來自訂資料收集。
 
-### <a name="configure-the-solution"></a>設定解決方案
+### <a name="configure-the-solution"></a>設定方案
 
 在解決方案儀表板中，按一下 [組態] 以開啟 [DNS 分析組態] 頁面。 您可以進行兩種類型的組態變更︰
 
-- **列入允許清單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的允許清單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Azure 監視器的資料。 預設允許清單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com 。 您可以捲動來檢視完整的預設清單。
+- **列入允許清單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的允許清單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Azure 監視器的資料。 預設允許清單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。 您可以捲動來檢視完整的預設清單。
 
   您可以修改清單，將您想要檢視查閱深入解析的任何網域名稱尾碼加以新增。 您也可以將您不想要檢視查閱深入解析的任何網域名稱尾碼加以移除。
 
@@ -83,7 +77,7 @@ DNS 分析可協助您︰
 - Microsoft DNS 資料收集器智慧套件 (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 分析組態 (Microsoft.IntelligencePack.Dns.Configuration)
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連接到 Log Analytics](../platform/om-agents.md)。
 
 ## <a name="use-the-dns-analytics-solution"></a>使用 DNS 分析解決方案
 
@@ -172,7 +166,7 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 
     a. 若要檢視查閱查詢的記錄資料，請從左側 facet 控制項選取 **LookUpQuery** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之查閱查詢事件的資料表。
 
-    b. 若要檢視動態註冊的記錄資料，請從左側 facet 控制項選取 **DynamicRegistration** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之動態註冊事件的資料表。
+    b.這是另一個 C# 主控台應用程式。 若要檢視動態註冊的記錄資料，請從左側 facet 控制項選取 **DynamicRegistration** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之動態註冊事件的資料表。
 
     c. 若要檢視設定變更的記錄資料，請從左側 facet 控制項選取 **ConfigurationChange** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之設定變更事件的資料表。
 
@@ -186,7 +180,7 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 
 1. 遺失 DNS 查閱資料-若要對此問題進行疑難排解，請嘗試重設設定，或只在入口網站中載入設定頁面一次。 若要重設，只要將設定變更為另一個值，然後將它變更回原始值，然後儲存 config 即可。
 
-## <a name="feedback"></a>意見
+## <a name="feedback"></a>意見反應
 
 若要提供意見反應，請造訪[Log Analytics UserVoice 頁面](https://aka.ms/dnsanalyticsuservoice)來張貼 DNS 分析功能的想法，以進行處理。 
 

@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI- sfctl mesh deployment | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl mesh deployment 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: b3f506b46ef563f47fc7c67b759d3fcd08b7509d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: dbecf8e96c6cb5d0d6d873309d848304fe33eaaa
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035181"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901260"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 建立 Service Fabric Mesh 資源。
@@ -27,7 +28,7 @@ ms.locfileid: "69035181"
 
 |命令|描述|
 | --- | --- |
-| 建立 | 建立 Service Fabric Mesh 資源的部署。 |
+| create | 建立 Service Fabric Mesh 資源的部署。 |
 
 ## <a name="sfctl-mesh-deployment-create"></a>sfctl mesh deployment create
 建立 Service Fabric Mesh 資源的部署。
@@ -36,8 +37,8 @@ ms.locfileid: "69035181"
 
 |引數|描述|
 | --- | --- |
-| --input-yaml-files [必要] | 以逗號分隔的所有 yaml 檔案相對/絕對檔案路徑，或包含 yaml 檔案的目錄 (遞迴) 的相對/絕對路徑。 |
-| --parameters | 包含需覆寫參數的 yaml 檔案或 json 物件的相對/絕對路徑。 |
+| --input-yaml-files [必要] | 以逗號分隔的所有 yaml 檔案的相對/絕對檔案路徑，或包含 yaml 檔案之目錄的相對/絕對路徑（遞迴）。 |
+| --parameters | Yaml 檔案或 json 物件的相對/絕對路徑，其中包含需要覆寫的參數。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -52,25 +53,22 @@ ms.locfileid: "69035181"
 ### <a name="examples"></a>範例
 
 可透過覆寫 yaml 檔案中提到的參數，將所有資源合併並部署到叢集
-
-```
-sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters
-./param.yaml
+``` 
+sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters  
+./param.yaml    
 ```
 
 可透過覆寫 yaml 檔案中提到的參數，將目錄中的所有資源合併並部署到叢集
 
-```
+``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-可透過覆寫直接以 json 物件方式傳送的參數，將目錄中的所有資源合併並部署到叢集
-
+藉由覆寫直接傳遞為 json 物件的參數，將目錄中的所有資源合併並部署到叢集
+``` 
+sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
+{'value' : 'my_value'} }"   
 ```
-sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :
-{'value' : 'my_value'} }"
-```
-
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828603"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896944"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 
@@ -40,7 +40,7 @@ ms.locfileid: "71828603"
 
 下列各節說明如何為新的 SQL Server 虛擬機器設定儲存體。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 使用 SQL Server 資源庫映射布建 Azure VM 時，請選取 [ **SQL Server 設定**] 索引標籤上的 [**變更**設定]，以開啟 [效能優化存放裝置設定] 頁面。 您可以保留預設值，或根據您的工作負載，修改最符合您需求的磁片設定類型。 
 
@@ -124,21 +124,18 @@ ms.locfileid: "71828603"
 
 Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 
-| 設定 | 值 |
+| 設定 | Value |
 | --- | --- |
 | 等量大小 |256 KB (資料倉儲)；64 KB (交易式) |
 | 磁碟大小 |每個磁碟 1 TB |
-| 快取 |閱讀 |
+| 快取 |讀取 |
 | 配置大小 |64 KB NTFS 配置單位大小 |
-| 立即檔案初始化 |Enabled |
-| 在記憶體中鎖定頁面 |Enabled |
-| 復原 |簡單復原 (無恢復功能) |
-| 資料行數目 |資料磁碟數量<sup>1</sup> |
-| TempDB 位置 |儲存在資料磁碟上<sup>2</sup> |
+| 復原 | 簡單復原 (無恢復功能) |
+| 資料行數目 |最多 8<sup>1</sup>的資料磁片數目 |
+
 
 <sup>1</sup> 建立存放集區之後，您就無法改變存放集區中的資料行數目。
 
-<sup>2</sup> 這項設定只適用於您使用儲存體組態功能所建立的第一個磁碟機。
 
 ## <a name="workload-optimization-settings"></a>工作負載最佳化設定
 

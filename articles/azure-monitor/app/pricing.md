@@ -1,24 +1,19 @@
 ---
 title: 管理 Azure Application Insights 的使用量和成本 | Microsoft Docs
 description: 在 Application Insights 中管理遙測量和監視成本。
-services: application-insights
-documentationcenter: ''
-author: DaleKoetke
-manager: carmonm
-ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 10/03/2019
+author: DaleKoetke
 ms.author: dalek
-ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.date: 10/03/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 5d8c0420f680371ab63a2ddd09071769586a42ca
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750389"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900032"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -77,13 +72,15 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
 
 您可以[從 Azure 入口網站下載您的使用量](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)，以進一步瞭解您的使用方式。 在下載的試算表中，您可以看到每天每個 Azure 資源的使用量。 在此 Excel 試算表中，您可以藉由先篩選「計量類別」資料行來顯示「Application Insights」和「Log Analytics」，然後在「包含」的「實例識別碼」資料行上新增篩選，來找到您 Application Insights 資源的使用量。[microsoft insights/元件]。  大部分的 Application Insights 使用量都會以 Log Analytics 計量類別的計量報告，因為所有 Azure 監視器元件都有單一記錄後端。  只有舊版定價層和多重步驟 web 測試的 Application Insights 資源，會以 Application Insights 的計量類別來報告。  使用量會顯示在 [取用的數量] 資料行中，每個專案的單位會顯示在 [測量單位] 資料行中。  有更多詳細資料可協助您[瞭解您的 Microsoft Azure 帳單](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。 
 
-## <a name="managing-your-data-volume"></a>管理您的資料量 
+## <a name="understanding-ingested-data-volume"></a>瞭解內嵌資料量
 
-若要瞭解您的應用程式所傳送的資料量，您可以：
+若要瞭解內嵌到 Application Insights 的資料量，您可以：
 
-* 開啟 [使用量和估計成本] 窗格以查看每日資料量圖表。 
-* 在 [計量瀏覽器] 中，新增圖表。 針對圖表計量，選取 [資料點量]。 開啟 [群組]，然後依 [資料類型] 分組。
-* 使用 [`systemEvents`] 資料類型。 比方說，若要查看過去一天的資料量內嵌，查詢會是：
+1. 移至 [**使用量和估計成本**] 窗格，以查看上述的每日資料量圖表。
+2. 在 [計量瀏覽器] 中，新增圖表。 針對圖表計量，選取 [資料點量]。 開啟 [群組]，然後依 [資料類型] 分組。
+3. 使用 `systemEvents` 的資料表，如下所示。 
+
+例如，您可以使用 `systemEvents` 資料表來查看過去24小時內查詢的資料磁片區內嵌：
 
 ```kusto
 systemEvents 
@@ -94,7 +91,20 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
+或者，若要依資料類型查看過去30天的資料量圖表，您可以使用：
+
+```kusto
+systemEvents 
+| where timestamp >= ago(30d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
 此查詢可用於[Azure 記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)，以設定資料磁片區的警示。 
+
+## <a name="managing-your-data-volume"></a>管理您的資料量 
 
 您可以使用下列技術來管理您傳送的資料量：
 
@@ -172,8 +182,6 @@ Application Insights 資源的預設保留期為90天。 您可為每項 Applica
 
 您也可以使用[Powershell 以程式設計](powershell.md#set-the-data-retention)方式使用 `retentionInDays` 參數來設定保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 這種清除功能只會透過 Azure Resource Manager 公開，而且應該小心使用。 
 
-在2019年12月開始針對較長的保留期計費時，保留超過90天的資料會以目前針對 Azure Log Analytics 資料保留期計費的費率來計費。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
-
 ## <a name="data-transfer-charges-using-application-insights"></a>使用 Application Insights 的資料傳輸費用
 
 將資料傳送至 Application Insights 可能會產生資料頻寬費用。 如[Azure 頻寬定價頁面](https://azure.microsoft.com/pricing/details/bandwidth/)中所述，位於兩個區域的 Azure 服務之間的資料傳輸會依正常費率向輸出資料傳輸收費。 輸入資料傳輸是免費的。 不過，這種費用非常小（幾%）相較于 Application Insights 記錄資料內嵌的成本。 因此，控制 Log Analytics 的成本需要專注于[您的內嵌](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume)資料磁片區，而我們也有指導方針可協助您瞭解這點。   
@@ -250,4 +258,5 @@ Application Insights 資源的預設保留期為90天。 您可為每項 Applica
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

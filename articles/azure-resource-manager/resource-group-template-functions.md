@@ -4,17 +4,18 @@ description: 描述要在 Azure 資源管理員範本中用來擷取值、搭配
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258877"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894169"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
-本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在您的範本中使用函式的詳細資訊, 請參閱[範本語法](template-expressions.md)。
+
+本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在您的範本中使用函式的詳細資訊，請參閱[範本語法](template-expressions.md)。
 
 若要建立自己的函式，請參閱[使用者定義的函式](resource-group-authoring-templates.md#functions)。
 
@@ -81,7 +82,7 @@ Resource Manager 提供了幾個可在範本中進行比較的函式。
 
 * [部署](resource-group-template-functions-deployment.md#deployment)
 * [參數](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [變數](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -89,7 +90,7 @@ Resource Manager 提供了幾個可在範本中進行比較的函式。
 <a id="not" aria-hidden="true" />
 <a id="or" aria-hidden="true" />
 
-## <a name="logical-functions"></a>邏輯函數
+## <a name="logical-functions"></a>邏輯函式
 Resource Manager 提供下列函式以使用邏輯條件：
 
 * [and](resource-group-template-functions-logical.md#and)
@@ -123,6 +124,7 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
+<a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
 <a id="list" aria-hidden="true" />
 <a id="providers" aria-hidden="true" />
@@ -130,10 +132,13 @@ Resource Manager 提供下列函式以使用邏輯條件：
 <a id="resourcegroup" aria-hidden="true" />
 <a id="resourceid" aria-hidden="true" />
 <a id="subscription" aria-hidden="true" />
+<a id="subscriptionResourceId" aria-hidden="true" />
+<a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>資源函式
 資源管理員提供下列函式以取得資源值：
 
+* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
@@ -142,7 +147,9 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
-* [subscription](resource-group-template-functions-resource.md#subscription)
+* [訂用帳戶](resource-group-template-functions-resource.md#subscription)
+* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -198,14 +205,14 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
-* [split](resource-group-template-functions-string.md#split)
+* [分割](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [string](resource-group-template-functions-string.md#string)
+* [字串](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [trim](resource-group-template-functions-string.md#trim)
+* [修剪](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
 * [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
@@ -213,7 +220,8 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>後續步驟
+
 * 如需有關 Azure 資源管理員範本中各區段的說明，請參閱 [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 * 若要合併多個範本，請參閱 [透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
 * 建立資源類型時若要逐一查看指定的次數，請參閱 [在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)
-* 若要瞭解如何部署您所建立的範本, 請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy.md)
+* 若要瞭解如何部署您所建立的範本，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy.md)

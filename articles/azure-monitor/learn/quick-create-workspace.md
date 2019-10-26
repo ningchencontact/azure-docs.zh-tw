@@ -1,24 +1,18 @@
 ---
 title: 在 Azure 入口網站中建立 Log Analytics 工作區 | Microsoft Docs
 description: 了解如何建立 Log Analytics 工作區，以在 Azure 入口網站中從您的雲端和內部部署環境啟用管理解決方案和資料收集。
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a9775ce071b6d64d535560a567dcae078900c692
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 03/12/2019
+ms.openlocfilehash: 6dd4486d52cc5c2fb568241ebaefad454e50cb2c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838735"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894903"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 入口網站中建立 Log Analytics 工作區
 使用 [Log Analytics 工作區] 功能表，以使用 Azure 入口網站建立 Log Analytics 工作區。 Log Analytics 工作區是 Azure 監視器記錄資料的唯一環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
@@ -34,15 +28,15 @@ ms.locfileid: "71838735"
 *  [從混合式 Linux 電腦收集資料](../learn/quick-collect-linux-computer.md)
 *  [從混合式 Windows 電腦收集資料](quick-collect-windows-computer.md)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure-portal"></a>登入 Azure 入口網站
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。 
 
 ## <a name="create-a-workspace"></a>建立工作區
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]。
 
-    ![Azure 入口網站](media/quick-create-workspace/azure-portal-01.png)
+    ![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
   
 2. 按一下 [加入]，然後選取下列項目：
 

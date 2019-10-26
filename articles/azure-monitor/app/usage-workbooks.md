@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure 監視器活頁簿建立互動式報表 | Microsoft Docs
 description: 使用預先建立及使用自訂參數之活頁簿來簡化複雜的報告
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569614"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899382"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
 
@@ -26,7 +21,7 @@ ms.locfileid: "64569614"
 
 活頁簿對於下列案例很有用：
 
-* 當您事先不知道下列感興趣的計量時，探索應用程式的使用方式：使用者數目、保留率、轉換率等等。不同於其他使用情況分析工具，活頁簿可讓您合併多種類型的視覺效果與分析，更加適合這種自由形式的探索。
+* 當您事先不知道感興趣的度量時，探索應用程式的使用方式：使用者數目、保留率、轉換率等等。不同于其他流量分析工具，活頁簿可讓您結合多種視覺效果和分析，使其更適合這種自由形式探索。
 * 向小組說明新發行的功能如何執行，方法是顯示關鍵互動和其他計量的使用者計數。
 * 與小組的其他成員分享應用程式中 A/B 實驗的結果。 您可以使用文字說明實驗的目標，然後顯示用來評估實驗的每個使用方式計量和分析查詢，以及每個計量是高於或低於目標的清楚圖說文字。
 * 報告應用程式使用方式中斷的影響，合併資料、文字說明和下一步的討論，以防止未來的中斷。
@@ -35,7 +30,7 @@ ms.locfileid: "64569614"
 
 活頁簿由獨立可編輯的圖表、表格、文字及輸入控制項之區段組成。 要了解活頁簿，最好的作法就是開啟一個實際例子。 
 
-在您應用程式的 Application Insights 體驗中，從左側功能表選取 [活頁簿]  。
+在您應用程式的 Application Insights 體驗中，從左側功能表選取 [活頁簿]。
 
 ![瀏覽至活頁簿的螢幕擷取畫面](./media/usage-workbooks/001-workbooks.png)
 
@@ -53,25 +48,25 @@ ms.locfileid: "64569614"
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/editing-controls-new.png)
 
-1. 當您完成編輯區段時，按一下區段左下角的 [完成編輯]  。
+1. 當您完成編輯區段時，按一下區段左下角的 [完成編輯]。
 
-2. 若要建立區段的複本，按一下 [複製此區段]  圖示。 建立重複的區段是逐一查看查詢而不會遺失先前反覆項目的絕佳方式。
+2. 若要建立區段的複本，按一下 [複製此區段] 圖示。 建立重複的區段是逐一查看查詢而不會遺失先前反覆項目的絕佳方式。
 
-3. 若要在活頁簿中將區段上移，按一下 [上移]  或 [下移]  圖示。
+3. 若要在活頁簿中將區段上移，按一下 [上移] 或 [下移] 圖示。
 
-4. 若要永久移除區段，按一下 [移除]  圖示。
+4. 若要永久移除區段，按一下 [移除] 圖示。
 
 ## <a name="adding-text-and-markdown-sections"></a>新增文字和 Markdown 區段
 
 將標題、說明及註解新增至您的活頁簿，可協助將一組資料表和圖表變成敘述。 活頁簿中的文字區段支援 [Markdown 語法](https://daringfireball.net/projects/markdown/)以進行文字格式設定，例如標題、粗體、斜體和項目符號清單。
 
-若要將文字區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增文字]  按鈕。
+若要將文字區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增文字] 按鈕。
 
 ## <a name="adding-query-sections"></a>加入查詢區段
 
 ![活頁簿中的查詢區段](./media/usage-workbooks/analytics-section-new.png)
 
-若要將查詢區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增查詢]  按鈕。
+若要將查詢區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增查詢] 按鈕。
 
 查詢區段十分有彈性，可以用以回答下述問題：
 
@@ -96,7 +91,7 @@ union app('app01').requests, app('app02').requests, requests
 
 ### <a name="advanced-analytic-query-settings"></a>進階分析查詢設定
 
-每個區段都有自己的進階設定，可以透過 [新增參數]  按鈕右側的設定圖示 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/005-settings.png) 存取。
+每個區段都有自己的進階設定，可以透過 [新增參數] 按鈕右側的設定圖示 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/005-settings.png) 存取。
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/0006-settings-expanded.png)
 
@@ -159,7 +154,7 @@ union customEvents, pageViews
 
   |         |          |
    | ---------------- |:-----|
-   | **Text**    | 使用者會編輯文字方塊，您可以選擇提供詢問來填寫預設值。 |
+   | **文字**    | 使用者會編輯文字方塊，您可以選擇提供詢問來填寫預設值。 |
    | **下拉式清單** | 使用者會從一組值之中選擇。 |
    | **時間範圍選擇器**| 使用者會從預先定義之一組時間範圍值中選擇，或是從自訂之時間範圍中選擇。|
    | **資源選擇器** | 使用者會從選取供活頁簿使用之資源中選擇。|
@@ -170,7 +165,7 @@ union customEvents, pageViews
 
 這樣文字方塊中的值即可在任何地方使用。 可以用於表格名稱、資料行名稱、函數名稱、運算子等等。
 
-文字參數類型中可以設定 [從分析查詢取得預設值]  ，讓活頁簿作者使用查詢來填入該文字方塊的預設值。
+文字參數類型中可以設定 [從分析查詢取得預設值]，讓活頁簿作者使用查詢來填入該文字方塊的預設值。
 
 使用分析查詢作為預設值時，只有第一列的第一個值 (第 0 列，第 0 行) 會被使用。 因此建議您將查詢限制為只傳回一行一列。 查詢所傳回的任何其他資料會被忽略。 
 
@@ -184,7 +179,7 @@ union customEvents, pageViews
 
  若資料行為字串型別，Null/空白字串將被視為 false，其他任何值都視為 true。 在單選之下拉式清單中，第一個值為 true 的項目將成為預設選取項目。  在多選之下拉式清單中，所有值為 true 的項目都將成為預設選取項目。 下拉式清單之項目顯示的順序將依照查詢回傳的資料列順序。 
 
-讓我們看看這個作用中使用者報告中的參數。 按一下 [時間範圍]  旁邊的編輯符號。
+讓我們看看這個作用中使用者報告中的參數。 按一下 [時間範圍] 旁邊的編輯符號。
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/009-time-range.png)
 
@@ -206,7 +201,7 @@ datatable( column1:string, column2:string )
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/011-data-table.png)
 
-更適用的範例使用下拉式清單中，依名稱從一份國家/地區中挑選：
+更適用的範例是使用下拉式清單，依名稱從一組國家/地區中挑選：
 
 ```
 customEvents
@@ -237,28 +232,28 @@ customEvents
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>儲存活頁簿並且與小組共用
 
-活頁簿會儲存在 Application Insights 資源中，儲存在您私人使用的 [我的報表]  區段中，或是可供具有 Application Insights 資源存取權的每個人存取的 [共用報表]  區段中。 若要檢視資源中的所有活頁簿，請按一下動作列中的 [開啟]  按鈕。
+活頁簿會儲存在 Application Insights 資源中，儲存在您私人使用的 [我的報表] 區段中，或是可供具有 Application Insights 資源存取權的每個人存取的 [共用報表] 區段中。 若要檢視資源中的所有活頁簿，請按一下動作列中的 [開啟] 按鈕。
 
-若要共用目前在 [我的報表]  的活頁簿：
+若要共用目前在 [我的報表] 的活頁簿：
 
-1. 按一下動作列中的 [開啟] 
+1. 按一下動作列中的 [開啟]
 2. 按一下您想要共用之活頁簿旁邊的 [...] 按鈕
-3. 按一下 [移至共用報表]  。
+3. 按一下 [移至共用報表]。
 
-若要使用連結或透過電子郵件共用活頁簿，請按一下動作列中的 [共用]  。 請注意，連結的收件者需要在 Azure 入口網站中存取此資源的存取權，才能檢視活頁簿。 若要進行編輯，收件者至少需要資源的參與者權限。
+若要使用連結或透過電子郵件共用活頁簿，請按一下動作列中的 [共用]。 請注意，連結的收件者需要在 Azure 入口網站中存取此資源的存取權，才能檢視活頁簿。 若要進行編輯，收件者至少需要資源的參與者權限。
 
 若要將活頁簿的連結釘選到 Azure 儀表板：
 
-1. 按一下動作列中的 [開啟] 
+1. 按一下動作列中的 [開啟]
 2. 按一下您想要釘選之活頁簿旁邊的 [...] 按鈕
-3. 按一下 [釘選到儀表板]  。
+3. 按一下 [釘選到儀表板]。
 
 ## <a name="contributing-workbook-templates"></a>提供活頁簿範本
 
 您是否建立了很棒的活頁簿範本，想要跟整個社群分享？ 若要深入了解，請至我們的 [GitHub repo](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md)。
 
 ## <a name="next-steps"></a>後續步驟
-- 若要啟用使用體驗，請開始傳送[「自訂事件」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送[「自訂事件」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或[「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     - [使用者、工作階段、事件](../../azure-monitor/app/usage-segmentation.md)
     - [漏斗圖](../../azure-monitor/app/usage-funnels.md)

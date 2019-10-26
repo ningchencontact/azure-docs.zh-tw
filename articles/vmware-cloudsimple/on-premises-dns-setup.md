@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f00e7663c4ed2211927f5c8d1c131d85bc6c96dd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030407"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900894"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>針對從內部部署工作站存取私人雲端 vCenter 的名稱解析設定 DNS
 
@@ -23,7 +23,7 @@ ms.locfileid: "72030407"
 
 1. 登入[CloudSimple 入口網站](access-cloudsimple-portal.md)。
 
-2. 流覽至 [**資源** > **私人**雲端]，然後選取您想要連線的私人雲端。
+2. 流覽至 [**資源**] > [**私人**雲端]，然後選取您想要連線的私人雲端。
 
 3. 在私人雲端 [**基本資訊**] 底下的 [**摘要**] 頁面上，複製 [私人雲端 DNS 伺服器 IP 位址]。
 
@@ -80,7 +80,7 @@ zone “cloudsimple.io”
 
 條件式轉寄站會將所有 DNS 名稱解析要求轉送到指定的伺服器。 使用此設定時，對 *. cloudsimple.io 的任何要求都會轉送到位於私人雲端上的 DNS 伺服器。 下列範例示範如何在不同類型的 DNS 伺服器上設定轉寄站。
 
-### <a name="create-a-conditional-forwarded-on-a-bind-dns-server"></a>建立系結 DNS 伺服器上的條件式轉送
+### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>在系結 DNS 伺服器上建立條件轉寄站
 
 要設定的特定檔案和參數可能會根據您的個別 DNS 設定而有所不同。
 

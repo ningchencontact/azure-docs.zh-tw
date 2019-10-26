@@ -1,24 +1,18 @@
 ---
 title: 從 Azure 監視器記錄查詢建立圖表 | Microsoft Docs
 description: 說明 Azure 監視器中能以不同方式顯示您記錄資料的不同視覺效果。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594040"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900408"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>從 Azure 監視器記錄查詢建立圖表
 
@@ -40,9 +34,9 @@ Heartbeat
 
 根據預設，結果會顯示成資料表︰
 
-![資料表](media/charts/table-display.png)
+![表格](media/charts/table-display.png)
 
-若要取的更好的檢視，請選取 [圖表]  ，然後選擇 [圓形圖]  選項以將結果視覺化：
+若要取的更好的檢視，請選取 [圖表]，然後選擇 [圓形圖] 選項以將結果視覺化：
 
 ![圓形圖](media/charts/charts-and-diagrams-pie.png)
 
@@ -57,7 +51,7 @@ Perf
 | summarize avg(CounterValue), percentiles(CounterValue, 50, 95)  by bin(TimeGenerated, 1h)
 ```
 
-選取 [折線圖]  圖表顯示選項：
+選取 [折線圖] 圖表顯示選項：
 
 ![折線圖](media/charts/charts-and-diagrams-multiSeries.png)
 

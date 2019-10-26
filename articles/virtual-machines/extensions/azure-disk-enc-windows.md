@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 056bd1293e0593a7fb7f9909cfd85043577686c4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598008"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901342"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>適用於 Windows 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -36,11 +36,11 @@ Azure 磁碟加密會利用 BitLocker 在執行 Windows 的 Azure 虛擬機器�
 
 ## <a name="extension-schemata"></a>延伸模組架構
 
-Azure 磁碟加密有兩個架構： v1.1，這是較新的建議架構，不會使用 Azure Active Directory （AAD）屬性和 v 0.1，這是需要 AAD 屬性的較舊架構。 您必須使用對應至您所使用之延伸模組的架構版本：架構 v1.1 （適用于 AzureDiskEncryption 延伸模組版本1.1）、架構 v 0.1 （AzureDiskEncryption 擴充功能版本0.1）。
+Windows AzureDiskEncryption 擴充功能有兩個架構：2.2 版，這是較新的建議架構，不會使用 Azure Active Directory （AAD）屬性和 v1.1，這是需要 AAD 屬性的較舊架構。 您必須使用對應于您所使用之延伸模組的架構版本： AzureDiskEncryption 延伸模組版本2.2 的架構 v4.0，適用于 AzureDiskEncryption 擴充功能1.1 版的架構 v1.1。
 
-### <a name="schema-v11-no-aad-recommended"></a>架構 v1.1：無 AAD （建議）
+### <a name="schema-v22-no-aad-recommended"></a>架構2.2：無 AAD （建議）
 
-建議使用 v1.1 架構，而且不需要 Azure Active Directory 的屬性。
+建議所有新的 Vm 使用2.2 架構，而且不需要 Azure Active Directory 屬性。
 
 ```json
 {
@@ -67,9 +67,9 @@ Azure 磁碟加密有兩個架構： v1.1，這是較新的建議架構，不會
 ```
 
 
-### <a name="schema-v01-with-aad"></a>架構 v 0.1：使用 AAD 
+### <a name="schema-v11-with-aad"></a>架構 v1.1：使用 AAD 
 
-0\.1 架構需要 `aadClientID`，而且 `aadClientSecret` 或 `AADClientCertificate`。
+1\.1 架構需要 `aadClientID`，而且 `aadClientSecret` 或 `AADClientCertificate`，不建議用於新的 Vm。
 
 使用 `aadClientSecret`：
 
@@ -139,10 +139,10 @@ Azure 磁碟加密有兩個架構： v1.1，這是較新的建議架構，不會
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | 類型 | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1、1。1 | int |
-| （0.1 架構）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| （0.1 架構）AADClientSecret | password | string |
-| （0.1 架構）AADClientCertificate | thumbprint | string |
+| typeHandlerVersion | 1.1、2。2 | string |
+| （1.1 架構）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| （1.1 架構）AADClientSecret | password | string |
+| （1.1 架構）AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 字典 |
 | EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | string |

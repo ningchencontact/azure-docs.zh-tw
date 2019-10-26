@@ -14,28 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 37e833e5ba2fcbc9fcfe0a27d5b607a5c6cdd55b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39abe054869bf68a254b9305a680ecc892359300
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079539"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898875"
 ---
-# <a name="download-the-template-for-a-vm"></a>下載 VM 的範本
+# <a name="download-the-template-for-a-vm"></a>下載適用於 VM 的範本
 當您使用入口網站或 PowerShell 在 Azure 中建立 VM 時，系統會自動為您建立 Resource Manager 範本。 您可以使用此範本快速地重複部署。 範本包含資源群組中所有資源的相關資訊。 針對虛擬機器，這表示範本包含針對支援該資源群組中 VM 而建立的所有項目，包括網路功能資源。
 
 ## <a name="download-the-template-using-the-portal"></a>使用入口網站下載範本
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在左側功能表上，選取 [虛擬機器]。
 3. 然後從清單中選取虛擬機器。
-4. 選取 [**匯出範本**]。
+4. 選取 [匯出範本]。
 5. 從上方的功能表選取 [下載]，然後將 .zip 檔案儲存到本機電腦。
 6. 開啟 .zip 檔，並將檔案解壓縮至資料夾。 此.zip 檔案包含：
    
-   * deploy.ps1
-   * deploy.sh 
-   * deployer.rb
-   * DeploymentHelper.cs
    * parameters.json
    * template.json
 

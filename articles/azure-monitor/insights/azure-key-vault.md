@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器中的 Azure Key Vault 解決方案 |Microsoft Docs
 description: 您可以使用 Azure 監視器中的 Azure Key Vault 方案來查看 Azure Key Vault 記錄。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 03/27/2019
+ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997695"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899220"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure 監視器中的 Azure Key Vault 分析解決方案
 
@@ -38,7 +32,7 @@ ms.locfileid: "69997695"
 ## <a name="install-and-configure-the-solution"></a>安裝和設定解決方案
 使用下列指示來安裝和設定 Azure 金鑰保存庫解決方案︰
 
-1. 使用[從方案庫新增 Azure 監視器解決方案](../../azure-monitor/insights/solutions.md)中所述的程式, 將 Azure Key Vault 解決方案新增至您的 Log Analytics 工作區。
+1. 使用[從方案庫新增 Azure 監視器解決方案](../../azure-monitor/insights/solutions.md)中所述的程式，將 Azure Key Vault 解決方案新增至您的 Log Analytics 工作區。
 2. 使用[入口網站](#enable-key-vault-diagnostics-in-the-portal)或 [PowerShell](#enable-key-vault-diagnostics-using-powershell)，針對要監視的 Key Vault 資源啟用診斷記錄
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>在入口網站中啟用 Key Vault 診斷
@@ -54,7 +48,7 @@ ms.locfileid: "69997695"
 5. 按一下 [傳送到 Log Analytics] 核取方塊
 6. 選取現有的 Log Analytics 工作區，或建立工作區
 7. 若要啟用 *AuditEvent* 記錄，請按一下 [記錄] 下的核取方塊
-8. 按一下 [*儲存*], 以啟用 Log Analytics 工作區的診斷記錄。
+8. 按一下 [*儲存*]，以啟用 Log Analytics 工作區的診斷記錄。
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>使用 PowerShell 啟用 Key Vault 診斷
 下列 PowerShell 指令碼示範如何使用 `Set-AzDiagnosticSetting` 啟用 Key Vault 的診斷記錄︰
@@ -79,11 +73,11 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
 | Azure |  |  |&#8226; |  |  | 與抵達同時 |
 
 ## <a name="use-azure-key-vault"></a>使用 Azure 金鑰保存庫
-[安裝解決方案](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)之後, 請從 [Azure 監視器] **[總覽**] 頁面按一下 [**金鑰保存庫分析**] 磚, 以查看 Key Vault 的資料。 按一下 [深入解析] 區段下方的 [更多]，即可在 [Azure 監視器] 功能表開啟此頁面。 
+[安裝解決方案](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)之後，請從 [Azure 監視器] **[總覽**] 頁面按一下 [**金鑰保存庫分析**] 磚，以查看 Key Vault 的資料。 按一下 [深入解析] 區段下方的 [更多]，即可在 [Azure 監視器] 功能表開啟此頁面。 
 
 ![Azure 金鑰保存庫圖格的影像](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
-按一下 [**金鑰保存庫分析**] 磚之後, 您就可以查看記錄的摘要, 然後深入瞭解下列類別的詳細資料:
+按一下 [**金鑰保存庫分析**] 磚之後，您就可以查看記錄的摘要，然後深入瞭解下列類別的詳細資料：
 
 * 經過一段時間的所有金鑰保存庫作業的數量
 * 經過一段時間的失敗作業數量
@@ -95,7 +89,7 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
 ![Azure 金鑰保存庫儀表板的影像](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>檢視任何作業的詳細資料
-1. 在 [**總覽**] 頁面上, 按一下 [**金鑰保存庫分析**] 磚。
+1. 在 [**總覽**] 頁面上，按一下 [**金鑰保存庫分析**] 磚。
 2. 在 [Azure 金鑰保存庫] 儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個，在記錄搜尋頁面中檢視詳細資訊。
 
     您可以在任何 [記錄搜尋] 頁面上，按時間、詳細結果和您的記錄搜尋記錄來檢視結果。 您也可以按 Facet 篩選以縮減結果。
@@ -128,7 +122,7 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>從舊的 Key Vault 解決方案進行移轉
 從 2017 年 1 月開始，從 Key Vault 傳送記錄到 Log Analytics 的支援方式已變更。 這些變更可提供下列優點︰
-+ 記錄會直接寫入 Log Analytics 工作區, 而不需要使用儲存體帳戶
++ 記錄會直接寫入 Log Analytics 工作區，而不需要使用儲存體帳戶
 + 當 Log Analytics 中具有產生的記錄時，延遲會變得較低
 + 較少的組態步驟
 + 所有 Azure 診斷類型的通用格式
@@ -136,9 +130,9 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 若要使用更新的解決方案︰
 
 1. [將診斷設定為從 Key Vault 直接傳送至 Log Analytics 工作區](#enable-key-vault-diagnostics-in-the-portal)  
-2. 使用[從方案庫新增 Azure 監視器解決方案](../../azure-monitor/insights/solutions.md)中所述的程式, 啟用 Azure Key Vault 解決方案
+2. 使用[從方案庫新增 Azure 監視器解決方案](../../azure-monitor/insights/solutions.md)中所述的程式，啟用 Azure Key Vault 解決方案
 3. 更新任何已儲存的查詢、儀表板或警示，以使用新的資料類型
-   + 類型自：KeyVaults 變更為 AzureDiagnostics。 您可以使用 ResourceType 篩選 Key Vault 記錄。
+   + 類型從 KeyVaults 變更為 AzureDiagnostics。 您可以使用 ResourceType 篩選 Key Vault 記錄。
    + 與其使用 `KeyVaults`，請改用 `AzureDiagnostics | where ResourceType'=="VAULTS"`
    + 欄位：(欄位名稱區分大小寫)
    + 針對任何名稱尾碼有 \_s、\_d 或 \_g 的欄位，請將第一個字元變更為小寫

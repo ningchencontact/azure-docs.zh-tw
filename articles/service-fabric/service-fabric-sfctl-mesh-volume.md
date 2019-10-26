@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI- sfctl mesh volume | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl mesh volume 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 4e2413a152048e08d6218783891c20b66ac2e618
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: cc26a0a3170f6cd75f5a1cbb3981044d28d9aba3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034995"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901137"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 取得和刪除磁碟區資源。
@@ -27,8 +28,8 @@ ms.locfileid: "69034995"
 
 |命令|描述|
 | --- | --- |
-| 刪除 | 可刪除磁碟區資源。 |
-| 清單 | 可列出所有磁碟區資源。 |
+| delete | 可刪除磁碟區資源。 |
+| list | 可列出所有磁碟區資源。 |
 | 顯示 | 可取得指定名稱的磁碟區資源。 |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl mesh volume delete

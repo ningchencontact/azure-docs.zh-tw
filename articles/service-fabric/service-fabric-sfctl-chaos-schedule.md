@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI- sfctl chaos schedule | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl chaos schedule 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 1664978110b7c700906cbf4e6c80806ac70f1f05
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036524"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897546"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 取得並設定 chaos 排程。
@@ -39,7 +40,7 @@ ms.locfileid: "69036524"
 
 |引數|描述|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -54,7 +55,7 @@ ms.locfileid: "69036524"
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 設定 Chaos 使用的排程。
 
-Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版本必須與伺服器上的 Chaos 排程版本相符。 如果所提供的版本與伺服器上的版本不符，就不會更新 Chaos 排程。 如果所提供的版本與伺服器上的版本相符，則會更新 Chaos 排程，而伺服器上的 Chaos 排程版本會增加 1，並在達到 2,147,483,647 之後歸 0。 如果 Chaos 在進行此呼叫時正在執行，此呼叫將會失敗。
+Chaos 會根據 Chaos 排程自動排定執行。 如果提供的版本與伺服器上的版本相符，就會更新混亂排程。 更新混亂排程時，伺服器上的版本會遞增1。 到達大量數位之後，伺服器上的版本將會換回0。 如果 Chaos 在進行此呼叫時正在執行，此呼叫將會失敗。
 
 ### <a name="arguments"></a>引數
 
@@ -63,8 +64,8 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
 | --chaos-parameters-dictionary | 針對字串名稱對應於作業所要使用的 ChaosParameters，代表對應關係的 JSON 編碼清單。 |
 | --expiry-date-utc | 何時該停止使用排程來排定 Chaos 的日期和時間。  預設值\: 9999-12-31T23\:59\:59.999Z。 |
 | --jobs | 代表何時該執行 Chaos 及要搭配哪些參數來執行 Chaos 的 ChaosScheduleJobs JSON 編碼清單。 |
-| --start-date-utc | 何時該開始使用排程來排定 Chaos 的日期和時間。  預設值\: 1601-01-01T00\:00\:00.000Z。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --start-date-utc | 何時該開始使用排程來排定 Chaos 的日期和時間。  預設值：1601-01-01T00\:00\:00.000Z。 |
+| --timeout -t | 預設值\: 60。 |
 | --version | 排程的版本號碼。 |
 
 ### <a name="global-arguments"></a>全域引數

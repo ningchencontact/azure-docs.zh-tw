@@ -1,5 +1,5 @@
 ---
-title: 使用資源儀表板在 PIM 中執行存取權審查-Azure Active Directory |Microsoft Docs
+title: 使用資源儀表板在 Privileged Identity Management Azure Active Directory 中執行存取權審查 |Microsoft Docs
 description: 說明如何使用資源儀表板在 Azure AD Privileged Identity Management (PIM) 中執行存取權檢閱。
 services: active-directory
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 03/30/2018
+ms.date: 10/23/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e759ba47c16617aa1783ce6fb0e324aa62ee96d
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: de2c04a0ea109046848d443db2e6ab9a9dd21ee0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804125"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895583"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>使用資源儀表板在 PIM 中執行存取權審查
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>使用資源儀表板在 Privileged Identity Management 中執行存取權審核
 
-您可以使用資源儀表板，在 Azure Active Directory （Azure AD） Privileged Identity Management （PIM）中執行存取權審查。 「系統管理員檢視」儀表板有三個主要元件：
+您可以使用資源儀表板，在 Privileged Identity Management （PIM）中執行存取權審查。 Azure Active Directory （Azure AD）中的 [管理檢視] 儀表板有三個主要元件：
 
-- 展示資源角色啟用的圖表。
-- 依指派類型顯示角色指派分佈的兩個圖表。
-- 關於新增角色指派的資料區域。
+- 資源角色啟用的圖形表示
+- 依指派類型顯示角色指派分佈的圖表
+- 包含新角色指派資訊的資料區域
 
 ![顯示圖表的系統管理員檢視儀表板螢幕擷取畫面](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
@@ -37,10 +37,10 @@ ms.locfileid: "70804125"
 
 展示過去七天資源角色啟用的圖表。 此資料範圍限制在所選資源，並會顯示最常見角色的啟用 (擁有者、參與者和使用者存取系統管理員)，也會將所有角色的啟用結合顯示。
 
-啟用圖形的右邊為兩個圖表，顯示依指派類型分類的角色指派分佈，類型為使用者和群組。 選取圖表的一部分，即可將值更改為特定百分比 (反之亦然)。
+在啟用圖形的一側，兩個圖表會顯示使用者和群組的角色指派（依指派類型）分佈。 選取圖表的一部分，即可將值更改為特定百分比 (反之亦然)。
 
-圖表下方會顯示過去 30 天中獲指派新角色的使用者和群組數，以及以總計指派數排序的角色清單 (順序為遞減)。
+下圖列出過去30天內具有新角色指派的使用者和群組數目，以及依總指派的遞減順序排序的角色。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中起始 Azure 資源角色的存取權檢閱](pim-resource-roles-start-access-review.md) 
+- [在 Privileged Identity Management 中開始使用 Azure 資源角色的存取權審查](pim-resource-roles-start-access-review.md)

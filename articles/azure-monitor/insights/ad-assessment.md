@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure 監視器最佳化 Active Directory 環境 | Microsoft Docs
 description: 您可以使用 Active Directory 健康情況檢查方案定期評估環境的風險和健全狀況。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/10/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883077"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899195"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
 
@@ -103,7 +97,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>我應該為每個焦點區域訂定 100% 的分數嗎？
 
-不一定。 建議乃源自 Microsoft 工程師上千次客戶拜訪所得到的知識和經驗。 然而，世界上沒有兩個一模一樣的伺服器基礎結構，因此特定建議與您的關聯性可能會有所增減。 例如，如果您的虛擬機器並未暴露在網際網路中，某些安全性建議的關聯性就會降低。 對於提供低優先順序臨機操作資料收集和報告的服務來說，某些可用性建議的關聯性就會降低。 會對成熟企業造成重大影響的問題，不見得會對新公司造成同等嚴重的影響。 因此，建議您先找出自己的優先焦點區域，然後觀察一段時間內的分數變化。
+不盡然。 建議乃源自 Microsoft 工程師上千次客戶拜訪所得到的知識和經驗。 然而，世界上沒有兩個一模一樣的伺服器基礎結構，因此特定建議與您的關聯性可能會有所增減。 例如，如果您的虛擬機器並未暴露在網際網路中，某些安全性建議的關聯性就會降低。 對於提供低優先順序臨機操作資料收集和報告的服務來說，某些可用性建議的關聯性就會降低。 會對成熟企業造成重大影響的問題，不見得會對新公司造成同等嚴重的影響。 因此，建議您先找出自己的優先焦點區域，然後觀察一段時間內的分數變化。
 
 每項建議都包含其重要性的指引。 在已知 IT 服務之本質和組織之商務需求的情況下，您應使用該指引來評估實作建議的適當性。
 
@@ -179,7 +173,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 
 *是否有設定健康情況檢查執行頻率的方法？*
 
-* 目前沒有。
+* 目前不是。
 
 *如果我在加入健康情況檢查方案後探索到另一部伺服器，方案也會檢查這部伺服器嗎？*
 
@@ -199,7 +193,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 
 *是否有設定資料收集時間的方法？*
 
-* 目前沒有。
+* 目前不是。
 
 *為什麼只顯示前 10 項建議？*
 

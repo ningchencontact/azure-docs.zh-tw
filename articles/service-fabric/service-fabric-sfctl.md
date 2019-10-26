@@ -3,25 +3,26 @@ title: Azure Service Fabric CLI- sfctl | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 35b881268ca21a840836c96388a4562a54d17d3b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 7e7fc7bbc65e92960d7839f6531ef1f7c1935ed3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035811"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900886"
 ---
 # <a name="sfctl"></a>sfctl
-用於管理 Service Fabric 叢集和實體的命令。 這個版本與 Service Fabric 6.4 執行階段相容。
+用於管理 Service Fabric 叢集和實體的命令。 這個版本與 Service Fabric 6.5 執行時間相容。
 
 命令會依循「名詞-動詞」模式。 如需詳細資訊，請參閱＜子群組＞。
 
@@ -33,6 +34,7 @@ ms.locfileid: "69035811"
 | [cluster](service-fabric-sfctl-cluster.md) | 選取、管理和操作 Service Fabric 叢集。 |
 | [compose](service-fabric-sfctl-compose.md) | 建立、刪除和管理 Docker Compose 應用程式。 |
 | [container](service-fabric-sfctl-container.md) | 在叢集節點上執行容器相關命令。 |
+| [events](service-fabric-sfctl-events.md) | 從事件存放區取出事件（如果已安裝 EventStore 服務）。 |
 | [is](service-fabric-sfctl-is.md) | 查詢命令，並將其傳送至基礎結構服務。 |
 | [mesh](service-fabric-sfctl-mesh.md) | 刪除及管理 Service Fabric Mesh 應用程式。 |
 | [node](service-fabric-sfctl-node.md) | 管理形成叢集的節點。 |

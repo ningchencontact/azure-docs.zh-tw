@@ -1,23 +1,24 @@
 ---
-title: 擴充管線中的自訂 Web API 技能
-titleSuffix: Azure Cognitive Search
-description: 藉由向外呼叫 Web Api 來擴充 Azure 認知搜尋技能集的功能。 使用自訂 Web API 技能來整合您的自訂程式碼。
+title: 自訂認知搜尋技能 - Azure 搜尋服務
+description: 透過向外呼叫 Web API 擴充認知搜尋技能的功能
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.author: luisca
+ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784897"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901323"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure 認知搜尋擴充管線中的自訂 Web API 技能
+# <a name="custom-web-api-skill"></a>自訂 Web API 技能
 
-**自訂 WEB api**技能可讓您藉由向外呼叫提供自訂作業的 Web API 端點，來擴充 AI 擴充。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+**自訂 WEB api**技能可讓您向外呼叫提供自訂作業的 Web API 端點，以擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
@@ -41,6 +42,7 @@ Microsoft.Skills.Custom.WebApiSkill
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
 | timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 [超時] 可以設定為最大值230秒，最小值為1秒。 |
 | batchSize | (選擇性) 指出每個 API 呼叫將傳送多少「資料記錄」(請參閱下面的 _JSON_ 承載結構)。 如果未設定，則選擇的預設值為 1000。 我們建議您使用此參數在編製索引的輸送量和 API 負載之間達到適當的取捨 |
+| degreeOfParallelism | 選擇性指定時，表示索引子將會平行地對您提供的端點進行的呼叫次數。 如果您的端點在要求負載過高的情況下失敗，您可以減少這個值，如果您的端點能夠接受更多要求，而且您想要增加索引子的效能，則會引發此值。  如果未設定，則會使用預設值5。 DegreeOfParallelism 可以設定為最大值10，最小值為1。 |
 
 ## <a name="skill-inputs"></a>技能輸入
 
@@ -203,5 +205,5 @@ Microsoft.Skills.Custom.WebApiSkill
 
 + [電力技能：自訂技能的存放庫](https://aka.ms/powerskills)
 + [如何定義技能集](cognitive-search-defining-skillset.md)
-+ [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
-+ [範例：建立 AI 擴充的自訂技能（認知-搜尋-建立-自訂技能-example.md）
++ [在認知搜尋中加入自訂技能](cognitive-search-custom-skill-interface.md)
++ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)

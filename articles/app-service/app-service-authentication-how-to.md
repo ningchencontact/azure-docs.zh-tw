@@ -10,15 +10,15 @@ ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f453a0276a3448273964a589112e21ca5665c2d2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231967"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900127"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>在 Azure App Service 中進階使用驗證和授權
 
@@ -26,7 +26,7 @@ ms.locfileid: "70231967"
 
 若要快速開始，請參閱下列其中一個教學課程︰
 
-* [教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權 (Windows)](app-service-web-tutorial-auth-aad.md)
+* [教學課程：在 Azure App Service 中端對端驗證和授權使用者 (Windows)](app-service-web-tutorial-auth-aad.md)
 * [教學課程：在適用於 Linux 的 Azure App Service 中端對端驗證和授權使用者](containers/tutorial-auth-aad.md)
 * [如何設定您的 App 以使用 Azure Active Directory 登入](configure-authentication-provider-aad.md)
 * [如何設定 App 以使用 Facebook 登入](configure-authentication-provider-facebook.md)
@@ -42,7 +42,7 @@ ms.locfileid: "70231967"
 
 在 [當要求未經驗證時所要採取的動作] 中，選取 [允許匿名要求 (無動作)]。
 
-在登入頁面或導覽列、或是您應用程式的任何其他位置中，將登入連結新增至您啟用的每個提供者 (`/.auth/login/<provider>`)。 例如:
+在登入頁面或導覽列、或是您應用程式的任何其他位置中，將登入連結新增至您啟用的每個提供者 (`/.auth/login/<provider>`)。 例如：
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -64,7 +64,7 @@ ms.locfileid: "70231967"
 
 在用戶端導向的登入中，應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證 (請參閱[驗證流程](overview-authentication-authorization.md#authentication-flow))。 此驗證本身並不會實際為您授與所需應用程式資源的存取權，但成功的驗證會給予您可用來存取應用程式資源的工作階段權杖。 
 
-若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如: 
+若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如： 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -95,7 +95,7 @@ Content-Type: application/json
 }
 ```
 
-在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如: 
+在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如： 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -116,7 +116,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如:
+成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如：
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -130,7 +130,7 @@ GET /.auth/logout?post_logout_redirect_uri=/index.html
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-在[Azure Cloud Shell](../cloud-shell/quickstart.md)中執行下列命令:
+在[Azure Cloud Shell](../cloud-shell/quickstart.md)中執行下列命令：
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -153,7 +153,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
-以任何語言或架構撰寫的程式碼可以從這些標頭中取得所需的資訊。 針對 ASP.NET 4.6 應用程式， **ClaimsPrincipal** 會自動設定適當的值。
+以任何語言或架構撰寫的程式碼可以從這些標頭中取得所需的資訊。 針對 ASP.NET 4.6 應用程式， **ClaimsPrincipal** 會自動設定適當的值。 不過，ASP.NET Core 不會提供與 App Service 使用者宣告整合的驗證中介軟體。 如需因應措施，請參閱[MaximeRouiller. AppService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)。
 
 您的應用程式也可以藉由呼叫 `/.auth/me` 來取得關於已驗證使用者的其他詳細資料。 Mobile Apps 伺服器 SDK 提供 Helper 方法來處理此資料。 如需詳細資訊，請參閱[如何使用 Azure Mobile Apps Node.js SDK ](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)和[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)。
 
@@ -183,7 +183,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 - **Facebook**：不提供重新整理權杖。 長時間執行的權杖會在 60 天內到期 (請參閱 [Facebook 到期和存取權杖的擴充功能](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension))。
 - **Twitter**：存取權杖不會到期 (請參閱 [Twitter OAuth 常見問題集](https://developer.twitter.com/en/docs/basics/authentication/FAQ))。
 - **Microsoft 帳戶**：當您[設定 Microsoft 帳戶驗證設定](configure-authentication-provider-microsoft.md)時，請選取 `wl.offline_access` 範圍。
-- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，請執行下列步驟：
+- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，執行下列步驟：
     1. 在頁面的頂端，選取 [讀取/寫入]。
     2. 在左側瀏覽器中，巡覽至 [訂用帳戶] >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**。 
     3. 按一下 [編輯]。
@@ -197,7 +197,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 
 設定好提供者之後，您可以在權杖存放區中[尋找重新整理權杖和存取權杖的到期時間](#retrieve-tokens-in-app-code)。 
 
-若要隨時重新整理您的存取權杖, 只要`/.auth/refresh`以任何語言呼叫即可。 下列程式碼片段會使用 jQuery 來重新整理 JavaScript 用戶端的存取權杖。
+若要隨時重新整理您的存取權杖，只要以任何語言呼叫 `/.auth/refresh` 即可。 下列程式碼片段會使用 jQuery 來重新整理 JavaScript 用戶端的存取權杖。
 
 ```JavaScript
 function refreshTokens() {
@@ -230,7 +230,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>限制登入帳戶的網域
 
-Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 例如，Microsoft 帳戶允許 _outlook.com_、_live.com_ 和 _hotmail.com_ 帳戶。 Azure AD 允許登入帳戶有任意數目的自訂網域。 不過, 您可能會想要將使用者直接帶到您自己的品牌 Azure AD 登入頁面 (例如`contoso.com`)。 若要建議登入帳戶的功能變數名稱, 請遵循下列步驟。
+Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 例如，Microsoft 帳戶允許 _outlook.com_、_live.com_ 和 _hotmail.com_ 帳戶。 Azure AD 允許登入帳戶有任意數目的自訂網域。 不過，您可能會想要將使用者直接帶到您自己的品牌 Azure AD 登入頁面（例如 `contoso.com`）。 若要建議登入帳戶的功能變數名稱，請遵循下列步驟。
 
 在 [https://resources.azure.com](https://resources.azure.com) 中，巡覽至 [訂用帳戶] >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\< app\_ name>_**  > **config** > **authsettings**。 
 
@@ -240,29 +240,29 @@ Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
 
-此設定會將`domain_hint`查詢字串參數附加至登入重新導向 URL。 
+此設定會將 `domain_hint` 查詢字串參數附加至登入重新導向 URL。 
 
 > [!IMPORTANT]
-> 用戶端可以在收到重新導向 URL 之後`domain_hint`移除參數, 然後再以不同的網域登入。 因此, 雖然此函式很方便, 但它並不是安全性功能。
+> 用戶端可以在收到重新導向 URL 之後移除 `domain_hint` 參數，然後再以不同的網域登入。 因此，雖然此函式很方便，但它並不是安全性功能。
 >
 
 ## <a name="authorize-or-deny-users"></a>授權或拒絕使用者
 
-雖然 App Service 會負責處理最簡單的授權案例 (也就是拒絕未驗證的要求), 但您的應用程式可能需要更精細的授權行為, 例如限制只有特定使用者群組的存取權。 在某些情況下, 您需要撰寫自訂應用程式代碼, 以允許或拒絕存取已登入的使用者。 在其他情況下, App Service 或您的身分識別提供者可能可以協助, 而不需要變更程式碼。
+雖然 App Service 會負責處理最簡單的授權案例（也就是拒絕未驗證的要求），但您的應用程式可能需要更精細的授權行為，例如限制只有特定使用者群組的存取權。 在某些情況下，您需要撰寫自訂應用程式代碼，以允許或拒絕存取已登入的使用者。 在其他情況下，App Service 或您的身分識別提供者可能可以協助，而不需要變更程式碼。
 
 - [伺服器層級](#server-level-windows-apps-only)
 - [識別提供者層級](#identity-provider-level)
 - [應用層級](#application-level)
 
-### <a name="server-level-windows-apps-only"></a>伺服器層級 (僅限 Windows 應用程式)
+### <a name="server-level-windows-apps-only"></a>伺服器層級（僅限 Windows 應用程式）
 
-針對任何 Windows 應用程式, 您可以藉由編輯*web.config*檔案來定義 IIS web 伺服器的授權行為。 Linux 應用程式不會使用 IIS, 也無法透過 web.config 進行設定。
+針對任何 Windows 應用程式，您可以藉由編輯*web.config*檔案來定義 IIS web 伺服器的授權行為。 Linux 應用程式不會使用 IIS，也無法*透過 web.config 進行設定。*
 
 1. 巡覽到 `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. 在 App Service 檔案的瀏覽器中, 流覽至 [ *site/wwwroot*]。 如果*web.config*不存在, 請選取 **+**  > [**新增**檔案] 加以建立。 
+1. 在 App Service 檔案的瀏覽器中，流覽至 [ *site/wwwroot*]。 如果*web.config*不存在，請選取 [ **+**  > **新增**檔案] 加以建立。 
 
-1. 選取 web.config 的鉛筆來編輯它。 新增下列設定程式碼, 然後按一下 [**儲存**]。 如果*web.config*已經存在, 只需要在其中新增`<authorization>`專案。 在`<allow>`元素中新增您想要允許的帳戶。
+1. 選取*web.config 的鉛筆來編輯*它。 新增下列設定程式碼，然後按一下 [**儲存**]。 如果*web.config*已經存在，只要在其中加入 `<authorization>` 專案。 在 `<allow>` 元素中新增您想要允許的帳戶。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -278,14 +278,14 @@ Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 
 
 ### <a name="identity-provider-level"></a>識別提供者層級
 
-識別提供者可能會提供特定的「金鑰授權」。 例如:
+識別提供者可能會提供特定的「金鑰授權」。 例如：
 
-- 針對[Azure App Service](configure-authentication-provider-aad.md), 您可以直接在 Azure AD 中[管理企業層級的存取](../active-directory/manage-apps/what-is-access-management.md)。 如需指示, 請參閱[如何移除使用者對應用程式的存取權](../active-directory/manage-apps/methods-for-removing-user-access.md)。
-- 對於[google](configure-authentication-provider-google.md), 屬於[組織](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations)的 google API 專案可以設定為只允許您組織中的使用者存取 (請參閱[Google 的**設定 OAuth 2.0**支援頁面](https://support.google.com/cloud/answer/6158849?hl=en))。
+- 針對[Azure App Service](configure-authentication-provider-aad.md)，您可以直接在 Azure AD 中[管理企業層級的存取](../active-directory/manage-apps/what-is-access-management.md)。 如需指示，請參閱[如何移除使用者對應用程式的存取權](../active-directory/manage-apps/methods-for-removing-user-access.md)。
+- 對於[google](configure-authentication-provider-google.md)，屬於[組織](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations)的 google API 專案可以設定為只允許您組織中的使用者存取（請參閱[Google 的**設定 OAuth 2.0**支援頁面](https://support.google.com/cloud/answer/6158849?hl=en)）。
 
 ### <a name="application-level"></a>應用程式層級
 
-如果其中一個層級未提供您所需的授權, 或如果您的平臺或身分識別提供者不受支援, 則您必須撰寫自訂程式碼, 以根據[使用者宣告](#access-user-claims)來授權使用者。
+如果其中一個層級未提供您所需的授權，或如果您的平臺或身分識別提供者不受支援，則您必須撰寫自訂程式碼，以根據[使用者宣告](#access-user-claims)來授權使用者。
 
 ## <a name="next-steps"></a>後續步驟
 

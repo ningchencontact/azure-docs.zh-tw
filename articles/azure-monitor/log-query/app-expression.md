@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器記錄查詢中的 app() 運算式 |Microsoft Docs
-description: 應用程式運算式用於 Azure 監視器記錄檔查詢中，以擷取特定的 Application Insights 應用程式相同的資源群組、 另一個資源群組或另一個訂用帳戶中的資料。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: 應用程式運算式會用於 Azure 監視器記錄查詢中，以從相同資源群組、另一個資源群組或另一個訂用帳戶中的特定 Application Insights 應用程式抓取資料。
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/25/2019
+ms.openlocfilehash: fd6bfd40eadfc09008c992d263b065d7b41ffa1f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589239"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894467"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure 監視器查詢中的 app() 運算式
 
@@ -33,13 +27,13 @@ ms.locfileid: "60589239"
 
 ## <a name="arguments"></a>引數
 
-- *識別碼*：使用下表中的其中一個格式來識別應用程式。
+- 識別碼：使用下表中的其中一個格式來識別應用程式。
 
 | 識別碼 | 描述 | 範例
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的應用程式名稱 (也稱為「元件名稱」) | app("fabrikamapp") |
 | 完整名稱 | 使用下列形式的應用程式完整名稱："subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
-| id | 應用程式的 GUID | app("988ba129-363e-4415-8fe7-8cbab5447518") |
+| ID | 應用程式的 GUID | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Azure 資源識別碼 | Azure 資源的識別碼 |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 

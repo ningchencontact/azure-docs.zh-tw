@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure 監視器監視 Surface Hub |Microsoft Docs
 description: 使用 Surface Hub 解決方案來追蹤您的 Surface Hub 健康狀態，並了解其使用狀況。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/16/2018
+ms.openlocfilehash: 7ced5f678b9f8b2d4aa073a984276f41b8b7c4b9
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232778"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900629"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>使用 Azure 監視器監視 Surface Hub 以追蹤其健康情況
 
@@ -36,10 +30,10 @@ ms.locfileid: "65232778"
 接下來，您要新增現有的 Log Analytics 工作區，或建立新的工作區。 如需使用任一種方法的詳細指示，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../learn/quick-create-workspace.md)。 設定 Log Analytics 工作區之後，有兩種方式可以註冊 Surface Hub 裝置：
 
 * 自動透過 Intune 註冊
-* 在 Surface Hub 裝置上手動透過 [設定]  註冊
+* 在 Surface Hub 裝置上手動透過 [設定] 註冊
 
 ## <a name="set-up-monitoring"></a>設定監視
-您可以使用 Azure 監視器來監視 Surface Hub 的健康情況和活動。 您可以使用 Intune 註冊 Surface Hub，或使用 Surface Hub 上的 [設定]  在本機註冊。
+您可以使用 Azure 監視器來監視 Surface Hub 的健康情況和活動。 您可以使用 Intune 註冊 Surface Hub，或使用 Surface Hub 上的 [設定] 在本機註冊。
 
 ## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>透過 Intune 將 Surface Hub 連線到 Azure 監視器
 您需要 Log Analytics 工作區的工作區識別碼和工作區金鑰，這個 Log Analytics 工作區將管理 Surface Hub。 您可以在 Azure 入口網站中的工作區設定中取得這兩個項目。
@@ -47,9 +41,9 @@ ms.locfileid: "65232778"
 Intune 是一個 Microsoft 產品，可讓您集中管理套用到一或多個裝置的 Log Analytics 工作區組態設定。 請依照下列步驟透過 Intune 設定您的裝置：
 
 1. 登入 Intune。
-2. 瀏覽至 [設定]   >  [連接的來源]  。
+2. 瀏覽至 [設定]  >  [連接的來源]。
 3. 以 Surface Hub 範本為基礎建立或編輯原則。
-4. 瀏覽至原則的 Azure Operational Insight 區段，將 Log Analytics 工作區識別碼  和工作區金鑰  新增至原則。
+4. 瀏覽至原則的 Azure Operational Insight 區段，將 Log Analytics 工作區識別碼和工作區金鑰新增至原則。
 5. 儲存原則。
 6. 將原則與適當的裝置群組關聯。
 
@@ -60,15 +54,15 @@ Intune 接著會將 Log Analytics 設定與目標群組中的裝置同步處理�
 ## <a name="connect-surface-hubs-to-azure-monitor-using-the-settings-app"></a>使用設定應用程式將 Surface Hub 連線到 Azure 監視器
 您需要 Log Analytics 工作區的工作區識別碼和工作區金鑰，這個 Log Analytics 工作區將管理 Surface Hub。 您可以從 Azure 入口網站中 Log Analytics 工作區的設定取得這兩個項目。
 
-如果您不使用 Intune 來管理您的環境，可以透過每個 Surface Hub 上的 [設定]  以手動方式註冊裝置︰
+如果您不使用 Intune 來管理您的環境，可以透過每個 Surface Hub 上的 [設定] 以手動方式註冊裝置︰
 
-1. 從您的 Surface Hub 開啟 [設定]  。
+1. 從您的 Surface Hub 開啟 [設定]。
 2. 出現提示時，輸入裝置的系統管理員認證。
-3. 按一下 [這個裝置]  ，再按一下 [監視]  下的 [設定 Log Analytics 設定]  。
-4. 選取 [啟用監視]  。
+3. 按一下 [這個裝置]，再按一下 [監視] 下的 [設定 Log Analytics 設定]。
+4. 選取 [啟用監視]。
 5. 在 [Log Analytics 設定] 對話方塊中，輸入 Log Analytics **工作區識別碼**和**工作區金鑰**。  
    ![設定](./media/surface-hubs/settings.png)
-6. 按一下 [確定]  完成設定。
+6. 按一下 [確定] 完成設定。
 
 隨即會出現確認訊息，告知設定是否已成功套用至裝置。 如果是，會顯示指出代理程式以成功連線到 Azure 監視器的訊息。 裝置接著會開始將資料傳送至 Azure 監視器，您可以在其中檢視並加以處理。
 

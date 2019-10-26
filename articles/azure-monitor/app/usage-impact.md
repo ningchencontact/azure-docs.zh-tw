@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights 使用情況影響 | Microsoft Docs
 description: 分析不同的屬性可能會對您應用程式組件的轉換率產生哪些影響。
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffe71cb80be7795201ab672ca632788f4f18e5c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604188"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899454"
 ---
 # <a name="impact-analysis-with-application-insights"></a>使用 Application Insights 進行影響分析
 
@@ -45,13 +40,13 @@ ms.locfileid: "65604188"
 
 ![影響工具](./media/usage-impact/0002-dropdown.png)
 
-1. 從 [針對頁面檢視]  下拉式清單中選取頁面檢視。
-2. 保留 [分析其]  下拉式清單中的預設選取項目 [持續時間]  \(在此內容中，[持續時間]  為 [頁面載入時間]  的別名。)
-3. 對於 [影響下列項目的使用量]  下拉式清單中，選取一個自訂事件。 此事件應與您在步驟 1 所選取頁面檢視上的 UI 元素相對應。
+1. 從 [針對頁面檢視] 下拉式清單中選取頁面檢視。
+2. 保留 [分析其] 下拉式清單中的預設選取項目 [持續時間] \(在此內容中，[持續時間] 為 [頁面載入時間] 的別名。)
+3. 對於 [影響下列項目的使用量] 下拉式清單中，選取一個自訂事件。 此事件應與您在步驟 1 所選取頁面檢視上的 UI 元素相對應。
 
 ![結果的螢幕擷取畫面](./media/usage-impact/0003-results.png)
 
-在這個執行個體中，因為 [產品頁面]  載入時間增加了，所以 [購買按一下的產品]  的轉換率就降低了。 依據上述分配，可將最佳化頁面載入持續時間 3.5 秒作為目標，以達到 55% 轉換率。 進一步增強效能以將載入時間縮短至 3.5 秒以下的作法，目前無法提供額外的轉換優勢。
+在這個執行個體中，因為 [產品頁面] 載入時間增加了，所以 [購買按一下的產品] 的轉換率就降低了。 依據上述分配，可將最佳化頁面載入持續時間 3.5 秒作為目標，以達到 55% 轉換率。 進一步增強效能以將載入時間縮短至 3.5 秒以下的作法，目前無法提供額外的轉換優勢。
 
 ## <a name="what-if-im-tracking-page-views-or-load-times-in-custom-ways"></a>如果我用自訂方式追蹤頁面檢視或載入時間呢？
 
@@ -59,11 +54,11 @@ ms.locfileid: "65604188"
 
 ## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>來自不同國家或地區的使用者，其轉換率會不一樣嗎？
 
-1. 從 [針對頁面檢視]  下拉式清單中選取頁面檢視。
-2. 在 [分析其]  下拉式清單中，選擇 [國家或地區]
-3. 針對 [影響下列項目的使用量]  下拉式清單，請選取和您在步驟 1 中於頁面檢視上所選 UI 元素相對應的自訂事件。
+1. 從 [針對頁面檢視] 下拉式清單中選取頁面檢視。
+2. 在 [分析其] 下拉式清單中，選擇 [國家或地區]
+3. 針對 [影響下列項目的使用量] 下拉式清單，請選取和您在步驟 1 中於頁面檢視上所選 UI 元素相對應的自訂事件。
 
-在此案例中，結果已不再適用於它們在第一個範例中的連續 X 軸模型。 相反地，會顯示與區段漏斗圖類似的視覺效果。 排序依據**使用量**若要檢視轉換成您的自訂事件依據國家/地區的變化。
+在此案例中，結果已不再適用於它們在第一個範例中的連續 X 軸模型。 相反地，會顯示與區段漏斗圖類似的視覺效果。 依**使用量**排序，以根據國家/地區來查看您的自訂事件轉換變化。
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>「影響」工具如何計算這些轉換率？
@@ -72,9 +67,9 @@ ms.locfileid: "65604188"
 
 「影響分析」運作方式的基本細節如下：
 
-讓 _A_ = 您在第一個下拉式清單中選取的主要頁面檢視/自訂事件/要求。 ([針對頁面檢視]  )。
+讓 _A_ = 您在第一個下拉式清單中選取的主要頁面檢視/自訂事件/要求。 ([針對頁面檢視])。
 
-讓 _B_ = 您選取的次要頁面檢視/自訂事件 ([影響下列項目的使用量]  )。
+讓 _B_ = 您選取的次要頁面檢視/自訂事件 ([影響下列項目的使用量])。
 
 「影響」會查看所選時間範圍中使用者所有工作階段的範例。 針對每個工作階段，它查看每個出現的 _A_。
 
@@ -87,7 +82,7 @@ ms.locfileid: "65604188"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要啟用使用體驗，請開始傳送[「自訂事件」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送[「自訂事件」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或[「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     - [漏斗圖](usage-funnels.md)
     - [保留](usage-retention.md)

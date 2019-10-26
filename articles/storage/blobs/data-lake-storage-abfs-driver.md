@@ -8,14 +8,14 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6e74830a3a62ea54c5d8e7f9815fe2ba6eed6d58
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.openlocfilehash: 49567ae52b8ea706ebf7e093880e919cc8bbdbad
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166501"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901651"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob Filesystem 驅動程式 (ABFS)：適用於 Hadoop 的專用 Azure 儲存體驅動程式
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 檔案系統驅動程式 (ABFS)：Hadoop 專用的 Azure 儲存體驅動程式
 
 Azure Data Lake Storage Gen2 中資料的主要存取方法之一是透過 [Hadoop 檔案系統](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html) \(英文\)。 Data Lake Storage Gen2 可讓 Azure Blob 儲存體的使用者存取新的驅動程式，也就是 Azure Blob 檔案系統驅動程式，也稱為 `ABFS`。 ABFS 是 Apache Hadoop 的一部分，隨附於許多 Hadoop 的商業發行版本中。 使用此驅動程式，許多應用程式和架構都可存取 Azure Blob 儲存體中的資料，而不需任何明確參考 Data Lake Storage Gen2 的程式碼。 
 
@@ -42,9 +42,9 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 ABFS 驅動程式會在內部將 URI 中指定的資源轉譯為檔案和目錄，並使用那些參考來呼叫 Azure Data Lake Storage REST API。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
-ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安全地存取具有 Data Lake Storage Gen2 功能的帳戶內所含的資源。 [Azure 儲存體安全性指南](../common/storage-security-guide.md)中有提供可用驗證配置的完整詳細資料。 其中包括：
+ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安全地存取具有 Data Lake Storage Gen2 功能的帳戶內所含的資源。 [Azure 儲存體安全性指南](../common/storage-security-guide.md)中有提供可用驗證配置的完整詳細資料。 如下：
 
 - **共用金鑰：** 這允許使用者存取帳戶中的所有資源。 金鑰會加密並儲存於 Hadoop 設定中。
 
@@ -54,11 +54,11 @@ ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安�
 
 適用於 ABFS 驅動程式的所有設定均儲存於 <code>core-site.xml</code> 設定檔中。 在以 [Ambari](https://ambari.apache.org/) \(英文\) 為特色的 Hadoop 發行版本中，也可以使用 Web 入口網站或 Ambari REST API 來管理設定。
 
-所有支援設定項目的詳細資料均指定於 [Hadoop 官方文件](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html) \(英文\) 中。
+所有支援設定項目的詳細資料均指定於 [Hadoop 官方文件](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) \(英文\) 中。
 
 ### <a name="hadoop-documentation"></a>Hadoop 文件
 
-ABFS 驅動程式完整記載於 [Hadoop 官方文件](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html) \(英文\) 中。
+ABFS 驅動程式完整記載於 [Hadoop 官方文件](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) \(英文\) 中。
 
 ## <a name="next-steps"></a>後續步驟
 

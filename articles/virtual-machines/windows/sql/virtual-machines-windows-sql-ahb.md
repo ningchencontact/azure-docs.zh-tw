@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262862"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900700"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**，在 Azure 中變更 SQL Server 虛擬機器（VM）的授權模型。
@@ -31,7 +31,7 @@ ms.locfileid: "71262862"
 
 Azure Hybrid Benefit 允許在 Azure 虛擬機器上使用具有軟體保證（「合格授權」）的 SQL Server 授權。 使用 Azure Hybrid Benefit，客戶不需支付在 VM 上使用 SQL Server 授權的費用。 但它們仍然必須支付基礎雲端計算成本（也就是基本費率）、儲存體和備份的費用。 他們也必須支付與服務使用相關聯的 i/o （如適用）。
 
-根據 Microsoft 產品條款：「客戶必須指出他們在設定時，使用 Azure SQL Database （受控執行個體、彈性集區和單一資料庫）、Azure Data Factory、SQL Server Integration Services 或 SQL Server 虛擬機器的 Azure Hybrid BenefitAzure 上的工作負載。」
+根據 Microsoft 產品條款：「客戶必須指出他們使用 Azure SQL Database （受控執行個體、彈性集區和單一資料庫）、Azure Data Factory、SQL Server Integration Services 或 Azure 下 SQL Server 虛擬機器在 Azure 上設定工作負載時的 SQL Server 混合式權益。
 
 若要指出在 Azure VM 上使用 Azure Hybrid Benefit 進行 SQL Server 並符合規範，您有三個選項：
 
@@ -149,12 +149,12 @@ $SqlVm | Set-AzResource -Force
 
 ## <a name="known-errors"></a>已知錯誤
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>找不到資源\< \<群組「資源群組 >」下的資源 ' microsoft.sqlvirtualmachine/SqlVirtualMachines/資源群組 > '。
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>找不到資源群組 '\<資源群組 > ' 下的資源 ' Microsoft.sqlvirtualmachine/SqlVirtualMachines/\<資源群組 > '。
 當您嘗試在尚未向 SQL VM 資源提供者註冊的 SQL Server VM 上變更授權模型時，就會發生此錯誤：
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-您必須向您的[訂](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription)用帳戶註冊資源提供者，然後向[資源提供者註冊您的 SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md)。 
+您必須向資源提供者註冊您的訂用帳戶，然後向[資源提供者註冊您的 SQL SERVER VM](virtual-machines-windows-sql-register-with-resource-provider.md)。 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>無法驗證參數 'Sku' 上的引數
 嘗試使用4.0 以後的 Azure PowerShell 版本來變更您的 SQL Server VM 授權模型時，可能會遇到此錯誤：
@@ -178,7 +178,7 @@ $SqlVm | Set-AzResource -Force
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱下列文章： 
+如需詳細資訊，請參閱下列文章。 
 
 * [Windows VM 上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Windows VM 上的 SQL Server 常見問題](virtual-machines-windows-sql-server-iaas-faq.md)

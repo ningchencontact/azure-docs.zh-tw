@@ -11,19 +11,19 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 35e768e15aae13376ca6663ed5ca5109cb0a159b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348930"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893539"
 ---
-# <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL 透明資料加密使用 Azure Key Vault 中的客戶管理金鑰：「攜帶您自己的金鑰」支援
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>在 Azure Key Vault 中使用客戶管理的金鑰的 Azure SQL 透明資料加密：攜帶您自己的金鑰支援
 
-與 Azure Key Vault 整合的[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)，可使用客戶管理非對稱金鑰(稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。 這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。  在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以由金鑰保存庫[產生](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)，或者從內部部署 HSM 裝置[轉移](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)到金鑰保存庫。 儲存於資料庫開機頁面上的 TDE DEK，是由儲存在 Azure Key Vault 中的 TDE 保護裝置進行加密和解密，該保護裝置永遠不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL server 對金鑰保存庫的許可權, 將無法存取資料庫, 將會拒絕連線並加密所有資料。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
+與 Azure Key Vault 整合的[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)，可使用客戶管理非對稱金鑰(稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。 這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。  在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以由金鑰保存庫[產生](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)，或者從內部部署 HSM 裝置[轉移](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)到金鑰保存庫。 儲存於資料庫開機頁面上的 TDE DEK，是由儲存在 Azure Key Vault 中的 TDE 保護裝置進行加密和解密，該保護裝置永遠不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL server 對金鑰保存庫的許可權，將無法存取資料庫，將會拒絕連線並加密所有資料。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
 
 > [!NOTE]
-> 適用于 Azure SQL Database 受控執行個體的 Azure Key Vault 整合 (攜帶您自己的金鑰) 透明資料加密處於預覽狀態。
+> 適用于 Azure SQL Database 受控執行個體的 Azure Key Vault 整合（攜帶您自己的金鑰）透明資料加密處於預覽狀態。
 
 
 透過與 Azure Key Vault 整合的 TDE，使用者可以使用 Azure Key Vault 功能來控制金鑰管理工作，包括金鑰輪替、金鑰保存庫權限、金鑰備份，以及啟用所有 TDE 保護裝置的稽核/報告功能。 Key Vault 可提供集中金鑰管理、使用嚴密監控的硬體安全性模組 (HSM)，並能區分管理金鑰和資料的責任，以協助符合安全性原則的合規性。  
@@ -44,28 +44,28 @@ ms.locfileid: "71348930"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 ![伺服器對 Key Vault 的驗證](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
 當 TDE 第一次設定為使用 Key Vault 中的 TDE 保護裝置時，伺服器會將每個已啟用 TDE 的資料庫 DEK 傳送至 Key Vault，以提出包裝金鑰要求。 Key Vault 會傳回加密的資料庫加密金鑰，並儲存在使用者資料庫中。  
 
 > [!IMPORTANT]
-> 請務必留意，**將 TDE 保護裝置儲存於 Azure Key Vault 之後，就絕對不會移出 Azure Key Vault**。 伺服器只能對 Key Vault 內的 TDE 保護裝置金鑰內容傳送金鑰作業要求，且**絕不會存取或快取 TDE 保護裝置**。 Key Vault 系統管理員有權隨時撤銷伺服器的 Key Vault 許可權, 在這種情況下, 資料庫的所有連接都會遭到拒絕。
+> 請務必留意，**將 TDE 保護裝置儲存於 Azure Key Vault 之後，就絕對不會移出 Azure Key Vault**。 伺服器只能對 Key Vault 內的 TDE 保護裝置金鑰內容傳送金鑰作業要求，且**絕不會存取或快取 TDE 保護裝置**。 Key Vault 系統管理員有權隨時撤銷伺服器的 Key Vault 許可權，在這種情況下，資料庫的所有連接都會遭到拒絕。
 
 ## <a name="guidelines-for-configuring-tde-with-azure-key-vault"></a>設定具有 Azure Key Vault 的 TDE
 
 ### <a name="general-guidelines"></a>一般準則
 
 - 確定 Azure Key Vault 和 Azure SQL Database/受控執行個體將會在相同的租用戶中。  目前**不支援**跨租用戶的金鑰保存庫與伺服器互動。
-- 如果您打算移動租使用者, 則必須重新設定 TDE with AKV, 深入瞭解如何[移動資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+- 如果您打算移動租使用者，則必須重新設定 TDE with AKV，深入瞭解如何[移動資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 - 設定具有 Azure Key Vault 的 TDE 時，請務必考量重複的包裝/解除包裝作業對金鑰保存庫造成的負載。 例如，由於與 SQL Database 伺服器相關聯的所有資料庫都使用相同的 TDE 保護裝置，當該伺服器容錯移轉時將會對保存庫觸發金鑰作業，且其數量會和伺服器中有資料庫時一樣多。 根據我們的經驗和文件中的[金鑰保存庫服務限制](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)，我們建議您在單一訂用帳戶中將不超過 500 個標準/一般用途或 200 個進階/業務關鍵資料庫與一個 Azure 金鑰保存庫產生關聯，以確保在存取保存庫中的 TDE 保護裝置時可持續保有高可用性。
-- 建議使用：在內部部署中保存 TDE 保護裝置的複本。  為此，您必須以 HSM 裝置在本機建立 TDE 保護裝置，並以金鑰委付系統儲存 TDE 保護裝置的本機複本。  了解[如何將金鑰從本機 HSM 傳輸至 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)。
+- 建議事項：在內部部署中保存 TDE 保護裝置的複本。  為此，您必須以 HSM 裝置在本機建立 TDE 保護裝置，並以金鑰委付系統儲存 TDE 保護裝置的本機複本。  了解[如何將金鑰從本機 HSM 傳輸至 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)。
 
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>設定 Azure Key Vault 的準則
 
-- 建立已啟用虛[刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)和清除保護的金鑰保存庫, 以防止在意外金鑰或金鑰保存庫刪除時遺失資料。  您必須對金鑰保存庫使用 [PowerShell 啟用「虛刪除」屬性](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) (使用 AKV 入口網站時尚不適用此選項 – 但 Azure SQL 則需要此選項)：  
+- 建立已啟用虛[刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)和清除保護的金鑰保存庫，以防止在意外金鑰或金鑰保存庫刪除時遺失資料。 您必須透過[CLI](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete)或[Powershell](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) ，在金鑰保存庫上啟用「虛刪除」屬性（此選項目前無法從 AKV 入口網站取得，但 Azure SQL 才需要）：  
   - 虛刪除的資源預設會保留 90 天的時間，除非您加以復原或清除。
   - **復原**和**清除**動作在金鑰保存庫存取原則中有自己的相關聯權限。
 - 對金鑰保存庫設定資源鎖定，以控制可刪除這項重要資源的人員，並協助防止意外或未經授權的刪除。  [深入了解資源鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
@@ -75,13 +75,13 @@ ms.locfileid: "71348930"
    > [!NOTE]
    > 如果不小心刪除 Azure AD 身分識別，或使用金鑰保存庫的存取原則**撤銷伺服器的許可權**，或將伺服器移到不同的租使用者，則伺服器會失去金鑰保存庫的存取權，且 TDE 加密的資料庫。將無法存取，而且登入會遭到拒絕，直到邏輯伺服器的 Azure AD 身分識別和許可權還原為止。  
 
-- 搭配 Azure Key Vault 使用防火牆和虛擬網路時, 您必須允許受信任的 Microsoft 服務略過此防火牆。 選擇 [是]。
+- 搭配 Azure Key Vault 使用防火牆和虛擬網路時，您必須允許受信任的 Microsoft 服務略過此防火牆。 選擇 [是]。
 
    > [!NOTE]
-   > 如果 TDE 加密的 SQL 資料庫因為無法略過防火牆而失去對金鑰保存庫的存取權, 則資料庫將無法存取, 而且登入將會遭到拒絕, 直到已還原防火牆略過許可權為止。
+   > 如果 TDE 加密的 SQL 資料庫因為無法略過防火牆而失去對金鑰保存庫的存取權，則資料庫將無法存取，而且登入將會遭到拒絕，直到已還原防火牆略過許可權為止。
 
 - 啟用所有加密金鑰的稽核和報告功能：Key Vault 提供可輕易在其他安全性資訊和事件管理 (SIEM) 工具中插入的記錄。 例如，Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) 即是已整合的服務之一。
-- 為確保加密資料庫的高可用性, 請使用位於不同區域的兩個 Azure Key vault 來設定每個 SQL Database 伺服器。
+- 為確保加密資料庫的高可用性，請使用位於不同區域的兩個 Azure Key vault 來設定每個 SQL Database 伺服器。
 
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>設定 TDE 保護裝置 (非對稱金鑰) 的方針
@@ -99,26 +99,26 @@ ms.locfileid: "71348930"
 - 只要對金鑰進行任何變更 (例如，新增 ACL、新增標記、新增金鑰屬性)，即建立新的備份。
 - 在輪替金鑰時**將舊版保留**在金鑰保存庫中，以便在還原較舊的資料庫備份時使用。 資料庫的 TDE 保護裝置有所變更時，資料庫的舊備份**不會更新**為使用最新的 TDE 保護裝置。  在還原時，每個備份都必須使用它在建立時所使用的 TDE 保護裝置。 您可以依照[使用 PowerShell 輪替透明資料加密保護裝置](transparent-data-encryption-byok-azure-sql-key-rotation.md)中的指示，來執行金鑰輪替。
 - 變更回服務管理的金鑰之後，請將所有先前使用過的金鑰保存在 Azure Key Vault 中。  如此，即可確保能夠使用儲存在 Azure Key Vault 中的 TDE 保護裝置來還原資料庫備份。  在使用服務管理的金鑰建立所有已儲存的備份之前，必須妥善維護以 Azure Key Vault 建立的 TDE 保護裝置。  
-- 使用[AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey), 為這些金鑰建立可復原的備份複本。
+- 使用[AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey)，為這些金鑰建立可復原的備份複本。
 - 若要在安全性事件發生時移除可能遭破壞的金鑰，且不致產生資料遺失風險，請依照[移除可能遭破壞的金鑰](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)中的步驟操作。
 
 ### <a name="guidelines-for-monitoring-the-tde-with-azure-key-vault-configuration"></a>使用 Azure Key Vault 設定來監視 TDE 的指導方針
 
-如果邏輯 SQL server 無法存取 Azure Key Vault 中客戶管理的 TDE 保護裝置, 資料庫將會拒絕所有連線, 並在 Azure 入口網站中顯示為無法存取。  最常見的原因是:
+如果邏輯 SQL server 無法存取 Azure Key Vault 中客戶管理的 TDE 保護裝置，資料庫將會拒絕所有連線，並在 Azure 入口網站中顯示為無法存取。  最常見的原因是：
 - 金鑰保存庫意外刪除或在防火牆後方
 - 金鑰保存庫金鑰意外刪除、已停用或已過期
 - 不小心刪除了邏輯 SQL Server 實例 AppId
 - 已撤銷邏輯 SQL Server 實例 AppId 的主要特定許可權
 
  > [!NOTE]
- > 如果在48小時內還原客戶管理的 TDE 保護裝置的存取權, 資料庫將會自我修復, 而且會自動上線。  如果因為間歇網路中斷而無法存取資料庫, 則不需要採取任何動作, 而且資料庫將會自動復原上線。
+ > 如果在48小時內還原客戶管理的 TDE 保護裝置的存取權，資料庫將會自我修復，而且會自動上線。  如果因為間歇網路中斷而無法存取資料庫，則不需要採取任何動作，而且資料庫將會自動復原上線。
   
-- 如需針對現有設定進行疑難排解的詳細資訊, 請參閱[疑難排解 TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
+- 如需針對現有設定進行疑難排解的詳細資訊，請參閱[疑難排解 TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
 
-- 若要監視資料庫狀態並啟用遺失 TDE 保護裝置存取的警示, 請設定下列 Azure 功能:
-    - [Azure 資源健康狀態](https://docs.microsoft.com/azure/service-health/resource-health-overview)。 當資料庫的第一次連接遭到拒絕之後, 無法存取 TDE 保護裝置的資料庫會顯示為「無法使用」。
-    - [活動記錄](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications)當客戶管理的金鑰保存庫中的 TDE 保護裝置存取失敗時, 會將專案新增至活動記錄。  建立這些事件的警示可讓您儘快恢復存取。
-    - 您可以定義[動作群組](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups), 以根據您的喜好設定 (例如電子郵件/SMS/推播/語音、邏輯應用程式、WEBHOOK、ITSM 或自動化 Runbook) 傳送通知和警示。
+- 若要監視資料庫狀態並啟用遺失 TDE 保護裝置存取的警示，請設定下列 Azure 功能：
+    - [Azure 資源健康狀態](https://docs.microsoft.com/azure/service-health/resource-health-overview)。 當資料庫的第一次連接遭到拒絕之後，無法存取 TDE 保護裝置的資料庫會顯示為「無法使用」。
+    - [活動記錄](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications)當客戶管理的金鑰保存庫中的 TDE 保護裝置存取失敗時，會將專案新增至活動記錄。  建立這些事件的警示可讓您儘快恢復存取。
+    - 您可以定義[動作群組](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)，以根據您的喜好設定（例如電子郵件/SMS/推播/語音、邏輯應用程式、WEBHOOK、ITSM 或自動化 Runbook）傳送通知和警示。
     
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>高可用性、異地複寫和備份/還原
@@ -127,7 +127,7 @@ ms.locfileid: "71348930"
 
 使用 Azure Key Vault 設定高可用性的方式，取決於您的資料庫和 SQL Database 伺服器的組態，以下將分別就兩個不同的案例提供建議的組態。  第一個案例是未設定異地備援的獨立資料庫或 SQL Database 伺服器。  第二個案例是設定了容錯移轉群組或異地備援的資料庫或 SQL Database 伺服器；在此案例中，必須確定每個異地備援複本在容錯移轉群組內都有本機的 Azure Key Vault，以確保異地容錯移轉能夠運作。
 
-在第一個案例中，如果您未設定異地備援的資料庫和 SQL Database 伺服器需要高可用性，強烈建議您將伺服器設定為使用位於不同區域、但具有相同金鑰內容的兩個不同金鑰保存庫。 若要這麼做，請使用與 SQL Database 伺服器共置於相同區域的主要 Key Vault 建立 TDE 保護裝置，然後將金鑰複製到不同 Azure 區域中的金鑰保存庫，如此，萬一主要金鑰保存庫在資料庫已啟動並執行時發生中斷的狀況，伺服器將可存取第二個金鑰保存庫。 使用 AzKeyVaultKey Cmdlet, 從主要金鑰保存庫取出加密格式的金鑰, 然後使用 AzKeyVaultKey Cmdlet, 並在第二個區域中指定金鑰保存庫。
+在第一個案例中，如果您未設定異地備援的資料庫和 SQL Database 伺服器需要高可用性，強烈建議您將伺服器設定為使用位於不同區域、但具有相同金鑰內容的兩個不同金鑰保存庫。 若要這麼做，請使用與 SQL Database 伺服器共置於相同區域的主要 Key Vault 建立 TDE 保護裝置，然後將金鑰複製到不同 Azure 區域中的金鑰保存庫，如此，萬一主要金鑰保存庫在資料庫已啟動並執行時發生中斷的狀況，伺服器將可存取第二個金鑰保存庫。 使用 AzKeyVaultKey Cmdlet，從主要金鑰保存庫取出加密格式的金鑰，然後使用 AzKeyVaultKey Cmdlet，並在第二個區域中指定金鑰保存庫。
 
 ![單一伺服器 HA，無異地災害復原](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
 
@@ -192,15 +192,15 @@ ms.locfileid: "71348930"
 
 請依照[作用中的異地複寫概觀](sql-database-geo-replication-overview.md)中的步驟測試並觸發容錯移轉，此作業應定期執行，以確認 SQL 對這兩個金鑰保存庫的存取權限維持不變。
 
-### <a name="backup-and-restore"></a>備份與還原
+### <a name="backup-and-restore"></a>備份及還原
 
 使用 Key Vault 中的金鑰以 TDE 加密資料庫後，所產生的任何備份也會使用相同的 TDE 保護裝置進行加密。
 
 若要從 Key Vault 還原以 TDE 保護裝置加密的備份，請確定金鑰內容仍在原始的保存庫中，且金鑰名稱保持不變。 資料庫的 TDE 保護裝置有所變更時，資料庫的舊備份**不會更新**為使用最新的 TDE 保護裝置。 因此，建議您將所有舊版的 TDE 保護裝置保存在 Key Vault 中，以便在還原資料庫備份時使用。
 
-如果還原備份所需的金鑰已不在原本的金鑰保存庫中，則會傳回下列錯誤訊息：「目標伺服器`<Servername>`無法存取在時間戳記 #1 之間\<建立的所有 AKV uri > 和\<時間戳記 #2 >。 請先還原所有的 AKV URI，再重試作業。」
+如果還原備份所需的金鑰已不在其原始金鑰保存庫中，則會傳回下列錯誤訊息：「目標伺服器 `<Servername>` 無法存取在 \<時間戳記 #1 > 和 \<時間戳記 #2 之間建立的所有 AKV Uri >. 請先還原所有的 AKV URI，再重試作業。」
 
-若要減輕此問題, 請執行[AzSqlServerKeyVaultKey 指令程式](/powershell/module/az.sql/get-azsqlserverkeyvaultkey), 從已新增至伺服器的 Key Vault 中傳回金鑰清單 (除非使用者已將其刪除)。 為確保所有備份均可還原，請確定備份的目標伺服器有權存取前述所有的金鑰。
+若要減輕此問題，請執行[AzSqlServerKeyVaultKey 指令程式](/powershell/module/az.sql/get-azsqlserverkeyvaultkey)，從已新增至伺服器的 Key Vault 中傳回金鑰清單（除非使用者已將其刪除）。 為確保所有備份均可還原，請確定備份的目標伺服器有權存取前述所有的金鑰。
 
 ```powershell
 Get-AzSqlServerKeyVaultKey `

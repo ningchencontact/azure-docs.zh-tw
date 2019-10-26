@@ -1,59 +1,58 @@
 ---
-title: .NET 應用程式的 azure Application Insights 快照集偵錯工具升級 |Microsoft Docs
-description: 如何升級 Azure App Service，或透過 Nuget 套件的最新版本的快照集偵錯工具
-services: application-insights
-author: MarioHewardt
-manager: carmonm
-ms.service: application-insights
+title: 適用于 .NET 應用程式的 Azure 應用程式 Insights 快照偵錯工具升級 |Microsoft Docs
+description: 如何將快照偵錯工具升級至 Azure App 服務上的最新版本，或透過 Nuget 套件
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/28/2019
+author: MarioHewardt
 ms.author: marioh
+ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2dcf719e6c276c5641dc4c0040d8d7a808eeb3f2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e2b21b7cbb6b04da0c93e73c0cacb8a05c338bde
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706376"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899842"
 ---
-# <a name="upgrading-the-snapshot-debugger"></a>升級快照集偵錯工具
+# <a name="upgrading-the-snapshot-debugger"></a>升級快照偵錯工具
 
-若要為您的資料提供最佳的可能安全性，Microsoft 是移動離開 TLS 1.0 和 TLS 1.1 能夠很容易受到攻擊者。 如果您使用較舊版本的網站延伸模組，它將需要升級才能繼續作業。 本文件概述升級為最新版本的快照集偵錯工具所需的步驟。 如果您已啟用快照集偵錯工具使用的網站延伸模組，或如果您使用 SDK/Nuget 新增至您的應用程式，則需要有取決於兩個主要的升級路徑。 下面會討論這兩個升級的路徑。 
+為了為您的資料提供最佳的安全性，Microsoft 將從 TLS 1.0 和 TLS 1.1 中移出，這會被視為容易受到判斷攻擊者的攻擊。 如果您使用的是較舊版本的網站延伸模組，則需要升級才能繼續運作。 本檔概述將快照偵錯工具升級至最新版本所需的步驟。 根據您是使用網站擴充功能來啟用快照偵錯工具，還是使用已新增至應用程式的 SDK/Nuget，會有兩個主要的升級路徑。 以下將討論這兩種升級路徑。 
 
 ## <a name="upgrading-the-site-extension"></a>升級網站延伸模組
 
-如果您啟用快照集偵錯工具使用網站擴充功能，您可以輕鬆地升級使用下列程序：
+如果您使用網站延伸模組來啟用快照偵錯工具，您可以使用下列程式輕鬆地升級：
 
 1. 登入 Azure 入口網站。
-2. 瀏覽至您的 Application Insights 快照偵錯工具啟用的資源。 例如，Web 應用程式中，瀏覽至 App Service 資源：
+2. 流覽至已啟用 Application Insights 和快照偵錯工具的資源。 例如，針對 Web 應用程式，流覽至 App Service 資源：
 
-   ![個別的 App Service 資源的螢幕擷取畫面，名為 「 DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
+   ![名為 DiagService01 之個別 App Service 資源的螢幕擷取畫面](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. 一旦您巡覽至您的資源，在 [概觀] 刀鋒視窗中按一下 Application Insights:
+3. 導覽至您的資源之後，請按一下 [總覽] 分頁中的 [Application Insights]：
 
-   ![三個按鈕的螢幕擷取畫面。 使用名稱 Application Insights 的 [中央] 按鈕已選取](./media/snapshot-debugger-upgrade/application-insights-button.png)
+   ![三個按鈕的螢幕擷取畫面。 已選取 名稱為 Application Insights 的置中按鈕](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. 新的刀鋒視窗會開啟與目前的設定。 除非您想要利用這個機會來變更您的設定，您可以保留現狀。 **套用**預設不啟用 [] 刀鋒視窗底部的按鈕，您必須切換設定，以啟動按鈕的其中一個。 您不需要變更任何實際的設定，而不是您可以在 變更設定，並回立即變更它。 我們建議您切換設定，然後選取 Profiler**套用**。
+4. 隨即開啟新的分頁，其中包含目前的設定。 除非您想要變更設定的機會，否則您可以將其保持原狀。 預設不會啟用分頁底部**的 [套用] 按鈕，而且**您必須切換其中一個設定來啟動按鈕。 您不需要變更任何實際的設定，而可以變更設定，然後立即將其變更回來。 建議您切換 Profiler 設定，**然後選取 [** 套用]。
 
-   ![「 以紅色反白顯示的 [套用] 按鈕的螢幕擷取畫面的 Application Insights 應用程式服務設定頁面](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
+   ![Application Insights App Service 設定頁面的螢幕擷取畫面，並以紅色反白顯示 [套用] 按鈕](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-5. 一旦您按一下**套用**，系統會要求您確認變更。
+5. **按一下 [** 套用] 之後，系統會要求您確認變更。
 
     > [!NOTE]
-    > 站台將會重新啟動升級程序的一部分。
+    > 此網站將會在升級過程中重新開機。
 
-   ![螢幕擷取畫面的 App Service 的適用於監視的提示字元。 文字方塊會顯示訊息：」 我們會立即將變更套用至您的應用程式設定並安裝我們的工具連結至 web 應用程式的 Application Insights 資源。 這會重新啟動站台。 您要繼續嗎？](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![App Service 的套用監視提示的螢幕擷取畫面。 文字方塊會顯示訊息：「我們現在會將變更套用至您的應用程式設定，並安裝我們的工具，以將您的 Application Insights 資源連結到 web 應用程式。 這會重新開機網站。 您要繼續嗎？](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-6. 按一下 **是**以套用變更。 在程序期間會顯示正在套用變更出現通知：
+6. 按一下 **[是]** 以套用變更。 在過程中，將會出現通知，顯示正在套用的變更：
 
-   ![套用變更-正在更新延伸模組的訊息，會出現在右上角的螢幕擷取畫面](./media/snapshot-debugger-upgrade/updating-extensions.png)
+   ![顯示于右上角的 [套用變更-更新延伸模組] 訊息的螢幕擷取畫面](./media/snapshot-debugger-upgrade/updating-extensions.png)
 
-一旦完成之後， **"的變更會套用 「** 會出現通知。
+完成後，將會出現「套用**變更**」通知。
 
-   ![套用的訊息，指出變更螢幕擷取畫面](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+   ![說明套用變更之訊息的螢幕擷取畫面](./media/snapshot-debugger-upgrade/changes-are-applied.png)
 
-網站現在已升級，並且可供使用。
+網站現已升級，並可供使用。
 
-## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>升級使用 SDK/Nuget 的快照集偵錯工具
+## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>使用 SDK/Nuget 升級快照偵錯工具
 
-如果應用程式使用新版`Microsoft.ApplicationInsights.SnapshotCollector`下方 1.3.1 版，它必須升級至[新版](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)繼續運作。
+如果應用程式使用的版本 `Microsoft.ApplicationInsights.SnapshotCollector` 低於版本1.3.1，則必須將它升級為[較新的版本](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)，才能繼續運作。

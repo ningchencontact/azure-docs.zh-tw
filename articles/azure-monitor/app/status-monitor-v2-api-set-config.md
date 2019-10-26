@@ -1,23 +1,18 @@
 ---
-title: Azure 應用程式 Insights 代理程式 API 參考：設定 config |Microsoft Docs
+title: Azure 應用程式 Insights 代理程式 API 參考
 description: Application Insights 代理程式 API 參考。 ApplicationInsightsMonitoringConfig。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: 2ab941b5587a8836f1e472fbce3966b12bfa1e11
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: d90739fbdc862d67dc2ce0f1dfdf5af5f4089a44
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388247"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899664"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>Application Insights 代理程式 API： ApplicationInsightsMonitoringConfig
 
@@ -44,7 +39,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ### <a name="example-with-an-instrumentation-key-map"></a>含檢測金鑰組應的範例
 在此範例中：
 - `MachineFilter` 會使用 `'.*'` 萬用字元來符合目前的電腦。
-- `AppFilter='WebAppExclude'` 提供 @no__t 1 的檢測金鑰。 將不會檢測指定的應用程式。
+- `AppFilter='WebAppExclude'` 提供 `null` 的檢測金鑰。 將不會檢測指定的應用程式。
 - `AppFilter='WebAppOne'` 會為指定的應用程式指派唯一的檢測金鑰。
 - `AppFilter='WebAppTwo'` 會為指定的應用程式指派唯一的檢測金鑰。
 - 最後，`AppFilter` 也會使用 `'.*'` 萬用字元來比對先前規則不符合的所有 web 應用程式，並指派預設的檢測金鑰。

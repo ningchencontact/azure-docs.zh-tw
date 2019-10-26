@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器中的監視解決方案 | Microsoft Docs
 description: Azure 監視器中的監視解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。  本文提供有關安裝及使用監視解決方案的資訊。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 08/13/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.date: 08/13/2019
+ms.openlocfilehash: 4006a3c66da9cb98db16b72da0b5fb7059affe22
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989186"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900650"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure 監視器中的監視解決方案
 監視解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中監視解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
@@ -41,7 +35,7 @@ ms.locfileid: "68989186"
 1. 使用畫面頂端的下拉式清單方塊，來變更針對圖格所使用的工作區或時間範圍。
 1. 按一下解決方案的圖格以開啟其檢視，其中包含所收集資料的更詳細分析。
 
-![總覽](media/solutions/overview.png)
+![概觀](media/solutions/overview.png)
 
 監視解決方案可以包含多種的 Azure 資源，而您可以檢視解決方案隨附的任何資源，就像任何其他資源一樣。 例如，解決方案中包含的任何記錄查詢都會列在 [查詢總管](../log-query/get-started-portal.md#load-queries) 中的 [解決方案查詢] 下方。您在使用[記錄查詢](../log-query/log-query-overview.md) 執行臨機操作分析時，使用那些查詢。
 
@@ -69,7 +63,7 @@ ms.locfileid: "68989186"
 1. 流覽或搜尋解決方案。 您也可以從[這個搜尋連結](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)流覽解決方案。
 1. 找出您想要的監視解決方案，然後完整閱讀它的描述。
 1. 按一下 [建立] 以啟動安裝程序。
-1. 當安裝程式開始時, 系統會提示您指定 Log Analytics 工作區, 並提供解決方案的任何必要設定。
+1. 當安裝程式開始時，系統會提示您指定 Log Analytics 工作區，並提供解決方案的任何必要設定。
 
 ![安裝解決方案](media/solutions/install-solution.png)
 

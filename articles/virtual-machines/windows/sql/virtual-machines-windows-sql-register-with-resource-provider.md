@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 433480b4a587b3a085c3b1c0ba4122ae98eb4508
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756213"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897724"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 虛擬機器
 
@@ -246,9 +246,9 @@ SQL Server IaaS 延伸模組有三個免費的管理模式：
   ```
 ---
 
-## <a name="register-the-sql-vm-resource-provider-with-a-subscription"></a>向訂用帳戶註冊 SQL VM 資源提供者 
+## <a name="register-subscription-with-rp"></a>向 RP 註冊訂用帳戶
 
-若要向 SQL VM 資源提供者註冊您的 SQL Server VM，您必須向您的訂用帳戶註冊資源提供者。 您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來執行此動作。
+若要向 SQL VM 資源提供者註冊您的 SQL Server VM，您必須先向資源提供者註冊您的訂用帳戶。  您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來執行此動作。
 
 ### <a name="azure-portal"></a>Azure Portal
 

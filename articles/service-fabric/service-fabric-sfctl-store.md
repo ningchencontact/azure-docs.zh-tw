@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI- sfctl store | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl store 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: ccd9e8323f6e0de7b81c7600e7828e4858c51201
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e8a085c4aa6df34441f22da5542231999930d89f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035865"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900951"
 ---
 # <a name="sfctl-store"></a>sfctl store
 在叢集映像存放區上執行基本檔案層級作業。
@@ -27,7 +28,7 @@ ms.locfileid: "69035865"
 
 |命令|描述|
 | --- | --- |
-| 刪除 | 刪除現有映像存放區內容。 |
+| delete | 刪除現有映像存放區內容。 |
 | root-info | 取得映像存放區根的內容資訊。 |
 | stat | 取得映像存放區內容資訊。 |
 
@@ -41,7 +42,7 @@ ms.locfileid: "69035865"
 |引數|描述|
 | --- | --- |
 | --content-path [必要] | 映像存放區中檔案或資料夾與其根的相對路徑。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -62,7 +63,7 @@ ms.locfileid: "69035865"
 
 |引數|描述|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -84,7 +85,7 @@ ms.locfileid: "69035865"
 |引數|描述|
 | --- | --- |
 | --content-path [必要] | 映像存放區中檔案或資料夾與其根的相對路徑。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 

@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI - sfctl compose | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl compose 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: dab844246d99b0ab80e1e86219c2064c79e74e4f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 561616fca7401f5251c4fbac67173260a665b602
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035107"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901660"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 建立、刪除和管理 Docker Compose 應用程式。
@@ -27,11 +28,11 @@ ms.locfileid: "69035107"
 
 |命令|描述|
 | --- | --- |
-| 建立 | 建立 Service Fabric Compose 部署。 |
-| 清單 | 取得在 Service Fabric 叢集中建立的 Compose 部署清單。 |
-| 移除 | 從叢集刪除現有的 Service Fabric Compose 部署。 |
-| 狀態 | 取得 Service Fabric Compose 部署的相關資訊。 |
-| upgrade | 開始升級 Service Fabric 叢集中的 Compose 部署。 |
+| create | 建立 Service Fabric Compose 部署。 |
+| list | 取得在 Service Fabric 叢集中建立的 Compose 部署清單。 |
+| remove | 從叢集刪除現有的 Service Fabric Compose 部署。 |
+| status | 取得 Service Fabric Compose 部署的相關資訊。 |
+| 升級 | 開始升級 Service Fabric 叢集中的 Compose 部署。 |
 | upgrade-rollback | 可開始復原 Service Fabric 叢集中的 Compose 部署升級。 |
 | upgrade-status | 取得在此 Service Fabric Compose 部署上執行的最新升級詳細資料。 |
 
@@ -46,7 +47,7 @@ ms.locfileid: "69035107"
 | --file-path       [必要] | 目標 Docker Compose 檔案的路徑。 |
 | --encrypted-pass | 使用已經加密的複雜密碼，而不提示輸入容器登錄密碼。 |
 | --has-pass | 將提示輸入容器登錄的密碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 預設值\: 60。 |
 | --user | 連線到容器登錄的使用者名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -70,7 +71,7 @@ ms.locfileid: "69035107"
 | --- | --- |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
 | --max-results | 分頁式查詢時傳回的最大結果數目。 此參數定義傳回結果數目的上限。 根據設定中所定義的訊息大小限制上限，如果所傳回的結果無法放入訊息中，則它們可以小於指定的結果上限。 如果此參數為零或未指定，則分頁式查詢會在傳回訊息中盡可能包含較多結果。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -92,7 +93,7 @@ ms.locfileid: "69035107"
 |引數|描述|
 | --- | --- |
 | --deployment-name [必要] | 部署的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -114,7 +115,7 @@ ms.locfileid: "69035107"
 |引數|描述|
 | --- | --- |
 | --deployment-name [必要] | 部署的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -147,7 +148,7 @@ ms.locfileid: "69035107"
 | --health-check-wait | 完成升級網域之後，在開始健康情況檢查流程之前，要等待的時間長度。 |
 | --replica-set-check | 發生非預期問題時，封鎖處理升級網域並防止遺失可用性的時間長度上限。 <br><br> 此逾時過期時，無論是否發生可用性遺失問題，升級網域的處理都將繼續。 逾時會在每個升級網域啟動時重設。 有效值介於 0 到 42949672925 (含) 之間。 |
 | --svc-type-health-map | 針對用來評估各種不同服務類型健康情況的健康原則，描述這些原則的物件 JSON 編碼清單。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 預設值\: 60。 |
 | --unhealthy-app | 在報告錯誤之前，允許健康情況不良應用程式的最大百分比。 <br><br> 例如，若要允許 10% 的應用程式健康情況不良，這個值會是 10。 百分比表示在系統將叢集視為錯誤之前，容許應用程式健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的應用程式，則健康情況會評估為 Warning。 其計算方式是將狀況不良的應用程式數目，除以叢集中應用程式執行個體的總數。 |
 | --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
 | --upgrade-kind | 預設值\:Rolling。 |
@@ -176,7 +177,7 @@ ms.locfileid: "69035107"
 |引數|描述|
 | --- | --- |
 | --deployment-name [必要] | 部署的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -198,7 +199,7 @@ ms.locfileid: "69035107"
 |引數|描述|
 | --- | --- |
 | --deployment-name [必要] | 部署的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 執行作業的伺服器超時（以秒為單位）。 這個超時時間會指定用戶端願意等待要求的作業完成的持續期間。 此參數的預設值為60秒。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 

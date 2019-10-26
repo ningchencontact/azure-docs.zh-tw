@@ -1,26 +1,20 @@
 ---
 title: 在 Visual Studio 中使用 Azure Application Insights 進行應用程式偵錯 | Microsoft Docs
 description: 偵錯期間和生產環境中的 Web 應用程式效能分析與診斷。
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/07/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 1b2f429129c0bb9098f4f5029cb07ce06bc5db13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/07/2017
+ms.reviewer: mbullwin
+ms.custom: vs-azure
+ms.openlocfilehash: 32596b058918d3a8859dc356f8f0b1223b7f755a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255124"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899286"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>在 Visual Studio 中使用 Azure Application Insights 進行應用程式偵錯
 在 Visual Studio (2015 和更新版本) 中，您可以使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遙測，在偵錯時和在生產環境中分析 ASP.NET Web 應用程式的效能並診斷問題。
@@ -80,7 +74,7 @@ ms.locfileid: "66255124"
 ## <a name="trends"></a>趨勢
 趨勢是用來將應用程式一段時間內行為方式進行視覺化的工具。 
 
-從 Application Insights 工具列按鈕或 [Application Insights 搜尋] 視窗選擇 [探索遙測趨勢]  。 選擇五種常見查詢的其中一個，以便開始使用。 您可以根據遙測類型、時間範圍和其他屬性，分析不同的資料集。 
+從 Application Insights 工具列按鈕或 [Application Insights 搜尋] 視窗選擇 [探索遙測趨勢] 。 選擇五種常見查詢的其中一個，以便開始使用。 您可以根據遙測類型、時間範圍和其他屬性，分析不同的資料集。 
 
 若要尋找資料中的異常狀況，請選擇 [檢視類型] 下拉式清單底下的其中一個異常選項。 視窗底部的篩選選項可讓您輕鬆地全神貫注於特定的遙測子集。
 
@@ -95,10 +89,10 @@ ms.locfileid: "66255124"
 
 如果您在將遙測傳送至入口網站之前有一些 [自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md) 想要偵錯，它也很有用。
 
-* 首先，我完全設定 Application Insights 將遙測傳送至入口網站。  但是現在我只想要查看在 Visual Studio 中的遙測。
+* *一開始，我已完全設定 Application Insights 以將遙測傳送至入口網站。但是現在我只想要在 Visual Studio 中看到遙測。*
   
   * 在 [搜尋] 視窗的 [設定] 中，即使您的應用程式將遙測傳送至入口網站，也有選項可搜尋本機診斷。
-  * 若要停止將遙測傳送至入口網站，請將 ApplicationInsights.config 中的 `<instrumentationkey>...` 程式行註解化。當您準備再次將遙測傳送至入口網站時，請取消註解。
+  * 若要停止將遙測傳送至入口網站，請從 ApplicationInsights 將該行 `<instrumentationkey>...` 批註。當您準備好要再次將遙測資料傳送至入口網站時，請將它取消批註。
 
 
 ## <a name="next-steps"></a>後續步驟

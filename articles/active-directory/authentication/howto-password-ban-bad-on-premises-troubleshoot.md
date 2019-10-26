@@ -4,19 +4,19 @@ description: 瞭解 Azure AD 的密碼保護一般疑難排解
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 62395b0b6f1ed152292106a774c1e2f7c6d4f11f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314923"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893277"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 密碼保護的疑難排解
 
@@ -40,7 +40,7 @@ ms.locfileid: "71314923"
 
 1. Proxy 主機電腦封鎖了對 Proxy 服務接聽的 RPC 端點（動態或靜態）的存取
 
-   Azure AD 密碼保護 Proxy 安裝程式會自動建立 Windows 防火牆輸入規則，以允許存取由 Azure AD 的密碼保護 Proxy 服務所接聽的任何輸入埠。 如果稍後刪除或停用此規則，DC 代理程式將無法與 Proxy 服務進行通訊。 如果已停用內建 Windows 防火牆代替另一個防火牆產品，您必須將該防火牆設定為允許存取由 Azure AD 密碼保護 Proxy 服務所接聽的任何輸入埠。 如果 Proxy 服務已設定為在特定靜態 RPC 埠（使用`Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet）接聽，則此設定可能會更具體。
+   Azure AD 密碼保護 Proxy 安裝程式會自動建立 Windows 防火牆輸入規則，以允許存取由 Azure AD 的密碼保護 Proxy 服務所接聽的任何輸入埠。 如果稍後刪除或停用此規則，DC 代理程式將無法與 Proxy 服務進行通訊。 如果已停用內建 Windows 防火牆代替另一個防火牆產品，您必須將該防火牆設定為允許存取由 Azure AD 密碼保護 Proxy 服務所接聽的任何輸入埠。 如果 Proxy 服務已設定為在特定靜態 RPC 埠（使用 `Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet）接聽，則此設定可能會更具體。
 
 1. Proxy 主機電腦未設定為允許網域控制站登入電腦。 此行為是透過 [從網路存取這台電腦] 使用者權限指派來控制。 樹系中所有網域的所有網域控制站都必須被授與此許可權。 這項設定通常會被限制為較大網路強化工作的一部分。
 
@@ -50,9 +50,9 @@ ms.locfileid: "71314923"
 
 1. 請確定樹系和所有 proxy 伺服器都已針對相同的 Azure 租使用者註冊。
 
-   您可以藉由`Get-AzureADPasswordProtectionProxy`執行和`Get-AzureADPasswordProtectionDCAgent` PowerShell Cmdlet 來檢查此需求，然後比較`AzureTenant`每個傳回專案的屬性。 若要正確操作，報告的租使用者名稱在所有 DC 代理程式和 proxy 伺服器上都必須相同。
+   您可以藉由執行 `Get-AzureADPasswordProtectionProxy` 並 `Get-AzureADPasswordProtectionDCAgent` PowerShell Cmdlet 來檢查此需求，然後比較每個傳回專案的 `AzureTenant` 屬性。 若要正確操作，報告的租使用者名稱在所有 DC 代理程式和 proxy 伺服器上都必須相同。
 
-   如果 Azure 租使用者註冊不符條件存在，您可以視需要執行`Register-AzureADPasswordProtectionProxy`和/或`Register-AzureADPasswordProtectionForest` PowerShell Cmdlet 來修正此問題，並務必使用來自相同 Azure 租使用者的認證來進行所有註冊。
+   如果 Azure 租使用者註冊不符條件存在，您可以視需要執行 `Register-AzureADPasswordProtectionProxy` 和/或 `Register-AzureADPasswordProtectionForest` PowerShell Cmdlet 來修正此問題，並務必使用來自相同 Azure 租使用者的認證來進行所有註冊。
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC 代理程式無法加密或解密密碼原則檔案
 
@@ -166,7 +166,7 @@ No further messages will be logged until after the next reboot.
 > [!IMPORTANT]
 > Microsoft 建議過期的公用預覽 DC 代理程式立即升級至最新版本。
 
-在您的環境中探索需要升級的 DC 代理程式的簡單方法，就是`Get-AzureADPasswordProtectionDCAgent`執行 Cmdlet，例如：
+在您的環境中探索需要升級的 DC 代理程式的簡單方法，就是執行 `Get-AzureADPasswordProtectionDCAgent` Cmdlet，例如：
 
 ```powershell
 PS C:\> Get-AzureADPasswordProtectionDCAgent

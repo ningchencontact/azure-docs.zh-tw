@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI- sfctl mesh secret | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl mesh secret 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5e58e6a401cc166c176dc465d58ba9e8a8ed83b0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 706f3250236bf7cab591530c1cefba8e503225fe
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035972"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901195"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 取得和刪除 mesh 秘密資源。
@@ -27,8 +28,8 @@ ms.locfileid: "69035972"
 
 |命令|描述|
 | --- | --- |
-| 刪除 | 刪除秘密資源。 |
-| 清單 | 列出所有秘密資源。 |
+| delete | 刪除秘密資源。 |
+| list | 列出所有秘密資源。 |
 | 顯示 | 取得指定名稱的秘密資源。 |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl mesh secret delete
@@ -40,7 +41,7 @@ ms.locfileid: "69035972"
 
 |引數|描述|
 | --- | --- |
-| --name -n [必要] | 秘密的名稱。 |
+| --name -n [必要] | 祕密資源的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -76,7 +77,7 @@ ms.locfileid: "69035972"
 
 |引數|描述|
 | --- | --- |
-| --name -n [必要] | 秘密的名稱。 |
+| --name -n [必要] | 祕密資源的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 

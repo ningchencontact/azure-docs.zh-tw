@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828167"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893930"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>建立 CloudSimple 私用雲端
 
@@ -31,6 +31,16 @@ ms.locfileid: "71828167"
 
 當您建立私人雲端時，您會取得單一 vSphere 叢集，以及在該叢集中建立的所有管理 Vm。
 
+## <a name="before-you-begin"></a>開始之前
+
+您必須先布建節點，才能建立私人雲端。 如需布建節點的詳細資訊，請參閱[CloudSimple 的 Azure VMware 解決方案](create-nodes.md)布建節點。
+
+為私人雲端的 vSphere/vSAN 子網配置 CIDR 範圍。 私用雲端是以隔離的 VMware 堆疊環境（具有 ESXi 主機、vCenter、vSAN 和 NSX）來建立，並由 vCenter server 管理。 管理元件會部署在為 vSphere/vSAN 子網 CIDR 選取的網路中。 在部署期間，網路 CIDR 範圍會分成不同的子網。 VSphere/vSAN 子網位址空間必須是唯一的。 它不得與任何與 CloudSimple 環境通訊的網路重迭。 與 CloudSimple 通訊的網路包括內部部署網路和 Azure 虛擬網路。 如需有關 vSphere/vSAN 子網的詳細資訊，請參閱 Vlan 和子網總覽。
+
+* 最小 vSphere/vSAN 子網 CIDR 範圍前置詞：/24
+* 最大 vSphere/vSAN 子網 CIDR 範圍前置詞：/21
+
+
 ## <a name="access-the-cloudsimple-portal"></a>存取 CloudSimple 入口網站
 
 存取[CloudSimple 入口網站](access-cloudsimple-portal.md)。
@@ -46,12 +56,12 @@ ms.locfileid: "71828167"
 
 5. 在 CloudSimple 入口網站中，提供私人雲端的 [名稱]。
 6. 選取私人雲端的 [**位置**]。
-7. 選取 [**節點類型**]，與您在 Azure 上購買的內容一致。
+7. 選取 [**節點類型**]，與您在 Azure 上布建的內容一致。
 8. 指定**節點計數**。  至少需要三個節點，才能建立私人雲端。
 
     ![建立私用雲端-基本資訊](media/create-private-cloud-basic-info.png)
 
-9. 按一下 **下一步Advanced 選項**。
+9. 按 **[下一步： Advanced Options]** 。
 10. 輸入 vSphere/vSAN 子網的 CIDR 範圍。 請確定 CIDR 範圍不會與您的任何內部部署或其他 Azure 子網（虛擬網路）或閘道子網重迭。
 
     **CIDR 範圍選項：** /24、/23、/22 或/21。 A/24 CIDR 範圍最多支援9個節點，/23 CIDR 範圍最多支援41節點，而/22 和/21 CIDR 範圍最多可支援64個節點（私用雲端中的節點數目上限）。
@@ -59,7 +69,7 @@ ms.locfileid: "71828167"
     > [!IMPORTANT]
     > VSphere/vSAN CIDR 範圍中的 IP 位址會保留供私人雲端基礎結構使用。  請勿在任何虛擬機器上使用此範圍內的 IP 位址。
 
-11. 按一下 **下一步審查和建立**。
+11. 按 **[下一步]： [審查並建立]** 。
 12. 檢查設定。 如果您需要變更任何設定，請按一下 [**上一步**]。
 13. 按一下 [建立]。
 

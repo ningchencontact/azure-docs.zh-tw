@@ -1,33 +1,27 @@
 ---
-title: Azure 監視器中的容量和效能解決方案 |Microsoft Docs
-description: 使用監視器 」 中的容量和效能解決方案，協助您了解 HYPER-V 伺服器的容量。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Azure 監視器中的容量與效能解決方案 |Microsoft Docs
+description: 使用 監視 中的 容量與效能解決方案，協助您瞭解 Hyper-v 伺服器的容量。
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/13/2017
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2017
+ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101909"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899067"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>規劃 HYPER-V 虛擬機器容量的容量和效能解決方案 （已過時） 使用
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>使用容量與效能解決方案規劃 Hyper-v 虛擬機器容量（已淘汰）
 
 ![容量與效能符號](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > 容量與效能解決方案已取代。  已安裝此解決方案的客戶可以繼續使用，但無法將「容量與效能」加入任何新的工作區。
 
-您可以使用監視器 」 中的容量和效能解決方案可協助您了解 HYPER-V 伺服器的容量。 這個解決方案可顯示主機以及在這些 Hyper-V 主機上執行之 VM 的整體使用率 (CPU、記憶體和磁碟)，以讓您深入了解 Hyper-V 環境。 系統會跨所有主機和在其上執行的 VM 來收集 CPU、記憶體和磁碟的計量。
+您可以使用 [監視] 中的容量與效能解決方案，協助您瞭解 Hyper-v 伺服器的容量。 這個解決方案可顯示主機以及在這些 Hyper-V 主機上執行之 VM 的整體使用率 (CPU、記憶體和磁碟)，以讓您深入了解 Hyper-V 環境。 系統會跨所有主機和在其上執行的 VM 來收集 CPU、記憶體和磁碟的計量。
 
 此解決方案：
 
@@ -79,7 +73,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 當容量和效能解決方案更新時，其版本號碼也會變更。
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 
 ## <a name="using-the-solution"></a>使用解決方案
 
@@ -90,7 +84,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 ### <a name="review-utilization"></a>檢閱使用率
 
-按一下 [容量和效能] 圖格，即可開啟 [容量和效能] 儀表板。 此儀表板包含下表中的資料行。 每個資料行最多會列出十個符合該資料行中指定範圍和時間範圍之準則的項目。 您可以按一下資料行底部的 [查看全部]  ，或按一下資料行標頭，以執行記錄檔搜尋來傳回所有記錄。
+按一下 [容量和效能] 圖格，即可開啟 [容量和效能] 儀表板。 此儀表板包含下表中的資料行。 每個資料行最多會列出十個符合該資料行中指定範圍和時間範圍之準則的項目。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄檔搜尋來傳回所有記錄。
 
 - **主機**
     - **主機 CPU 使用率** 根據所選時段以圖表顯示主機電腦的 CPU 使用率趨勢和主機清單。 將滑鼠暫留在折線圖上，可檢視特定時間點的詳細資料。 按一下折線圖可在記錄搜尋中檢視更多詳細資料。 按一下任何主機名稱可開啟記錄搜尋並檢視所裝載 VM 的 CPU 計數器詳細資料。
@@ -119,7 +113,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 總結來說，解決方案會從各種來源 (包括效能計數器) 收集容量和效能資料。 請使用解決方案中的各種介面所呈現的容量和效能資料，並將您的結果與[測量 Hyper-V 上的效能](https://msdn.microsoft.com/library/cc768535.aspx)文章中的結果做比較。 雖然該文章已發佈一段時間，但其計量、考量和指導方針仍然有效。 該文章包含其他有用資源的連結。
 
 
-## <a name="sample-log-searches"></a>記錄搜尋範例
+## <a name="sample-log-searches"></a>記錄檔搜尋範例
 
 下表提供此解決方案所收集和計算之容量和效能資料的記錄搜尋範例。
 

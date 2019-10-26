@@ -1,24 +1,19 @@
 ---
 title: 針對您的 Azure 應用程式 Insights 可用性測試進行疑難排解 |Microsoft Docs
 description: 針對 Azure 應用程式 Insights 中的 web 測試進行疑難排解。 如果網站無法使用或回應緩慢，將收到警示。
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.author: lagayhar
-ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695047"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899534"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -48,7 +43,7 @@ ms.locfileid: "71695047"
 
 |徵兆/錯誤訊息| 可能的原因| 可能的解決方式 |
 |----|---------|-----|
-|伺服器已認可通訊協定違規。 Section = ResponseHeader Detail = CR 後面必須接著 LF | 偵測到不正確的標頭時，就會發生這種情況 具體而言，某些標頭可能不會使用 CRLF 來指出行尾，這違反了 HTTP 規格。 Application Insights 會強制執行此 HTTP 規格，並以格式不正確的標頭回應失敗。| a. 請洽詢網站主機提供者/CDN 提供者，以修正故障的伺服器。 <br> b. 如果失敗的要求是資源（例如樣式檔案、影像、腳本），您可以考慮停用相依要求的剖析。 請記住，如果這麼做，您將無法監視這些檔案的可用性）。
+|伺服器已認可通訊協定違規。 Section = ResponseHeader Detail = CR 後面必須接著 LF | 偵測到不正確的標頭時，就會發生這種情況 具體而言，某些標頭可能不會使用 CRLF 來指出行尾，這違反了 HTTP 規格。 Application Insights 會強制執行此 HTTP 規格，並以格式不正確的標頭回應失敗。| a. 請洽詢網站主機提供者/CDN 提供者，以修正故障的伺服器。 <br> b.這是另一個 C# 主控台應用程式。 如果失敗的要求是資源（例如樣式檔案、影像、腳本），您可以考慮停用相依要求的剖析。 請記住，如果這麼做，您將無法監視這些檔案的可用性）。
 
 > [!NOTE]
 > 在 HTTP 標頭驗證寬鬆的瀏覽器上，此 URL 可能不會失敗。 如需問題的詳細說明，請參閱此部落格文章： http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
@@ -57,7 +52,7 @@ ms.locfileid: "71695047"
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>網站看起來沒問題，但我看到測試失敗嗎？ 為什麼 Application Insights 提醒我？
 
-   * 您的測試是否已啟用「**剖析相依要求**」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 HTML 頁面載入時沒有問題，測試也會回報為失敗。 若要將測試 desensitize 到這類資源失敗，只要取消核取 [從測試設定剖析相依要求] 即可。
+   * 您的測試是否已啟用「**剖析相依要求**」？ 這會導致對諸如腳本、影像等資源進行嚴格的檢查。這些類型的失敗在瀏覽器上可能不會很明顯。 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 HTML 頁面載入時沒有問題，測試也會回報為失敗。 若要將測試 desensitize 到這類資源失敗，只要取消核取 [從測試設定剖析相依要求] 即可。
 
    * 若要減少暫時性網路短暫中斷等的雜訊機率，請確定已核取 [啟用測試失敗的重試] 設定。 您也可以從更多位置進行測試並據以管理警示規則閾值，以免發生會造成過度警示的位置特定問題。
 
@@ -88,7 +83,7 @@ ms.locfileid: "71695047"
 
 ### <a name="can-i-call-code-from-my-web-test"></a>我可以從我的 web 測試呼叫程式碼嗎？
 
-資料分割 測試步驟必須在 .webtest 檔案中。 而且您不能呼叫其他 Web 測試或使用迴圈。 但是這裡有一些您會覺得有用的外掛程式。
+不會。 測試步驟必須在 .webtest 檔案中。 而且您不能呼叫其他 Web 測試或使用迴圈。 但是這裡有一些您會覺得有用的外掛程式。
 
 
 ### <a name="is-there-a-difference-between-web-tests-and-availability-tests"></a>「Web 測試」和「可用性測試」之間有何差異？
@@ -126,7 +121,7 @@ ms.locfileid: "71695047"
 
 * 如果是有關 Y 個位置之中有 X 個失敗的警示，[大量/群組] 核取方塊選項 (如已啟用) 就會傳送給具有管理員/共同管理員角色的使用者。  基本上，「訂用帳戶」的「所有」管理員都將收到通知。
 
-* 針對可用性計量的警示，如果啟用 [**大量/群組**] 核取方塊選項，則會傳送給訂用帳戶中具有擁有者、參與者或讀取者角色的使用者。 實際上，「所有」有權存取 Application Insights 資源訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
+* 針對可用性計量的警示，如果啟用 [**大量/群組**] 核取方塊選項，則會傳送給訂用帳戶中具有擁有者、參與者或讀取者角色的使用者。 實際上，「所有」有權存取 Application Insights 資源之訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
 
 > [!NOTE]
 > 如果您目前使用 [大量/群組] 核取方塊選項並停用它，您將無法還原變更。

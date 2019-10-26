@@ -1,23 +1,18 @@
 ---
 title: 監視 Windows 傳統型應用程式的使用情況和效能
 description: 使用 Application Insights 分析 Windows 傳統型應用程式的使用情况和效能。
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ed6df8b4724dbb297a0c64fd869d3377545a7595
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/09/2019
+ms.openlocfilehash: 18681f7130b3706f846b031dbb4852cda8b90d39
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932324"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899249"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>監視傳統型 Windows 桌面應用程式的使用情況和效能
 
@@ -37,7 +32,7 @@ ms.locfileid: "68932324"
    
     如果使用 ApplicationInsights.config，請確定其在方案總管中的屬性已設定為 [建置動作] = [內容]、[複製到輸出目錄] = [複製]。
 5. [使用 API](../../azure-monitor/app/api-custom-events-metrics.md) 傳送遙測。
-6. 執行您的應用程式, 並查看您在 Azure 入口網站中建立之資源的遙測。
+6. 執行您的應用程式，並查看您在 Azure 入口網站中建立之資源的遙測。
 
 ## <a name="telemetry"></a>程式碼範例
 ```csharp

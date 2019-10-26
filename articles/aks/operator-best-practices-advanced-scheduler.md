@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026118"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900119"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
-當您管理 Azure Kubernetes Service (AKS) 中的叢集時，通常必須隔離小組和工作負載。 Kubernetes 排程器提供了進階功能，可讓您控制可以在特定節點上排程哪些 pod，或者如何在叢集中適當地散發多 pod 應用程式。 
+您在管理 Azure Kubernetes Service (AKS) 中的叢集時，往往需要隔離小組和工作負載。 Kubernetes 排程器提供了進階功能，可讓您控制可以在特定節點上排程哪些 pod，或者如何在叢集中適當地散發多 pod 應用程式。 
 
 本最佳做法文章著重於叢集運算子的進階 Kubernetes 排程功能。 在本文中，您將了解：
 
@@ -179,11 +179,11 @@ Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-這個範例比使用節點選取器或節點親和性更複雜。 透過該部署，您可以控制 Kubernetes 在節點上排程 pod 的方式，並可以邏輯方式隔離資源。 如需此 web 應用程式與 Azure Cache for Redis 範例的完整範例，請參閱[相同節點上的共置][k8s-pod-affinity]pod。
+這個範例比使用節點選取器或節點親和性更複雜。 透過該部署，您可以控制 Kubernetes 在節點上排程 pod 的方式，並可以邏輯方式隔離資源。 如需此 web 應用程式與 Azure Cache for Redis 範例的完整範例，請參閱[將 Pod 共置在相同的節點上][k8s-pod-affinity]。
 
 ## <a name="next-steps"></a>後續步驟
 
-這篇文章著重於 Kubernetes 排程器的進階功能。 如需 AKS 中叢集作業的相關詳細資訊，請參閱下列最佳作法：
+這篇文章著重於 Kubernetes 排程器的進階功能。 如需 AKS 中叢集作業的詳細資訊，請參閱下列最佳做法：
 
 * [多租使用者和叢集隔離][aks-best-practices-scheduler]
 * [基本 Kubernetes 排程器功能][aks-best-practices-scheduler]

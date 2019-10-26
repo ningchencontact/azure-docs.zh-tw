@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights 中的遙測取樣 | Microsoft Docs
 description: 如何讓遙測量保持在控制下。
-services: application-insights
-documentationcenter: windows
-author: cijothomas
-manager: carmonm
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: cijothomas
+ms.author: cithomas
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.author: cithomas
-ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 82c0855e3ea3b6a89c1b20569971b0dc6b3d449c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372571"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899851"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -29,11 +24,11 @@ ms.locfileid: "72372571"
 
 ## <a name="in-brief"></a>簡單地說︰
 
-* 取樣會保留「n」 筆記錄的其中 1 筆，並捨棄其餘部分。 例如，它可能會保留五個事件的其中一個，取樣率為 20%。 
+* 取樣會保留「n」 筆記錄的其中 1 筆，並捨棄其餘部分。 例如，它可能會保留五個事件的其中一個，取樣率為20%。 
 * 預設會在所有最新版本的 ASP.NET 和 ASP.NET Core 軟體發展工具組（Sdk）中啟用調適型取樣。
 * 您也可以手動設定取樣。 您可以在入口網站中的 [*使用量和估計成本] 頁面*上，透過程式碼或 ApplicationInsights 的 JAVA SDK 中的 ASP.NET ASP.NET Core sdk 來設定此項。
 * 如果您記錄自訂事件，而且需要確保一組事件會一起保留或捨棄，事件就必須有相同的 OperationId 值。
-* 每個記錄的 `itemCount` 屬性中都會回報取樣除數 *n*，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 @no__t 0when 取樣不在作業中。
+* 每個記錄的 `itemCount` 屬性中都會回報取樣除數 *n*，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中時 `itemCount==1`。
 * 如果您要撰寫分析查詢，請 [考慮到取樣](../../azure-monitor/log-query/aggregations.md)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
 
 ## <a name="types-of-sampling"></a>取樣類型
@@ -347,7 +342,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 2. 您可以指定 `sampler` 作為 `Tracer` 設定的一部分。 如果未提供明確的取樣器，預設會使用 ProbabilitySampler。 根據預設，ProbabilitySampler 會使用1/10000 的速率，這表示每個10000要求的其中一個會傳送至 Application Insights。 如果您想要指定取樣率，請參閱下方內容。
 
-3. 指定取樣器時，請確定您的 `Tracer` 會指定取樣率介於 0.0 和 1.0 (含) 之間的取樣器。 取樣率1.0 代表 100%，這表示您的所有要求都會以遙測傳送至 Application Insights。
+3. 指定取樣器時，請確定您的 `Tracer` 會指定取樣率介於 0.0 和 1.0 (含) 之間的取樣器。 取樣率1.0 代表100%，這表示您的所有要求都會以遙測傳送至 Application Insights。
 
     ```python
     tracer = Tracer(
@@ -372,7 +367,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 遭到取樣捨棄的資料點將無法在任何 Application Insights 功能中使用，例如 [連續匯出](../../azure-monitor/app/export-telemetry.md)。
 
-進行 SDK 自適性或固定速率取樣時，不執行擷取取樣。 在 Visual Studio 中啟用 ASP.NET/ASP.NET Core SDK，或在 Azure Web 應用程式擴充功能或使用狀態監視器啟用時，預設會啟用調適型取樣，而且會停用 [內嵌取樣]。 如果 SDK 的取樣率小於 100% （亦即 正在取樣專案），則會忽略您設定的內嵌取樣率。
+進行 SDK 自適性或固定速率取樣時，不執行擷取取樣。 在 Visual Studio 中啟用 ASP.NET/ASP.NET Core SDK，或在 Azure Web 應用程式擴充功能或使用狀態監視器啟用時，預設會啟用調適型取樣，而且會停用 [內嵌取樣]。 如果 SDK 的取樣率小於100% （亦即 正在取樣專案），則會忽略您設定的內嵌取樣率。
 
 > [!WARNING]
 > 圖格上顯示的值會指出您要為擷取取樣的值。 如果 SDK 取樣在運作中，這並不代表實際的取樣率。

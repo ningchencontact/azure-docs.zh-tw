@@ -1,28 +1,22 @@
 ---
 title: Azure 監視器記錄檔查詢中的 resource （）運算式 |Microsoft Docs
 description: 資源運算式會在以資源為中心的 Azure 監視器記錄查詢中使用，以從多個資源中取出資料。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 09/10/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: deca6e7ef1c231a82a73067971d86a6e9cdd0599
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.date: 09/10/2018
+ms.openlocfilehash: 4787dc8a8cc06e0ad0be88597dab3481284fb58b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71817406"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900220"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>Azure 監視器記錄檔查詢中的 resource （）運算式
 
-在[範圍為資源](scope.md#query-scope)的 Azure 監視器查詢中，會使用 `resource` 運算式來抓取其他資源的資料。 
+`resource` 運算式用於以[資源為範圍](scope.md#query-scope)的 Azure 監視器查詢中，以從其他資源抓取資料。 
 
 
 ## <a name="syntax"></a>語法
@@ -35,7 +29,7 @@ ms.locfileid: "71817406"
 
 | 識別碼 | 描述 | 範例
 |:---|:---|:---|
-| Resource | 包含資源的資料。 | resource （"/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm"） |
+| 資源 | 包含資源的資料。 | resource （"/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm"） |
 | 資源群組或訂用帳戶 | 包含資源及其包含的所有資源的資料。  | 資源（"/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup） |
 
 
