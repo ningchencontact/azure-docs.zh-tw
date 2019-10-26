@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599965"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901556"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "68599965"
 
 [Azure Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組透過網路連線的虛擬機器，您可以將微服務部署到其中並進行管理。  在 Azure 中執行的 Service Fabric 叢集是 Azure 資源，而且是使用 Azure Resource Manager 部署的。 本文說明如何使用 Resource Manager 在 Azure 中部署安全的 Service Fabric 叢集。 您可以使用預設叢集範本或自訂範本。  如果您還沒有自訂範本，您可以[了解如何建立自訂範本](service-fabric-cluster-creation-create-template.md)。
 
-叢集安全性是在第一次設定叢集時所設定，而且稍後無法變更。 在設定叢集之前, 請先閱讀[Service Fabric 叢集安全性案例][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 憑證來保護您的叢集與其端點、驗證用戶端，以及加密資料。 也建議您使用 Azure Active Directory 來保護對管理端點的存取。 必須在建立叢集之前先建立 Azure AD 租用戶與使用者。  如需詳細資訊，請閱讀[設定 Azure AD 以驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
+在初始建立叢集時，您必須指定要保護叢集的安全性類型（也就是： Windows identity、X509 等等），之後就無法變更。 在設定叢集之前，請先閱讀[Service Fabric 叢集安全性案例][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 憑證來保護您的叢集與其端點、驗證用戶端，以及加密資料。 也建議您使用 Azure Active Directory 來保護對管理端點的存取。 如需詳細資訊，請閱讀[設定 Azure AD 以驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
 
 部署生產叢集以執行生產工作負載之前，請務必先閱讀[生產整備檢查清單](service-fabric-production-readiness-checklist.md)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "68599965"
 * [Azure CLI 2.0 版和更新版本][azure-CLI]
 
 您可以在此找到 Service Fabric 模組的參考文件：
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
+* [Az. ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
 * [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
@@ -74,7 +74,7 @@ az account set --subscription $subscriptionId
 下列命令可以建立 Windows 或 Linux 叢集，您需要指定適用的作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
 > [!NOTE]
-> 下列 PowerShell 命令僅適用于 Azure PowerShell `Az`模組。 若要檢查目前版本的 Azure Resource Manager PowerShell 版本, 請執行下列 PowerShell 命令 "Get-help Az"。 遵循[此連結](/powershell/azure/install-Az-ps)即可升級 Azure Resource Manager PowerShell 版本。 
+> 下列 PowerShell 命令僅適用于 Azure PowerShell `Az` 模組。 若要檢查目前版本的 Azure Resource Manager PowerShell 版本，請執行下列 PowerShell 命令 "Get-help Az"。 遵循[此連結](/powershell/azure/install-Az-ps)即可升級 Azure Resource Manager PowerShell 版本。 
 >
 >
 
@@ -173,7 +173,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 如果這是 CA 簽署的憑證，而您最後會將其用於其他用途，建議您特別針對金鑰保存庫提供不同的資源群組。 建議您將 Key Vault 放入其自己的資源群組中。 此動作可讓您移除計算和儲存體資源群組 (包括含有 Service Fabric 叢集的資源群組)，而不會遺失您的金鑰和密碼。 **含有您金鑰保存庫的資源群組*必須與正在使用它的叢集位於相同區域*。**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>使用預設 5 節點 (模組中隨附的節點類型範本)
-所使用的範本可在以下位置取得：[Azure 範例：Windows 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) \(英文\) 和 [Ubuntu 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) \(英文\)
+所用範本可於 [Azure 範例：Windows 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)和 [Ubuntu 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)上取得
 
 使用 PowerShell 部署叢集：
 

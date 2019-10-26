@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI - sfctl is | Microsoft Docs
 description: 描述 Service Fabric CLI sfctl is 命令。
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036489"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901574"
 ---
 # <a name="sfctl-is"></a>sfctl is
 查詢命令，並將其傳送至基礎結構服務。
@@ -27,7 +28,7 @@ ms.locfileid: "69036489"
 
 |命令|描述|
 | --- | --- |
-| 命令 | 叫用指定基礎結構服務執行個體上的系統管理命令。 |
+| command | 叫用指定基礎結構服務執行個體上的系統管理命令。 |
 | query | 叫用指定基礎結構服務執行個體上的唯讀查詢。 |
 
 ## <a name="sfctl-is-command"></a>sfctl is command
@@ -41,7 +42,7 @@ ms.locfileid: "69036489"
 | --- | --- |
 | --command [必要] | 要叫用的命令文字。 命令的內容與基礎結構有關。 |
 | --service-id | 基礎結構服務的識別。 <br><br> 這是不含 'fabric\:' URI 配置的基礎結構服務完整名稱。 只有當叢集中有多個基礎結構服務執行個體正在執行時，才需要提供此參數。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -64,7 +65,7 @@ ms.locfileid: "69036489"
 | --- | --- |
 | --command [必要] | 要叫用的命令文字。 命令的內容與基礎結構有關。 |
 | --service-id | 基礎結構服務的識別。 <br><br> 這是不含 'fabric\:' URI 配置的基礎結構服務完整名稱。 只有當叢集中有多個基礎結構服務執行個體正在執行時，才需要提供此參數。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+| --timeout -t | 預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
