@@ -11,12 +11,12 @@ metadata:
   author: jpconnock
   ms.author: jpconnock
   ms.date: 09/26/2019
-  ms.openlocfilehash: 0dcbe8d01761e8feb06cd5705a104d8c9e5196e0
-  ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+  ms.openlocfilehash: 671093610cc53fae3a06f9b185ef258ab2097305
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/08/2019
-  ms.locfileid: "72038596"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72933368"
 landingContent:
 - title: 關於 Azure Spring Cloud
   linkLists:
@@ -38,6 +38,22 @@ landingContent:
     links:
     - text: 準備 Java Spring 應用程式以進行部署
       url: spring-cloud-tutorial-prepare-app-deployment.md
+- title: 設定您的服務
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 使用組態伺服器維護應用程式組態
+      url: spring-cloud-tutorial-config-server.md
+    - text: 手動調整您的應用程式
+      url: spring-cloud-tutorial-scale-manual.md
+  - linkListType: how-to-guide
+    links:
+    - text: 自動化 Azure Spring Cloud 中的 CI/CD 管線
+      url: spring-cloud-howto-cicd.md
+    - text: 使用 Azure Spring Cloud 啟用藍綠部署
+      url: spring-cloud-howto-staging-environment.md
+    - text: 在 Azure Spring Cloud 中使用持續性儲存體
+      url: spring-cloud-howto-persistent-storage.md
 - title: 監視您的應用程式
   linkLists:
   - linkListType: tutorial
@@ -60,19 +76,3 @@ landingContent:
       url: spring-cloud-tutorial-bind-mysql.md
     - text: 將您的應用程式繫結至 Azure CosmosDB
       url: spring-cloud-tutorial-bind-cosmos.md
-- title: 設定您的服務
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 使用組態伺服器維護應用程式組態
-      url: spring-cloud-tutorial-config-server.md
-    - text: 手動調整您的應用程式
-      url: spring-cloud-tutorial-scale-manual.md
-  - linkListType: how-to-guide
-    links:
-    - text: 自動化 Azure Spring Cloud 中的 CI/CD 管線
-      url: spring-cloud-howto-cicd.md
-    - text: 使用 Azure Spring Cloud 啟用藍綠部署
-      url: spring-cloud-howto-staging-environment.md
-    - text: 在 Azure Spring Cloud 中使用持續性儲存體
-      url: spring-cloud-howto-persistent-storage.md

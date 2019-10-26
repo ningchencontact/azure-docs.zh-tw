@@ -12,7 +12,7 @@
     - name: 將裝置連線到 IoT 中樞
       href: quickstart-connect-pnp-device.md
     - name: 將裝置連線到 IoT Central
-      href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 連線到解決方案中的裝置
       href: quickstart-connect-pnp-device-solution.md
 - name: 教學課程
