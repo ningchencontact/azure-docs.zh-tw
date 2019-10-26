@@ -3,20 +3,20 @@ title: 建立及使用計算目標進行模型定型
 titleSuffix: Azure Machine Learning
 description: 設定機器學習服務模型定型的定型環境 (計算目標)。 您可以輕鬆地在定型環境之間切換。 在本機開始定型作業。 如果您需要相應放大，請切換至雲端式計算目標。
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: rastala
+ms.author: roastala
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 95ded3c184836ac58a0f97d1bf30dd2e3c123ccb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755975"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935359"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 
@@ -295,7 +295,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
  
 1. 在 [應用程式] 底下，選取 [計算]。
 
-    [![View 計算 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
+    [![視圖計算 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>建立計算目標
 
@@ -379,7 +379,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 > [!IMPORTANT]
 > 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 @No__t_0 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 

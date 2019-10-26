@@ -5,17 +5,17 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/06/2019
+ms.date: 10/25/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: a2b00173f463cf5bf0cda321286042a516b7e322
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 527114adbe2422148605fd878723ae74fa7c3304
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70130069"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72958498"
 ---
-| Category | 資料存放區 |
+| 類別 | 資料存放區 |
 |:--- |:--- |
 | **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
@@ -30,14 +30,14 @@ ms.locfileid: "70130069"
 | &nbsp; |[Azure SQL Database 受控執行個體](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |
-| **[資料庫備份]** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
-| &nbsp; |[Drill (預覽)](../articles/data-factory/connector-drill.md) |
+| &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
-| &nbsp; |[Apache Impala (預覽)](../articles/data-factory/connector-impala.md) |
+| &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |
@@ -67,32 +67,32 @@ ms.locfileid: "70130069"
 | **一般通訊協定** |[一般 HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[一般 ODBC](../articles/data-factory/connector-odbc.md) |
-| **服務和應用程式** |[Amazon Marketplace Web Service (預覽)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
+| **服務和應用程式** |[Amazon Marketplace Web 服務](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[應用程式的常見資料服務](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur (預覽)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[Dynamics AX (預覽)](../articles/data-factory/connector-dynamics-ax.md) |
+| &nbsp; |[Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[Google AdWords (預覽)](../articles/data-factory/connector-google-adwords.md) |
+| &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot (預覽)](../articles/data-factory/connector-hubspot.md) |
-| &nbsp; |[Jira (預覽)](../articles/data-factory/connector-jira.md) |
+| &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |
 | &nbsp; |[Magento (預覽)](../articles/data-factory/connector-magento.md) |
 | &nbsp; |[Marketo (預覽)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (預覽)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (預覽)](../articles/data-factory/connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud (預覽)](../articles/data-factory/connector-oracle-service-cloud.md) |
-| &nbsp; |[PayPal (預覽)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[PayPal （預覽）](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (預覽)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce 服務雲端](../articles/data-factory/connector-salesforce-service-cloud.md) |
-| &nbsp; |[Salesforce Marketing Cloud (預覽)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
+| &nbsp; |[Salesforce 行銷雲端](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify (預覽)](../articles/data-factory/connector-shopify.md) |
 | &nbsp; |[Square (預覽)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Web 資料表 (HTML 資料表)](../articles/data-factory/connector-web-table.md) 
-| &nbsp; |[Xero (預覽)](../articles/data-factory/connector-xero.md) |
+| &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |
 | &nbsp; |[Zoho (預覽)](../articles/data-factory/connector-zoho.md) |
 
 > [!NOTE]

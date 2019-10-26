@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 串流分析進行重新分割以優化處理
+title: 使用重新分割來優化 Azure 串流分析作業
 description: 本文說明如何使用重新分割來將無法平行處理的 Azure 串流分析作業優化。
 ms.service: stream-analytics
 author: mamccrea
@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266432"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935055"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>使用 Azure 串流分析進行重新分割以優化處理
 
-本文說明如何使用重新分割來調整您的 Azure 串流分析查詢, 以找出無法完全[平行](stream-analytics-scale-jobs.md)處理的案例。
+本文說明如何使用重新分割來調整您的 Azure 串流分析查詢，以找出[無法完全平行](stream-analytics-scale-jobs.md)處理的案例。
 
-在下列情況中, 您可能無法使用[平行化](stream-analytics-parallelization.md):
+[在下列情況中](stream-analytics-parallelization.md)，您可能無法使用平行化：
 
 * 您不會控制輸入資料流程的分割區索引鍵。
 * 您在稍後需要合併多個分割區的來源「噴濺」輸入。 

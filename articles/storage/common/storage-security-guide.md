@@ -1,6 +1,6 @@
 ---
 title: Azure 儲存體安全性指南 | Microsoft Docs
-description: 詳述許多保護 Azure 儲存體的方法，包括但不限於 RBAC、儲存體服務加密、用戶端加密、SMB 3.0 及 Azure 磁碟加密。
+description: 詳述保護 Azure 儲存體帳戶的方法，包括管理平面安全性、授權、網路安全性、加密等。
 services: storage
 author: tamram
 ms.service: storage
@@ -9,44 +9,54 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 15c59a29bff50f13eea104cb436d1a3764f6d713
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598096"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926713"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
-「Azure 儲存體」提供一組完整的安全性功能，這些功能一起可讓開發人員建置安全的應用程式：
+Azure 儲存體提供一組完整的安全性功能，可讓組織建立和部署安全的應用程式：
 
-- 寫入 Azure 儲存體的所有資料（包括中繼資料）都會使用[儲存體服務加密（SSE）](storage-service-encryption.md)自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
-- Azure Active Directory (Azure AD) 和角色型存取控制 (RBAC) 可支援 Azure 儲存體，以便進行資源管理作業和資料作業，如下所示：   
+- 寫入 Azure 儲存體的所有資料（包括中繼資料）都會使用[儲存體服務加密（SSE）](storage-service-encryption.md)自動加密。 如需詳細資訊，請參閱[宣佈 Azure blob、檔案、資料表和佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)。
+- Azure Active Directory （Azure AD）和以角色為基礎的存取控制（RBAC）都支援資源管理作業和資料平面作業：   
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
-    - Blob 和佇列資料作業支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。   
-- 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
+    - Blob 和佇列資料作業支援 Azure AD 整合。 RBAC 角色的範圍可以設定為訂用帳戶、資源群組、儲存體帳戶、個別容器或佇列。 角色可以指派給 Azure 資源的安全性主體或受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。
+- 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，保護應用程式與 Azure 之間的傳輸資料。  
 - 您可以使用 [Azure 磁碟加密](../../security/fundamentals/encryption-overview.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。
 - 您可以使用共用存取簽章來授與 Azure 儲存體中資料物件的委派存取權。 如需詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
+- 您可以使用儲存體防火牆、服務端點或私人端點來啟用應用程式元件和儲存體之間的網路層安全性。
 
-本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 所提供的文章連結將提供每個功能的詳細資料，讓您能夠輕鬆地進一步調查每個主題。
+本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 文章提供的連結可提供每項功能的其他詳細資料。
 
-以下是本文所涵蓋的主題：
+本文涵蓋的區域如下：
 
-* [管理平面安全性](#management-plane-security) – 保護儲存體帳戶
+* [管理平面安全性](#management-plane-security)–保護儲存體帳戶的資源層級存取
 
-  管理平面包含用來管理儲存體帳戶的資源。 本節涵蓋 Azure Resource Manager 部署模型，以及如何使用「角色型存取控制」(RBAC) 來控制對儲存體帳戶的存取。 此外，也說明如何管理儲存體帳戶金鑰，以及重新產生這些金鑰。
-* [資料平面安全性](#data-plane-security) – 保護資料的存取
+  管理平面是由用來管理儲存體帳戶的作業所組成。 本節涵蓋 Azure Resource Manager 部署模型，以及如何使用「角色型存取控制」(RBAC) 來控制對儲存體帳戶的存取。 此外，也說明如何管理儲存體帳戶金鑰，以及重新產生這些金鑰。
 
-  本節將探討如何在儲存體帳戶 (例如 Blob、檔案、查詢及表格) 中，允許使用共用存取簽章和預存存取原則來存取實際的資料物件。 我們將涵蓋服務層級的 SAS 和帳戶層級的 SAS。 我們也會看到如何限制存取特定的 IP 位址 (或 IP 位址範圍)、如何限制用於 HTTPS 的通訊協定，以及如何撤銷共用存取簽章，而不需等到它過期。
+* [網路安全性](#network-security)-保護儲存體帳戶的網路層級存取
+
+  本節涵蓋如何保護對儲存體服務端點的網路層級存取。 它會討論如何使用存放裝置防火牆，允許從特定的虛擬網路或 IP 位址範圍存取您的資料。 其中也涵蓋了服務端點和私人端點與儲存體帳戶的使用。
+
+* [授權](#authorization)-授權存取您的資料
+
+  本節說明如何使用共用存取簽章和預存存取原則，來存取儲存體帳戶中的資料物件，例如 blob、檔案、佇列和資料表。 我們將涵蓋服務層級的 SAS 和帳戶層級的 SAS。 我們也會看到如何限制存取特定的 IP 位址 (或 IP 位址範圍)、如何限制用於 HTTPS 的通訊協定，以及如何撤銷共用存取簽章，而不需等到它過期。
+
 * [傳輸中加密](#encryption-in-transit)
 
-  本節討論如何在將資料傳輸至 Azure 儲存體或從中傳出時提供保護。 我們將討論 HTTPS 的建議用法，以及 SMB 3.0 針對 Azure 檔案共用所使用的加密。 同時也會探討用戶端加密，可讓您在將資料傳輸至用戶端應用程式中的儲存體之前加密資料，以及自儲存體傳出後解密資料。
+  本節討論如何在將資料傳輸至 Azure 儲存體或從中傳出時提供保護。 我們將討論 HTTPS 的建議用法，以及 SMB 3.0 針對 Azure 檔案共用所使用的加密。 我們也將討論用戶端加密，這可讓您在傳輸至儲存體之前加密資料，以及在資料從儲存體傳出後進行解密。
+
 * [待用加密](#encryption-at-rest)
 
   我們將探討「儲存體服務加密」(SSE)，現在針對新的和現有的儲存體帳戶都會自動啟用這項功能。 同時也將探討如何使用 Azure 磁碟加密，並探索磁碟加密與 SSE 與用戶端加密之間的基本差異和案例。 我們將簡短探討美國政府電腦適用的 FIPS 相符性。
+
 * 使用 [儲存體分析](#storage-analytics) 稽核 Azure 儲存體的存取
 
   本節討論如何在儲存體分析記錄中尋找某個要求的相關資訊。 我們將查看實際的分析記錄資料，並了解如何分辨出要求是否是利用儲存體帳戶金鑰、共用存取簽章或匿名方式所提出，以及該要求是否成功或失敗。
+
 * [使用 CORS 啟用以瀏覽器為基礎的用戶端](#cross-origin-resource-sharing-cors)
 
   本節討論如何允許跨原始來源資源共用 (CORS)。 我們將討論跨網域存取，以及如何使用 Azure 儲存體內建的 CORS 功能來處理它。
@@ -112,16 +122,16 @@ ms.locfileid: "72598096"
 
 每個儲存體帳戶在 [Azure 入口網站](https://portal.azure.com/) 和 PowerShell Cmdlet 中都有兩個稱為「金鑰 1」和「金鑰 2」的金鑰。 您可以使用下列其中一種方法手動重新產生它們，包括 (但不限於) 使用 [Azure 入口網站](https://portal.azure.com/)、PowerShell、Azure CLI，或以程式設計方式使用 .NET 儲存體用戶端程式庫或 Azure 儲存體服務 REST API。
 
-有許多原因會導致要重新產生儲存體帳戶金鑰。
+重新產生儲存體帳戶金鑰的原因有很多種。
 
-* 您可能會基於安全性理由定期重新產生它們。
-* 如果某人設法駭入應用程式並擷取硬式編碼或儲存於組態檔案中的金鑰，來為他們提供您儲存體帳戶的完整存取權，則您必須重新產生儲存體帳戶金鑰。
-* 重新產生金鑰的另一種情況是，如果您的小組使用儲存體總管應用程式，其中會保留儲存體帳戶金鑰，而其中一位小組成員離開時。 在他們離開之後，應用程式還會繼續運作，讓他們能夠存取您的儲存體帳戶。 這實際上是他們建立帳戶層級共用存取簽章的主要原因 – 您可以改用帳戶層級的 SAS，而不是將存取金鑰儲存於組態檔案中。
+* 您可以定期重新產生以取得安全性。
+* 如果您的應用程式或網路安全性遭到入侵，您可能會重新產生儲存體帳戶金鑰。
+* 重新產生金鑰的另一個實例是當具有金鑰存取權的小組成員離開時。 共用存取簽章的設計主要是為了解決這種情況–您應該共用帳戶層級 SAS 連接字串或權杖，而不是與大部分的個人或應用程式共用存取金鑰。
 
 #### <a name="key-regeneration-plan"></a>金鑰重新產生計畫
-您不想在沒有任何規劃的情況下，只是重新產生所使用的金鑰。 如果您這麼做時，可能會切斷對該儲存體帳戶的所有存取權，而這會造成嚴重中斷。 這就是為什麼要有兩個金鑰。 您一次應該重新產生一個金鑰。
+您不應該在未規劃的情況下，重新產生使用中的存取金鑰。 突然金鑰重新產生可能會封鎖現有應用程式對儲存體帳戶的存取，因而導致主要中斷。 Azure 儲存體帳戶提供兩個金鑰，因此您可以一次重新產生一個金鑰。
 
-重新產生金鑰之前，先確定您擁有相依於儲存體帳戶的所有應用程式清單，以及您在 Azure 中使用的所有其他服務。 例如，如果您使用相依於儲存體帳戶的「Azure 媒體服務」，就必須在重新產生金鑰之後，將存取金鑰與媒體服務重新同步。 如果您使用儲存體總管之類的任何應用程式，也必須為這些應用程式提供新的金鑰。 如果 VM 的 VHD 檔案儲存在儲存體帳戶中，它們將不會受到重新產生儲存體帳戶金鑰影響。
+重新產生金鑰之前，請確定您有相依于儲存體帳戶的所有應用程式清單，以及您在 Azure 中使用的任何其他服務。 例如，如果您使用 Azure 媒體服務使用您的儲存體帳戶，您必須在重新產生金鑰之後，將存取金鑰與媒體服務重新同步處理。 如果您使用的是儲存體 explorer 之類的應用程式，您也必須為這些應用程式提供新的金鑰。 如果 VM 的 VHD 檔案儲存在儲存體帳戶中，它們將不會受到重新產生儲存體帳戶金鑰影響。
 
 您可以在 Azure 入口網站中重新產生金鑰。 重新產生金鑰之後，最多可能需要 10 分鐘的時間，才能在所有「儲存體服務」完成同步處理。
 
@@ -135,11 +145,11 @@ ms.locfileid: "72598096"
 
 您可以過幾天後移轉，變更每個應用程式來使用新的金鑰並進行發佈。 全部完成之後，您接著應該返回並重新產生舊的金鑰，使其無法運作。
 
-另一個選項是將儲存體帳戶金鑰放在 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/) 中做為密碼，並讓您的應用程式可從中擷取該金鑰。 接著，當您重新產生金鑰並更新 Azure 金鑰保存庫時，將不需重新部署應用程式，因為它們會自動從 Azure 金鑰保存庫中挑選新的金鑰。 請注意，您可以讓應用程式每次在您需要金鑰時讀取它，或者，您可以將它快取於記憶體中，如果使用金鑰時失敗，就再次從 Azure 金鑰保存庫中擷取該金鑰。
+另一個選項是將儲存體帳戶金鑰放在 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/) 中做為密碼，並讓您的應用程式可從中擷取該金鑰。 接著，當您重新產生金鑰並更新 Azure 金鑰保存庫時，將不需重新部署應用程式，因為它們會自動從 Azure 金鑰保存庫中挑選新的金鑰。 您可以讓應用程式在每次需要時都讀取金鑰，或者應用程式可以在記憶體中快取它，如果使用它時失敗，請從 Azure Key Vault 重新取得金鑰。
 
-使用 Azure 金鑰保存庫，也會增加儲存體金鑰的安全性層級。 如果您使用這個方法，永遠都不需要將儲存體金鑰硬式編碼於組態檔中，這樣會移除某人不需特定權限即可存取金鑰的途徑。
+使用 Azure 金鑰保存庫，也會增加儲存體金鑰的安全性層級。 使用 Key Vault，可讓您避免在應用程式佈建檔中寫入儲存體金鑰。 它也會防止將金鑰公開給具有這些設定檔存取權的每個人。
 
-使用 Azure 金鑰保存庫的另一個優點是，您也可以使用 Azure Active Directory 來控制金鑰的存取。 這表示您可以將存取權授與少數必須從 Azure 金鑰保存庫擷取金鑰的應用程式，並了解其他應用程式在未特別授與它們權限的情況下無法存取金鑰。
+Azure Key Vault 也具有使用 Azure AD 來控制金鑰存取的優點。 您可以將存取權授與需要從 Key Vault 取出金鑰的特定應用程式，而不會將其公開給不需要存取金鑰的其他應用程式。
 
 > [!NOTE]
 > Microsoft 建議同一時間在您的所有應用程式中僅使用其中一個金鑰。 如果您在某些地方使用金鑰 1 並在其他地方使用金鑰 2，您就無法在沒有部分應用程式遺失存取的情況下輪換您的金鑰。
@@ -149,7 +159,35 @@ ms.locfileid: "72598096"
 * [管理 Azure 入口網站中的儲存體帳戶設定](storage-account-manage.md)
 * [Azure 儲存體資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt163683.aspx)
 
-## <a name="data-plane-security"></a>資料平面安全性
+## <a name="network-security"></a>網路安全性
+網路安全性可讓您限制從選取的網路存取 Azure 儲存體帳戶中的資料。 您可以使用 Azure 儲存體防火牆來限制來自特定公用 IP 位址範圍的用戶端存取、選取 Azure 上的虛擬網路（Vnet），或特定的 Azure 資源。 您也可以選擇在需要存取的 VNet 中，為您的儲存體帳戶建立私人端點，並透過公用端點封鎖所有存取。
+
+您可以透過 Azure 入口網站中的 [[防火牆和虛擬網路](storage-network-security.md)] 索引標籤，為您的儲存體帳戶設定網路存取規則。 使用存放裝置防火牆，您可以拒絕公用網際網路流量的存取，並根據所設定的網路規則，授與選取用戶端的存取權。
+
+您也可以使用私人[端點](../../private-link/private-endpoint-overview.md)私下，並使用[私人連結](../../private-link/private-link-overview.md)安全地從 VNet 連線到儲存體帳戶。
+
+儲存體防火牆規則僅適用于儲存體帳戶的公用端點。 當您核准建立該私人端點時，裝載儲存體帳戶之私用端點的子網會取得帳戶的隱含存取權。
+
+> [!NOTE]
+> 存放裝置防火牆規則不適用於透過 Azure 入口網站和 Azure 儲存體管理 API 進行的存放裝置管理作業。
+
+### <a name="access-rules-for-public-ip-address-ranges"></a>公用 IP 位址範圍的存取規則
+Azure 儲存體防火牆可以用來限制從特定公用 IP 位址範圍存取儲存體帳戶。 您可以使用 IP 位址規則來限制存取固定公用 IP 端點上的特定網際網路型服務，或選取內部部署網路。
+
+### <a name="access-rules-for-azure-virtual-networks"></a>Azure 虛擬網路的存取規則
+根據預設，儲存體帳戶會接受來自任何網路上用戶端的連接。 您可以使用儲存體防火牆，將儲存體帳戶中資料的存取許可權制為選取的網路。 [服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)可讓您將流量從 Azure 虛擬網路路由傳送至儲存體帳戶。 
+
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>授與特定受信任資源實例的存取權
+您可以允許[Azure 受信任服務的子集](storage-network-security.md#trusted-microsoft-services)透過防火牆，使用以服務資源類型或資源實例為基礎的強式驗證來存取儲存體帳戶。
+
+針對支援透過儲存體防火牆進行資源實例型存取的服務，只有選取的實例可以存取儲存體帳戶中的資料。 在此情況下，服務必須使用系統指派的[受控](../../active-directory/managed-identities-azure-resources/overview.md)識別來支援資源實例驗證。
+
+### <a name="using-private-endpoints-for-securing-connections"></a>使用私用端點來保護連接安全
+Azure 儲存體支援私人端點，可讓您從 Azure 虛擬網路安全存取儲存體帳戶。 私人端點會從 VNet 的位址空間，將私人 IP 位址指派給儲存體服務。 使用私用端點時，儲存體連接字串會將目的地為儲存體帳戶的流量重新導向至私人 IP 位址。 私人端點與儲存體帳戶之間的連線會使用私用連結。 您可以使用私人端點來封鎖 VNet 的資料外泄。
+
+透過 VPN 或[ExpressRoutes](../../expressroute/expressroute-locations.md)私用對等互連和其他對等互連虛擬網路連線的內部部署網路，也可以透過私人端點存取儲存體帳戶。 您儲存體帳戶的私人端點可以在任何區域的 VNet 中建立，讓全球安全的延伸。 您也可以為其他[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)租使用者中的儲存體帳戶建立私人端點。
+
+## <a name="authorization"></a>Authorization
 資料平面安全性是指用來保護儲存在 Azure 儲存體的資料物件 (Blob、佇列、表格和檔案) 的方法。 我們已了解在傳輸資料期間加密資料和安全性的方法，但您該從何處著手來控制對物件的存取？
 
 有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
@@ -159,8 +197,6 @@ ms.locfileid: "72598096"
 - 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
 此外，針對 Blob 儲存體，您可以藉由設定要據以保存 Blob 之容器的存取層級，來允許對您的 Blob 進行公用存取。 如果您將容器的存取權設定為「Blob」或「容器」，將允許該容器中 Blob 的公用讀取存取權。 這表示 URL 指向該容器中 Blob 的任何人都可以在瀏覽器中開啟它，而不需使用共用存取簽章或擁有儲存體帳戶金鑰。
-
-除了透過授權限制存取，您也可以使用[防火牆和虛擬網路](storage-network-security.md)，根據網路規則來限制對儲存體帳戶的存取。  此方法可讓您拒絕對公用網際網路流量的存取，只授與對特定 Azure 虛擬網路或公用網際網路 IP 位址範圍的存取。
 
 ### <a name="storage-account-keys"></a>儲存體帳戶金鑰
 儲存體帳戶金鑰是由 Azure 所建立的 512 位元字串，搭配儲存體帳戶名稱就能用來存取儲存於儲存體帳戶中的資料物件。
@@ -236,6 +272,11 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
     本文提供使用服務層級 SAS 搭配 Blob、佇列、表格範圍及檔案的範例。
   * [建構服務 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [建構帳戶 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
+
+* 本教學課程說明如何使用 .NET 用戶端程式庫來建立共用存取簽章和儲存的存取原則。
+  * [使用共用存取簽章 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
+
+    本文包含 SAS 模型的說明、共用存取簽章的範例，以及使用 SAS 最佳做法的建議。 同時也會討論撤銷授與的權限。
 
 * Authentication
 

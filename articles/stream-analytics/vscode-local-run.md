@@ -1,17 +1,17 @@
 ---
-title: 使用 Visual Studio Code （預覽）在本機測試 Azure 串流分析查詢
+title: 使用 Visual Studio Code 測試 Azure 串流分析查詢
 description: 本文說明如何使用適用于 Visual Studio Code 的 Azure 串流分析工具在本機測試查詢。
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 751cdf50fccc654dfab06b4d18428531312d08e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 2791fb923f193815d718dbd2269cbcd11583a4ea
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673030"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924980"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>使用 Visual Studio Code 在本機測試串流分析查詢
 
@@ -27,7 +27,7 @@ ms.locfileid: "71673030"
 
 您可以使用適用于 Visual Studio Code 的 Azure 串流分析擴充功能，透過範例資料在本機測試您的串流分析作業。
 
-1. 建立串流分析作業之後，請使用**Ctrl + Shift + P**來開啟命令選擇區。 然後輸入並選取 [**ASA]：新增輸入**。
+1. 建立串流分析作業之後，請使用**Ctrl + Shift + P**來開啟命令選擇區。 然後輸入並選取 [ **ASA：新增輸入**]。
 
     ![在 Visual Studio 程式碼中新增 ASA 輸入](./media/vscode-local-run/add-input.png)
 

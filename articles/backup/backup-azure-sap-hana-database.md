@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273945"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931807"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>將 SAP Hana 資料庫備份至 Azure
 
@@ -40,7 +40,7 @@ ms.locfileid: "72273945"
 - 您可以每隔15分鐘備份一次資料庫記錄。 記錄備份只會在資料庫的成功完整備份完成後開始流動。
 - 您可以進行完整和差異備份。 目前不支援增量備份。
 - 將備份原則套用至 SAP Hana 備份之後，即無法修改。 如果您想要使用不同的設定進行備份，請建立新的原則，或指派不同的原則。
-  - 若要建立新原則，請在保存庫中按一下 [**原則**]  >  個 [**備份原則**]  >  **+** **在 Azure VM 中**新增  >  SAP Hana，然後指定 [原則設定]。
+  - 若要建立新原則，請在保存庫中按一下 [**原則**] > [**備份原則**] >  **+ 新增** **Azure VM 中的 > SAP Hana**，然後指定 [原則設定]。
   - 若要指派不同的原則，請在執行資料庫之 VM 的屬性中，按一下目前的原則名稱。 然後在 [**備份原則**] 頁面上，您可以選取要用於備份的不同原則。
 
 ## <a name="prerequisites"></a>必要條件
@@ -53,6 +53,9 @@ ms.locfileid: "72273945"
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > 如果您未更新儲存機制，請確定 unixODBC 的版本是 min 2.3.4。 若要瞭解 uniXODBC 的版本，請以 root 身分執行 ```odbcinst -j```
 
 2. 允許從 VM 連線到網際網路，使其可以觸達 Azure，如[以下](#set-up-network-connectivity)程式所述。
 
@@ -70,7 +73,7 @@ ms.locfileid: "72273945"
 
 上線至公開預覽，如下所示：
 
-- 在入口網站中，[依照本文所述](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)，向復原服務服務提供商註冊您的訂用帳戶識別碼。 
+- 在入口網站中，[依照本文所](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)述，向復原服務服務提供者註冊您的訂用帳戶識別碼。 
 - 針對 PowerShell，請執行此 Cmdlet。 它應該會完成為「已註冊」。
 
     ```powershell
@@ -101,7 +104,7 @@ ms.locfileid: "72273945"
 
 1. 在步驟2中，按一下 [**設定備份**]。
 2. 在 [**選取要備份的專案**] 中，選取您想要保護的所有資料庫，> **[確定]** 。
-3. 在 [**備份原則**]  > **選擇 [備份原則**]，並根據下列指示建立資料庫的新備份原則。
+3. 在 [**備份原則**] 中 > **選擇 [備份原則**]，並根據下列指示建立資料庫的新備份原則。
 4. 建立原則之後，請在 [**備份**] 功能表上，按一下 [**啟用備份**]。
 5. 在入口網站的 [**通知**] 區域中，追蹤備份設定的進度。
 
@@ -167,7 +170,7 @@ ms.locfileid: "72273945"
 
 1. 等待資料庫的完整或記錄備份完成。 檢查 SAP Hana Studio 中的狀態。
 2. 停用記錄備份，並將備份類別目錄設定為相關資料庫的檔案系統。
-3. 若要這麼做，請按兩下 [ **systemdb**] @no__t **-1 設定** > **選取 [資料庫** > **篩選（記錄）** ]。
+3. 若要這麼做，請按兩下 [systemdb ** > 設定**] > **選取 [資料庫** > **篩選（記錄）** ]。
 4. 將 [ **enable_auto_log_backup** ] 設定為 [**否**]。
 5. 將**log_backup_using_backint**設定為**False**。
 6. 進行資料庫的臨機操作完整備份。

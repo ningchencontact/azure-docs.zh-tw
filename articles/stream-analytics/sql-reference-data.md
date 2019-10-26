@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics 作業使用參考資料，從 SQL Database
+title: 使用 SQL Database Azure 串流分析作業中的參考資料
 description: 本文說明如何在 Azure 入口網站和 Visual Studio 中使用 SQL Database 作為 Azure 串流分析作業的參考資料輸入。
 services: stream-analytics
 author: mamccrea
@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461744"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926680"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 作業使用參考資料，從 SQL Database
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>使用 Azure 串流分析作業的 SQL Database 中的參考資料
 
 Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源。 在 Azure 入口網站和 Visual Studio 中，您可以搭配串流分析工具使用 SQL Database 作為串流分析作業的參考資料。 本文會示範這兩種方法的執行方式。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 
 使用下列步驟來使用 Azure 入口網站將 Azure SQL Database 新增為參考輸入來源：
 
@@ -33,7 +33,7 @@ Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源
 
 ### <a name="define-sql-database-reference-data-input"></a>定義 SQL Database 參考資料輸入
 
-1. 在您的串流資料作業中，選取 [工作拓樸]  底下的 [輸入]  。 按一下 [新增參考輸入]  並選擇 [SQL Database]  。
+1. 在您的串流資料作業中，選取 [工作拓樸] 底下的 [輸入]。 按一下 [新增參考輸入] 並選擇 [SQL Database]。
 
    ![串流分析工作輸入](./media/sql-reference-data/stream-analytics-inputs.png)
 
@@ -45,7 +45,7 @@ Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源
 
 ### <a name="specify-storage-account-in-job-config"></a>在作業設定中指定儲存體帳戶
 
-瀏覽到 [設定]  底下的 [儲存體帳戶設定]  ，然後選取 [新增儲存體帳戶]  。
+瀏覽到 [設定] 底下的 [儲存體帳戶設定]，然後選取 [新增儲存體帳戶]。
 
    ![串流分析 [儲存體帳戶設定]](./media/sql-reference-data/storage-account-settings.png)
 
@@ -80,17 +80,17 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="choose-your-subscription"></a>選擇您的訂用帳戶
 
-1. 在 Visual Studio 的 [檢視]  功能表上，選取 [伺服器總管]  。
+1. 在 Visual Studio 的 [檢視] 功能表上，選取 [伺服器總管]。
 
-2. 以滑鼠右鍵按一下 [Azure]  ，選取 [連線到 Microsoft Azure 訂用帳戶]  ，然後以您的 Azure 帳戶登入。
+2. 以滑鼠右鍵按一下 [Azure]，選取 [連線到 Microsoft Azure 訂用帳戶]，然後以您的 Azure 帳戶登入。
 
 ### <a name="create-a-stream-analytics-project"></a>建立串流分析專案
 
-1. 選取 [檔案] > [新增專案]  。 
+1. 選取 [檔案] > [新增專案]。 
 
-2. 在左側的範本清單中，選取 [串流分析]  ，然後選取 [Azure 串流分析應用程式]  。 
+2. 在左側的範本清單中，選取 [串流分析]，然後選取 [Azure 串流分析應用程式]。 
 
-3. 輸入專案的 [名稱]  、[位置]  和 [解決方案名稱]  ，然後選取 [確定]  。
+3. 輸入專案的 [名稱]、[位置] 和 [解決方案名稱]，然後選取 [確定]。
 
    ![Visual Studio 中的新串流分析專案](./media/sql-reference-data/stream-analytics-vs-new-project.png)
 
@@ -100,13 +100,13 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Visual Studio 中的新串流分析輸入](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. 按兩下 [方案總管]  中的 [Input.json]  。
+2. 按兩下 [方案總管] 中的 [Input.json]。
 
-3. 填寫 [串流分析輸入設定]  。 選擇資料庫名稱、伺服器名稱、重新整理類型，以及重新整理頻率。 以 `DD:HH:MM` 的格式指定重新整理頻率。
+3. 填寫 [串流分析輸入設定]。 選擇資料庫名稱、伺服器名稱、重新整理類型，以及重新整理頻率。 以 `DD:HH:MM` 的格式指定重新整理頻率。
 
    ![Visual Studio 中的串流分析輸入設定](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
-   如果您選擇 [僅執行一次] 或 [定期執行]，系統會在 [Input.json]  檔案節點底下的專案中產生名為 **[Input Alias].snapshot.sql** 的 SQL 程式碼後置檔案。
+   如果您選擇 [僅執行一次] 或 [定期執行]，系統會在 [Input.json] 檔案節點底下的專案中產生名為 **[Input Alias].snapshot.sql** 的 SQL 程式碼後置檔案。
 
    ![Visual Studio 中的輸入程式碼後置](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
@@ -116,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. 在編輯器中開啟該 SQL 檔案，並寫入 SQL 查詢。
 
-5. 如果您使用 Visual Studio 2019，而且您已安裝 SQL Server Data tools，您可以按一下來測試查詢**Execute**。 精靈視窗將會顯示以協助您連線到 SQL 資料庫，查詢結果將會出現在底部視窗中。
+5. 如果您使用 Visual Studio 2019，而且已安裝 SQL Server Data tools，您可以按一下 [**執行**] 來測試查詢。 精靈視窗將會顯示以協助您連線到 SQL 資料庫，查詢結果將會出現在底部視窗中。
 
 ### <a name="specify-storage-account"></a>指定儲存體帳戶
 
@@ -126,13 +126,13 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="test-locally-and-deploy-to-azure"></a>於本機測試並部署到 Azure
 
-在將作業部署到 Azure 之前，您可以在本機針對即時輸入資料測試查詢邏輯。 如需此功能的詳細資料，請參閱[使用適用於 Visual Studio 的 Azure 串流分析工具 (預覽) 在本機測試即時資料](stream-analytics-live-data-local-testing.md)。 完成測試之後，請按一下 [提交至 Azure]  。 請參考[使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業](stream-analytics-quick-create-vs.md)快速入門來了解如何啟動作業。
+在將作業部署到 Azure 之前，您可以在本機針對即時輸入資料測試查詢邏輯。 如需此功能的詳細資料，請參閱[使用適用於 Visual Studio 的 Azure 串流分析工具 (預覽) 在本機測試即時資料](stream-analytics-live-data-local-testing.md)。 完成測試之後，請按一下 [提交至 Azure]。 請參考[使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業](stream-analytics-quick-create-vs.md)快速入門來了解如何啟動作業。
 
 ## <a name="delta-query"></a>差異查詢
 
 使用差異查詢時，建議使用 [Azure SQL Database 中的時態表](../sql-database/sql-database-temporal-tables.md)。
 
-1. Azure SQL Database 中建立的時態表。
+1. 在 Azure SQL Database 中建立時態表。
    
    ```SQL 
       CREATE TABLE DeviceTemporal 
@@ -148,7 +148,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    ```
 2. 撰寫快照集查詢。 
 
-   使用 **\@snapshotTime**參數來指示 Stream Analytics 執行階段，以取得從 SQL database 時態表上的系統時間有效的參考資料集。 如果您不提供此參數，則可能會因時鐘誤差而取得不正確的基底參考資料集。 完整快照集查詢的範例如下所示：
+   使用 **\@snapshotTime**參數來指示串流分析執行時間從 SQL database 時態表取得在系統期間有效的參考資料集。 如果您不提供此參數，則可能會因時鐘誤差而取得不正確的基底參考資料集。 完整快照集查詢的範例如下所示：
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -157,7 +157,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 撰寫差異查詢。 
    
-   此查詢會擷取所有插入或刪除在 開始時間，SQL database 中的資料列 **\@deltaStartTime**，和結束時間 **\@deltaEndTime**。 差異查詢必須傳回和快照集查詢相同的資料行，以集 **_operation_** 資料行。 此資料行定義，如果資料列插入或刪除之間 **\@deltaStartTime**並 **\@deltaEndTime**。 如果記錄已插入，結果的資料列會被標示為 **1**；如果已刪除，則會被標示為 **2**。 
+   此查詢會抓取在開始時間內插入或刪除的 SQL database 中的所有資料列、 **\@deltaStartTime**，以及 **\@deltaEndTime**的結束時間。 差異查詢必須傳回和快照集查詢相同的資料行，以集 **_operation_** 資料行。 此資料行會定義在 **\@deltaStartTime**和 **\@deltaEndTime**之間插入或刪除資料列。 如果記錄已插入，結果的資料列會被標示為 **1**；如果已刪除，則會被標示為 **2**。 
 
    針對已更新的記錄，時態表會透過擷取插入和刪除作業來進行記錄。 串流分析執行階段接著便會將差異查詢的結果套用到先前的快照集，以將參考資料保持為最新狀態。 差異查詢的範例如下所示：
 
@@ -174,7 +174,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    請注意，除了差異查詢之外，串流分析執行階段可能會定期執行快照集查詢以儲存檢查點。
 
 ## <a name="test-your-query"></a>測試查詢
-   請務必確認您的查詢會傳回預期的 Stream Analytics 作業將會使用做為參考資料的資料集。 若要測試您的查詢，請移至輸入作業拓撲 區段下入口網站上。 然後，您就可以在 輸入您 SQL Database 參考上選取範例資料。 此範例就會變成可用之後，您可以下載檔案，並檢查以查看所傳回的資料是否為預期。 如果您想要最佳化您的開發和測試反覆項目，則建議使用[Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)。 您可以也任何其他工具的 您的喜好設定，必須先確定查詢會傳回正確的結果，從您的 Azure SQL Database，並再將其用於您的 Stream Analytics 作業。 
+   請務必確認您的查詢傳回的是串流分析作業將用來做為參考資料的預期資料集。 若要測試查詢，請移至入口網站上 [作業拓撲] 區段下的 [輸入]。 然後，您可以選取 SQL Database 參考輸入上的範例資料。 當範例可供使用之後，您可以下載檔案，並檢查所傳回的資料是否如預期般出現。 如果您想要優化開發和測試反復專案，建議使用適用于 Visual Studio 的[串流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)。 您也可以使用您偏好的任何其他工具，先確定查詢會傳回您所 Azure SQL Database 的正確結果，然後在您的串流分析作業中使用它。 
 
 ## <a name="faqs"></a>常見問題集
 
@@ -184,10 +184,10 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 **如何確認已從 SQL DB 查詢資料快照集，並已將它用於 Azure 串流分析作業？**
 
-有兩個由邏輯 （在計量的 Azure 入口網站） 的名稱可用來監視 SQL 資料庫的參考資料輸入的健全狀況篩選的計量。
+有兩個依邏輯名稱篩選的計量（在 [計量] [Azure 入口網站] 底下），您可以用來監視 SQL database 參考資料輸入的健全狀況。
 
-   * InputEvents：此計量會測量從 SQL 資料庫參考資料集載入的記錄數目。
-   * InputEventBytes：此計量會測量載入串流分析作業之記憶體的參考資料快照集大小。 
+   * InputEvents：此度量會測量從 SQL database 參考資料集載入的記錄數目。
+   * InputEventBytes：此度量會測量載入串流分析作業記憶體中的參考資料快照集大小。 
 
 結合這兩個計量，便可以推斷作業是否正在查詢 SQL 資料庫以擷取參考資料集，並將它載入記憶體。
 
@@ -202,5 +202,5 @@ Azure 串流分析可搭配任何類型的 Azure SQL Database 運作。 不過�
 ## <a name="next-steps"></a>後續步驟
 
 * [使用參考資料在串流分析中進行查閱](stream-analytics-use-reference-data.md)
-* [快速入門：使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業](stream-analytics-quick-create-vs.md)
+* [快速入門：使用適用于 Visual Studio 的 Azure 串流分析工具來建立串流分析作業](stream-analytics-quick-create-vs.md)
 * [使用適用於 Visual Studio 的 Azure 串流分析工具 (預覽) 在本機測試即時資料](stream-analytics-live-data-local-testing.md)

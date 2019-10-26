@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e915e689f09ba7f5c92958ebf8531aa67eef4493
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837831"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933945"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>安全服務與反向 Proxy 的連線
 
@@ -35,15 +35,15 @@ ms.locfileid: "60837831"
 服務可以實作邏輯來驗證反向 Proxy 出示的憑證。 服務可以將接受的用戶端憑證詳細資料指定為設定套件中的組態設定。 系統會在執行階段時加以讀取，並用來驗證反向 Proxy 出示的憑證。 若要新增組態設定，請參閱[管理應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)。 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>反向 Proxy 可透過服務出示的憑證，來驗證服務的身分識別：
-反向 proxy 支援下列原則來執行伺服器憑證驗證服務出示的憑證：None、 ServiceCommonNameAndIssuer 和 ServiceCertificateThumbprints 中。
+反向 Proxy 需支援下列原則，才能針對服務出示的憑證執行伺服器憑證驗證：None、ServiceCommonNameAndIssuer 和 ServiceCertificateThumbprints。
 若要選擇反向 Proxy 要使用的原則，請在 [fabricSettings](service-fabric-cluster-fabric-settings.md) 下方的 **ApplicationGateway/Http** 區段中指定 **ApplicationCertificateValidationPolicy**。
 
 下節會逐一說明這些選項的組態詳細資料。
 
 ### <a name="service-certificate-validation-options"></a>服務憑證驗證選項 
 
-- **無**：反向 proxy 會略過 proxy 的服務憑證驗證，並建立安全連線。 此為預設行為。
-在 [ApplicationGateway/Http  ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **None** 值。
+- **None**：反向 Proxy 會略過驗證透過 Proxy 的服務憑證，並建立安全連線。 此為預設行為。
+在 [ApplicationGateway/Http](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **None** 值。
 
    ```json
    {
@@ -63,7 +63,7 @@ ms.locfileid: "60837831"
    }
    ```
 
-- **ServiceCommonNameAndIssuer**:反向 proxy 會驗證憑證的一般名稱] 和 [即時運算的簽發者指紋為基礎的服務所提供的憑證：指定**ApplicationCertificateValidationPolicy**具有值**ServiceCommonNameAndIssuer**中[ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)一節。
+- **ServiceCommonNameAndIssuer**：反向 Proxy 會依據憑證的通用名稱和直接簽發者的指紋，來驗證服務出示的憑證：在 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **ServiceCommonNameAndIssuer** 值。
 
    ```json
    {
@@ -110,7 +110,7 @@ ms.locfileid: "60837831"
    }
    ```
 
-- **ServiceCertificateThumbprints**:反向 proxy 會驗證其指紋為依據透過 proxy 之服務憑證。 您可以選擇此路由，當服務設為使用自我簽署憑證：指定**ApplicationCertificateValidationPolicy**具有值**ServiceCertificateThumbprints**中[ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)一節。
+- **ServiceCertificateThumbprints**：反向 Proxy 會依據透過 Proxy 之服務的指紋來驗證其憑證。 當服務設為使用自我簽署憑證時，您可以選擇採用此路由：在 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **ServiceCertificateThumbprints** 值。
 
    ```json
    {
@@ -196,7 +196,7 @@ Service Fabric 支援設定多個服務端點。 如需詳細資訊，請參閱[
 
 ## <a name="next-steps"></a>後續步驟
 * [在叢集上安裝及設定反向 Proxy](service-fabric-reverseproxy-setup.md)。
-* 如需 Azure Resource Manager 範本範例，以便使用不同的服務憑證驗證選項來設定安全反向 Proxy，請參閱[設定反向 Proxy 以連接安全的服務](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)。
+* 請參閱[設定反向 proxy 以連接到安全服務](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
 * 請參閱 [GitHub 上的範例專案](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)中服務之間的 HTTP 通訊範例。
 * [使用 Reliable Services 遠端服務進行遠端程序呼叫](service-fabric-reliable-services-communication-remoting.md)
 * [在 Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)

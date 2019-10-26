@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 555b250f211cf22e766e64960b3359692f73c843
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d184201c21c31336e31dcba9884d84f6cc224ff8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285710"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924829"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 
@@ -52,11 +52,11 @@ ms.locfileid: "72285710"
 轉換磁片之後，請建立使用該磁片的 VM。 啟動並登入 VM，完成準備以進行上傳。
 
 ### <a name="use-hyper-v-manager-to-convert-the-disk"></a>使用 Hyper-v 管理員轉換磁片 
-1. 開啟 Hyper-V 管理員，然後在左側選取您的本機電腦。 在 [電腦] 清單上方的功能表中，選取 [**動作**] [ > ] [**編輯磁片**]。
+1. 開啟 Hyper-V 管理員，然後在左側選取您的本機電腦。 在 [電腦] 清單上方的功能表中，選取 [**動作**] > [**編輯磁片**]。
 2. 在 [**尋找虛擬硬碟**] 頁面上，選取您的虛擬磁片。
-3. 在 [**選擇動作**] 頁面上，選取 [**轉換** >  **] [下一步]** 。
-4. 如果您需要從 VHDX 進行轉換，請選取 [ **VHD** >  **] [下一步]** 。
-5. 如果您需要從動態擴充磁片進行轉換，請選取 **固定大小**  >  **下一步**。
+3. 在 [**選擇動作**] 頁面上，選取 [**轉換** > **下一步]** 。
+4. 如果您需要從 VHDX 進行轉換，請選取 [ **VHD** > **下一步]** 。
+5. 如果您需要從動態擴充磁片進行轉換，請選取 **固定大小** ** > 下一步**。
 6. 尋找並選取用以儲存新 VHD 檔案的路徑。
 7. 選取 [完成]。
 
@@ -72,7 +72,7 @@ ms.locfileid: "72285710"
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
-在此命令中，將 `-Path` 的值取代為您想要轉換之虛擬硬碟的路徑。 以已轉換磁片的新路徑和名稱取代 `-DestinationPath` 的值。
+在此命令中，將 `-Path` 的值取代為您想要轉換之虛擬硬碟的路徑。 將 `-DestinationPath` 的值取代為已轉換磁片的新路徑和名稱。
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>從 VMware VMDK 磁碟格式進行轉換
 如果您的 Windows VM 映射是[VMDK 檔案格式](https://en.wikipedia.org/wiki/VMDK)，請使用[Microsoft 虛擬機器轉換器](https://www.microsoft.com/download/details.aspx?id=42497)將它轉換成 VHD 格式。 如需詳細資訊，請參閱[如何將 VMWARE VMDK 轉換為 HYPER-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx)。
@@ -84,14 +84,15 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 1. 在路由表上移除任何靜態持續路由：
    
    * 若要檢視路由表，在命令提示字元視窗上執行 `route print`。
-   * 檢查 @no__t 0 的區段。 如果有持續性路由，請使用 `route delete` 命令將它移除。
+   * 請檢查 `Persistence Routes` 區段。 如果有持續性路由，請使用 `route delete` 命令將它移除。
 2. 移除 WinHTTP Proxy：
    
     ```PowerShell
     netsh winhttp reset proxy
     ```
 
-    如果 VM 需要使用特定的 proxy，請將 proxy 例外新增至 Azure IP 位址（[168.63.129.16 @ no__t-1），讓 VM 可以連線到 Azure：
+    如果 VM 需要使用特定的 proxy，請將 proxy 例外新增至 Azure IP 位址（[168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)），讓 vm 可以連線到 azure：
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -111,7 +112,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     exit   
     ```
 
-4. 設定 Windows 的國際標準時間（UTC）時間。 同時將 Windows 時間服務（`w32time`）的啟動類型設定為 `Automatic`：
+4. 設定 Windows 的國際標準時間（UTC）時間。 另請將 Windows 時間服務（`w32time`）的啟動類型設定為 `Automatic`：
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
@@ -123,7 +124,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. 請確定環境變數 `TEMP`，`TMP` 設定為其預設值：
+6. 請確定 `TEMP` 和 `TMP` 的環境變數設定為其預設值：
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
@@ -152,7 +153,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 請確定已正確設定遠端存取的下列設定：
 
 >[!NOTE] 
->當您執行 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>` 時，可能會收到錯誤訊息。 您可以放心地忽略此訊息。 這表示網域不會透過群組原則物件來推送該設定。
+>當您執行 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`時，可能會收到錯誤訊息。 您可以放心地忽略此訊息。 這表示網域不會透過群組原則物件來推送該設定。
 
 1. 遠端桌面通訊協定 (RDP) 已啟用：
    
@@ -215,7 +216,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 
 9. 如果 VM 將是網域的一部分，請檢查下列原則，以確定先前的設定不會還原。 
     
-    | 目標                                     | 原則                                                                                                                                                       | 值                                                                                    |
+    | 目標                                     | 原則                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP 已啟用                           | 電腦設定\原則\Windows 設定\系統管理範本\元件\遠端桌面服務\遠端桌面工作階段主機\連線         | 允許使用者使用遠端桌面服務從遠端連線                                  |
     | NLA 群組原則                         | 設定\系統管理範本\元件\遠端桌面服務\遠端桌面工作階段主機\安全性                                                    | 需要使用 NLA 進行遠端存取的使用者驗證 |
@@ -249,7 +250,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
    ``` 
 5. 如果 VM 將是網域的一部分，請檢查下列 Azure AD 原則，以確定先前的設定不會還原。 
 
-    | 目標                                 | 原則                                                                                                                                                  | 值                                   |
+    | 目標                                 | 原則                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | 啟用 Windows 防火牆設定檔 | 電腦設定\原則\Windows 設定\系統管理範本\網路\網路連線\Windows 防火牆\網域設定檔\Windows 防火牆   | 保護所有網路連線         |
     | 啟用 RDP                           | 電腦設定\原則\Windows 設定\系統管理範本\網路\網路連線\Windows 防火牆\網域設定檔\Windows 防火牆   | 允許輸入遠端桌面例外狀況 |
@@ -309,7 +310,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    如果存放庫損毀，請參閱 [WMI：存放庫損毀或不是 @ no__t-0。
+    如果存放庫損毀，請參閱[WMI：存放庫損毀](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)。
 
 5. 請確定沒有其他應用程式正在使用埠3389。 在 Azure 中，此連接埠是由 RDP 服務所使用。 若要查看 VM 上所使用的埠，請執行 `netstat -anob`：
 
@@ -346,7 +347,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 
    - 所有人
 
-   - 使用者
+   - 使用者人數
 
 10. 重新開機 VM，以確保 Windows 仍然狀況良好，並可透過 RDP 連線來達到。 此時，您可能會想要在本機 Hyper-v 中建立 VM，以確保 VM 會完全啟動。 然後進行測試，以確定您可以透過 RDP 連線到 VM。
 
@@ -381,8 +382,8 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 |                         | tcpip.sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | http.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726         | 10.0.14393.251 - KB4022715                              | 10.0.15063.483             | -                                               | -                                               |
 |                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.138             | -                                               | -                                               |
-| Core                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
-| 遠端桌面服務問題 | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
+| 核心                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
+| 遠端桌面服務 | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
 |                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
@@ -409,14 +410,14 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 - [從特殊化磁碟建立 VM](create-vm-specialized.md)
 - [從特殊化 VHD 磁碟建立 VM](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-如果您想要建立一般化映射，則必須執行 Sysprep。 如需詳細資訊，請參閱 [How to use Sysprep：簡介 @ no__t-0。 
+如果您想要建立一般化映射，則必須執行 Sysprep。 如需詳細資訊，請參閱[如何使用 Sysprep：簡介](https://technet.microsoft.com/library/bb457073.aspx)。 
 
 並非每個安裝在 Windows 電腦上的角色或應用程式都支援一般化映射。 因此，在執行此程式之前，請確定 Sysprep 支援電腦的角色。 如需詳細資訊，請參閱[伺服器角色的 Sysprep 支援](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) \(英文\)。
 
 ### <a name="generalize-a-vhd"></a>將 VHD 一般化
 
 >[!NOTE]
-> 在下列步驟中執行 `sysprep.exe` 之後，請關閉 VM。 請不要將它重新開啟，直到您在 Azure 中建立映射為止。
+> 在您執行下列步驟中的 `sysprep.exe` 之後，請關閉 VM。 請不要將它重新開啟，直到您在 Azure 中建立映射為止。
 
 1. 登入 Windows VM。
 1. 以系統管理員身分執行**命令提示字元**。 
@@ -445,7 +446,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   如果資料磁片已連結至 VM，則時態磁片磁碟機的字母通常是*D*。視您的設定和可用的磁片磁碟機數目而定，這項指定可能會有所不同。
-  * 建議您停用防毒軟體可能提供的腳本封鎖程式。 當您從映射部署新的 VM 時，他們可能會 interfer 並封鎖執行的 Windows 布建代理程式腳本。
+  * 建議您停用防毒軟體可能提供的腳本封鎖程式。 當您從映射部署新的 VM 時，它們可能會干擾並封鎖執行的 Windows 布建代理程式腳本。
   
 ## <a name="next-steps"></a>後續步驟
 * [將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](upload-generalized-managed.md)

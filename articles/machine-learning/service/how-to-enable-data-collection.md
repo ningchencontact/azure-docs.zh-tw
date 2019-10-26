@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 07/15/2019
+ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330739"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929372"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
@@ -47,9 +47,12 @@ ms.locfileid: "72330739"
 Blob 中輸出資料的路徑遵循此語法：
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+
+>[!Note]
+> 在 `0.1.0a16` 之前的 SDK 版本中，`designation` 引數命名為 `identifier`。 如果您的程式碼是使用較早的版本所開發，則您必須據以更新。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -80,8 +83,8 @@ Blob 中輸出資料的路徑遵循此語法：
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
     CorrelationId 是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料 (範例包含：LoanNumber、CustomerId 等等)。
@@ -170,7 +173,7 @@ Blob 中輸出資料的路徑遵循此語法：
 1. 使用此語法遵循 Blob 中輸出資料的路徑：
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
@@ -190,7 +193,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
     [![PBI 導覽器](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. 在查詢編輯器中，在 [名稱] 資料行下方按一下，新增您的儲存體帳戶 1。 塑造篩選條件的路徑。 注意：如果您只想查看特定年份或月份的檔案，只要展開篩選路徑即可。 例如，只查看年 3 月份的資料：/modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
+1. 在查詢編輯器中，在 [名稱] 資料行下方按一下，新增您的儲存體帳戶 1。 塑造篩選條件的路徑。 注意：如果您只想查看特定年份或月份的檔案，只要展開篩選路徑即可。 例如，只要查看三月份資料：/modeldata/subscriptionid >/resourcegroupname >/workspacename >/webservicename >/modelname >/modelversion >/designation > 年 $2,569 元 >/3
 
 1. 根據 [名稱] 篩選與您相關的資料。 如果您儲存了**預測**和**輸入**，您必須為每個建立查詢。
 

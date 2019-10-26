@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796352"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927411"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>匯入和匯出大量的 IoT 中樞裝置身分識別
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>匯入和匯出 IoT 中樞大量的裝置身分識別
 
 每個 IoT 中樞都有一個身分識別登錄，您可用來在服務中建立各裝置的資源。 身分識別登錄也可讓您控制裝置面向端點的存取權。 本文說明如何在身分識別登錄中大量匯入和匯出裝置身分識別。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-匯入和匯出操作會在「作業」  的內容中進行，其可讓您對 IoT 中樞執行大量服務操作。
+匯入和匯出操作會在「作業」的內容中進行，其可讓您對 IoT 中樞執行大量服務操作。
 
 **RegistryManager** 類別包含使用**作業**架構的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 這些方法可讓您匯出、匯入和同步處理整個 IoT 中樞身分識別登錄。
 
@@ -60,7 +60,7 @@ RegistryManager registryManager =
 
 - 瀏覽至您的 IoT 中樞。
 
-- 選取 [共用存取原則]  。
+- 選取 [共用存取原則]。
 
 - 選取原則，並將您需要的權限列入考量。
 
@@ -87,17 +87,17 @@ while(true)
 
 ## <a name="device-importexport-job-limits"></a>裝置匯入/匯出作業限制
 
-1 個作用中裝置匯入或匯出作業可用於所有的 IoT 中樞層，一次。 IoT 中樞也會有限制的工作作業速率。 若要進一步了解，請參閱[參考-IoT 中樞配額和節流](iot-hub-devguide-quotas-throttling.md)。
+針對所有 IoT 中樞層，一次只允許1個作用中裝置匯入或匯出作業。 IoT 中樞也有作業的速率限制。 若要深入瞭解，請參閱[參考-IoT 中樞配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
 ## <a name="export-devices"></a>匯出裝置
 
-使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/common/storage-security-guide.md#data-plane-security)的 [Azure 儲存體](../storage/index.yml) Blob 容器。
+使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/common/storage-security-guide.md#authorization)的 [Azure 儲存體](../storage/index.yml) Blob 容器。
 
 這個方法可讓您在所控制的 Blob 容器中建立可靠的裝置資訊備份。
 
 **ExportDevicesAsync** 方法需要兩個參數：
 
-* 包含 Blob 容器 URI 的「字串」  。 此 URI 必須包含可授與容器寫入權限的 SAS 權杖。 作業會在這個容器中建立用來儲存序列化匯出裝置資料的區塊 Blob。 SAS 權杖必須包含這些權限：
+* 包含 Blob 容器 URI 的「字串」 。 此 URI 必須包含可授與容器寫入權限的 SAS 權杖。 作業會在這個容器中建立用來儲存序列化匯出裝置資料的區塊 Blob。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -215,13 +215,13 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 **ImportDevicesAsync** 方法會採用兩個參數：
 
-* 包含 [Azure 儲存體](../storage/index.yml) Blob 容器 URI 以作為作業之「輸入」  的「字串」  。 此 URI 必須包含可授與容器讀取權限的 SAS 權杖。 此容器必須包含名稱為 **devices.txt** 的 Blob，而此 Blob 包含要匯入到身分識別登錄的序列化裝置資料。 匯入資料必須包含 **ExportImportDevice** 作業建立 **devices.txt** Blob 時所使用之相同 JSON 格式的裝置資訊。 SAS 權杖必須包含這些權限：
+* 包含 [Azure 儲存體](../storage/index.yml) Blob 容器 URI 以作為作業之「輸入」的「字串」。 此 URI 必須包含可授與容器讀取權限的 SAS 權杖。 此容器必須包含名稱為 **devices.txt** 的 Blob，而此 Blob 包含要匯入到身分識別登錄的序列化裝置資料。 匯入資料必須包含 **ExportImportDevice** 作業建立 **devices.txt** Blob 時所使用之相同 JSON 格式的裝置資訊。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* 包含 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/) Blob 容器 URI 以作為作業之「輸出」  的「字串」  。 作業會在此容器中建立區塊 Blob，以儲存來自已完成之匯入 **作業**的任何錯誤資訊。 SAS 權杖必須包含這些權限：
+* 包含 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/) Blob 容器 URI 以作為作業之「輸出」的「字串」。 作業會在此容器中建立區塊 Blob，以儲存來自已完成之匯入 **作業**的任何錯誤資訊。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -259,13 +259,13 @@ JobProperties importJob =
 
 | importMode | 描述 |
 | --- | --- |
-| **createOrUpdate** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
-| **create** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
-| **update** |如果裝置已存在具有指定**識別碼**，以所提供的輸入資料，而不需要方面來覆寫現有資訊**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
-| **pdateIfMatchETagu** |如果裝置已存在具有指定**識別碼**，會覆寫現有資訊以所提供的輸入資料才**ETag**比對。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
-| **createOrUpdateIfMatchETag** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則當 **ETag** 相符時，才會以所提供的輸入資料覆寫現有資訊。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
-| **delete** |如果裝置已存在具有指定**識別碼**，它刪除沒有不管**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
-| **deleteIfMatchETag** |如果裝置已存在具有指定**識別碼**，它刪除沒有時，才**ETag**比對。 如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 ETag 不相符，則會在記錄檔中寫入錯誤。 |
+| **createOrUpdate** |如果裝置不存在指定的**識別碼**，則會進行新註冊。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
+| **create** |如果裝置不存在指定的**識別碼**，則會進行新註冊。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
+| **update** |如果已存在具有指定**識別碼**的裝置，則會以所提供的輸入資料覆寫現有資訊，而不考慮**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
+| **pdateIfMatchETagu** |如果已存在具有指定**識別碼**的裝置，只有當**ETag**相符時，才會以提供的輸入資料覆寫現有資訊。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
+| **createOrUpdateIfMatchETag** |如果裝置不存在指定的**識別碼**，則會進行新註冊。 <br/>如果裝置已存在，則當 **ETag** 相符時，才會以所提供的輸入資料覆寫現有資訊。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
+| **delete** |如果已存在具有指定**識別碼**的裝置，則會刪除它，而不考慮**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
+| **deleteIfMatchETag** |如果已存在具有指定**識別碼**的裝置，只有當**ETag**相符時，才會將其刪除。 如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 ETag 不相符，則會在記錄檔中寫入錯誤。 |
 
 > [!NOTE]
 > 如果序列化資料未明確定義裝置的 **importMode** 旗標，則會在匯入作業期間預設為 **createOrUpdate**。
@@ -424,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 在本文中，您已了解如何對 IoT 中樞內的身分識別登錄執行大量操作。 遵循下列連結以深入了解如何管理 Azure IoT 中樞：
 
 * [IoT 中樞計量](iot-hub-metrics.md)
-* [IoT 中樞的記錄檔](iot-hub-monitor-resource-health.md)
+* [IoT 中樞記錄](iot-hub-monitor-resource-health.md)
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 

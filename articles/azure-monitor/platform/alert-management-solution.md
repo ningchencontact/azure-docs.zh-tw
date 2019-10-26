@@ -1,24 +1,18 @@
 ---
 title: Azure Log Analytics 中的警示管理方案 | Microsoft Docs
 description: Log Analytics 中的警示管理方案可協助您分析環境中的所有警示。  除了合併 Log Analytics 內產生的警示，此方案還會將連線的 System Center Operations Manager 管理群組中的警示匯入到 Log Analytics。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/19/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e2f195f648f08c31fbfe44543ee763aeed7459f0
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/19/2018
+ms.openlocfilehash: fe484d8b5a06946b844acb5e506ec4dcc99ebc23
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702975"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932733"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
@@ -46,10 +40,10 @@ ms.locfileid: "71702975"
 
 * Microsoft System Center Advisor 警示管理 (Microsoft.IntelligencePacks.AlertManagement)
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 
 ## <a name="data-collection"></a>資料收集
-### <a name="agents"></a>Agent
+### <a name="agents"></a>代理程式
 下表描述此方案支援的連接來源。
 
 | 連接的來源 | 支援 | 描述 |
@@ -70,7 +64,7 @@ ms.locfileid: "71702975"
 
 按一下 [警示管理] 圖格以開啟 [警示管理] 儀表板。  此儀表板包含下表中的資料行。  每個資料行依計數列出前 10 個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。  您可以按一下資料行底部的 [查看全部] ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| 欄 | 描述 |
+| Column | 描述 |
 |:--- |:--- |
 | 重大警示 |嚴重性為「重大」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
 | 警告警示 |嚴重性為「警告」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
@@ -110,7 +104,7 @@ ms.locfileid: "71702975"
 | `TimeRaised` |產生警示的日期和時間。 |
 | `TimeResolved` |解決警示的日期和時間。 如果尚未解決警示，則為空白。 |
 
-## <a name="sample-log-searches"></a>記錄搜尋範例
+## <a name="sample-log-searches"></a>記錄檔搜尋範例
 下表提供此解決方案所收集的警示記錄的記錄搜尋範例： 
 
 | 查詢 | 描述 |

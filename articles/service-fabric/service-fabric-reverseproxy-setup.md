@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166586"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933902"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
 反向 Proxy 是選用的 Azure Service Fabric 服務，可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 HTTP 端點的服務通訊。 如需詳細資訊，請參閱 [Azure Service Fabric 中的反向 Proxy](service-fabric-reverseproxy.md)。 這篇文章會示範如何在叢集中安裝及設定反向 Proxy。 
@@ -29,10 +29,10 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 若要在[使用 Azure 入口網站建立叢集](./service-fabric-cluster-creation-via-portal.md)時設定反向 Proxy，請確定您執行下列動作：
 
-1. 在**步驟 2：叢集設定** 中的 [節點類型設定] 下，選取 [啟用反向 Proxy]。
+1. 在 [步驟 2：叢集設定] 中的 [節點類型設定] 下，選取 [啟用反向 Proxy]。
 
    ![在入口網站上啟用反向 Proxy](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (選擇性) 若要設定安全反向 Proxy，需要設定 SSL 憑證。 在**步驟 3：安全性** 中的 [設定叢集安全性設定] 上，選取 [組態類型] 下的 [自訂]。 然後，在 [反向 Proxy SSL 憑證] 下，選取 [包含反向 Proxy 的 SSL 憑證] 並輸入您的憑證詳細資料。
+2. (選擇性) 若要設定安全反向 Proxy，需要設定 SSL 憑證。 在 [步驟 3：安全性] 中的 [設定叢集安全性設定] 上，選取 [組態類型] 下的 [自訂]。 然後，在 [反向 Proxy SSL 憑證] 下，選取 [包含反向 Proxy 的 SSL 憑證] 並輸入您的憑證詳細資料。
 
    ![在入口網站上設定安全反向 Proxy](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -44,7 +44,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 針對新的叢集，您可以[建立自訂的 Resource Manager 範本](service-fabric-cluster-creation-via-arm.md)，也可以使用範例範本。 
 
-您可以在 GitHub 上的[安全反向 Proxy 範例範本](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) \(英文\) 中，找到可幫助您為 Azure 叢集設定安全反向 Proxy 的範例 Resource Manager 範本。 請參閱 README 檔案中的[在安全的叢集中設定 HTTPS 反向 Proxy](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) \(英文\)，以取得使用憑證設定安全反向 Proxy 和處理憑證變換的指示。
+您可以在 GitHub 上的[安全反向 Proxy 範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) \(英文\) 中，找到可幫助您為 Azure 叢集設定安全反向 Proxy 的範例 Resource Manager 範本。 請參閱 README 檔案中的[在安全的叢集中設定 HTTPS 反向 Proxy](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) \(英文\)，以取得使用憑證設定安全反向 Proxy 和處理憑證變換的指示。
 
 針對現有的叢集，您可以使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) 或 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) 匯出叢集之資源群組的 Resource Manager 範本。
 
@@ -167,7 +167,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 下列步驟會顯示啟用反向 Proxy 使用的設定，以及 (選擇性) 使用 X.509 憑證保護反向 Proxy的設定。 
 
-1. 若要啟用反向 Proxy，請在叢集組態中的 **properties** 下為節點類型設定 **reverseProxyEndpointPort** 值。下列 JSON 顯示為類型為 "NodeType0" 的節點，將反向 Proxy 端點連接埠設定為 19081：
+1. 若要啟用反向 proxy，請在叢集設定中的 [**屬性**] 下，設定節點類型的**reverseProxyEndpointPort**值。下列 JSON 顯示針對類型為 "NodeType0" 的節點，將反向 proxy 端點埠設定為19081：
 
    ```json
        "properties": {

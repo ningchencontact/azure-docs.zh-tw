@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: ba03d643c8d3770da60d4225d6c2b84d2a07766f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 8860a297332a3572890ceb4c843040f530b8a897
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325526"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935508"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute 虛擬網路閘道和 FastPath
 若要透過 ExpressRoute 連接您的 Azure 虛擬網路和內部部署網路，您必須先建立虛擬網路閘道。 虛擬網路閘道有兩個用途：在網路之間交換 IP 路由，並路由傳送網路流量。 本文說明依 SKU 的閘道類型、閘道 Sku 和預估效能。 本文也會說明 ExpressRoute [FastPath](#fastpath)，這項功能可讓來自內部部署網路的網路流量略過虛擬網路閘道，以改善效能。
@@ -42,6 +42,26 @@ ms.locfileid: "72325526"
 > 應用程式效能取決於多項因素，例如端對端延遲以及應用程式開啟之流量的數目。 表格中的數字代表應用程式在理想的環境中，理論上可以達成的最高上限。
 >
 >
+
+## <a name="gwsub"></a>閘道子網路
+
+建立 ExpressRoute 閘道之前，您必須先建立閘道子網。 閘道子網路包含虛擬網路閘道 VM 與服務所使用的 IP 位址。 當您建立虛擬網路閘道時，閘道 Vm 會部署到閘道子網，並使用必要的 ExpressRoute 閘道設定進行設定。 絕對不要將任何其他專案（例如其他 Vm）部署到閘道子網。 此閘道子網路必須命名為 'GatewaySubnet' 才能正常運作。 將閘道子網路命名為 'GatewaySubnet' 可讓 Azure 知道這是要用來部署虛擬網路閘道 VM 和服務的子網路。
+
+>[!NOTE]
+>[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
+>
+
+當您建立閘道子網路時，您可指定子網路包含的 IP 位址數目。 閘道子網路中的 IP 位址會配置給閘道 VM 和閘道服務。 有些組態需要的 IP 位址比其他組態多。 
+
+當您規劃閘道子網大小時，請參閱您打算建立之設定的檔。 例如，ExpressRoute/VPN 閘道並存設定所需的閘道子網，必須比其他大部分的設定還要大。 此外，您可能會想要確定閘道子網路包含足夠的 IP 位址，以因應未來可能的額外組態需求。 雖然您可以建立小至/29 的閘道子網，但建議您建立/27 或更大（/27、/26 等）的閘道子網（如果您有可用的位址空間）。 這會容納大部分的設定。
+
+下列 Resource Manager PowerShell 範例顯示名為 GatewaySubnet 的閘道子網路。 您可以看到 CIDR 標記法指定 /27，這可提供足以供大多數現有組態使用的 IP 位址。
+
+```azurepowershell-interactive
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+```
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="zrgw"></a>區域備援閘道 SKU
 

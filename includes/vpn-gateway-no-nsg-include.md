@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8ac976e8c186add7a4f0901047fa5d36b51781dd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bbd443c13ac0b79c434d294ecd69a64941ab0d36
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67173806"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935509"
 ---
 > [!IMPORTANT]
-> 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道如預期般停止運作。 如需有關網路安全性群組的詳細資訊，請參閱[什麼是網路安全性群組？](../articles/virtual-network/security-overview.md)
+> 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網產生關聯，可能會導致您的虛擬網路閘道（VPN、Express Route 閘道）停止如預期般運作。 如需有關網路安全性群組的詳細資訊，請參閱[什麼是網路安全性群組？](../articles/virtual-network/security-overview.md)
 > 
 > 

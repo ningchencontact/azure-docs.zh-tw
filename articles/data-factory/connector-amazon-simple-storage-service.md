@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: f8f7c33abda8d31d39051a024b9cc381c9f6b192
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 3aa1284212ce12db2e94d8e753d3d75cf8a44ba8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387940"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931174"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -102,12 +102,9 @@ ms.locfileid: "72387940"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
-
-若要從**Parquet、分隔文字、JSON、avro 和二進位格式**的 Amazon S3 複製資料，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，並支援設置。 以格式為基礎之資料集的 `location` 設定底下，Amazon S3 支援下列屬性：
+以格式為基礎之資料集的 `location` 設定底下，Amazon S3 支援下列屬性：
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -116,9 +113,6 @@ ms.locfileid: "72387940"
 | folderPath | 給定值區下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 | fileName   | 給定值區 + folderPath 下的檔案名。 如果您想要使用萬用字元來篩選檔案，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 | version | 如果已啟用 S3 版本設定功能，則為 S3 物件的版本。 如果未指定，將會提取最新版本。 |否 |
-
-> [!NOTE]
-> 下一節中所述的**AmazonS3Object**類型資料集具有 Parquet/文字格式，但針對回溯相容性的複製/查閱/GetMetadata 活動仍受到支援，但它不適用於對應資料流程。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -147,9 +141,10 @@ ms.locfileid: "72387940"
 }
 ```
 
-### <a name="other-format-dataset"></a>其他格式資料集
+### <a name="legacy-dataset-model"></a>舊版資料集模型
 
-若要從 Amazon S3 複製**ORC 格式**的資料，支援下列屬性：
+>[!NOTE]
+>下列資料集模型仍受到支援，以供回溯相容性之用。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -231,26 +226,20 @@ ms.locfileid: "72387940"
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 作為來源
 
-- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
-
-若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**的 Amazon S3 複製資料，請參閱格式為基礎之複製活動來源上的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。支援的設定。 以格式為基礎的複製來源中，`storeSettings` 設定下的 Amazon S3 支援下列屬性：
+以格式為基礎的複製來源中，`storeSettings` 設定下的 Amazon S3 支援下列屬性：
 
 | 屬性                 | 描述                                                  | 必要項                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| 類型                     | @No__t-0 之下的 type 屬性必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
+| 類型                     | `storeSettings` 下的 type 屬性必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
 | 遞迴                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                                          |
-| prefix                   | 在資料集內設定的指定值區底下，S3 物件索引鍵的前置詞，用來篩選來源物件。 系統會選取索引鍵以此前置詞開頭的物件。 <br>只有在未指定 `wildcardFolderPath` 和 @no__t 1 屬性時才適用。 | 否                                                          |
+| prefix                   | 在資料集內設定的指定值區底下，S3 物件索引鍵的前置詞，用來篩選來源物件。 系統會選取索引鍵以此前置詞開頭的物件。 <br>只有在未指定 `wildcardFolderPath` 和 `wildcardFileName` 屬性時才適用。 | 否                                                          |
 | wildcardFolderPath       | 在資料集內設定的指定值區底下，具有萬用字元的資料夾路徑，用來篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                                          |
 | wildcardFileName         | 在指定的值區 + folderPath/wildcardFolderPath 下具有萬用字元的檔案名，用以篩選原始程式檔。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 如果未指定 dataset 中的 `fileName`，則為 Yes，而 `prefix` |
 | modifiedDatetimeStart    | 檔案會根據屬性進行篩選：上次修改。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                                          |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                                          |
 | maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否                                                          |
-
-> [!NOTE]
-> 針對 Parquet/分隔文字格式，下一節中所提及的**FileSystemSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -293,9 +282,10 @@ ms.locfileid: "72387940"
 ]
 ```
 
-#### <a name="other-format-source"></a>其他格式來源
+#### <a name="legacy-source-model"></a>舊版來源模型
 
-若要從 Amazon S3 複製**ORC 格式**的資料，複製活動的 [**來源**] 區段支援下列屬性：
+>[!NOTE]
+>下列複製來源模型仍受到支援，以提供回溯相容性。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |

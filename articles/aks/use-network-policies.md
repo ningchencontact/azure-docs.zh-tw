@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169743"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928502"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用網路原則來保護 Pod 之間的流量
 
@@ -57,7 +57,7 @@ Azure 提供兩種方式來執行網路原則。 當您建立 AKS 叢集時，�
 | 支援的平台                      | Linux                      | Linux                       |
 | 支援的網路功能選項             | Azure CNI                  | Azure CNI 和 kubenet       |
 | 符合 Kubernetes 規格 | 支援的所有原則類型 |  支援的所有原則類型 |
-| 其他功能                      | None                       | 由全域網路原則、全域網路集和主機端點組成的延伸原則模型。 如需使用 `calicoctl` CLI 管理這些擴充功能的詳細資訊，請參閱[calicoctl 使用者參考][calicoctl]。 |
+| 其他功能                      | None                       | 由全域網路原則、全域網路集和主機端點組成的延伸原則模型。 如需使用 `calicoctl` CLI 來管理這些擴充功能的詳細資訊，請參閱[calicoctl 使用者參考][calicoctl]。 |
 | 支援                                  | 由 Azure 支援和工程團隊支援 | Calico 的社區支援。 如需其他付費支援的詳細資訊，請參閱[專案 Calico 支援選項][calico-support]。 |
 | 記錄                                  | 在 IPTables 中新增/刪除的規則會記錄在 */var/log/azure-npm.log*下的每一部主機上 | 如需詳細資訊，請參閱[Calico 元件記錄][calico-logs] |
 
@@ -69,7 +69,11 @@ Azure 提供兩種方式來執行網路原則。 當您建立 AKS 叢集時，�
 * 允許以 Pod 標籤為基礎的流量。
 * 允許以命名空間為基礎的流量。
 
-首先，讓我們建立支援網路原則的 AKS 叢集。 只有在建立叢集時，才可以啟用網路原則功能。 您無法在現有的 AKS 叢集上啟用網路原則。
+首先，讓我們建立支援網路原則的 AKS 叢集。 
+
+> [!IMPORTANT]
+>
+> 只有在建立叢集時，才可以啟用網路原則功能。 您無法在現有的 AKS 叢集上啟用網路原則。
 
 若要使用 Azure 網路原則，您必須使用[AZURE CNI 外掛程式][azure-cni]，並定義您自己的虛擬網路和子網。 如需如何規劃必要子網範圍的詳細資訊，請參閱[設定 advanced 網路][use-advanced-networking]。 Calico 網路原則可以與這個相同的 Azure CNI 外掛程式或 Kubenet CNI 外掛程式搭配使用。
 
@@ -79,7 +83,7 @@ Azure 提供兩種方式來執行網路原則。 當您建立 AKS 叢集時，�
 * 建立與 AKS 叢集搭配使用的 Azure Active Directory （Azure AD）服務主體。
 * 針對虛擬網路上的 AKS 叢集服務主體指派「參與者」權限。
 * 在定義的虛擬網路中建立 AKS 叢集，並啟用網路原則。
-    * 使用 [ *azure*網路原則] 選項。 若要改為使用 Calico 做為網路原則選項，請使用 `--network-policy calico` 參數。 注意：Calico 可以搭配 `--network-plugin azure` 或 `--network-plugin kubenet` 使用。
+    * 使用 [ *azure*網路原則] 選項。 若要改為使用 Calico 做為網路原則選項，請使用 `--network-policy calico` 參數。 注意： Calico 可以搭配 `--network-plugin azure` 或 `--network-plugin kubenet`使用。
 
 提供您自己的安全 *SP_PASSWORD*。 您可以取代*RESOURCE_GROUP_NAME*和*CLUSTER_NAME*變數：
 
@@ -134,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-建立叢集需要幾分鐘的時間。 當叢集準備就緒時，請使用[az aks get-認證][az-aks-get-credentials]命令來設定 `kubectl` 以連線到您的 Kubernetes 叢集。 此命令會下載憑證並設定 Kubernetes CLI 以供使用：
+建立叢集需要幾分鐘的時間。 當叢集準備就緒時，請使用[az aks get-認證][az-aks-get-credentials]命令，將 `kubectl` 設定為連接到您的 Kubernetes 叢集。 此命令會下載憑證並設定 Kubernetes CLI 以供使用：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -163,7 +167,7 @@ kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace d
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-在 shell 提示字元中，使用 `wget`，確認您可以存取預設的 NGINX 網頁：
+在 shell 提示字元中，使用 `wget` 來確認您可以存取預設的 NGINX 網頁：
 
 ```console
 wget -qO- http://backend
@@ -334,7 +338,7 @@ kubectl label namespace/production purpose=production
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-在 shell 提示字元中，使用 `wget`，確認您可以存取預設的 NGINX 網頁：
+在 shell 提示字元中，使用 `wget` 來確認您可以存取預設的 NGINX 網頁：
 
 ```console
 wget -qO- http://backend.development
@@ -398,7 +402,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-在 shell 提示字元中，使用 `wget`，以查看網路原則現在拒絕流量：
+在 shell 提示字元中，使用 `wget` 來查看網路原則現在拒絕流量：
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 33fa474d719ec8a20142f35f56cc697c11e03e86
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598034"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926639"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -186,7 +186,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 當您決定要使用的複寫選項時，請記住下列幾點：
 
-* 異地區域冗余儲存體（切換）（預覽）會以同步方式將資料複寫到三個 Azure 可用性區域，並以非同步方式將資料複寫到次要區域，藉此提供高可用性和最大耐久性。 您也可以啟用次要區域的讀取權限。 切換的設計目的是要在指定的一年內提供至少 99.99999999999999% （16個9）的物件持久性。 如需切換的詳細資訊，請參閱[高可用性和最大持久性（預覽）的異地區域冗余儲存體](../common/storage-redundancy-gzrs.md)。
+* 異地區域冗余儲存體（切換）（預覽）會以同步方式將資料複寫到三個 Azure 可用性區域，並以非同步方式將資料複寫到次要區域，藉此提供高可用性和最大耐久性。 您也可以啟用次要區域的讀取權限。 切換的設計目的是要在指定的一年內提供至少99.99999999999999% （16個9）的物件持久性。 如需切換的詳細資訊，請參閱[高可用性和最大持久性（預覽）的異地區域冗余儲存體](../common/storage-redundancy-gzrs.md)。
 * 區域冗余儲存體（ZRS）提供同步複寫的高可用性，而且在某些情況下可能是比 GRS 更好的選擇。 如需有關 ZRS 的詳細資訊，請參閱 [ZRS](../common/storage-redundancy-zrs.md)。
 * 非同步複寫會涉及從將資料寫入主要區域，到將資料複寫至次要區域這段時間的延遲。 當發生區域性災害時，如果無法從主要區域復原尚未複寫到次要區域的變更，則這些變更可能會遺失。
 * 使用 GRS 時，複本不提供讀取或寫入存取，除非 Microsoft 起始對次要區域的容錯移轉。 在容錯移轉的情況下，當容錯移轉完成時，您會有該資料的讀取和寫入存取權。 如需詳細資訊，請參閱[災害復原指導方針](../common/storage-disaster-recovery-guidance.md)。
@@ -207,6 +207,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |-------|---------|
 |澳大利亞東部 |LRS     |
 |澳大利亞東南部|LRS |
+|加拿大中部  |LRS     |
 |印度中部  |LRS     |
 |東亞      |LRS     |
 |美國東部 *        |LRS     |

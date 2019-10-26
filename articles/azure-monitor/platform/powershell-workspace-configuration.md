@@ -1,23 +1,22 @@
 ---
 title: 使用 PowerShell 建立和設定 Log Analytics 工作區 | Microsoft Docs
 description: Azure 監視器中的 Log Analytics 工作區會將資料從您的內部部署或雲端基礎結構中的伺服器儲存。 您可以在 Azure 診斷產生電腦資料時，從 Azure 儲存體加以收集。
-services: log-analytics
-author: bwren
-ms.service: log-analytics
-ms.devlang: powershell
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 16cad34290ecc518e95ec1a0ce0950722cfe0780
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 05/19/2019
+ms.openlocfilehash: 9d5bbaf02798c0fd87c40f1d952db19aac7b0b7e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71836151"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932084"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>使用 PowerShell 管理 Azure 監視器中的 Log Analytics 工作區
 
-您可以使用[Log Analytics PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) , 從命令列或腳本的一部分, 在 Azure 監視器的 Log analytics 工作區上執行各種功能。  您可以使用 PowerShell 執行的工作範例包括︰
+您可以使用[Log Analytics PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) ，從命令列或腳本的一部分，在 Azure 監視器的 Log analytics 工作區上執行各種功能。  您可以使用 PowerShell 執行的工作範例包括︰
 
 * 建立工作區
 * 新增或移除方案
@@ -195,9 +194,9 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | `yyyy-MM-ddTHH:mm:ss` <br> T 是常值的字母 T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>設定 Log Analytics 以傳送 Azure 診斷
-若要以無代理程式的方式監視 Azure 資源，資源需要啟用 Azure 診斷並將其設定為寫入至 Log Analytics 工作區。 這種方法會將資料直接傳送到工作區, 而不需要將資料寫入儲存體帳戶。 支援的資源包括：
+若要以無代理程式的方式監視 Azure 資源，資源需要啟用 Azure 診斷並將其設定為寫入至 Log Analytics 工作區。 這種方法會將資料直接傳送到工作區，而不需要將資料寫入儲存體帳戶。 支援的資源包括：
 
-| 資源類型 | 記錄檔 | 計量 |
+| 資源類型 | 記錄 | 計量 |
 | --- | --- | --- |
 | 應用程式閘道    | 是 | 是 |
 | 自動化帳戶     | 是 | |
@@ -212,7 +211,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | Logic Apps              | 是 | 是 |
 | 網路安全性群組 | 是 | |
 | Azure Cache for Redis             |     | 是 |
-| Search 服務         | 是 | 是 |
+| 搜尋服務         | 是 | 是 |
 | 服務匯流排命名空間   |     | 是 |
 | SQL (v12)               |     | 是 |
 | 網站               |     | 是 |
@@ -234,7 +233,7 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 
 
 ## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>設定 Log Analytics 工作區以從儲存體收集 Azure 診斷
-若要從傳統雲端服務或 Service Fabric 叢集的執行中執行個體內收集記錄檔資料，您必須先將資料寫入 Azure 儲存體。 接著會設定 Log Analytics 工作區, 以從儲存體帳戶收集記錄。 支援的資源包括：
+若要從傳統雲端服務或 Service Fabric 叢集的執行中執行個體內收集記錄檔資料，您必須先將資料寫入 Azure 儲存體。 接著會設定 Log Analytics 工作區，以從儲存體帳戶收集記錄。 支援的資源包括：
 
 * 傳統雲端服務 (Web 和背景工作角色)
 * Service Fabric 叢集

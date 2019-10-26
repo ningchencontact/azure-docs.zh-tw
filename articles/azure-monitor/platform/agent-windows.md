@@ -1,24 +1,18 @@
 ---
 title: 將 Windows 電腦連接到 Azure 監視器 |Microsoft Docs
 description: 本文說明如何將裝載于其他雲端或內部部署環境的 Windows 電腦，與適用于 Windows 的 Log Analytics 代理程式連線 Azure 監視器。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/07/2019
+ms.openlocfilehash: abe114a989c4ec672d391a7fd7d83341d4c52638
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033964"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932781"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線至 Azure 監視器
 
@@ -190,7 +184,7 @@ ms.locfileid: "72033964"
 
 代理程式的安裝一旦完成，可以兩種方式確認其連線成功和報告。  
 
-在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，然後代理程式應該會在 [Azure Log Analytics] 索引標籤上顯示訊息，指出：[Microsoft Monitoring Agent 已成功與 Microsoft Operations Management Suite 服務連線。]<br><br> ![MMA 對 Log Analytics 的連線狀態](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，在 [Azure Log Analytics] 索引標籤上，代理程式應該會顯示下列訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務。**<br><br> ![MMA 對 Log Analytics 的連線狀態](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 您也可以在 Azure 入口網站中執行簡單的記錄查詢。  
 

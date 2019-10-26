@@ -1,24 +1,18 @@
 ---
 title: Azure 監視器記錄查詢中的 workspace() 運算式 |Microsoft Docs
 description: 在 Azure 監視器記錄查詢中，workspace 運算式用來從相同資源群組、另一個資源群組或另一個訂用帳戶中的特地工作區擷取資料。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/10/2018
+ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60785671"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932845"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure 監視器記錄查詢中的 workspace() 運算式
 
@@ -31,13 +25,13 @@ ms.locfileid: "60785671"
 
 ## <a name="arguments"></a>引數
 
-- *識別碼*：使用下表中的其中一個格式識別工作區。
+- 識別碼：使用下表中的其中一個格式來識別工作區。
 
 | 識別碼 | 描述 | 範例
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的工作區名稱 (也稱為「元件名稱」) | workspace("contosoretail") |
 | 完整名稱 | 使用下列形式的工作區完整名稱："subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| id | 工作區的 GUID | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| ID | 工作區的 GUID | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Azure 資源識別碼 | Azure 資源的識別碼 | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
@@ -71,6 +65,6 @@ union
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[應用程式運算式](app-expression.md)參考至 Application Insights 應用程式。
+- 請參閱[應用程式運算式](app-expression.md)來參考 Application Insights 應用程式。
 - 了解 [Azure 監視器資料](log-query-overview.md)的儲存方式。
 - 存取 [Kusto 查詢語言](/azure/kusto/query/)的完整文件。

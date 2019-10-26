@@ -1,20 +1,18 @@
 ---
 title: 適用於 Azure Functions 2.x 的 host.json 參考
 description: Azure Functions host.json 檔案與 v2 執行階段的參考文件。
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596865"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927456"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -150,9 +148,7 @@ ms.locfileid: "72596865"
 ## <a name="functiontimeout"></a>functionTimeout
 
 指出所有函式的逾時持續期間。 它會遵循 timespan 字串格式。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。  
-在專用（App Service）方案中，沒有整體限制，而且預設值取決於執行階段版本： 
-+ 1\.x 版：預設值為*null*，表示沒有超時。   
-+ 2\.x 版：預設值為30分鐘。 值為 `-1` 表示未系結的執行。
+在專用（App Service）方案中，沒有整體限制，而預設值為30分鐘。 值為 `-1` 表示未系結的執行。
 
 ```json
 {

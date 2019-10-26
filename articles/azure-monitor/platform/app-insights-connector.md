@@ -1,24 +1,18 @@
 ---
 title: 檢視 Azure Application Insights 應用程式資料 | Microsoft Docs
 description: 您可以使用 Applications Insights Connector 解決方案來診斷效能問題，以及了解使用者如何使用 Application Insights 監視您的應用程式。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/13/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 02/13/2019
+ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849176"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932736"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Connector 管理解決方案 (取代)
 
@@ -49,7 +43,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集 Application Insights Connector 的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 描述 |
+| 連接的來源 | 支援的 | 描述 |
 | --- | --- | --- |
 | [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
@@ -97,7 +91,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 此儀表板包含下表所示的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 當您按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭時，您可以執行記錄搜尋來傳回所有記錄。
 
 
-| **資料行** | **描述** |
+| **資料行** | **說明** |
 | --- | --- |
 | 應用程式 - 應用程式的數目 | 顯示 [應用程式] 資源中的應用程式數目。 也會列出應用程式名稱以及各自的應用程式記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  按一下應用程式名稱，可執行應用程式的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
 | 資料量 - 傳送資料的主機 | 顯示傳送資料的電腦主機數目。 也會列出電腦主機和每部主機的記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> 按一下電腦名稱，可執行主機的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
@@ -169,7 +163,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 - 可用性
 - 例外狀況
-- 要求
+- Requests
 - 頁面檢視 – 為了讓工作區接收頁面檢視，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views)。
 - 自訂事件 – 為了讓工作區接收訂事件，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)。
 
@@ -181,7 +175,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>一般欄位
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -192,9 +186,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 用戶端裝置 |
 | ScreenResolution |   |
 | Continent | 要求的起源洲 |
-| Country | 要求的來源國家/地區 |
-| 省份 | 要求的起源省、州或地區設定 |
-| 縣/市 | 要求的起源城市或鄉鎮 |
+| 國家/地區 | 要求的來源國家/地區 |
+| Province | 要求的起源省、州或地區設定 |
+| 城市 | 要求的起源城市或鄉鎮 |
 | isSynthetic | 指出要求是由使用者或自動化方法建立。 True = 自動化方法或 false = 使用者產生 |
 | SamplingRate | 由傳送至入口網站之 SDK 所產生的遙測百分比。 範圍 0.0-100.0。 |
 | SampledCount | 100/(SamplingRate)。 例如，4 =&gt; 25% |
@@ -207,7 +201,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>可用性專屬欄位
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 | --- | --- |
 | TelemetryType | 可用性 |
 | AvailabilityTestName | Web 測試的名稱 |
@@ -249,7 +243,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>要求專屬欄位
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | 要求 |
@@ -268,7 +262,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | RequestDurationMax | 對於取樣記錄，此欄位會顯示代表性資料點的最大要求持續時間 (毫秒) |
 | RequestDurationStdDev | 對於取樣記錄，此欄位會顯示代表性資料點的所有要求持續時間 (毫秒) 之間的標準差 |
 
-## <a name="sample-log-searches"></a>記錄搜尋範例
+## <a name="sample-log-searches"></a>記錄檔搜尋範例
 
 此解決方案並沒有一組顯示在儀表板上的範例記錄搜尋。 不過，[檢視 Application Insights Connector 資訊](#view-application-insights-connector-information)一節會顯示範例記錄搜尋查詢及說明。
 

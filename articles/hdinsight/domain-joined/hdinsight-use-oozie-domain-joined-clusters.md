@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918117"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935472"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
 
@@ -25,7 +25,7 @@ Apache Oozie 是可管理 Apache Hadoop 作業的工作流程和協調系統。 
 
 您也可以使用 Oozie 來排程系統的特定作業，例如 Java 程式或 Shell 指令碼。
 
-## <a name="prerequisite"></a>必要條件
+## <a name="prerequisite"></a>先決條件
 
 - 具有企業安全性套件 (ESP) 的 Azure HDInsight Hadoop 叢集。 請參閱[設定具有 ESP 的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
@@ -61,9 +61,9 @@ Oozie 工作流程定義是以 Apache Hadoop 流程定義語言 (hPDL) 撰寫的
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   將 `DomainUser` 取代為網域使用者名稱。 
-   將 `DomainUserPath` 取代為網域使用者的主目錄路徑。 
-   將 `ClusterVersion` 取代您的叢集 Hortonworks Data Platform (HDP) 版本。
+   將 `DomainUser` 取代為網域使用者名稱。
+   將 `DomainUserPath` 取代為網域使用者的主目錄路徑。
+   將 `ClusterVersion` 取代為您的叢集資料平臺版本。
 
 2. 使用以下陳述式建立和編輯新的檔案：
    ```bash

@@ -4,157 +4,157 @@ description: 列出可移至新資源群組或訂用帳戶的 Azure 資源類型
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 81096a4299ec190cb4299f1b8ea4f9c2533d37ad
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ba594a2bc0f0cb50eb515a24255a3f9ad56a10a3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948033"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931882"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 此文章列出 Azure 資源類型是否支援移動作業。 它也會提供移動資源時要考慮之特殊條件的相關資訊。
 
 跳至資源提供者命名空間：
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
-> - [microsoft.aadiam](#microsoftaadiam)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft AAD](#microsoftaad)
+> - [aadiam](#microsoftaadiam)
+> - [Microsoft.alertsmanagement](#microsoftalertsmanagement)
+> - [Microsoft.analysisservices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft.AppService](#microsoftappservice)
+> - [AppConfiguration](#microsoftappconfiguration)
+> - [AppService](#microsoftappservice)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
-> - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.BatchAI](#microsoftbatchai)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
-> - [Microsoft.Blockchain](#microsoftblockchain)
-> - [Microsoft.Blueprint](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
+> - [AzureStack](#microsoftazurestack)
+> - [Microsoft。 Batch](#microsoftbatch)
+> - [BatchAI](#microsoftbatchai)
+> - [BingMaps](#microsoftbingmaps)
+> - [BizTalkServices](#microsoftbiztalkservices)
+> - [區塊鏈](#microsoftblockchain)
+> - [Microsoft 藍圖](#microsoftblueprint)
+> - [BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
 > - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Container](#microsoftcontainer)
-> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.classiccompute](#microsoftclassiccompute)
+> - [Microsoft.classicnetwork](#microsoftclassicnetwork)
+> - [Microsoft.classicstorage](#microsoftclassicstorage)
+> - [CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft。計算](#microsoftcompute)
+> - [Microsoft 容器](#microsoftcontainer)
+> - [Microsoft.containerinstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft.Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
-> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [ContentModerator](#microsoftcontentmoderator)
+> - [CortanaAnalytics](#microsoftcortanaanalytics)
+> - [CostManagement](#microsoftcostmanagement)
+> - [CustomerInsights](#microsoftcustomerinsights)
+> - [CustomProviders](#microsoftcustomproviders)
+> - [DataBox](#microsoftdatabox)
+> - [DataBoxEdge](#microsoftdataboxedge)
+> - [Databricks](#microsoftdatabricks)
+> - [Microsoft.datacatalog](#microsoftdatacatalog)
+> - [DataConnect](#microsoftdataconnect)
+> - [DataExchange](#microsoftdataexchange)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLake](#microsoftdatalake)
+> - [DataLake](#microsoftdatalake)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.datamigration](#microsoftdatamigration)
+> - [DataShare](#microsoftdatashare)
+> - [DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.dbformysql](#microsoftdbformysql)
+> - [DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [DomainRegistration](#microsoftdomainregistration)
+> - [EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Genomics](#microsoftgenomics)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Genomics](#microsoftgenomics)
+> - [HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft.ImportExport](#microsoftimportexport)
-> - [microsoft.insights](#microsoftinsights)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [HealthcareApis](#microsofthealthcareapis)
+> - [HybridCompute](#microsofthybridcompute)
+> - [HybridData](#microsofthybriddata)
+> - [ImportExport](#microsoftimportexport)
+> - [microsoft insights](#microsoftinsights)
+> - [IoTCentral](#microsoftiotcentral)
+> - [Microsoft.iotspaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [Kusto](#microsoftkusto)
+> - [LabServices](#microsoftlabservices)
+> - [LocationBasedServices](#microsoftlocationbasedservices)
+> - [Locationservices.log](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
-> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [MachineLearning](#microsoftmachinelearning)
+> - [MachineLearningCompute](#microsoftmachinelearningcompute)
+> - [MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
+> - [MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [Microsoft.machinelearningservices](#microsoftmachinelearningservices)
+> - [Microsoft.managedidentity](#microsoftmanagedidentity)
+> - [Microsoft Maps](#microsoftmaps)
+> - [MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft.Media](#microsoftmedia)
 > - [Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrate](#microsoftmigrate)
-> - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft。遷移](#microsoftmigrate)
+> - [Microsoft NetApp](#microsoftnetapp)
+> - [Microsoft 網路](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PortalSdk](#microsoftportalsdk)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft.operationalinsights](#microsoftoperationalinsights)
+> - [Microsoft.operationsmanagement](#microsoftoperationsmanagement)
+> - [Microsoft 對等互連](#microsoftpeering)
+> - [Microsoft 入口網站](#microsoftportal)
+> - [PortalSdk](#microsoftportalsdk)
+> - [Microsoft PowerBI](#microsoftpowerbi)
+> - [PowerBIDedicated](#microsoftpowerbidedicated)
+> - [對 microsoft.projectoxford.face](#microsoftprojectoxford)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft 轉送](#microsoftrelay)
 > - [Az.resourcegraph](#microsoftresourcegraph)
-> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [ServerManagement](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
-> - [Microsoft.Solutions](#microsoftsolutions)
+> - [ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.signalrservice](#microsoftsignalrservice)
+> - [Microsoft 解決方案](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
+> - [Microsoft.sqlvirtualmachine](#microsoftsqlvirtualmachine)
+> - [SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
-> - [Microsoft.TerraformOSS](#microsoftterraformoss)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.Token](#microsofttoken)
-> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
-> - [microsoft.visualstudio](#microsoftvisualstudio)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [StorageCache](#microsoftstoragecache)
+> - [Microsoft.storagesync](#microsoftstoragesync)
+> - [StorageSyncDev](#microsoftstoragesyncdev)
+> - [StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft StorSimple](#microsoftstorsimple)
+> - [Mslearn-streamanalytics](#microsoftstreamanalytics)
+> - [StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [TerraformOSS](#microsoftterraformoss)
+> - [Timeseriesinsights-environment-with-eventhub](#microsofttimeseriesinsights)
+> - [Microsoft Token](#microsofttoken)
+> - [VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [visualstudio](#microsoftvisualstudio)
+> - [VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
+> - [WindowsIoT](#microsoftwindowsiot)
+> - [WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domainservices | 否 | 否 |
 > | domainservices/replicasets | 否 | 否 |
@@ -162,42 +162,42 @@ ms.locfileid: "71948033"
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | tenants | 否 | 否 |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | actionrules | 是 | 是 |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 伺服器 | 是 | 是 |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 服務 | 是 | 是 |
+> | service | 是 | 是 |
 
-## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+## <a name="microsoftappconfiguration"></a>AppConfiguration
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | configurationstores | 是 | 是 |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | apiapps | 否 | 否 |
 > | appidentities | 否 | 否 |
@@ -209,14 +209,14 @@ ms.locfileid: "71948033"
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | policyassignments | 否 | 否 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | 是 | 是 |
 > | automationaccounts/設定 | 是 | 是 |
@@ -228,66 +228,59 @@ ms.locfileid: "71948033"
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | b2cdirectories | 是 | 是 |
 
 ## <a name="microsoftazuredata"></a>AzureData
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | sqlserverregistrations | 否 | 否 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registrations | 是 | 是 |
-
-## <a name="microsoftbackup"></a>Microsoft.Backup
-
-> [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
-> | ------------- | ----------- | ---------- |
-> | backupvault | 否 | 否 |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | batchaccounts | 是 | 是 |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | 否 | 否 |
 > | fileservers | 否 | 否 |
-> | 工作 | 否 | 否 |
-> | 工作區 | 否 | 否 |
+> | jobs | 否 | 否 |
+> | workspaces | 否 | 否 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | mapapis | 否 | 否 |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | biztalk | 是 | 是 |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | blockchainmembers | 是 | 是 |
 > | 位監看員 | 否 | 否 |
@@ -295,21 +288,21 @@ ms.locfileid: "71948033"
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | blueprintassignments | 否 | 否 |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | botservices | 是 | 是 |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | redis | 是 | 是 |
 
@@ -319,16 +312,16 @@ ms.locfileid: "71948033"
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallpolicies | 否 | 否 |
-> | profiles | 是 | 是 |
+> | 設定檔 | 是 | 是 |
 > | 設定檔/端點 | 是 | 是 |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | certificateorders | 是 | 是 |
 
@@ -338,7 +331,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domainnames | 是 | 否 |
 > | virtualmachines | 是 | 否 |
@@ -349,7 +342,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | networksecuritygroups | 否 | 否 |
 > | reservedips | 否 | 否 |
@@ -361,7 +354,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | 是 | 否 |
 
@@ -371,14 +364,14 @@ ms.locfileid: "71948033"
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 是 | 是 |
+> | accounts | 是 | 是 |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | 是 | 是 |
 > | diskencryptionsets | 否 | 否 |
@@ -388,12 +381,12 @@ ms.locfileid: "71948033"
 > | 資源庫/影像/版本 | 否 | 否 |
 > | hostgroups | 否 | 否 |
 > | hostgroups/主機 | 否 | 否 |
-> | 映像 | 是 | 是 |
+> | images | 是 | 是 |
 > | proximityplacementgroups | 否 | 否 |
 > | restorepointcollections | 否 | 否 |
 > | sharedvmimages | 否 | 否 |
 > | sharedvmimages/版本 | 否 | 否 |
-> | 快照集 | 是 | 是 |
+> | snapshots | 是 | 是 |
 > | virtualmachines | 是 | 是 |
 > | virtualmachines/extensions | 是 | 是 |
 > | virtualmachinescalesets | 是 | 是 |
@@ -404,21 +397,21 @@ ms.locfileid: "71948033"
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | containergroups | 否 | 否 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | containergroups | 否 | 否 |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registries | 是 | 是 |
 > | 登錄/buildtasks | 是 | 是 |
@@ -429,7 +422,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | containerservices | 否 | 否 |
 > | managedclusters | 否 | 否 |
@@ -438,56 +431,63 @@ ms.locfileid: "71948033"
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 應用程式 | 是 | 是 |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 連接器 | 是 | 是 |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hubs | 是 | 是 |
+
+## <a name="microsoftcustomproviders"></a>CustomProviders
+
+> [!div class="mx-tableFixed"]
+> | 資源類型 | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | resourceproviders | 是 | 是 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 工作 | 否 | 否 |
+> | jobs | 否 | 否 |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | databoxedgedevices | 否 | 否 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 工作區 | 否 | 否 |
+> | workspaces | 否 | 否 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | catalogs | 是 | 是 |
 > | datacatalogs | 否 | 否 |
@@ -495,14 +495,14 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | connectionmanagers | 否 | 否 |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | packages | 否 | 否 |
 > | plans | 否 | 否 |
@@ -510,7 +510,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | 是 | 是 |
 > | factories | 是 | 是 |
@@ -518,51 +518,58 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datalakeaccounts | 否 | 否 |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 是 | 是 |
+> | accounts | 是 | 是 |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 是 | 是 |
+> | accounts | 是 | 是 |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 服務 | 否 | 否 |
 > | 服務/專案 | 否 | 否 |
 > | slots | 否 | 否 |
 
+## <a name="microsoftdatashare"></a>DataShare
+
+> [!div class="mx-tableFixed"]
+> | 資源類型 | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | accounts | 否 | 否 |
+
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 伺服器 | 是 | 是 |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 伺服器 | 是 | 是 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | servergroups | 否 | 否 |
 > | 伺服器 | 是 | 是 |
@@ -571,7 +578,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | artifactsources | 是 | 是 |
 > | rollouts | 是 | 是 |
@@ -583,7 +590,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | elasticpools | 否 | 否 |
 > | elasticpools / iothubtenants | 否 | 否 |
@@ -593,14 +600,14 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | controllers | 是 | 是 |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | labcenters | 否 | 否 |
 > | labs | 是 | 否 |
@@ -612,28 +619,28 @@ ms.locfileid: "71948033"
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | databaseaccounts | 是 | 是 |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | 是 | 是 |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 服務 | 是 | 是 |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | 是 | 是 |
 > | topics | 是 | 是 |
@@ -641,22 +648,22 @@ ms.locfileid: "71948033"
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | 是 | 是 |
-> | 命名空間 | 是 | 是 |
+> | namespaces | 是 | 是 |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | 否 | 否 |
 > | sapmonitors | 是 | 是 |
@@ -664,7 +671,7 @@ ms.locfileid: "71948033"
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | 是 | 是 |
 
@@ -673,40 +680,40 @@ ms.locfileid: "71948033"
 >
 > 將 HDInsight 叢集移至新的訂用帳戶時，請先移動其他資源 (例如儲存體帳戶)。 然後，移動 HDInsight 叢集本身。
 
-## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+## <a name="microsofthealthcareapis"></a>HealthcareApis
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 服務 | 是 | 是 |
 
-## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+## <a name="microsofthybridcompute"></a>HybridCompute
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 電腦 | 否 | 否 |
+> | 機時 | 否 | 否 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datamanagers | 是 | 是 |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 工作 | 是 | 是 |
+> | jobs | 是 | 是 |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 > | actiongroups | 是 | 是 |
 > | activitylogalerts | 否 | 否 |
 > | alertrules | 是 | 是 |
@@ -726,22 +733,22 @@ ms.locfileid: "71948033"
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | iotapps | 是 | 是 |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | 是 | 是 |
-> | 圖表 | 是 | 是 |
+> | graph | 是 | 是 |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hsmpools | 否 | 否 |
 > | vaults | 是 | 是 |
@@ -752,35 +759,35 @@ ms.locfileid: "71948033"
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | 是 | 是 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | labaccounts | 否 | 否 |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | 否 | 否 |
 > | integrationaccounts | 是 | 是 |
@@ -791,25 +798,25 @@ ms.locfileid: "71948033"
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | commitmentplans | 是 | 是 |
 > | webservices | 是 | 否 |
-> | 工作區 | 是 | 是 |
+> | workspaces | 是 | 是 |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | operationalizationclusters | 是 | 是 |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 > | 帳戶/工作區 | 否 | 否 |
 > | 帳戶/工作區/專案 | 否 | 否 |
 > | teamaccounts | 否 | 否 |
@@ -819,49 +826,49 @@ ms.locfileid: "71948033"
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hostingaccounts | 否 | 否 |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 工作區 | 否 | 否 |
+> | workspaces | 否 | 否 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | userassignedidentities | 否 | 否 |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 是 | 是 |
+> | accounts | 是 | 是 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | classicdevservices | 否 | 否 |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | mediaservices | 是 | 是 |
 > | windowsazure.mediaservices.extensions/liveevent | 是 | 是 |
@@ -870,14 +877,14 @@ ms.locfileid: "71948033"
 ## <a name="microsoftmicroservices4spring"></a>Microservices4Spring
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | appclusters | 否 | 否 |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | assessmentprojects | 否 | 否 |
 > | migrateprojects | 否 | 否 |
@@ -886,7 +893,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | netappaccounts | 否 | 否 |
 > | netappaccounts / capacitypools | 否 | 否 |
@@ -897,14 +904,14 @@ ms.locfileid: "71948033"
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applicationgateways | 否 | 否 |
 > | applicationgatewaywebapplicationfirewallpolicies | 否 | 否 |
 > | applicationsecuritygroups | 是 | 是 |
 > | azurefirewalls | 是 | 是 |
 > | bastionhosts | 否 | 否 |
-> | 連接 | 是 | 是 |
+> | connections | 是 | 是 |
 > | ddoscustompolicies | 是 | 是 |
 > | ddosprotectionplans | 否 | 否 |
 > | dnszones | 是 | 是 |
@@ -912,7 +919,7 @@ ms.locfileid: "71948033"
 > | expressroutecrossconnections | 否 | 否 |
 > | expressroutegateways | 否 | 否 |
 > | expressrouteports | 否 | 否 |
-> | 前門 | 否 | 否 |
+> | frontdoors | 否 | 否 |
 > | frontdoorwebapplicationfirewallpolicies | 否 | 否 |
 > | loadbalancers | 是-基本 SKU<br>無標準 SKU | 是-基本 SKU<br>無標準 SKU |
 > | localnetworkgateways | 是 | 是 |
@@ -952,17 +959,17 @@ ms.locfileid: "71948033"
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 命名空間 | 是 | 是 |
+> | namespaces | 是 | 是 |
 > | 命名空間/notificationhubs | 是 | 是 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 工作區 | 是 | 是 |
+> | workspaces | 是 | 是 |
 
 > [!IMPORTANT]
 > 請確定移至新的訂用帳戶不會超過訂用帳戶[配額](../azure-subscription-service-limits.md#azure-monitor-limits)。
@@ -970,58 +977,58 @@ ms.locfileid: "71948033"
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | managementconfigurations | 是 | 是 |
-> | 解決方案 | 是 | 是 |
+> | solutions | 是 | 是 |
 > | 檢視 | 是 | 是 |
 
-## <a name="microsoftpeering"></a>Microsoft.Peering
+## <a name="microsoftpeering"></a>Microsoft 對等互連
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 對等 | 否 | 否 |
+> | 對等互連 | 否 | 否 |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | dashboards | 是 | 是 |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | rootresources | 否 | 否 |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspacecollections | 是 | 是 |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | capacities | 是 | 是 |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 帳戶 | 否 | 否 |
+> | accounts | 否 | 否 |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | vaults | 是 | 是 |
 
@@ -1031,36 +1038,36 @@ ms.locfileid: "71948033"
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 命名空間 | 是 | 是 |
+> | namespaces | 是 | 是 |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 查詢 | 是 | 是 |
+> | 筆查詢 | 是 | 是 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 應用程式 | 是 | 否 |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 流量 | 是 | 是 |
+> | flows | 是 | 是 |
 > | jobcollections | 是 | 是 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | searchservices | 是 | 是 |
 
@@ -1070,7 +1077,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | iotsecuritysolutions | 是 | 是 |
 > | playbookconfigurations | 否 | 否 |
@@ -1078,22 +1085,22 @@ ms.locfileid: "71948033"
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | gateways | 否 | 否 |
-> | nodes | 否 | 否 |
+> | 節點 | 否 | 否 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 命名空間 | 是 | 是 |
+> | namespaces | 是 | 是 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 應用程式 | 否 | 否 |
 > | clusters | 是 | 是 |
@@ -1101,43 +1108,33 @@ ms.locfileid: "71948033"
 > | containergroups | 否 | 否 |
 > | containergroupsets | 否 | 否 |
 > | edgeclusters | 否 | 否 |
-> | 網路 | 否 | 否 |
+> | networks | 否 | 否 |
 > | secretstores | 否 | 否 |
 > | 磁碟區 | 否 | 否 |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 應用程式 | 是 | 是 |
 > | containergroups | 否 | 否 |
 > | gateways | 是 | 是 |
-> | 網路 | 是 | 是 |
-> | 祕密 | 是 | 是 |
+> | networks | 是 | 是 |
+> | 密碼 | 是 | 是 |
 > | 磁碟區 | 是 | 是 |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | signalr | 是 | 是 |
-
-## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
-
-> [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
-> | ------------- | ----------- | ---------- |
-> | siterecoveryvault | 否 | 否 |
-
-> [!IMPORTANT]
-> 請參閱復原[服務移動指引](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)。
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | appliancedefinitions | 否 | 否 |
 > | appliances | 否 | 否 |
@@ -1148,7 +1145,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | instancepools | 否 | 否 |
 > | managedinstances | 否 | 否 |
@@ -1164,7 +1161,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | sqlvirtualmachinegroups | 是 | 是 |
 > | sqlvirtualmachines | 是 | 是 |
@@ -1172,56 +1169,56 @@ ms.locfileid: "71948033"
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | dwvm | 否 | 否 |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | 是 | 是 |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+## <a name="microsoftstoragecache"></a>StorageCache
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 緩衝區 | 否 | 否 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | 是 | 是 |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | 否 | 否 |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | 否 | 否 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | managers | 否 | 否 |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | streamingjobs | 是 | 是 |
 
@@ -1231,7 +1228,7 @@ ms.locfileid: "71948033"
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | environments | 否 | 否 |
 > | 環境/eventsources | 否 | 否 |
@@ -1242,38 +1239,38 @@ ms.locfileid: "71948033"
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | providerregistrations | 否 | 否 |
-> | 資源 | 否 | 否 |
+> | resources | 否 | 否 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | environments | 是 | 是 |
 > | 環境/eventsources | 是 | 是 |
 > | 環境/referencedatasets | 是 | 是 |
 
-## <a name="microsofttoken"></a>Microsoft.Token
+## <a name="microsofttoken"></a>Microsoft Token
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 商店 | 否 | 否 |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | imagetemplates | 否 | 否 |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 帳戶 | 是 | 是 |
 > | 帳戶/擴充功能 | 是 | 是 |
@@ -1282,27 +1279,27 @@ ms.locfileid: "71948033"
 > [!IMPORTANT]
 > 若要變更 Azure DevOps 的訂用帳戶，請參閱[變更用於計費的 Azure 訂用](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)帳戶。
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | 是 | 是 |
-> | dedicatedcloudservices | 是 | 是 |
-> | virtualmachines | 是 | 是 |
+> | dedicatedcloudnodes | 否 | 否 |
+> | dedicatedcloudservices | 否 | 否 |
+> | virtualmachines | 否 | 否 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 憑證 | 否 | 是 |
+> | certificates | 否 | 是 |
 > | connectiongateways | 是 | 是 |
-> | 連接 | 是 | 是 |
+> | connections | 是 | 是 |
 > | customapis | 是 | 是 |
 > | hostingenvironments | 否 | 否 |
 > | serverfarms | 是 | 是 |
-> | 網站 | 是 | 是 |
+> | sites | 是 | 是 |
 > | sites/premieraddons | 是 | 是 |
 > | 網站/位置 | 是 | 是 |
 
@@ -1312,18 +1309,18 @@ ms.locfileid: "71948033"
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | deviceservices | 否 | 否 |
 
-## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
+## <a name="microsoftwindowsvirtualdesktop"></a>WindowsVirtualDesktop
 
 > [!div class="mx-tableFixed"]
-> | 資源類型 | 資源群組 | 訂閱 |
+> | 資源類型 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applicationgroups | 否 | 否 |
 > | hostpools | 否 | 否 |
-> | 工作區 | 否 | 否 |
+> | workspaces | 否 | 否 |
 
 ## <a name="third-party-services"></a>協力廠商服務
 

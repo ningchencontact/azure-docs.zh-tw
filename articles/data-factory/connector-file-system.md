@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6b1e1dfec69d73b7fe2648a1eb9ead2ae4622bc5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 39e1099f1700e9ade412bb4cb81bc38e814ecfae
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897755"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935650"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到檔案系統或從該處複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -100,21 +100,15 @@ ms.locfileid: "72897755"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
-
-若要將資料複製到**Parquet、分隔的文字、JSON、avro 和二進位格式**，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，以及支援的設定. 下列屬性支援以格式為基礎之資料集的 `location` 設定下的檔案系統：
+下列屬性支援以格式為基礎之資料集的 `location` 設定下的檔案系統：
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | 類型       | Dataset 中 `location` 下的 type 屬性必須設定為**FileServerLocation**。 | 是      |
 | folderPath | 資料夾的路徑。 如果您想要使用萬用字元來篩選資料夾，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 | fileName   | 指定 folderPath 下的檔案名。 如果您想要使用萬用字元來篩選檔案，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
-
-> [!NOTE]
-> 下一節中所述的檔案**共用**類型資料集的 Parquet/Text 格式仍然受到複製/查閱/GetMetadata 活動的支援，以提供回溯相容性，但它不適用於對應資料流程。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -142,9 +136,10 @@ ms.locfileid: "72897755"
 }
 ```
 
-### <a name="other-format-dataset"></a>其他格式資料集
+### <a name="legacy-dataset-model"></a>舊版資料集模型
 
-若要以**ORC 格式**將資料複製到檔案系統，或將其複製到其中，則支援下列屬性：
+>[!NOTE]
+>下列資料集模型仍受到支援，以供回溯相容性之用。 建議您使用上一節中所提及的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -198,12 +193,9 @@ ms.locfileid: "72897755"
 
 ### <a name="file-system-as-source"></a>檔案系統作為來源
 
-- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
-
-若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**複製資料，請參閱格式為基礎之複製活動來源的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)文章，並加以支援設置。 在以格式為基礎的複製來源中，`storeSettings` 設定下的檔案系統支援下列屬性：
+在以格式為基礎的複製來源中，`storeSettings` 設定下的檔案系統支援下列屬性：
 
 | 屬性                 | 描述                                                  | 必要項                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -214,9 +206,6 @@ ms.locfileid: "72897755"
 | modifiedDatetimeStart    | 檔案會根據屬性進行篩選：上次修改。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
 | maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否                                            |
-
-> [!NOTE]
-> 針對 Parquet/分隔文字格式，下一節中所提及的**FileSystemSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -259,9 +248,10 @@ ms.locfileid: "72897755"
 ]
 ```
 
-#### <a name="other-format-source"></a>其他格式來源
+#### <a name="legacy-source-model"></a>舊版來源模型
 
-若要以**ORC 格式**從檔案系統複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
+>[!NOTE]
+>下列複製來源模型仍受到支援，以提供回溯相容性。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -303,21 +293,15 @@ ms.locfileid: "72897755"
 
 ### <a name="file-system-as-sink"></a>檔案系統作為接收器
 
-- 若要複製到**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式接收](#format-based-sink)一節。
-- 若要複製到其他格式，例如**ORC 格式**，請參閱[其他格式接收](#other-format-sink)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式接收
-
-若要以**Parquet、分隔文字、JSON、Avro 和二進位格式**複製資料，請參閱格式為基礎之複製活動接收和支援的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。設置。 下列屬性支援以格式為基礎之複製接收的 `storeSettings` 設定下的檔案系統：
+下列屬性支援以格式為基礎之複製接收的 `storeSettings` 設定下的檔案系統：
 
 | 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | 類型                     | `storeSettings` 下的 type 屬性必須設定為**FileServerWriteSetting**。 | 是      |
 | copyBehavior             | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 若已指定檔案名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 | 否       |
 | maxConcurrentConnections | 同時連接到資料存放區的連接數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否       |
-
-> [!NOTE]
-> 針對 Parquet/分隔文字格式，下一節中所提及的**FileSystemSink**類型複製活動接收器仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -354,9 +338,10 @@ ms.locfileid: "72897755"
 ]
 ```
 
-#### <a name="other-format-sink"></a>其他格式接收器
+#### <a name="legacy-sink-model"></a>舊版接收模型
 
-若要以**ORC 格式**將資料複製到檔案系統， **sink**區段中支援下列屬性：
+>[!NOTE]
+>下列複製接收模型仍受到支援，以供回溯相容性之用。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |

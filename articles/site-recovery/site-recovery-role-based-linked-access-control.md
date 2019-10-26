@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471429"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929225"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>使用角色型存取控制 (RBAC) 管理 Site Recovery 存取
 
@@ -38,9 +38,12 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 > [!IMPORTANT]
 >確定為每個用於部署資源的部署模型 (Resource Manager/傳統) 新增相關的權限。
 
+> [!NOTE]
+> 如果您要啟用 Azure VM 的複寫，而且想要允許 Site Recovery 來管理更新，則在啟用複寫時，您可能也會想要建立新的自動化帳戶，在此情況下，您需要在相同的中建立自動化帳戶的許可權作為保存庫的訂用帳戶。
+
 | **資源類型** | **部署模型** | **權限** |
 | --- | --- | --- |
-| 計算 | Resource Manager | Microsoft.Compute/availabilitySets/read |
+| 運算 | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |

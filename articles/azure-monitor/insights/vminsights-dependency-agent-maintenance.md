@@ -1,24 +1,18 @@
 ---
 title: 如何升級適用於 VM 的 Azure 監視器 Dependency agent |Microsoft Docs
 description: 本文說明如何使用命令列、安裝程式和其他方法來升級適用於 VM 的 Azure 監視器 Dependency agent。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/30/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 37dcd21e17a47827f9bd4f6e5a756b321cf94495
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 09/30/2019
+ms.openlocfilehash: f062dead8d479fe4da5de46b76b82cee9207bd83
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809834"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933720"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>如何升級適用於 VM 的 Azure 監視器 Dependency agent
 

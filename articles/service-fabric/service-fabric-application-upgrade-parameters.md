@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: atsenthi
-ms.openlocfilehash: 6276f347f0cc0ecc03acc95282e83c243679957a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8503b3c8a630575b917e3710ce4d7c5d6fbe70cb
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802423"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934042"
 ---
 # <a name="application-upgrade-parameters"></a>應用程式升級參數
 本文說明在 Azure Service Fabric 應用程式升級期間套用的各種參數。 應用程式升級參數會控制升級時套用的逾時與健康情況檢查，並且指定升級失敗時必須套用的原則。 應用程式參數會使用下列各項套用到升級：
@@ -57,10 +57,6 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 ### <a name="optional-parameters"></a>選擇性參數
 
 健康情況評估參數是選擇性的。 如果啟動升級時未指定健康狀態評估準則，則 Service Fabric 會使用應用程式執行個體的 ApplicationManifest.xml 中指定的應用程式健康狀態原則。
-
-使用資料表底部的水平捲軸來檢視完整描述欄位。
-
-(PS=PowerShell, VS=Visual Studio)
 
 > [!div class="mx-tdBreakAll"]
 > | 參數 | 套用至 | 描述 |

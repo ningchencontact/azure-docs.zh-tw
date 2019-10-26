@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/25/2019
 ms.locfileid: "71261317"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
@@ -28,7 +28,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 ## <a name="networking"></a>網路功能
 <a id="direct-connection"></a>
 
-1. **連線原則︰使用直接連接模式**
+1. **原則︰使用直接連接模式**
 
     用戶端連線到 Azure Cosmos DB 的方式，對於效能有重大影響 (尤其對觀察到的用戶端延遲而言)。 有兩個重要組態設定可用來設定用戶端連接原則 - 連接*模式*和連接*通訊協定*。  兩個可用的模式︰
 
@@ -46,8 +46,8 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
      |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
      |---------|---------|---------|---------|
-     |閘道  |   HTTPS    |  所有 SDK    |   SQL (443)、Mongo (10250、10255、10256)、Table (443)、Cassandra (10350)、Graph (443)    |
-     |直接    |     TCP    |  .NET SDK    | 10,000-20,000 範圍內的連接埠 |
+     |閘道器  |   HTTPS    |  所有 SDK    |   SQL （443）、Mongo （10250、10255、10256）、Table （443）、Cassandra （10350）、Graph （443）    |
+     |Direct    |     TCP    |  .NET SDK    | 10,000-20,000 範圍內的連接埠 |
 
      Azure Cosmos DB 提供透過 HTTPS 的簡單且開放 RESTful 程式設計模型。 此外，它可提供有效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 .NET 用戶端 SDK 取得。 直接 TCP 和 HTTPS 皆使用 SSL 來進行初始驗證和加密流量。 為了達到最佳效能，儘可能使用 TCP 通訊協定。
 
@@ -102,7 +102,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 5. **啟用加速網路**
 
-   為了減少延遲和 CPU 抖動, 我們建議用戶端虛擬機器啟用加速網路。 請參閱使用加速網路[建立 Windows 虛擬機器](../virtual-network/create-vm-accelerated-networking-powershell.md)或[使用加速網路建立 Linux 虛擬機器](../virtual-network/create-vm-accelerated-networking-cli.md)文章, 以啟用加速網路。
+   為了減少延遲和 CPU 抖動，我們建議用戶端虛擬機器啟用加速網路。 請參閱使用加速網路[建立 Windows 虛擬機器](../virtual-network/create-vm-accelerated-networking-powershell.md)或[使用加速網路建立 Linux 虛擬機器](../virtual-network/create-vm-accelerated-networking-cli.md)文章，以啟用加速網路。
 
 
 ## <a name="sdk-usage"></a>SDK 的使用方式
@@ -128,7 +128,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
      SQL .NET SDK 1.9.0 版和更新版本支援平行查詢，可讓您平行查詢分割的集合。 如需詳細資訊，請參閱使用 SDK 的相關[程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)。 平行查詢的設計目的是要改善其連續對應項目的查詢延遲和輸送量。 平行查詢提供兩個可供使用者微調以符合其需求的參數：(a) MaxDegreeOfParallelism：用來控制可平行查詢的分割數目上限，以及 (b) MaxBufferedItemCount：用來控制預先擷取的結果數目。
 
-    （a）平行查詢的***微調\:程度***平行查詢的運作方式是以平行方式查詢多個分割區。 不過，個別分割區的資料會依查詢的順序提取。 在 sdk [V2](sql-api-sdk-dotnet.md) `MaxConcurrency`或[sdk V3](sql-api-sdk-dotnet-standard.md)中將設定為分割區數目，有可能達到最高效能的查詢，但前提是所有其他系統條件都維持不變。 `MaxDegreeOfParallelism` 如果您不知道分割數目，您可以將平行處理原則的程度設定為較高的數位，然後系統會選擇最小值（資料分割數目、使用者提供的輸入）做為平行處理原則的程度。
+    （a）以平行方式查詢多個分割區，\:平行查詢來微調平行處理原則***的程度***。 不過，個別分割區的資料會依查詢的順序提取。 將[Sdk V2](sql-api-sdk-dotnet.md)中的 `MaxDegreeOfParallelism` 或[sdk V3](sql-api-sdk-dotnet-standard.md)中的 `MaxConcurrency` 設定為分割區數目，會有機會達到最高效能的查詢，但前提是所有其他系統條件都維持不變。 如果您不知道分割數目，您可以將平行處理原則的程度設定為較高的數位，然後系統會選擇最小值（資料分割數目、使用者提供的輸入）做為平行處理原則的程度。
 
     請務必注意，若對於查詢是以平均方式將資料分佈於所有分割，平行查詢便會產生最佳效益。 如果分割之集合的分割方式是查詢所傳回的所有或大多數資料集中在少數幾個分割中 (最差的情況是集中在一個分割)，則這些分割會成為查詢效能的瓶頸。
 
@@ -163,15 +163,15 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
    若要減少擷取所有適用結果所需的網路來回行程次數，您可以使用 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 要求標頭將頁面大小最多增加至 1000。 在您只需要顯示幾個結果的情況下 (例如，您的使用者介面或應用程式 API 一次只傳回 10 筆結果)，您也可以將頁面大小縮小為 10，以降低讀取和查詢所耗用的輸送量。
 
    > [!NOTE] 
-   > Feedoptions.maxitemcount 屬性不應該僅用於分頁用途。 其主要用途是藉由減少在單一頁面中傳回的最大專案數, 來改善查詢的效能。  
+   > Feedoptions.maxitemcount 屬性不應該僅用於分頁用途。 其主要用途是藉由減少在單一頁面中傳回的最大專案數，來改善查詢的效能。  
 
-   您也可以使用可用的 Azure Cosmos DB Sdk 來設定頁面大小。 FeedOptions 中的[feedoptions.maxitemcount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet)屬性可讓您設定要在列舉作業中傳回的最大專案數。 當`maxItemCount`設定為-1 時, SDK 會根據檔案大小自動尋找最理想的值。 例如:
+   您也可以使用可用的 Azure Cosmos DB Sdk 來設定頁面大小。 FeedOptions 中的[feedoptions.maxitemcount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet)屬性可讓您設定要在列舉作業中傳回的最大專案數。 當 `maxItemCount` 設定為-1 時，SDK 會根據檔案大小自動尋找最理想的值。 例如：
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   執行查詢時, 會在 TCP 封包內傳送產生的資料。 如果您為指定的`maxItemCount`值太低, 則在 TCP 封包內傳送資料所需的往返次數會很高, 因而影響效能。 因此, 如果您不確定要為屬性設定的`maxItemCount`值, 最好將它設為-1, 並讓 SDK 選擇預設值。 
+   執行查詢時，會在 TCP 封包內傳送產生的資料。 如果您為 `maxItemCount`指定的值太低，則在 TCP 封包內傳送資料所需的往返次數會很高，因而影響效能。 因此，如果您不確定要為 `maxItemCount` 屬性設定哪個值，最好將它設為-1，並讓 SDK 選擇預設值。 
 
 11. **增加執行緒/工作數目**
 
@@ -193,7 +193,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
  
 1. **從索引編製中排除未使用的路徑以加快寫入速度**
 
-    Cosmos DB 的索引編製原則也可讓您利用檢索路徑 (IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如, 下列程式碼會示範如何使用 "*" 萬用字元, 將檔 (子樹) 的整個區段從編制索引中排除。
+    Cosmos DB 的索引編製原則也可讓您利用檢索路徑 (IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，下列程式碼會示範如何使用 "*" 萬用字元，將檔（子樹）的整個區段從編制索引中排除。
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -215,7 +215,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     查詢的複雜性會影響針對作業所耗用的要求單位數量。 述詞數目、述詞性質、UDF 數目，以及來源資料集的大小，全都會影響查詢作業的成本。
 
-    若要測量任何作業 (建立、更新或刪除) 的額外負荷, 請檢查[x 毫秒要求-費用](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)標頭 (或 .net SDK 中 ResourceResponse\<T > 或 FeedResponse\<T > 中的對等 RequestCharge 屬性), 以測量這些作業所耗用的要求單位數目。
+    若要測量任何作業（建立、更新或刪除）的額外負荷，請檢查[x-ms-要求-費用](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)標頭（或 .net SDK 中 ResourceResponse\<t > 或 FeedResponse\<t > 中的對等 RequestCharge 屬性），以測量這些作業所耗用的要求單位數目。
 
     ```csharp
     // Measure the performance (request units) of writes

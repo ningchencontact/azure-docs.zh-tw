@@ -1,5 +1,5 @@
 ---
-title: 使用 Visual Studio 監視和管理 Azure 串流分析工作
+title: 使用 Visual Studio 監視和管理 Azure 串流分析
 description: 本文說明如何使用 Visual Studio 監視和管理 Azure 串流分析工作。
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 684f034393dd3f53900100dd964d9ea07d200897
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479392"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934963"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>使用 Visual Studio 監視和管理串流分析工作
 
@@ -22,21 +22,21 @@ ms.locfileid: "61479392"
 
 ## <a name="job-summary"></a>工作摘要
 
-[工作摘要]  和 [工作計量]  提供工作的概略資訊。 您可以輕鬆判斷工作的狀態和事件資訊。
+[工作摘要] 和 [工作計量] 提供工作的概略資訊。 您可以輕鬆判斷工作的狀態和事件資訊。
 
 <img src="./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-job-summary-metrics.png" alt="Stream Analytics job summary and job metrics" width="300px"/> 
 
 
 ## <a name="job-metrics"></a>作業計量
 
-您可以將 [工作摘要]  摺疊，然後按一下 [工作計量]  索引標籤來檢視包含重要計量的圖表。 選取和取消選取計量類型以將它們新增到圖表或從圖表移除。
+您可以將 [工作摘要] 摺疊，然後按一下 [工作計量] 索引標籤來檢視包含重要計量的圖表。 選取和取消選取計量類型以將它們新增到圖表或從圖表移除。
 
 ![Visual Studio 中的串流分析計量](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
 ## <a name="error-monitoring"></a>錯誤監視
 
-您也可以在 [錯誤]  索引標籤上按一下來監視錯誤。
+您也可以在 [錯誤] 索引標籤上按一下來監視錯誤。
 
 ![Visual Studio 中的串流分析錯誤](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 

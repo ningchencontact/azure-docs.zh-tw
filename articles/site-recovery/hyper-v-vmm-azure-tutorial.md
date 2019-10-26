@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59e6bbbca982d428d4e590cb647f186e1c3fec3a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813763"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933828"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>將 VMM 雲端中 Hyper-V VM 的災害復原設定至 Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "70813763"
 
 這是一系列中的第三個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在上一個教學課程中，我們已[備妥內部部署 hyper-v 環境](hyper-v-prepare-on-premises-tutorial.md)，以進行 Azure 的嚴重損壞修復。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 選取複寫來源和目標。
@@ -31,6 +31,10 @@ ms.locfileid: "70813763"
 
 > [!NOTE]
 > 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 [Site Recovery 文件](https://docs.microsoft.com/azure/site-recovery)的**操作指南**一節中的文章。
+
+> [!WARNING]
+> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](scvmm-site-recovery-deprecation.md)繼續進行。
+
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -63,7 +67,7 @@ ms.locfileid: "70813763"
 1. 在 [**準備基礎結構**] 中，選取 [**來源**]。
 2. 在 [**準備來源**] 中，選取 [ **+ vmm** ] 以新增 vmm 伺服器。 在 [新增伺服器] 中，檢查 [System Center VMM 伺服器] 是否出現在 [伺服器類型] 中。
 3. 下載 Microsoft Azure Site Recovery 提供者的安裝程式。
-4. 下載存放庫註冊金鑰。 當您執行提供者安裝程式時，您需要此金鑰。 該金鑰在產生後會維持 5 天有效。
+4. 下載保存庫註冊金鑰。 當您執行提供者安裝程式時，您需要此金鑰。 該金鑰在產生後會維持 5 天有效。
 5. 下載 Microsoft Azure 復原服務代理程式的安裝程式。
 
     ![下載提供者、註冊金鑰和代理程式](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
@@ -101,7 +105,7 @@ Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶�
 
 ## <a name="configure-network-mapping"></a>設定網路對應
 
-1. 在 [ **Site Recovery 基礎結構** > **網路** > 對應] [**網路對應**] 中，選取 [ **+ 網路對應**] 圖示。
+1. 在 [ **Site Recovery 基礎結構** > **網路**對應] > [**網路對應**] 中，選取 [ **+ 網路對應**] 圖示。
 2. 在 [新增網路對應] 中，選取來源 VMM 伺服器。 選取 [Azure] 作為目標。
 3. 在容錯移轉後確認訂用帳戶和部署模型。
 4. 在 [來源網路] 中，選取來源內部部署 VM 網路。

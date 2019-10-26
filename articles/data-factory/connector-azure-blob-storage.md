@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: da8b4ebd5cf1e7a57842a116e5d9e21e3c3f7874
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a68549622972bfa031bc2934473dc65f0a656231
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387309"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935705"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -42,8 +42,8 @@ ms.locfileid: "72387309"
 - 從區塊、附加或分頁 Blob 複製 Blob，以及將資料只複製到區塊 Blob。
 - 依原樣複製 Blob，或是使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析或產生 Blob。
 
->[!NOTE]
->如果您啟用 Azure 儲存體防火牆設定上的 [_允許信任的 Microsoft 服務存取此儲存體帳戶]_ 選項，則使用 Azure Integration Runtime 連線至 Blob 儲存體將會失敗並出現禁止錯誤，因為 ADF 不會被視為受信任的Microsoft 服務。 請改為透過自我裝載的 Integration Runtime 進行連接。
+>[!IMPORTANT]
+>如果您在 Azure 儲存體防火牆設定上啟用 [**允許受信任的 Microsoft 服務存取此儲存體帳戶**] 選項，而且想要使用 Azure 整合執行時間來連線到您的 Blob 儲存體，則必須使用[受控識別驗證](#managed-identity)。
 
 ## <a name="get-started"></a>開始使用
 
@@ -316,12 +316,9 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC/JSON 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
-
-若要以 Parquet、分隔文字、Avro 或二進位格式在 Blob 儲存體之間複製資料，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，以及支援的設定。 下列屬性在以格式為基礎之資料集的 `location` 設定下支援 Azure Blob：
+下列屬性在以格式為基礎之資料集的 `location` 設定下支援 Azure Blob：
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -329,10 +326,6 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 | container  | Blob 容器。                                          | 是      |
 | folderPath | 指定容器下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 | fileName   | 指定容器的檔案名 + folderPath。 如果您想要使用萬用字元來篩選檔案，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
-
-> [!NOTE]
->
-> 下一節中所述的**AzureBlob**類型資料集具有 Parquet/文字格式，但針對回溯相容性的複製/查閱/GetMetadata 活動仍受到支援，但它不適用於對應資料流程。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -361,9 +354,10 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 }
 ```
 
-### <a name="other-format-dataset"></a>其他格式資料集
+### <a name="legacy-dataset-model"></a>舊版資料集模型
 
-若要以 ORC/JSON 格式將資料複製到 Blob 儲存體或從該儲存，請將資料集的 type 屬性設定為**AzureBlob**。 支援以下屬性。
+>[!NOTE]
+>下列資料集模型仍受到支援，以供回溯相容性之用。 建議您使用上一節中所提及的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -414,16 +408,13 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob 儲存體作為來源類型
 
-- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
-
-若要以**Parquet、分隔的文字、JSON、avro 和二進位格式**在 Blob 儲存體之間複製資料，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。支援的設定。 下列屬性在以格式為基礎之複製來源的 `storeSettings` 設定下支援 Azure Blob：
+下列屬性在以格式為基礎之複製來源的 `storeSettings` 設定下支援 Azure Blob：
 
 | 屬性                 | 描述                                                  | 必要項                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| 類型                     | @No__t-0 之下的 type 屬性必須設定為**AzureBlobStorageReadSetting**。 | 是                                           |
+| 類型                     | `storeSettings` 下的 type 屬性必須設定為**AzureBlobStorageReadSetting**。 | 是                                           |
 | 遞迴                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                            |
 | wildcardFolderPath       | 在資料集內設定的指定容器下，具有萬用字元的資料夾路徑，用以篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                            |
 | wildcardFileName         | 在指定容器 + folderPath/wildcardFolderPath 下具有萬用字元的檔案名，用以篩選來源檔案。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 如果未在資料集內指定 `fileName`，則為 [是] |
@@ -475,9 +466,10 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 ]
 ```
 
-#### <a name="other-format-source"></a>其他格式來源
+#### <a name="legacy-source-model"></a>舊版來源模型
 
-若要以**ORC 格式**從 Blob 儲存體複製資料，請將複製活動中的來源類型設定為**BlobSource**。 複製活動的 **source** 區段支援下列屬性。
+>[!NOTE]
+>下列複製來源模型仍受到支援，以提供回溯相容性。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -519,21 +511,15 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob 儲存體作為接收類型
 
-- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
-
-若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**的 Blob 儲存體複製資料，請參閱格式為基礎之複製活動來源上的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)文章和支援的設定。 下列屬性在以格式為基礎的複製接收的 `storeSettings` 設定下支援 Azure Blob：
+下列屬性在以格式為基礎的複製接收的 `storeSettings` 設定下支援 Azure Blob：
 
 | 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| 類型                     | @No__t-0 之下的 type 屬性必須設定為**AzureBlobStorageWriteSetting**。 | 是      |
+| 類型                     | `storeSettings` 下的 type 屬性必須設定為**AzureBlobStorageWriteSetting**。 | 是      |
 | copyBehavior             | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案或 Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 | 否       |
 | maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否       |
-
-> [!NOTE]
-> 針對 Parquet/分隔文字格式，下一節中所提及的**BlobSink**類型複製活動接收器仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例：**
 
@@ -570,9 +556,10 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 ]
 ```
 
-#### <a name="other-format-sink"></a>其他格式接收器
+#### <a name="legacy-sink-model"></a>舊版接收模型
 
-若要以**ORC 格式**將資料複製到 Blob 儲存體，請將複製活動中的接收類型設定為**BlobSink**。 [接收] 區段支援下列屬性。
+>[!NOTE]
+>下列複製接收模型仍受到支援，以供回溯相容性之用。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |

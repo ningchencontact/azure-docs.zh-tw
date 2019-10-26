@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 11b0746c3e9e137775b2466af776b4cd9ba1e5df
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 76369c1a4beb792de03cf0ccae5c86825812f103
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791663"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934168"
 ---
 # <a name="sap-hana-scale-out-with-standby-node-on-azure-vms-with-azure-netapp-files-on-suse-linux-enterprise-server"></a>使用 SUSE Linux Enterprise Server 上的 Azure NetApp Files 在 Azure Vm 上以待命節點 SAP Hana 相應放大 
 
@@ -171,21 +171,21 @@ Azure NetApp volume 的輸送量是磁片區大小和服務層級的功能，如
 
 為了符合資料和記錄的 SAP 最低輸送量需求，以及根據 `/hana/shared` 的指導方針，建議的大小如下所示：
 
-| 磁碟區 | 大小<br /> 進階儲存體層 | 大小<br /> Ultra 儲存層 |
+| 磁碟區 | 大小<br /> 進階儲存體層 | 大小<br /> Ultra 儲存層 | 支援的 NFS 通訊協定 |
 | --- | --- | --- |
-| /hana/log | 4 TiB | 2 TiB |
-| /hana/data | 6.3 TiB | 3.2 TiB |
-| HANA/shared | 每4個背景工作節點最大值（512 GB、1xRAM） | 每4個背景工作節點最大值（512 GB、1xRAM） |
+| /hana/log | 4 TiB | 2 TiB | 4\.1 版 |
+| /hana/data | 6.3 TiB | 3.2 TiB | 4\.1 版 |
+| HANA/shared | 每4個背景工作節點最大值（512 GB、1xRAM） | 每4個背景工作節點最大值（512 GB、1xRAM） | v3 或4.1 版 |
 
 本文中顯示的版面配置 SAP Hana 設定，使用 Azure NetApp Files Ultra 儲存層會如下所示：
 
-| 磁碟區 | 大小<br /> Ultra 儲存層 |
+| 磁碟區 | 大小<br /> Ultra 儲存層 | 支援的 NFS 通訊協定 |
 | --- | --- |
-| /hana/log/mnt00001 | 2 TiB |
-| /hana/log/mnt00002 | 2 TiB |
-| /hana/data/mnt00001 | 3.2 TiB |
-| /hana/data/mnt00002 | 3.2 TiB |
-| HANA/shared | 2 TiB |
+| /hana/log/mnt00001 | 2 TiB | 4\.1 版 |
+| /hana/log/mnt00002 | 2 TiB | 4\.1 版 |
+| /hana/data/mnt00001 | 3.2 TiB | 4\.1 版 |
+| /hana/data/mnt00002 | 3.2 TiB | 4\.1 版 |
+| HANA/shared | 2 TiB | v3 或4.1 版 |
 
 > [!NOTE]
 > 此處所述的 Azure NetApp Files 大小建議以符合 SAP 向其基礎結構提供者表示的最低需求。 在實際的客戶部署和工作負載案例中，這可能不夠。 根據您特定工作負載的需求，使用這些建議作為起點並進行調整。  

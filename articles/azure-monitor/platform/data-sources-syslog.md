@@ -1,24 +1,18 @@
 ---
 title: 在 Azure 監視器中收集和分析 Syslog 訊息 | Microsoft Docs
 description: Syslog 是通用於 Linux 的事件記錄通訊協定。 本文描述如何在 Log Analytics 設定收集 Syslog 訊息，以及它們所建立之記錄的詳細資料。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/22/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: dc3aa502dccdd4eb4e8bd1a82456656e5d389160
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 03/22/2019
+ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327428"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932423"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure 監視器中的 Syslog 資料來源
 Syslog 是通用於 Linux 的事件記錄通訊協定。 應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。 安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。 然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。  
@@ -33,7 +27,7 @@ Syslog 是通用於 Linux 的事件記錄通訊協定。 應用程式將傳送�
 Syslog 收集器支援下列功能：
 
 * 微調
-* 使用者
+* user
 * mail
 * daemon
 * auth
@@ -203,7 +197,7 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| Computer |收集事件的來源電腦。 |
+| 電腦 |收集事件的來源電腦。 |
 | Facility |定義產生訊息之系統的一部分。 |
 | HostIP |傳送訊息之系統的 IP 位址。 |
 | HostName |傳送訊息之系統的名稱。 |
@@ -217,7 +211,7 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 
 | 查詢 | 描述 |
 |:--- |:--- |
-| Syslog |所有的 Syslog。 |
+| syslog |所有的 Syslog。 |
 | Syslog &#124; where SeverityLevel == "error" |嚴重性為錯誤的所有 Syslog 記錄。 |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |依電腦的 Syslog 記錄計數。 |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |依設備的 Syslog 記錄計數。 |

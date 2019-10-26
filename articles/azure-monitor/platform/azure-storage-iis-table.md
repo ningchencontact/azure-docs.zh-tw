@@ -1,40 +1,34 @@
 ---
-title: 使用 Azure 監視器中的事件的 IIS 和資料表儲存體的 blob 儲存體 |Microsoft Docs
-description: Azure 監視器可以讀取寫入表格儲存體的診斷的 Azure 服務的記錄或寫入 blob 儲存體的 IIS 記錄檔。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: 在 Azure 監視器中使用適用于 IIS 的 blob 儲存體和適用于事件的資料表儲存體 |Microsoft Docs
+description: Azure 監視器可以讀取 Azure 服務（將診斷寫入表格儲存體）的記錄，或寫入至 blob 儲存體的 IIS 記錄。
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 04/12/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/12/2017
+ms.openlocfilehash: 8f70ecc96269783c29c566fb89bd617f034316b1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244891"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932678"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>從 Azure 儲存體收集 Azure 診斷記錄
 
-Azure 監視器可以讀取下列服務寫入表格儲存體的診斷記錄或寫入 blob 儲存體的 IIS 記錄檔：
+Azure 監視器可以讀取下列服務的記錄，將診斷寫入表格儲存體或寫入 blob 儲存體的 IIS 記錄：
 
 * Service Fabric 叢集 (預覽)
 * 虛擬機器
 * Web/背景工作角色
 
-Azure 監視器可將資料收集到 Log Analytics 工作區，這些資源之前，必須先啟用 Azure 診斷。
+在 Azure 監視器可以將資料收集到這些資源的 Log Analytics 工作區之前，必須先啟用 Azure 診斷。
 
-啟用診斷之後, 您可以使用 Azure 入口網站或 PowerShell，設定要收集記錄檔的工作區。
+啟用診斷之後，您可以使用 Azure 入口網站或 PowerShell 設定工作區來收集記錄。
 
-Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角色或 Azure 中執行的虛擬機器收集診斷資料。 將資料儲存在 Azure 儲存體帳戶，然後 Azure 監視器所收集。
+Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角色或 Azure 中執行的虛擬機器收集診斷資料。 資料會儲存在 Azure 儲存體帳戶中，並可由 Azure 監視器進行收集。
 
-Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在下列位置：
+若要讓 Azure 監視器收集這些 Azure 診斷記錄，記錄檔必須位於下列位置：
 
 | 記錄類型 | 資源類型 | Location |
 | --- | --- | --- |
@@ -61,17 +55,17 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 1. 建立虛擬機器時安裝 VM 代理程式。 如果虛擬機器已經存在，請確認已安裝 VM 代理程式。
 
-   * 在 Azure 入口網站中，瀏覽至虛擬機器，依序選取 [選擇性組態]  及 [診斷]  ，並將 [狀態]  設為 [開啟]  。
+   * 在 Azure 入口網站中，瀏覽至虛擬機器，依序選取 [選擇性組態] 及 [診斷]，並將 [狀態] 設為 [開啟]。
 
      完成時，VM 中就會安裝好 Azure 診斷擴充功能並執行。 此擴充功能會負責收集您的診斷資料。
 2. 在現有的 VM 上啟用監視和設定事件記錄。 您可以在 VM 層級上啟用診斷。 若要啟用診斷然後設定事件記錄，請執行下列步驟：
 
    1. 選取 VM。
-   2. 按一下 [監視]  。
-   3. 按一下 [診斷]  。
-   4. 將 [狀態]  設為 [開啟]  。
+   2. 按一下 [監視]。
+   3. 按一下 [診斷]。
+   4. 將 [狀態] 設為 [開啟]。
    5. 選取您想要收集的每個診斷記錄。
-   6. 按一下 [確定 **Deploying Office Solutions**]。
+   6. 按一下 [確定]。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中針對 IIS 記錄檔和事件集合啟用 Azure 診斷
 
@@ -84,7 +78,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 ### <a name="to-enable-diagnostics"></a>啟用診斷
 
-若要啟用 Windows 事件記錄或要變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如[步驟 4：建立您的診斷組態檔並安裝擴充功能](../../cloud-services/cloud-services-dotnet-diagnostics.md)中所示
+若要啟用 Windows 事件記錄，或是變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如[步驟 4：建立您的診斷組態檔並安裝擴充功能](../../cloud-services/cloud-services-dotnet-diagnostics.md)所示
 
 下列範例組態檔會從應用程式和系統記錄中收集 IIS 記錄和所有事件：
 
@@ -120,11 +114,11 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 **AccountName** 和 **AccountKey** 值可在 Azure 入口網站中儲存體帳戶儀表板的 [管理存取金鑰] 底下找到。 連接字串的通訊協定必須為 **https**。
 
-一旦更新的診斷組態套用至您的雲端服務，它會將診斷寫入 Azure 儲存體，您就準備好設定 Log Analytics 工作區。
+一旦將更新的診斷設定套用至您的雲端服務，且其正在將診斷寫入 Azure 儲存體，您就可以開始設定 Log Analytics 工作區。
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>使用 Azure 入口網站從 Azure 儲存體收集記錄
 
-若要設定 Azure 監視器來收集下列 Azure 服務的記錄檔中的 Log Analytics 工作區，您可以使用 Azure 入口網站：
+您可以使用 Azure 入口網站在 Azure 監視器中設定 Log Analytics 工作區，以收集下列 Azure 服務的記錄：
 
 * Service Fabric 叢集
 * 虛擬機器
@@ -132,8 +126,8 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 在 Azure 入口網站中，瀏覽至您的 Log Analytics 工作區並執行下列工作︰
 
-1. 按一下 [儲存體帳戶記錄] 
-2. 按一下 [新增]  工作
+1. 按一下 [儲存體帳戶記錄]
+2. 按一下 [新增] 工作
 3. 選取包含診斷記錄的儲存體帳戶
    * 這可以是傳統儲存體帳戶或 Azure Resource Manager 儲存體帳戶
 4. 選取您想要收集記錄的資料類型
@@ -141,9 +135,9 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 5. 「來源」的值會根據資料類型自動填入且無法變更
 6. 按一下 [確定] 以儲存組態
 
-額外的儲存體帳戶和您想要收集到的工作區的資料類型重複步驟 2 至 6。
+針對您想要收集到工作區的其他儲存體帳戶和資料類型重複步驟2-6。
 
-大約 30 分鐘內就可以從 Log Analytics 工作區的儲存體帳戶中看到資料。 您只會看到套用組態之後寫入儲存體的資料。 工作區不會從儲存體帳戶讀取預先存在的資料。
+大約30分鐘內，您就能夠在 Log Analytics 工作區中看到來自儲存體帳戶的資料。 您只會看到套用組態之後寫入儲存體的資料。 工作區不會從儲存體帳戶讀取預先存在的資料。
 
 > [!NOTE]
 > 入口網站不會驗證「來源」是否存在於儲存體帳戶，或是否已寫入新的資料。
@@ -154,7 +148,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-使用中的步驟[設定 Azure 監視器，Azure 診斷編製索引](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage)若要使用 PowerShell 從寫入表格儲存體的 Azure 診斷進行讀取。
+使用設定[Azure 監視器來為 azure 診斷編制索引](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage)中的步驟，以使用 PowerShell 從寫入表格儲存體的 azure 診斷讀取。
 
 您可以使用 Azure PowerShell，更精確地指定寫入至 Azure 儲存體的事件。
 如需詳細資訊，請參閱[在 Azure 虛擬機器中啟用診斷](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。

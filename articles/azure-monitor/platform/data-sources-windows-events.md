@@ -1,24 +1,18 @@
 ---
 title: 收集與分析 Azure 監視器中的 Windows 事件記錄 | Microsoft Docs
 description: 說明如何透過 Azure 監視器設定收集 Windows 事件記錄，以及它們建立記錄的詳細資料。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 11/28/2018
+ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997482"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932397"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 事件記錄檔資料來源
 Windows 事件記錄是使用 Windows 代理程式收集資料的常見[資料來源](agent-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄。  除了指定您要監視之應用程式所建立的任何自訂記錄之外，您也可以透過標準記錄 (例如系統和應用程式) 來收集事件。
@@ -49,7 +43,7 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| Computer |收集事件的來源電腦名稱。 |
+| 電腦 |收集事件的來源電腦名稱。 |
 | EventCategory |事件的類別。 |
 | EventData |原始格式的所有事件資料。 |
 | EventID |事件的編號。 |
@@ -57,19 +51,19 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 | EventLevelName |文字格式的事件嚴重性。 |
 | EventLog |收集事件的來源事件記錄檔名稱。 |
 | ParameterXml |XML 格式的事件參數值。 |
-| ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  若為其他代理程式, 此值為`AOI-<workspace ID>` |
+| ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  若為其他代理程式，此值為 `AOI-<workspace ID>` |
 | RenderedDescription |含參數值的事件描述 |
-| Source |事件的來源。 |
+| 來源 |事件的來源。 |
 | SourceSystem |收集事件的來源代理程式類型。 <br> OpsManager - Windows 代理程式，直接連接或由 Operations Manager 管理 <br> Linux – 所有的 Linux 代理程式  <br> AzureStorage – Azure 診斷 |
 | TimeGenerated |在 Windows 中建立事件的日期和時間。 |
-| 使用者名稱 |記錄此事件之帳戶的使用者名稱。 |
+| UserName |記錄此事件之帳戶的使用者名稱。 |
 
 ## <a name="log-queries-with-windows-events"></a>使用 Windows 事件的記錄查詢
 下表提供擷取 Windows 事件記錄的不同記錄查詢範例。
 
 | 查詢 | 描述 |
 |:---|:---|
-| Event - 事件 |所有的 Windows 事件。 |
+| 活動 |所有的 Windows 事件。 |
 | Event &#124; where EventLevelName == "error" |所有 Windows 事件與錯誤的嚴重性。 |
 | Event &#124; summarize count() by Source |依據來源的 Windows 事件計數。 |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |依據來源的 Windows 錯誤事件計數。 |

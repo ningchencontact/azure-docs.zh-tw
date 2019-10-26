@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB：SQL Java API、SDK 和資源
+title: Azure Cosmos DB： SQL JAVA API、SDK & 資源
 description: 了解所有 SQL Java API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB SQL Java SDK 每個版本之間所做的變更。
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637700"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934151"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Java SDK：版本資訊和資源
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -43,23 +43,47 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name244244"></a><a name="2.4.4"/>2.4。4
+* 優化資料分割索引鍵範圍快取重新整理。
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4。2
+* 已優化集合快取重新整理。
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4。1
+* 已新增支援，以從要求診斷字串中取出內部例外狀況訊息。
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* 已在 PartitionKeyDefinition 上引進版本 api。
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* 已針對直接模式新增個別的 timeout 支援。
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* 從服務使用 null 錯誤訊息，並產生檔用戶端例外狀況。
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* 通訊端連接改善，新增 SoKeepAlive 預設值為 true。
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* 已新增要求診斷字串支援。
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * 已修正 PartitionKey 中雜湊 V2 的錯誤。
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 * 已新增複合索引的支援。
-* 已修正全域端點管理員中的 bug, 以強制重新整理。
+* 已修正全域端點管理員中的 bug，以強制重新整理。
 * 已修正具有直接模式之前置條件的更新插入錯誤。
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* 已修正閘道位址快取中的錯誤 (bug)。
+* 已修正閘道位址快取中的錯誤（bug）。
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * 針對直接模式新增多重區域寫入支援。
 * 新增處理從 Proxy 擲回為 ServiceUnavailable 例外狀況之 IOExceptions 的支援。
 * 修正端點探索重試原則中的錯誤 (bug)。
 * 修正錯誤 (bug) 以確保不會在 BaseDatabaseAccountConfigurationProvider 中擲回 Null 指標例外狀況。
-* 已修正 bug, 以確保 QueryIterator 不會傳回 null。
+* 已修正 bug，以確保 QueryIterator 不會傳回 null。
 * 修正錯誤 (bug) 以確保允許大型 PartitionKey
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -111,7 +135,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 已利用 Strong 和 BoundedStaleness 一致性層級修正問題。
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
-* 已新增對名為 ConsistentPrefix 的新一致性層級的支援。
+* 已新增對新一致性層級 ConsistentPrefix 的支援。
 * 已修正工作階段模式中讀取集合的錯誤。
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
@@ -127,7 +151,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 新增變更摘要的支援。
 * 新增透過 RequestOptions.setPopulateQuotaInfo 收集配額資訊的支援。
 * 新增透過 RequestOptions.setScriptLoggingEnabled 進行預存程序指令碼記錄的支援。
-* 修正在遇到節流失敗時, DirectHttps 模式中的查詢可能停止回應的 bug。
+* 修正在遇到節流失敗時，DirectHttps 模式中的查詢可能停止回應的 bug。
 * 修正工作階段一致性模式中的錯誤。
 * 修正當要求率過高時，可能在 HttpContext 中造成 NullReferenceException 的錯誤。
 * 改善 DirectHttps 模式的效能。
@@ -215,7 +239,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 服務將會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
 > [!WARNING]
-> 所有版本 1.X 的 SQL SDK for JAVA 將于**2020 5 月30日**淘汰。
+> 所有版本**1.x**的 SQL SDK for JAVA 將于**2020 5 月30日**淘汰。
 > 
 >
 
@@ -226,10 +250,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 <br/>
 
-| Version | 發行日期 | 停用日期 |
+| 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |3月13日, 2018 |--- |
-| [2.1.2](#2.1.2) |3月09日, 2018 |--- |
+| [2.1.3](#2.1.3) |3月13日，2018 |--- |
+| [2.1.2](#2.1.2) |3月09日，2018 |--- |
 | [2.1.1](#2.1.1) |2018年12月13日 |--- |
 | [2.1.0](#2.1.0) |2018年11月20日 |--- |
 | [2.0.0](#2.0.0) |2018 年 9 月 21 日 |--- |
@@ -274,6 +298,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 
