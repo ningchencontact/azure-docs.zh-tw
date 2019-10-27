@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147066"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933550"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V 至 Azure 的災害復原架構
 
@@ -39,6 +39,8 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 ![架構](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
+> [!WARNING]
+> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](scvmm-site-recovery-deprecation.md)繼續進行。
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>架構元件 - 包含 VMM 的 Hyper-V
 
@@ -65,12 +67,12 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 **複寫和復原程序**
 
 
-### <a name="enable-protection"></a>啟用保護
+### <a name="enable-protection"></a>啟用保護。
 
 1. 您在 Azure 入口網站或內部部署針對 Hyper-V VM 啟用保護之後，**啟用保護**隨即啟動。
 2. 作業會檢查符合必要條件的機器，然後叫用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 方法，以使用您進行的設定來設定複寫。
 3. 作業會啟動初始複寫，方法是叫用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法，以初始化完整的 VM 複寫，並且將 VM 的虛擬磁碟傳送至 Azure。
-4. 您可以在 [作業] 索引標籤中監視作業。    ![作業清單](media/hyper-v-azure-architecture/image1.png) ![啟用保護向下鑽研](media/hyper-v-azure-architecture/image2.png)
+4. 您可以在 [**工作**] 索引標籤中監視作業。     ![作業清單](media/hyper-v-azure-architecture/image1.png) ![啟用保護向下切入](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>初始資料複寫
@@ -114,7 +116,7 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 
 如果發生複寫錯誤，會有內建的重試。 重試的分類如下表所述。
 
-**分類** | **詳細資料**
+**類別** | **詳細資料**
 --- | ---
 **無法復原的錯誤** | 不嘗試重試。 VM 狀態為**重大**，需要管理員介入處理。<br/><br/> 這些錯誤的範例包括中斷 VHD 鏈結、複本 VM 的狀態無效、網路驗證錯誤、授權錯誤，以及找不到 VM 錯誤 (適用於獨立 Hyper-V 伺服器)。
 **可復原的錯誤** | 在每個複寫間隔中進行重試，並採用指數倒退法，從第一次嘗試開始增加重試間隔 (1、2、4、8、10 分鐘)。 如果錯誤持續發生，會每隔 30 分鐘重試一次。 範例包括網路錯誤、磁碟空間不足錯誤，以及記憶體不足情況。

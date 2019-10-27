@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70273a45bb60fca57292275ea0bb564e17a6f4e9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389202"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934701"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中建立新的存取套件
 
@@ -68,9 +68,9 @@ ms.locfileid: "72389202"
 
 1. 在左側功能表中，按一下 [存取套件]。
 
-    ![Azure 入口網站中的權利管理](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. 按一下 [新增存取套件]。
+
+    ![Azure 入口網站中的權利管理](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>基本概念
 
@@ -100,11 +100,11 @@ ms.locfileid: "72389202"
 
     ![存取套件-資源角色](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    如果您要在一般類別目錄或新的目錄中建立存取套件，您將能夠從您擁有的目錄中挑選任何資源。 您必須至少是一個全域管理員、一個使用者系統管理員或目錄建立者。
+    如果您要在一般類別目錄或新的目錄中建立存取套件，您將能夠從您擁有的目錄中挑選任何資源。 您必須至少是全域管理員、使用者系統管理員或目錄建立者。
 
     如果您要在現有的目錄中建立存取套件，您可以選取已在目錄中的任何資源，而不擁有它。
 
-    如果您是全域管理員、使用者系統管理員或目錄擁有者，您可以選擇其他選項來選取您擁有但尚未在目錄中的資源。 如果您選取目前不在所選類別目錄中的資源，這些資源也會新增至目錄，供其他目錄管理員用來建立存取封裝。 如果您只想要選取目前在所選目錄中的資源，請核取 [選取移動流覽] 頂端的 [**僅看到**] 核取方塊。
+    如果您是全域管理員、使用者系統管理員或目錄擁有者，您會有其他選項可選取您擁有但尚未在目錄中的資源。 如果您選取目前不在所選類別目錄中的資源，這些資源也會新增至目錄，供其他目錄管理員用來建立存取封裝。 如果您只想要選取目前在所選目錄中的資源，請核取 [選取] 窗格頂端的 [**僅看到**] 核取方塊。
 
 1. 選取資源之後，請在 [**角色**] 清單中，選取您想要讓使用者指派給資源的角色。
 
@@ -118,7 +118,7 @@ ms.locfileid: "72389202"
 
 ![[存取封裝-要求] 索引標籤](./media/entitlement-management-access-package-create/requests.png)
 
-執行下列其中一節中的步驟。
+根據您想要能夠要求此存取封裝的物件，執行下列其中一節中的步驟。
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

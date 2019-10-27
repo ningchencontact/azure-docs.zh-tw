@@ -1,23 +1,18 @@
 ---
 title: Azure 監視器記錄中的標準屬性 | Microsoft Docs
 description: 說明「Azure 監視器」記錄中多種資料類型通用的屬性。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 07/18/2019
+ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262017"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932199"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure 監視器記錄中的標準屬性
 Azure 監視器記錄檔中的資料會[儲存為 Log Analytics 工作區或 Application Insights 應用程式中的一組記錄](../log-query/logs-structure.md)，每一個都具有具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
@@ -52,7 +47,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-TimeReceived 屬性包含 Azure 雲端中的 Azure 監視器內嵌點收到記錄的日期和時間。 **\_** 這有助於識別資料來源與雲端之間的延遲問題。 其中一個範例是網路問題，會造成從代理程式傳送資料的延遲。 如需詳細資訊，請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
+**\_TimeReceived**屬性包含 Azure 雲端中 Azure 監視器內建點收到記錄的日期和時間。 這有助於識別資料來源與雲端之間的延遲問題。 其中一個範例是網路問題，會造成從代理程式傳送資料的延遲。 如需詳細資訊，請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
 
 下列查詢提供來自代理程式之事件記錄的平均延遲（以小時為單位）。 這包括從代理程式到雲端的時間，以及記錄查詢可使用的總時間。
 
@@ -78,7 +73,7 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-ItemId 屬性會保存記錄的唯一識別碼。 **\_**
+**\_ItemId**屬性會保留記錄的唯一識別碼。
 
 
 ## <a name="_resourceid"></a>\_ResourceId

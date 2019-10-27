@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 009ae89327272ae4b9acd82eb415aad724d14988
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176668"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934352"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>在您的 IoT Edge 裝置上部署安全性模組
 
@@ -68,7 +68,7 @@ ms.locfileid: "72176668"
 
 有三個步驟可為適用于 IoT 的 Azure 資訊安全中心建立 IoT Edge 部署。 下列各節將逐步解說每一個步驟。 
 
-#### <a name="step-1-add-modules"></a>步驟 1:新增模組
+#### <a name="step-1-add-modules"></a>步驟1：新增模組
 
 1. 從 [**新增模組**] 索引標籤的 [**部署模組**] 區域中，按一下 [ **AzureSecurityCenterforIoT**] 的 [**設定**] 選項。 
    
@@ -107,7 +107,7 @@ ms.locfileid: "72176668"
 1. 按一下 [儲存]。
 1. 前往索引標籤的底部，然後選取 [**設定 Advanced Edge Runtime 設定**]。 
    
-1. 將 [ **Edge 中樞**] 底下的**影像**變更為 [ **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**]。
+1. 將 [ **Edge 中樞**] 底下的**影像**變更為 [ **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**]。
 
 1. 確認 [**建立選項**] 設定為： 
          
@@ -138,7 +138,7 @@ ms.locfileid: "72176668"
    
 1. 按一下 [下一步]。
 
-#### <a name="step-2-specify-routes"></a>步驟 2:指定路由 
+#### <a name="step-2-specify-routes"></a>步驟2：指定路由 
 
 1. 在 [**指定路由**] 索引標籤中，確定您有路由（明確或隱含），它會根據下列範例，將訊息從**azureiotsecurity**模組轉送至 **$Upstream** ，然後按 **[下一步]** 。 
 
@@ -150,7 +150,7 @@ ms.locfileid: "72176668"
 "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
 ~~~
 
-#### <a name="step-3-review-deployment"></a>步驟 3：檢閱部署
+#### <a name="step-3-review-deployment"></a>步驟3：審查部署
 
 - 在 [**審查部署**] 索引標籤中，檢查您的部署資訊，然後選取 [**提交**] 以完成部署。
 
@@ -169,7 +169,7 @@ ms.locfileid: "72176668"
    | Name | 包 |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    如果沒有所需的最小容器，請檢查您的 IoT Edge 部署資訊清單是否與建議的設定一致。 如需詳細資訊，請參閱[部署 IoT Edge 模組](#deployment-using-azure-portal)。

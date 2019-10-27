@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527107"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934399"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中管理外部使用者的存取權
 
@@ -50,11 +50,13 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 ![顯示外部使用者生命週期的圖表](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. 針對您想要與之共同作業的 Azure AD 目錄或網域，[新增已連線的組織](entitlement-management-organization.md)。
+
 1. 您會在目錄中建立存取封裝，其中包含[不在您目錄中的使用者](entitlement-management-access-package-create.md#for-users-not-in-your-directory)原則。
 
 1. 您可以將[我的存取權入口網站連結](entitlement-management-access-package-settings.md)傳送至外部組織的連絡人，他們可以與其使用者共用以要求存取封裝。
 
-1. 外部使用者（此範例中**的**要求者）會使用我的存取權入口網站連結來要求存取封裝的[存取](entitlement-management-request-access.md)權。
+1. 外部使用者（此範例中**的**要求者）會使用我的存取權入口網站連結來要求存取封裝的[存取](entitlement-management-request-access.md)權。 使用者登入的方式，取決於已連線組織中定義之目錄或網域的驗證類型。
 
 1. 核准者[核准要求](entitlement-management-request-approve.md)（或要求已自動核准）。
 
@@ -116,6 +118,6 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 ## <a name="next-steps"></a>後續步驟
 
+- [新增已連線的組織](entitlement-management-organization.md)
 - [針對不在您目錄中的使用者](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [建立和管理資原始目錄](entitlement-management-catalog-create.md)
-- [委派和角色](entitlement-management-delegate.md)

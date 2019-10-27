@@ -1,24 +1,18 @@
 ---
 title: 在 Azure 監視器中收集 Linux 應用程式效能 | Microsoft Docs
 description: 本文詳細說明如何設定適用於 Linux 的 Log Analytics 代理程式，以收集 MySQL 和 Apache HTTP Server 的效能計數器。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/04/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/04/2017
+ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628909"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932458"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>在 Azure 監視器中收集 Linux 應用程式的效能計數器 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -50,9 +44,9 @@ MySQL 驗證檔案儲存在 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysq
 
 | 屬性 | 描述 |
 |:--|:--|
-| Port | 代表 MySQL 執行個體目前正在接聽的連接埠。 連接埠 0 指定後面的屬性用於預設執行個體。 |
+| 連接埠 | 代表 MySQL 執行個體目前正在接聽的連接埠。 連接埠 0 指定後面的屬性用於預設執行個體。 |
 | 繫結位址| 目前的 MySQL 繫結位址。 |
-| userName| 用來監視 MySQL 伺服器執行個體的 MySQL 使用者。 |
+| username| 用來監視 MySQL 伺服器執行個體的 MySQL 使用者。 |
 | Base64 編碼的密碼| MySQL 監視使用者的密碼，以 Base64 編碼。 |
 | AutoUpdate| 指定在升級 MySQL OMI 提供者時，是否重新掃描 my.cnf 檔案中的變更，並覆寫 MySQL OMI 驗證檔案。 |
 
@@ -77,7 +71,7 @@ MySQL OMI 驗證檔案可以定義預設執行個體和連接埠號碼，讓您�
 
 下表提供使用 mycimprovauth 語法的詳細資料。
 
-| 運算 | 範例 | 描述
+| 作業 | 範例 | 描述
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | 設定是否在重新啟動或更新時自動更新驗證檔案。 |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | 在 MySQL OMI 驗證檔案中設定預設執行個體。<br>應以純文字輸入 password 欄位 - MySQL OMI 驗證檔案中的密碼將會以 Base 64 編碼。 |
@@ -118,8 +112,8 @@ MySQL 使用者需要下列預設資料表的 SELECT 存取權。
 
 | 物件名稱 | 計數器名稱 |
 |:--|:--|
-| MySQL Database | Disk Space in Bytes |
-| MySQL Database | 資料表 |
+| MySQL 資料庫 | Disk Space in Bytes |
+| MySQL 資料庫 | 資料表 |
 | MySQL Server | Aborted Connection Pct |
 | MySQL Server | Connection Use Pct |
 | MySQL Server | Disk Space in Bytes |

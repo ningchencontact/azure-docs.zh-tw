@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 136a9994415b42c456ebdb0caa8ed6edcc7b4534
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430306"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934384"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權利管理？ (預覽)
 
@@ -121,6 +121,7 @@ Azure AD 權利管理有助於解決這些挑戰。
 | 資源類型 | 資源類型，包括群組、應用程式和 SharePoint Online 網站。 |
 | 資源角色 | 與資源相關聯的許可權集合。 |
 | 資原始目錄 | 具有一或多個要共用之資源的目錄。 |
+| 已連線的組織 | 與您有關聯性的外部 Azure AD 目錄或網域。 |
 | 指派的使用者 | 將存取套件指派給使用者，讓使用者擁有該存取套件的所有資源角色。 |
 | enable | 讓使用者可以要求存取套件的程式。 |
 

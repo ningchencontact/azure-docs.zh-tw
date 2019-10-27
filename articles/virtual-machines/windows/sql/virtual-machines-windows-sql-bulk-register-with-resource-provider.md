@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8498346c5623913cb68c63e95a787f31c7d90cc0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 90c9d9be6f5a255a4ddd4f7fae7cf410e5b1f80d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901946"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934958"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者大量註冊 SQL 虛擬機器
 
-本文說明如何使用 ' SqlVMs ' PowerShell Cmdlet，在 Azure 中向 SQL VM 資源提供者大量註冊您的 SQL Server 虛擬機器（VM）。
+本文說明如何使用 `Register-SqlVMs` PowerShell Cmdlet，在 Azure 中透過 SQL VM 資源提供者大量註冊您的 SQL Server 虛擬機器（VM）。
 
-' SqlVMs ' Cmdlet 可以用來在指定的訂用帳戶、資源群組或特定虛擬機器清單中註冊所有虛擬機器。 此 Cmdlet 會在_輕量_管理模式中註冊虛擬機器，然後產生[報表和記錄](#output-description)檔。 
+`Register-SqlVMs` Cmdlet 可以用來在指定的訂用帳戶、資源群組或特定虛擬機器清單中註冊所有虛擬機器。 此 Cmdlet 會在_輕量_管理模式中註冊虛擬機器，然後產生[報表和記錄](#output-description)檔。 
 
 註冊程式不會產生任何風險、沒有停機時間，也不會重新開機 SQL Server 或虛擬機器。 
 

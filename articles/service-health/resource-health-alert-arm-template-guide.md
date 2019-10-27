@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0948edec05b97dd604393218e3eeb3302548af82
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099018"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933564"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用 Resource Manager 範本設定資源健康狀態警示
 
@@ -31,7 +31,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 1. 您需要安裝[Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. 您需要[建立或重複使用動作群組](../azure-monitor/platform/action-groups.md)，該動作群組會設定來通知您
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>範例的指示
 1. 使用 PowerShell、使用您的帳戶登入 Azure，然後選取您想要與之互動的訂用帳戶
 
         Login-AzAccount
@@ -198,7 +198,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 我們在這裡使用 `anyOf` 包裝函式，讓資源健康情況警示能夠符合我們所指定的任何一個條件，從而允許用於目標為特定資源類型的警示。
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>調整要警示您的資源健康狀態事件
-當資源經歷健康情況事件時，它們會經過一系列代表健康情況事件狀態的階段：`Active`、`InProgress`、`Updated` 和 `Resolved`。
+當資源經歷健康情況事件時，它們會經過一系列代表健康情況事件狀態的階段：`Active`、`In Progress`、`Updated` 和 `Resolved`。
 
 您可能只想在資源變為狀況不良時收到通知，在此情況下，您希望將警示設定為只有在 `status` 是 `Active` 時才進行通知。 但是，如果您也想要在其他階段收到通知，您可以新增如下的詳細資料：
 
@@ -214,7 +214,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -409,7 +409,7 @@ Azure 資源健康狀態可以使用測試執行器持續監視資源，以向�
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

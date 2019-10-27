@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514767"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926658"
 ---
 # <a name="azcopy-copy"></a>azcopy 複製
 
@@ -172,7 +172,7 @@ azcopy copy [source] [destination] [flags]
 
 **--check-length**                        在傳送後檢查目的地上的檔案長度。 如果來源與目的地之間有不相符的情況，則會將傳輸標示為失敗。 （預設值為 true）
 
-**--check-md5**字串指定在下載時應如何驗證嚴格的 md5 雜湊。 只有在下載時才可使用。 可用的選項： NoCheck、LogOnly、FailIfDifferent、FailIfDifferentOrMissing。 （預設值為 ' FailIfDifferent '）（預設值為 "FailIfDifferent"）
+**--check-md5**字串指定在下載時應如何驗證嚴格的 md5 雜湊。 只有在下載時才可使用。 可用的選項： NoCheck、LogOnly、FailIfDifferent、FailIfDifferentOrMissing。 （預設值為 "FailIfDifferent"）
 
 **--內容**配置字串設定內容配置標頭。 在下載時傳回。
 
@@ -204,15 +204,15 @@ azcopy copy [source] [destination] [flags]
 
 **--include-模式**字串只會在複製時包含這些檔案。 此選項支援萬用字元（*）。 使用 '; ' 來分隔檔案。
 
-**--記錄層級**字串會定義記錄檔的記錄詳細資訊、可用的層級： INFO （所有要求/回應）、警告（回應緩慢）、錯誤（僅限失敗的要求）和無（沒有輸出記錄）。 （預設值為「資訊」）。 （預設值為 "INFO"）
+**--記錄層級**字串會定義記錄檔的記錄詳細資訊、可用的層級： INFO （所有要求/回應）、警告（回應緩慢）、錯誤（僅限失敗的要求）和無（沒有輸出記錄）。 （預設值為 "INFO"）
 
 **--中繼資料**字串上傳至以這些索引鍵/值組做為中繼資料的 Azure 儲存體。
 
 **--不猜測-mime 類型**                  防止 AzCopy 根據檔案的副檔名或內容來偵測內容類型。
 
-**--** 如果此旗標設定為 true，則覆寫字串會覆寫目的地上的衝突檔案和 blob。 （預設值為 ' true '）可能的值包括 [true]、[false] 和 [prompt]。 （預設值為 "true"）
+**--** 如果此旗標設定為 true，則覆寫字串會覆寫目的地上的衝突檔案和 blob。 可能的值包括 [true]、[false] 和 [prompt]。 （預設值為 "true"）
 
-**--分頁-blob 層**字串上傳分頁 blob 至使用此 blob 層的 Azure 儲存體。 （預設值為 [無]）。 （預設值為 "None"）
+**--分頁-blob 層**字串上傳分頁 blob 至使用此 blob 層的 Azure 儲存體。 （預設值為 "None"）
 
 **--保留-上次修改時間**         只有當目的地是檔案系統時才可使用。
 
@@ -222,9 +222,9 @@ azcopy copy [source] [destination] [flags]
 
 **--s2s-偵測-來源-已變更**          檢查列舉之後，來源是否已變更。
 
-**--s2s-handle-無效-中繼資料**字串指定如何處理不正確中繼資料索引鍵。 可用的選項： ExcludeIfInvalid、FailIfInvalid、RenameIfInvalid。 （預設值為 ' ExcludeIfInvalid '）。 （預設值為 "ExcludeIfInvalid"）
+**--s2s-handle-無效-中繼資料**字串指定如何處理不正確中繼資料索引鍵。 可用的選項： ExcludeIfInvalid、FailIfInvalid、RenameIfInvalid。 （預設值為 "ExcludeIfInvalid"）
 
-**--s2s-保留-存取層**            在服務對服務複製期間保留存取層。 請參閱[Azure Blob 儲存體：經常性、非經常性和封存存取層](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)，以確保目的地儲存體帳戶支援設定存取層。 在不支援設定存取層的情況下，請使用 s2sPreserveAccessTier = false 來略過複製存取層。 （預設值為 true）。  （預設值為 true）
+**--s2s-保留-存取層**            在服務對服務複製期間保留存取層。 請參閱[Azure Blob 儲存體：經常性、非經常性和封存存取層](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)，以確保目的地儲存體帳戶支援設定存取層。 在不支援設定存取層的情況下，請使用 s2sPreserveAccessTier = false 來略過複製存取層。 （預設值為 true）
 
 **--s2s-保留-屬性**             保留服務到服務複製期間的完整屬性。 針對 AWS S3 和 Azure 檔案非單一檔案來源，清單作業不會傳回物件和檔案的完整屬性。 若要保留完整的屬性，AzCopy 必須針對每個物件或檔案傳送一個額外的要求。 （預設值為 true）
 

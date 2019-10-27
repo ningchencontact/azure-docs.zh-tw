@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694c8866a69d8488511be1670ba3d3013a4a3423
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a20ff526ba00f5b6521198122972071360bb58d6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392510"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934473"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中查看、新增和移除存取套件的指派
 
@@ -70,11 +70,9 @@ ms.locfileid: "72392510"
 
     ![指派-將使用者新增至存取封裝](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. 按一下 [**新增使用者**] 以選取您想要指派存取套件的使用者。
+1. 按一下 [**新增使用者**] 以選取您想要指派此存取套件的使用者。
 
-1. 在 [**選取原則**] 清單中，選取具有 [[無（僅限系統管理員直接指派）](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) ] 設定的原則。
-
-    如果此存取套件沒有這種類型的原則，您可以按一下 [**建立新原則**] 來加入一個。
+1. 在 [**選取原則**] 清單中，選取使用者的未來要求和生命週期將由其進行控管和追蹤的原則。 如果您想要讓選取的使用者擁有不同的原則設定，您可以按一下 [**建立新原則**] 來新增原則。
 
 1. 設定您想要選取的使用者指派開始和結束的日期和時間。 如果未提供結束日期，則會使用原則的生命週期設定。
 

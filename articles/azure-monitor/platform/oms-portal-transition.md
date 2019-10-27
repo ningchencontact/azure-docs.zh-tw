@@ -1,23 +1,18 @@
 ---
 title: OMS 入口網站移至 Azure | Microsoft 文件
 description: OMS 入口網站目前終止服務，連同其所有功能將移至 Azure 入口網站。 本文將提供此次轉換的詳細資料。
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 08/22/2019
+ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915873"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932157"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -64,9 +59,9 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
 
 | OMS 入口網站權限 | Azure 角色 |
 |:---|:---|
-| ReadOnly | Log Analytics 讀取者 |
+| ReadOnly | Log Analytics 讀者 |
 | 參與者 | Log Analytics 參與者 |
-| 系統管理員 | 擁有者 | 
+| 管理員 | 擁有者 | 
  
 
 ## <a name="new-workspaces"></a>新工作區

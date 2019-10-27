@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: db3581616b369345ad654593192048e8573c6fa4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249294"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935201"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 隨插即用預覽詞彙詞彙
 
@@ -38,7 +38,7 @@ Azure CLI 是用來管理 Azure 資源的跨平臺命令列工具。 適用于 A
 - 呼叫裝置[命令](#commands)。
 - 管理[模型存放庫](#model-repository)、[介面](#interface)和[裝置功能模型](#device-capability-model)。
 
-## <a name="azure-iot-central"></a>Azure IoT 中心
+## <a name="azure-iot-central"></a>Azure IoT Central
 
 Azure IoT Central 是完全受控的軟體即服務解決方案，可讓您輕鬆地連線、監視及管理您的[IoT 隨插即用裝置](#iot-plug-and-play-device)。 您可以使用[裝置功能模型](#device-capability-model)來自動設定 IoT Central 應用程式，以監視和管理您的裝置。
 
@@ -91,7 +91,7 @@ IoT 中樞是託管於雲端中的受控服務，可做為 IoT 應用程式與�
 
 組織可以使用公司模型存放[庫](#model-repository)作為[裝置功能模型](#device-capability-model)和[介面](#interface)的私用存放區。
 
-## <a name="connection-string"></a>連接字串
+## <a name="connection-string"></a>Connection string
 
 連接字串會封裝連接到端點所需的資訊。 連接字串通常包含端點位址和安全性資訊，但連接字串的格式會因服務而不同。 IoT 中樞服務有兩種相關的連接字串︰
 
@@ -117,7 +117,7 @@ IoT 中樞是託管於雲端中的受控服務，可做為 IoT 應用程式與�
 
 ## <a name="device-provisioning-service"></a>裝置佈建服務
 
-[Azure IoT Central](#azure-iot-central)使用裝置布建服務來管理所有裝置註冊和連線。 如需詳細資訊，請參閱[Azure 中的裝置連線能力 IoT Central](../iot-central/concepts-connectivity-pnp.md)。 您也可以使用裝置布建服務來管理裝置註冊，並聯機至 IoT 中樞型 IoT 解決方案。 如需詳細資訊，請參閱[使用 Azure IoT 中樞裝置](../iot-dps/about-iot-dps.md)布建服務布建裝置。
+[Azure IoT Central](#azure-iot-central)使用裝置布建服務來管理所有裝置註冊和連線。 如需詳細資訊，請參閱[Azure 中的裝置連線能力 IoT Central](../iot-central/core/concepts-connectivity-pnp.md)。 您也可以使用裝置布建服務來管理裝置註冊，並聯機至 IoT 中樞型 IoT 解決方案。 如需詳細資訊，請參閱[使用 Azure IoT 中樞裝置](../iot-dps/about-iot-dps.md)布建服務布建裝置。
 
 ## <a name="device-registration"></a>裝置註冊
 

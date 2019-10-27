@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1faf6e4c9124d494507a124013d5fd8588f4b41b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750346"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934927"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 虛擬機器儲存體設定
 
@@ -40,7 +40,7 @@ Azure 針對 Azure 標準儲存體和 Azure 進階儲存體上的 VHD，提供�
 
 - Azure 進階 SSD-/hana/log 必須使用 Azure[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)進行快取。 /Hana/data 磁片區可以放在沒有 Azure 寫入加速器或 Ultra 磁片上的進階 SSD
 - 至少適用于/hana/log 磁片區的 Azure Ultra 磁片。 /Hana/data 磁片區可以放在沒有 Azure 寫入加速器的進階 SSD 上，或為了取得更快速的磁片重新開機時間
-- 適用于/hana/log**和**/Hana/data 的 Azure NetApp Files 之上的**NFS 4.1**磁片區
+- 適用于/hana/log**和**/Hana/data. 的 Azure NetApp Files 之上的**NFS 4.1**磁片區 /Hana/shared 的數量可以使用 NFS v3 或 NFS 4.1 通訊協定。 NFS 4.1 通訊協定對於/hana/data 和/hana/log 磁片區而言是必要的。
 
 有些儲存類型可以合併。 例如，您可以將/hana/data 放在進階儲存體上，並將/hana/log 放在 Ultra 磁片儲存體上，以取得所需的低延遲。 不過，不建議您混合 NFS 磁片區以進行/hana/data，並使用其中一種其他認證的儲存類型來進行/hana/log
 
@@ -230,10 +230,10 @@ M416xx_v2 VM 類型尚未由 Microsoft 提供給公眾使用。 列出的值是�
 M416xx_v2 VM 類型尚未由 Microsoft 提供給公眾使用。 列出的值是一個起點，而且需要針對真正的需求進行評估。 Azure Ultra 磁片的優點是可以調整 IOPS 和輸送量的值，而不需要關閉 VM 或停止套用至系統的工作負載。  
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Azure NetApp Files 上的 NFS 4.1 磁片區
-Azure NetApp Files 提供可用於/hana/shared、/hana/data 和/hana/log 磁片區的原生 NFS 共用。 針對這些磁片區使用以及為基礎的 NFS 共用，需要使用 4.1 NFS 通訊協定。 當及上的共用時，不支援 NFS 通訊協定 v3 使用 HANA 相關磁片區。 
+Azure NetApp Files 提供可用於/hana/shared、/hana/data 和/hana/log 磁片區的原生 NFS 共用。 針對/hana/data 和/hana/log 磁片區使用以及為基礎的 NFS 共用，需要使用 4.1 NFS 通訊協定。 在及上以共用為基礎時，不支援使用/hana/data 和/hana/log 磁片區的 NFS 通訊協定 v3。 
 
 > [!IMPORTANT]
-> 不支援在 Azure NetApp Files 上執行的 NFS v3 通訊協定用於/hana/shared、/hana/data 和/hana/log
+> 不支援在 Azure NetApp Files 上執行的 NFS v3 通訊協定用於/hana/data 和/hana/log。 從功能的觀點來看，/hana/data 和/hana/log 磁片區的使用 NFS 4.1 是強制的。 而對於/hana/shared 磁片區，可以從功能的觀點來使用 NFS v3 或 NFS 4.1 通訊協定。
 
 ### <a name="important-considerations"></a>重要考量︰
 考慮 SAP Netweaver 和 SAP Hana 的 Azure NetApp Files 時，請注意下列重要考慮：
@@ -270,21 +270,21 @@ Azure NetApp volume 的輸送量是磁片區大小和服務層級的功能，如
 
 為了符合資料和記錄的 SAP 最低輸送量需求，以及根據 `/hana/shared` 的指導方針，建議的大小如下所示：
 
-| 磁碟區 | 大小<br /> 進階儲存體層 | 大小<br /> Ultra 儲存層 |
+| 磁碟區 | 大小<br /> 進階儲存體層 | 大小<br /> Ultra 儲存層 | 支援的 NFS 通訊協定 |
 | --- | --- | --- |
-| /hana/log | 4 TiB | 2 TiB |
-| /hana/data | 6.3 TiB | 3.2 TiB |
-| HANA/shared | 每4個背景工作節點最大值（512 GB、1xRAM） | 每4個背景工作節點最大值（512 GB、1xRAM） |
+| /hana/log | 4 TiB | 2 TiB | 4\.1 版 |
+| /hana/data | 6.3 TiB | 3.2 TiB | 4\.1 版 |
+| HANA/shared | 每4個背景工作節點最大值（512 GB、1xRAM） | 每4個背景工作節點最大值（512 GB、1xRAM） | v3 或4.1 版 |
 
 本文中顯示的版面配置 SAP Hana 設定，使用 Azure NetApp Files Ultra 儲存層會如下所示：
 
-| 磁碟區 | 大小<br /> Ultra 儲存層 |
+| 磁碟區 | 大小<br /> Ultra 儲存層 | 支援的 NFS 通訊協定 |
 | --- | --- |
-| /hana/log/mnt00001 | 2 TiB |
-| /hana/log/mnt00002 | 2 TiB |
-| /hana/data/mnt00001 | 3.2 TiB |
-| /hana/data/mnt00002 | 3.2 TiB |
-| HANA/shared | 2 TiB |
+| /hana/log/mnt00001 | 2 TiB | 4\.1 版 |
+| /hana/log/mnt00002 | 2 TiB | 4\.1 版 |
+| /hana/data/mnt00001 | 3.2 TiB | 4\.1 版 |
+| /hana/data/mnt00002 | 3.2 TiB | 4\.1 版 |
+| HANA/shared | 2 TiB | v3 或4.1 版 |
 
 > [!NOTE]
 > 此處所述的 Azure NetApp Files 大小建議以符合 SAP 向其基礎結構提供者表示的最低需求。 在實際的客戶部署和工作負載案例中，這可能不夠。 根據您特定工作負載的需求，使用這些建議作為起點並進行調整。  

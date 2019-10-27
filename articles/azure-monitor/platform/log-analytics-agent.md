@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure Log Analytics 代理程式收集記錄資料 | Microsoft Docs
 description: 此主題可協助您了解如何使用 Log Analytics 來收集資料，並監視 Azure、內部部署或其他雲端環境中裝載的電腦。
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1eec8b79579a1c4d5c889b830706299ccc25e88b
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/07/2019
+ms.openlocfilehash: 8070abad675acc69f5b1da232b60179078adbc57
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035643"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932233"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理程式收集記錄資料
 
@@ -26,7 +20,7 @@ Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) �
 
 本文將詳細說明代理程式的概觀、系統和網路需求以及不同的部署方法。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 ![Log Analytics 代理程式通訊圖表](./media/log-analytics-agent/log-analytics-agent-01.png)
 
@@ -110,7 +104,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 下列資訊列出 Linux 和 Windows 代理程式用來與 Azure 監視器記錄進行通訊所需的 proxy 和防火牆設定資訊。  
 
-|代理程式資源|連接埠 |Direction |略過 HTTPS 檢查|
+|代理程式資源|連接埠 |方向 |略過 HTTPS 檢查|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |連接埠 443 |輸出|是 |  
 |*.oms.opinsights.azure.com |連接埠 443 |輸出|是 |  
@@ -132,11 +126,11 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 proxy 伺
 
 |屬性| 描述 |
 |--------|-------------|
-|Protocol | https |
+|通訊協定 | https |
 |user | 用於驗證 Proxy 的選擇性使用者名稱 |
 |password | 用於驗證 Proxy 的選擇性密碼 |
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
-|port | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
+|連接埠 | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
 
 例如：`https://user01:password@proxy01.contoso.com:30443`
 
@@ -147,7 +141,7 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 proxy 伺
 
 根據您的需求，您可以使用不同的方法，將您 Azure 訂用帳戶或混合式環境中的機器直接與 Azure 監視器記錄連接。 下表說明每個方法，您可以判斷哪個方法最適合您的組織。
 
-|Source | 方法 | 描述|
+|來源 | 方法 | 描述|
 |-------|-------------|-------------|
 |Azure VM| - 適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 或 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，使用 Azure CLI 或 Azure Resource Manager 範本<br>[從 Azure 入口網站手動](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)- <br>- [Azure 資訊安全中心自動](../../security-center/security-center-enable-data-collection.md)布建| -擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並將其註冊到現有的 Azure 監視器工作區中。<br>-Azure 資訊安全中心可以在所有支援的 Azure Vm 上布建 Log Analytics 代理程式，以及當您啟用它來監視是否有安全性弱點和威脅時所建立的任何新虛擬機器。 若已啟用，則不會布建任何新的或現有的 VM （未安裝代理程式）。|
 | 混合式 Windows 電腦|- [手動安裝](agent-windows.md)<br>- [Azure 動化 DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [搭配 Azure Stack 的資源管理員範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |從命令列或使用自動化方法 (例如 Azure 自動化 DSC、[System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)) 來安裝 Microsoft Monitoring 代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。| 

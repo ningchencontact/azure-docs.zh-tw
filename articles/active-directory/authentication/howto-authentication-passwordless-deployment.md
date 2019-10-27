@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453130"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933126"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>完成無密碼 authentication 部署
 
@@ -185,7 +185,7 @@ Microsoft 提供 MFA[通訊範本](https://aka.ms/mfatemplates)、自助式密�
 | 使用者可以使用 FIDO2 裝置登入（1809） | 使用者可以從 [登入] 視窗中選取 [安全性金鑰]，並成功登入。 |
 | 使用者可以註冊 FIDO2 裝置（1903） | 使用者可以在設定 > 帳戶 > 登入選項 > 安全性金鑰）註冊 FIDO2 裝置 |
 | 使用者可以重設 FIDO2 裝置（1903） | 使用者可以在設定 > 帳戶 > 登入選項 > 安全性金鑰）重設 FIDO2 裝置 |
-| 使用者可以使用 FIDO2 裝置登入（1809） | 使用者可以從 [登入] 視窗中選取 [安全性金鑰]，並成功登入。 |
+| 使用者可以使用 FIDO2 裝置登入（1903） | 使用者可以從 [登入] 視窗中選取 [安全性金鑰]，並成功登入。 |
 
 **無密碼 FIDO 登入以 Azure AD web 應用程式**
 

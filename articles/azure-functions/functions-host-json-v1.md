@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 3d6a28c8cdcf13dc805d70832ed65732911138cd
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 89709edf085e1c424156fb68bd86fbc66b6ae8a7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263358"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934322"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 host.json 參考
 
@@ -140,10 +140,10 @@ ms.locfileid: "72263358"
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
-|GatewayMode|閘道|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
-|Protocol|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)|
+|GatewayMode|閘道器|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
+|通訊協定|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)|
 |leasePrefix|n/a|要在應用程式的所有函式上使用的租用前置詞。|
 
 ## <a name="durabletask"></a>durableTask
@@ -168,7 +168,7 @@ ms.locfileid: "72263358"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在 App Service 方案中，並沒有整體限制，而預設值則是取決於執行階段版本。
+指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在 App Service 計畫中，沒有整體限制，而且預設值為_null_，表示沒有超時。
 
 ```json
 {
@@ -192,9 +192,9 @@ ms.locfileid: "72263358"
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|enabled|true|指定是否已啟用此功能。 | 
+|啟用|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -250,10 +250,10 @@ ms.locfileid: "72263358"
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |categoryFilter|n/a|指定依類別的篩選| 
-|defaultLevel|Information|針對 `categoryLevels` 陣列中未指定的任何類別，會將這個層級和以上層級的記錄傳送至 Application Insights。| 
+|defaultLevel|資訊|針對 `categoryLevels` 陣列中未指定的任何類別，會將這個層級和以上層級的記錄傳送至 Application Insights。| 
 |categoryLevels|n/a|一個類別陣列，指定針對每個類別傳送至 Application Insights 的最小記錄層級。 這裡指定的類別控制所有開頭為相同值的類別，但會優先使用較長的值。 在上述範例 *host.json* 檔案中，所有開頭為 "Host.Aggregator" 的類別都會記錄在 `Information` 層級。 所有開頭為 "Host" 的其他類別 (例如 "Host.Executor") 都會記錄於 `Error` 層級。| 
 
 ## <a name="queues"></a>queues
@@ -272,7 +272,7 @@ ms.locfileid: "72263358"
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |maxPollingInterval|60000|佇列輪詢之間的間隔上限 (毫秒)。| 
 |visibilityTimeout|0|處理訊息失敗時，重試之間的時間間隔。| 
@@ -291,7 +291,7 @@ ms.locfileid: "72263358"
     }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |from|n/a|所有函式的寄件者電子郵件地址。| 
 
@@ -309,7 +309,7 @@ ms.locfileid: "72263358"
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 | 
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。| 
@@ -331,7 +331,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 
@@ -354,7 +354,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |consoleLevel|info|主控台記錄的追蹤層級。 選項為：`off`、`error`、`warning`、`info` 和 `verbose`。|
 |fileLoggingMode|debugOnly|檔案記錄的追蹤層級。 選項為 `never`、`always`、`debugOnly`。| 
