@@ -11,22 +11,22 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a8b380355d7eee6b79bff01d29160fdd3b42800d
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285808"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965491"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database 的進階資料安全性
 
 進階資料安全性是進階 SQL 安全性功能的整合套件。 其中包含的功能可用於探索和分類敏感性資料、找出潛在資料庫弱點並減低其風險，及偵測可能指出資料庫遇到威脅的異常活動。 此套件可讓您從單一的進入點位置啟用及管理前述功能。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 先進的資料安全性（ADS）提供一組先進的 SQL 安全性功能，包括資料探索 & 分類、弱點評估和先進的威脅防護。
 
-- [資料探索與分類](sql-database-data-discovery-and-classification.md) (目前處於預覽階段) 提供內建於 Azure SQL Database 的功能，可用來探索、分類、標記和保護資料庫中的敏感性資料。 它可用來讓您檢視資料庫分類狀態、追蹤對資料庫內敏感性資料的存取，並具有其他多方面的用途。
+- [資料探索 & 分類](sql-database-data-discovery-and-classification.md)提供 Azure SQL Database 的內建功能，可用於探索、分類、標記 & 保護資料庫中的敏感性資料。 它可用來讓您檢視資料庫分類狀態、追蹤對資料庫內敏感性資料的存取，並具有其他多方面的用途。
 - [弱點評估](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助您修復潛在的資料庫弱點。 它可讓您檢視安全性狀態，且包含解決安全性問題和增強資料庫防護性的可行步驟。
 - [先進的威脅防護](sql-database-threat-detection-overview.md)會偵測異常活動，指出不尋常且可能有害的嘗試存取或惡意探索您的資料庫。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 Advanced 威脅防護警示會提供可疑活動的詳細資料，以及如何調查和緩和威脅的建議動作。
 
@@ -38,7 +38,7 @@ ADS 的定價與 Azure 資訊安全中心標準層相同，每個受保護的 SQ
 
 下列步驟可讓您開始使用 ADS。
 
-## <a name="1-enable-ads"></a>1.啟用 ADS
+## <a name="1-enable-ads"></a>1. 啟用 ADS
 
 針對您的 SQL Database 伺服器或受控執行個體，瀏覽至 [安全性] 標題下的 [進階資料安全性]，以啟用 ADS。 若要對資料庫伺服器或受控執行個體上的所有資料庫啟用 ADS，請按一下 [在伺服器上啟用進階資料安全性]。
 
@@ -50,17 +50,17 @@ ADS 的定價與 Azure 資訊安全中心標準層相同，每個受保護的 SQ
 > [!NOTE]
 > ADS 的費用與每個節點的 Azure 資訊安全中心標準層費用相同，其中一個節點代表整個 SQL Database 伺服器或受控執行個體。 因此，您只需付費一次，即可使用 ADS 保護資料庫伺服器或受控執行個體上的所有資料庫。 您可以先以免費試用版試用 ADS。
 
-## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2.開始分類資料、追蹤弱點，並調查威脅警示
+## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. 開始分類資料、追蹤弱點，以及調查威脅警示
 
 按一下 [資料探索與分類] 卡可查看建議要分類的敏感性資料行，以及使用持續敏感性標籤為資料分類。 按一下 [弱點評估] 卡可檢視和管理弱點掃描和報告，以及追蹤您的安全性水準。 如果已收到安全性警示，請按一下 [ **Advanced 威脅防護**] 卡片以查看警示的詳細資料，並透過 [Azure 資訊安全中心安全性警示] 頁面，查看您 Azure 訂用帳戶中所有警示的匯總報告。
 
-## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3.管理 SQL Database 伺服器或受控執行個體的 ADS 設定
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. 在 SQL Database 伺服器或受控實例上管理 ADS 設定
 
 若要檢視及管理 ADS 設定，請針對您的 SQL Database 伺服器或受控執行個體，瀏覽至 [安全性] 標題下的 [進階資料安全性]。 在此頁面上，您可以啟用或停用 ADS，以及修改整個 SQL Database 伺服器或受控實例的弱點評定和先進的威脅防護設定。
 
 ![伺服器設定](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4.管理 SQL 資料庫的 ADS 設定
+## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. 管理 SQL 資料庫的 ADS 設定
 
 若要覆寫特定資料庫的 ADS 設定，請勾選 [啟用資料庫層級的進階資料安全性] 核取方塊。 只有在您有特定需求，才能針對個別資料庫接收獨立的 [威脅防護警示] 或 [弱點評估] 結果，以取代或除了針對中所有資料庫接收的警示和結果以外，才使用此選項。資料庫伺服器或受控實例。
 

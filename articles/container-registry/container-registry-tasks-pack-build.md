@@ -3,54 +3,53 @@ title: 從應用程式建立 Azure Container Registry 映射
 description: 使用 az acr pack build 命令，從應用程式建立容器映射並推送至 Azure Container Registry，而不需要使用 Dockerfile。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: danlep
-ms.openlocfilehash: b544820a0c496e0814de44790ea9c28878031a7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 34ef0fe4be00cfa7ce3e73c23eec636784071e56
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293897"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965900"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>使用雲端原生 Buildpack 從應用程式建立及推送映射
 
-Azure CLI 命令 `az acr pack build` 使用來自[Buildpacks](https://buildpacks.io/)的[@no__t 2](https://github.com/buildpack/pack) CLI 工具來建立應用程式，並將其映射推送至 Azure container registry。 這項功能可讓您從您的應用程式原始程式碼快速地建立容器映射，而不需要定義 Dockerfile。
+Azure CLI 命令 `az acr pack build` 使用來自[Buildpacks](https://buildpacks.io/)的[`pack`](https://github.com/buildpack/pack) CLI 工具來建立應用程式，並將其映射推送至 Azure container registry。 這項功能可讓您從您的應用程式原始程式碼快速地建立容器映射，而不需要定義 Dockerfile。
 
-您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的範例。 如果您想要在本機使用，則需要2.0.70 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的範例。 如果您想要在本機使用，則需要2.0.70 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 > [!IMPORTANT]
 > 此功能目前為預覽狀態。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 ## <a name="use-the-build-command"></a>使用 build 命令
 
-若要使用雲端原生 Buildpacks 來建立及推送容器映射，請執行[az acr pack build][az-acr-pack-build]命令。 [Az acr build][az-acr-build]命令會從 Dockerfile 來源和相關程式碼建立和推送映射，而 `az acr pack build` 則會直接指定應用程式來源樹狀結構。
+若要使用雲端原生 Buildpacks 來建立及推送容器映射，請執行[az acr pack build][az-acr-pack-build]命令。 [Az acr build][az-acr-build]命令會從 Dockerfile 來源和相關程式碼建立及推送映射，而 `az acr pack build` 您直接指定應用程式來源樹狀結構。
 
-當您執行 `az acr pack build` 時，請至少指定下列內容：
+當您執行 `az acr pack build`時，請至少指定下列內容：
 
 * 您在其中執行命令的 Azure container registry
 * 產生之影像的映射名稱和標記
 * ACR 工作的其中一個[支援內容位置](container-registry-tasks-overview.md#context-locations)，例如本機目錄、GitHub 存放庫或遠端 tarball
-* Buildpack 產生器映射的名稱，例如 `cloudfoundry/cnb:0.0.12-bionic`。  
+* 適用于您應用程式的 Buildpack 產生器映射名稱。 Azure Container Registry 快取產生器映射，例如 `cloudfoundry/cnb:0.0.34-cflinuxfs3` 以加快組建的速度。  
 
 `az acr pack build` 支援 ACR 工作命令的其他功能，包括已串流處理並儲存以供日後抓取的[執行變數](container-registry-tasks-reference-yaml.md#run-variables)和工作[執行記錄](container-registry-tasks-overview.md#view-task-logs)。
 
-## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>範例：使用 Cloud Foundry 產生器建立 node.js 映射
+## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>範例：使用 Cloud Foundry builder 建立 node.js 映射
 
-下列範例會使用 `cloudfoundry/cnb:0.0.12-bionic` 產生器，從[Azure 範例/nodejs-檔-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world)存放庫中的 node.js 應用程式建立容器映射：
+下列範例會使用 `cloudfoundry/cnb:0.0.34-cflinuxfs3` 產生器，從[Azure 範例/nodejs-檔-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world)存放庫中的 node.js 應用程式建立容器映射。 Azure Container Registry 會快取此產生器，因此不需要 `--pull` 參數：
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
+    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-這個範例會建立具有 @no__t 1 標記的 @no__t 0 映射，並將其推送至*myregistry*容器登錄。 在這裡，目標登錄名稱會明確地加到映射名稱前面。 如果未指定，登錄 URL 就會自動加到映射名稱前面。
-
-@No__t-0 參數指定命令提取最新的產生器映射。
+這個範例會建立具有 `1.0` 標記的 `node-app` 映射，並將其推送至*myregistry*容器登錄。 在此範例中，目標登錄名稱會明確地加到映射名稱前面。 如果未指定，登錄登入伺服器名稱會自動加在映射名稱前面。
 
 命令輸出會顯示建立和推送映射的進度。 
 
@@ -70,7 +69,7 @@ docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>範例：使用 Heroku builder 建立 JAVA 映射
 
-下列範例會使用 `heroku/buildpacks:18` 產生器，從[buildpack/sample-java 應用](https://github.com/buildpack/sample-java-app)程式存放庫中的 java 應用程式建立容器映射：
+下列範例會使用 `heroku/buildpacks:18` 產生器，從[buildpack/sample-java 應用](https://github.com/buildpack/sample-java-app)程式存放庫中的 java 應用程式建立容器映射。 `--pull` 參數指定命令應提取最新的產生器映射。 
 
 ```azurecli
 az acr pack build \
@@ -80,9 +79,7 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-這個範例會建立標記為命令執行識別碼的 @no__t 0 映射，並將其推送至*myregistry*容器登錄。
-
-@No__t-0 參數指定命令提取最新的產生器映射。
+此範例會建立以命令的執行識別碼標記的 `java-app` 映射，並將其推送至*myregistry*容器登錄。
 
 命令輸出會顯示建立和推送映射的進度。 
 
@@ -103,7 +100,7 @@ docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
 
 ## <a name="next-steps"></a>後續步驟
 
-在您建立並推送具有 `az acr pack build` 的容器映射之後，就可以將它部署到您選擇的目標，如同任何映射。 Azure 部署選項包括在[App Service](../app-service/containers/tutorial-custom-docker-image.md)或[Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md)之間執行，以及其他專案。
+當您使用 `az acr pack build`建立及推送容器映射之後，就可以將它部署為您選擇的目標，如同任何映射。 Azure 部署選項包括在[App Service](../app-service/containers/tutorial-custom-docker-image.md)或[Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md)之間執行，以及其他專案。
 
 如需 ACR 工作功能的詳細資訊，請參閱[使用 ACR 工作自動化容器映射組建和維護](container-registry-tasks-overview.md)。
 

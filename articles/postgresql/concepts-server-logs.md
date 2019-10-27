@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: cc796733c9b0b1effd8043c49540f9b489610067
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 10/25/2019
+ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331289"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965938"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的記錄
 適用於 PostgreSQL 的 Azure 資料庫可讓您設定和存取 Postgres 的標準記錄。 記錄可用來識別、疑難排解和修復設定錯誤和效能較佳。 您可以設定和存取的記錄資訊包括錯誤、查詢資訊、自動資料清理記錄、連接和檢查點。 （不提供交易記錄檔的存取權）。
@@ -20,7 +20,7 @@ ms.locfileid: "72331289"
 
 
 ## <a name="configure-logging"></a>設定記錄 
-您可以使用記錄伺服器參數，在您的伺服器上設定 Postgres 標準記錄。 在每部適用於 PostgreSQL 的 Azure 資料庫伺服器上，`log_checkpoints` 和 `log_connections` 預設為開啟。 有其他可供您調整來符合您記錄需求的參數： 
+您可以使用記錄伺服器參數，在您的伺服器上設定 Postgres 標準記錄。 根據預設，每個適用於 PostgreSQL 的 Azure 資料庫伺服器上的 `log_checkpoints` 和 `log_connections` 都是開啟的。 有其他可供您調整來符合您記錄需求的參數： 
 
 ![適用於 PostgreSQL 的 Azure 資料庫 - 記錄參數](./media/concepts-server-logs/log-parameters.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "72331289"
 
 針對記錄和記錄分析的長期保留，您可以下載 .log 檔案，並將它們移至協力廠商服務。 您可以使用[Azure 入口網站](howto-configure-server-logs-in-portal.md) [Azure CLI](howto-configure-server-logs-using-cli.md)下載檔案。 或者，您可以設定 Azure 監視器診斷設定，以自動將您的記錄（JSON 格式）發出至較長的位置。 在下一節中深入瞭解此選項。 
 
-您可以將參數 `logging_collector` 設定為 OFF，以停止產生記錄檔。 如果您使用 Azure 監視器診斷設定，則建議您關閉 [記錄檔產生]。 此設定可降低額外記錄的效能影響。
+您可以藉由將參數 `logging_collector` 設定為 OFF，停止產生 .log 檔案。 如果您使用 Azure 監視器診斷設定，則建議您關閉 [記錄檔產生]。 此設定可降低額外記錄的效能影響。
 
 ## <a name="diagnostic-logs"></a>診斷記錄
 適用於 PostgreSQL 的 Azure 資料庫已與 Azure 監視器診斷設定整合。 診斷設定可讓您將 JSON 格式的 Postgres 記錄傳送至 Azure 監視器記錄，以進行分析和警示、事件中樞以進行串流處理，以及 Azure 儲存體進行封存。 
@@ -82,12 +82,13 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-在過去6小時內搜尋此工作區中所有 Postgres 伺服器的所有錯誤
+搜尋所有非 localhost 的連接嘗試
 ```
 AzureDiagnostics
-| where errorLevel_s == "error" and category == "PostgreSQLogs"
-| where TimeGenerated > ago(6h)
+| where Message contains "connection received" and Message !contains "host=127.0.0.1"
+| where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
+上述查詢會針對此工作區中的任何 Postgres 伺服器記錄顯示過去6小時內的結果。
 
 ### <a name="log-format"></a>記錄格式
 

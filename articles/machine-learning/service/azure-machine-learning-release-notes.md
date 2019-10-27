@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: afad2648ec73b02d4e06ad55f850a518d2488f68
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c8ec05db9bf372f31b6c3cfadf1eda75ba8f7d2b
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756045"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965196"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
@@ -171,7 +171,7 @@ ms.locfileid: "72756045"
     + 在 ADB 程式碼中再次執行例外狀況處理，並根據新的錯誤處理將變更為。
     + 已新增筆記本 Vm 的自動 MSI 驗證。
     + 修正因重試失敗而無法上傳損毀或空模型的 bug。
-    + 修正 `DataReference` 模式變更時 `DataReference` 名稱變更的 bug （例如，呼叫 `as_upload`、`as_download` 或 `as_mount` 時）。
+    + 修正 `DataReference` 模式變更時 `DataReference` 名稱變更的 bug （例如，呼叫 `as_upload`、`as_download`或 `as_mount`時）。
     + 針對 `FileDataset.mount` 和 `FileDataset.download`，讓 `mount_point` 和 `target_path` 為選擇性。
     + 找不到時間戳記資料行的例外狀況將會擲回，如果呼叫 serials 相關的 API 時未指派微調時間戳記資料行，或是已卸載指派的時間戳記資料行。
     + 應該使用類型為 Date 的資料行來指派 Time serials 資料行，否則應為例外狀況
@@ -279,7 +279,7 @@ ms.locfileid: "72756045"
 ### <a name="azure-machine-learning-data-prep-sdk-v1114"></a>Azure Machine Learning 資料準備 SDK v 1.1.14
 + **Bug 修正和改善**
   + 已使用原始路徑和認證啟用寫入 ADLS/ADLSGen2。
-  + 已修正導致 `include_path=True` 無法 `read_parquet` 的 bug。
+  + 已修正導致 `include_path=True` 無法 `read_parquet`的 bug。
   + 已修正因例外狀況「不正確屬性值： hostSecret」而造成的 `to_pandas_dataframe()` 失敗。
   + 已修正無法在 Spark 模式的 DBFS 上讀取檔案的錯誤。
   
@@ -447,7 +447,7 @@ ms.locfileid: "72756045"
     + 移除舊的例外狀況類別。
     + 在預測工作中，`target_lags` 參數現在會接受單一整數值或整數清單。 如果已提供整數，則只會建立一個 lag。 如果提供了清單，將會採用延遲的唯一值。 target_lags = [1，2，2，4] 將建立延遲1、2和4個期間。
     + 修正轉換（bug 連結）之後遺失資料行類型的 bug;
-    + 在 `model.forecast(X, y_query)` 中，允許 y_query 是一種物件類型，在開頭（#459519）包含無（s）。
+    + 在 `model.forecast(X, y_query)`中，允許 y_query 是一種物件類型，在開頭（#459519）包含無（s）。
     + 將預期的值新增至 automl 輸出
   + **azureml-contrib-datadrift**
     +  範例筆記本的改良功能，包括切換至 azureml-opendatasets，而不是 azureml-contrib opendatasets 和效能改善（在充實資料時）
@@ -556,7 +556,7 @@ ms.locfileid: "72756045"
     + 已將 include_local = False 的 batch_size 新增至模擬說明，以分批串流全域解釋，以改善模型可解釋性程式庫 DecisionTreeExplainableModel 的執行時間。
   + **azureml-核心**
     + 已新增在 AzureML CLI 中附加 DBFS 資料存放區的功能。
-    + 已修正資料存放區上傳的問題，如果 `target_path` 以 `/` 啟動，就會建立空的資料夾。
+    + 已修正資料存放區上傳的問題，如果 `target_path` 以 `/`啟動，就會建立空的資料夾。
     + 已啟用兩個資料集的比較。
     + [模型] 和 [映射刪除] 現在會提供詳細資訊，說明如何在因為上游相依性而導致刪除失敗時，取得相依于它們的上游物件。
     + 已淘汰 auto_prepare_environment 中未使用的 RunConfiguration 設定。
@@ -580,13 +580,13 @@ ms.locfileid: "72756045"
 ### <a name="azure-machine-learning-data-prep-sdk-v118"></a>Azure Machine Learning 資料準備 SDK v 1.1。8
 
 + **新功能**
- + 現在可以反復查看資料流程物件，產生一連串的記錄。 請參閱 `Dataflow.to_record_iterator` 的檔。
+  + 現在可以反復查看資料流程物件，產生一連串的記錄。 請參閱 `Dataflow.to_record_iterator`的檔。
 
 + **Bug 修正和改善**
- + 提升 DataPrep SDK 的穩定性。
- + 改善 pandas 資料框架與非字串資料行索引的處理。
- + 改善資料集中 `to_pandas_dataframe` 的效能。
- + 修正了在多節點環境中執行時，Spark 執行資料集失敗的錯誤。
+  + 提升 DataPrep SDK 的穩定性。
+  + 改善 pandas 資料框架與非字串資料行索引的處理。
+  + 改善資料集中 `to_pandas_dataframe` 的效能。
+  + 修正了在多節點環境中執行時，Spark 執行資料集失敗的錯誤。
 
 ## <a name="2019-07-01"></a>2019-07-01
 
@@ -811,7 +811,7 @@ ms.locfileid: "72756045"
 
 Azure Machine Learning SDK for Python v 1.0.30 已發行。
 
-[@No__t_1](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py)的引進會加入新版本的已發行管線，同時維持相同的端點。
+[`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py)的引進會加入新版本的已發行管線，同時維持相同的端點。
 
 ## <a name="2019-04-17"></a>2019-04-17
 
@@ -826,14 +826,14 @@ Azure Machine Learning SDK for Python v 1.0.30 已發行。
     + 範例：
       + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
       + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
-  + 您現在可以使用運算式語言中的 `to_upper`  and `to_lower`  functions。
+  + 您現在可以使用運算式語言中的 `to_upper` 和 `to_lower` 函數。
   + 您現在可以看到資料設定檔中每個資料行的唯一值數目。
   + 對於一些常用的讀取器步驟，您現在可以傳入 `infer_column_types` 引數。 如果設定為 `True`，則資料準備會嘗試偵測並自動轉換資料行類型。
     + `inference_arguments` 現在已被取代。
   + 您現在可以呼叫 `Dataflow.shape`。
 
 + **Bug 修正和改善**
-  + `keep_columns`  now 會接受額外的選擇性引數 `validate_column_exists`，以檢查 `keep_columns` 的結果是否會包含任何資料行。
+  + `keep_columns` 現在接受額外的選擇性引數 `validate_column_exists`，以檢查 `keep_columns` 的結果是否會包含任何資料行。
   + 所有讀取器步驟（從檔案讀取）現在都接受額外的選擇性引數 `verify_exists`。
   + 改善從 pandas 資料框架讀取及取得資料設定檔的效能。
   + 已修正從資料流程切割單一步驟失敗且具有單一索引的 bug。
@@ -852,7 +852,7 @@ Azure Machine Learning SDK for Python v 1.0.30 已發行。
 
 + **新功能**
   + Azure Machine Learning SDK 現在支援 Python 3.7。
-  + Azure Machine Learning DNN 估算器現在提供內建的多版本支援。 例如，`TensorFlow`  estimator 現在接受 `framework_version` 參數，而使用者可以指定 ' 1.10 ' 或 ' 1.12 ' 的版本。 如需目前 SDK 版本所支援的版本清單，請在所要的 framework 類別上呼叫 `get_supported_versions()` （例如，`TensorFlow.get_supported_versions()`）。
+  + Azure Machine Learning DNN 估算器現在提供內建的多版本支援。 例如，`TensorFlow` 估計工具現在接受 `framework_version` 參數，而使用者可以指定 ' 1.10 ' 或 ' 1.12 ' 的版本。 如需目前 SDK 版本所支援的版本清單，請在所要的 framework 類別上呼叫 `get_supported_versions()` （例如，`TensorFlow.get_supported_versions()`）。
   如需最新 SDK 版本所支援的版本清單，請參閱[DNN 估計工具檔](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py)\ （英文 \）。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning 資料準備 SDK 1.1.1 版

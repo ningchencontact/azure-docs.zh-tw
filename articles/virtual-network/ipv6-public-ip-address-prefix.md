@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597946"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965164"
 ---
 # <a name="reserved-public-ipv6-address-prefix-preview"></a>保留的公用 IPv6 位址首碼（預覽）
 
@@ -46,7 +46,7 @@ ms.locfileid: "72597946"
 如需使用 Azure 公用 ip （個別 IP 位址和 IP 範圍）的相關成本，請參閱[公用 Ip 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses/)。
 
 ## <a name="limitations"></a>限制
-只有使用「動態」配置的基本公用 Ip 才支援 IPv6，這表示如果您在 Azure 中刪除並重新部署應用程式（VM 或負載平衡器），IPv6 位址將會變更。 只有標準 IPv6 公用 IP 支援動態和靜態（保留）配置。
+只有使用「動態」配置的基本公用 Ip 才支援 IPv6，這表示如果您在 Azure 中刪除並重新部署應用程式（VM 或負載平衡器），IPv6 位址將會變更。 標準 IPv6 公用 IP 僅支援靜態（保留）配置，不過標準內部負載平衡器也可支援從指派給它們的子網內進行動態配置。  
 
 基於最佳做法，我們建議您針對 IPv6 應用程式使用標準公用 Ip 和標準負載平衡器。
 

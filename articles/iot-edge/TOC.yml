@@ -110,13 +110,7 @@
 - name: 使用說明指南
   items:
     - name: 註冊 IoT Edge 裝置
-      items:
-        - name: Azure 入口網站
-          href: how-to-register-device-portal.md
-        - name: Azure CLI
-          href: how-to-register-device-cli.md
-        - name: Visual Studio Code
-          href: how-to-register-device-vscode.md
+      href: how-to-register-device.md
     - name: 安裝和管理 IoT Edge
       items:
         - name: Linux

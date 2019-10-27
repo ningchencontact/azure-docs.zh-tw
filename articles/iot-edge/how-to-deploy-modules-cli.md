@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aa5c4747238b2f2427be3e57c3e84e03c81fd609
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541753"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964931"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>使用 Azure CLI 部署 Azure IoT Edge 模組
 
@@ -28,7 +28,7 @@ ms.locfileid: "69541753"
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。
-* 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-cli.md)。
+* 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md#register-with-the-azure-cli)。
 * 您環境中的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 您的 Azure CLI 版本至少必須是 2.0.24 或更新版本。 使用 `az --version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。
 * [適用於 Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension) \(英文\)。
 
@@ -116,7 +116,7 @@ ms.locfileid: "69541753"
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-device id 參數區分大小寫。 內容參數會指向您已儲存的部署資訊清單檔案。
+裝置識別碼參數會區分大小寫。 內容參數會指向您已儲存的部署資訊清單檔案。
 
    ![az iot edge set-modules 輸出](./media/how-to-deploy-cli/set-modules.png)
 
@@ -130,7 +130,7 @@ device id 參數區分大小寫。 內容參數會指向您已儲存的部署資
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-device id 參數區分大小寫。
+裝置識別碼參數會區分大小寫。
 
    ![az iot hub module-identity list 輸出](./media/how-to-deploy-cli/list-modules.png)
 

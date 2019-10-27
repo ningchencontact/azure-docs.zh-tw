@@ -1,26 +1,24 @@
 ---
 title: 如何在適用於 MariaDB 的 Azure 資料庫中備份與還原伺服器
 description: 了解如何使用 Azure CLI，在適用於 MariaDB 的 Azure 資料庫中備份和還原伺服器。
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171384"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965216"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MariaDB 的 Azure 資料庫中備份和還原伺服器
 
-## <a name="backup-happens-automatically"></a>備份會自動進行
-
 為了能使用還原功能，適用於 MariaDB 的 Azure 資料庫伺服器會定期備份。 透過此功能，您可以將伺服器和其所有資料庫還原至更早的時間點 (在新的伺服器上)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本操作說明指南，您需要：
 
@@ -71,18 +69,20 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 `az mariadb server restore` 命令需要下列參數：
 
-| 設定 | 建議值 | 描述  |
+| 設定 | 建議的值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
-| name | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
+| 名稱 | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 選取要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可以使用自己的當地時區，例如 `2018-03-13T05:59:00-08:00`。 您也可以使用 UTC Zulu 格式，例如 `2018-03-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要進行還原的來源伺服器之名稱或識別碼。 |
 
-當您將伺服器還原到之前的時間點時，會建立新的伺服器。 指定時間點的原始伺服器及其資料庫會複製到新的伺服器。
+當您將伺服器還原至較早的時間點時，會建立新的伺服器。 指定時間點的原始伺服器及其資料庫會複製到新的伺服器。
 
-已還原伺服器的位置與定價層值與原始伺服器相同。
+已還原伺服器的位置與定價層值與原始伺服器相同。 
 
-完成還原程序後，找出新的伺服器，確認資料如預期般還原。
+完成還原程序後，找出新的伺服器，確認資料如預期般還原。 新伺服器具有相同的伺服器管理員登入名稱和密碼，在起始還原時對現有的伺服器而言是有效的。 您可以從新伺服器的 [概觀] 頁面變更密碼。
+
+在還原期間建立的新伺服器沒有存在於源伺服器上的防火牆規則或 VNet 服務端點。 這些規則必須針對這個新的伺服器分別設定。
 
 ## <a name="geo-restore"></a>異地還原
 
@@ -111,20 +111,22 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 `az mariadb server georestore` 命令需要下列參數：
 
-| 設定 | 建議值 | 描述  |
+| 設定 | 建議的值 | 描述  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新伺服器將所屬的資源群組名稱。|
-|name | mydemoserver-georestored | 新伺服器的名稱。 |
+|名稱 | mydemoserver-georestored | 新伺服器的名稱。 |
 |source-server | mydemoserver | 所使用之異地備援備份所屬的現有伺服器名稱。 |
 |location | eastus | 新伺服器的位置。 |
 |sku-name| GP_Gen5_8 | 此參數會設定新伺服器的定價層、計算世代及 vCore 數目。 GP_Gen5_8 所對應的是一般用途、具有 8 個 vCore 的第 5 代伺服器。|
 
->[!Important]
->透過異地還原建立新伺服器時，它會繼承與來源伺服器相同的儲存體大小和定價層。 在建立期間無法變更這些值。 在建立新伺服器之後，您可以調高儲存體大小。
+透過異地還原建立新伺服器時，它會繼承與來源伺服器相同的儲存體大小和定價層。 在建立期間無法變更這些值。 在建立新伺服器之後，您可以調高儲存體大小。
 
-完成還原程序後，找出新的伺服器，確認資料如預期般還原。
+完成還原程序後，找出新的伺服器，確認資料如預期般還原。 新伺服器具有相同的伺服器管理員登入名稱和密碼，在起始還原時對現有的伺服器而言是有效的。 您可以從新伺服器的 [概觀] 頁面變更密碼。
+
+在還原期間建立的新伺服器沒有存在於源伺服器上的防火牆規則或 VNet 服務端點。 這些規則必須針對這個新的伺服器分別設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解服務的[備份](concepts-backup.md)。
-- 深入了解[商務持續性](concepts-business-continuity.md)選項。
+- 深入瞭解服務的[備份](concepts-backup.md)
+- 瞭解[複本](concepts-read-replicas.md)
+- 深入瞭解[商務持續性](concepts-business-continuity.md)選項

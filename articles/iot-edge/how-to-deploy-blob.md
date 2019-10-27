@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: e5420bbe7f65dcef4997d909b3bc4ede00dd9902
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: f1c5bb6f8a4c7705940f8659575690939c3e5433
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844219"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964992"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>將 IoT Edge 模組上的 Azure Blob 儲存體部署至您的裝置
 
@@ -23,7 +23,7 @@ ms.locfileid: "70844219"
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
-- 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-portal.md)。
+- 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md)。
 - 如果從 Visual Studio Code 進行部署， [Visual Studio Code](https://code.visualstudio.com/)和[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 。
 
 ## <a name="deploy-from-the-azure-portal"></a>從 Azure 入口網站部署
@@ -39,7 +39,7 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
 ### <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
 
-部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 Azure 入口網站有一個 wizard，會逐步引導您建立部署資訊清單，而不是手動建立 JSON 檔。 其中包含三個步驟：**新增模組**、**指定路由**和**檢閱部署**。
+部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 Azure 入口網站有一個 wizard，會逐步引導您建立部署資訊清單，而不是手動建立 JSON 檔。 它有三個步驟：**新增模組**、**指定路由**和**檢閱部署**。
 
 #### <a name="add-modules"></a>新增模組
 
@@ -80,14 +80,14 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
    - 使用 64 位元組 base64 金鑰取代 `<your storage account key>`。 您可以 [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。
 
-   - 根據`<storage mount>`您的容器作業系統來取代。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體掛接會將您提供的裝置上的位置對應至模組中的集合位置。
+   - 根據您的容器作業系統來取代 `<storage mount>`。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體掛接會將您提供的裝置上的位置對應至模組中的集合位置。
 
-     - 針對 Linux 容器，格式為 *\<storage path 或 volume >：/blobroot 與*。 例如：
+     - 針對 Linux 容器，格式為 *\<儲存體路徑或磁片區 >：/blobroot 與*。 例如
          - 使用[磁片區掛接](https://docs.docker.com/storage/volumes/)：**我的磁片區：/blobroot** 
          - 使用[bind mount](https://docs.docker.com/storage/bind-mounts/)： **/srv/containerdata：/blobroot 與**。 請務必遵循下列步驟，將[目錄存取權授與容器使用者](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - 針對 Windows 容器，格式為 *\<storage path 或 volume >： C：/BlobRoot*。 例如：
+     - 針對 Windows 容器，格式為 *\<儲存體路徑或磁片區 >： C：/BlobRoot*。 例如
          - 使用[磁片區掛接](https://docs.docker.com/storage/volumes/)：**我的磁片區： C：/blobroot 與**。 
-         - 使用[bind 掛接](https://docs.docker.com/storage/bind-mounts/)：**C：/ContainerData： c：/BlobRoot**。
+         - 使用[bind mount](https://docs.docker.com/storage/bind-mounts/)： **c：/ContainerData： c：/BlobRoot**。
          - 除了使用您的本機磁片磁碟機之外，您還可以對應 SMB 網路位置。如需詳細資訊，請參閱[使用 smb 共用作為本機儲存體](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
@@ -123,7 +123,7 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
    如需部署模組之後，如何設定 deviceToCloudUploadProperties 和 deviceAutoDeleteProperties 的詳細資訊，請參閱[編輯模組](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)對應項。 如需所需屬性的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 1. 選取 [下一步] 繼續前往路由區段。
 
@@ -152,13 +152,13 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 1. 選取 [檢視] > [命令選擇區]。
 
-1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge：**新增 IoT Edge 解決方案**。
+1. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。
 
    ![執行新的 IoT Edge 解決方案](./media/how-to-develop-csharp-module/new-solution.png)
 
    依照命令選擇區中的提示建立解決方案。
 
-   | 欄位 | 值 |
+   | 欄位 | Value |
    | ----- | ----- |
    | 選取資料夾 | 選擇開發電腦上的位置，以供 Visual Studio Code 建立方案檔。 |
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
@@ -172,7 +172,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
    1. 刪除**SimulatedTemperatureSensor**模組，因為此部署並不需要。
 
-   1. 複製下列程式碼並貼到`createOptions`欄位中：
+   1. 複製下列程式碼並貼到 [`createOptions`] 欄位中：
 
       ```json
       "Env":[
@@ -193,15 +193,15 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 1. 使用 64 位元組 base64 金鑰取代 `<your storage account key>`。 您可以 [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。
 
-1. 根據`<storage mount>`您的容器作業系統來取代。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體掛接會將您提供的裝置上的位置對應至模組中的集合位置。  
+1. 根據您的容器作業系統來取代 `<storage mount>`。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體掛接會將您提供的裝置上的位置對應至模組中的集合位置。  
 
       
-     - 針對 Linux 容器，格式為 *\<storage path 或 volume >：/blobroot 與*。 例如：
+     - 針對 Linux 容器，格式為 *\<儲存體路徑或磁片區 >：/blobroot 與*。 例如
          - 使用[磁片區掛接](https://docs.docker.com/storage/volumes/)：**我的磁片區：/blobroot** 
          - 使用[bind mount](https://docs.docker.com/storage/bind-mounts/)： **/srv/containerdata：/blobroot 與**。 請務必遵循下列步驟，將[目錄存取權授與容器使用者](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - 針對 Windows 容器，格式為 *\<storage path 或 volume >： C：/BlobRoot*。 例如：
+     - 針對 Windows 容器，格式為 *\<儲存體路徑或磁片區 >： C：/BlobRoot*。 例如
          - 使用[磁片區掛接](https://docs.docker.com/storage/volumes/)：**我的磁片區： C：/blobroot 與**。 
-         - 使用[bind 掛接](https://docs.docker.com/storage/bind-mounts/)：**C：/ContainerData： c：/BlobRoot**。
+         - 使用[bind mount](https://docs.docker.com/storage/bind-mounts/)： **c：/ContainerData： c：/BlobRoot**。
          - 除了使用您的本機磁片磁碟機之外，您還可以對應 SMB 網路位置。如需詳細資訊，請參閱[使用 smb 共用作為本機儲存體](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
@@ -244,9 +244,9 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 ## <a name="deploy-multiple-module-instances"></a>部署多個模組實例
 
-如果您想要在 IoT Edge 模組上部署 Azure Blob 儲存體的多個實例，您必須提供不同的儲存路徑，並變更`HostPort`模組所系結的值。 Blob 儲存體模組一律會公開容器的 11002 連接埠，但是您可以宣告哪個連接埠繫結至主機。
+如果您想要在 IoT Edge 模組上部署 Azure Blob 儲存體的多個實例，您必須提供不同的儲存路徑，並變更模組所系結的 `HostPort` 值。 Blob 儲存體模組一律會公開容器的 11002 連接埠，但是您可以宣告哪個連接埠繫結至主機。
 
-編輯**容器建立選項**（在 [Azure 入口網站）] 或 [ **createOptions** ] 欄位（在`HostPort` Visual Studio Code 中的*部署範本. json*檔案），以變更值：
+編輯**容器建立選項**（在 [Azure 入口網站）] 或 [ **createOptions** ] 欄位（在 Visual Studio Code 中的*部署範本. json*檔案），以變更 `HostPort` 值：
 
 ```json
 "PortBindings":{

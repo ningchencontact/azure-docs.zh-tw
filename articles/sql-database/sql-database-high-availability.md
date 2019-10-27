@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390705"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965965"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
-Azure SQL Database 中高可用性架構的目標是確保您的資料庫在 99.99% 的時間內啟動並執行，而不需擔心維護作業和中斷的影響。 Azure 會自動處理重要的服務工作，例如修補、備份、Windows 和 SQL 升級，以及未計畫的事件，例如基礎硬體、軟體或網路失敗。  當基礎 SQL 實例修補或故障時，如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，停機時間就不明顯。 即使在最關鍵的情況下，Azure SQL Database 也可以快速復原，確保您的資料隨時可用。
+Azure SQL Database 中高可用性架構的目標是確保您的資料庫在99.99% 的時間內啟動並執行，而不需擔心維護作業和中斷的影響。 Azure 會自動處理重要的服務工作，例如修補、備份、Windows 和 SQL 升級，以及未計畫的事件，例如基礎硬體、軟體或網路失敗。  當基礎 SQL 實例修補或故障時，如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，停機時間就不明顯。 即使在最關鍵的情況下，Azure SQL Database 也可以快速復原，確保您的資料隨時可用。
 
 高可用性解決方案的設計，是為了確保認可的資料永遠不會因為失敗而遺失，維護作業不會影響您的工作負載，而且資料庫不會是您軟體架構中的單一失敗點。 在升級或維護資料庫時，不會有維護視窗或停機時間要求您停止工作負載。 
 
@@ -39,10 +39,10 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 
 標準可用性模型包含兩個層級：
 
-- 無狀態計算層，會執行 @no__t 0 的進程，並僅包含暫時性和快取的資料，例如 TempDB、附加 SSD 上的模型資料庫，以及記憶體中的計畫快取、緩衝集區和資料行存放區集區。 此無狀態節點是由 Azure Service Fabric 所操作，會初始化 @no__t 0、控制節點的健全狀況，並在必要時執行容錯移轉至另一個節點。
+- 無狀態計算層，會執行 `sqlservr.exe` 進程並僅包含暫時性和快取的資料，例如 TempDB、附加 SSD 上的模型資料庫，以及在記憶體中規劃快取、緩衝集區和資料行存放區集區。 此無狀態節點由 Azure Service Fabric 操作，會初始化 `sqlservr.exe`、控制節點的健全狀況，並在必要時執行容錯移轉至另一個節點。
 - 具狀態資料層，其中包含儲存在 Azure Blob 儲存體中的資料庫檔案（.mdf/.ldf）。 Azure blob 儲存體具有內建的資料可用性和冗余功能。 它保證即使 SQL Server 進程損毀，也會保留資料檔案中記錄檔或頁面中的每筆記錄。
 
-每當資料庫引擎或作業系統升級，或偵測到失敗時，Azure Service Fabric 會將無狀態 SQL Server 進程移至具有足夠可用容量的另一個無狀態計算節點。 移動時不會影響 Azure Blob 儲存體中的資料，而且資料/記錄檔會附加到新初始化的 SQL Server 進程。 此程式保證 99.99% 的可用性，但繁重的工作負載可能會在轉換期間遇到效能降低的情況，因為新的 SQL Server 實例是以冷快取開始。
+每當資料庫引擎或作業系統升級，或偵測到失敗時，Azure Service Fabric 會將無狀態 SQL Server 進程移至具有足夠可用容量的另一個無狀態計算節點。 移動時不會影響 Azure Blob 儲存體中的資料，而且資料/記錄檔會附加到新初始化的 SQL Server 進程。 此程式保證99.99% 的可用性，但繁重的工作負載可能會在轉換期間遇到效能降低的情況，因為新的 SQL Server 實例是以冷快取開始。
 
 ## <a name="premium-and-business-critical-service-tier-availability"></a>進階與商務關鍵性服務層級可用性
 
@@ -52,7 +52,7 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 
 基礎資料庫檔案（.mdf/.ldf）會放在附加的 SSD 儲存體上，以提供非常低的延遲 IO 給您的工作負載。 高可用性會使用類似于 SQL Server [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)的技術來執行。 叢集包含可供讀寫客戶工作負載存取的單一主要複本（SQL Server 進程），以及最多三個包含資料複本的次要複本（計算和儲存體）。 主要節點會依序持續將變更推送至次要節點，並確保資料至少會同步處理至一個次要複本，然後才認可每個交易。 此程式可確保如果主要節點因為任何原因而損毀，則一律會有完全同步處理的節點來進行故障切換。 容錯移轉是由 Azure Service Fabric 起始。 一旦次要複本成為新的主要節點，就會建立另一個次要複本，以確保叢集擁有足夠的節點（仲裁集）。 一旦容錯移轉完成後，SQL 連線會自動重新導向至新的主要節點。
 
-額外的好處是，premium 可用性模型包含將唯讀 SQL 連線重新導向至其中一個次要複本的能力。 這項功能稱為[讀取相應](sql-database-read-scale-out.md)放大。它提供 100% 額外的計算容量，不需要額外費用即可從主要複本關閉載入唯讀作業，例如分析工作負載。
+額外的好處是，premium 可用性模型包含將唯讀 SQL 連線重新導向至其中一個次要複本的能力。 這項功能稱為[讀取相應](sql-database-read-scale-out.md)放大。它提供100% 額外的計算容量，不需要額外費用即可從主要複本關閉載入唯讀作業，例如分析工作負載。
 
 ## <a name="hyperscale-service-tier-availability"></a>超大規模資料庫服務層級可用性
 
@@ -62,8 +62,8 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 
 超大規模資料庫中的可用性模型包含四個層級：
 
-- 無狀態計算層，會執行 @no__t 0 的進程，並僅包含暫時性和快取的資料，例如在連接的 SSD 上的非涵蓋 RBPEX 快取、TempDB、模型資料庫等，以及在記憶體中規劃快取、緩衝集區和資料行存放區集區。 此無狀態層包含主要計算複本，以及選擇性的一些次要計算複本，可作為容錯移轉目標。
-- 頁面伺服器所組成的無狀態儲存層。 這一層是在計算複本上執行之 @no__t 0 進程的分散式儲存引擎。 每個頁面伺服器僅包含暫時性和快取的資料，例如在連接的 SSD 上涵蓋 RBPEX 快取，以及在記憶體中快取的資料頁。 每一頁伺服器在主動-主動設定中都有配對的頁面伺服器，以提供負載平衡、冗余和高可用性。
+- 無狀態計算層，可執行 `sqlservr.exe` 進程並僅包含暫時性和快取的資料，例如在連接的 SSD 上的非涵蓋 RBPEX 快取、TempDB、模型資料庫等，以及在記憶體中規劃快取、緩衝集區和資料行存放區集區。 此無狀態層包含主要計算複本，以及選擇性的一些次要計算複本，可作為容錯移轉目標。
+- 頁面伺服器所組成的無狀態儲存層。 這一層是在計算複本上執行之 `sqlservr.exe` 進程的分散式儲存引擎。 每個頁面伺服器僅包含暫時性和快取的資料，例如在連接的 SSD 上涵蓋 RBPEX 快取，以及在記憶體中快取的資料頁。 每一頁伺服器在主動-主動設定中都有配對的頁面伺服器，以提供負載平衡、冗余和高可用性。
 - 執行記錄服務處理常式、交易記錄登陸區域和交易記錄長期儲存的計算節點所形成的具狀態交易記錄儲存層。 登陸區域和長期儲存空間使用 Azure 儲存體，為交易記錄提供可用性和[冗余](https://docs.microsoft.com/azure/storage/common/storage-redundancy)，確保認可交易的資料持久性。
 - 具有資料庫檔案（.mdf/. ndf）的具狀態資料儲存層，儲存在 Azure 儲存體中，並由頁面伺服器更新。 這一層會使用 Azure 儲存體的資料可用性和[冗余](https://docs.microsoft.com/azure/storage/common/storage-redundancy)功能。 它保證即使超大規模資料庫架構的其他層級中的進程損毀，或計算節點失敗，資料檔中的每個頁面仍會保留。
 
@@ -89,12 +89,14 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 
 [加速資料庫復原（ADR）](sql-database-accelerated-database-recovery.md)是新的 SQL Database 引擎功能，可大幅提升資料庫的可用性，特別是在有長時間執行的交易存在時。 ADR 目前適用於單一資料庫、彈性集區和 Azure SQL 資料倉儲。
 
-## <a name="testing-database-fault-resiliency"></a>測試資料庫錯誤復原
+## <a name="testing-application-fault-resiliency"></a>測試應用程式錯誤復原
 
-高可用性是 Azure SQL Database 平臺的 fundamenental 部分，可讓您的資料庫應用程式以透明的方式運作。 不過，我們認為您可能想要測試在規劃或未計畫的事件期間起始的自動容錯移轉作業如何影響應用程式，然後再部署它以用於生產環境。 您可以呼叫特殊的 API 來重新開機資料庫或彈性集區，這樣會接著觸發容錯移轉。 在區域冗余資料庫或彈性集區的情況下，API 呼叫會導致將用戶端連接重新導向至不同 AZ 中的新主要複本。 因此，除了測試容錯移轉如何影響現有的資料庫會話，您也可以確認它是否會影響端對端的效能。 因為重新開機作業是侵入式的，而且有大量的使用者可能會對平臺造成壓力，每個資料庫或彈性集區只允許一個容錯移轉呼叫每30分鐘一次。 如需詳細資訊，請參閱[資料庫容錯移轉](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover)和[彈性集區容錯移轉](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover)。       
+高可用性是在您的資料庫應用程式中以透明方式運作的 Azure SQL Database 平臺的基本部分。 不過，我們瞭解您可能會想要測試在計畫或未規劃的事件期間起始的自動容錯移轉作業如何影響應用程式，然後再將它部署到生產環境。 您可以呼叫特殊的 API 來重新開機資料庫或彈性集區，這樣會接著觸發容錯移轉。 在區域冗余資料庫或彈性集區的情況下，API 呼叫會導致將用戶端連線重新導向至可用性區域中與舊主要複本可用性區域不同的新主要複本。 因此，除了測試容錯移轉如何影響現有的資料庫會話以外，您也可以確認它是否會因為網路延遲的變更而變更端對端效能。 因為重新開機作業是侵入式的，而且有大量的使用者可能會造成平臺壓力，每個資料庫或彈性集區只允許一個容錯移轉呼叫每30分鐘一次。 
+
+您可以使用 REST API 或 PowerShell 來起始容錯移轉。 如 REST API，請參閱[資料庫容錯移轉](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover)和[彈性集區容錯移轉](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover)。 針對 PowerShell，請參閱[AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)和[invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)。 您也可以使用[az REST](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest)命令，從 Azure CLI 進行 REST API 呼叫。
 
 > [!IMPORTANT]
-> 容錯移轉命令目前無法供 Hypescale 資料庫和受控 instancses 使用。  
+> 超大規模資料庫服務層級和受控執行個體目前無法使用容錯移轉命令。
 
 ## <a name="conclusion"></a>結論
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675638"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965604"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
@@ -43,7 +43,7 @@ Azure 計算將會從11月初開始更新 NCv3 Sku，以支援所有 MPI 執行�
  
 在修正之前，您可以將資料集連接到任何資料轉換模組（選取資料集中的資料行、編輯中繼資料、分割資料等）並執行實驗。 然後您可以將資料集視覺化。 
 
-下圖顯示如何： ![visulize 資料 ](./media/resource-known-issues/aml-visualize-data.png)
+下圖顯示如何： ![visulize-資料](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 安裝問題
 
@@ -86,6 +86,16 @@ conda create -n <env-name> python=3.7.3
 ### <a name="experiment-charts"></a>實驗圖表
 
 自動化 ML 實驗反復專案中顯示的二元分類圖表（精確度召回、ROC、增益曲線等）在4/12 之後無法在使用者介面中正確轉譯。 圖表繪圖目前顯示的是反向結果，其中較佳的執行模型會以較低的結果顯示。 解決方案正在進行調查。
+
+## <a name="datasets-and-data-preparation"></a>資料集和資料準備
+
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>無法從 HTTP 或 ADLS Gen 2 讀取 Parquet 檔案
+
+AzureML DataPrep SDK 版本1.1.25 中有一個已知問題，它會在建立資料集時，從 HTTP 或 ADLS Gen 2 讀取 Parquet 檔案，而導致失敗。 若要修正此問題，請升級至高於1.1.26 的版本，或降級為低於1.1.24 的版本。
+
+```python
+pip install --upgrade azureml-dataprep
+```
 
 ## <a name="databricks"></a>Databricks
 
@@ -224,7 +234,7 @@ kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes 會以64編碼的格式儲存秘密。 在提供 `attach_config.enable_ssl` 之前，您必須先64將密碼的 `cert.pem` 和 `key.pem` 元件解碼。 
+>Kubernetes 會以64編碼的格式儲存秘密。 在提供 `attach_config.enable_ssl`之前，您必須先64將密碼的 `cert.pem` 和 `key.pem` 元件解碼。 
 
 ## <a name="recommendations-for-error-fix"></a>修正錯誤的建議
 根據一般觀察，以下是 Azure ML 建議，用以修正 Azure ML 中的一些常見錯誤。
@@ -232,7 +242,7 @@ kubectl get secret/azuremlfessl -o yaml
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors （沒有名為的模組）
 如果您在 Azure ML 中提交實驗時遇到 ModuleErrors，這表示訓練腳本預期會安裝套件，但不會新增。 一旦您提供套件名稱，Azure ML 會在用於定型的環境中安裝套件。 
 
-如果您使用[估算器](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`or 列出所有相依性的 yml 檔案，並使用 `pip_requirements_file` 參數在 txt 檔案中列出所有 pip 需求。
+如果您使用[估算器](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`來指定具有所有相依性的 yml 檔案，或使用 `pip_requirements_file` 參數列出 txt 檔案中所有的 pip 需求。
 
 Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構專屬估算器。 使用這些估算器可確保在用於定型的環境中，代表您安裝架構相依性。 如先前所述，您可以選擇指定額外的相依性。 
  

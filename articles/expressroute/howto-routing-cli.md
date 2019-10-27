@@ -1,5 +1,5 @@
 ---
-title: 如何設定線路的對等互連 - ExpresssRoute：Azure CLI | Microsoft Docs
+title: 如何設定線路 ExpresssRoute 的對等互連： Azure CLI |Microsoft Docs
 description: 本文將協助您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等互連。 本文也示範如何檢查狀態、更新或刪除線路的對等。
 services: expressroute
 author: cherylmc
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6b361bf7e1b18c44719a8cdbe2e958ac63006d
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717044"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965760"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路的對等互連
 
-本文將協助您使用 CLI，以 Resource Manager 部署模型建立和管理 ExpressRoute 線路的路由設定/對等互連。 您還可以檢查狀態、更新，或是刪除與取消佈建 ExpressRoute 線路的對等互連。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
+本文將協助您使用 CLI，以 Resource Manager 部署模型建立和管理 ExpressRoute 線路的路由設定/對等互連。 您還可以檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路的對等互連。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
@@ -106,10 +106,10 @@ ms.locfileid: "64717044"
    * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
    * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-   * 公告的首碼：您必須提供一份您打算透過 BGP 工作階段公告的所有首碼清單。 只接受公用 IP 位址首碼。 如果計劃傳送一組首碼，可以傳送以逗號分隔的清單。 這些首碼必須在 RIR / IRR 中註冊給您。
-   * **選用：** 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。
+   * 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。 只接受公用 IP 位址首碼。 如果計劃傳送一組首碼，可以傳送以逗號分隔的清單。 這些首碼必須在 RIR / IRR 中註冊給您。
+   * **選用：** 客戶 ASN：如果您要公告的首碼未註冊給對等互連 AS 編號，則可以指定它們所註冊的 AS 編號。
    * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
-   * **選用：** MD5 雜湊 (如果選擇使用)。
+   * **選用 -** MD5 雜湊 (如果選擇使用)。
 
    執行下列範例來為線路設定 Microsoft 對等互連：
 
@@ -124,6 +124,12 @@ ms.locfileid: "64717044"
 ```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
+> [!IMPORTANT]
+> Microsoft 會確認指定的「公告公用首碼」和「對等 ASN」（或「客戶 ASN」）是否在網際網路路由登錄中指派給您。 如果您要從另一個實體取得公用首碼，而且如果未使用路由登錄來記錄指派，自動驗證將不會完成，而且需要手動驗證。 如果自動驗證失敗，則會在上述命令的輸出上看到 ' AdvertisedPublicPrefixesState ' 為「需要驗證」。 
+> 
+> 如果您看到「需要驗證」訊息，則會將顯示公用首碼的檔收集為路由登錄中的前置詞擁有者，並提交這些檔以供手動驗證。開啟支援票證，如下所示。 
+> 
+>
 
 輸出類似於下列範例：
 
@@ -243,7 +249,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
    * 次要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。
    * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
-   * **選用：** MD5 雜湊 (如果選擇使用)。
+   * **選用 -** MD5 雜湊 (如果選擇使用)。
 
    使用下列範例來為線路設定 Azure 私用對等互連：
 
@@ -298,7 +304,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 }
 ```
 
-### <a name="updateprivate"></a>更新 Azure 私用對等組態
+### <a name="updateprivate"></a>更新 Azure 私用對等互連設定
 
 您可以使用下列範例來更新設定的任何部分。 在此範例中，線路的 VLAN ID 從 100 更新為 500。
 
@@ -324,7 +330,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 公用對等互連設定。
 
 > [!Note]
-> Azure 公用對等互連已不再支援新的線路。 如需詳細資訊，請參閱 < [ExpressRoute 對等互連](expressroute-circuit-peerings.md)。
+> 新線路的 Azure 公用對等互連已被取代。 如需詳細資訊，請參閱[ExpressRoute 對等互連](expressroute-circuit-peerings.md)。
 >
 
 ### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
@@ -385,7 +391,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
    * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
    * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-   * **選用：** MD5 雜湊 (如果選擇使用)。
+   * **選用 -** MD5 雜湊 (如果選擇使用)。
 
    執行下列範例來為線路設定 Azure 公用對等互連：
 
@@ -437,7 +443,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 }
 ```
 
-### <a name="updatepublic"></a>更新 Azure 公用對等組態
+### <a name="updatepublic"></a>更新 Azure 公用對等互連設定
 
 您可以使用下列範例來更新設定的任何部分。 在此範例中，線路的 VLAN ID 從 200 更新為 600。
 

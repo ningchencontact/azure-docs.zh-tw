@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 3cf30b53f950ff18dd6dcde332b7e97e332133aa
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 649c4271b2786eca506460551cfad956eeadf3c5
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516562"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964400"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>使用 Windows 上的 IoT Edge 執行 Linux 容器
 
@@ -57,9 +57,9 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 1. 如果您還沒有這麼做，請註冊新的 IoT Edge 裝置，並取出裝置連接字串。 複製連接字串，以供本節稍後使用。 您可以使用下列工具來完成此步驟：
 
-   * [Azure 入口網站](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure 入口網站](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. 以系統管理員身分執行 PowerShell。
 

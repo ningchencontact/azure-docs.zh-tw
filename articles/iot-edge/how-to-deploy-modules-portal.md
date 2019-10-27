@@ -10,23 +10,23 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839656"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964911"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>從 Azure 入口網站部署 Azure IoT Edge 模組
 
-以您的商務邏輯建立了 IoT Edge 模組後，您會想要將其部署到裝置以在邊緣上操作。 如果您有多個模組一起運作來收集及處理資料，您可以一次全部部署，並宣告連接它們的路由規則。
+只要您使用商務邏輯建立 IoT Edge 模組，便需要將這些模組部署到裝置以在邊緣操作。 如果您有多個模組共同運作以收集及處理資料，您可以一次部署所有模組，並宣告這些模組的路由規則。
 
 本文說明 Azure 入口網站如何引導您建立部署資訊清單，並且將部署推送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
-* 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-portal.md)。
+* 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md#register-in-the-azure-portal)。
 
 ## <a name="select-your-device"></a>選取您的裝置
 
@@ -37,15 +37,15 @@ ms.locfileid: "68839656"
 
 ## <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
 
-部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需部署資訊清單的運作方式以及如何建立的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
+部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需部署資訊清單的功能，以及如何建立此類清單的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md) (英文)。
 
-Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，而不用手動建置 JSON 文件。 其中包含三個步驟：**新增模組**、**指定路由**和**檢閱部署**。
+Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，而不用手動建置 JSON 文件。 它有三個步驟：**新增模組**、**指定路由**和**檢閱部署**。
 
 ### <a name="add-modules"></a>新增模組
 
-1. 在頁面的 [**容器登錄設定**] 區段中, 提供認證以存取任何包含模組映射的私人容器登錄。
+1. 在頁面的 [**容器登錄設定**] 區段中，提供認證以存取任何包含模組映射的私人容器登錄。
 
-1. 在頁面的 [**部署模組**] 區段中, 選取 [**新增**]。
+1. 在頁面的 [**部署模組**] 區段中，選取 [**新增**]。
 
 1. 從下拉式清單中查看模組的類型：
 
@@ -55,14 +55,14 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 1. 選取 [IoT Edge 模組]。
 
-1. 請提供模組的名稱，然後指定容器映像。 例如:
+1. 請提供模組的名稱，然後指定容器映像。 例如：
 
    * **名稱**-SimulatedTemperatureSensor
    * **映像 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. 視需要填寫選擇性欄位。 如需容器建立選項、重新啟動原則和所需狀態的詳細資訊，請參閱 [EdgeAgent 所需屬性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。 如需模組對應項的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 1. 重複步驟 2-6 以將其他模組新增至您的部署。
 
@@ -70,9 +70,9 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 ### <a name="specify-routes"></a>指定路由
 
-根據預設，精靈會提供您名為 **route** 的路由，並且定義為 **FROM /\* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
+根據預設，精靈會提供您名為 **route** 的路由，並且定義為 **FROM /* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
 
-請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步] 繼續前往檢閱區段。
+請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步] 繼續檢閱區段。
 
 ### <a name="review-deployment"></a>檢閱部署
 
@@ -92,7 +92,7 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
 
 1. 尋找模組並開始部署程序。
 
-   * Azure 入口網站：尋找模組並選取 [建立]。
+   * Azure 入口網站：尋找模組，然後選取 [**建立**]。
 
    * Azure Marketplace：
 

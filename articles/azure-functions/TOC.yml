@@ -245,8 +245,12 @@
         - name: 停用函式
           href: disable-function.md
     - name: 監視
-      href: functions-monitoring.md
-      displayName: 'App Insights, Application Insights, logs, logging'
+      items:
+        - name: 監視函式
+          href: functions-monitoring.md
+          displayName: 'App Insights, Application Insights, logs, logging'
+        - name: 分析記錄
+          href: functions-monitor-log-analytics.md
     - name: 安全
       items:
         - name: 購買 SSL 憑證

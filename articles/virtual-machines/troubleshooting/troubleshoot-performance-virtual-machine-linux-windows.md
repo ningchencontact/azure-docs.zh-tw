@@ -1,5 +1,5 @@
 ---
-title: 執行 Linux 或 Windows 之 Azure 虛擬機器的一般效能疑難排解
+title: 針對 Linux 或 Windows 上的 Azure 虛擬機器效能進行疑難排解
 description: 本文說明透過監視和觀察瓶頸的虛擬機器（VM）一般效能疑難排解，並針對可能發生的問題提供可能的補救措施。
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790869"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965477"
 ---
-# <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>執行 Linux 或 Windows 的 Azure 虛擬機器的一般效能疑難排解
+# <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>針對 Linux 或 Windows 上的 Azure 虛擬機器效能進行疑難排解
 
 本文說明透過監視和觀察瓶頸的虛擬機器（VM）一般效能疑難排解，並針對可能發生的問題提供可能的補救措施。 除了監視，您也可以使用 Perfinsights，它可以提供具有最佳做法建議的報告，以及 IO/CPU/記憶體的關鍵瓶頸。 Perfinsights 適用于 Azure 中的[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights)和[Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM。
 

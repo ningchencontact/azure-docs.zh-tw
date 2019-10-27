@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3f866ff5e4266983117e93f2aab5982065947e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516604"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964393"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -76,9 +76,9 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 1. 如果您還沒有這麼做，請註冊新的 IoT Edge 裝置，並取出**裝置連接字串**。 複製連接字串，以供本節稍後使用。 您可以使用下列工具來完成此步驟：
 
-   * [Azure 入口網站](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure 入口網站](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. 以系統管理員身分執行 PowerShell。
 
@@ -123,7 +123,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 在第二個選項中，使用 IoT 中樞裝置佈建服務來佈建裝置。 提供來自裝置布建服務實例的**範圍識別碼**，以及您慣用[證明機制](../iot-dps/concepts-security.md#attestation-mechanism)特定的任何其他資訊：
 
-* [在 Windows 上建立及布建模擬 TPM Edge 裝置](how-to-auto-provision-simulated-device-windows.md)
+* [在 Windows 上使用虛擬 TPM 建立及布建模擬的 IoT Edge 裝置](how-to-auto-provision-simulated-device-windows.md)
 * [使用對稱金鑰證明建立和布建 IoT Edge 裝置](how-to-auto-provision-symmetric-keys.md)
 
 當您自動安裝和布建裝置時，您可以使用其他參數來修改安裝，包括：
