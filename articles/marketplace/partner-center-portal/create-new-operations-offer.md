@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4a8a8d7f6004ac32aeb7ce2b8cbffeca9ddf0079
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f3b2a976dc6b2b9e91f046a7f69e3057a7af7d0e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595543"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816971"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>建立新的 Dynamics 365 for Operations 供應專案
 
@@ -102,7 +102,7 @@ ms.locfileid: "72595543"
 
 ### <a name="industry"></a>產業
 
-您可以選擇性地選取最多兩個產業，以協助在 marketplace 中將您的供應專案分類。 如果您的供應專案不是特定產業，請將此區段保留空白。 請務必在供應專案描述中，呼叫您的供應專案如何支援選取的產業。 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>應用程式版本
 

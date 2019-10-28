@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b6dffb46d8c0fd7201079de3e8509ece516d2f8f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967863"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821406"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
 
@@ -24,14 +24,14 @@ ms.locfileid: "68967863"
 若要使用 WAImportExport 工具來準備硬碟，支援下列**支援 BitLocker 磁碟機加密的 64 位元作業系統**。
 
 
-|平台 |Version |
+|平台 |版本 |
 |---------|---------|
 |Windows     | Windows 7 Enterprise、Windows 7 Ultimate <br> Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012、Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 用戶端的其他必要軟體
 
-|平台 |Version |
+|平台 |版本 |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
@@ -41,7 +41,7 @@ ms.locfileid: "68967863"
 
 Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 
-- 標準一般用途 v2 儲存體帳戶 (建議用於大部分的案例)
+- 標準一般用途 v2 儲存體帳戶（建議用於大部分的案例）
 - Blob 儲存體帳戶
 - 一般用途 v1 儲存體帳戶 (傳統或 Azure Resource Manager 部署)、 
 
@@ -57,9 +57,9 @@ Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 以下是使用 Azure 匯入/匯出服務時支援的儲存類型清單。
 
 
-|工作  |儲存體服務 |支援  |不支援  |
+|工作 (Job)  |儲存體服務 |支援的  |不支援  |
 |---------|---------|---------|---------|
-|匯入     |  Azure Blob 儲存體 <br><br> Azure 檔案儲存體       | 支援區塊 Blob 與分頁 Blob <br><br> 支援檔案服務          |
+|Import     |  Azure Blob 儲存體 <br><br> Azure 檔案儲存體       | 支援區塊 Blob 與分頁 Blob <br><br> 支援檔案服務          |
 |匯出     |   Azure Blob 儲存體       | 支援區塊 Blob、分頁 Blob 及附加 Blob         | 不支援 Azure 檔案服務
 
 
@@ -72,12 +72,12 @@ Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 以下是支援與匯入/匯出服務搭配使用的儲存類型清單。
 
 
-|磁碟類型  |Size  |支援 |
+|磁碟類型  |大小  |支援的 |
 |---------|---------|---------|
 |SSD    |   2.5 吋      |SATA III          | 
 |HDD     |  2.5 吋<br>3.5 吋       |SATA II、SATA III         |
 
-不支援下列磁片類型:
+不支援下列磁片類型：
 - USBs.
 - 具有內建 USB 介面卡的外部 HDD。
 - 外部 HDD 的大小寫中的磁片。
@@ -95,5 +95,5 @@ Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 
 * [設定 WAImportExport 工具](storage-import-export-tool-how-to.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
-* [Azure 匯入匯出 REST API 範例 (英文)](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure 匯入匯出 REST API 範例 (英文)](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 

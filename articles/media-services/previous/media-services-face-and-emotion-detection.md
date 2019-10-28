@@ -15,15 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015465"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881774"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測臉部和情緒
-## <a name="overview"></a>總覽
+
+> [!IMPORTANT]
+> 查看一些媒體處理器的[淘汰計畫](media-services-analytics-overview.md#retirement-plans)。
+
+## <a name="overview"></a>概觀
 **Azure 媒體臉部偵測器** 媒體處理器 (MP) 能讓您透過臉部表情針對對象的參與情形做出計算、追蹤移動，甚至進行量測。 此服務包含兩個功能： 
 
 * **臉部偵測**
@@ -43,7 +47,7 @@ ms.locfileid: "69015465"
 本文提供有關 **Azure 媒體臉部偵測器**的詳細資料，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
 
 ## <a name="face-detector-input-files"></a>臉部偵測器輸入檔案
-影片檔案。 目前支援下列格式：MP4、MOV 與 WMV。
+影片檔案。 目前支援下列格式：MP4、MOV 及 WMV。
 
 ## <a name="face-detector-output-files"></a>臉部偵測器輸出檔案
 臉部偵測器和追蹤 API 能提供高精確度的臉部位置偵測和追蹤功能，並能在單一影片中偵測到最多 64 個人類臉部。 正面的臉部能提供最佳結果，而側面的臉部和較小的臉部 (小於或等於 24x24 像素) 可能就無法取得相同的精確度。
@@ -78,7 +82,7 @@ ms.locfileid: "69015465"
 #### <a name="attribute-descriptions"></a>屬性描述
 | 屬性名稱 | 描述 |
 | --- | --- |
-| 模式 |Fast：較快的處理速度，但較不精確 (預設)。|
+| Mode |Fast：較快的處理速度，但較不精確 (預設)。|
 
 ### <a name="json-output"></a>JSON 輸出
 下列為 JSON 輸出受到截斷的範例。
@@ -153,7 +157,7 @@ ms.locfileid: "69015465"
 #### <a name="attribute-descriptions"></a>屬性描述
 | 屬性名稱 | 描述 |
 | --- | --- |
-| 模式 |臉部：僅臉部偵測。<br/>PerFaceEmotion：將每個臉部偵測的情緒單獨傳回。<br/>AggregateEmotion：傳回該畫面中所有臉部的平均情緒值。 |
+| Mode |Faces：僅臉部偵測。<br/>PerFaceEmotion：將每個臉部偵測的情緒單獨傳回。<br/>AggregateEmotion：傳回該畫面中所有臉部的平均情緒值。 |
 | AggregateEmotionWindowMs |在已選取 AggregateEmotion 模式時使用。 指定要用來產生每個彙總結果之影片的長度，以毫秒為單位。 |
 | AggregateEmotionIntervalMs |在已選取 AggregateEmotion 模式時使用。 指定產生彙總結果的頻率。 |
 

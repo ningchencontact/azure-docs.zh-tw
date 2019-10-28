@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478012"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821436"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>檢視 Azure 匯入/匯出作業的狀態
 
 本文將說明如何檢視 Azure 匯入/匯出作業的磁碟機與作業狀態。 Azure 匯入/匯出服務可用來安全地將大量資料轉送至 Azure Blob 以及 Azure 檔案服務。 此服務也可用來從 Azure Blob 儲存體匯出資料。  
 
 ## <a name="view-job-and-drive-status"></a>檢視作業和磁碟機狀態
-您可以在 Azure 入口網站中追蹤匯入或匯出工作的狀態。 按一下 [匯入/匯出]  索引標籤。您的作業清單會隨即出現在頁面上。
+您可以在 Azure 入口網站中追蹤匯入或匯出工作的狀態。 按一下 [匯**入/匯出**] 索引標籤。您的作業清單會顯示在頁面上。
 
 ![檢視工作狀態](./media/storage-import-export-service/jobstate.png)
 
@@ -34,8 +34,8 @@ ms.locfileid: "61478012"
 | 運送中 | 在您運送包裹之後，您應該更新 Azure 入口網站中的追蹤資訊。  這會讓作業狀態變成「**運送中**」。 作業的「**運送中**」狀態最多維持兩週。 
 | 已收到 | 資料中心收到所有磁碟機之後，作業狀態會設為「**已收到**」。 |
 | 傳輸中 | 一旦有至少一個磁碟機已開始處理，作業狀態將會設為「**傳輸中**」。 如需詳細資訊，請移至[磁碟機狀態](#view-drive-status)。 |
-| 包裝中 | 所有磁碟機處理完成之後，直到磁碟機寄回給您為止，作業將會設為「**包裝中**」狀態。 |
-| 已完成 | 所有磁碟機都寄回給您之後，如果作業已完成且沒有錯誤，作業將會設為「**已完成**」狀態。 「**已完成**」狀態持續 90 天後，將會自動刪除作業。 |
+| 包裝 | 所有磁碟機處理完成之後，直到磁碟機寄回給您為止，作業將會設為「**包裝中**」狀態。 |
+| Completed | 所有磁碟機都寄回給您之後，如果作業已完成且沒有錯誤，作業將會設為「**已完成**」狀態。 「**已完成**」狀態持續 90 天後，將會自動刪除作業。 |
 | 關閉 | 所有磁碟機都寄回給您之後，如果作業處理期間發生任何錯誤，作業會設定為「**關閉**」。 「**關閉**」狀態持續 90 天後，將會自動刪除作業。 |
 
 ## <a name="view-drive-status"></a>檢視磁碟機狀態
@@ -50,7 +50,7 @@ ms.locfileid: "61478012"
 | 已收到 | 當匯入/匯出服務已處理從貨運公司收到要進行匯入作業的磁碟機後，磁碟機會轉換成「**已收到**」狀態。 針對匯出作業，初始磁碟機狀態會是「**已收到**」狀態。 |
 | 從未收到 | 當作業的包裹抵達但包裹未包含磁碟機時，磁碟機會變成「**從未收到**」狀態。 如果自服務收到出貨資訊起已經過兩週，包裹卻仍未抵達資料中心，磁碟機也會變成此狀態。 |
 | 傳輸中 | 當服務開始將磁碟機中的資料傳輸到 Azure 儲存體時，磁碟機將變成「**傳輸中**」狀態。 |
-| 已完成 | 當服務已順利傳輸所有資料而未產生錯誤時，磁碟機會變成「**已完成**」狀態。
+| Completed | 當服務已順利傳輸所有資料而未產生錯誤時，磁碟機會變成「**已完成**」狀態。
 | 已完成 (其他資訊) | 服務複製磁碟機的資料時若發生一些問題，磁碟機會變成「**已完成 (其他資訊)** 」狀態。 資訊可能包含錯誤、警告或有關覆寫 Blob 的資訊訊息。
 | 已寄回 | 當磁碟機從資料中心運回原地址時，磁碟機會變成「**已寄回**」狀態。 |
 
@@ -60,7 +60,7 @@ ms.locfileid: "61478012"
 
 下表說明磁碟機失敗狀態，以及針對每個狀態採取的動作。
 
-| 磁碟機狀態 | Event | 解決方法/後續步驟 |
+| 磁碟機狀態 | 活動 | 解決方法/後續步驟 |
 |:--- |:--- |:--- |
 | 從未收到 | 標示為「**從未收到**」的磁碟機 (因為在作業的運送過程中未收到) 在另一批貨運中送達。 | 作業小組會磁碟機改為「**已收到**」。 |
 | N/A | 不屬於任何作業的磁碟機在另一個作業中送達資料中心。 | 磁碟機會標示為額外的磁碟機，並會在與原始包裹相關聯的作業完成時寄回給您。 |
@@ -80,4 +80,4 @@ ms.locfileid: "61478012"
 
 * [設定 WAImportExport 工具](storage-import-export-tool-how-to.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
-* [Azure 匯入匯出 REST API 範例 (英文)](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure 匯入匯出 REST API 範例 (英文)](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

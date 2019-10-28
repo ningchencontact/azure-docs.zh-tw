@@ -15,16 +15,31 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 9427b72faf36106602cb59dc271d72402453e81e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015402"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821412"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
 
-## <a name="overview"></a>總覽
+## <a name="retirement-plans"></a>淘汰計畫
+
+> [!IMPORTANT]
+> 下列舊版媒體處理器即將于2020淘汰，請參閱下表中的詳細資料。 
+
+|媒體處理器名稱|停用日期|其他注意事項|
+|---|---|
+|[Azure 媒體索引子2](media-services-process-content-with-indexer2.md)| 2020年1月1日|[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子2遷移至 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。|
+|[Azure Media Indexer](media-services-index-content.md)|2020年10月1日|[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移至 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)
+|[Azure 媒體臉部偵測器](media-services-face-and-emotion-detection.md)|2020年2月1日|此媒體分析的預覽處理器將會淘汰，而且不會移至正式推出。 我們將會評估其案例和使用案例，讓客戶進行未來的投資。|
+|[Azure 媒體動態偵測器](media-services-motion-detection.md)|2020年2月1日|此媒體分析的預覽處理器將會淘汰，而且不會移至正式推出。 我們將會評估其案例和使用案例，讓客戶進行未來的投資。|
+|[Azure 媒體 OCR](media-services-video-optical-character-recognition.md)|2020年2月1日|此媒體處理器會由[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)和[Azure 媒體服務 V3 API Video Analyzer 預設值](../latest/analyzing-video-audio-files-concept.md)取代。|
+|[Azure 媒體影片縮圖](media-services-video-summarization.md)|2020年2月1日|此媒體處理器會由[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)和[Azure 媒體服務 V3 API Video Analyzer 預設值](../latest/analyzing-video-audio-files-concept.md)取代。|
+
+## <a name="overview"></a>概觀
+
 越來越多組織採用影片做為慣用的媒體，用來訓練員工、連絡客戶與記錄商務功能。 雖然雲端運算可供儲存、串流及存取大型媒體檔案， 但隨著公司影片庫內容的成長，需要同樣有效的方法深入分析內容。 
 
 為了滿足不斷成長的需求，Azure 媒體服務提供 Azure 媒體分析。 媒體分析是一組語音與視覺元件，可讓組織或企業從其影片檔輕鬆地產生能採取行動的見解。 媒體分析服務是使用核心媒體服務平台元件建置而成，因此可隨時進行一天的大規模媒體處理。
@@ -39,7 +54,7 @@ ms.locfileid: "69015402"
 
 ## <a name="media-analytics-services"></a>媒體分析服務
 
-### <a name="indexer"></a>索引器
+### <a name="indexer"></a>索引子
 Azure 媒體索引器可讓您的內容可供搜尋，並且產生隱藏式輔助字幕。 相較於舊版，Azure 媒體索引器 2 (預覽版) 速度更快，支援更多的語言。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文、葡萄牙文和阿拉伯文。 如需詳細資訊和範例，請參閱[利用 Azure 媒體索引器 2 處理影片](media-services-process-content-with-indexer2.md)。
 ### <a name="motion-detector"></a>動作偵測
 您可以使用動作偵測在影片中偵測背景靜止的動作。 如此一來，便能夠檢查監視攝影機所偵測到的動作事件中是否有誤判。 如需詳細資訊和範例，請參閱 [Azure 媒體分析的動作偵測](media-services-motion-detection.md)。
@@ -54,7 +69,7 @@ Azure 媒體修訂器是媒體分析媒體處理器，可在雲端提供可調�
 ### <a name="content-moderation"></a>內容仲裁
 Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您可能想偵測影片中潛在的成人和辛辣內容，並由您的人力仲裁小組檢閱加上旗標的內容。 但手動仲裁不需要的影片內容是很耗費時間和成本的工作。 透過此服務和相關聯的檢閱工具，您可以結合機器輔助仲裁和人機互動 (human-in-the-loop) 功能，以有效率且符合成本效益的方式獲得最佳結果。 若要進一步了解，請參閱[使用 Azure 內容仲裁處理您的視訊](media-services-content-moderation.md)一文。
 
-## <a name="common-scenarios"></a>常見案例
+## <a name="common-scenarios"></a>一般狀況
 媒體分析可協助組織和企業從影片中得到新的見解，並更有效地管理大量的影片內容。 以下是幾個案例︰
 
 * **客服中心**。 即使社交媒體出現，但客服中心仍能協助處理大量的客戶服務交易。 客服中心的語音資料經編碼後可成為大量的客戶資訊，企業可分析這些資訊以提高客戶滿意度。 組織可使用媒體索引器擷取文字，及建置搜尋索引與儀表板。 接著便可以從一般客訴、客訴來源及其他相關資料中獲取情報。
@@ -104,7 +119,7 @@ Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您�
     x-ms-version: 2.12
     Host: media.windows.net
 
-回應:
+回應：
 
     . . .
 
