@@ -4,16 +4,16 @@ description: 本文包含 AzCopy 範例命令的集合，可協助您建立容�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f1b18601629db12d4f9e75f180488e91b6a6857a
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 6680efb89eddcfb1c4fa931993956ef83369b292
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274867"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817055"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 儲存體傳輸資料
 
@@ -28,9 +28,12 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 >
 > 如果您想要使用 SAS 權杖來授權 blob 資料的存取權，您可以在每個 AzCopy 命令中，將該權杖附加至資源 URL。
 >
-> 例如： `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'` 。
+> 例如： `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`。
 
 ## <a name="create-a-container"></a>建立容器
+
+> [!TIP]
+> 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
 
 您可以使用[azcopy make](storage-ref-azcopy-make.md)命令來建立容器。 本節中的範例會建立名為 `mycontainer` 的容器。
 
@@ -54,10 +57,10 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 > * 上傳目錄的內容 
 > * 上傳特定檔案
 
-> [!NOTE]
-> AzCopy 不會自動計算並儲存檔案的 md5 雜湊碼。 如果您想要讓 AzCopy 執行此動作，請將 `--put-md5` 旗標附加至每個 copy 命令。 如此一來，當下載 blob 時，AzCopy 會計算已下載資料的 MD5 雜湊，並驗證儲存在 blob 的 @no__t 0 屬性中的 MD5 雜湊是否符合計算的雜湊。
-
 如需詳細的參考檔，請參閱[azcopy copy](storage-ref-azcopy-copy.md)。
+
+> [!TIP]
+> 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
 
 ### <a name="upload-a-file"></a>上傳檔案
 
@@ -118,10 +121,9 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 | **範例** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 | **範例**（階層式命名空間） | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 
-在此範例中，AzCopy 會傳輸 `C:\myDirectory\photos` 目錄和 @no__t 1 檔案。 您必須包含 `--recursive` 選項，才能傳送 `C:\myDirectory\photos` 目錄中的所有檔案。
+在此範例中，AzCopy 會傳輸 `C:\myDirectory\photos` 目錄和 `C:\myDirectory\documents\myFile.txt` 檔案。 您必須包含 `--recursive` 選項，才能傳送 `C:\myDirectory\photos` 目錄中的所有檔案。
 
 您也可以使用 `--exclude-path` 選項來排除檔案。 若要深入瞭解，請參閱[azcopy 複製](storage-ref-azcopy-copy.md)參考檔。
-
 
 #### <a name="use-wildcard-characters"></a>使用萬用字元
 
@@ -135,7 +137,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 
 您也可以使用 `--exclude-pattern` 選項來排除檔案。 若要深入瞭解，請參閱[azcopy 複製](storage-ref-azcopy-copy.md)參考檔。
 
-@No__t-0 和 @no__t 1 選項只適用于檔案名，而不會套用至路徑。  如果您想要複製存在於目錄樹狀結構中的所有文字檔，請使用 `–recursive` 選項來取得整個目錄樹狀結構，然後使用 `–include-pattern` 並指定 `*.txt` 來取得所有文字檔。
+[`--include-pattern`] 和 [`--exclude-pattern`] 選項僅適用于檔案名，而不會套用至路徑。  如果您想要複製存在於目錄樹狀結構中的所有文字檔，請使用 `–recursive` 選項來取得整個目錄樹狀結構，然後使用 `–include-pattern` 並指定 `*.txt` 來取得所有文字檔。
 
 ## <a name="download-files"></a>下載檔案
 
@@ -150,9 +152,12 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 > * 下載特定檔案
 
 > [!NOTE]
-> 如果 blob 的 `Content-md5` 屬性值包含雜湊，則 AzCopy 會計算已下載資料的 MD5 雜湊，並驗證儲存在 blob 的 @no__t 1 屬性中的 MD5 雜湊是否符合計算的雜湊。 如果這些值不相符，則下載會失敗，除非您將 `--check-md5=NoCheck` 或 `--check-md5=LogOnly` 附加至複製命令來覆寫此行為。
+> 如果 blob 的 `Content-md5` 屬性值包含雜湊，則 AzCopy 會計算已下載資料的 MD5 雜湊，並驗證儲存在 blob 的 `Content-md5` 屬性中的 MD5 雜湊是否符合計算的雜湊。 如果這些值不相符，則下載會失敗，除非您將 `--check-md5=NoCheck` 或 `--check-md5=LogOnly` 附加至複製命令來覆寫此行為。
 
 如需詳細的參考檔，請參閱[azcopy copy](storage-ref-azcopy-copy.md)。
+
+> [!TIP]
+> 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
 
 ### <a name="download-a-file"></a>下載檔案
 
@@ -201,7 +206,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 | **範例** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 | **範例**（階層式命名空間） | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
 
-在此範例中，AzCopy 會傳輸 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` 目錄和 @no__t 1 檔案。 您必須包含 `--recursive` 選項，才能傳送 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` 目錄中的所有檔案。
+在此範例中，AzCopy 會傳輸 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` 目錄和 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` 檔案。 您必須包含 `--recursive` 選項，才能傳送 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` 目錄中的所有檔案。
 
 您也可以使用 `--exclude-path` 選項來排除檔案。 若要深入瞭解，請參閱[azcopy 複製](storage-ref-azcopy-copy.md)參考檔。
 
@@ -217,7 +222,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 
 您也可以使用 `--exclude-pattern` 選項來排除檔案。 若要深入瞭解，請參閱[azcopy 複製](storage-ref-azcopy-copy.md)參考檔。
 
-@No__t-0 和 @no__t 1 選項只適用于檔案名，而不會套用至路徑。  如果您想要複製存在於目錄樹狀結構中的所有文字檔，請使用 `–recursive` 選項來取得整個目錄樹狀結構，然後使用 `–include-pattern` 並指定 `*.txt` 來取得所有文字檔。
+[`--include-pattern`] 和 [`--exclude-pattern`] 選項僅適用于檔案名，而不會套用至路徑。  如果您想要複製存在於目錄樹狀結構中的所有文字檔，請使用 `–recursive` 選項來取得整個目錄樹狀結構，然後使用 `–include-pattern` 並指定 `*.txt` 來取得所有文字檔。
 
 ## <a name="copy-blobs-between-storage-accounts"></a>在儲存體帳戶之間複製 blob
 
@@ -241,6 +246,9 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 > * 將所有容器、目錄和檔案複製到另一個儲存體帳戶
 
 如需詳細的參考檔，請參閱[azcopy copy](storage-ref-azcopy-copy.md)。
+
+> [!TIP]
+> 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>將 blob 複製到另一個儲存體帳戶
 
@@ -272,7 +280,7 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 
 ## <a name="synchronize-files"></a>同步處理檔案
 
-您可以同步處理本機檔案系統與 blob 容器的內容。 同步處理是單向的。 換句話說，您可以選擇這兩個端點中的哪一個是來源，以及哪一個是目的地。 同步處理也會使用伺服器到伺服器 Api。
+您可以同步處理本機檔案系統與 blob 容器的內容。 您也可以彼此同步處理容器和虛擬目錄。 同步處理是單向的。 換句話說，您可以選擇這兩個端點中的哪一個是來源，以及哪一個是目的地。 同步處理也會使用伺服器到伺服器 Api。
 
 > [!NOTE]
 > 目前，只有沒有階層式命名空間的帳戶才支援此案例。 目前的 AzCopy 版本不會在其他來源和目的地之間同步處理（例如：檔案儲存體或 Amazon Web Services （AWS） S3 bucket）。
@@ -285,6 +293,9 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 > 若要防止意外刪除，請務必先啟用「虛[刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)」功能，然後再使用 `--delete-destination=prompt|true` 旗標。
 
 如需詳細的參考檔，請參閱[azcopy sync](storage-ref-azcopy-sync.md)。
+
+> [!TIP]
+> 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>使用本機檔案系統的變更來更新容器
 
@@ -305,13 +316,31 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 | **範例** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
 |
 
+### <a name="update-a-container-with-changes-in-another-container"></a>使用另一個容器中的變更來更新容器
+
+出現在此命令中的第一個容器是來源。 第二個是目的地。
+
+|    |     |
+|--------|-----------|
+| **語法** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
+| **範例** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+
+### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>更新具有另一個檔案共用中目錄變更的目錄
+
+出現在此命令中的第一個目錄是來源。 第二個是目的地。
+
+|    |     |
+|--------|-----------|
+| **語法** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
+| **範例** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
+
 ## <a name="next-steps"></a>後續步驟
 
 在這些文章中尋找更多範例：
 
 - [開始使用 AzCopy](storage-use-azcopy-v10.md)
 
-- [教學課程：使用 AzCopy @ no__t-0 將內部部署資料移轉至雲端儲存體
+- [教學課程：使用 AzCopy 將內部部署資料移轉至雲端儲存體](storage-use-azcopy-migrate-on-premises-data.md)
 
 - [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
 

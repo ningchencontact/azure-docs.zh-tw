@@ -1,5 +1,5 @@
 ---
-title: 使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
+title: 透過 System Center DPM 將 Exchange server 備份至 Azure 備份
 description: 了解如何使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 ms.reviewer: kasinh
 author: dcurwin
@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c8975aed79e78b4bb66ce1516b85ceeb78628e8
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689429"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968496"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
-本文說明如何設定 System Center 2012 R2 Data Protection Manager (DPM) 伺服器，以將 Microsoft Exchange Server 備份至 Azure 備份。  
+
+本文說明如何設定 System Center 2012 R2 Data Protection Manager (DPM) 伺服器以將 Microsoft Exchange Server 備份至 Azure 備份。  
 
 ## <a name="updates"></a>更新
+
 若要在 Azure 備份中成功註冊 DPM 伺服器，您必須安裝 System Center 2012 R2 DPM 的最新更新彙總套件和 Azure 備份代理程式的最新版本。 從 [Microsoft Catalog](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager)取得最新的更新彙總套件。
 
 > [!NOTE]
@@ -26,7 +28,8 @@ ms.locfileid: "68689429"
 >
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
+
 繼續之前，請確定符合使用 Microsoft Azure 備份保護工作負載的所有 [必要條件](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 。 這些先決條件包含下列各項：
 
 * 已在 Azure 網站上建立備份保存庫。
@@ -36,14 +39,16 @@ ms.locfileid: "68689429"
 * 如果您要保護 Exchange 2016，請升級為 DPM 2012 R2 UR9 或更新版本
 
 ## <a name="dpm-protection-agent"></a>DPM 保護代理程式
+
 若要在 Exchange Server 上安裝 DPM 保護代理程式，請遵循下列步驟：
 
 1. 請確定已正確設定防火牆。 請參閱 [設定代理程式的防火牆例外狀況](https://technet.microsoft.com/library/Hh758204.aspx)。
 2. 按一下 DPM 系統管理員主控台中的 [管理] > [代理程式] > [安裝]，在 Exchange Server 上安裝代理程式。 如需詳細步驟，請參閱 [安裝 DPM 保護代理程式](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) 。
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>建立 Exchange Server 的保護群組
+
 1. 在 DPM 系統管理員主控台中，按一下 [保護]，然後按一下工具功能區上的 [新增]，以開啟 [建立新保護群組] 精靈。
-2. 在精靈的 [歡迎使用] 畫面上按 [下一步]。
+2. 在嚮導的**歡迎**畫面上，按 **[下一步]** 。
 3. 在 [選取保護群組類型] 畫面上，選取 [伺服器]，然後按 [下一步]。
 4. 選取您想要保護的 Exchange Server 資料庫，然後按 [下一步]。
 
@@ -82,10 +87,10 @@ ms.locfileid: "68689429"
 11. 檢閱可用的磁碟空間，然後按 [下一步]。
 12. 選取 DPM 伺服器將建立初始複寫的時間，然後按 [下一步]。
 13. 選取一致性檢查選項，然後按 [下一步]。
-14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]。 例如:
+14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]。 例如：
 
     ![指定線上保護資料](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如:
+15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如：
 
     ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -103,6 +108,7 @@ ms.locfileid: "68689429"
 19. 按一下 [關閉]。
 
 ## <a name="recover-the-exchange-database"></a>復原 Exchange 資料庫
+
 1. 若要復原 Exchange 資料庫，請按一下 DPM 系統管理員主控台中的 [復原] 。
 2. 找出您要復原的 Exchange 資料庫。
 3. 從「復原時間」 下拉式清單選取線上復原點。
@@ -119,4 +125,5 @@ ms.locfileid: "68689429"
     ![選擇線上複寫](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 * [Azure 備份常見問題集](backup-azure-backup-faq.md)

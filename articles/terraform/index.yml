@@ -4,18 +4,17 @@ summary: 了解如何使用 Terraform 可靠地佈建虛擬機器和 Azure 上�
 metadata:
   title: Terraform on Azure 文件 - 教學課程、範例、參考和資源
   description: 了解如何使用 Terraform 可靠地佈建虛擬機器和 Azure 上的其他基礎結構。
-  services: azure
   ms.service: terraform
-  ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 35391f886d473b91ab99d27bff64d64903ba0545
-  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+  ms.topic: landing-page
+  ms.date: 10/26/2019
+  ms.openlocfilehash: dbc4ed58b32312023b3248662357777d8567fff9
+  ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71173528"
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72969510"
 landingContent:
 - title: 關於 Terraform on Azure
   linkLists:
@@ -34,7 +33,7 @@ landingContent:
     - text: 安裝及設定 Terraform
       url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
     - text: 建立 Azure 的 Terraform 組態
-      url: terrafom-quickstart.md
+      url: terraform-create-configuration.md
     - text: 安裝 Terraform Visual Studio Code 擴充功能
       url: terraform-vscode-extension.md
     - text: 使用 Yeoman 建立 Terraform 基底範本
@@ -58,7 +57,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 建立已啟用 MSI 的 Terraform 虛擬機器
-      url: terraform-vm-msi.md
+      url: terraform-vm-managed-identities-for-azure-resources.md
     - text: 以 Terraform 模組建立 VM 叢集
       url: terraform-create-vm-cluster-module.md
     - text: 以 Terraform 和 HCL 建立 VM 叢集

@@ -1,65 +1,61 @@
 ---
-title: 效能和負載測試使用 Azure Application Insights |Microsoft Docs
-description: 設定效能和負載測試使用 Azure Application Insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: 使用 Azure 應用程式 Insights 進行效能和負載測試 |Microsoft Docs
+description: 使用 Azure 應用程式 Insights 設定效能和負載測試
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 55d743e32f6db0828317d3764a97bcb35b104dad
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304921"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819099"
 ---
 # <a name="performance-testing"></a>效能測試
 
 > [!NOTE]
-> 雲端式負載測試服務已被取代。 可以找到有關淘汰、 服務可用性，以及替代服務的詳細資訊[此處](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops)。
+> 雲端負載測試服務已淘汰。 您可以在[這裡](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops)找到有關淘汰、服務可用性和替代服務的詳細資訊。
 
-Application Insights 可讓您產生負載測試，為您的網站。 像是[可用性測試](monitor-web-app-availability.md)，您可以將其中一個基本的要求傳送或[多步驟要求](availability-multistep.md)從 Azure 測試在世界各地的代理程式。 效能測試可讓您模擬最多 60 分鐘的時間最多 20,000 個同時連接的使用者。
+Application Insights 可讓您產生網站的負載測試。 如同[可用性測試](monitor-web-app-availability.md)，您可以從世界各地的 Azure 測試代理程式傳送基本要求或[多步驟要求](availability-multistep.md)。 效能測試可讓您模擬最多20000個同時使用者，最多可達60分鐘。
 
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 
-若要建立效能測試，您首先要建立 Application Insights 資源。 如果您已經建立資源就會繼續下一節。
+為了建立效能測試，您必須先建立 Application Insights 資源。 如果您已建立資源，請繼續進行下一節。
 
-從 Azure 入口網站中，選取**建立資源** > **開發人員工具** > **Application Insights**並建立 Application Insights資源。
+從 [Azure 入口網站] 中，選取 [**建立資源**] > [**開發人員工具**] [ > **Application Insights** ]，然後建立 Application Insights 資源。
 
 ## <a name="configure-performance-testing"></a>設定效能測試
 
-如果這是您建立效能測試選取的第一次**設定的組織**，然後選擇 Azure DevOps 的組織您的效能測試的來源。
+如果這是您第一次建立效能測試，請選取 [**設定組織**]，然後選擇要做為效能測試來源的 Azure DevOps 組織。
 
-底下**設定**，請移至**效能測試**然後按一下**新增**建立測試。
+在 [**設定**] 下，移至 [**效能測試**]，然後按一下 [**新增**] 以建立測試。
 
 ![Fill at least the URL of your website](./media/performance-testing/new-performance-test.png)
 
-若要建立基本的效能測試時，選取 測試類型**手動測試**並填妥所需的設定，為您的測試。
+若要建立基本效能測試，請選取**手動測試**的測試類型，並填寫您的測試所需的設定。
 
 |設定| 最大值
 |----------|------------|
 | 使用者負載 | 20,000 |
-| 持續時間 （分鐘）  | 60 |  
+| 持續時間（分鐘）  | 60 |  
 
-建立您的測試之後，按一下**執行測試**。
+建立測試之後，請按一下 [**執行測試**]。
 
-測試完成之後，您會看到類似下面的結果的結果：
+測試完成後，您會看到看起來類似下列結果的結果：
 
 ![測試結果](./media/performance-testing/test-results.png)
 
 ## <a name="configure-visual-studio-web-test"></a>設定 Visual Studio web 測試
 
-Application Insights 的進階的效能測試的功能建置在 Visual Studio 效能和負載測試專案。
+Application Insights 先進的效能測試功能是建置於 Visual Studio 效能和負載測試專案之上。
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [多重步驟 web 測試](availability-multistep.md)
+* [多步驟 web 測試](availability-multistep.md)
 * [Url ping 測試](monitor-web-app-availability.md)

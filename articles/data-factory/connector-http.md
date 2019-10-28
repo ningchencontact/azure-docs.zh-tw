@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6dd40527cdb073c76872c5768a7bea44b74155b7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7c3a657ff80f05a7f6bc3273edd85ebe4bddc65d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092055"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935588"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
@@ -30,7 +30,7 @@ ms.locfileid: "71092055"
 此 HTTP 連接器、[REST 連接器](connector-rest.md)和 [Web 資料表連接器](connector-web-table.md)之間的差異是：
 
 - **REST 連接器**專門支援從 RESTful API 複製資料； 
-- **HTTP 連接器**可廣泛地用來從任何 HTTP 端點擷取資料，例如下載檔案。 在 REST 連接器可供使用之前，您可能會使用 HTTP 連接器從 RESTful API 複製資料，這是可支援的方式，但功能性比 REST 連接器低。
+- **HTTP 連接器**一般用來從任何 HTTP 端點擷取資料，例如下載檔案。 在 REST 連接器可供使用之前，您可能會使用 HTTP 連接器從 RESTful API 複製資料，這是可支援的方式，但功能性比 REST 連接器低。
 - **Web 資料表連接器**可從 HTML 網頁擷取資料表內容。
 
 ## <a name="supported-capabilities"></a>支援的功能
@@ -65,9 +65,9 @@ ms.locfileid: "71092055"
 
 以下是針對 HTTP 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | **type** 屬性必須設定為 **HttpServer**。 | 是 |
+| 類型 | **type** 屬性必須設定為 **HttpServer**。 | 是 |
 | url | Web 伺服器的基底 URL。 | 是 |
 | enableServerCertificateValidation | 指定是否在您連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 如果 HTTPS 伺服器使用自我簽署的憑證，請將此屬性設定為 **false**。 | 否<br /> (預設值為 **true**) |
 | authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱此表格後面幾節。 | 是 |
@@ -77,7 +77,7 @@ ms.locfileid: "71092055"
 
 將 **authenticationType** 屬性設定為 [基本]、[摘要] 或 [Windows]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | userName | 用來存取 HTTP 端點的使用者名稱。 | 是 |
 | password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -110,7 +110,7 @@ ms.locfileid: "71092055"
 
 若要使用 ClientCertificate 驗證，請將 **authenticationType** 屬性設定為 **ClientCertificate**。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 編碼的憑證資料。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
 | certThumbprint | 憑證指紋已安裝在自我裝載整合執行階段機器的憑證存放區上。 只有當 **connectVia** 屬性中已指定自我裝載整合執行階段時才適用。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
@@ -171,25 +171,19 @@ ms.locfileid: "71092055"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
+下列屬性支援以格式為基礎之資料集的 `location` 設定下的 HTTP：
 
-若要將資料複製到**Parquet、分隔的文字、JSON、avro 和二進位格式**，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，以及支援的設定. 下列屬性支援以格式為基礎之`location`資料集的設定下的 HTTP：
-
-| 屬性    | 描述                                                  | 必要項 |
+| 屬性    | 說明                                                  | 必要 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | 資料集`location`內的類型屬性必須設定為**HttpServerLocation**。 | 是      |
+| 類型        | Dataset 中 `location` 下的 type 屬性必須設定為**HttpServerLocation**。 | 是      |
 | relativeUrl | 包含資料之資源的相對 URL。       | 否       |
 
 > [!NOTE]
 > 支援的 HTTP 要求承載大小是大約 500 KB。 如果您希望傳遞至 Web 端點的承載大小大於 500 KB，請考慮將承載分批處理成較小的區塊。
 
-> [!NOTE]
-> 下一節中所述的**HttpFile**類型資料集具有 Parquet/文字格式，但針對回溯相容性的複製/查閱活動仍受到支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
-
-**範例:**
+**範例：**
 
 ```json
 {
@@ -215,18 +209,19 @@ ms.locfileid: "71092055"
 }
 ```
 
-### <a name="other-format-dataset"></a>其他格式資料集
+### <a name="legacy-dataset-model"></a>舊版資料集模型
 
-若要以**ORC 格式**從 HTTP 複製資料，支援下列屬性：
+>[!NOTE]
+>下列資料集模型仍受到支援，以供回溯相容性之用。 建議您使用上一節中所提及的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 是 |
+| 類型 | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的主體。 | 否 |
-| format | 如果您想要依原樣擷取 HTTP 端點的資料而不進行剖析，然後將資料複製到以檔案為基礎的存放區，請略過輸入和輸出資料集定義中的 **format** 區段。<br/><br/>如果您想要在複製期間剖析 HTTP 回應內容，下列是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 在 **format** 之下，將 **type** 屬性設定為上述其中一個值。 如需詳細資訊，請參閱 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)。 |否 |
+| format | 如果您想要依原樣擷取 HTTP 端點的資料而不進行剖析，然後將資料複製到以檔案為基礎的存放區，請略過輸入和輸出資料集定義中的 **format** 區段。<br/><br/>如果您想要在複製期間剖析 HTTP 回應內容，支援下列檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 在 **format** 之下，將 **type** 屬性設定為上述其中一個值。 如需詳細資訊，請參閱 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/><br/>支援的類型：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級：**Optimal** 和 **Fastest**。 |否 |
 
 > [!NOTE]
@@ -251,7 +246,7 @@ ms.locfileid: "71092055"
 }
 ```
 
-**範例 2：使用 Post 方法**
+**範例 2︰使用 Post 方法**
 
 ```json
 {
@@ -279,26 +274,20 @@ ms.locfileid: "71092055"
 
 ### <a name="http-as-source"></a>HTTP 作為來源
 
-- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
+在以格式為基礎的複製來源中，`storeSettings` 設定底下的 HTTP 支援下列屬性：
 
-若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**複製資料，請參閱格式為基礎之複製活動來源的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)文章，並加以支援設置。 下列屬性在以格式為基礎之`storeSettings`複製來源的設定下支援 HTTP：
-
-| 屬性                 | 描述                                                  | 必要項 |
+| 屬性                 | 說明                                                  | 必要 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 底下的 type 屬性`storeSettings`必須設定為**HttpReadSetting**。 | 是      |
+| 類型                     | `storeSettings` 下的 type 屬性必須設定為**HttpReadSetting**。 | 是      |
 | requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 否       |
 | addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
 | requestBody              | HTTP 要求的主體。                               | 否       |
 | requestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 否       |
 | maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否       |
 
-> [!NOTE]
-> 針對 Parquet/分隔文字格式，下一節中所提及的**HttpSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
-
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -339,13 +328,14 @@ ms.locfileid: "71092055"
 ]
 ```
 
-#### <a name="other-format-source"></a>其他格式來源
+#### <a name="legacy-source-model"></a>舊版來源模型
 
-若要從 HTTP 以**ORC 格式**複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
+>[!NOTE]
+>下列複製來源模型仍受到支援，以提供回溯相容性。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 是 |
+| 類型 | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 是 |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
 
 **範例**

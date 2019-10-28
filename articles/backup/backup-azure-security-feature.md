@@ -1,5 +1,5 @@
 ---
-title: 利用安全性功能協助保護使用 Azure 備份的混合式備份
+title: 使用 Azure 備份保護混合式備份的安全性功能
 description: 了解如何使用 Azure 備份的安全性功能，讓備份更安全
 ms.reviewer: utraghuv
 author: dcurwin
@@ -8,15 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: dacurwin
-ms.openlocfilehash: 2cd298323d8f455010978361078d474415e77dfa
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954518"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968427"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>利用安全性功能協助保護使用 Azure 備份的混合式備份
-現在越來越重視安全性問題，例如惡意程式碼、勒索軟體和入侵。 這些安全性問題在成本和資料方面付出的代價很高。 為了防範這類攻擊，Azure 備份現在提供安全性功能來協助保護混合式備份。 本文說明如何使用 Azure 復原服務代理程式和 Azure 備份伺服器以啟用及使用這些功能。 這些功能包括：
+
+諸如惡意程式碼、勒索軟體及入侵等安全性問題，現在愈來愈受到重視。 這些安全性問題就成本面與資料面來說，代價都十分高昂。 為了防範這類攻擊，Azure 備份現在提供安全性功能來協助保護混合式備份。 本文說明如何使用 Azure 復原服務代理程式和 Azure 備份伺服器以啟用及使用這些功能。 這些功能包括：
 
 - **預護**。 每當執行重要作業 (如變更複雜密碼) 時，就會多一道驗證。 這項驗證用來確保只有具備有效 Azure 認證的使用者，才能執行這類作業。
 - **警示**。 每當執行重要作業 (如刪除備份資料) 時，就會傳送電子郵件通知給訂用帳戶管理員。 這封電子郵件可確保使用者迅速獲知這類動作。
@@ -34,6 +35,7 @@ ms.locfileid: "68954518"
 >
 
 ## <a name="enable-security-features"></a>啟用安全性功能
+
 如果您在建立復原服務保存庫，您可以使用所有安全性功能。 如果您在使用現有的保存庫，請依照下列這些步驟啟用安全性功能︰
 
 1. 使用您的 Azure 認證登入 Azure 入口網站。
@@ -58,6 +60,7 @@ ms.locfileid: "68954518"
     ![安全性設定的螢幕擷取畫面](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>復原已刪除的備份資料
+
 如果已執行**停止備份並刪除備份資料**作業，備份會保留已刪除的備份資料額外 14 天，不會立即將它刪除。 若要在 14 天的期間內還原此資料，請執行下列步驟，根據您使用的工具而定：
 
 **Azure 復原服務代理程式**使用者：
@@ -76,13 +79,15 @@ ms.locfileid: "68954518"
 2. 如果此伺服器無法使用，請使用[新增外部 DPM](backup-azure-alternate-dpm-server.md)，以使用另一部 Data Protection Manager 伺服器來取得此資料。
 
 ## <a name="prevent-attacks"></a>防止攻擊
+
 已新增檢查來確保只有有效使用者才能執行各種作業。 其中包括新增額外一道驗證，並維護復原用途所需的最小保留範圍。
 
 ### <a name="authentication-to-perform-critical-operations"></a>用來執行重要作業的驗證
+
 針對重要作業新增額外一層驗證時，系統會提示您在執行**停止保護並刪除資料**和**變更複雜密碼**作業時輸入安全性 PIN 碼。
 
 > [!NOTE]
-> 
+>
 > 目前並未針對 DPM 和 MABS 提供安全性 PIN 碼的支援以**停止保護並刪除資料**。
 
 若要收到這個 PIN：
@@ -93,6 +98,7 @@ ms.locfileid: "68954518"
     此 PIN 碼的有效時間只有五分鐘，而且會在該期間後自動產生。
 
 ### <a name="maintain-a-minimum-retention-range"></a>維護最小的保留範圍
+
 為了確保永遠都有有效的復原點可用，已新增下列檢查︰
 
 - 若為每日保留，最少應該保留**七**天。
@@ -101,19 +107,22 @@ ms.locfileid: "68954518"
 - 若為每年保留，最少應該保留**一**年。
 
 ## <a name="notifications-for-critical-operations"></a>重要作業的通知
+
 執行重要作業時，訂用帳戶管理員通常會收到一封含有作業相關詳細資訊的電子郵件通知。 您可以使用 Azure 入口網站，設定這些通知的其他電子郵件收件者。
 
 本文所提的安全性功能可提供對付目標攻擊的防禦機制。 更重要的是，如果發生攻擊，這些功能可讓您復原資料。
 
 ## <a name="troubleshooting-errors"></a>錯誤疑難排解
-| 運算 | 錯誤詳細資料 | 解決方法 |
+
+| 作業 | 錯誤詳細資料 | 解析度 |
 | --- | --- | --- |
-| 原則變更 |無法修改備份原則。 錯誤:由於發生內部服務錯誤 [0x29834]，導致目前的操作失敗。 請稍後再重試此作業。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>當安全性設定已啟用，而您嘗試將保留範圍縮減至低於上面指定的最小值，且您使用不受支援的版本 (本文的第一個附註會指出支援的版本) 時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 在此情況下，您應該將保留期限設定為高於指定的最小保留期限 (若是每日則 7 天、若是每週則 4 週、若是每月則 3 個月，若是每年則 1 年)，以繼續進行與原則有關的更新。 (選擇性) 較好的方法是更新備份代理程式、Azure 備份伺服器和/或 DPM UR，以利用所有安全性更新。 |
-| 變更複雜密碼 |輸入的安全性 PIN 碼不正確。 (識別碼：100130) 請提供正確的安全性 PIN 碼以完成此作業。 |**原因：**<br/> 當您在執行重要作業 (例如變更複雜密碼) 時輸入無效或已到期的安全性 PIN 碼時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 若要完成作業，您必須輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
-| 變更複雜密碼 |作業失敗。 識別碼：120002 |**原因：**<br/>當安全性設定已啟用，而您嘗試變更複雜密碼，且您使用不受支援的版本時，就會出現此錯誤 (本文的第一個附註會指出有效的版本)。<br/>**建議的動作：**<br/> 若要變更複雜密碼，您必須先將備份代理程式至少更新為最低版本 2.0.9052、將 Azure 備份伺服器至少更新為更新 1，和/或將 DPM 至少更新為 DPM 2012 R2 UR12 或 DPM 2016 UR2 (下面的下載連結)，然後輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
+| 原則變更 |無法修改備份原則。 錯誤：由於發生內部服務錯誤 [0x29834]，導致目前的作業失敗。 請稍後再重試操作。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>當安全性設定已啟用，而您嘗試將保留範圍縮減至低於上面指定的最小值，且您使用不受支援的版本 (本文的第一個附註會指出支援的版本) 時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 在此情況下，您應該將保留期限設定為高於指定的最小保留期限 (若是每日則 7 天、若是每週則 4 週、若是每月則 3 個月，若是每年則 1 年)，以繼續進行與原則有關的更新。 (選擇性) 較好的方法是更新備份代理程式、Azure 備份伺服器和/或 DPM UR，以利用所有安全性更新。 |
+| 變更複雜密碼 |輸入的安全性 PIN 碼不正確。 (識別碼：100130) 請提供正確的安全性 PIN 碼以完成此作業。 |**原因：**<br/> 當您在執行重要作業 (例如變更複雜密碼) 時輸入無效或已到期的安全性 PIN 碼時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 若要完成作業，您必須輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站並流覽至復原服務保存庫 > 設定 > 屬性 > 產生安全性 PIN 碼。 請使用這個 PIN 碼來變更複雜密碼。 |
+| 變更複雜密碼 |作業失敗。 識別碼：120002 |**原因：**<br/>當安全性設定已啟用，而您嘗試變更複雜密碼，且您使用不受支援的版本時，就會出現此錯誤 (本文的第一個附註會指出有效的版本)。<br/>**建議的動作：**<br/> 若要變更複雜密碼，您必須先將備份代理程式至少更新為最低版本 2.0.9052、將 Azure 備份伺服器至少更新為更新 1，和/或將 DPM 至少更新為 DPM 2012 R2 UR12 或 DPM 2016 UR2 (下面的下載連結)，然後輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站並流覽至復原服務保存庫 > 設定 > 屬性 > 產生安全性 PIN 碼。 請使用這個 PIN 碼來變更複雜密碼。 |
 
 ## <a name="next-steps"></a>後續步驟
-* [開始使用 Azure 復原服務保存庫](backup-azure-vms-first-look-arm.md)以啟用這些功能。
-* [下載最新的 Azure 復原服務代理程式](https://aka.ms/azurebackup_agent)，以協助保護 Windows 電腦及防護備份資料以免遭受攻擊。
-* [下載最新的 Azure 備份伺服器](https://aka.ms/latest_azurebackupserver)，以協助保護工作負載及防護備份資料以免遭受攻擊。
-* [下載適用於 System Center 2012 R2 Data Protection Manager 的 UR12](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) 或[下載適用於 System Center 2016 Data Protection Manager 的 UR2](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)，以協助保護工作負載及防護備份資料以免遭受攻擊。
+
+- [開始使用 Azure 復原服務保存庫](backup-azure-vms-first-look-arm.md)以啟用這些功能。
+- [下載最新的 Azure 復原服務代理程式](https://aka.ms/azurebackup_agent)，以協助保護 Windows 電腦及防護備份資料以免遭受攻擊。
+- [下載最新的 Azure 備份伺服器](https://aka.ms/latest_azurebackupserver)，以協助保護工作負載及防護備份資料以免遭受攻擊。
+- [下載適用於 System Center 2012 R2 Data Protection Manager 的 UR12](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) 或[下載適用於 System Center 2016 Data Protection Manager 的 UR2](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)，以協助保護工作負載及防護備份資料以免遭受攻擊。

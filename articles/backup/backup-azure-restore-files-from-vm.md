@@ -1,5 +1,5 @@
 ---
-title: Azure 備份︰從 Azure VM 備份復原檔案和資料夾
+title: Azure 備份：從 Azure VM 備份復原檔案和資料夾
 description: 從 Azure 虛擬機器的復原點復原檔案
 ms.reviewer: pullabhk
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900325"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968493"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -74,10 +74,9 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
     - 輸出連接埠 3260
 
 > [!Note]
-> 
-> * 下載的指令檔名將會在 URL 中填入**地區名稱**。 例如：下載的腳本名稱開頭為 \'VMname\'\_\'geoname\'_\'GUID\'，例如 ContosoVM_wcus_12345678 ....。<br><br>
-> * URL 會是 "HTTPs：\//pod01-rec2.wcus.backup.windowsazure.com"
-
+>
+> - 下載的指令檔名將會在 URL 中填入**地區名稱**。 例如：下載的腳本名稱開頭為 \'VMname\'\_\'geoname\'_\'GUID\'，例如 ContosoVM_wcus_12345678 ....。<br><br>
+> - URL 會是 "HTTPs：\//pod01-rec2.wcus.backup.windowsazure.com"
 
    若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果元件不存在於執行指令碼的電腦上，則指令碼會要求安裝元件的權限。 同意安裝必要的元件。
 
@@ -223,7 +222,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 本節說明如何從 Azure 虛擬機器備份執行檔案復原，其磁片數目為 > 16，而每個磁片大小為 > 4 TB。
 
-因為檔案復原程式會從備份連結所有磁片，萬一有大量磁片（> 16）或大型磁片（> 4TB），則建議使用下列動作點。
+由於檔案復原程式會從備份連結所有磁片，因此如果有大量磁片（> 16）或大型磁片（每個 > 4 TB），則建議使用下列動作點。
 
 - 保留個別的還原伺服器（Azure VM D2v3 Vm）以進行檔復原。 您只能使用該檔案復原，並在不需要時關閉。 不建議在原始電腦上還原，因為它對 VM 本身會有顯著的影響。
 - 然後執行腳本一次，檢查檔案復原操作是否成功。
@@ -276,7 +275,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>選取復原點（可產生腳本的人員）
 
-腳本會提供 VM 資料的存取權，因此請務必控制可在一開始就產生它的人員。 其中一個需要登入 Azure 入口網站，而且應該是已[獲授權](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)可以產生腳本的 RBAC。
+腳本會提供 VM 資料的存取權，因此請務必控制可在一開始就產生它的人員。 其中一個必須登入 Azure 入口網站，而且應該是已[獲授權](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)可以產生腳本的 RBAC。
 
 檔案復原需要 VM 還原和磁片還原所需的相同授權層級。 換句話說，只有授權的使用者可以查看 VM 資料才能產生腳本。
 

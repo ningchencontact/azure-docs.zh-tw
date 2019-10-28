@@ -5,6 +5,7 @@
     - name: 關於媒體服務
       href: media-services-overview.md
     - name: 媒體服務中有哪些新功能
+      displayName: release notes
       href: release-notes.md
 - name: 教學課程
   expanded: true

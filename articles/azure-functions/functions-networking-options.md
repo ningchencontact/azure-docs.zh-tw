@@ -1,23 +1,22 @@
 ---
 title: Azure Functions 網路功能選項
 description: Azure Functions 提供的所有網路功能選項總覽
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf5ce8da2ce62a5da821588c8f635bbab04dd3c1
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690833"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881561"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 網路功能選項
 
-本文說明可跨 Azure Functions 的裝載選項使用的網路功能。 下列所有網路功能選項都可讓您在不使用網際網路可路由位址的情況下存取資源，或限制對函式應用程式的網際網路存取。 
+本文說明可跨 Azure Functions 的裝載選項使用的網路功能。 下列所有網路功能選項都可讓您在不使用網際網路可路由位址的情況下存取資源，或限制對函式應用程式的網際網路存取。
 
 裝載模型可提供不同層級的網路隔離。 選擇正確的帳戶可協助您符合網路隔離需求。
 
@@ -33,12 +32,11 @@ ms.locfileid: "72690833"
 
 |                |[耗用量方案](functions-scale.md#consumption-plan)|[Premium 方案（預覽）](functions-scale.md#premium-plan)|[App Service 計劃](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[私人網站存取 & 的輸入 IP 限制](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[虛擬網路整合](#virtual-network-integration)|❌No|✅Yes （地區）|✅Yes （地區和閘道）|✅Yes|
-|[虛擬網路觸發程式（非 HTTP）](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[VNet](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
-|[輸出 IP 限制](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
-
+|[私人網站存取 & 的輸入 IP 限制](#inbound-ip-restrictions)|✅是|✅是|✅是|✅是|
+|[虛擬網路整合](#virtual-network-integration)|❌否|✅是（地區）|✅是（區域和閘道）|✅是|
+|[虛擬網路觸發程式（非 HTTP）](#virtual-network-triggers-non-http)|❌否| ❌否|✅是|✅是|
+|[混合式連線](#hybrid-connections)|❌否|✅是|✅是|✅是|
+|[輸出 IP 限制](#outbound-ip-restrictions)|❌否| ❌否|❌否|✅是|
 
 ## <a name="inbound-ip-restrictions"></a>輸入 IP 限制
 
@@ -51,8 +49,9 @@ ms.locfileid: "72690833"
 
 ## <a name="private-site-access"></a>私人網站存取
 
-私用網站存取是指讓您的應用程式只能從私人網路（例如從 Azure 虛擬網路內）存取。 
-* 設定**服務端點**時，可在[Premium](./functions-premium-plan.md)、[耗用量]、（函式-scale. md # 耗用量-方案）和[App Service 方案](functions-scale.md#app-service-plan)中取得私用網站存取。 
+私用網站存取是指讓您的應用程式只能從私人網路（例如從 Azure 虛擬網路內）存取。
+
+* 設定**服務端點**時，可在[Premium](./functions-premium-plan.md)、[耗用量](functions-scale.md#consumption-plan)和[App Service 方案](functions-scale.md#app-service-plan)中取得私用網站存取。
     * 服務端點可以在 [平臺功能] > [網路 > 設定存取限制] > [新增規則] 底下，以每個應用程式為基礎。 現在可以選取虛擬網路做為規則的「類型」。
     * 如需詳細資訊，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
         * 請記住，使用服務端點時，即使已設定虛擬網路整合，您的函式仍會擁有網際網路的完整輸出存取權。
@@ -64,14 +63,14 @@ ms.locfileid: "72690833"
 
 您可以使用虛擬網路整合，以啟用從應用程式存取在虛擬網路中執行的資料庫和 web 服務。 透過虛擬網路整合，您不需要公開 VM 上應用程式的公用端點。 您可以改用私用的非網際網路可路由位址。
 
-虛擬網路整合功能有兩種形式
+虛擬網路整合有兩種形式：
 
-1. 區域虛擬網路整合可讓您與相同區域中的虛擬網路整合。 這種形式的功能需要相同區域中的虛擬網路中的子網。 這項功能仍處於預覽狀態，但對於 Windows 應用程式生產工作負載而言，其支援如下所述的一些注意事項。
-2. 閘道所需的虛擬網路整合可讓您與遠端區域中的虛擬網路或傳統虛擬網路整合。 此版本的功能需要將虛擬網路閘道部署至您的 VNet。 這是點對站 VPN 功能，只支援 Windows 應用程式。
++ **區域虛擬網路整合（預覽）** ：啟用與相同區域中的虛擬網路整合。 這種類型的整合需要在相同區域中的虛擬網路中有子網。 這項功能仍處於預覽狀態，但可支援在 Windows 上執行的函式應用程式，但有如下所述的注意事項。
++ **閘道所需的虛擬網路整合**：啟用與遠端區域中的虛擬網路，或與傳統虛擬網路的整合。 這種類型的整合需要將虛擬網路閘道部署到您的 VNet。 這是點對站 VPN 功能，只支援在 Windows 上執行的函數應用程式。
 
-應用程式一次只能使用一種形式的 VNet 整合功能。 問題是，您應該使用哪一項功能。 您可以使用其中一種來進行許多事項。 但明顯的差異如下：
+一個應用程式一次只能使用一種 VNet 整合功能。 雖然這兩種方法在許多情況下都很有用，但下表指出每個應該使用的位置：
 
-| 問題  | 方案 | 
+| 問題  | 方案 |
 |----------|----------|
 | 想要在相同的區域中達到 RFC 1918 位址（10.0.0.0/8、172.16.0.0/12、192.168.0.0/16） | 區域 VNet 整合 |
 | 想要觸及傳統 VNet 或另一個區域中的 VNet 中的資源 | 閘道所需的 VNet 整合 |
@@ -93,10 +92,11 @@ VNet 整合功能：
 VNet 整合不支援的事項包括：
 
 * 掛接磁碟機
-* AD 整合 
+* AD 整合
 * NetBios
 
 函式中的虛擬網路整合會將共用基礎結構與 App Service web 應用程式搭配使用。 若要深入瞭解這兩種類型的虛擬網路整合，請參閱：
+
 * [地區 VNET 整合](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [閘道所需的 VNet 整合](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
@@ -104,7 +104,7 @@ VNet 整合不支援的事項包括：
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>連接至服務端點保護的資源
 
-> [!note] 
+> [!NOTE]
 > 一旦您在下游資源上設定存取限制，最多可能需要12小時的時間，新的服務端點才會變成可供函數應用程式使用。 在這段期間，您的應用程式將完全無法使用資源。
 
 為了提供較高層級的安全性，您可以使用服務端點，將一些 Azure 服務限制在虛擬網路上。 接著，您必須將函數應用程式與該虛擬網路整合，才能存取資源。 支援虛擬網路整合的所有方案都支援此設定。
@@ -112,10 +112,11 @@ VNet 整合不支援的事項包括：
 [如需深入瞭解虛擬網路服務端點，請參閱這裡。](../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>將您的儲存體帳戶限制為虛擬網路
+
 建立函數應用程式時，您必須建立或連結至支援 Blob、佇列和資料表儲存體的一般用途 Azure 儲存體帳戶。 目前不能在此帳戶上使用任何虛擬網路限制。 如果您在用於函數應用程式的儲存體帳戶上設定虛擬網路服務端點，它會中斷您的應用程式。
 
 [在這裡閱讀更多關於儲存體帳戶需求的資訊。](./functions-create-function-app-portal.md#storage-account-requirements
-) 
+)
 
 ## <a name="virtual-network-triggers-non-http"></a>虛擬網路觸發程式（非 HTTP）
 
@@ -125,7 +126,7 @@ VNet 整合不支援的事項包括：
 
 請檢查[這份清單中的所有非 HTTP 觸發程式](./functions-triggers-bindings.md#supported-bindings)，以再次檢查支援的內容。
 
-## <a name="hybrid-connections"></a>混合式連接
+## <a name="hybrid-connections"></a>混合式連線
 
 「[混合](../service-bus-relay/relay-hybrid-connections-protocol.md)式連線」是 Azure 轉送的一項功能，可讓您用來存取其他網路中的應用程式資源。 它可讓您從應用程式存取應用程式端點。 您無法使用它來存取您的應用程式。 混合式連接可供在所有取用方案中執行的函式使用。
 
@@ -140,6 +141,7 @@ VNet 整合不支援的事項包括：
 將高階方案中的函式應用程式或 App Service 計畫整合到虛擬網路時，應用程式仍可對網際網路進行輸出呼叫。
 
 ## <a name="next-steps"></a>後續步驟
+
 若要深入瞭解網路和 Azure Functions： 
 
 * [遵循有關開始使用虛擬網路整合的教學課程](./functions-create-vnet.md)

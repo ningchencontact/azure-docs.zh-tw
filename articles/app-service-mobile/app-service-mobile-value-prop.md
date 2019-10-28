@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 48f7066f2db96165daa104dcf32fe8e2e2cd55cf
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 89e3fb57f29a6c24b64082db06678b3965ad8517
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025220"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388616"
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 Azure App Service 是完全受控的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 供應項目，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
 
@@ -36,10 +37,10 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 ## <a name="why-mobile-apps"></a>為何選擇 Mobile Apps？
 使用 Mobile Apps 功能，您可以：
 
-* **建置原生和跨平台的應用程式**：不論您要建置原生 iOS、Android 和 Windows 應用程式或跨平台 Xamarin 或 Cordova (PhoneGap) 應用程式，都可以使用原生 SDK 來利用 App Service。
-* **連線至您的企業系統**：使用 Mobile Apps 功能，您可以在數分鐘內新增公司登入，並連線至您的企業內部部署或雲端資源。
-* **建置具有資料同步功能的可離線應用程式**：藉由建置可離線運作的應用程式，並在出現與任何企業資料來源或軟體即服務 (SaaS) API 的連線時，使用 Mobile Apps 在背景同步處理資料，讓您的行動工作力更具生產力。
-* **在數秒內推播通知給數百萬人**：在任何裝置上利用即時推播通知與客戶聯繫，依照其需求將推播通知個人化並適時傳送。
+* **建置原生和跨平台應用程式**：不論您要建置原生 iOS、Android 和 Windows 應用程式或跨平台 Xamarin 或 Cordova (PhoneGap) 應用程式，都可以利用採用原生 SDK 的 App Service。
+* **連線到您的企業系統**：使用 Mobile Apps 功能，您可以在短短幾分鐘內新增公司標誌，並連線至企業內部部署或雲端資源。
+* **建置具有資料同步功能的可離線應用程式**：建置可離線運作的應用程式，並在出現與任何企業資料來源或軟體即服務 (SaaS) API 的連線時，使用 Mobile Apps 在背景同步處理資料，讓您的行動工作力更具生產力。
+* **在數秒內推播通知給數百萬人**：在任何裝置上利用即時推播通知與客戶聯繫，依照其需求將推播通知個人化並且適時傳送。
 
 ## <a name="mobile-apps-features"></a>Mobile Apps 功能
 下列功能對於具備雲端功能的行動開發十分重要︰
@@ -48,13 +49,13 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
     深入探索[驗證功能]。
 
-* **資料存取**：Mobile Apps 提供連結至 Azure SQL Database 或內部部署 SQL Server 且適合行動用途的 OData v3 資料來源。 因為這項服務以 Entity Framework 為基礎，您才可以輕鬆地與其他 NoSQL 和 SQL 資料提供者整合，包括 [Azure 資料表儲存體]、MongoDB、[Azure Cosmos DB] 和 SaaS API 提供者 (如 Office 365 和 Salesforce.com)。
+* **資料存取**：Mobile Apps 提供了已連結至 Azure SQL Database 或內部部署 SQL Server 且適合行動用途的 OData v3 資料來源。 因為這項服務以 Entity Framework 為基礎，您才可以輕鬆地與其他 NoSQL 和 SQL 資料提供者整合，包括 [Azure 資料表儲存體]、MongoDB、[Azure Cosmos DB] 和 SaaS API 提供者 (如 Office 365 和 Salesforce.com)。
 
 * **離線同步處理**：用戶端 SDK 可讓您輕鬆地建置強大且回應靈敏的行動裝置應用程式 (利用離線資料集運作)。 您可以自動同步處理此資料集與後端資料，包括衝突解決支援。
 
   深入探索[資料功能]。
 
-* **推播通知**：用戶端 SDK 會與 Azure 通知中樞的註冊功能緊密整合，以便您將推播通知同時傳送給數百萬個使用者。
+* **推播通知**：用戶端 SDK 與 Azure 通知中樞的註冊功能緊密整合，以便您將推播通知同時傳送給數百萬個使用者。
 
   深入探索[推播通知功能]。
 
@@ -71,7 +72,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
   深入探索 [預備環境]。
 
-* **持續部署**：App Service 可與常見的「原始檔控制管理」(SCM) 系統整合，讓您輕鬆部署新版的後端。
+* **持續部署**：App Service 可與常見原始檔控制管理 (SCM) 系統整合，讓您輕鬆部署新版的後端。
 
   深入探索 [部署選項](../app-service/deploy-local-git.md)。
 
@@ -79,7 +80,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
   深入探索[混合式連線]、[虛擬網路]和 [ExpressRoute]。
 
-* **隔離且專用的環境**：為了安全地執行 Azure App Service 應用程式，您可以在一個完全隔離且專用的環境中執行 App Service。 此環境很適合於需要高規格、隔離或安全網路存取的應用程式工作負載。
+* **隔離和專用的環境**：為了安全地執行 Azure App Service 應用程式，您可以在一個完全隔離且專用的環境中執行 App Service。 此環境很適合於需要高規格、隔離或安全網路存取的應用程式工作負載。
 
   深入探索 [App Service 環境]。
 

@@ -6,20 +6,20 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88f8b6a8dcce0e498a7b81b8741072bcf4cfcad8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b6d707fc4bbc5fa57ffb0c809d7f70efebef99e9
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259505"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881651"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Resource Manager 範本中的條件式部署
 
-有時候, 您需要在範本中選擇性地部署資源。 `condition`使用元素來指定是否部署資源。 此元素的值會解析為 true 或 false。 當此值為 true 時，會部署資源。 當此值為 false 時，則不會部署資源。 此值只能套用至整個資源。
+有時候，您需要在範本中選擇性地部署資源。 使用 `condition` 元素，指定是否部署資源。 此元素的值會解析為 true 或 false。 當此值為 true 時，會部署資源。 當此值為 false 時，則不會部署資源。 此值只能套用至整個資源。
 
 ## <a name="new-or-existing-resource"></a>新的或現有的資源
 
-您可以使用條件式部署來建立新的資源, 或使用現有的資源。 下列範例顯示如何使用條件來部署新的儲存體帳戶, 或使用現有的儲存體帳戶。
+您可以使用條件式部署來建立新的資源，或使用現有的資源。 下列範例顯示如何使用條件來部署新的儲存體帳戶，或使用現有的儲存體帳戶。
 
 ```json
 {
@@ -36,13 +36,13 @@ ms.locfileid: "70259505"
 }
 ```
 
-當參數**newOrExisting**設定為**new**時, 條件會評估為 true。 已部署儲存體帳戶。 不過, 當**newOrExisting**設定為 [**現有**] 時, 條件會評估為 false, 而且不會部署儲存體帳戶。
+當參數**newOrExisting**設定為**new**時，條件會評估為 true。 已部署儲存體帳戶。 不過，當**newOrExisting**設定為 [**現有**] 時，條件會評估為 false，而且不會部署儲存體帳戶。
 
 如需使用 `condition` 項目的完整範例範本，請參閱[ 使用新的或現有的虛擬網路、儲存體和公用 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)。
 
 ## <a name="allow-condition"></a>允許條件
 
-您可以傳入參數值, 指出是否允許條件。 下列範例會部署 SQL server, 並選擇性地允許 Azure Ip。
+您可以傳入參數值，指出是否允許條件。 下列範例會部署 SQL server，並選擇性地允許 Azure Ip。
 
 ```json
 {
@@ -74,15 +74,19 @@ ms.locfileid: "70259505"
 }
 ```
 
-如需完整的範本, 請參閱[AZURE SQL 邏輯伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server)。
+如需完整的範本，請參閱[AZURE SQL 邏輯伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server)。
 
 ## <a name="runtime-functions"></a>執行時間函式
 
-如果您使用[reference](resource-group-template-functions-resource.md#reference)或[list](resource-group-template-functions-resource.md#list)函數搭配有條件地部署的資源, 即使未部署資源, 也會評估該函數。 如果函數參考不存在的資源, 就會收到錯誤。
+如果您使用[reference](resource-group-template-functions-resource.md#reference)或[list](resource-group-template-functions-resource.md#list)函數搭配有條件地部署的資源，即使未部署資源，也會評估該函數。 如果函數參考不存在的資源，就會收到錯誤。
 
-使用[if](resource-group-template-functions-logical.md#if)函式可確保只有在部署資源時, 才會針對條件評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本, 請參閱[if](resource-group-template-functions-logical.md#if)函式。
+使用[if](resource-group-template-functions-logical.md#if)函式可確保只有在部署資源時，才會針對條件評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本，請參閱[if](resource-group-template-functions-logical.md#if)函式。
+
+## <a name="condition-with-complete-mode"></a>具有完整模式的條件
+
+如果您部署具有[完整模式](deployment-modes.md)的範本，但因為條件評估為 false 而未部署資源，則結果會取決於您用來部署範本的 REST API 版本。 如果您使用早于2019-05-10 的版本，則**不會刪除**資源。 使用2019-05-10 或更新版本時，**會刪除**資源。 當條件為 false 時，Azure PowerShell 和 Azure CLI 的最新版本會刪除資源。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 如需建立範本的建議，請參閱 [Azure Resource Manager 範本最佳做法](template-best-practices.md)。
-* 若要建立資源的多個實例, 請參閱[Azure Resource Manager 範本中的資源、屬性或變數反復](resource-group-create-multiple.md)專案。
+* 若要建立資源的多個實例，請參閱[Azure Resource Manager 範本中的資源、屬性或變數反復](resource-group-create-multiple.md)專案。
