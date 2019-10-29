@@ -1,40 +1,41 @@
 ---
-title: 使用 REST 建立知識存放區 - Azure 搜尋服務
-description: 使用 REST API 和 Postman 建立 Azure 搜尋服務知識存放區，以保存來自認知搜尋管線的擴充。
+title: 使用 REST 建立知識存放區
+titleSuffix: Azure Cognitive Search
+description: 使用 REST API 和 Postman 建立 Azure 認知搜尋知識存放區，以保存來自 AI 擴充管線的擴充。
 author: lobrien
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 10/01/2019
+manager: nitinme
 ms.author: laobri
-ms.openlocfilehash: b67f0cf60d279c7bc52b4114d29c37847f5c57f1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244474"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790019"
 ---
-# <a name="create-an-azure-search-knowledge-store-by-using-rest"></a>使用 REST 建立 Azure 搜尋服務知識存放區
+# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>使用 REST 建立 Azure 認知搜尋知識存放區
 
-Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出，以便進行後續分析或其他下游處理。 AI 擴充管線可接受影像檔案或非結構化文字檔案、使用 Azure 搜尋服務編製其所引、從 Azure 認知服務 (例如影像分析和自然語言處理) 套用 AI 擴充，然後將結果儲存至 Azure 儲存體中的知識存放區。 您可以在 Azure 入口網站中使用 Power BI 或儲存體總管之類的工具來探索知識存放區。
+Azure 認知搜尋中的知識存放區功能可保存 AI 擴充管線的輸出，以便進行後續分析或其他下游處理。 AI 擴充管線可接受影像檔案或非結構化文字檔、使用 Azure 認知搜尋編製其索引、從 Azure 認知服務 (例如影像分析和自然語言處理) 套用 AI 擴充，然後將結果儲存至 Azure 儲存體中的知識存放區。 您可以在 Azure 入口網站中使用 Power BI 或儲存體總管之類的工具來探索知識存放區。
 
 在此文章文中，您會使用 REST API 介面將 AI 擴充內嵌、編製索引及套用至一組旅館評論。 旅館評論會匯入到 Azure Blob 儲存體中。 結果會以知識存放區的形式儲存在 Azure 資料表儲存體中。
 
-建立知識存放區之後，您可以了解如何使用 [儲存體總管][](knowledge-store-view-storage-explorer.md) 或 [Power BI][](knowledge-store-connect-power-bi.md) 來存取知識存放區。
+建立知識存放區之後，您可以了解如何使用 [儲存體總管](knowledge-store-view-storage-explorer.md) 或 [Power BI](knowledge-store-connect-power-bi.md) 來存取知識存放區。
 
 ## <a name="create-services"></a>建立服務
 
 建立下列服務：
 
-- 建立 [Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶中[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
+- [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶中[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
-- 建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)以儲存範例資料和知識存放區。 您的儲存體帳戶必須針對您的 Azure 搜尋服務使用相同的位置 (例如美國西部)。 [帳戶類型]  的值必須是 [StorageV2 (一般用途 V2)]  (預設值) 或 [儲存體 (一般用途 V1)]  。
+- 建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)以儲存範例資料和知識存放區。 您的儲存體帳戶必須針對您的 Azure 認知搜尋服務使用相同的位置 (例如美國西部)。 [帳戶類型]  的值必須是 [StorageV2 (一般用途 V2)]  (預設值) 或 [儲存體 (一般用途 V1)]  。
 
-- 建議使用：取得 [Postman 傳統型應用程式](https://www.getpostman.com/)可將要求傳送至 Azure 搜尋服務。 您可以使用 REST API 搭配任何能夠處理 HTTP 要求和回應的工具。 Postman 是探索 REST API 的絕佳選擇。 在此文章中，我們將使用 Postman。 此外，此文章的[原始程式碼](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json)包含 Postman 要求集合。 
+- 建議使用：取得 [Postman 傳統型應用程式](https://www.getpostman.com/)以將要求傳送至 Azure 認知搜尋。 您可以使用 REST API 搭配任何能夠處理 HTTP 要求和回應的工具。 Postman 是探索 REST API 的絕佳選擇。 在此文章中，我們將使用 Postman。 此外，此文章的[原始程式碼](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)包含 Postman 要求集合。 
 
 ## <a name="store-the-data"></a>儲存資料
 
-將旅館評論 CSV 檔案載入 Azure Blob 儲存體中，以便 Azure 搜尋服務索引子存取該檔案，並透過 AI 擴充管線進行饋送。
+將旅館評論 CSV 檔案載入 Azure Blob 儲存體中，以便 Azure 認知搜尋索引子存取該檔案，並透過 AI 擴充管線進行饋送。
 
 ### <a name="create-a-blob-container-by-using-the-data"></a>使用資料建立 Blob 容器
 
@@ -46,7 +47,7 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 1. 選取 [確定]  以建立 Blob 容器。
 1. 開啟新的 **hotels-review** 容器、選取 [上傳]  ，然後選取您在第一個步驟中下載的 HotelReviews-Free.csv 檔案。
 
-    ![上傳資料](media/knowledge-store-create-portal/upload-command-bar.png "上傳旅館評論")
+    ![上傳資料](media/knowledge-store-create-portal/upload-command-bar.png "上傳飯店評論")
 
 1. 選取 [上傳]  ，將 CSV 檔案匯入 Azure Blob 儲存體中。 新的容器隨即顯示：
 
@@ -68,21 +69,21 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 在 [變數]  索引標籤上，您可以在每次遇到雙括弧內的特定變數時，新增 Postman 交換的值。 例如，Postman 會將符號 `{{admin-key}}` 取代為您針對 `admin-key` 所設定的目前值。 Postman 會在 URL、標頭、要求本文等項目中進行這項替代。 
 
-若要取得 `admin-key` 的值，請移至 Azure 搜尋服務，然後選取 [索引鍵]  索引標籤。將 `search-service-name` 和 `storage-account-name` 變更為您在 [建立服務][](#create-services) 中選擇的值。 使用儲存體帳戶的 [存取金鑰]  索引標籤上的值設定 `storage-connection-string`。您可以將其他值保留為預設值。
+若要取得 `admin-key` 的值，請移至 Azure 認知搜尋服務，然後選取 [金鑰]  索引標籤。將 `search-service-name` 和 `storage-account-name` 變更為您在 [建立服務](#create-services) 中選擇的值。 使用儲存體帳戶的 [存取金鑰]  索引標籤上的值設定 `storage-connection-string`。您可以將其他值保留為預設值。
 
 ![Postman 應用程式變數索引標籤](media/knowledge-store-create-rest/postman-variables-window.png "Postman 的變數視窗")
 
 
 | 變數    | 從哪裡取得 |
 |-------------|-----------------|
-| `admin-key` | 在 Azure 搜尋服務的 [索引鍵]  索引標籤上。  |
+| `admin-key` | 在 Azure 認知搜尋服務的 [金鑰]  頁面上。  |
 | `api-version` | 保留為 **2019-05-06-Preview**。 |
 | `datasource-name` | 保留為 **hotel-reviews-ds**。 | 
 | `indexer-name` | 保留為 **hotel-reviews-ixr**。 | 
 | `index-name` | 保留為 **hotel-reviews-ix**。 | 
-| `search-service-name` | Azure 搜尋服務的主要名稱。 URL 為 `https://{{search-service-name}}.search.windows.net`。 | 
+| `search-service-name` | Azure 認知搜尋服務的名稱。 URL 為 `https://{{search-service-name}}.search.windows.net`。 | 
 | `skillset-name` | 保留為 **hotel-reviews-ss**。 | 
-| `storage-account-name` | 儲存體帳戶主要名稱。 | 
+| `storage-account-name` | 儲存體帳戶名稱。 | 
 | `storage-connection-string` | 在儲存體帳戶的 [存取金鑰]  索引標籤上，選取 [key1]   > [連接字串]  。 | 
 | `storage-container-name` | 保留為 **hotel-reviews**。 | 
 
@@ -90,8 +91,8 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 當您建立知識存放區時，必須發出四個 HTTP 要求： 
 
-- **建立索引的 PUT 要求**：此索引會保存 Azure 搜尋服務所使用並傳回的資料。
-- **建立資料來源的 POST 要求**：此資料來源會將您的 Azure 搜尋服務行為連線至資料和知識存放區的儲存體帳戶。 
+- **建立索引的 PUT 要求**：此索引會保存 Azure 認知搜尋所使用並傳回的資料。
+- **建立資料來源的 POST 要求**：此資料來源會將您的 Azure 認知搜尋行為連線至資料和知識存放區的儲存體帳戶。 
 - **建立技能集的 PUT 要求**：技能集會指定套用至資料的擴充，以及知識存放區的結構。
 - **建立索引子的 PUT 要求**：執行索引子會讀取資料、套用技能集，並儲存結果。 您必須最後再執行此要求。
 
@@ -103,11 +104,11 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 > 您必須在所有要求中設定 `api-key` 和 `Content-type` 標頭。 如果 Postman 辨識了一個變數，該變數就會以橘色文字顯示，如同前面螢幕擷取畫面中的 `{{admin-key}}`。 如果變數拼錯，則會以紅色文字顯示。
 >
 
-## <a name="create-an-azure-search-index"></a>建立 Azure Search 索引
+## <a name="create-an-azure-cognitive-search-index"></a>建立 Azure 認知搜尋索引
 
-建立 Azure 搜尋服務索引，以代表您想要搜尋、篩選及套用增強功能的資料。 對 `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}` 發出 PUT 要求以建立索引。 Postman 會將以雙括弧括住的符號 (例如 `{{search-service-name}}`、`{{index-name}}` 和 `{{api-version}}`) 取代為您在 [設定 Postman][](#configure-postman) 中設定的值。 如果您使用不同的工具來發出 REST 命令，則必須自行替換這些變數。
+建立 Azure 認知搜尋索引，以代表您想要搜尋、篩選及套用增強功能的資料。 對 `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}` 發出 PUT 要求以建立索引。 Postman 會將以雙括弧括住的符號 (例如 `{{search-service-name}}`、`{{index-name}}` 和 `{{api-version}}`) 取代為您在 [設定 Postman](#configure-postman) 中設定的值。 如果您使用不同的工具來發出 REST 命令，則必須自行替換這些變數。
 
-在要求本文中設定 Azure 搜尋服務索引的結構。 在 Postman 中，設定 `api-key` 和 `Content-type` 標頭之後，請移至要求的 [本文]  窗格。 您應該會看見下列 JSON。 如果沒有，請選取 [未經處理]   > [JSON (application/json)]  ，然後貼上下列程式碼作為本文：
+在要求本文中設定 Azure 認知搜尋索引的結構。 在 Postman 中，設定 `api-key` 和 `Content-type` 標頭之後，請移至要求的 [本文]  窗格。 您應該會看見下列 JSON。 如果沒有，請選取 [未經處理]   > [JSON (application/json)]  ，然後貼上下列程式碼作為本文：
 
 ```JSON
 {
@@ -148,7 +149,7 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 ## <a name="create-the-datasource"></a>建立資料來源
 
-接下來，將 Azure 搜尋服務連線至您在 [儲存資料][](#store-the-data) 中儲存的旅館資料。 若要建立資料來源，請將 POST 要求傳送至 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`。 如先前所述，您必須設定 `api-key` 和 `Content-Type` 標頭。 
+接下來，將 Azure 認知搜尋連線至您在 [儲存資料](#store-the-data) 中儲存的旅館資料。 若要建立資料來源，請將 POST 要求傳送至 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`。 如先前所述，您必須設定 `api-key` 和 `Content-Type` 標頭。 
 
 在 Postman 中，移至 [建立資料來源]  要求，然後前往 [本文]  窗格。 您應該會看見下列程式碼：
 
@@ -306,7 +307,7 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 `parameters/configuration` 物件可控制索引子內嵌資料的方式。 在此情況下，輸入資料位於具有標頭行和逗號分隔值的單一文件中。 文件索引鍵是文件的唯一識別碼。 在編碼之前，文件索引鍵是來源文件的 URL。 最後，技能集輸出值 (例如語言代碼、情感和關鍵片語) 會對應至其在文件中的位置。 雖然 `Language` 具有單一值，但 `Sentiment` 會套用至 `pages` 之陣列中的每個元素。 `Keyphrases` 是一個陣列，而且也會套用至 `pages` 陣列中的每個元素。
 
-在您設定 `api-key` 和 `Content-type` 標頭，並確認要求的本文類似於下列原始程式碼之後，請在 Postman 中選取 [傳送]  。 Postman 會將 PUT 要求傳送至 `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`。 Azure 搜尋服務會建立並執行索引子。 
+在您設定 `api-key` 和 `Content-type` 標頭，並確認要求的本文類似於下列原始程式碼之後，請在 Postman 中選取 [傳送]  。 Postman 會將 PUT 要求傳送至 `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`。 Azure 認知搜尋會建立並執行索引子。 
 
 ```json
 {
@@ -339,7 +340,7 @@ Azure 搜尋服務中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 ## <a name="run-the-indexer"></a>執行索引子 
 
-在 Azure 入口網站中，移至 Azure 搜尋服務的 [概觀]  頁面。 選取 [索引子]  索引標籤，然後選取 **hotels-reviews-ixr**。 如果索引子尚未執行，請選取 [執行]  。 索引工作可能會引發一些與語言辨識相關的警告。 此資料包含以認知技能尚未支援的語言撰寫的一些評論。 
+在 Azure 入口網站中，移至 Azure 認知搜尋服務的 [概觀]  頁面。 選取 [索引子]  索引標籤，然後選取 **hotels-reviews-ixr**。 如果索引子尚未執行，請選取 [執行]  。 索引工作可能會引發一些與語言辨識相關的警告。 此資料包含以認知技能尚未支援的語言撰寫的一些評論。 
 
 ## <a name="next-steps"></a>後續步驟
 

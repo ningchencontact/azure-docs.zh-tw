@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d13bce3c1cafd20b311aa882d3a32101c1833ba5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802811"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555499"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 來建立知識庫然後回答問題
 
@@ -214,6 +214,13 @@ _主要端點_會傳遞作為標頭，用以驗證產生答案的要求：
 新增下列方法以取得使用者問題的答案。 
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
+
+如果您想要將回應限制為只有問題，請將 `[rankerType](Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+)` 屬性新增至本文，例如： 
+
+```csharp
+request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json"); 
+```
 
 此 API 呼叫會傳回 JSON 回應： 
 
