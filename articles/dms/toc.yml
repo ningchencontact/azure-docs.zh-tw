@@ -53,8 +53,10 @@
       href: resource-scenario-status.md
     - name: 必要條件概觀
       href: pre-reqs.md
-    - name: 適用於 Azure SQL DB 受控執行個體移轉的網路拓撲
+    - name: 適用於 Azure SQL DB MI 移轉的網路拓撲
       href: resource-network-topologies.md
+    - name: 從 SQL Server 線上移轉至 Azure SQL DB MI 的自訂角色
+      href: resource-custom-roles-sql-db-managed-instance.md
     - name: 疑難排解與已知問題
       items:
         - name: 針對來源資料庫連線能力進行疑難排解

@@ -2,7 +2,7 @@
 title: 電腦視覺文件
 summary: 雲端式電腦視覺 API 可供開發人員存取進階演算法，以處理影像及傳回資訊。 藉由上傳影像或指定影像 URL，Microsoft 電腦視覺演算法可根據輸入和使用者選擇，透過不同方式分析視覺內容。 透過快速入門、教學課程及範例，了解如何以不同的方式分析視覺內容。
 metadata:
-  title: 電腦視覺文件
+  title: 電腦視覺文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
   description: 雲端式電腦視覺 API 可供開發人員存取進階演算法，以處理影像及傳回資訊。 藉由上傳影像或指定影像 URL，Microsoft 電腦視覺演算法可根據輸入和使用者選擇，透過不同方式分析視覺內容。 透過快速入門、教學課程及範例，了解如何以不同的方式分析視覺內容。
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 8c09125fde66c62ecbb1560d2327c6b9671accf8
-  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+  ms.openlocfilehash: 115f02f82e598db227541c44f69954b1f3805f71
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72176285"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931798"
 landingContent:
 - title: 關於電腦視覺
   linkLists:
@@ -44,6 +44,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: 使用 Node SDK
       url: quickstarts-sdk/node-sdk.md
+    - text: 使用 Go SDK
+      url: quickstarts-sdk/go-sdk.md
 - title: 在映像中偵測物件
   linkLists:
   - linkListType: concept
@@ -60,6 +62,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: 使用 Node SDK
       url: quickstarts-sdk/node-sdk.md
+    - text: 使用 Go SDK
+      url: quickstarts-sdk/go-sdk.md
 - title: 將內容標記套用到映像
   linkLists:
   - linkListType: concept
@@ -76,6 +80,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: 使用 Node SDK
       url: quickstarts-sdk/node-sdk.md
+    - text: 使用 Go SDK
+      url: quickstarts-sdk/go-sdk.md
 - title: 使用容器
   linkLists:
   - linkListType: get-started
@@ -108,6 +114,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: 使用 Node SDK
       url: quickstarts-sdk/node-sdk.md
+    - text: 使用 Go SDK
+      url: quickstarts-sdk/go-sdk.md
 - title: 參考
   linkLists:
   - linkListType: reference
@@ -132,3 +140,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure 命令列介面 (CLI)
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: 說明與意見反應
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+    - text: 堆疊溢位
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

@@ -42,6 +42,8 @@
           items:
             - name: 委派給目錄建立者
               href: entitlement-management-delegate-catalog.md
+            - name: 新增已連線的組織
+              href: entitlement-management-organization.md
             - name: 管控外部使用者的存取
               href: entitlement-management-external-users.md
             - name: 檢視報告和記錄

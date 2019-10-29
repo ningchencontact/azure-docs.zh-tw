@@ -304,10 +304,14 @@
           href: resource-group-template-functions-resource.md
         - name: 字串函數
           href: resource-group-template-functions-string.md
-    - name: 完整模式刪除
-      href: complete-mode-deletion.md
-    - name: 資源SQL Server 執行個體限制
-      href: resources-without-rg-limit.md
+    - name: 各項資源功能
+      items:
+        - name: 完整模式刪除
+          href: complete-mode-deletion.md
+        - name: 延伸模組資源類型
+          href: extension-resource-types.md
+        - name: 資源SQL Server 執行個體限制
+          href: resources-without-rg-limit.md
     - name: 依服務的資源提供者
       href: azure-services-resource-providers.md
     - name: REST - Resource Manager

@@ -36,7 +36,7 @@
           href: log-query/get-started-portal.md
         - name: 記錄查詢
           href: log-query/get-started-queries.md
-        - name: 將記錄資料視覺化
+        - name: 具有記錄資料的儀表板
           href: learn/tutorial-logs-dashboards.md
         - name: 記錄資料警示
           href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
           href: learn/tutorial-alert.md
         - name: 了解應用程式使用者
           href: learn/tutorial-users.md
-        - name: 建立自訂儀表板
+        - name: 具有應用程式資料的儀表板
           href: learn/tutorial-app-dashboards.md
     - name: 封存平台計量和記錄資料
       href: learn/tutorial-archive-data.md
@@ -889,7 +889,11 @@
         - name: 活頁簿
           href: app/usage-workbooks.md
         - name: 儀表板
-          href: app/app-insights-dashboards.md
+          items:
+            - name: 使用記錄資料的儀表板
+              href: learn/tutorial-logs-dashboards.md
+            - name: 使用應用程式資料的儀表板
+              href: learn/tutorial-app-dashboards.md
         - name: 將資料傳送到 Grafana
           href: platform/grafana-plugin.md
     - name: 警示
@@ -1098,10 +1102,8 @@
           href: platform/metrics-supported.md
         - name: 較新警示的支援計量
           href: platform/alerts-metric-near-real-time.md
-    - name: 診斷記錄
-      items:
-        - name: 診斷記錄服務、類別和結構描述
-          href: platform/diagnostic-logs-schema.md
+    - name: 資源記錄服務、類別和結構描述
+      href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (預覽)
@@ -1110,9 +1112,11 @@
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
+        - name: 警示、計量、活動記錄、自動調整
+          href: /powershell/module/az.monitor
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: 記錄
+        - name: Log Analytics
           href: /powershell/module/az.operationalinsights
     - name: REST API
       items:

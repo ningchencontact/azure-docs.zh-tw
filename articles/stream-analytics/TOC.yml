@@ -27,8 +27,10 @@
       href: stream-analytics-javascript-user-defined-functions.md
     - name: 4 - 在 Aure Pipelines 中使用 CI/CD 部署
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '5 - 在 IoT Edge 上執行 C# UDF'
+    - name: '5 - 執行 C# UDF'
       href: stream-analytics-edge-csharp-udf.md
+    - name: 6 - 建立自訂 .NET 還原序列化
+      href: custom-deserializer.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -47,6 +49,8 @@
           href: stream-analytics-define-inputs.md
         - name: 參考資料輸入
           href: stream-analytics-use-reference-data.md
+        - name: 寫入 .NET 自訂還原序列化
+          href: custom-deserializer-examples.md
     - name: 作業的輸出類型
       items:
         - name: 輸出概觀
@@ -173,7 +177,7 @@
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: 設定 CI/CD 管線
           href: stream-analytics-tools-for-visual-studio-cicd.md
-        - name: 針對邊緣撰寫 .NET UDF
+        - name: 寫入 .NET UDF
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:

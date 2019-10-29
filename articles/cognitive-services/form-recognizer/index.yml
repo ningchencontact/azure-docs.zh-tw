@@ -2,7 +2,7 @@
 title: 表單辨識器文件
 summary: Azure 表單辨識器是一項認知服務，其使用機器學習技術來識別和擷取表單文件中的索引鍵值組和資料表資料。 然後，它會輸出在原始檔中包含關聯性的結構化資料。 非監督式學習可讓模型了解欄位與項目之間的配置和關聯性，而不需要手動資料標記或密集編碼和維護。
 metadata:
-  title: 表單辨識器文件
+  title: 表單辨識器文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
   description: Azure 表單辨識器是一項認知服務，其使用機器學習技術來識別和擷取表單文件中的索引鍵值組和資料表資料。 然後，它會輸出在原始檔中包含關聯性的結構化資料。 非監督式學習可讓模型了解欄位與項目之間的配置和關聯性，而不需要手動資料標記或密集編碼和維護。
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70931833"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931292"
 landingContent:
 - title: 關於表單辨識器
   linkLists:
@@ -76,3 +76,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure 命令列介面 (CLI)
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: 說明與意見反應
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://go.microsoft.com/fwlink/?linkid=2090535
+    - text: 堆疊溢位
+      url: https://go.microsoft.com/fwlink/?linkid=2087186
