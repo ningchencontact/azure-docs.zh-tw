@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010204"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990265"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -96,9 +96,10 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 6. 若要設定將稽核記錄寫入至儲存體帳戶，請選取 [儲存體]，然後開啟 [儲存體詳細資料]。 選取將儲存記錄的 Azure 儲存體帳戶，然後選取保留期間。 舊的記錄將被刪除。 然後按一下 [確定]。
 
    > [!IMPORTANT]
-   > [保留週期] 的預設值為0（無限制保留）。 您可以變更此值，方法是在設定儲存體帳戶以進行審核時，將 [**保留（天數）** ] 滑杆移至 [**儲存體設定**]。
+   > - [保留週期] 的預設值為0（無限制保留）。 您可以變更此值，方法是在設定儲存體帳戶以進行審核時，將 [**保留（天數）** ] 滑杆移至 [**儲存體設定**]。
+   > - 如果您將保留期間從0（無限制的保留）變更為任何其他值，請注意保留期只會套用至保留值變更後寫入的記錄（保留設定為無限制的期間內寫入的記錄，即使在保留已啟用）
 
-    ![儲存體帳戶](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. 若要設定將稽核記錄寫入至 Log Analytics 工作區，請選取 [Log Analytics (預覽)]，然後開啟 [Log Analytics 詳細資料]。 選取或建立將寫入記錄的 Log Analytics 工作區，然後按一下 [確定]。
 
@@ -134,7 +135,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
     按一下 [ **audit 記錄**] 頁面頂端的 [ **View 儀表板**] 將會開啟儀表板，其中會顯示 [審核記錄] 資訊，您可以在其中向下切入到安全性見解、存取機密資料等等。 此儀表板的設計目的是協助您取得資料的安全性見解。
     您也可以自訂時間範圍和搜尋查詢。 
-    ![查看 Log Analytics 儀表板](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+    ![View Log Analytics 儀表板](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
 
     ![Log Analytics 儀表板](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 跨 Azure 訂用帳戶或資源群組移動復原服務保存庫
-description: 在 Azure 訂用帳戶和資源群組之間移動復原服務保存庫的指示。
+title: 如何移動 Azure 備份復原服務保存庫
+description: 有關如何跨 Azure 訂用帳戶和資源群組移動復原服務保存庫的指示。
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -8,42 +8,41 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6e95c012aed9fdcfda2b64c310458425df2b9f9e
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: fb98ba8c393d28e7cdfb0b53cdd9ba11c171726f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337897"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969146"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 訂用帳戶和資源群組移動復原服務保存庫
 
 本文說明如何跨 Azure 訂用帳戶或往相同訂用帳戶中的另一個資源群組移動為 Azure 備份所設定的復原服務保存庫。 您可以使用 Azure 入口網站或 PowerShell 來移動復原服務保存庫。
 
-## <a name="supported-region"></a>支援的區域
+## <a name="supported-regions"></a>支援區域
 
-澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、南部東亞、東亞、美國中部、美國中北部、美國東部、東部美國2、美國中南部、美國中西部、西歐美國2、美國西部, 都支援復原服務保存庫的資源移動印度中部、印度南部、日本東部、日本西部、韓國中部、南韓南部、歐洲北部、西歐、南非北部、南非西部、英國南部和英國西部。
+澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、南部東亞、東亞、美國中部、美國中北部、美國東部、東部美國2、美國中南部、美國中西部、西歐美國2、美國西部，都支援復原服務保存庫的資源移動印度中部、印度南部、日本東部、日本西部、韓國中部、南韓南部、歐洲北部、西歐、南非北部、南非西部、英國南部和英國西部。
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>移動復原服務保存庫的必要條件
 
-- 在跨資源群組移動保存庫期間, 來源和目標資源群組都會被鎖定, 而導致寫入和刪除作業無法執行。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+- 在跨資源群組移動保存庫期間，來源和目標資源群組都會被鎖定，而導致寫入和刪除作業無法執行。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 - 只有管理訂用帳戶具有移動保存庫的許可權。
-- 針對跨訂用帳戶移動保存庫, 目標訂用帳戶必須位於與來源訂用帳戶相同的租使用者中, 且其狀態應為 [已啟用]。
+- 針對跨訂用帳戶移動保存庫，目標訂用帳戶必須位於與來源訂用帳戶相同的租使用者中，且其狀態應為 [已啟用]。
 - 您必須擁有在目標資源群組上執行寫入作業的權限。
-- 移動保存庫只會變更資源群組。 復原服務保存庫將位於相同的位置, 而且無法變更。
-- 您一次只能移動一個復原服務保存庫 (每個區域)。
-- 如果 VM 不會在訂用帳戶之間移動復原服務保存庫, 或移至新的資源群組, 則目前的 VM 復原點會在保存庫中保持不變, 直到過期為止。
+- 移動保存庫只會變更資源群組。 復原服務保存庫將位於相同的位置，而且無法變更。
+- 您一次只能移動一個復原服務保存庫（每個區域）。
+- 如果 VM 不會在訂用帳戶之間移動復原服務保存庫，或移至新的資源群組，則目前的 VM 復原點會在保存庫中保持不變，直到過期為止。
 - 無論 VM 是否隨著保存庫移動，您一律可以從保留在保存庫內的備份記錄還原 VM。
 - Azure 磁碟加密需要金鑰保存庫和 Vm 位於相同的 Azure 區域和訂用帳戶中。
 - 若要移動具有受控磁碟的虛擬機器，請參閱這篇[文章](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)。
 - 移動透過傳統模型所部署之資源的選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 - 在保存庫跨訂用帳戶或往新的資源群組移動之後，為保存庫所定義的備份原則會保留下來。
-- 不支援在訂用帳戶和資源群組的 IaaS Vm 中, 使用 Azure 檔案儲存體、Azure 檔案同步或 SQL 移動保存庫。
-- 如果您移動的保存庫包含 VM 備份資料，則您必須將 Vm 移至相同的訂用帳戶，並使用相同的目標 VM 資源組名（如同舊的訂用帳戶）來繼續備份。<br>
+- 不支援在訂用帳戶和資源群組的 IaaS Vm 中，使用 Azure 檔案儲存體、Azure 檔案同步或 SQL 移動保存庫。
+- 如果您移動的保存庫包含 VM 備份資料，則您必須將 Vm 移至相同的訂用帳戶，並使用相同的目標 VM 資源組名（如同舊的訂用帳戶）來繼續備份。
 
 > [!NOTE]
 >
 > 依設定要與 **Azure Site Recovery** 搭配使用的復原服務保存庫還無法移動。 如果您已使用 **Azure Site Recovery** 來為任何 VM (Azure IaaS、Hyper-V、VMware) 或實體機器設定災害復原，則無法進行移動作業。 Site Recovery 服務的資源移動功能尚未正式運作。
-
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>使用 Azure 入口網站將復原服務保存庫移至不同的資源群組
 
@@ -74,7 +73,6 @@ ms.locfileid: "71337897"
 
    ![確認訊息](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
-
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-a-different-subscription"></a>使用 Azure 入口網站將復原服務保存庫移至不同的訂用帳戶
 
 您可以將復原服務保存庫和其相關聯的資源移動到不同的訂用帳戶
@@ -99,7 +97,7 @@ ms.locfileid: "71337897"
 5. 從 [訂用帳戶] 下拉式清單選取您想要作為保存庫移動目的地的目標訂用帳戶。
 6. 若要新增目標資源群組，請在 [資源群組] 下拉式清單中選取現有資源群組，或按一下 [建立新群組] 選項。
 
-   ![加入訂用帳戶](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![新增訂用帳戶](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. 按一下 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼] 選項來進行確認，然後按一下 [確定]。
 
@@ -138,10 +136,8 @@ az resource move --destination-group <destinationResourceGroupName> --ids <Vault
 
 ## <a name="post-migration"></a>移轉後
 
-1. 您需要設定/驗證資源群組的存取控制。  
+1. 設定/驗證資源群組的存取控制。  
 2. 必須再次設定備份的報告和監視功能，保存庫的移動才會完成。 移動作業期間會失去先前的設定。
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

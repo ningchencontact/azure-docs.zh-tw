@@ -1,6 +1,6 @@
 ---
 title: 限制和設定-Azure Logic Apps
-description: 適用於 Azure Logic Apps 的服務限制和設定值
+description: 服務限制，例如持續時間、輸送量和容量，加上設定值（例如允許的 IP 位址），以 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 5399ebaa9526bd2c92a8d12eaa5cd8e5f53b1037
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 52e1594f40917519d80f042a4ace77532186758b
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799356"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968609"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -146,7 +146,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 | Name | 多租使用者限制 | 整合服務環境限制 | 注意 |
 |------|--------------------|---------------------------------------|-------|
 | 訊息大小 | 100 MB | 200 MB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 |
-| 使用區塊化時的訊息大小 | 1GB | 5 GB | 此限制適用於原生支援區塊化的動作，或可讓您在其執行階段設定中啟用區塊化的動作。 <p>對於整合服務環境，Logic Apps 引擎支援此限制，但連接器有自己的區塊限制，最高可達引擎限制，例如，請參閱[Azure Blob 儲存體連接器](/connectors/azureblob/)。 如需有關區塊化的詳細資訊，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 |
+| 使用區塊化時的訊息大小 | 1GB | 5 GB | 此限制適用於原生支援區塊化的動作，或可讓您在其執行階段設定中啟用區塊化的動作。 <p>對於整合服務環境，Logic Apps 引擎支援此限制，但連接器有自己的區塊限制，最高可達引擎限制，例如，請參閱[Azure Blob 儲存體連接器的 API 參考](https://docs.microsoft.com/connectors/azureblob/)。 如需有關區塊化的詳細資訊，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 |
 | 運算式評估限制 | 131,072 個字元 | 131,072 個字元 | `@concat()`、`@base64()`、`@string()` 運算式的長度不能超過此限制。 |
 |||||
 

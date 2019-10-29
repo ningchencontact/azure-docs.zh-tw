@@ -4,14 +4,14 @@ description: 顯示資源類型如何處理 Azure Resource Manager 範本中的�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528580"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969190"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>完整模式部署的 Azure 資源刪除
 
@@ -61,7 +61,6 @@ ms.locfileid: "72528580"
 > - [Microsoft.containerinstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [ContentModerator](#microsoftcontentmoderator)
 > - [CortanaAnalytics](#microsoftcortanaanalytics)
 > - [CostManagement](#microsoftcostmanagement)
 > - [CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +276,7 @@ ms.locfileid: "72528580"
 > | dataAliases | 否 |
 > | denyAssignments | 否 |
 > | elevateAccess | 否 |
+> | findOrphanRoleAssignments | 否 |
 > | locks | 否 |
 > | 權限 | 否 |
 > | policyAssignments | 否 |
@@ -394,6 +394,7 @@ ms.locfileid: "72528580"
 > | billingAccounts/createBillingRoleAssignment | 否 |
 > | billingAccounts/createInvoiceSectionOperations | 否 |
 > | billingAccounts/客戶 | 否 |
+> | billingAccounts/customers/billingPermissions | 否 |
 > | billingAccounts/customers/billingSubscriptions | 否 |
 > | billingAccounts/customers/initiateTransfer | 否 |
 > | billingAccounts/customers/原則 | 否 |
@@ -451,6 +452,7 @@ ms.locfileid: "72528580"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | blockchainMembers | 是 |
+> | cordaMembers | 是 |
 > | 位監看員 | 是 |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -641,6 +643,8 @@ ms.locfileid: "72528580"
 > | proximityPlacementGroups | 是 |
 > | restorePointCollections | 是 |
 > | restorePointCollections/restorePoints | 否 |
+> | sharedVMExtensions | 是 |
+> | sharedVMExtensions/版本 | 否 |
 > | sharedVMImages | 是 |
 > | sharedVMImages/versions | 否 |
 > | snapshots | 是 |
@@ -700,6 +704,7 @@ ms.locfileid: "72528580"
 > | registries/buildTasks | 是 |
 > | registries/buildTasks/steps | 否 |
 > | registries/eventGridFilters | 否 |
+> | 登錄/generateCredentials | 否 |
 > | registries/getBuildSourceUploadUrl | 否 |
 > | registries/GetCredentials | 否 |
 > | registries/importImage | 否 |
@@ -710,7 +715,9 @@ ms.locfileid: "72528580"
 > | registries/runs | 否 |
 > | registries/runs/cancel | 否 |
 > | registries/scheduleRun | 否 |
+> | 登錄/scopeMaps | 否 |
 > | registries/tasks | 是 |
+> | 登錄/權杖 | 否 |
 > | registries/updatePolicies | 否 |
 > | registries/webhooks | 是 |
 > | registries/webhooks/getCallbackConfig | 否 |
@@ -724,14 +731,6 @@ ms.locfileid: "72528580"
 > | containerServices | 是 |
 > | managedClusters | 是 |
 > | openShiftManagedClusters | 是 |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | 資源類型 | 完整模式刪除 |
-> | ------------- | ----------- |
-> | 應用程式 | 是 |
-> | updateCommunicationPreference | 否 |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -821,8 +820,6 @@ ms.locfileid: "72528580"
 > | datacatalogs/資料來源/掃描 | 否 |
 > | datacatalogs/資料來源/掃描/資料集 | 否 |
 > | datacatalogs/資料來源/掃描/觸發程式 | 否 |
-> | datacatalogs/scantargets | 否 |
-> | datacatalogs/scantargets/資料集 | 否 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -887,6 +884,9 @@ ms.locfileid: "72528580"
 > | ------------- | ----------- |
 > | 伺服器 | 是 |
 > | servers/advisors | 否 |
+> | 伺服器/privateEndpointConnectionProxies | 否 |
+> | 伺服器/privateEndpointConnections | 否 |
+> | 伺服器/privateLinkResources | 否 |
 > | servers/queryTexts | 否 |
 > | servers/recoverableServers | 否 |
 > | servers/topQueryStatistics | 否 |
@@ -900,6 +900,9 @@ ms.locfileid: "72528580"
 > | ------------- | ----------- |
 > | 伺服器 | 是 |
 > | servers/advisors | 否 |
+> | 伺服器/privateEndpointConnectionProxies | 否 |
+> | 伺服器/privateEndpointConnections | 否 |
+> | 伺服器/privateLinkResources | 否 |
 > | servers/queryTexts | 否 |
 > | servers/recoverableServers | 否 |
 > | servers/topQueryStatistics | 否 |
@@ -914,6 +917,7 @@ ms.locfileid: "72528580"
 > | serverGroups | 是 |
 > | 伺服器 | 是 |
 > | servers/advisors | 否 |
+> | servers/keys | 否 |
 > | 伺服器/privateEndpointConnectionProxies | 否 |
 > | 伺服器/privateEndpointConnections | 否 |
 > | 伺服器/privateLinkResources | 否 |
@@ -943,6 +947,7 @@ ms.locfileid: "72528580"
 > | ------------- | ----------- |
 > | applicationgroups | 是 |
 > | applicationgroups/應用程式 | 否 |
+> | applicationgroups/桌上型電腦 | 否 |
 > | applicationgroups/startmenuitems | 否 |
 > | hostpools | 是 |
 > | hostpools/sessionhosts | 否 |
@@ -1088,6 +1093,7 @@ ms.locfileid: "72528580"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | 是 |
+> | configurationProfileAssignments | 否 |
 > | guestConfigurationAssignments | 否 |
 > | software | 否 |
 > | softwareUpdateProfile | 否 |
@@ -1129,6 +1135,7 @@ ms.locfileid: "72528580"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | 機時 | 是 |
+> | 機器/擴充功能 | 是 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1235,6 +1242,7 @@ ms.locfileid: "72528580"
 > | ------------- | ----------- |
 > | workspaces | 是 |
 > | workspaces/computes | 否 |
+> | 工作區/eventGridFilters | 否 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1322,6 +1330,7 @@ ms.locfileid: "72528580"
 > | mediaservices/liveEvents | 是 |
 > | mediaservices/liveEvents/liveOutputs | 否 |
 > | mediaservices/liveOutputOperations | 否 |
+> | windowsazure.mediaservices.extensions/mediaGraphs | 否 |
 > | mediaservices/streamingEndpointOperations | 否 |
 > | mediaservices/streamingEndpoints | 是 |
 > | mediaservices/streamingLocators | 否 |
@@ -1520,6 +1529,7 @@ ms.locfileid: "72528580"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | policyEvents | 否 |
+> | policyMetadata | 否 |
 > | policyStates | 否 |
 > | policyTrackedResources | 否 |
 > | remediations | 否 |
@@ -1610,6 +1620,8 @@ ms.locfileid: "72528580"
 > | ------------- | ----------- |
 > | deployments | 否 |
 > | deployments/operations | 否 |
+> | deploymentScripts | 是 |
+> | deploymentScripts/記錄 | 否 |
 > | 連結 | 否 |
 > | notifyResourceJobs | 否 |
 > | 提供者 | 否 |
@@ -1659,6 +1671,7 @@ ms.locfileid: "72528580"
 > | applicationWhitelistings | 否 |
 > | assessmentMetadata | 否 |
 > | 評估 | 否 |
+> | 自動化 | 是 |
 > | AutoProvisioningSettings | 否 |
 > | Compliances | 否 |
 > | dataCollectionAgents | 否 |

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/27/2019
 ms.author: juliako
-ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672666"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968722"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure 媒體服務影片索引子版本資訊
 
@@ -28,7 +28,13 @@ ms.locfileid: "71672666"
 * 錯誤修正
 * 已被取代的功能
 
-## <a name="september-2019"></a>2019年9月
+## <a name="october-2019"></a>2019 年 10 月
+ 
+* 在資源庫中搜尋動畫字元
+
+    編制動畫字元的索引時，您現在可以在帳戶的影片條樣中搜尋它們。 如需詳細資訊，請參閱[動畫字元識別](animated-characters-recognition.md)。
+
+## <a name="september-2019"></a>2019 年 9 月
  
 在 IBC 2019 宣佈多項改進：
  
@@ -85,7 +91,7 @@ ms.locfileid: "71672666"
 
 現在可以根據以不同語言編制索引的影片建立專案（僅限 API）。
 
-## <a name="july-2019"></a>2019年7月
+## <a name="july-2019"></a>2019 年 7 月
 
 ### <a name="editor-as-a-widget"></a>編輯器做為 widget
 
@@ -131,4 +137,4 @@ ms.locfileid: "71672666"
 
 ## <a name="next-steps"></a>後續步驟
 
-[概觀](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

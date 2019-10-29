@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 053c52d7d1a0282d72ad76408b77c96aa3b0e3e4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174693"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989640"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>適用于 Linux Vm 的 Azure 磁碟加密 
 
@@ -36,7 +36,7 @@ Linux Vm 有[各種大小的](sizes.md)提供。 在[基本、A 系列 vm](https
 
 | 虛擬機器 | 最小記憶體需求 |
 |--|--|
-| 僅加密資料磁片區時的 Linux Vm| 2 GB |
+| 僅加密資料磁片區時的 Linux Vm| 2GB |
 | 當加密資料和作業系統磁片區時，以及根（/）檔案系統使用量為4GB 或更少的位置時，Linux Vm | 8 GB |
 | 當加密資料和作業系統磁片區，以及根（/）檔案系統使用量大於4GB 時，Linux Vm | 根檔案系統使用方式 * 2。 例如，16 GB 的根檔案系統使用量至少需要32GB 的 RAM |
 
@@ -52,7 +52,7 @@ Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 
 Azure 未背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密;對於背書的，只有下列散發套件和版本支援 Azure 磁碟加密：
 
-| Linux 散發套件 | Version | 支援加密的磁碟區類型|
+| Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
 | --- | --- |--- |
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
@@ -96,7 +96,7 @@ Azure 磁碟加密需要在系統上出現 dm crypt 和 vfat 模組。 從預設
 ## <a name="networking-requirements"></a>網路需求
 
 若要啟用 Azure 磁碟加密功能，Linux Vm 必須符合下列網路端點設定需求：
-  - 若要取得權杖以連線到您的金鑰保存庫，Linux VM 必須能夠連接到 Azure Active Directory 端點，\[login. microsoftonline .com @ no__t-1。
+  - 若要取得權杖以連線到您的金鑰保存庫，Linux VM 必須能夠連接到 Azure Active Directory 端點，\[login.microsoftonline.com\]。
   - 若要將加密金鑰寫入金鑰保存庫，Linux VM 必須能夠連線到金鑰保存庫端點。
   - Linux VM 必須能夠連接到裝載 Azure 擴充功能儲存機制的 Azure 儲存體端點，以及裝載 VHD 檔案的 Azure 儲存體帳戶。
   -  如果您的安全性原則會限制從 Azure VM 至網際網路的存取，您可以解析前述的 URI，並設定特定的規則以允許和這些 IP 的輸出連線。 如需詳細資訊，請參閱[防火牆後方的 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)。  
@@ -107,10 +107,10 @@ Azure 磁碟加密需要 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 如需詳細資訊，請參閱[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。
 
-## <a name="terminology"></a>術語
+## <a name="terminology"></a>詞彙
 下表定義 Azure 磁片加密檔中所使用的一些常見詞彙：
 
-| 術語 | 定義 |
+| 詞彙 | 定義 |
 | --- | --- |
 | Azure 金鑰保存庫 | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) 已針對從命令列管理 Azure 資源進行最佳化。|

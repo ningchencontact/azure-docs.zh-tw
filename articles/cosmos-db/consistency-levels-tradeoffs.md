@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755192"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990627"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
 
@@ -62,6 +62,10 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 *K* = 專案的 *"K"* 版本（也就是更新）的數目。
 
 *T* = 自上次更新後的時間間隔 *"T"* 。
+
+## <a name="strong-consistency-and-multi-master"></a>強式一致性和多宿主
+
+針對多宿主設定的 Cosmos 帳戶無法設定為強式一致性，因為分散式系統無法提供零的 RPO 和 RTO 為零。 此外，將強式一致性與多宿主搭配使用時，不會有任何寫入延遲優點，因為任何區域的寫入都必須複寫並認可至帳戶內所有已設定的區域。 這會導致與單一主帳戶相同的寫入延遲。
 
 ## <a name="next-steps"></a>後續步驟
 

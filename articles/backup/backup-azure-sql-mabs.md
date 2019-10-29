@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 72de5857786f284bfc4afda1db093d5343bd7a43
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f36560dbaea5b3efe29d38ca750fc732b9281360
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954466"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969128"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 SQL Server 備份至 Azure
+
 本文將引導您逐步完成使用 Microsoft Azure 備份伺服器 (MABS) 來備份 SQL Server 資料庫的設定步驟。
 
 將 SQL Server 資料庫備份至 Azure 及從 Azure 復原的管理作業包含三個步驟：
@@ -25,9 +26,11 @@ ms.locfileid: "68954466"
 3. 從 Azure 復原資料庫。
 
 ## <a name="before-you-start"></a>開始之前
+
 開始之前，請確定您已[安裝並備妥 Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)。
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>建立備份原則以在 Azure 保護 SQL Server 資料庫
+
 1. 在 Azure 備份伺服器 UI 上，按一下 [保護] 工作區。
 2. 在工具功能區中，按一下 [新增] 以建立新的保護群組。
 
@@ -44,7 +47,7 @@ ms.locfileid: "68954466"
     ![資料保護方式 - 短期磁碟和線上 Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. 在 [指定短期目標] 畫面中，包含建立磁碟備份點所需的輸入。
 
-    在這裡, 我們看到 [**保留範圍**] 設定為 [ *5 天*], **[同步處理頻率**] 設定為每隔*15 分鐘*一次, 這就是執行備份的頻率。 [快速完整備份] 設定為 [下午 8:00]。
+    在這裡，我們看到 [**保留範圍**] 設定為 [ *5 天*]， **[同步處理頻率**] 設定為每隔*15 分鐘*一次，這就是執行備份的頻率。 [快速完整備份] 設定為 [下午 8:00]。
 
     ![短期目標](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -66,7 +69,7 @@ ms.locfileid: "68954466"
 
     ![初始複寫方法](./media/backup-azure-backup-sql/pg-manual.png)
 
-    初始備份複本要求將整個資料來源 (SQL Server 資料庫) 從生產伺服器 (SQL Server 機器) 傳輸到 MABS。 這些資料可能會很大，因此透過網路傳輸資料可能會超出頻寬。 基於這個理由，系統管理員可以選擇傳送初始備份的方式︰[手動] (使用卸除式媒體) 可避免頻寬壅塞，也可選擇 [自動透過網路] 在指定時間傳輸。
+    初始備份複本要求將整個資料來源 (SQL Server 資料庫) 從生產伺服器 (SQL Server 機器) 傳輸到 MABS。 這些資料可能會很大，因此透過網路傳輸資料可能會超出頻寬。 基於這個理由，系統管理員可以選擇傳送初始備份的方式︰**手動** (使用卸除式媒體，可避免頻寬壅塞) 或**自動透過網路** (在指定時間)。
 
     一旦完成初始備份，其餘的備份會是初始備份複本的增量備份。 增量備份通常都非常小，因此有利於透過網路傳輸。
 10. 選擇是否想要執行一致性檢查，然後按一下 [下一步]。
@@ -88,7 +91,7 @@ ms.locfileid: "68954466"
     >
     >
 
-    **最佳做法**：請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。 這可讓您將最新的磁碟備份複製到 Azure。
+    **最佳作法**︰請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。 這可讓您將最新的磁碟備份複製到 Azure。
 
 13. 選擇保留原則排程。 如需保留原則運作方式的詳細資訊，請參閱 [使用 Azure 備份來取代您的磁帶基礎結構](backup-azure-backup-cloud-as-tape.md)一文。
 
@@ -111,6 +114,7 @@ ms.locfileid: "68954466"
     ![保護群組的建立正在進行中](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>SQL Server 資料庫的隨選備份
+
 雖然先前的步驟建立了備份原則，但只有在第一次備份發生時，才會建立「復原點」。 不需等待排程器開始作用，下列步驟會手動觸發復原點的建立。
 
 1. 建立復原點之前，請等到資料庫的保護群組狀態顯示 [確定] 。
@@ -127,9 +131,10 @@ ms.locfileid: "68954466"
     ![監視主控台](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>從 Azure 復原 SQL Server 資料庫
+
 以下是從 Azure 復原受保護的實體 (SQL Server 資料庫) 所需的步驟。
 
-1. 開啟 [DPM 伺服器管理主控台]。 巡覽至 [復原] 工作區，您可以在此處查看 DPM 所備份的伺服器。 瀏覽所需的資料庫 (在此例中為 ReportServer$MSDPM2012)。 選取以 **線上**結束的時間進行復原。
+1. 開啟 [DPM 伺服器管理主控台]。 巡覽至 [復原] 工作區，您可以在此處查看 DPM 所備份的伺服器。 瀏覽所需的資料庫 (在此例中為 ReportServer$MSDPM2012)。 選取以**線上**結束**的時間進行**復原。
 
     ![選取復原點](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. 以滑鼠右鍵按一下資料庫名稱，然後按一下 [復原]。
@@ -149,5 +154,6 @@ ms.locfileid: "68954466"
 
     一旦完成復原，還原的資料庫會是應用程式一致複本。
 
-### <a name="next-steps"></a>後續步驟：
+### <a name="next-steps"></a>後續步驟
+
 •    [Azure 備份常見問題集](backup-azure-backup-faq.md)

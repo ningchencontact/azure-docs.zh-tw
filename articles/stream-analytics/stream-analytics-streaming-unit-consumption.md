@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: a4811da398fde869d8eb5457db11a592006c59a9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/28/2019
+ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934276"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988241"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -34,6 +34,7 @@ SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的�
     ![Azure 入口網站串流分析作業組態][img.stream.analytics.preview.portal.settings.scale]
     
 4. 使用滑桿來設定作業的 SU。 請注意，您只能調整特定的 SU 設定。 
+5. 您可以變更指派給作業的 su 數目，即使它正在執行也一樣。 如果您的作業使用[非分割的輸出](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output)，或具有[具有不同 PARTITION BY 值的多重步驟查詢](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values)，則不可能發生這種情況。 作業執行時，您的工作也應該至少有6個 su，才能變更此設定。 當作業正在執行時，您可能會受到限制而無法從一組 SU 值中進行選擇。 
 
 ## <a name="monitor-job-performance"></a>監視工作效能
 您可以使用 Azure 入口網站來追蹤作業的輸送量：
@@ -110,7 +111,7 @@ Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理�
 
 在此範例中，可能有大量廣告顯示，但僅有少數人會點選，而且仍然需要在時間範圍中保留所有事件。 視窗大小和事件出現率與記憶體耗用程度成正比。 
 
-若要修復這種情況，請將事件傳送到依據聯結索引鍵 (即本例中的 ID) 分割的事件中樞，透過使用 **PARTITION BY** 允許系統個別處理每個輸入分割區來向外延展查詢，如下所示︰
+若要修復這種情況，請將事件傳送至以聯結索引鍵（在此案例中為 ID）分割的事件中樞，並允許系統使用**PARTITION by**來個別處理每個輸入分割區，以相應放大查詢，如下所示：
 
    ```sql
    SELECT clicks.id

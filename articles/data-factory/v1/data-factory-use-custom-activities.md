@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 2174e359f739cfdf3791c8ec64d1a95be2873555
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930900"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990659"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -556,7 +556,7 @@ test custom activity Microsoft test custom activity Microsoft
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    請記得輸入資料夾中的所有檔案都是包含上述開始時間之配量的一部分。 處理此配量時，自訂活動會掃描每個檔案，並利用搜尋詞彙 (“Microsoft”) 的出現次數在輸出檔案中產生資料行。 如果 inputfolder 中有三個檔案，每小時的配量會有三行在輸出檔案中：2016-11-16-00.txt、2016-11-16:01:00:00.txt 等等。
+    請記得輸入資料夾中的所有檔案都是包含上述開始時間之配量的一部分。 處理此配量時，自訂活動會掃描每個檔案，並利用搜尋詞彙 (“Microsoft”) 的出現次數在輸出檔案中產生資料行。 如果輸入資料夾中有三個檔案，每小時配量的輸出檔中會有三行： 2016-11-16-00.txt .txt、2016-11-16：01：00： 00 .txt 等等。
 3. 若要部署 **OutputDataset**，按一下命令列上的 [部署]。
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>建立並執行使用自訂活動的管線

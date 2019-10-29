@@ -3,7 +3,7 @@ title: 如何在 Azure 時間序列深入解析中監視及降低節流 | Micros
 description: 本文描述如何監視、診斷和減少會在 Azure 時間序列深入解析中造成延遲和節流的效能問題。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4e82cdf43f568b6415cb7cb00ce0244654559b7d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332935"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990136"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
 
@@ -44,15 +44,15 @@ ms.locfileid: "72332935"
 
 1. 在 Azure 入口網站中，選取 **警示**。
 
-   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![警示](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. 接著會顯示 [**建立規則**] 面板。 選取 [**條件**] 底下的 [**新增**]。
 
-   [![Add 警示](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![新增警示](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
 1. 接下來，設定信號邏輯的確切條件。
 
-   [@no__t 1Configure 的信號邏輯](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [![設定信號邏輯](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
    從該處，您可以使用下列某些條件來設定警示：
 
@@ -70,7 +70,7 @@ ms.locfileid: "72332935"
 
 1. 設定所需的信號邏輯之後，請以視覺化方式檢查選擇的警示規則。
 
-   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![輸入](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>節流與輸入管理
 

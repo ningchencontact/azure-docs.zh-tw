@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965419"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990784"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -66,6 +66,7 @@ ExpressRoute 支援[三種路由網域](expressroute-circuit-peerings.md)，適�
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI-可透過 Azure 區域的社區取得，請參閱[這裡](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)以瞭解如何找出 Power BI 租使用者的區域。
 * Azure Active Directory
+* [Windows 虛擬桌面](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure 全域服務社群)
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
     * CDN

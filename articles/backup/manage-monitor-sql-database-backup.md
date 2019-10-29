@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 備份在 Azure VM 上管理和監視 SQL Server 資料庫
+title: 管理和監視 Azure VM 上的 SQL Server Db-Azure 備份
 description: 本文說明如何管理和監視在 Azure VM 上執行的 SQL Server 資料庫。
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934778"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968358"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和監視備份的 SQL Server 資料庫
 
@@ -31,7 +31,6 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 >
 
 如需監視案例的詳細資訊，請移至[Azure 入口網站中的 [監視](backup-azure-monitoring-built-in-monitor.md)]，並[使用 Azure 監視器進行監視](backup-azure-monitoring-use-azuremonitor.md)。  
-
 
 ## <a name="view-backup-alerts"></a>檢視備份警示
 
@@ -57,14 +56,14 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
 您可以透過數種方式停止備份 SQL Server 資料庫：
 
-* 停止所有未來的備份作業並刪除所有復原點。
-* 停止所有未來的備份工作，並將復原點保留不變。
+- 停止所有未來的備份作業並刪除所有復原點。
+- 停止所有未來的備份工作，並將復原點保留不變。
 
 如果您選擇保留復原點，請記住下列詳細資料：
 
-* 所有復原點永遠保持不變，所有剪除都應該在停止保護時停止，並保留資料。
-* 系統會向您收取受保護實例和已耗用儲存體的費用。 如需詳細資訊，請參閱[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
-* 如果您刪除資料來源而不停止備份，新的備份將會失敗。
+- 所有復原點永遠保持不變，所有剪除都應該在停止保護時停止，並保留資料。
+- 系統會向您收取受保護實例和已耗用儲存體的費用。 如需詳細資訊，請參閱[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
+- 如果您刪除資料來源而不停止備份，新的備份將會失敗。
 
 若要停止保護資料庫：
 
@@ -82,22 +81,20 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
     ![選取 [停止備份]](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. 在 [**停止備份**] 功能表上，選取是否要保留或刪除資料。 如果您想要的話，請提供原因和批註。
 
     ![保留或刪除 [停止備份] 功能表上的資料](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. 選取 [**停止備份**]。
 
-
 > [!NOTE]
 >
 >如需有關 [刪除資料] 選項的詳細資訊，請參閱下列常見問題：
->* [如果我從 autoprotected 實例中刪除資料庫，備份會發生什麼事？](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [如果我停止 autoprotected 資料庫的備份作業，會有何行為？](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [如果我從 autoprotected 實例中刪除資料庫，備份會發生什麼事？](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [如果我停止 autoprotected 資料庫的備份作業，會有何行為？](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## <a name="resume-protection-for-a-sql-database"></a>繼續保護 SQL 資料庫
 
@@ -115,12 +112,13 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
 您可以執行不同類型的隨選備份：
 
-* 完整備份
-* 僅複製完整備份
-* 差異備份
-* 記錄備份
+- 完整備份
+- 僅複製完整備份
+- 差異備份
+- 記錄備份
 
-雖然您需要指定只複製完整備份的保留期限，但臨機操作完整備份的保留範圍會自動從目前的時間設定為45天。 <br/>
+雖然您需要指定只複製完整備份的保留期限，但臨機操作完整備份的保留範圍會自動從目前的時間設定為45天。
+
 如需詳細資訊，請參閱[SQL Server 備份類型](backup-architecture.md#sql-server-backup-types)。
 
 ## <a name="unregister-a-sql-server-instance"></a>將 SQL Server 執行個體取消註冊
@@ -141,8 +139,8 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
    ![選取 [刪除]](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## <a name="modify-policy"></a>修改原則
+
 修改原則以變更備份頻率或保留範圍。
 
 > [!NOTE]
@@ -154,22 +152,21 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
   ![修改備份原則](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-修改原則會影響所有相關聯的備份專案，並觸發對應的 [**設定保護**工作]。 
+修改原則會影響所有相關聯的備份專案，並觸發對應的 [**設定保護**工作]。
 
-#### <a name="inconsistent-policy"></a>不一致的原則 
+### <a name="inconsistent-policy"></a>不一致的原則
 
 有時候，修改原則操作可能會導致某些備份專案的原則版本**不一致**。 觸發修改原則作業之後，備份專案的對應**設定保護**工作失敗時，就會發生這種情況。 它會在備份專案視圖中顯示如下：
- 
+
   ![不一致的原則](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 您只要按一下，就可以修正所有受影響專案的原則版本：
 
   ![修正不一致的原則](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>在 SQL Server VM 上重新註冊擴充功能
 
-有時候，VM 上的工作負載延伸可能會因為其中一個原因而受到影響。 在這種情況下，VM 上觸發的所有作業將會開始失敗。 接著，您可能需要在 VM 上重新註冊此延伸模組。 **重新註冊**作業會重新安裝 VM 上的工作負載備份延伸模組，以便繼續進行操作。  <br>
+有時候，VM 上的工作負載延伸可能會因為其中一個原因而受到影響。 在這種情況下，VM 上觸發的所有作業將會開始失敗。 接著，您可能需要在 VM 上重新註冊此延伸模組。 **重新註冊**作業會重新安裝 VM 上的工作負載備份延伸模組，以便繼續進行操作。
 
 請謹慎使用此選項;在具有狀況良好擴充功能的 VM 上觸發時，此作業會導致擴充功能重新開機。 這可能會導致所有進行中的工作失敗。 請先檢查是否有一或多個[徵兆](backup-sql-server-azure-troubleshoot.md#re-registration-failures)，再觸發重新註冊操作。
 

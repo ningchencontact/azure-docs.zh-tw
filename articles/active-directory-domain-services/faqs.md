@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 4add98ae092359c6f070bfc93b69257894f44e48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e8e6eb9be65b038780fa6e21cf20f4c5dda27a31
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596426"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991445"
 ---
 # <a name="frequently-asked-questions-faqs"></a>常見問題集 (FAQ)
 
@@ -47,7 +47,7 @@ ms.locfileid: "72596426"
 可以。 可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD Domain Services。 當您建立新的受控網域時，不再支援傳統 Azure 虛擬網路。
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>我可以將現有的受控網域從傳統虛擬網路遷移到 Resource Manager 虛擬網路嗎？
-是，這項功能目前為預覽狀態。 如需詳細資訊，請參閱 [將傳統虛擬網路模型中的 Azure AD Domain Services 遷移至 Resource Manager （預覽）] [遷移-傳統 vnet.md]
+是，這項功能目前為預覽狀態。 如需詳細資訊，請參閱[將 Azure AD Domain Services 從傳統虛擬網路模型遷移至 Resource Manager （預覽）](migrate-from-classic-vnet.md)。
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>是否可以在 Azure CSP (雲端方案提供者) 訂用帳戶中啟用 Azure AD Domain Services？
 可以。 如需詳細資訊，請參閱[如何在 AZURE CSP 訂用帳戶中啟用 Azure AD Domain Services](csp.md)。

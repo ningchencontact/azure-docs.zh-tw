@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389093"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990779"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理（預覽）中的存取權套件要求存取權
 
@@ -58,12 +58,13 @@ ms.locfileid: "72389093"
 
 1. 在清單中尋找存取封裝。  如有需要，您可以輸入搜尋字串，然後選取 [**名稱**]、[**目錄**] 或 [**資源**] 篩選來進行搜尋。
 
-    ![我的存取權入口網站-資源搜尋](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![我的存取權入口網站-資源搜尋](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. 按一下核取記號以選取存取封裝。
 
-    ![我的存取權入口網站 - 存取套件](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. 按一下 [要求存取] 以開啟 [要求存取] 窗格。
+
+    ![我的存取權入口網站 - 存取套件](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. 如果顯示 [**商業理由**] 方塊，請輸入需要存取的理由。
 
@@ -78,6 +79,12 @@ ms.locfileid: "72389093"
 1. 按一下 [**要求歷程記錄**] 以查看您的要求清單和狀態。
 
     如果存取套件需要核准，則要求現在會處於擱置中的核准狀態。
+
+### <a name="select-a-policy"></a>選取原則
+
+如果您要求存取已套用多項原則的存取封裝，可能會要求您選取原則。 例如，存取套件管理員可能會為兩個內部員工群組設定具有兩個原則的存取封裝。 第一個原則可能會允許存取60天，而且需要核准。 第二個原則可能允許存取2天，而不需要核准。 如果您遇到這種情況，您必須選取您想要使用的原則。
+
+![我的存取權入口網站-要求存取-多個原則](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="cancel-a-request"></a>取消要求
 
@@ -94,12 +101,6 @@ ms.locfileid: "72389093"
     ![我的存取權入口網站-取消要求](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. 按一下 [**要求歷程記錄**] 確認已取消要求。
-
-## <a name="select-a-policy"></a>選取原則
-
-如果您要求存取已套用多項原則的存取封裝，可能會要求您選取原則。 例如，存取套件管理員可能會為兩個內部員工群組設定具有兩個原則的存取封裝。 第一個原則可能會允許存取60天，而且需要核准。 第二個原則可能允許存取2天，而不需要核准。 如果您遇到這種情況，您必須選取您想要使用的原則。
-
-**先決條件角色：** 申請者
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,21 +1,21 @@
 ---
 title: 在 Azure 時間序列深入解析預覽總管中將資料視覺化 | Microsoft Docs
 description: 本文描述 Azure 時間序列深入解析預覽總管 Web 應用程式中的各種功能和可用選項。
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1707740d673ea49a4b4494f5d2e6a5753982090
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553403"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989961"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>在總管中將資料視覺化 (預覽)
 
@@ -35,7 +35,7 @@ ms.locfileid: "72553403"
 
 Azure 時間序列深入解析預覽總管包含下列元素：
 
-[![The Explorer 視圖](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[![Explorer 視圖](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
 - <a href="#environment-drop-down-list">環境面板</a>：顯示您的 Azure 時間序列深入解析環境。
 - <a href="#navigation-menu">導覽功能表</a>：用來在 [**分析**] 和 [**模型**] 頁面之間切換。
@@ -51,13 +51,13 @@ Azure 時間序列深入解析預覽總管包含下列元素：
 
 1. 選取顯示的環境旁邊的下拉箭號。
 
-   [![The 控制台](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [![控制台](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 1. 然後，選取您想要的環境。
 
 ## <a name="navigation-menu"></a>巡覽功能表
 
-  [![The 導覽功能表](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [![導覽功能表](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
 使用導覽功能表，在兩個不同的視圖之間進行選取：
 
@@ -72,7 +72,7 @@ Azure 時間序列深入解析預覽總管包含下列元素：
 
 您可以使用 [模型搜尋] 面板，輕鬆地搜尋及流覽您的時間序列模型階層，以尋找您想要在圖表上顯示的特定時間序列實例。 當您選取實例之後，它們就會加入至目前的圖表和資料。
 
-  [![The 模型搜尋面板](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+  [![模型搜尋面板](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
 
 ### <a name="model-authoring"></a>模型撰寫
 
@@ -88,11 +88,11 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 這會顯示實例欄位，以及與所選時間序列深入解析實例相關聯的其他中繼資料。 藉由選取右側的核取方塊，您可以隱藏或顯示目前圖表中的特定實例。 您也可以選取專案左側的紅色 [**刪除**] （垃圾桶）控制項，從目前的資料中移除特定的資料元素。
 
-  [![The 預覽良好](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+  [![預覽的效果](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
 若要重新設定 [**分析**圖表] 頁面的版面配置，請選取右上角的省略號圖示：
 
-  [![Telemetry 版面配置選項](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
+  [![遙測版面配置選項](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
 > [!NOTE]
 > 如果您看到下列訊息，則在選取的時間範圍內，實例沒有任何資料。 若要解決此問題，請增加時間範圍，或確認實例正在推送資料。
@@ -103,7 +103,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 在圖表中，您可以將時間序列深入解析實例顯示為線條。 您可以選取 web 控制項，讓圖表變大，以折迭 [環境] 面板、[資料模型] 和 [時間範圍] 控制台。
 
-  [![Preview 圖表總覽](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [![預覽圖表總覽](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
 - **選取的日期範圍**：控制哪些資料元素可供視覺效果使用。
 
@@ -121,15 +121,15 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 若要進一步切入到特定的資料配量，請以滑鼠左鍵按一下目前圖表上的資料點，然後將選取的區域拖曳至您選擇的端點。 以滑鼠右鍵按一下選取的灰色區域，然後選取 [**縮放**]，如下圖所示：
 
-  [![Preview 圖表縮放](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [![預覽圖表縮放比例](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
 執行 [**縮放**] 動作之後，您會看到選取的資料集。 選取 y 軸格式控制項，即可迴圈顯示時間序列深入解析資料的三個 y 軸標記法。
 
-  [![Preview 圖表 y 軸](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![預覽圖表 y 軸](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
 在這裡，您可以看到共用 Y 軸的範例：
 
-  [![Preview 共用 Y 軸](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [![預覽共用 Y 軸](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
 ## <a name="time-editor-panel"></a>時間編輯器面板
 
@@ -151,7 +151,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 1. **Web 控制項的日期範圍**：您可以使用這個 web 控制項，輕鬆地選取您想要的日期和時間範圍。 您也可以使用控制項切換不同的時區。 將變更套用至目前的工作區之後，請選取 [**儲存**]。
 
-   [![To 和從選取面板](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [從選取專案面板![（& a）](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
 ## <a name="navigation-panel"></a>導覽面板
 
@@ -159,15 +159,15 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 ### <a name="current-session-share-link-control"></a>目前工作階段共用連結控制項
 
-  [![Share 圖示](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [![共用圖示](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
 選取 [新增**共用**] 圖示，與您的小組共用 URL 連結。
 
-  [![Share 您的實例 URL](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![共用您的實例 URL](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
 
 ### <a name="tenant-section"></a>租用戶區段
 
-  [![Tenant 選取專案](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [![租使用者選取](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
 
 * 顯示目前時間序列深入解析登入帳戶資訊。
 * 使用它在可用的時間序列深入解析主題之間切換。
@@ -177,7 +177,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 若要選取新的主題，請選取位於右上角的設定檔圖示。 然後，選取 [**變更主題**]。
 
-  [![Theme 選取專案](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![主題選取範圍](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
 > [!TIP]
 > 選取您的設定檔圖示也可以選取 [語言]。
@@ -187,7 +187,7 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 * **淺色主題**：這份檔中顯示的預設主題。
 * **深色主題**：呈現 explorer，如下所示：
 
-  [![Selected 深色主題](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [![選取的深色主題](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 環境控制項
 
@@ -197,7 +197,7 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 您會看到 [時間序列深入解析詞彙] 面板，而不是階層，您可以在環境中定義查詢。 使用它根據述詞來篩選資料。
 
-  [![Where 查詢面板](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [![查詢面板](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
 
 時間序列深入解析預覽字詞編輯器使用以下參數：
 
@@ -220,11 +220,11 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 **分割依據**：此下拉式清單會顯示您模型中的所有可用類別資料行（字串），您可以將其分組。 您最多可以在同一個 X 軸上加入五個詞彙。 輸入您想要的參數，然後選取 [**新增**] 以新增新的字詞。
 
-  [![Queried 和篩選過的視圖一](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
+  [![查詢和篩選的視圖一](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
 您可以藉由選取可見圖示來顯示和隱藏 [圖表] 面板中的元素，如下圖所示。 若要完全移除查詢，請選取紅色**X**。
 
-  [![Queried 和篩選的視圖二](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
+  [![查詢和篩選的視圖二](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

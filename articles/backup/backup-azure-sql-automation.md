@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫-Azure 備份
+title: Azure VM 備份中的 SQL DB & 透過 PowerShell 進行還原-Azure 備份
 description: 使用 Azure 備份和 PowerShell 來備份和還原 Azure Vm 中的 SQL 資料庫。
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 242eaf06b9cd0b3783a626ab13eb0cb92300652f
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 229d960f7851b5fab8504b6c2a109bece6c7b31f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249060"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969102"
 ---
-# <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫
+# <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫
 
 本文說明如何使用 Azure PowerShell，在 Azure VM 中使用[Azure 備份](backup-overview.md)復原服務保存庫來備份和復原 SQL DB。
 
@@ -251,7 +251,7 @@ Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDat
 ````
 
 提取相關的可保護專案之後，請依照[上一節](#configuring-backup)中的指示啟用備份。
-如果您不想要手動偵測新的 Db, 他們可以選擇 start-autoprotection, [如下](#enable-autoprotection)所述。
+如果您不想要手動偵測新的 Db，他們可以選擇 start-autoprotection [，如下所述。](#enable-autoprotection)
 
 ## <a name="enable-autoprotection"></a>啟用 Start-autoprotection
 
@@ -471,7 +471,7 @@ MSSQLSERVER/m... Backup               InProgress           3/18/2019 8:41:27 PM 
 
 ### <a name="change-policy-for-backup-items"></a>變更備份專案的原則
 
-使用者可以修改現有的原則，或將備份專案的原則從 Policy1 變更為 Policy2。 若要切換已備份專案的原則，只需提取相關的原則和備份專案，並使用[AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0)命令搭配備份專案作為參數。
+使用者可以修改現有的原則，或將備份專案的原則從 Policy1 變更為 Policy2。 若要切換已備份專案的原則，請提取相關的原則和備份專案，並使用[AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0)命令搭配備份專案作為參數。
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

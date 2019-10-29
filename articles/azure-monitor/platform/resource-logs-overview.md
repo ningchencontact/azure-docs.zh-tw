@@ -7,12 +7,12 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 10/22/2019
-ms.openlocfilehash: e1bf6a55568671ddb8f6999356cc9be43ce6a728
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b953f9b5e5fd8c853746caad3047986786bd1317
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804018"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989614"
 ---
 # <a name="azure-resource-logs-overview"></a>Azure 資源記錄總覽
 Azure 資源記錄是由 Azure 資源所發出的[平臺記錄](platform-logs-overview.md)，可描述其內部作業。 所有資源記錄都會共用通用的最上層架構，並具有每個服務的彈性，以便為自己的事件發出唯一的屬性。
@@ -25,8 +25,8 @@ Azure 資源記錄是由 Azure 資源所發出的[平臺記錄](platform-logs-ov
 
 | 目的地 | 案例 |
 |:---|:---|:---|
-| [Log Analytics 工作區](resource-logs-collect-storage.md) | 分析具有其他監視資料的記錄，並利用 Azure 監視器的功能，例如記錄查詢和記錄警示。 |
-| [Azure 儲存體](archive-diagnostic-logs.md) | 封存記錄以進行審核或備份。 |
+| [Log Analytics 工作區](resource-logs-collect-workspace.md) | 分析具有其他監視資料的記錄，並利用 Azure 監視器的功能，例如記錄查詢和記錄警示。 |
+| [Azure 儲存體](resource-logs-collect-storage.md) | 封存記錄以進行審核或備份。 |
 | [事件中樞](resource-logs-stream-event-hubs.md) | 將記錄串流至協力廠商記錄和遙測系統。  |
 
 ## <a name="compute-resources"></a>計算資源

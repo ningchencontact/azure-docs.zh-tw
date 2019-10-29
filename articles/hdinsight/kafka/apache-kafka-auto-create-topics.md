@@ -7,58 +7,56 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/18/2018
-ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 10/25/2019
+ms.openlocfilehash: 1bcb433230af856e92c7e418fc81b35bea549ddf
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122658"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987991"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何將 HDInsight 上的 Apache Kafka 設定為自動建立主題
 
-根據預設，HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 不會啟用自動建立主題。 您可以使用 [Apache Ambari](https://ambari.apache.org/)，針對現有的叢集啟用自動建立主題。 您也可以在使用 Azure Resource Manager 範本建立新的 Kafka 叢集時，啟用自動建立主題。
+根據預設，HDInsight 上的[Apache Kafka](https://kafka.apache.org/)不會啟用自動建立主題。 您可以使用 [Apache Ambari](https://ambari.apache.org/)，針對現有的叢集啟用自動建立主題。 您也可以在使用 Azure Resource Manager 範本建立新的 Kafka 叢集時，啟用自動建立主題。
 
 ## <a name="apache-ambari-web-ui"></a>Apache Ambari Web UI
 
 若要透過 Ambari Web UI 針對現有的叢集啟用自動建立主題，請使用下列步驟：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取 Kafka 叢集。
+1. 從 [ [Azure 入口網站](https://portal.azure.com)] 中，選取您的 Kafka 叢集。
 
-2. 從 [叢集概觀]，選取 [叢集儀表板]。
+1. 從 [叢集**儀表板**] 中，選取 [ **Ambari home**]。
 
-    ![已選取叢集儀表板的入口網站影像](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
+    ![已選取叢集儀表板的入口網站影像](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-3. 然後選取 [HDInsight 叢集儀表板]。 出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。
+    出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。 或者，您可以直接從 `https://CLUSTERNAME.azurehdinsight.net/` 連接到 Amabri，其中 `CLUSTERNAME` 是 Kafka 叢集的名稱。
 
-    ![HDInsight 叢集儀表板項目的影像](./media/apache-kafka-auto-create-topics/hdinsight-cluster-dashboard.png)
-
-3. 從頁面左邊的清單中，選取 [Kafka] 服務。
+1. 從頁面左邊的清單中，選取 [Kafka] 服務。
 
     ![[Apache Ambari 服務清單] 索引標籤](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
-4. 選取頁面中間的 [設定]。
+1. 選取頁面中間的 [設定]。
 
     ![Apache Ambari 服務的 [選項] 索引標籤](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。
+1. 在 [篩選] 欄位中，輸入 `auto.create` 的值。
 
     ![Apache Ambari 搜尋篩選欄位](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
 
-6. 將 `auto.create.topics.enable` 的值變更為 `true`，然後選取 [儲存]。 新增附註，然後再次選取 [儲存]。
+1. 將 [`auto.create.topics.enable`] 的值變更為 [`true`]，然後選取 [**儲存**]。 新增附註，然後再次選取 [儲存]。
 
     ![auto.create.topics.enable 項目的影像](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
+1. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
 
     ![Apache Ambari 重新開機所有受影響的](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
-> 您也可以透過 Ambari REST API 設定 Ambari 值。 這通常更困難，因為您必須進行多個 REST 呼叫以擷取目前的設定、修改它等。如需詳細資訊，請參閱[使用 Apache Ambari REST API 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari-rest-api.md)文件。
+> 您也可以透過 Ambari REST API 設定 Ambari 值。 這通常比較棘手，因為您必須進行多個 REST 呼叫來抓取目前的設定、進行修改等等。如需詳細資訊，請參閱[使用 Apache Ambari 管理 HDInsight 叢集 REST API](../hdinsight-hadoop-manage-ambari-rest-api.md)檔。
 
-## <a name="resource-manager-templates"></a>Resource Manager 範本
+## <a name="resource-manager-templates"></a>資源管理員範本
 
 使用 Azure Resource Manager 範本建立 Kafka 叢集時，您可以藉由將 `auto.create.topics.enable` 加入至 `kafka-broker` 來直接設定它。 下列 JSON 程式碼片段示範如何將此值設定為 `true`：
 

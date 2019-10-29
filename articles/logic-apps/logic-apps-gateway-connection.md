@@ -1,6 +1,6 @@
 ---
-title: 從 Azure Logic Apps 存取內部部署資料來源
-description: 藉由建立內部部署資料閘道，從邏輯應用程式連線至內部部署資料來源
+title: 存取內部部署的資料來源-Azure Logic Apps
+description: 藉由建立 Azure 內部部署資料閘道資源，從 Azure Logic Apps 連接到內部部署資料來源
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b333df740fbd4c2243ea3f166593ca0a6f4bbad
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675667"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988743"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -77,7 +77,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 在 [**內部部署資料閘道**] 底下，選取 [**新增**]。
 
-   ![新增資料閘道](./media/logic-apps-gateway-connection/add-gateway.png)
+   ![為數據閘道新增 Azure 資源](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
 1. 在 [**建立連線閘道**] 底下，為您的閘道資源提供此資訊。 當您完成時，選取 [建立]。
 
@@ -92,7 +92,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
    以下範例顯示的閘道安裝與閘道資源位於相同的區域，並連結至相同的 Azure 帳戶：
 
-   ![提供建立資料閘道資源的詳細資訊](./media/logic-apps-gateway-connection/gateway-details.png)
+   ![提供建立資料閘道資源的詳細資訊](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -155,7 +155,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
    例如：
 
-   ![刪除閘道](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![刪除 Azure 中的閘道資源](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 

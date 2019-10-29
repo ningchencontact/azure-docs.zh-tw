@@ -1,6 +1,6 @@
 ---
-title: 開發適用于 Azure 串流分析 Edge 作業的 .NET Standard 功能
-description: 瞭解如何使用程式碼後置、現有封裝或本機專案，為 Azure 串流分析作業開發 .NET 使用者定義函數。
+title: 開發適用于 Azure 串流分析作業的 .NET Standard 功能（預覽）
+description: '瞭解如何為串流分析作業撰寫 c # 使用者定義函數。'
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -10,16 +10,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdfe4d2ccc39385b4020f60905b12c4683b1758c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 835eeaa0036d824a65918102ab7a00c3cf236931
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935014"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988399"
 ---
-# <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>針對 Azure 串流分析 Edge 作業開發 .NET Standard 使用者定義的函式 (預覽)
+# <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>開發適用于 Azure 串流分析作業的 .NET Standard 使用者定義函式（預覽）
 
-Azure 串流分析提供類似 SQL 的查詢語言，以對事件資料的串流執行轉換與計算。 內建許多函式，但某些複雜的案例需要更大的彈性。 透過 .NET Standard 使用者定義的函式 (UDF)，您可以叫用任何以 .NET Standard 語言 (C#、F# 等) 撰寫的函式，以擴充串流分析查詢語言。 UDF 可讓您執行複雜的數學運算、使用 ML.NET 匯入自訂 ML 模型，及為遺漏的資料使用自訂插補邏輯。 適用於串流分析 Edge 作業的 UDF 功能目前為預覽狀態，不應該用於生產環境工作負載。
+Azure 串流分析提供類似 SQL 的查詢語言，以對事件資料的串流執行轉換與計算。 內建許多函式，但某些複雜的案例需要更大的彈性。 透過 .NET Standard 使用者定義的函式 (UDF)，您可以叫用任何以 .NET Standard 語言 (C#、F# 等) 撰寫的函式，以擴充串流分析查詢語言。 UDF 可讓您執行複雜的數學運算、使用 ML.NET 匯入自訂 ML 模型，及為遺漏的資料使用自訂插補邏輯。 串流分析作業的 UDF 功能目前為預覽狀態，不應該用於生產工作負載。
 
 ## <a name="overview"></a>概觀
 Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本機 (甚至離線) 測試工作，並將串流分析工作發佈至 Azure。 發佈至 Azure 後，您便可使用 IoT 中樞將工作發佈至 IoT 裝置。
@@ -65,7 +65,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 ### <a name="example"></a>範例
 
-在此範例中，**UDFTest** 是 C# 類別庫專案，**ASAEdgeUDFDemo** 是 Azure 串流分析 Edge 專案，將參照 **UDFTest**。
+在此範例中， **UDFTest**是C#類別庫專案，而**ASAUDFDemo**是 Azure 串流分析專案，其會參考**UDFTest**。
 
 ![Visual Studio 中的 Azure 串流分析 IoT Edge 專案](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png)
 
@@ -73,7 +73,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
     
    ![在 Visual Studio 中建置 Azure 串流分析 IoT Edge 專案](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png)
 
-2. 在 Azure 串流分析 Edge 專案中新增對 C# 專案的參照。 以滑鼠右鍵按一下 [參照] 節點，然後選擇 [新增參照]。
+2. 在 ASA 專案中加入C#專案的參考。 以滑鼠右鍵按一下 [參照] 節點，然後選擇 [新增參照]。
 
    ![在 Visual Studio 中新增對 C# 專案的參照](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png)
 
@@ -97,7 +97,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
    ![Visual Studio 中的 C sharp 函式設定](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png)
 
-8. 在 C# 函式設定中，選擇 [從 ASA 專案參照載入]，然後從下拉式清單中選擇相關的組件、類別與方法名稱。 若要在 Azure 串流分析 Edge 查詢中參照方法、型別與函式，必須將類別定義為*公用*，物件必須定義為*靜態公用*。
+8. 在 C# 函式設定中，選擇 [從 ASA 專案參照載入]，然後從下拉式清單中選擇相關的組件、類別與方法名稱。 若要參考串流分析查詢中的方法、類型和函式，類別必須定義為*公用*，而且物件必須定義為*靜態公用*。
 
    ![串流分析 C sharp 函式設定](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png)
 
@@ -105,26 +105,25 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 您可以在任何您選擇的 IDE 中撰寫 .NET Standard UDF，並從 Azure 串流分析查詢中叫用 UDF。 先編譯程式碼並封裝所有的 DLL。 封裝格式的路徑為 `/UserCustomCode/CLR/*`。 接著，以您的 Azure 儲存體帳戶將 `UserCustomCode.zip` 上傳至容器的根目錄。
 
-當組件 zip 封裝已上傳到您的 Azure 儲存體帳戶後，您可以使用 Azure 串流分析查詢中的函式。 您只需在串流分析 Edge 作業設定中加入儲存體資訊。 您無法使用此選項在本機上測試函式，因為 Visual Studio 工具不會下載您的封裝。 系統會直接對服務剖析封裝路徑。 
+當組件 zip 封裝已上傳到您的 Azure 儲存體帳戶後，您可以使用 Azure 串流分析查詢中的函式。 您只需要在串流分析作業設定中包含儲存體資訊。 您無法使用此選項在本機上測試函式，因為 Visual Studio 工具不會下載您的封裝。 系統會直接對服務剖析封裝路徑。 
 
 在工作設定檔 `JobConfig.json` 中設定組件路徑：
 
 展開 [使用者定義的程式碼設定] 區段，然後在設定中填入以下建議的值：
 
- |**設定**  |**建議的值**  |
- |---------|---------|
- |組件來源  | 來自雲端的現有組件套件    |
- |資源  |  選擇目前帳戶中的資料   |
- |Subscription  |  選擇您的訂用帳戶。   |
- |儲存體帳戶  |  選擇儲存體帳戶   |
- |容器  |  選擇在您的儲存體帳戶中建立的容器。   |
-
-![Visual Studio 中的 Azure 串流分析 Edge 作業設定](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+   |**設定**|**建議的值**|
+   |-------|---------------|
+   |全域儲存體設定資源|選擇目前帳戶中的資料來源|
+   |全域儲存體設定訂用帳戶| < 您的訂用帳戶 >|
+   |全域儲存體設定儲存體帳戶| < 您的儲存體帳戶 >|
+   |自訂程式碼儲存設定資源|選擇目前帳戶中的資料來源|
+   |自訂程式碼儲存設定儲存體帳戶|< 您的儲存體帳戶 >|
+   |自訂程式碼儲存設定容器|< 您的儲存體容器 >|
+   |自訂程式碼元件來源|來自雲端的現有元件套件|
+   |自訂程式碼元件來源|UserCustomCode .zip|
 
 ## <a name="limitations"></a>限制
 UDF 預覽目前有以下限制：
-
-* .NET Standard 語言只能用於 Azure IoT Edge 串流分析。 對於雲端工作，您可以撰寫 JavaScript 使用者定義的函式。 若要深入了解，請造訪 [Azure 串流分析 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) 教學課程。
 
 * .NET Standard UDF 只能在 Visual Studio 中撰寫並發佈至 Azure。 在 Azure 入口網站的 [函式] 下方，可檢視 .NET Standard UDF 的唯讀版本。 Azure 入口網站不支援撰寫 .NET Standard 函式。
 
@@ -134,6 +133,6 @@ UDF 預覽目前有以下限制：
 
 ## <a name="next-steps"></a>後續步驟
 
-* [教學課程：針對 Azure 串流分析 Edge 作業撰寫 C# 使用者定義的函式 (預覽)](stream-analytics-edge-csharp-udf.md)
+* [教學課程：撰寫C# Azure 串流分析作業的使用者定義函數（預覽）](stream-analytics-edge-csharp-udf.md)
 * [教學課程：Azure 串流分析 JavaScript 使用者定義函式](stream-analytics-javascript-user-defined-functions.md)
 * [使用 Visual Studio 檢視 Azure 串流分析工作](stream-analytics-vs-tools.md)

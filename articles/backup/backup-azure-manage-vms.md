@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 備份服務來管理和監視 Azure VM 備份
+title: 使用 Azure 備份服務管理和監視 Azure VM 備份
 description: 瞭解如何使用 Azure 備份服務來管理和監視 Azure VM 備份。
 ms.reviewer: sogup
 author: dcurwin
@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029252"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969240"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>使用 Azure 備份服務管理 Azure VM 備份
 
 本文說明如何管理使用[Azure 備份服務](backup-overview.md)備份的 Azure 虛擬機器（vm）。 本文也會摘要說明您可以在保存庫儀表板上找到的備份資訊。
-
 
 在 Azure 入口網站中，復原服務保存庫儀表板會提供保存庫資訊的存取權，包括：
 
@@ -77,11 +76,12 @@ ms.locfileid: "72029252"
      ![選擇備份原則](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>執行隨選備份
+
 設定虛擬機器的保護之後，您可以執行 VM 的隨選備份。 請記住下列詳細資料：
 
-- 如果初始備份擱置中，隨選備份會在復原服務保存庫中建立 VM 的完整複本。
-- 如果初始備份已完成，隨選備份只會將先前快照集的變更傳送到復原服務保存庫。 也就是，之後的備份一律是增量的。
-- 隨選備份的保留範圍是您在觸發備份時所指定的保留值。
+* 如果初始備份擱置中，隨選備份會在復原服務保存庫中建立 VM 的完整複本。
+* 如果初始備份已完成，隨選備份只會將先前快照集的變更傳送到復原服務保存庫。 也就是，之後的備份一律是增量的。
+* 隨選備份的保留範圍是您在觸發備份時所指定的保留值。
 
 若要觸發隨選備份：
 
@@ -147,32 +147,32 @@ ms.locfileid: "72029252"
 
 有兩種方式可刪除 VM 的備份資料：
 
-- 從保存庫專案儀表板中，選取 [停止備份]，然後依照 [[停止保護和刪除備份資料](#stop-protection-and-delete-backup-data)] 選項的指示進行。
+* 從保存庫專案儀表板中，選取 [停止備份]，然後依照 [[停止保護和刪除備份資料](#stop-protection-and-delete-backup-data)] 選項的指示進行。
 
   ![選取 [停止備份]](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-- 從保存庫專案儀表板中，選取 [刪除備份資料]。 如果您已在停止 VM 保護期間選擇[停止保護並保留備份資料](#stop-protection-and-retain-backup-data)選項，則會啟用此選項。
+* 從保存庫專案儀表板中，選取 [刪除備份資料]。 如果您已在停止 VM 保護期間選擇[停止保護並保留備份資料](#stop-protection-and-retain-backup-data)選項，則會啟用此選項。
 
   ![選取 [刪除備份]](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  - 在保存[庫專案儀表板](#view-vms-on-the-dashboard)上，選取 [**刪除備份資料**]。
-  - 輸入備份專案的名稱，以確認您想要刪除復原點。
+  * 在保存[庫專案儀表板](#view-vms-on-the-dashboard)上，選取 [**刪除備份資料**]。
+  * 輸入備份專案的名稱，以確認您想要刪除復原點。
 
     ![刪除備份資料](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  - 若要刪除專案的備份資料，請選取 [**刪除**]。 通知訊息可讓您知道備份資料已被刪除。
+  * 若要刪除專案的備份資料，請選取 [**刪除**]。 通知訊息可讓您知道備份資料已被刪除。
 
   > [!NOTE]
   > 當您刪除備份資料時，會刪除所有相關聯的復原點。 您無法選擇要刪除的特定復原點。
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>主要資料來源已不存在的備份專案
 
-- 如果已刪除或移動為 Azure 備份設定的 Azure Vm，但未停止保護，則排定的備份作業和隨選（臨機操作）備份工作將會失敗，並出現錯誤 UserErrorVmNotFoundV2。 只有失敗的臨機操作備份作業（不會顯示失敗的排程工作），備份前置檢查才會顯示為 [重大]。 
-- 這些備份專案會在系統中保持作用中狀態，遵循使用者所設定的備份和保留原則。 這些 Azure Vm 的備份資料將會根據保留原則加以保留。 已過期的復原點（最後一個復原點除外）會根據備份原則中設定的保留範圍來清除。
-- 建議使用者刪除主要資料來源已不存在的備份專案，以避免任何額外的成本，如果已不再需要刪除資源的備份專案/資料，因為最後一個復原點會永久保留，而使用者的費用為依據適用的備份定價。
-
+* 如果已刪除或移動為 Azure 備份設定的 Azure Vm，但未停止保護，則排定的備份作業和隨選（臨機操作）備份工作將會失敗，並出現錯誤 UserErrorVmNotFoundV2。 只有失敗的臨機操作備份作業（不會顯示失敗的排程工作），備份前置檢查才會顯示為 [重大]。
+* 這些備份專案會在系統中保持作用中狀態，遵循使用者所設定的備份和保留原則。 這些 Azure Vm 的備份資料將會根據保留原則加以保留。 已過期的復原點（最後一個復原點除外）會根據備份原則中設定的保留範圍來清除。
+* 建議使用者刪除主要資料來源已不存在的備份專案，以避免任何額外的成本，如果已不再需要刪除資源的備份專案/資料，因為最後一個復原點會永久保留，而使用者的費用為依據適用的備份定價。
 
 ## <a name="next-steps"></a>後續步驟
-- 瞭解如何[從 VM 的設定備份 Azure vm](backup-azure-vms-first-look-arm.md)。
-- 瞭解如何[還原 vm](backup-azure-arm-restore-vms.md)。
-- 瞭解如何[監視 AZURE VM 備份](backup-azure-monitor-vms.md)。
+
+* 瞭解如何[從 VM 的設定備份 Azure vm](backup-azure-vms-first-look-arm.md)。
+* 瞭解如何[還原 vm](backup-azure-arm-restore-vms.md)。
+* 瞭解如何[監視 AZURE VM 備份](backup-azure-monitor-vms.md)。

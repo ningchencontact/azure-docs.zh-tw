@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: a21b7f510b6da40d3ab2c72fcfbcb2a746b75db1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309384"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990482"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure Logic Apps 中執行資料作業
 
@@ -33,7 +33,7 @@ ms.locfileid: "71309384"
 
 下列動作可協助您使用陣列中的資料。
 
-| Action | 描述 |
+| 行動 | 描述 |
 |--------|-------------|
 | [**建立 CSV 資料表**](#create-csv-table-action) | 從陣列建立逗號分隔值 (CSV) 資料表。 |
 | [**建立 HTML 資料表**](#create-html-table-action) | 從陣列建立 HTML 資料表。 |
@@ -46,7 +46,7 @@ ms.locfileid: "71309384"
 
 下列動作可協助您使用 JavaScript 物件標記法 (JSON) 格式的資料。
 
-| Action | 描述 |
+| 行動 | 描述 |
 |--------|-------------|
 | [**撰寫**](#compose-action) | 從可具有各種資料類型的多個輸入建立訊息或字串。 其後，您可以使用此字串作為單一輸入，而無須重複輸入相同的內容。 例如，您可以從多種輸入建立單一 JSON 訊息。 |
 | [**剖析 JSON**](#parse-json-action) | 為 JSON 內容中的屬性建立易記的權杖，以便在您的邏輯應用程式中輕鬆使用這些屬性。 |
@@ -60,7 +60,7 @@ ms.locfileid: "71309384"
 
 * 需透過作業來使用資料的邏輯應用程式
 
-  如果您不熟悉邏輯應用程式，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+  如果您不熟悉邏輯應用程式，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 * 作為邏輯應用程式中第一個步驟的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
@@ -80,23 +80,23 @@ ms.locfileid: "71309384"
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-若要試用範例，請使用 Logic App 設計工具按照下列步驟操作。 或者，如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的範例**撰寫**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-撰寫](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+若要試用範例，請使用 Logic App 設計工具按照下列步驟操作。 或者，如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**撰寫**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 撰寫](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
    此範例使用 Azure 入口網站和邏輯應用程式，並搭配**週期性**觸發程序和數個**初始化變數**動作。 這些動作依設定會建立兩個字串變數和一個整數變數。 當您稍後測試邏輯應用程式時，您可以直接手動執行應用程式，而無需等待觸發程序引發。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
+   ![啟動「撰寫」動作的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
 
 1. 在您要建立輸出的邏輯應用程式中，依照下列其中一個步驟操作： 
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     ![選取 [新增步驟] 以進行「撰寫」動作](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [**選擇動作**] 下的 [搜尋] 方塊`compose`中，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**撰寫**] 動作。
+1. 在 [選擇動作] 底下的搜尋方塊中，輸入 `compose` 作為篩選條件。 從 [動作] 清單中，選取 [**撰寫**] 動作。
 
    ![選取 [撰寫] 動作](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -104,11 +104,11 @@ ms.locfileid: "71309384"
 
    在此範例中，當您按一下 [輸入] 方塊內部時，動態內容清單隨即出現，以供您選取先前建立的變數：
 
-   ![選取要撰寫的輸入](./media/logic-apps-perform-data-operations/configure-compose-action.png)
+   ![選取要用於「撰寫」動作的輸入](./media/logic-apps-perform-data-operations/configure-compose-action.png)
 
    以下是完成的**撰寫**動作範例： 
 
-   ![完成的 [撰寫] 動作](./media/logic-apps-perform-data-operations/finished-compose-action.png)
+   ![完成「撰寫」動作的範例](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
@@ -124,9 +124,9 @@ ms.locfileid: "71309384"
 
    這個範例會使用 [**傳送電子郵件**] 動作，並在電子郵件的本文和主旨中包含**輸出**欄位：
 
-   ![[傳送電子郵件] 動作中的 [輸出] 欄位](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
+   ![「撰寫」動作的「輸出」欄位](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 
@@ -138,23 +138,23 @@ ms.locfileid: "71309384"
 
 若要建立逗號分隔值（CSV）資料表，其具有陣列中 JavaScript 物件標記法（JSON）物件的屬性和值，請使用 [**建立 CSV 資料表**] 動作。 接著，您可以在**建立 CSV 資料表**動作之後的動作中使用產生的資料表。
 
-如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的**建立 CSV 資料表**和**初始化變數**動作定義範例複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-建立 CSV 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
+如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**建立 CSV 資料表**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 建立 CSV 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
    此範例使用 Azure 入口網站和邏輯應用程式，並搭配**週期性**觸發程序和**初始化變數**動作。 此動作依設定會建立一個變數，且其初始值為陣列，含有 JSON 格式的一些屬性和值。 當您稍後測試邏輯應用程式時，您可以直接手動執行應用程式，而無需等待觸發程序引發。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![啟動「建立 CSV 資料表」動作的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. 在您要建立 CSV 資料表的邏輯應用程式中，依照下列其中一個步驟操作： 
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![針對 [建立 CSV 資料表] 動作選取 [新增步驟]](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [**選擇動作**] 下的 [搜尋] 方塊`create csv table`中，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**建立 CSV 資料表**] 動作。
+1. 在 [選擇動作] 底下的搜尋方塊中，輸入 `create csv table` 作為篩選條件。 從 [動作] 清單中，選取 [**建立 CSV 資料表**] 動作。
 
    ![選取 [建立 CSV 資料表] 動作](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -169,7 +169,7 @@ ms.locfileid: "71309384"
 
    以下是完成的**建立 CSV 資料表**動作範例： 
 
-   ![完成的 [建立 CSV 資料表] 動作](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
+   ![[建立 CSV 資料表] 動作的完成範例](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
@@ -183,7 +183,7 @@ ms.locfileid: "71309384"
 
 1. 在 [**值**] 屬性中，指定要改用的自訂值。
 
-若要從陣列傳回值，您可以使用[ `item()`函數](../logic-apps/workflow-definition-language-functions-reference.md#item)搭配 [**建立 CSV 資料表**] 動作。 在迴圈中，您可以[ `items()`使用函數](../logic-apps/workflow-definition-language-functions-reference.md#items)。 `For_each`
+若要從陣列傳回值，您可以使用[`item()` 函數](../logic-apps/workflow-definition-language-functions-reference.md#item)搭配 [**建立 CSV 資料表**] 動作。 在 `For_each` 迴圈中，您可以使用[`items()` 函數](../logic-apps/workflow-definition-language-functions-reference.md#items)。
 
 例如，假設您想要只具有屬性值的資料表資料行，而不是陣列中的屬性名稱。 若只要傳回這些值，請遵循下列步驟，在設計工具或程式碼視圖中工作。 以下是此範例傳回的結果：
 
@@ -204,30 +204,30 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   例如:
+   例如：
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![要取值屬性的運算式](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+   ![「建立 CSV 資料表」的取值參照「描述」](./media/logic-apps-perform-data-operations/csv-table-expression.png)
 
 1. 針對您想要的每個陣列屬性重複上述步驟。 當您完成時，您的動作會如下列範例所示：
 
-   ![完成的運算式](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+   !["Create CSV table" 中的 "item （）" 函數](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
 
 1. 若要將運算式解析成更具描述性的版本，請切換至程式碼視圖並回到設計工具視圖，然後重新開啟折迭的動作：
 
    [**建立 CSV 資料表**] 動作現在會如下列範例所示：
 
-   ![具有已解析運算式但沒有標頭的「建立 CSV 資料表」動作](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   ![「建立 CSV 資料表」-已解析的運算式，沒有標頭](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 #### <a name="work-in-code-view"></a>在程式碼視圖中工作
 
-在動作的 JSON 定義中，于`columns`陣列內`header`將屬性設定為空字串。 針對每`value`個屬性，取值您想要的每個陣列屬性。
+在動作的 JSON 定義中，于 `columns` 陣列中，將 `header` 屬性設定為空字串。 針對每個 `value` 屬性，取值所需的每個陣列屬性。
 
 1. 在設計工具工具列上，選取 [程式**代碼視圖**]。
 
-1. 在 [程式碼編輯器] 的動作`columns`陣列中，為您想要的陣列值的每一個資料行新增空白`header`屬性和此`value`運算式：
+1. 在 [程式碼編輯器] 中，于動作的 `columns` 陣列中，為您想要的陣列值的每一個資料行加入空的 `header` 屬性和此 `value` 運算式：
 
    ```json
    {
@@ -236,7 +236,7 @@ Oranges,2
    }
    ```
 
-   例如:
+   例如：
 
    ```json
    "Create_CSV_table": {
@@ -261,7 +261,7 @@ Oranges,2
 
    [**建立 CSV 資料表**] 動作現在會如下列範例所示，而且運算式已解析成更具描述性的版本：
 
-   ![具有已解析運算式但沒有標頭的「建立 CSV 資料表」動作](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   ![「建立 CSV 資料表」-解析的運算式和沒有標頭](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 如需與基礎工作流程定義中的這個動作有關的詳細資訊，請參閱[資料表動作](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)。
 
@@ -275,9 +275,9 @@ Oranges,2
 
    此範例使用 Office 365 Outlook 的 [**傳送電子郵件**] 動作，並在電子郵件的本文中包含 [**輸出**] 欄位：
 
-   ![[傳送電子郵件] 動作中的 [輸出] 欄位](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+   ![[建立 CSV 資料表] 動作的 [輸出] 欄位](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 
@@ -289,23 +289,23 @@ Oranges,2
 
 若要從陣列中的 JavaScript 物件標記法（JSON）物件建立具有屬性和值的 HTML 資料表，請使用 [**建立 HTML 資料表**] 動作。 接著，您可以在**建立 HTML 資料表**動作之後的動作中使用產生的資料表。
 
-如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的**建立 HTML 資料表**和**初始化變數**動作定義範例複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-建立 HTML 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**建立 HTML 資料表**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 建立 HTML 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
    此範例使用 Azure 入口網站和邏輯應用程式，並搭配**週期性**觸發程序和**初始化變數**動作。 此動作依設定會建立一個變數，且其初始值為陣列，含有 JSON 格式的一些屬性和值。 當您稍後測試邏輯應用程式時，您可以直接手動執行應用程式，而無需等待觸發程序引發。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![啟動「建立 HTML 資料表」的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. 在您要建立 HTML 資料表的邏輯應用程式中，依照下列其中一個步驟操作：
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![針對 [建立 HTML 資料表] 動作選取 [新增步驟]](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [**選擇動作**] 下的 [搜尋] 方塊`create html table`中，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**建立 HTML 資料表**] 動作。
+1. 在 [選擇動作] 底下的搜尋方塊中，輸入 `create html table` 作為篩選條件。 從 [動作] 清單中，選取 [**建立 HTML 資料表**] 動作。
 
    ![選取 [建立 HTML 資料表] 動作](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -320,7 +320,7 @@ Oranges,2
 
    以下是完成的**建立 HTML 資料表**動作範例：
 
-   ![完成的 [建立 HTML 資料表] 動作](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+   ![「建立 HTML 資料表」的完成範例](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
@@ -334,7 +334,7 @@ Oranges,2
 
 1. 在 [**值**] 屬性中，指定要改用的自訂值。
 
-若要從陣列傳回值，您可以使用[ `item()`函數](../logic-apps/workflow-definition-language-functions-reference.md#item)搭配 [**建立 HTML 資料表**] 動作。 在迴圈中，您可以[ `items()`使用函數](../logic-apps/workflow-definition-language-functions-reference.md#items)。 `For_each`
+若要從陣列傳回值，您可以使用[`item()` 函數](../logic-apps/workflow-definition-language-functions-reference.md#item)搭配 [**建立 HTML 資料表**] 動作。 在 `For_each` 迴圈中，您可以使用[`items()` 函數](../logic-apps/workflow-definition-language-functions-reference.md#items)。
 
 例如，假設您想要只具有屬性值的資料表資料行，而不是陣列中的屬性名稱。 若只要傳回這些值，請遵循下列步驟，在設計工具或程式碼視圖中工作。 以下是此範例傳回的結果：
 
@@ -355,30 +355,30 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   例如:
+   例如：
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![要取值屬性的運算式](./media/logic-apps-perform-data-operations/html-table-expression.png)
+   ![[建立 HTML 資料表] 動作中的取值屬性](./media/logic-apps-perform-data-operations/html-table-expression.png)
 
 1. 針對您想要的每個陣列屬性重複上述步驟。 當您完成時，您的動作會如下列範例所示：
 
-   ![完成的運算式](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+   !["Create HTML table" 中的 "item （）" 函數](./media/logic-apps-perform-data-operations/finished-html-expression.png)
 
 1. 若要將運算式解析成更具描述性的版本，請切換至程式碼視圖並回到設計工具視圖，然後重新開啟折迭的動作：
 
    [**建立 HTML 資料表**] 動作現在會如下列範例所示：
 
-   ![具有已解析運算式但沒有標頭的「建立 HTML 資料表」動作](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   ![「建立 HTML 資料表」-已解析的運算式，沒有標頭](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 #### <a name="work-in-code-view"></a>在程式碼視圖中工作
 
-在動作的 JSON 定義中，于`columns`陣列內`header`將屬性設定為空字串。 針對每`value`個屬性，取值您想要的每個陣列屬性。
+在動作的 JSON 定義中，于 `columns` 陣列中，將 `header` 屬性設定為空字串。 針對每個 `value` 屬性，取值所需的每個陣列屬性。
 
 1. 在設計工具工具列上，選取 [程式**代碼視圖**]。
 
-1. 在 [程式碼編輯器] 的動作`columns`陣列中，為您想要的陣列值的每一個資料行新增空白`header`屬性和此`value`運算式：
+1. 在 [程式碼編輯器] 中，于動作的 `columns` 陣列中，為您想要的陣列值的每一個資料行加入空的 `header` 屬性和此 `value` 運算式：
 
    ```json
    {
@@ -387,7 +387,7 @@ Oranges,2
    }
    ```
 
-   例如:
+   例如：
 
    ```json
    "Create_HTML_table": {
@@ -412,7 +412,7 @@ Oranges,2
 
    [**建立 HTML 資料表**] 動作現在會如下列範例所示，而且運算式已解析成更具描述性的版本：
 
-   ![具有已解析運算式但沒有標頭的「建立 HTML 資料表」動作](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   ![「建立 HTML 資料表」-解析的運算式和沒有標頭](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 如需與基礎工作流程定義中的這個動作有關的詳細資訊，請參閱[資料表動作](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)。
 
@@ -426,16 +426,16 @@ Oranges,2
 
    此範例使用 Office 365 Outlook 的 [**傳送電子郵件**] 動作，並在電子郵件的本文中包含 [**輸出**] 欄位：
 
-   ![[傳送電子郵件] 動作中的 [輸出] 欄位](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
-   
+   ![「建立 HTML 資料表」的「輸出」欄位](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+
    > [!NOTE]
    > 在電子郵件動作中包含 HTML 資料表輸出時，請確定您在電子郵件動作的進階選項中，將 [是 HTML] 屬性設定為 [是]。 如此，電子郵件動作即會正確格式化 HTML 資料表。
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 
-   ![含有 [建立 HTML 資料表] 動作結果的電子郵件](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+   ![具有「建立 HTML 資料表」結果的電子郵件](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
@@ -448,7 +448,7 @@ Oranges,2
 > 
 > 若要讓動作使用**篩選陣列**動作的陣列輸出，這些動作必須將陣列作為輸入，或者您可能必須將輸出陣列轉換為其他相容的格式。
 
-如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的範例**篩選陣列**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-篩選陣列](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
+如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**篩選陣列**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 篩選陣列](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
@@ -457,17 +457,17 @@ Oranges,2
    > [!NOTE]
    > 雖然此範例使用簡單的整數陣列，但在可根據物件的屬性和值進行篩選的 JSON 物件陣列中，此動作將特別有用。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
+   ![啟動「篩選陣列」動作的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
 
 1. 在您要建立已篩選陣列的邏輯應用程式中，依照下列其中一個步驟操作： 
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
+     ![針對 [篩選陣列] 動作選取 [新增步驟]](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [搜尋] 方塊中`filter array` ，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**篩選陣列**] 動作。
+1. 在搜尋方塊中，輸入 `filter array` 作為篩選條件。 從 [動作] 清單中，選取 [**篩選陣列**] 動作。
 
    ![選取 [篩選陣列] 動作](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -479,9 +479,9 @@ Oranges,2
 
 1. 針對條件，請指定要比較的陣列項目、選取比較運算子，並指定比較值。
 
-   這個範例會使用`item()`函數來存取陣列中的每個專案，而**篩選陣列**動作會搜尋值大於1的陣列專案：
-   
-   ![完成的 [篩選陣列] 動作](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
+   這個範例會使用 `item()` 函數來存取陣列中的每個專案，而**篩選陣列**動作會搜尋值大於1的陣列專案：
+
+   ![「篩選陣列」動作的完成範例](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
@@ -499,9 +499,9 @@ Oranges,2
 
    這個範例使用 Office 365 Outlook**傳送電子郵件**動作，並且在電子郵件的本文中包含**ActionBody （' Filter_array '）** 運算式的輸出：
 
-   ![[傳送電子郵件] 動作中的動作輸出](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
+   ![來自「篩選陣列」動作的動作輸出](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 
@@ -513,25 +513,25 @@ Oranges,2
 
 若要建立具有陣列中所有專案的字串，並以特定分隔符號分隔這些專案，請使用**聯結**動作。 接著，您可以在**聯結**動作之後的動作中使用該字串。
 
-如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的範例**聯結**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-聯結](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
+如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**聯結**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 聯結](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
    此範例使用 Azure 入口網站和邏輯應用程式，並搭配**週期性**觸發程序和**初始化變數**動作。 此動作依設定會建立一個變數，且其初始值為陣列，含有某些範例整數。 當您稍後測試邏輯應用程式時，您可以直接手動執行應用程式，而無需等待觸發程序引發。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
+   ![啟動「聯結」動作的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
 
 1. 在您要從陣列建立字串的邏輯應用程式中，依照下列其中一個步驟操作：
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-join-action.png)
+     ![SSelect 「加入」動作的「新增步驟」](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [搜尋] 方塊中`join` ，輸入做為您的篩選準則。 從 [動作] 清單中，選取此動作：**Join**
+1. 在搜尋方塊中，輸入 `join` 作為篩選條件。 從 [動作] 清單中，選取此動作：**聯結**
 
-   ![選取 [聯結] 動作](./media/logic-apps-perform-data-operations/select-join-action.png)
+   ![選取 [聯結] 動作](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
 1. 在 [來源] 方塊中，提供您要聯結為字串的項目所屬的陣列。
 
@@ -559,13 +559,13 @@ Oranges,2
 
    此範例使用 Office 365 Outlook 的 [**傳送電子郵件**] 動作，並在電子郵件的本文中包含 [**輸出**] 欄位：
 
-   ![[傳送電子郵件] 動作中的 [輸出] 欄位](./media/logic-apps-perform-data-operations/send-email-join-action.png)
+   !["Join" 動作的 [輸出] 欄位](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 
-   ![含有 [聯結] 動作結果的電子郵件](./media/logic-apps-perform-data-operations/join-email-results.png)
+   ![含有 [聯結] 動作結果的電子郵件](./media/logic-apps-perform-data-operations/join-send-email-results.png)
 
 <a name="parse-json-action"></a>
 
@@ -573,23 +573,23 @@ Oranges,2
 
 若要參考或存取 JavaScript 物件標記法（JSON）內容中的屬性，您可以使用 [**剖析 JSON** ] 動作，為這些屬性建立使用者易記的欄位或權杖。 如此，您即可在指定邏輯應用程式的輸入時從動態內容清單中選取這些屬性。 針對此動作，您可以提供 JSON 結構描述，或從範例 JSON 內容或承載產生 JSON 結構描述。
 
-如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的範例**剖析 JSON**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-剖析 JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
+如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**剖析 JSON** 和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 剖析 JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
    此範例使用 Azure 入口網站和邏輯應用程式，並搭配**週期性**觸發程序和**初始化變數**動作。 此動作依設定會建立一個變數，且其初始值為剖析 JSON，含有屬性和值。 當您稍後測試邏輯應用程式時，您可以直接手動執行應用程式，而無需等待觸發程序引發。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
+   ![啟動「剖析 JSON」動作的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
 
 1. 在您要剖析 JSON 內容的邏輯應用程式中，依照下列其中一個步驟操作：
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
+     ![針對 [剖析 JSON] 動作選取 [新增步驟]](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [搜尋] 方塊中`parse json` ，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**剖析 JSON** ] 動作。
+1. 在搜尋方塊中，輸入 `parse json` 作為篩選條件。 從 [動作] 清單中，選取 [**剖析 JSON** ] 動作。
 
    ![選取 [剖析 JSON] 動作](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -631,13 +631,13 @@ Oranges,2
 
    以下是完成的電子郵件動作：
 
-   ![完成的電子郵件動作](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
+   ![完成電子郵件動作的範例](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。 
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。 
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 
-   ![含有 [聯結] 動作結果的電子郵件](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+   ![具有「剖析 JSON」動作結果的電子郵件](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
 <a name="select-action"></a>
 
@@ -648,23 +648,23 @@ Oranges,2
 > [!NOTE]
 > 若要讓動作使用**選取**動作的陣列輸出，這些動作必須將陣列作為輸入，或者您可能必須將輸出陣列轉換為其他相容的格式。 
 
-如果您偏好在程式碼視圖編輯器中工作，您可以將本文中的**選取**和**初始化變數**動作定義範例複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例-選取](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**選取**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 選取](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。
 
    此範例使用 Azure 入口網站和邏輯應用程式，並搭配**週期性**觸發程序和**初始化變數**動作。 此動作依設定會建立一個變數，且其初始值為陣列，含有某些範例整數。 當您稍後測試邏輯應用程式時，您可以直接手動執行應用程式，而無需等待觸發程序引發。
 
-   ![啟動範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
+   ![啟動「選取」動作的範例邏輯應用程式](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
 
 1. 在您要建立陣列的邏輯應用程式中，依照下列其中一個步驟操作： 
 
    * 若要在最後一個步驟底下新增動作，請選取 [**新增步驟**]。
 
-     ![新增動作](./media/logic-apps-perform-data-operations/add-select-action.png)
+     ![針對 [選取] 動作選取 [新增步驟]](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [選擇動作] 底下，選取 [內建]。 在 [搜尋] 方塊中`select` ，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**選取**] 動作。
+1. 在 [選擇動作] 底下，選取 [內建]。 在搜尋方塊中，輸入 `select` 作為篩選條件。 從 [動作] 清單中，選取 [**選取**] 動作。
 
    ![選取 [選取] 動作](./media/logic-apps-perform-data-operations/select-select-action.png)
 
@@ -676,13 +676,13 @@ Oranges,2
 
 1. 在 [對應] 方塊左側的資料行中，提供您要在來源陣列中指派各個值的屬性名稱。 在右側的資料行中指定運算式，代表您要指派給屬性的值。
 
-   這個範例會指定 "Product_ID" 做為屬性名稱，以在存取每個陣列專案的運算式`item()`中使用函數來指派整數陣列中的每個值。 
+   這個範例會指定 "Product_ID" 做為屬性名稱，以在存取每個陣列專案的運算式中使用 `item()` 函數來指派整數陣列中的每個值。 
 
-   ![為您要建立的陣列指定 JSON 物件屬性和值](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
+   ![指定要建立陣列的 JSON 物件屬性和值](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
    以下是完成的動作：
 
-   ![完成的 [選取] 動作](./media/logic-apps-perform-data-operations/finished-select-action.png)
+   ![「選取」動作的完成範例](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
@@ -698,11 +698,11 @@ Oranges,2
 
    `@actionBody('Select')`
 
-   這個範例使用 Office 365 Outlook**傳送電子郵件**動作，並且在電子郵件的本文`@actionBody('Select')`中包含來自運算式的輸出：
+   此範例使用 Office 365 Outlook 的 [**傳送電子郵件**] 動作，並在電子郵件的本文中包含來自 `@actionBody('Select')` 運算式的輸出：
 
-   ![[傳送電子郵件] 動作中的動作輸出](./media/logic-apps-perform-data-operations/send-email-select-action.png)
+   ![來自「選取」動作的動作輸出](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
-1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上, 選取 [**執行**]。
+1. 現在，以手動執行您的邏輯應用程式。 在設計工具工具列上，選取 [**執行**]。
 
    根據您所使用的電子郵件連接器，以下是您所取得的結果：
 

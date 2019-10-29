@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
+title: 使用 Azure 備份還原已加密 VM 的 Key Vault 金鑰 & 秘密
 description: 了解如何使用 PowerShell 以 Azure 備份還原金鑰保存庫金鑰與密碼
 ms.reviewer: geg
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: dacurwin
-ms.openlocfilehash: cca8cf3a222b71954e6727e184ff5d16839a6a68
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 289042f70c44ab3b818a5350cc2e3db19e4d8a26
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954565"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969122"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
 
@@ -21,9 +21,9 @@ ms.locfileid: "68954565"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* **備份已加密的 VM** - 已使用 Azure 備份將已加密的 Azure VM 備份。 如需如何備份已加密 Azure Vm 的詳細資訊, 請參閱[使用 PowerShell 管理 Azure vm 的備份和還原一](backup-azure-vms-automation.md)文。
+* **備份已加密的 VM** - 已使用 Azure 備份將已加密的 Azure VM 備份。 如需如何備份已加密 Azure Vm 的詳細資訊，請參閱[使用 PowerShell 管理 Azure vm 的備份和還原一](backup-azure-vms-automation.md)文。
 * **設定 Azure 金鑰保存庫** – 先確定金鑰保存庫已存在，才能將金鑰和密碼還原至該金鑰保存庫。 請參閱[開始使用 Azure 金鑰保存庫](../key-vault/key-vault-get-started.md)一文，以取得金鑰保存庫管理的相關詳細資料。
 * **還原磁碟** - 請確定您已使用 [PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)觸發還原作業，以還原加密 VM 的磁碟。 這是因為此作業會在您的儲存體帳戶中產生 JSON 檔案，其中包含要還原之加密 VM 的金鑰和祕密。
 
@@ -31,6 +31,7 @@ ms.locfileid: "68954565"
 
 > [!NOTE]
 > 一旦還原加密 VM 的磁碟後，請確定：
+>
 > * 系統會將還原磁碟作業詳細資料填入 $details，如[還原 [磁碟] 區段中的 PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)中所述
 > * 僅在**將金鑰和秘密還原至金鑰保存庫之後**，才應該從還原的硬碟建立 VM。
 
@@ -64,7 +65,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 ## <a name="restore-secret"></a>還原密碼
 
-使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果**使用 BEK 和 KEK 加密您的 VM**，請使用這些 Cmdlet。
+使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果您的**VM 是使用 BEK 和 KEK 進行加密，** 請使用這些 Cmdlet。
 
 **如果使用 BEK 和 KEK 加密您的 Windows VM，請使用這些 Cmdlet。**
 
@@ -86,7 +87,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果**僅使用 BEK 加密您的 VM**，請使用這些 Cmdlet。
+使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果您的 VM 只**使用 BEK 加密，** 請使用這些 Cmdlet。
 
 ```powershell
 $secretDestination = 'C:\secret.blob'
@@ -95,6 +96,7 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
   ```
 
 > [!NOTE]
+>
 > * 可透過參考 $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl 的輸出，並使用祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
 >
@@ -130,6 +132,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 ```
 
 > [!NOTE]
+>
 > * 可透過參考 $rp1.KeyAndSecretDetails.SecretUrl 的輸出，並根據祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱就是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
 > * 還原回金鑰並使用 [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) Cmdlet 後，便可從金鑰保存庫取得 DiskEncryptionKeyEncryptionKeyURL 的值
@@ -138,4 +141,4 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 ## <a name="next-steps"></a>後續步驟
 
-將金鑰和密碼還原回金鑰保存庫後, 請參閱[使用 PowerShell 管理 Azure vm 的備份和還原](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)一文, 以從還原的磁片、金鑰和秘密建立加密的 vm。
+將金鑰和密碼還原回金鑰保存庫後，請參閱[使用 PowerShell 管理 Azure vm 的備份和還原](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)一文，以從還原的磁片、金鑰和秘密建立加密的 vm。
