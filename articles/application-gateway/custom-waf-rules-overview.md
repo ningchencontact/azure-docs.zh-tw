@@ -7,14 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8ae5c9b6b52ea13e3d0981664e8c920cc5b47a01
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2e96a2a2dd5504c906b5fb84b643467a83518f21
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263554"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027574"
 ---
-# <a name="overview-custom-rules-for-web-application-firewall-v2"></a>概觀：Web 應用程式防火牆 v2 的自訂規則
+# <a name="overview-custom-rules-for-web-application-firewall-v2"></a>總覽： web 應用程式防火牆 v2 的自訂規則
 
 Azure 應用程式閘道 web 應用程式防火牆（WAF） v2 隨附預先設定的平臺管理規則集，可提供各種不同類型攻擊的保護。 這些攻擊包括跨網站腳本、SQL 插入和其他。 如果您是 WAF 系統管理員，您可能會想要撰寫自己的規則來增強核心規則集規則。 您的規則可以根據符合條件來封鎖或允許要求的流量。
 
@@ -32,6 +32,9 @@ Azure 應用程式閘道 web 應用程式防火牆（WAF） v2 隨附預先設�
 > WAF 的自訂規則數目上限為100。 如需應用程式閘道限制的詳細資訊，請參閱[Azure 訂用帳戶和服務限制、配額和條件約束](../azure-subscription-service-limits.md#application-gateway-limits)。
 
 自訂規則也支援正則運算式，就像是在核心規則集中一樣。 如需這些規則的範例，請參閱[建立及使用自訂 web 應用程式防火牆規則](create-custom-waf-rules.md)中的「範例3」和「範例5」。
+
+> [!NOTE]
+> 在 v1 SKU WAF 中無法使用自訂規則。
 
 ## <a name="allowing-or-blocking-traffic"></a>允許或封鎖流量
 
@@ -55,7 +58,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-前面的 `$BlockRule` 會對應到 Azure Resource Manager 中的下列自訂規則：
+前面的 `$BlockRule` 對應至 Azure Resource Manager 中的下列自訂規則：
 
 ```json
 "customRules": [
@@ -107,14 +110,14 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
 
 Match 變數必須是下列其中一項：
 
-- RemoteAddr遠端電腦連線的 IP 位址或主機名稱
-- RequestMethod:HTTP 要求方法（GET、POST、PUT、DELETE 等等）。
-- QueryStringURI 中的變數。
-- PostArgs:在 POST 主體中傳送的引數。 只有在 Content-type 標頭設定為 "application/x-www-urlencoded" 和「多部分/表單資料」時，才會套用使用此比對變數的自訂規則。
-- RequestUri要求的 URI。
-- RequestHeaders要求的標頭。
-- RequestBody包含整個要求主體的變數。 只有當 Content-type 標頭設定為 "application/x-www-urlencoded" 時，才會套用使用此比對變數的自訂規則。 
-- RequestCookies:要求的 cookie。
+- RemoteAddr：遠端電腦連線的 IP 位址或主機名稱
+- RequestMethod： HTTP 要求方法（GET、POST、PUT、DELETE 等等）。
+- QueryString： URI 中的變數。
+- PostArgs：在 POST 主體中傳送的引數。 只有在 Content-type 標頭設定為 "application/x-www-urlencoded" 和「多部分/表單資料」時，才會套用使用此比對變數的自訂規則。
+- RequestUri：要求的 URI。
+- RequestHeaders：要求的標頭。
+- RequestBody：包含整個要求主體的變數。 只有當 Content-type 標頭設定為 "application/x-www-urlencoded" 時，才會套用使用此比對變數的自訂規則。 
+- RequestCookies：要求的 cookie。
 
 ### <a name="selector-optional"></a>選取器（選擇性）
 
@@ -124,8 +127,8 @@ Match 變數必須是下列其中一項：
 
 運算子必須是下列其中一項：
 
-- IPMatch:只有在*RemoteAddr*match 變數時，才會使用這個運算子。
-- 等輸入與 MatchValue 相同。
+- IPMatch：只有在*RemoteAddr*相符的變數時，才會使用這個運算子。
+- Equals：輸入與 MatchValue 相同。
 - Contains
 - LessThan
 - GreaterThan
@@ -158,11 +161,11 @@ MatchValues 欄位是要比對的值清單，可視為*或*' ed。 例如，值�
 
 [動作] 欄位提供下列選項： 
 
-- 允許：會授權交易，並略過所有後續的規則。 這表示指定的要求會新增至允許清單，並在符合後，要求會停止進一步評估並傳送至後端集區。 不會針對進一步的自訂規則或受管理規則評估允許清單上的規則。
+- 允許：授權交易，並略過所有後續的規則。 這表示指定的要求會新增至允許清單，並在符合後，要求會停止進一步評估並傳送至後端集區。 不會針對進一步的自訂規則或受管理規則評估允許清單上的規則。
 
-- 封鎖：封鎖以*SecDefaultAction* （偵測/預防模式）為基礎的交易。 就像允許動作，評估要求並新增至封鎖清單之後，會停止評估並封鎖要求。 不會評估符合相同條件的後續要求。 它們只會被封鎖。 
+- 封鎖：根據*SecDefaultAction* （偵測/預防模式）封鎖交易。 就像允許動作，評估要求並新增至封鎖清單之後，會停止評估並封鎖要求。 不會評估符合相同條件的後續要求。 它們只會被封鎖。 
 
-- 日誌讓規則寫入記錄檔，並讓其餘的規則執行以進行評估。 後續的自訂規則會依優先順序評估，後面接著受管理規則。
+- Log：讓規則寫入記錄檔，並讓其餘的規則執行以進行評估。 後續的自訂規則會依優先順序評估，後面接著受管理規則。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,41 +1,40 @@
 ---
 title: '& 常見案例的範例-Azure Logic Apps'
-description: Azure Logic Apps 的範例、案例、教學課程和逐步解說
+description: 尋找 Azure Logic Apps 的範例、常見案例、教學課程和逐步解說
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
+ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 000de22105615c3f6aa015b07e13bf8a47955b52
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 9e245d1a0054d9de5b8b524416c8c92eb02353a7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706792"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025510"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps 的常見情節、範例、教學課程和逐步解說
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)提供[數百個現成可用的連接器](../connectors/apis-list.md), 範圍從內部部署 SQL Server 或 SAP 到 Azure 認知服務, 協助您協調和整合不同的服務。 Logic Apps 服務為「無伺服器」，因此您不必擔心縮放比例或執行個體。 您只需要使用觸發程序和工作流程執行的動作，即可定義觸發程序。 基礎平台可處理調整、可用性和效能。 Logic Apps 特別適用於需要協調跨多個系統之多個動作的使用案例和情節。
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)提供[數百個現成可用的連接器](../connectors/apis-list.md)，範圍從內部部署 SQL Server 或 SAP 到 Azure 認知服務，協助您協調和整合不同的服務。 Logic Apps 服務為「無伺服器」，因此您不必擔心縮放比例或執行個體。 您只需要使用觸發程序和工作流程執行的動作，即可定義觸發程序。 基礎平台可處理調整、可用性和效能。 Logic Apps 特別適用於需要協調跨多個系統之多個動作的使用案例和情節。
 
-為了協助您深入瞭解 Azure Logic Apps 支援的許多模式和功能, 以下是常見的範例和案例。
+為了協助您深入瞭解 Azure Logic Apps 支援的許多模式和功能，以下是常見的範例和案例。
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>邏輯應用程式工作流程的常用起點
 
 每個邏輯應用程式都是以[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
 
-* *輪詢觸發*程式:定期檢查服務端點的新資料。 當新的資料存在時，觸發程序會使用資料建立並執行新的工作流程執行個體作為輸入。
+* 輪詢觸發程序：會定期檢查新資料的服務端點。 當新的資料存在時，觸發程序會使用資料建立並執行新的工作流程執行個體作為輸入。
 
-* *推送觸發*程式:接聽服務端點上的資料, 並等待特定事件發生為止。 當事件發生時，會立即引發觸發程序，建立和執行使用任何可用資料作為輸入的新工作流程執行個體。
+* 推送觸發程序：在服務端點中接聽資料，並等待特定事件發生。 當事件發生時，會立即引發觸發程序，建立和執行使用任何可用資料作為輸入的新工作流程執行個體。
 
 以下是幾個常用的觸發程序範例：
 
 * 輪詢：
 
-  * [**週期**觸發](../connectors/connectors-native-recurrence.md)程式可讓您設定開始日期和時間, 加上引發邏輯應用程式的週期。 例如，您可以選取要觸發邏輯應用程式的每週天數和每天時間。 如需詳細資訊，請參閱下列主題：
+  * [**週期**觸發](../connectors/connectors-native-recurrence.md)程式可讓您設定開始日期和時間，加上引發邏輯應用程式的週期。 例如，您可以選取要觸發邏輯應用程式的每週天數和每天時間。 如需詳細資訊，請參閱下列主題：
 
     * [使用 Azure Logic Apps 來排程和執行循環性的自動化工作、進程和工作流程](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [教學課程：使用 Azure Logic Apps 檢查排程的流量](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
@@ -49,14 +48,14 @@ ms.locfileid: "68706792"
   
 * 發送：
 
-  * [**要求**觸發](../connectors/connectors-native-reqres.md)程式可讓您的邏輯應用程式以某種方式接收 HTTP 要求, 並即時回應事件。
+  * [**要求**觸發](../connectors/connectors-native-reqres.md)程式可讓您的邏輯應用程式以某種方式接收 HTTP 要求，並即時回應事件。
 
   * [**HTTP Webhook** 觸發程序](../connectors/connectors-native-webhook.md)可訂閱服務端點，方法為使用該服務註冊回呼 URL。 這樣一來，當指定的事件發生時，服務可以只通知觸發程序，讓觸發程序不需要輪詢服務。
 
-接收關於新資料或事件的通知之後，觸發程序會引發、建立新的邏輯應用程式工作流程執行個體，並執行工作流程中的動作。 您可以在整個工作流程中，從觸發程序存取任何資料。 例如，「在新的推文上」觸發程序會將推文內容傳遞到邏輯應用程式執行。 若要開始使用 Azure Logic Apps, 請嘗試下列快速入門主題:
+接收關於新資料或事件的通知之後，觸發程序會引發、建立新的邏輯應用程式工作流程執行個體，並執行工作流程中的動作。 您可以在整個工作流程中，從觸發程序存取任何資料。 例如，「在新的推文上」觸發程序會將推文內容傳遞到邏輯應用程式執行。 若要開始使用 Azure Logic Apps，請嘗試下列快速入門主題：
 
 * [快速入門：使用 Azure 入口網站中的 Azure Logic Apps 建立您的第一個自動化工作流程](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [快速入門：使用 Visual Studio, 建立具有 Azure Logic Apps 的自動化工作、進程和工作流程](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [快速入門：使用 Visual Studio，建立具有 Azure Logic Apps 的自動化工作、進程和工作流程](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [快速入門：使用 Visual Studio Code 建立和管理自動化邏輯應用程式工作流程](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>回應觸發程序並延伸動作
@@ -67,8 +66,8 @@ ms.locfileid: "68706792"
 * [為工作流程執行設定長時間執行的動作](../logic-apps/logic-apps-create-api-app.md)
 * [使用 Webhook 回應外部事件和動作](../logic-apps/logic-apps-create-api-app.md)
 * [呼叫、觸發或巢狀處理具有 HTTP 要求同步回應的工作流程](../logic-apps/logic-apps-http-endpoint.md)
-* [教學課程：在幾分鐘內建立 AI 功能的社交儀表板, Logic Apps 和 Power BI](https://aka.ms/logicappsdemo)
-* [影片：回應 Twilio SMS webhook 並傳送文字回應](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [教學課程︰使用 Logic Apps 和 Power BI 在幾分鐘內建置具有 AI 技術的社交儀表板](https://aka.ms/logicappsdemo)
+* [影片︰回應 Twilio SMS Webhook 並傳送文字回應](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>控制流程、錯誤處理和記錄功能
 
@@ -78,7 +77,7 @@ ms.locfileid: "68706792"
 * [使用迴圈重複執行步驟或處理陣列和集合中的項目](../logic-apps/logic-apps-control-flow-loops.md)
 * [將動作與範圍群組在一起](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [在工作流程中撰寫錯誤和例外狀況處理](../logic-apps/logic-apps-exception-handling.md)
-* [使用案例：醫療保健公司如何針對 HL7 FHIR 工作流程使用邏輯應用程式例外狀況處理](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [使用案例︰醫療保健公司如何使用邏輯應用程式的例外狀況處理來處理 HL7 FHIR 工作流程](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [開啟現有 Logic Apps 的監視、記錄和警示](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [建立 Logic Apps 時開啟監視和診斷記錄](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -89,10 +88,10 @@ ms.locfileid: "68706792"
 * [使用 Visual Studio 建立和部署邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [開啟現有 Logic Apps 的監視、記錄和警示](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [自動化邏輯應用程式部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [範例：從 Azure Logic Apps 連接到 Azure 服務匯流排佇列, 並使用 Azure Pipelines 在 Azure DevOps 中進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [範例：從 Azure Logic Apps 連接到 Azure 儲存體帳戶, 並使用 Azure Pipelines 在 Azure DevOps 中進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [範例：設定 Azure Logic Apps 的函式應用程式動作, 並在 Azure DevOps 中使用 Azure Pipelines 進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [範例：從 Azure Logic Apps 連接到整合帳戶, 並在 Azure DevOps 中使用 Azure Pipelines 進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到 Azure 服務匯流排佇列，並使用 Azure Pipelines 在 Azure DevOps 中進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到 Azure 儲存體帳戶，並使用 Azure Pipelines 在 Azure DevOps 中進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：為 Azure Logic Apps 設定函式應用程式動作，並在 Azure DevOps 中使用 Azure Pipelines 進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到整合帳戶，並使用中的 Azure Pipelines 進行部署 Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>執行內的內容類型、轉換 (Conversion) 及轉換 (Transformation)
 
@@ -109,14 +108,14 @@ ms.locfileid: "68706792"
 * [使用 Azure 無伺服器建立即時社交儀表板](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [從邏輯應用程式呼叫 Azure Functions](../logic-apps/logic-apps-azure-functions.md)
 * [教學課程：使用 Azure Functions 觸發邏輯應用程式](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器變更](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [教學課程：建立可與 Azure Logic Apps 和 Azure 認知服務整合的函式, 以分析 Twitter 文章情感](../azure-functions/functions-twitter-email.md)
-* [教學課程：透過 Azure Logic Apps 連線 iot 中樞和信箱的 IoT 遠端監視和通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [部落格：從邏輯應用程式呼叫 SOAP 端點](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [教學課程：使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [教學課程：建立與 Azure Logic Apps 和 Azure 認知服務整合的函式，以分析 Twitter 文章情感](../azure-functions/functions-twitter-email.md)
+* [教學課程：搭配連線 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [部落格︰從邏輯應用程式呼叫 SOAP 端點](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>端對端案例
 
-* [白皮書與 Azure 服務整合的端對端案例管理, 例如 Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [白皮書：使用 Azure 服務 (例如 Logic Apps) 進行端對端案例管理整合](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>客戶案例
 

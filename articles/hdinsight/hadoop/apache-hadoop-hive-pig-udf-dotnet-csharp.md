@@ -1,5 +1,5 @@
 ---
-title: 在 HDInsight 的 Apache Hadoop 上搭配使用 C# 與 Apache Hive 和 Apache Pig - Azure
+title: C#Apache Hive & apache Hadoop 上的 Apache Pig-Azure HDInsight
 description: 了解如何搭配使用 C# 使用者定義函數 (UDF) 與 Azure HDInsight 中的 Apache Hive 和 Apache Pig 串流處理。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 222b91b2efefa81186d32fee7229aa0cc4f13a63
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066910"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044601"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>在C# HDInsight 中的 apache Hadoop 上搭配 Apache Hive 和 apache Pig 使用使用者定義函數
 
@@ -44,7 +44,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 * __以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project.com)](https://mono-project.com) 來執行 .NET 應用程式。 4\.2.1 版的 Mono 隨附於 3.6 版的 HDInsight。
 
-    如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/) \(英文\)。
+    如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性 (英文)](https://www.mono-project.com/docs/about-mono/compatibility/)。
 
 * __以 Windows 為基礎的 HDInsight__ 叢集使用 Microsoft.NET CLR 來執行.NET 應用程式。
 
@@ -57,7 +57,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 1. 開啟 Visual Studio 並建立方案。 在專案類型中選取 [主控台應用程式 (.NET Framework)]，然後將新專案命名為 **HiveCSharp**。
 
     > [!IMPORTANT]
-    > 如果您使用以 Linux 為基礎的 HDInsight 叢集，請選取 __.NET Framework 4.5__。 如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/) \(英文\)。
+    > 如果您使用以 Linux 為基礎的 HDInsight 叢集，請選取 __.NET Framework 4.5__。 如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性 (英文)](https://www.mono-project.com/docs/about-mono/compatibility/)。
 
 2. 以下列程式碼取代 **Program.cs** 的內容：
 

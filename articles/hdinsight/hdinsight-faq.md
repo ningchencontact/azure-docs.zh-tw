@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5b9011e2a95dc1bdb86311111123db3c994f3aee
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827615"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044943"
 ---
-# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題集
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題
 
 本文提供有關如何執行[Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)的一些常見問題的解答。
 
@@ -44,7 +44,7 @@ ms.locfileid: "71827615"
 
 本節提供常見的容量問題錯誤和緩和技術。
 
-#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>Error:部署會超過配額 ' 800 '
+#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>錯誤：部署會超過配額 ' 800 '
 
 針對每個資源群組，Azure 的部署配額限制為 800 個。 每個資源群組、訂用帳戶、帳戶或其他範圍都會套用不同的配額。 例如，您的訂用帳戶可能設定為要限制區域的核心數目。 如果您嘗試部署的虛擬機器所擁有的核心數超過允許的數量，您會收到一則錯誤訊息，指出已超過配額。
 
@@ -52,7 +52,7 @@ ms.locfileid: "71827615"
 
 如需詳細資訊，請參閱[解決資源配額的錯誤](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)。
 
-#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Error:節點數上限已超過此區域中的可用核心
+#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>錯誤：節點數上限已超過此區域中的可用核心
 
 您的訂用帳戶可能設定為要限制區域的核心數目。 如果您嘗試部署的資源超過允許的數量，則會收到錯誤訊息，指出已超過配額。
 
@@ -65,8 +65,8 @@ ms.locfileid: "71827615"
 1. 在 [**新增支援要求**] 頁面的 [**基本**] 索引標籤上，提供下列資訊：
    
    - **問題類型：** 選取 **[服務與訂用帳戶限制（配額）** ]。
-   - **訂用帳戶︰** 選取您想要修改的訂用帳戶。
-   - **配額類型：** 選取 [HDInsight]。
+   - **訂**用帳戶：選取您想要修改的訂用帳戶。
+   - **配額類型：** 選取 [ **HDInsight**]。
 
 如需詳細資訊，請參閱[建立支援票證來增加核心](hdinsight-capacity-planning.md#quotas)。
 
@@ -80,11 +80,11 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>我可以在叢集上安裝其他元件嗎？
 
-是的。 若要安裝其他元件或自訂叢集設定，請使用：
+可以。 若要安裝其他元件或自訂叢集設定，請使用：
 
 - 在建立期間或之後的腳本。 腳本是透過[腳本動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)叫用，這是您可以從 Azure 入口網站、Hdinsight Windows PowerShell Cmdlet 或 HDINSIGHT .net SDK 使用的設定選項。 此設定選項可以從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。
 
-- `sudo`或在您布建叢集之後的其他方法。
+- 在布建叢集之後，`sudo` 或其他方法。
   
 - [HDInsight 應用程式平臺](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)，用於安裝生態系統應用程式。
 
@@ -114,7 +114,7 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>如何? 變更 Ambari 中的時區嗎？
 
-1. 開啟位於 https://CLUSTERNAME.azurehdinsight.net 的 Ambari Web UI，其中 CLUSTERNAME 是您的叢集名稱。
+1. 在 https://CLUSTERNAME.azurehdinsight.net 開啟 Ambari Web UI，其中 CLUSTERNAME 是您的叢集名稱。
 2. 在右上角，選取 [管理] |設置。 
 
    ![Ambari 設定](media/hdinsight-faq/ambari-settings.png)
@@ -127,7 +127,7 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 ### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>如何從現有的中繼存放區遷移至 Azure SQL Server？ 
 
-若要從 SQL Server 遷移至 Azure SQL Server， [請參閱教學課程：使用 DMS](../dms/tutorial-sql-server-to-azure-sql.md)，將 SQL Server 遷移至 Azure SQL Database 離線的單一資料庫或集區資料庫。
+若要從 SQL Server 遷移至 Azure SQL Server，請參閱[教學課程：使用 DMS，將 SQL Server 遷移到 Azure SQL Database 離線中的單一資料庫或](../dms/tutorial-sql-server-to-azure-sql.md)集區資料庫。
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>刪除叢集時，Hive 中繼存放區是否刪除？
 
@@ -179,7 +179,7 @@ Hive 中繼存放區用來儲存 Hive 伺服器所使用之資料來源的中繼
 
 - 邊緣節點：您可以將另一個邊緣節點新增至叢集，如在[HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點](hdinsight-apps-use-edge-node.md)中所述。
 
-- 獨立節點：您可以將獨立虛擬機器新增到相同的子網，並使用私用端點`https://<CLUSTERNAME>-int.azurehdinsight.net`從該虛擬機器存取叢集。 如需詳細資訊，請參閱[控制網路流量](hdinsight-plan-virtual-network-deployment.md#networktraffic)。
+- 獨立節點：您可以將獨立虛擬機器新增到相同的子網，並使用 `https://<CLUSTERNAME>-int.azurehdinsight.net`的私用端點，從該虛擬機器存取叢集。 如需詳細資訊，請參閱[控制網路流量](hdinsight-plan-virtual-network-deployment.md#networktraffic)。
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>我可以將現有的 HDInsight 叢集新增到另一個虛擬網路嗎？
 
@@ -211,7 +211,7 @@ ktutil: q
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>我可以在 AAD DS 安全 LDAP 安裝程式中使用自我簽署憑證，並布建 ESP 叢集嗎？
 
-建議使用憑證授權單位單位所發行的憑證，但 ESP 也支援使用自我簽署憑證。 如需詳細資訊，請參閱：
+建議使用憑證授權單位單位所發行的憑證，但 ESP 也支援使用自我簽署憑證。 如需詳細資訊，請參閱
 
 - [啟用 Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -238,6 +238,13 @@ Clamscan 是在 HDInsight 叢集上執行的防毒軟體，可供 Azure 安全�
    `/usr/local/bin/azsecd manual -s clamav`
 
 如需有關如何設定及執行 cron 作業的詳細資訊，請參閱[如何? 設定 cron 作業](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)？
+
+### <a name="why-is-llap-available-on-spark-esp-clusters"></a>為什麼 Spark ESP 叢集上有 LLAP 可供使用？
+在 ESP Spark 叢集上，LLAP 會基於安全性理由（也就是 Apache Ranger）而啟用，而不是效能。 您應該使用較大的節點 Vm 來配合 LLAP 的資源使用量（例如最低 D13V2）。 
+
+### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>如何在建立 ESP 叢集之後新增其他 AAD 群組？
+有兩種方式可達成此目的： 1-您可以重新建立叢集，並在叢集建立時新增額外的群組。 如果您在 AAD-DS 中使用範圍同步處理，請確定群組 B 已包含在已設定範圍的同步處理中。
+2-將群組新增為先前用來建立 ESP 叢集之群組的嵌套子群組。 例如，如果您已建立具有群組 `A`的 ESP 叢集，稍後可以將群組 `B` 新增為 `A` 的嵌套子群組，並在大約一小時後自動同步處理並在叢集中使用。 
 
 ## <a name="storage"></a>儲存體
 
@@ -281,7 +288,7 @@ done
 
 目前，blob 儲存體和 Azure Data Lake Storage Gen1 或 Gen2 不存在任何 Ranger 外掛程式。 針對 ESP 叢集，您應該使用 Azure Data Lake Storage，因為您至少可以使用 HDFS 工具，在檔案系統層級手動設定細微許可權。 此外，使用 Azure Data Lake Storage 時，ESP 叢集會使用叢集層級的 Azure Active Directory 來執行一些檔案系統存取控制。 
 
-您可以使用 Azure 儲存體總管，將資料存取原則指派給使用者的安全性群組。 如需詳細資訊，請參閱：
+您可以使用 Azure 儲存體總管，將資料存取原則指派給使用者的安全性群組。 如需詳細資訊，請參閱
 
 - [如何? 將 Azure AD 使用者的許可權設定為使用 Hive 或其他服務來查詢 Data Lake Storage Gen2 中的資料嗎？](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
@@ -310,14 +317,14 @@ HDInsight 叢集，或在建立叢集時新增至新叢集。 如需詳細資訊
 
 您可以使用下列 REST 端點，以 JSON 格式提取必要的資訊。 使用基本驗證標頭來提出要求。
 
-- Tez 查詢檢視： *HTTPs： \/ @ no__t-2 @ no__t-3cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/HIVE_QUERY_ID/*
-- Tez Dag View： *HTTPs： \/ @ no__t-2 @ no__t-3cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/TEZ_DAG_ID/*
+- Tez 查詢檢視： *HTTPs：\//\<叢集名稱 >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/HIVE_QUERY_ID/*
+- Tez Dag View： *HTTPs：\//\<叢集名稱 >。 hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>如何? 使用 Azure Active Directory 使用者從 HDI 叢集取出設定詳細資料嗎？
 
 若要與您的 AAD 使用者協商適當的驗證權杖，請使用下列格式來完成閘道：
 
-* HTTPs://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* HTTPs://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>如何? 使用 Ambari Restful API 來監視 YARN 效能嗎？
 
@@ -347,7 +354,7 @@ http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/component
 > [!NOTE]
 > 捲曲會提示您輸入密碼。 您必須為叢集登入使用者名稱輸入有效的密碼。
 
-## <a name="billing"></a>帳務
+## <a name="billing"></a>計費
 
 ### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>部署 HDInsight 叢集需要多少成本？
 

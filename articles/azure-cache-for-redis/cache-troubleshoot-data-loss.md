@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 523f4a302eb1f4679eb34bc959efc895fa5408ec
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4fee7c84b394e84369b28d2a4191d0e581f3beba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821051"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044352"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-data-loss"></a>針對 Azure Cache for Redis 資料遺失進行疑難排解
 
@@ -101,7 +101,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 |---|---|
 | [金鑰排清](#key-flushing) | 已手動清除金鑰 |
 | [不正確的資料庫選取專案](#incorrect-database-selection) | Redis 設定為使用非預設的資料庫 |
-| [Redis 實例失敗](#redis-instance-failure) | 明確刪除命令會移除金鑰 |
+| [Redis 實例失敗](#redis-instance-failure) | Redis 伺服器無法使用 |
 
 ### <a name="key-flushing"></a>金鑰排清
 

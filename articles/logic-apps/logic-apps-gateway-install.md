@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675695"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042147"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -89,15 +89,15 @@ ms.locfileid: "72675695"
 
 1. 在安裝程式開啟之後，選取 **[下一步]** 。
 
-   ![安裝程式簡介](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![閘道安裝程式的簡介畫面](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. 選取 [內部**部署資料閘道（建議）** ]，這是 [標準模式]，然後選取 **[下一步]** 。
 
-   ![選取閘道模式](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![選取資料閘道的執行模式](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. 請參閱最低需求，保留預設安裝路徑，接受使用規定，然後選取 [**安裝**]。
 
-   ![審查需求並接受使用條款](./media/logic-apps-gateway-install/accept-terms.png)
+   ![審查需求並接受使用條款](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. 成功安裝閘道之後，請提供您 Azure 帳戶的電子郵件地址，然後選取 [登**入**]，例如：
 
@@ -107,7 +107,7 @@ ms.locfileid: "72675695"
 
 1. 選取 **在這部電腦上註冊新的閘道** ** >  下一步**。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
 
-   ![註冊閘道](./media/logic-apps-gateway-install/register-gateway.png)
+   ![在本機電腦上註冊閘道](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. 為您的閘道安裝提供下列資訊：
 
@@ -115,7 +115,7 @@ ms.locfileid: "72675695"
    * 您想要使用的修復金鑰，必須至少有八個字元
    * 確認您的修復金鑰
 
-   ![設定閘道](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![提供閘道安裝的資訊](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > 將您的修復金鑰儲存並保留在安全的地方。 如果您想要變更位置、移動、復原或接管閘道安裝，則需要此金鑰。
@@ -124,7 +124,7 @@ ms.locfileid: "72675695"
 
 1. 檢查閘道雲端服務的區域，以及閘道安裝所使用的[Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)。 根據預設，此區域是與您的 Azure 帳戶 Azure AD 租使用者相同的位置。
 
-   ![檢查區域](./media/logic-apps-gateway-install/check-region.png)
+   ![確認閘道服務和服務匯流排的區域](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. 若要接受預設區域，請選取 [**設定**]。 不過，如果預設區域不是最接近您的區域，您可以變更該區域。
 
@@ -134,15 +134,15 @@ ms.locfileid: "72675695"
 
    1. 在目前區域旁邊，選取 [變更區域]。
 
-      ![變更區域](./media/logic-apps-gateway-install/change-region.png)
+      ![變更目前的閘道區域](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. 在下一個頁面上，開啟 [**選取區域**] 清單，選取您想要的區域，然後選取 [**完成**]。
 
-      ![選取其他區域](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![選取閘道服務的另一個區域](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
 1. 檢查最後確認視窗中的資訊。 這個範例會針對 Logic Apps、Power BI、PowerApps 和 Microsoft Flow 使用相同的帳戶，因此所有這些服務都可使用該閘道。 當您準備好時，請選取 [**關閉**]。
 
-   ![已完成的閘道](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![確認資料閘道資訊](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. 現在，[為您的閘道安裝建立 Azure 資源](../logic-apps/logic-apps-gateway-connection.md)。
 
@@ -185,7 +185,7 @@ ms.locfileid: "72675695"
 
 1. 選取可用的叢集和閘道，然後輸入所選閘道的修復金鑰，例如：
 
-   ![選取閘道](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![選取閘道並提供修復金鑰](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. 若要變更區域，請選取 [**變更區域**]，然後選取新的區域。
 
@@ -270,9 +270,9 @@ Microsoft 雲端服務會使用[Azure AD](../active-directory/fundamentals/activ
 
 如需詳細資訊，請參閱下列主題：
 
-* [內部部署資料閘道常見問題集](/data-integration/gateway/service-gateway-onprem-faq)
-* [針對內部部署資料閘道進行疑難排解](/data-integration/gateway/service-gateway-tshoot)
-* [監視和優化閘道效能](/data-integration/gateway/service-gateway-performance)
+* [內部部署資料閘道常見問題集](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [針對內部部署資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [監視和優化閘道效能](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>後續步驟
 

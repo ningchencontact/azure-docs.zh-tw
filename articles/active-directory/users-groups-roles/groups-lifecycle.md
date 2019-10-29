@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8858786d59563542c95d43d4e480ab1c11383
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933789"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024775"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -28,7 +28,7 @@ ms.locfileid: "72933789"
 
 一旦您為群組設定到期日：
 
-- 具有使用者活動的群組會在到期時自動更新（預覽）
+- 具有使用者活動的群組會在到期時自動更新
 - 如果群組未自動更新，群組的擁有者會收到更新群組的通知
 - 未更新的群組會遭到刪除
 - 群組擁有者或系統管理員可在 30 天內還原已刪除的任何 Office 365 群組
@@ -40,7 +40,7 @@ ms.locfileid: "72933789"
 
 如需有關如何下載及安裝 Azure AD PowerShell Cmdlet 的資訊，請參閱 [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)。
 
-## <a name="activity-based-automatic-renewal-preview"></a>以活動為基礎的自動更新（預覽）
+## <a name="activity-based-automatic-renewal"></a>以活動為基礎的自動續約
 
 使用 Azure AD 情報，群組現在會根據是否已在最近使用過，而自動更新。 這項功能不需要由群組擁有者進行手動動作，因為它是根據 Office 365 服務（如 Outlook、SharePoint、小組或 Yammer）中群組的使用者活動而定。 例如，如果擁有者或群組成員執行的作業類似在 SharePoint 中上傳檔、流覽小組頻道，或傳送電子郵件至 Outlook 中的群組，則會自動更新該群組，而且擁有者不會收到任何更新通知。
 

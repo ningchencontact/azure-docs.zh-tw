@@ -1,5 +1,5 @@
 ---
-title: 商務持續性和災害復原 (BCDR)：Azure 配對區域 | Microsoft Docs
+title: 商務持續性 & 嚴重損壞修復-Azure 配對區域
 description: 了解 Azure 區域配對，以確保當資料中心發生故障時應用程式可復原。
 author: rayne-wiselman
 manager: carmon
@@ -7,14 +7,14 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514470"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044130"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>商務持續性和災害復原 (BCDR)：Azure 配對區域
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
 ## <a name="what-are-paired-regions"></a>什麼是配對的區域？
 
@@ -29,8 +29,8 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | [地理位置] | 配對的區域 |  |
 |:--- |:--- |:--- |
 | 亞洲 |東亞 |東南亞 |
-| 澳大利亞 |澳洲東部 |澳大利亞東南部 |
-| 澳大利亞 |澳大利亞中部 |澳大利亞中部 2 |
+| 澳洲 |澳大利亞東部 |澳大利亞東南部 |
+| 澳洲 |澳洲中部 |澳洲中部 2 |
 | 巴西 |巴西南部 |美國中南部 |
 | 加拿大 |加拿大中部 |加拿大東部 |
 | 中國 |中國北部 |中國東部|
@@ -42,25 +42,25 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 印度 |印度西部 |印度南部 |
 | 日本 |日本東部 |日本西部 |
 | 南韓 |南韓中部 |南韓南部 |
-| 北美洲 |East US |美國西部 |
+| 北美洲 |美國東部 |美國西部 |
 | 北美洲 |美國東部 2 |美國中部 |
 | 北美洲 |美國中北部 |美國中南部 |
 | 北美洲 |美國西部 2 |美國中西部 
 | 南非 | 南非北部 | 南非西部
 | 英國 |英國西部 |英國南部 |
 | 阿拉伯聯合大公國 | 阿拉伯聯合大公國北部 | 阿拉伯聯合大公國中部
-| 美國國防部 |美國 DoD 東部 |美國國防部中央 |
-| 美國政府 |美國政府亞利桑那州 |美國政府德克薩斯州 |
-| 美國政府 |US Gov 愛荷華州 |美國政府維吉尼亞州 |
-| 美國政府 |美國政府維吉尼亞州 |美國政府德克薩斯州 |
+| 美國國防部 |US DoD 東部 |US DoD 中部 |
+| 美國政府 |US Gov 亞利桑那州 |US Gov 德克薩斯州 |
+| 美國政府 |US Gov 愛荷華州 |US Gov 維吉尼亞州 |
+| 美國政府 |US Gov 維吉尼亞州 |US Gov 德克薩斯州 |
 
 表 1 - Azure 區域配對對應表
 
-- 印度西部皆僅會以一個方向進行配對。 印度西部的次要地區是印度南部，但印度南部的次要區域是印度中部。
-- 巴西南部與其他區域的不同點在於，它會與自身地理位置以外的區域配對。 巴西南部的次要地區是美國中南部。 美國中南部的次要地區並不是巴西南部。
-- 美國愛荷華州政府的次要地區是美國維吉尼亞州政府。
-- 美國維吉尼亞州政府的次要地區是美國德克薩斯州。
-- 美國政府德克薩斯州的次要地區是美國維吉尼亞亞歷桑那。
+- 印度西部僅以一個方向配對。 印度西部的次要地區是印度南部，但印度南部的次要區域是印度中部。
+- 巴西南部與其他區域的不同點在於，它會與自身地理位置以外的區域配對。 巴西南部的次要地區是美國中南部。 美國中南部的次要地區不是巴西南部。
+- US Gov 愛荷華州的次要區域 US Gov 維吉尼亞州。
+- US Gov 維吉尼亞州的次要區域 US Gov 德克薩斯州。
+- US Gov 德克薩斯州 ' 次要區域 US Gov 亞利桑那州。
 
 
 我們建議您設定跨區域配對的商務持續性災害復原 (BCDR)，以善用 Azure 的隔離與可用性原則。 對於支援多個作用中區域的應用程式，我們建議儘可能使用區域配對中的這兩個區域。 如此可確保應用程式的最佳可用性，並在發生災害事件時將復原時間縮到最短。 
@@ -77,7 +77,7 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (IaaS)** ：您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。 如需詳細資訊，請參閱 [Azure 復原技術指導](resiliency/resiliency-technical-guidance.md)。
 
-![儲存體](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體**-如果您使用受控的磁碟，深入了解[跨區域備份](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines)使用 Azure 備份，以及[複寫 Vm](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)從一個區域到另一個使用 Azure Site Recovery。 如果您使用儲存體帳戶，則異地備援儲存體 (GRS) 設定預設 Azure 儲存體帳戶建立時。 使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/common/storage-redundancy.md)。
+![儲存體](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體**-如果您使用受控磁片，請瞭解如何使用 Azure 備份進行[跨區域備份](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines)，並使用 Azure Site Recovery 將[vm](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)從一個區域複寫到另一個區域。 如果您使用的是儲存體帳戶，則在建立 Azure 儲存體帳戶時，預設會設定異地冗余儲存體（GRS）。 使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/common/storage-redundancy.md)。
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – 使用 Azure SQL Database 異地複寫，您就可以設定非同步交易複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。 如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](sql-database/sql-database-geo-replication-overview.md)。
 

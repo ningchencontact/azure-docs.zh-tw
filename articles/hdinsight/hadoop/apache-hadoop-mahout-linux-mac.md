@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Mahout 和 HDInsight 產生推薦 (SSH) - Azure
+title: 在 Azure HDInsight 中使用 Apache Mahout 產生建議
 description: 了解如何搭配 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: a3919cf84714b69776222fa35d3163e0915869f7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 3923abd10fc3a64773d561b1f375f9e2f00a7e56
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881988"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044571"
 ---
 # <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中使用 Apache Mahout 搭配 Apache Hadoop 來產生電影推薦（SSH）
 
@@ -39,9 +39,9 @@ Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`
 
 以下工作流程是一個使用電影資料的簡化範例：
 
-* **共生**：Joe、Alice 和 Bob 都喜歡 *《星際大戰》* 、 *《帝國大反擊》* 和 *《絕地大反攻》* 。 Mahout 將判斷喜歡上述任何一部電影的使用者，也會喜歡另外兩部電影。
+* **共生**：Joe、Alice 和 Bob 都喜歡《星際大戰》、《帝國大反擊》和《絕地大反攻》。 Mahout 將判斷喜歡上述任何一部電影的使用者，也會喜歡另外兩部電影。
 
-* **共生**：Bob 和 Alice 同時也喜歡 *《威脅潛伏》* 、 *《複製人全面進攻》* 和 *《西斯大帝的復仇》* 。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
+* **共生**：Bob 和 Alice 同時也喜歡《威脅潛伏》、《複製人全面進攻》和《西斯大帝的復仇》。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
 
 * **相似性推薦**：因為 Joe 喜歡前三部電影，Mahout 會查看具有相似偏好的其他使用者所喜歡但 Joe 還沒看過 (喜歡/評價) 的電影。 在此情況下，Mahout 將會推薦 *《威脅潛伏》* 、 *《複製人全面進攻》* 和 *《西斯大帝的復仇》* 。
 

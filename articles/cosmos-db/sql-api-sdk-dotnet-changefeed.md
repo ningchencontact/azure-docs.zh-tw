@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637743"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023897"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 
@@ -43,10 +43,19 @@ ms.locfileid: "68637743"
 
 ### <a name="v2-builds"></a>v2 組建
 
-### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* 針對取得所有租用時間超過租用到期時間間隔 (例如網路問題) 的案例, 改善負載平衡策略:
-  * 在此案例中, 負載平衡演算法用來誤將租用視為已過期, 導致來自作用中擁有者的竊取租用。 這可能會觸發許多租用的不必要重新平衡。
-  * 此版本已修正此問題, 方法是在取得過期的租用時, 不會發生衝突重試, 並 posponing 取得過期的租用以進行下一個負載平衡反復專案。
+### <a name="a-name228228"></a><a name="2.2.8"/>v2.2.8-preview
+* 穩定性和診斷改善：
+  * 已新增可偵測長時間讀取變更摘要的支援。 當時間超過 `ChangeFeedProcessorOptions.ChangeFeedTimeout` 屬性所指定的值時，會採取下列步驟：
+    * 在有問題的分割區上讀取變更摘要的作業已中止。
+    * 變更摘要處理器實例會捨棄有問題的租用的擁有權。 已捨棄的租用將會在下一次租用取得步驟期間收取，而這會由相同或不同的變更摘要處理器實例進行。 如此一來，就會從頭開始讀取變更摘要。
+    * 健全狀況監視器會回報問題。 預設的 heath 監視會將所有回報的問題傳送到追蹤記錄。
+  * 已加入新的公用屬性： `ChangeFeedProcessorOptions.ChangeFeedTimeout`。 此屬性的預設值為10分鐘。
+  * 已加入新的公用列舉值： `Monitoring.MonitoredOperation.ReadChangeFeed`。 當 `HealthMonitoringRecord.Operation` 的值設定為 [`Monitoring.MonitoredOperation.ReadChangeFeed`] 時，表示健全狀況問題與讀取變更摘要相關。
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2。7
+* 針對取得所有租用時間超過租用到期時間間隔（例如網路問題）的案例，改善負載平衡策略：
+  * 在此案例中，負載平衡演算法用來誤將租用視為已過期，導致來自作用中擁有者的竊取租用。 這可能會觸發許多租用的不必要重新平衡。
+  * 此版本已修正此問題，方法是在取得過期的租用時，不會發生衝突重試，並 posponing 取得過期的租用以進行下一個負載平衡反復專案。
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * 改善觀察者例外狀況的處理。
@@ -76,7 +85,7 @@ ms.locfileid: "68637743"
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * 已新增對分割區租用集合的支援。 分割區索引鍵必須定義為 /id。
-* 次要重大變更：已變更 IChangeFeedDocumentClient 介面和 ChangeFeedDocumentClient 類別的方法，以包含 RequestOptions 和 CancellationToken 參數。 IChangeFeedDocumentClient 是一個進階擴充點，可讓您提供文件用戶端的自訂實作來與變更摘要處理器搭配使用，例如，裝飾 DocumentClient，並攔截所有對它的呼叫來進行額外追蹤、錯誤處理等等。使用此更新，將必須變更實作 IChangeFeedDocumentClient 的程式碼，以便在實作中包含新參數。
+* 次要重大變更：已變更 IChangeFeedDocumentClient 介面和 ChangeFeedDocumentClient 類別的方法，以包含 RequestOptions 和 CancellationToken 參數。 IChangeFeedDocumentClient 是一個先進的擴充點，可讓您提供檔用戶端的自訂執行，以搭配變更摘要處理器使用，例如裝飾 DocumentClient 並攔截其所有呼叫，以執行額外的追蹤、錯誤處理等.有了這項更新，就必須變更執行 IChangeFeedDocumentClient 的程式碼，以在執行時包含新的參數。
 * 次要診斷改進。
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
@@ -137,7 +146,7 @@ ms.locfileid: "68637743"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 穩定性改進。
-  * 修正處理已取消的工作問題, 可能會導致某些分割區上的已停止觀察者。
+  * 修正處理已取消的工作問題，可能會導致某些分割區上的已停止觀察者。
 * 支援手動檢查點。
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
 
@@ -168,9 +177,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 <br/>
 
-| Version | 發行日期 | 停用日期 |
+| 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.2.7](#2.2.7) |2019 5 月14日 |--- |
+| [v2.2.8-preview](#2.2.8) |2019年10月28日 |--- |
+| [2.2.7](#2.2.7) |2019 年 5 月 14 日 |--- |
 | [2.2.6](#2.2.6) |2019 年 1 月 29 日 |--- |
 | [2.2.5](#2.2.5) |2018 年 12 月 13 日 |--- |
 | [2.2.4](#2.2.4) |2018 年 11 月 29 日 |--- |
@@ -189,6 +199,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。

@@ -1,5 +1,5 @@
 ---
-title: 針對以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程-Azure
+title: 為 Azure HDInsight 叢集設定作業系統修補排程
 description: 了解如何為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d0a490fd3b23c96923af10db3c1f9ee9ea0dfad5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076863"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044889"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 9f2bd24955cc378deed5dbc0423488645632a958
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274977"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025797"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>開始使用 PowerShell 在 Resource Manager 中建立配置有 IPv6 的網際網路面向負載平衡器
 
@@ -28,6 +28,8 @@ ms.locfileid: "68274977"
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [範本](load-balancer-ipv6-internet-template.md)
 
+>[!注意：適用于 IPv6 的最佳作法變更此文章說明可讓基本負載平衡器同時提供 IPv4 和 IPv6 連線的入門 IPv6 功能。  [Ipv6 For Azure vnet](../virtual-network/ipv6-overview.md)現在提供更完整的 ipv6 連線能力，其整合了 ipv6 連線與您的虛擬網路，並包含 Ipv6 網路安全性群組規則、ipv6 使用者定義路由、ipv6 基本和等重要功能標準負載平衡等等。  適用于 azure Vnet 的 IPv6 是 Azure 中的 IPv6 應用程式建議的最佳作法。 
+>請參閱[適用于 AZURE VNET Powershell 部署的 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡器可藉由在負載平衡器集合中，將連入流量分散於雲端服務或虛擬機器中狀況良好的服務執行個體之間，來提供高可用性。 Azure Load Balancer 也會在多個連接埠、多個 IP 位址或兩者上顯示這些服務。
 
@@ -100,7 +102,7 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. 建立前端 IP 位址集區的 Azure 公用 IP 位址 (PIP) 資源。 執行`-DomainNameLabel`下列命令之前, 請務必變更的值。 此值在 Azure 區域內必須是唯一的。
+2. 建立前端 IP 位址集區的 Azure 公用 IP 位址 (PIP) 資源。 執行下列命令之前，請務必變更 `-DomainNameLabel` 的值。 此值在 Azure 區域內必須是唯一的。
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -230,10 +232,4 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-## <a name="next-steps"></a>後續步驟
 
-[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
-
-[設定負載平衡器分配模式](load-balancer-distribution-mode.md)
-
-[設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)

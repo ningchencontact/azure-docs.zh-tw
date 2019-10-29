@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314997"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024016"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services 的虛擬網路設計考慮和設定選項
 
@@ -91,8 +91,8 @@ Azure AD DS 受控網域會在部署期間建立一些網路資源。 若要成�
 | Azure 資源                          | 描述 |
 |:----------------------------------------|:---|
 | 網路介面卡                  | 在做為 Azure Vm 的 Windows Server 上執行的兩個網域控制站（Dc）上，Azure AD DS 裝載受控網域。 每個 VM 都有一個虛擬網路介面，可連線到您的虛擬網路子網。 |
-| 動態基本公用 IP 位址         | Azure AD DS 會使用基本的 SKU 公用 IP 位址與同步處理和管理服務進行通訊。 如需公用 IP 位址的詳細資訊，請參閱[Azure 中的 IP 位址類型和配置方法](../virtual-network/virtual-network-ip-addresses-overview-arm.md)。 |
-| Azure 基本負載平衡器               | Azure AD DS 會使用基本 SKU 負載平衡器來進行網路位址轉譯（NAT）和負載平衡（搭配安全 LDAP 使用時）。 如需有關 Azure 負載平衡器的詳細資訊，請參閱[什麼是 Azure Load Balancer？](../load-balancer/load-balancer-overview.md) |
+| 動態標準公用 IP 位址         | Azure AD DS 會使用標準 SKU 公用 IP 位址與同步處理和管理服務進行通訊。 如需公用 IP 位址的詳細資訊，請參閱[Azure 中的 IP 位址類型和配置方法](../virtual-network/virtual-network-ip-addresses-overview-arm.md)。 |
+| Azure 標準負載平衡器               | Azure AD DS 會使用標準 SKU 負載平衡器來進行網路位址轉譯（NAT）和負載平衡（搭配安全 LDAP 使用時）。 如需有關 Azure 負載平衡器的詳細資訊，請參閱[什麼是 Azure Load Balancer？](../load-balancer/load-balancer-overview.md) |
 | 網路位址轉譯（NAT）規則 | Azure AD DS 會在負載平衡器上建立和使用三個 NAT 規則-一條用於保護 HTTP 流量的規則，以及用於保護 PowerShell 遠端的兩個規則。 |
 | 負載平衡器規則                     | 針對 TCP 通訊埠636上的安全 LDAP 設定 Azure AD DS 受控網域時，會建立三個規則，並在負載平衡器上用來散發流量。 |
 
@@ -105,12 +105,12 @@ Azure AD DS 受控網域會在部署期間建立一些網路資源。 若要成�
 
 需要下列網路安全性群組規則，Azure AD DS 提供驗證和管理服務。 請勿編輯或刪除 Azure AD DS 受控網域部署所在的虛擬網路子網的這些網路安全性群組規則。
 
-| 連接埠號碼 | Protocol | Source                             | Destination | Action | 必要項 | 用途 |
+| 連接埠號碼 | 通訊協定 | 來源                             | 目的地 | 行動 | 必要項 | 目的 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | 允許  | 是      | 與您的 Azure AD 租使用者同步處理。 |
-| 3389        | TCP      | CorpNetSaw                         | Any         | 允許  | 是      | 管理您的網域。 |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | 允許  | 是      | 管理您的網域。 |
-| 636         | TCP      | Any                                | Any         | 允許  | 否       | 只有在您設定安全 LDAP （LDAPS）時才會啟用。 |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | 任意         | 允許  | 是      | 與您的 Azure AD 租使用者同步處理。 |
+| 3389        | TCP      | CorpNetSaw                         | 任意         | 允許  | 是      | 管理您的網域。 |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 任意         | 允許  | 是      | 管理您的網域。 |
+| 636         | TCP      | 任意                                | 任意         | 允許  | 否       | 只有在您設定安全 LDAP （LDAPS）時才會啟用。 |
 
 > [!WARNING]
 > 請勿手動編輯這些網路資源和設定。 當您將設定錯誤的網路安全性群組或使用者定義的路由表與部署 Azure AD DS 的子網產生關聯時，您可能會中斷 Microsoft 服務和管理網域的能力。 您的 Azure AD 租使用者與您 Azure AD DS 受控網域之間的同步處理也會中斷。
@@ -142,9 +142,9 @@ Azure AD DS 受控網域會在部署期間建立一些網路資源。 若要成�
 * 用來在您的 Azure AD DS 受控網域中，使用 PowerShell 遠端執行管理工作。
 * 若沒有此埠的存取權，您的 Azure AD DS 受控網域將無法更新、設定、備份或監視。
 * 針對使用以 Resource Manager 為基礎之虛擬網路的 Azure AD DS 受控網域，您可以將此埠的輸入存取限制為*AzureActiveDirectoryDomainServices*服務標記。
-    * 針對使用傳統虛擬網路的舊版 Azure AD DS 受控網域，您可以將此埠的輸入存取限制為下列來源 IP 位址：*52.180.183.8*、 *23.101.0.70*、 *52.225.184.198*、 *52.179.126.223*、 *13.74.249.156*、 *52.187.117.83*、 *52.161.13.95*、 *104.40.156.18*和*104.40.87.209*。
+    * 針對使用傳統虛擬網路的舊版 Azure AD DS 受控網域，您可以將此埠的輸入存取限制為下列來源 IP 位址： *52.180.183.8*、 *23.101.0.70*、 *52.225.184.198*、 *52.179.126.223*、 *13.74.249.156*、 *52.187.117.83*、 *52.161.13.95*、 *104.40.156.18*和*104.40.87.209*。
 
-## <a name="user-defined-routes"></a>使用者定義的路由
+## <a name="user-defined-routes"></a>使用者定義路由
 
 預設不會建立使用者定義的路由，Azure AD DS 也不需要這樣才能正確運作。 如果您需要使用路由表，請避免對*0.0.0.0*路由進行任何變更。 此路由的變更可能會中斷 Azure AD Domain Services。
 

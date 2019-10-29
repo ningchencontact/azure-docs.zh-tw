@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 920419bf10634e8be15e05a89d547a5a9d1430b7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990784"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027792"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -312,7 +312,7 @@ ExpressRoute Premium 是下列功能的集合：
 
 ## <a name="expressroute-local"></a>ExpressRoute 本機
 ### <a name="what-is-expressroute-local"></a>什麼是 ExpressRoute 本機？
-ExpressRoute Local 是 expressroute [Direct](expressroute-erdirect-about.md)提供的 EXPRESSROUTE 線路 SKU。 「本機」的主要功能是在 ExpressRoute 對等互連位置的本機線路，可讓您只存取一或兩個或接近相同 metro 的 Azure 區域。 相反地，標準線路可讓您存取地緣政治區域中的所有 Azure 區域，以及全球所有 Azure 區域的 Premium 線路。 
+除了標準 SKU 和 Premium SKU 以外，ExpressRoute Local 是 ExpressRoute 線路的 SKU。 「本機」的主要功能是在 ExpressRoute 對等互連位置的本機線路，可讓您只存取一或兩個或接近相同 metro 的 Azure 區域。 相反地，標準線路可讓您存取地緣政治區域中的所有 Azure 區域，以及全球所有 Azure 區域的 Premium 線路。 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 本機有哪些優點？
 雖然您需要支付標準或高階 ExpressRoute 線路的輸出資料傳輸，但不會針對您的 ExpressRoute 本機線路分別支付輸出資料傳輸費用。 換句話說，ExpressRoute Local 的價格包括資料傳輸費用。 如果您有大量資料要傳輸，ExpressRoute Local 是更經濟實惠的解決方案，您可以透過私人連線將您的資料帶到您想要的 Azure 區域附近的 ExpressRoute 對等互連位置。 
@@ -323,9 +323,6 @@ ExpressRoute Local 是 expressroute [Direct](expressroute-erdirect-about.md)提�
 * ExpressRoute Global 觸及無法在本機上使用
 
 ExpressRoute Local 也具有相同的資源限制（例如每個線路的 Vnet 數目）作為標準。 
-
-### <a name="how-to-configure-expressroute-local"></a>如何設定 ExpressRoute 本機？ 
-ExpressRoute Local 僅適用于 ExpressRoute Direct。 首先，您必須設定 ExpressRoute Direct 埠。 建立直接埠之後，您可以依照[此處](expressroute-howto-erdirect.md)的指示建立本機線路。
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>什麼是 ExpressRoute 本機可用，而哪些 Azure 區域會對應到每個對等互連位置？
 ExpressRoute Local 可在對等互連位置取得，其中一或兩個 Azure 區域已關閉。 它無法在該州或國家/地區沒有 Azure 區域的對等互連位置使用。 請參閱[[位置] 頁面](expressroute-locations-providers.md)上的確切對應。  

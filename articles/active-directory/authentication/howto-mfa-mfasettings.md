@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ceff25b022866e47e6fdd488b01dd647cf550f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: dfca7ef1dabb8c6021c9df2e3174d3e208a839b5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808216"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042103"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -114,6 +114,8 @@ ms.locfileid: "72808216"
 
 >[!NOTE]
 >當透過公共電話網路發出 Multi-Factor Authentication 通話時，有時會透過不支援來電顯示的電信業者路由傳送。 因此，即使 Multi-Factor Authentication 系統一律會傳送來電顯示號碼，但並不保證一定會顯示來電號碼。
+
+在美國，如果您尚未設定 MFA 呼叫者識別碼，來自 Microsoft 的語音電話會來自下列數位： + 1 （866） 539 4191、+ 1 （855） 330 8653 和 + 1 （877） 668 6536。 如果使用垃圾郵件篩選器，請務必排除這些數位。
 
 ### <a name="custom-voice-messages"></a>自訂語音訊息
 
@@ -387,7 +389,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 使用者信任的裝置和瀏覽器的_記住 Multi-Factor Authentication_ 功能是可供所有 Multi-factor Authentication 使用者免費使用的功能。 使用者在使用 Multi-Factor Authentication 成功登入裝置後，可以在指定天數內略過後續驗證。 這項功能會減少使用者必須在相同裝置上執行雙步驟驗證的次數，以提高使用性。
 
 >[!IMPORTANT]
->若帳戶或裝置遭到入侵，請記住受信任裝置的 Multi-Factor Authentication 可能會影響安全性。 如果公司帳戶遭入侵或信任的裝置遺失或遭竊，您應該[在所有裝置上還原 Multi-Factor Authentication](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)。
+>若帳戶或裝置遭到入侵，請記住受信任裝置的 Multi-Factor Authentication 可能會影響安全性。 如果公司帳戶遭到入侵，或受信任的裝置遺失或遭竊，您應該[撤銷 MFA 會話](howto-mfa-userdevicesettings.md)。
 >
 >此還原動作會從所有裝置撤銷受信任的狀態，使用者必須再次執行雙步驟驗證。 您也可以使用[管理雙步驟驗證的設定](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)中的指示，指示使用者在自己的裝置上還原 Multi-Factor Authentication。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cffb9efaf828b3793133143e97c0fc87f840df42
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 762d6991eb8c45abc7de4f331f1b9335d68c0143
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72966290"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "73034524"
 ---
 Azure 受控磁片預設會在將資料保存到雲端時，自動將您的資料加密。 伺服器端加密可保護您的資料，並協助您符合組織的安全性和合規性承諾。 Azure 受控磁片中的資料會使用256位[AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)（可用的最強區塊密碼之一）以透明的方式進行加密，且符合 FIPS 140-2 規範。   
 
@@ -33,7 +33,7 @@ Azure 受控磁片預設會在將資料保存到雲端時，自動將您的資�
 
 ## <a name="customer-managed-keys-public-preview"></a>客戶管理的金鑰（公開預覽）
 
-您可以選擇使用您自己的金鑰來管理每個受控磁片層級的加密。 使用客戶管理的金鑰組受控磁片進行伺服器端加密，可提供 Azure Key Vault 的整合體驗。 您可以將[您的 rsa 金鑰](../articles/key-vault/key-vault-hsm-protected-keys.md)匯入 Key Vault，或在 Azure Key Vault 中產生新的 rsa 金鑰。 Azure 受控磁片會使用[信封加密](../articles/storage/common/storage-client-side-encryption.md#encryption-via-the-envelope-technique)，以完全透明的方式處理加密和解密。 它會使用以[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 為基礎的資料加密金鑰（DEK）來加密資料，而這也會使用您的金鑰來保護。 您必須在 Key Vault 中授與存取權，才能使用您的金鑰來加密和解密 DEK。 這可讓您完全掌控您的資料和金鑰。 您可以隨時停用金鑰或撤銷對受控磁片的存取權。 您也可以使用 Azure Key Vault 監視來審核加密金鑰使用方式，以確保只有受控磁片或其他受信任的 Azure 服務會存取您的金鑰。
+您可以選擇使用您自己的金鑰來管理每個受控磁片層級的加密。 使用客戶管理的金鑰組受控磁片進行伺服器端加密，可提供 Azure Key Vault 的整合體驗。 您可以將[您的 rsa 金鑰](../articles/key-vault/key-vault-hsm-protected-keys.md)匯入 Key Vault，或在 Azure Key Vault 中產生新的 rsa 金鑰。 Azure 受控磁片會使用[信封加密](../articles/storage/common/storage-client-side-encryption.md#encryption-via-the-envelope-technique)，以完全透明的方式處理加密和解密。 它會使用以[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 為基礎的資料加密金鑰（DEK）來加密資料，而這也會使用您的金鑰來保護。 您必須在 Key Vault 中授與受控磁片的存取權，以使用您的金鑰來加密和解密 DEK。 這可讓您完全掌控您的資料和金鑰。 您可以隨時停用金鑰或撤銷對受控磁片的存取權。 您也可以使用 Azure Key Vault 監視來審核加密金鑰使用方式，以確保只有受控磁片或其他受信任的 Azure 服務會存取您的金鑰。
 
 下圖顯示受控磁片如何使用 Azure Active Directory 和 Azure Key Vault，以使用客戶管理的金鑰來提出要求：
 

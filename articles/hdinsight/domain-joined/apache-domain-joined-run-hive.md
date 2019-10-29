@@ -1,5 +1,5 @@
 ---
-title: 在具有企業安全性套件的 HDInsight 中設定 Hive 原則 - Azure
+title: Apache Hive Apache Ranger 中的原則-Azure HDInsight
 description: 了解如何在具有企業安全性套件的 Azure HDInsight 服務中設定 Hive 的 Apache Ranger 原則。
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0213fc1a96b38b615cbd8b7b6374a6716b9f840
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e49e2d103fd9c91824c8e8a1603cddddf16366e1
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918189"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044862"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Apache Hive 原則
 了解如何針對 Apache Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
@@ -55,7 +55,7 @@ ms.locfileid: "70918189"
    * 選取使用者：hiveuser1
    * 權限：選取
 
-     ![HDInsight ESP Ranger Hive 原則設定](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![HDInsight ESP Ranger Hive 原則設定](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png)。
 
      > [!NOTE]  
      > 如果 [選取使用者] 中未填入網域使用者，請稍等一下讓 Ranger 與 AAD 同步處理。
@@ -83,7 +83,7 @@ ms.locfileid: "70918189"
  | Hive 伺服器類型 | 選取 [Hive Server 2] |
  | 機制 | 選取 [Azure HDInsight 服務] |
  | HTTP 路徑 | 保留為空白。 |
- | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com。 更新網域名稱 (如果不同的話)。 |
+ | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com 。 更新網域名稱 (如果不同的話)。 |
  | 密碼 | 輸入 hiveuser1 的密碼。 |
 
 請務必先按一下 [測試]，再儲存資料來源。
@@ -101,7 +101,7 @@ ms.locfileid: "70918189"
 6. 選取 **hivesampletable**，然後按 [下一步]。
 7. 按一下 [完成]。
 8. 在 [匯入資料] 對話方塊中，您可以變更或指定查詢。 若要執行此動作，請按一下 [屬性]。 這可能需要幾秒鐘的時間。
-9. 按一下 [定義] 索引標籤。命令文字如下：
+9. 按一下 [**定義**] 索引標籤。命令文字為：
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
@@ -129,7 +129,7 @@ ms.locfileid: "70918189"
     完成時，您會看到已匯入 2 個資料行的資料。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需設定具有企業安全性套件的 HDInsight 叢集，請參閱[設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)。
+* 如需使用企業安全性套件設定 HDInsight 叢集，請參閱[使用 ESP 設定 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 如需管理具有 ESP 的 HDInsight 叢集，請參閱[管理具有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md)。
 * 如需在具有 ESP 的 HDInsight 叢集上使用 SSH 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
 * 如需使用 Hive JDBC 連接 Hive，請參閱 [使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Apache Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

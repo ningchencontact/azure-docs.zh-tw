@@ -3,7 +3,7 @@ title: 如何使用 Azure Resource Manager 範本管理 Azure 時間序列深入
 description: 本文說明如何使用 Azure Resource Manager 以程式設計方式管理 Azure 時間序列深入解析環境。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274792"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991223"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -24,9 +24,9 @@ ms.locfileid: "72274792"
 
 「時間序列深入解析」支援下列資源：
 
-   | Resource | 描述 |
+   | 資源 | 說明 |
    | --- | --- |
-   | 環境 | 時間序列深入解析環境是事件的邏輯群組，會從事件代理程式讀取、儲存並供查詢之用。 如需詳細資訊，請參閱[規劃您的 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md) |
+   | Environment | 時間序列深入解析環境是事件的邏輯群組，會從事件代理程式讀取、儲存並供查詢之用。 如需詳細資訊，請參閱[規劃您的 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |
    | 參考資料集 | 參考資料集可提供和環境中事件有關的中繼資料。 參考資料集中的中繼資料將會在輸入過程中與事件結合。 參考資料集會由它們的事件索引鍵屬性定義為資源。 構成參考資料集的實際中繼資料會透過資料層 API 上傳或修改。 |
    | 存取原則 | 存取原則可授與下列權限：發出資料查詢、在環境中操作參考資料，以及共用與環境相關聯的已儲存查詢和檢視方塊。 如需詳細資訊，請參閱[使用 Azure 入口網站授與時間序列深入解析環境的資料存取權](time-series-insights-data-access.md) |
@@ -59,7 +59,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 必要參數
 
-     | 參數 | 描述 |
+     | 參數 | 說明 |
      | --- | --- |
      | eventHubNamespaceName | 來源事件中樞的命名空間。 |
      | eventHubName | 來源事件中樞的名稱。 |
@@ -71,7 +71,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 選擇性參數
 
-     | 參數 | 描述 |
+     | 參數 | 說明 |
      | --- | --- |
      | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：** 部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
      | environmentDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是環境名稱。 |
@@ -148,7 +148,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 如果沒有資源群組，請建立一個新的。
 
-   * 如果您沒有現有的資源群組，請使用**remove-azresourcegroup**命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如:
+   * 如果您沒有現有的資源群組，請使用**remove-azresourcegroup**命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如：
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

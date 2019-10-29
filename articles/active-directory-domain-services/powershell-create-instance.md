@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 163259af3797b652c9605c171447f4a7d2576c87
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 961b54a4d7c9caee98497e5d2b8db86284084d15
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842708"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023867"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 建立*AAD DC 系統管理員*群組後，使用[add-azureadgroupmember][Add-AzureADGroupMember] Cmdlet 將使用者新增至群組。 首先，您會使用[get-azureadgroup][Get-AzureADGroup] Cmdlet 取得*AAD DC 系統管理員*群組物件識別碼，然後使用[new-azureaduser 指令程式][Get-AzureADUser]，以所需的使用者物件識別碼。
 
-在下列範例中，具有 UPN 之`admin@contoso.onmicrosoft.com`帳戶的使用者物件識別碼。 以您想要新增至*AAD DC 系統管理員*群組之使用者的 UPN 取代此使用者帳戶：
+在下列範例中，`admin@contoso.onmicrosoft.com`的 UPN 之帳戶的使用者物件識別碼。 以您想要新增至*AAD DC 系統管理員*群組之使用者的 UPN 取代此使用者帳戶：
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -130,6 +130,12 @@ $Vnet= New-AzVirtualNetwork `
 
 現在讓我們建立一個 Azure AD DS 受控網域。 設定您的 Azure 訂用帳戶識別碼，然後提供受控網域的名稱，例如*contoso.com*。 您可以使用[get-azsubscription][Get-AzSubscription] Cmdlet 來取得訂用帳戶識別碼。
 
+如果您選擇支援可用性區域的區域，Azure AD DS 資源會分散到不同的區域，以供額外的重複使用。
+
+「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。
+
+您不需要針對要在區域間散發 Azure AD DS 進行設定。 Azure 平臺會自動處理資源的區域散發。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]。
+
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "contoso.com"
@@ -148,11 +154,13 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
     * 若要設定 DNS，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動設定這些 DNS 設定。
+* 如果您在支援可用性區域的區域中建立了 Azure AD DS 受控網域，請建立網路安全性群組，以限制 Azure AD DS 受控網域的虛擬網路中的流量。 建立的 Azure 標準負載平衡器需要進行這些規則。 此網路安全性群組會保護 Azure AD DS，而且受控網域必須能夠正確運作。
+    * 若要建立網路安全性群組和所需的規則，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動建立及設定網路安全性群組。
 * [啟用密碼同步化以 Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) ，讓終端使用者可以使用其公司認證登入受控網域。
 
 ## <a name="complete-powershell-script"></a>完成 PowerShell 腳本
 
-下列完整的 PowerShell 腳本結合了本文中顯示的所有工作。 複製腳本，並將它儲存到`.ps1`副檔名為的檔案。 在本機 PowerShell 主控台或[Azure Cloud Shell][cloud-shell]中執行腳本。
+下列完整的 PowerShell 腳本結合了本文中顯示的所有工作。 複製腳本，並將它儲存到副檔名為 `.ps1` 的檔案。 在本機 PowerShell 主控台或[Azure Cloud Shell][cloud-shell]中執行腳本。
 
 > [!NOTE]
 > 若要啟用 Azure AD DS，您必須是 Azure AD 租使用者的全域管理員。 在 Azure 訂用帳戶中，您也需要至少一個*參與者*許可權。
@@ -233,6 +241,8 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
     * 若要設定 DNS，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動設定這些 DNS 設定。
+* 如果您在支援可用性區域的區域中建立了 Azure AD DS 受控網域，請建立網路安全性群組，以限制 Azure AD DS 受控網域的虛擬網路中的流量。 建立的 Azure 標準負載平衡器需要進行這些規則。 此網路安全性群組會保護 Azure AD DS，而且受控網域必須能夠正確運作。
+    * 若要建立網路安全性群組和所需的規則，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動建立及設定網路安全性群組。
 * [啟用密碼同步化以 Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) ，讓終端使用者可以使用其公司認證登入受控網域。
 
 ## <a name="next-steps"></a>後續步驟
@@ -258,3 +268,4 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[availability-zones]: ../availability-zones/az-overview.md

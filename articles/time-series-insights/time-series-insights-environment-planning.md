@@ -3,21 +3,20 @@ title: 規劃調整您的 Azure 時間序列深入解析環境規模 | Microsoft
 description: 本文說明如何在規劃 Azure 時間序列深入解析環境時遵循最佳作法。 涵蓋的區域包括儲存容量、資料保留、輸入容量、監視，以及商務持續性和嚴重損壞修復（BCDR）。
 services: time-series-insights
 ms.service: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 659a6357736817f4a590b97e585230ec8c2b7dae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 649ff31e40bf612f1b70f81e895920f7fc21f082
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332903"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991248"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃您的 Azure 時間序列深入解析 GA 環境
 
@@ -29,7 +28,7 @@ ms.locfileid: "72332903"
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 若要開始使用 Azure 時間序列深入解析，最好是知道您預期每分鐘推送的資料量，以及儲存資料所需的時間。  
 
@@ -69,23 +68,20 @@ Azure 時間序列深入解析有兩種模式：
 
 1. 在 [**資料保留時間（以天**為單位）] 方塊中，輸入介於1到400之間的值。
 
-   [@no__t 1Configure 保留期](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [![設定保留期](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
 > 若要深入瞭解如何執行適當的資料保留原則，請參閱[如何設定保留期](./time-series-insights-how-to-configure-retention.md)。
 
 ## <a name="ingress-capacity"></a>輸入容量
 
-規劃您的時間序列深入解析環境時，要專注于的第二個區域是輸入*容量*。 輸入容量是每分鐘配置的衍生。
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
+
+### <a name="environment-planning"></a>環境規劃
+
+要專注于規劃時間序列深入解析環境的第二個區域是輸入容量。 輸入容量是每分鐘配置的衍生。
 
 從節流的觀點來看，封包大小為 32 KB 的輸入資料封包會被視為32事件，每個大小都是 1 KB。 允許的事件大小上限為 32 KB。 大於 32 KB 的資料封包會被截斷。
-
-下表摘要說明每個時間序列深入解析 SKU 的每個單位輸入容量：
-
-|SKU  |每月事件計數  |每月事件大小  |每分鐘的事件計數  |每分鐘的事件大小  |
-|---------|---------|---------|---------|---------|
-|S1     |   3,000 萬     |  30GB     |  720    |  720 KB   |
-|S2     |   3 億    |   300 GB   | 7,200   | 7,200 KB  |
 
 您可以在單一環境中將 S1 或 S2 SKU 的容量增加至 10 個單位。 您無法從 S1 環境遷移到 S2。 您無法從 S2 環境遷移至 S1。
 
@@ -95,7 +91,7 @@ Azure 時間序列深入解析有兩種模式：
 
 例如，如果您有單一 S1 SKU，您會以每分鐘720個事件的速率來輸入資料，而且資料速率會尖峰超過一小時（以1440事件或更少的速率），在您的環境中不會有明顯的延遲。 不過，如果您超過一小時的每分鐘1440事件，您可能會在環境中視覺化且可供查詢的資料中遇到延遲。
 
-您可能事先不知道預期會推送多少資料。 在此情況下，您可以在 Azure 入口網站訂用帳戶中找到[Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)和[Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)的資料遙測。 遙測可協助您判斷如何布建您的環境。 使用個別事件來源的 Azure 入口網站中的 [**計量**] 窗格來查看其遙測。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
+您可能事先不知道預期會推送多少資料。 在此情況下，您可以在 Azure 入口網站訂用帳戶中找到[Azure IoT 中樞](../iot-hub/iot-hub-metrics.md)和[Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)的資料遙測。 遙測可協助您判斷如何布建您的環境。 使用個別事件來源的 Azure 入口網站中的 [**計量**] 窗格來查看其遙測。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
 
 ### <a name="calculate-ingress-requirements"></a>計算輸入需求
 
@@ -114,7 +110,7 @@ Azure 時間序列深入解析有兩種模式：
 請務必確定您將事件傳送至時間序列深入解析的方式，可以支援您所布建的環境大小。 （相反地，您可以將環境的大小對應至時間序列深入解析讀取的事件數目，以及每個事件的大小）。當您查詢資料時，也必須考慮您可能想要使用的屬性來進行配量及篩選。
 
 > [!TIP]
-> 請參閱傳送[事件](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events)中的 JSON 成形檔。
+> 請參閱傳送[事件](time-series-insights-send-events.md)中的 JSON 成形檔。
 
 ## <a name="ensure-that-you-have-reference-data"></a>確定您有參考資料
 
@@ -123,7 +119,7 @@ Azure 時間序列深入解析有兩種模式：
 > [!NOTE]
 > 參考資料未聯結追溯。 只有在設定並上傳之後，才會比對目前和未來的輸入資料並聯結至參考資料集。 如果您打算將大量歷程記錄資料傳送至時間序列深入解析，而不要在時間序列深入解析中第一次上傳或建立參考資料，您可能必須重做工作（提示：不有趣）。  
 
-若要深入瞭解如何在時間序列深入解析中建立、上傳及管理參考資料，請參閱我們的[參考資料集檔](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+若要深入瞭解如何在時間序列深入解析中建立、上傳及管理參考資料，請參閱我們的[參考資料集檔](time-series-insights-add-reference-data-set.md)。
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

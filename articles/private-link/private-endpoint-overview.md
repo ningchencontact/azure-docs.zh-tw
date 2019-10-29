@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592370"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023837"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -66,7 +66,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>使用核准工作流程存取私人連結資源 
 您可以使用下列連接核准方法來連線到私人連結資源：
-- 當您擁有或具有特定私人連結資源的許可權時，**會自動**核准。 所需的許可權是以下列格式的私用連結資源類型為基礎： Microsoft。\<Provider >/< resource_type >/privateEndpointConnectionApproval/action
+- 當您擁有或具有特定私人連結資源的許可權時，**會自動**核准。 所需的許可權是以下列格式的私用連結資源類型為基礎： Microsoft。\<提供者 >/< resource_type >/privateEndpointConnectionApproval/action
 - 當您沒有必要的許可權，而且想要要求存取權時，**手動**要求。 將會起始核准工作流程。 私用端點和後續的私用端點連線將會以「擱置」狀態建立。 私用連結資源擁有者負責核准連接。 核准後，私用端點會啟用以正常傳送流量，如下列核准工作流程圖表所示。  
 
 ![工作流程核准](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -91,7 +91,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
 您可以使用下列選項來設定私人端點的 DNS 設定： 
 - **使用主機檔案（僅建議用於測試）** 。 您可以使用虛擬機器上的主機檔案來覆寫 DNS。  
 - **使用私人 DNS 區域**。 您可以使用私人 DNS 區域來覆寫指定私用端點的 DNS 解析。 私人 DNS 區域可以連結至您的虛擬網路，以解析特定網域。
-- **使用您的自訂 DNS 伺服器**。 您可以使用自己的 DNS 伺服器來覆寫指定私人連結資源的 DNS 解析。 如果您的 DNS 伺服器裝載于虛擬網路上，您可以建立 DNS 轉送規則來使用私人 DNS 區域，以簡化所有私人連結資源的設定。
+- **使用您的自訂 DNS 伺服器**。 您可以使用自己的 DNS 伺服器來覆寫指定私人連結資源的 DNS 解析。 如果您的[dns 伺服器](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)裝載于虛擬網路上，您可以建立 dns 轉送規則來使用私人 DNS 區域，以簡化所有私人連結資源的設定。
  
 > [!IMPORTANT]
 > 不建議您覆寫主動使用的區域來解析公用端點。 若未將 DNS 轉送至公用 DNS，則無法正確解析資源的連線。 為避免發生問題，請建立不同的功能變數名稱，或遵循下列每項服務的建議名稱。 

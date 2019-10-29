@@ -1,5 +1,5 @@
 ---
-title: 在 Azure HDInsight 中建立和設定企業安全性套件叢集
+title: 建立、設定企業安全性套件叢集-Azure
 description: 瞭解如何在 Azure HDInsight 中建立和設定企業安全性套件叢集
 services: hdinsight
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: aed656c65fc70946f7d91cb4354e1c081954e68c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6247a6b2eeeb421773400cc60d05696f973a1dff
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030386"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044678"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>在 Azure HDInsight 中建立和設定企業安全性套件叢集
 
@@ -46,9 +46,9 @@ ms.locfileid: "72030386"
     1. 針對其餘的範本欄位，輸入下列詳細資料：
 
         * **位置**：美國中部
-        * **管理使用者名稱**：HDIFabrikamAdmin
-        * **管理員密碼**：\<YOUR_PASSWORD >
-        * **網域名稱**：HDIFabrikam.com
+        * **管理員使用者名稱**： HDIFabrikamAdmin
+        * **管理員密碼**： \<YOUR_PASSWORD >
+        * **功能變數名稱**： HDIFabrikam.com
         * **Dns 首碼**： hdifabrikam
 
         ![使用新的 Azure AD 樹系建立 Azure VM 的範本](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png)
@@ -63,18 +63,18 @@ ms.locfileid: "72030386"
 
 1. 使用 [遠端桌面] 連線到網域控制站。
     1. 如果您使用一開始所提到的範本，則網域控制站是**OnPremADVRG**資源群組中名為**adVM**的 VM。
-    1. 在 [Azure 入口網站中，選取 [**資源群組**]  > **OnPremADVRG** > **AdVM** > **Connect]** 。
+    1. 在 [Azure 入口網站中，選取 [**資源群組**] > **OnPremADVRG** > **adVM** > **連接]** 。
     1. 選取 [ **rdp** ] 索引標籤 >**下載 rdp**檔案。
     1. 將檔案儲存到您的電腦並加以開啟。
     1. 當系統提示您輸入認證時，請使用*HDIFabrikam\HDIFabrikamAdmin*做為使用者名稱。 然後輸入您為系統管理員帳戶所選擇的密碼。
 
-1. 當您的遠端桌面會話在網域控制站 VM 上開啟時，請在 [**伺服器管理員**] 儀表板上，開啟 [ **Active Directory 使用者和電腦**]。 在右上角，選取 [**工具**] [ > ] [**Active Directory 使用者和電腦**]。
+1. 當您的遠端桌面會話在網域控制站 VM 上開啟時，請在 [**伺服器管理員**] 儀表板上，開啟 [ **Active Directory 使用者和電腦**]。 在右上角，選取 [**工具**] [ > ] **Active Directory [使用者和電腦**]。
 
     ![在 [伺服器管理員] 儀表板上，開啟 [Active Directory 管理]](./media/apache-domain-joined-create-configure-enterprise-security-cluster/server-manager-active-directory-screen.png)
 
-1. 建立兩個新的使用者：**HDIAdmin**和**HDIUser**。 這兩個使用者會登入 HDInsight 叢集。
+1. 建立兩個新的使用者： **HDIAdmin**和**HDIUser**。 這兩個使用者會登入 HDInsight 叢集。
 
-    1. 在 [ **Active Directory 使用者和電腦**] 頁面上，選取 [**動作** > **新增** >  個**使用者**]。
+    1. 在  **Active Directory 使用者和電腦** 頁面上，選取 **動作** > **新增** > **使用者**。
 
         ![建立新的 Active Directory 使用者](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
@@ -82,13 +82,13 @@ ms.locfileid: "72030386"
 
         ![建立第一個系統管理員使用者物件](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
-    1. 在出現的快顯視窗中，輸入新帳戶的密碼。 選取 [**密碼永久**有效]  >  **[確定]** 。
+    1. 在出現的快顯視窗中，輸入新帳戶的密碼。 選取 [**密碼永久** **有效] > [確定]** 。
     1. 選取 **[完成]** 以建立新的帳戶。
     1. 建立另一個名為*HDIAdmin*的使用者。
 
         ![建立第二個管理使用者物件](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
-1. 在 [ **Active Directory 使用者和電腦**] 頁面上，選取 [**動作** > **新增** > **群組**]。 新增名為*HDIUserGroup*的群組。
+1. 在  **Active Directory 使用者和電腦** 頁面上，選取 **動作** > **新增** > **群組**。 新增名為*HDIUserGroup*的群組。
 
     ![建立新的 Active Directory 群組](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
@@ -119,7 +119,7 @@ ms.locfileid: "72030386"
 
 1. 在 Azure 入口網站的左側，選取 [ **Azure Active Directory**]。
 1. 如有需要，請選取 [**切換目錄**]，以變更為新的**HDIFabrikamoutlook**目錄。
-1. 在 **管理** 下，選取 **自訂功能變數名稱**  > **新增自訂網域**。
+1. 在 **管理** 下，選取 **自訂功能變數名稱** > **新增自訂網域**。
 1. 在 [**自訂功能變數名稱**] 下，輸入*HDIFabrikam.com* ，然後選取 [**新增網域**]。
 
 ![建立自訂網域](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
@@ -130,7 +130,7 @@ ms.locfileid: "72030386"
 
 1. 建立 Active Directory 租使用者系統管理員。
     1. 登入 Azure 入口網站並選取您的 Azure AD 租使用者**HDIFabrikam**。
-    1. 在 [**管理**] 下，選取 [**使用者** >  個**新使用者**]。
+    1. 在 [**管理**] 下，選取 [**使用者**] > [**新使用者**]。
     1. 輸入新使用者的下列詳細資料：
         * **名稱**： fabrikamazureadmin
         * **使用者名稱**： fabrikamazureadmin@hdifabrikam.com
@@ -146,7 +146,7 @@ ms.locfileid: "72030386"
 
     1. 輸入使用者的密碼。 然後選取 [建立]。
 
-1. 如果您想要變更新建立之使用者的密碼 \< @ no__t-1 >，請使用身分識別來登入 Azure 入口網站。 然後，系統會提示您變更密碼。
+1. 如果您想要將新建立之使用者的密碼變更 \<fabrikamazureadmin@hdifabrikam.com>，請使用該身分識別登入 Azure 入口網站。 然後，系統會提示您變更密碼。
 
 ## <a name="sync-on-premises-users-to-azure-ad"></a>將內部部署使用者同步至 Azure AD
 
@@ -156,7 +156,7 @@ ms.locfileid: "72030386"
 
 1. 在網域控制站上安裝 Azure AD Connect。
 
-    1. 開啟您已下載的可執行檔，並同意授權條款。 選取 **繼續**。
+    1. 開啟您已下載的可執行檔，並同意授權條款。 選取 [繼續]。
 
         ![[歡迎使用 Azure AD Connect] 頁面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0052.png)
 
@@ -166,33 +166,33 @@ ms.locfileid: "72030386"
 
 ### <a name="configure-a-sync-with-the-on-premises-domain-controller"></a>設定與內部部署網域控制站的同步處理
 
-1. 在 [**連接到 Azure AD]** 頁面上，輸入 Azure AD 全域管理員的使用者名稱和密碼。 使用您在設定 Active Directory 租使用者時所建立 `fabrikamazureadmin@hdifabrikam.com` 的使用者名稱。 然後，選取 [下一步]。 
+1. 在 [**連接到 Azure AD]** 頁面上，輸入 Azure AD 全域管理員的使用者名稱和密碼。 使用您在設定 Active Directory 租使用者時所建立的 username `fabrikamazureadmin@hdifabrikam.com`。 然後，選取 [下一步]。 
 
     ![[連接到 Azure AD] 頁面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. 在 [連線**至 Active Directory Domain Services]** 頁面上，輸入企業系統管理員帳戶的使用者名稱和密碼。 使用您稍早建立的使用者名稱 `HDIFabrikam\HDIFabrikamAdmin` 和其密碼。 然後，選取 [下一步]。 
+1. 在 [連線**至 Active Directory Domain Services]** 頁面上，輸入企業系統管理員帳戶的使用者名稱和密碼。 使用使用者名稱 `HDIFabrikam\HDIFabrikamAdmin` 和您稍早建立的密碼。 然後，選取 [下一步]。 
 
    ![[連接到 Azure AD] 頁面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. 在 [ **Azure AD 登入**設定] 頁面上，選取 **[下一步]** 。
-   ![The "Azure AD 登入設定" 頁面 @ no__t-1
+   ![[Azure AD 登入設定] 頁面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
 1. 在 [**準備好設定**] 頁面上，選取 [**安裝**]。
 
    ![[準備設定] 頁面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
 1. 在 [設定完成] 頁面上，選取 [結束]。
-   @no__t 0The 「設定完成」頁面 @ no__t-1
+   ![[設定完成] 頁面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. 同步完成之後，請確認您在 IaaS 目錄上建立的使用者已同步至 Azure AD。
    1. 登入 Azure 入口網站。
-   1. 選取**Azure Active Directory** > **HDIFabrikam** >  個**使用者**。
+   1. 選取 [ **Azure Active Directory** > **HDIFabrikam** > **使用者**]。
 
 ### <a name="create-a-user-assigned-managed-identity"></a>建立使用者指派的受控識別
 
 建立使用者指派的受控識別，您可以用來設定 Azure AD Domain Services （Azure AD DS）。 如需詳細資訊，請參閱[使用 Azure 入口網站建立、列出、刪除或指派角色給使用者指派的受控識別](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。
 
 1. 登入 Azure 入口網站。
-1. 選取 [**建立資源**]，然後輸入*受控識別*。 選取 **使用者指派的受控識別**  > **建立**。
+1. 選取 [**建立資源**]，然後輸入*受控識別*。 選取 **使用者指派的受控識別** > **建立**。
 1. 針對 [**資源名稱**]，輸入*HDIFabrikamManagedIdentity*。
 1. 選取您的訂用帳戶。
 1. 在 [**資源群組**] 下，選取 [**建立新**的]，然後輸入*HDIFabrikam-CentralUS*。
@@ -219,7 +219,7 @@ ms.locfileid: "72030386"
 1. 登入 Azure 入口網站。
 1. 選取 [**建立資源**]，輸入*網域服務*，然後選取 [ **Azure AD Domain Services**]。
 1. 在 [**基本**] 頁面上：
-    1. 在 [**目錄名稱**] 底下，選取您建立的 Azure AD 目錄：**HDIFabrikam**。
+    1. 在 [**目錄名稱**] 底下，選取您建立的 Azure AD 目錄： **HDIFabrikam**。
     1. 針對 [ **DNS 功能變數名稱**]，輸入*HDIFabrikam.com*。
     1. 選取您的訂用帳戶。
     1. 指定資源群組**HDIFabrikam-CentralUS**。 針對 [**位置**]，選取 [**美國中部**]。
@@ -234,7 +234,7 @@ ms.locfileid: "72030386"
 
     ![查看 Azure AD 系統管理員群組](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 
-1. 在 [**同步**處理] 頁面上，選取 [**所有** >  **]** 以啟用完整同步處理。
+1. 在 [**同步**處理] 頁面上，選取 [**全部** **] > [確定]** 以啟用完整同步處理。
 
     ![啟用 Azure AD DS 同步處理](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png)
 
@@ -258,7 +258,7 @@ ms.locfileid: "72030386"
 1. 設定**HDIFabrikam-AADDSVNET**以使用自訂 IP 位址10.0.0.4 和10.0.0.5。
 
     1. 在 [**設定**] 底下，選取 [ **DNS 伺服器**]。 
-    1. 選取 [自訂]。
+    1. 選取 [**自訂**]。
     1. 在 [] 文字方塊中，輸入第一個 IP 位址（*10.0.0.4*）。
     1. 選取 [儲存]。
     1. 重複步驟來新增其他 IP 位址（*10.0.0.5*）。
@@ -291,7 +291,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. 啟動 Microsoft Management Console （MMC）。
 1. 新增 [**憑證**] 嵌入式管理單元，以管理本機電腦上的憑證。
-1. 展開 **[憑證（本機電腦）** ]  > **個人** >  個**憑證**。 「**個人**」存放區中應該會有新的憑證。 此憑證會發行至完整主機名稱。
+1. 展開**憑證（本機電腦）**  > **個人** > **憑證**。 「**個人**」存放區中應該會有新的憑證。 此憑證會發行至完整主機名稱。
 
     ![確認是否建立本機憑證](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
@@ -315,18 +315,18 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. 現在您已啟用 LDAPS，請啟用埠636以確定可連線。
     1. 在 [ **HDIFabrikam-CentralUS** ] 資源群組中，選取 [網路安全性群組] [ **AADDS-HDIFabrikam.com-NSG**]。
-    1. 在 **設定** 下，選取 **輸入安全性規則**  > **新增**。
+    1. 在 **設定** 下，選取 **輸入安全性規則** > **新增**。
     1. 在 [**新增輸入安全性規則**] 頁面上，輸入下列屬性，然後選取 [**新增**]：
 
-        | 屬性 | 值 |
+        | 屬性 | Value |
         |---|---|
-        | Source | Any |
-        | Source port ranges | * |
-        | Destination | Any |
-        | Destination port range | 636 |
-        | Protocol | Any |
-        | Action | 允許 |
-        | Priority | @no__t 0Desired 號碼 > |
+        | 來源 | 任意 |
+        | 來源連接埠範圍 | * |
+        | 目的地 | 任意 |
+        | 目的地埠範圍 | 636 |
+        | 通訊協定 | 任意 |
+        | 行動 | 允許 |
+        | 優先順序 | \<所需的數目 > |
         | Name | Port_LDAP_636 |
 
     ![[新增輸入安全性規則] 對話方塊](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
@@ -348,7 +348,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. 在裝載 Azure AD DS 的虛擬網路（`HDIFabrikam-AADDSVNET`）和將裝載已啟用 ESP 之 HDInsight 叢集的虛擬網路（`HDIFabrikam-HDIVNet`）之間建立對等關聯性。 使用下列 PowerShell 程式碼，對等互連兩個虛擬網路。
+1. 在裝載 Azure AD DS （`HDIFabrikam-AADDSVNET`）的虛擬網路與將裝載已啟用 ESP 的 HDInsight 叢集（`HDIFabrikam-HDIVNet`）的虛擬網路之間建立對等關聯性。 使用下列 PowerShell 程式碼，對等互連兩個虛擬網路。
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')
@@ -359,7 +359,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 1. 建立名為**Hdigen2store**的新 Azure Data Lake Storage Gen2 帳戶。 使用使用者管理的身分識別**HDIFabrikamManagedIdentity**來設定帳戶。 如需詳細資訊，請參閱[使用 Azure Data Lake Storage Gen2 搭配 Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)叢集。
 
 1. 在**HDIFabrikam-AADDSVNET**虛擬網路上設定自訂 DNS。
-    1. 移至 Azure 入口網站 >**資源群組** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** >  部**DNS 伺服器**。
+    1. 移至 Azure 入口網站 >**資源群組** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS 伺服器**。
     1. 選取 [**自訂**]，然後輸入*10.0.0.4*和*10.0.0.5*。
     1. 選取 [儲存]。
 
@@ -372,13 +372,13 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     1. 針對 [**安全性 + 網路**] （第2節），填寫下列詳細資料：
         * 在 [**企業安全性套件**] 底下，選取 [**已啟用**]。
         * 選取 [叢集**管理使用者**]，然後選取您建立為內部部署系統管理員使用者的**HDIAdmin**帳戶。 按一下 [選取]。
-        * 選取 [叢集**存取群組** > **HDIUserGroup**]。 您未來新增至此群組的任何使用者都將能夠存取 HDInsight 叢集。
+        * 選取 [叢集**存取群組**] > **HDIUserGroup**。 您未來新增至此群組的任何使用者都將能夠存取 HDInsight 叢集。
 
             ![選取 [叢集存取群組] HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
     1. 完成叢集設定的其他步驟，並確認叢集**摘要**的詳細資料。 選取 [建立]。
 
-1. 在 `https://CLUSTERNAME.azurehdinsight.net` 登入新建立之叢集的 Ambari UI。 使用您的系統管理員使用者名稱 `hdiadmin@hdifabrikam.com` 和其密碼。
+1. 在 `https://CLUSTERNAME.azurehdinsight.net`登入新建立之叢集的 Ambari UI。 使用您的系統管理員使用者名稱 `hdiadmin@hdifabrikam.com` 和其密碼。
 
     ![Apache Ambari UI 登入視窗](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 

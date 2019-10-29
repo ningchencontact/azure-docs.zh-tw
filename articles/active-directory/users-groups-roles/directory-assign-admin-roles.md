@@ -8,18 +8,18 @@ search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: reference
+ms.date: 10/28/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f769aafa3e2976d63e99cf58a6b67e1b4cf81b64
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a0f7c1987cd4184ba6cda37d4d1894f0dba0b2f1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72963970"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024640"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -137,7 +137,7 @@ ms.locfileid: "72963970"
 ----- | ----------
 [Microsoft 365 合規性中心](https://protection.office.com) | 保護和管理您組織在所有 Microsoft 365 服務中的資料<br>管理合規性警示
 [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
-[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求
+[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求<br><br>此角色具有與 Office 365 安全性 & 合規性中心角色型存取控制中的[相容性系統管理員 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同的許可權。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視所有的 Intune 稽核資料
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br> 可檢視 [資料管理] 下的所有內建報告
 
@@ -149,7 +149,7 @@ ms.locfileid: "72963970"
 ----- | ----------
 [Microsoft 365 合規性中心](https://protection.office.com) | 監視跨 Microsoft 365 服務的合規性相關原則<br>管理合規性警示
 [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
-[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求<br><br>此角色具有與 Office 365 安全性與合規性中心角色型存取控制中的[相容性資料管理員 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同的許可權。
+[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求<br><br>此角色具有與 Office 365 安全性 & 合規性中心角色型存取控制中的[相容性資料管理員 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同的許可權。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視所有的 Intune 稽核資料
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br> 可檢視 [資料管理] 下的所有內建報告
 
@@ -230,7 +230,7 @@ ms.locfileid: "72963970"
 >* [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
 >* [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
 >* [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
->* [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
+>* [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
 >* [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)-全域讀取器僅支援[集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，以及當您的租使用者不在[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上時。
 >
 > 這些功能目前正在開發中。

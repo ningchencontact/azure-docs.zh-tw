@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Ambari 檢視與 HDInsight (Apache Hadoop) 上的 Hive 搭配作業 - Azure
+title: 在 Azure HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive View
 description: 了解如何從網頁瀏覽器使用 Hive 檢視來提交 Hive 查詢。 Hive 檢視是以 Linux 為基礎的 HDInsight 叢集隨附的 Ambari 檢視的一部分。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077002"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044816"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -61,16 +61,16 @@ ms.locfileid: "71077002"
 
     這些陳述式會執行下列動作：
 
-   * `DROP TABLE`:刪除資料表和資料檔 (如果資料表已經存在)。
+   * `DROP TABLE`：刪除資料表和資料檔 (如果資料表已存在)。
 
-   * `CREATE EXTERNAL TABLE`:在 Hive 中建立新的「外部」資料表。
+   * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的「外部」資料表。
      外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
-   * `ROW FORMAT`:顯示設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
+   * `ROW FORMAT`：顯示設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
-   * `STORED AS TEXTFILE LOCATION`:顯示資料的儲存位置，以及資料是儲存為文字。
+   * `STORED AS TEXTFILE LOCATION`：顯示資料的儲存位置，且資料會儲存為文字。
 
-   * `SELECT`:選取 t4 資料行包含 [ERROR] 值之所有資料列的計數。
+   * `SELECT`：選取在資料行 t4 中包含 [ERROR] 值的所有資料列。
 
    > [!IMPORTANT]  
    > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
@@ -112,7 +112,7 @@ ms.locfileid: "71077002"
 
 ![[Apache Hive 資料表] 索引標籤的影像](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
-## <a name="saved-queries"></a>已儲存的查詢
+## <a name="saved-queries"></a>儲存的查詢
 
 從 [查詢] 索引標籤中，您可以選擇性地儲存查詢。 儲存查詢之後，您就可以從 [儲存的查詢] 索引標籤重複使用它。
 
@@ -161,7 +161,7 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 您可以變更各種 Hive 設定，例如將 Hive 的執行引擎從 Tez (預設) 變更為 MapReduce。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Hive 的一般資訊：
 
@@ -170,4 +170,4 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
+* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)

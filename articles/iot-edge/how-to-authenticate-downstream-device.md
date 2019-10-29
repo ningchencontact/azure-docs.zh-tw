@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1e184691ebbd34de0f69e93419d9c34ab18edbe6
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266132"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025943"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>在 Azure IoT 中樞中驗證下游裝置
 
@@ -72,10 +72,10 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 下游裝置的對稱金鑰連接字串需要下列元件： 
 
-* 裝置連接的 IoT 中樞：`Hostname={iothub name}.azure-devices.net`
-* 向中樞註冊的裝置識別碼：`DeviceID={device ID}`
-* 主要或次要金鑰：`SharedAccessKey={key}`
-* 裝置透過連接的閘道裝置。 從 IoT Edge 閘道裝置的 yaml 檔案提供**主機名稱**值：`GatewayHostName={gateway hostname}`
+* 裝置連接的 IoT 中樞： `Hostname={iothub name}.azure-devices.net`
+* 向中樞註冊的裝置識別碼： `DeviceID={device ID}`
+* 主要或次要金鑰： `SharedAccessKey={key}`
+* 裝置透過連接的閘道裝置。 從 IoT Edge 閘道裝置的 yaml 檔案提供**主機名稱**值： `GatewayHostName={gateway hostname}`
 
 總之，完整的連接字串看起來像這樣：
 
@@ -83,7 +83,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-如果您已建立此下游裝置的父/子關聯性，則可以直接呼叫閘道做為連線主機，以簡化連接字串。 例如: 
+如果您已建立此下游裝置的父/子關聯性，則可以直接呼叫閘道做為連線主機，以簡化連接字串。 例如： 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -101,7 +101,7 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 
 針對 x.509 自我簽署驗證，有時也稱為指紋驗證，您必須建立新的憑證以放在您的 IoT 裝置上。 這些憑證的指紋會與您共用 IoT 中樞以進行驗證。 
 
-測試此案例最簡單的方式是使用您在設定 IoT Edge 裝置中用來建立憑證的相同電腦，[以作為透明閘道](how-to-create-transparent-gateway.md)。 該機器應該已經使用正確的工具、根 CA 憑證和中繼 CA 憑證進行設定，以建立 IoT 裝置憑證。 之後，您可以將最終的憑證及其私密金鑰複製到下游裝置。 遵循閘道一文中的步驟，您可以在電腦上設定 openssl，然後複製 IoT Edge 存放庫來存取憑證建立腳本。 然後，您建立了一個工作目錄，我們稱之為 **\<WRKDIR >** 用來保存憑證。 預設憑證適用于開發和測試，因此只有過去30天。 您應該已建立根 CA 憑證和中繼憑證。 
+測試此案例最簡單的方式，就是使用您在設定 IoT Edge 裝置中用來建立憑證的相同電腦，[以作為透明閘道](how-to-create-transparent-gateway.md)。 該機器應該已經使用正確的工具、根 CA 憑證和中繼 CA 憑證進行設定，以建立 IoT 裝置憑證。 之後，您可以將最終的憑證及其私密金鑰複製到下游裝置。 遵循閘道一文中的步驟，您可以在電腦上設定 openssl，然後複製 IoT Edge 存放庫來存取憑證建立腳本。 然後，您建立了一個工作目錄，我們稱之為 **\<WRKDIR >** 以保存憑證。 預設憑證適用于開發和測試，因此只有過去30天。 您應該已建立根 CA 憑證和中繼憑證。 
 
 1. 在 bash 或 PowerShell 視窗中流覽至您的工作目錄。 
 
@@ -155,12 +155,12 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 本節是根據 IoT 中樞文章在[Azure IoT 中樞中設定 x.509 安全性中](../iot-hub/iot-hub-security-x509-get-started.md)詳述的指示。 遵循本節中的步驟，以瞭解要使用哪些值來設定透過閘道連接的下游裝置。 
 
-測試此案例最簡單的方式，就是使用您在設定 IoT Edge 裝置中用來建立憑證的相同電腦，[以作為透明閘道](how-to-create-transparent-gateway.md)。 該機器應該已經使用正確的工具、根 CA 憑證和中繼 CA 憑證進行設定，以建立 IoT 裝置憑證。 之後，您可以將最終的憑證及其私密金鑰複製到下游裝置。 遵循閘道一文中的步驟，您可以在電腦上設定 openssl，然後複製 IoT Edge 存放庫來存取憑證建立腳本。 然後，您建立了一個工作目錄，我們稱之為 **\<WRKDIR >** 用來保存憑證。 預設憑證適用于開發和測試，因此只有過去30天。 您應該已建立根 CA 憑證和中繼憑證。 
+測試此案例最簡單的方式，就是使用您在設定 IoT Edge 裝置中用來建立憑證的相同電腦，[以作為透明閘道](how-to-create-transparent-gateway.md)。 該機器應該已經使用正確的工具、根 CA 憑證和中繼 CA 憑證進行設定，以建立 IoT 裝置憑證。 之後，您可以將最終的憑證及其私密金鑰複製到下游裝置。 遵循閘道一文中的步驟，您可以在電腦上設定 openssl，然後複製 IoT Edge 存放庫來存取憑證建立腳本。 然後，您建立了一個工作目錄，我們稱之為 **\<WRKDIR >** 以保存憑證。 預設憑證適用于開發和測試，因此只有過去30天。 您應該已建立根 CA 憑證和中繼憑證。 
 
 1. 請遵循在*Azure iot 中樞中設定 x.509 安全性*的[IoT 中樞註冊 x.509 CA 憑證](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)一節中的指示。 在該區段中，您會執行下列步驟： 
 
-   1. 上傳根 CA 憑證。 如果您使用的是在透明閘道一文中建立的憑證，請將 **\<WRKDIR >/certs/azure-iot-test-only.root.ca.cert.pem**上傳為根憑證檔案。 
-   2. 確認您擁有該根 CA 憑證。 您可以在 WRKDIR > 中\<驗證是否擁有憑證工具。 
+   1. 上傳根 CA 憑證。 如果您使用的是在透明閘道一文中建立的憑證，請上傳 **\<WRKDIR >/certs/azure-iot-test-only.root.ca.cert.pem**作為根憑證檔案。 
+   2. 確認您擁有該根 CA 憑證。 您可以在 \<WRKDIR > 中驗證是否擁有憑證工具。 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"
@@ -170,7 +170,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
       ./certGen.sh create_verification_certificate <verification code from Azure portal>"
       ```
 
-2. 遵循在[Azure iot 中樞中設定 x.509 安全性](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub)一節中的 <<c0>為 *IoT 中樞建立 x.509 裝置一節中的指示*。 在該區段中，您會執行下列步驟： 
+2. 遵循在*Azure iot 中樞中設定 x.509 安全性*一節中的 在該區段中，您會執行下列步驟： 
 
    1. 新增裝置。 為 [**裝置識別碼**] 提供小寫的名稱，然後選擇 [ **x.509 CA 簽署**的驗證類型]。 
    2. 設定父裝置。 針對下游裝置，請選取 [**設定父裝置**]，然後選擇將提供連線至 IoT 中樞的 IoT Edge 閘道裝置。 

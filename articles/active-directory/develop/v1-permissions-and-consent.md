@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545201"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042319"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 端點中的權限和同意
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) 廣泛使用 OAuth 和 OpenID Connect (OIDC) �
 Azure AD 定義兩種權限：
 
 * **委派權限** - 供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫 API 時以登入使用者的身分行事。 視 API 而定，使用者不一定能直接同意 API，而會[需要系統管理員提供「管理員同意」](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)。
-* **應用程式權限** - 供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。 應用程式權限通常很強大，允許跨使用者界限存取資料，或存取僅限系統管理員存取的資料，因此這種權限只能[由系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)。
+* **應用程式權限** - 供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。 應用程式許可權只能[由系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)，因為它們通常是強大的功能，允許跨使用者界限存取資料，或在其他情況下限制系統管理員的資料。 定義為資源應用程式擁有者（也就是發佈許可權的 API）的使用者也可以授與他們所擁有之 Api 的應用程式許可權。
 
 有效權限是應用程式向 API 提出要求時會具備的權限。 
 
@@ -65,7 +65,7 @@ Azure AD 中的權限有許多屬性，可協助使用者、系統管理員或�
 | --- | --- | --- |
 | `ID` | 是可唯一識別此權限的 GUID 值。 | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | 指出此權限是否可供使用。 | true |
-| `Type` | 指出此權限需要使用者同意還是系統管理員同意。 | 使用者 |
+| `Type` | 指出此權限需要使用者同意還是系統管理員同意。 | User |
 | `AdminConsentDescription` | 是在系統管理員同意體驗期間，向系統管理員顯示的說明 | 允許應用程式讀取使用者信箱中的電子郵件。 |
 | `AdminConsentDisplayName` | 是在系統管理員同意體驗期間，向系統管理員顯示的易記名稱。 | 讀取使用者的郵件 |
 | `UserConsentDescription` | 是在使用者同意體驗期間，向使用者顯示的說明。 |  允許應用程式讀取您信箱中的電子郵件。 |
@@ -86,9 +86,9 @@ Azure AD 中的應用程式需仰賴同意，才能取得所需資源或 API 的
   
 * **系統管理員同意** - 當應用程式需要特定高權限的存取權時，就需要此同意。 系統管理員同意可確保在系統管理員授權應用程式或使用者存取組織中的高權限資料之前，有某些額外的控制能力。 [深入了解如何授與系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
-### <a name="client-best-practices"></a>用戶端最佳作法
+### <a name="client-best-practices"></a>用戶端最佳做法
 
 - 只要求應用程式所需的權限。 如果應用程式有太多權限，會有遭到入侵時暴露使用者資料的風險。
 - 根據您的應用程式支援的案例，選擇委派的權限或應用程式權限。
@@ -106,7 +106,7 @@ Azure AD 中的應用程式需仰賴同意，才能取得所需資源或 API 的
   - `Permission` 對應於使用者可對該資料採取的動作
   - `Modifier` 選擇性地用來說明另一個權限的特製化
     
-    例如:
+    例如：
   - Mail.Read - 可讓使用者讀取郵件。
   - Mail.ReadWrite - 可讓使用者閱讀或撰寫郵件。
   - Mail.ReadWrite.All - 可讓系統管理員或使用者存取組織中的所有郵件。

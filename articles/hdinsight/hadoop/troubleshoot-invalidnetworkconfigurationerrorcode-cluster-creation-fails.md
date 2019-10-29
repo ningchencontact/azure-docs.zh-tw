@@ -1,5 +1,5 @@
 ---
-title: 從 Azure HDInsight 中的叢集建立 InvalidNetworkConfigurationErrorCode
+title: InvalidNetworkConfigurationErrorCode 錯誤-Azure HDInsight
 description: 在 Azure HDInsight 中使用 InvalidNetworkConfigurationErrorCode 建立叢集失敗的各種原因
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: a6b207086325018deb63383a0775af8dfe195ac4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5b8d031af9dbe6019d71e2a1caa3d3f25d4024ea
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091712"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044458"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>叢集建立因 Azure HDInsight 中的 InvalidNetworkConfigurationErrorCode 而失敗
 
 本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
-如果您看到錯誤碼`InvalidNetworkConfigurationErrorCode`說明「虛擬網路設定與 HDInsight 需求不相容」，通常表示叢集的[虛擬網路](../hdinsight-plan-virtual-network-deployment.md)設定有問題。 根據其餘的錯誤描述，遵循下列各節來解決您的問題。
+如果您看到錯誤碼 `InvalidNetworkConfigurationErrorCode`，說明「虛擬網路設定與 HDInsight 需求不相容」，通常表示叢集的[虛擬網路](../hdinsight-plan-virtual-network-deployment.md)設定發生問題。 根據其餘的錯誤描述，遵循下列各節來解決您的問題。
 
 ## <a name="hostname-resolution-failed"></a>「主機名稱解析失敗」
 
@@ -32,11 +32,11 @@ ms.locfileid: "71091712"
 
 ### <a name="resolution"></a>解析度
 
-1. 透過 Ssh 連線到屬於叢集一部分的 VM，然後執行命令`hostname -f`。 這會傳回主機的完整功能變數名稱（ `<host_fqdn>`在下列指示中稱為）。
+1. 透過 Ssh 連線到屬於叢集一部分的 VM，然後執行命令 `hostname -f`。 這會傳回主機的完整功能變數名稱（在下列指示中稱為 `<host_fqdn>`）。
 
-1. 然後，執行命令`nslookup <host_fqdn>` （ `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`例如）。 如果此命令會將名稱解析成 IP 位址，則表示您的 DNS 伺服器正常運作。 在此情況下，請向 HDInsight 提出支援案例，我們會調查您的問題。 在您的支援案例中，請包含您所執行的疑難排解步驟。 這可協助我們更快解決問題。
+1. 然後，`nslookup <host_fqdn>` 執行命令（例如，`nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`）。 如果此命令會將名稱解析成 IP 位址，則表示您的 DNS 伺服器正常運作。 在此情況下，請向 HDInsight 提出支援案例，我們會調查您的問題。 在您的支援案例中，請包含您所執行的疑難排解步驟。 這可協助我們更快解決問題。
 
-1. 如果上述命令未傳回 IP 位址，則執行`nslookup <host_fqdn> 168.63.129.16` （ `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`例如）。 如果此命令能夠解析 IP，則表示您的 DNS 伺服器不會將查詢轉送到 Azure 的 DNS，或者它不是屬於與叢集相同之 vNet 的 VM。
+1. 如果上述命令未傳回 IP 位址，請執行 `nslookup <host_fqdn> 168.63.129.16` （例如 `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`）。 如果此命令能夠解析 IP，則表示您的 DNS 伺服器不會將查詢轉送到 Azure 的 DNS，或者它不是屬於與叢集相同之 vNet 的 VM。
 
 1. 如果您沒有可作為叢集 vNet 中自訂 DNS 伺服器的 Azure VM，則必須先新增此虛擬機器。 在 vNet 中建立 VM，其會設定為 DNS 轉寄站。
 
@@ -76,6 +76,6 @@ Azure 儲存體和 SQL 沒有固定的 IP 位址，因此我們需要允許所�
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
 * 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

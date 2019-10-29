@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c659db91b8ca1ad65b00124bed347b8046328d2e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553521"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045002"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>使用結果集快取進行效能微調  
 啟用結果集快取時，Azure SQL 資料倉儲會自動快取使用者資料庫中的查詢結果，以供重複使用。  這可讓後續的查詢執行直接從持續性快取取得結果，因此不需要重新計算。   結果集快取可改善查詢效能並減少計算資源使用量。  此外，使用快取結果集的查詢不會使用任何平行存取插槽，因此不會計算現有的並行限制。 基於安全性，如果使用者與建立快取結果的使用者具有相同的資料存取權限，則只能存取快取的結果。  
@@ -49,7 +49,7 @@ ms.locfileid: "72553521"
 執行此命令，以檢查查詢是否以結果快取點擊或遺漏的方式執行。 如果有快取命中，result_cache_hit 會傳回1。
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.pdw_exec_requests 
+SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

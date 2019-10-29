@@ -1,6 +1,6 @@
 ---
-title: Apache Spark 從 Apache Kafka 到 Azure Cosmos DB Azure HDInsight 的資料
-description: 了解如何使用「Apache Spark 結構化串流」從 Apache Kafka 讀取資料，然後儲存至 Azure Cosmos DB。 在此範例中，您使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流資料。
+title: Apache Spark & Apache Kafka 搭配 Cosmos DB-Azure HDInsight
+description: 了解如何使用「Apache Spark 結構化串流」從 Apache Kafka 讀取資料，然後儲存至 Azure Cosmos DB。 在此範例中，您使用 HDInsight 上之 Spark 的 Jupyter Notebook 來串流資料。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037280"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044901"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>搭配 Apache Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
@@ -26,7 +26,7 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 > [!IMPORTANT]  
 > 此範例使用 HDInsight 3.6 上的 Spark 2.2。
 >
-> 本文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
+> 本文件中的步驟建立 Azure 資源群組，其中包含 Spark on HDInsight 和 Kafka on HDInsight cluster 叢集。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
 >
 > 當您完成本文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
 
@@ -69,15 +69,15 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     ![HDInsight 自訂部署值](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-    * 訂用帳戶：選取 Azure 訂用帳戶。
+    * **訂用帳戶**：選取您的 Azure 訂用帳戶。
 
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
-    * **位置**：選取靠近您的地理位置。
+    * **位置**：選取在地理上靠近您的位置。
 
     * **Cosmos DB 帳戶名稱**：此值是作為 Cosmos DB 帳戶的名稱使用。
 
-    * **基底叢集名稱**︰此值會作為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **myhdi** 以建立名為 __spark-myhdi__ 的 Spark 叢集，以及名為 **kafka-myhdi** 的 Kafka 叢集。
+    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **myhdi** 以建立名為 __spark-myhdi__ 的 Spark 叢集，以及名為 **kafka-myhdi** 的 Kafka 叢集。
 
     * **叢集版本**：HDInsight 叢集版本。
 
@@ -88,7 +88,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **叢集登入密碼**：Spark 和 Kafka 叢集的系統管理員使用者密碼。
 
-    * **SSH 使用者名稱**：要為 Spark 和 Kafka 叢集建立的 SSH 使用者。
+    * **SSH 使用者名稱**︰建立 Spark 和 Kafka 叢集的 SSH 使用者。
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 

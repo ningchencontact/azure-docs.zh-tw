@@ -3,21 +3,20 @@ title: 將事件傳送至 Azure 時間序列深入解析環境 | Microsoft Docs
 description: 了解如何設定事件中樞，並執行範例應用程式推送事件，以在 Azure 時間序列深入解析中檢視。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: accf3adea08e713a7a2f06bb175c759ae66a72c0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274621"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991133"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>使用事件中樞將事件傳送至時間序列深入解析環境
 
@@ -30,14 +29,14 @@ ms.locfileid: "72274621"
 1. 選取事件中樞。
 1. 當您建立事件中樞時，您正在建立事件中樞命名空間。 如果您尚未在命名空間內建立事件中樞，請在功能表的 [**實體**] 底下，建立事件中樞。  
 
-    [![事件中樞的1List](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [![事件中樞清單](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
 
 1. 建立事件中樞之後，在事件中樞清單中選取它。
 1. 在功能表的 [**實體**] 底下，選取 [**事件中樞**]。
 1. 選取事件中樞的名稱來對它進行設定。
 1. 在 **[總覽**] 底下，選取 [取用**者群組**]，然後選取 [取用**者群組**]。
 
-    [![Create 取用者群組](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [![建立取用者群組](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
 
 1. 請確定您建立的取用者群組僅供您的時間序列深入解析事件來源使用。
 
@@ -46,17 +45,17 @@ ms.locfileid: "72274621"
 
 1. 在功能表的 [**設定**] 底下，選取 [**共用存取原則**]，然後選取 [**新增**]。
 
-    [![Select 共用存取原則，然後選取 [新增] 按鈕](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
+    [![選取 [共用存取原則]，然後選取 [新增] 按鈕](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
 
 1. 在 [新增共用存取原則] 窗格中，建立名為 **MySendPolicy** 的共用存取。 您可以使用此共用存取原則，在本文稍後C#的範例中傳送事件。
 
-    [![In [原則名稱] 方塊中，輸入 MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [![在 [原則名稱] 方塊中，輸入 MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
 
 1. 在 [宣告]**底下，選取**[**傳送**] 核取方塊。
 
 ## <a name="add-a-time-series-insights-instance"></a>新增時間序列深入解析執行個體
 
-時間序列深入解析更新會使用執行個體，將內容資料新增至傳入的遙測資料。 資料會在查詢期間透過使用 [時間序列識別碼].加入。 我們稍後在本文中使用之範例風車專案的**時間序列識別碼**為 `id`。 若要深入了解時間序列深入解析和**時間序列識別碼**，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
+時間序列深入解析更新會使用執行個體，將內容資料新增至傳入的遙測資料。 資料會在查詢期間透過使用 [時間序列識別碼].加入。 我們稍後在本文中使用之範例風車專案的**時間序列識別碼**是 `id`。 若要深入了解時間序列深入解析和**時間序列識別碼**，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
 
 ### <a name="create-a-time-series-insights-event-source"></a>建立時間序列深入解析事件來源
 
@@ -70,20 +69,20 @@ ms.locfileid: "72274621"
 
 1. 選取您的事件中樞實例。
 
-1. 移至 [**共用存取原則**]  > **MySendPolicy**。 複製 [**連接字串-主要金鑰**] 的值。
+1. 移至 [**共用存取原則**] > **MySendPolicy**。 複製 [**連接字串-主要金鑰**] 的值。
 
-    [![Copy 主要索引鍵連接字串的值](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
+    [![複製主要金鑰連接字串的值](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
-1. 移至 https://tsiclientsample.azurewebsites.net/windFarmGen.html 。 此 URL 會執行模擬風車裝置。
+1. 移至 https://tsiclientsample.azurewebsites.net/windFarmGen.html。 此 URL 會執行模擬風車裝置。
 1. 在網頁的 [**事件中樞連接字串**] 方塊中，貼上您在 [[風車輸入] 欄位](#push-events-to-windmills-sample)中複製的連接字串。
   
-    [![在 [事件中樞連接字串] 方塊中，Paste 主要索引鍵連接字串](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [![將主鍵連接字串貼到 [事件中樞連接字串] 方塊中](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
 1. 選取 [按一下即可啟動]。 模擬器會產生您可以直接使用的執行個體 JSON。
 
 1. 回到 Azure 入口網站中的事件中樞。 在 [**總覽**] 頁面上，您會看到事件中樞所接收的新事件。
 
-    [![顯示事件中樞計量的事件中樞 [總覽] 頁面](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    [![事件中樞的 [總覽] 頁面，其中顯示事件中樞的計量](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
 
 ## <a name="supported-json-shapes"></a>支援的 JSON 樣貌
 
@@ -106,7 +105,7 @@ ms.locfileid: "72274621"
 
 ### <a name="example-two"></a>範例二
 
-* **輸入**：具有兩個 JSON 物件的 JSON 陣列。 每個 JSON 物件都會轉換成事件。
+* **輸入**：具有兩個 json 物件的 json 陣列。 每個 JSON 物件都會轉換成事件。
 
     ```JSON
     [
@@ -130,7 +129,7 @@ ms.locfileid: "72274621"
 
 ### <a name="example-three"></a>範例三
 
-* **輸入**：具有巢狀 JSON 陣列的 JSON 物件，此陣列中包含兩個 JSON 物件。
+* **輸入**：具有包含兩個 json 物件之嵌套 json 陣列的 json 物件。
 
     ```JSON
     {
@@ -157,7 +156,7 @@ ms.locfileid: "72274621"
 
 ### <a name="example-four"></a>範例四
 
-* **輸入**：具有巢狀 JSON 陣列的 JSON 物件，此陣列中包含兩個 JSON 物件。 此輸入示範可由複雜 JSON 物件表示的全域屬性。
+* **輸入**：具有包含兩個 json 物件之嵌套 json 陣列的 json 物件。 此輸入示範可由複雜 JSON 物件表示的全域屬性。
 
     ```JSON
     {

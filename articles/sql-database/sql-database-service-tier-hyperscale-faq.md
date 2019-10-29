@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: a5daac9fb34f36620176111e866f493d47f63bba
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513921"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044967"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database 超大規模資料庫常見問題
 
@@ -46,9 +46,9 @@ ms.locfileid: "72513921"
 | **計算大小**|單一資料庫/彈性集區 * | 1 到 80 個虛擬核心 | 1 到 80 個虛擬核心* | 1 到 80 個虛擬核心 |
 | |受控執行個體 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 | N/A | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |
 | **儲存體類型** | 所有 |進階遠端儲存體 (每個執行個體) | 與本機 SSD 快取分離的儲存體 (每個執行個體) | 超快速本機 SSD 儲存體 (每個執行個體) |
-| **儲存體大小** | 單一資料庫/彈性集區 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
+| **儲存體大小** | 單一資料庫/彈性集區 *| 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
 | | 受控執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IOPS** | 單一資料庫** | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPS 將視工作負載而定。 | 5000 IOPS，IOPS 上限為 200,000|
+| **IOPS** | 單一資料庫 | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPS 將視工作負載而定。 | 5000 IOPS，IOPS 上限為 200,000|
 | | 受控執行個體 | 視檔案大小而定 | N/A | 1375 IOPS/vCore |
 |**可用性**|所有|1個複本，沒有讀取相應放大，沒有本機快取 | 多個複本，最多4個讀取相應放大，部分本機快取 | 3個複本，1個讀取相應放大，區域-多餘 HA，完整本機儲存體 |
 |**備份**|所有|RA-GRS，7-35 天保留（預設為7天）| RA-GRS，7天保留期，固定時間點恢復（PITR） | RA-GRS，7-35 天保留（預設為7天） |
@@ -250,7 +250,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>針對超大規模資料庫資料庫提供了哪些 Sla
 
-請參閱[Azure SQL Database 的 SLA](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/)。 其他次要計算複本會增加可用性，最高可達 99.99%，適用于有兩個或多個次要計算複本的資料庫。
+請參閱[Azure SQL Database 的 SLA](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/)。 其他次要計算複本會增加可用性，最高可達99.99%，適用于有兩個或多個次要計算複本的資料庫。
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 服務是否會為我管理資料庫備份
 

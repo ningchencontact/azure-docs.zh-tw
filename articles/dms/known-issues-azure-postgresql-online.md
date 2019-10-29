@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/27/2019
+ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802577"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043195"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>從于 postgresql 至適用于于 postgresql 的 Azure DB 進行線上遷移的已知問題/遷移限制-單一伺服器
 
@@ -83,9 +83,9 @@ ms.locfileid: "71802577"
 
 - **限制**：如果來源 PostgreSQL 資料庫中有 ENUM 資料類型，移轉在持續同步期間將會失敗。
 
-    **因應措施**：將 ENUM 資料類型修改為與適用於 PostgreSQL 的 Azure 資料庫中不同的字元。
+    **因應措施**：將 ENUM 資料類型修改成與適用於 PostgreSQL 的 Azure 資料庫中不同的字元。
 
-- **限制**：如果資料表上沒有主索引鍵，持續同步將會失敗。
+- **限制**：如果資料表中沒有主索引鍵，持續同步會失敗。
 
     **因應措施**：暫時設定資料表的主索引鍵讓移轉繼續。 您可以在資料移轉完成之後，移除主索引鍵。
 
@@ -95,7 +95,7 @@ ms.locfileid: "71802577"
 
 大型物件 (LOB) 資料行是可能會變大的資料行。 針對 PostgreSQL，LOB 資料類型的範例包括 XML、JSON、IMAGE、TEXT 等等。
 
-- **限制**：如果 LOB 資料類型會用來作為主索引鍵，則移轉將會失敗。
+- **限制**：如果 LOB 資料類型作為主索引鍵，移轉將會失敗。
 
     **因應措施**：使用不是 LOB 的其他資料類型或資料行，取代主索引鍵。
 
@@ -105,11 +105,11 @@ ms.locfileid: "71802577"
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **因應措施**：如果您的 LOB 物件大於 32 KB，請聯絡工程小組，[詢問 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
+    因應**措施：如果**您的 LOB 物件大於 32 KB，請聯絡工程小組，[詢問 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
-- **限制**：如果資料表中有 LOB 資料行，而且並未針對資料表設定主索引鍵，則系統可能不會針對此資料表移轉資料。
+- **限制**：如果資料表中有 LOB 資料行，且沒有為資料表設定主索引鍵，則系統可能不會針對此資料表移轉資料。
 
-    **因應措施**：暫時設定資料表的主索引鍵，讓移轉繼續進行。 您可以在資料移轉完成之後，移除主索引鍵。
+    **因應措施**：暫時為資料表設定主索引鍵來讓移轉繼續。 您可以在資料移轉完成之後，移除主索引鍵。
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10 因應措施
 
@@ -153,29 +153,32 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+  > [!NOTE]
+  > 在上述腳本中，"PG_User" 是指用來連接到遷移來源的使用者名稱。
+
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>從 AWS RDS 于 postgresql 線上遷移時的限制
 
 當您嘗試執行從 AWS RDS 于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫的線上遷移時，您可能會遇到下列錯誤。
 
-- **錯誤**：在資料庫 '{database}' 中，資料表 '{table}' 中資料行 '{}' 的預設值在來源和目標伺服器上不一樣。 來源上為 '{value on source}'，而目標上為 '{value on target}'。
+- **錯誤**：在來源與目標伺服器上，資料庫 ' {database} ' 中資料表 ' {table} ' 的資料行 ' {column} ' 的預設值不同。 來源上為 '{value on source}'，而目標上為 '{value on target}'。
 
-  **限制**：當來源與目標資料庫之間的資料行架構上的預設值不同時，就會發生這個錯誤。
-  **因應措施**：確定目標上的架構符合來源上的架構。 如需有關遷移架構的詳細資訊，請參閱[Azure 于 postgresql 線上遷移檔](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制**：當來源與目標資料庫之間的資料行架構上的預設值不同時，就會發生此錯誤。
+  因應**措施：確定**目標上的架構符合來源上的架構。 如需有關遷移架構的詳細資訊，請參閱[Azure 于 postgresql 線上遷移檔](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
 
-- **錯誤**：目標資料庫 '{database}' 有 '{number of tables}' 個資料表，而來源資料庫 '{database}' 有 '{number of tables}' 個資料表。 來源和目標資料庫上的資料表數目應相符。
+- **錯誤**：目標資料庫 ' {database} ' 有 ' {個數據表數目} ' 資料表，因為源資料庫 ' {database} ' 有 ' {資料表數目} ' 資料表。 來源和目標資料庫上的資料表數目應相符。
 
-  **限制**：當來源與目標資料庫之間的資料表數目不同時，就會發生這個錯誤。
-  **因應措施**：確定目標上的架構符合來源上的架構。 如需有關遷移架構的詳細資訊，請參閱[Azure 于 postgresql 線上遷移檔](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制**：當來源與目標資料庫之間的資料表數目不同時，就會發生此錯誤。
+  因應**措施：確定**目標上的架構符合來源上的架構。 如需有關遷移架構的詳細資訊，請參閱[Azure 于 postgresql 線上遷移檔](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
 
 - **錯誤：** 源資料庫 {database} 是空的。
 
   **限制**：當源資料庫是空的時，就會發生此錯誤。 這很可能是因為您選取了錯誤的資料庫作為來源。
-  **因應措施**：再次檢查您選取要遷移的源資料庫，然後再試一次。
+  因應**措施：再次**檢查您選取要遷移的源資料庫，然後再試一次。
 
 - **錯誤：** 目標資料庫 {database} 是空的。 請遷移結構描述。
 
-  **限制**：當目標資料庫上沒有架構時，就會發生這個錯誤。 請確定目標上的架構符合來源上的架構。
-  **因應措施**：確定目標上的架構符合來源上的架構。 如需有關遷移架構的詳細資訊，請參閱[Azure 于 postgresql 線上遷移檔](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制**：當目標資料庫上沒有架構時，就會發生此錯誤。 請確定目標上的架構符合來源上的架構。
+  因應**措施：確定**目標上的架構符合來源上的架構。 如需有關遷移架構的詳細資訊，請參閱[Azure 于 postgresql 線上遷移檔](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
 
 ## <a name="other-limitations"></a>其他限制
 

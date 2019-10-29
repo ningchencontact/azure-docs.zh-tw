@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259093"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990847"
 ---
 ## <a name="business-disaster-recovery"></a>業務災害復原
 
@@ -21,10 +22,10 @@ ms.locfileid: "72259093"
 
 透過 Azure 提供的額外高可用性功能（也適用于任何時間序列深入解析實例）包括：
 
-- **容錯移轉**：Azure 提供[異地複寫和負載平衡](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)。
-- **資料還原**和**儲存體**復原：Azure 提供[數個選項來保留及復原資料](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption)。
-- **Site recovery**：Azure 透過[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)提供 site recovery 功能。
-- **Azure 備份**：[Azure 備份](https://docs.microsoft.com/azure/backup/backup-architecture)同時支援 Azure VM 的內部部署和雲端備份。
+- **容錯移轉**： Azure 提供[異地複寫和負載平衡](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)。
+- **資料還原**和**儲存體**復原： Azure 提供[數個選項來保留及復原資料](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption)。
+- **Azure Site Recovery**： Azure 會透過[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)提供 Site Recovery 功能。
+- **Azure 備份**： [Azure 備份](https://docs.microsoft.com/azure/backup/backup-architecture)同時支援 Azure vm 的內部部署和雲端備份。
 
 請確定您已啟用相關的 Azure 功能，為您的裝置和使用者提供全域、跨區域的高可用性。
 
@@ -35,13 +36,13 @@ ms.locfileid: "72259093"
 
 某些 Azure IoT 服務也包含內建的商務嚴重損壞修復功能：
 
-- [IoT 中樞高可用性嚴重損壞修復](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)，包括內部區域冗余
-- [事件中樞原則](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Azure IoT 中樞高可用性嚴重損壞修復](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)，其中包括區域內冗余
+- [Azure 事件中樞原則](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 將時間序列深入解析與其他服務整合，可提供額外的嚴重損壞修復機會。 例如，傳送至事件中樞的遙測可能會保存到備份 Azure Blob 儲存體資料庫。
 
-### <a name="time-series-insights"></a>時間序列深入解析
+### <a name="time-series-insights"></a>Time Series Insights
 
 有數種方式可讓您的時間序列深入解析資料、應用程式和服務保持執行狀態，即使它們已中斷。 
 
@@ -56,7 +57,7 @@ ms.locfileid: "72259093"
 
 1. 在第二個區域中建立環境。 如需詳細資訊，請參閱[在 Azure 入口網站中建立新的時間序列深入解析環境](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)。
 1. 建立您事件來源的第二個專用取用者群組。
-1. 將該事件來源連線到新環境。 請確定您指定第二個專用取用者群組。
+1. 將該事件來源連線到新環境。 請確定您指定的是第二個專用取用者群組。
 1. 請參閱時間序列深入解析[IoT 中樞](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)和[事件中樞](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access)檔。
 
 如果發生事件：

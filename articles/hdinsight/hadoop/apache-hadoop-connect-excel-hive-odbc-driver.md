@@ -1,5 +1,5 @@
 ---
-title: 使用 Hive ODBC 驅動程式將 Excel 連線到 Apache Hadoop - Azure HDInsight
+title: Excel & 使用 ODBC 驅動程式的 Apache Hadoop-Azure HDInsight
 description: 了解如何設定和使用 Excel 的 Microsoft Hive ODBC 驅動程式，從 Microsoft Excel 查詢 HDInsight 叢集中的資料。
 keywords: hadoop excel, hive excel, hive odbc
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 7451eaf56a2466bbb02fa879008b4a9787f6c2f5
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9923817e90062bdc0e458208474c651c929f772d
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264631"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044606"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Apache Hadoop
 
@@ -52,22 +52,22 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
    | 屬性 | 描述 |
    | --- | --- |
    |  資料來源名稱 |為資料來源指定名稱 |
-   |  主機 |輸入 `HDInsightClusterName.azurehdinsight.net` 。 例如： `myHDICluster.azurehdinsight.net` |
-   |  Port |使用 **443** (此連接埠已從 563 變更為 443)。 |
+   |  主機 |輸入 `HDInsightClusterName.azurehdinsight.net` 。 例如，`myHDICluster.azurehdinsight.net` |
+   |  連接埠 |使用 **443** (此連接埠已從 563 變更為 443)。 |
    |  資料庫 |使用**預設值**。 |
    |  機制 |選取 [Windows Azure HDInsight 服務] |
    |  使用者名稱 |輸入 HDInsight 叢集 HTTP 使用者的使用者名稱。 預設的使用者名稱為 **admin**。 |
    |  密碼 |輸入 HDInsight 叢集使用者的密碼。 選取 [儲存密碼 (加密)] 核取方塊。|
 
-1. 選擇性：選取 [進階選項...]  
+1. 選擇性：選取 [ **Advanced Options** ]  
 
    | 參數 | 描述 |
    | --- | --- |
-   |  使用原生查詢 |選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。 只有在 100% 確定您正在提交純 HiveQL 語句時，才應使用它。 連接到 SQL Server 或 Azure SQL Database 時，您應將它保留為未勾選。 |
+   |  使用原生查詢 |選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。 只有在100% 確定您正在提交純 HiveQL 語句時，才應使用它。 連接到 SQL Server 或 Azure SQL Database 時，您應將它保留為未勾選。 |
    |  每個區塊擷取的資料列 |在擷取大量記錄時，可能必須調整此參數，以確保最佳效能。 |
    |  預設字串資料行長度、二進位資料行長度、十進位資料行小數位數 |資料類型的長度和精確度可能會影響傳回資料的方式。 如果失去精確度且 (或) 發生截斷狀況，會傳回不正確的資訊。 |
 
-    ![進階 DSN 設定選項](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "進階 DSN 設定選項")
+    ![Advanced DSN 設定選項](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Advanced DSN 設定選項")
 
 1. 選取 [測試] 以測試資料來源。 正確設定資料來源時，測試結果就會顯示**成功！** 。  
 
@@ -85,7 +85,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
 
 2. 從 [資料] 索引標籤，瀏覽至 [取得資料] > [從其他來源] > [從 ODBC] 以啟動 [從 ODBC] 視窗。
 
-    ![開啟 excel 資料連線嚮導](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "開啟 excel 資料連線嚮導")
+    ![開啟 Excel 資料連線嚮導](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "開啟 Excel 資料連線嚮導")
 
 3. 從下拉式清單中，選取您在上一節中建立的資料來源名稱，然後選取 **[確定]** 。
 
@@ -93,7 +93,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
 
 5. 從 [導覽器] 中，瀏覽至 [HIVE] > [預設值] > [hivesampletable]，然後選取 [載入]。 資料需要一些時間才會匯入至 Excel。
 
-    ![Hdinsight Excel HIVE odbc navigator](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDINSIGHT excel Hive ODBC navigator")
+    ![HDInsight Excel Hive ODBC 導覽器](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel Hive ODBC 導覽器")
 
 ## <a name="next-steps"></a>後續步驟
 

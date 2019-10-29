@@ -1,5 +1,5 @@
 ---
-title: 瞭解如何使用 Apache Hadoop 沙箱-模擬器-Azure HDInsight
+title: 瞭解如何使用 Apache Hadoop 沙箱、模擬器 Azure HDInsight
 description: '若要開始了解 Apache Hadoop 生態系統，您可以在 Azure 虛擬機器上從 Hortonworks 設定 Hadoop 沙箱。 '
 keywords: hadoop 模擬器, hadoop 沙箱
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066682"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044759"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Apache Hadoop 沙箱，也就是虛擬機器上的模擬器
 
@@ -44,7 +44,7 @@ ms.locfileid: "71066682"
 
     ![virtualbox 管理員正常啟動](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. 開啟網頁瀏覽器，並流覽至顯示的 URL （ `http://127.0.0.1:8888`通常是）。
+1. 開啟網頁瀏覽器，並流覽至顯示的 URL （通常是 `http://127.0.0.1:8888`）。
 
 ## <a name="set-sandbox-passwords"></a>設定沙箱密碼
 
@@ -77,6 +77,6 @@ ms.locfileid: "71066682"
 
 * [了解如何搭配使用 Visual Studio 與 Hortonworks 沙箱](../hdinsight-hadoop-emulator-visual-studio.md)
 
-* [了解 Hortonworks 沙箱的訣竅](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [了解 Hortonworks 沙箱的訣竅](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/) \(英文\)
 
 * [Hadoop 教學課程 - 開始使用 HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

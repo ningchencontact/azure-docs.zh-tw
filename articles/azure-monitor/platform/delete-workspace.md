@@ -1,18 +1,18 @@
 ---
-title: 刪除及還原 Azure Log Analytics 工作區 |Microsoft Docs
+title: 刪除並復原 Azure Log Analytics 工作區 |Microsoft Docs
 description: 了解如何刪除您的 Log Analytics 工作區 (如果您已在個人訂用帳戶中建立工作區) 或重組您的工作區模型。
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/11/2019
-ms.openlocfilehash: f15e9c2a5980c8fb6d98f7bf9187b030e6910523
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/28/2019
+ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932376"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044233"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>刪除和還原 Azure Log Analytics 工作區
 
@@ -54,12 +54,14 @@ ms.locfileid: "72932376"
 
 如果您對訂用帳戶和資源群組具有在虛刪除作業之前相關聯的參與者許可權，您可以在其虛刪除期間進行復原，包括其資料、設定和連接的代理程式。 在虛刪除期間之後，工作區無法復原，而且會被指派永久刪除。 已刪除的工作區名稱會在虛刪除期間保留，而且在嘗試建立新的工作區時無法使用。  
 
-您可以使用工作區建立方法[PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace)或[REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate)重新建立工作區來復原工作區，只要這些屬性已填入已刪除的工作區詳細資料，包括：
+您可以使用下列工作區建立方法來重新建立工作區： [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace)或[REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate)只要以已刪除的工作區詳細資料填入下列屬性即可：
 
 * 訂用帳戶 ID
 * 資源群組名稱
 * 工作區名稱
 * 地區
+
+工作區及其所有資料都會在復原作業之後恢復運作。 解決方案和已連結的服務在刪除時已從工作區中永久移除，而且應該重新設定，以將工作區帶入其先前設定的狀態。 在工作區復原後，某些資料可能無法供查詢，直到重新安裝相關聯的解決方案，並將其架構新增至工作區為止。
 
 > [!NOTE]
 > * [Azure 入口網站](https://portal.azure.com)不支援工作區復原。 

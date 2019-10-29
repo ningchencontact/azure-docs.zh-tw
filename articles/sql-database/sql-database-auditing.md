@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990265"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045196"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -48,7 +48,8 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 > - 支援所有儲存體複寫設定。
 > - **不支援** **進階儲存體**。
 > - 目前**不支援** **VNet 中的儲存體**。
-> - 目前**不支援** **在防火牆後面的儲存體**
+> - 目前**不支援** **在防火牆後方儲存**。
+> - 目前**不支援** **Azure Data Lake Storage Gen2 儲存體帳戶**的**階層命名空間**。
 
 ## <a id="subheading-8"></a>定義伺服器層級與資料庫層級的稽核原則
 

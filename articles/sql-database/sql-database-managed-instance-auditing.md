@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958495"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025374"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -153,7 +153,7 @@ ms.locfileid: "70958495"
 
 如需其他資訊：
 
-- [Azure SQL Database 中的單一資料庫、彈性集區和受控執行個體以及 SQL Server 中的資料庫兩者之間的稽核差異](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [SQL Server 中的 Azure SQL Database 和資料庫中的單一資料庫、彈性集區和受控實例之間的差異](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -214,7 +214,7 @@ ms.locfileid: "70958495"
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>取用和分析儲存在 Azure 監視器記錄檔中的記錄
 
-如果將 audit 記錄寫入 Azure 監視器記錄檔，它們會出現在 Log Analytics 工作區中，您可以在其中執行 audit 資料的 advanced 搜尋。 作為起點，流覽至 Log Analytics 工作區，並在 *[一般*] 區段下按一下 [*記錄*]，然後輸入簡單查詢`search "SQLSecurityAuditEvents"` ，例如：以查看 audit 記錄。  
+如果將 audit 記錄寫入 Azure 監視器記錄檔，它們會出現在 Log Analytics 工作區中，您可以在其中執行 audit 資料的 advanced 搜尋。 作為起點，流覽至 Log Analytics 工作區，然後在 *[一般*] 區段下按一下 [*記錄*]，然後輸入簡單查詢，例如： `search "SQLSecurityAuditEvents"` 以查看 audit 記錄檔。  
 
 Azure 監視器記錄可讓您使用整合式搜尋和自訂儀表板，在您的所有工作負載和伺服器上輕鬆分析數百萬筆記錄，以提供您即時的 operational insights。 如需 Azure 監視器記錄搜尋語言和命令的其他實用資訊，請參閱[Azure 監視器記錄搜尋參考](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
 
@@ -225,7 +225,6 @@ Azure 監視器記錄可讓您使用整合式搜尋和自訂儀表板，在您�
 Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的主要稽核差異在於：
 
 - 使用 Azure SQL Database 中的受控執行個體部署選項，稽核作業會在伺服器層級運作，並將 `.xel` 記錄檔儲存於 Azure Blob 儲存體。
-- 在使用 Azure SQL Database 中的單一資料庫和彈性集區部署選項時，稽核作業則會在資料庫層級運作。
 - 在 SQL Server 內部部署 / 虛擬機器中，稽核會在伺服器層級運作，但會將事件儲存在檔案系統/windows 事件記錄。
 
 受控執行個體中的 XEvent 稽核支援 Azure Blob 儲存體目標。 **不支援**檔案與 windows 記錄。
@@ -233,7 +232,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 向 Azure Blob 儲存體進行稽核的 `CREATE AUDIT` 語法有一個主要差異：
 
 - 已提供新的 `TO URL` 語法，可讓您指定放置 `.xel` 檔案的 Azure Blob 儲存體容器 URL。
-- 提供新的`TO EXTERNAL MONITOR`語法，以啟用甚至中樞和 Azure 監視器記錄目標。
+- 提供新的語法 `TO EXTERNAL MONITOR`，以啟用甚至中樞和 Azure 監視器記錄目標。
 - `TO FILE` 語法**不受支援**，因為 SQL Database 無法存取 Windows 檔案共用。
 - **不支援**關機選項。
 - **不支援**使用 0 的 `queue_delay`。

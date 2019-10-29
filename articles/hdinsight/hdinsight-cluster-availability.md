@@ -1,20 +1,20 @@
 ---
-title: 如何使用 Ambari 和 Azure 監視器記錄監視叢集可用性
+title: 監視： Apache Ambari & Azure 監視器記錄-Azure HDInsight
 description: 瞭解如何使用 Ambari 和 Azure 監視器記錄來監視叢集的健全狀況和可用性。
 keywords: 監視，ambari，監視，log analytics，警示，可用性，健全狀況
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: tyfox
-ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076558"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044471"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>如何使用 Ambari 和 Azure 監視器記錄監視叢集可用性
 
@@ -26,7 +26,7 @@ HDInsight 叢集包括 Apache Ambari，這兩種方式都會提供快速的健�
 
 ### <a name="dashboard"></a>儀表板
 
-在 Azure 入口網站中，按一下 [HDInsight 總覽] 分頁的 [叢集**儀表板**] 區段中的 [ **Ambari 首頁**] 連結，即可存取 Ambari 儀表板，如下所示。 或者，您也可以在瀏覽器中輸入下列 URL 來存取[HTTPs://\<clustername\>. azurehdinsight.net](https://clustername.azurehdinsight.net/)
+在 Azure 入口網站中，按一下 [HDInsight 總覽] 分頁的 [叢集**儀表板**] 區段中的 [ **Ambari 首頁**] 連結，即可存取 Ambari 儀表板，如下所示。 或者，您也可以在瀏覽器 HTTPs://中輸入下列 URL 來存取它， [\<clustername\>. azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
 ![HDInsight 資源入口網站視圖](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
@@ -83,7 +83,7 @@ Ambari 提供許多與可用性相關的預先定義警示，包括：
 
 ![Ambari 管理通知動作](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-隨即會開啟用於管理警示通知的對話方塊。 按一下對話方塊 **+** 底部的，並填寫必要欄位，以提供 Ambari 的電子郵件伺服器詳細資料，以從中傳送電子郵件。
+隨即會開啟用於管理警示通知的對話方塊。 按一下對話方塊底部的  **+** ，並填寫必要的欄位，以提供 Ambari 的電子郵件伺服器詳細資料，以便傳送電子郵件。
 
 > [!TIP]
 > 設定 Ambari 電子郵件通知，是在管理許多 HDInsight 叢集時，可以在一個位置接收警示的好方法。
@@ -92,7 +92,7 @@ Ambari 提供許多與可用性相關的預先定義警示，包括：
 
 Azure 監視器記錄可讓多個資源（例如 HDInsight 叢集）所產生的資料在一個位置收集和匯總，以達成一致的監視體驗。
 
-必要條件是，您將需要 Log Analytics 工作區來儲存收集的資料。 如果您尚未建立，您可以依照下列指示進行：[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
+必要條件是，您將需要 Log Analytics 工作區來儲存收集的資料。 如果您尚未建立，您可以依照此處的指示進行：[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>啟用 HDInsight Azure 監視器記錄整合
 
@@ -147,7 +147,7 @@ Azure 監視器記錄可讓多個資源（例如 HDInsight 叢集）所產生的
 
 設定 [**警示邏輯**] 區段，如下所示：
 
-*依據：結果數目，條件：大於閾值：0.*
+*依據：結果數目，條件：大於，臨界值：0。*
 
 由於此查詢只會傳回無法使用的節點做為結果，因此，如果結果數目大於0，就應該引發警示。
 
