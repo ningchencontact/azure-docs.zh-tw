@@ -6,14 +6,12 @@
       href: overview-iot-central-government.md
 - name: 教學課程
   items:
-    - name: 店內分析簽出
-      items:
-        - name: 建立連線廢棄物管理應用程式
-          href: tutorial-connected-waste-management.md
-        - name: 建立用水量監視應用程式
-          href: tutorial-water-consumption-monitoring.md
-        - name: 建立水質監視應用程式
-          href: tutorial-water-quality-monitoring.md
+    - name: 建立連線廢棄物管理應用程式
+      href: tutorial-connected-waste-management.md
+    - name: 建立用水量監視應用程式
+      href: tutorial-water-consumption-monitoring.md
+    - name: 建立水質監視應用程式
+      href: tutorial-water-quality-monitoring.md
 - name: 概念
   items:
     - name: 連線廢棄物監視參考架構
@@ -22,10 +20,10 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: 水質監視參考架構
       href: concepts-waterqualitymonitoring-architecture.md
-    - name: 連線能力
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
 - name: 使用說明指南
   items:
+    - name: 將應用程式與 Dynamics 365 Field 服務連線
+      href: how-to-configure-connected-field-services.md
     - name: 連線裝置
       items:
         - name: 準備及連線 MXChip IoT DevKit
@@ -56,8 +54,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: 建立自訂規則
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: 使用 Databricks 建立自訂分析
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: 使用 Databricks 建立自訂分析
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: 系統管理

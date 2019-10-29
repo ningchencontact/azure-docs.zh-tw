@@ -8,8 +8,6 @@
       href: overview-iot-options.md
     - name: UI 導覽
       href: overview-iot-central-tour.md
-    - name: 保持連線
-      href: concepts-stay-connected.md
 - name: 快速入門
   expanded: true
   items:
