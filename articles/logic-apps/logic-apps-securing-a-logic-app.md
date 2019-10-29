@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: f9b23e00c954e8babb1fe920bca1aa2ea5f9298e
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799484"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045036"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>保護 Azure Logic Apps 中的存取和資料
 
@@ -266,11 +266,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-   ![開啟範例邏輯應用程式](./media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+   ![在邏輯應用程式設計工具中開啟邏輯應用程式](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
 1. 在您要保護資料的觸發程式或動作上，選取省略號（ **...** ）按鈕，然後選取 [**設定**]。
 
-   ![開啟 [設定]](./media/logic-apps-securing-a-logic-app/open-settings.png)
+   ![開啟觸發程式或動作設定](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. 開啟**安全輸入**、**保護輸出**或兩者。 完成之後，選取 [完成]。
 
@@ -278,11 +278,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
    動作或觸發程式現在會在標題列中顯示鎖定圖示。
 
-   ![標題列上的鎖定圖示](./media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+   ![動作或觸發程式標題列顯示鎖定圖示](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
    代表先前動作之受保護輸出的權杖也會顯示鎖定圖示。 例如，當您從動態內容清單中選取要在動作中使用的輸出時，該權杖會顯示鎖定圖示。
 
-   ![選取輸出](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![為受保護的輸出選取權杖](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. 邏輯應用程式執行之後，您可以查看該執行的歷程記錄。
 
@@ -292,7 +292,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
       如果您選擇保護輸入和輸出，那些值現在會顯示為隱藏。
 
-      ![執行歷程記錄中的隱藏資料](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![執行歷程記錄中隱藏的輸入和輸出](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
@@ -349,7 +349,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
   當您以手動方式開啟觸發程式或動作中的**安全輸入**時，Logic Apps 會在執行歷程記錄中保護這些輸入。 如果下游動作明確使用該觸發程式或動作的可見輸出做為輸入，Logic Apps 會在執行歷程記錄中隱藏此下游動作的輸入，但*不會*在此動作中啟用**安全輸入**，也不會隱藏此動作的產出.
 
-  ![受保護的輸入和下游對大部分動作的影響](./media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+  ![受保護的輸入和下游對大部分動作的影響](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
   如果撰寫、剖析 JSON 和回應動作明確使用具有受保護輸入之觸發程式或動作的可見輸出，Logic Apps 會隱藏這些動作的輸入和輸出，但*不會啟用*這些動作的**安全輸入**設. 如果下游動作明確使用撰寫、剖析 JSON 或回應動作中的隱藏輸出做為輸入，Logic Apps*不會隱藏此下游動作的輸入或輸出*。
 

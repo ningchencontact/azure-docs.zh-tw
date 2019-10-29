@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 9cded164b63bbb72e4a353e9a542c9e054c14d93
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821152"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025280"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api，第2版 
 
@@ -87,7 +87,7 @@ Azure SaaS 會管理 SaaS 訂閱購買的整個生命週期。 它使用履行 A
 | `offerId`                | 每個供應專案的唯一字串識別碼（例如： "offer1"）。  |
 | `planId`                 | 每個方案/SKU 的唯一字串識別碼（例如：「銀級」）。 |
 | `operationId`            | 特定作業的 GUID 識別碼。  |
-|  `action`                | 在資源上執行的動作，`unsubscribe`、`suspend`、`reinstate` 或 `changePlan`、`changeQuantity`、`transfer`。  |
+|  `action`                | 在資源上執行的動作，`Unsubscribe`、`Suspend`、`Reinstate`或 `ChangePlan`、`ChangeQuantity`、`Transfer`。 |
 |   |   |
 
 全域唯一識別碼（[guid](https://en.wikipedia.org/wiki/Universally_unique_identifier)）是通常會自動產生的128位（32-十六進位）數位。 
@@ -707,7 +707,7 @@ Request Body:
 
 #### <a name="get-operation-status"></a>取得作業狀態
 
-可讓發行者追蹤指定之觸發非同步作業的狀態（例如 `subscribe`、`unsubscribe`、`changePlan` 或 `changeQuantity`）。
+可讓發行者追蹤指定之觸發非同步作業的狀態（例如 `Subscribe`、`Unsubscribe`、`ChangePlan`或 `ChangeQuantity`）。
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>取得<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,11 +850,11 @@ Response body:
 }
 ```
 其中，動作可以是下列其中一項： 
-- `unsubscribe` （資源已刪除時）
-- `changePlan` （當變更計畫作業完成時）
-- `changeQuantity` （變更數量作業完成時）
-- `suspend` （資源已暫停時）
-- `reinstate` （當資源在暫停後復原時）
+- `Unsubscribe` （資源已刪除時）
+- `ChangePlan` （當變更計畫作業完成時）
+- `ChangeQuantity` （變更數量作業完成時）
+- `Suspend` （資源已暫停時）
+- `Reinstate` （當資源在暫停後復原時）
 
 其中的狀態可以是下列其中一項： 
 - **NotStarted** <br>

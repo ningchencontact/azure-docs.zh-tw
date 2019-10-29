@@ -1,5 +1,5 @@
 ---
-title: 在 HDInsight 中搭配使用 Java 使用者定義函式 (UDF) 和 Apache Hive - Azure
+title: JAVA 使用者定義函數（UDF）與 Apache Hive Azure HDInsight
 description: 了解如何建立能配合 Apache Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例 UDF 會將文字字串的資料表轉換成小寫。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43208636fb275c38573f820ef8245d7652b4aa86
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181175"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044788"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
@@ -24,7 +24,7 @@ ms.locfileid: "71181175"
 * HDInsight 上的 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 * [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)
 * 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
-* 您叢集主要儲存體的 [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 這會是 wasb://，適用于 Azure Data Lake Storage Gen1 的 Azure Data Lake Storage Gen2 或 adl://的 Azure 儲存體、abfs://。 如果已啟用 Azure 儲存體的安全傳輸，則 URI 會是`wasbs://`。  另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
+* 您叢集主要儲存體的 [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 這會是 wasb://，適用于 Azure Data Lake Storage Gen1 的 Azure Data Lake Storage Gen2 或 adl://的 Azure 儲存體、abfs://。 如果已對 Azure 儲存體啟用安全傳輸，URI 會是 `wasbs://`。  另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
 * 文字編輯器或 Java IDE
 
@@ -49,22 +49,22 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    此命令會建立名為`exampleudf`的目錄，其中包含 Maven 專案。
+    此命令會建立名為 `exampleudf`的目錄，其中包含 Maven 專案。
 
-2. 建立專案之後，請輸入下列命令， `exampleudf/src/test`以刪除專案中建立的目錄：
+2. 建立專案之後，請輸入下列命令，以刪除在專案中建立的 `exampleudf/src/test` 目錄：
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. 輸入`pom.xml`下列命令以開啟：
+3. 輸入下列命令來開啟 `pom.xml`：
 
     ```cmd
     notepad pom.xml
     ```
 
-    然後以下列 XML `<dependencies>`取代現有的專案：
+    然後以下列 XML 取代現有的 `<dependencies>` 專案：
 
     ```xml
     <dependencies>
@@ -143,7 +143,7 @@ cd C:\HDI
 
     完成變更後，儲存檔案。
 
-4. 輸入下列命令以建立並開啟新`ExampleUDF.java`檔案：
+4. 輸入下列命令，以建立並開啟新的檔案 `ExampleUDF.java`：
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
@@ -180,7 +180,7 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>建置及安裝 UDF
 
-在下列命令中，將`sshuser`取代為實際的使用者名稱（如果不同的話）。 將`mycluster`取代為實際的叢集名稱。
+在下列命令中，將 `sshuser` 取代為實際的使用者名稱（如果不同的話）。 以實際的叢集名稱取代 `mycluster`。
 
 1. 輸入下列命令來編譯和封裝 UDF：
 
@@ -190,7 +190,7 @@ cd C:\HDI
 
     此命令會建置 UDF 並將它封裝到 `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` 檔案。
 
-2. 藉由輸入下列命令，使用命令將檔案複製到HDInsight叢集：`scp`
+2. 使用 `scp` 命令，輸入下列命令，將檔案複製到 HDInsight 叢集：
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:

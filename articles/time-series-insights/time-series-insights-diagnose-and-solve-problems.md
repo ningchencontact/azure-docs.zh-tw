@@ -3,7 +3,7 @@ title: 針對 Azure 時間序列深入解析中的問題進行診斷、疑難排
 description: 本文描述如何在 Azure 時間序列深入解析環境中診斷、疑難排解與解決可能會遇到的常見問題。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7c9dcdf43e819e20126f948fa08f4f8f476036ac
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330855"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991263"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>在時間序列深入解析環境中診斷與解決問題
 
@@ -40,11 +40,11 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 * 針對 Azure IoT 中樞的 IoT 中樞，您必須提供有**服務連線**權限的機碼。 **iothubowner** 或 **service** 原則都可以，因為它們都有**服務連線**權限。
 
-   [@no__t 1IoT Hub service connect 許可權](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [![IoT 中樞服務連接許可權](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * 針對 Azure 事件中樞中的事件中樞，您必須提供有**接聽**權限的機碼。 **read** 或 **manage** 原則都可以，因為它們都有**接聽**權限。
 
-   [@no__t 1Event hub 接聽許可權](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![事件中樞接聽許可權](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>原因 C：提供的取用者群組不是專用於時間序列深入解析
 
@@ -69,7 +69,7 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 下圖顯示有 S1 SKU 且容量為 3 的時間序列深入解析環境。 該環境可以每日輸入 3 百萬個事件。
 
-[@no__t 1Environment SKU 目前容量](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![環境 SKU 目前容量](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 例如，假設環境從事件中樞內嵌訊息。 每日輸入速率為 ~67,000 個訊息。 此速率可轉譯為大約每分鐘 46 個訊息。 
 

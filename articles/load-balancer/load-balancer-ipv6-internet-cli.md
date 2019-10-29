@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274964"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025713"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>使用 Azure CLI 建立採用 IPv6 的公用負載平衡器
 
+>[!注意：適用于 IPv6 的最佳作法變更此文章說明可讓基本負載平衡器同時提供 IPv4 和 IPv6 連線的入門 IPv6 功能。  [Ipv6 For Azure vnet](../virtual-network/ipv6-overview.md)現在提供更完整的 ipv6 連線能力，其整合了 ipv6 連線與您的虛擬網路，並包含 Ipv6 網路安全性群組規則、ipv6 使用者定義路由、ipv6 基本和等重要功能標準負載平衡等等。  適用于 azure Vnet 的 IPv6 是 Azure 中的 IPv6 應用程式建議的最佳作法。 
+>請參閱[適用于 AZURE VNET CLI 部署的 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
 
 Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 負載平衡器可藉由在負載平衡器集合中，將連入流量分散於雲端服務或虛擬機器中狀況良好的服務執行個體之間，來提供高可用性。 負載平衡器也會在多個連接埠或多個 IP 位址 (或兩者) 上顯示這些服務。
 
@@ -46,11 +48,11 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 負載平衡器
 
 若要部署負載平衡器，請建立並設定下列物件：
 
-* **前端 IP 設定**：包含連入網路流量的公用 IP 位址。
+* **前端 IP 組態**：包含傳入網路流量的公用 IP 位址。
 * **後端位址集區**：包含虛擬機器的網路介面 (NIC)，可從負載平衡器接收網路流量。
-* **負載平衡規則**：包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則。
+* **負載平衡規則**：包含將負載平衡器上的公用連接埠對應至後端位址集區中的連接埠的規則。
 * **輸入 NAT 規則**：包含網路位址轉譯 (NAT) 規則，可將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器的連接埠。
-* **探查**：包含用來檢查後端位址集區中虛擬機器執行個體可用性的健康狀態探查。
+* **探查**：包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀況探查。
 
 ## <a name="set-up-azure-cli"></a>設定 Azure CLI
 
@@ -296,8 +298,4 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 負載平衡器
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>後續步驟
 
-[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-cli.md)  
-[設定負載平衡器分配模式](load-balancer-distribution-mode.md)  
-[設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
