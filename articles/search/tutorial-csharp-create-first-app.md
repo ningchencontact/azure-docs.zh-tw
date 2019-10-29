@@ -1,24 +1,25 @@
 ---
-title: 建立您的第一個應用程式 - Azure 搜尋服務的 C# 教學課程
-description: 此教學課程針對 Azure 搜尋服務提供建置您第一個應用程式的逐步指南。 此教學課程同時提供 GitHub 上可操作之應用程式的連結，以及從頭開始建置應用程式的完整程序。 了解 Azure 搜尋服務的基本元件。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 建立第一個應用程式的 C# 教學課程
+titleSuffix: Azure Cognitive Search
+description: 了解如何逐步建置您的第一個搜尋應用程式。 此教學課程同時提供 GitHub 上可操作之應用程式的連結，以及從頭開始建置應用程式的完整程序。 了解 Azure 認知搜尋的基本元件。
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: d569437a3e6f6f05ddb9c6fa85f62c77ac51f72b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443809"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794140"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-search"></a>C# 教學課程：建立您的第一個應用程式 - Azure 搜尋服務
+# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C# 教學課程：建立第一個您的應用程式 - Azure 認知搜尋
 
-了解如何建立 Web 介面，以使用 Azure 搜尋服務查詢並顯示來自索引的搜尋結果。 此教學課程會從裝載的現有索引開始，讓您可以將注意力放在建置搜尋頁面。 索引包含虛構的旅館資料。 一旦有基本頁面之後，您就可以在後續的課程中增強該頁面，包括分頁、Facet 和預先輸入的體驗。
+了解如何建立 Web 介面，以使用 Azure 認知搜尋查詢並顯示來自索引的搜尋結果。 此教學課程會從裝載的現有索引開始，讓您可以將注意力放在建置搜尋頁面。 索引包含虛構的旅館資料。 一旦有基本頁面之後，您就可以在後續的課程中增強該頁面，包括分頁、Facet 和預先輸入的體驗。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 設定開發環境
 > * 模型資料結構
@@ -45,7 +46,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
 [安裝 Visual Studio](https://visualstudio.microsoft.com/) 以當作 IDE 使用。
 
@@ -60,7 +61,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 希望這個專案將會順利執行，並讓 Azure 應用程式執行。 許多更複雜搜尋的基本元件都包含在這一個應用程式中，因此最好一一瀏覽，並逐步重新建立該應用程式。
 
-若要從頭開始建立此專案，從而協助您在腦海中強化 Azure 搜尋服務的元件，請瀏覽下列步驟。
+若要從頭開始建立此專案，以利強化您所構思的 Azure 認知搜尋元件，請執行下列步驟。
 
 ## <a name="set-up-a-development-environment"></a>設定開發環境
 
@@ -72,11 +73,11 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
     ![建立一個 MVC 專案](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. 接著，在 [工具]  功能表上，選取 [NuGet 套件管理員]  ，然後選取 [管理解決方案的 NuGet 套件]  。有一個我們需要安裝的套件。 選取 [瀏覽]  索引標籤，然後在搜尋方塊中輸入「Azure 搜尋服務」。 當 **Microsoft.Azure.Search** 出現在清單中 (版本 9.0.1 或更新版本) 時加以安裝。 您必須逐一點選一些其他對話方塊，才能完成安裝。
+3. 接著，在 [工具]  功能表上，選取 [NuGet 套件管理員]  ，然後選取 [管理解決方案的 NuGet 套件]  。有一個我們需要安裝的套件。 選取 [瀏覽]  索引標籤，然後在搜尋方塊中輸入「Azure 認知搜尋」。 當 **Microsoft.Azure.Search** 出現在清單中 (版本 9.0.1 或更新版本) 時加以安裝。 您必須逐一點選一些其他對話方塊，才能完成安裝。
 
     ![使用 NuGet 來新增 Azure 程式庫](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-### <a name="initialize-azure-search"></a>初始化 Azure 搜尋服務
+### <a name="initialize-azure-cognitive-search"></a>初始化 Azure 認知搜尋
 
 在此範例中，我們會使用公開可用的旅館資料。 這項資料是 50 個虛構旅館名稱和描述的任意集合，專為提供示範資料而建立。 若要存取此資料，您需要指定名稱及其金鑰。
 
@@ -223,7 +224,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
     }
     ```
 
-5. **Hotel**、**Address** 和 **Room** 這組類別在 Azure 中已知為[_複雜類型_](search-howto-complex-data-types.md)，這是 Azure 搜尋服務的一個重要功能。 複雜類型可以是多層深的類別和子類別，而且會使用比_簡單類型_ (只包含基本成員的類別) 更複雜的資料結構表示。 我們還需要一個模型、因此請再進行一次建立新模型類別的程序，但是這次呼叫 SearchData.cs 類別，並以下列內容取代預設的程式碼。
+5. **Hotel**、**Address** 和 **Room** 這組類別在 Azure 中已知為[_複雜類型_](search-howto-complex-data-types.md)，這是 Azure 認知搜尋的一項重要功能。 複雜類型可以是多層深的類別和子類別，而且會使用比_簡單類型_ (只包含基本成員的類別) 更複雜的資料結構表示。 我們還需要一個模型、因此請再進行一次建立新模型類別的程序，但是這次呼叫 SearchData.cs 類別，並以下列內容取代預設的程式碼。
 
     ```cs
     using Microsoft.Azure.Search.Models;
@@ -425,7 +426,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
                     model.searchText = "";
                 }
 
-                // Make the Azure Search call.
+                // Make the Azure Cognitive Search call.
                 await RunQueryAsync(model);
             }
 
@@ -451,7 +452,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 ### <a name="add-the-runqueryasync-method"></a>加入 RunQueryAsync 方法
 
-Azure 搜尋服務呼叫封裝在我們的 **RunQueryAsync** 方法中。
+Azure 認知搜尋呼叫會封裝在我們的 **RunQueryAsync** 方法中。
 
 1. 首先，加入一些靜態變數以設定 Azure 服務，然後加入一個起始這些變數的呼叫。
 
@@ -517,11 +518,11 @@ Azure 搜尋服務呼叫封裝在我們的 **RunQueryAsync** 方法中。
 
      ![搜尋 "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-3. 請嘗試輸入"five star"。 請注意您沒有得到任何結果。 更複雜的搜尋會將 "five star" 視為 "luxury" 的同義字，並傳回這些結果。 在 Azure 搜尋服務中可以使用同義字，但是我們不會將它涵蓋在第一個教學課程中。
+3. 請嘗試輸入"five star"。 請注意您沒有得到任何結果。 更複雜的搜尋會將 "five star" 視為 "luxury" 的同義字，並傳回這些結果。 在 Azure 認知搜尋中可以使用同義字，但是我們不會將它涵蓋在第一個教學課程中。
  
 4. 請嘗試輸入 "hot" 作為搜尋文字。 它_不會_傳回含有 "hotel" 字樣的項目。 我們的搜尋只會找出完整字詞，但是也會傳回幾個結果。
 
-5. 請嘗試其他文字；"pool"、"sunshine"、"view" 等等。 您將會看到 Azure 搜尋服務以其最簡單，但仍然令人信服的層級運作。
+5. 請嘗試其他文字；"pool"、"sunshine"、"view" 等等。 您將會看到 Azure 認知搜尋以其最簡單、但仍令人信服的水準運作。
 
 ## <a name="test-edge-conditions-and-errors"></a>測試邊緣條件和錯誤
 
@@ -542,17 +543,17 @@ Azure 搜尋服務呼叫封裝在我們的 **RunQueryAsync** 方法中。
 
 請考慮此專案的下列重點：
 
-* Azure 搜尋服務呼叫非常簡明扼要，而且很容易解譯結果。
+* Azure 認知搜尋呼叫非常簡明扼要，而且很容易解譯結果。
 * 非同步呼叫會對控制器增加少量的複雜性，但卻是開發高品質應用程式的最佳做法。
 * 此應用程式會根據 **searchParameters** 中所設定內容的定義，執行簡單的文字搜尋。 不過，此類別可以填入許多可對搜尋增加複雜度的成員。 不需要太多額外的工作，就能讓此應用程式變得更強大。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要提供使用 Azure 搜尋服務的最佳使用者體驗，我們需要新增更多功能，尤其是分頁 (使用頁數或無限捲動)，以及自動完成/建議。 我們也應該考慮更複雜的搜尋參數 (例如，對指定點的指定半徑內的旅館進行地理搜尋，以及搜尋結果排序)。
+若要提供使用 Azure 認知搜尋的最佳使用者體驗，我們需要新增更多功能，尤其是分頁 (使用頁數或無限捲動)，以及自動完成/建議。 我們也應該考慮更複雜的搜尋參數 (例如，對指定點的指定半徑內的旅館進行地理搜尋，以及搜尋結果排序)。
 
 在一系列的教學課程中，將會處理這些後續步驟。 讓我們從分頁著手。
 
 > [!div class="nextstepaction"]
-> [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)
+> [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)
 
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68723066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>教學課程：Azure Active Directory 與 Zscaler ZSCloud 整合
@@ -118,7 +118,7 @@ ms.locfileid: "68723066"
 
 6. 除了以上屬性外，Zscaler ZSCloud 應用程式還會預期 SAML 回應傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     
-    | Name | 來源屬性 |
+    | 名稱 | 來源屬性 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -169,7 +169,7 @@ ms.locfileid: "68723066"
 
 4. 移至 管理 > 驗證 > 驗證設定  並執行下列步驟：
    
-    ![管理](./media/zscaler-zscloud-tutorial/ic800206.png "管理")
+    ![系統管理](./media/zscaler-zscloud-tutorial/ic800206.png "系統管理")
 
     a. 在 [驗證類型] 下選擇 [SAML]  。
 
@@ -210,7 +210,7 @@ ms.locfileid: "68723066"
 
 2. 從 [工具]  功能表選取 [網際網路選項]  可開啟 [網際網路選項]  對話方塊。   
     
-     ![網際網路選項](./media/zscaler-zscloud-tutorial/ic769492.png "網際網路選項")
+     ![網際網路選項](./media/zscaler-zscloud-tutorial/ic769492.png "，")
 
 3. 按一下 [連線]  索引標籤。   
   

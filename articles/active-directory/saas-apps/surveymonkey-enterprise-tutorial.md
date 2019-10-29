@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce7f40c300a86acd101d1b38cfef4b2af91c4085
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4238033f94fe8bfdc677c9eb623a2eab3cdf371c
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772681"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532930"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 SurveyMonkey Enterprise 整合
 
@@ -42,9 +42,12 @@ ms.locfileid: "70772681"
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * SurveyMonkey Enterprise 支援由 **IDP** 起始的 SSO
+
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-surveymonkey-enterprise-from-the-gallery"></a>從資源庫新增 SurveyMonkey Enterprise
 
@@ -81,6 +84,18 @@ ms.locfileid: "70772681"
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
 1. 在 [基本 SAML 設定]  設定區段上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
+
+1. SurveyMonkey Enterprise 應用程式需要特定格式的 SAML 判斷提示，而您需要將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。
+
+    ![image](common/edit-attribute.png)
+
+6. 除了上述屬性外，SurveyMonkey Enterprise 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
+
+    | 名稱 | 來源屬性|
+    | ---------------| --------------- |
+    | 電子郵件 | user.mail |
+    | 名字 | user.givenname |
+    | 姓氏 | user.surname |
 
 1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -126,7 +141,7 @@ ms.locfileid: "70772681"
 
 ### <a name="create-surveymonkey-enterprise-test-user"></a>建立 SurveyMonkey Enterprise 測試使用者
 
-在本節中，您要在 SurveyMonkey Enterprise 中建立名為 B.Simon 的使用者。 請與  [SurveyMonkey Enterprise 支援小組](mailto:support@selerix.com)合作，在 SurveyMonkey Enterprise 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+您不需要在 SurveyMonkey Enterprise 中建立測試使用者。 如果使用者選擇建立新的帳戶，系統就會根據 SAML 判斷提示來佈建使用者帳戶。 當您的 Azure 中繼資料已新增至 SurveyMonkey Enterprise 設定且已準備好進行驗證之後，您的 SurveyMonkey Enterprise 客戶成功經理 ( Customer Success Manager) 將會提供完成此程序的步驟。
 
 ## <a name="test-sso"></a>測試 SSO 
 

@@ -1,5 +1,5 @@
 ---
-title: 保護 Azure Resource Manager 範本部署中的成品 | Microsoft Docs
+title: 保護成品 - Azure Resource Manager 範本
 description: 了解如何保護 Azure Resource Manager 範本中使用的成品。
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bcf64d98f53d85937ee7960ec3938280814267d8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9570c30e2870a136bd97ed5fc2304d6f0d280c9
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170199"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528283"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教學課程：保護 Azure Resource Manager 範本部署中的成品
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 10/21/2019
 ms.author: diberry
-ms.openlocfilehash: aaeddac98e3f192d5e6a87ecfd48005526379ff2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: cf0ef1095946b1c8e9479b3cd47fe403baeed7d1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390993"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757130"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教學課程：找出常見的意圖和實體
 
@@ -63,12 +63,9 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]  ：
 
-   * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
-
-     這些實體會協助您將名稱和位置辨識功能新增至用戶端應用程式。
+     此實體會協助您將位置辨識功能新增至用戶端應用程式。
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
 
@@ -86,79 +83,83 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. 移至瀏覽器位址列中的 URL 結尾並輸入 `I want to cancel my trip to Seattle to see Bob Smith`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 
+1. 移至瀏覽器位址列中的 URL 結尾並輸入 `I want to cancel my trip to Seattle`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 
 
     ```json
     {
-      "query": "I want to cancel my trip to Seattle to see Bob Smith.",
+      "query": "I want to cancel my trip to Seattle",
       "topScoringIntent": {
-        "intent": "Utilities.ReadAloud",
-        "score": 0.100361854
+        "intent": "Utilities.Cancel",
+        "score": 0.1055009
       },
       "intents": [
         {
-          "intent": "Utilities.ReadAloud",
-          "score": 0.100361854
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.08102781
-        },
-        {
-          "intent": "Utilities.SelectNone",
-          "score": 0.0398852825
-        },
-        {
           "intent": "Utilities.Cancel",
-          "score": 0.0277276486
+          "score": 0.1055009
         },
         {
           "intent": "Utilities.SelectItem",
-          "score": 0.0220712926
+          "score": 0.02659072
         },
         {
-          "intent": "Utilities.StartOver",
-          "score": 0.0145813478
+          "intent": "Utilities.Stop",
+          "score": 0.0253379084
         },
         {
-          "intent": "None",
-          "score": 0.012434179
+          "intent": "Utilities.ReadAloud",
+          "score": 0.02528683
+        },
+        {
+          "intent": "Utilities.SelectNone",
+          "score": 0.02434013
         },
         {
           "intent": "Utilities.Escalate",
-          "score": 0.0122632384
+          "score": 0.009161292
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.006861785
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00633448
         },
         {
           "intent": "Utilities.ShowNext",
-          "score": 0.008534077
+          "score": 0.0053827134
+        },
+        {
+          "intent": "None",
+          "score": 0.002602003
         },
         {
           "intent": "Utilities.ShowPrevious",
-          "score": 0.00547111453
+          "score": 0.001797354
         },
         {
           "intent": "Utilities.SelectAny",
-          "score": 0.00152912608
+          "score": 0.000831930141
         },
         {
           "intent": "Utilities.Repeat",
-          "score": 0.0005556819
-        },
-        {
-          "intent": "Utilities.FinishTask",
-          "score": 0.000169488427
+          "score": 0.0006924066
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.000149565312
+          "score": 0.000606057351
         },
         {
           "intent": "Utilities.GoBack",
-          "score": 0.000141017343
+          "score": 0.000276725681
+        },
+        {
+          "intent": "Utilities.FinishTask",
+          "score": 0.000267822179
         },
         {
           "intent": "Utilities.Reject",
-          "score": 6.27324E-06
+          "score": 3.21784828E-05
         }
       ],
       "entities": [
@@ -167,18 +168,12 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
           "type": "builtin.geographyV2.city",
           "startIndex": 28,
           "endIndex": 34
-        },
-        {
-          "entity": "bob smith",
-          "type": "builtin.personName",
-          "startIndex": 43,
-          "endIndex": 51
         }
       ]
     }
     ```
 
-    結果預測出 80% 信度的 Utilities.Cancel 意圖，並擷取了城市和人員名稱資料。 
+    結果預測出 80% 信度的 Utilities.Cancel 意圖，並擷取了城市資料。 
 
 
 ## <a name="clean-up-resources"></a>清除資源

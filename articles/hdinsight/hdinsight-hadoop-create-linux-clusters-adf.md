@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72264614"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
@@ -221,7 +221,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 1. 從 [現在就開始吧]  頁面的左側窗格中，選取 [作者]  圖示。
 
-    ![建立 Azure Data Factory 連結的服務](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "建立 Azure Data Factory 連結的服務")
+    ![建立 Azure Data Factory 連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "建立 Azure Data Factory 連結服務")
 
 2. 選取視窗左下角的 [連線]  ，然後選取 [+新增]  。
 
@@ -229,7 +229,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 3. 在 [新增連結服務]  對話方塊中，選取 [Azure Blob 儲存體]  ，然後選取 [繼續]  。
 
-    ![建立適用於 Data Factory 的 Azure 儲存體連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "建立適用於 Data Factory 的 Azure 儲存體連結服務")
+    ![為 Data Factory 建立 Azure 儲存體連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "為 Data Factory 建立 Azure 儲存體連結服務")
 
 4. 為儲存體連結服務提供下列值：
 
@@ -251,7 +251,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 3. 選取 [Azure HDInsight]  ，然後選取 [繼續]  。
 
-    ![建立適用於 Azure Data Factory 的 HDInsight 連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "建立適用於 Azure Data Factory 的 HDInsight 連結服務")
+    ![為 Azure Data Factory 建立 HDInsight 連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "為 Azure Data Factory 建立 HDInsight 連結服務")
 
 4. 在 [新增連結服務]  視窗中，輸入下列值並使其餘各項保留預設值：
 
@@ -288,7 +288,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 3. 確定您已選取 Hive 活動，然後選取 [HDI 叢集]  索引標籤，並從 [HDInsight 連結服務]  下拉式清單中，選取您稍早為 HDInsight 建立的連結服務 **HDInsightLinkedService**。
 
-    ![針對管線提供 HDInsight 叢集詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "針對管線提供 HDInsight 叢集詳細資料")
+    ![提供管線的 HDInsight 叢集詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "提供管線的 HDInsight 叢集詳細資料")
 
 4. 選取 [指令碼]  索引標籤並完成下列步驟：
 
@@ -296,11 +296,11 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     1. 針對 [檔案路徑]  ，選取 [瀏覽儲存體]  ，然後瀏覽至範例 Hive 指令碼所在的位置。 如果您稍早執行過 PowerShell 指令碼，則此位置應該位於 `adfgetstarted/hivescripts/partitionweblogs.hql`。
 
-        ![針對管線提供 Hive 指令碼詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "針對管線提供 Hive 指令碼詳細資料")
+        ![提供管線的 Hive 指令碼詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "提供管線的 Hive 指令碼詳細資料")
 
     1. 在 [進階]   > [參數]  下方，選取 [從指令碼自動填滿]  。 此選項會在 Hive 指令碼中尋找在執行階段需要值的任何參數。 您使用的指令碼 (**partitionweblogs.hql**) 具有**輸出**參數。 使用 `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式來提供**值**，以指向您 Azure 儲存體上現有的資料夾。 路徑區分大小寫。 這是將儲存指令碼輸出的路徑。 `wasbs` 結構描述是必要的，因為儲存體帳戶現在已預設啟用所需的安全傳輸。
     
-        ![針對 Hive 指令碼提供參數](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "針對 Hive 指令碼提供參數")
+        ![提供 Hive 指令碼的參數](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "提供 Hive 指令碼的參數")
 
 1. 選取 [驗證]  來驗證管線。 選取 **>>** (右箭頭) 按鈕以關閉驗證視窗。
 

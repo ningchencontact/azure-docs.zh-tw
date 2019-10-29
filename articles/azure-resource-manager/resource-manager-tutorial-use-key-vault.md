@@ -1,5 +1,5 @@
 ---
-title: 在 Resource Manager 範本部署中整合 Azure Key Vault | Microsoft Docs
+title: 使用 Resource Manager 範本中的 Azure Key Vault
 description: 了解如何使用 Azure Key Vault 在 Resource Manager 範本部署期間傳遞安全的參數值
 services: azure-resource-manager
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b91a3488750795e8ee9df6602bb2b3df8a9b08ec
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5dfc186e5d047de76e16ec145f5f0afe94b8d2f4
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436583"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533607"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 

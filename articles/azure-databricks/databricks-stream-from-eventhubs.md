@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 942553e2ececf2bdc7bb2b240d4fa6c5f338beb2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 0ea85e60a84b540af2c772f81326dd8c45f61d4d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68976511"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784010"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 
@@ -28,7 +28,7 @@ ms.locfileid: "68976511"
 
 下圖顯示此應用程式流程：
 
-![Azure Databricks 與事件中樞](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks 與事件中樞")
+![搭配事件中樞的 Azure Databricks](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "搭配事件中樞的 Azure Databricks")
 
 本教學課程涵蓋下列工作：
 
@@ -45,7 +45,7 @@ ms.locfileid: "68976511"
 
 > [!Note]
 > 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
-> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
+> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -167,11 +167,11 @@ ms.locfileid: "68976511"
 
 1. 在左側窗格中，選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]   > [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 2. 在 [建立 Notebook]  對話方塊中輸入 **SendTweetsToEventHub**，選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![在 Databricks 中建立 Notebook](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "在 Databricks 中建立筆記本")
 
     選取 [建立]  。
 

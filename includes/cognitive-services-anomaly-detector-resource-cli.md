@@ -3,15 +3,64 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/20/2019
-ms.openlocfilehash: e64363c39675305c94557515e54db53c722c6a5f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 10/08/2019
+ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639346"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554710"
 ---
-Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](../articles/cognitive-services/cognitive-services-apis-create-account.md)或 [Azure CLI](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) 在本機電腦上建立 Anomaly Detector 的資源。 您也可以：
+藉由建立下列其中一項 Azure 資源來開始使用 Anomaly Detector 服務。
 
-* 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services/#decision)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
-* 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源
+* [試用資源](https://azure.microsoft.com/try/cognitive-services/#decision) (不需要 Azure 訂用帳戶)： 
+    * 可免費使用 7 天。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得試用金鑰與端點。 
+    * 如果您想要試用 Anomaly Detector，但沒有 Azure 訂用帳戶，這是很好的選擇。
+
+* [Anomaly Detector 資源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)：
+    * 您可以透過 [Azure 入口網站](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) 取得該資源，直到將其刪除為止。
+    * 使用免費定價層來試用服務，之後可升級至付費層以用於實際執行環境。
+
+### <a name="create-an-environment-variable"></a>建立環境變數
+
+>[!NOTE]
+> 在 2019 年 7 月 1 日之後為非試用資源建立的端點會使用自訂的子網域格式，如下所示。 如需詳細資訊和完整的區域端點清單，請參閱[認知服務的自訂子網域名稱](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)。 
+
+在您建立的資源中，使用金鑰和端點來建立兩個環境變數以進行驗證：
+
+* `ANOMALY_DETECTOR_KEY` - 用於驗證您要求的資源金鑰。
+* `ANOMALY_DETECTOR_ENDPOINT` -用來傳送 API 要求的資源端點。 它看起來像下面這樣： 
+  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+
+請使用適合您作業系統的指示。
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
+setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+```
+
+新增環境變數之後，請重新啟動主控台視窗。
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+新增環境變數之後，從主控台視窗執行 `source ~/.bashrc`，讓變更生效。
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+編輯 `.bash_profile`，然後新增環境變數：
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+新增環境變數之後，從主控台視窗執行 `source .bash_profile`，讓變更生效。
+
+***

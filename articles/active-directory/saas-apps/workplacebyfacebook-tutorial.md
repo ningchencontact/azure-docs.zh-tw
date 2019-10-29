@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe02e9d6c3fa69e0ccd88057e10edb6ea1c6e0d0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986050"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787633"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Workplace by Facebook 整合
 
@@ -63,7 +63,6 @@ ms.locfileid: "68986050"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Workplace by Facebook**。
 1. 從結果面板選取 [Workplace by Facebook]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-workplace-by-facebook"></a>針對 Workplace by Facebook 設定並測試 Azure AD SSO
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Workplace by Facebook 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Workplace by Facebook 中相關使用者之間的連結關聯性。
@@ -71,10 +70,10 @@ ms.locfileid: "68986050"
 若要設定及測試與 Workplace by Facebook 搭配運作的 Azure AD SSO，請完成下列構成要素：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 2. **[設定 Workplace by Facebook SSO](#configure-workplace-by-facebook-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 Workplace by Facebook 測試使用者](#create-workplace-by-facebook-test-user)** - 使 Workplace by Facebook 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    * **[建立 Workplace by Facebook 測試使用者](#create-workplace-by-facebook-test-user)** - 使 Workplace by Facebook 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
 3. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -91,16 +90,16 @@ ms.locfileid: "68986050"
 
     a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<instancename>.facebook.com`
 
-    b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<instanceID>`
+    b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<instanceID>`。
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請參閱 [Workplace 公司儀表板] 的 [驗證] 頁面，以查看您 Workplace 社群的正確值。
 
-4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-6. 在 [設定 Workplace by Facebook]  區段上，依據您的需求複製適當的 URL。
+1. 在 [設定 Workplace by Facebook]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -136,24 +135,36 @@ ms.locfileid: "68986050"
 
 ## <a name="configure-workplace-by-facebook-sso"></a>設定 Workplace by Facebook SSO
 
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Workplace by Facebook 公司網站。
-  
+1. 若要自動執行 Workplace by Facebook 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 Workplace by Facebook]  便會將您導向到 Workplace by Facebook 應用程式。 請從該處提供用以登入 Workplace by Facebook 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 5。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 Workplace by Facebook，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Workplace by Facebook 公司網站，然後執行下列步驟：
+
     > [!NOTE]
     > 為將參數傳遞給 Azure AD，Workplace 可利用大小最多 2.5 KB 的查詢字串，作為 SAML 驗證流程的一部分。
 
-2. 在 [管理面板]  中，移至 [安全性]  索引標籤。
+1. 在左側導覽面板中，瀏覽至 [安全性]   > [驗證]  索引標籤。
 
     ![管理面板](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-3. 在 [驗證]  索引標籤底下，選取 [單一登入 (SSO)]  ，然後執行下列步驟：
+    a. 核取 [單一登入 (SSO)]  選項。
+    
+    b. 按一下 [+新增 SSO 提供者]  。
+
+1. 在 [驗證]  索引標籤底下，選取 [單一登入 (SSO)]  ，然後執行下列步驟：
 
     ![[驗證] 索引標籤](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-    a. 在 [SAML URL]  文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
+    a. 在 [SSO 提供者的名稱]  中，輸入 SSO 執行個體名稱，例如 Azureadsso。
 
-    b. 在 [SAML 簽發者 URI]  文字方塊中，貼上您從 Azure 入口網站複製的 **Azure AD 識別碼**值。
+    b. 在 [SAML URL]  文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
 
-    c. 在 [SAML 登出重新導向]  \(選擇性\) 中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
+    c. 在 [SAML 簽發者 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 **Azure AD 識別碼**值。
 
     d. 在從 Azure 入口網站下載的記事本檔案中開啟您的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 [SAML 憑證]  文字方塊。
 
@@ -169,7 +180,7 @@ ms.locfileid: "68986050"
 
     i. 現在，使用 Workplace 的所有使用者都將會看到進行驗證的 Azure AD 登入頁面。
 
-4. **SAML 登出重新導向 (選擇性)**  -
+1. **SAML 登出重新導向 (選擇性)**  -
 
     您可以選擇性地選擇設定 SAML 登出 URL，可用來指向 Azure AD 的登出頁面。 當啟用並設定此設定時，就不會再將使用者導向至 Workplace 登出頁面。 相反地，系統會將使用者重新導向至 [SAML 登出重新導向] 設定中所新增的 URL。
 
@@ -230,4 +241,3 @@ ms.locfileid: "68986050"
 - [設定使用者佈建](workplacebyfacebook-provisioning-tutorial.md)
 
 - [嘗試搭配 Azure AD 使用 Workplace by Facebook](https://aad.portal.azure.com)
-

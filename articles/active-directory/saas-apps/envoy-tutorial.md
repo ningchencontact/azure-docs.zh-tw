@@ -17,10 +17,10 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Envoy 整合
@@ -152,7 +152,7 @@ ms.locfileid: "70163536"
 
 5. 按一下 [公司]  。
 
-    ![公司](./media/envoy-tutorial/ic776783.png "公司")
+    ![Company](./media/envoy-tutorial/ic776783.png "公司")
 
 6. 按一下 [SAML]  。
 

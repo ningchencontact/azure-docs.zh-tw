@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c55de6b437755f46df8d95a8ee461c0671a52cff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274152"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791537"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本在 Azure Databricks 上執行 Spark 作業
 
@@ -31,7 +31,7 @@ ms.locfileid: "72274152"
 
 > [!Note]
 > 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
-> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
+> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
@@ -95,11 +95,11 @@ ms.locfileid: "72274152"
 
 1. 在左窗格中，按一下 [工作區]  。 從 [工作區]  下拉式清單按一下 [建立]  ，然後按一下 [Notebook]  。
 
-   ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+   ![在 Databricks 中建立筆記本](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 2. 在 [建立 Notebook]  對話方塊中輸入名稱，選取 [Scala]  做為語言，然後選取您先前建立的 Spark 叢集。
 
-   ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+   ![在 Databricks 中建立筆記本](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "在 Databricks 中建立筆記本")
 
    按一下頁面底部的 [新增]  。
 
@@ -153,7 +153,7 @@ ms.locfileid: "72274152"
 
 6. 您會看到如下列螢幕擷取畫面所示的表格式輸出 (僅顯示某些資料行)：
 
-   ![JSON 資料範例](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "JSON 資料範例")
+   ![範例 JSON 資料](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "範例 JSON 資料")
 
    至於其他細節，資料範例會擷取電台頻道的聽眾性別 (資料行名稱為**性別**)，以及其擁有的是免費或付費訂閱 (資料行名稱為**層級**)。
 

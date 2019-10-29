@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70213626"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>教學課程：整合 Adaptive Insights 與 Azure Active Directory
@@ -104,7 +104,7 @@ ms.locfileid: "70213626"
 
 2. 移至 [管理]  。
 
-    ![管理](./media/adaptivesuite-tutorial/ic805644.png "管理")
+    ![管理員](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
 3. 在 [使用者和角色]  區段中，按一下 [SAML SSO 設定]  。
 
@@ -178,11 +178,11 @@ ms.locfileid: "70213626"
 
 2. 移至 [管理]  。
 
-   ![管理](./media/adaptivesuite-tutorial/IC805644.png "管理")
+   ![管理員](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
 3. 在 [使用者和角色]  區段中，按一下 [使用者]  。
 
-   ![新增使用者](./media/adaptivesuite-tutorial/IC805648.png "新增使用者")
+   ![加入使用者](./media/adaptivesuite-tutorial/IC805648.png "新增使用者")
 
 4. 在 [新增使用者]  區段中，執行下列步驟：
 

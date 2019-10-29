@@ -1,33 +1,34 @@
 ---
-title: 關於搜尋結果分頁 - Azure 搜尋服務的 C# 教學課程
-description: 此教學課程是以「建立您的第一個應用程式 - Azure 搜尋服務」專案為依據，並提供兩種分頁類型的選項。 第一個會使用一連串的頁碼按鈕，以及第一頁、下一頁、上一頁及最後一頁按鈕。 第二個分頁系統會使用無止盡捲動 (透過將垂直捲軸移至其下限來觸發)。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 關於搜尋結果分頁的 C# 教學課程
+titleSuffix: Azure Cognitive Search
+description: 此教學課程以「建立您的第一個應用程式 - Azure 認知搜尋」專案作為建置基礎，並提供兩種分頁類型的選項。 第一個會使用一連串的頁碼按鈕，以及第一頁、下一頁、上一頁及最後一頁按鈕。 第二個分頁系統會使用無止盡捲動 (透過將垂直捲軸移至其下限來觸發)。
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 7e6c433168b73c6b58d13d4698bed55d7c18ec58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434654"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794009"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>C# 教學課程：搜尋結果分頁 - Azure 搜尋服務
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C# 教學課程：搜尋結果分頁 - Azure 認知搜尋
 
-了解如何實作兩個不同的分頁系統，第一個會以頁碼為依據，第二個則與無止盡捲動有關。 這兩個分頁系統都受到廣泛使用，而且選取正確的分頁系統取決於您所需結果的使用者體驗。 此教學課程會將分頁系統建置於 [C# 教學課程：建立第一個您的應用程式 - Azure 搜尋服務](tutorial-csharp-create-first-app.md)教學課程中所建立的專案之上。
+了解如何實作兩個不同的分頁系統，第一個會以頁碼為依據，第二個則與無止盡捲動有關。 這兩個分頁系統都受到廣泛使用，而且選取正確的分頁系統取決於您所需結果的使用者體驗。 此教學課程會將分頁系統建置於 [C# 教學課程：建立第一個您的應用程式 - Azure 認知搜尋](tutorial-csharp-create-first-app.md)教學課程中所建立的專案之上。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 使用已編號的分頁擴充您的應用程式
 > * 使用無止盡捲動擴充您的應用程式
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
-啟動並執行 [C# 教學課程：建立您的第一個應用程式 - Azure 搜尋服務](tutorial-csharp-create-first-app.md)專案。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
+啟動並執行 [C# 教學課程：建立您的第一個應用程式 - Azure 認知搜尋](tutorial-csharp-create-first-app.md)專案。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
 
 ## <a name="extend-your-app-with-numbered-paging"></a>使用已編號的分頁擴充您的應用程式
 
@@ -361,7 +362,7 @@ ms.locfileid: "67434654"
     ```
 
     > [!Note]
-    > 藉由將 **IncludeTotalResultCount** 設為 true，可對效能產生影響 (但通常不是很大)，因為這個總和需要透過 Azure 搜尋服務來計算。 使用複雜的資料集，會有一則警告，表示傳回的值為「近似值」  。 對於我們的旅館資料，它將是準確的。
+    > 藉由將 **IncludeTotalResultCount** 設為 true，可對效能產生影響 (但通常不是很大)，因為這個總和需要透過 Azure 認知搜尋來計算。 使用複雜的資料集，會有一則警告，表示傳回的值為「近似值」  。 對於我們的旅館資料，它將是準確的。
 
 ### <a name="compile-and-run-the-app"></a>編譯並執行應用程式
 
@@ -474,7 +475,7 @@ ms.locfileid: "67434654"
 
 1. 開啟首頁控制器檔案，然後刪除來自原此教學課程的 **RunQueryAsync** 方法。
 
-2. 使用下列程式碼來取代 **Index(model)** 動作。 它現在會在 **paging** 欄位為 Null 時處理該欄位，或設定為 "next"，並處理對 Azure 搜尋服務的呼叫。
+2. 使用下列程式碼來取代 **Index(model)** 動作。 它現在會在 **paging** 欄位為 Null 時處理該欄位，或設定為 "next"，並處理對 Azure 認知搜尋的呼叫。
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -600,4 +601,4 @@ ms.locfileid: "67434654"
 分頁是網際網路搜尋的基礎。 充分運用分頁之後，下一個步驟是藉由新增預先輸入的搜尋，進一步改善使用者體驗。
 
 > [!div class="nextstepaction"]
-> [C# 教學課程：新增自動完成和建議 - Azure 搜尋服務](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# 教學課程：新增自動完成和建議 - Azure 認知搜尋](tutorial-csharp-type-ahead-and-suggestions.md)

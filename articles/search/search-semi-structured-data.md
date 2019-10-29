@@ -1,30 +1,29 @@
 ---
-title: REST 教學課程：編製 JSON Blob 中半結構化資料的索引 - Azure 搜尋服務
-description: 了解如何使用 Azure 搜尋服務 REST API 和 Postman，編製半結構化 Azure JSON Blob 的索引並進行搜尋。
-author: HeidiSteen
+title: REST 教學課程：為 JSON Blob 中的半結構化資料編製索引
+titleSuffix: Azure Cognitive Search
+description: 了解如何使用 Azure 認知搜尋 REST API 和 Postman，為半結構化 Azure JSON Blob 編製索引及加以搜尋。
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: cb9c97efd62a56ad0eac49956f11fb422a448194
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647863"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794297"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 教學課程：在 Azure 認知搜尋中為半結構化資料 (JSON Blob) 編製索引及加以搜尋
 
-Azure 搜尋服務可以在 Azure Blob 儲存體中，使用[索引子](search-indexer-overview.md)來為 JSON 文件和陣列編製索引，以了解如何讀取半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料會將不同的內容區分為必須完整編製索引的未結構化資料，以及遵循資料模型 (例如關聯式資料庫結構描述) 且可依據欄位逐一編製索引的正式結構化資料。
+Azure 認知搜尋可以在 Azure Blob 儲存體中，使用[索引子](search-indexer-overview.md)為 JSON 文件和陣列編製索引，以了解如何讀取半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料會將不同的內容區分為必須完整編製索引的未結構化資料，以及遵循資料模型 (例如關聯式資料庫結構描述) 且可依據欄位逐一編製索引的正式結構化資料。
 
-在本教學課程中，使用 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 和 REST 用戶端來執行下列工作：
+在本教學課程中，請使用 [Azure 認知搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice/) 和 REST 用戶端執行下列工作：
 
 > [!div class="checklist"]
-> * 設定 Azure Blob 容器的 Azure 搜尋服務資料來源
-> * 建立 Azure 搜尋服務索引以包含可搜尋的內容
+> * 設定 Azure Blob 容器的 Azure 認知搜尋資料來源
+> * 建立 Azure 認知搜尋索引以包含可搜尋的內容
 > * 設定並執行索引子以讀取容器，並從 Azure Blob 儲存體擷取可搜尋的內容
 > * 搜尋剛剛建立的索引
 
@@ -32,17 +31,17 @@ Azure 搜尋服務可以在 Azure Blob 儲存體中，使用[索引子](search-i
 
 本快速入門會使用下列服務、工具和資料。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。 
+[建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。 
 
 [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。
 
-[Postman 傳統型應用程式](https://www.getpostman.com/)可將要求傳送至 Azure 搜尋服務。
+用來將要求傳送至 Azure 認知搜尋的 [Postman 傳統型應用程式](https://www.getpostman.com/)。
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) 包含本教學課程中使用的資料。 下載此檔案並將其解壓縮到它自己的資料夾中。 資料源自 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)，已針對本教學課程轉換為 JSON。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -60,7 +59,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]  。
 
-   ![命令列上的 上傳](media/search-semi-structured-data/upload-command-bar.png "命令列上的 上傳")
+   ![使用命令列上傳](media/search-semi-structured-data/upload-command-bar.png "使用命令列上傳")
 
 1. 瀏覽至包含範例檔案的資料夾。 全部選取，然後按一下 [上傳]  。
 
@@ -70,7 +69,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="set-up-postman"></a>設定 Postman
 
-啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-get-started-postman.md)。
+啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 認知搜尋 REST API](search-get-started-postman.md)。
 
 本教學課程中每個呼叫的要求方法都是 **POST**。 標頭金鑰為 "Content-type" 和 "api-key"。 標頭金鑰的值分別為 "application/json" 和您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 主體是您放置呼叫實際內容的地方。 根據使用的用戶端而定，您用以建構查詢的方式可能會有一些變化，但那些都是基本的。
 
@@ -84,7 +83,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="create-a-data-source"></a>建立資料來源
 
-[建立資料來源 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 會建立一個 Azure 搜尋服務物件，以指定要編製索引的資料。
+[建立資料來源 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 會建立一個 Azure 認知搜尋物件，以指定要編製索引的資料。
 
 此呼叫的端點為 `https://[service name].search.windows.net/datasources?api-version=2019-05-06`。 使用您的搜尋服務名稱來取代 `[service name]`。 
 
@@ -127,7 +126,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="create-an-index"></a>建立索引
     
-第二次呼叫為[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/create-indexer)，進而建立可儲存所有可搜尋資料的 Azure 搜尋服務索引。 索引會指定所有參數及其屬性。
+第二個呼叫為[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/create-indexer)，進而建立可儲存所有可搜尋資料的 Azure 認知搜尋索引。 索引會指定所有參數及其屬性。
 
 此呼叫的 URL 是 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`。 使用您的搜尋服務名稱來取代 `[service name]`。
 
@@ -286,11 +285,11 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務的資源群組。 您現在可以刪除資源群組，以永久刪除當中所包含的所有項目。 在入口網站中，資源群組名稱位在 Azure 搜尋服務的 [概觀] 頁面上。
+在完成教學課程後，最快速的清除方式是刪除包含 Azure 認知搜尋服務的資源群組。 您現在可以刪除資源群組，以永久刪除當中所包含的所有項目。 在入口網站中，資源群組名稱位在 Azure 認知搜尋服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 
 有數種方法和多個選項可用於編製 JSON Blob 的索引。 下一個步驟中，檢閱及測試各種不同的選項，以查看最適合您的案例。
 
 > [!div class="nextstepaction"]
-> [如何使用 Azure 搜尋服務 Blob 索引子編製 JSON Blob 的索引](search-howto-index-json-blobs.md)
+> [如何使用 Azure 認知搜尋 Blob 索引子編製 JSON Blob 的索引](search-howto-index-json-blobs.md)

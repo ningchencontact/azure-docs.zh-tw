@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122215"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597229"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教學課程：Azure Resource Manager 範本與 Azure Pipelines 的持續整合
 
@@ -91,7 +91,7 @@ GitHub 可用來儲存專案原始程式碼，包括 Resource Manager 範本。 
 
     將 **[YourAccountName]** 取代為您的 GitHub 帳戶名稱，並將 **[YourGitHubRepositoryName]** 取代為您在上一個程序中建立的存放庫名稱。
 
-    以下螢幕擷取畫面顯示了一個範例。
+    下列螢幕擷取畫面顯示了一個範例。
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines 建立 GitHub bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -183,9 +183,11 @@ azuredeploy.json 已新增至本機存放庫。 接下來您會將範本推送�
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ azuredeploy.json 已新增至本機存放庫。 接下來您會將範本推送�
 
     進行下列變更：
 
-    * **azureSubscription**：以在上一個程序中建立的服務連線更新值。
+    * **deloymentScope**：從選項中選取部署範圍：`Management Group`、`Subscription` 和 `Resource Group`。 本教學課程中使用**資源群組**。 若要深入了解範圍，請參閱[部署範圍](./resource-group-template-deploy-rest.md#deployment-scope)。
+    * **ConnectedServiceName**：指定您稍早建立的服務連線名稱。
+    * **SubscriptionName**：指定目標訂用帳戶識別碼。
     * **動作**：**Create Or Update Resource Group** 動作會執行 2 個動作 - 1. 如果已經提供新的資源群組名稱，就會建立一個資源群組；2. 部署指定的範本。
     * **resourceGroupName**：指定一個新的資源群組名稱。 例如，**AzureRmPipeline rg**。
     * **位置**：指定資源群組的位置。
     * **templateLocation**：當已指定 [連結成品]  時，工作就會直接從已連線的存放庫尋找範本檔案。
     * **csmFile** 為範本檔案的路徑。 您不需要指定範本參數檔案，因為範本中定義的所有參數都有預設值。
 
-    如需工作的相關詳細資訊，請參閱 [Azure Resource Manager 工作](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+    如需有關工作的詳細資訊，請參閱 [Azure 資源群組部署工作](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)和 [Azure Resource Manager 範本部署工作](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. 選取 [儲存並執行]  。
 1. 再選取一次 [儲存並執行]  。 YAML 檔案的複本已儲存到連線的存放庫。 您可以瀏覽您的存放庫，就能看到 YAML 檔案。
 1. 確認管線已成功執行。

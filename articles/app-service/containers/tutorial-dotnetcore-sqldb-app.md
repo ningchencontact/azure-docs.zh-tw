@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824690"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532712"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "68824690"
 
 ![在 Linux 上的 App Service 中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 SQL Database
@@ -49,7 +49,7 @@ ms.locfileid: "68824690"
 若要完成本教學課程：
 
 * [安裝 Git](https://git-scm.com/)
-* [安裝 .NET Core](https://www.microsoft.com/net/core/)
+* [安裝 .NET Core SDK 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
 ## <a name="create-local-net-core-app"></a>建立本機 .NET Core 應用程式
 
@@ -183,7 +183,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ### <a name="configure-environment-variable"></a>設定環境變數
 
-接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為 _。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
+接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
 
 下列範例會在 Azure 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 *\<app-name>* 預留位置。
 
@@ -278,7 +278,7 @@ http://<app-name>.azurewebsites.net
 
 ### <a name="update-your-data-model"></a>更新資料模型
 
-在程式碼編輯器中開啟 _Models\Todo.cs_ 。 將下列屬性加入至 `ToDo` 類別：
+在程式碼編輯器中開啟 _Models\Todo.cs_。 將下列屬性加入至 `ToDo` 類別：
 
 ```csharp
 public bool Done { get; set; }
@@ -302,7 +302,7 @@ dotnet ef database update
 
 在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在本教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
 
-開啟 _Controllers\TodosController.cs_ 。
+開啟 _Controllers\TodosController.cs_。
 
 尋找 `Create()` 方法，並將 `Done` 加入至 `Bind` 屬性 (Attribute) 中的屬性 (Property) 清單。 完成時，您的 `Create()` 方法簽章應該如以下程式碼所示：
 
@@ -310,7 +310,7 @@ dotnet ef database update
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-開啟 _Views\Todos\Create.cshtml_ 。
+開啟 _Views\Todos\Create.cshtml_。
 
 在 Razor 程式碼中，您應該會看到 `Description` 的 `<div class="form-group">` 元素，然後是另一個 `CreatedDate` 的 `<div class="form-group">` 元素。 在這兩個元素的正後方，新增另一個 `Done` 的 `<div class="form-group">` 元素：
 
@@ -324,7 +324,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 </div>
 ```
 
-開啟 _Views\Todos\Index.cshtml_ 。
+開啟 _Views\Todos\Index.cshtml_。
 
 搜尋空白的 `<th></th>` 元素。 在此元素的正上方，新增下列 Razor 程式碼：
 

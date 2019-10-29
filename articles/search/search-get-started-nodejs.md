@@ -1,23 +1,22 @@
 ---
-title: 快速入門：使用 REST API 在 Node.js 中建立搜尋索引 - Azure 搜尋服務
-description: 適用於 Azure 搜尋服務的 Node.js 範例，示範如何建立、載入資料，以及從 JavaScript 查詢資料。
+title: 快速入門：使用 REST API 在 Node.js 中建立搜尋索引
+titleSuffix: Azure Cognitive Search
+description: Azure 認知搜尋的 Node.js 範例，示範如何對 JavaScript 建立、載入資料以及從 JavaScript 查詢資料。
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: nodejs
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881511"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787434"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>快速入門：使用 REST API 在 Node.js 中建立 Azure 搜尋索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>快速入門：使用 REST API 在 Node.js 中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,9 +25,9 @@ ms.locfileid: "70881511"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-建立 Node.js 應用程式，以建立、載入和查詢 Azure 搜尋服務索引。 此文章示範如何逐步建立應用程式。 或者，您可以[下載原始程式碼和資料](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)，並從命令列執行應用程式。
+建立 Node.js 應用程式，以建立、載入和查詢 Azure 認知搜尋索引。 本文示範如何逐步建立應用程式。 或者，您可以[下載原始程式碼和資料](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)，並從命令列執行應用程式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,8 +35,8 @@ ms.locfileid: "70881511"
 
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) 應由 Node.js 安裝。
-+ 此文章或[存放庫的**快速入門**目錄](https://github.com/Azure-Samples/azure-search-javascript-samples/)會提供範例索引結構和比對文件。
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
++ 本文或[存放庫的**快速入門**目錄](https://github.com/Azure-Samples/azure-search-javascript-samples/)會提供範例索引結構和比對文件。
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
 建議使用：
 
@@ -47,7 +46,7 @@ ms.locfileid: "70881511"
 <a name="get-service-info"></a>
 ## <a name="get-keys-and-urls"></a>取得金鑰和 URL
 
-在每個對服務發出呼叫的要求上，都需要 URL 端點和存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+在每個對服務發出呼叫的要求上，都需要 URL 端點和存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面中取得您的搜尋服務名稱。 您可藉由檢閱端點 URL 來確認您的服務名稱。 如果您的端點 URL 為 `https://mydemo.search.windows.net`，您的服務名稱會是 `mydemo`。
 
@@ -85,7 +84,7 @@ ms.locfileid: "70881511"
     {
       "name": "quickstart",
       "version": "1.0.0",
-      "description": "Azure Search Quickstart",
+      "description": "Azure Cognitive Search Quickstart",
       "main": "index.js",
       "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -124,7 +123,7 @@ ms.locfileid: "70881511"
 
 ## <a name="1---create-index"></a>1 - 建立索引 
 
-建立 **hotels_quickstart_index.json** 檔案。  此檔案會定義 Azure 搜尋服務如何使用您要在下一個步驟中載入的文件。 每個欄位都會由 `name` 識別，並具有指定的 `type`。 每個欄位也有一系列的索引屬性，可指定 Azure 搜尋服務是否可在欄位上進行搜尋、篩選、排序和 Facet 處理。 大部分的欄位都是簡單的資料類型，但有些 (像是 `AddressType`) 則為複雜類型，其可讓您在索引中建立豐富的資料結構。  您可以深入了解[支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)和[索引屬性](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)。 
+建立 **hotels_quickstart_index.json** 檔案。  此檔案會定義 Azure 認知搜尋將如何處理您要在下一個步驟中載入的文件。 每個欄位都會由 `name` 識別，並具有指定的 `type`。 每個欄位也有一系列的索引屬性，可指定 Azure 認知搜尋是否可在欄位上進行搜尋、篩選、排序和 Facet 處理。 大部分的欄位都是簡單的資料類型，但有些 (像是 `AddressType`) 則為複雜類型，其可讓您在索引中建立豐富的資料結構。  您可以深入了解[支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)和[索引屬性](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)。 
 
 將下列內容新增至 **hotels_quickstart_index.json**，或[下載檔案](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json)。 
 
@@ -337,7 +336,7 @@ static throwOnHttpError(response) {
 }
 ```
 
-最後，新增方法來偵測、刪除及建立 Azure 搜尋服務索引。 這些方法全都有相同的結構：
+最後，新增用來偵測、刪除及建立 Azure 認知搜尋索引的方法。 這些方法全都有相同的結構：
 
 * 取得將對其提出要求的端點。
 * 使用適當的端點、HTTP 指令動詞、API 金鑰和 JSON 主體 (如果適用) 來產生要求。 `indexExistsAsync()` 和 `deleteIndexAsync()` 沒有 JSON 主體，但 `createIndexAsync(definition)` 有。
@@ -473,7 +472,7 @@ run();
 
 ## <a name="2---load-documents"></a>2 - 載入文件 
 
-在 Azure 搜尋服務中，文件是同時屬於索引輸入與查詢輸出的資料結構。 您必須將這類資料 POST 至索引。 此動作使用的端點會與上一個步驟中所執行的作業不同。 開啟 **AzureSearchClient.js**，並在 `getIndexUrl()` 之後新增下列方法：
+在 Azure 認知搜尋中，文件是同時屬於索引輸入與查詢輸出的資料結構。 您必須將這類資料 POST 至索引。 此動作使用的端點會與上一個步驟中所執行的作業不同。 開啟 **AzureSearchClient.js**，並在 `getIndexUrl()` 之後新增下列方法：
 
 ```javascript
  getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
@@ -604,7 +603,7 @@ const run = async () => {
 
 ## <a name="3---search-an-index"></a>3 - 搜尋索引
 
-返回 [索引]  標籤 (位於 Azure 入口網站的搜尋服務 [概觀]  中)。 您的索引現在會包含四個文件，並且會耗用一些儲存體 (UI 可能需要幾分鐘的時間，才能正確反映索引的基礎狀態)。 按一下索引名稱，以移至 [搜尋總管]  。 此頁面可讓您試驗資料查詢。 若嘗試搜尋 `*&$count=true` 的查詢字串，您應該會收到所有文件和結果數目。 若嘗試 `historic&highlight=Description&$filter=Rating gt 4` 查詢字串，您應該會收到單一文件，其中 "historic" 一詞會以 `<em></em>` 標記括住。 深入了解[如何在 Azure 搜尋服務中撰寫查詢](https://docs.microsoft.com/azure/search/search-query-overview)。 
+返回 [索引]  標籤 (位於 Azure 入口網站的搜尋服務 [概觀]  中)。 您的索引現在會包含四個文件，並且會耗用一些儲存體 (UI 可能需要幾分鐘的時間，才能正確反映索引的基礎狀態)。 按一下索引名稱，以移至 [搜尋總管]  。 此頁面可讓您試驗資料查詢。 若嘗試搜尋 `*&$count=true` 的查詢字串，您應該會收到所有文件和結果數目。 若嘗試 `historic&highlight=Description&$filter=Rating gt 4` 查詢字串，您應該會收到單一文件，其中 "historic" 一詞會以 `<em></em>` 標記括住。 深入了解[如何在 Azure 認知搜尋中撰寫查詢](https://docs.microsoft.com/azure/search/search-query-overview)。 
 
 藉由開啟 **index.js** 並將此程式碼加入至頂端附近的位置，以在程式碼中重現這些查詢：
 
@@ -679,11 +678,11 @@ async queryAsync(searchTerm) {
 
 ### <a name="about-the-sample"></a>關於範例
 
-此範例會使用少量的旅館資料，其足以示範建立和查詢 Azure 搜尋服務索引的基本概念。
+此範例會使用少量的旅館資料，其足以示範建立和查詢 Azure 認知搜尋索引的基本概念。
 
-**AzureSearchClient** 類別會封裝搜尋服務的組態、URL 和基本 HTTP 要求。 **index.js** 檔案會載入 Azure 搜尋服務的組態資料、將上傳以供編製索引的旅館資料，以及在其 `run` 函式中排序和執行各種作業。
+**AzureSearchClient** 類別會封裝搜尋服務的組態、URL 和基本 HTTP 要求。 **index.js** 檔案會載入 Azure 認知搜尋服務的組態資料、將上傳以供編製索引的旅館資料，以及在其 `run` 函式中排序和執行各種作業。
 
-`run` 函式的整體行為是要刪除 Azure 搜尋服務索引 (如果有的話)、建立索引、新增一些資料，以及執行一些查詢。  
+`run` 函式的整體行為是要刪除 Azure 認知搜尋索引 (如果有的話)、建立索引、新增一些資料，以及執行一些查詢。  
 
 ## <a name="clean-up"></a>清除 
 
@@ -696,7 +695,7 @@ async queryAsync(searchTerm) {
 
 在此 Node.js 快速入門中，您已執行一系列的工作來建立索引、使用文件來載入索引，以及執行查詢。 我們會以最簡單的方式，執行特定步驟，例如讀取組態及定義查詢。 在實際的應用程式中，您會想要將這些考量放在可提供彈性和封裝的個別模組中。 
  
-如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為試用建議工具 (預先輸入或自動完成查詢)、篩選及多面向導覽的跳板。 如果您不熟悉 Azure 搜尋服務，建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。 請瀏覽我們的 [文件頁面](https://azure.microsoft.com/documentation/services/search/) 以尋找更多資源。 
+如果您已有一些 Azure 認知搜尋的背景知識，可以利用此範例作為試用建議工具 (預先輸入或自動完成查詢)、篩選及多面向導覽的跳板。 如果您不熟悉 Azure 認知搜尋，建議您嘗試藉由其他教學課程了解您可以建立的項目。 請瀏覽我們的 [文件頁面](https://azure.microsoft.com/documentation/services/search/) 以尋找更多資源。 
 
 > [!div class="nextstepaction"]
-> [使用 Javascript 從網頁呼叫 Azure 搜尋服務](https://github.com/liamca/azure-search-javascript-samples)
+> [使用 Javascript 從網頁呼叫 Azure 認知搜尋](https://github.com/liamca/azure-search-javascript-samples)

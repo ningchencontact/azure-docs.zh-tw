@@ -14,12 +14,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: f98950a73c74537fb0d3762d08810646c9ecb875
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ae67ed5e6b23d9d2fae3f3d6e73597876bf7315c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435611"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592970"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署 Azure Kubernetes Service 叢集
 
@@ -68,6 +68,8 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
 
 使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster  並包含一個節點的叢集。 使用 *--enable-addons monitoring* 參數也可啟用適用於容器的 Azure 監視器。  這需要數分鐘的時間才能完成。
+
+> [附註] 建立 AKS 叢集時，系統會自動建立第二個資源群組來儲存 AKS 資源。 如需詳細資訊，請參閱[為何會使用 AKS 建立兩個資源群組？](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys

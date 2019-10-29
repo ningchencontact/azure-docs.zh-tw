@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 使用 Azure Logic Apps 建立和自動執行第一個工作流程
-description: 使用 Azure Logic Apps 建立第一個邏輯應用程式，以自動執行工作、程序和工作流程。 針對系統和雲端服務的系統整合和企業應用程式整合 (EAI) 解決方案，建立邏輯應用程式。
+title: 建立和自動執行第一個工作流程 - Azure Logic Apps
+description: 快速入門 - 藉由使用適用於系統整合和企業應用程式整合 (EAI) 解決方案的 Azure Logic Apps，建立您的第一個自動化工作或工作流程
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029497"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679136"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個自動化工作流程 - Azure 入口網站
 

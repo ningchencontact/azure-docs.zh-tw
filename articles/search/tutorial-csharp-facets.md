@@ -1,35 +1,36 @@
 ---
-title: 關於使用 Facet 協助導覽 - Azure 搜尋服務的 C# 教學課程
-description: 此教學課程是以「搜尋結果分頁 - Azure 搜尋服務」專案為基礎來新增 Facet 導覽。 了解如何使用 Facet 輕鬆地縮小搜尋範圍。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 關於使用 Facet 協助導覽的 C# 教學課程
+titleSuffix: Azure Cognitive Search
+description: 此教學課程以「搜尋結果分頁 - Azure 認知搜尋」專案作為建置基礎，以新增 Facet 導覽。 了解如何使用 Facet 輕鬆地縮小搜尋範圍。
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/20/2019
-ms.openlocfilehash: 62326ad3bc5f2d740ce744819df559bce8658eb7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443793"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794120"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-search"></a>C# 教學課程：使用 Facet 協助導覽 - Azure 搜尋服務
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C# 教學課程：使用 Facet 協助導覽 - Azure 認知搜尋
 
 您可以為使用者提供一組可用來專注其搜尋的連結，藉以使用 Facet 來協助導覽。 Facet 是資料的屬性 (例如，我們範例資料中的旅館類別或特定功能)。
 
-此教學課程建置於 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)教學課程中所建立的分頁專案之上。
+此教學課程建置於 [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)教學課程。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 將模型屬性設定為 _IsFacetable_
 > * 在應用程式中新增 Facet 導覽
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
-啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)專案。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
+啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)專案。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
 
 ## <a name="set-model-properties-as-isfacetable"></a>將模型屬性設定為 IsFacetable
 
@@ -559,4 +560,4 @@ ms.locfileid: "67443793"
 在下一個教學課程中，我們將探討排序結果。 到目前為止，結果都只是按照它們在資料庫中的順序來排序。
 
 > [!div class="nextstepaction"]
-> [C# 教學課程：排序結果 - Azure 搜尋服務](tutorial-csharp-orders.md)
+> [C# 教學課程：排序結果 - Azure 認知搜尋](tutorial-csharp-orders.md)

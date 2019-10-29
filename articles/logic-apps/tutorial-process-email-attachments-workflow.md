@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 自動處理電子郵件和附件 - Azure Logic Apps
-description: 教學課程 - 使用 Azure Logic Apps、Azure 儲存體和 Azure Functions，建立用來處理電子郵件和附件的自動化工作流程
+title: 使用 Azure Functions 來建置工作流程 - Azure Logic Apps
+description: 教學課程 - 使用 Azure Logic Apps、Azure 儲存體和 Azure Functions 自動化用來處理電子郵件和附件的工作流程
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,18 +11,18 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2919816872fd73c8a50f404e857c9ec56eeab0f5
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051784"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679180"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 自動處理電子郵件和附件
 
 Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務、Microsoft 服務和其他軟體即服務 (SaaS) 應用程式與內部部署系統的資料。 此教學課程說明如何建置[邏輯應用程式](../logic-apps/logic-apps-overview.md)，用以處理內送電子郵件和任何附件。 此邏輯應用程式可分析電子郵件內容、將內容儲存至 Azure 儲存體，以及傳送檢閱該內容的通知。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定 [Azure 儲存體](../storage/common/storage-introduction.md)和儲存體總管，用以檢查已儲存的電子郵件和附件。

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268665"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554260"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>使用 Azure 地圖服務建立互動式地圖搜尋
 
@@ -22,7 +22,7 @@ ms.locfileid: "59268665"
 * 建立您自己的 Azure 地圖服務帳戶。
 * 取得帳戶金鑰以便在 Web 應用程式示範中使用。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -30,20 +30,20 @@ ms.locfileid: "59268665"
 
 ## <a name="create-an-account-and-get-your-key"></a>建立帳戶並取得金鑰
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左上角，選取 [建立資源]。
-2. 在 [搜尋 Marketplace] 方塊中，輸入 **Maps**。
-3. 從 [結果] 中，選取 [地圖服務]。 選取地圖下方顯示的 [建立] 按鈕。
-4. 在 [建立 Azure 地圖服務帳戶] 頁面上輸入下列值：
-   - 新帳戶的 [名稱]。
-   - 您想要使用於此帳戶的 [訂用帳戶]。
-   - 此帳戶的 [資源群組]。 您可以選擇 [建立新的] 或 [使用現有的] 資源群組。
-   - 選取您所選的 [定價層]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左上角，選取 [建立資源]  。
+2. 在 [搜尋 Marketplace]  方塊中，輸入 **Maps**。
+3. 從 [結果]  中，選取 [地圖服務]  。 選取地圖下方顯示的 [建立]  按鈕。
+4. 在 [建立 Azure 地圖服務帳戶]  頁面上輸入下列值：
+   - 新帳戶的 [名稱]  。
+   - 您想要使用於此帳戶的 [訂用帳戶]  。
+   - 此帳戶的 [資源群組]  。 您可以選擇 [建立新的]  或 [使用現有的]  資源群組。
+   - 選取您所選的 [定價層]  。
    - 閱讀**授權**和**隱私權聲明**。 選取核取方塊以接受條款。
-   - 最後，選取 [建立] 按鈕。
+   - 最後，選取 [建立]  按鈕。
 
      ![在入口網站中建立 Azure 地圖服務帳戶](./media/quick-demo-map-app/create-account.png)
 
-5. 成功建立您的帳戶之後，請將它開啟並尋找帳戶功能表的設定區段。 選取 [金鑰] 以檢視 Azure 地圖服務帳戶的主要和次要金鑰。 將 [主要金鑰] 值複製到本機剪貼簿，下一節將使用此值。
+5. 成功建立您的帳戶之後，請將它開啟並尋找帳戶功能表的設定區段。 選取 [驗證]  以檢視 Azure 地圖服務帳戶的主要和次要金鑰。 將 [主要金鑰]  值複製到本機剪貼簿，下一節將使用此值。
 
 ## <a name="download-the-application"></a>下載應用程式
 
@@ -66,7 +66,7 @@ ms.locfileid: "59268665"
 教學課程詳述了如何利用您的帳戶來使用及設定 Azure 地圖服務。 如果您打算繼續進行教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，則請採取下列步驟來清除資源：
 
 1. 關閉執行 **AzureMapDemo.html** Web 應用程式的瀏覽器。
-2. 從 Azure 入口網站的左側功能表中，選取 [所有資源]。 然後選取您的 Azure 地圖服務帳戶。 在 [所有資源] 刀鋒視窗的頂端，選取 [刪除]。
+2. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  。 然後選取您的 Azure 地圖服務帳戶。 在 [所有資源]  刀鋒視窗的頂端，選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

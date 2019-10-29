@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711883"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757547"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站上傳、下載及列出 Blob
 
@@ -28,11 +28,11 @@ ms.locfileid: "51711883"
 若要在 Azure 入口網站中建立容器，請遵循下列步驟：
 
 1. 在 Azure 入口網站中瀏覽至新的儲存體帳戶。
-2. 在儲存體帳戶的左窗格中，捲動到 [Blob 服務] 區段，然後選取 [Blob]。
-3. 選取 [+ 容器] 按鈕。
+2. 在儲存體帳戶的左窗格中，捲動到 [Blob 服務]  區段，然後選取 [容器]  。
+3. 選取 [+ 容器]  按鈕。
 4. 輸入新容器的名稱。 容器名稱必須是小寫，以字母或數字開頭，並且只能包含字母、數字和虛線 (-) 字元。 如需關於容器和 Blob 名稱的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
-5. 設定容器的公用存取層級。 預設層級是 [私用 (沒有匿名存取權)]。
-6. 選取 [確定] 以建立容器。
+5. 設定容器的公用存取層級。 預設層級是 [私用 (沒有匿名存取權)]  。
+6. 選取 [確定]  以建立容器。
 
     ![顯示如何在 Azure 入口網站中建立容器的螢幕擷取畫面](media/storage-quickstart-blobs-portal/create-container.png)
 
@@ -44,12 +44,12 @@ ms.locfileid: "51711883"
 
 1. 在 Azure 入口網站中，瀏覽至您在上一節中建立的容器。
 2. 選取容器以顯示它所包含的 Blob 清單。 此容器是新的，因此尚未包含任何 Blob。
-3. 選取 [上傳] 按鈕，以將 Blob 上傳至容器。
-4. 瀏覽您本機檔案系統以找出要上傳為區塊 Blob 的檔案，然後選取 [上傳]。
+3. 選取 [上傳]  按鈕，以將 Blob 上傳至容器。
+4. 瀏覽您本機檔案系統以找出要上傳為區塊 Blob 的檔案，然後選取 [上傳]  。
      
     ![顯示如何從本機磁碟機上傳 Blob 的螢幕擷取畫面](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. 選取 [驗證類型]。 預設值為 **SAS**。
+5. 選取 [驗證類型]  。 預設值為 **SAS**。
 6. 用這種方式上傳任意數量的 Blob。 您會看到新的 Blob 現在列在容器內。
 
 ## <a name="download-a-block-blob"></a>下載區塊 Blob
@@ -57,7 +57,7 @@ ms.locfileid: "51711883"
 您可以下載區塊 Blob，以在瀏覽器中顯示或儲存到本機檔案系統。 若要下載區塊 Blob，請遵循下列步驟：
 
 1. 瀏覽至您在上一節中上傳的 Blob 清單。 
-2. 以滑鼠右鍵按一下您要下載的 Blob，然後選取 [下載]。 
+2. 以滑鼠右鍵按一下您要下載的 Blob，然後選取 [下載]  。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -67,7 +67,7 @@ ms.locfileid: "51711883"
 
 1. 在 Azure 入口網站中，瀏覽至儲存體帳戶中的容器清單。
 2. 選取要刪除的容器。
-3. 選取 [更多] 按鈕 (**...**)，然後選取 [刪除]。
+3. 選取 [更多]  按鈕 ( **...** )，然後選取 [刪除]  。
 4. 確認您要刪除容器。
 
 ## <a name="next-steps"></a>後續步驟

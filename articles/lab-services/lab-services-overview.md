@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 115320a8b4ee7afc6e420dcfa96612b91ea6d1a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275727"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790777"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure 實驗室服務簡介
-Azure 實驗室服務可讓您在雲端為團隊快速設定環境 (例如：開發環境、測試環境、教室實驗室環境)。 實驗室擁有者會建立實驗室，佈建 Windows 或 Linux 虛擬機器，安裝必要的軟體和工具，然後將它們提供給實驗室使用者使用。 實驗室使用者會連線至實驗室中的虛擬機器 (VM)，並使用它們來進行日常工作、短期專案，或是教室練習。 當使用者開始運用實驗室中的資源後，實驗室管理員便可以跨多個實驗室分析成本和使用情形，並設定整體性的原則來對組織或團隊的成本進行最佳化。
+Azure 上有兩項服務可讓您在雲端中設定實驗室環境。 
 
-> [!IMPORTANT]
-> 我們正在為 **Azure DevTest Labs** 擴展新的實驗室類型 (Azure 實驗室服務)！
->  
-> Azure 實驗室服務可讓您建立受控實驗室類型，例如教室實驗室。 服務本身會處理受控實驗室類型的所有基礎結構管理，從啟動 VM 以處理錯誤，到調整基礎結構的規模。 現在，[DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) 和 [Azure 實驗室服務](https://azure.microsoft.com/services/lab-services/)將繼續成為 Azure 入口網站中的個別服務。 
+- **Azure DevTest Labs** - 此服務可讓您為小組快速設定環境 (例如：開發環境，或雲端中的測試環境)。 實驗室擁有者會建立實驗室，佈建 Windows 或 Linux 虛擬機器，安裝必要的軟體和工具，然後將它們提供給實驗室使用者使用。 實驗室使用者會連線至實驗室中的虛擬機器 (VM)，並使用它們來進行日常工作和短期專案。 當使用者開始運用實驗室中的資源後，實驗室管理員便可以跨多個實驗室分析成本和使用情形，並設定整體性的原則來對組織或團隊的成本進行最佳化。
+- **Azure 實驗室服務** - 此服務可讓您建立受控實驗室類型。 目前，教室實驗室是 Azure 實驗室服務唯一支援的受控實驗室類型。 服務本身會處理受控實驗室類型的所有基礎結構管理，從啟動 VM 以處理錯誤，到調整基礎結構的規模。 當 IT 管理員在 Azure 實驗室服務中建立實驗室帳戶之後，講師可以快速地為其課堂設定實驗室、指定在課堂中進行練習所需的 VM 數目和類型，以及將使用者新增至課堂。 使用者在註冊課堂，即可存取 VM 以執行課堂的練習。  
 
 ## <a name="key-capabilities"></a>主要功能
 
-Azure 實驗室服務支援下列主要能力/功能：
+這些服務 (Azure DevTest Labs 和 Azure 實驗室服務) 支援下列主要能力/功能：
 
 - **快速且彈的實驗室設定**。 透過使用 Azure 實驗室服務，實驗室擁有者可以快速地依需求設定實驗室。 該服務提供由系統處理受控實驗室類型的所有 Azure 基礎結構工作的選項，也可以讓實驗室擁有者在實驗室擁有者的訂用帳戶中自行管理及自訂基礎結構。 該服務針對實驗室提供由服務為您管理的內建基礎結構規模調整及復原功能。
 - **簡化的實驗室使用者體驗**。 在受控實驗室類型 (例如教室實驗室) 中，實驗室使用者可以使用註冊代碼來註冊至實驗室，並隨時存取該實驗室以使用實驗室的資源。 在於 DevTest Labs 中建立的實驗室中，實驗室擁有者可以給予實驗室使用者建立及存取虛擬機器、管理及重新使用資料磁碟，以及設定可重複使用祕密的權限。  
@@ -43,7 +41,7 @@ Azure 實驗室服務支援下列主要能力/功能：
 
 ## <a name="scenarios"></a>案例
 
-以下為一些 Azure 實驗服務所支援的案例：
+以下是 Azure DevTest Labs 和 Azure 實驗室服務所支援的一些案例：
 
 ### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>在雲端為您的教室設定可調整大小的電腦實驗室  
 

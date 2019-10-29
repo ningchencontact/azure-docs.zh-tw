@@ -1,7 +1,7 @@
 ---
-title: 快速入門：自訂語音優先虛擬助理 (預覽)，Java (Windows, Linux) - 語音服務
+title: 快速入門：自訂語音優先虛擬助理 (預覽版)，Java (Windows, Linux) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將了解如何在 Java 主控台應用程式中使用認知服務語音軟體開發套件 (SDK)。 您將了解如何將用戶端應用程式連線到先前建立的 Bot Framework Bot，該 Bot 設定為使用 Direct Line Speech 頻道和啟用語音優先虛擬助理體驗。
+description: 在本快速入門中，您將了解如何在 Java 主控台應用程式中使用認知服務語音 SDK。 您將了解如何將用戶端應用程式連線到先前建立的 Bot Framework Bot，該 Bot 設定為使用 Direct Line Speech 頻道和啟用語音優先虛擬助理體驗。
 services: cognitive-services
 author: bidishac
 manager: nitinme
@@ -10,31 +10,31 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: c5a6042e4b181190849b3759325e4aab0c22413b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: ca3d650f9a53f536a00f2a11aca37b2a61556129
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71800027"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675518"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>快速入門：使用語音 SDK、Java 建立語音優先虛擬助理
 
 另備有[語音轉文字](quickstart-java-jre.md)、[文字轉語音](quickstart-text-to-speech-java-jre.md)和[語音翻譯](quickstart-translate-speech-java-jre.md)的快速入門。
 
-在本文中，您會使用[認知服務語音 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 此應用程式會連線到先前撰寫的 Bot，該 Bot 設定為使用 Direct Line Speech 頻道、傳送語音要求，以及傳回語音回應活動 (若已設定的話)。 此應用程式是使用語音 SDK Maven 套件，以及Windows、Ubuntu Linux 或 macOS 上的 Eclipse Java IDE 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
+在本文中，您會使用 [Azure 認知服務語音 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 此應用程式會連線到先前撰寫的 Bot，該 Bot 設定為使用 Direct Line Speech 頻道、傳送語音要求，以及傳回語音回應活動 (若已設定的話)。 此應用程式是使用語音 SDK Maven 套件，以及Windows、Ubuntu Linux 或 macOS 上的 Eclipse Java IDE 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
 
 ## <a name="prerequisites"></a>必要條件
 
 本快速入門需要：
 
-* 作業系統：Windows (64 位元)、Ubuntu Linux 16.04/18.04 (64 位元) 或 macOS 10.13 或更新版本
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/) \(英文\)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) \(英文\) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)或 [Azure 入口網站](https://portal.azure.com)上建立金要。
-* 預先設定的 Bot，其使用 Bot Framework 4.2 版或更新版本來建立。 Bot 必須訂閱新的 "Direct Line Speech" 頻道才能接收語音輸入。
+* 作業系統：Windows (64 位元)、Ubuntu Linux 16.04/18.04 (64 位元) 或 macOS 10.13 或更新版本。
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/)。
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)或 [Azure 入口網站](https://portal.azure.com)上建立金鑰。
+* 使用 Bot Framework 4.2 版或更新版本來建立且已預先設定的 Bot。 Bot 必須訂閱新的 Direct Line Speech 頻道才能接收語音輸入。
 
     > [!NOTE]
-    > Direct Line Speech (預覽) 目前僅可在部分的語音服務區域使用。 請參閱[語音優先虛擬助理支援的區域清單](regions.md#Voice-first virtual assistants)，並確定您的資源部署於其中一個區域。
+    > Direct Line Speech (預覽版) 目前僅可在部分的語音服務區域使用。 請參閱[語音優先虛擬助理支援的區域清單](regions.md#voice-first-virtual-assistants)，並確定您的資源部署於其中一個區域。
 
 如果您執行 Ubuntu 16.04/18.04，請先確定已安裝下列相依性，再啟動 Eclipse：
 
@@ -54,7 +54,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-此外，若要啟用記錄功能，請更新 **pom.xml** 檔案以包含下列相依性。
+此外，若要啟用記錄功能，請更新 *pom.xml* 檔案以包含下列相依性：
 
    ```xml
     <dependency>
@@ -68,11 +68,11 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 1. 若要將新的空白類別新增到您的 Java 專案，請選取 [檔案]   > [新增]   > [類別]  。
 
-1. 在 [新增 Java 類別]  視窗中，於 [套件]  欄位中輸入 **speechsdk.quickstart**，並在 [名稱]  欄位中輸入 **Main**。
+1. 在 [新增 Java 類別]  視窗中，於 [套件]  欄位中輸入 *speechsdk.quickstart*，並在 [名稱]  欄位中輸入 *Main*。
 
    ![[新增 Java 類別] 視窗的螢幕擷取畫面](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. 開啟新建立的 **Main** 類別，並以下列起始程式碼取代 `Main.java` 檔案的內容。
+1. 開啟新建立的 `Main` 類別，並以下列起始程式碼取代 `Main.java` 檔案的內容：
 
     ```java
     package speechsdk.quickstart;
@@ -139,58 +139,58 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
     }
     ```
 
-1. 在 **main** 方法中，您會先設定 `DialogServiceConfig` 並使用它來建立 `DialogServiceConnector` 執行個體。 這會連線至 Direct Line Speech 頻道來與您的 Bot 互動。 `AudioConfig` 執行個體也用來指定音訊輸入來源。 在此範例中，預設麥克風會搭配 `AudioConfig.fromDefaultMicrophoneInput()` 使用。
+1. 在 `main` 方法中，您會先設定 `DialogServiceConfig` 並用其建立 `DialogServiceConnector` 執行個體。 此執行個體會連線至 Direct Line Speech 頻道來與您的 Bot 互動。 `AudioConfig` 執行個體也用來指定音訊輸入來源。 在此範例中，預設麥克風會搭配 `AudioConfig.fromDefaultMicrophoneInput()` 使用。
 
-    * 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰，您可以從[這裡](get-started.md)取得該金鑰。
+    * 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰，您可以從[此網站](get-started.md)取得該金鑰。
     * 將字串 `YourServiceRegion` 取代為與您的訂用帳戶相關聯的[區域](regions.md)。
     * 將字串 `YourChannelSecret` 取代為您的 Direct Line Speech 頻道祕密。
 
     > [!NOTE]
-    > Direct Line Speech (預覽) 目前僅可在部分的語音服務區域使用。 請參閱[語音優先虛擬助理支援的區域清單](regions.md#voice-first-virtual-assistants)，並確定您的資源部署於其中一個區域。
+    > Direct Line Speech (預覽版) 目前僅可在部分的語音服務區域使用。 請參閱[語音優先虛擬助理支援的區域清單](regions.md#voice-first-virtual-assistants)，並確定您的資源部署於其中一個區域。
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: Only a subset of regions are currently supported.
     final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
-    // Configure audio input from microphone.
+    // Configure audio input from a microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a DialogServiceConnector instance
+    // Create a DialogServiceConnector instance.
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector` 依賴多個事件來傳達其 Bot 活動、語音辨識結果及其他資訊。 接下來新增這些事件接聽程式。
+1. `DialogServiceConnector` 連接器依賴多個事件來傳達其 Bot 活動、語音辨識結果及其他資訊。 接下來新增這些事件接聽程式。
 
     ```java
-    // Recognizing will provide the intermediate recognized text while an audio stream is being processed
+    // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
     connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
-    // Recognized will provide the final recognized text once audio capture is completed
+    // Recognized will provide the final recognized text once audio capture is completed.
     connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
-    // SessionStarted will notify when audio begins flowing to the service for a turn
+    // SessionStarted will notify when audio begins flowing to the service for a turn.
     connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
-    // SessionStopped will notify when a turn is complete and it's safe to begin listening again
+    // SessionStopped will notify when a turn is complete and it's safe to begin listening again.
     connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
-    // Canceled will be signaled when a turn is aborted or experiences an error condition
+    // Canceled will be signaled when a turn is aborted or experiences an error condition.
     connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
         connector.disconnectAsync();
     });
 
-    // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
+    // ActivityReceived is the main way your bot will communicate with the client and uses Bot Framework activities.
     connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
@@ -200,7 +200,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
         });
     ```
 
-1. 叫用 `connectAsync()` 方法，以將 `DialogServiceConnector` 連線到 Direct Line Speech。 若要測試您的 Bot，您可以叫用 `listenOnceAsync` 方法，以傳送來自麥克風的音訊輸入。 此外，您也可以使用 `sendActivityAsync` 方法，以序列化字串的形式傳送自訂活動。 這些自訂活動可以提供您的 Bot 會在交談中使用的其他資料。
+1. 叫用 `connectAsync()` 方法，以將 `DialogServiceConnector` 連線到 Direct Line Speech。 若要測試您的 Bot，您可以叫用 `listenOnceAsync` 方法，以傳送來自麥克風的音訊輸入。 此外，您也可以使用 `sendActivityAsync` 方法，以序列化字串的形式傳送自訂活動。 這些自訂活動可以提供您 Bot 在交談中使用的其他資料。
 
     ```java
     connector.connectAsync();
@@ -213,11 +213,11 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 1. 將變更儲存到 `Main` 檔案。
 
-1. 如需支援回應播放，請在 Java inputStream 中新增額外的類別以轉換從 getAudio() API 傳回的 PullAudioOutputStream 物件，以便輕鬆處理。 此 ActivityAudioStream 是特殊的類別，可處理來自 Direct Line Speech 通道的語音回應。 也會提供處理播放所需的存取子，以擷取音訊格式資訊：如需此功能，請選取 [檔案]   >  [新建]   >  [類別]  。
+1. 若要支援回應播放，請在 Java inputStream 中新增額外的類別以轉換從 getAudio() API 傳回的 PullAudioOutputStream 物件，以便輕鬆處理。 此 `ActivityAudioStream` 是特殊的類別，可處理來自 Direct Line Speech 頻道的語音回應。 也會提供處理播放所需的存取子，以擷取音訊格式資訊。 如需此功能，請選取 [檔案]   >  [新建]   >  [類別]  。
 
-1. 在 [新建 Java 類別]  視窗中，將 **speechsdk.quickstart** 輸入 [套件]  欄位；並將 **ActivityAudioStream** 輸入 [名稱]  欄位。
+1. 在 [新建 Java 類別]  視窗中，將 *speechsdk.quickstart* 輸入 [套件]  欄位，並將 *ActivityAudioStream* 輸入 [名稱]  欄位。
 
-1. 開啟新建立的 **ActivityAudioStream** 類別，並以下面提供的程式碼取代。
+1. 開啟新建的 `ActivityAudioStream` 類別，並將內容取代為下列程式碼：
 
     ```java
     package com.speechsdk.quickstart;
@@ -230,11 +230,11 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
     public final class ActivityAudioStream extends InputStream {
         /**
-         * The number of samples played per second. (16 kHz)
+         * The number of samples played per second (16 kHz).
          */
         public static final long SAMPLE_RATE = 16000;
         /**
-         * The number of bits in each sample of a sound that has this format. (16 bits)
+         * The number of bits in each sample of a sound that has this format (16 bits).
          */
         public static final int BITS_PER_SECOND = 16;
         /**
@@ -294,7 +294,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
         }
 
         /**
-         * Reads up to a specified maximum number of bytes of data from the activity audio stream
+         * Reads up to a specified maximum number of bytes of data from the activity audio stream,
          * putting them into the given byte array.
          *
          * @param b the buffer into which the data is read
@@ -348,7 +348,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
         }
 
         /**
-         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample and the # channels
+         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample, and the # channels.
          *
          * @return instance of the ActivityAudioFormat associated with the stream
          */
@@ -361,7 +361,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
          * audio input stream without blocking.
          *
          * @return the number of bytes that can be read from this audio input stream without blocking.
-         * As this implementation does not buffer this will be defaulted to 0
+         * As this implementation does not buffer, this will be defaulted to 0
          */
         @Override
         public int available() {
@@ -444,7 +444,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
         }
 
         /**
-         * Enum defining the types of audio encoding supported by this stream
+         * Enum defining the types of audio encoding supported by this stream.
          */
         public enum AudioEncoding {
             PCM_SIGNED("PCM_SIGNED");
@@ -463,8 +463,9 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-按 F11 鍵，或選取 [執行]   > [偵錯]  。
-主控台會顯示「說一些話」訊息。此時，您可以說您的 Bot 可理解的英文片語或句子。 您的語音將透過 Direct Line Speech 頻道傳輸到您的 Bot，您的 Bot 將會辨識、處理語音，並以活動形式傳回回應。 如果您的 Bot 傳回語音作為回應，則會使用 `AudioPlayer` 類別播放音訊。
+選取 F11 鍵，或選取 [執行]   > [偵錯]  。
+主控台會顯示訊息：「請開始說話」。
+此時，請說出您 Bot 可了解的英文片語或句子。 您的語音會透過您 Bot 可辨識及處理的 Direct Line 語音頻道來傳輸至您的 Bot。 回應會以活動形式傳回。 如果您的 Bot 傳回語音作為回應，則會使用 `AudioPlayer` 類別播放音訊。
 
 ![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-java-jre-08-console-output.png)
 

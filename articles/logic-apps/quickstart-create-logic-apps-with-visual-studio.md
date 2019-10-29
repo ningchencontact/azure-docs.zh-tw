@@ -1,6 +1,6 @@
 ---
-title: 使用 Visual Studio 建立自動化工作流程 - Azure Logic Apps
-description: 使用 Azure Logic Apps 和 Visual Studio 將企業整合的工作、商務程序和工作流程自動化
+title: 使用 Visual Studio 自動執行工作流程 - Azure Logic Apps
+description: 使用 Azure Logic Apps 和 Visual Studio 建立、排定及執行用於企業整合的週期性工作流程
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,18 +8,17 @@ ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/25/2019
-ms.openlocfilehash: 47b7609fe111ecbe41a161bfbff1f7225ad66357
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d02f0bf8cc880dd39f7bdf0c953fcb130df2e23a
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165924"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680574"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立自動化工作、程序和工作流程 - Visual Studio
+# <a name="quickstart-automate-tasks-processes-and-workflows-by-using-azure-logic-apps-and-visual-studio"></a>快速入門：使用 Azure Logic Apps 和 Visual Studio 來自動執行工作、程序和工作流程
 
 使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和 Visual Studio，您可以建立可自動執行工作和程序的工作流程，以便整合各企業和組織的應用程式、資料、系統和服務。 本快速入門示範如何藉由以下方式設計及建立這些工作流程：在 Visual Studio 中建立邏輯應用程式，並將這些應用程式部署至 Azure。 雖然您可以在 Azure 入口網站中執行這些工作，但 Visual Studio 可讓您將邏輯應用程式新增至原始檔控制、發佈不同的版本，並針對不同的部署環境建立 Azure Resource Manager 範本。
 

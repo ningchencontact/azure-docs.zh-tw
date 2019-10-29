@@ -1,22 +1,22 @@
 ---
-title: 快速入門：使用 REST API 在 PowerShell 中建立搜尋索引 - Azure 搜尋服務
-description: 說明如何使用 PowerShell 的 Invoke-RestMethod 與 Azure 搜尋服務 REST API 建立索引、載入資料以及執行查詢。
-ms.date: 09/10/2019
-author: heidisteen
+title: 快速入門：使用 REST API 在 PowerShell 中建立搜尋索引
+titleSuffix: Azure Cognitive Search
+description: 說明如何使用 PowerShell 的 Invoke-RestMethod 與 Azure 認知搜尋 REST API 建立索引、載入資料以及執行查詢。
 manager: nitinme
+author: heidisteen
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: ab82406fa151f5889a563d8154e02da921f1c4e6
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: e9b2b8e8b3585bc747efb5b2916ddf1fe07d3645
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881727"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792241"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入門：使用 REST API 在 PowerShell 中建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>快速入門：使用 REST API 在 PowerShell 中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,9 +25,9 @@ ms.locfileid: "70881727"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-此文章將逐步引導您完成使用 PowerShell 和 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 建立、載入及查詢 Azure 搜尋服務索引的程序。 此文章將說明如何以互動方式執行 PowerShell 命令。 或者，您可以[下載並執行 Powershell 指令碼](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)來執行相同的作業。
+本文將逐步引導您完成使用 PowerShell 和 [Azure 認知搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice/) 來建立、載入及查詢 Azure 認知搜尋索引的程序。 本文將說明如何以互動方式執行 PowerShell 命令。 或者，您可以[下載並執行 Powershell 指令碼](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)來執行相同的作業。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,11 +35,11 @@ ms.locfileid: "70881727"
 
 + [PowerShell 5.1 或更新版本](https://github.com/PowerShell/PowerShell)，並使用 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 進行後續的互動式步驟。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -49,7 +49,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
-## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
+## <a name="connect-to-azure-cognitive-search"></a>連線至 Azue 認知搜尋
 
 1. 在 PowerShell 中，建立 **$headers** 物件來儲存內容類型和 API 金鑰。 以適用於您搜尋服務的金鑰取代系統管理員 API 金鑰 (YOUR-ADMIN-API-KEY)。 在工作階段期間，您只需要設定此標頭一次，但您會將其新增至每個要求。 
 
@@ -323,7 +323,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 將端點設定為 hotels-quickstart  文件集合，然後新增 **search** 參數來傳入查詢字串。 
   
-   此字串會執行空的搜尋 (search=*)，並傳回未排名的雜亂文件清單 (搜尋分數 = 1.0)。 根據預設，Azure 搜尋服務一次會傳回 50 項相符結果。 經過結構化後，此查詢會傳回整個文件結構和值。 新增 **$count = true** 可取得結果中所有文件的計數。
+   此字串會執行空的搜尋 (search=*)，並傳回未排名的雜亂文件清單 (搜尋分數 = 1.0)。 根據預設，Azure 認知搜尋一次會傳回 50 個相符項目。 經過結構化後，此查詢會傳回整個文件結構和值。 新增 **$count = true** 可取得結果中所有文件的計數。
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
@@ -401,7 +401,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已使用 PowerShell 逐步執行基本工作流程，以在 Azure 搜尋服務中建立和存取內容。 有了這些概念後，我們建議您繼續進行更進階的案例，例如從 Azure 資料來源編製索引；
+在本快速入門中，您已使用 PowerShell 逐步執行基本工作流程，以在 Azure 認知搜尋中建立和存取內容。 有了這些概念後，我們建議您繼續進行更進階的案例，例如從 Azure 資料來源編製索引；
 
 > [!div class="nextstepaction"]
-> [REST 教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引](search-semi-structured-data.md)
+> [REST 教學課程：在 Azure 認知搜尋中為半結構化資料 (JSON Blob) 編製索引及加以搜尋](search-semi-structured-data.md)

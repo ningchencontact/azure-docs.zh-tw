@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 926d7043ea6f56c1ba6d13fd4586fc6f6d59cfa8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694900"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554696"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>快速入門：適用於 Python 的 Anomaly Detector 用戶端程式庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "71694900"
 * 以批次要求方式偵測整個時間序列資料集的異常狀況
 * 偵測您的時間序列中最新資料點的異常狀態
 
-[程式庫參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [套件 (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [範例](https://github.com/Azure-Samples/anomalydetector)
+[程式庫參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [套件 (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [程式碼範例](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,11 +40,9 @@ ms.locfileid: "71694900"
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-從試用版訂用帳戶或資源取得金鑰後，請為名為 `ANOMALY_DETECTOR_KEY` 的金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
-
 ### <a name="create-a-new-python-application"></a>建立新的 Python 應用程式
 
- 在您慣用的編輯器或 IDE 中，建立新的 Python 應用程式。 然後匯入下列程式庫。
+ 建立新的 Python 檔案，並匯入下列程式庫。
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
@@ -114,7 +112,7 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/pytho
 
 ## <a name="run-the-application"></a>執行應用程式
 
-在 IDE 中，或在命令列中使用 `python` 命令和您的檔案名稱，執行應用程式。
+使用 `python` 命令及您的檔案名稱來執行應用程式。
  
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -4,15 +4,15 @@ description: 了解如何使用適用於 MongoDB 的 Azure Cosmos DB API 以 Azu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 22438837a7cee1755d115993683101c260b99f2c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 670020d276b9d4a868f24eb4a3f522581060adca
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953842"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754985"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 
@@ -22,9 +22,9 @@ ms.locfileid: "65953842"
 
 Azure Cosmos DB 實作 Cassandra、MongoDB、Gremlin 和 Azure 表格儲存體等常見 NoSQL 資料庫的 Wire Protocol。 由於 Cosmos DB 內直接且有效率地提供 Wire Protocol 的原生實作，因此可讓 NoSQL 資料庫的現有用戶端 SDK、驅動程式和工具，明確地與 Cosmos DB 互動。 Cosmos DB 未使用資料庫的任何原始程式碼，來提供任何 NoSQL 資料庫的 Wire 相容 API。
 
-根據預設，適用於 MongoDB 的 Azure Cosmos DB API 與 MongoDB 的 Wire Protocol 3.2 版相容。 Wire Protocol 3.4 版中新增的功能或查詢運算子，目前可以預覽功能的方式取得。 任何了解這些通訊協定版本的 MongoDB 用戶端驅動程式，應該都能原生地連線到 Cosmos DB。
+根據預設，如果新帳戶是使用適用於 MongoDB 的 Azure Cosmos DB API 來建立，則可以與 MongoDB 的 Wire Protocol 3.6 版相容。 任何了解此通訊協定版本的 MongoDB 用戶端驅動程式，應該都能原生地連線到 Cosmos DB。
 
-![適用於 MongoDB 的 Azure Cosmos DB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![適用於 MongoDB 的 Azure Cosmos DB API](./media/mongodb-introduction/cosmosdb-mongodb.png)
 
 ## <a name="key-benefits"></a>主要權益
 
@@ -38,7 +38,7 @@ Cosmos DB 作為完全受控且全域散發之資料庫的主要優點如[這裡
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Cosmos DB API
 
-請遵循快速入門建立 Cosmos 帳戶，然後遷移您現有的 MongoDB 應用程式以使用 Azure Cosmos DB，或建置一個新的應用程式：
+請遵循快速入門建立 Azure Cosmos 帳戶，然後遷移您現有的 MongoDB 應用程式以使用 Azure Cosmos DB，或建置一個新的應用程式：
 
 * [移轉現有的 MongoDB Node.js Web 應用程式](create-mongodb-nodejs.md)。
 * [使用適用於 MongoDB 的 Azure Cosmos DB API 和 .NET SDK 建置 Web 應用程式](create-mongodb-dotnet.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: c1dd5e4f469b24918eaa03e694a95fa90c91b481
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 04d788160f1bdfd772f48b40b35f6db54cbf87b7
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725581"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554781"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>快速入門：適用於 .NET 的 Anomaly Detector 用戶端程式庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "68725581"
 * 以批次要求方式偵測整個時間序列資料集的異常狀況
 * 偵測您的時間序列中最新資料點的異常狀態
 
-[程式庫參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [範例](https://github.com/Azure-Samples/anomalydetector)
+[程式庫參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [程式碼範例](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,13 +39,9 @@ ms.locfileid: "68725581"
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-從試用版訂用帳戶或資源取得金鑰後，請為名為 `ANOMALY_DETECTOR_KEY` 的金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
+### <a name="create-a-new-net-core-application"></a>建立新的 .NET Core 應用程式
 
-### <a name="create-a-new-c-application"></a>建立新的 C# 應用程式
-
-在您慣用的編輯器或 IDE 中，建立新的 .NET Core 應用程式。 
-
-在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：*Program.cs*。 
+在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" 專案，內含單一 C# 原始程式檔：*Program.cs*。 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
@@ -67,14 +63,6 @@ Build succeeded.
 ...
 ```
 
-從專案目錄，在慣用的編輯器或 IDE 中開啟 *program.cs* 檔案。 使用 `directives` 新增下列內容：
-
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
-
-在應用程式的 `main()` 方法中，為資源的 Azure 位置建立變數，並將金鑰建立為環境變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。
-
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
 ### <a name="install-the-client-library"></a>安裝用戶端程式庫
 
 在應用程式目錄中，使用下列命令安裝適用於 .NET 的 Anomaly Detector 用戶端程式庫：
@@ -83,7 +71,13 @@ Build succeeded.
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
-如果您使用 Visual Studio IDE，則可以取得 NuGet 套件形式的用戶端程式庫。 
+從專案目錄中中開啟 program.cs  檔案，並使用 `directives` 新增下列內容：
+
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+在應用程式的 `main()` 方法中，為資源的 Azure 位置建立變數，並將金鑰建立為環境變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
 
 ## <a name="object-model"></a>物件模型
 

@@ -17,10 +17,10 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcf0341e03a5d95abbe8b1a8ce69379fef8251b7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989056"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Zscaler 整合
@@ -88,13 +88,13 @@ ms.locfileid: "68989056"
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Zscaler 用戶端支援小組](https://www.zscaler.com/company/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. Zscaler 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應新增至您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示，以開啟 [使用者屬性]  對話方塊。
+1. Zscaler 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應新增至您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 
 1. 除了以上屬性外，Zscaler 應用程式還會預期 SAML 回應傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
-    | Name | 來源屬性 |
+    | 名稱 | 來源屬性 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -177,9 +177,9 @@ ms.locfileid: "68989056"
 
 1. 如果您想要手動設定 Zscaler，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Zscaler 公司網站，然後執行下列步驟：
 
-1. 移至 [管理] > [驗證] > [驗證設定]  並執行下列步驟：
+1. 移至 管理 > 驗證 > 驗證設定  並執行下列步驟：
 
-    ![管理](./media/zscaler-tutorial/ic800206.png "管理")
+    ![系統管理](./media/zscaler-tutorial/ic800206.png "系統管理")
 
     a. 在 [驗證類型] 下選擇 [SAML]  。
 
@@ -221,7 +221,7 @@ ms.locfileid: "68989056"
 
 1. 從 [工具]  功能表選取 [網際網路選項]  可開啟 [網際網路選項]  對話方塊。
 
-    ![網際網路選項](./media/zscaler-tutorial/ic769492.png "網際網路選項")
+    ![網際網路選項](./media/zscaler-tutorial/ic769492.png "，")
 
 1. 按一下 [連線]  索引標籤。
   

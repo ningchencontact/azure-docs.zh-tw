@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 取得受控資源群組並調整 VM 的大小 | Microsoft Docs
+title: 取得受控資源群組和調整VM 大小 - Azure PowerShell
 description: 提供可為 Azure 受控應用程式取得受控資源群組的 Azure PowerShell 指令碼範例。 此指令碼會調整 VM 大小。
 services: managed-applications
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: f36ed42e0b7f8e4d1e5b092d2a14fd0cd8178ee0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f11f9b56a8a17330fac3fb50bfd5f560357463e7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330128"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529410"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>使用 PowerShell 取得受控資源群組中的資源並調整 VM 大小
 

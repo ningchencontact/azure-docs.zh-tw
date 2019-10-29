@@ -1,24 +1,27 @@
 ---
 title: 雲端解決方案提供者方案考量
-description: 在使用 Azure 委派的資源管理時，請務必考慮安全性與存取控制。
+description: 對於 CSP 合作夥伴，Azure 委派的資源管理可藉由啟用細微的權限劃分來協助改善安全性與控管。
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 08/22/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 76df2942b176fd7d0e785213e44655ffd11da410
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: cdb9eaf0b1f1a6e7a136432586ad186308e4e3d3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286214"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550289"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse 與雲端解決方案提供者計畫
 
 如果您是 [CSP (雲端解決方案提供者)](https://docs.microsoft.com/partner-center/csp-overview) 合作夥伴，則您可能已使用[管理代表 (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 功能，存取透過 CSP 計畫為您的客戶建立的 Azure 訂用帳戶。 此存取權可讓您直接支援、設定及管理客戶的訂用帳戶。
 
 透過 Azure Lighthouse，您將可搭配使用 Azure 委派的資源管理與 AOBO。 這有助於您為使用者啟用更精細的權限來改善安全性，以及減少不必要的存取。 此外，效率和延展性也得以提高，因為使用者可在您的租用戶中使用單一登入跨多個客戶訂用帳戶工作。
+
+> [!TIP]
+> 若要協助保護客戶資源，請務必檢閱並遵循我們的[建議安全做法](recommended-security-practices.md)及[合作夥伴安全性需求](https://docs.microsoft.com/partner-center/partner-security-requirements)。
 
 ## <a name="administer-on-behalf-of-aobo"></a>管理代表 (AOBO)
 

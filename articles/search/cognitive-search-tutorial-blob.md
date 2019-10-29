@@ -1,23 +1,23 @@
 ---
-title: REST 教學課程：使用認知搜尋建置 AI 擴充管線 - Azure 搜尋服務
-description: 使用 Postman 和 Azure 搜尋服務 REST API 對 JSON Blob 內容進行文字擷取和自然語言處理的範例逐步解說。
+title: REST 教學課程：建置 AI 擴充管線，以從 JSON Blob 中擷取文字和結構
+titleSuffix: Azure Cognitive Search
+description: 逐步解說使用 Postman 和 Azure 搜尋服務 REST API 對 JSON Blob 內容進行文字擷取和自然語言處理的範例。
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 08/23/2019
 ms.author: luisca
-ms.openlocfilehash: 6f7c5e2955c57e0e1891593504e5eec1a06bbb04
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265376"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790198"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>教學課程：使用認知搜尋將結構新增至「非結構化內容」
+# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>教學課程：使用 AI 擴充將結構新增至「非結構化內容」
 
-如果您有非結構化的文字或影像，Azure 搜尋服務的[認知搜尋](cognitive-search-concept-intro.md)功能可協助您擷取資訊，並建立適用於全文檢索搜尋或知識挖掘案例的新內容。 雖然認知搜尋可以處理影像檔案 (JPG、PNG、TIFF)，但本教學課程著重於文字內容，並且會套用語言偵測和文字分析來建立可用於查詢、Facet 和篩選的新欄位和資訊。
+如果您有非結構化的文字或影像，[AI 擴充管線](cognitive-search-concept-intro.md)可協助您擷取資訊，並建立適用於全文檢索搜尋或知識採礦案例的新內容。 雖然管線可以處理影像檔案 (JPG、PNG、TIFF)，但本教學課程著重於文字內容，並且會套用語言偵測和文字分析來建立可用於查詢、Facet 和篩選的新欄位和資訊。
 
 > [!div class="checklist"]
 > * 我們將從 Azure Blob 儲存體中的完整文件 (非結構化文字) 開始，例如 PDF、MD、DOCX 和 PPTX。
@@ -38,7 +38,7 @@ ms.locfileid: "71265376"
 
 ## <a name="1---create-services"></a>1 - 建立服務
 
-本逐步解說會使用 Azure 搜尋服務進行索引編製和查詢、將認知服務用於 AI 擴充，以及使用 Azure Blob 儲存體來提供資料。 為具備鄰近性和管理方面的優勢，如果可能，請在相同的區域和資源群組中建立這三項服務。 實際上，您的 Azure 儲存體帳戶可以位在任何區域中。
+本逐步解說會使用 Azure 認知搜尋進行索引編製和查詢、將認知服務用於 AI 擴充，以及使用 Azure Blob 儲存體來提供資料。 為具備鄰近性和管理方面的優勢，如果可能，請在相同的區域和資源群組中建立這三項服務。 實際上，您的 Azure 儲存體帳戶可以位在任何區域中。
 
 ### <a name="start-with-azure-storage"></a>開始使用 Azure 儲存體
 
@@ -54,7 +54,7 @@ ms.locfileid: "71265376"
 
    + **儲存體帳戶名稱**。 如果您認為您可能會有多個相同類型的資源，請透過名稱在類型和區域上做出區別，例如 blobstoragewestus  。 
 
-   + **位置**。 可能的話，請選擇用於 Azure 搜尋服務和認知服務的相同位置。 單一位置可避免產生頻寬費用。
+   + **位置**。 可能的話，請選擇用於 Azure 認知搜尋和認知服務的相同位置。 單一位置可避免產生頻寬費用。
 
    + **帳戶種類**。 選擇預設值 [StorageV2 (一般用途 v2)]  。
 
@@ -70,7 +70,7 @@ ms.locfileid: "71265376"
 
    ![上傳範例檔案](media/cognitive-search-tutorial-blob/sample-files.png "上傳範例檔案")
 
-1. 在您離開 Azure 儲存體之前，請取得連接字串，以便在 Azure 搜尋服務中制定連線。 
+1. 在您離開 Azure 儲存體之前，請取得連接字串，以便在 Azure 認知搜尋中制定連線。 
 
    1. 往回瀏覽到儲存體帳戶的 [概觀] 頁面 (我們使用 blobstragewestus  作為範例)。 
    
@@ -86,17 +86,17 @@ ms.locfileid: "71265376"
 
 ### <a name="cognitive-services"></a>認知服務
 
-認知搜尋中的 AI 擴充是以認知服務為後盾，包括用於自然語言和影像處理的文字分析和電腦視覺。 如果您的目標是要完成實際的原型或專案，您將在此時佈建認知服務 (位於 Azure 搜尋服務所在的區域)，以便您將其連結至索引作業。
+AI 擴充以認知服務為後盾，包括用於自然語言和影像處理的文字分析和電腦視覺。 如果您的目標是要完成實際的原型或專案，您應在此時佈建認知服務 (位於 Azure 認知搜尋所在的區域)，以便將其連結至索引作業。
 
-不過，在此練習中，您可以略過資源佈建，因為 Azure 搜尋服務可以在幕後連線到認知服務，並為每個索引子執行提供 20 個免費交易。 由於本教學課程會使用 7 筆交易，因此使用免費配置就已足夠。 針對較大型的專案，請考慮以隨用隨付 S0 層來佈建認知服務。 如需詳細資訊，請參閱[連結認知服務](cognitive-search-attach-cognitive-services.md)。
+不過，在此練習中，您可以略過資源佈建，因為 Azure 認知搜尋可以在幕後連線到認知服務，並為每個索引子執行提供 20 筆免費交易。 由於本教學課程會使用 7 筆交易，因此使用免費配置就已足夠。 針對較大型的專案，請考慮以隨用隨付 S0 層來佈建認知服務。 如需詳細資訊，請參閱[連結認知服務](cognitive-search-attach-cognitive-services.md)。
 
-### <a name="azure-search"></a>Azure 搜尋服務
+### <a name="azure-cognitive-search"></a>Azue 認知搜尋
 
-第三個元件是 Azure 搜尋服務，您可以[在入口網站中建立該服務](search-create-service-portal.md)。 您可以使用免費層來完成此逐步解說。 
+第三個元件是 Azure 認知搜尋，您可以[在入口網站中建立](search-create-service-portal.md)該服務。 您可以使用免費層來完成此逐步解說。 
 
 如同 Azure Blob 儲存體，請花點時間來收集存取金鑰。 此外，當您開始結構化要求時，您必須提供用來驗證每個要求的端點和管理員 API 金鑰。
 
-### <a name="get-an-admin-api-key-and-url-for-azure-search"></a>取得 Azure 搜尋服務的管理員 API 金鑰和 URL
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>取得 Azure 認知搜尋的管理員 API 金鑰和 URL
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面中取得您的搜尋服務名稱。 您可藉由檢閱端點 URL 來確認您的服務名稱。 如果您的端點 URL 為 `https://mydemo.search.windows.net`，您的服務名稱會是 `mydemo`。
 
@@ -110,17 +110,17 @@ ms.locfileid: "71265376"
 
 ## <a name="2---set-up-postman"></a>2 - 設定 Postman
 
-啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-get-started-postman.md)。
+啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 認知搜尋 REST API](search-get-started-postman.md)。
 
 本教學課程中使用的要求方法為 **POST**、**PUT** 和 **GET**。 您將使用這些方法來對您的搜尋服務進行四個 API 呼叫：建立資料來源、技能集、索引及索引子。
 
-在標頭中，將 "Content-type" 設定為 `application/json`，以及將 `api-key` 設定為您 Azure 搜尋服務的管理員 API 金鑰。 設定標頭之後，您就可以在此練習中的每個要求上加以使用。
+在標頭中，將 "Content-type" 設定為 `application/json`，並將 `api-key` 設定為您 Azure 認知搜尋服務的管理員 API 金鑰。 設定標頭之後，您就可以在此練習中的每個要求上加以使用。
 
-  ![Postman 要求 URL 與標頭](media/search-get-started-postman/postman-url.png "Postman 要求 URL 與標頭")
+  ![Postman 要求 URL 和標頭](media/search-get-started-postman/postman-url.png "Postman 要求 URL 和標頭")
 
 ## <a name="3---create-the-pipeline"></a>3 - 建立管線
 
-在 Azure 搜尋服務中，AI 處理會在編製索引 (或資料內嵌) 期間進行。 逐步解說的這個部分會建立四個物件：資料來源、索引定義、技能集、索引子。 
+在 Azure 認知搜尋中，AI 處理會在編製索引 (或資料擷取) 期間進行。 逐步解說的這個部分會建立四個物件：資料來源、索引定義、技能集、索引子。 
 
 ### <a name="step-1-create-a-data-source"></a>步驟 1：建立資料來源
 
@@ -171,7 +171,7 @@ ms.locfileid: "71265376"
    | [文字分割](cognitive-search-skill-textsplit.md)  | 在呼叫關鍵片語擷取技能之前，將大型內容分成較小的區塊。 關鍵片語擷取可接受不超過 50,000 個字元的輸入。 有些範例檔案需要進行分割，以符合這項限制。 |
    | [關鍵片語擷取](cognitive-search-skill-keyphrases.md) | 提取前幾個關鍵片語。 |
 
-   每項技術會分別對文件的內容執行。 在處理期間，Azure 搜尋服務會萃取每份文件，以讀取不同檔案格式的內容。 找到來自來源檔案的文字時，會將文字放入產生的 ```content``` 欄位中，每份文件一個欄位。 因此，輸入會變成 ```"/document/content"```。
+   每項技術會分別對文件的內容執行。 在處理期間，Azure 認知搜尋會萃取每份文件，以讀取不同檔案格式的內容。 找到來自來源檔案的文字時，會將文字放入產生的 ```content``` 欄位中，每份文件一個欄位。 因此，輸入會變成 ```"/document/content"```。
 
    針對關鍵片語的擷取，因為我們使用文字分隔器技能將較大的檔案分成多個頁面，所以關鍵片語擷取技能的內容會是 ```"document/pages/*"```，而不是 ```"/document/content"```。
 
@@ -239,7 +239,7 @@ ms.locfileid: "71265376"
 
 ### <a name="step-3-create-an-index"></a>步驟 3：建立索引
 
-[索引](https://docs.microsoft.com/rest/api/searchservice/create-index)會提供架構，用來在 Azure 搜尋服務的反向索引和其他建構中建立內容的實體運算式。 索引的最大元件是欄位集合，其中的資料類型和屬性會決定 Azure 搜尋服務中的內容和行為。
+[索引](https://docs.microsoft.com/rest/api/searchservice/create-index)會提供結構描述，用來在 Azure 認知搜尋的反向索引和其他建構中建立內容的實體運算式。 索引的最大元件是欄位集合，其中的資料類型和屬性會決定 Azure 認知搜尋中的內容和行為。
 
 1. 使用 **PUT** 和下列 URL，並將 YOUR-SERVICE-NAME 取代為您服務的實際名稱，以命名您的索引。
 
@@ -323,7 +323,7 @@ ms.locfileid: "71265376"
 
 ### <a name="step-4-create-and-run-an-indexer"></a>步驟 4：建立及執行索引子
 
-[索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)會驅動管線。 到目前為止所建立的三個元件 (資料來源、技能集、索引) 都是索引子的輸入。 在 Azure 搜尋服務上建立索引子是用以啟動整個管線的事件。 
+[索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)會驅動管線。 到目前為止所建立的三個元件 (資料來源、技能集、索引) 都是索引子的輸入。 在 Azure 認知搜尋上建立索引子，是用以啟動整個管線的事件。 
 
 1. 使用 **PUT** 和下列 URL，並將 YOUR-SERVICE-NAME 取代為您服務的實際名稱，以命名您的索引子。
 
@@ -481,7 +481,7 @@ ms.locfileid: "71265376"
 
 ## <a name="reset-and-rerun"></a>重設並重新執行
 
-在管線開發的早期實驗階段中，設計反覆項目最實用的方法是從 Azure 搜尋服務中刪除物件，並讓您的程式碼加以重建。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。
+在管線開發的早期實驗階段中若要設計反覆項目，最實用的方法是從 Azure 認知搜尋中刪除物件，並讓您的程式碼加以重建。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。
 
 若要使用新的定義為您的文件重新編製索引：
 
@@ -503,17 +503,17 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 
 本教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
 
-[預先定義的技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的機制一起導入。 您也已了解在將管線中的擴充值路由至 Azure 搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
+[內建技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的機制一起導入。 您也已了解在將管線中的擴充值路由至 Azure 認知搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
 
 最後，您了解到如何測試結果並重設系統，以進行進一步的反覆運算。 您已了解對索引發出查詢，會傳回由擴充的索引管線建立的輸出。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。 如果您將這兩項服務放在相同群組中，此時刪除資源群組，將會永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
+在完成教學課程後，最快速的清除方式是刪除包含 Azure 認知搜尋服務和 Azure Blob 服務的資源群組。 如果您將這兩項服務放在相同群組中，此時刪除資源群組，將會永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 
 以自訂技能自訂或擴充管線。 建立自訂技能並將其新增至技能集，以便讓您自行撰寫的文字或影像分析上線。 
 
 > [!div class="nextstepaction"]
-> [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
+> [範例：建立 AI 擴充的自訂技能](cognitive-search-create-custom-skill-example.md)

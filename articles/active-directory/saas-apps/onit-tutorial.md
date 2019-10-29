@@ -17,10 +17,10 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164230"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Onit 整合
@@ -137,7 +137,7 @@ ms.locfileid: "70164230"
 
 2. 在頂端的功能表中，按一下 [系統管理]  。
    
-    ![管理](./media/onit-tutorial/IC791174.png "管理")
+    ![系統管理](./media/onit-tutorial/IC791174.png "系統管理")
 
 3. 按一下 [編輯公司]  。
    
@@ -169,11 +169,11 @@ ms.locfileid: "70164230"
 
 2. 按一下 [新增使用者]  。
 
-    ![管理](./media/onit-tutorial/IC791180.png "管理")
+    ![系統管理](./media/onit-tutorial/IC791180.png "系統管理")
 
 3. 在 [新增使用者]  對話頁面上，執行下列步驟：
 
-    ![新增使用者](./media/onit-tutorial/IC791181.png "新增使用者")
+    ![加入使用者](./media/onit-tutorial/IC791181.png "新增使用者")
 
     a. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱]  與 [電子郵件地址]  。
 

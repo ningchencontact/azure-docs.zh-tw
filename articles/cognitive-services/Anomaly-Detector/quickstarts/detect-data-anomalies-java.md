@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 001d53cbd7e2a57615ea3da71d128bd210a79921
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d54ec8df08e7c3d76a97c2531c21b1fd4d130b9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565846"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554743"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>快速入門：使用 Anomaly Detector REST API 與 Java 偵測時間序列資料中的異常狀況
 
@@ -38,28 +38,15 @@ ms.locfileid: "68565846"
 
 - JSON 檔案包含時間序列資料點。 此快速入門的範例資料可以在 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json) 上找到。
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+### <a name="create-an-anomaly-detector-resource"></a>建立 Anomaly Detector 資源
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ## <a name="create-a-new-application"></a>建立新的應用程式
 
-1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案，並匯入下列程式庫。
-
-    ```java
-    import org.apache.http.HttpEntity;
-    import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpPost;
-    import org.apache.http.entity.StringEntity;
-    import org.apache.http.impl.client.CloseableHttpClient;
-    import org.apache.http.impl.client.HttpClients;
-    import org.apache.http.util.EntityUtils;
-    import org.json.JSONArray;
-    import org.json.JSONObject;
-    import java.io.IOException;
-    import java.nio.file.Files;
-    import java.nio.file.Paths;
-    ```
+1. 建立新的 Java 專案，並匯入下列程式庫。
+    
+    [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
 2. 針對您的訂用帳戶金鑰和端點建立變數。 以下是您可以用於異常偵測的 URI。 這些稍後將會附加至您的服務端點，以建立 API 要求 URL。
 
@@ -68,23 +55,7 @@ ms.locfileid: "68565846"
     |批次偵測    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |最新資料點上的偵測     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
-    ```java
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. 
-    //For example: https://westus2.api.cognitive.microsoft.com
-    static final String endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted time series data.
-    static final String dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    static final String latestPointDetectionUrl = "/anomalydetector/v1.0/timeseries/last/detect";
-    static final String batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
-    ```
-
-3. 讀入 JSON 資料檔案
-
-    ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
-    ```
+    [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>建立傳送要求的函式
 
@@ -100,29 +71,7 @@ ms.locfileid: "68565846"
 
 6. 建立 `HttpEntity` 物件以儲存回應內容。 使用 `getEntity()` 取得內容。 如果回應不是空的，請將它傳回。
 
-```java
-static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
-    try (CloseableHttpClient client = HttpClients.createDefault()) {
-        HttpPost request = new HttpPost(endpoint + apiAddress);
-        // Request headers.
-        request.setHeader("Content-Type", "application/json");
-        request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-        request.setEntity(new StringEntity(requestData));
-        try (CloseableHttpResponse response = client.execute(request)) {
-            HttpEntity respEntity = response.getEntity();
-            if (respEntity != null) {
-                return EntityUtils.toString(respEntity, "utf-8");
-            }
-        } catch (Exception respEx) {
-            respEx.printStackTrace();
-        }
-    } catch (IOException ex) {
-        System.err.println("Exception on Anomaly Detector: " + ex.getMessage());
-        ex.printStackTrace();
-    }
-    return null;
-}
-```
+[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>以批次方式偵測異常狀況
 
@@ -132,39 +81,13 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 3. 否則，在資料集中尋找異常狀況的位置。 回應的 `isAnomaly` 欄位包含與指定的資料點是否為異常相關的布林值。 取得 JSON 陣列並逐一查看，然後列印任何 `true` 值的索引。 如果有找到，這些值會對應到異常資料點的索引。
 
-```java
-static void detectAnomaliesBatch(String requestData) {
-    System.out.println("Detecting anomalies as a batch");
-    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-    if (result != null) {
-        System.out.println(result);
-        JSONObject jsonObj = new JSONObject(result);
-        if (jsonObj.has("code")) {
-            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
-        } else {
-            JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
-            System.out.println("Anomalies found in the following data positions:");
-            for (int i = 0; i < jsonArray.length(); ++i) {
-                if (jsonArray.getBoolean(i))
-                    System.out.print(i + ", ");
-            }
-            System.out.println();
-        }
-    }
-}
-```
+[!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測最新資料點的異常狀態
 
 * 建立名為 `detectAnomaliesLatest()` 的方法，以偵測資料集中最後一個資料點的異常狀態。 使用端點、URL、訂用帳戶金鑰和 json 資料呼叫上方建立的 `sendRequest()` 方法。 取得結果，並將它列印到主控台。
 
-```java
-static void detectAnomaliesLatest(String requestData) {
-    System.out.println("Determining if latest data point is an anomaly");
-    String result = sendRequest(latestPointDetectionUrl, endpoint, subscriptionKey, requestData);
-    System.out.println(result);
-}
-```
+[!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>載入時間序列資料，並傳送要求
 
@@ -172,13 +95,7 @@ static void detectAnomaliesLatest(String requestData) {
 
 2. 呼叫上面建立的兩個異常偵測函式。
 
-```java
-public static void main(String[] args) throws Exception {
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
-    detectAnomaliesBatch(requestData);
-    detectAnomaliesLatest(requestData);
-}
-```
+[!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
 
 ### <a name="example-response"></a>範例回應
 
@@ -189,4 +106,8 @@ public static void main(String[] args) throws Exception {
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [REST API 參考資料](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+>[使用 Azure Databricks 串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* 什麼是 [Anomaly Detector API？](../overview.md)
+* 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。
+* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs) 上找到。

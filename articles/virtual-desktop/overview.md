@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676559"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597909"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>什麼是 Windows 虛擬桌面？ 
 
@@ -76,8 +76,8 @@ Windows 虛擬桌面是可以在雲端執行的桌面與應用程式虛擬化服
 * 與 Azure Active Directory 同步的 Windows Server Active Directory。 這可透過以下項目啟用：
   * Azure AD Connect
   * Azure AD 網域服務
-  >[!NOTE]
-  >Windows 虛擬桌面僅支援源自 Azure Active Directory 的 Azure AD Domain Services 使用者。 目前不支援源自 Windows Server AD 的使用者。
+     >[!NOTE]
+     >如果您使用 Azure AD Domain Services，您的使用者就必須來自 Azure Active Directory。 目前不支援與來自 Windows Server AD 的使用者搭配使用 Azure AD Domain Services。
 * Azure 訂用帳戶，含有包含或已連線到 Windows Server Active Directory 的虛擬網路
   
 您為 Windows 虛擬桌面建立的 Azure 虛擬機器必須：

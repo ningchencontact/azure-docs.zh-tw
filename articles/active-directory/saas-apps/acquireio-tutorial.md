@@ -1,11 +1,11 @@
 ---
-title: 教學課程：Azure Active Directory 與 AcquireIO 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 AcquireIO 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 AcquireIO 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 97815e13-32ec-4470-b075-1253f5814f4f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75a92e78e7293316cad6e567ae49c4998299415c
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 17cc6df651a82b416e670ee5ca5683c428eac6b5
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544559"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596263"
 ---
-# <a name="tutorial-integrate-acquireio-with-azure-active-directory"></a>教學課程：整合 AcquireIO 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 AcquireIO 整合
 
 在本教學課程中，您會了解如何整合 AcquireIO 與 Azure Active Directory (Azure AD)。 在整合 AcquireIO 與 Azure AD 時，您可以︰
 
@@ -42,7 +42,9 @@ ms.locfileid: "67544559"
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 AcquireIO 支援由 **IDP** 起始的 SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+
+* AcquireIO 支援由 **IDP** 起始的 SSO
 
 ## <a name="adding-acquireio-from-the-gallery"></a>從資源庫新增 AcquireIO
 
@@ -55,20 +57,20 @@ ms.locfileid: "67544559"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **AcquireIO**。
 1. 從結果面板選取 [AcquireIO]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-acquireio"></a>設定及測試 AcquireIO 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 AcquireIO 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 AcquireIO 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 AcquireIO 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
-1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** ，讓您的使用者能夠使用此功能。
-2. **[設定 AcquireIO](#configure-acquireio)** 以在應用程式端設定 SSO 設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** ，以使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** ，讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 AcquireIO 測試使用者](#create-acquireio-test-user)** 在 AcquireIO 中建立一個與 Azure AD 中代表使用者的項目連結的 B.Simon 對應項目。
-6. **[測試 SSO](#test-sso)** ，以驗證組態是否能運作。
+1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 AcquireIO SSO](#configure-acquireio-sso)** - 在應用程式端設定單一登入設定。
+    * **[建立 AcquireIO 測試使用者](#create-acquireio-test-user)** - 使 AcquireIO 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -78,44 +80,20 @@ ms.locfileid: "67544559"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
+1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
     在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://app.acquire.io/ad/<acquire_account_uid>`
 
     > [!NOTE]
     > 這不是真正的值。 您會取得實際的「回覆 URL」，本教學課程稍後的**設定 AcquireIO** 區段會有相關說明。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
-   ![憑證下載連結](common/certificatebase64.png)
+    ![憑證下載連結](common/certificatebase64.png)
 
 1. 在 [設定 AcquireIO]  區段上，根據您的需求複製適當的 URL。
 
-   ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-acquireio"></a>設定 AcquireIO
-
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 AcquireIO。
-
-2. 從功能表左側，按一下 [App Store]  。
-
-     ![AcquireIO 設定](./media/acquireio-tutorial/config01.png)
-
-3. 向下捲動至 [Active Directory]  ，然後按一下 [安裝]  。
-
-    ![AcquireIO 設定](./media/acquireio-tutorial/config02.png)
-
-4. 在 [Active Directory] 快顯上，執行下列步驟：
-
-    ![AcquireIO 設定](./media/acquireio-tutorial/config03.png)
-
-    a. 按一下 [複製]  以複製執行個體的回覆 URL，然後將其貼在 Azure 入口網站上 [基本 SAML 設定]  區段的 [回覆 URL]  文字方塊中。
-
-    b. 在 [Login URL] \(登入 URL\)  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
-
-    c. 在記事本中開啟 Base64 編碼的憑證，並複製其內容，然後貼到 [X.509 憑證]  文字方塊中。
-
-    d. 按一下 [立即連線]  。
+    ![複製組態 URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -147,6 +125,38 @@ ms.locfileid: "67544559"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-acquireio-sso"></a>設定 AcquireIO SSO
+
+1. 若要自動執行 AcquireIO 內的設定，您必須按一下 [安裝延伸模組]  來安裝「我的應用程式安全登入瀏覽器延伸模組」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 AcquireIO]  ，這會將您導向 AcquireIO 應用程式。 請從該處提供用以登入 AcquireIO 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您要手動設定 AcquireIO，請在不同的網頁瀏覽器視窗中，以系統管理員身分登入 AcquireIO。
+
+1. 從功能表左側，按一下 [App Store]  。
+
+     ![AcquireIO 設定](./media/acquireio-tutorial/config01.png)
+
+1. 向下捲動至 [Active Directory]  ，然後按一下 [安裝]  。
+
+    ![AcquireIO 設定](./media/acquireio-tutorial/config02.png)
+
+1. 在 [Active Directory] 快顯上，執行下列步驟：
+
+    ![AcquireIO 設定](./media/acquireio-tutorial/config03.png)
+
+    a. 按一下 [複製]  以複製執行個體的回覆 URL，然後將其貼在 Azure 入口網站上 [基本 SAML 設定]  區段的 [回覆 URL]  文字方塊中。
+
+    b. 在 [Login URL] \(登入 URL\)  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
+
+    c. 在記事本中開啟 Base64 編碼的憑證，並複製其內容，然後貼到 [X.509 憑證]  文字方塊中。
+
+    d. 按一下 [立即連線]  。
+
 ### <a name="create-acquireio-test-user"></a>建立 AcquireIO 測試使用者
 
 若要讓 Azure AD 使用者能夠登入 AcquireIO，必須將他們佈建到 AcquireIO。 在 AcquireIO 中，需手動進行佈建。
@@ -155,11 +165,11 @@ ms.locfileid: "67544559"
 
 1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 AcquireIO。
 
-2. 從功能表左側按一下 [設定檔]  並瀏覽至 [新增設定檔]  。
+1. 從功能表左側按一下 [設定檔]  並瀏覽至 [新增設定檔]  。
 
      ![AcquireIO 設定](./media/acquireio-tutorial/config04.png)
 
-3. 在 [新增客戶]  快顯上，執行下列步驟：
+1. 在 [新增客戶]  快顯上，執行下列步驟：
 
     ![AcquireIO 設定](./media/acquireio-tutorial/config05.png)
 
@@ -169,9 +179,11 @@ ms.locfileid: "67544559"
 
     c. 按一下 [提交]  。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
 
-當您在存取面板中選取 [AcquireIO] 圖格時，應該會自動登入您已設定 SSO 的 AcquireIO。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+
+當您在存取面板中按一下 [AcquireIO] 圖格時，應該會自動登入您已設定 SSO 的 AcquireIO。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -180,3 +192,5 @@ ms.locfileid: "67544559"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 AcquireIO](https://aad.portal.azure.com/)

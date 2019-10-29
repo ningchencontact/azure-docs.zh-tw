@@ -1,24 +1,25 @@
 ---
-title: 自動完成和建議的 C# 教學課程 - Azure 搜尋服務
-description: 此教學課程是以「搜尋結果分頁 - Azure 搜尋服務」專案為基礎來新增自動完成和建議功能。 目標是讓使用者體驗更豐富。 了解如何將建議的下拉式清單與內嵌的自動完成相結合。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 自動完成和建議的 C# 教學課程
+titleSuffix: Azure Cognitive Search
+description: 此教學課程是以「搜尋結果分頁 - Azure 認知搜尋服務」專案為基礎來新增自動完成和建議功能。 目標是讓使用者體驗更豐富。 了解如何將建議的下拉式清單與內嵌的自動完成相結合。
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434721"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786493"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C# 教學課程：新增自動完成和建議 - Azure 搜尋服務
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# 教學課程：新增自動完成和建議 - Azure 認知搜尋
 
-了解如何在使用者開始在搜尋方塊中輸入時實作自動完成 (預先輸入及建議)。 在此教學課程中，我們將分別顯示預先輸入結果和建議結果，並示範結合兩者以建立更豐富的使用者體驗的方法。 使用者只需要輸入兩個或三個按鍵，就可以找到可用的所有結果。 此教學課程建置於 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)教學課程中所建立的分頁專案之上。
+了解如何在使用者開始在搜尋方塊中輸入時實作自動完成 (預先輸入及建議)。 在此教學課程中，我們將分別顯示預先輸入結果和建議結果，並示範結合兩者以建立更豐富的使用者體驗的方法。 使用者只需要輸入兩個或三個按鍵，就可以找到可用的所有結果。 此教學課程建置於 [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)教學課程。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 新增建議
 > * 在建議中加入醒目提示
@@ -27,9 +28,9 @@ ms.locfileid: "67434721"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
-讓 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)專案啟動並執行。 此專案可以是您自己在上一個教學課程中完成的版本，或從 GitHub 安裝的版本：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
+啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)專案。 此專案可以是您自己在上一個教學課程中完成的版本，或從 GitHub 安裝的版本：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
 
 ## <a name="add-suggestions"></a>新增建議
 
@@ -146,7 +147,7 @@ ms.locfileid: "67434721"
  
     ![將 fuzzy 設定為 true 時，輸入 "pa"](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    如果您感興趣，[Azure 搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/azure/search/query-lucene-syntax)詳細描述模糊搜尋中使用的邏輯。
+    如果您感興趣，[Azure 認知搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/azure/search/query-lucene-syntax)詳細描述模糊搜尋中使用的邏輯。
 
 ## <a name="add-highlighting-to-the-suggestions"></a>在建議中加入醒目提示
 
@@ -255,7 +256,7 @@ ms.locfileid: "67434721"
 
 ## <a name="combine-autocompletion-and-suggestions"></a>結合自動完成和建議
 
-結合自動完成和建議是選項中最複雜的，而且可能會提供最佳的使用者體驗。 我們想要顯示的是內嵌正在輸入的文字，也就是 Azure 搜尋服務對於自動完成文字的第一個選擇。 此外，我們想要一系列的建議作為下拉式清單。
+結合自動完成和建議是選項中最複雜的，而且可能會提供最佳的使用者體驗。 我們想要顯示的是內嵌正在輸入的文字，也就是 Azure 認知搜尋服務對於自動完成文字的第一個選擇。 此外，我們想要一系列的建議作為下拉式清單。
 
 有提供這項功能 (通常稱為「內嵌自動完成」或類似的名稱) 的程式庫。 不過，我們要以原生方式實作這項功能，讓您可以看到發生的情況。 在此範例中，我們將先開始處理控制器。
 
@@ -464,6 +465,6 @@ ms.locfileid: "67434721"
 在下一個教學課程中，我們來看看另一種使用 Facet 搭配按一下滑鼠來縮小搜尋範圍，以改善使用者體驗的方法。
 
 > [!div class="nextstepaction"]
-> [C# 教學課程：使用 Facet 協助瀏覽 - Azure 搜尋服務](tutorial-csharp-facets.md)
+> [C# 教學課程：使用 Facet 協助導覽 - Azure 認知搜尋](tutorial-csharp-facets.md)
 
 

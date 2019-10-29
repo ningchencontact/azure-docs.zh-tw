@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 08/05/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c845966c86659c0ff983bf33c492a67dd99275f0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999925"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692940"
 ---
 # <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
@@ -38,9 +38,9 @@ Azure Machine Learning 提供雲端架構的環境，可用於準備資料、定
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning"></a>Azure Machine Learning 有何功用？
+## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
 
-您可以使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 工作區中自行建置及定型高精確度的機器學習和深度學習模型。
+您可以使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
 
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習元件，例如 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>、<a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>、<a href="https://pytorch.org" target="_blank">PyTorch</a> 和 <a href="https://mxnet.io" target="_blank">MXNet</a>。
 
@@ -54,7 +54,7 @@ Azure Machine Learning 提供雲端架構的環境，可用於準備資料、定
 
 ### <a name="ui-based-low-code-experience"></a>以 UI 為基礎的低程式碼開發體驗
 
-對於無程式碼定型，請嘗試：
+若要進行無程式碼的訓練和部署，請嘗試：
 
 + 在便於使用的介面中建立[自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)。
 + [視覺化介面中的拖放實驗](ui-tutorial-automobile-price-train-score.md)。
@@ -90,10 +90,15 @@ Azure Machine Learning 同時提供 SDK **與**視覺化介面 (預覽)，可快
 || Machine Learning Studio | Azure Machine Learning：<br/>視覺化介面|
 |---| --- | --- |
 || 正式上市 (GA) | 預覽狀態|
+|拖放介面| yes | yes|
+|實驗| 調整 (有 10 GB 的訓練資料限制) | 使用計算目標進行調整|
 |介面適用的模組| 多種 | 初始的受歡迎模組集合|
-|定型計算目標| 專屬計算目標，僅限 CPU 支援| 支援 Azure Machine Learning 計算 (GPU 或 CPU)。<br/>(SDK 中支援的其他計算)|
-|部署計算目標| 專屬 Web 服務格式 (不可自訂) | 企業安全性選項與 Azure Kubernetes 服務。 <br/>(SDK 中支援的[其他計算](how-to-deploy-and-where.md)) |
-|自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在 SDK 和 Azure 入口網站 /工作區登陸頁面中支援。) |
+|定型計算目標| 專屬計算目標，僅限 CPU|AML 計算 (GPU/CPU)<br/> Notebook 虛擬機器 |
+|推斷計算目標| 專屬 Web 服務格式 (不可自訂) | Azure Kubernetes Service (即時推斷) <br/>AML 計算 (批次推斷) |
+|ML 管線| 不支援 | 管線撰寫 <br/> 已發佈的管線 <br/> 管線端點 <br/> [深入了解 ML 管線](concept-ml-pipelines.md)|
+|ML Ops| 基本模型管理和部署 | 可設定的部署、模型和管線版本控制|
+|模型| 專屬格式。 無法在 Studio 之外使用 | 標準格式 (可能會因為定型作業不同而有所差異)|
+|自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在Python SDK 和工作區登陸頁面中支援。) |
 
 試用視覺介面 (預覽)，經由[教學課程：透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)。
 

@@ -1,45 +1,46 @@
 ---
-title: 快速入門：使用 Azure 入口網站建立搜尋索引 - Azure 搜尋服務
-description: 在 Azure 入口網站中，使用匯入資料精靈在 Azure 搜尋服務中建立、載入及查詢您的第一個索引。
+title: 在 Azure 入口網站中建立搜尋索引
+titleSuffix: Azure Cognitive Search
+description: 使用「匯入資料」精靈，在 Azure 認知搜尋中建立、載入及查詢您的第一個搜尋索引。
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 502177519c0e66baa7ae9c1de18a7b41bceb054a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936973"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791244"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
 > * [入口網站](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
+> * [Node.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
 
-若要快速掌握 Azure 搜尋服務的概念，請嘗試使用 Azure 入口網站中的內建工具。 精靈和編輯器並不會提供 .NET 和 REST API 的相同功能，但您可以透過無程式碼的簡介快速開始使用，在幾分鐘內即可對索引撰寫有趣的查詢。
+使用入口網站快速掌握概念，並在短短幾分鐘內撰寫對索引的有趣查詢。
 
 > [!div class="checklist"]
 > * 以裝載於 Azure 上免費公開範例資料集開始使用
-> * 執行 Azure 搜尋服務中的**匯入資料**精靈，以載入資料並產生索引
+> * 執行 Azure 認知搜尋中的**匯入資料**精靈，以載入資料並產生索引
 > * 在入口網站中監視索引編製進度
 > * 檢視現有的索引和加以修改的選項
 > * 使用**搜尋總管**探索全文檢索搜尋、篩選器、Facet、模糊搜尋和地理搜尋功能
 
-如果這些工具限制過多，建議您參考[使用 .NET 進行 Azure 搜尋服務程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)，或使用[發出 REST API 呼叫的 Postman](search-get-started-postman.md)。 您也可以觀看本教學課程中 6 分鐘的步驟示範，大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中的第三分鐘處開始。
+如果這些工具限制過多，建議您參考[使用 .NET 進行 Azure 認知搜尋程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)，或使用[發出 REST API 呼叫的 Postman](search-get-started-postman.md)。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="prerequisites"></a>必要條件
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
+[建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
 ### <a name="check-for-space"></a>檢查空間
 
@@ -57,7 +58,7 @@ ms.locfileid: "71936973"
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>步驟 1 - 啟動匯入資料精靈並建立資料來源
 
-1. 在 Azure 搜尋服務儀表板上，按一下命令列上的 [匯入資料]  ，以建立並填入搜尋索引。
+1. 在 Azure 認知搜尋服務儀表板上，按一下命令列上的 [匯入資料]  ，以建立並填入搜尋索引。
 
    ![匯入資料命令](media/search-get-started-portal/import-data-cmd.png)
 
@@ -71,7 +72,7 @@ ms.locfileid: "71936973"
 
 ### <a name="step-2---skip-cognitive-skills"></a>步驟 2 - 略過認知技能
 
-此精靈支援建立可將認知服務 AI 演算法併入索引編製中的[認知技能管線](cognitive-search-concept-intro.md)。 
+此精靈支援建立可將認知服務 AI 演算法併入索引編製中的 [AI 擴充管線](cognitive-search-concept-intro.md)。 
 
 我們將暫時略過此步驟，而直接進行**自訂目標索引**。
 
@@ -125,13 +126,13 @@ ms.locfileid: "71936973"
 
 ## <a name="view-the-index"></a>檢視索引
 
-主要服務頁面會提供在 Azure 搜尋服務中建立之資源的連結。  若要檢視您剛才建立的索引，請從連結的清單中按一下 [索引]  。 
+主要服務頁面會提供在 Azure 認知搜尋服務中建立之資源的連結。  若要檢視您剛才建立的索引，請從連結的清單中按一下 [索引]  。 
 
    ![服務儀表板上的索引清單](media/search-get-started-portal/indexes-list.png)
 
 在此清單中，您可以按一下剛剛建立的 *hotels-sample* 索引、檢視索引結構描述， 以及選擇性地新增欄位。 
 
-[欄位]  索引標籤會顯示索引結構描述。 捲動至清單底部可輸入新欄位。 在大部分情況下，您無法變更現有的欄位。 現有的欄位在 Azure 搜尋服務中具有實體表示法，因此不可修改，甚至是在程式碼中也不可修改。 若要對現有欄位進行重大變更，請建立新索引並，捨棄原始欄位。
+[欄位]  索引標籤會顯示索引結構描述。 捲動至清單底部可輸入新欄位。 在大部分情況下，您無法變更現有的欄位。 現有的欄位在 Azure 認知搜尋中具有實體表示法，因此不可修改，甚至是在程式碼中也不可修改。 若要對現有欄位進行重大變更，請建立新索引並，捨棄原始欄位。
 
    ![範例索引定義](media/search-get-started-portal/sample-index-def.png)
 
@@ -146,7 +147,7 @@ ms.locfileid: "71936973"
 **搜尋總管**只能用來處理 [REST API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)，但可接受[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和[完整 Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)的語法，以及[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 作業中可用的所有搜尋參數。
 
 > [!TIP]
-> 下列步驟會在 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)的 6 分 08 秒處示範。
+> 下列步驟會在 [Azure 認知搜尋概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)的 6 分 08 秒處示範。
 >
 
 1. 按一下命令列上的 [搜尋總管]  。
@@ -181,7 +182,7 @@ ms.locfileid: "71936973"
 
 * **$count=true** 參數會傳回所有已傳回文件的總計數。 這個值會出現在搜尋結果的頂端附近。 您可以藉由監視 **$count=true** 所報告的變更來驗證篩選查詢。 較小的計數表示正在處理您的篩選條件。
 
-* **$top=10** 會傳回所有文件中最高順位的 10 份文件。 根據預設，Azure 搜尋服務會傳回前 50 個最相符項目。 您可以透過 **$top** 來增加或減少數量。
+* **$top=10** 會傳回所有文件中最高順位的 10 份文件。 根據預設，Azure 認知搜尋會傳回前 50 個最相符項目。 您可以透過 **$top** 來增加或減少數量。
 
 ### <a name="filter-query"></a> 篩選查詢
 
@@ -200,7 +201,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>範例 (多面向且範圍已縮減)：`search=*&facet=Category&$top=2`
 
 * **search=** * 是空的搜尋。 空的搜尋會搜尋所有一切。 提交空查詢的其中一個原因是為了篩選一組完整的文件或使其面向化。 例如，您希望多面向導覽結構包含索引中的所有旅館。
-* **facet** 會傳回您可傳遞至 UI 控制項的導覽結構。 它會傳回一些類別和一個計數。 在此案例中，類別以直接命名為 *Category* 的欄位為基礎。 在 Azure 搜尋服務中沒有彙總功能，但您可以透過 `facet` 模擬彙總，其可提供各類別中的文件計數。
+* **facet** 會傳回您可傳遞至 UI 控制項的導覽結構。 它會傳回一些類別和一個計數。 在此案例中，類別以直接命名為 *Category* 的欄位為基礎。 Azure 認知搜尋中沒有彙總功能，但您可以透過 `facet` 模擬彙總，以提供各類別中的文件計數。
 
 * **$top=2** 會傳回兩份文件，這表示您可以使用 `top` 來減少或增加結果。
 
@@ -210,7 +211,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 * 只有可篩選的欄位可以面向化。 只有可擷取的欄位可以在結果中傳回。
 
-* [評等]  欄位是雙精確度浮點數，且分組會採用精確值。 如需依間隔分組 (例如，「3 星級評等」、「4 星級評等」) 的詳細資訊，請參閱[如何在 Azure 搜尋服務中實作多面向導覽](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range)。
+* [評等]  欄位是雙精確度浮點數，且分組會採用精確值。 如需依間隔分組 (例如，「3 星級評等」、「4 星級評等」) 的詳細資訊，請參閱[如何在 Azure 認知搜尋中實作多面向導覽](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range)。
 
 
 ### <a name="highlight-query"></a> 醒目提示搜尋結果
@@ -225,7 +226,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 * 全文檢索搜尋可辨識字組形式的基本變化。 在此案例中，針對在可搜尋的欄位中包含 "beach" 一字的旅館，搜尋結果會包含 "beach" 的醒目提示文字，以回應 "beaches" 關鍵字搜尋。 因為語言分析的緣故，結果中可能會出現同一個字的不同形式。 
 
-* Azure 搜尋服務支援 Microsoft 和 Lucene 所提供的 56 個分析器。 Azure 搜尋服務預設使用標準 Lucene 分析器。
+* Azure 認知搜尋支援 Microsoft 和 Lucene 所提供的 56 個分析器。 Azure 認知搜尋依預設會使用標準 Lucene 分析器。
 
 ### <a name="fuzzy-search"></a> 嘗試模糊搜尋
 
@@ -241,9 +242,9 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 若未指定 **queryType**，則會使用預設的簡單查詢剖析器。 簡單查詢剖析器的速度較快，但如果您需要模糊搜尋、規則運算式、鄰近搜尋或其他進階的查詢類型，則需要完整的語法。
 
-模糊搜尋和萬用字元搜尋會影響搜尋輸出。 不會以這些查詢格式執行語言分析。 在使用模糊及萬用字元搜尋之前，請檢閱[全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md#stage-2-lexical-analysis)，並尋找語彙分析例外狀況的相關章節。
+模糊搜尋和萬用字元搜尋會影響搜尋輸出。 不會以這些查詢格式執行語言分析。 在使用模糊及萬用字元搜尋之前，請檢閱[全文檢索搜尋如何在 Azure 認知搜尋中運作](search-lucene-query-architecture.md#stage-2-lexical-analysis)，並尋找語彙分析例外狀況的相關章節。
 
-如需完整查詢剖析器所啟用查詢案例的詳細資訊，請參閱 [Azure 搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)。
+如需完整查詢剖析器所啟用查詢案例的詳細資訊，請參閱 [Azure 認知搜尋中的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)。
 
 ### <a name="geo-search"></a> 嘗試地理空間搜尋
 
@@ -257,7 +258,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="takeaways"></a>重要心得
 
-本教學課程提供了使用 Azure 入口網站執行 Azure 搜尋服務的快速簡介。
+本教學課程提供了使用 Azure 入口網站執行 Azure 認知搜尋的快速簡介。
 
 您已了解如何使用**匯入資料**精靈建立搜尋索引。 您已了解[索引子](search-indexer-overview.md)，以及索引設計的基本工作流程，包括[對已發佈索引支援的修改](https://docs.microsoft.com/rest/api/searchservice/update-index)。
 
@@ -275,8 +276,8 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以使用程式設計工具深入探索 Azure 搜尋服務：
+您可以使用程式設計工具深入探索 Azure 認知搜尋：
 
 * [使用 .NET SDK 建立索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [使用 REST API 建立索引](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [使用 Postman 或 Fiddler 與 Azure 搜尋服務 REST API 建立索引](search-get-started-postman.md)
+* [使用 Postman 或 Fiddler 與 Azure 認知搜尋 REST API 建立索引](search-get-started-postman.md)

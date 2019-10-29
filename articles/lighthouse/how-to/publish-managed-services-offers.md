@@ -4,15 +4,15 @@ description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300294"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595267"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
@@ -132,7 +132,7 @@ ms.locfileid: "72300294"
 
 ## <a name="the-customer-onboarding-process"></a>客戶上線程序
 
-當客戶新增您的供應項目時，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目]  區段頂端看到一個備註。
+當客戶新增您的供應項目時，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目]  區段頂端看到一個備註。 如果客戶租用戶中的使用者無法執行此委派，可能是因為他們沒有訂用帳戶的擁有者角色。 若要尋找可委派訂用帳戶的使用者，使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]  ，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
 
 在訂用帳戶 (或訂用帳戶內的資源群組) 可以上線之前，訂用帳戶必須藉由手動註冊 **Microsoft.ManagedServices** 資源提供者來獲得上線的權限。 客戶租用戶中具有「參與者」或「擁有者」角色的使用者可以遵循 [Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)中所述的步驟來執行此動作。
 

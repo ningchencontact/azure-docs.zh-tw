@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 03b8e12d63ba84b4e20d7263f1c2ecb8d912936d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203127"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693340"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
 
@@ -26,7 +26,7 @@ ms.locfileid: "71203127"
 
 開始之前，您必須：
 
-+ 安裝 [Python 3.6.x](https://www.python.org/downloads/)。
++ 安裝 [Python 3.6.8](https://www.python.org/downloads/)。 此 Python 版本已通過 Functions 的驗證。 不支援 3.7 和更新版本。
 
 + 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.7.1575 版或更新版本。
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155047"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597447"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？
 
@@ -27,7 +27,9 @@ ms.locfileid: "71155047"
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
-所有這些服務都可以解決整合問題，以及自動化商業流程。 它們全都可以定義輸入、動作、條件和輸出。 您可以在排程或觸發程序上執行上述各項服務。 各服務都有獨特的優點，本文將說明這些差異。
+所有這些服務都可以解決整合問題，以及自動化商業流程。 它們全都可以定義輸入、動作、條件和輸出。 您可以在排程或觸發程序上執行上述各項服務。 各服務都有獨特的優點，本文將說明這些差異。 
+
+如果您要了解 Azure Functions 和其他 Azure 計算選項之間較常見的比較，請參閱[選擇 Azure 計算服務的準則](/azure/architecture/guide/technology-choices/compute-comparison)和[選擇適用於微服務的 Azure 計算選項](/azure/architecture/microservices/design/compute-options)。
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>比較 Microsoft Flow 和 Azure Logic Apps
 

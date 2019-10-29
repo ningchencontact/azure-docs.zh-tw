@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 79bd0ce90c76f95ce12662e0d496b481382e805a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 84be9c2b1d8e28fb847e52bda36f9857bd28da28
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177690"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528856"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>快速入門：使用 Azure Application Insights 開始監視您的 Node.js Web 應用程式
 
@@ -43,7 +43,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 1. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
 
-   ![新增 Application Insights 資源](./media/nodejs-quick-start/1createresourseappinsights.png)
+   ![新增 Azure Application Insights 資源](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
    >如果這是您第一次建立 Application Insights 資源，您可以瀏覽[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)文件以進一步了解。
@@ -62,7 +62,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 1. 選取 [概觀]  ，然後複製應用程式的 [檢測金鑰]  。
 
-   ![新增 App Insights 資源表單](./media/nodejs-quick-start/3key.png)
+   ![檢視 Application Insights 檢測金鑰](./media/nodejs-quick-start/azure-app-insights-instrumentation-key.png)
 
 2. 將 Application Insights SDK for Node.js 新增至您的應用程式。 從應用程式的根資料夾執行：
 
@@ -86,19 +86,19 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights [概觀]  頁面 (您先前在此擷取檢測金鑰)，以檢視目前執行中應用程式的詳細資料。
 
-   ![Application Insights 概觀功能表](./media/nodejs-quick-start/4overview.png)
+   ![Application Insights 概觀功能表](./media/nodejs-quick-start/azure-app-insights-overview-menu.png)
 
 2. 選取 [應用程式對應]  ，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
 
-   ![應用程式對應](./media/nodejs-quick-start/5appmap.png)
+   ![Application Insights 應用程式對應](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. 選取 [應用程式分析]  圖示 ![應用程式對應圖示](./media/nodejs-quick-start/006.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3. 選取 [應用程式分析]  圖示 ![應用程式對應圖示](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
-   ![經過一段時間的使用者要求分析圖表](./media/nodejs-quick-start/6analytics.png)
+   ![Application Insights 分析圖表](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
 4. 返回 [概觀]  頁面，檢查 [KPI 圖形]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。
 
-   ![健康情況概觀時間軸圖表](./media/nodejs-quick-start/7kpidashboards.png)
+   ![Application Insights 健康情況概觀的時間軸圖表](./media/nodejs-quick-start/azure-app-insights-health-overview.png)
 
    若要在 [網頁檢視載入時間]  圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
 
@@ -124,7 +124,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 5. 從左側選取 [計量]  。 使用計量瀏覽器來調查資源的健康情況和使用量。 您可以選取 [新增新的圖表]  來建立額外的自訂檢視，或選取 [編輯]  來修改現有圖表的類型、高度、調色盤、群組和計量。 例如，您可以製作圖表來顯示平均瀏覽器頁面載入時間，方法是從 [計量] 下拉式清單選取 [瀏覽器頁面載入時間] 並從 [彙總] 選取 [平均]。 若要深入了解 Azure 計量瀏覽器，請瀏覽[開始使用 Azure 計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。
 
-   ![伺服器計量圖表](./media/nodejs-quick-start/8metrics.png)
+   ![Application Insights 伺服器計量圖表](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
 若要深入了解監視 Node.js，請參閱[其他 App Insights Node.js 文件](../../azure-monitor/app/nodejs.md)。
 

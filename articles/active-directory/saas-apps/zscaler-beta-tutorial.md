@@ -17,10 +17,10 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>教學課程：Azure Active Directory 與 Zscaler Beta 整合
@@ -33,7 +33,7 @@ ms.locfileid: "68943298"
 * 使用 Azure 入口網站集中管理您的帳戶。
 
 如需有關軟體即服務 (SaaS) 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -83,7 +83,7 @@ ms.locfileid: "68943298"
 - [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
 - [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
 - [建立 Zscaler Beta 測試使用者](#create-a-zscaler-beta-test-user)，使 Zscaler Beta 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-- [測試單一登入](#test-single-sign-on)，驗證組態是否能運作。
+- [測試單一登入](#test-single-sign-on)，驗證設定是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -118,7 +118,7 @@ ms.locfileid: "68943298"
 
 6. Zscaler Beta 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，依照下列步驟新增 SAML 權杖屬性，如下表所示。
     
-    | Name | 來源屬性 | 
+    | 名稱 | 來源屬性 | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
@@ -138,7 +138,7 @@ ms.locfileid: "68943298"
 
     f. 選取 [確定]  。
 
-    g. 選取 [ **儲存**]。
+    g. 選取 [儲存]  。
 
     > [!NOTE]
     > 若要了解如何設定 Azure AD 中的角色，請參閱[設定角色宣告](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)。
@@ -169,7 +169,7 @@ ms.locfileid: "68943298"
 
 4. 移至 [管理]   > [驗證]   > [驗證設定]  ，並執行下列步驟。
    
-    ![管理](./media/zscaler-beta-tutorial/ic800206.png "管理")
+    ![系統管理](./media/zscaler-beta-tutorial/ic800206.png "系統管理")
 
     a. 在 [驗證類型]  下方，選取 [SAML]  。
 
@@ -193,7 +193,7 @@ ms.locfileid: "68943298"
 
     g. 如果您想要啟用 department 屬性的 SAML 自動佈建，請在 [部門名稱屬性]  方塊中輸入 **department**。
 
-    h. 選取 [ **儲存**]。
+    h. 選取 [儲存]  。
 
 6. 在 [設定使用者驗證]  對話方塊頁面上執行下列步驟：
 
@@ -210,17 +210,17 @@ ms.locfileid: "68943298"
 
 2. 從 [工具]  功能表選取 [網際網路選項]  ，以開啟 [網際網路選項]  對話方塊。 
     
-     ![[網際網路選項] 對話方塊](./media/zscaler-beta-tutorial/ic769492.png "網際網路選項")
+     ![[網際網路選項] 對話方塊](./media/zscaler-beta-tutorial/ic769492.png "，")
 
 3. 選取 [連線]  索引標籤。 
   
-     ![[連線] 索引標籤](./media/zscaler-beta-tutorial/ic769493.png "連線")
+     ![連線索引標籤](./media/zscaler-beta-tutorial/ic769493.png "連線")
 
 4. 選取 [LAN 設定]  以開啟 [區域網路 (LAN) 設定]  對話方塊。
 
 5. 在 [Proxy 伺服器]  區段中，執行下列步驟： 
    
-    ![[Proxy 伺服器] 區段](./media/zscaler-beta-tutorial/ic769494.png "Proxy 伺服器")
+    ![Proxy 伺服器區段](./media/zscaler-beta-tutorial/ic769494.png "Proxy 伺服器")
 
     a. 選取 [在您的區域網路使用 Proxy 伺服器]  核取方塊。
 
@@ -305,7 +305,7 @@ ms.locfileid: "68943298"
 
 ## <a name="additional-resources"></a>其他資源
 
-- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

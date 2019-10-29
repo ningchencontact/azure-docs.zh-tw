@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2d7d7d97dce974ad8d72cc98f9ec6d3d554fb6d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329763"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783990"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -23,7 +23,7 @@ ms.locfileid: "72329763"
 
 下圖顯示此應用程式流程：
 
-![搭配 Data Lake Store 與 SQL 資料倉儲的 Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "搭配 Data Lake Store 與 SQL 資料倉儲的 Azure Databricks")
+![搭配 Data Lake Store 和 SQL 資料倉儲的 Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "搭配 Data Lake Store 和 SQL 資料倉儲的 Azure Databricks")
 
 本教學課程涵蓋下列工作：
 
@@ -41,7 +41,7 @@ ms.locfileid: "72329763"
 
 > [!Note]
 > 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
-> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
+> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
      
 ## <a name="prerequisites"></a>必要條件
 
@@ -135,11 +135,11 @@ ms.locfileid: "72329763"
 
 2. 在左側選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]   > [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 3. 在 [建立 Notebook]  對話方塊中，輸入 Notebook 的名稱。 選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![為 Databricks 中的 Notebook 提供詳細資料](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "為 Databricks 中的 Notebook 提供詳細資料")
+    ![在 Databricks 中提供筆記本的詳細資料](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "在 Databricks 中提供筆記本的詳細資料")
 
 4. 選取 [建立]  。
 

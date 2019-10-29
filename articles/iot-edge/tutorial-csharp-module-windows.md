@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88ff026ea56e5f41b3b124c2d5594822ffeb6830
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286674"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529263"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -84,7 +84,7 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
 
    ![針對目標裝置、模組類型和容器登錄設定您的專案](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. 選取 [確定]  以套用變更。 
+5. 選取 [新增]  以建立專案。 
 
 ### <a name="add-your-registry-credentials"></a>新增登錄認證
 

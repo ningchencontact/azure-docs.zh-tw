@@ -1,23 +1,22 @@
 ---
-title: 快速入門：使用 .NET SDK 在 C# 中建立搜尋索引 - Azure 搜尋服務
-description: 說明如何使用 C# 與 Azure 搜尋服務 .NET SDK 建立索引、載入資料以及執行查詢。
-author: heidisteen
+title: 快速入門：使用 .NET SDK 在 C# 中建立搜尋索引
+titleSuffix: Azure Cognitive Search
+description: 說明如何使用 C# 與 Azure 認知搜尋 .NET SDK 建立索引、載入資料以及執行查詢。
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: bda9c29fe3af0bd7d9a6ec61dd5fe40a8e9cc339
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 11/04/2019
+ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881592"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792831"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>快速入門：在 C# 中使用 .NET SDK 建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>快速入門：在 C# 中使用 .NET SDK 建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [入口網站](search-get-started-portal.md)
@@ -26,12 +25,12 @@ ms.locfileid: "70881592"
 > * [Postman](search-get-started-postman.md)
 >*
 
-建立 .NET Core C# 主控台應用程式以使用 Visual Studio 與 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk) 來建立、載入及查詢 Azure 搜尋服務索引。 此文章逐步說明如何建立應用程式。 或者，您可以[下載並執行完整應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) \(英文\)。
+建立 .NET Core C# 主控台應用程式，以使用 Visual Studio 與 [Azure 認知搜尋 .NET SDK](https://aka.ms/search-sdk) 來建立、載入及查詢 Azure 認知搜尋索引。 此文章逐步說明如何建立應用程式。 或者，您可以[下載並執行完整應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) \(英文\)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!NOTE]
-> 為了簡單起見，此文章中的範例程式碼使用 Azure 搜尋服務 .NET SDK 的同步方法。 不過，針對生產案例，我們建議您在您自己的應用程式中使用非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，您可以使用 `CreateAsync` 與 `DeleteAsync`，而非 `Create` 與 `Delete`。
+> 為了方便說明，本此文章中的範例程式碼使用 Azure 認知搜尋 .NET SDK 的同步方法。 不過，針對生產案例，我們建議您在您自己的應用程式中使用非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，您可以使用 `CreateAsync` 與 `DeleteAsync`，而非 `Create` 與 `Delete`。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,13 +38,13 @@ ms.locfileid: "70881592"
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 的任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-在每個對服務發出呼叫的要求上，都需要 URL 端點和存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+在每個對服務發出呼叫的要求上，都需要 URL 端點和存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -63,7 +62,7 @@ ms.locfileid: "70881592"
 
 ### <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
-[Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk) 是由一些用戶端程式碼 (以 NuGet 套件方式散發) 所組成的。
+[Azure 認知搜尋 .NET SDK](https://aka.ms/search-sdk) 是由一些用戶端程式碼 (以 NuGet 套件方式散發) 所組成的。
 
 針對此專案，請使用 `Microsoft.Azure.Search` NuGet 套件第 9 版與最新的 `Microsoft.Extensions.Configuration.Json` NuGet 套件。
 
@@ -78,7 +77,7 @@ ms.locfileid: "70881592"
 1. 針對 `Microsoft.Extensions.Configuration.Json` 重複此程序，但選取 2.2.0 版或更新版本。
 
 
-### <a name="add-azure-search-service-information"></a>新增 Azure 搜尋服務資訊
+### <a name="add-azure-cognitive-search-service-information"></a>新增 Azure 認知搜尋服務資訊
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [新增]   > [新項目]  。 
 
@@ -204,7 +203,7 @@ Hotels 索引由簡單與複雜欄位組成，其中簡單欄位是 "HotelName" 
 
 1. 在Program.cs 中，建立 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 類別的執行個體以使用儲存在應用程式設定檔 (appsettings.json) 中的值連線到該服務。 
 
-   `SearchServiceClient` 具有 [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) 屬性，它提供建立、列出、更新或刪除 Azure Search 索引所需的所有方法。 
+   `SearchServiceClient` 具有 [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) 屬性，它提供建立、列出、更新或刪除 Azure 認知搜尋索引所需的所有方法。 
 
     ```csharp
     using System;
@@ -302,9 +301,9 @@ Hotels 索引由簡單與複雜欄位組成，其中簡單欄位是 "HotelName" 
 
 ## <a name="2---load-documents"></a>2 - 載入文件
 
-在 Azure 搜尋服務中，文件是同時屬於索引輸入與查詢輸出的資料結構。 如同從外部資料來源所取得的一樣，文件輸入可能是資料庫中的資料列，Blob 儲存體中的 Blob 或磁碟上的 JSON 文件。 在此範例中，我們採用捷徑，並針對程式碼本身中的四家旅館內嵌 JSON 文件。 
+在 Azure 認知搜尋中，文件是同時屬於索引輸入與查詢輸出的資料結構。 如同從外部資料來源所取得的一樣，文件輸入可能是資料庫中的資料列，Blob 儲存體中的 Blob 或磁碟上的 JSON 文件。 在此範例中，我們採用捷徑，並針對程式碼本身中的四家旅館內嵌 JSON 文件。 
 
-當上傳文件時，您必須使用 [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 物件。 `IndexBatch` 包含 [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) 物件的集合，每個物件都包含文件與屬性，後者會告知 Azure 搜尋服務要執行的動作 ([上傳、合併、刪除及 mergeOrUpload](search-what-is-data-import.md#indexing-actions))。
+當上傳文件時，您必須使用 [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 物件。 `IndexBatch` 包含 [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) 物件的集合，每個物件都包含文件與屬性，後者會告知 Azure 認知搜尋所應執行的動作 ([上傳、合併、刪除及 mergeOrUpload](search-what-is-data-import.md#indexing-actions))。
 
 1. 在 Program.cs 中，建立文件與索引動作的索引，然後將該陣列傳遞到 `IndexBatch`。 下面的文件符合旅館快速入門索引，如旅館與地址類別所定義。
 

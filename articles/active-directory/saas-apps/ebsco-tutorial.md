@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/24/2019
+ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebaf3a1d877025cafe8829bc937ef032a3c95d03
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f37085744b9a0e7785ef3a411d53e4df5d15e494
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163463"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595016"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 EBSCO 整合
 
@@ -48,7 +48,7 @@ ms.locfileid: "70163463"
 * EBSCO 支援 **Just In Time** 使用者佈建
 
 > [!NOTE]
-> 由於此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-ebsco-from-the-gallery"></a>從資源庫新增 EBSCO
 
@@ -68,10 +68,10 @@ ms.locfileid: "70163463"
 若要設定及測試與 EBSCO 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 EBSCO SSO](#configure-ebsco-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 EBSCO 測試使用者](#create-ebsco-test-user)** - 在 EBSCO 中建立 B.Simon 的對應項目，使該項目與 Azure AD 中代表該使用者的項目連結。
+    * **[建立 EBSCO 測試使用者](#create-ebsco-test-user)** - 在 EBSCO 中建立 B.Simon 的對應項目，使該項目與 Azure AD 中代表該使用者的項目連結。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -100,6 +100,21 @@ ms.locfileid: "70163463"
     o   **Custid** = 輸入唯一的 EBSCO 客戶識別碼 
 
     o   **Profile** = 客戶可以自訂連結，將使用者導向至特定的設定檔 (視他們向 EBSCO 購買的產品而定)。 他們可以輸入特定的設定檔識別碼。 主要識別碼是 eds (EBSCO 探索服務) 和 ehost (EBSOCOhost 資料庫)。 相同項目的指示提供於[這裡](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)。
+
+1. EBSCO 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應加入至您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。
+
+    ![image](common/default-attributes.png)
+
+    > [!Note]
+    > **name** 是必要屬性，其會與 EBSCO 應用程式中的 [名稱識別碼值]  相對應。 依預設會新增此屬性，因此您無須手動新增。
+
+1. 除了上述屬性外，EBSCO 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
+
+    | 名稱 | 來源屬性|
+    | ---------------| --------------- |
+    | 名字   | user.givenname |
+    | 姓氏   | user.surname |
+    | 電子郵件   | user.mail |
 
 1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -151,8 +166,8 @@ ms.locfileid: "70163463"
 
 Azure AD 會將所需的資料傳遞至 EBSCO 應用程式。 EBSCO 的使用者佈建可以自動執行，或是使用一次性表單。 這取決於客戶是否有已儲存個人設定的大量現有 EBSCOhost 帳戶。 相同的問題也可在實作期間與 [EBSCO 支援小組](mailto:support@ebsco.com)討論。 無論如何，客戶都不需要在測試之前建立任何 EBSCOhost 帳戶。
 
-   >[!Note]
-   >您可以自動化 EBSCOhost 使用者佈建/個人化。 向 [EBSCO 支援小組](mailto:support@ebsco.com)洽詢關於 Just-in-Time 使用者佈建的問題。
+   > [!Note]
+   > 您可以自動化 EBSCOhost 使用者佈建/個人化。 向 [EBSCO 支援小組](mailto:support@ebsco.com)洽詢關於 Just-in-Time 使用者佈建的問題。
 
 ## <a name="test-sso"></a>測試 SSO
 
@@ -180,4 +195,3 @@ Azure AD 會將所需的資料傳遞至 EBSCO 應用程式。 EBSCO 的使用者
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 EBSCO](https://aad.portal.azure.com/)
-

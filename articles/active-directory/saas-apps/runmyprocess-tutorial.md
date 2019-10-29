@@ -17,10 +17,10 @@ ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46c31a209e8521b24e7f604dbe630f689fca484e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68880386"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>教學課程：整合 RunMyProcess 與 Azure Active Directory

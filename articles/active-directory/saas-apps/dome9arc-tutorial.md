@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264097"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533088"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Check Point CloudGuard Dome9 Arc 整合
 
@@ -89,17 +89,25 @@ ms.locfileid: "72264097"
 
     b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
-    > [!NOTE]
-    > 您將在 dome9 管理入口網站中選取您的公司名稱值，本教學課程稍後會說明這一點。
-
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Check Point CloudGuard Dome9 Arc 用戶端支援小組](mailto:Dome9@checkpoint.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的回覆 URL 與登入 URL 更新這些值。 您會從 [設定 Check Point CloudGuard Dome9 Arc SSO]  區段取得 `<company name>` 值，本教學課程稍後將加以說明。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. Check Point CloudGuard Dome9 Arc 需要在 Azure AD 中設定角色。 角色宣告已預先設定，因此您不需要進行設定，但您仍然需要使用[本文](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)在 Azure AD 中建立角色。
+1. Check Point CloudGuard Dome9 Arc 應用程式預期應有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。
+
+    ![image](common/edit-attribute.png)
+
+1. 除了以上屬性之外，Check Point CloudGuard Dome9 Arc 應用程式還預期 SAML 回應中會再多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
+    
+    | 名稱 |  來源屬性|
+    | ---------------| --------------- |
+    | memberof | user.assignedroles |
+
+    >[!NOTE]
+    >請按一下[此處](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial)來了解如何在 Azure AD 中建立角色。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -163,7 +171,7 @@ ms.locfileid: "72264097"
 
     ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure3.png)
 
-    a. 在 [帳戶識別碼]  文字方塊中輸入公司名稱。 這個值要在 Azure 入口網站 [基本 SAML 組態]  區段所提及的 [回覆 URL] 中使用。
+    a. 在 [帳戶識別碼]  文字方塊中輸入公司名稱。 此值會在 Azure 入口網站 [基本 SAML 組態]  區段所提及的 [回覆]  及 [登入]  URL 中使用。
 
     b. 在 [簽發者]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
 
@@ -221,4 +229,3 @@ ms.locfileid: "72264097"
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 Check Point CloudGuard Dome9 Arc](https://aad.portal.azure.com/)
-

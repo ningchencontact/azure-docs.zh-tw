@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/28/2019
-ms.openlocfilehash: 0e4cafee26d9d3345d9099c3c9fc048fb982ada5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 10/17/2019
+ms.openlocfilehash: a5ccf2d45d2c699f1f2261884f09f8cefe92b615
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166420"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598193"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Python)
 
@@ -24,8 +24,6 @@ ms.locfileid: "72166420"
 IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷取到雲端進行儲存或處理。 在此快速入門中，您透過 IoT 中樞，將遙測從模擬裝置應用程式傳送到後端應用程式以進行處理。
 
 本快速入門會使用預先撰寫的 Python 應用程式傳送遙測，以及使用 CLI 公用程式從中樞讀取遙測。 在執行下列兩個應用程式之前，您需要建立一個 IoT 中樞，並向中樞註冊一個裝置。
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -38,6 +36,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 從 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 下載範例 Python 專案並將 ZIP 封存檔解壓縮。
+
+在您的開發機器上安裝 Python 3.5.3+ 版。 
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

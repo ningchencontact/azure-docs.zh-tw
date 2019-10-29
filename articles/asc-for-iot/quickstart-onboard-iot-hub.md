@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 3d9c5352a90d5bcacbaf27b7b62be61fc404e87a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299498"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551588"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>快速入門：在 IoT 中樞內讓適用於 IoT 的 Azure 資訊安全中心上線
 
@@ -28,7 +28,7 @@ ms.locfileid: "71299498"
 
 > [!NOTE]
 > 適用於 IoT 的 Azure 資訊安全中心目前只支援標準層的 IoT 中樞。
-> 適用於 IoT 的 Azure 資訊安全中心是單一中樞的解決方案。 如果您需要多個中樞，則需要使用多個適用於 IoT 的 Azure 資訊安全中心解決方案。 
+
 
 ## <a name="prerequisites-for-enabling-the-service"></a>啟用服務的必要條件
 
@@ -40,7 +40,7 @@ ms.locfileid: "71299498"
 
 ## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>在您的 IoT 中樞上啟用適用於 IoT 的 Azure 資訊安全中心 
 
-若要在 IoT 中樞上啟用安全性，請執行下列步驟︰ 
+若要在 IoT 中樞上啟用安全性︰ 
 
 1. 在 Azure 入口網站中開啟您的 **IoT 中樞**。 
 1. 在 [安全性]  功能表之下，按一下 [保護您的 IoT 解決方案]  。
@@ -53,6 +53,33 @@ ms.locfileid: "71299498"
 1. 按一下 [檔案]  。 
 
 恭喜！ 您已在 IoT 中樞上完成適用於 IoT 的 Azure 資訊安全中心啟用。 
+
+### <a name="geolocation-and-ip-address-handling"></a>地理位置和 IP 位址處理
+
+為了保護您的 IoT 解決方案，系統已預設為會收集並儲存 IoT 裝置、IoT Edge 和 IoT 中樞內進行傳入和傳出連線的 IP 位址。 這在偵測可疑 IP 來源的異常連線時是不可或缺的資訊。 例如，嘗試從已知殭屍網路的 IP 來源，或您地理位置外部的 IP 來源建立連線時。 適用於 IoT 的 Azure 資訊安全中心服務提供隨時啟用和停用收集 IP 位址資料的彈性。 
+
+若要啟用或停用 IP 位址資料的收集： 
+
+1. 開啟您的 IoT 中樞，然後從 [安全性]  功能表中選取 [概觀]  。 
+2. 選擇 [設定]  畫面，並視需要修改地理位置和/或 IP 處理設定。
+
+### <a name="log-analytics-creation"></a>建立 Log Analytics
+
+當適用於 IoT 的 Azure 資訊安全中心開啟時，系統會建立預設的 Azure Log Analytics 工作區來儲存您 IoT 裝置、IoT Edge 和 IoT 中樞的原始安全性事件、警示和建議。 每位客戶每月內嵌到 Azure Log Analytics 服務的前 5 GB 資料免費。 前 31 天會免費保留內嵌於您 Azure Log Analytics 工作區中的每 GB 資料。 深入了解 [Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) 定價。
+
+若要變更 Log Analytics 的工作區設定：
+
+1. 開啟您的 IoT 中樞，然後從 [安全性]  功能表中選取 [概觀]  。 
+2. 選擇 [設定]  畫面，並視需要修改 Log Analytics 設定的工作區設定。
+
+### <a name="customize-your-iot-security-solution"></a>自訂您的 IoT 安全性解決方案
+根據預設，開啟適用於 IoT 的 Azure 資訊安全中心解決方案會自動保護您 Azure 訂用帳戶下的所有 IoT 中樞。 
+
+若要在特定 IoT 中樞上開啟或關閉適用於 IoT 的 Azure 資訊安全中心服務： 
+
+1. 開啟您的 IoT 中樞，然後從 [安全性]  功能表中選取 [概觀]  。 
+2. 選擇 [設定]  畫面，並視需要修改您 Azure 訂用帳戶中任何 IoT 中樞的安全性設定。
+
 
 ## <a name="next-steps"></a>後續步驟
 

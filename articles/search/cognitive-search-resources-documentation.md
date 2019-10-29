@@ -1,60 +1,60 @@
 ---
-title: 認知搜尋文件資源 - Azure 搜尋服務
-description: 與 Azure 搜尋服務中之認知搜尋工作負載相關的文章、教學課程、範例和部落格文章的標註清單。
-services: search
+title: AI 擴充的文件連結
+titleSuffix: Azure Cognitive Search
+description: 與 Azure 認知搜尋中的 AI 擴充工作負載相關的文章、教學課程、範例和部落格文章的標註清單。
 manager: nitinme
 author: HeidiSteen
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 7267f40a981b984ab945d956ff3552157267cd43
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265474"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792060"
 ---
-# <a name="documentation-resources-for-cognitive-search-workloads"></a>認知搜尋工作負載的文件資源
+# <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure 認知搜尋中的 AI 擴充適用的文件資源
 
-認知搜尋（現已正式運作）是 Azure 搜尋服務索引中的新擴充層，可在非文字來源和無差異文字中尋找潛在資訊，並將其轉換成 Azure 搜尋服務中的全文可搜尋內容。
+AI 擴充是 Azure 認知搜尋索引的一項功能，可在非文字來源和無差異文字中尋找潛在資訊，並將其轉換成 Azure 認知搜尋中可全文檢索搜尋的內容。
 
-下列文章是認知搜尋的完整文件。
+下列文章是 AI 擴充的完整文件。
 
-## <a name="getting-started"></a>使用者入門
-+ [什麼是認知搜尋？](cognitive-search-concept-intro.md)
-+ [快速入門：在入口網站試用認知搜尋](cognitive-search-quickstart-blob.md)
-+ [教學課程：了解認知搜尋 API](cognitive-search-tutorial-blob.md)
-+ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
+## <a name="getting-started"></a>開始使用
++ [Azure 認知搜尋中的 AI 擴充簡介](cognitive-search-concept-intro.md)
++ [快速入門：在入口網站中試用 AI 擴充](cognitive-search-quickstart-blob.md)
++ [教學課程：使用 AI 的擴充索引編製](cognitive-search-tutorial-blob.md)
++ [範例：建立 AI 擴充的自訂技能](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>做法指引
 + [如何定義技能集](cognitive-search-defining-skillset.md)
 + [如何參考技能集中的註釋](cognitive-search-concept-annotations-syntax.md)
 + [如何將欄位對應到索引](cognitive-search-output-field-mapping.md)
 + [如何處理影像並從影像擷取資訊](cognitive-search-concept-image-scenarios.md)
-+ [如何重建 Azure 搜尋服務索引](search-howto-reindex.md)
++ [如何重建 Azure 認知搜尋索引](search-howto-reindex.md)
 + [如何定義自訂技能介面](cognitive-search-custom-skill-interface.md)
 + [疑難排解秘訣](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>參考資料
+## <a name="reference"></a>參考
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)
-  + [KeyPhraseExtractionSkill。](cognitive-search-skill-keyphrases.md)
++ [內建技能](cognitive-search-predefined-skills.md)
+  + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
-  + [TranslationSkill。](cognitive-search-skill-text-translation.md)
+  + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
-  + [Util. ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + 自訂技能
   + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
 
-+ [已淘汰的技能](cognitive-search-skill-deprecated.md)
++ [已取代的技能](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
@@ -63,6 +63,6 @@ ms.locfileid: "71265474"
 
 ## <a name="see-also"></a>另請參閱
 
-+ [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)
-+ [Azure 搜尋服務中的索引子](search-indexer-overview.md)
-+ [何謂 Azure 搜尋服務？](search-what-is-azure-search.md)
++ [Azure 認知搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice/)
++ [Azure 認知搜尋中的索引子](search-indexer-overview.md)
++ [什麼是 Azue 認知搜尋？](search-what-is-azure-search.md)

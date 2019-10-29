@@ -3,19 +3,19 @@ title: 入門查詢範例
 description: 使用 Azure Resource Graph 來執行某些起始查詢，包括計算資源、排序資源或依特定標記。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 431c2d5066421efdfa4725d39fc40169b80d9cb2
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6f4ead051b0472bdd5de85c3589d362241caa485
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431521"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755867"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
-透過 Azure Resource Graph 了解查詢的第一個步驟是對[查詢語言](../concepts/query-language.md)進行基本的認識。 如果您還不熟悉 [Azure 資料總管](../../../data-explorer/data-explorer-overview.md)，建議檢閱基本概念，以了解如何撰寫所需資源的要求。
+透過 Azure Resource Graph 了解查詢的第一個步驟是對[查詢語言](../concepts/query-language.md)進行基本的認識。 如果您還不熟悉 [Kusto Query Language (KQL)](/azure/kusto/query/index)，建議檢閱 [KQL 的教學課程](/azure/kusto/query/tutorial)，以了解如何撰寫所需資源的要求。
 
 我們將逐步解說下列入門查詢︰
 
@@ -41,7 +41,7 @@ ms.locfileid: "72431521"
 
 Azure CLI (透過擴充功能) 與 Azure PowerShell (透過模組) 支援 Azure Resource Graph。 在執行下列任何查詢之前，請檢查您的環境已準備就緒。 請參閱 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 與 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)，以了解安裝及驗證所選殼層環境的步驟。
 
-## <a name="a-namecount-resourcescount-azure-resources"></a><a name="count-resources"/>計算 Azure 資源
+## <a name="a-namecount-resources-count-azure-resources"></a><a name="count-resources" />計算 Azure 資源
 
 此查詢會傳回您具有存取權之訂用帳戶中存在的 Azure 資源的數目。 這也是很好的查詢，可驗證您選擇的殼層是否已安裝適當的 Azure Resource Graph 元件，並處於正常運作狀態。
 
@@ -50,15 +50,27 @@ Resources
 | summarize count()
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | summarize count()"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | summarize count()"
 ```
 
-## <a name="a-namecount-keyvaultscount-key-vault-resources"></a><a name="count-keyvaults">計算金鑰保存庫資源
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namecount-keyvaults-count-key-vault-resources"></a><a name="count-keyvaults" />計算金鑰保存庫資源
 
 此查詢會使用 `count` 而不是 `summarize` 來計算所傳回的記錄數目。 只有金鑰保存庫會包含在計數中。
 
@@ -68,15 +80,27 @@ Resources
 | count
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | count"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' | count"
 ```
 
-## <a name="a-namelist-resourceslist-resources-sorted-by-name"></a><a name="list-resources"/>依名稱排序來列出資源
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.compute%2Fvirtualmachines'%20%7C%20count" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namelist-resources-list-resources-sorted-by-name"></a><a name="list-resources" />依名稱排序來列出資源
 
 此查詢會傳回任何類型的資源，但僅限於 **name**、**type** 和 **location** 屬性。 它會使用 `order by`，以遞增 (`asc`) 順序依 **name** 屬性將屬性排序。
 
@@ -86,15 +110,27 @@ Resources
 | order by name asc
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | project name, type, location | order by name asc"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project name, type, location | order by name asc"
 ```
 
-## <a name="a-nameshow-vmsshow-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms"/>依名稱遞減順序顯示所有虛擬機器
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-nameshow-vms-show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms" />依名稱遞減順序顯示所有虛擬機器
 
 若只要列出虛擬機器 (類型為 `Microsoft.Compute/virtualMachines`)，我們可以在結果中比對 **type** 屬性。 與上述查詢類似，`desc` 會將 `order by` 變更為遞減。 類型比對中的 `=~` 會告知 Resource Graph 不區分大小寫。
 
@@ -105,15 +141,27 @@ Resources
 | order by name desc
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-## <a name="a-nameshow-sortedshow-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"/>依名稱顯示前五個虛擬機器及其 OS 類型
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-nameshow-sorted-show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted" />依名稱顯示前五個虛擬機器及其 OS 類型
 
 此查詢會使用 `top`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 會告訴 Azure Resource Graph 要包含哪些屬性。
 
@@ -124,15 +172,27 @@ Resources
 | top 5 by name desc
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-## <a name="a-namecount-oscount-virtual-machines-by-os-type"></a><a name="count-os"/>依 OS 類型計算虛擬機器計數
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namecount-os-count-virtual-machines-by-os-type"></a><a name="count-os" />依 OS 類型計算虛擬機器計數
 
 在上一個查詢的基礎上，我們仍會依 `Microsoft.Compute/virtualMachines` 類型的 Azure 資源限制，但不再限制傳回的記錄數目。
 相反地，我們使用 `summarize` 和 `count()` 來定義如何依屬性分組和彙總值，在此範例中為 `properties.storageProfile.osDisk.osType`。 如需此字串在完整物件中顯示方式的範例，請參閱[探索資源 - 虛擬機器探索](../concepts/explore-resources.md#virtual-machine-discovery)。
@@ -143,13 +203,25 @@ Resources
 | summarize count() by tostring(properties.storageProfile.osDisk.osType)
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
+
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
 
 撰寫相同查詢的另一種方式是 `extend` 屬性，並為其提供臨時的名稱，以便用於查詢，在此情況下為 **os**。 **os** 接著會由 `summarize` 與 `count()` 使用，如同上述範例所述。
 
@@ -160,18 +232,30 @@ Resources
 | summarize count() by tostring(os)
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
 > [!NOTE]
 > 請注意，雖然 `=~` 允許不區分大小寫的比對，但在查詢中使用屬性 (例如 **properties.storageProfile.osDisk.osType**) 要求大小寫正確無誤。 如果屬性的大小寫錯誤，它仍然可以傳回值，但群組或摘要會不正確。
 
-## <a name="a-nameshow-storageshow-resources-that-contain-storage"></a><a name="show-storage"/>顯示包含儲存體的資源
+## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />顯示包含儲存體的資源
 
 此範例查詢並非明確定義要比對的類型，而是尋找 `contains` 字組 **storage** 的任何 Azure 資源。
 
@@ -180,15 +264,27 @@ Resources
 | where type contains 'storage' | distinct type
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type"
 ```
 
-## <a name="a-namelist-publiciplist-all-public-ip-addresses"></a><a name="list-publicip"/>列出所有公用 IP 位址
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namelist-publicip-list-all-public-ip-addresses"></a><a name="list-publicip" />列出所有公用 IP 位址
 
 與上述查詢類似，尋找類型具有字組 **publicIPAddresses** 的所有項目。
 此查詢將該模式擴展為僅包含 **properties.ipAddress**
@@ -202,15 +298,27 @@ Resources
 | limit 100
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
-## <a name="a-namecount-resources-by-ipcount-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip"/>依訂用帳戶計算已設定 IP 位址的資源計數
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namecount-resources-by-ip-count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip" />依訂用帳戶計算已設定 IP 位址的資源計數
 
 使用上一個範例查詢，並新增 `summarize` 和 `count()`，我們可以取得具有已設定 IP 位址之資源的訂用帳戶清單。
 
@@ -220,15 +328,27 @@ Resources
 | summarize count () by subscriptionId
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
-## <a name="a-namelist-taglist-resources-with-a-specific-tag-value"></a><a name="list-tag"/>列出具有特定標籤值的資源
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namelist-tag-list-resources-with-a-specific-tag-value"></a><a name="list-tag" />列出具有特定標籤值的資源
 
 我們可以根據 Azure 資源類型以外的屬性限制結果，例如標籤。 在此範例中，我們會篩選標籤名稱為 **Environment** 的 Azure 資源進行篩選，其值為 **Internal**。
 
@@ -238,13 +358,25 @@ Resources
 | project name
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name"
 ```
+
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
 
 若也要提供資源具有哪些標籤和其值，請將 **tags** 屬性新增至 `project` 關鍵字。
 
@@ -254,15 +386,27 @@ Resources
 | project name, tags
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
-## <a name="a-namelist-specific-taglist-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag"/>列出具有特定標籤值的所有儲存體帳戶
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namelist-specific-tag-list-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag" />列出具有特定標籤值的所有儲存體帳戶
 
 結合前一個範例的篩選功能，依 **type** 屬性篩選 Azure 資源類型。 此查詢也會將搜尋限制為具有特定標籤名稱和值的特定類型 Azure 資源。
 
@@ -272,18 +416,30 @@ Resources
 | where tags['tag with a space']=='Custom value'
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
 > [!NOTE]
 > 此範例會使用 `==` 進行比對，而非使用 `=~` 條件。 `==` 是區分大小寫的比對。
 
-## <a name="a-nameshow-aliasesshow-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"/>顯示虛擬機器資源的別名
+## <a name="a-nameshow-aliases-show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />顯示虛擬機器資源的別名
 
 「Azure 原則」會使用[Azure 原則別名](../../policy/concepts/definition-structure.md#aliases)來管理資源合規性。 Azure Resource Graph 可以傳回資源類型的「別名」  。 建立自訂原則定義時，可以使用這些值來比較目前的別名值。 在查詢的結果中，預設並不會提供「別名」  陣列。 請使用 `project aliases` 來將其明確新增到結果中。
 
@@ -294,15 +450,27 @@ Resources
 | project aliases
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
 ```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
 ```
 
-## <a name="a-namedistinct-alias-valuesshow-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"/>顯示特定別名的相異值
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-namedistinct-alias-values-show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values" />顯示特定別名的相異值
 
 查看單一資源上的別名值相當有幫助，但它不會顯示使用 Azure Resource Graph 來查詢所有訂用帳戶時的實際值。 此範例會查看某個特定別名的所有值，並傳回相異值。
 
@@ -310,18 +478,30 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 Resources
 | where type=~'Microsoft.Compute/virtualMachines'
 | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
-| distinct tostring(alias)"
+| distinct tostring(alias)
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
-## <a name="a-nameunassociated-nsgsshow-unassociated-network-security-groups"></a><a name="unassociated-nsgs"/>顯示沒有關聯的網路安全性群組
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
+
+## <a name="a-nameunassociated-nsgs-show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />顯示沒有關聯的網路安全性群組
 
 此查詢會傳回並未與網路介面或子網相關聯的網路安全性群組 (NSG)。
 
@@ -332,13 +512,25 @@ Resources
 | sort by name asc
 ```
 
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
+
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+![Resource Graph 總管圖示](../media/resource-graph-small.png) 在 Azure Resource Graph 總管中試用此查詢：
+
+- Azure 入口網站：<a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a> ![在新視窗中開啟連結的圖示](../../media/new-window.png)
+
+---
 
 ## <a name="next-steps"></a>後續步驟
 

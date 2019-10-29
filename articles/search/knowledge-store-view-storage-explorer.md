@@ -1,23 +1,24 @@
 ---
-title: 使用儲存體總管來檢視知識存放區 - Azure 搜尋服務
-description: 使用 Azure 入口網站的儲存體總管來檢視和分析 Azure 搜尋服務的知識存放區。
+title: 使用儲存體總管來檢視知識存放區
+titleSuffix: Azure Cognitive Search
+description: 使用 Azure 入口網站的儲存體總管來檢視和分析 Azure 認知搜尋的知識存放區。
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265610"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789981"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>使用儲存體總管來檢視知識存放區
 
 > [!Note]
-> 知識存放區處於預覽狀態，不應用於生產環境。 [Azure 搜尋服務 REST API 版本 2019-05-06-Preview](search-api-preview.md) 會提供此功能。 目前沒有 .NET SDK 支援。
+> 知識存放區處於預覽狀態，不應用於生產環境。 [Azure 認知搜尋 REST API 版本 2019-05-06-Preview](search-api-preview.md) 會提供此功能。 目前沒有 .NET SDK 支援。
 >
 在本文中，您將了解如何使用 Azure 入口網站中的儲存體總管來連接及探索知識存放區。 若要建立本逐步解說中使用的知識存放區範例，請參閱[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)。
 
@@ -41,7 +42,7 @@ ms.locfileid: "71265610"
 
 若要變更任何資料表值的資料類型，或變更資料表中的個別值，請按一下 [編輯]  。 當您變更某個資料表資料列中任何資料行的資料類型時，系統變會將該類型套用至所有資料列。
 
-   ![在儲存體總管中編輯資料表](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "在儲存體總管中編輯資料表")
+   ![儲存體總管中編輯資料表](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "儲存體總管中編輯資料表")
 
 若要執行查詢，請在命令列上按一下 [查詢]  ，然後輸入您的條件。  
 

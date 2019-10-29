@@ -1,6 +1,6 @@
 ---
-title: 在 Visual Studio Code 中建立及管理工作流程 - Azure Logic Apps
-description: 快速入門 - 在 Visual Studio Code (VS Code) 中建立及管理邏輯應用程式 JSON 定義
+title: 使用 Visual Studio Code 自動化工作流程 - Azure Logic Apps
+description: 使用 Visual Studio Code (VS Code) 建立或編輯邏輯應用程式的基礎 JSON 定義
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,16 +12,16 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 34de50517580c84c78ee1f192daa908b3f262670
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1387ca4d94410bafb1b1024345b5e307e215e6f
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035374"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679159"
 ---
-# <a name="quickstart-create-and-manage-logic-app-definitions-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 來建立及管理邏輯應用程式定義
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-visual-studio-code"></a>快速入門：使用 Visual Studio Code 來建立及管理邏輯應用程式工作流程
 
-使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 與 Visual Studio Code，您可以建立及管理有助於自動化工作、工作流程與程序的邏輯應用程式，以便整合各組織與企業的應用程式、資料、系統與服務。 此快速入門示範如何透過以程式碼為基礎的體驗，使用 JavaScript Object Notation (JSON) 來與工作流程定義結構描述搭配運作，藉以建立及編輯邏輯應用程式工作流程定義。 您也可以使用已部署至 Azure 的現有邏輯應用程式。
+使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 與 Visual Studio Code，您可以建立及管理有助於自動化工作、工作流程與程序的邏輯應用程式，以便整合各組織與企業的應用程式、資料、系統與服務。 此快速入門示範如何透過以程式碼為基礎的體驗，為邏輯應用程式建立及編輯基礎工作流程定義 (使用 JavaScript 物件標記法 (JSON))。 您也可以使用已部署至 Azure 的現有邏輯應用程式。
 
 雖然您可以在 [Azure 入口網站](https://portal.azure.com)與 Visual Studio 中執行這些相同的工作，但當您已經熟悉邏輯應用程式定義且想要直接用於程式碼時，在 Visual Studio Code 中可更快開始使用。 例如，您可以停用、啟用、刪除及重新整理已建立的邏輯應用程式。 此外，您也可以從 Visual Studio Code 執行所在的任何開發平台 (例如 Linux、Windows、和 Mac) 來處理邏輯應用程式和整合帳戶。
 
@@ -33,7 +33,7 @@ ms.locfileid: "72035374"
 
 * 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* [邏輯應用程式工作流程定義](../logic-apps/logic-apps-workflow-definition-language.md)與其結構 (使用 JavaScript 物件標記法 (JSON)) 的基本知識
+* [邏輯應用程式工作流程定義](../logic-apps/logic-apps-workflow-definition-language.md)與其結構 (以 JSON 描述) 的基本知識
 
   如果您不熟悉 Logic Apps，請嘗試這個[快速入門](../logic-apps/quickstart-create-first-logic-app-workflow.md)，它會在 Azure 入口網站中建立您的第一個邏輯應用程式，並較著重於基本概念。
 

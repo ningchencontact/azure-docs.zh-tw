@@ -1,23 +1,22 @@
 ---
-title: Azure PowerShell 指令碼範例 - 訂閱 Blob 儲存體帳戶 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 訂閱 Blob 儲存體帳戶
+title: Azure PowerShell - 訂閱 Blob 儲存體帳戶
+description: Azure 事件方格和 Azure PowerShell 指令碼範例 - 訂閱 Blob 儲存體帳戶
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: d236bcbf71915576ee31587e9abfff92c99250c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/22/2019
+ms.author: spelluru
+ms.openlocfilehash: 1e394b27818456b96118f80f17cf459ac08f45a9
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117202"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790508"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>使用 PowerShell 訂閱 Blob 儲存體帳戶的事件
 

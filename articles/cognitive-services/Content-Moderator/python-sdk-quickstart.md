@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: pafarley
-ms.openlocfilehash: f3b9a7aefc5fc347c4d5114575388914ea8d6fee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699909"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755261"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>快速入門：適用於 Python 的 Content Moderator 用戶端程式庫
 
@@ -44,7 +44,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 * 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services/#decision)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
 * 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源
 
-從試用版訂用帳戶或資源取得金鑰後，請為名為 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+從試用版訂用帳戶或資源取得金鑰後，請為名稱分別是 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 和 `CONTENT_MODERATOR_ENDPOINT` 的金鑰及端點 URL [建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
  
 ### <a name="create-a-python-script"></a>建立 Python 指令碼
 
@@ -52,7 +52,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-接著，為資源的 Azure 位置建立變數，並將金鑰建立為環境變數。 
+接著，為資源的端點位置建立變數，並將金鑰建立為環境變數。 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
@@ -71,7 +71,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 下列類別會處理 Content Moderator Python SDK 的一些主要功能。
 
-|Name|說明|
+|名稱|說明|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|所有 Content Moderator 功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。|
 |[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|此類別提供對成人內容、個人資訊或人臉的影像進行分析的功能。|
@@ -92,7 +92,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 ## <a name="authenticate-the-client"></a>驗證用戶端
 
 > [!NOTE]
-> 本快速入門假設您已針對名為 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 的 Content Moderator 金鑰[建立環境變數](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
+> 本快速入門假設您已針對 Content Moderator 金鑰和端點[建立環境變數](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
 
 使用端點和金鑰來具現化用戶端。 使用金鑰建立 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 物件，並使用該物件與您的端點建立 [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) 物件。
 
@@ -355,4 +355,4 @@ python quickstart-file.py
 >[影像仲裁概念](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [什麼是 Azure Content Moderator？](./overview.md)
-* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision) 上找到。
+* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py) 上找到。

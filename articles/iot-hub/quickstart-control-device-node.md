@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: db049064c35fbe6b940d39f97decc0281983cc0f
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ed3946c40d8e3eff665e4454b81f408c2033c09a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515062"
+ms.locfileid: "72529602"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>快速入門：使用 Node.js 來控制連線到 Azure IoT 中樞的裝置
 
@@ -128,7 +128,7 @@ az extension add --name azure-cli-iot-ext
 
     下列螢幕擷取畫面顯示模擬裝置應用程式將遙測傳送到 IoT 中樞時的輸出：
 
-    ![執行模擬的裝置](./media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![執行模擬的裝置](./media/quickstart-control-device-node/simulated-device-telemetry-iot-hub.png)
 
 ## <a name="call-the-direct-method"></a>呼叫直接方法
 
@@ -149,11 +149,11 @@ az extension add --name azure-cli-iot-ext
 
     下列螢幕擷取畫面顯示應用程式對裝置進行直接方法呼叫並接收通知時的輸出：
 
-    ![執行後端應用程式](./media/quickstart-control-device-node/BackEndApplication.png)
+    ![應用程式對裝置發出直接方法呼叫時的輸出](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     執行後端應用程式之後，在執行模擬裝置的主控台視窗中將會出現一則訊息，且它傳送訊息的速率也會變更：
 
-    ![模擬用戶端的變更](./media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![模擬用戶端發生變更時的輸出](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

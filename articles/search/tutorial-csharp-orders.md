@@ -1,24 +1,25 @@
 ---
-title: 排序結果的 C# 教學課程 - Azure 搜尋服務
-description: 此教學課程是以「搜尋結果分頁 - Azure 搜尋服務」專案為基礎來新增搜尋結果排序功能。 了解如何根據主要屬性排序結果、如何排序主要屬性相同的結果，以及如何根據次要屬性排序結果。 最後，了解如何根據評分設定檔來排序結果。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 排序結果的 C# 教學課程
+titleSuffix: Azure Cognitive Search
+description: 此教學課程以「搜尋結果分頁 - Azure 認知搜尋」專案作為建置基礎，以新增搜尋結果排序功能。 了解如何根據主要屬性排序結果、如何排序主要屬性相同的結果，以及如何根據次要屬性排序結果。 最後，了解如何根據評分設定檔來排序結果。
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/21/2019
-ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327656"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794059"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>C# 教學課程：排序結果 - Azure 搜尋服務
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# 教學課程：排序結果 - Azure 認知搜尋
 
 在我們的教學課程中到目前為止，結果是以預設順序傳回和顯示。 這可能是資料配置的順序，也可能已定義預設「評分設定檔」  ，當未指定排序參數時會使用此設定檔。 在此教學課程中，我們將會探討如何根據主要屬性排序結果、如何排序主要屬性相同的結果，以及如何根據次要屬性排序選擇。 作為依數值排序的替代方案，最後一個範例示範如何依自訂評分設定檔排序。 我們也會進一步探討如何顯示「複雜類型」  。
 
-為了輕鬆地比較傳回的結果，此專案是建置在 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)教學課程中所建立的無限捲動專案之上。
+為了輕鬆地比較傳回的結果，此專案是建置在 [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)教學課程。
 
 在本教學課程中，您會了解如何：
 > [!div class="checklist"]
@@ -31,7 +32,7 @@ ms.locfileid: "71327656"
 
 若要完成本教學課程，您需要：
 
-啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)專案的無限捲動版本。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
+啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 認知搜尋](tutorial-csharp-paging.md)專案。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
 
 ## <a name="order-results-based-on-one-property"></a>根據一個屬性排序結果
 
@@ -435,7 +436,7 @@ ms.locfileid: "71327656"
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. 雖然結果是由 Azure 搜尋服務使用距離篩選條件傳回，但「不會」  傳回所計算資料和指定點之間的距離。 如果您想要在結果中顯示距離，請在檢視或控制器中重新計算此值。
+3. 雖然結果是由 Azure 認知搜尋使用距離篩選條件傳回，但「不會」  傳回所計算資料和指定點之間的距離。 如果您想要在結果中顯示距離，請在檢視或控制器中重新計算此值。
 
     下列程式碼會計算兩個 lat/lon 點之間的距離。
 
@@ -465,7 +466,7 @@ ms.locfileid: "71327656"
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>根據評分設定檔排序結果
 
-到目前為止，教學課程中提供的範例顯示如何依數值 (評等、整修日期、地理距離) 排序，它們提供排序的「確切」  程序。 不過，某些搜尋和某些資料本身不支援兩個資料元素之間進行這類簡單比較。 Azure 搜尋服務包含「評分」  的概念。 「評分設定檔」  可以指定給一組資料，用來提供更複雜且質化的比較，在比較文字型資料以決定顯示順序時最能發揮其效果。
+到目前為止，教學課程中提供的範例顯示如何依數值 (評等、整修日期、地理距離) 排序，它們提供排序的「確切」  程序。 不過，某些搜尋和某些資料本身不支援兩個資料元素之間進行這類簡單比較。 Azure 認知搜尋服務包含「評分」  的概念。 「評分設定檔」  可以指定給一組資料，用來提供更複雜且質化的比較，在比較文字型資料以決定顯示順序時最能發揮其效果。
 
 評分設定檔不是由使用者定義，但通常是由資料集管理員定義。 旅館資料上已經設定數個評分設定檔。 讓我們看看評分設定檔的定義方式，然後嘗試撰寫程式碼搜尋它們。
 
@@ -957,7 +958,7 @@ ms.locfileid: "71327656"
 
 ### <a name="resources"></a>資源
 
-如需詳細資訊，請參閱下列[將評分設定檔新增至 Azure 搜尋服務索引](https://docs.microsoft.com/azure/search/index-add-scoring-profiles) \(部分機器翻譯\)。
+如需詳細資訊，請參閱下列[將評分設定檔新增至 Azure 認知搜尋索引](https://docs.microsoft.com/azure/search/index-add-scoring-profiles)。
 
 ## <a name="takeaways"></a>重要心得
 
@@ -971,6 +972,6 @@ ms.locfileid: "71327656"
 
 ## <a name="next-steps"></a>後續步驟
 
-您已完成這一系列的 C# 教學課程，您應該獲得了寶貴的 Azure 搜尋服務 API 知識。
+您已完成這一系列的 C# 教學課程，您應該獲得了寶貴的 Azure 認知搜尋 API 知識。
 
-如需進一步的參考和教學課程，請考慮瀏覽 [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)，或 [Azure 搜尋服務文件](https://docs.microsoft.com/azure/search/) \(部分機器翻譯\) 中的其他教學課程。
+如需進一步的參考和教學課程，您可以瀏覽 [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)，或 [Azure 認知搜尋文件](https://docs.microsoft.com/azure/search/)中的其他教學課程。

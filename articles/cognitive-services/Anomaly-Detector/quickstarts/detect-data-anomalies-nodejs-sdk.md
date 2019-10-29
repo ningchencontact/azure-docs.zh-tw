@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/17/2019
 ms.author: aahi
-ms.openlocfilehash: 320c690eb873f760af89b7514893f14ecc209323
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1932ac571c94f9dc96240bdb63b44fe53c626f1f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106873"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554742"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的 Anomaly Detector 用戶端程式庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "71106873"
 * 以批次要求方式偵測整個時間序列資料集的異常狀況
 * 偵測您的時間序列中最新資料點的異常狀態
 
-[參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [範例](https://github.com/Azure-Samples/anomalydetector)
+[參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [程式碼範例](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,13 +37,8 @@ ms.locfileid: "71106873"
 
 ### <a name="create-an-anomaly-detector-azure-resource"></a>建立 Anomaly Detector Azure 資源
 
-Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立 Anomaly Detector 的資源。 您也可以：
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-* 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services/#decision)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
-* 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源。
-
-從試用版訂用帳戶或資源取得金鑰後，請為名為 `ANOMALY_DETECTOR_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。 然後為您的 Azure 端點 `ANOMALY_DETECTOR_ENDPOINT` 建立一個環境變數。
- 
 ### <a name="create-a-new-nodejs-application"></a>建立新的 Node.js 應用程式
 
 在主控台視窗 (例如 cmd、PowerShell 或 Bash) 中，為您的應用程式建立新的目錄，並瀏覽至該目錄。 
@@ -62,9 +57,9 @@ npm init
 
 [!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
 
-為資源的 Azure 端點和金鑰建立變數。 如果您在啟動應用程式後才建立環境變數，則必須先關閉執行該應用程式的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。 針對您將在稍後步驟中下載的範例資料檔案，建立另一個變數。 然後建立 ApiKeyCredentials 物件來包含金鑰。
+為資源的 Azure 端點和金鑰建立變數。 如果您在啟動應用程式後才建立環境變數，則必須先關閉執行該應用程式的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。 針對您將在稍後步驟中下載的範例資料檔案，建立另一個變數，並為資料點建立空白清單。 然後建立 `ApiKeyCredentials` 物件來包含金鑰。
 
-[!code-javascript[Initial variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
+[!code-javascript[Initial endpoint and key variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
 ### <a name="install-the-client-library"></a>安裝用戶端程式庫
 
@@ -94,9 +89,6 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/javas
 * [偵測最新資料點的異常狀態](#detect-the-anomaly-status-of-the-latest-data-point)
 
 ## <a name="authenticate-the-client"></a>驗證用戶端
-
-> [!NOTE]
-> 本快速入門假設您已針對名為 `ANOMALY_DETECTOR_KEY` 的 Anomaly Detector 金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 使用您的端點和認證將 [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) 物件具現化。
 

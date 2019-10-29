@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1a0d0426904ef5f9f49a627120ff2cc65f630861
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274212"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785935"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行情感分析
 
@@ -24,7 +24,7 @@ ms.locfileid: "72274212"
 
 下圖顯示此應用程式流程：
 
-![Azure Databricks 與事件中樞和認知服務](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Azure Databricks 與事件中樞和認知服務")
+![搭配事件中樞和認知服務的 Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "搭配事件中樞和認知服務的 Azure Databricks")
 
 本教學課程涵蓋下列工作：
 
@@ -43,7 +43,7 @@ ms.locfileid: "72274212"
 
 > [!Note]
 > 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
-> 若要使用免費帳戶建立 Azure Databricks 叢集，在建立叢集之前，請先移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=sparkeventhubs-docs-alehall)。
+> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -201,11 +201,11 @@ ms.locfileid: "72274212"
 
 1. 在左側窗格中，選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]  ，然後選取 [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 2. 在 [建立 Notebook]  對話方塊中輸入 **SendTweetsToEventHub**，選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![在 Databricks 中建立 Notebook](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "在 Databricks 中建立筆記本")
 
     選取 [建立]  。
 

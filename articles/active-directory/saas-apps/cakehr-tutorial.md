@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c0860411c95e48a16d75df4aeeedf3405a5b1835
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026435"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595027"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 CakeHR 整合
 
@@ -67,10 +67,10 @@ ms.locfileid: "72026435"
 若要設定及測試與 CakeHR 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 CakeHR SSO](#configure-cakehr-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 CakeHR 測試使用者](#create-cakehr-test-user)** - 使 CakeHR 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    * **[建立 CakeHR 測試使用者](#create-cakehr-test-user)** - 使 CakeHR 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -135,25 +135,33 @@ ms.locfileid: "72026435"
 
 ## <a name="configure-cakehr-sso"></a>設定 CakeHR SSO
 
-1. 開啟新的網頁瀏覽器視窗，並以系統管理員身分登入您的 CakeHR 公司網站。
+1. 若要自動執行 CakeHR 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 在頁面右上角，按一下 [設定檔]  ，然後瀏覽至 [設定]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 CakeHR]  便會將您導向到 CakeHR 應用程式。 請從該處提供用以登入 CakeHR 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 5。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 CakeHR，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入CakeHR 公司網站，然後執行下列步驟：
+
+1. 在頁面右上角，按一下 [設定檔]  ，然後瀏覽至 [設定]  。
 
     ![CakeHR 組態](./media/cakehr-tutorial/config01.png)
 
-3. 在功能表列左側，按一下 [整合]   > [SAML SSO]  ，然後執行下列步驟：
+1. 在功能表列左側，按一下 [整合]   > [SAML SSO]  ，然後執行下列步驟：
 
-     ![CakeHR 組態](./media/cakehr-tutorial/config02.png)
+    ![CakeHR 組態](./media/cakehr-tutorial/config02.png)
 
-     a. 在 [實體識別碼]  文字方塊中，輸入 `cake.hr`。
+    a. 在 [實體識別碼]  文字方塊中，輸入 `cake.hr`。
 
-     b. 在 [驗證 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
+    b. 在 [驗證 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
-     c. 在 [金鑰指紋 (SHA1 格式)]  文字方塊中，貼上您從 Azure 入口網站複製的 [指紋]  值。
+    c. 在 [金鑰指紋 (SHA1 格式)]  文字方塊中，貼上您從 Azure 入口網站複製的 [指紋]  值。
 
-     d. 勾選 [啟用單一登入]  方塊。
+    d. 勾選 [啟用單一登入]  方塊。
 
-     e. 按一下 [檔案]  。
+    e. 按一下 [檔案]  。
 
 ### <a name="create-cakehr-test-user"></a>建立 CakeHR 測試使用者
 
@@ -192,4 +200,3 @@ ms.locfileid: "72026435"
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 CakeHR](https://aad.portal.azure.com/)
-

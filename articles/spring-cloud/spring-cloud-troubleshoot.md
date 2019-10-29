@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ebb960085691206b096090813636ef56366e6536
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038357"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592471"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>常見問題的疑難排解指南
 
@@ -146,6 +146,49 @@ _Azure Spring Cloud_ 服務執行個體的名稱將用於在 `azureapps.io` 下�
 您也可以在 _Azure Log Analytics_ 中檢查「服務登錄」  用戶端記錄。 如需詳細資料，請瀏覽[使用診斷設定來分析記錄和計量](diagnostic-services.md)
 
 瀏覽[此使用者入門文章](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) \(部分機器翻譯\)，以開始使用 _Azure Log Analytics_。 使用 [Kusto 查詢語言](https://docs.microsoft.com/azure/kusto/query/)來查詢記錄。
+
+### <a name="i-want-to-inspect-my-applications-environment-variables"></a>我想要檢查應用程式的環境變數
+
+環境變數會提供 Azure Spring Cloud 架構的資訊，以確保 Azure 了解設定您應用程式組成服務的位置和方式。  確保環境變數正確是針對潛在問題進行疑難排解的第一步。  您可以使用 Spring Boot Actuator 端點來檢查您的環境變數。  
+
+> [!WARNING]
+> 此程序會使用您的測試端點來公開您的環境變數。  如果您的測試端點可公開存取，或您已將網域名稱指派給您的應用程式，則請勿繼續執行該作業。
+
+1. 瀏覽至 URL：`https://<your application test endpoint>/actuator/health`  
+    - 類似於 `{"status":"UP"}` 的回應會指出端點已啟用。
+    - 如果回應是負面結果，請在您的 `POM.xml` 中加入下列相依性：
+
+        ```xml
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        ```
+
+1. 啟用 Spring Boot Actuator 端點後，請移至 Azure 入口網站，然後尋找您應用程式的設定頁面。  新增名為 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*` 的環境變數。 
+
+1. 重新啟動您的應用程式。
+
+1. 流覽至 `https://<the test endpoint of your app>/actuator/env` 並檢查回應。  它看起來應該如下所示：
+
+    ```json
+    {
+        "activeProfiles": [],
+        "propertySources": {,
+            "name": "server.ports",
+            "properties": {
+                "local.server.port": {
+                    "value": 1025
+                }
+            }
+        }
+    }
+    ```
+
+尋找名為 `systemEnvironment` 的子節點。  此節點包含您應用程式的環境變數。
+
+> [!IMPORTANT]
+> 請記得先撤銷公開環境變數的設定，再讓應用程式可公開存取。  移至 Azure 入口網站，尋找應用程式的設定頁面，然後刪除此環境變數：`MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`。
 
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>我找不到我的應用程式的計量或記錄
 

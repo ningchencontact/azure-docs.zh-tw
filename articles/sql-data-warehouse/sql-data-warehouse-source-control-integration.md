@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098752"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的原始檔控制整合
@@ -37,11 +37,11 @@ ms.locfileid: "70098752"
 
    ![管理連線](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "管理連線")
 
-   ![連線 ](media/sql-data-warehouse-source-control-integration/3-connect.png "連線")
+   ![連線](media/sql-data-warehouse-source-control-integration/3-connect.png "連線")
 
 3. 將您的 Azure Repo 存放庫從您的專案複製到本機電腦
 
-   ![複製存放庫](media/sql-data-warehouse-source-control-integration/4-clone-repo.png "複製存放庫")
+   ![複製角色](media/sql-data-warehouse-source-control-integration/4-clone-repo.png "複製存放庫")
 
 ## <a name="create-and-connect-your-project"></a>建立及連結您的專案
 
@@ -67,7 +67,7 @@ ms.locfileid: "70098752"
 
 1. 從 Visual Studio SQL Server Data Tools (SSDT) 中更新資料庫專案中的資料表欄，以確認變更是否已推送至您的 Azure Repo
 
-   ![確認更新欄](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "確認更新欄")
+   ![驗證更新資料行](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "驗證更新資料行")
 
 2. 認可變更並將變更從本機存放庫推送至 Azure Repo
 
@@ -75,7 +75,7 @@ ms.locfileid: "70098752"
 
 3. 確認變更已推送至您的 Azure Repo 存放庫
 
-   ![確認](media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "確認變更")
+   ![Verify](media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "驗證變更")
 
 4. (**選擇性**) 使用 [結構描述比較]，並使用 SSDT 更新目標資料倉儲的變更，以確保 Azure Repo 存放庫和本機存放庫中的物件定義會反映您的資料倉儲
 

@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326998"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>教學課程：實作資料湖擷取模式以更新 Databricks 差異資料表
@@ -55,7 +55,7 @@ ms.locfileid: "71326998"
 
 1. 開啟 [Azure 儲存體總管]。 然後，瀏覽至您的儲存體帳戶，並在 [Blob 容器]  區段中建立名為 **data** 的新容器。
 
-   ![data 資料夾](./media/data-lake-storage-events/data-container.png "data 資料夾")
+   ![資料夾](./media/data-lake-storage-events/data-container.png "資料夾")
 
    如需關於如何使用儲存體總管的詳細資訊，請參閱[使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 帳戶中的資料](data-lake-storage-explorer.md)。
 
@@ -121,11 +121,11 @@ ms.locfileid: "71326998"
 
 1. 在左側窗格中，選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]   > [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 2. 在 [建立 Notebook]  對話方塊中，輸入 Notebook 的名稱。 選取 [Python]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![在 Databricks 中建立 Notebook](./media/data-lake-storage-events/new-databricks-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/data-lake-storage-events/new-databricks-notebook.png "在 Databricks 中建立筆記本")
 
     選取 [建立]  。
 
@@ -243,7 +243,7 @@ ms.locfileid: "71326998"
 
 3. 為作業指定名稱，然後選擇 `upsert-order-data` 活頁簿。
 
-   ![建立作業](./media/data-lake-storage-events/create-spark-job.png "建立作業")
+   ![建立作業](./media/data-lake-storage-events/create-spark-job.png "建立工作")
 
 ## <a name="create-an-azure-function"></a>建立 Azure 函式
 
@@ -344,11 +344,11 @@ ms.locfileid: "71326998"
 
 1. 在 [函式程式碼] 頁面上，按一下 [新增事件方格訂用帳戶]  按鈕。
 
-   ![新增事件訂用帳戶](./media/data-lake-storage-events/new-event-subscription.png "新增事件訂用帳戶")
+   ![新增事件訂閱](./media/data-lake-storage-events/new-event-subscription.png "新增事件訂閱")
 
 2. 在 [建立事件訂用帳戶]  頁面中為訂用帳戶命名，然後使用頁面中的欄位選取您的儲存體帳戶。
 
-   ![新增事件訂用帳戶](./media/data-lake-storage-events/new-event-subscription-2.png "新增事件訂用帳戶")
+   ![新增事件訂閱](./media/data-lake-storage-events/new-event-subscription-2.png "新增事件訂閱")
 
 3. 在 [篩選至事件類型]  下拉式清單中，選取 [已建立的 Blob]  和 [已刪除的 Blob]  事件，然後按一下 [建立]  按鈕。
 

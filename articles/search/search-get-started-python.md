@@ -1,22 +1,23 @@
 ---
-title: 快速入門：使用 REST API 在 Python 中建立搜尋索引 - Azure 搜尋服務
-description: 說明如何使用 Python、Jupyter Notebook 與 Azure 搜尋服務 REST API 建立索引、載入資料以及執行查詢。
-ms.date: 09/10/2019
+title: 快速入門：使用 REST API 在 Python 中建立搜尋索引
+titleSuffix: Azure Cognitive Search
+description: 說明如何使用 Python、Jupyter Notebook 與 Azure 認知搜尋 REST API 建立索引、載入資料以及執行查詢。
 author: heidisteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: 273cd690c56ef01b4fd38398aaef85570dd758a2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881563"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792269"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>快速入門：使用 Jupyter 筆記本在 Python 中建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>快速入門：使用 Jupyter Notebook 在 Python 中建立 Azure 認知搜尋索引
+
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -25,9 +26,9 @@ ms.locfileid: "70881563"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-建立 Jupyter 筆記本，以使用 Python 和 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 來建立、載入和查詢 Azure 搜尋服務索引。 此文章將說明如何逐步建立筆記本。 或是，您可以[下載並執行已完成的 Jupyter Python 筆記本](https://github.com/Azure-Samples/azure-search-python-samples)。
+建置 Jupyter Notebook，以使用 Python 和 [Azure 認知搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice/) 來建立、載入和查詢 Azure 認知搜尋索引。 本文將說明如何逐步建立筆記本。 或是，您可以[下載並執行已完成的 Jupyter Python 筆記本](https://github.com/Azure-Samples/azure-search-python-samples)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,11 +36,11 @@ ms.locfileid: "70881563"
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section)，提供 Python 3.x 和 Jupyter Notebook。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用免費層來進行本快速入門。 
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用免費層來進行本快速入門。 
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -49,9 +50,9 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
-## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
+## <a name="connect-to-azure-cognitive-search"></a>連線至 Azue 認知搜尋
 
-在這項工作中，請啟動 Jupyter 筆記本，確認您可以連線到 Azure 搜尋服務。 您將藉由從服務中要求索引清單來執行此動作。 在具有 Anaconda3 的 Windows 上，您可以使用 Anaconda Navigator 來啟動筆記本。
+在這項工作中，請啟動 Jupyter Notebook，確認您可以連線至 Azure 認知搜尋。 您將藉由從服務中要求索引清單來執行此動作。 在具有 Anaconda3 的 Windows 上，您可以使用 Anaconda Navigator 來啟動筆記本。
 
 1. 建立新的 Python3 筆記本。
 
@@ -85,7 +86,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 執行每個步驟。 如果索引存在，回應就會包含索引名稱清單。 在下面的螢幕擷取畫面中，服務中已經有 azureblob-index 和 realestate-us-sample 索引。
 
-   ![Jupyter 筆記本中的 Python 指令碼，以及向 Azure 搜尋服務發出的 HTTP 要求](media/search-get-started-python/connect-azure-search.png "Jupyter 筆記本中的 Python 指令碼，以及向 Azure 搜尋服務發出的 HTTP 要求")
+   ![Jupyter Notebook 中的 Python 指令碼，其中包含對 Azure 認知搜尋的 HTTP 要求](media/search-get-started-python/connect-azure-search.png "Jupyter Notebook 中的 Python 指令碼，其中包含對 Azure 認知搜尋的 HTTP 要求")
 
    相對的，空的索引集合會傳回此回應：`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
@@ -251,7 +252,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 此步驟將說明如何使用[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 來查詢索引。
 
-1. 在資料格中，提供查詢運算式來執行空的搜尋 (search=*)，並傳回未排名的雜亂文件清單 (搜尋分數 = 1.0)。 根據預設，Azure 搜尋服務一次會傳回 50 項相符結果。 經過結構化後，此查詢會傳回整個文件結構和值。 新增 $count = true 可取得結果中所有文件的計數。
+1. 在資料格中，提供查詢運算式來執行空的搜尋 (search=*)，並傳回未排名的雜亂文件清單 (搜尋分數 = 1.0)。 根據預設，Azure 認知搜尋一次會傳回 50 個相符項目。 經過結構化後，此查詢會傳回整個文件結構和值。 新增 $count = true 可取得結果中所有文件的計數。
 
    ```python
    searchstring = '&search=*&$count=true'

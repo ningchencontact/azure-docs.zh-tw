@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: f950d273e16dc7fc25f443fda58f9d6582085129
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1cea76bec3a1b8b698a604c0bac491ac0319a10e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076393"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791184"
 ---
 # <a name="what-is-azure-hdinsight"></a>什麼是 Azure HDInsight？
 
@@ -86,7 +86,7 @@ HDInsight 包含特定叢集類型和叢集自訂功能，例如新增元件、�
 |[Apache Spark](https://spark.apache.org/)|一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 請參閱[什麼是 HDInsight 中的 Apache Spark？](./spark/apache-spark-overview.md)。|
 |[Apache HBase](https://hbase.apache.org/)|建置於 Hadoop 上的 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性 - 可能是數十億的資料列乘以數十億的資料行。 請參閱[什麼是 HDInsight 上的 HBase？](./hbase/apache-hbase-overview.md)|
 |[ML 服務](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|可用來裝載和管理並行、分散式 R 程序的伺服器。 這項新功能可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。 請參閱 [HDInsight 上的 ML 服務概觀](./r-server/r-server-overview.md)。|
-|[Apache Storm](https://storm.incubator.apache.org/)|分散式、即時的運算系統，可快速處理大型的資料串流。 Storm 以受控叢集的形式在 HDInsight 中提供。 請參閱＜ [使用 Storm 和 Hadoop 來分析即時感應器資料](./storm/apache-storm-sensor-data-analysis.md)＞。|
+|[Apache Storm](https://storm.incubator.apache.org/)|分散式、即時的運算系統，可快速處理大型的資料串流。 Storm 以受控叢集的形式在 HDInsight 中提供。 請參閱＜ [使用 Storm 和 Hadoop 來分析即時感應器資料](/azure/hdinsight/storm/apache-storm-overview)＞。|
 |[Apache 互動式查詢](https://cwiki.apache.org/confluence/display/Hive/LLAP)|更快速之互動式 Hive 查詢的記憶體內快取。 請參閱[在 HDInsight 中使用互動式查詢](./interactive-query/apache-interactive-query-get-started.md)。|
 |[Apache Kafka](https://kafka.apache.org/)|用來建立串流資料管線和應用程式的開放原始碼平台。 Kafka 也提供訊息佇列功能，可讓您發佈和訂閱資料串流。 請參閱 [HDInsight 上的 Apache Kafka 簡介](./kafka/apache-kafka-introduction.md)。|
 

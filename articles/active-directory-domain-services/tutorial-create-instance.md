@@ -7,27 +7,26 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336849"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786993"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
 Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，例如：網域加入、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 您不需要自行部署、管理和修補網域控制站，就可以使用這些網域服務。 Azure AD DS 會與您現有的 Azure AD 租用戶整合。 這項整合可讓使用者使用其公司認證進行登入，而您可以使用現有的群組和使用者帳戶來保護資源的存取。
 
-本教學課程將示範如何使用 Azure 入口網站來建立和設定 Azure AD DS 執行個體。
+您可以[使用預設的設定選項建立受控網域][tutorial-create-instance-advanced]，以進行網路連線和同步，或手動定義這些設定。 本教學課程將示範如何透過 Azure 入口網站使用預設選項來建立和設定 Azure AD DS 執行個體。
 
 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
-> * 設定受控網域的 DNS 和虛擬網路設定
+> * 了解受控網域的 DNS 需求
 > * 建立 Azure AD DS 執行個體
-> * 將系統管理使用者新增至網域管理
 > * 啟用密碼雜湊同步處理
 
 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
@@ -52,13 +51,15 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 在本教學課程中，您會使用 Azure 入口網站來建立和設定 Azure AD DS 執行個體。 若要開始使用，請先登入 [Azure 入口網站](https://portal.azure.com)。
 
-## <a name="create-an-instance-and-configure-basic-settings"></a>建立執行個體並設定基本設定
+## <a name="create-an-instance"></a>建立執行個體
 
 若要啟動 [啟用 Azure AD Domain Services]  精靈，請完成下列步驟：
 
 1. 在 Azure 入口網站的左上角選取 [+ 建立資源]  。
 1. 在搜尋列中輸入 [Domain Services]  ，然後從搜尋建議中選擇 [Azure AD Domain Services]  。
 1. 在 [Azure AD Domain Services] 頁面中，選取 [建立]  。 [啟用 Azure AD Domain Services]  精靈隨即啟動。
+1. 選取您要在其中建立受控網域的 Azure **訂用帳戶**。
+1. 選取受控網域應該隸屬的**資源群組**。 選擇 [新建]  ，或選取現有的資源群組。
 
 當您建立 Azure AD DS 執行個體時，您可以指定 DNS 名稱。 以下是選擇此 DNS 名稱時的一些考量：
 
@@ -86,80 +87,28 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 在 Azure 入口網站中完成 [基本資料]  視窗中的欄位，以建立 Azure AD DS 執行個體：
 
 1. 輸入受控網域的 **DNS 網域名稱**，並將前面幾項列入考慮。
-1. 選取您要在其中建立受控網域的 Azure **訂用帳戶**。
-1. 選取受控網域應該隸屬的**資源群組**。 選擇 [新建]  ，或選取現有的資源群組。
 1. 選擇應該在其中建立受控網域的 Azure**位置**。
-1. 按一下 [確定]  以繼續前往 [網路]  區段。
 
-![設定 Azure AD Domain Services 執行個體的基本設定](./media/tutorial-create-instance/basics-window.png)
+    ![設定 Azure AD Domain Services 執行個體的基本設定](./media/tutorial-create-instance/basics-window.png)
 
-## <a name="create-and-configure-the-virtual-network"></a>建立和設定虛擬網路
+若要快速建立 Azure AD DS 受控網域，您可以選取 [檢閱 + 建立]  ，以接受其他預設的設定選項。 當您選擇此建立選項時，系統會設定下列預設值：
 
-若要提供連線，需要有 Azure 虛擬網路和專用子網路。 此虛擬網路的子網路中已啟用 Azure AD DS。 您會在本教學課程中建立虛擬網路，但您也可以改為選擇使用現有虛擬網路。 不論是哪一種方法，您都必須建立專用的子網路，以供 Azure AD DS 使用。
+* 建立使用 10.0.1.0/24  IP 位址範圍且名為 aadds-vnet  的虛擬網路。
+* 建立使用 10.0.1.0/24  IP 位址範圍且名為 aadds-subnet  的子網路。
+* 將 Azure AD 中的「所有」  使用者同步到 Azure AD DS 受控網域。
 
-此專用虛擬網路子網路的一些考量包括下列幾方面：
+1. 選取 [檢閱 + 建立]  以接受這些預設的設定選項。
 
-* 子網路的位址範圍中必須至少有 3-5 個可用的 IP 位址，才能支援 Azure AD DS 資源。
-* 請勿選取「閘道」  子網路來部署 Azure AD DS。 我們不支援將 Azure AD DS 部署到「閘道」  子網路。
-* 不要將任何其他虛擬機器部署到子網路。 應用程式和 VM 通常會使用網路安全性群組來保護連線能力。 若在個別子網路中執行這些工作負載，您不用中斷與受控網域的連線，就能套用這些網路安全性群組。
-* 啟用 Azure AD DS 後，無法將受控網域移至不同的虛擬網路。
+## <a name="deploy-the-managed-domain"></a>部署受控網域
 
-如需如何規劃和設定虛擬網路的詳細資訊，請參閱 [Azure Active Directory Domain Services 的網路考量][network-considerations]。
+在精靈的 [摘要]  分頁中，檢閱受控網域的組態設定。 您可以返回精靈的任何步驟以進行變更。 若要以一致的方式，使用這些設定選項將 Azure AD DS 受控網域重新部署到不同的 Azure AD 租用戶，您也可以**下載用於自動化的範本**。
 
-完成 [網路]  視窗中的欄位，如下所示：
-
-1. 在 [網路]  視窗中，選擇 [選取虛擬網路]  。
-1. 在本教學課程中，請選擇 [新建]  虛擬網路來將 Azure AD DS 部署到其中。
-1. 輸入虛擬網路的名稱 (例如 myVnet  )，然後提供位址範圍，例如 10.1.0.0/16  。
-1. 建立具有明確名稱的專用子網路，例如 DomainServices  。 提供位址範圍，例如 10.1.0.0/24  。
-
-    ![建立要與 Azure AD Domain Services 搭配使用的虛擬網路及子網路](./media/tutorial-create-instance/create-vnet.png)
-
-    請務必挑選私人 IP 位址範圍內的位址範圍。 不是您所擁有的 IP 位址範圍位於公用位址空間中會導致 Azure AD DS 內發生錯誤。
-
-    > [!TIP]
-    > [選擇虛擬網路]  頁面會顯示現有的虛擬網路，這些網路都屬於您先前所選的資源群組和 Azure 位置。 您必須先[建立專用的子網路][create-dedicated-subnet]，才能部署 Azure AD DS。
-
-1. 建好虛擬網路和子網路之後，系統應該會自動選取子網路，例如 DomainServices  。 您可以改為選擇屬於所選虛擬網路的現有替代子網路：
-
-    ![在虛擬網路內選擇專用子網路](./media/tutorial-create-instance/choose-subnet.png)
-
-1. 選取 [確定]  以確認虛擬網路的設定。
-
-## <a name="configure-an-administrative-group"></a>設定系統管理群組
-
-名為「AAD DC 系統管理員」  的特殊系統管理群組會用來管理 Azure AD DS 網域。 此群組的成員會獲得 VM 的系統管理權限，而這類 VM 已加入受控網域。 在加入網域的 VM 上，這個群組會新增到本機系統管理員群組。 此群組的成員也可以使用遠端桌面，從遠端連線到已加入網域的 VM。
-
-在使用 Azure AD DS 的受控網域上，您不會有「網域系統管理員」  或「企業系統管理員」  權限。 服務會保留這些權限，而且不會提供給租用戶中的使用者使用。 相反地，「AAD DC 系統管理員」  群組可讓您執行一些使用特殊權限的作業。 這些作業包括將電腦加入網域、隸屬於 VM (已加入網域) 上的管理群組，以及設定群組原則。
-
-精靈會在 Azure AD 目錄中自動建立「AAD DC 系統管理員」  群組。 如果在 Azure AD 目錄中已有此名稱的現有群組存在，精靈會選取此群組。 在部署過程中，您可以選擇將其他使用者新增至此「AAD DC 系統管理員」  群組。 這些步驟會在稍後完成。
-
-1. 若要將其他使用者新增至此「AAD DC 系統管理員」  ，請選取 [管理群組成員資格]  。
-1. 選取 [新增成員]  按鈕，然後搜尋並選取 Azure AD 目錄中的使用者。 例如，搜尋您自己的帳戶，並將其新增至「AAD DC 系統管理員」  群組。
-
-    ![設定「AAD DC 系統管理員」群組的群組成員資格](./media/tutorial-create-instance/admin-group.png)
-
-1. 完成後，選取 [確定]  。
-
-## <a name="configure-synchronization"></a>設定同步處理
-
-Azure AD DS 可讓您同步 Azure AD 中的「所有」  使用者和群組，或僅對特定群組進行「限域」  同步。 如果您選擇同步「所有」  使用者和群組，您之後就無法選擇只執行限域同步。 如需有關限域同步的詳細資訊，請參閱 [Azure AD Domain Services 的限域同步][scoped-sync]。
-
-1. 在本教學課程中，請選擇同步「所有」  使用者和群組。 此同步選項是預設選項。
-
-    ![從 Azure AD 執行使用者和群組的完整同步](./media/tutorial-create-instance/sync-all.png)
-
-1. 選取 [確定]  。
-
-## <a name="deploy-your-managed-domain"></a>部署受控網域
-
-在精靈的 [摘要]  分頁中，檢閱受控網域的組態設定。 您可以返回精靈的任何步驟以進行變更。
-
-1. 若要建立受控網域，請選取 [確定]  。
+1. 若要建立受控網域，請選取 [建立]  。 系統會顯示注意事項，告知您某些設定選項 (例如 DNS 名稱或虛擬網路) 在 Azure AD DS 受控網域建立之後就無法變更。 若要繼續，請選取 [確定]  。
 1. 佈建受控網域的程序可能需要一小時的時間。 您會在入口網站中看到顯示 Azure AD DS 部署進度的通知。 選取通知以查看部署的詳細進度。
 
     ![Azure 入口網站中的部署進度通知](./media/tutorial-create-instance/deployment-in-progress.png)
 
+1. 此頁面會載入部署程程序上的更新，包括在您目錄中建立新的資源。
 1. 選取您的資源群組 (例如 myResourceGroup  )，然後從 Azure 資源清單中選擇您的 Azure AD DS 執行個體，例如 contoso.com  。 [概觀]  索引標籤會顯示受控網域目前「正在進行部署」  。 完整佈建之前，您無法設定受控網域。
 
     ![佈建狀態期間的 Domain Services 狀態](./media/tutorial-create-instance/provisioning-in-progress.png)
@@ -168,7 +117,7 @@ Azure AD DS 可讓您同步 Azure AD 中的「所有」  使用者和群組，�
 
     ![成功布建後的 Domain Services 狀態](./media/tutorial-create-instance/successfully-provisioned.png)
 
-在佈建過程中，Azure AD DS 會在您的目錄中建立名為 Domain Controller Services  和 AzureActiveDirectoryDomainControllerServices  的兩個企業應用程式。 處理受控網域時需要這些企業應用程式。 這些應用程式絕對不能刪除。
+我們會在 Azure Active Directory 租用戶上佈建 Azure AD Domain Services，並在相關聯的 Azure 訂用帳戶內建立服務的 Azure AD Domain Services 資源。 在佈建過程中，Azure AD DS 會在您啟用 Azure AD 網域服務的 Azure Active 目錄執行個體中建立名為 Domain Controller Services  和 AzureActiveDirectoryDomainControllerServices  的兩個企業應用程式。 處理受控網域時需要這些企業應用程式。  這些應用程式絕對不能刪除。
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>更新 Azure 虛擬網路的 DNS 設定
 
@@ -219,17 +168,18 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 設定受控網域的 DNS 和虛擬網路設定
+> * 了解受控網域的 DNS 需求
 > * 建立 Azure AD DS 執行個體
 > * 將系統管理使用者新增至網域管理
 > * 啟用 Azure AD DS 的使用者帳戶並產生密碼雜湊
 
-若要查看此作用中的受控網域，請建立虛擬機器並將其加入網域。
+在您將 VM 加入網域並部署使用 Azure AD DS 受控網域的應用程式之前，請先設定適用於應用程式工作負載的 Azure 虛擬網路。
 
 > [!div class="nextstepaction"]
-> [將 Windows Server 虛擬機器加入受控網域](join-windows-vm.md)
+> [設定適用於應用程式工作負載的 Azure 虛擬網路來使用您的受控網域](tutorial-configure-networking.md)
 
 <!-- INTERNAL LINKS -->
+[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [network-considerations]: network-considerations.md

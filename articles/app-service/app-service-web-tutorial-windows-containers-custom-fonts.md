@@ -10,15 +10,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 10/22/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071508"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787321"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>使用 Windows 容器將 ASP.NET 應用程式移轉至 Azure App Service (預覽)
 
@@ -90,6 +90,10 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 您可以在 **CustomFontSample** 專案中找到 _InstallFont.ps1_。 它是用於安裝字型的簡單指令碼。 您可以在 [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133) 找到較複雜版本的指令碼。
 
+> [!NOTE]
+> 若要在本機測試 Windows 容器，請確定已在您的本機電腦上啟動 Docker。
+>
+
 ## <a name="publish-to-azure-container-registry"></a>發佈至 Azure Container Registry
 
 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 可儲存映像以用於容器部署。 您可以設定 App Service 使用 Azure Container Registry 中裝載的映像。
@@ -135,27 +139,34 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 從左側功能表，選取 [建立資源]   > [網路]   > [用於容器的 Web App]  。
 
-### <a name="configure-the-new-web-app"></a>設定新的 Web 應用程式
+### <a name="configure-app-basics"></a>設定應用程式基本功能
 
-在建立介面中，依據下表進行設定：
+在 [基本]  索引標籤中，根據下表進行設定，然後按 **[下一步：Docker]** 。
 
 | 設定  | 建議的值 | 取得詳細資訊 |
 | ----------------- | ------------ | ----|
-|**應用程式名稱**| 輸入唯一名稱。 | Web 應用程式的 URL 是 `http://<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的應用程式名稱。 |
-|**資源群組**| 選取 [使用現有的項目]  ，然後輸入 **myResourceGroup**。 |  |
-|**作業系統**| Windows (預覽) | |
+|**訂用帳戶**| 請確定已選取正確的訂用帳戶。 |  |
+|**資源群組**| 選取 [新建]  ，輸入 **myResourceGroup**，然後按一下 [確定]  。 |  |
+|**名稱**| 輸入唯一名稱。 | Web 應用程式的 URL 是 `http://<app-name>.azurewebsites.net`，其中 `<app-name>` 是您的應用程式名稱。 |
+|**Publish**| Docker 容器 | |
+|**作業系統**| Windows | |
+|**區域**| 西歐 | |
+|**Windows 方案**| 選取 [新建]  ，輸入 **myAppServicePlan**，然後按一下 [確定]  。 | |
 
-### <a name="configure-app-service-plan"></a>設定 App Service 方案
+您的 [基本]  索引標籤應該會顯示如下：
 
-按一下 [App Service 方案/位置]   > [新建]  。 指定新方案的名稱，選取 [西歐]  作為位置，然後按一下 [確定]  。
+![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-service-plan.png)
+### <a name="configure-windows-container"></a>設定 Windows 容器
 
-### <a name="configure-container"></a>設定容器
+在 [Docker]  索引標籤中，依照下表中的說明設定您的自訂 Windows 容器，然後選取 [檢閱 + 建立]  。
 
-按一下 [設定容器]   > [Azure Container Registry]  。 選取您稍早在[發佈至 Azure Container Registry](#publish-to-azure-container-registry) 中建立的登錄、映像與標記，然後按一下 [確定]  。
-
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
+| 設定  | 建議的值 |
+| ----------------- | ------------ |
+|**映像來源**| Azure 容器登錄 |
+|**登錄**| 選取[您先前建立的登錄](#publish-to-azure-container-registry)。 |
+|**映像**| customfontsample |
+|**Tag**| 最新 |
 
 ### <a name="complete-app-creation"></a>完成應用程式建立作業
 
@@ -183,9 +194,9 @@ Azure 作業完成時，會顯示通知方塊。
 
 ## <a name="see-container-start-up-logs"></a>檢視容器啟動記錄
 
-Windows 容器載入可能需要一些時間。 若要查看進度，請將 *\<app_name>* 取代為您的應用程式名稱，以瀏覽至下列 URL。
+Windows 容器載入可能需要一些時間。 若要查看進度，請將 *\<app-name>* 取代為您的應用程式名稱，以瀏覽至下列 URL。
 ```
-https://<app_name>.scm.azurewebsites.net/api/logstream
+https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
 
 串流處理的記錄會如下所示：

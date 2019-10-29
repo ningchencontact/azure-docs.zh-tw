@@ -3,15 +3,15 @@ title: Azure Resource Graph 概觀
 description: 了解 Azure Resource Graph 服務如何能夠大規模進行複雜的資源查詢。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/06/2019
+ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976808"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755877"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -34,7 +34,7 @@ Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢指定�
 
 Azure Resource Manager 目前支援查詢基本資源欄位 (尤其是資源名稱、識別碼、類型、資源群組、訂用帳戶及位置)。 Resource Manager 也提供呼叫個別資源提供者的功能，可一次取得一個資源的詳細屬性。
 
-使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是]  的部分。 另一種查看所支援資源類型的方法是透過 [Azure Resource Graph Explorer 結構描述瀏覽器](./first-query-portal.md#schema-browser)。
+使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是]  的部分。 其他資源類型列在相關的 [Resource Graph 資料表](./concepts/query-language.md#resource-graph-tables)中。 另一種查看所支援資源類型的方法是透過 [Azure Resource Graph Explorer 結構描述瀏覽器](./first-query-portal.md#schema-browser)。
 
 透過 Azure Resource Graph，您可以：
 
@@ -45,6 +45,9 @@ Azure Resource Manager 目前支援查詢基本資源欄位 (尤其是資源名�
 
 更新 Azure 資源時，Resource Manager 會向 Resource Graph 通知變更。
 Resource Graph 接著會更新其資料庫。 Resource Graph 也會執行標準的「完整掃描」  。 此掃描可確保 Resource Graph 能在使用者錯過通知，或是有資源在 Resource Manager 範圍外被更新的情況下保持在最新狀態。
+
+> [!NOTE]
+> Resource Graph 會對每個資源提供者的最新非預覽版 API 使用 `GET`，以收集屬性和值。 因此，預期的屬性可能無法使用。 在某些情況下，所使用的 API 版本會遭到覆寫，以在結果中提供更新或更廣泛使用的屬性。 請參閱[顯示每個資源類型的 API 版本](./samples/advanced.md#apiversion)範例，了解您環境中的完整清單。
 
 ## <a name="the-query-language"></a>查詢語言
 

@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433312"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592317"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -30,12 +30,10 @@ Azure Spring Cloud 可藉由整合 Azure 監視器、Application Insights 和 Lo
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Azure Spring Cloud 提供哪些服務方案？
 
-Azure Spring Cloud 會在預覽期間提供一個服務方案。
+Azure Spring Cloud 會在預覽期間提供一個服務方案。  Spring Cloud 部署包含 16 個 vCPU 核心和 32GB 的記憶體。  部署中每個微服務執行個體的上限是 4 個 vCPU 核心和 8GB 的記憶體。
 
 資源 | Amount
 ------- | -------
-vCPU | 4
-記憶體 | 8 GB
 應用程式執行個體 (每個 Spring 應用程式) | 20
 總應用程式執行個體 (每個 Azure Spring Cloud 服務執行個體) | 50*
 Azure Spring Cloud 服務執行個體 (每個訂用帳戶在每個區域) | 2*

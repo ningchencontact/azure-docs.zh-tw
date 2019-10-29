@@ -1,20 +1,20 @@
 ---
 title: 快速入門：將 Node.js MongoDB 應用程式連線至 Azure Cosmos DB
 description: 本快速入門示範如何將以 Node.js 撰寫的現有 MongoDB 應用程式連線到 Azure Cosmos DB。
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2a689f7c3ac1308e12d0e371a9ad7f7187417d6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327300"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792184"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入門：將現有的 MongoDB Node.js Web 應用程式遷移至 Azure Cosmos DB 
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的新資料夾。
@@ -179,10 +179,10 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>擷取金鑰
 
-若要連線至 Cosmos 資料庫，您需要資料庫金鑰。 使用 [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) 命令來擷取主要金鑰。
+若要連線至 Cosmos 資料庫，您需要資料庫金鑰。 使用 [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) 命令來擷取主要金鑰。
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
 Azure CLI 會輸出類似下列範例的資訊。 

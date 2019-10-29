@@ -1,5 +1,5 @@
 ---
-title: 建立及發佈 Azure 受服務類別目錄管理的應用程式 | Microsoft Docs
+title: 發行 Azure 服務目錄受控應用程式
 description: 示範如何建立 Azure 受控應用程式，以供組織成員使用。
 services: managed-applications
 author: tfitzmac
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d28a9d330dd001e3fdc05e37f7bbcdd2db7ee6e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224550"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529009"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>建立及發佈受控應用程式定義
 

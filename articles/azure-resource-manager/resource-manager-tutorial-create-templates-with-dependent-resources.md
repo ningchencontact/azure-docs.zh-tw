@@ -1,5 +1,5 @@
 ---
-title: 使用相依資源建立 Azure Resource Manager 範本 | Microsoft Docs
+title: 具有相依資源的 Azure Resource Manager 範本
 description: 了解如何使用多項資源建立 Azure Resource Manager 範本，以及如何使用 Azure 入口網站加以部署
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 486a13db9cf18cb44a063d37dde4a657f6dc625c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0eb4b29ffb8ae0269dbc7efd7e9ef6b720188bce
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103661"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533498"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本中使用的 Cloud Shell 部署方法
 
@@ -53,14 +53,14 @@ ms.locfileid: "62103661"
 
 Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本教學課程中使用的範本名為[部署簡單的 Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)。
 
-1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
-2. 在 [檔案名稱] 中，貼上下列 URL：
+1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
+2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. 選取 [開啟] 以開啟檔案。
-4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+3. 選取 [開啟]  以開啟檔案。
+4. 選取 [檔案]  >[另存新檔]  ，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="explore-the-template"></a>瀏覽範本
 
@@ -119,8 +119,8 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 有許多方法可用來部署範本。  在本教學課程中，您會從 Azure 入口網站使用 Cloud Shell。
 
 1. 登入 [Cloud Shell](https://shell.azure.com)。 
-2. 從 Cloud Shell 的左上角選取 [PowerShell]，然後選取 [確認]。  在本教學課程中您會使用 PowerShell。
-3. 從 Cloud Shell 中選取 [上傳檔案]：
+2. 從 Cloud Shell 的左上角選取 [PowerShell]  ，然後選取 [確認]  。  在本教學課程中您會使用 PowerShell。
+3. 從 Cloud Shell 中選取 [上傳檔案]  ：
 
     ![Azure 入口網站的 Cloud Shell 上傳檔案](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. 選取您先前在本教學課程中儲存的範本。 預設名稱為 **azuredeploy.json**。  如果有檔案具有相同的檔案名稱，將會直接覆寫舊檔案而不另行通知。
@@ -160,10 +160,10 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 在 [依名稱篩選]  欄位中輸入資源群組名稱。
 3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
-4. 從頂端功能表中選取 [刪除資源群組]。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

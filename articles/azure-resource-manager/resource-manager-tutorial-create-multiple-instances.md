@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 建立多個資源執行個體 | Microsoft Docs
+title: 建立多個資源執行個體 - Azure Resource Manager
 description: 了解如何建立 Azure Resource Manager 範本以建立多個 Azure 資源執行個體。
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf2559b280a1c43269c0cf45d77ee98dcd5ee5a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388761"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528261"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教學課程：使用 Resource Manager 範本建立多個資源執行個體
 
@@ -45,15 +45,15 @@ ms.locfileid: "60388761"
 
 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
-1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
-2. 在 [檔案名稱] 中，貼上下列 URL：
+1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
+2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. 選取 [開啟] 以開啟檔案。
+3. 選取 [開啟]  以開啟檔案。
 4. 範本中有已定義的 'Microsoft.Storage/storageAccounts' 資源。 將範本與[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)相比較。 自訂範本之前，最好能初步了解範本。
-5. 選取 [檔案]>[另存新檔]，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
+5. 選取 [檔案]  >[另存新檔]  ，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
 
 ## <a name="edit-the-template"></a>編輯範本
 
@@ -64,7 +64,7 @@ ms.locfileid: "60388761"
 ![Azure Resource Manager 建立多個執行個體](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. 新增 `copy` 元素到儲存體帳戶資源定義。 在複製元素中，您可以指定反覆運算次數以及此迴圈的變數。 計數值必須為不超過 800 的正整數。
-2. `copyIndex()` 函式會傳回迴圈中的目前反覆項目。 您可以使用索引作為名稱前置詞。 `copyIndex()`是以零為基礎。 若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 例如，*copyIndex(1)*。
+2. `copyIndex()` 函式會傳回迴圈中的目前反覆項目。 您可以使用索引作為名稱前置詞。 `copyIndex()`是以零為基礎。 若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 例如，*copyIndex(1)* 。
 3. 刪除 **variables** 元素，因為已不再使用它。
 4. 刪除 **outputs** 元素。 已不再需要此項目。
 
@@ -148,10 +148,10 @@ Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 在 [依名稱篩選]  欄位中輸入資源群組名稱。
 3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
-4. 從頂端功能表中選取 [刪除資源群組]。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

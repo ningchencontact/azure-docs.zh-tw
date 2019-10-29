@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: fb57d69b4969bcbf66717a8ca29ede23f2ed8e43
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 30ffcd9bdb8170777c245d95b0c07198a34c5464
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429110"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72556093"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>快速入門：使用 Azure CLI 和事件方格將自訂事件路由傳送至 Web 端點
 
@@ -27,7 +27,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 當您完成時，您會看到事件資料已傳送至 Web 應用程式。
 
-![使用 Azure 事件方格檢視器來確認是否已傳送事件資料](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
+![在 Azure 事件方格檢視器中查看結果](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -98,7 +98,8 @@ az eventgrid event-subscription create \
 
 再次檢視 Web 應用程式，並注意訂用帳戶的驗證事件已傳送給它。 選取眼睛圖示來展開事件資料。 Event Grid 會傳送驗證事件，以便端點確認它要接收事件資料。 Web 應用程式包含用來驗證訂用帳戶的程式碼。
 
-![在 Azure 事件方格檢視器中檢視訂用帳戶驗證碼](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
+![在 Azure 事件方格檢視器中檢視訂用帳戶事件](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+
 
 ## <a name="send-an-event-to-your-custom-topic"></a>將事件傳送至自訂主題
 

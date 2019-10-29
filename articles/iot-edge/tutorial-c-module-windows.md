@@ -9,18 +9,18 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b69000e251bb71bc08ea97b24a7422daf2cd89e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813824"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529251"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C IoT Edge 模組
 
 使用 Visual Studio 開發 C 程式碼，並將其部署到執行 Azure IoT Edge 的 Windows 裝置。 
 
-您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 在本教學課程中，您了解如何：    
+您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 在本教學課程中，您會了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio 建立以 C SDK 為基礎的 IoT Edge 模組。
@@ -92,7 +92,7 @@ ms.locfileid: "70813824"
 
    ![針對目標裝置、模組類型和容器登錄設定您的專案](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. 選取 [確定]  以套用變更。 
+5. 選取 [新增]  以建立專案。 
 
 ### <a name="add-your-registry-credentials"></a>新增登錄認證
 

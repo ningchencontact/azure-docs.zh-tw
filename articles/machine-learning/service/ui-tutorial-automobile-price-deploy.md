@@ -1,125 +1,121 @@
 ---
 title: 教學課程：透過視覺化介面部署機器學習模型
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure Machine Learning 的視覺化介面中建置預測性分析解決方案。 使用拖放模組進行機器學習模型的定型、評分和部署。 本教學課程是使用線性迴歸預測汽車價格相關系列的第二部分 (共兩個部分)。
+description: 了解如何在 Azure Machine Learning 視覺化介面中建置預測性分析解決方案。 使用拖放模組進行機器學習模型的定型、評分和部署。
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 10/22/2019
+ms.openlocfilehash: 6f8717f70a2cb03a7fd683cfe61f1198461f4305
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128974"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792667"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>教學課程：透過視覺化介面部署機器學習模型
 
-為了讓其他人有機會使用[教學課程第一部分](ui-tutorial-automobile-price-train-score.md)中開發的預測模型，您可以將其部署為 Azure Web 服務。 截至目前為止，您一直在試驗如何定型模型。 現在，是時候根據使用者輸入來產生新預測了。 在教學課程的這個部分中，您將：
+為了讓其他人有機會使用[教學課程第一部分](ui-tutorial-automobile-price-train-score.md)中開發的預測模型，您可以將其部署為即時端點。 在第一部分中，您已將模型定型。 現在，是時候根據使用者輸入來產生新預測了。 在教學課程的這個部分中，您將：
 
 > [!div class="checklist"]
-> * 準備模型進行部署
-> * 部署 Web 服務
-> * 測試 Web 服務
-> * 管理 Web 服務
-> * 取用 Web 服務
+> * 部署即時端點
+> * 建立推斷叢集
+> * 測試即時端點
 
 ## <a name="prerequisites"></a>必要條件
 
 完成[教學課程的第一個部分](ui-tutorial-automobile-price-train-score.md)，了解如何在視覺化介面中定型和評分機器學習模型。
 
-## <a name="prepare-for-deployment"></a>準備部署
+## <a name="deploy-a-real-time-endpoint"></a>部署即時端點
 
-將實驗部署為 Web 服務之前，您必須先將「訓練實驗」  轉換成「預測實驗」  。
+若要部署管線，您必須：
 
-1. 請選取實驗畫布底端的 [建立預測實驗]  *。
+1. 將訓練管線轉換成即時推斷管線，這會移除訓練模組，並新增推斷要求的輸入和輸出。
+1. 部署推斷管線。
 
-    ![示範訓練實驗如何自動轉換為預測實驗的 gif 動畫](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+### <a name="create-a-real-time-inference-pipeline"></a>建立即時推斷管線
 
-    當您選取 [建立預測實驗]  時，有幾件事會發生：
+1. 在管線畫布頂端，選取 [建立推斷管線]   > [即時推斷管線] 
+
+    當您選取 [建立推斷管線]  時，會發生若干情況：
     
-    * 定型的模型會儲存為模組選擇區中**定型模型**模組。 您可以在**定型模型**下找到此項目。
-    * 用於定型的模組已遭到移除，尤其是：
-      * 定型模型
-      * 分割資料
-      * 評估模型
-    * 儲存的定型模型會加回實驗中。
-    * 將會新增 **Web 服務輸入**和 **Web 服務輸出**模組。 這些模組會識別使用者資料將在何處輸入模型，以及資料會傳回何處。
+    * 定型的模型會儲存為模組選擇區中的**資料集**模組。 您可以在 [我的資料集]  下方找到該項目。
+    * 用於定型的模組 (例如**訓練模型**和**分割資料**) 會被移除。
+    * 儲存的定型模型會加回管線中。
+    * 會新增 **Web 服務輸入**和 **Web 服務輸出**模組。 這些模組會識別使用者資料將在何處輸入模型，以及資料會傳回何處。
 
-    **訓練實驗**仍儲存在實驗畫布頂端的新索引標籤下。
+    > [!Note]
+    > **訓練管線**會儲存在管線畫布頂端的新索引標籤下。 它也會在視覺化介面中呈現為已發佈的管線。
+    >
 
-1. **執行** 實驗。
+    您的管線此時應會顯示如下：  
 
-1. 請選取 [評分模型]  模組的輸出，並選取 [檢視結果]  來確認模型仍然有效。 您可以看到原始資料顯示，以及預測的價格 (「評分標籤」)。
+   ![此螢幕擷取畫面顯示管線在做好部署準備後的預期組態](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-實驗現在看起來如下：  
+1. 選取 [執行]  ，並使用您在第一部分中使用的相同計算目標和實驗。
 
-![實驗在準備好進行部署之後的預期組態螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+1. 選取**評分模型**模組。
 
-## <a name="deploy-the-web-service"></a>部署 Web 服務
+1. 在 [屬性] 窗格中選取 [輸出]   > [視覺化]  ，以確認模型仍在運作中。 您可以看到原始資料顯示，以及預測的價格 (「評分標籤」)。
 
-1. 在畫布下方選取 [部署 Web 服務]  。
+1. 選取 [部署]  。
 
-1. 選取要執行您 Web 服務的**計算目標**。
+### <a name="create-an-inferencing-cluster"></a>建立推斷叢集
 
-    目前，視覺化介面僅支援對 Azure Kubernetes Service (AKS) 計算目標進行部署。 您可以在機器學習服務工作區中選擇可用的 AKS 計算目標，或是使用所顯示對話方塊中的步驟來設定新的 AKS 環境。
+在出現的對話方塊中，您可以從工作區中現有的 Azure Kubernetes Service (AKS) 叢集進行選取，以部署您的模型。 如果您沒有 AKS 叢集，請使用下列步驟建立一個。
 
-    ![顯示新計算目標可能組態的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
+1. 在對話方塊中選取 [計算]  ，以瀏覽至 [計算]  頁面。
 
-1. 選取 [部署 Web 服務]  。 部署完成時，您會看到下列通知。 部署可能需要幾分鐘的時間。
+1. 在導覽功能區中，選取 [推斷叢集]   > [+ 新增]  。
 
-    ![顯示部署成功確認訊息的螢幕擷取畫面。](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
+    ![顯示如何瀏覽至 [新增推斷叢集] 窗格的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
-## <a name="test-the-web-service"></a>測試 Web 服務
+1. 在推斷叢集窗格中，設定新的 Kubernetes 服務。
 
-您可以藉由流覽至 [Web 服務]  索引標籤，來測試和管理您視覺化介面的 Web 服務。
+1. 輸入 "aks-compute" 作為**計算名稱**。
+    
+1. 選取附近可用的**區域**。
 
-1. 移至 Web 服務區段。 您會看到您部署的 Web 服務，其名稱為**教學課程 - 預測汽車價格 [預測實驗]** 。
+1. 選取 [建立]  。
 
-     ![醒目提示最近所建立 Web 服務的 Web 服務所引標籤螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    > [!Note]
+    > 建立新的 AKS 服務需要約 15 分鐘。 您可以在 [推斷叢集]  頁面上查看佈建狀態
+    >
 
-1. 選取 Web 服務名稱以檢視其他詳細資料。
+### <a name="deploy-the-real-time-endpoint"></a>部署即時端點
+
+在您的 AKS 服務完成佈建後，請回到即時推斷管線以完成部署。
+
+1. 選取畫布上方的 [部署]  。
+
+1. 選取 [部署新的即時端點]  。 
+
+1. 選取您建立的 AKS 叢集。
+
+1. 選取 [部署]  。
+
+    ![顯示如何設定新即時端點的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+
+    當部署完成時，畫布上方會出現成功通知，這可能需要幾分鐘的時間。
+
+## <a name="test-the-real-time-endpoint"></a>測試即時端點
+
+您可以在左側的工作區導覽窗格中瀏覽至 [端點]  頁面，以測試您的即時端點。
+
+1. 在 [端點]  頁面上，選取您部署的端點。
+
+    ![顯示即時端點索引標籤的螢幕擷取畫面，其中醒目提示了最近建立的端點](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
 1. 選取 [測試]  。
 
-    [![顯示 Web 服務測試頁面的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
-
 1. 輸入測試資料或使用自動填入的範例資料，然後選取 [測試]  。
 
-    測試要求會傳送至 Web 服務，而結果會顯示在頁面上。 雖然對輸入資料會產生價格值，但該值並不會用來產生預測值。
+    測試要求會提交至端點，而結果會顯示在頁面上。 雖然對輸入資料會產生價格值，但該值並不會用來產生預測值。
 
-## <a name="consume-the-web-service"></a>取用 Web 服務
-
-使用者現在可以將 API 要求傳送至您的 Azure Web 服務並接收結果，藉此預測新汽車的價格。
-
-**要求/回應** - 使用者可以使用 HTTP 通訊協定，將一列或多列汽車資料傳送至服務。 服務會回應一組或多組結果。
-
-您可以在 Web 服務詳細資料頁面的 [取用]  索引標籤中，找到 REST 呼叫範例。
-
-   ![使用者可以在 [取用] 索引標籤中找到的 REST 呼叫範例螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-service-consume.png)
-
-瀏覽至 [API 文件]  索引標籤，以尋找更多 API 詳細資料。
-
-## <a name="manage-models-and-deployments"></a>管理模型和部署
-
-您也可以透過 Azure Machine Learning 工作區來管理在視覺化介面中建立的模型和 Web 服務部署。
-
-1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。  
-
-1. 在您的工作區中，選取 [模型]  。 然後選取您建立的實驗。
-
-    ![示範如何在 Azure 入口網站中瀏覽至實驗的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
-
-    在此頁面上，您會看到模型的其他詳細資料。
-
-1. 選取 [部署]  ，這會列出使用模型的任何 Web 服務。 選取 Web 服務名稱，即可移至 Web 服務的詳細資料頁面。 在此頁面上，您可以取得更詳細的 Web 服務資訊。
-
-    [![詳細執行報告的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
-
-您也可以在您[工作區登陸頁面 (預覽)](https://ml.azure.com) 的 [Models]  \(模型\) 和 [Endpoints]  \(端點\) 區段中找到這些模型和部署。
+    ![顯示如何測試即時端點的螢幕擷取畫面，其中醒目提示了價格的評分標籤](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -127,7 +123,7 @@ ms.locfileid: "71128974"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解在視覺化介面中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用視覺化介面來解決其他類型的問題，請參閱我們的其他範例實驗。
+在本教學課程中，您已了解在視覺化介面中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用視覺化介面來解決其他類型的問題，請參閱我們的其他範例管線。
 
 > [!div class="nextstepaction"]
 > [信用風險分類範例](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

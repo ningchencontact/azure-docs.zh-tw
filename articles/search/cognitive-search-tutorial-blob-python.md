@@ -1,24 +1,24 @@
 ---
-title: Python 教學課程：在 AI 擴充管線中呼叫認知服務 - Azure 搜尋服務
-description: 逐步說明在使用 Jupyter Python 筆記本的 Azure 搜尋服務中的資料擷取、自然語言和影像 AI 處理的範例。 擷取的資料會編製索引，而且可透過查詢輕鬆存取。
+title: Python 教學課程：在 AI 擴充管線中呼叫認知服務
+titleSuffix: Azure Cognitive Search
+description: 逐步說明使用 Jupyter Python 筆記本在 Azure 認知搜尋中進行資料擷取、自然語言和影像 AI 處理的範例。 擷取的資料會編製索引，而且可透過查詢輕鬆存取。
 manager: nitinme
 author: LisaLeib
-services: search
-ms.service: search
+ms.author: v-lilei
+ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/04/2019
-ms.author: v-lilei
-ms.openlocfilehash: 606194e28ca4f058a647aeb5224de19e754de078
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.date: 11/04/2019
+ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265729"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790211"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
+# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Python 教學課程：在 Azure 認知搜尋擴充管線中呼叫認知服務 API
 
-在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其結果是，會以索引編製管線中的 AI 擴充資料在 Azure 搜尋服務索引中建立豐富的額外內容。 
+在本教學課程中，您將了解在 Azure 認知搜尋中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其結果是，會以索引編製管線中的 AI 擴充資料在搜尋索引中建立豐富的額外內容。 
 
 在此教學課程中，您將使用 Python 執行下列工作：
 
@@ -29,14 +29,14 @@ ms.locfileid: "71265729"
 > * 執行要求並檢閱結果
 > * 重設索引和索引子以進行進一步開發
 
-Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用其他標準功能來強化索引，例如[同義字](search-synonyms.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[分析器](search-analyzers.md)和[篩選](search-filters.md)。 
+輸出是 Azure 認知搜尋可全文檢索搜尋的索引。 您可以使用其他標準功能來強化索引，例如[同義字](search-synonyms.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[分析器](search-analyzers.md)和[篩選](search-filters.md)。 
 
 本教學課程雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行本教學課程，請使用較小的檔案集，如此才能在限制內完成多次執行。
 
 > [!NOTE]
-> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您需要[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 認知搜尋的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價如 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所描述。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 認知搜尋定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -44,17 +44,17 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 本教學課程會使用下列服務、工具和資料。 
 
-+ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。 確定儲存體帳戶位於和 Azure 搜尋服務相同的區域中。
++ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。 確定儲存體帳戶位於與 Azure 認知搜尋相同的區域中。
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section)，提供 Python 3.x 和 Jupyter Notebook。
 
 + 下載由不同類型小型檔案集組成的[範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。 
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-若要與 Azure 搜尋服務互動，您需要服務 URL 和存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+若要與 Azure 認知搜尋服務互動，您需要服務 URL 和存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -66,7 +66,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 ## <a name="prepare-sample-data"></a>準備範例資料
 
-擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
+擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 認知搜尋索引子](search-indexer-overview.md)支援的資料來源類型。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
 
 1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]  ，然後按一下 [+ 容器]  。
 
@@ -91,7 +91,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 使用 Anaconda Navigator 啟動 Jupyter Notebook，然後建立一個新的 Python 3 筆記本。
 
-## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
+## <a name="connect-to-azure-cognitive-search"></a>連線至 Azue 認知搜尋
 
 在筆記本中，執行此指令碼來載入處理 JSON 和制訂 HTTP 要求所使用的程式庫。
 
@@ -128,7 +128,7 @@ params = {
 
 ## <a name="create-a-data-source"></a>建立資料來源
 
-現在，您的服務和來源檔案皆已備妥，您可以開始組合索引管線的元件。 首先請從資料來源物件開始；此物件會指示 Azure 搜尋服務如何擷取外部來源資料。
+現在，您的服務和來源檔案皆已備妥，您可以開始組合索引管線的元件。 首先請從資料來源物件開始；此物件會向 Azure 認知搜尋指出如何擷取外部來源資料。
 
 在下列指令碼中，將 YOUR-BLOB-RESOURCE-CONNECTION-STRING 預留位置取代為您在上一個步驟中建立之 Blob 的連接字串。 接著，執行該指令碼以建立名為 `cogsrch-py-datasource` 的資料來源。
 
@@ -260,7 +260,7 @@ print(r.status_code)
 
 每個頁面都會套用關鍵片語擷取技能。 藉由將內容設定為 `"document/pages/*"`，將可擴充每個文件/頁面陣列成員 (文件中的每個頁面) 的這項執行。
 
-每項技術會分別對文件的內容執行。 在處理期間，Azure 搜尋服務會萃取每份文件，以讀取不同檔案格式的內容。 在來源檔案中找到的文字會放入 `content` 欄位中，每份文件一個欄位。 因此，請將輸入設定為 `"/document/content"`。
+每項技術會分別對文件的內容執行。 在處理期間，Azure 認知搜尋會萃取每份文件，以讀取不同檔案格式的內容。 在來源檔案中找到的文字會放入 `content` 欄位中，每份文件一個欄位。 因此，請將輸入設定為 `"/document/content"`。
 
 以下顯示技能集的圖形化表示法。
 
@@ -336,7 +336,7 @@ print(r.status_code)
 
 此要求應該會傳回確認成功的狀態碼 201。
 
-若要深入了解如何定義索引，請參閱[建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)。
+若要深入了解如何定義索引，請參閱[建立索引 (Azure 認知搜尋 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)。
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>建立索引子、對應欄位，並執行轉換
 
@@ -431,7 +431,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 在回應中，監視 "lastResult" 中是否有 "status" 和 "endTime" 的值。 定期執行指令碼以檢查狀態。 完成索引子之後，狀態將會設為 "success"、將會指定 "endTime"，而且回應將會包含擴充期間發生的所有錯誤和警告。
 
-![索引子已建立](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "索引子已建立")
+![建立索引子](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "建立索引子")
 
 某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在此教學課程中，警告是無害的。 例如，沒有文字的其中一個 JPEG 檔案將會在此螢幕擷取畫面中顯示警告。
 
@@ -439,7 +439,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 ## <a name="query-your-index"></a>查詢您的索引
 
-索引編製完成後，請執行會傳回個別欄位內容的查詢。 根據預設，Azure 搜尋服務會傳回前 50 項結果。 範例資料很小，因此預設值即足堪使用。 不過，在使用較大的資料集時，您可能需要在查詢字串中加上參數，以傳回較多結果。 如需相關指示，請參閱[如何在 Azure 搜尋服務中對結果分頁](search-pagination-page-layout.md)。
+索引編製完成後，請執行會傳回個別欄位內容的查詢。 根據預設，Azure 認知搜尋會傳回前 50 項結果。 範例資料很小，因此預設值即足堪使用。 不過，在使用較大的資料集時，您可能需要在查詢字串中加上參數，以傳回較多結果。 如需相關指示，請參閱[如何在 Azure 認知搜尋中對結果分頁](search-pagination-page-layout.md)。
 
 在驗證步驟中，您會查詢所有欄位的索引。
 
@@ -467,7 +467,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 結果看起來應該會類似以下的範例。 螢幕擷取畫面只會顯示回應的一部分。
 
-![查詢組織內容的索引](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "查詢要傳回組織內容的索引")
+![查詢組織內容的索引](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "查詢索引以傳回組織的內容")
 
 對其他欄位重複前述步驟：此練習中的內容、語言程式碼、關鍵片語和組織。 您可以透過使用逗號分隔清單的 `$select` 傳回多個欄位。
 
@@ -477,7 +477,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 ## <a name="reset-and-rerun"></a>重設並重新執行
 
-在管線開發的早期實驗階段中，設計反覆項目最實用的方法是從 Azure 搜尋服務中刪除物件，並讓您的程式碼加以重建。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。
+在管線開發的早期實驗階段中若要設計反覆項目，最實用的方法是從 Azure 認知搜尋中刪除物件，並讓您的程式碼加以重建。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。
 
 若要使用新的定義為您的文件重新編製索引：
 
@@ -504,17 +504,17 @@ pprint(json.dumps(r.json(), indent=1))
 
 本教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
 
-[預先定義的技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的方式一起導入。 您也已了解在將管線中的擴充值路由至 Azure 搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
+[內建技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的方式一起導入。 您也已了解在將管線中的擴充值路由至 Azure 認知搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
 
 最後，您了解如何測試結果並重設系統，以進行進一步的反覆運算。 您已了解對索引發出查詢，會傳回由擴充的索引管線建立的輸出。 此版本提供了檢視內部建構 (由系統建立的擴充文件) 的機制。 您也已了解如何檢查索引子狀態，以及在重新執行管線之前必須刪除的物件。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。 假設您將這兩個服務放在相同群組中，刪除資源群組可永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
+在完成教學課程後，最快速的清除方式是刪除包含 Azure 認知搜尋服務和 Azure Blob 服務的資源群組。 假設您將這兩個服務放在相同群組中，刪除資源群組可永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 
 以自訂技能自訂或擴充管線。 建立自訂技能並將其新增至技能集，以便讓您自行撰寫的文字或影像分析上線。
 
 > [!div class="nextstepaction"]
-> [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
+> [範例：建立 AI 擴充的自訂技能](cognitive-search-create-custom-skill-example.md)

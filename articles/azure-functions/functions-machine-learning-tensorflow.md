@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729155"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677900"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教學課程：在 Azure Functions 中使用 Python 和 TensorFlow 來套用機器學習模型
 
@@ -140,7 +140,7 @@ http://localhost:7071/api/classify?name=Azure
 > [!NOTE]
 > 如果您想要使用自訂視覺服務的免費層來建置自己的模型，則可遵循[專案存放庫範例中的指示](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md)。
 
-此模型由 <REPOSITORY_ROOT>/resources/model  資料夾中的兩個檔案組成：model.db  和 labels.txt  。 請將其複製到 classify  函式的資料夾。
+此模型由 <REPOSITORY_ROOT>/resources/model  資料夾中的兩個檔案組成：model.pb  和 labels.txt  。 請將其複製到 classify  函式的資料夾。
 
 #### <a name="linux-and-macos"></a>Linux 和 macOS：
 
@@ -179,7 +179,7 @@ copy ..\resources\predict.py classify
 協助程式庫有一些需要安裝的相依性。 請在編輯器中開啟 start/requirements.txt  ，並在此檔案中新增下列相依性。
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```

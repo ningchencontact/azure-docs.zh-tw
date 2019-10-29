@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383525"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595521"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -98,7 +98,7 @@ Microsoft Azure 媒體服務可用來編碼許多媒體來源檔案格式，並�
 動態封裝支援 MP4 檔案，其包含使用 [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC 或 AVC1) 或 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC、hev1 或 hvc1) 編碼的視訊。
 
 > [!NOTE]
-> 最多可達 4K 的解析度，以及最多每秒 60 個畫面的畫面播放速率，皆已透過動態封裝進行測試。 [進階編碼器](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)支援透過舊版 v2 API 編碼成 H.265。 若您對於此主題有任何問題，請連絡 amshelp@microsoft.com。 
+> 最多可達 4K 的解析度，以及最多每秒 60 個畫面的畫面播放速率，皆已透過動態封裝進行測試。 [進階編碼器](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)支援透過舊版 v2 API 編碼成 H.265。
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>動態封裝支援的音訊轉碼器
 
@@ -124,7 +124,7 @@ Microsoft Azure 媒體服務可用來編碼許多媒體來源檔案格式，並�
 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (此為舊版的轉碼器)。
 
 > [!NOTE]
-> [進階編碼器](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)支援透過舊版 v2 API 編碼成 Dolby Digital Plus。 若您對於此主題有任何問題，請連絡 amshelp@microsoft.com。 
+> [進階編碼器](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)支援透過舊版 v2 API 編碼成 Dolby Digital Plus。 
 
 ## <a name="manifests"></a>資訊清單 
  
@@ -272,6 +272,10 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ## <a name="more-information"></a>詳細資訊
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)，以了解針對媒體服務詢問問題、提供意見反應，以及取得相關更新的不同方式。
+
+## <a name="need-help"></a>需要協助嗎？
+
+您可以藉由瀏覽至[新增支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)來開啟支援票證
 
 ## <a name="next-steps"></a>後續步驟
 

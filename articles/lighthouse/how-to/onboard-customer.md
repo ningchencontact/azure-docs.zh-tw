@@ -4,15 +4,15 @@ description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/30/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: e16747d74df7db0fb2ca2d4e0f07247258a980d7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 882afb83aa2a9bad9633df43b29e00b43162bf87
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299747"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595650"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -195,7 +195,8 @@ az role definition list --name "<roleName>" | grep name
 更新您的參數檔案之後，客戶必須將其客戶租用戶中的資源管理範本部署為訂用帳戶層級部署。 您要上線至 Azure 委派的資源管理的每個訂用帳戶 (或包含您要上線之資源群組的每個訂用帳戶)，都需要個別部署。
 
 > [!IMPORTANT]
-> 部署必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) \(部分機器翻譯\) (或包含要上線的資源群組)。
+> 部署必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) \(部分機器翻譯\) (或包含要上線的資源群組)。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]  ，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
+
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell

@@ -1,22 +1,22 @@
 ---
-title: 快速入門：使用 REST API 在 Postman 中建立搜尋索引 - Azure 搜尋服務
-description: 了解如何使用 Postman 和範例資料與定義呼叫 Azure 搜尋服務 REST API。
+title: 快速入門：使用 REST API 在 Postman 中建立搜尋索引
+titleSuffix: Azure Cognitive Search
+description: 了解如何使用 Postman 和範例資料與定義呼叫 Azure 認知搜尋 REST API。
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: ffa20599ae57908f9b0ea848ab68f41a3d0e2a14
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176044"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792276"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>快速入門：使用 REST API 在 Postman 中建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>快速入門：使用 REST API 在 Postman 中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "72176044"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式之一，就是使用 Postman 或其他 Web 測試工作來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
+要探索 [Azure 認知搜尋 REST API](https://docs.microsoft.com/rest/api/searchservice)，最簡單的方式之一是使用 Postman 或其他 Web 測試工作來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
 
 此文章說明如何以互動方式制訂要求。 或者，您可以[下載並匯入 Postman 集合](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) \(英文\) 以使用預先定義的要求。
 
@@ -35,13 +35,13 @@ ms.locfileid: "72176044"
 
 此快速入門需要下列服務和工具。 
 
-+ [Postman 傳統型應用程式](https://www.getpostman.com/)用來將要求傳送至 Azure 搜尋服務。
++ [Postman 傳統型應用程式](https://www.getpostman.com/)可用來將要求傳送至 Azure 認知搜尋。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -51,9 +51,9 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
-## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
+## <a name="connect-to-azure-cognitive-search"></a>連線至 Azue 認知搜尋
 
-在本節中，您可以使用所選 Web 工具來設定與 Azure 搜尋服務的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
+在本節中，您可以使用選取的 Web 工具來設定 Azure 認知搜尋的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
 
 針對任何一種工具，您都需要選擇命令 (GET、POST 及 PUT等等) 和提供 URL 端點，並且針對某些工作，在要求本文中提供 JSON。 使用有效值取代搜尋服務名稱 (YOUR-SEARCH-SERVICE-NAME)。 新增 `$select=name` 以僅傳回每個索引的名稱。 
 
@@ -61,18 +61,18 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 您會看到 HTTPS 前置詞、服務名稱、物件名稱 (此案例使用索引集合) 和 [API 版本](search-api-versions.md)。 API 版本是針對目前版本指定的必要小寫字串，例如 `?api-version=2019-05-06`。 API 版本會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
 
-要求標頭組合包含兩個元素：內容類型及用來對 Azure 搜尋服務進行驗證的 API 金鑰。 使用有效值取代系統管理員 API 金鑰 (YOUR-AZURE-SEARCH-ADMIN-API-KEY)。 
+要求標頭組合包含兩個元素：內容類型，以及用來對 Azure 認知搜尋進行驗證的 API 金鑰。 使用有效值取代系統管理員 API 金鑰 (YOUR-AZURE-SEARCH-ADMIN-API-KEY)。 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-在 Postman 中，可制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞、提供 URL，然後按一下 [傳送]  。 此命令會連線至 Azure 搜尋服務、讀取索引集合，並在連線成功時傳回 HTTP 狀態碼 200。 如果您的服務已有索引，回應也會包含索引定義。
+在 Postman 中，可制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞、提供 URL，然後按一下 [傳送]  。 此命令會連線至 Azure 認知搜尋、讀取索引集合，並在連線成功時傳回 HTTP 狀態碼 200。 如果您的服務已有索引，回應也會包含索引定義。
 
-![Postman 要求 URL 與標頭](media/search-get-started-postman/postman-url.png "Postman 要求 URL 與標頭")
+![Postman 要求 URL 和標頭](media/search-get-started-postman/postman-url.png "Postman 要求 URL 和標頭")
 
 ## <a name="1---create-an-index"></a>1 - 建立索引
 
-在 Azure 搜尋服務中，您通常會先建立索引，然後再載入資料。 這項工作會使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。 
+在 Azure 認知搜尋中，您通常會先建立索引，然後再載入資料。 這項工作會使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。 
 
 我們已延長 URL 來加入 `hotels` 索引名稱。
 
@@ -86,7 +86,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 4. 按一下 [ **傳送**]。
 
-![要求本文中的索引 JSON 文件](media/search-get-started-postman/postman-request.png "要求本文中的索引 JSON 文件")
+![為要求本文中的 JSON 文件編製索引](media/search-get-started-postman/postman-request.png "為要求本文中的 JSON 文件編製索引")
 
 ### <a name="index-definition"></a>索引定義
 
@@ -126,7 +126,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="2---load-documents"></a>2 - 載入文件
 
-建立索引和填入索引是個別的步驟。 在 Azure 搜尋服務中，索引會包含所有可搜尋的資料，您可以提供來作為 JSON 文件。 這項工作會使用[新增、更新或刪除文件 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。 
+建立索引和填入索引是個別的步驟。 在 Azure 認知搜尋中，索引會包含所有可搜尋的資料，而您可以將其提供作為 JSON 文件。 這項工作會使用[新增、更新或刪除文件 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。 
 
 我們已延長 URL 來加入 `docs` 集合和 `index` 作業。
 
@@ -301,4 +301,4 @@ https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/
 現在您已了解如何執行核心工作，接下來可以繼續進行其他的 REST API 呼叫以取得更進階的功能，例如索引子或[設定認知搜尋管線](cognitive-search-tutorial-blob.md)。 對於您的下一個步驟，建議您參閱下列連結：
 
 > [!div class="nextstepaction"]
-> [REST 教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引](search-semi-structured-data.md)
+> [REST 教學課程：在 Azure 認知搜尋中為半結構化資料 (JSON Blob) 編製索引及加以搜尋](search-semi-structured-data.md)

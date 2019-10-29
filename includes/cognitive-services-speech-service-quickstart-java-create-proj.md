@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: d6ee5f432321753b9a09749ccf45c9a5bda5300d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 89db2c9e1cac7337b0f3bcd9fdf733e8db410d02
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802481"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675533"
 ---
 1. 啟動 Eclipse。
 
@@ -17,7 +17,7 @@ ms.locfileid: "71802481"
 
    ![Eclipse Launcher 的螢幕擷取畫面](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. 不久之後，Eclipse IDE 的主要視窗隨即出現。 如果出現 [歡迎使用] 畫面，請加以關閉。
+1. 不久之後，Eclipse IDE 的主要視窗隨即出現。 如果出現 [歡迎使用]  畫面，請加以關閉。
 
 1. 從 Eclipse 功能表列中，選擇 [檔案]   > [新增]   > [專案]  以建立新專案。
 
@@ -25,7 +25,7 @@ ms.locfileid: "71802481"
 
    ![已醒目提示 [Java 專案] 的 [新增專案] 對話方塊螢幕擷取畫面](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. [新增 Java 專案] 精靈隨即啟動。 在 [專案名稱]  欄位中，輸入 **quickstart**，然後選擇 [JavaSE-1.8]  作為執行環境。 選取 [完成]  。
+1. [新增 Java 專案]  精靈隨即啟動。 在 [專案名稱]  欄位中，輸入 **quickstart**，然後選擇 [JavaSE-1.8]  作為執行環境。 選取 [完成]  。
 
    ![[新增 Java 專案] 精靈的螢幕擷取畫面](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 
@@ -35,18 +35,18 @@ ms.locfileid: "71802481"
 
    ![套件總管的螢幕擷取畫面](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. [建立新的 POM]  視窗隨即出現。 在 [群組識別碼]  欄位中輸入 **com.microsoft.cognitiveservices.speech.samples**，並且在 [成品識別碼]  欄位中輸入 **quickstart**。 然後選取 [完成]  。
+1. [建立新的 POM]  視窗隨即出現。 在 [群組識別碼]  欄位中輸入 *com.microsoft.cognitiveservices.speech.samples*，並且在 [成品識別碼]  欄位中輸入 *quickstart*。 然後選取 [完成]  。
 
    ![建立新的 POM 的螢幕擷取畫面](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
-1. 開啟 **pom.xml** 檔案並加以編輯。
+1. 開啟 *pom.xml* 檔案並加以編輯。
 
    * 在檔案結尾的 `</project>` 結尾標記之前，建立 `repositories` 元素並讓其參考語音 SDK 的 Maven 存放庫，如下所示：
 
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+     [!code-xml[POM repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
    * 此外，新增以語音 SDK 1.7.0 版作為相依性的 `dependencies` 元素：
 
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+     [!code-xml[POM dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
    * 儲存變更。
