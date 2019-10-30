@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 6c7d94761e4c5d5087dc8ac4e10854989a18f0fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992102"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024928"
 ---
 # <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>使用適用于 Azure 串流分析作業的 .NET 還原序列化程式
 
@@ -40,7 +40,7 @@ Skippable 錯誤應使用透過 `UserDefinedOperator`的 Initialize 方法傳遞
 
 1. T 是類別或結構。
 1. T 中的所有公用欄位都是
-    1. 其中一個 [long、DateTime、string、double] 或其可為 null 的對應專案。
+    1. 其中一個 [sbyte、byte、short、ushort、int、uint、long、DateTime、string、float、double] 或其可為 null 的對應專案。
     1. 遵循相同規則的另一個結構或類別。
     1. 遵循相同規則之 `T2` 類型的陣列。
     1. IList`T2`，其中 T2 遵循相同的規則。
@@ -226,12 +226,12 @@ namespace ExampleCustomCode.Serialization
 
 這項功能會在下欄區域內上市：
 
-* 西歐
-* 美國東部
-* 北歐
-* 美國西部
-* 美國東部 2
-* 美國中西部
+* 美國中西部（可用）
+* 北歐（可用）
+* 美國東部（提供）
+* 美國西部（即將推出）
+* 美國東部2（即將推出）
+* 西歐（即將推出）
 
 您可以[要求](https://aka.ms/ccodereqregion)其他區域的支援。
 
@@ -244,10 +244,6 @@ namespace ExampleCustomCode.Serialization
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>我可以從類似 GetMetadataPropertyValue 函數的輸入存取 MetadataPropertyValue 嗎？
 
 不支援這種功能。 如果您需要這項功能，您可以在[UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)上為此要求投票。
-
-### <a name="streamdeserializer-deserializes-a-stream-into-object-of-type-t-can-the-public-fields-in-t-be-any-supported-type-in-net"></a>StreamDeserializer 會將資料流程還原序列化為 T 類型的物件。在 .NET 中的公用欄位是否可以是任何支援的型別？
-
-在藍圖中，支援 .NET 中所有支援的類型。
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>我可以與該社區分享我的還原序列化程式，讓其他人可以受益嗎？
 

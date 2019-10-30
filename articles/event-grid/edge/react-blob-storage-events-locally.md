@@ -9,18 +9,15 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d61dc9d49053cb8a125362ac492f354fb64b79a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992167"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043174"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>教學課程：回應 IoT Edge 上的 Blob 儲存體事件（預覽）
-
-本文說明如何使用事件方格，在 IoT Edge 上以本機方式回應 Blob 建立和 Blob 刪除事件。
-
-常見的 Blob 儲存體事件案例包括映像或影片處理、搜尋索引，或任何檔案導向的工作流程。 非同步檔案上傳非常適合事件。 在變更不常見但情況需要立即回應的情況下，以事件為基礎的架構可能特別有效。
+本文說明如何在 IoT 模組上部署 Azure Blob 儲存體，其可做為事件方格發行者，以便在建立 Blob 時傳送事件以及將 Blob 刪除到事件方格。  
 
 如需 IoT Edge 上 Azure Blob 儲存體的總覽，請參閱[IoT Edge 上的 Azure Blob 儲存體](../../iot-edge/how-to-store-data-blob.md)及其功能。
 
@@ -332,29 +329,29 @@ ms.locfileid: "72992167"
 
 以下是支援的事件屬性及其類型和描述的清單。 
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | Type | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| subject | 字串 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| id | 字串 | 事件的唯一識別碼。 |
-| data | 物件 | blob 儲存體帳戶。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 會提供此值。 |
+| subject | string | 發行者定義事件主體的路徑。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| id | string | 事件的唯一識別碼。 |
+| data | object | blob 儲存體帳戶。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 會提供此值。 |
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | Type | 描述 |
 | -------- | ---- | ----------- |
-| api | 字串 | 觸發事件的作業。 它可以是下列其中一個值： <ul><li>Microsoft.storage.blobcreated-允許的值包括： `PutBlob` 和 `PutBlockList`</li><li>BlobDeleted-允許的值為 `DeleteBlob`、`DeleteAfterUpload` 和 `AutoDelete`。 <p>當自動刪除 blob 時，會產生 `DeleteAfterUpload` 事件，因為 deleteAfterUpload desired 屬性會設定為 true。 </p><p>當 blob 因為 deleteAfterMinutes 所需的屬性值過期而自動刪除時，就會產生 `AutoDelete` 事件。</p></li></ul>|
-| clientRequestId | 字串 | 用於儲存體 API 作業的用戶端提供要求識別碼。 此識別碼可用來在記錄檔中使用「用戶端要求識別碼」欄位與 Azure 儲存體診斷記錄相互關聯，並可在使用「x-ms-用戶端要求-識別碼」標頭的用戶端要求中提供。 如需詳細資訊，請參閱[記錄格式](/rest/api/storageservices/storage-analytics-log-format)。 |
-| requestId | 字串 | 儲存體 API 作業由服務產生的要求識別碼。 可用於利用記錄中的 "request-id-header" 欄位與 Azure 儲存體診斷記錄建立關聯，並從 'x-ms-request-id' 標頭中的 API 呼叫初始化傳回。 請參閱[記錄格式](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)。 |
-| etag | 字串 | 此值可讓您依條件執行作業。 |
-| contentType | 字串 | 為 blob 指定內容類型。 |
+| api | string | 觸發事件的作業。 它可以是下列其中一個值： <ul><li>Microsoft.storage.blobcreated-允許的值包括： `PutBlob` 和 `PutBlockList`</li><li>BlobDeleted-允許的值為 `DeleteBlob`、`DeleteAfterUpload` 和 `AutoDelete`。 <p>當自動刪除 blob 時，會產生 `DeleteAfterUpload` 事件，因為 deleteAfterUpload desired 屬性會設定為 true。 </p><p>當 blob 因為 deleteAfterMinutes 所需的屬性值過期而自動刪除時，就會產生 `AutoDelete` 事件。</p></li></ul>|
+| clientRequestId | string | 用於儲存體 API 作業的用戶端提供要求識別碼。 此識別碼可用來在記錄檔中使用「用戶端要求識別碼」欄位與 Azure 儲存體診斷記錄相互關聯，並可在使用「x-ms-用戶端要求-識別碼」標頭的用戶端要求中提供。 如需詳細資訊，請參閱[記錄格式](/rest/api/storageservices/storage-analytics-log-format)。 |
+| requestId | string | 儲存體 API 作業由服務產生的要求識別碼。 可用於利用記錄中的 "request-id-header" 欄位與 Azure 儲存體診斷記錄建立關聯，並從 'x-ms-request-id' 標頭中的 API 呼叫初始化傳回。 請參閱[記錄格式](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)。 |
+| etag | string | 此值可讓您依條件執行作業。 |
+| contentType | string | 為 blob 指定內容類型。 |
 | contentLength | integer | Blob 大小 (以位元組為單位)。 |
-| blobType | 字串 | Blob 的類型。 有效值為 "BlockBlob" 或 "PageBlob"。 |
-| url | 字串 | Blob 的路徑。 <br>如果用戶端使用 Blob REST API，則 url 會有下列結構： *\<儲存體帳戶名稱\>. blob.core.windows.net/\<容器名稱*\>/\<檔案名\>。 <br>如果用戶端使用 Data Lake Storage REST API，則 url 會有下列結構： *\<儲存體帳戶名稱\>. dfs.core.windows.net/* \<檔案名\>/\<檔案名。\> |
+| blobType | string | Blob 的類型。 有效值為 "BlockBlob" 或 "PageBlob"。 |
+| URL | string | blob 的路徑。 <br>如果用戶端使用 Blob REST API，則 url 會有下列結構： *\<storage 帳戶名稱 \>. blob.core.windows.net/\<container 名稱*\> / \<file 名稱 \>。 <br>如果用戶端使用 Data Lake Storage REST API，則 url 會有下列結構： *\<storage 帳戶名稱 \>. dfs.core.windows.net/* \<file \> / 名稱 \<file。 |
 
 
 ## <a name="next-steps"></a>後續步驟
