@@ -1,76 +1,76 @@
 ---
 title: 使用 Azure 入口網站部署 Azure 資源 | Microsoft Docs
-description: 使用 Azure 入口網站和 Azure Resource Manager 來部署資源。
+description: 使用 Azure 入口網站和 Azure 資源管理，將您的資源部署至訂用帳戶中的資源群組。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: a171d9b4f054c942eebb08e7e11dd1164545f408
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 249afcaad85d9031e0972d4fcfc185b5ff890f65
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460424"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390338"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
-了解如何使用[Azure 入口網站](https://portal.azure.com)具有[Azure Resource Manager](resource-group-overview.md)來部署您的 Azure 資源。 若要了解有关管理资源的信息，请参阅[通过 Azure 门户管理 Azure 资源](manage-resources-portal.md)。
+瞭解如何搭配[Azure Resource Manager](resource-group-overview.md)使用[Azure 入口網站](https://portal.azure.com)來部署您的 Azure 資源。 若要瞭解如何管理您的資源，請參閱[使用 Azure 入口網站來管理 Azure 資源](manage-resources-portal.md)。
 
-通常使用 Azure 入口網站部署 Azure 資源包含兩個步驟：
+使用 Azure 入口網站部署 Azure 資源通常包含兩個步驟：
 
 - 建立資源群組。
 - 將資源部署至資源群組。
 
-此外，您也可以部署的 Azure Resource Manager 範本來建立 Azure 資源。
+此外，您也可以部署 Azure Resource Manager 範本來建立 Azure 資源。
 
 本文章示範這兩種方法。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-1. 若要建立新的資源群組，請選取**資源群組**從[Azure 入口網站](https://portal.azure.com)。
+1. 若要建立新的資源群組，請從 [ Azure 入口網站](https://portal.azure.com)中選取 [**資源群組**]。
 
    ![選取資源群組](./media/resource-group-template-deploy-portal/select-resource-groups.png)
 
-1. 在 [資源群組] 底下選取 [新增]  。
+1. 在 [資源群組] 底下選取 [新增]。
 
    ![新增資源群組](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
 1. 選取或輸入下列屬性值：
 
-    - 訂用帳戶  ：選取 Azure 訂用帳戶。
-    - **资源组**：指定的資源群組的名稱。
-    - **區域**：指定 Azure 位置。 這是資源群組儲存的資源相關的中繼資料的位置。 為了符合法規，您可能會想要指定中繼資料的儲存位置。 一般情況下，我們建議您指定大部分資源所在的位置。 使用相同位置可簡化範本。
+    - **訂用帳戶**：選取 Azure 訂用帳戶。
+    - **資源群組**：為資源群組指定名稱。
+    - **區域**：指定 Azure 位置。 這是資源群組用來儲存資源相關中繼資料的位置。 為了符合法規，您可能會想要指定中繼資料的儲存位置。 一般情況下，我們建議您指定大部分資源所在的位置。 使用相同位置可簡化範本。
 
    ![設定群組值](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
-1. 選取 [檢閱 + 建立]  。
-1. 檢閱值，然後按**建立**。
-1. 選取 **重新整理**可以出現在清單中新的資源群組之前。
+1. 選取 [檢閱 + 建立]。
+1. 檢查值，然後選取 [**建立**]。
+1. 選取 **[** 重新整理]，您才可以在清單中看到新的資源群組。
 
 ## <a name="deploy-resources-to-a-resource-group"></a>將資源部署至資源群組
 
-建立資源群組之後，您可以將資源部署至該群組，從 Marketplace。 Marketplace 針對常見的案例提供預先定義的解決方案。
+建立資源群組之後，您可以從 Marketplace 將資源部署到群組。 Marketplace 針對常見的案例提供預先定義的解決方案。
 
-1. 若要開始部署，請選取**建立資源**從[Azure 入口網站](https://portal.azure.com)。
+1. 若要開始部署，請從 [Azure 入口網站](https://portal.azure.com)中選取 [**建立資源**]。
 
    ![新增資源](./media/resource-group-template-deploy-portal/new-resources.png)
 
-1. 尋找您想要部署的資源類型。 資源會組織成類別。 如果沒有看到要部署的特定解決方案，您可以在 Marketplace 搜尋。 下列螢幕擷取畫面會顯示已選取 Ubuntu Server。
+1. 尋找您想要部署的資源類型。 這些資源會組織成類別目錄。 如果沒有看到要部署的特定解決方案，您可以在 Marketplace 搜尋。 下列螢幕擷取畫面顯示已選取 [Ubuntu Server]。
 
    ![選取 [資源類型]](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. 根據所選資源的類型，您必須在部署前設定相關的屬性集合。 對於所有類型，您必須選取目的地資源群組。 下圖顯示如何建立 Linux 虛擬機器，並將它部署到您所建立的資源群組。
+1. 根據所選資源的類型，您必須在部署前設定相關的屬性集合。 對於所有類型，您必須選取目的地資源群組。 下圖顯示如何建立 Linux 虛擬機器，並將其部署至您所建立的資源群組。
 
    ![建立資源群組](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-   或者，您也可以決定在部署資源時建立資源群組。 選取 [新建]  並提供資源群組的名稱。
+   或者，您也可以決定在部署資源時建立資源群組。 選取 [新建] 並提供資源群組的名稱。
 
-1. 您的部署隨即開始。 部署可能需要幾分鐘的時間。 某些資源需要長的時間，比其他資源。 部署完成後，您就會看到通知。 選取 **移至資源**開啟
+1. 您的部署隨即開始。 部署可能需要幾分鐘的時間。 有些資源比其他資源需要更長的時間。 部署完成後，您就會看到通知。 選取 [**前往資源**] 以開啟
 
    ![檢視通知](./media/resource-group-template-deploy-portal/view-notification.png)
 
-1. 部署您的資源之後，您可以選取 [新增]  ，將更多資源新增至資源群組。
+1. 部署您的資源之後，您可以選取 [新增]，將更多資源新增至資源群組。
 
    ![新增資源](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -81,53 +81,53 @@ ms.locfileid: "67460424"
 > [!NOTE]
 > 入口網站介面不支援參考 [Key Vault 中的祕密](resource-manager-keyvault-parameter.md)。 請改用 [PowerShell](resource-group-template-deploy.md) 或 [Azure CLI](resource-group-template-deploy-cli.md)，在本機或從外部 URI 部署您的範本。
 
-1. 若要部署自訂的範本，透過入口網站，選取**建立資源**，搜尋**範本**。 然後選取**範本部署**。
+1. 若要透過入口網站部署自訂範本，請選取 [**建立資源**]、[搜尋**範本**]。 然後選取 [**範本部署**]。
 
    ![搜尋範本部署](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. 選取 [建立]  。
-1. 您會看到建立範本的幾個選項：
+1. 選取 [建立]。
+1. 您會看到數個建立範本的選項：
 
-    - **建置您自己的範本，在編輯器中**： 建立範本，使用入口網站範本編輯器。  編輯器可以新增資源範本結構描述。
-    - **一般範本**:有四個常見的 templatess 建立 Linux 虛擬機器、 Windows 虛擬機器、 web 應用程式和 Azure SQL database。
-    - **載入 GitHub 快速入門範本**： 使用現有[快速入門範本](https://azure.microsoft.com/resources/templates/)。
+    - **在編輯器中建立您自己的範本**：使用入口網站範本編輯器建立範本。  編輯器能夠加入資源範本架構。
+    - **一般範本**：建立 Linux 虛擬機器、Windows 虛擬機器、web 應用程式和 Azure SQL 資料庫共有四個常見的 templatess。
+    - **載入 GitHub 快速入門範本**：使用現有的[快速入門範本](https://azure.microsoft.com/resources/templates/)。
 
    ![檢視選項](./media/resource-group-template-deploy-portal/see-options.png)
 
-    本教學課程提供的指示正在載入快速入門範本。
+    本教學課程提供載入快速入門範本的指示。
 
-1. 底下**載入 GitHub 快速入門範本**，輸入或選取**101-儲存體-帳戶-建立**。
+1. 在 [**載入 GitHub 快速入門範本**] 底下，輸入或選取 [ **101-儲存體-帳戶-建立**]。
 
     您有兩個選擇：
 
-    - **選取範本**： 部署範本。
-    - **編輯範本**： 編輯快速入門範本，再將它部署。
+    - **選取範本**：部署範本。
+    - **編輯範本**：在部署快速入門範本之前，先加以編輯。
 
-1. 選取 **編輯範本**瀏覽入口網站範本編輯器。 範本會在編輯器中載入。 請注意有兩個參數： **storageAccountType**並**位置**。
+1. 選取 [**編輯範本**] 以流覽入口網站範本編輯器。 範本會在編輯器中載入。 請注意，有兩個參數： [ **storageAccountType** ] 和 [ **location**]。
 
    ![建立範本](./media/resource-group-template-deploy-portal/show-json.png)
 
-1. 範本中進行些微變更。 例如，更新**storageAccountName**變數：
+1. 對範本進行較小的變更。 例如，將**storageAccountName**變數更新為：
 
     ```json
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. 選取 [ **儲存**]。 現在，您會看到入口網站範本部署介面。 請注意您在範本中定義的兩個參數。
-1. 輸入或選取的屬性值：
+1. 選取 [儲存]。 現在您會看到入口網站範本部署介面。 請注意您在範本中定義的兩個參數。
+1. 輸入或選取屬性值：
 
-    - 訂用帳戶  ：選取 Azure 訂用帳戶。
-    - **资源组**：選取 **新建**和指定的名稱。
+    - **訂用帳戶**：選取 Azure 訂用帳戶。
+    - **資源群組**：選取 [**新建**] 並指定名稱。
     - **位置**：選取 Azure 位置。
-    - **儲存體帳戶類型**:使用預設值。
+    - **儲存體帳戶類型**：使用預設值。
     - **位置**：使用預設值。
     - **我同意上方所述的條款及條件**：(選取)
 
-1. 選取 [購買]  。
+1. 選取 [購買]。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 若要檢視稽核記錄，請參閱 [使用 Resource Manager 來稽核作業](./resource-group-audit.md)。
 - 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](./resource-manager-deployment-operations.md)。
-- 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
-- 若要安全地推出您的服務在多個區域，請參閱[Azure Deployment Manager](./deployment-manager-overview.md)。
+- 若要從部署或資源群組匯出範本，請參閱[匯出 Azure Resource Manager 範本](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+- 若要安全地在多個區域推出您的服務，請參閱[Azure Deployment Manager](./deployment-manager-overview.md)。
