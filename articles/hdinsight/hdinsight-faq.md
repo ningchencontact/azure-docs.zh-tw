@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 5b9011e2a95dc1bdb86311111123db3c994f3aee
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: HT
+ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044943"
+ms.locfileid: "73052502"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題
 
@@ -387,3 +387,7 @@ HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費
 ### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>當叢集閒置一段特定期間時，是否有方法可以動態終止叢集的前端節點？
 
 您無法使用 HDInsight 叢集來執行此動作。 在這些情況下，您可以使用 Azure Data Factory。
+
+### <a name="what-compliance-offerings-does-hdinsight-offer"></a>HDInsight 提供哪些合規性供應專案？
+
+如需相容性資訊，請參閱[Microsoft 信任中心](https://www.microsoft.com/trust-center)和[Microsoft Azure 合規性的總覽](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。
