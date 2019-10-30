@@ -29,7 +29,7 @@
     - name: 註冊以進行密碼重設
       href: active-directory-passwords-reset-register.md
     - name: 重設密碼
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator 應用程式說明
   items:
     - name: 概觀
