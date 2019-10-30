@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process 生命週期
-description: 執行資料科學專案所需的步驟
+description: Team Data Science Process (TDSP) 會提供建議的生命週期供您建構資料科學專案。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837876"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053250"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期
 
@@ -43,9 +43,9 @@ TDSP 生命週期會建立為一系列反覆執行步驟的模型，可針對需
 
 對於每個階段，我們會提供下列資訊：
 
-   * **目標**：特定的目標。
-   * **作法**：特定工作的概述和如何完成的指引。
-   * **成品**：交付項目和產生它們的支援。
+   * **目標**︰特定的目標。
+   * **作法**：概述特定工作和如何完成的指引。
+   * **成品**：交付項目和生產的支援。
 
 ## <a name="next-steps"></a>後續步驟
 

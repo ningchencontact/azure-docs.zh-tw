@@ -1,35 +1,34 @@
 ---
 title: 使用 Azure Resource Manager 範本來建立和管理 Azure Cosmos DB
-description: 使用 Azure Resource Manager 範本來建立和設定適用于 SQL (核心) API 的 Azure Cosmos DB
+description: 使用 Azure Resource Manager 範本來建立和設定適用于 SQL （核心） API 的 Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378deb2138acf2a2c33860ab4e4ebcc44a57d8cd
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814966"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053330"
 ---
-# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB SQL (核心) API 資源
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB SQL （核心） API 資源
 
 ## 建立 Azure Cosmos 帳戶、資料庫和容器<a id="create-resource"></a>
 
-使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會建立 Azure Cosmos 帳戶, 其中包含兩個在資料庫層級共用 400 RU/秒輸送量的容器。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會建立 Azure Cosmos 帳戶，其中包含兩個在資料庫層級共用 400 RU/秒輸送量的容器。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 > [!NOTE]
 >
-> - 目前您無法使用 Resource Manager 範本來部署使用者定義函數 (Udf)、預存程式和觸發程式。
-> - 您無法同時新增或移除 Azure Cosmos 帳戶的位置, 以及修改其他屬性。 這些必須以個別的作業來完成。
-> - 帳戶名稱必須是小寫, 且 < 31 個字元。
+> - 您無法同時新增或移除 Azure Cosmos 帳戶的位置，以及修改其他屬性。 這些必須以個別的作業來完成。
+> - 帳戶名稱必須是小寫，且 < 31 個字元。
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
 ### <a name="deploy-via-powershell"></a>透過 PowerShell 部署
 
-若要使用 PowerShell 部署 Resource Manager 範本, 請**複製**腳本, 然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 PowerShell 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurepowershell-interactive
 
@@ -57,11 +56,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-如果您選擇使用本機安裝的 PowerShell 版本, 而不是從 Azure Cloud shell, 您必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。
+如果您選擇使用本機安裝的 PowerShell 版本，而不是從 Azure Cloud shell，您必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。
 
 ### <a name="deploy-via-azure-cli"></a>透過 Azure CLI 部署
 
-若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -82,17 +81,75 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-此`az cosmosdb show`命令會在布建完成後, 顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本, 而不是使用 CloudShell, 請參閱[Azure 命令列介面 (CLI)](/cli/azure/)一文。
+`az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本，而不是使用 CloudShell，請參閱[Azure 命令列介面（CLI）](/cli/azure/)一文。
 
-## 更新資料庫上的輸送量 (RU/秒)<a id="database-ru-update"></a>
+## 建立具有伺服器端功能的 Azure Cosmos DB 容器<a id="create-sproc"></a>
 
-下列範本將會更新資料庫的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+使用 Azure Resource Manager 範本，建立具有預存程式、觸發程式和使用者定義函數的 Azure Cosmos DB 容器。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
+
+[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+
+### <a name="deploy-stored-procedure-template-via-powershell"></a>透過 PowerShell 部署預存程式範本
+
+若要使用 PowerShell 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+
+```azurepowershell-interactive
+
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
+$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
+$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$containerName = Read-Host -Prompt "Enter the container name"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json" `
+    -accountName $accountName `
+    -location $location `
+    -primaryRegion $primaryRegion `
+    -secondaryRegion $secondaryRegion `
+    -databaseName $databaseName `
+    -containerName $containerName
+
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
+```
+
+如果您選擇使用本機安裝的 PowerShell 版本，而不是從 Azure Cloud shell，您必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。
+
+### <a name="deploy-stored-procedure-template-via-azure-cli"></a>透過 Azure CLI 部署預存程式範本
+
+若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the location (i.e. westus2): ' location
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
+read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the container name: ' containerName
+
+az group create --name $resourceGroupName --location $location
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json \
+   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
+   containerName=$containerName
+
+az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
+```
+
+## 更新資料庫上的輸送量（RU/秒）<a id="database-ru-update"></a>
+
+下列範本將會更新資料庫的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 [!code-json[cosmosdb-sql-database-ru-update](~/quickstart-templates/101-cosmosdb-sql-database-ru-update/azuredeploy.json)]
 
 ### <a name="deploy-database-template-via-powershell"></a>透過 PowerShell 部署資料庫範本
 
-若要使用 PowerShell 部署 Resource Manager 範本, 請**複製**腳本, 然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 PowerShell 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -110,7 +167,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="deploy-database-template-via-azure-cli"></a>透過 Azure CLI 部署資料庫範本
 
-若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -123,15 +180,15 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
 ```
 
-## 更新容器上的輸送量 (RU/秒)<a id="container-ru-update"></a>
+## 更新容器上的輸送量（RU/秒）<a id="container-ru-update"></a>
 
-下列範本會更新容器的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+下列範本會更新容器的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 [!code-json[cosmosdb-sql-container-ru-update](~/quickstart-templates/101-cosmosdb-sql-container-ru-update/azuredeploy.json)]
 
 ### <a name="deploy-container-template-via-powershell"></a>透過 PowerShell 部署容器範本
 
-若要使用 PowerShell 部署 Resource Manager 範本, 請**複製**腳本, 然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 PowerShell 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -151,7 +208,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="deploy-container-template-via-azure-cli"></a>透過 Azure CLI 部署容器範本
 
-若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName

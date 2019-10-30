@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376158"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053915"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>使用 Azure PowerShell 建立私人端點
 私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>新增子網
 
-Azure 會將資源部署到虛擬網路內的子網，因此您必須建立子網。 使用 [new-azvirtualnetworksubnetconfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)建立名為*mySubnet*的子網設定。 下列範例會建立名為*mySubnet*的子網，並將 [私人端點網路原則] 旗標設定為 [**停用**]。
+Azure 會將資源部署到虛擬網路內的子網，因此您必須建立子網。 使用[new-azvirtualnetworksubnetconfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)建立名為*mySubnet*的子網設定。 下列範例會建立名為*mySubnet*的子網，並將 [私人端點網路原則] 旗標設定為 [**停用**]。
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -62,7 +62,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>將子閘道聯至虛擬網路
 
-您可以使用 [New-azvirtualnetwork 將](/powershell/module/az.network/Set-azVirtualNetwork)子網設定寫入至虛擬網路。 此命令會建立子網路：
+您可以使用[New-azvirtualnetwork 將](/powershell/module/az.network/Set-azVirtualNetwork)子網設定寫入至虛擬網路。 此命令會建立子網路：
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -164,10 +164,10 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 } 
 } 
 ``` 
-  
+  
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-使用 [get-azpublicipaddress](/powershell/module/az.network/Get-AzPublicIpAddress) to 會傳回 VM 的公用 IP 位址。 這個範例會傳回*myVM* VM 的公用 IP 位址：
+請使用 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) 來傳回 VM 的公用 IP 位址。 這個範例會傳回*myVM* VM 的公用 IP 位址：
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-在您的本機電腦上開啟命令提示字元。 執行 mstsc 命令。 取代 @ no__t-0 @ no__t-1with 上一個步驟傳回的公用 IP 位址： 
+在您的本機電腦上開啟命令提示字元。 執行 mstsc 命令。 將 <publicIpAddress> 取代為先前步驟傳回的公用 IP 位址： 
 
 
 > [!NOTE]
@@ -195,7 +195,7 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database Server
 
 1. 在 myVM 的遠端桌面中，開啟 PowerShell。
-2. 輸入  `nslookup myserver.database.windows.net`。 
+2. 輸入 `nslookup myserver.database.windows.net` 。 
 
     您將收到如下訊息：
     ```azurepowershell

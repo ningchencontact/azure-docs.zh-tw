@@ -1,18 +1,18 @@
 ---
-title: 對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所進行的內部部署環境容錯回復進行疑難排解 | Microsoft Docs
+title: 使用 Azure Site Recovery 在 VMware VM 嚴重損壞修復期間，針對內部部署的容錯回復進行疑難排解
 description: 本文說明對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所發生的容錯回復和重新保護問題進行疑難排解的方式。
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/29/2019
+ms.author: mayg
+ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970845"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053857"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>對 vCenter 探索進行疑難排解失敗
 
@@ -20,7 +20,7 @@ ms.locfileid: "71970845"
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>MaxSnapShots 屬性中的非數位值
 
-在9.20 之前的版本中，vCenter 會在針對 VM 上的屬性 `snapshot.maxSnapShots` 屬性抓取非數值時中斷連線。
+在9.20 之前的版本中，vCenter 會在抓取 VM 上的屬性 `snapshot.maxSnapShots` 屬性的非數值時中斷連線。
 
 此問題是由錯誤識別碼95126所識別。
 
@@ -46,8 +46,8 @@ vCenter 探索會接受系統使用者所設定的系統預設 proxy 設定。 D
 
 遇到此問題時，會發生下列情況：
 
-- 因為發生下列錯誤，所以無法連線到 vCenter server \<vCenter >：遠端伺服器傳回錯誤：（503）伺服器無法使用
-- 因為發生下列錯誤，所以無法連線到 vCenter server \<vCenter >：遠端伺服器傳回錯誤：無法連接到遠端伺服器。
+- VCenter server \<vCenter > 無法連線，因為發生錯誤：遠端伺服器傳回錯誤：（503）伺服器無法使用
+- VCenter server \<vCenter > 無法連線，因為發生錯誤：遠端伺服器傳回錯誤：無法連接到遠端伺服器。
 - 無法連線到 vCenter/ESXi 伺服器。
 
 若要解決此問題：

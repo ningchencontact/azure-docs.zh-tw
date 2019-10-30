@@ -1,7 +1,7 @@
 ---
 title: 使用 ONNX 進行高效能、跨平臺的推斷
 titleSuffix: Azure Machine Learning
-description: 瞭解 ONNX 和 ONNX 執行時間以加速模型
+description: 瞭解如何使用 Open Neural Network Exchange （ONNX）來協助優化機器學習模型的推斷。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6e9e6b44e4a8fcc52f6d8ae19af60d64972b3a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dc4a5984f42e87aa42c6873bb1ee63d66744e633
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035412"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053575"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 與 Azure Machine Learning：建立並加速 ML 模型
+# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 和 Azure Machine Learning：建立並加速 ML 模型
 
-瞭解如何使用[Open Neural Network Exchange](https://onnx.ai) （ONNX）來協助優化機器學習模型的推斷。 推斷 (或模型計分) 是已部署的模型用於預測的階段, 最常見的是生產資料。 
+瞭解如何使用[Open Neural Network Exchange](https://onnx.ai) （ONNX）來協助優化機器學習模型的推斷。 推斷（或模型計分）是已部署的模型用於預測的階段，最常見的是生產資料。 
 
 針對推斷（或模型評分）優化機器學習模型很棘手，因為您需要微調模型和推斷程式庫，才能充分利用硬體功能。 如果您想要在不同類型的平臺（雲端/邊緣、CPU/GPU 等）上取得最佳效能，問題就會變得非常困難，因為每個平臺都有不同的功能和特性。 如果您有各種架構需要在各種平臺上執行的模型，則複雜度會增加。 優化所有不同的架構和硬體組合非常耗時。 一種解決方案，可在您慣用的架構中訓練一次，並在雲端或邊緣上的任何位置執行。 這就是 ONNX 的來源。
 
@@ -30,7 +30,7 @@ Microsoft 和合作夥伴所建立的 ONNX，是代表機器學習模型的開�
 
 ONNX 執行時間用於高級別的 Microsoft 服務，例如 Bing、Office 和認知服務。 效能提升取決於數個因素，但這些 Microsoft 服務已看到 CPU 的__平均2倍效能提升__。 ONNX 執行時間也用來做為數百萬部裝置上 Windows ML 的一部分。 您可以使用執行時間搭配 Azure Machine Learning。 藉由使用 ONNX 執行時間，您可以從大量的生產等級優化、測試和持續改進中獲益。
 
-[![顯示訓練、轉換器和部署的 ONNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[顯示訓練、轉換器和部署![ONNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>取得 ONNX 模型
 
@@ -84,7 +84,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="more-info"></a>其他資訊
+## <a name="more-info"></a>詳細資訊
 
 深入了解 ONNX 或參與專案：
 + [ONNX 專案網站](https://onnx.ai)

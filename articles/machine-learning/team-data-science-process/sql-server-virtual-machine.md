@@ -1,6 +1,6 @@
 ---
 title: 在 SQL Server 虛擬機器中瀏覽資料 - Team Data Science Process
-description: 在 Azure 上的 SQL Server 虛擬機器中瀏覽資料和產生功能
+description: 使用 Azure 上 SQL Server 虛擬機器中的 Python 或 SQL，探索 + 處理資料並產生功能。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036602"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053624"
 ---
 # <a name="heading"></a>在 Azure 上處理 SQL Server 虛擬機器中的資料
 本文件涵蓋如何探索資料及如何針對儲存於 Azure 上之 SQL Server VM 中的資料產生功能。 使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。

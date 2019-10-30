@@ -1,6 +1,6 @@
 ---
 title: Team 資料科學程序群組管理員工作
-description: 資料科學小組專案上的群組管理員工作的詳細逐步解說。
+description: 請遵循群組管理員在資料科學小組專案上完成之工作的詳細逐步解說。
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326802"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053315"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team 資料科學程序群組管理員工作
 
@@ -57,7 +57,7 @@ ms.locfileid: "71326802"
    
    ![建立專案](./media/group-manager-tasks/create-project.png)
 
-[ **GroupCommon**專案**摘要**] 頁面隨即開啟。 網頁 URL 為*HTTPs： \/ @ no__t-2 @ no__t-3servername >/\<organization-name >/GroupCommon*。
+[ **GroupCommon**專案**摘要**] 頁面隨即開啟。 網頁 URL 為*HTTPs：\//\<servername >/\<組織名稱 >/GroupCommon*。
 
 ![專案摘要頁面](./media/group-manager-tasks/project-summary.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "71326802"
 
 Azure Repos 會裝載群組的下列類型的儲存機制：
 
-- **群組通用存放庫**：一般用途的存放庫，資料科學單位中的多個小組可以針對許多資料科學專案採用。 
+- **群組通用存放庫**：資料科學單位中的多個小組可以針對許多資料科學專案採用的一般用途存放庫。 
 - **小組存放庫**：資料科學單位中特定小組的存放庫。 這些存放庫專屬於小組的需求，可用於該小組內的多個專案，但一般不足以供資料科學單位內的多個小組使用。
 - **專案存放庫**：特定專案的存放庫。 這類存放庫可能不足以供小組內的多個專案或資料科學單位中的其他小組使用。
 
@@ -105,7 +105,7 @@ Azure Repos 會裝載群組的下列類型的儲存機制：
    
    ![建立 GroupUtilities 存放庫](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
-1. 在 [**專案設定**] 頁面的左側導覽中，選取 [**存放庫**] 底下的 [**存放庫**]，以查看兩個群組存放庫：**GroupProjectTemplate**和**GroupUtilities**。
+1. 在 [**專案設定**] 頁面的左側導覽中，選取 [**存放庫**] 底下的 [**存放庫**]，以查看兩個群組存放庫： **GroupProjectTemplate**和**GroupUtilities**。
    
    ![兩個群組存放庫](./media/group-manager-tasks/two-repositories.png)
 
@@ -121,13 +121,13 @@ Azure Repos 會裝載群組的下列類型的儲存機制：
    
    ![選取 [匯入]](./media/group-manager-tasks/import-repo.png)
    
-1. 在 [匯**入 git 存放庫**] 對話方塊中，選取 [ **Git** ] 作為 [**來源類型**]，然後在 [**複製 URL**] 中輸入*Https： \//github .com/Azure/Azure-TDSP-ProjectTemplate。* 然後選取 [匯**入**]。 Microsoft TDSP team ProjectTemplate 存放庫的內容會匯入到您的 GroupProjectTemplate 存放庫。 
+1. 在 [匯**入 git 存放庫**] 對話方塊中，選取 [ **Git** ] 作為 [**來源類型**]，然後針對 [**複製 URL**] 輸入*HTTPs：\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* 。 然後選取 [匯**入**]。 Microsoft TDSP team ProjectTemplate 存放庫的內容會匯入到您的 GroupProjectTemplate 存放庫。 
    
    ![匯入 Microsoft TDSP 小組存放庫](./media/group-manager-tasks/import-repo-2.png)
    
 1. 在 [**存放庫**] 頁面頂端，下拉並選取 [ **GroupUtilities** ] 存放庫。
    
-1. 重複匯入程式，將 Microsoft TDSP team**公用事業**存放庫的內容（ *HTTPs： \//Github .com/Azure/Azure-TDSP-Utilities*）匯入您的**GroupUtilities**存放庫中。 
+1. 重複匯入程式，將 Microsoft TDSP team**公用事業**存放庫的內容（ *HTTPs：\//github.com/Azure/Azure-TDSP-Utilities.git*）匯入您的**GroupUtilities**存放庫。 
    
 除了*git*目錄中的所有檔案以外，您的每個群組存放庫都包含來自 Microsoft TDSP 小組對應的儲存機制。 
 
@@ -183,7 +183,7 @@ Azure Repos 會裝載群組的下列類型的儲存機制：
    
 1. 在您的本機電腦上，建立下列目錄：
    
-   - 若為 Windows：**C：\GitRepos\GroupCommon**
+   - 針對 Windows： **C:\GitRepos\GroupCommon**
    - 針對 Linux，您主目錄上的 **$/GitRepos/GroupCommon** 
    
 1. 變更至您所建立的目錄。
@@ -215,7 +215,7 @@ git push
 ```
 
 > [!NOTE]
-> 如果這是您第一次認可至 Git 存放庫，您可能需要在執行`git commit`命令之前，先設定全域參數*user.name*和*user. email* 。 執行下列兩個命令：
+> 如果這是您第一次認可至 Git 存放庫，您可能需要在執行 `git commit` 命令之前，先設定全域參數*user.name*和*使用者電子郵件*。 執行下列兩個命令：
 > 
 > `git config --global user.name <your name>`
 > 
@@ -239,7 +239,7 @@ git push
    
 1. 在 [**新增使用者和群組**] 對話方塊中，搜尋並選取要新增至群組的成員，然後選取 [**儲存變更**]。 
    
-   ![新增使用者與群組](./media/group-manager-tasks/add-users.png)
+   ![新增使用者和群組](./media/group-manager-tasks/add-users.png)
    
 
 若要設定成員的許可權：

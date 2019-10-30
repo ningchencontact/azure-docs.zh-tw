@@ -1,7 +1,7 @@
 ---
 title: 執行 Python 機器學習服務指令碼
 titleSuffix: Azure Machine Learning Studio
-description: 瞭解如何在 Azure Machine Learning Studio 中使用 Python。
+description: 瞭解如何使用 [執行 Python 腳本] 模組，在 Machine Learning Studio （傳統）實驗和 web 服務中使用 Python 程式碼。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 64030cac73b6fbd750b2ed681d85642cc6ad1146
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308872"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053779"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
 
@@ -25,7 +25,7 @@ Python 是許多資料科學家工具櫃中的重要工具。 它用於一般機
 
 ## <a name="using-the-execute-python-script-module"></a>使用執行 Python 腳本模組
 
-在 Studio 中，Python 的主要介面是透過[執行 Python 腳本][execute-python-script]模組。 它最多接受三個輸入，並產生最多兩個輸出，類似于[執行 R 腳本][execute-r-script]模組。 透過名`azureml_main`為的特殊命名進入點函式，在參數方塊中輸入 Python 程式碼。
+在 Studio 中，Python 的主要介面是透過[執行 Python 腳本][execute-python-script]模組。 它最多接受三個輸入，並產生最多兩個輸出，類似于[執行 R 腳本][execute-r-script]模組。 透過稱為 `azureml_main`的特殊命名進入點函式，在參數方塊中輸入 Python 程式碼。
 
 ![執行 Python 腳本模組](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -33,7 +33,7 @@ Python 是許多資料科學家工具櫃中的重要工具。 它用於一般機
 
 ### <a name="input-parameters"></a>輸入參數
 
-Python 模組的輸入會公開為 Pandas 資料框架。 `azureml_main`函數最多接受兩個選擇性的 Pandas 資料框架作為參數。
+Python 模組的輸入會公開為 Pandas 資料框架。 `azureml_main` 函數最多接受兩個選擇性的 Pandas 資料框架做為參數。
 
 輸入連接埠和函式參數之間的對應是有位置關係的：
 
@@ -41,13 +41,13 @@ Python 模組的輸入會公開為 Pandas 資料框架。 `azureml_main`函數�
 - 第二個輸入連接埠 (如果連接) 會對應至函式的第二個參數。
 - 第三個輸入是用來匯[入其他的 Python 模組](#import-modules)。
 
-以下顯示輸入埠如何對應至函式參數`azureml_main`的更詳細語義。
+輸入埠如何對應至 `azureml_main` 函式參數的更詳細語義如下所示。
 
 ![輸入埠設定和產生的 Python 簽章的資料表](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>輸出傳回值
 
-函式必須傳回以 Python [序列 ](https://docs.python.org/2/c-api/sequence.html)（例如元組、清單或 NumPy 陣列）封裝的單一 Pandas 資料框架。`azureml_main` 此順序的第一個元素會傳回至模組的第一個輸出埠。 模組的第二個輸出埠會用於[視覺效果](#visualizations)，而不需要傳回值。 此配置如下所示。
+`azureml_main` 函式必須傳回以 Python[序列](https://docs.python.org/2/c-api/sequence.html)（例如元組、清單或 NumPy 陣列）封裝的單一 Pandas 資料框架。 此順序的第一個元素會傳回至模組的第一個輸出埠。 模組的第二個輸出埠會用於[視覺效果](#visualizations)，而不需要傳回值。 此配置如下所示。
 
 ![將輸入埠對應至參數並將值傳回輸出埠](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -60,10 +60,10 @@ Studio 資料集與 Panda 資料框架不同。 因此，Studio 中的輸入資�
 | 字串和數值| 已轉譯為 |
 | Pandas ' NA ' | 轉譯為「遺漏值」 |
 | 索引向量 | 不支援 |
-| 非字串資料行名稱 | 在`str`資料行名稱上呼叫 |
+| 非字串資料行名稱 | 在資料行名稱上呼叫 `str` |
 | 重複的資料行名稱 | 新增數值尾碼：（1）、（2）、（3）等等。
 
-**Python 函式中的所有輸入資料框架一律具有64位的數值索引，從0到資料列數目減1*
+**Python 函式中的所有輸入資料框架一律具有64位的數值索引，從0到資料列數目減 1*
 
 ## <a id="import-modules"></a>匯入現有的 Python 腳本模組
 
@@ -95,7 +95,7 @@ Studio 資料集與 Panda 資料框架不同。 因此，Studio 中的輸入資�
 
 1. 在本機下載[適用于 Python 的 Azure Blob 儲存體套件](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip)。
 1. 將 zip 檔案以資料集的形式上傳至您的 Studio 工作區。
-1. 使用建立您的 BlobService 物件`protocol='http'`
+1. 使用 `protocol='http'` 建立您的 BlobService 物件
 
 ```
 from azure.storage.blob import BlockBlobService

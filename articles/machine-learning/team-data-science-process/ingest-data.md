@@ -1,6 +1,6 @@
 ---
 title: 將資料載入至 Azure 儲存體環境 - Team Data Science Process
-description: 從 Azure Blob 儲存體來回移動資料
+description: 瞭解如何將資料內嵌至儲存和處理資料的各種目標環境。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56c45bf6db79ded64574a44399712951e82c1c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 515decfafe46ad0c1b5b90743688abc26a975903
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303582"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053252"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>將資料載入至儲存體環境以便進行分析
 

@@ -10,12 +10,12 @@ ms.date: 10/28/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254fa924ea2104e76a475c106f16f4672dd1eec1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: HT
+ms.openlocfilehash: 9c8f4250d2df7703ad2960c2d68cd015cb6ec2bc
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033312"
+ms.locfileid: "73052883"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>雲端驗證：分段推出（公開預覽）
 
@@ -80,6 +80,8 @@ ms.locfileid: "73033312"
 ## <a name="get-started-with-staged-rollout"></a>開始使用分段推出
 
 如果您想要使用分段推出來測試密碼雜湊同步（PHS）登入，請完成下列預先工作，以啟用密碼雜湊同步階段首度發行。
+
+如需所使用 PowerShell Cmdlet 的詳細資訊，請參閱[AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
 
 ## <a name="pre-work-for-password-hash-sync"></a>密碼雜湊同步處理的前置工作
 
@@ -239,3 +241,6 @@ ms.locfileid: "73033312"
 -   **問：我們可以使用 PowerShell 來執行分段推出嗎？**
 
 -   答：是的，請在這裡尋找使用 PowerShell 執行分段推出的檔。
+
+## <a name="next-steps"></a>後續步驟
+- [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

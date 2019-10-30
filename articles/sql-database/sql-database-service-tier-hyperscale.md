@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: df6926a8f50d7ffb2765557cdf75ed6d09b3810b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40a2443419fab5d0a89d704312d880e344597b8b
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428034"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053904"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -38,7 +38,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 - 支援最多 100 TB 的資料庫大小
 - 近乎即時的資料庫備份（根據儲存在 Azure Blob 儲存體中的檔案快照集），不論大小，不會影響計算資源的 IO  
-- 快速的資料庫還原 (根據檔案快照集)，僅需數分鐘，而非數小時或數天 (不是資料作業的大小)
+- 快速資料庫時間點還原（根據檔案快照集），以分鐘為單位，而不是小時或天（不是資料作業的大小）
 - 不論資料量為何，較高的記錄輸送量和較快的交易認可時間就會有較高的整體效能
 - 快速相應放大 - 您可以佈建一或多個唯讀節點來卸載讀取工作負載，並用來作為熱待命
 - 快速相應增加 - 您可以在有限的時間內視需要和在需要時相應增加計算資源以容納大量工作負載，然後在不需要時相應減少計算資源。
@@ -180,7 +180,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 - 日本東部
 - 日本西部
 - 南韓中部
-- 韓國南部
+- 南韓南部
 - 美國中北部
 - 北歐
 - 南非北部

@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/09/2019
-ms.openlocfilehash: 18681f7130b3706f846b031dbb4852cda8b90d39
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.date: 10/29/2019
+ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899249"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052462"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>監視傳統型 Windows 桌面應用程式的使用情況和效能
 
@@ -70,6 +70,44 @@ using Microsoft.ApplicationInsights;
             base.OnClosing(e);
         }
 
+```
+
+## <a name="override-storage-of-computer-name"></a>覆寫電腦名稱稱的儲存空間
+
+根據預設，此 SDK 會收集並儲存發出遙測之系統的電腦名稱稱。 若要覆寫集合，您必須使用遙測初始化運算式：
+
+**撰寫自訂 TelemetryInitializer，如下所示。**
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here, you can pass an empty string if needed.
+                  telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
+            }
+        }
+    }
+}
+```
+在下列 `Program.cs` 中，將初始化運算式具現化 `Main()` 方法設定檢測金鑰：
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+   static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+        }
 ```
 
 ## <a name="next-steps"></a>後續步驟

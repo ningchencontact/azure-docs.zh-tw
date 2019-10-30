@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978092"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053269"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的相容性資料
 
@@ -52,17 +52,17 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
 - `{YourRG}` - 以您的資源群組名稱取代
-- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+- `{subscriptionId}` - 以您的訂用帳戶 ID 取代
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
-- 訂閱
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- 資源群組
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -87,12 +87,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 在指派中，如果資源沒有遵循原則或方案規則，則該資源**不符合規範**。
 下表顯示不同的原則效果如何與結果合規性狀態的條件評估搭配使用：
 
-| 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
+| 資源狀態 | 影響 | 原則評估 | 合規性狀態 |
 | --- | --- | --- | --- |
-| 存在 | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 真 | 不相容 |
-| 存在 | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 偽 | 相容 |
-| 新增 | 稽核、AuditIfNotExist\* | 真 | 不相容 |
-| 新增 | 稽核、AuditIfNotExist\* | 偽 | 相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 是 | 不相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 否 | 相容 |
+| 新功能 | 稽核、AuditIfNotExist\* | 是 | 不相容 |
+| 新功能 | 稽核、AuditIfNotExist\* | 否 | 相容 |
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。
 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
@@ -107,9 +107,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 除了**符合規範**和**不符合規範**以外，原則和資源還有其他三種狀態：
 
-- **衝突**：有兩個或更多個具有衝突規則的原則存在。 例如，兩個附加含有不同值之相同標籤的原則。
-- **未啟動**：尚未針對原則或資源開始評估週期。
-- **未註冊**：「Azure 原則資源提供者」尚未註冊，或登入的帳戶無權讀取合規性資料。
+- **衝突**：有兩個或多個原則有衝突的規則。 例如，兩個附加含有不同值之相同標籤的原則。
+- **未啟動：未**針對原則或資源開始評估週期。
+- **未註冊**： Azure 原則資源提供者尚未註冊，或登入的帳戶沒有讀取合規性資料的許可權。
 
 Azure 原則會使用定義中的**type**和**name**欄位來判斷資源是否相符。 當資源相符時，就會將資源視為適用，且其狀態會是 [符合規範]或 [不符合規範]。 如果 **type** 或 **name** 是定義中的唯一屬性，則會將所有資源都視為適用並進行評估。
 
@@ -145,32 +145,10 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 
 ## <a name="command-line"></a>命令列
 
-您可以使用 REST API (隨附於 [ARMClient](https://github.com/projectkudu/ARMClient)) 或 Azure PowerShell 來擷取入口網站中所提供的相同資訊。 如需 REST API 的完整詳細資料，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)參考。 REST API 參考頁面上有每個作業的 [試用] 綠色按鈕，可讓您直接在瀏覽器中試用。
+您可以使用 REST API （包括[ARMClient](https://github.com/projectkudu/ARMClient)）、Azure PowerShell 和 Azure CLI （預覽）來抓取入口網站中可用的相同資訊。
+如需 REST API 的完整詳細資料，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)參考。 REST API 參考頁面上有每個作業的 [試用] 綠色按鈕，可讓您直接在瀏覽器中試用。
 
-若要在 Azure PowerShell 中使用下列範例，請透過此範例程式碼建構驗證權杖。 然後以字串取代範例中的 $restUri，以擷取稍後可供剖析的 JSON 物件。
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+使用 ARMClient 或類似的工具來處理對 Azure 的驗證，以取得 REST API 範例。
 
 ### <a name="summarize-results"></a>摘要結果
 
@@ -262,7 +240,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-### <a name="view-events"></a>檢視事件
+### <a name="view-events"></a>檢視活動
 
 當建立或更新資源時，會產生原則評估結果。 結果稱為_原則事件_。 您可以使用下列 URI 來檢視與訂用帳戶建立關聯的最新原則事件。
 
@@ -312,7 +290,7 @@ Connect-AzAccount
 - `Start-AzPolicyRemediation`
 - `Stop-AzPolicyRemediation`
 
-範例：取得不符合規範資源數最高之最上層指派原則的狀態摘要。
+範例：取得其不相容資源數目最高之最上層指派原則的狀態摘要。
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyStateSummary -Top 1
@@ -323,7 +301,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-範例：取得最近評估之資源的狀態記錄 (預設是依時間戳記遞減排序)。
+範例：取得最近評估資源的狀態記錄 (預設是依時間戳記遞減排序)。
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Top 1
@@ -349,7 +327,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-範例：取得所有不符合規範虛擬網路資源的詳細資料。
+範例：取得所有不相容虛擬網路資源的詳細資料。
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
@@ -375,7 +353,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-範例：取得與不符合規範虛擬網路資源相關且在特定日期後發生的事件。
+範例：取得特定日期之後出現之不相容虛擬網路資源的相關事件。
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
@@ -412,7 +390,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-如果您的[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)從系結至訂用帳戶的[活動記錄分析解決方案](../../../azure-monitor/platform/activity-log-collect.md)中 `AzureActivity`，您也可以使用簡單的 Kusto 查詢和 @no__t 3 資料表，從評估週期中查看不符合規範的結果。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
+如果您有[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)，且其 `AzureActivity` 來自與您的訂用帳戶系結的[活動記錄分析解決方案](../../../azure-monitor/platform/activity-log-collect.md)，您也可以使用簡單的 Kusto 查詢和 `AzureActivity` 資料表，從評估週期中查看不符合規範的結果。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
 
 
 ![使用 Azure 監視器記錄 Azure 原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)

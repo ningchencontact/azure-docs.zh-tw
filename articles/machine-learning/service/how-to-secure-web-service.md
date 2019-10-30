@@ -1,7 +1,7 @@
 ---
 title: 使用 SSL 保護 web 服務
 titleSuffix: Azure Machine Learning
-description: 瞭解如何藉由啟用 HTTPS 來保護透過 Azure Machine Learning 部署的 web 服務。 HTTPS 會使用傳輸層安全性（TLS）來保護用戶端的資料，這是安全通訊端層（SSL）的替代方案。 用戶端也會使用 HTTPS 來驗證 web 服務的身分識別。
+description: 瞭解如何依序啟用 HTTPS，以保護透過 Azure Machine Learning 部署的 web 服務。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 39b79e5729945a346e9cf022fb93e23da9fa7824
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034367"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053552"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>使用 SSL 透過 Azure Machine Learning 保護 web 服務
 
@@ -84,7 +84,7 @@ TLS 和 SSL 都依賴*數位憑證*，這有助於加密和身分識別驗證。
 
 **Enable_ssl**方法可以使用由 Microsoft 提供的憑證，或您購買的憑證。
 
-  * 當您使用 Microsoft 的憑證時，您必須使用*leaf_domain_label*參數。 此參數會產生服務的 DNS 名稱。 例如，"myservice" 值會建立 "myservice\<6 個隨機字元 > 的功能變數名稱。\<azureregion > cloudapp，其中\<azureregion > 是包含服務的區域。 （選擇性）您可以使用*overwrite_existing_domain*參數來覆寫現有的*leaf_domain_label*。
+  * 當您使用 Microsoft 的憑證時，您必須使用*leaf_domain_label*參數。 此參數會產生服務的 DNS 名稱。 例如，"myservice" 值會建立 "myservice\<六個隨機字元 > 的功能變數名稱。\<azureregion >. cloudapp. azure .com」，其中 \<azureregion > 是包含服務的區域。 （選擇性）您可以使用*overwrite_existing_domain*參數來覆寫現有的*leaf_domain_label*。
 
     若要在啟用 SSL 的情況下部署（或重新部署）服務，請將*ssl_enabled*參數設為 "True" （不論其適用的位置）。 將*ssl_certificate*參數設定為*憑證*檔案的值。 將*ssl_key*設定為*金鑰*檔的值。
 
@@ -230,7 +230,7 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 ## <a name="disable-ssl"></a>停用 SSL
 
-若要針對部署至 Azure Kubernetes Service 的模型停`SslConfiguration`用 SSL，請使用`status="Disabled"`建立，然後執行更新：
+若要針對部署至 Azure Kubernetes Service 的模型停用 SSL，請使用 `status="Disabled"`建立 `SslConfiguration`，然後執行更新：
 
 ```python
 from azureml.core.compute import AksCompute

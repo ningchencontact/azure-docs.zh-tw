@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0a8f47e0eea8908fcf6aa11c694e09efef14bbf1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933941"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053538"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 到 Azure 複寫中的行動服務自動更新
 
@@ -31,7 +31,7 @@ Azure Site Recovery 會使用每月發行頻率來修正任何問題，並增強
 預設 runbook 排程會每日在複寫 VM 地理的時區中的上午12:00 重複。 您也可以透過自動化帳戶變更 runbook 排程。
 
 > [!NOTE]
-> 從更新彙總套件35開始，您可以選擇要用於更新的現有自動化帳戶。 在此更新之前，Site Recovery 預設會建立此帳戶。 當您啟用 VM 的複寫時，可以使用此選項。 如果您變更此設定，則會套用至相同保存庫中所有受保護的 Azure Vm。
+> 從更新彙總套件35開始，您可以選擇要用於更新的現有自動化帳戶。 在此更新之前，Site Recovery 預設會建立此帳戶。 請注意，當您為 VM 啟用複寫時，只能選取此選項。 它不適用於複寫 VM。 您選取的設定將適用于在相同保存庫中保護的所有 Azure Vm。
  
 > 開啟自動更新不需要重新開機您的 Azure Vm 或影響進行中的複寫。
 

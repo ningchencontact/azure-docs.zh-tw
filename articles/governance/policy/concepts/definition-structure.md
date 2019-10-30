@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980699"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053503"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -22,10 +22,10 @@ ms.locfileid: "71980699"
 
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
-- mode
+- 模式
 - 參數
 - 顯示名稱
-- description
+- 說明
 - 原則規則
   - 邏輯評估
   - 效果
@@ -66,7 +66,7 @@ ms.locfileid: "71980699"
 
 所有 Azure 原則範例都位於[Azure 原則的範例](../samples/index.md)。
 
-## <a name="mode"></a>模式
+## <a name="mode"></a>Mode
 
 根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標，設定**模式**。
 
@@ -83,7 +83,7 @@ ms.locfileid: "71980699"
 
 ### <a name="resource-provider-modes"></a>資源提供者模式
 
-目前唯一支援的資源提供者模式為 `Microsoft.ContainerService.Data`，用於管理[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上的「許可控制站」規則。
+目前唯一支援的資源提供者模式是在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上管理許可控制站規則 `Microsoft.ContainerService.Data`。
 
 > [!NOTE]
 > [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
@@ -101,15 +101,15 @@ ms.locfileid: "71980699"
 參數有下列在原則定義中使用的屬性：
 
 - **名稱**：參數的名稱。 由原則規則中的 `parameters` 部署函式使用。 如需詳細資訊，請參閱[使用參數值](#using-a-parameter-value)。
-- `type`:判斷參數是否為**字串**、**陣列**、**物件**、**布林值**、**整數**、**浮點數**或**datetime**。
-- `metadata`:定義主要由 Azure 入口網站使用的子屬性，以顯示使用者易讀的資訊：
-  - `description`:參數用途的說明。 能用來提供可接受值的範例。
-  - `displayName`:參數在入口網站中顯示的易記名稱。
-  - `strongType`:(選擇性) 透過入口網站指派原則定義時會使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
-  - `assignPermissions`:選擇性設定為_true_ ，讓 Azure 入口網站在原則指派期間建立角色指派。 如果您想要在指派範圍之外指派許可權，此屬性會很有用。 原則中的每個角色定義（或計畫中的所有原則中的每個角色定義）都有一個角色指派。 參數值必須是有效的資源或範圍。
-- `defaultValue`:(選擇性) 如果沒有提供值，就在指派中設定參數的值。
+- `type`：判斷參數是否為**字串**、**陣列**、**物件**、**布林值**、**整數**、**浮點數**或**datetime**。
+- `metadata`：定義主要由 Azure 入口網站用來顯示使用者易記資訊的子屬性：
+  - `description`：參數用途的說明。 能用來提供可接受值的範例。
+  - `displayName`：在入口網站中為參數顯示的易記名稱。
+  - `strongType`：（選擇性）透過入口網站指派原則定義時使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
+  - `assignPermissions`：（選擇性）設定為_true_ ，讓 Azure 入口網站在原則指派期間建立角色指派。 如果您想要在指派範圍之外指派許可權，此屬性會很有用。 原則中的每個角色定義（或計畫中的所有原則中的每個角色定義）都有一個角色指派。 參數值必須是有效的資源或範圍。
+- `defaultValue`：（選擇性）如果未指定任何值，則會在指派中設定參數的值。
   更新已指派的現有原則定義時需要。
-- `allowedValues`:選擇性提供參數在指派期間接受的值陣列。
+- `allowedValues`：（選擇性）提供值的陣列，此參數會在指派期間接受。
 
 舉例來說，您可以定義一個原則定義來限制可部署資源的位置。 該原則定義的參數可為 **allowedLocations**。 原則定義的每個指派都會使用此參數來限制接受的值。 透過入口網站完成指派時，**strongType** 提供增強的體驗：
 
@@ -223,18 +223,18 @@ ms.locfileid: "71980699"
 
 條件會評估 **field** 或 **value** 存取子是否符合特定條件。 支援的條件如下︰
 
-- `"equals": "value"`
-- `"notEquals": "value"`
-- `"like": "value"`
-- `"notLike": "value"`
-- `"match": "value"`
-- `"matchInsensitively": "value"`
-- `"notMatch": "value"`
-- `"notMatchInsensitively": "value"`
-- `"contains": "value"`
-- `"notContains": "value"`
-- `"in": ["value1","value2"]`
-- `"notIn": ["value1","value2"]`
+- `"equals": "stringValue"`
+- `"notEquals": "stringValue"`
+- `"like": "stringValue"`
+- `"notLike": "stringValue"`
+- `"match": "stringValue"`
+- `"matchInsensitively": "stringValue"`
+- `"notMatch": "stringValue"`
+- `"notMatchInsensitively": "stringValue"`
+- `"contains": "stringValue"`
+- `"notContains": "stringValue"`
+- `"in": ["stringValue1","stringValue2"]`
+- `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
 - `"less": "value"`
@@ -246,7 +246,7 @@ ms.locfileid: "71980699"
 使用 **like** 和 **notLike** 條件時，您可以在值中提供 `*` 萬用字元。
 值不應包含多個 `*` 萬用字元。
 
-當使用**match**和**notMatch**條件時，請提供 `#` 來比對數位、`?` 表示字母、`.` 以比對任何字元，以及任何其他字元以符合該實際字元。
+當使用**match**和**notMatch**條件時，請提供 `#` 來比對數位、為字母 `?`、`.` 比對任何字元，以及任何其他字元以符合該實際字元。
 **match** 和 **notMatch** 都會區分大小寫。 不會區分大小寫的替代項目，可在 **matchInsensitively** 和 **notMatchInsensitively** 中取得。 如需範例，請參閱[允許數個名稱模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>欄位
@@ -300,7 +300,7 @@ ms.locfileid: "71980699"
 }
 ```
 
-### <a name="value"></a>值
+### <a name="value"></a>Value
 
 條件也可以使用 **value** 形成。 **value** 會檢查 [parameters](#parameters)、[支援的範本函式](#policy-functions)或常值的條件。
 **value** 已和任何支援的 [condition](#conditions) 配對。
@@ -366,7 +366,7 @@ ms.locfileid: "71980699"
 }
 ```
 
-上述範例原則規則使用[substring （）](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**名稱**少於三個字元，則 @no__t 1 函式會導致錯誤。 此錯誤會導致原則變成**拒絕**效果。
+上述範例原則規則使用[substring （）](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**name**少於3個字元，`substring()` 函式會導致錯誤。 此錯誤會導致原則變成**拒絕**效果。
 
 相反地，請使用[if （）](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)函式來檢查**name**的前三個字元是否等於**abc** ，而不允許少於3個字元的**名稱**導致錯誤：
 
@@ -384,9 +384,9 @@ ms.locfileid: "71980699"
 }
 ```
 
-使用修改過的原則規則，`if()` 會先檢查**名稱**的長度，然後再嘗試取得少於三個字元的值 `substring()`。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
+使用修改過的原則規則，`if()` 在嘗試取得值少於三個字元的 `substring()` 之前，檢查**名稱**的長度。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
 
-### <a name="effect"></a>效果
+### <a name="effect"></a>影響
 
 Azure 原則支援下列類型的效果：
 
@@ -445,7 +445,7 @@ Azure 原則支援下列類型的效果：
 
 下列函式可在原則規則中使用，但與 Azure Resource Manager 範本中的用法不同：
 
-- addDays(dateTime, numberOfDaysToAdd)
+- addDays （dateTime，numberOfDaysToAdd）
   - **datetime**： [Required] 通用 ISO 8601 dateTime 格式 ' Yyyy-mm-dd ' ddTHH： MM： Ss. ss.fffffffz ' 中的 string 字串
   - **numberOfDaysToAdd**： [必要] 整數-要加入的天數
 - utcNow （）-與 Resource Manager 範本不同的是，這可以在 defaultValue 以外使用。
@@ -509,14 +509,14 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="understanding-the--alias"></a>了解 [*] 別名
 
-許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如:
+許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如：
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 ' Normal ' 別名會將欄位表示為單一值。 此欄位適用于完全相符的比較案例，因為整個值集合必須完全依照定義，而不是更多或更少。
 
-**[@No__t-1]** 別名可以與陣列中每個元素的值以及每個專案的特定屬性進行比較。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** ，而且只有在找不到至少一個相符專案時，才會套用**effectType** ：
+**[\*]** 別名可讓您比較陣列中每個元素的值，以及每個專案的特定屬性。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** ，而且只有在找不到至少一個相符專案時，才會套用**effectType** ：
 
 ```json
 "policyRule": {
@@ -540,7 +540,7 @@ Azure 原則支援下列類型的效果：
 
 如需詳細資訊，請參閱[評估 [\*] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
-## <a name="initiatives"></a>方案
+## <a name="initiatives"></a>計畫
 
 計畫可讓您將數個相關的原則定義組成群組來簡化指派和管理，因為您可以將一個群組當作單一項目來使用。 例如，您可以將相關的標籤原則定義組成單一方案。 您可以套用該計畫，而不個別指派每個原則。
 
