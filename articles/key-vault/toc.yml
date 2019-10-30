@@ -54,6 +54,8 @@
       href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
     - name: 設定金鑰輪換和稽核
       href: key-vault-key-rotation-log-monitoring.md
+    - name: 使用事件方格監視 Key Vault 事件
+      href: event-grid-overview.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -74,6 +76,8 @@
           href: key-vault-security-controls.md
     - name: 虛刪除
       href: key-vault-ovw-soft-delete.md
+    - name: 監視 Key Vault 事件
+      href: event-grid-overview.md
     - name: 節流
       href: key-vault-ovw-throttling.md
     - name: 虛擬網路服務端點
@@ -104,6 +108,8 @@
           href: managed-identity.md
         - name: 使用存取控制原則
           href: key-vault-group-permissions-for-apps.md
+    - name: 使用事件方格路由金鑰保存庫通知
+      href: event-grid-tutorial.md
     - name: Azure Key Vault 記錄
       href: key-vault-logging.md
     - name: 防火牆後的存取

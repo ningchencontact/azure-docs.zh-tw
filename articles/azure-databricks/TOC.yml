@@ -37,6 +37,9 @@
         - name: 開始使用 Azure Databricks
           href: /azure/databricks/getting-started/quick-start
           maintainContext: true
+        - name: 資料概觀
+          href: /azure/databricks/getting-started/data
+          maintainContext: true
         - name: Azure Databricks 概念
           href: /azure/databricks/getting-started/concepts
           maintainContext: true
@@ -72,6 +75,425 @@
         - name: 支援的瀏覽器
           href: /azure/databricks/getting-started/supported-browsers
           maintainContext: true
+    - name: Databricks 執行階段
+      items:
+        - name: 執行階段概觀
+          href: /azure/databricks/runtime/index
+          maintainContext: true
+        - name: Databricks 執行階段
+          href: /azure/databricks/runtime/dbr
+          maintainContext: true
+        - name: 搭配 Conda 的 Databricks Runtime
+          href: /azure/databricks/runtime/conda
+          maintainContext: true
+        - name: 適用於 Machine Learning 的 Databricks Runtime
+          href: /azure/databricks/runtime/mlruntime
+          maintainContext: true
+        - name: 適用於 Genomics 的 Databricks Runtime
+          href: /azure/databricks/runtime/genomicsruntime
+          maintainContext: true
+        - name: Databricks Light
+          href: /azure/databricks/runtime/light
+          maintainContext: true
+    - name: 工作區
+      items:
+        - name: 探索 Databricks 工作區
+          href: /azure/databricks/workspace/index
+          maintainContext: true
+        - name: 工作區資產
+          href: /azure/databricks/workspace/workspace-assets
+          maintainContext: true
+        - name: 使用工作區物件
+          href: /azure/databricks/workspace/workspace-objects
+          maintainContext: true
+        - name: 取得工作區、叢集、筆記本和作業識別碼
+          href: /azure/databricks/workspace/workspace-details
+          maintainContext: true
+    - name: 叢集
+      items:
+        - name: 叢集概觀
+          href: /azure/databricks/clusters/index
+          maintainContext: true
+        - name: 建立叢集
+          href: /azure/databricks/clusters/create
+          maintainContext: true
+        - name: 管理叢集
+          href: /azure/databricks/clusters/clusters-manage
+          maintainContext: true
+        - name: 設定叢集
+          href: /azure/databricks/clusters/configure
+          maintainContext: true
+        - name: 初始化叢集節點
+          href: /azure/databricks/clusters/init-scripts
+          maintainContext: true
+        - name: 自訂容器
+          href: /azure/databricks/clusters/custom-containers
+          maintainContext: true
+        - name: 已啟用 GPU 功能的叢集
+          href: /azure/databricks/clusters/gpu
+          maintainContext: true
+        - name: 集區
+          items:
+            - name: 集區概觀
+              href: /azure/databricks/clusters/instance-pools/index
+              maintainContext: true
+            - name: 顯示集區
+              href: /azure/databricks/clusters/instance-pools/display
+              maintainContext: true
+            - name: 建立集區
+              href: /azure/databricks/clusters/instance-pools/create
+              maintainContext: true
+            - name: 設定集區
+              href: /azure/databricks/clusters/instance-pools/configure
+              maintainContext: true
+            - name: 編輯集區
+              href: /azure/databricks/clusters/instance-pools/edit
+              maintainContext: true
+            - name: 刪除集區
+              href: /azure/databricks/clusters/instance-pools/delete
+              maintainContext: true
+            - name: 使用集區
+              href: /azure/databricks/clusters/instance-pools/cluster-instance-pool
+              maintainContext: true
+    - name: Notebooks
+      items:
+        - name: 筆記本概觀
+          href: /azure/databricks/notebooks/index
+          maintainContext: true
+        - name: 管理筆記本
+          href: /azure/databricks/notebooks/notebooks-manage
+          maintainContext: true
+        - name: 使用筆記本
+          href: /azure/databricks/notebooks/notebooks-use
+          maintainContext: true
+        - name: 版本控制
+          items:
+            - name: 搭配 Azure DevOps 進行版本控制
+              href: /azure/databricks/notebooks/azure-devops-services-version-control
+              maintainContext: true
+            - name: 搭配 Bitbucket Cloud 進行版本控制
+              href: /azure/databricks/notebooks/bitbucket-cloud-version-control
+              maintainContext: true
+            - name: 搭配 GitHub 進行版本控制
+              href: /azure/databricks/notebooks/github-version-control
+              maintainContext: true
+        - name: 視覺效果
+          items:
+            - name: 顯現資料
+              href: /azure/databricks/notebooks/visualizations/index
+              maintainContext: true
+            - name: 遷移已淘汰的折線圖
+              href: /azure/databricks/notebooks/visualizations/migrate-charts
+              maintainContext: true
+            - name: Python 中的視覺效果深入探討
+              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-python
+              maintainContext: true
+            - name: Scala 中的視覺效果深入探討
+              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-scala
+              maintainContext: true
+            - name: 筆記本中的 HTML、D3 和 SVG
+              href: /azure/databricks/notebooks/visualizations/html-d3-and-svg
+              maintainContext: true
+            - name: Python 筆記本中的 Bokeh
+              href: /azure/databricks/notebooks/visualizations/bokeh
+              maintainContext: true
+            - name: Python 筆記本中的 Matplotlib 和 ggplot
+              href: /azure/databricks/notebooks/visualizations/matplotlib-and-ggplot
+              maintainContext: true
+            - name: R 筆記本中的 htmlwidgets
+              href: /azure/databricks/notebooks/visualizations/htmlwidgets
+              maintainContext: true
+            - name: Python 和 R 筆記本中的 Plotly
+              href: /azure/databricks/notebooks/visualizations/plotly
+              maintainContext: true
+        - name: 儀表板
+          href: /azure/databricks/notebooks/dashboards
+          maintainContext: true
+        - name: 小工具
+          href: /azure/databricks/notebooks/widgets
+          maintainContext: true
+        - name: Notebook 工作流程
+          href: /azure/databricks/notebooks/notebook-workflows
+          maintainContext: true
+        - name: 套件資料格
+          href: /azure/databricks/notebooks/package-cells
+          maintainContext: true
+    - name: 工作
+      href: /azure/databricks/jobs
+      maintainContext: true
+    - name: 程式庫
+      href: /azure/databricks/libraries
+      maintainContext: true
+    - name: 資料
+      items:
+        - name: Databricks 檔案系統
+          href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
+        - name: 資料庫與資料表
+          href: /azure/databricks/data/tables
+          maintainContext: true
+        - name: 中繼存放區
+          items:
+            - name: 外部 Hive 中繼存放區
+              href: /azure/databricks/data/metastores/external-hive-metastore
+              maintainContext: true
+        - name: 資料來源
+          items:
+            - name: 使用 JDBC 的 SQL 資料庫
+              href: /azure/databricks/data/data-sources/sql-databases
+              maintainContext: true
+            - name: 使用 Apache Spark 連接器的 Azure SQL Database
+              href: /azure/databricks/data/data-sources/sql-databases-azure
+              maintainContext: true
+            - name: Azure Blob 儲存體
+              href: /azure/databricks/data/data-sources/azure/azure-storage
+              maintainContext: true
+            - name: Azure Data Lake Storage Gen2
+              href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
+              maintainContext: true
+            - name: Azure Data Lake 儲存體
+              href: /azure/databricks/data/data-sources/azure/azure-datalake
+              maintainContext: true
+            - name: Azure Data Lake Storage 通道
+              href: /azure/databricks/data/data-sources/azure/adls-passthrough
+              maintainContext: true
+            - name: Cosmos DB
+              href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
+              maintainContext: true
+            - name: SQL 資料倉儲
+              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+              maintainContext: true
+            - name: 二進位檔案
+              href: /azure/databricks/data/data-sources/binary-file
+              maintainContext: true
+            - name: Cassandra
+              href: /azure/databricks/data/data-sources/cassandra
+              maintainContext: true
+            - name: Couchbase
+              href: /azure/databricks/data/data-sources/couchbase
+              maintainContext: true
+            - name: 彈性搜尋
+              href: /azure/databricks/data/data-sources/elasticsearch
+              maintainContext: true
+            - name: 映像
+              href: /azure/databricks/data/data-sources/image
+              maintainContext: true
+            - name: Hive 資料表
+              href: /azure/databricks/data/data-sources/hive-tables
+              maintainContext: true
+            - name: MLflow 實驗
+              href: /azure/databricks/data/data-sources/mlflow-experiment
+              maintainContext: true
+            - name: MongoDb
+              href: /azure/databricks/data/data-sources/mongodb
+              maintainContext: true
+            - name: Neo4j
+              href: /azure/databricks/data/data-sources/neo4j
+              maintainContext: true
+            - name: Avro 檔案
+              href: /azure/databricks/data/data-sources/read-avro
+              maintainContext: true
+            - name: CSV 檔案
+              href: /azure/databricks/data/data-sources/read-csv
+              maintainContext: true
+            - name: JSON 檔案
+              href: /azure/databricks/data/data-sources/read-json
+              maintainContext: true
+            - name: LZO 壓縮檔案
+              href: /azure/databricks/data/data-sources/read-lzo
+              maintainContext: true
+            - name: Parquet 檔案
+              href: /azure/databricks/data/data-sources/read-parquet
+              maintainContext: true
+            - name: Redis
+              href: /azure/databricks/data/data-sources/redis
+              maintainContext: true
+            - name: Riak 時間序列
+              href: /azure/databricks/data/data-sources/riak-ts
+              maintainContext: true
+            - name: Snowflake
+              href: /azure/databricks/data/data-sources/snowflake
+              maintainContext: true
+            - name: ZIP 檔案
+              href: /azure/databricks/data/data-sources/zip-files
+              maintainContext: true
+        - name: FileStore
+          href: /azure/databricks/data/filestore
+          maintainContext: true
+    - name: 商業智慧工具
+      items:
+        - name: 連結 BI 工具
+          href: /azure/databricks/bi/jdbc-odbc-bi
+          maintainContext: true
+        - name: Tableau
+          href: /azure/databricks/bi/tableau
+          maintainContext: true
+        - name: Power BI
+          href: /azure/databricks/bi/power-bi
+          maintainContext: true
+        - name: Alteryx
+          href: /azure/databricks/bi/alteryx
+          maintainContext: true
+        - name: Looker
+          href: /azure/databricks/bi/looker
+          maintainContext: true
+        - name: SQL Workbench/J
+          href: /azure/databricks/bi/workbenchj
+          maintainContext: true
+    - name: Delta Lake
+      items:
+        - name: Delta Lake 簡介
+          href: /azure/databricks/delta/delta-intro
+          maintainContext: true
+        - name: 開始使用 Delta Lake
+          href: /azure/databricks/delta/quick-start
+          maintainContext: true
+        - name: 筆記本簡介
+          href: /azure/databricks/delta/intro-notebooks
+          maintainContext: true
+        - name: 資料表批次讀取和寫入
+          href: /azure/databricks/delta/delta-batch
+          maintainContext: true
+        - name: 資料表串流讀取和寫入
+          href: /azure/databricks/delta/delta-streaming
+          maintainContext: true
+        - name: 資料表刪除、更新和合併
+          href: /azure/databricks/delta/delta-update
+          maintainContext: true
+        - name: 資料表公用程式命令
+          href: /azure/databricks/delta/delta-utility
+          maintainContext: true
+        - name: Delta Lake API 參考
+          href: /azure/databricks/delta/delta-apidoc
+          maintainContext: true
+        - name: 並行控制
+          href: /azure/databricks/delta/concurrency-control
+          maintainContext: true
+        - name: 最佳化
+          items:
+            - name: 最佳化概觀
+              href: /azure/databricks/delta/optimizations/index
+              maintainContext: true
+            - name: 透過檔案管理最佳化效能
+              href: /azure/databricks/delta/optimizations/file-mgmt
+              maintainContext: true
+            - name: 自動最佳化
+              href: /azure/databricks/delta/optimizations/auto-optimize
+              maintainContext: true
+            - name: 透過快取最佳化效能
+              href: /azure/databricks/delta/optimizations/delta-cache
+              maintainContext: true
+            - name: 隔離層級
+              href: /azure/databricks/delta/optimizations/isolation-level
+              maintainContext: true
+            - name: 將 MySQL 資料表複寫至 Delta Lake 資料表
+              href: /azure/databricks/delta/optimizations/mysql-delta
+              maintainContext: true
+            - name: 最佳化聯結效能
+              items:
+                - name: 最佳化聯結效能概觀
+                  href: /azure/databricks/delta/join-performance/index
+                  maintainContext: true
+                - name: 範圍聯結最佳化
+                  href: /azure/databricks/delta/join-performance/range-join
+                  maintainContext: true
+                - name: 傾斜聯結最佳化
+                  href: /azure/databricks/delta/join-performance/skew-join
+                  maintainContext: true
+            - name: 最佳化的資料轉換
+              items:
+                - name: 最佳化的資料轉換概觀
+                  href: /azure/databricks/delta/data-transformation/index
+                  maintainContext: true
+                - name: 高階函式
+                  href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
+                  maintainContext: true
+                - name: 轉換複雜的資料類型
+                  href: /azure/databricks/delta/data-transformation/complex-types
+                  maintainContext: true
+            - name: 最佳作法
+              href: /azure/databricks/delta/best-practices
+              maintainContext: true
+            - name: 資料表版本控制
+              href: /azure/databricks/delta/optimizations/versioning
+              maintainContext: true
+            - name: 最佳化範例
+              href: /azure/databricks/delta/optimizations/optimization-examples
+              maintainContext: true
+        - name: 常見問題集
+          href: /azure/databricks/delta/delta-faq
+          maintainContext: true
+        - name: 其他差異資源 Delta 資源
+          href: /azure/databricks/delta/delta-resources
+          maintainContext: true
+    - name: DataFrame 和資料集
+      items:
+        - name: DataFrame 和資料集概觀
+          href: /azure/databricks/spark/latest/dataframes-datasets/index
+          maintainContext: true
+        - name: Python DataFrame 簡介
+          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
+          maintainContext: true
+        - name: Scala Dataframe 簡介
+          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
+          maintainContext: true
+        - name: 資料集簡介
+          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-datasets
+          maintainContext: true
+        - name: 複雜和巢狀資料
+          href: /azure/databricks/spark/latest/dataframes-datasets/complex-nested-data
+          maintainContext: true
+        - name: 匯總工具
+          href: /azure/databricks/spark/latest/dataframes-datasets/aggregators
+          maintainContext: true
+    - name: 結構化串流
+      items:
+        - name: 結構化串流概觀
+          href: /azure/databricks/spark/latest/structured-streaming/index
+          maintainContext: true
+        - name: 筆記本簡介
+          href: /azure/databricks/spark/latest/structured-streaming/demo-notebooks
+          maintainContext: true
+        - name: 串流資料來源和接收器
+          items:
+            - name: 來源與接收器概觀
+              href: /azure/databricks/spark/latest/structured-streaming/data-sources
+              maintainContext: true
+            - name: Apache Kafka
+              href: /azure/databricks/spark/latest/structured-streaming/kafka
+              maintainContext: true
+            - name: Azure 事件中心
+              href: /azure/databricks/spark/latest/structured-streaming/streaming-event-hubs
+              maintainContext: true
+            - name: Delta Lake 資料表
+              href: /azure/databricks/spark/latest/structured-streaming/delta
+              maintainContext: true
+            - name: 使用 DataFrame 讀取和寫入串流 Avro 資料
+              href: /azure/databricks/spark/latest/structured-streaming/avro-dataframe
+              maintainContext: true
+            - name: 寫入任意的資料接收器
+              href: /azure/databricks/spark/latest/structured-streaming/foreach
+              maintainContext: true
+            - name: 使用 Azure 佇列儲存體最佳化 Azure Blob 儲存體
+              href: /azure/databricks/spark/latest/structured-streaming/aqs
+              maintainContext: true
+        - name: 實際執行幻境中的結構化串流
+          href: /azure/databricks/spark/latest/structured-streaming/production
+          maintainContext: true
+        - name: 串流範例
+          href: /azure/databricks/spark/latest/structured-streaming/examples
+          maintainContext: true
+        - name: Spark 串流 (舊版)
+          items:
+            - name: Spark 串流 (舊版) 概觀
+              href: /azure/databricks/spark/latest/rdd-streaming/index
+              maintainContext: true
+            - name: 針對 Spark 串流應用程式進行偵錯
+              href: /azure/databricks/spark/latest/rdd-streaming/debugging-streaming-applications
+              maintainContext: true
+            - name: 串流應用程式開發的最佳做法
+              href: /azure/databricks/spark/latest/rdd-streaming/developing-streaming-applications
+              maintainContext: true
     - name: SQL
       items:
         - name: SQL 概觀
@@ -273,422 +695,6 @@
         - name: Azure Databricks 上的 RStudio
           href: /azure/databricks/spark/latest/sparkr/rstudio
           maintainContext: true
-    - name: Databricks 執行階段
-      items:
-        - name: 執行階段概觀
-          href: /azure/databricks/runtime/index
-          maintainContext: true
-        - name: Databricks 執行階段
-          href: /azure/databricks/runtime/dbr
-          maintainContext: true
-        - name: 搭配 Conda 的 Databricks Runtime
-          href: /azure/databricks/runtime/conda
-          maintainContext: true
-        - name: 適用於 Machine Learning 的 Databricks Runtime
-          href: /azure/databricks/runtime/mlruntime
-          maintainContext: true
-        - name: 適用於醫療保健與生命科學的 Databricks Runtime
-          href: /azure/databricks/runtime/hlsruntime
-          maintainContext: true
-        - name: Databricks Light
-          href: /azure/databricks/runtime/light
-          maintainContext: true
-    - name: 工作區
-      items:
-        - name: 探索 Databricks 工作區
-          href: /azure/databricks/workspace/index
-          maintainContext: true
-        - name: 取得工作區、叢集、筆記本和作業識別碼
-          href: /azure/databricks/workspace/workspace-details
-          maintainContext: true
-        - name: 使用工作區物件
-          href: /azure/databricks/workspace/workspace-objects
-          maintainContext: true
-    - name: 叢集
-      items:
-        - name: 叢集概觀
-          href: /azure/databricks/clusters/index
-          maintainContext: true
-        - name: 管理叢集
-          href: /azure/databricks/clusters/clusters-manage
-          maintainContext: true
-        - name: 建立叢集
-          href: /azure/databricks/clusters/create
-          maintainContext: true
-        - name: 設定叢集
-          href: /azure/databricks/clusters/configure
-          maintainContext: true
-        - name: 初始化叢集節點
-          href: /azure/databricks/clusters/init-scripts
-          maintainContext: true
-        - name: 自訂容器
-          href: /azure/databricks/clusters/custom-containers
-          maintainContext: true
-        - name: 已啟用 GPU 功能的叢集
-          href: /azure/databricks/clusters/gpu
-          maintainContext: true
-        - name: 集區
-          items:
-            - name: 集區概觀
-              href: /azure/databricks/clusters/instance-pools/index
-              maintainContext: true
-            - name: 顯示集區
-              href: /azure/databricks/clusters/instance-pools/display
-              maintainContext: true
-            - name: 建立集區
-              href: /azure/databricks/clusters/instance-pools/create
-              maintainContext: true
-            - name: 設定集區
-              href: /azure/databricks/clusters/instance-pools/configure
-              maintainContext: true
-            - name: 編輯集區
-              href: /azure/databricks/clusters/instance-pools/edit
-              maintainContext: true
-            - name: 刪除集區
-              href: /azure/databricks/clusters/instance-pools/delete
-              maintainContext: true
-            - name: 使用集區
-              href: /azure/databricks/clusters/instance-pools/cluster-instance-pool
-              maintainContext: true
-    - name: Notebooks
-      items:
-        - name: 筆記本概觀
-          href: /azure/databricks/notebooks/index
-          maintainContext: true
-        - name: 使用筆記本
-          href: /azure/databricks/notebooks/notebooks-use
-          maintainContext: true
-        - name: 管理筆記本
-          href: /azure/databricks/notebooks/notebooks-manage
-          maintainContext: true
-        - name: 版本控制
-          items:
-            - name: 搭配 Azure DevOps 進行版本控制
-              href: /azure/databricks/notebooks/azure-devops-services-version-control
-              maintainContext: true
-            - name: 搭配 Bitbucket Cloud 進行版本控制
-              href: /azure/databricks/notebooks/bitbucket-cloud-version-control
-              maintainContext: true
-            - name: 搭配 GitHub 進行版本控制
-              href: /azure/databricks/notebooks/github-version-control
-              maintainContext: true
-        - name: 視覺效果
-          items:
-            - name: 顯現資料
-              href: /azure/databricks/notebooks/visualizations/index
-              maintainContext: true
-            - name: 遷移已淘汰的折線圖
-              href: /azure/databricks/notebooks/visualizations/migrate-charts
-              maintainContext: true
-            - name: Python 中的視覺效果深入探討
-              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-python
-              maintainContext: true
-            - name: Scala 中的視覺效果深入探討
-              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-scala
-              maintainContext: true
-            - name: 筆記本中的 HTML、D3 和 SVG
-              href: /azure/databricks/notebooks/visualizations/html-d3-and-svg
-              maintainContext: true
-            - name: Python 筆記本中的 Bokeh
-              href: /azure/databricks/notebooks/visualizations/bokeh
-              maintainContext: true
-            - name: Python 筆記本中的 Matplotlib 和 ggplot
-              href: /azure/databricks/notebooks/visualizations/matplotlib-and-ggplot
-              maintainContext: true
-            - name: R 筆記本中的 htmlwidgets
-              href: /azure/databricks/notebooks/visualizations/htmlwidgets
-              maintainContext: true
-            - name: Python 和 R 筆記本中的 Plotly
-              href: /azure/databricks/notebooks/visualizations/plotly
-              maintainContext: true
-        - name: 儀表板
-          href: /azure/databricks/notebooks/dashboards
-          maintainContext: true
-        - name: 輸入 widget
-          href: /azure/databricks/notebooks/widgets
-          maintainContext: true
-        - name: 實作筆記本工作流程
-          href: /azure/databricks/notebooks/notebook-workflows
-          maintainContext: true
-        - name: 套件資料格
-          href: /azure/databricks/notebooks/package-cells
-          maintainContext: true
-    - name: 使用 Azure Databricks 作業
-      href: /azure/databricks/jobs
-      maintainContext: true
-    - name: 使用 Azure Databricks 程式庫
-      href: /azure/databricks/libraries
-      maintainContext: true
-    - name: 資料
-      items:
-        - name: Databricks 檔案系統
-          href: /azure/databricks/data/databricks-file-system
-          maintainContext: true
-        - name: 存取資料
-          href: /azure/databricks/data/access-data
-          maintainContext: true
-        - name: 使用資料庫與資料表
-          href: /azure/databricks/data/tables
-          maintainContext: true
-        - name: FileStore
-          href: /azure/databricks/data/filestore
-          maintainContext: true
-        - name: 資料來源
-          items:
-            - name: 二進位檔案
-              href: /azure/databricks/data/data-sources/binary-file
-              maintainContext: true
-            - name: Cassandra
-              href: /azure/databricks/data/data-sources/cassandra
-              maintainContext: true
-            - name: Couchbase
-              href: /azure/databricks/data/data-sources/couchbase
-              maintainContext: true
-            - name: 彈性搜尋
-              href: /azure/databricks/data/data-sources/elasticsearch
-              maintainContext: true
-            - name: 映像
-              href: /azure/databricks/data/data-sources/image
-              maintainContext: true
-            - name: 匯入 Hive 資料表
-              href: /azure/databricks/data/data-sources/importing-hive-tables
-              maintainContext: true
-            - name: MLflow 實驗
-              href: /azure/databricks/data/data-sources/mlflow-experiment
-              maintainContext: true
-            - name: MongoDb
-              href: /azure/databricks/data/data-sources/mongodb
-              maintainContext: true
-            - name: Neo4j
-              href: /azure/databricks/data/data-sources/neo4j
-              maintainContext: true
-            - name: Avro 檔案
-              href: /azure/databricks/data/data-sources/read-avro
-              maintainContext: true
-            - name: CSV 檔案
-              href: /azure/databricks/data/data-sources/read-csv
-              maintainContext: true
-            - name: JSON 檔案
-              href: /azure/databricks/data/data-sources/read-json
-              maintainContext: true
-            - name: LZO 壓縮檔案
-              href: /azure/databricks/data/data-sources/read-lzo
-              maintainContext: true
-            - name: Parquet 檔案
-              href: /azure/databricks/data/data-sources/read-parquet
-              maintainContext: true
-            - name: Redis
-              href: /azure/databricks/data/data-sources/redis
-              maintainContext: true
-            - name: Riak 時間序列
-              href: /azure/databricks/data/data-sources/riak-ts
-              maintainContext: true
-            - name: Snowflake
-              href: /azure/databricks/data/data-sources/snowflake
-              maintainContext: true
-            - name: Azure SQL Database
-              href: /azure/databricks/data/data-sources/sql-databases-azure
-              maintainContext: true
-            - name: SQL DATABASE
-              href: /azure/databricks/data/data-sources/sql-databases
-              maintainContext: true
-            - name: ZIP 檔案
-              href: /azure/databricks/data/data-sources/zip-files
-              maintainContext: true
-            - name: Azure Data Lake Storage 通道
-              href: /azure/databricks/data/data-sources/azure/adls-passthrough
-              maintainContext: true
-            - name: Azure Data Lake Storage Gen2
-              href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
-              maintainContext: true
-            - name: Azure Data Lake 儲存體
-              href: /azure/databricks/data/data-sources/azure/azure-datalake
-              maintainContext: true
-            - name: Azure 儲存體
-              href: /azure/databricks/data/data-sources/azure/azure-storage
-              maintainContext: true
-            - name: Cosmos DB 連接器
-              href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
-              maintainContext: true
-            - name: SQL 資料倉儲
-              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
-              maintainContext: true
-        - name: 中繼存放區
-          items:
-            - name: 外部 Hive 中繼存放區
-              href: /azure/databricks/data/metastores/external-hive-metastore
-              maintainContext: true
-    - name: 商業智慧工具
-      items:
-        - name: 連結 BI 工具
-          href: /azure/databricks/bi/jdbc-odbc-bi
-          maintainContext: true
-        - name: Tableau
-          href: /azure/databricks/bi/tableau
-          maintainContext: true
-        - name: Power BI
-          href: /azure/databricks/bi/power-bi
-          maintainContext: true
-        - name: Alteryx
-          href: /azure/databricks/bi/alteryx
-          maintainContext: true
-        - name: Looker
-          href: /azure/databricks/bi/looker
-          maintainContext: true
-        - name: SQL Workbench/J
-          href: /azure/databricks/bi/workbenchj
-          maintainContext: true
-    - name: Delta Lake
-      items:
-        - name: Delta Lake 簡介
-          href: /azure/databricks/delta/delta-intro
-          maintainContext: true
-        - name: 開始使用 Delta Lake
-          href: /azure/databricks/delta/quick-start
-          maintainContext: true
-        - name: 筆記本簡介
-          href: /azure/databricks/delta/intro-notebooks
-          maintainContext: true
-        - name: 資料表批次讀取和寫入
-          href: /azure/databricks/delta/delta-batch
-          maintainContext: true
-        - name: 資料表串流讀取和寫入
-          href: /azure/databricks/delta/delta-streaming
-          maintainContext: true
-        - name: 資料表刪除、更新和合併
-          href: /azure/databricks/delta/delta-update
-          maintainContext: true
-        - name: 資料表公用程式命令
-          href: /azure/databricks/delta/delta-utility
-          maintainContext: true
-        - name: Delta Lake API 參考
-          href: /azure/databricks/delta/delta-apidoc
-          maintainContext: true
-        - name: 並行控制
-          href: /azure/databricks/delta/concurrency-control
-          maintainContext: true
-        - name: 最佳化
-          items:
-            - name: 最佳化概觀
-              href: /azure/databricks/delta/optimizations/index
-              maintainContext: true
-            - name: 透過檔案管理最佳化效能
-              href: /azure/databricks/delta/optimizations/file-mgmt
-              maintainContext: true
-            - name: 自動最佳化
-              href: /azure/databricks/delta/optimizations/auto-optimize
-              maintainContext: true
-            - name: 透過快取最佳化效能
-              href: /azure/databricks/delta/optimizations/delta-cache
-              maintainContext: true
-            - name: 隔離層級
-              href: /azure/databricks/delta/optimizations/isolation-level
-              maintainContext: true
-            - name: 將 MySQL 資料表複寫至 Delta Lake 資料表
-              href: /azure/databricks/delta/optimizations/mysql-delta
-              maintainContext: true
-            - name: 最佳化聯結效能
-              items:
-                - name: 最佳化聯結效能概觀
-                  href: /azure/databricks/delta/join-performance/index
-                  maintainContext: true
-                - name: 範圍聯結最佳化
-                  href: /azure/databricks/delta/join-performance/range-join
-                  maintainContext: true
-                - name: 傾斜聯結最佳化
-                  href: /azure/databricks/delta/join-performance/skew-join
-                  maintainContext: true
-            - name: 最佳化的資料轉換
-              items:
-                - name: 最佳化的資料轉換概觀
-                  href: /azure/databricks/delta/data-transformation/index
-                  maintainContext: true
-                - name: 高階函式
-                  href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
-                  maintainContext: true
-                - name: 轉換複雜的資料類型
-                  href: /azure/databricks/delta/data-transformation/complex-types
-                  maintainContext: true
-            - name: 資料表版本控制
-              href: /azure/databricks/delta/optimizations/versioning
-              maintainContext: true
-            - name: 最佳化範例
-              href: /azure/databricks/delta/optimizations/optimization-examples
-              maintainContext: true
-        - name: 常見問題集
-          href: /azure/databricks/delta/delta-faq
-          maintainContext: true
-        - name: 其他差異資源 Delta 資源
-          href: /azure/databricks/delta/delta-resources
-          maintainContext: true
-    - name: DataFrame 和資料集
-      items:
-        - name: DataFrame 和資料集概觀
-          href: /azure/databricks/spark/latest/dataframes-datasets/index
-          maintainContext: true
-        - name: Python DataFrame 簡介
-          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
-          maintainContext: true
-        - name: Scala Dataframe 簡介
-          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
-          maintainContext: true
-        - name: 資料集簡介
-          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-datasets
-          maintainContext: true
-        - name: 複雜和巢狀資料
-          href: /azure/databricks/spark/latest/dataframes-datasets/complex-nested-data
-          maintainContext: true
-        - name: 匯總工具
-          href: /azure/databricks/spark/latest/dataframes-datasets/aggregators
-          maintainContext: true
-    - name: 結構化串流
-      items:
-        - name: 結構化串流概觀
-          href: /azure/databricks/spark/latest/structured-streaming/index
-          maintainContext: true
-        - name: 筆記本簡介
-          href: /azure/databricks/spark/latest/structured-streaming/demo-notebooks
-          maintainContext: true
-        - name: 串流資料來源和接收器
-          items:
-            - name: 來源與接收器概觀
-              href: /azure/databricks/spark/latest/structured-streaming/data-sources
-              maintainContext: true
-            - name: Apache Kafka
-              href: /azure/databricks/spark/latest/structured-streaming/kafka
-              maintainContext: true
-            - name: Azure 事件中心
-              href: /azure/databricks/spark/latest/structured-streaming/streaming-event-hubs
-              maintainContext: true
-            - name: Delta Lake 資料表
-              href: /azure/databricks/spark/latest/structured-streaming/delta
-              maintainContext: true
-            - name: 使用 DataFrame 讀取和寫入串流 Avro 資料
-              href: /azure/databricks/spark/latest/structured-streaming/avro-dataframe
-              maintainContext: true
-            - name: 寫入任意的資料接收器
-              href: /azure/databricks/spark/latest/structured-streaming/foreach
-              maintainContext: true
-            - name: 使用 Azure 佇列儲存體最佳化 Azure Blob 儲存體
-              href: /azure/databricks/spark/latest/structured-streaming/aqs
-              maintainContext: true
-        - name: 實際執行幻境中的結構化串流
-          href: /azure/databricks/spark/latest/structured-streaming/production
-          maintainContext: true
-        - name: 串流範例
-          href: /azure/databricks/spark/latest/structured-streaming/examples
-          maintainContext: true
-        - name: Spark 串流 (舊版)
-          items:
-            - name: Spark 串流 (舊版) 概觀
-              href: /azure/databricks/spark/latest/rdd-streaming/index
-              maintainContext: true
-            - name: 針對 Spark 串流應用程式進行偵錯
-              href: /azure/databricks/spark/latest/rdd-streaming/debugging-streaming-applications
-              maintainContext: true
-            - name: 串流應用程式開發的最佳做法
-              href: /azure/databricks/spark/latest/rdd-streaming/developing-streaming-applications
-              maintainContext: true
     - name: 機器學習服務
       items:
         - name: 機器學習概觀
@@ -708,7 +714,7 @@
             - name: 進階 MLib 範例
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
-        - name: AutoML
+        - name: 自動 ML
           items:
             - name: Hyperopt
               items:
@@ -823,21 +829,6 @@
         - name: 開始使用 MLflow
           href: /azure/databricks/applications/mlflow/quick-start
           maintainContext: true
-        - name: 追蹤機器學習訓練回合
-          href: /azure/databricks/applications/mlflow/tracking
-          maintainContext: true
-        - name: 外部的存取追蹤
-          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-          maintainContext: true
-        - name: 儲存、載入和部署模型
-          href: /azure/databricks/applications/mlflow/models
-          maintainContext: true
-        - name: 使用 MLflow 專案重現執行
-          href: /azure/databricks/applications/mlflow/projects
-          maintainContext: true
-        - name: MLflow 模型範例
-          href: /azure/databricks/applications/mlflow/model-examples
-          maintainContext: true
         - name: 開始使用 MLflow Java 和 Scala
           href: /azure/databricks/applications/mlflow/quick-start-java-scala
           maintainContext: true
@@ -847,8 +838,23 @@
         - name: 開始使用 MLflow R
           href: /azure/databricks/applications/mlflow/quick-start-r
           maintainContext: true
+        - name: 追蹤機器學習訓練回合
+          href: /azure/databricks/applications/mlflow/tracking
+          maintainContext: true
         - name: MLflow 追蹤範例
           href: /azure/databricks/applications/mlflow/tracking-examples
+          maintainContext: true
+        - name: 外部的存取追蹤
+          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
+          maintainContext: true
+        - name: 儲存、載入和部署模型
+          href: /azure/databricks/applications/mlflow/models
+          maintainContext: true
+        - name: MLflow 模型範例
+          href: /azure/databricks/applications/mlflow/model-examples
+          maintainContext: true
+        - name: 使用 MLflow 專案重現執行
+          href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
     - name: 圖表分析
       items:
@@ -937,10 +943,13 @@
             - name: Python 統計資料庫
               href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
+            - name: SAIGE
+              href: /azure/databricks/applications/genomics/tertiary/saige
+              maintainContext: true
             - name: Hail 0.2
               href: /azure/databricks/applications/genomics/tertiary/hail
               maintainContext: true
-    - name: 移轉指南
+    - name: 移轉
       items:
         - name: 遷移生產工作負載
           href: /azure/databricks/migration/production
@@ -951,7 +960,7 @@
         - name: 將工作負載遷移到 Delta Lake
           href: /azure/databricks/delta/porting
           maintainContext: true
-    - name: 安全性
+    - name: 安全性和隱私權
       items:
         - name: 安全性概觀
           href: /azure/databricks/security/index
@@ -976,9 +985,6 @@
             - name: 祕密工作流程範例
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
-    - name: 將驗證委派給第三方服務
-      href: /azure/databricks/delegated-auth
-      maintainContext: true
     - name: 系統管理
       items:
         - name: 系統管理概觀
@@ -1136,6 +1142,9 @@
             - name: 未預期叢集終止
               href: /azure/databricks/kb/clusters/termination-reasons
               maintainContext: true
+            - name: Apache Spark UI 顯示小於節點記憶體總量
+              href: /azure/databricks/kb/clusters/spark-shows-less-memory
+              maintainContext: true
         - name: 資料管理
           items:
             - name: 附加至 DataFrame
@@ -1227,6 +1236,9 @@
               maintainContext: true
             - name: 捨棄受控的 Delta Lake 資料表
               href: /azure/databricks/kb/delta/drop-delta-table
+              maintainContext: true
+            - name: 更新查詢失敗，發生 IllegalStateException
+              href: /azure/databricks/kb/delta/update-query-fails
               maintainContext: true
         - name: 開發人員工具
           items:
@@ -1358,6 +1370,14 @@
             - name: 取消串流資料格後無法執行筆記本
               href: /azure/databricks/kb/notebooks/streaming-notebook-stuck
               maintainContext: true
+            - name: 取消命令疑難排解
+              href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
+              maintainContext: true
+        - name: 安全性和權限
+          items:
+            - name: 資料表建立失敗，發生安全性例外狀況
+              href: /azure/databricks/kb/security/table-create-security-exception
+              maintainContext: true
         - name: Python
           items:
             - name: 使用 Anaconda 範本建立叢集
@@ -1420,8 +1440,8 @@
             - name: 找不到資料表或檢視
               href: /azure/databricks/kb/sql/global-temp-view-not-found
               maintainContext: true
-            - name: 串流
-              items: null
+        - name: 串流
+          items:
             - name: 在變更檢查點或輸出目錄後進行復原
               href: /azure/databricks/kb/streaming/file-sink-streaming
               maintainContext: true
@@ -1436,7 +1456,7 @@
     - name: 開發人員工具
       items:
         - name: Databricks Connect
-          href: /azure/databricks/dev-tools/db-connect
+          href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
         - name: 管理資料管線中的相依性
           href: /azure/databricks/dev-tools/data-pipelines
@@ -1486,14 +1506,14 @@
             - name: 工作區
               href: /azure/databricks/dev-tools/api/latest/workspace
               maintainContext: true
-        - name: REST API 呼叫的執行階段版本字串
-          href: /azure/databricks/dev-tools/api/latest/runtime-version-string
-          maintainContext: true
+            - name: REST API 呼叫的執行階段版本字串
+              href: /azure/databricks/dev-tools/api/latest/runtime-version-string
+              maintainContext: true
         - name: REST API 1.2
           href: /azure/databricks/dev-tools/api/1.2/index
           maintainContext: true
     - name: Databricks 公用程式
-      href: /azure/databricks/dev-tools/dbutils
+      href: /azure/databricks/dev-tools/databricks-utils
       maintainContext: true
     - name: Databricks CLI
       href: /azure/databricks/dev-tools/databricks-cli
@@ -1503,10 +1523,8 @@
       maintainContext: true
     - name: Azure Databricks REST API
       href: /azure/databricks//rest/api/databricks
-      maintainContext: true
     - name: Resource Manager 範本
       href: /azure/databricks//azure/templates/microsoft.databricks/workspaces
-      maintainContext: true
 - name: 資源
   items:
     - name: 版本資訊
@@ -1515,6 +1533,9 @@
           items:
             - name: 平台版本資訊
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: 2019 年 10 月
+              href: /azure/databricks/release-notes/product/2019/october
               maintainContext: true
             - name: 2019 年 9 月
               href: /azure/databricks/release-notes/product/2019/september
@@ -1683,7 +1704,6 @@
           maintainContext: true
     - name: R 開發人員指南
       href: /azure/machine-learning/r-developers-guide
-      maintainContext: true
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: 價格

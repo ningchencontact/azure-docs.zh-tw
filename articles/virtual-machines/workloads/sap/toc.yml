@@ -188,6 +188,8 @@
               href: high-availability-guide-suse-pacemaker.md
             - name: RHEL 上的 Pacemaker
               href: high-availability-guide-rhel-pacemaker.md
+            - name: 在 SAP 高可用性案例中使用 Azure Standard Load Balancer 的 VM 公用端點連線能力
+              href: high-availability-guide-standard-load-balancer-outbound-connections.md
         - name: SAP 安裝
           items:
             - name: Windows 和適用於 (A)SCS 執行個體的共用磁碟
