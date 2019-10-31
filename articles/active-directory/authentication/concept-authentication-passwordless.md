@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac59dbed0ba2766f3367e19c5fddeed52e250a5b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880163"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151858"
 ---
 # <a name="passwordless-authentication-options"></a>無密碼驗證選項
 
@@ -28,13 +28,13 @@ ms.locfileid: "72880163"
 
 在驗證方面，每個組織都有不同的需求。 Microsoft 提供三種無密碼的驗證選項：
 
-- Windows Hello 企業版 
-- Microsoft Authenticator 應用程式 
+- Windows Hello 企業版
+- Microsoft Authenticator 應用程式
 - FIDO2 安全性金鑰
 
 ![驗證：安全性與便利性](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello 企業版 
+## <a name="windows-hello-for-business"></a>Windows Hello 企業版
 
 Windows Hello 企業版適用于擁有自己指定 Windows 電腦的資訊工作者。 生物識別和 PIN 會直接系結至使用者的電腦，以防止擁有者以外的任何人進行存取。 透過 PKI 整合和單一登入（SSO）的內建支援，Windows Hello 企業版提供簡單且便利的方法，讓您無縫存取內部部署和雲端中的公司資源。
 
@@ -52,7 +52,7 @@ Windows Hello 企業版[規劃指南](https://docs.microsoft.com/windows/securit
 
 FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證方法，可採用任何形式的規格。 快速身分識別線上（FIDO）是無密碼 authentication 的開放標準。 它可讓使用者和組織利用外部安全性金鑰或裝置內建的平臺金鑰，使用標準來登入其資源，而不需要使用者名稱或密碼。
 
-對於公開預覽，員工可以使用外部安全性金鑰來登入其 Azure Active Directory 聯結的 Windows 10 電腦（執行1809版或更高版本），並取得單一登入其雲端資源。 他們也可以登入支援的瀏覽器。
+對於公開預覽，員工可以使用安全性金鑰來登入其 Azure AD 或混合式 Azure AD 加入的 Windows 10 裝置，並取得單一登入其雲端和內部部署資源。 他們也可以登入支援的瀏覽器。
 
 ![使用安全性金鑰登入 Microsoft Edge](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -78,6 +78,9 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
+> [!NOTE]
+> 如果您購買並計畫使用 NFC 型安全性金鑰，您將需要支援的 NFC 讀取器。
+
 如果您是廠商，而且想要在這份清單中取得您的裝置，請聯絡[Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)。
 
 對於安全性敏感的企業，或有不願意或無法使用其電話作為第二個因素的案例，FIDO2 安全性金鑰是很好的選擇。
@@ -89,7 +92,7 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 - 使用者可以在其帳戶入口網站中註冊和管理這些無密碼驗證方法
 - 終端使用者可以使用這些無密碼的驗證方法登入
    - Microsoft Authenticator 應用程式：適用于使用 Azure AD 驗證的案例，包括跨所有瀏覽器、在 Windows 10 全新（OOBE）安裝期間，以及任何作業系統上的整合式行動應用程式。
-   - 安全性金鑰：適用于 Windows 10 1809 版或更新版本的鎖定畫面，以及 Microsoft Edge 等支援的瀏覽器中的 web。
+   - 安全性金鑰：適用于 Windows 10 的鎖定畫面和 web 上支援的瀏覽器，例如 Microsoft Edge。
 
 ## <a name="next-steps"></a>後續步驟
 

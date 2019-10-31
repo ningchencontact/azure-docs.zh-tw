@@ -13,40 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9ed2d00d6f229d958e0df024c70381051840548c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727009"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162756"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
 本文涵蓋 Azure 提供來協助管理和監視 Azure 雲端服務和虛擬機器的安全性功能和服務概觀。
-
-## <a name="shared-responsibility"></a>共同責任
-
-Microsoft 雲端服務的安全性是您與 Microsoft 之間的合作關係和共同責任。 Microsoft 負責 Azure 平台及其資料中心的實體安全性 (透過使用門禁、圍牆和警衛之類的安全性保護)。 Azure 提供軟體層的強式雲端安全性層級，以符合其客戶的安全性、隱私權和合規性需求。
-
-您擁有您的資料和身分識別、保護它們的責任、您內部部署資源的安全性，以及您可控制之雲端元件的安全性。 Microsoft 提供安全性控制措施和功能，協助您保護資料和應用程式。 您安全性責任的高低取決於雲端服務的類型。
-
-下表摘要說明 Microsoft 與客戶之間責任的平衡。
-
-![共同責任](./media/management-monitoring-overview/shared-responsibility.png)
-
-如需安全性管理的詳細資訊，請參閱 [Azure 的安全性管理](management.md)。
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
 角色型存取控制 (RBAC) 會針對 Azure 資源提供詳細的存取管理。 透過使用 RBAC，您可以僅授與使用者執行其作業所需的存取權。 RBAC 也可以協助您確保當使用者離開組織之後，就無法存取雲端中的資源。
 
-深入了解:
+深入了解：
 
 * [有關 RBAC 的 Active Directory 小組部落格](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)
 
-## <a name="antimalware"></a>反惡意程式碼軟體
+## <a name="antimalware"></a>反惡意程式碼
 
 運用 Azure，您可以使用來自各大安全性廠商 (例如 Microsoft、Symantec、Trend Micro、McAfee 和 Kaspersky) 的反惡意程式碼軟體。 此軟體可協助保護您的虛擬機器來抵禦惡意檔案、廣告軟體和其他威脅。
 
@@ -56,7 +44,7 @@ Microsoft 雲端服務的安全性是您與 Microsoft 之間的合作關係和�
 
 Azure 也支援 Symantec Endpoint Protection (SEP)。 透過入口網站整合，您可以指定想要在 VM 上使用 SEP。 SEP 可以透過 Azure 入口網站安裝在新的 VM 上，或透過 PowerShell 安裝在現有的 VM 上。
 
-深入了解:
+深入了解：
 
 * [在 Azure 虛擬機器上部署反惡意程式碼解決方案](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [適用於 Azure 雲端服務和虛擬機器的 Microsoft Antimalware](antimalware.md)
@@ -64,13 +52,13 @@ Azure 也支援 Symantec Endpoint Protection (SEP)。 透過入口網站整合�
 * [如何在 Windows VM 上安裝和設定 Symantec Endpoint Protection](/azure/virtual-machines/windows/classic/install-symantec)
 * [可用於保護 Azure 虛擬機器的新反惡意程式碼選項](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/) \(英文\)
 
-## <a name="multi-factor-authentication"></a>多重要素驗證
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Azure Multi-Factor Authentication 是一種驗證方法，其需要使用一個以上的驗證方法。 它可以為使用者登入和交易新增重要的第二層安全性。
 
 Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時滿足使用者對簡單登入程序的需求。 它可以透過一系列的驗證選項 (例如電話、簡訊，或是行動應用程式通知或驗證碼) 和第三方 OATH 權杖來提供強大的驗證功能。
 
-深入了解:
+深入了解：
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [什麼是 Azure Multi-Factor Authentication？](/azure/active-directory/authentication/multi-factor-authentication)
@@ -86,7 +74,7 @@ Multi-Factor Authentication 有助於保護對資料與應用程式的存取，�
 
 ExpressRoute 連線不會越過公用網際網路。 相較於透過網際網路的一般連線，它們可以提供更為可靠、速度更快、延遲更低且安全性更高的網際網路連線。
 
-深入了解:
+深入了解：
 
 * [ExpressRoute 技術概觀](../../expressroute/expressroute-introduction.md)
 
@@ -107,7 +95,7 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來在虛擬網路與內�
 
 Privileged Identity Management 引進了角色的臨時系統管理員或「即時」系統管理員存取權的概念。 這種系統管理員是需要針對該指派的角色完成啟用程序的使用者。 啟用程序會在指定的期間，將 Azure AD 中角色的使用者指派從非作用中變更為作用中。
 
-深入了解:
+深入了解：
 
 * [Azure AD 特殊權限身分識別管理](../../active-directory/privileged-identity-management/pim-configure.md)
 * [開始使用 Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
@@ -122,10 +110,10 @@ Azure AD Identity Protection 提供可疑登入活動和潛在弱點的合併檢
 
 藉由提供通知和建議的補救，Identity Protection 有助於即時降低風險。 它會計算使用者風險嚴重性。 您可以設定以風險為基礎的原則，自動協助保護應用程式存取，以免未來受到威脅。
 
-深入了解:
+深入了解：
 
 * [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
-* [第 9 頻道：Azure AD 和身分識別示範：身分識別保護預覽版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [第 9 頻道：Azure AD 和身分識別展示：Identity Protection 預覽](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>資訊安全中心
 
@@ -139,14 +127,18 @@ Azure 資訊安全中心可協助您保護、偵測威脅並採取相應的措�
 * 監視 Azure 虛擬機器、網路和應用程式的狀態。
 * 提供排列優先順序的安全性警示清單，包括來自整合式協力廠商解決方案的警示。 它也會提供讓您用來快速調查攻擊所需資訊，以及如何補救它的建議事項。
 
-深入了解:
+深入了解：
 
 * [Azure 資訊安全中心簡介](../../security-center/security-center-intro.md)
 * [改善您 Azure 資訊安全中心的安全分數](../../security-center/security-center-secure-score.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph 能在 Microsoft 產品及服務中提供即時威脅保護。 它會使用能連結大量威脅情報和安全性資料的進階分析，來提供可強化組織安全性的見解。 Microsoft 會採用進階分析來提供更豐富的見解，這些分析每月可處理 4500 億筆驗證、掃描 4000 億封電子郵件是否有惡意程式碼與網路釣魚，並更新十億部裝置。 這些見解可協助您的組織迅速地偵測並回應攻擊。
+Intelligent Security Graph 能在 Microsoft 產品及服務中提供即時威脅保護。 它會使用能連結大量威脅情報和安全性資料的進階分析，來提供可強化組織安全性的見解。 Microsoft 會採用進階分析來提供更豐富的見解，這些分析每月可處理 4500 億筆驗證、掃描 4000 億封電子郵件是否有惡意程式碼與網路釣魚，並更新十億部裝置。 這些深入洞悉可以協助您的組織迅速偵測和回應攻擊。
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
+## <a name="next-steps"></a>後續步驟
+瞭解[共用責任模型](shared-responsibility.md)，以及由 Microsoft 處理哪些安全性工作，以及由您處理哪些工作。
+
+如需安全性管理的詳細資訊，請參閱 [Azure 的安全性管理](management.md)。

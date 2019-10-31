@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: eaf4ba303caa405a170322828add944487908365
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968585"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162168"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。 標記為 [**支援標記**] 的資料行指出資源類型是否有標記的屬性。 [**成本報表] 中**標示為 [標記] 的資料行指出該資源類型是否會將標記傳遞至成本報表。
@@ -749,7 +749,7 @@ ms.locfileid: "72968585"
 > | 部門 | 否 | 否 |
 > | 維度 | 否 | 否 |
 > | EnrollmentAccounts | 否 | 否 |
-> | 多餘 | 否 | 否 |
+> | 匯出 | 否 | 否 |
 > | ExternalBillingAccounts | 否 | 否 |
 > | ExternalBillingAccounts/警示 | 否 | 否 |
 > | ExternalBillingAccounts/維度 | 否 | 否 |
@@ -1445,7 +1445,6 @@ ms.locfileid: "72968585"
 > | publicIPPrefixes | 是 | 是 |
 > | routeFilters | 是 | 是 |
 > | routeTables | 是 | 是 |
-> | secureGateways | 是 | 是 |
 > | serviceEndpointPolicies | 是 | 是 |
 > | trafficManagerGeographicHierarchies | 否 | 否 |
 > | trafficmanagerprofiles | 是 | 是 |

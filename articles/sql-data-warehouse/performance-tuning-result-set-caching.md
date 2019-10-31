@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: c659db91b8ca1ad65b00124bed347b8046328d2e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 6dd3172dd9098db0cb7ec09e812eec65f717340a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045002"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163224"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>使用結果集快取進行效能微調  
 啟用結果集快取時，Azure SQL 資料倉儲會自動快取使用者資料庫中的查詢結果，以供重複使用。  這可讓後續的查詢執行直接從持續性快取取得結果，因此不需要重新計算。   結果集快取可改善查詢效能並減少計算資源使用量。  此外，使用快取結果集的查詢不會使用任何平行存取插槽，因此不會計算現有的並行限制。 基於安全性，如果使用者與建立快取結果的使用者具有相同的資料存取權限，則只能存取快取的結果。  
@@ -37,7 +37,24 @@ ms.locfileid: "73045002"
 - 使用已啟用資料列層級安全性或資料行層級安全性之資料表的查詢
 - 傳回資料列大小大於64KB 的查詢
 
-當建立結果快取時，具有大型結果集（例如 > 1000000 資料列）的查詢可能會在第一次執行期間遇到較低的效能。
+> [!IMPORTANT]
+> 建立結果集快取，以及從快取取出資料的作業，會發生在資料倉儲實例的控制節點上。 開啟結果集快取時，執行傳回大型結果集的查詢（例如，> 1 百萬個數據列）可能會導致控制節點上的 CPU 使用率過高，並使實例上的整體查詢回應變慢。  這些查詢通常會在資料探索或 ETL 作業期間使用。 若要避免不足負荷過重控制節點並造成效能問題，使用者應該先關閉資料庫的結果集快取，再執行這些類型的查詢。  
+
+針對查詢的結果集快取作業所花費的時間執行此查詢：
+
+```sql
+SELECT step_index, operation_type, location_type, status, total_elapsed_time, command 
+FROM sys.dm_pdw_request_steps 
+WHERE request_id  = <'request_id'>; 
+```
+
+以下是使用已停用結果集快取所執行之查詢的範例輸出。
+
+![查詢-使用-rsc-已停用](media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+
+以下是在啟用結果集快取的情況下執行之查詢的範例輸出。
+
+![查詢-具有-rsc-已啟用的步驟](media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>使用快取的結果時
 

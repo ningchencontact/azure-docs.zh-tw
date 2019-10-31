@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148168"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159845"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>開發 Azure AD 應用程式的安全應用程式
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 這個範例是 web 應用程式的簡單 Azure Active Directory，可連結至在 Azure 上開發應用程式的安全性資源。 當您在 Azure 上開發應用程式時，應用程式會實行安全性最佳作法，協助改善您的應用程式和組織的安全性狀態。
 
@@ -83,7 +83,7 @@ ms.locfileid: "71148168"
 
 安裝這些工具之後，您就可以開始在 Azure 上部署應用程式。
 
-### <a name="implementation-guidance"></a>實作指引
+### <a name="implementation-guidance"></a>實作指南
 部署腳本是一個可以細分成四個階段的腳本。 每個階段都會部署並設定[架構圖](#architecture)中的 Azure 資源。
 
 這四個階段是
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -265,7 +265,7 @@ Azure App Service 可讓您使用 Python、Ruby、 C#和 JAVA 等語言來建立
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>繼續之前，請移至您的自訂網域的 Azure 網域名稱系統設定 UI，並依照中 https://aka.ms/appservicecustomdns 的指示設定主機名稱 "www" 的 CNAME 記錄，並將它指向 web 應用程式的預設功能變數名稱
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>繼續之前，請移至您的自訂網域的 Azure 網域名稱系統設定 UI，並遵循 https://aka.ms/appservicecustomdns 的指示來設定主機名稱 "www" 的 CNAME 記錄，並將它指向 web 應用程式的預設功能變數名稱
 
 #### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>將 App Service 規劃升級至共用層（自訂網域的最低需求）
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
@@ -293,7 +293,7 @@ App Service 實例可以與虛擬網路整合。 此整合可讓您設定網路�
     *App Service 的新虛擬網路整合*
 1. 在下一個頁面上，選取 [**新增 VNET （預覽）** ]。
 
-1. 在下一個功能表中，選取以開頭`aad-vnet`的部署中建立的虛擬網路。 您可以建立新的子網，或選取現有的子網。
+1. 在下一個功能表中，選取部署中建立的虛擬網路，其開頭為 `aad-vnet`。 您可以建立新的子網，或選取現有的子網。
    在此情況下，請建立新的子網。 將 [**位址範圍**] 設定為 [ **10.0.3.0/24** ]，並將子網命名為**應用程式子網**。
 
    ![App Service 虛擬網路設定](./media/secure-web-app/app-vnet-config.png)
@@ -320,7 +320,7 @@ App Service 實例可以與虛擬網路整合。 此整合可讓您設定網路�
 
    *設定 NSG*
 
-4. 在 [閘道 NSG] 的輸出規則中，新增規則以允許對 App Service 實例的輸出連線，方法是建立以服務標記為目標的規則`AppService`
+4. 在 [閘道 NSG] 的輸出規則中，藉由建立以服務標籤為目標的規則，新增允許 App Service 實例輸出連線的規則 `AppService`
 
    ![新增 NSG 的輸出規則](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -343,7 +343,7 @@ App Service 實例可以與虛擬網路整合。 此整合可讓您設定網路�
     *新增 Azure 服務健康狀態探查的規則（僅 App Service 環境）*
 
 若要限制受攻擊面，請修改 App Service 網路設定，只允許應用程式閘道存取應用程式。
-若要套用設定，請移至 App Service 網路 索引標籤，選取  **IP 限制** 索引標籤，然後建立允許僅允許應用程式閘道 IP 直接存取服務的允許規則。 您可以從其 [總覽] 頁面取得閘道的 IP 位址。 在 [ **Ip 位址 CIDR** ] 索引標籤上，以下列格式輸入`<GATEWAY_IP_ADDRESS>/32`ip 位址：。
+若要套用設定，請移至 App Service 網路 索引標籤，選取  **IP 限制** 索引標籤，然後建立允許僅允許應用程式閘道 IP 直接存取服務的允許規則。 您可以從其 [總覽] 頁面取得閘道的 IP 位址。 在 [ **Ip 位址 CIDR** ] 索引標籤上，以下列格式輸入 ip 位址： `<GATEWAY_IP_ADDRESS>/32`。
 
 ![僅允許閘道](./media/secure-web-app/app-allow-gw-only.png)
 
@@ -362,7 +362,7 @@ Azure 磁碟加密利用 Windows 的 BitLocker 功能來提供資料磁片的磁
 - Azure Active Directory Privileged Identity Management 可讓客戶將可存取特定資訊（例如持卡人資料）的使用者人數降至最低。 系統管理員可以使用 Azure Active Directory Privileged Identity Management 來探索、限制和監視特殊權限的識別和其對資源的存取。 如有需要，這項功能也可用來強制執行隨選 Just-In-Time 系統管理存取權。
 - Azure Active Directory Identity Protection 會偵測影響組織身分識別的潛在弱點、設定對偵測到的組織身分識別相關可疑動作的自動回應，以及調查可疑的要採取適當動作來解決問題的事件。
 ### <a name="secrets-management"></a>祕密管理
-解決方案會使用 Azure Key Vault 來管理金鑰和秘密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護及存取這類資料
+解決方案會使用 Azure Key Vault 來管理金鑰和秘密。 Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護及存取這類資料
    - 進階存取原則是視需要設定的。
    - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
    - Key Vault 中的所有金鑰和祕密都有到期日。
@@ -389,28 +389,28 @@ Azure 磁碟加密利用 Windows 的 BitLocker 功能來提供資料磁片的磁
    - Azure 資訊安全中心和 Azure Advisor 會提供額外的保護和通知。 Azure 資訊安全中心也會提供評價系統。
 ### <a name="logging-and-auditing"></a>記錄與稽核
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
-   - 活動記錄：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
+   - 活動記錄：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)可讓您深入瞭解在訂用帳戶中的資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
    - 診斷記錄：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault audit 記錄檔，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 ### <a name="azure-monitor-logs"></a>Azure 監視器記錄
    這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中，以供處理、儲存及儀表板報告之用。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄整合，可讓客戶使用 Kusto 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
    此架構中包含下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)
 
-   - [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
+   - [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：「Active Directory 健康情況檢查」解決方案會定期評估伺服器環境的風險和健康情況，並針對部署的伺服器基礎結構，提供依優先順序排列的建議清單。
    - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數量。
-   - [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
-### <a name="azure-monitor"></a>Azure 監視器
+   - [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：「活動記錄分析」解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
+### <a name="azure-monitor"></a>Azure Monitor
    [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)藉由讓組織能夠審核、建立警示及封存資料，包括追蹤其 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
 ### <a name="application-insights"></a>Application Insights 
-   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」服務。 Application Insights 會偵測效能異常，客戶可以用它來監視即時 Web 應用程式。 其中包括強大的分析工具可協助客戶診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助客戶持續改善效能和可用性。
+   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)是可延伸的應用程式效能管理服務，適用于多個平臺上的 網頁程式開發人員。 Application Insights 會偵測效能異常，客戶可以用它來監視即時 Web 應用程式。 其中包括強大的分析工具可協助客戶診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助客戶持續改善效能和可用性。
 
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="azure-key-vault"></a>Azure 金鑰保存庫
    為用來儲存金鑰的組織建立保存庫，並維護如下所述作業工作的責任
 
    - 儲存在 Key Vault 中的資料包含   
    - Application Insights 金鑰
    - 資料儲存體存取金鑰
-   - 連接字串
+   - Connection string
    - 資料表名稱
    - 使用者認證
    - 進階存取原則是視需要設定的
@@ -443,14 +443,14 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 1.  流覽回到 Azure 入口網站。 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
 2.  在結果畫面中，選取 [WebApp-OpenIDConnect-DotNet-code-v2] 應用程式。
 3.  在 [重新導向 Uri] 區段的 [驗證] 索引標籤中，選取下拉式方塊中的 [Web]，然後新增下列重新導向 Uri。
-    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc [Advanced settings] 區段中的 o 設定 [登出 URL] https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.  在 [商標] 索引標籤中，將 [首頁 URL] 更新為應用程式服務的 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 位址，例如。
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net [Advanced settings] 區段中的 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o，將 [登出 URL] 設定為 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+4.  在 [商標] 索引標籤中，將首頁 URL 更新為 app service 的位址，例如 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 。
         o 儲存設定。
 5.  如果您的應用程式呼叫 web api，請務必在專案 appsettings 上套用必要的變更，因此它會呼叫已發佈的 API URL，而不是 localhost。
 發行範例
     1.  從 App Service 的 [總覽] 索引標籤中，按一下 [取得發行設定檔] 連結並加以儲存，以下載發行設定檔。 您也可以使用其他部署機制，例如從原始檔控制。
     2.  切換至 Visual Studio 並移至 [WebApp-OpenIDConnect-DotNet-code-v2] 專案。 以滑鼠右鍵按一下方案總管中的專案，然後選取 [發佈]。 按一下底部列上的 [匯入設定檔]，然後匯入您稍早下載的發行設定檔。
-    3.  按一下 [設定]，然後在 [連線] 索引標籤中更新 [目的地 URL]，讓它在首頁 url 中是 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net HTTPs，例如。 按一下 [下一步]。
+    3.  按一下 [設定]，然後在 [連線] 索引標籤中更新 [目的地 URL]，讓它在首頁 url 中是 HTTPs，例如 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 。 按 [下一步]。
     4.  在 [設定] 索引標籤上，請確定未選取 [啟用組織驗證]。 按一下 [儲存]。 按一下主畫面上的 [發佈]。
     5.  Visual Studio 將發佈專案，並自動將瀏覽器開啟至專案的 URL。 如果您看到專案的預設網頁，則發行集已成功。
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>執行 Azure Active Directory 的多重要素驗證

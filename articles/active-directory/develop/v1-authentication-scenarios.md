@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺（v1）中的驗證 |Azure
+title: Microsoft 身分識別平臺（v1.0）中的驗證 |Azure
 description: 瞭解 Microsoft 身分識別平臺中的驗證基本概念-應用程式模型、API、布建，以及 Microsoft 身分識別平臺支援的最常見驗證案例。
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f64b16bde149c4dddd77ccec227781f45176a27d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377456"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149188"
 ---
 # <a name="what-is-authentication"></a>什麼是驗證？
 
@@ -73,7 +73,7 @@ Microsoft 身分識別平台可透過以服務的形式提供身分識別來簡�
 |[代理者流程](v1-oauth2-on-behalf-of-flow.md) | 存取權杖| x| x| x| |
 |[用戶端認證](v1-oauth2-client-creds-grant-flow.md) | | | x （僅限應用程式）| | |
 
-透過隱含模式發行的權杖有長度限制，因為會透過 URL 傳遞回瀏覽器（其中 `response_mode` 是 `query` 或 `fragment`）。  有些瀏覽器對於可以放在瀏覽器列中的 URL 大小有限制，而且太長時也會失敗。  因此，這些權杖沒有 `groups` 或 @no__t 1 的宣告。 
+透過隱含模式發行的權杖具有長度限制，因為會透過 URL 傳遞回瀏覽器（其中 `response_mode` 是 `query` 或 `fragment`）。  有些瀏覽器對於可以放在瀏覽器列中的 URL 大小有限制，而且太長時也會失敗。  因此，這些權杖沒有 `groups` 或 `wids` 宣告。 
 
 現在，您已具備基本概念的概觀，請繼續往下閱讀即可了解身分識別應用程式模型與 API、Microsoft 身分識別平台中佈建的運作方式，以及 Microsoft 身分識別平台所支援常見案例的相關詳細資訊連結。
 

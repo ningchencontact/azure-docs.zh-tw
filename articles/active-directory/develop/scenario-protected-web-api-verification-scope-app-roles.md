@@ -1,5 +1,5 @@
 ---
-title: 受保護的 Web API-應用程式代碼設定 Active Directory
+title: 使用受保護的 Web API 來驗證範圍和應用程式角色
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立受保護的 Web API，並設定應用程式的程式碼。
 services: active-directory
@@ -17,14 +17,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7044180c72f92b70e0c3a2085eca043f44da45f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803640"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149230"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>受保護的 Web API：將授權新增至您的 API
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>受保護的 Web API：確認範圍和應用程式角色
 
 本文說明如何將授權新增至您的 Web API。 這項保護可確保只會呼叫 API：
 

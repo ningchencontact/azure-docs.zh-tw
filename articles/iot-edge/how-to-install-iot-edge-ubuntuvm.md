@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: fec39a9e788debcd9c3ac707a0431e268d87ed35
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964653"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146190"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虛擬機器上執行 Azure IoT Edge
 
@@ -36,7 +36,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
     1.  從您在 IoT 中樞中建立的 IoT Edge 裝置複製您的裝置連接字串（如果您不熟悉此程式，可以遵循在[Azure 入口網站程式中取出連接字串](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal)）
     1.  從 Azure 入口網站選取您新建立的虛擬機器資源，然後開啟**執行命令**選項
     1.  選取 **RunShellScript** 選項
-    1.  透過具有您的裝置連接字串的命令視窗執行下列指令碼：`/etc/iotedge/configedge.sh “{device_connection_string}”`
+    1.  透過具有您的裝置連接字串的命令視窗執行下列指令碼：`/etc/iotedge/configedge.sh "{device_connection_string}"`
     1.  選取 [執行]
     1.  請稍候片刻，畫面應該會提供成功訊息，指出連接字串已成功設定。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37ee600a2f7d621d3fefb2f70c26b6c29f738ea9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002983"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162699"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
 本文包含如何在用戶端上插入各種類型廣告的相關資訊。
@@ -38,7 +38,7 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 * **非線性** – 播放被當做主要影片而顯示的疊加廣告，通常是播放器中的標誌或其他靜態影像。
 * **隨播** – 顯示在播放器之外的廣告。
 
-廣告可以放在主要影片時間軸的任何時間點。 您必須告訴播放器何時播放廣告以及要播放哪些廣告。 使用一組標準的 XML 格式檔案即可：Video Ad Service Template (VAST)、Digital Video Multiple Ad Playlist (VMAP)、Media Abstract Sequencing Template (MAST) 以及 Digital Video Player Ad Interface Definition (VPAID)。 VAST 檔案會指定要顯示的廣告。 VMAP 檔案會指定何時播放各種廣告而且包含 VAST XML。 MAST 檔案是另一種廣告排序的方法，而且也包含 VAST XML。 VPAID 檔案會定義影片播放器廣告和廣告或廣告伺服器之間的介面。
+廣告可以放在主要影片時間軸的任何時間點。 您必須告訴播放器何時播放廣告以及要播放哪些廣告。 使用一組標準的 XML 格式檔案即可搞定：Video Ad Service Template (VAST)、Digital Video Multiple Ad Playlist (VMAP)、Media Abstract Sequencing Template (MAST) 以及 Digital Video Player Ad Interface Definition (VPAID)。 VAST 檔案會指定要顯示的廣告。 VMAP 檔案會指定何時播放各種廣告而且包含 VAST XML。 MAST 檔案是另一種廣告排序的方法，而且也包含 VAST XML。 VPAID 檔案會定義影片播放器廣告和廣告或廣告伺服器之間的介面。
 
 每個播放器架構的運作方式不同，而且分別涵蓋於各自的文章中。 本文說明用來插入廣告的基本機制。 影片播放程式應用程式會向廣告伺服器要求廣告。 廣告伺服器可以使用數種方法回應：
 
@@ -332,7 +332,7 @@ MAST 檔案開頭為 **MAST** 元素，其中包含一個 **triggers** 元素。
 1. **type** – 指定條件、事件或屬性的類型
 2. **name** – 要在評估期間使用之屬性或事件的名稱
 3. **value** – 屬性將會針對其進行評估的值
-4. **operator** – 要在評估期間使用的運算子：EQ (等於)、NEQ (不等於)、GTR (大於)、GEQ (大於或等於)、LT (小於)、LEQ (小於或等於)、MOD (模數)
+4. **operator** – 要在評估期間使用的運算：EQ (等於)、NEQ (不等於)、GTR (大於)、GEQ (大於或等於)、LT (小於)、LEQ (小於或等於)、MOD (模數)
 
 **endConditions** 也會包含 `<condition>` 元素。 當條件評估為 true 時，會重設觸發程序。 `<trigger>` 元素也包含 `<sources>` 元素，該元素包含一或多個 `<source>` 元素。 `<source>` 元素定義廣告回應的 URI 與廣告回應的類型。 在此範例中，會對 VAST 回應指定 URI。
 
@@ -356,8 +356,8 @@ VPAID 是 API，用於啟用可執行廣告單元，以便與視訊播放器通�
 
 ```xml
     <MediaFiles>
-       <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
-                  width=”640” height=”480” apiFramework=”VPAID”>
+       <MediaFile id="1" delivery="progressive" type="application/x-shockwaveflash"
+                  width="640" height="480" apiFramework="VPAID">
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
@@ -586,7 +586,7 @@ ProgrammaticAdPage.xaml.cs 檔案會建立 AdHandlerPlugin，新增 TimelineMark
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>實作具有廣告支援的 iOS 視訊播放器
-Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。 您可以從 [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework)下載 Player Framework 和範例。 此 GitHub 頁面具有連接至 Wiki 的連結，該連結包含 Player Framework 的其他資訊和播放器範例的簡介：[Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)。
+Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。 您可以從 [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework)下載 Player Framework 和範例。 GitHub 頁面含有 Wiki 的連結，其中包含播放程式架構的其他資訊，以及播放程式範例： [Azure 媒體播放機 Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)的簡介。
 
 ### <a name="scheduling-ads-with-vmap"></a>使用 VMAP 排程廣告
 下列範例示範如何使用 VMAP 檔案排程廣告。

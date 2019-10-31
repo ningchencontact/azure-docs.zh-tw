@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e4714de9868dbd540e2e662b22a22da6df6514b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509597"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147526"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 
@@ -43,7 +43,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 > [!NOTE]
 > 為確保安全，系統目前禁止使用 JavaScript 來進行自訂。 
 
-在每個 HTML5/CSS 範本中，您都需要提供「錨點」  元素，以便對應至 HTML 或內容頁面中所需的 `<div id=”api”>` 元素，如以下所述。 Azure AD B2C 要求所有內容頁面都必須有這個特定 div。
+在每個 HTML5/CSS 範本中，您都需要提供「錨點」元素，以便對應至 HTML 或內容頁面中所需的 `<div id="api">` 元素，如以下所述。 Azure AD B2C 要求所有內容頁面都必須有這個特定 div。
 
 ```
 <!DOCTYPE html>
@@ -82,36 +82,36 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 1. 開啟瀏覽工作階段並瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 使用您的系統管理認證來登入。
-3. 按一下 [建立資源]   >  [儲存體]   >  [儲存體帳戶]  。  [建立儲存體帳戶]  窗格隨即開啟。
-4. 在 [名稱]  中，提供儲存體帳戶的名稱，例如 contoso369b2c  。 此值稍後會指稱為 storageAccountName  。
-5. 選擇適當的定價層、資源群組和訂用帳戶。 確定您已核取 [釘選到「開始面板」]  選項。 按一下 [建立]  。
+3. 按一下 [建立資源]  >  [儲存體]  >  [儲存體帳戶]。  [建立儲存體帳戶] 窗格隨即開啟。
+4. 在 [名稱] 中，提供儲存體帳戶的名稱，例如 contoso369b2c。 此值稍後會指稱為 storageAccountName。
+5. 選擇適當的定價層、資源群組和訂用帳戶。 確定您已核取 [釘選到「開始面板」] 選項。 按一下 [建立]。
 6. 回到「開始面板」，然後按一下您建立的儲存體帳戶。
-7. 在 [服務]  區段中，按一下 [Blob]  。 [Blob 服務]  窗格隨即開啟。
-8. 按一下 [+容器]  。
-9. 在 [名稱]  中提供容器的名稱，例如 b2c  。 此值稍後會指稱為 containerName  。
-9. 選取 [Blob]  來作為 [存取類型]  。 按一下 [建立]  。
-10. 您建立的容器將會出現在 [Blob 服務]  窗格的清單中。
-11. 關閉 [Blob]  窗格。
-12. 在 [儲存體帳戶]  窗格上，按一下**金鑰**圖示。 [存取金鑰]  窗格隨即開啟。  
-13. 記下 **key1** 的值。 此值稍後會指稱為 key1  。
+7. 在 [服務] 區段中，按一下 [Blob]。 [Blob 服務] 窗格隨即開啟。
+8. 按一下 [+容器]。
+9. 在 [名稱] 中提供容器的名稱，例如 b2c。 此值稍後會指稱為 containerName。
+9. 選取 [Blob] 來作為 [存取類型]。 按一下 [建立]。
+10. 您建立的容器將會出現在 [Blob 服務] 窗格的清單中。
+11. 關閉 [Blob] 窗格。
+12. 在 [儲存體帳戶] 窗格上，按一下**金鑰**圖示。 [存取金鑰] 窗格隨即開啟。  
+13. 記下 **key1** 的值。 此值稍後會指稱為 key1。
 
 ## <a name="downloading-the-helper-tool"></a>下載協助程式工具
 
 1.  從 [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) 下載協助程式工具。
-2.  將 B2C-AzureBlobStorage-Client-master.zip  檔案儲存在本機電腦上。
+2.  將 B2C-AzureBlobStorage-Client-master.zip 檔案儲存在本機電腦上。
 3.  在本機磁碟上解壓縮 B2C-AzureBlobStorage-Client-master.zip 檔案的內容，例如在 **UI-Customization-Pack** 資料夾下解壓縮，會在這個資料夾底下建立 *B2C-AzureBlobStorage-Client-master* 資料夾。
-4.  開啟該資料夾，並在其中解壓縮 B2CAzureStorageClient.zip  封存檔的內容。
+4.  開啟該資料夾，並在其中解壓縮 B2CAzureStorageClient.zip 封存檔的內容。
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>上傳 UI-Customization-Pack 範例檔
 
-1.  使用 Windows 檔案總管，瀏覽至上一節所建立之 UI-Customization-Pack  資料夾底下的 B2C-AzureBlobStorage-Client-master  資料夾。
-2.  執行 B2CAzureStorageClient.exe  檔案。 這個程式會將您指定目錄中的所有檔案上傳至您的儲存體帳戶，並允許 CORS 存取這些檔案。
-3.  請在提示出現時指定︰a.  您儲存體帳戶 storageAccountName  的名稱，例如 contoso369b2c  。
-    b.  您的 Azure Blob 儲存體 key1  的主要存取金鑰，例如 contoso369b2c  。
-    c.  您的儲存體 Blob 儲存體容器 containerName  的名稱，例如 b2c  。
-    d.  Starter-Pack  範例檔的路徑，例如 ..\B2CTemplates\wingtiptoys  。
+1.  使用 Windows 檔案總管，瀏覽至上一節所建立之 UI-Customization-Pack 資料夾底下的 B2C-AzureBlobStorage-Client-master 資料夾。
+2.  執行 B2CAzureStorageClient.exe 檔案。 這個程式會將您指定目錄中的所有檔案上傳至您的儲存體帳戶，並允許 CORS 存取這些檔案。
+3.  請在提示出現時指定︰a.  您儲存體帳戶 storageAccountName 的名稱，例如 contoso369b2c。
+    b.這是另一個 C# 主控台應用程式。  您的 Azure Blob 儲存體 key1 的主要存取金鑰，例如 contoso369b2c。
+    c.  您的儲存體 Blob 儲存體容器 containerName 的名稱，例如 b2c。
+    d.  Starter-Pack 範例檔的路徑，例如 ..\B2CTemplates\wingtiptoys。
 
-如果您遵循前述步驟，虛構公司 **wingtiptoys** 的 UI-Customization-Pack  的 HTML5 和 CSS 檔案現在會指向您的儲存體帳戶。  您可以在 Azure 入口網站中開啟相關的容器窗格，以確認該內容已正確上傳。 或者，您也可以從瀏覽器存取頁面來確認該內容已正確上傳。 如需詳細資訊，請參閱 [Azure Active Directory B2C：用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)。
+如果您遵循前述步驟，虛構公司 **wingtiptoys** 的 UI-Customization-Pack 的 HTML5 和 CSS 檔案現在會指向您的儲存體帳戶。  您可以在 Azure 入口網站中開啟相關的容器窗格，以確認該內容已正確上傳。 或者，您也可以從瀏覽器存取頁面來確認該內容已正確上傳。 如需詳細資訊，請參閱 [Azure Active Directory B2C︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)。
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>確定儲存體帳戶已啟用 CORS
 
@@ -119,18 +119,18 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 若要確認您要用來裝載內容的儲存體已啟用 CORS，請進行下列步驟︰
 
-1. 開啟瀏覽工作階段，並使用 unified.html  頁面在儲存體帳戶中所在位置的完整 URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 來瀏覽至該頁面。 例如： https://contoso369b2c.blob.core.windows.net/b2c/unified.html 。
-2. 瀏覽至 https://test-cors.org 。這個網站可讓您確認您要使用的頁面已啟用 CORS。  
+1. 開啟瀏覽工作階段，並使用 unified.html 頁面在儲存體帳戶中所在位置的完整 URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 來瀏覽至該頁面。 例如： https://contoso369b2c.blob.core.windows.net/b2c/unified.html 。
+2. 流覽至 https://test-cors.org 。此網站可讓您驗證所使用的頁面是否已啟用 CORS。  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
 
-3. 在 [遠端 URL]  中，輸入 unified.html 內容的完整 URL，然後按一下 [傳送要求]  。
-4. 確認 [結果]  區段中的輸出包含「XHR status:*200*，這表示已啟用 CORS。
+3. 在 [遠端 URL] 中，輸入 unified.html 內容的完整 URL，然後按一下 [傳送要求]。
+4. 確認 [結果] 區段中的輸出包含 XHR status: 200，這表示已啟用 CORS。
    <!--
    ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
    -->
-   儲存體帳戶現在應該包含示圖中名為 b2c  的 Blob 容器，其中並包含下列來自 Starter-Pack  的 wingtiptoys 範本。
+   儲存體帳戶現在應該包含示圖中名為 b2c 的 Blob 容器，其中並包含下列來自 Starter-Pack 的 wingtiptoys 範本。
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
@@ -140,8 +140,8 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 | HTML5 範本 | 描述 |
 |----------------|-------------|
-| phonefactor.html  | 此頁面可作為 Multi-Factor Authentication 頁面的範本。 |
-| resetpassword.html  | 此頁面可作為忘記密碼頁面的範本。 |
+| phonefactor.html | 此頁面可作為 Multi-Factor Authentication 頁面的範本。 |
+| resetpassword.html | 此頁面可作為忘記密碼頁面的範本。 |
 | *selfasserted.html* | 此頁面可作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
 | *unified.html* | 此頁面可作為統一之註冊或登入頁面的範本。 |
 | *updateprofile.html* | 此頁面可作為設定檔更新頁面的範本。 |
@@ -150,22 +150,22 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 您可以藉由直接編輯自訂原則，將 HTML5/CSS 範本的連結新增至使用者旅程。
 
-要在使用者旅程中使用的自訂 HTML5/CSS 範本，必須在可用於這些使用者旅程的內容定義清單加以指定。 基於這個目的，選擇性 *\<ContentDefinitions >* 下，必須宣告 XML 項目 *\<BuildingBlocks >* 您自訂原則 XML 檔的區段。
+要在使用者旅程中使用的自訂 HTML5/CSS 範本，必須在可用於這些使用者旅程的內容定義清單加以指定。 基於這個目的，必須在自訂原則 XML 檔案的 *\<BuildingBlocks >* 區段下宣告選擇性的 *\<ContentDefinitions >* XML 元素。
 
 下表說明 Azure AD B2C 身分識別體驗引擎所能辨識之內容定義識別碼的集合，以及與這些識別碼有關的頁面類型。
 
 | 內容定義識別碼 | 描述 |
 |-----------------------|-------------|
-| api.error  | **錯誤頁面**。 在發生例外狀況或錯誤時，系統會顯示此頁面。 |
-| api.idpselections  | **識別提供者選取頁面**。 此頁面包含使用者可以在登入期間選擇的識別提供者清單。 這些提供者是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶 (以電子郵件地址或使用者名稱為基礎)。 |
-| api.idpselections.signup  | **用於註冊的識別提供者選取**。 此頁面包含使用者可以在註冊期間選擇的識別提供者清單。 這些提供者是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶 (以電子郵件地址或使用者名稱為基礎)。 |
-| api.localaccountpasswordreset  | **忘記密碼頁面**。 此頁面包含表單，使用者必須填寫此表單才能重設其密碼。  |
-| api.localaccountsignin  | **本機帳戶登入頁面**。 此頁面包含登入表單，使用者必須填寫此表單才能使用以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
-| api.localaccountsignup  | **本機帳戶註冊頁面**。 此頁面包含使用者在使用以電子郵件地址或使用者名稱為基礎的本機帳戶註冊時所需填寫的註冊表單。 此表單可以包含不同的輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
-| api.phonefactor  | **Multi-Factor Authentication 頁面**。 在此頁面上，使用者可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
+| api.error | **錯誤頁面**。 在發生例外狀況或錯誤時，系統會顯示此頁面。 |
+| api.idpselections | **識別提供者選取頁面**。 此頁面包含使用者可以在登入期間選擇的識別提供者清單。 這些提供者是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶 (以電子郵件地址或使用者名稱為基礎)。 |
+| api.idpselections.signup | **用於註冊的識別提供者選取**。 此頁面包含使用者可以在註冊期間選擇的識別提供者清單。 這些提供者是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶 (以電子郵件地址或使用者名稱為基礎)。 |
+| api.localaccountpasswordreset | **忘記密碼頁面**。 此頁面包含表單，使用者必須填寫此表單才能重設其密碼。  |
+| *api.localaccountsignin* | **本機帳戶登入頁面**。 此頁面包含登入表單，使用者必須填寫此表單才能使用以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
+| *api.localaccountsignup* | **本機帳戶註冊頁面**。 此頁面包含使用者在使用以電子郵件地址或使用者名稱為基礎的本機帳戶註冊時所需填寫的註冊表單。 此表單可以包含不同的輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
+| *api.phonefactor* | **Multi-Factor Authentication 頁面**。 在此頁面上，使用者可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
 | *api.selfasserted* | **社交帳戶註冊頁面**。 此頁面包含使用者在使用社交識別提供者 (例如 Facebook 或 Google+) 的現有帳戶註冊時所需填寫的註冊表單。 此頁面類似於前述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | *api.selfasserted.profileupdate* | **設定檔更新頁面**。 此頁面包含表單，以供使用者用來更新其設定檔。 此頁面類似於前述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | *api.signuporsignin* | **統一的註冊或登入頁面**。  此頁面可處理使用者的註冊和登入，這些使用者可使用企業識別提供者、社交識別提供者 (例如 Facebook 或 Google+) 或本機帳戶。
 
 ## <a name="next-steps"></a>後續步驟
-[參考：了解自訂原則如何在 B2C 中使用身分識別體驗架構](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[參考︰了解自訂原則如何在 B2C 中使用身分識別體驗架構](active-directory-b2c-reference-custom-policies-understanding-contents.md)

@@ -1,5 +1,5 @@
 ---
-title: PowerShell 和 CLI：啟用 SQL TDE - 使用 Azure Key Vault - 攜帶您自己的金鑰 - Azure SQL Database | Microsoft Docs
+title: PowerShell 和 CLI：啟用 SQL TDE-使用 Azure Key Vault-自備您自己的金鑰-Azure SQL Database |Microsoft Docs
 description: 了解如何設定 Azure SQL Database 和資料倉儲，以透過 PowerShell 或 CLI 開始使用透明資料加密 (TDE) 進行待用資料加密。
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: f191a9f589f54bdd657c017060f501b176a8647d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: beeb5fa4f979ac457db8a779dd8f8f2e94ef87f5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596714"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163847"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用客戶管理的金鑰啟用透明資料加密
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用客戶管理的金鑰來啟用透明資料加密
 
 本文將逐步解說如何將 Azure Key Vault 中的金鑰用於 SQL Database 或資料倉儲上的透明資料加密 (TDE)。 若要深入了解以 Azure Key Vault 整合進行 TDE - 攜帶您自己的金鑰 (BYOK) 的支援，請參閱 [Azure SQL 透明資料加密：「攜帶您自己的金鑰」支援](transparent-data-encryption-byok-azure-sql.md)。 
 
@@ -26,7 +26,7 @@ ms.locfileid: "68596714"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 - 您必須具有 Azure 訂用帳戶，並且是該訂用帳戶的系統管理員。
 - [建議執行的選擇性作業] 備妥硬體安全性模組 (HSM) 或本機金鑰存放區，用來建立 TDE 保護裝置金鑰內容的本機複本。
@@ -53,7 +53,7 @@ ms.locfileid: "68596714"
    -AssignIdentity
    ```
 
-如果您要建立伺服器, 請使用[AzSqlServer](/powershell/module/az.sql/new-azsqlserver)指令程式搭配標記身分識別, 在伺服器建立期間新增 Azure AD 身分識別:
+如果您要建立伺服器，請使用[AzSqlServer](/powershell/module/az.sql/new-azsqlserver)指令程式搭配標記身分識別，在伺服器建立期間新增 Azure AD 身分識別：
 
    ```powershell
    $server = New-AzSqlServer `
@@ -67,7 +67,7 @@ ms.locfileid: "68596714"
 
 ## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>步驟 2. 為您的伺服器授與 Key Vault 權限
 
-使用[set-azkeyvaultaccesspolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)指令程式, 將金鑰保存庫的存取權授與您的伺服器, 再使用其金鑰來進行 TDE。
+使用[set-azkeyvaultaccesspolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)指令程式，將金鑰保存庫的存取權授與您的伺服器，再使用其金鑰來進行 TDE。
 
    ```powershell
    Set-AzKeyVaultAccessPolicy  `
@@ -80,8 +80,8 @@ ms.locfileid: "68596714"
 
 
 - 使用[AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) Cmdlet 從金鑰保存庫取出金鑰識別碼
-- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) Cmdlet, 將金鑰從 Key Vault 新增至伺服器。
-- 使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector), 將金鑰設定為所有伺服器資源的 TDE 保護裝置。
+- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) Cmdlet，將金鑰從 Key Vault 新增至伺服器。
+- 使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector)，將金鑰設定為所有伺服器資源的 TDE 保護裝置。
 - 使用[AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector)指令程式來確認 TDE 保護裝置已如預期設定。
 
 > [!Note]
@@ -128,7 +128,7 @@ ms.locfileid: "68596714"
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>步驟 5。 檢查加密狀態和加密活動
 
-使用[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption)來取得加密狀態, 以及[取得 AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity)以檢查資料庫或資料倉儲的加密進度。
+使用[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption)來取得加密狀態，以及[取得 AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity)以檢查資料庫或資料倉儲的加密進度。
 
    ```powershell
    # Get the encryption state
@@ -153,10 +153,10 @@ ms.locfileid: "68596714"
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -DatabaseName <DatabaseName> `
-   -State "Disabled”
+   -State "Disabled"
    ```
  
-- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey)指令, 傳回已新增至伺服器的 Key Vault 金鑰清單。
+- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey)指令，傳回已新增至伺服器的 Key Vault 金鑰清單。
 
    ```powershell
    <# KeyId is an optional parameter, to return a specific key version #>
@@ -178,7 +178,7 @@ ms.locfileid: "68596714"
 ## <a name="troubleshooting"></a>疑難排解
 
 如果發生問題，請進行下列檢查：
-- 如果找不到金鑰保存庫, 請使用[get-azsubscription](/powershell/module/az.accounts/get-azsubscription) Cmdlet 來確定您是在正確的訂用帳戶中。
+- 如果找不到金鑰保存庫，請使用[get-azsubscription](/powershell/module/az.accounts/get-azsubscription) Cmdlet 來確定您是在正確的訂用帳戶中。
 
    ```powershell
    Get-AzSubscription `

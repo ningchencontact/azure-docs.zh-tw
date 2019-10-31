@@ -4,15 +4,15 @@ description: 了解如何在 Azure 中管理 Analysis Services 伺服器上的�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301145"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147004"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
 
@@ -25,14 +25,14 @@ ms.locfileid: "72301145"
 *  **處理** - 使用者可以連線到資料庫並對其執行處理作業，以及分析模型資料庫的資料。
 *  **讀取** - 使用者可以使用用戶端應用程式來連接和分析模型資料庫的資料。
 
-建立表格式模型專案時，您可以使用 SQL Server Data Tools （SSDT）中的角色管理員，建立角色，並將使用者或群組新增至這些角色。 部署到伺服器時，您可以使用 SQL Server Management Studio （SSMS）、 [Analysis Services PowerShell Cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)或[表格式模型指令碼語言](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)（TMSL）來新增或移除角色和使用者成員。
+建立表格式模型專案時，您可以使用 Visual Studio 中的角色管理員與 Analysis Services 專案，建立角色，並將使用者或群組新增至這些角色。 部署到伺服器時，您可以使用 SQL Server Management Studio （SSMS）、 [Analysis Services PowerShell Cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)或[表格式模型指令碼語言](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)（TMSL）來新增或移除角色和使用者成員。
 
-**安全性群組**必須[啟用郵件](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups)，並將 `MailEnabled` 屬性設定為 `True`。 以電子郵件地址指定群組時，請使用 `obj:groupid@tenantid`。
+**安全性群組**必須[啟用郵件](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups)，並將 `MailEnabled` 屬性設為 `True`。 以電子郵件地址指定群組時，請使用 `obj:groupid@tenantid`。
 
 
-## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>在 SSDT 中新增或管理角色和使用者  
+## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>在 Visual Studio 中新增或管理角色和使用者  
   
-1.  在 SSDT > [表格式模型總管] 中，以滑鼠右鍵按一下 [角色]。  
+1.  在 [**表格式模型瀏覽器**] 中，以滑鼠右鍵按一下 [**角色**]。  
   
 2.  在 [角色管理員] 中，按一下 [新增]。  
   
@@ -137,11 +137,11 @@ ms.locfileid: "72301145"
   
 資料列篩選條件會套用至指定的資料列和相關資料列。 若資料表具有多個關聯性，篩選條件就會套用作用中關聯性的安全性。 資料列篩選條件會與針對相關資料表定義的其他資料列篩選條件產生交集，例如：  
   
-|資料表|DAX 運算式|  
+|表格|DAX 運算式|  
 |-----------|--------------------|  
-|區域|=Region[Country]="USA"|  
+|地區|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
-|異動|=Transactions[Year]=2016|  
+|交易|=Transactions[Year]=2016|  
   
  淨效應是成員可以查詢客戶位於美國、產品類別為自行車且 2016 年之資料的資料列。 使用者無法查詢美國以外的交易、非自行車的交易或不在 2016 年的交易，除非他們是授與這些權限之另一個角色的成員。
   

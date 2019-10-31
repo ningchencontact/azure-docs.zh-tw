@@ -1,6 +1,6 @@
 ---
 title: 設定 ExpressRoute Direct - Azure | Microsoft Docs
-description: 這個頁面可協助您設定 ExpressRoute 直接。
+description: 此頁面可協助您設定 ExpressRoute Direct。
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964253"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161590"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>如何設定 ExpressRoute Direct
 
@@ -26,7 +26,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. 列出支援 ExpressRoute Direct 的所有位置。
   
@@ -163,10 +163,10 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
    連結 [0] 是主要連接埠，而連結 [1] 是次要連接埠。
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **範例輸出︰**
@@ -218,7 +218,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
    Circuits                   : []
    ```
 
-   使用與 `AdminState = “Disabled”` 相同的程序來關閉連接埠。
+   使用與 `AdminState = "Disabled"` 相同的程序來關閉連接埠。
 
 ## <a name="circuit"></a>建立線路
 
@@ -226,9 +226,9 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
 
 ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 這些是：40Gbps 和 100Gbps。
 
-**SkuTier**可以是本機、 Standard 或 Premium。
+**SkuTier**可以是 Local、Standard 或 Premium。
 
-**SkuFamily**只為無限制必須 MeteredData ExpressRoute 直接上不支援。
+只有在 ExpressRoute Direct 不支援**SkuFamily**時，才必須 MeteredData 為無限制。
 
 在 ExpressRoute Direct 資源上建立線路。
 

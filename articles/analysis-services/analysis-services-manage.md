@@ -4,20 +4,20 @@ description: 瞭解如何以 Azure 管理 Analysis Services 伺服器。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 63591da8d7661f7f3a29b321c20a2e05351c71fd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6846eaedc7f20f5a7597ee889193e977e86a5ed6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298603"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146838"
 ---
 # <a name="manage-analysis-services"></a>Azure Analysis Services
 在 Azure 中建立 Analysis Services 伺服器之後，會有一些您必須立即或稍後執行的管理工作。 例如：執行資料重新整理處理作業、控制誰能夠存取您伺服器上的模型，或監視伺服器的健康狀態。 有些管理工作只能在 Azure 入口網站中執行，有些只能在 SQL Server Management Studio (SSMS) 中執行，也有些工作可以在這兩個位置中執行。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 [Azure 入口網站](https://portal.azure.com/)可讓您建立與刪除伺服器、監視伺服器資源、變更大小，以及管理誰能夠存取您的伺服器。  如果您有一些問題，也可以提交支援要求。
 
 ![在 Azure 中取得伺服器名稱](./media/analysis-services-manage/aas-manage-portal.png)
@@ -60,7 +60,7 @@ ms.locfileid: "72298603"
 
 
 ## <a name="troubleshooting-connection-problems"></a>連接問題的疑難排解
-使用 SSMS 進行連線時，如果遇到問題，您可能需要清除登入快取。 系統不會將任何資料快取到磁碟。若要清除快取，請將連線程序關閉並重新啟動。 
+使用 SSMS 進行連線時，如果遇到問題，您可能需要清除登入快取。 不會將任何內容快取至光碟。若要清除快取，請關閉並重新啟動 connect 進程。 
 
 ## <a name="next-steps"></a>後續步驟
 如果您尚未將表格式模型部署到新伺服器，現在正是時候。 若要深入了解，請參閱 [Deploy to Azure Analysis Services](analysis-services-deploy.md) (部署至 Azure Analysis Services)。

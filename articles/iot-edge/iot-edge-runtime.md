@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 677ff7ffab22eebdace67151d703ba83c2146602
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998615"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163153"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 執行階段和架構
 
@@ -26,7 +26,7 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 * 在裝置上維護 Azure IoT Edge 安全性標準。
 * 確定[IoT Edge 模組](iot-edge-modules.md)一律執行中。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
-* 促進下游分葉裝置備與 IoT Edge 裝置之間的通訊。
+* 促進下游分葉裝置與 IoT Edge 裝置之間的通訊。
 * 促進 IoT Edge 裝置上的模組之間的通訊。
 * 促進 IoT Edge 裝置與雲端之間的通訊。
 
@@ -62,16 +62,16 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
    ```csharp
    ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
-   await client.SendEventAsync(“output1”, message); 
+   await client.SendEventAsync("output1", message); 
    ```
 
 若要接收訊息，請註冊會處理來自特定輸入之訊息的回呼。 下列虛擬程式碼會註冊要用來處理**input1**上所接收之所有訊息的 messageProcessor 函數：
 
    ```csharp
-   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-如需 ModuleClient 類別及其通訊方法的詳細資訊，請參閱您慣用 SDK 語言的 API 參考：[C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)、 [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)、 [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python)、 [JAVA](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)或[node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)。
+如需 ModuleClient 類別及其通訊方法的詳細資訊，請參閱您慣用 SDK 語言的 API [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)參考：、 [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)、 [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python)、 [JAVA](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)或[node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)。
 
 解決方案開發人員會負責指定規則，以判斷 IoT Edge 中樞在模組之間傳遞訊息的方式。 路由傳送規則會定義於雲端，並利用 IoT Edge 中樞的裝置對應項往下推送到該中樞。 適用於 IoT 中樞路由的相同語法，可用來定義 Azure IoT Edge 中模組之間的路由。 如需詳細資訊，請參閱[瞭解如何在 IoT Edge 中部署模組及建立路由](module-composition.md)。   
 
@@ -87,16 +87,16 @@ IoT Edge 代理程式是另一個組成 Azure IoT Edge 執行階段的模組。 
 
 * **settings.image**：IoT Edge 代理程式用來啟動模組的容器映像。 如果映像受到密碼保護，IoT Edge 代理程式就必須使用適用於容器登錄的認證來設定。 若要從遠端設定容器登錄的認證，您可以藉由使用部署資訊清單來進行，也可以在 IoT Edge 裝置本身上藉由在 IoT Edge 方案資料夾中更新 `config.yaml` 檔案來進行。
 * **createOptions** –啟動模組的容器時，直接傳遞至 Moby 容器背景程式的字串。 在此屬性中新增選項，可讓您進行像是埠轉送或將磁片區掛接到模組容器的先進設定。  
-* **status**：IoT Edge 代理程式放置模組的狀態。 此值通常會設定為 [*執行中]，因為大多數*人都想要 IoT Edge 代理程式立即啟動裝置上的所有模組。 不過，您可以指定要停止之模組的初始狀態，並等候一段時間，以告知 IoT Edge 代理程式啟動模組。 IoT Edge 代理程式會在回報的屬性中，將每個模組的狀態回報至雲端。 所需屬性和回報的屬性之間的差異可能表示裝置異常。 支援的狀態如下：
+* **status**：IoT Edge 代理程式放置模組的狀態。 此值通常會設定為 [*執行中]，因為大多數*人都想要 IoT Edge 代理程式立即啟動裝置上的所有模組。 不過，您可以指定要停止之模組的初始狀態，並等候一段時間，以告知 IoT Edge 代理程式啟動模組。 IoT Edge 代理程式會在回報的屬性中，將每個模組的狀態報表回雲端。 所需屬性和回報的屬性之間的差異可能表示裝置異常。 支援的狀態如下：
    * 正在下載
-   * Running
+   * 執行中
    * 狀況不良
-   * 已失敗
+   * 失敗
    * 已停止
-* **restartPolicy**：IoT Edge 代理程式重新啟動模組的方式。 可能的值包括：
-   * `never`– IoT Edge 代理程式永遠不會重新開機模組。
-   * `on-failure`-如果模組損毀，IoT Edge 代理程式會將它重新開機。 如果模組完全關閉，IoT Edge 代理程式就不會重新啟動它。
-   * `on-unhealthy`-如果模組損毀或被視為狀況不良，IoT Edge 代理程式會將它重新開機。
+* **restartPolicy**：IoT Edge 代理程式重新啟動模組的方式。 可能值包括：
+   * `never` – IoT Edge 代理程式永遠不會重新開機模組。
+   * `on-failure`-如果模組損毀，IoT Edge 代理程式就會重新開機它。 如果模組完全關閉，IoT Edge 代理程式就不會重新啟動它。
+   * `on-unhealthy`-如果模組損毀或被視為狀況不良，IoT Edge 代理程式就會重新開機它。
    * `always`-如果模組損毀、被視為狀況不良，或以任何方式關閉，IoT Edge 代理程式就會重新開機它。 
 
 IoT Edge 代理程式會將執行階段回應傳送到 IoT 中樞。 以下是可能回應的清單：

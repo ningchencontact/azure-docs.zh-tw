@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6f7bb1cfdb36bcaa8545fba8767b20d974c8e073
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 57e8eab6413efa25eb03c48a968ca2b671b8c8d6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968389"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162128"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -25,6 +25,9 @@ Azure 備份使用 MARS 代理程式，將資料從內部部署機器和 Azure V
 - 在內部部署 Windows 機器上執行，使其可以直接備份至 Azure 中的備份復原服務保存庫。
 - 在 Windows Vm 上執行，讓它們可以直接備份到保存庫。
 - 在 Microsoft Azure 備份 Server （MABS）或 System Center Data Protection Manager （DPM）伺服器上執行。 在此案例中，機器和工作負載會備份至 MABS 或 DPM 服務器。 MARS 代理程式接著會將此伺服器備份至 Azure 中的保存庫。
+
+> [!NOTE]
+>Azure 備份不支援自動調整日光節約時間（DST）的時鐘。 修改原則以確保將日光節約納入考慮，以避免實際時間和排程備份時間之間的差異。
 
 您的備份選項取決於代理程式的安裝位置。 如需詳細資訊，請參閱[使用 MARS 代理程式 Azure 備份架構](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)。 如需有關 MABS 和 DPM 備份架構的詳細資訊，請參閱[備份至 dpm 或 MABS](backup-architecture.md#architecture-back-up-to-dpmmabs)。 另請參閱備份架構的[需求](backup-support-matrix-mabs-dpm.md)。
 

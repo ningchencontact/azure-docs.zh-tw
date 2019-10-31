@@ -4,15 +4,15 @@ description: 了解如何建立服務主體來自動化 Azure Analysis Services 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294574"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146353"
 ---
 # <a name="automation-with-service-principals"></a>使用服務主體進行自動化
 
@@ -48,7 +48,7 @@ Analysis Services 也支援使用服務主體的受控識別所執行的作業�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Using Az. Microsoft.analysisservices 模組
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>使用 Az. Microsoft.analysisservices 模組 <a name="azmodule" />
 
 使用服務主體搭配[microsoft.analysisservices](/powershell/module/az.analysisservices)模組進行資源管理作業時，請使用 `Connect-AzAccount` Cmdlet。 
 

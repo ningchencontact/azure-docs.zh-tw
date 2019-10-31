@@ -1,5 +1,5 @@
 ---
-title: 設定 ExpressRoute 和站對站 VPN 連線 - 並存：傳統：Azure | Microsoft Docs
+title: 設定 ExpressRoute 和站對站 VPN 連線-並存：傳統： Azure |Microsoft Docs
 description: 本文會引導您針對傳統部署模型設定可以並存的 ExpressRoute 和站對站 VPN 連線。
 documentationcenter: na
 services: expressroute
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370390"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162722"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>設定 ExpressRoute 和站對站並存連線 (傳統)
 > [!div class="op_single_selector"]
-> * [PowerShell - 資源管理員](expressroute-howto-coexist-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - 傳統](expressroute-howto-coexist-classic.md)
 > 
 > 
@@ -81,7 +81,7 @@ ms.locfileid: "60370390"
 ## <a name="new"></a>建立新的虛擬網路和並存的連線
 此程序會引導您建立 VNet，並建立將並存的站對站和 ExpressRoute 連線。
 
-1. 您必須安裝最新版的 Azure PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 請注意，您將針對此組態使用的 Cmdlet 可能與您熟悉的 Cmdlet 有些微不同。 請務必使用這些指示中指定的 Cmdlet。 
+1. 您必須安裝最新版的 Azure PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。 請注意，您將針對此組態使用的 Cmdlet 可能與您熟悉的 Cmdlet 有些微不同。 請務必使用這些指示中指定的 Cmdlet。 
 2. 建立虛擬網路的結構描述。 如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
    
     當您建立結構描述時，請務必使用下列值：
@@ -194,13 +194,13 @@ ms.locfileid: "60370390"
 > 
 > 
 
-1. 您必須安裝最新版的 Azure 資源管理員 PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 請注意，您將針對此組態使用的 Cmdlet 可能與您熟悉的 Cmdlet 有些微不同。 請務必使用這些指示中指定的 Cmdlet。 
+1. 您必須安裝最新版的 Azure 資源管理員 PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。 請注意，您將針對此組態使用的 Cmdlet 可能與您熟悉的 Cmdlet 有些微不同。 請務必使用這些指示中指定的 Cmdlet。 
 2. 刪除現有的 ExpressRoute 或站對站 VPN 閘道。 使用下列 Cmdlet，將該值替換為您自己的值。
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET
 3. 匯出虛擬網路的結構描述。 使用下列 PowerShell Cmdlet，將該值替換為您自己的值。
    
-        Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
+        Get-AzureVNetConfig –ExportToFile "C:\NetworkConfig.xml"
 4. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 或更短的首碼 (例如 /26 或 /25)。 請參閱下列範例。 
    
    > [!NOTE]
@@ -211,7 +211,7 @@ ms.locfileid: "60370390"
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
-5. 如果您先前的閘道是站對站 VPN，則也必須將連線類型變更為 [專用]  。
+5. 如果您先前的閘道是站對站 VPN，則也必須將連線類型變更為 [專用]。
    
                  <Gateway>
                   <ConnectionsToLocalNetwork>

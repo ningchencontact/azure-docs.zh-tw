@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: aac01032b06c13564475c58c89c7e572bb9a6022
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969190"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162191"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>完整模式部署的 Azure 資源刪除
 
@@ -752,7 +752,7 @@ ms.locfileid: "72969190"
 > | 部門 | 否 |
 > | 維度 | 否 |
 > | EnrollmentAccounts | 否 |
-> | 多餘 | 否 |
+> | 匯出 | 否 |
 > | ExternalBillingAccounts | 否 |
 > | ExternalBillingAccounts/警示 | 否 |
 > | ExternalBillingAccounts/維度 | 否 |
@@ -1448,7 +1448,6 @@ ms.locfileid: "72969190"
 > | publicIPPrefixes | 是 |
 > | routeFilters | 是 |
 > | routeTables | 是 |
-> | secureGateways | 是 |
 > | serviceEndpointPolicies | 是 |
 > | trafficManagerGeographicHierarchies | 否 |
 > | trafficmanagerprofiles | 是 |

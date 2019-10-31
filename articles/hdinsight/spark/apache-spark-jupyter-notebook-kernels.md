@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 371ba46b477b5dba245a116d2ea9d21d2b732a97
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41cb27096782f525a531f38efda539c065fa4c72
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337665"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163621"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 叢集上的 Jupyter Notebook 核心
 
@@ -45,7 +45,7 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
 
 3. 選取 [**新增**]，然後選取 [ **Pyspark**]、[ **PySpark3**] 或 [ **Spark** ] 來建立筆記本。 使用適用於 Scala 應用程式的 Spark 核心、適用於 Python2 應用程式的 PySpark 核心，以及適用於 Python3 應用程式的 PySpark3 核心。
 
-    ![Spark 上的 Jupyter Notebook 核心](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark 上的 Jupyter Notebook 核心")
+    ![Spark 上的 Jupyter 筆記本核心](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark 上的 Jupyter 筆記本核心")
 
 4. 將以您選取的核心開啟 Notebook。
 
@@ -53,13 +53,13 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
 
 以下是在 Spark HDInsight 叢集上使用新的核心搭配 Jupyter Notebook 的幾個優點。
 
-- **預設內容**。 使用 **PySpark**、**Spark3** 或 **Spark**核心時，您不需要先明確地設定 Spark 或 Hive 內容，即可開始處理您的應用程式。 這些依預設都可用。 這些內容包括：
+- **預設內容**。 使用**PySpark**、 **PySpark3**或**Spark**核心時，您不需要明確地設定 Spark 或 Hive 內容，就能開始使用您的應用程式。 這些依預設都可用。 這些內容包括：
 
-  * **sc** - 代表 Spark 內容
-  * **sqlContext** - 代表 Hive 內容
-   
+  - **sc** - 代表 Spark 內容
+  - **sqlContext** - 代表 Hive 內容
+
     因此，您不需要執行如下的陳述式來設定這些內容：
-   
+
          sc = SparkContext('yarn-client')
          sqlContext = HiveContext(sc)
 
@@ -74,10 +74,10 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
    | help |`%%help` |產生所有可用 magic 的表格，其中包含範例與說明 |
    | info |`%%info` |輸出目前 Livy 端點的工作階段資訊 |
    | 設定 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |設定用來建立工作階段的參數。 如果已建立工作階段，則強制旗標 (-f) 是必要的，可確保卸除並重新建立該工作階段。 如需有效參數的清單，請查看 [Livy 的 POST /sessions 要求本文](https://github.com/cloudera/livy#request-body) 。 參數必須以 JSON 字串傳遞，且必須在 magic 之後的下一行，如範例資料行中所示。 |
-   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |針對 sqlContext 執行 Hive 查詢。 如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](https://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
-   | 本機 |`%%local`<br>`a=1` |接下來幾行的程式碼全部在本機執行。 程式碼必須是有效的 Python2 程式碼，即使與您使用的核心無關也一樣。 因此，即使您在建立筆記本時選取了 [ **PySpark3** ] 或 [ **Spark**核心]，如果您在資料格中使用 [`%%local` 魔術]，該資料格必須只有有效的 Python2 程式碼。 |
-   | logs |`%%logs` |輸出目前 Livy 工作階段的記錄。 |
-   | delete |`%%delete -f -s <session number>` |刪除目前 Livy 端點的特定工作階段。 您無法刪除針對核心本身起始的工作階段。 |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |針對 sqlContext 執行 Hive 查詢。 如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](https://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
+   | local |`%%local`<br>`a=1` |接下來幾行的程式碼全部在本機執行。 程式碼必須是有效的 Python2 程式碼，即使您使用的是核心亦然。 因此，即使您在建立筆記本時選取了 [ **PySpark3** ] 或 [ **Spark**核心]，如果您在資料格中使用 [`%%local` 魔術]，該資料格就必須只有有效的 Python2 程式碼。 |
+   | 記錄 |`%%logs` |輸出目前 Livy 工作階段的記錄。 |
+   | delete |`%%delete -f -s <session number>` |刪除目前 Livy 端點的特定工作階段。 您無法刪除針對核心本身起始的會話。 |
    | cleanup |`%%cleanup -f` |刪除目前 Livy 端點的所有工作階段，包括此 Notebook 的工作階段。 force 旗標 -f 是必要的。 |
 
    > [!NOTE]  
@@ -95,23 +95,23 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
 | -q |`-q` |使用此項關閉儲存格的視覺效果。 如果您不想要 autovisualize 資料格的內容，而只想要將它當做資料框架來捕捉，請使用 `-q -o <VARIABLE>`。 如果您想要關閉視覺化功能而不擷取結果 (例如，執行 SQL 查詢的 `CREATE TABLE` 陳述式)，請使用 `-q` 但不要指定 `-o` 引數。 |
 | -m |`-m <METHOD>` |其中 **METHOD** 是 **take** 或 **sample** (預設值是 **take**)。 如果方法是 **take**，核心會從 MAXROWS 指定的結果資料集頂端挑選項目 (如此表稍後所述)。 如果方法是 **sample**，核心會根據 `-r` 參數隨機取樣資料集的項目，如此表稍後所述。 |
 | -r |`-r <FRACTION>` |這裡的 **FRACTION** 是介於 0.0 到 1.0 之間的浮點數。 如果 SQL 查詢的範例方法是 `sample`，則核心會為您從結果集隨機取樣指定比例的項目。 例如，如果您使用 `-m sample -r 0.01` 引數執行 SQL 查詢，則會隨機取樣 1% 的結果資料列。 |
-| -n |`-n <MAXROWS>` |**MAXROWS** 是整數值。 核心會將輸出資料列的數目限制為 **MAXROWS**。 如果 **MAXROWS** 是負數 (例如 **-1**)，則結果集中的資料列數目不會受到限制。 |
+| -n |`-n <MAXROWS>` |**MAXROWS** 是整數值。 核心會將輸出資料列的數目限制為 **MAXROWS**。 如果**MAXROWS**是負數（例如 **-1**），則結果集中的資料列數目不會受到限制。 |
 
-**範例:**
+**範例：**
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
 上面的陳述式會執行下列動作︰
 
-* 從 **hivesampletable**選取所有記錄。
-* 因為我們使用-q，所以會關閉 autovisualization。
-* 因為我們使用 `-m sample -r 0.1 -n 500` ，所以它會從 hivesampletable 的資料列中隨機取樣 10%，並將結果集的大小限制為 500 個資料列。
-* 最後，因為我們使用 `-o query2` ，所以它也會將輸出儲存成名為 **query2**的資料框架。
+- 從 **hivesampletable**選取所有記錄。
+- 因為我們使用-q，所以會關閉 autovisualization。
+- 因為我們使用 `-m sample -r 0.1 -n 500` ，所以它會從 hivesampletable 的資料列中隨機取樣 10%，並將結果集的大小限制為 500 個資料列。
+- 最後，因為我們使用 `-o query2` ，所以它也會將輸出儲存成名為 **query2**的資料框架。
 
 ## <a name="considerations-while-using-the-new-kernels"></a>使用新核心的考量
 
-無論您使用何種核心，讓 Notebook 持續執行會耗用叢集資源。  針對這些核心，由於已預設內容，光是結束 Notebook 並不會終止內容，因此會繼續使用叢集資源。 理想的作法是當 Notebook 使用完畢時，從 Notebook 的 [檔案] 功能表中使用 [關閉並終止] 選項，這會刪除內容，然後結束 Notebook。
+無論您使用何種核心，讓 Notebook 持續執行會耗用叢集資源。  在這些核心中，由於內容是預設值，因此只會結束筆記本並不會終止內容，因此叢集資源會繼續使用。 最佳做法是使用筆記本的 [檔案 **] 功能表中**的 [**關閉並停止**] 選項（當您完成使用筆記本時），這會刪除內容，然後結束筆記本。
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook 會儲存在哪裡？
 
@@ -132,35 +132,35 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
 
 Google Chrome 上只支援 Spark HDInsight 叢集上的 Jupyter Notebook。
 
-## <a name="feedback"></a>意見
+## <a name="feedback"></a>意見反應
 
 新的核心已在發展階段，而且經過一段時間後將會成熟。 這或許也意味著，API 可能會隨著這些核心的成熟而改變。 您在使用這些新核心時如有任何意見，我們都非常樂於知道。 這對於這些核心最終版本的定調很有幫助。 您可以在本文底部的**意見**反應區段下留下您的意見/意見反應。
 
 ## <a name="seealso"></a>另請參閱
 
-* [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
+- [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>案例
 
-* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
-* [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
+- [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
+- [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+- [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+- [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 
-* [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
-* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
+- [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
+- [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能
 
-* [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式](apache-spark-intellij-tool-plugin.md)
-* [使用適用於 IntelliJ IDEA 的 HDInsight 工具外掛程式遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [在 HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集](apache-spark-zeppelin-notebook.md)
-* [搭配 Jupyter Notebook 使用外部套件](apache-spark-jupyter-notebook-use-external-packages.md)
-* [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
+- [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式](apache-spark-intellij-tool-plugin.md)
+- [使用適用於 IntelliJ IDEA 的 HDInsight 工具外掛程式遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+- [在 HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集](apache-spark-zeppelin-notebook.md)
+- [搭配 Jupyter Notebook 使用外部套件](apache-spark-jupyter-notebook-use-external-packages.md)
+- [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
 
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
-* [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
+- [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+- [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

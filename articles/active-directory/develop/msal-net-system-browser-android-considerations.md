@@ -1,7 +1,7 @@
 ---
-title: Xamarin Android 考慮（適用于 .NET 的 Microsoft 驗證程式庫）
+title: Xamarin Android 系統瀏覽器考慮（適用于 .NET 的 Microsoft 驗證程式庫）
 titleSuffix: Microsoft identity platform
-description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）使用 Xamarin Android 時的特定考慮。
+description: 瞭解使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時，在 Xamarin Android 上使用系統瀏覽器時的特定考慮。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5caad4b136c9ef2686cc4befc70e6720e27855
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802745"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150353"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin Android 特定考慮
+#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin Android 系統瀏覽器考慮
+
 本文討論在 Xamarin Android 上使用系統瀏覽器搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 
 從 MSAL.NET 2.4.0-preview 開始，MSAL.NET 支援 Chrome 以外的瀏覽器，且不再需要在 Android 裝置上安裝 Chrome 來進行驗證。

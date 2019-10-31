@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: conceptual
 tags: connectors
 ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 880ae4b661d247889815fc5b9ad08a759fe0aa5b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312018"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161666"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 將 SQL Server 或 Azure SQL Database 的工作流程自動化
 
@@ -24,7 +24,7 @@ ms.locfileid: "72312018"
 
 您可以建立會由 SQL 資料庫或其他系統 (例如，Dynamics CRM Online) 中的事件所觸發而執行的邏輯應用程式。 您的邏輯應用程式也可以取得、插入及刪除資料，以及執行 SQL 查詢和預存程式。 例如，您可以建立一個邏輯應用程式，以自動檢查 Dynamics CRM Online 中的新記錄、將專案新增至 SQL 資料庫中的任何新記錄，然後傳送有關已新增專案的電子郵件警示。
 
-如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器特定的技術資訊、限制和已知問題，請參閱[SQL Server 連接器參考頁面](https://docs.microsoft.com/connectors/sql/)。
+如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器特定的技術資訊、限制和已知問題，請參閱[SQL Server 連接器參考頁面](https://docs.microsoft.com/connectors/sql/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -68,7 +68,7 @@ ms.locfileid: "72312018"
 
 1. 設定 [間隔] 和 [頻率] 屬性，以指定邏輯應用程式檢查資料表的頻率。
 
-   此觸發程式只會從選取的資料表傳回一個資料列，其他則不會。 若要執行其他工作，請新增其他動作來執行您想要的工作。 例如，若要查看此資料列中的資料，您可以加入其他動作，以建立包含傳回資料列中之欄位的檔案，然後傳送電子郵件警示。 若要深入瞭解此連接器的其他可用動作，請參閱[連接器的參考頁面](/connectors/sql/)。
+   此觸發程式只會從選取的資料表傳回一個資料列，其他則不會。 若要執行其他工作，請新增其他動作來執行您想要的工作。 例如，若要查看此資料列中的資料，您可以加入其他動作，以建立包含傳回資料列中之欄位的檔案，然後傳送電子郵件警示。 若要深入瞭解此連接器的其他可用動作，請參閱[連接器的參考頁面](https://docs.microsoft.com/connectors/sql/)。
 
 1. 當您完成時，請在設計工具工具列上選取 [**儲存**]。
 
@@ -84,7 +84,7 @@ ms.locfileid: "72312018"
 
 1. 在您要新增 SQL 動作的觸發程式或動作底下，選取 [**新增步驟**]。
 
-   ![選取 [新增步驟]](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![將新步驟新增至您的邏輯應用程式](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 選取顯示的加號（ **+** ），然後選取 [**新增動作**]。
 
@@ -92,13 +92,13 @@ ms.locfileid: "72312018"
 
    這個範例使用 [**取得資料列**] 動作，其會取得單一記錄。
 
-   ![尋找並選取 SQL [取得資料列] 動作](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![尋找並選取 SQL [取得資料列] 動作](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   此動作只會從選取的資料表中傳回一個資料列，其他則不會。 若要查看此資料列中的資料，您可以新增其他動作，以建立包含所傳回列之欄位的檔案，並將該檔案儲存在雲端儲存體帳戶中。 若要深入瞭解此連接器的其他可用動作，請參閱[連接器的參考頁面](/connectors/sql/)。
+   此動作只會從選取的資料表中傳回一個資料列，其他則不會。 若要查看此資料列中的資料，您可以新增其他動作，以建立包含所傳回列之欄位的檔案，並將該檔案儲存在雲端儲存體帳戶中。 若要深入瞭解此連接器的其他可用動作，請參閱[連接器的參考頁面](https://docs.microsoft.com/connectors/sql/)。
 
 1. 如果系統提示您建立連接，請[立即建立您的 SQL 連接](#create-connection)。 如果您的連接存在，請選取**資料表名稱**，然後輸入您想要的記錄的資料**列識別碼**。
 
-   ![輸入資料表名稱和資料列識別碼](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![輸入資料表名稱和資料列識別碼](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. 當您完成時，請在設計工具工具列上選取 [**儲存**]。
 
@@ -132,7 +132,7 @@ ms.locfileid: "72312018"
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 
-如需有關此連接器的觸發程式、動作和限制的技術資訊，請參閱[連接器的參考頁面](/connectors/sql/)。
+如需有關此連接器的觸發程式、動作和限制的技術資訊，請參閱[連接器的參考頁面](https://docs.microsoft.com/connectors/sql/)。
 
 ## <a name="next-steps"></a>後續步驟
 

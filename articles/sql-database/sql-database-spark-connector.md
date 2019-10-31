@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 49877994e7eef89f099e19d92e26de48bd9d41f4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566466"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163178"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
@@ -27,13 +27,13 @@ ms.locfileid: "68566466"
 
 ## <a name="official-supported-versions"></a>官方支援的版本
 
-| 元件                            |Version                  |
+| 元件                            |版本                  |
 | :----------------------------------- | :---------------------- |
 | Apache Spark                         |2.0.2 或更新版本           |
 | Scala                                |2.10 或更新版本            |
 | Microsoft JDBC Driver for SQL Server |6.2 或更新版本             |
 | 連接字串                 |SQL Server 2008 或更新版本 |
-| Azure SQL Database                   |支援                |
+| Azure SQL Database                   |支援的                |
 
 適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器會利用 Microsoft JDBC Driver for SQL Server 在 Spark 背景工作節點與 SQL 資料庫之間移動資料：
  
@@ -65,7 +65,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -103,7 +103,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.windows.net",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))

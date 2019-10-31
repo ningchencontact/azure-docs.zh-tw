@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30e5daba56bb371aafa6d2636a0a9f641977e6fa
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466318"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162558"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 授權範本概觀 
 
@@ -54,18 +54,18 @@ Widevine 授權要求會格式化為 JSON 訊息。
           "renewal_server_url":"<renewal server url>",
           "renewal_delay_seconds":<renewal delay>,
           "renewal_retry_interval_seconds":<renewal retry interval>,
-          "renew_with_usage”:<renew with usage>
+          "renew_with_usage":<renew with usage>
        }
     }
 
 ## <a name="json-message"></a>JSON 訊息
 
-| 名稱 | 值 | 描述 |
+| Name | Value | 描述 |
 | --- | --- | --- |
 | payload |Base64 編碼字串 |用戶端傳送的授權要求。 |
 | content_id |Base64 編碼字串 |用來針對每個 content_key_specs.track_type 衍生金鑰識別碼與內容金鑰的識別碼。 |
 | provider |string |用來查閱內容金鑰和原則。 若將 Microsoft 金鑰傳遞用於 Widevine 授權傳遞，系統會忽略此參數。 |
-| policy_name |string |先前已登錄原則的名稱。 選擇性。 |
+| policy_name |string |先前已登錄原則的名稱。 選用。 |
 | allowed_track_types |列舉 |SD_ONLY 或 SD_HD。 控制在授權中包含的內容金鑰。 |
 | content_key_specs |JSON 結構的陣列，請參閱＜內容金鑰規格＞一節。  |更細部控制要傳回的內容金鑰。 如需詳細資訊，請參閱＜內容金鑰規格＞一節。 只可以指定 allowed_track_types 和 content_key_specs 值的其中一個。 |
 | use_policy_overrides_exclusively |布林值，true 或 false |使用 policy_overrides 所指定的原則屬性，並略過先前儲存的所有原則。 |
@@ -74,20 +74,20 @@ Widevine 授權要求會格式化為 JSON 訊息。
 | parse_only |布林值，true 或 false |剖析授權要求，但不會發出任何授權。 不過，授權要求中的值會在回應中傳回。 |
 
 ## <a name="content-key-specs"></a>內容金鑰規格
-如果有預先存在的原則，則不需要在內容金鑰規格中指定任何值。與此內容相關聯的預先存在原則會用來決定輸出保護，例如高頻寬數位內容保護 (HDCP) 和複製衍生管理系統 (CGMS)。 如果預先存在的原則未向 Widevine 授權伺服器登錄，內容提供者可以在授權要求中插入值。   
+如果存在既有的原則，則不需要在內容金鑰規格中指定任何值。與此內容相關聯的預先存在原則會用來決定輸出保護，例如高頻寬數位內容保護（HDCP）和複製一般管理系統（CGMS）。 如果預先存在的原則未向 Widevine 授權伺服器登錄，內容提供者可以在授權要求中插入值。   
 
 必須對所有追蹤指定每個 content_key_specs 值，不論 use_policy_overrides_exclusively 選項為何。 
 
-| 名稱 | 值 | 描述 |
+| Name | Value | 描述 |
 | --- | --- | --- |
 | content_key_specs track_type |string |追蹤類型名稱。 如果授權要求中指定 content_key_specs，則請務必明確指定所有追蹤類型。 未這樣做會導致無法播放過去 10 秒。 |
 | content_key_specs  <br/> security_level |uint32 |定義用戶端對於播放的穩健性需求。 <br/> 以軟體為基礎白箱加密是必要的。 <br/> 軟體加密和模糊化的解碼器是必要的。 <br/> 金鑰資料和加密作業必須在支援硬體的受信任執行環境中執行。 <br/> 內容的加密和解密必須在支援硬體的受信任執行環境中執行。  <br/> 加密、解密和媒體 (壓縮和未壓縮) 的所有處理必須在支援硬體的受信任執行環境中處理。 |
 | content_key_specs <br/> required_output_protection.hdc |字串，以下項目的其中一個：HDCP_NONE、HDCP_V1、HDCP_V2 |指出是否需要 HDCP。 |
-| content_key_specs <br/>key |Base64<br/>編碼的字串 |要用於此追蹤的內容金鑰。如果指定，則需要 track_type 或 key_id。 內容提供者可使用此選項插入此追蹤的內容金鑰，而不是讓 Widevine 授權伺服器產生或查閱金鑰。 |
+| content_key_specs <br/>key |Base64<br/>編碼的字串 |要用於此播放軌的內容金鑰。若已指定，則需要識別碼或 key_id。 內容提供者可使用此選項插入此追蹤的內容金鑰，而不是讓 Widevine 授權伺服器產生或查閱金鑰。 |
 | content_key_specs.key_id |Base64 編碼的二進位字串，16 位元組 |金鑰的唯一識別碼。 |
 
 ## <a name="policy-overrides"></a>原則覆寫
-| 名稱 | 值 | 描述 |
+| Name | Value | 描述 |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |布林值，true 或 false |表示允許播放內容。 預設值為 false。 |
 | policy_overrides&#46;can_persist |布林值，true 或 false |表示可以將授權保存到非揮發性儲存體，供離線使用。 預設值為 false。 |
@@ -102,7 +102,7 @@ Widevine 授權要求會格式化為 JSON 訊息。
 | policy_overrides&#46;renew_with_usage |布林值，true 或 false |表示開始使用時會傳送授權以進行更新。 只有在 can_renew 為 true 時才會使用這個欄位。 |
 
 ## <a name="session-initialization"></a>工作階段初始化
-| 名稱 | 值 | 描述 |
+| Name | Value | 描述 |
 | --- | --- | --- |
 | provider_session_token |Base64 編碼字串 |此工作階段權杖會傳回到授權，並且會在後續的更新作業中存在。 工作階段權杖不會在工作階段之外保存。 |
 | provider_client_token |Base64 編碼字串 |要在授權回應中傳回的用戶端權杖。 如果授權要求包含用戶端權杖，則會忽略此值。 用戶端權杖會在授權工作階段之外保存。 |

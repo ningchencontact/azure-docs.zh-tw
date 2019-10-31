@@ -4,21 +4,21 @@ description: 了解如何使用 REST API 撰寫非同步重新整理的程式碼
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301171"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147359"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
 
-資料重新整理作業可能需要一些時間，取決於數個因素，包括資料磁碟區、使用資料分割的最佳化層級等等。這些作業傳統上是以現有的方法叫用，例如使用 [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (表格式物件模型)、[PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) Cmdlet 或 [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (表格式模型指令碼語言)。 不過，這些方法可能需要通常不太可靠的長時間執行 HTTP 連線。
+資料重新整理作業可能需要一些時間，視許多因素而定，包括資料量、使用分割區的優化層級等等。這些作業傳統上是使用[TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) （表格式物件模型）、 [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) Cmdlet 或[TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) （表格式模型指令碼語言）來叫用現有的方法。 不過，這些方法可能需要通常不太可靠的長時間執行 HTTP 連線。
 
 Azure Analysis Services 的 REST API 可讓資料重新整理作業以非同步方式進行。 使用 REST API，便不需要來自用戶端應用程式的長時間執行 HTTP 連線。 針對可靠性還有其他內建的功能，例如自動重試次數、批次認可。
 
@@ -56,7 +56,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 所有呼叫必須使用授權標頭中的有效 Azure Active Directory (OAuth 2) 權杖進行驗證，而且必須符合下列需求：
 
@@ -97,13 +97,13 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| Name             | Type  | 描述  |預設  |
+| Name             | Type  | 描述  |預設值  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
-| `CommitMode`     | Enum  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
+| `Type`           | 例舉  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
+| `CommitMode`     | 例舉  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
 | `MaxParallelism` | Int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
 | `RetryCount`     | Int   | 表示作業失敗之前重試的次數。      |     0    |
-| `Objects`        | Array | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
+| `Objects`        | 陣列 | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
 
 CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要數小時時，會使用它。 如果在成功認可一或多個批次之後，重新整理作業失敗，已成功認可的批次會保留認可 (不會回復已成功認可的批次)。
 
@@ -166,7 +166,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 
 ## <a name="post-sync"></a>POST /sync
 
-執行重新整理作業後，可能需要將新的資料與相應放大查詢的複本同步處理。若要為模型執行同步處理作業，對 /sync 函式使用 POST 動詞。 回應中的位置標頭 (Location) 包含重新整理作業的識別碼。
+執行重新整理作業之後，您可能需要將新資料與查詢向外延展的複本同步處理。若要執行模型的同步處理作業，請在/sync 函數上使用 POST 動詞。 回應中的位置標頭 (Location) 包含重新整理作業的識別碼。
 
 ## <a name="get-sync-status"></a>GET /sync status
 
@@ -185,8 +185,8 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 
 `syncstate` 的值：
 
-- 0︰複寫。 資料庫檔案會被複寫到目標資料夾。
-- 1:重新序列化。 只有唯讀伺服器執行個體上的資料庫會被序列化。
+- 0：複寫。 資料庫檔案會被複寫到目標資料夾。
+- 1：重新序列化。 只有唯讀伺服器執行個體上的資料庫會被序列化。
 - 2：完成。 同步處理作業順利完成。
 - 3：失敗。 同步處理作業失敗。
 - 4：正在結束。 同步處理作業已完成，但正在執行清除步驟。
@@ -211,7 +211,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 3.  執行範例。
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [範例](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

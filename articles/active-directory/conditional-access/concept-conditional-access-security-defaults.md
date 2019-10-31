@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554820"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151216"
 ---
 # <a name="what-are-security-defaults"></a>什麼是安全性預設值？
 
@@ -113,6 +113,7 @@ Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組
 - [系統管理員需要 MFA](howto-conditional-access-policy-admin-mfa.md)
 - [Azure 管理需要 MFA](howto-conditional-access-policy-azure-management.md)
 - [封鎖舊版驗證](howto-conditional-access-policy-block-legacy.md)
+- [所有使用者都需要 MFA](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>啟用安全性預設值
 

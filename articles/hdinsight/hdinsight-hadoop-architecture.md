@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/28/2019
+ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091475"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162890"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight 上的 Apache Hadoop 架構
 
@@ -24,20 +24,20 @@ ms.locfileid: "71091475"
 
 本文會介紹 YARN 以及 YARN 是如何協調 HDInsight 上應用程式的執行工作。
 
-## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN 基本概念 
+## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN 基本概念
 
-YARN 掌管並協調 Hadoop 中的資料處理。 YARN 有兩種核心服務，在叢集節點上作為流程執行： 
+YARN 掌管並協調 Hadoop 中的資料處理。 YARN 有兩種核心服務，在叢集節點上作為流程執行：
 
-* ResourceManager 
+* ResourceManager
 * NodeManager
 
-ResourceManager 會將叢集的計算資源授與 MapReduce 作業這類應用程式。 ResourceManager 以容器的方式提供這類資源，每個容器的組成即是 CPU 核心和 RAM 記憶體的分配。 如果您結合叢集中所有可用的資源，然後將核心和記憶體分配給數個區塊，則每個資源區塊就是一個容器。 叢集中的每個節點有容量可容納一定數量的容器，因此叢集可用的容器數目有固定的限制。 容器中的資源配額可以設定。 
+ResourceManager 會將叢集的計算資源授與 MapReduce 作業這類應用程式。 ResourceManager 以容器的方式提供這類資源，每個容器的組成即是 CPU 核心和 RAM 記憶體的分配。 如果您結合叢集中所有可用的資源，然後將核心和記憶體分配給數個區塊，則每個資源區塊就是一個容器。 叢集中的每個節點有容量可容納一定數量的容器，因此叢集可用的容器數目有固定的限制。 容器中的資源配額可以設定。
 
-在叢集上執行 MapReduce 應用程式時，ResourceManager 會提供要在其中執行應用程式的容器。 ResourceManager 會追蹤執行應用程式的狀態、可用的叢集容量，也會追蹤應用程式執行完成的時刻，並將資源釋出。 
+在叢集上執行 MapReduce 應用程式時，ResourceManager 會提供要在其中執行應用程式的容器。 ResourceManager 會追蹤執行應用程式的狀態、可用的叢集容量，也會追蹤應用程式執行完成的時刻，並將資源釋出。
 
 ResourceManager 也會執行 Web 伺服器處理序，提供可用來監控應用程式狀態的 Web 使用者介面。
 
-當使用者提交要在叢集上執行的 MapReduce 應用程式時，會將應用程式提交至 ResourceManager。 接著，ResourceManager 會在可用的 NodeManager 節點上配置容器。 NodeManager 節點是應用程式實際執行的地方。 第一個配置的容器會執行名為 ApplicationMaster 的特殊應用程式。 此 ApplicationMaster 負責以後續容器的形式，取得執行提交之應用程式所需的資源。 ApplicationMaster 會檢查應用程式的階段 (例如，對應階段和簡化階段)，並將資料的需求量納入考量。 接著，ApplicationMaster 會代表應用程式向 ResourceManager 要求 (*交涉*) 資源。 ResourceManager 再將叢集中 NodeManagers 的資源授與 ApplicationMaster，供其在執行應用程式時使用。 
+當使用者提交要在叢集上執行的 MapReduce 應用程式時，會將應用程式提交至 ResourceManager。 接著，ResourceManager 會在可用的 NodeManager 節點上配置容器。 NodeManager 節點是應用程式實際執行的地方。 第一個配置的容器會執行名為 ApplicationMaster 的特殊應用程式。 此 ApplicationMaster 負責以後續容器的形式，取得執行提交之應用程式所需的資源。 ApplicationMaster 會檢查應用程式的階段 (例如，對應階段和簡化階段)，並將資料的需求量納入考量。 接著，ApplicationMaster 會代表應用程式向 ResourceManager 要求 (*交涉*) 資源。 ResourceManager 再將叢集中 NodeManagers 的資源授與 ApplicationMaster，供其在執行應用程式時使用。
 
 NodeManagers 會執行組成應用程式的各項工作，然後將其進度和狀態回報給 ApplicationMaster。 ApplicationMaster 再將應用程式的狀態回報給 ResourceManager。 ResourceManager 會將任何結果傳回用戶端。
 

@@ -1,10 +1,10 @@
 ---
 title: Azure 公用雲端中的隔離 | Microsoft Docs
-description: 了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。
+description: 瞭解 Azure 如何為惡意和非惡意使用者提供隔離，並為架構設計人員提供各種隔離選項。
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123060"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159750"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
-##  <a name="introduction"></a>簡介
-### <a name="overview"></a>總覽
-為了協助目前和潛在的 Azure 客戶了解和利用可在 Azure 平台上和周圍取得的各種安全性相關功能，Microsoft 開發了一系列的技術白皮書、安全性概觀、最佳作法及檢查清單。
-主題範圍兼具廣度與深度，並會定期更新。 本文件是該系列的一部分，以下的＜摘要＞一節將會摘要說明。
+Azure 可讓您在共用實體基礎結構上執行應用程式和虛擬機器（Vm）。 在雲端環境中執行應用程式的主要經濟動機之一是，能夠將共用資源的成本分散到多位客戶。 這種多重租用的作法會以低成本在不同客戶間進行資源的多工處理來提升效率。 不幸的是，它也會導致下列風險：共用實體伺服器和其他基礎結構資源來執行您的機密應用程式和 VM，而它們或許隸屬於可能惡意的任意使用者。
 
-### <a name="azure-platform"></a>Azure 平台
-Azure 是一個公開且彈性的雲端服務平台，支援最廣泛的作業系統、程式設計語言、架構、工具、資料庫及裝置等選擇。 例如，您可以：
-- 透過 Docker 整合執行 Linux 容器；
-- 使用 JavaScript、Python、.NET、PHP、Java 和 Node.js 建置應用程式；以及
-- 建置 iOS、Android 和 Windows 裝置的後端。
-
-Microsoft Azure 支援數百萬名開發人員和 IT 專家早已仰賴和信任的相同技術。
-
-當您建置 IT 資產或將其移轉至公用雲端服務提供者時，您正是依賴該組織的能力，利用他們提供來管理您雲端架構資產安全性的服務與控制，來保護您的應用程式和資料。
-
-Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以百萬計的客戶，並提供可靠的基礎供企業符合其安全性需求。 此外，Azure 也為您提供各式各樣可設定的安全性選項及加以控制的功能，讓您可以自訂安全性以符合部署的特殊需求。 本文件可協助您符合這些需求。
-
-### <a name="abstract"></a>摘要
-
-Microsoft Azure 可讓您在共用的實體基礎結構上執行應用程式和虛擬機器 (VM)。 在雲端環境中執行應用程式的主要經濟動機之一是，能夠將共用資源的成本分散到多位客戶。 這種多重租用的作法會以低成本在不同客戶間進行資源的多工處理來提升效率。 不幸的是，它也會導致下列風險：共用實體伺服器和其他基礎結構資源來執行您的機密應用程式和 VM，而它們或許隸屬於可能惡意的任意使用者。
-
-本文將概述 Microsoft Azure 如何對惡意及非惡意的使用者提供隔離，並藉由為架構設計人員提供各種隔離選項，用來做為建構雲端解決方案的指南。 本技術白皮書著重於 Azure 平台和客戶面向之安全性控制的技術，不會嘗試處理 SLA、計價模式和 DevOps 作法考量。
+本文概述 Azure 如何為惡意和非惡意使用者提供隔離，並藉由為架構設計人員提供各種隔離選項，做為架構雲端解決方案的指南。
 
 ## <a name="tenant-level-isolation"></a>租用戶層級隔離
 雲端運算主要優點之一是同時在許多客戶間共用之通用基礎結構的概念，從而導致規模經濟。 這個概念稱為多重租用。 Microsoft 會持續努力，以確保 Microsoft Cloud Azure 的多租用戶架構支援安全性、機密性、隱私權、完整性和可用性標準。
@@ -71,9 +52,9 @@ Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [A
 
 - Azure AD 使用者無法存取實體資產或位置，因此，不可能略過以下所述的邏輯 RBAC 原則檢查。
 
-針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management (PIM) 導入了合格管理員的概念。[合格管理員](../../active-directory/privileged-identity-management/pim-configure.md)應該是偶爾需要特殊存取權限而非每一天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
+針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management （PIM）引進了合格管理員的概念。[符合資格](../../active-directory/privileged-identity-management/pim-configure.md)的系統管理員應該是現在需要特殊許可權存取的使用者，而不是每天。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
 
-![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
+![Azure AD 特殊權限身分識別管理](./media/isolation-choices/azure-isolation-fig2.png)
 
 Azure Active Directory 會透過租用戶單獨擁有且管理之容器內的原則和權限，在它自己受保護的容器中裝載每個租用戶。
 
@@ -86,11 +67,11 @@ Azure Active Directory 會透過租用戶單獨擁有且管理之容器內的原
 
 Azure RBAC 有適用於所有資源類型的三個基本角色：
 
-- **擁有者** 具有所有資源的完整存取權，包括將存取權委派給其他人的權限。
+- **擁有者**：具有所有資源的完整存取權，包括將存取權委派給其他人的權限。
 
 - **參與者** 可以建立和管理所有類型的 Azure 資源，但是不能將存取權授與其他人。
 
-- **讀者** 可以檢視現有的 Azure 資源。
+- **讀者**：可以檢視現有的 Azure 資源。
 
 ![Azure 角色型存取控制](./media/isolation-choices/azure-isolation-fig3.png)
 
@@ -176,7 +157,7 @@ Hypervisor 與主機 OS 提供網路封包 - 篩選器，以協助保證不受�
 
 以下為要進行程式設計的兩種規則：
 
--   **機器組態或基礎結構規則**：根據預設，會封鎖所有通訊。 有部分例外狀況可允許虛擬機器傳送與接收 DHCP 和 DNS 流量。 虛擬機器也可以將流量傳送至「公用」網際網路，以及將流量傳送至同一個 Azure 虛擬網路和 OS 啟用伺服器內的其他虛擬機器。 虛擬機器允許的連出目的地清單不包含 Azure 路由器子網路、Azure 管理和其他 Microsoft 屬性。
+-   **機器組態或基礎結構規則**：依預設會封鎖所有通訊。 有部分例外狀況可允許虛擬機器傳送與接收 DHCP 和 DNS 流量。 虛擬機器也可以將流量傳送至「公用」網際網路，以及將流量傳送至同一個 Azure 虛擬網路和 OS 啟用伺服器內的其他虛擬機器。 虛擬機器允許的連出目的地清單不包含 Azure 路由器子網路、Azure 管理和其他 Microsoft 屬性。
 
 -   **角色組態檔**：這會根據租用戶的服務模型定義輸入存取控制清單 (ACL)。
 
@@ -231,11 +212,11 @@ Azure 提供下列加密類型來保護資料：
 #### <a name="encryption-at-rest"></a>待用加密
 對許多組織來說， [待用資料加密](isolation-choices.md) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
 
--   [儲存體服務加密](../../storage/common/storage-security-guide.md) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
+-   [儲存體服務加密](../../storage/common/storage-security-guide.md)可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
 
 -   [用戶端加密](../../storage/common/storage-security-guide.md) 也會提供待用加密的功能。
 
--   [Azure 磁碟加密](../azure-security-disk-encryption-overview.md) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
+-   [Azure 磁碟加密](../azure-security-disk-encryption-overview.md)允許您加密 IaaS 虛擬機器所使用的 OS 磁碟和資料磁碟。
 
 #### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 適用於虛擬機器 (VM) 的 [Azure 磁碟加密](../azure-security-disk-encryption-overview.md)會使用您在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中所控制的金鑰與原則來將 VM 磁碟 (包括開機和資料磁碟) 加密，以協助您達成組織安全性與合規性需求。
@@ -326,7 +307,7 @@ SQL Azure 伺服器不是實體或 VM 執行個體，而是資料庫、共用管
 做為安全性防範措施，後端系統通常不會輸出通訊至其他系統。 這會保留給前端 (閘道) 層中的系統。 閘道層的機器在後端機器上的權限有限，可做為深度防禦機制來將攻擊面降至最低。
 
 ### <a name="isolation-by-machine-function-and-access"></a>透過機器功能與存取進行隔離
-SQL Azure 是由在不同機器功能上執行之服務組成的。 SQL Azure 使用只會移至後端而不會移出的流量一般準則，來分為「後端」雲端資料庫與「前端」(閘道/管理) 環境。前端環境可以與外界的其他服務進行通訊，而且通常在後端只會具備有限權限 (足以呼叫它需要叫用的進入點)。
+SQL Azure 是由在不同機器功能上執行之服務組成的。 SQL Azure 會分成「後端」雲端資料庫和「前端」（閘道/管理）環境，其中流量的一般原則只會進入後端而不是輸出。前端環境可以與其他服務的外部通訊，而且通常在後端只有有限的許可權（足以呼叫它必須叫用的進入點）。
 
 ## <a name="networking-isolation"></a>網路隔離
 Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各種網路隔離層級。 這些層級既是 Azure 平台本身的原生功能，也是客戶定義的功能。 從網際網路往內，Azure DDoS 會針對 Azure 進行的大規模攻擊提供隔離。 下一個隔離層級是客戶定義的公用 IP 位址 (端點)，用來判斷哪種流量可通過雲端服務進入虛擬網路。 原生 Azure 虛擬網路隔離可確保與其他所有網路完全隔離，而且流量只能流經使用者設定的路徑和方法。 這些路徑和方法就是下一層，可利用 NSG、UDR 和網路虛擬設備來建立隔離界限，以保護受保護網路中的應用程式部署。
@@ -350,4 +331,3 @@ Microsoft Azure 提供各種雲端式計算服務，其中包含各式各樣的�
 - [儲存體隔離 (英文)](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure 會將以客戶 VM 為基礎的計算從儲存體中分隔出來。 這種區隔讓計算和儲存體能夠各自調整，更容易提供多重租用和隔離。 因此，除了透過邏輯方式，Azure 儲存體會在沒有連到 Azure 計算之網路連線的個別硬體上執行。 所有要求都會根據客戶的選擇，透過 HTTP 或 HTTPS 來執行。
-

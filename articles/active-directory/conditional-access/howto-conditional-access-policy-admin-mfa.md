@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35a6ac955ade3eab77f01c4e234b35744f0a7be3
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a50978b51fd1451cf65e33b38ca0699694cb115b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170098"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151184"
 ---
-# <a name="conditional-access-require-mfa-for-administrators"></a>條件式存取：需要管理員的 MFA
+# <a name="conditional-access-require-mfa-for-administrators"></a>條件式存取：系統管理員需要 MFA
 
 指派系統管理許可權的帳戶是攻擊者的目標。 在這些帳戶上要求多重要素驗證（MFA），是降低那些帳戶遭到入侵風險的簡單方法。
 
@@ -32,7 +32,7 @@ Microsoft 建議您至少要求下列角色的 MFA：
 * 技術服務人員（密碼）系統管理員
 * 密碼管理員
 * 計費管理員
-* 使用者系統管理員
+* 使用者管理員
 
 組織可以選擇包含或排除角色（如其所示）。
 
@@ -63,11 +63,11 @@ Microsoft 建議您至少要求下列角色的 MFA：
       * 服務台管理員
       * 密碼管理員
       * 計費管理員
-      * 使用者系統管理員
+      * 使用者管理員
    1. 在 [**排除**] 底下，選取 [**使用者和群組**]，然後選擇貴組織的 [緊急存取] 或 [中斷玻璃帳戶]。 
    1. 選取 [完成]。
-1. 在 [**雲端應用程式] 或 [動作**]  > ，選取 [**所有雲端應用程式** **]，然後**選取 [**完成**]。
-1. 在 [**存取控制** > **授**與] 底下，選取 **[授與存取權**，**需要多重要素驗證**]，然後選取 [**選取**]。
+1. 在 [**雲端應用程式] 或 [動作** > **包括**] 底下，選取 [**所有雲端應用程式**] 並選取 [**完成**]
+1. 在 **[** **存取控制** > 授與] 底下，選取 **[授與存取權**，**需要多重要素驗證**]，然後選取 [**選取**]。
 1. 確認您的設定，並將 [**啟用原則**] 設為 [**開啟**]。
 1. 選取 [**建立**] 以建立以啟用您的原則。
 

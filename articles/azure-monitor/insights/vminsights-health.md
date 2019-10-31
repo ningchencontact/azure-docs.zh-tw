@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: c9dfd3bfcacc1f50bb9be04c927bf3cbb4895f6d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555269"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162286"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>瞭解 Azure 虛擬機器的健康情況
 
@@ -339,7 +339,7 @@ Azure 包含監視空間中特定角色或工作的服務，但它不會針對�
 2. 輸入下列命令來抓取特定 VM 上作用中的所有健康情況準則，並識別*monitorId*屬性的值：
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     下列範例顯示*ARMCLIENT GET*命令的輸出。 記下*MonitorId*的值。 下一個步驟需要此值，我們必須在此指定健康情況準則的識別碼，並修改其屬性以建立警示。

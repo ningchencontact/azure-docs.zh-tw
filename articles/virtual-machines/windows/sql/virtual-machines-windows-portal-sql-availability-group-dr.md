@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100657"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159737"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
 
@@ -130,7 +130,7 @@ ms.locfileid: "70100657"
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters
@@ -144,7 +144,7 @@ ms.locfileid: "70100657"
 
 建議您更新用戶端連接字串以設定 `MultiSubnetFailover=Yes`。 請參閱[使用 MultiSubnetFailover 進行連接](https://msdn.microsoft.com/library/gg471494#Anchor_0)。
 
-如果您無法修改連接字串，您可以設定名稱解析快取功能。 請參閱[逾時錯誤, 且無法連接到多重子網環境中的 SQL Server 2012 AlwaysOn 可用性群組](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)接聽程式。
+如果您無法修改連接字串，您可以設定名稱解析快取功能。 請參閱[逾時錯誤，且無法連接到多重子網環境中的 SQL Server 2012 AlwaysOn 可用性群組](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)接聽程式。
 
 ## <a name="fail-over-to-remote-region"></a>容錯移轉至遠端區域
 
@@ -157,18 +157,18 @@ ms.locfileid: "70100657"
 1. 按一下 [確定]。
 1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [顯示儀表板]。
 1. 在儀表板上，確認 DR 站台上的複本已同步。
-1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [容錯移轉]。SQL Server Management Studio 會開啟精靈來容錯移轉 SQL Server。  
+1. 在**物件總管**中，以滑鼠右鍵按一下可用性群組，然後按一下 [**容錯移轉**...]。SQL Server Management 工作室會開啟嚮導來故障切換 SQL Server。  
 1. 按 [下一步]，然後選取 DR 站台中的 SQL Server 執行個體。 再按一下 [下一步] 。
 1. 連接到 DR 站台中的 SQL Server 執行個體，然後按 [下一步]。
 1. 在 [摘要] 頁面上確認設定，然後按一下 [完成]。
 
 測試完連線之後，請將主要複本移回到您的主要資料中心，並將可用性模式設定回其一般作業設定。 下表顯示本文件所述架構的一般作業設定：
 
-| Location | 伺服器執行個體 | Role | 可用性模式 | 容錯移轉模式
+| Location | 伺服器執行個體 | 角色 | 可用性模式 | 容錯移轉模式
 | ----- | ----- | ----- | ----- | -----
 | 主要資料中心 | SQL-1 | 主要 | 同步 | 自動
 | 主要資料中心 | SQL-2 | 次要 | 同步 | 自動
-| 次要或遠端資料中心 | SQL-3 | 次要 | 非同步的 | 手動
+| 次要或遠端資料中心 | SQL-3 | 次要 | 非同步 | 手動
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>有關計劃性和強制性容錯移轉的更多詳細資訊

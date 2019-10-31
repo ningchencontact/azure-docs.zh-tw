@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036634"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162606"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>在您的應用程式中內嵌影片索引子小工具
 
@@ -253,7 +253,7 @@ iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 
 
 根據預設，影片索引子播放程式會根據影片的文字記錄，自動產生隱藏式輔助字幕。 文字記錄是從影片中，使用影片上傳時所選取的來源語言進行解壓縮。
 
-如果您想要使用不同的語言來內嵌，可以將 `&captions=< Language | ”all” | “false” >` 新增至 [內嵌播放機 URL]。 如果您想要所有可用語言的標題中的標題，請使用 `all` 的值。 如果您想要依預設顯示標題，您可以傳入 `&showCaptions=true`。
+如果您想要使用不同的語言來內嵌，可以將 `&captions=< Language | "all" | "false" >` 新增至 [內嵌播放機 URL]。 如果您想要所有可用語言的標題中的標題，請使用 `all` 的值。 如果您想要依預設顯示標題，您可以傳入 `&showCaptions=true`。
 
 內嵌 URL 將顯示如下︰ 
 

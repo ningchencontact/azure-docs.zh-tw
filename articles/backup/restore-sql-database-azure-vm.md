@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8bdc77ba81c5a9ec47a02ef5a1ede82365314941
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968864"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161845"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>在 Azure VM 上還原 SQL Server 資料庫
 
@@ -68,19 +68,19 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
     - 最早和最近的還原點。
     - 過去24小時的記錄備份狀態，適用于處於完整和大量記錄復原模式且已針對異動複寫記錄備份設定的資料庫。
 
-6. 選取 [**還原資料庫**]。
+6. 選取 [還原]。
 
-    ![選取 [還原 DB]](./media/backup-azure-sql-database/restore-db-button.png)
+    ![選取 [還原]](./media/backup-azure-sql-database/restore-db.png)
 
-7. 在 [**還原**設定] 中，指定還原資料的位置：
+7. 在 [**還原**設定] 中，指定還原資料的位置（或如何）：
    - **替代位置**：將資料庫還原至替代位置，並保留原始源資料庫。
    - **覆寫 DB**：將資料還原至與原始來源相同的 SQL Server 執行個體。 此選項會覆寫原始資料庫。
 
-     > [!Important]
-     > 如果選取的資料庫屬於 AlwaysOn 可用性群組，SQL Server 不允許覆寫資料庫。 只有 [替代位置] 可用。
-     >
-
-     ![[還原設定] 功能表](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+           > [!IMPORTANT]
+           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+           >
+   - **還原成**檔案：不是還原為資料庫，而是在稍後使用 SQL Server Management Studio，將可以復原的備份檔案還原為資料庫中存在的任何電腦。
+     ![還原設定 功能表](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>還原至替代位置
 
@@ -90,7 +90,7 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
 4. 如果適用的話，請選取 [Overwrite if the DB with the same name already exists on selected SQL instance] \(若選取的 SQL 執行個體上已存在相同名稱的 DB 則覆寫\)。
 5. 選取 [確定]。
 
-    ![提供 [還原設定] 功能表的值](./media/backup-azure-sql-database/restore-configuration-menu.png)
+    ![提供 [還原設定] 功能表的值](./media/backup-azure-sql-database/restore-configuration.png)
 
 6. 在 [**選取還原點**] 中，選取要[還原到特定的時間點](#restore-to-a-specific-point-in-time)，還是要[還原到特定的復原點](#restore-to-a-specific-restore-point)。
 
@@ -107,6 +107,25 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
 
     > [!NOTE]
     > 還原時間點僅適用于處於完整和大量記錄復原模式之資料庫的記錄備份。
+
+### <a name="restore-as-files"></a>還原為檔案
+
+若要將備份資料還原為 .bak 檔案，而不是資料庫，請選擇 [**還原為**檔案]。 一旦檔案傾印到指定的路徑，您就可以將這些檔案放到您想要將它們還原為資料庫的任何電腦上。 由於能夠將這些檔案移到任何電腦上，因此您現在可以在訂用帳戶和區域之間還原資料。
+
+1. 在 [**還原**設定] 功能表的 [**要還原的位置**] 底下，選取 [**還原為**檔案]。
+2. 選取您要還原備份檔案的 SQL Server 名稱。
+3. 在**伺服器的目的地路徑**中，輸入在步驟2中選取之伺服器上的資料夾路徑。 這是服務將會傾印所有必要備份檔案的位置。 一般而言，當指定為目的地路徑時，已掛接之 Azure 檔案共用的網路共用路徑或路徑，可讓相同網路中的其他電腦或掛接在其上的相同 Azure 檔案共用，更輕鬆地存取這些檔案。
+4. 選取 [確定]。
+
+![選取還原為檔案](./media/backup-azure-sql-database/restore-as-files.png)
+
+5. 選取對應至將還原所有可用 .bak 檔案的**還原點**。
+
+![選取還原點](./media/backup-azure-sql-database/restore-point.png)
+
+6. 與選取的復原點相關聯的所有備份檔案都會傾印到目的地路徑。 您可以使用 SQL Server Management Studio，將檔案還原為其所在電腦上的資料庫。
+
+![已還原目的地路徑中的備份檔案](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>還原至特定時間點
 

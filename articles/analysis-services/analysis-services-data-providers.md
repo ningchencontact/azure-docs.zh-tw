@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512781"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147086"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
-用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 Microsoft 用戶端應用程式（例如 Power BI Desktop、Excel、SQL Server Management Studio （SSMS）和 SQL Server Data Tools （SSDT））會安裝這三個用戶端程式庫，並與一般應用程式更新一起更新。 在某些情況下，您可能需要安裝較新版本的用戶端程式庫。 自訂用戶端應用程式也需要安裝用戶端程式庫。
+用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 適用于 Visual Studio 的 Microsoft 用戶端應用程式（如 Power BI Desktop、Excel、SQL Server Management Studio （SSMS）和 Analysis Services 專案延伸模組）會安裝這三個用戶端程式庫，並與一般應用程式更新一起更新。 在某些情況下，您可能需要安裝較新版本的用戶端程式庫。 自訂用戶端應用程式也需要安裝用戶端程式庫。
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>下載最新的用戶端程式庫 (Windows Installer)  
 
@@ -58,7 +58,7 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 
 ### <a name="amo"></a>AMO  
 
- AMO 是用於伺服器管理及資料定義的受控用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 例如，SQL Server Management Studio (SSMS) 會使用 AMO 來連線到 Analysis Services。 使用 AMO 的連線通常是最簡短的，由 `"data source=\<servername>"` 所組成。 建立連線之後，您可以使用 API 來處理資料庫集合與主要物件。 SSDT 和 SSMS 都會使用 AMO 來連線到 Analysis Services 執行個體。  
+ AMO 是用於伺服器管理及資料定義的受控用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 例如，SQL Server Management Studio (SSMS) 會使用 AMO 來連線到 Analysis Services。 使用 AMO 的連線通常是最簡短的，由 `"data source=\<servername>"` 所組成。 建立連線之後，您可以使用 API 來處理資料庫集合與主要物件。 Visual Studio 和 SSMS 都會使用 AMO 來連接到 Analysis Services 實例。  
 
   
 ### <a name="adomd"></a>ADOMD

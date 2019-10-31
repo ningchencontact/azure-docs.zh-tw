@@ -4,25 +4,25 @@ description: 了解如何在 Azure 連線至 Analysis Services 伺服器並從�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a8059ac748f73ad8f9036f8e675e876e3a8716be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3231b46060cbb755ada000473c8fbe873cc51ef1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295179"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147307"
 ---
 # <a name="connecting-to-servers"></a>連線至伺服器
 
-本文說明如何使用資料模型化和管理應用程式 (例如 SQL Server Management Studio (SSMS) 或 SQL Server Data Tools (SSDT)) 來連接到伺服器。 或是使用用戶端報表應用程式，例如 Microsoft Excel、Power BI Desktop 或自訂應用程式。 連到 Azure Analysis Services 的連線會使用 HTTPS。
+本文說明如何使用資料模型化和管理應用程式（例如 SQL Server Management Studio （SSMS）或 Visual Studio 搭配 Analysis Services 專案，或使用用戶端報表應用程式（例如 Microsoft Excel）來連接到伺服器 Power BI桌面或自訂應用程式。 連到 Azure Analysis Services 的連線會使用 HTTPS。
 
 ## <a name="client-libraries"></a>用戶端程式庫
 
 [取得最新的用戶端程式庫](analysis-services-data-providers.md)
 
-所有連到伺服器的連線 (不論是哪一種類型) 都需要已更新的 AMO、ADOMD.NET 及 OLEDB 用戶端程式庫，才能連接到 Analysis Services 伺服器並與其銜接。 針對 SSMS、SSDT、Excel 2016 與更新版本及 Power BI，最新的用戶端程式庫會隨著每月的發行版本一起安裝或更新。 不過，在某些情況下，應用程式的版本可能不會是最新的。 例如，當原則延遲更新，或 Office 365 更新是在「順延通道」上時。
+所有連到伺服器的連線 (不論是哪一種類型) 都需要已更新的 AMO、ADOMD.NET 及 OLEDB 用戶端程式庫，才能連接到 Analysis Services 伺服器並與其銜接。 針對 SSMS、Visual Studio、Excel 2016 和更新版本，以及 Power BI，會安裝最新的用戶端程式庫，或以每月版本進行更新。 不過，在某些情況下，應用程式的版本可能不會是最新的。 例如，當原則延遲更新，或 Office 365 更新是在「順延通道」上時。
 
 ## <a name="server-name"></a>伺服器名稱
 
@@ -42,7 +42,7 @@ ms.locfileid: "72295179"
 > [!NOTE]
 > 美國東部2區域的通訊協定是**aspaaseastus2**。
 
-## <a name="connection-string"></a>連接字串
+## <a name="connection-string"></a>Connection string
 
 使用表格式物件模型連線至 Azure Analysis Services 時，請使用下列連接字串格式：
 

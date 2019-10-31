@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fd7a12dca92a4b84ecd3a2c9644509a1dc705c35
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727844"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161505"
 ---
-# <a name="security-frame-session-management"></a>安全框架︰工作階段管理
+# <a name="security-frame-session-management"></a>安全性架構︰工作階段管理
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[在使用 Azure AD 時以 ADAL 方法實作適當的登出](#logout-adal)</li></ul> |
@@ -35,10 +35,10 @@ ms.locfileid: "68727844"
 
 ## <a id="logout-adal"></a>在使用 Azure AD 時以 ADAL 方法實作適當的登出
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure AD | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -70,10 +70,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 
 ## <a id="finite-tokens"></a>為產生的 SaS 權杖使用有限的存留期
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 裝置 | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -81,10 +81,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 
 ## <a id="resource-tokens"></a>為產生的資源權杖使用最短的權杖存留期
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure Document DB | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -92,10 +92,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 
 ## <a id="wsfederation-logout"></a>在使用 ADFS 時以 WsFederation 方法實作適當的登出
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | ADFS | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -141,21 +141,21 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 
 ## <a id="proper-logout"></a>在使用 Identity Server 時實作適當的登出
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [IdentityServer3-同盟登出](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
-| **步驟** | IdentityServer 支援與外部識別提供者同盟的能力。 當使用者登出上游識別提供者時，視使用的通訊協定而定，其可能會在使用者登出時收到通知。這會讓 IdentityServer 通知其用戶端，以便用戶端也可以將使用者登出。請參閱 [參考] 區段中的文件，以取得實作詳細資料。|
+| **步驟** | IdentityServer 支援與外部識別提供者同盟的能力。 當使用者登出上游識別提供者時，視使用的通訊協定而定，可能會在使用者登出時收到通知。它可讓 IdentityServer 通知其用戶端，讓他們也可以將使用者登出。如需執行詳細資料，請參閱參考一節中的檔。|
 
 ## <a id="https-secure-cookies"></a>透過 HTTPS 使用的應用程式必須使用安全 Cookie
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | EnvironmentType - OnPrem |
 | **參考**              | [httpCookies 元素 (ASP.NET 設定結構描述)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx)、[HttpCookie.Secure 屬性](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
@@ -171,10 +171,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 ```
 即使使用 HTTP 來存取應用程式，仍會強制執行這項設定。 如果使用 HTTP 來存取應用程式，這項設定會中斷應用程式，因為 Cookie 會設定使用安全的屬性，而瀏覽器不會將其傳回給應用程式。
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | Web Form、MVC5 |
 | **屬性**              | EnvironmentType - OnPrem |
 | **參考**              | N/A  |
@@ -193,10 +193,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 
 ## <a id="cookie-definition"></a>所有 http 型應用程式只應在定義 Cookie 時指定 http
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [安全 Cookie 屬性](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
@@ -214,10 +214,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 </system.web>
 ```
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | Web Form |
 | **屬性**              | N/A  |
 | **參考**              | [FormsAuthentication.RequireSSL 屬性](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
@@ -231,10 +231,10 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 </authentication>
 ```
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | MVC5 |
 | **屬性**              | EnvironmentType - OnPrem |
 | **參考**              | [Windows Identity Foundation (WIF) 組態 - 單元二](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
@@ -256,19 +256,19 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 
 ## <a id="csrf-asp"></a>避免 ASP.NET 網頁上發生跨網站偽造要求 (CSRF) 攻擊
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
 | **步驟** | 跨網站偽造要求 (CSRF 或 XSRF) 是一種攻擊，攻擊者會在不同使用者對某個網站所建立之工作階段的安全性內容中執行動作。 目標是要修改或刪除內容，如果目標網站完全依賴工作階段 Cookie 來驗證所收到要求的話。 攻擊者可從使用者已登入的有弱點網站，使用命令讓不同使用者的瀏覽器載入 URL，以利用這項弱點。 攻擊者有許多方法可以這麼做，例如裝載不同的網站以從有弱點的伺服器載入資源，或讓使用者按一下連結。 如果伺服器傳送額外的權杖給用戶端，要求用戶端在所有未來的要求中包含該權杖，並確認所有未來的要求皆包含屬於目前工作階段的權杖，例如使用 ASP.NET AntiForgeryToken 或 ViewState，便可防止攻擊。 |
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | N/A  |
 | **參考**              | [在 ASP.NET MVC 和網頁中防止 XSRF/CSRF](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
@@ -291,7 +291,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 ```
 
 ### <a name="example"></a>範例
-在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如:
+在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如：
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -305,7 +305,7 @@ public ViewResult SubmitUpdate()
 * 這些 Cookie 和 `Request.Form` 值符合假設一切正常，要求就會正常通過。 但如果沒有，則授權會失敗並出現訊息「未提供必要的防偽權杖或權杖無效」。 
 
 ### <a name="example"></a>範例
-反 CSRF 和 AJAX:由於 AJAX 要求可能會傳送 JSON 資料, 而不是 HTML 表單資料, 因此, 表單 token 可能會是 AJAX 要求的問題。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 
+防 CSRF 和 AJAX︰表單權杖可能會成為 AJAX 要求的麻煩，因為 AJAX 要求可能會傳送 JSON 資料，而非 HTML 表單資料。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 
 ```csharp
 <script>
     @functions{
@@ -351,10 +351,10 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | Web Form |
 | **屬性**              | N/A  |
 | **參考**              | [利用 ASP.NET 內建功能來避開 Web 攻擊](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
@@ -371,14 +371,14 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>設定工作階段的閒置存留期
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [HttpSessionState.Timeout 屬性](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **步驟** | 會話超時代表使用者在間隔期間 (由 web 伺服器定義) 未在網站上執行任何動作時所發生的事件。 伺服器端上的事件會將使用者工作階段的狀態變更為「無效」(例如「不再被使用」)，並指示網頁伺服器終結它 (刪除其中包含的所有資料)。 下列程式碼範例會在 Web.config 檔案中將逾時工作階段屬性設定為 15 分鐘。|
+| **步驟** | 會話超時代表使用者在間隔期間（由 web 伺服器定義）未在網站上執行任何動作時所發生的事件。 伺服器端上的事件會將使用者工作階段的狀態變更為「無效」(例如「不再被使用」)，並指示網頁伺服器終結它 (刪除其中包含的所有資料)。 下列程式碼範例會在 Web.config 檔案中將逾時工作階段屬性設定為 15 分鐘。|
 
 ### <a name="example"></a>範例
 ```XML 
@@ -391,13 +391,13 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="threat-detection"></a>在 Azure SQL 上啟用威脅偵測功能
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | Web Form |
 | **屬性**              | N/A  |
-| **參考**              | [驗證的表單元素 (ASP.NET 設定架構)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **參考**              | [驗證的表單元素（ASP.NET 設定架構）](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **步驟** | 將表單驗證票證 Cookie 逾時設定為 15 分鐘|
 
 ### <a name="example"></a>範例
@@ -406,10 +406,10 @@ void Page_Init (object sender, EventArgs e) {
 </forms>
 ```
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | Web Form、MVC5 |
 | **屬性**              | EnvironmentType - OnPrem |
 | **參考**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
@@ -436,15 +436,15 @@ void Page_Init (object sender, EventArgs e) {
 ### <a name="example"></a>範例
 此外，ADFS 所發出之 SAML 宣告權杖的存留期應設為 15 分鐘，方法是在 ADFS 伺服器上執行下列 PowerShell 命令︰
 ```csharp
-Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
+Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>從應用程式實作適當登出
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
+| **元件**               | Web Application | 
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -452,23 +452,23 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="csrf-api"></a>避免 ASP.NET Web API 上發生跨網站偽造要求 (CSRF) 攻擊
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
 | **步驟** | 跨網站偽造要求 (CSRF 或 XSRF) 是一種攻擊，攻擊者會在不同使用者對某個網站所建立之工作階段的安全性內容中執行動作。 目標是要修改或刪除內容，如果目標網站完全依賴工作階段 Cookie 來驗證所收到要求的話。 攻擊者可從使用者已登入的有弱點網站，使用命令讓不同使用者的瀏覽器載入 URL，以利用這項弱點。 攻擊者有許多方法可以這麼做，例如裝載不同的網站以從有弱點的伺服器載入資源，或讓使用者按一下連結。 如果伺服器傳送額外的權杖給用戶端，要求用戶端在所有未來的要求中包含該權杖，並確認所有未來的要求皆包含屬於目前工作階段的權杖，例如使用 ASP.NET AntiForgeryToken 或 ViewState，便可防止攻擊。 |
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | N/A  |
 | **參考**              | [避免 ASP.NET Web API 中發生跨網站偽造要求 (CSRF) 攻擊](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **步驟** | 反 CSRF 和 AJAX:由於 AJAX 要求可能會傳送 JSON 資料, 而不是 HTML 表單資料, 因此, 表單 token 可能會是 AJAX 要求的問題。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 |
+| **步驟** | 防 CSRF 和 AJAX︰表單權杖可能會成為 AJAX 要求的麻煩，因為 AJAX 要求可能會傳送 JSON 資料，而非 HTML 表單資料。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 |
 
 ### <a name="example"></a>範例
 ```Javascript
@@ -535,7 +535,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ```
 
 ### <a name="example"></a>範例
-在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如:
+在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如：
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -548,10 +548,10 @@ public ViewResult SubmitUpdate()
 * 連入要求具有名為 __RequestVerificationToken 的 `Request.Form` 項目
 * 這些 Cookie 和 `Request.Form` 值符合假設一切正常，要求就會正常通過。 但如果沒有，則授權會失敗並出現訊息「未提供必要的防偽權杖或權杖無效」。
 
-| 標題                   | 詳細資料      |
+| 課程名稱                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
-| **SDL 階段**               | 建置 |  
+| **SDL 階段**               | 組建 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | 識別提供者 - ADFS、識別提供者 - Azure AD |
 | **參考**              | [在 ASP.NET Web API 2.2 中使用個別帳戶和本機登入保護 Web API](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898725"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152051"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
@@ -25,16 +25,16 @@ ms.locfileid: "70898725"
 ## <a name="what-are-its-target-audiences"></a>其目標對象為何？
 資料目錄的設計目標為技術性和非技術性使用者，包括：
 
-* 資料開發人員和 BI 和分析專業人員：負責產生資料和分析內容供其他人使用的人員。
-* 資料負責人：具有資料相關知識的人員、其意義，以及其使用方式。
-* 資料取用者：需要能夠使用選擇的工具，輕鬆地探索、瞭解及連線到其工作所需之資料的人員。
-* 中央 IT：需要讓商務使用者能夠探索數百個數據源，以及需要維護資料使用方式及由誰進行監督的人員。
+* 資料開發人員、BI 和分析專業人員：這些人負責產生資料和分析內容供他人使用。
+* 資料負責人：這些人了解資料、其意義和用法。
+* 資料取用者：這些人需要能夠透過他們所選擇的工具，輕鬆地探索、了解並連線至工作所需的資料。
+* 中央 IT：這些人需要提供數百個資料來源供商務使用者探索，也需要持續監督資料的使用情況和由誰使用。
 
 ## <a name="what-is-its-availability-by-region"></a>其依區域的可用性為何？
 目前只有下列資料中心提供資料目錄服務：
 
 * 美國西部
-* East US
+* 美國東部
 * 西歐
 * 北歐
 * 澳大利亞東部
@@ -87,7 +87,7 @@ ms.locfileid: "70898725"
 >
 
 > [!NOTE]
-> 若資料來源 (例如 SQL Server Analysis Services) 具有第一級的 **Description** 屬性，資料目錄的資料來源註冊工具就會擷取該屬性值。 若 SQL Server 關聯式資料庫缺少第一級的 **Description** 屬性，資料目錄的資料來源註冊工具則會從物件和資料行的 **ms_description** 擴充屬性擷取值。 如需詳細資訊，請參閱[使用資料庫物件的擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
+> 若資料來源 (例如 SQL Server Analysis Services) 具有第一級的 **Description** 屬性，資料目錄的資料來源註冊工具就會擷取該屬性值。 若為*內部部署*SQL Server 缺少第一類**Description**屬性的關係資料庫，資料目錄資料來源註冊工具會從物件和資料行的**ms_description**擴充屬性中，解壓縮值。 如需詳細資訊，請參閱[使用資料庫物件的擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
 >
 >
 

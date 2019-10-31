@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154726"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161761"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -27,12 +27,12 @@ ms.locfileid: "71154726"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificates**
+**憑證**
 
 - [為什麼我雲端服務 SSL 憑證的信任鏈結是不完整的？](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [「Windows Azure Tools 擴充功能的加密憑證」用途為何？](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [如何能夠產生憑證簽署要求 (CSR)，而不 "RDP" 到執行個體中？](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [我的雲端服務管理憑證即將到期。要如何續訂？](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [我的雲端服務管理憑證即將到期。如何續訂？](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [如何將主要 SSL 憑證 (.pfx) 和中繼憑證 (.p7b) 的安裝自動化？](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
 - [「適用於 MachineKey 的 Microsoft Azure 服務管理」憑證的用途為何？](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
@@ -49,10 +49,10 @@ ms.locfileid: "71154726"
 - [Azure 的基本 IPS/IDS 和 DDOS 提供的特性和功能是什麼？](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [如何啟用雲端服務虛擬機器上的 HTTP/2？](#how-to-enable-http2-on-cloud-services-vm)
 
-**Permissions**
+**權限**
 
 - [Microsoft 內部工程師是否可在沒有權限的情況下，從遠端桌面到雲端服務執行個體？](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [我無法使用 RDP 檔案從遠端桌面登入雲端服務虛擬機器。我收到下列錯誤：發生驗證錯誤 (代碼：0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [我無法使用 RDP 檔案將桌面遠端連線至雲端服務 VM。我收到下列錯誤：發生驗證錯誤（代碼：0x80004005）](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **調整大小**
 
@@ -68,8 +68,8 @@ ms.locfileid: "71154726"
 - [如何以自動化方式新增雲端服務的反惡意程式碼擴充功能？](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 - [如何啟用雲端服務的伺服器名稱指示 (SNI)？](#how-to-enable-server-name-indication-sni-for-cloud-services)
 - [如何將標籤新增至我的 Azure 雲端服務？](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [Azure 入口網站不會顯示雲端服務的 SDK 版本。如何取得版本？](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [我想要關閉雲端服務幾個月。如何降低雲端服務的計費成本，而不遺失 IP 位址？](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [Azure 入口網站不會顯示雲端服務的 SDK 版本。我該如何取得？](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [我想要關閉雲端服務幾個月。如何降低雲端服務的計費成本，而不會遺失 IP 位址？](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>憑證
@@ -90,7 +90,7 @@ ms.locfileid: "71154726"
 
 [使用 Windows Azure 網站 (WAWS) 取得要使用的憑證](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖然是針對 App Service 寫入這份文件，但 CSR 建立為泛型，且也適用於雲端服務。
+CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖然本檔是針對 App Service 所撰寫，但 CSR 建立是通用的，也適用于雲端服務。
 
 ### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>我的雲端服務管理憑證即將到期。 要如何續訂？
 
@@ -108,9 +108,9 @@ CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>「適用於 MachineKey 的 Microsoft Azure 服務管理」憑證的用途為何？
 
-此憑證用來加密 Azure Web 角色上的電腦金鑰。 若要深入瞭解, 請參閱[此諮詢](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)。
+此憑證用來加密 Azure Web 角色上的電腦金鑰。 若要深入瞭解，請參閱[此諮詢](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 - [如何設定和執行雲端服務的啟動工作](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [常見的雲端服務啟動工作](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -130,7 +130,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 監視執行個體層級計量的功能。 [如何監視雲端服務](cloud-services-how-to-monitor.md)中還有更多其他監視功能。
 
 ### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>為什麼 IIS 會停止寫入記錄目錄？
-您已耗盡寫入記錄目錄的本機儲存體配額。 若要修正此問題，您可以執行下列三個項目的其中一項：
+您已耗盡寫入記錄目錄的本機儲存體配額。 若要修正這個問題，您可以執行下列三項動作之一：
 * 啟用 IIS 的診斷，並定期將診斷移至 blob 儲存體中。
 * 從記錄目錄中手動移除記錄檔。
 * 增加本機資源的配額限制。
@@ -169,7 +169,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
     </Endpoints>
   </WorkerRole>
 ```
-如需詳細資訊，請參閱[新增：Azure Load Balancer 的可設定閒置逾時](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (英文)。
+如需詳細資訊，請參閱[新增：Azure Load Balancer 的可設定閒置逾時](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)。
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>如何將靜態 IP 位址關聯到我的雲端服務？
 若要設定靜態 IP 位址，您必須建立保留的 IP。 這個保留的 IP 可以關聯到新的雲端服務或現有的部署。 請參閱以下文件了解詳細資料：
@@ -195,7 +195,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 5. 重新啟動您的伺服器。
 6. 移至**預設網站**，並在 [繫結] 下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [影片：Windows 10 中的 HTTP/2：瀏覽器、應用程式和 Web 伺服器](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -211,7 +211,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 
 如需詳細資訊，請參閱 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>如何實作雲端服務的角色型存取？
 雲端服務不支援角色型存取控制 (RBAC) 模型，因為它不是以 Azure Resource Manager 為基礎的服務。
@@ -230,7 +230,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 1. 以滑鼠右鍵按一下您下載的 RDP 檔案，然後選取 [編輯]。
 2. 新增 "&#92;" 作為使用者名稱的前置詞。 例如，使用 **.\username** 而不是 **username**。
 
-## <a name="scaling"></a>縮放
+## <a name="scaling"></a>調整
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>我不能調整超過 X 個執行個體
 您的 Azure 訂用帳戶對於您可以使用的核心數目有限制。 如果您已使用所有可用的核心，調整將無法運作。 例如，如果您有 100 個核心的限制，這表示您的雲端服務可以有 100 個 A1 大小的虛擬機器執行個體，或 50 個 A2 大小的虛擬機器執行個體。
@@ -281,7 +281,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>為什麼我雲端服務虛擬機器上的磁碟機顯示幾乎沒有可用的磁碟空間？
 這是預期的行為，並不會對您的應用程式造成任何問題。 在 Azure PaaS 虛擬機器中會開啟 %approot% 磁碟機的日誌記錄，基本上會消耗兩倍檔案通常所佔用的空間量。 不過，要留意幾件事，基本上這就會變得沒有問題。
 
-% Approot% 磁片磁碟機大小的計算方式\<為： .cspkg + 最大日誌大小和可用空間的邊界 > 或 1.5 GB，取兩者中較大者。 您 VM 的大小對這個計算方式並無任何影響。 (VM 大小只會影響暫存 C: 磁碟機的大小。) 
+% Approot% 磁片磁碟機大小的計算方式為： .cspkg + 最大日誌大小和可用空間 > 的邊界，或 1.5 GB，\<以較大者為准。 您 VM 的大小對這個計算方式並無任何影響。 (VM 大小只會影響暫存 C: 磁碟機的大小。) 
 
 它不支援寫入 %approot% 磁碟機。 如果您要寫入 Azure VM 中，必須在暫存 LocalStorage 資源中進行 (或其他選項，例如 Blob 儲存體、Azure 檔案等)。 因此在 %approot% 資料夾上的可用空間數量沒有任何意義。 如果您不確定應用程式是否要寫入 %approot% 磁碟機中，一律可以讓您的服務執行幾天，然後比較「之前」和「之後」的大小。 
 
@@ -310,12 +310,12 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
     
 如[這裡](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可能是如下所示其中一個值：
 
-|值|意義|
+|Value|意義|
 ------|------
 |0|沒有 SNI|
-|1|已啟用 SNI |
-|2 |使用中央憑證存放區的非 SNI 繫結|
-|3|使用中央憑證存放區的 SNI 繫結 |
+|1|已啟用 SNI|
+|2|使用中央憑證存放區的非 SNI 繫結|
+|3|使用中央憑證存放區的 SNI 繫結|
  
 **方法 2：使用程式碼**
 
@@ -325,8 +325,8 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

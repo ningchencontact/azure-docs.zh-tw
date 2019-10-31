@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 10/29/2019
+ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809467"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162252"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用適用於 VM 的 Azure 監視器（預覽）總覽
 
@@ -37,14 +37,20 @@ ms.locfileid: "72809467"
 適用於 VM 的 Azure 監視器支援下欄區域中的 Log Analytics 工作區：
 
 - 美國中西部
+- 美國西部<sup>1</sup>
 - 美國西部 2<sup>1</sup>
+- 美國中南部<sup>1</sup>
 - 美國東部
 - 東部美國 2<sup>1</sup>
+- 美國中部<sup>1</sup>
+- 美國中北部<sup>1</sup>
 - 加拿大中部
 - 英國南部
 - 北歐<sup>1</sup>
 - 西歐
+- 東亞<sup>1</sup>
 - 東南亞
+- 印度中部<sup>1</sup>
 - 日本東部<sup>1</sup>
 - 澳大利亞東部<sup>1</sup>
 - 澳大利亞東南部<sup>1</sup>
@@ -199,6 +205,9 @@ ms.locfileid: "72809467"
 ## <a name="performance-counters-enabled"></a>已啟用效能計數器 
 
 適用於 VM 的 Azure 監視器會設定 Log Analytics 工作區，以收集它所使用的效能計數器。 下表列出每60秒收集的物件和計數器。
+
+>[!NOTE]
+>下列適用於 VM 的 Azure 監視器啟用的效能計數器清單並不會限制您從向工作區回報的 Vm 中啟用需要收集的其他計數器。 此外，如果您停用這些計數器，它會防止效能功能所包含的效能圖表集顯示 Vm 的資源使用率。
 
 ### <a name="windows-performance-counters"></a>Windows 效能計數器
 

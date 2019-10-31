@@ -1,6 +1,6 @@
 ---
 title: 設定 ExpressRoute Direct - Azure CLI | Microsoft Docs
-description: 這篇文章可協助您設定 ExpressRoute 直接使用 Azure CLI
+description: 本文可協助您使用 Azure CLI 來設定 ExpressRoute Direct
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879344fddd6d12ae8a50e109dcaf4a4bb2c1b68
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965917"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161561"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>設定 ExpressRoute 直接使用 Azure CLI
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>使用 Azure CLI 設定 ExpressRoute Direct
 
 您可以使用 Azure ExpressRoute Direct 在策略性分散於世界各地的對等互連位置，直接連線至 Microsoft 全球網路。 如需詳細資訊，請參閱[關於 ExpressRoute Direct Connect](expressroute-erdirect-about.md)。
 
@@ -147,7 +147,7 @@ ms.locfileid: "65965917"
    ```
 
    > [!NOTE]
-   > 您也可以將 [封裝]  屬性設定為 **Dot1Q**。 
+   > 您也可以將 [封裝] 屬性設定為 **Dot1Q**。 
    >
 
    **範例輸出**
@@ -208,7 +208,7 @@ ms.locfileid: "65965917"
 
 使用此程序來進行第 1 層測試。 確保每個交叉連線都已在主要和次要連接埠的每個路由器中正確修補。
 
-1. 將連結設定為 [已啟用]  。 重複此步驟，將每個連結設定為 [已啟用]  。
+1. 將連結設定為 [已啟用]。 重複此步驟，將每個連結設定為 [已啟用]。
 
    連結 [0] 是主要連接埠，而連結 [1] 是次要連接埠。
 
@@ -272,7 +272,7 @@ ms.locfileid: "65965917"
    }
    ```
 
-   使用 `AdminState = “Disabled”`，可使用相同的程序來關閉連接埠。
+   使用 `AdminState = "Disabled"`，可使用相同的程序來關閉連接埠。
 
 ## <a name="circuit"></a>建立線路
 
@@ -280,9 +280,9 @@ ms.locfileid: "65965917"
 
 您只可以在 ExpressRoute Direct 上使用額外線路頻寬來支援以上所述的案例。 頻寬是 40 Gbps 和 100 Gbps。
 
-**SkuTier**可以是本機、 Standard 或 Premium。
+**SkuTier**可以是 Local、Standard 或 Premium。
 
-**SkuFamily**只為無限制必須 MeteredData ExpressRoute 直接上不支援。
+只有在 ExpressRoute Direct 不支援**SkuFamily**時，才必須 MeteredData 為無限制。
 在 ExpressRoute Direct 資源上建立線路：
 
   ```azurecli

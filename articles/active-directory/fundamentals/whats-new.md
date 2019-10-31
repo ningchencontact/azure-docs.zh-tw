@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e732e62afcc7af0a2b90d7c525a6de5e65195aa
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 6847384177e71c7f2b012e46211a5c09fa80fedb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809247"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149017"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -47,9 +47,189 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 **服務類別：** 身分識別保護  
 **產品功能：** 身分識別安全性與保護
 
-為回應開發人員的意見反應，Azure AD Premium P2 訂閱者現在可以使用適用于 Microsoft Graph 的新 riskDetection API，對 Azure AD Identity Protection 的風險偵測資料執行複雜的查詢。 現有的[identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) API 搶鮮版（Beta）版本將會停止傳回**2020 年1月10日**附近的資料。 如果您的組織使用 identityRiskEvent API，您應該轉換至新的 riskDetection API。
+為回應開發人員的意見反應，Azure AD Premium P2 訂閱者現在可以使用適用于 Microsoft Graph 的新 riskDetection API，對 Azure AD Identity Protection 的風險偵測資料執行複雜的查詢。 現有的[identityRiskEvent](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta) API 搶鮮版（Beta）版本將會停止傳回**2020 年1月10日**附近的資料。 如果您的組織使用 identityRiskEvent API，您應該轉換至新的 riskDetection API。
 
 如需有關新 riskDetection API 的詳細資訊，請參閱[風險偵測 API 參考檔](https://aka.ms/RiskDetectionsAPI)。
+
+---
+
+### <a name="application-proxy-support-for-the-samesite-attribute-and-chrome-80"></a>SameSite 屬性和 Chrome 80 的應用程式 Proxy 支援
+
+**類型：** 方案變更  
+**服務類別：** 應用程式 Proxy  
+**產品功能：** 存取控制
+
+在 Chrome 80 瀏覽器版本之前的幾周，我們打算更新應用程式 Proxy cookie 如何處理**SameSite**屬性。 當 Chrome 80 發行時，任何未指定**SameSite**屬性的 cookie 都會視為已設定為 `SameSite=Lax`。
+
+為了避免因這項變更而造成負面影響，我們將藉由下列方式來更新應用程式 Proxy 存取和會話 cookie：
+
+- 將 [**使用安全 Cookie** ] 設定的預設值設定為 **[是]** 。
+
+- 將**SameSite**屬性的預設值設定為 [**無**]。
+
+    >[!NOTE]
+    > 應用程式 Proxy 存取 cookie 一律以獨佔方式透過安全通道傳輸。 這些變更只適用于會話 cookie。
+
+如需應用程式 Proxy cookie 設定的詳細資訊，請參閱[Azure Active Directory 中用來存取內部部署應用程式的 cookie 設定](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)。
+
+---
+
+### <a name="app-registrations-legacy-and-converged-app-management-from-the-application-registration-portal-appsdevmicrosoftcom-will-no-longer-be-available"></a>應用程式註冊入口網站（apps.dev.microsoft.com）中的應用程式註冊（舊版）和聚合式應用程式管理將無法再使用
+
+**類型：** 方案變更  
+**服務類別：** N/A  
+**產品功能：** 開發人員體驗
+
+在不久的未來，具有 Azure AD 帳戶的使用者將無法再使用應用程式註冊入口網站（apps.dev.microsoft.com）來註冊和管理交集應用程式，或在應用程式註冊中註冊和管理應用程式（舊版）Azure 入口網站中的經驗。
+
+若要深入瞭解新的應用程式註冊體驗，請參閱[Azure 入口網站訓練指南中的應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide)。
+
+---
+
+### <a name="users-are-no-longer-required-to-re-register-during-migration-from-per-user-mfa-to-conditional-access-based-mfa"></a>使用者不再需要在從每個使用者的 MFA 遷移到條件式存取型 MFA 期間重新註冊
+
+**類型：** 固定  
+**服務類別：** MFA  
+**產品功能：** 身分識別安全性與保護
+
+我們已修正已知問題，當使用者因為每個使用者的多重要素驗證（MFA）停用，然後透過條件式存取原則啟用 MFA 時，需要重新註冊。
+
+若要要求使用者重新註冊，您可以從 Azure AD 入口網站中的使用者驗證方法選取 [**必要的重新註冊 MFA** ] 選項。 如需將使用者從每位使用者 MFA 遷移至條件式存取型 MFA 的詳細資訊，請參閱[將使用者從每位使用者 Mfa 轉換成以條件式存取為基礎的 mfa](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted#convert-users-from-per-user-mfa-to-conditional-access-based-mfa)。
+
+---
+
+### <a name="new-capabilities-to-transform-and-send-claims-in-your-saml-token"></a>在 SAML 權杖中轉換和傳送宣告的新功能
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** SSO
+
+我們新增了額外的功能，可協助您在 SAML 權杖中自訂和傳送宣告。 這些新功能包括：
+
+- 額外的宣告轉換函數，可協助您修改在宣告中傳送的值。
+
+- 能夠將多個轉換套用至單一宣告。
+
+- 能夠根據使用者類型和使用者所屬的群組來指定宣告來源。
+
+如需這些新功能的詳細資訊，包括其使用方式，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。
+
+---
+
+### <a name="new-my-sign-ins-page-for-end-users-in-azure-ad"></a>Azure AD 中的終端使用者的新 [我的登入] 頁面
+
+**類型：** 新功能  
+**服務類別：** 驗證 (登入)  
+**產品功能：** 監視和報告
+
+我們已新增 [我的登**入**] 頁面（ https://mysignins.microsoft.com) ，讓您的組織使用者可以查看其最近的登入歷程記錄，以檢查是否有任何不尋常的活動。 這個新頁面可讓您的使用者看到：
+
+- 如果有人嘗試猜測其密碼。
+
+- 如果攻擊者成功登入其帳戶和位置。
+
+- 攻擊者嘗試存取哪些應用程式。
+
+如需詳細資訊，請參閱[使用者現在可以檢查其登入歷程記錄中是否有異常活動的](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Users-can-now-check-their-sign-in-history-for-unusual-activity/ba-p/916066)blog。
+
+---
+
+### <a name="migration-of-azure-ad-domain-services-azure-ad-ds-from-classic-to-azure-resource-manager-virtual-networks"></a>將 Azure AD Domain Services （Azure AD DS）從傳統遷移至 Azure Resource Manager 虛擬網路
+
+**類型：** 新功能  
+**服務類別：** Azure AD Domain Services  
+**產品功能：** Azure AD Domain Services
+
+對於已經停滯在傳統虛擬網路上的客戶而言，我們有很棒的消息。 您現在可以執行從傳統虛擬網路到現有 Resource Manager 虛擬網路的一次性遷移。 移至 Resource Manager 虛擬網路之後，您將能夠利用額外和升級的功能，例如更細緻的密碼原則、電子郵件通知和審核記錄。
+
+如需詳細資訊，請參閱[預覽-將 Azure AD Domain Services 從傳統虛擬網路模型遷移至 Resource Manager](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet)。
+
+---
+
+### <a name="updates-to-the-azure-ad-b2c-page-contract-layout"></a>Azure AD B2C 頁面合約版面配置的更新
+
+**類型：** 新功能  
+**服務類別：** B2C - 取用者身分識別管理  
+**產品功能：** B2B/B2C
+
+我們對 Azure AD B2C 的頁面合約的版本1.2.0 引進了一些新變更。 在這個更新的版本中，您現在可以控制元素的載入順序，這也有助於停止載入樣式表單（CSS）時所發生的閃爍。
+
+如需對頁面合約所做之變更的完整清單，請參閱[版本變更記錄](https://docs.microsoft.com/azure/active-directory-b2c/page-layout#120)檔。
+
+---
+
+### <a name="update-to-the-my-apps-page-along-with-new-workspaces-public-preview"></a>更新我的應用程式頁面以及新的工作區（公開預覽）
+
+**類型：** 新功能  
+**服務類別：** 我的應用程式  
+**產品功能：** 存取控制
+
+您現在可以自訂群組織使用者的觀點，並存取全新的我的應用程式體驗，包括使用新的工作區功能，讓他們更輕鬆地尋找應用程式。 新的工作區功能可做為組織使用者已擁有存取權的應用程式篩選。
+
+如需有關推出新的我的應用程式體驗和建立工作區的詳細資訊，請參閱在[我的應用程式（預覽）入口網站上建立工作區](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces)。
+
+---
+
+### <a name="support-for-the-monthly-active-user-based-billing-model-general-availability"></a>支援每月作用中使用者為基礎的計費模型（正式運作）
+
+**類型：** 新功能  
+**服務類別：** B2C - 取用者身分識別管理  
+**產品功能：** B2B/B2C
+
+Azure AD B2C 現在支援每月作用中使用者（MAU）計費。 MAU 計費是以行事曆月份期間具有驗證活動的唯一使用者數目為基礎。 現有的客戶可以隨時切換到這個新的計費方式。
+
+自2019年11月1日起，所有新客戶都會使用此方法自動計費。 這種計費方法可透過成本優勢和規劃的能力，為客戶帶來好處。
+
+如需詳細資訊，請參閱[升級為每月作用中使用者計費模式](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing#upgrade-to-monthly-active-users-billing-model)。
+
+---
+
+### <a name="consolidated-security-menu-item-in-the-azure-ad-portal"></a>Azure AD 入口網站中的匯總安全性功能表項目
+
+**類型：** 已變更的功能  
+**服務類別：** 身分識別保護  
+**產品功能：** 身分識別安全性與保護
+
+您現在可以從 [新增**安全性**] 功能表項目，以及從 [**搜尋**] 列的 [Azure 入口網站] 中，存取所有可用的 Azure AD 安全性功能。 此外，新的**安全性**登陸頁面（稱為「**安全性入門**」）將提供我們的公用檔、安全性指引和部署指南的連結。
+
+[新增**安全性**] 功能表包含：
+
+- 條件式存取
+- Identity Protection
+- 資訊安全中心
+- 身分識別安全分數
+- 驗證方法
+- MFA
+- 風險報告-有風險的使用者、有風險的登入、風險偵測
+- 還有更多...
+
+如需詳細資訊，請參閱[安全性-](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/GettingStarted)開始使用。
+
+---
+
+### <a name="office-365-groups-expiration-policy-enhanced-with-autorenewal"></a>使用自動更新增強的 Office 365 群組到期原則
+
+**類型：** 已變更的功能  
+**服務類別：** 群組管理  
+**產品功能：** 身分識別生命週期管理
+
+已增強 Office 365 群組到期原則，以自動更新其成員正在使用中的群組。 系統會根據所有 Office 365 應用程式的使用者活動（包括 Outlook、SharePoint 和小組）來 autorenewed 群組。
+
+這項增強功能有助於減少群組到期通知，並協助確保作用中的群組可以繼續使用。 如果您的 Office 365 群組已有作用中到期原則，則不需要執行任何動作即可開啟這種新功能。
+
+如需詳細資訊，請參閱[設定 Office 365 群組的到期原則](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-lifecycle)。
+
+---
+
+### <a name="updated-azure-ad-domain-services-azure-ad-ds-creation-experience"></a>已更新 Azure AD Domain Services （Azure AD DS）建立體驗
+
+**類型：** 已變更的功能  
+**服務類別：** Azure AD Domain Services  
+**產品功能：** Azure AD Domain Services
+
+我們已更新 Azure AD Domain Services （Azure AD DS）以納入全新且改良的建立體驗，只要按三下滑鼠，就能協助您建立受控網域！ 此外，您現在可以從範本上傳和部署 Azure AD DS。
+
+如需詳細資訊，請參閱[教學課程：建立和設定 Azure Active Directory Domain Services 實例](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)。
 
 ---
 
@@ -67,7 +247,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
-### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>我的設定檔正在重新命名，並與 Microsoft Office 帳戶頁面整合
+### <a name="my-profile-is-renaming-and-integrating-with-the-microsoft-office-account-page"></a>我的設定檔正在重新命名，並與 Microsoft Office 帳戶頁面整合
 
 **類型：** 方案變更  
 **服務類別：** 我的設定檔/帳戶  
@@ -928,149 +1108,5 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生，但我們會提供�
 - 使用者同意組織的使用規定（TOU）。
 
 如需有關條件式存取和密碼重設的詳細資訊，您可以查看[Azure AD 結合的 MFA 和密碼重設註冊體驗 blog 文章的條件式存取](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348)。 如需合併註冊程式之條件式存取原則的詳細資訊，請參閱[結合註冊的條件式存取原則](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration)。 如需 Azure AD 使用規定功能的詳細資訊，請參閱[Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
-
----
-
-## <a name="april-2019"></a>2019 年 4 月
-
-### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-as-part-of-azure-ad-identity-protection"></a>新的 Azure AD 威脅情報偵測現在可作為 Azure AD Identity Protection 的一部分
-
-**類型：** 新功能  
-**服務類別：** Azure AD Identity Protection  
-**產品功能：** 身分識別安全性與保護
-
-Azure AD 的威脅情報偵測現在已在更新的 Azure AD Identity Protection 功能中提供。 這種新功能有助於指出特定使用者或活動的異常使用者活動，其與根據 Microsoft 內部和外部威脅情報來源的已知攻擊模式一致。
-
-如需 Azure AD Identity Protection 重新整理版本的詳細資訊，請參閱[現已公開預覽的四個主要 Azure AD Identity Protection 增強功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935)，以及[Azure Active Directory Identity Protection 的內容（重新整理）。](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 篇. 如需有關 Azure AD 威脅情報偵測的詳細資訊，請參閱[Azure Active Directory Identity Protection 風險](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence)偵測一文。
-
----
-
-### <a name="azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure AD 的權利管理現已推出（公開預覽）
-
-**類型：** 新功能  
-**服務類別：** 身分識別治理  
-**產品功能：** 身分識別治理
-
-Azure AD 權利管理（現為公開預覽狀態）可協助客戶委派存取套件的管理，以定義員工和商務合作夥伴如何要求存取權、誰必須核准，以及他們有權存取的時間長度。 存取套件可以管理 Azure AD 和 Office 365 群組中的成員資格、企業應用程式中的角色指派，以及 SharePoint Online 網站的角色指派。 如需有關權利管理的詳細資訊，請參閱[Azure AD 權利管理總覽](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)。 若要深入瞭解 Azure AD Identity Governance 功能的廣度，包括 Privileged Identity Management、存取權審查和使用規定，請參閱[什麼是 Azure AD Identity Governance？](../governance/identity-governance-overview.md)。
-
----
-
-### <a name="configure-a-naming-policy-for-office-365-groups-in-azure-ad-portal-public-preview"></a>在 Azure AD 入口網站中設定 Office 365 群組的命名原則（公開預覽）
-
-**類型：** 新功能  
-**服務類別：** 群組管理  
-**產品功能：** 共同作業
-
-系統管理員現在可以使用 Azure AD 入口網站，為 Office 365 群組設定命名原則。 這項變更有助於針對組織中的使用者所建立或編輯的 Office 365 群組強制執行一致的命名慣例。
-
-您可以透過兩種不同的方式來設定 Office 365 群組的命名原則：
-
-- 定義會自動新增至組名的首碼或尾碼。
-
-- 針對您的組織上傳自訂的封鎖字組，不允許用於組名（例如，「CEO，薪資，HR」）。
-
-如需詳細資訊，請參閱對[Office 365 群組強制執行命名原則](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-naming-policy)。
-
----
-
-### <a name="azure-ad-activity-logs-are-now-available-in-azure-monitor-general-availability"></a>Azure AD 活動記錄現已于 Azure 監視器提供（正式運作）
-
-**類型：** 新功能  
-**服務類別：** 報告  
-**產品功能：** 監視和報告
-
-為了協助您使用 Azure AD 活動記錄來處理視覺效果的意見反應，我們在 Log Analytics 中引進了新的深入解析功能。 這項功能可協助您使用我們的互動式範本（稱為活頁簿），深入瞭解您的 Azure AD 資源。 這些預先建立的活頁簿可以提供應用程式或使用者的詳細資料，包括：
-
-- 登**入。** 提供應用程式和使用者的詳細資料，包括登入位置、使用中作業系統或瀏覽器用戶端和版本，以及成功或失敗的登入次數。
-
-- **舊版驗證和條件式存取。** 提供使用舊版驗證之應用程式和使用者的詳細資料，包括條件式存取原則所觸發的多重要素驗證使用方式、使用條件式存取原則的應用程式等等。
-
-- **登入失敗分析。** 協助您判斷是否因為使用者動作、原則問題或基礎結構而發生登入錯誤。
-
-- **自訂報表。** 您可以建立新的或編輯現有的活頁簿，以協助自訂您組織的深入解析功能。
-
-如需詳細資訊，請參閱[如何使用 Azure Active Directory 報表的 Azure 監視器活頁簿](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)。
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---april-2019"></a>Azure AD 應用程式庫中可用的新同盟應用程式-2019 年4月
-
-**類型：** 新功能  
-**服務類別：** 企業應用程式  
-**產品功能：** 協力廠商整合
-
-我們已在2019年4月將下列21個具有同盟支援的新應用程式新增至應用程式庫：
-
-[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial)、 [hrworks single sign-on 單一登入](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial)、 [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial)、 [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol-tutorial)、 [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)、 [Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial)、 [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial)、 [MileIQ](https://mileiq.onelink.me/991934284/7e980085)、 [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial)、 [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial)、 [RStudio Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial)， [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial)， [Mitel Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial)， [Alibaba Cloud （以角色為基礎的 SSO）](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial)， [certent equity 權益管理](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial)， [sectigo certificate 憑證管理員](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial)， [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial)， [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial)， [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial)，[SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial)、 [Indiggo](https://indiggolead.com/)
-
-如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
-
----
-
-### <a name="new-access-reviews-frequency-option-and-multiple-role-selection"></a>新的存取審查頻率選項和多個角色選取
-
-**類型：** 新功能  
-**服務類別：** 存取權檢閱  
-**產品功能：** 身分識別治理
-
-Azure AD 存取審查的新更新可讓您：
-
-- 除了先前現有的每週、每月、每季和每年的選項以外，請將存取權評論的頻率變更為**半年**。
-
-- 建立單一存取權審查時，請選取多個 Azure AD 和 Azure 資源角色。 在這種情況下，所有角色都是以相同的設定進行設定，而且所有的審核者都會同時收到通知。
-
-如需有關如何建立存取權審查的詳細資訊，請參閱[在 Azure AD 存取審查中建立群組或應用程式的存取權審查](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)。
-
----
-
-### <a name="azure-ad-connect-email-alert-systems-are-transitioning-sending-new-email-sender-information-for-some-customers"></a>Azure AD Connect 電子郵件警示系統正在轉換，傳送部分客戶的新電子郵件寄件者資訊
-
-**類型：** 已變更的功能  
-**服務類別：** AD 同步  
-**產品功能：** 平台
-
-Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會向一些客戶顯示新的電子郵件寄件者。 若要解決此情況，您必須將 `azure-noreply@microsoft.com` 新增至您組織的允許清單，否則您將無法繼續接收來自 Office 365、Azure 或同步服務的重要警示。
-
----
-
-### <a name="upn-suffix-changes-are-now-successful-between-federated-domains-in-azure-ad-connect"></a>Azure AD Connect 中的同盟網域之間的 UPN 尾碼變更現在成功
-
-**類型：** 固定  
-**服務類別：** AD 同步  
-**產品功能：** 平台
-
-您現在可以在 Azure AD Connect 中，成功將使用者的 UPN 尾碼從一個同盟網域變更為另一個同盟網域。 這項修正表示您應該不會在同步處理迴圈期間遇到導致發生 federateddomainchangeerror 錯誤訊息，也不會收到通知電子郵件，指出「無法在 Azure Active Directory 中更新此物件，因為屬性 [FederatedUser. UserPrincipalName] 無效。 更新本機目錄服務中的值」。
-
-如需詳細資訊，請參閱針對[同步處理期間的錯誤進行疑難排解](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors#federateddomainchangeerror)。
-
----
-
-### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>在 Azure AD 中使用以應用程式保護為基礎的條件式存取原則來提高安全性（公開預覽）
-
-**類型：** 新功能  
-**服務類別：** 條件式存取  
-**產品功能：** 身分識別安全性與保護
-
-以應用程式保護為基礎的條件式存取現在可使用「**需要應用程式保護**原則」來取得。 這項新原則有助於避免下列情況來增加貴組織的安全性：
-
-- 使用者在沒有 Microsoft Intune 授權的情況下，取得應用程式的存取權。
-
-- 使用者無法取得 Microsoft Intune 的應用程式保護原則。
-
-- 使用者在沒有設定 Microsoft Intune 應用程式保護原則的情況下，取得應用程式的存取權。
-
-如需詳細資訊，請參閱[如何要求應用程式保護原則以使用條件式存取進行雲端應用程式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access)。
-
----
-
-### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Microsoft Edge 中 Azure AD 單一登入和條件式存取的新支援（公開預覽）
-
-**類型：** 新功能  
-**服務類別：** 條件式存取  
-**產品功能：** 身分識別安全性與保護
-
-我們已增強 Microsoft Edge 的 Azure AD 支援，包括提供 Azure AD 單一登入和條件式存取的新支援。 如果您先前已使用 Microsoft Intune Managed Browser，您現在可以改用 Microsoft Edge。
-
-如需使用條件式存取來設定及管理裝置和應用程式的詳細資訊，請參閱要求使用條件式存取的[雲端應用程式存取受管理的裝置](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)，並[要求透過條件式存取進行雲端應用程式存取的核准用戶端應用程式](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 如需有關如何使用 Microsoft Edge 與 Microsoft Intune 原則來管理存取權的詳細資訊，請參閱[使用 Microsoft Intune 受原則保護的瀏覽器來管理網際網路存取](https://docs.microsoft.com/intune/app-configuration-managed-browser)。
 
 ---

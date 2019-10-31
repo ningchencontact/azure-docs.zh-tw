@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dfbe7e607395006f9bd7da0be0d5673353e2801f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620921"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162603"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>串流分析地理空間函式簡介
 
@@ -27,7 +27,7 @@ Azure 串流分析中的地理空間函式可即時分析串流地理空間資�
 * 異地隔離
 * 跨基地台進行電話追蹤
 
-串流分析查詢語言有數個內建的地理空間函式：**CreateLineString**、**CreatePoint**、**CreatePolygon**、**ST_DISTANCE**、**ST_OVERLAPS**、**ST_INTERSECTS** 與 **ST_WITHIN**。
+串流分析查詢語言具有七個內建的地理空間函式：**CreateLineString**、**Createpoint**、**CreatePolygon**、**ST_DISTANCE**、**ST_OVERLAPS**、**ST_INTERSECTS** 和 **ST_WITHIN**。
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -50,9 +50,9 @@ FROM input
   
 ### <a name="output-example"></a>輸出範例  
 
- {"type" :"LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
+ {"type" : "LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
 
- {"type" :"LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
+ {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
 若要深入了解，請瀏覽 [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) 參考。
 
@@ -77,9 +77,9 @@ FROM input
   
 ### <a name="output-example"></a>輸出範例
   
- {"type" :"Point", "coordinates" : [-10.2, 3.0]}  
+ {"type" : "Point", "coordinates" : [-10.2, 3.0]}  
   
- {"type" :"Point", "coordinates" : [20.2321, -87.33]}  
+ {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
 若要深入了解，請瀏覽 [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) 參考。
 
@@ -104,14 +104,14 @@ FROM input
   
 ### <a name="output-example"></a>輸出範例  
 
- {"type" :"Polygon", "coordinates" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
+ {"type" : "Polygon", "coordinates" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
  
- {"type" :"Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
+ {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
 若要深入了解，請瀏覽 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 參考。
 
 
-## <a name="stdistance"></a>ST_DISTANCE
+## <a name="st_distance"></a>ST_DISTANCE
 `ST_DISTANCE` 函式會傳回兩點之間的距離 (以公尺為單位)。 
 
 下列查詢使用 `ST_DISTANCE` 以在加油站與車輛的距離小於 10 公里時產生事件。
@@ -124,7 +124,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 
 若要深入了解，請瀏覽 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 參考。
 
-## <a name="stoverlaps"></a>ST_OVERLAPS
+## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 函式會比較兩個多邊形。 如果多邊形重疊，函數會傳回 1。 如果多邊形未重疊，則函數會傳回 0。 
 
 下列查詢使用 `ST_OVERLAPS` 以在大樓位於可能淹水的區域內時產生事件。
@@ -145,7 +145,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 
 若要深入了解，請瀏覽 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 參考。
 
-## <a name="stintersects"></a>ST_INTERSECTS
+## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 函式會比較兩個 LineString。 如果 LineString 相交，函式會傳回 1。 如果 LineString 未相交，則函式會傳回 0。
 
 下列查詢範例使用 `ST_INTERSECTS` 來判斷柏油路是否與泥土路相交。
@@ -160,8 +160,8 @@ FROM input
   
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
+|{"type"： "LineString"，"座標"： [[-10.0，0.0]，[0.0，0.0]，[10.0，0.0]]}|{"type"： "LineString"，"座標"： [[0.0，10.0]，[0.0，0.0]，[0.0，-10.0]]}|  
+|{"type"： "LineString"，"座標"： [[-10.0，0.0]，[0.0，0.0]，[10.0，0.0]]}|{"type"： "LineString"，"座標"： [[-10.0，10.0]，[0.0，10.0]，[10.0，10.0]]}|  
   
 ### <a name="output-example"></a>輸出範例  
 
@@ -171,7 +171,7 @@ FROM input
 
 若要深入了解，請瀏覽 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 參考。
 
-## <a name="stwithin"></a>ST_WITHIN
+## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN` 函式可判斷某個點或多邊形是否在某個多邊形內。 如果該多邊形包含點或多邊形，函式會傳回 1。 如果點或多邊形未在所宣告的多邊形內，則函式會傳回 0。
 
 下列查詢範例使用 `ST_WITHIN` 來判斷交貨目的地所在點是否位於指定的倉儲多邊形內。
@@ -186,8 +186,8 @@ FROM input
   
 |deliveryDestination|warehouse|  
 |-------------------------|---------------|  
-|{“type”:”Point”, “coordinates”: [76.6, 10.1]}|{“type”:”Polygon”, “coordinates”: [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
-|{“type”:”Point”, “coordinates”: [15.0, 15.0]}|{“type”:”Polygon”, “coordinates”: [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
+|{"type"： "Point"，"座標"： [76.6，10.1]}|{"type"： "多邊形"，"座標"： [[0.0，0.0]，[10.0，0.0]，[10.0，10.0]，[0.0，10.0]，[0.0，0.0]]}|  
+|{"type"： "Point"，"座標"： [15.0，15.0]}|{"type"： "多邊形"，"座標"： [[10.0，10.0]，[20.0，10.0]，[20.0，20.0]，[10.0，20.0]，[10.0，10.0]]}|  
   
 ### <a name="output-example"></a>輸出範例  
 
@@ -200,7 +200,7 @@ FROM input
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
-* [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [開始使用 Azure 資料流分析](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

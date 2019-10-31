@@ -4,15 +4,15 @@ description: 了解如何安裝及設定內部部署資料閘道。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f182976ac655692f8c50d4e7560aa21444ce848
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298640"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147119"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
@@ -56,7 +56,7 @@ ms.locfileid: "72298640"
 
 2. 選取 [內部**部署資料閘道**]。
 
-   ![Select](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![選取](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. 選取位置，接受條款，然後按一下 [安裝]。
 
@@ -75,14 +75,14 @@ ms.locfileid: "72298640"
 
 1.  選取 [在這部電腦上註冊新的閘道]。
 
-    ![註冊](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. 輸入您的閘道名稱和復原金鑰。 根據預設，閘道會使用您訂用帳戶的預設區域。 如果您需要選取不同的區域，請選取 [變更區域]。
 
     > [!IMPORTANT]
     > 將您的修復金鑰儲存在安全的地方。 必須要有修復金鑰，才能接管、移轉或還原閘道。 
 
-   ![註冊](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>建立 Azure 閘道資源
@@ -97,15 +97,15 @@ ms.locfileid: "72298640"
 
    * **名稱**：輸入閘道資源的名稱。 
 
-   * 訂用帳戶：選取要與閘道資源關聯的 Azure 訂用帳戶。 
+   * **訂用帳戶**︰選取要與閘道資源關聯的 Azure 訂用帳戶。 
    
      預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。
 
-   * **资源组**：建立資源群組，或選取現有的資源群組。
+   * **資源群組**：建立資源群組，或選取現有的資源群組。
 
    * **位置**：選取您註冊閘道的區域。
 
-   * **安裝名稱**︰如果您的閘道安裝尚未選取，請選取您安裝在電腦上並註冊的閘道。 
+   * **安裝名稱**：如果您的閘道安裝尚未選取，請選取您安裝在電腦上並註冊的閘道。 
 
      完成之後，請按一下 [建立]。
 
@@ -127,7 +127,7 @@ ms.locfileid: "72298640"
 
     ![將伺服器連線至閘道資源成功](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-就這麼簡單。 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
+就這樣， 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
