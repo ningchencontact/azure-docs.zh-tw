@@ -1,5 +1,5 @@
 ---
-title: API 的考量 |Azure Marketplace
+title: API 考慮 |Azure Marketplace
 description: 使用 Marketplace API 時的版本設定、錯誤處理與授權問題。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,17 +7,17 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 6bf27db27daee50f78552344ae1b2b116d48a5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 762c90b62ed2a9347ae88a50a11bfe02f3b23ba4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935567"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162660"
 ---
 # <a name="api-considerations"></a>API 考量
 
 
-<a name="api-versioning"></a>API 版本控制
+<a name="api-versioning"></a>API 版本設定
 --------------
 
 同時可能會提供多個版本的 API。 用戶端必須透過提供 `api-version` 參數做為查詢字串的一部分，以指出希望叫用的版本。
@@ -28,7 +28,7 @@ ms.locfileid: "64935567"
 
 ``` json
     {
-        "error”: { 
+        "error": { 
             "code":"InvalidAPIVersion",
             "message":"Invalid api version. Allowed values are [2016-08-01-preview]"
         }
