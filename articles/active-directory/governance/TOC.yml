@@ -68,7 +68,7 @@
               href: entitlement-management-access-package-request-policy.md
             - name: 變更生命週期設定
               href: entitlement-management-access-package-lifecycle-policy.md
-            - name: 檢視和管理要求
+            - name: 檢視要求
               href: entitlement-management-access-package-requests.md
             - name: 檢視、新增和移除指派
               href: entitlement-management-access-package-assignments.md

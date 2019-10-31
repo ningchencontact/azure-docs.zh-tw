@@ -119,6 +119,8 @@
                   href: ipv6-configure-standard-load-balancer-template-json.md
             - name: 標準內部 Load Balancer
               href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+            - name: 虛擬機器擴展集搭配 IPv6
+              href: ipv6-virtual-machine-scale-set.md
         - name: 網路安全性群組
           items:
             - name: Azure PowerShell

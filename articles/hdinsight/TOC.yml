@@ -137,6 +137,8 @@
               href: ./hdinsight-autoscale-clusters.md
             - name: 使用外部中繼資料存放區
               href: ./hdinsight-use-external-metadata-stores.md
+            - name: 自訂 Ambari DB
+              href: ./hdinsight-custom-ambari-db.md
             - name: 管理 HDInsight 叢集的記錄
               href: ./hdinsight-log-management.md
             - name: 新增儲存體帳戶

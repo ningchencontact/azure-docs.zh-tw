@@ -50,6 +50,8 @@
           href: howto-conditional-access-policy-admin-mfa.md
         - name: 需要 Azure 管理的 MFA
           href: howto-conditional-access-policy-azure-management.md
+        - name: 要求所有使用者使用 MFA
+          href: howto-conditional-access-policy-all-users-mfa.md
         - name: 封鎖舊式驗證
           href: howto-conditional-access-policy-block-legacy.md
         - name: 依據風險的條件式存取

@@ -49,6 +49,8 @@
       href: manage-stale-devices.md
     - name: 啟用企業狀態漫遊
       href: enterprise-state-roaming-enable.md
+    - name: Windows Azure VM 和 Azure AD
+      href: howto-vm-sign-in-azure-ad-windows.md
     - name: 虛擬桌面基礎結構
       href: howto-device-identity-virtual-desktop-infrastructure.md
     - name: 部署 Azure 受控工作站

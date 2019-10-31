@@ -38,6 +38,8 @@
       href: spring-cloud-quotas.md
     - name: 了解 Azure Spring Cloud 中的計量
       href: spring-cloud-concept-metrics.md
+    - name: 規劃災害復原
+      href: disaster-recovery.md
 - name: 使用說明指南
   items:
     - name: 如何啟動、停止和刪除 Azure Spring Cloud 應用程式

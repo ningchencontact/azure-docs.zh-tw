@@ -68,6 +68,8 @@
       href: environment-setup.md
     - name: 遠端工作階段的頻寬建議
       href: bandwidth-recommendations.md
+    - name: 判斷使用者連線延遲
+      href: connection-latency.md
     - name: Windows 虛擬桌面中委派的存取權
       href: delegated-access-virtual-desktop.md
     - name: 主機集區負載平衡方法

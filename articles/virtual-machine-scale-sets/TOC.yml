@@ -125,6 +125,8 @@
     - name: 維護和更新
       href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
+    - name: 協調流程模式
+      href: orchestration-modes.md
     - name: 磁碟儲存體
       items:
         - name: 受控磁碟

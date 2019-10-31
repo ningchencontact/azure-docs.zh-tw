@@ -27,6 +27,8 @@
       href: storage-files-planning.md
     - name: 規劃 Azure 檔案同步部署
       href: storage-sync-files-planning.md
+    - name: 直接存取的網路功能考量
+      href: storage-files-networking-overview.md
     - name: 關於雲端階層處理
       href: storage-sync-cloud-tiering.md
     - name: 關於儲存體帳戶
@@ -101,6 +103,8 @@
           href: storage-sync-files-deployment-guide.md
         - name: 設定檔案同步 Proxy 和防火牆設定
           href: storage-sync-files-firewall-and-proxy.md
+        - name: SQL Server FCI 搭配進階檔案共用
+          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 掛接
       items:
         - name: 搭配使用 Azure 檔案服務與 Windows
@@ -109,6 +113,14 @@
           href: storage-how-to-use-files-linux.md
         - name: 搭配使用 Azure 檔案服務與 macOS
           href: storage-how-to-use-files-mac.md
+    - name: 網路
+      items:
+        - name: 設定站對站 VPN
+          href: storage-files-configure-s2s-vpn.md
+        - name: 在 Windows 上設定點對站 VPN
+          href: storage-files-configure-p2s-vpn-windows.md
+        - name: 在 Linux 上設定點對站 VPN
+          href: storage-files-configure-p2s-vpn-linux.md
     - name: 管理
       items:
         - name: 向 Azure 檔案同步註冊伺服器
@@ -169,6 +181,8 @@
           href: storage-troubleshooting-files-performance.md
         - name: 針對 Azure 檔案同步進行移難排解
           href: storage-sync-files-troubleshoot.md
+        - name: 針對 刪除 Azure 檔案儲存體進行疑難排解
+          href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: 參考
   items:
     - name: Azure PowerShell
