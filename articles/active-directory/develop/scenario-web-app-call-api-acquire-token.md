@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f30194592989b74aca96a5a483e9128cd3a86eb5
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a259fbcf3fde84edccafbcd2fd6594ddb623edfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274481"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175339"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>呼叫 web Api 的 web 應用程式-取得應用程式的權杖
 
 現在您已建立用戶端應用程式物件，您將使用它來取得權杖以呼叫 Web API。 在 ASP.NET 或 ASP.NET Core 中，呼叫 Web API 就會在控制器中完成。 其相關資訊如下：
 
-- 使用權杖快取取得 Web API 的權杖。 若要取得此權杖，您必須呼叫 `AcquireTokenSilent`。
+- 使用權杖快取取得 Web API 的權杖。 若要取得此權杖，請呼叫 `AcquireTokenSilent`。
 - 使用存取權杖呼叫受保護的 API。
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-控制器方法會受到 @no__t 0 屬性的保護，強制使用者進行驗證以使用 Web 應用程式。 以下是呼叫 Microsoft Graph 的程式碼。
+控制器方法會受到 `[Authorize]` 屬性的保護，強制使用者進行驗證以使用 Web 應用程式。 以下是呼叫 Microsoft Graph 的程式碼。
 
 ```CSharp
 [Authorize]
@@ -81,7 +81,7 @@ public async Task<IActionResult> Profile()
 
 ASP.NET 中的專案很類似：
 
-- 受 [授權] 屬性保護的控制器動作會解壓縮該控制器的 @no__t 0 成員的租使用者識別碼和使用者識別碼。 （ASP.NET 使用 `HttpContext.User`。）
+- 受 [授權] 屬性保護的控制器動作會解壓縮控制器之 `ClaimsPrincipal` 成員的租使用者識別碼和使用者識別碼。 （ASP.NET 會使用 `HttpContext.User`）。
 - 它會建立一個 MSAL.NET `IConfidentialClientApplication`。
 - 最後，它會呼叫機密用戶端應用程式的 `AcquireTokenSilent` 方法。
 
@@ -91,43 +91,62 @@ ASP.NET 中的專案很類似：
 
 在 JAVA 範例中，呼叫 API 的程式碼位於 getUsersFromGraph 方法[AuthPageController. JAVA # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62)。
 
-它會嘗試呼叫 `getAuthResultBySilentFlow`。 如果使用者需要同意更多的範圍，程式碼會處理 `MsalInteractionRequiredException`，以挑戰使用者。
+它會嘗試呼叫 `getAuthResultBySilentFlow`。 如果使用者需要同意更多的範圍，程式碼會處理 `MsalInteractionRequiredException` 以挑戰使用者。
 
 ```java
-@RequestMapping("/msal4jsample/graph/users")
-    public ModelAndView getUsersFromGraph(HttpServletRequest httpRequest, HttpServletResponse response)
-            throws Throwable {
+@RequestMapping("/msal4jsample/graph/me")
+public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServletResponse response)
+        throws Throwable {
 
-        IAuthenticationResult result;
-        ModelAndView mav;
-        try {
-            result = authHelper.getAuthResultBySilentFlow(httpRequest, response);
-        } catch (ExecutionException e) {
-            if (e.getCause() instanceof MsalInteractionRequiredException) {
+    IAuthenticationResult result;
+    ModelAndView mav;
+    try {
+        result = authHelper.getAuthResultBySilentFlow(httpRequest, response);
+    } catch (ExecutionException e) {
+        if (e.getCause() instanceof MsalInteractionRequiredException) {
 
-                // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
-                // so user can consent to new scopes
-                String state = UUID.randomUUID().toString();
-                String nonce = UUID.randomUUID().toString();
+            // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
+            // so user can consent to new scopes
+            String state = UUID.randomUUID().toString();
+            String nonce = UUID.randomUUID().toString();
 
-                SessionManagementHelper.storeStateAndNonceInSession(httpRequest.getSession(), state, nonce);
+            SessionManagementHelper.storeStateAndNonceInSession(httpRequest.getSession(), state, nonce);
 
-                String authorizationCodeUrl = authHelper.getAuthorizationCodeUrl(
-                        httpRequest.getParameter("claims"),
-                        "User.ReadBasic.all",
-                        authHelper.getRedirectUriGraphUsers(),
-                        state,
-                        nonce);
+            String authorizationCodeUrl = authHelper.getAuthorizationCodeUrl(
+                    httpRequest.getParameter("claims"),
+                    "User.Read",
+                    authHelper.getRedirectUriGraph(),
+                    state,
+                    nonce);
 
-                return new ModelAndView("redirect:" + authorizationCodeUrl);
-            } else {
+            return new ModelAndView("redirect:" + authorizationCodeUrl);
+        } else {
 
-                mav = new ModelAndView("error");
-                mav.addObject("error", e);
-                return mav;
-            }
+            mav = new ModelAndView("error");
+            mav.addObject("error", e);
+            return mav;
         }
-    // Code omitted here.
+    }
+
+    if (result == null) {
+        mav = new ModelAndView("error");
+        mav.addObject("error", new Exception("AuthenticationResult not found in session."));
+    } else {
+        mav = new ModelAndView("auth_page");
+        setAccountInfo(mav, httpRequest);
+
+        try {
+            mav.addObject("userInfo", getUserInfoFromGraph(result.accessToken()));
+
+            return mav;
+        } catch (Exception e) {
+            mav = new ModelAndView("error");
+            mav.addObject("error", e);
+        }
+    }
+    return mav;
+}
+// Code omitted here.
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)

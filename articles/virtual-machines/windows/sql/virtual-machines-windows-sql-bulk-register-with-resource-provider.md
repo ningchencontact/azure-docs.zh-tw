@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3a8cfeb237b0e5e662f8fbaef4347f4346db1787
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: MT
+ms.openlocfilehash: b9d4b99447e7c814d737def54dce03c4acc0e5ca
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045127"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172972"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者大量註冊 SQL 虛擬機器
 
@@ -225,7 +225,12 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 - 有內建的重試邏輯可克服透明錯誤。 如果虛擬機器已成功註冊，則它是快速的操作。 不過，如果註冊失敗，則會重試每部虛擬機器。  因此，您應該允許很長的時間完成註冊程式，不過實際時間需求取決於錯誤的類型和數目。 
 
 ## <a name="full-script"></a>完整指令碼
+
 如需 GitHub 上的完整腳本，請參閱[使用 Az PowerShell 大量註冊 SQL vm](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1)。 
+
+
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
+
 
 
 ## <a name="next-steps"></a>後續步驟

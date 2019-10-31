@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0926e6800dbcd81d2e542e27afe3afb1240cff22
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268423"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175428"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的桌面應用程式-程式碼設定
 
@@ -28,13 +28,22 @@ ms.locfileid: "71268423"
 
 ## <a name="msal-libraries"></a>MSAL 程式庫
 
-目前在多個平臺上支援桌面應用程式的 MSAL 程式庫是 MSAL.NET。
+支援桌面應用程式的 Microsoft 程式庫包括：
 
-適用于 iOS 和 macOS 的 MSAL 僅支援在 macOS 上執行的桌面應用程式。 
+  MSAL 程式庫 | 描述
+  ------------ | ----------
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支援在多個平臺（Linux、Windows 和 MacOS）中建立桌面應用程式
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 支援在多個平臺中建立桌面應用程式。 進行中的開發-現已公開預覽
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 支援在多個平臺中建立桌面應用程式。 進行中的開發-現已公開預覽
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | 僅支援在 macOS 上執行的桌面應用程式
 
-## <a name="public-client-application-with-msalnet"></a>具有 MSAL.NET 的公用用戶端應用程式
+## <a name="public-client-application"></a>公用用戶端應用程式
 
-就程式碼的觀點而言，桌面應用程式是公用用戶端應用程式，因此您將建立和操作 MSAL.NET `IPublicClientApplication`。 無論您使用的是互動式驗證，都同樣會有點不同。
+就程式碼的觀點而言，桌面應用程式是公用用戶端應用程式。 根據您是否使用互動式驗證，設定會有點不同。
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
+您將需要建立和操作 MSAL.NET `IPublicClientApplication`。
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -47,7 +56,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-如果您想要使用互動式驗證或裝置程式碼流程（如上所示），您會想`.WithRedirectUri`要使用修飾詞：
+如果您想要使用互動式驗證或裝置程式碼流程（如上所示），您會想要使用 `.WithRedirectUri` 修飾詞：
 
 ```CSharp
 IPublicClientApplication app;
@@ -98,16 +107,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>更多資訊
+### <a name="learn-more"></a>了解更多
 
 若要深入瞭解如何設定 MSAL.NET 桌面應用程式：
 
-- 如需所有可用`PublicClientApplicationBuilder`的修飾詞清單，請參閱參考檔[PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
-- 如需中`PublicClientApplicationOptions`公開之所有選項的說明，請參閱參考檔中的[PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)。
+- 如需 `PublicClientApplicationBuilder`上可用的所有修飾詞清單，請參閱參考檔[PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- 如需 `PublicClientApplicationOptions` 中公開之所有選項的說明，請參閱參考檔中的[PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)。
 
-## <a name="complete-example-with-configuration-options"></a>含設定選項的完整範例
+### <a name="complete-example-with-configuration-options"></a>含設定選項的完整範例
 
-假設有一個具有下列`appsettings.json`設定檔的 .net Core 主控台應用程式：
+想像一下具有下列 `appsettings.json` 設定檔的 .NET Core 主控台應用程式：
 
 ```JSon
 {
@@ -175,9 +184,32 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-在呼叫`.Build()`方法之前，您可以使用先前所見的方法呼叫來`.WithXXX`覆寫設定。
+在呼叫 `.Build()` 方法之前，您可以使用先前所見 `.WithXXX` 方法的呼叫來覆寫設定。
 
-## <a name="public-client-application-with-msal-for-ios-and-macos"></a>使用 MSAL for iOS 和 macOS 的公用用戶端應用程式
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+以下是 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
+
+```Java
+PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
+        .authority(TestData.AUTHORITY_COMMON)
+        .build();
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+app = msal.PublicClientApplication(
+    config["client_id"], authority=config["authority"],
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
 下列程式碼會具現化公用用戶端應用程式、Microsoft Azure 公用雲端中的登入使用者、工作和學校帳戶，或個人 Microsoft 帳戶。
 
@@ -187,12 +219,12 @@ Objective-C：
 
 ```objc
 NSError *msalError = nil;
-    
+
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 
-快速
+Swift：
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
 if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
@@ -210,25 +242,26 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
 ```
 
-快速
+Swift：
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
+---
 
 ## <a name="next-steps"></a>後續步驟
 

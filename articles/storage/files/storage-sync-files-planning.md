@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: febd97d1c0b296ab281f9ce0ac8dff7de1fd75d6
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
-ms.translationtype: HT
+ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063332"
+ms.locfileid: "73177853"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -277,6 +277,8 @@ Azure 檔案同步僅於下列區域提供：
 | US Gov 亞利桑那州 | 亞利桑那州 |
 | US Gov 德克薩斯州 | 德克薩斯州 |
 | US Gov 維吉尼亞州 | 維吉尼亞州 |
+| 阿拉伯聯合大公國北部 | 杜拜 |
+| 阿拉伯聯合大公國中部 * | 阿布達比 |
 | 西歐 | 荷蘭 |
 | 美國中西部 | 懷俄明州 |
 | 美國西部 | 加利福尼亞州 |

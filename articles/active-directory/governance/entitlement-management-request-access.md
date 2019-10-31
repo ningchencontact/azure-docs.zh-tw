@@ -1,6 +1,6 @@
 ---
-title: 要求存取 Azure AD 權利管理（預覽）中存取套件-Azure Active Directory
-description: 瞭解如何在 Azure Active Directory 權利管理（預覽）中使用我的存取權入口網站來要求存取套件的存取權。
+title: Azure AD 權利管理-Azure Active Directory 中的存取權套件要求存取權
+description: 瞭解如何在 Azure Active Directory 的權利管理中，使用我的存取權入口網站來要求存取套件的存取權。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990779"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173695"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理（預覽）中的存取權套件要求存取權
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>要求存取 Azure AD 權利管理中的存取套件
 
 透過 Azure AD 的權利管理，存取套件可讓您一次性設定資源和原則，以自動管理存取套件生命週期的存取權。 
 

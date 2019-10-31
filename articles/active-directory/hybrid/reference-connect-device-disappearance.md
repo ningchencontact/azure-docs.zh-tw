@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0ef3dd2f39802d07c4ae04ad1eca23e40db502a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345497"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176035"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>瞭解 Azure AD Connect 1.4. x 和裝置消失
 在 1.4. x 版的 Azure AD Connect 中，有些客戶可能會看到部分或所有的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置身分識別。 這種變更不會刪除所有已正確向 Azure AD 註冊混合式 Azure AD Join 的 Windows 裝置。
@@ -33,7 +33,7 @@ ms.locfileid: "71345497"
 ## <a name="down-level-windows-devices"></a>舊版 Windows 裝置
 Azure AD Connect 應該永遠不會同步[下層的 Windows 裝置](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)。 Azure AD 中的任何裝置先前未正確同步處理，現在會從 Azure AD 中刪除。 如果 Azure AD Connect 嘗試刪除舊版[windows 裝置](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)，則裝置不是由[Microsoft Workplace Join 為非 Windows 10 電腦的 MSI](https://www.microsoft.com/download/details.aspx?id=53554)所建立，且無法由任何其他 Azure AD 功能使用。
 
-有些客戶可能需要[重新流覽如何：規劃您的混合式 Azure Active Directory](../devices/hybrid-azuread-join-plan.md)聯結執行，讓其 Windows 裝置正確註冊，並確保這類裝置可以完全參與以裝置為基礎的條件式存取。 
+某些客戶可能需要重新流覽[如何：規劃您的混合式 Azure Active Directory 聯結執行](../devices/hybrid-azuread-join-plan.md)，讓其 Windows 裝置正確註冊，並確保這類裝置可以完全參與以裝置為基礎的條件式存取。 
 
 ## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>如何使用此更新來驗證刪除的裝置？
 

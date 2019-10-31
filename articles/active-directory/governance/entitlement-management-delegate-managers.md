@@ -1,5 +1,5 @@
 ---
-title: 委派存取治理以存取 Azure AD 權利管理（預覽）中的套件管理員-Azure Active Directory
+title: 委派存取治理以存取 Azure AD 權利管理中的套件管理員-Azure Active Directory
 description: 瞭解如何將存取管理委派給 IT 系統管理員，以存取封裝管理員和專案管理人員，讓他們可以自行管理存取權。
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a2b6bfdb4904e11ffba3a9fe1097c7f5cfe9d6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170733"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174365"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management-preview"></a>委派存取治理以存取 Azure AD 權利管理（預覽）中的套件管理員
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>委派存取治理以存取 Azure AD 權利管理中的套件管理員
 
 若要委派目錄中的存取封裝建立和管理，您可以將使用者新增至 [存取套件管理員] 角色。 存取套件管理員必須熟悉使用者對目錄中的資源要求存取權的需求。 例如，如果專案使用目錄，則專案負責人可能是該目錄的存取套件管理員。  存取套件管理員無法將資源新增至目錄，但是可以管理目錄中的存取封裝和原則。  委派給存取套件管理員時，該人員可以負責：
 
@@ -45,7 +40,7 @@ ms.locfileid: "72170733"
 
 請遵循下列步驟，將使用者指派給存取套件管理員角色：
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
+**先決條件角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -63,7 +58,7 @@ ms.locfileid: "72170733"
 
 請遵循下列步驟，從存取套件管理員角色中移除使用者：
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
+**先決條件角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 

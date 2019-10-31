@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268328"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175544"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的桌面應用程式-移至生產環境
 
@@ -37,14 +37,14 @@ ms.locfileid: "71268328"
 > [!NOTE]
 > 針對 Microsoft 身分識別平臺（但不適用於 Azure Active Directory （Azure AD） B2C，取得數項資源的同意。 Azure AD B2C 僅支援管理員同意，而非使用者同意。
 
-Microsoft 身分識別平臺（v2.0）端點不允許您一次取得數個資源的權杖。 因此， `scopes`參數只能包含單一資源的範圍。 您可以使用`extraScopesToConsent`參數，確保使用者已預先同意至數個資源。
+Microsoft 身分識別平臺（v2.0）端點不允許您一次取得數個資源的權杖。 因此，`scopes` 參數只能包含單一資源的範圍。 您可以使用 `extraScopesToConsent` 參數，確保使用者已預先同意至數個資源。
 
 比方說，如果您有兩個資源，每個都有兩個範圍：
 
-- `https://mytenant.onmicrosoft.com/customerapi`-具有2個`customer.read`範圍和`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-具有2個`vendor.read`範圍和`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`-具有2個範圍 `customer.read` 和 `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`-具有2個範圍 `vendor.read` 和 `vendor.write`
 
-您應該使用`.WithAdditionalPromptToConsent` `extraScopesToConsent`具有參數的修飾詞。
+您應該使用具有 `extraScopesToConsent` 參數的 `.WithAdditionalPromptToConsent` 修飾詞。
 
 例如：
 
@@ -76,24 +76,24 @@ Objective-C：
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
                                 @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
-    
+
 NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                               @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-    
+
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
 interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
 ```
 
-快速
+Swift：
 
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
                             "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
-        
+
 let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                           "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-        
+
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
 interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
@@ -101,7 +101,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 此呼叫會取得第一個 Web API 的存取權杖。
 
-當您需要呼叫第二個 Web API 時，您可以`AcquireTokenSilent`呼叫 API：
+當您需要呼叫第二個 Web API 時，您可以呼叫 `AcquireTokenSilent` API：
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 權利管理（預覽）中的委派和角色-Azure Active Directory
+title: Azure AD 權利管理中的委派和角色-Azure Active Directory
 description: 瞭解如何將 IT 系統管理員的存取管理委派給部門經理和專案經理，讓他們可以自行管理存取權。
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9eb97b88be3ed68398cf7844b03e6a1fc9cd1b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934443"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174268"
 ---
-# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理（預覽）中的委派和角色
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 權利管理中的委派和角色
 
 根據預設，全域系統管理員和使用者系統管理員可以建立及管理 Azure AD 權利管理的所有層面。 不過，這些角色中的使用者可能不知道需要存取套件的所有情況。 這通常是個別部門、小組或專案中的使用者，他們知道誰在共同作業、使用哪些資源，以及有多長的時間。 您可以授與使用者執行其工作所需的最低許可權，並避免建立衝突或不適當的存取權限，而不是將不受限制的許可權授予非系統管理員。
 
@@ -113,8 +108,9 @@ ms.locfileid: "72934443"
 | [直接將使用者指派給存取套件](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [查看誰具有存取套件的指派](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [查看存取套件的要求](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [查看要求的傳遞錯誤](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [解除擱置中的要求](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [查看要求的傳遞錯誤](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [重新處理要求](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [解除擱置中的要求](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [隱藏存取套件](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [刪除存取套件](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 

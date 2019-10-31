@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b94d376ee107f9acd45dff5b96fc43722f2fe208
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 00de95f3b3e6eddd1f45be830202ba3ec8772bfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965467"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176160"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>使用 Azure 儲存體的私用端點（預覽）
 
@@ -48,7 +48,7 @@ VNet 中的應用程式可以使用相同的連接字串和授權機制，順暢
 > [!TIP]
 > 為儲存體服務的次要實例建立個別的私用端點，以在遠端協助 GRS 帳戶上獲得更佳的讀取效能。
 
-針對[讀取權限異地多餘儲存體帳戶](storage-redundancy-grs.md#read-access-geo-redundant-storage)的讀取可用性，您需要服務之主要和次要實例的個別私人端點。 您不需要為次要實例建立私人端點來進行容錯移轉。 私人端點會在容錯移轉之後自動連接到新的主要實例。
+針對[讀取權限異地多餘儲存體帳戶](storage-redundancy-grs.md#read-access-geo-redundant-storage)的讀取可用性，您需要服務之主要和次要實例的個別私人端點。 您不需要為次要實例建立私人端點來進行**容錯移轉**。 私人端點會在容錯移轉之後自動連接到新的主要實例。 git 
 
 #### <a name="resources"></a>資源
 
@@ -91,14 +91,14 @@ StorageAccountA 的 DNS 資源記錄（當由裝載私用端點的 VNet 中的�
 
 針對儲存體服務的私人端點，建議的 DNS 區功能變數名稱稱為：
 
-| 儲存體服務       | 區功能變數名稱稱                          |
-| :-------------------- | :--------------------------------- |
-| Blob 服務          | privatelink.blob.core.windows.net  |
-| Data Lake 檔案系統 | privatelink.dfe.core.windows.net   |
-| 檔案服務          | privatelink.file.core.windows.net  |
-| 佇列服務         | privatelink.queue.core.windows.net |
-| 表格服務         | privatelink.table.core.windows.net |
-| 靜態網站       | privatelink.web.core.windows.net   |
+| 儲存體服務        | 區功能變數名稱稱                            |
+| :--------------------- | :----------------------------------- |
+| Blob 服務           | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
+| 檔案服務           | `privatelink.file.core.windows.net`  |
+| 佇列服務          | `privatelink.queue.core.windows.net` |
+| 表格服務          | `privatelink.table.core.windows.net` |
+| 靜態網站        | `privatelink.web.core.windows.net`   |
 
 ## <a name="pricing"></a>價格
 
@@ -119,6 +119,6 @@ Vnet 中具有現有私用端點的用戶端，在存取其他具有私人端點
 
 此條件約束是當帳戶 A2 建立私人端點時，所做的 DNS 變更結果。
 
-### <a name="network-security-group-rules-on-subnets-with-private-endpoints"></a>具有私人端點的子網上的網路安全性群組規則
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>具有私人端點之子網的網路安全性群組規則
 
-目前無法針對具有私人端點的子網設定[網路安全性群組](../../virtual-network/security-overview.md)（NSG）規則。 此問題的有限因應措施是在來源子網上為私人端點執行存取規則，不過這種方法可能需要較高的管理負荷。
+目前，您無法為具有私人端點的子網設定[網路安全性群組](../../virtual-network/security-overview.md)（NSG）規則。 此問題的有限因應措施是在來源子網上為私人端點執行存取規則，不過這種方法可能需要較高的管理負荷。

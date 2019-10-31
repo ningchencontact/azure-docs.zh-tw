@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中新增已連線的組織-Azure Active Directory
+title: 在 Azure AD 權利管理中新增已連線的組織-Azure Active Directory
 description: 瞭解如何允許組織外部人員要求存取套件，讓您可以在專案上共同作業。
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d45db1f62b370a2692ed932572e16c247b8903
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952481"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174149"
 ---
-# <a name="add-a-connected-organization-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中新增已連線的組織
+# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中新增已連線的組織
 
 Azure AD 權利管理可讓您與組織外部的人員共同作業。 如果您經常與外部 Azure AD 目錄或網域中的使用者共同作業，您可以將他們新增為已連線的組織。 本文說明如何新增已連線的組織，讓您的組織外部使用者可以要求您的目錄中的資源。
 
@@ -39,11 +39,9 @@ Azure AD 權利管理可讓您與組織外部的人員共同作業。 如果您�
 
 Azure AD 目錄或網域中的使用者將如何驗證，取決於驗證類型。 已連線組織的驗證類型如下：
 
-| 驗證類型 | 狀態 |
-| --- | --- |
-| Azure AD | 支援的 |
-| [直接同盟](../b2b/direct-federation.md) | 預覽 |
-| [一次性密碼](../b2b/one-time-passcode.md)（網域） | 預覽 |
+- Azure AD
+- [直接同盟](../b2b/direct-federation.md)
+- [一次性密碼](../b2b/one-time-passcode.md)（網域）
 
 ## <a name="add-a-connected-organization"></a>新增已連線的組織
 

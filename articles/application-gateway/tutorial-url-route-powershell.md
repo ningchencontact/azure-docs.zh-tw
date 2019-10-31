@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a6a8c68edd658e5c207b88b48ee09c6472441e78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
-ms.translationtype: MT
+ms.openlocfilehash: f8a9d9e8a3d2b69d846bc4f4bc1750e6d23aaab4
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688171"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176584"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 根據 URL 路由網路流量
 
-您可以使用 Azure PowerShell，根據用來存取您應用程式的 URL，將網路流量設定為路由到特定可調整的伺服器集區。 在本文中, 您會使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)建立具有三個後端集區的[Azure 應用程式閘道](application-gateway-introduction.md)。 每個後端集區都有特定用途，例如處理常見資料、影像和影片。  將流量路由到個別集區，可確保您的客戶在需要時取得資訊。
+您可以使用 Azure PowerShell，根據用來存取您應用程式的 URL，將網路流量設定為路由到特定可調整的伺服器集區。 在本文中，您會使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)建立具有三個後端集區的[Azure 應用程式閘道](application-gateway-introduction.md)。 每個後端集區都有特定用途，例如處理常見資料、影像和影片。  將流量路由到個別集區，可確保您的客戶在需要時取得資訊。
 
 若要啟用流量路由，請建立指派給接聽程式的[路由規則](application-gateway-url-route-overview.md)，接聽程式會接聽特定連接埠，以確保網路流量抵達集區中的適當伺服器。
 
@@ -30,21 +30,21 @@ ms.locfileid: "68688171"
 
 ![URL 路由範例](./media/tutorial-url-route-powershell/scenario.png)
 
-如果您想要的話, 可以使用[Azure CLI](tutorial-url-route-cli.md)或[Azure 入口網站](create-url-route-portal.md)來完成此程式。
+如果您想要的話，可以使用[Azure CLI](tutorial-url-route-cli.md)或[Azure 入口網站](create-url-route-portal.md)來完成此程式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 PowerShell, 本文會要求 Azure PowerShell 模組1.0.0 版或更新版本。 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本文會要求 Azure PowerShell 模組1.0.0 版或更新版本。 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
-由於建立資源所需的時間, 最多可能需要90分鐘才能完成此程式。
+由於建立資源所需的時間，最多可能需要90分鐘才能完成此程式。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-建立資源群組, 其中包含您應用程式的所有資源。 
+建立資源群組，其中包含您應用程式的所有資源。 
 
 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 來建立 Azure 資源群組。  
 
@@ -54,7 +54,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源
 
-無論您是使用現有虛擬網路，或是新建一個，您都必須確定其中包含只會用於應用程式閘道的子網路。 在本文中, 您會建立應用程式閘道的子網和擴展集的子網。 您會建立公用 IP 位址，以啟用應用程式閘道中的資源存取權。
+無論您是使用現有虛擬網路，或是新建一個，您都必須確定其中包含只會用於應用程式閘道的子網路。 在本文中，您會建立應用程式閘道的子網和擴展集的子網。 您會建立公用 IP 位址，以啟用應用程式閘道中的資源存取權。
 
 使用 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 來建立 *myAGSubnet* 和 *myBackendSubnet* 子網路設定。 使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 搭配子網路設定來建立名為 *myVNet* 的虛擬網路。 最後，使用 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 來建立名為 *myAGPublicIPAddress* 的公用 IP 位址。 這些資源可用來為應用程式閘道及其相關聯的資源提供網路連線。
 
@@ -83,15 +83,15 @@ $pip = New-AzPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-在本節中，您會建立支援應用程式閘道的資源，並在最後建立應用程式閘道。 您所建立的資源包括:
+在本節中，您會建立支援應用程式閘道的資源，並在最後建立應用程式閘道。 您所建立的資源包括：
 
-- *IP 設定和前端埠*-將您先前建立的子網與應用程式閘道產生關聯, 並指派用來存取它的通訊埠。
+- *IP 設定和前端埠*-將您先前建立的子網與應用程式閘道產生關聯，並指派用來存取它的通訊埠。
 - 預設集區 - 所有應用程式閘道都必須具有至少一個伺服器後端集區。
 - 預設接聽程式和規則 - 預設接聽程式會接聽所指派連接埠上的流量，而預設規則會將流量傳送到預設集區。
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>建立 IP 設定與前端連接埠
 
-使用[new-azapplicationgatewayipconfiguration 產生關聯](/powershell/module/az.network/new-azapplicationgatewayipconfiguration), 將您先前建立的*myAGSubnet*與應用程式閘道建立關聯。 使用 [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)，將 *myAGPublicIPAddress* 指派給應用程式閘道。
+使用[new-azapplicationgatewayipconfiguration 產生關聯](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)，將您先前建立的*myAGSubnet*與應用程式閘道建立關聯。 使用 [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)，將 *myAGPublicIPAddress* 指派給應用程式閘道。
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -119,13 +119,13 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-default-pool-and-settings"></a>建立預設集區和設定
 
-使用 [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) 為應用程式閘道建立名為 *appGatewayBackendPool* 的預設後端集區。 使用 [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) 來設定後端集區的設定。
+使用 [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) 為應用程式閘道建立名為 *appGatewayBackendPool* 的預設後端集區。 使用[AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)來設定後端集區的設定。
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool
 
-$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -135,11 +135,11 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>建立預設接聽程式和規則
 
-需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本文中, 您會建立兩個接聽程式。 您所建立的第一個基本接聽程式會接聽根 URL 的流量。 您所建立的第二個接聽程式會接聽特定 URL 的流量。
+需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本文中，您會建立兩個接聽程式。 您所建立的第一個基本接聽程式會接聽根 URL 的流量。 您所建立的第二個接聽程式會接聽特定 URL 的流量。
 
 使用 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 搭配您先前建立的前端設定和前端連接埠，來建立名為 *myDefaultListener* 的預設接聽程式。 
 
-接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 來建立名為 *rule1* 的基本規則。
+接聽程式需要規則才能知道要將哪個後端集區用於連入流量。 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 來建立名為 *rule1* 的基本規則。
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -182,7 +182,7 @@ $appgw = New-AzApplicationGateway `
 
 建立應用程式閘道最多可能需要30分鐘的時間。 請等候部署成功完成後，再繼續進行至下一節。 
 
-此時, 您有一個應用程式閘道會接聽埠80上的流量, 並將該流量傳送到預設的伺服器集區。
+此時，您有一個應用程式閘道會接聽埠80上的流量，並將該流量傳送到預設的伺服器集區。
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>新增映像和視訊後端集區及連接埠
 
@@ -246,7 +246,7 @@ $appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
 
-$poolSettings = Get-AzApplicationGatewayBackendHttpSettings `
+$poolSettings = Get-AzApplicationGatewayBackendHttpSetting `
   -ApplicationGateway $appgw `
   -Name myPoolSettings
 
@@ -422,11 +422,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在應用程式閘道中測試基底 URL](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-將 URL 變更為 HTTP://&lt;ip 位址&gt;: 8080/images/test.htm, 取代 ip 位址的&lt;ip&gt;位址, 您應該會看到如下列範例所示的內容:
+將 URL 變更為 HTTP://&lt;ip 位址&gt;：8080/images/test.htm，取代 &lt;ip 位址&gt;的 IP 位址，您應該會看到如下列範例所示的內容：
 
-![在應用程式閘道中測試影像 URL](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
+![在應用程式閘道中測試映像 URL](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-將 URL 變更為 HTTP://&lt;ip 位址&gt;: 8080/video/test.htm, 取代 ip 位址的&lt;ip&gt;位址, 您應該會看到如下列範例所示的內容:
+將 URL 變更為 HTTP://&lt;ip 位址&gt;：8080/video/test.htm，取代 &lt;ip 位址&gt;的 IP 位址，您應該會看到如下列範例所示的內容：
 
 ![在應用程式閘道中測試影片 URL](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 

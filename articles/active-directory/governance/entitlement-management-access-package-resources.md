@@ -1,6 +1,6 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中變更存取套件的資源角色-Azure Active Directory
-description: 瞭解如何在 Azure Active Directory 權利管理（預覽）中變更現有存取套件的資源角色。
+title: 變更 Azure AD 權利管理中存取套件的資源角色-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 權利管理中變更現有存取套件的資源角色。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429801"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174654"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中變更存取套件的資源角色
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中變更存取套件的資源角色
 
 身為存取套件管理員，您可以隨時變更存取套件中的資源，而不必擔心布建使用者對新資源的存取權，或從先前的資源中移除其存取權。 本文說明如何變更現有存取套件的資源角色。
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 9a21242cbb16466ed4c12746ff64bd7352925fed
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592805"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176330"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -433,7 +433,7 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-這項效果適用于原則定義*模式*`Microsoft.ContainerService.Data`。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)定義的許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
+這項效果適用于原則定義*模式*`Microsoft.ContainerService.Data`。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)定義的許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
 
 > [!NOTE]
 > [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。

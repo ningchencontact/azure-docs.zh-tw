@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 72549a2df3490344987567d1e62c65f76f151097
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7b9cbd4e84f60b42e8eb6cb250a9b25f398fd4a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693256"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176461"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>應用程式閘道的後端健康情況和診斷記錄
 
@@ -216,7 +216,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
 |sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
 |sslCipher| 用於 SSL 通訊的加密套件（如果已啟用 SSL）。|
-|sslProtocol| 使用的 SSL 通訊協定（如果已啟用 SSL）。|
+|sslProtocol| 使用的 SSL/TLS 通訊協定（如果已啟用 SSL）。|
 |serverRouted| 應用程式閘道將要求路由至的後端伺服器。|
 |serverStatus| 後端伺服器的 HTTP 狀態碼。|
 |serverResponseLatency| 後端伺服器回應的延遲。|

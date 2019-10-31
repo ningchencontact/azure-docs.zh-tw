@@ -11,17 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 10/29/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5e498dcb39f62fc870bc7efa989b91caeac0dedc
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819711"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175916"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure Active Directory 報表 Azure 監視器活頁簿
+
+> [!IMPORTANT]
+> 為了優化此活頁簿中的基礎查詢，請按一下 [編輯]，按一下 [設定] 圖示，然後選取您要執行這些查詢的工作區。 活頁簿預設會選取您要路由傳送 Azure AD 記錄的所有工作區。 
 
 您要：
 
@@ -31,7 +34,17 @@ ms.locfileid: "72819711"
 
 - 知道誰使用舊版驗證來登入您的環境？ （藉由[封鎖舊版驗證](../conditional-access/block-legacy-authentication.md)，您可以改善租使用者的保護）。
 
-為了協助您解決這些問題，Active Directory 提供用於監視的活頁簿。 [Azure 監視器活頁簿](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)將文字、分析查詢、計量和參數結合成豐富的互動式報表。 
+- 您需要瞭解條件式存取原則在您的租使用者中的影響嗎？
+
+- 您想要能夠檢查：登入記錄查詢、活頁簿報告有多少使用者已授與或拒絕存取，以及有多少使用者在存取資源時略過條件式存取原則？
+
+- 有興趣開發更深入的瞭解：每個條件的活頁簿詳細資料，以便能夠根據條件內容相關原則的影響，包括裝置平臺、裝置狀態、用戶端應用程式、登入風險、位置和應用程式？
+
+- 針對登入記錄查詢取得更深入的見解，活頁簿會報告有多少使用者被授與或拒絕存取，以及在存取資源時，有多少使用者略過條件式存取原則。
+
+- 為了協助您解決這些問題，Active Directory 提供用於監視的活頁簿。 [Azure 監視器活頁簿](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)將文字、分析查詢、計量和參數結合成豐富的互動式報表。
+
+
 
 本文：
 
@@ -57,7 +70,7 @@ ms.locfileid: "72819711"
     - 全域管理員
 
 ## <a name="roles"></a>角色
-您必須是下列其中一種角色，而且可以[存取基礎 Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions)工作區來管理活頁簿：
+您必須是下列其中一種角色，而且可以[存取基礎 Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions)工作區來管理活頁簿：
 -   全域管理員
 -   安全性系統管理員
 -   安全性讀取者
@@ -170,7 +183,43 @@ ms.locfileid: "72819711"
 ![條件式存取狀態](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
+## <a name="conditional-access-insights"></a>條件式存取深入解析
 
+### <a name="overview"></a>概觀
+
+活頁簿包含登入記錄查詢，可協助 IT 系統管理員監視其租使用者中條件式存取原則的影響。 您能夠報告已授與或拒絕存取的使用者人數。 此活頁簿包含在登入時，有多少使用者會根據這些使用者的屬性略過條件式存取原則的見解。 其中包含每個條件的詳細資料，以便每個條件都可以內容相關原則的影響，包括裝置平臺、裝置狀態、用戶端應用程式、登入風險、位置和應用程式。
+
+### <a name="instructions"></a>範例的指示 
+若要存取條件式存取見解的活頁簿，請在 [條件式存取] 區段中選取 [**條件式存取深入**解析] 活頁簿。 此活頁簿會顯示租使用者中每個條件式存取原則的預期影響。 從下拉式清單中選取一或多個條件式存取原則，並套用下列篩選來縮小活頁簿的範圍： 
+
+- **時間範圍**
+
+- **使用者**
+
+- **應用程式**
+
+- **資料檢視**
+
+![條件式存取狀態](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+
+
+[影響摘要] 會顯示所選原則具有特定結果的使用者或登入數目。 Total 是在所選時間範圍內，評估所選原則的使用者或登入次數。 按一下磚，依據該結果類型來篩選活頁簿中的資料。 
+
+![條件式存取狀態](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+
+此活頁簿也會顯示所選原則的影響，並依六個條件細分： 
+- **裝置狀態**
+- **裝置平臺**
+- **用戶端應用程式**
+- **登入風險**
+- **位置**
+- **應用程式**
+
+![條件式存取狀態](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+
+您也可以調查個別登入，並依活頁簿中選取的參數進行篩選。 搜尋個別使用者（依登入頻率排序），並查看其對應的登入事件。 
+
+![條件式存取狀態](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
@@ -211,7 +260,7 @@ ms.locfileid: "72819711"
 
 ## <a name="sign-ins-failure-analysis"></a>登入失敗分析
 
-使用 [登**入失敗分析**] 活頁簿，針對下列錯誤進行疑難排解：
+使用登**入失敗分析**活頁簿針對錯誤進行疑難排解：
 
 - 登入
 - 條件式存取原則

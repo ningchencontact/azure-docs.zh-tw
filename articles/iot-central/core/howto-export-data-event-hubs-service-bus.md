@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: df1263e2cc13f875819c9bb16b5eb7399368b7f5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4a0959c7562c3868825e26366ae08e9b87f92319
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953521"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177222"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
@@ -160,7 +160,7 @@ ms.locfileid: "72953521"
 每個訊息皆代表自上次匯出訊息之後，對裝置進行的一或多項變更。 將在每個訊息中傳送的資訊包括：
 - IoT Central 中裝置的 `id`
 - 裝置的 `name`
-- 來自[裝置佈建服務](https://aka.ms/iotcentraldocsdps) 的 `deviceId`
+- 來自[裝置佈建服務](/azure/iot-central/core/howto-connect-nodejs) 的 `deviceId`
 - 裝置範本資訊
 - 屬性值
 - 設定值

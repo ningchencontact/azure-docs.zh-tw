@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936836"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177376"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>將 HDInsight 中的 Apache Spark 作業優化
 
@@ -74,7 +74,7 @@ Spark 提供本身的原生快取機制，可透過 `.persist()`、`.cache()` �
     * 無法使用資料分割，這在未來的 Spark 版本中可能會變更。
 
 * 儲存層級快取 (建議使用)
-    * 可以使用 [Alluxio](https://www.alluxio.org/) 實作。
+    * 可以使用 [Alluxio](https://www.alluxio.io/) 實作。
     * 使用記憶體內和 SSD 快取。
 
 * 本機 HDFS (建議)
@@ -177,8 +177,8 @@ sql("SELECT col1, col2 FROM V_JOIN")
     1. 減少執行程式之間的通訊額外負擔。
     2. 減少較大叢集 (大於 100 個執行程式) 上的執行程式 (N2) 之間的開啟連接數。
     3. 增加堆積大小以配合需要大量記憶體的工作。
-    4. 選擇性：減少每個執行程式的記憶體額外負荷。
-    5. 選擇性：超載使用 CPU 以增加使用率和並行。
+    4. 選用：減少每個執行程式的記憶體額外負荷。
+    5. 選用：超載使用 CPU 以增加使用率和並行。
 
 依照一般經驗法則，選取執行程式大小時：
 

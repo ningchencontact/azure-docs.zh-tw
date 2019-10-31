@@ -1,6 +1,6 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中要求存取套件的共用連結-Azure Active Directory
-description: 瞭解如何在 Azure Active Directory 權利管理（預覽）中共用連結以要求存取套件。
+title: '[共用連結] 可在 Azure AD 的權利管理中要求存取套件-Azure Active Directory'
+description: 瞭解如何在 Azure Active Directory 權利管理中共用連結以要求存取封裝。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b98df1f93991d4781283bc38b02dc20d11268d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392328"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174411"
 ---
-# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中要求存取套件的共用連結
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 權利管理中的共用連結以要求存取套件
 
 您目錄中的大部分使用者都可以登入我的存取權入口網站，並自動查看他們可以要求的存取套件清單。 不過，對於還不在您目錄中的外部商業夥伴使用者，您將需要傳送一個連結，讓他們可以用來要求存取封裝。 
 

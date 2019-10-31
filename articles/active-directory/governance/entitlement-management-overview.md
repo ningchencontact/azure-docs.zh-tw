@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure AD 權利管理？ （預覽）-Azure Active Directory
+title: 什麼是 Azure AD 權利管理？ -Azure Active Directory
 description: 取得 Azure Active Directory 權利管理的總覽，以及如何使用它來管理內部和外部使用者對群組、應用程式和 SharePoint Online 網站的存取。
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a8df09322def77037575b78ddbff3fae374229
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
-ms.translationtype: HT
+ms.openlocfilehash: b1c054bf354b5cdc5e0803ba6849af19fab40f3c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062743"
+ms.locfileid: "73174150"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權利管理？ (預覽)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="what-is-azure-ad-entitlement-management"></a>什麼是 Azure AD 權利管理？
 
 Azure Active Directory （Azure AD）權利管理是一項身分[識別治理](identity-governance-overview.md)功能，可讓組織透過自動化存取要求工作流程、存取權指派、評論和，來管理大規模的身分識別和存取生命週期。合同.
 
@@ -137,7 +132,7 @@ Azure AD 權利管理有助於解決這些挑戰。  若要深入瞭解客戶如
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-特製化雲端（例如 Azure Government、Azure 德國和 Azure 中國世紀）目前無法在此預覽中使用。
+特製化雲端（例如 Azure Government、Azure 德國和 Azure 中國世紀）目前無法供使用。
 
 ### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
 

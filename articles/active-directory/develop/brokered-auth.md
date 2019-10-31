@@ -17,12 +17,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1ed81c03e7c5ba30b813897dac5796c550ed23
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679824"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175651"
 ---
 # <a name="brokered-auth-in-android"></a>Android 中的代理驗證
 
@@ -32,7 +32,7 @@ ms.locfileid: "71679824"
 
 - 裝置單一登入
 - 條件式存取：
-  - Intune 應用程式保護
+  - Intune 應用程式防護
   - 裝置註冊（Workplace Join）
   - 行動裝置管理
 - 全裝置帳戶管理
@@ -62,9 +62,9 @@ ms.locfileid: "71679824"
 
 ### <a name="when-a-broker-is-installed"></a>當代理程式已安裝時
 
-當代理程式安裝在裝置上時，所有後續的互動式權杖要求（`acquireToken()` 的呼叫）都會由訊息代理程式處理，而不是在本機 MSAL。 先前可供 MSAL 使用的任何 SSO 狀態，都無法供訊息代理程式使用。 因此，使用者必須重新驗證，或從裝置已知的現有帳戶清單中選取帳戶。
+當代理程式安裝在裝置上時，所有後續的互動式權杖要求（`acquireToken()`的呼叫）都會由訊息代理程式處理，而不是在本機 MSAL。 先前可供 MSAL 使用的任何 SSO 狀態，都無法供訊息代理程式使用。 因此，使用者必須重新驗證，或從裝置已知的現有帳戶清單中選取帳戶。
 
-安裝訊息代理程式不需要使用者重新登入。 只有在使用者需要解析 `MsalUiRequiredException` 時，才會將下一個要求移至訊息代理程式。 `MsalUiRequiredException` 會因為許多原因而擲回，需要以互動方式解決。 以下是一些常見的原因：
+安裝訊息代理程式不需要使用者重新登入。 只有在使用者需要解決 `MsalUiRequiredException` 時，才會將下一個要求移至訊息代理程式。 基於許多原因而擲回 `MsalUiRequiredException`，而且需要以互動方式解決。 以下是一些常見的原因：
 
 - 使用者變更了與其帳戶相關聯的密碼。
 - 使用者的帳戶不再符合條件式存取原則。
@@ -122,9 +122,9 @@ MSAL 會以兩種方式與訊息代理程式通訊：
 - 代理程式系結服務
 - Android AccountManager
 
-MSAL 會先使用代理程式系結服務，因為呼叫此服務不需要任何 Android 許可權。 如果系結至系結服務失敗，MSAL 將會使用 Android AccountManager API。 只有當您的應用程式已被授與 @no__t 0 許可權時，MSAL 才會這麼做。
+MSAL 會先使用代理程式系結服務，因為呼叫此服務不需要任何 Android 許可權。 如果系結至系結服務失敗，MSAL 將會使用 Android AccountManager API。 只有當您的應用程式已被授與 `"READ_CONTACTS"` 許可權時，MSAL 才會這麼做。
 
-如果您收到 `MsalClientException`，錯誤碼為 `"BROKER_BIND_FAILURE"`，則有兩個選項：
+如果您收到 `MsalClientException`，`"BROKER_BIND_FAILURE"`錯誤碼，則有兩個選項：
 
 - 要求使用者停用 Microsoft Authenticator 應用程式和 Intune 公司入口網站的電源優化。
-- 要求使用者授與 @no__t 0 許可權
+- 要求使用者授與 `"READ_CONTACTS"` 許可權

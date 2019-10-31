@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 040874f0ba5e2766aab8aa399bcae65a6676fa53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bcf19956d998ace88efbd4e1c9d787f1baeef642
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951129"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177382"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>如何流量分析來分析裝置資料
 
@@ -39,7 +39,7 @@ Azure IoT Central 提供豐富的分析功能來分析歷程記錄趨勢，並�
 
 您必須從選擇**裝置群組**，以及您想要分析的遙測開始。 完成後，請選取 [**分析**] 以開始將資料視覺化。
 
-- **裝置群組：** [裝置群組](howto-use-device-groups-pnp.md)是使用者定義的裝置群組。 例如，奧克蘭中的所有位冰箱，或2.0 風渦輪機的所有版本。
+- **裝置群組：** [裝置群組](tutorial-use-device-groups-pnp.md)是使用者定義的裝置群組。 例如，奧克蘭中的所有位冰箱，或2.0 風渦輪機的所有版本。
 
 - **遙測：** 選取您想要分析和探索的遙測。 您可以選取多個遙測一起進行分析。 [預設匯總方法] 會分別設定為 [數值] 和 [資料類型的計數] 的平均值。 針對數值資料類型所支援的匯總方法為 Average、Maximum、最小值、計數和總和。  字串資料類型支援的匯總方法為 count。
 

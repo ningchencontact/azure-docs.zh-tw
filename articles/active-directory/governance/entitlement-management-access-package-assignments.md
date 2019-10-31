@@ -1,6 +1,6 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中查看、新增和移除存取套件的指派-Azure Active Directory
-description: 瞭解如何在 Azure Active Directory 權利管理（預覽）中查看、新增和移除存取套件的指派。
+title: 在 Azure AD 權利管理-中，查看、新增和移除存取套件的指派-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 權利管理中查看、新增和移除存取套件的指派。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20ff526ba00f5b6521198122972071360bb58d6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934473"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174907"
 ---
-# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中查看、新增和移除存取套件的指派
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中查看、新增和移除存取套件的指派
 
 在 Azure AD 權利管理 中，您可以看到誰已獲指派存取封裝、其原則和狀態。 如果存取套件具有適當的原則，您也可以直接將使用者指派給存取封裝。 本文說明如何查看、新增和移除存取封裝的指派。
 

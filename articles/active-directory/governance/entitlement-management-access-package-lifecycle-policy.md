@@ -1,6 +1,6 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中變更存取套件的生命週期設定-Azure Active Directory
-description: 瞭解如何在 Azure Active Directory 權利管理（預覽）中變更存取套件的生命週期設定。
+title: 變更 Azure AD 權利管理中存取套件的生命週期設定-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 權利管理中變更存取套件的生命週期設定。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d63a12443edf04db3570fa43fbd8f20619122e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 959d85f496a4a573a969bf736aba137d5b86154a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392341"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174744"
 ---
-# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中變更存取套件的生命週期設定
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中變更存取套件的生命週期設定
 
 身為存取套件管理員，您可以隨時編輯現有的原則來變更存取套件的生命週期設定。 如果您變更原則的到期日，已處於 [待核准] 或 [已核准] 狀態之要求的到期日將不會變更。
 

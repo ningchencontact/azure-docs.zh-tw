@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70072233"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176551"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的頁面範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -33,6 +33,8 @@ ms.locfileid: "70072233"
   
 > [!NOTE]
 >  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -225,13 +227,13 @@ ms.locfileid: "70072233"
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|類型|說明|  
+|屬性|Type|描述|  
 |--------------|----------|-----------------|  
-|referenceCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
-|errorCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
-|emailBody|字串|因發生內部錯誤而顯示此頁面時所產生的電子郵件本文。|  
-|requestedUrl|字串|找不到頁面時所要求的 URL。|  
-|referrerUrl|字串|所要求 URL 的查閱者 URL。|  
+|referenceCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
+|errorCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
+|emailBody|string|因發生內部錯誤而顯示此頁面時所產生的電子郵件本文。|  
+|requestedUrl|string|找不到頁面時所要求的 URL。|  
+|referrerUrl|string|所要求 URL 的查閱者 URL。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

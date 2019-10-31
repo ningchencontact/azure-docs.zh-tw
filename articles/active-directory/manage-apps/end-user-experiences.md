@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/03/2019
+ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c6787068cf8ba1e86cbf43955d0ac995aa8de1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e4a091abff02e544f97f5621b56836cf6ba6e237
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702103"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175966"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory 中的應用程式使用者體驗
 
@@ -36,15 +36,17 @@ Azure Active Directory (Azure AD) 提供幾種可自訂的方式，來對您組�
 
 ![螢幕擷取畫面顯示 Azure AD 存取面板入口網站](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
+根據預設，所有應用程式會同時列在單一頁面上。 但是，您可以使用工作區將相關應用程式群組在一起，並將它們顯示在不同的索引標籤上，使其更容易尋找。 例如，您可以使用工作區，針對特定的作業角色、工作、專案等，建立應用程式的邏輯群組。 如需相關資訊，請參閱[如何使用我的應用程式工作區自訂使用者存取面板（預覽）](access-panel-workspaces.md)。 
+
 存取面板與 Azure 入口網站不同，使用者不需要具備 Azure 訂用帳戶或 Office 365 訂用帳戶。
 
 如需有關 Azure AD 存取面板的詳細資訊，請參閱 [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="office-365-application-launcher"></a>Office 365 應用程式啟動程式
 
-對於已部署 Office 365 的組織，透過 Azure AD 指派給使用者的應用程式也會出現在 Office 365 入口網站，網址[ https://portal.office.com/myapps ](https://portal.office.com/myapps)。 這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
+針對已部署 Office 365 的組織，透過 Azure AD 指派給使用者的應用程式也會出現在 Office 365 入口網站的[https://portal.office.com/myapps](https://portal.office.com/myapps)。 這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
 
-![螢幕擷取畫面顯示在 Office 365 入口網站](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![螢幕擷取畫面顯示 Office 365 入口網站](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 如需有關 Office 365 應用程式啟動程式的詳細資訊，請參閱 [讓您的應用程式出現在 Office 365 應用程式啟動程式中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)。
 
@@ -52,15 +54,15 @@ Azure Active Directory (Azure AD) 提供幾種可自訂的方式，來對您組�
 
 大部分支援 SAML 2.0、WS-同盟或 OpenID Connect 的同盟應用程式也支援使用者在應用程式啟動，然後再透過 Azure AD 的自動重新導向或按一下連結登入。 這稱為服務提供者起始的登入，Azure AD 應用程式資源庫中大部分的同盟應用程式都支援這個方式 (請參閱 Azure 入口網站中應用程式的單一登入設定精靈連結的文件來了解詳細資訊)。
 
-![行動裝置應用程式登入頁面的範例](./media/end-user-experiences/workdaymobile.png)
+![行動應用程式登入頁面的範例](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>直接登入連結
 
 Azure AD 也支援對支援密碼單一登入、已連結的單一登入，以及任何形式的同盟單一登入的個別應用程式使用直接單一登入連結。
 
-這些連結是特別撰寫的 URL，會透過 Azure AD 登入程序針對特定應用程式傳送給使用者，使用者不需要從 Azure AD 存取面板或 Office 365 啟動。 這些**使用者存取 Url**可以找到可用的企業應用程式的內容。 在 Azure 入口網站中，選取**Azure Active Directory** > **企業應用程式**。 選取的應用程式，然後按**屬性**。
+這些連結是特別撰寫的 URL，會透過 Azure AD 登入程序針對特定應用程式傳送給使用者，使用者不需要從 Azure AD 存取面板或 Office 365 啟動。 您可以在 [可用的企業應用程式] 的屬性底下找到這些**使用者存取 url** 。 在 Azure 入口網站中，選取  **Azure Active Directory** > **企業應用程式**。 選取應用程式，然後選取 [**屬性**]。
 
-![在 Twitter 屬性中的使用者存取 URL 的範例](media/end-user-experiences/direct-sign-on-link.png)
+![Twitter 屬性中的使用者存取 URL 範例](media/end-user-experiences/direct-sign-on-link.png)
 
 您可以複製這些連結，然後貼到任何您想要提供選取應用程式登入連結的位置。 可以是在電子郵件中，或是任何您已設定使用者應用程式存取權的自訂網頁型入口網站中。 以下是 Azure AD 直接單一登入 Twitter 的 URL 範例：
 

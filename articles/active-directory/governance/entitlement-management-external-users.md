@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中管理外部使用者的存取權-Azure Active Directory
+title: 在 Azure AD 權利管理中管理外部使用者的存取權-Azure Active Directory
 description: 深入瞭解您可以指定的設定，以在 Azure Active Directory 權利管理中管理外部使用者的存取權。
 services: active-directory
 documentationCenter: ''
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934399"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174170"
 ---
-# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中管理外部使用者的存取權
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中管理外部使用者的存取權
 
 Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is-b2b.md) ，與組織外部的其他人共同作業。 在 Azure AD B2B 中，外部使用者會向其主目錄進行驗證，但在您的目錄中有標記法。 目錄中的標記法可讓使用者獲指派您資源的存取權。
 
@@ -74,6 +69,52 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 1. 視 [外部使用者的生命週期] 設定而定，當外部使用者不再具有任何存取套件指派時，系統會封鎖外部使用者進行登入，並從您的目錄中移除來賓使用者帳戶。
 
+## <a name="settings-for-external-users"></a>外部使用者的設定
+
+若要確保組織外部的人員可以要求存取套件，並存取這些存取套件中的資源，您應該確認已正確設定一些設定。
+
+### <a name="enable-catalog-for-external-users"></a>為外部使用者啟用類別目錄
+
+- 根據預設，當您建立[新的目錄](entitlement-management-catalog-create.md)時，它會啟用以允許外部使用者要求目錄中的存取封裝。 請確定 [**針對外部使用者啟用**] 已設定為 **[是]** 。
+
+    ![編輯目錄設定](./media/entitlement-management-shared/catalog-edit.png)
+
+### <a name="configure-your-azure-ad-b2b-external-collaboration-settings"></a>設定您的 Azure AD B2B 外部協同作業設定
+
+- 允許來賓邀請其他來賓至您的目錄，表示來賓邀請可以發生在權利管理之外。 我們建議您設定**來賓可以邀請**[**否**]，只允許適當控管的邀請。
+- 如果您使用的是 B2B 允許清單，則必須確定您想要與使用權利管理合作的任何網域都已新增至清單。 或者，如果您使用 B2B 拒絕清單，則必須確定您想要與之夥伴的任何網域都不會新增至清單。
+- 如果您為**所有使用者**（所有已連線的組織 + 任何新的外部使用者）建立權利管理原則，則會優先使用您擁有的任何 B2B 允許或拒絕清單設定。 因此，如果您使用，請務必將您想要包含在此原則中的網域包含在允許清單中，如果您使用的是拒絕清單，請將它們從拒絕清單中排除。
+- 如果您想要建立包含**所有使用者**的權利管理原則（所有已連線的組織 + 任何新的外部使用者），您必須先為您的目錄啟用電子郵件單次密碼驗證。 如需詳細資訊，請參閱[電子郵件一次性密碼驗證（預覽）](../b2b/one-time-passcode.md#opting-in-to-the-preview)。
+- 如需 Azure AD B2B 外部共同作業設定的詳細資訊，請參閱[啟用 b2b 外部共同作業和管理可以邀請來賓的人員](../b2b/delegate-invitations.md)。
+
+    ![Azure AD 外部協同作業設定](./media/entitlement-management-external-users/collaboration-settings.png)
+
+### <a name="review-your-conditional-access-policies"></a>檢查您的條件式存取原則
+
+- 請務必從新的來賓使用者無法符合的任何條件式存取原則中排除來賓，因為這會封鎖他們無法登入您的目錄。 例如，來賓可能沒有已註冊的裝置、不在已知的位置，也不想重新註冊多重要素驗證（MFA），因此在條件式存取原則中新增這些需求將會封鎖來賓使用權利元件. 如需詳細資訊，請參閱[Azure Active Directory 條件式存取中的條件為何？](../conditional-access/conditions.md)。
+
+    ![Azure AD 條件式存取原則排除設定](./media/entitlement-management-external-users/conditional-access-exclude.png)
+
+### <a name="review-your-sharepoint-online-external-sharing-settings"></a>檢查您的 SharePoint Online 外部共用設定
+
+- 如果您想要在外部使用者的存取套件中包含 SharePoint Online 網站，請確定您的組織層級外部共用設定已設定為 [**任何人**] （使用者不需要登入）或**新的和現有來賓**（來賓必須簽署在或中提供驗證碼）。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
+
+- 如果您想要限制版權管理以外的任何外部共用，您可以將外部共用設定設為**現有的來賓**。 然後，只有透過權利管理邀請的新使用者，才能夠取得這些網站的存取權。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
+
+- 請確定網站層級設定啟用 [來賓存取] （與先前所列相同的選項選取專案）。 如需詳細資訊，請參閱[開啟或關閉網站的外部共用](https://docs.microsoft.com/sharepoint/change-external-sharing-site)。
+
+### <a name="review-your-office-365-group-sharing-settings"></a>檢查您的 Office 365 群組共用設定
+
+- 如果您想要在外部使用者的存取套件中包含 Office 365 群組，請確定 [**讓使用者將新的來賓**新增到組織] 已設定為 [**開啟**]，以允許來賓存取。 如需詳細資訊，請參閱[管理對 Office 365 群組的來賓存取](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups)。
+
+- 如果您想要讓外部使用者能夠存取 SharePoint Online 網站和與 Office 365 群組相關聯的資源，請確定您開啟的是 SharePoint Online 外部共用。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
+
+- 如需如何在 PowerShell 中的目錄層級設定 Office 365 群組來賓原則的相關資訊，請參閱[範例：在目錄層級為群組設定來賓原則](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level)。
+
+### <a name="review-your-teams-sharing-settings"></a>審查小組共用設定
+
+- 如果您想要在外部使用者的存取套件中包含小組，請確定 [**允許 Microsoft 團隊的來賓存取**] 設為 [**開啟**]，以允許來賓存取。 如需詳細資訊，請參閱[Microsoft 小組系統管理中心的設定來賓存取](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center)。
+
 ## <a name="manage-the-lifecycle-of-external-users"></a>管理外部使用者的生命週期
 
 您可以選取當外部使用者透過核准的存取套件要求受到邀請，而已不再具有任何存取套件指派時，會發生什麼情況。 如果使用者讓出其所有存取套件指派，或其上次存取套件指派過期，就可能發生這種情況。 根據預設，當外部使用者不再具有任何存取套件指派時，系統會封鎖他們登入您的目錄。 30天后，就會從您的目錄中移除其來賓使用者帳戶。
@@ -104,20 +145,8 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 1. 按一下 [儲存]。
 
-## <a name="enable-a-catalog-for-external-users"></a>為外部使用者啟用類別目錄
-
-當您建立[新的類別目錄](entitlement-management-catalog-create.md)時，有一項設定可讓來自外部目錄的使用者要求目錄中的存取封裝。 如果您不想讓外部使用者擁有在目錄中要求存取封裝的許可權，請將 [**為外部使用者啟用**] 設為 [**否**]。
-
-**先決條件角色：** 全域管理員、使用者系統管理員或目錄擁有者
-
-![新增目錄窗格](./media/entitlement-management-shared/new-catalog.png)
-
-您也可以在建立目錄之後變更此設定。
-
-![編輯目錄設定](./media/entitlement-management-shared/catalog-edit.png)
-
 ## <a name="next-steps"></a>後續步驟
 
 - [新增已連線的組織](entitlement-management-organization.md)
 - [針對不在您目錄中的使用者](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-- [建立和管理資原始目錄](entitlement-management-catalog-create.md)
+- [疑難排解](entitlement-management-troubleshoot.md)

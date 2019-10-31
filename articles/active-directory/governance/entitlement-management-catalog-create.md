@@ -1,6 +1,6 @@
 ---
-title: 在 Azure AD 權利管理（預覽）中建立及管理資原始目錄-Azure Active Directory
-description: 瞭解如何在 Azure Active Directory 權利管理（預覽）中建立資源的新容器和存取封裝。
+title: 在 Azure AD 的權利管理中建立和管理資原始目錄-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 權利管理中建立新的資源容器和存取封裝。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b66e3dee83ccf4a857fda9d5804848108c0cc251
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429600"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174434"
 ---
-# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中建立及管理資原始目錄
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中建立和管理資原始目錄
 
 ## <a name="create-a-catalog"></a>建立目錄
 

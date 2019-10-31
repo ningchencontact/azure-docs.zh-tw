@@ -11,16 +11,16 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: de7858be4ac4e392b4fb92cacf55882378ba9813
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568989"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177707"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL Data Sync 的 Data Sync Agent
 
-藉由安裝並設定「適用於 Azure SQL Data Sync 的 Data Sync Agent」，與內部部署 SQL Server 資料庫同步資料。如需有關「SQL 資料同步」的詳細資訊，請參閱[使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。
+藉由安裝和設定 Azure SQL 資料同步的 Data Sync Agent，將資料與內部部署 SQL Server 資料庫同步處理。如需 SQL 資料同步的詳細資訊，請參閱[使用 SQL 資料同步跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。
 
 > [!IMPORTANT]
 > 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
@@ -115,7 +115,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 - **解決方案**。 您可以嘗試這兩種解決方案：
 
     -   使用 services.msc 重新輸入用戶端代理程式的認證。
-    -   解除安裝此用戶端代理程式，然後安裝新的用戶端代理程式。 從[下載中心](https://go.microsoft.com/fwlink/?linkid=221479)下載並安裝最新的用戶端代理程式。
+    -   解除安裝此用戶端代理程式，然後安裝新的用戶端代理程式。 從[下載中心](https://www.microsoft.com/download/details.aspx?id=27693)下載並安裝最新的用戶端代理程式。
 
 ### <a name="agent-list"></a> 我的資料庫未列在代理程式清單
 
@@ -138,7 +138,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
 ### <a name="agent-start"></a> 用戶端代理程式無法啟動 (錯誤 1069)
 
-您發現代理程式未在裝載 SQL Server 的電腦上執行。 當您嘗試以手動方式啟動代理程式時，您會看到對話方塊顯示錯誤訊息 [錯誤 1069：登入失敗所以服務無法啟動。]
+您發現代理程式未在裝載 SQL Server 的電腦上執行。 當您嘗試以手動方式啟動代理程式時，您會看到對話方塊顯示錯誤訊息：「錯誤 1069：登入失敗所以服務無法啟動。」
 
 ![資料同步處理錯誤 1069 對話方塊](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -148,7 +148,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
   1. 找出 SQL 資料同步用戶端代理程式預覽服務。  
     a. 選取 [開始]。  
-    b. 在搜尋方塊中輸入 **services.msc**。  
+    b.這是另一個 C# 主控台應用程式。 在搜尋方塊中輸入 **services.msc**。  
     c. 在搜尋結果中，選取 [服務]。  
     d. 在 [服務] 視窗中，捲動至 [SQL Data Sync Agent] 的項目。  
   1. 在 [SQL Data Sync Agent] 上按一下滑鼠右鍵，然後選取 [停止]。
@@ -214,7 +214,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
   1. 結束應用程式。  
   1. 開啟 [元件服務] 畫面。  
     a. 在工作列上的 [搜尋] 方塊中，輸入 **services.msc**。  
-    b. 在搜尋結果中按兩下 [服務]。  
+    b.這是另一個 C# 主控台應用程式。 在搜尋結果中按兩下 [服務]。  
   1. 停止 **SQL 資料同步**服務。
   1. 重新啟動 **SQL 資料同步**服務。  
   1. 重新開啟應用程式。
@@ -225,7 +225,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
 ### <a name="ping-the-service"></a>偵測服務
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -239,7 +239,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>顯示已註冊的資料庫
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -253,7 +253,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>提交代理程式金鑰
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -267,7 +267,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>註冊資料庫
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
@@ -286,7 +286,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 當您使用此命令來取消註冊資料庫時，它將會完全取消佈建資料庫。 如果資料庫參與其他同步群組，這項作業會中斷其他同步群組。
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -300,7 +300,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>更新認證
 
-#### <a name="usage"></a>使用量
+#### <a name="usage"></a>用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]

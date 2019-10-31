@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 4260f4640f488e67d6bb3101ff2cf7d269e2bf3e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073646"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176840"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory B2C 授權開發人員帳戶
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式的雲端身分識別管理解決方案。 您可以使用它來管理開發人員入口網站的存取。 本指南會說明要與 Azure Active Directory B2C 整合所必須在 API 管理服務中進行的設定。 如需實現使用傳統 Azure Active Directory 來存取開發人員入口網站的相關資訊，請參閱[如何使用 Azure Active Directory 授權開發人員帳戶]。
 
@@ -35,9 +35,9 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 1. 若要開始使用，請登入 [Azure 入口網站](https://portal.azure.com)，並找出您的 API 管理執行個體。
 
    > [!NOTE]
-   > 如果您尚未建立 API 管理服務實例, 請參閱[開始使用 AZURE Api 管理教學][Get started with Azure API Management]課程中的[建立 api 管理服務實例][Create an API Management service instance]。
+   > 如果您尚未建立 API 管理服務實例，請參閱[開始使用 AZURE Api 管理教學][Get started with Azure API Management]課程中的[建立 api 管理服務實例][Create an API Management service instance]。
 
-2. 在[身分識別] 底下。 按一下頂端的 [+ 新增]。
+2. 在 **[** 身分識別] 底下。 按一下頂端的 [+ 新增]。
 
    [新增識別提供者] 窗格隨即出現在右邊。 選擇 [Azure Active Directory B2C]。
     
@@ -85,7 +85,17 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
     儲存變更後，開發人員就可以使用 Azure Active Directory B2C 建立新帳戶和登入開發人員入口網站。
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 註冊開發人員帳戶
+## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>開發人員入口網站-新增 Azure AD B2C 帳戶驗證
+
+若要在開發人員入口網站中啟用 [使用 AAD B2C 登入]，您必須將 [ **OAuth 按鈕**] widget 新增至登入表單。
+
+![AAD 按鈕 widget](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+當新的使用者登入 AAD B2C 時，會自動建立新的帳戶，您可以考慮在註冊表單中新增相同的 widget。
+
+## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>舊版開發人員入口網站-如何註冊 Azure AD B2C
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. 若要使用 Azure Active Directory B2C 註冊開發人員帳戶，請開啟新的瀏覽器視窗並移至開發人員入口網站。 按一下 [註冊] 按鈕。
 
@@ -109,7 +119,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 ## <a name="next-steps"></a>後續步驟
 
 *  [Azure Active Directory B2C 概觀]
-*  [Azure Active Directory B2C：可延伸原則架構]
+*  [Azure Active Directory B2C：可延伸的原則架構]
 *  [使用 Microsoft 帳戶做為 Azure Active Directory B2C 中的身分識別提供者]
 *  [使用 Google 帳戶做為 Azure Active Directory B2C 中的身分識別提供者]
 *  [使用 Linkedin 帳戶做為 Azure Active Directory B2C 中的身分識別提供者]
@@ -136,7 +146,6 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
 [api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
@@ -180,7 +189,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 [Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Azure Active Directory B2C 概觀]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [如何使用 Azure Active Directory 授權開發人員帳戶]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C：可延伸原則架構]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C：可延伸的原則架構]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [使用 Microsoft 帳戶做為 Azure Active Directory B2C 中的身分識別提供者]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [使用 Google 帳戶做為 Azure Active Directory B2C 中的身分識別提供者]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
 [使用 Facebook 帳戶做為 Azure Active Directory B2C 中的身分識別提供者]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app

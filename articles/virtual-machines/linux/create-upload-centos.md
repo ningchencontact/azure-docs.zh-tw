@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: cfbd687e59a9a852fe1bf01386dac221f040d0f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6c3bb16e249d84f1da94b6b827bbaf6f8e9df1a1
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083633"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171255"
 ---
-# <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 CentOS 型虛擬機器
+# <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>為 Azure 準備 CentOS 虛擬機器
 
 了解如何建立及上傳包含 CentOS 型 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 
@@ -171,9 +171,9 @@ ms.locfileid: "70083633"
     sudo yum install microsoft-hyper-v
     ```
 
-    或者，您可以依照 [LIS 下載頁面](https://go.microsoft.com/fwlink/?linkid=403033)上的手動安裝指示執行，以在您的 VM 上安裝該 RPM。
+    或者，您可以依照 [LIS 下載頁面](https://www.microsoft.com/download/details.aspx?id=51612)上的手動安裝指示執行，以在您的 VM 上安裝該 RPM。
 
-12. 安裝 Azure Linux 代理程式和相依性。 啟動並啟用 waagent 服務:
+12. 安裝 Azure Linux 代理程式和相依性。 啟動並啟用 waagent 服務：
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
@@ -355,7 +355,7 @@ ms.locfileid: "70083633"
     編輯 `/etc/dracut.conf`，新增內容：
 
     ```console
-    add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
     ```
 
     重建 initramfs：

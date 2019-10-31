@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d0d87b42232a19d6bcd3c225fb4a4f8f8b459350
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882008"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177803"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -131,14 +131,14 @@ ms.locfileid: "72882008"
 |AppEtwTraceDeletionAgeInDays |整數，預設值為 3 | 動態 |天數，在此時間過後便會刪除含有應用程式 ETW 追蹤的舊有 ETL 檔案。 |
 |ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
 |AuditHttpRequests |布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 審核。 「審核」的目的是要查看針對叢集執行的活動;包括起始要求的物件。 請注意，這是最佳的嘗試記錄;而且可能會發生追蹤遺失的情況。 不會記錄具有「使用者」驗證的 HTTP 要求。 |
-|CaptureHttpTelemetry|布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 遙測。 遙測的目的是要讓 Service Fabric 能夠捕獲遙測資料，以協助規劃未來的工作並找出問題區域。 遙測不會記錄任何個人資料或要求主體。 除非另有設定，否則遙測會捕捉所有 HTTP 要求。 |
+|CaptureHttpTelemetry|布林值，預設值為 true | 動態 | 開啟或關閉 HTTP 遙測。 遙測的目的是要讓 Service Fabric 能夠捕獲遙測資料，以協助規劃未來的工作並找出問題區域。 遙測不會記錄任何個人資料或要求主體。 除非另有設定，否則遙測會捕捉所有 HTTP 要求。 |
 |ClusterId |String | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
 |ConsumerInstances |String | 動態 |DCA 取用者執行個體的清單。 |
 |DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 |EnableCircularTraceSession |布林值，預設值為 false | 靜態 |旗標會指出是否應使用循環追蹤工作階段。 |
 |EnablePlatformEventsFileSink |布林值，預設值為 false | 靜態 |啟用/停用寫入磁片的平臺事件 |
 |EnableTelemetry |布林值，預設值為 true | 動態 |這會用來啟用或停用遙測。 |
-|FailuresOnlyHttpTelemetry | 布林值，預設值為 true | 動態 | 如果已啟用 HTTP 遙測捕捉，則為，只捕捉失敗的要求。 這是為了協助減少針對遙測產生的事件數目。 |
+|FailuresOnlyHttpTelemetry | 布林值，預設值為 false | 動態 | 如果已啟用 HTTP 遙測捕捉，則為，只捕捉失敗的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |HttpTelemetryCapturePercentage | 整數，預設值為50 | 動態 | 如果已啟用 HTTP 遙測捕捉，則為，只捕捉隨機百分比的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
 |ProducerInstances |String | 動態 |DCA 產生者執行個體的清單。 |

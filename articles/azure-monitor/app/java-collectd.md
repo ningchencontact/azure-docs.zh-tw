@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 6c74684ac45a040be154a1e6406c1e7a5e0dd253
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817142"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176400"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 效能計量
 
@@ -32,7 +32,7 @@ ms.locfileid: "72817142"
 在您的 Linux 伺服器機器上：
 
 1. 安裝 [collectd](https://collectd.org/) 5.4.0 版或更新版本。
-2. 下載 [Application Insights collectd 寫入器外掛程式](https://aka.ms/aijavasdk)。 記下版本號碼。
+2. 下載 [Application Insights collectd 寫入器外掛程式](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal)。 記下版本號碼。
 3. 將外掛程式 JAR 複製到 `/usr/share/collectd/java`。
 4. 編輯 `/etc/collectd/collectd.conf`：
    * 確定 [Java 外掛程式](https://collectd.org/wiki/index.php/Plugin:Java) 已啟用。

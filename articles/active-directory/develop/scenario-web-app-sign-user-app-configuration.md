@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f558ecf583c96f36b8bbee19c7c9cbb2ee57aa31
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f52fc70b54c27362575bef00c39a93d13e77cc2e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596737"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175343"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>登入使用者的 Web 應用程式-程式碼設定
 
@@ -34,7 +34,7 @@ ms.locfileid: "72596737"
 | 平台 | 程式庫 | 描述 |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [適用于 .NET 的識別模型延伸模組](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | 適用于 .NET 的 Microsoft 身分識別延伸模組是由 ASP.NET 和 ASP.NET Core 直接使用，它會建議一組在 .NET Framework 和 .NET Core 上執行的 Dll。 從 ASP.NET/ASP.NET 核心 Web 應用程式，您可以使用**TokenValidationParameters**類別來控制權杖驗證（尤其是在某些 ISV 案例中） |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | 適用于 JAVA 的 MSAL-目前為公開預覽狀態 |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL JAVA](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | 適用于 JAVA 的 MSAL-目前為公開預覽狀態 |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | 適用于 Python 的 MSAL-目前為公開預覽狀態 |
 
 選取對應至您感興趣之平臺的索引標籤：
@@ -53,7 +53,7 @@ ms.locfileid: "72596737"
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-本文和下列的程式碼片段會從呼叫 Microsoft graph msal4j web 應用程式範例的[JAVA web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)中解壓縮
+本文和下列的程式碼片段會從呼叫 Microsoft graph MSAL JAVA web 應用程式範例的[java web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)中解壓縮
 
 如需完整的執行詳細資料，您可以參考此範例。
 
@@ -137,7 +137,7 @@ ms.locfileid: "72596737"
 ```
 
 在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合這些 url;也就是說，在上述兩個設定檔中，它們會在 applicationUrl `http://localhost:3110` 但指定 `sslPort` （44321）時 `https://localhost:44321/signin-oidc`，而且 `CallbackPath` 會 `/signin-oidc` 如 `appsettings.json` 中所定義。
-  
+
 以同樣的方式，登出 URI 會設定為 `https://localhost:44321/signout-callback-oidc`。
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
@@ -175,10 +175,10 @@ aad.clientId=Enter_the_Application_Id_here
 aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 aad.secretKey=Enter_the_Client_Secret_Here
 aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
+aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合應用程式所定義的 redirectUris，也就是 `http://localhost:8080/msal4jsample/secure/aad` 和 `http://localhost:8080/msal4jsample/graph/users`
+在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合應用程式所定義的 redirectUris，也就是 `http://localhost:8080/msal4jsample/secure/aad` 和 `http://localhost:8080/msal4jsample/graph/me`
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -194,7 +194,8 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 ```
 
 > [!NOTE]
-> 本快速入門建議您將用戶端密碼儲存在設定檔中，以方便您進行。 在生產應用程式中，您會想要使用其他方式來儲存您的密碼（例如 KeyVault）或環境變數（如 Flask 的檔中所述）： https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+> 本快速入門建議您將用戶端密碼儲存在設定檔中，以方便您進行。
+> 在生產應用程式中，您會想要使用其他方式來儲存您的密碼（例如 KeyVault）或環境變數（如 Flask 的檔中所述）： https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
 >
 > ```python
 > CLIENT_SECRET = os.getenv("CLIENT_SECRET")
@@ -215,7 +216,7 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
   > [!NOTE]
   > 如果您使用 Visual studio 中的預設 ASP.NET core Web 專案啟動專案，或使用 `dotnet new mvc` 則預設會提供方法 `AddAzureAD`，因為相關的封裝會自動載入。
   > 不過，如果您從頭開始建立專案，並嘗試使用下面的程式碼，我們建議您將 NuGet 套件 **"AspNetCore** " 新增至您的專案，讓 `AddAzureAD` 方法可供使用。
-  
+
 下列程式碼可從啟動中取得[。 cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
 
 ```CSharp
@@ -229,7 +230,7 @@ public class Startup
     ...
       // Sign-in users with the Microsoft identity platform
       services.AddMicrosoftIdentityPlatformAuthentication(Configuration);
-  
+
       services.AddMvc(options =>
       {
           var policy = new AuthorizationPolicyBuilder()
@@ -241,13 +242,13 @@ public class Startup
     }
 ```
 
-@No__t_0 是在 WebAppServiceCollectionExtensions 中定義的擴充方法[（L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23)）。 這樣
+`AddMicrosoftIdentityPlatformAuthentication` 是在 WebAppServiceCollectionExtensions 中定義的擴充方法[（L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23)）。 這樣
 
 - 新增驗證服務
 - 設定讀取設定檔的選項
 - 設定 OpenID connect 選項，讓使用的授權單位是 Microsoft 身分識別平臺（先前為 Azure AD v2.0）端點
 - 已驗證權杖的簽發者
-- 對應至名稱的宣告會從識別碼權杖中的 "preferred_username" 宣告進行對應 
+- 對應至名稱的宣告會從識別碼權杖中的 "preferred_username" 宣告進行對應
 
 除了設定之外，您還可以在呼叫 `AddMicrosoftIdentityPlatformAuthentication` 時指定：
 
@@ -313,7 +314,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-@No__t_0 類別可讓權杖的簽發者在許多情況下進行驗證（v1.0 或 v2.0 權杖、單一租使用者或應用程式，以使用其個人 Microsoft 帳戶、Azure 公用雲端或國家（地區）登入使用者。雲端）。 可從[Microsoft. Identity. Web/Resource/AadIssuerValidator 取得。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+`AadIssuerValidator` 類別可讓權杖的簽發者在許多情況下進行驗證（v1.0 或 v2.0 權杖、單一租使用者或應用程式，以使用其個人 Microsoft 帳戶、Azure 公用雲端或國家（地區）登入使用者。雲端）。 可從[Microsoft. Identity. Web/Resource/AadIssuerValidator 取得。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -347,13 +348,13 @@ JAVA 範例會使用春季架構。 應用程式會受到保護，因為您會�
 
 - 驗證使用者是否已驗證（`isAuthenticated()` 方法）
 - 如果使用者未經過驗證，則會計算 Azure AD 授權端點的 url，並將瀏覽器重新導向至此 URI
-- 回應抵達時，如果包含驗證程式代碼流程，它會讓 msal4j 取得權杖。
+- 回應抵達時，會包含授權碼，並使用 MSAL JAVA 取得權杖。
 - 當它最後從權杖端點（在重新導向 URI 上）收到權杖時，使用者就已登入。
 
 如需詳細資訊，請參閱[AuthFilter](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)中的 `doFilter()` 方法
 
 > [!NOTE]
-> @No__t_0 的程式碼會以稍有不同的順序撰寫，但是流程就是其中所述。
+> `doFilter()` 的程式碼會以稍有不同的順序撰寫，但是流程就是其中所述。
 
 如需此方法所觸發之授權碼流程的詳細資訊，請參閱[Microsoft 身分識別平臺和 OAuth 2.0 授權碼流程](v2-oauth2-auth-code-flow.md)
 

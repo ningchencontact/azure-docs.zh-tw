@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c509e061c43c81f72682fb428529a8e72b34066a
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056314"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175402"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的 Daemon 應用程式-移至生產環境
 
@@ -63,11 +63,10 @@ ms.locfileid: "71056314"
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-MSAL Python 目前為公開預覽狀態。
-如需詳細資訊，請參閱[MSAL Python 的存放庫範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample)。
+試用快速入門[取得權杖，並使用應用程式的身分識別從 Python 主控台應用程式呼叫 MICROSOFT GRAPH API](./quickstart-v2-python-daemon.md)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-msal4j （MSAL。JAVA）目前為公開預覽狀態。 如需詳細資訊，請參閱[MSAL JAVA 的存放庫範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)。
+MSAL JAVA 目前為公開預覽狀態。 如需詳細資訊，請參閱[MSAL JAVA dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)。
 
 ---

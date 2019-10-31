@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 32814b7478fac9530cc74fba605a096881229102
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
-ms.translationtype: HT
+ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101334"
+ms.locfileid: "73172989"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -122,8 +122,6 @@ Azure 會在公用 DNS 上建立正式名稱 DNS 記錄（CNAME），以將解�
 |限制 |描述 |緩和  |
 |---------|---------|---------|
 |網路安全性群組（NSG）規則和使用者定義的路由不適用於私人端點    |私用端點上不支援 NSG。 雖然包含私用端點的子網可以有相關聯的 NSG，但這些規則不會對私用端點所處理的流量生效。 您必須[停用網路原則強制執行](disable-private-endpoint-network-policy.md)，才能在子網中部署私人端點。 在相同子網上裝載的其他工作負載上仍會強制執行 NSG。 任何用戶端子網上的路由都會使用/32 前置詞，變更預設路由行為需要類似的 UDR  | 針對來源用戶端上的輸出流量使用 NSG 規則，以控制流量。 部署具有/32 前置詞的個別路由，以覆寫私用端點路由        |
-|無法在已啟用服務端點或特定工作負載的子網中建立私人端點    |私人端點無法部署在啟用服務端點或子網的子網，以供委派至特定工作負載|  建立個別的子網以部署私人端點。        |
-|私人端點只能對應至相同區域中的私用連結服務（客戶擁有）    |   不支援從不同的區域連接到私人連結服務（您自己的）       |  在預覽期間，您必須在相同的區域中部署私用連結服務。        |
 |  不支援只有私人端點的對等互連虛擬網路   |   連接到對等互連上的私用端點時虛擬網路不支援任何其他工作負載       | 在對等互連虛擬網路上部署單一 VM 以啟用連線能力 |
 |特製化工作負載無法存取私人端點    |   下列部署到虛擬網路的服務無法使用私人端點來存取任何私人連結資源：<br>App Service 方案</br>Azure 容器執行個體</br>Azure NetApp Files</br>Azure 專用 HSM<br>       |   預覽期間不會緩和風險。       |
 

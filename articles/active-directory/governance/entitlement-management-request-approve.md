@@ -1,6 +1,6 @@
 ---
-title: 核准或拒絕 Azure AD 權利管理（預覽）中的存取要求-Azure Active Directory
-description: 瞭解如何使用我的存取權入口網站，核准或拒絕 Azure Active Directory 權利管理（預覽）中存取套件的要求。
+title: 核准或拒絕 Azure AD 權利管理中的存取要求-Azure Active Directory
+description: 瞭解如何使用我的存取權入口網站，在 Azure Active Directory 的權利管理中核准或拒絕存取套件的要求。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da3e1b6439b033742af62d548775cfb628e955b7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: MT
+ms.openlocfilehash: 3bf254f06c14afa7ee32f27d6632ab33665cf31c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990681"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173469"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>核准或拒絕 Azure AD 權利管理（預覽）中的存取要求
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>核准或拒絕 Azure AD 權利管理中的存取要求
 
 透過 Azure AD 的權利管理，您可以設定原則以要求存取套件的核准，並選擇一或多個核准者。 本文說明指定的核准者可以如何核准或拒絕存取套件的要求。
 

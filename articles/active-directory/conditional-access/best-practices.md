@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 中的條件式存取最佳做法 |Microsoft Docs
-description: 瞭解您在設定條件式存取原則時應該知道的事項, 以及應避免進行的動作。
+description: 瞭解您在設定條件式存取原則時應該知道的事項，以及應避免進行的動作。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980489"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175775"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取最佳做法
 
-透過[Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md), 您可以控制授權使用者如何存取您的雲端應用程式。 本文提供以下相關資訊：
+透過[Azure Active Directory （Azure AD）條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 本文提供以下相關資訊：
 
 - 您應該知道的事情 
-- 當您設定條件式存取原則時, 應避免執行此動作。 
+- 當您設定條件式存取原則時，應避免執行此動作。 
 
 本文假設您已熟悉[Azure Active Directory 的條件式存取中](../active-directory-conditional-access-azure-portal.md)所述的概念和詞彙？
 
@@ -35,7 +35,7 @@ ms.locfileid: "69980489"
 
 若要讓您的原則運作，您必須設定：
 
-| 屬性           | 方式                                  | 理由 |
+| 何事           | 方式                                  | 理由 |
 | :--            | :--                                  | :-- |
 | **雲端應用程式** |選取一或多個應用程式。  | 條件式存取原則的目標是要讓您控制授權使用者可以存取雲端應用程式的方式。|
 | **使用者和群組** | 選取至少一個已獲授權存取您所選雲端應用程式的使用者或群組。 | 不會觸發未指派使用者和群組的條件式存取原則。 |
@@ -45,15 +45,15 @@ ms.locfileid: "69980489"
 
 ### <a name="how-are-conditional-access-policies-applied"></a>條件式存取原則的套用方式為何？
 
-當您存取雲端應用程式時, 可能會有一個以上的條件式存取原則適用。 在此情況下，您必須滿足所有套用的原則。 例如，如果其中一個原則需要 MFA，而第二個原則需要符合規範的裝置，則您必須通過 MFA，並使用符合規範的裝置。 
+當您存取雲端應用程式時，可能會有一個以上的條件式存取原則適用。 在此情況下，您必須滿足所有套用的原則。 例如，如果其中一個原則需要 MFA，而第二個原則需要符合規範的裝置，則您必須通過 MFA，並使用符合規範的裝置。 
 
 所有的原則都會在兩個階段強制執行：
 
 - 在**第一個**階段中，系統會評估所有原則，並收集不符合的所有存取控制。 
 
-- 在**第二個**階段中，系統會提示您滿足您還沒有符合的需求。 如果其中任何一個原則封鎖了存取權, 系統就會封鎖您, 而不會提示您滿足其他原則控制。 如果沒有任何原則封鎖您, 系統會提示您以下列順序滿足其他原則控制:
+- 在**第二個**階段中，系統會提示您滿足您還沒有符合的需求。 如果其中任何一個原則封鎖了存取權，系統就會封鎖您，而不會提示您滿足其他原則控制。 如果沒有任何原則封鎖您，系統會提示您以下列順序滿足其他原則控制：
 
-   ![順序](./media/best-practices/06.png)
+   ![訂購](./media/best-practices/06.png)
     
    接下來是外部 MFA 提供者和使用規定。
 
@@ -68,7 +68,7 @@ ms.locfileid: "69980489"
 
 ### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>如果被鎖定在 Azure AD 管理入口網站之外該怎麼辦？
 
-如果您因為條件式存取原則中的設定不正確而鎖定了 Azure AD 入口網站:
+如果您因為條件式存取原則中的設定不正確而鎖定了 Azure AD 入口網站：
 
 - 確認您的組織中是否有其他系統管理員尚未遭到封鎖。 具有 Azure 入口網站存取權的系統管理員可以停用會影響您的登入的原則。 
 - 如果您的組織中沒有任何系統管理員可以更新原則，您需要提交支援要求。 Microsoft 支援服務可以審查和更新防止存取的條件式存取原則。
@@ -87,17 +87,17 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>條件式存取是否能與 Exchange ActiveSync 搭配使用？
 
-是, 您可以在條件式存取原則中使用 Exchange ActiveSync。
+是，您可以在條件式存取原則中使用 Exchange ActiveSync。
 
-某些雲端應用程式 (例如 SharePoint Online 和 Exchange Online) 也支援舊版驗證通訊協定。 當用戶端應用程式可以使用舊版驗證通訊協定來存取雲端應用程式時，Azure AD 無法針對該存取嘗試強制執行條件式存取原則。 若要預防用戶端應用程式略過強制執行的原則，您應該確認是否可以只針對受影響的雲端應用程式啟用新式驗證。
+某些雲端應用程式（例如 SharePoint Online 和 Exchange Online）也支援舊版驗證通訊協定。 當用戶端應用程式可以使用舊版驗證通訊協定來存取雲端應用程式時，Azure AD 無法在此存取嘗試上強制執行條件式存取原則。 若要預防用戶端應用程式略過強制執行的原則，您應該確認是否可以只針對受影響的雲端應用程式啟用新式驗證。
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>您應該如何使用 Office 365 應用程式來設定條件式存取？
 
-由於 Office 365 應用程式是互連的, 因此建議您在建立原則時, 同時指派常用的應用程式。
+由於 Office 365 應用程式是互連的，因此建議您在建立原則時，同時指派常用的應用程式。
 
 常見的互連應用程式包括 Microsoft Flow、Microsoft Planner、Microsoft 小組、Office 365 Exchange Online、Office 365 SharePoint Online 和 Office 365 Yammer。
 
-在會話或工作的開頭控制存取時, 需要使用者互動的原則 (例如多重要素驗證) 很重要。 如果您沒有這麼做, 使用者將無法完成應用程式內的某些工作。 例如, 如果您在未受管理的裝置上要求多重要素驗證來存取 SharePoint, 而不是透過電子郵件, 則在其電子郵件中工作的使用者將無法將 SharePoint 檔案附加至訊息。 如需詳細資訊, 請參閱這篇文章: [Azure Active Directory 條件式存取中的服務相依性為何？](service-dependencies.md)。
+在會話或工作的開頭控制存取時，需要使用者互動的原則（例如多重要素驗證）很重要。 如果您沒有這麼做，使用者將無法完成應用程式內的某些工作。 例如，如果您在未受管理的裝置上要求多重要素驗證來存取 SharePoint，而不是透過電子郵件，則在其電子郵件中工作的使用者將無法將 SharePoint 檔案附加至訊息。 如需詳細資訊，請參閱這篇文章： [Azure Active Directory 條件式存取中的服務相依性為何？](service-dependencies.md)。
 
 ## <a name="what-you-should-avoid-doing"></a>您應該避免做的事
 
@@ -110,7 +110,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 - **封鎖存取** - 此組態會封鎖您整個組織，這絕對不是一個好方法。
 - **需要符合規範的裝置** - 針對尚未註冊其裝置的使用者，此原則會封鎖所有存取，包括對 Intune 入口網站的存取。 如果您是沒有已註冊裝置的系統管理員，此原則會阻擋您回到 Azure 入口網站來變更此原則。
 - **需要加入網域** - 如果您還沒有已加入網域的裝置，此原則也可能封鎖您組織中所有使用者的存取。
-- **需要應用程式保護原則**-如果您沒有 Intune 原則, 則此原則封鎖存取也可能封鎖組織中所有使用者的存取。 如果您是沒有 Intune 應用程式保護原則的用戶端應用程式的系統管理員, 則此原則會阻止您回到 Intune 和 Azure 等入口網站。
+- **需要應用程式保護原則**-如果您沒有 Intune 原則，則此原則封鎖存取也可能封鎖組織中所有使用者的存取。 如果您是沒有 Intune 應用程式保護原則的用戶端應用程式的系統管理員，則此原則會阻止您回到 Intune 和 Azure 等入口網站。
 
 **針對所有使用者、所有雲端應用程式、所有裝置平台：**
 
@@ -146,5 +146,5 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 如果您想要知道：
 
-- 如何設定條件式存取原則的詳細說明, 請參閱[使用 Azure Active Directory 條件式存取的特定應用程式需要 MFA](app-based-mfa.md)。
-- 如何規劃您的條件式存取原則, 請參閱[如何在 Azure Active Directory 中規劃條件式存取部署](plan-conditional-access.md)。
+- 如何設定條件式存取原則的詳細說明，請參閱[使用 Azure Active Directory 條件式存取的特定應用程式需要 MFA](app-based-mfa.md)。
+- 如何規劃您的條件式存取原則，請參閱[如何在 Azure Active Directory 中規劃條件式存取部署](plan-conditional-access.md)。

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193965"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176734"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道
 
@@ -48,7 +48,7 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 ## <a name="scenario"></a>案例
 
-本文說明如何針對內部和外部取用者使用單一 API 管理服務, 並將其作為內部部署和雲端 Api 的單一前端。 您也會看到如何使用應用程式閘道中提供的路由功能，只公開您 API 的一部分 (在範例中以綠色醒目提示) 供外部取用。
+本文說明如何針對內部和外部取用者使用單一 API 管理服務，並將其作為內部部署和雲端 Api 的單一前端。 您也會看到如何使用應用程式閘道中提供的路由功能，只公開您 API 的一部分 (在範例中以綠色醒目提示) 供外部取用。
 
 在第一個設定範例中，您所有的 API 只能從虛擬網路內部進行管理。 內部取用者 (以橘色醒目提示) 則可存取所有的內部和外部 API。 流量永遠不會送到網際網路。 透過 Express Route 線路傳遞高效能的連線能力。
 
@@ -60,13 +60,13 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>在 API 管理和應用程式閘道之間建立整合的所需條件為何？
 
-* **後端伺服器集區：** 這是 API 管理服務的內部虛擬 IP 位址。
-* **後端伺服器集區設定：** 每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為依據的親和性。 這些設定會套用至集區內所有伺服器。
+* **後端伺服器集區︰** 這是 API 管理服務的內部虛擬 IP 位址。
+* **後端伺服器集區設定：** 每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。 這些設定會套用至集區內所有伺服器。
 * **前端連接埠：** 這是在應用程式閘道上開啟的公用連接埠。 到達的流量會重新導向至其中一個後端伺服器。
 * **接聽程式：** 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，這些值都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
-* **規則：** 規則會繫結接聽程式至後端伺服器集區。
-* **自訂健康情況探查：** 應用程式閘道預設會使用 IP 位址型探查，來找出 BackendAddressPool 中有哪些伺服器正在作用中。 API 管理服務只會回應具有正確主機標頭的要求，因此預設探查會失敗。 需要定義自訂的健全狀況探查以協助應用程式閘道判斷服務正在執行，因此它應該轉送要求。
-* **自訂網域憑證：** 若要從網際網路存取 API 管理，您需要建立其主機名稱和應用程式閘道前端 DNS 名稱的 CNAME 對應。 這可確保主機名稱的標頭和憑證傳送到轉送至 API 管理的應用程式閘道，是 APIM 可以辨識為有效的。 在此範例中，我們將使用兩個憑證 - 分別用於後端和開發人員入口網站。  
+* **規則︰** 規則會繫結接聽程式至後端伺服器集區。
+* **自訂健全狀況探查︰** 應用程式閘道預設會使用 IP 位址型探查，來找出 BackendAddressPool 中有哪些伺服器正在作用中。 API 管理服務只會回應具有正確主機標頭的要求，因此預設探查會失敗。 需要定義自訂的健全狀況探查以協助應用程式閘道判斷服務正在執行，因此它應該轉送要求。
+* **自訂網域憑證︰** 若要從網際網路存取 API 管理，您需要建立其主機名稱和應用程式閘道前端 DNS 名稱的 CNAME 對應。 這可確保主機名稱的標頭和憑證傳送到轉送至 API 管理的應用程式閘道，是 APIM 可以辨識為有效的。 在此範例中，我們將使用兩個憑證 - 分別用於後端和開發人員入口網站。  
 
 ## <a name="overview-steps"></a>整合 API 管理和應用程式閘道的所需步驟
 
@@ -86,7 +86,7 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 > 如果您使用 Azure AD 或第三方驗證，請啟用應用程式閘道中的 [cookie 型工作階段同質性](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)功能。
 
 > [!WARNING]
-> 若要防止應用程式閘道 WAF 在開發人員入口網站中中斷下載 OpenAPI 規格, 您必須停用防火牆規則`942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`。
+> 若要防止應用程式閘道 WAF 在開發人員入口網站中中斷下載 OpenAPI 規格，您必須停用防火牆規則 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`。
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>建立資源管理員的資源群組
 
@@ -123,7 +123,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。 這用來�
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>建立應用程式閘道的虛擬網路和子網路
 
-下面的範例說明如何使用資源管理員建立虛擬網路。
+下列範例顯示如何使用 Resource Manager 建立虛擬網路。
 
 ### <a name="step-1"></a>步驟 1
 
@@ -187,7 +187,7 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 
 ### <a name="step-1"></a>步驟 1
 
-使用具有網域之私密金鑰的憑證詳細資料, 初始化下列變數。 在此範例中，我們會使用 `api.contoso.net` 和 `portal.contoso.net`。  
+使用具有網域之私密金鑰的憑證詳細資料，初始化下列變數。 在此範例中，我們會使用 `api.contoso.net` 和 `portal.contoso.net`。  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -208,12 +208,15 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> 若要設定舊版開發人員入口網站連線，您必須將 `-HostnameType DeveloperPortal` 取代為 `-HostnameType Portal`。
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>建立前端組態的公用 IP 位址
 
@@ -357,7 +360,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"></a>摘要
-VNET 中設定的 Azure API 管理為所有已設定的 Api 提供單一閘道介面, 不論它們是裝載于內部部署或雲端。 整合應用程式閘道與 API 管理提供選擇性地使特定 API 可在網際網路上存取的彈性，並提供 Web 應用程式防火牆來做為 API 管理執行個體的前端。
+VNET 中設定的 Azure API 管理為所有已設定的 Api 提供單一閘道介面，不論它們是裝載于內部部署或雲端。 整合應用程式閘道與 API 管理提供選擇性地使特定 API 可在網際網路上存取的彈性，並提供 Web 應用程式防火牆來做為 API 管理執行個體的前端。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 Azure 應用程式閘道

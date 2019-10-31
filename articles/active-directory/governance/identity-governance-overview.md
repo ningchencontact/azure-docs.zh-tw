@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59a850f590ee71be7e6ab23281cbfdf57147c61
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
-ms.translationtype: HT
+ms.openlocfilehash: c90052d1d75ba65a8e0b0e7a2cd26a279019a82d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062693"
+ms.locfileid: "73173147"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD Identity Governance？
 
@@ -97,7 +97,7 @@ Azure Active Directory （Azure AD）身分識別治理可讓您透過適當的�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [什麼是 Azure AD 權利管理？預覽](entitlement-management-overview.md)
+- [什麼是 Azure AD 權利管理？](entitlement-management-overview.md)
 - [什麼是 Azure AD 存取權檢閱？](access-reviews-overview.md)
 - [什麼是 Azure AD Privileged Identity Management？](../privileged-identity-management/pim-configure.md)
 - [使用規定對我有何幫助？](active-directory-tou.md)

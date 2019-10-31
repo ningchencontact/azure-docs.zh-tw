@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: adc7b65b4e079c55b9400b06603625971efc3ea3
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137041"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177671"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]
@@ -119,7 +119,7 @@ Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPi
 }
 ```
 
-如需完整範例，請參閱[快速入門：使用 .NET SDK 來建立資料處理站](quickstart-create-data-factory-powershell.md)。
+如需完整範例，請參閱[快速入門：使用 Azure PowerShell 建立資料處理站](quickstart-create-data-factory-powershell.md)。
 
 ### <a name="net-sdk"></a>.NET SDK
 下列範例呼叫說明如何使用 .NET SDK 以手動方式執行管線：
@@ -142,7 +142,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 - 事件型觸發程序：會回應事件的觸發程序。
 
-管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管線，或單一觸發程序可以啟動多個管線。 在下列觸發程序定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管線清單。 屬性定義包含管線參數的值。
+管線和觸發程式有多對多關聯性（輪轉視窗觸發程式除外）。多個觸發程式可以啟動單一管線，或單一觸發程式可以啟動多個管線。 在下列觸發程序定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管線清單。 屬性定義包含管線參數的值。
 
 ### <a name="basic-trigger-definition"></a>基本觸發程序定義
 
@@ -236,7 +236,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **endTime** | 觸發程序的結束日期和時間。 觸發程序在指定的結束日期和時間之後便不再執行。 此屬性的值不可以是過去的時間。 <!-- This property is optional. --> |
 | **timeZone** | 時區。 目前僅支援 UTC 時區。 |
 | **recurrence** | 指定觸發程序之週期規則的 recurrence 物件。 recurrence 物件支援 **frequency**、**interval**、**endTime**、**count** 及 **schedule** 元素。 定義 recurrence 物件時，必須一併定義 **frequency** 元素。 其他 recurrence 物件元素則為選用元素。 |
-| **frequency** | 觸發程序重複執行時的頻率單位。 支援的值包括 "minute"、"hour"、"day"、"week" 及 "month"。 |
+| **頻率** | 觸發程序重複執行時的頻率單位。 支援的值包括 "minute"、"hour"、"day"、"week" 及 "month"。 |
 | **interval** | 代表 **frequency** 值之間隔的整數值。 **frequency** 值可決定觸發程序執行的頻率。 例如，如果 **interval** 為 3，而 **frequency** 為 "week"，觸發程序就會每隔三週重複執行一次。 |
 | **schedule** | 觸發程序的週期排程。 具有指定之 **frequency** 值的觸發程序會根據週期排程來改變其週期。 **schedule** 屬性會根據分鐘、小時、星期幾、月日及週數來修改週期。
 
@@ -280,7 +280,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | 號 | 否 | 1 | 1 到 1000 | `"interval":10` |
+| **interval** | number | 否 | 1 | 1 到 1000 | `"interval":10` |
 | **endTime** | string | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
@@ -292,7 +292,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **開始時間在過去** | 計算開始時間之後的第一個未來執行時間，並在該時間執行。<br /><br />根據上次執行時間算出的時間執行後續的執行作業。<br /><br />請參閱本表後面的範例。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次發生是根據排程，從開始時間計算。<br /><br />根據週期排程執行後續的執行作業。 |
 | **開始時間在未來或為目前時間** | 在指定的開始時間執行一次。<br /><br />根據上次執行時間算出的時間執行後續的執行作業。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次發生是根據排程，從開始時間計算。<br /><br />根據週期排程執行後續的執行作業。 |
 
-我們來看看一個範例：當開始時間在過去、具有週期性但無排程時，會發生什麼情況。 假設目前時間是 2017-04-08 13:00，開始時間是 2017-04-07 14:00，而週期是每隔兩天。 (定義 **recurrence** 值的方式是將 **frequency** 屬性設定為 "day"，並將 **interval**屬性設定為 2)。請注意，**startTime** 值是過去的時間，發生在目前時間之前。
+我們來看看一個範例：當開始時間在過去、具有週期性但無排程時，會發生什麼情況。 假設目前時間是 2017-04-08 13:00，開始時間是 2017-04-07 14:00，而週期是每隔兩天。 （**週期**值的定義方式是將**frequency**屬性設定為 "day"，並將**interval**屬性設為2）。請注意， **startTime**值為過去，並在目前時間之前發生。
 
 根據這些條件，第一次執行是在 2017-04-09 14:00。 排程器引擎會從開始時間計算執行週期。 過去的任何執行個體都會遭到捨棄。 引擎會使用下一個在未來發生的執行個體。 在此案例中，開始時間是 2017-04-07 下午 2:00。 下一個執行個體是在該時間的 2 天後，也就是 2017-04-09 下午 2:00。
 

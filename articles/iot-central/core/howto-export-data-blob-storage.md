@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: efa44df378e88b870654111295c10bec06539adb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950518"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176245"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>將資料匯出至 Azure Blob 儲存體
 
@@ -132,7 +132,7 @@ ms.locfileid: "72950518"
 當第一次開啟「連續資料匯出」時，會匯出包含所有裝置的單一快照集。 每個裝置包含：
 - IoT Central 中裝置的 `id`
 - 裝置的 `name`
-- 來自[裝置佈建服務](https://aka.ms/iotcentraldocsdps) 的 `deviceId`
+- 來自[裝置佈建服務](/azure/iot-central/core/howto-connect-nodejs) 的 `deviceId`
 - 裝置範本資訊
 - 屬性值
 - 設定值

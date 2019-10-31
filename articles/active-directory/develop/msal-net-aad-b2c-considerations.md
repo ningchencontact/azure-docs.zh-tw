@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: twhitney
+ms.date: 10/29/2019
+ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a30f792a74ffc3aa983d84d902fa736a3f9b015
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0996c5635223800a981497256654b7e418bf4163
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802946"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175609"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 以社交身分識別登入使用者
 
@@ -36,12 +36,13 @@ ms.locfileid: "72802946"
 
 ## <a name="authority-for-a-azure-ad-b2c-tenant-and-policy"></a>Azure AD B2C 租使用者和原則的授權單位
 
-要使用的授權單位是 `https://login.microsoftonline.com/tfp/{tenant}/{policyName}`，其中：
+要使用的授權單位是 `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`，其中：
 
-- `tenant` 是 Azure AD B2C 租使用者的名稱， 
-- `policyName` 要套用的原則名稱（例如，"b2c_1_susi" 用於登入/註冊）。
+- `azureADB2CHostname` 是 Azure AD B2C 租使用者加上主機的名稱（例如 `{your-tenant-name}.b2clogin.com`），
+- `tenant` 是 Azure AD B2C 租使用者的完整名稱（例如，`{your-tenant-name}.onmicrosoft.com`）或租使用者的 GUID， 
+- `policyName` 要套用的原則或使用者流程的名稱（例如，"b2c_1_susi" 用於註冊/登入）。
 
-Azure AD B2C 的目前指引是使用 `b2clogin.com` 作為授權單位。 例如： `$"https://{your-tenant-name}.b2clogin.com/tfp/{your-tenant-ID}/{policyname}"` 。 如需詳細資訊，請參閱此[檔](/azure/active-directory-b2c/b2clogin)。
+如需 Azure AD B2C 授權單位的詳細資訊，請參閱此[檔](/azure/active-directory-b2c/b2clogin)。
 
 ## <a name="instantiating-the-application"></a>將應用程式具現化
 
@@ -50,12 +51,13 @@ Azure AD B2C 的目前指引是使用 `b2clogin.com` 作為授權單位。 例�
 ```csharp
 // Azure AD B2C Coordinates
 public static string Tenant = "fabrikamb2c.onmicrosoft.com";
+public static string AzureADB2CHostname = "fabrikamb2c.b2clogin.com";
 public static string ClientID = "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6";
 public static string PolicySignUpSignIn = "b2c_1_susi";
 public static string PolicyEditProfile = "b2c_1_edit_profile";
 public static string PolicyResetPassword = "b2c_1_reset";
 
-public static string AuthorityBase = $"https://fabrikamb2c.b2clogin.com/tfp/{Tenant}/";
+public static string AuthorityBase = $"https://{AzureADB2CHostname}/tfp/{Tenant}/";
 public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
 public static string AuthorityEditProfile = $"{AuthorityBase}{PolicyEditProfile}";
 public static string AuthorityPasswordReset = $"{AuthorityBase}{PolicyResetPassword}";
@@ -71,14 +73,16 @@ application = PublicClientApplicationBuilder.Create(ClientID)
 
 ```csharp
 IEnumerable<IAccount> accounts = await application.GetAccountsAsync();
-AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
+AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
                                             .WithAccount(GetAccountByPolicy(accounts, policy))
+                                            .WithParentActivityOrWindow(ParentActivityOrWindow)
                                             .ExecuteAsync();
 ```
 
 取代為
 
 - `policy` 是先前的其中一個字串（例如 `PolicySignUpSignIn`）。
+- Android （活動）需要 `ParentActivityOrWindow`，對於支援父 UI 的其他平臺（例如 Windows 中的 windows 和 iOS 中的 UIViewController）則為選擇性。 如需詳細資訊，請參閱[UI 對話方塊](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow)。
 - `GetAccountByPolicy(IEnumerable<IAccount>, string)` 是一種方法，可尋找給定原則的帳戶。 例如：
 
   ```csharp
@@ -94,11 +98,11 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
   }
   ```
 
-目前藉由呼叫 `AcquireTokenInteractive`來套用原則（例如，讓使用者編輯其設定檔或重設其密碼）。 在這兩個原則的案例中，您不會使用傳回的權杖/驗證結果。
+套用原則或使用者流程（例如，讓終端使用者編輯其設定檔或重設其密碼）目前是藉由呼叫 `AcquireTokenInteractive`來完成。 在這兩個原則的案例中，您不會使用傳回的權杖/驗證結果。
 
 ## <a name="special-case-of-editprofile-and-resetpassword-policies"></a>EditProfile 和 ResetPassword 原則的特殊案例
 
-當您想要提供使用者使用社交身分識別登入的經驗，然後編輯其設定檔，您要套用 Azure AD B2C EditProfile 原則。 執行此動作的方法是呼叫具有該原則之特定授權單位的 `AcquireTokenInteractive`，並將提示設定為 [`Prompt.NoPrompt`]，以避免顯示帳戶選取對話方塊（因為使用者已登入）
+當您想要提供經驗，讓使用者使用社交身分識別登入，然後編輯其設定檔時，您會想要套用 Azure AD B2C 編輯設定檔原則。 執行此動作的方法是呼叫具有該原則之特定授權單位的 `AcquireTokenInteractive`，並將提示設定為 [`Prompt.NoPrompt`]，以防止顯示 [帳戶選取] 對話方塊（因為使用者已經登入，而且有作用中的 cookie 會話）。
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -124,8 +128,8 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 
 **不建議使用**此流程，因為詢問使用者密碼的應用程式並不安全。 如需此問題的詳細資訊，請參閱[這篇文章](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)。 
 
-藉由使用使用者名稱/密碼，您將會產生一些事項：
-- 新式身分識別的核心租使用者：密碼會取得 fished、重新執行。 因為我們有可攔截的共用密碼概念。 這與無密碼不相容。
+藉由使用使用者名稱/密碼，您會產生許多事項：
+- 新式身分識別的核心原則：密碼會取得 fished、重新執行。 因為我們有可攔截的共用密碼概念。 這與無密碼不相容。
 - 需要執行 MFA 的使用者將無法登入（因為沒有互動）。
 - 使用者將無法執行單一登入。
 
@@ -149,13 +153,12 @@ AcquireTokenByUsernamePassword(
 
 ### <a name="limitations-of-the-ropc-flow"></a>ROPC 流程的限制
  - ROPC 流程**僅適用于本機帳戶**（您可以使用電子郵件或使用者名稱向 Azure AD B2C 註冊）。 如果與 Azure AD B2C （Facebook、Google 等）支援的任何身分識別提供者同盟，此流程就無法運作。
- - 目前，從 MSAL 執行 ROPC 流程時，Azure AD B2C 不會**傳回任何 id_token** 。 這表示無法建立帳戶物件，因此在快取中，將不會有任何帳戶，也不會有任何使用者。 在此案例中，AcquireTokenSilent 流程將無法使用。 不過，ROPC 不會顯示 UI，因此不會影響使用者體驗。
 
 ## <a name="google-auth-and-embedded-webview"></a>Google Auth 和 Embedded Web 視圖
 
 如果您是使用 Google 做為身分識別提供者的 Azure AD B2C 開發人員，我們會建議您使用系統瀏覽器，因為 Google 不允許[來自內嵌網站的驗證](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)。 目前，`login.microsoftonline.com` 是 Google 的受信任授權單位。 使用此授權單位將可使用內嵌的 web 工作。 不過，使用 `b2clogin.com` 不是 Google 的受信任授權單位，因此使用者將無法進行驗證。
 
-我們將會提供 wiki 的更新，以及在發生變更時的[問題](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688)。
+如果發生變更，我們將會提供此[問題](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688)的更新。
 
 ## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>在 MSAL.Net 中使用 Azure AD B2C 進行快取 
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300211"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171631"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 虛擬桌面合作夥伴整合
 
@@ -71,6 +71,16 @@ deviceTRUST 是一種 Windows 虛擬桌面增值的服務提供者，可就公�
 deviceTRUST 利用其內容相關的安全性技術來擴充 Windows 虛擬桌面的價值。 deviceTRUST 可讓您進行條件式存取以進行安全的 Windows 虛擬桌面存取、Windows 虛擬桌面內的條件式應用程式存取，以及套用條件式 Windows 虛擬桌面原則，而不需要任何其他基礎 使用 deviceTRUST 可提供符合所有安全性、合規性和法規需求的行動裝置彈性工作區。 
 
 - [前往合作夥伴網站](https://devicetrust.com/wvd)。
+
+## <a name="ivanti"></a>Ivanti
+
+![Ivanti 標誌](./media/partners/ivanti.png)
+
+Ivanti 使用者工作區管理員是一項 Windows 虛擬桌面的增值服務，可將使用者資料與桌上型電腦分開以方便移植，藉此簡化桌面部署和管理。 透過 Ivanti，使用者可以提供複雜的專案，例如遷移至 Windows 10、採用 Office 365，或更快速地將服務移至雲端。 
+
+與 Windows 虛擬桌面搭配使用時，Ivanti 的使用者工作區管理員可提供使用者桌面體驗的簡單內容管理，並排除長時間登入和 eradicating 群組原則惡夢。 Ivanti 使用者工作區管理員現成的範本可簡化使用者透過代理程式和現有主控台的安裝。 Ivanti 使用者工作區管理員可提供快速且安全的桌上型電腦，讓使用者喜愛、節省伺服器的成本、更有效率地管理使用者，以及降低端點安全性風險。 
+
+- [前往合作夥伴網站](https://www.ivanti.com/products/user-workspace-manager)。
 
 ## <a name="lakeside-software"></a>Lakeside 軟體
 
@@ -133,6 +143,26 @@ PrinterLogic 平臺可在您自己的私人雲端中以 SaaS 或 web 堆疊的�
 
 - [前往合作夥伴網站](https://www.printerlogic.com)。
 
+## <a name="numecent"></a>Numecent
+
+![Numecent 標誌](./media/partners/numecent.png)
+
+Numecent 是 Windows 虛擬桌面增值的服務提供者，透過在 Windows 虛擬桌面環境中快速上架及遷移複雜或不相容的 Windows 應用程式，大幅降低總營運成本。 Numecent 也可將使用者必須執行的設定量降到最低、減少應用程式更新，並簡化複雜的進程。 由於 Numecent Cloudpaging 支援的應用程式比其他任何應用程式傳遞工具更順暢，因此它會在具有一組多樣化應用程式的環境中減少時間和 IT 工作負載。 
+
+與 Windows 虛擬桌面搭配使用時，Cloudpaging 可透過從部署到升級、計量和移除應用程式的方式來完成軟體資產生命週期，以進一步降低成本。 Cloudpaging 會視需要以動態方式將應用程式布建到 Windows 虛擬桌面部署，以簡化映射管理。 Cloudpaging 可協助應用程式在沒有系統管理或介入的情況下，透過週期性 Windows 10 更新執行。 Cloudpaging 也可讓您更有效率地部署和使用這些應用程式，以減少昂貴應用程式的授權成本。 
+
+- [前往合作夥伴網站](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)。
+
+## <a name="rdpsoft"></a>RDPSoft
+
+![RDPSoft 標誌](./media/partners/rdpsoft.png)
+
+RDPSoft 是 Windows 虛擬桌面合作夥伴，提供強大且實惠的監視、管理和報告解決方案。 其遠端桌面指揮供應專案可讓 IT 專業人員深入瞭解其 Windows 虛擬桌面部署的健康情況、效能、使用者活動、授權和安全性。 
+ 
+RDPSoft 的遠端桌面指揮解決方案增強了 Windows 虛擬桌面系統管理。 高階管理功能藉由提供遠端協助、使用者會話和流程管理，簡化 Windows 虛擬桌面管理工作的委派，以支援服務台人員。 同時，遠端桌面操作套件會收集有關每個使用者的效能和負載、使用者活動和審核、Windows 虛擬桌面連線品質（延遲和頻寬）、授權和安全性到中央 Azure SQL 的豐富計量要審核的資料庫實例。 有了 RDPSoft，豐富的歷程記錄報告和完整的儀表板只需按一下即可。
+
+- [前往合作夥伴網站](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
 ## <a name="thinprint"></a>ThinPrint
 
 ![ThinPrint 標誌](./media/partners/thinprint.png)
@@ -143,6 +173,16 @@ ThinPrint 的 ezeep 解決方案會藉由啟用現有企業列印基礎結構的
 
 - [請參閱聯合解決方案簡介](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)。
 - [前往合作夥伴網站](https://www.ezeep.com/wvd-printing)。
+
+## <a name="tricerat"></a>Tricerat
+
+![Tricerat 標誌](./media/partners/tricerat.png)
+
+Tricerat 為 Windows 虛擬桌面和其他桌面平臺提供了絕佳的列印管理解決方案。 Tricerat software 具有強大的功能，為使用者和系統管理員提供更好的體驗。 系統管理員可以透過完整的驅動程式管理、簡化的列印佇列部署，以及跨混合式平臺的一致管理，來提升效率。 使用者經驗改善了較短的登入時間、以使用者、裝置和網路位置為基礎的智慧型列印佇列，以及用於快速印表機選取的自助選項。 
+
+使用 Tricerat 時，列印功能會順暢地 Windows 虛擬桌面或更遠的範圍內。 Tricerat software 可讓系統管理員輕鬆地將內部部署印表機連接到雲端，將企業列印管理從傳統環境延伸到新的現代化工作區。
+
+- [前往合作夥伴網站](https://www.tricerat.com/solutions/wvd-microsoft/)。
 
 ## <a name="workspot"></a>Workspot
 

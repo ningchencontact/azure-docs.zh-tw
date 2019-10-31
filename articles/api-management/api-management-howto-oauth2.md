@@ -10,18 +10,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: e6b5c8c2f734a12fe246a82ce1aa1dc53893ab64
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072382"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176623"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
 
 許多 API 都支援使用 [OAuth 2.0](https://oauth.net/2/) 來保護 API，並確保只有有效的使用者才能存取，而且他們只能存取獲授權的資源。 為了搭配使用 Azure API 管理的互動式開發人員主控台與這類 API，服務可讓您設定服務執行個體來使用已啟用 OAuth 2.0 的 API。
+
+> [!IMPORTANT]
+> 新開發人員入口網站的互動式主控台尚未提供 OAuth 2.0 授權。
 
 ## <a name="prerequisites"> </a>先決條件
 
@@ -35,7 +38,7 @@ ms.locfileid: "70072382"
 ## <a name="step1"> </a>在 API 管理中設定 OAuth 2.0 授權伺服器
 
 > [!NOTE]
-> 若您尚未建立 API 管理服務實例, 請參閱[建立 Api 管理服務實例][Create an API Management service instance]。
+> 若您尚未建立 API 管理服務實例，請參閱[建立 Api 管理服務實例][Create an API Management service instance]。
 
 1. 按一下左側功能表中的 [OAuth 2.0] 索引標籤，然後按一下 [+ 新增]。
 
@@ -54,7 +57,7 @@ ms.locfileid: "70072382"
 
     勾選需要的類型以指定 [授權授與類型]。 。
 
-    輸入 [Authorization endpoint URL]。 針對 Azure Active Directory, 此 url 將與下列 url 類似, 其中`<tenant_id>`會以您的 Azure AD 租使用者識別碼取代。
+    輸入 [Authorization endpoint URL]。 針對 Azure Active Directory，此 URL 將與下列 URL 類似，其中 `<tenant_id>` 會取代為您 Azure AD 租使用者的識別碼。
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -92,11 +95,11 @@ ms.locfileid: "70072382"
 
     ![OAuth 2.0 設定](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>在開發人員入口網站中測試 OAuth 2.0 使用者授權
+## <a name="step3"></a>舊版開發人員入口網站-測試 OAuth 2.0 使用者授權
 
-設定好 OAuth 2.0 授權伺服器並將 API 設定為使用該伺服器後，您可以前往開發人員入口網站並呼叫 API 來進行測試。  在 Azure API 管理執行個體 [概觀] 頁面中的頂端功能表中，按一下 [開發人員入口網站]。
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![開發人員入口網站][api-management-developer-portal-menu]
+設定好 OAuth 2.0 授權伺服器並將 API 設定為使用該伺服器後，您可以前往開發人員入口網站並呼叫 API 來進行測試。 在 Azure API 管理實例 [**總覽**] 頁面的頂端功能表中，按一下 [**開發人員入口網站（舊版）** ]。
 
 在上方功能表中按一下 [API]，然後選取 [Echo API]。
 
@@ -114,7 +117,7 @@ ms.locfileid: "70072382"
 > [!NOTE]
 > 如果已停用快顯視窗，瀏覽器會提示您加以啟用。 啟用後，請再次選取 [授權碼] ，系統就會顯示登入表單。
 
-![登入][api-management-oauth2-signin]
+![Sign in][api-management-oauth2-signin]
 
 登入後，系統會將授權要求的 `Authorization : Bearer` 標頭填入 [要求標頭]。
 
@@ -128,7 +131,6 @@ ms.locfileid: "70072382"
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
 [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 

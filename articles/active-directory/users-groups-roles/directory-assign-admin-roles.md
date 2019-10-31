@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f7c1987cd4184ba6cda37d4d1894f0dba0b2f1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024640"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177023"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -236,6 +236,10 @@ ms.locfileid: "73024640"
 > 這些功能目前正在開發中。
 >
 
+### <a name="group-administratorgroup-administrator"></a>[群組管理員](#group-administrator)
+
+此角色中的使用者可以建立/管理群組及其設定（例如命名和到期原則）。 請務必瞭解，將使用者指派給這個角色，讓他們能夠在除了 Outlook 以外的各種工作負載（例如小組、SharePoint、Yammer）上管理租使用者中的所有群組。 此外，使用者也可以跨各種不同的系統管理員入口網站管理各種群組設定，例如 Microsoft 系統管理中心、Azure 入口網站，以及特定工作負載（例如小組和 SharePoint 系統管理中心）。
+
 ### <a name="guest-inviterguest-inviter-permissions"></a>[來賓邀請者](#guest-inviter-permissions)
 
 當 [**成員可以邀請**] 使用者設定設為 [否] 時，此角色中的使用者可以管理 Azure Active Directory B2B 來賓使用者邀請。 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
@@ -286,6 +290,10 @@ ms.locfileid: "73024640"
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[訊息中心讀者](#message-center-reader-permissions)
 
 此角色中的使用者可以在已設定的服務（例如 Exchange、Intune 和 Microsoft 小組）上，監視[Office 365 訊息中心](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)內的通知和諮詢健康情況更新。 訊息中心讀者每週會收到貼文的電子郵件摘要和更新，並且可以在 Office 365 中分享訊息中心的貼文。 在 Azure AD 中，指派至此角色的使用者只會有 Azure AD 服務的唯讀存取權，與使用者和群組一樣。 這個角色沒有檢視、建立或管理支援票證的存取權。
+
+### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Office 應用程式系統管理員](#office-apps-administrator-permissions)
+
+此角色中的使用者可以管理 Office 365 應用程式的雲端設定。 這包括管理雲端原則、自助式下載管理，以及可查看 Office 應用程式相關報表的功能。 此角色還會授與管理支援票證的能力，以及監視主要系統管理中心內的服務健康情況。 指派給此角色的使用者也可以管理 Office 應用程式中新功能的通訊。 
 
 ### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[合作夥伴第1層支援](#partner-tier1-support-permissions)
 
@@ -1060,6 +1068,28 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
 | office365. Microsoft.office365.webportal/allEntities/standard/read   | 讀取 office365. Microsoft.office365.webportal 中所有資源的標準屬性。 |
 
+### <a name="group-administrator"></a>群組管理員
+可以管理群組和群組設定的所有層面，例如命名和到期原則
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft 目錄/群組/基本/讀取 | 讀取 Azure Active Directory 中 Groups 的標準屬性。  |
+| microsoft 目錄/群組/基本/更新 | 更新 Azure Active Directory 中 groups 的基本屬性。 |
+| microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
+| microsoft 目錄/群組/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft 目錄/群組/刪除 | 刪除 Azure Active Directory 中的 groups。 |
+| microsoft 目錄/群組/Groups.hiddenmembers/讀取 | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
+| microsoft 目錄/群組/成員/更新 | 更新 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft。目錄/群組/擁有者/更新 | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
+| microsoft. 目錄/群組/還原 | 還原 Azure Active Directory 中的 groups。 |
+| microsoft 目錄/群組/設定/更新 | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
+| microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+| microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
+
 ### <a name="guest-inviter-permissions"></a>來賓邀請者許可權
 能夠邀請不受 [成員能夠邀請來賓] 設定限制的來賓使用者。
 
@@ -1201,6 +1231,25 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
+
+### <a name="office-apps-administrator-permissions"></a>Office 應用程式系統管理員許可權
+可以管理 Office 應用程式的雲端服務，包括原則和設定管理，以及管理對終端使用者裝置選取、取消選取和發佈「新功能」功能內容的能力。
+
+> [!NOTE]
+> 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+>
+>
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
+| microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+| microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
+| office365. userCommunication/allEntities/allTasks | 閱讀及更新新消息的可見度。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 
 ### <a name="partner-tier1-support-permissions"></a>合作夥伴第1層支援許可權
 
@@ -1636,6 +1685,7 @@ CRM 服務管理員 | Dynamics 365 管理員 | 44367163-eba1-44c3-98af-f5787879f
 Exchange 服務管理員 | Exchange 系統管理員 | 29232cdf-9323-42fd-ade2-1d097af3e4de
 外部識別提供者系統管理員 | 外部識別提供者系統管理員 | be2f45a1-457d-42af-a067-6ec1fa63bc45
 全域讀者 | 全域讀者 | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+群組管理員 | 群組管理員 | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 來賓邀請者 | 來賓邀請者 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 服務台系統管理員 | 密碼管理員 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune 服務管理員 | Intune 管理員 | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1644,6 +1694,7 @@ Kaizala 系統管理員 | Kaizala 系統管理員 | 74ef975b-6605-40af-a5d2-b953
 Lync 服務管理員 | 商務用 Skype 的管理員 | 75941009-915a-4869-abe7-691bff18279e
 訊息中心隱私權讀者 | 訊息中心隱私權讀者 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 訊息中心讀取者 | 訊息中心讀者 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Office 應用程式系統管理員 | Office 應用程式系統管理員 | 2b745bdf-0803-4d80-aa65-822c4493daac
 合作夥伴第 1 層支援 | 合作夥伴第 1 層支援 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 合作夥伴第 2 層支援 | 合作夥伴第 2 層支援 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 密碼管理員 | 密碼管理員 | 966707d0-3269-4727-9be2-8c3a10f19b9d
