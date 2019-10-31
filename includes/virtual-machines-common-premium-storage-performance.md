@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391578"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182189"
 ---
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -189,7 +189,7 @@ IO 大小是其中一個很重要的因素。 IO 大小是指應用程式所產�
 *作業成本*  
 在許多情況下，使用進階儲存體的整體作業成本，可能會低於使用標準儲存體。
 
-例如，假設應用程式需要 16,000 IOPS。 若要達到此效能，您需要標準 @ no__t-0D14 Azure IaaS VM，其可使用32標準儲存體 1 TB 磁片來提供最大 IOPS 16000。 每個 1 TB 標準儲存體磁片最多可達到 500 IOPS。 此 VM 的每月預估成本為 $1,570。 32 個標準儲存體磁碟的每月成本為 $1,638。 預估每月總成本為 $3,208。
+例如，假設應用程式需要 16,000 IOPS。 若要達到此效能，您需要標準\_D14 Azure IaaS VM，其可使用32標準儲存體 1 TB 磁片來提供16000的最大 IOPS。 每個 1 TB 標準儲存體磁片最多可達到 500 IOPS。 此 VM 的每月預估成本為 $1,570。 32 個標準儲存體磁碟的每月成本為 $1,638。 預估每月總成本為 $3,208。
 
 不過，如果將相同的應用程式裝載於進階儲存體，則只需要較小的 VM 大小和較少的進階儲存體磁碟，因此可降低整體成本。 Standard\_DS13 VM 可以使用四個 P30 磁碟來滿足 16,000 IOPS 需求。 DS13 VM 的最大 IOPS 為 25,600，每個 P30 磁碟的最高 IOPS 為 5,000。 整體來說，這項設定可以達到 5,000 x 4 = 20,000 IOPS。 此 VM 的每月預估成本為 $1,003。 四個 P30 進階儲存體磁碟的每月成本為 $544.34。 預估每月總成本為 $1,544。
 
@@ -298,12 +298,12 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 | SUSE | SLES 12 或更新版本| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 或更新版本| 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0 + 或更新版本| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5、6.6、6.7、7.0 或更新版本| &nbsp; | [LIS4 (必要)](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
-| CentOS | 7.1 + 或更新版本| 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
+| CentOS | 6.5、6.6、6.7、7.0 或更新版本| &nbsp; | [LIS4 (必要)](https://www.microsoft.com/download/details.aspx?id=51612) <br> *請參閱下一節中的附註* |
+| CentOS | 7.1 + 或更新版本| 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://www.microsoft.com/download/details.aspx?id=51612) <br> *請參閱下一節中的附註* |
 | Red Hat Enterprise Linux (RHEL) | 6.8 +、7.2 + 或更新版本 | &nbsp; | &nbsp; |
 | Oracle | 6.0 +、7.2 + 或更新版本 | &nbsp; | UEK4 或 RHCK |
-| Oracle | 7.0-7.1 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 6.4-6.7 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Openlogic CentOS 的 LIS 驅動程式
 

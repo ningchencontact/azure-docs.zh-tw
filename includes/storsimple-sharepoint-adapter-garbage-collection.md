@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b5d9deacdd4266da30f17c95b6e575a652d2f76
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 00d292b3ba2d1b6c7c425d4c9f89188e660ac80d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174021"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182187"
 ---
 在此程序中，您將會：
 
@@ -20,12 +20,12 @@ ms.locfileid: "67174021"
 
 #### <a name="to-prepare-to-run-the-maintainer"></a>準備執行維護程式
 1. 在 Web 前端伺服器上，以系統管理員身分開啟 SharePoint 2013 管理命令介面。
-2. 瀏覽至資料夾開機磁碟機  :\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
+2. 瀏覽至資料夾開機磁碟機:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
 3. 將 **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** 重新命名為 **web.config**。
 4. 使用 `aspnet_regiis -pdf connectionStrings` 解密 web.config 檔案。
 5. 在解密的 web.config 檔案中的 `connectionStrings` 節點下，為您的 SQL Server 執行個體和內容資料庫名稱新增連接字串。 請參閱下列範例。
    
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
+    `<add name="RBSMaintainerConnectionWSSContent" connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 6. 使用 `aspnet_regiis –pef connectionStrings` 重新加密 web.config 檔案。 
 7. 將 web.config 重新命名為 Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config。 
 
@@ -37,7 +37,7 @@ ms.locfileid: "67174021"
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. 在 Web 前端伺服器上的**管理中心**下，為所需的內容資料庫編輯 **Web 應用程式一般設定**以暫時停用資源回收筒。 這個動作將同時清空任何相關網站集合的資源回收筒。 若要這樣做，請按一下 [管理中心]   ->  [應用程式管理]   ->  [Web 應用程式 (管理 Web 應用程式)]   ->  [SharePoint - 80]   ->  [一般應用程式設定]  。 將**資源回收筒狀態**設為 **關閉**。
+2. 在 Web 前端伺服器上的**管理中心**下，為所需的內容資料庫編輯 **Web 應用程式一般設定**以暫時停用資源回收筒。 這個動作將同時清空任何相關網站集合的資源回收筒。 若要這樣做，請按一下 [管理中心]  ->  [應用程式管理]  ->  [Web 應用程式 (管理 Web 應用程式)]  ->  [SharePoint - 80]  ->  [一般應用程式設定]。 將**資源回收筒狀態**設為 **關閉**。
    
     ![Web 應用程式一般設定](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -61,5 +61,5 @@ ms.locfileid: "67174021"
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. 在 Web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。 若要這樣做，請按一下 [管理中心]   ->  [應用程式管理]   ->  [Web 應用程式 (管理 Web 應用程式)]   ->  [SharePoint - 80]   ->  [一般應用程式設定]  。 將資源回收筒狀態設為**開啟**。
+2. 在 Web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。 若要這樣做，請按一下 [管理中心]  ->  [應用程式管理]  ->  [Web 應用程式 (管理 Web 應用程式)]  ->  [SharePoint - 80]  ->  [一般應用程式設定]。 將資源回收筒狀態設為**開啟**。
 

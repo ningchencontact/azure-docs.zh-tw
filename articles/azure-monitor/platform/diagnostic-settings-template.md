@@ -1,5 +1,5 @@
 ---
-title: 使用 Resource Manager 範本在 Azure 中建立診斷設定 |Microsoft Docs
+title: 使用 Resource Manager 範本在 Azure 中建立診斷設定
 description: 使用 Resource Manager 範本來建立診斷設定，以將 Azure 平臺記錄轉送至 Azure 監視器記錄、Azure 儲存體或 Azure 事件中樞。
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597293"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200483"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>使用 Resource Manager 範本在 Azure 中建立診斷設定
 Azure 中的[平臺記錄](platform-logs-overview.md)會針對 azure 資源和它們所依賴的 azure 平臺，提供詳細的診斷和審核資訊。 本文詳細說明如何使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來設定診斷設定，以將平臺記錄檔收集到不同的目的地。 這可讓您在建立資源時，自動開始收集平臺記錄。
@@ -59,7 +59,7 @@ Resource Manager 範本有兩個區段，您必須進行編輯以建立診斷設
 ```
 
 ### <a name="resources"></a>資源
-在您要建立診斷設定之資源的資源陣列中，新增 `[resource namespace]/providers/diagnosticSettings` 類型的資源。 [屬性] 區段會遵循 [[診斷設定-建立或更新](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)] 中所述的格式。 新增 `metrics` 屬性，以在[資源支援計量](metrics-supported.md)時，將資源計量收集到相同的目的地。
+在您要建立診斷設定之資源的資源陣列中，新增 `[resource namespace]/providers/diagnosticSettings`類型的資源。 [屬性] 區段會遵循 [[診斷設定-建立或更新](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)] 中所述的格式。 新增 `metrics` 屬性，以在[資源支援計量](metrics-supported.md)時，將資源計量收集到相同的目的地。
    
 ```json
 "resources": [

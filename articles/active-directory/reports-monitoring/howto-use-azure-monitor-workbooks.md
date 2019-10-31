@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175916"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200132"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure Active Directory 報表 Azure 監視器活頁簿
 
@@ -77,23 +77,17 @@ ms.locfileid: "73175916"
 -   報告讀取者
 -   應用程式管理員
 
-
 ## <a name="workbook-access"></a>活頁簿存取 
 
 若要存取活頁簿：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左側導覽窗格中，選取 [ **Azure Active Directory**]。
+1. 流覽至**Azure Active Directory** > **監視** > 活頁**簿**。 
 
-3. 在 [**監視**] 區段中，選取 [活頁**簿**]。 
+1. 選取報表或範本，或在工具列上選取 [**開啟**]。 
 
-    ![選取深入解析](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. 選取報表或範本，或在工具列上選取 [**開啟**]。 
-
-    ![選取 [開啟]](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![在 Azure AD 中尋找 Azure 監視器活頁簿](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>登入分析
 

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: de8782edcc8b9c64621f1ca67d4bb810c926afaf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 06415db201582f3e594173e9fe891ee9fdba4b18
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973377"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200384"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用相依性插入
 
@@ -31,13 +31,13 @@ Azure Functions 支援相依性插入（DI）軟體設計模式，這項技術�
 
 您必須先安裝下列 NuGet 套件，才可以使用相依性插入：
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure。擴充功能](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - 1\.0.28 或更新版本的[函數套件](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
 ## <a name="register-services"></a>註冊伺服器
 
-若要註冊服務，請建立方法來設定元件，並將其新增至 @no__t 0 實例。  Azure Functions 主機會建立 @no__t 為0的實例，並將它直接傳遞至您的方法。
+若要註冊服務，請建立方法來設定並將元件新增至 `IFunctionsHostBuilder` 實例。  Azure Functions 主機會建立 `IFunctionsHostBuilder` 的實例，並將它直接傳遞至您的方法。
 
 若要註冊方法，請加入 `FunctionsStartup` 元件屬性，以指定啟動期間所使用的型別名稱。
 
@@ -72,7 +72,7 @@ namespace MyNamespace
 
 在執行時間處理啟動類別之前和之後執行的一系列註冊步驟。 因此，請記住下列專案：
 
-- *Startup 類別僅適用于設定和註冊。* 避免在啟動過程中使用在啟動時註冊的服務。 例如，請勿嘗試在啟動期間註冊的記錄器中記錄訊息。 註冊程式的這個點太早無法使用您的服務。 執行 `Configure` 方法之後，函式執行時間會繼續註冊其他相依性，這可能會影響服務的運作方式。
+- *Startup 類別僅適用于設定和註冊。* 避免在啟動過程中使用在啟動時註冊的服務。 例如，請勿嘗試在啟動期間註冊的記錄器中記錄訊息。 註冊程式的這個點太早無法使用您的服務。 執行 `Configure` 方法之後，函式執行時間會繼續註冊額外的相依性，這可能會影響服務的運作方式。
 
 - 相依性*插入容器只會保存明確註冊的類型*。 唯一可用來做為得以插入類型的服務就是 `Configure` 方法中的設定。 因此，在安裝期間或得以插入類型中，不能使用如 `BindingContext` 和 `ExecutionContext` 之類的函數特定類型。
 
@@ -80,7 +80,7 @@ namespace MyNamespace
 
 函式插入是用來讓您的相依性可在函式中使用。 使用「處理常式」插入時，您不需要使用靜態類別。
 
-下列範例示範如何將 `IMyService` 和 @no__t 1 相依性插入 HTTP 觸發的函式中。 這個範例會使用在啟動時註冊 `HttpClient` 所需的[Microsoft Extensions. Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/)套件。
+下列範例示範如何將 `IMyService` 和 `HttpClient` 相依性插入 HTTP 觸發的函式中。 這個範例會使用在啟動時註冊 `HttpClient` 所需的[Microsoft Extensions. Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/)套件。
 
 ```csharp
 using System;
@@ -124,9 +124,9 @@ namespace MyNamespace
 
 Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)相同的服務存留期。 針對函式應用程式，不同的服務存留期的行為如下所示：
 
-- **暫時性**：系統會在每個服務要求時建立暫時性服務。
-- 限**域**：限定範圍的服務存留期會符合函式執行存留期。 限域服務會在每次執行時建立一次。 稍後在執行期間對該服務提出的要求會重複使用現有的服務實例。
-- **Singleton**：單一服務存留期會符合主機存留期，並會在該實例上跨函數執行重複使用。 建議使用單一存留期服務來連接和用戶端，例如 `SqlConnection` 或 @no__t 1 實例。
+- **暫時性**：暫時性服務會在每個服務要求時建立。
+- 限**域**：限定範圍的服務存留期符合函式執行存留期。 限域服務會在每次執行時建立一次。 稍後在執行期間對該服務提出的要求會重複使用現有的服務實例。
+- **Singleton**：單一服務存留期會符合主機存留期，並會在該實例上的函式執行重複使用。 建議連接和用戶端使用單一存留期服務，例如 `SqlConnection` 或 `HttpClient` 實例。
 
 在 GitHub 上查看或下載[不同服務存留期的範例](https://aka.ms/functions/di-sample)。
 
@@ -155,9 +155,9 @@ Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.mic
 
 ## <a name="working-with-options-and-settings"></a>使用選項和設定
 
-在 [[應用程式設定](./functions-how-to-use-azure-function-app-settings.md#settings)] 中定義的值可用於 `IConfiguration` 實例中，這可讓您讀取啟動類別中的應用程式設定值。
+在 [[應用程式設定](./functions-how-to-use-azure-function-app-settings.md#settings)] 中定義的值會在 `IConfiguration` 實例中提供，可讓您讀取啟動類別中的應用程式設定值。
 
-您可以將值從 `IConfiguration` 實例解壓縮至自訂類型。 將應用程式設定值複製到自訂類型，可以讓這些值得以插入，輕鬆地測試您的服務。 讀入設定實例的設定必須是簡單的索引鍵/值組。
+您可以從 `IConfiguration` 實例中，將值解壓縮至自訂類型。 將應用程式設定值複製到自訂類型，可以讓這些值得以插入，輕鬆地測試您的服務。 讀入設定實例的設定必須是簡單的索引鍵/值組。
 
 請考慮下列類別，其中包含名稱與應用程式設定一致的屬性。
 
@@ -168,7 +168,7 @@ public class MyOptions
 }
 ```
 
-從 `Startup.Configure` 方法中，您可以使用下列程式碼，將 `IConfiguration` 實例中的值解壓縮至您的自訂類型：
+從 `Startup.Configure` 方法中，您可以使用下列程式碼，將值從 `IConfiguration` 實例解壓縮至您的自訂類型：
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -180,7 +180,7 @@ builder.Services.AddOptions<MyOptions>()
 
 呼叫 `Bind` 會將具有相符屬性名稱的值從設定複製到自訂實例。 Options 實例現在可用於 IoC 容器中，以插入函式中。
 
-Options 物件會插入至函式中，做為泛型 `IOptions` 介面的實例。 使用 [`Value`] 屬性來存取您的設定中找到的值。
+Options 物件會插入至函式中，做為泛型 `IOptions` 介面的實例。 使用 `Value` 屬性來存取您的設定中找到的值。
 
 ```csharp
 using System;
@@ -192,7 +192,6 @@ public class HttpTrigger
 
     public HttpTrigger(IOptions<MyOptions> options)
     {
-        _service = service;
         _settings = options.Value;
     }
 }

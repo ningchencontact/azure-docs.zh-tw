@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 監視器的 Log Analytics 工作區中收集 Azure 資源記錄
+title: 在 Log Analytics 工作區中收集 Azure 資源記錄
 description: 瞭解如何將 Azure 資源記錄串流至 Azure 監視器中的 Log Analytics 工作區。
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 2f5dba7c36ec04263f6d227d82b9fc50b82890a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262436"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200515"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集 Azure 資源記錄
 Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資源內部作業的豐富、經常性資料。 本文說明如何在 Log Analytics 工作區中收集資源記錄，讓您可以使用功能強大的記錄查詢在 Azure 監視器記錄中收集的其他監視資料進行分析，也可以利用警示和之類的其他 Azure 監視器功能項. 
@@ -51,13 +51,13 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
 
 AzureDiagnostics 資料表看起來會像這樣：  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 類別     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
-| Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
+| Service1 | ErrorLogs    |    |    |    | 起 | w1 | e1 |    |    |    |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | 版 k1 | L1 |
 | Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j3 接 | k3 | l3 |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j3 接 | k3 | 級 |
 | Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
@@ -68,7 +68,7 @@ AzureDiagnostics 資料表看起來會像這樣：
  
 - 資料表*Service1AuditLogs* ，如下所示：
 
-    | 資源提供者 | Category | A | B | C |
+    | 資源提供者 | 類別 | A | b | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -76,18 +76,18 @@ AzureDiagnostics 資料表看起來會像這樣：
 
 - 資料表*Service1ErrorLogs* ，如下所示：  
 
-    | 資源提供者 | Category | D | E | F |
+    | 資源提供者 | 類別 | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | w1 | e1 |
+    | Service1 | ErrorLogs |  起 | w1 | e1 |
     | Service1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
 - 資料表*Service2AuditLogs* ，如下所示：  
 
-    | 資源提供者 | Category | G | H | I |
+    | 資源提供者 | 類別 | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | k1 | l1|
-    | Service2 | AuditLogs | j3 接 | k3 | l3|
+    | Service2 | AuditLogs | j1 | 版 k1 | L1|
+    | Service2 | AuditLogs | j3 接 | k3 | 級|
     | ... |
 
 

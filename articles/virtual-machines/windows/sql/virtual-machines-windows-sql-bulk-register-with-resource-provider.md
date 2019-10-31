@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9d4b99447e7c814d737def54dce03c4acc0e5ca
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172972"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199211"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者大量註冊 SQL 虛擬機器
 
@@ -37,6 +37,7 @@ ms.locfileid: "73172972"
 - 已[向資源提供者註冊](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp)並包含未註冊 SQL Server 虛擬機器的[Azure 訂](https://azure.microsoft.com/free/)用帳戶。 
 - 用來註冊虛擬機器的用戶端認證存在於下列任何 RBAC 角色中： [**虛擬機器參與者**]、[**參與者**] 或 [**擁有**者]。 
 - 最新版本的[Az PowerShell](/powershell/azure/new-azureps-module-az)。 
+- 最新版本的 [Az. Microsoft.sqlvirtualmachine] （ https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0 。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -228,6 +229,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 如需 GitHub 上的完整腳本，請參閱[使用 Az PowerShell 大量註冊 SQL vm](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1)。 
 
+複製完整的腳本，並將它儲存為 `RegisterSqLVMs.psm1`。
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 

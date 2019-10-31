@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860898"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200236"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置身分識別
 
@@ -27,7 +27,7 @@ ms.locfileid: "70860898"
 - 假設您已熟悉[中的裝置身分識別管理簡介 Azure Active Directory](overview.md)
 - 提供您使用 Azure AD 入口網站來管理裝置身分識別的相關資訊
 
-## <a name="manage-device-identities"></a>管理裝置身分識別
+## <a name="manage-device-identities"></a>管理裝置識別
 
 Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以使用[直接連結](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)或依照下列手動步驟，來前往該位置：
 
@@ -136,6 +136,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 - 您必須是 Azure AD 中的全域管理員或雲端裝置系統管理員，才能啟用/停用裝置。 
 - 停用裝置會導致裝置無法成功地向 Azure AD 進行驗證，藉此防止裝置存取受裝置 CA 保護的 Azure AD 資源，或使用您的 WH4B 認證。
+- 停用裝置將會同時撤銷裝置上的主要重新整理權杖（PRT）和任何重新整理權杖（RT）。
 
 ### <a name="delete-an-azure-ad-device"></a>刪除 Azure AD 裝置
 
@@ -175,7 +176,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 - 雲端裝置管理員
 - 全域管理員
-- 技術服務管理員
+- 服務台系統管理員
 - Intune 服務管理員
 - 安全性系統管理員
 - 安全性讀取者
@@ -210,11 +211,11 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 若要將報告的資料縮小至您適用的層級，您可以使用下列欄位篩選稽核資料︰
 
-- Category
+- 類別
 - 活動資源類型
-- activities
+- 活動
 - 日期範圍
-- 目標
+- 確定目標
 - 啟動者 (執行者)
 
 除了篩選，您還可以搜尋特定項目。

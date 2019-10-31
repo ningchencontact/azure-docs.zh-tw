@@ -16,19 +16,19 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9efe76f15e2f07495a9d95f69b0c21d2bca4ea8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180546"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199821"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>在我的應用程式（預覽）入口網站上建立工作區
 
 您的使用者可以使用 [我的應用程式（預覽）] 入口網站來查看和啟動他們可以存取的雲端式應用程式。 根據預設，使用者可以存取的所有應用程式會在單一頁面上一起列出。 若要為您的使用者提供更好的組織此頁面，如果您有 Azure AD Premium P1 或 P2 授權，您可以設定工作區。 使用工作區，您可以將相關的應用程式群組在一起（例如，依作業角色、工作或專案），並將它們顯示在不同的索引標籤上。工作區基本上會將篩選套用至使用者已可存取的應用程式，因此使用者只會看到工作區中已指派給他們的應用程式。
 
 > [!NOTE]
-> 本文涵蓋系統管理員如何啟用和建立工作區。 如需有關如何使用我的應用程式入口網站和工作區的使用者資訊，請參閱[存取和使用工作區](https://docs.microsoft.com/azure/active-directory/user-help/)。
+> 本文涵蓋系統管理員如何啟用和建立工作區。 如需有關如何使用我的應用程式入口網站和工作區的使用者資訊，請參閱[存取和使用工作區](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces)。
 
 ## <a name="enable-my-apps-preview-features"></a>啟用我的應用程式預覽功能
 

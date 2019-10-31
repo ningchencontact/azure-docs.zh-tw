@@ -1,5 +1,5 @@
 ---
-title: 如何針對適用于 Windows 的 Log Analytics 代理程式問題進行疑難排解 |Microsoft Docs
+title: 針對適用于 Windows 的 Log Analytics 代理程式問題進行疑難排解
 description: 描述 Azure 監視器中適用于 Windows 的 Log Analytics 代理程式最常見問題的徵兆、原因和解決方式。
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 06/12/2019
-ms.openlocfilehash: a218ac09c7a0983796700229c65ae523b61dae10
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7bf0c8429eaecd6cba83872cbea5876cc0c31221
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932754"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199019"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何針對適用于 Windows 的 Log Analytics 代理程式問題進行疑難排解 
 

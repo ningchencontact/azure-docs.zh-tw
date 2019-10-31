@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273873"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200645"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
@@ -56,6 +56,17 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 6. Sysprep 完成時，它會將 VM 關機。 不要重新啟動 VM。
 
+> [!TIP]
+> **選擇性**使用[DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options)將映射優化，並減少 VM 的第一次開機時間。
+>
+> 若要優化您的映射，請在 Windows explorer 中按兩下 VHD 來掛接它，然後使用 `/optimize-image` 參數執行 DISM。
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> 其中 D：是掛接的 VHD 路徑。
+>
+> 執行 `DISM /optimize-image` 應該是您對 VHD 進行的最後修改。 如果您在部署之前對 VHD 進行任何變更，您必須再次執行 `DISM /optimize-image`。
 
 ## <a name="create-a-managed-image-in-the-portal"></a>在入口網站中建立受控映像 
 
@@ -207,7 +218,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>從使用儲存體帳戶的 VM 建立映射
 
-若要從不使用受控磁片的 VM 建立受控映射，您需要儲存體帳戶中的 OS VHD URI，其格式如下： HTTPs://*mystorageaccount*. blob.core.windows.net/*vhdcontainer* / *vhdfilename.vhd。* 在此範例中，VHD 位於名為 *vhdcontainer* 之容器的 *mystorageaccount* 中，且 VHD 檔案名稱為 *vhdfilename.vhd*。
+若要從不使用受控磁片的 VM 建立受控映射，您需要儲存體帳戶中的 OS VHD URI，其格式如下： HTTPs://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd .vhd*. 在此範例中，VHD 位於名為 *vhdcontainer* 之容器的 *mystorageaccount* 中，且 VHD 檔案名稱為 *vhdfilename.vhd*。
 
 
 1.  建立一些變數。

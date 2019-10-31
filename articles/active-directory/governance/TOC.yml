@@ -5,7 +5,7 @@
   items:
     - name: 什麼是 Identity Governance？
       href: identity-governance-overview.md
-    - name: 什麼是權利管理？ (預覽)
+    - name: 什麼是權利管理？
       href: entitlement-management-overview.md
     - name: 什麼是存取權檢閱？
       href: access-reviews-overview.md

@@ -1,5 +1,5 @@
 ---
-title: 如何使用適用於 VM 的 Azure 監視器 (預覽) 來檢視應用程式相依性 | Microsoft Docs
+title: 使用適用於 VM 的 Azure 監視器（預覽）來查看應用程式相依性
 description: Map 是適用於 VM 的 Azure 監視器的功能。 它會自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文提供有關如何在各種情況下使用對應功能的詳細資料。
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: f886ce4ed1b9396cf90bf98626e0cfd2424b2eac
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553789"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199087"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器（預覽）的對應功能來瞭解應用程式元件
 在適用於 VM 的 Azure 監視器中，您可以在 Azure 或您的環境中執行的 Windows 和 Linux 虛擬機器（Vm）上，查看探索到的應用程式元件。 您可以透過兩種方式來觀察 Vm。 直接從 VM 觀看地圖，或從 Azure 監視器 view map，以查看跨 Vm 群組的元件。 本文將協助您瞭解這兩種視圖方法，以及如何使用對應功能。 

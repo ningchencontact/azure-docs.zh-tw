@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e687fc071272e7a509b1dcfb0a417828a07aa7a9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511452"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182188"
 ---
-本文包含 Azure 虛擬機器的安全性建議。 請遵循這些建議，以協助滿足我們的共同責任模型中所述的安全性義務。 這些建議也會協助您改善 web 應用程式解決方案的整體安全性。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)。
+本文包含 Azure 虛擬機器的安全性建議。 請遵循這些建議，以協助滿足我們的共同責任模型中所述的安全性義務。 這些建議也會協助您改善 web 應用程式解決方案的整體安全性。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)。
 
 這篇文章的建議可由 Azure 資訊安全中心自動解決。 Azure 資訊安全中心是您的資源在 Azure 中的第一道防線。 它會定期分析 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 接著，它會建議如何解決這些弱點。 如需詳細資訊，請參閱[Azure 資訊安全中心中的安全性建議](../articles/security-center/security-center-recommendations.md)。
 

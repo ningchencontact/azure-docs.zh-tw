@@ -9,16 +9,16 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: fdc5340c9affa7137815577af842aa8b43a552a8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799560"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200619"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別來驗證對 Azure 資源的存取
 
-若要存取其他 Azure Active Directory （Azure AD）租使用者中的資源，並在不登入的情況下驗證您的身分識別，您的邏輯應用程式可以使用系統指派的[受控識別](../active-directory/managed-identities-azure-resources/overview.md)（先前稱為受控服務識別或 MSI），而不是認證或秘密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 本文說明如何在您的邏輯應用程式中設定及使用系統指派的受控識別。
+若要存取其他 Azure Active Directory （Azure AD）租使用者中的資源，並在不登入的情況下驗證您的身分識別，您的邏輯應用程式可以使用系統指派的[受控識別](../active-directory/managed-identities-azure-resources/overview.md)（先前稱為受控服務識別或 MSI），而不是認證或秘密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 本文說明如何在您的邏輯應用程式中設定及使用系統指派的受控識別。 目前，受控識別僅適用[于特定的內建觸發程式和動作](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls)，而不是受控連接器或連接。
 
 如需詳細資訊，請參閱下列主題：
 
@@ -155,7 +155,7 @@ ms.locfileid: "72799560"
 
 ## <a name="authenticate-access-with-managed-identity"></a>使用受控識別來驗證存取權
 
-[為邏輯應用程式啟用受控識別](#azure-portal-system-logic-app)，並將該身分[識別存取權授與目標資源](#access-other-resources)之後，您就可以在[支援受控識別的觸發程式和動作](logic-apps-securing-a-logic-app.md#managed-identity-authentication)中使用該身分識別。
+為[邏輯應用程式啟用受控識別](#azure-portal-system-logic-app)，並將[該身分識別存取權授與目標資源或實體](#access-other-resources)之後，您就可以在支援受控識別的觸發程式[和動作](logic-apps-securing-a-logic-app.md#managed-identity-authentication)中使用該身分識別。
 
 > [!IMPORTANT]
 > 如果您有想要使用系統指派身分識別的 Azure 函式，請先[啟用 azure 函式的驗證功能](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)。
@@ -164,27 +164,34 @@ ms.locfileid: "72799560"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 如果您還沒有這麼做，請新增[支援受控](logic-apps-securing-a-logic-app.md#managed-identity-authentication)識別的觸發程式或動作。
+1. 如果您還沒有這麼做，請新增[支援受控識別的觸發程式或動作](logic-apps-securing-a-logic-app.md#managed-identity-authentication)。
 
-   例如，假設您想要在 Azure 儲存體帳戶中的 Blob 上執行[快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)作業，而您先前已設定身分識別的存取權，但[Azure Blob 儲存體連接器](/connectors/azureblob/)目前不提供這項作業。 相反地，您可以使用[HTTP 動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)來執行作業或任何其他[Blob 服務 REST API 作業](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs)。 針對驗證，HTTP 動作可以使用您為邏輯應用程式啟用的系統指派身分識別。 HTTP 動作也會使用這些屬性來指定您想要存取的資源：
+   例如，HTTP 觸發程式或動作可以使用您為邏輯應用程式啟用的系統指派身分識別。 一般來說，HTTP 觸發程式或動作會使用這些屬性來指定您想要存取的資源或實體：
 
-   * [ **URI** ] 屬性會指定用來存取目標 Azure 資源的端點 URL。 此 URI 語法通常包含 Azure 資源或服務的[資源識別碼](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。
+   | 屬性 | 必要項 | 描述 |
+   |----------|----------|-------------|
+   | **方法** | 是 | 您想要執行之作業所使用的 HTTP 方法 |
+   | **URI** | 是 | 用於存取目標 Azure 資源或實體的端點 URL。 URI 語法通常包含 Azure 資源或服務的[資源識別碼](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。 |
+   | **標頭** | 否 | 您需要包含在連出要求中的任何標頭值，例如內容類型 |
+   | **查詢** | 否 | 您需要包含在要求中的任何查詢參數，例如特定作業的參數，或您想要執行之作業的 API 版本 |
+   | **驗證** | 是 | 用來驗證對目標資源或實體之存取的驗證類型 |
+   ||||
 
-   * Header**屬性會**指定您需要包含在要求中的任何標頭值，例如您想要在目標資源上執行之作業的 API 版本。
+   在特定的範例中，假設您想要在您先前設定身分識別存取權的 Azure 儲存體帳戶中，于 Blob 上執行[快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)作業。 不過， [Azure Blob 儲存體連接器](https://docs.microsoft.com/connectors/azureblob/)目前不提供這種操作。 相反地，您可以使用[HTTP 動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)或另一個[Blob 服務 REST API](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs)作業來執行此作業。
 
-   * [**查詢**] 屬性會指定您需要包含在要求中的任何查詢參數，例如特定作業的參數或必要時的特定 API 版本。
+   > [!IMPORTANT]
+   > 若要使用 HTTP 要求和受控識別存取防火牆後方的 Azure 儲存體帳戶，請確定您也使用[允許受信任的 Microsoft 服務存取的例外](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service)狀況來設定儲存體帳戶。
 
-   因此，若要執行[快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)作業，HTTP 動作會指定下列屬性：
+   若要執行[快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)作業，HTTP 動作會指定下列屬性：
 
-   * **Method**：指定 `PUT` 作業。
-
-   * **URI**：指定 Azure 全域（公用）環境中 Azure Blob 儲存體檔案的資源識別碼，並使用此語法：
-
-     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
-
-   * **標頭**：指定 `x-ms-blob-type` 做為快照集 Blob 作業 `2019-02-02` 的 `BlockBlob` 和 `x-ms-version`。 如需詳細資訊，請參閱[要求標頭-](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) Azure 儲存體服務的快照集 Blob 和[版本控制](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services)。
-
-   * **查詢**：指定 `comp` 做為查詢參數名稱，並 `snapshot` 做為參數值。
+   | 屬性 | 必要項 | 範例值 | 描述 |
+   |----------|----------|---------------|-------------|
+   | **方法** | 是 | `PUT`| 快照集 Blob 操作所使用的 HTTP 方法 |
+   | **URI** | 是 | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Azure 全域（公用）環境中 Azure Blob 儲存體檔案的資源識別碼，其使用此語法 |
+   | **標頭** | 是，適用于 Azure 儲存體 | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Azure 儲存體作業所需的 `x-ms-blob-type` 和 `x-ms-version` 標頭值。 <p><p>**重要**事項：在 Azure 儲存體的傳出 HTTP 觸發程式和動作要求中，標頭需要您想要執行之作業的 `x-ms-version` 屬性和 API 版本。 <p>如需詳細資訊，請參閱下列主題： <p><p>- [要求標頭-快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>[Azure 儲存體服務的 - 版本控制](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **查詢** | 是，適用于這種操作 | `comp` = `snapshot` | 快照集 Blob 作業的查詢參數名稱和值。 |
+   | **驗證** | 是 | `Managed Identity` | 用來驗證 Azure blob 存取權的驗證類型 |
+   |||||
 
    以下是範例 HTTP 動作，其中顯示所有的屬性值：
 

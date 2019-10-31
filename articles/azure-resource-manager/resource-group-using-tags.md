@@ -4,14 +4,14 @@ description: 示範如何套用標籤以針對計費及管理來組織 Azure 資
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146826"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199167"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -21,7 +21,7 @@ ms.locfileid: "71146826"
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="policies"></a>policies
+## <a name="policies"></a>原則
 
 您可以使用 [Azure 原則](../governance/policy/overview.md)來強制標記規則和慣例。 建立原則，就可以避免將資源部署到不符合貴組織預期標記的訂用帳戶。 您可以建立一個原則，以便在部署期間自動套用所需的標記，而不需手動套用標記或搜尋不符合規範的資源。 標籤現在也可以套用至具有新[修改](../governance/policy/concepts/effects.md#modify)效果和[補救](../governance/policy/how-to/remediate-resources.md)工作的現有資源。 下列區段會顯示標籤的範例原則。
 
@@ -107,7 +107,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-若要將所有標記從資源群組套用至其資源, 而*不保留資源上的現有標記*, 請使用下列腳本:
+若要將所有標記從資源群組套用至其資源，而*不保留資源上的現有標記*，請使用下列腳本：
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -117,7 +117,7 @@ foreach ($g in $groups)
 }
 ```
 
-若要將所有標記從資源群組套用至其資源, 並*在不重複的資源上保留現有*的標籤, 請使用下列腳本:
+若要將所有標記從資源群組套用至其資源，並*在不重複的資源上保留現有*的標籤，請使用下列腳本：
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -214,7 +214,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-若要將所有標記從資源群組套用至其資源, 而*不保留資源上的現有標記*, 請使用下列腳本:
+若要將所有標記從資源群組套用至其資源，而*不保留資源上的現有標記*，請使用下列腳本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-若要將所有標記從資源群組套用至其資源, 並*在資源上保留現有的標記*, 請使用下列腳本:
+若要將所有標記從資源群組套用至其資源，並*在資源上保留現有的標記*，請使用下列腳本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -250,7 +250,7 @@ done
 
 ## <a name="templates"></a>範本
 
-若要在部署期間標記資源, 請`tags`將元素新增至您要部署的資源。 提供標籤名稱和值。
+若要在部署期間標記資源，請將 `tags` 元素新增至您要部署的資源。 提供標籤名稱和值。
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>將常值套用至標記名稱
 
@@ -286,7 +286,7 @@ done
 }
 ```
 
-若要將標記設定為 datetime 值, 請使用[utcNow 函數](resource-group-template-functions-string.md#utcnow)。
+若要將標記設定為 datetime 值，請使用[utcNow 函數](resource-group-template-functions-string.md#utcnow)。
 
 ### <a name="apply-an-object-to-the-tag-element"></a>將物件套用至標記元素
 
@@ -361,7 +361,7 @@ done
 
 ### <a name="apply-tags-from-resource-group"></a>從資源群組套用標記
 
-若要將標記從資源群組套用至資源, 請使用[resourceGroup](resource-group-template-functions-resource.md#resourcegroup)函數。 取得標記值時, 請使用`tags.[tag-name]`語法, 而不是`tags.tag-name`語法, 因為在點標記法中無法正確剖析某些字元。
+若要將標記從資源群組套用至資源，請使用[resourceGroup](resource-group-template-functions-resource.md#resourcegroup)函數。 取得標記值時，請使用 `tags.[tag-name]` 語法，而不是 `tags.tag-name` 語法，因為在點標記法中無法正確剖析某些字元。
 
 ```json
 {

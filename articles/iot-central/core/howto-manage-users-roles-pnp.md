@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 14789549218d46dc0eb147bc659fce7adba0a9bd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 17dd4862a02a736237257c50802135fb62883d77
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953235"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200608"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>管理 IoT Central 應用程式中的使用者和角色（預覽功能）
 
@@ -40,6 +40,9 @@ ms.locfileid: "72953235"
 
     > [!div class="mx-imgBorder"]
     >![新增使用者，然後選取角色](media/howto-manage-users-roles-pnp/add-user-pnp.png)
+
+    > [!NOTE]
+    > 身為自訂角色的使用者，授與他們新增其他使用者的許可權，只能將使用者新增至許可權與其本身角色相同或較少的角色。
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>編輯指派給使用者的角色
 
@@ -195,6 +198,9 @@ ms.locfileid: "72953235"
 | 新增 | 檢視 <br/> 其他相依性：查看自訂角色 |
 | 刪除 | 檢視 <br/> 其他相依性：查看自訂角色 |
 | 完全控制 | View、Add、Delete <br/> 其他相依性：查看自訂角色 |
+
+> [!NOTE]
+> 身為自訂角色的使用者，授與他們新增其他使用者的許可權，只能將使用者新增至許可權與其本身角色相同或較少的角色。
 
 #### <a name="customizing-the-app"></a>自訂應用程式
 

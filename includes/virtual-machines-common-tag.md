@@ -4,29 +4,29 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67173919"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182185"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>透過範本標記虛擬機器
-首先，我們來看一下透過範本進行標記。 [此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)會將標記放在下列資源上:計算 (虛擬機器)、儲存體 (儲存體帳戶) 和網路 (公用 IP 位址、虛擬網路和網路介面)。 這個範本適用於 Windows VM，但也可改寫成適用於 Linux VM。
+首先，我們來看一下透過範本進行標記。 [此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) 將標記置於下列資源上：運算 (虛擬機器)、儲存體 (儲存體帳戶) 和網路 (公用 IP 位址、虛擬網路和網路介面)。 這個範本適用於 Windows VM，但也可改寫成適用於 Linux VM。
 
 按一下[範本連結](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)中的 [部署至 Azure] 按鈕。 這會瀏覽至 [Azure 入口網站](https://portal.azure.com/) ，以便您部署此範本。
 
 ![使用標記的簡單部署](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-此範本包含下列標記:*部門*、*應用程式*, 以及*所建立的*。 如果您想要不同的標記名稱，您可以直接在範本中新增/編輯這些標記。
+此範本包含下列標記：「部門」、「應用程式」以及「建立者」。 如果您想要不同的標記名稱，您可以直接在範本中新增/編輯這些標記。
 
 ![範本中的 Azure 標記](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
 如您所見，標記會定義為成對的「索引鍵/值」，並會以冒號 (:) 分隔。 標記必須以這種格式定義：
 
-        “tags”: {
-            “Key1” : ”Value1”,
-            “Key2” : “Value2”
+        "tags": {
+            "Key1" : "Value1",
+            "Key2" : "Value2"
         }
 
 在您使用您所選擇的標籤完成編輯後，儲存範本檔案。

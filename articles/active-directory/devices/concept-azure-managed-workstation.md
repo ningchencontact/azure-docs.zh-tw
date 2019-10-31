@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175155"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200211"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>瞭解安全、受 Azure 管理的工作站
 
@@ -91,7 +91,7 @@ ms.locfileid: "73175155"
 
 * **增強式安全性**–此專案層級的受保護解決方案適用于家庭使用者、小型企業使用者和一般開發人員。
 
-   增強的工作站是以原則為基礎的方法，可提高低安全性設定檔的安全性。 它提供了一種安全的方式來處理客戶資料，同時也使用電子郵件和網頁流覽等生產力工具。 您可以使用稽核原則和 Intune 來監視增強的工作站，以取得使用者行為和設定檔的使用方式。 您會使用 Windows10 （1809）腳本來部署增強的工作站設定檔，並利用先進的[威脅防護（ATP）](https://docs.microsoft.com/office365/securitycompliance/office-365-atp)來運用先進的惡意程式碼防護功能。
+   增強的工作站是以原則為基礎的方法，可提高低安全性設定檔的安全性。 它提供了一種安全的方式來處理客戶資料，同時也使用電子郵件和網頁流覽等生產力工具。 您可以使用稽核原則和 Intune 來監視增強的工作站，以取得使用者行為和設定檔的使用方式。 您會使用 Windows10 （1809）腳本來部署增強的工作站設定檔，並利用先進的[威脅防護（ATP）](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)來運用先進的惡意程式碼防護功能。
 
 * **高安全性**–降低工作站攻擊面最有效的方法，就是移除自我管理工作站的能力。 移除本機系統管理許可權是改善安全性的步驟，但是如果未正確執行，可能會影響生產力。 高安全性設定檔是以增強式安全性設定檔為基礎，其中有一項重大變更：移除本機系統管理員。此設定檔是針對高設定檔使用者所設計：主管、薪資和敏感性資料使用者、服務和處理的核准者。
 

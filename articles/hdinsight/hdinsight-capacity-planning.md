@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529162"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200598"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -68,13 +68,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 若要判斷您應用程式的最佳叢集大小，您可以效能評定叢集容量，並依指示增加大小。 例如，您可以使用模擬的工作負載或 Canary 查詢。 使用模擬工作負載時，您要在不同大小的叢集上執行您預期的工作負載，逐漸增加大小直到觸達所需的效能為止。 未分類的查詢可以在其他生產查詢中定期插入，以顯示叢集是否有足夠的資源。
 
-VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定：
-
-* CPU：VM 大小會規定核心的數目。 核心越多，每個節點可達到的平行計算程度就越大。 此外，某些 VM 類型具有更快的核心。
-
-* RAM：VM 大小也會決定 VM 可用的 RAM 數量。 針對將資料儲存在記憶體以進行處理的工作負載，並非從磁碟讀取，請確保背景工作節點有足夠的記憶體來容納資料。
-
-* 網路：對於大部分的叢集類型而言，由叢集處理的資料不在本機磁片上，而是在外部儲存體服務中，例如 Data Lake Storage 或 Azure 儲存體。 請考慮節點 VM 與儲存體服務之間的網路頻寬和輸送量。 可供 VM 使用的網路頻寬通常會隨著較大的大小而增加。 如需詳細資訊，請參閱 [VM 大小概觀](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+如需有關如何為您的工作負載選擇正確 VM 系列的詳細資訊，請參閱為您的叢集[選取正確的 vm 大小](hdinsight-selecting-vm-size.md)。
 
 ## <a name="choose-the-cluster-scale"></a>選擇叢集縮放比例
 
@@ -104,10 +98,11 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 1. 選取頁面左下方的 [說明 **+ 支援**]。
 1. 選取 [新增支援要求]。
 1. 在 [新增支援要求] 頁面的 [基本] 索引標籤上，選取下列選項：
+
    - **問題類型**：**服務和訂用帳戶限制（配額）**
    - **訂用帳戶**：您需要修改的訂用帳戶
    - **配額類型**： **HDInsight**
-    
+
      ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. 選取 **[下一步]：方案 > >** 。

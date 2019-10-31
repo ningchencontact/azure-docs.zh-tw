@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器活頁簿建立互動式報表 |Microsoft Docs
+title: 使用活頁簿建立互動式報表適用於 VM 的 Azure 監視器 |Microsoft Docs
 description: 使用適用於 VM 的 Azure 監視器的預先定義和自訂參數化活頁簿來簡化複雜的報表。
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553724"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200542"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>使用活頁簿建立互動式報表適用於 VM 的 Azure 監視器
 
 活頁簿將文字、 [記錄查詢](../log-query/query-language.md)、計量和參數結合成豐富的互動式報表。 活頁簿可以由具有相同 Azure 資源存取權的其他小組成員編輯。
 
@@ -105,7 +105,7 @@ ms.locfileid: "72553724"
 
 ### <a name="advanced-analytic-query-settings"></a>進階分析查詢設定
 
-每個區段都有自己的 advanced 設定，可以透過 [**新增參數**] 按鈕右邊的 [編輯控制項] ![Workbooks 區段 ](media/vminsights-workbooks/006-settings.png) 圖示來存取。
+每個區段都有自己的 advanced 設定，可透過 [設定] ![[活頁簿] 區段中編輯控制項](media/vminsights-workbooks/006-settings.png) 圖示，位於 [**新增參數**] 按鈕的右邊。
 
 ![適用於 VM 的 Azure 監視器活頁簿區段編輯控制項](media/vminsights-workbooks/007-settings-expanded.png)
 
