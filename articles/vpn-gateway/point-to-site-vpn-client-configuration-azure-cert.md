@@ -1,5 +1,5 @@
 ---
-title: 建立和安裝適用於 Azure 憑證驗證的 P2S VPN 用戶端組態檔：Azure
+title: 建立和安裝適用于 Azure 憑證驗證的 P2S VPN 用戶端設定檔： Azure
 description: 建立和安裝 Windows、Linux、Linux (strongSwan) 及 Mac OS X VPN 用戶端組態檔以進行 P2S 憑證驗證。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961610"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063126"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -81,7 +81,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 使用下列步驟，在 Mac 上設定用於憑證驗證的原生 VPN 用戶端。 您必須在將會連線到 Azure 的每部 Mac 上，完成下列步驟：
 
-1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。 按一下 [新增] 來進行匯入。
+1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。 按一下 [新增] 進行匯入。
 
    ![新增憑證](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
   
@@ -136,7 +136,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 2. 選取 [**設定**]，然後選取 [**網路**]。
 
    ![編輯連線](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. **+** 按一下按鈕以建立新的連接。
+3. 按一下 [ **+** ] 按鈕，以建立新的連接。
 
    ![新增連線](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
 4. 從功能表中選取 [ **IPsec/IKEv2 （strongSwan）** ]，然後按兩下。 您可以在此步驟中命名您的連接。
@@ -163,7 +163,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>安裝並設定
+### <a name="install-and-configure"></a>安裝及設定
 
 1. 從 Azure 入口網站下載 VPNClient 套件。
 2. 將檔案解壓縮。
@@ -174,17 +174,17 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
   
    ```
    conn azure
-   keyexchange=ikev2
-   type=tunnel
-   leftfirewall=yes
-   left=%any
-   leftauth=eap-tls
-   leftid=%client # use the DNS alternative name prefixed with the %
-   right= Enter the VPN Server value here# Azure VPN gateway address
-   rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
-   rightsubnet=0.0.0.0/0
-   leftsourceip=%config
-   auto=add
+         keyexchange=ikev2
+         type=tunnel
+         leftfirewall=yes
+         left=%any
+         leftauth=eap-tls
+         leftid=%client # use the DNS alternative name prefixed with the %
+         right= Enter the VPN Server value here# Azure VPN gateway address
+         rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+         rightsubnet=0.0.0.0/0
+         leftsourceip=%config
+         auto=add
    ```
 6. 將下列內容新增至 */etc/ipsec.secrets*。
 
@@ -192,7 +192,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
    ```
 
-7. 執行下列命令：
+7. 執行以下命令：
 
    ```
    # ipsec restart

@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391576"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083727"
 ---
 下表列出與不同服務層級 S1、S2、S3 和 F1 相關聯的限制。 如需每一層中每個*單位*成本的相關資訊，請參閱[Azure IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "72391576"
 
 | 資源 | 限制 |
 | --- | --- |
-| 每個 Azure 訂用帳戶的付費 IoT 中樞上限 |50 |
+| 每個 Azure 訂用帳戶的付費 IoT 中樞上限 |100 |
 | 每個 Azure 訂用帳戶的免費 IoT 中樞上限 |1 |
 | 裝置識別碼中的字元數上限 | 128 |
 | 單一呼叫中傳回的裝置身分識別<br/> 數目上限 |1,000 |
@@ -53,7 +53,7 @@ ms.locfileid: "72391576"
 | 裝置串流資料傳輸上限 | 每日 300 MB (僅適用於 S1、S2、S3 和 F1) |
 
 > [!NOTE]
-> 如果您在 Azure 訂用帳戶中需要超過50的付費 IoT 中樞，請聯絡 Microsoft 支援服務。
+> 如果您在 Azure 訂用帳戶中需要超過100的付費 IoT 中樞，請聯絡 Microsoft 支援服務。
 
 > [!NOTE]
 > 目前，裝置總數加上可向單一 IoT 中樞註冊的模組，其上限為1000000。 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。

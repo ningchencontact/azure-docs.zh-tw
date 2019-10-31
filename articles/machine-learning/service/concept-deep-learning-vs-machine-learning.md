@@ -1,7 +1,7 @@
 ---
 title: 深度學習與機器學習服務
 titleSuffix: Azure Machine Learning
-description: 瞭解深度學習與機器學習服務，以及這兩種概念如何與人工智慧相關。 深度學習適用于詐騙偵測、語音和臉部辨識、情感分析和時間序列預測等案例。
+description: 瞭解深度學習與機器學習服務和人工智慧的關係。 深度學習適用于詐騙偵測、語音 & 臉部辨識、情感分析和時間序列預測等案例。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123149"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063131"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>深度學習與機器學習服務
 
@@ -22,9 +22,9 @@ ms.locfileid: "71123149"
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>深度學習、機器學習和 AI
 
-![關聯性圖表：AI 與機器學習與深度學習的比較](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
+![關聯性圖表： AI 與機器學習與深度學習的比較](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-請考慮下列定義以瞭解深度學習與機器學習服務的比較與音
+請考慮下列定義以瞭解深度學習與機器學習與 AI 的比較：
 
 - **深度學習**是以人工類神經網路為基礎的機器學習服務子集。 _學習_程式是_深度_的，因為人工類神經網路的結構是由多個輸入、輸出和隱藏層所組成。 每一層都包含將輸入資料轉換成下一個層級可用於特定預測工作之資訊的單位。 感謝此結構，機器可以透過自己的資料處理學習。
 

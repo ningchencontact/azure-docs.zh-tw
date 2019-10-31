@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 86c0fe8b0846350f74c90dfbd229510d28ce9499
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992219"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100316"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>教學課程：發佈、訂閱雲端中的事件
 
@@ -198,6 +198,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 在本教學課程中，您已建立事件方格主題、訂用帳戶和已發佈的事件。 現在您已瞭解基本步驟，請參閱下列文章：
 
+* 若要針對在 IoT Edge 上使用 Azure 事件方格的問題進行疑難排解，請參閱[疑難排解指南](troubleshoot.md)。
 * 使用[篩選器](advanced-filtering.md)建立/更新訂用帳戶。
 * 在[linux](persist-state-linux.md)或[Windows](persist-state-windows.md)上設定事件方格模組的持續性
 * 遵循[檔](configure-client-auth.md)以設定用戶端驗證

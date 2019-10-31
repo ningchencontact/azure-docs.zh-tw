@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: MT
+ms.openlocfilehash: 32814b7478fac9530cc74fba605a096881229102
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023837"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101334"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -81,7 +81,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
 > 只有處於已核准狀態的私用端點可以將流量傳送到指定的私人連結資源。 
 
 ### <a name="connecting-using-alias"></a>使用別名連接
-別名是當服務擁有者在標準負載平衡器後方建立私人連結服務時，所產生的唯一標記。 服務擁有者可以離線共用此別名。 取用者可以使用資源 URI 或別名來要求私人連結服務的連接。 如果您想要使用別名進行連線，您必須使用手動連接核准方法來建立私人端點。 若要使用手動連接核准方法，請在私人端點建立流程期間，將手動要求參數設定為 true。 如需詳細資訊，請參閱[AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0)和[az network 私用端點建立](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create)。 
+別名是當服務擁有者在標準負載平衡器後方建立私人連結服務時，所產生的唯一標記。 服務擁有者可以離線共用此別名。 取用者可以使用資源 URI 或別名來要求私人連結服務的連接。 如果您想要使用別名進行連線，您必須使用手動連接核准方法來建立私人端點。 若要使用手動連接核准方法，請在私人端點建立流程期間，將手動要求參數設定為 true。 如需詳細資訊，請參閱[AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0)和[az network 私用端點建立](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create)。 
 
 ## <a name="dns-configuration"></a>DNS 組態 
 使用完整功能變數名稱（FQDN）連接到私人連結資源做為連接字串的一部分時，請務必正確地設定您的 DNS 設定，以解析為配置的私人 IP 位址。 現有的 Azure 服務在透過公用端點連線時，可能已經有 DNS 設定可供使用。 這需要覆寫，才能使用您的私用端點進行連接。 
@@ -91,7 +91,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
 您可以使用下列選項來設定私人端點的 DNS 設定： 
 - **使用主機檔案（僅建議用於測試）** 。 您可以使用虛擬機器上的主機檔案來覆寫 DNS。  
 - **使用私人 DNS 區域**。 您可以使用私人 DNS 區域來覆寫指定私用端點的 DNS 解析。 私人 DNS 區域可以連結至您的虛擬網路，以解析特定網域。
-- **使用您的自訂 DNS 伺服器**。 您可以使用自己的 DNS 伺服器來覆寫指定私人連結資源的 DNS 解析。 如果您的[dns 伺服器](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)裝載于虛擬網路上，您可以建立 dns 轉送規則來使用私人 DNS 區域，以簡化所有私人連結資源的設定。
+- **使用您的自訂 DNS 伺服器**。 您可以使用自己的 DNS 伺服器來覆寫指定私人連結資源的 DNS 解析。 如果您的[dns 伺服器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)裝載于虛擬網路上，您可以建立 dns 轉送規則來使用私人 DNS 區域，以簡化所有私人連結資源的設定。
  
 > [!IMPORTANT]
 > 不建議您覆寫主動使用的區域來解析公用端點。 若未將 DNS 轉送至公用 DNS，則無法正確解析資源的連線。 為避免發生問題，請建立不同的功能變數名稱，或遵循下列每項服務的建議名稱。 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: b510b697fbf8b53e9e55e96f60b27967f90893f1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 3eec2d208e97cc33c318e4a45ae85074fbc2583c
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104613"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101621"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>停用私人端點的網路原則
 
@@ -20,7 +20,7 @@ ms.locfileid: "71104613"
  
 使用入口網站建立私人端點時，會在建立程式中自動停用此設定。 使用其他用戶端的部署需要額外的步驟來變更此設定。 您可以從 Azure 入口網站使用 cloud shell，或 Azure PowerShell、Azure CLI 的本機安裝，或使用 Azure Resource Manager 範本來停用此設定。  
  
-下列範例說明如何針對名為`PrivateEndpointNetworkPolicies` *myVirtualNetwork*的虛擬網路停用，並在名為*myResourceGroup*的資源群組中裝載*預設*子網。
+下列範例說明如何使用名為*myResourceGroup*的資源群組中裝載的*預設*子網，針對名為*myVirtualNetwork*的虛擬網路停用 `PrivateEndpointNetworkPolicies`。
 
 ## <a name="using-azure-powershell"></a>使用 Azure PowerShell
 本節說明如何使用 Azure PowerShell 停用子網私人端點原則。
@@ -30,9 +30,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
   -ResourceGroupName "myResourceGroup"  
    
-($virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
-  | Where-Object  {$_.Name -eq 'default'} ).PrivateEndpointNetworkPolicies = "Disabled" 
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).PrivateEndpointNetworkPolicies = "Disabled" 
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```

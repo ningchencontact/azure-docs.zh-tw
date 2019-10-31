@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053075"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101414"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -175,21 +175,21 @@ Azure AD Identity Protection 能提供兩個您應該每天監視的重要報告
 
 使用者可以誘騙流覽至遭入侵的網站，或能夠存取其設定檔資訊和使用者資料的應用程式，例如其電子郵件。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 [系統管理員應該檢閱並稽核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) \(英文\) 使用者所提供的權限。
 
-## <a name="step-5---enable-end-user-self-help"></a>步驟 5 - 啟用使用者自助服務
+## <a name="step-5---enable-end-user-self-service"></a>步驟 5-啟用終端使用者自助服務
 
-請盡可能地在安全性與生產力之間取得平衡。 和運用打下長遠安全性基礎的心態來著手處理旅途的思路相同，您可以藉由既讓使用者獲得能力同時又保持警覺的方式，去除組織中的分歧意見。 
+請盡可能地在安全性與生產力之間取得平衡。 和運用打下長遠安全性基礎的心態來著手處理旅途的思路相同，您可以藉由既讓使用者獲得能力同時又保持警覺的方式，去除組織中的分歧意見。
 
 ### <a name="implement-self-service-password-reset"></a>實作自助密碼重設
 
-Azure 的[自助密碼重設 (SSPR)](../../active-directory/authentication/quickstart-sspr.md) 提供簡單的方法，讓 IT 系統管理員允許使用者重設或解除鎖定其密碼或帳戶，而不必系統管理員介入處理。 系統包含詳細的報告，可追蹤使用者何時存取系統與通知來警示您誤用或濫用。 
+Azure AD 的[自助式密碼重設（SSPR）](../../active-directory/authentication/quickstart-sspr.md)為 IT 系統管理員提供了簡單的方法，讓使用者在沒有服務台或系統管理員介入的情況下，重設或解除鎖定其密碼或帳戶。 系統包含詳細的報告，以追蹤使用者何時重設其密碼，以及通知您誤用或濫用。
 
-### <a name="implement-self-service-group-management"></a>實作自助群組管理
+### <a name="implement-self-service-group-and-application-access"></a>執行自助群組和應用程式存取
 
-Azure AD 可讓您使用安全性群組和 Office 365 群組來管理資源的存取權。 這些群組可由群組擁有者 (而不是 IT 系統管理員) 負責管理。 這項功能稱為「[自助式群組管理](../../active-directory/users-groups-roles/groups-self-service-management.md)」，可讓未獲指派系統管理角色的群組擁有者建立和管理群組，而不需要依賴系統管理員來處理其要求。
+Azure AD 提供非系統管理員使用安全性群組、Office 365 群組、應用程式角色和存取套件目錄來管理資源存取權的功能。  [自助式群組管理](../../active-directory/users-groups-roles/groups-self-service-management.md)可讓群組擁有者管理自己的群組，而不需要指派系統管理角色。 使用者也可以建立及管理 Office 365 群組，而不需要依賴系統管理員來處理其要求，而未使用的群組則會自動到期。  [Azure AD 權利管理](../../active-directory/governance/entitlement-management-overview.md)可進一步提供委派和可見度，其中包含完整的存取要求工作流程和自動到期。  您可以委派給非系統管理員，讓他們能夠為他們擁有的群組、小組、應用程式和 SharePoint Online 網站設定自己的存取套件，以及需要核准存取權的自訂原則，包括設定員工的主管和商業夥伴贊助者。
 
 ### <a name="implement-azure-ad-access-reviews"></a>實作 Azure AD 存取權檢閱
 
-有了[Azure AD 的存取權審查](../../active-directory/governance/access-reviews-overview.md)，您就可以管理群組成員資格、企業應用程式的存取權，以及特殊許可權角色指派，以確保您保有的安全性標準不會讓使用者在不需要時存取長時間需要它。
+透過[Azure AD 的存取權審查](../../active-directory/governance/access-reviews-overview.md)，您可以管理存取套件和群組成員資格、企業應用程式的存取權，以及特殊許可權角色指派，以確保您維持安全性標準。  使用者本身的定期監督、資源擁有者和其他審查人員可確保使用者在不再需要時，不會長期保留存取權。
 
 ## <a name="summary"></a>總結
 

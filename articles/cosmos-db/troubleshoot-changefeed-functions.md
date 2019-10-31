@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2e5eaed40c954df5e7c731bb3fbd5d9424ea9b97
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: HT
+ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053291"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064112"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>針對 Cosmos DB 使用 Azure Functions 觸發程式時，診斷並疑難排解問題
 
@@ -105,6 +105,7 @@ Azure 函數失敗，並出現錯誤訊息：「來源集合 ' collection-name '
 若要解決這種情況，請移除已新增的手動 NuGet 參考，然後讓 Azure Cosmos DB SDK 參考透過 Azure Functions Cosmos DB 延伸模組套件來解析。
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>變更偵測變更的 Azure Function 輪詢間隔
+
 如稍早所述，[我們所做的變更時間太長](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)，Azure 函式會在檢查是否有新的變更之前，進入睡眠狀態（預設為5秒），以避免高 RU 耗用量。 您可以在觸發程序[設定](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)中透過 `FeedPollDelay/feedPollDelay` 設定來設定此睡眠時間 (值應以毫秒為單位)。
 
 ## <a name="next-steps"></a>後續步驟

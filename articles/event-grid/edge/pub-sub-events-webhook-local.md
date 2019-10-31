@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: b484306504af8f83a393feb0469fff5b524948ab
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992206"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098629"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>教學課程：在本機發佈、訂閱事件
 
@@ -81,6 +81,8 @@ ms.locfileid: "72992206"
 
     >[!IMPORTANT]
     > 在本教學課程中，您將會部署已停用用戶端驗證的事件方格模組，並允許 HTTP 訂閱者。 針對生產工作負載，建議您啟用用戶端驗證，並僅允許 HTTPs 訂閱者。 如需有關如何安全地設定 Event Grid 模組的詳細資訊，請參閱[安全性和驗證](security-authentication.md)。
+    > 
+    > 如果您使用 Azure VM 做為 edge 裝置，請新增輸入連接埠規則，以允許埠4438上的輸入流量。 如需新增規則的指示，請參閱[如何開啟 VM 的埠](../../virtual-machines/windows/nsg-quickstart-portal.md)。
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>部署 Azure Function IoT Edge 模組
@@ -257,7 +259,7 @@ ms.locfileid: "72992206"
     在 Windows 上，執行下列命令：
 
     ```sh
-    iotedge logs subscriber -f
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
    在 Linux 上，執行下列命令：
@@ -299,6 +301,7 @@ ms.locfileid: "72992206"
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已建立事件方格主題、訂用帳戶和已發佈的事件。 現在您已瞭解基本步驟，請參閱下列文章： 
 
+- 若要針對在 IoT Edge 上使用 Azure 事件方格的問題進行疑難排解，請參閱[疑難排解指南](troubleshoot.md)。
 - 使用[篩選器](advanced-filtering.md)建立/更新訂用帳戶。
 - 在[Linux](persist-state-linux.md)或[Windows](persist-state-windows.md)上啟用事件方格模組的持續性
 - 遵循[檔](configure-client-auth.md)以設定用戶端驗證

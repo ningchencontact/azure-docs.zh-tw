@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b6cd17fac77361fa20d3b3e048e64228a2ed3d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809020"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063072"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>多重要素驗證和 Privileged Identity Management
 
 建議您針對所有系統管理員都要求進行多重要素驗證 (MFA)。 這可降低密碼遭入侵所導致的攻擊風險。
 
-您可以要求使用者在登入時完成多重 = 要素驗證挑戰。 您也可以要求使用者在啟用 Azure Active Directory （Azure AD） Privileged Identity Management （PIM）中的角色時，完成多重 = 要素驗證挑戰。 如此一來，如果使用者在登入時未完成多重 = 要素驗證挑戰，Privileged Identity Management 會提示他們執行此動作。
+您可以要求使用者在登入時完成多重要素驗證挑戰。 您也可以要求使用者在啟用 Azure Active Directory （Azure AD） Privileged Identity Management （PIM）中的角色時，完成多重要素驗證挑戰。 如此一來，如果使用者在登入時未完成多重要素驗證挑戰，Privileged Identity Management 會提示他們執行此動作。
 
 > [!IMPORTANT]
 > 目前，Azure 多重要素驗證僅適用于公司或學校帳戶，而不是 Microsoft 個人帳戶（通常是用來登入 Microsoft 服務的個人帳戶，例如 Skype、Xbox 或 Outlook.com）。 因此，使用個人帳戶的任何人都不能是合格的系統管理員，因為他們無法使用多重要素驗證來啟動其角色。 如果這些使用者需要繼續使用 Microsoft 帳戶來管理工作負載，請立即將他們提升為永久系統管理員。

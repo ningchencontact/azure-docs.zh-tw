@@ -1,0 +1,65 @@
+---
+title: 深入瞭解 Azure 中虛擬機器擴展集的協調流程模式
+description: 深入瞭解 Azure 中虛擬機器擴展集的協調流程模式。
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: shandilvarun
+manager: gwallace
+ms.service: virtual-machine-scale-sets
+ms.workload: infrastructure-services
+ms.topic: article
+ms.date: 10/23/2019
+ms.author: vashan
+ms.openlocfilehash: 063b3210877c06edf7eeddab37c50ed84033098a
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73065908"
+---
+# <a name="orchestration-mode-preview"></a>協調流程模式（預覽）
+
+虛擬機器擴展集提供平臺管理之虛擬機器的邏輯群組。 使用擴展集時，您可以建立虛擬機器設定模型、根據 CPU 或記憶體負載自動新增或移除其他實例，以及自動升級為最新的作業系統版本。 傳統上，擴展集可讓您使用在建立擴展集時所提供的 VM 設定模型來建立虛擬機器，而擴展集只能管理根據設定模型隱含建立的虛擬機器。
+
+使用擴展集協調流程模式（預覽），您現在可以選擇擴展集是否應協調在擴展集設定模型外明確建立的虛擬機器，或是以隱含方式建立的虛擬機器實例。設定模型。 擴展集協調流程模式也可協助您藉由在容錯網域和可用性區域中部署這些 Vm，來設計高可用性的 VM 基礎結構。
+
+
+虛擬機器擴展集會支援2個不同的協調流程模式：
+
+- ScaleSetVM –新增至擴展集的虛擬機器實例是以擴展集設定模型為基礎。 虛擬機器實例生命週期-建立、更新、刪除-由擴展集管理。
+- VM （虛擬機器）–在擴展集外部建立的虛擬機器可以明確新增至擴展集。 
+ 
+
+> [!IMPORTANT]
+> 當您建立擴展集時，會定義協調流程模式，而且稍後無法變更或更新。 
+> 
+> 虛擬機器擴展集的這項功能目前處於公開預覽狀態。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+
+## <a name="orchestration-modes"></a>協調流程模式
+
+|                             | "orchestrationMode"： "VM" （VirtualMachine） | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+|-----------------------------|--------------------------------------------|--------------------------------------------------------------|
+| VM 設定模型      | None                                       | 必要項 |
+| 正在將新的 VM 新增至擴展集  | 建立 VM 時，會將 Vm 明確新增至擴展集。 | Vm 會根據 VM 設定模型、實例計數和自動調整規則，以隱含方式建立並新增至擴展集 | |
+| 刪除 VM                   | Vm 必須個別刪除，如果擴展集內有任何 Vm，則不會刪除它。 | 您可以個別刪除 Vm，而刪除擴展集將會刪除所有的 VM 實例。  |
+| 附加/卸離 Vm           | 不支援                              | 不支援 |
+| 實例生命週期（透過刪除建立） | Vm 及其構件（例如磁片和 Nic）可以獨立管理。 | 實例及其成品（例如磁片和 Nic）對建立它們的擴展集實例是隱含的。 它們無法在擴展集之外分開卸離或管理 |
+| 容錯網域               | 可以定義容錯網域。 2或3以區域支援為基礎，而5用於可用性區域。 | 可以定義從1到5的容錯網域 |
+| 更新網域              | 更新網域會自動對應至容錯網域 | 更新網域會自動對應至容錯網域 |
+| 可用性區域          | 支援區域部署或單一可用性區域中的 Vm | 支援區域部署或多個可用性區域;可以定義區域平衡策略 |
+| 自動調整                   | 不支援                              | 支援的 |
+| 作業系統升級                  | 不支援                              | 支援的 |
+| 模型更新               | 不支援                              | 支援的 |
+| 實例控制項            | 完整的 VM 控制。 Vm 具有完整的 URI，可支援完整範圍的 Azure VM 管理功能（例如 Azure 原則、Azure 備份和 Azure Site Recovery） | Vm 是擴展集的相依資源。 只能透過擴展集來存取實例。 |
+| 實例模型              | Microsoft. Compute/VirtualMachines 模型定義。 | VirtualMachineScaleSets/VirtualMachines 模型定義。 |
+| Capacity                    | 可以建立空的擴展集;最多可將200個 Vm 新增至擴展集 | 您可以使用實例計數 0-1000 來定義擴展集 |
+| 移動                        | 支援的                                  | 支援的 |
+| 單一放置群組 = = false | 不支援                          | 支援的 |
+
+
+## <a name="next-steps"></a>後續步驟
+
+如需詳細資訊，請參閱[可用性選項的總覽](availability.md)。

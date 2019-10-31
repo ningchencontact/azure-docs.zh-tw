@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2db8d5881b5847adca4fffb72c0a678e1ec550c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3a1906b8ac281620381176a2a11dff3841069f69
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596316"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062680"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的必要條件
 本主題描述 Azure AD Connect 的必要條件和硬體需求。
@@ -221,7 +221,7 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需�
 | 300,000–600,000 個 |1.6 GHz |32 GB |450 GB |
 | 超過 600,000 個 |1.6 GHz |32 GB |500 GB |
 
-執行 AD FS 或 Web 應用程式伺服器的電腦的最低需求如下：
+執行 AD FS 或 Web 應用程式 Proxy 伺服器的電腦的最低需求如下：
 
 * CPU：雙核心 1.6 GHz 以上
 * 記憶體：2 GB 以上

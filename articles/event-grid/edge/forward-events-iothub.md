@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 772fccc96f757c6165238e4041ce98c17c647880
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992297"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098658"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>教學課程：將事件轉寄至 IoTHub
 
@@ -160,7 +160,9 @@ ms.locfileid: "72992297"
 
 ## <a name="setup-iot-hub-route"></a>設定 IoT 中樞路由
 
-請參閱 IoT 中樞[路由教學](../../iot-hub/tutorial-routing.md)課程來設定 IoT 中樞的路由，讓您可以查看從事件方格模組轉送的事件。
+請參閱[IoT 中樞路由教學](../../iot-hub/tutorial-routing.md)課程來設定 IoT 中樞的路由，讓您可以查看從事件方格模組轉送的事件。 使用查詢的 `true`，讓教學課程保持簡單。  
+
+
 
 ## <a name="publish-an-event"></a>發佈事件
 
@@ -205,6 +207,7 @@ ms.locfileid: "72992297"
 
 在本教學課程中，您已建立事件方格主題、edge 中樞訂用帳戶和已發佈的事件。 既然您已經知道要轉送至 edge 中樞的基本步驟，請參閱下列文章：
 
+* 若要針對在 IoT Edge 上使用 Azure 事件方格的問題進行疑難排解，請參閱[疑難排解指南](troubleshoot.md)。
 * 使用[edge 中樞](../../iot-edge/module-composition.md)路由篩選來分割事件
 * 在[linux](persist-state-linux.md)或[Windows](persist-state-windows.md)上設定事件方格模組的持續性
 * 遵循[檔](configure-client-auth.md)以設定用戶端驗證

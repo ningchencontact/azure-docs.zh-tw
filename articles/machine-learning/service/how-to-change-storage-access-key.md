@@ -1,7 +1,7 @@
 ---
 title: 變更儲存體帳戶存取金鑰
 titleSuffix: Azure Machine Learning
-description: 瞭解如何變更工作區所使用之 Azure 儲存體帳戶的存取金鑰。 Azure Machine Learning 會使用 Azure 儲存體帳戶來儲存資料和模型。 當您重新產生儲存體帳戶的存取金鑰時，您必須更新 Azure Machine Learning 以使用新的金鑰。
+description: 瞭解如何變更工作區所使用之 Azure 儲存體帳戶的存取金鑰。 Azure Machine Learning 會使用 Azure 儲存體帳戶來儲存資料和模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 77cafceee35f00a81b2e07b59f0f4a13146fd906
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034959"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063328"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>重新產生儲存體帳戶存取金鑰
 
@@ -65,8 +65,8 @@ for name, ds in datastores.items():
 此程式碼會尋找使用 Azure 儲存體的任何已註冊資料存放區，並列出下列資訊：
 
 * 資料存放區名稱：儲存體帳戶註冊所在的資料存放區名稱。
-* 儲存體帳戶名稱︰Azure 儲存體帳戶的名稱。
-* 箱此註冊所使用之儲存體帳戶中的容器。
+* 儲存體帳戶名稱： Azure 儲存體帳戶的名稱。
+* 容器：此註冊所使用之儲存體帳戶中的容器。
 
 它也會指出資料存放區是否適用于 Azure Blob 或 Azure 檔案共用，因為有不同的方法可重新註冊每種類型的資料存放區。
 
@@ -89,7 +89,7 @@ for name, ds in datastores.items():
         az login
         ```
 
-    1. 若要更新工作區以使用新的金鑰，請使用下列命令。 將`myworkspace`取代為您的 Azure Machine Learning 工作區名稱`myresourcegroup` ，並將取代為包含工作區的 Azure 資源組名。
+    1. 若要更新工作區以使用新的金鑰，請使用下列命令。 以您的 Azure Machine Learning 工作區名稱取代 `myworkspace`，並將 `myresourcegroup` 取代為包含工作區的 Azure 資源組名。
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -119,8 +119,8 @@ for name, ds in datastores.items():
     
     ```
 
-    由於`overwrite=True`指定了，此程式碼會覆寫現有的註冊，並將其更新為使用新的金鑰。
+    由於指定了 `overwrite=True`，因此此程式碼會覆寫現有的註冊，並將其更新為使用新的金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需註冊資料存放區的詳細資訊，請[`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)參閱類別參考。
+如需註冊資料存放區的詳細資訊，請參閱[`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)類別參考。

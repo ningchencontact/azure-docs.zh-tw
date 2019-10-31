@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 31e19034f6a2c6f5ab52cbc34d8b3f6e0a1051bc
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803582"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101284"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -114,6 +114,7 @@ ms.locfileid: "72803582"
 | [受控應用程式讀者](#managed-applications-reader) | 可讓您讀取受控應用程式中的資源及要求 JIT 存取權。 |
 | [受控身分識別參與者](#managed-identity-contributor) | 建立、讀取、更新及刪除使用者指派的身分識別 |
 | [受控身分識別操作員](#managed-identity-operator) | 讀取及指派使用者指派的身分識別 |
+| [受控服務註冊指派刪除角色](#managed-services-registration-assignment-delete-role) | 受控服務註冊指派刪除角色可讓管理租使用者使用者刪除指派給其租使用者的註冊指派。 |
 | [管理群組參與者](#management-group-contributor) | 管理群組參與者角色 |
 | [管理群組讀者](#management-group-reader) | 管理群組讀者角色 |
 | [監視參與者](#monitoring-contributor) | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
@@ -1963,6 +1964,23 @@ ms.locfileid: "72803582"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>受控服務註冊指派刪除角色
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 受控服務註冊指派刪除角色可讓管理租使用者使用者刪除指派給其租使用者的註冊指派。 |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **動作** |  |
+> | ManagedServices/registrationAssignments/read | 抓取受控服務註冊指派的清單。 |
+> | ManagedServices/registrationAssignments/delete | 移除受控服務註冊指派。 |
+> | ManagedServices/operationStatuses/read | 讀取資源的作業狀態。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |

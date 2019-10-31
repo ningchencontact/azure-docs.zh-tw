@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: b2003b9c7520cfa3e82576fd3430063c20d452ff
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 53df209d080cf91be9c558b43edaa618c0748fc5
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104566"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101541"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>停用私人連結服務來源 IP 的網路原則
 
-若要為您的私用連結服務選擇來源 IP 位址，子網需要明確`privateLinkServiceNetworkPolicies`的停用設定。 此設定僅適用于您選擇做為私人連結服務之來源 IP 的特定私人 IP 位址。 若為子網中的其他資源，則會根據網路安全性群組（NSG）安全性規則定義來控制存取。 
+若要為您的私用連結服務選擇來源 IP 位址，子網上必須 `privateLinkServiceNetworkPolicies` 明確的停用設定。 此設定僅適用于您選擇做為私人連結服務之來源 IP 的特定私人 IP 位址。 若為子網中的其他資源，則會根據網路安全性群組（NSG）安全性規則定義來控制存取。 
  
 使用任何 Azure 用戶端（PowerShell、CLI 或範本）時，需要額外的步驟來變更此屬性。 您可以從 Azure 入口網站使用 cloud shell，或 Azure PowerShell、Azure CLI 的本機安裝，或使用 Azure Resource Manager 範本來停用原則。  
  
@@ -30,9 +30,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
   -ResourceGroupName "myResourceGroup"  
    
-($virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
-  | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled" 
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```

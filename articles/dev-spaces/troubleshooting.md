@@ -8,19 +8,19 @@ ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 87aa96614b6aec4843723233a77d0a1dc1b66453
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
+ms.openlocfilehash: e145c234c7fc0bc7b9263f40f22d3fd90c1b7250
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300354"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064121"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
 本指南包含您在使用 Azure Dev Spaces 時可能會遇到的常見問題相關資訊。
 
-如果您在使用 Azure Dev Spaces 時遇到問題, 請[在 Azure Dev Spaces GitHub 存放庫中建立問題](https://github.com/Azure/dev-spaces/issues)。
+如果您在使用 Azure Dev Spaces 時遇到問題，請[在 Azure Dev Spaces GitHub 存放庫中建立問題](https://github.com/Azure/dev-spaces/issues)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -30,7 +30,7 @@ ms.locfileid: "71300354"
 
 在命令執行期間，您可以在 CLI 中使用 `--verbose` 參數輸出更多資訊。 您也可以在 `%TEMP%\Azure Dev Spaces` 中瀏覽更多詳細的記錄。 在 Mac 上，可以從終端機視窗執行 `echo $TMPDIR` 來找出 TEMP 目錄。 在 Linux 電腦上，TEMP 目錄通常是 `/tmp`。
 
-Azure Dev Spaces 在對單一實例或 pod 進行調試時，也能發揮最佳效果。 檔案包含一個設定 replicaCount，表示 Kubernetes 為您的服務執行的 pod 數目。 `azds.yaml` 如果您變更*replicaCount*以將應用程式設定為針對指定的服務執行多個 pod，則偵錯工具會在依字母順序列出時附加至第一個 pod。 偵錯工具會在該原始 Pod 回收時連結至不同的 Pod，而可能導致非預期的行為。
+Azure Dev Spaces 在對單一實例或 pod 進行調試時，也能發揮最佳效果。 `azds.yaml` 檔案包含一個設定*replicaCount*，表示 Kubernetes 為您的服務執行的 pod 數目。 如果您變更*replicaCount*以將應用程式設定為針對指定的服務執行多個 pod，則偵錯工具會在依字母順序列出時附加至第一個 pod。 偵錯工具會在該原始 Pod 回收時連結至不同的 Pod，而可能導致非預期的行為。
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>啟用 Azure Dev Spaces 時常見的問題
 
@@ -52,17 +52,17 @@ azds remove -g <resource group name> -n <cluster name>
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-重新建立控制器的程序可透過 CLI 或 Visual Studio 來完成。 如需範例, 請參閱[使用 .Net Core](quickstart-netcore-visualstudio.md)快速入門進行[小組開發](quickstart-team-development.md)或開發。
+重新建立控制器的程序可透過 CLI 或 Visual Studio 來完成。 如需範例，請參閱[使用 .Net Core](quickstart-netcore-visualstudio.md)快速入門進行[小組開發](quickstart-team-development.md)或開發。
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>控制器建立失敗，因為控制器名稱長度
 
-Azure Dev Spaces 控制器的名稱長度不能超過31個字元。 當您在 AKS 叢集上啟用 Dev Spaces 或建立控制器時，如果您的控制器名稱超過31個字元，就會收到錯誤。 例如:
+Azure Dev Spaces 控制器的名稱長度不能超過31個字元。 當您在 AKS 叢集上啟用 Dev Spaces 或建立控制器時，如果您的控制器名稱超過31個字元，就會收到錯誤。 例如：
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-若要修正此問題，請使用替代名稱建立控制器。 例如:
+若要修正此問題，請使用替代名稱建立控制器。 例如：
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -70,19 +70,19 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 
 ### <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>將 Windows 節點集區新增至 AKS 叢集時啟用 Dev Spaces 失敗
 
-目前, Azure Dev Spaces 僅適用于在 Linux pod 和節點上執行。 當您的 AKS 叢集具有 Windows 節點集區時, 您必須確定只在 Linux 節點上排程 Azure Dev Spaces pod。 如果 Azure Dev Spaces pod 已排程在 Windows 節點上執行，該 pod 將不會啟動，且啟用 Dev Spaces 將會失敗。
+目前，Azure Dev Spaces 僅適用于在 Linux pod 和節點上執行。 當您的 AKS 叢集具有 Windows 節點集區時，您必須確定只在 Linux 節點上排程 Azure Dev Spaces pod。 如果 Azure Dev Spaces pod 已排程在 Windows 節點上執行，該 pod 將不會啟動，且啟用 Dev Spaces 將會失敗。
 
 若要修正此問題，請[將污點新增](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations)至您的 AKS 叢集，以確保 Linux pod 不會排程在 Windows 節點上執行。
 
-### <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>「在叢集上找不到處于就緒狀態的 untainted Linux 節點」錯誤。 必須至少有一個 untainted Linux 節點處於 [就緒] 狀態, 才能在「azds」命名空間中部署 pod。」
+### <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>「在叢集上找不到處于就緒狀態的 untainted Linux 節點」錯誤。 必須至少有一個 untainted Linux 節點處於 [就緒] 狀態，才能在「azds」命名空間中部署 pod。」
 
-Azure Dev Spaces 無法在 AKS 叢集上建立控制器，因為它找不到處于*就緒*狀態的 untainted 節點來排程 pod。 Azure Dev Spaces 需要至少一個處於 [*就緒*] 狀態的 Linux 節點, 以便在不指定容差的情況下排程 pod。
+Azure Dev Spaces 無法在 AKS 叢集上建立控制器，因為它找不到處于*就緒*狀態的 untainted 節點來排程 pod。 Azure Dev Spaces 需要至少一個處於 [*就緒*] 狀態的 Linux 節點，以便在不指定容差的情況下排程 pod。
 
-若要修正此問題，請在您的 AKS 叢集上[更新您的污點](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations)設定，以確保至少有一個 Linux 節點允許排程 pod，而不指定容差。 此外, 請確定至少有一個 Linux 節點允許在不指定容差的情況下排程 pod, 處於*就緒*狀態。 如果您的節點花費較長的時間來達到 [*就緒*] 狀態, 您可以嘗試重新開機您的節點。
+若要修正此問題，請在您的 AKS 叢集上[更新您的污點](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations)設定，以確保至少有一個 Linux 節點允許排程 pod，而不指定容差。 此外，請確定至少有一個 Linux 節點允許在不指定容差的情況下排程 pod，處於*就緒*狀態。 如果您的節點花費較長的時間來達到 [*就緒*] 狀態，您可以嘗試重新開機您的節點。
 
-### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>執行時發生「Azure Dev Spaces CLI 未正確安裝」錯誤`az aks use-dev-spaces`
+### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>執行 `az aks use-dev-spaces` 時發生「Azure Dev Spaces CLI 未正確安裝」錯誤
 
-Azure Dev Spaces CLI 的更新已變更其安裝路徑。 如果您使用2.0.63 之前的 Azure CLI 版本，您可能會看到此錯誤。 若要顯示您的 Azure CLI 版本, 請`az --version`使用。
+Azure Dev Spaces CLI 的更新已變更其安裝路徑。 如果您使用2.0.63 之前的 Azure CLI 版本，您可能會看到此錯誤。 若要顯示您的 Azure CLI 版本，請使用 `az --version`。
 
 ```bash
 $ az --version
@@ -90,34 +90,34 @@ azure-cli                         2.0.60 *
 ...
 ```
 
-儘管在2.0.63 之前`az aks use-dev-spaces`以 Azure CLI 版本執行時的錯誤訊息, 安裝還是會成功。 您可以繼續使用`azds` , 而不會發生任何問題。
+儘管在2.0.63 之前使用 Azure CLI 版本執行 `az aks use-dev-spaces` 時，仍會出現錯誤訊息，但安裝會成功。 您可以繼續使用 `azds` 而不會有任何問題。
 
-若要修正此問題，請將[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)安裝更新至2.0.63 或更新版本。 此更新將會解決您在執行時`az aks use-dev-spaces`收到的錯誤訊息。 或者, 您可以繼續使用目前版本的 Azure CLI 和 Azure Dev Spaces CLI。
+若要修正此問題，請將[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)安裝更新至2.0.63 或更新版本。 此更新將會解決您在執行 `az aks use-dev-spaces`時所收到的錯誤訊息。 或者，您可以繼續使用目前版本的 Azure CLI 和 Azure Dev Spaces CLI。
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>準備專案以進行 Azure Dev Spaces 時常見的問題
 
 ### <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>警告「由於不支援的語言而無法產生 Dockerfile」
-Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 當您在`azds prep`具有以其中一種語言撰寫之程式碼的目錄中執行時，Azure Dev Spaces 會自動為您建立適當的 Dockerfile。
+Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 當您使用其中一種語言撰寫的程式碼在目錄中執行 `azds prep` 時，Azure Dev Spaces 會自動為您建立適當的 Dockerfile。
 
-您仍然可以將 Azure Dev Spaces 與以其他語言撰寫的程式碼搭配使用，但是您必須在第一`azds up`次執行之前手動建立 Dockerfile。
+您仍然可以將 Azure Dev Spaces 與以其他語言撰寫的程式碼搭配使用，但是您必須在第一次執行 `azds up` 之前手動建立 Dockerfile。
 
 如果您的應用程式是以 Azure Dev Spaces 原本不支援的語言撰寫，您必須提供適當的 Dockerfile 來建立執行程式碼的容器映射。 Docker 提供[撰寫 Dockerfile 的最佳做法清單](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)及 [Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)，可協助您撰寫符合需求的 Dockerfile。
 
-備妥適當的 Dockerfile 之後，您就可以執行`azds up` ，在 Azure Dev Spaces 中執行應用程式。
+備妥適當的 Dockerfile 之後，您就可以執行 `azds up`，在 Azure Dev Spaces 中執行應用程式。
 
 ## <a name="common-issues-when-starting-or-stopping-services-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 啟動或停止服務時的常見問題
 
 ### <a name="error-config-file-not-found"></a>錯誤「找不到設定檔：」
 
-執行時`azds up`，您可能會看到此錯誤。 `azds up` 和`azds prep`都必須從您想要在開發人員空間中執行之專案的根目錄中執行。
+執行 `azds up`時，您可能會看到此錯誤。 `azds up` 和 `azds prep` 都必須從您要在開發人員空間中執行之專案的根目錄中執行。
 
 若要修正此問題：
 1. 將目前目錄變更為內含服務程式碼的根資料夾。 
-1. 如果您在程式碼資料夾中沒有_azds yaml_檔案，請執行`azds prep`以產生 Docker、Kubernetes 和 Azure Dev Spaces 資產。
+1. 如果您在程式碼資料夾中沒有_azds yaml_檔案，請執行 `azds prep` 以產生 Docker、Kubernetes 和 Azure Dev Spaces 資產。
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>「正在等候容器映射組建 ...」的超時使用 AKS 虛擬節點的步驟
 
-當您嘗試使用 Dev Spaces 來執行設定為在[AKS 虛擬節點](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)上執行的服務時, 就會發生此超時。 Dev Spaces 目前不支援在虛擬節點上建立或調試服務。
+當您嘗試使用 Dev Spaces 來執行設定為在[AKS 虛擬節點](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)上執行的服務時，就會發生此超時。 Dev Spaces 目前不支援在虛擬節點上建立或調試服務。
 
 如果您執行 `azds up` 並搭配 `--verbose` 參數，或在 Visual Studio 中啟用詳細資訊記錄，則會看到其他詳細資料：
 
@@ -131,7 +131,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-上述命令顯示服務的 pod 已指派給*虛擬節點-aci-linux*, 也就是虛擬節點。
+上述命令顯示服務的 pod 已指派給*虛擬節點-aci-linux*，也就是虛擬節點。
 
 若要修正此問題，請更新服務的 Helm 圖表，以移除允許服務在虛擬節點上執行的任何*nodeSelector*或*容差*值。 這些值通常會定義在圖表的 `values.yaml` 檔案中。
 
@@ -143,19 +143,19 @@ Container image build failed
 
 若要修正此問題，請重新開機叢集中的代理程式節點。
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>錯誤「發行 azds-\<識別碼\> - \<spacenameservicename失敗：服務\>」servicename\< - \< \> \>' 已存在」或「已拒絕 servicename \< \>的提取存取權，存放庫不存在，或可能需要 ' docker login ' "
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>錯誤「release azds-\<識別碼\>-\<spacename\>-\<servicename\> 失敗：服務 '\<servicename\>' 已存在」或「已拒絕 \<servicename 的提取存取權」\>，存放庫不存在，或可能需要 ' docker login ' '
 
-如果您在相同的開發人員空間內混合執行直接 Helm 命令`helm install`( `helm upgrade`例如、 `helm delete`或`azds up` ) 與 dev Spaces 命令 (例如和`azds down`), 就會發生這些錯誤。 因為 Dev Spaces 有自己的 Tiller 實例, 所以會與您在相同開發人員空間中執行的自有 Tiller 實例相衝突, 因此會發生這種情況。
+如果您在相同的開發人員空間內混合執行直接 Helm 命令（例如 `helm install`、`helm upgrade`或 `helm delete`）與 Dev Spaces 命令（例如 `azds up` 和 `azds down`），就會發生這些錯誤。 因為 Dev Spaces 有自己的 Tiller 實例，所以會與您在相同開發人員空間中執行的自有 Tiller 實例相衝突，因此會發生這種情況。
 
-您可以針對相同的 AKS 叢集使用 Helm 命令和 Dev Spaces 命令, 但是每個啟用 Dev Spaces 的命名空間都應該使用其中一個。
+您可以針對相同的 AKS 叢集使用 Helm 命令和 Dev Spaces 命令，但是每個啟用 Dev Spaces 的命名空間都應該使用其中一個。
 
-例如, 假設您使用 Helm 命令, 在父開發人員空間中執行整個應用程式。 您可以建立該父系的子開發人員空間, 使用 Dev Spaces 在子開發人員空間內執行個別服務, 並一起測試服務。 當您準備好簽入變更時, 請使用 Helm 命令, 將更新的程式碼部署至父開發人員空間。 請勿使用`azds up`在父開發人員空間中執行更新的服務, 因為它會與使用 Helm 一開始執行的服務發生衝突。
+例如，假設您使用 Helm 命令，在父開發人員空間中執行整個應用程式。 您可以建立該父系的子開發人員空間，使用 Dev Spaces 在子開發人員空間內執行個別服務，並一起測試服務。 當您準備好簽入變更時，請使用 Helm 命令，將更新的程式碼部署至父開發人員空間。 請勿使用 `azds up` 在父開發人員空間中執行更新的服務，因為它會與使用 Helm 一開始執行的服務發生衝突。
 
 ### <a name="existing-dockerfile-not-used-to-build-a-container"></a>現有的 Dockerfile 未用來建立容器
 
 Azure Dev Spaces 可以設定為指向您專案中的特定 _Dockerfile_。 如果發生 Azure Dev Spaces 未使用您預期的 Dockerfile 來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 要使用哪個 Dockerfile。 
 
-若要修正此問題，請開啟 Azure Dev Spaces 在專案中產生的_yaml_檔案。 更新設定： [開發]： [*組建]： dockerfile*以指向您想要使用的 dockerfile。 例如:
+若要修正此問題，請開啟 Azure Dev Spaces 在專案中產生的_yaml_檔案。 更新設定： [開發]： [*組建]： dockerfile*以指向您想要使用的 dockerfile。 例如：
 
 ```yaml
 ...
@@ -169,9 +169,9 @@ configurations:
 
 您使用的是需要驗證的私人登錄中的 Docker 映射。
 
-若要修正此問題，您可以使用[imagePullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets)，允許 Dev Spaces 驗證及提取此私人登錄中的映射。 若要使用 imagePullSecrets，請在您要使用映射的命名空間中[建立 Kubernetes 秘密](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)。 然後在中`azds.yaml`提供密碼作為 imagePullSecret。
+若要修正此問題，您可以使用[imagePullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets)，允許 Dev Spaces 驗證及提取此私人登錄中的映射。 若要使用 imagePullSecrets，請在您要使用映射的命名空間中[建立 Kubernetes 秘密](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)。 然後在 `azds.yaml`中提供密碼做為 imagePullSecret。
 
-以下是在中`azds.yaml`指定 imagePullSecrets 的範例。
+以下是在 `azds.yaml`中指定 imagePullSecrets 的範例。
 
 ```yaml
 kind: helm-release
@@ -196,13 +196,13 @@ install:
 ```
 
 > [!IMPORTANT]
-> 在中`azds.yaml`設定 imagePullSecrets 將會覆寫中`values.yaml`指定的 imagePullSecrets。
+> 在 `azds.yaml` 中設定 imagePullSecrets 將會覆寫 `values.yaml`中指定的 imagePullSecrets。
 
 ### <a name="error-service-cannot-be-started"></a>「無法啟動服務」錯誤。
 
 當您的服務程式碼無法啟動時，您可能會看到此錯誤訊息。 通常是使用者程式碼所造成的。 若要取得更多診斷資訊，請在啟動服務時啟用更詳細的記錄。
 
-從命令列使用，以啟用`--verbose`更詳細的記錄。 您也可以使用`--output`來指定輸出格式。 例如:
+從命令列中，使用 `--verbose` 來啟用更詳細的記錄。 您也可以使用 `--output`來指定輸出格式。 例如：
 
 ```cmd
 azds up --verbose --output json
@@ -269,9 +269,9 @@ Service cannot be started.
 * [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
-### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>Error:「找不到類型： coreclr 的偵錯工具延伸模組」
+### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>錯誤：「找不到類型： coreclr 的偵錯工具延伸模組」
 
-執行 Visual Studio Code 偵錯工具時，您可能會看到此錯誤。 您可能沒有C#安裝在開發電腦上的 VS Code 延伸模組。 此C#延伸模組包含 .net Core (CoreCLR) 的偵錯工具支援。
+執行 Visual Studio Code 偵錯工具時，您可能會看到此錯誤。 您可能沒有C#安裝在開發電腦上的 VS Code 延伸模組。 此C#延伸模組包含 .net Core （CoreCLR）的偵錯工具支援。
 
 若要修正此問題，請安裝的[VS Code C#延伸](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)模組。
 
@@ -285,7 +285,7 @@ Service cannot be started.
 
 執行 Visual Studio Code 偵錯工具時，您可能會看到此錯誤。 VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄。 如果您已將 `Dockerfile` 更新成指定不同的工作目錄，就可能看到此錯誤。
 
-若要修正此問題，請`launch.json`更新專案資料夾`.vscode`子目錄下的檔案。 將 `configurations->cwd` 指示詞變更成指向與您專案之 `Dockerfile`.中所定義 `WORKDIR` 相同的目錄。 您可能也需要更新 `configurations->program` 指示詞。
+若要修正此問題，請更新專案資料夾的 `.vscode` 子目錄下的 `launch.json` 檔案。 將 `configurations->cwd` 指示詞變更成指向與您專案之 `Dockerfile`.中所定義 `WORKDIR` 相同的目錄。 您可能也需要更新 `configurations->program` 指示詞。
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>「管道程式 ' azds ' 意外結束並出現代碼126」錯誤。
 
@@ -293,7 +293,7 @@ Service cannot be started.
 
 若要修正此問題，請關閉 Visual Studio Code，然後重新開啟。 重新開機偵錯工具。
 
-### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>將偵錯工具附加至 node.js 應用程式時發生錯誤「內部監看失敗: 監看 ENOSPC」
+### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>將偵錯工具附加至 node.js 應用程式時發生錯誤「內部監看失敗：監看 ENOSPC」
 
 當執行 pod 的節點與您嘗試附加的 node.js 應用程式已超過*inotifypropertychanged. max _user_watches*值時，就會發生此錯誤。 在某些情況下， [ *inotifypropertychanged*的預設值可能太小，無法直接處理將偵錯工具附加至 pod](https://github.com/Azure/AKS/issues/772)。
 
@@ -303,12 +303,12 @@ Service cannot be started.
 
 ### <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>錯誤 "azds" 無法辨識為內部或外部命令、可運作的程式或批次檔
 
-如果`azds.exe`未正確安裝或設定，就會發生此錯誤。
+如果未正確安裝或設定 `azds.exe`，就會發生此錯誤。
 
 若要修正此問題：
 
-1. 請檢查的位置% ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI `azds.exe`。 如果有的話，請將該位置新增至 PATH 環境變數中。
-2. 如果`azds.exe`未安裝，請執行下列命令：
+1. 請檢查位置% ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI 以取得 `azds.exe`。 如果有的話，請將該位置新增至 PATH 環境變數中。
+2. 如果未安裝 `azds.exe`，請執行下列命令：
 
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
@@ -316,13 +316,13 @@ Service cannot be started.
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>授權錯誤 "Microsoft. DevSpaces/register/action"
 
-您需要 Azure 訂用帳戶中的「擁有者」或「參與者」權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，但沒有相關聯 Azure 訂用帳戶的*擁有*者或*參與者*存取權，您可能會看到授權錯誤。 例如:
+您需要 Azure 訂用帳戶中的「擁有者」或「參與者」權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，但沒有相關聯 Azure 訂用帳戶的*擁有*者或*參與者*存取權，您可能會看到授權錯誤。 例如：
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
-若要修正此問題，請使用具有「*擁有*者」或「*參與者*」存取 Azure 訂用`Microsoft.DevSpaces`帳戶的帳戶，手動註冊命名空間：
+若要修正此問題，請使用具有「*擁有*者」或「*參與者*」存取 Azure 訂用帳戶的帳戶，手動註冊 `Microsoft.DevSpaces` 命名空間：
 
 ```console
 az provider register --namespace Microsoft.DevSpaces
@@ -330,13 +330,13 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>新 pod 未啟動
 
-Kubernetes 初始化運算式無法針對新的 pod 套用 PodSpec，因為叢集中對叢集*管理員*角色的 RBAC 許可權變更。 新的 pod 可能也會有不正確 PodSpec, 例如與 pod 相關聯的服務帳戶已不存在。 若要查看因初始化運算式問題而處於*擱置*狀態的 pod, 請使用`kubectl get pods`命令:
+Kubernetes 初始化運算式無法針對新的 pod 套用 PodSpec，因為叢集中對叢集*管理員*角色的 RBAC 許可權變更。 新的 pod 可能也會有不正確 PodSpec，例如與 pod 相關聯的服務帳戶已不存在。 若要查看因初始化運算式問題而處於*擱置*狀態的 pod，請使用 `kubectl get pods` 命令：
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
 ```
 
-此問題可能會影響叢集中*所有命名空間*中的 pod, 包括未啟用 Azure Dev Spaces 的命名空間。
+此問題可能會影響叢集中*所有命名空間*中的 pod，包括未啟用 Azure Dev Spaces 的命名空間。
 
 若要修正此問題，請[將 Dev SPACES CLI 更新為最新版本](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools)，然後從 Azure Dev Spaces 控制器中刪除*azds InitializerConfiguration* ：
 
@@ -345,28 +345,28 @@ az aks get-credentials --resource-group <resource group name> --name <cluster na
 kubectl delete InitializerConfiguration azds
 ```
 
-當您從 Azure Dev Spaces 控制器移除*azds InitializerConfiguration*之後, 請使用`kubectl delete`移除處於*擱置*狀態的任何 pod。 移除所有擱置中的 pod 之後, 請重新部署您的 pod。
+從 Azure Dev Spaces 控制器移除*Azds InitializerConfiguration*之後，請使用 `kubectl delete` 移除處於*擱置*狀態的任何 pod。 移除所有擱置中的 pod 之後，請重新部署您的 pod。
 
-如果新的 pod 在重新部署後仍處於*擱置*狀態, 請使用`kubectl delete`移除處於*擱置*狀態的任何 pod。 移除所有擱置中的 pod 之後, 請從叢集刪除控制器並重新安裝:
+如果新的 pod 在重新部署後仍處於*擱置*狀態，請使用 `kubectl delete` 移除處於*擱置*狀態的任何 pod。 移除所有擱置中的 pod 之後，請從叢集刪除控制器並重新安裝：
 
 ```bash
 azds remove -g <resource group name> -n <cluster name>
 azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
 ```
 
-重新安裝您的控制器之後, 請重新部署您的 pod。
+重新安裝您的控制器之後，請重新部署您的 pod。
 
 ### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>呼叫 Dev Spaces 控制器和 Api 的 RBAC 許可權不正確
 
-存取 Azure Dev Spaces 控制器的使用者必須具有讀取 AKS 叢集上系統管理員*kubeconfig*的存取權。 例如, 您可以在內建的 Azure Kubernetes Service 叢集系統[管理員角色](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)中取得此許可權。 存取 Azure Dev Spaces 控制器的使用者也必須擁有該控制器的「*參與者*」或「*擁有*者」 RBAC 角色。 如需更新使用者 AKS 叢集許可權的詳細資訊, 請參閱[這裡](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)。
+存取 Azure Dev Spaces 控制器的使用者必須具有讀取 AKS 叢集上系統管理員*kubeconfig*的存取權。 例如，您可以在內建的 Azure Kubernetes Service 叢集系統[管理員角色](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)中取得此許可權。 存取 Azure Dev Spaces 控制器的使用者也必須擁有該控制器的「*參與者*」或「*擁有*者」 RBAC 角色。 如需更新使用者 AKS 叢集許可權的詳細資訊，請參閱[這裡](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)。
 
-若要更新該控制器的使用者 RBAC 角色:
+若要更新該控制器的使用者 RBAC 角色：
 
 1. 在 https://portal.azure.com 登入 Azure 入口網站。
-1. 流覽至包含控制器的資源群組, 這通常與您的 AKS 叢集相同。
+1. 流覽至包含控制器的資源群組，這通常與您的 AKS 叢集相同。
 1. 啟用 [*顯示隱藏的類型*] 核取方塊。
 1. 按一下控制器。
-1. 開啟 [*存取控制 (IAM)* ] 窗格。
+1. 開啟 [*存取控制（IAM）* ] 窗格。
 1. 按一下 [*角色指派*] 索引標籤。
 1. 依序按一下 [*新增*] 和 [*新增角色指派*]。
     * 針對 [*角色*]，選取 [*參與者*] 或 [*擁有*者]。
@@ -404,7 +404,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 1. 如果容器處於建置/部署程序，您可以等待 2-3 秒，然後再次嘗試存取服務。 
 1. 查看您的連接埠組態。 下列所有資產中的指定連接埠號碼都應該**相同**：
-    * **Dockerfile：** 由 `EXPOSE` 指令所指定。
+    * **Dockerfile：** 由 `EXPOSE` 指示所指定。
     * **[Helm 圖表](https://docs.helm.sh)：** 由服務的 `externalPort` 和 `internalPort` 值 (通常位於 `values.yml` 檔案) 所指定。
     * 在應用程式程式碼中開啟的任何連接埠，例如在 Node.js 中：`var server = app.listen(80, function () {...}`
 
@@ -414,10 +414,10 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 若要修正此問題：
 
-1. `azds.yaml`修改檔案，將組建內容設定為方案層級。
-2. `Dockerfile`修改和`Dockerfile.develop`檔案來參考專案檔，例如`.csproj`，正確地相對於新的組建內容。
-3. 在與檔案相同的目錄`.sln`中新增。 `.dockerignore`
-4. 視需要`.dockerignore`使用其他專案來更新。
+1. 修改 `azds.yaml` 檔案，將組建內容設定為方案層級。
+2. 修改 `Dockerfile` 和 `Dockerfile.develop` 檔案來參考專案檔，例如 `.csproj`，正確地相對於新的組建內容。
+3. 在與 `.sln` 檔案相同的目錄中新增 `.dockerignore`。
+4. 視需要使用其他專案來更新 `.dockerignore`。
 
 您可以在[這裡](https://github.com/sgreenmsft/buildcontextsample)找到範例。
 
@@ -425,9 +425,23 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 當您在開發人員空間中執行服務時，該服務的 pod 會[插入其他容器以進行檢測](how-dev-spaces-works.md#prepare-your-aks-cluster)，而 pod 中的所有容器都必須針對水準 pod 自動調整設定資源限制和要求。
 
-若要修正此問題，請將資源要求和限制套用至插入的 Dev Spaces 容器。 將`azds.io/proxy-resources`注釋新增至您的 pod 規格，即可針對插入的容器（devspaces-proxy）套用資源要求和限制。值應該設定為 JSON 物件，代表 proxy 之容器規格的 resources 區段。
+若要修正此問題，請將資源要求和限制套用至插入的 Dev Spaces 容器。 藉由將 `azds.io/proxy-resources` 注釋新增至 pod 規格，可對插入的容器（devspaces proxy）套用資源要求和限制。值應該設定為 JSON 物件，代表 proxy 之容器規格的 resources 區段。
 
 以下是要套用至 pod 規格的 proxy 資源注釋範例。
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+### <a name="enable-azure-dev-spaces-on-an-existing-namespace-with-running-pods"></a>在具有執行中 pod 的現有命名空間上啟用 Azure Dev Spaces
+
+您可能會有現有的 AKS 叢集和命名空間，以及要啟用 Azure Dev Spaces 的執行中 pod。
+
+若要在 AKS 叢集中的現有命名空間上啟用 Azure Dev Spaces，請執行 `use-dev-spaces`，並使用 `kubectl` 重新開機該命名空間中的所有 pod。
+
+```console
+az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+kubectl -n my-namespace delete pod --all
+```
+
+在您的 pod 重新開機之後，您就可以開始使用現有的命名空間與 Azure Dev Spaces。

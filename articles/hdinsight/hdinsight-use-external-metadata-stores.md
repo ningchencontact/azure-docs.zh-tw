@@ -7,15 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 10/29/2019
+ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027708"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063296"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>在 Azure HDInsight 中使用外部中繼資料存放區
+
+HDInsight 可讓您將索引鍵中繼資料解決方案和管理資料庫部署到外部資料存放區，以控制您的資料和中繼資料。 這項功能目前適用于[Apache Hive 中繼存放區](#custom-metastore)、 [apache Oozie 中繼存放區](#apache-oozie-metastore)和[apache Ambari 資料庫](#custom-ambari-db)。
 
 HDInsight 中的 Apache Hive 中繼存放區是 Apache Hadoop 架構不可或缺的一部分。 中繼存放區是中央結構描述存放庫，可供其他巨量資料存取工具使用，例如 Apache Spark、互動式查詢 (LLAP)、Presto 或 Apache Pig。 HDInsight 使用 Azure SQL Database 作為 Hive 中繼存放區。
 
@@ -92,6 +94,10 @@ HDInsight 也支援自訂中繼存放區，這是針對生產叢集建議的中�
 Apache Oozie 是一個可管理 Hadoop 作業的工作流程協調系統。  Oozie 支援 Apache MapReduce、Pig、Hive 等等的 Hadoop 作業。  Oozie 使用中繼存放區來儲存目前和已完成工作流程的相關詳細資料。 為提升使用 Oozie 時的效能，您可以使用 Azure SQL Database 作為自訂中繼存放區。 在您刪除叢集後，中繼存放區也可提供 Oozie 作業資料的存取。
 
 如需有關使用 Azure SQL Database 來建立 Oozie 中繼存放區的指示，請參閱[使用 Apache Oozie 來處理工作流程](hdinsight-use-oozie-linux-mac.md)。
+
+## <a name="custom-ambari-db"></a>自訂 Ambari DB
+
+若要使用您自己的外部資料庫搭配 Apache Ambari on HDInsight，請參閱[自訂 Apache Ambari 資料庫](hdinsight-custom-ambari-db.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

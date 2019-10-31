@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 610e0088fe97bdda1dce7f7391530c5128428b29
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529020"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73096966"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -102,6 +102,8 @@ IoT Edge 的中樞和代理程式模組會使用本機儲存體來維護狀態�
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>請勿在受限裝置上進行效能最佳化
 
 根據預設，IoT Edge 中樞已針對效能優化，因此它會嘗試配置大量的記憶體區塊。 這項設定會在 Raspberry Pi 等小型裝置上造成穩定性問題。 如果您要部署具有受限制資源的裝置，您可能會想要在 IoT Edge 中樞上將**OptimizeForPerformance**環境變數設定為**false** 。 
+
+當**OptimizeForPerformance**設定為**TRUE**時，MQTT 通訊協定標頭會使用具有較佳效能的 PooledByteBufferAllocator，但會配置更多記憶體。 在32位作業系統或記憶體不足的裝置上，配置器無法正常運作。 此外，針對效能進行優化時，RocksDb 會為其角色配置更多記憶體以作為本機儲存提供者。 
 
 如需詳細資訊，請參閱[資源受限裝置的穩定性問題](troubleshoot.md#stability-issues-on-resource-constrained-devices)。
 

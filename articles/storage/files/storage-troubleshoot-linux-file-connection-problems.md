@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926542"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097371"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -126,7 +126,7 @@ ms.locfileid: "72926542"
 
 ### <a name="solution"></a>方案
 
-Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 此功能已包含在一些 Linux 散發套件中，而這些散發套件列在[具有對應掛接功能的最低建議版本 (SMB 2.1 版與 SMB 3.0 版)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) 中。 其他散發套件需要核心 4.11 和更新版本。
+Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 某些 Linux 散發套件可能已 backport 從4.11 核心變更為其維護的舊版 Linux 核心。 若要協助判斷您的 Linux 版本是否支援使用加密的 SMB 3.0，請參閱搭配[使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)。 
 
 如果您的 Linux SMB 用戶端不支援加密，請從位於檔案共用相同資料中心的 Azure Linux VM 使用 SMB 2.1 來掛接 Azure 檔案服務。 驗證儲存體帳戶上已停用[需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。 
 
@@ -281,7 +281,7 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 - [CIFS：修正重新連線期間可能發生的記憶體損毀 (英文)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS：修正重新連線期間可能發生的 Mutex 雙重鎖定 (針對核心 4.9 版與更新版本)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) \(英文\)
 
-但是，這些變更可能尚未移植到所有 Linux 發行版本。 您可以在[搭配 Linux 使用 Azure 檔案儲存體](storage-how-to-use-files-linux.md)文章的[具有對應掛接功能的最低建議版本 (SMB 2.1 版與 SMB 3.0 版)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) 一節中，找到此修正程式和其他重新連線修正程式。 您可以升級至其中一個建議的核心版本，以完成此修正。
+但是，這些變更可能尚未移植到所有 Linux 發行版本。 如果您使用的是熱門的 Linux 散發套件，您可以查看[使用 Azure 檔案儲存體搭配 linux](storage-how-to-use-files-linux.md) ，以查看您的散發版本有必要的核心變更。
 
 ### <a name="workaround"></a>因應措施
 

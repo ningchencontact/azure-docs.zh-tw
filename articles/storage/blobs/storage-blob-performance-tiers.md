@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ac483a338b7d71142b89b13e41fc048346ac037f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: e0d746f1b01784bc383c12543936f06dae66ca09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802657"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063248"
 ---
 # <a name="azure-block-blob-storage-performance-tiers"></a>Azure 區塊 Blob 儲存體效能層級
 
@@ -28,7 +28,7 @@ Azure 區塊 blob 儲存體提供兩個不同的效能層級：
 
 - 標準效能適用于所有[Azure 區域](https://azure.microsoft.com/global-infrastructure/services/?products=storage)。 [[選取區域](https://azure.microsoft.com/global-infrastructure/services/?products=storage)] 中提供 Premium 效能。
 - 高階效能針對具有高交易率的應用程式提供優化的定價，以協助降低這些工作負載的[總儲存成本](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/)。
-- Premium 效能需要使用區塊 blob 儲存體帳戶，其支援區塊 blob 和附加 blob。
+- 若要取得區塊 blob 的 premium 效能，您必須使用 BlockBlobStorage 帳戶類型。
 - 標準效能適用一般用途 v1、一般用途 v2 和 Blob 儲存體帳戶。
 - Premium 和 standard 效能都支援[高輸送量區塊 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)。 高輸送量區塊 blob 適用于高於 256 KiB 的 premium 效能。 高輸送量區塊 blob 適用于高於 4 MiB Put 區塊或放置 Blob 大小的標準效能。
 - Premium 效能目前僅適用于本機多餘儲存體（LRS）。

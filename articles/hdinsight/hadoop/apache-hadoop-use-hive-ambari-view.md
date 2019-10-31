@@ -2,18 +2,18 @@
 title: 在 Azure HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive View
 description: 了解如何從網頁瀏覽器使用 Hive 檢視來提交 Hive 查詢。 Hive 檢視是以 Linux 為基礎的 HDInsight 叢集隨附的 Ambari 檢視的一部分。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044816"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097109"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -30,9 +30,9 @@ ms.locfileid: "73044816"
 
 1. 從 [ [Azure 入口網站](https://portal.azure.com/)] 中，選取您的叢集。  如需相關指示，請參閱[列出和顯示](../hdinsight-administer-use-portal-linux.md#showClusters)叢集。 叢集會在新的入口網站刀鋒視窗中開啟。
 
-2. 從叢集**儀表板**中，選取 [ **Ambari views**]。 出現驗證的提示時，請使用您在建立叢集時提供的叢集登入 (預設為 `admin`) 帳戶名稱和密碼。
+1. 從叢集**儀表板**中，選取 [ **Ambari views**]。 出現驗證的提示時，請使用您在建立叢集時提供的叢集登入 (預設為 `admin`) 帳戶名稱和密碼。 或者，在瀏覽器中流覽至 `https://CLUSTERNAME.azurehdinsight.net/#/main/views`，其中 `CLUSTERNAME` 是您的叢集名稱。
 
-3. 從檢視清單中，選取 [Hive 檢視]。
+1. 從檢視清單中，選取 [Hive 檢視]。
 
     ![Apache Ambari 選取 Apache Hive 視圖](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "73044816"
 
     ![[Hive 檢視] 的查詢工作表影像](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. 從 [查詢] 索引標籤中，將下列 HiveQL 陳述式貼到工作表中：
+1. 從 [查詢] 索引標籤中，將下列 HiveQL 陳述式貼到工作表中：
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ ms.locfileid: "73044816"
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ ms.locfileid: "73044816"
    > [!IMPORTANT]  
    > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
 
-5. 若要啟動查詢，請選取工作表下方的 [**執行**]。 按鈕會變成橘色，而且文字會變更為 [停止]。
+1. 若要啟動查詢，請選取工作表下方的 [**執行**]。 按鈕會變成橘色，而且文字會變更為 [停止]。
 
-6. 查詢完成之後，[結果] 索引標籤會顯示作業的結果。 下列文字是查詢結果：
+1. 查詢完成之後，[結果] 索引標籤會顯示作業的結果。 下列文字是查詢結果：
 
         loglevel       count
         [ERROR]        3
@@ -133,7 +133,7 @@ ms.locfileid: "73044816"
 
 在將 UDF 新增至 [Hive 檢視] 後，[插入 udf] 按鈕隨即會出現在 [查詢編輯器] 底端。 選取這個項目會顯示 [Hive 檢視] 中定義之 UDF 的下拉式清單。 選取 UDF 會將 HiveQL 陳述式新增至查詢以啟用 UDF。
 
-例如，如果您使用下列屬性定義 UDF：
+例如，如果您已定義具有下列屬性的 UDF：
 
 * 資源名稱：myudfs
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa42c63809472e1681a820031e48fe4f86fb584
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756469"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062542"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 設定自訂網域
 
@@ -77,38 +77,40 @@ ms.locfileid: "72756469"
 
 若要透過具有自訂網域的應用程式 Proxy 發佈您的應用程式：
 
-1. 針對新的應用程式，請在 Azure Active Directory 中，選取左側導覽列中的 **企業應用程式**，選取 **新增應用程式**，然後選取 **內部部署應用程式**。 
+1. 針對新的應用程式，請在 Azure Active Directory 中，選取左側導覽中的 **企業應用程式**。 選取 [新增應用程式]。 在 [**內部部署應用程式**] 區段中，選取 [**新增內部部署應用程式**]。 
    
    針對已在**企業應用程式**中的應用程式，請從清單中選取它，然後在左側導覽中選取 [**應用程式 proxy** ]。 
 
-1. 在 [**應用程式 proxy** ] 頁面的 [**內部 url** ] 欄位中，輸入您應用程式的內部 url。 
+2. 在 [應用程式 Proxy 設定] 頁面上，如果您要新增自己的內部部署應用程式，請輸入**名稱**。
+
+3.  在 [**內部 url** ] 欄位中，輸入您應用程式的內部 url。
    
-1. 在 [**外部 Url** ] 欄位中，下拉清單並選取您想要使用的自訂網域。
+4. 在 [**外部 Url** ] 欄位中，下拉清單並選取您想要使用的自訂網域。
    
-1. 選取 [儲存]。
+5. 選取 [新增]。
    
    ![選取自訂網域](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-1. 如果網域已經有憑證，[**憑證**] 欄位就會顯示憑證資訊。 否則，請選取 [**憑證**] 欄位。 
+6. 如果網域已經有憑證，[**憑證**] 欄位就會顯示憑證資訊。 否則，請選取 [**憑證**] 欄位。 
    
    ![按一下以上傳憑證](./media/application-proxy-configure-custom-domain/certificate.png)
    
-1. 在 [ **SSL 憑證**] 頁面上，流覽並選取您的 PFX 憑證檔案。 輸入憑證的密碼，然後選取 [**上傳憑證**]。 如需憑證的詳細資訊，請參閱[自訂網域的憑證](#certificates-for-custom-domains)一節。
+7. 在 [ **SSL 憑證**] 頁面上，流覽並選取您的 PFX 憑證檔案。 輸入憑證的密碼，然後選取 [**上傳憑證**]。 如需憑證的詳細資訊，請參閱[自訂網域的憑證](#certificates-for-custom-domains)一節。
    
    ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
    > [!TIP] 
    > 自訂網域只需要上傳一次它的憑證。 之後，當您使用其他應用程式的自訂網域時，就會自動套用上傳的憑證。
    
-1. 如果您已新增憑證，請在 [**應用程式 proxy** ] 頁面上選取 [**儲存**]。 
+8. 如果您已新增憑證，請在 [**應用程式 proxy** ] 頁面上選取 [**儲存**]。 
    
-1. 在 [**應用程式 proxy** ] 頁面的資訊列中，記下您需要新增至 DNS 區域的 CNAME 專案。 
+9. 在 [**應用程式 proxy** ] 頁面的資訊列中，記下您需要新增至 DNS 區域的 CNAME 專案。 
    
    ![新增 CNAME DNS 專案](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-1. 請依照使用 Azure 入口網站新增 DNS 記錄，將新的外部 URL 重新導向至*msappproxy.net*網域中的指示來[管理 dns 記錄和記錄集](../../dns/dns-operations-recordsets-portal.md)。
+10. 請依照使用 Azure 入口網站新增 DNS 記錄，將新的外部 URL 重新導向至*msappproxy.net*網域中的指示來[管理 dns 記錄和記錄集](../../dns/dns-operations-recordsets-portal.md)。
    
-1. 若要檢查 DNS 記錄是否已正確設定，請使用[nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx)命令來確認您的外部 URL 可供連線，且*msapproxy.net*網域會顯示為別名。
+11. 若要檢查 DNS 記錄是否已正確設定，請使用[nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx)命令來確認您的外部 URL 可供連線，且*msapproxy.net*網域會顯示為別名。
 
 您的應用程式現在已設定為使用自訂網域。 請務必先將使用者指派給您的應用程式，然後再進行測試或發行。 
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063860"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099711"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
@@ -31,17 +31,19 @@ ms.locfileid: "71063860"
 
 **Predicate** 元素會定義基本驗證來檢查宣告類型的值，並傳回 `true` 或 `false`。 您可以使用指定的 **Method** 元素及與該方法相關聯的一組 **Parameter** 元素來完成驗證。 例如，述詞可以檢查字串宣告值的長度是否介於所指定 Minimum 和 Maximum 參數的範圍內，或者字串宣告值是否包含字元集。 **UserHelpText** 元素會在檢查失敗時，為使用者提供錯誤訊息。 **UserHelpText** 元素的值可以使用[語言自訂](localization.md)進行當地語系化。
 
+述**詞元素必須**緊接在[BuildingBlocks](buildingblocks.md)元素內的**ClaimsSchema**元素後面。
+
 **Predicates** 元素包含下列元素：
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| 述詞 | 1:n | 述詞清單。 |
+| Predicate | 1:n | 述詞清單。 |
 
 **Predicate** 元素包含下列屬性：
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Id | 是 | 要用於述詞的識別碼。 其他元素可以在原則中使用這個識別碼。 |
+| 識別碼 | 是 | 要用於述詞的識別碼。 其他元素可以在原則中使用這個識別碼。 |
 | 方法 | 是 | 要用於驗證的方法類型。 可能的值：**IsLengthRange**、**MatchesRegex**、**IncludesCharacters** 或 **IsDateRange**。 **IsLengthRange** 值可讓您檢查字串宣告值的長度是否位於所指定 Minimum 和 Maximum 參數的範圍內。 **MatchesRegex** 值會檢查字串宣告值是否符合規則運算式。 **IncludesCharacters** 值會檢查字串宣告值是否包含字元集。 **IsDateRange** 值會檢查日期宣告值是否介於所指定 Minimum 和 Maximum 參數的範圍之間。 |
 
 **Predicate** 元素包含下列元素：
@@ -61,7 +63,7 @@ ms.locfileid: "71063860"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| Id | 1:1 | 參數的識別碼。 |
+| 識別碼 | 1:1 | 參數的識別碼。 |
 
 下列範例顯示 `IsLengthRange` 方法，以及可指定字串長度範圍的 `Minimum` 和 `Maximum` 參數：
 
@@ -112,6 +114,8 @@ ms.locfileid: "71063860"
 
 當述詞定義驗證以針對宣告類型進行檢查時，**PredicateValidations** 會群組一組述詞，以形成可套用至宣告類型的使用者輸入驗證。 每個 **PredicateValidation** 元素均包含一組 **PredicateGroup** 元素，其中包含一組指向 **Predicate** 的 **PredicateReference** 元素。 若要通過驗證，宣告的值應該在所有的 **PredicateGroup** 下方，使用它們的 **PredicateReference** 元素組來傳遞任何述詞的所有測試。
 
+**PredicateValidations**元素必須緊接在[BuildingBlocks](buildingblocks.md)元素內的述**詞元素後面**。
+
 ```XML
 <PredicateValidations>
   <PredicateValidation Id="">
@@ -140,7 +144,7 @@ ms.locfileid: "71063860"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Id | 是 | 要用於述詞驗證的識別碼。 **ClaimType** 元素可以在原則中使用這個識別碼。 |
+| 識別碼 | 是 | 要用於述詞驗證的識別碼。 **ClaimType** 元素可以在原則中使用這個識別碼。 |
 
 **PredicateValidation** 元素包含下列元素：
 
@@ -158,7 +162,7 @@ ms.locfileid: "71063860"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Id | 是 | 要用於述詞群組的識別碼。  |
+| 識別碼 | 是 | 要用於述詞群組的識別碼。  |
 
 **PredicateGroup** 元素包含下列元素：
 
@@ -183,7 +187,7 @@ ms.locfileid: "71063860"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Id | 是 | 要用於述詞驗證的識別碼。  |
+| 識別碼 | 是 | 要用於述詞驗證的識別碼。  |
 
 
 ## <a name="configure-password-complexity"></a>設定密碼複雜度
@@ -194,7 +198,7 @@ ms.locfileid: "71063860"
 - 使用 `IncludesCharacters` 方法的 **Lowercase**，驗證密碼包含小寫字母。
 - 使用 `IncludesCharacters` 方法的 **Uppercase**，驗證密碼包含大寫字母。
 - 使用 `IncludesCharacters` 方法的 **Number**，驗證密碼包含數字。
-- 使用 `IncludesCharacters` 方法的 **Symbol**，驗證密碼包含下列其中一個符號：`@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **符號**：使用 `IncludesCharacters` 方法，會驗證密碼是否包含數個符號字元的其中一個。
 - 使用 `MatchesRegex` 方法的 **PIN**，驗證密碼只包含數字。
 - 使用 `MatchesRegex` 方法的 **AllowedAADCharacters**，驗證提供了只對密碼無效的字元。
 - 使用 `MatchesRegex` 方法的 **DisallowedWhitespace**，驗證密碼不是以空白字元開始或結尾。
@@ -233,7 +237,7 @@ ms.locfileid: "71063860"
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
@@ -262,7 +266,7 @@ ms.locfileid: "71063860"
 當您定義基本驗證之後，可將它們組合在一起，然後建立一組您可在原則中使用的密碼原則：
 
 - **SimplePassword** 會驗證 DisallowedWhitespace、AllowedAADCharacters 及 IsLengthBetween8And64
-- **StrongPassword** 會驗證 DisallowedWhitespace、AllowedAADCharacters、IsLengthBetween8And64。 最後一個群組 `CharacterClasses` 會搭配設定為 3 的 `MatchAtLeast` 來執行一組額外的述詞。 使用者密碼長度必須介於 8 到 16 個字元之間，並具備下列字元其中三種：小寫、大寫、數字或符號。
+- **StrongPassword** 會驗證 DisallowedWhitespace、AllowedAADCharacters、IsLengthBetween8And64。 最後一個群組 `CharacterClasses` 會搭配設定為 3 的 `MatchAtLeast` 來執行一組額外的述詞。 使用者密碼長度必須介於 8 到 16 個字元之間，並具備下列其中三個字元：小寫、大寫、數字或符號。
 - **CustomPassword** 只會驗證 DisallowedWhitespace、AllowedAADCharacters。 因此，只要字元有效，使用者就能提供任意長度的任何密碼。
 
 ```XML

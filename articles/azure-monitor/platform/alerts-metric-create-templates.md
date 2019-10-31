@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f341a3599607e527556f90626dd866418910f61e
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052332"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099760"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立計量警示
 
@@ -27,8 +27,9 @@ ms.locfileid: "73052332"
 基本步驟如下：
 
 1. 使用下列範本之一，作為描述如何建立警示的 JSON 檔案。
-2. 編輯和使用 JSON 形式的對應參數檔案以自訂警示
-3. 使用[任何部署方法](../../azure-resource-manager/resource-group-template-deploy.md)部署範本。
+2. 編輯並使用對應的參數檔案作為 JSON，以自訂警示。
+3. 如需 `metricName` 參數，請參閱[Azure 監視器支援的計量](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)中的可用計量。
+4. 使用[任何部署方法](../../azure-resource-manager/resource-group-template-deploy.md)部署範本。
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>簡單靜態閾值的計量警示範本
 

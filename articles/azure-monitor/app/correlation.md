@@ -8,16 +8,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755364"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063965"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
-在微服務的世界裡，每個邏輯作業都需要在服務的各種元件中完成工作。 這些元件中每一個都可由 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 個別監視。 Web 應用程式元件會與驗證提供者元件進行通訊以驗證使用者認證，並透過 API 元件取得視覺效果的資料。 API 元件可以向其他服務查詢資料，並使用快取提供者元件來通知計費元件關於這個呼叫的資訊。 Application Insights 支援分散式遙測相互關聯，這可供您用來偵測造成失敗或效能衰退的元件。
+在微服務的世界裡，每個邏輯作業都需要在服務的各種元件中完成工作。 這些元件中每一個都可由 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 個別監視。 Application Insights 支援分散式遙測相互關聯，這可供您用來偵測造成失敗或效能衰退的元件。
 
 本文說明 Application Insights 所使用的資料模型，以關聯多個元件所傳送的遙測。 它涵蓋內容傳播技巧和通訊協定。 此外，還包括在不同的語言和平台上實作相互關聯概念。
 
@@ -221,7 +221,7 @@ OpenCensus Python 遵循上面所述的 `OpenTracing` 資料模型規格。 它�
 
 ### <a name="incoming-request-correlation"></a>連入要求相互關聯
 
-OpenCensus Python 會將 W3C 追蹤內容標頭與來自要求本身所產生之範圍的傳入要求相互關聯。 OpenCensus 將會自動使用熱門 web 應用程式架構（例如 `flask`、`django` 和 `pyramid`）的整合來執行此動作。 W3C 追蹤內容標頭只需要填入[正確的格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，並與要求一起傳送。 以下是示範這種 `flask` 應用程式的範例。
+OpenCensus Python 會將 W3C 追蹤內容標頭與來自要求本身所產生之範圍的傳入要求相互關聯。 OpenCensus 會自動使用下列熱門 web 應用程式架構的整合來完成這項操作： `flask`、`django` 和 `pyramid`。 W3C 追蹤內容標頭只需要填入[正確的格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，並與要求一起傳送。 以下是示範這種 `flask` 應用程式的範例。
 
 ```python
 from flask import Flask
@@ -253,13 +253,13 @@ curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7
  `parent-id/span-id`： `00f067aa0ba902b7` 
  0： 1
 
-如果我們查看已傳送給 Azure 監視器的要求專案，我們可以看到以追蹤標頭資訊填入的欄位。
+如果我們查看已傳送給 Azure 監視器的要求專案，我們可以看到以追蹤標頭資訊填入的欄位。 您可以在 Azure 監視器 Application Insights 資源中的 [記錄（分析）] 下找到此資料。
 
 ![記錄（分析）中的要求遙測的螢幕擷取畫面，其中追蹤標頭欄位以紅色方塊反白顯示](./media/opencensus-python/0011-correlation.png)
 
-[@No__t_0] 欄位的格式為 `<trace-id>.<span-id>`，其中 `trace-id` 取自要求傳入的追蹤標頭，而 `span-id` 是針對此範圍產生的8位元組陣列。 
+[`id`] 欄位的格式為 `<trace-id>.<span-id>`，其中 `trace-id` 取自要求傳入的追蹤標頭，而 `span-id` 是針對此範圍產生的8位元組陣列。 
 
-[@No__t_0] 欄位的格式為 `<trace-id>.<parent-id>`，其中 `trace-id` 和 `parent-id` 取自要求中所傳遞的追蹤標頭。
+[`operation_ParentId`] 欄位的格式為 `<trace-id>.<parent-id>`，其中 `trace-id` 和 `parent-id` 取自要求中所傳遞的追蹤標頭。
 
 ### <a name="logs-correlation"></a>記錄相互關聯
 
@@ -290,6 +290,8 @@ logger.warning('After the span')
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
 觀察 span 內記錄訊息的 spanId，這是屬於名為 `hello` 之範圍的相同 spanId。
+
+您可以使用 `AzureLogHandler`匯出記錄檔資料。 您可以在 [這裡](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## <a name="telemetry-correlation-in-net"></a>.NET 中的遙測相互關聯
 

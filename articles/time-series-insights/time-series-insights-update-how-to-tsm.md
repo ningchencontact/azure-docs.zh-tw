@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a77cdcf332d450b2d3d9219ebfbaed2f799e7e6d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991179"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063989"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽版中的資料模型
 
@@ -34,7 +34,7 @@ ms.locfileid: "72991179"
 1. 選取 [+ 新增]。
 1. 輸入與類型相關的所有詳細資料，然後選取 [**建立**]。 此動作會在環境中建立類型。
 
-    [新增類型的![選取專案](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
+    [新增類型的 ![選取專案](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>大量上傳一或多個類型
 
@@ -49,7 +49,7 @@ ms.locfileid: "72991179"
 1. 選取類型，然後選取 [編輯]。 
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [編輯類型的![選取專案](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
+    [編輯類型的 ![選取專案](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>刪除類型
 
@@ -84,14 +84,14 @@ ms.locfileid: "72991179"
 1. 選取包含階層承載的檔案。
 1. 選取 [上傳]。
 
-    [大量上傳階層的![選項](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
+    [大量上傳階層的 ![選項](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>編輯單一階層
 
 1. 選取階層，然後選取 [編輯]。
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [編輯單一階層的![選取專案](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
+    [編輯單一階層的 ![選取專案](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>刪除階層
 
@@ -110,7 +110,7 @@ ms.locfileid: "72991179"
 
 1. 選取 [新增]。
 
-    [新增實例的![選取專案](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
+    [新增實例的 ![選取專案](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. 輸入執行個體詳細資料，選取類型和階層關聯，然後選取 [建立]。
 
@@ -119,7 +119,7 @@ ms.locfileid: "72991179"
 1. 選取 [上傳 JSON]。
 1. 選取包含執行個體承載的檔案。
 
-    [針對一或多個實例的大量上傳![選取專案](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [針對一或多個實例的大量上傳 ![選取專案](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. 選取 [上傳]。
 
@@ -128,7 +128,7 @@ ms.locfileid: "72991179"
 1. 選取執行個體，然後選取 [編輯]。 
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [編輯單一實例![選取專案](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [編輯單一實例 ![選取專案](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

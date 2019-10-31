@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7dfd7e29b119b5fe98b649b2e5f5f45b422c4634
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: febd97d1c0b296ab281f9ce0ac8dff7de1fd75d6
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053434"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063332"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -159,11 +159,14 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 
 ### <a name="data-deduplication"></a>重複資料刪除
 **代理程式版本5.0.2.0 或更新**   
-重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在啟用雲端階層處理的磁片區上啟用重復資料刪除，可讓您在內部部署快取更多檔案，而不需要布建更多 
+在 Windows Server 2016 上啟用雲端階層處理的磁片區上，支援重復資料刪除。 在啟用雲端階層處理的磁片區上啟用重復資料刪除，可讓您在內部部署快取更多檔案，而不需要布建更多 
 
 在啟用雲端階層處理的磁片區上啟用重復資料刪除時，伺服器端點位置中的重復資料刪除優化檔案將會根據雲端階層處理原則設定，與一般檔案分層。 當重復資料刪除優化檔案已分層之後，重復資料刪除垃圾收集工作將會自動執行，藉由移除磁片區上其他檔案不再參考的不必要區塊來回收磁碟空間。
 
 請注意，磁片區節省費用僅適用于伺服器;您在 Azure 檔案共用中的資料將不會重復資料刪除。
+
+> [!Note]  
+> 因為在未來的更新中將會修正錯誤，所以伺服器2019上的同一個磁片區目前不支援重復資料刪除和雲端階層處理。
 
 **Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。

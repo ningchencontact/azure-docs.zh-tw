@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802439"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062266"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>如何管理已加入 Azure AD 的裝置上的本機系統管理員群組
 
@@ -59,10 +59,10 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 >[!NOTE]
 > 此選項需要 Azure AD Premium 租用戶。 
 
-裝置管理員會指派給所有加入 Azure AD 的裝置。 您無法將裝置管理員的範圍設定為一組特定的裝置。 更新裝置管理員角色不一定會對受影響的使用者產生直接的影響。 就使用者已登入的裝置而言，權限會在下列時機進行更新：
+裝置管理員會指派給所有加入 Azure AD 的裝置。 您無法將裝置管理員的範圍設定為一組特定的裝置。 更新裝置管理員角色不一定會對受影響的使用者產生直接的影響。 在使用者已登入的裝置上，會在下列*兩個*動作發生時進行許可權更新：
 
-- 當使用者登出時。
-- 經過 4 小時後，當新的主要重新整理權杖發出時。 
+- 已為 Azure AD 傳遞4小時，以適當的許可權發出新的主要重新整理權杖。 
+- 使用者登出並登入，而不是鎖定/解除鎖定，以重新整理其設定檔。
 
 ## <a name="manage-regular-users"></a>管理一般使用者
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 4426b83ee62f4a894f72e197cbe541b8b669695d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 896179a393b870390991a8e9942f6e7287ec5c90
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086802"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063314"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -28,19 +28,19 @@ ms.locfileid: "70086802"
 
 使用 Application Insights 時的 Application Insights 檢測金鑰。 請參閱[監視 Azure Functions](functions-monitoring.md)。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-在2.x 版的函式執行時間中, 會根據執行時間環境設定應用程式行為。 此值會[在初始化期間讀取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)。 您可以將`AZURE_FUNCTIONS_ENVIRONMENT`設定為任何值, 但支援[三個值](/dotnet/api/microsoft.aspnetcore.hosting.environmentname):[開發](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)、[預備](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)和[生產環境](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 若未設定, 則會在本機環境和`Production` Azure 上預設為`Development`。 `AZURE_FUNCTIONS_ENVIRONMENT` 應該使用此設定, 而不`ASPNETCORE_ENVIRONMENT`是設定執行時間環境。 
+在2.x 版的函式執行時間中，會根據執行時間環境設定應用程式行為。 此值會[在初始化期間讀取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)。 您可以將 `AZURE_FUNCTIONS_ENVIRONMENT` 設定為任何值，但支援[三個值](/dotnet/api/microsoft.aspnetcore.hosting.environmentname)：[開發](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)、[預備](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)和[生產環境](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 當 `AZURE_FUNCTIONS_ENVIRONMENT` 未設定時，會預設為在本機環境中 `Development`，並在 Azure 上 `Production`。 應該使用此設定，而不是 `ASPNETCORE_ENVIRONMENT` 來設定執行時間環境。 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
 選擇性儲存體帳戶連接字串，用於儲存記錄並將它們顯示在入口網站的 [監視器] 索引標籤中。 儲存體帳戶必須是一般用途的帳戶，支援 Blob、佇列和資料表。 請參閱[儲存體帳戶](functions-infrastructure-as-code.md#storage-account)和[儲存體帳戶需求](functions-create-function-app-portal.md#storage-account-requirements)。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
@@ -51,7 +51,7 @@ ms.locfileid: "70086802"
 
 `true` 表示停用針對函式應用程式根 URL 所顯示的預設登陸頁面。 預設值為 `false`。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
@@ -63,7 +63,7 @@ ms.locfileid: "70086802"
 
 `true` 表示在編譯 .NET 程式碼時使用「釋放」模式；`false` 表示使用「偵錯」模式。 預設值為 `true`。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobsDotNetReleaseCompilation|true|
 
@@ -71,7 +71,7 @@ ms.locfileid: "70086802"
 
 要啟用的搶鮮版 (Beta) 功能清單 (以逗號分隔)。 這些旗標所啟用的搶鮮版 (Beta) 功能還不適合在生產環境內使用，但在上線之前可以針對實驗使用予以啟用。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
@@ -79,7 +79,7 @@ ms.locfileid: "70086802"
 
 指定要用於金鑰儲存的存放庫或提供者。 目前支援的存放庫是 Blob 儲存體 ("Blob") 和本機檔案系統 ("Files")。 預設值在第 2 版中為 Blob，在第 1 版中則為檔案系統。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobsSecretStorageType|檔案|
 
@@ -87,7 +87,7 @@ ms.locfileid: "70086802"
 
 Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函式 (由 HTTP 觸發的函式除外)。 儲存體帳戶必須是一般用途的帳戶，支援 Blob、佇列和資料表。 請參閱[儲存體帳戶](functions-infrastructure-as-code.md#storage-account)和[儲存體帳戶需求](functions-create-function-app-portal.md#storage-account-requirements)。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
@@ -95,7 +95,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 用於 TypeScript 之編譯器的路徑。 可讓您覆寫預設值 (需要的話)。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%HOME%\typescript|
 
@@ -103,7 +103,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 指示是否已啟用在 Azure 入口網站中編輯。 有效值為 "readwrite" 和 "readonly"。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |FUNCTION\_APP\_EDIT\_MODE|readonly|
 
@@ -111,24 +111,24 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 要在此函式應用程式中使用的 Functions 執行階段版本。 含主要版本的波狀符號表示使用該主要版本的最新版本 (例如，"~2")。 有相同主要版本的新版本可用時，會將它們自動安裝在函式應用程式中。 若要將應用程式釘選至特定版本，請使用完整版本號碼 (例如，"2.0.12345")。 預設值為 "~2"。 `~1` 的值會將您的應用程式釘選至 1.x 版執行階段。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
-## <a name="functions_worker_process_count"></a>函數\_工作者\_進程計數\_
+## <a name="functions_worker_process_count"></a>\_工作者\_進程\_計數的函式
 
-指定語言工作者進程的最大數目, 預設值`1`為。 允許的最大值`10`為。 函式呼叫會平均分散于語言工作者進程之間。 每隔10秒會產生語言工作者進程, 直到達到函式\_工作者\_進程\_計數所設定的計數為止。 使用多個語言背景工作進程與[調整](functions-scale.md)不同。 當您的工作負載有混合的 CPU 系結和 i/o 系結調用時, 請考慮使用此設定。 此設定適用于所有 non-.NET 語言。
+指定語言工作者進程的最大數目，預設值為 `1`。 允許的最大值為 `10`。 函式呼叫會平均分散于語言工作者進程之間。 每隔10秒會產生一次語言工作者進程，直到函式所設定的計數\_工作者\_進程\_計數為止。 使用多個語言背景工作進程與[調整](functions-scale.md)不同。 當您的工作負載有混合的 CPU 系結和 i/o 系結調用時，請考慮使用此設定。 此設定適用于所有 non-.NET 語言。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
-|函數\_工作者\_進程計數\_|2|
+|\_工作者\_進程\_計數的函式|2|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-要在函式應用程式中載入的語言背景工作角色執行階段。  這會對應至您應用程式 (例如，"dotnet") 中所使用的語言。 對於使用多種語言的函式，您必須將其發佈到多個應用程式，每個都有對應的背景工作角色執行階段值。  有效的值`dotnet`為C#(F#/) `node` 、(JavaScript/TypeScript) `java` 、(JAVA) `powershell` 、(PowerShell) 和`python` (Python)。
+要在函式應用程式中載入的語言背景工作角色執行階段。  這會對應至您應用程式 (例如，"dotnet") 中所使用的語言。 對於使用多種語言的函式，您必須將其發佈到多個應用程式，每個都有對應的背景工作角色執行階段值。  有效值為 [`dotnet` （C#/F#）]、[`node` （JavaScript/TypeScript）]、[`java` （JAVA）]、[`powershell` （PowerShell）] 和 [`python` （Python）]。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
@@ -136,7 +136,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 僅限耗用量 & Premium 方案。 函式應用程式碼和設定儲存所在之儲存體帳戶的連接字串。 請參閱[建立函式應用程式](functions-infrastructure-as-code.md#create-a-function-app)。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
@@ -144,7 +144,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 僅限耗用量 & Premium 方案。 函式應用程式碼和設定的檔案路徑。 Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 預設值是開頭為函式應用程式名稱的唯一字串。 請參閱[建立函式應用程式](functions-infrastructure-as-code.md#create-a-function-app)。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
@@ -155,23 +155,24 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 > [!NOTE]
 > 這項設定是預覽功能 - 僅在值設為 <= 5 時才可靠
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-預設值為 "8.11.1"。
+_僅限 Windows。_  
+設定在 Windows 上執行函式應用程式時所要使用的 node.js 版本。 您應該使用波狀符號（~）讓執行時間使用目標主要版本的最新可用版本。 例如，當設定為 `~10`時，會使用最新版本的 node.js 10。 當主要版本以波狀符號為目標時，您不需要手動更新次要版本。 
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~ 10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
 可讓函式應用程式從掛接的套件檔案執行。
 
-|Key|範例值|
+|索引鍵|範例值|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
@@ -181,7 +182,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 根據預設，Functions Proxy 將利用捷徑來將 API 呼叫從 Proxy 直接傳送到同一個函數應用程式中的函式，而不是建立新的 HTTP 要求。 此設定可讓您停用該行為。
 
-|Key|值|描述|
+|索引鍵|Value|描述|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
@@ -191,7 +192,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 此設定控制在將路由參數插入到後端 URL 時，是否要將其中的 %2F 解碼為斜線。 
 
-|Key|值|描述|
+|索引鍵|Value|描述|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|此為預設行為。 所有路由參數都將依原樣傳遞|
@@ -213,7 +214,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
     }
 }
 ```
-|URL 解碼|Input|Output|
+|URL 解碼|輸入|輸出|
 |-|-|-|
 |true|myfunction.com/test%2fapi|example.com/test/api
 |false|myfunction.com/test%2fapi|example.com/test%2fapi|

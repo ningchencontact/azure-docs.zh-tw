@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 879404b264e9ea6c544c6edf509001b38997bb0c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d8606ad9afb6642fa29cc3cae523c31e129c7ebd
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874335"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061474"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -76,14 +76,14 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 NPS 伺服器必須能夠透過連接埠 80 和 443 與下列 URL 通訊。
 
-- https:\//adnotifications.windowsazure.com
+- HTTPs：\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
 
-此外, 必須連線到下列 Url, 才能[使用提供的 PowerShell 腳本來完成介面卡的設定](#run-the-powershell-script)
+此外，必須連線到下列 Url，才能[使用提供的 PowerShell 腳本來完成介面卡的設定](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
-- HTTPs:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- HTTPs：\//provisioningapi.microsoftonline.com
+- HTTPs：\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
@@ -119,13 +119,13 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 有兩個因素會影響與 NPS 擴充部署搭配提供的驗證方法：
 
 1. 在 RADIUS 用戶端 (VPN、Netscaler 伺服器或其他) 與 NPS 伺服器之間使用的密碼加密演算法。
-   - **PAP** 支援雲端中 Azure MFA 的所有驗證方法：通話、單向簡訊、行動裝置應用程式通知，和行動裝置應用程式驗證碼。
+   - **PAP**支援雲端中 Azure MFA 的所有驗證方法：電話、單向文字訊息、行動裝置代理程式更新、OATH 硬體權杖，以及行動裝置應用程式驗證碼。
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知。
 
       > [!NOTE]
       > 當您部署 NPS 擴充時，使用這些因素來評估哪些方法可供您的使用者使用。 如果您的 RADIUS 用戶端支援 PAP，但用戶端 UX 沒有驗證碼的輸入欄位，則通話和行動裝置應用程式通知是兩個支援的選項。
       >
-      > 此外, 如果您的 VPN 用戶端 UX 支援輸入欄位, 而且您已設定網路存取原則-驗證可能會成功, 但是網路原則中設定的 RADIUS 屬性都不會套用到網路存取裝置,和 RRAS 伺服器和 VPN 用戶端一樣。 如此一來, VPN 用戶端的存取權可能會比所需或更少存取。
+      > 此外，如果您的 VPN 用戶端 UX 支援輸入欄位，而且您已設定網路存取原則-驗證可能會成功，但是網路原則中設定的 RADIUS 屬性都不會套用到網路存取裝置，和 RRAS 伺服器和 VPN 用戶端一樣。 如此一來，VPN 用戶端的存取權可能會比所需或更少存取。
       >
 
 2. 用戶端應用程式 (VPN、Netscaler 伺服器或其他) 可以處理的輸入法。 例如，VPN 用戶端是否有一些方法可讓使用者從文字或行動裝置應用程式輸入驗證程式碼？
@@ -140,7 +140,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。
 2. 遵循提示來設定驗證方法。
-3. [建立條件式存取原則](howto-mfa-getstarted.md#create-conditional-access-policy), 以要求測試帳戶使用多重要素驗證。
+3. [建立條件式存取原則](howto-mfa-getstarted.md#create-conditional-access-policy)，以要求測試帳戶使用多重要素驗證。
 
 ## <a name="install-the-nps-extension"></a>安裝 NPS 擴充功能
 
@@ -155,11 +155,11 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 #### <a name="upgrade-the-nps-extension"></a>升級 NPS 擴充功能
 
-升級現有 NPS 延伸模組安裝時, 若要避免基礎伺服器重新開機, 請完成下列步驟:
+升級現有 NPS 延伸模組安裝時，若要避免基礎伺服器重新開機，請完成下列步驟：
 
 1. 卸載現有的版本
 1. 執行新的安裝程式
-1. 重新開機網路原則伺服器 (IAS) 服務
+1. 重新開機網路原則伺服器（IAS）服務
 
 ### <a name="run-the-powershell-script"></a>執行 PowerShell 指令碼
 
@@ -188,18 +188,18 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 在您想要進行設定以取得負載平衡的任何其他 NPS 伺服器上，重複上述步驟。
 
-如果您先前的電腦憑證已過期, 而且已產生新的憑證, 您應該刪除所有過期的憑證。 擁有過期的憑證可能會造成 NPS 擴充功能啟動的問題。
+如果您先前的電腦憑證已過期，而且已產生新的憑證，您應該刪除所有過期的憑證。 擁有過期的憑證可能會造成 NPS 擴充功能啟動的問題。
 
 > [!NOTE]
 > 如果您使用自己的憑證，而不是透過 PowerShell 指令碼產生憑證，請確定這些憑證遵守 NPS 命名慣例。 主體名稱必須是 **CN=\<租用戶識別碼\>,OU=Microsoft NPS Extension**。 
 
 ### <a name="certificate-rollover"></a>憑證變換
 
-使用 NPS 擴充功能的 release 1.0.1.32, 現在支援讀取多個憑證。 這項功能有助於在憑證更新到期前進行輪替。 如果您的組織執行的是舊版的 NPS 擴充功能, 您應該升級為1.0.1.32 或更高版本。
+使用 NPS 擴充功能的 release 1.0.1.32，現在支援讀取多個憑證。 這項功能有助於在憑證更新到期前進行輪替。 如果您的組織執行的是舊版的 NPS 擴充功能，您應該升級為1.0.1.32 或更高版本。
 
-`AzureMfaNpsExtnConfigSetup.ps1`腳本所建立的憑證有效期限為2年。 IT 組織應該監視憑證的到期日。 NPS 擴充功能的憑證會放在 [個人] 底下的 [本機電腦] 憑證存放區中, 併發行至提供給腳本的租使用者識別碼。
+`AzureMfaNpsExtnConfigSetup.ps1` 腳本所建立的憑證有效期限為2年。 IT 組織應該監視憑證的到期日。 NPS 擴充功能的憑證會放在 [個人] 底下的 [本機電腦] 憑證存放區中，併發行至提供給腳本的租使用者識別碼。
 
-當憑證接近到期日時, 應該建立新的憑證來取代它。  此程式是透過`AzureMfaNpsExtnConfigSetup.ps1`再次執行, 並在出現提示時保留相同的租使用者識別碼來完成。 此程式應該在您環境中的每個 NPS 伺服器上重複執行。
+當憑證接近到期日時，應該建立新的憑證來取代它。  此程式是藉由再次執行 `AzureMfaNpsExtnConfigSetup.ps1` 並在出現提示時保留相同的租使用者識別碼來完成。 此程式應該在您環境中的每個 NPS 伺服器上重複執行。
 
 ## <a name="configure-your-nps-extension"></a>設定 NPS 擴充功能
 
@@ -208,7 +208,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 ### <a name="configuration-limitations"></a>設定限制
 
 - Azure MFA 的 NPS 延伸模組並未包含可將使用者與設定從 MFA Server 移轉至雲端的工具。 有基於此，建議將此延伸模組用於新的部署，而非用於現有部署。 如果您在現有部署上使用此延伸模組，您的使用者必須再次執行證明，以便在雲端中填入其 MFA 詳細資料。  
-- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。此延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [NPS 擴充功能的 Multi-Factor Authentication 所適用的進階設定選項](howto-mfa-nps-extension-advanced.md)一文。
+- NPS 擴充功能會使用內部部署 Active directory 中的 UPN，來識別 Azure MFA 上用來執行次要驗證的使用者。延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [NPS 擴充功能的 Multi-Factor Authentication 所適用的進階設定選項](howto-mfa-nps-extension-advanced.md)一文。
 - 並非所有的加密通訊協定都支援所有的驗證方法。
    - **PAP** 支援通話、單向簡訊、行動裝置應用程式通知和行動裝置應用程式驗證碼
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知
@@ -221,7 +221,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 如果您有未註冊 MFA 的使用者，您可以決定在其嘗試驗證時會有什麼結果。 使用登錄路徑 HKLM\Software\Microsoft\AzureMFA 中的登錄設定 *REQUIRE_USER_MATCH* 來控制功能的行為。 此設定具有單一組態選項︰
 
-| 索引鍵 | 值 | 預設 |
+| 索引鍵 | Value | 預設值 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 未設定 (相當於 TRUE) |
 
@@ -233,9 +233,9 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 ### <a name="nps-extension-health-check-script"></a>NPS 擴充功能健全狀況檢查腳本
 
-下列腳本可在 TechNet 元件庫中取得, 以在疑難排解 NPS 延伸模組時執行基本的健全狀況檢查步驟。
+下列腳本可在 TechNet 元件庫中取得，以在疑難排解 NPS 延伸模組時執行基本的健全狀況檢查步驟。
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 
@@ -243,7 +243,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 在憑證存放區中尋找安裝程式所建立的自我簽署憑證，並確認私密金鑰已將權限授與給使用者 **NETWORK SERVICE**。 憑證的主體名稱為 **CN \<tenantid\>, OU = Microsoft NPS Extension**
 
-*AzureMfaNpsExtnConfigSetup*腳本所產生的自我簽署憑證也具有兩年的有效存留期。 確認憑證已安裝時, 您也應該檢查憑證尚未過期。
+*AzureMfaNpsExtnConfigSetup*腳本所產生的自我簽署憑證也具有兩年的有效存留期。 確認憑證已安裝時，您也應該檢查憑證尚未過期。
 
 ---
 
@@ -267,7 +267,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-執行此命令之後, 請移至您的 C 磁片磁碟機, 找出並按兩下檔案。 移至 [詳細資料] 並向下捲動至 [指紋]，將安裝在伺服器上的憑證指紋與此指紋進行比較。 這兩個憑證指紋應該相符。
+執行此命令之後，請移至您的 C 磁片磁碟機，找出並按兩下檔案。 移至 [詳細資料] 並向下捲動至 [指紋]，將安裝在伺服器上的憑證指紋與此指紋進行比較。 這兩個憑證指紋應該相符。
 
 如果命令傳回多個憑證，則可以使用採人類看得懂之格式的 Valid-From 和 Valid-Until 時間戳記來篩選出明顯不符者。
 
@@ -302,11 +302,11 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ---
 
-### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>為什麼驗證無法運作, 儘管有有效的憑證？
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>為什麼驗證無法運作，儘管有有效的憑證？
 
-如果您先前的電腦憑證已過期, 而且已產生新的憑證, 您應該刪除所有過期的憑證。 擁有過期的憑證可能會造成 NPS 擴充功能啟動的問題。
+如果您先前的電腦憑證已過期，而且已產生新的憑證，您應該刪除所有過期的憑證。 擁有過期的憑證可能會造成 NPS 擴充功能啟動的問題。
 
-若要檢查您是否有有效的憑證, 請使用 MMC 檢查本機電腦帳戶的憑證存放區, 並確定憑證未通過其到期日。 若要產生新的有效憑證, 請重新[執行「執行 PowerShell 腳本](#run-the-powershell-script)」一節底下的步驟
+若要檢查您是否有有效的憑證，請使用 MMC 檢查本機電腦帳戶的憑證存放區，並確定憑證未通過其到期日。 若要產生新的有效憑證，請重新[執行「執行 PowerShell 腳本](#run-the-powershell-script)」一節底下的步驟
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
 
@@ -314,7 +314,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ### <a name="additional-troubleshooting"></a>其他疑難排解
 
-如需其他疑難排解指引和可能的解決方案, 請參閱[從適用于 Azure 多因素驗證的 NPS 擴充功能解決錯誤訊息](howto-mfa-nps-extension-errors.md)一文。
+如需其他疑難排解指引和可能的解決方案，請參閱[從適用于 Azure 多因素驗證的 NPS 擴充功能解決錯誤訊息](howto-mfa-nps-extension-errors.md)一文。
 
 ## <a name="next-steps"></a>後續步驟
 

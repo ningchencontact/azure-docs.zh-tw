@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803390"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064038"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服務配額
 
@@ -21,7 +21,7 @@ ms.locfileid: "71803390"
 
 在您的訂用帳戶下建立 Azure Cosmos 帳戶之後，您可以藉由[建立資料庫、容器和專案](databases-containers-items.md)來管理您帳戶中的資料。 您可以在容器層級或資料庫層級布建輸送量，以[要求單位（RU/秒或 RU）](request-units.md)為依據。 下表列出每個容器/資料庫的儲存體和輸送量限制。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每個容器的最大 ru 數（[專用輸送量布建模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
 | 每個資料庫最多 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
@@ -30,7 +30,7 @@ ms.locfileid: "71803390"
 | 相異（邏輯）分割區索引鍵的最大數目 | 無限制 |
 | 每個容器的儲存體上限 | 無限制 |
 | 每個資料庫的儲存體上限 | 無限制 |
-| 每個帳戶的附件大小上限（附件功能正在進行折舊） | 2 GB | 
+| 每個帳戶的附件大小上限（附件功能正在進行折舊） | 2GB | 
 
 > [!NOTE]
 > 若要深入瞭解管理具有資料分割索引鍵的工作負載的最佳作法，其儲存體或輸送量需要較高的限制，請參閱[建立綜合分割](synthetic-partition-keys.md)區索引鍵。
@@ -38,18 +38,18 @@ ms.locfileid: "71803390"
 
 Cosmos 容器（或共用輸送量資料庫）的最小輸送量必須為 400 ru。 當容器成長時，支援的最低輸送量也取決於下列因素：
 
-* 您可以在容器上設定的最小輸送量取決於容器上所布建的最大輸送量。 服務支援將容器的輸送量降低為布建上限的 10%。 例如，如果您的輸送量已增加到 10000 ru，則最低可能的布建輸送量會是 1000 ru
+* 您可以在容器上設定的最小輸送量取決於容器上所布建的最大輸送量。 例如，如果您的輸送量已增加到 10000 ru，則最低可能的布建輸送量會是 1000 ru
 * 共用輸送量資料庫上的最小輸送量也取決於您先前在共用輸送量資料庫中建立的容器總數（以每個容器 100 ru 為單位）。 例如，如果您已在共用輸送量資料庫中建立五個容器，則輸送量至少必須為 500 ru
 
 您可以從 Azure 入口網站或 Sdk 抓取容器或資料庫的目前和最小輸送量。 如需詳細資訊，請參閱[在容器和資料庫上](set-throughput.md)布建輸送量。 
 
 > [!NOTE]
-> 在某些情況下，您可以將輸送量降低到低於 10%。 使用 API 來取得每個容器的最小 ru 數目。
+> 在某些情況下，您可以將輸送量降低到低於10%。 使用 API 來取得每個容器的最小 ru 數目。
 >
 
 總而言之，以下是布建的最小 RU 限制。 
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每個容器的最小 ru 數（[專用輸送量布建模式](databases-containers-items.md#azure-cosmos-containers)） | 400 |
 | 每個資料庫的最小 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 400 |
@@ -61,7 +61,7 @@ Cosmos DB 可透過 Sdk 或入口網站，為每個容器或資料庫支援彈�
 
 您可以使用 Azure 入口網站、Azure PowerShell、Azure CLI 和 Azure Resource Manager 範本來布建[和管理 Azure Cosmos 帳戶](how-to-manage-database-account.md)。 下表列出每個訂用帳戶、帳戶和作業數目的限制。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每個訂閱的資料庫帳戶數目上限 | 預設為50。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
 | 區域容錯移轉的最大數目 | 預設為 1/小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
@@ -73,7 +73,7 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 ## <a name="per-account-limits"></a>每個帳戶的限制
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 資料庫的最大數目 | 無限制 |
 | 每個資料庫（或帳戶）的容器數目上限 | 無限制 |
@@ -83,7 +83,7 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 根據您使用的 API 而定，Azure Cosmos 容器可以代表集合、資料表或圖形。 容器支援唯一索引[鍵限制](unique-keys.md)式、[預存程式、觸發程式和 udf](stored-procedures-triggers-udfs.md)的設定，以及[索引編制原則](how-to-manage-indexing-policy.md)。 下表列出容器內設定特有的限制。 
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 資料庫或容器名稱的最大長度 | 255 |
 | 每個容器的預存程式數上限 | 100 <sup>*</sup>|
@@ -98,7 +98,7 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 根據您使用的 API 而定，Azure Cosmos 專案可以代表集合中的檔、資料表中的資料列，或是圖形中的節點或邊緣。 下表顯示 Cosmos DB 中每個專案的限制。 
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 專案的大小上限 | 2 MB （UTF-8 長度的 JSON 標記法） |
 | 資料分割索引鍵值的最大長度 | 2048個位元組 |
@@ -116,7 +116,7 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 Cosmos DB 支援對容器、專案和資料庫等資源[進行 CRUD 和查詢作業](https://docs.microsoft.com/rest/api/cosmos-db/)。  
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 單一作業的最長執行時間（例如預存程式執行或單一查詢頁面抓取）| 5 秒 |
 | 要求大小上限（預存程式、CRUD）| 2 MB |
@@ -126,7 +126,7 @@ Cosmos DB 支援對容器、專案和資料庫等資源[進行 CRUD 和查詢作
 
 Cosmos DB 使用 HMAC 進行授權。 您可以使用主要金鑰或[資源權杖](secure-access-to-data.md)，對容器、資料分割索引鍵或專案等資源進行更細緻的存取控制。 下表列出 Cosmos DB 中的授權權杖限制。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 主要權杖到期時間上限 | 15 分鐘  |
 | 資源權杖到期時間下限 | 10分鐘  |
@@ -139,7 +139,7 @@ Cosmos DB 支援在寫入期間執行觸發程式。 服務最多支援一個預
 
 Cosmos DB 支援使用[SQL](how-to-sql-query.md)查詢專案。 下表描述查詢語句中的限制，例如子句數目或查詢長度。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | SQL 查詢的最大長度| 256 KB <sup>*</sup>|
 | 每個查詢的聯結數上限| 5 <sup>*</sup>|
@@ -157,7 +157,7 @@ Cosmos DB 針對以 MongoDB 撰寫的應用程式支援 MongoDB 有線通訊協�
 
 下表列出 MongoDB 功能支援的特定限制。 針對 SQL （核心） API 所提及的其他服務限制也適用于 MongoDB API。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | MongoDB 查詢記憶體大小上限 | 40 MB |
 | MongoDB 作業的執行時間上限| 30 秒 |
@@ -166,7 +166,7 @@ Cosmos DB 針對以 MongoDB 撰寫的應用程式支援 MongoDB 有線通訊協�
 
 下表列出免費試用版試用[Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)的限制。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 試用期間 | 30天（可更新任意次數） |
 | 每個訂用帳戶的容器上限（SQL、Gremlin、資料表 API） | 1 |
