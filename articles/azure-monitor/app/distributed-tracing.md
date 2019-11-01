@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677126"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242450"
 ---
 # <a name="what-is-distributed-tracing"></a>什麼是分散式追蹤？
 
@@ -40,6 +40,7 @@ Azure 監視器也提供可彙總許多交易的[應用程式對應](https://doc
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Python （預覽）](opencensus-python.md)
 
 安裝和設定適當的 Application Insights SDK 後，SDK 相依性自動收集器就會針對熱門的架構、程式庫和技術自動收集追蹤資訊。 完整的支援技術清單位於[相依性自動收集文件](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)中。
 
@@ -49,7 +50,7 @@ Azure 監視器也提供可彙總許多交易的[應用程式對應](https://doc
 
 除了 Application Insights SDK，Application Insights 也支援透過 [OpenCensus](https://opencensus.io/) 的分散式追蹤。 OpenCensus 是開放原始碼、廠商中立的單一程式庫散發，可提供服務的計量收集和分散式追蹤。 它也可讓開放原始碼社群，使用熱門的技術 (例如 Redis、Memcached 或 MongoDB) 進行分散式追蹤。 [Microsoft 在 OpenCensus 上與其他數個監視和雲端夥伴共同作業](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)。
 
-若要將分散式追蹤功能新增至採用 OpenCensus 的應用程式，請先[安裝和設定 Application Insights 本機轉送工具](./../../azure-monitor/app/opencensus-local-forwarder.md)。 從該處，將 OpenCensus 設定為透過本機轉送工具路由傳送分散式追蹤資料。 支援 [Python](./../../azure-monitor/app/opencensus-python.md) 與 [Go](./../../azure-monitor/app/opencensus-go.md)。
+[Python （預覽）](opencensus-python.md) 
 
 OpenCensus 網站會維護 [Python](https://opencensus.io/api/python/trace/usage.html) 與 [Go](https://godoc.org/go.opencensus.io) 的 API 參考文件，以及可供使用 OpenCensus 的各種不同指南。 
 

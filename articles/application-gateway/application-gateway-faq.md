@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025008"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242234"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -73,7 +73,7 @@ Azure 應用程式閘道會以服務形式提供應用程式傳遞控制器（AD
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>IP 或 DNS 名稱是否會在應用程式閘道的存留期內變更？
 
-如果您停止並啟動應用程式閘道，VIP 可能會變更。 但是與應用程式閘道相關聯的 DNS 名稱不會在閘道的存留期內變更。 由於 DNS 名稱不會變更，因此您應該使用 CNAME 別名，並將它指向應用程式閘道的 DNS 位址。
+在應用程式閘道 V1 SKU 中，如果您停止並啟動應用程式閘道，VIP 可能會變更。 但是與應用程式閘道相關聯的 DNS 名稱不會在閘道的存留期內變更。 由於 DNS 名稱不會變更，因此您應該使用 CNAME 別名，並將它指向應用程式閘道的 DNS 位址。 在應用程式閘道 V2 SKU 中，您可以將 IP 位址設定為靜態，因此 IP 和 DNS 名稱不會在應用程式閘道的存留期內變更。 
 
 ### <a name="does-application-gateway-support-static-ip"></a>應用程式閘道是否支援靜態 IP？
 
@@ -322,7 +322,7 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 ### <a name="does-waf-support-ddos-protection"></a>WAF 是否支援 DDoS 保護？
 
-可以。 您可以在部署應用程式閘道的虛擬網路上啟用 DDoS 保護。 此設定可確保 Azure DDoS 保護服務也會保護應用程式閘道虛擬 IP （VIP）。
+可以。 您可以在部署應用程式閘道的虛擬網路上，啟用 DDos 保護。 此設定確保 Azure DDoS 保護服務也會保護應用程式閘道虛擬 IP (VIP)。
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有可從 v1 SKU 遷移至 v2 SKU 的指導方針？
 

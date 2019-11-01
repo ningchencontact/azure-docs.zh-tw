@@ -1,21 +1,19 @@
 ---
 title: 使用 Azure Application Insights 診斷效能問題 | Microsoft Docs
 description: 使用 Azure Application Insights 來尋找並診斷應用程式效能問題的教學課程。
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 9768191d98bf1987ac24564869107cdd6bf19e8d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69032178"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900451"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
