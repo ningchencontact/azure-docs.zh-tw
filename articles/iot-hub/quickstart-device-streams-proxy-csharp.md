@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 90fb3fe732889f3ba3965210cd8a681a0487f78e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d84a20a554308e1705c304a18062a4a1d762a72b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514973"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901440"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -53,6 +53,8 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
   * 美國中部
   * 美國中部 EUAP
+  * 東南亞
+  * 北歐
 
 * 您在此快速入門中執行的兩個範例應用程式是以 C# 撰寫的。 您的開發電腦上需要有 .NET Core SDK 2.1.0 或更新版本。
 

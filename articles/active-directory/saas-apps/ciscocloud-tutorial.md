@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db1cea1d-ff0a-4f0d-b5fd-50ca32702d56
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9aa77b539d91d328736dca2b0f7d040f6b4b5f5
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 342101c623d451b71a33b2394ec6617482f388d6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944756"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>教學課程：Azure Active Directory 與 Cisco Cloud 整合
 
@@ -124,7 +125,7 @@ ms.locfileid: "68944756"
 
 7. 除了以上屬性之外，Cisco Cloud 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | -----------| ------------|
     | country    | user.country |
     | company    | user.companyname |

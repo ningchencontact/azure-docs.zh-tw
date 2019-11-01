@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: darrine
 ROBOTS: NOINDEX
-ms.openlocfilehash: c300a6477daa5759a68d5d11d40b1a71b46bd808
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1d16668e2c0f52c0824016c977251e64c800c54d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793828"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161722"
 ---
 # <a name="paper-entity"></a>論文實體
 
@@ -55,14 +55,14 @@ Name | 描述
 --- | ---
 BT | BibTex 檔案類型（' a '：日誌發行項，' b '：書籍，' c '：書籍章節，' p '：會議論文）
 BV | BibTex 場地名稱
-CC | 引用內容 – 所參考論文識別碼和論文中對應內容的清單 (例如 [{123:[“brown foxes are known for jumping as referenced in paper 123”, “the lazy dogs are a historical misnomer as shown in paper 123”]})
+CC | 引文內容–參考的紙張識別碼清單，以及紙張中對應的內容（例如 [{123： ["棕色北極狐，已知為123中所參考的跳躍）。」延遲狗是歷程 misnomer，如紙張 123"]} 所示）
 DN | 原始紙張標題
 DOI | 數位對象識別碼
 FP | 發行中紙張的第一頁
 I | 發行問題
 IA | 反向摘要
 IA.IndexLength | 索引中的項目數目 (摘要的字數統計)
-IA.InvertedIndex | 摘要文字和其在原始摘要中對應位置的清單 (例如 [{“the”:[0, 15, 30]}, {“brown”:[1]}, {“fox”:[2]}])
+IA.InvertedIndex | 在原始抽象中的抽象單字及其對應位置的清單（例如 [{"the"： [0，15，30]}，{"棕色"： [1]}，{"fox"： [2]}]）
 LP | 發行中紙張的最後一頁
 PB | 發行者
 S | 來源 - 論文的 Web 來源清單，依靜態順位排序

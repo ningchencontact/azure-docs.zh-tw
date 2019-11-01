@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb088af37133269977c1f8ae9a5ad19a3b3e4513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6969cfe7627b3cceb531ca3829f4103de4813195
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106780"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>教學課程：Azure Active Directory 與 Arc Publishing - SSO 整合
 
@@ -125,7 +126,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 7. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ---------------| --------------- |    
     | firstName | user.givenname |
     | lastName | user.surname |

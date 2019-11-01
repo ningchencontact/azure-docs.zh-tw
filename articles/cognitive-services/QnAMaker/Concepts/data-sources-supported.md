@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972057"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176370"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -29,7 +29,7 @@ QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔�
 
 |來源類型|內容類型| 範例|
 |--|--|--|
-|URL|常見問題集<br> (一般，含有區段或含有主題首頁)<br>支援頁面 <br> (單頁操作說明文章、疑難排解文章等等。)|[一般的常見問題集](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs)、 <br>[具有連結的常見問題集](https://www.microsoft.com/software-download/faq)、<br> [具有主題首頁的常見問題集](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[支援文件](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|常見問題集<br> (一般，含有區段或含有主題首頁)<br>支援頁面 <br> (單頁操作說明文章、疑難排解文章等等。)|[一般的常見問題集](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs)、 <br>[具有連結的常見問題集](https://www.microsoft.com/en-us/software-download/faq)、<br> [具有主題首頁的常見問題集](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[支援文件](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF/DOC|常見問題集、<br> 產品手冊、<br> 小手冊、<br> 文件、<br> 傳單原則、<br> 支援指南、<br> 結構化 QnA<br> 等|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)、<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、<br> [範例白皮書 .pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)、<br>[範例 multi-turn .docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|結構化 QnA 檔案<br> (包括 RTF、HTML 支援)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|結構化 QnA 檔案|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
@@ -101,7 +101,7 @@ QnA Maker 可處理半結構化的支援網頁，例如 Web 文件，其中會�
 
 QnA Maker 可以處理 PDF 或 DOC 檔中的半結構化內容，並將它轉換成 QnA。 可以完好擷取的良好檔案，其內容會組織成某種結構化形式，並會以妥善定義的區段來表示。 區段可以再分成子區段或子主題。 文件若具有包含階層式標題的明確結構，擷取將會有最佳效果。
 
-QnA Maker 可根據視覺線索 (例如字型大小、字型樣式、編號、色彩等等) 來識別檔案中的區段和子區段以及關聯性。半結構化的 PDF 或 DOC 檔可以是手冊、常見問題集、指導方針、原則、摺頁冊、傳單和其他諸多類型的檔案。 以下是這些檔案類型的一些範例。
+QnA Maker 會根據視覺線索（如字型大小、字型樣式、編號、色彩等），識別檔案中的區段和小節和關聯性。半結構化 PDF 或檔檔案可能是手冊、常見問題、指導方針、原則、摺頁冊、海報和許多其他類型的檔案。 以下是這些檔案類型的一些範例。
 
 ### <a name="product-manuals"></a>產品手冊
 
@@ -116,7 +116,7 @@ QnA Maker 可根據視覺線索 (例如字型大小、字型樣式、編號、�
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>摺頁冊、指導方針、白皮書及其他檔案
 
-許多其他類型的文件經過處理後也能產生問答組合，但前提是這些文件要有明確的結構和版面配置。 它們包括：摺頁冊、指導方針、報告、白皮書、科學論文、原則、書籍等。請參閱[這裡](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)的範例。
+許多其他類型的文件經過處理後也能產生問答組合，但前提是這些文件要有明確的結構和版面配置。 其中包括：摺頁冊、指導方針、報告、白皮書、科學論文、原則、書籍等。請參閱[這裡](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)的範例。
 
 以下是沒有索引的半結構化文件範例：
 
@@ -144,7 +144,7 @@ Answer2
 
 採用結構化 .txt、.tsv 或 .xls 檔案形式的 QnA 也可上傳至 QnA Maker，以便建立或擴大知識庫。  這些檔案可以是純文字，也可以具有 RTF 或 HTML 的內容。 
 
-| 問題  | Answer  | 中繼資料（1個索引鍵：1值） |
+| 問題  | 答案  | 中繼資料（1個索引鍵：1個值） |
 |-----------|---------|-------------------------|
 | 問題 1 | 解答 1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 |      `Key:Value`           |
@@ -171,7 +171,7 @@ Answer2
 
 匯入知識庫後，將會取代現有知識庫的內容。 匯入時必須要有包含資料來源資訊的結構化 .tsv 檔案。 這項資訊可協助 QnA Maker 將問答組分組，並將其歸於特定資料來源。
 
-| 問題  | Answer  | Source| 中繼資料（1個索引鍵：1值） |          
+| 問題  | 答案  | 來源| 中繼資料（1個索引鍵：1個值） |          
 |-----------|---------|----|---------------------|
 | 問題 1 | 解答 1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 | 編輯|    `Key:Value`       |
@@ -190,7 +190,7 @@ Answer2
 
 以下是您可以在 QnA Maker 中使用的 markdown 格式清單： 
 
-|用途|格式|範例 markdown|轉譯<br>如聊天機器人中所顯示|
+|目的|格式|範例 markdown|轉譯<br>如聊天機器人中所顯示|
 |--|--|--|--|
 2個句子之間的新行。|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![將兩個句子之間的新行格式化](../media/qnamaker-concepts-datasources/format-newline.png)|
 |從 h1 到 h6 的標頭，`#` 的數目代表哪一個標頭。 1 `#` 是 h1。|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![具有 markdown 標頭的格式](../media/qnamaker-concepts-datasources/format-headers.png)<br>![格式為 markdown 標頭 H1 至 H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
@@ -213,10 +213,10 @@ Answer2
 
 | 保留 HTML  | API 要求中的標記法  | 標記法（KB） |
 |-----------|---------|-------------------------|
-| 是 | \&lt; br @ no__t-1gt; | &lt;br @ no__t-1 |
-| 是 | \&lt; h3 @ no__t-1gt; header @ no__t-2lt;/h3 @ no__t-3gt; | &lt;h3 @ no__t-1header @ no__t-2/h3 @ no__t-3 |
+| 是 | \&lt; br\&gt; | &lt;br&gt; |
+| 是 | \&lt; h3\&gt; 標頭\&lt;/h3\&gt; | &lt;h3&gt;標頭&lt;/h3&gt; |
 
-此外，在 KB 中，CR LF （\r\n）會轉換為 \n。 LF （\n）會保持不被保留。 如果您想要將任何 escape 序列（例如 \t 或 \n）轉義，您可以使用反斜線，例如： ' \\ @ no__t-1r @ no__t-2 @ no__t-3n ' 和 ' \\ @ no__t-5t '
+此外，在 KB 中，CR LF （\r\n）會轉換為 \n。 LF （\n）會保持不被保留。 如果您想要將任何 escape 序列（例如 \t 或 \n）轉義，您可以使用反斜線，例如： '\\\\r\\\\n ' 和 '\\\\t '
 
 ## <a name="editing-your-knowledge-base-locally"></a>在本機編輯您的知識庫
 
@@ -239,6 +239,6 @@ Answer2
 > [!div class="nextstepaction"]
 > [設定 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)

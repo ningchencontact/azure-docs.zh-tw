@@ -6,33 +6,33 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717189"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821959"
 ---
 ## <a name="create-a-luis-resource"></a>建立 LUIS 資源
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)
-1. 按一下 [建立**Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
+1. 按一下 [[建立] **Language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 1. 輸入所有必要的設定：
 
-    |設定|值|
+    |設定|Value|
     |--|--|
-    |名稱|所需的名稱 （2 到 64 個字元）|
-    |訂用帳戶|選取適當的訂用帳戶|
-    |Location|選取任何鄰近及可用的位置|
-    |定價層|`F0` -最小的定價層|
+    |Name|想要的名稱（2-64 個字元）|
+    |Subscription|選取適當的訂用帳戶|
+    |Location|選取任何附近和可用的位置|
+    |價格層次|`F0`-最低定價層|
     |資源群組|選取可用的資源群組|
 
-1. 按一下 **建立**並等候要建立的資源。 在建立之後，瀏覽至 [資源] 頁面
-1. 收集設定`endpoint`和 API 金鑰：
+1. 按一下 [**建立**] 並等候資源建立。 建立之後，流覽至 [資源] 頁面
+1. 收集已設定的 `endpoint` 和 API 金鑰：
 
-    |在入口網站中的資源 索引標籤|設定|值|
+    |入口網站的 [資源] 索引標籤|設定|Value|
     |--|--|--|
-    |**概觀**|端點|複製的端點。 它看起來類似於 `https://luis.cognitiveservices.azure.com/luis/v2.0`|
-    |**金鑰**|API 金鑰|將複製兩個索引鍵的 1。 它是 32 的英數字元字串，不含空格或連字號`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`。|
+    |**Overview**|端點|複製端點。 看起來類似 `https://luis.cognitiveservices.azure.com/luis/v2.0`|
+    |**金鑰**|API 金鑰|複製這兩個金鑰的1。 它是32英數位元字串，不含空格或連字號，`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`。|

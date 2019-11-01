@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066989"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241663"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
@@ -78,7 +78,7 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 和 Apache Hive
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) 除了提供完全受管理的服務供您用來將預測性模型部署為可供取用的 Web 服務之外，也提供可建立預測性分析模型的工具。 Azure Machine Learning 提供可在雲端建立完整預測性分析解決方案的工具，可讓您快速建立、測試預測性模型、將預測性模型變成可操作的模型並對其進行管理。 您可以從大型演算法程式庫中選取、使用 Web 型工作室來建置模型，然後將模型輕鬆部署成 Web 服務。
+[Azure Machine Learning Studio （傳統）](https://studio.azureml.net/)提供可建立預測性分析模型的工具，以及完全受控的服務，您可以用來將預測模型部署為可供使用的 web 服務。 Azure Machine Learning 提供可在雲端建立完整預測性分析解決方案的工具，可讓您快速建立、測試預測性模型、將預測性模型變成可操作的模型並對其進行管理。 您可以從大型演算法程式庫中選取、使用 Web 型工作室來建置模型，然後將模型輕鬆部署成 Web 服務。
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark 和深度學習
 
@@ -127,8 +127,8 @@ Apache Hive 和 Azure Machine Learning
 Apache Spark 和 MLLib
 
 * [使用 HDInsight 上的 Apache Spark 進行機器學習](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Apache Spark，利用 HVAC 資料來分析建築物溫度](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Apache Spark 來預測食品檢查結果](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning 的 Apache Spark：使用 HDInsight 中的 Apache Spark 來分析使用 HVAC 資料的建築物溫度](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning 的 Apache Spark：使用 HDInsight 中的 Apache Spark 來預測食物檢查結果](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 深度學習、Cognitive Toolkit 及其他方法
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0540d8a83a8dc1da9bc763bce0b30463889cfe90
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 71ccdb7ac6666cde1841599cdaf95b67bc54e6a5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915024"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800029"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
@@ -40,7 +40,7 @@ Storm on HDInsight 提供下列功能︰
 
 * **使用多項 Azure 服務建立串流管線**：HDInsight 上的 Storm 會與其他 Azure 服務整合，例如事件中樞、SQL Database、Azure 儲存體及 Azure Data Lake Storage。
 
-    如需與 Azure 服務整合的解決方案範例，請參閱[使用 Apache Storm on HDInsight 處理事件中樞的事件](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
+    如需與 Azure 服務整合的解決方案範例，請參閱[使用 Apache Storm on HDInsight 處理事件中樞的事件](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)。
 
 如需使用 Apache Storm 作為即時分析解決方案的公司清單，請參閱[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
@@ -92,7 +92,7 @@ Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsig
 
 * __事件中樞__：如需使用事件中樞搭配 Storm 叢集的範例，請參閱下列範例：
 
-    * [使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
+    * [使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
     * [使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
@@ -113,7 +113,7 @@ Storm on HDInsight 隨附完整的企業級連續支援。 Storm on HDInsight �
 * 社交分析
 * 擷取、轉換和載入 (ETL)
 * 網路監視
-* Search
+* 搜尋
 * Mobile Engagement
 
 如需真實案例的資訊，請參閱 [How companies are using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (公司如何使用 Apache Storm) 文件。

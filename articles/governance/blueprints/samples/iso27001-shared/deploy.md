@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 3a58894f8033e1f837a3b8ac64438337c3a7f0a5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 43b3eb76de4e180f002379198d363a6852ab9e3b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299115"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162500"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>部署 ISO 27001 共用服務藍圖範例
 

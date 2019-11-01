@@ -1,21 +1,19 @@
 ---
 title: 在 Azure Application Insights 中建立自訂儀表板 | Microsoft Docs
 description: 使用 Azure Application Insights 建立自訂 KPI 儀表板的教學課程。
-keywords: ''
-services: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: fa91933c2243cd1a2737f93f796314330b6cf5a0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 47d8eaff5f154e198c277ec2b63a2d09e66f7180
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541475"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900513"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 建立自訂 KPI 儀表板
 
@@ -37,7 +35,7 @@ ms.locfileid: "67541475"
 - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-a-new-dashboard"></a>建立新的儀表板
 單一儀表板可包含來自多個應用程式、資源群組和訂用帳戶的資源。  請從為您的應用程式建立新的儀表板，以開始本教學課程。  

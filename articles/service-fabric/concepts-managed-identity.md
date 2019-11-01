@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333128"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243019"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Service Fabric 應用程式的受控識別（預覽）
 
-建置雲端應用程式常見的難題是如何管理程式碼中的認證，以向雲端服務進行驗證。 保護認證安全是很重要的工作，因為它們永遠不會出現在開發人員工作站上，而且不會簽入原始檔控制。 Azure Active Directory （Azure AD）中適用于 Azure 資源的受控識別功能可解決此問題。 此功能會在 Azure AD 中，為 Azure 服務提供自動管理的身分識別。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要您程式碼中的任何認證。
+建置雲端應用程式常見的難題是如何管理程式碼中的認證，以向雲端服務進行驗證。 保護認證安全是很重要的工作，因為它們永遠不會出現在開發人員工作站上，而且不會簽入原始檔控制。 Azure Active Directory （Azure AD）中適用于 Azure 資源的受控識別功能可解決此問題。 這項功能會在 Azure AD 中將自動受控識別提供給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要您程式碼中的任何認證。
 
 適用于 azure 資源的受控識別功能可免費使用 Azure 訂用帳戶的 Azure AD。 沒有任何額外成本。
 
@@ -78,3 +78,4 @@ ms.locfileid: "72333128"
 * [使用使用者指派的受控識別來部署 Azure Service Fabric 應用程式](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [從服務程式代碼運用 Service Fabric 應用程式的受控識別](./how-to-managed-identity-service-fabric-app-code.md)
 * [將其他 Azure 資源的存取權授與 Azure Service Fabric 應用程式](./how-to-grant-access-other-resources.md)
+* [宣告和使用應用程式秘密作為 KeyVaultReferences](./service-fabric-keyvault-references.md) 

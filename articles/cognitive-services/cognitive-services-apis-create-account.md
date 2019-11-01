@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 14157ed22ea40a2157f696e91c59af9b58110bf2
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743859"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819947"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>使用 Azure 入口網站建立認知服務資源
 
@@ -39,21 +39,21 @@ ms.locfileid: "70743859"
     
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | 電腦視覺  | Content Moderator                                    | 臉部               | 語言理解 (LUIS) | 文字分析   |
-    | Translator Text (翻譯文字)  | Bing 搜尋 v7 <br>（Web、影像、新聞、影片、視覺效果） | Bing 自訂搜尋 | Bing 實體搜尋            | Bing 自動建議 |
+    | Computer Vision  | Content Moderator                                    | 臉部               | Language Understanding (LUIS) | 文字分析   |
+    | Translator Text  | Bing 搜尋 v7 <br>（Web、影像、新聞、影片、視覺效果） | Bing 自訂搜尋 | Bing 實體搜尋            | Bing 自動建議 |
     | Bing 拼字檢查 |                                                      |                    |                               |                  |
     
     #### <a name="single-service-resourcetabsingleservice"></a>[單一服務資源](#tab/singleservice)
 
     使用下列連結來建立可用認知服務的資源：
 
-    | 辨識                      | 語音                  | 語言                          | 決策             | 搜尋                 |
+    | 辨識                      | 語音                  | 語言                          | 決策             | Search                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [電腦視覺](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [語音服務](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [沉浸式讀者](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [異常偵測器](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing 搜尋 API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
-    | [自訂視覺服務](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [說話者辨識](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [內容仲裁](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing 自訂搜尋](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [自訂視覺服務](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [說話者辨識](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [內容仲裁](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing 自訂搜尋](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [臉部](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [個人化工具](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing 實體搜尋](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [筆跡辨識器](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [文字分析](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Bing 拼字檢查](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
-    |           |                         | [翻譯工具文字](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing 自動建議](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+    |           |                         | [翻譯工具文字](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing 自動鍵](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
 
 3. 在 [建立] 頁面上，提供下列資訊：
@@ -108,7 +108,7 @@ ms.locfileid: "70743859"
 2. 找出包含要刪除之資源的資源群組
 3. 以滑鼠右鍵按一下資源群組清單。 選取 [刪除資源群組] 並且確認。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [驗證 Azure 認知服務要求](authentication.md)
 * [什麼是 Azure 認知服務？](Welcome.md)

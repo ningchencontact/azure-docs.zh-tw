@@ -1,5 +1,5 @@
 ---
-title: 在 Azure HDInsight 中 RequestBodyTooLarge Apache Spark 串流應用程式的記錄檔
+title: 來自 Apache Spark 應用程式的 RequestBodyTooLarge 錯誤-Azure HDInsight
 description: NativeAzureFileSystem ...RequestBodyTooLarge 會出現在 Azure HDInsight 的 Apache Spark 串流應用程式的記錄中
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: b6e6d3eeff8569c8b00ac16310da3c94e484b32f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 2d2e929335f6af2ee24a81e719d9d0d899f7b8ef
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088711"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241849"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem...RequestBodyTooLarge "會出現在 HDInsight 的 Apache Spark 串流應用程式記錄中
 
@@ -20,7 +20,7 @@ ms.locfileid: "71088711"
 
 ## <a name="issue"></a>問題
 
-錯誤： `NativeAzureFileSystem ... RequestBodyTooLarge`會出現在 Apache Spark 串流應用程式的驅動程式記錄檔中。
+錯誤： `NativeAzureFileSystem ... RequestBodyTooLarge` 會出現在 Apache Spark 串流應用程式的驅動程式記錄檔中。
 
 ## <a name="cause"></a>原因
 
@@ -32,13 +32,13 @@ ms.locfileid: "71088711"
 
 此錯誤有三個可用的解決方案：
 
-* 將區塊大小增加至最多 100 MB。 在 Ambari UI 中，修改 HDFS 設定`fs.azure.write.request.size`屬性（或在區段`Custom core-site`中建立）。 將屬性設定為較大的值，例如：33554432。 儲存已更新的設定並重新啟動受影響的元件。
+* 將區塊大小增加至最多 100 MB。 在 Ambari UI 中，修改 HDFS 設定屬性 `fs.azure.write.request.size` （或在 `Custom core-site` 區段中建立）。 將屬性設定為較大的值，例如：33554432。 儲存已更新的設定並重新啟動受影響的元件。
 
 * 定期停止並重新提交 spark 串流作業。
 
 * 使用 HDFS 儲存 Spark 事件記錄檔。 使用 HDFS 進行儲存體可能會導致在叢集調整或 Azure 升級期間遺失 Spark 事件資料。
 
-    1. 透過 Ambari UI `spark.eventlog.dir`進行`spark.history.fs.logDirectory`變更：
+    1. 透過 Ambari UI 進行 `spark.eventlog.dir` 和 `spark.history.fs.logDirectory` 的變更：
 
         ```
         spark.eventlog.dir = hdfs://mycluster/hdp/spark2-events
@@ -62,6 +62,6 @@ ms.locfileid: "71088711"
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
 * 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

@@ -1,23 +1,24 @@
 ---
-title: 常見的錯誤和警告
-titleSuffix: Azure Cognitive Search
-description: 本文提供您在 Azure 認知搜尋中 AI 擴充時可能會遇到的常見錯誤和警告的資訊和解決方案。
-manager: nitinme
+title: 常見錯誤和警告-Azure 搜尋服務
+description: 本文提供在 Azure 搜尋服務的 AI 擴充期間可能會遇到的常見錯誤和警告的資訊和解決方案。
+services: search
+manager: heidist
 author: amotley
-ms.author: abmotley
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 09/18/2019
+ms.author: abmotley
+ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787983"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243048"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure 認知搜尋中 AI 擴充管線的常見錯誤和警告
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Azure 搜尋服務中 AI 擴充管線的常見錯誤和警告
 
-本文提供您在 Azure 認知搜尋中 AI 擴充時可能會遇到的常見錯誤和警告的資訊和解決方案。
+本文提供在 Azure 搜尋服務的 AI 擴充期間可能會遇到的常見錯誤和警告的資訊和解決方案。
 
 ## <a name="errors"></a>Errors
 當錯誤計數超過[' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)時，就會停止編制索引。 
@@ -131,6 +132,10 @@ ms.locfileid: "72787983"
 | 來源文件中使用了地理位置點的不相容標記法。 | 不支援 WKT 點字串常值。 請改用 GeoJson point 常值 |
 
 在所有這些情況下，請參閱[支援的資料類型（Azure 搜尋服務）](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)和[資料類型對應，Azure 搜尋服務中的索引子](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search)，確定您已正確建立索引架構，並已設定適當的[索引子欄位](search-indexer-field-mappings.md)對應。 錯誤訊息將包含有助於追蹤不相符之來源的詳細資料。
+
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>無法處理索引子執行時間上限中的檔
+
+當索引子無法在允許的執行時間內從資料來源完成處理單一檔時，就會發生這個錯誤。 使用技能集時，[執行時間上限](search-limits-quotas-capacity.md#indexer-limits)較短。 當此錯誤發生時，如果您將 maxFailedItems 設定為0以外的值，則索引子會在未來執行時略過檔，讓索引可以進行。 如果您無法承受略過任何檔，或如果您一直看到此錯誤，請考慮將檔分解成較小的檔，以便在單一索引子執行中進行部分進度。
 
 ##  <a name="warnings"></a>消息
 警告不會停止編制索引，但會指出可能導致未預期結果的狀況。 無論您採取動作與否，都取決於資料和您的案例。

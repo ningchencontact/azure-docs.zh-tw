@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2f46ebcabd98c7a8c3376157c72da9ec5ed424a4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199263"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935218"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>什麼是 Azure 物聯網 (IoT)？
 
@@ -105,7 +105,7 @@ Azure 物聯網 (IoT) 是由 Microsoft 管理的雲端服務集合，它會連�
 
 Azure 中有數個與 IoT 相關的服務，因此，您可能會不曉得要使用哪一個。 有些服務 (例如 IoT Central 和 IoT 解決方案加速器) 會提供範本，以協助您建立自己的解決方案並快速上手。 您也可以使用其他可用服務來完整開發自己的解決方案，這完全取決於您需要多少協助和多大的控制權。 以下是可用服務的清單和用途。
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md)：這是 SaaS 解決方案，可協助您連接、監視及管理 IoT 裝置。 若要開始，您可以選取適用您裝置類型的範本，然後建立及測試裝置操作員將使用的基本 IoT Central 應用程式。 IoT Central 應用程式也可讓您監視裝置，並佈建新的裝置。 此服務適用於簡單而不需要深入自訂服務的解決方案。 
+1. [**IoT Central**](../iot-central/core/overview-iot-central.md)：這是 SaaS 解決方案，可協助您連接、監視及管理 IoT 裝置。 若要開始，您可以選取適用您裝置類型的範本，然後建立及測試裝置操作員將使用的基本 IoT Central 應用程式。 IoT Central 應用程式也可讓您監視裝置，並佈建新的裝置。 此服務適用於簡單而不需要深入自訂服務的解決方案。 
 
 2. [**IoT 解決方案加速器**](/azure/iot-suite)：這是 PaaS 解決方案的集合，可用來加速開發您的 IoT 解決方案。 您會從所提供的 IoT 解決方案著手，然後再根據需求來完整自訂此解決方案。 您需要 Java 或 .NET 技能來自訂後端，並需要 JavaScript 技能來自訂視覺效果。 
 

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: a2c121ed58882427022b716081b096c913d447f8
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 93b5c395a0d121305c092229d862bf9ecaa4789c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423623"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936051"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>快速入門：使用 Bing 拼字檢查 REST API 和 C# 進行檢查拼字
 
@@ -75,10 +75,10 @@ ms.locfileid: "68423623"
     ```csharp
     async static void SpellCheck()
     {
-        HttpClient client = new HttpClient();
+        var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        HttpResponseMessage response = new HttpResponseMessage();
+        HttpResponseMessage response = null;
         // add the rest of the code snippets here (except for main())...
     }
     ```
@@ -92,14 +92,11 @@ ms.locfileid: "68423623"
 3. 使用 `KeyValuePair` 物件建立包含您文字的清單，並使用它來建立 `FormUrlEncodedContent` 物件。 設定標頭資訊，並使用 `PostAsync()` 來傳送要求。
 
     ```csharp
-    List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
-    values.Add(new KeyValuePair<string, string>("text", text));
-    
-    using (FormUrlEncodedContent content = new FormUrlEncodedContent(values))
-    {
-        content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-        response = await client.PostAsync(uri, content);
-    }
+    var values = new Dictionary<string, string>();
+    values.Add("text", text);
+    var content = new FormUrlEncodedContent(values);
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+    response = await client.PostAsync(uri, new FormUrlEncodedContent(values));
     ```
 
 ## <a name="get-and-print-the-api-response"></a>取得並列印 API 回應

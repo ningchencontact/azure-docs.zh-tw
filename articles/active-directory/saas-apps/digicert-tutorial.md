@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aded5e6435be1fd4b2794a3a2ce0918bcbc1164
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df68c9289caed0c857434bf4a1f9a5eb28e71ab4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104216"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>教學課程：Azure Active Directory 與 DigiCert 整合
 
@@ -113,7 +114,7 @@ DigiCert 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     | ---------------| --------------- |
     | nameidentifier | user.userprincipalname |
     | company | < companycode > |

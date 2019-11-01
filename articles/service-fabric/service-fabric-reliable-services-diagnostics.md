@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772953"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242867"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>具狀態 Reliable Services 診斷功能
 Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用於偵錯服務、提供執行階段運作情形的深入了解，以及協助疑難排解。
@@ -29,14 +29,14 @@ Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [
 
 可協助您收集和/或檢視 EventSource 事件之工具和技術的範例包括 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 程式庫](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
-## <a name="events"></a>Events
-| 事件名稱 | 事件識別碼 | Level | 事件說明 |
+## <a name="events"></a>事件
+| 事件名稱 | 事件識別碼 | 層級 | 事件說明 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |資訊 |啟動服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCancellation |2 |資訊 |取消服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCompletion |3 |資訊 |完成服務 RunAsync 工作時發出 |
 | StatefulRunAsyncSlowCancellation |4 |警告 |服務 RunAsync 工作花太多時間才能完成取消時發出 |
-| StatefulRunAsyncFailure |5 |錯誤 |服務 RunAsync 工作擲回例外狀況時發出 |
+| StatefulRunAsyncFailure |5 |Error |服務 RunAsync 工作擲回例外狀況時發出 |
 
 ## <a name="interpret-events"></a>解譯事件
 StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCancellation 事件可讓服務撰寫者了解服務的生命週期--以及服務啟動、取消或完成的時機。 此資訊可能適用於偵錯服務問題或了解服務生命週期。
@@ -50,7 +50,7 @@ StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCa
 ## <a name="performance-counters"></a>效能計數器
 Reliable Services 執行階段定義下列效能計數器類別：
 
-| Category | 描述 |
+| 類別 | 描述 |
 | --- | --- |
 | Service Fabric 異動複寫器 |Azure Service Fabric 異動複寫器特有的計數器 |
 | Service Fabric TStore |Azure Service Fabric TStore 特有的計數器 |
@@ -71,7 +71,7 @@ Windows 作業系統中預設可用的 [Windows 效能監視器](https://technet
 
 *ServiceFabricPartitionId* 是與效能計數器執行個體相關聯 Service Fabric 資料分割識別碼的字串表示法。 資料分割識別碼是 GUID，其字串表示法是透過 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 與格式規範 "D" 所產生。
 
-*ServiceFabricReplicaId* 是與某一可靠服務特定複本相關聯的識別碼。 複本識別碼包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同資料分割所產生的其他效能計數器執行個體名稱發生衝突。 [這裡](service-fabric-concepts-replica-lifecycle.md)會詳細介紹複本以及它們在可靠服務中的角色。
+*ServiceFabricReplicaId* 是與某一可靠服務特定複本相關聯的識別碼。 複本識別碼包含在效能計數器實例名稱中，以確保其唯一性，並避免與相同分割區所產生的其他效能計數器實例發生衝突。 [這裡](service-fabric-concepts-replica-lifecycle.md)會詳細介紹複本以及它們在可靠服務中的角色。
 
 下列的計數器執行個體名稱一般用於 `Service Fabric Transactional Replicator` 類別底下的計數器：
 
@@ -82,21 +82,23 @@ Windows 作業系統中預設可用的 [Windows 效能監視器](https://technet
 #### <a name="service-fabric-tstore-category"></a>Service Fabric TStore 類別
 `Service Fabric TStore`類別的計數器執行個體名稱格式如下：
 
-`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+`ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
 *ServiceFabricPartitionId* 是與效能計數器執行個體相關聯 Service Fabric 資料分割識別碼的字串表示法。 資料分割識別碼是 GUID，其字串表示法是透過 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 與格式規範 "D" 所產生。
 
-*ServiceFabricReplicaId* 是與某一可靠服務特定複本相關聯的識別碼。 複本識別碼包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同資料分割所產生的其他效能計數器執行個體名稱發生衝突。 [這裡](service-fabric-concepts-replica-lifecycle.md)會詳細介紹複本以及它們在可靠服務中的角色。
+*ServiceFabricReplicaId* 是與某一可靠服務特定複本相關聯的識別碼。 複本識別碼包含在效能計數器實例名稱中，以確保其唯一性，並避免與相同分割區所產生的其他效能計數器實例發生衝突。 [這裡](service-fabric-concepts-replica-lifecycle.md)會詳細介紹複本以及它們在可靠服務中的角色。
 
-ServiceFabricStateProviderId  是識別碼，與可靠服務內的狀態供應器相關聯。 狀態供應器識別碼會包含在效能計數器執行個體名稱中，以便區別各個 TStore。
+*StateProviderId*是與可靠服務內的狀態供應器相關聯的識別碼。 狀態提供者識別碼包含在效能計數器實例名稱中，以區別 TStore 與另一個。
 
-PerformanceCounterInstanceDifferentiator  是區別識別碼，與狀態供應器內的效能計數器執行個體相關聯。 區分碼會包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同狀態供應器所產生的其他效能計數器執行個體名稱發生衝突。
+PerformanceCounterInstanceDifferentiator 是區別識別碼，與狀態供應器內的效能計數器執行個體相關聯。 區分碼會包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同狀態供應器所產生的其他效能計數器執行個體名稱發生衝突。
+
+*StateProviderName*是與可靠服務內的狀態供應器相關聯的名稱。 狀態提供者名稱會包含在效能計數器實例名稱中，以供使用者輕鬆地識別它所提供的狀態。
 
 下列的計數器執行個體名稱一般用於 `Service Fabric TStore` 類別底下的計數器：
 
-`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-在上述範例中，`00d0126d-3e36-4d68-98da-cc4f7195d85e` 是 Service Fabric 磁碟分割識別碼的字串代表、`131652217797162571` 是複本識別碼、`142652217797162571` 是狀態供應器識別碼，而 `1337` 是效能計數器執行個體區分碼。
+在上述範例中，`00d0126d-3e36-4d68-98da-cc4f7195d85e` 是 Service Fabric 磁碟分割識別碼的字串代表、`131652217797162571` 是複本識別碼、`142652217797162571` 是狀態供應器識別碼，而 `1337` 是效能計數器執行個體區分碼。 `urn:MyReliableDictionary/dataStore` 是儲存名為 `urn:MyReliableDictionary`之集合資料的狀態供應器名稱。
 
 ### <a name="transactional-replicator-performance-counters"></a>異動複寫器效能計數器
 
@@ -106,10 +108,10 @@ Reliable Services 執行階段會發出 `Service Fabric Transactional Replicator
 | --- | --- |
 | Begin Txn Operations/sec | 每秒建立的新寫入異動數目。|
 | Txn Operations/sec | 每秒在可靠集合上所執行的新增/更新/刪除作業數目。|
-| Log Flush Bytes/sec | 異動複寫器每秒排清到磁碟的位元組數 |
+| 記錄檔排清位元組/秒 | 異動複寫器每秒排清到磁碟的位元組數 |
 | Throttled Operations/sec | 異動複寫器每秒因為節流而拒絕的作業數目。 |
-| Avg.Transaction ms/Commit | 每一次異動的平均認可延遲 (毫秒) |
-| Avg.Flush Latency (ms) | 異動複寫器起始的磁碟排清作業平均持續時間 (毫秒) |
+| 平均交易毫秒/認可 | 每一次異動的平均認可延遲 (毫秒) |
+| Avg. Flush 延遲（毫秒） | 異動複寫器起始的磁碟排清作業平均持續時間 (毫秒) |
 
 ### <a name="tstore-performance-counters"></a>TStore 效能計數器
 

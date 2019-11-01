@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44a34fe5637e895ea69b6fc4c277b7722b306c97
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091633"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>教學課程：Azure Active Directory 與 SAP HANA 整合
 
@@ -129,7 +130,7 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性與宣告]  對話方塊的 [使用者屬性]  區段中，執行下列步驟：
  
-    a. 按一下 [編輯]  圖示以開啟 [管理使用者宣告]  對話方塊。
+    a. 按一下 [**編輯**] 圖示以開啟 [**管理使用者宣告**] 對話方塊。
 
     ![image](./media/saphana-tutorial/tutorial_usermail.png)
 

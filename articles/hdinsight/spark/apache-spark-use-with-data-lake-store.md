@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Spark 分析 Azure Data Lake Storage Gen1 中的資料
+title: 使用 HDInsight Apache Spark 分析 Azure Data Lake Storage Gen1
 description: 執行 Apache Spark 作業來分析儲存在 Azure Data Lake Storage Gen1 中的資料
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: b8e830cb187b375e17b3dc33c582126adfa32f3e
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 7c60fdfd4d8e579c24da3c43501e4437806becc6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002473"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241711"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage Gen1 中的資料
 
@@ -23,7 +23,7 @@ ms.locfileid: "71002473"
 
 * Azure Data Lake Storage Gen1 帳戶。 請遵循[透過 Azure 入口網站開始使用 Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-get-started-portal.md) 的指示。
 
-* 以 Data Lake Storage Gen1 作為儲存體的 Azure HDInsight Spark 叢集。 請依照[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+* 以 Data Lake Storage Gen1 作為儲存體的 Azure HDInsight Spark 叢集。 請遵循[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)中的指示。
 
 ## <a name="prepare-the-data"></a>準備資料
 
@@ -67,7 +67,7 @@ ms.locfileid: "71002473"
 
 3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
 
-    ![建立新的 Jupyter Notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
+    ![建立新的 Jupyter 筆記本](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
 
 4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。 當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark 和 Hive 內容。 首先，您可以匯入此案例所需的類型。 方法是將下列程式碼片段貼到儲存格中，然後按下 **SHIFT + ENTER**。
 
@@ -75,7 +75,7 @@ ms.locfileid: "71002473"
 
     每當您在 Jupyter 中執行作業時，網頁瀏覽器視窗標題將會顯示 Notebook 標題和 **(忙碌)** 狀態。 您也會在右上角的 **PySpark** 文字旁看到一個實心圓。 工作完成後，實心圓將變成空心圓。
 
-     ![Jupyter Notebook 作業的狀態](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter Notebook 作業的狀態")
+     ![Jupyter 筆記本作業的狀態](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter Notebook 工作的狀態")
 
 5. 使用您複製到 Data Lake Storage Gen1 帳戶的 **HVAC.csv** 檔案，將範例資料載入到暫存資料表中。 您可以使用下列 URL 模式來存取 Data Lake Storage 帳戶中的資料。
 

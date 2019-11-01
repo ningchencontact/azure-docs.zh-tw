@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a03b185f6df5e32012883d210d684ec08b119019
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91a7bf535a4afe0d46a13bbdc5643da7d5ce3334
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105018"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>教學課程：Azure Active Directory 與 Comm100 Live Chat 整合
 
@@ -116,7 +117,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     | ---------------| --------------- |
     |   電子郵件    | user.mail |
 

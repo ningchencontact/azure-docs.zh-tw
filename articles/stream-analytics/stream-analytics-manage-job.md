@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure 入口網站建立和管理串流分析作業
+title: 使用 Azure 入口網站建立和管理串流分析作業
 description: 本教學課程提供如何使用 Azure 串流分析來分析通話串流中詐騙電話的端對端實例。
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 540cd0e136dc602848c34edbd3914d69ca725758
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 128859a00402c3381edfa65918a7135c9fd775de
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000545"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925284"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>使用串流分析分析通話資料並在 Power BI 儀表板中以視覺方式呈現結果
 

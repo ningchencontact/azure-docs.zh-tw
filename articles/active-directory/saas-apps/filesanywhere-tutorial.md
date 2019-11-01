@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4e116d167b3e05c1cad27952b6774de529136c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f26311a6c9a1b751243c0571ce9a3417af891959
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102624"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>教學課程：Azure Active Directory 與 FilesAnywhere 整合
 
@@ -126,7 +127,7 @@ FilesAnywhere 與 Azure AD 整合提供下列優點：
 
 7. 除了以上屬性外，FilesAnywhere 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 

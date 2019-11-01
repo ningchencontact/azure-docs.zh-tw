@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515724"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164063"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以虛擬網路對等互連連線虛擬網路
 
@@ -54,7 +54,7 @@ ms.locfileid: "72515724"
     |資源群組| 選取 [新建]  ，然後輸入 *myResourceGroup*。|
     |區域| 選取 [美國東部]  。|
     |名稱|myVirtualNetwork1|
-    ![設定基本虛擬網路設定] (
+   
 4. 在 [IP 位址]  頁面上，針對 [位址空間]  欄位輸入 10.0.0.0/16。 按一下下方的 [新增子網路]  按鈕，然後針對 [子網路名稱]  輸入 Subnet1 並針對 [子網路位址範圍]  輸入 10.0.0.0/24。
    
 5. 以下列變更再次完成步驟 1-3：
@@ -147,7 +147,7 @@ ms.locfileid: "72515724"
 6. 稍後的步驟會使用 ping 從 myVm1  虛擬機器與 myVm2  虛擬機器通訊。 Ping 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時預設會遭到拒絕。 在 *myVm1* VM 上，讓 ICMP 能夠通過 Windows 防火牆，您就能在稍後的步驟中使用 PowerShell，從 *myVm2* 針對此 VM 進行 Ping 操作：
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     雖然本教學課程使用 Ping 在 VM 之間進行通訊，但不建議在生產環境部署中允許 ICMP 通過 Windows 防火牆。

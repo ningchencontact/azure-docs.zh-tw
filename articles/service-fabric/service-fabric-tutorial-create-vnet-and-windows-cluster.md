@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598887"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177979"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教學課程：將執行 Windows 的 Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -28,7 +28,7 @@ ms.locfileid: "68598887"
 
 此教學課程說明的是生產環境案例。 如果您想要建立測試用的更小型叢集，請參閱[建立測試叢集](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 PowerShell 在 Azure 中建立 VNET
@@ -112,7 +112,6 @@ ms.locfileid: "68598887"
 
 * ClientConnectionEndpoint (TCP)：19000
 * HttpGatewayEndpoint (HTTP/TCP)：19080
-* SMB：445
 * Internodecommunication：1025、1026、1027
 * 暫時連接埠範圍：49152 到 65534 (至少需要 256 個連接埠)。
 * 應用程式使用的連接埠：80 和 443

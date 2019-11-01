@@ -1,5 +1,5 @@
 ---
-title: Apache Spark 作業因 Azure HDInsight 中的 InvalidClassException 而失敗
+title: 從 Apache Spark Azure HDInsight InvalidClassException 錯誤
 description: Apache Spark 作業失敗，InvalidClassException，類別版本不符，Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: c32b6a5ed7e8c052096f6125a5246fc9685302d4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ad9ec8e97827fb6158476165a610c9d69b12a528
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088694"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241158"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark 作業失敗，InvalidClassException，類別版本不符，Azure HDInsight
 
@@ -34,7 +34,7 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>原因
 
-此錯誤的原因可能是將額外的 jar 新增至`spark.yarn.jars`設定，這是包含不同`commons-lang3`版本套件並引進類別不相符的「陰影」 jar。 根據預設，Spark 2.1/2/3 會使用 3.5 `commons-lang3`版。
+此錯誤的原因可能是將額外的 jar 新增至 `spark.yarn.jars` config，這是一個「陰影」 jar，其中包含不同版本的 `commons-lang3` 套件，並引進了類別不符的情況。 根據預設，Spark 2.1/2/3 會使用3.5 版的 `commons-lang3`。
 
 ## <a name="resolution"></a>解析度
 
@@ -46,6 +46,6 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
 * 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

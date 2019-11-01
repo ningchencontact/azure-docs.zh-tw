@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942795"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880500"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 
@@ -52,7 +52,7 @@ Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 
 
 - **Azure Active Directory Premium P1。** 除了 Free 版的功能外，P1 版還會讓混合式使用者可以同時存取內部部署和雲端的資源。 不僅如此，它還支援進階的管理 (例如，動態群組、自助群組管理、Microsoft Identity Manager (此為內部部署身分識別和存取管理套件))，以及雲端回寫功能 (可讓內部部署使用者使用自助密碼重設)。
 
-- **Azure Active Directory Premium P2。** 除了 Free 版和 P1 版的功能外，P2 版還會提供 [Azure Active Directory Identity Protection](../identity-protection/enable.md) (以協助針對應用程式和重要的公司資料提供以風險為基礎的條件式存取權) 以及 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) (以協助探索、限制和監視系統管理員及其對資源的存取權，以及視需要提供 Just-In-Time 存取權)。
+- **Azure Active Directory Premium P2。** 除了 Free 版和 P1 版的功能外，P2 版還會提供 [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) (以協助針對應用程式和重要的公司資料提供以風險為基礎的條件式存取權) 以及 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) (以協助探索、限制和監視系統管理員及其對資源的存取權，以及視需要提供 Just-In-Time 存取權)。
 
 - **「隨用隨付方案」功能授權。** 您也可以取得其他功能授權，例如 Azure Active Directory 企業對消費者 (B2C)。 B2C 可協助您提供適用於消費者面向應用程式的身分識別和存取管理解決方案。 如需詳細資訊，請參閱 [Azure Active Directory B2C 文件](../../active-directory-b2c/index.yml)。
 

@@ -1,25 +1,19 @@
 ---
 title: 建立和共用 Azure Log Analytics 資料的儀表板 | Microsoft Docs
 description: 本教學課程可幫助您了解 Log Analytics 儀表板如何以視覺化方式呈現所有儲存的記錄查詢，讓您以單一方式檢視您的環境。
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 06/19/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: baa510e060a3bca46110842600262345072b1a18
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414150"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894786"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>建立和共用 Log Analytics 資料的儀表板
 
@@ -34,7 +28,7 @@ Log Analytics 儀表板可以視覺化方式呈現所有儲存的記錄查詢，
 若要完成本教學課程中的範例，您目前必須有[連線至 Log Analytics 工作區](quick-collect-azurevm.md)的虛擬機器。  
  
 ## <a name="sign-in-to-azure-portal"></a>登入 Azure 入口網站
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。 
 
 ## <a name="create-a-shared-dashboard"></a>建立共用儀表板
 選取 [儀表板]  以開啟您的預設[儀表板](../../azure-portal/azure-portal-dashboards.md)。 您的儀表板外觀與以下範例不同。

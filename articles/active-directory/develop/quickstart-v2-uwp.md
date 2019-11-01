@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46b2ec4a790b5425d837d6a5530b8562ce85ca38
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efe6946a3de2a95f15e017dbd65e2ec84cc2f2f3
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852764"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964080"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入門：自通用 Windows 平台 (UWP) 應用程式呼叫 Microsoft Graph API
 
@@ -58,7 +58,7 @@ ms.locfileid: "68852764"
 > 1. 在應用程式頁面清單中，選取 [驗證]  。
 > 1. 展開 [桌面 + 裝置]  區段。  (如果看不到 [桌面 + 裝置]  ，請先按一下頂端橫幅，以檢視預覽驗證體驗)
 > 1. 在 [重新導向 URI]  區段之下，選取 [新增 URI]  。  輸入 **urn:ietf:wg:oauth:2.0:oob**。
-> 1. 選取 [ **儲存**]。
+> 1. 選取 [儲存]  。
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>步驟 1：設定您的應用程式

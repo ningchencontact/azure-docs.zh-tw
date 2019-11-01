@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2735656226210e14b2d6f6a08bbe2c5ccb550dd6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6c6f5b2b67ec38ef690f932e189bd2fd9f0dd6da
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944246"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>教學課程：Azure Active Directory 與 Learningpool Act 整合
 
@@ -124,7 +125,7 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ------------------- | -------------------- |
     | urn:oid:1.2.840.113556.1.4.221 | user.userprincipalname |
     | urn:oid:2.5.4.42 | user.givenname |

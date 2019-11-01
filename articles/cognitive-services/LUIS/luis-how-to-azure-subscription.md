@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: acda549ffc03679de43b4e5956e65ccada766c15
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984371"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819963"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>使用撰寫和執行時間資源金鑰
 
@@ -28,7 +28,7 @@ ms.locfileid: "70984371"
 當您登入 LUIS 入口網站時，您可以選擇繼續進行：
 
 * 免費[試用金鑰](#trial-key)-提供撰寫和一些預測端點查詢。
-* 新的 Azure LUIS 撰寫資源-建立新的資源。 這與預測端點資源不同。 
+* Azure [LUIS 撰寫](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)資源。 
 
 
 <a name="starter-key"></a>
@@ -52,20 +52,17 @@ ms.locfileid: "70984371"
 
 ## <a name="create-resources-in-the-azure-portal"></a>在 Azure 入口網站中建立資源
 
-1. 登入 [Azure 入口網站](https://azure.microsoft.com/free/)。 
-1. 選取 [+ 建立資源]。
-1. 在搜尋方塊中，輸入 `Language understanding`。
-1. 選取 [建立] 來開始建立程序。 
+1. 使用[此連結](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)在建立資源時，開啟的 Azure 入口網站。
 1. 選取 [**兩者**] 以建立撰寫和預測端點執行時間索引鍵。 
 1. 輸入建立資源所需的資訊，然後選取 [**建立**] 以完成程式。
 
     ![建立語言理解資源](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |Name|用途|
+    |Name|目的|
     |--|--|
     |資源名稱| 您選擇的自訂名稱，用來作為撰寫和預測端點查詢 URL 的一部分。|
     |訂用帳戶名稱| 將收取資源費用的訂用帳戶。|
-    |資源群組| 您選擇或建立的自訂資源組名。 資源群組可讓您將 Azure 資源分組，以在相同區域中進行存取和管理。|
+    |Resource group| 您選擇或建立的自訂資源組名。 資源群組可讓您將 Azure 資源分組，以在相同區域中進行存取和管理。|
     |撰寫位置|與您的模型相關聯的區域。|
     |撰寫定價層|定價層會決定每秒和每月的交易上限。|
     |執行時間位置|與已發行之預測端點執行時間相關聯的區域。|
@@ -77,10 +74,10 @@ ms.locfileid: "70984371"
 
 使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)來個別建立每個資源。 
 
-資源`kind`：
+資源 `kind`：
 
-* 製作`LUIS.Authoring`
-* 翻`LUIS` 
+* 撰寫： `LUIS.Authoring`
+* 預測： `LUIS` 
 
 1. 登入 Azure CLI：
 
@@ -90,13 +87,13 @@ ms.locfileid: "70984371"
 
     這會開啟瀏覽器，讓您選取正確的帳戶並提供驗證。
 
-1. 在`LUIS.Authoring` `my-luis-authoring-resource`為區域`westus`命名的現有資源群組中，建立名為的LUIS撰寫資源`my-resource-group` （種類）。 
+1. 在 `westus` 區功能變數名稱為 `my-resource-group` 的_現有_資源群組中，建立名為 `my-luis-authoring-resource` 的**LUIS 撰寫資源**（類型 `LUIS.Authoring`）。 
 
     ```console
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. 在`LUIS` `my-luis-prediction-resource`為區域`westus`命名的現有資源群組中，建立名為的LUIS預測端點資源`my-resource-group` （種類）。 如果您想要比免費層更高的輸送量， `F0`請`S0`將變更為。 深入瞭解[定價層和輸送量](luis-boundaries.md#key-limits)。
+1. 在 `westus` 區功能變數名稱為 `my-resource-group` 的_現有_資源群組中，建立名為 `my-luis-prediction-resource` 的**LUIS 預測端點資源**（類型 `LUIS`）。 如果您想要比免費層更高的輸送量，請將 `F0` 變更為 `S0`。 深入瞭解[定價層和輸送量](luis-boundaries.md#key-limits)。
 
     ```console
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -137,7 +134,7 @@ ms.locfileid: "70984371"
 
     此 POST API 需要下列設定︰
 
-    |標頭|值|
+    |標頭|Value|
     |--|--|
     |`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。| 
     |`Ocp-Apim-Subscription-Key`|您的撰寫金鑰。|
@@ -148,13 +145,13 @@ ms.locfileid: "70984371"
 
     此 POST API 需要下列設定︰
 
-    |Type|設定|值|
+    |Type|設定|Value|
     |--|--|--|
     |標頭|`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。|
     |標頭|`Ocp-Apim-Subscription-Key`|您的撰寫金鑰。|
     |標頭|`Content-type`|`application/json`|
     |Querystring|`appid`|LUIS 應用程式識別碼。 
-    |本文||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     此 API 成功執行時，會傳回「201 - 已建立」狀態。 
 
@@ -206,7 +203,7 @@ ms.locfileid: "70984371"
 
 您可以設定時間週期和計量類型的計量圖表。 
 
-![自訂度量](./media/luis-usage-tiers/metrics-custom.png)
+![自訂計量](./media/luis-usage-tiers/metrics-custom.png)
 
 ### <a name="total-transactions-threshold-alert"></a>交易總數閾值警示
 如果您想要知道何時達到特定交易閾值 (例如 10,000 筆交易) 時，可以建立警示。 

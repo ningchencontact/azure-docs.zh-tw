@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 250dbdf2-faf5-48dd-be7c-d54502ef7528
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fbced9c0fae41c747804c488e27a3beebf0bfa7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879654"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158670"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>教學課程：整合 Bynder 與 Azure Active Directory
 
@@ -110,7 +111,7 @@ ms.locfileid: "68879654"
 
         ![image](./media/bynder-tutorial/config08.png)
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證，並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 

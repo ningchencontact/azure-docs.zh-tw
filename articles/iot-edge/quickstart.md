@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0c397ca630dffb7671f84919c1e86cbcef645572
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873621"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965996"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至虛擬 Windows 裝置
 
@@ -31,7 +31,7 @@ ms.locfileid: "69873621"
 
 本快速入門會逐步引導您建立 Windows 虛擬機器並將其設定為 IoT Edge 裝置。 接著，您可以從 Azure 入口網站將模組部署至裝置。 您在本快速入門中部署的模組是一個模擬感應器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析模擬資料以產生商業見解。
 
-如果您沒有使用中的 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free)。
+如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -137,7 +137,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 使用 PowerShell 下載並安裝 IoT Edge 執行階段。 使用從 IoT 中樞擷取到的裝置連接字串來設定裝置。
 
-1. 如果您尚未註冊，請依照[註冊新的 Azure IoT Edge 裝置](how-to-register-device-portal.md)中的步驟註冊您的裝置，並擷取裝置連接字串。 
+1. 如果您尚未註冊，請依照[註冊新的 Azure IoT Edge 裝置](how-to-register-device.md)中的步驟註冊您的裝置，並擷取裝置連接字串。
 
 2. 以系統管理員身分執行 PowerShell。
 
@@ -246,7 +246,7 @@ az group delete --name IoTEdgeResources
 
 在本快速入門中，您已建立 IoT Edge 裝置，並使用 Azure IoT Edge 雲端介面將程式碼部署至裝置上。 現在，您已有測試裝置，可產生其環境的相關原始資料。
 
-下一個步驟是設定您的本機開發環境，以便您可以開始建立執行您商務邏輯的 IoT Edge 模組。 
+下一個步驟是設定您的本機開發環境，以便您可以開始建立 IoT Edge 模組執行您的商務邏輯。 
 
 > [!div class="nextstepaction"]
 > [開始開發 Windows 裝置適用的 IoT Edge 模組](tutorial-develop-for-windows.md)

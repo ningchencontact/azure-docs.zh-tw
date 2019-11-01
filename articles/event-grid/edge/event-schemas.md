@@ -9,16 +9,16 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: c4dec98b66c5074acd6c2350a125c65e448e4878
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992375"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242458"
 ---
 # <a name="event-schemas"></a>事件結構描述
 
-事件方格模組會接受並傳遞 JSON 格式的事件。 事件方格目前支援的架構有兩種：
+事件方格模組會接受並傳遞 JSON 格式的事件。 事件方格目前支援三種架構：
 
 * **EventGridSchema**
 * **CustomSchema**
@@ -54,16 +54,16 @@ EventGrid 架構是由發佈實體必須符合的一組必要屬性所組成。 
 
 所有事件都具有下列最上層資料：
 
-| 屬性 | 類型 | 必要 | 說明 |
+| 屬性 | Type | 必要項 | 描述 |
 | -------- | ---- | ----------- |-----------
-| 主題 | 字串 | 否 | 應符合其發行的主題。 如果未指定，事件方格會將其發佈所在的主題名稱填入其中。 |
-| subject | 字串 | 是 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 是 | 此事件來源的事件種類，例如 Microsoft.storage.blobcreated。 |
-| eventTime | 字串 | 是 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| ID | 字串 | 否 | 事件的唯一識別碼。 |
-| data | 物件 | 否 | 用來捕獲發佈實體特定的事件資料。 |
-| dataVersion | 字串 | 是 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 否 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | string | 否 | 應符合其發行的主題。 如果未指定，事件方格會將其發佈所在的主題名稱填入其中。 |
+| subject | string | 是 | 發行者定義事件主體的路徑。 |
+| eventType | string | 是 | 此事件來源的事件種類，例如 Microsoft.storage.blobcreated。 |
+| eventTime | string | 是 | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| ID | string | 否 | 事件的唯一識別碼。 |
+| data | object | 否 | 用來捕獲發佈實體特定的事件資料。 |
+| dataVersion | string | 是 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 否 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 會提供此值。 |
 
 ### <a name="example--eventgrid-schema-event"></a>範例-EventGrid 架構事件
 

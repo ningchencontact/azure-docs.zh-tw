@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67361c402bdbc82d5df01709dc962b59671cb2aa
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551588"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991407"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>快速入門：在 IoT 中樞內讓適用於 IoT 的 Azure 資訊安全中心上線
 
@@ -43,14 +43,8 @@ ms.locfileid: "72551588"
 若要在 IoT 中樞上啟用安全性︰ 
 
 1. 在 Azure 入口網站中開啟您的 **IoT 中樞**。 
-1. 在 [安全性]  功能表之下，按一下 [保護您的 IoT 解決方案]  。
-1. 讓 [啟用]  保持已選取狀態作為預設值。 
-1. 選取您的記錄分析工作區。
-1. 提供 Log Analytics 工作區詳細資料。 
-   - 藉由讓 [對應項收集]  開關保持 [開啟]  ，來選擇啟用 [對應項收集]  。
-   - 在 Log Analytics 中選取 [儲存未經處理的裝置安全性事件]  ，以選擇除了儲存預設的儲存體資訊類型外，還要儲存**未經處理的事件**。 將 [未經處理的事件]  切換為 [開啟]  。 
-    
-1. 按一下 [檔案]  。 
+1. 在 [安全性]  功能表之下，按一下 [保護您的 IoT 解決方案]  。    
+
 
 恭喜！ 您已在 IoT 中樞上完成適用於 IoT 的 Azure 資訊安全中心啟用。 
 

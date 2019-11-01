@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4474a36c2b87a618a9f755d2f42e330e837568f4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5d610f14dc037d1585b7f8ec1e0dd28944847b7a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516485"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900861"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -56,6 +56,8 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
   * 美國中部
   * 美國中部 EUAP
+  * 北歐
+  * 東南亞
 
 * 安裝 [Visual Studio 2019](https://www.visualstudio.com/vs/) 並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 安裝最新版的 [Git](https://git-scm.com/download/)。

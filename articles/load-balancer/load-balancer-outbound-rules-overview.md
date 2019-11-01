@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 9fc9eb347e97fe6ab57b3e30651e4ea77a4ce9c8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fd43e9c71db9ae553b24e6cd774495ee8cc5b621
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790239"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242355"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -86,7 +86,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
 來自輸出規則之所有前端的每個公用 IP 位址都會提供最多 64,000 個暫時連接埠，以當成 SNAT 連接埠使用。  Load Balancer 會以 8 的倍數來配置 SNAT 連接埠數目。 如果您提供的值無法與 8 整除，則會拒絕設定作業。  如果您嘗試根據公用 IP 位址數目來配置比可用 SNAT 連接埠更多的 SNAT 連接埠，則會拒絕設定作業。  例如，如果您為每個 VM 配置10000埠，而後端集區中的7個 Vm 會共用單一公用 IP 位址，則會拒絕設定（7 x 10000 SNAT 埠 > 64000 SNAT 埠）。  您可以將更多公用 IP 位址新增至輸出規則的前端，以啟用此情節。
 
-您可以指定連接埠數目 0，以還原為[根據後端集區大小的自動 SNAT 連接埠配置](load-balancer-outbound-connections.md#preallocatedports)。
+您可以指定連接埠數目 0，以還原為[根據後端集區大小的自動 SNAT 連接埠配置](load-balancer-outbound-connections.md#preallocatedports)。 在此情況下，前50個 VM 實例會取得1024埠，51-100 VM 實例會根據資料表取得512等等。 具有一個與輸出規則相關聯之公用 IP 的多個前端，並不會增加配置給每個 VM 實例的埠數目。
 
 ### <a name="idletimeout"></a> 控制輸出流程閒置逾時
 

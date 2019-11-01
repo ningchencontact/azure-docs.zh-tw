@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 467bf7fe26df2f826d6d44d42a9e30b98795232f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754191"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043936"
 ---
 # <a name="moderate-text-from-the-api-console"></a>從 API 主控台仲裁文字
 
@@ -61,9 +61,6 @@ ms.locfileid: "72754191"
 ### <a name="sample-text-to-scan"></a>要掃描的範例文字
 
 在 [Request body] \(要求本文\) 方塊中，輸入一些文字。 以下範例示範文字中刻意安排的錯字。
-
-> [!NOTE]
-> 以下範例文字中的無效社會安全號碼是刻意安排的。 目的是要傳達範例輸入和輸出格式。
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -176,4 +173,4 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的程式碼中使用 REST API，或從[文字仲裁 .net 快速入門](text-moderation-quickstart-dotnet.md)開始，以與您的應用程式整合。
+在您的程式碼中使用 REST API，或遵循[.NET SDK 快速入門](dotnet-sdk-quickstart.md)，與您的應用程式進行整合。

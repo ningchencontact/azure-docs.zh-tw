@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 7fe254aa6e78133102a295c5e60a10d29f6382a4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ea1b8af69402aade370725f3a4dfdee4b5595ce6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757178"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931660"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -80,23 +80,20 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>新增私有屬性
 
-將下列私有屬性新增至 VideoTranscriptReviews 命名空間、Program 類別。
-
-依指示取代這些屬性的範例值。
+將下列私用屬性新增至命名空間**videotranscriptreviews、program**，類別**程式**。 使用您的端點 URL 和訂用帳戶金鑰的值，更新 `AzureEndpoint` 和 `CMSubscriptionKey` 欄位。 您可以在 Azure 入口網站資源的 [**快速入門**] 索引標籤中找到這些選項。
 
 ```csharp
 namespace VideoReviews
 {
     class Program
     {
-        // NOTE: Replace this example location with the location for your Content Moderator account.
+        // NOTE: Enter a valid endpoint URL
         /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
+        /// The endpoint URL of your subscription
         /// </summary>
-        private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
+        private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
-        // NOTE: Replace this example key with a valid subscription key.
+        // NOTE: Enter a valid subscription key.
         /// <summary>
         /// Your Content Moderator subscription key.
         /// </summary>
@@ -111,12 +108,6 @@ namespace VideoReviews
         /// the Content Moderator web site. Your team name is the Id associated 
         /// with your subscription.</remarks>
         private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
-
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"{AzureRegion}.api.cognitive.microsoft.com";
 
         /// <summary>
         /// The minimum amount of time, in milliseconds, to wait between calls
@@ -141,7 +132,7 @@ public static ContentModeratorClient NewClient()
 {
     return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
     {
-        Endpoint = AzureBaseURL
+        Endpoint = AzureEndpoint
     };
 }
 ```

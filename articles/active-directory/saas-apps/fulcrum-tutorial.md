@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2e3d7800-583d-46b7-a7ed-3ce3925e076c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 34c21716516318b74461bbcc39ad2ed1dd096669
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c4b1c100194b2c128fc0a6af8683d2b47c4cd18e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945185"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73155584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fulcrum"></a>教學課程：Azure Active Directory 與 Fulcrum 整合
 
@@ -123,7 +124,7 @@ ms.locfileid: "68945185"
 
 7. 除了以上屬性之外，Fulcrum 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ---------------| --------------- |
     | first_name | user.givenname |
     | last_name | user.surname |

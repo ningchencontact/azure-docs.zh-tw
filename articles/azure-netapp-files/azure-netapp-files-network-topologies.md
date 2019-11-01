@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984127"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242489"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
 
@@ -95,11 +95,11 @@ Azure NetApp Files 的委派子網不支援使用者定義的路由（Udr）和�
 
 基本案例是從相同 VNet 中的虛擬機器（VM）建立或連接到 Azure NetApp Files 磁片區。 對於上圖中的 VNet 2，磁片區1是在委派的子網中建立，而且可以掛接在預設子網的 VM 1 上。
 
-### <a name="vnet-peering"></a>VNet 對等
+### <a name="vnet-peering"></a>VNet 對等互連
 
 如果您在相同區域中有額外的 Vnet 需要存取彼此的資源，則可以使用[VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)來連線 vnet，以啟用透過 Azure 基礎結構的安全連線能力。 
 
-請考慮上圖中的 VNet 2 和 VNet 3。 如果 VM 2 需要連線到 VM 3 或磁片區2，或 VM 3 需要連線到 VM 2 或磁片區1，則您需要啟用 VNet 2 與 VNet 3 之間的 VNet 對等互連。 
+請考慮上圖中的 VNet 2 和 VNet 3。 如果 VM 1 需要連線到 VM 2 或磁片區2，或 VM 2 需要連線到 VM 1 或磁片區1，則您需要啟用 VNet 2 與 VNet 3 之間的 VNet 對等互連。 
 
 此外，請考慮使用 vnet 2 對等互連 VNet 1 的案例，並在相同區域中使用 vnet 3 對等互連 VNet 2。 VNet 1 中的資源可以連線到 VNet 2 中的資源，但它無法連線到 VNet 3 中的資源，除非 VNet 1 和 VNet 3 已對等互連。 
 

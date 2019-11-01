@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677900"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817451"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教學課程：在 Azure Functions 中使用 Python 和 TensorFlow 來套用機器學習模型
 
@@ -179,7 +179,7 @@ copy ..\resources\predict.py classify
 協助程式庫有一些需要安裝的相依性。 請在編輯器中開啟 start/requirements.txt  ，並在此檔案中新增下列相依性。
 
 ```txt
-tensorflow==1.15
+tensorflow==1.14
 Pillow
 requests
 ```

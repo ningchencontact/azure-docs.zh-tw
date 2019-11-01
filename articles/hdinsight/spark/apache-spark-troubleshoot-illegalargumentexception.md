@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight 中 Apache Spark 活動的 Illegalargumentexception 若
+title: Apache Spark Azure HDInsight 的 Illegalargumentexception 若錯誤
 description: 適用于 Azure HDInsight 中 Apache Spark 活動的 Illegalargumentexception 若 Azure Data Factory
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 57ba285b7de34dd548128b1f58644a32e153d056
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f922df5d5d7bbd6d90a2b7e208a346b773a3dc2f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087166"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241816"
 ---
-# <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>案例：Azure HDInsight 中 Apache Spark 活動的 Illegalargumentexception 若
+# <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>案例： Azure HDInsight 中 Apache Spark 活動的 Illegalargumentexception 若
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時，疑難排解步驟和問題的可能解決方法。
 
@@ -31,7 +31,7 @@ Wrong FS: wasbs://additional@xxx.blob.core.windows.net/spark-examples_2.11-2.1.0
 
 如果應用程式 jar 檔案不位於 Spark 叢集的預設/主要儲存體中，Spark 作業將會失敗。
 
-這是在此錯誤中追蹤的 Spark 開放原始碼架構的已知問題：[如果 fs.defaultfs 和應用程式 jar 是不同的 url，Spark 作業會失敗](https://issues.apache.org/jira/browse/SPARK-22587)。
+這是此錯誤中所追蹤 Spark 開放原始碼架構的已知問題：[如果 fs.defaultfs 和應用程式 jar 是不同的 url，spark 作業會失敗](https://issues.apache.org/jira/browse/SPARK-22587)。
 
 Spark 2.3.0 已解決此問題。
 
@@ -45,6 +45,6 @@ Spark 2.3.0 已解決此問題。
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
 * 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

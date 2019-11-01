@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 619f1ea3bae001d25eb520f43da33ca94a3160c8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125665"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880345"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：當 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
@@ -26,14 +26,14 @@ ms.locfileid: "70125665"
 
 ![建立原則](./media/app-sign-in-risk/1000.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程中的案例，您需要：
 
 - **Azure AD Premium P2 版本的存取權** - 雖然條件式存取是 Azure AD Premium P1 功能，但是因為本快速入門中的案例需要 Identity Protection，所以您需要 P2 版本。
-- **Identity Protection** - 本快速入門中的案例需要啟用 Identity Protection。 如果您不知道如何啟用 Identity Protection，請參閱[啟用 Azure Active Directory Identity Protection](../identity-protection/enable.md)。
+- **Identity Protection** - 本快速入門中的案例需要啟用 Identity Protection。 如果您不知道如何啟用 Identity Protection，請參閱[啟用 Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)。
 - **Tor 瀏覽器** - [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)的設計目的是協助您保留您的線上隱私權。 Identity Protection 偵測到來自 Tor 瀏覽器的登入是從匿名 IP 位址登入，這種登入有中等風險等級。 如需詳細資訊，請參閱 [Azure Active Directory 風險偵測](../reports-monitoring/concept-risk-events.md)。  
 - **稱為 Alain Charon 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
 
@@ -74,11 +74,11 @@ ms.locfileid: "70125665"
 
 1. 在 [條件式存取]  頁面頂端的工具列中，按一下 [新增]  。
 
-   ![Name](./media/app-sign-in-risk/108.png)
+   ![名稱](./media/app-sign-in-risk/108.png)
 
 1. 在 [新增]  頁面上的 [名稱]  文字方塊中，鍵入**封鎖中等風險等級的存取**。
 
-   ![Name](./media/app-sign-in-risk/104.png)
+   ![名稱](./media/app-sign-in-risk/104.png)
 
 1. 在 [指派]  區段中，按一下 [使用者和群組]  。
 

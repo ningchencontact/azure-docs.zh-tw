@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 81da50c3-df94-458a-8b6a-a30827ee6358
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dea184a09aea0b73bceb988a14400fa1d99b87b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c25e63f4a268cc618154eb050603f6f93c2668f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103893"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dovetale"></a>教學課程：Azure Active Directory 與 Dovetale 整合
 
@@ -122,7 +123,7 @@ Dovetale 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ---------------| --------------- |
     | 電子郵件 | user.mail |
     | first_name | user.givenname |

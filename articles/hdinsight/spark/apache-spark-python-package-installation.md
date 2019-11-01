@@ -1,5 +1,5 @@
 ---
-title: 指令碼動作 - 在 Azure HDInsight 上搭配 Jupyter 安裝 Python 套件
+title: Azure HDInsight 上具有 Jupyter 之 Python 套件的腳本動作
 description: 說明如何使用指令碼動作以設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用外部 Python 套件的逐步指示。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f80486758152c002762bbddd6ae97a2ce9468ccf
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900704"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241521"
 ---
 # <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>在 Apache Spark on HDInsight 上安裝適用于 Jupyter 筆記本之外部 Python 套件的腳本動作
 
@@ -50,7 +50,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 > [!IMPORTANT]   
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 Microsoft 支援服務可協助隔離和解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[https://stackoverflow.com](https://stackoverflow.com) \(英文\)。 此外，Apache 專案在[https://apache.org](https://apache.org)上也有專案網站，例如[Hadoop](https://hadoop.apache.org/)。
 
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>搭配 Jupyter Notebook 使用外部套件
@@ -64,14 +64,14 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 4. 在 [**提交腳本動作**] 視窗中輸入下列值：  
 
 
-    |參數 | 值 |
+    |參數 | Value |
     |---|---|
     |指令碼類型 | 從下拉式清單中選取 [- 自訂]。|
     |Name |在文字方塊中輸入 `tensorflow`。|
     |Bash 指令碼 URI |在文字方塊中輸入 `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh`。 |
     |節點類型 | 選取 [**標題**] 和 [背景**工作**] 核取方塊。 |
 
-    `tensorflowinstall.sh`包含下列命令：
+    `tensorflowinstall.sh` 包含下列命令：
 
     ```bash
     #!/usr/bin/env bash
@@ -84,7 +84,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
 7. 開啟 PySpark Jupyter 筆記本。  如需步驟，請參閱[在 Spark HDInsight 上建立 Jupyter 筆記本](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight)。
 
-    ![建立新的 Jupyter Notebook](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "建立新的 Jupyter Notebook")
+    ![建立新的 Jupyter 筆記本](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "建立新的 Jupyter Notebook")
 
 8. 現在，您將 `import tensorflow` 並執行 hello world 範例。 輸入下列程式碼：
 
@@ -106,9 +106,9 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>案例
-* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式

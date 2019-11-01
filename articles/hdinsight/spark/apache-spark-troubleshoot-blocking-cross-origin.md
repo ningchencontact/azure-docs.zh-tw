@@ -1,5 +1,5 @@
 ---
-title: Jupyter 伺服器404錯誤，因為 Azure HDInsight 中的「封鎖跨來源 API」
+title: Jupyter 404 錯誤-「封鎖跨原始來源 API」-Azure HDInsight
 description: Jupyter 伺服器404「找不到」錯誤，因為 Azure HDInsight 中的「封鎖跨來源 API」
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: f5ac70381f0879a896e96cb37a70c1b1a1f0b5da
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7f8eb000533673d243258d569834869bbb2a1778
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090996"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241120"
 ---
-# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>案例：Jupyter 伺服器404「找不到」錯誤，因為 Azure HDInsight 中的「封鎖跨來源 API」
+# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>案例： Jupyter 伺服器404「找不到」錯誤，因為 Azure HDInsight 中的「封鎖跨來源 API」
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時，疑難排解步驟和問題的可能解決方法。
 
@@ -36,7 +36,7 @@ Origin: https://xxx.xxx.xxx, Host: hn0-pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.inte
 
 - 如果您已設定網路安全性群組（NSG）規則來限制對叢集的存取權。 使用 NSG 規則來限制存取，仍然可讓您使用 IP 位址而非叢集名稱，直接存取 Apache Ambari 和其他服務。 不過，存取 Jupyter 時，您可能會看到404「找不到」錯誤。
 
-- 如果您已為 HDInsight 閘道提供標準`xxx.azurehdinsight.net`以外的自訂 DNS 名稱。
+- 如果您已提供 HDInsight 閘道自訂的 DNS 名稱，而非標準 `xxx.azurehdinsight.net`。
 
 ## <a name="resolution"></a>解析度
 
@@ -47,11 +47,11 @@ Origin: https://xxx.xxx.xxx, Host: hn0-pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.inte
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. 尋找下面這一行：`NotebookApp.allow_origin='\"https://{2}.{3}\"'`並將它變更為`NotebookApp.allow_origin='\"*\"'`：。
+1. 找出顯示： `NotebookApp.allow_origin='\"https://{2}.{3}\"'` 的程式程式碼，並將它變更為： `NotebookApp.allow_origin='\"*\"'`。
 
 1. 從 Ambari 重新開機 Jupyter 服務。
 
-1. 在`ps aux | grep jupyter`命令提示字元中輸入，應該會顯示它允許任何 URL 連接到它。
+1. 在命令提示字元中輸入 `ps aux | grep jupyter`，應該會顯示它允許任何 URL 連接到它。
 
 這比我們已備妥的設定更安全。 但是，系統會將叢集的存取權視為受限制，並允許從外部連接到叢集，因為我們已 NSG。
 
@@ -61,6 +61,6 @@ Origin: https://xxx.xxx.xxx, Host: hn0-pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.inte
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
 * 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

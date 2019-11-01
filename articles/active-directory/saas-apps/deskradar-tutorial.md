@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 5ff3e014-b79f-4a6c-bb0b-38462bea5d10
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95451bff6074c0beb220bf3c6edb5570a5258b1a
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: dd5e3d6f8763af8c14d189321c6129876f48ab85
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310281"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158321"
 ---
 # <a name="tutorial-integrate-deskradar-with-azure-active-directory"></a>教學課程：整合 Deskradar 與 Azure Active Directory
 
@@ -157,7 +158,7 @@ ms.locfileid: "67310281"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-在本節中，您會在 Azure 入口網站中建立名稱為 B.Simon 的測試使用者。
+在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。

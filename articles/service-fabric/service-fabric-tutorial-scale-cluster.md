@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619050"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177741"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中調整 Service Fabric 叢集
 
 本教學課程為系列的第三個部分，解說如何相應放大和縮小現有叢集。 完成時，您將知道如何調整叢集，以及如何清除任何剩餘的資源。  如需如何調整在 Azure 中執行的叢集詳細資訊，請參閱[調整 Service Fabric 叢集](service-fabric-cluster-scaling.md)。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 新增和移除節點 (相應放大和相應縮小)
@@ -387,20 +387,6 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
     },
     "properties": {
         "securityRules": [
-            {
-                "name": "allowSvcFabSMB",
-                "properties": {
-                    "access": "Allow",
-                    "destinationAddressPrefix": "*",
-                    "destinationPortRange": "445",
-                    "direction": "Inbound",
-                    "priority": 3950,
-                    "protocol": "*",
-                    "sourceAddressPrefix": "VirtualNetwork",
-                    "sourcePortRange": "*",
-                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
-                }
-            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {

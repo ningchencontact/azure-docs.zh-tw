@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 09/01/2019
-ms.openlocfilehash: 8c1f26ef8395f60293b2564d93578a166d688305
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 10/23/2019
+ms.openlocfilehash: f322a240835d86697ae18c984700f22ca7b00145
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756095"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882186"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -23,11 +23,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 透�
 
 > [!div class="nextstepaction"]
 > [免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
-
-您也可以使用 [Cosmos DB 啟動程式](https://azurecosmosdb.github.io/CosmosBootstrap/)來加速在 Azure Cosmos DB 上建立或遷移應用程式。 當您註冊此方案時，我們會指派 Azure Cosmos DB 工程師協助您處理專案，同時幫助您將資料遷移至 Azure Cosmos DB，或在 Azure Cosmos DB 上建置新的應用程式。
-
-> [!div class="nextstepaction"]
-> [註冊 Cosmos DB 啟動程式](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB 是 Microsoft 的全球發佈資料庫服務，包含彈性的相應放大、低延遲保證、五個一致性模型，以及完整保證的 SLA](./media/introduction/azure-cosmos-db.png)
 

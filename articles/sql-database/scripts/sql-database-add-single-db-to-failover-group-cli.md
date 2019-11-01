@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 12e433a146d8dd8a6fb7e1d7c40acc72e023047b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8e3c525230c3de530a93bd61a9227e9a4d7ed10b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736223"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933421"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-single-database-into-a-failover-group"></a>使用 CLI 將 Azure SQL Database 單一資料庫新增至容錯移轉群組
 
@@ -50,6 +50,7 @@ az group delete --name $resourceGroupName
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 建立裝載單一資料庫和彈性集區的 SQL Database 伺服器。 |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | 建立伺服器的防火牆規則。 | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | 建立資料庫。 | 
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | 建立容錯移轉群組。 | 
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 列出伺服器中的容錯移轉群組。 |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 從目前的主伺服器容錯移轉所有資料庫，以設定容錯移轉群組的主要複本。 | 

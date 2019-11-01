@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105406"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241625"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
-HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，甚至是 EB ) 的結構化、非結構化和快速移動的資料中，取得寶貴的深度見解分析。 HDInsight 有數個機器學習服務選項，分別是：SparkML 和 Apache Spark MLlib、R、Apache Hive 和 Microsoft Cognitive Toolkit。
+HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，甚至是 EB ) 的結構化、非結構化和快速移動的資料中，取得寶貴的深度見解分析。 HDInsight 中有數個機器學習服務選項： SparkML 和 Apache Spark MLlib、R、Apache Hive 和 Microsoft Cognitive Toolkit。
 
 ## <a name="sparkml-and-mllib"></a>SparkML 與 MLlib
 
@@ -31,7 +31,7 @@ HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，
 
 ![使用 R 伺服器進行預測訓練](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
-叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。  您也可以選擇透過使用 ScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨叢集的節點執行 R 指令碼。
+叢集的邊緣節點提供便利的地方，以便連接到叢集以及執行 R 指令碼。  您也可以選擇透過使用 ScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨叢集的節點執行 R 指令碼。
 
 在具有 Spark 的 HDInsight 上使用 ML 服務，您可以使用 Spark 計算內容，在叢集的節點之間進行並行訓練。 您可以視需要透過並行方式使用所有可用核心，在邊緣節點上直接執行 R 指令碼。 或者，您可以從邊緣節點執行程式碼，啟動分散在叢集中所有節點上的處理作業。 如有需要，具有 Spark 的 HDInsight 上 ML 服務也能以開放原始碼 R 套件達到平行處理功能。
 
@@ -41,20 +41,20 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 ![Microsoft Azure 機器學習服務總覽](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-針對使用 [Hive 查詢](../machine-learning/team-data-science-process/create-features-hive.md)之 HDInsight Hadoop 叢集中的資料建立特徵。 *特徵工程設計*藉由以學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 您可以藉由使用[匯入資料模組](../machine-learning/studio/import-data.md)，從 Azure Machine Learning Studio 執行 HiveQL 查詢，並存取在 Hive 中處理及在 Blob 儲存體中儲存的資料。
+針對使用 [Hive 查詢](../machine-learning/team-data-science-process/create-features-hive.md)之 HDInsight Hadoop 叢集中的資料建立特徵。 *特徵工程設計*藉由以學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 您可以使用 [匯[入資料] 模組](../machine-learning/studio/import-data.md)，從 Azure Machine Learning Studio （傳統）執行 HiveQL 查詢，並存取 Hive 中處理的資料，並儲存在 blob 儲存體中。
 
-## <a name="microsoft-cognitive-toolkit"></a>Microsoft 辨識工具組
+## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
 [深度學習](https://www.microsoft.com/en-us/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的類神經網路。 許多研究人員都將深度學習視為一個有前景的增強人工智慧方法。 深度學習的範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。
 
 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，皆使用此工具組。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 ### <a name="scenarios"></a>案例
 
-* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [使用 Apache Mahout 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive 和 Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
 * [Apache Hive 和 Azure Machine Learning 端對端](../machine-learning/team-data-science-process/hive-walkthrough.md)

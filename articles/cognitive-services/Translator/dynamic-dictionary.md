@@ -10,29 +10,29 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c268616c015c1c8735b2bdddc057f235d02cdc2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595300"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161754"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>如何使用動態字典
 
-如果已經知道想要套用至單字或片語的翻譯，則可以在要求內以標記來提供。 動態字典僅適用於專有名稱和產品名稱這類複合名詞。
+若您已經知道您想要套用至字組或片語的翻譯，則可以提供它作為要求內的標記。 動態字典僅適用於正確名稱和產品名稱這類複合名詞。
 
 **語法：**
 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+< s： dictionary 轉譯 = "轉譯片語" > 片語 </mstrans： dictionary >
 
 **滿足**
 
-* `From` 和`To`語言必須不同。 
-* 您必須在 API `From`轉譯要求中包含參數, 而不是使用自動偵測功能。 
+* `From` 和 `To` 語言必須不同。 
+* 您必須在 API 轉譯要求中包含 `From` 參數，而不是使用自動偵測功能。 
 
 **範例：en-de:**
 
-來源輸入：The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
+輸入來源：The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
 
 目標輸出：Das Wort "wordomatic" ist ein Wörterbucheintrag.
 

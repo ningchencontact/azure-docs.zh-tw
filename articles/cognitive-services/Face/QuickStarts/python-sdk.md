@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 617e9a40c253d98c32ae8b4c9426f3148c23d125
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b265ec68039f03c09d45c9605965de8ce0baba99
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176140"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935864"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>快速入門：適用於 Python 的臉部用戶端程式庫
 
@@ -29,7 +29,7 @@ ms.locfileid: "72176140"
 * 驗證臉部
 * 取得用於移轉資料的快照集
 
-[參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [套件 (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [範例](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
+[參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [套件 (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [範例](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>必要條件
 

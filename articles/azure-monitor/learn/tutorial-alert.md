@@ -1,20 +1,19 @@
 ---
 title: 透過 Azure Application Insights 傳送警示 | Microsoft Docs
 description: 使用 Azure Application Insights 傳送警示以回應應用程式錯誤的教學課程。
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 05285a177827cd0dd1e0e39e779a395ccfdfc0cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 370d86ae28e49bba9681c6bdc81cc05b4e12a97b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578759"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894864"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 監視應用程式健康情況並傳送警示
 
@@ -34,21 +33,21 @@ Azure Application Insights 可讓您監視您的應用程式，並在應用程�
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-availability-test"></a>建立可用性測試
 
 Application Insights 中的可用性測試，可讓您從世界各地的不同位置自動測試您的應用程式。   在本教學課程中，您會執行 URL 測試，以確定您的 Web 應用程式可以使用。  您也可以建立完整的檢測程序來測試詳細作業。 
 
-1. 選取 [Application Insights]，然後選取您的訂用帳戶。  
+1. 選取 [Application Insights]  ，然後選取您的訂用帳戶。  
 
-2. 選取 [調查] 功能表下方的 [可用性]，然後按一下 [建立測試]。
+2. 選取 [調查]  功能表下方的 [可用性]  ，然後按一下 [建立測試]  。
 
     ![加入可用性測試](media/tutorial-alert/add-test-001.png)
 
 3. 輸入測試的名稱，並保留其他預設值。  此選取項目會每隔 5 分鐘從 5 個不同的地理位置觸發對應用程式 URL 的要求。
 
-4. 選取 [警示] 以開啟 [警示] 下拉式清單，您可在該處定義測試失敗時如何回應的詳細資料。 選擇 [近乎即時] 並將狀態設定為 [已啟用]。
+4. 選取 [警示]  以開啟 [警示]  下拉式清單，您可在該處定義測試失敗時如何回應的詳細資料。 選擇 [近乎即時]  並將狀態設定為 [已啟用]  。
 
     輸入符合警示準則時要傳送到哪個電子郵件地址。  您也可以輸入符合警示準則時要呼叫的 Webhook 位址。
 

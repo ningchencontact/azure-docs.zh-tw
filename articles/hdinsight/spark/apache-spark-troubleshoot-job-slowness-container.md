@@ -1,5 +1,5 @@
 ---
-title: 當 Azure 儲存體容器包含許多檔案時，Apache Spark 緩慢-HDInsight
+title: Azure HDInsight 儲存體有許多檔案時 Apache Spark 緩慢
 description: 當 Azure 儲存體容器包含許多檔案時，Apache Spark 作業執行速度會變慢 Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/21/2019
-ms.openlocfilehash: 40c5d023647d3592e44588fbc24bf2743da34373
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 82280532fa91923bd08d8ff3164dc841282c392c
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088630"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241186"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>當 Azure 儲存體容器包含許多檔案時，Apache Spark 作業執行速度會變慢 Azure HDInsight
 
@@ -24,9 +24,9 @@ ms.locfileid: "71088630"
 
 ## <a name="cause"></a>原因
 
-這是已知的 Spark 問題。 緩慢來自于 Spark 工作`ListBlob`執行`GetBlobProperties`期間的和作業。
+這是已知的 Spark 問題。 緩慢來自于 Spark 工作執行期間的 `ListBlob` 和 `GetBlobProperties` 作業。
 
-為了追蹤分割區，Spark 必須維護`FileStatusCache` ，其中包含目錄結構的相關資訊。 使用此快取，Spark 可以剖析路徑並留意可用的磁碟分割。 追蹤分割區的優點是，Spark 只會在您讀取資料時，觸及必要的檔案。 若要讓這份資訊保持在最新狀態，當您撰寫新資料時，Spark 必須列出目錄底下的所有檔案，並更新此快取。
+為了追蹤分割區，Spark 必須維護包含目錄結構相關資訊的 `FileStatusCache`。 使用此快取，Spark 可以剖析路徑並留意可用的磁碟分割。 追蹤分割區的優點是，Spark 只會在您讀取資料時，觸及必要的檔案。 若要讓這份資訊保持在最新狀態，當您撰寫新資料時，Spark 必須列出目錄底下的所有檔案，並更新此快取。
 
 在 Spark 2.1 中，雖然我們不需要在每次寫入後更新快取，但 Spark 會檢查現有的分割區資料行是否符合目前寫入要求中的建議專案，因此也會在每次寫入開始時，導致列出作業。
 
@@ -34,9 +34,9 @@ ms.locfileid: "71088630"
 
 ## <a name="resolution"></a>解析度
 
-當您建立分割資料集時，請務必使用資料分割配置，以限制 Spark 必須列出才能更新的`FileStatusCache`檔案數目。
+當您建立分割資料集時，請務必使用資料分割配置，以限制 Spark 必須列出才能更新 `FileStatusCache`的檔案數目。
 
-針對每第 n 個微批次，其中 N% 100 = = 0 （100只是一個範例），將現有的資料移至另一個可由 Spark 載入的目錄。
+針對每第 n 個微批次，其中 N %100 = = 0 （100只是一個範例），將現有的資料移至另一個可由 Spark 載入的目錄。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -44,6 +44,6 @@ ms.locfileid: "71088630"
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
 * 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1e761484-7a2f-4321-91f4-6d5d0b69344e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe57c0655cf01f8dfa0f9cd0d75584fd4f130c0a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: e9ed129bccbd763bf4459fa7818e0dba4e7e65b5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976096"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73156533"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>教學課程：整合 Expensify 與 Azure Active Directory
 
@@ -90,7 +91,7 @@ ms.locfileid: "68976096"
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Expensify 用戶端支援小組](mailto:help@expensify.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證，並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 

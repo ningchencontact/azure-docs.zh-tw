@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a215701538bd95e8fddcef270d6ca6f957343f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d294b797769a9d056311c3a6b0d59e1ef7f402e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106333"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>教學課程：Azure Active Directory 與 BenefitHub 整合
 
@@ -115,7 +116,7 @@ ms.locfileid: "67106333"
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ----------- | --------------- |
     | organizationid | < organizationid > |
     | | |

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4ae5f30d-113b-4261-b474-47ffbac08bf7
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ef49cb2e245e4af7b5d7f7d250194761cf0b375
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a09eda25e8c7cc087770210cdfbe7e2bc9832acf
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826359"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>教學課程：Azure Active Directory 與 Meta Networks Connector 整合
 
@@ -127,7 +128,7 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
     
 7. 除了以上屬性外，Meta Networks Connector 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     
-    | Name | 來源屬性 | 命名空間|
+    | 名稱 | 來源屬性 | 命名空間|
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
     | lastname | user.surname | |

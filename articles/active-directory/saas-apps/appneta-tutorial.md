@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 643a45fb-d6fc-4b32-b721-68899f8c7d44
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1e2baa2cdaee511ecff614406a0e4c25d553c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6316959ee177fa9e7cf1eb2a371020a054d9a26
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106841"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>教學課程：Azure Active Directory 與 AppNeta Performance Monitor 整合
 
@@ -119,7 +120,7 @@ AppNeta Performance Monitor 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | --------| ----------------|
     | firstName| user.givenname|
     | lastName| user.surname|

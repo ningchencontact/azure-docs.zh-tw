@@ -1,5 +1,5 @@
 ---
-title: Service Fabric 叢集 Resource Manager:移動成本 |Microsoft Docs
+title: Service Fabric 叢集 Resource Manager：移動成本 | Microsoft Docs
 description: Service Fabric 服務的移動成本概觀
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516581"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243006"
 ---
 # <a name="service-movement-cost"></a>服務移動成本
 「Service Fabric 叢集資源管理員」在嘗試判斷要對叢集進行哪些變更時會考量一個因素，就是這些變更的成本。 「成本」的概念是針對叢集可以改善多少來做取捨。 成本在移動服務進行平衡、重組和其他需求時納入考量因素。 目標是以最沒有干擾、最便宜的方式符合需求。 
@@ -39,7 +39,7 @@ PowerShell：
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -DefaultMoveCost Medium
 ```
 
-C#: 
+C#： 
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -57,7 +57,7 @@ PowerShell：
 Update-ServiceFabricService -Stateful -ServiceName "fabric:/AppName/ServiceName" -DefaultMoveCost High
 ```
 
-C#:
+C#：
 
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
@@ -69,25 +69,35 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 上述程式碼片段可以從服務本身外部一次指定整個服務的 MoveCost。 不過，當特定服務物件的移動成本隨著其生命週期變更時，移動成本最有用。 因為服務本身可能有在指定時間移動需要多少成本的最佳想法，所以有一個適用於服務的 API 可以報告執行階段期間的個別移動成本。 
 
-C#:
+C#：
 
 ```csharp
 this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>移動成本的影響
-MoveCost 有四個層級：零、 低、 中、 高。 除了零之外，MoveCosts 彼此具有相對性。 零移動成本表示移動是免費的，因此不應計入解決方案的分數。 將移動成本設定為 [高]，並「不」  保證複本會待在一個地方。
+MoveCost 有五個層級：零、低、中、高和 VeryHigh。 適用下列規則：
+
+* 除了零和 VeryHigh 以外，MoveCosts 會彼此相對。 
+* 零移動成本表示移動是免費的，因此不應計入解決方案的分數。
+* 將您的移動成本設定為 [高] 或 [VeryHigh]，並*不*保證複本*永遠*不會移動。
+* 只有當叢集中的條件約束違規無法以任何其他方式修正時，才會移動具有 VeryHigh 移動成本的複本（即使需要移動許多其他複本來修正違規）
+
+
 
 <center>
 
-![移動成本作為選取複本進行移動的因素][Image1]
-</center>
+![在選取要移動][Image1]
+的複本時，移動成本的因素 </center>
 
 MoveCost 可協助您在達成對等的平衡時，尋找整體導致最少中斷且最容易達成的解決方案。 服務的成本概念可相對於許多事項。 計算您的移動成本時最常見的因素為：
 
 - 服務必須移動的狀態或資料量。
 - 用戶端中斷連線的成本。 移動主要複本的成本通常高於移動次要複本的成本。
 - 中斷執行中作業的成本。 某些資料存放區層級的作業，或是執行以回應用戶端呼叫的作業，它們的成本都很高。 在某個特定點之後，除非必要否則您不會想要停止它們。 因此，在作業持續期間，您可以提高此服務物件的移動成本以降低其移動的可能性。 當作業完成之後，您可以將成本設定回正常。
+
+> [!IMPORTANT]
+> 應謹慎考慮使用 VeryHigh 移動成本，因為它會大幅限制叢集 Resource Manager 在叢集中尋找全域最佳放置解決方案的能力。 只有當叢集中的條件約束違規無法以任何其他方式修正時，才會移動具有 VeryHigh 移動成本的複本（即使需要移動許多其他複本來修正違規）
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>在您的叢集中啟用移動成本
 為了將更細微的 MoveCosts 納入考量，必須在叢集中啟用 MoveCost。 如果沒有此設定，則會使用計算移動的預設模式來計算 MoveCost，並且忽略 MoveCost 報告。
@@ -101,7 +111,7 @@ ClusterManifest.xml：
         </Section>
 ```
 
-獨立部署透過 ClusterConfig.json，Azure 託管叢集透過 Template.json：
+透過 ClusterConfig.json (適用於獨立部署) 或 Template.json (適用於 Azure 裝載的叢集)：
 
 ```json
 "fabricSettings": [

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 85905f97500848be0e17da7d8a65209878713fc2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c994b77105fe94eef418c0befc4c135ec09ada14
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516519"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900936"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊 (預覽)
 
@@ -33,6 +33,8 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 * 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
   * 美國中部
   * 美國中部 EUAP
+  * 北歐
+  * 東南亞
 
 * 您在此快速入門中執行的兩個範例應用程式是以 C# 撰寫的。 您的開發電腦上需要有 .NET Core SDK 2.1.0 或更新版本。
   * 您可以[從 .NET 下載適用於多種平台的 .NET Core SDK](https://www.microsoft.com/net/download/all) \(英文\)。

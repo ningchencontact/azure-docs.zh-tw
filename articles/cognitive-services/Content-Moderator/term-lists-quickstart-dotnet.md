@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757259"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935948"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>在 C# 中根據自訂字詞清單檢查文字
 
@@ -69,10 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
 
-新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端。
-
-> [!IMPORTANT]
-> 以您的區域識別碼和訂用帳戶訂用帳戶的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
+新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端。 使用您的端點 URL 和訂用帳戶金鑰的值，更新 `AzureEndpoint` 和 `CMSubscriptionKey` 欄位。 您可以在 Azure 入口網站資源的 [**快速入門**] 索引標籤中找到這些選項。
 
 ```csharp
 /// <summary>
@@ -84,16 +81,9 @@ using System.Threading;
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -112,7 +102,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }

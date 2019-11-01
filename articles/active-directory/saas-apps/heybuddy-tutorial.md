@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e00cc46385f5d60b28607bfc08b9ca9540f152c6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7edfc0a90a8477bdee50b871e00cd988e511b401
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944965"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>教學課程：Azure Active Directory 與 HeyBuddy 整合
 
@@ -32,7 +33,7 @@ ms.locfileid: "68944965"
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -122,7 +123,7 @@ ms.locfileid: "68944965"
 
 6. 除了以上屬性之外，HeyBuddy 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     | -------- | --------- |
     | 角色  | user.assignedroles |
     | | |

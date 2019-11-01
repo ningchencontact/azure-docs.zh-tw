@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859001"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935402"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>什麼是 IoT 隨插即用預覽版？
 
@@ -26,11 +26,11 @@ IoT 隨插即用預覽版可讓解決方案開發人員將裝置與解決方案�
 
 您可以跨裝置功能模型重複使用介面，以簡化共同作業及加速開發工作。
 
-為了讓 IoT 隨插即用與 [Azure 數位對應項](../digital-twins/about-digital-twins.md)順暢地搭配使用，IoT 隨插即用結構描述採用[數位對應項定義語言 (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL) 進行定義。 IoT 隨插即用和 DTDL 開放給社群使用，且 Microsoft 歡迎客戶、合作夥伴和業界共同合作。 這兩者都是以開放式 W3C 標準 (例如, JSON-LD 和 RDF) 為基礎，可讓您更輕鬆地跨服務和工具加以採用。 此外，使用 IoT 隨插即用和 DTDL 並不會產生額外費用。 [Azure IoT 中樞](../iot-hub/about-iot-hub.md)、[Azure IoT Central](../iot-central/overview-iot-central.md) 和其他 Azure 服務的標準費率維持不變。
+為了讓 IoT 隨插即用與 [Azure 數位對應項](../digital-twins/about-digital-twins.md)順暢地搭配使用，IoT 隨插即用結構描述採用[數位對應項定義語言 (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL) 進行定義。 IoT 隨插即用和 DTDL 開放給社群使用，且 Microsoft 歡迎客戶、合作夥伴和業界共同合作。 這兩者都是以開放式 W3C 標準 (例如, JSON-LD 和 RDF) 為基礎，可讓您更輕鬆地跨服務和工具加以採用。 此外，使用 IoT 隨插即用和 DTDL 並不會產生額外費用。 [Azure IoT 中樞](../iot-hub/about-iot-hub.md)、[Azure IoT Central](../iot-central/core/overview-iot-central.md) 和其他 Azure 服務的標準費率維持不變。
 
 在 IoT 中樞或 IoT Central 上建置的解決方案，可受益於 IoT 隨插即用。
 
-此文章概述：
+本文概述：
 
 - 與使用 IoT 隨插即用的專案相關聯的一般角色。
 - 如何在您的應用程式中使用 IoT 隨插即用裝置。
@@ -48,7 +48,7 @@ IoT 隨插即用適用於兩種類型的開發人員：
 
 身為解決方案開發人員，您可以開發使用 IoT 隨插即用裝置的雲端裝載 IoT 解決方案。 您可以使用下列其中一項 Azure 服務：
 
-- [IoT Central](../iot-central/overview-iot-central.md) - 一個完全受控的 IoT 軟體即服務解決方案，可讓您輕鬆地建立連接實體與數位世界的產品。
+- [IoT Central](../iot-central/core/overview-iot-central.md) - 一個完全受控的 IoT 軟體即服務解決方案，可讓您輕鬆地建立連接實體與數位世界的產品。
 - [IoT 中樞](../iot-hub/about-iot-hub.md) - 一個受控雲端服務，可作為您的 IoT 應用程式與裝置之間進行安全的雙向通訊時的訊息中樞。
 
 您可以透過 Azure IoT 認證裝置目錄來尋找 IoT 隨插即用裝置。 此目錄中的每個 IoT 隨插即用裝置都已經過驗證，且具有裝置功能模型。 請檢視裝置功能模型以了解裝置的功能，或用它來模擬 Azure IoT Central 中的裝置。

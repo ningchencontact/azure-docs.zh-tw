@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 705e3818aef0338d9b34da7b0320b99594573fca
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e05515c2fd118c21f891be86fae6423affab0324
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985970"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160901"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>經由登入頁面的提示設定您的安全性資訊 (預覽)
 
@@ -152,6 +152,6 @@ ms.locfileid: "68985970"
 
 - 如需如何使用您的指定方法進行登入的相關資訊，請參閱[如何登入](user-help-sign-in.md)。
 
-- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](user-help-reset-password.md)一文中的步驟來重設密碼。
+- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
 
 - 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。

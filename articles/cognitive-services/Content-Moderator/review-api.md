@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757301"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044010"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>內容仲裁審查、工作流程和工作
 
@@ -75,5 +75,5 @@ ms.locfileid: "72757301"
 ## <a name="next-steps"></a>後續步驟
 
 * 試用[作業 API 主控台](try-review-api-job.md)，並使用 REST API 程式碼範例。 如果您已熟悉 Visual Studio 和 C#，也請參閱[作業 .NET 快速入門](moderation-jobs-quickstart-dotnet.md)。 
-* 若為檢閱者，請開始使用[檢閱 API 主控台](try-review-api-review.md)，並使用 REST API 程式碼範例。 然後請參閱[檢閱 .NET 快速入門](moderation-reviews-quickstart-dotnet.md)。
+* 若為檢閱者，請開始使用[檢閱 API 主控台](try-review-api-review.md)，並使用 REST API 程式碼範例。 然後參閱[.net 快速入門](dotnet-sdk-quickstart.md)的 [評論] 區段。
 * 若為影片檢閱者，請使用[影片檢閱快速入門](video-reviews-quickstart-dotnet.md)，並了解如何[在影片檢閱中新增文字記錄](video-transcript-reviews-quickstart-dotnet.md)。

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68598781"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933920"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>教學課程：使用 Azure 監視器記錄監視 Service Fabric 上的 Windows 容器
 
 此為教學課程的第三部分，將逐步引導您設定 Azure 監視器記錄來監視 Service Fabric 上協調的 Windows 容器。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 針對您的 Service Fabric 叢集設定 Azure 監視器記錄
@@ -186,7 +186,7 @@ ms.locfileid: "68598781"
     },
     ```
 
-[這裡](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)是一個範例範本 (用於本教學課程的第一部分)，其中包含所有您可視需要參考的變更。 這些變更會將 Log Analytics 工作區新增至您的資源群組。 工作區將設定為從使用 [Windows Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)代理程式設定的儲存體資料表挑選 Service Fabric 平台事件。 Log Analytics 代理程式 (Microsoft Monitoring Agent) 也已新增至您叢集中的每個節點作為虛擬機器擴充功能；這表示當您調整叢集時，會在每部機器上自動設定此代理程式，並連接相同的工作區。
+[這裡](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/d2ffa318581fc23ac7f1b0ab2b52db1a0d7b4ba7/5-VM-Windows-OMS-UnSecure/sfclusteroms.json)是一個範例範本 (用於本教學課程的第一部分)，其中包含所有您可視需要參考的變更。 這些變更會將 Log Analytics 工作區新增至您的資源群組。 工作區將設定為從使用 [Windows Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)代理程式設定的儲存體資料表挑選 Service Fabric 平台事件。 Log Analytics 代理程式 (Microsoft Monitoring Agent) 也已新增至您叢集中的每個節點作為虛擬機器擴充功能；這表示當您調整叢集時，會在每部機器上自動設定此代理程式，並連接相同的工作區。
 
 使用您的新變更來部署範本，以升級目前的叢集。 一旦完成此作業後，您應該會在資源群組中看到記錄分析資源。 當叢集已就緒時，將您的容器化應用程式部署到其中。 在下一個步驟中，我們將設定監視容器。
 
@@ -242,7 +242,7 @@ ms.locfileid: "68598781"
 
 現在您已設定監視您的容器化應用程式，請嘗試進行下列動作：
 
-* 設定適用於 Linux 叢集的 Azure 監視器記錄，請遵循類似上述的步驟。 參考[此範本](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) \(英文\)，在 Resource Manager 範本中進行變更。
+* 設定適用於 Linux 叢集的 Azure 監視器記錄，請遵循類似上述的步驟。 參考[此範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) \(英文\)，在 Resource Manager 範本中進行變更。
 * 設定 Azure 監視器記錄以設定[自動化警示](../log-analytics/log-analytics-alerts.md)，協助偵測與診斷。
 * 瀏覽 Service Fabric [建議的效能計數器](service-fabric-diagnostics-event-generation-perf.md)清單，以針對您的叢集進行設定。
 * 熟悉 Azure 監視器記錄中提供的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能。

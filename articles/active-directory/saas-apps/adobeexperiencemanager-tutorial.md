@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81032fbad21b18b0b7ca2e7662b0c4b4b6c10901
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f39751f40b32c5da24e13d75d2607d7da0a57ad3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107290"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>教學課程：Azure Active Directory 與 Adobe Experience Manager 整合
 
@@ -200,7 +201,7 @@ Adobe Experience Manager 與 Azure AD 整合提供下列優點：
 
     i. 在 [登出 URL]  方塊中，貼上您從 Azure 入口網站取得的 [登出 URL]  值。
 
-    j. 選取 [ **儲存**]。
+    j. 選取 [儲存]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

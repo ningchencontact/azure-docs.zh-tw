@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db00e0b6ea14e956fc75c2c7cff5d018d9c6bb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c691dcb9a9d991f0eebaf02eae8e917b4922e224
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106487"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>教學課程：Azure Active Directory 與 AwardSpring 整合
 
@@ -125,7 +126,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 7. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
-    |  Name | 來源屬性 |
+    |  名稱 | 來源屬性 |
     | ---------------| --------------- |    
     | 名字 | user.givenname |
     | 姓氏 | user.surname |
