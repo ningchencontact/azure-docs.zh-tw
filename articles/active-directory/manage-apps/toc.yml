@@ -131,10 +131,14 @@
           items:
             - name: 設定使用者同意
               href: configure-user-consent.md
+            - name: 設定管理員同意工作流程 (預覽)
+              href: configure-admin-consent-workflow.md
             - name: 將使用者和群組指派給應用程式的方法
               href: methods-for-assigning-users-and-groups.md
             - name: 將使用者指派給應用程式
               href: assign-user-or-group-access-portal.md
+            - name: 在我的應用程式上建立工作區 (預覽)
+              href: access-panel-workspaces.md
             - name: 使用服務應用程式存取
               href: access-panel-manage-self-service-access.md
             - name: 將使用者存取權從應用程式移除的方法
@@ -155,6 +159,8 @@
               href: migration-resources.md
             - name: 將 ADFS 應用程式遷移至 Azure
               href: migrate-adfs-apps-to-azure.md
+            - name: 使用 AD FS 應用程式活動報告 (預覽)
+              href: migrate-adfs-application-activity.md
         - name: 疑難排解
           items:
             - name: 新增應用程式疑難排解

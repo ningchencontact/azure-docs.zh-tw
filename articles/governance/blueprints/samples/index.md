@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 09/24/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f5f29ec3aa5dd87a891d53847bf5a3be3a121e63
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eb559293a166da8b83bb3cf8fe13be3d2f25401e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978379"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200735"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -24,6 +24,7 @@ ms.locfileid: "71978379"
 |---------|---------|
 | [加拿大聯邦 PBMM](./canada-federal-pbmm/index.md) | 提供符合加拿大聯邦受保護分類 B、中度完整性、中度可用性之保護機制 (PBMM)。 |
 | [CIS Microsoft Azure 基礎基準測試](./cis-azure-1.1.0/index.md)| 提供一組原則，以協助您遵循 CIS Microsoft Azure 基礎的基準測試建議。 |
+| [FedRAMP 適中等級](./fedramp-m/index.md) | 提供一組原則，以協助符合 FedRAMP 適中等級的規範。 |
 | [IRS 1075](./irs-1075/index.md) | 提供成立條件以符合 IRS 1075。|
 | [ISO 27001](./iso27001/index.md) | 提供成立條件以符合 ISO 27001。 |
 | [ISO 27001 共用服務](./iso27001-shared/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 |
