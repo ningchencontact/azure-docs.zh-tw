@@ -32,7 +32,7 @@
     - name: 8 - 新增多個版本
       href: api-management-get-started-publish-versions.md
     - name: 9 - 自訂開發人員入口網站
-      href: api-management-customize-styles.md
+      href: api-management-howto-developer-portal-customize.md
 - name: 範例
   items:
     - name: 原則
@@ -123,12 +123,8 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: 自訂開發人員經驗
       items:
-        - name: 存取及自訂新的開發人員入口網站
+        - name: 了解開發人員入口網站
           href: api-management-howto-developer-portal.md
-        - name: 修改頁面內容和版面配置
-          href: api-management-modify-content-layout.md
-        - name: 使用範本自訂系統頁面
-          href: api-management-developer-portal-templates.md
         - name: 使用 Azure AD 進行驗證
           href: api-management-howto-aad.md
         - name: 使用 Azure AD B2C 進行驗證
@@ -139,6 +135,34 @@
           href: api-management-howto-configure-notifications.md
         - name: 啟用主控台 OAuth 支援
           href: api-management-howto-oauth2.md
+        - name: 舊版入口網站 - 自訂入口網站
+          href: api-management-customize-styles.md
+        - name: 舊版入口網站 - 修改頁面和版面配置
+          href: api-management-modify-content-layout.md
+        - name: 舊版入口網站 - 自訂範本
+          href: api-management-developer-portal-templates.md
+    - name: 舊版入口網站範本
+      items:
+        - name: 資料模型參考
+          href: api-management-template-data-model-reference.md
+        - name: 頁面控制項
+          href: api-management-page-controls.md
+        - name: 範本
+          href: api-management-developer-portal-templates-reference.md
+        - name: API
+          href: api-management-api-templates.md
+        - name: Products
+          href: api-management-product-templates.md
+        - name: '[應用程式]'
+          href: api-management-application-templates.md
+        - name: 問題
+          href: api-management-issue-templates.md
+        - name: 使用者設定檔
+          href: api-management-user-profile-templates.md
+        - name: 頁面
+          href: api-management-page-templates.md
+        - name: 範本資源
+          href: api-management-template-resources.md
     - name: 定義原則
       items:
         - name: 設定或編輯原則
@@ -167,28 +191,6 @@
           href: api-management-cross-domain-policies.md
         - name: 轉換原則
           href: api-management-transformation-policies.md
-    - name: 範本參考
-      items:
-        - name: 範本
-          href: api-management-developer-portal-templates-reference.md
-        - name: API
-          href: api-management-api-templates.md
-        - name: Products
-          href: api-management-product-templates.md
-        - name: '[應用程式]'
-          href: api-management-application-templates.md
-        - name: 問題
-          href: api-management-issue-templates.md
-        - name: 使用者設定檔
-          href: api-management-user-profile-templates.md
-        - name: 頁面
-          href: api-management-page-templates.md
-        - name: 範本資源
-          href: api-management-template-resources.md
-    - name: 資料模型參考
-      href: api-management-template-data-model-reference.md
-    - name: 頁面控制項
-      href: api-management-page-controls.md
     - name: 生產管理
       items:
         - name: 管理群組
