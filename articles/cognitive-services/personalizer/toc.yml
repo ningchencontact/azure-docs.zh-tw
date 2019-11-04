@@ -65,7 +65,7 @@
   items:
     - name: 建立和設定個人化工具
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
     - name: 分析
       items:
         - name: 離線評估
