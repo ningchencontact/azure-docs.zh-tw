@@ -146,7 +146,7 @@ ms.locfileid: "72377280"
 
 1. 開啟新的網頁瀏覽器視窗，並以系統管理員身分登入您的 EZOfficeInventory 公司網站。
 
-2. 在頁面右上角按一下 [設定檔] ****  ，然後瀏覽至 [設定] ****  > [附加元件]  。
+2. 在頁面右上角按一下 [ **設定檔**] ，然後瀏覽至 [ **設定**] > [**附加元件**]。
 
     ![EZOfficeInventory 設定](./media/ezofficeinventory-tutorial/configure01.png)
 

@@ -152,7 +152,7 @@ ms.locfileid: "72264049"
 
 1. 開啟新的 Web 瀏覽器視窗，以系統管理員身分登入您的 SAP Cloud for Customer 公司網站。
 
-2. 從功能表左側按一下 [識別提供者] ****  >  [公司識別提供者]   >  [新增]  ，然後在快顯視窗中新增識別提供者名稱，例如 **Azure AD**，按一下 [儲存]  ，然後按一下 [SAML 2.0 設定]  。
+2. 從功能表左側按一下 [ **識別提供者**] >  [公司識別提供者]   >  [新增]  ，然後在快顯視窗中新增識別提供者名稱，例如 **Azure AD**，按一下 [儲存]  ，然後按一下 [SAML 2.0 設定]  。
 
     ![SAP 設定](./media/sap-customer-cloud-tutorial/configure01.png)
 
@@ -172,7 +172,7 @@ ms.locfileid: "72264049"
 
 1. 以安全性系統管理員身分登入 SAP Cloud for Customer。
 
-2. 從功能表左側按一下 [使用者與授權] ****  > [使用者管理] ****  > [新增使用者]  。
+2. 從功能表左側按一下 [ **使用者與授權**] > [ **使用者管理**] > [**新增使用者**]。
 
     ![SAP 設定](./media/sap-customer-cloud-tutorial/configure03.png)
 
