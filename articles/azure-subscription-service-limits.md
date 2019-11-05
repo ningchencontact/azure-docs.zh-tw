@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345546"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476942"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，清單就會展開並更新，以涵蓋更多服務。
@@ -56,20 +56,20 @@ ms.locfileid: "71345546"
 * [Azure 防火牆](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure 地圖服務](#azure-maps-limits)
 * [Azure 監視器](#azure-monitor-limits)
 * [Azure 原則](#azure-policy-limits)
 * [Azure 搜尋服務](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
 * [備份](#backup-limits)
-* [批次](#batch-limits)
+* [Batch](#batch-limits)
 * [BizTalk 服務](#biztalk-services-limits)
 * [Container Instances](#container-instances-limits)
 * [容器登錄](#container-registry-limits)
 * [內容傳遞網路](#content-delivery-network-limits)
 * [Data Factory](#data-factory-limits)
-* [Data Lake Analytics](#data-lake-analytics-limits)
+* [資料湖分析](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [Event Grid](#event-grid-limits)
@@ -84,6 +84,7 @@ ms.locfileid: "71345546"
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [網路功能](#networking-limits)
   * [應用程式閘道](#application-gateway-limits)
+  * [Azure 防禦](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure 防火牆](#azure-firewall-limits)
@@ -154,7 +155,7 @@ ms.locfileid: "71345546"
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes Service 限制
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning 服務限制
+### <a name="azure-machine-learning-limits"></a>Azure Machine Learning 限制
 您可以在 [ [Azure Machine Learning 配額] 頁面](../articles/machine-learning/service/how-to-manage-quotas.md)中找到 Azure Machine Learning 計算配額的最新值
 
 ### <a name="networking-limits"></a>網路限制
@@ -179,6 +180,9 @@ ms.locfileid: "71345546"
 
 #### <a name="traffic-manager-limits"></a>流量管理員限制
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### <a name="azure-bastion-limits"></a>Azure 防禦限制
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### <a name="azure-dns-limits"></a>Azure DNS 限制
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
@@ -294,7 +298,7 @@ ms.locfileid: "71345546"
 
 ### <a name="azure-monitor-limits"></a>Azure 監視器限制
 
-#### <a name="alerts"></a>警示
+#### <a name="alerts"></a>Alerts
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
 

@@ -1,7 +1,7 @@
 ---
 title: 從文字模塊參考中解壓縮 N 語法功能
-titleSuffix: Azure Machine Learning service
-description: '瞭解如何使用 Azure Machine Learning 服務中的「解壓縮 N-#-# #」模組來為文字資料進行特徵化。'
+titleSuffix: Azure Machine Learning
+description: '瞭解如何使用 Azure Machine Learning 中的「解壓縮 N-#-# #」模組來為文字資料進行特徵化。'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 0803627b8d2e9fb3db2c7c96d7dd74e9b275f5d8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170995"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497845"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>從文字模塊參考中解壓縮 N 語法功能
 
-本文說明 Azure Machine Learning 服務的視覺化介面（預覽）模組。 使用 [從文字中解壓縮 N 語法特徵] 模組來為非結構化文字資料提供*特徵*。 
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。 使用 [從文字中解壓縮 N 語法特徵] 模組來為非結構化文字資料提供*特徵*。 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>設定從文字模塊解壓縮 N 語法功能
 
@@ -32,7 +32,7 @@ ms.locfileid: "71170995"
 
 ### <a name="create-a-new-n-gram-dictionary"></a>建立新的 n 語法字典
 
-1.  將 [從文字] 模組中的 [解壓縮 N-g] 功能新增至您的實驗，並連接包含您想要處理之文字的資料集。
+1.  將 [從文字中解壓縮 N 中繼資料的功能] 模組新增到您的管線，然後連接包含您想要處理之文字的資料集。
 
 1.  使用 [文字] 資料**行**選擇字串類型的資料行，其中包含您要解壓縮的文字。 因為結果是詳細資訊，所以您一次只能處理一個資料行。
 
@@ -46,7 +46,7 @@ ms.locfileid: "71170995"
 
     * **二進位權數**：將二進位顯示值指派給已解壓縮的 n 字母。 當檔中存在的每個 n-克時，其值為1，否則為0。
 
-    * **TF 權數**：將「詞彙頻率」（TF）分數指派給已解壓縮的 n 字母。 每個 n-克的值都是在檔中出現的頻率。
+    * **TF 權數**：將「詞彙頻率」（tf）分數指派給已解壓縮的 n 字母。 每個 n-克的值都是在檔中出現的頻率。
 
     * **IDF 權數**：將反向檔頻率（IDF）分數指派給已解壓縮的 n 字母。 每個 n-克的值是主體大小的記錄，除以其在整個主體中的發生頻率。
     
@@ -73,11 +73,11 @@ ms.locfileid: "71170995"
 
 1. 選取 [正規化**n # 語法功能向量**] 選項，以正規化特徵向量。 如果啟用此選項，每個 n 語法特徵向量都會除以其 L2 的標準。
 
-1. 執行實驗。
+1. 執行管道。
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>使用現有的 n 語法字典
 
-1.  從 [文字] 模組將 [解壓縮 N-語法] 功能新增至您的實驗，並將含有您要處理之文字的資料集連接到**資料集**埠。
+1.  將 [從文字中解壓縮 N-元功能] 模組新增至您的管線，然後將含有您要處理之文字的資料集連接到**資料集**埠。
 
 1.  使用 [**文字資料行**] 選取包含您想要特徵化之文字的文字資料行。 根據預設，此模組會選取**字串**類型的所有資料行。 為了獲得最佳結果，請一次處理單一資料行。
 
@@ -92,7 +92,7 @@ ms.locfileid: "71170995"
 
 1.  如需所有其他選項，請參閱[上一節](#create-a-new-n-gram-dictionary)中的屬性描述。
 
-1.  執行實驗。
+1.  執行管道。
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>分數或發行使用 n 元的模型
 
@@ -102,7 +102,7 @@ ms.locfileid: "71170995"
 
 1.  在評分工作流程中，從 [文字] 模組修改 [解壓縮 N 語法功能]，並將 [**詞彙模式]** 參數設定為 [ **ReadOnly**]。 保留所有其他相同的。
 
-1.  若要發佈實驗，請將**結果詞彙**儲存為資料集。
+1.  若要發行管線，請將**結果詞彙**儲存為資料集。
 
 1.  將儲存的資料集連接到計分圖形中的 [從文字中解壓縮 N 語法特徵] 模組。
 
@@ -112,7 +112,7 @@ ms.locfileid: "71170995"
 
 * **結果資料集**：此輸出是已分析之文字與已解壓縮之 n 字母結合的摘要。 您未在 [**文字資料行**] 選項中選取的資料行，會傳遞至輸出。 針對您分析的每個文字資料行，此模組會產生下列資料行：
 
-  * **N 語法出現次數的矩陣**：此模組會針對 total 主體中找到的每個 n-克產生一個資料行，並在每個資料行中加入分數，以指出該資料列之 n 中繼資料的權數。 
+  * **N 語法出現次數的矩陣**：模組會針對 total 主體中找到的每個 n 中繼資料產生一個資料行，並在每個資料行中加入分數，以指出該資料列的 n 中繼資料的權數。 
 
 * **結果詞彙**：詞彙包含實際的 n 語法字典，以及在分析過程中產生的詞彙頻率分數。 您可以使用一組不同的輸入來儲存資料集以重複使用，或用於後續的更新。 您也可以重複使用詞彙來進行模型化和評分。
 
@@ -121,11 +121,11 @@ ms.locfileid: "71170995"
 詞彙包含 n-# 語法字典，以及在分析過程中產生的詞彙頻率分數。 不論其他選項為何，都會產生 DF 和 IDF 分數。
 
 + **ID**：為每個唯一的 n 語法產生的識別碼。
-+ **NGram**：N-語法。 空格或其他文字分隔符號會取代成底線字元。
++ **NGram**： n 語法。 空格或其他文字分隔符號會取代成底線字元。
 + **DF**：原始主體中 n-克的詞彙頻率分數。
 + **IDF**：原始主體中 n-克的反向檔頻率分數。
 
-您可以手動更新此資料集，但可能會導致錯誤。 例如:
+您可以手動更新此資料集，但可能會導致錯誤。 例如：
 
 * 如果模組在輸入詞彙中找到具有相同索引鍵的重復資料列，就會引發錯誤。 請確定詞彙中沒有任何兩個數據列具有相同的單字。
 * 詞彙資料集的輸入架構必須完全相符，包括資料行名稱和資料行類型。 
@@ -137,4 +137,4 @@ ms.locfileid: "71170995"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。

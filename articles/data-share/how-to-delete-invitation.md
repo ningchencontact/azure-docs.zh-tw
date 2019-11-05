@@ -1,25 +1,25 @@
 ---
-title: 在 Azure 資料共用預覽中刪除邀請
-description: 瞭解如何在 Azure 資料共用預覽中刪除資料共用收件者的邀請。
+title: 刪除 Azure 資料共用中的邀請
+description: 瞭解如何在 Azure 資料共用中刪除資料共用收件者的邀請。
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 6bb247833a9cd9f2c767b27b655a434f573860c0
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 97068ce652881818527557dd63a186b5d63a9363
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166389"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490495"
 ---
-# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share-preview"></a>如何在 Azure 資料共用預覽中刪除收件者的邀請
+# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share"></a>如何刪除 Azure 資料共用中收件者的邀請
 
 本文說明如何在收件者接受邀請之前，先將其刪除。 這會防止他們建立共用訂用帳戶，而且永遠不會收到任何共用的資料。 如果您刪除已建立共用訂用帳戶之取用者的邀請，刪除其邀請並不會有任何影響。
 
 ## <a name="navigate-to-a-sent-data-share"></a>流覽至已傳送的資料共用
 
-在 Azure 資料共用預覽中，流覽至您已傳送的共用，然後選取 [**邀請**] 索引標籤。此處列出的所有收件者都是此資料共用的邀請收件者。 按一下您要刪除其邀請的收件者旁的方塊，然後按一下 [**刪除**]。
+在 Azure 資料共用中，流覽至您已傳送的共用，並選取 [**邀請**] 索引標籤。此處列出的是此資料共用的所有邀請收件者。 按一下您要刪除其邀請的收件者旁的方塊，然後按一下 [**刪除**]。
 
 ![刪除邀請](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 

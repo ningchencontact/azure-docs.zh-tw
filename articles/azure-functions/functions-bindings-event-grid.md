@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: fbe41bdc5f253f1a605aa291a31191b7339b9850
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ff21a1325e341f119fc8615ca03b41b8068aca19
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030573"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991413"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -55,7 +55,7 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 ### <a name="c-2x"></a>C# (2.x)
 
-下列範例顯示繫結至 `EventGridEvent` 的 Functions 2.x [C# 函式](functions-dotnet-class-library.md)：
+下列範例顯示繫結至 [ 的 Functions 2.x ](functions-dotnet-class-library.md)C# 函式`EventGridEvent`：
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -81,7 +81,7 @@ namespace Company.Function
 
 ### <a name="c-version-1x"></a>C# (1.x 版)
 
-下列範例顯示繫結至 `JObject` 的 Functions 1.x [C# 函式](functions-dotnet-class-library.md)：
+下列範例顯示繫結至 [ 的 Functions 1.x ](functions-dotnet-class-library.md)C# 函式`JObject`：
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -252,7 +252,6 @@ def main(event: func.EventGridEvent):
     ) 
     String content, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: " + content);      
   }
 ```
@@ -289,7 +288,6 @@ public class EventSchema {
     ) 
     EventSchema event, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
       context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
@@ -320,7 +318,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 下表說明您在 function.json 檔案中設定的繫結設定屬性。 沒有要在 `EventGridTrigger` 屬性中設定的建構函式參數或屬性。
 
-|function.json 屬性 |描述|
+|function.json 屬性 |說明|
 |---------|---------|
 | **type** | 必要項目 - 必須設定為 `eventGridTrigger`。 |
 | **direction** | 必要項目 - 必須設定為 `in`。 |
@@ -566,7 +564,7 @@ Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 
 ### <a name="create-an-ngrok-endpoint"></a>建立 ngrok 端點
 
-從 [ngrok](https://ngrok.com/) 下載 *ngrok.exe*，並使用下列命令加以執行：
+從 *ngrok* 下載 [ngrok.exe](https://ngrok.com/)，並使用下列命令加以執行：
 
 ```
 ngrok http -host-header=localhost 7071

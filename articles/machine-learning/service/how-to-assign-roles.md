@@ -11,14 +11,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22ce9ea44dde6da4d1194463fe266ed00c5a3f96
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0ceb21d6f77fd9694f7cd564c2e89735cf2a774d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067715"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497420"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理 Azure Machine Learning 工作區的存取權
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 在本文中，您將瞭解如何管理 Azure Machine Learning 工作區的存取權。 [角色型存取控制（RBAC）](/azure/role-based-access-control/overview)是用來管理 Azure 資源的存取權。 Azure Active Directory 中的使用者會被指派特定角色，以授與資源的存取權。 Azure 提供內建角色，以及建立自訂角色的能力。
 
@@ -26,7 +27,7 @@ ms.locfileid: "71067715"
 
 Azure Machine Learning 工作區是一種 Azure 資源。 就像其他 Azure 資源一樣，建立新的 Azure Machine Learning 工作區時，它會隨附三個預設角色。 您可以將使用者新增至工作區，並將它們指派給這些內建角色的其中一個。
 
-| Role | 存取層級 |
+| 角色 | 存取層級 |
 | --- | --- |
 | **讀取者** | 工作區中的唯讀動作。 讀者可以列出及查看工作區中的資產，但無法建立或更新這些資產。 |
 | **參與者** | 在工作區中查看、建立、編輯或刪除（如果適用）資產。 例如，參與者可以建立實驗、建立或附加計算叢集、提交執行，以及部署 web 服務。 |
@@ -52,7 +53,7 @@ Azure Machine Learning 工作區是一種 Azure 資源。 就像其他 Azure 資
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-`user`欄位是工作區父訂用帳戶所在 Azure Active Directory 實例中現有使用者的電子郵件地址。 以下是如何使用此命令的範例：
+[`user`] 欄位是工作區父訂用帳戶所在 Azure Active Directory 實例中現有使用者的電子郵件地址。 以下是如何使用此命令的範例：
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -67,7 +68,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 若要建立自訂角色，請先建立角色定義 JSON 檔案，以指定角色的許可權和範圍。 下列範例會定義名為「資料科學家」的自訂角色，範圍限定在特定工作區層級：
 
-`data_scientist_role.json` :
+`data_scientist_role.json`：
 ```json
 {
     "Name": "Data Scientist",
@@ -86,7 +87,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 }
 ```
 
-您可以變更`AssignableScopes`欄位，在訂用帳戶層級、資源群組層級或特定工作區層級設定此自訂角色的範圍。
+您可以變更 [`AssignableScopes`] 欄位，在訂用帳戶層級、資源群組層級或特定工作區層級設定此自訂角色的範圍。
 
 這個自訂角色可以在工作區中執行所有專案，但下列動作除外：
 
@@ -101,7 +102,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 az role definition create --role-definition data_scientist_role.json
 ```
 
-部署之後，此角色會在指定的工作區中變成可用。 現在您可以在 Azure 入口網站中新增和指派此角色。 或者，您可以使用`az ml workspace share` CLI 命令將此角色指派給使用者：
+部署之後，此角色會在指定的工作區中變成可用。 現在您可以在 Azure 入口網站中新增和指派此角色。 或者，您可以使用 `az ml workspace share` CLI 命令，將此角色指派給使用者：
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
@@ -115,5 +116,5 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 - [企業安全性總覽](concept-enterprise-security.md)
 - [安全地在虛擬網路中執行實驗和推斷/分數](how-to-enable-virtual-network.md)
-- [教學課程：將模型定型](tutorial-train-models-with-aml.md)
+- [教學課程：訓練模型](tutorial-train-models-with-aml.md)
 - [資源提供者作業](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

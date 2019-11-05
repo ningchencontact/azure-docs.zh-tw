@@ -1,5 +1,5 @@
 ---
-title: 擴充 Spark 歷程記錄伺服器以進行 Spark 應用程式的偵錯工具-Azure HDInsight
+title: 擴充 Spark 歷程記錄伺服器以進行偵錯工具-Azure HDInsight
 description: 使用擴充的 Spark 記錄伺服器對 Spark 應用程式進行偵錯和診斷 - Azure HDInsight。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130359"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494725"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
-本文將說明如何使用擴充的 Apache Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷] 索引標籤。在 [資料] 索引標籤上，使用者可以檢查 Spark 作業的輸入與輸出。 在 [圖表] 索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷] 索引標籤上，使用者可以參考 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
+本文將說明如何使用擴充的 Apache Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷]在 [**資料**] 索引標籤上，使用者可以檢查 Spark 作業的輸入和輸出資料。 在 [圖表] 索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷] 索引標籤上，使用者可以參考 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
 
 ## <a name="get-access-to-apache-spark-history-server"></a>存取 Apache Spark 歷程記錄伺服器
 
@@ -106,10 +106,10 @@ ms.locfileid: "71130359"
 
 + 按一下 [播放] 按鈕可播放作業，而按一下 [停止] 按鈕可隨時停止。 播放時，工作會以不同色彩來顯示，以表示不同狀態：
 
-  + 綠色表示成功：作業已成功完成。
+  + 綠色表示成功：作業已順利完成。
   + 橘色表示重試：失敗但不會影響作業最終結果的工作執行個體。 這些工作有之後可能會成功的重複或重試執行個體。
   + 藍色表示執行中：工作正在執行中。
-  + 白色表示等候中或已略過：工作正在等候執行，或已略過該階段。
+  + 白色表示等候中或已略過：工作在等候執行，或已略過該階段。
   + 紅色表示失敗：工作失敗。
 
     ![Spark 應用程式和作業圖形色彩範例，執行中](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
@@ -168,7 +168,7 @@ ms.locfileid: "71130359"
 
 按一下 [資料扭曲] 索引標籤，即會根據指定的參數顯示對應的扭曲工作。
 
-+ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，且工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段] 與 [扭曲字元] 區段將相應重新整理。
++ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，而工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段] 與 [扭曲字元] 區段將相應重新整理。
 
 + **扭曲階段** - 第二個區段會顯示具有符合上面指定條件之扭曲工作的階段。 若階段中有多個扭曲工作，扭曲階段表格只會顯示最扭曲的工作 (例如要用於資料扭曲的最大資料)。
 
@@ -202,7 +202,7 @@ ms.locfileid: "71130359"
 
 ## <a name="faq"></a>常見問題集
 
-### <a name="1-revert-to-community-version"></a>1.還原為社群版本
+### <a name="1-revert-to-community-version"></a>1. 還原為 [社區版本]
 
 若要還原為社群版本，請執行下列步驟：
 
@@ -211,7 +211,7 @@ ms.locfileid: "71130359"
 3. 展開 **Custom spark2-defaults** 群組。
 4. 按一下 [新增屬性]，新增 **spark.ui.enhancement.enabled=false**，然後儲存。
 5. 屬性現在會設定為 **false**。
-6. 按一下 **[儲存]** 儲存組態。
+6. 按一下 [儲存] 儲存組態。
 
     ![Apache Ambari 功能關閉](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
@@ -224,7 +224,7 @@ ms.locfileid: "71130359"
     ![Apache Ambari Spark2 歷程記錄重新開機](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Spark 記錄伺服器 Web UI 在重新整理後就會還原成社群版本。
 
-### <a name="2-upload-history-server-event"></a>2.上傳記錄伺服器事件
+### <a name="2-upload-history-server-event"></a>2. 上傳歷程記錄伺服器事件
 
 如果您遇到記錄伺服器錯誤，請依照下列步驟來提供事件：
 
@@ -240,7 +240,7 @@ ms.locfileid: "71130359"
 
     ![apache spark 檔案問題範例](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3.針對 hotfix 案例升級 jar 檔案
+### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. 升級適用于修補程式案例的 jar 檔案
 
 如果您想要使用 hotfix 來進行升級，請使用下列指令碼，這將會升級 spark-enhancement.jar*。
 
@@ -328,6 +328,6 @@ ms.locfileid: "71130359"
 * [在 HDInsight 上管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [設定 Apache Spark 設定](apache-spark-settings.md)
 
-## <a name="contact-us"></a>請與我們連絡
+## <a name="contact-us"></a>與我們連絡
 
 如果您有任何意見反應，或在使用此工具時遇到任何其他問題，請傳送電子郵件到 ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com))。

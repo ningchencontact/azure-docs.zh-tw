@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756040"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497532"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 的運作方式：架構和概念
 
@@ -28,13 +28,13 @@ ms.locfileid: "72756040"
 機器學習模型工作流程通常會遵循此順序：
 
 1. **指導**
-    + 以**Python**或視覺化介面開發機器學習服務定型腳本。
+    + 以**Python**或使用視覺化設計工具開發機器學習服務定型腳本。
     + 建立並設定**計算目標**。
     + **提交指令碼**至設定的計算目標以在該環境中執行。 在訓練期間，可以從**資料存放區**讀取或寫入指令碼。 而執行的記錄會在**工作區**中儲存為**執行**，並歸類在**實驗**之下。
 
 1. **封裝**-找到令人滿意的執行之後，請在**模型**登錄中註冊保存的模型。
 
-1. **驗證** -  從目前和過去的執行中查詢已記錄計量的**實驗**。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
+1. **驗證** - 從目前和過去的執行中查詢已記錄計量的**實驗**。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
 
 1. **部署**-開發計分腳本以使用模型，並將**模型部署**為 Azure 中的**web 服務**或**IoT Edge 裝置**。
 
@@ -45,23 +45,26 @@ ms.locfileid: "72756040"
 使用這些工具進行 Azure Machine Learning：
 
 +  使用[適用于 python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，在任何 Python 環境中與服務互動。
++ 使用[適用于 r 的 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)，在任何 r 環境中與服務互動。
 + 使用[AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)自動化您的機器學習活動。
 + 使用[Azure Machine Learning VS Code 延伸](how-to-vscode-tools.md)模組，在 Visual Studio Code 中撰寫程式碼
-+ 使用[視覺化介面（預覽）進行 Azure Machine Learning](ui-concept-visual-interface.md) ，而不需要撰寫程式碼即可執行工作流程步驟。
++ 使用[Azure Machine Learning 設計工具（預覽）](concept-designer.md)來執行工作流程步驟，而不需要撰寫程式碼。
+
 
 > [!NOTE]
 > 雖然本文定義了 Azure Machine Learning 所使用的詞彙和概念，但不會定義 Azure 平臺的詞彙和概念。 如需有關 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
 
 ## <a name="glossary"></a>詞彙
 + <a href="#activities">活動</a>
++ <a href="#compute-instance">計算實例</a>
 + <a href="#compute-targets">計算目標</a>
 + <a href="#datasets-and-datastores">資料集 & 資料存放區</a>
-+ <a href="#deployment">部署</a>
++ <a href="#endpoints">Endpoints</a>
 + <a href="#environments">環境</a>
 + [估算器](#estimators)
 + <a href="#experiments">實驗</a>
 + <a href="#github-tracking-and-integration">Git 追蹤</a>
-+ <a href="#iot-module-deployments">IoT 模組</a>
++ <a href="#iot-module-endpoints">IoT 模組</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML 管線</a>
 + <a href="#models">機型</a>
@@ -69,7 +72,7 @@ ms.locfileid: "72756040"
 + <a href="#run-configurations">執行設定</a>
 + <a href="#snapshots">快照集</a>
 + <a href="#training-scripts">訓練腳本</a>
-+ <a href="#web-service-deployments">Web 服務</a>
++ <a href="#web-service-endpoint">Web 服務</a>
 + <a href="#workspaces">區域</a>
 
 ### <a name="activities"></a>活動
@@ -81,9 +84,19 @@ ms.locfileid: "72756040"
 
 活動可透過 SDK 或 Web UI 提供通知，方便您輕鬆監視這些作業的進度。
 
+### <a name="compute-instance"></a>計算實例
+
+> [!NOTE]
+> 計算實例僅適用于區域為**美國中北部**或**英國南部**的工作區。
+>如果您的工作區位於任何其他區域，您可以繼續建立並使用[筆記本 VM](concept-compute-instance.md#notebookvm) 。 
+
+**Azure Machine Learning 計算實例**（先前稱為「筆記本 VM」）是完全受控的雲端式工作站，其中包含針對機器學習服務安裝的多個工具和環境。 計算實例可用來做為定型和推斷作業的計算目標。 對於大型工作，使用多重節點調整功能[Azure Machine Learning 計算](how-to-set-up-training-targets.md#amlcompute)叢集是較佳的計算目標選擇。
+
+深入瞭解[計算實例](concept-compute-instance.md)。
+
 ### <a name="compute-targets"></a>計算目標
 
-[計算目標](concept-compute-target.md)可讓您指定用來執行定型腳本或裝載服務部署的計算資源。 此位置可能是您的本機電腦或雲端式計算資源。 計算目標可讓您輕鬆地變更計算環境，而不需要變更您的程式碼。
+[計算目標](concept-compute-target.md)可讓您指定用來執行定型腳本或裝載服務部署的計算資源。 此位置可能是您的本機電腦或雲端式計算資源。
 
 深入瞭解[適用于定型和部署的計算目標](concept-compute-target.md)。
 
@@ -97,23 +110,23 @@ ms.locfileid: "72756040"
 
 **資料**存放區是 Azure 儲存體帳戶的儲存體抽象概念。 資料存放區可以使用 Azure Blob 容器或 Azure 檔案共用作為後端儲存體。 每個工作區都有預設資料存放區，而且您可以註冊額外的資料存放區。 使用 Python SDK API 或 Azure Machine Learning CLI 在資料存放區中儲存及擷取檔案。
 
-### <a name="deployment"></a>Deployment
+### <a name="endpoints"></a>端點
 
-部署是將模型具現化至可裝載于雲端的 web 服務，或用於整合式裝置部署的 IoT 模組。
+端點是將模型具現化至可裝載于雲端的 web 服務，或用於整合式裝置部署的 IoT 模組。
 
-#### <a name="web-service-deployments"></a>Web 服務部署
+#### <a name="web-service-endpoint"></a>Web 服務端點
 
-已部署的 Web 服務可以使用 Azure 容器執行個體、Azure Kubernetes Service 或 FPGA。 您可以從您的模型、腳本和相關聯的檔案建立服務。 這些會封裝在影像中，以提供 web 服務的執行時間環境。 映像包含經過負載平衡的 HTTP 端點，可接收傳送至 Web 服務的評分要求。
+將模型部署為 web 服務時，可以在 Azure 容器實例、Azure Kubernetes Service 或 Fpga 上部署端點。 您可以從您的模型、腳本和相關聯的檔案建立服務。 這些會放入基底容器映射中，其中包含模型的執行環境。 映像包含經過負載平衡的 HTTP 端點，可接收傳送至 Web 服務的評分要求。
 
-如果已選擇啟用 Application Insight 遙測或模型遙測收集功能，Azure 將可以透過此功能協助您監視 Web 服務部署。 遙測資料只有您才能存取，而且會儲存在您的 Application Insights 與儲存體帳戶執行個體中。
+如果您已選擇啟用此功能，Azure 可協助您藉由收集 Application Insights 遙測或模型遙測來監視您的 web 服務。 遙測資料只有您才能存取，而且會儲存在您的 Application Insights 與儲存體帳戶執行個體中。
 
 如果已經啟用自動調整功能，Azure 將會自動調整您的部署。
 
-如需將模型部署為 Web 服務的範例，請參閱[在 Azure 容器執行個體中部署映像分類模型](tutorial-deploy-models-with-aml.md)。
+如需將模型部署為 web 服務的範例，請參閱[在 Azure 容器實例中部署映射分類模型](tutorial-deploy-models-with-aml.md)。
 
-#### <a name="iot-module-deployments"></a>IoT 模組部署
+#### <a name="iot-module-endpoints"></a>IoT 模組端點
 
-已部署的 IoT 模組是一個 Docker 容器，其中包含您的模型與相關聯的指令碼或應用程式，以及任何額外的相依性。 您可以使用 Edge 裝置上的 Azure IoT Edge 來部署這些模組。
+已部署的 IoT 模組端點是一個 Docker 容器，其中包含您的模型和相關聯的腳本或應用程式，以及任何其他相依性。 您可以使用 Edge 裝置上的 Azure IoT Edge 來部署這些模組。
 
 如果您已經啟用監視功能，Azure 就會從 Azure IoT Edge 模組內部的模型收集遙測資料。 遙測資料只有您才能存取，而且會儲存在您的儲存體帳戶執行個體中。
 
@@ -188,8 +201,7 @@ Azure Machine Learning 與架構無關。 當您建立模型時，您可以使�
 
 如需模型註冊的範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
-
-### <a name="runs"></a>執行數
+### <a name="runs"></a>執行
 
 「執行」是一次訓練腳本的回合。 Azure Machine Learning 會記錄所有執行，並儲存下列資訊：
 
@@ -223,7 +235,6 @@ Azure Machine Learning 與架構無關。 當您建立模型時，您可以使�
 ### <a name="workspaces"></a>工作區
 
 [工作區](concept-workspace.md)是 Azure Machine Learning 的最上層資源。 當您使用 Azure Machine Learning 時，它會提供一個集中的位置來處理您建立的所有成品。 您可以與其他人共用工作區。 如需工作區的詳細說明，請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
-
 
 ### <a name="next-steps"></a>後續步驟
 

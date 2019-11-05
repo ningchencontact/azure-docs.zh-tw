@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929372"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489992"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > 此 SDK 即將淘汰。 此 SDK 仍適用于監視模型中資料漂移的開發人員，但大部分的開發人員應該使用簡化的[資料監視與 Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)。 
@@ -56,11 +57,11 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 - 已安裝 Azure Machine Learning 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
-- 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有該模型，請參閱[訓練影像分類模型](tutorial-train-models-with-aml.md)教學課程。
+- 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
 - Azure Kubernetes Service 叢集。 如需了解如何建立一個叢集並部署至該叢集，請參閱[部署方式及位置](how-to-deploy-and-where.md)文件。
 
@@ -115,7 +116,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 如果您的現有服務已在**環境檔案**和**評分檔案**中安裝相依性，則請透過下列方式啟用資料收集：
 
-1. 移至[Azure 入口網站](https://portal.azure.com)。
+1. 前往[Azure Machine Learning studio](https://ml.azure.com)。
 
 1. 開啟工作區。
 
@@ -133,10 +134,10 @@ Blob 中輸出資料的路徑遵循此語法：
 
 
 ## <a name="disable-data-collection"></a>停用資料收集
-您隨時可以停止收集資料。 使用 Python 程式碼或 Azure 入口網站來停用資料收集。
+您隨時可以停止收集資料。 使用 Python 程式碼或 Azure Machine Learning studio 來停用資料收集。
 
-+ 選項 1 - 在 Azure 入口網站中停用： 
-  1. 登入 [Azure 入口網站](https://portal.azure.com)。
++ 選項 1-在 Azure Machine Learning studio 中停用： 
+  1. 登入[Azure Machine Learning studio](https://ml.azure.com)。
 
   1. 開啟工作區。
 
@@ -150,7 +151,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
   1. 選取 [更新] 以套用變更。
 
-  您也可以在[工作區登陸頁面（預覽）](https://ml.azure.com)中存取這些設定。
+  您也可以在[Azure Machine Learning studio](https://ml.azure.com)的工作區中存取這些設定。
 
 + 選項 2 - 使用 Python 停用資料收集：
 
@@ -160,10 +161,10 @@ Blob 中輸出資料的路徑遵循此語法：
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>驗證您的資料並加以分析
-您可以選擇慣用的工具來分析收集到 Azure Blob 中的資料。 
+您可以選擇慣用的工具來分析收集到 Azure Blob 中的資料。
 
 若要從 Blob 快速存取資料：
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入[Azure Machine Learning studio](https://ml.azure.com)。
 
 1. 開啟工作區。
 1. 按一下 [儲存體]。
@@ -226,7 +227,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
     [![DB 資料表](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 更新您的資料位置。 範例如下：
+1. 更新您的資料位置。 下列是一個範例：
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

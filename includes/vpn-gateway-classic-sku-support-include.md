@@ -5,19 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 979a09da805abfd6558fac90e6adedb66de438f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d4050fd5bfd33e50404c7007aecf5d1b868e2083
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173863"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495755"
 ---
 > [!NOTE]
-> 只有 Resource Manager 部署模型支援新的 VPN 閘道 SKU (VpnGw1、VpnGw2 和 VpnGw3)。 傳統虛擬網路應該繼續使用舊式 (舊版) SKU。
+> 只有 Resource Manager 部署模型支援 VpnGw Sku （VpnGw1、VpnGw1AZ、VpnGw2、VpnGw2AZ、VpnGw3、VpnGw3AZ、VpnGw4、VpnGw4AZ、VpnGw5 和 VpnGw5AZ）。 傳統虛擬網路應該繼續使用舊式 (舊版) SKU。
 >  * 如需舊版閘道 SKU (基本、標準、高效能) 使用上的相關資訊，請參閱[使用 VPN 閘道 SKU (舊版 SKU)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)。
 >  * 關於 ExpressRoute 閘道 SKU，請參閱 [ExpressRoute 的虛擬網路閘道](../articles/expressroute/expressroute-about-virtual-network-gateways.md)。
->
 >

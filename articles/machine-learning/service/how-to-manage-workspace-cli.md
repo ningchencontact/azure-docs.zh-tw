@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002640"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489714"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>使用 Azure CLI 建立 Azure Machine Learning 的工作區
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何使用 Azure CLI 建立 Azure Machine Learning 工作區。 Azure CLI 提供用來管理 Azure 資源的命令。 CLI 的機器學習擴充功能會提供命令，以使用 Azure Machine Learning 資源。
 
@@ -39,7 +40,7 @@ ms.locfileid: "71002640"
 az login
 ```
 
-如果 CLI 可以開啟預設瀏覽器，它會執行這項操作，並載入登入頁面。 否則，您需要開啟瀏覽器，並遵循命令列上的指示。 這些指示包含流覽[https://aka.ms/devicelogin](https://aka.ms/devicelogin)和輸入授權碼。
+如果 CLI 可以開啟預設瀏覽器，它會執行這項操作，並載入登入頁面。 否則，您需要開啟瀏覽器，並遵循命令列上的指示。 這些指示包含流覽[https://aka.ms/devicelogin](https://aka.ms/devicelogin)並輸入授權碼。
 
 如需其他驗證方法，請參閱[使用 Azure CLI 登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
 
@@ -68,7 +69,7 @@ Azure Machine Learning 工作區會依賴下列 Azure 服務或實體：
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-Azure Machine Learning 工作區必須建立在資源群組內。 您可以使用現有的資源群組，或建立一個新的群組。 若要__建立新的資源群組__，請使用下列命令。 取代`<resource-group-name>`為要用於此資源群組的名稱。 將`<location>`取代為要用於此資源群組的 Azure 區域：
+Azure Machine Learning 工作區必須建立在資源群組內。 您可以使用現有的資源群組，或建立一個新的群組。 若要__建立新的資源群組__，請使用下列命令。 以要用於此資源群組的名稱取代 `<resource-group-name>`。 將 `<location>` 取代為要用於此資源群組的 Azure 區域：
 
 > [!TIP]
 > 您應該選取可使用 Azure Machine Learning 的區域。 如需相關資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)。
@@ -133,7 +134,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 > [!IMPORTANT]
 > 您不需要指定所有現有的資源。 您可以指定一或多個。 例如，您可以指定現有的儲存體帳戶，而工作區將會建立其他資源。
 
-+ **Azure 儲存體帳戶**：`az storage account show --name <storage-account-name> --query "id"`
++ **Azure 儲存體帳戶**： `az storage account show --name <storage-account-name> --query "id"`
 
     此命令的回應類似下列文字，而是儲存體帳戶的識別碼：
 
@@ -163,7 +164,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**：`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**： `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     此命令的回應類似下列文字，而是容器登錄的識別碼：
 
@@ -172,7 +173,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
     > [!IMPORTANT]
     > 容器登錄必須先啟用系統[管理員帳戶](/azure/container-registry/container-registry-authentication#admin-account)，才能搭配 Azure Machine Learning 工作區使用。
 
-當您有想要用於工作區的資源識別碼之後，請使用基底`az workspace create -w <workspace-name> -g <resource-group-name>`命令，並新增現有資源的參數和識別碼（s）。 例如，下列命令會建立使用現有容器登錄的工作區：
+當您有想要用於工作區的資源識別碼之後，請使用 [基底 `az workspace create -w <workspace-name> -g <resource-group-name>`] 命令，並新增現有資源的參數和識別碼。 例如，下列命令會建立使用現有容器登錄的工作區：
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"

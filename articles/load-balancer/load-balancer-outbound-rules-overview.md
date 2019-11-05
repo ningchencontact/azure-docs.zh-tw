@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: fd43e9c71db9ae553b24e6cd774495ee8cc5b621
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242355"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497988"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -37,7 +37,7 @@ ms.locfileid: "73242355"
 - 要用於輸出連線閒置逾時的持續時間 (4-120 分鐘)。
 - 是否傳送閒置逾時時的 TCP 重設 (在公開預覽中)。 
 
-輸出規則會擴充[輸出連線](load-balancer-outbound-connections.md)一文中所述的[情節 2](load-balancer-outbound-connections.md#lb)，而且情節優先順序會保持現狀。
+輸出規則會擴充[輸出連線](load-balancer-outbound-connections.md#lb)一文中所述的[情節 2](load-balancer-outbound-connections.md)，而且情節優先順序會保持現狀。
 
 ## <a name="outbound-rule"></a>輸出規則
 
@@ -71,7 +71,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
 前端所提供的每個其他 IP 位址都會提供 64,000 個暫時連接埠，供 Load Balancer 當成 SNAT 連接埠使用。 負載平衡或輸入 NAT 規則有單一前端，而輸出規則會擴充前端概念，並允許每個規則的多個前端。  運用每個規則的多個前端，每個公用 IP 位址都會有成倍的可用 SNAT 連接埠數量，而且可以支援大型案例。
 
-此外，您還可以直接搭配使用[公用 IP 首碼](https://aka.ms/lbpublicipprefix)與輸出規則。  使用公用 IP 首碼可以更輕鬆地擴充和簡化源自 Azure 部署的流程白名單。 您可以在 Load Balancer 資源內設定前端 IP 設定，直接參考公用 IP 位址首碼。  這可讓 Load Balancer 獨佔公用 IP 首碼，而輸出規則將會自動使用輸出連線之公用 IP 首碼內包含的所有公用 IP 位址。  公用 IP 首碼範圍內的每個 IP 位址都會根據 IP 位址提供 64,000 個暫時連接埠，供 Load Balancer 當成 SNAT 連接埠使用。   
+此外，您還可以直接搭配使用[公用 IP 首碼](https://aka.ms/lbpublicipprefix)與輸出規則。  使用公用 IP 首碼可以更輕鬆地擴充和簡化源自 Azure 部署的流程允許清單。 您可以在 Load Balancer 資源內設定前端 IP 設定，直接參考公用 IP 位址首碼。  這可讓 Load Balancer 獨佔公用 IP 首碼，而輸出規則將會自動使用輸出連線之公用 IP 首碼內包含的所有公用 IP 位址。  公用 IP 首碼範圍內的每個 IP 位址都會根據 IP 位址提供 64,000 個暫時連接埠，供 Load Balancer 當成 SNAT 連接埠使用。   
 
 使用此選項作為輸出規則時，必須具有完整控制公用 IP 首碼，因此您不能有從公用 IP 首碼建立的個別公用 IP 位址資源。  如果您需要更精細的控制，則可以從公用 IP 首碼建立個別公用 IP 位址資源，並將多個公用 IP 位址個別指派給輸出規則的前端。
 
@@ -86,7 +86,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
 來自輸出規則之所有前端的每個公用 IP 位址都會提供最多 64,000 個暫時連接埠，以當成 SNAT 連接埠使用。  Load Balancer 會以 8 的倍數來配置 SNAT 連接埠數目。 如果您提供的值無法與 8 整除，則會拒絕設定作業。  如果您嘗試根據公用 IP 位址數目來配置比可用 SNAT 連接埠更多的 SNAT 連接埠，則會拒絕設定作業。  例如，如果您為每個 VM 配置10000埠，而後端集區中的7個 Vm 會共用單一公用 IP 位址，則會拒絕設定（7 x 10000 SNAT 埠 > 64000 SNAT 埠）。  您可以將更多公用 IP 位址新增至輸出規則的前端，以啟用此情節。
 
-您可以指定連接埠數目 0，以還原為[根據後端集區大小的自動 SNAT 連接埠配置](load-balancer-outbound-connections.md#preallocatedports)。 在此情況下，前50個 VM 實例會取得1024埠，51-100 VM 實例會根據資料表取得512等等。 具有一個與輸出規則相關聯之公用 IP 的多個前端，並不會增加配置給每個 VM 實例的埠數目。
+您可以指定連接埠數目 0，以還原為[根據後端集區大小的自動 SNAT 連接埠配置](load-balancer-outbound-connections.md#preallocatedports)。 在此情況下，前50個 VM 實例會取得1024埠，51-100 VM 實例會根據資料表取得512等等。
 
 ### <a name="idletimeout"></a> 控制輸出流程閒置逾時
 
@@ -172,7 +172,7 @@ disableOutboundSNAT 參數預設為 false，這表示負載平衡規則**確實*
 
 #### <a name="outbound-nat-for-vms-only-no-inbound"></a>僅 VM 的輸出 NAT (無輸入)
 
-定義公用 Standard Load Balancer，並將 VM 放入後端集區，以及設定輸出規則以對輸出 NAT 進行程式設計並清理輸出連線以源自特定公用 IP 位址。 您也可以使用公用 IP 首碼，簡化將輸出連線來源設為白名單。
+定義公用 Standard Load Balancer，並將 VM 放入後端集區，以及設定輸出規則以對輸出 NAT 進行程式設計並清理輸出連線以源自特定公用 IP 位址。 您也可以使用公用 IP 首碼，簡化將輸出連線來源設為允許清單。
 
 1. 建立公用 Standard Load Balancer。
 2. 建立後端集區，並將 VM 放入公用 Load Balancer 的後端集區。

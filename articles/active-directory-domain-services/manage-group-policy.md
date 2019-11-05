@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474531"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD Domain Services 受控網域中的群組原則
 
 Azure Active Directory Domain Services （Azure AD DS）中使用者和電腦物件的設定通常是使用群組原則物件（Gpo）進行管理。 Azure AD DS 包含*AADDC Users*和*AADDC 電腦*容器的內建 gpo。 您可以自訂這些內建 Gpo，視您的環境需求設定群組原則。 *AZURE AD DC 系統管理員*群組的成員具有 Azure AD DS 網域中的群組原則系統管理許可權，也可以建立自訂 gpo 和組織單位（ou）。 如需群組原則及其運作方式的詳細資訊，請參閱[群組原則總覽][group-policy-overview]。
+
+在混合式環境中，內部部署 AD DS 環境中設定的群組原則不會同步處理至 Azure AD DS。 若要定義 Azure AD DS 中的使用者或電腦的設定，請編輯其中一個預設 Gpo，或建立自訂 GPO。
 
 本文說明如何安裝群組原則管理工具，然後編輯內建 Gpo 並建立自訂 Gpo。
 
@@ -80,7 +82,7 @@ Azure AD DS 受控網域中有兩個內建的群組原則物件（Gpo）：一�
 
     ![適用于預設「AADDC 電腦」和「AADDC 使用者」容器的內建 Gpo](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. 您可以自訂這些內建 Gpo，以設定 Azure AD DS 受控網域上的特定群組原則。 以滑鼠右鍵選取其中一個 Gpo，例如 [ *AADDC 電腦 GPO*]，然後選取 [**編輯**]。
+1. 您可以自訂這些內建 Gpo，以設定 Azure AD DS 受控網域上的特定群組原則。 以滑鼠右鍵選取其中一個 Gpo，例如 [ *AADDC 電腦 GPO*]，然後選擇 [**編輯 ...** ]。
 
     ![選擇 [編輯] 其中一個內建 Gpo 的選項](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 

@@ -11,22 +11,20 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da5da64538ceaf906388c49963c0d5115e1b5ab9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809594"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480224"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Team Data Science Process (TDSP) 中的特徵選取
-本文說明機器學習服務的資料增強程序中特徵選取的目的，並提供其角色的範例。 這些範例是根據 Azure Machine Learning Studio 繪製。 
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+本文說明機器學習服務的資料增強程序中特徵選取的目的，並提供其角色的範例。 這些範例是根據 Azure Machine Learning Studio 繪製。
 
 特徵的工程設計與選取是[什麼是 Team Data Science Process？](overview.md)中所概述 Team Data Science Process (TDSP) 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。
 
-* **特徵工程設計**：此程序嘗試從資料中現有的原始特徵來建立其他相關特徵，並提高學習演算法的預測能力。
-* **特徵選取**：此程序會選取原始資料特徵的主要子集，以嘗試縮減定型問題的維度。
+* **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
+* **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。
 
 通常會先套用**特性工程設計**以產生其他特定，然後執行**特性選取**步驟以排除不相關、多餘或高度相關的特性。
 
@@ -40,11 +38,11 @@ ms.locfileid: "60809594"
 
 監督環境中有一個廣泛應用的特徵選取方法類別，稱之為「以篩選為基礎的特徵選取」。 這些方法會評估每個特性與目標屬性之間的相關性，套用統計量值以將評分指派給每個特性。 接著會依分數將特性排名，而分數可用來設定保留或排除特定特性的臨界值。 這些方法中使用的統計量值範例包含皮耳森相關、相互資訊和卡方檢定。
 
-Azure Machine Learning Studio 中有針對特性選取而提供的模組。 如下圖所示，這些模組包含[以篩選為基礎的特性選取][filter-based-feature-selection]和[費雪線性判別分析][fisher-linear-discriminant-analysis]。
+Azure Machine Learning Studio 中有針對特性選取而提供的模組。 如下圖所示，這些模組包含以[篩選為基礎的特徵選取][filter-based-feature-selection]和[費雪線性判別分析][fisher-linear-discriminant-analysis]。
 
 ![特徵選取模組](./media/select-features/feature-Selection.png)
 
-例如，請考慮使用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組。 為了方便起見，繼續使用文字採礦範例。 假設在透過[特徵雜湊][feature-hashing]模組建立一組 256 個特徵之後，我們想要建置一個迴歸模型，其回應變數為 "Col1" 並代表 1 至 5 的書籍評論評等。 將 [特性評分方法] 設定為 [皮耳森相關]，則 [目標欄] 會是 "Col1"，而 [所需的特性數] 會是 50。 然後，[以篩選為基礎的特徵選取][filter-based-feature-selection]模組會產生一個包含 50 個特徵且目標屬性為 "Col1" 的資料集。 下圖顯示此實驗的流程以及輸入參數：
+例如，請考慮使用以[篩選為基礎的特徵選取][filter-based-feature-selection]模組。 為了方便起見，繼續使用文字採礦範例。 假設您想要在透過[特徵雜湊][feature-hashing]模組建立一組256功能之後建立回歸模型，而且回應變數為 "Col1"，其中包含從1到5的書籍評論評等。 將 [特性評分方法] 設定為 [皮耳森相關]，則 [目標欄] 會是 "Col1"，而 [所需的特性數] 會是 50。 然後，以[篩選器為基礎的特徵選取][filter-based-feature-selection]模組會產生一個包含50特徵的資料集，並將目標屬性設定為 "Col1"。 下圖顯示此實驗的流程以及輸入參數：
 
 ![以篩選為基礎的特徵選取模組屬性](./media/select-features/feature-Selection1.png)
 
@@ -58,7 +56,7 @@ Azure Machine Learning Studio 中有針對特性選取而提供的模組。 如�
 
 ![以篩選為基礎的特徵選取模組的分數](./media/select-features/feature-Selection3.png)
 
-套用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組，以選取 256 個特徵中的 50 個特徵，因為根據「皮耳森相關」評分方法，其具有目標變數 "Col1" 的最相關特徵。
+藉由套用此以[篩選器為基礎的特徵選取][filter-based-feature-selection]模組，會選取50的256功能，因為根據評分方法「皮耳森相互關聯」，其具有與目標變數「Col1」最相關的功能。
 
 ## <a name="conclusion"></a>結論
 功能工程設計和選取是兩種常見的工程設計和選取的功能，可提高下列定型程序的效率：嘗試擷取資料中內含的重要資訊。 此外，還可改善這些模型的功效，正確地分類輸入資料以及更精確地預測感興趣的結果。 特性工程設計和選取也可結合起來，讓學習更易於以運算方式處理。 其作法是提高而後減少校正或定型模型所需的特性數量。 從數學的角度來看，選取用來定型模型的特性是極小的一組獨立變數，可供解釋資料中的模式，然後成功地預測結果。

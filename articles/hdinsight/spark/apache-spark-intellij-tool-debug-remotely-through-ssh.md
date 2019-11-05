@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ：透過 SSH 對 Spark 應用程式進行遠端偵錯 '
+title: Azure Toolkit for IntelliJ：使用 SSH （HDInsight）進行 Spark 應用程式的 Debug
 description: 逐步指引如何使用適用於 IntelliJ 之 Azure 工具組中的 HDInsight 工具，透過 SSH 對 HDInsight 叢集上的應用程式進行遠端偵錯
 keywords: 遠端偵錯 intellij, 進行 intellij 遠端偵錯, ssh, intellij, hdinsight, 偵錯 intellij, 偵錯
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 1f3f08385ac4f7044f4e6c4e4110be701e8f576d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 82aaead87fad0ed9fc7b715baf3dc5ebbd4941be
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266211"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494613"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用 Azure Toolkit for IntelliJ 透過 SSH 對 HDInsight 叢集上的應用程式進行 Debug Apache Spark
 
@@ -32,17 +32,17 @@ ms.locfileid: "71266211"
 
    a. 選取 [ **Azure Spark/HDInsight**]。 
 
-   b. 根據您的喜好設定選取 Java 或 Scala 範本。 在下列選項之間進行選取：
+   b.這是另一個 C# 主控台應用程式。 根據您的喜好設定選取 Java 或 Scala 範本。 在下列選項之間進行選取：
 
-   - **Spark 專案 (JAVA)**
+   - **Spark 專案（JAVA）**
 
-   - **Spark 專案 (Scala)**
+   - **Spark 專案（Scala）**
 
-   - **具有範例的 Spark 專案 (Scala)**
+   - **具有範例的 Spark 專案（Scala）**
 
-   - **Spark 專案與失敗工作的調試範例 (預覽) (Scala)**
+   - **Spark 專案與失敗工作的調試範例（預覽）（Scala）**
 
-     這個範例會使用**Spark 專案搭配範例 (Scala)** 範本。
+     這個範例會使用**Spark 專案搭配範例（Scala）** 範本。
 
    c. 在 [建置工具] 清單中，根據您的需求選取下列任一項目：
 
@@ -60,7 +60,7 @@ ms.locfileid: "71266211"
 
    a. 輸入專案名稱和專案位置。
 
-   b. 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] \(適用於 **Spark 2.x** 叢集)，或選取 [Java 1.7] \(適用於 **Spark 1.x** 叢集)。
+   b.這是另一個 C# 主控台應用程式。 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] \(適用於 **Spark 2.x** 叢集)，或選取 [Java 1.7] \(適用於 **Spark 1.x** 叢集)。
 
    c. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 **Spark 2.x**。 此範例使用 **Spark 2.0.2 (Scala 2.11.8)** 。
 
@@ -85,8 +85,8 @@ ms.locfileid: "71266211"
 
     ![Intellij 執行調試設定本機執行](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
-    - [環境變數](#prerequisite-for-windows)：如果您已將系統環境變數 **HADOOP_HOME** 設定為 **C:\WinUtils**，它可以自動偵測，而不需手動新增。
-    - [WinUtils.exe 位置](#prerequisite-for-windows)：如果您尚未設定系統環境變數，可按一下此按鈕來尋找位置。
+    - [環境變數](#prerequisite-for-windows)：如果您已將系統環境變數 **HADOOP_HOME** 設定為 **C:\WinUtils**，它可以自動偵測，不需要手動新增。
+    - [WinUtils.exe 位置](#prerequisite-for-windows)：如果您尚未設定系統環境變數，您可以按一下此按鈕以找到位置。
     - 只要選擇兩個選項之一，在 MacOS 和 Linux 上不需要它們。
 
 1. 您也可以在執行本機執行和本機偵錯之前手動設定。 在上述螢幕擷取畫面中，選取加號 ( **+** )。 然後選取 [**在 HDInsight 上 Apache Spark** ] 選項。 輸入 [名稱] 的資訊、要儲存的**主要類別名稱**，然後按一下本機執行按鈕。
@@ -106,11 +106,11 @@ ms.locfileid: "71266211"
 
    ![Intellij 新增設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 
-1. 切換至 [在叢集中遠端執行] 索引標籤。輸入 [Name] \(名稱\)、 **[Spark cluster] \(Spark 叢集\)** 和 [Main class name] \(主要類別名稱\)。 然後按一下 **[Advanced configuration (遠端偵錯)** ]。 我們的工具支援使用**執行程式**進行偵錯。 **NumExectors**，預設值為 5。 您最好不要設定高於 3。
+1. 切換至 [在叢集中**遠端執行**] 索引標籤。輸入 [**名稱**]、[ **Spark**叢集] 和 [**主要類別名稱**] 的資訊。 然後按一下 **[Advanced configuration （遠端偵錯）** ]。 我們的工具支援使用**執行程式**進行偵錯。 **NumExectors**，預設值為 5。 您最好不要設定高於 3。
 
    ![Intellij 執行 debug 設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. 在 [ **Advanced Configuration (遠端偵錯)** ] 元件中, 選取 [**啟用 Spark 遠端 debug**]。 輸入 SSH 使用者名稱，然後輸入密碼或使用私密金鑰檔案。 如果您想要執行遠端偵錯，您需要設定它。 如果您只想要使用遠端執行，則不需要設定它。
+1. 在 [ **Advanced Configuration （遠端偵錯）** ] 元件中，選取 [**啟用 Spark 遠端 debug**]。 輸入 SSH 使用者名稱，然後輸入密碼或使用私密金鑰檔案。 如果您想要執行遠端偵錯，您需要設定它。 如果您只想要使用遠端執行，則不需要設定它。
 
    ![Intellij Advanced Configuration 啟用 spark 遠端 debug](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
@@ -162,17 +162,17 @@ ms.locfileid: "71266211"
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
-* 建立 Scala 專案 (影片)：[建立 Apache Spark Scala 應用程式](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) \(英文\)
-* 遠端偵錯 (影片)：[使用 Azure Toolkit for IntelliJ 對 HDInsight 叢集上的 Apache Spark 應用程式進行遠端偵錯](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) \(英文\)
+* 建立 Scala 專案 (影片)：[Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (建立 Apache Spark Scala 應用程式)
+* 遠端偵錯 (影片)：[Use Azure Toolkit for IntelliJ to debug Spark applications remotely on an HDInsight cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (使用 Azure Toolkit for IntelliJ 遠端偵錯 HDInsight 叢集上的 Apache Spark 應用程式)
 
 ### <a name="scenarios"></a>案例
-* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
-* [使用 Scala 建立獨立應用程式](../hdinsight-apache-spark-create-standalone-application.md)
+* [使用 Scala 來建立獨立的應用程式](../hdinsight-apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

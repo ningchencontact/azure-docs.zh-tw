@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 儲存體
+title: 儲存體：將內部部署 Apache Hadoop 遷移至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集移轉至 Azure HDInsight 的儲存體最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028933"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494946"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight
 
-本文提供 Azure HDInsight 系統中的資料儲存建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
+本文提供 Azure HDInsight 系統中的資料儲存建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
 
 ## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>為 HDInsight 叢集選擇正確的儲存體系統
 
@@ -25,7 +25,7 @@ ms.locfileid: "72028933"
 
 ### <a name="azure-storage"></a>Azure 儲存體
 
-HDInsight 叢集可以使用 Azure 儲存體中的 Blob 容器作為預設檔案系統或其他檔案系統。 目前支援將標準層儲存體帳戶用於 HDInsight 叢集。 進階層不受支援。 預設 Blob 容器會儲存叢集特定資訊，例如作業歷程記錄和記錄。 不支援多個叢集共用一個 Blob 容器作為預設檔案系統。
+HDInsight 叢集可以使用 Azure 儲存體中的 Blob 容器作為預設檔案系統或其他檔案系統。 標準層儲存體帳戶支援搭配 HDInsight 叢集使用。 進階層不受支援。 預設 Blob 容器會儲存叢集特定資訊，例如作業歷程記錄和記錄。 不支援共用一個 blob 容器做為多個叢集的預設檔案系統。
 
 建立程序中定義的儲存體帳戶及其各自的金鑰會儲存在叢集節點的 `%HADOOP_HOME%/conf/core-site.xml` 中。 您也可以在 Ambari UI 中，從 HDFS 組態中的 [自訂核心網站] 區段下加以存取。 依預設會為儲存體帳戶金鑰加密，並在金鑰傳至 Hadoop 精靈之前使用自訂解密指令碼將金鑰解密。 包括 Hive、MapReduce、Hadoop 串流和 Pig 在內的各項作業，可夾帶儲存體帳戶的說明和中繼資料。
 
@@ -33,7 +33,7 @@ Azure 儲存體可進行異地複寫。 雖然異地複寫可提供地理位置�
 
 您可以使用下列其中一種格式來存取儲存在 Azure 儲存體中的資料：
 
-|資料存取格式 |描述 |
+|資料存取格式 |說明 |
 |---|---|
 |`wasb:///`|使用未加密通訊存取預設儲存體。|
 |`wasbs:///`|使用加密通訊存取預設儲存體。|
@@ -71,7 +71,7 @@ keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -store
 keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 ```
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [搭配使用 Azure 儲存體與 Azure HDInsight 叢集](../hdinsight-hadoop-use-blob-storage.md)
 - [Azure 儲存體的延展性與效能目標](../../storage/common/storage-scalability-targets.md)
@@ -83,7 +83,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 Azure Data Lake Storage 會實作 HDFS 和 POSIX 樣式的存取控制模型。 它可與 AAD 緊密整合，以進行精細的存取控制。 它可儲存的資料並沒有大小的限制，且其執行大量平行分析的能力也不受限。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [使用 Azure 入口網站建立搭配 Data Lake Storage 的 HDInsight 叢集](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [搭配使用 Data Lake Storage 與 Azure HDInsight 叢集](../hdinsight-hadoop-use-data-lake-store.md)
@@ -94,25 +94,25 @@ Azure Data Lake Storage Gen2 是最新的儲存體供應專案。 它統合了�
 
 ADLS Gen 2 以 [Azure Blob 儲存體](../../storage/blobs/storage-blobs-introduction.md)作為建置基礎，可讓您使用檔案系統和物件儲存體範例來處理資料。  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md) 的功能 (例如檔案系統語意、檔案層級安全性和級別) 結合了  [Azure Blob 儲存體](../../storage/blobs/storage-blobs-introduction.md)的低成本、分層式儲存體、高可用性/災害復原功能及大型 SDK/工具生態系統。 在 Data Lake Storage Gen2 中，所有物件儲存體的品質都維持不變，另外還增加了經過分析工作負載最佳化的檔案系統介面優點。
 
-Data Lake Storage Gen2 的基本功能是將 [階層式命名空間](../../storage/data-lake-storage/namespace.md) 新增至 Blob 儲存體服務；該服務可將物件/檔案整理成階層式目錄，以進行高效能資料存取。 階層式結構可讓重新命名或刪除目錄之類的作業成為目錄中單一不可部分完成的中繼資料作業，而不是列舉及處理共用目錄名稱前置詞的所有物件。
+Data Lake Storage Gen2 的基本功能是將 [階層式命名空間](../../storage/data-lake-storage/namespace.md) 新增至 Blob 儲存體服務；該服務可將物件/檔案整理成階層式目錄，以進行高效能資料存取。 階層式結構可讓您在目錄上重新命名或刪除目錄，使其成為單一不可部分完成的中繼資料作業，而不是列舉及處理共用目錄名稱前置詞的所有物件。
 
 以往雲端式分析必須在效能、管理及安全性方面妥協。 Azure Data Lake Storage (ADLS) Gen2 的主要功能如下：
 
 - **Hadoop 相容存取**：Azure Data Lake Storage Gen2 可讓您管理及存取資料，就如同使用  [Hadoop 分散式檔案系統 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 新的  [ABFS 驅動程式](../../storage/data-lake-storage/abfs-driver.md) 可在  [Azure HDInsight](../index.yml) 中包含的所有 Apache Hadoop 環境中使用。 此驅動程式可讓您存取儲存在 Data Lake Storage Gen2 中的資料。
 
-- **POSIX 權限的超集合**：Data Lake Gen2 的安全性模型可完整支援 ACL 和 POSIX 權限，以及一些 Data Lake Storage Gen2 特有的額外細微性。 這些設定可透過系統管理工具或 Hive 和 Spark 這類架構來配置。
+- **POSIX 權限的超集合**：Data Lake Gen2 的安全性模型可完全支援 ACL 和 POSIX 權限，以及一些 Data Lake Storage Gen2 特有的額外細微姓。 這些設定可透過系統管理工具或 Hive 和 Spark 這類架構來配置。
 
-- **成本效益**：Data Lake Storage Gen2 具有低成本儲存體容量和異動功能。 隨著資料在整個生命週期中的轉換，計費率會有所變更，透過  [Azure Blob 儲存體生命週期](../../storage/common/storage-lifecycle-management-concepts.md)等內建功能將成本降到最低。
+- **符合成本效益**：Data Lake Storage Gen2 具有低成本儲存體容量和異動功能。 隨著資料在整個生命週期中的轉換，計費率會有所變更，透過  [Azure Blob 儲存體生命週期](../../storage/common/storage-lifecycle-management-concepts.md)等內建功能將成本降到最低。
 
-- **搭配使用 Blob 儲存體工具、架構和應用程式**：Data Lake Storage Gen2 可繼續搭配使用現今仍有的各種 Blob 儲存體工具、架構及應用程式。
+- **可搭配使用 Blob 儲存體工具、架構及應用程式**：Data Lake Storage Gen2 可繼續搭配使用現今仍有的各種 Blob 儲存體工具、架構及應用程式。
 
-- **最佳化的驅動程式**：Azure Blob Filesystem 驅動程式 (ABFS) 已特別針對巨量資料分析 [完成最佳化](../../storage/data-lake-storage/abfs-driver.md) 。 對應的 REST API 會透過 dfs 端點 dfs.core.windows.net 呈現。
+- **已最佳化的驅動程式**：Azure Blob Filesystem 驅動程式 (ABFS) 已特別針對巨量資料分析 [完成最佳化](../../storage/data-lake-storage/abfs-driver.md) 。 對應的 REST API 會透過 dfs 端點 dfs.core.windows.net 呈現。
 
 您可以使用下列其中一種格式來存取儲存在 ADLS Gen2 中的資料：
-- `abfs:///`:存取叢集的預設 Data Lake Storage。
-- `abfs://file_system@account_name.dfs.core.windows.net`:與非預設 Data Lake Storage 進行通訊時使用。
+- `abfs:///`︰存取叢集的預設 Data Lake Storage。
+- `abfs://file_system@account_name.dfs.core.windows.net`：與非預設 Data Lake Storage 進行通訊時使用。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [Azure Data Lake Storage Gen2 簡介](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob Filesystem 驅動程式 (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
@@ -155,7 +155,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 1. 開啟 [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 檔案並變更下列值：
 
-    |權杖屬性|描述|
+    |權杖屬性|說明|
     |---|---|
     |policy_name|要建立的預存原則所要使用的名稱。|
     |storage_account_name|儲存體帳戶的名稱。|
@@ -193,16 +193,16 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 ## <a name="use-data-encryption-and-replication"></a>使用資料加密和複寫
 
-所有寫入至 Azure 儲存體的資料，都會使用 [儲存體服務加密 (SSE)](../../storage/common/storage-service-encryption.md) 自動加密。 Azure 儲存體帳戶中的資料一律會進行複寫，以確保高可用性。 建立儲存體帳戶時，您可以選擇下列其中一個複寫選項：
+所有寫入至 Azure 儲存體的資料，都會使用 [儲存體服務加密 (SSE)](../../storage/common/storage-service-encryption.md) 自動加密。 Azure 儲存體帳戶中的資料一律會進行複寫，以確保高可用性。 當您建立儲存體帳戶時，可以選擇下列其中一個複寫選項：
 
 - [本地備援儲存體 (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [區域備援儲存體 (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [異地備援儲存體 (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [讀取權限異地備援儲存體 (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符合災害復原計畫需求的頻率，將重要資料複製到位於其他區域的另一個 Data Lake Storage 帳戶。 您可以使用各種方法來複製資料，包括  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)、DistCp、[Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) 或  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)。 此外也建議您為 Data Lake Storage 帳戶強制執行存取原則，以防止意外刪除。
+Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符合災害復原計畫需求的頻率，將重要資料複製到位於其他區域的另一個 Data Lake Storage 帳戶。 有各種方法可以複製資料，包括 [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)、DistCp、 [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)或 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)。 也建議對 Data Lake Storage 帳戶強制執行存取原則，以防止意外刪除。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [Azure 儲存體複寫](../../storage/common/storage-redundancy.md)
 - [Azure Data Lake Storage (ADLS) 的災害指引](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
@@ -218,7 +218,7 @@ Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符�
 > [!Note]
 > 在有效的使用案例中，可透過對  [Azure 支援](https://azure.microsoft.com/support/faq/)提出要求來提高 Azure 儲存體的限制。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 - [將其他儲存體帳戶新增至 HDInsight](../hdinsight-hadoop-add-storage.md)
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 以虛擬核心為基礎的資源限制 - 單一資料庫 | Microsoft Docs
-description: 此頁面將針對 Azure SQL Database 中的單一資料庫，說明一些以虛擬核心為基礎的常見資源限制。
+title: Azure SQL Database vCore 資源限制-單一資料庫 |Microsoft Docs
+description: 此頁面會針對 Azure SQL Database 中的單一資料庫，說明一些常見的 vCore 資源限制。
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,29 +10,115 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/21/2019
-ms.openlocfilehash: 108e31ebff5910c139bcaf83675cc8161c2a96f6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: 55b0b28f3081cfe643645683a9773b4c97b9caef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693357"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495938"
 ---
-# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用 vCore 為基礎的購買模型的單一資料庫資源限制
+# <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>使用 vCore 購買模型的單一資料庫資源限制
 
-本文使用以虛擬核心為基礎的購買模型，提供 Azure SQL Database 單一資料庫的詳細資源限制。
+本文提供使用 vCore 購買模型 Azure SQL Database 單一資料庫的詳細資源限制。
 
-如需 SQL Database 伺服器上單一資料庫的以 DTU 為基礎的購買模型限制，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
+如需 SQL Database 伺服器上單一資料庫的 DTU 購買模型限制，請參閱[SQL Database 伺服器上的資源限制總覽](sql-database-resource-limits-database-server.md)。
 
-> [!IMPORTANT]
-> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
 
 > [!IMPORTANT]
 > 如需調整指引和考慮，請參閱[調整單一資料庫](sql-database-single-database-scale.md)。
 
-## <a name="general-purpose-service-tier-for-provisioned-compute"></a>已布建計算的一般用途服務層級
+
+## <a name="general-purpose---serverless-compute---gen5"></a>一般用途-無伺服器計算-第5代
+
+[無伺服器計算層](sql-database-serverless.md)目前僅適用于第5代硬體。
+
+### <a name="gen5-compute-generation-part-1"></a>第5代計算世代（第1部分）
+
+|計算大小|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|:--- | --: |--: |--: |--: |--: |
+|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|
+|最小值-最大虛擬核心|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
+|最小值-最大記憶體（GB）|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
+|最小自動暫停延遲（分鐘）|60|60|60|60|60|
+|資料行存放區支援|是|是|是|是|是|
+|OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|
+|資料大小上限 (GB)|512|1024|1024|1024|1536|
+|記錄大小上限 (GB)|154|307|307|307|461|
+|TempDB 最大資料大小（GB）|32|64|128|192|256|
+|儲存體類型|遠端 SSD|遠端 SSD|遠端 SSD|遠端 SSD|遠端 SSD|
+|IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
+|最大資料 IOPS （64 KB）|500|1000|2000|3000|4000|
+|最大記錄速率（MBps）|2.5|5.6|10|15|20|
+|並行背景工作 (要求) 數上限|75|150|300|450|600|
+|並行工作階段數上限|30000|30000|30000|30000|30000|
+|複本數目|1|1|1|1|1|
+|多重 AZ|N/A|N/A|N/A|N/A|N/A|
+|讀取向外延展|N/A|N/A|N/A|N/A|N/A|
+|內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
+
+### <a name="gen5-compute-generation-part-2"></a>第5代計算世代（第2部分）
+
+|計算大小|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|:--- | --: |--: |--: |--: |
+|計算世代|Gen5|Gen5|Gen5|Gen5|
+|最小值-最大虛擬核心|1.25-10|1.50-12|1.75-14|2.00-16|
+|最小值-最大記憶體（GB）|3.75-30|4.50-36|5.25-42|6.00-48|
+|最小自動暫停延遲（分鐘）|60|60|60|60|
+|資料行存放區支援|是|是|是|是|
+|OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|
+|資料大小上限 (GB)|1536|1536|1536|3072|
+|記錄大小上限 (GB)|461|461|461|922|
+|TempDB 最大資料大小（GB）|320|384|448|512|
+|儲存體類型|遠端 SSD|遠端 SSD|遠端 SSD|遠端 SSD|
+|IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
+|最大資料 IOPS （64 KB）|5000|6000|7000|8000|
+|最大記錄速率（MBps）|20|20|20|20|
+|並行背景工作 (要求) 數上限|750|900|1050|1200|
+|並行工作階段數上限|30000|30000|30000|30000|
+|複本數目|1|1|1|1|
+|多重 AZ|N/A|N/A|N/A|N/A|
+|讀取向外延展|N/A|N/A|N/A|N/A|
+|內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
+
+
+## <a name="hyperscale---provisioned-compute---gen5"></a>超大規模資料庫-布建的計算-第5代
+
+### <a name="gen5-compute-generation"></a>第5代計算世代
+
+|效能等級|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|虛擬核心|2|4|8|16|24|32|40|80|
+|記憶體 (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute)容量|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|
+|資料行存放區支援|是|是|是|是|是|是|是|是|
+|OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|資料大小上限 (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|記錄大小上限 (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB 最大資料大小（GB）|64|128|256|384|384|384|384|384|
+|儲存體類型| [附注1](#notes) |[附注1](#notes)|[附注1](#notes) |[附注1](#notes) |[附注1](#notes) |[附注1](#notes) |[附注1](#notes) | [附注1](#notes) |
+|最大資料 IOPS （64 KB）|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|
+|IO 延遲 (大約)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|
+|並行背景工作 (要求) 數上限|200|400|800|1600|2400|3200|4000|8000|
+|並行工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
+|次要複本|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
+|多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|讀取向外延展|是|是|是|是|是|是|是|是|
+|備份儲存體保留期|7 天|7 天|7 天|7 天|7 天|7 天|7 天|7 天|
+|||
+
+#### <a name="notes"></a>注意事項
+
+**附注 1**：超大規模資料庫是多層式架構，具有不同的計算和儲存元件：[超大規模資料庫服務層架構](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+
+**附注 2**：超大規模資料庫多層式架構有多個層級的快取。 有效的 IOPS 將視工作負載而定。
+
+**附注 3**：計算複本上以 RBPEX SSD 為基礎的快取中的資料延遲為1-2 毫秒，這會快取最常使用的資料頁。 從頁面伺服器抓取資料的延遲較高。
+
+## <a name="general-purpose---provisioned-compute---gen4"></a>一般用途-布建的計算-第4代
 
 > [!IMPORTANT]
 > 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
@@ -83,6 +169,8 @@ ms.locfileid: "72693357"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
+## <a name="general-purpose---provisioned-compute---gen5"></a>一般用途-布建的計算-第5代
+
 ### <a name="gen5-compute-generation-part-1"></a>第5代計算世代（第1部分）
 
 |計算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
@@ -129,59 +217,34 @@ ms.locfileid: "72693357"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-## <a name="general-purpose-service-tier-for-serverless-compute"></a>無伺服器計算的一般用途服務層級
+## <a name="general-purpose---provisioned-compute---fsv2-series"></a>一般用途-布建的計算-Fsv2 系列
 
-[無伺服器計算層](sql-database-serverless.md)處於預覽狀態。
+### <a name="fsv2-series-compute-generation-preview"></a>Fsv2 系列計算產生（預覽）
 
-### <a name="gen5-compute-generation-part-1"></a>第5代計算世代（第1部分）
+|計算大小|GP_Fsv2_72|
+|:--- | --: |
+|計算世代|Fsv2 系列|
+|虛擬核心|72|
+|記憶體 (GB)|136|
+|資料行存放區支援|是|
+|OLTP 記憶體內部儲存體 (GB)|N/A|
+|資料大小上限 (GB)|4096|
+|記錄大小上限 (GB)|1024|
+|TempDB 最大資料大小（GB）|333|
+|儲存體類型|遠端 SSD|
+|IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
+|最大資料 IOPS （64 KB）|36000|
+|最大記錄速率（MBps）|30|
+|並行背景工作數上限（探索」）|3600|
+|並行工作階段數上限|30000|
+|複本數目|1|
+|多重 AZ|N/A|
+|讀取向外延展|N/A|
+|內含備份儲存體|1X DB 大小|
 
-|計算大小|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
-|:--- | --: |--: |--: |--: |--: |
-|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|
-|最小值-最大虛擬核心|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
-|最小值-最大記憶體（GB）|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
-|最小自動暫停延遲（分鐘）|60|60|60|60|60|
-|資料行存放區支援|是|是|是|是|是|
-|OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|
-|資料大小上限 (GB)|512|1024|1024|1024|1536|
-|記錄大小上限 (GB)|154|307|307|307|461|
-|TempDB 最大資料大小（GB）|32|64|128|192|256|
-|儲存體類型|遠端 SSD|遠端 SSD|遠端 SSD|遠端 SSD|遠端 SSD|
-|IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
-|最大資料 IOPS （64 KB）|500|1000|2000|3000|4000|
-|最大記錄速率（MBps）|2.5|5.6|10|15|20|
-|並行背景工作 (要求) 數上限|75|150|300|450|600|
-|並行工作階段數上限|30000|30000|30000|30000|30000|
-|複本數目|1|1|1|1|1|
-|多重 AZ|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|N/A|N/A|N/A|N/A|N/A|
-|內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="gen5-compute-generation-part-2"></a>第5代計算世代（第2部分）
 
-|計算大小|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
-|:--- | --: |--: |--: |--: |
-|計算世代|Gen5|Gen5|Gen5|Gen5|
-|最小值-最大虛擬核心|1.25-10|1.50-12|1.75-14|2.00-16|
-|最小值-最大記憶體（GB）|3.75-30|4.50-36|5.25-42|6.00-48|
-|最小自動暫停延遲（分鐘）|60|60|60|60|
-|資料行存放區支援|是|是|是|是|
-|OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|
-|資料大小上限 (GB)|1536|1536|1536|3072|
-|記錄大小上限 (GB)|461|461|461|922|
-|TempDB 最大資料大小（GB）|320|384|448|512|
-|儲存體類型|遠端 SSD|遠端 SSD|遠端 SSD|遠端 SSD|
-|IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
-|最大資料 IOPS （64 KB）|5000|6000|7000|8000|
-|最大記錄速率（MBps）|20|20|20|20|
-|並行背景工作 (要求) 數上限|750|900|1050|1200|
-|並行工作階段數上限|30000|30000|30000|30000|
-|複本數目|1|1|1|1|
-|多重 AZ|N/A|N/A|N/A|N/A|
-|讀取向外延展|N/A|N/A|N/A|N/A|
-|內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
-
-## <a name="business-critical-service-tier-for-provisioned-compute"></a>已布建計算的商務關鍵服務層級
+## <a name="business-critical---provisioned-compute---gen4"></a>商務關鍵性-布建的計算-第4代
 
 > [!IMPORTANT]
 > 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
@@ -234,7 +297,9 @@ ms.locfileid: "72693357"
 |讀取向外延展|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="gen5-compute-compute-part-1"></a>第5代計算計算（第1部分）
+## <a name="business-critical---provisioned-compute---gen5"></a>商務關鍵性-布建的計算-第5代
+
+### <a name="gen5-compute-generation-part-1"></a>第5代計算世代（第1部分）
 
 |計算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -282,45 +347,43 @@ ms.locfileid: "72693357"
 |讀取向外延展|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-## <a name="hyperscale-service-tier-for-provisioned-compute"></a>已布建計算的超大規模資料庫服務層級
 
-### <a name="gen5-compute-generation"></a>第5代計算世代
+## <a name="business-critical---provisioned-compute---m-series"></a>商務關鍵性-布建的計算-M 系列
 
-|效能等級|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
-|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|虛擬核心|2|4|8|16|24|32|40|80|
-|記憶體 (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute)容量|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|記憶體3倍|
-|資料行存放區支援|是|是|是|是|是|是|是|是|
-|OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|資料大小上限 (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
-|記錄大小上限 (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
-|TempDB 最大資料大小（GB）|64|128|256|384|384|384|384|384|
-|儲存體類型| [附注1](#notes) |[附注1](#notes)|[附注1](#notes) |[附注1](#notes) |[附注1](#notes) |[附注1](#notes) |[附注1](#notes) | [附注1](#notes) |
-|最大資料 IOPS （64 KB）|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|
-|IO 延遲 (大約)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|
-|並行背景工作 (要求) 數上限|200|400|800|1600|2400|3200|4000|8000|
-|並行工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
-|次要複本|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|是|是|是|是|是|是|是|是|
-|備份儲存體保留期|7 天|7 天|7 天|7 天|7 天|7 天|7 天|7 天|
-|||
+### <a name="m-series-compute-generation-preview"></a>M 系列計算產生（預覽）
 
-#### <a name="notes"></a>注意
+|計算大小|GP_M_128|
+|:--- | --: |
+|計算世代|M 系列|
+|虛擬核心|128|
+|記憶體 (GB)|3767|
+|資料行存放區支援|是|
+|OLTP 記憶體內部儲存體 (GB)|481|
+|資料大小上限 (GB)|4096|
+|記錄大小上限 (GB)|2048|
+|TempDB 最大資料大小（GB）|4096|
+|儲存體類型|本機 SSD|
+|IO 延遲 (大約)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|
+|最大資料 IOPS （64 KB）|204800|
+|最大記錄速率（MBps）|192|
+|並行背景工作 (要求) 數上限|12800|
+|並行工作階段數上限|30000|
+|複本數目|4|
+|多重 AZ|是|
+|讀取向外延展|是|
+|內含備份儲存體|1X DB 大小|
 
-**附注 1**：超大規模資料庫是多層式架構，具有不同的計算和儲存元件：[超大規模資料庫服務層架構](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-**附注 2**：超大規模資料庫多層式架構有多個層級的快取。 有效的 IOPS 將視工作負載而定。
 
-**附注 3**：計算複本上以 RBPEX SSD 為基礎的快取中的資料延遲為1-2 毫秒，這會快取最常使用的資料頁。 從頁面伺服器抓取資料的延遲較高。
+
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
-- 如需適用於彈性集區的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
-- 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
+- 如需單一資料庫的 DTU 資源限制，請參閱[使用 DTU 購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 如需彈性集區的 vCore 資源限制，請參閱[使用 vCore 購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
+- 如需彈性集區的 DTU 資源限制，請參閱[使用 dtu 購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

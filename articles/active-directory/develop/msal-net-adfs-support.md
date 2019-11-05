@@ -18,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f2d43455ff15089accc2463db83349abcea564
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 273a8b06b3bd3bf299b47a1cc52fd4660353cec3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473740"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET 中的 Active Directory 同盟服務支援
-Windows Server 中的 Active Directory 同盟服務（AD FS）可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您正在開發的應用程式。 然後，這些應用程式就可以直接針對 AD FS 驗證使用者。 如需詳細資訊，請參閱[開發人員 AD FS 案例](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)。
+Windows Server 中的 Active Directory 同盟服務（AD FS）可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您正在開發的應用程式。 然後，這些應用程式就可以直接針對 AD FS 驗證使用者。 如需詳細資訊，請參閱[開發人員 AD FS 案例](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)。
 
 適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）支援兩種針對 AD FS 進行驗證的案例：
 
@@ -61,6 +61,6 @@ MSAL.NET 支援連接到 AD FS 2019，這是與 Open ID Connect 相容，並瞭�
 
  如果您需要支援需要直接連線至 AD FS 2016 的案例，請使用最新版的[Azure Active Directory Authentication Library](active-directory-authentication-libraries.md#microsoft-supported-client-libraries)。 當您將內部部署系統升級至 AD FS 2019 時，您將能夠使用 MSAL.NET。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 針對同盟案例，請參閱[使用主領域探索原則來設定應用程式的 Azure Active Directory 登入行為](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

@@ -10,62 +10,62 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a93c71a97cdb1f6296919a248cf7ef545f7b307f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: df23c41629dfe86058f0f2fb6602e85fd5a6d494
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489300"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
 在本文中，您將瞭解如何使用 Visual Studio Code 延伸模組的**Azure Machine Learning**來訓練和部署機器學習模型。
 
-[Azure Machine Learning 服務](overview-what-is-azure-ml.md)簡化了機器學習模型的建立、定型和部署。
+[Azure Machine Learning](overview-what-is-azure-ml.md)簡化了機器學習模型的建立、定型和部署。
 + 針對訓練，它提供在本機或遠端執行實驗的支援。 針對每個實驗，您可以記錄多個執行的自訂計量，以微調超參數
-+ 您也可以使用 Azure Machine Learning 服務，輕鬆地為您的測試和生產需求部署機器學習模型。
++ 您也可以使用 Azure Machine Learning，輕鬆地為您的測試和生產需求部署機器學習模型。
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
++ 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 + 安裝[Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)，這是在 Windows、Mac 和 Linux 上執行的輕量程式碼編輯器。
 
 + [安裝 Python 3.5 或更新版本](https://www.anaconda.com/download/)。
 
 
-## <a name="install-the-extension"></a>安裝延伸模組
+## <a name="install-the-extension"></a>安裝擴充功能
 
 當您安裝 Azure Machine Learning 擴充功能時，會自動安裝兩個以上的延伸模組。 它們是[Azure 帳戶延伸](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)模組和[Microsoft Python 擴充](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python)功能。 如需有關使用 Python 擴充功能來編輯、執行及對 Python 程式碼進行偵錯工具的詳細資訊，請參閱[python hello world 教學](https://code.visualstudio.com/docs/Python/Python-tutorial)課程。
 
-若要安裝 Azure Machine Learning 延伸模組:
+若要安裝 Azure Machine Learning 延伸模組：
 
 1. 開啟 Visual Studio Code。
 
 1. 切換至 [擴充功能] 索引標籤，然後搜尋 "Azure Machine Learning"。
 
-1. 在 [擴充功能] 索引標籤上, 選取 [**安裝**]。
+1. 在 [擴充功能] 索引標籤上，選取 [**安裝**]。
 
 1. 延伸模組的 [歡迎使用] 索引標籤會在 Visual Studio Code 中開啟，而 Azure 符號（在下列螢幕擷取畫面中以紅色反白顯示）會新增至活動列。
 
    ![Visual Studio Code 活動列上的 Azure 圖示](./media/vscode-tools-for-ai/azure-activity-bar.png)
 
-1. 在對話方塊中, 選取 [登**入**], 並遵循提示向 Azure 進行驗證。
+1. 在對話方塊中，選取 [登**入**]，並遵循提示向 Azure 進行驗證。
 
-   與 Visual Studio Code 延伸模組的 Azure Machine Learning 一起安裝的 Azure 帳戶擴充功能, 可協助您使用 Azure 帳戶進行驗證。 如需命令清單, 請參閱[Azure 帳戶延伸](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)模組的頁面。
+   與 Visual Studio Code 延伸模組的 Azure Machine Learning 一起安裝的 Azure 帳戶擴充功能，可協助您使用 Azure 帳戶進行驗證。 如需命令清單，請參閱[Azure 帳戶延伸](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)模組的頁面。
 
 > [!TIP]
 > 您也可以直接從適用于 Visual Studio Code 延伸模組的 Azure Machine Learning 下載延伸模組安裝程式[（預覽）](https://aka.ms/vscodetoolsforai)。
 
 ## <a name="quickstart-with-azure-machine-learning"></a>Azure Machine Learning 的快速入門
-有多種方法可以使用 Azure Machine Learning 服務來執行定型腳本。 如果您剛開始使用，讓我們先逐步解說如何快速提交要在 Azure 中執行的訓練腳本。
+有多種方法可以使用 Azure Machine Learning 來執行定型腳本。 如果您剛開始使用，讓我們先逐步解說如何快速提交要在 Azure 中執行的訓練腳本。
 
 如果您已經很熟悉 Azure Machine Learning 的概念，而且想要瞭解如何管理和使用延伸模組的詳細資訊，請參閱以下[VS Code 深入瞭解 Azure Machine Learning](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) 。
 
 ## <a name="run-an-existing-python-training-script-in-azure"></a>在 Azure 中執行現有的 Python 訓練腳本
 如果您有現有的訓練腳本，VS Code 的 Azure Machine Learning 延伸模組不僅提供絕佳的編輯、偵錯工具和來源管理體驗，還可讓您輕鬆地在 Azure 中執行和儲存腳本的計量。
 
-那就開始吧。 您可以使用自己的訓練腳本（如果您已準備好），或複製範例[vscode-ai](https://github.com/microsoft/vscode-tools-for-ai)存放庫。 這是用來提出此延伸模組問題的公用存放庫。 它也包含一個小型的**mnist**範例資料夾，我們將在此範例中使用。
+現在就開始吧。 您可以使用自己的訓練腳本（如果您已準備好），或複製範例[vscode-ai](https://github.com/microsoft/vscode-tools-for-ai)存放庫。 這是用來提出此延伸模組問題的公用存放庫。 它也包含一個小型的**mnist**範例資料夾，我們將在此範例中使用。
 
 1. 在 VS Code 中開啟 [ **mnist** ] 資料夾。
 
@@ -137,7 +137,7 @@ ms.locfileid: "71269246"
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>在 Azure 中執行腳本
-就這麼容易！ 現在只要使用延伸模組在雲端中執行您的腳本！ 請注意，下列逐步解說影片可讓您自由地壓縮建立新的 Azure ML 工作區和計算所需的時間，以及執行訓練腳本所花費的時間。
+就這麼簡單！ 現在只要使用延伸模組在雲端中執行您的腳本！ 請注意，下列逐步解說影片可讓您自由地壓縮建立新的 Azure ML 工作區和計算所需的時間，以及執行訓練腳本所花費的時間。
 
    [![啟動 Azure ML 實驗](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
@@ -153,12 +153,12 @@ ms.locfileid: "71269246"
 1. 檢查實驗執行的預設名稱和規格，然後按一下 json 檔案中的 [**提交實驗**] 連結。 Json 檔案不會儲存，因為它只是為了讓您在提交前檢查或變更實驗設定。
 1. 在延伸模組為您設定所有專案並執行您的腳本之前，請先坐下來並放寬！
 
-    [![在雲端中定型](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
+    [在雲端中 ![訓練](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-幾秒鐘後，您會收到通知，告知您已將實驗提交至 Azure，此時您可以在 Azure 入口網站中，按一下 VS Code 通知中的 [ **View 實驗執行**] 連結，或按下 [重新整理]，在 VS Code 內查看其進度[Azure] 索引標籤中的按鈕。
+幾秒鐘後，您就會收到通知，告知您已將實驗提交至 Azure，您可以在 Azure Machine Learning studio 中按一下 VS Code 通知中的 [ **View 實驗執行**] 連結，或在 VS Code按下 [Azure] 索引標籤中的 [重新整理] 按鈕。
 
-目前，只有在 Azure 入口網站中才支援「查看執行計量」。 前述的「**觀看實驗執行**」連結會帶您前往執行，您會在其中看到您所記錄的計量。
-[![在入口網站中執行實驗](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
+目前，只有在 studio 中才支援「執行計量」的流覽。 前述的「**觀看實驗執行**」連結會帶您前往執行，您會在其中看到您所記錄的計量。
+[在入口網站中執行 ![實驗](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## <a name="azure-machine-learning-in-depth-with-vs-code"></a>深入瞭解 VS Code 的 Azure Machine Learning
 
@@ -168,7 +168,7 @@ ms.locfileid: "71269246"
 
 ### <a name="create-a-workspace"></a>建立工作區
 
-1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
+1. 在 Visual Studio Code 活動列上，選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
     [![建立工作區](./media/vscode-tools-for-ai/create-workspace.gif)](./media/vscode-tools-for-ai/create-workspace.gif#lightbox)
 
@@ -186,26 +186,26 @@ ms.locfileid: "71269246"
 
 1. 展開 [ **TeamWorkspace** ] 工作區。 以滑鼠右鍵按一下 [**實驗**] 節點，然後從內容功能表中選擇 [**建立實驗**]。
 
-1. 在提示中，輸入您的實驗名稱。 在範例螢幕擷取畫面中, 實驗的名稱是**MNIST**。
+1. 在提示中，輸入您的實驗名稱。 在範例螢幕擷取畫面中，實驗的名稱是**MNIST**。
 
 1. 選取 Enter 以建立新的實驗。 新實驗會在樹狀結構中顯示為 [**實驗**] 節點的子系。
 
-1. 在工作區中, 您可以用滑鼠右鍵按一下實驗, 將其設定為作用中的實驗。 在雲端中**實驗的作用中實驗連結**，指向您目前已在 Visual Studio Code 中開啟的資料夾。 此資料夾應該包含您的本機 Python 指令碼。 藉由設定作用中的實驗，所有定型回合的重要計量都會儲存在實驗中，而不論其執行位置為何。
+1. 在工作區中，您可以用滑鼠右鍵按一下實驗，將其設定為作用**中的實驗**。 在雲端中**實驗的作用中實驗連結**，指向您目前已在 Visual Studio Code 中開啟的資料夾。 此資料夾應該包含您的本機 Python 指令碼。 藉由設定作用中的實驗，所有定型回合的重要計量都會儲存在實驗中，而不論其執行位置為何。
 
     [![建立實驗](./media/vscode-tools-for-ai/create-experiment.gif)](./media/vscode-tools-for-ai/create-experiment.gif#lightbox)
 
 
 ### <a name="create-and-manage-compute-targets"></a>建立和管理計算目標
 
-使用 Visual Studio Code 的 Azure Machine Learning, 您可以準備資料、將模型定型, 並將它們部署在本機和遠端計算目標上。
+使用 Visual Studio Code 的 Azure Machine Learning，您可以準備資料、將模型定型，並將它們部署在本機和遠端計算目標上。
 
-延伸模組支援 Azure Machine Learning 的數個遠端計算目標。 如需詳細資訊, 請參閱 Azure Machine Learning 支援的[計算目標](how-to-set-up-training-targets.md)完整清單。
+延伸模組支援 Azure Machine Learning 的數個遠端計算目標。 如需詳細資訊，請參閱 Azure Machine Learning 支援的[計算目標](how-to-set-up-training-targets.md)完整清單。
 
 ### <a name="create-compute-targets-for-azure-machine-learning-in-visual-studio-code"></a>在 Visual Studio Code 中建立 Azure Machine Learning 的計算目標
 
-若要建立計算目標:
+若要建立計算目標：
 
-1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
+1. 在 Visual Studio Code 活動列上，選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
 1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。
 
@@ -219,7 +219,7 @@ ms.locfileid: "71269246"
 
 1. 輸入名稱之後，將會使用預設參數建立計算。 若要變更參數，請以滑鼠右鍵按一下新的計算，然後選擇 [**編輯計算**]。
 
-1. 在顯示的 json 中，進行所需的變更，然後按一下 [儲存並繼續] CodeLens （使用鍵盤，您可以按下**ctrl-shift-p**來叫用命令選擇區 **，並執行 Azure ML：儲存並繼續**命令）
+1. 在顯示的 json 中，進行所需的變更，然後按一下 [儲存並繼續] CodeLens （使用鍵盤時，您可以按下**ctrl-shift-p**來叫用命令選擇區，並執行**Azure ML： [儲存並繼續**] 命令）
 
 以下是如何建立和編輯 Azure Machine Learning 計算（AMLCompute）的範例：
 
@@ -239,14 +239,14 @@ ms.locfileid: "71269246"
 
 使用適用于 VS Code 的 Azure ML 擴充功能有多種方式可在實驗中執行定型腳本。
 
-1. 以滑鼠右鍵按一下定型腳本，然後**選擇 Azure ML：在 Azure 中執行身分實驗**
+1. 在定型腳本上按一下滑鼠右鍵，然後選擇 azure **ML： azure 中**的 [執行身分] 實驗
 1. 按一下 [執行實驗] 工具列圖示。
 1. 以滑鼠右鍵按一下 [回合設定] 節點。
-1. 使用 VS Code 命令選擇區來執行**Azure ML：執行實驗**
+1. 使用 VS Code 命令選擇區來執行**AZURE ML：執行實驗**
 
 若要執行 Azure Machine Learning 實驗：
 
-1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。
+1. 在 Visual Studio Code 活動列上，選取 Azure 圖示。
 
 1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。
 
@@ -254,73 +254,73 @@ ms.locfileid: "71269246"
 
 1. 選取 [執行實驗]。
 
-1. 選擇您想要執行以定型模型的 Python 檔案名，然後按 enter 以提交執行。 注意：所選擇的檔案必須位於您目前已在 VS Code 中開啟的資料夾。
+1. 選擇您想要執行以定型模型的 Python 檔案名，然後按 enter 以提交執行。 注意：所選的檔案必須位於您目前已在 VS Code 中開啟的資料夾。
 
-1. 提交回合之後，[執行]**節點**會出現在您選擇的實驗底下。 使用此節點來監視執行的狀態。 注意：可能需要定期重新整理視窗，才能看到最新狀態。
+1. 提交回合之後，[執行]**節點**會出現在您選擇的實驗底下。 使用此節點來監視執行的狀態。 注意：您可能需要定期重新整理視窗，才能看到最新狀態。
 
 以下範例示範如何在先前建立的計算上執行實驗：
 
 [![在本機執行實驗](./media/vscode-tools-for-ai/run-experiment.gif)](./media/vscode-tools-for-ai/run-experiment.gif#lightbox)
 
 ### <a name="deploy-and-manage-models"></a>部署和管理模型
-在 Azure Machine Learning 中, 您可以在雲端和邊緣部署和管理您的機器學習模型。
+在 Azure Machine Learning 中，您可以在雲端和邊緣部署和管理您的機器學習模型。
 
 #### <a name="register-your-model-to-azure-machine-learning-from-visual-studio-code"></a>註冊您的模型以從 Visual Studio Code Azure Machine Learning
 
-既然您已訓練模型, 您可以在工作區中註冊它。 您可以追蹤和部署已註冊的模型。
+既然您已訓練模型，您可以在工作區中註冊它。 您可以追蹤和部署已註冊的模型。
 
-若要註冊您的模型:
+若要註冊您的模型：
 
-1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
+1. 在 Visual Studio Code 活動列上，選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
 1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。
 
 1. 在工作區節點下方，以滑鼠右鍵按一下 [模型]，然後選擇 [註冊模型]。
 
-1. 在 [命令選擇區] 的欄位中, 輸入模型名稱。
+1. 在 [命令選擇區] 的欄位中，輸入模型名稱。
 
-1. 從清單中, 選擇是否要上傳**模型**檔案 (適用于單一模型) 或**模型資料夾**(適用于具有多個檔案的模型, 例如 TensorFlow)。
+1. 從清單中，選擇是否要上傳**模型**檔案（適用于單一模型）或**模型資料夾**（適用于具有多個檔案的模型，例如 TensorFlow）。
 
 1. 選取您的資料夾或檔案。
 
-1. 當您完成模型屬性的設定時, 請在視窗的右下角選取 [**提交**]。
+1. 當您完成模型屬性的設定時，請在視窗的右下角選取 [**提交**]。
 
-以下是如何註冊模型以 Azure Machine Learning 的範例:
+以下是如何註冊模型以 Azure Machine Learning 的範例：
 
 [![向 AML 註冊模型](./media/vscode-tools-for-ai/register-model.gif)](./media/vscode-tools-for-ai/register-model.gif#lightbox)
 
 
 #### <a name="deploy-your-service-from-visual-studio-code"></a>從 Visual Studio Code 部署您的服務
 
-在 Visual Studio Code 中, 您可以將 web 服務部署至:
-+ 用於測試的 Azure 容器實例 (ACI)。
-+ 適用于生產環境的 Azure Kubernetes Service (AKS)。
+在 Visual Studio Code 中，您可以將 web 服務部署至：
++ 用於測試的 Azure 容器實例（ACI）。
++ 適用于生產環境的 Azure Kubernetes Service （AKS）。
 
-您不需要事先建立 ACI 容器來進行測試，因為 ACI 容器會視需要建立。 不過, 您必須事先設定 AKS 叢集。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
+您不需要事先建立 ACI 容器來進行測試，因為 ACI 容器會視需要建立。 不過，您必須事先設定 AKS 叢集。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
-若要部署 web 服務:
+若要部署 web 服務：
 
-1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
+1. 在 Visual Studio Code 活動列上，選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
 1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。
 
 1. 在工作區節點下方，展開 [模型] 節點。
 
-1. 以滑鼠右鍵按一下您要部署的模型, 然後從內容功能表選擇 [**從已註冊的模型部署服務**]。
+1. 以滑鼠右鍵按一下您要部署的模型，然後從內容功能表選擇 [**從已註冊的模型部署服務**]。
 
-1. 在 [命令選擇區] 中, 選擇您想要部署到的計算目標。
+1. 在 [命令選擇區] 中，選擇您想要部署到的計算目標。
 
-1. 在 [命令選擇區] 的欄位中, 輸入此服務的名稱。
+1. 在 [命令選擇區] 的欄位中，輸入此服務的名稱。
 
-1. 在 [命令選擇區] 中, 選取鍵盤上的 Enter 鍵以流覽並選取腳本檔案。
+1. 在 [命令選擇區] 中，選取鍵盤上的 Enter 鍵以流覽並選取腳本檔案。
 
-1. 在 [命令選擇區] 中, 選取鍵盤上的 Enter 鍵以流覽並選取 conda 相依性檔案。
+1. 在 [命令選擇區] 中，選取鍵盤上的 Enter 鍵以流覽並選取 conda 相依性檔案。
 
-1. 當您完成設定服務屬性時, 請在視窗的右下角選取 [**提交**] 以進行部署。 在服務屬性檔案中, 您可以指定本機 docker 檔案或架構. json 檔案。
+1. 當您完成設定服務屬性時，請在視窗的右下角選取 [**提交**] 以進行部署。 在服務屬性檔案中，您可以指定本機 docker 檔案或架構. json 檔案。
 
 現在已部署 Web 服務。
 
-以下是如何部署 web 服務的範例:
+以下是如何部署 web 服務的範例：
 
 [![部署 web 服務](./media/vscode-tools-for-ai/create-image.gif)](./media/vscode-tools-for-ai/create-image.gif#lightbox)
 
@@ -332,5 +332,5 @@ ms.locfileid: "71269246"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需如何使用 Visual Studio Code 外的 Azure Machine Learning 進行定型的逐步解說, [請參閱教學課程:使用 Azure Machine Learning 將模型定型](tutorial-train-models-with-aml.md)。
-* 如需如何在本機編輯、執行及偵錯工具代碼的逐步解說, 請參閱[Python hello world 教學](https://code.visualstudio.com/docs/Python/Python-tutorial)課程。
+* 如需如何使用 Visual Studio Code 外的 Azure Machine Learning 進行定型的逐步解說，請參閱[教學課程：使用 Azure Machine Learning 來定型模型](tutorial-train-models-with-aml.md)。
+* 如需如何在本機編輯、執行及偵錯工具代碼的逐步解說，請參閱[Python hello world 教學](https://code.visualstudio.com/docs/Python/Python-tutorial)課程。

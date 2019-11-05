@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074110"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470092"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service 中的安全性
 
@@ -40,16 +40,20 @@ App Service 的平台元件 (包括 Azure VM、儲存體、網路連線、Web �
 
 ## <a name="https-and-certificates"></a>HTTPS 和憑證
 
-App Service 可讓您利用 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保護您的應用程式。 建立您的應用程式後，已可使用 HTTPS 存取其預設網域名稱 (\<app_name>.azurewebsites.net)。 如果您[為應用程式設定自訂網域](app-service-web-tutorial-custom-domain.md)，您也應該[使用自訂憑證保護其安全](app-service-web-tutorial-custom-ssl.md)，以便用戶端瀏覽器可以對您的自訂網域進行安全的 HTTPS 連線。 有兩種方式可以完成：
+App Service 可讓您利用 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保護您的應用程式。 建立您的應用程式後，已可使用 HTTPS 存取其預設網域名稱 (\<app_name>.azurewebsites.net)。 如果您[為應用程式設定自訂網域](app-service-web-tutorial-custom-domain.md)，您也應該[使用 SSL 憑證來保護它](configure-ssl-bindings.md)，讓用戶端瀏覽器可以對您的自訂網域進行安全的 HTTPS 連線。 App Service 支援數種類型的憑證：
 
-- **App Service 憑證** - 直接在 Azure 中建立憑證。 此憑證會在 [Azure Key Vault](/azure/key-vault/) 中保護，而且可以匯入您的 App Service 應用程式中。 如需詳細資訊，請參閱[購買並設定您 Azure App Service 的 SSL 憑證](web-sites-purchase-ssl-web-site.md)。
-- **第三方憑證** - 上傳您向受信任憑證授權單位購買的自訂 SSL 憑證，並將它繫結至您的 App Service 應用程式。 App Service 支援單一網域憑證和萬用字元憑證。 它也支援用於測試的自我簽署憑證。 如需詳細資訊，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
+- 免費 App Service 受控憑證
+- App Service 憑證
+- 協力廠商憑證
+- 從 Azure Key Vault 匯入的憑證
+
+如需詳細資訊，請參閱[在 Azure App Service 中新增 SSL 憑證](configure-ssl-certificate.md)。
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>不安全的通訊協定 (HTTP、TLS 1.0、FTP)
 
-為了保護應用程式以抵禦所有未加密的 (HTTP) 連線，App Service 會提供單鍵設定來強制使用 HTTPS。 不安全的要求會在觸達您應用程式的程式碼之前離開。 如需詳細資訊，請參閱[強制使用 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)。
+為了保護應用程式以抵禦所有未加密的 (HTTP) 連線，App Service 會提供單鍵設定來強制使用 HTTPS。 不安全的要求會在觸達您應用程式的程式碼之前離開。 如需詳細資訊，請參閱[強制使用 HTTPS](configure-ssl-bindings.md#enforce-https)。
 
-業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 不再將 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 視為安全的。 App Service 可讓您藉由[強制使用 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions) 來停用過時的通訊協定。
+業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Transport_Layer_Security)) 不再將 [TLS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 1.0 視為安全的。 App Service 可讓您藉由[強制使用 TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions) 來停用過時的通訊協定。
 
 App Service 同時支援使用 FTP 和 FTPS 來部署您的檔案。 不過，應該使用 FTPS，而不是 FTP (如果全都可行)。 如有其中一個或兩個通訊協定都不在使用中，您應該[停用它們](deploy-ftp.md#enforce-ftps)。
 
@@ -57,7 +61,7 @@ App Service 同時支援使用 FTP 和 FTPS 來部署您的檔案。 不過，�
 
 根據預設，App Service 應用程式會接受來自網際網路所有 IP 位址的要求，但是您可以限制存取一小部分的 IP 位址。 Windows 上的 App Service 可讓您定義允許存取應用程式的 IP 位址清單。 允許清單可以包含個別 IP 位址，或以子網路遮罩所定義的 IP 位址範圍。 如需詳細資訊，請參閱 [Azure App Service 靜態 IP 限制](app-service-ip-restrictions.md)。
 
-對於 Windows 上的 App Service，您也可以藉由設定 _web.config_ 來動態限制 IP 位址。如需詳細資訊, 請參閱[動態\<IP 安全性 dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
+對於 Windows 上的 App Service，您也可以藉由設定_web.config_來動態限制 IP 位址。如需詳細資訊，請參閱[動態 IP 安全性 \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
 
 ## <a name="client-authentication-and-authorization"></a>用戶端驗證與授權
 
@@ -90,7 +94,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Azure 虛擬網路內的資源
 
-您的應用程式可以透過[虛擬網路整合](web-sites-integrate-with-vnet.md)來存取 [Azure 虛擬網路](/azure/virtual-network/)中的資源。 使用點對站 VPN 可建立與虛擬網路的整合。 應用程式可接著使用其私人 IP 位址，存取虛擬網路中的資源。 不過，點對站連線仍會在 Azure 中周遊共用的網路。 
+您的應用程式可以透過[虛擬網路整合](/azure/virtual-network/)來存取 [Azure 虛擬網路](web-sites-integrate-with-vnet.md)中的資源。 使用點對站 VPN 可建立與虛擬網路的整合。 應用程式可接著使用其私人 IP 位址，存取虛擬網路中的資源。 不過，點對站連線仍會在 Azure 中周遊共用的網路。 
 
 若要完全隔離您的資源與 Azure 中共用網路的連線，請在 [App Service 環境](environment/intro.md)中建立您的應用程式。 App Service 環境一律會部署至專用的虛擬網路，因此您的應用程式與虛擬網路內的資源之間的連線會完全隔離。 如需 App Service 環境中的其他層面，請參閱[網路隔離](#network-isolation)。
 

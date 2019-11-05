@@ -1,19 +1,17 @@
 ---
 title: 適用于 Azure 資料共用的 Azure PowerShell 範例
-description: 深入瞭解 Azure PowerShell 範例腳本，以協助您在 Azure 資料共用預覽中建立和管理資料共用。
+description: 深入瞭解 Azure PowerShell 範例腳本，以協助您建立和管理 Azure 資料共用中的資料共用。
 ms.service: data-share
-ms.workload: data-services
-ms.topic: conceptual
-ms.devlang: powershell
 author: joannapea
 ms.author: joanpo
-ms.date: 07/6/2019
-ms.openlocfilehash: a694ced2697cba8cc50e3c7b5b14f712527e1cd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.topic: conceptual
+ms.date: 07/06/2019
+ms.openlocfilehash: c2593c4c03f48624b8b9e3b9d72a3558f5f581be
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166334"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499290"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>適用于 Azure 資料共用的 Azure PowerShell 範例
 
@@ -32,3 +30,9 @@ ms.locfileid: "72166334"
 |[查看資料共用的詳細資料](scripts/powershell/view-share-details-powershell.md)| 此範例 PowerShell 腳本會列出並抓取資料共用的詳細資料。 |
 |[監視共用資料的使用方式](scripts/powershell/monitor-usage-powershell.md)| 此範例 PowerShell 腳本會監視已傳送共用資料的使用方式。 |
 |[建立和查看快照集觸發程式](scripts/powershell/create-view-trigger-powershell.md)| 此範例 PowerShell 腳本會建立共用的快照集觸發程式。
+
+
+
+
+
+

@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4f1f60ef50b65c13464e7a777e9b8ce66b5fa122
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399786"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492459"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>使用 Azure Data Lake 的可調式資料科學：完整的逐步解說
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake 中可調整的資料科學︰完整的逐步解說
 本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測車費是否會支付小費。 其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
@@ -26,7 +26,7 @@ ms.locfileid: "60399786"
 
 Data Lake Analytics 也是 Cortana Analytics 套件的重要組成部分，可搭配 Azure SQL 資料倉儲、Power BI 與 Data Factory 一起使用。 這讓您有一個完整的雲端巨量資料和進階分析平台。
 
-本逐步解說首先描述如何安裝完成資料科學程序工作所需的必要條件和資源。 接著，將概述使用 U-SQL 的資料處理步驟，最後將示範如何搭配 Azure Machine Learning Studio 使用 Python 和 Hive 來建置和部署預測模型。
+本逐步解說首先描述如何安裝完成資料科學程序工作所需的必要條件和資源。 接著，它會使用 U-SQL 概述資料處理步驟，並示範如何搭配使用 Python 和 Hive 與 Azure Machine Learning Studio （傳統）來建立和部署預測模型。
 
 ### <a name="u-sql-and-visual-studio"></a>U-SQL 和 Visual Studio
 本逐步解說建議使用 Visual Studio 編輯 U-SQL 指令碼來處理資料集。 這些 U-SQL 指令碼說明於此，也在個別檔案中提供 。 過程包括擷取、探索和取樣資料。 同時還會示範如何從 Azure 入口網站執行 U-SQL 指令碼作業。 相關聯的 HDInsight 叢集中會為資料建立 Hive 資料表，以利於 Azure Machine Learning Studio 中建置和部署二元分類模型。
@@ -35,15 +35,15 @@ Data Lake Analytics 也是 Cortana Analytics 套件的重要組成部分，可�
 本逐步解說也包含一個小節，示範如何搭配 Azure Machine Learning Studio 使用 Python 來建置和部署預測模型。 它針對此程序中的步驟提供 Jupyter Notebook 和 Python 指令碼。 除了此處所述的二元分類模型，此 Notebook 還包含一些額外特徵工程步驟和模型建構的程式碼，例如多類別分類和迴歸模型。 迴歸工作是根據其他小費特徵來預測小費金額。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使用下列兩種方法來完成︰首先會使用 Python 指令碼，接著使用 HDInsight (Hadoop) 叢集上的 Hive 資料表。
+Azure Machine Learning Studio （傳統）是用來建立和部署預測模型。 這是使用下列兩種方法來完成︰首先會使用 Python 指令碼，接著使用 HDInsight (Hadoop) 叢集上的 Hive 資料表。
 
 ### <a name="scripts"></a>指令碼
-本逐步解說只概述主要步驟。 您可以從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) 下載完整的 **U-SQL 指令碼**和 **Jupyter Notebook**。
+本逐步解說只概述主要步驟。 您可以從 **GitHub** 下載完整的 **U-SQL 指令碼**和 [Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始運用這些主題之前，您必須符合下列條件：
 
-* Azure 訂用帳戶。 如果還沒有訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂用帳戶。 如果您還沒有訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * [建議] Visual Studio 2013 或更新版本。 如果您還沒有安裝這些版本的其中一個，您可以從 [Visual Studio 社群](https://www.visualstudio.com/vs/community/)下載免費的社群版本。
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 * Azure Data Lake Store (ADLS)
 * Azure Data Lake Analytics (ADLA)
 * Azure Blob 儲存體帳戶
-* Azure Machine Learning Studio 帳戶
+* Azure Machine Learning Studio （傳統）帳戶
 * Azure Data Lake Tools for Visual Studio (建議)
 
 本節提供如何建立這些資源的指示。 如果您選擇搭配 Azure Machine Learning 使用 Hive 資料表 (而不是 Python) 來建置模型，您也必須佈建 HDInsight (Hadoop) 叢集。 這個替代程序將於＜選項 2＞一節中加以說明。
@@ -72,7 +72,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 ### <a name="create-an-azure-data-lake-store"></a>建立 Azure Data Lake Store
 
 
-從 [Azure 入口網站](https://portal.azure.com)建立 ADLS。 如需詳細資訊，請參閱 [使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。 請務必依該文件所述，在 [選擇性組態]  刀鋒視窗的 [資料來源]  刀鋒視窗中設定 [叢集 AAD 身分識別]。
+從 [Azure 入口網站](https://portal.azure.com)建立 ADLS。 如需詳細資訊，請參閱 [使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。 請務必依該文件所述，在 [選擇性組態] 刀鋒視窗的 [資料來源] 刀鋒視窗中設定 [叢集 AAD 身分識別]。
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
@@ -86,8 +86,8 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
-### <a name="set-up-an-azure-machine-learning-studio-account"></a>設定 Azure Machine Learning Studio 帳戶
-從 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/) 頁面註冊/登入 Azure Machine Learning Studio。 按一下 [立即開始使用]  按鈕，然後選擇 [免費工作區] 或 [標準工作區]。 您現在能夠在 Azure Machine Learning Studio 中建立實驗。
+### <a name="set-up-an-azure-machine-learning-studio-classic-account"></a>設定 Azure Machine Learning Studio （傳統）帳戶
+從[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/)頁面註冊/登入 Azure Machine Learning Studio （傳統）。 按一下 [立即開始使用] 按鈕，然後選擇 [免費工作區] 或 [標準工作區]。 您現在能夠在 Azure Machine Learning Studio 中建立實驗。
 
 ### <a name="install-azure-data-lake-tools-recommended"></a>安裝 Azure Data Lake 工具 [建議]
 依照您的 Visual Studio 版本，從 [Azure Data Lake Tools for Visual Studio (Visual Studio 適用的 Azure Data Lake 工具)](https://www.microsoft.com/download/details.aspx?id=49504)中安裝適合的 Azure Data Lake 工具。
@@ -135,7 +135,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 
 這些 U-SQL 指令碼說明於此，也在個別檔案中提供 。 您可以從 **GitHub** 下載完整的 [U-SQL 指令碼](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)。
 
-若要執行 U-SQL，請開啟 Visual Studio、按一下 [檔案] --> [新增] --> [專案]  、選擇 [U-SQL 專案]  ，命名並儲存到資料夾。
+若要執行 U-SQL，請開啟 Visual Studio、按一下 [檔案] --> [新增] --> [專案]、選擇 [U-SQL 專案]，命名並儲存到資料夾。
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -146,9 +146,9 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>資料擷取：從公用 Blob 讀取資料
+### <a name="ingest"></a>資料擷取：從公用 blob 讀取資料
 
-在 Azure blob 資料的位置參考為**wasb://container\_名稱\@blob\_儲存體\_帳戶\_name.blob.core.windows.net/blob_name**，可以使用擷取**extractors.csv （)** 。 替換成您自己的容器名稱和儲存體帳戶名稱，在下列指令碼中的容器\_名稱\@blob\_儲存體\_帳戶\_wasb 位址中的名稱。 由於檔案名稱的格式相同，就可以使用**車程\_資料\_\{\*\}.csv**來讀取全部 12 個車程檔案。
+Azure blob 中的資料位置會參考為**wasb://container\_名稱\@blob\_儲存體\_帳戶\_name.blob.core.windows.net/blob_name** ，而且可以使用擷取器來解壓縮 **（）** 。 以您自己的容器名稱和儲存體帳戶名稱取代下列腳本中的容器\_名稱\@blob\_儲存體\_帳戶\_wasb 位址中的名稱。 由於檔案名的格式相同，因此可以使用**旅程\_資料\_\{\*\}** 以讀取所有12個行程檔案。
 
     ///Read in Trip data
     @trip0 =
@@ -171,7 +171,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-由於第一列有標頭，您必須移除標頭，並將資料行類型變更為適當的類型。 您可以將處理過的資料，以使用 Azure Data Lake 儲存體儲存**swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ 或 Azure Blob 儲存體帳戶使用**wasb: / /container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**。
+由於第一列有標頭，您必須移除標頭，並將資料行類型變更為適當的類型。 您可以使用**swebhdfs：//data_lake_storage_name. net/folder_name/file_name**_ 或使用**wasb：//container_name\@** blob_storage_account_name 的 Azure Blob 儲存體帳戶，將已處理的資料儲存到 Azure Data Lake Storage。
 
     // change data types
     @trip =
@@ -203,7 +203,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
     USING Outputters.Csv();
 
-同樣地，您可以讀取費用資料集。 以滑鼠右鍵按一下 [Azure Data Lake Store]，您可以選擇在 [Azure 入口網站] --> [資料總管]  或 Visual Studio 內的 [檔案總管]  中查看您的資料。
+同樣地，您可以讀取費用資料集。 以滑鼠右鍵按一下 [Azure Data Lake Store]，您可以選擇在 [Azure 入口網站] --> [資料總管] 或 Visual Studio 內的 [檔案總管] 中查看您的資料。
 
  ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
@@ -301,7 +301,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv();
 
-尋找有截止值的小費金額分佈：0、5、10 和 20 美金。
+尋找有截止值的小費金額分佈︰0、5、10 和 20 美金。
 
     //tip class/range distribution
     @tip_class =
@@ -431,7 +431,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 
 
 ### <a name="run"></a>執行 U-SQL 作業
-完成編輯 U-SQL 指令碼時，您可以使用 Azure Data Lake Analytics 帳戶將它們提交到伺服器。 依序按一下 [Data Lake]  和 [提交作業]  ，並選取您的 [Analytics 帳戶]  ，然後選擇 [平行處理原則]  ，再按一下 [提交]  按鈕。
+完成編輯 U-SQL 指令碼時，您可以使用 Azure Data Lake Analytics 帳戶將它們提交到伺服器。 依序按一下 [Data Lake] 和 [提交作業]，並選取您的 [Analytics 帳戶]，然後選擇 [平行處理原則]，再按一下 [提交] 按鈕。
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -453,7 +453,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 * 在第一個選項中，您可以使用已寫入 Azure Blob 的取樣資料 (來自上述的 **資料取樣** 步驟)，然後使用 Python，從 Azure Machine Learning 建置並部署模型。
 * 在第二個選項中，您會直接使用 Hive 查詢來查詢 Azure Data Lake 中的資料。 此選項需要您建立新的 HDInsight 叢集，或使用現有的 HDInsight 叢集，其中 Hive 資料表指向 Azure Data Lake Storage 中的 NY 計程車資料。  下列各節中會討論這兩個選項。
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>選項 1：使用 Python 建置和部署機器學習模型
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>選項 1︰使用 Python 建置和部署機器學習服務模型
 若要使用 Python 建置和部署機器學習服務模型，請在您的本機電腦上或在 Azure Machine Learning Studio 中建立 Jupyter Notebook。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) 上提供的 Jupyter Notebook 包含完整的程式碼，可探索、視覺化資料、特徵工程、模型化和部署。 本文只涵蓋模型化和部署。
 
 ### <a name="import-python-libraries"></a>匯入 Python 程式庫
@@ -559,7 +559,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>建置 Web 服務 API 並在 Python 中使用
 您希望機器學習服務模型在建置後開始運作。 我們在此以二元羅吉斯模型為例。 請確定本機電腦中的 scikit-learn 版本是 0.15.1。 如果您使用 Azure Machine Learning Studio，則不必擔心這一點。
 
-* 從 Azure Machine Learning Studio 設定中尋找您的工作區認證。 在 Azure Machine Learning Studio 中，按一下 [設定]   --> [名稱]   --> [授權權杖]  。
+* 從 [Azure Machine Learning Studio （傳統）] 設定尋找您的工作區認證。 在 Azure Machine Learning Studio 中，按一下 [設定] --> [名稱] --> [授權權杖]。
 
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -594,19 +594,19 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
 ## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>選項 2：直接在 Azure Machine Learning 中建立和部署模型
-Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料，然後用來建立和部署模型。 這個方法會使用指向 Azure Data Lake Store 的 Hive 資料表。 這必須佈建不同的 Azure HDInsight 叢集，而 Hive 資料表將建立於其中。 下列各節將示範如何執行這項操作。
+Azure Machine Learning Studio （傳統）可以直接從 Azure Data Lake 存放區讀取資料，然後用來建立和部署模型。 這個方法會使用指向 Azure Data Lake Store 的 Hive 資料表。 這必須佈建不同的 Azure HDInsight 叢集，而 Hive 資料表將建立於其中。 下列各節將示範如何執行這項操作。
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>建立 HDInsight Linux 叢集
-從 [Azure 入口網站](https://portal.azure.com)建立 HDInsight 叢集 (Linux)。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 中的**建立可存取 Azure Data Lake Store 的 HDInsight 叢集**一節。
+從 [Azure 入口網站](https://portal.azure.com)建立 HDInsight 叢集 (Linux)。 如需詳細資訊，請參閱**使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store** 中的[建立可存取 Azure Data Lake Store 的 HDInsight 叢集](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)一節。
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>在 HDInsight 中建立 Hive 資料表
-現在，您可使用上一個步驟中儲存於 Azure Data Lake Store 中的資料，在 HDInsight 叢集中建立要於 Azure Machine Learning Studio 中使用的 Hive 資料表。 移至所建立的 HDInsight 叢集。 按一下 [設定]   --> [屬性]   --> [叢集 AAD 身分識別]   --> [ADLS 存取]  ，確定已將您的 Azure Data Lake Store 帳戶新增清單中，且具有讀取、寫入及執行權限。
+現在您可以使用上一個步驟中儲存在 Azure Data Lake 存放區中的資料，建立要用於 HDInsight 叢集中 Azure Machine Learning Studio （傳統）的 Hive 資料表。 移至所建立的 HDInsight 叢集。 按一下 [設定] --> [屬性] --> [叢集 AAD 身分識別] --> [ADLS 存取]，確定已將您的 Azure Data Lake Store 帳戶新增清單中，且具有讀取、寫入及執行權限。
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
-然後，按一下 [設定]  按鈕旁邊的 [儀表板]  ，隨即出現一個視窗。 按一下頁面右上角的 [Hive 檢視]  ，您應看見 [查詢編輯器]  。
+然後，按一下 [設定] 按鈕旁邊的 [儀表板]，隨即出現一個視窗。 按一下頁面右上角的 [Hive 檢視]，您應看見 [查詢編輯器]。
 
  ![20](./media/data-lake-walkthrough/20-HDI-dashboard.PNG)
 
@@ -652,9 +652,9 @@ Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中建置和部署模型
 您現在已準備好要建置和部署使用 Azure Machine Learning 來預測是否會支付小費的模型。 分層範例資料已經備妥，可在這個二元分類 (有無小費) 問題中使用。 使用多類別分類 (tip_class) 和迴歸 (tip_amount) 的預測模型也會使用 Azure Machine Learning Studio 來建置和部署，但是這裡只會示範如何使用二元分類模型來處理此案例。
 
-1. 使用**匯入資料**模組 (可在**資料輸入和輸出**一節取得)，將資料匯入 Azure Machine Learning Studio。 如需詳細資訊，請參閱 [匯入資料](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 模組參考頁面。
-2. 在 [屬性]  面板中，選取 [Hive 查詢]  做為 [資料來源]  。
-3. 將下列 Hive 指令碼貼到 [Hive 資料庫查詢]  編輯器中
+1. 使用匯**入資料**模組（可從**資料輸入和輸出**一節取得），將資料匯入 Azure Machine Learning Studio （傳統）。 如需詳細資訊，請參閱 [匯入資料](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 模組參考頁面。
+2. 在 [屬性] 面板中，選取 [Hive 查詢] 做為 [資料來源]。
+3. 將下列 Hive 指令碼貼到 [Hive 資料庫查詢] 編輯器中
 
         select * from nyc_stratified_sample;
 4. 輸入 HDInsight 叢集的 URI (這可以在 Azure 入口網站中找到)、Hadoop 認證、輸出資料的位置，以及 Azure 儲存體帳戶名稱/金鑰/容器名稱。
@@ -665,11 +665,11 @@ Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-建立實驗之後，按一下 [設定 Web 服務]   --> [預測性 Web 服務] 
+建立實驗之後，按一下 [設定 Web 服務] --> [預測性 Web 服務]
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
-執行自動建立的評分實驗，完成後，按一下 [部署 Web 服務] 
+執行自動建立的評分實驗，完成後，按一下 [部署 Web 服務]
 
  ![26](./media/data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
 
@@ -677,8 +677,8 @@ Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
-## <a name="summary"></a>總結
-完成這個逐步解說之後，您就已經建立了資料科學環境，可在 Azure Data Lake 中建置可調整的端對端解決方案。 這個環境可用來分析大型公用資料集，透過資料科學程序的標準步驟來取得此公用資料集，過程中從取得資料開始、經過模型訓練，最後將模型部署成 Web 服務。 您可以使用 U-SQL 來處理、探索和取樣資料。 Python 和 Hive 會與 Azure Machine Learning Studio 搭配使用來建置和部署預測模型。
+## <a name="summary"></a>摘要
+完成這個逐步解說之後，您就已經建立了資料科學環境，可在 Azure Data Lake 中建置可調整的端對端解決方案。 這個環境可用來分析大型公用資料集，透過資料科學程序的標準步驟來取得此公用資料集，過程中從取得資料開始、經過模型訓練，最後將模型部署成 Web 服務。 您可以使用 U-SQL 來處理、探索和取樣資料。 Python 和 Hive 與 Azure Machine Learning Studio （傳統）搭配使用，以建立和部署預測模型。
 
 ## <a name="whats-next"></a>後續步驟
 [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 的學習路徑提供可說明進階分析程序中每個步驟的主題連結。 [Team Data Science Process 逐步解說](walkthroughs.md) 頁面上分項列出一系列逐步解說，示範如何在各種不同預測性分析案例中使用資源和服務：

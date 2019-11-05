@@ -1,7 +1,7 @@
 ---
 title: 將演算法最佳化
-titleSuffix: Azure Machine Learning Studio
-description: 說明如何為 Azure Machine Learning Studio中的演算法選擇最佳的參數設定。
+titleSuffix: Azure Machine Learning Studio (classic)
+description: 說明如何為 Azure Machine Learning Studio （傳統）中的演算法選擇最佳的參數集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,53 +10,53 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74775550054fc3b4fdbed5cc006d14a913c369c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752145"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493497"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>選擇參數來最佳化 Azure Machine Learning Studio 中的演算法
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>選擇參數以優化 Azure Machine Learning Studio 中的演算法（傳統）
 
-本主題說明如何為 Azure Machine Learning Studio 中的演算法選擇正確的超參數 (hyperparameter) 集。 大部分的機器學習服務演算法都會有需要設定的參數。 當您訓練一個模型時，必須提供這些參數的值。 訓練過的模型效率會依據所選擇的模型參數而定。 找出最佳參數集的過程稱為*模型選擇*。
+本主題描述如何為 Azure Machine Learning Studio （傳統）中的演算法選擇正確的超參數集。 大部分的機器學習服務演算法都會有需要設定的參數。 當您訓練一個模型時，必須提供這些參數的值。 訓練過的模型效率會依據所選擇的模型參數而定。 找出最佳參數集的過程稱為*模型選擇*。
 
 
 
-有各種方法可用來進行模型選擇。 在機器學習中，交叉驗證是其中一種最廣泛使用的模型選擇方法，在 Azure Machine Learning Studio 中是預設的模型選擇機制。 由於 Azure Machine Learning Studio 支援 R 和 Python 兩者，因此您一律可以使用 R 或 Python 來實作其自己的模型選擇機制。
+有各種方法可用來進行模型選擇。 在機器學習中，交叉驗證是其中一種最廣泛使用的模型選擇方法，而且是傳統 Azure Machine Learning Studio 版本中的預設模型選擇機制。 由於傳統版本的 Azure Machine Learning Studio 支援 R 和 Python，因此您一律可以使用 R 或 Python 來執行自己的模型選擇機制。
 
 找出最佳參數集的過程有四個步驟：
 
 1. **定義參數空間**：對於演算法，先決定您想要考慮的確切參數值。
-2. **定義交叉驗證設定**：決定如何選擇資料集的交叉驗證摺疊數目。
-3. **定義計量**：決定要使用哪一種計量來判斷最佳的參數集，例如準確度、均方根誤差、精確度、召回率或 F 分數。
-4. **定型、評估和比較**：對於每個唯一的參數值組合，根據您定義的誤差計量來執行交叉驗證。 評估和比較之後，您可以選擇最佳的模型。
+2. **定義交叉驗證設定**：決定如何選擇資料集的交叉驗證折數。
+3. **定義計量**：決定要使用哪一種計量來判斷最佳的參數集，例如正確度、均方根誤差、精確度、召回率或 f 分數。
+4. **訓練、評估和比較**：對於每個唯一的參數值組合，執行交叉驗證並根據您定義的錯誤計量。 評估和比較之後，您可以選擇最佳的模型。
 
-下列影像說明在 Azure Machine Learning Studio 中如何達到這個目標。
+下圖說明如何在傳統版本的 Azure Machine Learning Studio 中達成此目的。
 
 ![尋找最佳的參數集](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>定義參數空間
-您可以在進行模型初始化步驟時定義參數集。 所有機器學習演算法的參數窗格都有兩種定型人員模式：*單一參數*和*參數範圍*。 選擇 [參數範圍] 模式。 在參數範圍模式中，您可以針對每個參數輸入多個值。 您可以在文字方塊中輸入以逗號分隔的值。
+您可以在進行模型初始化步驟時定義參數集。 所有機器學習演算法的參數窗格都有兩種訓練模式：[單一參數] 和 [參數範圍]。 選擇 [參數範圍] 模式。 在參數範圍模式中，您可以針對每個參數輸入多個值。 您可以在文字方塊中輸入以逗號分隔的值。
 
 ![二元促進式決策樹，單一參數](./media/algorithm-parameters-optimize/fig2.png)
 
- 或者，您可以使用**使用範圍產生器**來定義網格的最大點數與最小點數，以及要產生的總點數。 參數值預設會以線性刻度產生。 但如果核取了 [對數刻度]  ，值會以對數刻度產生 (也就是相鄰兩點的比率而不是其差異為常數)。 對於整數參數，您可以使用連字號來定義範圍。 例如，"1-10" 表示介於 1 到 10 (兩者皆含) 之間的所有整數會構成參數集。 也支援使用混合的模式。 例如，此參數設定 "1-10, 20, 50" 會包括整數 1-10、20 和 50 個。
+ 或者，您可以使用**使用範圍產生器**來定義網格的最大點數與最小點數，以及要產生的總點數。 參數值預設會以線性刻度產生。 但如果核取了 [對數刻度]，值會以對數刻度產生 (也就是相鄰兩點的比率而不是其差異為常數)。 對於整數參數，您可以使用連字號來定義範圍。 例如，"1-10" 表示介於 1 到 10 (兩者皆含) 之間的所有整數會構成參數集。 也支援使用混合的模式。 例如，此參數設定 "1-10, 20, 50" 會包括整數 1-10、20 和 50 個。
 
 ![二元促進式決策樹，參數範圍](./media/algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>定義交叉驗證折數
-[資料分割和取樣][partition-and-sample]模組可用來隨機指派資料的折數。 在下圖模組的範例組態中，我們定義五個折數，並且對樣本實例隨機指派折疊數目。
+資料[分割和範例][partition-and-sample]模組可以用來隨機指派折迭給資料。 在下圖模組的範例組態中，我們定義五個折數，並且對樣本實例隨機指派折疊數目。
 
 ![資料分割和取樣](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>定義計量
-[微調模型超參數][tune-model-hyperparameters]模組支援依據經驗為指定的演算法和資料集選擇一組最佳參數。 除了有關訓練模型的其他資訊，此模組的 [屬性]  窗格還包括用來判斷最佳參數集的計量。 分類和迴歸演算法分別有兩個不同的下拉式清單方塊。 如果考慮使用分類演算法，則會忽略迴歸計量，反之亦然。 在此特定範例中，計量是**正確度**。   
+[微調模型超參數][tune-model-hyperparameters]模組可讓您針對指定的演算法和資料集選擇最佳的參數集，以支援廣為人知且實證。 除了有關訓練模型的其他資訊，此模組的 [屬性] 窗格還包括用來判斷最佳參數集的計量。 分類和迴歸演算法分別有兩個不同的下拉式清單方塊。 如果考慮使用分類演算法，則會忽略迴歸計量，反之亦然。 在此特定範例中，計量是**正確度**。   
 
 ![掃掠參數](./media/algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>訓練、評估和比較
-相同的[微調模型超參數][tune-model-hyperparameters]模組會訓練對應於參數集的所有模型、評估各種計量，然後根據您選擇的計量建立訓練最妥善的模型。 此模組有兩個必要的輸入項：
+相同的[微調模型超參數][tune-model-hyperparameters]模組會訓練對應至參數集的所有模型、評估各種計量，然後根據您選擇的度量建立最佳定型模型。 此模組有兩個必要的輸入項：
 
 * 未訓練過的學習者
 * 資料集

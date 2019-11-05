@@ -3,15 +3,15 @@ title: 了解效果的運作方式
 description: Azure 原則定義有各種不同的效果，可決定合規性的管理和報告方式。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/17/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176330"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464043"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -25,6 +25,7 @@ ms.locfileid: "73176330"
 - [拒絕](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [已停用](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) （預覽）
 - [EnforceRegoPolicy](#enforceregopolicy) （預覽）
 - [編輯](#modify)
 
@@ -39,7 +40,7 @@ ms.locfileid: "73176330"
 
 在「資源提供者」傳回成功碼之後，便會評估 **AuditIfNotExists** 和 **DeployIfNotExists**，以判斷是否需要進行後額外的合規性記錄或動作。
 
-目前沒有任何**EnforceRegoPolicy**效果的評估順序。
+目前沒有任何**EnforceOPAConstraint**或**EnforceRegoPolicy**效果的評估順序。
 
 ## <a name="disabled"></a>已停用
 
@@ -99,7 +100,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ## <a name="modify"></a>修改
 
-在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 除非目標資源是資源群組，否則修改原則應一律將 `mode` 設定為 [_索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。 單一修改規則可以有任意數目的作業。
+在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 除非目標資源是資源群組，否則修改原則應一律將 `mode` 設定為 [已_編制索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。 單一修改規則可以有任意數目的作業。
 
 > [!IMPORTANT]
 > Modify 目前僅供與標記搭配使用。 如果您要管理標記，建議使用 [修改] 而非 [附加] 做為 [修改]，提供額外的作業類型以及補救現有資源的能力。 不過，如果您無法建立受控識別，則建議使用 [附加]。
@@ -160,7 +161,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 **Operation**屬性具有下列選項：
 
-|作業 |描述 |
+|作業 |說明 |
 |-|-|
 |addOrReplace |將已定義的標籤和值新增至資源，即使標記已經存在且具有不同的值。 |
 |新增 |將已定義的標記和值加入至資源。 |
@@ -329,7 +330,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 類似于 AuditIfNotExists，DeployIfNotExists 原則定義會在符合條件時執行範本部署。
 
 > [!NOTE]
-> 使用 **deployIfNotExists** 時，支援[巢狀範本](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)，但目前不支援[連結的範本](../../../azure-resource-manager/resource-group-linked-templates.md)。
+> 使用 [deployIfNotExists](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) 時，支援**巢狀範本**，但目前不支援[連結的範本](../../../azure-resource-manager/resource-group-linked-templates.md)。
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 評估
 
@@ -431,12 +432,68 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
 }
 ```
 
-## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-這項效果適用于原則定義*模式*`Microsoft.ContainerService.Data`。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)定義的許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
+此效果會與 `Microsoft.Kubernetes.Data`的原則定義*模式*搭配使用。 它可用來傳遞以[OPA 條件約束架構](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)定義的閘道管理員 v3 許可控制規則，以將[原則代理程式](https://www.openpolicyagent.org/)（OPA）開啟至 Azure 上的自我管理 Kubernetes 叢集。
 
 > [!NOTE]
-> [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
+> [適用于 AKS 引擎的 Azure 原則](aks-engine.md)處於公開預覽狀態，而且只支援內建原則定義。
+
+### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint 評估
+
+開放原則代理程式許可控制站會即時評估叢集上的任何新要求。
+每隔5分鐘會完成叢集的完整掃描，並回報結果以 Azure 原則。
+
+### <a name="enforceopaconstraint-properties"></a>EnforceOPAConstraint 屬性
+
+EnforceOPAConstraint 效果的**details**屬性具有描述閘道管理員 v3 許可控制規則的子屬性。
+
+- **constraintTemplate** [必要]
+  - 定義新條件約束的條件約束範本 CustomResourceDefinition （.CRD）。 此範本會定義 Rego 邏輯、條件約束架構，以及透過 Azure 原則的**值**傳遞的條件約束參數。
+- **條件約束**[必要]
+  - 條件約束範本的 .CRD 實。 使用透過**值**傳遞的參數做為 `{{ .Values.<valuename> }}`。 在下列範例中，這會是 `{{ .Values.cpuLimit }}` 並 `{{ .Values.memoryLimit }}`。
+- **值**[選擇性]
+  - 定義要傳遞給條件約束的任何參數和值。 每個值都必須存在於條件約束範本 .CRD 中。
+
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 範例
+
+範例：閘道管理員 v3 的許可控制規則，可在 AKS 引擎中設定容器 CPU 和記憶體資源限制。
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "in": [
+                "Microsoft.ContainerService/managedClusters",
+                "AKS Engine"
+            ]
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "enforceOPAConstraint",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
+        "values": {
+            "cpuLimit": "[parameters('cpuLimit')]",
+            "memoryLimit": "[parameters('memoryLimit')]"
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+此效果會與 `Microsoft.ContainerService.Data`的原則定義*模式*搭配使用。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)定義的閘道管理員 v2 許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
+
+> [!NOTE]
+> [適用于 AKS 的 Azure 原則](rego-for-aks.md)處於有限預覽狀態，且僅支援內建原則定義
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 評估
 
@@ -445,7 +502,7 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
 
 ### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy 屬性
 
-EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則的子屬性。
+EnforceRegoPolicy 效果的**details**屬性具有描述閘道管理員 v2 許可控制規則的子屬性。
 
 - **policyId** [必要]
   - 當做參數傳遞至 Rego 許可控制規則的唯一名稱。
@@ -456,7 +513,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 範例
 
-範例： Rego 許可控制規則，只允許 AKS 中指定的容器映射。
+範例：閘道管理員 v2 許可控制規則，僅允許 AKS 中指定的容器映射。
 
 ```json
 "if": {

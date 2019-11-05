@@ -1,62 +1,78 @@
 ---
 title: 在 Azure 時間序列深入解析預覽中選擇時間序列識別碼的最佳做法 | Microsoft Docs
 description: 瞭解在 Azure 時間序列深入解析 (預覽) 中選擇時間序列識別碼的最佳做法。
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 48f1fb542f5e28c7b8130d03cd86442390a8ad56
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947208"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989948"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>選擇時間序列識別碼的最佳做法
 
-本文容涵蓋 Azure 時間序列深入解析 (預覽) 分割區索引鍵、時間序列識別碼，以及選擇識別碼的最佳做法。
+本文摘要說明您 Azure 時間序列深入解析預覽環境之時間序列識別碼的重要性，以及選擇其中一項的最佳做法。
 
 ## <a name="choose-a-time-series-id"></a>選擇時間序列識別碼
 
-選擇時間序列識別碼就像選擇資料庫的分割區索引鍵一樣。 這是設計階段必須進行的一項重要決定。 您無法將現有的時間序列深入解析 (預覽) 環境更新為使用不同的時間序列識別碼。 也就是說，使用時間序列識別碼建立環境之後，原則就會變成無法變更的不可變屬性。
+選擇時間序列識別碼就像選擇資料庫的分割區索引鍵一樣。 您在建立時間序列深入解析預覽環境時，必須選取它。 這是*不可變*的屬性。 也就是說，在您建立具有時間序列識別碼的時間序列深入解析預覽環境之後，就無法針對該環境進行變更。 
 
 > [!IMPORTANT]
-> 時間序列識別碼區分大小寫且不可變 (設定之後無法變更)。
+> 時間序列識別碼會區分大小寫。
 
-因此請記住，選取適當的時間序列識別碼非常重要。 選取時間序列識別碼時，請考慮以下最佳做法：
+選取適當的時間序列識別碼是很重要的。 以下是一些您可以遵循的最佳作法：
 
-* 請選擇具有各種不同的值、且有平均存取模式的屬性名稱。 最佳做法是讓分割區索引鍵具有許多相異值 (例如數百個或數千個)。 對許多客戶來說，這會像是您 JSON 中的 DeviceID 或 SensorID 一樣。
+* 挑選具有許多相異值的分割區索引鍵（例如，上百或上千）。 在許多情況下，這可能是您的 JSON 中的裝置識別碼、感應器識別碼或標記識別項。
 * 在您[時間序列模型](./time-series-insights-update-tsm.md).的分葉節點層級，時間序列識別碼應該是唯一的。
-* 時間序列識別碼屬性名稱字元字串最多可以有 128 個字元，時間序列識別碼屬性值最多可以有 1024 個字元。
-* 如果遺漏部分唯一時間序列識別碼屬性值，它們會被視為 Null 值，並將其納入唯一性限制式。
-
-此外，您可以選取最多*三個*(3) 索引鍵屬性作為時間序列識別碼。
+* 如果您的事件來源是 IoT 中樞，則您的時間序列識別碼很可能是 iothub-連線 *-裝置識別碼*。
+* 時間序列識別碼的屬性名稱字串的字元限制為128。 若為時間序列識別碼的屬性值，字元限制為1024。
+* 如果遺漏時間序列識別碼的唯一屬性值，則會將它視為 null 值，並遵循唯一性條件約束的相同規則。
+* 您也可以選取最多*三個*索引鍵屬性作為時間序列識別碼。 其組合會是代表時間序列識別碼的複合索引鍵。  
 
   > [!NOTE]
-  > 這*三個*(3) 索引鍵屬性必須是字串。
+  > 您的三個索引鍵屬性必須是字串。
+  > 您必須一次查詢此複合索引鍵，而不是一個屬性。
 
-下列案例描述選取超過一個索引鍵屬性作為時間序列識別碼：  
+下列案例說明如何選取一個以上的索引鍵屬性作為時間序列識別碼。  
 
-### <a name="scenario-one"></a>案例一
+### <a name="example-1-time-series-id-with-a-unique-key"></a>範例1：具有唯一索引鍵的時間序列識別碼
 
-* 您有舊的資產群，每項資產都具備一個唯一索引鍵。
-* 例如，某個資產群透過屬性 *deviceId* 識別，而另一個資產群的唯一屬性為 *objectId*。 兩個資產群都沒有包含對方的唯一屬性。 在此範例中，您會選取兩個索引鍵作為唯一索引鍵，分別是 deviceId 和 objectId。
-* 我們接受 null 值，而事件裝載中缺少屬性存在會計為 `null` 值。 這也是將資料傳送到兩個不同的事件來源時適當的處理方式，其中每個事件來源中的資料都會有唯一的時間序列識別碼。
+* 您有舊版的資產機群。 每個都有唯一的索引鍵。
+* 一個車隊由屬性**deviceId**唯一識別。 針對另一個車隊，unique 屬性為**objectId**。 這兩個車隊都不包含其他車隊的唯一屬性。 在此範例中，您會選取兩個金鑰（ **deviceId**和**objectId**）做為唯一索引鍵。
+* 我們接受 null 值，而在事件裝載中缺少屬性的目前狀態會計算為 null 值。 這也是處理將資料傳送至兩個事件來源的適當方式，其中每個事件來源中的資料都有唯一的時間序列識別碼。
 
-### <a name="scenario-two"></a>案例二
+### <a name="example-2-time-series-id-with-a-composite-key"></a>範例2：具有複合索引鍵的時間序列識別碼
 
 * 您需要讓同一資產群內的多個特性都必須是唯一的。 
-* 例如，假設您是一位優秀的建築師，並且要在每個房間內部署感應器。 在每個房間內，*sensorId* 的值通常都是相同的，例如*sensor1*、*sensor2* 及 *sensor3*。
-* 此外，您的建築物中所有位置都有屬性 *flrRm* 的重疊樓層與房間號碼，其值皆為像 *1a*、*2b*、*3a* 這樣的值，依此類推。
-* 最後，您有一個屬性 *Location*，它包含像 *Redmond*、*Barcelona*, 及 *Tokyo* 這樣的值。 為了建立唯一性，您指定了下列三個屬性做為時間序列識別碼索引鍵：*sensorId*、*flrRm* 和 *location*。
+* 您是智慧型建築的製造商，並在每個房間部署感應器。 在每個空間中，您通常會有相同的**sensorId**值。 範例包括**sensor1**、 **sensor2**和**sensor3**。
+* 您的大樓在屬性**flrRm**中的各個網站之間有重迭的樓層和房間號碼。 這些數位具有**1a**、 **2b**和**3a**之類的值。
+* 您有一個屬性（ **location**），其中包含**Redmond**、**巴塞羅納**和**東京**等值。 若要建立唯一性，您可以指定下列三個屬性做為時間序列識別碼索引鍵： **sensorId**、 **flrRm**和**location**。
+
+範例原始事件：
+
+```JSON
+{
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
+}
+```
+
+在 Azure 入口網站中，您可以輸入此複合索引鍵，如下所示： 
+
+`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[資料模型建立](./time-series-insights-update-tsm.md)。
+* 深入瞭解[資料模型](./time-series-insights-update-tsm.md)化。
 
-* 規劃您的 [Azure 時間序列深入解析 (預覽) 環境](./time-series-insights-update-plan.md)。
+* 規劃您的[Azure 時間序列深入解析預覽環境](./time-series-insights-update-plan.md)。

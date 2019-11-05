@@ -1,5 +1,5 @@
 ---
-title: 將 Azure Active Directory 使用者同步至叢集 - Azure HDInsight
+title: 將 Azure Active Directory 使用者同步至 HDInsight 叢集
 description: 將已驗證的使用者從 Azure Active Directory 同步處理至 HDInsight 叢集。
 ms.service: hdinsight
 author: ashishthaps
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9767bccc754d5ccf8c0e7cbb66c8e9c3d5eaf7d0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b6252e99e69f849e2e988819f38dcccc5a7a73e0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105355"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498151"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>將 Azure Active Directory 使用者同步至 HDInsight 叢集
 
@@ -37,7 +37,7 @@ ms.locfileid: "71105355"
 
     ![Azure 入口網站使用者窗格選取群組](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. 選取 [建立]。
+4. 選取 [ **建立**]。
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>使用 Apache Ambari REST API 來同步使用者
 

@@ -3,21 +3,20 @@ title: 使用C#程式碼從 Azure 時間序列深入解析預覽環境查詢資�
 description: 本文說明如何編製以 C# (c-sharp) .NET 語言撰寫的自訂應用程式，以從 Azure 時間序列深入解析環境查詢資料。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1a10996749a113fec1f29d2150ebaacfeffbeba
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 46ade3ed6e8712a074974c81e51b2dd6c834db26
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168889"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989673"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>使用從 Azure 時間序列深入解析預覽環境查詢資料C#
 
@@ -31,7 +30,7 @@ ms.locfileid: "72168889"
 1. 在 Web 通訊端要求的範例中，要求感興趣環境的事件彙總資料。 要求整個可用性時間範圍內的資料。
 
 > [!NOTE]
-> 此範例程式碼也可在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)取得。
+> 您也可以在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)取得此範例程式碼。
 
 ## <a name="c-example"></a>C# 範例
 

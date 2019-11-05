@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372415"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489199"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>在 Azure Sentinel 中尋找威脅
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>利用 Azure Sentinel 尋找威脅
 
 如果您是想要主動找出安全性威脅的調查者，請 Azure Sentinel 強大的搜尋搜尋和查詢工具，來尋找整個組織資料來源的安全性威脅。 但是您的系統和安全性設備會產生山脈的資料，這可能很容易剖析並篩選成有意義的事件。 為了協助安全性分析師主動查看您的安全性應用程式未偵測到的新異常狀況，Azure Sentinel 的內建搜尋查詢會引導您詢問適當的問題，以找出您的網路上已有的資料問題。 
 
@@ -48,7 +46,7 @@ ms.locfileid: "72372415"
 ## <a name="get-started-hunting"></a>開始搜尋
 
 1. 在 Azure Sentinel 入口網站中，按一下 [**搜尋**]。
-  @no__t 0Azure Sentinel 開始搜尋 @ no__t-1
+  ![Azure Sentinel 開始搜尋](media/tutorial-hunting/hunting-start.png)
 
 2. 當您開啟 [**搜尋**] 頁面時，所有的搜尋查詢都會顯示在單一資料表中。 此表格列出由 Microsoft 的安全性分析師和您所建立或修改的任何額外查詢所撰寫的所有查詢。 每個查詢都會提供其 digger 的描述，以及其執行的資料種類。 這些範本會依其各種策略分組-右邊的圖示會將威脅類型分類，例如初始存取、持續性和外泄。 您可以使用任何欄位來篩選這些搜尋查詢範本。 您可以將任何查詢儲存至我的最愛。 藉由將查詢儲存至 [我的最愛]，每次存取**搜尋**頁面時，查詢就會自動執行。 您可以建立自己的搜尋查詢，或複製和自訂現有的搜尋查詢範本。 
  
@@ -78,7 +76,7 @@ Azure Sentinel 中的搜尋是以 Kusto 查詢語言為基礎。 如需查詢語
 
 ## <a name="sample-query"></a>範例查詢
 
-一般查詢會以資料表名稱開頭，後面接著一系列以 \| 分隔的運算子。
+一般查詢會以資料表名稱開頭，後面接著一系列以 \|分隔的運算子。
 
 在上述範例中，請從 [資料表名稱] SecurityEvent 開始，並視需要新增管線元素。
 

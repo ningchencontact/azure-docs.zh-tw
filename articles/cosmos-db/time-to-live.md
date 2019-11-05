@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c504e2f574970142942945de5a0a9fb409bb166b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756857"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498312"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的存留時間（TTL） 
 
 有了**存留時間**或 TTL，Azure Cosmos DB 提供在一段時間後自動從容器中刪除專案的功能。 根據預設，您可以在容器層級設定存留時間，且覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會在自從上次修改以來的時間週期後自動移除這些項目。 存留時間值會以秒設定。 當您設定 TTL 時，系統會根據 TTL 值自動刪除過期的專案，而不需要由用戶端應用程式明確發出的刪除作業。
 
-刪除過期的專案是一種背景工作，它會取用由使用者要求未取用的要求單位，而不會耗用由左至右的[要求單位](request-units.md)。 如果容器負載過重，而且沒有任何要求單位留給維護工作，則可能會延遲過期。
+刪除過期的專案是一種背景工作，它會取用由使用者要求未取用的要求單位，而不會耗用由左至右的[要求單位](request-units.md)。 即使在 TTL 過期之後，如果容器是以要求多載，而且沒有足夠的 RU 可用，則資料刪除會延遲。 一旦有足夠的 ru 可執行刪除作業，就會刪除資料。 雖然已延遲刪除資料，但在 TTL 過期之後，任何查詢（由任何 API）都不會傳回資料。
 
 ## <a name="time-to-live-for-containers-and-items"></a>容器和項目的存留時間
 

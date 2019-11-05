@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097831"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472876"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -57,8 +57,6 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 叢集自動調整程式通常會與水平 Pod 自動調整程式一起使用。 加以結合時，水平 Pod 自動調整程式會根據應用程式需求來增加或減少 Pod 的數目，而叢集自動調整程式會據此來調整所需的節點數目，以執行這些額外的 Pod。
 
-叢集自動調整程式只能在 AKS 叢集的預覽中進行測試。
-
 若要開始在 AKS 中使用叢集自動調整程式，請參閱[AKS 上][aks-cluster-autoscaler]的叢集自動調整程式。
 
 ### <a name="scale-up-events"></a>相應增加事件
@@ -93,7 +91,7 @@ ACI 可讓您快速部署容器執行個體，不需要額外的基礎結構成�
 
 若要開始調整應用程式，請先遵循[快速入門，使用 Azure CLI 建立 AKS][aks-quickstart]叢集。 接著，您可以在 AKS 叢集中開始手動或自動調整應用程式：
 
-- 手動調整 [pod][aks-manually-scale-pods] 或[節點][aks-manually-scale-nodes]
+- 手動調整[pod][aks-manually-scale-pods]或[節點][aks-manually-scale-nodes]
 - 使用[水準 pod 自動調整程式][aks-hpa]
 - 使用叢集[自動調整程式][aks-cluster-autoscaler]
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: daaced0aae595e839f2b2476562fc5caffb63640
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430048"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473931"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>採用 Azure AD 條件式存取
 
@@ -43,7 +43,7 @@ ms.locfileid: "72430048"
 
 若要深入瞭解 Azure AD 條件式存取的客戶和合作夥伴體驗，請造訪-[查看人們使用 Azure 執行的](https://azure.microsoft.com/case-studies/?service=active-directory)絕佳功能。
 
-## <a name="announcements"></a>公告
+## <a name="announcements"></a>通知
 
 Azure AD 會持續不斷進行改進。 若要保持最新的開發，請參閱[Azure Active Directory 的新功能？](../fundamentals/whats-new.md)
 
@@ -104,10 +104,10 @@ Azure AD 會持續不斷進行改進。 若要保持最新的開發，請參閱[
 * O'Reilly-[實現 Azure 解決方案-第二版。](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * 「開始使用 Azure 服務，並瞭解如何在您的組織中執行。 [Azure Active Directory 的部署和同步](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml)處理一節中會涵蓋 Azure AD 條件式存取。」
 
-* Wiley-[主控 Microsoft Azure 的基礎結構服務](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* [適用于架構設計人員的 Wiley Microsoft Azure 基礎結構服務：設計雲端解決方案](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * 「以下是您瞭解、評估、部署和維護使用 Microsoft Azure 之環境所需的一切。」
 
-## <a name="white-papers"></a>技術白皮書
+## <a name="white-papers"></a>白皮書
 
 * 2018年12月18日發行，[使用 Azure Active Directory 建立彈性的存取控制管理原則](../authentication/concept-resilient-controls.md)
    * 本檔提供組織可能會採用的策略指導方針，以降低在意外中斷期間鎖定的風險。

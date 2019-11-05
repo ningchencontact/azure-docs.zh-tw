@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 7b61aef13b113d9b2502c24e3001da25fa186c76
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 841fa89f2e893052473bb1e2b7e634f1216ab505
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559569"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464585"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>從翻譯語音 API 移轉至語音服務
 
-使用本文來將應用程式從 Microsoft 翻譯語音 API 移轉至[語音服務](index.yml)。 本指南會概述翻譯語音 API 和語音服務之間的差異，並針對移轉應用程式的策略提供建議。
+使用本文來將應用程式從 Microsoft 翻譯語音 API 移轉至[語音服務](index.md)。 本指南會概述翻譯語音 API 和語音服務之間的差異，並針對移轉應用程式的策略提供建議。
 
 > [!NOTE]
 > 語音服務不會接受您的翻譯語音 API 訂用帳戶金鑰。 您必須建立新的語音服務訂用帳戶。
@@ -35,7 +35,7 @@ ms.locfileid: "68559569"
 | 連線時間限制                             | 90 分鐘                                               | 搭配 SDK 時沒有限制。 搭配 WebSocket 連線時為 10 分鐘。                                                                                                                                                                                                                                                                                   |
 | 標頭中的驗證金鑰                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 在單一要求中翻譯多個語言 | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| 可用的 SDK                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 請參閱[語音服務檔](index.yml)以取得可用的 sdk。                                                                                                                                                    |
+| 可用的 SDK                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 請參閱[語音服務檔](index.md)以取得可用的 sdk。                                                                                                                                                    |
 | WebSocket 連線                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 語言 API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 語音服務支援[翻譯 API 語言參考](../translator-speech/languages-reference.md)文章中所述的相同語言範圍。 |
 | 粗話篩選和標記                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -43,13 +43,13 @@ ms.locfileid: "68559569"
 | 其他檔案類型作為輸入                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | 部分結果                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 計時資訊                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
-| 相互關聯識別碼                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| 自訂語音模型                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 語音服務提供自訂語音模型, 可讓您自訂語音辨識給貴組織的獨特詞彙。                                                                                                                                           |
+| 相互關連識別碼                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| 自訂語音模型                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 語音服務提供自訂語音模型，可讓您自訂語音辨識給貴組織的獨特詞彙。                                                                                                                                           |
 | 自訂翻譯模型                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 訂閱 Microsoft 文字翻譯 API 可讓您使用[自訂翻譯器](https://www.microsoft.com/translator/business/customization/)，來使用您自己的資料取得更精確的翻譯。                                                 |
 
 ## <a name="migration-strategies"></a>移轉策略
 
-如果您或您的組織具有使用翻譯語音 API 的開發中或生產環境應用程式，您應該更新它們以使用語音服務。 請參閱[語音服務](index.yml)文件以取得可用的 SDK、程式碼範例及教學課程。 移轉時，請考慮下列事項：
+如果您或您的組織具有使用翻譯語音 API 的開發中或生產環境應用程式，您應該更新它們以使用語音服務。 請參閱[語音服務](index.md)文件以取得可用的 SDK、程式碼範例及教學課程。 移轉時，請考慮下列事項：
 
 * 語音服務不提供全域端點。 請判斷自己的應用程式是否能在針對所有流量使用單一區域端點的情況下有效運作。 如果不行，請使用地理位置來判斷最有效的端點。
 
@@ -57,12 +57,12 @@ ms.locfileid: "68559569"
 
 * 如果您的應用程式使用翻譯文字 API 及翻譯語音 API 以啟用自訂翻譯模型，您可以使用語音服務來直接新增類別識別碼。
 
-* 不同于翻譯工具語音 API, 語音服務可以在單一要求中完成多個語言的翻譯。
+* 不同于翻譯工具語音 API，語音服務可以在單一要求中完成多個語言的翻譯。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [免費試用語音服務](get-started.md)
-* [快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音](quickstart-csharp-uwp.md)
+* [快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>另請參閱
 

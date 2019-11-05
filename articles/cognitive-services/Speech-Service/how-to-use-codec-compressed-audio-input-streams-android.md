@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: df5eb123a2fd47a3eceea8153786442bf56a2718
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 2e741e8a8df2cebff167a381cef41351ead4c6cf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803886"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464363"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>在 Android 上搭配使用編解碼器壓縮的音訊輸入與語音 SDK
 
@@ -43,7 +43,7 @@ ms.locfileid: "71803886"
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
 ```
 
-以下提供 `Android.mk` 和 @no__t 1 檔案的範例。 請遵循下列步驟來建立 gstreamer 共用物件： `libgstreamer_android.so`。
+以下提供範例 `Android.mk` 和 `Application.mk` 檔案。 請遵循下列步驟來建立 gstreamer 共用物件： `libgstreamer_android.so`。
 
 ```make
 # Android.mk
@@ -97,7 +97,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-您可以在 Ubuntu 16.04 或18.04 上使用下列命令來建立 `libgstreamer_android.so`。 下列命令列只有針對使用[ANDROID NDK b16b](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)的[Gstreamer android 版本 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2)進行測試。
+您可以使用下列命令在 Ubuntu 16.04 或18.04 上建立 `libgstreamer_android.so`。 下列命令列只有針對使用[ANDROID NDK b16b](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)的[Gstreamer android 版本 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2)進行測試。
 
 ```sh
 # assuming wget and unzip already installed on the system
@@ -129,13 +129,13 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-一旦建立共用物件（libgstreamer_android）之後，應用程式開發人員就必須將共用物件放在 Android 應用程式中，讓語音 SDK 可以載入它。
+一旦共用物件（libgstreamer_android. so）建立後，應用程式開發人員就必須將共用物件放在 Android 應用程式中，讓語音 SDK 可以載入它。
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>使用編解碼器壓縮音訊輸入的範例程式碼
 
-若要以壓縮的音訊格式串流到語音服務，請建立 `PullAudioInputStream` 或 `PushAudioInputStream`。 然後，在資料流程類別的實例中建立 `AudioConfig`，並指定資料流程的壓縮格式。
+若要以壓縮的音訊格式串流到語音服務，請建立 `PullAudioInputStream` 或 `PushAudioInputStream`。 然後，從您的資料流程類別的實例建立 `AudioConfig`，並指定資料流程的壓縮格式。
 
-假設您有一個名為 `myPullStream` 的輸入資料流程類別，並使用 OPUS/OGG。 您的程式碼看起來可能像這樣：
+假設您有一個稱為 `myPullStream` 的輸入資料流程類別，而且使用 OPUS/OGG。 您的程式碼看起來可能像這樣：
 
 ```java
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
@@ -159,5 +159,5 @@ String text = result.getText();
 
 ## <a name="next-steps"></a>後續步驟
 
-- [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-- [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)
+- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [瞭解如何以 JAVA 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

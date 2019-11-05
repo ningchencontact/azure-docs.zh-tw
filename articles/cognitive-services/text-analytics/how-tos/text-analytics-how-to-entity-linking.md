@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984273"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488639"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文字分析中使用已命名的實體識別
 
@@ -23,51 +23,113 @@ ms.locfileid: "70984273"
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>實體連結和具名實體辨識
 
-文字分析 ' `entities`端點支援命名實體識別（NER）和實體連結。
+文字分析 ' `entities` 端點支援命名實體識別（NER）和實體連結。
 
 ### <a name="entity-linking"></a>實體連結
 連結實體可識別及區分文字中找到的實體身分識別 (例如，判斷 "Mars" 是用來指星體或指羅馬的戰神)。 此程序需具備可讓辨識項目與之連結的知識庫 - `entities` 端點文字分析即是使用維基百科作為知識庫。
 
 ### <a name="named-entity-recognition-ner"></a>具名實體辨識 (NER)
-具名實體辨識 (NER) 是識別文字中各種不同的實體，並將它們分類至預先定義類別的能力。 下面列出所支援的實體類別。
+「命名實體辨識」（NER）是指在文字中識別不同的實體，並將其分類為預先定義的類別或類型的能力。 
 
-在文字分析[版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)中，實體連結和命名實體辨識（NER）都適用于數種語言。 如需詳細資訊，請參閱[語言支援](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)文章。
+## <a name="named-entity-recognition-v3-public-preview"></a>命名實體辨識 v3 公開預覽
 
-### <a name="language-support"></a>語言支援
+[下一版的命名實體](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console)辨識現已提供公開預覽。 它提供實體連結和命名實體辨識的更新。 
 
-若以多種語言使用連結實體，則需使用每一種語言的對應知識庫。 對於文字分析中的實體連結，這表示 `entities` 端點支援的每一種語言會連結至該語言的對應維基百科語料庫。 由於語料庫的大小會因語言不同而有所差異，因此我們預期實體連結功能的召回也會有所不同。
+:::row:::
+    :::column span="":::
+        **功能**
+    :::column-end:::
+    ::: column span="":::
+        **說明** 
+    :::column-end:::
+:::row-end:::
+<!-- expanded types and subtypes row-->
+:::row:::
+    :::column span="":::
+        擴充的實體類型和子類型
+    :::column-end:::
+    :::column span="":::
+     已擴充的分類和偵測數個已命名的實體類型。
+    :::column-end:::
+:::row-end:::
+<!-- separate endpoints row-->
+:::row:::
+    :::column span="":::
+        個別的要求端點 
+    :::column-end:::
+    :::column span="":::
+        用於傳送實體連結和 NER 要求的個別端點。
+    :::column-end:::
+:::row-end:::
+<!-- model-version row -->
+:::row:::
+    :::column span="":::
+        `model-version` 參數
+    :::column-end:::
+    :::column span="":::
+        選擇文字分析模型版本的選擇性參數。 目前只有預設模型可供使用。
+    :::column-end:::
+:::row-end:::
 
-## <a name="supported-types-for-named-entity-recognition"></a>針對具名實體辨識所支援的類型
+### <a name="entity-types"></a>實體類型
 
-| Type  | SubType | 範例 |
+命名實體辨識 v3 提供跨多個類型的展開偵測。 目前，NER v3 可以辨識下列類別的實體。 如需支援的實體和語言的詳細清單，請參閱[命名實體類型](../named-entity-types.md)一文。
+
+* 一般
+* 個人資訊 
+
+### <a name="request-endpoints"></a>要求端點
+
+命名實體辨識 v3 會針對 NER 和實體連結要求使用不同的端點。 根據您的要求使用下列 URL 格式：
+
+NER
+* 一般實體-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* 個人資訊實體-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+實體連結
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>模型版本設定
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+## <a name="supported-types-for-named-entity-recognition-v2"></a>命名實體辨識 v2 支援的類型
+
+> [!NOTE]
+> 命名實體識別（NER）第2版支援下列實體。 [NER v3](#named-entity-recognition-v3-public-preview)處於公開預覽狀態，可大幅擴充文字中辨識之實體的數目和深度。   
+
+| 類型  | SubType | 範例 |
 |:-----------   |:------------- |:---------|
-| 個人        | N/A\*         | "Jeff"、"Bill Gates"     |
-| Location      | N/A\*         | "Redmond, Washington"、"Paris"  |
+| Person        | N/A\*         | "Jeff"、"Bill Gates"     |
+| 位置      | N/A\*         | "Redmond, Washington"、"Paris"  |
 | 組織  | N/A\*         | "Microsoft"   |
-| 數量      | 數字        | "6"、"six"     |
+| 數量      | Number        | "6"、"six"     |
 | 數量      | 百分比    | "50%"、"fifty percent"|
-| 數量      | 序號       | "2nd"、"second"     |
-| 數量      | Age           | "90 day old"、"30 years old"    |
-| 數量      | Currency      | "$10.99"     |
+| 數量      | 序數       | "2nd"、"second"     |
+| 數量      | 年齡           | "90 day old"、"30 years old"    |
+| 數量      | 貨幣      | "$10.99"     |
 | 數量      | 維度     | "10 miles"、"40 cm"     |
 | 數量      | 溫度   | "32 degrees"    |
 | DateTime      | N/A\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017"、"05/02/2017"   |
-| DateTime      | Time          | "8am"、"8:00"  |
+| DateTime      | 日期          | "May 2nd, 2017"、"05/02/2017"   |
+| DateTime      | 時間          | "8am"、"8:00"  |
 | DateTime      | 日期範圍     | "May 2nd to May 5th"    |
 | DateTime      | 時間範圍     | "6pm to 7pm"     |
-| DateTime      | Duration      | "1 minute and 45 seconds"   |
+| DateTime      | 持續時間      | "1 minute and 45 seconds"   |
 | DateTime      | 設定           | "every Tuesday"     |
 | URL           | N/A\*         | "HTTPs：\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
+| 電子郵件         | N/A\*         | "support@contoso.com" |
 
-\* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。  列出的所有支援實體類型僅適用于英文、簡體中文、法文、德文和西班牙文語言。
+\* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。  列出的所有支援實體類型僅適用于英文、簡體中文、法文、德文和西班牙文等語言。
 
+### <a name="language-support"></a>語言支援
 
+若以多種語言使用連結實體，則需使用每一種語言的對應知識庫。 對於文字分析中的實體連結，這表示 `entities` 端點支援的每一種語言會連結至該語言的對應維基百科語料庫。 由於語料庫的大小會因語言不同而有所差異，因此我們預期實體連結功能的召回也會有所不同。 如需詳細資訊，請參閱[語言支援](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)文章。
 
 ## <a name="preparation"></a>準備工作
 
-您必須具有此格式的 JSON 文件：識別碼、文字、語言
+您必須具有此格式的 JSON 檔：識別碼、文字、語言
 
 如需目前支援的語言，請參閱[這份清單](../text-analytics-supported-languages.md)。
 
@@ -90,20 +152,20 @@ ms.locfileid: "70984273"
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>步驟 1:建立要求結構
+## <a name="step-1-structure-the-request"></a>步驟 1：建立要求結構
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ 建立一個 **POST** 要求。 請參閱此要求的 API 檔：[實體 api](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，設定關鍵字組解壓縮的 HTTP 端點。 您必須包含`/text/analytics/v2.1/entities`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities` 。
++ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，設定關鍵字組解壓縮的 HTTP 端點。 您必須包含 `/text/analytics/v2.1/entities`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`。
 
 + 設定要求標頭以包含文字分析作業[的存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 
 + 在要求本文中，提供您準備用於此分析的 JSON 文件集合
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟**文件** \(英文\) 中的 [API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
@@ -275,13 +337,13 @@ ms.locfileid: "70984273"
     }
 ```
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已了解在認知服務中使用文字分析的實體連結概念和工作流程。 摘要說明：
 
 + [實體 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 僅針對特定語言提供。
 + 要求本文中的 JSON 文件包含識別碼、文字和語言代碼。
-+ 使用對您訂用帳戶有效的個人化[存取金鑰和端點](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)，將要求 POST 到 `/entities` 端點。
++ 使用對您訂用帳戶有效的個人化`/entities`存取金鑰和端點[，將要求 POST 到 ](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 端點。
 + 由連結實體 (包含每個文件識別碼的信賴分數、位移和網頁連結) 組成的回應輸出可用於任何應用程式
 
 ## <a name="next-steps"></a>後續步驟

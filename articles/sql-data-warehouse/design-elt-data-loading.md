@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c248a2e3e6724388fa6402a70ac3bcb51f0f9ef3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597461"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492249"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的 PolyBase 資料載入策略
 
@@ -43,40 +43,40 @@ ms.locfileid: "68597461"
 如需詳細資訊，請參閱[載入模式部落格](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)。 
 
 
-## <a name="1-extract-the-source-data-into-text-files"></a>1.將來源資料擷取至文字檔
+## <a name="1-extract-the-source-data-into-text-files"></a>1. 將來源資料解壓縮至文字檔
 
 從來源系統取得資料視儲存位置而定。  目標是將資料移至 PolyBase 支援的分隔符號文字檔。 
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 外部檔案格式
 
-PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除了分隔符號文字檔，它會從 Hadoop 檔案格式 RC 檔案、ORC 和 Parquet 載入。 PolyBase 也可以從 Gzip 和 Snappy 壓縮檔案載入資料。 PolyBase 目前不支援延伸的 ASCII、固定寬度格式和巢狀格式，例如 WinZip、JSON 和 XML。 如果您從 SQL Server 匯出，您可以使用 [bcp 命令列工具](/sql/tools/bcp-utility)將資料匯出到標示分隔符號的文字檔。 Parquet 至 SQL DW 資料類型對應如下所示:
+PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除了分隔符號文字檔，它會從 Hadoop 檔案格式 RC 檔案、ORC 和 Parquet 載入。 PolyBase 也可以從 Gzip 和 Snappy 壓縮檔案載入資料。 PolyBase 目前不支援延伸的 ASCII、固定寬度格式和巢狀格式，例如 WinZip、JSON 和 XML。 如果您從 SQL Server 匯出，您可以使用 [bcp 命令列工具](/sql/tools/bcp-utility)將資料匯出到標示分隔符號的文字檔。 Parquet 至 SQL DW 資料類型對應如下所示：
 
 | **Parquet 資料類型** |                      **SQL 資料類型**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
 |          int          |                             int                              |
-|        Bigint         |                            Bigint                            |
-|        boolean        |                             bit                              |
-|        double         |                            FLOAT                             |
-|         FLOAT         |                             real                             |
+|        bigint         |                            bigint                            |
+|        布林值        |                             bit                              |
+|        double         |                            float                             |
+|         float         |                             real                             |
 |        double         |                            money                             |
-|        double         |                          SMALLMONEY                          |
-|        string         |                            nchar                             |
-|        string         |                           nvarchar                           |
-|        string         |                             char                             |
-|        string         |                           varchar                            |
+|        double         |                          smallmoney                          |
+|        字串         |                            nchar                             |
+|        字串         |                           nvarchar                           |
+|        字串         |                             char                             |
+|        字串         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
+|       timestamp       |                             日期                             |
 |       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          日期時間2                           |
+|       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
-|       timestamp       |                             time                             |
-|       date            |                             date                             |
-|        decimal        |                            decimal                           |
+|       timestamp       |                             分析                             |
+|       日期            |                             日期                             |
+|        十進位        |                            十進位                           |
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2.讓資料登陸到 Azure Blob 儲存體或 Azure Data Lake Store
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. 將資料放入 Azure Blob 儲存體或 Azure Data Lake 存放區
 
 若要讓資料登陸到 Azure 儲存體，您可以將它移至 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)或 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)。 在任一位置中，資料應該會儲存到文字檔。 PolyBase 可以從任一位置載入。
 
@@ -87,7 +87,7 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 - [Azure Data Factory (ADF)](../data-factory/introduction.md) 具有閘道，您可以在本機伺服器上安裝。 然後您可以建立管線，將資料從本機伺服器移至 Azure 儲存體。 若要搭配使用 Data Factory 與 SQL 資料倉儲，請參閱[將資料載入 SQL 資料倉儲](/azure/data-factory/load-azure-sql-data-warehouse)。
 
 
-## <a name="3-prepare-the-data-for-loading"></a>3.準備要載入的資料
+## <a name="3-prepare-the-data-for-loading"></a>3. 準備要載入的資料
 
 在將資料載入 SQL 資料倉儲之前，您可能需要在儲存體帳戶中準備及清除資料。 資料準備可以在您的資料是在來源中、當您將資料匯出到文字檔時，或是在資料在 Azure 儲存體之後執行。  盡可能儘早在程序中使用資料最簡單。  
 
@@ -112,7 +112,7 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 - 使用結束字元分隔文字檔中的欄位。  請務必使用在來源資料中找不到的字元或字元序列。 搭配 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) 使用您指定的結束字元。
 
 
-## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4.使用 PolyBase 將資料載入 SQL 資料倉儲暫存表格
+## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. 使用 PolyBase 將資料載入 SQL 資料倉儲臨時表
 
 這是將資料載入暫存資料表的最佳做法。 暫存資料表可讓您處理錯誤，而不會干擾生產資料表。 暫存表格也可讓您在將資料插入生產資料表之前，先使用 SQL 資料倉儲 MPP 進行資料轉換。
 
@@ -123,21 +123,21 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 - [PolyBase 與 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 非常適合於當您的資料是在 Azure Blob 儲存體或 Azure Data Lake Store 中的時候。 它給予您對於載入程序最多的控制權，但是也需要您定義外部資料物件。 其他方法會在您將來源資料表對應至目的地資料表時，在幕後定義這些物件。  若要協調 T-SQL 載入，您可以使用 Azure Data Factory、SSIS 或 Azure 函式。 
 - [PolyBase 與 SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) 非常適合於當您的來源資料是在 SQL Server 中的時候，無論是 SQL Server 內部部署或是在雲端。 SSIS 會定義來源至目的地資料表對應，也會協調載入。 如果您已經有 SSIS 套件，您可以將套件修改為搭配新的資料倉儲目的地。 
 - [PolyBase 與 Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) 是另一個協調工具。  它會定義管線並排程作業。 
-- [PolyBase 與 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)會將 SQL 資料倉儲資料表的資料傳輸至 DataBricks 資料框架, 並 (或) 使用 PolyBase 將資料從 DataBricks 資料框架寫入 SQL 資料倉儲資料表。
+- [PolyBase 與 Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)會將 SQL 資料倉儲資料表中的資料傳輸至 Databricks 資料框架，並（或）使用 polybase 將資料從 Databricks 資料框架寫入 SQL 資料倉儲資料表。
 
 ### <a name="non-polybase-loading-options"></a>非 PolyBase 載入選項
 
 如果您的資料與 PolyBase 不相容，您可以使用 [bcp](/sql/tools/bcp-utility) 或 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)。 bcp 會直接載入 SQL 資料倉儲而不需要透過 Azure Blob 儲存體，它僅適用於小型載入。 請注意，這些選項的載入效能會顯著低於 PolyBase。 
 
 
-## <a name="5-transform-the-data"></a>5.轉換資料
+## <a name="5-transform-the-data"></a>5. 轉換資料
 
 當資料在暫存表格時，執行您的工作負載需要的轉換。 然後將資料移至生產資料表中。
 
 
-## <a name="6-insert-the-data-into-production-tables"></a>6.將資料插入生產資料表
+## <a name="6-insert-the-data-into-production-tables"></a>6. 將資料插入生產資料表
 
-INSERT INTO ...SELECT 陳述式會從暫存表格將資料移至永久資料表。 
+插入 .。。SELECT 語句會將資料從臨時表移至永久資料表。 
 
 當您設計 ETL 程序時，嘗試在小型測試範例上執行程序。 嘗試從資料表將 1000 個資料列擷取至檔案，將它移至 Azure，然後嘗試將它載入暫存表格。 
 

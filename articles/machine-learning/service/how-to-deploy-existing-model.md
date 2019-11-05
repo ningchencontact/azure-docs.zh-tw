@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/19/2019
-ms.openlocfilehash: a864ec8c9bbdf90f04c98c8d9656c863fb32b653
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 60596a8e157ebe1d6423c89e69f1c01b2f130310
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162481"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496913"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>使用現有的模型搭配 Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 瞭解如何搭配 Azure Machine Learning 使用現有的機器學習模型。
 
@@ -35,9 +36,9 @@ ms.locfileid: "71162481"
 * Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)。
 
     > [!TIP]
-    > 本文中的 Python 範例假設變數已設定`ws`為您的 Azure Machine Learning 工作區。
+    > 本文中的 Python 範例假設 `ws` 變數已設定為您的 Azure Machine Learning 工作區。
     >
-    > CLI 範例會使用`myworkspace`和`myresourcegroup`的預留位置。 以您工作區的名稱和包含它的資源群組取代。
+    > CLI 範例會使用 `myworkspace` 和 `myresourcegroup`的預留位置。 以您工作區的名稱和包含它的資源群組取代。
 
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。  
 
@@ -46,11 +47,11 @@ ms.locfileid: "71162481"
 * 已定型的模型。 模型必須保存到開發環境中的一個或多個檔案。
 
     > [!NOTE]
-    > 為了示範如何註冊在 Azure Machine Learning 外部定型的模型，本文中的範例程式碼片段會使用 Paolo Ripamonti 的 Twitter 情感分析專案所建立的[https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)模型：。
+    > 為了示範如何註冊在 Azure Machine Learning 外部定型的模型，本文中的範例程式碼片段會使用 Paolo Ripamonti 的 Twitter 情感分析專案所建立的模型： [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)。
 
 ## <a name="register-the-models"></a>註冊模型
 
-註冊模型可讓您儲存、版本和追蹤工作區中有關模型的中繼資料。 在下列 Python 和 CLI 範例中， `models`目錄`model.h5`包含、 `model.w2v`、 `encoder.pkl`和`tokenizer.pkl`檔案。 這個範例會將`models`目錄中包含的檔案上傳為新的模型註冊，名為： `sentiment`
+註冊模型可讓您儲存、版本和追蹤工作區中有關模型的中繼資料。 在下列 Python 和 CLI 範例中，`models` 目錄包含 `model.h5`、`model.w2v`、`encoder.pkl`和 `tokenizer.pkl` 檔案。 這個範例會將包含在 `models` 目錄中的檔案上傳為名為 `sentiment`的新模型註冊：
 
 ```python
 from azureml.core.model import Model
@@ -78,7 +79,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 
 推斷設定會定義用來執行已部署模型的環境。 推斷設定會參考下列實體，在部署時用來執行模型：
 
-* 輸入腳本。 這個檔案（名`score.py`為）會在部署的服務啟動時載入模型。 它也會負責接收資料、將它傳遞至模型，然後傳迴響應。
+* 輸入腳本。 這個檔案（名為 `score.py`）會在部署的服務啟動時載入模型。 它也會負責接收資料、將它傳遞至模型，然後傳迴響應。
 * Azure Machine Learning[環境](how-to-use-environments.md)。 環境會定義執行模型和專案腳本所需的軟體相依性。
 
 下列範例示範如何使用 SDK 來建立環境，然後將它與推斷設定搭配使用：
@@ -105,7 +106,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 + [如何使用環境](how-to-use-environments.md)。
 + [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)參考。
@@ -121,7 +122,7 @@ CLI 會從 YAML 檔案載入推斷設定：
 }
 ```
 
-使用 CLI 時，conda 環境會定義于推斷設定`myenv.yml`所參考的檔案中。 下列 YAML 是此檔案的內容：
+使用 CLI，conda 環境定義于推斷設定所參考的 `myenv.yml` 檔案中。 下列 YAML 是此檔案的內容：
 
 ```yaml
 name: inference_environment
@@ -139,7 +140,7 @@ dependencies:
 
 ### <a name="entry-script"></a>專案腳本
 
-專案腳本只有兩個必要函式： `init()`和`run(data)`。 這些函式是用來在啟動時初始化服務，並使用用戶端傳入的要求資料來執行模型。 腳本的其餘部分會處理模型的載入和執行。
+專案腳本只有兩個必要的函式，`init()` 和 `run(data)`。 這些函式是用來在啟動時初始化服務，並使用用戶端傳入的要求資料來執行模型。 腳本的其餘部分會處理模型的載入和執行。
 
 > [!IMPORTANT]
 > 沒有適用于所有模型的泛型專案腳本。 它一定是所使用的模型特有的。 它必須瞭解如何載入模型、模型所預期的資料格式，以及如何使用模型來評分資料。
@@ -237,7 +238,7 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-如需詳細資訊，請參閱[LocalWebservice. deploy_configuration （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-)參考。
+如需詳細資訊，請參閱[Deploy_configuration LocalWebservice （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-)參考。
 
 CLI 會從 YAML 檔案載入部署設定：
 
@@ -251,7 +252,7 @@ CLI 會從 YAML 檔案載入部署設定：
 
 ## <a name="deploy-the-model"></a>部署模型
 
-下列範例會在名為`sentiment`的已註冊模型上載入資訊，然後將它部署為名`sentiment`為的服務。 在部署期間，會使用推斷設定和部署設定來建立及設定服務環境：
+下列範例會在名為 `sentiment`的已註冊模型上載入資訊，然後將它部署為名為 `sentiment`的服務。 在部署期間，會使用推斷設定和部署設定來建立及設定服務環境：
 
 ```python
 from azureml.core.model import Model
@@ -266,7 +267,7 @@ print("scoring URI: " + service.scoring_uri)
 
 如需詳細資訊，請參閱[Model. deploy （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)參考。
 
-若要從 CLI 部署模型，請使用下列命令。 此命令會使用儲存`sentiment:1` `inferenceConfig.json`在和`deploymentConfig.json`檔案中的推斷和部署設定，來部署第1版的已註冊模型（）：
+若要從 CLI 部署模型，請使用下列命令。 此命令會使用儲存在 `inferenceConfig.json` 和 `deploymentConfig.json` 檔案中的推斷和部署設定，來部署第1版的已註冊模型（`sentiment:1`）：
 
 ```azurecli
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json

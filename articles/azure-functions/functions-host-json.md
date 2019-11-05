@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927456"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469213"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -71,6 +71,9 @@ ms.locfileid: "72927456"
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -78,10 +81,7 @@ ms.locfileid: "72927456"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -111,7 +111,7 @@ ms.locfileid: "72927456"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|20|取樣的開始臨界值。| 
@@ -172,9 +172,9 @@ ms.locfileid: "72927456"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
-|啟用|true|指定是否已啟用此功能。 | 
+|已啟用|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -220,7 +220,7 @@ ms.locfileid: "72927456"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
@@ -243,9 +243,21 @@ ms.locfileid: "72927456"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |isEnabled|false|啟用或停用主控台記錄。| 
+
+## <a name="manageddependency"></a>managedDependency
+
+受控相依性是目前僅支援以 PowerShell 為基礎的函式的一項功能。 它可讓服務自動管理相依性。 當 [`enabled`] 屬性設定為 [`true`] 時，就會處理 `requirements.psd1` 檔。 發行任何次要版本時，會更新相依性。 如需詳細資訊，請參閱 PowerShell 文章中的[受控](functions-reference-powershell.md#dependency-management)相依性。
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
 
 ## <a name="queues"></a>queues
 
@@ -275,7 +287,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 
@@ -283,7 +295,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 |lockAcquisitionTimeout|00:01:00|執行階段將嘗試取得鎖定的時間量上限。| 
 |lockAcquisitionPollingInterval|n/a|鎖定取得嘗試之間的間隔。| 
 
-## <a name="version"></a>version
+## <a name="version"></a>版本
 
 目標為 v2 執行階段的函數應用程式必須要有 `"version": "2.0"` 版本字串。
 
@@ -294,18 +306,6 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-受控相依性是一項預覽功能，目前僅支援以 PowerShell 為基礎的函式。 它可讓服務自動管理相依性。 當 enabled 屬性設定為 true 時，將會處理[.psd1](functions-reference-powershell.md#dependency-management)檔案。 發行任何次要版本時，將會更新相依性。
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: 特徵雜湊模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的功能雜湊模組來為文字資料進行特徵化。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的功能雜湊模組來為文字資料進行特徵化。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170885"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497830"
 ---
 # <a name="feature-hashing-module-reference"></a>特徵雜湊模組參考
 
-本文說明 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中所包含的模組。
 
 使用「特徵雜湊」模組，將英文文字的資料流程轉換成一組整數特徵。 接著，您可以將此雜湊功能集傳遞至機器學習演算法，以將文字分析模型定型。
 
@@ -73,7 +73,7 @@ ms.locfileid: "71170885"
 
 ## <a name="configure-the-feature-hashing-module"></a>設定功能雜湊模組
 
-1.  在視覺介面中將特徵雜湊模組新增至您的實驗。
+1.  在設計工具中，將 [特徵雜湊] 模組新增至您的管線。
 
 1. 連接包含您想要分析之文字的資料集。
 
@@ -94,7 +94,7 @@ ms.locfileid: "71170885"
 
     例如，如果您輸入3，則會建立 unigrams、bigrams 和 trigrams。
 
-1. 執行實驗。
+1. 執行管道。
 
 ## <a name="results"></a>結果
 
@@ -111,7 +111,7 @@ ms.locfileid: "71170885"
 
 建立已轉換的資料集之後，您可以使用它做為「定型模型」模組的輸入。
  
-### <a name="best-practices"></a>最佳做法
+### <a name="best-practices"></a>最佳作法
 
 下列最佳作法可協助您充分運用功能雜湊模組：
 
@@ -127,8 +127,8 @@ ms.locfileid: "71170885"
     * 移除標點符號和特殊字元
     * 詞幹分析  
 
-適用于任何解決方案的一組最佳前置處理方法，取決於網域、詞彙和商務需求。 實驗您的資料，以查看哪些文字處理方法最有效。
+適用于任何解決方案的一組最佳前置處理方法，取決於網域、詞彙和商務需求。 管線與您的資料，以查看哪些文字處理方法最有效。
 
 ## <a name="next-steps"></a>後續步驟
             
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md) 

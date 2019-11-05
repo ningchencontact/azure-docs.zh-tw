@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
-ms.custom: seodec18
-ms.openlocfilehash: 999f554bf4a2b9ddda83ee6398950cefb11d32aa
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+author: cartacioS
+ms.author: sacartac
+ms.date: 11/04/2019
+ms.openlocfilehash: 5c8ce6a588fd630f69d8ffc682b611baba3afdd4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929346"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497562"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -54,7 +53,9 @@ ms.locfileid: "72929346"
 
 1. **設定用於模型定型的計算目標**，例如[本機電腦、Azure Machine Learning 計算、遠端 vm 或 Azure Databricks](how-to-set-up-training-targets.md)。  瞭解[遠端資源](how-to-auto-train-remote.md)的自動化訓練。
 
-1. **設定自動化機器學習參數**，以決定在決定最佳模型時，要在不同模型、超參數設定、先進前置處理/特徵化，以及要查看的度量有多少次。  您可以在[Azure 入口網站](how-to-create-portal-experiments.md)、[工作區登陸頁面（預覽）](https://ml.azure.com)或[SDK](how-to-configure-auto-train.md)中，設定自動訓練實驗的設定。 
+1. **設定自動化機器學習參數**，以決定在決定最佳模型時，要在不同模型、超參數設定、先進前置處理/特徵化，以及要查看的度量有多少次。  您可以在[Azure Machine Learning studio](https://ml.azure.com)或[SDK](how-to-configure-auto-train.md)中設定自動訓練實驗的設定。 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **提交定型回合。**
 
@@ -81,7 +82,7 @@ ms.locfileid: "72929346"
 
 在每個自動化機器學習實驗中，您的資料都會自動調整或正規化，以協助演算法執行得很好。  在模型定型期間，下列其中一個調整或正規化技術將會套用至每個模型。
 
-|調整&nbsp;&&nbsp;正規化| 描述 |
+|調整&nbsp;&&nbsp;正規化| 說明 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 藉由移除平均值並調整為單位變異數，將功能標準化  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 藉由依該資料行的最小值和最大值調整每項功能來轉換功能  |
@@ -94,6 +95,8 @@ ms.locfileid: "72929346"
 ### <a name="advanced-preprocessing-optional-featurization"></a>Advanced 前置處理：選擇性特徵化
 
 也可以使用其他的先進前置處理和特徵化，例如遺漏值插補、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。 啟用此設定的方式：
+
++ Azure Machine Learning studio：在 [設定**執行**] 區段中選取 [ **View 特徵化] 設定** [，其中包含下列步驟](how-to-create-portal-experiments.md)。
 
 + Python SDK：指定[`AutoMLConfig` 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)的 `"feauturization": auto' / 'off' / FeaturizationConfig`。
 
@@ -139,7 +142,7 @@ ms.locfileid: "72929346"
 
 此外，自動化 ML 執行會自動產生下列圖表，這可協助您瞭解模型分類的正確性，並識別可能受到不平衡資料影響的模型。
 
-圖表| 描述
+圖表| 說明
 ---|---
 [混淆矩陣](how-to-understand-automated-ml.md#confusion-matrix)| 針對資料的實際標籤，評估正確分類的標籤。 
 [精確度-召回](how-to-understand-automated-ml.md#precision-recall-chart)| 根據找到的標籤實例的比率，評估正確標籤的比率 
@@ -161,7 +164,7 @@ ms.locfileid: "72929346"
 
 自動化 ML 也適用于其他 Microsoft 解決方案，例如：
 
-|整合|描述|
+|整合|說明|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|使用 Visual Studio 和 Visual Studio Code 搭配 ML.NET 自動化 ML （預覽），在 .NET 應用程式中自動選取和定型模型。|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|以平行方式在 HDInsight 叢集中的 Spark 上相應放大您的自動化 ML 訓練作業。|
@@ -175,7 +178,7 @@ ms.locfileid: "72929346"
 + 遵循[教學課程：使用 Azure 自動化將回歸模型自動定型 Machine Learning](tutorial-auto-train-models.md)
 
 + 設定自動訓練實驗的設定：
-  + 在 Azure 入口網站介面或工作區登陸頁面（預覽）中，[使用下列步驟](how-to-create-portal-experiments.md)。
+  + 在 Azure Machine Learning studio 中，請[使用下列步驟](how-to-create-portal-experiments.md)。
   + 透過 Python SDK，請[使用下列步驟](how-to-configure-auto-train.md)。
 
 + 若要瞭解如何使用時間序列資料來自動定型，請[使用下列步驟](how-to-auto-train-forecast.md)。

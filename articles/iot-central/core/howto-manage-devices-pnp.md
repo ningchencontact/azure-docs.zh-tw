@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 30c5e9d4ddba473f1afa243eb7fc6db875b3d9b3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 01346ba518a07da1ebb606393c2834994cfb42e2
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953495"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990356"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>在 Azure IoT Central 應用程式中管理裝置（預覽功能）
 
@@ -145,7 +145,7 @@ ms.locfileid: "72953495"
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-如需連接字串和將真實裝置連線到 IoT Central 應用程式的詳細資訊，請參閱[Azure IoT Central 中的裝置連線能力](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
+如需連接字串和將真實裝置連線到 IoT Central 應用程式的詳細資訊，請參閱[Azure IoT Central 中的裝置連線能力](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
 
 ## <a name="delete-a-device"></a>刪除裝置
 

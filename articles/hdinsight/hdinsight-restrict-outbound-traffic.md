@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure HDInsight 叢集的輸出網路流量限制
+title: 設定輸出網路流量限制-Azure HDInsight
 description: 瞭解如何設定 Azure HDInsight 叢集的輸出網路流量限制。
 services: hdinsight
 ms.service: hdinsight
@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: df691102b565824d6cb6a86f19e6fce3822d8ba8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789797"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498138"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火牆設定 Azure HDInsight 叢集的輸出網路流量（預覽）
 
 本文提供的步驟可讓您使用 Azure 防火牆來保護來自 HDInsight 叢集的輸出流量。 下列步驟假設您要為現有的叢集設定 Azure 防火牆。 如果您要部署新叢集並在防火牆後方，請先建立您的 HDInsight 叢集和子網，然後依照本指南中的步驟進行。
 
-## <a name="background"></a>背景
+## <a name="background"></a>背景資訊
 
 Azure HDInsight 叢集通常會部署在您自己的虛擬網路中。 叢集相依于該虛擬網路外部的服務，需要網路存取權才能正常運作。
 
@@ -46,7 +46,7 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
 建立應用程式規則集合，讓叢集能夠傳送和接收重要的通訊。
 
-從 Azure 入口網站中選取 新增防火牆**測試 test-fw01** 。 按一下 **設定** 底下的 **規則**  > **應用程式規則集合** > **新增應用程式規則集合**。
+從 Azure 入口網站中選取 新增防火牆**測試 test-fw01** 。 按一下 **設定** 底下的 **規則** > **應用程式規則集合** > **新增應用程式規則集合**。
 
 ![標題：新增應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -64,7 +64,7 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | HTTPs：443 | login.windows.net | 允許 Windows 登入活動 |
    | Rule_3 | * | HTTPs：443 | login.microsoftonline.com | 允許 Windows 登入活動 |
-   | Rule_4 | * | HTTPs：443，HTTP：80 | < 的 storage_account_name >。 | 如果您的叢集是由 WASB 支援，則請新增 WASB 的規則。 若只要使用 HTTPs 連線，請確定已在儲存體帳戶上啟用「[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)」。 |
+   | Rule_4 | * | HTTPs：443，HTTP：80 | < storage_account_name. 核心 > | 如果您的叢集是由 WASB 支援，則請新增 WASB 的規則。 若只要使用 HTTPs 連線，請確定已在儲存體帳戶上啟用「[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)」。 |
 
 1. 按一下 [新增]。
 
@@ -75,14 +75,14 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 建立網路規則，以正確設定您的 HDInsight 叢集。
 
 1. 從 Azure 入口網站中選取 新增防火牆**測試 test-fw01** 。
-1. 按一下 **設定** 底下的 **規則**  >  **網路規則集合**  > **新增網路規則集合**。
+1. 按一下 **設定** 底下的 **規則** > **網路規則集合** > **新增網路規則集合**。
 1. 在 [**新增網路規則集合**] 畫面上，輸入 [**名稱**]、[**優先順序**]，然後按一下 [**動作**] 下拉式功能表中的 [**允許**]。
 1. 在 [ **IP 位址**] 區段中建立下列規則：
 
    | **名稱** | **通訊協定** | **來源位址** | **目的地位址** | **目的地埠** | **注意事項** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 時間服務 |
-   | Rule_2 | 任意 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 如果您使用企業安全性套件（ESP），請在 [IP 位址] 區段中新增網路規則，以允許 ESP 叢集與 AAD DS 通訊。 您可以在入口網站的 [AAD-DS] 區段中找到網域控制站的 IP 位址 | 
+   | Rule_2 | 任意 | * | DC_IP_Address_1，DC_IP_Address_2 | `*` | 如果您使用企業安全性套件（ESP），請在 [IP 位址] 區段中新增網路規則，以允許 ESP 叢集與 AAD DS 通訊。 您可以在入口網站的 [AAD-DS] 區段中找到網域控制站的 IP 位址 | 
    | Rule_3 | TCP | * | Data Lake Storage 帳戶的 IP 位址 | `*` | 如果您使用 Azure Data Lake Storage，則可以在 [IP 位址] 區段中新增網路規則，以解決 ADLS Gen1 和 Gen2 的 SNI 問題。 此選項會將流量路由傳送至防火牆，這可能會導致大量資料載入的成本較高，但流量會記錄下來，並可在防火牆記錄中進行審核。 判斷 Data Lake Storage 帳戶的 IP 位址。 您可以使用 powershell 命令（例如 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`）將 FQDN 解析為 IP 位址。|
    | Rule_4 | TCP | * | * | `12000` | 選擇性如果您使用的是 Log Analytics，請在 [IP 位址] 區段中建立網路規則，以啟用與 Log Analytics 工作區的通訊。 |
 
@@ -187,7 +187,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 | [這裡](hdinsight-management-ip-addresses.md)發佈的 ip | 這些是 HDInsight 服務 |
 | ESP 叢集的 AAD-DS 私人 Ip |
 | \*：16800，適用于 KMS Windows 啟用 |
-| Log Analytics 的 \*12000 |
+| 適用于 Log Analytics 的 \*12000 |
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 相依性
 

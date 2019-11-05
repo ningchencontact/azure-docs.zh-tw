@@ -2,31 +2,31 @@
 title: 在 Azure 時間序列深入解析查詢中成形 JSON 的最佳做法 | Microsoft Docs
 description: 了解如何改善您的 Azure 時間序列深入解析查詢效率。
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274414"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990273"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查詢效能 
 
 本文提供如何塑造 JSON 以將 Azure 時間序列深入解析查詢效率最大化的指引。
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>瞭解塑造 JSON 以符合您的儲存體需求的最佳做法。</br>
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 考慮如何將事件傳送至時間序列深入解析。 亦即，您一律會：
 
@@ -35,6 +35,9 @@ ms.locfileid: "72274414"
 1. 請確定您未達到時間序列深入解析的最大屬性限制：
    - S1 環境為 600 個屬性 (資料行)。
    - S2 環境為 800 個屬性 (資料行)。
+
+> [!TIP]
+> 查看 Azure 時間序列深入解析 Preview 中的[限制和計畫](time-series-insights-update-plan.md)。
 
 下列指導方針有助於確保最佳的查詢效能：
 
@@ -162,7 +165,7 @@ ms.locfileid: "72274414"
 
 * 具有索引鍵屬性**deviceId**和**tagId**的參考資料表：
 
-   | deviceId | series.tagId | messageId | deviceLocation | 型別 | unit |
+   | deviceId | series.tagId | messageId | deviceLocation | 類型 | unit |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi |
@@ -171,7 +174,7 @@ ms.locfileid: "72274414"
 
 * 在簡維之後時間序列深入解析事件資料表：
 
-   | deviceId | series.tagId | messageId | deviceLocation | 型別 | unit | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | 類型 | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 34.7 |
@@ -191,11 +194,11 @@ ms.locfileid: "72274414"
 對於具有大量可能值的屬性，最好以單一資料行中的相異值來傳送，而不是針對每個值建立新的資料行。 在前兩個範例中：
 
   - 在第一個範例中，有幾個屬性有數個值，因此最好讓每一個屬性都是不同的。
-  - 在第二個範例中，不會將量值指定為個別屬性。 相反地，它們是在通用數列屬性下的值或量值陣列。 會傳送新的索引鍵**tagId** , 這會在簡維資料表中建立新的**series.tagId** 。 新的屬性**type**和**unit**是使用參考資料所建立, 因此不會達到屬性限制。
+  - 在第二個範例中，不會將量值指定為個別屬性。 相反地，它們是在通用數列屬性下的值或量值陣列。 會傳送新的索引鍵**tagId** ，這會在簡維資料表中建立新的**資料行數列 tagId** 。 新的屬性**類型**和**單位**是使用參考資料所建立，因此不會達到屬性限制。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入瞭解將[IoT 中樞裝置訊息傳送至雲端](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)。
+- 深入瞭解將[IoT 中樞裝置訊息傳送至雲端](../iot-hub/iot-hub-devguide-messages-construct.md)。
 
 - 若要深入瞭解時間序列深入解析資料存取 REST API 的查詢語法，請參閱[Azure 時間序列深入解析查詢語法](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax)。
 

@@ -1,21 +1,21 @@
 ---
-title: Azure 資料共用預覽術語
-description: 瞭解用來描述 Azure 資料共用預覽（資料提供者、資料取用者、資料共用、共用訂用帳戶、快照、邀請、收件者）所使用之資源的常用詞彙。
+title: Azure Data Share 詞彙
+description: 瞭解用來描述 Azure 資料共用（資料提供者、資料取用者、資料共用、共用訂用帳戶、快照、邀請、收件者）所使用之資源的常用詞彙。
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166281"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468549"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Azure 資料共用預覽概念 
+# <a name="azure-data-share-concepts"></a>Azure 資料共用概念 
 
-Azure 資料共用預覽引進與資料共用相關的一些新術語。 本文說明您可能會在整個服務中使用的一些常用詞彙。 
+Azure 資料共用引進與資料共用相關的一些新術語。 本文說明您可能會在整個服務中使用的一些常用詞彙。 
 
 ## <a name="data-provider"></a>資料提供者
 
@@ -35,7 +35,7 @@ Azure 資料共用預覽引進與資料共用相關的一些新術語。 本文�
 
 資料取用者可以藉由流覽至 [已接收的**共用**] 並查看其所接收的共用狀態，來檢查是否有作用中的共用訂閱。 
 
-## <a name="snapshot"></a>快照集
+## <a name="snapshot"></a>快照
 
 當資料取用者接受資料共用邀請時，可以建立快照集。 當他們接受邀請時，可以觸發與其共用之資料的完整快照集。 快照集是資料取用者產生快照集之時間點的資料複本。 
 
@@ -64,4 +64,3 @@ Azure 資料共用預覽引進與資料共用相關的一些新術語。 本文�
 ## <a name="next-steps"></a>後續步驟
 
 若要了解如何開始共用資料，請繼續進行[共用資料](share-your-data.md)教學課程。
-

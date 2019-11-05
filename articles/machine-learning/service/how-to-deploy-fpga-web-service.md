@@ -7,30 +7,31 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.author: tedway
-author: tedway
-ms.date: 07/25/2019
+ms.author: jordane
+author: jpe316
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c3c844ba7044f8e1c9c313f1ac63b94310ea322
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350546"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496897"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>什麼是可現場程式化閘道陣列（FPGA）和如何部署
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文提供可現場程式化閘道陣列（FPGA）的簡介，並說明如何使用 Azure Machine Learning 將模型部署至 Azure FPGA。 
 
 FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階層。 互連可讓您在製造之後以不同方式設定這些區塊。 與其他晶片相比，FPGA 結合了可程式性和效能。
 
-## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA 與CPU、GPU、ASIC 的比較
+## <a name="fpgas-vs-cpu-gpu-and-asic"></a>Fpga 與 CPU、GPU 和 ASIC 的比較
 
 下列圖表示範 FPGA 與其他處理器的比較方式。
 
 ![Azure Machine Learning FPGA 比較的圖表](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|處理器||描述|
+|處理器||說明|
 |---|:-------:|------|
 |應用程式特定的積體電路|ASIC|自訂電路 (例如，Google 的 TensorFlow 處理器 (TPU)) 可提供最高效率。 它們無法隨著您需求的變更加以重新設定。|
 |現場可程式化閘陣列|FPGA|FPGA (例如 Azure 上所提供的那些陣列) 可提供接近 ASIC 的效能。 它們也會隨著時間而具有彈性且可重新設定，以實作新邏輯。|
@@ -58,10 +59,10 @@ Azure 上的 Fpga 支援：
   - ResNet 152
   - DenseNet-121
   - VGG-16
-  - SSD-VGG
+  - SSD-VGG-16
 
 Fpga 可在下列 Azure 區域中使用：
-  - East US
+  - 美國東部
   - 東南亞
   - 西歐
   - 美國西部 2
@@ -82,14 +83,14 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 
 
-## <a name="example-deploy-models-on-fpgas"></a>範例：在 FPGA 上部署模型 
+## <a name="example-deploy-models-on-fpgas"></a>範例：在 Fpga 上部署模型 
 
-您可以使用 Azure Machine Learning 硬體加速模型，在 Fpga 上將模型部署為 web 服務。 使用 Fpga 可提供超低延遲推斷，即使使用單一批次大小也一樣。 推斷 (或模型計分) 是已部署的模型用於預測的階段, 最常見的是生產資料。
+您可以使用 Azure Machine Learning 硬體加速模型，在 Fpga 上將模型部署為 web 服務。 使用 Fpga 可提供超低延遲推斷，即使使用單一批次大小也一樣。 推斷（或模型計分）是已部署的模型用於預測的階段，最常見的是生產資料。
 
 
 ### <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 - FPGA 配額。 使用 Azure CLI 檢查您是否有配額：
 
@@ -98,7 +99,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
     ```
 
     > [!TIP]
-    > 其他可能的位置為``southeastasia``、 ``westeurope``和``westus2``。
+    > 其他可能的位置是 ``southeastasia``、``westeurope``和 ``westus2``。
 
     命令會傳回類似下面的文字：
 
@@ -110,7 +111,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
     請確定您在__CurrentValue__下至少有6個個 vcpu。
 
-    如果您沒有配額，請在上[https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)提交要求。
+    如果您沒有配額，請在[https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)提交要求。
 
 - 已安裝 Azure Machine Learning 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)。
  
@@ -121,7 +122,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
     ```
 
 
-## <a name="1-create-and-containerize-models"></a>1.建立和容器化模型
+## <a name="1-create-and-containerize-models"></a>1. 建立和容器化模型
 
 本檔將說明如何建立 TensorFlow 圖形來預先處理輸入影像、將它設為在 FPGA 上使用 ResNet 50 的 featurizer，然後透過針對 ImageNet 資料集定型的分類器來執行功能。
 
@@ -315,11 +316,11 @@ for i in Image.list(workspace=ws):
         i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
-## <a name="2-deploy-to-cloud-or-edge"></a>2.部署到雲端或邊緣
+## <a name="2-deploy-to-cloud-or-edge"></a>2. 部署至雲端或邊緣
 
 ### <a name="deploy-to-the-cloud"></a>部署到雲端
 
-若要將模型部署為大規模生產 Web 服務，請使用 Azure Kubernetes Service (AKS)。 您可以使用 [Azure Machine Learning SDK]、[CLI]、[ [Azure 入口網站](https://portal.azure.com)] 或 [[工作區] 登陸頁面（預覽）](https://ml.azure.com)來建立一個新的。
+若要將模型部署為大規模生產 Web 服務，請使用 Azure Kubernetes Service (AKS)。 您可以使用 Azure Machine Learning SDK、CLI 或[Azure Machine Learning studio](https://ml.azure.com)來建立新的。
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -433,7 +434,7 @@ converted_model.delete()
 
 + 數個[範例筆記本](https://aka.ms/aml-accel-models-notebooks)。
 
-+ [超大規模資料庫的硬體：Azure + FPGA 上大規模的 ML：組建 2018 (影片)](https://channel9.msdn.com/events/Build/2018/BRK3202) \(英文\)
++ [超大規模資料庫硬體：Azure + FPGA 頂級規模的 ML：2018 組建 (英文影片)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [深入了解 Microsoft FPGA 架構的可設定雲端 (英文影片)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

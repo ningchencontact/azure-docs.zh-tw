@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: dff6473fd01fc2d41c5bb100eefd583afe4175b0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792541"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496474"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure 認知搜尋服務 REST api-版本 2019-05-06-預覽
 
@@ -24,6 +24,8 @@ ms.locfileid: "72792541"
 
 
 ## <a name="new-in-2019-05-06-preview"></a>2019-05-06-Preview 的新功能
+
+[* * 增量索引](cognitive-search-incremental-indexing-conceptual.md)是新增狀態和快取之索引的新模式，可讓您在資料、索引子和技能集定義未變更時重複使用現有的輸出。 這項功能僅適用于透過認知技能集的擴充。
 
 [**知識存放區**](knowledge-store-concept-intro.md)是以 AI 為基礎的擴充管線的新目的地。 除了索引之外，您現在還可以保存在 Azure 儲存體中編制索引期間所建立的已填入資料結構。 您可以透過技能集中的專案來控制資料的實體結構，包括資料的成形方式、資料是否儲存在資料表儲存體或 Blob 儲存體中，以及是否有多個視圖。
 

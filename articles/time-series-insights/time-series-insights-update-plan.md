@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc4336629a4c3b9da906daefca160c5a305603dc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f5a12ca2bdccee1d2f738aa3c810577caf3d8eac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491956"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>規劃您的 Azure 時間序列深入解析預覽版環境
 
@@ -43,7 +43,7 @@ Azure 時間序列深入解析採用隨用隨付商務模型。 如需費用和�
 * Azure 時間序列深入解析預覽版環境
 * Azure 儲存體一般用途 V1 帳戶
 
-在布建過程中，您可以指定是否要啟用暖存放區。 暖存放區提供您階層式查詢體驗。 啟用時，您必須指定介於7到30天的保留期間。 在暖存放區保留期間內執行的查詢，通常會提供更快速的回應時間。 當查詢超出暖存放區保留期限時，就會從冷儲存體提供。
+在布建過程中，您可以指定是否要啟用暖存放區。 暖存放區提供您階層式查詢體驗。 啟用時，您必須指定介於7到30天的保留期間。 在暖存放區保留期間內執行的查詢，通常會提供更快速的回應時間。 當查詢超出暖存放區保留期限時，就會從冷存放區提供服務。
 
 暖存放區上的查詢是免費的，而對冷存放區的查詢則會產生成本。 請務必瞭解您的查詢模式，並據以規劃您的暖存放區設定。 我們建議您將最新資料的互動式分析放在您的暖存放區中，而模式分析和長期趨勢則以非經常性的方式存在。
 

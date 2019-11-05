@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc70e2e6475620bfb8842fc740772e326f8ee8d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478848"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480339"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -43,7 +43,7 @@ ms.locfileid: "66478848"
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\_data 和 trip\_fare 的「唯一索引鍵」  是由下列三個欄位所組成：
+聯結 trip**data 和 trip**fare 的「唯一索引鍵」\_\_是由下列三個欄位所組成：
 
 * medallion、
 * hack\_license 和
@@ -52,8 +52,8 @@ ms.locfileid: "66478848"
 ## <a name="mltasks"></a>處理三種類型的預測工作
 我們根據 *tip\_amount* 將三個預測問題公式化來說明三種類型的模型化工作：
 
-1. **二元分類**：預測是否已支付某趟車程的小費，例如，大於美金 0 元的 *tip\_amount* 為正面範例，而等於美金 0 元的 *tip\_amount* 為負面範例。
-2. **多元分類**：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount  分成五個分類收納組或類別：
+1. **二元分類**：預測是否已支付某趟車程的小費 (即大於美金 $0 元的 *tip\_amount* 為正面範例)，而等於美金 $0 元的 *tip\_amount* 為負面範例。
+2. **多類別分類**：預測針對該車程所支付之小費的金額範圍。 我們將 tip*amount\_* 分成五個分類收納組或類別：
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -67,7 +67,7 @@ ms.locfileid: "66478848"
 
 **建立自己的 Azure Blob 儲存體帳戶**
 
-* 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」  的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成這項工作 (步驟 4)。
+* 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成這項工作 (步驟 4)。
 * 若要建立自己的 Azure 儲存體帳戶，請遵循 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中概述的步驟。 請務必記下下列儲存體帳戶認證的值，因為我們會在本逐步解說稍後的地方用到它們。
 
   * **儲存體帳戶名稱**
@@ -77,7 +77,7 @@ ms.locfileid: "66478848"
 **佈建 Azure SQL DW 執行個體。**
 遵循 [建立 SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 中的說明來佈建 SQL 資料倉儲執行個體。 請務必記下下列 SQL 資料倉儲認證以用於稍後的步驟。
 
-* **伺服器名稱**:\<伺服器名稱 >。 database.windows.net
+* **伺服器名稱**： \<伺服器名稱 >. net
 * **SQLDW (資料庫) 名稱**
 * **使用者名稱**
 * **密碼**
@@ -342,7 +342,7 @@ ms.locfileid: "66478848"
 使用 Visual Studio 與 SQL DW 登入名稱和密碼連接到您的 Azure SQL DW，然後開啟 **SQL 物件總管** 確認資料庫和資料表已匯入。 擷取 *SQLDW_Explorations.sql* 檔案。
 
 > [!NOTE]
-> 若要開啟 Parallel Data Warehouse (PDW) 查詢編輯器，請於在 [SQL 物件總管]  中選取 PDW 時使用「新增查詢」  命令。 PDW 不支援標準的 SQL 查詢編輯器。
+> 若要開啟 Parallel Data Warehouse (PDW) 查詢編輯器，請於在 [SQL 物件總管] 中選取 PDW 時使用「新增查詢」命令。 PDW 不支援標準的 SQL 查詢編輯器。
 >
 >
 
@@ -363,9 +363,9 @@ ms.locfileid: "66478848"
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**輸出：** 您應該會有 173,179,759 個資料列和 14 個資料行。
+**輸出：** 您應該有 173,179,759 個資料列和 14 個資料行。
 
-### <a name="exploration-trip-distribution-by-medallion"></a>探索：依據計程車牌照的車程分佈
+### <a name="exploration-trip-distribution-by-medallion"></a>探索：依據 medallion 的車程分佈
 此範例查詢可找出在指定期間內完成超過 100 趟車程的計程車牌照 (計程車號碼)。 資料分割資料表存取的條件是以 **pickup\_datetime** 資料分割配置為依據，因為可為查詢帶來好處。 查詢完整資料集也會使用資料分割資料表及 (或) 索引掃描。
 
     SELECT medallion, COUNT(*)
@@ -374,9 +374,9 @@ ms.locfileid: "66478848"
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**輸出：** 此查詢應該會傳回包含資料列的資料表，這些資料列會指出 13,369 個計程車牌照 (計程車) 及它們於 2013 年完成的車程數。 最後一個資料行包含所完成之車程數的計數。
+**輸出：** 查詢應該會傳回包含資料列的資料表，資料列中指出 13,369 個圓形徽章 (計程車) 及它們於 2013 年完成的車程數。 最後一個資料行包含所完成之車程數的計數。
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>探索：依據計程車牌照和計程車駕照的車程分佈
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>探索：依據 medallion 和 hack_license 的車程分佈
 此範例可找出在指定期間內完成超過 100 趟車程的圓形徽章 (計程車號碼) 和計程車駕照號碼 (司機)。
 
     SELECT medallion, hack_license, COUNT(*)
@@ -385,9 +385,9 @@ ms.locfileid: "66478848"
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**輸出：** 此查詢應該會傳回包含 13,369 個資料列的資料表，這些資料列會指出於 2013 年完成超過 100 趟車程之 13,369 個車輛/司機的識別碼。 最後一個資料行包含所完成之車程數的計數。
+**輸出：** 查詢應該會傳回包含 13,369 個資料列的資料表，資料列中指出於 2013 年完成超過 100 趟車程之 13,369 部車/司機的識別碼。 最後一個資料行包含所完成之車程數的計數。
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>資料品質評量：驗證含有不正確經度和/或緯度的記錄
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>資料品質評估：驗證含有不正確經度和/或緯度的記錄
 此範例會檢查是否有任何經度和 (或) 緯度欄位包含無效值 (弧度角度應介於-90 和 90 之間)，或是具有 (0，0) 座標。
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -399,7 +399,7 @@ ms.locfileid: "66478848"
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**輸出：** 此查詢會傳回 837,467 個經度和/或緯度欄位無效的車程。
+**輸出：** 查詢傳回 837,467 個經度和/或緯度欄位無效的車程。
 
 ### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>探索：已支付小費和未支付小費的車程分佈
 此範例會尋找在指定期間內 (或者，如果涵蓋一整年，則如這裡所設定是在整個資料集內)，已收到小費的車程數目，以及未收到小費的車程數目。 此分佈會反映二進位標籤分佈，以便稍後用來將二進位分類模型化。
@@ -410,7 +410,7 @@ ms.locfileid: "66478848"
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**輸出：** 此查詢應該會傳回下列 2013 年的小費頻率：有 90,447,622 趟車程收到小費，而有 82,264,709 趟未收到小費。
+**輸出：** 查詢應該會傳回下列 2013 年的小費頻率：90、447、622 已付小費及 82,264,709 未付小費。
 
 ### <a name="exploration-tip-classrange-distribution"></a>探索：小費類別/範圍分佈
 此範例會計算在指定期間內 (或者，如果涵蓋一整年，則是在整個資料庫中) 小費範圍的分佈。 這是標籤類別的分佈，會在稍後用來將多類別分類模型化。
@@ -531,7 +531,7 @@ ms.locfileid: "66478848"
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**輸出：** 此查詢會產生包含上下車的經緯度及所對應之直接距離 (英里) 的資料表 (包含 2,803,538 個資料列)。 前 3 個資料列的結果如下：
+**輸出：** 此查詢會產生包含上下車的經緯度及所對應之直接距離 (英里)的資料表 (包含 2,803,538 個資料列) 。 前 3 個資料列的結果如下：
 
 |  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
@@ -540,7 +540,7 @@ ms.locfileid: "66478848"
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>準備資料以進行模型建置
-下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取樣本。 根據上車時間擷取車程子集即可完成取樣。  您可以複製此查詢，再直接貼到 [Azure Machine Learning Studio](https://studio.azureml.net) 的[匯入資料][import-data]模組中，以便從 Azure 中的 SQL 資料庫執行個體直接內嵌資料。 查詢會排除含有不正確 (0, 0) 座標的記錄。
+下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取樣本。 根據上車時間擷取車程子集即可完成取樣。  您可以複製此查詢，然後直接貼在[Azure Machine Learning Studio](https://studio.azureml.net)匯[入資料][import-data]模組中，以便從 Azure 中的 SQL database 實例直接內嵌資料。 查詢會排除含有不正確 (0, 0) 座標的記錄。
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -559,8 +559,8 @@ ms.locfileid: "66478848"
 
 當您準備好繼續進行 Azure Machine Learning，您可以：
 
-1. 儲存最後一個 SQL 查詢以擷取和取樣資料，然後複製該查詢並直接貼到 Azure Machine Learning 中的[匯入資料][import-data]模組，或者
-2. 將您打算用來建置模型的取樣和工程設計資料保存在新的 SQL DW 資料表中，然後在 Azure Machine Learning 的[匯入資料][import-data]模組中使用該新的資料表。 先前步驟中的 PowerShell 指令碼已為您完成此作業。 您可以在「匯入資料」模組中直接讀取此資料表。
+1. 儲存最後的 SQL 查詢以將資料解壓縮並加以取樣，然後將查詢直接複製到 Azure Machine Learning 的匯[入資料][import-data]模組中，或
+2. 將您計畫用來建立模型的取樣和工程設計資料保存在新的 SQL DW 資料表中，並在 Azure Machine Learning 的匯[入資料][import-data]模組中使用新的資料表。 先前步驟中的 PowerShell 指令碼已為您完成此作業。 您可以在「匯入資料」模組中直接讀取此資料表。
 
 ## <a name="ipnb"></a>IPython Notebook 中的資料探索和特徵工程設計
 在本節中，我們將在先前建立的 SQL DW 中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **SQLDW_Explorations.ipynb** 的 IPython Notebook 範例和 Python 指令碼檔案 **SQLDW_Explorations_Scripts.py** 已下載到您的本機目錄中。 您也可以在 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW)上取得這兩個檔案。 在 Python 指令碼中，這兩個檔案是相同的。 我們會提供 Python 指令碼檔案給您，以免您沒有 IPython Notebook 伺服器。 這兩個範例 Python 檔案是以 **Python 2.7**設計。
@@ -578,7 +578,7 @@ ms.locfileid: "66478848"
 3. 按一下新的 IPython Notebook 左上角的 [Jupyter] 符號。
 
     ![按一下 [Jupyter] 符號][24]
-4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構]  頁面，然後按一下 [上傳]  。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
+4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構] 頁面，然後按一下 [上傳]。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
 
     ![按一下 [上傳]。][25]
 
@@ -615,7 +615,7 @@ ms.locfileid: "66478848"
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>報告資料表 <nyctaxi_trip> 中資料列和資料行的數目
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>報告資料表 <nyctaxi_trip> 中資料列和資料行的數目
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ ms.locfileid: "66478848"
 * 資料列總數 = 173179759
 * 資料行總數 = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a>報告資料表 <nyctaxi_fare> 中資料列和資料行的數目
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>報告資料表 <nyctaxi_fare> 中資料列和資料行的數目
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -686,7 +686,7 @@ ms.locfileid: "66478848"
 
 ![盒狀圖輸出][1]
 
-### <a name="visualization-distribution-plot-example"></a>視覺效果：分佈圖範例
+### <a name="visualization-distribution-plot-example"></a>視覺效果：分佈的盒狀圖範例
 能以視覺化方式顯示取樣車程距離之分佈和長條圖的繪圖。
 
     fig = plt.figure()
@@ -758,7 +758,7 @@ ms.locfileid: "66478848"
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>探索：依據類別繪製小費分佈
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>探索：依類別繪製小費分佈
     tip_class_dist['tip_freq'].plot(kind='bar')
 
 ![圖 #26][26]
@@ -772,7 +772,7 @@ ms.locfileid: "66478848"
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>探索：依據計程車牌照的車程分佈
+#### <a name="exploration-trip-distribution-per-medallion"></a>探索：根據 medallion 的車程分佈
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -809,7 +809,7 @@ ms.locfileid: "66478848"
 2. **多元分類**：根據先前定義的類別，預測所支付的小費範圍。
 3. **迴歸工作**：預測針對某趟車程支付的小費金額。
 
-若要開始進行模型化練習，請登入 **Azure Machine Learning** 工作區。 如果您尚未建立機器學習服務工作區，請參閱 [建立 Azure Machine Learning Studio 工作區](../studio/create-workspace.md)。
+若要開始進行模型化練習，請登入您的**Azure Machine Learning （傳統）** 工作區。 如果您尚未建立機器學習服務工作區，請參閱[建立 Azure Machine Learning Studio （傳統）工作區](../studio/create-workspace.md)。
 
 1. 若要開始使用 Azure Machine Learning，請參閱「 [什麼是 Azure Machine Learning Studio？](../studio/what-is-ml-studio.md)
 2. 登入 [Azure Machine Learning Studio](https://studio.azureml.net)。
@@ -830,13 +830,13 @@ ms.locfileid: "66478848"
 
 在這個練習中，我們已經探索了 SQL 資料倉儲中的資料並進行處理，並且決定了要在 Azure Machine Learning Studio 中擷取的取樣大小。 以下是建置一或多個預測模型的程序：
 
-1. 使用[匯入資料][import-data] 模組 (可在 [資料輸入與輸出]  區段中取得) 將資料匯入 Azure Machine Learning Studio。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
+1. 使用匯[入資料][import-data]模組（可從**資料輸入和輸出**一節取得），將資料匯入 Azure Machine Learning Studio （傳統）。 如需詳細資訊，請參閱匯[入資料][import-data]模組參考頁面。
 
     ![Azure ML 匯入資料][17]
-2. 在 [屬性]  面板中，選取 [Azure SQL Database]  做為 [資料來源]  。
+2. 在 [屬性] 面板中，選取 [Azure SQL Database] 做為 [資料來源]。
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
-5. 在 [伺服器使用者帳戶名稱]  中輸入「SQL 使用者名稱」  ，並在 [伺服器使用者帳戶密碼]  中輸入「密碼」  。
+5. 在 [伺服器使用者帳戶名稱] 中輸入「SQL 使用者名稱」，並在 [伺服器使用者帳戶密碼] 中輸入「密碼」。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
 下圖是直接從 SQL 資料倉儲資料庫讀取資料的二元分類實驗範例 (請記得用您在逐步解說中所使用的結構描述名稱和資料表名稱來取代資料表名稱 nyctaxi_trip 和 nyctaxi_fare)。 您可以針對多類別分類和迴歸問題建構類似的實驗。
@@ -846,7 +846,7 @@ ms.locfileid: "66478848"
 > [!IMPORTANT]
 > 在前幾節中提供的模型化資料擷取和取樣查詢範例中， **這三個模型化練習的所有標籤都包含於此查詢中**。 每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。 例如，使用二進位分類時，請用 **tipped** 標籤，並排除 **tip\_class**、**tip\_amount** 和 **total\_amount** 欄位。 後者為目標流失，因為它們意指支付的小費。
 >
-> 若要排除任何不必要的資料行或目標流失，您可以使用[選取資料集中的資料行][select-columns]模組或[編輯中繼資料][edit-metadata]。 如需詳細資訊，請參閱[選取資料集中的資料行][select-columns]和[編輯中繼資料][edit-metadata]參考頁面。
+> 若要排除任何不必要的資料行或目標流失，您可以使用 [[選取資料集中的資料行][select-columns]] 模組或 [[編輯中繼資料][edit-metadata]]。 如需詳細資訊，請參閱[選取資料集中的資料行][select-columns]和[編輯中繼資料][edit-metadata]參考頁面。
 >
 >
 
@@ -858,7 +858,7 @@ ms.locfileid: "66478848"
 1. 建立計分實驗。
 2. 部署 Web 服務。
 
-若要從「已完成」  的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]  。
+若要從「已完成」的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]。
 
 ![Azure 評分][18]
 
@@ -868,13 +868,13 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 2. 識別邏輯 **輸入連接埠** ，表示預期的輸入資料結構描述。
 3. 識別邏輯 **輸出連接埠** ，表示預期的 Web 服務輸出結構描述。
 
-建立計分實驗時，請檢閱它並視需要進行調整。 典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。 若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。 針對輸出連接埠，通常會使用[選取資料集中的資料行][select-columns]模組，在輸出中排除所有輸入欄位，只包含 [評分標籤]  和 [評分機率]  。
+建立計分實驗時，請檢閱它並視需要進行調整。 典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。 若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。 針對輸出埠，通常會使用 [[選取資料集中的資料行][select-columns]] 模組，在輸出中排除所有輸入欄位，而且只包含**評分標籤**和**評分**機率。
 
-下圖提供評分實驗範例。 準備部署時，請按下方動作列中的 [發佈 Web 服務]  按鈕。
+下圖提供評分實驗範例。 準備部署時，請按下方動作列中的 [發佈 Web 服務] 按鈕。
 
 ![Azure ML 發佈][11]
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 讓我們回顧一下已在此逐步解說教學課程中完成的工作，您已經建立 Azure 資料科學環境、使用大型公用資料集，並在 Team Data Science Process 的整個過程中使用它，而您在這個過程中擷取資料、進行模型定型，然後部署 Azure Machine Learning Web 服務。
 
 ### <a name="license-information"></a>授權資訊

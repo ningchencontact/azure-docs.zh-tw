@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638321"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486625"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解適合您 LUIS 應用程式的語句
 
@@ -80,17 +80,17 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 
 ## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>變音符號和標點符號的語句正規化
 
-當您建立或匯入應用程式時, 會定義語句正規化, 因為它是應用程式 JSON 檔案中的設定。 預設會關閉語句正規化設定。 
+當您建立或匯入應用程式時，會定義語句正規化，因為它是應用程式 JSON 檔案中的設定。 預設會關閉語句正規化設定。 
 
-變音符號是文字中的標記或符號, 例如: 
+變音符號是文字中的標記或符號，例如： 
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-如果您的應用程式開啟正規化, 則在 [**測試**] 窗格中, 批次測試和端點查詢的分數會針對所有使用變音符號或標點符號的語句進行變更。
+如果您的應用程式開啟正規化，則在 [**測試**] 窗格中，批次測試和端點查詢的分數會針對所有使用變音符號或標點符號的語句進行變更。
 
-在參數中, 為您的`settings` LUIS JSON 應用程式檔開啟語句正規化的字元或標點符號。
+在 `settings` 參數中，為您的 LUIS JSON 應用程式檔開啟變音符號或標點符號的語句正規化。
 
 ```JSON
 "settings": [
@@ -99,26 +99,26 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 ] 
 ```
 
-正規化**標點符號**表示在您的模型經過定型之前, 在您的端點查詢預測之前, 會從語句中移除標點符號。 
+正規化**標點符號**表示在您的模型經過定型之前，在您的端點查詢預測之前，會從語句中移除標點符號。 
 
-正規化**變音符號**會以一般字元, 在語句中以變音符號取代字元。 例如: `Je parle français`變成`Je parle francais`。 
+正規化**變音符號**會以一般字元，在語句中以變音符號取代字元。 例如： `Je parle français` 會變成 `Je parle francais`。 
 
-正規化並不表示您不會在範例語句或預測回應中看到標點符號和變音符號, 只是在定型和預測期間會忽略它們。
+正規化並不表示您不會在範例語句或預測回應中看到標點符號和變音符號，只是在定型和預測期間會忽略它們。
 
 
 ### <a name="punctuation-marks"></a>標點符號
 
-標點符號在 LUIS 中是個別的語彙基元。 在結尾處包含句號的語句, 以及在結尾不包含句號的語句是兩個不同的語句, 而且可能會得到兩個不同的預測。 
+標點符號在 LUIS 中是個別的語彙基元。 在結尾處包含句號的語句，以及在結尾不包含句號的語句是兩個不同的語句，而且可能會得到兩個不同的預測。 
 
-如果標點符號不正規化, LUIS 預設不會忽略標點符號, 因為有些用戶端應用程式可能會對這些標記有重要性。 請確定您的範例語句應有使用標點符號和不使用標點符號兩種版本，讓這兩種樣式傳回相同的相對分數。 
+如果標點符號不正規化，LUIS 預設不會忽略標點符號，因為有些用戶端應用程式可能會對這些標記有重要性。 請確定您的範例語句應有使用標點符號和不使用標點符號兩種版本，讓這兩種樣式傳回相同的相對分數。 
 
 請確定模型會在[範例語句](luis-concept-utterance.md) (含標點符號和不含標點符號) 或在更容易使用特殊語法來忽略標點符號的[模式](luis-concept-patterns.md)中處理標點符號：`I am applying for the {Job} position[.]`
 
-如果標點符號在您的用戶端應用程式中沒有特定意義, 請考慮以正規化標點符號來[忽略標點符號](#utterance-normalization)。 
+如果標點符號在您的用戶端應用程式中沒有特定意義，請考慮以正規化標點符號來[忽略標點符號](#utterance-normalization)。 
 
 ### <a name="ignoring-words-and-punctuation"></a>忽略單字和標點符號
 
-如果您想要忽略模式中的特定單字或標點符號, 請搭配使用[模式](luis-concept-patterns.md#pattern-syntax)與_略_過`[]`方括弧的語法。 
+如果您想要忽略模式中的特定單字或標點符號，請搭配使用[模式](luis-concept-patterns.md#pattern-syntax)與_略_過方括弧的語法，`[]`。 
 
 ## <a name="training-utterances"></a>將語句定型
 
@@ -132,9 +132,23 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 
 在將模型定型、發佈及接收[端點](luis-glossary.md#endpoint)查詢之後，請[檢閱 LUIS 所建議的語句](luis-how-to-review-endpoint-utterances.md)。 LUIS 會選取對意圖或實體而言分數低的端點語句。 
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 檢閱[最佳做法](luis-concept-best-practices.md)，並將其套用為一般撰寫週期的一部分。
+
+## <a name="label-for-word-meaning"></a>單字意義的標籤
+
+如果單字選擇或單字排列相同，但意義不同，請勿以實體標記它。 
+
+下列語句中的 `fair` 一字是一個同形異義字。 其拼字相同，但意義不同：
+
+|語句|
+|--|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
+
+如果您想要讓事件實體尋找所有事件資料，請標記第一個語句中的 `fair` 一字，但不要標記第二個語句中的該字。
+
 
 ## <a name="next-steps"></a>後續步驟
 如需將 LUIS 應用程式定型以了解使用者語句的詳細資訊，請參閱[新增範例語句](luis-how-to-add-example-utterances.md)。

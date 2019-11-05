@@ -3,20 +3,20 @@ title: 瞭解 Azure Kubernetes Service 的 Azure 原則
 description: 瞭解 Azure 原則如何使用 Rego 和開啟原則代理程式來管理 Azure Kubernetes Service 上的叢集。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/24/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176310"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480895"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>瞭解 Azure Kubernetes Service 的 Azure 原則
 
 Azure 原則與[Azure Kubernetes Service](../../../aks/intro-kubernetes.md) （AKS）整合，以集中、一致的方式，在您的叢集上套用大規模實行原則和保護措施。
-藉由擴充[閘道管理員](https://github.com/open-policy-agent/gatekeeper)的使用（[開放原則代理程式](https://www.openpolicyagent.org/)（OPA）的_許可控制站 webhook_ ），Azure 原則可讓您從一個位置管理和報告 Azure 資源和 AKS 叢集的合規性狀態。
+藉由擴充[閘道管理員](https://github.com/open-policy-agent/gatekeeper/tree/master/deprecated)v2 的使用（[開放原則代理程式](https://www.openpolicyagent.org/)（OPA）的_許可控制站 webhook_ ），Azure 原則可讓您從一個位置管理和報告 Azure 資源和 AKS 叢集的合規性狀態。
 
 > [!NOTE]
 > 適用于 AKS 的 Azure 原則處於有限預覽狀態，而且只支援內建原則定義。
@@ -96,7 +96,7 @@ Kubernetes 的_Azure 原則附加_元件會將 Azure 原則服務連接到閘道
 
 在您的 AKS 叢集中安裝附加元件之前，必須先安裝預覽延伸模組。 此步驟是使用 Azure CLI 完成：
 
-1. 您需要安裝並設定 Azure CLI 版本2.0.62 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+1. 您需要安裝並設定 Azure CLI 版本2.0.62 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 1. AKS 叢集必須是_1.10_或更高版本。 使用下列腳本來驗證您的 AKS 叢集版本：
 
@@ -126,7 +126,7 @@ Kubernetes 的_Azure 原則附加_元件會將 Azure 原則服務連接到閘道
 
 完成必要條件之後，請在您想要管理的 AKS 叢集中安裝 Azure 原則附加元件。
 
-- Azure Portal
+- Azure 入口網站
 
   1. 按一下 [**所有服務**]，然後搜尋並選取 [ **Kubernetes 服務**]，以在 Azure 入口網站中啟動 AKS 服務。
 
@@ -162,7 +162,7 @@ Kubernetes 的_Azure 原則附加_元件會將 Azure 原則服務連接到閘道
 
 ## <a name="policy-language"></a>原則語言
 
-用於管理 AKS 的 Azure 原則語言結構會遵循現有原則的指示。 效果_EnforceRegoPolicy_是用來管理您的 AKS 叢集，並採用特定的_詳細資料_屬性來使用 OPA 和閘道管理員。 如需詳細資訊和範例，請參閱[EnforceRegoPolicy](effects.md#enforceregopolicy)效果。
+用於管理 AKS 的 Azure 原則語言結構會遵循現有原則的指示。 效果_EnforceRegoPolicy_是用來管理您的 AKS 叢集，並使用特定的_詳細資料_屬性來使用 OPA 和閘道管理員 v2。 如需詳細資訊和範例，請參閱[EnforceRegoPolicy](effects.md#enforceregopolicy)效果。
 
 Azure 原則將 rego 原則的 URI 傳遞至附加元件，這是原則定義中的_policy 屬性。_ Rego 是 OPA 和閘道管理員支援的語言，可驗證或改變 Kubernetes 叢集的要求。 藉由支援現有的 Kubernetes 管理標準，Azure 原則可讓您重複使用現有的規則，並將其與 Azure 原則結合，以取得統一的雲端合規性報告體驗。 如需詳細資訊，請參閱[什麼是 Rego？](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)。
 
@@ -182,6 +182,9 @@ Azure 原則將 rego 原則的 URI 傳遞至附加元件，這是原則定義中
 > 指派 AKS 定義的 Azure 原則時，**範圍**必須包含 AKS 叢集資源。
 
 或者，使用 [[指派原則-入口網站](../assign-policy-portal.md)] 快速入門來尋找並指派 AKS 原則。 搜尋 Kubernetes 原則定義，而不是範例「audit vm」。
+
+> [!IMPORTANT]
+> 類別**Kubernetes 服務**中的內建原則僅供搭配 AKS 使用。
 
 ## <a name="logging"></a>記錄
 
@@ -206,7 +209,7 @@ Azure 原則附加元件是 Kubernetes 控制器/容器，會將記錄保留在 
 
 若要從您的 AKS 叢集中移除 Azure 原則附加元件，請使用 Azure 入口網站或 Azure CLI：
 
-- Azure Portal
+- Azure 入口網站
 
   1. 按一下 [**所有服務**]，然後搜尋並選取 [ **Kubernetes 服務**]，以在 Azure 入口網站中啟動 AKS 服務。
 
@@ -227,6 +230,29 @@ Azure 原則附加元件是 Kubernetes 控制器/容器，會將記錄保留在 
 
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
+
+## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Azure 原則附加元件所收集的診斷資料
+
+適用于 Kubernetes 的 Azure 原則附加元件會收集有限的叢集診斷資料。 此診斷資料是與軟體和效能相關的重要技術資料。 其使用方式如下：
+
+- 保持 Azure 原則最新的附加元件
+- 保持 Azure 原則附加元件安全、可靠、高效能
+- 改善 Azure 原則附加元件-透過使用附加元件的匯總分析
+
+附加元件所收集的資訊不是個人資料。 目前會收集下列詳細資料：
+
+- Azure 原則附加元件代理程式版本
+- 叢集類型
+- 叢集區域
+- 叢集資源群組
+- 叢集資源識別碼
+- 叢集訂用帳戶識別碼
+- 叢集作業系統（範例： Linux）
+- 叢集城市（範例：西雅圖）
+- 叢集州或省（範例：華盛頓州）
+- 叢集國家或地區（例如：美國）
+- 在原則評估上安裝代理程式期間，Azure 原則附加元件所遇到的例外狀況/錯誤
+- Azure 原則附加元件未安裝的閘道管理員原則數目
 
 ## <a name="next-steps"></a>後續步驟
 

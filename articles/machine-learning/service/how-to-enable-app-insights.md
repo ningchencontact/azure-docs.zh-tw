@@ -11,14 +11,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c16b6d769aa191b0e8ac86768a7eafd35ccbc3b9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
-ms.translationtype: MT
+ms.openlocfilehash: 9da057683f3da41f077b309db79271a10738b59d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301021"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490000"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>從 ML web 服務端點監視及收集資料
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何藉由啟用 Azure 應用程式 Insights，從 Azure Kubernetes Service （AKS）或 Azure 容器實例（ACI）中部署至 web 服務端點的模型收集資料並加以監視。 除了收集端點的輸入資料和回應之外，您還可以監視：
 * 要求速率、回應時間和失敗率。
@@ -30,7 +31,7 @@ ms.locfileid: "72301021"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 * 已安裝 Azure Machine Learning 工作區、包含指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 若要了解如何取得這些必要條件，請參閱[如何設定開發環境](how-to-configure-environment.md)。
 * 要部署至 Azure Kubernetes Service (AKS) 或 Azure Container 執行個體 (ACI) 的已訓練機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
@@ -112,10 +113,43 @@ ms.locfileid: "72301021"
 <service_name>.update(enable_app_insights=False)
 ```
     
+## <a name="use-studio-to-configure"></a>使用 studio 設定
+
+您可以在 Azure Machine Learning studio 中啟用和停用 Application Insights。
+
+1. 在[Azure Machine Learning studio](https://ml.azure.com)中，開啟您的工作區。
+
+1. 在 [部署] 索引標籤上，選取您要在其中啟用 Application Insights 的服務。
+
+   [![[部署] 索引標籤上的服務清單](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+
+3. 選取 [編輯]。
+
+   [![[編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+4. 在 [進階設定] 中，選取 [啟用 AppInsights 診斷] 核取選項。
+
+   [![已選取啟用診斷的核取方塊](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+
+1. 選取螢幕底部的 [更新] 以套用變更。 
+
+### <a name="disable"></a>停用
+1. 在[Azure Machine Learning studio](https://ml.azure.com)中，開啟您的工作區。
+1. 選取 [部署]，選取服務，然後選取 [編輯]。
+
+   [![使用 [編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+1. 在 [進階設定] 中，清除 [啟用 AppInsights 診斷] 核取選項。 
+
+   [![已清除啟用診斷的核取方塊](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+
+1. 選取螢幕底部的 [更新] 以套用變更。 
+ 
+
 ## <a name="evaluate-data"></a>評估資料
 您的服務資料會儲存在您的 Azure 應用程式 Insights 帳戶中，與 Azure Machine Learning 相同的資源群組中。
 若要檢視：
-1. 前往[Azure 入口網站](https://portal.azure.com)中的 Machine Learning 服務工作區。 按一下 [Azure 應用程式深入解析] 連結。
+1. 前往[Azure Machine Learning studio](https://ml.azure.com)中的 Machine Learning 服務工作區，然後按一下 [Application Insights] 連結。
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
@@ -124,9 +158,9 @@ ms.locfileid: "72301021"
    [![概觀](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 1. 若要查看您的 web 服務輸入和回應承載，請選取 [**分析**]
-1. 在 [架構] 區段中，選取 [**追蹤**]，並以 `"model_data_collection"` 的訊息篩選追蹤。 在自訂維度中，您可以看到輸入、預測和其他相關的詳細資料。
+1. 在 [架構] 區段中，選取 [**追蹤**]，然後使用 `"model_data_collection"`的訊息來篩選追蹤。 在自訂維度中，您可以看到輸入、預測和其他相關的詳細資料。
 
-   [@no__t 1Model 的資料](media/how-to-enable-app-insights/model-data-trace.png)](./media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+   [![模型資料](media/how-to-enable-app-insights/model-data-trace.png)](./media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 
 3. 若要查看您的自訂追蹤，請選取 [Analytics]。
@@ -138,9 +172,9 @@ ms.locfileid: "72301021"
 
 ## <a name="export-data-for-further-processing-and-longer-retention"></a>匯出資料以進行進一步的處理和較長的保留
 
-您可以使用 Azure 應用程式 Insights 的[連續匯出](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry)，將訊息傳送至支援的儲存體帳戶，其中可以設定較長的保留期。 @No__t 0 的訊息會以 JSON 格式儲存，而且可以輕鬆地剖析以解壓縮模型資料。 Azure Data Factory、Azure ML 管線或其他資料處理工具可以視需要用來轉換資料。 當您轉換資料之後，您可以使用 Azure Machine Learning 服務工作區將它註冊為資料集。
+您可以使用 Azure 應用程式 Insights 的[連續匯出](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry)，將訊息傳送至支援的儲存體帳戶，其中可以設定較長的保留期。 `"model_data_collection"` 的訊息會以 JSON 格式儲存，而且可以輕鬆地剖析以解壓縮模型資料。 Azure Data Factory、Azure ML 管線或其他資料處理工具可以視需要用來轉換資料。 當您轉換資料之後，您可以使用 Azure Machine Learning 工作區將它註冊為資料集。 若要這麼做，請參閱[如何建立及註冊資料集](how-to-create-register-datasets.md)。
 
-   [![Continuous 匯出](media/how-to-enable-app-insights/continuous-export-setup.png)](./media/how-to-enable-app-insights/continuous-export-setup.png)
+   [![連續匯出](media/how-to-enable-app-insights/continuous-export-setup.png)](./media/how-to-enable-app-insights/continuous-export-setup.png)
 
 
 ## <a name="example-notebook"></a>範例筆記本
@@ -152,4 +186,4 @@ Ipynb 筆記本中的「[啟用-應用程式深入](https://github.com/Azure/Mac
 ## <a name="next-steps"></a>後續步驟
 
 * 瞭解[如何將模型部署到 Azure Kubernetes Service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-azure-kubernetes-service)叢集，或如何將模型部署到[Azure 容器實例](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-azure-container-instance)，以將您的模型部署至 web 服務端點，並啟用 Azure 應用程式 Insights 以利用資料收集和端點監測.
-* 請參閱 @no__t 0MLOps：使用 Azure Machine Learning @ no__t-0 來管理、部署及監視模型，以深入瞭解如何運用在生產環境中從模型收集的資料。 這類資料可協助您持續改善機器學習程式。 
+* 請參閱[MLOps：使用 Azure Machine Learning 管理、部署及監視模型](https://docs.microsoft.com/azure/machine-learning/service/concept-model-management-and-deployment)，以深入瞭解如何運用在生產環境中從模型收集的資料。 這類資料可協助您持續改善機器學習程式。 

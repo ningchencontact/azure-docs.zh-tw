@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/15/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f6fd4039614dbd7c1a2b2c6ba8403502a6420fe3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4842c55b2b1fd23f4d6b7996ccf02e7141504836
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173862"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495749"
 ---
-對於目前的 SKU (VpnGw1、VpnGw2、VPNGW3)，若想要調整閘道 SKU 大小以升級到更強大的 SKU，可使用 `Resize-AzVirtualNetworkGateway` PowerShell Cmdlet。 您也可以使用此 Cmdlet 將閘道 SKU 大小降級。 如果您使用基本閘道 SKU，[ 會改為使用這些指示](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize)調整您的閘道大小。
+您可以使用 `Resize-AzVirtualNetworkGateway` PowerShell Cmdlet 來升級或降級 Generation1.xml 或 Generation2 SKU （所有 VpnGw Sku 都可以調整大小，但基本 Sku 除外）。 如果您使用基本閘道 SKU，[ 會改為使用這些指示](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize)調整您的閘道大小。
 
 下列 PowerShell 範例示範將閘道 SKU 的大小調整為 VpnGw2。
 
@@ -24,4 +24,4 @@ $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
 
-您也可以在 Azure 入口網站中調整閘道大小，請進入虛擬網路閘道的 [組態]  頁面，並從下拉式清單中選取不同的 SKU。
+您也可以在 Azure 入口網站中調整閘道大小，請進入虛擬網路閘道的 [組態] 頁面，並從下拉式清單中選取不同的 SKU。

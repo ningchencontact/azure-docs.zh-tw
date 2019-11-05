@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7426493a575ceb38211f5e6e3b4f7e2ba558b670
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: fd874776e5be94831322bce839a502ebc43e1958
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754742"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481199"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -28,7 +28,8 @@ ms.locfileid: "72754742"
 | [隨選 HDInsight 叢集](#azure-hdinsight-on-demand-linked-service)或[您自己的 HDInsight 叢集](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md)、[Pig](transform-data-using-hadoop-pig.md)、[Spark](transform-data-using-spark.md)、[MapReduce](transform-data-using-hadoop-map-reduce.md)、[Hadoop 串流](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [自訂](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning 活動︰批次執行和更新資源](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning Service](#azure-machine-learning-service-linked-service) | [Azure Machine Learning 執行管線](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 執行管線](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 執行管線](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service)、[Azure SQL 資料倉儲](#azure-sql-data-warehouse-linked-service)、[SQL Server](#sql-server-linked-service) | [預存程序](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md)、[Jar](transform-data-databricks-jar.md)、[Python](transform-data-databricks-python.md) |
@@ -97,7 +98,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 > 
 
 ### <a name="properties"></a>屬性
-| 屬性                     | 描述                              | 必要項 |
+| 屬性                     | 說明                              | 必要 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | 類型                         | type 屬性應設為 **HDInsightOnDemand**。 | 是      |
 | clusterSize                  | 叢集中的背景工作/資料節點數。 HDInsight 叢集會利用您為此屬性指定的 2 個前端節點以及背景工作節點數目來建立。 節點大小為具有 4 個核心的 Standard_D3，因此 4 個背景工作節點的叢集需要 24 個核心 (4\*4 = 16 個核心用於背景工作節點，加上 2\*4 = 8 個核心用於前端節點)。 如需詳細資料，請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。 | 是      |
@@ -105,7 +106,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | clusterResourceGroup         | 在此資源群組中將建立 HDInsight 叢集。 | 是      |
 | timetolive                   | 隨選 HDInsight 叢集允許的閒置時間。 指定在活動執行完成後，如果叢集中沒有其他作用中的作業，隨選 HDInsight 叢集要保持運作多久。 最小的允許值為 5 分鐘 (00:05:00)。<br/><br/>例如，如果活動執行花費 6 分鐘，而 timetolive 設為 5 分鐘，叢集會在處理活動執行的 6 分鐘期間之後保持運作 5 分鐘。 如果 6 分鐘期間內執行另一個活動，則會由相同叢集來處理。<br/><br/>建立隨選 HDInsight 叢集是昂貴的作業 (可能需要一段時間)，因此請視需要使用這項設定，重複使用隨選 HDInsight 叢集以改善 Data Factory 的效能。<br/><br/>如果您將 timetolive 值設為 0，叢集會在活動執行完成後立即刪除。 不過，如果您設定較高的值，叢集可能會保持閒置，以便您登入進行一些疑難排解，但是可能會導致高成本。 因此，請務必根據您的需求設定適當的值。<br/><br/>如果適當地設定 timetolive 屬性值，則多個管線可以共用隨選 HDInsight 叢集的執行個體。 | 是      |
 | clusterType                  | 將建立的 HDInsight 叢集類型。 允許的值為「hadoop」和「spark」。 若未指定，則預設值為 hadoop。 無法隨選建立已啟用企業安全性套件的叢集，請改用[現有叢集/攜帶您自己的計算](#azure-hdinsight-linked-service)。 | 否       |
-| version                      | HDInsight 叢集的版本。 如果未指定，則使用目前的 HDInsight 定義的預設版本。 | 否       |
+| 版本                      | HDInsight 叢集的版本。 如果未指定，則使用目前的 HDInsight 定義的預設版本。 | 否       |
 | hostSubscriptionId           | 用來建立 HDInsight 叢集的 Azure 訂用帳戶識別碼。 如果未指定，它會使用您 Azure 登入內容的訂用帳戶識別碼。 | 否       |
 | clusterNamePrefix           | HDI 叢集名稱的前置詞，在叢集名稱的結尾會自動附加時間戳記| 否       |
 | sparkVersion                 | 如果叢集類型是「Spark」，則為 spark 的版本 | 否       |
@@ -147,7 +148,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 指定下列屬性以使用服務主體驗證：
 
-| 屬性                | 描述                              | 必要項 |
+| 屬性                | 說明                              | 必要 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 指定應用程式的用戶端識別碼。     | 是      |
 | **servicePrincipalKey** | 指定應用程式的金鑰。           | 是      |
@@ -157,7 +158,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 您也可以針對隨選 HDInsight 叢集的細微組態指定下列屬性。
 
-| 屬性               | 描述                              | 必要項 |
+| 屬性               | 說明                              | 必要 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 指定要建立之 HDInsight 叢集的核心組態參數 (如 core-site.xml 所示)。 | 否       |
 | hBaseConfiguration     | 指定 HDInsight 叢集的 HBase 組態參數 (hbase-site.xml)。 | 否       |
@@ -225,7 +226,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ### <a name="node-sizes"></a>節點大小
 您可使用下列屬性指定前端、資料和的 zookeeper 節點的大小： 
 
-| 屬性          | 描述                              | 必要項 |
+| 屬性          | 說明                              | 必要 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 指定前端節點的大小。 預設值為：Standard_D3。 如需詳細資料，請參閱**指定節點大小**一節。 | 否       |
 | dataNodeSize      | 指定資料節點的大小。 預設值為：Standard_D3。 | 否       |
@@ -241,7 +242,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 "dataNodeSize": "Standard_D4",
 ```
 
-若您為這些屬性指定錯誤的值，可能會顯示下列 **錯誤：** 無法建立叢集。 例外狀況：無法完成叢集建立作業。 作業失敗，錯誤碼為 '400'。 叢集剩餘狀態：「錯誤」。 訊息：「PreClusterCreationValidationFailure」。 出現此錯誤時，請確定您是使用[虛擬機器的大小](../virtual-machines/linux/sizes.md)一文的表格中的 **CMDLET 與 API** 名稱。        
+若您為這些屬性指定錯誤的值，可能會顯示下列 **錯誤：** 無法建立叢集。 例外狀況：無法完成叢集建立作業。 作業失敗，錯誤碼為 '400'。 叢集剩餘狀態：「錯誤」。 訊息：「PreClusterCreationValidationFailure」。 出現此錯誤時，請確定您是使用**虛擬機器的大小**一文的表格中的 [CMDLET 與 API](../virtual-machines/linux/sizes.md) 名稱。        
 
 ## <a name="bring-your-own-compute-environment"></a>自備計算環境
 在這種組態中，使用者可以將現有的運算環境註冊為 Data Factory 中的連結服務。 此運算環境是由使用者管理並由 Data Factory 服務用來執行活動。
@@ -285,14 +286,14 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ```
 
 ### <a name="properties"></a>屬性
-| 屬性          | 描述                                                  | 必要項 |
+| 屬性          | 說明                                                  | 必要 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | 類型              | type 屬性應設為 **HDInsight**。            | 是      |
 | clusterUri        | HDInsight 叢集的 URI。                            | 是      |
 | username          | 指定要用來連接到現有 HDInsight 叢集的使用者名稱。 | 是      |
 | password          | 指定使用者帳戶的密碼。                       | 是      |
 | linkedServiceName | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p> | 是      |
-| isEspEnabled      | 如果 HDInsight 叢集已啟用[企業安全性套件](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture)，請指定 '*true*'。 預設值為 ’false’。 | 否       |
+| isEspEnabled      | 如果 HDInsight 叢集已啟用*企業安全性套件*，請指定 '[true](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture)'。 預設值為 ’false’。 | 否       |
 | connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 <br />若為已啟用企業安全性套件（ESP）的 HDInsight 叢集，請使用自我裝載整合執行時間，這對叢集有一定的瞭解，或部署在與 ESP HDInsight 叢集相同的虛擬網路中。 | 否       |
 
 > [!IMPORTANT]
@@ -303,7 +304,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 >
 > 
 
-## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
+## <a name="azure-batch-linked-service"></a>Azure Batch 連結服務
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -345,7 +346,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 
 ### <a name="properties"></a>屬性
-| 屬性          | 描述                              | 必要項 |
+| 屬性          | 說明                              | 必要 |
 | ----------------- | ---------------------------------------- | -------- |
 | 類型              | type 屬性應設為 **AzureBatch**。 | 是      |
 | accountName       | 建立 Azure Batch 帳戶。         | 是      |
@@ -381,22 +382,22 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ```
 
 ### <a name="properties"></a>屬性
-| 屬性               | 描述                              | 必要項                                 |
+| 屬性               | 說明                              | 必要                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                   | type 屬性應設為： **AzureML**。 | 是                                      |
+| 類型                   | type 屬性應設為： **AzureML**。 | 是                                      |
 | mlEndpoint             | 批次評分 URL。                   | 是                                      |
 | apiKey                 | 已發佈的工作區模型的 API。     | 是                                      |
 | updateResourceEndpoint | Azure Machine Learning Web 服務端點的更新資源 URL，用來更新具有定型模型檔案的預測性 Web 服務 | 否                                       |
 | servicePrincipalId     | 指定應用程式的用戶端識別碼。     | 如果指定 updateResourceEndpoint 則需要 |
 | servicePrincipalKey    | 指定應用程式的金鑰。           | 如果指定 updateResourceEndpoint 則需要 |
-| tenant                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 |
+| 租用戶                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 |
 | connectVia             | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                       |
 
-## <a name="azure-machine-learning-service-linked-service"></a>Azure Machine Learning 服務連結服務
-您會建立 Azure Machine Learning 服務連結服務，以將 Azure Machine Learning 服務工作區連接到 data factory。
+## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 連結服務
+您會建立 Azure Machine Learning 連結服務，以將 Azure Machine Learning 工作區連接到 data factory。
 
 > [!NOTE]
-> 目前僅支援 Azure Machine Learning 服務連結服務的服務主體驗證。
+> 目前僅支援 Azure Machine Learning 連結服務的服務主體驗證。
 
 ### <a name="example"></a>範例
 
@@ -425,18 +426,18 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ```
 
 ### <a name="properties"></a>屬性
-| 屬性               | 描述                              | 必要項                                 |
+| 屬性               | 說明                              | 必要                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                   | Type 屬性應設定為： **AzureMLService**。 | 是                                      |
+| 類型                   | Type 屬性應設定為： **AzureMLService**。 | 是                                      |
 | subscriptionId         | Azure 訂用帳戶識別碼              | 是                                      |
 | resourceGroupName      | 名稱 | 是                                      |
-| mlWorkspaceName        | Azure Machine Learning 服務工作區名稱 | 是  |
+| mlWorkspaceName        | Azure Machine Learning 工作區名稱 | 是  |
 | servicePrincipalId     | 指定應用程式的用戶端識別碼。     | 否 |
 | servicePrincipalKey    | 指定應用程式的金鑰。           | 否 |
-| tenant                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 | 否 |
+| 租用戶                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 | 否 |
 | connectVia             | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 |    
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 連結服務
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 已連結的服務
 您需建立 **Azure Data Lake Analytics** 連結服務，來將 Azure Data Lake Analytics 計算服務連結到 Azure Data Factory。 管線中的 Data Lake Analytics U-SQL 活動會參考此連結服務。 
 
 ### <a name="example"></a>範例
@@ -468,7 +469,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ### <a name="properties"></a>屬性
 
-| 屬性             | 描述                              | 必要項                                 |
+| 屬性             | 說明                              | 必要                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | 類型                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | 是                                      |
 | accountName          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
@@ -477,7 +478,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | resourceGroupName    | Azure 資源群組名稱                | 否                                       |
 | servicePrincipalId   | 指定應用程式的用戶端識別碼。     | 是                                      |
 | servicePrincipalKey  | 指定應用程式的金鑰。           | 是                                      |
-| tenant               | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是                                      |
+| 租用戶               | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是                                      |
 | connectVia           | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                       |
 
 
@@ -530,11 +531,11 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ### <a name="properties"></a>屬性
 
-| 屬性             | 描述                              | 必要項                                 |
+| 屬性             | 說明                              | 必要                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | 名稱                 | 連結服務的名稱               | 是   |
 | 類型                 | Type 屬性應設定為： **Azure Databricks**。 | 是                                      |
-| 網域               | 根據 Databricks 工作區的區域指定 Azure 區域。 範例： https://eastus.azuredatabricks.net | 是                                 |
+| 網域               | 根據 Databricks 工作區的區域指定 Azure 區域。 範例︰ https://eastus.azuredatabricks.net | 是                                 |
 | accessToken          | Data Factory 需要有存取權杖才能向 Azure Databricks 進行驗證。 存取權杖必須由 Databricks 工作區產生。 有關尋找存取權杖的詳細步驟可在[這裡](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)找到。  | 是                                       |
 | existingClusterId    | 所有作業將在其上執行的現有叢集的叢集識別碼。 這應該是已建立的互動式叢集。 如果叢集停止回應，您可能需要手動重新啟動叢集。 Databricks 建議在新的叢集上執行作業以提高可靠度。 您可以在 Databricks 工作區 -> [叢集]-> [互動式叢集名稱]-> [設定]-> [標記] 找到互動式叢集的叢集識別碼。 [更多詳細資料](https://docs.databricks.com/user-guide/clusters/tags.html) | 否 
 | instancePoolId    | Databricks workspace 中現有集區的實例集區識別碼。  | 否  |

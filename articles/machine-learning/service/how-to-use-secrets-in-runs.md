@@ -11,14 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4872ba8a707192cd61ec371fa982a076d410e918
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c0d696e3fc060a2779eba7d7e895397ea3245383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996579"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489283"
 ---
 # <a name="use-secrets-in-training-runs"></a>在定型執行中使用秘密
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何安全地在定型執行中使用秘密。 例如，若要連接到外部資料庫以查詢定型資料，您必須將使用者名稱和密碼傳遞給遠端執行內容。 以純文字將這類值編碼成定型腳本並不安全，因為它會公開秘密。 
 
@@ -50,9 +51,9 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 
 ## <a name="get-secrets"></a>取得密碼
 
-在您的本機程式碼中，您可以使用[Keyvault 取得 _secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-)方法，依名稱取得密碼值。
+在您的本機程式碼中，您可以使用[Get_secret Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-)方法，依名稱取得密碼值。
 
-在使用[實驗](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-)提交的回合中，使用[Run. get _secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-)方法。 由於提交的執行會感知其工作區，因此這個方法會將工作區具現化的快捷方式，並直接傳回秘密值。
+在使用[實驗](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-)提交的回合中，請使用[Run. get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-)方法。 由於提交的執行會感知其工作區，因此這個方法會將工作區具現化的快捷方式，並直接傳回秘密值。
 
 ```python
 # Code in submitted run
@@ -64,7 +65,7 @@ secret_value = run.get_secret(name="mysecret")
 
 請小心，不要藉由寫出或列印秘密值來公開。
 
-Set 和 get 方法也具有批次版本[set_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-)和[get_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) ，可同時存取多個密碼。
+Set 和 get 方法也有批次版本[set_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) ，而[get_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-)可同時存取多個密碼。
 
 ## <a name="next-steps"></a>後續步驟
 

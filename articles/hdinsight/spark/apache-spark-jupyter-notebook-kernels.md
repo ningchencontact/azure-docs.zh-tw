@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 41cb27096782f525a531f38efda539c065fa4c72
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163621"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494121"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 叢集上的 Jupyter Notebook 核心
 
@@ -28,7 +28,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
 
 ## <a name="prerequisites"></a>必要條件
 
-HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>在 Spark HDInsight 上建立 Jupyter Notebook
 
@@ -69,7 +69,7 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
 
     下表列出透過核心而提供的不同 magic。
 
-   | Magic | 範例 | 描述 |
+   | Magic | 範例 | 說明 |
    | --- | --- | --- |
    | help |`%%help` |產生所有可用 magic 的表格，其中包含範例與說明 |
    | info |`%%info` |輸出目前 Livy 端點的工作階段資訊 |
@@ -89,7 +89,7 @@ HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDIns
 
 `%%sql` magic 支援不同的參數，可用來控制您執行查詢時收到的輸出類型。 下表列出輸出。
 
-| 參數 | 範例 | 描述 |
+| 參數 | 範例 | 說明 |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |使用此參數，在 %%local Python 內容中保存查詢的結果，以做為 [Pandas](https://pandas.pydata.org/) 資料框架。 資料框架變數的名稱是您指定的變數名稱。 |
 | -q |`-q` |使用此項關閉儲存格的視覺效果。 如果您不想要 autovisualize 資料格的內容，而只想要將它當做資料框架來捕捉，請使用 `-q -o <VARIABLE>`。 如果您想要關閉視覺化功能而不擷取結果 (例如，執行 SQL 查詢的 `CREATE TABLE` 陳述式)，請使用 `-q` 但不要指定 `-o` 引數。 |
@@ -142,14 +142,14 @@ Google Chrome 上只支援 Spark HDInsight 叢集上的 Jupyter Notebook。
 
 ### <a name="scenarios"></a>案例
 
-- [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
+- [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
 - [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 - [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 - [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 
-- [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
+- [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
 - [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

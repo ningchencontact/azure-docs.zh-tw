@@ -12,25 +12,30 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097548"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470103"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overview.md) \(英文\) 進行偵錯。 您會在本文中了解如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
 
 本文使用 [Azure 入口網站](https://portal.azure.com)和 Azure CLI 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](troubleshoot-dotnet-visual-studio.md)。
 
-|Type|平台|Location|描述|
+> [!NOTE]
+> 除了本文中的記錄指示外，還有新的整合式記錄功能可與 Azure 監視搭配使用。 您會在[[記錄] 頁面和 [診斷設定（預覽）] 頁面](https://aka.ms/appsvcblog-azmon)中找到這項功能。 
+>
+>
+
+|類型|平台|位置|說明|
 |-|-|-|-|
-| 應用程式記錄 | Windows、Linux | App Service 檔案系統和/或 Azure 儲存體 blob | 記錄您的應用程式代碼所產生的訊息。 這些訊息可以由您選擇的 web 架構，或直接使用您語言的標準記錄模式來產生。 每則訊息會指派下列其中一個類別：**重大**、**錯誤**、**警告**、**資訊**、 **Debug**和**Trace**。 當您啟用應用程式記錄時，您可以藉由設定嚴重性層級，來選取您想要記錄的詳細資訊。|
-| Web 伺服器記錄| Windows | App Service 檔案系統或 Azure 儲存體 blob| [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的原始 HTTP 要求資料。 每個記錄訊息都包含 HTTP 方法、資源 URI、用戶端 IP、用戶端埠、使用者代理程式、回應碼等資料。 |
+| 應用程式記錄檔 | Windows、Linux | App Service 檔案系統和/或 Azure 儲存體 blob | 記錄您的應用程式代碼所產生的訊息。 這些訊息可以由您選擇的 web 架構，或直接使用您語言的標準記錄模式來產生。 每則訊息會指派下列其中一個類別：**重大**、**錯誤**、**警告**、**資訊**、 **Debug**和**Trace**。 當您啟用應用程式記錄時，您可以藉由設定嚴重性層級，來選取您想要記錄的詳細資訊。|
+| Web 服務器記錄| Windows | App Service 檔案系統或 Azure 儲存體 blob| [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的原始 HTTP 要求資料。 每個記錄訊息都包含 HTTP 方法、資源 URI、用戶端 IP、用戶端埠、使用者代理程式、回應碼等資料。 |
 | 詳細的錯誤記錄 | Windows | App Service 檔案系統 | 已傳送至用戶端瀏覽器的 *.htm*錯誤頁面複本。 基於安全考慮，詳細的錯誤網頁不應傳送至生產環境中的用戶端，但 App Service 可以在每次發生具有 HTTP 代碼400或更新版本的應用程式錯誤時儲存錯誤頁面。 該頁面可能包含有助於判斷伺服器傳回錯誤碼之原因的資訊。 |
-| 失敗的要求追蹤 | Windows | App Service 檔案系統 | 失敗要求的詳細追蹤資訊，包括用來處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 會針對每個失敗的要求產生一個資料夾，其中包含 XML 記錄檔，以及用來查看記錄檔的 XSL 樣式表單。 |
+| 失敗要求的追蹤 | Windows | App Service 檔案系統 | 失敗要求的詳細追蹤資訊，包括用來處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 會針對每個失敗的要求產生一個資料夾，其中包含 XML 記錄檔，以及用來查看記錄檔的 XSL 樣式表單。 |
 | 部署記錄 | Windows、Linux | App Service 檔案系統 | 當您將內容發佈至應用程式時，會記錄。 部署記錄會自動進行，而且沒有可設定的部署記錄。 它可協助您判斷部署失敗的原因。 例如，如果您使用[自訂部署腳本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)，您可能會使用部署記錄來判斷腳本失敗的原因。 |
 
 > [!NOTE]
@@ -50,7 +55,7 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 > [!NOTE]
 > 目前只能將 .NET 應用程式記錄寫入至 Blob 儲存體。 JAVA、PHP、node.js、Python 應用程式記錄只能儲存在 App Service 檔案系統上（不需要修改程式碼，即可將記錄寫入外部儲存體）。
 >
-> 此外，如果您[重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄設定，以使用更新的存取金鑰。 請這樣做：
+> 此外，如果您[重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄設定，以使用更新的存取金鑰。 作法：
 >
 > 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。 儲存您的設定。
 > 2. 重新啟用記錄至儲存體帳戶 Blob。 儲存您的設定。
@@ -59,9 +64,9 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 
 選取**層級**，或要記錄的詳細資料層級。 下表顯示每個層級中包含的記錄類別：
 
-| 層級 | 包含的類別 |
+| 等級 | 包含的類別 |
 |-|-|
-|**Disabled** | None |
+|**已停用** | None |
 |**錯誤** | 錯誤、嚴重 |
 |**警告** | 警告、錯誤、嚴重|
 |**資訊** | 資訊、警告、錯誤、嚴重|
@@ -88,7 +93,7 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 在 [**保留期限（天）** ] 中，設定記錄應保留的天數。
 
 > [!NOTE]
-> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 請這樣做：
+> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
 >
 > 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。 儲存您的設定。
 > 2. 重新啟用記錄至儲存體帳戶 Blob。 儲存您的設定。
@@ -107,9 +112,9 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 
 ## <a name="add-log-messages-in-code"></a>在程式碼中新增記錄檔訊息
 
-在您的應用程式程式碼中，您可以使用一般記錄功能，將記錄檔訊息傳送至應用程式記錄檔。 例如:
+在您的應用程式程式碼中，您可以使用一般記錄功能，將記錄檔訊息傳送至應用程式記錄檔。 例如：
 
-- ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如:
+- ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如：
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -137,12 +142,12 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如:
+若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如：
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如:
+若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如：
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -158,19 +163,19 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 對於儲存在 App Service 檔案系統中的記錄，最簡單的方式是在瀏覽器中下載 ZIP 檔案，網址為：
 
-- Linux/容器應用程式：`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Windows 應用程式：`https://<app-name>.scm.azurewebsites.net/api/dump`
+- Linux/容器應用程式： `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Windows 應用程式： `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 針對 Linux/容器應用程式，ZIP 檔案包含 docker 主機和 docker 容器的主控台輸出記錄。 針對相應放大的應用程式，ZIP 檔案會包含每個實例的一組記錄。 在 App Service 檔案系統中，這些記錄檔是 */home/LogFiles*目錄的內容。
 
 對於 Windows 應用程式，ZIP 檔案包含 App Service 檔案系統中*D:\Home\LogFiles*目錄的內容。 其結構如下：
 
-| 記錄類型 | 目錄 | 描述 |
+| 記錄類型 | 目錄 | 說明 |
 |-|-|-|
 | **應用程式記錄檔** |*/LogFiles/Application/* | 包含一個或多個文字檔。 記錄訊息的格式取決於您所使用的記錄提供者。 |
 | **失敗的要求追蹤** | */LogFiles/W3SVC # # # # # # # # #/* | 包含 XML 檔案和 XSL 檔案。 您可以在瀏覽器中查看格式化的 XML 檔案。 |
 | **詳細的錯誤記錄檔** | */LogFiles/DetailedErrors/* | 包含 HTM 錯誤檔案。 您可以在瀏覽器中查看 HTM 檔案。<br/>另一個查看失敗要求追蹤的方式，是在入口網站中流覽至您的應用程式頁面。 從左側功能表中，選取 [**診斷並解決問題**]，然後搜尋 [**失敗的要求追蹤記錄**]，然後按一下圖示以流覽並查看您想要的追蹤。 |
-| **Web 服務器記錄檔** | */LogFiles/HTTP/RawLogs/* | 包含使用[W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)來格式化的文字檔。 您可以使用文字編輯器或類似[記錄](https://go.microsoft.com/fwlink/?LinkId=246619)檔剖析器之類的公用程式來讀取此資訊。<br/>App Service 不支援`s-computername`、 `s-ip`或`cs-version`欄位。 |
+| **Web 服務器記錄檔** | */LogFiles/HTTP/RawLogs/* | 包含使用[W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)來格式化的文字檔。 您可以使用文字編輯器或類似[記錄](https://go.microsoft.com/fwlink/?LinkId=246619)檔剖析器之類的公用程式來讀取此資訊。<br/>App Service 不支援 [`s-computername`]、[`s-ip`] 或 [`cs-version`] 欄位。 |
 | **部署記錄檔** | */LogFiles/Git/* 和 */deployments/* | 包含內部部署程式所產生的記錄，以及適用于 Git 部署的記錄。 |
 
 ## <a name="nextsteps"></a> 後續步驟

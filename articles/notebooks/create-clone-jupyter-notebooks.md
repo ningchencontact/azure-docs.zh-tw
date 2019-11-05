@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 13615d319af600234dcc23e04f82ce46b8f97780
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970079"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496704"
 ---
 # <a name="create-and-clone-projects"></a>建立及複製專案
 
@@ -27,13 +27,13 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 ## <a name="use-the-my-projects-dashboard"></a>使用 [我的專案] 儀表板
 
-`https://notebooks.azure.com/<userID>/projects` 所在的 [我的專案]儀表板是您檢視、管理和建立專案的位置：
+**所在的 [我的專案]** `https://notebooks.azure.com/<userID>/projects`儀表板是您檢視、管理和建立專案的位置：
 
 [![Azure Notebooks 中的 [我的專案] 儀表板](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 您在儀表板上可進行的操作，取決於您是否使用該帳戶所擁有的使用者識別碼登入而定：
 
-| 命令 | 可供 | 描述 |
+| 命令 | 可供 | 說明 |
 | --- | --- | --- |
 | **Run** | 擁有者 | 啟動 Project Server，並在 Jupyter 中開啟專案資料夾。 (更常見的是，您先巡覽到專案資料夾，然後從該處啟動 筆記本。) |
 | **下載** | 任何人 | 將選取專案的複本下載為 ZIP 檔案。 |
@@ -64,11 +64,11 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 當您使用 **+ 新增專案**命令時，會顯示 Azure Notebooks 會顯示**建立新專案**快顯。 在此快顯中，輸入下列資訊，然後選取 [建立]︰
 
-| 欄位 | 描述 |
+| 欄位 | 說明 |
 | --- | --- |
 | 專案名稱 | Azure Notebooks 用於顯示用途的專案易記名稱。 例如，「我的筆記本專案」。 |
 | 專案識別碼 | 自訂識別碼會成為您用來共用專案 URL 的一部分 (格式為 `https://notebooks.azure.com/<user_id>/projects/<project_id>`)。 此識別碼只能使用字母、數位和連字號、限制為30個字元，而且不能是[保留的專案識別碼](#reserved-project-ids)。 如果您不確定要使用的項目，常見的慣例是使用專案名稱的小寫版本，讓空格轉變成連字號，例如 「 my-notebook-project 」 (必要時，可截斷以符合長度限制)。 |
-| 公用 | 如果設定，可讓任何人存取的專案連結。 建立私人專案時，請清除此選項。 |
+| 公開 | 如果設定，可讓任何人存取的專案連結。 建立私人專案時，請清除此選項。 |
 | 使用讀我檔案初始化此專案 | 如果設定，會在專案中建立預設 *README.md* 檔案。 如有需要，*README.md* 檔案是您為專案提供文件的地方。 |
 
 ### <a name="reserved-project-ids"></a>保留的專案識別碼
@@ -79,9 +79,9 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 | --- | --- | --- | --- | --- | --- |
 | about | 帳戶 | 組織 | api | 日誌 | 教室 |
 | 內容 | 儀表板 | 看 | 常見問題 | help | html |
-| home | 匯入 | 圖書館 | 管理 | new | 筆記本 |
-| notebook | pdf | 預覽 | 定價 | profile | 搜尋 |
-| 狀態 | 支援部門 | 測試 | | | |
+| home | 入口 | 圖書館 | 管理 | new | 筆記本 |
+| notebook | pdf | preview | 定價 | 設定檔 | 搜尋 |
+| status | 支援 | test | | | |
 
 如果您嘗試使用這些單字之一做為專案識別碼，則 [**建立新專案**] 和 [**專案設定**] 快顯視窗會指出「媒體櫃識別碼是保留的識別碼」。
 
@@ -91,13 +91,13 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 您可以輕鬆地將整個公用 GitHub 存放庫，匯入成包括任何資料和 *README.md* 檔案的專案。 使用**上傳 GitHub 存放庫**命令，在快顯中以提供下列詳細資料，然後選取 [匯入]：
 
-| 欄位 | 描述 |
+| 欄位 | 說明 |
 | --- | --- |
 | GitHub 存放庫 | Github.com 上的來源存放庫名稱。 例如，若要在 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) 複製 Azure 認知服務的 Jupyter Notebooks ，請輸入「Microsoft/cognitive-services-notebooks」。  |
 | 以遞迴方式複製 | GitHub 存放庫可以包含多個子存放庫。 如果您想要複製父存放庫及其所有子系，請設定此選項。 因為存放庫可以擁有多個子系，除非您知道 有需要，不然請清除此選項。 |
 | 專案名稱 | Azure Notebooks 用於顯示用途的專案易記名稱。 |
 | 專案識別碼 | 自訂識別碼會成為您用來共用專案 URL 的一部分 (格式為 `https://notebooks.azure.com/<user_id>/projects/<project_id>`)。 此識別碼只能使用字母、數位和連字號、限制為30個字元，而且不能是[保留的專案識別碼](#reserved-project-ids)。 如果您不確定要使用的項目，常見的慣例是使用專案名稱的小寫版本，讓空格轉變成連字號，例如 「 my-notebook-project 」 (必要時，可截斷以符合長度限制)。 |
-| 公用 | 如果設定，可讓任何人存取的專案連結。 建立私人專案時，請清除此選項。 |
+| 公開 | 如果設定，可讓任何人存取的專案連結。 建立私人專案時，請清除此選項。 |
 
 從 GitHub 匯入存放庫也會匯入其記錄。 您可以從終端機使用標準的 Git 命令，來認可新的變更，從 GitHub 提取變更等等。
 
@@ -120,9 +120,9 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 ## <a name="next-steps"></a>後續步驟
 
 - [探索範例筆記本](azure-notebooks-samples.md)
-- [作法：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [操作說明：從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
-- [作法：放映投影片](present-jupyter-notebooks-slideshow.md)
-- [作法：使用資料檔案](work-with-project-data-files.md)
-- [操作說明：存取資料資源](access-data-resources-jupyter-notebooks.md)
-- [操作說明：使用 Azure Machine Learning 服務](use-machine-learning-services-jupyter-notebooks.md)
+- [如何：設定和管理專案](configure-manage-azure-notebooks-projects.md)
+- [如何：從筆記本內安裝套件](install-packages-jupyter-notebook.md)
+- [如何：顯示投影片放映](present-jupyter-notebooks-slideshow.md)
+- [如何：使用資料檔案](work-with-project-data-files.md)
+- [如何：存取資料資源](access-data-resources-jupyter-notebooks.md)
+- [如何：使用 Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

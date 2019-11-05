@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996818"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495484"
 ---
 # <a name="understanding-azure-cdn-billing"></a>了解 Azure CDN 計費
 
@@ -55,11 +55,11 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 
 如果您將 Azure Blob 儲存體當做內容來源，還會因快取填滿而產生以下儲存空間費用：
 
-- 實際使用的 GB：您的來源物件之實際儲存空間。
+- 實際使用 GB 數：來源物件的實際儲存空間。
 
-- 交易：如填入快取所需。
+- 交易數：視填滿快取需要。
 
-- 傳輸 (以 GB 為單位)：傳輸以填入 CDN 快取的資料量。
+- 傳輸量 (GB)：填滿 CDN 快取的資料傳輸量。
 
 > [!NOTE]
 > 從2019年10月開始，如果您使用來自 Microsoft 的 Azure CDN，則從 Azure 裝載的原始來源到 CDN Pop 的資料傳輸成本是免費的。 來自 Verizon 的 azure CDN 和來自 Akamai 的 Azure CDN 受限於以下所述的費率。
@@ -68,9 +68,9 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 
 如果您使用*託管服務傳遞*，可能會產生以下費用：
 
-- Azure 計算時間：當作來源的計算執行個體。
+- Azure 計算時間：當做來源的計算執行個體。
 
-- Azure 計算傳輸：傳輸自計算執行個體以填入 Azure CDN 快取的資料。
+- Azure 計算傳輸：為了填滿 Azure CDN 快取，從計算執行個體傳輸的資料。
 
 如果您的用戶端使用位元組範圍要求 (不考慮來源服務)，請考慮以下事項：
 
@@ -83,9 +83,9 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 
 - 可快取內容的型態：對於高 TTL (存留時間)/到期值，而且經常存取的內容，因為它在快取中的熱門程度高，所以大多數的負載都由 CDN 負責處理。 良好的快取命中率通常是指超過 90% 的命中率，代表不論是因為快取遺漏或物件重新整理，只有不到 10% 的用戶端要求必須傳回來源。
 
-- 載入物件需要幾個節點：每當節點從來源載入物件，就會引發計費交易。 因此，比較通用的內容 (從比較多節點存取)，產生的可計費交易也會比較多。
+- 需要載入物件的節點數目：每當節點從來源載入物件時，都會產生可計費交易。 因此，比較通用的內容 (從比較多節點存取)，產生的可計費交易也會比較多。
 
-- TTL 影響：物件的 TTL 越高，表示需要從來源擷取它的頻率越低。 這也代表用戶端 (如瀏覽器) 將物件留在快取中的時間較長，因此能減少 CDN 的交易數。
+- TTL 影響：物件的 TTL 越高，表示從來源擷取的頻率越低。 這也代表用戶端 (如瀏覽器) 將物件留在快取中的時間較長，因此能減少 CDN 的交易數。
 
 ## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>哪些原始服務符合 Microsoft Azure CDN 的免費資料傳輸資格？ 
 如果您使用下列其中一項 Azure 服務作為 CDN 原點，則不會向您收取從來源到 CDN Pop 的資料傳輸費用。 
@@ -94,7 +94,7 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 - Azure 媒體服務
 - Azure 虛擬機器
 - 虛擬網路
-- Load Balancer
+- 負載平衡器
 - 應用程式閘道
 - Azure DNS
 - ExpressRoute
@@ -113,8 +113,8 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 - HDInsight
 - Azure Cosmos DB
 - Azure Data Lake Store
-- Azure Machine Learning 服務 
-- Azure SQL Database
+- Azure Machine Learning 
+- Azure SQL 資料庫
 - Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>管理成本最有效的方法是什麼？

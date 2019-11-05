@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091490"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494850"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
@@ -81,7 +81,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 若要修改服務的組態，請依照下列步驟進行：
 
-1. 開啟叢集的 Ambari Web UI。 URL 為 https://YOURCLUSTERNAME.azurehdinsight.net 。
+1. 開啟叢集的 Ambari Web UI。 URL 為 https://YOURCLUSTERNAME.azurehdinsight.net。
 
     出現提示時，請使用您叢集的 HTTP 帳戶名稱 (預設值：admin) 和密碼來向網站驗證。
 
@@ -103,7 +103,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
    > [!NOTE]  
    > 啟用 map 或 reduce 子處理序的堆積傾印時，請尋找名為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
 
-    使用 [儲存] 按鈕來儲存變更。 您可以輸入簡短的附註來說明所做的變更。
+    按 [儲存] 按鈕以儲存變更。 您可以輸入簡短的附註來說明所做的變更。
 
 5. 套用變更後，一或多個服務旁邊就會出現**必須重新啟動**圖示。
 

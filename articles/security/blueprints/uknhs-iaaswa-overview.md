@@ -163,7 +163,7 @@ Azure 資訊安全中心提供依優先順序排列的安全性警示和事件�
 - [自訂健康情況探查](../../application-gateway/quick-create-portal.md)
 - [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center)和 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) 會提供額外的保護和通知。 Azure 資訊安全中心也會提供評價系統。
 
-### <a name="business-continuity"></a>業務續航力
+### <a name="business-continuity"></a>業務持續性
 
 **高可用性**：解決方案會將所有虛擬機器部署在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)中。 可用性設定組可確保虛擬機器會分散到多個各自獨立的硬體叢集中，以提高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
 

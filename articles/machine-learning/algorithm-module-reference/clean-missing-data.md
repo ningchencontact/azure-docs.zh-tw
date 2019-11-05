@@ -1,24 +1,24 @@
 ---
 title: 清除遺漏的資料：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [清除遺漏的資料] 模組來移除、取代或推斷遺漏值。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [清除遺漏的資料] 模組來移除、取代或推斷遺漏值。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693206"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493817"
 ---
 # <a name="clean-missing-data-module"></a>清除遺漏的資料模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來移除、取代或推斷遺漏值。 
 
@@ -133,8 +133,8 @@ ms.locfileid: "72693206"
   
 2.  新增您想要清除的資料集，並將資料集連接到右側輸入埠。  
   
-3.  展開介面左側窗格中的 [**轉換**] 群組。 找出已儲存的轉換，並將它拖曳到管線中。  
-  
+3.  在設計工具的左側窗格中，展開 [**轉換**] 群組。 找出已儲存的轉換，並將它拖曳到管線中。  
+
 4.  將儲存的轉換連接到 [套用[轉換](./apply-transformation.md)] 的左側輸入埠。 
 
     當您套用已儲存的轉換時，您無法選取要套用轉換的資料行。 這是因為轉換已經定義，而且會自動套用至原始作業中指定的資料行。
@@ -145,4 +145,4 @@ ms.locfileid: "72693206"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

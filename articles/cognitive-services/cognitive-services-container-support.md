@@ -8,26 +8,28 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 8/21/2019
+ms.date: 10/14/2019
 ms.author: dapine
-ms.openlocfilehash: eac9264a98c6224af56618e439a1cd3f00f7157c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
-ms.translationtype: MT
+ms.openlocfilehash: 926c2c0bbe4fdd24a6a8271b2e01ababcacf77d5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146825"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499194"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
 Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的相同豐富 API，並同時享有 [Docker 容器](https://www.docker.com/what-container) \(英文\) 所帶來的部署及裝載服務彈性。 容器支援目前以預覽形式提供給 Azure 認知服務的一部分，包括下列各部分：
 
-* [異常偵測器][ad-containers]
-* [電腦視覺][cv-containers]
-* [臉部][fa-containers]
-* [表單辨識器][fr-containers]
-* [Language Understanding (LUIS)][lu-containers]
-* [語音服務 API][sp-containers]
-* [文字分析][ta-containers]
+> [!div class="checklist"]
+> * [異常偵測器][ad-containers]
+> * [電腦視覺][cv-containers]
+> * [臉部][fa-containers]
+> * [表單辨識器][fr-containers]
+> * [Language Understanding (LUIS)][lu-containers]
+> * [語音服務 API][sp-containers]
+> * [文字分析][ta-containers]
+> * [翻譯工具文字][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -37,28 +39,30 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 ## <a name="features-and-benefits"></a>功能與優點
 
-- **對資料的控制**：讓客戶選擇這些認知服務在哪裡處理他們的資料。 這對於無法將資料傳送到雲端，但需要存取認知服務技術的客戶來說，這是不可或缺的。 支援混合式環境中的一致性，橫跨資料、管理、身分識別及安全性。
+- **控制資料**：允許客戶選擇這些認知服務處理其資料的位置。 這對於無法將資料傳送到雲端，但需要存取認知服務技術的客戶來說，這是不可或缺的。 支援混合式環境中的一致性，橫跨資料、管理、身分識別及安全性。
 - **對模型更新的控制**：為客戶針對部署於其解決方案中的模型，提供版本控制和更新上的彈性。
-- **可攜式架構**：能建立可攜式的應用程式架構，並將它部署至 Azure、內部部署及邊緣。 您可以將容器直接部署至 [Azure Kubernetes Service](../aks/index.yml)、[Azure 容器執行個體](../container-instances/index.yml)，或是已部署至 [Azure Stack](/azure-stack/operator) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
-- **高輸送量 / 低延遲**：透過讓認知服務在實體鄰近客戶應用程式邏輯和資料執行，為客戶提供針對高輸送量及低延遲需求進行調整的能力。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。 
+- **可移植的架構**：啟用可移植的應用程式架構，以部署在 Azure、內部部署和邊緣上。 您可以將容器直接部署至 [Azure Kubernetes Service](../aks/index.yml)、[Azure 容器執行個體](../container-instances/index.yml)，或是已部署至 [Azure Stack](https://kubernetes.io/) 的 [Kubernetes](/azure-stack/operator) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+- **高輸送量/低延遲**：讓客戶能夠針對高輸送量和低延遲需求進行調整，方法是讓認知服務實際地靠近其應用程式邏輯和資料執行。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Azure 認知服務中的容器
 
 Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包含 Azure 認知服務中服務之功能的子集：
 
-| 服務 | 支援的定價層 | 容器 | 描述 |
+| 服務 | 支援的定價層 | 容器 | 說明 |
 |---------|----------|----------|-------------|
 |[異常偵測器][ad-containers] |F0，S0|**異常-偵測器** |Anomaly Detector API 可讓您透過機器學習，監視和偵測時間序列資料中的異常狀況。<br>[要求存取](https://aka.ms/adcontainer)|
-|[電腦視覺][cv-containers] |F0，S1|**讀取** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。 讀取容器也會偵測影像中的*手寫文字*，並提供 PDF/TIFF/多頁支援。<br/><br/>**重要事項：** 讀取容器目前僅適用于英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
-|[電腦視覺][cv-containers] |F0，S1|**辨識文字** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。<br/><br/>**重要事項：** 辨識文字容器目前只適用於英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[電腦視覺][cv-containers] |F0，S1|**讀取** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。 讀取容器也會偵測影像中的*手寫文字*，並提供 PDF/TIFF/多頁支援。<br/><br/>**重要事項：** 讀取容器目前僅適用于英文。|
 |[臉部][fa-containers] |F0，S0|**臉部** |能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。<br>[要求存取](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[表單辨識器][fr-containers] |F0，S0|**表單辨識器** |表單理解會套用機器學習技術，以識別並從表單中解壓縮索引鍵/值組和資料表。<br>[要求存取](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0，S0|**LUIS** ([影像](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|將已定型或發佈的 Language Understanding 模型 (也稱為 LUIS 應用程式) 載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。 您可以從容器收集查詢記錄，並將這些記錄重新上傳至 [LUIS 入口網站](https://www.luis.ai)，以改善應用程式的預測精確度。|
-|[語音服務 API][sp-containers] |F0，S0|**語音轉文字** |連續的即時語音謄寫成文字。<br>[要求存取](https://aka.ms/speechcontainerspreview/)|
-|[語音服務 API][sp-containers] |F0，S0|**文字轉換語音** |將文字轉換成自然發音語音。<br>[要求存取](https://aka.ms/speechcontainerspreview/)|
+|[語音服務 API][sp-containers-stt] |F0，S0|**語音轉文字** |連續的即時語音謄寫成文字。|
+|[語音服務 API][sp-containers-cstt] |F0，S0|**自訂語音轉換文字** |使用自訂模型將連續即時語音可將成文字。|
+|[語音服務 API][sp-containers-tts] |F0，S0|**文字轉換語音** |將文字轉換成自然發音語音。|
+|[語音服務 API][sp-containers-ctts] |F0，S0|**自訂文字轉換語音** |使用自訂模型將文字轉換成自然發音的語音。|
 |[文字分析][ta-containers] |F0、S|**關鍵片語擷取** ([影像](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |擷取關鍵片語來識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 |
 |[文字分析][ta-containers]|F0、S|**語言偵測** ([影像](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 |
-|[文字分析][ta-containers]|F0、S|**情感分析** ([影像](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](./text-analytics/language-support.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
+|[文字分析][ta-containers]|F0、S|**情感分析** ([影像](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型的。 針對[選取的語言](./text-analytics/language-support.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
+|[翻譯工具文字][tt-containers]| **N/A** | **翻譯工具文字** | 翻譯工具文字是雲端式機器翻譯服務，可讓您透過 REST API 呼叫，近乎即時地翻譯文字。<br>[要求存取](https://aka.ms/translatorcontainerform) |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -80,8 +84,9 @@ Azure 認知服務容器可透過您的 Azure 訂用帳戶公開取得，而 Doc
 > * [異常偵測器](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [臉部](Face/face-how-to-install-containers.md)
 > * [表單辨識器](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
-> * [辨識文字](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [讀取](computer-vision/computer-vision-how-to-install-containers.md)
 > * [語音轉換文字和文字轉換語音](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
+> * [翻譯工具文字](translator/how-to-install-containers.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
@@ -116,6 +121,7 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 * [Language Understanding （LUIS）容器][lu-containers]
 * [語音服務 API 容器][sp-containers]
 * [文字分析容器][ta-containers]
+* [翻譯工具文字容器][tt-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -126,4 +132,13 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+<<<<<<< HEAD
+[sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
+[sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
+[sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
+[sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
+=======
+[ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
+[tt-containers]: translator/how-to-install-containers.md
+>>>>>>> refs/遠端/MicrosoftDocs/master

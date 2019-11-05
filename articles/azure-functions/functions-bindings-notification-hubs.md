@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cde565fbafec7f1209d0c65d6f3ebc121f38e6f5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086635"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991383"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions 的通知中樞輸出繫結
 
@@ -26,7 +26,7 @@ ms.locfileid: "70086635"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google 已[淘汰 Google 雲端通訊 (GCM), 取而代之的是 Firebase 雲端通訊 (FCM)](https://developers.google.com/cloud-messaging/faq)。 此輸出系結不支援 FCM。 若要使用 FCM 傳送通知, 請直接在您的函式中使用[FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) , 或使用[範本通知](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
+> Google 已[淘汰 Google 雲端通訊（GCM），取而代之的是 Firebase 雲端通訊（FCM）](https://developers.google.com/cloud-messaging/faq)。 此輸出系結不支援 FCM。 若要使用 FCM 傳送通知，請直接在您的函式中使用[FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) ，或使用[範本通知](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -53,7 +53,7 @@ Functions 2.x 中不提供此繫結。
 
 ### <a name="c-script-template-example---out-parameter"></a>C# 指令碼範本範例 - out 參數
 
-這個範例會傳送在範本中包含 `message` 預留位置的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會傳送在範本中包含 [ 預留位置的](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)範本註冊`message`通知。
 
 ```cs
 using System;
@@ -101,7 +101,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 
 ### <a name="c-script-template-example---json"></a>C# 指令碼範本範例 - JSON
 
-這個範例會使用有效的 JSON 字串來傳送在範本中包含 `message` 預留位置的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會使用有效的 JSON 字串來傳送在範本中包含 [ 預留位置的](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)範本註冊`message`通知。
 
 ```cs
 using System;
@@ -140,7 +140,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>F # 範本範例
 
-這個範例會傳送包含 `location` 和 `message` 的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會傳送包含 [ 和 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 的`location`範本註冊`message`通知。
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -149,7 +149,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>JavaScript 範本範例
 
-這個範例會傳送包含 `location` 和 `message` 的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會傳送包含 [ 和 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 的`location`範本註冊`message`通知。
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -252,10 +252,10 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 下表說明您在 function.json 檔案中設定的繫結設定屬性內容和 `NotificationHub` 屬性：
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**type** |n/a| 必須設定為 "notificationHub"。 |
-|**direction** |n/a| 必須設定為 "out"。 | 
+|**type** |n/a| 必須設為 `notificationHub`。 |
+|**direction** |n/a| 必須設為 `out`。 | 
 |**name** |n/a| 函式程式碼中用於通知中樞訊息的變數名稱。 |
 |**tagExpression** |**TagExpression** | 標籤運算式可讓您指定將通知傳遞到一組裝置，這些裝置已註冊要接收與標籤運算式相符的通知。  如需詳細資訊，請參閱 [路由與標籤運算式](../notification-hubs/notification-hubs-tags-segment-push-message.md)。 |
 |**hubName** | **HubName** | Azure 入口網站中通知中樞資源的名稱。 |
@@ -301,7 +301,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
-| 繫結 | 參考資料 |
+| 繫結 | 參考 |
 |---|---|
 | 通知中樞 | [操作指南](https://docs.microsoft.com/rest/api/notificationhubs/) \(英文\) |
 

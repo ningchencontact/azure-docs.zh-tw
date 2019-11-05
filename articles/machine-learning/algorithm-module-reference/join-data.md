@@ -11,7 +11,7 @@ ms.author: peterlu
 ms.date: 06/01/2019
 ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
 ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/21/2019
 ms.locfileid: "72693100"

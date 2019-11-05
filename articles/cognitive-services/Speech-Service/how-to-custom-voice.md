@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959404"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464525"
 ---
 # <a name="get-started-with-custom-voice"></a>開始使用自訂語音
 
@@ -37,6 +37,13 @@ ms.locfileid: "71959404"
 
 4.  [部署您的模型](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint)-為您的文字轉換語音語音模型建立自訂端點，並在您的產品、工具和應用程式中使用它來進行語音合成。
 
+## <a name="custom-neural-voices"></a>自訂類神經語音
+
+類神經語音自訂功能目前處於公開預覽狀態，僅限選取的客戶。 填寫此[應用程式表單](https://go.microsoft.com/fwlink/?linkid=2108737)以開始使用。
+
+> [!NOTE]
+> 在 Microsoft 致力於設計負責 AI 的過程中，我們的目的是要保護個人和社會的權利，並促進透明的人類電腦互動。 基於這個理由，自訂類神經語音不會正式提供給所有客戶。 只有在您的應用程式經過審查，而且您已致力於與我們的道德原則一致時，才可以取得技術的存取權。 深入瞭解我們的[應用程式管制流程](https://aka.ms/custom-neural-gating-overview)。
+
 ## <a name="set-up-your-azure-account"></a>設定您的 Azure 帳戶
 
 必須要有語音服務訂用帳戶，才能使用自訂語音入口網站來建立自訂模型。 請遵循這些指示，在 Azure 中建立語音服務訂用帳戶。 如果您沒有 Azure 帳戶，您可以註冊一個新帳戶。  
@@ -55,10 +62,10 @@ ms.locfileid: "71959404"
 
 像是資料、模型、測試和端點等內容，會組織成自訂語音入口網站中的**專案**。 每個專案都適用于國家/地區，以及您想要建立的語音性別。 例如，您可以為撥接中心的聊天機器人建立一個專案，以在美國（en-us）使用英文。
 
-若要建立您的第一個專案，請選取 [**文字轉換語音/自訂語音**] 索引標籤，然後按一下 [**新增專案**]。 依照 wizard 提供的指示來建立您的專案。 建立專案之後，您會看到四個索引標籤：**資料**、**訓練**、**測試**和**部署**。 使用[後續步驟](#next-steps)中提供的連結，以瞭解如何使用每個索引標籤。
+若要建立您的第一個專案，請選取 [**文字轉換語音/自訂語音**] 索引標籤，然後按一下 [**新增專案**]。 依照 wizard 提供的指示來建立您的專案。 建立專案之後，您會看到四個索引標籤：**資料**、**定型**、**測試**和**部署**。 使用[後續步驟](#next-steps)中提供的連結，以瞭解如何使用每個索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [準備自訂語音資料](how-to-custom-voice-prepare-data.md)
 - [建立自訂語音](how-to-custom-voice-create-voice.md)
-- [Guide：錄製您的語音範例 @ no__t-0
+- [指南：錄製您的語音範例](record-custom-voice-samples.md)

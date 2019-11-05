@@ -10,14 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a47ce44a325720fb1b6df919a0a324a4d3319d86
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002763"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489890"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>啟用 Azure Machine Learning 中的記錄
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning Python SDK 可讓您使用預設 Python 記錄套件以及使用 SDK 特有的功能啟用記錄，兩者皆可用於本機記錄和記錄至您在入口網站中的工作區。 記錄可提供開發人員應用程式狀態的即時資訊，並可協助診斷錯誤或警告。 在本文中，您會了解在下列領域啟用記錄的不同方式：
 
@@ -27,11 +28,11 @@ Azure Machine Learning Python SDK 可讓您使用預設 Python 記錄套件以�
 > * 已部署的模型
 > * Python `logging` 設定
 
-[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。 如需 SDK 的詳細資訊, 請使用[指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
+[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。 如需 SDK 的詳細資訊，請使用[指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 
 ## <a name="training-models-and-compute-target-logging"></a>定型模型和計算目標記錄
 
-在模型定型過程中，有多種方式可以啟用記錄，顯示的範例將說明常見的設計模式。 您可以使用 `Experiment` 類別上的 `start_logging` 函式，輕鬆地將執行相關的資料記錄至雲端的工作區。
+在模型定型過程中，有多種方式可以啟用記錄，顯示的範例將說明常見的設計模式。 您可以使用 `start_logging` 類別上的 `Experiment` 函式，輕鬆地將執行相關的資料記錄至雲端的工作區。
 
 ```python
 from azureml.core import Experiment
@@ -41,7 +42,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-如需其他記錄功能, 請參閱[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)類別的參考檔。
+如需其他記錄功能，請參閱[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)類別的參考檔。
 
 若要在定型過程中啟用應用程式狀態的本機記錄，請使用 `show_output` 參數。 啟用詳細記錄可讓您查看定型過程的詳細資料，以及任何遠端資源或計算目標的相關資訊。 使用下列程式碼來啟用記錄實驗提交。
 
@@ -58,7 +59,7 @@ run = experiment.submit(config=run_config_object, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-SDK 也支援針對定型的特定案例使用預設的 Python 記錄套件。 下列範例在 `AutoMLConfig` 物件中啟用 `INFO` 層級的記錄。
+SDK 也支援針對定型的特定案例使用預設的 Python 記錄套件。 下列範例在 `INFO` 物件中啟用 `AutoMLConfig` 層級的記錄。
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -85,7 +86,7 @@ compute.wait_for_completion(show_output=True)
 
 ## <a name="logging-during-image-creation"></a>映像建立期間的記錄
 
-啟用映像期間的記錄將可讓您查看建置過程中的任何錯誤。 在 `wait_for_deployment()` 函式上設定 `show_output` 參數。
+啟用映像期間的記錄將可讓您查看建置過程中的任何錯誤。 在 `show_output` 函式上設定 `wait_for_deployment()` 參數。
 
 ```python
 from azureml.core.webservice import Webservice
@@ -117,7 +118,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-如需如何在 Azure 入口網站中使用 Application Insights 的詳細資訊，請參閱[作法](how-to-enable-app-insights.md)。
+如需如何在 Azure Machine Learning studio 中使用 Application Insights 的詳細資訊，請參閱 how [to](how-to-enable-app-insights.md) 。
 
 ## <a name="python-native-logging-settings"></a>Python 原生記錄設定
 

@@ -19,7 +19,7 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
 ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983492"
@@ -93,7 +93,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 若要將報告的資料縮小至適合您的層級，您可以使用下列預設欄位篩選布建資料。 請注意，篩選中的值會根據您的租使用者動態填入。 例如，如果您的租使用者中沒有任何建立事件，就不會有 [建立] 的篩選選項。
 
 - 身分識別
-- 行動
+- 動作
 - 來源系統
 - 目標系統
 - 狀態

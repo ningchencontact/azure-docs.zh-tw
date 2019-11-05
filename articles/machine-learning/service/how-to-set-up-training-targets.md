@@ -3,26 +3,27 @@ title: 建立及使用計算目標進行模型定型
 titleSuffix: Azure Machine Learning
 description: 設定機器學習服務模型定型的定型環境 (計算目標)。 您可以輕鬆地在定型環境之間切換。 在本機開始定型作業。 如果您需要相應放大，請切換至雲端式計算目標。
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935359"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489568"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 有了 Azure Machine Learning，您就可以在各種資源或環境（統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-targets)）上訓練您的模型。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
 
-您可以使用 Azure Machine Learning SDK、Azure 入口網站、您的工作區登陸頁面（預覽）、Azure CLI 或 Azure Machine Learning VS Code 延伸模組，來建立和管理計算目標。 如果您有透過另一個服務（例如 HDInsight 叢集）建立的計算目標，您可以將它們附加至您的 Azure Machine Learning 工作區來使用它們。
+您可以使用 Azure Machine Learning SDK、Azure Machine Learning studio、Azure CLI 或 Azure Machine Learning VS Code 延伸模組來建立和管理計算目標。 如果您有透過另一個服務（例如 HDInsight 叢集）建立的計算目標，您可以將它們附加至您的 Azure Machine Learning 工作區來使用它們。
  
 在本文中，您將了解如何使用各種計算目標來訓練模型。  所有計算目標的步驟皆遵循相同的工作流程：
 1. 如果您沒有計算目標，請__建立__一個。
@@ -106,7 +107,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
 
 > [!NOTE]
-> 若要指定要使用的節點數目上限，您通常會將 `node_count` 設定為節點的數目。 目前有（04/04/2019）個 bug，導致無法運作。 因應措施是使用執行設定的 `amlcompute._cluster_max_node_count` 屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
+> 若要指定要使用的節點數目上限，您通常會將 `node_count` 設定為節點數目。 目前有（04/04/2019）個 bug，導致無法運作。 因應措施是使用執行設定的 `amlcompute._cluster_max_node_count` 屬性。 例如， `run_config.amlcompute._cluster_max_node_count = 5`。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
@@ -125,14 +126,14 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 1. **建立並附加**：若要在 Python 中建立持續性 Azure Machine Learning 計算資源，請指定**vm_size**和**max_nodes**屬性。 Azure Machine Learning 接著會對於其他屬性使用智慧型預設值。 未使用時，計算會自動向下調整為零節點。   視需要建立專用的虛擬機器以執行您的作業。
     
     * **vm_size**： Azure Machine Learning 計算所建立之節點的 vm 系列。
-    * **max_nodes**：您在 Azure Machine Learning Compute 上執行作業時要自動調整的最大節點數目。
+    * **max_nodes**：在 Azure Machine Learning Compute 上執行作業時要自動調整的最大節點數目。
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
    建立 Azure Machine Learning Compute 時，您也可以設定多個進階屬性。 這些屬性可讓您建立固定大小的持續性叢集，也可以在您訂用帳戶中現有的 Azure 虛擬網路內建立。  如需詳細資料，請參閱 [AmlCompute 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     )。
     
-   或者，您可以[在 Azure 入口網站中](#portal-create)建立並連結持續性 Azure Machine Learning Compute 資源。
+   或者，您也可以在[Azure Machine Learning studio](#portal-create)中建立和附加持續性 Azure Machine Learning 計算資源。
 
 1. **設定**：建立持續性計算目標的回合設定。
 
@@ -179,7 +180,7 @@ Azure Machine Learning 也支援提供您自己的計算資源，並將其附加
    compute.wait_for_completion(show_output=True)
    ```
 
-   或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 DSVM 連結到工作區。
+   或者，您可以[使用 Azure Machine Learning studio](#portal-reuse)將 DSVM 附加至您的工作區。
 
 1. **設定**：建立 DSVM 計算目標的回合設定。 Docker 和 Conda 用來建立和設定 DSVM 上的定型環境。
 
@@ -220,7 +221,7 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 HDInsight 叢集連結到工作區。
+   或者，您可以[使用 Azure Machine Learning studio](#portal-reuse)，將 HDInsight 叢集附加至您的工作區。
 
 1. **設定**：建立 HDI 計算目標的回合設定。 
 
@@ -270,9 +271,9 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>在 Azure 入口網站中設定
+## <a name="set-up-in-azure-machine-learning-studio"></a>在 Azure Machine Learning studio 中設定
 
-您可以在 Azure 入口網站中，存取與您工作區相關聯的計算目標。  您可以使用入口網站以執行下列操作：
+您可以在 Azure Machine Learning studio 中存取與工作區相關聯的計算目標。  您可以使用 studio 來執行下列動作：
 
 * [檢視連結至工作區的計算目標](#portal-view)
 * 在工作區中[建立計算目標](#portal-create)
@@ -291,7 +292,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 若要查看您工作區的計算目標，請使用下列步驟：
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後開啟您的工作區。 您也可以在[工作區登陸頁面（預覽）](https://ml.azure.com)中存取這些相同的步驟，不過下列影像會顯示 Azure 入口網站。
+1. 流覽至[Azure Machine Learning studio](https://ml.azure.com)。
  
 1. 在 [應用程式] 底下，選取 [計算]。
 
@@ -310,11 +311,11 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 選取 [Machine Learning Compute] 作為要用於 [定型] 的計算類型。 
 
     >[!NOTE]
-    >Azure Machine Learning Compute 是您可以在 Azure 入口網站中建立的唯一受控計算資源。  建立之後，即可連結所有其他計算資源。
+    >Azure Machine Learning 計算是您可以在 Azure Machine Learning studio 中建立的唯一受控計算資源。  建立之後，即可連結所有其他計算資源。
 
 1. 填寫表單。 針對必要的屬性 (特別是 **VM 系列**) 和**節點上限**提供值，以便向上微調計算。  
 
-1. 選取 [建立]。
+1. 選取 [ __建立__]。
 
 
 1. 從清單選取計算目標以檢視建立作業的狀態：
@@ -336,7 +337,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 選取要附加以進行__定型__的計算類型：
 
     > [!IMPORTANT]
-    > 並非所有計算類型都可以從 Azure 入口網站附加。 目前可以附加以進行定型的目標類型包括：
+    > 並非所有計算類型都可以從 Azure Machine Learning studio 附加。 目前可以附加以進行定型的目標類型包括：
     >
     > * 遠端 VM
     > * Azure Databricks (適用於機器學習管線)
@@ -446,6 +447,8 @@ az ml folder attach
  * 所選架構的特定設定詳細資料。
  * 資料參考和資料存放區詳細資料。
  * 建立新叢集 Machine Learning Compute 特定的設定詳細資料。
+
+如需完整的 runconfig 架構，請參閱範例[JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)檔案。
 
 ### <a name="create-an-experiment"></a>建立實驗
 

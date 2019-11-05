@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 以虛擬核心為基礎的資源限制 - 彈性集區 | Microsoft Docs
-description: 此頁面將針對 Azure SQL Database 中的彈性集區，說明一些以虛擬核心為基礎的常見資源限制。
+title: Azure SQL Database vCore 資源限制-彈性集區 |Microsoft Docs
+description: 此頁面說明 Azure SQL Database 中彈性集區的一些常見 vCore 資源限制。
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: 2a5190cada0ca834cada4e02bfe7549dc43da4b8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.reviewer: carlrab, sstein
+ms.date: 11/04/2019
+ms.openlocfilehash: 65c2bfe4d79f5b7d468999143524b96b60f0efaf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309506"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495991"
 ---
-# <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用以虛擬核心為基礎的購買模型的彈性集區資源限制
+# <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>使用 vCore 購買模型的彈性集區資源限制
 
-本文使用以虛擬核心為基礎的購買模型，來提供 Azure SQL Database 彈性集區和集區資料庫的詳細資源限制。
+本文提供使用 vCore 購買模型 Azure SQL Database 彈性集區和集區資料庫的詳細資源限制。
 
-如需以 DTU 為基礎的購買模型限制，請參閱 [SQL Database 以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)。
+如需 DTU 購買模型限制，請參閱[SQL DATABASE dtu 資源限制-彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區。
 
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
@@ -31,20 +31,19 @@ ms.locfileid: "70309506"
 
 > [!IMPORTANT]
 > 如需調整指引和考慮，請參閱[調整彈性集](sql-database-elastic-pool-scale.md)區
-> [!NOTE]
-> 彈性集區中個別資料庫的資源限制通常與集區外部具有相同計算大小的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層級：儲存體大小與計算大小
+
+## <a name="general-purpose---provisioned-compute---gen4"></a>一般用途-布建的計算-第4代
 
 > [!IMPORTANT]
 > 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層級：第 4 代計算平台 (第 1 部分)
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般用途服務層級：第4代計算平臺（第1部分）
 
 |計算大小|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W 產生|4|4|4|4|4|4|
-|vCore|1|2|3|4|5|6|
+|計算世代|第4代|第4代|第4代|第4代|第4代|第4代|
+|虛擬核心|1|2|3|4|5|6|
 |記憶體 (GB)|7|14|21|28|35|42|
 |每個集區的最大 DB 數|100|200|500|500|500|500|
 |資料行存放區支援|是|是|是|是|是|是|
@@ -67,12 +66,13 @@ ms.locfileid: "70309506"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>一般目的服務層級：第 4 代計算平台 (第 2 部分)
+
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>一般用途服務層級：第4代計算平臺（第2部分）
 
 |計算大小|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W 產生|4|4|4|4|4|4|
-|vCore|7|8|9|10|16|24|
+|計算世代|第4代|第4代|第4代|第4代|第4代|第4代|
+|虛擬核心|7|8|9|10|16|24|
 |記憶體 (GB)|49|56|63|70|112|168|
 |每個集區的最大 DB 數|500|500|500|500|500|500|
 |資料行存放區支援|是|是|是|是|是|是|
@@ -95,12 +95,15 @@ ms.locfileid: "70309506"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>一般目的服務層級：第 5 代計算平台 (第 1 部分)
+
+## <a name="general-purpose---provisioned-compute---gen5"></a>一般用途-布建的計算-第5代
+
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>一般用途服務層級：第5代計算平臺（第1部分）
 
 |計算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W 產生|5|5|5|5|5|5|5|
-|vCore|2|4|6|8|10|12|14|
+|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|虛擬核心|2|4|6|8|10|12|14|
 |記憶體 (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |每個集區的最大 DB 數|100|200|500|500|500|500|500|
 |資料行存放區支援|是|是|是|是|是|是|是|
@@ -123,12 +126,12 @@ ms.locfileid: "70309506"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>一般目的服務層級：第 5 代計算平台 (第 2 部分)
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>一般用途服務層級：第5代計算平臺（第2部分）
 
 |計算大小|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W 產生|5|5|5|5|5|5|5|
-|vCore|16|18|20|24|32|40|80|
+|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|虛擬核心|16|18|20|24|32|40|80|
 |記憶體 (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |每個集區的最大 DB 數|500|500|500|500|500|500|500|
 |資料行存放區支援|是|是|是|是|是|是|是|
@@ -148,19 +151,50 @@ ms.locfileid: "70309506"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
+## <a name="general-purpose---provisioned-compute---fsv2-series"></a>一般用途-布建的計算-Fsv2 系列
+
+### <a name="fsv2-series-compute-generation-preview"></a>Fsv2 系列計算產生（預覽）
+
+|計算大小|GP_Fsv2_72|
+|:--- | --: |
+|計算世代|Fsv2 系列|
+|虛擬核心|72|
+|記憶體 (GB)|136|
+|每個集區的最大 DB 數|500|
+|資料行存放區支援|是|
+|OLTP 記憶體內部儲存體 (GB)|N/A|
+|資料大小上限 (GB)|4096|
+|記錄大小上限 (GB)|1024|
+|TempDB 最大資料大小（GB）|333|
+|儲存體類型|進階 (遠端) 儲存體|
+|IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
+|目標 IOPS (64 KB)|36000|
+|對數速率限制（MBps）|37.5|
+|每個集區的並行背景工作角色 (要求) 數上限 *|1680|
+|每個集區的並行登入數上限（要求） *|1680|
+|每個資料庫最小/最大彈性集區虛擬核心選項|0-72|
+|複本數目|1|
+|多重 AZ|N/A|
+|讀取向外延展|N/A|
+|內含備份儲存體|1X DB 大小|
+
+
+
+
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層級：儲存體大小與計算大小
+
+## <a name="business-critical---provisioned-compute---gen4"></a>商務關鍵性-布建的計算-第4代
 
 > [!IMPORTANT]
 > 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層級：第 4 代計算平台 (第 1 部分)
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>商務關鍵服務層級：第4代計算平臺（第1部分）
 
 |計算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W 產生|4|4|4|4|4|4|
-|vCore|1|2|3|4|5|6|
+|計算世代|第4代|第4代|第4代|第4代|第4代|第4代|
+|虛擬核心|1|2|3|4|5|6|
 |記憶體 (GB)|7|14|21|28|35|42|
 |每個集區的最大 DB 數|只有單一 DB 才支援此計算大小|50|100|100|100|100|
 |資料行存放區支援|是|是|是|是|是|是|
@@ -183,12 +217,12 @@ ms.locfileid: "70309506"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>業務關鍵服務層級：第 4 代計算平台 (第 2 部分)
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>商務關鍵服務層級：第4代計算平臺（第2部分）
 
 |計算大小|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W 產生|4|4|4|4|4|4|
-|vCore|7|8|9|10|16|24|
+|計算世代|第4代|第4代|第4代|第4代|第4代|第4代|
+|虛擬核心|7|8|9|10|16|24|
 |記憶體 (GB)|81.6|91.8|102|122.4|163.2|204|
 |每個集區的最大 DB 數|100|100|100|100|100|100|
 |資料行存放區支援|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -211,12 +245,14 @@ ms.locfileid: "70309506"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-#### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>業務關鍵服務層級：第 5 代計算平台 (第 1 部分)
+## <a name="business-critical---provisioned-compute---gen5"></a>商務關鍵性-布建的計算-第5代
+
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>商務關鍵服務層級：第5代計算平臺（第1部分）
 
 |計算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W 產生|5|5|5|5|5|5|5|
-|vCore|2|4|6|8|10|12|14|
+|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|虛擬核心|2|4|6|8|10|12|14|
 |記憶體 (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |每個集區的最大 DB 數|只有單一 DB 才支援此計算大小|50|100|100|100|100|100|
 |資料行存放區支援|是|是|是|是|是|是|是|
@@ -239,12 +275,12 @@ ms.locfileid: "70309506"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-#### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>業務關鍵服務層級：第 5 代計算平台 (第 2 部分)
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>商務關鍵服務層級：第5代計算平臺（第2部分）
 
 |計算大小|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W 產生|5|5|5|5|5|5|5|
-|vCore|16|18|20|24|32|40|80|
+|計算世代|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|虛擬核心|16|18|20|24|32|40|80|
 |記憶體 (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |每個集區的最大 DB 數|100|100|100|100|100|100|100|
 |資料行存放區支援|是|是|是|是|是|是|是|
@@ -265,6 +301,36 @@ ms.locfileid: "70309506"
 |讀取向外延展|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
+## <a name="business-critical---provisioned-compute---m-series"></a>商務關鍵性-布建的計算-M 系列
+
+### <a name="m-series-compute-generation-preview"></a>M 系列計算產生（預覽）
+
+|計算大小|GP_M_128|
+|:--- | --: |
+|計算世代|M 系列|
+|虛擬核心|128|
+|記憶體 (GB)|3767|
+|每個集區的最大 DB 數|100|
+|資料行存放區支援|是|
+|OLTP 記憶體內部儲存體 (GB)|481|
+|資料大小上限 (GB)|4096|
+|記錄大小上限 (GB)|2048|
+|TempDB 最大資料大小（GB）|4096|
+|儲存體類型|本機 SSD|
+|IO 延遲 (大約)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|
+|目標 IOPS (64 KB)|40000|
+|對數速率限制（MBps）|120|
+|每個集區的並行背景工作角色 (要求) 數上限 *|1680|
+|每個集區的並行登入數上限（要求） *|1680|
+|允許的工作階段數上限|30000|
+|每個資料庫最小/最大彈性集區虛擬核心選項|0-128|
+|複本數目|4|
+|多重 AZ|是|
+|讀取向外延展|是|
+|內含備份儲存體|1X DB 大小|
+
+
+
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 如果彈性集區的所有虛擬核心都是忙碌中，則集區中的每個資料庫會收到等量的計算資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小虛擬核心數設為非零的值時，便會對每個資料庫保證資源數量。
@@ -273,18 +339,21 @@ ms.locfileid: "70309506"
 
 下表描述集區資料庫的屬性。
 
-| 屬性 | 描述 |
+> [!NOTE]
+> 彈性集區中個別資料庫的資源限制通常與集區外部具有相同計算大小的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
+
+| 屬性 | 說明 |
 |:--- |:--- |
 | 每個資料庫的虛擬核心上限 |集區中任何資料庫可以使用的虛擬核心數目上限，是否可用則是根據集區中其他資料庫的使用量而定。 每個資料庫的虛擬核心數目上限不等於資料庫的資源保證。 這個設定是全域設定，會套用至集區中的所有資料庫。 將每個資料庫的虛擬核心設定為最上限，以處理資料庫使用率的尖峰。 某種程度的過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。|
 | 每個資料庫的虛擬核心下限 |集區中單一資料庫能夠保證的虛擬核心數下限。 這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小虛擬核心建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的虛擬核心使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫虛擬核心數目下限的乘積不能超過每個集區的虛擬核心。|
-| 每個資料庫的儲存體上限 |使用者所設定集區資料庫的資料庫大小上限。 集區資料庫會共用配置的集區儲存體，所以資料庫可以觸達的大小會限制為較小的剩餘集區儲存體和資料庫大小。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
+| 每個資料庫的儲存體上限 |使用者為集區中資料庫所設定的資料庫大小上限。 集區資料庫會共用配置的集區儲存體，所以資料庫可以觸達的大小會限制為較小的剩餘集區儲存體和資料庫大小。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需單一資料庫的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
-- 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
-- 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
+- 如需單一資料庫的 vCore 資源限制，請參閱[使用 vCore 購買模型的單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 如需單一資料庫的 DTU 資源限制，請參閱[使用 DTU 購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 如需彈性集區的 DTU 資源限制，請參閱[使用 dtu 購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

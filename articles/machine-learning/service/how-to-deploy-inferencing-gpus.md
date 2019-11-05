@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
-ms.openlocfilehash: d0e0c5601a6cddf936604df6d5b48b8bf48e7c8d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 2e088557bf61141d3ea3cbeb25d53f711a71fd97
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162438"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496866"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>使用 GPU 部署深度學習模型以進行推斷
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文會教您如何使用 Azure Machine Learning 將已啟用 GPU 的模型部署為 web 服務。 本文中的資訊是以 Azure Kubernetes Service （AKS）上部署模型為基礎。 AKS 叢集會提供一個 GPU 資源，供模型用來進行推斷。
 
@@ -40,7 +41,7 @@ ms.locfileid: "71162438"
 
 * 使用 GPU 的已註冊模型。
 
-    * 若要瞭解如何註冊模型, 請參閱[部署模型](../service/how-to-deploy-and-where.md#registermodel)。
+    * 若要瞭解如何註冊模型，請參閱[部署模型](../service/how-to-deploy-and-where.md#registermodel)。
 
     * 若要建立並註冊用來建立這份檔的 Tensorflow 模型，請參閱[如何訓練 Tensorflow 模型](how-to-train-tensorflow.md)。
 
@@ -62,7 +63,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-a-kubernetes-cluster-with-gpus"></a>建立具有 Gpu 的 Kubernetes 叢集
 
-Azure Kubernetes Service 提供許多不同的 GPU 選項。 您可以使用其中任何一個來進行模型推斷。 如需功能和成本的完整細目, 請參閱[N 系列 vm 的清單](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series)。
+Azure Kubernetes Service 提供許多不同的 GPU 選項。 您可以使用其中任何一個來進行模型推斷。 如需功能和成本的完整細目，請參閱[N 系列 vm 的清單](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series)。
 
 下列程式碼示範如何為您的工作區建立新的 AKS 叢集：
 
@@ -91,7 +92,7 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> 只要 AKS 叢集存在，Azure 就會向您收取費用。 當您完成 AKS 叢集時, 請務必將其刪除。
+> 只要 AKS 叢集存在，Azure 就會向您收取費用。 當您完成 AKS 叢集時，請務必將其刪除。
 
 如需有關使用 AKS 搭配 Azure Machine Learning 的詳細資訊，請參閱[如何部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)。
 
@@ -132,11 +133,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-這個檔案的名稱`score.py`為。 如需有關輸入腳本的詳細資訊，請參閱[如何和部署位置](how-to-deploy-and-where.md)。
+此檔案的名稱為 `score.py`。 如需有關輸入腳本的詳細資訊，請參閱[如何和部署位置](how-to-deploy-and-where.md)。
 
 ## <a name="define-the-conda-environment"></a>定義 conda 環境
 
-Conda 環境檔案會指定服務的相依性。 它包含模型和專案腳本所需的相依性。 下列 YAML 會定義 Tensorflow 模型的環境。 它會`tensorflow-gpu`指定，它會使用此部署中使用的 GPU：
+Conda 環境檔案會指定服務的相依性。 它包含模型和專案腳本所需的相依性。 下列 YAML 會定義 Tensorflow 模型的環境。 它會指定 `tensorflow-gpu`，這會使用此部署中使用的 GPU：
 
 ```yaml
 name: project_environment
@@ -153,7 +154,7 @@ channels:
 - conda-forge
 ```
 
-在此範例中，檔案會另存`myenv.yml`為。
+在此範例中，檔案會儲存為 `myenv.yml`。
 
 ## <a name="define-the-deployment-configuration"></a>定義部署設定
 
@@ -168,7 +169,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-如需詳細資訊，請參閱 AksService 的參考檔[。 deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)。
+如需詳細資訊，請參閱[Deploy_configuration AksService](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)的參考檔。
 
 ## <a name="define-the-inference-configuration"></a>定義推斷設定
 
@@ -187,7 +188,7 @@ inference_config = InferenceConfig(runtime="python",
 
 ## <a name="deploy-the-model"></a>部署模型
 
-將模型部署到您的 AKS 叢集, 並等候它建立您的服務。
+將模型部署到您的 AKS 叢集，並等候它建立您的服務。
 
 ```python
 from azureml.core.model import Model
@@ -209,13 +210,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> 如果物件具有`enable_gpu=True` ，`deployment_target`則參數必須參考提供 GPU 的叢集。 `InferenceConfig` 否則，部署作業將會失敗。
+> 如果 `InferenceConfig` 物件有 `enable_gpu=True`，則 `deployment_target` 參數必須參考提供 GPU 的叢集。 否則，部署作業將會失敗。
 
 如需詳細資訊，請參閱[Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)的參考檔。
 
 ## <a name="issue-a-sample-query-to-your-service"></a>對您的服務發出範例查詢
 
-將測試查詢傳送至已部署的模型。 當您將 jpeg 影像傳送到模型時, 它會對影像進行評分。 下列程式碼範例會下載測試資料，然後選取要傳送至服務的隨機測試影像。 
+將測試查詢傳送至已部署的模型。 當您將 jpeg 影像傳送到模型時，它會對影像進行評分。 下列程式碼範例會下載測試資料，然後選取要傳送至服務的隨機測試影像。 
 
 ```python
 # Used to test your webservice
@@ -272,10 +273,10 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-the-resources"></a>清除資源
 
-如果您特別針對此範例建立了 AKS 叢集, 請在完成後刪除您的資源。
+如果您特別針對此範例建立了 AKS 叢集，請在完成後刪除您的資源。
 
 > [!IMPORTANT]
-> Azure 會根據 AKS 叢集的部署時間來計費。 完成使用之後, 請務必將它清除。
+> Azure 會根據 AKS 叢集的部署時間來計費。 完成使用之後，請務必將它清除。
 
 ```python
 aks_service.delete()

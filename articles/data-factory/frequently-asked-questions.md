@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880133"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481143"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文提供 Azure Data Factory 常見問題集的解答。  
@@ -72,7 +72,7 @@ Azure Data Factory 視覺效果工具可啟用反復式開發和調試。 您可
 ### <a name="sdks"></a>SDK
 如果您是一位先進的使用者，而且您正在尋找程式設計介面，Data Factory 會提供一組豐富的 Sdk，讓您可以使用您最愛的 IDE 來撰寫、管理或監視管線。 .NET、PowerShell、Python 和 REST 皆提供語言支援。
 
-### <a name="monitoring"></a>監視
+### <a name="monitoring"></a>監控
 您可以在瀏覽器使用者介面中透過 PowerShell、SDK 或視覺監視工具來監視自己的 Data Factory。 您可以有效率且有效的方式，監視和管理隨選、以觸發程式為基礎的自訂流程。 取消現有的工作，一眼就能看到失敗、向下切入以取得詳細的錯誤訊息，以及在不進行內容切換或在畫面之間來回流覽的單一窗格中，進行這些問題的分析。 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Data Factory 中 SSIS 的新功能
@@ -124,7 +124,7 @@ Data Factory 中的連結服務，有兩個用途：
 - 用來代表可裝載活動執行的 *計算資源* 。 例如，HDInsight Hive 活動會在 HDInsight Hadoop 叢集上執行。 如需轉換活動和受支援計算環境的清單，請參閱 [Azure Data Factory 中的資料轉換](transform-data.md)。
 
 ### <a name="triggers"></a>觸發程序
-觸發程序代表用來決定何時需要啟動管線執行的處理單位。 針對不同類型的事件，有不同類型的觸發程序。 
+觸發程序代表用來決定何時需要啟動管線執行的處理單位。 針對不同類型的事件有不同類型的觸發程序。 
 
 ### <a name="pipeline-runs"></a>管線執行
 管線執行是管線執行的執行個體。 通常會藉由將引數傳遞給管線中定義的參數，來具現化管線執行。 您可以藉由手動方式，或是在觸發程序定義內傳遞引數。
@@ -165,13 +165,13 @@ Data Factory 中的連結服務，有兩個用途：
 是，參數是 Data Factory 中的第一級最上層概念。 您可定義管線層級的參數並傳遞引數，同時依需求或使用觸發程序來執行管線執行。  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>可以定義管線參數的預設值嗎？ 
-可以。 您可以定義管線中參數的預設值。 
+是。 您可以定義管線中參數的預設值。 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>管線中的活動可否取用傳遞給管線執行的引數？ 
-可以。 管線內的每個活動皆可使用 `@parameter` 建構，來取用傳遞給管線執行的參數值。 
+是。 管線內的每個活動皆可使用 `@parameter` 建構，來取用傳遞給管線執行的參數值。 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>可以在另一個活動中取用活動輸出屬性？ 
-可以。 可以使用 `@activity` 建構在後續活動中取用活動輸出。
+是。 可以使用 `@activity` 建構在後續活動中取用活動輸出。
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>如何正常處理活動輸出中的 Null 值？ 
 您可以在運算式中使用 `@coalesce` 建構來正常處理 Null 值。 
@@ -191,6 +191,82 @@ Data Factory 中的連結服務，有兩個用途：
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>自我裝載整合執行時間是否適用于資料流程？
 
 自我裝載 IR 是一種 ADF 管線結構，您可以搭配使用複製活動，從內部內部部署或以 VM 為基礎的資料來源和接收，取得或移動資料。 請先使用複本來暫存資料，然後再以轉換的資料流程作為後續的複本，如果您需要將轉換後的資料移回內部部署存放區。
+
+## <a name="wrangling-data-flows"></a>整頓資料流程
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>整頓資料流程支援的區域有哪些？
+
+目前在下欄區域中建立的 data factory 支援整頓資料流程：
+
+* 澳洲東部
+* 加拿大中部
+* 印度中部
+* 美國中部
+* 美國東部
+* 美國東部 2
+* 日本東部
+* 北歐
+* 東南亞
+* 美國中南部
+* 英國南部
+* 美國中西部
+* 西歐
+* 美國西部
+* 美國西部 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>整頓資料流程有哪些限制和限制？
+
+資料集名稱只能包含英數位元。 支援下列資料存放區：
+
+* 使用帳戶金鑰驗證 Azure Blob 儲存體中的 DelimitedText 資料集
+* 使用帳戶金鑰或服務主體驗證在 Azure Data Lake Storage gen2 中 DelimitedText 資料集
+* 使用服務主體驗證在 Azure Data Lake Storage gen1 中 DelimitedText 資料集
+* 使用 SQL 驗證 Azure SQL Database 和資料倉儲。 請參閱以下支援的 SQL 類型。 沒有適用于資料倉儲的 PolyBase 或預備支援。
+
+目前，整頓資料流程中不支援連結的服務 Key Vault 整合。
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>對應和整頓資料流程之間有何差異？
+
+對應資料流程提供了一種方法來大規模轉換資料，而不需要撰寫任何程式碼。 您可以藉由建立一連串的轉換，在資料流程畫布中設計資料轉換作業。 先進行不限次數的來源轉換，然後進行資料轉換步驟。 使用接收來完成資料流程，以將您的結果放在目的地中。 對應資料流程非常適合用來在接收和來源中，以已知和未知的架構來對應和轉換資料。
+
+整頓資料流程可讓您透過 spark 執行，使用大規模 Power Query 的線上混合式編輯器進行 agile 資料準備和探索。 隨著資料 lake 的增加，有時您只需要流覽資料集或在 lake 中建立資料集。 您未對應到已知的目標。 整頓資料流程會用於較不正式和以模型為基礎的分析案例。
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Power Platform 資料流程和整頓資料流程之間有何差異？
+
+Power Platform 資料流程可讓使用者將各種資料來源的資料匯入和轉換成 Common Data Service，並 Azure Data Lake 來建立 PowerApps 應用程式、Power BI 報表或流程自動化。 Power Platform 資料流程使用已建立的 Power Query 資料準備體驗，類似于 Power BI 和 Excel。 Power Platform 資料流程也可讓您輕鬆地在組織內重複使用，並自動處理協調流程（例如，在重新整理前一個資料流程時，自動重新整理相依于其他資料流程的資料流程）。
+
+Azure Data Factory （ADF）是受控資料整合服務，可讓資料工程師和公民資料整合者建立複雜的混合式「解壓縮-轉換-載入」（ETL）和「解壓縮-載入-轉換」（ELT）工作流程。 ADF 中的整頓資料流程可讓使用者擁有無程式碼的無伺服器環境，以簡化雲端中的資料準備，並調整為任何資料大小，而不需要基礎結構管理。 它會使用 Power Query 資料準備技術（也用於 Power Platform 資料流程、Excel、Power BI）來準備和塑造資料。 建立用來處理 big data 整合的所有複雜性和規模挑戰，整頓的資料流程可讓使用者透過 spark 執行快速地大規模準備資料。 使用者可以使用我們的瀏覽器型介面，在可存取的視覺環境中建立復原的資料管線，並讓 ADF 處理 Spark 執行的複雜性。 建立管線的排程，並從 ADF 監視入口網站監視您的資料流程執行。 使用 ADF 的豐富可用性監視和警示，輕鬆管理資料可用性 Sla，並利用內建的持續整合和部署功能，在受管理的環境中儲存和管理您的流程。 建立警示並查看執行計畫，以驗證您的邏輯在您微調資料流程時是否按照計畫執行。
+
+### <a name="supported-sql-types"></a>支援的 SQL 類型
+
+整頓資料流程支援 SQL 中的下列資料類型。 使用不支援的資料類型時，您會收到驗證錯誤。
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* integer
+* int
+* bit
+* 布林值
+* smallint
+* tinyint
+* bigint
+* long
+* 文字
+* 日期
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* xml
+
+未來將會支援其他資料類型。
 
 ## <a name="next-steps"></a>後續步驟
 如需建立資料處理站的逐步指示，請參閱下列教學課程：

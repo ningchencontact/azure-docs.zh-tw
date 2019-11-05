@@ -1,7 +1,7 @@
 ---
 title: 建立 Web 服務端點
-titleSuffix: Azure Machine Learning Studio
-description: 在 Azure Machine Learning Studio 中建立 Web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
+titleSuffix: Azure Machine Learning Studio (classic)
+description: 在 Azure Machine Learning Studio （傳統）中建立 web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d98df3e2dcc8112df9d56033bece069607380d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751173"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493244"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>針對已部署的 Azure Machine Learning Studio Web 服務建立端點
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>為已部署的 Azure Machine Learning Studio （傳統） web 服務建立端點
 
 > [!NOTE]
 > 本主題說明適用於 **Classic** Machine Learning Web 服務的技巧。
@@ -32,14 +32,14 @@ Web 服務的每個端點都是個別定址、節流以及管理。 每個端點
 > [!NOTE]
 > 如果您已在 Web 服務中新增額外的端點，就無法刪除預設端點。
 
-1. 在 Machine Learning Studio 中，按一下左側的 [Web 服務]。
-2. 在 Web 服務儀表板底部，按一下 [管理端點]  。 Azure Machine Learning Web 服務 入口網站會開啟 Web 服務的端點頁面。
-3. 按一下 [新增]  。
+1. 在 [Machine Learning Studio （傳統）] 中，按一下左側導覽列上的 [Web 服務]。
+2. 在 Web 服務儀表板底部，按一下 [管理端點]。 Azure Machine Learning Web 服務 入口網站會開啟 Web 服務的端點頁面。
+3. 按一下 [新增]。
 4. 輸入新端點的名稱和描述。 端點名稱長度不可超過 24 個字元，而且必須由小寫字母或數字組成。 選取記錄層級，以及是否啟用範例資料。 如需有關記錄的詳細資訊，請參閱 [為 Machine Learning Web 服務啟用記錄](web-services-logging.md)。
 
 ## <a id="scaling"></a> 透過新增額外端點來調整 Web 服務規模
 
-根據預設，系統將每個發佈的 Web 服務設定為支援 20 個並行要求，而且最多可達 200 個並行要求。 Azure Machine Learning Studio 會自動最佳化此設定，為您的 Web 服務提供最佳的效能，並忽略入口網站的值。
+根據預設，系統將每個發佈的 Web 服務設定為支援 20 個並行要求，而且最多可達 200 個並行要求。 傳統版本的 Azure Machine Learning Studio 會自動將設定優化，為您的 web 服務提供最佳效能，並忽略入口網站的值。
 
 如果您打算以超過「並行呼叫數上限」值 200 可支援的負載來呼叫 API，則應該在相同的 Web 服務上建立多個端點。 然後，您就可以將負載隨機分配給所有端點。
 

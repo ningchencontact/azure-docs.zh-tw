@@ -3,7 +3,7 @@ title: 了解 Azure 時間序列深入解析環境中的資料保留 | Microsoft
 description: 本文說明「Azure 時間序列深入解析」環境中，控制資料保留的兩個設定。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2939e37c891a6ecc0421062493cab2e5d79223b5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9dd771d44452ddc36913caf04f3c3a2d15ff1f08
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330914"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990134"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>瞭解 Azure 時間序列深入解析中的資料保留
 
@@ -88,9 +88,9 @@ ms.locfileid: "72330914"
 
 當事件中樞受到影響時，請考慮調整 [訊息保留期] 屬性，以在「時間序列深入解析」中發生暫停輸入時，將資料遺失機率降到最低。
 
-[@no__t 1Event 中樞訊息保留。](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![事件中樞訊息保留。](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-如果事件來源（`timeStampPropertyName`）上未設定任何屬性，時間序列深入解析會預設為以 X 軸到達事件中樞的時間戳記。 如果 `timeStampPropertyName` 設定為其他專案，則在剖析事件時，環境會在資料封包中尋找已設定的 `timeStampPropertyName`。
+如果事件來源（`timeStampPropertyName`）上未設定任何屬性，時間序列深入解析預設為以 X 軸到達事件中樞的時間戳記。 如果 `timeStampPropertyName` 設定為其他專案，則在剖析事件時，環境會在資料封包中尋找已設定的 `timeStampPropertyName`。
 
 瞭解[如何調整您的時間序列深入解析環境](time-series-insights-how-to-scale-your-environment.md)，以調整您的環境以容納額外的容量或增加保留的長度。
 

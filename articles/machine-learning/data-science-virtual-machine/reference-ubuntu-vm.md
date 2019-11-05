@@ -1,5 +1,5 @@
 ---
-title: 參考：Ubuntu DSVM
+title: 參考： Ubuntu DSVM
 description: Ubuntu 資料科學虛擬機器中包含的工具詳細資料
 author: gvashishtha
 ms.service: machine-learning
@@ -7,14 +7,14 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0c48b8ba28f67ac7f38d6f636728abe7c5a6bd4e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 97072f1a17f2b0adbe96afae3263dc84aff0f30f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204028"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497630"
 ---
-# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>參考：Ubuntu （Linux）資料科學虛擬機器
+# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>參考： Ubuntu （Linux）資料科學虛擬機器
 
 如需 Ubuntu 資料科學虛擬機器上可用的工具清單，請參閱下文。 
 
@@ -204,11 +204,11 @@ SQuirrel SQL 是一個圖形化 SQL 用戶端，可連線至多種不同的資�
 
 SQL Server 的 ODBC 驅動程式封裝也隨附兩個命令列工具：
 
-- **bcp**︰bcp 工具會在 Microsoft SQL Server 執行個體和使用者指定格式的資料檔之間大量複製資料。 您可以使用 bcp 工具將大量新資料列匯入 SQL Server 資料表中，或是將資料表的資料匯出成資料檔案。 若要將資料匯入資料表中，您必須使用為該資料表建立的格式檔案。 或者，您必須了解資料表的結構，以及適用於其資料行的資料類型。
+- **bcp**： bcp 工具會在 Microsoft SQL Server 實例和使用者指定格式的資料檔案之間大量複製資料。 您可以使用 bcp 工具將大量新資料列匯入 SQL Server 資料表中，或是將資料表的資料匯出成資料檔案。 若要將資料匯入資料表中，您必須使用為該資料表建立的格式檔案。 或者，您必須了解資料表的結構，以及適用於其資料行的資料類型。
 
   如需詳細資訊，請參閱 [連接 bcp](https://msdn.microsoft.com/library/hh568446.aspx)。
 
-- **sqlcmd**︰您可以使用 sqlcmd 工具輸入 Transact-SQL 陳述式。 您也可以在命令提示字元中輸入系統程序和指令檔。 此工具會使用 ODBC 執行 Transact-SQL 批次。
+- **sqlcmd**：您可以使用 sqlcmd 工具輸入 transact-sql 語句。 您也可以在命令提示字元中輸入系統程序和指令檔。 此工具會使用 ODBC 執行 Transact-SQL 批次。
 
   如需詳細資訊，請參閱 [使用 sqlcmd 連接](https://msdn.microsoft.com/library/hh568447.aspx)。
 
@@ -226,21 +226,21 @@ SQL Server 的 ODBC 驅動程式封裝也隨附兩個命令列工具：
 
 VM 上安裝了下列 Azure 工具：
 
-* **Azure CLI**：您可以在 Azure 中使用命令列介面，透過殼層命令來建立和管理 Azure 資源。 若要開啟 Azure Tools，請輸入 **azure help**。 如需詳細資訊，請參閱 [Azure CLI 文件頁面](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
-* **Azure 儲存體總管**：Azure 儲存體總管是一個圖形化工具，可用來瀏覽您在 Azure 儲存體帳戶中儲存的物件，以及從 Azure Blob 上傳和下載資料。 您可以從桌面捷徑圖示存取儲存體總管。 您也可以輸入 **StorageExplorer**，從殼層提示字元加以開啟。 您必須從 X2Go 用戶端登入，或是已設定 X11 轉寄。
+* **Azure CLI**：您可以在 azure 中使用命令列介面，透過 shell 命令來建立和管理 azure 資源。 若要開啟 Azure Tools，請輸入 **azure help**。 如需詳細資訊，請參閱 [Azure CLI 文件頁面](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
+* **Azure 儲存體總管**： Azure 儲存體總管是一種圖形化工具，可讓您用來流覽已儲存在 azure 儲存體帳戶中的物件，以及上傳和下載 azure blob 的資料。 您可以從桌面捷徑圖示存取儲存體總管。 您也可以輸入 **StorageExplorer**，從殼層提示字元加以開啟。 您必須從 X2Go 用戶端登入，或是已設定 X11 轉寄。
 * **Azure 程式庫**：以下是一些預先安裝的程式庫。
   
-  * **Python**：Python 中的 Azure 相關程式庫為 *azure*、*azureml*、*pydocumentdb* 和 *pyodbc*。 透過前三個程式庫，您可以存取 Azure 儲存體服務、Azure Machine Learning 和 Azure Cosmos DB (Azure 上的 NoSQL 資料庫)。 第四個程式庫 pyodbc (以及 Microsoft ODBC Driver for SQL Server) 可讓您使用 ODBC 介面，從 Python 中存取 SQL Server、Azure SQL Database 和 Azure SQL 資料倉儲。 輸入 **pip list** 以查看所有列出的程式庫。 請務必在 Python 2.7 和 3.5 的環境中執行此命令。
-  * **R**：R 中的 Azure 相關連結庫為 AzureML 和 RODBC。
-  * **Java**︰Azure Java 程式庫清單位於 VM 的 /dsvm/sdk/AzureSDKJava 目錄中。 關鍵的程式庫為 Azure 儲存體和管理 API、Azure Cosmos DB 和 JDBC Driver for SQL Server。  
+  * **Python**： python 中的 azure 相關連結庫為*azure*、 *azureml*、 *pydocumentdb*和*pyodbc*。 透過前三個程式庫，您可以存取 Azure 儲存體服務、Azure Machine Learning 和 Azure Cosmos DB (Azure 上的 NoSQL 資料庫)。 第四個程式庫 pyodbc (以及 Microsoft ODBC Driver for SQL Server) 可讓您使用 ODBC 介面，從 Python 中存取 SQL Server、Azure SQL Database 和 Azure SQL 資料倉儲。 輸入 **pip list** 以查看所有列出的程式庫。 請務必在 Python 2.7 和 3.5 的環境中執行此命令。
+  * **R**： r 中的 Azure 相關連結庫為 AZUREML 和 RODBC。
+  * **JAVA**：您可以在 VM 的目錄/dsvm/sdk/azuresdkjava 中中找到 Azure JAVA 程式庫的清單。 關鍵的程式庫為 Azure 儲存體和管理 API、Azure Cosmos DB 和 JDBC Driver for SQL Server。  
 
 您可以從預先安裝的 Firefox 瀏覽器存取 [Azure 入口網站](https://portal.azure.com) 。 在 Azure 入口網站中，您可以建立、管理和監視 Azure 資源。
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部署及共用預測性分析解決方案。 您可以從 Azure Machine Learning Studio 中建置實驗和模型。 您可以瀏覽 [Microsoft Azure Machine Learning](https://studio.azureml.net)，從資料科學虛擬機器上的網頁瀏覽器加以存取。
+Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部署及共用預測性分析解決方案。 您可以從 Azure Machine Learning Studio （傳統）建立您的實驗和模型。 您可以瀏覽 [Microsoft Azure Machine Learning](https://studio.azureml.net)，從資料科學虛擬機器上的網頁瀏覽器加以存取。
 
-當您登入 Azure Machine Learning Studio 之後，您可以使用實驗畫布，建置機器學習演算法的邏輯流程。 您也可以存取裝載於 Azure Machine Learning 的 Jupyter Notebook，並且可以順暢地在 Machine Learning Studio 中使用實驗。 
+登入 Azure Machine Learning Studio （傳統）之後，您可以使用實驗畫布來建立機器學習演算法的邏輯流程。 您也可以存取裝載于 Azure Machine Learning 的 Jupyter 筆記本，並可順暢地與 Azure Machine Learning Studio （傳統）中的實驗搭配使用。 
 
 讓您建置的機器學習模型能夠運作，方法是將它們包裝在 Web 服務介面中。 讓機器學習模型能夠運作，使用任何語言撰寫的用戶端就能夠從這些模型叫用預測。 如需詳細資訊，請參閱 [機器學習文件](https://azure.microsoft.com/documentation/services/machine-learning/)。
 
@@ -253,14 +253,14 @@ Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部
 
 ## <a name="machine-learning-tools"></a>機器學習工具
 
-VM 隨附已預先編譯且預先安裝在本機上的機器學習工具和演算法。 它們包括：
+VM 隨附已預先編譯且預先安裝在本機上的機器學習工具和演算法。 其中包含：
 
 * **Vowpal Wabbit**：快速線上學習演算法。
 * **xgboost**：提供最佳化推進式決策樹演算法的工具。
 * **Rattle**：以 R 為基礎的圖形化工具，可輕鬆地進行資料瀏覽和模組化。
 * **Python**：Anaconda Python 會與含有像是 Scikit-learn 的程式庫的機器學習演算法進行配套。 您可以使用 `pip install` 程式庫。
-* **LightGBM**：決策樹演算法為基礎的一種快速、分散式的高效能漸層提升架構。
-* **R**：有豐富的機器學習函式程式庫可供 R 使用。預先安裝的程式庫包括 lm、glm、randomForest 和 rpart。 您可以執行下列命令來安裝其他程式庫：
+* **LightGBM**︰以決策樹演算法為基礎的一種快速、分散式的高效能漸層提升架構。
+* **R**：有豐富的機器學習功能程式庫可供 R 使用。預先安裝的程式庫包括 lm、Glm、randomForest 和 rpart。 您可以執行下列命令來安裝其他程式庫：
   
         install.packages(<lib name>)
 
@@ -337,7 +337,7 @@ rattle()
 1. 選取 [評估] 索引標籤。
 1. 選取 [風險] 選項，然後選取 [執行] 以顯示兩個 [風險 (累積)] 效能繪圖。
 1. 選取 [記錄] 索引標籤，以顯示針對先前的作業產生的 R 程式碼。
-   (由於目前的 Rattle 版本中有錯誤，您必須在記錄的文字中，於 **Export this log** 前面插入 **#** 字元。)
+   (由於目前的 Rattle 版本中有錯誤，您必須在記錄的文字中，於 **Export this log# 前面插入**  字元。)
 1. 選取 [匯出] 按鈕，將名為 weather_script.R 的 R 指令碼檔案儲存到主資料夾。
 
 您可以結束 Rattle 和 R。現在，您可以修改產生的 R 指令碼。 或者，您可以照原樣使用，並且隨時執行，以便重複執行在 Rattle UI 中完成的所有動作。 這是特別適合 R 初學者的方法，他們將可在簡單的圖形化介面中快速進行分析和機器學習，同時自動產生 R 程式碼來修改或學習。

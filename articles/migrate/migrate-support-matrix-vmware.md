@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 949595b35c6d989be62dbda43a3b8ccb1608a23d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937582"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498643"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
@@ -36,11 +36,11 @@ ms.locfileid: "71937582"
 --- | ---
 **Azure 許可權** | 您需要訂用帳戶中的「參與者」或「擁有者」許可權，才能建立 Azure Migrate 專案。
 **VMware 限制**  | 在單一專案中評估最多35000個 VMware Vm。 您可以在 Azure 訂用帳戶中建立多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm，最多可達評量限制。
-**地理位置** | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您只能在這些地理位置中建立專案，但您可以評估或遷移其他目標位置的機器。 專案地理位置只會用來儲存探索到的資料。
+**地理位置** | [審查](migrate-support-matrix.md#supported-geographies)支援的地理位置。
 
 **地理位置** | **中繼資料儲存位置**
 --- | ---
-Azure Government | US Gov 維吉尼亞州
+Azure Government | 美國政府維吉尼亞州
 亞太地區 | 東亞或東南亞
 澳大利亞 | 澳大利亞東部或澳大利亞東南部
 巴西 | 巴西南部
@@ -49,7 +49,7 @@ Azure Government | US Gov 維吉尼亞州
 法國 | 法國中部
 印度 | 印度中部或印度南部
 日本 |  日本東部或日本西部
-韓國 | 韓國中部或南韓南部
+南韓 | 韓國中部或南韓南部
 英國 | 英國南部或英國西部
 美國 | 美國中部或美國西部2
 
@@ -57,6 +57,17 @@ Azure Government | US Gov 維吉尼亞州
  > [!NOTE]
  > Azure Government 的支援目前僅適用于[舊版](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions)的 Azure Migrate。
 
+
+## <a name="application-discovery"></a>應用程式探索
+
+Azure Migrate：伺服器評估可以探索應用程式、角色和功能。 探索您的應用程式清查可讓您找出並規劃專為您的內部部署工作負載量身打造的遷移路徑。 Azure Migrate：伺服器評估會使用電腦來賓認證提供無代理程式探索，從遠端使用 WMI 和 SSH 呼叫來存取電腦。
+
+**支援** | **詳細資料**
+--- | ---
+支援的機器 | 內部部署 VMware VM
+電腦作業系統 | 所有 Windows 和 Linux 版本
+認證 | 目前支援所有 Windows 伺服器使用一個認證，而所有 Linux 伺服器都有一個認證。 您會建立 Windows Vm 的來賓使用者帳戶，以及所有 Linux Vm 的一般/一般使用者帳戶（非 sudo 存取權）。
+應用程式探索的電腦限制 | 每個設備10000。 每個專案35000
 
 ## <a name="assessment-vcenter-server-requirements"></a>評量-vCenter Server 需求
 
@@ -107,8 +118,24 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **裝置** | **連接**
 --- | ---
-設備 | TCP 通訊埠3389上的輸入連線，以允許應用裝置的遠端桌面連線。<br/><br/> 埠44368上的輸入連線，可使用 URL 從遠端存取應用裝置管理應用程式：```https://<appliance-ip-or-name>:44368``` <br/><br/>埠443、5671和5672上的輸出連線，以將探索和效能中繼資料傳送至 Azure Migrate。
-vCenter Server | TCP 通訊埠443上的輸入連線，以允許設備收集設定和效能中繼資料以進行評量。 <br/><br/> 根據預設，設備會連線到埠443上的 vCenter。 如果 vCenter server 在不同的埠上接聽，您可以在設定探索時修改埠。
+台 | TCP 通訊埠3389上的輸入連線，以允許應用裝置的遠端桌面連線。<br/><br/> 埠44368上的輸入連線，可使用 URL 從遠端存取應用裝置管理應用程式： ```https://<appliance-ip-or-name>:44368``` <br/><br/>埠443、5671和5672上的輸出連線，以將探索和效能中繼資料傳送至 Azure Migrate。
+vCenter 伺服器 | TCP 通訊埠443上的輸入連線，以允許設備收集設定和效能中繼資料以進行評量。 <br/><br/> 根據預設，設備會連線到埠443上的 vCenter。 如果 vCenter server 在不同的埠上接聽，您可以在設定探索時修改埠。
+
+## <a name="assessment-dependency-visualization"></a>評估-相依性視覺效果
+
+相依性視覺效果可協助您將要評估和遷移的機器相依性視覺化。 當您想要評估具有較高層級信賴度的電腦時，通常會使用相依性對應。 若為 VMware Vm，則支援相依性視覺效果，如下所示：
+
+- **無代理**程式相依性視覺效果：此選項目前為預覽狀態。 您不需要在電腦上安裝任何代理程式。
+    - 其運作方式是從已啟用它的機器中，捕獲 TCP 連接資料。 相依性探索開始之後，應用裝置會以五分鐘的輪詢間隔從機器收集資料。
+    - 收集的資料如下：
+        - TCP 連線
+        - 具有使用中連接的進程名稱
+        - 執行上述進程的已安裝應用程式名稱
+        - 不會。 在每個輪詢間隔偵測到的連線數
+- **代理程式型**相依性視覺化：若要使用代理程式型相依性視覺效果，您必須在要分析的每個內部部署機器上，下載並安裝下列代理程式。
+    - 必須在每部電腦上安裝 Microsoft Monitoring agent （MMA）。 [深入瞭解](how-to-create-group-machine-dependencies.md#install-the-mma)如何安裝 MMA 代理程式。
+    - 相依性代理程式必須安裝在每部電腦上。 [深入瞭解](how-to-create-group-machine-dependencies.md#install-the-dependency-agent)如何安裝 dependency agent。
+    - 此外，如果您有無法連線至網際網路的機器，則必須在該機器上下載並安裝 Log Analytics 閘道。
 
 ## <a name="migration---limitations"></a>遷移-限制
 您一次最多可以選取10部 Vm 來進行複寫。 如果您想要遷移更多電腦，請以10個群組進行複寫。 針對 VMware 無代理程式的遷移，您可以同時執行多達100的複寫作業。
@@ -124,7 +151,7 @@ VMware vSphere | 5\.5、6.0、6.5 或6.7 版本
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>無代理程式遷移-vCenter Server 許可權
 
-**Permissions** | **詳細資料**
+**權限** | **詳細資料**
 --- | ---
 Datastore.Browse | 允許流覽 VM 記錄檔，以針對快照集的建立和刪除進行疑難排解。
 Datastore.LowLevelFileOperations | 允許在資料存放區瀏覽器中進行讀取/寫入/刪除/重新命名作業，以針對建立和刪除快照集進行疑難排解。
@@ -155,7 +182,7 @@ VirtualMachine.SnapshotManagement.* | 允許建立和管理 VM 快照集以進�
 **多重路徑 IO** | 不支援。
 **儲存體 vMotion** | 不支援。 如果 VM 使用儲存體 vMotion，複寫將無法正常執行。
 **組合的 Nic** | 不支援。
-**IPv6** | 不支援。
+**Ipv4** | 不支援。
 **目標磁片** | Vm 只能遷移至 Azure 中的受控磁片（標準 HDD、premium SSD）。
 **同時複寫** | 每個 vCenter Server 100 個 Vm。 如果您有更多，請以100的批次方式來遷移它們。
 
@@ -195,8 +222,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **裝置** | **連接**
 --- | ---
-設備 | 埠443上的輸出連線可將複寫的資料上傳至 Azure，以及與 Azure Migrate 服務進行通訊，以協調複寫與遷移。
-vCenter Server | 埠443上的輸入連線可讓設備協調複寫-建立快照集、複製資料、發行快照集
+台 | 埠443上的輸出連線可將複寫的資料上傳至 Azure，以及與 Azure Migrate 服務進行通訊，以協調複寫與遷移。
+vCenter 伺服器 | 埠443上的輸入連線可讓設備協調複寫-建立快照集、複製資料、發行快照集
 vSphere/EXSI 主機 | TCP 埠902上用於設備的輸入，以從快照集複寫資料。
 
 
@@ -224,13 +251,13 @@ VCenter Server 的唯讀帳戶。
 
 **元件** | **需求**
 --- | ---
- | **VMware 設定**（VMware VM 應用裝置）
+ | **Vmware 設定**（vmware VM 應用裝置）
 PowerCLI | 如果複寫設備在 VMware VM 上執行，則應該安裝[PowerCLI 6.0 版](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。
 NIC 類型 | VMXNET3 （如果設備是 VMware VM）
  | **硬體設定**
 CPU 核心 | 8
 RAM | 16 GB
-磁碟數 | 態OS 磁片、進程伺服器快取磁片和保留磁片磁碟機。
+磁碟數量 | 三： OS 磁片、進程伺服器快取磁片和保留磁片磁碟機。
 可用磁碟空間（快取） | 600 GB
 可用磁碟空間 (保留磁碟) | 600 GB
 **軟體設定** |
@@ -244,7 +271,7 @@ Windows Server 角色 | 請勿啟用這些角色： <br> - Active Directory Doma
 群組原則 | 請勿啟用這些群組原則： <br> - 防止存取命令提示字元。 <br> - 防止存取登錄編輯工具。 <br> - 檔案附件的信任邏輯。 <br> - 開啟指令碼執行。 <br> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 沒有預先存在的預設網站 <br> - 沒有預先存在的網站/應用程式接聽連接埠 443 <br>- 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定
 **網路設定** |
-IP 位址類型 | Static
+IP 位址類型 | 靜態
 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸)
 NIC 類型 | VMXNET3
 
@@ -262,7 +289,7 @@ https:\//management.azure.com | 用於複寫管理作業和協調
 *.services.visualstudio.com | 用於遙測目的 (此為選擇性項目)
 time.nist.gov | 用於檢查系統時間與通用時間之間的時間同步處理。
 time.windows.com | 用於檢查系統時間與通用時間之間的時間同步處理。
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF 安裝程式需要存取這些 Url。 其可供 Azure Active Directory 用於管理存取控制和身分識別
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> HTTPs：\//login.live.com <br/> HTTPs：\//graph.windows.net <br/> https:\//login.windows.net <br/> HTTPs：\//www.live.com <br/> HTTPs：\//www.microsoft.com  | OVF 安裝程式需要存取這些 Url。 其可供 Azure Active Directory 用於管理存取控制和身分識別
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | 完成 MySQL 下載
 
 
@@ -301,7 +328,7 @@ iSCSI 目標 | 無代理程式遷移不支援具有 iSCSI 目標的 Vm。
 **多重路徑 IO** | 不支援。
 **儲存體 vMotion** | 支援
 **組合的 Nic** | 不支援。
-**IPv6** | 不支援。
+**Ipv4** | 不支援。
 
 
 
@@ -331,7 +358,7 @@ dc.services.visualstudio.com | 上傳用於內部監視的應用程式記錄。
 --- | ---
 VM | 在 Vm 上執行的行動服務會與埠 HTTPS 443 輸入上的內部部署複寫設備（設定伺服器）進行通訊，以進行複寫管理。<br/><br/> VM 會透過輸入連接埠 HTTPS 9443 將複寫資料傳送至處理伺服器 (在設定伺服器電腦上執行)。 您可以修改此連接埠。
 複寫設備 | 複寫設備會透過埠 HTTPS 443 輸出來協調與 Azure 的複寫。
-處理伺服器 | 進程伺服器會接收復寫資料、將其優化並加以加密，並透過埠443輸出將它傳送至 Azure 儲存體。<br/> 根據預設，進程伺服器會在複寫設備上執行。
+處理序伺服器 | 進程伺服器會接收復寫資料、將其優化並加以加密，並透過埠443輸出將它傳送至 Azure 儲存體。<br/> 根據預設，進程伺服器會在複寫設備上執行。
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
 
@@ -350,7 +377,7 @@ VM | 在 Vm 上執行的行動服務會與埠 HTTPS 443 輸入上的內部部署
 FC 磁碟 | 不支援。 | 若不支援，則檢查會失敗。
 BitLocker | 不支援。 | 為電腦啟用複寫之前必須先停用 BitLocker。
 VM 名稱 | 從 1 到 63 個字元。<br/> 只能使用字母、數字和連字號。<br/><br/> 電腦名稱必須以字母或數字為開頭或結尾。 |  更新 Site Recovery 中電腦屬性的值。
-在遷移後連接-Windows | 若要在遷移後連線至執行 Windows 的 Azure Vm：<br/> -在遷移之前，在內部部署 VM 上啟用 RDP。 確定已針對 [公用] 設定檔新增 TCP 和 UDP 規則，且在 [Windows 防火牆] > [允許的應用程式] 中已針對所有設定檔允許 RDP。<br/> 針對站對站 VPN 存取，請啟用 rdp，並允許**Windows 防火牆** -> 中的 rdp**允許的應用程式和功能**用於**網域和專用**網。 此外，請檢查作業系統的 SAN 原則是否設定為**OnlineAll**。 [深入了解](prepare-for-migration.md)。 |
+在遷移後連接-Windows | 若要在遷移後連線至執行 Windows 的 Azure Vm：<br/> -在遷移之前，在內部部署 VM 上啟用 RDP。 確定已針對 [公用] 設定檔新增 TCP 和 UDP 規則，且在 [Windows 防火牆] > [允許的應用程式] 中已針對所有設定檔允許 RDP。<br/> 針對站對站 VPN 存取，啟用 RDP 並允許**Windows 防火牆**中的 Rdp -> **允許的應用程式和功能**用於**網域和專用**網。 此外，請檢查作業系統的 SAN 原則是否設定為**OnlineAll**。 [詳細資訊](prepare-for-migration.md)。 |
 在遷移後連接-Linux | 若要在使用 SSH 進行遷移之後連線到 Azure Vm：<br/> 在進行遷移之前，請在內部部署機器上，確認安全殼層服務已設定為 [啟動]，且防火牆規則允許 SSH 連線。<br/> 容錯移轉之後，在 Azure VM 上，允許已容錯移轉的 VM 上的網路安全性群組規則之 SSH 埠的連入連線，以及它所連接的 Azure 子網。 此外，請新增 VM 的公用 IP 位址。 |  
 
 

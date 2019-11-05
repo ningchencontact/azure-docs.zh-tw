@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: bebfad57da41d257749acd3842a75ace114ed643
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516791"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492801"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>遷移至 Azure 撰寫資源的步驟
 
 從 Language Understanding （LUIS）入口網站，遷移您擁有的所有應用程式，以使用 Azure 撰寫資源。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -70,14 +72,14 @@ ms.locfileid: "72516791"
 
     ![建立撰寫資源](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    在**建立新的撰寫資源**時，請提供下列資訊： 
+    **建立新的撰寫資源**時，請提供下列資訊： 
 
-    * **資源名稱** - 您選擇的自訂名稱，用來作為撰寫和預測端點查詢 URL 的一部分。
-    * **租用戶** - Azure 訂用帳戶所關聯的租用戶。 
-    * **訂用帳戶名稱** - 要作為資源收費對象的訂用帳戶。
-    * **資源群組** - 您選擇或建立的自訂資源群組名稱。 資源群組可讓您將 Azure 資源分組以方便存取和管理。 
-    * **位置** - 位置選擇是以**資源群組**選取項目作為依據。
-    * **定價層** - 定價層會決定每秒和每月的交易上限。 
+    * **資源名稱**-您選擇的自訂名稱，用來作為撰寫和預測端點查詢 URL 的一部分。
+    * **Tenant** -與您的 Azure 訂用帳戶相關聯的租使用者。 
+    * **訂**用帳戶名稱-將收取資源費用的訂用帳戶。
+    * **資源群組**-您選擇或建立的自訂資源組名。 資源群組可讓您將 Azure 資源分組以進行存取和管理。 
+    * **位置**-位置選擇是以**資源群組**選取專案為基礎。
+    * **定價層**-定價層會決定每秒和每月的交易上限。 
 
 1. 驗證您的撰寫資源並**立即遷移**。
 
@@ -98,7 +100,7 @@ ms.locfileid: "72516791"
 
 ## <a name="app-contributor-begins-the-migration-process"></a>應用程式參與者開始進行遷移流程
 
-遵循與應用程式擁有者相同的步驟來進行遷移。 此程式會建立 `LUIS.Authoring` 類型的新撰寫資源。 
+遵循與應用程式擁有者相同的步驟來進行遷移。 此程式會建立 `LUIS.Authoring`種類的新撰寫資源。 
 
 您必須遷移您的帳戶，才能將其新增為其他人所擁有之已遷移應用程式的參與者。  
 
@@ -110,7 +112,7 @@ ms.locfileid: "72516791"
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>針對遷移程式的錯誤進行疑難排解
 
-如果您在 LUIS 入口網站中，于遷移程式期間收到紅色通知列的 `MissingSubscriptionRegistration` 錯誤，請在[Azure 入口網站](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)或[Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli)中建立認知服務資源。 深入瞭解[此錯誤的原因](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause)。
+如果您在 LUIS 入口網站中，于遷移程式期間收到紅色通知列 `MissingSubscriptionRegistration` 錯誤，請在[Azure 入口網站](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)或[Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli)中建立認知服務資源。 深入瞭解[此錯誤的原因](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause)。
 
 ## <a name="next-steps"></a>後續步驟
 

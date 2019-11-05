@@ -1,5 +1,5 @@
 ---
-title: 新增功能？ 版本資訊 - Azure Active Directory | Microsoft Docs
+title: 新功能 版本資訊 - Azure Active Directory | Microsoft Docs
 description: 了解 Azure Active Directory 的新功能，例如最新的版本資訊、已知問題、錯誤 (bug) 修正、已被取代的功能，以及即將進行的變更。
 services: active-directory
 author: eross-msft
@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6847384177e71c7f2b012e46211a5c09fa80fedb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7db35b89903de6c5027bb7ea445245d84b96d6ef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473304"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -39,7 +39,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
-## <a name="october-2019"></a>2019 年 10 月
+## <a name="october-2019"></a>2019年10月
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Azure AD Identity Protection 風險偵測的 identityRiskEvent API 已淘汰  
 
@@ -122,7 +122,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 **服務類別：** 驗證 (登入)  
 **產品功能：** 監視和報告
 
-我們已新增 [我的登**入**] 頁面（ https://mysignins.microsoft.com) ，讓您的組織使用者可以查看其最近的登入歷程記錄，以檢查是否有任何不尋常的活動。 這個新頁面可讓您的使用者看到：
+我們已新增 [我的登**入**] 頁面（ https://mysignins.microsoft.com)，讓您的組織使用者可以查看其最近的登入歷程記錄，以檢查是否有任何不尋常的活動。 這個新頁面可讓您的使用者看到：
 
 - 如果有人嘗試猜測其密碼。
 
@@ -195,7 +195,7 @@ Azure AD B2C 現在支援每月作用中使用者（MAU）計費。 MAU 計費�
 [新增**安全性**] 功能表包含：
 
 - 條件式存取
-- Identity Protection
+- 身分識別保護
 - 資訊安全中心
 - 身分識別安全分數
 - 驗證方法
@@ -233,7 +233,7 @@ Azure AD B2C 現在支援每月作用中使用者（MAU）計費。 MAU 計費�
 
 ---
 
-## <a name="september-2019"></a>2019 年 9 月
+## <a name="september-2019"></a>2019年9月
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更：已淘汰 Power BI 內容套件
 
@@ -434,7 +434,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 - 風險狀態，涵蓋：風險、已解除、已補救且已確認遭到入侵
 - 新的風險相關偵測（可供 Azure AD Premium 訂閱者使用）
 
-如需詳細資訊，請參閱有[風險的使用者](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users-report)、有風險的登[入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins-report)，以及[風險](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risk-detections-report)偵測。
+如需詳細資訊，請參閱有[風險的使用者](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users)、有風險的登[入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins)，以及[風險](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risk-detections)偵測。
 
 ---
 
@@ -466,7 +466,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 **服務類別：** 驗證 (登入)  
 **產品功能：** 使用者驗證
 
-從 Azure AD authentication library （ADAL.NET）第5.0.0 版-preview 開始，應用程式開發人員必須[針對 web 應用程式和 Web api，將每個帳戶的一個](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)快取序列化。 否則，某些使用代理者[流程](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)的案例，以及某些 `UserAssertion` 的特定使用案例，可能會導致權限提高。 為避免此弱點，ADAL.NET 現在會忽略適用于代理者案例的 Microsoft authentication library for dotnet （MSAL.NET）共用快取。
+從 Azure AD authentication library （ADAL.NET）第5.0.0 版-preview 開始，應用程式開發人員必須[針對 web 應用程式和 Web api，將每個帳戶的一個](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)快取序列化。 否則，某些使用代理者[流程](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)的案例，以及某些特定的 `UserAssertion`使用案例，可能會導致權限提高。 為避免此弱點，ADAL.NET 現在會忽略適用于代理者案例的 Microsoft authentication library for dotnet （MSAL.NET）共用快取。
 
 如需有關此問題的詳細資訊，請參閱[Azure Active Directory 驗證程式庫權限提高弱點](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258)。
 
@@ -551,7 +551,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 在2019年9月25日，我們將關閉舊的非增強式安全性資訊體驗，以註冊和管理使用者安全性資訊，並只開啟新的[增強版](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)。 這表示您的使用者將無法再使用舊體驗。
 
-如需增強式安全性資訊體驗的詳細資訊，請參閱我們的系統[管理員檔](https://aka.ms/securityinfodocs) and 我們的[使用者檔](https://aka.ms/securityinfoguide)。
+如需增強式安全性資訊體驗的詳細資訊，請參閱我們的系統[管理員檔](https://aka.ms/securityinfodocs) 和我們的[使用者檔](https://aka.ms/securityinfoguide)。
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>若要開啟此新體驗，您必須：
 
@@ -584,7 +584,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-## <a name="july-2019"></a>2019 年 7 月
+## <a name="july-2019"></a>2019年7月
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>規劃變更：應用程式 Proxy 服務更新僅支援 TLS 1。2
 
@@ -739,7 +739,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 - 風險狀態，涵蓋：風險、已解除、已補救且已確認遭到入侵
 
-如需詳細資訊，請參閱有[風險的使用者報告](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users-report)和有[風險的登入報告](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins-report)。
+如需詳細資訊，請參閱有[風險的使用者報告](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users)和有[風險的登入報告](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins)。
 
 ---
 

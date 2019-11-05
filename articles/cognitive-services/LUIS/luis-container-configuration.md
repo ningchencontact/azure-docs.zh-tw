@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 163fe24c941f779a2160ee5ef50f9d4dfcea1022
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486732"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
@@ -26,28 +26,28 @@ ms.locfileid: "71101989"
 
 此容器具有下列組態設定：
 
-|必要項|設定|用途|
+|必要|設定|目的|
 |--|--|--|
 |是|[ApiKey](#apikey-setting)|用來追蹤帳單資訊。|
 |否|[ApplicationInsights](#applicationinsights-setting)|可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援新增至容器。|
-|是|[Billing](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
+|是|[計費](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
 |是|[Eula](#eula-setting)| 表示您已接受容器的授權。|
 |否|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
 |否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP Proxy 以進行輸出要求。|
 |否|[Logging](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
-|是|[Mounts](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
+|是|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
 
 > [!IMPORTANT]
 > 系統會同時使用 [`ApiKey`](#apikey-setting)、[`Billing`](#billing-setting) 及 [`Eula`](#eula-setting) 設定，因此您必須同時為這三個設定提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](luis-container-howto.md#billing)。
 
 ## <a name="apikey-setting"></a>ApiKey 設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，且值必須是為設定所指定[`Billing`](#billing-setting)之_認知服務_資源的有效金鑰。
+`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，且值必須是為[`Billing`](#billing-setting)設定所指定之_認知服務_資源的有效金鑰。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**[**金鑰**] 下的 [資源管理]
-* LUIS 入口網站：[金鑰和端點設定] 頁面。 
+* Azure 入口網站：**認知服務**的資源管理，位於 [**金鑰**] 下方
+* LUIS 入口網站： [**金鑰和端點設定**] 頁面。 
 
 請勿使用入門金鑰或撰寫金鑰。 
 
@@ -57,19 +57,16 @@ ms.locfileid: "71101989"
 
 ## <a name="billing-setting"></a>帳單支援
 
-設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。 `Billing` 您必須指定此設定的值，且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的_認知服務_資源端點 URI。 您必須指定此設定的值，且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**總覽，加上標籤`Endpoint`
-* LUIS 入口網站：[金鑰和端點設定] 頁面，包含在端點 URI 中。
+* Azure 入口網站：**認知服務**總覽，加上標籤 `Endpoint`
+* LUIS 入口網站： [**金鑰和端點設定**] 頁面，做為端點 URI 的一部分。
 
-請記得在 URL `luis/v2.0`中包含路由，如下表所示：
-
-
-|必要項| Name | 資料類型 | 描述 |
-|--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+| 必要 | 名稱 | 資料類型 | 說明 |
+|----------|------|-----------|-------------|
+| 是      | `Billing` | 字串 | 計費端點 URI。 |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -79,7 +76,7 @@ ms.locfileid: "71101989"
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP Proxy 認證設定
+## <a name="http-proxy-credentials-settings"></a>HTTP proxy 認證設定
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -87,9 +84,9 @@ ms.locfileid: "71101989"
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>掛接設定
+## <a name="mount-settings"></a>裝載設定
 
-使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。 
+使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 `--mount`docker run[ 命令中指定 ](https://docs.docker.com/engine/reference/commandline/run/) 選項，以指定輸入裝載或輸出裝載。 
 
 LUIS 容器不會使用輸入或輸出裝載來儲存訓練或服務資料。 
 
@@ -97,33 +94,31 @@ LUIS 容器不會使用輸入或輸出裝載來儲存訓練或服務資料。
 
 下表說明支援的設定。
 
-|必要項| Name | 資料類型 | 描述 |
+|必要| 名稱 | 資料類型 | 說明 |
 |-------|------|-----------|-------------|
-|是| `Input` | String | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
-|否| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 其中包括 LUIS 查詢記錄和容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|是| `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
+|否| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 其中包括 LUIS 查詢記錄和容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令
 
 下列範例會使用組態設定來說明如何撰寫和使用 `docker run` 命令。  開始執行後，容器就會持續執行，直到您加以[停止](luis-container-howto.md#stop-the-container)。
 
-* 這些範例會使用`C:`磁片磁碟機上的目錄，以避免在 Windows 上發生任何許可權衝突。 如果您需要使用特定目錄作為輸入目錄，您可能需要授與 Docker 服務權限。 
+* 這些範例會使用 `C:` 磁片磁碟機的目錄，以避免在 Windows 上發生任何許可權衝突。 如果您需要使用特定目錄作為輸入目錄，您可能需要授與 Docker 服務權限。 
 * 若非十分熟悉 Docker 容器，請勿變更引數的順序。
-* 如果您使用不同的作業系統，請使用正確的主控台/終端機、裝載的資料夾語法，以及系統的行接續字元。 這些範例假設 Windows 主控台包含行接續字元`^`。 因為容器是 Linux 作業系統，所以目標掛接會使用 Linux 樣式的資料夾語法。
-
-請記得將`luis/v2.0`路由包含在 URL 中，如下表所示。
+* 如果您使用不同的作業系統，請使用正確的主控台/終端機、裝載的資料夾語法，以及系統的行接續字元。 這些範例假設 Windows 主控台的行接續字元 `^`。 因為容器是 Linux 作業系統，所以目標掛接會使用 Linux 樣式的資料夾語法。
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| 預留位置 | 值 | 格式或範例 |
+| Placeholder | 值 | 格式或範例 |
 |-------------|-------|---|
-| **{API_KEY}** | [Azure `LUIS` `LUIS`金鑰] 頁面上資源的端點金鑰。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | 計費端點值可在 Azure `LUIS`總覽頁面上取得。| 如需明確的範例，請參閱[收集必要的參數](luis-container-howto.md#gathering-required-parameters)。 |
+| **{API_KEY}** | [Azure `LUIS` 金鑰] 頁面上 `LUIS` 資源的端點金鑰。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | [計費端點] 值可在 Azure `LUIS` [總覽] 頁面取得。| 如需明確的範例，請參閱[收集必要的參數](luis-container-howto.md#gathering-required-parameters)。 |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。 如需詳細資訊，請參閱[帳單](luis-container-howto.md#billing)。
-> ApiKey 值是 LUIS 入口網站中 [金鑰] 和 [端點] 頁面的**金鑰**，也可以在 [Azure `Cognitive Services`資源金鑰] 頁面上取得。 
+> ApiKey 值是 LUIS 入口網站中 [金鑰] 和 [端點] 頁面的**金鑰**，也可以在 [Azure `Cognitive Services` 資源金鑰] 頁面上取得。 
 
 ### <a name="basic-example"></a>基本範例
 

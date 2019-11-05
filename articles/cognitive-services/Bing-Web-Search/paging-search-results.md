@@ -9,20 +9,20 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: 9fc05ab42c75bac1f8e192dd4fe20bb142881479
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176896"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481736"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>如何逐頁流覽 Bing 搜尋 Api 的結果
 
 當您傳送對 Bing Web、自訂、影像、新聞或影片搜尋 Api 的呼叫時，Bing 會傳回可能與查詢相關之結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 `totalEstimatedMatches` 欄位。 
 
-例如: 
+例如： 
 
 ```json
 {
@@ -37,14 +37,14 @@ ms.locfileid: "72176896"
 
 ## <a name="paging-through-search-results"></a>搜尋結果的分頁
 
-若要逐頁流覽可用的結果，請在傳送要求時使用 `count` 和 @no__t 1 查詢參數。  
+若要逐頁流覽可用的結果，請在傳送要求時使用 `count` 和 `offset` 查詢參數。  
 
 > [!NOTE]
 >
 > * 使用 Bing 影片、影像和新聞 Api 進行分頁僅適用于一般影片（`/video/search`）、新聞（`/news/search`）和影像（`/image/search`）搜尋。 不支援透過趨勢主題和類別進行分頁。  
-> * [@No__t-0] 欄位是目前查詢的搜尋結果總數估計。 當您設定 `count` 和 `offset` 個參數時，此估計值可能會變更。
+> * [`TotalEstimatedMatches`] 欄位是目前查詢的搜尋結果總數估計。 當您設定 `count` 和 `offset` 個參數時，此估計值可能會變更。
 
-| 參數 | 描述                                                                                                                                                                |
+| 參數 | 說明                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `count`   | 指定要在回應中傳回的結果數目。 請注意，`count` 的預設值，以及您可能要求的最大結果數目會依 API 而有所不同。 您可以在 [[後續步驟]](#next-steps)下的參考檔中找到這些值。 |
 | `offset`  | 指定要略過的結果數目。 `offset` 是以零為起始，而且應該小於 (`totalEstimatedMatches` - `count`)。                                           |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-如果您使用預設的 `count` 值，您只需要在 API 呼叫中指定 @no__t 1 查詢參數。  
+如果您使用預設的 `count` 值，您只需要在 API 呼叫中指定 `offset` 查詢參數。  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -65,10 +65,12 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
+使用 Bing 影像和影片 Api 時，您可以使用 `nextOffset` 值，以避免出現重複的搜尋結果。 取得 `Images` 或 `Videos` 回應物件中的值，並使用 `offset` 參數將其用於您的要求中。  
+
 > [!NOTE]
-> Bing Web 搜尋 API 會傳回可包含網頁、影像、影片和新聞的搜尋結果。 當您從 Bing Web 搜尋 API 逐頁流覽搜尋結果時，您只會分頁，而不是其他回應[類型，例如](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)影像或新聞。 @No__t 0 物件中的搜尋結果可能會包含出現在其他答案類型中的結果。
+> Bing Web 搜尋 API 會傳回可包含網頁、影像、影片和新聞的搜尋結果。 當您從 Bing Web 搜尋 API 逐頁流覽搜尋結果時，您只會分頁，而不是其他回應[類型，例如](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)影像或新聞。 `WebPage` 物件中的搜尋結果可能包含出現在其他答案類型中的結果。
 >
-> 如果您使用 `responseFilter` 查詢參數，但未指定任何篩選值，請不要使用 `count` 和 @no__t 2 參數。 
+> 如果您使用 `responseFilter` 查詢參數，但未指定任何篩選值，請不要使用 `count` 和 `offset` 參數。 
 
 ## <a name="next-steps"></a>後續步驟
 

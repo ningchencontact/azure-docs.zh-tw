@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Ambari 將叢集設定最佳化 - Azure HDInsight
+title: Apache Ambari 以優化叢集設定-Azure HDInsight
 description: 使用 Apache Ambari web UI 來設定和優化 Azure HDInsight 叢集。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7261aad8f42168449f2c892fe8aaaa6667964654
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076967"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492498"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 將 HDInsight 叢集設定最佳化
 
@@ -68,7 +68,7 @@ NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案
 
 ### <a name="set-the-hive-execution-engine"></a>設定 Hive 執行引擎
 
-Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)\(英文\)和 [Apache TEZ](https://tez.apache.org/) \(英文\)。 Tez 比 MapReduce 更快。 HDInsight Linux 叢集有 Tez 做為預設執行引擎。 變更執行引擎：
+Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 和 [Apache TEZ](https://tez.apache.org/)。 Tez 比 MapReduce 更快。 HDInsight Linux 叢集有 Tez 做為預設執行引擎。 變更執行引擎：
 
 1. 在 Hive [設定] 索引標籤的 [篩選] 方塊中，輸入**執行引擎**。
 
@@ -82,8 +82,8 @@ Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.
 
 Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行處理產生的檔案。 對應程式的數目取決於分割的數目。 下列兩個組態參數會影響 Tez 執行引擎的分割數目：
 
-* `tez.grouping.min-size`:已群組的分割大小下限，預設值是 16 MB (16,777,216 位元組)。
-* `tez.grouping.max-size`:已群組的分割大小上限，預設值為 1 GB (1,073,741,824 位元組)。
+* `tez.grouping.min-size`：群組分割大小下限，預設值是 16 MB (16777216 位元組)。
+* `tez.grouping.max-size`：群組分割大小上限，預設值為 1 GB (1,073,741,824 位元組)。
 
 根據效能的經驗法則，降低這兩個參數可改善延遲、增加更多輸送量。
 
@@ -125,7 +125,7 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
 
 1. 若要啟用平行查詢執行，請瀏覽至 Hive [設定] 索引標籤，並搜尋 `hive.exec.parallel` 屬性。 預設值為 False。 將值變更為 true，然後按下 **Enter** 儲存值。
 
-1. 若要限制平行執行的作業數目，請修改`hive.exec.parallel.thread.number`屬性。 預設值為 8。
+1. 若要限制平行執行的作業數目，請修改 `hive.exec.parallel.thread.number` 屬性。 預設值為 8。
 
     ![Apache Hive exec 平行顯示](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
@@ -175,7 +175,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
 可用的壓縮類型包括：
 
-| 格式 | Tool | 演算法 | 檔案副檔名 | 可分割？ |
+| 格式 | 工具 | 演算法 | 檔案副檔名 | 可分割？ |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | 否 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 是 |
@@ -197,7 +197,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
     a. 瀏覽至 Hive [設定] 索引標籤，並選取 [進階] 索引標籤。
 
-    b. 在 [進階] 索引標籤下，尋找並展開 [自訂 Hive 網站] 窗格。
+    b.這是另一個 C# 主控台應用程式。 在 [進階] 索引標籤下，尋找並展開 [自訂 Hive 網站] 窗格。
 
     c. 按一下 [自訂 Hive 網站] 窗格底部的連結 [新增屬性]。
 
@@ -268,7 +268,7 @@ Hive 能夠在將記錄插入資料表時建立動態分割區，不需要預先
 
 Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式會讀取輸入，並將聯結索引鍵/值組發送至中繼檔案。 Hadoop 會在隨機階段中將這些組排序並合併。 這個隨機階段需要相當高的成本。 依照您的資料選取正確的聯結可大幅提升效能。
 
-| 加入類型 | 當 | 方式 | Hive 設定 | 註解 |
+| 聯結類型 | 當 | 方式 | Hive 設定 | 註解 |
 | -- | -- | -- | -- | -- |
 | 隨機聯結 | <ul><li>預設選擇</li><li>一律運作</li></ul> | <ul><li>讀取其中一個資料表的一部分</li><li>聯結索引鍵的貯體和排序</li><li>將一個貯體傳送至各項減少</li><li>在減少端完成聯結</li></ul> | 不需要特別的 Hive 設定 | 每次運作 |
 | 對應聯結 | <ul><li>一個資料表可放入記憶體中</li></ul> | <ul><li>將小型資料表讀入記憶體雜湊表</li><li>透過大型檔案的一部分進行串流</li><li>聯結雜湊資料表中的每筆記錄</li><li>聯結由對應程式單獨完成</li></ul> | `hive.auto.confvert.join=true` | 非常快速，但有限 |
@@ -303,7 +303,7 @@ Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式
 
 ### <a name="tune-execution-engine"></a>調整執行引擎
 
-有兩個執行引擎可用來執行 Pig 指令碼：MapReduce 和 Tez。 Tez 是最佳化引擎，速度比 MapReduce 更快。
+兩個執行引擎可用來執行 Pig 指令碼：MapReduce 和 Tez。 Tez 是最佳化引擎，速度比 MapReduce 更快。
 
 1. 若要修改執行引擎，請在 [進階 pig 屬性] 窗格中找出屬性 `exectype`。
 
@@ -323,23 +323,23 @@ Pig 會將 UDF 需要的 JAR 檔案複製到分散式快取，以供工作節點
 
 1. 若要啟用，請將 `pig.user.cache.enabled` 設定為 true。 預設值為 false。
 
-1. 若要設定快取 jar 的基底路徑，請將 `pig.user.cache.location` 設定為基底路徑。 預設為 `/tmp`。
+1. 若要設定快取 jar 的基底路徑，請將 `pig.user.cache.location` 設定為基底路徑。 預設值為 `/tmp`。
 
 ### <a name="optimize-performance-with-memory-settings"></a>使用記憶體設定將效能最佳化
 
 下列記憶體設定有助於將 Pig 指令碼效能最佳化。
 
-* `pig.cachedbag.memusage`:配置給包的記憶體數量。 包是元組的集合。 元組是欄位的排序集合，欄位則是一段資料。 如果包中的資料超出配置的記憶體，則會溢出到磁碟。 預設值為 0.2，這表示可用記憶體的 20%。 這個記憶體由應用程式中的所有包共用。
+* `pig.cachedbag.memusage`：配置於包的記憶體數量。 包是元組的集合。 元組是欄位的排序集合，欄位則是一段資料。 如果包中的資料超出配置的記憶體，則會溢出到磁碟。 預設值為 0.2，這表示可用記憶體的 20%。 這個記憶體由應用程式中的所有包共用。
 
-* `pig.spill.size.threshold`:大於此溢出大小閾值 (以位元組為單位) 的包會溢出到磁碟。 預設值是 5 MB。
+* `pig.spill.size.threshold`：大於此溢出大小臨界值 (單位為位元組) 的包會溢出到磁碟。 預設值是 5 MB。
 
 ### <a name="compress-temporary-files"></a>壓縮暫存檔
 
 Pig 會在作業執行期間產生暫存檔。 壓縮暫存檔會提升在磁碟中讀取或寫入檔案的效能。 下列設定可用來壓縮暫存檔。
 
-* `pig.tmpfilecompression`:若為 True，啟用暫存檔壓縮。 預設值為 False。
+* `pig.tmpfilecompression`：若為 true，啟用暫存檔壓縮。 預設值為 False。
 
-* `pig.tmpfilecompression.codec`:用來壓縮暫存檔的壓縮轉碼器。 為了降低 CPU 使用率，建議的壓縮轉碼器是 [LZO](https://www.oberhumer.com/opensource/lzo/) 和 Snappy。
+* `pig.tmpfilecompression.codec`：壓縮轉碼器用來壓縮暫存檔。 為了降低 CPU 使用率，建議的壓縮轉碼器是 [LZO](https://www.oberhumer.com/opensource/lzo/) 和 Snappy。
 
 ### <a name="enable-split-combining"></a>啟用分割合併
 
@@ -355,7 +355,7 @@ Pig 會在作業執行期間產生暫存檔。 壓縮暫存檔會提升在磁碟
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>使用 Ambari Web UI 的 Apache HBase 最佳化
 
-從 [HBase 設定] 索引標籤可修改 [Apache HBase](https://hbase.apache.org/) 設定。下列小節說明會影響 HBase 效能的一些重要組態設定。
+從 [ **HBase**設定] 索引標籤修改[Apache HBase](https://hbase.apache.org/)設定。下列各節將說明一些會影響 HBase 效能的重要設定。
 
 ### <a name="set-hbase_heapsize"></a>設定 HBASE_HEAPSIZE
 
@@ -385,9 +385,9 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 所有的編輯均儲存於稱為 *Memstore* 的記憶體緩衝區。 這會增加在單一作業中可以寫入磁碟的資料量總計，而且可加快最近編輯的後續存取速度。 Memstore 大小是由下列兩個參數所定義：
 
-* `hbase.regionserver.global.memstore.UpperLimit`:定義已合併之 Memstore 可使用的區域伺服器百分比上限。
+* `hbase.regionserver.global.memstore.UpperLimit`：定義合併的 Memstore 可使用的區域伺服器百分比上限。
 
-* `hbase.regionserver.global.memstore.LowerLimit`:定義已合併之 Memstore 可使用的區域伺服器百分比下限。
+* `hbase.regionserver.global.memstore.LowerLimit`：定義合併的 Memstore 可使用的區域伺服器百分比下限。
 
 若要將隨機讀取最佳化，可以減少 Memstore 上限和下限。
 

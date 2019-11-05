@@ -1,7 +1,7 @@
 ---
 title: 模式新增精確度-LUIS
 titleSuffix: Azure Cognitive Services
-description: 新增模式範本, 以改善 Language Understanding (LUIS) 應用程式中的預測精確度。
+description: 新增模式範本，以改善 Language Understanding （LUIS）應用程式中的預測精確度。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7b6c8ba1517de44d01ffbceec812749403465e63
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cbd8ad73ff4a03790dd6b22d5ce33acf09a2b125
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638085"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491358"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測精確度
-LUIS 應用程式收到端點語句之後, 請使用[模式](luis-concept-patterns.md)來改善以單字順序和字組選擇顯示模式之語句的預測精確度。 模式會使用特定的[語法](luis-concept-patterns.md#pattern-syntax)來指出的位置:[實體](luis-concept-entity-types.md)、實體[角色](luis-concept-roles.md)和選擇性文字。
+LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patterns.md)來改善以單字順序和字組選擇顯示模式之語句的預測精確度。 模式會使用特定的[語法](luis-concept-patterns.md#pattern-syntax)來指出的位置：[實體](luis-concept-entity-types.md)、實體[角色](luis-concept-roles.md)和選擇性文字。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-template-utterance-to-create-pattern"></a>將範本語句新增至建立模式
-1. 在 [我的應用程式]  頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能]  之下，選取左面板中的 [模式]  。
+1. 在 [我的應用程式]頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能] 之下，選取左面板中的 [模式]。
 
     ![模式清單的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
@@ -34,7 +36,7 @@ LUIS 應用程式收到端點語句之後, 請使用[模式](luis-concept-patter
 
     ![模式的實體螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    如果您的實體包含[角色](luis-concept-roles.md), 請在實體`:` `{Location:Origin}`名稱後面指定具有單一冒號的角色, 例如。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
+    如果您的實體包含[角色](luis-concept-roles.md)，請在機構名稱後面指定具有單一冒號的角色 `:`，例如 `{Location:Origin}`。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
 
     ![實體與角色的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -58,7 +60,7 @@ LUIS 應用程式收到端點語句之後, 請使用[模式](luis-concept-patter
 
 ## <a name="use-contextual-toolbar"></a>使用內容相關的工具列
 
-模式清單上方的內容相關工具列可讓您:
+模式清單上方的內容相關工具列可讓您：
 
 * 搜尋模式
 * 編輯模式

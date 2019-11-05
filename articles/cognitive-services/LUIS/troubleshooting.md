@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971976"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488691"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -50,7 +50,7 @@ ms.locfileid: "71971976"
 請參閱 [Bing 拼字檢查 API V7](luis-tutorial-bing-spellcheck.md) 教學課程。 LUIS 會強制執行 Bing 拼字檢查 API V7 所公開的限制。
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>如何以程式設計方式編輯 LUIS 應用程式？
-若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./luis-quickstart-node-add-utterance.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#authoring-key)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
+若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./luis-quickstart-node-add-utterance.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#azure-resources-for-luis)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>提供規則運算式比對的模式功能位置為何？
 先前的**模式功能**目前已淘汱，並取代為 **[模式](luis-concept-patterns.md)** 。
@@ -70,7 +70,7 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>預建實體會在範例語句中加上標籤，而不是我的自訂實體。 如何? 修正此問題嗎？ 
 
-請參閱針對預先建立的[實體進行疑難排解](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)。
+在 LUIS 入口網站中，您可以針對您想要解壓縮的確切實體，為文字加上標籤。 如果 LUIS 入口網站未顯示正確的實體預測，您可能需要新增更多語句，並在文字內標記實體，或加入描述項（例如功能）。 
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入應用程式或版本檔案，但收到錯誤訊息，發生了什麼事？ 
 
@@ -124,10 +124,10 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 如需其他提示，請檢閱[最佳做法](luis-concept-best-practices.md)。 
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>為什麼 LUIS 在查詢周圍或字組中間新增空格？
-LUIS 會根據[文化特性 (Culture)](luis-language-support.md#tokenization) 將語句[權杖化](luis-glossary.md#token)。 原始值和權杖化值可供[資料擷取](luis-concept-data-extraction.md#tokenized-entity-returned)。
+LUIS 會根據[文化特性 (Culture)](luis-glossary.md#token) 將語句[權杖化](luis-language-support.md#tokenization)。 原始值和權杖化值可供[資料擷取](luis-concept-data-extraction.md#tokenized-entity-returned)。
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>如何建立和指派 LUIS 端點金鑰？
-Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)層級[建立端點金鑰](luis-how-to-azure-subscription.md)。 在 [ **[Azure 資源](luis-how-to-azure-subscription.md)** ] 頁面上[指派金鑰](luis-how-to-azure-subscription.md)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md)。
+Azure 中針對[服務](luis-how-to-azure-subscription.md)層級[建立端點金鑰](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)。 在 [ **[Azure 資源](luis-how-to-azure-subscription.md)** ] 頁面上[指派金鑰](luis-how-to-azure-subscription.md)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md)。
 
 ### <a name="how-do-i-interpret-luis-scores"></a>如何解譯 LUIS 分數？
 您的系統應該使用最高分數意圖，而不論其值為何。 例如，低於 0.5 (小於 50%) 的分數不一定表示 LUIS 具有低的信賴度。 提供更多定型資料有助於提高最可能意圖的[分數](luis-concept-prediction-score.md)。
@@ -193,7 +193,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ## <a name="app-publishing"></a>應用程式發佈
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>[Add a key to your app] \(將金鑰新增至應用程式\) 視窗中的租用戶識別碼是什麼？
-在 Azure 中，租用戶代表與服務建立關聯的用戶端或組織。 選取 [Azure Active Directory] > [管理] > [內容]，以在 Azure 入口網站的 [目錄識別碼] 方塊中找到您的租用戶識別碼。
+在 Azure 中，租用戶代表與服務建立關聯的用戶端或組織。 選取 [Azure Active Directory] **[管理]**  >  **[內容]**  > ，以在 Azure 入口網站的 [目錄識別碼] 方塊中找到您的租用戶識別碼。
 
 ![Azure 入口網站中的租用戶識別碼](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -220,7 +220,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 若要深入瞭解，請參閱修正 HTTP 狀態碼[403](#i-received-an-http-403-error-status-code-how-do-i-fix-it)和[429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 。
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>我建立了撰寫金鑰，但它並未顯示在 LUIS 入口網站中。 發生什麼情況？
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>我建立了撰寫金鑰，但它並未顯示在 LUIS 入口網站中。 發生什麼情形？
 
 在[遷移至撰寫金鑰體驗](luis-migration-authoring.md)之後，可在 LUIS 入口網站中取得撰寫金鑰。  
 
@@ -241,7 +241,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 ### <a name="can-i-delete-data-from-luis"></a>可以從 LUIS 刪除資料嗎？
 
-* 您一律可以刪除用於訓練 LUIS 的範例語句。 若您從 LUIS 應用程式刪除範例語句，則會從 LUIS Web 服務中予以移除，而且無法用於匯出。
+* 您一律可以刪除用於訓練 LUIS 的範例語句。 如果您從 LUIS 應用程式中刪除範例語句，該語句就會自 LUIS Web 服務中移除而無法供匯出。
 * 您可以在 [Review endpoint utterances] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 從此清單中刪除語句可防止系統建議這些語句，但並不會從記錄中刪除它們。
 * 如果您刪除帳戶，系統就會刪除所有應用程式及其範例語句和記錄。 資料會在伺服器上保留 60 天後再永久刪除。
 

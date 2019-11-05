@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a45755ca13aed6a514b548674ef424c40238fa42
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493831"
 ---
 # <a name="clip-values"></a>剪輯值
 
-本文說明 Azure Machine Learning 視覺化介面的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）的模組。
 
 使用 [剪輯值] 模組來識別並選擇性地將高於或低於指定臨界值的資料值取代為平均值、常數或其他替代值。  
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970897"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495774"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
@@ -79,9 +79,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 如果您擁有 VPN 閘道，且您想要使用不同的閘道 SKU，您可選擇調整您的閘道 SKU，或是變更為另一個 SKU。 當您變更為另一個閘道 SKU 時，會完全刪除現有的閘道並建立一個新的閘道。 閘道最多可能需要45分鐘的時間才能建立。 相較之下，當您調整閘道 SKU 的大小時，就不會有太多停機時間，因為您不需要刪除和重建閘道。 如果您可以選擇調整您閘道 SKU 的大小，而不必加以變更，建議您這麼做。 不過，關於調整大小有一些規則：
 
-1. 您可以調整 VpnGw1、VpnGw2 和 VpnGw3 SKU 之間的大小。
+1. 除了基本 SKU 以外，您可以將 VPN 閘道 SKU 的大小調整為相同世代（Generation1.xml 或 Generation2）中的另一個 VPN 閘道 SKU。 例如，Generation1.xml 的 VpnGw1 可以調整大小為 VpnGw2 的 Generation1.xml，而不是 VpnGw2 的 Generation2。
 2. 使用舊式閘道 SKU 時，您可以在基本、標準和高效能 SKU 之間調整大小。
-3. 您**無法**將大小從基本/標準/高效能 SKU 調整為新的 VpnGw1/VpnGw2/VpnGw3 SKU。 您必須改為[變更](#change)為新的 SKU。
+3. 您**無法**從基本/標準/HighPerformance sku 調整為 VpnGw sku。 您必須改為[變更](#change)為新的 SKU。
 
 #### <a name="resizegwsku"></a>調整閘道大小
 
@@ -169,7 +169,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 使用 REST API、PowerShell Cmdlet 或 Azure CLI 來設定 VPN 閘道組態時，如需其他技術資源和特定語法需求，請參閱下列頁面：
 
-| **傳統** | **Resource Manager** |
+| **傳統** | **資源管理員** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |

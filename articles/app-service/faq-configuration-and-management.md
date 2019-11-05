@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121320"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470525"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -43,12 +43,12 @@ ms.locfileid: "71121320"
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>如何上傳及設定 Web 應用程式的現有 SSL 憑證？
 
-若要深入了解如何上傳及設定現有的自訂 SSL 憑證，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web 應用程式](app-service-web-tutorial-custom-ssl.md#upload)。
+若要瞭解如何上傳和設定現有的自訂 SSL 憑證，請參閱[將 SSL 憑證新增至您的 App Service 應用程式](configure-ssl-certificate.md)。
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>如何購買 Web 應用程式的新 SSL 憑證並且在 Azure 中設定？
 
-若要深入了解如何購買及設定 App Service Web 應用程式的 SSL 憑證，請參閱[將 SSL 憑證新增至您的 App Service 應用程式](web-sites-purchase-ssl-web-site.md)。
+若要深入了解如何購買及設定 App Service Web 應用程式的 SSL 憑證，請參閱[將 SSL 憑證新增至您的 App Service 應用程式](configure-ssl-certificate.md)。
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>如何移動 Application Insights 資源？
@@ -69,9 +69,9 @@ ms.locfileid: "71121320"
 2. 在 [應用程式設定] 底下，新增以下設定：
     * 索引鍵 = WEBSITE_TIME_ZONE
     * 值 = 您想要的時區
-3. 選取 [儲存]。
+3. 選取 [ **儲存**]。
 
-針對在 Windows 上執行的應用程式服務，請參閱[預設時區](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)文章中的 [**時區**] 資料行以取得接受的值。 針對在 Linux 上執行的應用程式服務，將[TZ 資料庫名稱](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)設定為時區值。 以下是 TZ 資料庫名稱的範例：美洲/Adak。
+針對在 Windows 上執行的應用程式服務，請參閱[預設時區](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)文章中的 [**時區**] 資料行以取得接受的值。 針對在 Linux 上執行的應用程式服務，將[TZ 資料庫名稱](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)設定為時區值。 以下是一個 TZ 資料庫名稱：北美洲/Adak 的範例。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>為什麼我的持續 WebJobs 有時候會失敗？
 
@@ -139,7 +139,7 @@ PCI DSS 3.1 版憑證需要停用傳輸層安全性 (TLS) 1.0。 目前，停用
 6. 選取 [切換輸出] 按鈕。
 7. 選取下載連結。
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>我正在嘗試使用混合式連線與 SQL Server。 為什麼會看到「System.OverflowException：數學運算導致溢位」訊息？
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>我正在嘗試使用混合式連線與 SQL Server。 為什麼會看到「System.OverflowException：	數學運算導致溢位」訊息？
 
 如果您使用混合式連線來存取 SQL Server (2016 年 5 月 10 日的 Microsoft.NET 更新)，可能會導致連線失敗。 您可能會看到下列訊息：
 
@@ -147,13 +147,13 @@ PCI DSS 3.1 版憑證需要停用傳輸層安全性 (TLS) 1.0。 目前，停用
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>解析度
+### <a name="resolution"></a>解決方案
 
 例外狀況是「混合式連線管理員」問題所造成的，該問題在那之後已修正。 請務必[更新混合式連線管理員](https://go.microsoft.com/fwlink/?LinkID=841308)以解決此問題。
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>如何? 新增 URL 重寫規則？
 
-若要新增 URL 重寫規則，請使用**wwwroot**資料夾中的相關設定專案來建立 web.config 檔案。 如需詳細資訊， [請參閱 Azure App Services：瞭解 URL 重](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)寫。
+若要新增 URL 重寫規則，請使用**wwwroot**資料夾中的相關設定專案來建立 web.config 檔案。 如需詳細資訊，請參閱[Azure App Services：瞭解 URL 重寫](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)。
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>如何控制 App Service 的輸入流量？
 
@@ -197,7 +197,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>為什麼當我嘗試將 App Service Web 應用程式連線到虛擬網路 (已連線到 ExpressRoute) 時遇到錯誤？
 
-如果您嘗試將 Azure Web 應用程式連線到已連線至 Azure ExpressRoute 的虛擬網路，就會失敗。 下列訊息隨即出現：「閘道不是 VPN 閘道。」
+如果您嘗試將 Azure Web 應用程式連線到已連線至 Azure ExpressRoute 的虛擬網路，就會失敗。 會出現下列訊息：「閘道不是 VPN 閘道」。
 
 目前，您對於已連線至 ExpressRoute 的虛擬網路不能使用點對站 VPN 連線。 點對站 VPN 和 ExpressRoute 不能並存在相同的虛擬網路。 如需詳細資訊，請參閱 [ExpressRoute 和站對站 VPN 連線限制](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations)。
 

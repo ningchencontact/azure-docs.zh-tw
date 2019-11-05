@@ -11,7 +11,7 @@ ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
 ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/21/2019
 ms.locfileid: "72694762"
@@ -92,8 +92,8 @@ ms.locfileid: "72694762"
 
 如果您使用**Append**或**ResultOnly**選項來產生結果，則傳回資料集的資料行標題會指出作業和所使用的資料行。 例如，如果您使用**Equals**運算子來比較兩個數據行，則結果會如下所示：  
   
--   **Equals （Col2_Col1）** ，表示您已針對 Col1 測試 Col2。  
--   **Equals （Col2_ $ 10）** ，表示您已將資料行2與常數10進行比較。  
+-   **等於（Col2_Col1）** ，表示您已針對 Col1 測試 Col2。  
+-   **等於（Col2_ $ 10）** ，表示您已將資料行2與常數10進行比較。  
 
 即使您使用 [**就地**] 選項，來源資料也不會被刪除或變更;原始資料集內的資料行仍可在視覺化介面中使用。 若要查看原始資料，您可以連接 [[加入資料行](add-columns.md)] 模組，並將它加入 [套用**數學運算**] 的輸出。  
     

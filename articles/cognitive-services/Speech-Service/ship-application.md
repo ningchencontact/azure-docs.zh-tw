@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 8192a2d731104fe898ca128a1d989783698567da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 166ae00085f07ef24d746b60947a31e7680a0f00
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559161"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491008"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "68559161"
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
-認知服務語音 SDK 需要系統上的[Microsoft C++ Visual 可轉散發套件, 才能 Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 的安裝程式：
+認知服務語音 SDK 需要系統上的[Microsoft C++ Visual 可轉散發套件，才能 Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 的安裝程式：
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -39,16 +39,16 @@ ms.locfileid: "68559161"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| 名稱 | 函數
+| 名稱 | 函式
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需
 
 >[!NOTE]
-> 從 release 1.3.0 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll`開始, 不再需要檔案 (在先前的版本中隨附)。 此功能現在已整合到 core SDK 中。
+> 從 release 1.3.0 開始，不再需要檔案 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` （在先前的版本中隨附）。 此功能現在已整合到 core SDK 中。
 
 >[!NOTE]
-> 針對 Windows Forms 應用程式 (.NET Framework) C#專案, 請確定程式庫已包含在專案的部署設定中。 您可以在`Properties -> Publish Section`底下檢查此選項。 按一下 [ `Application Files` ] 按鈕, 並從 [向下] 清單尋找對應的程式庫。 請確定此值設定為`Included`。 當發行/部署專案時, Visual Studio 將會包含該檔案。
+> 針對 Windows Forms 應用程式（.NET Framework） C#專案，請確定程式庫已包含在專案的部署設定中。 您可以在 [`Properties -> Publish Section`] 底下進行檢查。 按一下 [`Application Files`] 按鈕，並從 [向下] 清單尋找對應的程式庫。 請確定 [值] 設定為 [`Included`]。 當發行/部署專案時，Visual Studio 將會包含該檔案。
 
 ## <a name="linux"></a>Linux
 
@@ -57,7 +57,7 @@ ms.locfileid: "68559161"
 確定您選取與您的應用程式相符的版本 (x86、x64)。 視 Linux 版本而定，您可能也需要包含下列相依性：
 
 * GNU C 程式庫的共用程式庫 (包括 POSIX 執行緒程式設計程式庫 `libpthreads`)
-* OpenSSL 程式庫 (`libssl.so.1.0.0`或`libssl.so.1.0.2`)
+* OpenSSL 程式庫（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
 * ALSA 應用程式的共用程式庫 (`libasound.so.2`)
 
 在 Ubuntu 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
@@ -67,7 +67,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-在 Debian 9 上, 安裝下列套件:
+在 Debian 9 上，安裝下列套件：
 
 ```sh
 sudo apt-get update
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>後續步驟
 
-* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)
+* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)

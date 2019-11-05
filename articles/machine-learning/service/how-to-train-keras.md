@@ -11,14 +11,15 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0143a6075ef7b88cc0b365a544a5e69c92362ff
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
-ms.translationtype: MT
+ms.openlocfilehash: 9bb6bba26fd97a0219f183ffcc67e3e34e3973c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710111"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489460"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>使用 Azure Machine Learning 定型和註冊 Keras 分類模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文說明如何使用 Azure Machine Learning，訓練及註冊以 TensorFlow 為基礎的 Keras 分類模型。 它會使用熱門的[MNIST 資料集](http://yann.lecun.com/exdb/mnist/)，利用以[TensorFlow](https://www.tensorflow.org/overview)上執行的[Keras Python 程式庫](https://keras.io)所建立的深度類神經網路（DNN）來分類手寫數位。
 
@@ -28,20 +29,20 @@ Keras 是高階類神經網路 API，能夠執行其他熱門的 DNN 架構，�
 
 如需機器學習服務與深度學習之間差異的詳細資訊，請參閱[概念性文章](concept-deep-learning-vs-machine-learning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在下列任一環境中執行此程式碼：
 
- - Azure Machine Learning 筆記本 VM-不需要下載或安裝
+ - Azure Machine Learning 計算實例-不需要下載或安裝
 
-     - 完成[教學課程：設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
+     - 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
     - 在筆記本伺服器的 samples 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > 訓練-具有深度學習 > 訓練-超參數--keras**資料夾。
 
  - 您自己的 Jupyter Notebook 伺服器
 
     - [安裝 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
     - [建立工作區設定檔](how-to-configure-environment.md#workspace)。
-    - [下載範例腳本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)檔案`mnist-keras.py`和`utils.py`
+    - [下載範例腳本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)檔案 `mnist-keras.py` 和 `utils.py`
 
     您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
 
@@ -49,7 +50,7 @@ Keras 是高階類神經網路 API，能夠執行其他熱門的 DNN 架構，�
 
 本節會藉由載入所需的 python 套件、將工作區初始化、建立實驗，以及上傳定型資料和定型腳本，來設定定型實驗。
 
-### <a name="import-packages"></a>匯入套件
+### <a name="import-packages"></a>匯入封裝
 
 首先，匯入必要的 Python 程式庫。
 
@@ -66,7 +67,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 [Azure Machine Learning 工作區](concept-workspace.md)是服務的最上層資源。 它可為您提供一個集中的位置，以處理您建立的所有成品。 在 Python SDK 中，您可以藉由建立[`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)物件來存取工作區構件。
 
-從[必要條件一節](#prerequisites)中建立`config.json`的檔案建立工作區物件。
+從 [[必要條件] 區段](#prerequisites)中建立的 `config.json` 檔案建立工作區物件。
 
 ```Python
 ws = Workspace.from_config()
@@ -83,7 +84,7 @@ exp = Experiment(workspace=ws, name='keras-mnist')
 <a name="data-upload"></a>
 ### <a name="create-a-file-dataset"></a>建立檔案資料集
 
-`FileDataset` 物件會參考您工作區資料存放區中的一個或多個檔案或公用 URL。 檔案可以是任何格式，而類別可讓您將檔案下載或掛接至您的計算。 您可以藉由建立 `FileDataset` 來建立來源位置的參考。 如果您對資料集套用任何轉換，這些轉換也會儲存在資料集中。 資料會保留在現有的位置，因此不會產生額外的儲存成本。 如需詳細資訊，請參閱 `Dataset` 套件上的[操作](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)指南。
+`FileDataset` 物件會參考您的工作區資料存放區或公用 url 中的一或多個檔案。 檔案可以是任何格式，而類別可讓您將檔案下載或掛接至您的計算。 藉由建立 `FileDataset`，您可以建立資料來源位置的參考。 如果您對資料集套用任何轉換，它們也會儲存在資料集中。 資料會保留在現有的位置，因此不會產生額外的儲存成本。 如需詳細資訊，請參閱 `Dataset` 套件的[操作指南。](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)
 
 ```python
 from azureml.core.dataset import Dataset
@@ -97,7 +98,7 @@ web_paths = [
 dataset = Dataset.File.from_files(path=web_paths)
 ```
 
-`register()`使用方法將資料集註冊到您的工作區，讓它們可以與其他人共用、在各種不同的實驗中重複使用，並在定型腳本中參考名稱。
+使用 `register()` 方法，將資料集註冊到您的工作區，使其可以與其他人共用、在各種不同的實驗中重複使用，並在定型腳本中參考名稱。
 
 ```python
 dataset = dataset.register(workspace=ws,
@@ -130,9 +131,9 @@ except ComputeTargetException:
 
 ## <a name="create-a-tensorflow-estimator-and-import-keras"></a>建立 TensorFlow 估計工具並匯入 Keras
 
-[TensorFlow 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)提供一種簡單的方式，在計算目標上啟動 TensorFlow 訓練作業。 由於 Keras 會在 TensorFlow 上執行，因此您可以使用 TensorFlow 估計工具，並使用`pip_packages`引數匯入 Keras 程式庫。
+[TensorFlow 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)提供一種簡單的方式，在計算目標上啟動 TensorFlow 訓練作業。 由於 Keras 會在 TensorFlow 上執行，因此您可以使用 TensorFlow 估計工具，並使用 `pip_packages` 引數匯入 Keras 程式庫。
 
-先使用`Dataset`類別從工作區資料存放區取得資料。
+首先，使用 `Dataset` 類別，從工作區資料存放區取得資料。
 
 ```python
 dataset = Dataset.get_by_name(ws, 'mnist dataset')
@@ -141,7 +142,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-TensorFlow 估計工具是透過泛型[`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別來執行，它可以用來支援任何架構。 此外，建立包含 DNN `script_params`超參數設定的字典。 如需使用泛型估計工具定型模型的詳細資訊，請參閱[使用估計工具以 Azure Machine Learning 定型模型](how-to-train-ml-models.md)
+TensorFlow 估計工具是透過泛型[`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別來執行，這可用於支援任何架構。 此外，建立包含 DNN 超參數設定的字典 `script_params`。 如需使用泛型估計工具定型模型的詳細資訊，請參閱[使用估計工具以 Azure Machine Learning 定型模型](how-to-train-ml-models.md)
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -173,11 +174,11 @@ run.wait_for_completion(show_output=True)
 
 執行時，它會經歷下列階段：
 
-- **準備**：Docker 映射是根據 TensorFlow 估計工具建立的。 映射會上傳至工作區的容器登錄，並快取以供稍後執行。 記錄也會串流處理至執行歷程記錄，並可加以查看以監視進度。
+- **準備**： docker 映射是根據 TensorFlow 估計工具建立的。 映射會上傳至工作區的容器登錄，並快取以供稍後執行。 記錄也會串流處理至執行歷程記錄，並可加以查看以監視進度。
 
-- **調整**：如果 Batch AI 叢集需要執行比目前可用的更多節點，則叢集會嘗試相應增加。
+- **調整**：如果 Batch AI 叢集需要執行比目前可用的節點更多的節點，叢集會嘗試相應增加。
 
-- **Running**：腳本資料夾中的所有腳本都會上傳至計算目標、裝載或複製資料存放區，以及執行 entry_script。 Stdout 和./logs 資料夾的輸出會串流處理至執行歷程記錄，並可用來監視執行。
+- **執行：腳本**資料夾中的所有腳本都會上傳至計算目標、裝載或複製資料存放區，以及執行 entry_script。 Stdout 和./logs 資料夾的輸出會串流處理至執行歷程記錄，並可用來監視執行。
 
 - **後置處理**：執行的./outputs 資料夾會複製到執行歷程記錄。
 
@@ -189,7 +190,7 @@ run.wait_for_completion(show_output=True)
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
 
-您也可以下載模型的本機複本。 這適用于在本機執行額外的模型驗證工作。 在定型腳本`mnist-keras.py`中，TensorFlow 的保護物件會將模型保存到本機資料夾（計算目標的本機）。 您可以使用執行物件從資料存放區下載複本。
+您也可以下載模型的本機複本。 這適用于在本機執行額外的模型驗證工作。 在定型腳本中，`mnist-keras.py`TensorFlow 的保護物件會將模型保存到本機資料夾（計算目標的本機）。 您可以使用執行物件從資料存放區下載複本。
 
 ```Python
 # Create a model folder in the current directory

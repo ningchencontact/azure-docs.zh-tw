@@ -1,21 +1,21 @@
 ---
-title: 如何監視 Azure 資料共用預覽
-description: 瞭解如何在 Azure 資料共用預覽版中監視邀請狀態、共用訂用帳戶和快照記錄。
+title: 如何監視 Azure 資料共用
+description: 瞭解如何在 Azure 資料共用中監視邀請狀態、共用訂閱和快照記錄
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169130"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490519"
 ---
-# <a name="monitor-azure-data-share-preview"></a>監視 Azure 資料共用預覽 
+# <a name="monitor-azure-data-share"></a>監視 Azure Data Share  
 
-本文說明如何使用 Azure 資料共用預覽來監視您的資料共用。 身為數據提供者，您可以監視資料共用關聯性的各個層面。 詳細資訊，例如您的資料取用者是否已接受您對資料共用的邀請，以及他們是否已建立共用訂閱並開始使用您的資料，都可供監視。 
+本文說明如何使用 Azure 資料共用來監視您的資料共用。 身為數據提供者，您可以監視資料共用關聯性的各個層面。 詳細資訊，例如您的資料取用者是否已接受您對資料共用的邀請，以及他們是否已建立共用訂閱並開始使用您的資料，都可供監視。 
 
 身為數據取用者，您可以監視已觸發至您的 Azure 訂用帳戶的快照集。 
 
@@ -42,13 +42,13 @@ ms.locfileid: "72169130"
 
 在 [歷程記錄] 索引標籤中，您可以查看已複製到資料取用者的租使用者中的快照集。 您可以監視每個快照間隔的頻率和持續時間。 
 
-![快照集記錄](./media/sent-shares.png "快照集記錄") 
+![快照集歷程記錄](./media/sent-shares.png "快照集歷程記錄") 
 
 按一下 [執行] 開始日期，即可查看每個快照集執行的更多詳細資料。 
 
 根據預設，最多會顯示30天的快照集歷程記錄。 如果您需要查看超過30天的歷程記錄，請流覽至 [監視]-> [診斷設定]，然後選取 [**新增診斷設定**]。 您必須選取要用來儲存這些記錄的儲存體帳戶。 
 
-![快照集記錄](./media/diagnostic-settings.png "診斷設定") 
+![快照集歷程記錄](./media/diagnostic-settings.png "診斷設定") 
 
 ## <a name="next-steps"></a>後續步驟 
 

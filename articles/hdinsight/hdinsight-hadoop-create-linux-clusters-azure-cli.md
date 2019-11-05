@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: c26c0b16331ae01f7505e44cef3fe91b3282750b
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 09696f5a3df7cc4170c57b862a11bbd5a82e2bc9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809858"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494808"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 建立 HDInsight 叢集
 
@@ -23,7 +23,7 @@ ms.locfileid: "70809858"
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -44,14 +44,14 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
 
 2. 設定環境變數。 本文中的使用變數是以 Bash 為基礎。 針對其他環境，會需要一點變化。 如需建立叢集之可能參數的完整清單，請參閱[az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 。
 
-    |參數 | 描述 |
+    |參數 | 說明 |
     |---|---|
-    |`--size`| 叢集中的背景工作節點數目。 本文使用變數`clusterSizeInNodes`做為傳遞至`--size`的值。 |
-    |`--version`| HDInsight 叢集版本。 本文使用變數`clusterVersion`做為傳遞至`--version`的值。 另請參閱：[支援的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|
-    |`--type`| HDInsight 叢集類型，例如： hadoop、interactivehive、hbase、kafka、風暴、spark、rserver、mlservices。  本文使用變數`clusterType`做為傳遞至`--type`的值。 另請參閱：叢集[類型和](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)設定。|
-    |`--component-version`|各種 Hadoop 元件的版本，以「元件 = 版本」格式的空格分隔版本。 本文使用變數`componentVersion`做為傳遞至`--component-version`的值。 另請參閱：[Hadoop 元件](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。|
+    |`--size`| 叢集中的背景工作節點數目。 本文使用變數 `clusterSizeInNodes` 做為傳遞給 `--size`的值。 |
+    |`--version`| HDInsight 叢集版本。 本文使用變數 `clusterVersion` 做為傳遞給 `--version`的值。 另請參閱：[支援的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|
+    |`--type`| HDInsight 叢集類型，例如： hadoop、interactivehive、hbase、kafka、風暴、spark、rserver、mlservices。  本文使用變數 `clusterType` 做為傳遞給 `--type`的值。 另請參閱：叢集[類型和](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)設定。|
+    |`--component-version`|各種 Hadoop 元件的版本，以「元件 = 版本」格式的空格分隔版本。 本文使用變數 `componentVersion` 做為傳遞給 `--component-version`的值。 另請參閱： [Hadoop 元件](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。|
 
-    以`RESOURCEGROUPNAME`所需`CLUSTERNAME`的值取代`PASSWORD` 、 `LOCATION`、、 `STORAGEACCOUNTNAME`和。 視需要變更其他變數的值。 然後輸入 CLI 命令。
+    以所需的值取代 `RESOURCEGROUPNAME`、`LOCATION`、`CLUSTERNAME`、`STORAGEACCOUNTNAME`和 `PASSWORD`。 視需要變更其他變數的值。 然後輸入 CLI 命令。
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -76,7 +76,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
         --name $resourceGroupName
     ```
 
-    如需有效位置的清單，請使用`az account list-locations`命令，然後使用`name`值中的其中一個位置。
+    如需有效位置的清單，請使用 `az account list-locations` 命令，然後使用 `name` 值中的其中一個位置。
 
 4. 輸入下列命令來[建立 Azure 儲存體帳戶](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)：
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed302b9c98cf5931afa745f5aab4611a54fedb60
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492072"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 時間序列深入解析預覽版使用案例
 
@@ -60,9 +60,9 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
     * 若要深入瞭解如何共用 Url 和新的 UI，請查看[Azure 時間序列深入解析 Preview explorer 中的視覺化資料](time-series-insights-update-explorer.md)。
 
-- 第三個方式是使用強大的 API 來查詢儲存在時間序列深入解析中的資料。 時間序列深入解析具有時態性運算子，例如 `from`、`to`、`first` 和 `last`。 它具有匯總和轉換，例如 `average`、`min`、`max`、`split by`、`order by` 和 `DateHistogram`。 它也有篩選運算子，例如 `has`、`in`、`and`、`or`、`greater than` 和 `REGEX`。 所有這些運算子使下游應用程式能夠快速尋找資料中的有趣趨勢和模式。 您可以使用它們來填入自主的視覺效果，以找出異常狀況。
+- 第三個方式是使用強大的 API 來查詢儲存在時間序列深入解析中的資料。 時間序列深入解析具有時態性運算子，例如 `from`、`to`、`first`和 `last`。 它具有匯總和轉換，例如 `average`、`min`、`max`、`split by`、`order by`和 `DateHistogram`。 它也有篩選運算子，例如 `has`、`in`、`and`、`or`、`greater than`和 `REGEX`。 所有這些運算子使下游應用程式能夠快速尋找資料中的有趣趨勢和模式。 您可以使用它們來填入自主的視覺效果，以找出異常狀況。
 
-## <a name="operational-analysis-and-driving-process-efficiency"></a>維運分析與推動流程效率
+## <a name="operational-analysis-and-driving-process-efficiency"></a>營運分析與推動流程效率
 
 使用時間序列深入解析可大規模監視設備的健康情況、使用方式和效能。 時間序列深入解析提供了一種衡量營運效率的簡單方法。 時間序列深入解析可協助您管理各式各樣無法預測的 IoT 工作負載，而且您不必犧牲內嵌或查詢的效能。
 
@@ -70,7 +70,7 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 如果與正確的技術或解決方案相結合，來自營運流程之資料的串流和連續處理，可以成功地轉換任何業務。 通常這些解決方案是多個系統的組合。 它們可讓您探索和分析經常變更的資料（尤其是在 IoT 領域中），並共用常見的模式。
 
-這些模式通常會從啟用 IoT 的平台開始，這些平台從跨越各種地區設定的裝置和感應器中內嵌數十億個事件。 這些系統會處理並分析資料流資料，以衍生即時的資訊分析與動作。 資料通常會封存到熱儲存體和冷儲存體，以進行近乎即時的分析與批次分析。
+這些模式通常會從啟用 IoT 的平台開始，這些平台從跨越各種地區設定的裝置和感應器中內嵌數十億個事件。 這些系統會處理並分析資料流資料，以衍生即時的資訊分析與動作。 資料通常會封存到暖和冷存放區，以進行近乎即時和批次分析。
 
 收集的資料會經過一連串的處理，以便針對下游查詢和分析案例來清理資料並加以語境化。 Azure 提供豐富的服務，可套用至像是資產維護和製造等 IoT 案例。 這些服務包括時間序列深入解析、IoT 中樞、事件中樞、 Azure 串流分析、Azure Functions、Azure Logic Apps、Azure Databricks、Azure Machine Learning 和 Power BI。
 

@@ -1,6 +1,6 @@
 ---
 title: 解譯模型結果
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
 services: machine-learning
 ms.service: machine-learning
@@ -10,19 +10,19 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07f446daafea8b866083933bb414b0f5ef04bb4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60866877"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492921"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中解譯模型結果
-本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。
+# <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>在 Azure Machine Learning Studio 中解讀模型結果（傳統）
+本主題說明如何在 Azure Machine Learning Studio （傳統）中將預測結果視覺化並加以解讀。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。
 
 
 
-Azure Machine Learning Studio 中有四個主要的機器學習類型：
+傳統版本的 Azure Machine Learning Studio 中有四種主要的機器學習模型：
 
 * 分類
 * 叢集
@@ -31,15 +31,15 @@ Azure Machine Learning Studio 中有四個主要的機器學習類型：
 
 用來預測這些模型的模組如下︰
 
-* [評分模型][score-model]模組，用於分類和迴歸
-* [指派至叢集][assign-to-clusters]模組，用於加入叢集
-* [評分 Matchbox 推薦][score-matchbox-recommender]，用於推薦系統
+* 分類和回歸的[評分模型][score-model]模組
+* [指派給][assign-to-clusters]叢集的群集模組
+* 為建議系統[評分 Matchbox 推薦][score-matchbox-recommender]
 
-本文件說明如何針對每個模組解譯預測結果。 如需這些模組的概觀，請參閱[如何選擇參數來最佳化 Azure Machine Learning Studio 中的演算法](algorithm-parameters-optimize.md)。
+本文件說明如何針對每個模組解譯預測結果。 如需這些模組的總覽，請參閱[如何選擇參數以優化您在 Azure Machine Learning Studio （傳統）中的演算法](algorithm-parameters-optimize.md)。
 
-本主題說明預測解譯，但是未說明模型評估。 如需如何評估模型的詳細資訊，請參閱[如何在 Azure Machine Learning Studio 中評估模型效能](evaluate-model-performance.md)。
+本主題說明預測解譯，但是未說明模型評估。 如需如何評估模型的詳細資訊，請參閱[如何評估 Azure Machine Learning Studio （傳統）中的模型效能](evaluate-model-performance.md)。
 
-如果您是 Azure Machine Learning Studio 的新手，並且需要建立簡單實驗以開始使用的說明，請參閱[在 Azure Machine Learning Studio 中建立簡單實驗](create-experiment.md)。
+如果您不熟悉傳統版本的 Azure Machine Learning Studio，而且需要建立簡單實驗以開始使用的說明，請參閱[在 Azure Machine Learning Studio （傳統）中建立簡單實驗](create-experiment.md)。
 
 ## <a name="classification"></a>分類
 分類問題方面有兩個子類別：
@@ -47,18 +47,18 @@ Azure Machine Learning Studio 中有四個主要的機器學習類型：
 * 只有兩個分類的問題 (雙類別或二進位分類)
 * 兩個以上分類的問題 (多類別分類)
 
-Azure Machine Learning Studio 有不同的模組可以處理各種類型的分類，但解譯其預設結果的方法相似。
+Azure Machine Learning Studio （傳統）有不同的模組來處理這類分類，但用來解讀其預測結果的方法很類似。
 
 ### <a name="two-class-classification"></a>雙類別分類
 **範例實驗**
 
-雙類別分類問題的範例是鳶尾花的分類。 作法是根據特徵來分類鳶尾花。 Azure Machine Learning Studio 中提供的鳶尾花資料集是熱門[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)的子集，僅包含兩個花卉物種 (類別 0 和 1) 的執行個體。 每個花卉有四個特徵 (萼片長度、萼片寬度、花瓣長度及花瓣寬度)。
+雙類別分類問題的範例是鳶尾花的分類。 作法是根據特徵來分類鳶尾花。 傳統版本 Azure Machine Learning Studio 中提供的鳶尾花資料集是熱門[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)的子集，其中包含只有兩個花卉物種的實例（類別0和1）。 每個花卉有四個特徵 (萼片長度、萼片寬度、花瓣長度及花瓣寬度)。
 
 ![鳶尾花實驗的螢幕擷取畫面](./media/interpret-model-results/1.png)
 
 圖 1. 鳶尾花雙類別分類問題實驗
 
-已執行實驗以解決此問題，如「圖 1」所示。 已訓練及評分雙類別促進式決策樹模型。 您現在可以從[評分模型][score-model]模組將預測結果視覺化，方法是按一下[評分模型][score-model]模組的輸出連接埠，然後按一下 [視覺化]  。
+已執行實驗以解決此問題，如「圖 1」所示。 已訓練及評分雙類別促進式決策樹模型。 現在，您可以從 [[評分模型][score-model]] 模組將預測結果視覺化，方法是按一下[評分模型][score-model]模組的輸出埠，然後按一下 [**視覺化**]。
 
 ![評分模型模組](./media/interpret-model-results/1_1.png)
 
@@ -74,13 +74,13 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 **Web 服務發佈**
 
-了解預測結果並且完全評判之後，可以將實驗發佈為 Web 服務，以便您在各種應用程式中進行部署及呼叫，以取得任何新的鳶尾花的類別預測。 若要了解如何將訓練實驗變更為評分實驗並且發佈為 Web 服務，請參閱[教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)。 此程序可提供給您如圖 3 所示的評分實驗。
+了解預測結果並且完全評判之後，可以將實驗發佈為 Web 服務，以便您在各種應用程式中進行部署及呼叫，以取得任何新的鳶尾花的類別預測。 若要瞭解如何將訓練實驗變更為評分實驗，並將其發佈為 web 服務，請參閱[教學課程3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)。 此程序可提供給您如圖 3 所示的評分實驗。
 
 ![評分實驗的螢幕擷取畫面](./media/interpret-model-results/3.png)
 
 圖 3. 鳶尾花雙類別分類問題實驗評分
 
-您現在必須設定 Web 服務的輸入和輸出。 輸入是[評分模型][score-model]的右側輸入連接埠，這是鳶尾花的特徵輸入。 輸出的選擇取決於您是對於預測類別 (評分標籤)、評分機率或兩者感到興趣。 此範例假設您對兩者都感到興趣。 若要選取想要的輸出資料行，請使用[選取資料集中的資料行][select-columns]模組。 依序按一下 [選取資料集中的資料行][select-columns] 和 **啟動資料行選取器**，然後選取 [評分標籤]  和 [評分機率]  。 設定 [選取資料集中的資料行][select-columns] 的輸出連接埠並再次執行之後，您應該就可以按一下 [發佈 WEB 服務]  ，將評分實驗發佈為 Web 服務。 最終實驗如「圖 4」所示。
+您現在必須設定 Web 服務的輸入和輸出。 輸入是[評分模型][score-model]的右側輸入埠，也就是鳶尾花花的特徵輸入。 輸出的選擇取決於您是對於預測類別 (評分標籤)、評分機率或兩者感到興趣。 此範例假設您對兩者都感到興趣。 若要選取所需的輸出資料行，請使用 [[選取資料集中的資料行][select-columns]] 模組。 按一下 [選取資料集中的欄位][select-columns]]，按一下 [**啟動資料行選取器**]，然後選取 [**評分標籤**] 和 [**評分**機率 在設定 [[選取資料集中的資料行][select-columns]] 的輸出埠並再次執行之後，您應該準備好透過按一下 [**發佈 web 服務**]，將評分實驗發佈為 web 服務。 最終實驗如「圖 4」所示。
 
 ![鳶尾花雙類別分類實驗](./media/interpret-model-results/4.png)
 
@@ -107,7 +107,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 圖 6. 字母辨識多類別分類問題實驗
 
-從[評分模型][score-model]模組將結果視覺化，方法是按一下[評分模型][score-model]模組的輸出連接埠，然後按一下 [視覺化]  ，您應會看見如圖 7 所示的內容。
+藉由按一下 [[評分模型][score-model]] 模組的輸出埠，然後按一下 [**視覺化**]，您應該會看到如 [圖 7] 所示的內容，以將[評分模型][score-model]模組的結果視覺化。
 
 ![評分模型模組](./media/interpret-model-results/7.png)
 
@@ -119,7 +119,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 **Web 服務發佈**
 
-您也可以取得每個項目的評分標籤以及評分標籤的機率。 基本邏輯是尋找所有評分機率當中最大的機率。 若要這麼做，您需要使用[執行 R 指令碼][execute-r-script]模組。 R 程式碼如圖 8 所示，實驗的結果如圖 9 所示。
+您也可以取得每個項目的評分標籤以及評分標籤的機率。 基本邏輯是尋找所有評分機率當中最大的機率。 若要這樣做，您必須使用 [[執行 R 腳本][execute-r-script]] 模組。 R 程式碼如圖 8 所示，實驗的結果如圖 9 所示。
 
 ![R 程式碼範例](./media/interpret-model-results/8.png)
 
@@ -148,7 +148,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 圖 11. 汽車價格迴歸問題實驗
 
-視覺化[評分模型][score-model]模組，結果如圖 12 所示。
+視覺化[評分模型][score-model]模組，結果如 [圖 12] 所示。
 
 ![汽車價格預測問題的評分結果](./media/interpret-model-results/12.png)
 
@@ -185,7 +185,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 叢集與分類的不同之處在於訓練資料集本身沒有實況標籤。 將訓練資料集執行個體群組至不同的叢集。 在訓練處理期間，模型會為項目加上標籤，方法是學習其特徵之間的差異。 之後，定型模型可進一步用來分類未來的項目。 在叢集問題當中，我們感興趣的結果有兩個部分。 第一個部分是為訓練資料集加上標籤，而第二個部分是使用定型模型來分類新的資料集。
 
-您可以按一下[訓練叢集模型][train-clustering-model]的左側輸出連接埠，然後按一下 [視覺化]  ，將結果的第一個部分視覺化。 視覺化如圖 16 所示。
+您可以按一下[定型群集模型][train-clustering-model]的左側輸出埠，然後按一下 [**視覺化**]，來視覺化結果的第一個部分。 視覺化如圖 16 所示。
 
 ![叢集結果](./media/interpret-model-results/16.png)
 
@@ -226,18 +226,18 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 * 客戶特色資料
 * 餐廳特色資料
 
-我們可以使用 Azure Machine Learning Studio 的[訓練 Matchbox 推薦][train-matchbox-recommender]模組做許多事情：
+在 Azure Machine Learning Studio 的傳統版本中，我們可以使用 [[定型 Matchbox 推薦][train-matchbox-recommender]] 模組進行幾項動作：
 
 * 為指定使用者和項目預測評等
 * 對指定使用者推薦項目
 * 尋找指定使用者相關的使用者
 * 尋找指定項目相關的項目
 
-您可以選擇想要執行的動作，方法是從 [推薦預測種類]  功能表中的四個選項進行選取。 您可以在這裡逐步完成這四個案例。
+您可以選擇想要執行的動作，方法是從 [推薦預測種類] 功能表中的四個選項進行選取。 您可以在這裡逐步完成這四個案例。
 
 ![Matchbox 推薦](./media/interpret-model-results/19_1.png)
 
-典型的推薦系統 Azure Machine Learning Studio 實驗如圖 20 所示。 如需如何使用這些推薦系統模組的詳細資訊，請參閱[訓練 Matchbox 推薦][train-matchbox-recommender]和[評分 Matchbox 推薦][score-matchbox-recommender]。
+推薦系統的一般 Azure Machine Learning Studio （傳統）實驗如 [圖 20] 所示。 如需有關如何使用這些推薦系統模組的詳細資訊，請參閱[訓練 matchbox 推薦][train-matchbox-recommender]和[評分 matchbox 推薦][score-matchbox-recommender]。
 
 ![推薦系統實驗](./media/interpret-model-results/20.png)
 
@@ -247,7 +247,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 **為指定使用者和項目預測評等**
 
-藉由選取 [推薦預測種類]  之下的 [評等預測]  ，您會要求推薦系統預測指定使用者和項目的評等。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺化如圖 21 所示。
+藉由選取 [推薦預測種類] 之下的 [評等預測]，您會要求推薦系統預測指定使用者和項目的評等。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺效果如 [圖 21] 所示。
 
 ![推薦系統的評分結果 - 評等預測](./media/interpret-model-results/21.png)
 
@@ -257,7 +257,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 **對指定使用者推薦項目**
 
-藉由選取 [推薦預測種類]  之下的 [項目推薦]  ，您會要求推薦系統對指定使用者推薦項目。 此案例中需要選擇的最後一個參數是「推薦項目選取」  。 選項 [ **從評等項目 (針對模型評估)** ] 主要適用於訓練處理期間的模型評估。 對於此預測階段，我們選擇 [從所有項目]  。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺化如圖 22 所示。
+藉由選取 [推薦預測種類] 之下的 [項目推薦]，您會要求推薦系統對指定使用者推薦項目。 此案例中需要選擇的最後一個參數是「推薦項目選取」。 選項 [ **從評等項目 (針對模型評估)** ] 主要適用於訓練處理期間的模型評估。 對於此預測階段，我們選擇 [從所有項目]。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺效果如 [圖 22] 所示。
 
 ![推薦系統的評分結果 - 項目推薦](./media/interpret-model-results/22.png)
 
@@ -267,7 +267,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 **尋找指定使用者相關的使用者**
 
-藉由選取 [推薦預測種類]  之下的 [相關使用者]  ，您會要求推薦系統尋找指定使用者的相關使用者。 相關使用者是具有類似偏好的使用者。 此案例中需要選擇的最後一個參數是「相關使用者選取」  。 [從評等項目的使用者 (針對模型評估)]  選項主要適用於訓練處理期間的模型評估。 對於此預測階段選擇 [從所有使用者]  。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺化如圖 23 所示。
+藉由選取 [推薦預測種類] 之下的 [相關使用者]，您會要求推薦系統尋找指定使用者的相關使用者。 相關使用者是具有類似偏好的使用者。 此案例中需要選擇的最後一個參數是「相關使用者選取」。 [從評等項目的使用者 (針對模型評估)] 選項主要適用於訓練處理期間的模型評估。 對於此預測階段選擇 [從所有使用者]。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺效果如 [圖 23] 所示。
 
 ![推薦系統的評分結果 - 相關使用者](./media/interpret-model-results/23.png)
 
@@ -277,7 +277,7 @@ Azure Machine Learning Studio 有不同的模組可以處理各種類型的分�
 
 **尋找指定項目相關的項目**
 
-藉由選取 [推薦預測種類]  之下的 [相關項目]  ，您會要求推薦系統尋找指定項目的相關項目。 相關項目是相同使用者最有可能喜歡的項目。 此案例中需要選擇的最後一個參數是「相關項目選取」  。 選項 [ **從評等項目 (針對模型評估)** ] 主要適用於訓練處理期間的模型評估。 對於此預測階段，我們選擇 [ **從所有項目** ]。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺化如圖 24 所示。
+藉由選取 [推薦預測種類] 之下的 [相關項目]，您會要求推薦系統尋找指定項目的相關項目。 相關項目是相同使用者最有可能喜歡的項目。 此案例中需要選擇的最後一個參數是「相關項目選取」。 選項 [ **從評等項目 (針對模型評估)** ] 主要適用於訓練處理期間的模型評估。 對於此預測階段，我們選擇 [ **從所有項目** ]。 [評分 Matchbox 推薦][score-matchbox-recommender]輸出的視覺效果如 [圖 24] 所示。
 
 ![推薦系統的評分結果 - 相關項目](./media/interpret-model-results/24.png)
 

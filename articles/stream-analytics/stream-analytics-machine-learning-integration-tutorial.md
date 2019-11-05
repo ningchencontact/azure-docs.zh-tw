@@ -9,15 +9,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab510f7ee2f95a2c3373c0514c31554598451b27
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467889"
 ---
-# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>使用 Azure 串流分析和 Azure Machine Learning Studio 執行情感分析 (預覽)
-本文說明如何快速設定整合 Azure Machine Learning Studio 的簡單 Azure 串流分析作業。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>使用 Azure 串流分析和 Azure Machine Learning Studio （傳統）執行情感分析（預覽）
+本文說明如何快速設定簡單的 Azure 串流分析作業，以整合 Azure Machine Learning Studio （傳統）。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
 
 您可以將本文所學套用到以下這類案例：
 
@@ -45,7 +45,7 @@ ms.locfileid: "70173323"
 總的來說，若要完成本文示範的工作，您要執行下列作業︰
 
 1. 建立 Azure 儲存體帳戶和 Blob 儲存體容器，並將 CSV 格式的輸入檔案上傳至容器。
-3. 將 Cortana 智慧資源庫中的情感分析模型新增至您的 Azure Machine Learning Studio 工作區, 並在 Machine Learning 工作區中將此模型部署為 web 服務。
+3. 將 Cortana 智慧資源庫中的情感分析模型新增至您的 Azure Machine Learning Studio （傳統）工作區，並在 Machine Learning 工作區中將此模型部署為 web 服務。
 5. 建立以函數形式呼叫此 Web 服務的串流分析工作，以判斷所輸入文字的情感。
 6. 啟動串流分析工作並查看輸出。
 
@@ -60,7 +60,7 @@ ms.locfileid: "70173323"
 
     ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [+&nbsp;容器] 建立 Blob 儲存體。
+4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [ **+容器]&nbsp;** 建立 Blob 儲存體。
 
     ![建立供輸入使用的 Blob 儲存體容器](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -115,7 +115,7 @@ ms.locfileid: "70173323"
 
 您現在可以建立從 Blob 儲存體的 CSV 檔案中讀取範例推文的串流分析工作。 
 
-### <a name="create-the-job"></a>建立工作
+### <a name="create-the-job"></a>建立作業
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。  
 

@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821668"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468433"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -24,7 +24,7 @@ ms.locfileid: "60821668"
 
 ## <a name="when-to-use"></a>使用時機
 
-如果想要設定「事件中樞」命名空間，讓其應該只接收來自某個指定 IP 位址範圍的流量，並拒絕所有其他流量，您可以利用「防火牆規則」  封鎖來自其他其他 IP 位址的事件中樞端點。 例如，如果您搭配 [Azure Express Route][express-route] 使用事件中樞，您可以建立*防火牆規則*限制來自您內部部署基礎結構 IP 位址的流量。
+如果想要設定「事件中樞」命名空間，讓其應該只接收來自某個指定 IP 位址範圍的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的事件中樞端點。 例如，如果您將事件中樞與[Azure Express Route][express-route]搭配使用，您可以建立*防火牆規則*，以限制來自內部部署基礎結構 IP 位址的流量。
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
@@ -51,7 +51,6 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 > - 與 Azure 事件方格的整合
 > - Azure IoT 中樞路由
 > - Azure IoT Device Explorer
-> - Azure 資料總管
 >
 > 虛擬網路上必須有下列 Microsoft 服務
 > - Azure Web Apps
@@ -72,7 +71,7 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 > 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
-> from
+> 從
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -143,13 +142,13 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
   }
 ```
 
-若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 適用的指示執行。
+若要部署範本，請遵循[Azure Resource Manager][lnk-deploy]的指示。
 
 ## <a name="next-steps"></a>後續步驟
 
 若要將對事件中樞的存取權限制為 Azure 虛擬網路，請參閱下列連結：
 
-- [事件中樞的虛擬網路服務端點][lnk-vnet]
+- [虛擬網路事件中樞的服務端點][lnk-vnet]
 
 <!-- Links -->
 

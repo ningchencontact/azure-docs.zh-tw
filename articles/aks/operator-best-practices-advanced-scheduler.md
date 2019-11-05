@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472605"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
@@ -31,7 +31,7 @@ ms.locfileid: "72900119"
 
 建立 AKS 叢集時，可以部署具有 GPU 支援的節點或大量功能強大的 CPU。 這些節點通常用於巨量資料處理工作負載，例如機器學習 (ML) 或人工智慧 (AI)。 由於這種類型的硬體通常是要部署的昂貴節點資源，因此請限制可在這些節點上排程的工作負載。 您可能希望在叢集中專用某些節點來執行輸入服務，並防止其他工作負載。
 
-使用多個節點集區，即可提供這種不同節點的支援。 AKS 叢集提供一或多個節點集區。 在 AKS 中支援多個節點集區目前為預覽狀態。
+使用多個節點集區，即可提供這種不同節點的支援。 AKS 叢集提供一或多個節點集區。
 
 Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行的工作負載。
 
@@ -81,16 +81,16 @@ spec:
 
 當您升級 AKS 中的節點集區時，污點和容差會遵循套用至新節點的設定模式：
 
-- **沒有虛擬機器規模支援的預設叢集**
-  - 假設您有兩個節點的叢集-節點*1*和*節點 2*。 當您升級時，會建立額外的節點（*node3*）。
+- **使用虛擬機器擴展集的預設叢集**
+  - 假設您有兩個節點的叢集-節點*1*和*節點 2*。 您會升級節點集區。
+  - 會建立兩個額外的節點： *node3*和*node4*，並分別傳遞污點。
+  - 系統會刪除原始的*節點 1*和*節點 2* 。
+
+- **不支援虛擬機器擴展集的叢集**
+  - 同樣地，假設您有兩個節點的叢集-節點*1*和*節點 2*。 當您升級時，會建立額外的節點（*node3*）。
   - *節點 1*的污點會套用至*node3*，然後再刪除*節點 1* 。
   - 會建立另一個新節點（名為*節點 1*，因為先前的*節點 1*已刪除），而*節點 2*的污點會套用至新的節點*1*。 然後，刪除*節點 2* 。
   - 在本質上，*節點 1*會變成*node3*，而*節點 2*則會變成*節點 1*。
-
-- **使用虛擬機器擴展集的叢集**
-  - 同樣地，假設您有兩個節點的叢集-節點*1*和*節點 2*。 您會升級節點集區。
-  - 會建立兩個額外的節點： *node3*和*node4*，並分別傳遞污點。
-  - 系統會刪除原始的*節點 1*和*節點 2* 。
 
 當您在 AKS 中調整節點集區時，污點和容差不會透過設計來執行。
 
@@ -183,7 +183,7 @@ Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是
 
 ## <a name="next-steps"></a>後續步驟
 
-這篇文章著重於 Kubernetes 排程器的進階功能。 如需 AKS 中叢集作業的詳細資訊，請參閱下列最佳做法：
+這篇文章著重於 Kubernetes 排程器的進階功能。 如需 AKS 中叢集作業的相關詳細資訊，請參閱下列最佳作法：
 
 * [多租使用者和叢集隔離][aks-best-practices-scheduler]
 * [基本 Kubernetes 排程器功能][aks-best-practices-scheduler]

@@ -1,7 +1,7 @@
 ---
 title: 定型群集模型：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用訓練叢集模型模組來定型群集模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用訓練叢集模型模組來定型群集模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693658"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490385"
 ---
 # <a name="train-clustering-model"></a>定型叢集模型
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來定型群集模型。
 
@@ -28,8 +28,8 @@ ms.locfileid: "72693658"
 > 叢集模型無法使用[訓練模型](train-model.md)模組進行定型，這是用來定型機器學習模型的一般模組。 這是因為[定型模型](train-model.md)僅適用于受監督的學習演算法。 K-意指和其他群集演算法允許不受監督學習，這表示演算法可以從未標記的資料中學習。  
   
 ## <a name="how-to-use-train-clustering-model"></a>如何使用定型群集模型  
-  
-1.  將**訓練叢集模型**模組新增至您在 Studio 中的管線。 您可以在 [**定型**] 分類的 [ **Machine Learning 模組**] 底下找到模組。  
+
+1.  在設計工具中，將**訓練叢集模型**模組新增至您的管線。 您可以在 [**定型**] 分類的 [ **Machine Learning 模組**] 底下找到模組。  
   
 2. 新增[K 表示](k-means-clustering.md)叢集模組，或另一個建立相容叢集模型的自訂模組，並設定群集模型的參數。  
     
@@ -60,4 +60,4 @@ ms.locfileid: "72693658"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

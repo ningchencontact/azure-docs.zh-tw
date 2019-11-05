@@ -1,6 +1,6 @@
 ---
 title: 使用 API 管理來管理 web 服務
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 示範如何使用 API 管理來管理 AzureML Web 服務的指南 藉由定義使用者存取、使用節流設定和儀表板監視來管理 REST API 端點。
 services: machine-learning
 ms.service: machine-learning
@@ -10,26 +10,26 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279256"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489263"
 ---
-# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>使用 API 管理來管理 Machine Learning Studio Web 服務
-## <a name="overview"></a>總覽
-本指南示範如何快速開始使用 API 管理，來管理您的 Azure Machine Learning Studio Web 服務。
+# <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>使用 API 管理來管理 Azure Machine Learning Studio （傳統） web 服務
+## <a name="overview"></a>概觀
+本指南說明如何快速開始使用 API 管理來管理您的 Azure Machine Learning Studio （傳統） web 服務。
 
 ## <a name="what-is-azure-api-management"></a>什麼是 Azure API 管理？
-Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、使用節流設定和儀表板監視，來管理 REST API 端點。 如需 Azure API 管理的詳細資訊，請按一下 [這裡](https://azure.microsoft.com/services/api-management/) 。 如需如何開始使用 Azure API 管理的指南，請按一下 [這裡](/azure/api-management/import-and-publish) 。 這是本指南所依據的另一份指南，涵蓋更多主題，包括通知組態、定價層、回應處理、使用者驗證、建立產品、開發人員訂用帳戶和使用量儀表板。
+Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、使用節流設定和儀表板監視，來管理 REST API 端點。 如需詳細資訊，請參閱[AZURE API 管理網站](https://azure.microsoft.com/services/api-management/)。 若要開始使用 Azure API 管理，請參閱匯[入和發佈指南](/azure/api-management/import-and-publish)。 這是本指南所依據的另一份指南，涵蓋更多主題，包括通知組態、定價層、回應處理、使用者驗證、建立產品、開發人員訂用帳戶和使用量儀表板。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本指南，您需要：
 
-* 一個 Azure 帳戶。 如果您沒有 Azure 帳戶，請按一下 [這裡](https://azure.microsoft.com/pricing/free-trial/) 以取得如何建立免費試用帳戶的詳細資訊。
-* AzureML 帳戶。 如果您沒有 AzureML 帳戶，請按一下 [這裡](https://studio.azureml.net/) 以取得如何建立免費試用帳戶的詳細資訊。
-* 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。 如需如何建立 AzureML 實驗的詳細資訊，請按一下 [這裡](create-experiment.md) 。 如需如何將 AzureML 實驗部署為 Web 服務的詳細資訊，請按一下 [這裡](publish-a-machine-learning-web-service.md) 。 此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
+* 一個 Azure 帳戶。
+* AzureML 帳戶。
+* 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。 如需如何建立 AzureML 實驗的詳細資訊，請參閱[Studio 快速入門](create-experiment.md)。 如需如何將 Studio （傳統）實驗部署為 web 服務的相關資訊，請參閱[Studio 部署](publish-a-machine-learning-web-service.md)操作說明，以取得如何將 AzureML 實驗部署為 web 服務的詳細資訊。 此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
 
 ## <a name="create-an-api-management-instance"></a>建立 API 管理執行個體
 
@@ -55,7 +55,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 
 若要建立 API：
 
-1. 在 Azure 入口網站中，開啟您剛才建立的服務執行個體。
+1. 在 Azure 入口網站中，開啟您建立的服務實例。
 2. 在左導覽窗格中，選取 [API]。
 
    ![API 管理功能表](./media/manage-web-service-endpoints-using-api-management/api-management.png)
@@ -134,7 +134,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>從開發人員入口網站呼叫作業
 
-您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。 在這個步驟中，您會呼叫新增至 [AzureML 示範 API] 的 [RRS 執行] 方法。 
+您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。 在此步驟中，您將呼叫已新增至**AzureML 示範 API**的**rr 執行**方法。 
 
 1. 按一下 [開發人員入口網站]。
 
@@ -150,13 +150,13 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 
 4. 對於 [要求參數]，輸入您的 [工作區] 和 [服務]，在 [API 版本] 中輸入"2.0，以及在 [詳細資料] 中輸入 "true"。 您可以在 AzureML Web 服務儀表板中找到您的**工作區**和**服務** (請參閱附錄 A 中的**測試 Web 服務**)。
 
-   對於 [要求標頭]，按一下 [新增標頭] 並輸入 "Content-Type" 和 "application/json"。 再次按一下 [新增標頭] 並輸入 "Authorization" 和 "Bearer \<您的服務 API-KEY\>"。 您可以在 AzureML Web 服務儀表板中找到您的 API-KEY (請參閱附錄 A 中的**測試 Web 服務**)。
+   對於 [要求標頭]，按一下 [新增標頭] 並輸入 "Content-Type" 和 "application/json"。 再次按一下 [新增標頭] 並輸入 "Authorization" 和 "Bearer *您的服務 API-KEY\<\>* "。 您可以在 AzureML Web 服務儀表板中找到您的 API-KEY (請參閱附錄 A 中的**測試 Web 服務**)。
 
    對於 [要求本文]，輸入 `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`。
 
    ![AzureML 示範 API](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
-5. 按一下 [ **傳送**]。
+5. 按一下 [傳送]。
 
    ![傳送](./media/manage-web-service-endpoints-using-api-management/send.png)
 
@@ -166,7 +166,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>附錄 A - 建立及測試簡單的 AzureML Web 服務
 ### <a name="creating-the-experiment"></a>建立實驗
-以下步驟可讓您建立簡單的 AzureML 實驗並將其部署為 Web 服務。 Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。 例如:
+以下步驟可讓您建立簡單的 AzureML 實驗並將其部署為 Web 服務。 Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。 例如：
 
 | 文字 | 雜湊的文字 |
 | --- | --- |
@@ -214,7 +214,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 ![[是] 表示發佈](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>測試 Web 服務
-AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。 RSS 適用於同步執行。 BES 適用於非同步工作執行。 若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝適用於 Python 的 Azure SDK (請參閱：[如何安裝 Python](/azure/python/python-sdk-azure-install))。
+AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。 RSS 適用於同步執行。 BES 適用於非同步工作執行。 若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝 Azure SDK for Python (請參閱： [如何安裝 Python](/azure/python/python-sdk-azure-install))。
 
 下面的範例原始碼也需要用到實驗的**工作區**、**服務**和 **API 金鑰**。 若要尋找工作區和服務，請在 Web 服務儀表板中，按一下實驗的 [要求/回應] 或 [批次執行]。
 
@@ -228,7 +228,7 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 ##### <a name="test-button"></a>測試按鈕
 測試 RRS 端點的一個簡單方式，是在 Web 服務儀表板上，按一下 [測試] 。
 
-![測試](./media/manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 在 [col2] 中，輸入**這是美好的一天**。 按一下核取記號。
 

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 004da6c84e6226c4de3114d32cde826cd167e1ab
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844832"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467540"
 ---
 # <a name="add-contributors-to-your-app"></a>將參與者新增至您的應用程式
 
 應用程式擁有者可以將參與者新增至應用程式。 這些共同作業者可以修改模型、訓練及發佈應用程式。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -30,7 +32,7 @@ ms.locfileid: "70844832"
 
 如果您的 LUIS 撰寫體驗已系結至 LUIS 入口網站中 [**管理-> 的 Azure 資源**] 頁面上的 [撰寫] 資源，則您已遷移。
 
-1. 在 Azure 入口網站中，尋找 Language Understanding （LUIS）撰寫資源。 它具有類型`LUIS.Authoring`。
+1. 在 Azure 入口網站中，尋找 Language Understanding （LUIS）撰寫資源。 它的型別 `LUIS.Authoring`。
 1. 在此資源的 **[存取控制（IAM）** ] 頁面上，選取 [ **+ 新增**]，然後選取 [**新增角色指派**]。
 
     ![在 Azure 入口網站中，為撰寫資源新增角色指派。](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)

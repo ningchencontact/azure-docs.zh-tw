@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 40a2443419fab5d0a89d704312d880e344597b8b
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: MT
+ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053904"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496192"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
 - 一般目的/標準 
--  Hyperscale
+-  超大規模資料庫
 -  業務關鍵/進階
 
 Azure SQL Database 中的超大規模服務層是以虛擬核心為基礎的購買模型中的最新服務層。 此服務層級是可高度擴充的儲存體和計算效能層，可利用 Azure 架構以相應放大 Azure SQL Database 的儲存體和計算資源，而大幅超過一般用途和商務關鍵性服務層級的可用限制。
@@ -47,7 +47,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 此外，建立資料庫備份或是相應增加或減少所需的時間，不再繫結到資料庫中資料的磁碟區。 超大規模資料庫服務層級幾乎可以立即予以備份。 您也可以在數分鐘內相應增加或減少數十個 TB 的資料庫。 此功能讓您不需要擔心選擇的初始設定進行方塊化處理。
 
-如需超大規模資料庫服務層級計算大小的詳細資訊，請參閱[服務層級特性](sql-database-service-tiers-vcore.md#service-tier-characteristics)。
+如需超大規模資料庫服務層級計算大小的詳細資訊，請參閱[服務層級特性](sql-database-service-tiers-vcore.md#service-tiers)。
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>誰應該考慮使用超大規模資料庫服務層級
 
@@ -72,7 +72,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 - **儲存體**：
 
-  您設定超大規模資料庫時，不需要指定資料大小上限。 Hyperscale 層會依據資料庫實際使用的儲存體向您收費。 儲存體會自動設定介於 10 GB 到 100 TB 之間，以動態方式在 10 GB 到 40 GB 之間進行調整。  
+  您設定超大規模資料庫時，不需要指定資料大小上限。 在超大規模層中，會依據資料庫實際使用的儲存體向您收費。 儲存體會自動設定介於 10 GB 到 100 TB 之間，以動態方式在 10 GB 到 40 GB 之間進行調整。  
 
 如需有關超大規模定價的詳細資訊，請參閱 [Azure SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -86,7 +86,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 超大規模資料庫資料庫包含下列不同類型的元件：
 
-### <a name="compute"></a>運算
+### <a name="compute"></a>計算
 
 計算節點就是關聯式引擎的所在位置，因此會發生所有語言元素、查詢處理等等。 所有與超大規模資料庫的使用者互動都是透過這些計算節點進行。 計算節點具有 SSD 快取 (在上圖中標示為 RBPEX (復原緩衝集區延伸模組))，可減少擷取資料頁面所需的網路來回行程次數。 有一個主要計算節點可以處理所有讀寫工作負載和交易。 有一或多個次要計算節點作為容錯移轉的熱待命節點，以及作為用於卸載讀取工作負載的唯讀計算節點 (如果想要使用此功能)。
 
@@ -102,7 +102,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 Azure 儲存體包含資料庫中的所有資料檔案。 頁面伺服器會將 Azure 儲存體的資料檔案保持在最新狀態。 此儲存體用於備份目的，也用於 Azure 區域之間的複寫。 備份是使用資料檔案的儲存體快照集來執行。 不論資料大小為何，使用快照集的還原作業都是快速的。 資料可以還原到資料庫的備份保留期限內的任何時間點。
 
-## <a name="backup-and-restore"></a>備份及還原
+## <a name="backup-and-restore"></a>備份與還原
 
 備份是以檔案快照集為基礎，因此幾乎瞬間完成。 儲存體和計算區隔可讓您將備份/還原作業向下推送至儲存層，以降低主要計算複本的處理負擔。 因此，資料庫備份不會影響主要計算節點的效能;同樣地，還原會藉由還原到檔案快照集來完成，因此這不是資料作業的大小。 Restore 是一種持續時間的作業，甚至可以在數分鐘內還原多 tb 的資料庫，而不需要數小時或數天。 藉由還原現有的備份來建立新的資料庫也會利用這項功能：建立用於開發或測試用途的資料庫複本，甚至是大小 tb 的資料庫，在數分鐘內就會雖可行。
 
@@ -166,7 +166,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 
-- 澳大利亞東部
+- 澳洲東部
 - 澳大利亞東南部
 - 巴西南部
 - 加拿大中部
@@ -236,10 +236,10 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 ## <a name="known-limitations"></a>已知限制
 這些是超大規模資料庫服務層級目前對正式推出的限制。  我們正努力盡可能移除這些限制。
 
-| 問題 | 描述 |
+| 問題 | 說明 |
 | :---- | :--------- |
 | 邏輯伺服器的 [管理備份] 窗格不會顯示超大規模資料庫資料庫將會從 SQL server 篩選  | 超大規模資料庫有不同的管理備份方法，因此長期保留和時間點備份保留設定不會套用/失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
-| 時間點還原 | 一旦將資料庫移轉至超大規模資料庫服務層級之後，就不支援在遷移之前還原至時間點。|
+| 還原時間點 | 一旦將資料庫移轉至超大規模資料庫服務層級之後，就不支援在遷移之前還原至時間點。|
 | 將非超大規模資料庫 DB 還原至 Hypserscale，反之亦然 | 您無法將超大規模資料庫資料庫還原至非超大規模資料庫資料庫，也不能將非超大規模資料庫資料庫還原至超大規模資料庫資料庫。|
 | 如果資料庫的一個或多個資料檔案大於 1 TB，則遷移會失敗 | 在某些情況下，您可以將大型檔案壓縮為小於 1 TB，藉此解決此問題。 如果在遷移程式期間遷移正在使用的資料庫，請確定沒有任何檔案大於 1 TB。 使用下列查詢來判斷資料庫檔案的大小。 `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | 受控執行個體 | 超大規模資料庫資料庫目前不支援 Azure SQL Database 受控執行個體。 |
@@ -258,4 +258,4 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 - 如需服務層級的資訊，請參閱[服務層級](sql-database-service-tiers.md)
 - 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
 - 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
-- 如需功能與比較清單，請參閱[SQL 的一般功能](sql-database-features.md)。
+- 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。

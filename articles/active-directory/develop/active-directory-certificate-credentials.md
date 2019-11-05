@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803532"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473964"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 可讓應用程式使用自己的認證進行�
 ## <a name="assertion-format"></a>判斷提示格式
 若要計算判斷提示，您可以使用本身所選語言中的眾多 [JSON Web 權杖](https://jwt.ms/)程式庫之一。 權杖所承載的資訊如下︰
 
-### <a name="header"></a>標頭
+### <a name="header"></a>頁首
 
 | 參數 |  備註 |
 | --- | --- |
@@ -134,4 +134,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
    
 ## <a name="code-sample"></a>程式碼範例
 
-[在精靈應用程式中使用憑證向 Azure AD 驗證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)中的程式碼範例會說明應用程式如何使用其本身的認證進行驗證。 此外也說明如何使用 `New-SelfSignedCertificate` PowerShell 命令[建立自我簽署憑證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate)。 您也可以利用[應用程式建立指令碼](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)來建立憑證、計算指紋，和執行其他作業。
+> [!NOTE]
+> 您必須使用憑證的雜湊來計算 X5T 標頭，並將其轉換為 base64 字串。 在C#中，看起來會類似下列內容： `System.Convert.ToBase64String(cert.GetCertHash());`
+
+[在精靈應用程式中使用憑證向 Azure AD 驗證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)中的程式碼範例會說明應用程式如何使用其本身的認證進行驗證。 此外也說明如何使用 [ PowerShell 命令](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate)建立自我簽署憑證`New-SelfSignedCertificate`。 您也可以利用[應用程式建立指令碼](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)來建立憑證、計算指紋，和執行其他作業。

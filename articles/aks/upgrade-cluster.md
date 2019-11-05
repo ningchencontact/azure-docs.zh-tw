@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264190"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472471"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升級 Azure Kubernetes Service (AKS) 叢集
 
@@ -36,9 +36,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> 當您升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如，允許在*1.12.*  -> x*1.13. x*或*1.13. x*  ->  *1.14*之間進行升級，但*1.12. x*  ->  *1.14*不是。
+> 當您升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如，允許在*1.12.* x -> *1.13. x*或*1.13.* x -> *1.14*之間進行升級，但*1.12. x* -> *1.14*不是。
 >
-> 若要升級，請從*1.12. x*  ->   ->  *1.14*，先從*1.12.* x*1.13*. x 升級，然後從*1.13. x*  ->  *1.14*升級。
+> 若要升級，請從*1.12. x* -> *1.14*，先從*1.12. x*升級 -> *1.13*. x，然後從*1.13. x*升級 -> *1.14.* x。
 
 下列範例輸出顯示叢集可以升級至版本*1.13.9*和*1.13.10*：
 
@@ -65,7 +65,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 叢集升級需要幾分鐘的時間，具體取決於您擁有多少節點。 
 
 > [!NOTE]
-> 完成叢集升級的允許時間總計。 這次是藉由取得的產品`10 minutes * total number of nodes in the cluster`來計算。 例如，在20個節點的叢集中，升級作業必須在200分鐘內成功，否則 AKS 將無法執行操作，以避免叢集狀態無法復原。 若要在升級失敗時復原，請在達到超時時間之後重試升級操作。
+> 完成叢集升級的允許時間總計。 這次是藉由取得 `10 minutes * total number of nodes in the cluster`的產品來計算。 例如，在20個節點的叢集中，升級作業必須在200分鐘內成功，否則 AKS 將無法執行操作，以避免叢集狀態無法復原。 若要在升級失敗時復原，請在達到超時時間之後重試升級操作。
 
 若要確認升級是否成功，請使用[az aks show][az-aks-show]命令：
 

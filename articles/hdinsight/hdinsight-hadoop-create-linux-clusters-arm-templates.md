@@ -1,5 +1,5 @@
 ---
-title: 使用範本建立 Apache Hadoop 叢集 - Azure HDInsight
+title: 使用範本建立 Apache Hadoop 叢集-Azure HDInsight
 description: 了解如何使用 Resource Manager 範本建立 HDInsight 的叢集
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 73402421a87d2cf14719ff34201890ea96c90519
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dd8b54e0d3febf7dbb3209a9f0bde76263aa726
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715250"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494815"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-在本文中，您會學習使用 Azure Resource Manager 範本建立 Azure HDInsight 叢集的數種方式。 如需詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)。 若要了解其他叢集建立工具和功能，請按一下此頁面頂端的索引標籤選取器，或參閱[叢集建立方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)。
+在本文中，您會學習使用 Azure Resource Manager 範本建立 Azure HDInsight 叢集的數種方式。 如需詳細資訊，請參閱 [使用 Azure 資源管理員範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)。 若要了解其他叢集建立工具和功能，請按一下此頁面頂端的索引標籤選取器，或參閱[叢集建立方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 若要依照本文中的指示，您需要：
@@ -29,13 +29,13 @@ ms.locfileid: "64715250"
 * Azure PowerShell 和/或 Azure 傳統 CLI。
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
-Resource Manager 範本可讓您輕鬆地在單一、 協調的作業中建立您的應用程式的下列資源：
+Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的應用程式建立下列資源：
 * HDInsight 叢集及其相依資源 (例如，預設儲存體帳戶)。
 * 其他資源 (例如，使用 [Apache Sqoop](https://sqoop.apache.org/) \(英文\) 的 Azure SQL Database)。
 
 在範本中，您會定義應用程式所需的資源。 您也可以指定部署參數，以便為不同的環境輸入值。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
-您可以找到 HDInsight 範本範例[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)。 使用跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (具有 [Resource Manager 擴充功能](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)) 或文字編輯器，將範本儲存至您工作站上的檔案。 
+您可以在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)中找到 HDInsight 範本範例。 使用跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (具有 [Resource Manager 擴充功能](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)) 或文字編輯器，將範本儲存至您工作站上的檔案。 
 
 如需 Resource Manager 範本的詳細資訊，請參閱下列文章和範例：
 
@@ -46,7 +46,7 @@ Resource Manager 範本可讓您輕鬆地在單一、 協調的作業中建立�
 
 ## <a name="generate-templates"></a>產生範本
 
-Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的資源匯出 Resource Manager 範本。 您可以使用產生的範本了解範本語法，或視需要自動重新部署解決方案。 如需詳細資訊，請參閱 <<c0> [ 匯出範本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的資源匯出 Resource Manager 範本。 您可以使用產生的範本了解範本語法，或視需要自動重新部署解決方案。 如需詳細資訊，請參閱[匯出範本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)。
 
 ## <a name="deploy-using-the-portal"></a>使用入口網站進行部署
 
@@ -75,7 +75,7 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 ## <a name="next-steps"></a>後續步驟
 在本文中，您學到幾種建立 HDInsight 叢集的方法。 若要深入了解，請參閱下列文章：
 
-* 如需 HDInsight 相關的範本，請參閱[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)。
+* 如需更多 HDInsight 相關範本，請參閱[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)。
 * 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫與範本部署資源](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 如需部署應用程式的深入範例，請參閱 [透過可預測方式在 Azure 中佈建和部署微服務](../app-service/deploy-complex-application-predictably.md)。
 * 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](../solution-dev-test-environments.md)。

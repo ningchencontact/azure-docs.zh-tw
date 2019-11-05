@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight-安全性
+title: 安全性：將內部部署 Apache Hadoop 遷移至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集遷移至 Azure HDInsight 的安全性和 DevOps 最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736145"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494976"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 安全性和 DevOps 最佳做法
 
-本文提供在 Azure HDInsight 系統中的安全性和 DevOps 建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
+本文提供在 Azure HDInsight 系統中的安全性和 DevOps 建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
 
 ## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>使用企業安全性套件保護與管理叢集
 
@@ -46,11 +46,11 @@ ESP 適用於下列叢集類型：Apache Hadoop、Apache Spark、Apache HBase、
     - **網域名稱**：與 Azure AD DS 相關聯的網域名稱。
     - **網域使用者名稱**：上一節在受 Azure AD DS DC 管理的網域中建立的服務帳戶，例如：`hdiadmin@contoso.onmicrosoft.com`。 此網域使用者將是這個 HDInsight 叢集的系統管理員。
     - **網域密碼**：服務帳戶的密碼。
-    - **組織單位**：HDInsight 叢集要搭配使用的 OU 的辨別名稱，例如：`OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`。 如果這個 OU 不存在，HDInsight 叢集會嘗試使用服務帳戶的權限建立 OU。
+    - **組織單位**︰HDInsight 叢集要搭配使用的 OU 的辨別名稱，例如：`OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`。 如果這個 OU 不存在，HDInsight 叢集會嘗試使用服務帳戶的權限建立 OU。
     - **LDAPS URL**：例如，`ldaps://contoso.onmicrosoft.com:636`。
-    - **存取使用者群組**：您要將其使用者同步至叢集的安全性群組，例如：`HiveUsers`。 如果要指定多個使用者群組，請以分號 (;) 來分隔。 在建立 ESP 叢集之前，群組必須已經存在於目錄中。
+    - **存取使用者群組**︰您要將其使用者同步至叢集的安全性群組，例如：`HiveUsers`。 如果要指定多個使用者群組，請以分號 (;) 來分隔。 在建立 ESP 叢集之前，群組必須已經存在於目錄中。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [已加入網域之 HDInsight 叢集的 Apache Hadoop 安全性簡介](../domain-joined/hdinsight-security-overview.md)
 
@@ -81,7 +81,7 @@ ESP 適用於下列叢集類型：Apache Hadoop、Apache Spark、Apache HBase、
     - 「透明的伺服器端」加密使用受 Microsoft 管理的金鑰或受客戶管理的金鑰。
     - 在透明加密中使用用戶端加密、HTTPS 和 TLS。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [Azure 虛擬網路概觀](../../virtual-network/virtual-networks-overview.md)
 - [Azure 網路安全性群組概觀](../../virtual-network/security-overview.md)
@@ -108,13 +108,13 @@ ESP 適用於下列叢集類型：Apache Hadoop、Apache Spark、Apache HBase、
 1. 匯入任何已備份的暫時性資料。
 1. 使用新叢集啟動工作/繼續處理。
 
-如需詳細資訊，請參閱文章：[將 HDInsight 叢集升級為更新的版本](../hdinsight-upgrade-cluster.md)。
+如需詳細資訊，請參閱文章：將[HDInsight 叢集升級至新版本](../hdinsight-upgrade-cluster.md)。
 
 ## <a name="patch-cluster-operating-systems"></a>修補叢集作業系統
 
 HDInsight 作為受控 Hadoop 服務，會負責修補 HDInsight 叢集所使用之 VM 的 OS。
 
-如需詳細資訊，請參閱文章：[HDInsight 的作業系統修補](../hdinsight-os-patching.md)。
+如需詳細資訊，請參閱文章： [HDInsight 的作業系統修補](../hdinsight-os-patching.md)。
 
 ## <a name="post-migration"></a>移轉後
 
