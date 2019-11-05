@@ -8,21 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: eb90a902b8f7fe8b37b81c2825cbdfc25ef5dc0d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f2f001489552203f0157dd24356341eb3184c81
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932884"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467556"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>新增意圖以判斷語句的使用者用意
 
 將[意圖](luis-concept-intent.md)新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。 
 
 從上方導覽列的 [建置] 區段，然後從左側面板的 [意圖] 管理意圖。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-intent"></a>新增意圖
 
@@ -48,25 +50,25 @@ ms.locfileid: "68932884"
 
 意圖中的範例語句可能會在範例語句目前所在的意圖與在定型期間決定的預測意圖之間有意圖預測錯誤。 
 
-若要找出語句的預測錯誤並加以修正, 請使用 [**篩選**] 選項的 [不正確] 和 [不清楚] 的**評估**選項和 [**詳細視圖**] 的**view**選項。 
+若要找出語句的預測錯誤並加以修正，請使用 [**篩選**] 選項的 [不正確] 和 [不清楚] 的**評估**選項和 [**詳細視圖**] 的**view**選項。 
 
-![若要尋找語句預測錯誤並加以修正, 請使用 [篩選] 選項。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![若要尋找語句預測錯誤並加以修正，請使用 [篩選] 選項。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-套用篩選和視圖, 而且有範例語句出現錯誤時, [範例語句] 清單會顯示語句和問題。
+套用篩選和視圖，而且有範例語句出現錯誤時，[範例語句] 清單會顯示語句和問題。
 
-![![套用篩選準則和視圖時, 如果有範例語句出現錯誤, 則範例語句清單會顯示語句和問題。](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![![套用篩選準則和視圖時，如果有範例語句出現錯誤，則範例語句清單會顯示語句和問題。](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-每個資料列都會顯示語句範例的目前定型分數, 這是最接近的競爭對手分數, 這就是這兩個分數的差異。 
+每個資料列都會顯示語句範例的目前定型分數，這是最接近的競爭對手分數，這就是這兩個分數的差異。 
 
 ### <a name="fixing-intents"></a>修正意圖
 
-若要瞭解如何修正意圖預測錯誤, 請使用 [[摘要] 儀表板](luis-how-to-use-dashboard.md)。 [摘要] 儀表板會提供作用中版本最後一次訓練的分析, 並提供修正模型的最佳建議。  
+若要瞭解如何修正意圖預測錯誤，請使用 [[摘要] 儀表板](luis-how-to-use-dashboard.md)。 [摘要] 儀表板會提供作用中版本最後一次訓練的分析，並提供修正模型的最佳建議。  
 
 ## <a name="add-a-custom-entity"></a>新增自訂實體
 
 語句新增至意圖後，您可以從語句中選取文字來建立自訂實體。 自訂實體是標記文字以供擷取及正確意圖的方法。 
 
-若要深入瞭解, 請參閱[將實體新增至語句](luis-how-to-add-example-utterances.md)。
+若要深入瞭解，請參閱[將實體新增至語句](luis-how-to-add-example-utterances.md)。
 
 ## <a name="entity-prediction-discrepancy-errors"></a>意圖預測差異錯誤 
 
@@ -82,7 +84,7 @@ ms.locfileid: "68932884"
 
 ## <a name="using-the-contextual-toolbar"></a>使用內容相關的工具列
 
-在清單中選取一個或多個範例語句時, 藉由勾選語句左側的方塊, 語句清單上方的工具列可讓您執行下列動作:
+在清單中選取一個或多個範例語句時，藉由勾選語句左側的方塊，語句清單上方的工具列可讓您執行下列動作：
 
 * 重新指派意圖：將語句移至不同的意圖
 * 刪除語句
@@ -97,7 +99,7 @@ ms.locfileid: "68932884"
 
 * 編輯：變更語句的文字
 * 刪除：從意圖中移除語句。 如果您仍想要語句，最好的方法是將其移至 **None** 意圖。 
-* 加入模式：模式可讓您採用一般語句，並標示可取代的文字和可忽略的文字，藉此減少意圖中更多語句的需求。 
+* 新增模式：模式可讓您採用一般語句，並標示可取代的文字和可忽略的文字，藉此減少意圖中更多語句的需求。 
 
 [加上標籤的意圖] 資料行可讓您變更語句的意圖。
 
