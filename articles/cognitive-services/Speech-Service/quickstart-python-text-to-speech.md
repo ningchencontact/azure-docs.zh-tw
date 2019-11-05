@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803250"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467208"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>快速入門：使用 Python 將文字轉換為語音
 
@@ -173,6 +173,6 @@ python tts.py
 ## <a name="see-also"></a>另請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [使用 Python 和語音 SDK 將文字轉換為語音](quickstart-text-to-speech-python.md)
+* [使用 Python 和語音 SDK 將文字轉換為語音](quickstarts/speech-to-text-from-microphone.md)
 * [建立自訂語音調](how-to-customize-voice-font.md)
 * [錄製語音樣本來建立自訂語音](record-custom-voice-samples.md)

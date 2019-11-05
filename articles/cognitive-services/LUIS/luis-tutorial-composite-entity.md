@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70388037"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498985"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
@@ -28,6 +28,8 @@ ms.locfileid: "70388037"
 * 彼此相關。 
 * 使用各種實體類型。
 * 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **在本教學課程中，您將了解如何：**
 

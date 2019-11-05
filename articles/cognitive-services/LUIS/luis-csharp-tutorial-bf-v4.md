@@ -9,20 +9,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 0911747da38ed736a79e692fd511e5bfbfaf7439
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 213449a78baf8fc2b7cb6c74709efeaf2a50d5b2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772920"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495458"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>教學課程：使用以 C# 中 Language Understanding 啟用的 Web 應用程式 Bot
 
 使用 C# 建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 是使用 Azure [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 資源和 [Bot Framework 版本](https://github.com/Microsoft/botbuilder-dotnet) V4 所建置的。
 
-**在此教學課程中，您將了解如何：**
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
+
+
+**在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
 > * 建立 Web 應用程式 Bot。 此程序會為您建立新的 LUIS 應用程式。
@@ -47,9 +50,9 @@ ms.locfileid: "70772920"
     |設定|目的|建議的設定|
     |--|--|--|
     |Bot 名稱|資源名稱|`luis-csharp-bot-` + `<your-name>`，例如 `luis-csharp-bot-johnsmith`|
-    |Subscription|要在其中建立 Bot 的訂用帳戶。|您的主要訂用帳戶。
-    |Resource group|Azure 資源的邏輯群組|建立新的群組以存放與此 Bot 搭配使用的所有資源，請將群組命名為 `luis-csharp-bot-resource-group`。|
-    |Location|Azure 區域 - 這不一定要與 LUIS 撰寫或發行區域相同。|`westus`|
+    |訂用帳戶|要在其中建立 Bot 的訂用帳戶。|您的主要訂用帳戶。
+    |資源群組|Azure 資源的邏輯群組|建立新的群組以存放與此 Bot 搭配使用的所有資源，請將群組命名為 `luis-csharp-bot-resource-group`。|
+    |位置|Azure 區域 - 這不一定要與 LUIS 撰寫或發行區域相同。|`westus`|
     |定價層|用於服務要求限制和計費。|`F0` 是免費層。
     |應用程式名稱|將 Bot 部署到雲端時，此名稱會用來作為子領域 (例如 humanresourcesbot.azurewebsites.net)。|`luis-csharp-bot-` + `<your-name>`，例如 `luis-csharp-bot-johnsmith`|
     |Bot 範本|Bot Framework 設定 - 請參閱下一個資料表|

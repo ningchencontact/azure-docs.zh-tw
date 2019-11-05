@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: ed48a4e5bab807695000fe6cdbecf1c1b7b01e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325810"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488611"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器的變更
 
@@ -101,7 +101,7 @@ ms.locfileid: "72325810"
    | 屬性 | 必要 | Value | 說明 |
    | -------- | -------- | ----- | ----------- |
    | **訂用帳戶** | yes | <*event-publisher-Azure-subscription-name*> | 選取與「事件發行者」  相關聯的 Azure 訂用帳戶名稱。 在本教學課程中，選取虛擬機器的 Azure 訂用帳戶名稱。 |
-   | **資源類型** | yes | <*event-publisher-Azure-resource-type*> | 選取事件發行者的 Azure 資源類型。 如需有關 Azure 資源類型的詳細資訊，請參閱 [Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。 在本教學課程中，選取 `Microsoft.Resources.ResourceGroups` 值以監視 Azure 資源群組。 如果您只要監視虛擬機器，  |
+   | **資源類型** | yes | <*event-publisher-Azure-resource-type*> | 選取事件發行者的 Azure 資源類型。 如需有關 Azure 資源類型的詳細資訊，請參閱 [Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。 在本教學課程中，選取 `Microsoft.Resources.ResourceGroups` 值以監視 Azure 資源群組。 |
    | **資源名稱** |  yes | <*event-publisher-Azure-resource-name*> | 選取事件發行者的 Azure 資源名稱。 這份清單會根據您選取的資源類型而有所不同。 在此教學課程中，請選取包含虛擬機器的 Azure 資源群組名稱。 |
    | **事件類型項目** |  否 | <*event-types*> | 選取要篩選的一或多個特定事件類型，並傳送至您的事件方格。 例如，您可以選擇性地新增這些事件類型，以偵測資源何時遭到變更或刪除： <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>如需詳細資訊，請參閱下列主題： <p><p>- [Azure Event Grid 資源群組事件結構描述](../event-grid/event-schema-resource-groups.md) <br>- [了解事件篩選](../event-grid/event-filtering.md) <br>- [針對事件方格篩選事件](../event-grid/how-to-filter-events.md) |
    | 若要新增選擇性屬性，請選取 [新增參數]  ，然後選取您想要的屬性。 | 否 | {請參閱說明} | * **前置詞篩選**：在此教學課程中，將此屬性保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，特定資源的路徑和參數。 <p>* **後置詞篩選**：在此教學課程中，將此屬性保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，副檔名 (如果只想要特定檔案類型)。 <p>* **訂用帳戶名稱**：在此教學課程中，您可以為事件訂閱提供唯一名稱。 |

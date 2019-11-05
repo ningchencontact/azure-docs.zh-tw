@@ -9,19 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: f3eceed1c4ab06d9b7a1959bceda4122f0412b35
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703614"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499574"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>快速入門：使用 REST API 取得意圖
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 以文字形式將使用者的用意傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。 
+
+本快速入門會使用端點 REST API。 如需詳細資訊，請參閱[端點 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)。
+
+在本文中，您需要免費 [LUIS](https://www.luis.ai) 帳戶。 
 
 <a name="create-luis-subscription-key"></a>
 

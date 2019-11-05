@@ -1,6 +1,6 @@
 ---
 title: 針對更新管理的相關錯誤進行疑難排解
-description: 瞭解如何針對更新管理的問題進行疑難排解。
+description: Learn how to troubleshoot issues with Update Management.
 services: automation
 author: bobbytreed
 ms.author: robreed
@@ -8,75 +8,75 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786051"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693397"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
-本文討論當您使用更新管理時可能會遇到之問題的解決方案。
+This article discusses solutions to issues that you might encounter when you use Update Management.
 
-混合式背景工作角色代理程式有一個代理程式疑難排解員可判斷根本問題。 若要深入了解疑難排解員，請參閱[針對更新代理程式問題進行疑難排解](update-agent-issues.md)。 針對所有其他問題，請使用下列疑難排解指引。
+There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. 若要深入了解疑難排解員，請參閱[針對更新代理程式問題進行疑難排解](update-agent-issues.md)。 For all other issues, use the following troubleshooting guidance.
 
-如果您在嘗試將解決方案上架到虛擬機器（VM）時遇到問題，請檢查本機電腦上 **應用程式和服務記錄**檔 下的  **Operations Manager**記錄檔中是否有事件識別碼為4502的事件，以及包含的事件詳細資料**Microsoft.enterprisemanagement. HealthService. AzureAutomation. microsoft.enterprisemanagement.healthservice.azureautomation.hybridagent 事件**。
+If you encounter issues while you're trying to onboard the solution on a virtual machine (VM), check the <bpt id="p1">**</bpt>Operations Manager<ept id="p1">**</ept> log under <bpt id="p2">**</bpt>Application and Services Logs<ept id="p2">**</ept> on the local machine for events with event ID 4502 and event details that contain <bpt id="p3">**</bpt>Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent<ept id="p3">**</ept>.
 
-下一節將重點放在特定的錯誤訊息，以及各項的可能解決方法。 如需其他上線問題，請參閱針對[解決方案上架進行疑難排解](onboarding.md)。
+The following section highlights specific error messages and possible resolutions for each. For other onboarding issues see <bpt id="p1">[</bpt>Troubleshoot solution onboarding<ept id="p1">](onboarding.md)</ept>.
 
-## <a name="nologs"></a>案例：電腦不會顯示在入口網站的 更新管理
+## <bpt id="p1">&lt;a name="nologs"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Machines don't show up in the portal under Update Management
 
 ### <a name="issue"></a>問題
 
-您遇到下列徵兆：
+You experience the following symptoms:
 
-* 您的機器顯示未從 VM 的更新管理視圖進行**設定**。
+* Your machine shows <bpt id="p1">**</bpt>Not configured<ept id="p1">**</ept> from the Update Management view of a VM.
 
-* 您的 Azure 自動化帳戶的更新管理視圖遺漏您的電腦。
+* Your machines are missing from the Update Management view of your Azure Automation account.
 
-* 您的機器在**合規性**之下會顯示為 [**未評估**]。 不過，您會看到混合式 Runbook 背景工作角色 Azure 監視器記錄中的心跳資料，但不會更新管理。
+* You have machines that show as <bpt id="p1">**</bpt>Not Assessed<ept id="p1">**</ept> under <bpt id="p2">**</bpt>Compliance<ept id="p2">**</ept>. However, you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not for Update Management.
 
 ### <a name="cause"></a>原因
 
-此問題可能是因本機設定問題或設定不正確的範圍而造成。
+This issue can be caused by local configuration issues or by improperly configured scope configuration.
 
-您可能需要重新註冊並重新安裝混合式 Runbook 背景工作角色。
+You might have to reregister and reinstall the Hybrid Runbook Worker.
 
-您可能已在工作區中定義已達到的配額，因而導致無法進一步儲存資料。
+You might have defined a quota in your workspace that's been reached and that's preventing further data storage.
 
 ### <a name="resolution"></a>解析度
 
-* 執行[Windows](update-agent-issues.md#troubleshoot-offline)或[Linux](update-agent-issues-linux.md#troubleshoot-offline)的疑難排解員，視作業系統而定。
+* Run the troubleshooter for <bpt id="p1">[</bpt>Windows<ept id="p1">](update-agent-issues.md#troubleshoot-offline)</ept> or <bpt id="p2">[</bpt>Linux<ept id="p2">](update-agent-issues-linux.md#troubleshoot-offline)</ept>, depending on the OS.
 
-* 請確定您的電腦已回報至正確的工作區。 如需如何驗證這方面的指引，請參閱[確認代理程式與 Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)的連線能力。 此外，請確定此工作區已連結至您的 Azure 自動化帳戶。 若要確認，請移至您的自動化帳戶，然後選取 [**相關資源**] 底下的 [**連結工作區**]
+* Make sure your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see <bpt id="p1">[</bpt>Verify agent connectivity to Log Analytics<ept id="p1">](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)</ept>. Also make sure this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select <bpt id="p1">**</bpt>Linked workspace<ept id="p1">**</ept> under <bpt id="p2">**</bpt>Related Resources<ept id="p2">**</ept>.
 
-* 請確定電腦顯示在您的 Log Analytics 工作區中。 在與您的自動化帳戶連結的 Log Analytics 工作區中執行下列查詢：
+* Make sure the machines show up in your Log Analytics workspace. Run the following query in the Log Analytics workspace that's linked to your Automation account:
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
-  如果您在查詢結果中看不到您的電腦，它最近未簽入，這表示可能是本機設定問題，您應該[重新安裝代理程式](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)。 如果您的電腦顯示在查詢結果中，您必須確認此清單中下一個專案符號專案所指定的範圍設定。
+  If you don't see your machine in the query results, it hasn't recently checked in, which means there's probably a local configuration issue and you should <bpt id="p1">[</bpt>reinstall the agent<ept id="p1">](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)</ept>. If your machine shows up in the query results, you need to verify the scope configuration specified in the next bulleted item in this list.
 
-* 檢查範圍設定問題。 [範圍](../automation-onboard-solutions-from-automation-account.md#scope-configuration)設定會決定哪些機器會針對解決方案進行設定。 如果您的電腦顯示在您的工作區中，但不在**更新管理**入口網站中，您將需要設定以電腦為目標的範圍設定。 若要瞭解如何執行這項操作，請參閱在[工作區中將電腦上架](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)。
+* Check for scope configuration problems. <bpt id="p1">[</bpt>Scope configuration<ept id="p1">](../automation-onboard-solutions-from-automation-account.md#scope-configuration)</ept> determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the <bpt id="p1">**</bpt>Update Management<ept id="p1">**</ept> portal, you'll need to configure the scope configuration to target the machines. To learn how to do this, see <bpt id="p1">[</bpt>Onboard machines in the workspace<ept id="p1">](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)</ept>.
 
-* 在您的工作區中，執行下列查詢：
+* In your workspace, run the following query:
 
   ```loganalytics
   Operation
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
-  如果您得到 `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 的結果，就會在您的工作區上定義配額，而且已停止儲存資料。 在您的工作區中，移至 [**使用量和估計成本**]  >  [**資料量管理**]，然後檢查您的配額或將其移除。
+  If you get a <ph id="ph1">`Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`</ph> result, there's a quota defined on your workspace that's been reached and that has stopped data from being saved. In your workspace, go to <bpt id="p1">**</bpt>Usage and estimated costs<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>data volume management<ept id="p2">**</ept> and check your quota or remove it.
 
-* 如果這些步驟無法解決您的問題，請遵循[部署 Windows 混合式 Runbook 背景工作角色](../automation-windows-hrw-install.md)中的步驟來重新安裝適用于 Windows 的混合式背景工作角色。 或者，針對 Linux，[部署 Linux 混合式 Runbook 背景工作角色](../automation-linux-hrw-install.md)。
+* If these steps don't resolve your problem, follow the steps at <bpt id="p1">[</bpt>Deploy a Windows Hybrid Runbook Worker<ept id="p1">](../automation-windows-hrw-install.md)</ept> to reinstall the Hybrid Worker for Windows. Or, for Linux, <bpt id="p1">[</bpt>deploy a Linux Hybrid Runbook Worker<ept id="p1">](../automation-linux-hrw-install.md)</ept>.
 
-## <a name="rp-register"></a>案例：無法註冊訂用帳戶的自動化資源提供者
+## <bpt id="p1">&lt;a name="rp-register"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Unable to register Automation Resource Provider for subscriptions
 
 ### <a name="issue"></a>問題
 
-當您在自動化帳戶中使用解決方案時，您會遇到下列錯誤：
+When you work with solutions in your Automation account, you encounter the following error:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -84,19 +84,19 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 ### <a name="cause"></a>原因
 
-自動化資源提供者未在訂用帳戶中註冊。
+The Automation Resource Provider isn't registered in the subscription.
 
 ### <a name="resolution"></a>解析度
 
-若要註冊自動化資源提供者，請遵循 Azure 入口網站中的下列步驟：
+To register the Automation Resource Provider, follow these steps in the Azure portal:
 
-1. 在入口網站底部的 [Azure 服務] 清單中，選取 [**所有服務**]，然後選取 [一般] 服務群組**中的 [訂用帳戶**]。
+1. In the Azure service list at the bottom of the portal, select <bpt id="p1">**</bpt>All services<ept id="p1">**</ept>, and then select <bpt id="p2">**</bpt>Subscriptions<ept id="p2">**</ept> in the General service group.
 2. 選取您的訂用帳戶。
-3. 在 [**設定**] 下，選取 [**資源提供者**]。
-4. 從資源提供者清單中，確認已註冊**Microsoft Automation**資源提供者。
-5. 如果未列出，請遵循[解決資源提供者註冊錯誤](/azure/azure-resource-manager/resource-manager-register-provider-errors)中的步驟來註冊**Microsoft Automation**提供者。
+3. Under <bpt id="p1">**</bpt>Settings<ept id="p1">**</ept>, select <bpt id="p2">**</bpt>Resource Providers<ept id="p2">**</ept>.
+4. From the list of resource providers, verify that the <bpt id="p1">**</bpt>Microsoft.Automation<ept id="p1">**</ept> resource provider is registered.
+5. If it's not listed, register the <bpt id="p1">**</bpt>Microsoft.Automation<ept id="p1">**</ept> provider by following the steps at <bpt id="p2">[</bpt>Resolve errors for resource provider registration<ept id="p2">](/azure/azure-resource-manager/resource-manager-register-provider-errors)</ept>.
 
-## <a name="components-enabled-not-working"></a>案例：已啟用更新管理解決方案的元件，現在正在設定此虛擬機器
+## <bpt id="p1">&lt;a name="components-enabled-not-working"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: The components for the Update Management solution have been enabled, and now this virtual machine is being configured
 
 ### <a name="issue"></a>問題
 
@@ -108,25 +108,25 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 ### <a name="cause"></a>原因
 
-發生此錯誤的原因如下：
+This error can occur for the following reasons:
 
-- 正在封鎖與自動化帳戶的通訊。
-- 所上架的 VM 可能來自未與安裝 Microsoft Monitoring Agent （MMA）執行過 sysprep 的複製電腦。
+- Communication with the Automation account is being blocked.
+- The VM being onboarded might have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent (MMA) installed.
 
 ### <a name="resolution"></a>解析度
 
-1. 請前往[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，瞭解必須允許哪些位址和埠，更新管理才能正常執行。
-2. 如果您要使用複製的映射：
-   1. 在您的 Log Analytics 工作區中，從已儲存的搜尋中移除 VM （如其所顯示的 `MicrosoftDefaultScopeConfig-Updates` 範圍設定）。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
+1. Go to <bpt id="p1">[</bpt>Network planning<ept id="p1">](../automation-hybrid-runbook-worker.md#network-planning)</ept> to learn about which addresses and ports must be allowed for Update Management to work.
+2. If you're using a cloned image:
+   1. In your Log Analytics workspace, remove the VM from the saved search for the <ph id="ph1">`MicrosoftDefaultScopeConfig-Updates`</ph> scope configuration if it's shown. 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
    2. 執行 `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`。
-   3. 執行 `Restart-Service HealthService` 以重新啟動 `HealthService`。 這會重新建立金鑰，並產生新的 UUID。
-   4. 如果此方法無法運作，請先在映射上執行 sysprep，然後再安裝 MMA。
+   3. 執行 `Restart-Service HealthService` 以重新啟動 `HealthService`。 This recreates the key and generates a new UUID.
+   4. If this approach doesn't work, run sysprep on the image first and then install the MMA.
 
-## <a name="multi-tenant"></a>案例：當您為另一個 Azure 租使用者中的電腦建立更新部署時，您會收到連結的訂用帳戶錯誤
+## <bpt id="p1">&lt;a name="multi-tenant"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: You receive a linked subscription error when you create an update deployment for machines in another Azure tenant
 
 ### <a name="issue"></a>問題
 
-當您嘗試在另一個 Azure 租使用者中建立電腦的更新部署時，您會遇到下列錯誤：
+You encounter the following error when you try to create an update deployment for machines in another Azure tenant:
 
 ```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
@@ -134,12 +134,12 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="cause"></a>原因
 
-當您在更新部署中所包含的另一個租使用者中建立具有 Azure Vm 的更新部署時，就會發生此錯誤。
+This error occurs when you create an update deployment that has Azure VMs in another tenant that's included in an update deployment.
 
 ### <a name="resolution"></a>解析度
 
-使用下列因應措施可讓這些專案排程。 您可以使用[new-azurermautomationschedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) Cmdlet 搭配 `-ForUpdate` 參數來建立排程。 然後，使用[new-azurermautomationsoftwareupdateconfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) Cmdlet，並將另一個租使用者中的電腦傳遞給 `-NonAzureComputer` 參數。 下列範例示範如何執行：
+Use the following workaround to get these items scheduled. You can use the <bpt id="p1">[</bpt>New-AzureRmAutomationSchedule<ept id="p1">](/powershell/module/azurerm.automation/new-azurermautomationschedule)</ept> cmdlet with the <ph id="ph1">`-ForUpdate`</ph> switch to create a schedule. Then, use the <bpt id="p1">[</bpt>New-AzureRmAutomationSoftwareUpdateConfiguration<ept id="p1">](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+)</ept> cmdlet and pass the machines in the other tenant to the <ph id="ph1">`-NonAzureComputer`</ph> parameter. 下列範例示範如何執行：
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -151,25 +151,25 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-## <a name="node-reboots"></a>案例：無法解釋的重新開機
+## <bpt id="p1">&lt;a name="node-reboots"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Unexplained reboots
 
 ### <a name="issue"></a>問題
 
-即使您已將 [**重新開機控制**] 選項設定為 [**永遠不重新開機**]，電腦仍會在安裝更新之後重新開機。
+Even though you've set the <bpt id="p1">**</bpt>Reboot Control<ept id="p1">**</ept> option to <bpt id="p2">**</bpt>Never Reboot<ept id="p2">**</ept>, machines are still rebooting after updates are installed.
 
 ### <a name="cause"></a>原因
 
-Windows Update 可以由數個登錄機碼修改，其中任何一個都可以修改重新開機行為。
+Windows Update can be modified by several registry keys, any of which can modify reboot behavior.
 
 ### <a name="resolution"></a>解析度
 
-藉[由編輯](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)登錄和[用來管理重新開機](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)的登錄機碼來檢查列于 [設定自動更新] 底下的登錄機碼，以確保您的電腦已正確設定。
+Review the registry keys listed under <bpt id="p1">[</bpt>Configuring Automatic Updates by editing the registry<ept id="p1">](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry)</ept> and <bpt id="p2">[</bpt>Registry keys used to manage restart<ept id="p2">](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)</ept> to make sure your machines are configured properly.
 
-## <a name="failed-to-start"></a>案例：電腦在更新部署中顯示「無法啟動」
+## <bpt id="p1">&lt;a name="failed-to-start"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Machine shows "Failed to start" in an update deployment
 
 ### <a name="issue"></a>問題
 
-機器顯示 [**無法啟動**] 狀態。 當您查看機器的特定詳細資料時，您會看到下列錯誤：
+A machine shows a <bpt id="p1">**</bpt>Failed to start<ept id="p1">**</ept> status. When you view the specific details for the machine, you see the following error:
 
 ```error
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
@@ -179,42 +179,42 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 此錯誤可能會因為下列其中一個原因而發生：
 
-* 機器不再存在。
-* 機器已關閉且無法連線。
-* 電腦發生網路連線問題，因此無法連線到電腦上的混合式背景工作角色。
-* 變更了 SourceComputerId 的 MMA 已有更新。
-* 如果您達到自動化帳戶中2000個並行作業的限制，則您的更新執行已節流。 系統會將每個部署視為一項作業，而更新部署中的每部電腦會計算為一項作業。 目前在您的自動化帳戶中執行的任何其他自動化作業或更新部署都會計入並行作業限制。
+* The machine doesn’t exist anymore.
+* The machine is turned off and unreachable.
+* The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
+* There was an update to the MMA that changed the SourceComputerId.
+* Your update run was throttled if you hit the limit of 2,000 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### <a name="resolution"></a>解析度
 
-適用時，請使用[動態群組](../automation-update-management-groups.md)進行更新部署。 附加
+When applicable, use <bpt id="p1">[</bpt>dynamic groups<ept id="p1">](../automation-update-management-groups.md)</ept> for your update deployments. Additionally:
 
-* 確認電腦仍然存在且可連線。 如果不存在，請編輯您的部署，並移除電腦。
-* 請參閱[網路規劃](../automation-update-management.md#ports)一節，以取得更新管理所需的埠和地址清單，然後確認您的電腦符合這些需求。
-* 在 Log Analytics 中執行下列查詢，以找出環境中 `SourceComputerId` 已變更的機器。 尋找具有相同 `Computer` 值但不同 `SourceComputerId` 值的電腦。 
+* Verify that the machine still exists and is reachable. If it doesn't exist, edit your deployment and remove the machine.
+* See the <bpt id="p1">[</bpt>network planning<ept id="p1">](../automation-update-management.md#ports)</ept> section for a list of ports and addresses that are required for Update Management, and then verify that your machine meets these requirements.
+* Run the following query in Log Analytics to find machines in your environment whose <ph id="ph1">`SourceComputerId`</ph> has changed. Look for computers that have the same <ph id="ph1">`Computer`</ph> value but a different <ph id="ph2">`SourceComputerId`</ph> value. 
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   在您找到受影響的機器之後，請編輯以這些機器為目標的更新部署，然後移除並重新加入它們，讓 `SourceComputerId` 反映正確的值。
+   After you find affected machines, edit the update deployments that target those machines, and then remove and re-add them so that <ph id="ph1">`SourceComputerId`</ph> reflects the correct value.
 
-## <a name="updates-nodeployment"></a>案例：已安裝不含部署的更新
+## <bpt id="p1">&lt;a name="updates-nodeployment"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Updates are installed without a deployment
 
 ### <a name="issue"></a>問題
 
-當您在更新管理中註冊 Windows 機器時，您會看到已安裝但沒有部署的更新。
+When you enroll a Windows machine in Update Management, you see updates installed without a deployment.
 
 ### <a name="cause"></a>原因
 
-在 Windows 上，更新會在可用時立即安裝。 如果您未排程將更新部署到電腦上，這種行為可能會造成混淆。
+On Windows, updates are installed automatically as soon as they're available. This behavior can cause confusion if you didn't schedule an update to be deployed to the machine.
 
 ### <a name="resolution"></a>解析度
 
-`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` 登錄機碼預設為4：**自動下載並安裝**的設定。
+The  <ph id="ph1">`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`</ph> registry key defaults to a setting of 4: <bpt id="p1">**</bpt>auto download and install<ept id="p1">**</ept>.
 
-針對更新管理用戶端，建議您將此機碼設為3：**自動下載，但不要自動安裝**。
+For Update Management clients, we recommend setting this key to 3: <bpt id="p1">**</bpt>auto download but do not auto install<ept id="p1">**</ept>.
 
-如需詳細資訊，請參閱設定[自動更新](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates)。
+For more information, see <bpt id="p1">[</bpt>Configuring Automatic Updates<ept id="p1">](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates)</ept>.
 
 ## <a name="machine-already-registered"></a>案例：電腦已經註冊至不同的帳戶
 
@@ -228,14 +228,14 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="cause"></a>原因
 
-電腦已上架到另一個工作區以進行更新管理。
+The machine has already been onboarded to another workspace for Update Management.
 
 ### <a name="resolution"></a>解析度
 
-1. 依照 [更新管理] 底下的 [[機器不會顯示在入口網站中](#nologs)] 底下的步驟，確認機器已回報至正確的工作區。
-2. 藉由[刪除混合式 runbook 群組](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)來清除電腦上的舊成品，然後再試一次。
+1. Follow the steps under <bpt id="p1">[</bpt>Machines don't show up in the portal under Update Management<ept id="p1">](#nologs)</ept> to make sure the machine is reporting to the correct workspace.
+2. Clean up old artifacts on the machine by <bpt id="p1">[</bpt>deleting the hybrid runbook group<ept id="p1">](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)</ept>, and then try again.
 
-## <a name="machine-unable-to-communicate"></a>案例：電腦無法與服務通訊
+## <bpt id="p1">&lt;a name="machine-unable-to-communicate"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Machine can't communicate with the service
 
 ### <a name="issue"></a>問題
 
@@ -255,11 +255,11 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 ### <a name="cause"></a>原因
 
-Proxy、閘道或防火牆可能封鎖網路通訊。
+A proxy, gateway, or firewall might be blocking network communication.
 
 ### <a name="resolution"></a>解析度
 
-請檢查您的網路功能，並確定允許適當的埠和位址。 如需更新管理和混合式 Runbook 背景工作角色所需的埠和地址清單，請參閱[網路需求](../automation-hybrid-runbook-worker.md#network-planning)。
+Review your networking and make sure appropriate ports and addresses are allowed. See <bpt id="p1">[</bpt>network requirements<ept id="p1">](../automation-hybrid-runbook-worker.md#network-planning)</ept> for a list of ports and addresses that are required by Update Management and Hybrid Runbook Workers.
 
 ## <a name="unable-to-create-selfsigned-cert"></a>案例：無法建立自我簽署憑證
 
@@ -273,128 +273,128 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="cause"></a>原因
 
-混合式 Runbook 背景工作角色無法產生自我簽署憑證。
+The Hybrid Runbook Worker couldn't generate a self-signed certificate.
 
 ### <a name="resolution"></a>解析度
 
-請確認系統帳戶具有**C:\ProgramData\Microsoft\Crypto\RSA**資料夾的讀取權限，然後再試一次。
+Verify that the system account has read access to the <bpt id="p1">**</bpt>C:\ProgramData\Microsoft\Crypto\RSA<ept id="p1">**</ept> folder, and try again.
 
-## <a name="mw-exceeded"></a>案例：排程更新失敗，發生 MaintenanceWindowExceeded 錯誤
+## <bpt id="p1">&lt;a name="mw-exceeded"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: The scheduled update failed with a MaintenanceWindowExceeded error
 
 ### <a name="issue"></a>問題
 
-更新的預設維護視窗是120分鐘。 您可以將維護期間增加到最多6小時或360分鐘。
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
 
 ### <a name="resolution"></a>解析度
 
-編輯任何失敗的排程更新部署，並增加維護時間範圍。
+Edit any failing scheduled update deployments, and increase the maintenance window.
 
-如需維護時段的詳細資訊，請參閱[安裝更新](../automation-tutorial-update-management.md#schedule-an-update-deployment)。
+For more information on maintenance windows, see <bpt id="p1">[</bpt>Install updates<ept id="p1">](../automation-tutorial-update-management.md#schedule-an-update-deployment)</ept>.
 
-## <a name="hresult"></a>案例：電腦顯示為「未評估」，並顯示 HResult 例外狀況
+## <bpt id="p1">&lt;a name="hresult"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>Scenario: Machine shows as "Not assessed" and shows an HResult exception
 
 ### <a name="issue"></a>問題
 
 * 您有在 [合規性] 底下顯示為 [未評估] 的機器，並在其下方看到例外狀況訊息。
-* 您有顯示為 [未評估] 的電腦。
-* 您會在入口網站中看到 HRESULT 錯誤碼。
+* You have machines that show as not assessed.
+* You see an HRESULT error code in the portal.
 
 ### <a name="cause"></a>原因
 
-更新代理程式（Windows 上的 Windows Update 代理程式、Linux 發行版本的套件管理員）未正確設定。 更新管理依賴電腦的更新代理程式來提供所需的更新、修補程式的狀態，以及已部署修補程式的結果。 若沒有此資訊，更新管理無法正確地報告所需或已安裝的修補程式。
+The Update Agent (Windows Update Agent on Windows; the package manager for a Linux distribution) isn't configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Management can't properly report on the patches that are needed or installed.
 
 ### <a name="resolution"></a>解析度
 
-嘗試在本機電腦上執行更新。 如果失敗，通常表示更新代理程式發生設定錯誤。
+Try to perform updates locally on the machine. If this fails, it typically means there's a configuration error with the update agent.
 
-此問題通常是因為網路設定和防火牆問題所造成。 請嘗試下列作業：
+This problem is frequently caused by network configuration and firewall issues. 請嘗試下列作業：
 
-* 針對 Linux，請查看適當的檔，確定您可以連線到套件存放庫的網路端點。
-* 針對 Windows，請檢查[[更新不會從內部網路端點下載（WSUS/SCCM）](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm)] 中所列的代理程式設定。
-  * 如果電腦已設定為 Windows Update，請確定您可以連線[到與 HTTP/proxy 相關的問題](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)中所述的端點。
-  * 如果電腦已設定為 Windows Server Update Services （WSUS），請確定您可以連線到 WUServer 登錄機[碼](/windows/deployment/update/waas-wu-settings)所設定的 WSUS 伺服器。
+* For Linux, check the appropriate documentation to make sure you can reach the network endpoint of your package repository.
+* For Windows, check your agent configuration as listed in <bpt id="p1">[</bpt>Updates aren't downloading from the intranet endpoint (WSUS/SCCM)<ept id="p1">](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm)</ept>.
+  * If the machines are configured for Windows Update, make sure you can reach the endpoints described in <bpt id="p1">[</bpt>Issues related to HTTP/proxy<ept id="p1">](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)</ept>.
+  * If the machines are configured for Windows Server Update Services (WSUS), make sure you can reach the WSUS server configured by the <bpt id="p1">[</bpt>WUServer registry key<ept id="p1">](/windows/deployment/update/waas-wu-settings)</ept>.
 
-如果您看到 HRESULT，請按兩下以紅色顯示的例外狀況，以查看整個例外狀況訊息。 請參閱下表中的可能解決方案或建議的動作：
+If you see an HRESULT, double-click the exception displayed in red to see the entire exception message. Review the following table for potential solutions or recommended actions:
 
-|例外狀況  |解決方式或動作  |
+|例外狀況  |Resolution or action  |
 |---------|---------|
-|`Exception from HRESULT: 0x……C`     | 在[Windows update 錯誤碼清單](https://support.microsoft.com/help/938205/windows-update-error-code-list)中搜尋相關的錯誤碼，以尋找有關例外狀況原因的其他詳細資料。        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 這表示網路連線問題。 請確定您的電腦具有更新管理的網路連線能力。 如需必要的埠和地址清單，請參閱[網路規劃](../automation-update-management.md#ports)一節。        |
-|`0x8024001E`| 更新作業未完成，因為服務或系統已關閉。|
-|`0x8024002E`| Windows Update 服務已停用。|
-|`0x8024402C`     | 如果您使用 WSUS 伺服器，請確定 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 登錄機碼下的 `WUServer` 和 `WUStatusServer` 登錄值指定正確的 WSUS 伺服器。        |
-|`0x80072EE2`|網路連線問題或與已設定的 WSUS 伺服器交談時發生問題。 檢查 WSUS 設定，並確定可從用戶端存取該服務。|
-|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | 請確定 Windows Update 服務（wuauserv）正在執行且未停用。        |
-|任何其他一般例外狀況     | 在網際網路上執行搜尋以找出可能的解決方案，並與您當地的 IT 支援人員合作。         |
+|`Exception from HRESULT: 0x……C`     | Search the relevant error code in <bpt id="p1">[</bpt>Windows update error code list<ept id="p1">](https://support.microsoft.com/help/938205/windows-update-error-code-list)</ept> to find additional details about the cause of the exception.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the <bpt id="p1">[</bpt>network planning<ept id="p1">](../automation-update-management.md#ports)</ept> section for a list of required ports and addresses.        |
+|`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
+|`0x8024002E`| Windows Update service is disabled.|
+|`0x8024402C`     | If you're using a WSUS server, make sure the registry values for <ph id="ph1">`WUServer`</ph> and <ph id="ph2">`WUStatusServer`</ph> under the  <ph id="ph3">`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`</ph> registry key specify the correct WSUS server.        |
+|`0x80072EE2`|There's a network connectivity issue or an issue in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and not disabled.        |
+|任何其他一般例外狀況     | Run a search on the internet for  possible solutions, and work with your local IT support.         |
 
-查看 Windowsupdate.log 檔案也可協助您判斷可能的原因。 如需如何讀取記錄檔的詳細資訊，請參閱[如何讀取 windowsupdate.log。](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)
+Reviewing the Windowsupdate.log file can also help you determine possible causes. For more information about how to read the log, see <bpt id="p1">[</bpt>How to read the Windowsupdate.log file<ept id="p1">](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)</ept>.
 
-您也可以下載並執行[Windows Update 疑難排解](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)員，以檢查電腦上 Windows Update 是否有任何問題。
+You can also download and run the <bpt id="p1">[</bpt>Windows Update troubleshooter<ept id="p1">](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)</ept> to check for any issues with Windows Update on the machine.
 
 > [!NOTE]
-> [Windows Update 疑難排解](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)員檔會指出它是用於 windows 用戶端，但它也適用于 windows Server。
+> The <bpt id="p1">[</bpt>Windows Update troubleshooter<ept id="p1">](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)</ept> documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
-## <a name="scenario-update-run-returns-failed-status-linux"></a>案例：更新執行會傳回「失敗」狀態（Linux）
+## <a name="scenario-update-run-returns-failed-status"></a>Scenario: Update run returns "Failed" status
 
 ### <a name="issue"></a>問題
 
-更新執行開始，但在執行期間遇到錯誤。
+An update run starts but encounters errors during the run.
 
 ### <a name="cause"></a>原因
 
 可能的原因：
 
-* 套件管理員狀況不良。
-* 更新代理程式（適用于 Windows 的 WUA，Linux 的散發版本特定套件管理員）設定錯誤。
-* 特定套件會干擾以雲端為基礎的修補。
-* 無法連線到電腦。
-* 更新有無法解析的相依性。
+* Package manager is unhealthy.
+* Update Agent (WUA for Windows, distro-specific package manager for Linux) is misconfigured.
+* Specific packages are interfering with cloud-based patching.
+* The machine is unreachable.
+* Updates had dependencies that weren't resolved.
 
 ### <a name="resolution"></a>解析度
 
-如果成功啟動後，在更新執行期間發生失敗，請檢查執行中受影響機器的[作業輸出](../manage-update-multi.md#view-results-of-an-update-deployment)。 您可能會發現來自您電腦的特定錯誤訊息，您可以調查並採取行動。 「更新管理」必須在套件管理員狀況良好的情況下，才能進行成功的更新部署。
+If failures occur during an update run after it starts successfully, <bpt id="p1">[</bpt>check the job output<ept id="p1">](../manage-update-multi.md#view-results-of-an-update-deployment)</ept> from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on. 「更新管理」必須在套件管理員狀況良好的情況下，才能進行成功的更新部署。
 
-如果在作業失敗之前立即看到特定的修補程式、套件或更新，您可以嘗試從下一個更新部署中[排除](../automation-tutorial-update-management.md#schedule-an-update-deployment)它們。 若要從 Windows Update 收集記錄資訊，請參閱[Windows Update 記錄](/windows/deployment/update/windows-update-logs)檔。
+If specific patches, packages, or updates are seen immediately before the job fails, you can try <bpt id="p1">[</bpt>excluding<ept id="p1">](../automation-tutorial-update-management.md#schedule-an-update-deployment)</ept> those from the next update deployment. To gather log info from Windows Update, see <bpt id="p1">[</bpt>Windows Update log files<ept id="p1">](/windows/deployment/update/windows-update-logs)</ept>.
 
-如果您無法解決修補問題，請在下一個更新部署開始*之前*，建立下列記錄檔的複本，並加以保留以供疑難排解之用：
+If you can't resolve a patching issue, make a copy of the following log file and preserve it for troubleshooting purposes <bpt id="p1">*</bpt>before<ept id="p1">*</ept> the next update deployment starts:
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-## <a name="patches-arent-installed"></a>未安裝修補程式
+## <a name="patches-arent-installed"></a>Patches aren't installed
 
-### <a name="machines-dont-install-updates"></a>電腦不會安裝更新
+### <a name="machines-dont-install-updates"></a>Machines don't install updates
 
-* 請嘗試直接在機器上執行更新。 如果電腦無法套用更新，請參閱[疑難排解指南中的潛在錯誤清單](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult)。
-* 如果更新在本機執行，請遵循[從更新管理移除 VM 中](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources)的指引，在電腦上移除並重新安裝代理程式。
+* 請嘗試直接在機器上執行更新。 If the machine can't apply the updates, consult the <bpt id="p1">[</bpt>list of potential errors in the troubleshooting guide<ept id="p1">](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult)</ept>.
+* If updates run locally, try removing and reinstalling the agent on the machine by following the guidance at <bpt id="p1">[</bpt>Remove a VM from Update Management<ept id="p1">](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management)</ept>.
 
-### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>我知道有可用的更新，但它們在我的機器上並未顯示為可用
+### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>I know updates are available, but they don't show as available on my machines
 
-* 如果電腦設定為從 WSUS 或 System Center Configuration Manager （SCCM）取得更新，但 WSUS 和 SCCM 尚未核准更新，通常就會發生這種情況。
-* 您可以藉由在本文的「編輯登錄」[一節自動更新中，交叉參照 UseWUServer 登錄機碼](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)，檢查機器是否已針對 WSUS 和 SCCM 進行設定。
-* 如果未在 WSUS 中核准更新，則不會進行安裝。 您可以藉由執行下列查詢，在 Log Analytics 中檢查未核准的更新：
+* This often happens if machines are configured to get updates from WSUS or System Center Configuration Manager (SCCM) but WSUS and SCCM haven't approved the updates.
+* You can check whether the machines are configured for WSUS and SCCM by <bpt id="p1">[</bpt>cross-referencing the UseWUServer registry key to the registry keys in the "Configuring Automatic Updates by Editing the Registry" section of this article<ept id="p1">](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)</ept>.
+* If updates aren't approved in WSUS, they won't be installed. You can check for unapproved updates in Log Analytics by running the following query:
 
   ```loganalytics
   Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
   ```
 
-### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>更新顯示為已安裝，但我在我的電腦上找不到它們
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>Updates show as installed, but I can't find them on my machine
 
-* 更新常會被其他更新取代。 如需詳細資訊，請參閱 Windows Update 疑難排解指南中的[更新已被取代](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)。
+* 更新常會被其他更新取代。 For more information, see <bpt id="p1">[</bpt>Update is superseded<ept id="p1">](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)</ept> in the Windows Update Troubleshooting guide.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>依分類在 Linux 上安裝更新
 
-* 依分類 (「重大與安全性更新」) 將更新部署至 Linux 時有重要事項須留意，尤其是針對 CentOS。 這些限制記載于[更新管理總覽頁面](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)。
+* 依分類 (「重大與安全性更新」) 將更新部署至 Linux 時有重要事項須留意，尤其是針對 CentOS。 These limitations are documented on the <bpt id="p1">[</bpt>Update Management overview page<ept id="p1">](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)</ept>.
 
-### <a name="kb2267602-is-consistently-missing"></a>KB2267602 一直遺失
+### <a name="kb2267602-is-consistently-missing"></a>KB2267602 is consistently missing
 
-* KB2267602 是 [Windows Defender 定義更新](https://www.microsoft.com/wdsi/definitions)。 它會每日更新。
+* KB2267602 是 [Windows Defender 定義更新](https://www.microsoft.com/wdsi/definitions)。 It's updated daily.
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您看不到問題或無法解決問題，請嘗試下列其中一個通道以取得其他支援：
+If you didn't see your problem or can't resolve your issue, try one of the following channels for additional support:
 
-* 透過[Azure 論壇](https://azure.microsoft.com/support/forums/)取得 azure 專家的解答。
-* 與[@AzureSupport](https://twitter.com/azuresupport)，這是官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援及專家。
+* Get answers from Azure experts through <bpt id="p1">[</bpt>Azure Forums<ept id="p1">](https://azure.microsoft.com/support/forums/)</ept>.
+* Connect with <bpt id="p1">[</bpt><ph id="ph1">@AzureSupport</ph><ept id="p1">](https://twitter.com/azuresupport)</ept>, the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * 提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

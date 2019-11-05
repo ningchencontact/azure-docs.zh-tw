@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561058"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73519159"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>快速入門：如何使用自訂視覺建置分類器
 
 在本快速入門中，您將了解如何透過自訂視覺網站建置分類器。 在建置分類器模型後，您可以使用自訂視覺服務進行影像分類。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "68561058"
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>在 Azure 入口網站中建立自訂視覺資源
 
-若要使用自訂視覺服務，您必須在 Azure 入口網站中建立自訂視覺定型和預測資源。 在[建立自訂視覺](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)頁面上填寫對話方塊視窗，以建立定型和預測資源。 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>建立新專案
 

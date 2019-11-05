@@ -1,7 +1,7 @@
 ---
 title: 教學課程：批次測試 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 此教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。
+description: 本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: ac88931d79df6c2527a2a5fd72b440baeb463115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375523"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499051"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
-此教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。  
+本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。  
 
 批次測試可讓您使用一組已標示的已知語句和實體來驗證作用中且已定型的模型狀態。 在 JSON 格式的批次檔中新增語句，並在語句內設定您需要預測的實體標籤。 
 
@@ -30,9 +30,11 @@ ms.locfileid: "70375523"
 * 沒有重複項目。 
 * 允許的實體類型：僅限簡單及複合的機器學習實體。 批次測試僅適用於機器學習的意圖和實體。
 
-使用此教學課程以外的應用程式時，請「不要」  使用已新增到某個意圖的範例語句。 
+使用本教學課程以外的應用程式時，請「不要」  使用已新增到某個意圖的範例語句。 
 
-**在此教學課程中，您將了解如何：**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**在本教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -231,7 +233,7 @@ ms.locfileid: "70375523"
 
 ## <a name="next-steps"></a>後續步驟
 
-此教學課程已使用批次測試來尋找目前模型的問題。 模型已修正，並使用批次檔進行重新測試，以確認變更正確。
+本教學課程已使用批次測試來尋找目前模型的問題。 模型已修正，並使用批次檔進行重新測試，以確認變更正確。
 
 > [!div class="nextstepaction"]
 > [了解模式](luis-tutorial-pattern.md)

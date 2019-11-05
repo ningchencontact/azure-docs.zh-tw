@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 04f30818e3c871d74d94bfd92bd3f73e4e6637a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499419"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教學課程：檢閱端點語句以修正不確定的預測
-在此教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
+在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
 
 此檢閱程序是 LUIS 用來了解應用程式領域的另一種方法。 LUIS 選取了檢閱清單中顯示的語句。 此清單是：
 
@@ -29,7 +29,9 @@ ms.locfileid: "70387527"
 
 藉由檢閱端點語句，您可以確認或更正語句的預測意圖。 您也可以將未預測或預測錯誤的自訂實體加上標籤。 
 
-**在此教學課程中，您將了解如何：**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**在本教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -238,7 +240,7 @@ LUIS 在定型過後才會知道變更。
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
-在此教學課程中，您已檢閱在 LUIS 不確定的端點所提交的語句。 這些語句經過驗證並移至正確的意圖作為範例語句後，LUIS 將會提高預測準確度。
+在本教學課程中，您已檢閱在 LUIS 不確定的端點所提交的語句。 這些語句經過驗證並移至正確的意圖作為範例語句後，LUIS 將會提高預測準確度。
 
 > [!div class="nextstepaction"]
 > [了解如何使用模式](luis-tutorial-pattern.md)

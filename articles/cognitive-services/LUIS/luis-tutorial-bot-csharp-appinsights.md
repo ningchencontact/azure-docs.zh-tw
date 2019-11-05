@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772813"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498977"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>教學課程：從 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 
 本教學課程將 Bot 和 Language Understanding 資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料儲存體。 在您擁有該資料之後，即可使用 Kusto 語言或 Power BI 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
 
-在本教學課程中，您了解如何：
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
+
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 擷取 Application Insights 中的 Bot 和 Language Understanding 資料

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703115"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488678"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>快速入門：使用 C# .NET SDK 查詢 V2 預測端點
 
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>建立新的預測方法
 
-建立新的方法 `GetPrediction` 來將查詢傳送給查詢預測端點。 此方法會先建立並設定所有必要物件，然後傳回 `Task` 與 [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) 預測結果。 
+建立新的方法 `GetPrediction` 來將查詢傳送給查詢預測端點。 此方法會先建立並設定所有必要物件，然後傳回 `Task` 與 [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python) 預測結果。 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {

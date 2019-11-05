@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: diberry
-ms.openlocfilehash: cf0ef1095946b1c8e9479b3cd47fe403baeed7d1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a59d9783eac122f96b1671f2dba5d0d708e1d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757130"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499388"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教學課程：找出常見的意圖和實體
 
 在本教學課程中，將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 您不需使用預先建置的實體來標示任何語句，因為系統會自動偵測實體。
 
 預先建置的模型 (網域、意圖和實體) 可協助您快速建置模型。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **在本教學課程中，您將了解如何：**
 

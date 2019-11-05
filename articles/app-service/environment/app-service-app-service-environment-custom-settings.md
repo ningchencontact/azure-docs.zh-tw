@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: bf2441d5c0947ec94cbee247bdc4634ff9e53bfd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470702"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service 環境的自訂組態設定
 ## <a name="overview"></a>概觀
@@ -66,7 +66,7 @@ ms.locfileid: "70070303"
 
 ## <a name="disable-tls-10-and-tls-11"></a>停用 TLS 1.0 和 TLS 1.1
 
-如果您想要依照應用程式基礎來管理應用程式的 TLS 設定，您可以使用[強制使用 TLS 設定](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions)文件所提供的指導方針。 
+如果您想要依照應用程式基礎來管理應用程式的 TLS 設定，您可以使用[強制使用 TLS 設定](../configure-ssl-bindings.md#enforce-tls-versions)文件所提供的指導方針。 
 
 如果您想要停用 ASE 中所有應用程式的所有輸入 TLS 1.0 和 TLS 1.1 流量，您可以設定下列 **clusterSettings** 項目：
 

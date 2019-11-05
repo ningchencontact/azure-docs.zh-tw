@@ -9,19 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 13a1589a6cc6ed48f159f361ff69a5a3ba8f0f80
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387631"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499438"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教學課程：使用角色擷取內容相關的模式
 
 在本教學課程中，使用模式來從正確格式的語句範本擷取資料。 語句範本會使用[簡單的實體](luis-concept-entity-types.md#simple-entity)和[角色](luis-concept-roles.md)來擷取相關資料，例如原始位置和目的地位置。  使用模式時，需要針對意圖使用較少的範例語句。
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **在本教學課程中，您將了解如何：**
 
