@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676750"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482214"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>與 Windows 桌面用戶端連線
+# <a name="connect-with-the-windows-desktop-client"></a>與 Windows 桌面用戶端連接
 
-> 適用於：Windows 7 和 Windows 10
+> 適用于： Windows 7 和 Windows 10
 
 您可以使用 Windows 桌面用戶端，透過 Windows 7 或 Windows 10 存取裝置上的 Windows 虛擬桌面資源。
 
@@ -25,11 +25,11 @@ ms.locfileid: "71676750"
 
 ## <a name="install-the-windows-desktop-client"></a>安裝 Windows 桌面用戶端
 
-這些是您目前可以下載的用戶端：
+選擇符合您 Windows 版本的用戶端：
 
 - [Windows 64 位](https://go.microsoft.com/fwlink/?linkid=2068602)
-
-當用戶端可供更多版本的 Windows 使用時，我們會更新此清單。
+- [Windows 32-位預覽](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64 Preview](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 您可以為目前的使用者安裝用戶端，這不需要系統管理員許可權，或者您的系統管理員可以安裝和設定用戶端，讓裝置上的所有使用者都可以存取它。
 

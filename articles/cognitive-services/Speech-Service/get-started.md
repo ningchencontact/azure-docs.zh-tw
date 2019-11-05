@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 46ada91060aa095b7c041ff75abb6256f3d05853
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527638"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464690"
 ---
 # <a name="try-speech-services-for-free"></a>免費試用語音服務
 
@@ -69,7 +69,7 @@ ms.locfileid: "72527638"
 
 若要將語音服務資源 (免費或付費層) 新增至您的 Azure 帳戶：
 
-1. 使用您的 Microsoft 帳戶，登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 使用您的 Microsoft 帳戶，登入 [Azure 入口網站](https://portal.azure.com/) 。
 
 1. 選取入口網站左上方的 [建立資源]。
 
@@ -123,5 +123,5 @@ ms.locfileid: "72527638"
 完成個我們的任何一個 10 分鐘快速入門，或查看我們的 SDK 範例：
 
 > [!div class="nextstepaction"]
-> [快速入門：以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
+> [快速入門：以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
 > [語音 SDK 範例](speech-sdk.md#get-the-samples)

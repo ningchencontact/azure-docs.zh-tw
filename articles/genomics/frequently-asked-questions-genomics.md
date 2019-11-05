@@ -1,7 +1,7 @@
 ---
 title: 常見問題-常見問題
 titleSuffix: Microsoft Genomics
-description: 有關 Microsoft Genomics 之客戶常見問題的解答。
+description: 取得與使用 Microsoft Genomics 服務相關常見問題的解答，包括技術資訊、SLA 和計費。
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476429"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics：常見問題
 
@@ -22,7 +22,7 @@ ms.locfileid: "72249234"
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>如何? 在 Microsoft Genomics 上執行 GATK4 工作流程？
-在 Microsoft Genomics 服務的 config.xml 檔案中，將 process_name 指定為 `gatk4`。 請注意，您將以一般計費費率計費。
+在 Microsoft Genomics 服務的 config.xml 檔案中，指定要 `gatk4`的 process_name。 請注意，您將以一般計費費率計費。
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>什麼是適用於 Microsoft Genomics 的 SLA？
@@ -61,7 +61,7 @@ Microsoft Genomics 是根據每個工作流程所處理的 Gb 數來計費。 �
 
 支援以下參考：
 
- |參考資料              | `-pa/--process-args` 的值 |
+ |參考              | `-pa/--process-args` 的值 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

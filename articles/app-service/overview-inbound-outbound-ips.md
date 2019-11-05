@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: de98f972a43f3845d2a01b928d90283732ef4843
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 26033192ee841262345b0fc7f6aec76872379070
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329782"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470173"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service 中的輸入和輸出 IP 位址
 
@@ -32,7 +32,7 @@ ms.locfileid: "72329782"
 
 - 刪除應用程式，並在不同資源群組中重建。
 - 刪除資源群組和區域組合中的最後一個應用程式，並予以重建。
-- 刪除現有 SSL 繫結，例如在憑證更新期間 (請參閱[更新憑證](app-service-web-tutorial-custom-ssl.md#renew-certificates))。
+- 刪除現有的 SSL 系結，例如在憑證更新期間（請參閱[更新憑證](configure-ssl-certificate.md#renew-certificate)）。
 
 ## <a name="find-the-inbound-ip"></a>尋找輸入 IP
 
@@ -44,7 +44,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>取得靜態的輸入 IP
 
-有時候您可能會想讓應用程式使用專用的靜態 IP 位址。 若要取得靜態的輸入 IP 位址，您需要設定[以 IP 為基礎的 SSL 繫結](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain)。 如果您實際上不需要 SSL 功能來保護您的應用程式，您甚至可以上傳自我簽署憑證供此繫結使用。 在以 IP 為基礎的 SSL 繫結中，憑證會繫結至 IP 位址本身，因此 App Service 會佈建靜態 IP 位址來實現這一點。 
+有時候您可能會想讓應用程式使用專用的靜態 IP 位址。 若要取得靜態的輸入 IP 位址，您需要設定[以 IP 為基礎的 SSL 繫結](configure-ssl-bindings.md#secure-a-custom-domain)。 如果您實際上不需要 SSL 功能來保護您的應用程式，您甚至可以上傳自我簽署憑證供此繫結使用。 在以 IP 為基礎的 SSL 繫結中，憑證會繫結至 IP 位址本身，因此 App Service 會佈建靜態 IP 位址來實現這一點。 
 
 ## <a name="when-outbound-ips-change"></a>當輸出 IP 變更時
 
@@ -52,7 +52,7 @@ nslookup <app-name>.azurewebsites.net
 
 當您在較低層級 (**基本**、**標準**和**進階**) 和**進階 V2** 層級之間調整應用程式時，應用程式的該組輸出 IP 位址會變更。
 
-您可以尋找您的應用程式可以使用的所有可能輸出 IP 位址集合（不論定價層為何），方法是在 [Azure 入口網站] 的 [**屬性**] 分頁中，尋找 [`possibleOutboundIpAddresses`] 屬性或 [**其他輸出 ip 位址**] 欄位。 請參閱[尋找輸出 IP](#find-outbound-ips)。
+您可以在 Azure 入口網站**的 [內容**] 分頁中，尋找 [`possibleOutboundIpAddresses`] 屬性或 [**其他輸出 ip 位址**] 欄位，以尋找您的應用程式可以使用的所有可能輸出 ip 位址集合（不論定價層為何）。 請參閱[尋找輸出 IP](#find-outbound-ips)。
 
 ## <a name="find-outbound-ips"></a>尋找輸出 IP
 

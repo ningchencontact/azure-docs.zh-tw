@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784941"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466826"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>範例：使用 Bing 實體搜尋 API 建立自訂技能
 
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 請務必根據您註冊 Bing 實體搜尋 API 時所取得的金鑰，在 `key` 常數中輸入您自己的*金鑰*值。
 
-這個範例會在單一檔案中包含所有必要的程式碼，以方便您使用。 您可以找到該相同技能稍微多一點的結構化版本，以及[power 技能存放庫](https://aka.ms/entity-search-power-skill)中自訂技能的其他範例。
+這個範例會在單一檔案中包含所有必要的程式碼，以方便您使用。 您可以在[power 技能存放庫](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)中找到該相同技能的更結構化版本。
 
 當然，您可以將檔案從 `Function1.cs` 重新命名為 `BingEntitySearch.cs`。
 
@@ -476,10 +476,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>後續步驟
-恭喜！ 您已建立您的第一個自訂擴充程式。 現在您可以遵循相同的模式，新增自己的自訂功能。 
+恭喜！ 您已建立您的第一個自訂技能。 現在您可以遵循相同的模式，新增自己的自訂功能。 若要深入瞭解，請按一下下列連結。
 
-+ [電力技能：自訂技能的存放庫](https://aka.ms/powerskills)
-+ [將自訂技能新增至認知搜尋管線](cognitive-search-custom-skill-interface.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [電力技能：自訂技能的存放庫](https://github.com/Azure-Samples/azure-search-power-skills)
++ [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)

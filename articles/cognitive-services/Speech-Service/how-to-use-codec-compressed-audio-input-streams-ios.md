@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9a66e4ecf2230caad233a4eff12c0fadc95409d5
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45b45c6c9afd43b711fc548f470ce0f0acd04a0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803882"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464294"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>在 iOS 上搭配使用編解碼器壓縮的音訊輸入與語音 SDK
 
@@ -39,29 +39,29 @@ ms.locfileid: "71803882"
 若要建立此包裝函式程式庫，請先下載並安裝[GSTREAMER SDK](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg)。
 然後，下載包裝函式連結[庫](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper)的 Xcode 專案。
 在 Xcode 中開啟專案，並為**一般 IOS 裝置**目標建立它，這將無法針對特定目標建立。
-組建步驟會針對名稱為 `GStreamerWrapper.framework` 的所有必要架構，使用動態連結程式庫產生動態架構組合。
+組建步驟會針對名稱為 `GStreamerWrapper.framework`的所有必要架構，產生具有動態連結程式庫的動態架構組合。
 此架構必須包含在使用壓縮音訊串流搭配語音服務 SDK 的所有應用程式中。
 
 將下列設定套用至您的 Xcode 專案，以完成此動作：
 
-1. 將您剛才建立的 @no__t 0 和認知服務語音 SDK 的架構（您可以從[這裡](https://aka.ms/csspeech/iosbinary)下載）複製到包含範例專案的目錄。
+1. 將您剛才建立的 `GStreamerWrapper.framework` 和認知服務語音 SDK 的架構（您可以從[這裡](https://aka.ms/csspeech/iosbinary)下載）複製到包含範例專案的目錄。
 1. 調整 [*專案設定*] 中架構的路徑。
-    1. 在 [內嵌的二進位檔] 標頭下方的 [一般] 索引標籤中，新增 SDK 程式庫作為架構：**新增內嵌的二進位**檔  > **新增其他 ...** > 流覽至您選擇的目錄，並選取這兩個架構。
+    1. 在**內嵌二進位檔案**標題底下的 [**一般**] 索引標籤中，將 SDK 程式庫新增為架構：**新增內嵌的二進位**檔 > **新增其他 ...** > 流覽至您選擇的目錄，並選取這兩個架構。
     1. 移至 [組建設定] 索引標籤，然後啟動 [所有] 設定。
 1. 將目錄 `$(SRCROOT)/..` 新增至 [搜尋路徑] 標題下方的 [架構搜尋路徑]。
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>使用編解碼器壓縮音訊輸入的範例程式碼
 
 若要以壓縮的音訊格式串流到語音服務，請建立 `SPXPullAudioInputStream` 或 `SPXPushAudioInputStream`。
-下列程式碼片段示範如何從 `SPXPushAudioInputStream` 的實例建立 `SPXAudioConfiguration`，並指定 mp3 做為資料流程的壓縮格式。
+下列程式碼片段示範如何從 `SPXPushAudioInputStream`的實例建立 `SPXAudioConfiguration`，並指定 mp3 做為資料流程的壓縮格式。
 
 [!code-objectivec[Set up the input stream](~/samples-cognitive-services-speech-sdk/samples/objective-c/ios/compressed-streams/CompressedStreamsSample/CompressedStreamsSample/ViewController.m?range=66-77&highlight=2-11)]
 
-下一個程式碼片段顯示如何從檔案讀取壓縮的音訊資料，並抽出到 `SPXPushAudioInputStream`。
+下一個程式碼片段說明如何從檔案中讀取壓縮的音訊資料，並抽出到 `SPXPushAudioInputStream`中。
 
 [!code-objectivec[Push compressed audio data into the stream](~/samples-cognitive-services-speech-sdk/samples/objective-c/ios/compressed-streams/CompressedStreamsSample/CompressedStreamsSample/ViewController.m?range=105-151&highlight=19-44)]
 
 ## <a name="next-steps"></a>後續步驟
 
-- [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-- [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)
+- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [瞭解如何以 JAVA 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

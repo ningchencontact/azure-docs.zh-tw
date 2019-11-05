@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 76b4f721135c6e34eebdc20268a76e84d86b0637
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575676"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494526"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 叢集已知問題
 
@@ -32,7 +32,7 @@ ms.locfileid: "69575676"
 
         yarn application –list
 
-    如果使用 Livy 互動式工作階段啟動工作時沒有明確指定名稱，則預設作業名稱會是 Livy。 針對[Jupyter Notebook](https://jupyter.org/)啟動的 Livy 會話, 作業名稱的開頭為`remotesparkmagics_*`。
+    如果使用 Livy 互動式工作階段啟動工作時沒有明確指定名稱，則預設作業名稱會是 Livy。 針對[Jupyter Notebook](https://jupyter.org/)啟動的 Livy 會話，作業名稱會以 `remotesparkmagics_*`開頭。
 
 3. 執行下列命令以刪除這些作業。
 
@@ -91,7 +91,7 @@ HDInsight Spark 叢集不支援 Spark-Phoenix 連接器。
 
 若要防止日後再發生此錯誤，您必須遵循一些最佳作法：
 
-* 務必讓 Notebook 保持小型規模。 會傳回到 Jupyter 的任何 Spark 作業輸出皆會保存在 Notebook 中。  一般來說, Jupyter 的最佳做法是避免`.collect()`在大型 RDD 或資料框架上執行。相反地, 如果您想要查看 RDD 的內容, 請`.take()`考慮執行或`.sample()` , 讓您的輸出不會變得太大。
+* 務必讓 Notebook 保持小型規模。 會傳回到 Jupyter 的任何 Spark 作業輸出皆會保存在 Notebook 中。  一般來說，Jupyter 的最佳做法是避免在大型 RDD 或資料框架上執行 `.collect()`;相反地，如果您想要查看 RDD 的內容，請考慮執行 `.take()` 或 `.sample()`，讓您的輸出不會變得太大。
 * 此外，當您儲存 Notebook 時，請清除所有輸出儲存格以減少大小。
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Notebook 的初始啟動比預期耗時
@@ -122,13 +122,13 @@ HDInsight Spark 叢集不支援 Spark-Phoenix 連接器。
 ### <a name="scenarios"></a>案例
 
 * [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 
-* [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
+* [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

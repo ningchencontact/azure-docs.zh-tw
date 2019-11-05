@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077030"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498172"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>為 Azure HDInsight 規劃虛擬網路
 
@@ -71,7 +71,7 @@ ms.locfileid: "71077030"
 
     * 網路安全性群組
 
-        將`RESOURCEGROUP`取代為包含虛擬網路的資源組名，然後輸入命令：
+        將 `RESOURCEGROUP` 取代為包含虛擬網路的資源組名，然後輸入命令：
     
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
@@ -88,7 +88,7 @@ ms.locfileid: "71077030"
 
     * 使用者定義的路由
 
-        將`RESOURCEGROUP`取代為包含虛擬網路的資源組名，然後輸入命令：
+        將 `RESOURCEGROUP` 取代為包含虛擬網路的資源組名，然後輸入命令：
 
         ```powershell
         Get-AzRouteTable -ResourceGroupName "RESOURCEGROUP"
@@ -136,7 +136,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 2. 將虛擬網路設定為使用自訂 DNS 伺服器。
 
-3. 尋找虛擬網路的 Azure 指派 DNS 尾碼。 此值與 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` 類似。 如需尋找 DNS 尾碼的相關資訊，請參閱[範例：自訂 DNS](hdinsight-create-virtual-network.md#example-dns) 一節。
+3. 尋找虛擬網路的 Azure 指派 DNS 尾碼。 此值與 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` 類似。 如需尋找 DNS 尾碼的資訊，請參閱[範例：自訂 DNS](hdinsight-create-virtual-network.md#example-dns) 一節。
 
 4. 設定 DNS 伺服器之間的轉送。 設定取決於遠端網路類型。
 
@@ -148,7 +148,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
          * 將所有其他要求轉送至內部部署 DNS 伺服器。 內部部署 DNS 會處理所有其他名稱解析要求，即使是網際網路資源 (例如 Microsoft.com) 的要求也是一樣。
 
-     * __內部部署 DNS__：將虛擬網路 DNS 尾碼的要求轉送至自訂 DNS 伺服器。 自訂 DNS 伺服器接著會轉送至 Azure 遞迴解析程式。
+     * 內部部署 DNS：將虛擬網路 DNS 尾碼的要求轉送至自訂 DNS 伺服器。 自訂 DNS 伺服器接著會轉送至 Azure 遞迴解析程式。
 
        此設定會將完整網域名稱包含虛擬網路 DNS 尾碼的要求路由傳送至自訂 DNS 伺服器。 內部部署 DNS 伺服器會處理所有其他要求 (即使是針對公用網際網路位址)。
 
@@ -174,7 +174,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 1. 若要探索 HDInsight 叢集節點的內部完整網域名稱 (FQDN)，請使用下列其中一種方法：
 
-    將`RESOURCEGROUP`取代為包含虛擬網路的資源組名，然後輸入命令：
+    將 `RESOURCEGROUP` 取代為包含虛擬網路的資源組名，然後輸入命令：
 
     ```powershell
     $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
@@ -221,7 +221,7 @@ HDInsight 是受控服務，針對來自 VNET 的傳入和傳出流量，需要�
 
 1. 識別您要用於 HDInsight 的 Azure 區域。
 
-2. 識別 HDInsight 所需的 IP 位址。 如需詳細資訊，請參閱 [HDInsight 管理 IP 位址](hdinsight-management-ip-addresses.md)。
+2. 識別 HDInsight 所需的 IP 位址。 如需詳細資訊，請參閱[HDInsight 管理 IP 位址](hdinsight-management-ip-addresses.md)。
 
 3. 建立或修改您打算安裝 HDInsight 之子網的網路安全性群組。
 
@@ -248,6 +248,10 @@ HDInsight 是受控服務，針對來自 VNET 的傳入和傳出流量，需要�
 如需特定服務的連接埠清單，請參閱 [HDInsight 上 Apache Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
 
 如需虛擬設備防火牆規則的詳細資訊，請參閱[虛擬設備案例](../virtual-network/virtual-network-scenario-udr-gw-nva.md)文件。
+
+## <a name="load-balancing"></a>負載平衡
+
+當您建立 HDInsight 叢集時，也會建立負載平衡器。 此負載平衡器的類型位於具有特定條件約束的[基本 SKU 層級](../load-balancer/load-balancer-overview.md#skus)。 其中一個條件約束是，如果您在不同的區域中有兩個虛擬網路，您就無法連線至基本負載平衡器。 如需詳細資訊，請參閱[虛擬網路常見問題：全域 vnet 對等互連的條件約束](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。
 
 ## <a name="next-steps"></a>後續步驟
 

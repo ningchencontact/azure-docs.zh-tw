@@ -8,34 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558839"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468625"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
 您剛開始探索語音服務的功能嗎？ 您的應用程式是否要實作新功能？ 開發人員可遵循以下建議來取得協助。
 
 > [!div class="checklist"]
-> * 掌握「Azure 認知服務」  的最新發展，或尋找與「語音服務」  相關的最新消息。
+> * 掌握「Azure 認知服務」的最新發展，或尋找與「語音服務」相關的最新消息。
 > * 版本資訊包含所有版本的相關資訊。
 > * 搜尋以查看社群是否已經在討論您的問題，或者您想要實作的功能是否已有現有文件。
-> * 如果您找不到滿意的答案，請在 Stack Overflow  上發問。
-> * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub  問題。
-> * 在「使用者心聲論壇」  中搜尋解決方案。
+> * 如果您找不到滿意的答案，請在 Stack Overflow 上發問。
+> * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub 問題。
+> * 在「使用者心聲論壇」中搜尋解決方案。
 
 ## <a name="stay-informed"></a>掌握最新資訊
 
-認知服務的相關消息會收集在[認知服務部落格](https://azure.microsoft.com/blog/topics/cognitive-services/)中。 如需語音服務的最新資訊, 請追蹤[語音服務的 blog](https://azure.microsoft.com/blog/tag/speech-service/)。
+認知服務的相關消息會收集在[認知服務部落格](https://azure.microsoft.com/blog/topics/cognitive-services/)中。 如需語音服務的最新資訊，請追蹤[語音服務的 blog](https://azure.microsoft.com/blog/tag/speech-service/)。
 
 ## <a name="release-notes"></a>版本資訊
 
-當有新版本可用時, 就會立即更新[版本](https://aka.ms/csspeech/whatsnew)資訊。 這些附注包含新功能、改進和 bug 修正的相關資訊。
+當有新版本可用時，就會立即更新[版本](https://aka.ms/csspeech/whatsnew)資訊。 這些附注包含新功能、改進和 bug 修正的相關資訊。
 
 ## <a name="search"></a>搜尋
 
@@ -64,14 +64,14 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 制訂問題時，請使用下列其中一個標記：
 
-|元件/區域  |Tags  |
+|元件/區域  |標記  |
 |---------|---------|
 |語音辨識 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |語音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |語音翻譯 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |語音意圖 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |一般語音 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| 語音優先虛擬助理 (預覽) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+|語音助理 | [[microsoft-認知 + 虛擬助理 + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  
@@ -80,12 +80,12 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 
-範例通常會發佈為開放原始碼。 如有問題，請在各自的 GitHub 存放庫中建立「問題」  。 您也可以提交提取要求。 下列清單包含範例存放庫的連結：
+範例通常會發佈為開放原始碼。 如有問題，請在各自的 GitHub 存放庫中建立「問題」。 您也可以提交提取要求。 下列清單包含範例存放庫的連結：
 
 * [語音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [語音裝置 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-您可以建立 bug 報告、功能要求, 或詢問一般問題並分享最佳作法。 針對 Bug 報告，請依照所提供的範本進行操作：
+您可以建立 bug 報告、功能要求，或詢問一般問題並分享最佳作法。 針對 Bug 報告，請依照所提供的範本進行操作：
 
 **描述 Bug**
 
@@ -114,7 +114,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 **額外內容**
 
  - 錯誤訊息、記錄資訊、堆疊追蹤...
- - 如果您針對特定的服務互動回報錯誤, 請報告事件的 SessionId 和時間 (包括時區)。 在您收到的所有回呼/事件中都會回報 SessionId。
+ - 如果您針對特定的服務互動回報錯誤，請報告事件的 SessionId 和時間（包括時區）。 在您收到的所有回呼/事件中都會回報 SessionId。
  - 任何其他額外資訊
 
 

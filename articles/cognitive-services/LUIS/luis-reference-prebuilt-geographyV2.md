@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 04bc3019a55920351b0e91c87e63b8309d94e34c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 7a269f93820a6029370490448f02038f5aa3eb3e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677616"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464898"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 GeographyV2 預先建置實體
 預建 geographyV2 實體可偵測位置。 因為此實體已經定型，所以您不需要將包含 GeographyV2 的範例語句加入應用程式意圖。 英文[文化特性](luis-reference-prebuilt-entities.md)支援 GeographyV2 實體。
@@ -24,7 +24,7 @@ ms.locfileid: "71677616"
 ## <a name="subtypes"></a>子類型
 地理位置都有子類型：
 
-|Subtype|用途|
+|Subtype|目的|
 |--|--|
 |`poi`|感興趣的點|
 |`city`|城市名稱|
@@ -35,162 +35,176 @@ ms.locfileid: "71677616"
 
 ## <a name="resolution-for-geographyv2-entity"></a>GeographyV2 實體解析
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
+系統會針對查詢傳回下列實體物件：
+
+`Carol is visiting the sphinx in gizah egypt in africa before heading to texas.`
+
+#### <a name="v3-responsetabv3"></a>[V3 回應](#tab/V3)
+
+下列 JSON 會將 `verbose` 參數設定為 `false`：
+
+```json
+"entities": {
+    "geographyV2": [
+        {
+            "value": "the sphinx",
+            "type": "poi"
+        },
+        {
+            "value": "gizah",
+            "type": "city"
+        },
+        {
+            "value": "egypt",
+            "type": "countryRegion"
+        },
+        {
+            "value": "africa",
+            "type": "continent"
+        },
+        {
+            "value": "texas",
+            "type": "state"
+        }
+    ]
+}
+```
+
+在前面的 JSON 中，`poi` 是**感興趣點**的縮寫。
+
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 詳細回應](#tab/V3-verbose)
+
+下列 JSON 會將 `verbose` 參數設定為 `true`：
+
+```json
+"entities": {
+    "geographyV2": [
+        {
+            "value": "the sphinx",
+            "type": "poi"
+        },
+        {
+            "value": "gizah",
+            "type": "city"
+        },
+        {
+            "value": "egypt",
+            "type": "countryRegion"
+        },
+        {
+            "value": "africa",
+            "type": "continent"
+        },
+        {
+            "value": "texas",
+            "type": "state"
+        }
+    ],
+    "$instance": {
+        "geographyV2": [
+            {
+                "type": "builtin.geographyV2.poi",
+                "text": "the sphinx",
+                "startIndex": 18,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.geographyV2.city",
+                "text": "gizah",
+                "startIndex": 32,
+                "length": 5,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.geographyV2.countryRegion",
+                "text": "egypt",
+                "startIndex": 38,
+                "length": 5,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.geographyV2.continent",
+                "text": "africa",
+                "startIndex": 47,
+                "length": 6,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.geographyV2.state",
+                "text": "texas",
+                "startIndex": 72,
+                "length": 5,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### <a name="v2-responsetabv2"></a>[V2 回應](#tab/V2)
 
 下列範例示範如何解析 **builtin.geographyV2** 實體。
 
 ```json
-{
-    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
-    "topScoringIntent": {
-        "intent": "None",
-        "score": 0.8008023
+"entities": [
+    {
+        "entity": "the sphinx",
+        "type": "builtin.geographyV2.poi",
+        "startIndex": 18,
+        "endIndex": 27
     },
-    "intents": [
-        {
-            "intent": "None",
-            "score": 0.8008023
-        }
-    ],
-    "entities": [
-        {
-            "entity": "the sphinx",
-            "type": "builtin.geographyV2.poi",
-            "startIndex": 18,
-            "endIndex": 27
-        },
-        {
-            "entity": "gizah",
-            "type": "builtin.geographyV2.city",
-            "startIndex": 32,
-            "endIndex": 36
-        },
-        {
-            "entity": "egypt",
-            "type": "builtin.geographyV2.countryRegion",
-            "startIndex": 38,
-            "endIndex": 42
-        },
-        {
-            "entity": "africa",
-            "type": "builtin.geographyV2.continent",
-            "startIndex": 47,
-            "endIndex": 52
-        },
-        {
-            "entity": "texas",
-            "type": "builtin.geographyV2.state",
-            "startIndex": 72,
-            "endIndex": 76
-        },
-        {
-            "entity": "carol",
-            "type": "builtin.personName",
-            "startIndex": 0,
-            "endIndex": 4
-        }
-    ]
-} 
-```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
-
-下列 JSON 是將 `verbose` 參數設定為 `false`：
-
-```json
-{
-    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
-    "prediction": {
-        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.5115521
-            }
-        },
-        "entities": {
-            "geographyV2": [
-                "the sphinx",
-                "gizah",
-                "egypt",
-                "africa",
-                "texas"
-            ]
-        }
+    {
+        "entity": "gizah",
+        "type": "builtin.geographyV2.city",
+        "startIndex": 32,
+        "endIndex": 36
+    },
+    {
+        "entity": "egypt",
+        "type": "builtin.geographyV2.countryRegion",
+        "startIndex": 38,
+        "endIndex": 42
+    },
+    {
+        "entity": "africa",
+        "type": "builtin.geographyV2.continent",
+        "startIndex": 47,
+        "endIndex": 52
+    },
+    {
+        "entity": "texas",
+        "type": "builtin.geographyV2.state",
+        "startIndex": 72,
+        "endIndex": 76
+    },
+    {
+        "entity": "carol",
+        "type": "builtin.personName",
+        "startIndex": 0,
+        "endIndex": 4
     }
-}
+]
 ```
-
-下列 JSON 是將 `verbose` 參數設定為 `true`：
-
-```json
-{
-    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
-    "prediction": {
-        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.5115521
-            }
-        },
-        "entities": {
-            "geographyV2": [
-                "the sphinx",
-                "gizah",
-                "egypt",
-                "africa",
-                "texas"
-            ],
-            "$instance": {
-                "geographyV2": [
-                    {
-                        "type": "builtin.geographyV2",
-                        "text": "the sphinx",
-                        "startIndex": 18,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    },
-                    {
-                        "type": "builtin.geographyV2",
-                        "text": "gizah",
-                        "startIndex": 32,
-                        "length": 5,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    },
-                    {
-                        "type": "builtin.geographyV2",
-                        "text": "egypt",
-                        "startIndex": 38,
-                        "length": 5,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    },
-                    {
-                        "type": "builtin.geographyV2",
-                        "text": "africa",
-                        "startIndex": 47,
-                        "length": 6,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    },
-                    {
-                        "type": "builtin.geographyV2",
-                        "text": "texas",
-                        "startIndex": 72,
-                        "length": 5,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## <a name="next-steps"></a>後續步驟

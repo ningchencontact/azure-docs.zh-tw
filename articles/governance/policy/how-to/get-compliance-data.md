@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053269"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480263"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的相容性資料
 
@@ -29,7 +29,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 
-透過 `PolicyStates` 和 `PolicyEvents` 作業可在 `Microsoft.PolicyInsights`「資源提供者」中取得完成的評估週期結果。 如需 Azure 原則 Insights REST API 作業的詳細資訊，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)。
+透過 `Microsoft.PolicyInsights` 和 `PolicyStates` 作業可在 `PolicyEvents`「資源提供者」中取得完成的評估週期結果。 如需 Azure 原則 Insights REST API 作業的詳細資訊，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)。
 
 下列各種事件都會導致評估指派的原則和計畫：
 
@@ -52,17 +52,17 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
 - `{YourRG}` - 以您的資源群組名稱取代
-- `{subscriptionId}` - 以您的訂用帳戶 ID 取代
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
-- Subscription
+- 訂用帳戶
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- Resource group
+- 資源群組
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -87,12 +87,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 在指派中，如果資源沒有遵循原則或方案規則，則該資源**不符合規範**。
 下表顯示不同的原則效果如何與結果合規性狀態的條件評估搭配使用：
 
-| 資源狀態 | 影響 | 原則評估 | 合規性狀態 |
+| 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
 | --- | --- | --- | --- |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 是 | 不相容 |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 否 | 相容 |
-| 新功能 | 稽核、AuditIfNotExist\* | 是 | 不相容 |
-| 新功能 | 稽核、AuditIfNotExist\* | 否 | 相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
+| 新增 | 稽核、AuditIfNotExist\* | True | 不相容 |
+| 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。
 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
@@ -131,9 +131,16 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 [資源合規性] 索引標籤上的資源清單會顯示目前指派的現有資源評估狀態。 此索引標籤預設為 [不符合規範]，但您可以進行篩選。
 由要求所觸發來建立資源的事件 (附加、稽核、拒絕、部署) 會顯示在 [事件] 索引標籤底下。
 
+> [!NOTE]
+> 針對 AKS 引擎原則，顯示的資源是資源群組。
+
 ![Azure 原則合規性事件的範例](../media/getting-compliance-data/compliance-events.png)
 
-以滑鼠右鍵按一下您想要收集更多詳細資料的事件資料列，然後選取 [顯示活動記錄]。 活動記錄頁面隨即開啟，並會預先篩選至顯示指派和事件詳細資料的搜尋結果。 活動記錄檔提供有關這些事件的其他內容和資訊。
+針對[資源提供者模式](../concepts/definition-structure.md#resource-provider-modes)資源，請在 [**資源相容性**] 索引標籤上選取資源，或以滑鼠右鍵按一下資料列，然後選取 [**查看相容性詳細資料**]，以開啟元件合規性詳細資料 此頁面也提供索引標籤，以查看指派給此資源、事件、元件事件和變更歷程記錄的原則。
+
+![Azure 原則元件合規性詳細資料的範例](../media/getting-compliance-data/compliance-components.png)
+
+回到 [資源合規性] 頁面上，以滑鼠右鍵按一下您想要收集更多詳細資料的事件列，然後選取 [**顯示活動記錄**]。 活動記錄頁面隨即開啟，並會預先篩選至顯示指派和事件詳細資料的搜尋結果。 活動記錄檔提供有關這些事件的其他內容和資訊。
 
 ![Azure 原則合規性活動記錄的範例](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -240,7 +247,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-### <a name="view-events"></a>檢視活動
+### <a name="view-events"></a>檢視事件
 
 當建立或更新資源時，會產生原則評估結果。 結果稱為_原則事件_。 您可以使用下列 URI 來檢視與訂用帳戶建立關聯的最新原則事件。
 
@@ -381,7 +388,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-您可以透過 Azure PowerShell Cmdlet `Get-AzADUser` 使用 [PrincipalOid] 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}** 。
+您可以透過 Azure PowerShell Cmdlet  **使用 [PrincipalOid]** `Get-AzADUser` 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}** 。
 
 ```azurepowershell-interactive
 PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName

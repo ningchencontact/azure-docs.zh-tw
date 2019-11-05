@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: bcf66515fe24dda0d060a0b5c290bd05e46bf9d7
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965683"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498468"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -263,14 +263,14 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 |                                  | **使用服務管理金鑰的伺服器端**     | **使用客戶管理的金鑰的伺服器端**             | **用戶端使用用戶端管理的金鑰**      |
 | **AI 和 Machine Learning**      |                    |                    |                    |
 | Azure 搜尋服務                     | 是                | 預覽            | -                  |
-| Azure Machine Learning 服務   | 是                | -                  | -                  |
+| Azure Machine Learning   | 是                | -                  | -                  |
 | Azure Machine Learning Studio    | 是                | 預覽，RSA 2048 位元 | -               |
 | Power BI                         | 是                | 預覽，RSA 2048 位元 | -                  |
 | **分析**                    |                    |                    |                    |
 | Azure 串流分析           | 是                | -                  | -                  |
 | 事件中樞                       | 是                | 預覽，所有 RSA 長度。 | -                  |
 | Azure Analysis Services          | 是                | -                  | -                  |
-| Azure Data Catalog               | 是                | -                  | -                  |
+| Azure 資料目錄               | 是                | -                  | -                  |
 | Azure HDInsight 上的 Apache Kafka  | 是                | 所有 RSA 長度。   | -                  |
 | Azure 資料總管              | 是                | -                  | -                  |
 | Azure Data Factory               | 是                | 是                | -                  |
@@ -297,13 +297,13 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | Azure Repos                      | 是                | -                  | 是                |
 | **身分識別**                     |                    |                    |                    |
 | Azure Active Directory           | 是                | -                  | -                  |
-| Active Directory Domain Services | 是          | 是，RSA 2048 位元  | -                  |
+| Azure Active Directory Domain Services | 是          | 是，RSA 2048 位元  | -                  |
 | **整合**                  |                    |                    |                    |
 | 服務匯流排                      | 是                | -                  | 是                |
-| 事件格線                       | 是                | -                  | -                  |
+| Event Grid                       | 是                | -                  | -                  |
 | API 管理                   | 是                | -                  | -                  |
 | **IoT 服務**                 |                    |                    |                    |
-| IoT Hub                          | 是                | -                  | 是                |
+| IoT 中樞                          | 是                | -                  | 是                |
 | **管理與治理**    |                    |                    |                    |
 | Azure Site Recovery              | 是                | 是，RSA 2048 位元  | 是                |
 | **媒介**                        |                    |                    |                    |
@@ -319,7 +319,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | 封存儲存體                  | 是                | 是，RSA 2048 位元  | -                  |
 | StorSimple                       | 是                | 是，RSA 2048 位元  | 是                |
 | Azure 備份                     | 是                | -                  | 是                |
-| Data Box                         | 是                | -                  | 是                |
+| 資料箱                         | 是                | -                  | 是                |
 
 ## <a name="conclusion"></a>結論
 

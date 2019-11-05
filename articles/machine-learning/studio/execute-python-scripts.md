@@ -1,6 +1,6 @@
 ---
 title: 執行 Python 機器學習服務指令碼
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 瞭解如何使用 [執行 Python 腳本] 模組，在 Machine Learning Studio （傳統）實驗和 web 服務中使用 Python 程式碼。
 services: machine-learning
 ms.service: machine-learning
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 1be367191ab042611f45d1f773df0d499400c500
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053779"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493000"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
+# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>以 Azure Machine Learning Studio 執行 Python 機器學習服務腳本（傳統）
 
 Python 是許多資料科學家工具櫃中的重要工具。 它用於一般機器學習工作流程的每個階段，包括資料探索、功能解壓縮、模型定型和驗證，以及部署。
 
-本文說明如何使用 [執行 Python 腳本] 模組，在您的 Azure Machine Learning Studio 實驗和 web 服務中使用 Python 程式碼。
+本文說明如何使用 [執行 Python 腳本] 模組，在您的 Azure Machine Learning Studio （傳統）實驗和 web 服務中使用 Python 程式碼。
 
 ## <a name="using-the-execute-python-script-module"></a>使用執行 Python 腳本模組
 
-在 Studio 中，Python 的主要介面是透過[執行 Python 腳本][execute-python-script]模組。 它最多接受三個輸入，並產生最多兩個輸出，類似于[執行 R 腳本][execute-r-script]模組。 透過稱為 `azureml_main`的特殊命名進入點函式，在參數方塊中輸入 Python 程式碼。
+Studio （傳統）中的 Python 主要介面是透過[執行 Python 腳本][execute-python-script]模組。 它最多接受三個輸入，並產生最多兩個輸出，類似于[執行 R 腳本][execute-r-script]模組。 透過稱為 `azureml_main`的特殊命名進入點函式，在參數方塊中輸入 Python 程式碼。
 
 ![執行 Python 腳本模組](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -53,7 +53,7 @@ Python 模組的輸入會公開為 Pandas 資料框架。 `azureml_main` 函數�
 
 ## <a name="translation-of-input-and-output-data-types"></a>輸入和輸出資料類型的轉譯
 
-Studio 資料集與 Panda 資料框架不同。 因此，Studio 中的輸入資料集會轉換為 Pandas 資料框架，而輸出資料框架會轉換回 Studio 資料集。 在這個轉換過程中，也會執行下列翻譯：
+Studio 資料集與 Panda 資料框架不同。 因此，傳統版本 Studio 中的輸入資料集會轉換為 Pandas 資料框架，而輸出資料框架會轉換回 Studio （傳統）資料集。 在這個轉換過程中，也會執行下列翻譯：
 
  **Python 資料類型** | **Studio 轉譯程式** |
 | --- | --- |
@@ -67,9 +67,9 @@ Studio 資料集與 Panda 資料框架不同。 因此，Studio 中的輸入資�
 
 ## <a id="import-modules"></a>匯入現有的 Python 腳本模組
 
-用來執行 Python 的後端是以[Anaconda](https://www.anaconda.com/distribution/)為基礎，這是廣泛使用的科學 Python 散發套件。 其中包含以資料為中心的工作負載中最常見的 Python 套件200。 Studio 目前不支援使用封裝管理系統（例如 Pip 或 Conda）來安裝和管理外部程式庫。  如果您發現需要併入其他程式庫，請使用下列案例做為指南。
+用來執行 Python 的後端是以[Anaconda](https://www.anaconda.com/distribution/)為基礎，這是廣泛使用的科學 Python 散發套件。 其中包含以資料為中心的工作負載中最常見的 Python 套件200。 傳統版本的 Studio 目前不支援使用封裝管理系統（例如 Pip 或 Conda）來安裝和管理外部程式庫。  如果您發現需要併入其他程式庫，請使用下列案例做為指南。
 
-常見的使用案例是將現有的 Python 腳本納入 Studio 實驗中。 [執行 Python 腳本][execute-python-script]模組接受在第三個輸入埠包含 Python 模組的 zip 檔案。 該檔案會由執行架構在執行階段解壓縮，且內容會新增至 Python 解譯器的程式庫路徑。 然後 `azureml_main` 進入點函式可以直接匯入這些模組。 
+常見的使用案例是將現有的 Python 腳本納入傳統版本的 Studio 實驗中。 [執行 Python 腳本][execute-python-script]模組接受在第三個輸入埠包含 Python 模組的 zip 檔案。 該檔案會由執行架構在執行階段解壓縮，且內容會新增至 Python 解譯器的程式庫路徑。 然後 `azureml_main` 進入點函式可以直接匯入這些模組。 
 
 作為範例，請考量包含簡單 “Hello, World” 函式的 Hello.py 檔案。
 
@@ -79,7 +79,7 @@ Studio 資料集與 Panda 資料框架不同。 因此，Studio 中的輸入資�
 
 ![包含使用者定義 Python 程式碼的 Zip 檔案](./media/execute-python-scripts/figure5.png)
 
-將 zip 檔案當做資料集上傳至 Studio。 然後，藉由將您的 Python 程式碼附加至 [**執行 Python 腳本**] 模組的第三個輸入埠，來建立並執行使用該檔案的實驗，如下圖所示。
+將 zip 檔案當做資料集上傳至傳統版本的 Studio。 然後，藉由將您的 Python 程式碼附加至 [**執行 Python 腳本**] 模組的第三個輸入埠，來建立並執行使用該檔案的實驗，如下圖所示。
 
 ![使用 Hello .zip 做為執行 Python 腳本模組輸入的範例實驗](./media/execute-python-scripts/figure6a.png)
 
@@ -94,7 +94,7 @@ Studio 資料集與 Panda 資料框架不同。 因此，Studio 中的輸入資�
 您可以使用下列步驟來存取儲存在 Azure Blob 儲存體帳戶中的資料：
 
 1. 在本機下載[適用于 Python 的 Azure Blob 儲存體套件](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip)。
-1. 將 zip 檔案以資料集的形式上傳至您的 Studio 工作區。
+1. 將 zip 檔案上傳至您的 Studio （傳統）工作區做為資料集。
 1. 使用 `protocol='http'` 建立您的 BlobService 物件
 
 ```
@@ -141,11 +141,11 @@ block_blob_service = BlockBlobService(account_name='account_name', account_key='
 
 ![使用 Python 程式碼視覺化範例實驗的繪圖](./media/execute-python-scripts/figure-v2-9b.png)
 
-將多個圖形儲存成不同的影像，是可行的。 Studio 執行時間會挑選所有影像，並串連它們以進行視覺效果。
+將多個圖形儲存成不同的影像，是可行的。 傳統版本的 Studio 執行時間會挑選所有影像，並串連它們以進行視覺效果。
 
 ## <a name="advanced-examples"></a>進階範例
 
-安裝在 Studio 中的 Anaconda 環境包含常見的套件，例如 NumPy、SciPy 和 Scikits-learn。 這些封裝可以有效地用於機器學習管線中的資料處理。
+安裝在傳統版本 Studio 中的 Anaconda 環境包含常見的套件，例如 NumPy、SciPy 和 Scikits-learn。 這些封裝可以有效地用於機器學習管線中的資料處理。
 
 例如，下列實驗和腳本說明如何在 Scikits-learn 中使用集團學習工具-瞭解如何計算資料集的功能重要性分數。 分數可以用來執行受監督的功能選取，然後再送到另一個模型。
 
@@ -153,7 +153,7 @@ block_blob_service = BlockBlobService(account_name='account_name', account_key='
 
 ![以分數排列功能的函數](./media/execute-python-scripts/figure8.png)
 
-然後下列實驗會在 Azure Machine Learning Studio 中的 “Pima Indian Diabetes” 資料集計算及傳回功能的重要性分數：
+接著，下列實驗會計算並傳回傳統 Azure Machine Learning Studio 版本中 "Pima indian diabetes 印度糖尿病" 資料集的特性重要性分數：
 
 ![使用 Python 進行實驗以排名 Pima indian diabetes 印度糖尿病資料集的功能](./media/execute-python-scripts/figure9a.png)
 
@@ -173,7 +173,7 @@ Python 模組目前不支援 IDE 功能，例如 intellisense 和偵錯。 此�
 
 ### <a name="single-data-frame-output"></a>單一資料框架輸出
 
-Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。 目前無法直接將任意 Python 物件（例如訓練模型）傳回給 Studio 執行時間。 如同[執行 R 腳本][execute-r-script]（具有相同的限制），在許多情況下，可能會將物件 pickle 到位元組陣列，然後在資料框架內傳回它。
+Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。 目前無法直接將任意 Python 物件（例如訓練模型）傳回 Studio （傳統）執行時間。 如同[執行 R 腳本][execute-r-script]（具有相同的限制），在許多情況下，可能會將物件 pickle 到位元組陣列，然後在資料框架內傳回它。
 
 ### <a name="inability-to-customize-python-installation"></a>無法自訂 Python 安裝
 

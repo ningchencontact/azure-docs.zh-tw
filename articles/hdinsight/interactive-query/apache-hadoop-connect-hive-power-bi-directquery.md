@@ -1,5 +1,5 @@
 ---
-title: 在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化
+title: 請參閱在 Azure HDInsight 中使用 Power BI 的互動式查詢 Hive 資料
 description: 使用 Microsoft Power BI 將 Azure HDInsight 的互動式查詢 Hive 資料視覺化
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123024"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467145"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>在 HDInsight 中使用直接查詢以 Microsoft Power BI 將互動式查詢 Apache Hive 資料視覺化
 
-本文說明如何將 Microsoft Power BI 連線至 Azure HDInsight 互動式查詢叢集，然後使用直接查詢將 Apache Hive 資料視覺化。 提供的範例會將`hivesampletable` Hive 資料表中的資料載入 Power BI。 `hivesampletable` Hive 資料表包含某些行動電話使用量資料。 然後您可在世界地圖上繪製使用量資料：
+本文說明如何將 Microsoft Power BI 連線至 Azure HDInsight 互動式查詢叢集，然後使用直接查詢將 Apache Hive 資料視覺化。 提供的範例會將 `hivesampletable` Hive 資料表中的資料載入 Power BI。 `hivesampletable` Hive 資料表包含某些行動電話使用量資料。 然後您可在世界地圖上繪製使用量資料：
 
 ![HDInsight Power BI 地圖報告](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-您可以利用 [Apache Hive ODBC 驅動程式](../hadoop/apache-hadoop-connect-hive-power-bi.md)，透過 Power BI Desktop 中的一般 ODBC 連接器執行匯入作業。 不過，對於 BI 工作負載則不建議使用此方式，因為 Hive 查詢引擎具有非互動式的本質。 為發揮其效能，[HDInsight 互動式查詢連接器](./apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Apache Spark 連接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)會是較好的選擇。
+您可以利用 [Apache Hive ODBC 驅動程式](../hadoop/apache-hadoop-connect-hive-power-bi.md)，透過 Power BI Desktop 中的一般 ODBC 連接器執行匯入作業。 不過，BI 工作負載如果具有 Hive 查詢引擎的非互動式本質，則不建議使用此方式。 為發揮其效能，[HDInsight 互動式查詢連接器](./apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Apache Spark 連接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)會是較好的選擇。
 
 ## <a name="prerequisites"></a>必要條件
 在閱讀本文之前，您必須有下列各項：
@@ -35,7 +35,7 @@ ms.locfileid: "71123024"
 
 1. 啟動 Power BI Desktop。
 
-2. 從功能表列，流覽至 [**首頁** > ] [**取得資料** > ] [**其他 ...** ]。
+2. 從功能表列中，流覽至 **首頁** > **取得資料** > **更多 ...** 。
 
     ![HDInsight Power BI 取得更多資料](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 

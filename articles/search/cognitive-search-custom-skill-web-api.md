@@ -1,24 +1,23 @@
 ---
-title: 自訂認知搜尋技能 - Azure 搜尋服務
-description: 透過向外呼叫 Web API 擴充認知搜尋技能的功能
-services: search
+title: 擴充管線中的自訂 Web API 技能
+titleSuffix: Azure Cognitive Search
+description: 藉由向外呼叫 Web Api 來擴充 Azure 認知搜尋技能集的功能。 使用自訂 Web API 技能來整合您的自訂程式碼。
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466729"
 ---
-# <a name="custom-web-api-skill"></a>自訂 Web API 技能
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure 認知搜尋擴充管線中的自訂 Web API 技能
 
-**自訂 WEB api**技能可讓您向外呼叫提供自訂作業的 Web API 端點，以擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+**自訂 WEB api**技能可讓您藉由向外呼叫提供自訂作業的 Web API 端點，來擴充 AI 擴充。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
@@ -35,7 +34,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 這些參數會區分大小寫。
 
-| 參數名稱     | 描述 |
+| 參數名稱     | 說明 |
 |--------------------|-------------|
 | uri | 要將_JSON_承載傳送至其中的 WEB API URI。 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
@@ -58,7 +57,7 @@ Microsoft.Skills.Custom.WebApiSkill
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -72,14 +71,13 @@ Microsoft.Skills.Custom.WebApiSkill
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
+            "name": "phraseList",
+            "source": "/document/keyphrases"
           }
         ],
         "outputs": [
           {
-            "name": "count",
-            "targetName": "countOfThings"
+            "name": "hitPositions"
           }
         ]
       }
@@ -103,7 +101,7 @@ Microsoft.Skills.Custom.WebApiSkill
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words"
+             "phraseList": ["Este", "Inglés"]
            }
       },
       {
@@ -112,16 +110,16 @@ Microsoft.Skills.Custom.WebApiSkill
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters"
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world \r\n Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines"
+             "phraseList": ["world"]
            }
       },
       {
@@ -130,7 +128,7 @@ Microsoft.Skills.Custom.WebApiSkill
            {
              "text": "Test",
              "language": "es",
-             "countOf": null
+             "phraseList": []
            }
       }
     ]
@@ -159,7 +157,7 @@ Microsoft.Skills.Custom.WebApiSkill
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -167,7 +165,7 @@ Microsoft.Skills.Custom.WebApiSkill
         {
             "recordId": "2",
             "data": {
-                "count": 2
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -175,7 +173,7 @@ Microsoft.Skills.Custom.WebApiSkill
         {
             "recordId": "0",
             "data": {
-                "count": 6
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -183,10 +181,12 @@ Microsoft.Skills.Custom.WebApiSkill
         {
             "recordId": "1",
             "data": {
-                "count": 11
+                "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
@@ -197,13 +197,12 @@ Microsoft.Skills.Custom.WebApiSkill
 除了您的 Web API 無法使用或傳送不成功的狀態碼之外，下列各項被視為錯誤情況：
 
 * 如果 Web API 傳回成功狀態碼，但回應指出它不是 `application/json`，則回應被視為無效，並且不會執行任何擴充。
-* 如果回應 `values` 陣列中有**無效** (包含原始請求中沒有的 `recordId` 或具有重複值) 記錄，則不會對**那些**記錄執行任何擴充。
+* 如果回應  **陣列中有**無效`recordId` (包含原始請求中沒有的 `values` 或具有重複值) 記錄，則不會對**那些**記錄執行任何擴充。
 
 針對 Web API 無法使用或傳回 HTTP 錯誤的情況，將在索引子執行歷程記錄中加入有關 HTTP 錯誤的任何可用詳細資料的易懂錯誤。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
-+ [電力技能：自訂技能的存放庫](https://aka.ms/powerskills)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
-+ [在認知搜尋中加入自訂技能](cognitive-search-custom-skill-interface.md)
-+ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
++ [範例：建立 AI 擴充的自訂技能（認知-搜尋-建立-自訂技能-example.md）

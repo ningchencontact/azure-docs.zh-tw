@@ -6,17 +6,21 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/14/2019
-ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555423"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477419"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
 
 此 Microsoft 常見問題集是適用於容器的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
+
+## <a name="can-i-view-metrics-collected-in-grafana"></a>我可以在 Grafana 中查看收集的計量嗎？
+
+容器的 Azure 監視器支援在 Grafana 儀表板中，查看 Log Analytics 工作區中儲存的計量。 我們提供的範本可讓您從 Grafana 的[儀表板儲存](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)機制下載，協助您瞭解如何從受監視的叢集查詢其他資料，以在自訂 Grafana 儀表板中進行視覺化。 
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>我可以使用容器的 Azure 監視器來監視 AKS 引擎叢集嗎？
 
@@ -72,20 +76,15 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>當我啟用即時記錄時，如何? 解決 Azure AD 錯誤？ 
 
-您可能會看到下列錯誤：**要求中指定的回復 url 不符合為應用程式設定的回復 url： ' < 應用程式識別碼 \> '** 。 若要解決此問題，您可以在[如何使用容器的 Azure 監視器來即時查看容器記錄](container-insights-live-logs.md#configure-aks-with-azure-active-directory)檔一文中找到此解決方案。 
+您可能會看到下列錯誤：**要求中指定的回復 url 不符合為應用程式設定的回復 url： ' < 應用程式識別碼\>'** 。 若要解決此問題，您可以在[如何使用適用于容器的 Azure 監視器來即時查看容器資料](container-insights-livedata-setup.md#configure-ad-integrated-authentication)一文中找到此解決方案。 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>為什麼我在上架之後無法升級叢集？
 
 如果您在啟用 AKS 叢集的容器 Azure 監視器之後，刪除叢集傳送其資料的 Log Analytics 工作區，當嘗試升級叢集時，將會失敗。 若要解決此情況，您必須停用監視，然後重新啟用它參考您訂用帳戶中不同的有效工作區。 當您嘗試再次執行叢集升級時，應該會處理並順利完成。  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>我需要針對代理程式開啟/列入白名單的埠和網域為何？
-- *. ods.opinsights.azure.com 443
-- *. oms.opinsights.azure.com 443
-- *. blob.core.windows.net 443
-- dc.services.visualstudio.com 443
-- *. microsoftonline.com 443
-- *. monitoring.azure.com 443
-- login.microsoftonline.com 443
+
+如需適用于 Azure、Azure 美國政府和 Azure 中國雲端的容器化代理程式，請參閱[網路防火牆需求](container-insights-onboard.md#network-firewall-requirements)中的 proxy 和防火牆設定資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

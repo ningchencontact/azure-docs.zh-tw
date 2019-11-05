@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 17dd4862a02a736237257c50802135fb62883d77
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c51af15d2334e873c8c7c399322fbd1279de3784
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200608"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468202"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>管理 IoT Central 應用程式中的使用者和角色（預覽功能）
 
@@ -62,7 +62,7 @@ ms.locfileid: "73200608"
 > [!div class="mx-imgBorder"]
 > ![管理角色選取範圍](media/howto-manage-users-roles-pnp/manage-roles-pnp.png)
 
-### <a name="administrator"></a>管理員
+### <a name="administrator"></a>系統管理員
 
 **系統管理員**角色的使用者可以管理和控制應用程式的每個部分，包括計費。
 
@@ -93,7 +93,7 @@ ms.locfileid: "73200608"
 
 **裝置範本許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 管理 | 檢視 <br/> 其他相依性：查看裝置實例  |
@@ -101,28 +101,28 @@ ms.locfileid: "73200608"
 
 **裝置實例許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None <br/> 其他相依性：查看裝置範本和裝置群組 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
-| Create | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
+| 建立 | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
 | 執行命令 | Update、View <br/> 其他相依性：查看裝置範本和裝置群組  |
 | 完全控制 | View、Update、Create、Delete、Execute 命令 <br/> 其他相依性：查看裝置範本和裝置群組  |
 
 **裝置群組許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None <br/> 其他相依性：查看裝置範本和裝置實例 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本和裝置實例   |
-| Create | View、Update <br/> 其他相依性：查看裝置範本和裝置實例   |
+| 建立 | View、Update <br/> 其他相依性：查看裝置範本和裝置實例   |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本和裝置實例   |
 | 完全控制 | View、Update、Create、Delete <br/> 其他相依性：查看裝置範本和裝置實例 |
 
 **裝置連線能力管理許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 讀取實例 | None <br/> 其他相依性：查看裝置範本、裝置群組、裝置實例 |
 | 管理實例 | None |
@@ -132,22 +132,22 @@ ms.locfileid: "73200608"
 
 **作業許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
-| Create | View、Update <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
+| 建立 | View、Update <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
 | 執行 | 檢視 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組;更新裝置實例;在裝置實例上執行命令 |
 | 完全控制 | View、Update、Create、Delete、Execute <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組;更新裝置實例;在裝置實例上執行命令 |
 
 **規則許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None <br/> 其他相依性：查看裝置範本 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本 |
-| Create | View、Update <br/> 其他相依性：查看裝置範本 |
+| 建立 | View、Update <br/> 其他相依性：查看裝置範本 |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本 |
 | 完全控制 | View、Update、Create、Delete <br/> 其他相依性：查看裝置範本 |
 
@@ -155,7 +155,7 @@ ms.locfileid: "73200608"
 
 **應用程式設定許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 更新 | 檢視   |
@@ -165,7 +165,7 @@ ms.locfileid: "73200608"
 
 **應用程式範本的匯出許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 匯出 | 檢視 <br/> 其他相依性：查看裝置範本，裝置實例，裝置群組，儀表板，資料匯出，商標，說明連結，自訂角色，規則 |
@@ -173,7 +173,7 @@ ms.locfileid: "73200608"
 
 **計費許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 管理 | None     |
 | 完全控制 | 管理 |
@@ -182,17 +182,17 @@ ms.locfileid: "73200608"
 
 **自訂角色許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None |
 | 更新 | 檢視 |
-| Create | View、Update |
+| 建立 | View、Update |
 | 刪除 | 檢視 |
 | 完全控制 | View、Update、Create、Delete |
 
 **使用者管理許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None <br/> 其他相依性：查看自訂角色 |
 | 新增 | 檢視 <br/> 其他相依性：查看自訂角色 |
@@ -206,27 +206,27 @@ ms.locfileid: "73200608"
 
 **應用程式儀表板許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 更新 | 檢視   |
-| Create | View、Update |
+| 建立 | View、Update |
 | 刪除 | 檢視   |
 | 完全控制 | View、Update、Create、Delete |
 
 **個人儀表板許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 更新 | 檢視   |
-| Create | View、Update   |
+| 建立 | View、Update   |
 | 刪除 | 檢視   |
 | 完全控制 | View、Update、Create、Delete |
 
 **商標、favicon 和色彩許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 更新 | 檢視   |
@@ -234,7 +234,7 @@ ms.locfileid: "73200608"
 
 **說明連結許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 更新 | 檢視   |
@@ -244,23 +244,23 @@ ms.locfileid: "73200608"
 
 **資料匯出許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
 | 更新 | 檢視   |
-| Create | View、Update  |
+| 建立 | View、Update  |
 | 刪除 | 檢視   |
 | 完全控制 | View、Update、Create、Delete |
 
 **API 權杖許可權**
 
-| Name | 相依項目 |
+| 名稱 | 相依項目 |
 | ---- | -------- |
 | 檢視 | None     |
-| Create | 檢視   |
+| 建立 | 檢視   |
 | 刪除 | 檢視   |
 | 完全控制 | View、Create、Delete |
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已瞭解如何在 Azure IoT Central 應用程式中管理使用者和角色，建議的下一個步驟是瞭解如何[管理您的帳單](/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
+既然您已瞭解如何在 Azure IoT Central 應用程式中管理使用者和角色，建議的下一個步驟是瞭解如何[管理您的帳單](howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。

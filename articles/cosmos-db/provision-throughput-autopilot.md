@@ -1,0 +1,89 @@
+---
+title: 在 autopilot 模式中建立具有輸送量的 Azure Cosmos 容器和資料庫。
+description: 瞭解優點、使用案例，以及如何在 autopilot 模式下布建 Azure Cosmos 資料庫和容器。
+author: kirillg
+ms.author: kirillg
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 598dc6394e8be8b3372f4ed61a522454830a22d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73512271"
+---
+# <a name="create-azure-cosmos-containers-and-databases-with-provisioned-throughput-in-autopilot-mode-preview"></a>在 autopilot 模式（預覽）中建立具有布建輸送量的 Azure Cosmos 容器和資料庫
+
+Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送量。 本文說明 autopilot 模式的優點和使用案例。
+
+> [!NOTE]
+> Autopilot 模式目前提供公開預覽。
+
+除了手動布建輸送量以外，您現在還可以在 autopilot 模式中設定 Azure cosmos 容器。 在 autopilot 模式中設定的 Azure Cosmos 容器和資料庫，將會根據**您的應用程式需求自動並立即調整布建的輸送量，而不會影響 sla。**
+
+您不再需要手動管理布建的輸送量或處理速率限制問題。 在 autopilot 模式中設定的 Azure Cosmos 容器可以立即調整以回應工作負載，而不會影響全域工作負載的可用性、延遲、輸送量或效能。 在高使用率的情況下，在 autopilot 模式中設定的 Azure Cosmos 容器可以相應增加或減少，而不會影響進行中的作業。
+
+在 autopilot 模式中設定容器和資料庫時，您必須指定最大輸送量 `Tmax` 不能超過。 然後，容器可以根據 `0.1*Tmax < T < Tmax` 範圍內的工作負載需求立即進行調整。 換句話說，容器和資料庫會根據工作負載需求立即調整，從最低到設定的輸送量值的10%，最多可達指定的最大設定值。 您可以在任何時間點變更 autopilot 資料庫或容器上的最大輸送量（Tmax）設定。
+
+## <a name="benefits-of-autopilot-mode"></a>Autopilot 模式的優點
+
+在 autopilot 模式中設定的 Azure Cosmos 容器具有下列優點：
+
+* **簡單：** Autopilot 模式中的容器會移除為各種容器手動管理布建輸送量（ru）和容量的複雜性。
+
+* **可調整：** Autopilot 模式中的容器會視需要順暢地調整布建的輸送量容量。 用戶端連線、應用程式不會中斷，而且它們不會影響任何現有的 Sla。
+
+* 符合**成本效益：** 當您使用以 autopilot 模式設定的 Azure Cosmos 容器時，您只需支付工作負載每小時需要的資源費用。
+
+* **高可用性：** Autopilot 模式中的 Azure Cosmos 容器會使用相同的全域分散式、容錯、高可用性的後端，以確保資料持久性，並一律提供高可用性。
+
+## <a name="use-cases-of-autopilot-mode"></a>Autopilot 模式的使用案例
+
+在 autopilot 模式中設定的 Azure Cosmos 容器使用案例包括：
+
+* **變數工作負載：** 當您執行的應用程式，每日尖峰使用量為1小時到數小時，或每年有數次時。 範例包括人力資源、預算和營運報表的應用程式。 針對這類案例，可以使用在 autopilot 模式中設定的容器，您不再需要手動布建尖峰或平均容量。
+
+* 無法**預測的工作負載：** 當您執行的工作負載在一整天都有資料庫使用量，同時也在難以預測的活動尖峰時執行。 其中一個範例包含一個流量網站，當氣象預報變更時，會看到活動的激增。 在 autopilot 模式中設定的容器會調整容量，以符合應用程式尖峰負載的需求，並在活動激增時相應減少規模。
+
+* **新的應用程式：** 如果您要部署新的應用程式，但不確定您需要多少布建的輸送量（也就是您所需的 ru 數目）。 使用在 autopilot 模式中設定的容器，您可以自動調整您的應用程式的容量需求和需求。
+
+* 不**常使用的應用程式：** 如果您的應用程式只使用幾個小時，每天或每週或每個月數次，例如低容量應用程式/web/blog 網站。
+
+* **開發和測試資料庫：** 開發人員會在工作時間使用 Azure Cosmos 帳戶，但在夜間或週末不需要它們。 在 autopilot 模式中設定容器時，它們會在不使用時相應減少為最小值。
+
+* 已**排程的生產工作負載/查詢：** 當您在單一容器上有一系列已排程的要求/作業/查詢，而且如果您想要以絕對低輸送量執行，您現在可以輕鬆地執行這項工作。 當排程的查詢/要求提交至以 autopilot 模式設定的容器時，它會視需要自動相應增加，並執行作業。
+
+先前問題的解決方案不僅需要大量的執行時間，還會在設定或您的程式碼中引進複雜性，而且經常需要手動介入來處理它們。 Autopilot 模式可讓上述案例現成可用，因此您不再需要擔心這些問題。
+
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>比較–以手動模式與 autopilot 模式設定的容器
+
+|  | 以手動模式設定的容器  | 在 autopilot 模式中設定的容器 |
+|---------|---------|---------|
+| **布建的輸送量** | 手動布建 | 根據工作負載使用模式，主動且被動地調整規模。 |
+| **要求/作業的速率限制（429）**  | 如果耗用量超過布建的容量，則可能會發生。 | 將不會發生。  |
+| **容量規劃** |  您必須進行初始容量規劃，並布建所需的輸送量。 |    您不必擔心容量規劃。 系統會自動負責容量規劃和容量管理。 |
+| **價格** | 每小時手動布建 RU/秒。 | 針對單一寫入區域帳戶，您需支付每小時使用的輸送量，方法是使用 autopilot RU/秒的每小時費率。 <br/><br/>針對具有多個寫入區域的帳戶，autopilot 不會額外收費。 您需支付每小時使用的輸送量，並使用相同的多宿主 RU/秒費率。 |
+| **最適合工作負載類型** |  可預測且穩定的工作負載|   無法預測和可變的工作負載  |
+
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>使用 autopilot 模式建立資料庫或容器
+
+建立資料庫或容器時，您可以設定 autopilot。 針對新的資料庫或容器使用下列步驟，啟用 autopilot，並指定最大輸送量。
+
+1. 登入[Azure 入口網站](https://portal.azure.com)或[Azure Cosmos explorer。](https://cosmos.azure.com/)
+
+1. 流覽至您的 Azure Cosmos 帳戶，然後開啟 [**資料總管**] 索引標籤。
+
+1. 選取 [**新增資料庫**]，輸入您的資料庫名稱。 針對 [ **Autopilot**選項]，選擇 [**已啟用**]，並指定當使用 Autopilot 選項時，資料庫不能超過的最大輸送量。
+
+   ![在 autopilot 模式中建立資料庫](./media/provision-throughput-autopilot/create-database-autopilot-mode.png)
+
+1. 選取 [確定]
+
+使用類似的步驟，您也可以在 autopilot 模式中建立具有布建輸送量的容器。
+
+## <a name="next-steps"></a>後續步驟
+
+* 深入了解[邏輯分割區](partition-data.md)。
+* 了解如何[在 Azure Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
+* 了解如何[在 Azure Cosmos 資料庫上佈建輸送量](how-to-provision-database-throughput.md)。

@@ -3,15 +3,15 @@ title: 原則定義結構的詳細資料
 description: 說明「Azure 原則」如何使用資源原則定義，藉由描述強制執行原則的時機及所產生的效果，為您組織中的資源建立慣例。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053503"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464039"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -81,12 +81,17 @@ ms.locfileid: "73053503"
 
 建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源清單，請參閱[Azure 資源的標記支援](../../../azure-resource-manager/tag-support.md)。
 
-### <a name="resource-provider-modes"></a>資源提供者模式
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />資源提供者模式（預覽）
 
-目前唯一支援的資源提供者模式是在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上管理許可控制站規則 `Microsoft.ContainerService.Data`。
+預覽期間目前支援下列資源提供者模式：
+
+- `Microsoft.ContainerService.Data`，用於管理[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上的許可控制站規則。 使用此資源提供者模式的原則**必須**使用[EnforceRegoPolicy](./effects.md#enforceregopolicy)效果。
+- `Microsoft.Kubernetes.Data`，用於管理 Azure 上的自我管理 AKS 引擎 Kubernetes 叢集。
+  使用此資源提供者模式的原則**必須**使用[EnforceOPAConstraint](./effects.md#enforceopaconstraint)效果。
+- `Microsoft.KeyVault.Data`，用於管理[Azure Key Vault](../../../key-vault/key-vault-overview.md)中的保存庫和憑證。
 
 > [!NOTE]
-> [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
+> 資源提供者模式只支援內建原則定義，並在預覽期間不支援方案。
 
 ## <a name="parameters"></a>參數
 
@@ -134,7 +139,7 @@ ms.locfileid: "73053503"
 
 ### <a name="using-a-parameter-value"></a>使用參數值
 
-在原則規則中，您可以使用下列 `parameters` 部署值函式語法來參考參數︰
+在原則規則中，您可以使用下列 `parameters` 函數語法來參考參數：
 
 ```json
 {
@@ -143,7 +148,7 @@ ms.locfileid: "73053503"
 }
 ```
 
-此範例參考[參數屬性](#parameter-properties)中示範的 **allowedLocations** 參數。
+此範例參考**參數屬性**中示範的 [allowedLocations](#parameter-properties) 參數。
 
 ### <a name="strongtype"></a>strongType
 
@@ -272,7 +277,7 @@ ms.locfileid: "73053503"
 - `tags['''<tagName>''']`
   - 此括號語法能透過以雙引號進行逸出，來支援具有單引號的標籤名稱。
   - 其中 **'\<tagName\>'** 是要接受條件驗證的標籤名稱。
-  - 範例：`tags['''My.Apostrophe.Tag''']`，其中 **'\<tagName\>'** 是標籤的名稱。
+  - 範例： `tags['''My.Apostrophe.Tag''']`，其中 **' My. 單引號. tag '** 是標記的名稱。
 - 屬性別名 - 如需清單，請參閱[別名](#aliases)。
 
 > [!NOTE]
@@ -282,7 +287,7 @@ ms.locfileid: "73053503"
 
 可以將參數值傳遞到標籤欄位。 將參數傳遞到標籤欄位能在原則指派期間提升原則定義的彈性。
 
-在下列範例中，`concat` 被用來建立針對名稱為 **tagName** 參數值之標籤的標籤欄位查閱。 如果該標籤不存在，系統會使用**附加**效果，透過 `resourcegroup()` 查閱函式使用在已稽核的資源父資源群組上具有相同名稱之標籤的值來新增該標籤。
+在下列範例中，`concat` 被用來建立針對名稱為 **tagName** 參數值之標籤的標籤欄位查閱。 如果該標籤不存在，則會使用**修改**效果，透過使用 `resourcegroup()` lookup 函式，在已審核資源的父資源群組上使用相同的命名標記設定值來新增標記。
 
 ```json
 {
@@ -291,16 +296,22 @@ ms.locfileid: "73053503"
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>值
 
 條件也可以使用 **value** 形成。 **value** 會檢查 [parameters](#parameters)、[支援的範本函式](#policy-functions)或常值的條件。
 **value** 已和任何支援的 [condition](#conditions) 配對。
@@ -310,7 +321,7 @@ ms.locfileid: "73053503"
 
 #### <a name="value-examples"></a>Value 範例
 
-此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 `*netrg` 的 **like** 條件比較。 規則會拒絕名稱結尾是 `*netrg` 的任何資源群組中，任何不屬於 `Microsoft.Network/*` **type** 的任何資源。
+此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 **的**like`*netrg` 條件比較。 規則會拒絕名稱結尾是 `Microsoft.Network/*` 的任何資源群組中，任何不屬於type`*netrg` 的任何資源。
 
 ```json
 {
@@ -386,46 +397,19 @@ ms.locfileid: "73053503"
 
 使用修改過的原則規則，`if()` 在嘗試取得值少於三個字元的 `substring()` 之前，檢查**名稱**的長度。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
 
-### <a name="effect"></a>影響
+### <a name="effect"></a>效果
 
 Azure 原則支援下列類型的效果：
 
-- **Deny**：會在活動記錄中產生事件，並讓要求失敗
-- **Audit**：會在活動記錄中產生警告事件，但不會讓要求失敗
 - **Append**：會在要求中加入一組已定義的欄位
-- **AuditIfNotExists**：如果資源不存在，便啟用稽核
-- **DeployIfNotExists**：如果資源不存在，便部署該資源
+- **Audit**：會在活動記錄中產生警告事件，但不會讓要求失敗
+- **AuditIfNotExists**：如果相關資源不存在，則會在活動記錄中產生警告事件
+- **Deny**：會在活動記錄中產生事件，並讓要求失敗
+- **DeployIfNotExists**：部署相關資源（如果尚未存在）
 - **Disabled**：不會評估資源是否符合原則規則的規範
-- **EnforceRegoPolicy**：在 Azure Kubernetes Service 中設定開啟的原則代理程式許可控制器（預覽）
+- **EnforceOPAConstraint** （預覽）：針對 Azure 上的自我管理 Kubernetes 叢集，設定開啟原則代理程式許可控制器與閘道管理員 v3 （預覽）
+- **EnforceRegoPolicy** （預覽）：在 Azure Kubernetes Service 中設定開啟的原則代理程式許可控制器與閘道管理員 v2
 - **修改**：新增、更新或移除資源中已定義的標記
-
-對於 **append**，您必須提供下列詳細資料：
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-值可以是字串或 JSON 格式物件。
-
-**AuditIfNotExists** 和 **DeployIfNotExists**會評估相關資源是否存在並套用規則。 如果資源與規則不符，就會實作效果。 例如，您可以要求網路監看員針對所有虛擬網路部署。 如需詳細資訊，請參閱[稽核擴充功能是否不存在](../samples/audit-ext-not-exist.md)範例。
-
-**DeployIfNotExists** 效果需要 **roleDefinitionId** 屬性 (在原則規則的 **details** 部分中)。 如需詳細資訊，請參閱[補救 - 設定原則定義](../how-to/remediate-resources.md#configure-policy-definition)。
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-同樣地，在[補救](../how-to/remediate-resources.md)工作的原則規則的**詳細資料**部分中， **Modify**需要**roleDefinitionId**屬性。 **Modify**也需要**作業**陣列，以定義要對資源標記採取哪些動作。
 
 如需每個效果、評估順序、屬性和範例的完整詳細資料，請參閱[瞭解 Azure 原則效果](effects.md)。
 

@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 7322d356d972635b81bc1bdd4b329bd3d5ac02df
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 35f5cffdc644370082e229c88d67db33e853c446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842589"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499192"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Azure 認知服務容器安全性
 
-在開發應用程式時，安全性應該是主要焦點。 安全性的重要性是成功的度量。 當您架構包含認知服務容器的軟體解決方案時，請務必瞭解您可用的限制和功能。 如需詳細資訊，請參閱[Azure 安全性][az-security]。
+在開發應用程式時，安全性應該是主要焦點。 安全性的重要性是成功的度量。 當您架構包含認知服務容器的軟體解決方案時，請務必瞭解您可用的限制和功能。 如需網路安全性的詳細資訊，請參閱[設定 Azure 認知服務虛擬網路][az-security]。
 
 > [!IMPORTANT]
 > 根據預設，認知服務容器 API*沒有安全性*。 這是因為容器最常作為 pod 的一部分來執行，而這是由網路橋接器的外部保護。 不過，您可以啟用驗證，其運作方式與存取[雲端式認知服務][request-authentication]時所使用的驗證相同。
@@ -51,4 +51,4 @@ ms.locfileid: "71842589"
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com
 [request-authentication]: ../../authentication.md
-[az-security]: ../../../security/fundamentals/overview.md
+[az-security]: ../../cognitive-services-virtual-networks.md

@@ -11,21 +11,23 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387948"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499471"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以程式設計方式建置 LUIS 應用程式
 
 LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的程式設計 API。 當您已有既有資料時，這可節省時間，而且以程式設計方式建立 LUIS 應用程式會比手動輸入資訊快速。 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 * 登入 [LUIS](luis-reference-regions.md) 網站，然後在 [帳戶設定] 中尋找您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 您可以使用此金鑰來呼叫「撰寫 API」。
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 這篇文章的開頭是一個 CSV，適用于假設公司的使用者要求記錄檔。 在 [這裡](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)下載。
 * 安裝含有 NPM 的最新 Node.js。 請從[這裡](https://nodejs.org/en/download/)下載。
 * **[建議使用]** 適用於 IntelliSense 和偵錯的 Visual Studio Code，請從[這裡](https://code.visualstudio.com/)免費下載。

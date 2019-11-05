@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fc22a8f2a9e1e9410f2e6a9738c50a296a6287f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180715"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472137"
 ---
 # <a name="access-and-customize-developer-portal"></a>存取和自訂開發人員入口網站
 
 開發人員入口網站是一個自動產生、可完全自訂的網站，其中包含您 Api 的檔。 API 取用者可以在此探索您的 Api、瞭解如何使用它們，以及要求存取權。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 存取開發人員入口網站的受控版本
@@ -35,6 +35,10 @@ ms.locfileid: "73180715"
 您可以在[AZURE API 管理開發人員入口網站總覽](api-management-howto-developer-portal.md)中找到更多開發人員入口網站的詳細資料。
 
 ![API 管理開發人員入口網站-管理員模式](media/api-management-howto-developer-portal-customize/cover.png)
+
+> [!WARNING]
+> 開發人員入口網站目前正推出至 API 管理服務。
+> 如果您的服務是新建立的或是開發人員層服務，您應該已經擁有最新版本。 否則，您可能會遇到問題（例如，使用發佈功能）。 此功能推出將于2019年11月11日星期一完成。 
 
 ## <a name="prerequisites"></a>必要條件
 

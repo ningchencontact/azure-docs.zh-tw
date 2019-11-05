@@ -1,24 +1,24 @@
 ---
 title: 多元羅吉斯回歸：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的多元羅吉斯回歸模組來建立羅吉斯回歸模型，以用來預測多個值。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的多元羅吉斯回歸模組來建立羅吉斯回歸模型，以用來預測多個值。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692764"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465975"
 ---
 # <a name="multiclass-logistic-regression-module"></a>多元羅吉斯回歸模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 您可以使用此模組來建立羅吉斯回歸模型，以用來預測多個值。
 
@@ -67,4 +67,4 @@ Azure Machine Learning 也會提供[兩個類別的羅吉斯回歸](./two-class-
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

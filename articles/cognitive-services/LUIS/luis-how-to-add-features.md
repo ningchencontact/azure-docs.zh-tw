@@ -9,22 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: f51f5a8583a73219ffb419c76fcd009d102f6ffb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e3e4226eaaa0505eea96d8b3aca820f2327349e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932901"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467624"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用片語清單來提升字組清單訊號
 
 您可以將功能新增到 LUIS 應用程式來改善它的準確性。 這些功能協助 LUIS 的方式是提供某些字組和片語屬於某個應用程式網域詞彙的提示。 
 
-[片語清單](luis-concept-feature.md)包含一組屬於相同類別的值 (單字或片語)，而且必須以類似的方式處理 (例如城市或產品的名稱)。 LUIS 對於其中一個值的認識也會自動套用到其他值。 這份清單與相符單字的[清單實體](reference-entity-list.md)(全文相符專案) 不相同。
+[片語清單](luis-concept-feature.md)包含一組屬於相同類別的值 (單字或片語)，而且必須以類似的方式處理 (例如城市或產品的名稱)。 LUIS 對於其中一個值的認識也會自動套用到其他值。 這份清單與相符單字的[清單實體](reference-entity-list.md)（全文相符專案）不相同。
 
 片語清單會新增至應用程式網域的詞彙，作為向 LUIS 指示這些字的第二個信號。
+
+請參閱[功能概念](luis-concept-feature.md)，以瞭解使用片語清單的時機和原因。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-phrase-list"></a>新增片語清單
 
@@ -34,7 +38,7 @@ LUIS 讓每個應用程式最多有 10 個片語清單。
 
 1. 在 [片語清單] 頁面上，按一下 [建立新的片語清單]。 
  
-1. 在 [**新增片語清單**] 對話方塊中, `Cities`輸入做為片語清單的名稱。 在 [值] 方塊中，輸入片語清單的值。 您可以一次輸入一個值，或輸入一組以逗號分隔的值，然後按 **Enter**。
+1. 在 [**新增片語清單**] 對話方塊中，輸入 `Cities` 做為片語清單的名稱。 在 [值] 方塊中，輸入片語清單的值。 您可以一次輸入一個值，或輸入一組以逗號分隔的值，然後按 **Enter**。
 
     ![新增片語清單 Cities](./media/luis-add-features/add-phrase-list-cities.png)
 

@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ed6321963422cf17c858f43593092f8ffa4a1119
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932942"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467739"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
 範例語句是使用者問題或命令的文字範例。 若要教導 Language Understanding (LUIS)，您需要將[範例語句](luis-concept-utterance.md)新增至[意圖](luis-concept-intent.md)。
 
-通常, 您會先將範例語句新增至意圖, 然後在 [**意圖**] 頁面上建立實體和標籤語句。 若您要先建立實體，請參閱[新增實體](luis-how-to-add-entities.md)。
+
+通常，您會先將範例語句新增至意圖，然後在 [**意圖**] 頁面上建立實體和標籤語句。 若您要先建立實體，請參閱[新增實體](luis-how-to-add-entities.md)。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="marking-entities-in-example-utterances"></a>在範例語句中標記實體
 
@@ -32,24 +35,24 @@ ms.locfileid: "68932942"
 
 ## <a name="add-a-simple-entity"></a>新增簡單實體
 
-在下列程式中, 您會在 [**意圖**] 頁面的下列語句中建立及標記自訂實體:
+在下列程式中，您會在 [**意圖**] 頁面的下列語句中建立及標記自訂實體：
 
 ```text
 Are there any SQL server jobs?
 ```
 
-1. 在語句中選取 `SQL server`，來將它標示為簡單實體。 在出現的實體下拉式清單方塊中，您可以選取現有實體，或新增實體。 若要加入新的實體, 請在`Job`文字方塊中輸入其名稱, 然後選取 [**建立新實體**]。
+1. 在語句中選取 `SQL server`，來將它標示為簡單實體。 在出現的實體下拉式清單方塊中，您可以選取現有實體，或新增實體。 若要加入新的實體，請在文字方塊中輸入其名稱 `Job`，然後選取 [**建立新實體**]。
 
     ![輸入實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > 選取單字以將其標記為實體時：
     > * 對於單一字組，只需要選取它。 
-    > * 針對一組兩個或多個單字, 選取第一個單字, 然後選取最後一個單字。
+    > * 針對一組兩個或多個單字，選取第一個單字，然後選取最後一個單字。
 
 1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中驗證實體名稱，並選取 [Simple] \(簡單\) 實體類型，然後選取 [Done] \(完成\)。
 
-    [片語清單](luis-concept-feature.md)常被用來提升簡單實體的訊號。
+    [片語清單](luis-concept-feature.md)常用來提升簡單實體的訊號。
 
 ## <a name="add-a-list-entity"></a>新增清單實體
 
@@ -57,7 +60,7 @@ Are there any SQL server jobs?
 
 針對公司的部門清單，您可能會有標準化的值：`Accounting` 和 `Human Resources`。 每個標準化名稱都會有同義字。 針對部門，這些同義字可能包含任何部門首字母縮略字、數字或俚語。 當您建立實體時，不需要知道所有值。 檢閱包含同義字的實際使用者語句之後，即可新增其他語句。
 
-1. 在 [**意圖**] 頁面上的範例語句中, 選取您想要在新清單中的單字或片語。 當 [實體] 下拉式清單出現時, 在頂端的文字方塊中輸入新清單實體的名稱, 然後選取 [**建立新實體**]。   
+1. 在 [**意圖**] 頁面上的範例語句中，選取您想要在新清單中的單字或片語。 當 [實體] 下拉式清單出現時，在頂端的文字方塊中輸入新清單實體的名稱，然後選取 [**建立新實體**]。   
 
 1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中為實體命名，並選取 [List] \(清單\) 作為類型。 新增此清單項目的同義字，然後選取 [Done] \(完成\)。 
 
@@ -67,15 +70,15 @@ Are there any SQL server jobs?
 
 ## <a name="add-a-composite-entity"></a>新增複合實體
 
-複合實體會從現有的**實體**建立, 以形成父實體。 
+複合實體會從現有的**實體**建立，以形成父實體。 
 
-假設語句, `Does John Smith work in Seattle?`複合陳述式可以傳回員工名稱`John Smith`的實體資訊, 以及複合實體中的位置`Seattle` 。 子實體必須已經存在於應用程式中, 並在範例語句中標示為在建立複合實體之前。
+假設語句（`Does John Smith work in Seattle?`），複合陳述式可以傳回員工名稱 `John Smith`的實體資訊，以及複合實體中 `Seattle` 的位置。 子實體必須已經存在於應用程式中，並在範例語句中標示為在建立複合實體之前。
 
-1. 若要將子實體包裝到複合實體中, 請選取複合實體語句中的**第一個**標記實體 (最左邊)。 下拉式清單隨即出現, 以顯示此選取專案的選項。
+1. 若要將子實體包裝到複合實體中，請選取複合實體語句中的**第一個**標記實體（最左邊）。 下拉式清單隨即出現，以顯示此選取專案的選項。
 
 1. 從下拉式清單中選取 [**換行複合實體**]。 
 
-1. 選取複合實體的最後一個單字 (最右邊)。 注意到有一條綠色線條會跟隨複合實體。 這是複合實體的視覺指標, 而且應該在最左邊子實體到最右邊子實體的複合實體中的所有字之下。
+1. 選取複合實體的最後一個單字 (最右邊)。 注意到有一條綠色線條會跟隨複合實體。 這是複合實體的視覺指標，而且應該在最左邊子實體到最右邊子實體的複合實體中的所有字之下。
 
 1. 在下拉式清單中輸入複合實體名稱。
 
@@ -91,9 +94,9 @@ Are there any SQL server jobs?
 
 ## <a name="add-entitys-role-to-utterance"></a>將實體的角色新增至語句
 
-角色是實體的命名子型別, 由語句的內容所決定。 您可以將語句內的實體標示為實體, 或選取該實體內的角色。 任何實體都可以有角色, 包括機器學習的自訂實體 (簡單實體和複合實體), 而不是機器學習 (預先建立的實體、正則運算式實體、清單實體)。 
+角色是實體的命名子型別，由語句的內容所決定。 您可以將語句內的實體標示為實體，或選取該實體內的角色。 任何實體都可以有角色，包括機器學習的自訂實體（簡單實體和複合實體），而不是機器學習（預先建立的實體、正則運算式實體、清單實體）。 
 
-瞭解如何從實際操作教學課程中,[以實體角色標記語句](tutorial-entity-roles.md)。 
+瞭解如何從實際操作教學課程中，[以實體角色標記語句](tutorial-entity-roles.md)。 
 
 ## <a name="entity-status-predictions"></a>實體狀態預測
 
@@ -159,4 +162,4 @@ Are there any SQL server jobs?
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的**意圖**中標記語句之後, 您現在可以建立[複合實體](luis-how-to-add-entities.md)。
+在您的**意圖**中標記語句之後，您現在可以建立[複合實體](luis-how-to-add-entities.md)。

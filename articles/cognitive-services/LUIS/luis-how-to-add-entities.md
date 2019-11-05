@@ -1,7 +1,7 @@
 ---
 title: 新增實體-LUIS
 titleSuffix: Azure Cognitive Services
-description: 建立實體以從 Language Understanding (LUIS) 應用程式中的使用者語句, 將重要資料解壓縮。
+description: 建立實體以從 Language Understanding （LUIS）應用程式中的使用者語句，將重要資料解壓縮。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,22 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 54c9d79c62052daeee76de5dffb1099dc7d75180
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467711"
 ---
 # <a name="create-entities-without-utterances"></a>建立不含語句的實體
 
-實體代表語句中您想要擷取的單字或片語。 實體代表一個類別, 包括類似物件的集合 (位置、事物、人員、事件或概念)。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 您可以在將語句新增至意圖時, 或在將語句新增至意圖時, 建立實體。
+實體代表語句中您想要擷取的單字或片語。 實體代表一個類別，包括類似物件的集合（位置、事物、人員、事件或概念）。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 您可以在將語句新增至意圖時，或在將語句新增至意圖時，建立實體。
 
 您可以在 LUIS 應用程式中，透過 [實體] 頁面上的 [實體清單] 來新增、編輯或刪除實體。 LUIS 提供兩種主要類型的實體：[預先建置的實體](luis-reference-prebuilt-entities.md)，以及您自己的[自訂實體](luis-concept-entity-types.md#types-of-entities)。
 
-建立機器學習的實體之後, 您必須將該實體標示為其所在所有意圖的所有範例語句。
+建立機器學習的實體之後，您必須將該實體標示為其所在所有意圖的所有範例語句。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="add-prebuilt-entity"></a>
 
@@ -48,11 +50,11 @@ ms.locfileid: "68932930"
 
 1. 在應用程式中，選取 [建置] 區段，選取左面板中的 [實體]，然後選取 [建立新實體]。
 
-1. 在快顯對話方塊中，於 [實體名稱] 方塊中輸入 `Location`、從 [實體類型] 清單中選取 [簡單]，然後選取 [完成]。
+1. 在快顯對話方塊中，於 [實體名稱]`Location`**方塊中輸入**、從 [實體類型] 清單中選取 [簡單]，然後選取 [完成]。
 
     建立此實體後，請移至具有範例語句 (含有此實體) 的所有意圖。 選取範例語句中的文字並將此文字標示為實體。 
 
-    [片語清單](luis-concept-feature.md)常被用來提升簡單實體的訊號。
+    [片語清單](luis-concept-feature.md)常用來提升簡單實體的訊號。
 
 <a name="add-regular-expression-entities"></a>
 
@@ -62,9 +64,9 @@ ms.locfileid: "68932930"
 
 1. 在應用程式中，從左側瀏覽列選取 [實體]，然後選取 [建立新實體]。
 
-1. 在快顯對話方塊中，於 [實體名稱] 方塊中輸入 `Human resources form name`、從 [實體類型] 清單中選取 [規則運算式]、輸入規則運算式 `hrf-[0-9]{6}`，然後選取 [完成]。 
+1. 在快顯對話方塊中，於 [實體名稱]`Human resources form name`**方塊中輸入**、從 [實體類型] 清單中選取 [規則運算式]、輸入規則運算式 `hrf-[0-9]{6}`，然後選取 [完成]。 
 
-    這個正則運算式會比`hrf-`對常值字元, 然後是6位數, 代表人力資源表單的表單編號。
+    這個正則運算式會比對常值字元 `hrf-`，然後是6位數，代表人力資源表單的表單號碼。
 
 <a name="add-composite-entities"></a>
 
@@ -80,7 +82,7 @@ ms.locfileid: "68932930"
 
 1. 從左側瀏覽列選取 [實體]，然後選取 [建立新實體]。
 
-1. 在快顯對話方塊中，於 [實體名稱] 方塊中輸入 `SendHrForm`，然後從 [實體類型] 清單中選取 [複合]。
+1. 在快顯對話方塊中，於 [實體名稱]`SendHrForm`**方塊中輸入**，然後從 [實體類型] 清單中選取 [複合]。
 
 1. 選取 [新增子系] 來以新增子系。
 
@@ -102,7 +104,7 @@ ms.locfileid: "68932930"
 
 1. 從 [建置] 區段，選取左面板中的 [實體]，然後選取 [建立新實體]。
 
-1. 在 [新增實體] 對話方塊中，於 [實體名稱] 方塊中輸入 `HumanResourcesFormTitle`，然後選取 [Pattern.any] 作為 [實體類型]。
+1. 在 [新增實體] 對話方塊中，於 [實體名稱]`HumanResourcesFormTitle`**方塊中輸入**，然後選取 [Pattern.any] 作為 [實體類型]。
 
     若要使用 pattern.any 實體，在 [模式] 頁面 (在 [改善應用程式效能] 區段中) 搭配正確的大括號語法來新增模式，例如 `Where is **{HumanResourcesFormTitle}** on the server?`。
 
@@ -112,15 +114,15 @@ ms.locfileid: "68932930"
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>新增角色來區別不同的內容
 
-角色是以內容為基礎的命名子型別。 其適用于所有實體, 包括預建和非機器學習的實體。 
+角色是以內容為基礎的命名子型別。 其適用于所有實體，包括預建和非機器學習的實體。 
 
-角色的語法為 **`{Entityname:Rolename}`** , 其中的機構名稱後面接著冒號, 然後是角色名稱。 例如： `Move {personName} from {Location:Origin} to {Location:Destination}` 。
+角色的語法是 **`{Entityname:Rolename}`** ，其中機構名稱後面接著冒號，然後是角色名稱。 例如， `Move {personName} from {Location:Origin} to {Location:Destination}`。
 
 1. 從 [建置] 區段，選取左面板中的 [實體]。
 
 1. 選取 [Create new entity] \(建立新實體\)。 輸入 `Location` 的名稱。 選取 [簡單] 類型，然後選取 [完成]。 
 
-1. 從左面板中選取 [**實體**], 然後選取在上一個步驟中建立的新實體**位置**。
+1. 從左面板中選取 [**實體**]，然後選取在上一個步驟中建立的新實體**位置**。
 
 1. 在 [角色名稱] 文字方塊中，輸入角色 `Origin` 的名稱，然後按 Enter。 新增 `Destination` 的第二個角色名稱。 
 
@@ -136,7 +138,7 @@ ms.locfileid: "68932930"
 
 1. 從 [建置] 區段，選取左面板中的 [實體]，然後選取 [建立新實體]。
 
-1. 在 [新增實體] 對話方塊中，於 [實體名稱] 方塊中輸入 `Department`，然後選取 [清單] 作為**實體類型**。 選取 [完成]。
+1. 在 [新增實體] 對話方塊中，於 [實體名稱]`Department`**方塊中輸入**，然後選取 [清單] 作為**實體類型**。 選取 [完成]。
   
 1. 清單實體頁面可讓您新增標準化名稱。 在 [值] 文字方塊中，輸入清單的部門名稱 (例如 `HumanResources`)，然後按鍵盤上的 Enter。 
 

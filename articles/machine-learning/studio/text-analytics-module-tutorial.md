@@ -1,7 +1,7 @@
 ---
 title: 建立情感分析模型
-titleSuffix: Azure Machine Learning Studio
-description: 如何在 Azure Machine Learning Studio 使用文字前置處理、N-Gram 或特徵雜湊來建立文字分析模型
+titleSuffix: Azure Machine Learning Studio (classic)
+description: 如何使用適用于文字前置處理、N 字母或功能雜湊的模組，在 Azure Machine Learning Studio （傳統）中建立文字分析模型
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 08d62e7a6c9503d415fe144da57eee72ce3bfafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467156"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中建立情感分析模型
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>在 Azure Machine Learning Studio 中建立情感分析模型（傳統）
 
-您可以使用 Azure Machine Learning Studio 來建置和實行文字分析模型。 這些模型可協助您解決問題，例如，文件分類或情緒分析問題。
+您可以使用 Azure Machine Learning Studio （傳統）來建立和讓文字分析模型。 這些模型可協助您解決問題，例如，文件分類或情緒分析問題。
 
 在文字分析實驗中，您通常需要︰
 
@@ -29,7 +29,7 @@ ms.locfileid: "60636545"
 4. 評分和驗證模型
 5. 模型部署到生產環境
 
-在本教學課程中，您將了解我們使用 Amazon 書籍評論資料集逐步解說情感分析模型時的步驟 (請參閱此研究報告：“Biographies, Bollywood, Boom-boxes and Blenders:Domain Adaptation for Sentiment Classification”，作者：John Blitzer、Mark Dredze 和 Fernando Pereira；Association of Computational Linguistics (ACL)，2007)。此資料集是由評論分數 (1-2 或 4-5) 和自由格式文字所組成。 目標是要預測評論分數︰低 (1-2) 或高 (4-5)。
+在本教學課程中，您會在使用 Amazon Book 評論資料集逐步解說情感分析模型時，瞭解這些步驟（請參閱這份研究白皮書「生平、Bollywood boom-boxes and、使用者馬上 box and Blenders：情感分類的網域調整」，John Blitzer，Mark Dredze 和 Fernando Pereira;計算語言（ACL）（2007）的關聯。此資料集包含審核分數（1-2 或4-5）和自由格式的文字。 目標是要預測評論分數︰低 (1-2) 或高 (4-5)。
 
 您可以在 Azure AI 資源庫找到本教學課程中涵蓋的實驗︰
 
@@ -66,7 +66,7 @@ ms.locfileid: "60636545"
 ## <a name="step-3-train-classification-or-regression-model"></a>步驟 3：定型分類或迴歸模型
 現在文字已轉換為數值特徵資料行。 資料集仍包含上一階段中的字串資料行，因此我們使用「選取資料集中的資料行」來排除它們。
 
-接著使用 [二元羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905994.aspx) 預測我們的目標︰高或低的評論分數。 此時，文字分析問題已轉換成一般分類問題。 您可以使用 Azure Machine Learning Studio 中可用的工具來改善模型。 例如，您可以試驗不同的分類器以了解它們所提供結果的精確度，或使用超參數調整改善精確度。
+接著使用 [二元羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905994.aspx) 預測我們的目標︰高或低的評論分數。 此時，文字分析問題已轉換成一般分類問題。 您可以使用傳統版本 Azure Machine Learning Studio 中提供的工具來改善模型。 例如，您可以試驗不同的分類器以了解它們所提供結果的精確度，或使用超參數調整改善精確度。
 
 ![定型和評分](./media/text-analytics-module-tutorial/scoring-text.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "60636545"
 
 在測試資料中的文字資料行轉換成數值特徵資料行之後，我們會排除先前階段 (例如在定型分支中) 中的字串資料行。 接著使用「評分模型」模組進行預測，並使用「評估模型」模組來評估精確度。
 
-## <a name="step-5-deploy-the-model-to-production"></a>步驟 5：模型部署到生產環境
+## <a name="step-5-deploy-the-model-to-production"></a>步驟 5：將模型部署到生產環境
 模型已幾乎可立即部署到生產環境。 部署為 Web 服務時，它會採用自由格式的文字字串做為輸入，並傳回「高」或「低」的預測。 它會使用學習到的 N-Gram 詞彙將文字轉換成特徵，並使用定型的羅吉斯迴歸模型，從這些特徵進行預測。 
 
 為設定預測性實驗，我們先儲存 N-Gram 詞彙做為資料集，並使用實驗的定型分支中的定型羅吉斯迴歸模型。 接著我們使用「另存新檔」儲存實驗，為預測性實驗建立實驗圖形。 我們從實驗中移除「分割資料」模組和定型分支。 我們再將先前儲存的 N-Gram 詞彙和模型分別連接到「擷取 N-Gram 特徵」和「評分模型」模組。 我們也會移除「評估模型」模組。

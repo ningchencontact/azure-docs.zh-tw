@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: b741e928ed80a045b61d79f99d2436577ca864b0
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027717"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494905"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -46,14 +46,14 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>使用 Kerberos 的 HDInsight 企業安全性套件（ESP）叢集
 
-從用戶端連線企業安全性套件至叢集相同領域中電腦上的 Azure Active Directory （AAD）-DS 時，您也必須指定功能變數名稱 `<AAD-Domain>` 以及具有許可權的網域使用者帳戶名稱，以存取叢集 `<username>`：
+從用戶端連線到已加入至叢集相同領域之電腦上 Azure Active Directory （AAD）-DS 的企業安全性套件（ESP）叢集時，您也必須指定功能變數名稱 `<AAD-Domain>`，以及具有許可權的網域使用者帳戶名稱存取叢集 `<username>`：
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。 將 `<AAD-DOMAIN>` 取代為叢集所加入 Azure Active Directory （AAD）的名稱。 請使用大寫字串作為 `<AAD-DOMAIN>` 值，否則找不到認證。 如有需要，請檢查 `/etc/krb5.conf` 的領域名稱。
+以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。 以叢集加入的 Azure Active Directory （AAD）名稱取代 `<AAD-DOMAIN>`。 請為 `<AAD-DOMAIN>` 值使用大寫字串，否則找不到認證。 如有需要，請檢查 `/etc/krb5.conf` 的領域名稱。
 
 ---
 
@@ -73,7 +73,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `<username>` 取代為叢集的叢集登入帳戶。 請注意，ESP 叢集會使用完整的 UPN （例如 user@domain.com）。 將 `password` 取代為叢集登入帳戶的密碼。
 
-私人端點會指向基本負載平衡器，這只能從相同區域中的 Vnet 對等互連存取。 如需詳細資訊，請參閱[此](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。 您可以使用 `curl` 命令搭配 `-v` 選項，以在使用 beeline 之前，針對與公用或私用端點的任何連線問題進行疑難排解。
+私人端點會指向基本負載平衡器，這只能從相同區域中的 Vnet 對等互連存取。 如需詳細資訊，請參閱[全域 VNet 對等互連的條件約束和負載平衡](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)器。 您可以使用 `curl` 命令搭配 `-v` 選項，針對公用或私用端點的任何連線問題進行疑難排解，然後再使用 beeline。
 
 ---
 
@@ -83,7 +83,7 @@ Apache Spark 提供自己的 HiveServer2 (有時稱為 Spark Thrift 伺服器) �
 
 #### <a name="through-public-or-private-endpoints"></a>透過公用或私用端點
 
-使用的連接字串稍有不同。 而不是包含 `httpPath=/hive2` `httpPath/sparkhive2`：
+使用的連接字串稍有不同。 不是包含 `httpPath=/hive2`，而是 `httpPath/sparkhive2`：
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
@@ -97,7 +97,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `<username>` 取代為叢集的叢集登入帳戶。 請注意，ESP 叢集會使用完整的 UPN （例如 user@domain.com）。 將 `password` 取代為叢集登入帳戶的密碼。
 
-私人端點會指向基本負載平衡器，這只能從相同區域中的 Vnet 對等互連存取。 如需詳細資訊，請參閱[此](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。 您可以使用 `curl` 命令搭配 `-v` 選項，以在使用 beeline 之前，針對與公用或私用端點的任何連線問題進行疑難排解。
+私人端點會指向基本負載平衡器，這只能從相同區域中的 Vnet 對等互連存取。 如需詳細資訊，請參閱[全域 VNet 對等互連的條件約束和負載平衡](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)器。 您可以使用 `curl` 命令搭配 `-v` 選項，針對公用或私用端點的任何連線問題進行疑難排解，然後再使用 beeline。
 
 ---
 
@@ -115,7 +115,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 * HDInsight 上的 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
-* 請注意叢集主要儲存體的[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 例如，Azure 儲存體的 `wasb://`、Azure Data Lake Storage Gen2 的 `abfs://`，或 `adl://` 的 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體的安全傳輸，則 URI 會 `wasbs://`。 如需詳細資訊，請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
+* 請注意叢集主要儲存體的[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 例如，`wasb://` 代表 Azure 儲存體，`abfs://` 代表 Azure Data Lake Storage Gen2，或 `adl://` 用於 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體的安全傳輸，URI 會 `wasbs://`。 如需詳細資訊，請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
 * 選項1： SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。 本檔中的大部分步驟都假設您使用的是從 SSH 會話到叢集的 Beeline。
 
@@ -139,7 +139,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 3. Beeline 命令以 `!` 字元開頭，例如 `!help` 顯示說明。 不過，一些命令可以省略 `!`。 例如，`help` 也能運作。
 
-    `!sql`，是用來執行 HiveQL 語句。 不過，HiveQL 如此常用，因此您可以省略前面的 `!sql`。 下列兩個陳述式是相等的：
+    有 `!sql`，用來執行 HiveQL 語句。 不過，HiveQL 如此常用，因此您可以省略前面的 `!sql`。 下列兩個陳述式是相等的：
 
     ```hiveql
     !sql show tables;
@@ -301,4 +301,4 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 如需您可以使用 HDInsight 上的 Hadoop 之其他方式的詳細資訊，請參閱下列文件：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)

@@ -1,5 +1,5 @@
 ---
-title: 搭配 Hortonworks 沙箱使用 Data Lake tools for Visual Studio - Azure HDInsight
+title: 適用于 Visual Studio & Hortonworks 的 Data Lake 工具-Azure HDInsight
 description: 了解如何搭配在本機 VM 中執行的 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio。 您可以使用這些工具，在沙箱上建立和執行 Hive 和 Pig 作業，以及檢視作業輸出和歷程記錄。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500160"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
@@ -35,11 +35,11 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
 
 確定 Hortonworks 沙箱正在執行。 依照 [Hortonworks 沙箱使用者入門](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords)文件中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Apache Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
 
-## <a name="connect-the-tools-to-the-sandbox"></a>將工具連線至沙箱
+## <a name="connect-the-tools-to-the-sandbox"></a>將工具連接至沙箱
 
 1. 開啟 Visual Studio，選取 [檢視]，然後選取 [伺服器總管]。
 
-2. 從 [伺服器總管]，以滑鼠右鍵按一下 [HDInsight] 項目，然後選取 [連線至 HDInsight Emulator]。
+2. 在 [伺服器總管] 中，以滑鼠右鍵按一下 [HDInsight] 項目，然後選取 [連線至 HDInsight Emulator]。
 
     ![伺服器總管，並反白顯示 [連線至 HDInsight 模擬器]](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
@@ -55,7 +55,7 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
 
     選取 [下一步] 以繼續操作。
 
-5. 等候服務的驗證完成。 在某些情況下，驗證可能會失敗並提示您更新設定。 如果驗證失敗，請選取 [更新] 並等候服務的設定和驗證完成。
+5. 等候服務的驗證完成。 在某些情況下，驗證可能會失敗並提示您更新組態。 如果驗證失敗，請選取 [更新] 並等候服務的設定和驗證完成。
 
     ![對話方塊的螢幕擷取畫面，其中 [更新] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update-window.png)
 
@@ -80,7 +80,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
     新的查詢視窗隨即開啟。 您可以在此視窗迅速寫入查詢並提交到本機叢集。
 
-2. 在新的查詢視窗中，輸入下列命令︰
+2. 在新的查詢視窗中，輸入以下命令︰
 
         select count(*) from sample_08;
 
@@ -107,7 +107,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
     ![[互動式] 與 [執行] 按鈕已反白顯示的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/hdi-interactive-query.png)
 
-    互動式查詢會將處理期間所產生的輸出記錄串流處理至 [HiveServer2 輸出] 視窗。
+    互動式查詢會串流處理至 [HiveServer2 輸出] 視窗期間所產生的輸出記錄檔。
 
     > [!NOTE]  
     > 此資訊與作業完成後可從 [作業記錄] 連結取得的資訊相同。
@@ -193,7 +193,7 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 ![[伺服器總管] 的螢幕擷取畫面，其中 [建立資料表] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/server-explorer-create-table.png)
 
-接著，您可以使用表單建立資料表。 在下列螢幕擷取畫面底部，您可以看到用於建立資料表的原始 HiveQL。
+然後，您可以使用表單建立資料表。 在下列螢幕擷取畫面底部，您可以看到用於建立資料表的原始 HiveQL。
 
 ![用於建立資料表之表單的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form-box.png)
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799964"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481241"
 ---
 # <a name="release-notes"></a>版本資訊
-## <a name="speech-sdk-170-2019-september-release"></a>語音 SDK 1.7.0：2019-9 月版本
+## <a name="speech-sdk-170-2019-september-release"></a>語音 SDK 1.7.0： 2019-9 月版
 
 **新功能**
 *   已在通用 Windows 平臺（UWP）、Android 和 iOS 上新增 Xamarin 的搶鮮版（Beta）支援
@@ -48,7 +48,7 @@ ms.locfileid: "71799964"
 *   已更新使用 Linux ARM64 資訊的 CPP 快速入門
 *   已更新 Unity 快速入門與 iOS 資訊
 
-## <a name="speech-sdk-160-2019-june-release"></a>語音 SDK 1.6.0：2019-六月版本
+## <a name="speech-sdk-160-2019-june-release"></a>語音 SDK 1.6.0： 2019-六月版本
 
 **範例**
 *   UWP 和 Unity 上的文字轉換語音的快速入門範例
@@ -65,7 +65,7 @@ ms.locfileid: "71799964"
 * 更新 TTS REST 介面卡以支援 proxy、持續連線
 * 當傳遞不正確區域時，改善錯誤訊息
 * Swift/目標-C：
-    * 改良的錯誤報表：可能導致錯誤的方法現在會出現在兩個版本中：其中一個會公開用於錯誤處理的 @no__t 0 物件，另一個則會引發例外狀況。 前者會公開給 Swift。 這種變更需要採用原音到現有的 Swift 程式碼。
+    * 改良的錯誤報表：可能導致錯誤的方法現在會出現在兩個版本中：一個會公開用於錯誤處理的 `NSError` 物件，另一個則會引發例外狀況。 前者會公開給 Swift。 這種變更需要採用原音到現有的 Swift 程式碼。
     * 改良的事件處理
 
 **錯誤修正**
@@ -76,7 +76,7 @@ ms.locfileid: "71799964"
 *   可靠地關閉 web 通訊端的修正
 *   修正在 Linux 上極繁重的負載下開啟連線時可能發生的損毀
 *   修正 macOS 架構配套中遺漏的中繼資料
-*   修正 Windows 上 `pip install --user` 的問題
+*   修正 Windows 上的 `pip install --user` 問題
 
 
 ## <a name="speech-sdk-151"></a>語音 SDK 1.5。1
@@ -86,17 +86,17 @@ ms.locfileid: "71799964"
 **錯誤修正**
 
 * 修正搭配對話轉譯使用時的 FromSubscription。
-* 修正 [語音優先虛擬助理] 關鍵字找出中的 bug。
+* 修正語音助理關鍵字找出中的 bug。
 
 
-## <a name="speech-sdk-150-2019-may-release"></a>語音 SDK 1.5.0：2019-可能發行
+## <a name="speech-sdk-150-2019-may-release"></a>語音 SDK 1.5.0： 2019-可能發行
 
 **新功能**
 
-* Windows 和 Linux 現已提供喚醒字（關鍵字找出/KWS.TABLE）功能。 KWS.TABLE 功能可能適用于任何麥克風類型，但官方 KWS.TABLE 支援目前僅限於在 Azure Kinect DK 硬體或語音裝置 SDK 中找到的麥克風陣列。
+* 關鍵字找出（KWS.TABLE）現在適用于 Windows 和 Linux。 KWS.TABLE 功能可能適用于任何麥克風類型，但官方 KWS.TABLE 支援目前僅限於在 Azure Kinect DK 硬體或語音裝置 SDK 中找到的麥克風陣列。
 * 片語提示功能可透過 SDK 取得。 如需詳細資訊，請參閱[這裡](how-to-phrase-lists.md)。
 * 對話轉譯功能可透過 SDK 取得。 請參閱 [這裡](conversation-transcription-service.md)。
-* 使用 Direct Line 語音通道來新增語音優先虛擬助理的支援。
+* 使用 Direct Line 語音訊道新增語音助理支援。
 
 **範例**
 
@@ -122,7 +122,7 @@ ms.locfileid: "71799964"
 
 * 防止 web 套件載入 HTTPs-proxy 代理程式。
 
-## <a name="speech-sdk-140-2019-april-release"></a>語音 SDK 1.4.0：2019-4 月版本
+## <a name="speech-sdk-140-2019-april-release"></a>語音 SDK 1.4.0： 2019-4 月版本
 
 **新功能** 
 
@@ -131,7 +131,7 @@ ms.locfileid: "71799964"
 * 適用于 JAVA、.NET core C++和目標的語音 SDK 已取得 macOS 支援。 MacOS 的目標-C 支援目前為搶鮮版（Beta）。
 * iOS：適用于 iOS 的語音 SDK （目標-C）現在也會發佈為 CocoaPod。
 * JavaScript：支援非預設麥克風作為輸入裝置。
-* JavaScript：Node.js 的 Proxy 支援。
+* JavaScript：適用于 node.js 的 Proxy 支援。
 
 **範例**
 
@@ -146,11 +146,11 @@ ms.locfileid: "71799964"
 
 **錯誤修正**
 
-* Mac/iOS：已修正無法建立語音服務連線時，會導致長時間等候的 bug。
+* Mac/iOS：已修正無法建立語音服務連線時，會導致長時間等候的錯誤。
 * Python：改善 Python 回呼中引數的錯誤處理。
-* JavaScript：已修正在 RequestSession 上結束語音的錯誤狀態報表。
+* JavaScript：已修正 RequestSession 上語音的錯誤狀態報表已結束。
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>語音 SDK 1.3.1：2019-二月重新整理
+## <a name="speech-sdk-131-2019-february-refresh"></a>語音 SDK 1.3.1： 2019-2 月重新整理
 
 這是 bug 修正版本，只會影響原生/受控 SDK。 它不會影響 JavaScript 版本的 SDK。
 
@@ -158,13 +158,13 @@ ms.locfileid: "71799964"
 
 * 已修正使用麥克風輸入時的記憶體遺漏。 資料流程型或檔案輸入不受影響。
 
-## <a name="speech-sdk-130-2019-february-release"></a>語音 SDK 1.3.0：2019 年 2 月版本
+## <a name="speech-sdk-130-2019-february-release"></a>語音 SDK 1.3.0： 2019-二月發行
 
 **新功能**
 
 * 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您從非預設的麥克風將音訊資料串流至語音服務。 如需詳細資訊，請參閱說明[音訊輸入裝置選取](how-to-select-audio-input-devices.md)的檔。 JavaScript 尚未提供這項功能。
-* 語音 SDK 現在支援搶鮮版 (Beta) Unity。 透過[GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題區段來提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
-* 不再需要檔案 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` （隨附于先前的版本）。 此功能現在已整合到 core SDK 中。
+* 語音 SDK 現在支援搶鮮版 (Beta) Unity。 透過[GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題區段來提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity)。
+* 檔案 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` （在先前的版本中隨附）不再需要。 此功能現在已整合到 core SDK 中。
 
 
 **範例**
@@ -194,7 +194,7 @@ ms.locfileid: "71799964"
   * 初次支援和實作片語提示。
   * 傳回含有服務 JSON 的屬性集合以供辨識
 * Windows DLL 現在會包含版本資源。
-* 如果您建立辨識器 `FromEndpoint`，則可以直接將參數新增至端點 URL。 您無法使用 `FromEndpoint` 來透過標準設定內容來設定辨識器。
+* 如果您建立辨識器 `FromEndpoint` 您可以直接將參數新增至端點 URL。 使用 `FromEndpoint` 您無法透過標準設定屬性來設定辨識器。
 
 **錯誤修正**
 
@@ -214,7 +214,7 @@ ms.locfileid: "71799964"
 * 修正不同辨識器/端點的 BUG。
 * 文件改進。
 
-## <a name="speech-sdk-120-2018-december-release"></a>語音 SDK 1.2.0：2018 年 12 月版本
+## <a name="speech-sdk-120-2018-december-release"></a>語音 SDK 1.2.0： 2018-十二月版本
 
 **新功能**
 
@@ -244,11 +244,11 @@ ms.locfileid: "71799964"
 * 已修正翻譯事件引數的記憶體流失。
 * 已修正在長時間執行的工作階段中重新連線的鎖定問題。
 * 已修正可能會導致遺漏翻譯失敗之最終結果的問題。
-* C#: 如果非同步作業未在主執行緒中等候，則在非同步工作完成之前，就可能處置了辨識器。
-* Java：已修正導致 Java VM 損毀的問題。
-* Objective-C：已修正列舉對應；傳回了 RecognizedIntent 而不是 RecognizingIntent。
-* JavaScript：在 SpeechConfig 中將預設輸出格式設定為 'simple'。
-* JavaScript：移除 JavaScript 與其他語言中組態物件屬性之間的不一致。
+* C#：如果在主執行緒中未等候非同步作業，可能會在非同步工作完成之前處置辨識器。
+* JAVA：已修正導致 JAVA VM 損毀的問題。
+* 目標-C：固定列舉對應;傳回的是 RecognizedIntent，而不是 RecognizingIntent。
+* JavaScript：在 SpeechConfig 中將預設輸出格式設定為「簡單」。
+* JavaScript：移除 JavaScript 和其他語言中 config 物件的屬性之間不一致的情況。
 
 **範例**
 
@@ -300,11 +300,11 @@ ms.locfileid: "71799964"
 
 在我們的[範例存放庫](https://aka.ms/csspeech/samples)中，已新增新的 JavaScript 範例。
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>認知服務語音 SDK 1.0.0：2018 年 9 月版本
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>認知服務語音 SDK 1.0.0：2018 年 9 月版
 
 **新功能**
 
-* iOS 上對 Objective-C 的支援。 請參閱我們的[適用於 iOS 的 Objective-C 快速入門](quickstart-objectivec-ios.md)。
+* iOS 上對 Objective-C 的支援。 請參閱我們的[適用於 iOS 的 Objective-C 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md)。
 * 瀏覽器中對 JavaScript 的支援。 請參閱我們的 [JavaScript 快速入門](quickstart-js-browser.md)。
 
 **重大變更**
@@ -312,15 +312,15 @@ ms.locfileid: "71799964"
 * 在此版本中，會引進一些重大變更。
   請查看[此頁面](https://aka.ms/csspeech/breakingchanges_1_0_0)以取得詳細資料。
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版本
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版
 
 **新功能**
 
 * 使用語音 SDK 所建置的 UWP 應用程式現在可以通過 Windows 應用程式認證套件 (WACK) 的認證。
-  請參閱 [UWP 快速入門](quickstart-csharp-uwp.md)。
+  請參閱 [UWP 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp)。
 * 在 Linux (Ubuntu 16.04 x64) 上支援 .NET Standard 2.0。
 * 實驗性：在 Windows (64 位元) 和 Linux (Ubuntu 16.04 x64) 上支援 Java 8。
-  請參閱 [Java 執行階段環境快速入門](quickstart-java-jre.md)。
+  請參閱 [Java 執行階段環境快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre)。
 
 **功能性變更**
 
@@ -338,14 +338,14 @@ ms.locfileid: "71799964"
 * 已修正問題，長時間執行的辨識可能會在傳輸途中終止。
 * 已修正辨識器關機中的競爭條件。
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>認知服務語音 SDK 0.5.0：2018 年 7 月版本
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>認知服務語音 SDK 0.5.0：2018 年 7 月版
 
 **新功能**
 
-* 支援 Android 平台 (API 23：Android 6.0 Marshmallow 或更新版本)。 請參閱 [Android 快速入門](quickstart-java-android.md)。
-* 在 Windows 上支援 .NET Standard 2.0。 請參閱 [.NET Core 快速入門](quickstart-csharp-dotnetcore-windows.md)。
+* 支援 Android 平台 (API 23: Android 6.0 Marshmallow 或更新版本)。 請參閱 [Android 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android)。
+* 在 Windows 上支援 .NET Standard 2.0。 請參閱 [.NET Core 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)。
 * 實驗性：在 Windows 上支援 UWP (1709 版或更新版本)。
-  * 請參閱 [UWP 快速入門](quickstart-csharp-uwp.md)。
+  * 請參閱 [UWP 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)。
   * 注意：使用語音 SDK 建置的 UWP 應用程式尚未通過 Windows 應用程式認證套件 (WACK) 的認證。
 * 使用自動重新連線支援長時間執行辨識。
 
@@ -363,13 +363,13 @@ ms.locfileid: "71799964"
    * 在 Java 中，`read` 方法現在會傳回 `long` 而不是 `int`。
    * 在 C# 中，`Read` 方法現在會傳回 `uint` 而不是 `int`。
    * 在 C++ 中，`Read` 和 `GetFormat` 方法現在會傳回 `size_t` 而不是 `int`。
-* C++：音訊輸入串流的執行個體現在只能以 `shared_ptr` 的形式傳遞。
+* C++：音訊輸入串流的執行個體現在只能當作 `shared_ptr` 傳遞。
 
 **錯誤修正**
 
 * 修正 `RecognizeAsync()` 逾時的時候，結果中不正確的傳回值。
 * 已移除 Windows 上媒體基礎程式庫的相依性。 SDK 現在使用核心音訊 API。
-* 文件修正：已新增 [[區域]](regions.md) 頁面來說明支援的區域。
+* 文件修正：已新增[區域](regions.md)頁面來描述支援的區域。
 
 **已知問題**
 
@@ -389,7 +389,7 @@ ms.locfileid: "71799964"
 
 **重大變更**
 
-- 在 C# 中已從 `SpeechRecognitionResult.RecognizedText` 變更為 `SpeechRecognitionResult.Text`。
+- 在 C# 中已從 `SpeechRecognitionResult.Text` 變更為 `SpeechRecognitionResult.RecognizedText`。
 
 **錯誤修正**
 
@@ -411,6 +411,6 @@ ms.locfileid: "71799964"
 
 已新增更多範例，且持續更新。 如需最新的範例集，請參閱[語音 SDK 範例 GitHub 存放庫](https://aka.ms/csspeech/samples) \(英文\)。
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>認知服務語音 SDK 0.2.12733：2018 年 5 月版本
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>認知服務語音 0.2.12733：2018 年 5 月版本
 
 此版本為認知服務語音 SDK 的第一個公開預覽版本。

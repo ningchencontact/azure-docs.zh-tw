@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 858ca114ca4c4b469ce4a5dd5275c9ac9874feb5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516757"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465004"
 ---
 # <a name="speech-services-for-telephony-data"></a>電話語音資料的語音服務
 
@@ -38,7 +38,7 @@ ms.locfileid: "72516757"
 
 * 通話後分析，也就是通話錄音的批次處理
 * 音訊訊號的即時分析處理，可在通話進行時擷取各種見解 (以情感作為顯著的使用案例)，以及
-* 虛擬助理 (Bot)，推動客戶與 bot 之間的對話，以嘗試在沒有服務專員參與的情況下解決客戶問題，或作為 AI 通訊協定的應用程式來協助服務專員。
+* 語音助理（bot），可以在客戶與 bot 之間驅動對話，以嘗試解決客戶的問題，而不需要參加任何代理程式，或採用 AI 通訊協定來協助代理程式。
 
 ![話務中心轉譯架構](media/scenarios/call-center-transcription-architecture.png)底下的圖片描繪批次案例實作的典型架構圖。
 
@@ -50,7 +50,7 @@ ms.locfileid: "72516757"
 
 [語音轉換文字](speech-to-text.md)是任何話務中心解決方案中最受歡迎的功能。 因為許多下游分析程序都依賴轉譯的文字，所以字組錯誤率 (WER) 非常重要。 話務中心轉譯的重要挑戰之一就是話務中心常見的雜訊 (例如，其他服務專員在背景中說話)、各種豐富的語言地區設定和方言，以及低品質的實際電話訊號。 WER 與針對特定地區設定定型原音和語言模型的程度高度相互關聯，因此能夠自訂模型以符合您的地區設定很重要。 我們最新的整合 4.x 版模型是轉譯精確度和延遲的解決方案。 使用成千上萬小時的原音資料和大量語彙資訊進行定型，整合模型是市場中轉譯話務中心資料的最精確模型。
 
-### <a name="sentiment"></a>人氣
+### <a name="sentiment"></a>情感
 運用於話務中心空間時，測量客戶是否有良好的體驗是語音分析的最重要領域之一。 我們的[批次轉譯 API](batch-transcription.md)會提供每個語句的情感分析。 您可以彙總在通話文字記錄中取得的一組值，以判斷您的服務專員和客戶的通話情感。
 
 ### <a name="silence-non-talk"></a>無聲 (未交談)
@@ -59,14 +59,14 @@ ms.locfileid: "72516757"
 ### <a name="translation"></a>翻譯
 有些公司正在試驗提供外國語言支援通話的翻譯文字記錄，以便交付經理了解其客戶的全球體驗。 我們可提供卓越的[翻譯](translation.md)功能。 我們可以從大量的地區設定進行音訊到音訊或音訊到文字的翻譯。
 
-### <a name="text-to-speech"></a>文字轉換語音
+### <a name="text-to-speech"></a>文字轉語音
 實作可與客戶互動的 Bot 時，[文字轉換語音](text-to-speech.md)是另一個重要領域。 典型的路徑是客戶說話、其語音會轉譯為文字、分析文字的意圖、根據所辨識的意圖來合成回應，然後將資產呈現給客戶或產生合成的語音回應。 當然，這一切都快速發生 – 因此延遲是這些系統的重要成功元件。
 
 若考量到各種相關技術，例如[語音轉換文字](speech-to-text.md)[LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)、[Bot Framework](https://dev.botframework.com/)、[文字轉換語音](text-to-speech.md)，我們的端對端延遲相當低。
 
 我們的新語音也難以與人聲辨別。 您可以使用我們的語音，賦予您的 Bot 獨特的性格。
 
-### <a name="search"></a>Search
+### <a name="search"></a>搜尋
 分析的另一個主要部分是要識別發生特定事件或體驗時的互動。 通常會透過以下兩種方法完成：隨選搜尋或更具結構化的查詢，在前者中，使用者只要輸入一個片語，系統就會回應，而在後者中，析師可以建立一組邏輯陳述式來識別通話中的案例，然後根據這組查詢來編製每次通話的索引。 以下普遍存在的合規性陳述是一個很好的搜尋範例：「為了確保品質，本次通話會進行錄音... 」– 因為很多公司都想確保其服務專員在通話實際錄音前，會將此免責聲明提供給客戶。 大多數的分析系統都能夠分析查詢/搜尋演算法所找到的行為趨勢 – 因為此趨勢報告終究是分析系統的最重要功能之一。 透過[認知服務目錄](https://azure.microsoft.com/services/cognitive-services/directory/search/)，可以利用編製索引和搜尋功能大幅增強端對端解決方案。
 
 ### <a name="key-phrase-extraction"></a>關鍵片語擷取
@@ -116,7 +116,7 @@ ms.locfileid: "72516757"
 
 Azure 語音服務可順利地與內建模型搭配使用，不過，您可以進一步自訂及調整體驗，以搭配您的產品或環境。 從原音模型調整到專屬於自身品牌的獨特聲音音調，都是自訂選項的範圍。 建立自訂模型之後，您可以即時或以批次模式，將其與任何 Azure 語音服務搭配使用。
 
-| 語音服務 | 型號 | 描述 |
+| 語音服務 | 模型 | 說明 |
 |----------------|-------|-------------|
 | 語音轉文字 | [原音模型](how-to-customize-acoustic-models.md) | 針對用於特定環境 (例如汽車或工廠) 的應用程式、工具或裝置建立自訂原音模型，而這每一個的錄音條件都較特殊。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
 | | [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型來提升特定產業的詞彙和文法轉譯，例如醫療術語或 IT 專業術語。 |

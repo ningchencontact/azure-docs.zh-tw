@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 17ad32cba18915bf7f83163cd876686d42323750
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552651"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468753"
 ---
 # <a name="what-is-speech-translation"></a>什麼是語音翻譯？
 
-來自 Azure 語音服務的語音翻譯可讓您即時、多語言的語音轉換語音和語音轉換文字轉譯音訊串流。 使用語音 SDK 時, 您的應用程式、工具和裝置可存取所提供音訊的來源轉譯和轉譯輸出。 當偵測到語音時, 會傳回暫時轉譯和翻譯結果, 而總決賽結果可以轉換成合成語音。
+來自 Azure 語音服務的語音翻譯可讓您即時、多語言的語音轉換語音和語音轉換文字轉譯音訊串流。 使用語音 SDK 時，您的應用程式、工具和裝置可存取所提供音訊的來源轉譯和轉譯輸出。 當偵測到語音時，會傳回暫時轉譯和翻譯結果，而總決賽結果可以轉換成合成語音。
 
-Microsoft 的轉譯引擎支援兩種不同的方法: 統計機器翻譯 (SMT) 和類神經機器翻譯 (NMT)。 SMT 會使用 advanced 統計分析, 根據幾個單字的內容來估計最佳的翻譯。 使用 NMT, 類神經網路可透過使用句子的完整內容來轉譯單字, 以提供更精確且自然發音的翻譯。
+Microsoft 的轉譯引擎支援兩種不同的方法：統計機器翻譯（SMT）和類神經機器翻譯（NMT）。 SMT 會使用 advanced 統計分析，根據幾個單字的內容來估計最佳的翻譯。 使用 NMT，類神經網路可透過使用句子的完整內容來轉譯單字，以提供更精確且自然發音的翻譯。
 
-目前, Microsoft 使用 NMT 來轉譯成最熱門的語言。 所有[可用於語音轉換語音翻譯的語言](language-support.md#speech-translation)都是採用 NMT 技術。 根據語言配對，語音轉換文字翻譯可能會使用 SMT 或 NMT。 當 NMT 支援目的語言時, 完整翻譯會以 NMT 為動力。 當 NMT 不支援目的語言時, 翻譯是混合的 NMT 和 SMT, 使用英文做為兩種語言之間的「pivot」。
+目前，Microsoft 使用 NMT 來轉譯成最熱門的語言。 所有[可用於語音轉換語音翻譯的語言](language-support.md#speech-translation)都是採用 NMT 技術。 根據語言配對，語音轉換文字翻譯可能會使用 SMT 或 NMT。 當 NMT 支援目的語言時，完整翻譯會以 NMT 為動力。 當 NMT 不支援目的語言時，翻譯是混合的 NMT 和 SMT，使用英文做為兩種語言之間的「pivot」。
 
 ## <a name="core-features"></a>核心功能
 
-以下是透過語音 SDK 和 REST Api 提供的功能:
+以下是透過語音 SDK 和 REST Api 提供的功能：
 
 | 使用案例 | SDK | REST |
 |----------|-----|------|
@@ -39,23 +39,23 @@ Microsoft 的轉譯引擎支援兩種不同的方法: 統計機器翻譯 (SMT) �
 
 我們提供的快速入門是為了讓您在10分鐘內執行程式碼而設計的。 此表格包含依語言組織的語音翻譯快速入門清單。
 
-| 快速入門 | 平台 | API 參考 |
+| 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#、.NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows、Linux、macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#、.NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#，UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows、Linux、macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>範例程式碼
 
-語音 SDK 的範例程式碼可在 GitHub 上取得。 這些範例涵蓋了常見的案例, 例如從檔案或資料流程讀取音訊、連續和一次性的辨識/轉譯, 以及使用自訂模型。
+語音 SDK 的範例程式碼可在 GitHub 上取得。 這些範例涵蓋了常見的案例，例如從檔案或資料流程讀取音訊、連續和一次性的辨識/轉譯，以及使用自訂模型。
 
-* [語音轉換文字和翻譯範例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [語音轉換文字和翻譯範例（SDK）](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="migration-guides"></a>移轉指南
 
-如果您的應用程式、工具或產品使用[翻譯工具語音 API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), 我們建立了指南, 協助您遷移至語音服務。
+如果您的應用程式、工具或產品使用[翻譯工具語音 API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)，我們建立了指南，協助您遷移至語音服務。
 
 * [從翻譯工具語音 API 遷移至語音服務](how-to-migrate-from-translator-speech-api.md)
 
@@ -63,9 +63,9 @@ Microsoft 的轉譯引擎支援兩種不同的方法: 統計機器翻譯 (SMT) �
 
 * [語音 SDK](speech-sdk-reference.md)
 * [語音裝置 SDK](speech-devices-sdk.md)
-* [REST API：語音轉文字](rest-speech-to-text.md)
-* [REST API：文字轉語音](rest-text-to-speech.md)
-* [REST API：批次轉譯與自訂](https://westus.cris.ai/swagger/ui/index)
+* [REST API：語音轉換文字](rest-speech-to-text.md)
+* [REST API：文字轉換語音](rest-text-to-speech.md)
+* [REST API：批次轉譯和自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 

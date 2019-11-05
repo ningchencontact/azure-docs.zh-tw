@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 35c696e47c0a01c2cdb4d91db5a654208f2196e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9dd24a962ddece4ae7841effea7fc36bba1b727b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71257273"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496461"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：適用於 FFIEC 財務服務的分析
 
@@ -27,15 +27,15 @@ ms.locfileid: "71257273"
 
 ## <a name="architecture-diagram-and-components"></a>架構圖表與元件
 
-此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 此參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
+此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
 
-Azure 為客戶提供各種報告和分析服務。 此解決方案結合 Azure Machine Learning 服務與 Azure SQL Database，可透過更聰明的模型，來快速瀏覽資料及傳遞更快的結果。 Azure Machine Learning 透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
+Azure 為客戶提供各種報告和分析服務。 此解決方案結合了 Azure Machine Learning 與 Azure SQL Database，透過更聰明的模型，快速流覽資料並提供更快的結果。 Azure Machine Learning 透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
 
 若要加強分析和報告，您可以使用資料行存放區索引來設定 Azure SQL 資料庫。 根據客戶的使用情況，Azure Machine Learning 和 Azure SQL 資料庫可相應增加或減少，或甚至是完全關閉。 所有 SQL 流量都會使用 SSL 透過內含的自我簽署憑證來加密。 Azure 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
 
 一旦將資料上傳至 Azure SQL Database，並由 Azure Machine Learning 加以訓練後，操作使用者和 SQL/資料管理員就會使用 Power BI 來處理這些資料。 Power BI 會以直覺方式顯示資料，並同時提取多個資料集中的資訊，來繪製更深入的見解。 因為其適應性高且能輕鬆地與 Azure SQL Database 整合，可確保客戶能根據他們的業務需求進行設定，進而處理大量案例。
 
-解決方案使用 Azure 儲存體帳戶，客戶可以設定要使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
+解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
 
 為加強安全性，此解決方案中的所有資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制已部署資源的存取，包括資源在 Azure Key Vault 中的金鑰。 透過 Azure 資訊安全中心和 Azure 監視器監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。
 
@@ -47,9 +47,9 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 - Application Insights
 - Azure Active Directory
-- Azure Data Catalog
+- Azure 資料目錄
 - Azure 磁碟加密
-- Azure 事件格線
+- Azure Event Grid
 - Azure Functions
 - Azure 金鑰保存庫
 - Azure Machine Learning
@@ -71,7 +71,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 **Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 是無伺服器計算服務，可讓使用者依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。
 
-**Azure Machine Learning 服務**： [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/)是一項資料科學技術，可讓電腦使用現有的資料來預測未來的行為、結果和趨勢。
+**Azure Machine Learning**：[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) 是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。
 
 **Azure 資料目錄**：[資料目錄](../../data-catalog/overview.md)能讓管理資料的使用者輕鬆地探索和了解資料來源。 您可以註冊、標記常用資料來源，並在其中搜尋財務資料。 資料會保留在現有的位置，但其中繼資料的複本會連同資料來源位置的參考，一起新增至資料目錄。 此中繼資料也會編製索引，透過搜尋輕鬆找到每個資料來源，並讓探索資料來源的使用者了解每個資料來源。
 
@@ -79,12 +79,12 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 存在下列網路安全性群組：
+**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 有下列網路安全性群組：
 
   - 適用於 Active Directory 的網路安全性群組
   - 適用於工作負載的網路安全性群組
 
-每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，以下組態會針對每個網路安全性群組啟用：
+每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，下列組態會針對每個網路安全性群組啟用：
 
 - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
 - Azure 監視器記錄會連線至[網路安全性群組&#39;的診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
@@ -101,7 +101,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 **Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](../../storage/common/storage-service-encryption.md)。 這有助於保護與防衛資料，以支援組織的安全性承諾及 FFIEC 所定義的合規性要求。
 
-**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
+**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)會利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
 
 **Azure SQL Database**：Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 
@@ -113,7 +113,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 - [加密資料行](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)可確保敏感性資料在資料庫系統內一律不會以純文字顯示。 啟用資料加密之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。
 - 因為[擴充屬性](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql)可讓使用者將自訂屬性新增至資料庫物件，並將資料標記為「已中止」，以支援應用程式邏輯來防止處理相關聯的財務資料，所以可用來中止資料主體的處理。
 - [資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)可讓使用者定義原則，限制資料存取以中斷處理。
-- [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以符合其資料庫結構描述。
+- [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以配合其資料庫結構描述。
 
 ### <a name="identity-management"></a>身分識別管理
 
@@ -127,7 +127,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 ### <a name="security"></a>安全性
 
-**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
+**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
 
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
@@ -137,7 +137,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 - 金鑰保存庫的診斷記錄的保留期至少 365 天。
 - 允許的金鑰密碼編譯作業僅限於需要的密碼編譯項目。
 
-**Azure 資訊安全中心**：使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，客戶可以在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
+**Azure 資訊安全中心**：客戶可以使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
 
 Azure 資訊安全中心會使用不同的偵測功能，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 Azure 資訊安全中心有一組[預先定義的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)，一旦發生威脅或可疑活動時便會觸發這些警示。 Azure 資訊安全中心內的[自訂警示規則](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)可讓客戶根據從其環境所收集到的資料，定義新的安全性警示。
 
@@ -171,7 +171,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 ## <a name="compliance-documentation"></a>合規性文件
 
-[Azure 安全性與合規性藍圖 - FFIEC 客戶責任對照表](https://aka.ms/ffiec-crm)會列出 FFIEC 要求的所有目標。 此對照表詳細說明每個目標的實作是由 Microsoft、客戶還是兩者共同負責。
+[Azure 安全性與合規性藍圖 - FFIEC 客戶責任對照表](https://aka.ms/ffiec-crm)會列出 FFIEC 所需的所有目標。 此對照表詳細說明每個目標的實作是由 Microsoft、客戶還是兩者共同負責。
 
 [Azure 安全性與合規性藍圖 - FFIEC 資料分析實作矩陣](https://aka.ms/ffiec-analytics-cim)提供資料分析架構處理哪些 FFIEC 目標的相關資訊，包括詳細說明此實作如何符合每個涵蓋目標的需求。
 

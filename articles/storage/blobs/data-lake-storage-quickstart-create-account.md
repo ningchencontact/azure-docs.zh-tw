@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 1c9cdfa54494cd6d77edcd13110a79e5265e5032
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 675d1889fc74474a1d732cb5d4e9f46c638ce200
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817844"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467915"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>建立 Azure Data Lake Storage Gen2 儲存體帳戶
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2 [支援階層命名空間](data-lake-storage-introd
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 
 
-|           | 先決條件 |
+|           | 必要條件 |
 |-----------|--------------|
 |入口網站     | None         |
 |PowerShell | 本文需要 PowerShell 模組 Az. Storage **0.7**版或更新版本。 請執行 `Get-Module -ListAvailable Az.Storage` 命令來了解您目前使用的版本。 如果您執行此命令之後，沒有顯示任何結果，或如果顯示 **0.7** 以下的其他版本，表示您的 powershell 模組必須升級。 請參閱本指南[升級您的 powershell 模組](#upgrade-your-powershell-module)一節。
@@ -45,7 +45,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 ### <a name="install-the-cli-locally"></a>在本機安裝 CLI
 
-您也可以在本機安裝及使用 Azure CLI。 本文會要求您執行 Azure CLI 版本2.0.38 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也可以在本機安裝及使用 Azure CLI。 本文會要求您執行 Azure CLI 版本2.0.38 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>建立啟用 Azure Data Lake Storage Gen2 的儲存體帳戶
 
@@ -78,7 +78,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 4. 接下來，輸入儲存體帳戶的名稱。 您所選擇的名稱在整個 Azure 中必須是唯一的。 名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。
 5. 選擇位置。
 6. 請確定 [ **StorageV2 （一般用途 v2）** ] 出現在 [**帳戶類型**] 下拉式清單中的選取狀態。
-7. （選擇性）變更每個欄位中的值： [**效能** **]、[複寫]、[** **存取層**]。 若要深入瞭解這些選項，請參閱[Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction#introducing-the-azure-storage-services)。
+7. （選擇性）變更每個欄位中的值： [**效能** **]、[複寫]、[** **存取層**]。 若要深入瞭解這些選項，請參閱[Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services)。
 8. 選擇 [ **Advanced** ] 索引標籤。
 10. 在 [Data Lake Storage Gen2] 區段中，將 [階層式命名空間] 設定為 [啟用]。
 11. 按一下 [檢閱及建立] 建立儲存體帳戶。

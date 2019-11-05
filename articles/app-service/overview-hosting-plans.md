@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066734"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470248"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
@@ -31,13 +31,13 @@ ms.locfileid: "70066734"
 - 區域 (美國西部、美國東部等)
 - 虛擬機器執行個體的數目
 - 虛擬機器執行個體的大小 (小、中、大)
-- 定價層 (免費、共用、基本、標準、Premium、PremiumV2、獨立)
+- 定價層（免費、共用、基本、標準、Premium、PremiumV2、獨立）
 
 App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，以及為該方案支付多少費用。 定價層有幾個類別：
 
 - **共用計算**：**免費**和**共用**，這兩個基底層會在與其他 App Service 應用程式相同的 Azure VM 上執行應用程式，包括其他客戶的應用程式。 這些層會將 CPU 配額配置到在共用資源上執行的每個應用程式，而且該資源無法向外延展。
 - **專用計算**：**基本**、**標準**、**進階**和 **PremiumV2** 層會在專用的 Azure VM 上執行應用程式。 只有位於同個 App Service 方案中的應用程式，才會共用相同的計算資源。 層越高，可用於向外延展的 VM 執行個體就越多。
-- **隔離**：這一層會在專用的 Azure 虛擬網路上執行專用的 Azure Vm。 它會在計算隔離的基礎上提供網路隔離給您的應用程式。 它提供了最大的向外延展能力。
+- **隔離**：這一層會在專用的 Azure 虛擬網路上執行專用的 azure vm。 它會在計算隔離的基礎上提供網路隔離給您的應用程式。 它提供了最大的向外延展能力。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -60,7 +60,7 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 
 ## <a name="how-does-my-app-run-and-scale"></a>我的應用程式如何執行及調整縮放？
 
-在**免費**和**共用**層，應用程式會收到共用 VM 執行個體上的 CPU 分鐘數，且無法向外延展。在其他層，應用程式的執行與調整方式如下所示。
+在**免費**和**共用**層中，應用程式會收到共用 VM 實例上的 CPU 分鐘數，且無法相應放大。在其他層中，應用程式會執行並調整，如下所示。
 
 當您在 App Service 中建立應用程式時，該應用程式會置入 App Service 方案。 當應用程式執行時，會在 App Service 方案中設定的所有 VM 執行個體上執行。 如果有多個應用程式位於相同的 App Service 方案，它們會共用相同的 VM 執行個體。 如果一個應用程式有多個部署位置，所有部署位置也會在相同的 VM 執行個體上執行。 如果您啟用診斷記錄、執行備份，或執行 WebJob，它們也會使用這些 VM 執行個體上的 CPU 週期和記憶體。
 
@@ -77,7 +77,7 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 除了**免費**層以外，App Service 方案會根據其每小時使用的計算資源計費。
 
 - 在**共用**層，每個應用程式會收到 CPU 分鐘數的配額，因此_每個應用程式_會針對 CPU 配額每小時計費。
-- 在專用計算層 (**基本**、**標準**、 **Premium**、 **PremiumV2**) 中, APP SERVICE 方案會定義應用程式調整的 VM 實例數目, 因此 App Service 方案中的_每個 vm 實例_都有每小時的費用。 無論有多少個應用程式在 VM 執行個體上執行，這些 VM 執行個體皆採相同收費。 為了避免產生非預期的費用，請參閱[清除 App Service 方案](app-service-plan-manage.md#delete)。
+- 在專用計算層（**基本**、**標準**、 **Premium**、 **PremiumV2**）中，APP SERVICE 方案會定義應用程式調整的 VM 實例數目，因此 App Service 方案中的_每個 vm 實例_都有每小時的費用。 無論有多少個應用程式在 VM 執行個體上執行，這些 VM 執行個體皆採相同收費。 為了避免產生非預期的費用，請參閱[清除 App Service 方案](app-service-plan-manage.md#delete)。
 - 在**隔離**層，App Service 環境會定義執行您應用程式的隔離背景工作角色數目，且_每個背景工作角色_會每小時計費。 此外，執行 App Service 環境本身也有每小時的基本費用。
 
 使用可用的 App Service 功能 (設定自訂網域、SSL 憑證、部署位置、備份等等) 不會向您收取費用。 例外狀況為：
@@ -95,7 +95,7 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 
 可以隨時相應增加和相應減少您的 App Service 方案。 這與更改方案的定價層一樣簡單。 一開始，您可以選擇較低的定價層，當您之後需要更多 App Service 功能時，再相應增加。
 
-例如，您可以開始測試**免費** App Service 方案中的 Web 應用程式，無須支付任何費用。 當您想要將[自訂 DNS 名稱](app-service-web-tutorial-custom-domain.md) 加入 Web 應用程式時，只要將您的方案相應增加至**共用**層即可。 稍後，當您想要新增[自訂 SSL 憑證](app-service-web-tutorial-custom-ssl.md)時，將您的方案相應增加至**基本**層。 當您想要有[預備環境](deploy-staging-slots.md)時，相應增加至**標準**層。 當您需要更多核心、記憶體或儲存體時，可以在同一層中相應增加到較大的 VM 大小。
+例如，您可以開始測試**免費** App Service 方案中的 Web 應用程式，無須支付任何費用。 當您想要將[自訂 DNS 名稱](app-service-web-tutorial-custom-domain.md) 加入 Web 應用程式時，只要將您的方案相應增加至**共用**層即可。 之後，當您想要[建立 SSL](configure-ssl-bindings.md)系結時，請將您的方案相應增加至**基本**層。 當您想要有[預備環境](deploy-staging-slots.md)時，相應增加至**標準**層。 當您需要更多核心、記憶體或儲存體時，可以在同一層中相應增加到較大的 VM 大小。
 
 反向的運作方式也是一樣。 當您覺得不再需要更高層的功能時，可以相應減少到較低層，這樣可以節省費用。
 

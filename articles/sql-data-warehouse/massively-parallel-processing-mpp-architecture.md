@@ -1,43 +1,56 @@
 ---
-title: Azure SQL 資料倉儲 - MPP 架構 | Microsoft Docs
-description: 了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。
+title: Azure Synapse 分析（先前稱為 SQL DW）架構 |Microsoft Docs
+description: 瞭解 Azure Synapse Analytics （先前稱為 SQL DW）如何結合大量平行處理（MPP）與 Azure 儲存體，以達到高效能和擴充性。
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b463b0806d39ba20ae714c8785e5c0d227ce481b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515802"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466395"
 ---
-# <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構
-了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。 
+# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics （先前稱為 SQL DW）架構 
+
+Azure Synapse 是一種無限制的分析服務，可將企業資料倉儲和海量資料分析整合在一起。 它可讓您自由地使用無伺服器隨選或布建的資源，隨意查詢您的資料。 Azure Synapse 將這兩個世界結合在一起，以整合、準備、管理和提供資料，以滿足立即的 BI 和機器學習需求。
+
+ Azure Synapse 有四個元件：
+- SQL 分析：完成 T-sql 型分析 
+    - SQL 集區（每個布建的 DWU 付費）-正式推出
+    - SQL 隨選（每 TB 處理的付費）–（預覽）
+- Spark：深層整合的 Apache Spark （預覽） 
+- 資料整合：混合式資料整合（預覽）
+- Studio：統一的使用者體驗。  (預覽)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="mpp-architecture-components"></a>MPP 架構元件
-SQL 資料倉儲會利用相應放大架構，將資料的計算處理散發到多個節點。 縮放單位是稱為[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)之計算能力的抽象概念。 SQL 資料倉儲會將計算與儲存體分隔開來，讓您可以在系統中單獨調整資料的計算。
+## <a name="sql-analytics-mpp-architecture-components"></a>SQL 分析 MPP 架構元件
 
-![SQL 資料倉儲架構](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+[SQL 分析](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)會利用相應放大架構，將資料的計算處理散發到多個節點。 縮放單位是稱為[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)之計算能力的抽象概念。 計算與儲存體分開，可讓您獨立調整系統中資料的計算。
 
-SQL 資料倉儲使用以節點為基礎的架構。 應用程式會連接並發出 T-SQL 命令到控制節點，此是資料倉儲的單一進入點。 控制節點會執行 MPP 引擎，將查詢最佳化以進行平行處理，然後將作業傳遞到計算節點，以平行方式執行其工作。 計算節點會在 Azure 儲存體中儲存所有使用者資料，並執行平行查詢。 資料移動服務 (DMS) 是系統層級的內部服務，其會視需要在節點之間移動資料，以平行方式執行查詢並傳回精確的結果。 
+![SQL 分析架構](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-使用減少的儲存體和計算，SQL 資料倉儲可以︰
+SQL 分析會使用以節點為基礎的架構。 應用程式會連接併發出 T-sql 命令到控制節點，這是 SQL 分析的單一進入點。 控制節點會執行 MPP 引擎，將查詢最佳化以進行平行處理，然後將作業傳遞到計算節點，以平行方式執行其工作。 
+
+計算節點會在 Azure 儲存體中儲存所有使用者資料，並執行平行查詢。 資料移動服務 (DMS) 是系統層級的內部服務，其會視需要在節點之間移動資料，以平行方式執行查詢並傳回精確的結果。 
+
+使用 SQL 分析時，使用分離的儲存體和計算，可以：
 
 * 獨立估算計算能力，而不論您的儲存體需求為何。
-* 擴大或縮小計算能力，而不移動資料。
+* 在 SQL 集區（資料倉儲）內增加或縮小計算能力，而不移動資料。
 * 暫停計算容量，同時讓資料保持不變，因此您只需支付儲存體的費用。
 * 在營運時間期間繼續計算容量。
 
 ### <a name="azure-storage"></a>Azure 儲存體
-SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。  因為您的資料是由 Azure 儲存體儲存及管理的，所以 SQL 資料倉儲會與您的儲存體使用情況分開計費。 資料本身會分區化到**散發**中，以將系統效能最佳化。 當您定義資料表時，可以選擇要用來散發資料的分區化模式。 SQL 資料倉儲支援這些分區化模式：
+
+SQL 分析會利用 Azure 儲存體來保護您的使用者資料。  因為您的資料是由 Azure 儲存體儲存及管理，所以您的儲存體耗用量會另外收費。 資料本身會分區化到**散發**中，以將系統效能最佳化。 當您定義資料表時，可以選擇要用來散發資料的分區化模式。 支援這些分區化模式：
 
 * 雜湊
 * 循環配置資源
@@ -45,25 +58,27 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 
 ### <a name="control-node"></a>控制節點
 
-控制節點是資料倉儲的大腦。 它是與所有應用程式與連接互動的前端。 MPP 引擎會在控制節點上執行，以便將平行查詢最佳化並加以協調。 當您將 T-SQL 查詢提交到 SQL 資料倉儲時，控制節點會將其轉換為要根據每個散發平行執行的查詢。
+控制節點是架構的大腦。 它是與所有應用程式與連接互動的前端。 MPP 引擎會在控制節點上執行，以便將平行查詢最佳化並加以協調。 當您提交 T-SQL 查詢至 SQL 分析時，控制節點會將它轉換成平行執行每個散發的查詢。
 
 ### <a name="compute-nodes"></a>計算節點數量
 
-計算節點提供計算能力。 散發會對應到計算節點以進行處理。 當您需要支付更多計算資源的費用時，SQL 資料倉儲會將散發重新對應到可用的計算節點。 計算節點數目範圍是從 1 到 60，取決於資料倉儲的服務等級。
+計算節點提供計算能力。 散發會對應到計算節點以進行處理。 當您支付更多計算資源的費用時，SQL 分析會將分佈重新對應到可用的計算節點。 計算節點的數目範圍是從1到60，而且是由 SQL 分析的服務層級所決定。
 
 每個計算節點都有會在系統檢視中顯示的節點識別碼。 您可以在名稱開頭為 sys.pdw_nodes 的系統檢視中尋找 node_id 資料行，以查看計算節點識別碼。 如需這些系統檢視的清單，請參閱 [MPP 系統檢視](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)。
 
 ### <a name="data-movement-service"></a>資料移動服務
 資料移動服務 (DMS) 是資料傳輸技術，可協調計算節點之間的資料移動。 某些查詢需要資料移動，以確保平行查詢會傳回精確的結果。 若資料移動是必要的，DMS 確保正確的資料會到達正確的位置。 
 
-## <a name="distributions"></a>分佈
+## <a name="distributions"></a>散發
 
-散發是儲存體的基本單位，可處理在分散式資料上執行的平行查詢。 當 SQL 資料倉儲執行查詢時，會將工作分成 60 個平行執行的較小查詢。 這 60 個較小查詢中的每一個都會在其中一個資料散發中執行。 每個計算節點都會管理這 60 個散發中的一或多個。 具有最大計算資源的資料倉儲，在每個計算節點上都有一個散發。 具有最小計算資源的資料倉儲，其所有散發都會在一個計算節點上。  
+散發是儲存體的基本單位，可處理在分散式資料上執行的平行查詢。 當 SQL 分析執行查詢時，會將工作分成60以平行方式執行的較小查詢。 
+
+這 60 個較小查詢中的每一個都會在其中一個資料散發中執行。 每個計算節點都會管理這 60 個散發中的一或多個。 具有最多計算資源的 SQL 集區具有每個計算節點的一個散發。 具有最少計算資源的 SQL 集區會在一個計算節點上具有所有散發。  
 
 ## <a name="hash-distributed-tables"></a>雜湊分散式資料表
 雜湊分散式資料表可以針對大型資料表上的聯結和彙總提供最高查詢效能。 
 
-為了將資料分區化到雜湊分散式資料表，SQL 資料倉儲會使用雜湊函式，決定性地將每個資料列指派給一個散發。 在資料表定義中，其中一個資料行會指定為發佈資料行。 雜湊函式會使用散發資料行中的值，將每個資料列指派給一個散發。
+為了將資料分區到雜湊分散式資料表，SQL 分析會使用雜湊函式，以決定性的方式將每一列指派給一個散發。 在資料表定義中，其中一個資料行會指定為發佈資料行。 雜湊函式會使用散發資料行中的值，將每個資料列指派給一個散發。
 
 下圖說明完整 (非分散式資料表) 會如何儲存為雜湊分散式資料表。 
 
@@ -84,14 +99,14 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 ## <a name="replicated-tables"></a>複寫的資料表
 複寫的資料表會為小型資料表提供最快速的查詢效能。
 
-複寫的資料表會在每個計算節點上快取一份完整的資料表複本。 因此，複寫資料表就不需在進行聯結或彙總之前，於計算節點之間傳輸資料。 複寫的資料表最好能與小型資料表搭配使用。 須有額外的儲存體，而且沒有寫入讓大型資料表並不實用的資料時造成的額外負擔。  
+複寫的資料表會在每個計算節點上快取一份完整的資料表複本。 因此，複寫資料表就不需在進行聯結或彙總之前，於計算節點之間傳輸資料。 複寫的資料表最好能與小型資料表搭配使用。 需要額外的儲存體，而且在寫入資料時所產生的額外負荷會使大型資料表不實際。  
 
-下圖顯示複寫的資料表。 對於 SQL 資料倉儲，會在每個計算節點中的第一個散發上快取複寫的資料表。  
+下圖顯示在每個計算節點上第一次散發時快取的複寫資料表。  
 
-![複寫的資料表](media/sql-data-warehouse-distributed-data/replicated-table.png "複寫的資料表") 
+![複寫資料表](media/sql-data-warehouse-distributed-data/replicated-table.png "複寫的資料表") 
 
 ## <a name="next-steps"></a>後續步驟
-現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]和[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
+既然您已深入瞭解 Azure Synapse，請瞭解如何快速[建立 SQL 集][create a SQL pool]區並[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary] 在您遇到新術語時很有幫助。 或查看其中一些其他 Azure Synapse 資源。  
 
 * [客戶成功案例]
 * [部落格]
@@ -109,9 +124,9 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 <!--Article references-->
 [建立支援票證]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[create a SQL pool]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Azure Synapse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -127,6 +142,6 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 [Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for Azure Synapse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

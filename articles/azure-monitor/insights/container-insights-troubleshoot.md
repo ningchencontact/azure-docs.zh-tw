@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/27/2018
-ms.openlocfilehash: ec75f607f707405d6a5bea98deb784f4306c04f1
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 3d6ed3b13c134d8e9c1df72ae2cb880a477a803a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477046"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
 
@@ -103,13 +103,33 @@ ms.locfileid: "72555364"
 
 下表簡要說明使用適用於容器的 Azure 監視器時，可能遇到的已知錯誤。
 
-| 錯誤訊息  | 行動 |  
+| 錯誤訊息  | 動作 |  
 | ---- | --- |  
 | 錯誤訊息 `No data for selected filters`  | 為新建立的叢集打造監視資料流程可能需要點時間。 允許至少10到15分鐘的時間，讓您的叢集顯示資料。 |   
-| 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubenetes Service 叢集是為監視健康情況和效能而設定，但這個叢集和 Azure Log Analytics 工作區之間有所連結。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 當您的 Log Analytics 工作區已刪除時，可能會發生此錯誤。 檢查工作區是否已刪除，如果是，您將需要使用容器的 Azure 監視器來重新啟用叢集的監視，並指定現有的或建立新的工作區。 若要重新啟用，您將需要[停](container-insights-optout.md)用叢集的監視，並再次[啟用](container-insights-enable-new-cluster.md)容器的 Azure 監視器。 |  
-| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 使用 `az aks cli` 啟用監視時，可能無法正確部署容器的 Azure 監視器。 檢查是否已部署解決方案。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md)的指示，重新部署這個解決方案 |  
+| 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubernetes Service 叢集是針對健全狀況和效能監視進行設定，但叢集與 Azure Log Analytics 工作區之間會建立連線。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 當您的 Log Analytics 工作區已刪除時，可能會發生此錯誤。 檢查工作區是否已刪除，如果是，您將需要使用容器的 Azure 監視器來重新啟用叢集的監視，並指定現有的或建立新的工作區。 若要重新啟用，您將需要[停](container-insights-optout.md)用叢集的監視，並再次[啟用](container-insights-enable-new-cluster.md)容器的 Azure 監視器。 |  
+| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 使用 `az aks cli`啟用監視時，可能無法正確部署容器的 Azure 監視器。 檢查是否已部署解決方案。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md)的指示，重新部署這個解決方案 |  
 
-為協助診斷問題，[在此](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)提供疑難排解指令碼。  
+為協助診斷問題，[在此](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)提供疑難排解指令碼。
+
+## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>未在非 Azure Kubernetes 叢集上排程容器代理程式 ReplicaSet pod 的 Azure 監視器
+
+容器代理程式 ReplicaSet pod 的 Azure 監視器相依于排程的背景工作角色（或代理程式）節點上的下列節點選取器：
+
+```
+nodeSelector:
+  beta.kubernetes.io/os: Linux
+  kubernetes.io/role: agent
+```
+
+如果您的背景工作節點未附加節點標籤，則不會排程代理程式 ReplicaSet pod。 如需如何附加標籤的指示，請參閱[Kubernetes 指派標籤選取器](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)。
+
+## <a name="performance-charts-dont-show-cpu-or-memory-of-nodes-and-containers-on-a-non-azure-cluster"></a>效能圖表不會顯示非 Azure 叢集上節點和容器的 CPU 或記憶體
+
+容器的 Azure 監視器代理程式 pod 會使用節點代理程式上的 cAdvisor 端點來收集效能計量。 確認節點上的容器化代理程式已設定為允許在叢集中的所有節點上開啟 `cAdvisor port: 10255`，以收集效能計量。
+
+## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>非 Azure Kubernetes 叢集不會顯示在容器的 Azure 監視器中
+
+若要在適用于容器的 Azure 監視器中，查看非 Azure Kubernetes 叢集，支援此深入解析的 Log Analytics 工作區和 Container Insights 解決方案資源**ContainerInsights （*工作區*）** 上都需要讀取權限。
 
 ## <a name="next-steps"></a>後續步驟
 

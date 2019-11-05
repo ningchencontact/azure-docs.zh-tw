@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.date: 10/29/2019
+ms.openlocfilehash: b60906df01f640877e90281812acf64082ffad01
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266192"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162826"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>使用 Azure HDInsight IO 快取來改善 Apache Spark 工作負載的效能
 
@@ -22,6 +22,7 @@ IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache S
 
 > [!Note]  
 > IO 快取目前使用 RubiX 做為快取元件，但在未來的服務版本中可能會變更。 請使用 IO 快取介面，而不要直接相依於任何 RubiX 實作。
+>目前只有 Azure BLOB 儲存體支援 IO 快取。 
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 快取的優點
 

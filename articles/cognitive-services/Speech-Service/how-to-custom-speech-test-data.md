@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802509"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464554"
 ---
 # <a name="prepare-data-for-custom-speech"></a>準備自訂語音的資料
 
@@ -55,8 +55,8 @@ ms.locfileid: "70802509"
 | 屬性 | 值 |
 |----------|-------|
 | 檔案格式 | RIFF (WAV) |
-| 採樣速率 | 8000 hz 或 16000 Hz |
-| 頻道 | 1 (mono) |
+| 取樣率 | 8000 hz 或 16000 Hz |
+| 聲道 | 1 (mono) |
 | 每一音訊的最大長度 | 2 小時 |
 | 樣本格式 | PCM，16 位元 |
 | 封存格式 | .zip |
@@ -64,7 +64,7 @@ ms.locfileid: "70802509"
 
 如果您的音訊不符合這些內容，或您想要檢查其是否存在，建議您下載[sox](http://sox.sourceforge.net)以檢查或轉換音訊。 以下是如何透過命令列來完成每個活動的一些範例：
 
-| activities | 描述 | Sox 命令 |
+| 活動 | 說明 | Sox 命令 |
 |----------|-------------|-------------|
 | 檢查音訊格式 | 使用此命令來檢查音訊檔案格式。 | `sox --i <filename>` |
 | 轉換音訊格式 | 使用此命令可將音訊檔案轉換成單一通道，16位，16 KHz。 | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -76,8 +76,8 @@ ms.locfileid: "70802509"
 | 屬性 | 值 |
 |----------|-------|
 | 檔案格式 | RIFF (WAV) |
-| 採樣速率 | 8000 hz 或 16000 Hz |
-| 頻道 | 1 (mono) |
+| 取樣率 | 8000 hz 或 16000 Hz |
+| 聲道 | 1 (mono) |
 | 每一音訊的最大長度 | 60秒 |
 | 樣本格式 | PCM，16 位元 |
 | 封存格式 | .zip |
@@ -85,7 +85,7 @@ ms.locfileid: "70802509"
 
 若要解決 word 刪除或替代等問題，需要大量的資料來改善辨識。 一般來說，建議您提供大約10到1000小時音訊的單字文字轉譯。 所有 WAV 檔案的文字記錄應包含在單一純文字檔案中。 文字記錄檔案的每一行都應包含其中一個音訊檔案的名稱，然後後面接著相對應的文字記錄。 檔案名稱和文字記錄應該以定位字元 (\t) 分隔。
 
-  例如:
+  例如：
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -94,7 +94,7 @@ ms.locfileid: "70802509"
 > [!NOTE]
 > 文字記錄應使用 UTF-8 位元組順序標記 (BOM) 編碼。
 
-文字記錄會經過文字正規化，以便系統進行處理。 不過，有一些重要的正規化，必須由使用者在將資料上傳到自訂語音服務_之前_完成。 若要在準備轉譯時使用適當的語言，請參閱[如何建立人為標記](how-to-custom-speech-human-labeled-transcriptions.md)的轉譯
+文字記錄會經過文字正規化，以便系統進行處理。 不過，在將資料上傳到語音 Studio_之前_，使用者必須完成一些重要的正規化。 若要在準備轉譯時使用適當的語言，請參閱[如何建立人為標記](how-to-custom-speech-human-labeled-transcriptions.md)的轉譯
 
 收集音訊檔案和對應的轉譯之後，請先將其封裝為單一 .zip 檔案，然後再上傳至[自訂語音入口網站](https://speech.microsoft.com/customspeech)。 這是包含三個音訊檔案和人為標記轉譯檔案的範例資料集：
 
@@ -140,17 +140,17 @@ ms.locfileid: "70802509"
 
 | 已辨識/已顯示的表單 | 口語形式 |
 |--------------|--------------------------|
-| 3CPO | three c p o |  
+| 3CPO | 三個 c p o |  
 | CNTK | c n t k |
-| IEEE | i triple e |
+| IEEE | 我三個 e |
 
 說出的形式就是語音順序。它可以包含字母、字組、音節或全部三種組合。
 
 自訂發音提供英文（en-us）和德文（de）。 下表依語言顯示支援的字元：
 
-| 語言 | 地區設定 | 人物 |
+| 語言 | Locale | 字元 |
 |----------|--------|------------|
-| 英文 | en-US | a、b、c、d、e、f、g、h、i、j、k、l、m、n、o、p、q、r、s、t、u、v、w、x、y、z |
+| English | en-US | a、b、c、d、e、f、g、h、i、j、k、l、m、n、o、p、q、r、s、t、u、v、w、x、y、z |
 | 德文 | de-DE | ä，ö，ü，a，b，c，d，e，f，g，h，i，j，k，l，m，n，o，p，q，r，s，t，u，v，w，x，y，z |
 
 請使用此表格來確保發音的相關資料檔案格式正確。 發音檔案很小，而且不應該超過幾個 Kb。

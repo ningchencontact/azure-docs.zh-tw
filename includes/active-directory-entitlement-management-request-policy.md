@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934624"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73412951"
 ---
 ## <a name="for-users-in-your-directory"></a>適用于您目錄中的使用者
 
@@ -105,19 +105,19 @@ ms.locfileid: "72934624"
 
 1. 若要要求核准所選使用者的要求，請將 [**需要核准**] 切換設定為 **[是]** 。 若要自動核准要求，請將切換設定為 [**否**]。
 
-    ![存取套件-要求-核准設定](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 1. 若要要求使用者提供理由來要求存取封裝，請將 [**需要要求者理由**] 切換為 **[是]** 。
 
-1. 判斷要求需要單一或多階段核准。 設定單一階段切換為**1**的**階段數目**。
+    ![存取套件-要求-核准設定](./media/active-directory-entitlement-management-request-policy/approval.png)
+
+### <a name="single-stage-approval"></a>單一階段核准
 
 1. 針對核准者，選取 [**管理員] 作為核准者**，或**選擇 [特定核准者**]。
 
-    管理員是由 Azure AD 的使用者設定檔中的**manager**屬性所決定。 如需詳細資訊，請參閱[使用 Azure Active Directory 新增或更新使用者的設定檔資訊](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
-
-    ![Azure Active Directory 使用者設定檔-管理員屬性](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
+    ![存取套件-要求-單一階段設定](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
 
 1. 如果您選取 [管理員] 作為 [核准者]，請按一下 [**新增**回溯]，在您的目錄中選取一或多個使用者或群組，以作為版權管理找不到管理員時的回溯核准者。
+
+    管理員是由 Azure AD 的使用者設定檔中的**manager**屬性所決定。 如需詳細資訊，請參閱[使用 Azure Active Directory 新增或更新使用者的設定檔資訊](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
 
 1. 如果您選取 [選擇特定核准者]，請按一下 [**新增核准**者]，在您的目錄中選取核准者的一或多個使用者或群組。
 
@@ -125,9 +125,34 @@ ms.locfileid: "72934624"
 
     如果要求未在這段時間內核准，則會自動拒絕。 使用者必須提交存取套件的另一個要求。
 
-1. 若要要求使用者提供理由來要求存取封裝，請將 [**需要理由**] 設定為 **[是]** 。
+1. 若要要求使用者提供理由來要求存取套件，請將 [**需要核准者理由**] 設定為 **[是]** 。
 
     其他核准者和要求者可以看到理由。
+
+### <a name="alternate-approvers"></a>替代核准者
+
+除了指定可核准要求的主要核准者以外，您還可以指定替代的核准者。 這將有助於確保要求會在到期之前核准或拒絕（timeout）。
+
+藉由指定替代核准者，在主要核准者無法核准或拒絕要求的情況下，會根據您在設定原則期間指定的轉送排程，將擱置的要求轉寄給其他核准者。 他們會收到電子郵件，以核准或拒絕擱置中的要求。
+
+將要求轉送到替代核准者之後，主要核准者仍然可以核准或拒絕要求。 替代核准者會使用與主要核准者相同的我的存取權網站來核准或拒絕擱置中的要求。
+
+我們可以將人員或群組列出為主要核准者和替代核准者。 請確定您列出不同的人員集合，使其成為主要核准者和替代核准者。
+例如，如果您將 Alice 和 Bob 列為主要核准者，請將 Carol 和 Dave 列出為替代核准者。 使用下列步驟，將替代核准者新增至存取套件：
+
+1. 按一下 [**顯示先進的要求設定**]。
+
+    ![存取套件-原則-顯示 advanced 要求設定](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+
+1. 設定**是否未採取任何動作，轉寄給替代核准者？** 切換為 **[是]** 。
+
+1. 按一下 [**新增替代核准者**]，並從清單中選取替代核准者。
+
+    ![存取套件-原則-新增替代的核准者](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. 在 [在**幾天後向前前往替代核准者**] 方塊中，放入核准者核准或拒絕要求的天數。 如果沒有核准者在要求期間之前核准或拒絕要求，則要求會過期（超時），而且使用者必須提交存取封裝的另一個要求。 
+
+    在要求持續時間達到半生命後，才可將要求轉寄給替代核准者一天。 在此範例中，要求的持續時間為14天。 這表示要求持續時間到達第7天的半生命週期。 因此，要求可以轉送到第8天之前。 此外，在要求持續時間的最後一天，無法將要求轉寄給替代的核准者。 因此，在此範例中，最新的要求可以轉送為第13天。
 
 ## <a name="enable-requests"></a>啟用要求
 

@@ -1,5 +1,5 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的節點–超大規模資料庫（Citus）（預覽）
+title: 適用於 PostgreSQL 的 Azure 資料庫中的節點–超大規模資料庫（Citus）
 description: 在適用於 PostgreSQL 的 Azure 資料庫中，瞭解伺服器群組中兩種類型的節點、協調器和背景工作。
 author: jonels-msft
 ms.author: jonels
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 097fcdb3a7e53bb63db9dc2d352d754062df7be6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5348c8bbe432cd024a8da93ca866ae4458f956e4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947564"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468087"
 ---
-# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>適用於 PostgreSQL 的 Azure 資料庫中的節點–超大規模資料庫（Citus）（預覽）
+# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>適用於 PostgreSQL 的 Azure 資料庫中的節點–超大規模資料庫（Citus）
 
-超大規模資料庫（Citus）（預覽）裝載類型可讓適用於 PostgreSQL 的 Azure 資料庫伺服器（稱為節點）在「無共用」架構中彼此協調。 伺服器群組中的節點會共同保存較多的資料，並使用比在單一伺服器上可能更多的 CPU 核心。 此架構也可讓您將更多節點新增至伺服器群組來調整資料庫。
+超大規模資料庫（Citus）裝載類型可讓適用於 PostgreSQL 的 Azure 資料庫伺服器（稱為節點）在「無共用」架構中彼此協調。 伺服器群組中的節點會共同保存較多的資料，並使用比在單一伺服器上可能更多的 CPU 核心。 此架構也可讓您將更多節點新增至伺服器群組來調整資料庫。
 
 ## <a name="coordinator-and-workers"></a>協調員和背景工作
 

@@ -10,43 +10,40 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/15/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430159"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500254"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain]，一律會繼續進行更新。
 
 ## <a name="october-2019-guest-os"></a>2019年10月的客體作業系統
 
->[!NOTE]
->我們目前正在將 10 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 10 月客體 OS 中。 此清單會隨時變動。
-
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-10   |  [4520003]  |  Windows 安全性   |  2.91  |  2019年10月8日  |
-|  Rel 19-10   |  [4519985]  |  Windows 安全性   |  3.78  |  2019年10月8日  |
-|  Rel 19-10   |  [4519990]  |  Windows 安全性   |  4.71  |  2019年10月8日  |
-|  Rel 19-10   |  [4519998]  |  最新累計更新   |  5.36  |  2019年10月8日  |
-|  Rel 19-10   |  [4519338]  |  最新累計更新   |  6.12  |  2019年10月8日  |
-|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  2.91、3.78、4.71  |  2019年10月8日  |
-|  Rel 19-10   |  [4516065]  |  非安全性   |  2.91  |  2019年9月10日  |
-|  Rel 19-10   |  [4516655]  |  SSU   |  2.91  |  2019年9月10日  |
-|  Rel 19-10   |  [4516055]  |  非安全性   |  3.78  |  2019年9月10日  |
-|  Rel 19-10   |  [4512939]  |  SSU   |  3.78  |  2019年9月10日  |
-|  Rel 19-10   |  [4514370]  |  .Net Framework 3。5   |  3.78  |  2019年9月10日  |
-|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5。2   |  3.78  |  2019年9月10日  |
-|  Rel 19-10   |  [4516067]  |  非安全性   |  4.71  |  2019年9月10日  |
-|  Rel 19-10   |  [4512938]  |  SSU   |  4.71  |  2019年9月10日  |
-|  Rel 19-10   |  [4514371]  |  .Net Framework 3。5   |  4.71  |  2019年9月10日  |
-|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5。2   |  4.71  |  2019年9月10日  |
-|  Rel 19-10   |  [4512574]  |  SSU   |  5.36  |  2019年9月10日  |
-|  Rel 19-10   |  [4512577]  |  SSU   |  6.12  |  2019年9月10日  |
+|  Rel 19-10   |  [4520003]  |  Windows 安全性   |  [2.91]  |  2019年10月8日  |
+|  Rel 19-10   |  [4519985]  |  Windows 安全性   |  [3.78]  |  2019年10月8日  |
+|  Rel 19-10   |  [4519990]  |  Windows 安全性   |  [4.71]  |  2019年10月8日  |
+|  Rel 19-10   |  [4519998]  |  最新累計更新   |  [5.36]  |  2019年10月8日  |
+|  Rel 19-10   |  [4519338]  |  最新累計更新   |  [6.12]  |  2019年10月8日  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91]、 [3.78]、 [4.71]  |  2019年10月8日  |
+|  Rel 19-10   |  [4516065]  |  非安全性   |  [2.91]  |  2019年9月10日  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  2019年9月10日  |
+|  Rel 19-10   |  [4516055]  |  非安全性   |  [3.78]  |  2019年9月10日  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  2019年9月10日  |
+|  Rel 19-10   |  [4514370]  |  .Net Framework 3。5   |  [3.78]  |  2019年9月10日  |
+|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5。2   |  [3.78]  |  2019年9月10日  |
+|  Rel 19-10   |  [4516067]  |  非安全性   |  [4.71]  |  2019年9月10日  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  2019年9月10日  |
+|  Rel 19-10   |  [4514371]  |  .Net Framework 3。5   |  [4.71]  |  2019年9月10日  |
+|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5。2   |  [4.71]  |  2019年9月10日  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  2019年9月10日  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  2019年9月10日  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -67,6 +64,11 @@ ms.locfileid: "72430159"
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
+[6.12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>2019年9月的客體作業系統
@@ -803,7 +805,7 @@ ms.locfileid: "72430159"
 | Rel 17-09 | [4038779], [4038786], [4038793] |只有 Windows 安全性 |2.66, 3.53, 4.46 |2017 年 9 月 12 日 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|九月份 .NET 更新 |2.66, 3.53, 4.46 |2017 年 9 月 12 日 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |2017 年 9 月 12 日 |
-| CVE-2017-8704 | [4038782] |拒絕服務 |5.11 |2017 年 9 月 12 日 |
+| CVE-2017-8704 | [4038782] |阻斷服務 |5.11 |2017 年 9 月 12 日 |
 | N/A | [4034664] |八月份非安全性彙總套件  |2.66 |2017 年 8 月 8 日 |
 | N/A | [4034665] |八月份非安全性彙總套件 |5.11 |2017 年 8 月 8 日 |
 | N/A | [4034681] |八月份非安全性彙總套件 |4.46 |2017 年 8 月 8 日 |

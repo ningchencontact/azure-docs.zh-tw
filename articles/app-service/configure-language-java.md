@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91f0c059d22fb921aeb0c65f7d4eba95debd530d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097741"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471086"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Windows JAVA 應用程式
 
@@ -53,7 +53,7 @@ Azure App Service 可讓 JAVA 開發人員在完全受控的 Windows 服務上�
 
 ### <a name="app-logging"></a>應用程式記錄
 
-透過 Azure 入口網站或 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) 啟用[應用程式記錄](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows)，設定 App Service 將應用程式的標準主控台輸出和標準主控台錯誤資料流寫入至本機檔案系統或 Azure Blob 儲存體。 設定後的 12 個小時會停用記錄至本機 App Service 檔案系統執行個體。 如果您需要較長的保留期，則請設定應用程式將輸出寫入至 Blob 儲存體容器。 您的 JAVA 和 Tomcat 應用程式記錄可在 */LogFiles/Application/* 目錄中找到。
+透過 Azure 入口網站或 [Azure CLI](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) 啟用[應用程式記錄](/cli/azure/webapp/log#az-webapp-log-config)，設定 App Service 將應用程式的標準主控台輸出和標準主控台錯誤資料流寫入至本機檔案系統或 Azure Blob 儲存體。 設定後的 12 個小時會停用記錄至本機 App Service 檔案系統執行個體。 如果您需要較長的保留期，則請設定應用程式將輸出寫入至 Blob 儲存體容器。 您的 JAVA 和 Tomcat 應用程式記錄可在 */LogFiles/Application/* 目錄中找到。
 
 如果您的應用程式使用 [Logback](https://logback.qos.ch/) 或 [Log4j](https://logging.apache.org/log4j) 追蹤，則您可以使用[在 Application Insights 中探索 Java 追蹤記錄](/azure/application-insights/app-insights-java-trace-logs)中的記錄架構設定指示，將這些要檢閱的追蹤轉送至 Azure Application Insights。
 
@@ -62,15 +62,15 @@ Azure App Service 可讓 JAVA 開發人員在完全受控的 Windows 服務上�
 
 Azure App Service 支援透過 Azure 入口網站和 CLI 進行的微調和自訂。 請參閱下列文章，以瞭解非 JAVA 特定的 web 應用程式設定：
 
-- [設定應用程式設定](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [設定自訂網域](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [啟用 SSL](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [新增 CDN](../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [設定應用程式設定](configure-common.md#configure-app-settings)
+- [設定自訂網域](app-service-web-tutorial-custom-domain.md)
+- [設定 SSL 系結](configure-ssl-bindings.md)
+- [新增 CDN](../cdn/cdn-add-to-web-app.md)
 - [設定 Kudu 網站](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### <a name="set-java-runtime-options"></a>設定 Java 執行階段選項
 
-若要設定配置的記憶體或其他 JVM 執行時間選項，請使用`JAVA_OPTS`選項來建立名為的[應用程式設定](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 App Service 啟動時，會將此設定做為環境變數傳遞至 JAVA 執行時間。
+若要設定配置的記憶體或其他 JVM 執行時間選項，請使用選項建立名為 `JAVA_OPTS` 的[應用程式設定](configure-common.md#configure-app-settings)。 App Service 啟動時，會將此設定做為環境變數傳遞至 JAVA 執行時間。
 
 在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定] 下，建立名為 `JAVA_OPTS` 且包含其他設定的新應用程式設定 (例如 `-Xms512m -Xmx1204m`)。
 
@@ -87,9 +87,9 @@ Azure App Service 支援透過 Azure 入口網站和 CLI 進行的微調和自�
 
 執行具有其 App Service 方案中某個部署位置的單一應用程式開發人員，可以使用下列選項：
 
-- B1 和 S1 實例：`-Xms1024m -Xmx1024m`
-- B2 和 S2 實例：`-Xms3072m -Xmx3072m`
-- B3 和 S3 實例：`-Xms6144m -Xmx6144m`
+- B1 和 S1 實例： `-Xms1024m -Xmx1024m`
+- B2 和 S2 實例： `-Xms3072m -Xmx3072m`
+- B3 和 S3 實例： `-Xms6144m -Xmx6144m`
 
 調整應用程式堆積設定時，請檢閱 App Service 方案詳細資料，並考慮多個應用程式和部署位置需求以尋找最佳的記憶體配置。
 
@@ -135,17 +135,17 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="authenticate-users-easy-auth"></a>驗證使用者（簡單驗證）
 
-使用 **驗證和授權** 選項，在 Azure 入口網站中設定應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。 如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以及其他身分識別提供者的相關文章。 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)一文中的指示。
+使用 **驗證和授權** 選項，在 Azure 入口網站中設定應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。 如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](configure-authentication-provider-aad.md)，以及其他身分識別提供者的相關文章。 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](app-service-authentication-how-to.md)一文中的指示。
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat 和 Wildfly
 
-您的 Tomcat 或 Wildfly 應用程式可以藉由將主體物件轉換成對應物件，直接從 servlet 存取使用者的宣告。 Map 物件會將每個宣告類型對應到該類型的宣告集合。 在下列程式碼中`request` ，是的`HttpServletRequest`實例。
+您的 Tomcat 或 Wildfly 應用程式可以藉由將主體物件轉換成對應物件，直接從 servlet 存取使用者的宣告。 Map 物件會將每個宣告類型對應到該類型的宣告集合。 在下列程式碼中，`request` 是 `HttpServletRequest`的實例。
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-現在您可以檢查`Map`物件是否有任何特定的宣告。 例如，下列程式碼片段會逐一查看所有宣告類型，並列印每個集合的內容。
+現在您可以檢查 `Map` 物件是否有任何特定的宣告。 例如，下列程式碼片段會逐一查看所有宣告類型，並列印每個集合的內容。
 
 ```java
 for (Object key : map.keySet()) {
@@ -159,7 +159,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-若要將使用者登出，請`/.auth/ext/logout`使用路徑。 若要執行其他動作，請參閱[App Service 驗證和授權使用](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)的檔。 Tomcat [HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法也有官方檔。 下列 servlet 方法也會根據您的 App Service 設定來序列化：
+若要將使用者登出，請使用 `/.auth/ext/logout` 路徑。 若要執行其他動作，請參閱[App Service 驗證和授權使用](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)的檔。 Tomcat [HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法也有官方檔。 下列 servlet 方法也會根據您的 App Service 設定來序列化：
 
 ```java
 public boolean isSecure()
@@ -169,11 +169,11 @@ public String getScheme()
 public int getServerPort()
 ```
 
-若要停用此功能，請使用`WEBSITE_AUTH_SKIP_PRINCIPAL` `1`值建立名為的應用程式設定。 若要停用 App Service 新增的所有 servlet 篩選器，請`WEBSITE_SKIP_FILTERS`使用`1`值建立名為的設定。
+若要停用此功能，請建立名為 `WEBSITE_AUTH_SKIP_PRINCIPAL` 的應用程式設定，其值為 `1`。 若要停用 App Service 新增的所有 servlet 篩選器，請建立名為 `WEBSITE_SKIP_FILTERS` 的設定，其值為 `1`。
 
 ### <a name="configure-tlsssl"></a>設定 TLS/SSL
 
-請遵循[繫結現有自訂 SSL 憑證](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)中的指示，上傳現有的 SSL 憑證，並將其繫結至您應用程式的網域名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請遵循教學課程中的特定步驟，以強制執行 SSL 和 TLS。
+依照[Azure App Service 中的使用 SSL 系結保護自訂 DNS 名稱](configure-ssl-bindings.md)中的指示，上傳現有的 ssl 憑證，並將它系結至您應用程式的功能變數名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請遵循教學課程中的特定步驟，以強制執行 SSL 和 TLS。
 
 ### <a name="use-keyvault-references"></a>使用 KeyVault 參考
 
@@ -181,7 +181,7 @@ public int getServerPort()
 
 首先，遵循將應用程式[存取權授與 Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault)的指示，並[在應用程式設定中 KeyVault 您的密碼參考](app-service-key-vault-references.md#reference-syntax)。 您可以在遠端存取 App Service 終端機時，藉由列印環境變數，來驗證參考是否會解析為秘密。
 
-若要將這些秘密插入您的春季或 Tomcat 設定檔中，請使用環境`${MY_ENV_VAR}`變數插入語法（）。 如需春季設定檔，請參閱這[外部化](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)設定的相關檔。
+若要將這些秘密插入您的春季或 Tomcat 設定檔中，請使用環境變數插入語法（`${MY_ENV_VAR}`）。 如需春季設定檔，請參閱這[外部化](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)設定的相關檔。
 
 
 ## <a name="configure-apm-platforms"></a>設定 APM 平臺
@@ -197,8 +197,8 @@ public int getServerPort()
 5. 將已解壓縮的新 New relic JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/newrelic*中。
 6. 在 */home/site/wwwroot/apm/newrelic/newrelic.yml*修改 YAML 檔案，並將預留位置授權值取代為您自己的授權金鑰。
 7. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
-    - 如果您的應用程式使用 **Java SE**，請使用 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 值建立名為 `JAVA_OPTS` 的環境變數。
-    - 如果您使用 **Tomcat**，請使用 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 值建立名為 `CATALINA_OPTS` 的環境變數。
+    - 如果您的應用程式使用 **Java SE**，請使用 `JAVA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的環境變數。
+    - 如果您使用 **Tomcat**，請使用 `CATALINA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的環境變數。
 
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
@@ -207,8 +207,8 @@ public int getServerPort()
 3. 使用[Kudu 主控台](https://github.com/projectkudu/kudu/wiki/Kudu-console)來建立新的目錄 */home/site/wwwroot/apm*。
 4. 將 JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/appdynamics*中。
 5. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
-    - 如果您使用 **Java SE**，請使用 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 值建立名為 `JAVA_OPTS` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
-    - 如果您使用 **Tomcat**，請使用 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 值建立名為 `CATALINA_OPTS` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
+    - 如果您使用 **Java SE**，請使用 `JAVA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
+    - 如果您使用 **Tomcat**，請使用 `CATALINA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
 
 >  如果您已經有 `JAVA_OPTS` 或 `CATALINA_OPTS` 的環境變數，請將 `-javaagent:/...` 選項附加至目前值的結尾。
 
@@ -222,9 +222,9 @@ public int getServerPort()
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [下載](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [下載](https://dev.mysql.com/downloads/connector/j/) (請選取 [Platform Independent] \(不受平台影響\)) |
-| [SQL Server] | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [下載](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [下載](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-若要將 tomcat 設定為使用 JAVA 資料庫連線（JDBC）或 JAVA 持續性 API （JPA），請`CATALINA_OPTS`先自訂 tomcat 在啟動時所讀入的環境變數。 請透過 [App Service Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)中的應用程式設定來設定這些值：
+若要將 Tomcat 設定為使用 JAVA 資料庫連線（JDBC）或 JAVA 持續性 API （JPA），請先自訂 Tomcat 在啟動時所讀入的 `CATALINA_OPTS` 環境變數。 請透過 [App Service Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)中的應用程式設定來設定這些值：
 
 ```xml
 <appSettings>
@@ -235,7 +235,7 @@ public int getServerPort()
 </appSettings>
 ```
 
-或者 **，在 Azure 入口網站的 [**  > 設定**應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [設定 ** > ** **應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -243,7 +243,7 @@ public int getServerPort()
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增`Context`元素以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 `Context` 專案，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
@@ -269,7 +269,7 @@ public int getServerPort()
 
 #### <a name="finalize-configuration"></a>完成設定
 
-最後，我們會將驅動程式 Jar 放在 Tomcat 類路徑中，然後重新開機您的 App Service。 藉由將 JDBC 驅動程式檔案放在 */home/tomcat/lib*目錄中，確保其可供 Tomcat classloader 使用。 (如果此目錄尚未存在，請建立此目錄)。若要將這些檔案上傳至 App Service 執行個體，請執行下列步驟：
+最後，我們會將驅動程式 Jar 放在 Tomcat 類路徑中，然後重新開機您的 App Service。 藉由將 JDBC 驅動程式檔案放在 */home/tomcat/lib*目錄中，確保其可供 Tomcat classloader 使用。 （如果此目錄不存在，請加以建立）。若要將這些檔案上傳至您的 App Service 實例，請執行下列步驟：
 
 1. 在[Cloud Shell](https://shell.azure.com)中，安裝 webapp 擴充功能：
 
@@ -285,22 +285,22 @@ public int getServerPort()
 
 3. 使用您的 SFTP 用戶端連線到本機通道埠，並將檔案上傳至 */home/tomcat/lib*資料夾。
 
-或著，您也可以使用 FTP 用戶端來上傳 JDBC 驅動程式。 請依照這些[指示來取得您的 FTP 認證](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) \(英文\)。
+或著，您也可以使用 FTP 用戶端來上傳 JDBC 驅動程式。 請依照這些[指示來取得您的 FTP 認證](deploy-configure-credentials.md) \(英文\)。
 
 ## <a name="configuring-tomcat"></a>正在設定 Tomcat
 
-若要編輯 tomcat `server.xml`或其他設定檔，請先記下您在入口網站中的 tomcat 主要版本。
+若要編輯 Tomcat 的 `server.xml` 或其他設定檔，請先記下您在入口網站中的 Tomcat 主要版本。
 
-1. 執行`env`命令，尋找您版本的 Tomcat 主目錄。 搜尋以開頭`AZURE_TOMCAT`的環境變數，並符合您的主要版本。 例如， `AZURE_TOMCAT85_HOME`指向 tomcat 8.5 的 tomcat 目錄。
-1. 一旦您識別出版本的 Tomcat 主目錄，請將設定目錄複寫到`D:\home`。 例如，如果`AZURE_TOMCAT85_HOME`的`D:\Program Files (x86)\apache-tomcat-8.5.37`值為，則複製之目錄的新路徑會是`D:\home\apache-tomcat-8.5.37`。
+1. 執行 `env` 命令，尋找您版本的 Tomcat 主目錄。 搜尋以 `AZURE_TOMCAT`開頭的環境變數，並符合您的主要版本。 例如，`AZURE_TOMCAT85_HOME` 指向 Tomcat 8.5 的 Tomcat 目錄。
+1. 一旦您識別出版本的 Tomcat 主目錄，請將設定目錄複寫到 `D:\home`。 例如，如果 `AZURE_TOMCAT85_HOME` 的值為 `D:\Program Files (x86)\apache-tomcat-8.5.37`，則會 `D:\home\apache-tomcat-8.5.37`複製之目錄的新路徑。
 
-最後，重新啟動 App Service。 您的部署應該會`D:\home\site\wwwroot\webapps`如同之前一樣。
+最後，重新啟動 App Service。 您的部署應該會如先前一樣移至 `D:\home\site\wwwroot\webapps`。
 
 ## <a name="java-runtime-statement-of-support"></a>Java 執行階段支援聲明
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 版本和維護
 
-Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。
+Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 提供的 [Zulu](https://www.azul.com/)。
 
 主要版本更新將透過 Windows Azure App Service 中的新執行時間選項來提供。 客戶會更新為設定其 App Service 部署的這些新版 Java，以及負責測試並確定主要更新符合其需求。
 
@@ -324,7 +324,7 @@ Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.
 
 ### <a name="runtime-support"></a>執行階段支援
 
-開發人員如果具有[合格的支援方案](https://azure.microsoft.com/support/plans/)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](/azure/azure-supportability/how-to-create-azure-support-request)。
+開發人員如果具有[合格的支援方案](/azure/azure-supportability/how-to-create-azure-support-request)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](https://azure.microsoft.com/support/plans/)。
 
 ## <a name="next-steps"></a>後續步驟
 

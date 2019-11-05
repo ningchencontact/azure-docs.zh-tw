@@ -1,9 +1,8 @@
 ---
-title: REST API 錯誤碼 - Azure Machine Learning Studio | Microsoft Docs
+title: REST API 錯誤碼-Azure Machine Learning Studio （傳統） |Microsoft Docs
 description: Azure Machine Learning Web 服務上的作業可以傳回這些錯誤碼。
 keywords: ''
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,21 +10,18 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736559"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468169"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Azure Machine Learning Studio REST API 錯誤碼
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio （傳統） REST API 錯誤代碼
  
-Azure Machine Learning Studio Web 服務上的作業可以傳回下列錯誤碼。
+Azure Machine Learning Studio （傳統） web 服務上的作業可能會傳回下列錯誤碼。
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP 狀態碼 400)
  
@@ -55,7 +51,7 @@ Azure Machine Learning Studio Web 服務上的作業可以傳回下列錯誤碼�
 | InvalidBlobExtension | Blob 參考︰{0} 的副檔名無效或遺漏。 此輸出類型支援的副檔名為："{1}"。 |
 | InvalidInputNames | 在要求中指定的服務輸入名稱無效：{0}。 請將輸入資料對應至正確的服務輸入，然後再試一次。 |
 | InvalidOutputOverrideName | 無效的輸出覆寫名稱︰{0}。 服務沒有使用此名稱的輸出節點。 請傳入要覆寫的正確輸出節點名稱 (需區分大小寫)。 |
-| InvalidQueryParameter | 無效的查詢參數 '{0}'。 [https://doi.org/10.13012/J8PN93H8]({1}) |
+| InvalidQueryParameter | 無效的查詢參數 '{0}'。 {1} |
 | MissingInputBlobInformation | Azure 儲存體 Blob 資訊遺失。 提供有效的連接字串和相對路徑或 URI，然後再試一次。 |
 | MissingJobId | 未提供作業識別碼。 第一次提交作業時會傳回作業識別碼。 確認作業識別碼正確無誤，然後再試一次。 |
 | MissingKeys | 未提供任何金鑰，或未提供其中一個主要或次要金鑰。 |
@@ -69,7 +65,7 @@ Azure Machine Learning Studio Web 服務上的作業可以傳回下列錯誤碼�
 | MissingWebServicePackage | 未提供 Web 服務套件。 提供有效的 Web 服務套件，然後再試一次。 |
 | MissingWorkspaceId | 未提供工作區識別碼。 提供有效的工作區識別碼，然後再試一次。 |
 | ModelConfigurationInvalid | 模型套件中的模型組態無效。 確定模型組態包含輸出端點定義、標準錯誤端點和標準輸出端點，然後再試一次。 |
-| ModelPackageIdInvalid | 模型套件識別碼無效。確認模型套件識別碼正確無誤，然後再試一次。 |
+| ModelPackageIdInvalid | 模型套件識別碼無效。請確認模型套件識別碼是否正確，然後再試一次。 |
 | RequestBodyInvalid | 未提供要求本文，或在還原序列化要求本文時發生錯誤。 |
 | RequestIsEmpty | 未提供要求。 提供有效的要求，然後再試一次。 |
 | UnexpectedParameter | 提供的參數並非預期。 確認所有參數名稱的拼寫都正確無誤，只傳遞預期的參數，然後再試一次。 |

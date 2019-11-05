@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466785"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>如何將自訂技能新增至 Azure 認知搜尋擴充管線
 
@@ -154,8 +154,10 @@ Web API 必須接受要處理的記錄陣列。 每一筆記錄都必須包含�
 
 ## <a name="next-steps"></a>後續步驟
 
-+ [電力技能：自訂技能的存放庫](https://aka.ms/powerskills)
-+ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
+本文涵蓋將自訂技能整合到技能集所需的介面需求。 若要深入瞭解自訂技能和技能集組合，請按一下下列連結。
+
++ [電力技能：自訂技能的存放庫](https://github.com/Azure-Samples/azure-search-power-skills)
++ [範例：建立 AI 擴充的自訂技能](cognitive-search-create-custom-skill-example.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)

@@ -8,14 +8,14 @@ manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959030"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491344"
 ---
 # <a name="scenario-availability"></a>案例可用性
 
@@ -31,13 +31,13 @@ ms.locfileid: "71959030"
   - Swift
   - Objective-C
   - TTS REST API 可以在其他所有情況下使用。
-- **喚醒字（關鍵字偵查器/KWS.TABLE）**
+- **關鍵字找出（KWS.TABLE）**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - JAVA/Windows & Linux & Android （語音裝置 SDK）
-  - 喚醒字（關鍵字偵查器/KWS.TABLE）功能可能適用于任何麥克風類型，但官方 KWS.TABLE 支援目前僅限於在 Azure Kinect DK 硬體或語音裝置 SDK 中找到的麥克風陣列
-- **語音優先虛擬助理**
+  - 關鍵字找出（KWS.TABLE）功能可能適用于任何麥克風類型，但官方 KWS.TABLE 支援目前僅限於在 Azure Kinect DK 硬體或語音裝置 SDK 中找到的麥克風陣列
+- **語音助理**
   - C++/Windows & Linux & macOS
   - C#/Windows
   - JAVA/Windows & Linux & macOS & Android （語音裝置 SDK）

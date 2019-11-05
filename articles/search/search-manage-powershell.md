@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793533"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466527"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>使用 PowerShell 管理您的 Azure 認知搜尋服務
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ PowerShell 無法用來變更服務的名稱、區域或層級。 建立服務�
 
 其他不支援透過 PowerShell 或任何其他 API （僅限入口網站）的工作包括：
 + [附加認知服務資源](cognitive-search-attach-cognitive-services.md)，以進行 AI 擴充的[索引編制](cognitive-search-concept-intro.md)。 認知服務會附加至技能集，而不是訂用帳戶或服務。
-+ 用於監視 Azure 搜尋服務的[附加元件監視解決方案](search-monitor-usage.md#add-on-monitoring-solutions)。
++ 用於監視 Azure 認知搜尋的[附加元件監視解決方案](search-monitor-usage.md#add-on-monitoring-solutions)。
 
 <a name="check-versions-and-load"></a>
 
@@ -197,11 +197,11 @@ Tags
 
 [**AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0)是用來變換系統管理員[API 金鑰](search-security-api-keys.md)。 系統會使用每個服務建立兩個管理金鑰來進行驗證的存取。 每個要求都需要金鑰。 這兩個系統管理金鑰的功能都相同，授與搜尋服務的完整寫入權限，使其能夠抓取任何資訊，或建立和刪除任何物件。 有兩個金鑰存在，讓您可以在取代另一個索引鍵時使用。 
 
-您一次只能重新產生一個，並指定為 `primary` 或 `secondary` 鍵。 針對不中斷的服務，請記得在變換主要金鑰時，更新所有用戶端程式代碼以使用次要金鑰。 避免在作業進行時變更金鑰。
+您一次只能重新產生一個，並指定為 `primary` 或 `secondary` 金鑰。 針對不中斷的服務，請記得在變換主要金鑰時，更新所有用戶端程式代碼以使用次要金鑰。 避免在作業進行時變更金鑰。
 
 如您所預期，如果您重新產生金鑰而不更新用戶端程式代碼，則使用舊金鑰的要求將會失敗。 重新產生所有新金鑰並不會永久鎖定您的服務，而且您仍然可以透過入口網站存取服務。 重新產生主要和次要金鑰之後，您可以更新用戶端程式代碼以使用新的金鑰，而作業將會據此繼續進行。
 
-API 金鑰的值是由服務產生。 您無法提供自訂金鑰供 Azure 認知搜尋使用。 同樣地，系統管理員 API 金鑰沒有使用者定義的名稱。 索引鍵的參考是固定字串，可以是 `primary` 或 `secondary`。 
+API 金鑰的值是由服務產生。 您無法提供自訂金鑰供 Azure 認知搜尋使用。 同樣地，系統管理員 API 金鑰沒有使用者定義的名稱。 索引鍵的參考是固定字串，`primary` 或 `secondary`。 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

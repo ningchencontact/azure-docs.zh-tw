@@ -1,141 +1,183 @@
 ---
-title: Azure SQL Database 服務 - vCore | Microsoft Docs
-description: VCore 為基礎的購買模型可讓您獨立調整計算和儲存體資源、符合內部部署效能，並將價格優化。
+title: Azure SQL Database 服務 vCore 模型總覽 |Microsoft Docs
+description: VCore 購買模型可讓您獨立調整計算和儲存體資源、符合內部部署效能，並將價格優化。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 11/04/2019
+ms.openlocfilehash: 2bbdd565a861004014ca4161856bba83ec0be511
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034994"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496074"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>在 vCore 服務層級之間選擇，並從 DTU 服務層進行遷移
+# <a name="vcore-model-overview"></a>vCore 模型總覽
 
-以虛擬核心（vCore）為基礎的購買模型可讓您獨立調整計算和儲存體資源、符合內部部署效能，並將價格優化。 它也可讓您選擇硬體的世代：
+虛擬核心（vCore）模型提供數個優點：
 
-- **第4代**：最多24個以 Intel E5-2673 v3 （Haswell） 2.4-GHz 處理器為基礎的邏輯 Cpu，vCore = 1 PP （實體核心），每個 vCore 7 GB，已連接的 SSD
-- **第5代**：最多80個以 Intel E5-2673 v4 （Broadwell） 2.3-GHz 處理器為基礎的邏輯 Cpu，vCore = 1 LP （超執行緒），每個 vCore 的 5.1 GB 用於布建的計算，而每個 vCore 最多 24 GB，無伺服器運算，快速 eNVM SSD
+- 較高的計算、記憶體、IO 和儲存體限制。
+- 控制硬體世代，以更符合工作負載的計算和記憶體需求。
+- [Azure Hybrid Benefit （AHB）](sql-database-azure-hybrid-benefit.md)和[保留實例（RI）](sql-database-reserved-capacity.md)的定價折扣。
+- 提高計算能力的硬體詳細資料中有更大的透明度;有助於規劃從內部部署進行遷移。
 
-在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
+## <a name="service-tiers"></a>服務層
 
-> [!IMPORTANT]
-> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
-> [!NOTE]
-> 如需以 DTU 為基礎之服務層的相關資訊，請參閱[以 dtu 為基礎的購買模型的服務層](sql-database-service-tiers-dtu.md)。 如需以 DTU 為基礎和以 vCore 為基礎的購買模型之服務層級之間差異的詳細資訊，請參閱[Azure SQL Database 購買模型](sql-database-purchase-models.md)。
-
-## <a name="service-tier-characteristics"></a>服務層特性
-
-VCore 為基礎的購買模型提供三個服務層級：一般用途、超大規模資料庫和業務關鍵。 這些服務層級是以一系列計算大小、高可用性設計、錯誤隔離方法、儲存體類型和 i/o 範圍來區分。
-
-您必須個別設定所需的儲存體和備份保留期。 若要設定備份保留期限，請開啟 Azure 入口網站，移至伺服器（而不是資料庫），然後移至 [**管理備份**]  >  **[設定原則**]  >  [**還原時間點**]  > **7-35 天**。
-
-下表說明這三個層級之間的差異：
+VCore 模型中的服務層選項包括一般用途、業務關鍵和超大規模資料庫。 服務層通常會定義儲存體架構、空間和 IO 限制，以及與可用性和嚴重損壞修復相關的商務持續性選項。
 
 ||**一般用途**|**業務關鍵**|**超大規模資料庫**|
 |---|---|---|---|
-|適用對象|提供以預算為導向且平衡的計算與儲存體選項。|具有高交易率和低 IO 延遲的 OLTP 應用程式。 為失敗提供最高的復原能力，並使用多個同步更新的複本快速容錯移轉。|大部分的商業工作負載。 自動調整儲存體大小，最高可達 100 TB，流暢的垂直和水準計算調整，快速的資料庫還原。|
-|計算|已布**建的計算**：<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心<br/>**無伺服器計算**：<br/>第 5 代：0.5-16 虛擬核心|已布**建的計算**：<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|已布**建的計算**：<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|
-|記憶體|已布**建的計算**：<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**：<br/>第 5 代：每個 vCore 最多 24 GB|已布**建的計算**：<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |已布**建的計算**：<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
-|儲存體|使用遠端存放。<br/>**單一資料庫和彈性集區布建計算**：<br/>5 GB – 4 TB<br/>**無伺服器計算**：<br/>5 GB-3 TB<br/>**受控實例**：32 GB - 8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫和彈性集區布建計算**：<br/>5 GB – 4 TB<br/>**受控實例**：<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
-|I/o 輸送量（近似）|**單一資料庫和彈性集**區：500 IOPS （每個 vCore 最多 40000 IOPS）。<br/>**受控實例**：視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|每個核心 5000 IOPS，最高可達 200000 IOPS|超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|
+|適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整的計算和儲存體選項。 |使用數個隔離複本，為商務應用程式提供失敗的最高復原能力，並提供每個資料庫複本最高的 i/o 效能。|具有可高度擴充性的儲存體和讀取規模需求的大多數商務工作負載。  允許設定一個以上的隔離資料庫複本，以提供更高的失敗復原能力。 |
+|儲存體|使用遠端存放。<br/>**單一資料庫和彈性集區布建計算**：<br/>5 GB – 4 TB<br/>**無伺服器計算**：<br/>5 GB-3 TB<br/>**受控實例**： 32 GB-8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫和彈性集區布建計算**：<br/>5 GB – 8 TB<br/>**受控實例**：<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
+|I/o 輸送量（近似）|**單一資料庫和彈性集**區：每個 VCORE 500 iops，最高可達 40000 iops。<br/>**受控實例**：視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|5000 IOPS （每個 vCore 最多 320000 IOPS）|超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|
 |可用性|1個複本、無讀取規模複本|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域冗余高可用性（HA）|1個讀寫複本，加上 0-4[個讀取規模複本](sql-database-read-scale-out.md)|
 |備份|[讀取權限異地多餘儲存體（RA-GRS）](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（預設為7天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中以快照集為基礎的備份。 還原時可使用這些快照集進行快速復原。 備份是即時的，不會影響計算 i/o 效能。 還原速度很快，而且不是資料大小的作業（需要幾分鐘，而不是小時或數天）。|
 |記憶體內|不支援|支援|不支援|
 |||
 
-> [!NOTE]
-> 您可以在基本服務層級取得免費的 Azure SQL 資料庫，並搭配 Azure 免費帳戶。 如需詳細資訊，請參閱[使用您的 Azure 免費帳戶建立受控雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
 
-- 如需 vCore 資源限制的詳細資訊，請參閱[單一資料庫中的 vCore 資源限制](sql-database-vcore-resource-limits-single-databases.md)和[受控實例中的 vCore 資源限制](sql-database-managed-instance.md#vcore-based-purchasing-model)。
-- 如需一般用途和業務關鍵服務層級的詳細資訊，請參閱[一般用途和業務關鍵服務層級](sql-database-service-tiers-general-purpose-business-critical.md)。
-- 如需有關以 vCore 為基礎的購買模型中超大規模資料庫服務層級的詳細資訊，請參閱[超大規模資料庫服務層級](sql-database-service-tier-hyperscale.md)。  
+### <a name="choosing-a-service-tier"></a>選擇服務層級
 
-## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
+如需針對特定工作負載選取服務層級的詳細資訊，請參閱下列文章：
 
-在 vCore 為基礎的購買模型的已布建計算層中，您可以使用[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，在 SQL Database 上交換您現有的授權以享有折扣優惠。 這項 Azure 權益可讓您使用內部部署 SQL Server 授權搭配軟體保證，最多省下 30% 的 Azure SQL Database。
+- [選擇一般用途服務層級的時機](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [選擇商務關鍵服務層級的時機](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [選擇超大規模資料庫服務層級的時機](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
-![定價](./media/sql-database-service-tiers/pricing.png)
 
-使用 Azure Hybrid Benefit，您可以選擇只使用現有的 SQL database engine SQL Server 授權（基礎計算定價）來支付基礎 Azure 基礎結構的費用，也可以為基礎結構和 SQL Server 付費授權（包含授權的定價）。
+## <a name="compute-tiers"></a>計算層
 
-您可以使用 Azure 入口網站或使用下列其中一個 Api，來選擇或變更您的授權模型：
+VCore 模型中的計算層選項包括布建和無伺服器計算層。
 
-- 若要使用 PowerShell 來設定或更新授權類型：
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+### <a name="provisioned-compute"></a>佈建的計算
 
-- 若要使用 Azure CLI 來設定或更新授權類型：
+布建的計算層提供了與工作負載活動無關的特定計算資源量，並以每小時固定價格的計算數量計費。
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- 若要使用 REST API 來設定或更新授權類型：
+### <a name="serverless-compute"></a>無伺服器計算
 
-  - [資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [資料庫 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+[無伺服器計算層](sql-database-serverless.md)會根據工作負載活動自動調整計算資源，並以每秒使用的計算量來計費。
 
-## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>從以 DTU 為基礎的模型遷移到 vCore 為基礎的模型
 
-### <a name="migrate-a-database"></a>移轉資料庫
 
-將資料庫從以 DTU 為基礎的購買模型遷移到 vCore 為基礎的購買模型，類似于以 DTU 為基礎的購買模型中的 standard 和 premium 服務層級之間的升級或降級。
+## <a name="hardware-generations"></a>硬體世代
 
-### <a name="migrate-databases-with-geo-replication-links"></a>遷移具有異地複寫連結的資料庫
+VCore 模型中的硬體產生選項包括 Gen 4/5、M 系列（預覽）和 Fsv2 系列（預覽）。 硬體世代通常會定義計算和記憶體限制，以及影響工作負載效能的其他特性。
 
-從以 DTU 為基礎的模型遷移到 vCore 為基礎的購買模型，類似于在 standard 和 premium 服務層級中的資料庫之間升級或降級異地複寫關聯性。 在遷移期間，您不需要停止異地複寫，但必須遵循下列排序規則：
+### <a name="gen4gen5"></a>第4代/第5代
 
-- 升級時，您必須先升級次要資料庫，然後再升級主要資料庫。
-- 降級時，順序相反︰您必須先降級主要資料庫，然後再降級次要資料庫。
+- 第4代/第5代硬體提供平衡的計算和記憶體資源，適用于不具較高記憶體、較高 vCore 或更快速的單一 vCore 需求（如 Fsv2 系列或 M 系列所提供）的大部分資料庫工作負載。
 
-當您在兩個彈性集區之間使用異地複寫時，建議您將一個集區指定為主要複本，並將另一個做為次要資料庫。 在此情況下，當您要遷移彈性集區時，您應該使用相同的排序指引。 不過，如果您有同時包含主要和次要資料庫的彈性集區，請將具有較高使用率的集區視為主要複本，並據以遵循順序規則。  
+如需第4代/第5代可用的區域，請參閱[第4代/第5代 availability](#gen4gen5-1)。
 
-下表提供特定遷移案例的指引：
+### <a name="fsv2-seriespreview"></a>Fsv2 系列（預覽）
 
-|目前的服務層級|目標服務層級|遷移類型|使用者動作|
-|---|---|---|---|
-|標準|一般用途|橫向|可依任何順序遷移，但必須確保適當的虛擬核心大小調整*|
-|進階|業務關鍵|橫向|可依任何順序遷移，但必須確保適當的虛擬核心大小調整*|
-|標準|業務關鍵|升級|必須先遷移次要|
-|業務關鍵|標準|降級|必須先遷移主要|
-|進階|一般用途|降級|必須先遷移主要|
-|一般用途|進階|升級|必須先遷移次要|
-|業務關鍵|一般用途|降級|必須先遷移主要|
-|一般用途|業務關鍵|升級|必須先遷移次要|
-||||
+- Fsv2 系列是一種計算優化硬體選項，可為最多 CPU 需求的工作負載提供低 CPU 延遲和高頻率速度。
+- 視工作負載而定，Fsv2 系列可以提供比第5代更多的每個 vCore CPU 效能，而 72 vCore 大小可提供比虛擬核心上80第5代更多的 CPU 效能。 
+- Fsv2 提供比其他硬體更少的記憶體和 tempdb，因此，這些限制的相關工作負載可能會想要改為考慮第5代或 M 系列。  
 
-\*，標準層中的每 100 Dtu 至少需要 1 vCore，而進階層中的每個 125 Dtu 至少需要 1 vCore。
+如需 Fsv2 系列的可用區域，請參閱[Fsv2 系列可用性](#fsv2-series)。
 
-### <a name="migrate-failover-groups"></a>遷移容錯移轉群組
 
-在遷移具有多個資料庫的容錯移轉群組時，必須個別遷移主要和次要資料庫。 過程中適用相同的考量和排序規則。 將資料庫轉換成 vCore 為基礎的購買模型之後，容錯移轉群組將會使用相同的原則設定繼續作用。
+### <a name="m-seriespreview"></a>M 系列（預覽）
 
-### <a name="create-a-geo-replication-secondary-database"></a>建立異地複寫次要資料庫
+- M 系列是記憶體優化硬體選項，適用于需要更多記憶體和更高計算限制的工作負載，而不是由第5代所提供。
+- M 系列提供每 vCore 29 GB 和128虛擬核心，這會將相對於8月第5代的記憶體限制增加到將近 4 TB。
 
-您只能使用與主資料庫相同的服務層級，來建立異地複寫次要資料庫（地理位置）。 對於記錄產生率較高的資料庫，我們建議使用與主要複本相同的計算大小來建立異地次要資料庫。
+若要啟用訂用帳戶和區域的 M 系列硬體，必須開啟支援要求。 如果支援要求經過核准，則 M 系列的選擇和布建體驗會遵循與其他硬體世代相同的模式。 如需 M 系列可用的區域，請參閱[m 系列可用性](#m-series)。
 
-如果您要在彈性集區中為單一主資料庫建立異地次要資料庫，請確定集區的 `maxVCore` 設定符合主資料庫的計算大小。 如果您要為另一個彈性集區中的主要複本建立異地次要資料庫，建議您讓集區具有相同的 `maxVCore` 設定。
 
-### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>使用資料庫複製，將以 DTU 為基礎的資料庫轉換成以 vCore 為基礎的資料庫
+### <a name="compute-and-memory-specifications"></a>計算和記憶體規格
 
-您可以將任何資料庫 (具有以 DTU 為基礎的計算大小) 複製到資料庫 (具有以虛擬核心為基礎的計算大小)，而不會有任何限制或特殊排序，但前提是目標計算大小支援來源資料庫的最大資料庫大小。 資料庫複製會在複製作業開始時建立資料的快照集，而不會同步處理來源與目標之間的資料。
+
+|硬體世代  |計算  |記憶體  |
+|:---------|:---------|:---------|
+|第4代     |-Intel E5-2673 v3 （Haswell） 2.4 GHz 處理器<br>-最多可布建24虛擬核心（1 vCore = 1 個實體核心）  |-每個 vCore 7 GB<br>-布建最多 168 GB|
+|Gen5     |**佈建計算**<br>-Intel E5-2673 v4 （Broadwell） 2.3 GHz 處理器<br>-最多可布建80虛擬核心（1 vCore = 1 個超執行緒）<br><br>**無伺服器計算**<br>-Intel E5-2673 v4 （Broadwell） 2.3 GHz 處理器<br>-自動相應增加至16個虛擬核心（1個 vCore = 1 個超執行緒）|**佈建計算**<br>-每個 vCore 5.1 GB<br>-布建最多 408 GB<br><br>**無伺服器計算**<br>-每個 vCore 自動相應增加至 24 GB<br>-自動調整至最多 48 GB 的最大值|
+|Fsv2 系列     |-Intel 更強白金8168（SkyLake）處理器<br>-提供 3.4 GHz 的全部核心 turbo 主頻速度，以及最大的單一核心 turbo 頻率速度（3.7 GHz）。<br>-布建72虛擬核心（1 vCore = 1 個超執行緒）|-每個 vCore 1.9 GB<br>-布建 136 GB|
+|M 系列     |-Intel E7-8890 v3 2.5 GHz 處理器<br>-布建128虛擬核心（1 vCore = 1 個超執行緒）|-每 vCore 29 GB<br>-布建 3.7 TB|
+
+
+如需資源限制的詳細資訊，請參閱[單一資料庫的資源限制（vCore）](sql-database-vcore-resource-limits-single-databases.md)或彈性集區[的資源限制（vCore）](sql-database-vcore-resource-limits-elastic-pools.md)。
+
+### <a name="selecting-a-hardware-generation"></a>選取硬體世代
+
+在 Azure 入口網站中，您可以在建立時選取 SQL 資料庫或集區的硬體世代，也可以變更現有 SQL 資料庫或集區的硬體世代。
+
+**若要在建立 SQL 資料庫或集區時選取硬體世代**
+
+如需詳細資訊，請參閱[建立 SQL database](sql-database-single-database-get-started.md)。
+
+在 [**基本**] 索引標籤上，選取 [**計算 + 儲存體**] 區段中的 [**設定資料庫**] 連結，然後選取 [**變更**設定] 連結：
+
+  ![設定資料庫](media/sql-database-service-tiers-vcore/configure-sql-database.png)
+
+選取所需的硬體世代：
+
+  ![選取硬體](media/sql-database-service-tiers-vcore/select-hardware.png)
+
+
+**變更現有 SQL 資料庫或集區的硬體世代**
+
+針對資料庫，請在 [總覽] 頁面上選取 [**定價層**] 連結：
+
+  ![變更硬體](media/sql-database-service-tiers-vcore/change-hardware.png)
+
+針對集區，請在 [總覽] 頁面上選取 [**設定**]。
+
+遵循下列步驟來變更設定，然後選取硬體世代，如先前的步驟中所述。
+
+### <a name="hardware-availability"></a>硬體可用性
+
+#### <a name="gen4gen5"></a>第4代/第5代
+
+澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。 
+
+全球大多數區域都有提供第5代。
+
+#### <a name="fsv2-series"></a>Fsv2 系列
+
+Fsv2 系列適用于下欄區域：澳大利亞中部、澳大利亞中部2、澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、東亞、美國東部、法國中部、印度中部、印度西部、韓國中部、南韓南部、北部歐洲、南非北部、東南亞、英國南部、英國西部、西歐、美國西部2。
+
+
+#### <a name="m-series"></a>M 系列
+
+M 系列可在下欄區域使用：美國東部、北歐、西歐、美國西部2。
+M 系列在其他區域中可能也會有有限的可用性。 您可以要求與此處所列不同的區域，但可能無法在不同的區域中履行。
+
+若要在訂用帳戶中啟用 M 系列的可用性，您必須[提出新的支援要求](#create-a-support-request-to-enable-m-series)來要求存取權。
+
+
+##### <a name="create-a-support-request-to-enable-m-series"></a>建立支援要求以啟用 M 系列： 
+
+1. 在入口網站中選取 [說明 **+ 支援**]。
+2. 選取 [新增支援要求]。
+
+在 [**基本**] 頁面上，提供下列資訊：
+
+1. 針對 [問題類型]，選取 [服務與訂用帳戶限制 (配額)]。
+2. 針對 [**訂**用帳戶 =] 選取要啟用 M 系列的訂用帳戶。
+3. 針對 [**配額類型**]，選取 **[SQL database**]。
+4. 選取 **[下一步]** 以移至 [**詳細資料**] 頁面。
+
+在 [**詳細資料**] 頁面上，提供下列資訊：
+
+5. 在 [**問題詳細資料**] 區段中，選取 [**提供詳細資料**] 連結。 
+6. 針對 [ **SQL Database 配額類型**]，選取 [ **M 系列**]。
+7. 針對 [**地區**]，選取要啟用 M 系列的區域。
+    如需 M 系列可用的區域，請參閱[m 系列可用性](#m-series)。
+
+核准的支援要求通常會在5個工作天內完成。
+
 
 ## <a name="next-steps"></a>後續步驟
 
+- 若要建立 SQL database，請參閱[使用 Azure 入口網站建立 sql database](sql-database-single-database-get-started.md)。
 - 如需單一資料庫可用的特定計算大小和儲存體大小選項，請參閱[SQL Database 單一資料庫的 vCore 為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)。
-- 如需彈性集區可用的特定計算大小和儲存體大小選項，請參閱彈性集區[SQL Database vCore 為基礎的資源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。
+- 如需彈性集區可用的特定計算大小和儲存體大小選項，請參閱彈性集區[SQL Database vCore 為基礎的資源限制](sql-database-vcore-resource-limits-elastic-pools.md)。
+- 如需定價詳細資料，請參閱[Azure SQL Database 定價頁面](https://azure.microsoft.com/pricing/details/sql-database/single/)。

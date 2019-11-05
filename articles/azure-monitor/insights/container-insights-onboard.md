@@ -6,17 +6,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: 44cdc2d6b93ac9a62f96875ca6c679fbb97d85a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555394"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477125"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何啟用容器的 Azure 監視器
 
-本文概述適用于容器的設定 Azure 監視器的選項，以監視部署至 Kubernetes 環境並裝載于[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)的工作負載效能。
+本文概述適用于容器的設定 Azure 監視器的選項，以監視部署至 Kubernetes 環境並裝載于[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)、AKS 引擎上之工作負載的效能[Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)或 Kubernetes 已部署在內部部署環境。
 
 使用下列受支援的方法，即可為全新、一或多個現有的 AKS 部署啟用適用於容器的 Azure 監視器：
 
@@ -26,6 +26,7 @@ ms.locfileid: "72555394"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
+
 開始之前，請確定您有下列項目：
 
 * **Log Analytics 工作區。**
@@ -40,7 +41,41 @@ ms.locfileid: "72555394"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* 預設不會收集 Prometheus 計量。 在設定[代理程式](container-insights-agent-config.md)來收集它們之前，請務必先參閱 Prometheus[檔](https://prometheus.io/)，以瞭解您可以定義的內容。
+* 預設不會收集 Prometheus 計量。 在設定[代理程式](container-insights-prometheus-integration.md)來收集它們之前，請務必先參閱 Prometheus[檔](https://prometheus.io/)，以瞭解您可以定義的內容。
+
+## <a name="network-firewall-requirements"></a>網路防火牆需求
+
+下表中的資訊列出容器化代理程式與容器的 Azure 監視器進行通訊所需的 proxy 和防火牆設定資訊。 來自代理程式的所有網路流量都會輸出到 Azure 監視器。
+
+|代理程式資源|連接埠 |
+|--------------|------|
+| *.ods.opinsights.azure.com | 443 |  
+| *.oms.opinsights.azure.com | 443 | 
+| *.blob.core.windows.net | 443 |
+| dc.services.visualstudio.com | 443 |
+| *.microsoftonline.com | 443 |
+| *. monitoring.azure.com | 443 |
+| login.microsoftonline.com | 443 |
+
+下表中的資訊列出 Azure 中國的 proxy 和防火牆設定資訊。
+
+|代理程式資源|連接埠 |說明 | 
+|--------------|------|-------------|
+| *. ods.opinsights.azure.cn | 443 | 資料擷取 |
+| *. oms.opinsights.azure.cn | 443 | OMS 上線 |
+| *.blob.core.windows.net | 443 | 用於監視輸出連線能力。 |
+| microsoft.com | 80 | 用於網路連接。 只有在代理程式映射版本為 ciprod09262019 或更早版本時，才需要此參數。 |
+| dc.services.visualstudio.com | 443 | 適用于使用 Azure 公用雲端 Application Insights 的代理程式遙測。 |
+
+下表中的資訊列出 Azure 美國政府的 proxy 和防火牆設定資訊。
+
+|代理程式資源|連接埠 |說明 | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.us | 443 | 資料擷取 |
+| *.oms.opinsights.azure.us | 443 | OMS 上線 |
+| *.blob.core.windows.net | 443 | 用於監視輸出連線能力。 |
+| microsoft.com | 80 | 用於網路連接。 只有在代理程式映射版本為 ciprod09262019 或更早版本時，才需要此參數。 |
+| dc.services.visualstudio.com | 443 | 針對使用 Azure 公用雲端 Application Insights 的代理程式遙測。 |
 
 ## <a name="components"></a>元件
 
@@ -58,7 +93,7 @@ ms.locfileid: "72555394"
 
 您可以使用下表所述的下列其中一種方法來啟用容器的 Azure 監視器。
 
-| 部署狀態 | 方法 | 描述 |
+| 部署狀態 | 方法 | 說明 |
 |------------------|--------|-------------|
 | 新增 AKS 叢集 | [使用 Azure CLI 建立叢集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| 您可以啟用使用 Azure CLI 建立的新 AKS 叢集的監視。 |
 | | [使用 Terraform 建立叢集](container-insights-enable-new-cluster.md#enable-using-terraform)| 您可以使用開放原始碼工具 Terraform，啟用您所建立之新 AKS 叢集的監視。 |
@@ -67,6 +102,7 @@ ms.locfileid: "72555394"
 | | [從 Azure 監視器啟用](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| 您可以從 Azure 監視器中的 [AKS 多重叢集] 頁面，啟用監視已部署的一或多個 AKS 叢集。 |
 | | [從 AKS 叢集啟用](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| 您可以直接從 Azure 入口網站中的 AKS 叢集啟用監視。 |
 | | [使用 Azure Resource Manager 範本啟用](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| 您可以使用預先設定的 Azure Resource Manager 範本來啟用 AKS 叢集的監視。 |
+| | [針對混合式 Kubernetes 叢集啟用](container-insights-hybrid-setup.md) | 您可以針對裝載于內部部署的 AKS 引擎，啟用監視 Azure Stack 或主控的 Kubernetes。 |
 
 ## <a name="next-steps"></a>後續步驟
 

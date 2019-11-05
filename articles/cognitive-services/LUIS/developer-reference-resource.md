@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: 8accac7fe6068007180403fdab27013da161b28c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437184"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465738"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding 的開發人員資源
 
@@ -54,6 +54,17 @@ Language Understanding 服務會從您需要建立的 Azure 資源進行存取�
 |Node.js|[編寫](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[預測](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 撰寫](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring)<br>[NPM 預測](https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime)|[編寫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[預測](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[使用 REST 撰寫](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-get-intent)<br>[使用 REST 進行預測](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-add-utterance)|
 |Python|[撰寫和預測](sdk-python-quickstart-authoring-app.md)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[編寫](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[編寫](sdk-python-quickstart-authoring-app.md)<br>[使用 REST 進行預測](luis-get-started-python-get-intent.md)
 
+
+### <a name="containers"></a>容器
+
+Language Understanding （LUIS）會提供[容器](luis-container-howto.md)，以提供內部部署和應用程式的包含版本。 
+
+### <a name="export-and-import-formats"></a>匯出和匯入格式
+
+Language Understanding 提供以 JSON 格式管理應用程式及其模型的功能，`.LU` （[LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)）格式，以及 Language Understanding 容器的壓縮封裝。 
+
+匯入和匯出這些格式可從 Api 和從 LUIS 入口網站取得。 入口網站會提供 [匯入] 和 [匯出] 作為 [應用程式清單和版本] 清單的一部分。 
+
 ## <a name="other-tools-and-sdks"></a>其他工具和 Sdk
 
 Bot framework 提供各種語言的[SDK](https://github.com/Microsoft/botframework) ，以及使用[Azure bot service](https://dev.botframework.com/)做為服務。 
@@ -61,7 +72,7 @@ Bot framework 提供各種語言的[SDK](https://github.com/Microsoft/botframewo
 Bot framework 提供[數種工具](https://github.com/microsoft/botbuilder-tools)來協助 Language Understanding，包括：
 
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) -使用 markdown 檔案建立 LUIS 語言理解模型
-* [LUIS Cli](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) -建立和管理您的 LUIS.ai 應用程式
+* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) -建立和管理您的 LUIS.ai 應用程式
 * [分派](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)-管理父系和子應用程式
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -自動為您C#的 LUIS 意圖和實體產生支援/Typescript 類別。
 * [Bot 模擬器](https://github.com/Microsoft/BotFramework-Emulator/releases)-桌面應用程式，可讓 Bot 開發人員測試和偵測使用 BOT Framework SDK 建立的 bot
@@ -69,4 +80,8 @@ Bot framework 提供[數種工具](https://github.com/microsoft/botbuilder-tools
 
 ## <a name="next-steps"></a>後續步驟
 
-瞭解常見的[HTTP 錯誤碼](luis-reference-response-codes.md)
+* 瞭解常見的[HTTP 錯誤碼](luis-reference-response-codes.md)
+* 所有 Api 和 Sdk 的[參考檔](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+* [Bot framework](https://github.com/Microsoft/botbuilder-dotnet)和[Azure bot 服務](https://dev.botframework.com/)
+* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
+* [認知容器](../cognitive-services-container-support.md)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2019
+ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: d1f3f1c00ab8d92ee598a3ef52c1e6f05303b004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f53c7e7b045805a28223fb5670afc45c980454bc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755586"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498393"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure 安全性記錄和審核
 
@@ -46,10 +46,10 @@ Azure 記錄可歸類為下列類型：
 
 下表列出 Azure 中可用的最重要記錄類型：
 
-| 記錄分類 | 記錄類型 | 用量 | 整合 |
+| 記錄分類 | 記錄類型 | 使用量 | 整合 |
 | ------------ | -------- | ------ | ----------- |
 |[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)|Azure Resource Manager 資源上控制層面的事件|  讓您了解訂用帳戶中的資源所執行之作業。|    REST API、[Azure 監視器](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Azure 資源記錄](../../azure-monitor/platform/resource-logs-overview.md)|關於訂用帳戶中 Azure Resource Manager 作業的經常性資料|   讓您了解資源自行執行的作業。| Azure Monitor|
+|[Azure 資源記錄](../../azure-monitor/platform/resource-logs-overview.md)|關於訂用帳戶中 Azure Resource Manager 作業的經常性資料|   讓您了解資源自行執行的作業。| Azure 監視器|
 |[Azure Active Directory 報告](../../active-directory/reports-monitoring/overview-reports.md)|記錄和報告 | 報告使用者登入活動，以及使用者和群組管理相關的系統活動資訊。|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[虛擬機器和雲端服務](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows 事件記錄服務與 Linux Syslog|  在虛擬機器上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。|   Azure 監視器中的 Windows (使用 Windows Azure 診斷儲存體 [[WAD](../../monitoring-and-diagnostics/azure-diagnostics.md)] 儲存體) 和 Linux|
 |[Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|儲存體記錄，提供儲存體帳戶的計量資料|讓您了解追蹤要求、分析使用趨勢，以及診斷儲存體帳戶的問題。|   REST API 或[用戶端程式庫](https://msdn.microsoft.com/library/azure/mt347887.aspx)|

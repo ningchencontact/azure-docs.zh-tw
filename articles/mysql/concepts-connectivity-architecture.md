@@ -1,32 +1,32 @@
 ---
 title: 適用於 MySQL 的 Azure 資料庫中的連線架構
-description: 描述您的 Azure Database for MySQL 伺服器的連線架構。
+description: 描述適用於 MySQL 的 Azure 資料庫伺服器的連接架構。
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 664d3d4333f8c34a8c5dc6648da2beccc4d7a6a2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062475"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498441"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的連線架構
-這篇文章會說明 Azure Database for MySQL 連線架構以及如何將流量導向至 Azure Database for MySQL 執行個體來自 Azure 內外的用戶端。
+本文說明適用於 MySQL 的 Azure 資料庫連線架構，以及如何從 Azure 內部和外部的用戶端，將流量導向至您的適用於 MySQL 的 Azure 資料庫實例。
 
 ## <a name="connectivity-architecture"></a>連線架構
-適用於 MySQL 的 Azure 資料庫的連接是透過閘道路由連入連線您的伺服器，在我們的叢集中的實體位置負責建立。 下圖說明的流量。
+您的適用於 MySQL 的 Azure 資料庫的連線是透過負責將連入連線路由至叢集中伺服器實體位置的閘道所建立。 下圖說明流量的流程。
 
-![連線架構的概觀](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+![連線性架構的總覽](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-為用戶端連接到資料庫，他們會取得連接字串連接到閘道。 此閘道會有公用 IP 位址接聽連接埠 3306。 叢集內部的資料庫，流量會轉送至適當的 Azure 資料庫適用於 MySQL。 因此，若要連線到您的伺服器，例如從公司網路，就必須以開啟 設定用戶端端防火牆以允許輸出流量會無法連線到我們的閘道。 您可以在以下找到我們的閘道，每個區域所使用的 IP 位址的完整清單。
+當用戶端連接到資料庫時，它們會取得連接到閘道的連接字串。 此閘道的公用 IP 位址會接聽埠3306。 在資料庫叢集中，會將流量轉送到適當的適用於 MySQL 的 Azure 資料庫。 因此，為了連接到您的伺服器（例如從公司網路），必須開啟用戶端防火牆，以允許輸出流量能夠連線到我們的閘道。 您可以在下方找到每個區域的閘道所使用的 IP 位址的完整清單。
 
-## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>適用於 MySQL 的閘道 IP 位址的 azure 資料庫
-下表列出 Azure Database for MySQL 閘道的所有資料區域的主要和次要 Ip。 主要 IP 位址是目前的閘道的 IP 位址及第二個 IP 位址是主要的失敗時的容錯移轉 IP 位址。 如前所述，客戶應允許輸出這兩個 IP 位址。 第二個 IP 位址不會接聽的任何服務之前被啟動的 Azure Database for MySQL 以接受連接。
+## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>適用於 MySQL 的 Azure 資料庫閘道 IP 位址
+下表列出所有資料區域之適用於 MySQL 的 Azure 資料庫閘道的主要和次要 Ip。 主要 IP 位址是閘道目前的 IP 位址，而第二個 IP 位址是容錯移轉的 IP 位址（萬一主要複本失敗時）。 如前所述，客戶應允許輸出到這兩個 IP 位址。 第二個 IP 位址不會在任何服務上接聽，直到適用於 MySQL 的 Azure 資料庫啟用以接受連線為止。
 
-| **區域名稱** | **主要 IP 位址** | **次要 IP 位址** |
+| **區功能變數名稱稱** | **主要 IP 位址** | **次要 IP 位址** |
 |:----------------|:-------------|:------------------------|
 | 澳洲東部 | 13.75.149.87 | 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109 | 13.73.109.251 |
@@ -54,6 +54,9 @@ ms.locfileid: "67062475"
 | 北歐 | 191.235.193.75 | 40.113.93.91 |
 | 美國中南部 | 23.98.162.75 | 13.66.62.124 |
 | 東南亞 | 23.100.117.95 | 104.43.15.0 |
+| 南非北部 | 102.133.152.0 | |
+| 南非西部 | 102.133.24.0 | |
+| 阿拉伯聯合大公國北部 | 65.52.248.0 | |
 | 英國南部 | 51.140.184.11 | |
 | 英國西部 | 51.141.8.11| |
 | 西歐 | 191.237.232.75 | 40.68.37.158 |
@@ -67,5 +70,5 @@ ms.locfileid: "67062475"
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-portal.md)
-* [建立和管理 MySQL 防火牆規則，使用 Azure CLI 的 Azure 資料庫](./howto-manage-firewall-using-cli.md)
+* [使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-cli.md)
 

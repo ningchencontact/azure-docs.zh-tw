@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 架構
+title: 架構：內部部署 Apache Hadoop 至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的架構最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735890"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499258"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
 
-本文將提供有關 Azure HDInsight 系統架構的建議。 將內部部署 Apache Hadoop 系統遷移到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文將提供有關 Azure HDInsight 系統架構的建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
 
 ## <a name="use-multiple-workload-optimized-clusters"></a>使用多個已最佳化工作負載的叢集
 
@@ -30,7 +30,7 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 由於儲存
 |批次處理 (ETL / ELT)|Hadoop、Spark|
 |資料倉儲|Hadoop、Spark、互動式查詢|
 |IoT / 串流|Kafka、Storm、Spark|
-|NoSQL 交易處理|HBase|
+|NoSQL 交易處理|hbase|
 |使用記憶體內快取執行互動式及更快速的查詢|互動式查詢|
 |資料科學|ML 服務、Spark|
 
@@ -75,7 +75,7 @@ Azure Data Factory 可用來排定隨選 HDInsight 叢集的建立。 如需詳�
 ## <a name="use-external-metadata-stores"></a>使用外部中繼資料存放區
 
 
-可與 HDInsight 叢集搭配使用的主要中繼存放區有兩個：[Apache Hive](https://hive.apache.org/) 和 [Apache Oozie](https://oozie.apache.org/)。 Hive 中繼存放區是主要的結構描述存放庫，可供資料處理引擎 (包括 Hadoop、Spark、LLAP、Presto 和 Apache Pig) 使用。 Oozie 中繼存放區會為進行中和已完成的 Hadoop 作業儲存排程和狀態的詳細資料。
+與 HDInsight 叢集搭配使用的主要中繼存放區有兩種： [Apache Hive](https://hive.apache.org/)和[Apache Oozie](https://oozie.apache.org/)。 Hive 中繼存放區是主要的結構描述存放庫，可供資料處理引擎 (包括 Hadoop、Spark、LLAP、Presto 和 Apache Pig) 使用。 Oozie 中繼存放區會為進行中和已完成的 Hadoop 作業儲存排程和狀態的詳細資料。
 
 
 HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 在 HDInsight 叢集中設定中繼存放區有兩種方式：
@@ -105,7 +105,7 @@ HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 
 - 定期備份自訂中繼存放區。
 - 將中繼存放區與 HDInsight 叢集保存在相同區域。
 - 使用 Azure SQL Database 監視工具（例如 Azure 入口網站或 Azure 監視器記錄），監視中繼存放區的效能和可用性。
-- 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如： `ANALYZE TABLE [table_name] COMPUTE STATISTICS` 。
+- 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如， `ANALYZE TABLE [table_name] COMPUTE STATISTICS`。
 
 ## <a name="best-practices-for-different-workloads"></a>不同工作負載的最佳做法
 
