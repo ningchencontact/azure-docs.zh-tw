@@ -55,7 +55,7 @@ ms.locfileid: "71290843"
 本指南所建立的應用程式會顯示一個可查詢圖形 API 的按鈕，以及一個用來登出的按鈕。它也會顯示包含呼叫結果的文字方塊。
 
 > [!NOTE]
-> 您想要下載此範例的 Visual Studio 專案而非加以建立嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)並跳到[應用程式註冊](#register-your-application "a應用程式註冊步驟」)步驟，以在執行之前先設定程式碼範例。
+> 您想要下載此範例的 Visual Studio 專案而非加以建立嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)並跳到[應用程式註冊](#register-your-application "a應用程式註冊")步驟，以在執行之前先設定程式碼範例。
 
 ### <a name="create-your-application"></a>建立您的應用程式
 

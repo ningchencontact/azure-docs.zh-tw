@@ -70,7 +70,7 @@ ms.locfileid: "72375691"
 
 建立[預算](../cost-management/tutorial-acm-create-budgets.md)來管理成本，以及建立[警示](../cost-management/cost-mgt-alerts-monitor-usage-spending.md)，以在出現異常消費和超支時自動通知利害關係人。 
 
-### <a name="costs">使用成本分析探索及分析成本</a>
+### <a name="costs"></a> 使用成本分析探索及分析成本
 
 當您的 Azure 服務執行之後，請定期檢查成本以追蹤您的 Azure 費用。 您可以使用成本分析來了解您的 Azure 使用量所產生的成本。 
 
