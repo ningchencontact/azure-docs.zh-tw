@@ -11,14 +11,15 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e9d262380a8e0769b1191673a7e00eed770f7ab2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374301"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497087"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 將 Azure Machine Learning 模型部署為 Web 服務可建立 REST API。 您可以將資料傳送至此 API 並接收模型傳回的預測。 在本文件中，了解如何使用 C#、Go、Java 和 Python 為Web 服務建立用戶端。
 
@@ -78,10 +79,10 @@ Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。
 
 |驗證方法|ACI|AKS|
 |---|---|---|
-|索引鍵|預設為停用| 預設為啟用|
-|token| 無法使用| 預設為停用 |
+|金鑰|預設為停用| 預設為啟用|
+|權杖| 無法使用| 預設為停用 |
 
-將要求傳送至以金鑰或權杖保護的服務時，請使用__Authorization__標頭來傳遞金鑰或權杖。 金鑰或 token 的格式必須為 `Bearer <key-or-token>`，其中 `<key-or-token>` 是您的金鑰或權杖值。
+將要求傳送至以金鑰或權杖保護的服務時，請使用__Authorization__標頭來傳遞金鑰或權杖。 金鑰或權杖必須格式化為 `Bearer <key-or-token>`，其中 `<key-or-token>` 是您的金鑰或 token 值。
 
 #### <a name="authentication-with-keys"></a>使用金鑰進行驗證
 

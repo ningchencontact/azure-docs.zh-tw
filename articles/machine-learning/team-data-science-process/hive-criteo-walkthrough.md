@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60305588"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492354"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
@@ -33,7 +33,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 * 接下來 13 個資料行是數字，以及
 * 最後 26 個資料行是類別資料行
 
-資料行是匿名的，而且會使用一系列的列舉名稱："Col1" (適用於標籤資料行) 到 "Col40" (適用於最後一個分類資料行)。
+資料行為匿名，並使用一系列的列舉名稱："Col1" (針對標籤資料行) 至 "Col40" (針對最後一個分類資料行)。
 
 以下是來自這個資料集的兩個觀察 (資料列) 的前 20 個資料行的摘錄：
 
@@ -44,35 +44,35 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 此資料集中的數值及分類資料行中有遺漏值。 我們會說明用來處理遺漏值的簡單方法。 資料的其他詳細資料會在將它們儲存成 Hive 資料表時加以說明。
 
-**定義**:*點選率 (CTR)：* 這是資料中點擊次數的百分比。 在此 Criteo 資料集中，CTR 是大約 3.3%或 0.033。
+**定義：** *點選率 (CTR)：* 這是資料中點選的百分比。 在此 Criteo 資料集中，CTR 是大約 3.3%或 0.033。
 
 ## <a name="mltasks"></a>預測工作的範例
 本逐步解說將討論兩個範例預測問題：
 
-1. **二元分類**：預測使用者是否點擊了新增項目：
+1. **二進位分類**：預測使用者是否按下加入：
 
-   * 類別 0：未點擊
+   * 類別 0：未按一下
    * 類別 1：按一下
-2. **迴歸**：預測使用者特徵點擊廣告的可能性。
+2. **迴歸**：預測使用者按一下廣告機率的功能。
 
 ## <a name="setup"></a>為資料科學設定 HDInsight Hadoop 叢集
-**注意：** 這通常是 **管理** 工作。
+**附註：** 這通常是**管理**工作。
 
 設定 Azure 資料科學環境，用於使用 HDInsight 叢集以三個步驟建置預測性的分析解決方案：
 
-1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)：這個儲存體帳戶會用來將資料儲存於 Azure Blob 儲存體。 HDInsight 叢集中使用的資料會儲存在這裡。
-2. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)：這個步驟會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時有兩個需完成的重要步驟 (如本主題所述)。
+1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)：此儲存體帳戶用來將資料儲存在 Azure Blob 儲存體中。 HDInsight 叢集中使用的資料會儲存在這裡。
+2. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)：這個步驟將會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時有兩個需完成的重要步驟 (如本主題所述)。
 
    * 建立時您必須將步驟 1 中建立的儲存體帳戶與 HDInsight 叢集連結。 此儲存體帳戶用於存取可以在叢集內處理的資料。
    * 建立後，您必須對叢集的前端節點啟用遠端存取。 請記住您在此處指定的遠端存取認證 (與建立時指定叢集的不同)：您需要認證以完成下列程序。
-3. [建立 Azure Machine Learning Studio 工作區](../studio/create-workspace.md)：這個 Azure Machine Learning 工作區會在 HDInsight 叢集上初始資料探索並縮減取樣之後，用來建置機器學習模型。
+3. [建立 Azure Machine Learning Studio （傳統）工作區](../studio/create-workspace.md)：此 Azure Machine Learning 工作區用來在 HDInsight 叢集上進行初始資料探索和縮小取樣之後，建立機器學習模型。
 
 ## <a name="getdata"></a>取得並從公用來源取用資料
 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集可以透過按一下連結、接受使用條款並提供名稱來存取。 其外觀的快照如下所示：
 
 ![接受 Criteo 條款](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
-按一下 [繼續下載]  來閱讀資料集的相關資訊和它的可用性。
+按一下 [繼續下載] 來閱讀資料集的相關資訊和它的可用性。
 
 資料位於公用 [Azure Blob 儲存體](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)位置：wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/。 "wasb" 指的是 Azure Blob 儲存體位置。
 
@@ -86,7 +86,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 本逐步解說中稍後會在我們建立 Hive 資料表時說明存取、瀏覽和模型化此資料而不需要任何本機下載的另一種方法。
 
 ## <a name="login"></a>登入到叢集前端節點
-若要登入叢集的前端節點，請使用 [Azure 入口網站](https://ms.portal.azure.com) 來找出叢集。 在左側按一下 HDInsight 大象圖示，然後按兩下叢集的名稱。 瀏覽至 [組態]  索引標籤上，在頁面底部的 [連接] 圖示上連按兩下，然後在提示時輸入您的遠端存取認證。 這會帶您前往叢集的前端節點。
+若要登入叢集的前端節點，請使用 [Azure 入口網站](https://ms.portal.azure.com) 來找出叢集。 在左側按一下 HDInsight 大象圖示，然後按兩下叢集的名稱。 瀏覽至 [組態] 索引標籤上，在頁面底部的 [連接] 圖示上連按兩下，然後在提示時輸入您的遠端存取認證。 這會帶您前往叢集的前端節點。
 
 以下是典型的第一次登入叢集前端節點時看起來的外觀：
 
@@ -116,9 +116,9 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 下列程式碼會建立資料庫 "criteo"，然後產生 4 個資料表：
 
-* 建置於 day\_00 到 day\_20 「用於產生計數的資料表」  、
-* 建置於 day\_21「用來做為訓練資料集的資料表」  ，以及
-* 分別建置於 day\_22 和 day\_23 的兩個「用來做為測試資料集的資料表」  。
+* 建置於 day*00 到 day*20 「用於產生計數的資料表」\_\_、
+* 建置於 day*21「用來做為訓練資料集的資料表」* \_，以及
+* 分別建置於 day*22 和 day*23 的兩個「用來做為測試資料集的資料表」\_\_。
 
 將測試資料集分成兩個不同的資料表，因為其中一天為假日。 目標在於判斷此模型是否可以從點擊率來偵測假日與非假日之間的差異。
 
@@ -157,13 +157,13 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 **有兩種方式可執行任何 Hive 查詢：**
 
-1. **使用 Hive REPL 命令列**：第一種是發出 "hive" 命令，在 Hive REPL 命令列上複製並貼上查詢。 若要這樣做，請執行：
+1. **使用 Hive REPL 命令列**：第一個是發出 "hive" 命令，複製查詢並在 Hive REPL 命令列貼上。 若要這樣做，請執行：
 
         cd %hive_home%\bin
         hive
 
      現在，在 REPL 命令列，剪下和貼上查詢即可執行。
-2. **將查詢儲存到檔案並執行命令**：第二種是將查詢儲存到 .hql 檔案 ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql))，然後發出下列命令來執行查詢：
+2. **將查詢儲存到檔案，並執行命令**：第二個是要將查詢儲存為 .hql 檔案 ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) 然後發出下列命令以執行查詢：
 
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -417,15 +417,15 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 在 Azure Machine Learning 建置模型的程序遵循下列步驟：
 
 1. [從 Hive 資料表取得資料到 Azure Machine Learning](#step1)
-2. [建立實驗： 清除資料，並使它成為使用計數資料表的功能](#step2)
+2. [建立實驗：清除資料並使其成為具有計數資料表的功能](#step2)
 3. [建立、訓練和評分模型](#step3)
 4. [評估模型](#step4)
 5. [將模型發佈為 Web 服務](#step5)
 
-您現在已準備好在 Azure Machine Learning Studio 中建置模型。 我們縮減取樣的資料會在叢集中儲存為 Hive 資料表。 使用 Azure Machine Learning 的 [匯入資料]  模組來讀取此資料。 可存取此叢集之儲存體帳戶的認證會在下面提供。
+您現在已準備好在 Azure Machine Learning Studio 中建置模型。 我們縮減取樣的資料會在叢集中儲存為 Hive 資料表。 使用 Azure Machine Learning 的 [匯入資料] 模組來讀取此資料。 可存取此叢集之儲存體帳戶的認證會在下面提供。
 
 ### <a name="step1"></a> 步驟 1：使用「匯入資料」模組從 Hive 資料表取得資料並匯入到 Azure Machine Learning，然後選取它來進行機器學習實驗
-藉由選取 [+ 新增]   -> [實驗]   -> [空白實驗]  開始。 接著，從左上方的 [搜尋]  方塊，搜尋「匯入資料」。 將 [匯入資料]  模組拖放到實驗畫布 (螢幕的中間部分) 上，以將模組用於資料存取。
+藉由選取 [+ 新增] -> [實驗] -> [空白實驗] 開始。 接著，從左上方的 [搜尋] 方塊，搜尋「匯入資料」。 將 [匯入資料] 模組拖放到實驗畫布 (螢幕的中間部分) 上，以將模組用於資料存取。
 
 這是從 Hive 資料表取得資料時 **匯入資料** 看起來的樣子：
 
@@ -434,32 +434,32 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 針對 **匯入資料** 模組，圖形中提供的參數值都只是您需要提供之該類值的範例。 以下是一些有關如何填寫 **匯入資料** 模組之參數集的一般指引。
 
 1. 對 **資料來源**
-2. 在 [Hive 資料庫查詢]  方塊中，簡單的 SELECT * FROM <your\_database\_name.your\_table\_name> - 就已經足夠。
-3. **HCatalog 伺服器 URI**：如果您的叢集是 "abc"，則這就是： https://abc.azurehdinsight.net
+2. 在 [Hive 資料庫查詢] 方塊中，簡單的 SELECT * FROM <your\_database\_name.your\_table\_name> - 就已經足夠。
+3. **Hcatalog 伺服器 URI**：如果您的叢集是 "abc"，那麼就是： https://abc.azurehdinsight.net
 4. **Hadoop 使用者帳戶名稱**：委任叢集時選擇的使用者名稱。 (非遠端存取使用者名稱！)
 5. **Hadoop 使用者帳戶密碼**：委任叢集時選擇之使用者名稱的密碼。 (非遠端存取密碼！)
-6. **輸出資料的位置**：選擇 [Azure]。
-7. **Azure 儲存體帳戶名稱**：與叢集相關聯的儲存體帳戶。
-8. **Azure 儲存體帳戶金鑰**︰與叢集相關聯之儲存體帳戶的金鑰。
-9. **Azure 容器名稱**：如果叢集名稱是 "abc"，則這通常就是 "abc"。
+6. **輸出資料的位置**：選擇 "Azure"
+7. **Azure 儲存體帳戶名稱**：和叢集相關聯的儲存體帳戶
+8. **Azure 儲存體帳戶金鑰**：和叢集相關聯的儲存體帳戶金鑰。
+9. **Azure 容器名稱**：如果叢集名稱是 "abc"，則通常就是 "abc"。
 
 在 **匯入資料** 完成資料取得後 (您會在模組上看到綠色勾號)，請將此資料儲存為「資料集」(使用您選擇的名稱)。 看起來像這樣：
 
 ![「匯入資料」儲存資料](./media/hive-criteo-walkthrough/oxM73Np.png)
 
-在 **匯入資料** 模組的輸出連接埠上按一下滑鼠右鍵。 這會顯示 [另存為資料集]  選項和 [視覺化]  選項。 **視覺化** 選項，如果按下，會顯示資料 100 個資料列，以及在右側面板顯示某些實用的摘要統計資料。 若要儲存資料，只要選取 [ **另存為資料集** ] 並遵循指示。
+在 **匯入資料** 模組的輸出連接埠上按一下滑鼠右鍵。 這會顯示 [另存為資料集] 選項和 [視覺化] 選項。 **視覺化** 選項，如果按下，會顯示資料 100 個資料列，以及在右側面板顯示某些實用的摘要統計資料。 若要儲存資料，只要選取 [ **另存為資料集** ] 並遵循指示。
 
-若要選取已儲存的資料集，以用於機器學習實驗，請使用下圖所示的 [搜尋]  方塊找出資料集。 然後只要輸入您提供給資料集的部分名稱即可存取它，並拖曳至主面板中。 將它拖放到主面板中，選取它來用於機器學習模型建構。
+若要選取已儲存的資料集，以用於機器學習實驗，請使用下圖所示的 [搜尋] 方塊找出資料集。 然後只要輸入您提供給資料集的部分名稱即可存取它，並拖曳至主面板中。 將它拖放到主面板中，選取它來用於機器學習模型建構。
 
-![將資料集拖曳至 主面板](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![將資料集拖曳至主要面板](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > 為訓練和測試資料集執行這項操作。 此外，請記住要使用您為此目的提供的資料庫名稱和資料表名稱。 在圖中所使用的值僅供說明之用。\**
 >
 >
 
-### <a name="step2"></a> 步驟 2：在 Azure Machine Learning 中建立簡單的實驗來預測點擊次數/未點擊次數
-Azure Machine Learning Studio 實驗如下所示：
+### <a name="step2"></a> 步驟 2：在 Azure Machine Learning 中建立簡單的實驗來預測按一下/未按一下
+我們的 Azure Machine Learning Studio （傳統）實驗看起來像這樣：
 
 ![Machine Learning 實驗](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -476,13 +476,13 @@ Azure Machine Learning Studio 實驗如下所示：
 大型資料集的部分類別功能可以有數百萬的唯一值。 使用像是一個有效編碼的單純方法來表示高維度類別功能是完全不可行的。 本逐步解說示範如何透過内建的 Azure Machine Learning 模組來使用計數功能產生這些高維度類別變數的壓縮表示法。 最後結果是較小的模型、更快速的定型時間與相當於使用其他技術的效能度量。
 
 ##### <a name="building-counting-transforms"></a>建置計數轉換
-若要建置計數功能，請使用 Azure Machine Learning 中可使用的 [建置計數轉換]  模組。 此模組如下所示：
+若要建置計數功能，請使用 Azure Machine Learning 中可使用的 [建置計數轉換] 模組。 此模組如下所示：
 
 ![建置計數轉換模組屬性](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![建置計數轉換模組](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT]
-> 在 [計數資料行]  方塊中，輸入您要在其中執行計數的資料行。 一般來說，這些是 (如上所述) 高維度類別資料行。 請記住 Criteo 資料集有 26 個類別資料行：從 Col15 至 Col40。 在這裡，依據這些資料行，並為其提供索引 (從 15 到 40，並以逗號分隔，如下所示)。
+> 在 [計數資料行] 方塊中，輸入您要在其中執行計數的資料行。 一般來說，這些是 (如上所述) 高維度類別資料行。 請記住 Criteo 資料集有 26 個類別資料行：從 Col15 至 Col40。 在這裡，依據這些資料行，並為其提供索引 (從 15 到 40，並以逗號分隔，如下所示)。
 >
 
 若要使用 MapReduce 模式中的模組 (適用於大型資料集)，您必須存取 HDInsight Hadoop 叢集 (用於功能探索的叢集可以重複用於此目的) 和它的認證。 前面的圖表說明填入的值看起來如何 (將提供做說明用途的值取代為您自己使用案例的相關值)。
@@ -491,21 +491,21 @@ Azure Machine Learning Studio 實驗如下所示：
 
 上圖說明輸入 blob 位置的輸入方式。 這個位置會保留資料以在其中建置計數資料表。
 
-此模組完成執行時，稍後在模組上以滑鼠右鍵按一下，並選取 [儲存為轉換]  選項以儲存轉換：
+此模組完成執行時，稍後在模組上以滑鼠右鍵按一下，並選取 [儲存為轉換] 選項以儲存轉換：
 
 ![「另存為轉換」選項](./media/hive-criteo-walkthrough/IcVgvHR.png)
 
-在如上所示的實驗架構中，資料集 "ytransform2" 會精確地對應已儲存的計數轉換。 針對這項實驗的其餘部分，假設讀取器在某些資料上使用 [建置計數轉換]  模組以產生計數，然後使用這些計數在訓練和測試資料集上產生計數功能。
+在如上所示的實驗架構中，資料集 "ytransform2" 會精確地對應已儲存的計數轉換。 針對這項實驗的其餘部分，假設讀取器在某些資料上使用 [建置計數轉換] 模組以產生計數，然後使用這些計數在訓練和測試資料集上產生計數功能。
 
 ##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>選擇要將哪些計數功能納為訓練和測試資料集的一部分
-一旦備妥計數轉換時，使用者可以使用 [修改計數資料表參數]  模組，選擇要將哪些功能納入其訓練和測試資料集。 為了完整性，這個模組會在此顯示。 但為了簡單起見，請不要真的在實驗中使用它。
+一旦備妥計數轉換時，使用者可以使用 [修改計數資料表參數] 模組，選擇要將哪些功能納入其訓練和測試資料集。 為了完整性，這個模組會在此顯示。 但為了簡單起見，請不要真的在實驗中使用它。
 
 ![修改計數資料表參數](./media/hive-criteo-walkthrough/PfCHkVg.png)
 
 如您所見，在此情況下，會使用對數機率並忽略撤退資料行。 您也可以設定參數，例如記憶體回收 bin 臨界值，要新增多少虛擬優先範例才能平滑處理，以及是否使用任何 Laplacian 雜訊。 這些都是進階的功能，而且要注意的是對此類功能產生的新手使用者而言，預設值是個好起點。
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>產生計數功能之前的資料轉換
-現在焦點在於一個重點，在實際產生計數功能之前要先轉換我們的訓練和測試資料。 請注意，將計數轉換套用至資料之前，已經使用了兩個 [執行 R 指令碼]  模組。
+現在焦點在於一個重點，在實際產生計數功能之前要先轉換我們的訓練和測試資料。 請注意，將計數轉換套用至資料之前，已經使用了兩個 [執行 R 指令碼] 模組。
 
 ![執行 R 指令碼模組](./media/hive-criteo-walkthrough/aF59wbc.png)
 
@@ -522,7 +522,7 @@ Azure Machine Learning Studio 實驗如下所示：
 在這個簡單的 R 指令碼中，"pos\_neg\_ratio" 用於設定正與負類別之間的平衡數目。 這是很重要的動作，因為改善類別失衡通常會具有效能優勢，可處理類別散發扭曲的分類問題 (請記得在此案例中，您有 3.3% 正類別和 96.7% 負類別)。
 
 ##### <a name="applying-the-count-transformation-on-our-data"></a>在我們的資料上套用計數轉換
-最後，您可以使用 [套用轉換]  模組，將計數轉換套用至訓練和測試資料集。 此模組會將儲存的計數轉換當成輸入，將訓練或測試資料集當成其他輸入，然後利用計數功能傳回資料。 如下所示：
+最後，您可以使用 [套用轉換] 模組，將計數轉換套用至訓練和測試資料集。 此模組會將儲存的計數轉換當成輸入，將訓練或測試資料集當成其他輸入，然後利用計數功能傳回資料。 如下所示：
 
 ![套用轉換模組](./media/hive-criteo-walkthrough/xnQvsYf.png)
 
@@ -535,7 +535,7 @@ Azure Machine Learning Studio 實驗如下所示：
 
 您現在已準備好使用這些已轉換的資料集建置 Azure Machine Learning 模型。 下一節說明如何完成此作業。
 
-### <a name="step3"></a> 步驟 3：建置、定型和評分模型
+### <a name="step3"></a> 步驟 3：建立、訓練和評分模型
 
 #### <a name="choice-of-learner"></a>選擇學習者
 首先，您必須選擇學習者。 使用兩個類別推進式決策樹作為我們的學習者。 以下是這個學習者的預設選項：
@@ -545,28 +545,28 @@ Azure Machine Learning Studio 實驗如下所示：
 對此試驗，選擇預設值。 請注意，預設值通常是有意義的好方法，可以在效能上取得快速的基準。 一旦您有了基準之後，如果您選擇整理參數，您就可以藉此改善效能。
 
 #### <a name="train-the-model"></a>訓練模型
-對於訓練，只需叫用 [訓練模型]  模組。 它的兩個輸入是兩個類別推進式決策樹和我們的訓練資料集。 其如下所示：
+對於訓練，只需叫用 [訓練模型] 模組。 它的兩個輸入是兩個類別推進式決策樹和我們的訓練資料集。 其如下所示：
 
 ![訓練模組](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
 #### <a name="score-the-model"></a>評分模型
-一旦您擁有定型模型，您就可以在測試資料集上評分，並評估其效能。 您可以使用下圖所示的 [評分模型]  模組，加上 [評估模型]  模組來執行這項作業：
+一旦您擁有定型模型，您就可以在測試資料集上評分，並評估其效能。 您可以使用下圖所示的 [評分模型]模組，加上 [評估模型] 模組來執行這項作業：
 
 ![Score Model module](./media/hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="step4"></a> 步驟 4：評估模型
-最後，您應該分析模型效能。 通常，針對兩個類別 (二進位) 分類的問題，AUC 是良好的測量方式。 為了將此情況視覺化，為此將 [評分模型]  模組連接至 [評估模型]  模組。 在 [評估模型]  模組上按一下 [視覺化]  會產生類似如下的圖形：
+最後，您應該分析模型效能。 通常，針對兩個類別 (二進位) 分類的問題，AUC 是良好的測量方式。 為了將此情況視覺化，為此將 [評分模型] 模組連接至 [評估模型] 模組。 在 [評估模型] 模組上按一下 [視覺化] 會產生類似如下的圖形：
 
 ![評估模組 BDT 模型](./media/hive-criteo-walkthrough/0Tl0cdg.png)
 
-在二進位檔 (或兩個類別) 分類的問題中，曲線下面積 (AUC) 是預測準確度良好的測量方式。 下列幾節顯示在測試資料集上使用此模型的結果。 若要檢查結果，請以滑鼠右鍵按一下 [評估模型]  模組的輸出連接埠，然後選取 [視覺化]  。
+在二進位檔 (或兩個類別) 分類的問題中，曲線下面積 (AUC) 是預測準確度良好的測量方式。 下列幾節顯示在測試資料集上使用此模型的結果。 若要檢查結果，請以滑鼠右鍵按一下 [評估模型] 模組的輸出連接埠，然後選取 [視覺化]。
 
 ![視覺化評估模型模組](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step5"></a> 步驟 5：將模型發佈為 Web 服務
 發佈 Azure Machine Learning 做為引起最少抱怨之 web 服務的功能，乃是使其可廣泛使用的寶貴功能。 完成作業後，任何人都可以利用他們需要預測的輸入資料來呼叫 web 服務，而 web 服務可使用模型傳回這些預測。
 
-若要執行此動作，先將定型模型儲存為定型模型物件。 做法是以滑鼠右鍵按一下 [訓練模型]  模組，並使用 [儲存為訓練模型]  選項。
+若要執行此動作，先將定型模型儲存為定型模型物件。 做法是以滑鼠右鍵按一下 [訓練模型] 模組，並使用 [儲存為訓練模型] 選項。
 
 接下來，建立 web 服務的輸入和輸出連接埠：
 
@@ -587,20 +587,20 @@ Azure Machine Learning Studio 實驗如下所示：
 ![建立 BDT 輸入資料](./media/hive-criteo-walkthrough/OEJMmst.png)
 
 > [!NOTE]
-> 針對輸入資料格式，使用 [計數 Featurizer]  模組的輸出。 一旦此實驗執行完成，將輸出從 **計數 Featurizer** 模組儲存為資料集。 此資料集會用於 Web 服務中的輸入資料。
+> 針對輸入資料格式，使用 [計數 Featurizer] 模組的輸出。 一旦此實驗執行完成，將輸出從 **計數 Featurizer** 模組儲存為資料集。 此資料集會用於 Web 服務中的輸入資料。
 >
 >
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>發佈 Web 服務的評分實驗
-首先會顯示其外觀。 基本結構是 [評分模型]  模組，其會接受我們的定型模型物件以及在先前步驟中使用 [計數 Featurizer]   模組產生的一些輸入資料行。 使用「選取資料集中的資料行」來投射出評分標籤和評分機率。
+首先會顯示其外觀。 基本結構是 [評分模型] 模組，其會接受我們的定型模型物件以及在先前步驟中使用 [計數 Featurizer] 模組產生的一些輸入資料行。 使用「選取資料集中的資料行」來投射出評分標籤和評分機率。
 
 ![選取資料集中的資料行](./media/hive-criteo-walkthrough/kRHrIbe.png)
 
-請注意如何使用「選取資料集中的資料行」  模組來「篩選」掉資料集中的資料。 內容如下所示：
+請注意如何使用「選取資料集中的資料行」 模組來「篩選」掉資料集中的資料。 內容如下所示：
 
 ![使用「選取資料集中的資料行」模組來進行的篩選](./media/hive-criteo-walkthrough/oVUJC9K.png)
 
-若要取得藍色的輸入和輸出連接埠，您只要按一下位於右下方的 [ **準備 Web 服務** ]。 執行這項實驗也可讓我們發佈 Web 服務：按一下右下方的 [發佈 Web 服務]  圖示，如下所示：
+若要取得藍色的輸入和輸出連接埠，您只要按一下位於右下方的 [ **準備 Web 服務** ]。 執行這項實驗也可讓我們發佈 Web 服務：按一下右下方的 [發佈 Web 服務] 圖示，如下所示：
 
 ![發佈 Web 服務](./media/hive-criteo-walkthrough/WO0nens.png)
 
@@ -610,7 +610,7 @@ Azure Machine Learning Studio 實驗如下所示：
 
 請注意左邊的兩個 Web 服務連結：
 
-* [要求/回應]  服務 (或 RRS) 適用於單一預測而且會在這場研討會中使用。
+* [要求/回應] 服務 (或 RRS) 適用於單一預測而且會在這場研討會中使用。
 * **批次執行** 服務 (BES) 用於批次預測，而且要求要用來進行預測的輸入資料位於 Azure Blob 儲存體。
 
 按一下連結**要求/回應**會帶我們前往提供我們以 C#、python 和 R 預先定義程式碼的頁面。此程式碼可以方便地用於對 Web 服務進行呼叫。 請注意，需要使用此頁面上的 API 金鑰來進行驗證。

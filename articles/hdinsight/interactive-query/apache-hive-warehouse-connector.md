@@ -1,5 +1,5 @@
 ---
-title: 將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合
+title: Apache Spark & Hive-Hive 倉儲連接器-Azure HDInsight
 description: 瞭解如何在 Azure HDInsight 上將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合。
 author: nakhanha
 ms.author: nakhanha
@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264305"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494304"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合
 
@@ -46,7 +46,7 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 ### <a name="modify-hosts-file"></a>修改 hosts 檔案
 
-從互動式查詢叢集 headnode0 上的 @no__t 0 檔案複製節點資訊，並將資訊串連至 Spark 叢集 headnode0 上的 @no__t 1 檔案。 此步驟可讓您的 Spark 叢集解析互動式查詢叢集中的節點 IP 位址。 使用 `cat /etc/hosts` 來查看已更新檔案的內容。 最後的輸出應該看起來像下面螢幕擷取畫面中所顯示的內容。
+從互動式查詢叢集 headnode0 上的 `/etc/hosts` 檔案複製節點資訊，並將資訊串連至 Spark 叢集 headnode0 上的 `/etc/hosts` 檔案。 此步驟可讓您的 Spark 叢集解析互動式查詢叢集中的節點 IP 位址。 使用 `cat /etc/hosts` 來查看已更新檔案的內容。 最後的輸出應該看起來像下面螢幕擷取畫面中所顯示的內容。
 
 ![hive 倉儲連接器主控檔案](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -56,29 +56,29 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 1. 使用 `https://LLAPCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 Apache Ambari 首頁，其中 `LLAPCLUSTERNAME` 是互動式查詢叢集的名稱。
 
-1. 流覽至**hive**@no__t **-1 個**配置  > **advanced** > **advanced hive-site** > **zookeeper** ，並記下值。 值可能類似于： `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`。
+1. 流覽至**hive** > 配置 > **advanced** > **advanced hive-site** > **zookeeper** ，並記下值。 值可能類似于： `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`。
 
-1. 流覽至**hive**@no__t **-1 個**配置  > **Advanced** > **一般** > **中繼存放區**，並記下值。 值可能類似于： `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`。
+1. 流覽至**hive** > 配置 > **Advanced** > **一般** > **中繼存放區**，並記下值。 值可能類似于： `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`。
 
 #### <a name="from-your-apache-spark-cluster"></a>從您的 Apache Spark 叢集
 
 1. 使用 `https://SPARKCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 Apache Ambari 首頁，其中 `SPARKCLUSTERNAME` 是您 Apache Spark 叢集的名稱。
 
-1. 流覽至**Hive**@no__t **-1 個**配置  > **advanced** > **advanced hive-interactive-site** > **llap** ，並記下值。 值可能類似于： `@llap0`。
+1. 流覽至**hive** > 配置 > **advanced** > **advanced hive-interactive-site** > **llap** ，並記下值。 值可能類似于： `@llap0`。
 
 ### <a name="configure-spark-cluster-settings"></a>設定 Spark 叢集設定
 
-從您的 Spark Ambari web UI，流覽至**Spark2**@no__t-**1 個** >  個**自訂 Spark2-預設值**。
+從您的 Spark Ambari web UI，流覽至 Spark2 ** > **  > **自訂 Spark2 的 [預設值**]。
 
 ![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
 視需要選取 [**新增屬性**]，以新增/更新下列各項：
 
-| Key | 值 |
+| 金鑰 | 值 |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|您先前從**hive. llap**取得的值。|
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. 設定為 JDBC 連接字串，它會連接到互動式查詢叢集上的 Hiveserver2。 以互動式查詢叢集的名稱取代 `LLAPCLUSTERNAME`。 將 `PWD` 取代為實際密碼。|
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. 將設定為適當的 HDFS 相容臨時目錄。 如果您有兩個不同的叢集，則臨時目錄應該是 LLAP 叢集之儲存體帳戶的預備目錄中的資料夾，讓 HiveServer2 有其存取權。  以叢集所使用的儲存體帳戶名稱取代 `STORAGE_ACCOUNT_NAME`，並以儲存體容器的名稱 `STORAGE_CONTAINER_NAME`。|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`。 設定為 JDBC 連接字串，它會連接到互動式查詢叢集上的 Hiveserver2。 以互動式查詢叢集的名稱取代 `LLAPCLUSTERNAME`。 將 `PWD` 取代為實際密碼。|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`。 將設定為適當的 HDFS 相容臨時目錄。 如果您有兩個不同的叢集，則臨時目錄應該是 LLAP 叢集之儲存體帳戶的預備目錄中的資料夾，讓 HiveServer2 有其存取權。  以叢集所使用的儲存體帳戶名稱取代 `STORAGE_ACCOUNT_NAME`，並以儲存體容器的名稱 `STORAGE_CONTAINER_NAME`。|
 |`spark.datasource.hive.warehouse.metastoreUri`|您先前從**hive. 中繼存放區**取得的值。|
 |`spark.security.credentials.hiveserver2.enabled`|適用于 YARN 用戶端部署模式的 `false`。|
 |`spark.hadoop.hive.zookeeper.quorum`|您先前從**hive. zookeeper**取得的值。|
@@ -111,7 +111,7 @@ Hive 倉儲連接器所支援的部分作業包括：
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    您會看到歡迎使用訊息和 @no__t 0 提示字元，您可以在其中輸入命令。
+    您會看到歡迎使用訊息和 `scala>` 提示字元，您可以在其中輸入命令。
 
 1. 啟動 spark shell 之後，您可以使用下列命令來啟動 Hive 倉儲連接器實例：
 
@@ -208,7 +208,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
     ```
 
     >[!Important]
-    > @No__t-0 和 @no__t 1 選項目前必須手動設定，因為 Apache Spark 中有已知問題。 如需有關此問題的詳細資訊，請參閱[SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460)。
+    > `metastoreUri` 和 `database` 選項目前必須手動設定，因為 Apache Spark 中有已知問題。 如需有關此問題的詳細資訊，請參閱[SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460)。
 
 1. 返回第二個 SSH 會話，然後輸入下列值：
 
@@ -248,7 +248,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
 1. 套用只顯示資料行最後四個字元的資料行遮罩原則。  
     1. 移至 `https://CLUSTERNAME.azurehdinsight.net/ranger/` 的 Ranger 管理 UI。
     1. 按一下 [ **hive**] 底下叢集的 hive 服務。
-        @no__t 0ranger service manager @ no__t-1
+        ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. 按一下 [**遮罩**] 索引標籤，然後 [**新增原則**]
 
         ![hive 倉儲連接器 ranger hive 原則清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)

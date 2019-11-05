@@ -9,15 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819862"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497393"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何使用 Azure Machine Learning 中的自動化機器學習來定型時間序列預測回歸模型。 設定預測模型類似于使用自動化機器學習來設定標準回歸模型，但有一些特定的設定選項和前置處理步驟可用於處理時間序列資料。 下列範例示範如何：
 
@@ -50,7 +51,7 @@ ms.locfileid: "72819862"
 1. 它們支援多個輸入和輸出
 1. 它們可以自動將跨長序列的輸入資料中的模式解壓縮
 
-針對較大的資料，深度學習模型（例如 Microsoft ' ForecasTCN）可以改善產生之模型的分數。 
+針對較大的資料，深度學習模型（例如 Microsoft ' ForecastTCN）可以改善產生之模型的分數。 
 
 原生時間序列學習工具也會提供做為自動化 ML 的一部分。 Prophet 最適合用於具有強烈季節性效果的時間序列，以及數個季節的歷程記錄資料。 Prophet 是正確的 & 快速、健全的極端值、遺漏的資料，以及您的時間序列中的顯著變更。 
 
@@ -63,7 +64,7 @@ ms.locfileid: "72819862"
 
 ## <a name="preparing-data"></a>準備資料
 
-自動化機器學習服務中的預測回歸工作類型和回歸工作類型之間最重要的差異，包括資料中代表有效時間序列的功能。 一般時間序列具有定義完善且一致的頻率，而且在連續時間範圍內的每個取樣點都有一個值。 請考慮下列檔案的快照集 `sample.csv`。
+自動化機器學習服務中的預測回歸工作類型和回歸工作類型之間最重要的差異，包括資料中代表有效時間序列的功能。 一般時間序列具有定義完善且一致的頻率，而且在連續時間範圍內的每個取樣點都有一個值。 請考慮下列檔案 `sample.csv`快照集。
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -112,13 +113,14 @@ test_labels = test_data.pop(label).values
 
 `AutoMLConfig` 物件會定義自動化機器學習工作所需的設定和資料。 類似于回歸問題，您可以定義標準訓練參數，例如工作類型、反復專案數目、定型資料，以及交叉驗證的數目。 針對預測工作，還有一些必須設定的參數會影響實驗。 下表說明每個參數和其使用方式。
 
-| 參數 | 描述 | 必要項 |
+| 參數 | 說明 | 必要 |
 |-------|-------|-------|
 |`time_column_name`|用來指定輸入資料中用來建立時間序列並推斷其頻率的日期時間資料行。|✓|
 |`grain_column_names`|在輸入資料中定義個別數列群組的名稱。 如果未定義細微性，則會假設資料集為一個時間序列。||
 |`max_horizon`|以時間序列頻率的單位，定義所需的預測範圍上限。 單位是以定型資料的時間間隔為基礎，例如每個月、每週 forecaster 應預測。|✓|
 |`target_lags`|要根據資料頻率延後目標值的資料列數目。 這會以清單或單一整數表示。 當獨立變數與相依變數之間的關聯性預設不相符或相互關聯時，應該使用 Lag。 例如，當您嘗試預測產品的需求時，任何月份的需求可能取決於之前3個月的特定商品價格。 在此範例中，您可能會想要讓目標（需求）對3個月造成負面的延遲，讓模型在正確的關聯性上定型。||
 |`target_rolling_window_size`|*n*要用來產生預測值的歷程記錄期間，< = 定型集大小。 如果省略，則*n*是完整的定型集大小。 當您只想要在定型模型時考慮特定數量的歷程記錄時，請指定此參數。||
+|`enable_dnn`|啟用預測 Dnn。||
 
 如需詳細資訊，請參閱[參考檔](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)。
 
@@ -150,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -170,6 +173,17 @@ best_run, fitted_model = local_run.get_output()
 * 復原原始的交叉驗證
 * 可設定延遲
 * 滾動視窗匯總功能
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>設定 DNN 啟用預測實驗
+
+> [!NOTE]
+> 自動化 Machine Learning 中預測的 DNN 支援目前處於預覽階段。
+
+為了利用 Dnn 進行預測，您必須將 AutoMLConfig 中的 `enable_dnn` 參數設定為 true。 
+
+若要使用 Dnn，建議使用具有 GPU Sku 的 AML 計算叢集，以及至少2個節點做為計算目標。 如需詳細資訊，請參閱[AML 計算檔](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute)。 如需包含 Gpu 之 VM 大小的詳細資訊，請參閱[GPU 優化虛擬機器大小](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu)。
+
+若要讓 DNN 訓練有足夠的時間完成，建議您將實驗時間設定為至少幾個小時。
 
 ### <a name="view-feature-engineering-summary"></a>視圖功能工程摘要
 
@@ -194,7 +208,7 @@ predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-或者，您可以使用 `forecast()` 函式，而不是 `predict()`，這將會允許預測應開始時的規格。 在下列範例中，您會先將 `y_pred` 中的所有值取代為 `NaN`。 在此情況下，預測來源會在定型資料的結尾，這通常是使用 `predict()` 時。 不過，如果您只以 `NaN`取代後半個 `y_pred`，則函式會將前半個未修改的數值保留，但在後半部中預測 `NaN` 的值。 函式會傳回預測的值和對齊的功能。
+或者，您可以使用 `forecast()` 函式，而不是 `predict()`，這會允許預測應該啟動的規格。 在下列範例中，您會先將 `y_pred` 中的所有值取代為 `NaN`。 在此情況下，預測來源會在定型資料的結尾，這通常是使用 `predict()`時。 不過，如果您只以 `NaN`取代後半個 `y_pred`，則函式會將前半個未修改的數值保留，但在後半部中預測 `NaN` 的值。 函式會傳回預測的值和對齊的功能。
 
 您也可以使用 `forecast()` 函數中的 `forecast_destination` 參數，在指定的日期之前預測值。
 

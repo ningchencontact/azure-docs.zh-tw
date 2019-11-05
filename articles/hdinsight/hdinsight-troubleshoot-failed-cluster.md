@@ -1,5 +1,5 @@
 ---
-title: 針對 HDInsight 叢集上的緩慢或失敗作業進行疑難排解-Azure HDInsight
+title: 針對 Azure HDInsight 叢集上緩慢或失敗的工作進行疑難排解
 description: 針對 Azure HDInsight 叢集上緩慢或失敗的工作進行診斷和疑難排解。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105352"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498092"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>針對 HDInsight 叢集上的緩慢或失敗作業進行疑難排解
 
@@ -21,15 +21,15 @@ ms.locfileid: "71105352"
 
 若要診斷速度變慢或失敗的叢集，請收集該環境所有方面的相關資訊，例如關聯的 Azure 服務、叢集組態及作業執行資訊。 其中一種有幫助的診斷方式是嘗試在另一個叢集上重現錯誤狀態。
 
-* 步驟 1:收集問題的相關資料。
-* 步驟 2:驗證 HDInsight 叢集環境。
-* 步驟 3：查看叢集的健全狀況。
-* 步驟 4：檢查環境堆疊和版本。
-* 步驟 5：檢查叢集記錄檔。
-* 步驟 6：檢查設定。
-* 步驟 7：在不同的叢集上重現失敗。
+* 步驟1：收集問題的相關資料。
+* 步驟2：驗證 HDInsight 叢集環境。
+* 步驟3：查看叢集的健全狀況。
+* 步驟4：檢查環境堆疊和版本。
+* 步驟5：檢查叢集記錄檔。
+* 步驟6：檢查設定。
+* 步驟7：在不同的叢集上重現失敗。
 
-## <a name="step-1-gather-data-about-the-issue"></a>步驟 1:收集問題的相關資料
+## <a name="step-1-gather-data-about-the-issue"></a>步驟 1：收集問題的相關資料
 
 HDInsight 提供許多工具，可供您用來識別叢集相關問題並進行疑難排解。 下列步驟將引導您完成這些工具的程序，並會提供建議來指出問題所在。
 
@@ -184,7 +184,7 @@ Templeton 會呼叫 YARN 來執行作業，而 Templeton 與 YARN 之間的通�
 
     * 列出所有作業：這是一個相當費時的呼叫。 此呼叫會列舉來自 YARN ResourceManager 的應用程式，並針對每個已完成的應用程式，從 YARN JobHistoryServer 取得狀態。 當作業數量較多時，此呼叫便可能逾時。
 
-    * 列出超過七天的作業：HDInsight YARN JobHistoryServer 已設定為保留已完成的工作資訊長達七天 (`mapreduce.jobhistory.max-age-ms` 值)。 嘗試列舉已清除的作業會造成逾時。
+    * 列出超過 7 天的作業：HDInsight YARN JobHistoryServer 已設定為保留已完成的工作資訊長達 7 天 (`mapreduce.jobhistory.max-age-ms` 值)。 嘗試列舉已清除的作業會造成逾時。
 
 診斷這些問題：
 

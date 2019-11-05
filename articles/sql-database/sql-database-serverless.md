@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 無伺服器 (預覽) | Microsoft Docs
+title: Azure SQL Database 無伺服器 |Microsoft Docs
 description: 本文說明新的無伺服器計算層級，並將它與現有佈建計算層級進行比較
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173408"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496253"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器（預覽）
+# <a name="azure-sql-database-serverless"></a>Azure SQL Database 無伺服器
 
-Azure SQL Database 無伺服器（預覽）是單一資料庫的計算層，可根據工作負載需求自動調整計算，並以每秒使用的計算量來計費。 無伺服器計算層級也會在活動傳回時，自動在非使用中期間暫停資料庫，並自動繼續執行資料庫。
+Azure SQL Database 無伺服器是單一資料庫的計算層，可根據工作負載需求自動調整計算，並以每秒使用的計算量來計費。 無伺服器計算層級也會在活動傳回時，自動在非使用中期間暫停資料庫，並自動繼續執行資料庫。
 
 ## <a name="serverless-compute-tier"></a>無伺服器計算層級
 
@@ -75,7 +75,7 @@ Azure SQL Database 無伺服器（預覽）是單一資料庫的計算層，可�
 
 目前只有虛擬核心購買模型中第 5 代硬體的一般用途層級支援 SQL Database 無伺服器。
 
-## <a name="autoscaling"></a>自動調整規模
+## <a name="autoscaling"></a>自動調整
 
 ### <a name="scaling-responsiveness"></a>調整回應性
 
@@ -115,7 +115,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 - 異地複寫（主動式異地複寫和自動容錯移轉群組）。
 - 長期備份保留（LTR）。
-- SQL 資料同步中使用的同步資料庫。不同于同步資料庫，中樞和成員資料庫支援 autopausing。
+- SQL 資料同步中使用的同步資料庫。 不同于同步資料庫，中樞和成員資料庫支援 autopausing。
 - 用於彈性作業的作業資料庫。
 
 在部署某些需要線上資料庫的服務更新時，會暫時防止 Autopausing。  在這種情況下，服務更新完成後，就會再次允許 autopausing。
@@ -145,7 +145,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 如果無伺服器資料庫暫停，第一次登入將會繼續資料庫，並傳回錯誤訊息，指出資料庫無法使用，錯誤碼40613。 資料庫一旦繼續，則必須重試登入來建立連線。 具有連線重試邏輯的資料庫用戶端應該不需要修改。
 
-### <a name="latency"></a>延遲
+### <a name="latency"></a>Latency
 
 自動繼續和自動暫停無伺服器資料庫的延遲通常是從1分鐘到自動繼續，以及1-10 分鐘到自動暫停的順序。
 
@@ -155,24 +155,24 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 1. 指定服務目標名稱。 服務目標會規定服務層、硬體世代和最大虛擬核心。 下表顯示服務目標選項：
 
-   |服務目標名稱|服務層級|硬體世代|最大虛擬核心數|
+   |服務目標名稱|服務層|硬體世代|最大虛擬核心數|
    |---|---|---|---|
-   |GP_S_Gen5_1|一般目的|Gen5|1|
-   |GP_S_Gen5_2|一般目的|Gen5|2|
-   |GP_S_Gen5_4|一般目的|Gen5|4|
-   |GP_S_Gen5_6|一般目的|Gen5|6|
-   |GP_S_Gen5_8|一般目的|Gen5|8|
-   |GP_S_Gen5_10|一般目的|Gen5|10|
-   |GP_S_Gen5_12|一般目的|Gen5|12|
-   |GP_S_Gen5_14|一般目的|Gen5|14|
-   |GP_S_Gen5_16|一般目的|Gen5|16|
+   |GP_S_Gen5_1|一般用途|Gen5|1|
+   |GP_S_Gen5_2|一般用途|Gen5|2|
+   |GP_S_Gen5_4|一般用途|Gen5|4|
+   |GP_S_Gen5_6|一般用途|Gen5|6|
+   |GP_S_Gen5_8|一般用途|Gen5|8|
+   |GP_S_Gen5_10|一般用途|Gen5|10|
+   |GP_S_Gen5_12|一般用途|Gen5|12|
+   |GP_S_Gen5_14|一般用途|Gen5|14|
+   |GP_S_Gen5_16|一般用途|Gen5|16|
 
 2. （選擇性）指定最小虛擬核心和自動暫停延遲，以變更其預設值。 下表顯示這些參數的可用值。
 
    |參數|值選擇|預設值|
    |---|---|---|---|
-   |vCore 數下限|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。|0.5 個虛擬核心|
-   |自動暫停延遲|最小值:60分鐘（1小時）<br>最大值:10080 分鐘 (7 天)<br>增量：60 分鐘<br>停用自動暫停：-1|60 分鐘|
+   |最小虛擬核心|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
+   |自動暫停延遲|最小值：60分鐘（1小時）<br>最大值：10080分鐘（7天）<br>遞增：60分鐘<br>停用自動暫停：-1|60 Minuten|
 
 > [!NOTE]
 > 目前不支援使用 T-SQL 將現有資料庫移到無伺服器中或變更其計算大小，但可以透過 Azure 入口網站或 PowerShell 進行。
@@ -229,13 +229,13 @@ Set-AzSqlDatabase `
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 max 虛擬核心的執行方式是在 PowerShell  `MaxVcore`中使用引數的 [set-azsqldatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 搭配命令。
+修改 max 虛擬核心是使用 `MaxVcore` 引數，在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
 
 ### <a name="minimum-vcores"></a>最小虛擬核心數
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 min 虛擬核心的執行方式是在 PowerShell  `MinVcore`中使用引數的 [set-azsqldatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 搭配命令。
+修改 min 虛擬核心的執行方式是在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令，方法是使用 `MinVcore` 引數。
 
 ### <a name="autopause-delay"></a>自動暫停延遲
 
@@ -243,7 +243,7 @@ Set-AzSqlDatabase `
 
 修改自動暫停延遲是藉由使用 `AutoPauseDelayInMinutes` 引數在 PowerShell 中的[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 ### <a name="resources-used-and-billed"></a>使用和計費的資源
 
@@ -257,14 +257,14 @@ Set-AzSqlDatabase `
 
 不論資料庫是在無伺服器或佈建計算層級中，使用者資源集區都是資料庫的最內層資源管理界限。 使用者資源集區會針對 DDL 查詢（例如，SELECT、INSERT、UPDATE 和 DELETE）所產生的使用者工作負載，建立其 CPU 和 IO 的範圍。 這些查詢通常代表應用程式套件內很大的使用率比例。
 
-### <a name="metrics"></a>計量
+### <a name="metrics"></a>度量
 
 下表列出監視應用程式套件的資源使用量和無伺服器資料庫使用者集區的計量：
 
-|實體|度量|描述|單位|
+|實體|計量|說明|Units|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
-|應用程式套件|app_cpu_billed|在報告期間內針對應用程式計費的計算數量。 在這段期間所支付的金額為此計量與虛擬核心單價的乘積。 <br><br>彙總一段時間內每秒使用的最大 CPU 與記憶體，即可判斷此計量的值。 如果使用的數量小於依照最小虛擬核心數與最小記憶體所設定的最小佈建數量，就會收取最小佈建數量的費用。 為了比較 CPU 與記憶體以供計費用途，記憶體會依每個虛擬核心 3 GB 重新調整記憶體量，藉此規範成虛擬核心單位。|虛擬核心秒數|
+|應用程式套件|app_cpu_billed|在報告期間內針對應用程式計費的計算數量。 在這段期間所支付的金額為此計量與虛擬核心單價的乘積。 <br><br>彙總一段時間內每秒使用的最大 CPU 與記憶體，即可判斷此計量的值。 如果使用的數量小於依照最小虛擬核心數與最小記憶體所設定的最小佈建數量，就會收取最小佈建數量的費用。 為了比較 CPU 與記憶體以供計費之用，記憶體會藉由重新調整每個 vCore 的記憶體數量（GB），以正規化為虛擬核心單位。|虛擬核心秒數|
 |應用程式套件|app_memory_percent|應用程式所使用的記憶體百分比，相對於應用程式所允許的最大記憶體。|百分比|
 |使用者集區|cpu_percent|使用者工作負載所使用的虛擬核心百分比，相對於使用者工作負載所允許的最大虛擬核心數。|百分比|
 |使用者集區|data_IO_percent|使用者工作負載所使用的資料 IOPS 百分比，相對於使用者工作負載所允許的最大資料 IOPS。|百分比|
@@ -288,13 +288,13 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>資源限制
 
-如需資源限制，請參閱[無伺服器計算層](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。
+如需資源限制，請參閱[無伺服器計算層](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。
 
-## <a name="billing"></a>帳務
+## <a name="billing"></a>計費
 
 計算數量的計費方式為每秒使用的最大 CPU 與記憶體。 若使用的 CPU 與使用的記憶體數量小於各自的最小佈建數量，就會收取佈建數量的費用。 為了比較 CPU 與記憶體以供計費用途，記憶體會依每個虛擬核心 3 GB 重新調整記憶體量，藉此規範成虛擬核心單位。
 
-- **計費的資源**：CPU 與記憶體
+- **資源計費**： CPU 和記憶體
 - **計費金額**： vCore 單價 * 最大值（最小虛擬核心，使用的虛擬核心，最小記憶體 gb * 1/3，使用的記憶體 gb * 1/3） 
 - **計費頻率**：每秒
 
@@ -326,9 +326,9 @@ VCore 單位價格是每秒 vCore 的費用。 如需指定區域中的特定單
 
 ## <a name="available-regions"></a>可用區域
 
-無伺服器計算層級在全球可用，但下欄區域除外：中國東部、中國北部、德國中部、德國東北部、英國北部、英國南部2、美國中西部和 US Gov 中部（愛荷華州）。
+無伺服器計算層級在全球提供，但下欄區域除外：中國東部、中國北部、德國中部、德國東北部、英國北部、英國南部2、美國中西部和 US Gov 中部（愛荷華州）。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要開始使用，請參閱[快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫](sql-database-single-database-get-started.md)。
-- 如需資源限制，請參閱[無伺服器計算層級資源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。
+- 若要開始，請參閱[快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫](sql-database-single-database-get-started.md)。
+- 如需資源限制，請參閱[無伺服器計算層級資源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。

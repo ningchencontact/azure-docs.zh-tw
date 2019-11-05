@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199211"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489070"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者大量註冊 SQL 虛擬機器
 
@@ -37,7 +37,7 @@ ms.locfileid: "73199211"
 - 已[向資源提供者註冊](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp)並包含未註冊 SQL Server 虛擬機器的[Azure 訂](https://azure.microsoft.com/free/)用帳戶。 
 - 用來註冊虛擬機器的用戶端認證存在於下列任何 RBAC 角色中： [**虛擬機器參與者**]、[**參與者**] 或 [**擁有**者]。 
 - 最新版本的[Az PowerShell](/powershell/azure/new-azureps-module-az)。 
-- 最新版本的 [Az. Microsoft.sqlvirtualmachine] （ https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0 。
+- 最新版本的[Az. microsoft.sqlvirtualmachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0)。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -214,7 +214,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 | 因未在 Windows 上執行 SQL Server 而略過的 Vm 數目 | 因為未執行 SQL Server 或不是 Windows 虛擬機器而略過的虛擬機器計數。 虛擬機器會以 `SubscriptionID, Resource Group, Virtual Machine`的格式列出。 | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>記錄 
+### <a name="log"></a>記錄檔 
 
 錯誤會記錄在名為 `VMsNotRegisteredDueToError<Timestamp>.log` 的記錄檔中，其中 timestamp 是腳本啟動的時間。 如果錯誤是在訂用帳戶層級，則記錄檔會包含以逗號分隔的 SubscriptionID 和錯誤訊息。 如果此錯誤與虛擬機器註冊有關，記錄檔會包含訂用帳戶識別碼、資源組名、虛擬機器名稱、錯誤碼和訊息（以逗號分隔）。 
 

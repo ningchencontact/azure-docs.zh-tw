@@ -10,15 +10,16 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2019
-ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489709"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中啟動、監視和取消定型執行
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 適用于 Python 和[MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)的[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)提供各種方法來監視、組織及管理您的執行，以進行訓練和實驗。
 
@@ -33,7 +34,7 @@ ms.locfileid: "72174545"
 
 您將需要下列專案：
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 * [Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
@@ -62,7 +63,7 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 ```
 
-使用[`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-)方法啟動執行及其記錄處理常式。
+使用[`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-)方法來啟動執行及其記錄處理常式。
 
 ```python
 notebook_run = exp.start_logging()
@@ -85,18 +86,18 @@ notebook_run.log(name="message", value="Hello from run!")
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    此命令會建立包含範例 runconfig 和 conda 環境檔案的 @no__t 0 子目錄。 它也包含用來與您的 Azure Machine Learning 工作區通訊的 @no__t 0 檔案。
+    此命令會建立一個 `.azureml` 子目錄，其中包含範例 runconfig 和 conda 環境檔案。 它也包含用來與您的 Azure Machine Learning 工作區通訊的 `config.json` 檔案。
 
     如需詳細資訊，請參閱[az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)。
 
-2. 若要開始執行，請使用下列命令。 使用此命令時，請指定 runconfig 檔的名稱（如果您要查看您的檔案系統，則會在 runconfig @no__t 之前的文字）與-c 參數。
+2. 若要開始執行，請使用下列命令。 使用此命令時，請指定 runconfig 檔的名稱（如果您要查看檔案系統，則 \*為 runconfig），並針對-c 參數。
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > @No__t-0 命令已建立 `.azureml` 子目錄，其中包含兩個範例 runconfig 檔案。
+    > `az ml folder attach` 命令已建立 `.azureml` 子目錄，其中包含兩個範例 runconfig 檔案。
     >
     > 如果您有以程式設計方式建立回合設定物件的 Python 腳本，您可以使用[RunConfig （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-)將它儲存為 RunConfig 檔案。
     >
@@ -120,7 +121,7 @@ print(notebook_run.get_status())
 print(notebook_run.get_details())
 ```
 
-當您的執行成功完成時，請使用[`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-)方法將其標示為已完成。
+當您的回合成功完成時，請使用[`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-)方法將其標示為已完成。
 
 ```python
 notebook_run.complete()
@@ -226,7 +227,7 @@ with exp.start_logging() as parent_run:
 
 子系執行也可以從父執行提交。 這可讓您建立父系和子回合的階層，每個階層都是在不同的計算目標上執行，並由一般父系執行識別碼連接。
 
-使用[' submit_child （） '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-)方法，從父執行中提交子執行。 若要在父執行腳本中執行這項操作，請取得執行內容，並使用內容實例的 ``submit_child`` 方法提交子回合。
+使用[' submit_child （） '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-)方法，從父執行中提交子回合。 若要在父執行腳本中執行這項操作，請取得執行內容，並使用內容實例的 ``submit_child`` 方法提交子回合。
 
 ```python
 ## In parent run script
@@ -245,7 +246,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>查詢子執行
 
-若要查詢特定父系的子執行，請使用[`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-)方法。 @No__t-0 引數可讓您查詢子系和孫系的嵌套樹狀結構。
+若要查詢特定父系的子執行，請使用[`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-)方法。 ``recursive = True`` 引數可讓您查詢子系和孫系的嵌套樹狀結構。
 
 ```python
 print(parent_run.get_children())

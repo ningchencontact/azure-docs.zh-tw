@@ -1,28 +1,30 @@
 ---
-title: 使用 PowerShell 管理 HDInsight 中的 Apache Hadoop 叢集 - Azure
+title: 使用 PowerShell 管理 Apache Hadoop 叢集-Azure HDInsight
 description: 了解如何使用 Azure PowerShell 對 HDInsight 中的 Apache Hadoop 叢集執行管理工作。
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tyfox
-ms.openlocfilehash: 751f064df271aeb0899a00aea8b1ff09e8b8bdf4
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b3cdc673d5d99229e3e6934d85cae55f79590830
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077037"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494396"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中, 您將瞭解如何使用 Azure PowerShell Az 模組, 在 Azure HDInsight 中管理[Apache Hadoop](https://hadoop.apache.org/)叢集。 如需 HDInsight PowerShell Cmdlet 的清單, 請參閱[Az HDInsight reference](https://docs.microsoft.com/powershell/module/az.hdinsight)。
+Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中，您將瞭解如何使用 Azure PowerShell Az 模組，在 Azure HDInsight 中管理[Apache Hadoop](https://hadoop.apache.org/)叢集。 如需 HDInsight PowerShell Cmdlet 的清單，請參閱[Az HDInsight reference](https://docs.microsoft.com/powershell/module/az.hdinsight)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 * 安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 

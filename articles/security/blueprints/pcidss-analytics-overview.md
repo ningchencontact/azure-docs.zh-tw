@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 42ce8bfa78cfa40e147ee90de28c1ac1430070f1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 67870cdfcf92bb49d6e4f954b7001a8a705dcc42
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259756"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496411"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI DSS 的分析
+# <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Azure 安全性與合規性藍圖：適用於 PCI DSS 的分析
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 此「Azure 安全性與合規性藍圖」提供在 Azure 中部署資料分析架構的指引，並協助符合支付卡產業資料安全標準 (PCI DSS 3.2) 的要求。 它會演示常見參考架構，並且示範如何在安全且相容的多層式環境中，正確處理信用卡資料 (包含信用卡號碼、到期日和驗證資料)。 這個藍圖會示範客戶可以達成特定安全性與合規性要求的方式，並作為基礎讓客戶能在 Azure 中建置並設定自己的資料分析解決方案。
 
@@ -29,19 +29,19 @@ ms.locfileid: "71259756"
 
 此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
 
-Azure 為客戶提供各種報告和分析服務。 此解決方案結合 Azure Machine Learning 服務與 Azure SQL Database，可透過更聰明的模型，來快速瀏覽資料及傳遞更快的結果。 Azure Machine Learning 透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
+Azure 為客戶提供各種報告和分析服務。 此解決方案結合了 Azure Machine Learning 與 Azure SQL Database，透過更聰明的模型，快速流覽資料並提供更快的結果。 Azure Machine Learning 透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
 
 若要加強分析和報告，您可以使用資料行存放區索引來設定 Azure SQL 資料庫。 根據客戶的使用情況，Azure Machine Learning 和 Azure SQL 資料庫可相應增加或減少，或甚至是完全關閉。 所有 SQL 流量都會使用 SSL 透過內含的自我簽署憑證來加密。 Azure 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
 
 一旦將資料上傳至 Azure SQL Database，並由 Azure Machine Learning 加以訓練後，操作使用者和 SQL/資料管理員就會使用 Power BI 來處理這些資料。 Power BI 會以直覺方式顯示資料，並同時提取多個資料集中的資訊，來繪製更深入的見解。 因為其適應性高且能輕鬆地與 Azure SQL Database 整合，可確保客戶能根據他們的業務需求進行設定，進而處理大量案例。
 
-解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料複本以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
+解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
 
-為加強安全性，此解決方案中的所有資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制已部署資源的存取，包括資源在 Azure Key Vault 中的金鑰。 透過 Azure 資訊安全中心和 Azure 監視器來監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。
+為加強安全性，此解決方案中的所有資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制已部署資源的存取，包括資源在 Azure Key Vault 中的金鑰。 透過 Azure 資訊安全中心和 Azure 監視器監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。
 
 Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理，而執行 SSMS 的本機電腦會設定為透過安全的 VPN 或 ExpressRoute 連線來存取 Azure SQL Database。 **Microsoft 會建議設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構資源群組**。
 
-![適用於 PCI DSS 的分析參考架構圖表](images/pcidss-analytics-architecture.png "適用於 PCI DSS 的分析參考架構圖表")
+![PCI DSS 參考架構圖表的分析](images/pcidss-analytics-architecture.png "PCI DSS 參考架構圖表的分析")
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
@@ -49,9 +49,9 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 - Azure Active Directory
 - Azure 資料目錄
 - Azure 磁碟加密
-- Azure 事件格線
+- Azure Event Grid
 - Azure Functions
-- Azure Key Vault
+- Azure 金鑰保存庫
 - Azure Machine Learning
 - Azure 監視器
 - Azure 資訊安全中心
@@ -71,7 +71,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 **Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 是無伺服器計算服務，可讓使用者依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。
 
-**Azure Machine Learning 服務**：[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) 是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。
+**Azure Machine Learning**：[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) 是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。
 
 **Azure 資料目錄**：[資料目錄](../../data-catalog/overview.md)能讓管理資料的使用者輕鬆地探索和了解資料來源。 您可以註冊、標記常用資料來源，並在其中搜尋財務資料。 資料會保留在現有的位置，但其中繼資料的複本會連同資料來源位置的參考，一起新增至資料目錄。 此中繼資料也會編製索引，透過搜尋輕鬆找到每個資料來源，並讓探索資料來源的使用者了解每個資料來源。
 
@@ -79,7 +79,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內之流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 有下列網路安全性群組：
+**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 有下列網路安全性群組：
 
   - 適用於 Active Directory 的網路安全性群組
   - 適用於工作負載的網路安全性群組
@@ -89,7 +89,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
 - Azure 監視器記錄會連線至[網路安全性群組&#39;的診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**子網路**：確認每個子網路都與對應的網路安全性群組建立關聯。
+**子網路**：確認每個子網路都與對應的網路安全性群組相關聯。
 
 ### <a name="data-in-transit"></a>資料傳輸中
 
@@ -101,7 +101,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 **Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](../../storage/common/storage-service-encryption.md)。  這有助於保護與防衛持卡人資料，以支援組織的安全性承諾及 PCI DSS 3.2 所定義的合規性要求。
 
-**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
+**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)會利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
 
 **Azure SQL Database**：Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 
@@ -113,7 +113,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 - [加密資料行](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)可確保敏感性資料在資料庫系統內一律不會以純文字顯示。 啟用資料加密之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。
 - 因為[擴充屬性](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql)可讓使用者將自訂屬性新增至資料庫物件，並將資料標記為「已中止」，以支援應用程式邏輯來防止處理相關聯的財務資料，所以可用來中止資料主體的處理。
 - [資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)可讓使用者定義原則，限制資料存取以中斷處理。
-- [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以符合其資料庫結構描述。
+- [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以配合其資料庫結構描述。
 
 ### <a name="identity-management"></a>身分識別管理
 
@@ -127,7 +127,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 ### <a name="security"></a>安全性
 
-**祕密管理**：此解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和秘密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
+**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
 
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
@@ -141,7 +141,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 Azure 資訊安全中心會使用不同的偵測功能，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 Azure 資訊安全中心有一組[預先定義的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)，一旦發生威脅或可疑活動時便會觸發這些警示。 Azure 資訊安全中心內的[自訂警示規則](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)可讓客戶根據從其環境所收集到的資料，定義新的安全性警示。
 
-Azure 資訊安全中心提供依優先順序排列的安全性警示和事件，讓客戶更容易探索及解決潛在的安全性問題。 針對每個偵測到的威脅會產生[威脅情報報告](https://docs.microsoft.com/azure/security-center/security-center-threat-report)，以協助事件回應小組調查威脅並進行補救。
+Azure 資訊安全中心提供依優先順序排列的安全性警示和事件，讓客戶更容易探索及解決潛在的安全性問題。 針對每個偵測到的威脅會包含[威脅情報報告](https://docs.microsoft.com/azure/security-center/security-center-threat-report)，以協助事件回應小組調查和修復威脅。
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
@@ -152,25 +152,25 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 **Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中，以供處理、儲存及儀表板報告之用。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄整合，可讓客戶使用 Kusto 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
 下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中：
--   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
+-   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：「Active Directory 健康情況檢查」解決方案會定期評估伺服器環境的風險和健康情況，並針對部署的伺服器基礎結構，提供依優先順序排列的建議清單。
 - [SQL 評定](../../azure-monitor/insights/sql-assessment.md)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](../../monitoring/monitoring-solution-agenthealth.md)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。
--   [活動記錄分析](../../azure-monitor/platform/collect-activity-logs.md)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
+-   [活動記錄分析](../../azure-monitor/platform/collect-activity-logs.md)：「活動記錄分析」解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
 
 **Azure 自動化**：[Azure 自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)會儲存、執行和管理 Runbook。 在此解決方案中，Runbook 會協助從 Azure SQL Database 中收集記錄。 自動化[變更追蹤](../../automation/change-tracking.md)解決方案可讓客戶輕鬆地識別環境中的變更。
 
-**Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
+**Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)藉由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
 
-**Application Insights**：[Application Insights](https://docs.microsoft.com/azure/application-insights/) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 它會偵測效能異常，其中包括強大的分析工具可協助您診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助使用者持續改善效能和可用性。
+**Application Insights**：[Application Insights](https://docs.microsoft.com/azure/application-insights/) 是多個平台上 Web 開發人員適用的可延伸「應用程式效能管理」(APM) 服務。 它會偵測效能異常，其中包括強大的分析工具可協助您診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助使用者持續改善效能和可用性。
 
 ## <a name="threat-model"></a>威脅模型
 
 此參考架構的資料流程圖可供[下載](https://aka.ms/PCIAnalyticsTM)，或可以在以下位置找到。 此模型可協助客戶在進行修改時，了解系統基礎結構中的潛在風險要點。
 
-![適用於 PCI DSS 的分析參考架構圖表](images/pcidss-analytics-threat-model.png "適用於 PCI DSS 的分析威脅模型")
+![PCI DSS 參考架構圖表的分析](images/pcidss-analytics-threat-model.png "PCI DSS 威脅模型的分析")
 
 ## <a name="compliance-documentation"></a>合規性文件
-[Azure 安全性與合規性藍圖 - PCI DSS 客戶責任對照表](https://aka.ms/pcidss-analytics-tm)會列出所有 PCI DSS 3.2 要求中的責任。
+[Azure 安全性與合規性藍圖 - PCI DSS 客戶責任矩陣](https://aka.ms/pcidss-analytics-tm)列出所有 PCI DSS 3.2 要求中的責任。
 
 [Azure 安全性與合規性藍圖 - PCI DSS 資料分析實作矩陣](https://aka.ms/pcidss-analytics-cim)提供資料分析架構處理哪些 PCI DSS 3.2 要求的相關資訊，包括詳細說明此實作如何符合每個涵蓋控制項的要求。
 
@@ -195,7 +195,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 ## <a name="disclaimer"></a>免責聲明
 
- - 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 閱讀這份文件的客戶須自行承擔使用風險。
+ - 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 讀取這份文件的客戶用戶須自行承擔使用風險。
  - 本文件未提供給客戶任何 Microsoft 產品或解決方案中任何智慧財產的任何法定權利。
  - 客戶可以複製並使用這份文件，供內部參考之用。
  - 本文件的某些建議可能會導致資料、網路或 Azure 計算資源使用量增加，並可能增加客戶的 Azure 授權或訂用帳戶成本。

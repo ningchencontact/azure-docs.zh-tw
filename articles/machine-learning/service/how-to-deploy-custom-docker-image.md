@@ -10,14 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 47387108de09c9b24471c4afc06a25fa0cbeca00
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053393"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496925"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自訂的 Docker 基底映射部署模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 瞭解如何在使用 Azure Machine Learning 部署定型的模型時，使用自訂的 Docker 基底映射。
 
@@ -95,7 +96,7 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
 
     遵循提示向訂用帳戶進行驗證。
 
-2. 使用下列命令來列出工作區的容器登錄。 以您的 Azure Machine Learning 工作區名稱取代 `<myworkspace>`。 將 `<resourcegroup>` 取代為包含您工作區的 Azure 資源群組：
+2. 使用下列命令來列出工作區的容器登錄。 以您的 Azure Machine Learning 工作區名稱取代 `<myworkspace>`。 以包含您工作區的 Azure 資源群組取代 `<resourcegroup>`：
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -171,7 +172,7 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
 * __映射名稱__。 例如，`mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` 是 Microsoft 所提供的基本 Docker 映射的路徑。
 * 如果映射位於__私人存放庫__中，您需要下列資訊：
 
-    * 登錄__位址__。 例如： `myregistry.azureecr.io` 。
+    * 登錄__位址__。 例如， `myregistry.azureecr.io`。
     * 具有登錄讀取權限的服務主體使用者__名稱__和__密碼__。
 
     如果您沒有此資訊，請向系統管理員詢問包含您映射的 Azure Container Registry。
@@ -180,10 +181,10 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
 
 Microsoft 會在可公開存取的儲存機制上提供數個 docker 映射，此存放庫可以與本節中的步驟搭配使用：
 
-| 映像 | 描述 |
+| 映像 | 說明 |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 的基本映射 |
-| `mcr.microsoft.com/azureml/onnxruntime:latest` | 包含 CPU inferecning 的 ONNX 執行時間 |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | 包含 CPU 推斷的 ONNX 執行時間 |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | 包含適用于 GPU 的 ONNX 執行時間和 CUDA |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | 包含適用于 GPU 的 ONNX 執行時間和 TensorRT |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | 包含 ONNX 執行時間和 OpenVINO，<sup> </sup>適用于以 Movidius<sup>TM</sup> MyriadX VPUs 為基礎的 Intel 視覺加速器設計 |
@@ -277,7 +278,7 @@ print(service.state)
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
 ```
 
-如需使用 ML CLI 部署模型的詳細資訊，請參閱[Azure Machine Learning 的 CLI 延伸](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)模組的
+如需使用 ML CLI 部署模型的詳細資訊，請參閱[Azure Machine Learning 的 CLI 延伸](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)模組的 模型註冊、分析和部署一節。
 
 ## <a name="next-steps"></a>後續步驟
 

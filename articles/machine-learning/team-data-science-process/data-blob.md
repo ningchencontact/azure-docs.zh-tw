@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d056226ce8ade93e63d7bca49b975a6983dc126a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398533"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492428"
 ---
 # <a name="heading"></a>處理使用進階分析的 Azure Blob 資料
 本文件涵蓋探索資料以及從 Azure Blob 儲存體中儲存的資料產生功能的說明。 
@@ -131,7 +131,7 @@ ms.locfileid: "60398533"
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>將資料寫回 Azure Blob 並在 AzureMachine Learning 中取用
-在您探索資料並建立所需的特徵之後，可以將資料 (取樣性或功能性) 上傳至 Azure Blob，並在 Azure Machine Learning 中使用下列步驟來取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他特徵。 
+在您探索資料並建立必要的功能之後，您可以將資料（取樣或特徵化）上傳至 Azure blob，並使用下列步驟在 Azure Machine Learning 中取用它：請注意，您可以在 Azure 機器中建立其他功能Learning Studio （傳統）。 
 
 1. 將資料框架寫入本機檔案中
    
@@ -157,7 +157,7 @@ ms.locfileid: "60398533"
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. 現在您可以使用 Azure Machine Learning [匯入資料][import-data]模組從 Blob 讀取資料，如以下畫面所示：
+3. 現在您可以使用 Azure Machine Learning [匯入資料][import-data] 模組從 Blob 讀取資料，如以下畫面所示：
 
 ![讀取器 Blob][1]
 

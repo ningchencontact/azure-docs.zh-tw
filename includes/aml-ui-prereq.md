@@ -8,19 +8,20 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
-ms.openlocfilehash: 695153438ba33d9803f7f938aa15b6552d28da40
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 18e855a5f87e700481b69c39c4fe03a69437895e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692788"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490033"
 ---
-1. [建立 Azure Machine Learning 服務的工作區](../articles/machine-learning/service/how-to-manage-workspace.md)（如果您沒有的話）。
+1. [建立 Azure Machine Learning 工作區](../articles/machine-learning/service/how-to-manage-workspace.md) (如果沒有的話)。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。  如果您不確定如何在入口網站中尋找您的工作區，請參閱[如何尋找您的工作區](../articles/machine-learning/service/how-to-manage-workspace.md#view)。  
+1. 登入[ml.azure.com](https://ml.azure.com) ，然後選取您想要使用的工作區。
 
-1. 在您的工作區中，選取 [視覺化介面]。  
- 
-    ![啟動視覺化介面](./media/aml-ui-prereq/launch-ui.png)
+1. 選取 [**設計**工具]。
 
-    您也可以從[工作區登陸頁面（預覽）](https://ml.azure.com)存取視覺介面。
+    ![啟動設計工具](./media/aml-ui-prereq/launch-designer.png)
+
+
+

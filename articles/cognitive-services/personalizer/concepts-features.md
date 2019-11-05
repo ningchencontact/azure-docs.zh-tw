@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756096"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490768"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>特性是動作和內容的相關資訊
 
@@ -69,7 +69,10 @@ ms.locfileid: "72756096"
 您可以遵循您自己的慣例來為特性命名空間命名，但前提是這些特性命名空間必須是有效的 JSON 索引鍵。 命名空間是用來將功能組織成不同的集合，並以類似的名稱來區分功能。 您可以將命名空間視為加入功能名稱的「前置詞」。 命名空間無法嵌套。
 
 
-在下列 JSON 中，`user`、`state` 和 `device` 便是特性命名空間。 公開預覽附注：目前我們強烈建議您針對以 UTF-8 為基礎且開頭為不同字母的功能命名空間，使用名稱。 例如，`user`、`state` 和 `device` 以 `u`、`s` 和 `d` 為開頭。 目前具有相同第一個字元的命名空間，可能會導致用於機器學習的索引發生衝突。
+在下列 JSON 中，`user`、`state` 和 `device` 便是特性命名空間。 
+
+> [!Note]
+> 目前，我們強烈建議您針對以 UTF-8 為基礎並以不同字母開頭的功能命名空間使用名稱。 例如，`user`、`state`和 `device` 以 `u`、`s`和 `d`為開頭。 目前具有相同第一個字元的命名空間，可能會導致用於機器學習的索引發生衝突。
 
 JSON 物件可以包含 nested JSON 物件和簡單屬性/值。 只有在陣列專案是數位時，才可以包含陣列。 
 
@@ -175,13 +178,13 @@ JSON 物件可以包含 nested JSON 物件和簡單屬性/值。 只有在陣列
 
 這裡有一些範例：
 
-|目的|行動|
+|目的|動作|
 |--|--|
 |將要在新聞網站上選出的條目個人化。|每個動作都是潛在的新聞條目。|
 |將廣告放在網站上最佳的位置。|每個動作都會是版面配置或用來建立廣告版面配置 (例如，在頂端、在右邊、小圖、大圖) 的規則。|
 |在購物網站上顯示個人化的推薦項目排名。|每個動作都是特定的產品。|
 |建議使用者介面項目，例如要套用至特定相片的篩選條件。|每個動作可能是不同的篩選條件。|
-|為聊天 Bot 選擇要用來釐清使用者意圖或提出建議動作的回應。|每個動作都是如何解讀回應的選項。|
+|為聊天機器人選擇要用來釐清使用者意圖或提出建議動作的回應。|每個動作都是如何解讀回應的選項。|
 |選擇要在搜尋結果清單頂端顯示的項目|每個動作都是排名最高的幾個搜尋結果其中之一。|
 
 

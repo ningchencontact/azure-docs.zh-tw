@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8e4c817437c22d15e60cf48d5976c30433e83d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 715db36921427dc0ac5dcdad24c2c026b1ea1326
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970030"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496685"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>探索和使用範例 Notebook
 
@@ -30,7 +30,7 @@ ms.locfileid: "71970030"
 
 ## <a name="great-sample-notebooks"></a>絕佳的範例 Notebook
 
-- [Azure Notebooks 入門集](https://notebooks.azure.com/#sample-redirect)包括 Python、R 和 F# 的簡介，以及示範資料存取、Azure Machine Learning 服務和幾項資料科學練習的 Notebook。
+- [Azure Notebooks 入門集](https://notebooks.azure.com/#sample-redirect)包含 Python、R 和F#的簡介，以及示範資料存取、Azure Machine Learning 和一些資料科學練習的筆記本。
 - [Jupyter Notebook 簡介](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - Jake Vanderplas 撰寫的[資料科學簡介](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks)。
 - [有趣 Notebook 的資源庫](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (GitHub 上的 Jupyter 專案)
@@ -40,7 +40,7 @@ ms.locfileid: "71970030"
 
 ## <a name="next-steps"></a>後續步驟  
 
-- [操作說明：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [操作說明：使用資料檔案](work-with-project-data-files.md)
-- [操作說明：存取資料資源](access-data-resources-jupyter-notebooks.md)
-- [操作說明：使用 Azure Machine Learning 服務](use-machine-learning-services-jupyter-notebooks.md)
+- [如何：設定和管理專案](configure-manage-azure-notebooks-projects.md)
+- [如何：使用資料檔案](work-with-project-data-files.md)
+- [如何：存取資料資源](access-data-resources-jupyter-notebooks.md)
+- [如何：使用 Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

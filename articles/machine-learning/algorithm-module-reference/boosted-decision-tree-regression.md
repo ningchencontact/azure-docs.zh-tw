@@ -1,24 +1,24 @@
 ---
 title: 促進式決策樹回歸：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的推進式決策樹回歸模組，以使用提升來建立迴歸樹狀結構的集團。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的推進式決策樹回歸模組，以使用提升來建立迴歸樹狀結構的集團。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693844"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493877"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>促進式決策樹回歸模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來建立使用提升的迴歸樹狀結構集團。 [*提升*] 表示每個樹狀結構都相依于先前的樹系。 此演算法會藉由調整剩餘的樹狀結構來學習。 因此，在決策樹集團中提升，通常是為了提升精確度，而不會有較少涵蓋範圍的小型風險。  
   
@@ -97,6 +97,8 @@ ms.locfileid: "72693844"
 
 + 若要使用模型進行評分，請將其連接到 [[評分模型](./score-model.md)]，以預測新輸入範例的值。
 
++ 若要儲存定型模型的快照集，請以滑鼠右鍵按一下定型模組的**定型模型**輸出，然後選取 [**另存**新檔]。 在後續執行管線時，您儲存的定型模型複本不會更新。
+
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

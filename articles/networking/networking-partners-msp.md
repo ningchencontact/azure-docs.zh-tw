@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: a65a36734af235312f3b8edd3d18ba5b3e0645c6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: MT
+ms.openlocfilehash: 680d4c90078131b44e39e3f2b3d526ca53b34a95
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177045"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496761"
 ---
 # <a name="about-azure-networking-msp-partners"></a>關於 Azure 網路功能 MSP 合作夥伴
 
@@ -44,11 +44,13 @@ Azure 網路 Msp 是一組特製化的受控服務提供者，可解決雲端和
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
-[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+Interxion（ https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/
 
 [ixreach](https://www.ixreach.com/)
 
 [KINX](https://www.kinx.net/service/cloud/?lang=en)
+
+[液體電信](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
 
 [Macquarie 電信](https://macquariecloudservices.com/azure-managed-services/)
 
@@ -63,6 +65,8 @@ Azure 網路 Msp 是一組特製化的受控服務提供者，可解決雲端和
 [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 [Tata 通訊](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[TCTS](https://www.tatacommunications-ts.com/index.php)
 
 [技術 Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 

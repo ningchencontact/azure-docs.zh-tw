@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045036"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499929"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>保護 Azure Logic Apps 中的存取和資料
 
@@ -48,7 +48,7 @@ ms.locfileid: "73045036"
 
 每個 URL 都包含 `sp`、`sv`和 `sig` 查詢參數，如下表所述：
 
-| 查詢參數 | 描述 |
+| 查詢參數 | 說明 |
 |-----------------|-------------|
 | `sp` | 指定允許的 HTTP 方法所要使用的許可權。 |
 | `sv` | 指定要用於產生簽章的 SAS 版本。 |
@@ -440,7 +440,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 這個範例範本具有多個使用 `securestring` 類型的安全參數定義：
 
-| 參數名稱 | 描述 |
+| 參數名稱 | 說明 |
 |----------------|-------------|
 | `TemplatePasswordParam` | 此範本參數會接受密碼，然後傳遞至工作流程定義的 `basicAuthPasswordParam` 參數 |
 | `TemplateUsernameParam` | 此範本參數會接受使用者名稱，然後傳遞至工作流程定義的 `basicAuthUserNameParam` 參數 |
@@ -615,7 +615,7 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 
 如果 [[基本](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md)] 選項可供使用，請指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要項 | Value | 描述 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **驗證** | `type` | 是 | 基本 | 要使用的驗證類型 |
 | **使用者名稱** | `username` | 是 | <*使用者名稱*>| 用來驗證存取目標服務端點的使用者名稱 |
@@ -646,7 +646,7 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 
 如果 [[用戶端憑證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)] 選項可供使用，請指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要項 | Value | 描述 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **驗證** | `type` | 是 | **用戶端憑證** <br>或 <br>`ClientCertificate` | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
 | **Pfx** | `pfx` | 是 | <*編碼-pfx-檔案內容*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
@@ -677,7 +677,7 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 * [在 Azure API 管理中使用用戶端憑證驗證來保護後端服務](../api-management/api-management-howto-mutual-certificates.md)
 * [使用用戶端憑證保護您的 RESTfuL 服務](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 * [應用程式驗證的憑證認證](../active-directory/develop/active-directory-certificate-credentials.md)
-* [在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](../app-service/app-service-web-ssl-cert-load.md)
+* [在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -685,7 +685,7 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 
 如果[Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md)選項可供使用，請指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要項 | Value | 描述 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **驗證** | `type` | 是 | **Active Directory OAuth** <br>或 <br>`ActiveDirectoryOAuth` | 要使用的驗證類型。 Logic Apps 目前遵循[OAuth 2.0 通訊協定](../active-directory/develop/v2-overview.md)。 |
 | **出租** | `tenant` | 是 | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 |
@@ -739,7 +739,7 @@ Authorization: OAuth realm="Photos",
 
 在支援原始驗證的觸發程式或動作中，指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要項 | Value | 描述 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **驗證** | `type` | 是 | 原始 | 要使用的驗證類型 |
 | **值** | `value` | 是 | <*授權-標頭-值*> | 要用於驗證的授權標頭值 |
@@ -770,11 +770,11 @@ Authorization: OAuth realm="Photos",
 
 1. 在您的邏輯應用程式可以使用系統指派的身分識別之前，請遵循在[Azure Logic Apps 中使用受控識別來驗證對 Azure 資源的存取](../logic-apps/create-managed-service-identity.md)中的步驟。 這些步驟會在您的邏輯應用程式上啟用受控識別，並設定該身分識別對目標 Azure 資源的存取權。
 
-1. 在 Azure 函式可以使用系統指派的身分識別之前，請先[啟用 Azure 函數的驗證](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)。
+2. 在 Azure 函式可以使用系統指派的身分識別之前，請先[啟用 Azure 函數的驗證](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)。
 
-1. 在您要使用受控識別的觸發程式或動作中，指定下列屬性值：
+3. 在您要使用受控識別的觸發程式或動作中，指定下列屬性值：
 
-   | 屬性（設計工具） | 屬性（JSON） | 必要項 | Value | 描述 |
+   | 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
    |---------------------|-----------------|----------|-------|-------------|
    | **驗證** | `type` | 是 | **受控身分識別** <br>或 <br>`ManagedServiceIdentity` | 要使用的驗證類型 |
    | **目標對象** | `audience` | 是 | <*目標-資源識別碼*> | 您想要存取之目標資源的資源識別碼。 <p>例如，`https://storage.azure.com/` 會使存取權杖對所有儲存體帳戶都是有效的。 不過，您也可以指定根服務 URL，例如特定儲存體帳戶的 `https://fabrikamstorageaccount.blob.core.windows.net`。 <p>**注意**：在某些觸發程式或動作中，此屬性可能會隱藏。 若要顯示此屬性，請在 [觸發程式] 或 [動作] 中開啟 [**加入新的參數**] 清單，然後選取 [**物件**]。 <p><p>**重要**事項：請確定此目標資源識別碼完全符合 Azure AD 預期的值，包括任何必要的尾端斜線。 因此，所有 Azure Blob 儲存體帳戶的 `https://storage.azure.com/` 資源識別碼都需要尾端斜線。 不過，特定儲存體帳戶的資源識別碼不需要尾端斜線。 若要尋找這些資源識別碼，請參閱[支援 Azure AD 的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。 |

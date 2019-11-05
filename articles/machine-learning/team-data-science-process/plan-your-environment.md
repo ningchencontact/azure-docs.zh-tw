@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704494"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495035"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何識別案例和規劃進階分析資料處理
 
@@ -30,8 +30,6 @@ ms.locfileid: "64704494"
 * 資料特性
 * 資料集品質
 * 慣用的工具和語言
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>邏輯問題：資料位置和移動
 
@@ -68,7 +66,7 @@ ms.locfileid: "64704494"
 如需用來將資料內嵌或載入至各種不同儲存體和處理環境的程序和資源，請參閱：
 
 * [將資料載入至儲存體環境以便進行分析](ingest-data.md)
-* [從各種資料來源將定型資料匯入 Azure Machine Learning Studio](../studio/import-data.md)
+* [從各種資料來源將定型資料匯入 Azure Machine Learning Studio （傳統）](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>資料是否需要定期移動或在移轉期間修改？
 
@@ -81,7 +79,7 @@ ms.locfileid: "64704494"
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>有多少資料要移至 Azure？
 
-極大型的資料集可能會超過某些環境的儲存體容量。 如需相關範例，請參閱下一節關於 Machine Learning studio 大小限制的討論。 在這種情況下，您在分析期間可以使用資料樣本。 如需如何在各種 Azure 環境中縮減取樣資料集的詳細資訊，請參閱 [在 Team Data Science Process 中進行資料取樣](sample-data.md)。
+極大型的資料集可能會超過某些環境的儲存體容量。 如需範例，請參閱下一節中的 Machine Learning Studio （傳統）大小限制的討論。 在這種情況下，您在分析期間可以使用資料樣本。 如需如何在各種 Azure 環境中縮減取樣資料集的詳細資訊，請參閱 [在 Team Data Science Process 中進行資料取樣](sample-data.md)。
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>資料特性問題：類型、格式和大小
 
@@ -104,11 +102,11 @@ ms.locfileid: "64704494"
 
 ### <a name="how-large-is-your-data"></a>您的資料大小為何？
 
-* 小型：少於 2 GB
-* 中型：大於 2 GB 且少於 10 GB
+* 小型：小於 2 GB
+* 中型：大於 2 GB 且小於 10 GB
 * 大型：大於 10 GB
 
-以 Azure Machine Learning Studio 環境為例子：
+採用 Azure Machine Learning Studio （傳統）環境，例如：
 
 * 如需 Azure Machine Learning Studio 支援的資料格式和 類型的清單，請參閱 [支援的資料格式和資料類型](../studio/import-data.md#supported-data-formats-and-data-types) 一節。
 * 如需分析程序中使用的其他 Azure 服務限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)。
@@ -133,7 +131,7 @@ ms.locfileid: "64704494"
 
 ### <a name="does-the-data-require-preprocessing-or-cleaning"></a>資料是否需要前置處理或清除？
 
-您可能需要前置處理與清除您的資料，才能有效率地將資料用於機器學習。 未經處理的資料通常會有雜訊且不可靠， 還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 如需說明，請參閱 [準備增強機器學習服務的資料的工作](prepare-data.md)。
+您可能需要前置處理與清除您的資料，才能有效率地將資料用於機器學習。 未經處理的資料通常會有雜訊且不可靠， 還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 如需說明，請參閱 [工作以準備資料增強機器學習](prepare-data.md)。
 
 ## <a name="tools-and-languages-questions"></a>工具和語言的問題
 

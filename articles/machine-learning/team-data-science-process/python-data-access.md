@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498110"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
 Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本機 Python 環境安全存取您的 Azure Machine Learning 資料集，並且可在工作區中建立和管理資料集。
@@ -27,8 +27,6 @@ Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本�
 * 存取和上傳資料集，包括如何從本機 Python 環境取得授權以存取 Azure Machine Learning 資料集
 * 存取實驗中的中繼資料集
 * 使用 Python 用端程式庫列舉資料集、存取中繼資料、讀取資料集內容、建立新資料集以及更新現有資料集
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>必要條件
 Python 用戶端程式庫已在下列環境下經過測試：
@@ -66,15 +64,15 @@ Python 用戶端程式庫讓您以程式設計方式存取執行實驗所得的�
 ### <a name="security"></a>資料存取安全性
 Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段包括工作區識別碼與授權權杖。 這些項目可提供工作區的完整存取權，且務必加以保護，像是密碼。
 
-基於安全性理由，程式碼片段功能只提供給其角色設定為工作區「擁有者」  的使用者。 您的角色會在 Azure Machine Learning Studio 中，顯示於 [設定]  的 [使用者]  頁面上。
+基於安全性理由，程式碼片段功能只提供給其角色設定為工作區「擁有者」 的使用者。 您的角色會在 [**設定**] 底下的 [**使用者**] 頁面上顯示為 Azure Machine Learning Studio （傳統）。
 
 ![安全性][security]
 
-如果您的角色未設定為 [擁有者]  ，您可以要求重新受邀為擁有者，或要求該工作區的擁有者將程式碼片段提供給您。
+如果您的角色未設定為 [擁有者]，您可以要求重新受邀為擁有者，或要求該工作區的擁有者將程式碼片段提供給您。
 
 若要取得授權權杖，您可以執行下列其中一項：
 
-* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]  ，然後按一下 [授權權杖]  ，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
+* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]，然後按一下 [授權權杖]，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
 
 ![授權權杖](./media/python-data-access/ml-python-access-settings-tokens.png)
 
@@ -82,12 +80,12 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 
 開發人員一旦取得工作區識別碼與授權權杖，無論其角色為何，都能夠使用程式碼片段存取該工作區。
 
-授權權杖可以在 [設定]  下的 [授權權杖]  頁面上管理。 您可以重新產生權杖，但這個程序會撤銷上一個權杖的存取權。
+授權權杖可以在 [設定] 下的 [授權權杖] 頁面上管理。 您可以重新產生權杖，但這個程序會撤銷上一個權杖的存取權。
 
 ### <a name="accessingDatasets"></a>從本機 Python 應用程式存取資料集
-1. 在 Machine Learning Studio 的左邊導覽列中，按一下 [資料集]  。
-2. 選取您想要存取的資料集。 您可以從 [範例]  清單的 [我的資料集]  清單中，選擇任何資料集。
-3. 按一下底部工具列上的 [產生資料存取程式碼]  。 如果資料格式與 Python 用戶端程式的不相容，就會停用這個按鈕。
+1. 在 Machine Learning Studio 的左邊導覽列中，按一下 [資料集] 。
+2. 選取您想要存取的資料集。 您可以從 [範例] 清單的 [我的資料集] 清單中，選擇任何資料集。
+3. 按一下底部工具列上的 [產生資料存取程式碼]。 如果資料格式與 Python 用戶端程式的不相容，就會停用這個按鈕。
    
     ![資料集][datasets]
 4. 從出現的視窗中選取程式碼片段，然後複製到剪貼簿。
@@ -112,23 +110,23 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 
 您可以將滑鼠停留在模組輸出節點上方來判斷其格式。 其會與節點名稱一同顯示在工具提示中。
 
-有些模組 (例如[分割][split]模組) 輸出的格式稱為 `Dataset`，但 Python 用戶端程式碼不支援這種格式。
+有些模組（例如[Split][split]模組）會輸出為名為 `Dataset`的格式，但 Python 用戶端程式庫並不支援。
 
 ![資料集格式][dataset-format]
 
-您必須使用轉換模組 (例如，[轉換成 CSV][convert-to-csv])，才能將輸出變成支援的格式。
+您必須使用轉換模組（例如[轉換為 CSV][convert-to-csv]），以取得支援格式的輸出。
 
 ![GenericCSV 格式][csv-format]
 
 下列步驟示範說明建立實驗、加以執行，然後群組中繼資料集。
 
 1. 建立新實驗。
-2. 插入 [成人收入普查二進位分類資料集]  模組。
-3. 插入[分割][split]模組，然後將其輸入連接至資料集模組輸出。
-4. 插入[轉換成 CSV][convert-to-csv] 模組，然後將其輸入連接至其中一個[分割][split]模組輸出。
+2. 插入 [成人收入普查二進位分類資料集] 模組。
+3. 插入[Split][split]模組，並將其輸入連接到資料集模組輸出。
+4. 插入 [[轉換成 CSV][convert-to-csv] ] 模組，並將其輸入連接到其中一個[分割][split]模組輸出。
 5. 儲存此實驗、加以執行，然後等待執行完成。
-6. 按一下 [轉換成 CSV 模組][convert-to-csv] 上的輸出節點。
-7. 在隨即出現內容功能表，選取 [產生資料存取程式碼]  。
+6. 按一下 [[轉換為 CSV][convert-to-csv] ] 模組上的 [輸出] 節點。
+7. 在隨即出現內容功能表，選取 [產生資料存取程式碼]。
    
     ![內容功能表][experiment]
 8. 選取程式碼片段，然後從出現的視窗中將它複製到剪貼簿。
@@ -193,7 +191,7 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 如需可用中繼資料的詳細資訊，請參閱 `SourceDataset` 類別。
 
 ### <a name="read-contents"></a>讀取內容
-Machine Learning Studio 提供的程式碼片段會自動下載並將資料集還原序列化為 pandas DataFrame 物件。 此動作可用 `to_dataframe` 方法來完成：
+Machine Learning Studio （傳統）提供的程式碼片段會自動下載資料集，並將其還原序列化為 pandas 資料框架物件。 此動作可用 `to_dataframe` 方法來完成：
 
     frame = ds.to_dataframe()
 

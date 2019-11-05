@@ -10,15 +10,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390278"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499483"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用清單實體增加實體偵測 
 本文示範如何使用[清單實體](luis-concept-entity-types.md)來增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 在本文中，您將了解：
 
@@ -35,7 +37,7 @@ ms.locfileid: "70390278"
 > * LUIS 應用程式的 [AuthoringKey](luis-concept-keys.md#authoring-key)、[EndpointKey](luis-concept-keys.md#endpoint-key) (如果查詢多次)、應用程式識別碼、版本識別碼和[區域](luis-reference-regions.md)。
 
 > [!Tip]
-> 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
+> 如果您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
 本文中的所有程式碼都可在[Azure 範例 GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)中取得。 
 
@@ -212,7 +214,7 @@ node train.js
 
 請嘗試其他兩個語句，您會看到此兩個語句也會傳回控溫器。 
 
-|#|語句|實體|Type|value|
+|#|語句|實體|類型|value|
 |--|--|--|--|--|
 |1|turn on the ac (開啟冷氣)| ac | DevicesList | 控溫器|
 |2|turn up the heat (調高溫度)|heat| DevicesList |控溫器|

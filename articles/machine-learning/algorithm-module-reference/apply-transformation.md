@@ -1,24 +1,24 @@
 ---
 title: 套用轉換：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用 [套用轉換] 模組，根據先前計算的轉換來修改輸入資料集。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用 [套用轉換] 模組，根據先前計算的轉換來修改輸入資料集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 19385870d184654d902cd40b45d4be3646c87b46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693866"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493905"
 ---
 # <a name="apply-transformation-module"></a>套用轉換模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來根據先前計算的轉換來修改輸入資料集。  
   
@@ -46,4 +46,4 @@ Azure Machine Learning 提供建立和套用許多不同類型之自訂轉換的
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

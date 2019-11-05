@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 08/07/2019
-ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.date: 11/04/2019
+ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497486"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>深度學習與機器學習服務
 
@@ -113,6 +113,11 @@ Feedforward 類神經網路是最基本的人工神經網路類型。 在 feedfo
 下列文章說明如何在[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri)中使用深度學習技術：
 
 - [使用 TensorFlow 模型來分類手寫數位](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 - [使用 TensorFlow 估計工具和 Keras 來分類手寫數位](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+
 - [使用 Pytorch 模型分類影像](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+
 - [使用 Chainer 模型來分類手寫數位](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+
+此外，也可以使用[Machine Learning 演算法](../algorithm-cheat-sheet.md)功能提要來選擇您模型的演算法。

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202085"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520796"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>在 Azure 資訊安全中心自訂 SQL 資訊保護原則 (預覽)
  
@@ -52,7 +52,7 @@ Information Protection 隨附一組預設會使用的內建標籤和資訊類型
 2. 在 [設定敏感度標籤] 畫面中，您可以建立或變更標籤名稱和描述。 您也可以開啟或關閉 [已啟用] 切換，以設定標籤為使用中還是已停用。 最後，您可以新增或移除與標籤建立關聯的資訊類型。 任何探索到且符合該資訊類型的資料都會在分類建議中自動包含相關聯的敏感度標籤。
 3. 按一下 [確定]。
  
-   ![設定敏感性標籤](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![設定敏感度標籤](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. 標籤會依遞增敏感度列出。 若要變更標籤之間的排名，請拖曳標籤以重新排列它們在資料表中的順序，或使用 [Move up] \(上移\) 和 [Move down] \(下移\) 按鈕變更順序。 
  
@@ -83,8 +83,5 @@ Information Protection 隨附一組預設會使用的內建標籤和資訊類型
 
 如需 Azure 資訊安全中心內安全性原則和資料安全性的詳細資訊，請參閱下列文章：
  
-- [安全性原則概觀](security-center-policies-overview.md)：獲得資訊安全中心的安全性原則概觀
-- [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則
+- [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)：了解如何為您的 Azure 訂用帳戶和資源群組設定安全性原則
 - [Azure 資訊安全中心資料安全性](security-center-data-security.md)：了解資訊安全中心如何管理和保護資料
-
-

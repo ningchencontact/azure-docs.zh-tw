@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 12831ede2b9d9251f2e02fa396ee7d2fb2d61240
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499504"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 URL 預先建置實體
 URL 實體會擷取含有網域名稱或 IP 位址的 URL。 因為此實體已經定型，所以您不需要將包含 URL 的範例語句加入應用程式。 只有 `en-us` 文化特色才支援 URL 實體。 
@@ -26,92 +26,61 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>解析預先建置的 URL 實體
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
+系統會針對查詢傳回下列實體物件：
 
-下列範例顯示解析的 **builtin.url** 實體。
+`https://www.luis.ai is a great cognitive services example of artificial intelligence`
+
+#### <a name="v3-responsetabv3"></a>[V3 回應](#tab/V3)
+
+下列 JSON 會將 `verbose` 參數設定為 `false`：
 
 ```json
-{
-  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.781975448
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.781975448
-    }
-  ],
-  "entities": [
-    {
-      "entity": "https://www.luis.ai",
-      "type": "builtin.url",
-      "startIndex": 0,
-      "endIndex": 17
-    }
-  ]
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ]
 }
 ```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 詳細回應](#tab/V3-verbose)
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
-
-下列 JSON 是將 `verbose` 參數設定為 `false`：
-
-```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ]
-        }
-    }
-}
-```
-
-下列 JSON 是將 `verbose` 參數設定為 `true`：
+下列 JSON 會將 `verbose` 參數設定為 `true`：
 
 ```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ],
-            "$instance": {
-                "url": [
-                    {
-                        "type": "builtin.url",
-                        "text": "https://www.luis.ai",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ],
+    "$instance": {
+        "url": [
+            {
+                "type": "builtin.url",
+                "text": "https://www.luis.ai",
+                "startIndex": 0,
+                "length": 17,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### <a name="v2-responsetabv2"></a>[V2 回應](#tab/V2)
 
+下列範例顯示 https://www.luis.ai 的解決方式是人工智慧的絕佳認知服務範例
+
+```json
+"entities": [
+    {
+        "entity": "https://www.luis.ai",
+        "type": "builtin.url",
+        "startIndex": 0,
+        "endIndex": 17
+    }
+]
+```
 
 * * * 
 
@@ -119,4 +88,4 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 
 深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
-了解 [ordinal](luis-reference-prebuilt-ordinal.md)、[number](luis-reference-prebuilt-number.md) 和 [temperature](luis-reference-prebuilt-temperature.md) 實體相關資訊。
+了解 [ordinal](luis-reference-prebuilt-ordinal.md)、[number](luis-reference-prebuilt-number.md) 及 [temperature](luis-reference-prebuilt-temperature.md) 實體相關資訊。

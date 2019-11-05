@@ -1,6 +1,6 @@
 ---
 title: 從 CLI 訓練和部署模型
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 瞭解如何使用適用于 Azure CLI 的機器學習擴充功能，從命令列定型、註冊和部署模型。
 ms.author: larryfr
 author: Blackmist
@@ -9,14 +9,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: fb46aaf04535c1b44cdd80810fbb6382dc727a67
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
-ms.translationtype: MT
+ms.openlocfilehash: 3f619caf7e2713e1c9251550b06c8bdefba5936f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350416"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493386"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>教學課程：從 CLI 訓練和部署模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本教學課程中，您會使用適用于 Azure CLI 的機器學習服務延伸模組來定型、註冊和部署模型。
 
@@ -35,7 +36,7 @@ ms.locfileid: "71350416"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 * 若要在您的**本機環境**中使用本檔中的 CLI 命令，您需要[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
@@ -43,7 +44,7 @@ ms.locfileid: "71350416"
 
 ## <a name="download-the-example-project"></a>下載範例專案
 
-在本教學課程中，請下載[@no__t 1](https://github.com/microsoft/MLOps)專案。 本教學課程中的步驟會使用 `model-training` 和 @no__t 1 目錄中的檔案。
+在本教學課程中，請下載[https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps)專案。 本教學課程中的步驟會使用 `model-training` 和 `model-deployment` 目錄中的檔案。
 
 若要取得檔案的本機複本，請[下載 .zip](https://github.com/microsoft/MLOps/archive/master.zip)封存，或使用下列 Git 命令來複製存放庫：
 
@@ -53,23 +54,23 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### <a name="training-files"></a>定型檔案
 
-@No__t-0 目錄包含下列檔案，這些檔案會在定型模型時使用：
+`model-training` 目錄包含下列檔案，這些檔案會在定型模型時使用：
 
-* `.azureml\sklearn.runconfig`:__執行配置__檔。 這個檔案會定義定型模型所需的執行時間環境。
-* `train-sklearn.py`:定型腳本。 此檔案會訓練模型。
-* `mylib.py`:由 `train-sklearn.py` 使用的 helper 模組。
-* `training-env.yml`:定義執行定型腳本所需的軟體相依性。
+* `.azureml\sklearn.runconfig`：__執行配置__檔。 這個檔案會定義定型模型所需的執行時間環境。
+* `train-sklearn.py`：訓練腳本。 此檔案會訓練模型。
+* `mylib.py`： `train-sklearn.py`使用的 helper 模組。
+* `training-env.yml`：定義執行訓練腳本所需的軟體相依性。
 
 定型腳本會使用 scikit-learn 所提供的糖尿病資料集-學習來定型模型。
 
 ### <a name="deployment-files"></a>部署檔案
 
-@No__t-0 目錄包含下列檔案，這些檔案可用來將定型的模型部署為 web 服務：
+`model-deployment` 目錄包含下列檔案，這些檔案可用來將定型的模型部署為 web 服務：
 
-* `aciDeploymentConfig.yml`:__部署配置__檔。 這個檔案會定義模型所需的主控環境。
-* `inferenceConfig.yml`:推斷 configuration__ 檔。 此檔案會定義服務用來以模型評分資料的軟體環境。
-* `score.py`:可接受傳入資料的 python 腳本，使用模型對其進行分數，然後傳迴響應。
-* `scoring-env.yml`:執行模型和 `score.py` 腳本所需的 conda 相依性。
+* `aciDeploymentConfig.yml`：__部署配置__檔。 這個檔案會定義模型所需的主控環境。
+* `inferenceConfig.yml`：推斷 configuration__ 檔案。 此檔案會定義服務用來以模型評分資料的軟體環境。
+* `score.py`：可接受傳入資料的 python 腳本，使用模型對其進行分數，然後傳迴響應。
+* `scoring-env.yml`：執行模型和 `score.py` 腳本所需的 conda 相依性。
 
 ## <a name="connect-to-your-azure-subscription"></a>連接到 Azure 訂用帳戶
 
@@ -79,7 +80,7 @@ git clone https://github.com/microsoft/MLOps.git
 az login
 ```
 
-如果 CLI 可以開啟預設瀏覽器，它會執行這項操作，並載入登入頁面。 否則，您需要開啟瀏覽器，並遵循命令列上的指示。 這些指示包含流覽[https://aka.ms/devicelogin](https://aka.ms/devicelogin)和輸入授權碼。
+如果 CLI 可以開啟預設瀏覽器，它會執行這項操作，並載入登入頁面。 否則，您需要開啟瀏覽器，並遵循命令列上的指示。 這些指示包含流覽[https://aka.ms/devicelogin](https://aka.ms/devicelogin)並輸入授權碼。
 
 ## <a name="install-the-machine-learning-extension"></a>安裝機器學習擴充功能
 
@@ -97,12 +98,12 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是 Azure 平臺上的基本資源容器。 使用 Azure Machine Learning 服務時，資源群組會包含您的 Azure Machine Learning 服務工作區。 它也會包含工作區所使用的其他 Azure 服務。 例如，如果您使用雲端式計算資源來定型您的模型，則會在資源群組中建立該資源。
+資源群組是 Azure 平臺上的基本資源容器。 使用 Azure Machine Learning 時，資源群組會包含您的 Azure Machine Learning 工作區。 它也會包含工作區所使用的其他 Azure 服務。 例如，如果您使用雲端式計算資源來定型您的模型，則會在資源群組中建立該資源。
 
-若要__建立新的資源群組__，請使用下列命令。 取代`<resource-group-name>`為要用於此資源群組的名稱。 將`<location>`取代為要用於此資源群組的 Azure 區域：
+若要__建立新的資源群組__，請使用下列命令。 以要用於此資源群組的名稱取代 `<resource-group-name>`。 將 `<location>` 取代為要用於此資源群組的 Azure 區域：
 
 > [!TIP]
-> 您應該選取可使用 Azure Machine Learning 服務的區域。 如需相關資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)。
+> 您應該選取可使用 Azure Machine Learning 的區域。 如需相關資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)。
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -178,11 +179,11 @@ az ml folder attach -w <workspace-name> -g <resource-group-name>
 }
 ```
 
-此命令會建立 `.azureml/config.json` 檔案，其中包含連接到您的工作區所需的資訊。 本教學課程中使用的其餘 `az ml` 命令將使用此檔案，因此您不需要將工作區和資源群組新增至所有命令。
+此命令會建立一個 `.azureml/config.json` 檔案，其中包含連接到您的工作區所需的資訊。 本教學課程中使用的其餘 `az ml` 命令會使用這個檔案，因此您不需要將工作區和資源群組新增至所有命令。
 
 ## <a name="create-the-compute-target-for-training"></a>建立用於定型的計算目標
 
-這個範例會使用 Azure Machine Learning 計算實例來定型模型。 若要建立新的計算實例，請使用下列命令：
+這個範例會使用 Azure Machine Learning 計算叢集來定型模型。 若要建立新的計算叢集，請使用下列命令：
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -199,14 +200,14 @@ az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2
 }
 ```
 
-此命令會建立名為 `cpu` 的新計算目標，最多四個節點。 選取的 VM 大小會提供具有 GPU 資源的 VM。 如需 VM 大小的詳細資訊，請參閱 [VM 類型和大小]。
+此命令會建立名為 `cpu`的新計算目標，最多四個節點。 選取的 VM 大小會提供具有 GPU 資源的 VM。 如需 VM 大小的詳細資訊，請參閱 [VM 類型和大小]。
 
 > [!IMPORTANT]
-> 計算目標的名稱（在此案例中為 `cpu`）很重要;在下一節中使用的 `.azureml/sklearn.runconfig` 檔案會參考此檔案。
+> 計算目標的名稱（在此案例中為`cpu`）很重要;在下一節中使用的 `.azureml/sklearn.runconfig` 檔案會參考此檔案。
 
 ## <a name="submit-the-training-run"></a>提交定型回合
 
-若要開始在 `cpu` 計算目標上執行訓練，請將目錄變更為 @no__t 1 目錄，然後使用下列命令：
+若要開始在 `cpu` 計算目標上執行訓練，請將目錄變更為 `model-training` 目錄，然後使用下列命令：
 
 ```azurecli-interactive
 cd ~/mlops/model-training
@@ -215,11 +216,11 @@ az ml run submit-script -e myexperiment -c sklearn -d training-env.yml -t runout
 
 此命令會指定實驗的名稱（`myexperiment`）。 實驗會將此執行的相關資訊儲存在工作區中。
 
-@No__t-0 參數指定 @no__t 1 檔案。 如先前所述，此檔案包含用來設定定型執行所使用之環境的資訊。 如果您檢查此檔案，您會看到它參考您稍早建立的 @no__t 0 計算目標。 它也會列出定型（`"nodeCount": "4"`）時要使用的節點數目，並包含 @no__t 1 區段，其中列出執行訓練腳本所需的 Python 套件。
+`-c sklearn` 參數會指定 `.azureml/sklearn.runconfig` 檔案。 如先前所述，此檔案包含用來設定定型執行所使用之環境的資訊。 如果您檢查此檔案，您會看到它參考您稍早建立的 `cpu` 計算目標。 它也會列出定型（`"nodeCount": "4"`）時要使用的節點數目，並包含一個 `"condaDependenciees"` 區段，其中列出執行訓練腳本所需的 Python 套件。
 
-如需執行設定檔的詳細資訊，請參閱[設定及使用計算目標進行模型定型](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)。
+如需有關執行設定檔的詳細資訊，請參閱[設定和使用計算目標進行模型定型](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)，或參考此[JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)檔案以查看 runconfig 的完整架構。
 
-@No__t-0 參數會將此執行的參考儲存在 JSON 檔案中，並將在後續步驟中用來註冊和下載模型。
+`-t` 參數會將此執行的參考儲存在 JSON 檔案中，並將在後續步驟中用來註冊和下載模型。
 
 在定型執行過程中，它會從遠端計算資源上的定型會話串流資訊。 部分資訊類似下列文字：
 
@@ -236,9 +237,9 @@ Cleaning up all outstanding Run operations, waiting 300.0 seconds
 
 這段文字會從定型腳本（`train-sklearn.py`）記錄，並顯示此模型的兩個效能計量。 在此情況下，我們想要具有最高 Alpha 值的模型。 效能計量是您要定型的模型特有的。 其他模型會有不同的效能計量。
 
-如果您檢查 `train-sklearn.py`，您會注意到它也會在將定型的模型儲存至檔案時，使用 Alpha 值。 在此情況下，它會訓練數個模型。 具有最高 Alpha 的人應該是最棒的一個。 查看上述輸出和程式碼，Alpha 為0.95 的模型會儲存為 `./outputs/ridge_0.95.pkl`
+如果您檢查 `train-sklearn.py`，您會發現它也會在將定型的模型儲存至檔案時，使用 Alpha 值。 在此情況下，它會訓練數個模型。 具有最高 Alpha 的人應該是最棒的一個。 查看上述輸出和程式碼，Alpha 為0.95 的模型會儲存為 `./outputs/ridge_0.95.pkl`
 
-模型已儲存至已定型之計算目標上的 `./outputs` 目錄。 在此情況下，會在 Azure 雲端中 Azure Machine Learning 計算實例。 定型程式會自動將 `./outputs` 目錄的內容，從進行定型的計算目標上傳到您的 Azure Machine Learning 工作區。 它會儲存為實驗的一部分（在此範例中為 `myexperiment`）。
+模型已儲存至已定型之計算目標上的 `./outputs` 目錄。 在此情況下，會在 Azure 雲端中 Azure Machine Learning 計算實例。 定型程式會自動將 `./outputs` 目錄的內容，從進行定型的計算目標上傳到您的 Azure Machine Learning 工作區。 它會儲存為實驗的一部分（在此範例中`myexperiment`）。
 
 ## <a name="register-the-model"></a>註冊模型
 
@@ -248,7 +249,7 @@ Cleaning up all outstanding Run operations, waiting 300.0 seconds
 az ml model register -n mymodel -f runoutput.json --asset-path "outputs/ridge_0.95.pkl" -t registeredmodel.json
 ```
 
-此命令會將定型執行所建立的 @no__t 0 檔案，註冊為名為 `mymodel` 的新模型註冊。 @No__t-0 會參考實驗中的路徑。 在此情況下，會從定型命令所建立的 @no__t 0 檔案載入實驗和執行資訊。 @No__t-0 會建立 JSON 檔案，此檔案會參考此命令所建立的新註冊模型，並供其他使用已註冊模型的 CLI 命令使用。
+此命令會將定型執行所建立的 `outputs/ridge_0.95.pkl` 檔案，註冊為名為 `mymodel`的新模型註冊。 `--assets-path` 會參考實驗中的路徑。 在此情況下，會從定型命令所建立的 `runoutput.json` 檔案載入實驗和執行資訊。 `-t registeredmodel.json` 會建立 JSON 檔案，此檔案會參考此命令所建立的新註冊模型，並供其他使用已註冊模型的 CLI 命令使用。
 
 此命令的輸出類似下列 JSON：
 
@@ -277,7 +278,7 @@ az ml model download -i "mymodel:1" -t .
 az ml model register -n mymodel -p "ridge_0.95.pkl"
 ```
 
-第一個命令會將已註冊的模型下載到目前的目錄。 檔案名為 `ridge_0.95.pkl`，這是您註冊模型時所參考的檔案。 第二個命令會使用與先前註冊相同的名稱（`mymodel`）來註冊本機模型（`-p "ridge_0.95.pkl"`）。 這次，傳回的 JSON 資料會將版本列為2。
+第一個命令會將已註冊的模型下載到目前的目錄。 檔案名為 `ridge_0.95.pkl`，這是您註冊模型時所參考的檔案。 第二個命令會以與先前註冊相同的名稱（`mymodel`）註冊本機模型（`-p "ridge_0.95.pkl"`）。 這次，傳回的 JSON 資料會將版本列為2。
 
 ## <a name="deploy-the-model"></a>部署模型
 
@@ -290,16 +291,16 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 您可能會收到「無法建立 Docker 用戶端」的訊息。 您可以忽略此訊息。 CLI 可以將 web 服務部署到本機 Docker 容器，並檢查 Docker。 在此情況下，我們不會使用本機部署。
 
-此命令會使用您先前註冊的模型第1版，部署名為 `myservice` 的新服務。
+此命令會使用您先前註冊的模型第1版，部署名為 `myservice`的新服務。
 
-@No__t 0 檔案提供如何執行推斷的相關資訊，例如輸入腳本（`score.py`）和軟體相依性。 如需此檔案結構的詳細資訊，請參閱[推斷設定架構](reference-azure-machine-learning-cli.md#inference-configuration-schema)。 如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 服務來部署模型](how-to-deploy-and-where.md#prepare-to-deploy)。
+`inferenceConfig.yml` 檔案提供如何執行推斷的相關資訊，例如輸入腳本（`score.py`）和軟體相依性。 如需此檔案結構的詳細資訊，請參閱[推斷設定架構](reference-azure-machine-learning-cli.md#inference-configuration-schema)。 如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 來部署模型](how-to-deploy-and-where.md#prepare-to-deploy)。
 
-@No__t-0 描述用來裝載服務的部署環境。 部署設定適用于用於部署的計算類型。 在此情況下，會使用 Azure 容器實例。 如需詳細資訊，請參閱[部署設定架構](reference-azure-machine-learning-cli.md#deployment-configuration-schema)。
+`aciDeploymentConfig.yml` 說明用來裝載服務的部署環境。 部署設定適用于用於部署的計算類型。 在此情況下，會使用 Azure 容器實例。 如需詳細資訊，請參閱[部署設定架構](reference-azure-machine-learning-cli.md#deployment-configuration-schema)。
 
 部署程式完成前需要幾分鐘的時間。
 
 > [!TIP]
-> 在此範例中，會使用 Azure 容器實例。 ACI 的部署會自動建立所需的 ACI 資源。 如果您改為部署到 Azure Kubernetes Service，您必須預先建立 AKS 叢集，並將它指定為 `az ml model deploy` 命令的一部分。 如需部署至 AKS 的範例，請參閱將[模型部署到 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)叢集。
+> 在此範例中，會使用 Azure 容器實例。 ACI 的部署會自動建立所需的 ACI 資源。 如果您改為部署到 Azure Kubernetes Service，您必須提早建立 AKS 叢集，並將它指定為 `az ml model deploy` 命令的一部分。 如需部署至 AKS 的範例，請參閱將[模型部署到 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)叢集。
 
 幾分鐘後，會傳回與下列 JSON 類似的資訊：
 
@@ -355,7 +356,7 @@ az ml service delete -n myservice
 
 ### <a name="delete-the-training-compute"></a>刪除訓練計算
 
-如果您打算繼續使用 Azure Machine Learning 工作區，但想要清除為定型建立的 @no__t 0 計算目標，請使用下列命令：
+如果您打算繼續使用 Azure Machine Learning 工作區，但想要清除為定型建立的 `cpu` 計算目標，請使用下列命令：
 
 ```azurecli-interactive
 az ml computetarget delete -n cpu
@@ -386,4 +387,4 @@ az group delete -g <resource-group-name> -y
 > * 將模型部署為 Web 服務
 > * 使用 web 服務評分資料
 
-如需使用 CLI 的詳細資訊，請參閱[使用適用于 Azure Machine Learning 服務的 CLI 擴充](reference-azure-machine-learning-cli.md)功能。
+如需使用 CLI 的詳細資訊，請參閱[使用適用于 Azure Machine Learning 的 CLI 擴充](reference-azure-machine-learning-cli.md)功能。

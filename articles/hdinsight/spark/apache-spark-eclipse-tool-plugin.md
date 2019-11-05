@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse：建立適用於 HDInsight Spark 的 Scala 應用程式 '
+title: Azure Toolkit for Eclipse：建立適用于 HDInsight Spark 的 Scala 應用程式
 description: 使用 HDInsight 工具 (位於 Eclipse 的 Azure 工具組中) 來開發以 Scala 撰寫的 Spark 應用程式，並直接從 Eclipse IDE 將它們提交到 HDInsight Spark 叢集。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7e320b4a0166ffad3ba62c80ad7667c626acb136
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257576"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494689"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 為 HDInsight 叢集建立 Apache Spark 應用程式
 
-使用 Azure Toolkit for [Eclipse](https://www.eclipse.org/) 中的 HDInsight 工具來開發以 [Scala](https://www.scala-lang.org/) 撰寫的 [Apache Spark](https://spark.apache.org/) 應用程式，並直接從 Eclipse IDE 將它們提交到 Azure HDInsight Spark 叢集。 您能以數種不同的方式使用 HDInsight 工具外掛程式：
+使用 Azure Toolkit for [Eclipse](https://www.eclipse.org/) 中的 HDInsight 工具來開發以 [Scala](https://spark.apache.org/) 撰寫的 [Apache Spark](https://www.scala-lang.org/) 應用程式，並直接從 Eclipse IDE 將它們提交到 Azure HDInsight Spark 叢集。 您能以數種不同的方式使用 HDInsight 工具外掛程式：
 
 * 在 HDInsight Spark 叢集上開發並提交 Scala Spark 應用程式。
 * 存取您的 Azure HDInsight Spark 叢集資源。
@@ -28,7 +28,7 @@ ms.locfileid: "71257576"
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * Oracle Java Development Kit 第 8 版，可用於 Eclipse IDE 執行階段。 您可以從 [Oracle 網站](https://aka.ms/azure-jdks)下載。
 * Eclipse IDE。 本文使用的是 Eclipse Neon。 您可以從 [Eclipse 網站](https://www.eclipse.org/downloads/)下載。
 
@@ -149,7 +149,7 @@ ms.locfileid: "71257576"
 
    a. 從 [封裝總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [將 Spark 應用程式提交給 HDInsight]。
 
-   b. 在 [提交 Spark] 對話方塊中提供下列值，然後選取 [提交]：
+   b.這是另一個 C# 主控台應用程式。 在 [提交 Spark] 對話方塊中提供下列值，然後選取 [提交]：
 
    * 針對 **叢集名稱**，選取您要在其上執行應用程式的 HDInsight Spark 叢集。
    * 從 Eclipse 專案中選取構件，或從硬碟中選取一個。 預設值取決於您在套件總管中以滑鼠右鍵按一下的項目。
@@ -288,7 +288,7 @@ ms.locfileid: "71257576"
 
    ![Azure Explorer 中的 HDInsight Spark 叢集提交](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer11.png)
 
-3. 選取叢集**名稱**具有 [僅限讀取者] 角色許可權的叢集。 此時會顯示警告訊息。您可以按一下 [**連結此**叢集以連結叢集]。
+3. 選取叢集**名稱**具有 [僅限讀取者] 角色許可權的叢集。 警告訊息會顯示。您可以按一下 [**連結此**叢集以連結叢集]。
 
    ![Azure Explorer 中的 HDInsight Spark 叢集連結此](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer15.png)
 
@@ -312,7 +312,7 @@ ms.locfileid: "71257576"
 
 提交工作有兩種模式。 如果提供儲存體認證，將使用批次模式提交工作。 否則，將使用互動模式。 如果叢集忙碌，您可能會收到以下錯誤。
 
-![當叢集忙碌時，eclipse 取得錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "當叢集忙碌時，eclipse 取得錯誤")
+![當叢集忙碌時，eclipse 取得錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "Eclipse 會在叢集忙碌時收到錯誤")
 
 ![當叢集忙碌 yarn 時，eclipse 取得錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "當叢集忙碌 yarn 時，eclipse 取得錯誤")
 
@@ -323,13 +323,13 @@ ms.locfileid: "71257576"
 ### <a name="scenarios"></a>案例
 
 * [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>建立和執行應用程式
 
-* [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
+* [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

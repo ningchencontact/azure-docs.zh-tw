@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 846650fce6701bb7e382df049902f427390b3051
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931218"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499985"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文字分析 API 支援的語言和區域
 
@@ -31,8 +31,8 @@ ms.locfileid: "72931218"
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>情感分析、關鍵片語擷取和命名實體辨識
 
-情感分析、關鍵片語擷取和實體辨識的支援語言清單更具選擇性，因為分析器會進一步調整以配合其他語言的語言規則。 支援一組完整的[實體類型](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition)目前僅限於下列語言： 
-* 繁體中文
+情感分析、關鍵片語擷取和實體辨識的支援語言清單更具選擇性，因為分析器會進一步調整以配合其他語言的語言規則。 在命名實體辨識 v2 中，對一組完整[實體類型](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2)的支援目前僅限於下列語言： 
+* English
 * 中文-簡體
 * 法文
 * 德文
@@ -44,39 +44,40 @@ ms.locfileid: "72931218"
 
 語言支援一開始推出時處於預覽階段，之後會進入正式運作 (GA) 狀態，彼此且與整體文字分析服務互不影響。 即使文字分析 API 轉換成正式運作，也可以保留預覽階段中的語言。
 
-| 語言    | 語言代碼 | 人氣 | 關鍵片語 | 具名實體辨識 |   注意  |
-|:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| 阿拉伯文      | `ar`          |           |             | ✔ \*                     | |
-| 捷克文       | `cs`          |           |             | ✔ \*                     | |
-| 中文-簡體 | `zh-hans`| ✔ \***     |             | ✔         |    |
-| 中文-繁體 | `zh-hant`| ✔ \***     |             |          |    |
-| 丹麥文      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| 荷蘭文       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
-| 繁體中文     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
-| 芬蘭文     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 法文      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| 德文      | `de`          | ✔ \***     | ✔           |  ✔           |     |
-| 希臘文       | `el`          | ✔ \*     |             |            |     |
-| 匈牙利文   | `hu`          |           |             |  ✔ \*          |     | 
-| 義大利文     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
-| 日文    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
-| 韓文      | `ko`          |          | ✔           |  ✔ \*          |     |
-| 挪威文 (巴克摩) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
-| 波蘭文      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| 葡萄牙文 (葡萄牙) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |也接受 `pt`|
-| 葡萄牙文 (巴西)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
-| 俄文     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 西班牙文     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
-| 瑞典文     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
-| 土耳其文     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
+> [!NOTE]
+> 如需命名實體辨識（NER） v3 公開預覽的詳細語言支援，請參閱[命名實體類型](named-entity-types.md)。
+
+| 語言              | 語言代碼 | 情感 | 主要片語 | 具名實體辨識 | 實體連結 |       注意事項        |
+|:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
+| 阿拉伯文                |     `ar`      |           |             |           ✔ \*           |                |                    |
+| 捷克文                 |     `cs`      |           |             |           ✔ \*           |                |                    |
+| 中文-簡體    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| 中文-繁體   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
+| 丹麥文                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| 荷蘭文                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| English               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| 芬蘭文               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| 法文                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| 德文                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| 希臘文                 |     `el`      |   ✔ \*    |             |                          |                |                    |
+| 匈牙利文             |     `hu`      |           |             |           ✔ \*           |                |                    |
+| 義大利文               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| 日文              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| 韓文                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| 挪威文 (巴克摩)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| 波蘭文                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| 葡萄牙文 (葡萄牙) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | 也接受 `pt` |
+| 葡萄牙文 (巴西)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
+| 俄文               |     `ru`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| 西班牙文               |     `es`      |   ✔\**    |      ✔      |           ✔ \*           |     ✔ \**      |                    |
+| 瑞典文               |     `sv`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| 土耳其文               |     `tr`      |   ✔ \*    |             |           ✔ \*           |                |                    |
 
 \* 語言支援現供預覽
 
-\*\*[命名實體](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner)辨識和[實體連結](how-tos/text-analytics-how-to-entity-linking.md#entity-linking)都適用于此語言。  
+\** 也適用于[情感分析 v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)和/或[命名實體辨識 v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)公開預覽。
 
-\** * 適用于[情感分析 V3 公開預覽](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
-
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [認知服務文件頁面](https://docs.microsoft.com/azure/cognitive-services/)   
 [認知服務產品頁面](https://azure.microsoft.com/services/cognitive-services/)

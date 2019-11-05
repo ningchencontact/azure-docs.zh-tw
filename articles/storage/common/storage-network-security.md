@@ -7,35 +7,39 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b474e090db48b792ade81e8d0f5be0b69f6f109c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e7f4d58ceab78aea7031d2c706504bdcb99434c6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673170"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520645"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
-Azure 儲存體提供分層的安全性模型。 此模型可讓您將儲存體帳戶安全地提供給特定的網路子集。 設定網路規則時，只有透過一組指定網路要求資料的應用程式可以存取儲存體帳戶。 您可以限制從指定的 IP 位址、IP 範圍或 Azure 虛擬網路中的子網清單的要求，存取您的儲存體帳戶。
+Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使用的網路類型和子集，保護及控制您的應用程式和企業環境所需的儲存體帳戶存取層級。 設定網路規則時，只有透過一組指定網路要求資料的應用程式可以存取儲存體帳戶。 您可以限制從指定的 IP 位址、IP 範圍或 Azure 虛擬網路（VNet）中的子網清單，存取您儲存體帳戶的要求。
 
-當網路規則生效時，存取儲存體帳戶的應用程式需要適當的要求授權。 使用適用于 blob 和佇列的 Azure Active Directory (Azure AD) 認證、具有有效的帳戶存取金鑰, 或使用 SAS 權杖, 即可支援授權。
+儲存體帳戶具有可透過網際網路存取的公用端點。 您也可以[為儲存體帳戶建立私人端點](storage-private-endpoints.md)，這會將私人 IP 位址從您的 vnet 指派給儲存體帳戶，並透過私人連結保護 vnet 與儲存體帳戶之間的所有流量。 Azure 儲存體防火牆會為儲存體帳戶的公用端點提供存取控制存取。 使用私用端點時，您也可以使用防火牆來封鎖所有透過公用端點的存取。 您的儲存體防火牆設定也可以讓選取受信任的 Azure 平臺服務安全地存取儲存體帳戶。
+
+當網路規則生效時，存取儲存體帳戶的應用程式仍然需要適當的要求授權。 使用適用于 blob 和佇列的 Azure Active Directory （Azure AD）認證、具有有效的帳戶存取金鑰，或使用 SAS 權杖，即可支援授權。
 
 > [!IMPORTANT]
-> 根據預設，開啟儲存體帳戶的防火牆規則會封鎖資料的傳入要求，除非要求是源自于 Azure 虛擬網路（VNet）中的服務運作。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
+> 開啟儲存體帳戶的防火牆規則時，預設會封鎖資料的傳入要求，除非要求來自于 Azure 虛擬網路（VNet）內的服務，或來自允許的公用 IP 位址。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
 >
-> 您可以允許來自裝載服務實例之子網的流量，授與從 VNet 內運作的 Azure 服務的存取權。 您也可以透過下一節所述的[例外](#exceptions)機制來啟用有限數目的案例。 若要透過 Azure 入口網站從儲存體帳戶存取資料，您必須位於所設定之受信任界限（IP 或 VNet）內的電腦上。
+> 您可以允許來自裝載服務實例之子網的流量，授與從 VNet 內運作的 Azure 服務的存取權。 您也可以透過下面所述的[例外](#exceptions)機制來啟用有限的案例數。 若要透過 Azure 入口網站從儲存體帳戶存取資料，您必須位於所設定之受信任界限（IP 或 VNet）內的電腦上。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>案例
 
-若要保護您的儲存體帳戶，您應該先設定規則來拒絕存取所有網路（包括網際網路流量）的流量。 然後，您應該設定規則，以授與來自特定 Vnet 之流量的存取權。 此設定可讓您為應用程式設定安全的網路界限。 您也可以設定規則，以授與從選取的公用網際網路 IP 位址範圍存取流量的許可權，啟用來自特定網際網路或內部部署用戶端的連線。
+若要保護您的儲存體帳戶，您應該先設定規則，以根據預設，拒絕存取公用端點上所有網路（包括網際網路流量）的流量。 然後，您應該設定規則，以授與來自特定 Vnet 之流量的存取權。 您也可以設定規則，以授與從選取的公用網際網路 IP 位址範圍存取流量的許可權，啟用來自特定網際網路或內部部署用戶端的連線。 此設定可讓您為應用程式設定安全的網路界限。
+
+您可以結合防火牆規則，允許從特定的虛擬網路存取，以及從相同儲存體帳戶上的公用 IP 位址範圍進行存取。 儲存體防火牆規則可以套用至現有的儲存體帳戶，或在建立新的儲存體帳戶時套用。
+
+儲存體防火牆規則適用于儲存體帳戶的公用端點。 您不需要任何防火牆存取規則來允許儲存體帳戶之私人端點的流量。 核准建立私用端點的程式，會授與裝載私用端點的子網之流量的隱含存取權。
 
 所有的 Azure 儲存體網路通訊協定都會執行網路規則，包括 REST 和 SMB。 若要使用 Azure 入口網站、儲存體總管和 AZCopy 之類的工具來存取資料，必須設定明確的網路規則。
-
-您可以將網路規則套用到現有的儲存體帳戶，或在您建立新的儲存體帳戶時套用。
 
 一旦套用網路規則，就會對所有要求執行。 授與特定 IP 位址存取權的 SAS 權杖，是用來限制權杖持有者的存取權，但不會授與所設定網路規則以外的新存取權。
 
@@ -127,7 +131,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您將儲存體�
 > [!NOTE]
 > 服務端點不適用於虛擬網路區域外和指定配對區域外的流量。 允許從虛擬網路進行存取的網路規則，只能套用到儲存體帳戶主要區域中的儲存體帳戶或指定配對區域中的儲存體帳戶。
 
-### <a name="required-permissions"></a>必要權限
+### <a name="required-permissions"></a>所需的權限
 
 為將虛擬網路規則套用至儲存體帳戶，使用者必須在要新增的子網路上具有適當權限。 所需的權限為「將服務加入子網路」，以及加入「儲存體帳戶參與者」內建角色。 這也可以新增至自訂角色定義。
 
@@ -219,7 +223,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您將儲存體�
     ```
 
     > [!TIP]
-    > 若要在屬於另一個 Azure AD 租使用者的 VNet 中新增子網的規則，請使用 "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name" 格式的完整子網識別碼。
+    > 若要在屬於另一個 Azure AD 租使用者的 VNet 中新增子網的規則，請使用完整的子網識別碼，格式為 "/subscriptions/\<訂用帳戶識別碼\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet 名稱\>/subnets/\<子網名稱\>"。
     > 
     > 您可以使用**訂**用帳戶參數來抓取屬於另一個 Azure AD 租使用者之 VNet 的子網識別碼。
 
@@ -247,15 +251,18 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您將儲存體�
    > [!NOTE]
    > IP 網路規則不會影響源自儲存體帳戶所在 Azure 區域的要求。 使用[虛擬網路規則](#grant-access-from-a-virtual-network)來允許同一個區域的要求。
 
-目前僅支援 IPV4 位址。
+  > [!NOTE]
+  > 在與儲存體帳戶相同的區域中部署的服務會使用私人 Azure IP 位址進行通訊。 因此，您無法根據其公用輸入 IP 位址範圍來限制對特定 Azure 服務的存取。
 
-每個儲存體帳戶最多可支援 100 個 IP 網路規則，它們也可以結合[虛擬網路規則](#grant-access-from-a-virtual-network)。
+儲存體防火牆規則的設定僅支援 IPV4 位址。
+
+每個儲存體帳戶最多支援100個 IP 網路規則。
 
 ### <a name="configuring-access-from-on-premises-networks"></a>設定內部部署網路存取權
 
 為將內部部署網路存取權授與使用 IP 網路規則的儲存體帳戶，您必須識別網路所使用的網際網路對應 IP 位址。 請連絡網路系統管理員尋求協助。
 
-如果您使用來自內部部署的 [ExpressRoute](/azure/expressroute/expressroute-introduction) 進行公用對等互連或 Microsoft 對等互連，您將必須識別所使用的 NAT IP 位址。 在公用對等互連中，每個 Expressroute 線路預設都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 在 Microsoft 對等互連中，所用的 NAT IP 位址是由客戶提供或由服務提供者提供。 若要允許存取您的服務資源，就必須在資源 IP 防火牆設定中允許這些公用 IP 位址。 若要尋找您的公用對等互連 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 深入了解 [ExpressRoute 公用與 Microsoft 對等互連的 NAT。](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+如果您使用來自內部部署的 [ExpressRoute](/azure/expressroute/expressroute-introduction) 進行公用對等互連或 Microsoft 對等互連，您將必須識別所使用的 NAT IP 位址。 在公用對等互連中，每個 Expressroute 線路預設都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 針對 Microsoft 對等互連，所使用的 NAT IP 位址是由客戶提供，或由服務提供者提供。 若要允許存取您的服務資源，就必須在資源 IP 防火牆設定中允許這些公用 IP 位址。 若要尋找您的公用對等互連 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 深入了解 [ExpressRoute 公用與 Microsoft 對等互連的 NAT。](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 網路規則
 
@@ -351,35 +358,46 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您將儲存體�
 
 ## <a name="exceptions"></a>例外狀況
 
-網路規則可以為大部分情況啟用安全的網路設定。 不過，在某些情況下，必須授與例外狀況才能啟用完整的功能。 您可以對儲存體帳戶設定例外狀況，以允許受信任的 Microsoft 服務進行存取，以及存取儲存體分析資料。
+網路規則有助於建立安全的環境，以便在您的應用程式與資料之間，針對大部分案例進行連接。 不過，有些應用程式會使用無法透過虛擬網路或 IP 位址規則來唯一隔離的服務。 但是，您必須將這類服務授與儲存體，才能啟用完整的應用程式功能。 在這種情況下，您可以使用 [***允許信任的 Microsoft 服務 ...*** ] 設定來啟用資料、記錄或分析的存取權。
 
 ### <a name="trusted-microsoft-services"></a>受信任的 Microsoft 服務
 
-有些與儲存體帳戶互動的 Microsoft 服務是從無法透過網路規則授與存取權的網路運作。
+某些 Microsoft 服務是從無法包含在網路規則中的網路進行操作。 您可以將這類受信任的 Microsoft 服務存取權授與儲存體帳戶，同時維護其他應用程式的網路規則。 這些受信任的服務接著可以使用增強式驗證，安全地連線到您的儲存體帳戶。 我們為 Microsoft 服務啟用了兩種類型的受信任存取。
 
-為了讓某些服務能如預期地執行，您必須允許受信任的 Microsoft 服務子集略過網路規則。 這些服務會使用增強式驗證存取儲存體帳戶。
+- 某些服務的資源（**如果已在您的訂用帳戶中註冊**）可以只在選取作業（例如寫入記錄檔或備份）上存取**相同訂用帳戶中**的儲存體帳戶。
+- 某些服務的資源實例可以藉由將[**RBAC 角色指派**](storage-auth-aad.md#assign-rbac-roles-for-access-rights)給資源實例，來授與對您儲存體帳戶的明確存取權。
 
-如果啟用 **「允許信任的 Microsoft 服務...」** 例外狀況，下列服務 (在您的訂用帳戶中註冊時) 會獲得存取儲存體帳戶的權限：
 
-| 服務                  | 資源提供者名稱     | 用途                                                                                                                                                                                                                                                                                                                      |
-|:-------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure 備份             | Microsoft.RecoveryServices | 在 IAAS 虛擬機器中執行未受控磁碟備份與還原。 (若為受控磁碟則非必要)。 [深入了解](/azure/backup/backup-introduction-to-azure-backup)。                                                                                                                                                     |
-| Azure Data Box           | Microsoft.DataBox          | 使用資料箱, 啟用將資料匯入至 Azure 的功能。 [深入了解](/azure/databox/data-box-overview)。                                                                                                                                                                                                                              |
-| Azure DevTest Labs       | Microsoft.DevTestLab       | 自訂映像建立和成品安裝。 [深入了解](/azure/devtest-lab/devtest-lab-overview)。                                                                                                                                                                                                                      |
-| Azure 事件格線         | Microsoft.EventGrid        | 啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。                                                                                                     |
-| Azure 事件中樞         | Microsoft.EventHub         | 使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。                                                                                                                                                                                                                           |
-| Azure 檔案同步          | Microsoft.StorageSync      | 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復, 以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md)                                                                                                       |
-| Azure HDInsight          | Microsoft.HDInsight        | 為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [深入了解](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。                                                                                                                                    |
-| Azure Machine Learning 服務 | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [深入了解](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。                                                               
-| Azure 監視器            | Microsoft.Insights         | 允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。                                                                                                                                                                        |
-| Azure 網路         | Microsoft.Network          | 儲存及分析網路流量記錄。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。                                                                                                                                                                                                        |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | 藉由啟用 Azure IaaS 虛擬機器的複寫來設定災害復原。 如果您使用已啟用防火牆的快取儲存體帳戶、來源儲存體帳戶或目標儲存體帳戶，則這會是必要項目。  [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。 |
-| Azure SQL 資料倉儲 | Microsoft.Sql              | 允許使用 PolyBase 從特定 SQL 資料庫實例匯入和匯出案例。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。                                                                                                                                                 |
-| Azure 串流分析   | Microsoft.StreamAnalytics  | 允許將串流作業中的資料寫入 Blob 儲存體。 請注意，這項功能目前為預覽狀態。 [深入了解](../../stream-analytics/blob-output-managed-identity.md)。                                                                                                                                        |
+當您啟用 [**允許信任的 Microsoft 服務 ...** ] 例外狀況時，這些服務（如果已在您的訂用帳戶中註冊）會被授與存取權給選取作業的儲存體帳戶，如下所述：
+
+| 服務                  | 資源提供者名稱     | 目的                            |
+|:------------------------ |:-------------------------- |:---------------------------------- |
+| Azure 備份             | Microsoft.RecoveryServices | 在 IAAS 虛擬機器中執行未受控磁碟備份與還原。 (若為受控磁碟則非必要)。 [詳細資訊](/azure/backup/backup-introduction-to-azure-backup)。 |
+| Azure 資料箱           | Microsoft.DataBox          | 使用資料箱，啟用將資料匯入至 Azure 的功能。 [詳細資訊](/azure/databox/data-box-overview)。 |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | 自訂映像建立和成品安裝。 [詳細資訊](/azure/devtest-lab/devtest-lab-overview)。 |
+| Azure Event Grid         | Microsoft.EventGrid        | 啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。 |
+| Azure 事件中心         | Microsoft.EventHub         | 使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。 |
+| Azure 檔案同步          | Microsoft.StorageSync      | 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復，以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md) |
+| Azure HDInsight          | Microsoft.HDInsight        | 為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [詳細資訊](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。 |
+| Azure Machine Learning | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [詳細資訊](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。   
+| Azure 監視器            | Microsoft.Insights         | 允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。 |
+| Azure 網路         | Microsoft.Network          | 儲存及分析網路流量記錄。 [詳細資訊](/azure/network-watcher/network-watcher-packet-capture-overview)。 |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | 當使用已啟用防火牆的快取、來源或目標儲存體帳戶時，啟用複寫以進行 Azure IaaS 虛擬機器的嚴重損壞修復。  [詳細資訊](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。 |
+
+如果您明確地將 RBAC 角色指派給該資源實例的[系統指派受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[**允許受信任的 Microsoft 服務**] 例外狀況可讓下列服務的特定實例存取儲存體帳戶。
+
+| 服務                        | 資源提供者名稱          | 目的                            |
+| :----------------------------- | :------------------------------ | :--------------------------------- |
+| Azure Data Factory             | Microsoft.DataFactory/factories | 允許透過 ADF 執行時間存取儲存體帳戶。 |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | 讓邏輯應用程式能夠存取儲存體帳戶。 |
+| Azure Machine Learning 服務 | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [詳細資訊](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。 | 
+| Azure SQL 資料倉儲       | Microsoft.Sql                   | 允許使用 PolyBase 從特定的 SQL Database 實例匯入和匯出資料。 [詳細資訊](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。 |
+| Azure 串流分析         | Microsoft.StreamAnalytics       | 允許將串流作業中的資料寫入 Blob 儲存體。 此功能目前為預覽狀態。 [詳細資訊](../../stream-analytics/blob-output-managed-identity.md)。 |
+
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取
 
-在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解儲存體分析的使用方式。](/azure/storage/storage-analytics)
+在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄和計量。 設定可信任的服務存取儲存體帳戶時，您可以允許記錄檔、計量資料表或兩者的讀取權限。 [深入了解儲存體分析的使用方式。](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>管理例外狀況
 

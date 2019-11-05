@@ -11,21 +11,17 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202749"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495051"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
 
 最後一節提供 **決策樹** ，讓您在選取適合您資料和目標的範例案例時可以使用。
-
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
 
 下列各節均提供一個範例案例。 在每個案例中，都會列出可能的資料科學或進階分析流程，以及支援的 Azure 資源。
 
@@ -42,7 +38,7 @@ ms.locfileid: "67202749"
 ## <a name="smalllocal"></a>案例 \#1：本機檔案中的中小型表格式資料集
 ![中小型本機檔案][1]
 
-#### <a name="additional-azure-resources-none"></a>其他 Azure 資源：None
+#### <a name="additional-azure-resources-none"></a>其他 Azure 資源：無
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
 1. 上傳資料集。
 1. 建置從上傳的資料集開始的 Azure 機器學習實驗流程。
@@ -57,7 +53,7 @@ ms.locfileid: "67202749"
 1. 將資料轉換為已清理的表格式格式。
 1. 將轉換的資料儲存在 Azure Blob 中。
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
-1. 使用[匯入資料][import-data]模組從 Azure Blob 讀取資料。
+1. 使用匯[入資料][import-data]模組從 Azure blob 讀取資料。
 1. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
 ## <a name="largelocal"></a>案例 \#3：本機檔案的大型資料集，以 Azure Blob 為目標
@@ -72,7 +68,7 @@ ms.locfileid: "67202749"
 1. 擷取中小型資料範例。
 1. 將取樣資料儲存在 Azure Blob 中。
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
-1. 使用[匯入資料][import-data]模組從 Azure Blob 讀取資料。
+1. 使用匯[入資料][import-data]模組從 Azure blob 讀取資料。
 1. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
 ## <a name="smalllocaltodb"></a>案例 \#4：本機檔案的中小型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
@@ -93,7 +89,7 @@ ms.locfileid: "67202749"
    * 建立資料庫和目標資料表。
    * 使用其中一種大量匯入方法，從 VM 本機檔案載入資料。
    
-   選項 \#2：使用 IPython Notebook - 不建議用於中型和更大型資料集
+   選項 \#2：使用 IPython Notebook – 不建議用於中型和大型資料集
    
    <!-- -->    
    * 使用 ODBC 連線字串，存取 VM 上的 SQL Server。
@@ -102,10 +98,10 @@ ms.locfileid: "67202749"
 1. 視需要瀏覽資料並建立功能。 請注意，功能在資料庫資料表中無需具體化。 僅注意建立這些功能的必要查詢。
 1. 若有需要，請決定資料範例大小。
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
-1. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。 視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
+1. 使用匯[入資料][import-data]模組直接從 SQL Server 讀取資料。 如有需要，請在匯[入資料][import-data]查詢中，貼上必要的查詢來抽取欄位、建立功能，以及範例資料。
 1. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
-## <a name="largelocaltodb"></a>案例 \#5：本機檔案中的大型資料集，以 Azure VM 中的 SQL Server 為目標
+## <a name="largelocaltodb"></a>案例 \#5：本機資料中的大型資料集，目標 Azure VM 中的 SQL Server
 ![大型本機檔案至 Azure 中的 SQL DB][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
@@ -117,14 +113,14 @@ ms.locfileid: "67202749"
    
        blobs.
    
-   b.  若有需要，請將資料轉換為已清理的表格式格式。
+   b.這是另一個 C# 主控台應用程式。  若有需要，請將資料轉換為已清理的表格式格式。
    
    c.  將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 1. 將資料載入執行於 Azure VM 的 SQL Server 資料庫。
    
    a.  登入 SQL Server VM。
    
-   b.  如果資料尚未儲存，請從 Azure 下載資料檔案
+   b.這是另一個 C# 主控台應用程式。  如果資料尚未儲存，請從 Azure 下載資料檔案
    
        storage container to local-VM folder.
    
@@ -143,10 +139,10 @@ ms.locfileid: "67202749"
 1. 視需要瀏覽資料並建立功能。 請注意，功能在資料庫資料表中無需具體化。 僅注意建立這些功能的必要查詢。
 1. 若有需要，請決定資料範例大小。
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
-1. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。 視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
+1. 使用匯[入資料][import-data]模組直接從 SQL Server 讀取資料。 如有需要，請在匯[入資料][import-data]查詢中，貼上必要的查詢來抽取欄位、建立功能，以及範例資料。
 1. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程
 
-## <a name="largedbtodb"></a>案例 \#6：在目標 Azure 虛擬機器中的 SQL Server 內部部署、 SQL Server 資料庫中的大型資料集
+## <a name="largedbtodb"></a>案例 \#6：內部部署 SQL Server 資料庫中的大型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
 ![大型 SQL DB 內部部署至 Azure 中的 SQL DB][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
@@ -154,7 +150,7 @@ ms.locfileid: "67202749"
 1. 使用其中一個資料匯出方法來將資料從 SQL Server 匯出成傾印檔案。
    
    > [!NOTE]
-   > 如果您決定要移動所有資料從內部部署資料庫，將完整的資料庫都移至 SQL Server 執行個體，在 Azure 中的替代 （較快） 方法。 略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
+   > 如果您決定要移動內部部署資料庫的所有資料，請使用替代（較快）方法將完整資料庫移至 Azure 中的 SQL Server 實例。 略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
    > 
    > 
 1. 將傾印檔案上傳至 Azure 儲存體容器。
@@ -162,7 +158,7 @@ ms.locfileid: "67202749"
    
    a.  登入 SQL Server VM。
    
-   b.  將資料檔案從 Azure 儲存體容器下載到 local-VM 資料夾。
+   b.這是另一個 C# 主控台應用程式。  將資料檔案從 Azure 儲存體容器下載到 local-VM 資料夾。
    
    c.  執行 SQL Server Management Studio。
    
@@ -179,7 +175,7 @@ ms.locfileid: "67202749"
 1. 視需要瀏覽資料並建立功能。 請注意，功能在資料庫資料表中無需具體化。 僅注意建立這些功能的必要查詢。
 1. 若有需要，請決定資料範例大小。
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
-1. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。 視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
+1. 使用匯[入資料][import-data]模組直接從 SQL Server 讀取資料。 如有需要，請在匯[入資料][import-data]查詢中，貼上必要的查詢來抽取欄位、建立功能，以及範例資料。
 1. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程。
 
 ### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>將整個資料庫從內部部署 SQL Server 複製到 Azure SQL Database 的替代方法
@@ -194,7 +190,7 @@ ms.locfileid: "67202749"
 
 [使用卸離和連結來移動資料庫 (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>案例 \#7：本機檔案中的巨量資料，以 Azure HDInsight Hadoop 叢集中的 Hive 資料庫為目標
+## <a name="largedbtohive"></a>案例 \#7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫
 ![本機目標 Hive 中的巨量資料][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>其他 Azure 資源：Azure HDInsight Hadoop 叢集和 Azure 虛擬機器 (IPython Notebook 伺服器)
@@ -206,7 +202,7 @@ ms.locfileid: "67202749"
    
        blobs.
    
-   b.  若有需要，請將資料轉換為已清理的表格式格式。
+   b.這是另一個 C# 主控台應用程式。  若有需要，請將資料轉換為已清理的表格式格式。
    
    c.  將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 1. 將資料上傳至步驟 2 中已選取 Hadoop 叢集的預設容器。
@@ -214,7 +210,7 @@ ms.locfileid: "67202749"
    
    a.  登入 Hadoop 叢集的前端節點
    
-   b.  開啟 Hadoop 命令列。
+   b.這是另一個 C# 主控台應用程式。  開啟 Hadoop 命令列。
    
    c.  透過 Hadoop 命令列中的 `cd %hive_home%\bin` 命令進入 Hive 根目錄。
    
@@ -228,14 +224,14 @@ ms.locfileid: "67202749"
    
    a.  登入 Hadoop 叢集的前端節點
    
-   b.  開啟 Hadoop 命令列。
+   b.這是另一個 C# 主控台應用程式。  開啟 Hadoop 命令列。
    
    c.  透過 Hadoop 命令列中的 `cd %hive_home%\bin` 命令進入 Hive 根目錄。
    
    d.  在 Hadoop 叢集前端節點的 Hadoop 命令列中執行 Hive 查詢，以瀏覽資料並視需要建立功能。
 1. 若有需要，取樣資料以符合 Azure Machine Learning Studio 需求。
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
-1. 使用[匯入資料][import-data]模組直接從 `Hive Queries` 讀取資料。 視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
+1. 使用匯[入資料][import-data]模組直接從 `Hive Queries` 讀取資料。 如有需要，請在匯[入資料][import-data]查詢中，貼上必要的查詢來抽取欄位、建立功能，以及範例資料。
 1. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程。
 
 ## <a name="decisiontree"></a>用於案例選擇的決策樹

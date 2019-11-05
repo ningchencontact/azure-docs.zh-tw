@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515220"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490718"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>使用離線評估來分析您的學習迴圈
 
 了解如何完成離線評估並了解結果。
 
-離線評估可讓您測量個人化工具的有效性 (相較於您應用程式的預設行為)，了解哪些功能對個人化最有貢獻，以及自動探索新的機器學習設定。
+離線評估可讓您測量有效個人化工具與應用程式預設行為的比較方式、瞭解哪些功能對個人化最有影響，以及自動探索新的機器學習服務值。
 
 閱讀[離線評估](concepts-offline-evaluation.md)進一步了解。
 
@@ -35,11 +35,11 @@ ms.locfileid: "72515220"
 
 1. 在  [Azure 入口網站](https://azure.microsoft.com/free/)中，找出您的個人化資源。
 1. 在 Azure 入口網站中，移至 [**評估**] 區段，然後選取 [**建立評估**]。
-    ![在 Azure 入口網站，請移至 [評估] 區段，然後選取 [建立評估] * *。](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. 選取下列設定：
+    ![在 Azure 入口網站中，移至 [評估] 區段，然後選取 [建立評估]。](./media/offline-evaluation/create-new-offline-evaluation.png)
+1. 設定下列值：
 
     * 評估名稱
-    * 開始和結束日期-這些是過去的日期，可指定要在評估中使用的資料範圍。 如[資料保留](how-to-settings.md)設定所指定，此資料必須存在記錄中。
+    * 開始和結束日期-這些是過去的日期，可指定要在評估中使用的資料範圍。 此資料必須出現在記錄檔中，如[資料保留](how-to-settings.md)值中所指定。
     * 優化探索設定為 **[是]**
 
     ![選擇離線評估設定](./media/offline-evaluation/create-an-evaluation-form.png)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e74277af8bf0912c418bc169209180195ceb8d8f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278615"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492381"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>執行資料科學工作：探索、模型化和部署
 
@@ -26,11 +26,11 @@ ms.locfileid: "70278615"
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1.<a name='DataQualityReportUtility-1'></a> 探索 
+## 1. <a name='DataQualityReportUtility-1'></a>探索 
 
 資料科學家可以利用許多方式執行探索和報告：使用 Python 可用的程式庫和套件 (例如 matplotlib) 或使用 R (例如 ggplot 或 lattice)。 資料科學家可以自訂這類程式碼，以符合特定情節的資料探索需求。 處理結構化資料與非結構化資料的需求不同，例如文字或影像。 
 
-諸如 Azure Machine Learning 服務等產品也提供[進階資料準備](../service/how-to-transform-data.md)以進行資料討論及探索，包括功能建立。 使用者應決定最符合其需求的工具、程式庫和套件。 
+Azure Machine Learning 之類的產品也提供資料整頓和探索的[先進資料準備](../service/how-to-transform-data.md)，包括功能建立。 使用者應決定最符合其需求的工具、程式庫和套件。 
 
 在此階段結尾處的交付項目是資料探索報告。 報告應該提供相當完整的資料檢視，以用於模型化及評估資料是否適合繼續進行模型化步驟。 下列各節中針對半自動探索、模型化和報告所討論的 Team Data Science Process (TDSP) 公用程式也提供標準化的資料探索和模型化報告。 
 
@@ -41,7 +41,7 @@ ms.locfileid: "70278615"
 目前，此工具只適用於記憶體中的資料框架。 若要指定要探索之資料集的參數，需要 YAML 檔案。 如需詳細資訊，請參閱 [TDSP 資料科學公用程式中的 IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils)。
 
 
-## 2.<a name='ModelingUtility-2'></a> 模型化
+## 2. <a name='ModelingUtility-2'></a>模型化
 
 以各種不同的語言提供多種定型模型的工具組和套件。 資料科學家應該可以自由使用任何其習慣的項目，只要針對相關商務使用案例與實際執行情節符合有關精確度和延遲的效能考量。
 
@@ -78,7 +78,7 @@ YAML 檔案是用來指定：
 3. [SQL-Server 即模型管理系統](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/) \(英文\)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3.<a name='Deployment-3'></a> 部署
+## 3. <a name='Deployment-3'></a>部署
 
 生產環境部署可讓模型在企業中扮演主動角色。 從已部署模型的預測可用於商業決策。
 
@@ -86,7 +86,7 @@ YAML 檔案是用來指定：
 有許多方法和平台可將模型置入生產環境。 以下提供一些選項：
 
 
-- [在 Azure Machine Learning 服務中的模型部署](../service/how-to-deploy-and-where.md)
+- [在 Azure Machine Learning 中的模型部署](../service/how-to-deploy-and-where.md)
 - [在 SQL-Server 中部署模型](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

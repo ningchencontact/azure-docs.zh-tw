@@ -2,23 +2,24 @@
 title: 建立自動化機器學習實驗
 titleSuffix: Azure Machine Learning
 description: 自動化機器學習服務可為您挑選演算法，並產生馬上可進行部署的模型。 了解可用來設定自動化機器學習實驗的選項。
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 181f11bd5cfda479c25b5bce20649b8f382968fe
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 4d050385bb76817c8aeada1bef4c4697a1f58d09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935380"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497276"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本指南中，您將瞭解如何使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)來定義自動化機器學習實驗的各種設定。 自動化機器學習服務會為您挑選演算法和超參數，並產生馬上可進行部署的模型。 有數個選項可用來設定自動化機器學習實驗。
 
@@ -34,7 +35,7 @@ ms.locfileid: "72935380"
 * 探索模型計量
 * 註冊和部署模型
 
-如果您不想使用程式碼經驗，您也可以[在 Azure 入口網站中建立自動化的機器學習實驗](how-to-create-portal-experiments.md)。
+如果您不想使用程式碼經驗，您也可以[在 Azure Machine Learning studio 中建立自動化的機器學習實驗](how-to-create-portal-experiments.md)。
 
 ## <a name="select-your-experiment-type"></a>選取您的實驗類型
 
@@ -61,7 +62,7 @@ ms.locfileid: "72935380"
 |[平均認知分類器](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
 |[線性 SVM 分類器](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
 
-請使用 `AutoMLConfig` 的函式中的 `task` 參數來指定您的實驗類型。
+請在 `AutoMLConfig` 的程式中使用 `task` 參數，以指定您的實驗類型。
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -72,7 +73,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>資料來源和格式
 
-自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可以讀入**Pandas 資料框架**或**Azure Machine Learning 的 TabularDataset**中。  [深入瞭解 datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md)。
+自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可以讀入**Pandas 資料框架**或**Azure Machine Learning 的 TabularDataset**中。  [深入瞭解資料集](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md)。
 
 定型資料的需求：
 - 資料必須是表格式格式。
@@ -145,26 +146,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 部分範例包括：
 
-1.  使用 AUC 加權作為主要度量的分類實驗，每個反復專案的最大時間為12000秒，實驗會在50次反覆運算和2個交叉驗證折迭之後結束。
+1.  使用 AUC 加權作為主要計量的分類實驗，其實驗超時分鐘數設定為30分鐘，2個交叉驗證折迭。
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
+        experiment_timeout_minutes=30,
         blacklist_models='XGBoostClassifier',
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  以下範例說明設定在 100 次反覆運算之後結束的迴歸實驗，每次反覆運算的持續時間上限為 600 秒，並執行 5 疊的交叉驗證。
+2.  以下範例是將回歸實驗設定為在60分鐘後結束，並有5個驗證交叉折迭。
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
-        max_time_sec=600,
-        iterations=100,
+        experiment_timeout_minutes=60,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
         training_data=train_data,
@@ -172,7 +171,7 @@ automl_config = AutoMLConfig(task = "classification")
         n_cross_validations=5)
     ```
 
-三個不同的 `task` 參數值（第三個工作類型為 `forecasting`，並使用與 `regression` 工作相同的演算法集區）來決定要套用的模型清單。 您可以使用 `whitelist` 或 `blacklist` 參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
+三個不同的 `task` 參數值（第三個工作類型為 `forecasting`，並使用與 `regression` 工作相同的演算法集區）來決定要套用的模型清單。 使用 `whitelist` 或 `blacklist` 參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
 
 ### <a name="primary-metric"></a>主要計量
 主要度量會決定要在模型定型期間使用的計量，以進行優化。 您可以選取的可用計量取決於您選擇的工作類型，下表顯示每種工作類型的有效主要度量。
@@ -225,7 +224,7 @@ time_series_settings = {
 automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=20,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -238,9 +237,9 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 預設會啟用集團模型，並在自動化機器學習執行中顯示為最後的執行反復專案。 目前支援的集團方法為投票和堆疊。 投票會實作為使用加權平均值的軟投票，而堆疊執行則使用2層的實作為，其中第一層的模型與投票集團相同，而第二層模型則是用來尋找最佳的組合第一層的模型。 如果您使用 ONNX 模型，**或**已啟用模型可解釋性，將會停用堆疊，而且只會使用投票。
 
-有多個預設引數可在 `AutoMLConfig` 物件中提供為 `kwargs`，以改變預設堆疊集團行為。
+有多個預設引數可當做 `AutoMLConfig` 物件中的 `kwargs` 提供，以改變預設堆疊集團行為。
 
-* `stack_meta_learner_type`：中繼學習模組是在個別的異類模型的輸出上定型的模型。 預設的中繼學習是針對分類工作 `LogisticRegression` （如果啟用交叉驗證，則為 `LogisticRegressionCV`），而如果是回歸/預測工作則為 `ElasticNet` （如果已啟用交叉驗證，則為 `ElasticNetCV`）。 這個參數可以是下列其中一個字串： `LogisticRegression`、`LogisticRegressionCV`、`LightGBMClassifier`、`ElasticNet`、`ElasticNetCV`、`LightGBMRegressor` 或 `LinearRegression`。
+* `stack_meta_learner_type`：中繼學習模組是在個別的異類模型的輸出上定型的模型。 預設的中繼學習工具是分類工作（如果啟用交叉驗證，則為 `LogisticRegressionCV`）和回歸/預測工作的 `ElasticNet` （如果已啟用交叉驗證，則為 `ElasticNetCV`）的 `LogisticRegression`。 這個參數可以是下列其中一個字串： `LogisticRegression`、`LogisticRegressionCV`、`LightGBMClassifier`、`ElasticNet`、`ElasticNetCV`、`LightGBMRegressor`或 `LinearRegression`。
 * `stack_meta_learner_train_percentage`：指定要保留給定型學習模組的定型集比例（選擇定型和驗證類型時）。 預設值為 `0.2`。
 * `stack_meta_learner_kwargs`：要傳遞至中繼學習模組之初始化運算式的選擇性參數。 這些參數和參數類型會從對應的模型構造函式進行鏡像，並將它們轉送到模型的函式。
 
@@ -262,7 +261,7 @@ ensemble_settings = {
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=5,
@@ -276,7 +275,7 @@ automl_classifier = AutoMLConfig(
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=data_train,
         label_column_name=label,
         n_cross_validations=5,
@@ -287,7 +286,7 @@ automl_classifier = AutoMLConfig(
 
 ## <a name="run-experiment"></a>執行實驗
 
-針對自動化 ML，您會建立 `Experiment` 物件，這是用來執行實驗的 `Workspace` 中的已命名物件。
+針對自動化 ML，您會建立一個 `Experiment` 物件，這是用來執行實驗的 `Workspace` 中的已命名物件。
 
 ```python
 from azureml.core.experiment import Experiment
@@ -314,7 +313,6 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>結束準則
 您可以定義幾個選項來結束實驗。
 1. 無準則：如果您未定義任何結束參數，實驗會繼續進行，直到您的主要計量沒有進一步的進度為止。
-1. 反覆運算次數：您可以定義要執行之實驗的反覆運算次數。 您可以選擇性地加入 `iteration_timeout_minutes` 來定義每個反復專案的時間限制（以分鐘為單位）。
 1. 在一段時間後結束：使用設定中的 `experiment_timeout_minutes` 可讓您定義實驗繼續執行的時間長度（以分鐘為單位）。
 1. 達到分數後結束：使用 `experiment_exit_score` 將會在達到主要度量分數後完成實驗。
 
@@ -338,7 +336,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>自動化功能工程
 
-查看前置處理 = True 時，所發生的前置處理和[自動化功能工程](concept-automated-ml.md#preprocess)清單。
+查看 feauturization = auto 時所發生的前置處理和[自動化功能工程](concept-automated-ml.md#preprocess)清單。
 
 請思考此範例：
 + 有4種輸入功能： A （數值）、B （數值）、C （數值）、D （DateTime）
@@ -398,7 +396,7 @@ best_run, fitted_model = automl_run.get_output()
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   地點：
+   其中：
 
    |輸出|定義|
    |----|--------|
@@ -407,6 +405,32 @@ best_run, fitted_model = automl_run.get_output()
    |刪除|指出輸入功能是否已卸載或使用。|
    |EngineeringFeatureCount|透過自動化功能工程轉換所產生的功能數目。|
    |轉換|套用至輸入功能以產生工程功能的轉換清單。|
+   
+### <a name="customize-feature-engineering"></a>自訂功能工程
+若要自訂功能工程，請指定 `"feauturization":FeaturizationConfig`。
+
+支援的自訂包括：
+
+|自訂|定義|
+|--|--|
+|資料行目的更新|覆寫指定之資料行的功能類型。|
+|轉換器參數更新 |更新指定之轉換器的參數。 目前支援 Imputer 和 HashOneHotEncoder。|
+|卸載資料行 |要從特徵化中捨棄的資料行。|
+|區塊轉換器| 封鎖要在特徵化進程上使用的轉換器。|
+
+使用 API 呼叫來建立 FeaturizationConfig 物件：
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>具有超參數值的縮放/正規化和演算法：
 
@@ -467,78 +491,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## <a name="explain-the-model-interpretability"></a>說明模型（interpretability）
+## <a name="model-interpretability"></a>模型可解釋性
 
-自動化機器學習服務可讓您了解特徵重要性。  在定型過程中，您可以取得模型的全域特徵重要性。  針對分類的情況，您也可以取得類別層級的特徵重要性。  您必須提供驗證資料集（validation_data），才能取得功能重要性。
+[模型 interpretability] 可讓您瞭解模型進行預測的原因，以及基礎功能重要性值。 SDK 包含各種封裝，可讓您在定型和推斷階段，針對本機和已部署的模型啟用模型 interpretability 功能。
 
-有兩種方式可產生特徵重要性。
+如需如何在自動化機器學習實驗中明確啟用 interpretability 功能的程式碼範例，請參閱操作[說明](how-to-machine-learning-interpretability-automl.md)。
 
-*   一旦完成實驗，您可以在任何反覆項目上使用 `explain_model` 方法。
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*   若要檢視所有反覆項目的特徵重要性，請在 AutoMLConfig 中將 `model_explainability` 旗標設為`True`。
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    完成後，您可以使用 retrieve_model_explanation 方法來擷取特定反覆項目的特徵重要性。
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-使用執行物件顯示 URL 來查看功能重要性：
-
-```
-automl_run.get_portal_url()
-```
-
-您可以在 Azure 入口網站或[工作區登陸頁面（預覽）](https://ml.azure.com)中，將工作區中的功能重要性圖表視覺化。 在筆記本中使用 `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)時，也會顯示圖表。 若要深入瞭解圖表，請參閱[瞭解自動化機器學習結果](how-to-understand-automated-ml.md)。
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![特徵重要性圖形](./media/how-to-configure-auto-train/feature-importance.png)
-
-如需如何在自動化機器學習以外的 SDK 其他區域中啟用模型說明和功能重要性的詳細資訊，請參閱 interpretability 上的[概念](machine-learning-interpretability-explainability.md)文章。
+如需如何在自動化機器學習以外的 SDK 其他區域中啟用模型說明和功能重要性的一般資訊，請參閱 interpretability 上的[概念](how-to-machine-learning-interpretability.md)文章。
 
 ## <a name="next-steps"></a>後續步驟
 

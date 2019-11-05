@@ -1,24 +1,24 @@
 ---
 title: 資料分割和範例：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用資料分割和範例模組，以在 dataset 上執行取樣，或從您的資料集建立磁碟分割。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用資料分割和範例模組，以在 dataset 上執行取樣，或從您的資料集建立磁碟分割。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693763"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497705"
 ---
 # <a name="partition-and-sample-module"></a>資料分割和範例模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來執行資料集的取樣，或從您的資料集建立分割區。
 
@@ -44,7 +44,7 @@ ms.locfileid: "72693763"
 
 此模組支援多種方法，可將您的資料分成多個分割或進行取樣。 先選擇方法，然後再設定方法所需的其他選項。
 
-- Head
+- 前端
 - 取樣
 - 指派給折迭
 - 挑選折迭
@@ -156,7 +156,7 @@ ms.locfileid: "72693763"
 
     例如，假設先前將患者分割成使用年齡的四個折迭。 若要使用每個個別的折迭，您需要資料**分割和範例**模組的四個複本，而在每個中，您會選取不同的折迭，如下所示。 使用 [**指派**] 直接折迭輸出並不正確。  
 
-    [![Partition 和範例](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    [![資料分割和範例](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. 執行管道。
 
@@ -167,4 +167,4 @@ ms.locfileid: "72693763"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

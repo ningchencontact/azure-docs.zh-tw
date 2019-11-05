@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 19852fe3a6925ada3dea141a1472683ee264f6d5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 86a7575c173b4515eaf0f690bcd00c6fb70ee581
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492722"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>遷移至 Azure 資源撰寫金鑰
 
 Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azure 資源。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="why-migrate"></a>為何要移轉？
 
@@ -65,7 +67,7 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 * **（選擇性**）儲存每個應用程式的 collaborator's 清單。 此電子郵件清單是在遷移過程中提供。
 * **必要**，您必須擁有[Azure 訂](https://azure.microsoft.com/free/)用帳戶。 訂用帳戶程式的一部分需要帳單資訊。 不過，當您使用 LUIS 時，可以使用免費（`F0`）定價層。 
 
-**撰寫 LUIS 應用程式是免費**的，由 @no__t 1 層表示。 深入瞭解[定價層](luis-boundaries.md#key-limits)。
+**撰寫 LUIS 應用程式是免費**的，以 `F0` 層表示。 深入瞭解[定價層](luis-boundaries.md#key-limits)。
 
 如果您沒有 Azure 訂用帳戶，請[註冊](https://azure.microsoft.com/free/)。 
 
@@ -81,7 +83,7 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 
 您可以在該資源的 [**存取控制（IAM）** ] 頁面上，從_Azure 入口網站_將參與者新增至撰寫資源。 如需詳細資訊，請參閱[新增參與者存取](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)。
 
-|入口網站|用途|
+|入口網站|目的|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* 建立預測和撰寫資源。<br>* 指派參與者。|
 |[LUIS](https://www.luis.ai)|* 遷移至新的撰寫資源。<br>* 從 [**管理-> Azure 資源**] 頁面，指派或取消指派預測和撰寫資源給應用程式。| 

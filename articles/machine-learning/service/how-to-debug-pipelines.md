@@ -10,14 +10,15 @@ ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
 ms.date: 10/03/2019
-ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fc19e864f00489d3ebc0162705af864785af0811
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959648"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497061"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>對機器學習管線進行調試和疑難排解
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何在[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)中，針對[機器學習管線](concept-ml-pipelines.md)進行調試和疑難排解。
 
@@ -25,7 +26,7 @@ ms.locfileid: "71959648"
 
 ## <a name="testing-scripts-locally"></a>在本機測試腳本
 
-管線中最常見的失敗之一，就是附加的腳本（資料清理腳本、計分腳本等）並未如預期執行，或包含遠端計算內容中的執行階段錯誤，這在 Azure 入口網站的工作區中很容易進行調試。 
+管線中最常見的失敗之一，就是附加的腳本（資料清理腳本、計分腳本等）並未如預期執行，或包含遠端計算內容中的執行階段錯誤，這在 Azure 機器的工作區中很容易就能進行調試學習 studio。 
 
 管線本身無法在本機執行，但在您的本機電腦上隔離執行腳本，可讓您更快速地進行調試，因為您不需要等候計算和環境建立程式。 需要進行一些開發工作才能執行此作業：
 
@@ -44,7 +45,7 @@ ms.locfileid: "71959648"
 
 ## <a name="debugging-scripts-from-remote-context"></a>從遠端內容調試腳本
 
-在本機測試腳本是一種很好的方法，可在您開始建立管線之前，先將主要程式碼片段和複雜邏輯進行偵錯工具，但在某些情況下，您可能需要在實際管線執行期間先行編譯腳本，特別是在診斷發生的行為時管線步驟之間的互動期間。 我們建議您在步驟腳本中自由使用 @no__t 0 語句，讓您可以在遠端執行期間查看物件狀態和預期的值，類似于偵錯工具程式碼的處理方式。
+在本機測試腳本是一種很好的方法，可在您開始建立管線之前，先將主要程式碼片段和複雜邏輯進行偵錯工具，但在某些情況下，您可能需要在實際管線執行期間先行編譯腳本，特別是在診斷發生的行為時管線步驟之間的互動期間。 我們建議您在步驟腳本中使用 `print()` 語句，讓您可以在遠端執行期間看到物件狀態和預期的值，這類似于偵錯工具程式碼的方式。
 
 記錄檔 `70_driver_log.txt` 包含： 
 
@@ -76,11 +77,11 @@ ms.locfileid: "71959648"
 
 | 問題 | 可能的解決方案 |
 |--|--|
-| 無法將資料傳遞給 `PipelineData` 目錄 | 請確定您已在對應至管線預期步驟輸出資料所在位置的腳本中建立目錄。 在大部分情況下，輸入引數會定義輸出目錄，然後您會明確建立目錄。 使用 `os.makedirs(args.output_dir, exist_ok=True)` 來建立輸出目錄。 如需顯示此設計模式的評分腳本範例，請參閱[教學](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script)課程。 |
+| 無法將資料傳遞至 `PipelineData` 目錄 | 請確定您已在對應至管線預期步驟輸出資料所在位置的腳本中建立目錄。 在大部分情況下，輸入引數會定義輸出目錄，然後您會明確建立目錄。 使用 `os.makedirs(args.output_dir, exist_ok=True)` 來建立輸出目錄。 如需顯示此設計模式的評分腳本範例，請參閱[教學](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script)課程。 |
 | 相依性 bug | 如果您已在本機開發和測試腳本，但在管線的遠端計算上執行時發現相依性問題，請確定您的計算環境相依性和版本符合您的測試環境。 |
 | 計算目標的不明確錯誤 | 刪除和重新建立計算目標可以解決計算目標的特定問題。 |
 | 管線未重複使用步驟 | 預設會啟用步驟重複使用，但請確定您未在管線步驟中停用它。 如果已停用重複使用，步驟中的 `allow_reuse` 參數將會設定為 `False`。 |
-| 管線重新執行不必要 | 若要確保步驟只會在基礎資料或腳本變更時重新執行，請將您的目錄與每個步驟分離。 如果您使用相同的來原始目錄進行多個步驟，您可能會遇到不必要的重新執行。 使用管線步驟物件上的 `source_directory` 參數，以指向該步驟的隔離目錄，並確保您不會針對多個步驟使用相同的 @no__t 1 路徑。 |
+| 管線重新執行不必要 | 若要確保步驟只會在基礎資料或腳本變更時重新執行，請將您的目錄與每個步驟分離。 如果您使用相同的來原始目錄進行多個步驟，您可能會遇到不必要的重新執行。 使用管線步驟物件上的 `source_directory` 參數，以指向該步驟的隔離目錄，並確保不會針對多個步驟使用相同的 `source_directory` 路徑。 |
 
 ## <a name="next-steps"></a>後續步驟
 

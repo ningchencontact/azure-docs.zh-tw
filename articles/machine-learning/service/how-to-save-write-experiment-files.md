@@ -11,15 +11,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 41b2602e57d295cfd7e475f4b3aa5657bd4e24d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034302"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489604"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>儲存和寫入 Azure Machine Learning 實驗檔案的位置
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您會瞭解儲存輸入檔的位置，以及從您的實驗寫入輸出檔案以避免儲存限制錯誤和實驗延遲的位置。
 
@@ -35,7 +36,7 @@ Azure Machine Learning 會藉由將整個腳本資料夾複製到目標計算內
 
 * **將您的檔案儲存在 Azure Machine Learning[資料](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)存放區中。** 這可避免實驗延遲問題，並具有從遠端計算目標存取資料的優點，這表示驗證和掛接是由 Azure Machine Learning 管理。 若要深入瞭解如何指定資料存放區作為來原始目錄，以及如何將檔案上傳到您的資料存放區，請參閱[從資料存放區存取資料](how-to-access-data.md)一文。
 
-* **如果您只需要幾個資料檔案和相依性腳本，而且無法使用**資料存放區，請將檔案放在與定型腳本相同的資料夾目錄中。 在您的定型腳本`source_directory`中，或在呼叫定型腳本的程式碼中，直接指定此資料夾。
+* **如果您只需要幾個資料檔案和相依性腳本，而且無法使用**資料存放區，請將檔案放在與定型腳本相同的資料夾目錄中。 在您的定型腳本中，或在呼叫定型腳本的程式碼中，直接指定此資料夾做為 `source_directory`。
 
 <a name="limits"></a>
 
@@ -53,9 +54,9 @@ Your total snapshot size exceeds the limit of 300.0 MB
 實驗&nbsp;描述|儲存體限制解決方案
 ---|---
 不到2000的檔案 & 無法使用資料存放區| 覆寫快照集大小限制 <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> 這可能需要幾分鐘的時間，視檔案的數量和大小而定。
-必須使用特定的腳本目錄| 建立一個`.amlignore`檔案，以從不屬於原始程式碼的實驗快照集排除檔案。 將檔案名新增至`.amlignore`檔案，並將它放在與訓練腳本相同的目錄中。 檔案會使用與檔案相同的`.gitignore` [語法和模式。](https://git-scm.com/docs/gitignore) `.amlignore`
+必須使用特定的腳本目錄| 建立 `.amlignore` 檔案，以從不屬於原始程式碼的實驗快照集排除檔案。 將檔案名新增至 `.amlignore` 檔案，並將它放在與定型腳本相同的目錄中。 `.amlignore` 檔案使用與 `.gitignore` 檔案相同的[語法和模式](https://git-scm.com/docs/gitignore)。
 管線|針對每個步驟使用不同的子目錄
-Jupyter Notebook| `.amlignore`建立檔案或將您的筆記本移至新的空白子目錄，然後再次執行您的程式碼。
+Jupyter Notebook| 建立 `.amlignore` 檔案，或將您的筆記本移至新的空白子目錄，然後再次執行您的程式碼。
 
 ## <a name="where-to-write-files"></a>寫入檔案的位置
 
@@ -63,14 +64,14 @@ Jupyter Notebook| `.amlignore`建立檔案或將您的筆記本移至新的空�
 
 寫入變更時，建議您將檔案寫入 Azure Machine Learning 的資料存放區。 請參閱[從您的資料存放區存取資料](how-to-access-data.md)。
 
-如果您不需要資料存放區，請將檔案`./outputs`寫入和/ `./logs`或資料夾。
+如果您不需要資料存放區，請將檔案寫入 `./outputs` 和/或 `./logs` 資料夾。
 
 >[!Important]
-> 兩個資料夾、*輸出*和*記錄*，會 Azure Machine Learning 接收特殊處理。 在定型期間，當您將檔案`./outputs`寫入`./logs`和資料夾時，檔案會自動上傳到您的執行歷程記錄，讓您在執行完成之後可以存取這些檔案。
+> 兩個資料夾、*輸出*和*記錄*，會 Azure Machine Learning 接收特殊處理。 在定型期間，當您將檔案寫入`./outputs` 並`./logs` 資料夾時，檔案會自動上傳到您的執行歷程記錄，讓您在執行完成之後可以存取這些檔案。
 
-* 若**為輸出（例如狀態訊息或計分結果），請**將檔案寫入資料夾，以便在執行歷程記錄中保存為構件。`./outputs` 請留意寫入此資料夾的檔案數目和大小，因為當內容上傳到執行歷程記錄時，可能會發生延遲。 如果需要考慮延遲，建議您將檔案寫入資料存放區。
+* 若**為輸出（例如狀態訊息或計分結果），請**將檔案寫入 `./outputs` 資料夾，以便在執行歷程記錄中保存為構件。 請留意寫入此資料夾的檔案數目和大小，因為當內容上傳到執行歷程記錄時，可能會發生延遲。 如果需要考慮延遲，建議您將檔案寫入資料存放區。
 
-* **若要將寫入的檔案儲存為執行歷程記錄中的記錄，請**將檔案寫入`./logs`資料夾。 記錄會即時上傳，因此這個方法適用于從遠端執行串流處理即時更新。
+* **若要將寫入的檔案儲存為執行歷程記錄中的記錄，請**將檔案寫入 `./logs` 資料夾。 記錄會即時上傳，因此這個方法適用于從遠端執行串流處理即時更新。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,20 +11,21 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5736667acfa510d89e549afd4d0f5c61a833dd1c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932742"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500272"
 ---
-<a name="train-your-app"></a>
-
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
 
-[測試](luis-concept-test.md)應用程式是一種反復的進程。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 如果為否，請更新 LUIS 應用程式，然後重新進行定型和測試。 
+[測試](luis-concept-test.md)應用程式是一種反復的進程。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 若為否，請更新 LUIS 應用程式、訓練，並重新測試。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <!-- anchors for H2 name changes -->
+<a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
@@ -65,7 +66,7 @@ ms.locfileid: "68932742"
 
 ## <a name="view-sentiment-results"></a>檢視情感結果
 
-若已在 [[發行](luis-how-to-publish-app.md#enable-sentiment-analysis)] 頁面上設定 [情感分析]，測試結果將會包含在語句中找到的情感。 
+若已在 [**發行**] **[ 頁面上設定 [情感分析]](luis-how-to-publish-app.md#enable-sentiment-analysis)** ，測試結果將會包含在語句中找到的情感。 
 
 ![具有情感分析之 [測試] 窗格的影像](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -103,13 +104,13 @@ ms.locfileid: "68932742"
 
 使用下列程序以在 [測試] 窗格結果中包含 [Bing 拼字檢查 v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 服務。 
 
-1. 在 [測試] 窗格中輸入語句。 當系統預測出該語句時，請選取位於您所輸入語句下方的 [[檢查](#inspect-score)]。 
+1. 在 [測試] 窗格中輸入語句。 當系統預測出該語句時，請選取位於您所輸入語句下方的 [**檢查[]](#inspect-score)** 。 
 
-1. 當 [檢查] 面板開啟時，選取 [[與已發行比較](#compare-with-published-version)]。 
+1. 當 [檢查] 面板開啟時，選取 [**與已發行比較[]](#compare-with-published-version)** 。 
 
-1. 當 [已發行] 面板開啟時，選取 [[其他設定](#additional-settings-in-test-panel)]。
+1. 當 [已發行] 面板開啟時，選取 [**其他設定[]](#additional-settings-in-test-panel)** 。
 
-1. 在快顯對話方塊中, 勾選 [**啟用 Bing 拼寫檢查**] 並輸入金鑰, 然後選取 [**完成**]。 
+1. 在快顯對話方塊中，勾選 [**啟用 Bing 拼寫檢查**] 並輸入金鑰，然後選取 [**完成**]。 
     ![輸入 Bing 拼字檢查服務金鑰](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
 1. 輸入具有錯誤拼字的查詢 (例如 `book flite to seattle`)，然後選取 Enter。 在傳送至 LUIS 的查詢中，系統會取代單字 `flite` 的錯誤拼字，因此結果的 JSON 會同時顯示原始的查詢 (`query`)，以及已修正拼字的查詢 (`alteredQuery`)。

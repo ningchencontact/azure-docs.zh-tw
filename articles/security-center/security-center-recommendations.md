@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 32b7f1d699c0d620d70614c441a8c18520c1b2d5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 6a01ddbc733ce52c02e9abef2569adbfbd19c6a8
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201054"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520741"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure 資訊安全中心的安全性建議 
 本主題說明如何在 Azure 資訊安全中心中查看及瞭解建議，以協助您保護 Azure 資源。
@@ -36,7 +36,7 @@ ms.locfileid: "71201054"
 每個建議都會提供下列各項：
 
 - 建議的簡短描述。
-- 要執行的補救步驟，以便執行建議。 <!-- In some cases, one-click remediation is available. -->
+- 要執行的補救步驟，以便執行建議。 <!-- In some cases, Quick Fix remediation is available. -->
 - 您需要對這些資源執行建議的動作。
 - **安全分數會影響**，這是您執行此建議時，您的安全分數將會增加的數量。
 
@@ -56,15 +56,15 @@ ms.locfileid: "71201054"
    * **安全分數的影響**：資訊安全中心使用您的安全性建議所產生的分數，並套用先進的演算法來判斷每個建議的重要程度。 如需詳細資訊，請參閱[安全分數計算](security-center-secure-score.md#secure-score-calculation)。
    * **資源**：列出這個建議適用的資源。
    * **狀態列**：描述該特定建議的嚴重性：
-       * **高（紅色）** ：某個有意義的資源 (例如應用程式、VM 或網路安全性群組) 有弱點存在，並且需要注意。
-       * **中（橙色）** ：有弱點存在，需要非關鍵性步驟或其他步驟才能將其消除或完成程序。
-       * **低（藍色）** ：應該處理但不需要立即注意的弱點存在。 (預設不會顯示嚴重性低的建議，但是如果您要查看它們，則可以篩選嚴重性低的建議。) 
+       * **高（紅色）** ：有意義的資源（例如應用程式、VM 或網路安全性群組）有弱點存在，並且需要注意。
+       * **中（橙色）** ：有弱點存在，需要非關鍵性或額外的步驟，才能將其排除或完成處理常式。
+       * **低（藍色）** ：應該解決但不需要立即注意的弱點存在。 (預設不會顯示嚴重性低的建議，但是如果您要查看它們，則可以篩選嚴重性低的建議。) 
        * **狀況良好（綠色）** ：
        * **無法使用（灰色）** ：
 
 1. 若要查看每個建議的詳細資料，請按一下 [建議]。
 
-    ![建議詳細資料](./media/security-center-recommendations/recommendation-details.png)
+    ![建議的詳細資料](./media/security-center-recommendations/recommendation-details.png)
 
 >[!NOTE] 
 > 請參閱適用于 Azure 資源的[傳統和 Resource Manager 部署模型](../azure-classic-rm.md)。

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949554"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500213"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -30,7 +30,7 @@ LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的�
 
 LUIS 可理解下列語言的語句：
 
-| 語言 |Locale  |  預建網域 | 預建實體 | 片語清單建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
+| 語言 |Locale  |  預建網域 | 預先建置的實體 | 片語清單建議 | **[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
 | *[中文](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -38,7 +38,7 @@ LUIS 可理解下列語言的語句：
 | 法文 (法國) |`fr-FR` |✔| ✔ |✔ |✔|
 | 法文 (加拿大) |`fr-CA` |-|   -   |-|✔|
 | 德文 |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| 北印度文 | `hi-IN`|-|-|-|-|
 | 義大利文 |`it-IT` |✔| ✔ |✔|✔|
 | *[日文](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|僅限關鍵片語|
 | 韓文 |`ko-KR` |✔|   -   |-|僅限關鍵片語|
@@ -47,15 +47,9 @@ LUIS 可理解下列語言的語句：
 | 西班牙文 (墨西哥)|`es-MX` |-|  -   |✔|✔|
 | 土耳其文 | `tr-TR` |✔|-|-|僅限情感|
 
-
 語言支援會因[預建實體](luis-reference-prebuilt-entities.md)和[網域](luis-reference-prebuilt-domains.md)而有所不同。
 
-### <a name="chinese-support-notes"></a>*中文支援附註
-
- - 在 `zh-cn` 文化特性中，LUIS 預期會有簡體中文字元集，而不是繁體字元集。
- - 意圖、實體、功能和規則運算式的名稱可能採用中文或羅馬字元。
- - 如需 `zh-cn` 文化特性中支援哪些預建網域的相關資訊，請參閱預先建立的[網域參考](luis-reference-prebuilt-domains.md)。
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
 ### <a name="japanese-support-notes"></a>*日文支援附註
 
@@ -63,8 +57,7 @@ LUIS 可理解下列語言的語句：
      - でございます 與 です 不同。
      - です 與 だ 不同。
 
-### <a name="text-analytics-support-notes"></a>\*\*文字分析支援附註
-文字分析包含 keyPhrase 預先建置的實體和情感分析。 只有葡萄牙文支援次文化特性：`pt-PT` 和 `pt-BR`。 主要文化特性層級支援其他所有的文化特性。 深入了解文字分析[支援的語言](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)。
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>語音 API 支援的語言
 請參閱語音[支援的語言](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode)，以取得語音聽寫模式語言。
@@ -91,7 +84,7 @@ LUIS 可理解下列語言的語句：
 |法文 (fr-FR)|✔||||
 |法文 (fr-CA)|✔||||
 |德文|||✔|✔|
-| Hindi |✔|-|-|-|-|
+| 北印度文 |✔|-|-|-|-|
 |義大利文|✔||||
 |日文||||✔|
 |韓文||✔||✔|
@@ -103,7 +96,7 @@ LUIS 可理解下列語言的語句：
 
 下列文化特性具有自訂 tokenizer 版本：
 
-|文化特性|Version|用途|
+|文化特性|版本|目的|
 |--|--|--|
 |德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們，以嘗試將複合單字細分成單一元件，以 token 化單字。<br>如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，則會變成 `Ich fahre einen kranken wagen`。 允許將 `kranken` 和 `wagen` 分別作為不同的實體標記。|
 |德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，它會保持為單一權杖。 因此 `krankenwagen` 會標示為單一實體。 |

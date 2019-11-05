@@ -1,23 +1,23 @@
 ---
-title: Azure Batch 服務作業
-titleSuffix: Azure Machine Learning Studio
-description: Machine Learning Studio 工作的 Azure Batch 服務的概觀。 批次集區處理可讓您建立集區，以便提交批次作業。
+title: Azure Batch 服務工作
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Machine Learning Studio （傳統）作業的 Azure Batch 服務總覽。 批次集區處理可讓您建立集區，以便提交批次作業。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751142"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493033"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>適用於 Azure Machine Learning Studio 作業的 Azure Batch 服務
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Machine Learning Studio （傳統）作業的 Azure Batch 服務
 
 Machine Learning 批次集區處理提供客戶管理的 Azure Machine Learning 批次執行服務級別。 機器學習服務的傳統批次處理發生於多租用戶環境中，其限制您可以提交的並行作業數目，而且作業會以先進先出為原則排入佇列中。 這種不確定性，表示您無法準確地預測何時會執行您的作業。
 

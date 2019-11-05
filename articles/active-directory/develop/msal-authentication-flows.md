@@ -18,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65c68e4f24dd95696cc53b92dd7e2b59d940b6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175729"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473807"
 ---
 # <a name="authentication-flows"></a>驗證流程
 
 本文說明 Microsoft Authentication Library （MSAL）所提供的不同驗證流程。  這些流程可以在各種不同的應用程式案例中使用。
 
-| 流程 | 描述 | 使用於|  
+| Flow | 說明 | 使用於|  
 | ---- | ----------- | ------- | 
 | [互動式](#interactive) | 透過互動式進程取得權杖，此程式會透過瀏覽器或快顯視窗提示使用者提供認證。 | [桌面應用程式](scenario-desktop-overview.md)、行動[應用程式](scenario-mobile-overview.md) |
 | [隱含授與](#implicit-grant) | 允許應用程式取得權杖，而不需要執行後端伺服器認證交換。 這可讓應用程式在用戶端 JavaScript 程式碼內，登入使用者、維護會話，以及取得其他 web Api 的權杖。| [單一頁面應用程式（SPA）](scenario-spa-overview.md) |
@@ -44,7 +44,7 @@ ms.locfileid: "73175729"
  
 視用戶端的建立方式而定，它可以使用 Microsoft 身分識別平臺所支援的一或多個驗證流程。  這些流程可能會產生各種權杖（id_tokens、重新整理權杖、存取權杖）以及授權碼，而且需要不同的權杖才能使其運作。 此圖表 proides 總覽：
  
-|流程 | 具備 | id_token | 存取權杖 | 重新整理權杖 | 授權碼 | 
+|Flow | 具備 | id_token | 存取權杖 | 重新整理權杖 | 授權碼 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[授權碼流程](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[隱含流程](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -83,7 +83,7 @@ MSAL 支援[OAuth 2 隱含授與流程](v2-oauth2-implicit-grant-flow.md)，可�
 
 MSAL 支援[OAuth 2 授權碼授](v2-oauth2-auth-code-flow.md)與。 此授與可用於裝置上安裝的應用程式，以取得受保護資源（例如 web Api）的存取權。 這可讓您將登入和 API 存取權新增至您的行動和桌面應用程式。 
 
-當使用者登入 web 應用程式（網站）時，web 應用程式會收到授權碼。  授權碼會兌換以取得權杖以呼叫 web Api。 在 ASP.NET 和 ASP.NET Core web apps 中，`AcquireTokenByAuthorizationCode` 唯一的目標是要將權杖新增至權杖快取。 然後，應用程式可以使用此權杖（通常是在控制器中，使用 `AcquireTokenSilent` 來取得 API 的權杖）。
+當使用者登入 web 應用程式（網站）時，web 應用程式會收到授權碼。  授權碼會兌換以取得權杖以呼叫 web Api。 在 ASP.NET 和 ASP.NET Core web apps 中，`AcquireTokenByAuthorizationCode` 唯一的目標是要將權杖新增至權杖快取。 然後，應用程式可以使用此權杖（通常是在控制器中，使用 `AcquireTokenSilent`來取得 API 的權杖）。
 
 ![授權碼流程的圖表](media/msal-authentication-flows/authorization-code.png)
 
@@ -156,7 +156,7 @@ MSAL 支援[OAuth 2 裝置程式碼流程](v2-oauth2-device-code.md)，可讓使
 
 在上圖中：
 
-1. 每當需要使用者驗證時，應用程式就會提供代碼，並要求使用者使用另一部裝置（例如連線到網際網路的 smartphone）來移至 URL （例如 https://microsoft.com/devicelogin) 。 接著，系統會提示使用者輸入程式碼，並繼續進行一般驗證體驗，包括同意提示和多重要素驗證（如有需要）。
+1. 每當需要使用者驗證時，應用程式就會提供代碼，並要求使用者使用另一部裝置（例如連線到網際網路的 smartphone）來移至 URL （例如 https://microsoft.com/devicelogin)。 接著，系統會提示使用者輸入程式碼，並繼續進行一般驗證體驗，包括同意提示和多重要素驗證（如有需要）。
 
 2. 成功驗證之後，命令列應用程式會透過後端通道接收所需的權杖，並使用它們來執行所需的 Web API 呼叫。
 
@@ -203,7 +203,7 @@ IWA 不會略過多重要素驗證。 如果設定多重要素驗證，如果需
 - 您已提供使用者同意應用程式的方式（請參閱[要求個別使用者同意](v2-permissions-and-consent.md#requesting-individual-user-consent)）。
 - 您已提供一種方式，讓租使用者系統管理員同意應用程式（請參閱系統[管理員同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)）。
 
-已針對 .NET desktop、.NET Core 和 Windows 通用平臺應用程式啟用 IWA 流程。 在 .NET Core 上，只有取得使用者名稱的多載可供使用。 .NET Core 平臺無法向作業系統詢問使用者名稱。
+已針對 .NET desktop、.NET Core 和 Windows 通用平臺應用程式啟用 IWA 流程。 在 .NET Core 上，您必須提供使用者名稱給 IWA，因為 .NET Core 無法從作業系統取得使用者名稱。
   
 如需有關同意的詳細資訊，請參閱 v2.0[許可權和同意](v2-permissions-and-consent.md)。
 

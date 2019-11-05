@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 62ec5d4e85a6e72982b49872af59e7b579c4fd77
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249378"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496269"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -26,6 +26,7 @@ ms.locfileid: "72249378"
 
 | 功能 | 詳細資料 |
 | ---| --- |
+| 新的 Fsv2 系列和 M 系列硬體世代| 如需相關資訊，請參閱[硬體](sql-database-service-tiers-vcore.md#hardware-generations)世代。|
 | [Azure 私人連結](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link 可將資料保留在 Azure 網路中，避免將其暴露於網際網路，藉此簡化了網路架構，同時可保護 Azure 中端點之間的連線安全。 您也可利用 Private Link 在 Azure 上建立及呈現您自己的服務。 |
 | 使用單一資料庫和彈性集區加速資料庫復原 | 如需相關資訊，請參閱[加速資料庫](sql-database-accelerated-database-recovery.md)復原。|
 |近似計數相異|如需相關資訊，請參閱[近似計數相異](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)。|
@@ -37,7 +38,6 @@ ms.locfileid: "72249378"
 |記憶體授與意見反應（資料列模式）（在相容性層級150之下）|如需相關資訊，請參閱[記憶體授與意見反應（資料列模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)。|
 | Azure 入口網站中的查詢編輯器 |如需相關資訊，請參閱[使用 Azure 入口網站的 SQL 查詢編輯器來連接及查詢資料](sql-database-connect-query-portal.md)。|
 | 具有單一資料庫和彈性集區的 R services/機器學習服務 |如需詳細資訊，請參閱[Azure SQL Database 中的 Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)。|
-| 無伺服器計算層級 | 如需相關資訊，請參閱[SQL Database 無伺服器（預覽）](sql-database-serverless.md)。|
 |SQL Analytics|如需相關資訊，請參閱[Azure SQL 分析](../azure-monitor/insights/azure-sql.md)。|
 |資料表變數延後編譯（在相容性層級150之下）|如需相關資訊，請參閱[資料表變數延遲編譯](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)。|
 | &nbsp; |
@@ -48,7 +48,7 @@ ms.locfileid: "72249378"
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-managed-instance-connectivity-architecture#service-aided-subnet-configuration-public-preview-in-east-us-and-west-us">服務輔助子網設定</a> | 管理子網設定的安全且方便的方式。 |
 | <a href="/azure/sql-database/sql-database-instance-pools">實例集區</a> | 方便且符合成本效益的方式，將較小的 SQL 實例遷移至雲端。 |
-| <a href="https://aka.ms/managed-instance-tde-byok">具有攜帶您自己的金鑰的透明資料加密（TDE）（BYOK）</a> |如需詳細資訊，請參閱在 Azure Key Vault 中使用客戶管理的金鑰 @no__t 0Azure SQL 透明資料加密：攜帶您自己的金鑰支援 @ no__t-0。|
+| <a href="https://aka.ms/managed-instance-tde-byok">具有攜帶您自己的金鑰的透明資料加密（TDE）（BYOK）</a> |如需詳細資訊，請參閱[Azure Key Vault 中的客戶管理金鑰的 AZURE SQL 透明資料加密：攜帶您自己的金鑰支援](transparent-data-encryption-byok-azure-sql.md)。|
 | <a href="https://aka.ms/managed-instance-aadlogins">實例層級 Azure AD 伺服器主體（登入）</a> | 使用<a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>語句來建立伺服器層級的登入。 |
 | [異動複寫](sql-database-managed-instance-transactional-replication.md) | 將資料表中的變更複寫到位於受控實例、單一資料庫或 SQL Server 實例上的其他資料庫，或在其他受控實例或 SQL Server 實例中變更某些資料列時，更新您的資料表。 如需相關資訊，請參閱[在 Azure SQL Database 受控實例資料庫中設定](replication-with-sql-database-managed-instance.md)複寫。 |
 | 威脅偵測 |如需相關資訊，請參閱[在 Azure SQL Database 受控實例中設定威脅偵測](sql-database-managed-instance-threat-detection.md)。|
@@ -68,7 +68,7 @@ ms.locfileid: "72249378"
 
 下列功能已在 H1 2019 中的受控實例部署模型中啟用：
   - 支援訂用帳戶的訂用帳戶， <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Visual Studio 訂閱者的每月點數</a>，以及增加的[地區限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)。
-  - 對 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a> 的支援
+  - 支援<a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 和 sharepoint 2019</a>和<a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central</a>
   - 建立具有<a href="https://aka.ms/managed-instance-collation">伺服器層級定序</a>和您所選擇<a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">時區</a>的實例。
   - 受控實例現在會受到<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
   - 將實例設定為使用[公用端點](sql-database-managed-instance-public-endpoint-configure.md)、 [Proxy 覆寫](sql-database-connectivity-architecture.md#connection-policy)連線以取得更佳的網路效能、 <a href="https://aka.ms/four-cores-sql-mi-update">4 虛擬核心在第5代硬體產生</a>，或<a href="https://aka.ms/managed-instance-configurable-backup-retention">將備份保留設定為35天</a>以進行時間點還原。 長期備份保留期（最多10年）仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">僅限複本備份</a>做為替代方案。

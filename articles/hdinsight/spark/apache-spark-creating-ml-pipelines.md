@@ -1,5 +1,5 @@
 ---
-title: 建立 Apache Spark 機器學習服務管線 - Azure HDInsight
+title: 建立 Apache Spark 機器學習管線-Azure HDInsight
 description: 使用 Apache Spark 機器學習程式庫，在 Azure HDInsight 中建立資料管線。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 22583d82d8e422d8176fdb7cd70a98d229e8b6bb
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736371"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494658"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>建立 Apache Spark 機器學習服務管線
 
@@ -78,7 +78,7 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-此範例管線有三個階段：`Tokenizer` 和 `HashingTF` (皆為 Transformer)，以及 `Logistic Regression` (Estimator)。  呼叫 `pipeline.fit(training)` 時，`training` DataFrame 中的擷取和剖析資料會流經管線。
+此範例管線有三個階段：`Tokenizer` 和 `HashingTF` (皆為 Transformer)，以及 `Logistic Regression` (Estimator)。  呼叫 `training` 時，`pipeline.fit(training)` DataFrame 中的擷取和剖析資料會流經管線。
 
 1. 第一階段，`Tokenizer`，將 `SystemInfo` 輸入資料行 (包含系統識別碼和存留期值) 分割成 `words` 輸出資料行。 這個新的 `words` 資料行會新增至 DataFrame。 
 2. 第二階段，`HashingTF`，將新的 `words` 資料行轉換至功能向量。 這個新的 `features` 資料行會新增至 DataFrame。 前兩個階段為 Transformer。 
@@ -95,7 +95,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-若要查看由 `Tokenizer` 和 `HashingTF` Transformer 新增的新 `words` 和 `features` 資料行，以及 `LogisticRegression` Estimator 的範例，請在原始的 DataFrame 上執行 `PipelineModel.transform()` 方法。 在實際執行程式碼中，下一步是傳入測試 DataFrame 以驗證定型。
+若要查看由 `words` 和 `features` Transformer 新增的新 `Tokenizer` 和 `HashingTF` 資料行，以及 `LogisticRegression` Estimator 的範例，請在原始的 DataFrame 上執行 `PipelineModel.transform()` 方法。 在實際執行程式碼中，下一步是傳入測試 DataFrame 以驗證定型。
 
 ```python
 peek = model.transform(training)

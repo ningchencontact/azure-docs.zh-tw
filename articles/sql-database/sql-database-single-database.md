@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2f55ad795cc76d59581b25ca60a1c89e7db96b04
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316665"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496016"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什麼是 Azure SQL Database 中的單一資料庫
 
@@ -29,7 +29,7 @@ ms.locfileid: "71316665"
 
 ## <a name="dynamic-scalability"></a>動態延展性
 
-您可以在無伺服器（預覽）計算層級的小型單一資料庫中建立第一個應用程式，或在布建的計算層中以小型計算大小進行。 您可以隨時以手動或程式設計方式變更[計算或服務層級](sql-database-single-database-scale.md)，以符合解決方案的需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
+您可以在無伺服器計算層級的小型單一資料庫中建立您的第一個應用程式，或在布建的計算層中將小型的計算大小。 您可以隨時以手動或程式設計方式變更[計算或服務層級](sql-database-single-database-scale.md)，以符合解決方案的需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
 ## <a name="single-databases-and-elastic-pools"></a>單一資料庫和彈性集區
 
@@ -55,7 +55,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 SQL Database 提供了多種[內建安全性與合規性](sql-database-security-overview.md)功能，可協助您的應用程式符合各種安全性與合規需求。
 
 > [!IMPORTANT]
-> Azure SQL Database (所有部署選項) 已通過許多合規性標準的認證。 如需詳細資訊, 請參閱[Microsoft Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), 您可以在此找到最新的 SQL Database 合規性認證清單。
+> Azure SQL Database （所有部署選項）已通過許多合規性標準的認證。 如需詳細資訊，請參閱[Microsoft Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，您可以在此找到最新的 SQL Database 合規性認證清單。
 
 ## <a name="next-steps"></a>後續步驟
 

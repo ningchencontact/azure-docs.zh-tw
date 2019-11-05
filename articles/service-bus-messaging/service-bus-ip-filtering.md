@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704578"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496329"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -24,7 +24,7 @@ ms.locfileid: "64704578"
 
 ## <a name="when-to-use"></a>使用時機
 
-如果想要設定「服務匯流排」，讓它應該只接收來自某個指定範圍 IP 位址的流量，並拒絕所有其他流量，您可以利用「防火牆規則」  封鎖來自其他其他 IP 位址的服務匯流排端點。 例如，您要搭配使用服務匯流排與 [Azure Express Route][express-route]，以建立對內部部署基礎結構的私人連線。 
+如果想要設定「服務匯流排」，讓它應該只接收來自某個指定範圍 IP 位址的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的服務匯流排端點。 例如，您使用服務匯流排搭配[Azure Express Route][express-route]來建立內部部署基礎結構的私人連線。 
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
@@ -51,7 +51,6 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 > - 與 Azure 事件方格的整合
 > - Azure IoT 中樞路由
 > - Azure IoT Device Explorer
-> - Azure 資料總管
 >
 > 虛擬網路上必須有下列 Microsoft 服務
 > - Azure App Service
@@ -60,7 +59,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立虛擬網路和防火牆規則
 
 > [!IMPORTANT]
-> 只有在支援防火牆與虛擬網路**premium**層服務匯流排。
+> 只有**服務匯流排的進**階層才支援防火牆和虛擬網路。
 
 下列 Resource Manager 範本可讓您將虛擬網路規則新增至現有的服務匯流排命名空間。
 
@@ -72,7 +71,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 > 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
-> from
+> 從
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -143,13 +142,13 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
   }
 ```
 
-若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 適用的指示執行。
+若要部署範本，請遵循[Azure Resource Manager][lnk-deploy]的指示。
 
 ## <a name="next-steps"></a>後續步驟
 
 若要將對服務匯流排的存取限定為 Azure 虛擬網路，請參閱下列連結：
 
-- [服務匯流排的虛擬網路服務端點][lnk-vnet]
+- [虛擬網路服務匯流排的服務端點][lnk-vnet]
 
 <!-- Links -->
 

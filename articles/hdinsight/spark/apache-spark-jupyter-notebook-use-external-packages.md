@@ -1,5 +1,5 @@
 ---
-title: 在 Azure HDInsight 上的 Spark 中搭配 Jupyter 使用自訂 Maven 套件
+title: 在 Spark 中搭配 Jupyter 使用自訂 Maven 套件-Azure HDInsight
 description: 說明如何設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用自訂 Maven 套件的逐步指示。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: cd88c85c927c635269d814c20b15f574212e1a6d
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 0cdd962e5d027b5576a0556ca5decb976af45ff1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337678"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494552"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 叢集中搭配 Jupyter Notebook 使用外部封裝
 
@@ -31,7 +31,7 @@ ms.locfileid: "71337678"
 
 您必須滿足以下條件：
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>搭配 Jupyter Notebook 使用外部套件
 
@@ -46,16 +46,16 @@ ms.locfileid: "71337678"
 
 1. 建立新的 Notebook。 按一下 [新增]，然後按一下 [Spark]。
    
-    ![建立新的 Spark Jupyter 筆記本](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "建立新的 Jupyter 筆記本")
+    ![建立新的 Spark Jupyter 筆記本](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "建立新的 Jupyter Notebook")
 
 1. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
    
-    ![提供 Notebook 的名稱](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "提供 Notebook 的名稱")
+    ![提供筆記本的名稱](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "提供 Notebook 的名稱")
 
 1. 您將使用 `%%configure` magic 來設定讓 Notebook 使用外部套件。 在使用外部套件的 Notebook 中，確定您在第一個程式碼單元中呼叫 `%%configure` magic。 這可確保將核心設定為在啟動工作階段之前即使用此套件。
 
     >[!IMPORTANT]  
-    >如果您忘記在第一個單元中設定核心，您可以搭配 `-f` 參數使用 `%%configure`，但這會重新啟動工作階段，而所有進度都將遺失。
+    >如果您忘記在第一個單元中設定核心，您可以搭配 `%%configure` 參數使用 `-f`，但這會重新啟動工作階段，而所有進度都將遺失。
 
     | HDInsight 版本 | 命令 |
     |-------------------|---------|
@@ -66,9 +66,9 @@ ms.locfileid: "71337678"
    
     a. 在「Maven 儲存機制」中找出套件。 在本文中，我們會使用[spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
    
-    b. 從儲存機制收集 [GroupId]、[ArtifactId] 及 [版本] 的值。 確定您收集的值符合您的叢集。 在此案例中，我們使用 Scala 2.10 與 Spark 1.4.0 套件，但您可能必須為叢集中的適當 Scala 或 Spark 版本選取不同的版本。 您可以透過在 Spark Jupyter 核心或 Spark 提交上執行 `scala.util.Properties.versionString` 以查看您叢集上的 Scala 版本。 您可以透過在 Jupyter 筆記本上執行 `sc.version` 以查看您叢集上的 Spark 版本。
+    b.這是另一個 C# 主控台應用程式。 從儲存機制收集 [GroupId]、[ArtifactId] 及 [版本] 的值。 確定您收集的值符合您的叢集。 在此案例中，我們使用 Scala 2.10 與 Spark 1.4.0 套件，但您可能必須為叢集中的適當 Scala 或 Spark 版本選取不同的版本。 您可以透過在 Spark Jupyter 核心或 Spark 提交上執行 `scala.util.Properties.versionString` 以查看您叢集上的 Scala 版本。 您可以透過在 Jupyter 筆記本上執行 `sc.version` 以查看您叢集上的 Spark 版本。
    
-    ![搭配 Jupyter Notebook 使用外部封裝](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "搭配 Jupyter Notebook 使用外部封裝")
+    ![搭配 Jupyter 筆記本使用外部套件](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "搭配 Jupyter Notebook 使用外部套件")
    
     c. 串連三個值，其中以冒號分隔 ( **:** )。
    
@@ -101,13 +101,13 @@ ms.locfileid: "71337678"
 ### <a name="scenarios"></a>案例
 
 * [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 
-* [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
+* [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

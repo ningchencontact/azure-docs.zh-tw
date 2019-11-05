@@ -8,18 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 79a573f6338d0ea3a7c3c0e772f120c34c09b05c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 44ef6fb118be4d1110a693faded6c57bc8b4e2fd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931516"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499948"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>文字分析 API 有哪些新功能？
 
 文字分析 API 會持續更新。 為了讓您隨時掌握最新的開發，這篇文章為您提供新版本和功能的相關資訊。
+
+## <a name="named-entity-recognition-v3-public-preview---october-2019"></a>命名實體辨識 v3 公開預覽-2019 年10月
+
+下一版的命名實體辨識（NER）現已開放公開預覽，並提供在文字中找到之實體的展開偵測和分類。 它提供：
+
+* 識別下列新的實體類型：
+    * 電話號碼
+    * IP 位址
+
+* 識別個人資訊實體類型的新端點（僅限英文版）
+* 實體辨識和實體連結的個別端點。
+
+實體連結支援英文和西班牙文。 NER 語言支援會因實體類型而異。 如需詳細資訊，請參閱下面的連結。 
+
+> [!div class="nextstepaction"]
+> [深入瞭解命名實體辨識 v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>情感分析 v3 公開預覽-2019 年10月
 
@@ -32,7 +48,6 @@ ms.locfileid: "72931516"
 
 > [!div class="nextstepaction"]
 > [深入瞭解情感分析 v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
-
 
 ## <a name="next-steps"></a>後續步驟
 

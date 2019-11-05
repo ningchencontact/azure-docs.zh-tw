@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 972223815810917684f35c4e99f04e1ab5b882c8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492278"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>即將在客戶擁有的網站之間，使用 Hyper-v 和從 SCVMM 管理的網站之間的 DR 淘汰到 Azure
 
@@ -32,13 +32,13 @@ ms.locfileid: "72952117"
 
 - 案例一旦淘汰，除非客戶遵循建議步驟，否則會有下列含意。
 
-    - 由 SCVMM 在客戶擁有的網站之間管理的 Hyper-v Vm 之間的 DR：複寫會繼續運作，因為 Hyper-v 複本的基礎功能仍可繼續運作，但客戶將無法查看、管理或執行 ny DR 相關的作業透過 Azure 入口網站中的 Azure Sire 復原體驗。 
-    - 從 SCVMM 管理的 Hyper-v Vm 至 Azure 的 DR：現有的複寫將會中斷，而且客戶無法透過 Azure Site Recovery 來查看、管理或執行與 DR 相關的作業
+    - 由 SCVMM 在客戶擁有的網站之間管理的 Hyper-v Vm 之間的 DR：複寫將會繼續運作，因為 Hyper-v 複本的基礎功能仍可繼續運作，但客戶將無法查看、管理或執行任何 DR 相關作業透過 Azure 入口網站中的 Azure Sire 復原體驗。 
+    - 由 SCVMM 管理的 Hyper-v Vm 至 Azure 的 DR：現有的複寫將會中斷，而客戶將無法透過 Azure Site Recovery 來查看、管理或執行任何 DR 相關的作業
 
 
 ## <a name="recommended-actions-to-be-taken"></a>建議採取的動作
 
-以下是客戶必須確保在案例淘汰之後，不會影響其 DR 策略的替代選項。 
+以下是當案例已淘汰時，客戶必須確保其 DR 策略不會受到影響的選項。 
 
 - 選擇[開始使用 Azure 做為 hyper-v 主機上 vm 的 DR 目標](hyper-v-azure-tutorial.md)。
 

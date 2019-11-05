@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170694"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485397"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>在 Azure 中使用 Linux 資料科學虛擬機器的資料科學
 
@@ -31,8 +31,8 @@ ms.locfileid: "71170694"
 * **Azure 訂用帳戶**。 若要取得 Azure 訂用帳戶，請[立即建立免費的 azure 帳戶](https://azure.microsoft.com/free/)。
 * [**Linux 資料科學虛擬機器**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm)。 如需布建虛擬機器的相關資訊，請參閱布建[Linux 資料科學虛擬機器](linux-dsvm-intro.md)。
 * [**X2Go**](https://wiki.x2go.org/doku.php)已安裝在您的電腦上，並具有開啟的 XFCE 會話。 如需詳細資訊，請參閱[安裝和設定 X2Go 用戶端](linux-dsvm-intro.md#x2go)。
-* 若要取得更流暢的滾動體驗，請在 DSVM 的 Firefox 網頁流覽`gfx.xrender.enabled`器中`about:config`，切換中的旗標。 [深入了解](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 也請考慮`mousewheel.enable_pixel_scrolling`將`False`設定為。 [深入了解](https://support.mozilla.org/questions/981140)。
-* **Azure Machine Learning 帳戶**。 如果您還沒有帳戶，請在[Azure Machine Learning](https://studio.azureml.net/) 首頁上註冊新的帳戶。 您可以免費試用，協助您開始使用。
+* 若要取得更流暢的滾動體驗，請在 DSVM 的 Firefox 網頁瀏覽器中，切換 `about:config`中的 `gfx.xrender.enabled` 旗標。 [詳細資訊](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 也請考慮將 `mousewheel.enable_pixel_scrolling` 設定為 `False`。 [詳細資訊](https://support.mozilla.org/questions/981140)。
+* **Azure Machine Learning 帳戶**。 如果您還沒有帳戶，請在[Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//) 首頁上註冊新的帳戶。
 
 ## <a name="download-the-spambase-dataset"></a>下載 spambase 資料集
 
@@ -58,8 +58,8 @@ ms.locfileid: "71170694"
 
 此資料集具有每個電子郵件的數種類型的統計資料：
 
-* **單字\_和字組之類的資料行，表示電子郵件中符合單字的單字百分比。\_** 例如，如果**文字\_頻率\_** 為**1**，則會在電子郵件中輸入 1% 的所有文字 *。*
-* 資料行 **（\_例如\_char 頻率 *char*** ）表示電子郵件中所有字元的百分比，也就是*char*。
+* **Word\_頻率\_* word*** 之類的資料行，表示電子郵件中符合*單字*的單字百分比。 例如，如果**word\_的\_頻率**為**1**，則電子郵件中所有單字的1% 都是「已*完成*」。
+* **Char\_頻率\_* char*** 之類的資料行，表示電子郵件中所有字元的百分比，其為*char*。
 * **capital\_run\_length\_longest** 是一連串大寫字母的最長長度。
 * **capital\_run\_length\_average** 是所有連串大寫字母的平均長度。
 * **capital\_run\_length\_total** 是所有連串大寫字母的總長度。
@@ -139,7 +139,7 @@ ms.locfileid: "71170694"
     plot(model.rpart)
     text(model.rpart)
 
-結果如下：
+結果如下︰
 
 ![建立之決策樹的圖表](./media/linux-dsvm-walkthrough/decision-tree.png)
 
@@ -172,11 +172,11 @@ ms.locfileid: "71170694"
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>將模型部署到 Azure Machine Learning Studio
+## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>將模型部署至 Azure Machine Learning Studio （傳統）
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) 是一項雲端服務，可讓您輕鬆地建置和部署預測性分析模型。 Azure Machine Learning Studio 的一項絕佳功能，就是能夠將任何 R 函數發佈為 web 服務。 Azure Machine Learning Studio R 封裝可讓您輕鬆地從 DSVM 上的 R 會話進行部署。
+[Azure Machine Learning Studio （傳統）](https://studio.azureml.net/)是一種雲端服務，可讓您輕鬆地建立及部署預測性分析模型。 傳統版本 Azure Machine Learning Studio 的一項絕佳功能，就是能夠將任何 R 函數發佈為 web 服務。 Azure Machine Learning Studio R 封裝可讓您輕鬆地從 DSVM 上的 R 會話進行部署。
 
-若要部署上一節的決策樹程式碼，請登入 Azure Machine Learning Studio。 您需要工作區識別碼和驗證權杖才能登入。 若要尋找這些值，並使用它們來初始化 Azure Machine Learning 變數，請完成下列步驟：
+若要部署上一節的決策樹程式碼，請登入 Azure Machine Learning Studio （傳統）。 您需要工作區識別碼和驗證權杖才能登入。 若要尋找這些值，並使用它們來初始化 Azure Machine Learning 變數，請完成下列步驟：
 
 1. 在左側功能表中，選取 [**設定**]。 請記下 [**工作區識別碼**] 的值。
 
@@ -229,13 +229,13 @@ ms.locfileid: "71170694"
 
 除了以架構為基礎的範例之外，也提供一組完整的逐步解說。 這些逐步解說有助於您在影像和文字/語言理解之類的領域中，快速開發深度學習應用程式。
 
-- [跨不同架構執行類神經網路](https://github.com/ilkarman/DeepLearningFrameworks)：完整的逐步解說，說明如何將程式碼從一個架構遷移至另一個 framework。 它也會示範如何比較架構之間的模型和執行時間效能。 
+- [跨不同](https://github.com/ilkarman/DeepLearningFrameworks)的架構執行類神經網路：說明如何將程式碼從一個架構遷移至另一個 framework 的完整逐步解說。 它也會示範如何比較架構之間的模型和執行時間效能。 
 
-- [建立端對端解決方案以偵測影像中產品](https://github.com/Azure/cortana-intelligence-product-detection-from-images)的操作指南：影像偵測是一種可在影像內找出並分類物體的技術。 這項技術可能會在許多真實生活的商業領域中帶來巨大的報酬。 例如，零售商可以利用這項技術來判斷客戶從貨架上挑選什麼產品。 這項資訊進而有助於商店管理產品庫存。 
+- [建立端對端解決方案以在影像中偵測產品](https://github.com/Azure/cortana-intelligence-product-detection-from-images)的操作指南：影像偵測是一種可在影像內找出和分類物件的技術。 這項技術可能會在許多真實生活的商業領域中帶來巨大的報酬。 例如，零售商可以利用這項技術來判斷客戶從貨架上挑選什麼產品。 這項資訊進而有助於商店管理產品庫存。 
 
-- [適用于音訊的深度學習](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/)：本教學課程示範如何在「市內音效」[資料集](https://urbansounddataset.weebly.com/)上，針對音訊事件偵測訓練深度學習模型。 本教學課程提供如何使用音訊資料的總覽。
+- [適用于音訊的深度學習](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/)：本教學課程示範如何在「市內音效」[資料集](https://urbansounddataset.weebly.com/)上訓練深入學習模型以進行音訊事件偵測。 本教學課程提供如何使用音訊資料的總覽。
 
-- [更文字文件的分類](https://github.com/anargyri/lstm_han)：此逐步解說將示範如何建置和定型兩種不同的類神經網路架構：階層式注意網路和長短期記憶體（LSTM）。 這些類神經網路會使用深入學習的 Keras API 將文字文件分類。 Keras 是三個最受歡迎深度學習架構的前端：Microsoft Cognitive Toolkit、TensorFlow 和 Theano。
+- [文字檔分類](https://github.com/anargyri/lstm_han)：本逐步解說示範如何建立和定型兩個不同的類神經網路架構：階層式注意網路和長短期記憶體（LSTM）。 這些類神經網路會使用深入學習的 Keras API 將文字文件分類。 Keras 是三個最受歡迎深度學習架構的前端：Microsoft Cognitive Toolkit、TensorFlow 和 Theano。
 
 ## <a name="other-tools"></a>其他工具
 
@@ -325,14 +325,14 @@ XGBoost 也可以從 Python 或命令列呼叫。
 DSVM 中的 Anaconda 散發隨附 Jupyter Notebook，這是一種跨平臺環境，可用於共用 Python、R 或 Julia 程式碼和分析。 Jupyter Notebook 是透過 JupyterHub 來存取。 您可以在 HTTPs://\<DSVM DNS 名稱或 IP 位址\>： 8000/使用本機 Linux 使用者名稱和密碼登入。 JupyterHub 的所有設定檔都可以在/etc/jupyterhub. 中找到
 
 > [!NOTE]
-> 若要從目前核心中的 Jupyter Notebook 使用`pip` Python 套件管理員（透過命令），請在程式碼單元中使用此命令：
+> 若要從目前核心中的 Jupyter Notebook 使用 Python 套件管理員（透過 `pip` 命令），請在程式碼單元中使用此命令：
 >
 >   ```python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> 若要從目前核心中的 Jupyter Notebook `conda`使用 Conda 安裝程式（透過命令），請在程式碼資料格中使用此命令：
+> 若要從目前核心中的 Jupyter Notebook 使用 Conda 安裝程式（透過 `conda` 命令），請在程式碼資料格中使用此命令：
 >
 >   ```python
 >    import sys
@@ -352,7 +352,7 @@ DSVM 上已安裝數個範例筆記本：
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html)（*R* *A*nalytical *t*ool *t*o *L*贏得*E*asily）是一種用於資料採礦的圖形化 R 工具。 Rattle 具有直覺的介面，可讓您輕鬆地載入、流覽和轉換資料，以及建立和評估模型。 [Rattle適用于 R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)的資料採礦 GUI 提供了示範 Rattle 功能的逐步解說。
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) （*r* *A*nalytical *t*ool *t*o *L*贏得*E*asily）是用於資料採礦的圖形化 R 工具。 Rattle 具有直覺的介面，可讓您輕鬆地載入、流覽和轉換資料，以及建立和評估模型。 [Rattle：適用于 R 的資料採礦 GUI](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)提供了示範 Rattle 功能的逐步解說。
 
 執行下列命令來安裝和啟動 Rattle：
 
@@ -375,13 +375,13 @@ Rattle 使用索引標籤式介面。 大部分的索引標籤會對應至[Team 
 若要瀏覽資料︰
 
 1. 選取 [瀏覽] 索引標籤。
-1. 若要查看變數類型和某些摘要統計資料的相關資訊，請選取 [**摘要** > ] [**執行**]。
+1. 若要查看變數類型和某些摘要統計資料的相關資訊，請選取 **摘要** > **執行**。
 1. 若要查看有關每個變數的其他類型統計資料，請選取其他選項，例如 [**描述**] 或 [**基本**]。
 
 您也可以使用 [**流覽**] 索引標籤來產生更具洞察力的繪圖。 若要繪製資料的長條圖︰
 
 1. 選取 [分佈]。
-1. 針對 [ **word_freq_remove** ] 和 [ **word_freq_you**]，選取 [**長條圖**]。
+1. 針對**word_freq_remove**和**word_freq_you**，請選取 [**長條圖**]。
 1. 選取 [執行]。 您應該會在單一圖形視窗中看到這兩個密度圖，這表示_您_在電子郵件中顯示的文字比 [_移除_] 更為頻繁。
 
 相互**關聯**繪圖也很有趣。 若要建立繪圖：
@@ -409,7 +409,7 @@ Rattle 也可以執行叢集分析。 讓我們排除部分功能以讓輸出更
 * word_freq_business
 * spam
 
-返回**叢集** 索引標籤。選取  **kmeans**，然後將 **群集數目** 設定為**4**。 選取 [執行]。 結果會顯示在輸出視窗中。 一個叢集的_george_和_hp_頻率很高，而且可能是合法的商務電子郵件。
+返回**叢集** 索引標籤。選取  **kmeans**，然後將 叢集**數目** 設定為**4**。 選取 [執行]。 結果會顯示在輸出視窗中。 一個叢集的_george_和_hp_頻率很高，而且可能是合法的商務電子郵件。
 
 若要建立基本的決策樹機器學習模型：
 
@@ -423,12 +423,12 @@ Rattle 有一個很有用的功能，就是能夠執行數個機器學習方法�
 1. 針對 [**類型**]，選取 [**全部**]。
 1. 選取 [執行]。
 1. 當 Rattle 執行完成時，您可以選取任何**類型**值（例如**SVM**），並查看結果。
-1. 您也可以使用 [**評估**] 索引標籤比較驗證集上模型的效能。例如，[錯誤矩陣] 選取項目會顯示驗證集上每個模型的混淆矩陣、整體錯誤和平均類別錯誤。 您也可以繪製 ROC 曲線、執行敏感度分析，以及執行其他類型的模型評估。
+1. 您也可以使用 [**評估**] 索引標籤比較驗證集上模型的效能。例如，[**錯誤矩陣**] 選取專案會顯示驗證集上每個模型的混淆矩陣、整體錯誤和平均類別錯誤。 您也可以繪製 ROC 曲線、執行敏感度分析，以及執行其他類型的模型評估。
 
 當您完成建立模型時，請選取 [**記錄**] 索引標籤，以查看 Rattle 在會話期間執行的 R 程式碼。 您可以選取 [匯出] 按鈕來加以儲存。
 
 > [!NOTE]
-> 目前的 Rattle 版本包含 bug。 若要修改腳本或使用它在稍後重複執行步驟，您必須在記錄檔 **#** 文字中的 [*匯出此記錄檔 ...* ] 前面插入一個字元。
+> 目前的 Rattle 版本包含 bug。 若要修改腳本或使用它在稍後重複執行步驟，您必須在記錄檔文字中的 [*匯出此記錄檔 ...* ] 前面插入 **#** 字元。
 
 ### <a name="postgresql-and-squirrel-sql"></a>于 postgresql 和 SQuirreL SQL
 
@@ -483,17 +483,17 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 
 若要開始使用，請在 [**應用程式**] 功能表上，開啟 [SQuirreL SQL]。 若要設定驅動程式︰
 
-1. 選取 [ **Windows**  >  **View 驅動程式**]。
+1. 選取 [ **Windows** > **View 驅動程式**]。
 1. 以滑鼠右鍵按一下 [**于 postgresql** ]，然後選取 [**修改驅動程式**]。
-1. 選取 [**額外類別路徑** > ] [**新增**]。
+1. 選取 **額外類別路徑** > **新增**。
 1. 針對 [**檔案名**]，輸入 **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar 做**。
 1. 選取 [開啟]。
 1. 選取 [**列出驅動程式**]。 在 [**類別名稱**] 中，選取 [**于 postgresql**]，然後選取 **[確定]** 。
 
 若要設定與本機伺服器的連線︰
 
-1. 選取 [ **Windows**  >  **View 別名]。**
-1. 選取 [ **+** ] 按鈕以建立新的別名。 針對新的別名名稱，輸入**垃圾郵件資料庫**。 
+1. 選取 [ **Windows** > **View 別名]。**
+1. 選取 [ **+** ] 按鈕，以建立新的別名。 針對新的別名名稱，輸入**垃圾郵件資料庫**。 
 1. 針對 [**驅動程式**]，選取 [**于 postgresql**]。
 1. 將 URL 設定為 **jdbc:postgresql://localhost/spam**。
 1. 輸入您的使用者名稱和密碼。
@@ -504,7 +504,7 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 若要執行一些查詢︰
 
 1. 選取 [SQL] 索引標籤。
-1. 在 [ **SQL** ] 索引標籤頂端的 [查詢] 方塊中，輸入基本查詢`SELECT * from data;`，例如。
+1. 在 [ **SQL** ] 索引標籤頂端的 [查詢] 方塊中，輸入基本查詢，例如 `SELECT * from data;`。
 1. 按 Ctrl + Enter 執行查詢。 根據預設，SQuirreL SQL 會從您的查詢傳回前100個數據列。
 
 還有許多查詢可供您執行，以探索此資料。 例如，「make」 一字在垃圾郵件和非垃圾郵件之間的出現頻率有何差異？

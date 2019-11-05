@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 Apache Hadoop 遷移至 Azure HDInsight 動機和優點
+title: 優點：將內部部署 Apache Hadoop 遷移至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的動機和優點。
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718368"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494932"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 動機和優點
 
@@ -53,7 +53,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 
 - **使用自訂工具或協力廠商應用程式的擴充性** - HDInsight 叢集可以使用安裝的元件來擴充，並從 Azure Marketplace 使用[單鍵](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 部署來與其他巨量資料解決方案整合。
 
-- **輕鬆管理、管理和監視**-Azure HDInsight 與 [Azure 監視器記錄](../hdinsight-hadoop-oms-log-analytics-tutorial.md)整合  to 提供單一介面，讓您可以監視所有的叢集。
+- **輕鬆管理、管理和監視**-Azure HDInsight 與 [Azure 監視器記錄](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 整合，以提供單一介面讓您監視所有叢集。
 
 - **與其他 Azure 服務整合** - HDInsight 可輕鬆地與其他熱門 Azure 服務整合，如下列服務：
 
@@ -112,7 +112,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |HDFS 存取控制|  手動、ssh 使用者|
 |Hive 驗證與授權|Sentry、LDAP、AD 搭配 Kerberos、Ranger|
 |稽核|Ambari、Cloudera Navigator、Ranger|
-|監視|Graphite、collectd、statsd、Telegraf、InfluxDB|
+|監控|Graphite、collectd、statsd、Telegraf、InfluxDB|
 |警示|Kapacitor、Prometheus、Datadog|
 |資料保留期間| 3 年、5 年|
 |叢集系統管理員|單一系統管理員、多個系統管理員|
@@ -128,8 +128,8 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |Spark 串流作業|5 個作業 -- 每 3 分鐘||
 |結構化串流作業|5 個工作 -- 每分鐘||
 |ML 模型定型作業|2 個工作 -- 每週一次||
-|程式語言：|Python、Scala、Java||
-|指令碼處理|殼層、Python||
+|程式設計語言|Python、Scala、Java||
+|指令碼|殼層、Python||
 |**主題**：**資料**|||
 |資料來源|一般檔案、Json、Kafka、RDBMS||
 |資料協調流程|Oozie 工作流程、Airflow||
@@ -141,7 +141,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |Hive 資料表的數目|100||
 |Ranger 原則的數目|20||
 |Oozie 工作流程的數目|100||
-|**主題**：**縮放**|||
+|**主題**：**調整**|||
 |包含複寫的資料磁碟區|100 TB||
 |每日擷取量|50 GB||
 |資料成長率|每年 10%||
@@ -151,11 +151,11 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |平均記憶體使用量 %|75%||
 |磁碟空間使用量|75%||
 |平均網路使用量 %|25%
-|**主題**：**人員**|||
+|**主題**：**員工**|||
 |系統管理員數目|2||
 |開發人員人數|10||
 |終端使用者數目|100||
-|技能|Hadoop、Spark||
+|技術|Hadoop、Spark||
 |適用于遷移工作的可用資源數目|2||
 |**主題**：**限制**|||
 |目前的限制|高延遲||
@@ -163,20 +163,20 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 需求問卷
 
-|**主題**：基礎結構 |||
+|**主題**：**基礎結構** |||
 |---|---|---|
 |**問題**|**範例**|**回答**|
 | 慣用區域|美國東部||
 |是否慣用 VNet？|是||
 |是否需要 HA / DR？|是||
 |是否與其他雲端服務整合？|ADF、CosmosDB||
-|**主題**： **資料移動**  |||
+|**主題**：**資料移動**  |||
 |初始載入喜好設定|DistCp、Data box、ADF、WANDisco||
 |資料傳輸差異|DistCp、AzCopy||
 |持續增量的資料傳輸|DistCp、Sqoop||
-|**主題**： **監視與警示** |||
+|**主題**：**監視與警示** |||
 |使用 Azure 監視器與警示或整合協力廠商監視|使用 Azure 監視器與警示||
-|**主題**： **安全性喜好設定** |||
+|**主題**：**安全性喜好設定** |||
 |私人且受保護的資料管線？|是||
 |是否使用網域加入叢集 (ESP)？|     是||
 |是否將內部部署 AD 同步處理至雲端？|     是||
@@ -189,7 +189,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |是否需要稽核？|                  是||
 |是否使用待用資料加密？|          是||
 |是否使用傳輸中資料加密？|       是||
-|**主題**： **架構重新設計喜好設定** |||
+|**主題**：**架構重新設計喜好設定** |||
 |單一叢集或特定叢集類型|特定叢集類型||
 |共置儲存體或遠端儲存體？|遠端儲存體||
 |是否因資料儲存在遠端，所以叢集大小較小？|較小的叢集大小||

@@ -1,5 +1,5 @@
 ---
-title: MLOps管理、部署、& 監視 ML 模型
+title: MLOps：管理、部署 & 監視 ML 模型
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Azure Machine Learning MLOps：部署、管理及監視模型，以持續改進它們。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 06/24/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98a3102d47504b40a6b62eb329b508468947ca79
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035472"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497436"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps使用 Azure Machine Learning 管理、部署和監視模型
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 來管理、部署及監視模型
 
 在本文中，您將瞭解如何使用 Azure Machine Learning 來管理模型的生命週期。 Azure Machine Learning 使用 Machine Learning 作業（MLOps）方法，可改善機器學習解決方案的品質和一致性。 
 
@@ -45,7 +45,7 @@ Azure Machine Learning 提供下列 MLOps 功能：
 模型註冊可讓您在 Azure 雲端自己的工作區中儲存模型和控制模型版本。 模型註冊可讓您更輕鬆地組織和追蹤已定型模型。
 
 > [!TIP]
-> 已註冊的模型是組成模型的一或多個檔案的邏輯容器。 例如, 如果您的模型儲存在多個檔案中, 您可以將它們註冊為 Azure Machine Learning 工作區中的單一模型。 註冊之後, 您就可以下載或部署已註冊的模型, 並接收所有已註冊的檔案。
+> 已註冊的模型是組成模型的一或多個檔案的邏輯容器。 例如，如果您的模型儲存在多個檔案中，您可以將它們註冊為 Azure Machine Learning 工作區中的單一模型。 註冊之後，您就可以下載或部署已註冊的模型，並接收所有已註冊的檔案。
  
 已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 支援可使用 Python 3.5.2 或更高版本載入的任何模型。
 
@@ -90,7 +90,7 @@ Azure Machine Learning 可以流量分析來判斷部署模型時所要使用的
 
 * 啟用 GPU：用來啟用 Docker 映射中的 GPU 支援。 映射必須用於 Microsoft Azure 服務，例如 Azure 容器實例、Azure Kubernetes Service、Azure Machine Learning 計算或 Azure 虛擬機器。
 * 額外的 docker 檔案步驟：檔案，其中包含建立 Docker 映射時要執行的其他 Docker 步驟。
-* 基底映射：要當做基底映射使用的自訂映射。 如果您未使用自訂映射，則 Azure Machine Learning 會提供基底映射。
+* 基底映射：作為基底映射使用的自訂映射。 如果您未使用自訂映射，則 Azure Machine Learning 會提供基底映射。
 
 您也會提供目標部署平臺的設定。 例如，VM 系列類型、可用記憶體，以及部署到 Azure Kubernetes Service 時的核心數目。
 
@@ -157,7 +157,7 @@ Azure ML 讓您能夠追蹤所有 ML 資產的端對端審核記錄。 具體而
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[您可以使用 Azure Machine Learning 部署模型的方式和位置](how-to-deploy-and-where.md)。 如需部署的範例，請[參閱教學課程：在 Azure 容器實例](tutorial-deploy-models-with-aml.md)中部署映射分類模型。
+深入瞭解[您可以使用 Azure Machine Learning 部署模型的方式和位置](how-to-deploy-and-where.md)。 如需部署的範例，請參閱[教學課程：在 Azure 容器實例中部署映射分類模型](tutorial-deploy-models-with-aml.md)。
 
 瞭解如何[使用 Azure Pipelines 建立 ML 模型的持續整合和部署](/azure/devops/pipelines/targets/azure-machine-learning)。 
 

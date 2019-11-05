@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387719"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486188"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>針對 Azure Data Factory 資料流程進行疑難排解
 
@@ -68,6 +68,14 @@ ms.locfileid: "72387719"
 
 - **解決**方式：變更您嘗試建立之資料表的名稱
 
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>錯誤訊息： DF-SYS-01： SQLServerException：字串或二進位資料會被截斷。 
+
+- **徵兆**：將資料寫入至 SQL 接收器時，您的資料流程會在管線執行時失敗，並出現可能的截斷錯誤。
+
+- **原因**：資料流程中的欄位對應到 SQL 資料庫中的資料行不足以儲存值，導致 SQL 驅動程式擲回此錯誤
+
+- **解決**方式：您可以使用衍生資料行中的 ```left()```，或實作為「錯誤資料列」模式，來減少字串資料行的資料長度[。](how-to-data-flow-error-rows.md)
+
 ## <a name="general-troubleshooting-guidance"></a>一般疑難排解指引
 
 1. 檢查資料集連接的狀態。 在每個「來源」和「接收」轉換中，流覽您所使用之每個資料集的連結服務，並測試連接。
@@ -78,7 +86,7 @@ ms.locfileid: "72387719"
 
 如需更多疑難排解協助，請嘗試下列資源：
 
-*  [Data Factory 的 blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory 部落格](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 功能要求](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 影片](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

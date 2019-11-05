@@ -1,5 +1,5 @@
 ---
-title: 在 HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點 - Azure
+title: 在 Azure HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點
 description: 如何將空白邊緣節點新增至可作為用戶端的 HDInsight 叢集，然後測試/主控 HDInsight 應用程式。
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: a669c6fe0ffd6ff1c4d4613a91074edfe9fa87e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b39d30248e9aedc82b5da1e479a383e0c9bfbdc4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162649"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498012"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點
 
@@ -68,7 +68,7 @@ ms.locfileid: "73162649"
 > Ubuntu 映像在發行後的 3 個月內就會變成可用於建立新的 HDInsight 叢集。 截至 2019 年 1 月為止，執行中的叢集 (包括邊緣節點) 都**不會**自動修補。 客戶必須使用指令碼動作或其他機制修補執行中的叢集。  如需詳細資訊，請參閱 [HDInsight 的作業系統修補](./hdinsight-os-patching.md)。
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>將邊緣節點新增至現有叢集
-在本節中，您會使用 Resource Manager 範本將邊緣節點新增至現有 HDInsight 叢集。  Resource Manager 範本可在 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/)中找到。 Resource Manager 範本會呼叫位於 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh 的腳本動作。腳本不會執行任何動作。  其目的只是為了示範從 Resource Manager 範本呼叫指令碼動作。
+在本節中，您會使用 Resource Manager 範本將邊緣節點新增至現有 HDInsight 叢集。  Resource Manager 範本可在 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/)中找到。 Resource Manager 範本會呼叫位於 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh的腳本動作。腳本不會執行任何動作。  其目的只是為了示範從 Resource Manager 範本呼叫指令碼動作。
 
 **將空白邊緣節點新增至現有叢集**
 
@@ -90,7 +90,7 @@ ms.locfileid: "73162649"
 > 請務必選取用於現有 HDInsight 叢集的 Azure 資源群組。  否則，您會收到錯誤訊息：「無法對巢狀資源執行所要求的作業。 找不到父資源 '&lt;叢集名稱>'」。
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>在建立叢集時新增邊緣節點
-在本節中，您會使用 Resource Manager 範本對邊緣節點建立 HDInsight 叢集。  您可以在[Azure 快速入門範本資源庫](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/)中找到 Resource Manager 範本。 Resource Manager 範本會呼叫位於 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh 的腳本動作。腳本不會執行任何動作。  其目的只是為了示範從 Resource Manager 範本呼叫指令碼動作。
+在本節中，您會使用 Resource Manager 範本對邊緣節點建立 HDInsight 叢集。  您可以在[Azure 快速入門範本資源庫](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/)中找到 Resource Manager 範本。 Resource Manager 範本會呼叫位於 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh的腳本動作。腳本不會執行任何動作。  其目的只是為了示範從 Resource Manager 範本呼叫指令碼動作。
 
 **使用邊緣節點建立 HDInsight 叢集**
 

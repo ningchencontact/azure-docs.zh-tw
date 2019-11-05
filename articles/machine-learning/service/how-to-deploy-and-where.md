@@ -11,14 +11,15 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a5674658fa237e44c7caea45c8f6d587a471b981
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
-ms.translationtype: MT
+ms.openlocfilehash: 856f00b17a5ee994f8864c5d46ce4d796d68d367
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595646"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497020"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 瞭解如何將您的機器學習模型部署為 Azure 雲端中的 web 服務，或 Azure IoT Edge 裝置。
 
@@ -87,7 +88,7 @@ ms.locfileid: "72595646"
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    @No__t_0 參數會參考模型的雲端位置。 在此範例中，會使用單一檔案的路徑。 若要在模型註冊中包含多個檔案，請將 `model_path` 設定為包含檔案的資料夾路徑。 如需詳細資訊，請參閱[register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-)檔。
+    `model_path` 參數會參考模型的雲端位置。 在此範例中，會使用單一檔案的路徑。 若要在模型註冊中包含多個檔案，請將 `model_path` 設定為包含檔案的資料夾路徑。 如需詳細資訊，請參閱[Run. register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-)檔。
 
   + 從 `azureml.train.automl.run.AutoMLRun` 物件註冊模型：
 
@@ -100,7 +101,7 @@ ms.locfileid: "72595646"
 
     在此範例中，未指定 `metric` 和 `iteration` 參數，因此將會註冊具有最佳主要度量的反復專案。 會使用從執行傳回的 `model_id` 值，而不是模型名稱。
 
-    如需詳細資訊，請參閱[AutoMLRun. register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-)檔。
+    如需詳細資訊，請參閱[AutoMLRun。 register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-)檔。
 
 + **使用 CLI**
 
@@ -110,7 +111,7 @@ ms.locfileid: "72595646"
 
   [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
-  @No__t_0 參數會參考模型的雲端位置。 在此範例中，會使用單一檔案的路徑。 若要在模型註冊中包含多個檔案，請將 `--asset-path` 設定為包含檔案的資料夾路徑。
+  `--asset-path` 參數會參考模型的雲端位置。 在此範例中，會使用單一檔案的路徑。 若要在模型註冊中包含多個檔案，請將 `--asset-path` 設定為包含檔案的資料夾路徑。
 
 + **使用 VS Code**
 
@@ -207,7 +208,7 @@ AZUREML_MODEL_DIR 是在服務部署期間建立的環境變數。 您可以使�
 
 下表描述 AZUREML_MODEL_DIR 的值，視部署的模型數目而定：
 
-| Deployment | 環境變數值 |
+| 部署 | 環境變數值 |
 | ----- | ----- |
 | 單一模型 | 包含模型的資料夾路徑。 |
 | 多個模型 | 包含所有模型之資料夾的路徑。 模型是以名稱和版本在此資料夾中找到（`$MODEL_NAME/$VERSION`） |
@@ -227,14 +228,14 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklea
 
 ##### <a name="get_model_path"></a>get_model_path
 
-當您註冊模型時，您會提供用來在登錄中管理模型的模型名稱。 您會將此名稱與[模型搭配使用。 get _model_path （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)方法可在本機檔案系統上取出模型檔案的路徑。 如果您註冊資料夾或檔案集合，此 API 會傳回包含這些檔案的目錄路徑。
+當您註冊模型時，您會提供用來在登錄中管理模型的模型名稱。 您可以使用此名稱搭配[Model. get_model_path （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)方法來抓取模型檔案的路徑或本機檔案系統上的檔案。 如果您註冊資料夾或檔案集合，此 API 會傳回包含這些檔案的目錄路徑。
 
 當您註冊模型時，會為它命名。 名稱會對應至模型的放置位置，不論是在本機或在服務部署期間。
 
 > [!IMPORTANT]
 > 如果您使用自動化機器學習來定型模型，則會使用 `model_id` 值做為模型名稱。 如需註冊和部署使用自動化機器學習服務定型之模型的範例，請參閱 GitHub 上的[Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) 。
 
-下列範例會傳回名為 `sklearn_mnist_model.pkl` 的單一檔案路徑（以 `sklearn_mnist` 的名稱註冊）：
+下列範例會傳回名為 `sklearn_mnist_model.pkl` 的單一檔案路徑（以 `sklearn_mnist`的名稱註冊）：
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
@@ -416,7 +417,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> @No__t_0 類別是在 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
+> `AMLRequest` 類別是在 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
 >
 > 如果您需要在本機開發環境中測試此項，您可以使用下列命令來安裝元件：
 >
@@ -462,7 +463,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> @No__t_0 類別是在 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
+> `AMLResponse` 類別是在 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
 >
 > 如果您需要在本機開發環境中測試此項，您可以使用下列命令來安裝元件：
 >
@@ -529,11 +530,11 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 | 計算目標 | 部署設定範例 |
 | ----- | ----- |
-| 地方 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure 容器執行個體 | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| 本機 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-本機、Azure 容器實例和 AKS web 服務的類別可以從 `azureml.core.webservice` 匯入：
+本機、Azure 容器實例和 AKS web 服務的類別可以從 `azureml.core.webservice`匯入：
 
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
@@ -607,9 +608,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy)檔。
 
-### <a id="notebookvm"></a>筆記本 VM web 服務（開發/測試）
+### <a id="notebookvm"></a>計算實例 web 服務（開發/測試）
 
-請參閱[將模型部署至筆記本 vm](how-to-deploy-local-container-notebook-vm.md)。
+請參閱[將模型部署到 Azure Machine Learning 計算實例](how-to-deploy-local-container-notebook-vm.md)。
 
 ### <a id="aci"></a>Azure 容器實例（開發/測試）
 
@@ -626,7 +627,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 如果您已啟用服務的權杖驗證，則需要提供 Azure Machine Learning JWT 權杖做為要求標頭中的持有人權杖。
 
 > [!TIP]
-> 您可以在部署服務之後，取得架構 JSON 檔。 從已部署的 web 服務使用[swagger_uri 屬性](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri)（例如 `service.swagger_uri`），以取得本機 Web 服務 swagger 檔案的 uri。
+> 您可以在部署服務之後，取得架構 JSON 檔。 使用已部署 web 服務（例如 `service.swagger_uri`）中的 [ [swagger_uri] 屬性](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri)，以取得本機 web 服務之 swagger 檔案的 uri。
 
 ### <a name="request-response-consumption"></a>要求-回應耗用量
 
@@ -825,7 +826,7 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 建立和管理
 
 1. 使用服務連線來設定與您 Azure Machine Learning 工作區的服務主體連線，以便您可以存取您的構件。 移至 專案設定，選取 **服務連接**，然後選取  **Azure Resource Manager**：
 
-    [![Select Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
+    [![選取 Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
 1. 在 [**範圍層級**] 清單中，選取 [ **AzureMLWorkspace**]，然後輸入其餘的值：
 
@@ -833,11 +834,11 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 建立和管理
 
 1. 若要使用 Azure Pipelines 持續部署機器學習模型，請在 [管線] 底下，選取 [**發行**]。 新增 [成品]，然後選取 [ **AzureML 模型**成品] 和您稍早建立的服務連接。 選取要觸發部署的模型和版本：
 
-    [![Select AzureML 模型](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
+    [![選取 AzureML 模型](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. 在您的模型成品上啟用模型觸發程式。 當您開啟觸發程式時，每次在工作區中註冊該模型的指定版本（也就是最新版本）時，就會觸發 Azure DevOps 發行管線。
 
-    [![Enable 模型觸發程式](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
+    [![啟用模型觸發程式](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 如需更多範例專案和範例，請參閱 GitHub 中的下列範例存放庫：
 
@@ -886,7 +887,7 @@ package.wait_for_creation(show_output=True)
 
 建立封裝之後，您可以使用 `package.pull()` 將映射提取到您的本機 Docker 環境。 此命令的輸出會顯示映射的名稱。 例如： 
 
-`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`答案中所述步驟，工作帳戶即會啟用。 
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`。 
 
 下載模型之後，請使用 `docker images` 命令來列出本機映射：
 
@@ -901,11 +902,11 @@ myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd       
 docker run -p 6789:5001 --name mycontainer <imageid>
 ```
 
-此命令會啟動名為 `myimage` 之映射的最新版本。 它會將本機埠6789對應至 web 服務所接聽之容器中的埠（5001）。 它也會將名稱 `mycontainer` 指派給容器，讓容器更容易停止。 啟動容器之後，您可以將要求提交至 `http://localhost:6789/score`。
+此命令會啟動名為 `myimage`之映射的最新版本。 它會將本機埠6789對應至 web 服務所接聽之容器中的埠（5001）。 它也會將名稱 `mycontainer` 指派給容器，讓容器更容易停止。 啟動容器之後，您可以將要求提交至 `http://localhost:6789/score`。
 
 ### <a name="generate-a-dockerfile-and-dependencies"></a>產生 Dockerfile 和相依性
 
-下列範例示範如何下載 Dockerfile、模型和其他在本機建立映射所需的資產。 @No__t_0 參數表示您想要檔案，而不是完整建立的映射。
+下列範例示範如何下載 Dockerfile、模型和其他在本機建立映射所需的資產。 `generate_dockerfile=True` 參數表示您想要檔案，而不是完整建立的映射。
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
@@ -921,7 +922,7 @@ print("Password:", acr.password)
 
 此程式碼會將建立映射所需的檔案下載到 `imagefiles` 目錄。 儲存檔案中所包含的 Dockerfile 會參考存放在 Azure container registry 中的基底映射。 當您在本機 Docker 安裝上建立映射時，您必須使用位址、使用者名稱和密碼來向登錄進行驗證。 使用下列步驟，使用本機 Docker 安裝來建立映射：
 
-1. 在 shell 或命令列會話中，使用下列命令來向 Azure container registry 驗證 Docker。 以 `package.get_container_registry()` 所抓取的值取代 `<address>`、`<username>` 和 `<password>`。
+1. 在 shell 或命令列會話中，使用下列命令來向 Azure container registry 驗證 Docker。 以 `package.get_container_registry()`所抓取的值取代 `<address>`、`<username>`和 `<password>`。
 
     ```bash
     docker login <address> -u <username> -p <password>
@@ -949,7 +950,7 @@ myimage         latest              739f22498d64        3 minutes ago       1.43
 docker run -p 6789:5001 --name mycontainer myimage:latest
 ```
 
-此命令會啟動名為 `myimage` 之映射的最新版本。 它會將本機埠6789對應至 web 服務所接聽之容器中的埠（5001）。 它也會將名稱 `mycontainer` 指派給容器，讓容器更容易停止。 啟動容器之後，您可以將要求提交至 `http://localhost:6789/score`。
+此命令會啟動名為 `myimage`之映射的最新版本。 它會將本機埠6789對應至 web 服務所接聽之容器中的埠（5001）。 它也會將名稱 `mycontainer` 指派給容器，讓容器更容易停止。 啟動容器之後，您可以將要求提交至 `http://localhost:6789/score`。
 
 ### <a name="example-client-to-test-the-local-container"></a>測試本機容器的範例用戶端
 
@@ -996,6 +997,70 @@ docker kill mycontainer
 若要刪除已註冊的模型，請使用 `model.delete()`。
 
 如需詳細資訊，請參閱[WebService. delete （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)和[Model. delete （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)的檔。
+
+## <a name="preview-no-code-model-deployment"></a>預覽無程式碼模型部署
+無程式碼模型部署目前為預覽狀態，並支援下列機器學習架構：
+
+### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 格式
+```
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='flowers',                        # Name of the registered model in your workspace.
+                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
+                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
+                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
+                       description='Flowers model')
+
+service_name = 'tensorflow-flower-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="onnx-models"></a>ONNX 模型
+任何 ONNX 推斷圖形都支援 ONNX 模型註冊和部署。 目前不支援前置處理和 postprocess 步驟。
+
+以下是如何註冊和部署 MNIST ONNX 模型的範例：
+```
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
+                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
+                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
+                       model_framework_version='1.3',              # Version of ONNX used to create the model.
+                       description='Onnx MNIST model')
+
+service_name = 'onnx-mnist-service'
+service = Model.deploy(ws, service_name, [model])
+```
+### <a name="scikit-learn-models"></a>Scikit-learn-學習模型
+所有內建的 scikit-learn-學習模型類型都不支援任何程式碼模型部署。
+
+以下範例示範如何註冊和部署 sklearn 模型，而不需要額外的程式碼：
+```
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = Model.register(workspace=ws,
+                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
+                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
+                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
+                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
+                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
+                       description='Ridge regression model to predict diabetes progression.',
+                       tags={'area': 'diabetes', 'type': 'regression'})
+                       
+service_name = 'my-sklearn-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+注意：這些相依性會包含在預先建立的 sklearn 推斷容器中：
+```
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
 
 ## <a name="next-steps"></a>後續步驟
 * [如何使用自訂 Docker 映射部署模型](how-to-deploy-custom-docker-image.md)

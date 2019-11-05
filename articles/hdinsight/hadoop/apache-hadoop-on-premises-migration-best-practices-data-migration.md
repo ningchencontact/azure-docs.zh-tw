@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 資料移轉
+title: 資料移轉：內部部署 Apache Hadoop 至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集移轉到 Azure HDInsight 的資料移轉最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,23 +8,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 30f7ae2eeb928e3f8dc71baed20d9c9b2129d1f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735919"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494996"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉到 Azure HDInsight - 資料移轉最佳做法
 
-本文提供將資料移轉至 Azure HDInsight 的建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
+本文提供將資料移轉至 Azure HDInsight 的建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
 
 ## <a name="migrate-on-premises-data-to-azure"></a>將內部部署的資料移轉到 Azure
 
 若要將資料從內部部署移轉到 Azure 環境，有兩個主要選項：
 
 1.  使用 TLS 透過網路傳輸資料
-    1. 透過網際網路 - 您可以使用以下其中一項工具來透過一般的網際網路連線，將資料傳輸到 Azure 儲存體：Azure 儲存體總管、AzCopy、Azure Powershell 和 Azure CLI。  如需詳細資訊，請參閱[移動資料進出 Azure 儲存體](../../storage/common/storage-moving-data.md)。
+    1. 透過網際網路 - 您可以使用其中一項工具 (例如 Azure 儲存體總管、AzCopy、Azure Powershell 和 Azure CLI) 來透過一般的網際網路連線，將資料傳輸到 Azure 儲存體。  如需詳細資訊，請參閱[移動資料進出 Azure 儲存體](../../storage/common/storage-moving-data.md)。
     2. ExpressRoute - Express Route 是一項 Azure 服務，可讓您在 Microsoft 資料中心和內部部署或共置設施中的基礎結構之間建立私人連線。 ExpressRoute 連線不會經過公用網際網路，相較於網際網路一般連線，它提供了更高的安全性、可靠性、速度以及更低的延遲。 如需詳細資訊，請參閱[建立和修改 ExpressRoute 線路](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)。
     1. Data Box 線上資料傳輸 - Data Box Edge 與 Data Box Gateway 是線上資料轉送產品，等同於在您的網站與 Azure 之間管理資料的網路儲存體閘道。 Data Box Edge 是內部部署網路裝置，與 Azure 來回轉送資料，並使用具備人工智慧 (AI) 的邊緣計算來處理資料。 Data Box Gateway 是具備儲存體閘道功能的虛擬設備。 如需詳細資訊，請參閱 [Azure 資料箱文件 - 線上傳輸](https://docs.microsoft.com/azure/databox-online/)。
 1.  離線寄送資料

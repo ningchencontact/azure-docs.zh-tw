@@ -10,15 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 10/10/2019
-ms.openlocfilehash: f85b286de1318181ab660d51d5f434375f1fa46f
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: aabbac60acc53cfccc29fc3dbd06575e09840d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497130"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集（預覽）
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何建立 Azure Machine Learning 資料集（預覽），以及如何從本機或遠端實驗存取資料。
 
@@ -34,7 +36,7 @@ ms.locfileid: "72965333"
 
 若要建立及使用資料集，您需要：
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 * [Azure Machine Learning 工作區](how-to-manage-workspace.md)
 
@@ -47,7 +49,7 @@ ms.locfileid: "72965333"
 
 資料集會根據使用者在定型中取用它們的方式，分類成兩種類型。
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單，以表格格式表示資料。 這讓您能夠將資料具體化為 pandas 或 spark 資料框架。 您可以從 csv、tsv、parquet 檔、SQL 查詢結果等建立 `TabularDataset` 物件。如需完整清單，請流覽我們的[檔](https://aka.ms/tabulardataset-api-reference)。
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單，以表格格式表示資料。 這讓您能夠將資料具體化為 Pandas 或 Spark 資料框架。 您可以從 csv、tsv、parquet 檔、SQL 查詢結果等建立 `TabularDataset` 物件。如需完整清單，請流覽我們的[檔](https://aka.ms/tabulardataset-api-reference)。
 
 * [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py)會參考您資料存放區或公用 url 中的單一或多個檔案。 這讓您能夠將檔案下載或掛接至您的計算。 這些檔案可以是任何格式，讓更廣泛的機器學習服務案例，包括深度學習。
 
@@ -63,7 +65,7 @@ ms.locfileid: "72965333"
 
 若要使用 Python SDK 從[Azure 資料](how-to-access-data.md)存放區建立資料集：
 
-* 確認您已 `contributor` 或 `owner` 存取已註冊的 Azure 資料存放區。
+* 確認您有 `contributor` 或 `owner` 存取已註冊的 Azure 資料存放區。
 
 * 藉由參考資料存放區中的路徑來建立資料集。
 
@@ -80,7 +82,10 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-#### <a name="create-tabulardatasets"></a>建立 TabularDatasets
+
+#### <a name="create-a-tabulardataset"></a>建立 TabularDataset
+
+TabularDatasets 可以透過 SDK 或使用 Azure Machine Learning studio 來建立。 您可以從資料中的資料行指定時間戳記，或將路徑模式資料儲存在中，以啟用時間序列特性，讓您能夠依時間輕鬆且有效率地進行篩選。
 
 使用 `TabularDatasetFactory` 類別上的[`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-)方法來讀取 csv 或 tsv 格式的檔案，並建立未註冊的 TabularDataset。 如果您從多個檔案讀取，結果將會匯總成一個表格式標記法。
 
@@ -107,11 +112,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|式|Pclass|Name|性別|年齡|SibSp|Parch|票|費用|插槽|著手
+| |PassengerId|式|Pclass|名稱|性別|年齡|SibSp|Parch|票|費用|插槽|著手
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|否|3|Braund，Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|是|1|Cumings，Mrs John Bradley （Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
-2|3|是|3|Heikkinen，錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
+0|1|False|3|Braund，Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings，Mrs John Bradley （Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
+2|3|True|3|Heikkinen，錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
 
 使用 `TabularDatasetFactory` 類別上的[`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-)方法，從 Azure SQL Database 讀取。
 
@@ -145,7 +150,7 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="create-filedatasets"></a>建立 FileDatasets
+#### <a name="create-a-filedataset"></a>建立 FileDataset
 
 使用 `FileDatasetFactory` 類別上的[`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)方法，以任何格式載入檔案，並建立未註冊的 FileDataset。
 
@@ -166,15 +171,18 @@ web_paths = [
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
-### <a name="using-the-workspace-landing-page"></a>使用工作區登陸頁面
-
-登入[工作區登陸頁面](https://ml.azure.com)，即可透過 web 體驗來建立資料集。 工作區登陸頁面支援建立 TabularDatasets 和 FileDatasets。
-
-下列動畫顯示如何在工作區登陸頁面中建立資料集。
-
-首先，在左窗格的 [**資產**] 區段中選取 [**資料集**]。 然後，選取 [ **+ 建立資料集**] 來選擇資料集的來源;這可以是來自本機檔案、資料存放區或公用 web url。 選取**資料集類型**： * [表格式] 或 [檔案]。 [**設定] 和 [預覽**] 和 [**架構**表單] 會根據檔案類型以智慧方式填入。 選取 **[下一步]** 加以審查，或在建立前進一步設定您的資料集。 選取 [**完成**] 以完成資料集建立。
+#### <a name="on-the-web"></a>在網路上 
+下列步驟和動畫顯示如何在 Azure Machine Learning studio 中建立資料集 https://ml.azure.com。
 
 ![使用 UI 建立資料集](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
+若要在 studio 中建立資料集：
+1. 在 https://ml.azure.com登入。
+1. 在左窗格的 [**資產**] 區段中，選取 [**資料集**]。 
+1. 選取 [ **+ 建立資料集**] 以選擇資料集的來源;這可以是來自本機檔案、資料存放區或公用 web url。
+1. 選取 [表格式 **] 或 [** 檔案] 做為資料集類型。
+1. 選取 **[下一步]** 以查看**設定和預覽**、**架構**和**確認詳細資料**表單;它們會根據檔案類型以智慧方式填入。 使用這些表單來檢查您的選擇，並在建立之前進一步設定您的資料集。  
+1. 選取 [**建立**] 以完成建立資料集。
 
 ## <a name="register-datasets"></a>註冊資料集
 
@@ -183,13 +191,61 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 使用[`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-)方法向您的工作區註冊資料集，讓它們可以與其他人共用，並在各種不同的實驗中重複使用。
 
 ```Python
-titanic_ds = titanic_ds.register(workspace = workspace,
-                                 name = 'titanic_ds',
-                                 description = 'titanic training data')
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
->[!Note]
-> 透過工作區登陸頁面建立的資料集會自動註冊到工作區。
+> [!Note]
+> 透過 Azure Machine Learning studio 建立的資料集會自動註冊到工作區。
+
+## <a name="create-datasets-with-azure-open-datasets"></a>使用 Azure 開放資料集建立資料集
+
+[Azure 開放資料集](https://azure.microsoft.com/services/open-datasets/)是策劃的公用資料集，您可以使用這些公用資料集，將案例專有的功能新增至機器學習解決方案，以獲得更準確的模型。 資料集包含用於天氣、人口普查、假日、公共安全和位置的公用領域資料，可協助您將機器學習模型定型並擴充預測性解決方案。 開放資料集位於 Microsoft Azure 的雲端，同時包含在 SDK 和工作區 UI 中。
+
+### <a name="using-the-sdk"></a>使用 SDK
+
+若要使用來自 SDK 的 Azure 開放資料集來建立資料集，請確定您已使用 `pip install azureml-opendatasets`安裝封裝。 每個離散資料集都是由其在 SDK 中的本身類別來表示，而某些類別則可當做 `TabularDataset`、`FileDataset`或兩者使用。 如需類別的完整清單，請參閱[參考檔](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)。
+
+大部分的類別會繼承自並傳回 `TabularDataset`的實例。 這些類別的範例包括 `PublicHolidays`、`BostonSafety`和 `UsPopulationZip`。 若要從這些類型的類別建立 `TabularDataset`，請使用不含引數的函式。 當您註冊從開啟的資料集建立的資料集時，不會立即下載任何資料，但稍後會在從中央儲存位置要求時（例如，在定型期間）存取資料。 
+
+```python
+from azureml.opendatasets import UsPopulationZip
+
+tabular_dataset = UsPopulationZip()
+tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
+```
+
+某些類別可以抓取為 `TabularDataset` 或 `FileDataset`，讓您直接操作和（或）下載檔案。 其他類別只能使用 `get_tabular_dataset()`**或**`get_file_dataset()` 函數來取得資料集。 下列程式碼範例顯示這些類別類型的一些範例。
+
+```python
+from azureml.opendatasets import MNIST
+
+# MNIST class can return either TabularDataset or FileDataset
+tabular_dataset = MNIST.get_tabular_dataset()
+file_dataset = MNIST.get_file_dataset()
+
+from azureml.opendatasets import Diabetes
+
+# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+diabetes_tabular = Diabetes.get_tabular_dataset()
+```
+
+### <a name="using-the-ui"></a>使用 UI
+
+您也可以使用 UI，從開啟的資料集類別建立資料集。 在工作區中，流覽至 [*資產*] 底下的 [**資料集**] 索引標籤。 按一下 [**建立資料集**] 下拉式清單，然後按一下 [**從開啟的資料集**]。
+
+![使用 UI 開啟資料集](media/how-to-create-register-datasets/open-datasets-1.png)
+
+接下來，選取圖格並選擇性地使用搜尋列進行篩選，以選取資料集。 然後按 [下一步]。
+
+![選擇資料集](media/how-to-create-register-datasets/open-datasets-2.png)
+
+接下來，選擇要註冊資料集的名稱，並選擇性地使用可用的篩選準則來篩選資料。 在此情況下，若為公用假日資料集，您可以將時間週期篩選為一年，並將國家/地區代碼篩選為僅限美國。 然後按一下 [ **建立**]。
+
+![設定資料集參數並建立資料集](media/how-to-create-register-datasets/open-datasets-3.png)
+
+資料集現在會在您的工作區中建立並供**資料集**下使用，而且可以用與您建立的其他資料集相同的方式來使用。
 
 ## <a name="version-datasets"></a>版本資料集
 

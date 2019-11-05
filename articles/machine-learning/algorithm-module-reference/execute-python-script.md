@@ -1,26 +1,26 @@
 ---
 title: 執行 Python 腳本：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [執行 Python 腳本] 模組來執行 Python 程式碼。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [執行 Python 腳本] 模組來執行 Python 程式碼。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693785"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497871"
 ---
 # <a name="execute-python-script-module"></a>執行 Python 腳本模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
-使用此模組來執行 Python 程式碼。 如需有關 Python 架構和設計原則的詳細資訊，請參閱[下列文章。](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+使用此模組來執行 Python 程式碼。 如需有關 Python 架構和設計原則的詳細資訊，請參閱[下列文章](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)。
 
 使用 Python，您可以執行現有模組目前不支援的工作，例如：
 
@@ -81,7 +81,7 @@ os.system(f"pip install scikit-misc")
 
 1. 將**執行 Python 腳本**模組新增至您的管線。
 
-2. 從您想要用於輸入的介面，新增和連接**Dataset1**任何資料集。 在您的 Python 腳本中，以**DataFrame1**的形式參考此資料集。
+2. 從您想要用於輸入的設計工具，在**Dataset1**的任何資料集上加入及連接。 在您的 Python 腳本中，以**DataFrame1**的形式參考此資料集。
 
     如果您想要使用 Python 產生資料，或使用 Python 程式碼將資料直接匯入模組，則可以選擇使用資料集。
 
@@ -97,15 +97,15 @@ os.system(f"pip install scikit-misc")
 
 5. 在 [ **Python 腳本**] 文字方塊中，輸入或貼上有效的 Python 腳本。
 
-    [ **Python 腳本**] 文字方塊會預先填入批註中的一些指示，以及用於資料存取和輸出的範例程式碼。 **您必須編輯或取代此程式碼。** 請務必遵循適用于縮排和大小寫的 Python 慣例。
+    [ **Python 腳本**] 文字方塊會預先填入批註中的一些指示，以及用於資料存取和輸出的範例程式碼。 您必須編輯或取代此程式碼。 請務必遵循適用于縮排和大小寫的 Python 慣例。
 
     + 腳本必須包含名為 `azureml_main` 的函式，做為此模組的進入點。
     + 進入點函數最多可包含兩個輸入引數： `Param<dataframe1>` 和 `Param<dataframe2>`
     + 連線到第三個輸入埠的壓縮檔案會解壓縮並儲存在目錄中，`.\Script Bundle`，這也會新增至 Python `sys.path`。 
 
-    因此，如果您的 zip 檔案包含 `mymodule.py`，請使用 `import mymodule` 將其匯入。
+    因此，如果您的 zip 檔案包含 `mymodule.py`，請使用 `import mymodule`將其匯入。
 
-    + 您可以將兩個資料集傳回至介面，這必須是 `pandas.DataFrame` 類型的序列。 您可以在 Python 程式碼中建立其他輸出，並直接將其寫入 Azure 儲存體。
+    + 您可以將兩個資料集傳回至設計工具，這必須是 `pandas.DataFrame`類型的序列。 您可以在 Python 程式碼中建立其他輸出，並直接將其寫入 Azure 儲存體。
 
 6. 執行管線，或選取模組，然後按一下 [**執行選取**]，只執行 Python 腳本。
 
@@ -124,4 +124,4 @@ os.system(f"pip install scikit-misc")
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

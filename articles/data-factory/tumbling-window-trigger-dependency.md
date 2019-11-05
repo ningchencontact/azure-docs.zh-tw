@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: 6e5e293e9759f091b6537d5efab9884e0a20fabc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 24a1a5d132990db2aa10b7860774eecafb4b4edb
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725510"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "73520551"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>建立輪轉視窗觸發程序相依性
 
@@ -30,11 +30,11 @@ ms.locfileid: "68725510"
 
 若要在觸發程序上建立相依性，請選取 [觸發程序] > [進階] > [新增]，然後選擇要進行相依的觸發程序，以及適當的偏移與大小。 選取 [完成] 並發佈 Data Factory 變更來使相依性生效。
 
-![建立]相依性(media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "建立")相依性
+![建立相依性](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "建立相依性")
 
 ## <a name="tumbling-window-dependency-properties"></a>輪轉視窗相依性屬性
 
-具有相依性的輪轉視窗觸發程式具有下列屬性:
+具有相依性的輪轉視窗觸發程式具有下列屬性：
 
 ```json
 {
@@ -76,18 +76,18 @@ ms.locfileid: "68725510"
 
 下表提供定義輪轉視窗相依性所需之屬性的清單。
 
-| **屬性名稱** | **說明**  | **型別** | **必要** |
+| **屬性名稱** | **說明**  | **類型** | **必要** |
 |---|---|---|---|
-| type  | 所有現有的輪轉視窗觸發程序都會顯示在此下拉式清單中。 選擇要採取相依性的觸發程序。  | TumblingWindowTriggerDependencyReference 或 SelfDependencyTumblingWindowTriggerReference | 是 |
-| offset | 相依性觸發程序的偏移。 請提供時間範圍格式的值, 並允許負與正位移。 如果觸發程式是以其本身為依據, 而且在其他所有情況下是選擇性的, 則這個屬性是必要的。 自我相依性應一律為負值偏移。 如果未指定任何值, 視窗會與觸發程式本身相同。 | 時間範圍<br/>(hh:mm:ss) | 自我相依性：是<br/>其他:否 |
-| 大小 | 相依性輪轉視窗的大小。 提供正的 timespan 值。 這是選用屬性。 | 時間範圍<br/>(hh:mm:ss) | 否  |
+| 類型  | 所有現有的輪轉視窗觸發程序都會顯示在此下拉式清單中。 選擇要採取相依性的觸發程序。  | TumblingWindowTriggerDependencyReference 或 SelfDependencyTumblingWindowTriggerReference | 是 |
+| Offset | 相依性觸發程序的偏移。 請提供時間範圍格式的值，並允許負與正位移。 如果觸發程式是以其本身為依據，而且在其他所有情況下是選擇性的，則這個屬性是必要的。 自我相依性應一律為負值偏移。 如果未指定任何值，視窗會與觸發程式本身相同。 | Timespan<br/>(hh:mm:ss) | 自我相依性：是<br/>其他：否 |
+| size | 相依性輪轉視窗的大小。 提供正的 timespan 值。 這是選用屬性。 | Timespan<br/>(hh:mm:ss) | 否  |
 
 > [!NOTE]
 > 輪轉視窗觸發程式可能會相依于最多兩個其他觸發程式。
 
 ## <a name="tumbling-window-self-dependency-properties"></a>輪轉視窗自我相依性屬性
 
-在觸發程式不應該繼續到下一個視窗, 直到上一個視窗成功完成為止, 請建立自我相依性。 自我相依性觸發程式會依賴先前的 hr 內的成功執行, 將具有下列屬性:
+在觸發程式不應該繼續到下一個視窗，直到上一個視窗成功完成為止，請建立自我相依性。 自我相依性觸發程式會依賴先前的 hr 內的成功執行，將具有下列屬性：
 
 ```json
 {
@@ -135,31 +135,33 @@ ms.locfileid: "68725510"
 
 ### <a name="self-dependency"></a>自我相依性
 
-![自我]相依性(media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "自我")相依性
+![自我相依性](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "自我相依性")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>另一個輪轉視窗觸發程序上的相依性
 
-每日遙測處理工作, 取決於匯總過去七天輸出的另一個日常作業, 並產生七天的輪流時段串流:
+每日遙測處理工作，取決於匯總過去七天輸出的另一個日常作業，並產生七天的輪流時段串流：
 
-相依性![範例]相依性(media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "範例")
+![相依性範例](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "相依性範例")
 
 ### <a name="dependency-on-itself"></a>對其本身的相依性
 
 作業輸出資料流中沒有間隔的每日作業：
 
-![自我]相依性範例(media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "自我")相依性範例
+![自我相依性範例](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "自我相依性範例")
 
 ## <a name="monitor-dependencies"></a>監視相依性
 
-您可以從 [觸發程式執行監視] 頁面監視相依性鏈和對應的視窗。 請瀏覽到 [監視] > [觸發程序執行]。
+您可以從 [觸發程式執行監視] 頁面監視相依性鏈和對應的視窗。 請瀏覽到 [監視] > [觸發程序執行]。 在 [動作] 資料行下，您可以重新執行觸發程式或查看其相依性。
 
-![監視觸發程式執行](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "監視觸發程式執行")
+![監視觸發程式執行](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "監視觸發程序執行")
 
-按一下 [動作] 圖示, 以查看所選視窗的所有相依觸發程式執行。
+如果您按一下 [查看觸發程式相依性]，就可以看到相依性的狀態。 如果其中一個相依性觸發程式失敗，您必須成功地重新執行它，才能讓 dependency 觸發程式執行。 輪轉視窗觸發程式會在超時前的七天等待相依性。
 
-![監視]相依性(media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "監視")相依性
+![監視相依性](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "監視相依性")
 
-在上述範例中, 每日觸發程式相依于每小時的觸發程式, 其中未定義任何視窗, 而位移為3小時。 如此一來, 此觸發程式就會在24次成功執行相依性後執行。
+如需更多視覺效果以查看觸發程式相依性排程，請選取 [甘特圖] 視圖。
+
+![監視相依性](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "監視相依性")
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 第2代 Vm 的 Azure 支援（預覽） |Microsoft Docs
+title: 第2代 Vm 的 Azure 支援 |Microsoft Docs
 description: 第2代 Vm 的 Azure 支援總覽
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,31 +11,26 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: c85e02b01e11b94d9e23e669bf2f6fcde7f2c1de
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064026"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491922"
 ---
-# <a name="support-for-generation-2-vms-preview-on-azure"></a>在 Azure 上支援第2代 Vm （預覽）
+# <a name="support-for-generation-2-vms-on-azure"></a>Azure 上第2代 Vm 的支援
 
-> [!IMPORTANT]
-> 第2代 Vm 的 Azure 支援目前為預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+第2代虛擬機器（Vm）的支援現已在 Azure 上提供。 建立虛擬機器之後，您就無法變更其層代，因此請先參閱此頁面上的考慮，再選擇世代。
 
-第2代虛擬機器（Vm）的支援現已在 Azure 中提供預覽。 建立虛擬機器之後，您就無法變更其層代，因此請先參閱此頁面上的考慮，再選擇世代。 
-
-第2代 Vm 支援第1代 Vm 中不支援的重要功能。 這些功能包括增加的記憶體、Intel 軟體防護延伸模組（Intel SGX）和虛擬化的持續性記憶體（vPMEM）。 第2代 Vm 也有一些在 Azure 中不支援的功能。 如需詳細資訊，請參閱[特性和功能](#features-and-capabilities)一節。
+第2代 Vm 支援第1代 Vm 中不支援的重要功能。 這些功能包括增加的記憶體、Intel 軟體防護延伸模組（Intel SGX）和虛擬化的持續性記憶體（vPMEM）。 第2代 Vm 執行于內部部署，但在 Azure 中尚不支援某些功能。 如需詳細資訊，請參閱[特性和功能](#features-and-capabilities)一節。
 
 第2代 Vm 使用新的 UEFI 型開機架構，而不是第1代 Vm 所使用的 BIOS 架構。 相較于第1代 Vm，第2代 Vm 可能已改善開機和安裝時間。 如需第2代 Vm 的總覽，以及第1代與第2代的差異，請參閱[我應該在 hyper-v 中建立第1代或第2代虛擬機器嗎？](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)。
 
 ## <a name="generation-2-vm-sizes"></a>第2代 VM 大小
 
-Azure 中的所有 VM 大小都支援第1代 Vm。 Azure 現在為下列選取的 VM 系列提供預覽第2代支援：
+Azure 中的所有 VM 大小都支援第1代 Vm。 Azure 現在為下列選取的 VM 系列提供第2代支援：
 
 * [B 系列](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [DC 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
@@ -65,7 +60,6 @@ Azure 中的所有 VM 大小都支援第1代 Vm。 Azure 現在為下列選取�
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04+
-
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>內部部署與 Azure 第2代 Vm
 
@@ -107,7 +101,7 @@ Azure 目前不支援內部部署 Hyper-v 針對第2代 Vm 所支援的部分功
 
 在 [Azure 入口網站] 或 [Azure CLI] 中，您可以從支援 UEFI 開機的 Marketplace 映射建立第2代 Vm。
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure 入口網站
 
 Windows 和 SLES 的第2代映射包含在與 Gen1 映射相同的伺服器供應專案中。 從流程的觀點來看，這表示您會從 VM 的入口網站中選取供應專案和 SKU。 如果 SKU 同時支援第1代和第2代映射，您可以從 VM 建立流程的 [ *Advanced* ] 索引標籤中選擇建立第2代 VM。
 
@@ -126,7 +120,7 @@ Windows 和 SLES 的第2代映射包含在與 Gen1 映射相同的伺服器供�
 
 您也可以使用 PowerShell 直接參考第1代或第2代 SKU 來建立 VM。
 
-例如，使用下列 PowerShell Cmdlet 來取得 `WindowsServer` 供應專案中的 Sku 清單。
+例如，使用下列 PowerShell Cmdlet 取得 `WindowsServer` 供應專案中的 Sku 清單。
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -152,7 +146,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 * **第2代 Vm 可以在所有 Azure 區域中使用嗎？**  
-    可以。 但並非所有層[代 2 VM 大小](#generation-2-vm-sizes)都可以在每個區域中使用。 第2代 VM 的可用性取決於 VM 大小的可用性。
+    是。 但並非所有層[代 2 VM 大小](#generation-2-vm-sizes)都可以在每個區域中使用。 第2代 VM 的可用性取決於 VM 大小的可用性。
 
 * **第1代和第2代 Vm 之間是否有價格差異？**  
    不會。
@@ -186,13 +180,13 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer 
   對於大於 2 TB 的 OS 磁片，您可能會看到警告。 此警告不適用於第2代 Vm。 不過，*不建議*大於 4 TB 的 OS 磁片大小。
 
 * **第2代 Vm 是否支援加速網路？**  
-    可以。 如需詳細資訊，請參閱[建立具有加速網路的 VM](../../virtual-network/create-vm-accelerated-networking-cli.md)。
+    是。 如需詳細資訊，請參閱[建立具有加速網路的 VM](../../virtual-network/create-vm-accelerated-networking-cli.md)。
 
 * **第2代支援 VHDX 嗎？**  
     否，第2代 Vm 僅支援 VHD。
 
 * **第2代 Vm 是否支援 Azure Ultra 磁碟儲存體？**  
-    可以。
+    是。
 
 * **我可以將 VM 從第1代遷移到第2代嗎？**  
     否，您無法在建立 VM 之後變更其產生。 如果您需要在 VM 層代之間切換，請建立不同世代的新 VM。

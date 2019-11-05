@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46cf7d3dd7efecff0280320c100af432367e25f2
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180813"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498126"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -41,7 +41,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 * 如果使用C#，Visual Studio 必須是2013或更高版本。
 
-* 儲存體帳戶的[URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體的安全傳輸，則 URI 會是`wasbs://`。 另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+* 儲存體帳戶的[URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體的安全傳輸，則 URI 會 `wasbs://`。 另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
 
 * 要新增共用存取簽章的現有 HDInsight 叢集。 如果沒有，您可以使用 Azure PowerShell 建立叢集，並在叢集建立期間新增共用存取簽章。
 
@@ -50,7 +50,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
   * Visual Studio 專案，可以建立儲存體容器、預存原則，以及搭配 HDInsight 使用的 SAS
   * Python 指令碼，可以建立儲存體容器、預存原則，以及搭配 HDInsight 使用的 SAS
   * PowerShell 指令碼，可以建立 HDInsight 叢集，並將它設定為使用 SAS。 下面會進一步使用更新的版本。
-  * 範例檔案：`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * 範例檔案： `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>共用存取簽章
 
@@ -90,7 +90,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 ### <a name="using-powershell"></a>使用 PowerShell
 
-將`RESOURCEGROUP`、 `STORAGEACCOUNT`和`STORAGECONTAINER`取代為您現有儲存體容器的適當值。 將目錄變更`hdinsight-dotnet-python-azure-storage-shared-access-signature-master`為，或`-File`將參數修改為`Set-AzStorageblobcontent`包含的絕對路徑。 輸入下列 PowerShell 命令：
+將 `RESOURCEGROUP`、`STORAGEACCOUNT`和 `STORAGECONTAINER` 取代為現有儲存體容器的適當值。 將目錄變更為 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` 或修訂 `-File` 參數，使其包含 `Set-AzStorageblobcontent`的絕對路徑。 輸入下列 PowerShell 命令：
 
 ```PowerShell
 $resourceGroupName = "RESOURCEGROUP"
@@ -156,7 +156,7 @@ Set-AzStorageblobcontent `
 
 在本節中使用變數是以 Windows 環境為基礎。 Bash 或其他環境將需要稍微變化。
 
-1. 將`STORAGEACCOUNT`和`STORAGECONTAINER`取代為您現有儲存體容器的適當值。
+1. 以現有儲存體容器的適當值取代 `STORAGEACCOUNT`，並 `STORAGECONTAINER`。
 
     ```azurecli
     # set variables
@@ -173,14 +173,14 @@ Set-AzStorageblobcontent `
     az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
     ```
 
-2. 將抓取的主要金鑰設定為變數，以供稍後使用。 將`PRIMARYKEY`取代為上一個步驟中所抓取的值，然後輸入下列命令：
+2. 將抓取的主要金鑰設定為變數，以供稍後使用。 以先前步驟中所抓取的值取代 `PRIMARYKEY`，然後輸入下列命令：
 
     ```azurecli
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. 將目錄變更`hdinsight-dotnet-python-azure-storage-shared-access-signature-master`為，或`--file`將參數修改為`az storage blob upload`包含的絕對路徑。 執行其餘的命令：
+3. 將目錄變更為 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` 或修訂 `--file` 參數，使其包含 `az storage blob upload`的絕對路徑。 執行其餘的命令：
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -201,13 +201,13 @@ Set-AzStorageblobcontent `
 
 ### <a name="using-python"></a>使用 Python
 
-開啟檔案，並將`storage_account_name`、 `storage_account_key`和`storage_container_name`取代為您現有儲存體容器的適當值，然後執行腳本。 `SASToken.py`
+開啟 `SASToken.py` 檔案，並將 `storage_account_name`、`storage_account_key`和 `storage_container_name` 取代為現有儲存體容器的適當值，然後執行腳本。
 
-如果您收到錯誤訊息`pip install --upgrade azure-storage` `ImportError: No module named azure.storage`，您可能需要執行。
+如果您收到 `ImportError: No module named azure.storage`的錯誤訊息，您可能需要執行 `pip install --upgrade azure-storage`。
 
 ### <a name="using-c"></a>使用 C#
 
-1. 在 Visual Studio 中開啟方案。
+1. 在 Visual Studio 中開啟解決方案。
 
 2. 在方案總管中，以滑鼠右鍵按一下**SASExample**專案，然後選取 [**屬性**]。
 
@@ -217,7 +217,7 @@ Set-AzStorageblobcontent `
 
    * ContainerName：您想要限制存取的儲存體帳戶中的容器。
 
-   * SASPolicyName：要建立的預存原則所要使用的名稱。
+   * SASPolicyName：針對將要建立的預存原則使用的名稱。
 
    * FileToUpload：上傳至容器之檔案的路徑。
 
@@ -231,7 +231,7 @@ Set-AzStorageblobcontent `
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>建立使用 SAS 的叢集
 
-以`CLUSTERNAME`適當的`DEFAULTSTORAGEACCOUNT`值`STORAGECONTAINER`取代、 `RESOURCEGROUP`、 `TOKEN` 、 、和。`STORAGEACCOUNT` 輸入 PowerShell 命令：
+以適當的值取代 `CLUSTERNAME`、`RESOURCEGROUP`、`DEFAULTSTORAGEACCOUNT`、`STORAGECONTAINER`、`STORAGEACCOUNT`和 `TOKEN`。 輸入 PowerShell 命令：
 
 ```powershell
 
@@ -364,10 +364,10 @@ Remove-AzResourceGroup `
 
 4. 展開 [自訂核心網站] 區段，然後捲動至結尾，並且選取 [新增屬性...] 連結。 針對 [金鑰] 和 [值] 欄位使用下列值：
 
-   * 機**碼**：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * 機**碼**： `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
    * **值**：先前執行的其中一個方法所傳回的 SAS。
 
-     將`CONTAINERNAME`取代為您搭配C#或 SAS 應用程式使用的容器名稱。 將`STORAGEACCOUNTNAME`取代為您使用的儲存體帳戶名稱。
+     以您搭配C#或 SAS 應用程式使用的容器名稱取代 `CONTAINERNAME`。 以您使用的儲存體帳戶名稱取代 `STORAGEACCOUNTNAME`。
 
 5. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
 
@@ -386,7 +386,7 @@ Remove-AzResourceGroup `
 
 請使用下列步驟來確認您只能讀取和列出 SAS 儲存體帳戶上的專案。
 
-1. 連接到叢集。 將`CLUSTERNAME`取代為您的叢集名稱，然後輸入下列命令：
+1. 連接到叢集。 以您叢集的名稱取代 `CLUSTERNAME`，然後輸入下列命令：
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -398,11 +398,11 @@ Remove-AzResourceGroup `
     hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     ```
 
-    以`SASCONTAINER`針對 SAS 儲存體帳戶所建立的容器名稱取代。 以`SASACCOUNTNAME`用於 SAS 的儲存體帳戶名稱取代。
+    以針對 SAS 儲存體帳戶所建立的容器名稱取代 `SASCONTAINER`。 以用於 SAS 的儲存體帳戶名稱取代 `SASACCOUNTNAME`。
 
     此清單包含容器與 SAS 建立時上傳的檔案。
 
-3. 使用下列命令以確認您可以讀取檔案的內容。 將和`SASCONTAINER` `SASACCOUNTNAME`取代為上一個步驟中的。 將`sample.log`取代為前一個命令中顯示的檔案名：
+3. 使用下列命令以確認您可以讀取檔案的內容。 取代 `SASCONTAINER` 和 `SASACCOUNTNAME`，如同上一個步驟所示。 將 `sample.log` 取代為上一個命令中顯示的檔案名：
 
     ```bash
     hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log

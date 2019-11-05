@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: c19b64441d7afbe7544a4401314078b807a8c939
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495961"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的先進威脅防護
 
 Azure 儲存體的先進威脅防護提供一層額外的安全性情報，可偵測不尋常且可能有害的存取或惡意探索儲存體帳戶的嘗試。 這一層保護可讓您在不是安全性專家或管理安全性監視系統的情況下處理威脅。
 
-當活動發生異常時, 就會觸發安全性警示。 這些安全性警示會與[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合, 並透過電子郵件傳送給訂用帳戶系統管理員, 並提供可疑活動的詳細資料, 以及如何調查和修復威脅的建議。
+當活動發生異常時，就會觸發安全性警示。 這些安全性警示會與[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合，並透過電子郵件傳送給訂用帳戶系統管理員，並提供可疑活動的詳細資料，以及如何調查和修復威脅的建議。
 
 > [!NOTE]
-> Azure 儲存體的先進威脅防護目前僅適用于 Blob 儲存體。 它不適用於 Azure 政府和主權雲端區域。 如需定價詳細資料, 包括免費的30天試用版, 請參閱[Azure 資訊安全中心定價頁面]( https://azure.microsoft.com/pricing/details/security-center/)。
+> Azure 儲存體的先進威脅防護目前僅適用于 Blob 儲存體。 它不適用於 Azure 政府和主權雲端區域。 如需定價詳細資料，包括免費的30天試用版，請參閱[Azure 資訊安全中心定價頁面]( https://azure.microsoft.com/pricing/details/security-center/)。
 
 適用于 Azure 儲存體的先進威脅防護，可內嵌對 Blob 儲存體之讀取、寫入和刪除要求的診斷記錄，以進行威脅偵測。 若要調查 [advanced 威脅防護] 中的警示，您可以使用儲存體分析記錄來查看相關的儲存體活動。 如需詳細資訊，請參閱在[Azure 入口網站中設定監視儲存體帳戶中](storage-monitor-storage-account.md#configure-logging)的**記錄**。
 
@@ -30,7 +30,7 @@ Azure 儲存體的先進威脅防護提供一層額外的安全性情報，可�
 
 預設會針對您的儲存體帳戶啟用 [先進的威脅防護]。 您可以透過下列各節所述的任一種方式來設定「先進的威脅防護」。
 
-### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
+### <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
 1. 啟動 [Azure 入口網站](https://portal.azure.com/)。
 1. 流覽至您的 Azure 儲存體帳戶。 在 [**設定**] 底下，選取 [ **Advanced security**]。
@@ -40,27 +40,27 @@ Azure 儲存體的先進威脅防護提供一層額外的安全性情報，可�
 
     ![開啟 Azure 儲存體進階威脅防護](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="using-azure-security-center"></a>使用 Azure 資訊安全中心
+### <a name="azure-security-centertabazure-security-center"></a>[Azure 資訊安全中心](#tab/azure-security-center)
 
 當您訂閱 Azure 資訊安全中心中的標準層時，系統會自動在您所有的儲存體帳戶上設定 advanced 威脅防護。 您可以在特定訂用帳戶下，針對儲存體帳戶啟用或停用「先進的威脅防護」，如下所示：
 
 1. 啟動[Azure 入口網站](https://portal.azure.com)中的**Azure 資訊安全中心**。
-1. 從主功能表中, 按一下 [定價] [ **& 設定**]。
+1. 從主功能表中，按一下 [定價] [ **& 設定**]。
 1. 按一下您要啟用或停用其儲存體帳戶的 [威脅防護] 的訂用帳戶。
 
     ![選取訂用帳戶](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. 按一下 [定價層]。
-1. 在 [**依資源類型選取定價層**] 區段的 [**儲存體帳戶**] 資料列中, 按一下 [**已啟用**] 或 [**已停用**]。
+1. 在 [**依資源類型選取定價層**] 區段的 [**儲存體帳戶**] 資料列中，按一下 [**已啟用**] 或 [**已停用**]。
 
     ![在資訊安全中心中啟用 ATP](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. 按一下 [儲存]。
 
-### <a name="using-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
+### <a name="templatetabtemplate"></a>[範本](#tab/template)
 
 使用 Azure Resource Manager 範本來部署已啟用「先進的威脅防護」的 Azure 儲存體帳戶。 如需詳細資訊，請參閱[具有 advanced 威脅防護的儲存體帳戶](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)。
 
-### <a name="using-an-azure-policy"></a>使用 Azure 原則
+### <a name="azure-policytabazure-policy"></a>[Azure 原則](#tab/azure-policy)
 
 使用 Azure 原則，在特定訂用帳戶或資源群組下的儲存體帳戶之間啟用先進的威脅防護。
 
@@ -78,20 +78,22 @@ Azure 儲存體的先進威脅防護提供一層額外的安全性情報，可�
 
     ![原則定義頁面](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="using-the-rest-api"></a>使用 REST API
+### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
 
 使用 Rest API 命令來建立、更新或取得特定儲存體帳戶的「先進的威脅防護」設定。
 
 * [先進的威脅防護-建立](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [先進的威脅防護-取得](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="using-azure-powershell"></a>使用 Azure PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-使用下列 PowerShell Cmdlet:
+使用下列 PowerShell Cmdlet：
 
 * [啟用先進的威脅防護](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
 * [取得先進的威脅防護](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [停用先進的威脅防護](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+---
 
 ## <a name="explore-security-anomalies"></a>探索安全性異常
 

@@ -1,5 +1,5 @@
 ---
-title: 存取以 Linux 為基礎之 HDInsight 上的 Apache Hadoop YARN 應用程式記錄 - Azure
+title: 存取 Apache Hadoop YARN 應用程式記錄-Azure HDInsight
 description: 了解如何使用命令列和網頁瀏覽器存取以 Linux 為基礎之 HDInsight (Apache Hadoop) 叢集上的 YARN 應用程式記錄。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 263456769ab391cbc0588eed1a714a1ea5788154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091512"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494894"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄
 
-了解如何在 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 叢集上存取 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Yet Another Resource Negotiator) 應用程式記錄。
+了解如何在 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 叢集上存取 [Apache Hadoop YARN](https://hadoop.apache.org/) (Yet Another Resource Negotiator) 應用程式記錄。
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
@@ -59,7 +59,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 
 YARN ResourceManager UI 是在叢集前端節點上執行。 可透過 Ambari Web UI 存取。 請使用下列步驟來檢視 YARN 記錄：
 
-1. 在您的網頁瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net 。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
+1. 在您的網頁瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 2. 從左邊的服務清單中選取 [YARN]。
 
     ![已選取 Apache Ambari Yarn 服務](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)

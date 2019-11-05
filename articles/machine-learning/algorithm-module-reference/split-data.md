@@ -1,24 +1,24 @@
 ---
 title: 分割資料：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的分割資料模組，將資料集分割成兩個不同的集合。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的分割資料模組，將資料集分割成兩個不同的集合。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692656"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492640"
 ---
 # <a name="split-data-module"></a>分割資料模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組，將資料集分成兩個不同的集合。
 
@@ -30,7 +30,7 @@ ms.locfileid: "72692656"
 > 選擇分割模式之前，請先閱讀所有選項，以決定所需的分割類型。
 > 如果您變更分割模式，所有其他選項都可能會重設。
 
-1. 將**分割資料**模組新增至介面中的管線。 您可以在 [**資料轉換**] 下的 [**範例和分割**] 分類中找到此模組。
+1. 將**分割資料**模組新增至您在設計工具中的管線。 您可以在 [**資料轉換**] 下的 [**範例和分割**] 分類中找到此模組。
 
 2. **分割模式**：選擇下列其中一個模式，視您擁有的資料類型，以及您要將它分割的方式而定。 每個分割模式都有不同的選項。 如需詳細的指示和範例，請按一下下列主題。 
 
@@ -45,7 +45,8 @@ ms.locfileid: "72692656"
     - **相對運算式分割**：每當您想要將條件套用至數位資料行時，請使用此選項。 數位可以是日期/時間欄位、包含年齡或金額的資料行，或甚至是百分比。 例如，您可能會想要根據專案的成本來分割資料集、依年齡範圍將人員分組，或依行事曆日期來分隔資料。
 
 ### <a name="split-rows"></a>分割資料列
-1.  將 [[分割資料](./split-data.md)] 模組加入至您在介面中的管線，然後連接您要分割的資料集。
+
+1.  將 [[分割資料](./split-data.md)] 模組加入至設計工具中的管線，然後連接您要分割的資料集。
   
 2.  在 [**分割模式]** 中，選擇 [**分割資料列**]。 
 
@@ -101,7 +102,7 @@ ms.locfileid: "72692656"
 
     - 支援下列運算子： `<`、`>`、`<=`、`>=`、`==`、`!=`
 
-    - 您無法使用 `(` 和 `)` 來分組作業。
+    - 您無法使用 `(` 和 `)`來分組作業。
 
  - 字串資料行： 
     - 支援下列運算子： `==`、`!=`
@@ -114,4 +115,4 @@ ms.locfileid: "72692656"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

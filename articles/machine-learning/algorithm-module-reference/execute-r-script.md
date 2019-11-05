@@ -1,7 +1,7 @@
 ---
 title: 執行 R 腳本：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [執行 R 腳本] 模組來執行 R 程式碼。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [執行 R 腳本] 模組來執行 R 程式碼。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693776"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497884"
 ---
 # <a name="execute-r-script"></a>執行 R 指令碼
 
-本文說明如何使用 [**執行 R 腳本**] 模組，在您的視覺化介面管線中執行 r 程式碼。
+本文說明如何使用 [**執行 r 腳本**] 模組，在您的 Azure Machine Learning designer （預覽）管線中執行 r 程式碼。
 
 使用 R，您可以執行現有模組目前不支援的工作，例如： 
 - 建立自訂資料轉換
 - 使用您自己的計量來評估預測
-- 使用未實作為視覺化介面中獨立模組的演算法來建立模型
+- 使用未在設計工具中實作為獨立模組的演算法來建立模型
 
 ## <a name="r-version-support"></a>R 版本支援
 
-Azure Machine Learning 服務視覺介面使用 R 的 CRAN （全方位 R 封存網路）散發。目前使用的版本是 CRAN 3.5.1。
+Azure Machine Learning 設計工具會使用 R 的 CRAN （全方位 R 封存網路）散發。目前使用的版本是 CRAN 3.5.1。
 
 ## <a name="supported-r-packages"></a>支援的 R 套件
 
@@ -73,7 +73,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ![R 模組](media/module/execute-r-script.png)
 
-載入此模組時，會自動將儲存在視覺化介面中的資料集轉換成 R 資料框架。
+載入此模組時，會自動將儲存在設計工具中的資料集轉換成 R 資料框架。
 
 1.  將 [**執行 R 腳本**] 模組新增至您的管線。
 
@@ -81,7 +81,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 連接腳本所需的任何輸入。 輸入是選擇性的，而且可以包含資料和其他 R 程式碼。
 
-    * **Dataset1**：以 `dataframe1` 參考第一個輸入。 輸入資料集的格式必須為 CSV、TSV、ARFF，或者您可以連接 Azure Machine Learning 資料集。
+    * **Dataset1**：以 `dataframe1`參考第一個輸入。 輸入資料集的格式必須為 CSV、TSV、ARFF，或者您可以連接 Azure Machine Learning 資料集。
 
     * **Dataset2**：參考第二個輸入做為 `dataframe2`。 此資料集也必須格式化為 CSV、TSV、ARFF 檔案，或做為 Azure Machine Learning 資料集。
 
@@ -111,15 +111,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
- * 腳本必須包含名為 `azureml_main` 的函式，這是此模組的進入點。
+ * 腳本必須包含名為 `azureml_main`的函式，這是此模組的進入點。
 
  * 進入點函數最多可包含兩個輸入引數： `Param<dataframe1>` 和 `Param<dataframe2>`
  
    > [!NOTE]
-    > 傳遞至**執行 R 腳本**模組的資料會當做 `dataframe1` 和 `dataframe2` 參考，這與 Azure Machine Learning Studio （Studio 參考為 `dataset1`，`dataset2`）不同。 請檢查並確定已在您的腳本中正確 referneced 輸入資料。  
+    > 傳遞至**執行 R 腳本**模組的資料會當做 `dataframe1` 和 `dataframe2`參考，這與 Azure Machine Learning 設計工具（設計工具參考為 `dataset1`，`dataset2`）不同。 請檢查並確定已在您的腳本中正確 referneced 輸入資料。  
  
     > [!NOTE]
-    >  現有的 R 程式碼可能需要較小的變更，才能在視覺化介面管線中執行。 例如，您以 CSV 格式提供的輸入資料應該先明確轉換成資料集，您才能在程式碼中使用它。 在 R 語言中使用的資料和資料行類型，在視覺化介面中使用的資料和資料行類型也會有一些不同的方式。
+    >  現有的 R 程式碼可能需要較小的變更，才能在設計工具管線中執行。 例如，您以 CSV 格式提供的輸入資料應該先明確轉換成資料集，您才能在程式碼中使用它。 在 R 語言中使用的資料和資料行類型，在設計工具中使用的資料和資料行類型方面也有不同的差異。
 
 1.  **隨機種子**：輸入要在 R 環境內用來做為隨機種子值的值。 這個參數相當於呼叫 R 程式碼中的 `set.seed(value)`。  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>結果
 
-**執行 R 腳本**模組可以傳回多個輸出，但必須以 R 資料框架的形式提供。 資料框架會自動轉換成視覺化介面資料集，以與其他模組相容。
+**執行 R 腳本**模組可以傳回多個輸出，但必須以 R 資料框架的形式提供。 資料框架會自動轉換成設計工具中的資料集，以與其他模組相容。
 
 來自 R 的標準訊息和錯誤會傳回給模組的記錄檔。
 
@@ -235,7 +235,7 @@ azureml_main <- function(dataframe1, dataframe2){
     }
     ```
 
-    將明確轉換成整數類型，是因為序列化函式會以 R `Raw` 格式輸出資料，但視覺介面並不支援。
+    將明確轉換成整數類型是因為序列化函式會以 R `Raw` 格式輸出資料，但設計工具並不支援。
 
 1. 新增 [**執行 R 腳本**] 模組的第二個實例，並將它連接到上一個模組的輸出埠。
 
@@ -402,4 +402,4 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

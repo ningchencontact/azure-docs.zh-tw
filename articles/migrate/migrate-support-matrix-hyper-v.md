@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802190"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498702"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -35,26 +35,7 @@ ms.locfileid: "72802190"
 --- | ---
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權，才能建立 Azure Migrate 專案。
 Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm，最多可達評量限制。
-[地理位置] | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定地區建立專案，但您可以針對其他目標位置評估或遷移電腦。 專案地理位置只會用來儲存探索到的資料。
-
-  **地理位置** | **中繼資料儲存位置**
-  --- | ---
-  Azure 政府機構 | US Gov 維吉尼亞州
-  亞太地區 | 東亞或東南亞
-  澳洲 | 澳大利亞東部或澳大利亞東南部
-  巴西 | 巴西南部
-  加拿大 | 加拿大中部或加拿大東部
-  歐洲 | 北歐或西歐
-  法國 | 法國中部
-  印度 | 印度中部或印度南部
-  日本 |  日本東部或日本西部
-  南韓 | 韓國中部或南韓南部
-  英國 | 英國南部或英國西部
-  美國 | 美國中部或美國西部2
-
-
- > [!NOTE]
- > Azure Government 的支援目前僅適用于[舊版](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions)的 Azure Migrate。
+[地理位置] | [審查](migrate-support-matrix.md#supported-geographies)支援的地理位置。
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>評量-Hyper-v 主機需求
@@ -63,7 +44,7 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 | :-------------------       | :------------------- |
 | **主機部署**       | Hyper-v 主機可以是獨立或部署在叢集中。 |
 | **權限**           | 您需要 Hyper-v 主機的系統管理員許可權。 <br/> 或者，如果您不想要指派系統管理員許可權，請建立本機或網域使用者帳戶，並將使用者新增至這些群組-遠端系統管理使用者、Hyper-v 系統管理員和效能監視器使用者。 |
-| **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2012 的 Hyper-V 主機上的 VM。 |
+| **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2012 的 Hyper-v 主機上的 Vm。 |
 | **PowerShell 遠端處理**   | 必須在每部主機上啟用。 |
 | **Hyper-v 複本**       | 如果您使用 Hyper-v 複本（或您有多個 vm 具有相同的 VM 識別碼），並使用 Azure Migrate 探索原始和複寫的 Vm，則 Azure Migrate 所產生的評量可能不正確。 |
 
@@ -104,7 +85,7 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 **URL** | **詳細資料**  
 --- | ---
 *.portal.azure.com | 導覽至 Azure 入口網站
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶：
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 management.azure.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 dc.services.visualstudio.com | 記錄和監視
@@ -141,7 +122,7 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 | **作業系統** | Azure 支援的所有[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統。 |
 | **權限**           | 您需要您想要評估的每部 Hyper-v VM 上的系統管理員許可權。 |
 | **Integration Services**       | [Hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)必須在您評估的 vm 上執行，才能捕捉作業系統資訊。 |
-| **Azure 的必要變更** | 有些 VM 可能需要變更，才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更：<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統，您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
+| **Azure 的必要變更** | 有些 Vm 可能需要變更，才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更：<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統，您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
 | **Linux 開機**                 | 如果/boot 是在專用磁碟分割上，它應該位於 OS 磁片上，而不會散佈到多個磁片上。<br/> 如果/boot 是根（/）分割區的一部分，則 '/' 磁碟分割應該位於 OS 磁片上，而不是跨越其他磁片。 |
 | **UEFI 開機**                  | Azure 中已遷移的 VM 會自動轉換為 BIOS 開機 VM。 VM 應僅執行 Windows Server 2012 和更新版本。 OS 磁片最多隻能有五個磁碟分割或更少，且 OS 磁片的大小應小於 300 GB。
   |

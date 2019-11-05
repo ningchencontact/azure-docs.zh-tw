@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e07939bd5f0264df637fda439d96be213a8d28d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "72167358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499200"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
 [Apache Hive](https://hive.apache.org/) 是適用於 Apache Hadoop 的資料倉儲系統。 Hive 可執行資料摘要、查詢以及資料分析。 Hive 查詢是以 HiveQL 撰寫而成，這是類似 SQL 的查詢語言。
 
-Hive 可讓您將結構投影在大量非結構化資料上。 定義結構後，您不需具備 Jave 或 MapReduce 相關知識，即可使用 HiveQL來查詢資料。
+Hive 可讓您針對大部分的結構化資料來投影結構。 定義結構後，您不需具備 Jave 或 MapReduce 相關知識，即可使用 HiveQL來查詢資料。
 
 HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 下列叢集類型最常用於 Hive 查詢︰
 

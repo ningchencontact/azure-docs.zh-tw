@@ -1,7 +1,7 @@
 ---
 title: 分析客戶流失
-titleSuffix: Azure Machine Learning Studio
-description: 使用 Azure Machine Learning Studio 開發整合式模型以分析及評分客戶流失的案例研究。
+titleSuffix: Azure Machine Learning Studio (classic)
+description: 使用 Azure Machine Learning Studio （傳統）開發整合式模型以分析及評分客戶流失的案例研究。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 168ab29b3d7397505543c169add03fb0d768f54b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699431"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493374"
 ---
-# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio 分析客戶流失
-## <a name="overview"></a>總覽
-本文提供使用 Azure Machine Learning Studio 建置客戶流失分析專案的參考實作。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 對於以機器學習建立的模型，我們也衡量其正確性，同時評定進一步開發的方向。  
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>使用 Azure Machine Learning Studio （傳統）分析客戶流失
+## <a name="overview"></a>概觀
+本文提供使用 Azure Machine Learning Studio （傳統）建立的客戶流失分析專案的參考實。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 對於以機器學習建立的模型，我們也衡量其正確性，同時評定進一步開發的方向。  
 
 ### <a name="acknowledgements"></a>通知
-這項實驗是由 Microsoft 的首席資料科學家 Serge Berger 和 Microsoft Azure Machine Learning Studio 的前產品經理 Roger Barga 共同開發和測試。 Azure 文件小組高度認可其專業知識，並感謝他們分享這份白皮書。
+這項實驗是由 Serge Berger、Microsoft 的主要資料科學家及 Roger Barga （先前為 Microsoft Azure Machine Learning Studio （傳統）的產品經理）所開發和測試。 Azure 文件小組高度認可其專業知識，並感謝他們分享這份白皮書。
 
 > [!NOTE]
-> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](https://gallery.azure.ai/)中的[零售業客戶流失模型範本](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)
+> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)中的[售業客戶流失模型範本](https://gallery.azure.ai/)
 > 
 > 
 
@@ -37,7 +37,7 @@ ms.locfileid: "64699431"
 共同點就是公司必須將這些額外的客戶維繫工作量降到最低。 因此，一般的作法是以流失機率來評比每位客戶，然後解決排名前 N 位的客戶。 排名前面的客戶可能是對公司最有利潤的客戶。 例如，在更複雜的情況下，選擇要給予特殊待遇的候選者時會採用利潤函數。 這些考量只不過是處理客戶流失的整體策略的一部分。 公司也需要考慮風險 (和相關的風險容忍度)、介入的程度和成本，以及合理的客戶區隔。  
 
 ## <a name="industry-outlook-and-approaches"></a>產業展望和作法
-駕輕就熟地處理客戶流失是成熟產業的一項特徵。 電信產業是典型的例子，用戶更換供應商的頻率很高。 這種志願性流失是最主要問題所在。 再者，供應商對於「流失成因」  已累積大量經驗，亦即促成客戶更換供應商的因素。
+駕輕就熟地處理客戶流失是成熟產業的一項特徵。 電信產業是典型的例子，用戶更換供應商的頻率很高。 這種志願性流失是最主要問題所在。 再者，供應商對於「流失成因」已累積大量經驗，亦即促成客戶更換供應商的因素。
 
 例如，在行動電話業務中，手機或裝置選擇是導致客戶流失的一個明顯因素。 因此，常用的手段是補助新用戶的手機價格，但對既有客戶收取全額的升級費用。 根據歷史經驗，這種手段反而造成使客戶跳槽到另一家供應商來尋找新的折扣。 這使得供應商不得不修正策略
 
@@ -70,39 +70,39 @@ ms.locfileid: "64699431"
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>在 Machine Learning Studio 中實作模型原型
-根據說明的問題，實作一套整合的模型化和評分方法的最佳方式為何？ 在本節中，我們將示範如何利用 Azure Machine Learning Studio 來達成這項目的。  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>在 Machine Learning Studio 中執行模型原型（傳統）
+根據說明的問題，實作一套整合的模型化和評分方法的最佳方式為何？ 在本節中，我們將示範如何使用 Azure Machine Learning Studio 的傳統版本來完成這項作業。  
 
 針對客戶流失來設計整體原型時，多重模型方法不可或缺。 即使是作法中的評分 (預測) 部分也應該為多重模型。  
 
-下圖顯示我們已建立的原型，在 Machine Learning Studio 中採用四種評分演算法來預測客戶流失。 使用多重模型方法的理由不只是為了建立集成分類器來提高準確性，也是為了避免過度訓練，同時改善制式的特徵選擇。  
+下圖顯示我們所建立的原型，這在 Machine Learning Studio （傳統）中採用四種評分演算法來預測流失。 使用多重模型方法的理由不只是為了建立集成分類器來提高準確性，也是為了避免過度訓練，同時改善制式的特徵選擇。  
 
-![此螢幕擷取畫面描述包含許多互連模組的複雜 Studio 工作區](./media/azure-ml-customer-churn-scenario/churn-3.png)
+![描繪具有許多互連模組之複雜 Studio （傳統）工作區的螢幕擷取畫面](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
-*圖 5︰客戶流失模型建構方法的原型*  
+*圖 5：客戶流失模型建構方法的原型*  
 
-以下幾節提供我們使用 Machine Learning Studio 實作的原型評分模型的詳細資料。  
+下列各節提供有關使用 Machine Learning Studio （傳統）實作為原型評分模型的更多詳細資料。  
 
 ### <a name="data-selection-and-preparation"></a>選擇和準備資料
 用來建立模型和給客戶評分的資料取自於一個 CRM 垂直解決方案，為了保護客戶隱私，資料皆經過模糊處理。 資料包含美國 8,000 個訂用帳戶的相關資訊，並結合了三個來源：佈建資料 (訂用帳戶中繼資料)、活動資料 (系統的使用方式)，以及客戶支援資料。 資料不包含客戶的任何業務相關資訊；例如，不含忠誠度中繼資料或信用分數。  
 
 為了簡單起見，ETL 和資料淨化處理不在討論範圍內，因為我們假設資料準備已在別處完成。
 
-模型的特徵選擇取決於預測變數組的初步顯著計分，包含在利用隨機森林模組的程序中。 在 Machine Learning Studio 中實作時，我們計算代表性特徵的平均值、中位數和範圍。 舉例來說，我們加上定性資料的總合，例如使用者活動的最小值和最大值。
+模型的特徵選擇取決於預測變數組的初步顯著計分，包含在利用隨機森林模組的程序中。 針對 Machine Learning Studio （傳統）中的實值，我們計算了代表特徵的平均值、中位數和範圍。 舉例來說，我們加上定性資料的總合，例如使用者活動的最小值和最大值。
 
 我們也取得最近 6 個月的暫時資訊。 我們分析一年的資料後，發現即使存在統計顯著趨勢，對客戶流失的效應也會在六個月後遞減。  
 
-最重要的一點是整個過程 (包括 ETL、特徵選擇和模型化) 都在 Machine Learning Studio 中實作，並採用 Microsoft Azure 中的資料來源。   
+最重要的一點是，使用 Microsoft Azure 中的資料來源，將整個程式（包括 ETL、特徵選取和模型化）實作為 Machine Learning Studio （傳統）。   
 
 下圖顯示使用的資料。  
 
 ![螢幕擷取畫面顯示搭配原始值使用的資料範例](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
-*圖 6︰資料來源摘錄 (經過模糊處理)*  
+*圖 6：資料來源摘錄 (經過模糊處理)*  
 
 ![螢幕擷取畫面顯示從資料來源擷取的統計功能](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
-*圖 7︰從資料來源擷取的特徵*
+*圖 7：從資料來源擷取的特徵*
  
 
 > 請注意，這項資料為私人所有，因此不能分享模型和資料。
@@ -124,27 +124,27 @@ ms.locfileid: "64699431"
 
 ![螢幕擷取畫面顯示 Studio 實驗畫布的一小部分](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
-*圖 8︰在 Machine Learning Studio 中建立模型*  
+*圖8：在 Machine Learning Studio 中建立模型（傳統）*  
 
 ### <a name="scoring-methods"></a>評分方法
 我們使用已標示的訓練資料集來對這四種模型評分。  
 
-我們也提交評分資料集給使用 SAS Enterprise Miner 12 桌上型版本建立的比較模型。 我們測量 SAS 模型和所有四個 Machine Learning Studio 模型的正確性。  
+我們也提交評分資料集給使用 SAS Enterprise Miner 12 桌上型版本建立的比較模型。 我們測量了 SAS 模型和全部四個 Machine Learning Studio （傳統）模型的精確度。  
 
 ## <a name="results"></a>結果
 在本節中，我們根據評分資料集，提出關於模型正確性的調查結果。  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>評分的正確性和準確度
-一般而言，在 Azure Machine Learning Studio 中實作的正確性低於 SAS 大約 10-15% (曲線下面積或 AUC)。  
+一般來說，傳統版本 Azure Machine Learning Studio 中的實作為 SAS 背後的精確度大約是10-15% （曲線下的面積或 AUC）。  
 
 不過，客戶流失中最重要的度量是分類誤判率；亦即，在分類器所預測排名前 N 位的流失客戶中，哪些實際上並 **沒有** 流失，但仍享受到特殊待遇？ 下圖比較所有模型的此項分類誤判率：  
 
 ![比較 4 種演算法表現的曲線下面積圖](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
-*圖 9︰Passau 原型曲線下面積*
+*圖 9：Passau 原型曲線下面積*
 
 ### <a name="using-auc-to-compare-results"></a>使用 AUC 來比較結果
-曲線下面積 (AUC) 是一種度量，代表正負母體的計分分布之間「可分性」  的總體量測。 它類似傳統的「受測者操作特徵」(ROC) 圖形，但一項重要的差別是 AUC 度量不需要您選擇臨界值。 它會總結「所有」  可能選擇的結果。 反之，傳統 ROC 圖會在垂直軸顯示正比率，在水平軸顯示誤判率，而分類臨界值會變化。   
+曲線下面積 (AUC) 是一種度量，代表正負母體的計分分布之間「可分性」 的總體量測。 它類似傳統的「受測者操作特徵」(ROC) 圖形，但一項重要的差別是 AUC 度量不需要您選擇臨界值。 它會總結「所有」 可能選擇的結果。 反之，傳統 ROC 圖會在垂直軸顯示正比率，在水平軸顯示誤判率，而分類臨界值會變化。   
 
 AUC 用來判斷不同演算法 (或不同系統) 是否有用處，因為它可根據 AUC 值來比較模型。 這在如氣象和生物科學等領域是常用的方法。 因此，AUC 是一種評估分類器表現的普遍工具。  
 
@@ -152,9 +152,9 @@ AUC 用來判斷不同演算法 (或不同系統) 是否有用處，因為它可
 我們使用大約 8,000 個訂用帳戶的 CRM 資料，在相關資料集上比較分類誤判率。  
 
 * SAS 分類誤判率為 10-15%。
-* Machine Learning Studio 對排名前 200-300 位流失客戶的分類誤判率為 15-20%。  
+* 前200-300 流失的 Machine Learning Studio （傳統）分類誤判速率為15-20%。  
 
-在電信業中，只提供特別禮遇或其他特殊待遇給最可能流失的客戶是很重要的。 在這方面，Machine Learning Studio 實作所獲得的成果與 SAS 模型旗鼓相當。  
+在電信業中，只提供特別禮遇或其他特殊待遇給最可能流失的客戶是很重要的。 就這方面而言，Machine Learning Studio （傳統）實作為與 SAS 模型有關的結果。  
 
 基於同樣的理由，正確性比準確度更重要，因為我們最在意的是正確地將可能流失的客戶分類。  
 
@@ -162,17 +162,17 @@ AUC 用來判斷不同演算法 (或不同系統) 是否有用處，因為它可
 
 ![兩個目標。 一個目標顯示分散的打擊標記，但接近標示為「低正確性：真實度良好，準確度欠佳」的靶心。 另一個目標密集，但遠離標示為「低正確性：真實度欠佳，準確度良好」的靶心。](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
-*圖 10︰正確性和準確度之間的取捨*
+*圖 10：正確性和準確度之間的取捨*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>推進式決策樹模型的正確性與準確度結果
 下列圖表針對推進式決策樹模型，列出利用 Machine Learning Studio 原型來評分所得出的原始結果，剛好就是四種模型中最正確的模型：  
 
 ![表格片段顯示四種演算法的正確性、準確度、回收、F 分數、AUC、平均記錄遺失和定型記錄遺失](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
-*圖 11︰推進式決策樹模型的特性*
+*圖 11：推進式決策樹模型的特性*
 
 ## <a name="performance-comparison"></a>表現比較
-我們使用 Machine Learning Studio 模型和一個以 SAS Enterprise Miner 12.1 桌上型版本建立的比較模型，比較資料評分的速度。  
+我們比較了使用 Machine Learning Studio （傳統）模型來評分資料的速度，以及使用桌上出版 SAS Enterprise Miner 12.1 所建立的比較模型。  
 
 下表總結演算法的表現：  
 
@@ -182,7 +182,7 @@ AUC 用來判斷不同演算法 (或不同系統) 是否有用處，因為它可
 | --- | --- | --- | --- |
 | 平均模型 |最佳模型 |表現不佳 |平均模型 |
 
-在執行速度方面，裝載於 Machine Learning Studio 中的模型比 SAS 快 15-25%，但正確性大致相等。  
+Machine Learning Studio （傳統）中裝載的模型，以15-25% 為效能勝過 SAS，以加快執行速度，但精確度主要是在 par 上。  
 
 ## <a name="discussion-and-recommendations"></a>討論與建議
 在電信業中，已出現許多作法來分析客戶流失，包括：  
@@ -194,35 +194,35 @@ AUC 用來判斷不同演算法 (或不同系統) 是否有用處，因為它可
   * **競爭性和商務資料**。 取得與客戶有關的任何可能資訊 (例如可能無法取得或難以追蹤)。
 * 使用重要性來引導特徵選擇。 這意味著推進式決策樹模型一定是可行的方法。  
 
-使用這四個類別製造出一種假象，讓人誤以為簡單的「確定性」  分析方法 (根據在每個類別的合理因素上形成的跡象) 就足以發現有流失風險的客戶。 可惜，雖然這種想法看似可行，但卻是一種誤解。 原因在於客戶流失是一種短暫效應，而造成客戶流失的因素通常是暫時狀態。 今天導致客戶想要離開的原因，到了明天可能就不一樣，且六個月之後一定不同。 因此，有必要使用「機率」  模型。  
+使用這四個類別製造出一種假象，讓人誤以為簡單的「確定性」 分析方法 (根據在每個類別的合理因素上形成的跡象) 就足以發現有流失風險的客戶。 可惜，雖然這種想法看似可行，但卻是一種誤解。 原因在於客戶流失是一種短暫效應，而造成客戶流失的因素通常是暫時狀態。 今天導致客戶想要離開的原因，到了明天可能就不一樣，且六個月之後一定不同。 因此，有必要使用「機率」 模型。  
 
 公司經常忽略這項重要的觀察，通常寧可選擇商業智慧導向的方法而不做分析，主要是因為前者較吸引人，直接了當就自動完成。  
 
-然而，採用 Machine Learning Studio 進行自助式分析的價值在於，這四種資訊 (依部門分類) 將成為在客戶流失方面進行機器學習時的寶貴資料來源。  
+不過，使用 Machine Learning Studio （傳統）進行自助式分析的承諾，是四種資訊分類（依部門或部門評分）成為機器學習服務的重要來源。  
 
-Azure Machine Learning Studio 中另一項吸引人的功能是可以將自訂模組加入既有預先定義之模組的儲存機制中。 這項功能基本上讓人有機會針對垂直市場選取程式庫和建立範本。 這是 Azure Machine Learning Studio 在市場中脫穎而出的一項重要利器。  
+傳統版本的 Azure Machine Learning Studio 中另一項令人興奮的功能，就是能夠將自訂模組新增至已提供之預先定義模組的存放庫。 這項功能基本上讓人有機會針對垂直市場選取程式庫和建立範本。 這是市場上傳統 Azure Machine Learning Studio 版本的重要區別。  
 
 我們希望未來繼續探討這個主題，特別是關於巨量資料分析。
   
 
 ## <a name="conclusion"></a>結論
-本文說明一套實用的方法，採取通用的架構來處理客戶流失這個普遍的問題。 我們採用原型來給模型評分，並使用 Azure Machine Learning Studio 來實作。 最後，我們依據 SAS 中可比較的演算法，評估原型解決方案的正確性和表現。  
+本文說明一套實用的方法，採取通用的架構來處理客戶流失這個普遍的問題。 我們已考慮使用 Azure Machine Learning Studio 的傳統版本來評分模型並實作為模型的原型。 最後，我們依據 SAS 中可比較的演算法，評估原型解決方案的正確性和表現。  
 
  
 
 ## <a name="references"></a>參考
-[1] Predictive Analytics：Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。  
+[1] 預測性分析：除了預測之外，McKnight、資訊管理、7月/8 月2011、p. 18-20。  
 
-[2] 維基百科文章：[正確性和準確度](https://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] 維琪百科文章：[正確性和精確度](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0：資料採礦逐步指南](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4][ 巨量資料行銷：更有效地吸引您的客戶和促進價值](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [巨量資料行銷：更有效地吸引您的客戶和促進價值](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 資源庫](https://gallery.azure.ai/)中的[電信公司客戶流失模型範本](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
+[5] [Azure AI 資源庫](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5)中的[電信公司客戶流失模型範本](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>附錄
 ![客戶流失原型的簡報擷取畫面](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
-*圖 12︰客戶流失原型的簡報擷取畫面*
+*圖 12：客戶流失原型的簡報擷取畫面*
