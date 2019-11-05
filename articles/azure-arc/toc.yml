@@ -1,0 +1,18 @@
+- name: Azure Arc 文件
+  href: index.yml
+- name: 概觀
+  expanded: true
+  items:
+    - name: 什麼是適用於伺服器的 Azure Arc？
+      href: ./servers/overview.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 使用適用於伺服器的 Azure Arc 將機器連線至 Azure - 入口網站
+      href: ./servers/quickstart-onboard-portal.md
+    - name: 使用適用於伺服器的 Azure Arc 將機器連線至 Azure - PowerShell
+      href: ./servers/quickstart-onboard-powershell.md
+- name: 參考
+  items:
+    - name: Azure 連線的機器代理程式 CLI 介面
+      href: ./servers/azcmagent-reference.md

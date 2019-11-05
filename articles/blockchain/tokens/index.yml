@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Azure Blockchain Tokens 文件
+summary: 了解如何建立、發行及管理區塊鏈權杖。
+metadata:
+  title: Azure Blockchain Tokens 文件 - 教學課程和 API 參考
+  description: 了解如何發行及管理區塊鏈權杖。 教學課程、API 參考和其他文件會示範如何使用 Azure Blockchain Tokens 來建立和管理 Azure 上的區塊鏈權杖。
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 6df625c2264db279e29c4ebcf5aab5695b335a0e
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508426"
+landingContent:
+- title: 關於 Azure Blockchain Tokens
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Azure Blockchain Tokens？
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 帳戶管理
+      url: account-management.md
+    - text: 範本
+      url: templates.md
+    - text: 可組合性
+      url: composability.md
+- title: 開始使用
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 註冊預覽存取
+      url: https://aka.ms/PreviewForm
+  - linkListType: video
+    links:
+    - text: 開始使用 Azure Blockchain Tokens
+      url: https://aka.ms/ABTokensPartI
+    - text: 管理帳戶
+      url: https://aka.ms/ABTokensPartII
+    - text: 範本與可組合性
+      url: https://aka.ms/ABTokensPartIII
+    - text: 權杖與權杖分類法架構
+      url: https://aka.ms/TokenTaxFramework

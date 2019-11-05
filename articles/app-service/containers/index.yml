@@ -94,7 +94,7 @@ sections:
         items:
           - html: 使用 <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">NET Core with Azure SQL DB</a>、<a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">Java Enterprise with PostgreSQL</a> 或 <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a> 來建立應用程式
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">將現有的自訂網域對應至您的應用程式</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">將現有的 SSL 憑證與您的應用程式繫結</a>
+          - html: <a href="/azure/app-service/configure-ssl-bindings">在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱</a>
           - html: <a href="/azure/cdn/cdn-add-to-web-app">將 CDN 加入至您的應用程式</a>
   - title: 範例
     items:

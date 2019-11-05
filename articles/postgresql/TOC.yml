@@ -92,6 +92,8 @@
               href: concepts-data-access-and-security-vnet.md
             - name: 連線架構
               href: concepts-connectivity-architecture.md
+            - name: Azure AD 驗證
+              href: concepts-aad-authentication.md
         - name: 業務持續性
           items:
             - name: 業務持續性簡介
@@ -153,8 +155,14 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: 設定 SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: 監視與微調
+          items:
+            - name: 監視與微調
+              href: concepts-hyperscale-monitoring.md
         - name: PostgreSQL 擴充功能
           href: concepts-hyperscale-extensions.md
+        - name: 高可用性
+          href: concepts-hyperscale-high-availability.md
         - name: 資源
           items:
             - name: 組態選項
@@ -163,8 +171,12 @@
   items:
     - name: 單一伺服器
       items:
-        - name: 建立使用者
-          href: howto-create-users.md
+        - name: Authentication
+          items:
+            - name: 建立使用者
+              href: howto-create-users.md
+            - name: 設定 Azure AD 整合
+              href: howto-configure-sign-in-aad-authentication.md
         - name: 最佳化
           items:
             - name: 大量插入
@@ -245,12 +257,20 @@
               href: howto-read-replicas-cli.md
     - name: 超大規模資料庫 (Citus)
       items:
-        - name: 調整大小
+        - name: 建立使用者
+          href: howto-hyperscale-create-users.md
+        - name: 調整
           href: howto-hyperscale-scaling.md
         - name: 管理防火牆
           items:
             - name: Azure 入口網站
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: 高可用性
+          href: howto-hyperscale-high-availability.md
+        - name: 監視
+          items:
+            - name: 建立計量警示
+              href: howto-hyperscale-alert-on-metric.md
         - name: 疑難排解
           items:
             - name: 針對連線問題進行疑難排解

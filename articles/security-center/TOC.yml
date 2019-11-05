@@ -37,6 +37,14 @@
       href: security-center-using-recommendations.md
     - name: 跨租用戶管理
       href: security-center-cross-tenant-management.md
+    - name: 容器安全性
+      items:
+        - name: 容器安全性概觀
+          href: container-security.md
+        - name: 與 Azure Container Registry 整合
+          href: azure-container-registry-integration.md
+        - name: 與 Azure Kubernetes Service 整合
+          href: azure-kubernetes-service-integration.md
     - name: 威脅偵測警示和事件
       items:
         - name: 安全性警訊概觀
@@ -67,33 +75,47 @@
       href: security-center-secure-score.md
     - name: 升級為進階安全性
       href: security-center-onboarding.md
-    - name: 使用 Windows Defender ATP 保護伺服器
+    - name: 使用 Microsoft Defender ATP 保護伺服器
       href: security-center-wdatp.md
-    - name: 適用於 Azure VM 上 SQL 的進階資料安全性 (公開預覽)
+    - name: 在 Azure VM 上使用適用於 SQL 的進階資料安全性
       href: security-center-iaas-advanced-data.md
     - name: 使用 App Service 保護您的應用程式
       href: security-center-app-services.md
     - name: 使用安全性原則
-      href: tutorial-security-policy.md
+      items:
+        - name: 安全性原則概觀
+          href: tutorial-security-policy.md
+        - name: 使用內建安全性原則
+          href: security-center-policy-definitions.md
+        - name: 建立自訂安全性原則
+          href: custom-security-policies.md
+        - name: 使用 Azure 原則 REST API 來管理原則
+          href: configure-security-policy-azure-policy.md
+    - name: 新增動態合規性套件
+      href: update-regulatory-compliance-packages.md
     - name: 自訂資訊保護原則
       href: security-center-info-protection-policy.md
     - name: 管理安全性解決方案
       href: security-center-partner-integration.md
     - name: 使用 PowerShell 進行自動上線
       href: security-center-powershell-onboarding.md
-    - name: 資訊安全中心設定
-      href: security-center-policies-overview.md
+    - name: 與 Windows Admin Center 整合
+      href: windows-admin-center-integration.md
     - name: 使用檔案完整性監視比較基準
       href: security-center-file-integrity-monitoring-baselines.md
-    - name: 資料收集
+    - name: 自動回應警示和建議
+      href: workflow-automation.md
+    - name: 匯出警示和建議
+      href: continuous-export.md
+    - name: 設定資料收集
       href: security-center-enable-data-collection.md
-    - name: 內建安全性原則
-      href: security-center-policy-definitions.md
-    - name: 電子郵件通知
+    - name: 設定 Azure Key Vault 的進階威脅防護
+      href: advanced-threat-protection-key-vault.md
+    - name: 設定電子郵件通知
       href: security-center-provide-security-contact-details.md
     - name: 價格
       href: security-center-pricing.md
-    - name: 跨租用戶可見性
+    - name: 取得全租用戶的可見度
       href: security-center-management-groups.md
     - name: 實作安全性建議
       items:
@@ -160,7 +182,7 @@
     - name: 管理使用者資料
       href: security-center-privacy.md
     - name: 適用於 IoT 的 Azure 資訊安全中心文件
-      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
+      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
     - name: 常見問題集
       href: security-center-faq.md
     - name: Azure 安全性文件

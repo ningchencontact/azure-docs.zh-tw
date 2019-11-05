@@ -1,9 +1,9 @@
-- name: Machine Learning Studio 文件
+- name: Machine Learning Studio (傳統) 文件
   href: index.yml
 - name: 概觀
   expanded: true
   items:
-    - name: Machine Learning Studio
+    - name: Machine Learning Studio (傳統)
       displayName: overview
       href: what-is-ml-studio.md
     - name: 比較 ML 產品
@@ -106,8 +106,6 @@
       items:
         - name: 選擇演算法
           href: algorithm-choice.md
-        - name: 演算法功能提要
-          href: algorithm-cheat-sheet.md
         - name: 演算法範例
           displayName: 'infographic, studio basics'
           href: basics-infographic-with-algorithm-examples.md
@@ -153,11 +151,11 @@
           href: azure-ml-customer-churn-scenario.md
         - name: 情感分析
           href: text-analytics-module-tutorial.md
-        - name: 將分析從 Excel 遷移至 Studio
+        - name: 將分析從 Excel 遷移至 Studio (傳統)
           href: linear-regression-in-azure.md
     - name: 刪除和匯出客戶資料
       items:
-        - name: Studio 資料
+        - name: Studio (傳統) 資料
           displayName: export
           href: export-delete-personal-data-dsr.md
         - name: 資源庫資料

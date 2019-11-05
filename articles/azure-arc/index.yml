@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Azure Arc
+summary: Azure Arc 可將 Azure Resource Manager 功能延伸到 Linux 和 Windows 伺服器，以及跨越內部部署、多雲端和邊緣的任何基礎結構上的 Kubernetes 叢集。 透過 Azure Arc，客戶也可以在任何地方執行 Azure 資料服務，進而實現雲端創新的優勢，包括永遠最新的資料功能、在幾秒 (而非幾小時) 內部署，以及任何基礎結構上的動態延展性。 適用於伺服器的 Azure Arc 目前為公開預覽狀態。
+metadata:
+  title: 適用於伺服器的 Azure Arc
+  description: 了解如何在 Azure 中管理內部部署機器
+  author: bobbytreed
+  manager: carmonm
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 11/04/2019
+  ms.author: robreed
+  ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508545"
+landingContent:
+- title: Azure Arc 概觀
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 深入了解 Azure Arc
+      url: https://aka.ms/Azure-Arc-Info
+- title: 使用適用於伺服器的 Azure Arc 將機器連線至 Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是適用於伺服器的 Azure Arc？
+      url: ./servers/overview.md
+  - linkListType: quickstart
+    links:
+    - text: 使用適用於伺服器的 Azure Arc 將機器連線至 Azure - 入口網站
+      url: ./servers/quickstart-onboard-portal.md
+    - text: 使用適用於伺服器的 Azure Arc 將機器連線至 Azure - PowerShell
+      url: ./servers/quickstart-onboard-portal.md

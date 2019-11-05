@@ -36,17 +36,7 @@
         - name: 取得意圖
           href: luis-get-started-get-intent-from-rest.md
         - name: 變更模式
-          items:
-            - name: 'C#'
-              href: luis-get-started-cs-add-utterance.md
-            - name: Go
-              href: luis-get-started-go-add-utterance.md
-            - name: Java
-              href: luis-get-started-java-add-utterance.md
-            - name: Node.js
-              href: luis-get-started-node-add-utterance.md
-            - name: Python
-              href: luis-get-started-python-add-utterance.md
+          href: get-started-get-model-rest-apis.md
 - name: 教學課程
   items:
     - name: 建置應用程式
@@ -103,49 +93,47 @@
               href: luis-tutorial-bot-nodejs-appinsights.md
 - name: 概念
   items:
-    - name: 最佳作法
-      href: luis-concept-best-practices.md
-      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
-    - name: 使用 LUIS 和 QnA Maker
-      href: choose-natural-language-processing-service.md
-      displayName: 'nlp, qna maker'
+    - name: 開發生命週期
+      href: luis-concept-app-iteration.md
     - name: 規劃您的應用程式
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
-    - name: 撰寫和執行階段金鑰
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
-    - name: 撰寫應用程式模型
+    - name: 應用程式模型
       items:
-        - name: 撰寫循環
-          href: luis-concept-app-iteration.md
-        - name: 版本控制
-          href: luis-concept-version.md
-          displayName: import
-    - name: 設計模型
-      items:
+        - name: 類型
+          href: luis-concept-model.md
         - name: 對應方式
           href: luis-concept-intent.md
+        - name: 表達方式
+          href: luis-concept-utterance.md
         - name: 實體
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
-        - name: 實體角色
-          href: luis-concept-roles.md
-        - name: 表達方式
-          href: luis-concept-utterance.md
         - name: 預先建置的模型
           href: luis-concept-prebuilt-model.md
-    - name: 提升應用程式效能
-      items:
-        - name: 預測分數
-          href: luis-concept-prediction-score.md
-        - name: 檢閱端點表達方式
-          href: luis-concept-review-endpoint-utterances.md
-        - name: 片語清單
-          href: luis-concept-feature.md
         - name: 模式
           href: luis-concept-patterns.md
           displayName: roles
+        - name: 特性
+          href: luis-concept-feature.md
+    - name: 預測分數
+      href: luis-concept-prediction-score.md
+    - name: 最佳作法
+      href: luis-concept-best-practices.md
+      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+    - name: 提升應用程式效能
+      items:
+        - name: 檢閱端點語句
+          href: luis-concept-review-endpoint-utterances.md
+    - name: 測試
+      items:
+        - name: 互動式測試
+          href: luis-concept-test.md
+        - name: 批次測試
+          href: luis-concept-batch-test.md
+    - name: 撰寫和執行階段金鑰
+      displayName: 'shared, transfer, ownership, author, access, import'
+      href: luis-concept-keys.md
     - name: 資料管理
       items:
         - name: 更改資料
@@ -157,12 +145,9 @@
           displayName: roles
         - name: 資料儲存體
           href: luis-concept-data-storage.md
-    - name: 測試
-      items:
-        - name: 互動式測試
-          href: luis-concept-test.md
-        - name: 批次測試
-          href: luis-concept-batch-test.md
+    - name: 使用 LUIS 和 QnA Maker
+      href: choose-natural-language-processing-service.md
+      displayName: 'nlp, qna maker'
     - name: Enterprise
       items:
         - name: 設計策略
@@ -183,13 +168,7 @@
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: 使用預先建置的模型
-          items:
-            - name: 使用網域
-              href: luis-prebuilt-domains.md
-            - name: 使用意圖
-              href: luis-prebuilt-intent.md
-            - name: 使用實體
-              href: luis-prebuilt-entities.md
+          href: howto-add-prebuilt-models.md
         - name: 使用 REST API
           items:
             - name: 使用 Node.js 以程式設計方式建置應用程式
@@ -218,6 +197,7 @@
           href: luis-how-to-model-intent-pattern.md
     - name: 定型
       href: luis-how-to-train.md
+      displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
     - name: 測試
       items:
         - name: 互動式測試
@@ -246,13 +226,17 @@
           diplayName: 'import, export, container'
         - name: 使用流量管理員
           href: luis-traffic-manager.md
-    - name: 遷移 API
+    - name: 使用 API
       items:
-        - name: 遷移至 V2 REST API
-          href: luis-migration-api-v1-to-v2.md
-        - name: 遷移至 V3 REST API
+        - name: 開發人員
+          href: developer-reference-resource.md
+        - name: 編寫 API
+          href: luis-migration-api-authoring.md
+        - name: 遷移至 V3 API
           href: luis-migration-api-v3.md
           displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
+        - name: 移轉至 V2 API
+          href: luis-migration-api-v1-to-v2.md
     - name: 使用容器
       items:
         - name: 安裝及執行容器
@@ -262,6 +246,9 @@
           href: luis-container-configuration.md
         - name: 使用容器執行個體
           href: deploy-luis-on-container-instances.md
+        - name: 容器限制
+          href: luis-container-limitations.md
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
 - name: 參考
   items:
     - name: 使用者隱私權
@@ -325,6 +312,8 @@
           href: reference-entity-regular-expression.md
         - name: 簡單實體
           href: reference-entity-simple.md
+    - name: 情感
+      href: luis-reference-prebuilt-sentiment.md
     - name: 開發人員資源
       href: developer-reference-resource.md
       displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
@@ -334,9 +323,15 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
     - name: REST API
       items:
-        - name: 製作 V2 REST API
+        - name: V3 撰寫 REST API (預覽)
+          href: 'https://aka.ms/luis-apim-v3-authoring'
+        - name: V3 預測 REST API
+          href: 'https://aka.ms/luis-apim-v3-prediction'
+        - name: V2 撰寫 REST API
           href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
-        - name: 端點 V2 REST API
+        - name: V2 預測 REST API
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
+        - name: 端點 V3 REST API
           href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: HTTP 代碼
           displayName: '400, 401, 403, 409, 410, 414, 429'
@@ -413,7 +408,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 語言與區域支援
       href: luis-language-support.md
-      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Azure 藍圖
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: 詞彙
@@ -429,7 +424,7 @@
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
-    - name: Search
+    - name: 搜尋
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 部落格
       href: 'https://blog.botframework.com/category/luis/'

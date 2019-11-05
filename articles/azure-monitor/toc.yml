@@ -781,20 +781,32 @@
                   href: insights/container-insights-enable-new-cluster.md
                 - name: 針對現有叢集啟用
                   href: insights/container-insights-enable-existing-clusters.md
+                - name: 針對混合式叢集啟用
+                  href: insights/container-insights-hybrid-setup.md
                 - name: 區域對應
                   href: insights/container-insights-region-mapping.md
             - name: 分析
               href: insights/container-insights-analyze.md
             - name: 停用監視
               href: insights/container-insights-optout.md
-            - name: 檢視即時記錄
-              href: insights/container-insights-live-logs.md
+            - name: 檢視即時資料
+              items:
+                - name: 即時資料 (預覽) 概觀
+                  href: insights/container-insights-livedata-overview.md
+                - name: 設定
+                  href: insights/container-insights-livedata-setup.md
+                - name: 檢視叢集計量
+                  href: insights/container-insights-livedata-metrics.md
+                - name: 檢視部署
+                  href: insights/container-insights-livedata-deployments.md
             - name: 使用日誌查詢分析資料
               href: insights/container-insights-log-search.md
             - name: 警示
               href: insights/container-insights-alerts.md
             - name: 代理程式管理
               href: insights/container-insights-manage-agent.md
+            - name: 設定 Prometheus 計量抓取
+              href: insights/container-insights-prometheus-integration.md
             - name: 設定代理程式集合設定
               href: insights/container-insights-agent-config.md
             - name: 更新以啟用計量

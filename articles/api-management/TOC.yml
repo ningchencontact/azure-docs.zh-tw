@@ -61,6 +61,8 @@
       href: api-management-error-handling-policies.md
     - name: API 匯出限制
       href: api-management-api-import-restrictions.md
+    - name: 自我裝載閘道概觀
+      href: self-hosted-gateway-overview.md
 - name: 使用說明指南
   items:
     - name: 定義 API
@@ -93,6 +95,16 @@
           href: api-management-howto-autoscale.md
         - name: 設定自訂網域
           href: configure-custom-domain.md
+        - name: 部署至多個 Azure 區域
+          href: api-management-howto-deploy-multi-region.md
+        - name: 佈建自我裝載閘道
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: 將自我裝載閘道部署至 Kubernetes
+          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+        - name: 將自我裝載閘道部署至 Docker
+          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+        - name: 為自我裝載閘道設定自訂網域
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: 快取
       items:
         - name: 新增快取以改善效能
@@ -195,8 +207,6 @@
       items:
         - name: 管理群組
           href: api-management-howto-create-groups.md
-        - name: 部署至多個 Azure 區域
-          href: api-management-howto-deploy-multi-region.md
         - name: 擷取 IP 位址
           href: api-management-howto-ip-addresses.md
         - name: 將事件記錄到 Azure 事件中樞

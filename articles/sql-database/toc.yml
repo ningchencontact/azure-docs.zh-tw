@@ -20,29 +20,34 @@
           items:
             - name: 概觀
               href: sql-database-purchase-models.md
-            - name: 以虛擬核心為基礎的模型
-              href: sql-database-service-tiers-vcore.md
+            - name: 虛擬核心模型
               items:
-                - name: 無伺服器計算層級
+                - name: 虛擬核心模型概觀
+                  href: sql-database-service-tiers-vcore.md
+                - name: 無伺服器
                   href: sql-database-serverless.md
-                - name: 預付保留容量
+                - name: Azure Hybrid Benefit
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: 保留容量
                   href: sql-database-reserved-capacity.md
-            - name: DTU 服務層級
+            - name: DTU 模型概觀
               href: sql-database-service-tiers-dtu.md
+            - name: 從 DTU 遷移至虛擬核心
+              href: sql-database-dtu-to-vcore.md
         - name: 計算和儲存體
           items:
             - name: 概觀
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: 一般目的 / 標準服務層級
+            - name: 一般目的/標準
               href: sql-database-service-tier-general-purpose.md
-            - name: 商務關鍵 / 進階服務層級
+            - name: 商務關鍵/進階
               href: sql-database-service-tier-business-critical.md
-            - name: 超大規模資料庫服務層級
+            - name: 超大規模資料庫
               href: sql-database-service-tier-hyperscale.md
             - name: 超大規模資料庫常見問題集
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: 從進階 RS 服務層級遷移
+            - name: 從進階 RS 遷移
               href: sql-database-service-tiers-prs.md
 - name: 快速入門
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: 單一資料庫資源
           items:
-            - name: 以 vCore 為基礎的資源限制
+            - name: 虛擬核心資源限制
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: 以 DTU 為基礎的資源限制
+            - name: DTU 資源限制
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: 調整資源
               href: sql-database-single-database-scale.md
         - name: 彈性集區資源
           items:
-            - name: 以 vCore 為基礎的資源限制
+            - name: 虛擬核心資源限制
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: 以 DTU 為基礎的資源限制
+            - name: DTU 資源限制
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: 調整資源
               href: sql-database-elastic-pool-scale.md

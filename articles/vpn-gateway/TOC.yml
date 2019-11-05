@@ -124,6 +124,8 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: 建立和安裝 VPN 用戶端組態檔
               href: point-to-site-vpn-client-configuration-azure-cert.md
+            - name: 關於用戶端 VPN 設定檔的下載檔案
+              href: about-vpn-profile-download.md
         - name: RADIUS 驗證
           items:
             - name: 設定 P2S VPN
@@ -138,6 +140,14 @@
               href: vpn-gateway-howto-openvpn.md
             - name: 設定 OpenVPN 用戶端
               href: vpn-gateway-howto-openvpn-clients.md
+            - name: 開啟 VPN - Azure Active Directory 驗證
+              items:
+                - name: 設定 Azure AD 租用戶
+                  href: openvpn-azure-ad-tenant.md
+                - name: 設定 VPN 用戶端 - Azure AD
+                  href: openvpn-azure-ad-client.md
+        - name: 轉換為 P2S 的公用 CA 閘道憑證
+          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: 設定 Always On VPN 裝置通道
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: 設定 Always On VPN 使用者通道
@@ -188,6 +198,10 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: 依診斷日誌建立警示
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+    - name: 設定封包擷取
+      href: packet-capture.md
+    - name: 設定自訂流量選取器
+      href: custom-traffic-selectors.md
     - name: 疑難排解
       href: vpn-gateway-troubleshoot.md
       items:
@@ -203,6 +217,8 @@
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
             - name: 點對站連線問題 - Mac OS X VPN 用戶端
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+            - name: 點對站 - Azure AD 驗證
+              href: troubleshoot-ad-vpn-client.md
         - name: 站對站連線問題
           items:
             - name: 站對站連接

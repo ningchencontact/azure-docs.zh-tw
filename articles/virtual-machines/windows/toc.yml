@@ -220,6 +220,8 @@
           href: disk-encryption.md
         - name: 為高效能而設計
           href: premium-storage-performance.md
+        - name: 磁碟高載
+          href: disk-bursting.md
         - name: 磁碟適用的延展性目標
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原

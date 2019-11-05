@@ -76,12 +76,26 @@
               href: connect-fortinet.md
             - name: 連線 F5
               href: connect-f5.md
+            - name: 連線 F5 BIG-IP
+              href: connect-f5-big-ip.md
             - name: 連線 Syslog
               href: connect-syslog.md
             - name: 連線 Symantec ICDX
               href: connect-symantec.md
             - name: 連線 Cisco
               href: connect-cisco.md
+            - name: 連線 Barracuda CloudGen Firewall
+              href: connect-barracuda-cloudgen-firewall.md
+            - name: 連線 Citrix Analytics (Security)
+              href: connect-citrix-analytics.md
+            - name: 連線 ExtraHop Reveal(x)
+              href: connect-extrahop.md
+            - name: One Identity Safeguard
+              href: connect-one-identity.md
+            - name: Trend Micro Deep Security
+              href: connect-trend-micro.md
+            - name: 連線 Zscaler
+              href: connect-zscaler.md
         - name: 連線威脅情報
           href: connect-threat-intelligence.md
         - name: 連線 Azure Stack VM
@@ -97,6 +111,8 @@
           href: notebooks.md
         - name: 書籤來搜捕
           href: bookmarks.md
+        - name: 使用 Livestream 來搜捕
+          href: livestream.md
     - name: 移除 Azure Sentinel
       href: offboard.md
 - name: 資源

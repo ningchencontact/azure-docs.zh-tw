@@ -8,6 +8,8 @@
   items:
     - name: 建立站對站連線
       href: virtual-wan-site-to-site-portal.md
+    - name: 建立點對站連線
+      href: virtual-wan-point-to-site-portal.md
     - name: 建立 ExpressRoute 連線
       href: virtual-wan-expressroute-portal.md
 - name: 概念
@@ -24,13 +26,27 @@
           href: virtual-wan-office365-overview.md
 - name: 使用說明指南
   items:
+    - name: 升級虛擬 WAN SKU
+      href: upgrade-virtual-wan.md
+    - name: 遷移至虛擬 WAN
+      href: migrate-from-hub-spoke-topology.md
+    - name: 透過 ExpressRoute 私用對等互連建立 VPN 連線
+      href: vpn-over-expressroute.md
+    - name: 將虛擬網路閘道連線到虛擬 WAN
+      href: connect-virtual-network-gateway-vwan.md
+    - name: 設定自訂 IPsec 原則
+      href: virtual-wan-custom-ipsec-portal.md
+    - name: 設定使用者 VPN 的憑證
+      href: certificates-point-to-site.md
     - name: 將流量從虛擬中樞路由傳送至 NVA
       items:
         - name: Azure 入口網站
           href: virtual-wan-route-table-portal.md
         - name: Azure PowerShell
           href: virtual-wan-route-table.md
-    - name: 虛擬 WAN 夥伴 - 自動化
+    - name: 檢視虛擬中樞的有效路由
+      href: effective-routes-virtual-hub.md
+    - name: 虛擬 WAN 夥伴的自動化
       href: virtual-wan-configure-automation-providers.md
 - name: 參考
   items:

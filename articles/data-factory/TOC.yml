@@ -80,8 +80,12 @@
           items:
             - name: 複製資料工具
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: 使用對應資料流程來轉換資料
-      href: tutorial-data-flow.md
+    - name: 使用資料流程轉換和準備資料
+      items:
+        - name: 使用對應資料流程來轉換資料
+          href: tutorial-data-flow.md
+        - name: 使用整頓資料流程來準備資料
+          href: wrangling-data-flow-tutorial.md
     - name: 外部轉換
       items:
         - name: HDInsight Spark
@@ -143,28 +147,36 @@
       href: concepts-pipeline-execution-triggers.md
     - name: 整合執行階段
       href: concepts-integration-runtime.md
-    - name: 對應資料流程
+    - name: 資料流程
       items:
-        - name: 對應資料流程概觀
-          href: concepts-data-flow-overview.md
-        - name: 偵錯模式
-          href: concepts-data-flow-debug-mode.md
-        - name: JSON 處理
-          href: concepts-data-flow-json.md
-        - name: 結構描述漂移
-          href: concepts-data-flow-schema-drift.md
-        - name: 資料行模式
-          href: concepts-data-flow-column-pattern.md
-        - name: 資料流程監視
-          href: concepts-data-flow-monitoring.md
-        - name: 資料流程效能
-          href: concepts-data-flow-performance.md
-        - name: 移動節點
-          href: concepts-data-flow-move-nodes.md
-        - name: 運算式產生器
-          href: concepts-data-flow-expression-builder.md
-        - name: 運算式語言
-          href: data-flow-expression-functions.md
+        - name: 使用對應資料流程來轉換資料
+          items:
+            - name: 對應資料流程概觀
+              href: concepts-data-flow-overview.md
+            - name: 偵錯模式
+              href: concepts-data-flow-debug-mode.md
+            - name: JSON 處理
+              href: concepts-data-flow-json.md
+            - name: 結構描述漂移
+              href: concepts-data-flow-schema-drift.md
+            - name: 資料行模式
+              href: concepts-data-flow-column-pattern.md
+            - name: 資料流程監視
+              href: concepts-data-flow-monitoring.md
+            - name: 資料流程效能
+              href: concepts-data-flow-performance.md
+            - name: 移動節點
+              href: concepts-data-flow-move-nodes.md
+            - name: 運算式產生器
+              href: concepts-data-flow-expression-builder.md
+            - name: 運算式語言
+              href: data-flow-expression-functions.md
+        - name: 使用整頓資料流程來準備資料
+          items:
+            - name: 整頓資料流程概觀
+              href: wrangling-data-flow-overview.md
+            - name: 支援的函式
+              href: wrangling-data-flow-functions.md
     - name: 角色和權限
       href: concepts-roles-permissions.md
     - name: 了解定價

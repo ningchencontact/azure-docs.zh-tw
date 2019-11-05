@@ -12,7 +12,9 @@
       items:
         - name: Azure 入口網站
           href: create-cosmosdb-resources-portal.md
-        - name: .NET 應用程式
+        - name: .NET 應用程式 - V4 SDK
+          href: create-sql-api-dotnet-v4.md
+        - name: .NET 應用程式 - V3 SDK
           href: create-sql-api-dotnet.md
         - name: JAVA 應用程式
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - 遷移資料
-      displayName: import
-      href: import-data.md
+      items:
+        - name: 使用資料移轉工具
+          href: import-data.md
+        - name: 使用 .NET 大量支援
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - 查詢資料
       href: tutorial-query-sql-api.md
     - name: 4 - 建立 notebook
@@ -122,6 +127,8 @@
         - name: 在容器和資料庫中佈建輸送量
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: 佈建輸送量 - AutoPilot 模式
+          href: provision-throughput-autopilot.md
     - name: SQL 查詢參考
       items:
         - name: 開始使用
@@ -953,6 +960,11 @@
           href: how-to-configure-firewall.md
         - name: 從虛擬網路設定
           href: how-to-configure-vnet-service-endpoint.md
+        - name: 設定來自私人端點的存取
+          href: how-to-configure-private-endpoints.md
+        - name: 私下連線至 Cosmos DB 帳戶
+          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+          maintainContext: true
         - name: 設定跨原始資源共用 (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: 使用 Key Vault 保護 Azure Cosmos 金鑰

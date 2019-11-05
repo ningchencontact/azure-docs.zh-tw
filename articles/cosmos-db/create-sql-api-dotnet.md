@@ -8,22 +8,22 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: 72e46ca55193bf79971818665a77be49ca5243e1
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 109fe3bc19aeaee6e0790d351d9981f2dc878561
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382874"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486089"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入門：建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 資源
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
 開始使用適用於 .NET 的 Azure Cosmos DB SQL API 用戶端程式庫。 請依照此文件中的步驟安裝 .NET 套件、建置應用程式，並針對 Azure Cosmos DB 中儲存的資料嘗試使用基本 CRUD 作業的範例程式碼。 
 

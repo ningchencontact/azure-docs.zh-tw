@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b451763a4d359d18ccb4d53cd3ee96fdafd53818
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4c1b7c49002d9ff6cd8c782c3308edaaa5d2373d
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501233"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519517"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -45,7 +45,7 @@ ms.locfileid: "68501233"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 應用程式架構手冊</span>
+                                    <span class="likeAnH3">Azure 應用程式架構指南</span>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ ms.locfileid: "68501233"
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
                                                     </li>
                                                     <li>
@@ -159,11 +159,11 @@ ms.locfileid: "68501233"
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/javascript/azure/">
+                                                        <a class="barLink" href="/azure/javascript/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/">
+                                                        <a class="barLink" href="/azure/go/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""> Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -189,8 +189,9 @@ ms.locfileid: "68501233"
                                                 <h4>關聯式資料庫</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL 資料庫即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">適用於邊緣的 SQL Database</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">在 Azure VM 上的 SQL Server</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL 資料倉儲即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics (先前為 SQL DW)</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 資料庫即服務</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL 資料庫即服務</a></li>
                                                 </ul>
@@ -331,7 +332,7 @@ ms.locfileid: "68501233"
                 <a href="#products">產品</a>
                 <ul id="products">
                     <li>
-                        <a href="#all">全部</a>
+                        <a data-default="true" href="#all">全部</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -345,7 +346,7 @@ ms.locfileid: "68501233"
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/welcome">
-                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>認知服務</p>
                                             </a>
                                         </li>
@@ -588,8 +589,8 @@ ms.locfileid: "68501233"
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>SQL 資料倉儲</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics (先前為 SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -825,6 +826,12 @@ ms.locfileid: "68501233"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                <p>認知服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -857,6 +864,12 @@ ms.locfileid: "68501233"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/sql-database-edge/">
+                                                <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                <p>Azure SQL Database Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
                                                 <p>Azure Cosmos DB</p>
@@ -864,8 +877,8 @@ ms.locfileid: "68501233"
                                         </li>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL 資料倉儲</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics (先前為 SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1122,6 +1135,12 @@ ms.locfileid: "68501233"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-pnp/">
+                                                <img src="media/index/cloud-check.svg" alt="" />
+                                                <p>IoT 隨插即用</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT 解決方案加速器</p>
@@ -1356,6 +1375,12 @@ ms.locfileid: "68501233"
                                             <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>計費</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1605,6 +1630,36 @@ ms.locfileid: "68501233"
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
+                                        <li>
+                                          <a href="/azure/web-application-firewall/">
+                                                <img src="media/index/web-app-firewall.svg" alt="" />
+                                                <p>Web 應用程式防火牆</p>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private-link.svg" alt="" />
+                                                <p>Azure Private Link</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/peering-service/">
+                                                <img src="media/index/peering-service.svg" alt="" />
+                                                <p>對等互連服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/firewall-manager/">
+                                                <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                <p>Azure 防火牆管理員</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/internet-analyzer/">
+                                                <img src="media/index/internet-analyzer.svg" alt="" />
+                                                <p>Azure Internet Analyzer</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>安全性</h3>
                                     <ul>
@@ -1627,19 +1682,19 @@ ms.locfileid: "68501233"
                                             </a>
                                         </li>
                                         <li>
-                                        <li>
                                             <a href="/azure/dedicated-hsm">
                                                 <img src="media/index/dedicated-hsm.svg" alt="" />
                                                 <p>Azure 專用 HSM</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS 保護</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/azure-threat-detection">
+                                            <a href="/azure/security/fundamentals/threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Azure 進階威脅防護</p>
                                             </a>
@@ -1851,10 +1906,13 @@ ms.locfileid: "68501233"
                                                 <p>Azure SignalR 服務</p>
                                             </a>
                                         </li>
+                                    </ul>
+                                    <h3>Windows 虛擬桌面</h3>
+                                    <ul>
                                         <li>
-                                            <a href="/azure/lighthouse/">
-                                                <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                <p>Azure Lighthouse</p>
+                                            <a href="/azure/virtual-desktop/">
+                                                <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                <p>Windows 虛擬桌面</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1863,7 +1921,7 @@ ms.locfileid: "68501233"
                         </ul>
                     </li>
                     <li>
-                        <a href="#ai">AI + Machine Learning</a>
+                        <a href="#ai">AI + 機器學習服務</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>人工智慧 + 機器學習服務</h2>
@@ -2179,7 +2237,7 @@ ms.locfileid: "68501233"
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analytics</a>
+                        <a href="#analytics">分析</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/sql-data-warehouse/">
@@ -2188,12 +2246,12 @@ ms.locfileid: "68501233"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL 資料倉儲</h3>
-                                                    <p>彈性的資料倉儲即服務，並提供企業級功能</p>
+                                                    <h3>Azure Synapse Analytics (先前為 SQL DW)</h3>
+                                                    <p>以優異速度產生見解的無限制分析服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2288,7 +2346,7 @@ ms.locfileid: "68501233"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>串流分析</h3>
-                                                    <p>從數百萬台 IoT 裝置即時資料串流處理</p>
+                                                    <p>即時分析來自應用程式和裝置的快速移動資料流</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2607,7 +2665,7 @@ ms.locfileid: "68501233"
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">計算</a>
+                        <a href="#Compute">計算</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -2717,6 +2775,25 @@ ms.locfileid: "68501233"
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>使用單一指令輕鬆執行容器</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>認知服務</h3>
+                                                    <p>讓應用程式、網站和 Bot 智慧化，以便傾聽、說話及了解資訊</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2976,6 +3053,25 @@ ms.locfileid: "68501233"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>認知服務</h3>
+                                                    <p>使用 Azure 認知服務容器搭配 Docker、Kubernetes、AKS 和容器執行個體</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3095,6 +3191,25 @@ ms.locfileid: "68501233"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/sql-database-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SQL Database Edge</h3>
+                                                    <p>針對 IoT 和邊緣部署最佳化的關聯式資料庫引擎。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3120,12 +3235,12 @@ ms.locfileid: "68501233"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL 資料倉儲</h3>
-                                                    <p>彈性的資料倉儲即服務，並提供企業級功能</p>
+                                                    <h3>Azure Synapse Analytics (先前為 SQL DW)</h3>
+                                                    <p>以優異速度產生見解的無限制分析服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3918,6 +4033,25 @@ ms.locfileid: "68501233"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-pnp/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-check.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT 隨插即用</h3>
+                                                    <p>將裝置連線到您的 IoT 解決方案，而不需撰寫任何裝置程式碼</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -4663,6 +4797,25 @@ ms.locfileid: "68501233"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>大規模管理自訂資源</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5024,7 +5177,7 @@ ms.locfileid: "68501233"
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">行動</a>
+                        <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/appcenter">
@@ -5143,7 +5296,7 @@ ms.locfileid: "68501233"
                         </ul>
                     </li>
                     <li>
-                        <a href="#network">網路</a>
+                        <a href="#network">網路功能</a>
                         <ul id="network" class="cardsA">
                             <li>
                                 <a href="/azure/networking/networking-overview">
@@ -5430,24 +5583,19 @@ ms.locfileid: "68501233"
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">安全性</a>
-                        <ul id="security" class="cardsA">
                             <li>
-                                <a href="/azure/security/">
+                                <a href="/azure/web-application-firewall/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                        <img src="media/index/web-app-firewall.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>安全性資訊</h3>
-                                                    <p>了解 Azure 如何提供安全的基礎結構以建置雲端解決方案</p>
+                                                    <h3>Web 應用程式防火牆</h3>
+                                                    <p>可集中保護 Web 應用程式，使其免於遭遇常見的攻擊和弱點</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5455,7 +5603,67 @@ ms.locfileid: "68501233"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security-center">
+                                <a href="/azure/peering-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/peering-service.svg" alt="" />
+                                                    </div>
+                                            </div>
+                                            <div class="cardText">
+                                                    <h3>對等互連服務</h3>
+                                                    <p>取得最佳的網際網路連線能力以存取 Microsoft 網路</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#security">安全性</a>
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/private-link.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Private Link</h3>
+                                                    <p>私下存取 Azure 平台上託管的服務，將您的資料保留在 Microsoft 網路中</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/firewall-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 防火牆管理員</h3>
+                                                    <p>全域散發的安全性管理服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               <a href="/azure/security-center/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5531,7 +5739,7 @@ ms.locfileid: "68501233"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/azure-threat-detection">
+                                <a href="/azure/security/fundamentals/threat-detection">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5704,7 +5912,7 @@ ms.locfileid: "68501233"
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">主權雲端</a>
+                        <a href="#other">Sovereign Clouds</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -5819,25 +6027,6 @@ ms.locfileid: "68501233"
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
                                                     <p>可大幅調整，並保障 Blob 儲存體中內建的 Data Lake Storage 安全</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/lighthouse/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Lighthouse</h3>
-                                                    <p>大規模管理自訂資源</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6212,6 +6401,30 @@ ms.locfileid: "68501233"
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#windowsvirtualdesktop">Windows 虛擬桌面</a>
+                        <ul id="windowsvirtualdesktop" class="cardsA">
+                            <li>
+                                <a href="/azure/virtual-desktop">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Windows 虛擬桌面</h3>
+                                                    <p>以雲端規模為任何裝置提供虛擬桌面體驗</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
              <li>
@@ -6261,10 +6474,10 @@ ms.locfileid: "68501233"
                                                 <h3>
 適用於 Python 開發人員的 Azure </h3>
                                                 <p>
-                                                    <a href="/python/azure">開始使用</a>
+                                                    <a href="/azure/python">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API 參考</a>
+                                                    <a href="/python/api/?view=azure-python">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6284,7 +6497,7 @@ ms.locfileid: "68501233"
                                                 <h3>
 適用於 Node.js 開發人員的 Azure </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">開始使用</a>
+                                                    <a href="/azure/javascript/">開始使用</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API 參考</a>
@@ -6330,7 +6543,7 @@ ms.locfileid: "68501233"
                                                 <h3>
 適用於 Go 開發人員的 Azure </h3>
                                                 <p>
-                                                    <a href="/go/azure/">開始使用</a>
+                                                    <a href="/azure/go/">開始使用</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API 參考</a>

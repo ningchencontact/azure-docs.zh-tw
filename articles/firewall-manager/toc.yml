@@ -1,0 +1,57 @@
+- name: Azure 防火牆管理員文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 什麼是 Azure 防火牆管理員？
+      href: overview.md
+- name: 教學課程
+  expanded: true
+  items:
+    - name: 保護您的雲端網路 - 入口網站
+      href: secure-cloud-network.md
+- name: 概念
+  items:
+    - name: 什麼是安全虛擬中樞？
+      href: secured-virtual-hub.md
+    - name: 一般部署程序
+      href: deployment-overview.md
+    - name: 信任的安全性合作夥伴
+      href: trusted-security-partners.md
+    - name: 規則處理邏輯
+      href: rule-processing.md
+- name: 使用說明指南
+  items:
+    - name: 部署信任的安全性合作夥伴
+      href: deploy-trusted-security-partner.md
+    - name: 遷移至防火牆原則
+      href: migrate-to-policy.md
+- name: 參考
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/azure-firewall/network/firewall
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: 資源
+  items:
+    - name: 作者範本
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 社群範本
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/regions/services/'

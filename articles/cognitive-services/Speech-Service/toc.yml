@@ -1,229 +1,267 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: 語音服務文件
-  href: index.yml
+  href: index.md
 - name: 概觀
-  expanded: true
+  expanded: false
   items:
     - name: 什麼是語音服務？
       href: overview.md
+- name: 語音轉文字
+  expanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 什麼是語音轉換文字？
+          href: speech-to-text.md
+    - name: 快速入門
+      items:
+        - name: 從音訊檔案辨識語音
+          href: quickstarts/speech-to-text-from-file.md
+        - name: 以麥克風輸入辨識語音
+          href: quickstarts/speech-to-text-from-microphone.md
+        - name: 辨識儲存在 Blob 儲存體中的語音
+          href: quickstarts/from-blob.md
+    - name: 使用說明指南
+      items:
+        - name: 變更語音辨識的來源語言
+          href: how-to-specify-source-language.md
+        - name: 以自訂語音提高精確度
+          href: how-to-custom-speech.md
+        - name: 以片語清單提高精確度
+          href: how-to-phrase-lists.md
+        - name: 以租用戶模型提高精確度
+          href: tutorial-tenant-model.md
+        - name: 選取特定的麥克風輸入裝置
+          href: how-to-select-audio-input-devices.md
+        - name: 使用自動來源語言偵測
+          href: how-to-automatic-language-detection.md
+        - name: 使用壓縮的音訊輸入格式
+          href: how-to-use-codec-compressed-audio-input-streams.md
+        - name: 搭配 Docker 容器使用語音辨識
+          href: speech-container-howto.md
+    - name: 參考
+      items:
+        - name: 語音 SDK API
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: 'C#'
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+            - name: 版本資訊
+              href: releasenotes.md
+        - name: REST API
+          items:
+            - name: 語音轉換文字 REST API
+              href: rest-speech-to-text.md
+            - name: 批次轉譯 REST API
+              href: batch-transcription.md
+- name: 文字轉換語音
+  exanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 什麼是文字轉換語音？
+          href: text-to-speech.md
+    - name: 快速入門
+      items:
+        - name: 將語音合成至音訊檔案
+          href: quickstarts/text-to-speech-audio-file.md
+        - name: 將語音合成至說話者
+          href: quickstarts/text-to-speech.md
+        - name: 適用於長時間音訊的非同步合成
+          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: 使用說明指南
+      items:
+        - name: 使用 SSML 改善輸出
+          href: speech-synthesis-markup.md
+        - name: 使用自訂語音改善輸出
+          href: how-to-custom-voice.md
+        - name: 使用長音訊 API 合成語音
+          href: long-audio-api.md
+        - name: 搭配 Docker 容器使用語音合成
+          href: speech-container-howto.md
+    - name: 參考
+      items:
+        - name: 語音 SDK
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: 'C#'
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+            - name: 版本資訊
+              href: releasenotes.md
+        - name: REST API
+          items:
+            - name: 文字轉換語音 REST API
+              href: rest-text-to-speech.md
+- name: 意圖辨識
+  exanded: false
+  items:
+    - name: 快速入門
+      items:
+        - name: 辨識語音、意圖和實體
+          href: quickstarts/intent-recognition.md
+    - name: 使用說明指南
+      items:
+        - name: '以 LUIS 辨識語音意圖 (C#)'
+          href: how-to-recognize-intents-from-speech-csharp.md
+    - name: 參考
+      items:
+        - name: 語音 SDK
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: 'C#'
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+            - name: 版本資訊
+              href: releasenotes.md
+        - name: LUIS 服務
+          items:
+            - name: LUIS 開發人員資源
+              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
+- name: 語音翻譯
+  exanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 什麼是語音翻譯？
+          href: speech-translation.md
+    - name: 快速入門
+      items:
+        - name: 翻譯語音轉換文字
+          href: quickstarts/translate-speech-to-text.md
+        - name: 將語音翻譯成多種目標語言
+          href: quickstarts/translate-speech-to-text-multiple-languages.md
+        - name: 翻譯語音轉換語音
+          href: quickstarts/translate-speech-to-speech.md
+    - name: 教學課程
+      items:
+        - name: 建置 Flask 應用程式以轉譯及合成文字，REST
+          href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+    - name: 參考
+      items:
+        - name: 語音 SDK
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: 'C#'
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+            - name: 版本資訊
+              href: releasenotes.md
+- name: 對話轉譯
+  expanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 什麼是對話轉譯？
+          href: conversation-transcription-service.md
+    - name: 使用說明指南
+      items:
+        - name: 即時對話轉譯
+          href: how-to-use-conversation-transcription-service.md
+        - name: 非同步對話轉譯
+          href: how-to-async-conversation-transcription.md
+    - name: 參考
+      items:
+        - name: 語音 SDK
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: 'C#'
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+            - name: 版本資訊
+              href: releasenotes.md
+        - name: REST API
+          items:
+            - name: 對話轉譯 REST API
+              href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+- name: 語音助理
+  expanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 什麼是語音助理？
+          href: voice-assistants.md
+    - name: 建置您的助理
+      items:
+        - name: 自訂命令 (預覽)
+          href: custom-commands.md
+        - name: Direct Line Speech
+          href: direct-line-speech.md
+    - name: 快速入門
+      items:
+        - name: 'C# (UWP)'
+          href: quickstart-voice-assistant-csharp-uwp.md
+        - name: Java (Windows、macOS、Linux)
+          href: quickstart-voice-assistant-java-jre.md
+        - name: Java (Android)
+          href: quickstart-voice-assistant-java-android.md
+        - name: 建立自訂命令 (預覽)
+          href: quickstart-custom-speech-commands-create-new.md
+        - name: 使用參數建立自訂命令 (預覽)
+          href: quickstart-custom-speech-commands-create-parameters.md
+        - name: 搭配語音 SDK 使用自訂命令 (預覽)
+          href: quickstart-custom-speech-commands-speech-sdk.md
+    - name: 使用說明指南
+      items:
+        - name: 使用語音 SDK 執行自訂命令
+          href: how-to-custom-speech-commands-fulfill-sdk.md
+        - name: 將參數驗證新增至自訂命令
+          href: how-to-custom-speech-commands-validations.md
+    - name: 教學課程
+      items:
+        - name: 使用語音 SDK 透過聲音啟用 Bot
+          href: tutorial-voice-enable-your-bot-speech-sdk.md
+    - name: 參考
+      items:
+        - name: 語音助理常見問題集
+          href: faq-voice-assistants.md
+- name: 自訂
+  exanded: false
+  items:
     - name: 語音轉文字
-      href: speech-to-text.md
-      displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-    - name: 文字轉換語音
-      href: text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-    - name: 語音翻譯
-      href: speech-translation.md
-      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-    - name: 語音優先虛擬助理預覽
-      href: voice-first-virtual-assistants.md
-      displayName: 'virtual assistants, speech-enabled bots, conversational agents'
-- name: 快速入門
-  items:
-    - name: 語音 SDK
       items:
-        - name: 語音轉文字
-          items:
-            - name: 'C# (.NET Framework Windows)'
-              href: quickstart-csharp-dotnet-windows.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: 'C# (.NET Core Windows)'
-              href: quickstart-csharp-dotnetcore-windows.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: 'C# (UWP)'
-              href: quickstart-csharp-uwp.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, universal windows platform'
-            - name: 'C# (Xamarin)'
-              href: quickstart-csharp-xamarin.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, universal windows platform, android, ios, xamarin, cross-platform'
-            - name: 'C# (Unity)'
-              href: quickstart-csharp-unity.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, unity 3d, windows, android, universal windows platform, uwp'
-            - name: C++ (Windows)
-              href: quickstart-cpp-windows.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: C++ (Linux)
-              href: quickstart-cpp-linux.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: C++ (macOS)
-              href: quickstart-cpp-macos.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: Java (Android)
-              href: quickstart-java-android.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: Java (Windows、macOS、Linux)
-              href: quickstart-java-jre.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, jre, jvm'
-            - name: JavaScript (瀏覽器)
-              href: quickstart-js-browser.md
-            - name: JavaScript (Node.js)
-              href: quickstart-js-node.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: Objective-C (iOS)
-              href: quickstart-objectivec-ios.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, xcode'
-            - name: Objective-C (macOS)
-              href: quickstart-objective-c-macos.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, xcode'
-            - name: Swift (iOS)
-              href: quickstart-swift-ios.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, xcode'
-            - name: Swift (macOS)
-              href: quickstart-swift-macos.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt, xcode'
-            - name: Python
-              href: quickstart-python.md
-              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-        - name: 翻譯語音
-          items:
-            - name: 'C# (.NET Core Windows)'
-              href: quickstart-translate-speech-dotnetcore-windows.md
-              displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-            - name: 'C# (.NET Framework Windows)'
-              href: quickstart-translate-speech-dotnetframework-windows.md
-              displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-            - name: 'C# (UWP)'
-              href: quickstart-translate-speech-uwp.md
-              displayName: 'translate speech, speech translation, translator, s2s, speech to speech, universal windows platform'
-            - name: C++ (Windows)
-              href: quickstart-translate-speech-cpp-windows.md
-              displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-            - name: Java (Windows、macOS、Linux)
-              href: quickstart-translate-speech-java-jre.md
-              displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-        - name: 文字轉換語音
-          items:
-            - name: 'C# (.NET Framework Windows)'
-              href: quickstart-text-to-speech-dotnet-windows.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-            - name: 'C# (.NET Core Windows)'
-              href: quickstart-text-to-speech-dotnetcore.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-            - name: 'C# (UWP)'
-              href: quickstart-text-to-speech-csharp-uwp.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, universal windows platform'
-            - name: 'C# (Unity)'
-              href: quickstart-text-to-speech-csharp-unity.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, unity 3d, windows, android, universal windows platform, uwp'
-            - name: C++ (Windows)
-              href: quickstart-text-to-speech-cpp-windows.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-            - name: C++ (Linux)
-              href: quickstart-text-to-speech-cpp-linux.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-            - name: Java (Android)
-              href: quickstart-text-to-speech-java-android.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-            - name: Java (Windows、Linux、macOS)
-              href: quickstart-text-to-speech-java-jre.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, jre, jvm'
-            - name: Objective-C (iOS)
-              href: quickstart-text-to-speech-objectivec-ios.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
-            - name: Objective-C (macOS)
-              href: quickstart-text-to-speech-objectivec-macos.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
-            - name: Swift (iOS)
-              href: quickstart-text-to-speech-swift-ios.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
-            - name: Swift (macOS)
-              href: quickstart-text-to-speech-swift-macos.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
-            - name: Python
-              href: quickstart-text-to-speech-python.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-        - name: 語音優先虛擬助理 (預覽)
-          items:
-            - name: 'C# (UWP)'
-              href: quickstart-virtual-assistant-csharp-uwp.md
-              displayName: 'virtual assistant, speech-enabled bot, conversational agent, universal windows platform'
-            - name: Java (Windows、macOS、Linux)
-              href: quickstart-virtual-assistant-java-jre.md
-              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
-            - name: Java (Android)
-              href: quickstart-virtual-assistant-java-android.md
-              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
-    - name: REST API
-      items:
-        - name: 依區域列出支援影片
-          items:
-            - name: Node.js
-              href: quickstart-nodejs-get-text-to-speech-voices.md
-              displayName: 'voices, synthesize speech, speech synthesis, text-to-speech, tts, rest'
-            - name: Python
-              href: quickstart-python-get-text-to-speech-voices.md
-              displayName: 'voices, synthesize speech, speech synthesis, text-to-speech, tts, rest'
-        - name: 將文字轉換成語音
-          items:
-            - name: 'C# (.NET Core)'
-              href: quickstart-dotnet-text-to-speech.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, rest'
-            - name: Node.js
-              href: quickstart-nodejs-text-to-speech.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, rest'
-            - name: Python
-              href: quickstart-python-text-to-speech.md
-              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, rest'
-    - name: 語音裝置 SDK
-      items:
-        - name: Android
-          href: speech-devices-sdk-android-quickstart.md
-          displayName: 'roobo, speech devices sdk'
-        - name: Linux
-          href: speech-devices-sdk-linux-quickstart.md
-          displayName: 'Azure Kinect DK, speech devices sdk'
-        - name: Windows
-          href: speech-devices-sdk-windows-quickstart.md
-          displayName: 'Azure Kinect DK, speech devices sdk'
-- name: 教學課程
-  items:
-    - name: '以 LUIS 辨識語音意圖 (C#)'
-      href: how-to-recognize-intents-from-speech-csharp.md
-      displayName: 'recognize intent, intent recognition, language understanding service, luis'
-    - name: '使用語音 SDK 和 C# 透過聲音啟用 Bot'
-      href: tutorial-voice-enable-your-bot-speech-sdk.md
-      displayName: 'voice assistant, voice enable a bot, bot speech SDK'
-    - name: 建置 Flask 應用程式以轉譯及合成文字，REST
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
-- name: 概念
-  items:
-    - name: 對話轉譯
-      href: conversation-transcription-service.md
-    - name: 話務中心轉譯
-      href: call-center-transcription.md
-- name: 使用說明指南
-  items:
-    - name: 註冊語音服務
-      href: get-started.md
-    - name: 批次轉譯 (REST)
-      href: batch-transcription.md
-      displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-    - name: 使用音訊的輸入資料流 (SDK)
-      href: how-to-use-audio-input-streams.md
-    - name: 使用轉碼器壓縮音訊輸入資料流 (SDK)
-      href: how-to-use-codec-compressed-audio-input-streams.md
-      displayName: 'mp3, opus, ogg, flac, alaw, mulaw'
-    - name: 在 Android 上使用轉碼器壓縮音訊輸入資料流 (SDK)
-      href: how-to-use-codec-compressed-audio-input-streams-android.md
-      displayName: 'mp3, opus, ogg, flac, alaw, mulaw'
-    - name: 在 iOS 上使用轉碼器壓縮音訊輸入資料流 (SDK)
-      href: how-to-use-codec-compressed-audio-input-streams-ios.md
-      displayName: 'mp3, opus, ogg, flac, alaw, mulaw'
-    - name: 選取音訊輸入裝置 (SDK)
-      href: how-to-select-audio-input-devices.md
-      displayName: 'audio, microphone, input, device'
-    - name: 啟用記錄 (SDK)
-      href: how-to-use-logging.md
-      displayName: 'debug, log, logging'
-    - name: 利用片語清單改善辨識度
-      href: how-to-phrase-lists.md
-      displayname: 'phrase lists, phrase, list, recognition accuracy'
-    - name: 轉譯交談 (SDK)
-      href: how-to-use-conversation-transcription-service.md
-      displayName: 'conversation, transcription, speech recognition'
-    - name: 自訂
-      items:
-        - name: 語音轉文字
+        - name: 自訂語音入口網站
           items:
             - name: 開始使用自訂語音
               href: how-to-custom-speech.md
@@ -239,7 +277,27 @@
               href: how-to-custom-speech-deploy-model.md
             - name: 建立人為標記轉譯的指南
               href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: 文字轉換語音
+        - name: 租用戶模型
+          items:
+            - name: 建立、發佈和使用模型
+              href: tutorial-tenant-model.md
+    - name: 文字轉換語音
+      items:
+        - name: 負責部署
+          items:
+            - name: 自訂語音的管制
+              href: concepts-gating-overview.md
+            - name: 合成技術的部署
+              href: concepts-guidelines-responsible-deployment-synthetic.md
+            - name: 自訂語音的透明度附註
+              href: 'https://aka.ms/neural-tts-transparency-note'
+            - name: 公開設計指引
+              href: concepts-disclosure-guidelines.md
+            - name: 公開設計模式
+              href: concepts-disclosure-patterns.md
+            - name: 管理辦法
+              href: 'https://aka.ms/custom-neural-code-of-conduct'
+        - name: 自訂語音入口網站
           items:
             - name: 開始使用自訂語音
               href: how-to-custom-voice.md
@@ -249,142 +307,113 @@
               href: how-to-custom-voice-create-voice.md
             - name: 記錄語音範例
               href: record-custom-voice-samples.md
-            - name: 微調文字轉換語音輸出
-              href: how-to-voice-tuning.md
-        - name: 建立自訂喚醒字詞 (找出關鍵字)
-          href: speech-devices-sdk-create-kws.md
-          displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
-    - name: 移轉
-      items:
-        - name: 從 Bing 語音
-          href: how-to-migrate-from-bing-speech.md
-        - name: 從自訂語音服務
-          href: how-to-migrate-from-custom-speech-service.md
-        - name: 從翻譯工具語音 API
-          href: how-to-migrate-from-translator-speech-api.md
-    - name: 使用容器
-      items:
-        - name: 安裝及執行容器
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
-          href: speech-container-howto.md
-        - name: 設定容器
-          href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
-        - name: 使用 Kubernetes 搭配 Helm
-          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
-          href: speech-container-howto-on-premises.md
-        - name: 使用容器執行個體
-          href: deploy-speech-on-container-instances.md
-          displayName: 'container instances, speech container, containers, images'
-- name: 範例
+        - name: 音訊內容建立
+          items:
+            - name: 操作說明：音訊內容建立
+              href: how-to-audio-content-creation.md
+    - name: 找出自訂關鍵字
+      href: speech-devices-sdk-create-kws.md
+- name: 語音服務
+  expanded: false
   items:
-    - name: 語音 SDK
-      href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-    - name: 語音裝置 SDK
-      href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: 文字轉換語音 (REST)
-      href: 'https://github.com/Azure-Samples/Cognitive-Speech-TTS'
-    - name: 批次轉譯 (REST)
-      href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch'
-- name: 參考
-  items:
-    - name: 語音 SDK
+    - name: 使用說明指南
       items:
-        - name: 概觀
+        - name: 免費試用語音服務
+          href: get-started.md
+        - name: 建立語音服務資源
+          href: 'get-started.md#create-a-speech-resource-in-azure'
+        - name: 容器
+          exanded: false
+          items:
+            - name: 安裝及執行容器
+              href: speech-container-howto.md
+            - name: 設定容器
+              href: speech-container-configuration.md
+            - name: Kubernetes 和 Helm
+              href: speech-container-howto-on-premises.md
+            - name: Azure 容器執行個體
+              href: deploy-speech-on-container-instances.md
+    - name: 範例
+      items:
+        - name: 文字轉換語音 REST 範例
+          href: 'https://github.com/Azure-Samples/Cognitive-Speech-TTS'
+        - name: 批次轉譯 REST 範例
+          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch'
+    - name: 參考
+      items:
+        - name: REST API
+          items:
+            - name: 批次轉譯與自訂 REST API
+              href: 'https://westus.cris.ai/swagger/ui/index'
+            - name: 對話轉譯 REST API
+              href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+            - name: 語音轉換文字 REST API
+              href: rest-speech-to-text.md
+            - name: 文字轉換語音 REST API
+              href: rest-text-to-speech.md
+            - name: Webhook REST API
+              href: webhooks.md
+        - name: Swagger 文件
+          href: swagger-documentation.md
+- name: 語音 SDK
+  expanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 關於語音 SDK
           href: speech-sdk.md
-          displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
         - name: 案例可用性
           href: scenario-availability.md
-        - name: 交付應用程式
-          href: ship-application.md
-        - name: 版本資訊
-          href: releasenotes.md
+    - name: 快速入門
+      items:
+        - name: '使用 C# 設定語音 SDK'
+          href: quickstarts/setup-platform.md?pivots=programming-language-csharp
+        - name: 使用 C++ 設定語音 SDK
+          href: quickstarts/setup-platform.md?pivots=programming-language-cpp
+        - name: 使用 Java 設定語音 SDK
+          href: quickstarts/setup-platform.md?pivots=programming-language-java
+        - name: 使用 Python 設定語音 SDK
+          href: quickstarts/setup-platform.md?pivots=programming-language-python
+        - name: 使用其他平台設定語音 SDK
+          href: quickstarts/setup-platform.md?pivots=programming-language-more
+    - name: 使用說明指南
+      items:
+        - name: 啟用記錄
+          href: how-to-use-logging.md
+    - name: 範例
+      items:
+        - name: 語音 SDK 範例 (GitHub)
+          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
+        - name: 語音裝置 SDK 範例 (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+    - name: 參考
+      items:
         - name: C++
           href: 'https://aka.ms/csspeech/cppref'
         - name: 'C#'
           href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java/Android
+        - name: Java
           href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript/Node.js
+        - name: JavaScript
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
           href: 'https://aka.ms/csspeech/objectivecref'
         - name: Python
           href: 'https://aka.ms/csspeech/pythonref'
-    - name: 語音裝置 SDK
-      items:
-        - name: 取得語音裝置 SDK
-          href: get-speech-devices-sdk.md
-        - name: 版本資訊
-          href: devices-sdk-release-notes.md
-        - name: Roobo v1 詳細資料
-          href: speech-devices-sdk-roobo-v1.md
-        - name: 麥克風規格
-          href: speech-devices-sdk-microphone.md
-    - name: REST API
-      items:
-        - name: 語音轉文字
-          href: rest-speech-to-text.md
-          displayName: 'recognize speech, speech recognition, speech-to-text, stt, rest'
-        - name: 文字轉換語音
-          href: rest-text-to-speech.md
-          displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, rest'
-        - name: 批次轉譯與自訂
-          href: 'https://westus.cris.ai/swagger/ui/index'
-          displayName: 'batch transcription, transcription, custom models, customization, model management, rest'
-        - name: 對話轉譯
-          href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
-          displayName: 'Conversation transcription, signature generation'
-        - name: Webhook
-          href: webhooks.md
-    - name: Swagger 文件
-      href: swagger-documentation.md
-    - name: 語音合成標記語言 (SSML)
-      href: speech-synthesis-markup.md
-    - name: PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
-    - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
-    - name: 語言支援
-      href: language-support.md
-    - name: 區域
-      href: regions.md
-- name: 資源
+        - name: 語音 SDK 版本資訊
+          href: releasenotes.md
+- name: 移轉
+  exanded: false
   items:
-    - name: 常見問題集
-      items:
-        - name: 語音轉文字
-          href: faq-stt.md
-          displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-        - name: 文字轉換語音
-          href: faq-text-to-speech.md
-          displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-        - name: 語音翻譯
-          href: 'https://www.microsoft.com/translator/faq.aspx'
-          displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-        - name: 語音優先虛擬助理 (預覽)
-          href: faq-voice-first-virtual-assistants.md
-    - name: 語音 SDK 授權
-      items:
-        - name: 授權
-          href: 'https://aka.ms/csspeech/license201809'
-        - name: 協力廠商通知
-          href: 'https://aka.ms/csspeech/toctpn'
-    - name: 語音裝置 SDK
-      items:
-        - name: 關於
-          href: speech-devices-sdk.md
-          displayName: 'roobo, speech devices sdk'
-        - name: 授權
-          href: 'https://aka.ms/sdsdk-license'
-          displayName: 'roobo, speech devices sdk'
-        - name: 協力廠商通知
-          href: 'https://aka.ms/sdsdk-toctpn'
-          displayName: 'roobo, speech devices sdk'
-    - name: 針對語音 SDK 進行疑難排解
-      href: troubleshooting.md
-    - name: 針對語音裝置 SDK 進行疑難排解
-      href: speech-devices-sdk-troubleshooting.md
+    - name: 從 Bing 語音
+      href: how-to-migrate-from-bing-speech.md
+    - name: 從自訂語音服務
+      href: how-to-migrate-from-custom-speech-service.md
+    - name: 從翻譯工具語音 API
+      href: how-to-migrate-from-translator-speech-api.md
+- name: 資源
+  exanded: false
+  items:
     - name: 支援
       href: support.md
     - name: 價格和限制

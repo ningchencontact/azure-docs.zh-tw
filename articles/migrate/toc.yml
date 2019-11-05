@@ -30,8 +30,18 @@
           href: tutorial-assess-hyper-v.md
         - name: 遷移 Hyper-V VM
           href: tutorial-migrate-hyper-v.md
-    - name: 遷移實體伺服器和虛擬機器
-      href: tutorial-migrate-physical-virtual-machines.md
+    - name: 評估及遷移實體伺服器
+      items:
+        - name: 準備用於評估和遷移的實體伺服器
+          href: tutorial-prepare-physical.md
+        - name: 評估實體伺服器
+          href: tutorial-assess-physical.md
+        - name: 遷移實體伺服器
+          href: tutorial-migrate-physical-virtual-machines.md
+    - name: 評估匯入的伺服器以進行移轉
+      items:
+        - name: 評估匯入的伺服器以進行移轉
+          href: tutorial-assess-import.md
 - name: 概念
   items:
     - name: 常見問題
@@ -44,6 +54,8 @@
           href: migrate-support-matrix-vmware.md
         - name: Hyper-V 評量和移轉的支援矩陣
           href: migrate-support-matrix-hyper-v.md
+        - name: 實體伺服器評量和移轉的支援矩陣
+          href: migrate-support-matrix-physical.md
     - name: Hyper-V 移轉架構
       href: hyper-v-migration-architecture.md
     - name: 代理程式移轉架構
@@ -66,6 +78,10 @@
       href: how-to-set-up-appliance-vmware.md
     - name: 部署 Hyper-V 設備
       href: how-to-set-up-appliance-hyper-v.md
+    - name: 部署實體伺服器設備
+      href: how-to-set-up-appliance-physical.md
+    - name: 探索應用程式/角色/功能
+      href: how-to-discover-applications.md
     - name: 新增工具供第一次使用
       href: how-to-add-tool-first-time.md
     - name: 新增評量工具
@@ -74,6 +90,8 @@
       href: how-to-create-a-group.md
     - name: 使用相依性視覺效果將機器分組
       href: how-to-create-group-machine-dependencies.md
+    - name: 使用無代理程式的相依性視覺效果將機器分組
+      href: how-to-create-group-machine-dependencies-agentless.md
     - name: 建立評估
       href: how-to-create-assessment.md
     - name: 評估 SQL Server 資料庫
@@ -84,6 +102,8 @@
       href: how-to-migrate.md
     - name: 準備機器以進行移轉
       href: prepare-for-migration.md
+    - name: 刪除 Azure Migrate 專案
+      href: how-to-delete-project.md
 - name: 大規模評量及移轉
   items:
     - name: 評估大量的 VMware VM

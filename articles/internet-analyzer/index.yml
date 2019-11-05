@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Azure Internet Analyzer 文件 (預覽)
+summary: Internet Analyzer 是一種用戶端測量平台，可讓您測試網路基礎結構變更會如何影響客戶的效能。 不論您是要從內部部署遷移至 Azure，還是要評估新的 Azure 服務，Internet Analyzer 都可讓您在遷移之前，從您使用者的資料和 Microsoft 的豐富分析中學習，以便更好地了解搭配 Azure 的網路架構，並進行最佳化。
+metadata:
+  title: Azure Internet Analyzer 文件 (預覽)
+  description: Internet Analyzer 是一種用戶端測量平台，可讓您測試網路基礎結構變更會如何影響客戶的效能。 不論您是要從內部部署遷移至 Azure，還是要評估新的 Azure 服務，Internet Analyzer 都可讓您在遷移之前，從您使用者的資料和 Microsoft 的豐富分析中學習，以便更好地了解搭配 Azure 的網路架構，並進行最佳化。
+  services: internet-analyzer
+  ms.service: internet-analyzer
+  ms.topic: landing-page
+  author: megan-beatty
+  ms.author: mebeatty
+  ms.date: 10/16/2019
+  ms.openlocfilehash: 27ad858137901f7cb803b380115f6b55967caef7
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508834"
+landingContent:
+- title: 關於 Internet Analyzer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Azure Internet Analyzer？
+      url: internet-analyzer-overview.md
+- title: 開始使用
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 使用入口網站建立 Internet Analyzer
+      url: internet-analyzer-create-test-portal.md
+    - text: 使用 CLI 建立 Internet Analyzer
+      url: internet-analyzer-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: 內嵌 Internet Analyzer 用戶端
+      url: internet-analyzer-embed-client.md
+    - text: 設定自訂端點
+      url: internet-analyzer-custom-endpoint.md
+- title: 資源
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Internet Analyzer 常見問題集
+      url: internet-analyzer-faq.md
+    - text: 解譯您的計分卡
+      url: internet-analyzer-scorecard.md
