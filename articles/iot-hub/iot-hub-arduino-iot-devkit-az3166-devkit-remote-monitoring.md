@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61324239"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484048"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit 連線到 Azure IoT 遠端監視解決方案加速器
 
 在本教學課程中，您將會了解如何在 DevKit 上執行範例應用程式，以將感應器資料傳送至 Azure IoT 遠端監視解決方案加速器。
 
-[MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用[適用於 Arduino 的 Visual Studio Code 延伸模組](https://aka.ms/arduino)來對它進行開發。 它隨附不斷增長的[專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，以引導您設定運用 Microsoft Azure 服務的物聯網 (IoT) 解決方案原型。
+[MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用[適用於 Arduino 的 Visual Studio Code 延伸模組](https://aka.ms/arduino)來對它進行開發。 它隨附一個不斷成長的[專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，可引導您設計運用 Microsoft Azure 服務的「物聯網」(IoT) 解決方案原型。
 
 ## <a name="what-you-need"></a>您需要什麼
 
@@ -37,36 +37,36 @@ ms.locfileid: "61324239"
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>建立 Azure IoT 遠端監視解決方案加速器
 
-1. 移至 [Azure IoT 解決方案加速器網站](https://www.azureiotsolutions.com/)，然後按一下 [建立新解決方案]  。
+1. 移至 [Azure IoT 解決方案加速器網站](https://www.azureiotsolutions.com/)，然後按一下 [建立新解決方案]。
 
    ![選取 Azure IoT 解決方案加速器類型](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
 
    > [!WARNING]
    > 根據預設，此範例會在建立一個 IoT 遠端監視解決方案加速器之後，建立 S2 IoT 中樞。 如果此 IoT 中樞並未搭配大量裝置來使用，強烈建議您將其從 S2 降級為 S1，並刪除不再需要的 IoT 遠端監視解決方案加速器，以便能夠一併刪除相關的 IoT 中樞。 
 
-2. 選取 [遠端監視]  。
+2. 選取 [遠端監視]。
 
-3. 輸入解決方案名稱，選取訂用帳戶和區域，然後按一下 [建立解決方案]  。 此解決方案可能需要一些時間才能完成佈建。
+3. 輸入解決方案名稱，選取訂用帳戶和區域，然後按一下 [建立解決方案]。 此解決方案可能需要一些時間才能完成佈建。
   
    ![建立解決方案](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 在佈建完成之後，按一下 [啟動]  。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **裝置** 將其簽出。
+4. 在佈建完成之後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **[裝置]** 將其簽出。
 
    ![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
    ![主控台](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
-5. 按一下 [新增裝置]  。
+5. 按一下 [新增裝置]。
 
-6. 在 [自訂裝置]  中按一下 [新增]  。
+6. 在 [自訂裝置] 中按一下 [新增]。
   
    ![新增裝置](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
-7. 按一下 [讓我定義自己的裝置識別碼]  ，輸入 `AZ3166`，然後按一下 [建立]  。
+7. 按一下 [讓我定義自己的裝置識別碼]，輸入 `AZ3166`，然後按一下 [建立]。
   
    ![使用識別碼建立裝置](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
-8. 記下 **IoT 中樞主機名稱**，然後按一下 [完成]  。
+8. 記下 **IoT 中樞主機名稱**，然後按一下 [完成]。
 
 ## <a name="open-the-remotemonitoring-sample"></a>開啟 RemoteMonitoring 範例
 
@@ -77,16 +77,16 @@ ms.locfileid: "61324239"
 3. 將 DevKit 連接到您的電腦。 VS Code 會自動偵測您的 DevKit，並開啟下列頁面：
 
    * DevKit 簡介頁面。
-   * Arduino 範例：開始使用 DevKit 的實際操作範例。
+   * Arduino 範例：用來開始使用 DevKit 的實際操作範例。
 
-4. 展開左邊的 [ARDUINO 範例]  區段，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]  ，然後選取 [RemoteMonitoring]  。 這會開啟一個內含專案資料夾的新 VS Code 視窗。
+4. 展開左邊的 [ARDUINO 範例] 區段，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]，然後選取 [RemoteMonitoring]。 這會開啟一個內含專案資料夾的新 VS Code 視窗。
 
    > [!NOTE]
-   > 如果您不小心關閉該窗格，可予以重新開啟。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)  。
+   > 如果您不小心關閉該窗格，可予以重新開啟。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
 
 ## <a name="provision-required-azure-services"></a>佈建所需的 Azure 服務
 
-在解決方案視窗中，於所提供的文字方塊中輸入 `task cloud-provision` 以透過 `Ctrl+P` (macOS：`Cmd+P`) 執行您的工作。
+在解決方案視窗中，於所提供的文字方塊中輸入 `Ctrl+P` 以透過 `Cmd+P` (macOS：`task cloud-provision`) 執行您的工作。
 
 VS Code 終端機中會有互動式命令列引導您佈建所需的 Azure 服務。
 
@@ -112,7 +112,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 當範例應用程式執行時，DevKit 會透過 WiFi 將感應器資料傳送至 Azure IoT 遠端監視解決方案加速器。 若要查看結果，請遵循下列步驟：
 
-1. 移至 Azure IoT 遠端監視解決方案加速器，然後按一下 [儀表板]  。
+1. 移至 Azure IoT 遠端監視解決方案加速器，然後按一下 [儀表板]。
 
 2. 在遠端監視解決方案主控台中，您會看到 DevKit 感應器的狀態。
 
@@ -135,6 +135,6 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 * [Azure IoT 解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)
 
-* [將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式](/azure/iot-central/core/howto-connect-devkit)
 
 * [IoT 開發人員套件](https://microsoft.github.io/azure-iot-developer-kit/) 

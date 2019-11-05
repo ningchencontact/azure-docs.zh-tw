@@ -3,17 +3,17 @@ title: 管理 Azure 地圖服務中的驗證 | Microsoft Docs
 description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務中的驗證。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756567"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478770"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>管理 Azure 地圖服務中的驗證
 
@@ -32,7 +32,7 @@ ms.locfileid: "72756567"
 
 建立 Azure 地圖服務帳戶之後，您需要在您的 Azure AD 租使用者與 Azure 地圖服務資源之間建立連結。
 
-1. 移至 [Azure AD] 分頁，並建立應用程式註冊。 提供註冊的名稱。 在 [登入**URL** ] 方塊中，提供 web 應用程式/API 的首頁（例如，HTTPs： \//localhost/）。 如果您已經有已註冊的應用程式，請移至步驟2。
+1. 移至 [Azure AD] 分頁，並建立應用程式註冊。 提供註冊的名稱。 在 [登入**URL** ] 方塊中，提供 web 應用程式/API 的首頁（例如，HTTPs：\//localhost/）。 如果您已經有已註冊的應用程式，請移至步驟2。
 
     ![應用程式註冊](./media/how-to-manage-authentication/app-registration.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "72756567"
 
     ![授與 RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. 在 [**新增角色指派**] 視窗的 [**角色**] 底下，選取 **[Azure 地圖服務日期讀取器（預覽）** ]。 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或服務主體]。 在 [**選取**] 底下，選取使用者或應用程式。 選取 [儲存]。
+2. 在 [**新增角色指派**] 視窗的 [**角色**] 底下，選取 **[Azure 地圖服務日期讀取器（預覽）** ]。 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或服務主體]。 在 [**選取**] 底下，選取使用者或應用程式。 選取 [ **儲存**]。
 
     ![新增角色指派](./media/how-to-manage-authentication/add-role-assignment.png)
 
@@ -91,7 +91,12 @@ RBAC 提供更細微的存取控制。
 
 * 如果您的應用程式使用 Azure 地圖服務 Web SDK 的使用者權杖驗證，您必須使用 Azure 地圖服務用戶端識別碼和 Azure AD 應用程式識別碼來設定您的 HTML 網頁。
 
-* 如果您的應用程式使用伺服器/應用程式驗證，您需要向 Azure AD 登入端點 `https://login.microsoftonline.com` 要求權杖，其 Azure AD 資源識別碼 `https://atlas.microsoft.com/`、Azure 地圖服務用戶端識別碼、Azure AD 應用程式識別碼，以及 Azure AD 應用程式註冊密碼或證書.
+* 如果您的應用程式使用伺服器/應用程式驗證，您需要向 Azure AD token 端點 `https://login.microsoftonline.com` 要求權杖，其 Azure AD 資源識別碼 `https://atlas.microsoft.com/`、Azure 地圖服務用戶端識別碼、Azure AD 應用程式識別碼，以及 Azure AD 應用程式註冊密碼或證書.
+
+| Azure 環境   | Azure AD token 端點 | Azure 資源識別碼 |
+| --------------------|-------------------------|-------------------|
+| Azure 公用        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 如需從 Azure AD 針對使用者和服務主體要求存取權杖的詳細資訊，請參閱[Azure AD 的驗證案例](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)。
 

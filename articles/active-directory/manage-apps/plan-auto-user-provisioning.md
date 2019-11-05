@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758230"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473330"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>規劃自動使用者布建部署
 
@@ -63,7 +63,7 @@ Azure AD 使用 [應用程式庫] 功能表中提供的範本，提供任何應�
 
 * 目標系統-Azure AD 布建到的使用者存放庫。 目標系統通常是一個 SaaS 應用程式，例如 ServiceNow、Zscaler 和時差。 目標系統也可以是內部部署系統（例如 AD）。
 
-* [跨網域身分識別管理（SCIM）的系統](http://www.simplecloud.info/)-一種開放標準，允許自動進行使用者布建。 SCIM 會在身分識別提供者（如 Microsoft）和服務提供者（例如 Salesforce 或其他需要使用者身分識別資訊的 SaaS 應用程式）之間通訊使用者識別資料。
+* [跨網域身分識別管理（SCIM）的系統](https://aka.ms/scimoverview)-可讓使用者布建自動化的開放標準。 SCIM 會在身分識別提供者（如 Microsoft）和服務提供者（例如 Salesforce 或其他需要使用者身分識別資訊的 SaaS 應用程式）之間通訊使用者識別資料。
 
 ### <a name="training-resources"></a>訓練資源
 
@@ -281,6 +281,8 @@ Azure AD 支援直接屬性與屬性的對應、提供常數值，或[撰寫屬�
 * 布建程式會因為高錯誤率而進入隔離狀態，並在被自動停用後的四周內持續隔離。
 
 若要檢查這些事件，以及布建服務所執行的所有其他活動，請參閱 Azure AD 布建[記錄](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context)。
+
+若要瞭解布建週期所需的時間和監視布建作業的進度，您可以[檢查使用者](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)布建的狀態。
 
 ### <a name="gain-insights-from-reports"></a>從報表取得見解
 

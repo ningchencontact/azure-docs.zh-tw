@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 10/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 81c709e7705e16484438ab684a6b1591e5e624ba
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0ca59080b4056ba74e2f05038e07d647f12de765
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553507"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485054"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>開始使用適用于 SQL 資料倉儲的 Visual Studio 2019
 Visual Studio **2019** SQL SERVER DATA TOOLS （SSDT）是單一工具，可讓您執行下列動作：
@@ -26,7 +26,7 @@ Visual Studio **2019** SQL SERVER DATA TOOLS （SSDT）是單一工具，可讓�
 - 利用 [物件瀏覽器]，以視覺化方式探索資料模型中的所有物件，包括資料表、視圖、預存程式等等。
 - 為您的物件產生 T-sql 資料定義語言（DDL）腳本
 - 使用以狀態為基礎的方法與 SSDT 資料庫專案來開發您的資料倉儲
-- 整合您的資料庫專案與原始檔控制系統（例如 Git）與 Azure DevOps 存放庫
+- 將您的資料庫專案與原始檔控制系統（例如 Git）整合 Azure Repos
 - 使用自動化伺服器設定持續整合和部署管線，例如 Azure DevOps
 
 > [!NOTE]

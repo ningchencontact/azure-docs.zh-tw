@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554400"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474337"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -28,7 +28,7 @@ ms.locfileid: "72554400"
 
 開始部署 Azure 多重要素驗證之前，必須考慮一些必要專案。
 
-| 案例 | 先決條件 |
+| 案例 | 必要條件 |
 | --- | --- |
 | 具有新式驗證的**僅限雲端**身分識別環境 | **無額外的先決條件工作** |
 | **混合**式身分識別案例 | 已部署[Azure AD Connect](../hybrid/whatis-hybrid-identity.md) ，且使用者身分識別會與內部部署 Active Directory Domain Services 進行同步處理，或與 Azure Active Directory 進行同盟。 |
@@ -132,7 +132,7 @@ Microsoft Authenticator 應用程式之類的行動應用程式每隔30秒會產
 
    ![在 [Multi-Factor Authentication 服務設定] 索引標籤中設定驗證方法](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
-1. 按一下 [儲存]。
+1. 按一下 [ **儲存**]。
 1. 關閉 [服務設定] 索引標籤。
 
 ## <a name="plan-registration-policy"></a>規劃註冊原則
@@ -220,6 +220,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 1. 使用全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至 [Azure Active Directory]、[條件式存取]。
 1. 選取 [新增原則]。
+   ![建立條件式存取原則，為試驗群組中的 Azure 入口網站使用者啟用 MFA](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. 為原則提供有意義的名稱。
 1. 在 [使用者和群組] 底下：
    * 在 [包含] 索引標籤上，選取 [所有使用者] 選項按鈕
@@ -237,8 +238,6 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 1. 略過 [工作階段] 區段。
 1. 將 [啟用原則] 切換為 [開啟]。
 1. 按一下 [建立]。
-
-![建立條件式存取原則，為試驗群組中的 Azure 入口網站使用者啟用 MFA](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>規劃與內部部署系統的整合
 
@@ -275,7 +274,7 @@ NPS 擴充功能可作為 RADIUS 與雲端式 Azure MFA 之間的介面卡，以
 
 選擇當未向 MFA 註冊的使用者嘗試進行驗證時，會發生什麼事。 使用登錄路徑 `HKLM\Software\Microsoft\AzureMFA` 中的登錄設定 `REQUIRE_USER_MATCH` 來控制功能行為。 此設定具有單一設定選項。
 
-| 索引鍵 | Value | 預設值 |
+| 金鑰 | 值 | 預設值 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | 未設定 (相當於 TRUE) |
 
@@ -345,7 +344,7 @@ Azure MFA 的報告
 
 Azure 多因素驗證透過 Azure 入口網站提供報告：
 
-| 報告 | Location | 描述 |
+| 報告 | 位置 | 說明 |
 | --- | --- | --- |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
 

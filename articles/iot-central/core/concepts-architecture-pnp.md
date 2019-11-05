@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a9d74d94e139427027f68b2c26675447ae6da18c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3dacea5c1d77bfead85e42ae312bfafbe70d8ca1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954873"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990386"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 架構（預覽功能）
 
@@ -32,7 +32,7 @@ ms.locfileid: "72954873"
 
 在 Azure IoT 中心，裝置範本會指定裝置可與您的應用程式交換的資料。 如需裝置範本的詳細資訊，請參閱[中繼資料管理](#metadata-management)。
 
-若要深入了解如何將裝置連線到 Azure IoT 中心應用程式，請參閱[裝置連線能力](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
+若要深入了解如何將裝置連線到 Azure IoT 中心應用程式，請參閱[裝置連線能力](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
 
 ## <a name="cloud-gateway"></a>雲端閘道
 
@@ -44,7 +44,7 @@ Azure IoT 中心使用 Azure IoT 中樞作為裝置連線的雲端閘道。 IoT 
 
 若要深入了解 IoT 中樞，請參閱 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)。
 
-若要深入了解 Azure IoT 中心的裝置連線能力，請參閱[裝置連線能力](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
+若要深入了解 Azure IoT 中心的裝置連線能力，請參閱[裝置連線能力](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
 
 ## <a name="data-stores"></a>資料存放區
 
@@ -110,4 +110,4 @@ UI Shell 是現代化、回應式、HTML5 瀏覽器型應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已瞭解 Azure IoT Central 的架構，建議的下一個步驟是瞭解 Azure IoT Central 中的[裝置連線能力](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
+既然您已瞭解 Azure IoT Central 的架構，建議的下一個步驟是瞭解 Azure IoT Central 中的[裝置連線能力](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326289"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468986"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 Android 應用程式登入
 
@@ -38,7 +38,9 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-記錄**應用程式識別碼**，以便在稍後的步驟中使用。 接下來，選取清單中的應用程式，並記錄**自訂重新導向 URI**，以便在稍後的步驟中使用。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
+記錄**應用程式（用戶端）識別碼**，以便在稍後的步驟中使用。
+
+另請記錄您的自訂重新導向 URI，以便在稍後的步驟中使用。 例如， `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
 
 ## <a name="create-your-user-flows"></a>建立使用者流程
 
@@ -117,8 +119,8 @@ AuthorizationServiceConfiguration config =
 
 設定或擷取授權服務組態之後，就可以建構授權要求。 若要建立要求，您需要下列資訊︰
 
-* 您先前記錄的用戶端識別碼（應用程式識別碼）。 例如： `00000000-0000-0000-0000-000000000000` 。
-* 您稍早記錄的自訂重新導向 URI。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
+* 您先前記錄的用戶端識別碼（應用程式識別碼）。 例如， `00000000-0000-0000-0000-000000000000`。
+* 您稍早記錄的自訂重新導向 URI。 例如， `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
 
 這兩個項目應該已在您[註冊應用程式](#create-an-application)時儲存。
 

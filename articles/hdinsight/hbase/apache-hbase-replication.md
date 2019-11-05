@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure 虛擬網路中的 HBase 叢集複寫 - Azure HDInsight
+title: 虛擬網路中的 HBase 叢集複寫-Azure HDInsight
 description: 了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077190"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468420"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -36,7 +36,7 @@ ms.locfileid: "71077190"
 * 負載平衡與分割應用程式。
 * 新增高可用性。
 
-您可以從 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication) 使用[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)指令碼複寫叢集。
+您可以從 [GitHub](../hdinsight-hadoop-customize-cluster-linux.md) 使用[指令碼動作](https://github.com/Azure/hbase-utils/tree/master/replication)指令碼複寫叢集。
 
 ## <a name="prerequisites"></a>必要條件
 在開始本文之前，您必須擁有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -54,7 +54,7 @@ ms.locfileid: "71077190"
 為了協助您設定環境，我們建立了一些 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 如果您偏好使用其他方法設定環境，請參閱：
 
 - [在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
-- [在 Azure 虛擬網路中建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
+- [在 Azure 虛擬網路上建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在兩個不同區域中設定兩個虛擬網路
 
@@ -68,7 +68,7 @@ ms.locfileid: "71077190"
 
 | 屬性 | 值 |
 |----------|-------|
-| Location | 美國西部 |
+| 位置 | 美國西部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet1 |
 | 位址空間首碼 | 10.1.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -85,7 +85,7 @@ ms.locfileid: "71077190"
 
 | 屬性 | 值 |
 |----------|-------|
-| Location | East US |
+| 位置 | 美國東部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet2 |
 | 位址空間首碼 | 10.2.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -263,8 +263,8 @@ sudo service bind9 status
 - **叢集類型**：HBase
 - **版本**：HBase 1.1.2 (HDI 3.6)
 - **位置**：使用與虛擬網路相同的位置。  根據預設，vnet1 是「美國西部」，vnet2 是「美國東部」。
-- **儲存體**：為叢集建立新的儲存體帳戶。
-- **虛擬網路** (從入口網站上的 [進階設定])：選取您在上一個程序中建立的 vnet1。
+- **儲存體**︰為叢集建立新的儲存體帳戶。
+- **虛擬網路** (從入口網站上的 [進階] 設定)：選取您在上一個程序中所建立的 vnet1。
 - **子網路**：範本中所使用的預設名稱為 **subnet1**。
 
 若要確定環境的設定是否正確，您必須能夠對兩個叢集之間的前端節點 FQDN 執行 ping。
@@ -273,7 +273,7 @@ sudo service bind9 status
 
 當您複寫叢集時，您必須指定要複寫的資料表。 在本節中，您會把部分資料載入到來源叢集中。 在下一節中，您將會啟用兩個叢集之間的複寫。
 
-若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [HBase 教學課程：在 HDInsight 中開始使用 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
+若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [Apache HBase 教學課程：開始使用 HDInsight 中的 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
 
 ## <a name="enable-replication"></a>啟用複寫
 
@@ -287,9 +287,9 @@ sudo service bind9 status
 4. 在頁面的頂端，選取 [提交新項目]。
 5. 選取或輸入下列資訊︰
 
-   1. **名稱**：輸入**啟用複寫**。
+   1. **名稱**：輸入「啟用複寫」。
    2. **Bash 指令碼 URL**：輸入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 。
-   3. **前端**：請務必選取此項目。 清除其他節點類型。
+   3. **前端**：務必選取此項目。 清除其他節點類型。
    4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
@@ -297,11 +297,11 @@ sudo service bind9 status
       > [!NOTE]
       > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
 
-6. 選取 [建立]。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
+6. 選取 [ **建立**]。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
 
 必要的引數︰
 
-|Name|描述|
+|名稱|說明|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|Name|描述|
+|名稱|說明|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
@@ -320,7 +320,7 @@ sudo service bind9 status
 |-rpm, -replicate-phoenix-meta | 在 Phoenix 系統資料表上啟用複寫。 <br><br>*請謹慎使用此選項。* 建議您在使用此指令碼前，於複本叢集上重新建立 Phoenix 資料表。 |
 |-h, --help | 顯示使用資訊。 |
 
-[指令碼](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh)的 `print_usage()` 區段有參數的詳細說明。
+`print_usage()`指令碼[的 ](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) 區段有參數的詳細說明。
 
 成功部署指令碼動作之後，您可以使用 SSH 連接到目的地 HBase 叢集，並確認已複寫資料。
 
@@ -356,7 +356,7 @@ sudo service bind9 status
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-[指令碼](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh)的 `print_usage()` 區段有參數的詳細說明。
+`print_usage()`指令碼[的 ](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) 區段有參數的詳細說明。
 
 ### <a name="scenarios"></a>案例
 
@@ -379,7 +379,7 @@ sudo service bind9 status
 
     -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-[指令碼](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh)的 `print_usage()` 區段有參數的詳細說明。
+`print_usage()`指令碼[的 ](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) 區段有參數的詳細說明。
 
 ### <a name="scenarios"></a>案例
 
@@ -400,5 +400,5 @@ sudo service bind9 status
 
 * [開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase 概觀](./apache-hbase-overview.md)
-* [在 Azure 虛擬網路中建立 Apache HBase 叢集](./apache-hbase-provision-vnet.md)
+* [在 Azure 虛擬網路上建立 Apache HBase 叢集](./apache-hbase-provision-vnet.md)
 

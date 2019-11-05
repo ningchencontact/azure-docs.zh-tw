@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121987"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470140"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -34,7 +34,7 @@ ms.locfileid: "71121987"
 
 ### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>您無法對應用程式新增 SSL 憑證繫結 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 當您新增 SSL 繫結時，收到下列錯誤訊息：
 
@@ -53,7 +53,7 @@ ms.locfileid: "71121987"
 
 ### <a name="you-cant-delete-a-certificate"></a>您無法刪除憑證 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 當您嘗試刪除憑證時，收到下列錯誤訊息：
 
@@ -69,15 +69,15 @@ ms.locfileid: "71121987"
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>您無法購買 App Service 憑證 
 
-#### <a name="symptom"></a>徵兆
-您無法從 Azure 入口網站購買 [Azure App Service 憑證](./web-sites-purchase-ssl-web-site.md)。
+#### <a name="symptom"></a>徵狀
+您無法從 Azure 入口網站購買 [Azure App Service 憑證](./configure-ssl-certificate.md#import-an-app-service-certificate)。
 
 #### <a name="cause-and-solution"></a>原因和解決方案
 以下是這個問題發生的原因：
 
 - App Service 方案為免費或共用。 這些定價層不支援 SSL。 
 
-    **解決方案**：將應用程式的 App Service 方案升級為「標準」。
+    **解決方案**：將應用程式的 App Service 方案升級為標準版。
 
 - 訂用帳戶的信用卡無效。
 
@@ -90,19 +90,19 @@ ms.locfileid: "71121987"
 - 訂用帳戶已達到單一訂用帳戶允許的購買限制。
 
     **解決方案**：隨用隨付和 EA 訂用帳戶類型的 App Service 憑證有購買 10 個憑證的限制。 其他訂用帳戶類型的限制則為 3 個。 若要提高限制，請連絡 [Azure支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
-- App Service 憑證已標示為詐騙。 您收到下列錯誤訊息：「您的憑證已標示為可能的詐欺。 要求目前正在進行檢閱。 如果憑證在24小時內無法使用，請聯絡 Azure 支援。」
+- App Service 憑證已標示為詐騙。 您收到以下錯誤訊息：「您的憑證已被標幟為可能是詐騙。 要求目前正在進行檢閱。 如果憑證在24小時內無法使用，請聯絡 Azure 支援。」
 
-    **解決方案**：如果憑證已標示為詐騙，且在 24 小時後仍未解決，請依照下列步驟進行操作：
+    **解決方案**：如果憑證被標示為詐騙，而且在接下來的 24 小時內未能解決，請遵循以下步驟：
 
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
     2. 前往 [App Service 憑證]，然後選取憑證。
-    3. 選取 [憑證組態] > [步驟 2：驗證] > [網域驗證]。 此步驟會傳送電子郵件通知給 Azure 憑證提供者，尋求解決問題。
+    3. 選取 [憑證組態] > 步驟 2：[驗證] > [網域驗證]。 此步驟會傳送電子郵件通知給 Azure 憑證提供者，尋求解決問題。
 
 ## <a name="custom-domain-problems"></a>自訂網域問題
 
 ### <a name="a-custom-domain-returns-a-404-error"></a>自訂網域傳回 404 錯誤 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 當您使用自訂網域名稱瀏覽至往暫時，收到以下錯誤訊息：
 
@@ -130,7 +130,7 @@ ms.locfileid: "71121987"
 
 ### <a name="you-cant-add-a-subdomain"></a>您無法新增子網域 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 您無法將新主機名稱新增至應用程式來指派子網域。
 
@@ -141,7 +141,7 @@ ms.locfileid: "71121987"
 
 ### <a name="dns-cant-be-resolved"></a>無法解析 DNS
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 您收到下列錯誤訊息：
 
@@ -160,20 +160,20 @@ ms.locfileid: "71121987"
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>您必須還原已刪除的網域 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 您的網域不再顯示於 Azure 入口網站中。
 
 #### <a name="cause"></a>原因 
 訂用帳戶的擁有者可能已意外刪除網域。
 
 #### <a name="solution"></a>方案
-如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 (請務必在搜尋方塊內輸入完全相同的網域名稱。)您將不需要再支付這個網域的費用。 如果網域已在七天前刪除，請洽詢[Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以取得還原網域的協助。
+如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 （請務必在搜尋方塊中輸入確切的功能變數名稱）。您不會再向您收取此網域的費用。 如果網域已在七天前刪除，請洽詢[Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以取得還原網域的協助。
 
 ## <a name="domain-problems"></a>網域問題
 
 ### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>您買到錯誤網域的 SSL 憑證
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 您買到錯誤網域的 App Service 憑證。 您無法更新憑證以使用正確網域。
 
@@ -185,7 +185,7 @@ ms.locfileid: "71121987"
 
 ### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>App Service 憑證已更新，不過應用程式顯示舊憑證 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 App Service 憑證已更新，不過使用 App Service 憑證的應用程式仍然使用舊憑證。 此外，您收到必須使用 HTTPS 通訊協定的警告。
 
@@ -197,12 +197,12 @@ App Service 會在48小時內自動同步處理您的憑證。 當您輪替或�
 您可以強制同步處理憑證：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [App Service 憑證]，然後選取憑證。
-2. 選取 [重設金鑰與同步]，然後選取 [同步]。同步需要一些時間才能完成。 
-3. 同步完成時，您會看到下列通知：「已成功以最新憑證更新所有資源。」
+2. 選取 [**重設金鑰及同步**]，然後選取 [**同步**]。同步處理需要一些時間才能完成。 
+3. 當同步完成時，您會看見以下通知：「已成功將所有資源更新為最新憑證」。
 
 ### <a name="domain-verification-is-not-working"></a>網域驗證無法運作 
 
-#### <a name="symptom"></a>徵兆 
+#### <a name="symptom"></a>徵狀 
 App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 時，程序會失敗。
 
 #### <a name="solution"></a>方案
@@ -228,7 +228,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 ### <a name="you-cant-purchase-a-domain"></a>您無法購買網域
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 您無法在 Azure 入口網站中購買 App Service 網域。
 
 #### <a name="cause-and-solution"></a>原因和解決方案
@@ -241,17 +241,17 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 - 由於您不是訂用帳戶擁有者，因此沒有購買網域的權限。
 
-    **解決方案**：[指派擁有者角色](../role-based-access-control/role-assignments-portal.md)給您的帳戶。 或是連絡訂用帳戶管理員，以取得購買網域的權限。
+    **解決方案**：[將擁有者角色](../role-based-access-control/role-assignments-portal.md)指派給您的帳戶。 或是連絡訂用帳戶管理員，以取得購買網域的權限。
 - 您的訂用帳戶已達到購買網域的上限。 目前的限制為 20 個。
 
     **解決方案**：若要申請提高限制，請連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 - 您的 Azure 訂用帳戶類型不支援購買 App Service 網域。
 
-    **解決方案**：將 Azure 訂用帳戶升級為另一種訂用帳戶類型，例如隨用隨付訂用帳戶。
+    **解決方案**：將 Azure 訂用帳戶升級為其他訂用帳戶類型，如隨用隨付訂用帳戶。
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>您無法將主機名稱新增至應用程式 
 
-#### <a name="symptom"></a>徵兆
+#### <a name="symptom"></a>徵狀
 
 當您新增主機名稱時，程序無法驗證及確認網域。
 
@@ -276,7 +276,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 **購買我的網站之後，我必須為我的網站設定我的自訂網域嗎？**
 
-當您從 Azure 入口網站購買網域時，App Service 應用程式會自動設定為使用該自訂網域。 您不需要採取任何額外的步驟。 如需詳細資訊， [請觀賞 Azure App Service 自我協助：](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)在 Channel9 上新增自訂功能變數名稱。
+當您從 Azure 入口網站購買網域時，App Service 應用程式會自動設定為使用該自訂網域。 您不需要採取任何額外的步驟。 如需詳細資訊，請觀賞[Azure App Service Self Help：在 Channel9 上新增自訂功能變數名稱](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)。
 
 **我可以使用在 Azure 入口網站中購買的網域，改為指向 Azure VM 嗎？**
 
@@ -286,7 +286,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 App Service 網域會使用 GoDaddy 進行網域註冊，並 Azure DNS 來裝載網域。 
 
-**我已啟用自動更新，但仍透過電子郵件收到我的網域的更新通知。我該怎麼辦？**
+**我已啟用自動更新，但仍透過電子郵件收到我的網域的更新通知。我該怎麼做？**
 
 如果您已啟用自動更新，則不需要採取任何動作。 系統會提供通知電子郵件，告知您網域已接近到期，如果未啟用自動更新，則會手動更新。
 
@@ -312,7 +312,7 @@ App Service 網域會使用 GoDaddy 進行網域註冊，並 Azure DNS 來裝載
 
 **我可以在訂用帳戶中使用另一個 Azure App Service 應用程式中的網域嗎？**
 
-是的。 當您存取 Azure 入口網站中的 [自訂網域和 SSL] 分頁時，您會看到已購買的網域。 您可以將應用程式設定為使用其中任何一個網域。
+是。 當您存取 Azure 入口網站中的 [自訂網域和 SSL] 分頁時，您會看到已購買的網域。 您可以將應用程式設定為使用其中任何一個網域。
 
 **我可以將網域從一個訂用帳戶轉移到另一個訂用帳戶嗎？**
 

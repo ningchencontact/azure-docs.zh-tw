@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53d656d8d39c71c813d7dd7a504ec45667bf18b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947495"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482429"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>適用於 PostgreSQL 的 Azure 資料庫中的分散式資料–超大規模資料庫（Citus）
 
-本文概述適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus） Preview 中的三個數據表類型。
+本文概述適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus）中的三個數據表類型。
 它會顯示如何將分散式資料表儲存為分區，以及將分區放在節點上的方式。
 
 ## <a name="table-types"></a>資料表類型
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-如果協調器節點想要判斷哪些分區保留 `github_events` 的資料列，它會雜湊資料列中散發資料行的值。 然後，節點會檢查哪一個分區 @ no__t-0 的範圍包含雜湊值。 系統會定義範圍，讓雜湊函式的影像為其脫離聯集。
+如果協調器節點想要判斷哪些分區保留 `github_events`的資料列，它會雜湊資料列中散發資料行的值。 然後，節點會檢查哪個分區\'s 範圍包含雜湊值。 系統會定義範圍，讓雜湊函式的影像為其脫離聯集。
 
 ### <a name="shard-placements"></a>分區放置
 
-假設分區102027與有問題的資料列相關聯。 資料列是在其中一個背景工作中名為 `github_events_102027` 的資料表中讀取或寫入。 哪個背景工作角色？ 這完全取決於中繼資料資料表。 分區與背景工作角色的對應稱為分區位置。
+假設分區102027與有問題的資料列相關聯。 資料列會在其中一個背景工作中稱為 `github_events_102027` 的資料表中讀取或寫入。 哪個背景工作角色？ 這完全取決於中繼資料資料表。 分區與背景工作角色的對應稱為分區位置。
 
-協調器節點會將查詢重寫成參考特定資料表（例如 `github_events_102027`）的片段，並在適當的背景工作上執行這些片段。 以下是在幕後執行查詢的範例，以找出持有分區識別碼102027的節點。
+協調器節點會將查詢重寫為參考特定資料表的片段，例如 `github_events_102027`，並在適當的背景工作角色上執行這些片段。 以下是在幕後執行查詢的範例，以找出持有分區識別碼102027的節點。
 
 ```sql
 SELECT

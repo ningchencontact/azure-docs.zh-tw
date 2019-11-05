@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470433"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -66,9 +66,9 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
-選取任何非免費層 (**D1**、**B1**、**B2**、**B3** 或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
+選取任何非免費層 (**D1**、**B1** **B2** **B3**或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
 
-按一下 **[套用]** 。
+按一下 [套用]。
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -79,7 +79,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 ## <a name="buy-the-domain"></a>購買網域
 
 ### <a name="pricing-information"></a>定價資訊
-如需 Azure App Service 網域的定價資訊, 請流覽[App Service 定價頁面](https://azure.microsoft.com/pricing/details/app-service/windows/), 並向下 App Service 網域。
+如需 Azure App Service 網域的定價資訊，請流覽[App Service 定價頁面](https://azure.microsoft.com/pricing/details/app-service/windows/)，並向下 App Service 網域。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 開啟 [Azure 入口網站](https://portal.azure.com/)並使用您的 Azure 帳戶登入。
@@ -115,7 +115,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 
 接下來，請為網域選取所需選項。 請參閱下表中的說明：
 
-| 設定 | 建議的值 | 描述 |
+| 設定 | 建議的值 | 說明 |
 |-|-|-|
 |隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已 _免費_ 包含在購買價格中。 有些頂層網域受控於不支援隱私權保護的註冊機構，會將之列在 [隱私權保護] 頁面中。 |
 | 指派預設主機名稱 | **www** 和 **\@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，即可從選取的主機名稱存取應用程式。 如果應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |
@@ -125,7 +125,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 按一下 [法律條款] 來檢閱條款與費用，然後按一下 [購買]。
 
 > [!NOTE]
-> App Service 網域會使用 GoDaddy 進行網域註冊, 並 Azure DNS 來裝載網域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
+> App Service 網域會使用 GoDaddy 進行網域註冊，並 Azure DNS 來裝載網域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
 >
 >
 
@@ -146,19 +146,19 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> 您自訂網域的「**不安全**」標籤表示它尚未系結至 SSL 憑證, 從瀏覽器到您自訂網域的任何 HTTPS 要求都會收到錯誤或警告 (視瀏覽器而定)。 若要設定 SSL 系結, 請參閱[購買和設定 Azure App Service 的 ssl 憑證](web-sites-purchase-ssl-web-site.md)。
+> 您自訂網域的「**不安全**」標籤表示它尚未系結至 SSL 憑證，從瀏覽器到您自訂網域的任何 HTTPS 要求都會收到錯誤或警告（視瀏覽器而定）。 若要設定 SSL 系結，請參閱[在 Azure App Service 中使用 ssl 系結保護自訂 DNS 名稱](configure-ssl-bindings.md)。
 >
 
-若要測試主機名稱，請在瀏覽器中瀏覽至列出的主機名稱。 在上述螢幕擷取畫面的範例中, 請嘗試流覽至_kontoso.net_和_www\.kontoso.net_。
+若要測試主機名稱，請在瀏覽器中瀏覽至列出的主機名稱。 在上述螢幕擷取畫面的範例中，請嘗試流覽至_kontoso.net_和_www\.kontoso.net_。
 
 ## <a name="assign-hostnames-to-app"></a>將主機名稱指派給應用程式
 
-如果您在購買程式期間選擇不將一或多個預設主機名稱指派給您的應用程式, 或如果您需要指派未列出的主機名稱, 您可以隨時指派主機名稱。
+如果您在購買程式期間選擇不將一或多個預設主機名稱指派給您的應用程式，或如果您需要指派未列出的主機名稱，您可以隨時指派主機名稱。
 
 您也可以將 App Service 網域中的主機名稱指派給其他任何應用程式。 其步驟需視 App Service 網域和應用程式是否屬於同一訂用帳戶而定。
 
-- 不同的訂用帳戶：將來自「App Service 網域」的自訂 DNS 記錄對應至應用程式，就像對應外部購買的網域一樣。 如需將自訂 DNS 名稱新增至 App Service 網域的相關資訊，請參閱[管理自訂 DNS 記錄](#custom)。 若要將外部購買的網域對應至應用程式，請參閱[將現有的自訂 DNS 名稱對應至 Azure App Service](app-service-web-tutorial-custom-domain.md)。 
-- 相同的訂用帳戶：使用下列步驟。
+- 不同的訂用帳戶：將自訂 DNS 記錄從 App Service 網域對應至應用程式，例如外部購買的網域。 如需將自訂 DNS 名稱新增至 App Service 網域的相關資訊，請參閱[管理自訂 DNS 記錄](#custom)。 若要將外部購買的網域對應至應用程式，請參閱[將現有的自訂 DNS 名稱對應至 Azure App Service](app-service-web-tutorial-custom-domain.md)。 
+- 相同的訂用帳戶：請使用下列步驟。
 
 ### <a name="launch-add-hostname"></a>啟動新增主機名稱
 在 [應用程式服務] 頁面中，選取要指派主機名稱的應用程式名稱，選取 [設定]，然後選取 [自訂網域]。
@@ -177,7 +177,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 選取 [新增主機名稱]。
 
 ### <a name="configure-hostname"></a>設定主機名稱
-在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如:
+在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如：
 
 - kontoso.net
 - www\.kontoso.net
@@ -220,21 +220,21 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-若要以手動方式續訂您的網域，請選取 [續訂網域]。 不過, 在[網域到期前90天之前](#when-domain-expires), 此按鈕不是作用中。
+若要以手動方式續訂您的網域，請選取 [續訂網域]。 不過，在[網域到期前90天之前](#when-domain-expires)，此按鈕不是作用中。
 
-如果您的網域更新成功, 您會在24小時內收到電子郵件通知。
+如果您的網域更新成功，您會在24小時內收到電子郵件通知。
 
 ## <a name="when-domain-expires"></a>當網域過期時
 
-Azure 會處理過期或過期的 App Service 網域, 如下所示:
+Azure 會處理過期或過期的 App Service 網域，如下所示：
 
-* 如果已停用自動更新:在網域到期前90天, 會將更新通知電子郵件傳送給您, 並在入口網站中啟用 [**更新網域**] 按鈕。
-* 如果已啟用自動更新:在您的網域到期日之後的一天, Azure 會嘗試向您收取功能變數名稱更新的費用。
-* 如果在自動更新期間發生錯誤 (例如, 您的卡片已過期), 或自動更新已停用, 且您允許網域過期, Azure 會通知您網域到期, 並將您的功能變數名稱提供給您。 您可以[手動更新](#renew-the-domain)您的網域。
-* Azure 會在到期後的第4和第12天, 傳送額外的通知電子郵件給您。 您可以[手動更新](#renew-the-domain)您的網域。
-* 在到期後的第19天, 您的網域仍會保留, 但會受到兌換費用的限制。 您可以致電客戶支援以更新您的功能變數名稱, 受限於任何適用的更新和兌換費用。
-* 在到期後的第25天, Azure 會將您的網域放在使用功能變數名稱產業拍賣服務的拍賣上。 您可以致電客戶支援以更新您的功能變數名稱, 受限於任何適用的更新和兌換費用。
-* 到期後的30天內, 您就無法再兌換您的網域。
+* 若已停用自動更新：在網域到期前90天，會將更新通知電子郵件傳送給您，並在入口網站中啟用 [**更新網域**] 按鈕。
+* 如果已啟用自動更新：在您的網域到期日之後的一天，Azure 會嘗試向您收取功能變數名稱更新的費用。
+* 如果在自動更新期間發生錯誤（例如，您的卡片已過期），或自動更新已停用，且您允許網域過期，Azure 會通知您網域到期，並將您的功能變數名稱提供給您。 您可以[手動更新](#renew-the-domain)您的網域。
+* Azure 會在到期後的第4和第12天，傳送額外的通知電子郵件給您。 您可以[手動更新](#renew-the-domain)您的網域。
+* 在到期後的第19天，您的網域仍會保留，但會受到兌換費用的限制。 您可以致電客戶支援以更新您的功能變數名稱，受限於任何適用的更新和兌換費用。
+* 在到期後的第25天，Azure 會將您的網域放在使用功能變數名稱產業拍賣服務的拍賣上。 您可以致電客戶支援以更新您的功能變數名稱，受限於任何適用的更新和兌換費用。
+* 到期後的30天內，您就無法再兌換您的網域。
 
 <a name="custom"></a>
 

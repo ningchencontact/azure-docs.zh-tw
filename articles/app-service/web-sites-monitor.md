@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073986"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470132"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>監視 Azure App Service 中的應用程式
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 會在 [Azure 入口網站](https://portal.azure.com)中為 Web 應用程式、行動後端和 API 應用程式提供內建的監視功能。
@@ -38,7 +38,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 免費或共用應用程式的配額如下︰
 
-| 配額 | 描述 |
+| Quota | 說明 |
 | --- | --- |
 | **CPU (短期)** | 此應用程式在 5 分鐘間隔內允許的 CPU 數量。 此配額會每 5 分鐘重設一次。 |
 | **CPU (天)** | 此應用程式在 1 天內允許的 CPU 總量。 此配額會每隔 24 小時在午夜 (UTC) 重設一次。 |
@@ -68,9 +68,9 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 若為應用程式，可用的計量如下︰
 
-| 度量 | 描述 |
+| 計量 | 說明 |
 | --- | --- |
-| **平均回應時間** | 應用程式處理要求所花費的平均時間 (以毫秒為單位)。 |
+| **平均回應時間** | 應用程式處理要求所花費的平均時間（以秒為單位）。 |
 | **平均記憶體工作集** | 應用程式使用的平均記憶體數量 (以 MiB 為單位)。 |
 | **連線** | 存在於沙箱 (w3wp.exe 及其子處理序) 中的已繫結通訊端數目。  建立已繫結通訊端時，會透過呼叫 bind()/connect() API 來建立，然後保留直到使用 CloseHandle()/closesocket() 來關閉上述通訊端為止。 |
 | **CPU 時間** | 應用程式所耗用的 CPU 數量 (以秒為單位)。 如需此計量的詳細資訊，請參閱 [CPU 時間與 CPU 百分比](#cpu-time-vs-cpu-percentage)。 |
@@ -110,7 +110,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 > App Service 方案計量只適用於基本、標準和進階層中的方案。
 > 
 
-| 度量 | 描述 |
+| 計量 | 說明 |
 | --- | --- |
 | **CPU 百分比** | 方案的所有執行個體使用的平均 CPU。 |
 | **記憶體百分比** | 方案的所有執行個體使用的平均記憶體。 |
@@ -124,9 +124,9 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 有兩個計量可反映 CPU 使用量：
 
-**CPU 時間**：很適合用於免費或共用方案中裝載的應用程式，因為其中有一個配額是以應用程式使用的 CPU 分鐘數來定義。
+**CPU 時間**：適用于在免費或共用方案中裝載的應用程式，因為其中一個配額是以應用程式使用的 CPU 分鐘數來定義。
 
-**CPU 百分比**：很適合用於基本、標準和進階方案中裝載的應用程式，因為這些方案能夠相應放大。CPU 百分比可清楚指出所有執行個體的整體使用量。
+**CPU 百分比**：適用于基本、標準和高階方案中裝載的應用程式，因為它們可以相應放大。CPU 百分比是所有實例整體使用量的良好指示。
 
 ## <a name="metrics-granularity-and-retention-policy"></a>計量資料細微性和保留原則
 服務會記錄和彙總應用程式和 App Service 方案的計量，其資料細微性和保留原則如下︰

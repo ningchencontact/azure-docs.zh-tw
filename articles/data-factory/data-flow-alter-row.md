@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387276"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486199"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row 轉換
 
@@ -22,7 +22,7 @@ ms.locfileid: "72387276"
 ![改變數據列設定](media/data-flow/alter-row1.png "改變數據列設定")
 
 > [!NOTE]
-> Alter Row 轉換只會在資料流程中的資料庫接收上運作。 您指派給資料列（insert、update、delete、upsert）的動作不會在 debug 會話期間發生。 您必須將「執行資料流程」工作加入至管線，並使用管線 debug 或觸發程式來制定資料庫資料表的 alter row 原則。
+> Alter Row 轉換只會在資料流程中的資料庫或 CosmosDB 接收上運作。 您指派給資料列（insert、update、delete、upsert）的動作不會在 debug 會話期間發生。 您必須將「執行資料流程」工作加入至管線，並使用管線 debug 或觸發程式來制定資料庫資料表的 alter row 原則。
 
 ## <a name="indicate-a-default-row-policy"></a>指出預設的資料列原則
 
