@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962712"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752385"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>您的商業 marketplace 權益
 
@@ -41,10 +41,10 @@ Marketplace 報酬的設計是為了在您的特定成長階段支援您，從�
 開始使用的步驟很簡單：
 
 1. 請在 Microsoft AppSource 或 Azure Marketplace 中發佈供應專案。
-2. 小組會針對每個 marketplace 供應專案，到達「擁有者」或「主要連絡人」。 最佳做法是輸入您定期檢查的個人或別名：傳送至別名info@company.com的訊息通常會遺失。
+2. 小組會針對每個 marketplace 供應專案，到達「擁有者」或「主要連絡人」。 最佳做法是輸入您定期檢查的個人或別名：傳送至別名的訊息（例如 info@company.com 通常會遺失）。
 
 >[!Note]
->如果您的供應專案已上線超過四周，而且您未收到訊息，請查看 Cloud Partner 入口網站或在合作夥伴中心，檢查您的組織中是否有問題的擁有者。 他們應該具有通訊和後續步驟。 <br> <br> 如果您無法判斷擁有者，或擁有者已離開您的公司，您可以在上 https://aka.ms/marketplacepublishersupport 提出支援票證。
+>如果您的供應專案已上線超過四周，而且您未收到訊息，請查看 Cloud Partner 入口網站或在合作夥伴中心，檢查您的組織中是否有問題的擁有者。 他們應該具有通訊和後續步驟。 <br> <br> 如果您無法判斷擁有者，或擁有者已離開您的公司，您可以在 https://aka.ms/marketplacepublishersupport提出支援票證。
 
 隨著您在市集中增加供應項目，您可以使用的活動範圍也會擴展。 所有清單都會收到基本層級的優化建議和升級，做為資源和最佳作法的自助電子郵件的一部分。
 
@@ -60,7 +60,10 @@ Marketplace 報酬的設計是為了在您的特定成長階段支援您，從�
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>交易合作夥伴的 Marketplace 獎勵
 
-當您在 Azure Marketplace 或 Microsoft AppSource 中上線 transactable 供應專案時，您可以在透過商業 Marketplace 成長計費的銷售交易時，存取額外的權益。 
+當您使用 Azure Marketplace 或 Microsoft AppSource 中的 transactable 供應專案時，您可以在成長透過商業 Marketplace 銷售的計費交易或基座時，存取額外的權益。 
+
+>[!Note]
+>基座銷售閾值僅適用于 Microsoft 365 應用程式（與 Microsoft 小組、Office、Outlook 或 SharePoint 整合的 SaaS 應用程式），而且必須在2020年6月30日完成權益。
 
 這些權益是專為支援行銷、銷售和技術活動而設計，可協助您取得更多的訪客、接收更多潛在客戶，以及轉換更多業務。
 
@@ -71,6 +74,8 @@ Marketplace 報酬的設計是為了在您的特定成長階段支援您，從�
 ![銷售優勢](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![技術權益](./media/marketplace-publishers-guide/technical-benefit.png)
+
+\* 基座銷售閾值僅適用于 Microsoft 365 應用程式（與 Microsoft 小組、Office、Outlook 或 SharePoint 整合的 SaaS 應用程式）和權益必須在2020年6月30日完成。
 
 如需所有這些權益的詳細說明，請參閱[Marketplace 獎勵方案組](https://aka.ms/marketplacerewards)。
 

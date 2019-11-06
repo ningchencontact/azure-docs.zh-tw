@@ -11,22 +11,22 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: e03c68854d9150c25019fe198fe855a011750844
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d2571b04f10bbbd3a461e553a56904abb3b46588
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496024"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整單一資料庫資源
 
-本文說明如何在布建的計算層中調整單一資料庫可用的計算和儲存體資源。 或者,[無伺服器 (預覽) 計算層](sql-database-serverless.md)會針對使用的計算, 提供計算自動調整和每秒的帳單。
+本文說明如何在布建的計算層級調整 Azure SQL Database 的計算和儲存體資源。 或者，[無伺服器計算層](sql-database-serverless.md)會為使用的計算提供計算自動調整和每秒計費。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
-## <a name="change-compute-size-vcores-or-dtus"></a>變更計算大小 (虛擬核心或 Dtu)
+## <a name="change-compute-size-vcores-or-dtus"></a>變更計算大小（虛擬核心或 Dtu）
 
 一開始挑選虛擬核心或 Dtu 數之後, 您可以根據使用[Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update)或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 的實際經驗, 以動態方式相應增加或相應減少單一資料庫。
 
@@ -40,31 +40,31 @@ ms.locfileid: "68566549"
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>變更服務層級或重新調整計算大小的影響
 
-變更單一資料庫的服務層級或計算大小, 主要涉及執行下列步驟的服務:
+變更服務層級或計算大小主要涉及服務執行下列步驟：
 
 1. 為資料庫建立新的計算實例  
 
-    會使用要求的服務層級和計算大小來建立資料庫的新計算實例。 針對某些服務層級和計算大小變更的組合, 必須在新的計算實例中建立資料庫的複本, 這牽涉到複製資料, 而且可能會強烈影響整體延遲。 不論是哪一種情況, 在此步驟期間, 資料庫都會保持上線, 而且連接會繼續導向至原始計算實例中的資料庫。
+    使用要求的服務層級和計算大小建立新的計算實例。 針對某些服務層級和計算大小變更的組合，必須在新的計算實例中建立資料庫的複本，這牽涉到複製資料，而且可能會強烈影響整體延遲。 不論是哪一種情況，在此步驟期間，資料庫都會保持上線，而且連接會繼續導向至原始計算實例中的資料庫。
 
 2. 將連接的路由切換至新的計算實例
 
-    原始計算實例中的資料庫現有連接會被捨棄。 系統會在新的計算實例中, 為資料庫建立任何新的連接。 針對某些服務層級和計算大小變更的組合, 資料庫檔案會在切換期間卸離並重新附加。  無論如何, 在資料庫無法使用時, 此參數可能會導致短暫的服務中斷, 通常只有幾秒鐘的時間。 當連接中斷時, 如果有長時間執行的交易在執行中, 則此步驟可能需要較長的時間才能復原中止的交易。 [加速資料庫](sql-database-accelerated-database-recovery.md)復原可以降低中止長時間執行之交易的影響。
+    原始計算實例中的資料庫現有連接會被捨棄。 系統會在新的計算實例中，為資料庫建立任何新的連接。 針對某些服務層級和計算大小變更的組合，資料庫檔案會在切換期間卸離並重新附加。  無論如何，在資料庫無法使用時，此參數可能會導致短暫的服務中斷，通常只有幾秒鐘的時間。 當連接中斷時，如果有長時間執行的交易在執行中，則此步驟可能需要較長的時間才能復原中止的交易。 [加速資料庫](sql-database-accelerated-database-recovery.md)復原可以降低中止長時間執行之交易的影響。
 
 > [!IMPORTANT]
-> 在工作流程中的任何步驟期間, 都不會遺失任何資料。
+> 在工作流程中的任何步驟期間，都不會遺失任何資料。 請確定您已在服務層級變更時，使用 Azure SQL Database 的應用程式和元件中，執行了一些[重試邏輯](sql-database-connectivity-issues.md)。
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>變更服務層級或重新調整計算大小的延遲
 
-變更服務層級或重新調整單一資料庫或彈性集區之計算大小的預估延遲會參數化, 如下所示:
+變更服務層級或重新調整單一資料庫或彈性集區之計算大小的預估延遲會參數化，如下所示：
 
-|服務層級|基本單一資料庫、</br>標準 (S0-S1)|基本彈性集區,</br>標準 (S2-S12)、 </br>超大規模資料庫 </br>一般用途單一資料庫或彈性集區|Premium 或 Business Critical 單一資料庫或彈性集區|
+|服務層|基本單一資料庫、</br>標準（S0-S1）|基本彈性集區，</br>標準（S2-S12）、 </br>超大規模資料庫 </br>一般用途單一資料庫或彈性集區|Premium 或 Business Critical 單一資料庫或彈性集區|
 |:---|:---|:---|:---|
-|**基本單一資料庫,</br>標準 (S0-S1)**|&bull;&nbsp;與使用的空間無關的固定時間延遲</br>&bull;&nbsp;通常不到5分鐘|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|
-|**基本彈性集區</br>, 標準 (S2-S12) </br>, 超大規模資料庫</br>, 一般用途單一資料庫或彈性集區**|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|&bull;&nbsp;與使用的空間無關的固定時間延遲</br>&bull;&nbsp;通常不到5分鐘|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|
-|**Premium 或 Business Critical 單一資料庫或彈性集區**|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|&bull;&nbsp;因數據複製而使用的資料庫空間的延遲比例</br>&bull;&nbsp;通常, 每 GB 使用的空間少於1分鐘|
+|**基本單一資料庫，</br> 標準（S0-S1）**|&bull; &nbsp;與所用空間無關的固定時間延遲</br>&bull; &nbsp;通常不到5分鐘|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|
+|**基本彈性集區、</br>標準（S2-S12）、</br>超大規模資料庫、</br>一般用途單一資料庫或彈性集區**|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|&bull; &nbsp;與所用空間無關的固定時間延遲</br>&bull; &nbsp;通常不到5分鐘|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|
+|**Premium 或 Business Critical 單一資料庫或彈性集區**|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|&bull; 與由於資料複製而使用的資料庫空間成正比 &nbsp;延遲</br>&bull; &nbsp;通常是每 GB 使用的空間少於1分鐘|
 
 > [!TIP]
-> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[Get-azsqldatabaseactivity](/powershell/module/az.sql/get-azsqldatabaseactivity)和[Stop-get-azsqldatabaseactivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)。
+> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理](/cli/azure/sql/db/op)作業、[使用 t-sql 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)和這兩個 PowerShell 命令： [get-azsqldatabaseactivity](/powershell/module/az.sql/get-azsqldatabaseactivity)和[Get-azsqldatabaseactivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)。
 
 ### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>取消服務層級變更或計算重新調整作業
 
@@ -72,17 +72,17 @@ ms.locfileid: "68566549"
 
 #### <a name="azure-portal"></a>Azure 入口網站
 
-在 [資料庫總覽] 分頁中, 流覽至 [**通知**], 然後按一下表示有進行中操作的磚:
+在 [資料庫總覽] 分頁中，流覽至 [**通知**]，然後按一下表示有進行中操作的磚：
 
 ![進行中的操作](media/sql-database-single-database-scale/ongoing-operations.png)
 
-接下來, 按一下標示為 [**取消此操作**] 的按鈕。
+接下來，按一下標示為 [**取消此操作**] 的按鈕。
 
 ![取消進行中的操作](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
 
 #### <a name="powershell"></a>PowerShell
 
-從 PowerShell 命令提示字元, 設定`$ResourceGroupName`、 `$ServerName`和`$DatabaseName`, 然後執行下列命令:
+從 PowerShell 命令提示字元中，設定 `$ResourceGroupName`、`$ServerName`和 `$DatabaseName`，然後執行下列命令：
 
 ```PowerShell
 $OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
@@ -101,7 +101,7 @@ if(-not [string]::IsNullOrEmpty($OperationName))
 
 - 如果您要升級到較高服務層級或計算大小，除非明確指定較大的大小 (大小上限)，否則資料庫大小上限不會增加。
 - 若要將資料庫降級，資料庫已用的空間必須小於目標服務層級和計算大小允許的大小上限。
-- 從**進階**降級至**標準**層時，如果發生下列情況，將會產生額外的儲存體成本：(1) 以目標計算大小支援資料庫的大小上限，而且 (2) 大小上限超過目標計算大小的內含儲存體數量。 例如, 如果大小上限為 500 GB 的 P1 資料庫縮減為 S3, 則會有額外的儲存成本, 因為 S3 支援的大小上限為 1 TB, 而其內含的儲存體數量只有 250 GB。 因此，額外的儲存體數量為 500 GB – 250 GB = 250 GB。 如需額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。
+- 從**進階**降級至**標準**層時，如果發生下列情況，將會產生額外的儲存體成本：(1) 以目標計算大小支援資料庫的大小上限，而且 (2) 大小上限超過目標計算大小的內含儲存體數量。 例如，如果大小上限為 500 GB 的 P1 資料庫縮減為 S3，則會有額外的儲存成本，因為 S3 支援的大小上限為 1 TB，而其內含的儲存體數量只有 250 GB。 因此，額外的儲存體數量為 500 GB – 250 GB = 250 GB。 如需額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。
 - 升級資料庫時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其次要資料庫升級為所需的服務層級與計算大小，然後再升級主要資料庫 (最佳效能的一般指引)。 升級至不同的版本時，必須先升級次要資料庫。
 - 當您在啟用[異地複寫](sql-database-geo-replication-portal.md)的情況下將資料庫降級時，必須先將其主要資料庫降級為所需的服務層級與計算大小，然後再將次要資料庫降級 (最佳效能的一般指引)。 降級至不同的版本時，必須先降級主要資料庫。
 - 還原服務會針對各種服務層級提供不同的供應項目。 如果降級至**基本**層，會有較短的備份保留期。 請參閱 [Azure SQL Database 備份](sql-database-automated-backups.md)。
@@ -134,9 +134,9 @@ if(-not [string]::IsNullOrEmpty($OperationName))
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>當大小上限大於 1 TB 時的 P11 和 P15 條件約束
 
-所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。 下列考量與限制適用於大小上限大於 1 TB 的 P11 和 P15 資料庫：
+所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列地區除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 地區和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。 下列考量與限制適用於大小上限大於 1 TB 的 P11 和 P15 資料庫：
 
-- 如果 P11 或 P15 資料庫的大小上限已設定為大於 1 TB 的值, 則只能還原或複製到 P11 或 P15 資料庫。  之後, 您可以將資料庫重新調整至不同的計算大小, 但前提是在重新調整作業時所配置的空間量, 並不會超過新計算大小的大小上限。
+- 如果 P11 或 P15 資料庫的大小上限已設定為大於 1 TB 的值，則只能還原或複製到 P11 或 P15 資料庫。  之後，您可以將資料庫重新調整至不同的計算大小，但前提是在重新調整作業時所配置的空間量，並不會超過新計算大小的大小上限。
 - 若是作用中異地複寫案例：
   - 設定異地複寫關聯性：如果 P11 或 P15 為主要資料庫，則次要資料庫也必須是 P11 或 P15；系統會拒絕使用較低的計算大小作為次要資料庫，因為這些資料庫無法支援 1 TB 以上的大小。
   - 在異地複寫關聯性中升級主要資料庫：將主要資料庫的大小上限變更為 1 TB 以上會在次要資料庫中觸發相同的變更。 這兩種升級方式都必須成功，在主要資料庫中的變更才會生效。 適用於大於 1-TB 選項的區域限制。 如果次要資料庫位於不支援大於 1 TB 的區域，就無法升級主要資料庫。

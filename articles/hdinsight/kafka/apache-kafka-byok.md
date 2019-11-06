@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71122690"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰
@@ -136,7 +136,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
 **是否也會加密 OS 磁碟/資源磁碟？**
 
-   資料分割 不會加密 OS 磁碟和資源磁碟。
+   不會。 不會加密 OS 磁碟和資源磁碟。
 
 **如果將叢集相應增加，新的訊息代理程式是否也會順暢地支援 BYOK？**
 

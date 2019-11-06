@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 進行 VMware 至 Azure 嚴重損壞修復的常見問題 |Microsoft Docs
+title: 使用 Azure Site Recovery VMware 到 Azure 嚴重損壞修復的常見問題
 description: 使用 Azure Site Recovery，取得內部部署 VMware Vm 到 Azure 的嚴重損壞修復常見問題的解答。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 06/27/2019
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f09acb0110f436e7af936d79da9db1bab4ea23a9
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002283"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053689"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware 至 Azure 複寫的常見問題
 
@@ -117,7 +117,7 @@ Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中
 
 ### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>我可以將新機器複寫到儲存體帳戶嗎？
 
-資料分割 自2019年3月起，在 Azure 入口網站中，您只能複寫至 Azure 受控磁片。
+不會。 自2019年3月起，在 Azure 入口網站中，您只能複寫至 Azure 受控磁片。
 
 只有使用 PowerShell 或 REST API （版本2018-01-10 或2016-08-10），才可以將新 Vm 複寫到儲存體帳戶。
 
@@ -136,7 +136,7 @@ Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>我可以將複寫從受控磁片切換到非受控磁片嗎？
 
-資料分割 不支援從受控切換至非受控。
+不會。 不支援從受控切換至非受控。
 
 ## <a name="replication"></a>複寫
 
@@ -181,7 +181,7 @@ Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>我可以將內部部署機器遷移到新的 vCenter Server，而不會影響進行中的複寫嗎？
 
-資料分割 VMware Vcenter 或遷移的變更會影響進行中的複寫。 使用新的 vCenter Server 設定 Site Recovery，並再次啟用機器的複寫。
+不會。 VMware Vcenter 或遷移的變更會影響進行中的複寫。 使用新的 vCenter Server 設定 Site Recovery，並再次啟用機器的複寫。
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>我可以複寫至已設定虛擬網路（具有 Azure 防火牆）的快取或目標儲存體帳戶嗎？
 
@@ -203,9 +203,9 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>是否需要針對每個升級重新開機來源機器？
 
-建議您重新開機，但不是每次升級都強制。 [深入了解](https://aka.ms/asr_vmware_upgrades)。
+建議您重新開機，但不是每次升級都強制。 [詳細資訊](https://aka.ms/asr_vmware_upgrades)。
 
-## <a name="configuration-server"></a>設定伺服器
+## <a name="configuration-server"></a>組態伺服器
 
 ### <a name="what-does-the-configuration-server-do"></a>組態伺服器有何功用？
 
@@ -235,7 +235,7 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>組態伺服器是否可複寫到多個區域？
 
-資料分割 若要複寫到多個區域，您必須在每個區域中都有設定伺服器。
+不會。 若要複寫到多個區域，您必須在每個區域中都有設定伺服器。
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可將組態伺服器裝載在 Azure 中？
 
@@ -267,15 +267,15 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>組態伺服器 VM 是否可用於任何其他位置？
 
-資料分割 僅針對設定伺服器使用 VM。
+不會。 僅針對設定伺服器使用 VM。
 
 ### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>是否可以複製組態伺服器並將它用於協調流程？
 
-資料分割 設定全新的設定伺服器，以避免註冊問題。
+不會。 設定全新的設定伺服器，以避免註冊問題。
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>我可以變更設定伺服器註冊所在的保存庫嗎？
 
-資料分割 保存庫與設定伺服器相關聯之後，即無法變更。 [瞭解](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)如何向不同的保存庫註冊設定伺服器。
+不會。 保存庫與設定伺服器相關聯之後，即無法變更。 [瞭解](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)如何向不同的保存庫註冊設定伺服器。
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>是否可以將相同的設定伺服器用於 VMware Vm 和實體伺服器的嚴重損壞修復？
 
@@ -287,7 +287,7 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>哪裡可以下載保存庫註冊金鑰？
 
-在復原服務保存庫中，選取**Site Recovery 基礎結構** >  **管理** 中的 設定**伺服器**。 然後，在 [**伺服器**] 中，選取 [**下載註冊金鑰**] 以下載保存庫認證檔案。
+在復原服務保存庫中，選取  **Site Recovery 基礎結構** 中的 設定**伺服器** > **管理**。 然後，在 [**伺服器**] 中，選取 [**下載註冊金鑰**] 以下載保存庫認證檔案。
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>是否可以使用單一設定伺服器來保護多個 vCenter 實例？
 
@@ -297,7 +297,7 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 是，Azure Site Recovery 可以保護不同叢集上的 Vm。
 
-## <a name="process-server"></a>處理伺服器
+## <a name="process-server"></a>處理序伺服器
 
 ### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>為什麼我在啟用複寫時無法選取進程伺服器？
 
@@ -327,7 +327,7 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>在容錯移轉之後如何存取 Azure VM？
 
-容錯移轉之後，您可以透過安全的網際網路連線、透過站對站 VPN 或透過 Azure ExpressRoute 存取 Azure Vm。 若要連接，您必須準備幾個專案。 [深入了解](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
+容錯移轉之後，您可以透過安全的網際網路連線、透過站對站 VPN 或透過 Azure ExpressRoute 存取 Azure Vm。 若要連接，您必須準備幾個專案。 [詳細資訊](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
 
 ### <a name="is-failed-over-data-resilient"></a>容錯回復資料是否可復原？
 
@@ -339,7 +339,7 @@ Azure 是針對復原能力而設計的。 Site Recovery 是根據 Azure 服務�
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>是否可容錯回復至不同的位置？
 
-是的。 如果您已容錯回復至 Azure，如果原始的位置無法使用，您可以容錯回復至不同的位置。 [深入了解](concepts-types-of-failback.md#alternate-location-recovery-alr)。
+是的。 如果您已容錯回復至 Azure，如果原始的位置無法使用，您可以容錯回復至不同的位置。 [詳細資訊](concepts-types-of-failback.md#alternate-location-recovery-alr)。
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>為什麼我需要具有私人對等互連的 VPN 或 ExpressRoute 才能容錯回復？
 
@@ -353,13 +353,13 @@ Azure 是針對復原能力而設計的。 Site Recovery 是根據 Azure 服務�
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>是否可以使用指令碼設定複寫？
 
-是的。 您可以使用 Rest API、PowerShell 或 Azure SDK，將 Site Recovery 工作流程自動化。 [深入了解](vmware-azure-disaster-recovery-powershell.md)。
+是的。 您可以使用 Rest API、PowerShell 或 Azure SDK，將 Site Recovery 工作流程自動化。 [詳細資訊](vmware-azure-disaster-recovery-powershell.md)。
 
 ## <a name="performance-and-capacity"></a>效能與容量
 
 ### <a name="can-i-throttle-replication-bandwidth"></a>是否可進行複寫頻寬節流？
 
-是的。 [深入了解](site-recovery-plan-capacity-vmware.md)。
+是的。 [詳細資訊](site-recovery-plan-capacity-vmware.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

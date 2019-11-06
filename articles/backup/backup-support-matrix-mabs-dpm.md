@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 備份伺服器和 System Center DPM 的支援矩陣
+title: Microsoft Azure 備份 server & System Center DPM 支援矩陣
 description: 本文摘要說明您使用 Microsoft Azure 備份伺服器或 System Center DPM 來備份內部部署和 Azure VM 資源時的 Azure 備份支援。
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: cb3561030cfd86137d7d668ca14db605cc365e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981074"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969016"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>使用 Microsoft Azure 備份 Server 或 System Center DPM 進行備份的支援矩陣
 
@@ -76,8 +76,8 @@ Azure 備份可以備份正在執行下列任何作業系統的 DPM/MABS 實例�
 --- | ---
 **Azure VM 上的 MABS** | Windows Server 2012 R2。<br/><br/> Windows 2016 Datacenter。<br/><br/> Windows 2019 Datacenter。<br/><br/> 我們建議您從 marketplace 開始使用映射。<br/><br/> 最低 A2 標準，具有兩個核心和 3.5 GB 的 RAM。
 **Azure VM 上的 DPM** | System Center 2012 R2 (含 Update 3 或更新版本)。<br/><br/> 符合 [System Center 需求](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)的 Windows 作業系統。<br/><br/> 我們建議您從 marketplace 開始使用映射。<br/><br/> 最低 A2 標準，具有兩個核心和 3.5 GB 的 RAM。
-**內部部署 MABS** | 支援的 64 位元作業系統：<br/><br/> MABS v3 和更新版本：Windows Server 2019 （Standard、Datacenter、Essentials）。 <br/><br/> MABS v2 和更新版本：Windows Server 2016 （Standard、Datacenter、Essentials）。<br/><br/> 所有 MABS 版本： Windows Server 2012 R2。<br/><br/>所有 MABS 版本：Windows Storage Server 2012 R2。
-**內部部署 DPM** | 實體伺服器/Hyper-V VM：System Center 2012 SP1 或更新版本。<br/><br/> VMware VM：System Center 2012 R2 (含 Update 5 或更新版本)。
+**內部部署 MABS** | 支援的 64 位元作業系統：<br/><br/> MABS v3 和更新版本： Windows Server 2019 （Standard、Datacenter、Essentials）。 <br/><br/> MABS v2 和更新版本： Windows Server 2016 （Standard、Datacenter、Essentials）。<br/><br/> 所有 MABS 版本： Windows Server 2012 R2。<br/><br/>所有 MABS 版本： Windows Storage Server 2012 R2。
+**內部部署 DPM** | 實體伺服器/Hyper-v VM： System Center 2012 SP1 或更新版本。<br/><br/> VMware VM： System Center 2012 R2 （含 Update 5 或更新版本）。
 
 ## <a name="management-support"></a>管理支援
 
@@ -86,7 +86,7 @@ Azure 備份可以備份正在執行下列任何作業系統的 DPM/MABS 實例�
 **安裝** | 在單一用途的電腦上安裝 DPM/MABS。<br/><br/> 請勿在網域控制站、安裝應用程式伺服器角色的電腦、執行 Microsoft Exchange System Center Operations Manager Server 的電腦上，或在叢集節點上安裝 DPM/MABS。<br/><br/> [檢查所有 DPM 系統需求](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)。
 **網域** | DPM/MABS 應該加入網域。 請先安裝 DPM/MABS，再將其加入網域。 不支援在部署之後將 DPM/MABS 移至新網域。
 **儲存體** | DPM 2016/MABS v2 和更新版本支援新式備份儲存體（MB）。 MBS 不適用於 MABS v1。
-**MABS 升級** | 您可以直接安裝 MABS v3，或是從 MABS v2 升級至 MABS v3。 [深入了解](backup-azure-microsoft-azure-backup.md#upgrade-mabs)。
+**MABS 升級** | 您可以直接安裝 MABS v3，或是從 MABS v2 升級至 MABS v3。 [詳細資訊](backup-azure-microsoft-azure-backup.md#upgrade-mabs)。
 **移動 MABS** | 使用 MABS 時，支援將 MABS 移至新伺服器，同時保留儲存體。<br/><br/> 伺服器必須與原始伺服器同名。 如果您想要保留相同的儲存體集區，並使用相同的 MABS 資料庫來儲存資料復原點，則不可變更名稱。<br/><br/> 您將需要 MABS 資料庫的備份，因為您將必須加以還原。
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack 上的 MABS 支援
@@ -126,9 +126,9 @@ DPM 伺服器/MABS 需要存取下列 URL：
 
 **MABS 對 Azure** | **訂用帳戶** | **備份/還原**
 --- | --- | ---
-已連線 | 有效 | 備份至 DPM/MABS 磁片。<br/><br/> 備份至 Azure。<br/><br/> 從磁片還原。<br/><br/> 從 Azure 還原。
-已連線 | 已過期/取消佈建 | 不會備份至磁碟或 Azure。<br/><br/> 如果訂用帳戶已過期，您可以從磁片或 Azure 還原。<br/><br/> 如果訂用帳戶已解除委任，您就無法從磁片或 Azure 還原。 Azure 復原點已刪除。
-未連線超過 15 天 | 有效 | 不會備份至磁碟或 Azure。<br/><br/> 您可以從磁碟或 Azure 還原。
+連線 | Active | 備份至 DPM/MABS 磁片。<br/><br/> 備份至 Azure。<br/><br/> 從磁片還原。<br/><br/> 從 Azure 還原。
+連線 | 已過期/取消佈建 | 不會備份至磁碟或 Azure。<br/><br/> 如果訂用帳戶已過期，您可以從磁片或 Azure 還原。<br/><br/> 如果訂用帳戶已解除委任，您就無法從磁片或 Azure 還原。 Azure 復原點已刪除。
+未連線超過 15 天 | Active | 不會備份至磁碟或 Azure。<br/><br/> 您可以從磁碟或 Azure 還原。
 未連線超過 15 天 | 已過期/取消佈建 | 不會備份至磁碟或 Azure。<br/><br/> 如果訂用帳戶已過期，您可以從磁片或 Azure 還原。<br/><br/> 如果訂用帳戶已解除委任，您就無法從磁片或 Azure 還原。 Azure 復原點已刪除。
 
 ## <a name="dpmmabs-storage-support"></a>DPM/MABS 儲存體支援
@@ -138,7 +138,7 @@ DPM 伺服器/MABS 需要存取下列 URL：
 **儲存體** | **詳細資料**
 --- | ---
 **MBS** | DPM 2016/MABS v2 和更新版本支援新式備份儲存體（MB）。 MBS 不適用於 MABS v1。
-**Azure VM 上的 MABS 儲存體** | 資料會儲存在連接至 DPM/MABS VM 的 Azure 磁片上，並在 DPM/MABS 中管理。 可用於 DPM/MABS 存放集區的磁片數目會受限於 VM 的大小。<br/><br/> A2 VM：4 個磁碟；A3 VM：8 個磁碟；A4 VM：16 個磁碟，每個磁碟的大小上限為 1 TB。 這會決定可用的備份儲存集區總數。<br/><br/> 您可以備份的資料量取決於連結的磁碟數目和大小。
+**Azure VM 上的 MABS 儲存體** | 資料會儲存在連接至 DPM/MABS VM 的 Azure 磁片上，並在 DPM/MABS 中管理。 可用於 DPM/MABS 存放集區的磁片數目會受限於 VM 的大小。<br/><br/> A2 VM：4個磁片;A3 VM：8個磁片;A4 VM：16個磁片，每個磁片的大小上限為 1 TB。 這會決定可用的備份儲存集區總數。<br/><br/> 您可以備份的資料量取決於連結的磁碟數目和大小。
 **Azure VM 上的 MABS 資料保留** | 我們建議您在 DPM/MABS Azure 磁片上保留一天的資料，並從 DPM/MABS 備份至保存庫，以延長保留時間。 藉此，您就可以藉由將資料卸載至 Azure 備份來保護較大量的資料。
 
 ### <a name="modern-backup-storage-mbs"></a>新式備份儲存體 (MBS)
@@ -156,12 +156,12 @@ DPM 伺服器/MABS 需要存取下列 URL：
 
 **備份** | **版本** | **MABS** | **詳細資料** |
 --- | --- | --- | --- |
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64 位元) | MABS v3、v2 | 內部部署。 | 磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。<br/><br/> 磁碟區至少必須是 1 GB 和 NTFS。 |
+**Windows 10<br/>Windows 8.1<br/>windows 8<br/>Windows 7**<br/><br/>(32/64 位元) | MABS v3、v2 | 內部部署。 | 磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。<br/><br/> 磁碟區至少必須是 1 GB 和 NTFS。 |
 **Windows Server 2016 (Datacenter、Standard、非 Nano)**<br/><br/> 64/32 位元 | MABS v3、v2 | 內部部署/Azure VM。| 磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> 支援已刪除重複資料的磁碟區。 |
-**Windows Server 2012 R2 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | MABS v3、v2 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VMprotection**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
-**Windows Server 2012 SP1 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | MABS v3、v2 <br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
-**Windows 2008 R2 SP1 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 支援 MABS v3、v2。<br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 | 內部部署/Azure VM。 |   **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
-**Windows 2008 R2 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 若為 MABS v3、v2，OS 必須執行 SP1。 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
+**Windows Server 2012 R2 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | MABS v3、v2 | 內部部署/Azure VM。 | 內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **Azure VMprotection**：磁片區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
+**Windows Server 2012 SP1 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | MABS v3、v2 <br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 | 內部部署/Azure VM。 | 內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **AZURE VM 保護**：磁片區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
+**Windows 2008 R2 SP1 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 支援 MABS v3、v2。<br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 | 內部部署/Azure VM。 |   內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **AZURE VM 保護**：磁片區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
+**Windows 2008 R2 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 若為 MABS v3、v2，OS 必須執行 SP1。 | 內部部署/Azure VM。 | 內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **AZURE VM 保護**：磁片區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
 **Windows Server 2008 SP2**<br/><br/> 64/32 位元 | MABS v3、v2 | 當 MABS 部署為 VMware VM 時，支援 MABS v2、v3。<br/><br/> 不支援在 Azure VM 上執行的 MABS。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。 |
 **Windows Storage Server 2008** | MABS v3、v2 | MABS 做為內部部署實體伺服器/Hyper-v VM。 <br/><br/> 不支援在 Azure VM 上執行的 MABS。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。
 **SQL Server 2017** | MABS v3 | 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。 |
@@ -169,7 +169,7 @@ DPM 伺服器/MABS 需要存取下列 URL：
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3、v2 | 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。 |
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3、v2 | 內部部署。 | 備份獨立 Exchange 伺服器、DAG 下的資料庫。<br/><br/> 復原信箱、DAG 下的信箱資料庫。<br/><br/> 不支援 ReFS。<br/><br/> 備份非共用磁碟叢集。<br/><br/> 備份已設定連續複寫的 Exchange Server。 |
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3、v2 | 內部部署/Azure VM。 | 備份伺服器陣列、前端網頁伺服器。<br/><br/> 復原伺服器陣列、資料庫、web 應用程式、檔案或清單專案、SharePoint 搜尋、前端網頁伺服器。<br/><br/> 您無法使用內容資料庫的 SQL Server AlwaysOn 來備份伺服器陣列。 |
-**Windows Server 2016 上的 Hyper-V**<br/><br/> **Windows Server 2008 R2 (含 SP1)** | MABS v3、v2 | 內部部署。 | **Hyper-V 主機上的 MABS 代理程式**：備份整個 VM 和主機資料檔案。 備份使用本機儲存體的 VM、叢集中使用 CSV 儲存體的 VM，使用 SMB 檔案伺服器儲存體的 VM。<br/><br/> **客體 VM 上的 MABS 代理程式**：備份在 VM 上執行的工作負載。 CSV。<br/><br/> **復原**：VM、VHD/磁碟區/資料夾/檔案的項目層級復原。<br/><br/> **Linux VM**：當 Hyper-v 在 Windows Server 2012 R2 和更新版本上執行時進行備份。 Linux VM 的復原會對整個機器執行。 |
+**Windows Server 2016 上的 Hyper-V**<br/><br/> **Windows Server 2008 R2 (含 SP1)** | MABS v3、v2 | 內部部署。 | **Hyper-v 主機上的 MABS 代理程式**：備份整個 vm 和裝載資料檔案。 備份使用本機儲存體的 VM、叢集中使用 CSV 儲存體的 VM，使用 SMB 檔案伺服器儲存體的 VM。<br/><br/> **來賓 vm 上的 MABS 代理程式**：備份在 vm 上執行的工作負載。 CSV。<br/><br/> 復原 **： VM**、VHD/磁片區/資料夾/檔案的專案層級復原。<br/><br/> **Linux vm**. 當 Hyper-v 在 Windows Server 2012 R2 和更新版本上執行時進行備份。 Linux VM 的復原會對整個機器執行。 |
 **VMware VM：vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3、v2 | 內部部署。 | 備份 Csv、NFS 和 SAN 儲存體上的 VMware Vm。<br/><br/> 復原整個 VM。<br/><br/> Windows/Linux 備份。<br/><br/> 檔案/資料夾的項目層級復原 (僅適用於 Windows)。<br/><br/> 不支援 VMware vApps。<br/><br/> Linux VM 的復原會對整個機器執行。 |
 
 ## <a name="supported-backups-to-dpm"></a>DPM 支援的備份
@@ -178,12 +178,12 @@ DPM 伺服器/MABS 需要存取下列 URL：
 
 **備份** | **DPM** | **詳細資料**
 --- | --- | ---
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64 位元) | 僅限內部部署。<br/><br/> 若要使用 DPM 2012 R2 備份 Windows 10，建議您安裝[Update 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager)。 | 磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。<br/><br/> 磁碟區至少必須是 1 GB 和 NTFS。
+**Windows 10<br/>Windows 8.1<br/>windows 8<br/>Windows 7**<br/><br/>(32/64 位元) | 僅限內部部署。<br/><br/> 若要使用 DPM 2012 R2 備份 Windows 10，建議您安裝[Update 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager)。 | 磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。<br/><br/> 磁碟區至少必須是 1 GB 和 NTFS。
 **Windows Server 2016 (Datacenter、Standard、非 Nano)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。<br/><br/> 僅限 DPM 2016。| 磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> 支援已刪除重複資料的磁碟區。
-**Windows Server 2012 R2 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> DPM 2012 R2 和更新版本支援重復資料刪除的磁片區。
-**Windows Server 2012 SP1 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> DPM 2012 R2 和更新版本支援重復資料刪除的磁片區。
-**Windows 2008 R2 SP1 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。<br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 |   **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。
-**Windows 2008 R2 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 內部部署。<br/><br/> DPM 無法安裝為 VMware VM。<br/><br/> 不支援在 Azure VM 上執行的 DPM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。
+**Windows Server 2012 R2 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。 | 內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **AZURE VM 保護**：磁片區/共用/資料夾/檔案。<br/><br/> DPM 2012 R2 和更新版本支援重復資料刪除的磁片區。
+**Windows Server 2012 SP1 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。 | 內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **AZURE VM 保護**：磁片區/共用/資料夾/檔案。<br/><br/> DPM 2012 R2 和更新版本支援重復資料刪除的磁片區。
+**Windows 2008 R2 SP1 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 內部部署/Azure VM。<br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 |   內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。<br/><br/> **AZURE VM 保護**：磁片區/共用/資料夾/檔案。
+**Windows 2008 R2 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 內部部署。<br/><br/> DPM 無法安裝為 VMware VM。<br/><br/> 不支援在 Azure VM 上執行的 DPM。 | 內部**部署保護**：磁片區/共用/資料夾/檔案;系統狀態/裸機。
 **Windows Server 2008 SP2**<br/><br/> 64/32 位元 | 僅限內部部署。<br/><br/> 支援作為 VMware VM 執行的 DPM。 不支援以實體伺服器或 Hyper-V VM 的形式執行。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。
 **Windows Storage Server 2008** | 作為實體伺服器或 Hyper-V VM 執行的內部部署 DPM。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。
 **SQL Server 2017** | DPM SAC;執行更新彙總套件5或更新版本的 DPM 2016。<br/><br/> 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。
@@ -192,7 +192,7 @@ DPM 伺服器/MABS 需要存取下列 URL：
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014，其中包含執行更新彙總套件4和更新版本的 DPM 2012 R2。<br/><br/> 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | 使用 Exchange 2016 時，DPM 2012 R2 需要更新彙總套件 9 或更新版本。<br/><br/> 內部部署 | 備份獨立 Exchange 伺服器、DAG 下的資料庫。<br/><br/> 復原信箱、DAG 下的信箱資料庫。<br/><br/> 不支援 ReFS。<br/><br/> 備份非共用磁碟叢集。<br/><br/> 備份已設定連續複寫的 Exchange Server。
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | DPM 2016 和更新版本上的 SharePoint 2016。<br/><br/>內部部署/Azure VM。 | 備份伺服器陣列、前端網頁伺服器。<br/><br/> 復原伺服器陣列、資料庫、web 應用程式、檔案或清單專案、SharePoint 搜尋、前端網頁伺服器。<br/><br/> 您無法使用內容資料庫的 SQL Server AlwaysOn 來備份伺服器陣列。
-**Windows Server 2016 上的 Hyper-V**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (含 SP1)** | 2016上的 hyper-v 支援 DPM 2016 和更新版本。<br/><br/> 內部部署。 | **Hyper-V 主機上的 MABS 代理程式**：備份整個 VM 和主機資料檔案。 備份使用本機儲存體的 VM、叢集中使用 CSV 儲存體的 VM，使用 SMB 檔案伺服器儲存體的 VM。<br/><br/> **客體 VM 上的 MABS 代理程式**：備份在 VM 上執行的工作負載。 CSV。<br/><br/> **復原**：VM、VHD/磁碟區/資料夾/檔案的項目層級復原。<br/><br/> **Linux VM**：當 Hyper-v 在 Windows Server 2012 R2 和更新版本上執行時進行備份。 Linux VM 的復原會對整個機器執行。
+**Windows Server 2016 上的 Hyper-V**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (含 SP1)** | 2016上的 hyper-v 支援 DPM 2016 和更新版本。<br/><br/> 內部部署。 | **Hyper-v 主機上的 MABS 代理程式**：備份整個 vm 和裝載資料檔案。 備份使用本機儲存體的 VM、叢集中使用 CSV 儲存體的 VM，使用 SMB 檔案伺服器儲存體的 VM。<br/><br/> **來賓 vm 上的 MABS 代理程式**：備份在 vm 上執行的工作負載。 CSV。<br/><br/> 復原 **： VM**、VHD/磁片區/資料夾/檔案的專案層級復原。<br/><br/> **Linux vm**. 當 Hyper-v 在 Windows Server 2012 R2 和更新版本上執行時進行備份。 Linux VM 的復原會對整個機器執行。
 **VMware VM：vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3、v2 <br/><br/> DPM 2012 R2 需要 System Center 更新彙總套件 1 <br/><br/>內部部署。 | 備份 Csv、NFS 和 SAN 儲存體上的 VMware Vm。<br/><br/> 復原整個 VM。<br/><br/> Windows/Linux 備份。<br/><br/> 檔案/資料夾的項目層級復原 (僅適用於 Windows)。<br/><br/> 不支援 VMware vApps。<br/><br/> Linux VM 的復原會對整個機器執行。
 
 - DPM/MABS 所備份的叢集工作負載應該與 DPM/MABS 位於相同網域，或位於子域/受信任網域中。

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/24/2019
-ms.openlocfilehash: ba0ee29b48be259bddd898c3d1119b77f6ee5228
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/30/2019
+ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932308"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162025"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure 監視器中使用 Log Analytics 閘道將電腦連線，而不需要網際網路存取
 
@@ -22,7 +22,7 @@ ms.locfileid: "72932308"
 
 本文說明如何在直接連線或受 Operations Manager 監視的電腦沒有網際網路存取時，使用 Log Analytics 閘道來設定與 Azure 自動化和 Azure 監視器的通訊。 
 
-Log Analytics 閘道是 HTTP 正向 proxy，使用 HTTP CONNECT 命令支援 HTTP 通道。 此閘道會代表無法直接連線到網際網路的電腦，將資料傳送至 Azure 監視器中的 Azure 自動化和 Log Analytics 工作區。 它不會快取來自代理程式的資料，因此，在此情況下，代理程式會處理快取資料，直到通訊恢復為止。
+Log Analytics 閘道是 HTTP 正向 proxy，使用 HTTP CONNECT 命令支援 HTTP 通道。 此閘道會代表無法直接連線到網際網路的電腦，將資料傳送至 Azure 監視器中的 Azure 自動化和 Log Analytics 工作區。 
 
 Log Analytics 閘道支援︰
 
@@ -33,7 +33,7 @@ Log Analytics 閘道支援︰
 
 某些 IT 安全性原則不允許網路電腦的網際網路連線。 這些未連線的電腦可以是銷售點（POS）裝置或支援 IT 服務的伺服器，例如。 若要將這些裝置連線到 Azure 自動化或 Log Analytics 工作區，讓您可以管理和監視它們，請將它們設定為直接與 Log Analytics 閘道通訊。 Log Analytics 閘道可以接收設定資訊，並代表其轉送資料。 如果將電腦設定為使用 Log Analytics 代理程式直接連線到 Log Analytics 工作區，則電腦會改為與 Log Analytics 閘道通訊。  
 
-Log Analytics 閘道會將資料從代理程式直接傳輸到服務。 它不會分析傳輸中的任何資料。
+Log Analytics 閘道會將資料從代理程式直接傳輸到服務。 它不會分析傳輸中的任何資料，而且當閘道失去與服務的連接時，不會快取資料。 當閘道無法與服務通訊時，代理程式會繼續執行，並將收集到的資料排入受監視電腦磁片上的佇列。 當連接已還原時，代理程式會將收集到的快取資料傳送至 Azure 監視器。
 
 當 Operations Manager 管理群組與 Log Analytics 整合時，可以將管理伺服器設定為連線到 Log Analytics 閘道，以根據您已啟用的解決方案來接收設定資訊和傳送收集到的資料.  Operations Manager 代理程式會將一些資料傳送到管理伺服器。 例如，代理程式可能會傳送 Operations Manager 警示、設定評估資料、實例空間資料和容量資料。 其他大量資料（例如 Internet Information Services （IIS）記錄、效能資料和安全性事件）會直接傳送到 Log Analytics 閘道。 
 
@@ -135,7 +135,7 @@ Log Analytics 閘道僅支援傳輸層安全性（TLS）1.0、1.1 和1.2。  它
    a. 輸入閘道要使用的 TCP 埠號碼。 安裝程式會使用此埠號碼在 Windows 防火牆上設定輸入規則。  預設值為 8080。
       埠號碼的有效範圍是1到65535。 如果輸入的值不在此範圍內，就會顯示錯誤訊息。
 
-   b.這是另一個 C# 主控台應用程式。 如果閘道安裝所在的伺服器需要透過 proxy 進行通訊，請輸入閘道需要連線的 proxy 位址。 例如，輸入 `http://myorgname.corp.contoso.com:80`。  如果您將此欄位保留空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。
+   b. 如果閘道安裝所在的伺服器需要透過 proxy 進行通訊，請輸入閘道需要連線的 proxy 位址。 例如，輸入 `http://myorgname.corp.contoso.com:80`。  如果您將此欄位保留空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。
 
    c. 選取 [下一步]。
 
@@ -167,7 +167,7 @@ Log Analytics 閘道僅支援傳輸層安全性（TLS）1.0、1.1 和1.2。  它
 若要以無訊息方式安裝閘道，並使用特定的 proxy 位址（埠號碼）加以設定，請輸入下列內容：
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 使用/qn 命令列選項會隱藏安裝程式，/qb 會在無訊息安裝期間顯示安裝程式。  
@@ -175,7 +175,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 如果您需要提供認證以向 proxy 進行驗證，請輸入下列內容：
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 安裝之後，您可以使用下列 PowerShell Cmdlet 來確認是否已接受這些設定（exlcuding 使用者名稱和密碼）：
@@ -249,7 +249,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
    a. 選取 [**開始**]，然後輸入**cmd**。  
 
-   b.這是另一個 C# 主控台應用程式。 以滑鼠右鍵按一下 [**命令提示**字元] 並選取 [以**系統管理員身分執行**]。  
+   b. 以滑鼠右鍵按一下 [**命令提示**字元] 並選取 [以**系統管理員身分執行**]。  
 
 1. 輸入下列命令：
 
@@ -322,7 +322,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
 步驟3中的錯誤表示模組未匯入。 當 PowerShell 找不到模組時，可能會發生此錯誤。 您可以在 OMS 閘道安裝路徑中找到此模組： *C:\Program FILES\MICROSOFT OMS Gateway\PowerShell\OmsGateway*。
 
-| **Cmdlet** | **參數** | **說明** | **範例** |
+| **Cmdlet** | **參數** | **描述** | **範例** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |索引鍵 |取得服務的組態 |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |索引鍵 (必要) <br> 值 |變更服務的組態 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
@@ -345,7 +345,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
 下表顯示 Log Analytics 閘道記錄事件的事件識別碼和描述。
 
-| **識別碼** | **說明** |
+| **識別碼** | **描述** |
 | --- | --- |
 | 400 |沒有特定識別碼的任何應用程式錯誤。 |
 | 401 |錯誤組態。 例如，listenPort = "text"，而不是整數。 |
@@ -365,7 +365,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
 以下表格顯示可供 Log Analytics 閘道使用的效能計數器。 使用效能監視器來新增計數器。
 
-| **名稱** | **說明** |
+| **名稱** | **描述** |
 | --- | --- |
 | Log Analytics 閘道/使用中用戶端連線 |使用中用戶端網路 (TCP) 連線數目 |
 | Log Analytics 閘道/錯誤計數 |錯誤數目 |

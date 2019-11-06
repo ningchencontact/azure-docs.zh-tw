@@ -1,28 +1,25 @@
 ---
 title: 適用於 Azure Functions 的 Java 開發人員參考 | Microsoft Docs
 description: 了解如何使用 Java 開發函式。
-services: functions
-documentationcenter: na
-author: rloutlaw
-manager: justhe
+author: ggailey777
+manager: gwallace
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構, Java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: routlaw
-ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: glenga
+ms.openlocfilehash: 97c721c504c460856796e296fefc33bf01f002f8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299385"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176443"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
 Azure Functions 執行時間支援[JAVA SE 8 LTS （祖魯 8.31.0.2-jre 8.0.181-win_x64）](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)。 本指南包含使用 JAVA 撰寫 Azure Functions 複雜性的相關資訊。
 
-對其他語言而言，函數應用程式可能會有一或多個函式。 JAVA 函式是`public`以注釋`@FunctionName`裝飾的方法。 這個方法會定義 JAVA 函數的專案，而且在特定封裝中必須是唯一的。 以 JAVA 撰寫的其中一個函數應用程式可能會有多個類別，其中`@FunctionName`有多個以標注的公用方法。
+對其他語言而言，函數應用程式可能會有一或多個函式。 JAVA 函式是 `public` 方法，以批註 `@FunctionName`裝飾。 這個方法會定義 JAVA 函數的專案，而且在特定封裝中必須是唯一的。 以 JAVA 撰寫的一個函數應用程式可能會有多個類別，其中有多個以 `@FunctionName`標注的公用方法。
 
 本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 您也應該使用[Visual Studio Code](functions-create-first-function-vs-code.md)或[Maven](functions-create-first-java-maven.md)來完成函式快速入門，以建立您的第一個函式。
 
@@ -30,33 +27,44 @@ Azure Functions 執行時間支援[JAVA SE 8 LTS （祖魯 8.31.0.2-jre 8.0.181-
 
 [觸發程序和繫結](functions-triggers-bindings.md)的概念是 Azure Functions 的基礎。 觸發程序會開始執行您的程式碼。 繫結可讓您將資料傳至函式以及從函式傳回資料，而不需要撰寫自訂的資料存取程式碼。
 
-## <a name="project-scaffolding"></a>專案樣板
+## <a name="create-java-functions"></a>建立 JAVA 函式
 
-Scaffold 以 JAVA 為基礎的 Azure Function 專案最簡單的方式是使用`Apache Maven` archetype。 您也可以在 Visual Studio Code 和適用于 Eclipse 和 IntelliJ 的 Azure 工具組上尋找專案產生的嚮導。
+為了讓您更輕鬆地建立 JAVA 函式，有以 Maven 為基礎的工具和 archetype，可使用預先定義的 JAVA 範本，協助您使用特定的函式觸發程式來建立專案。    
 
-目前有兩個適用于 Maven 的 Azure Functions archetype：
+### <a name="maven-based-tooling"></a>Maven 為基礎的工具
 
-### <a name="java-archetype"></a>JAVA 原型
+下列開發人員環境具有 Azure Functions 工具，可讓您建立 JAVA 函數專案： 
 
-這個原型會在下列 groupId 和 artifactId 之下發行。 [microsoft azure： azure 函式原型](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/)。
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Eclipse](functions-create-maven-eclipse.md)
++ [IntelliJ](functions-create-maven-intellij.md)
 
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
-```
+上述文章連結會示範如何使用您選擇的 IDE 來建立您的第一個函式。 
 
-### <a name="kotlin-archetype-preview"></a>Kotlin 原型（預覽）
+### <a name="project-scaffolding"></a>專案樣板
 
-這個原型是以下列 groupId 和 artifactId 來發行。 [microsoft azure： kotlin-原型](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/)。
+如果您偏好從終端機執行命令列開發，scaffold 以 JAVA 為基礎的函式專案最簡單的方式就是使用 `Apache Maven` archetype。 目前有兩個函式 archetype for Maven：
 
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
++ **JAVA 原型**：在下列 GroupId 和 artifactId 下發布[。 microsoft azure： azure 函式-原型](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/)：
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+        -DarchetypeArtifactId=azure-functions-archetype 
+    ```
+
+    若要開始使用此原型，請參閱[JAVA 快速入門](functions-create-first-java-maven.md)。 
+
++ **Kotlin 原型（預覽）** 發佈于下列 GroupId 和 artifactId [com 底下。 microsoft azure： azure 函式-Kotlin 原型](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/)：
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+        -DarchetypeArtifactId=azure-functions-kotlin-archetype
+    ```
 
 這些 archetype 的原始程式碼可以在[Azure Maven Archetype GitHub 存放庫](https://github.com/microsoft/azure-maven-archetypes)中找到。
+
 
 ## <a name="folder-structure"></a>資料夾結構
 
@@ -88,7 +96,7 @@ _* Kotlin 專案看起來非常類似，因為它仍然是 Maven_
 
 您可以使用共用的[主機 json](functions-host-json.md)檔案來設定函數應用程式。 每個函式都有自己的程式碼檔案 (.java) 和繫結設定檔 (function.json)。
 
-您可以在專案中放入多個函式。 請勿將函式放入個別的 jar。 目標`FunctionApp`目錄中的會部署至 Azure 中的函數應用程式。
+您可以在專案中放入多個函式。 請勿將函式放入個別的 jar。 目標目錄中的 `FunctionApp` 會部署至 Azure 中的函數應用程式。
 
 ## <a name="triggers-and-annotations"></a>觸發程序和註解
 
@@ -111,7 +119,7 @@ public class Function {
 }
 ```
 
-以下是由 azure 函`function.json` [式-maven-外掛程式](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin)產生的對應：
+以下是由[azure maven-外掛程式](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin)產生的對應 `function.json`：
 
 ```json
 {
@@ -151,7 +159,7 @@ Jdk 和函數應用程式的相關問題[Azure 支援](https://azure.microsoft.c
 * `-Djava.net.preferIPv4Stack=true`
 * `-jar`
 
-您可以在名為`JAVA_OPTS`的應用程式設定中提供額外的引數。 您可以在 Azure 入口網站或 Azure CLI 中，將應用程式設定新增至部署至 Azure 的函數應用程式。
+您可以在名為 `JAVA_OPTS`的應用程式設定中提供額外的引數。 您可以在 Azure 入口網站或 Azure CLI 中，將應用程式設定新增至部署至 Azure 的函數應用程式。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -159,28 +167,28 @@ Jdk 和函數應用程式的相關問題[Azure 支援](https://azure.microsoft.c
 
 ### <a name="azure-cli"></a>Azure CLI
 
-您可以使用[az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings)命令來設定`JAVA_OPTS`，如下列範例所示：
+您可以使用[az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings)命令來設定 `JAVA_OPTS`，如下列範例所示：
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <APP_NAME> \
 --resource-group <RESOURCE_GROUP> \
 --settings "JAVA_OPTS=-Djava.awt.headless=true"
 ```
-這個範例會啟用無周邊模式。 請`<APP_NAME>`以您的函式應用程式名稱取代`<RESOURCE_GROUP>` ，並以資源群組取代。
+這個範例會啟用無周邊模式。 將 `<APP_NAME>` 取代為函式應用程式的名稱，並使用資源群組 `<RESOURCE_GROUP>`。
 
 > [!WARNING]  
-> 在取用[方案](functions-scale.md#consumption-plan)中，您必須新增`WEBSITE_USE_PLACEHOLDER`具有值的`0`設定。  
+> 在取用[方案](functions-scale.md#consumption-plan)中，您必須新增具有 `0`值的 `WEBSITE_USE_PLACEHOLDER` 設定。  
 此設定會增加 JAVA 函數的冷啟動時間。
 
 ## <a name="third-party-libraries"></a>第三方程式庫 
 
-Azure Functions 支援使用第三方程式庫。 根據預設，專案`pom.xml`檔中指定的所有相依性都會在[`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage)目標期間自動配套。 對於在 `pom.xml` 檔案中未指定為相依性的程式庫，請將其放入函式根目錄的 `lib` 目錄中。 放置在`lib`目錄中的相依性會在執行時間新增至系統類別載入器。
+Azure Functions 支援使用第三方程式庫。 根據預設，專案 `pom.xml` 檔案中指定的所有相依性都會在[`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage)目標期間自動配套。 對於在 `pom.xml` 檔案中未指定為相依性的程式庫，請將其放入函式根目錄的 `lib` 目錄中。 放在 `lib` 目錄中的相依性會在執行時間新增至系統類別載入器。
 
-預設會在路徑上提供相依性，而不需要包含`lib`在目錄中。 `com.microsoft.azure.functions:azure-functions-java-library` 此外， [azure 函式-java 背景工作角色](https://github.com/Azure/azure-functions-java-worker)會將[此處](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies)所列的相依性新增至路徑。
+預設會在路徑上提供 `com.microsoft.azure.functions:azure-functions-java-library` 相依性，而不需要包含在 `lib` 目錄中。 此外， [azure 函式-java 背景工作角色](https://github.com/Azure/azure-functions-java-worker)會將[此處](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies)所列的相依性新增至路徑。
 
 ## <a name="data-type-support"></a>資料類型支援
 
-您可以使用簡單的舊版 JAVA 物件（pojo）、中`azure-functions-java-library`所定義的類型或基本資料類型（例如字串和整數）來系結至輸入或輸出系結。
+您可以使用簡單的舊版 JAVA 物件（Pojo）、`azure-functions-java-library`中所定義的類型，或基本資料類型（例如字串和整數）來系結至輸入或輸出系結。
 
 ### <a name="pojos"></a>Pojo
 
@@ -188,7 +196,7 @@ Azure Functions 支援使用第三方程式庫。 根據預設，專案`pom.xml`
 
 ### <a name="binary-data"></a>二進位資料
 
-藉由將 json 中的`byte[]` `dataType`欄位設定為`binary`，將二進位輸入或輸出系結至：
+藉由將您的函式中的 `dataType` 欄位設定為 `binary`，將二進位輸入或輸出系結至 `byte[]`：
 
 ```java
    @FunctionName("BlobTrigger")
@@ -202,7 +210,7 @@ Azure Functions 支援使用第三方程式庫。 根據預設，專案`pom.xml`
     }
 ```
 
-如果您預期會有 null 值`Optional<T>`，請使用。
+如果您預期會有 null 值，請使用 `Optional<T>`。
 
 ## <a name="bindings"></a>繫結
 
@@ -245,10 +253,10 @@ public class Function {
 ```
 
 您可以使用 HTTP 要求叫用此函式。 
-- HTTP 要求承載會傳遞做`String`為引數`inputReq`的。
-- 會從資料表儲存體中抓取一個專案，並將它`TestInputData`當做引數`inputData`傳遞。
+- HTTP 要求承載會當做引數 `inputReq`的 `String` 傳遞。
+- 會從資料表儲存體中抓取一個專案，並以 `TestInputData` 的形式傳遞至引數 `inputData`。
 
-若要接收輸入批次，您可以系結`String[]`至`POJO[]`、 `List<String>`、或`List<POJO>`。
+若要接收輸入批次，您可以系結至 `String[]`、`POJO[]`、`List<String>`或 `List<POJO>`。
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -265,11 +273,11 @@ public class Function {
 
 ```
 
-每當設定的事件中樞內有新資料時，就會觸發此函式。 因為設定為`MANY`，所以函式會從事件中樞接收一批訊息。`cardinality` `EventData`從事件中樞轉換為`TestEventData` ，以執行函式。
+每當設定的事件中樞內有新資料時，就會觸發此函式。 因為 `cardinality` 設定為 `MANY`，所以函式會從事件中樞接收一批訊息。 事件中樞的 `EventData` 會轉換成函式執行的 `TestEventData`。
 
 ### <a name="output-binding-example"></a>輸出繫結範例
 
-您可以使用`$return`，將輸出系結系結至傳回值。 
+您可以使用 `$return`，將輸出系結系結至傳回值。 
 
 ```java
 package com.example;
@@ -288,7 +296,7 @@ public class Function {
 
 如果有多個輸出繫結，請只對其中一個使用傳回值。
 
-若要傳送多個輸出值，請使用 `azure-functions-java-library` 套件中定義的 `OutputBinding<T>`。 
+若要傳送多個輸出值，請使用 `OutputBinding<T>` 套件中定義的 `azure-functions-java-library`。 
 
 ```java
 @FunctionName("QueueOutputPOJOList")
@@ -326,16 +334,16 @@ public class Function {
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 和 HttpResponseMessage
 
- 這些是在中`azure-functions-java-library`定義。 它們是可與 HttpTrigger 函式搭配使用的協助程式類型。
+ 這些是在 `azure-functions-java-library`中定義。 它們是可與 HttpTrigger 函式搭配使用的協助程式類型。
 
-| 特殊類型      |       目標        | 一般使用方式                  |
+| 特殊類型      |       確定目標        | 一般使用方式                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP 觸發程序     | 取得方法、標頭或查詢 |
 | `HttpResponseMessage` | HTTP 輸出繫結 | 傳回200以外的狀態   |
 
 ## <a name="metadata"></a>中繼資料
 
-有幾個觸發程序會將[觸發程序中繼資料](/azure/azure-functions/functions-triggers-bindings)與輸入資料一起傳送。 您可以使用批註`@BindingName`來系結至觸發程式中繼資料。
+有幾個觸發程序會將[觸發程序中繼資料](/azure/azure-functions/functions-triggers-bindings)與輸入資料一起傳送。 您可以使用注釋 `@BindingName` 來系結至觸發程式中繼資料。
 
 
 ```Java
@@ -355,7 +363,7 @@ public class Function {
     }
 }
 ```
-在上述範例中， `queryValue`會系結至 HTTP 要求 URL `http://{example.host}/api/metadata?name=test`中`name`的查詢字串參數。 以下是另一個範例，顯示如何從佇列`Id`觸發程式中繼資料系結至。
+在上述範例中，`queryValue` 系結至 HTTP 要求 URL 中的查詢字串參數 `name`，`http://{example.host}/api/metadata?name=test`。 以下是另一個範例，顯示如何從佇列觸發程式中繼資料系結至 `Id`。
 
 ```java
  @FunctionName("QueueTriggerMetadata")
@@ -376,11 +384,11 @@ public class Function {
 
 ## <a name="execution-context"></a>執行內容
 
-`ExecutionContext`定義于中`azure-functions-java-library`，包含可與函數執行時間通訊的 helper 方法。
+`ExecutionContext`（定義于 `azure-functions-java-library`中）包含可與函數執行時間通訊的 helper 方法。
 
 ### <a name="logger"></a>記錄器
 
-使用`getLogger`（定義于`ExecutionContext`）從函式程式碼寫入記錄。
+使用 `ExecutionContext`中定義的 `getLogger`，從函式程式碼寫入記錄。
 
 範例：
 
@@ -414,7 +422,7 @@ az webapp log config --name functionname --resource-group myResourceGroup --appl
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
-[Az webapp log tail](/cli/azure/webapp/log)命令具有使用`--provider`選項來篩選輸出的選項。 
+[Az webapp log tail](/cli/azure/webapp/log)命令具有使用 [`--provider`] 選項來篩選輸出的選項。 
 
 若要使用 Azure CLI，以單一 ZIP 檔案的形式下載記錄檔，請開啟新的命令提示字元、Bash 或終端機會話，然後輸入下列命令：
 
@@ -426,9 +434,9 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 ## <a name="environment-variables"></a>環境變數
 
-在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用`System.getenv("AzureWebJobsStorage")`來存取這些設定。
+在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `System.getenv("AzureWebJobsStorage")`來存取這些設定。
 
-下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)，並使用名為`myAppSetting`的機碼：
+下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)，並將金鑰命名為 `myAppSetting`：
 
 ```java
 
@@ -451,4 +459,4 @@ public class Function {
 * 使用[Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、 [IntelliJ](functions-create-maven-intellij.md)和[Eclipse](functions-create-maven-eclipse.md)進行本機開發和調試
 * [使用 Visual Studio Code 針對 Java Azure Functions 進行遠端偵錯](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Azure Functions 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) 
-* 簡化透過目標的`azure-functions:add`函式建立，並準備用於 ZIP 檔案[部署](deployment-zip-push.md)的臨時目錄。
+* 透過 `azure-functions:add` 目標簡化函式建立，並準備用於[ZIP 檔案部署](deployment-zip-push.md)的臨時目錄。

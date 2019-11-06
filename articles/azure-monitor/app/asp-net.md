@@ -1,23 +1,18 @@
 ---
 title: 使用 Azure Application Insights 設定 ASP.NET 的 Web 應用程式分析 | Microsoft Docs
 description: 針對裝載在內部部署環境或 Azure 的 ASP.NET 網站，設定效能、可用性及使用者行為分析工具。
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 73f62ff8c95fae694a43df48aa99b696fb05d131
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 05/08/2019
+ms.openlocfilehash: a72bb5dd02776fe8410bb515e4e17a292d12048f
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916269"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677681"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -32,14 +27,14 @@ ms.locfileid: "70916269"
     - ASP.NET 和 網頁程式開發（請勿取消核取選用元件）
     - Azure 開發
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="ide"></a>步驟 1：新增 Application Insights SDK
 
 > [!IMPORTANT]
 > 此範例中的螢幕擷取畫面是以 Visual Studio 2017 版15.9.9 版和更新版本為基礎。 新增 Application Insights 的體驗會因 Visual Studio 版本以及 ASP.NET 範本類型而有所不同。 較舊的版本可能會有替代文字，例如「設定 Application Insights」。
 
-在方案總管中，以滑鼠右鍵按一下您的 web 應用程式名稱，然後選擇 [**新增** > ]**Application Insights 遙測**
+在方案總管中，以滑鼠右鍵按一下您的 web 應用程式名稱，然後選擇 [**新增** > ] **Application Insights 遙測**
 
 ![醒目提示 [設定 Application Insights] 的 [方案總管] 螢幕擷取畫面](./media/asp-net/add-telemetry-new.png)
 
@@ -59,13 +54,13 @@ Application Insights 設定畫面：
 
 ![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00005-register-ed.png)
 
- 選取 [**專案** > ] [**管理 NuGet 套件** > ] [**套件來源]： nuget.org** > 確認您有 Application Insights SDK 的最新穩定版本。
+ 選取 [**專案**] > 管理 > **套件來源**的**NuGet 套件**： NUGET.ORG > 確認您有 Application Insights SDK 的最新穩定版本。
 
  在偵錯期間和您發佈應用程式之後，遙測會傳送至 [Azure 入口網站](https://portal.azure.com)。
 > [!NOTE]
 > 如果您不想在您偵錯時將遙測傳送到入口網站，而只將 Application Insights SDK 新增至您的應用程式，但不在入口網站中設定資源。 您在偵錯時可在 Visual Studio 中檢視遙測。 稍後，您可以回到此設定頁面，或等到部署您的應用程式之後，[在執行階段開啟遙測](../../azure-monitor/app/monitor-performance-live-website-now.md)。
 
-## <a name="run"></a> 步驟 2：執行您的應用程式
+## <a name="run"></a> 步驟 2︰執行您的應用程式
 按 F5 執行您的應用程式。 開啟不同的頁面來產生一些遙測。
 
 在 Visual Studio 中，您會看見已記錄的事件計數。
@@ -101,7 +96,7 @@ Application Insights 設定畫面：
 
 在入口網站中，按一下任何圖格或圖表以查看詳細資料。
 
-## <a name="step-4-publish-your-app"></a>步驟 4：發行您的應用程式
+## <a name="step-4-publish-your-app"></a>步驟 4：發佈您的應用程式
 將您的應用程式發佈至 IIS 伺服器或 Azure。 監看 [即時計量串流](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) 以確定一切順利執行。
 
 您的遙測會在 Application Insights 入口網站中建立，您可以在其中監視計量、搜尋您的遙測。 您也可以使用功能強大的 [Kusto 查詢語言](/azure/kusto/query/)，分析使用狀況和效能或尋找特定事件。
@@ -115,7 +110,7 @@ Application Insights 設定畫面：
 
 ## <a name="land"></a> 您全都準備好了
 
-恭喜您！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
+恭喜！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
 
 接收您應用程式遙測的 Azure 資源會由檢測金鑰識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
 
@@ -125,7 +120,7 @@ Application Insights 設定畫面：
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本。 然後，將您的變更合併至新版本中。
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 * 關於如何[使用 .NET 應用程式從零開始設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA) 的外部逐步說明影片。
 
@@ -148,11 +143,11 @@ Application Insights 設定畫面：
 * **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>包括使用遙測來偵錯、診斷搜尋及鑽研程式碼的相關資訊。
 * **[分析 - ](../../azure-monitor/log-query/get-started-portal.md)** - 功能強大的查詢語言。
 
-### <a name="alerts"></a>警示
+### <a name="alerts"></a>Alerts
 
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)：建立測試，以確保網路上看得見您的網站。
 * [智慧型診斷](../../azure-monitor/app/proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。
-* [計量警示](../../azure-monitor/app/alerts.md)：設定警示，在計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。
+* 計量[警示](../../azure-monitor/app/alerts.md)：設定警示，在計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。
 
 ### <a name="automation"></a>自動化
 

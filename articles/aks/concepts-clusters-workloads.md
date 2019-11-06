@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672818"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472919"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -50,7 +50,7 @@ Kubernetes 叢集分成兩個元件：
 - *kube-scheduler* - 當您建立或調整應用程式時，排程器會判斷哪些節點可執行工作負載，並加以啟動。
 - *kube-controller-manager* - 控制器管理員會監看較小型的，這些控制器負責執行複寫 Pod 和處理節點作業之類的動作。
 
-AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢集主機。您可以定義節點的數目和大小，而 Azure 平台會設定叢集主機與節點之間的安全通訊。 與叢集主機之間的互動可透過 Kubernetes API 進行，例如 `kubectl` 或 Kubernetes 儀表板。
+AKS 提供單一租使用者叢集主機，其中包含專用的 API 伺服器、排程器等。您可以定義節點的數目和大小，而 Azure 平臺會設定叢集主機與節點之間的安全通訊。 與叢集主機之間的互動可透過 Kubernetes API 進行，例如 `kubectl` 或 Kubernetes 儀表板。
 
 此受控叢集主機表示您不需要設定高可用性*etcd*存放區之類的元件，但這也表示您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄檢閱叢集主機記錄。
 
@@ -76,7 +76,7 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 ### <a name="resource-reservations"></a>資源保留
 
-AKS 會使用節點資源，讓 node 函式成為叢集的一部分。 在 AKS 中使用時，這會在節點的總資源和資源 allocatable 之間建立 discrepency。 在設定使用者部署的 pod 的要求和限制時，請務必注意這一點。
+AKS 會使用節點資源，讓 node 函式成為叢集的一部分。 在 AKS 中使用時，這會在節點的總資源和資源 allocatable 之間建立差異。 在設定使用者部署的 pod 的要求和限制時，請務必注意這一點。
 
 若要尋找節點的 allocatable 資源，請執行：
 ```kubectl
@@ -96,11 +96,11 @@ kubectl describe node [NODE_NAME]
 |Kube-reserved （millicore）|60|100|140|180|260|420|740|
 
 - **記憶體保留**的記憶體會遵循漸進速率
-  - 前 4 GB 記憶體的 25%
-  - 接下來 4 GB 記憶體的 20% （最多 8 GB）
-  - 下一個 8 GB 記憶體的 10% （最多 16 GB）
-  - 下一個 112 GB 記憶體的 6% （最多 128 GB）
-  - 128 GB 以上任何記憶體的 2%
+  - 前 4 GB 記憶體的25%
+  - 接下來 4 GB 記憶體的20% （最多 8 GB）
+  - 下一個 8 GB 記憶體的10% （最多 16 GB）
+  - 下一個 112 GB 記憶體的6% （最多 128 GB）
+  - 128 GB 以上任何記憶體的2%
 
 保留這些資源代表應用程式可用的 CPU 和記憶體數量，看起來可能會小於節點本身所含的資源數量。 如果由於所執行的應用程式數量導致資源受限，則所保留的這些資源可確保仍有 CPU 和記憶體可供核心 Kubernetes 元件使用。 無法變更資源保留。
 
@@ -110,7 +110,7 @@ kubectl describe node [NODE_NAME]
 
 ### <a name="node-pools"></a>節點集區
 
-相同設定的節點會一起分組到*節點集區*中。 Kubernetes 叢集包含一或多個節點集區。 您在建立 AKS 叢集時會定義初始的節點數目和大小，而建立*預設節點集區*。 AKS 中的這個預設節點集區包含用來執行代理程式節點的基礎 VM。 在 AKS 中，多個節點集區支援目前為預覽狀態。
+相同設定的節點會一起分組到*節點集區*中。 Kubernetes 叢集包含一或多個節點集區。 您在建立 AKS 叢集時會定義初始的節點數目和大小，而建立*預設節點集區*。 AKS 中的這個預設節點集區包含用來執行代理程式節點的基礎 VM。
 
 > [!NOTE]
 > 若要確保您的叢集能夠可靠地運作，您應該在預設節點集區中至少執行2（兩個）節點。

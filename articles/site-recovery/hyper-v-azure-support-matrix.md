@@ -7,26 +7,28 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 784bf15a58e25ba4cba18494adc295343d0c175a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: MT
+ms.openlocfilehash: e34140f9e014cfd41b0c14e980ca74e4d07d0c85
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098899"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933854"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
 
 本文摘要說明將內部部署 Hyper-V VM 災害復原至 Azure (使用 [Azure Site Recovery](site-recovery-overview.md)) 所支援的元件和設定。
 
+> [!WARNING]
+> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](scvmm-site-recovery-deprecation.md)繼續進行。
+
 
 ## <a name="supported-scenarios"></a>支援的案例
 
 **案例** | **詳細資料**
 --- | ---
-Hyper-V (含 Virtual Machine Manager) | 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](hyper-v-vmm-disaster-recovery.md)。
+Hyper-V (含 Virtual Machine Manager) <br> **此案例是在淘汰的路徑中。** <br>| 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](hyper-v-vmm-disaster-recovery.md)。
 Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual Machine Manager 管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。
-
 
 ## <a name="on-premises-servers"></a>內部部署伺服器
 
@@ -58,16 +60,16 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-require
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-主機網路：NIC Teaming | 是 | 是
+主機網路：NIC 小組 | 是 | 是
 主機網路：VLAN | 是 | 是
 主機網路：IPv4 | 是 | 是
 主機網路：IPv6 | 否 | 否
-來賓 VM 網路：NIC Teaming | 否 | 否
-來賓 VM 網路：IPv4 | 是 | 是
-來賓 VM 網路：IPv6 | 否 | 是
-來賓 VM 網路：靜態 IP (Windows) | 是 | 是
-來賓 VM 網路：靜態 IP (Linux) | 否 | 否
-來賓 VM 網路：多個 NIC | 是 | 是
+客體 VM 網路：NIC 小組 | 否 | 否
+客體 VM 網路：IPv4 | 是 | 是
+客體 VM 網路：IPv6 | 否 | 是
+客體 VM 網路：靜態 IP (Windows) | 是 | 是
+客體 VM 網路：靜態 IP (Linux) | 否 | 否
+客體 VM 網路：多重 NIC | 是 | 是
 
 
 
@@ -110,7 +112,7 @@ NFS | NA | NA
 SMB 3.0 | 否 | 否
 RDM | NA | NA
 磁碟 > 1 TB | 是，最多 4,095 GB | 是，最多 4,095 GB
-磁碟：4k 邏輯與實體磁區 | 不支援：Gen 1/Gen 2 | 不支援：Gen 1/Gen 2
+磁碟：4k 邏輯與實體磁區 | 不支援：第 1 代/第 2 代 | 不支援：第 1 代/第 2 代
 磁碟：4K 邏輯與 512 位元組實體磁區 | 是 |  是
 邏輯磁碟區管理 (LVM)。 資料磁碟上才支援 LVM。 Azure 只提供單一 OS 磁碟。 | 是 | 是
 使用等量磁碟的磁碟區 > 1 TB | 是 | 是
@@ -133,14 +135,14 @@ RDM | NA | NA
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
 已啟用防火牆的 Azure 儲存體帳戶 | 是的。 適用于目標儲存體和快取。 | 是的。 適用于目標儲存體和快取。
-修改儲存體帳戶 | 資料分割 啟用複寫之後，即無法修改目標 Azure 儲存體帳戶。 若要修改，請停用再重新啟用嚴重損壞修復。 | 否
+修改儲存體帳戶 | 不會。 啟用複寫之後，即無法修改目標 Azure 儲存體帳戶。 若要修改，請停用再重新啟用嚴重損壞修復。 | 否
 
 
 ## <a name="azure-compute-features"></a>Azure 計算功能
 
 **功能** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-可用性設定組 | 是 | 是
+可用性集合 | 是 | 是
 中樞 | 是 | 是  
 受控磁碟 | 是，適用於容錯移轉。<br/><br/> 不支援受控磁碟的容錯回復。 | 是，適用於容錯移轉。<br/><br/> 不支援受控磁碟的容錯回復。
 
@@ -162,7 +164,7 @@ FC 磁碟 | 不支援 | 若不支援，則必要條件檢查會失敗。
 硬碟格式 | VHD <br/><br/> VHDX | Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。 當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
 BitLocker | 不支援 | 為 VM 啟用複寫之前必須先停用 BitLocker。
 VM 名稱 | 介於 1 到 63 個字元。 只能使用字母、數字和連字號。 VM 名稱必須以字母或數字為開頭或結尾。 | 更新 Site Recovery 中 VM 屬性的值。
-VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第 2 代 VM (其中包含一或兩個格式化為 VHDX 的資料磁碟區) 且支援小於 300 GB 的磁碟空間。<br></br>不支援 Linux 第 2 代 VM。 [深入了解](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
+VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第 2 代 VM (其中包含一或兩個格式化為 VHDX 的資料磁碟區) 且支援小於 300 GB 的磁碟空間。<br></br>不支援 Linux 第 2 代 VM。 [詳細資訊](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
 
 ## <a name="recovery-services-vault-actions"></a>復原服務保存庫動作
 
@@ -181,7 +183,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 **名稱** | **描述** | **詳細資料**
 --- | --- | --- 
-Azure Site Recovery 提供者 | 協調內部部署伺服器與 Azure 之間的通訊 <br/><br/> Hyper-V (含 Virtual Machine Manager)：安裝在 Virtual Machine Manager 伺服器<br/><br/> Hyper-V (不含 Virtual Machine Manager)：安裝在 Hyper-V 主機| 最新版本：5.1.2700.1 (可從 Azure 入口網站取得)<br/><br/> [最新功能和修正](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery 提供者 | 協調內部部署伺服器與 Azure 之間的通訊 <br/><br/> HYPER-V (含 Virtual Machine Manager)：安裝在 Virtual Machine Manager 伺服器上<br/><br/> HYPER-V (不含 Virtual Machine Manager)：安裝在 HYPER-V 主機上| 最新版本：5.1.2700.1 (可從 Azure 入口網站取得)<br/><br/> [最新功能和修正](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure 復原服務代理程式 | 協調 HYPER-V VM 與 Azure 之間的複寫<br/><br/> 安裝在內部部署 Hyper-V 伺服器上 (無論是否有 Virtual Machine Manager) | 最新的代理程式可從入口網站取得
 
 

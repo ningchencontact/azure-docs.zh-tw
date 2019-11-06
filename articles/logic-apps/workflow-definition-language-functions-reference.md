@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: 1c6051508a067e17afbc25702c26608da4cd4ca2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
-ms.translationtype: MT
+ms.openlocfilehash: 1d5197f585fde5388fdafac887d6a1454d6131e9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968927"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177087"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>在 Azure Logic Apps 和 Microsoft Flow 的運算式中使用函數的參考指南
 
@@ -1884,7 +1884,7 @@ first(createArray(0, 1, 2))
 
 <a name="float"></a>
 
-### <a name="float"></a>float
+### <a name="float"></a>FLOAT
 
 將浮點數的字串版本轉換為實際浮點數。
 只有在將自訂參數傳遞給應用程式時，才可以使用此函式，例如邏輯應用程式或流程。
@@ -2019,7 +2019,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | 參數 | 必要 | 類型 | 說明 |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | 是 | Integer | 要減去的指定時間單位數字 |
+| <*interval*> | 是 | Integer | 要加入的指定時間單位數字 |
 | <*timeUnit*> | 是 | 字串 | 與 *interval* 搭配使用的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month"、"Year" |
 | <*format*> | 否 | 字串 | [單一格式規範](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自訂格式模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 時間戳記的預設格式為 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK)，其符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) \(英文\) 並保留時區資訊。 |
 |||||
@@ -3727,7 +3727,7 @@ startsWith('hello world', 'greetings')
 
 <a name="string"></a>
 
-### <a name="string"></a>字串
+### <a name="string"></a>string
 
 傳回值的字串版本。
 

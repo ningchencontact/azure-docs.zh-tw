@@ -1,19 +1,18 @@
 ---
 title: Azure 監視 REST API 逐步解說
 description: 如何驗證要求，以及使用 Azure 監視器 REST API 來取出可用的計量定義和計量值。
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/19/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/19/2018
+ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205639"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551819"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 
@@ -88,7 +87,7 @@ $authHeader = @{
 2. 擷取度量值
 
 > [!NOTE]
-> 如需有關如何使用 Azure REST API 進行驗證的詳細資訊，請參閱[Azure REST API 參考](https://docs.microsoft.com/rest/api/azure/)。
+> 如需使用 Azure REST API 進行驗證的詳細資訊，請參閱[azure REST API 參考](https://docs.microsoft.com/rest/api/azure/)。
 >
 >
 
@@ -98,7 +97,7 @@ $authHeader = @{
 
 **方法**：GET
 
-**要求 URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
+**要求 URI**： HTTPs：\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{CoNtext.resourcename}* /providers/microsoft.insights/metricdefinitions api-version？ api-Version = *{apiVersion}*
 
 例如，若要取出 Azure 儲存體帳戶的計量定義，則要求看起來如下所示：
 
@@ -242,7 +241,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-**要求 URI**: https\://management.azure.com/subscriptions/ *{訂用帳戶識別碼}* /resourceGroups/ *{資源-群組-名稱}* /providers/ *{資源提供者 namespace}* / *{資源類型}* / *{資源-名稱}* /providers/microsoft.insights/metrics？metricnames = *{計量}* & timespan = *{starttime/endtime}* & $filter = *{filter}* & resultType = 中繼資料 api 版本 = *{apiVersion}*
+**要求 URI**： HTTPs\://management.azure.com/subscriptions/ *{訂用帳戶識別碼}* /resourceGroups/ *{資源-群組名稱}* /providers/ *{資源提供者-命名空間}* / *{資源類型}* / *{資源名稱}* /providers/microsoft.insights/metrics？ metricnames = *{公制}* & timespan = *{starttime/endtime}* & $Filter = *{filter}* & resultType = metadata & api 版本 = *{apiVersion}*
 
 例如，若要擷取 'Transactions' 計量之 'API Name dimension' 中發出的維度值清單，其中指定時間範圍內的 GeoType 維度 = 'Primary'，要求將如下所示：
 
@@ -394,7 +393,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-**要求 URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
+**要求 URI**： HTTPs：\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{CoNtext.resourcename}* /providers/microsoft.insights/metricdefinitions api-version？ api-Version = *{apiVersion}*
 
 例如，若要取出 Azure Logic App 的計量定義，則要求看起來如下所示：
 
@@ -585,7 +584,7 @@ Invoke-RestMethod -Uri $request `
 另一種方法是在 Windows 機器上使用 [ARMClient](https://github.com/projectkudu/armclient)。 ARMClient 會自動處理 Azure AD 驗證 (以及產生的 JWT 權杖)。 下列步驟概述使用 ARMClient 來取出計量資料︰
 
 1. 安裝 [Chocolatey](https://chocolatey.org/) 和 [ARMClient](https://github.com/projectkudu/armclient)。
-2. 在終端機視窗中，輸入 armclient.exe login  。 這樣做會提示您登入 Azure。
+2. 在終端機視窗中，輸入 armclient.exe login。 這樣做會提示您登入 Azure。
 3. 輸入 *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
 4. 輸入 *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
@@ -601,7 +600,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 上述程式碼中，要使用的資源識別碼是所需 Azure 資源的完整路徑。 例如，若要查詢 Azure Web 應用程式，資源識別碼為︰
 
-<bpt id="p1">*</bpt>/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/<ept id="p1">*</ept>
+*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 下列範例清單包含各種 Azure 資源的資源識別碼格式︰
 
@@ -657,7 +656,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要擷取使用 Azure CLI 的 Azure 儲存體帳戶的資源識別碼，請執行`az storage account show`命令，如下列範例所示：
+若要使用 Azure CLI 抓取 Azure 儲存體帳戶的資源識別碼，請執行 `az storage account show` 命令，如下列範例所示：
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

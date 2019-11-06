@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c49200dba33d4a3b9ad1f582841adb04c2dd1c41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: MT
+ms.openlocfilehash: 7be0cfbe538d06da617049ac74cba60ff1b713e6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099552"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791700"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -34,14 +34,14 @@ ms.locfileid: "70099552"
 
 有兩個選項可以在 Azure 中設定 Pacemaker 叢集。 您可以使用隔離代理程式，這個代理程式會透過 Azure API 來重新啟動失敗的節點，或者您可以使用 SBD 裝置。
 
-SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器並且提供 SBD 裝置。 不過，這些 iSCSI 目標伺服器可以與其他 Pacemaker 叢集共用。 使用 SBD 裝置的優點是更快速的容錯移轉時間, 如果您在內部部署使用 SBD 裝置, 則不需要變更您操作 pacemaker 叢集的方式。 您可以對一個 Pacemaker 叢集使用最多三個 SBD 裝置，以容許在 iSCSI 目標伺服器的 OS 修補期間 (舉例來說)，有一個 SBD 裝置無法使用。 如果您想要使用一個以上的 SBD 裝置每 Pacemaker，請務必部署多部 iSCSI 目標伺服器，並從每部 iSCSI 目標伺服器連線一個 SBD。 我們建議使用一個或三個 SBD 裝置。 如果您只設定兩個 SBD 裝置，而且其中一個無法使用，Pacemaker 將無法自動隔離叢集節點。 如果您希望能夠在一部 iSCSI 目標伺服器關閉時隔離，您必須使用三個 SBD 裝置，因此會有三部 iSCSI 目標伺服器。
+SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器並且提供 SBD 裝置。 不過，這些 iSCSI 目標伺服器可以與其他 Pacemaker 叢集共用。 使用 SBD 裝置的優點是更快速的容錯移轉時間，如果您在內部部署使用 SBD 裝置，則不需要變更您操作 pacemaker 叢集的方式。 您可以對一個 Pacemaker 叢集使用最多三個 SBD 裝置，以容許在 iSCSI 目標伺服器的 OS 修補期間 (舉例來說)，有一個 SBD 裝置無法使用。 如果您想要使用一個以上的 SBD 裝置每 Pacemaker，請務必部署多部 iSCSI 目標伺服器，並從每部 iSCSI 目標伺服器連線一個 SBD。 我們建議使用一個或三個 SBD 裝置。 如果您只設定兩個 SBD 裝置，而且其中一個無法使用，Pacemaker 將無法自動隔離叢集節點。 如果您希望能夠在一部 iSCSI 目標伺服器關閉時隔離，您必須使用三個 SBD 裝置，因此會有三部 iSCSI 目標伺服器。
 
-如果您不想要投資一部額外的虛擬機器, 您也可以使用 Azure 隔離代理程式。 缺點是如果資源停止容錯或叢集節點無法再彼此進行通訊，則容錯移轉需要 10 到 15 分鐘。
+如果您不想要投資一部額外的虛擬機器，您也可以使用 Azure 隔離代理程式。 缺點是如果資源停止容錯或叢集節點無法再彼此進行通訊，則容錯移轉需要 10 到 15 分鐘。
 
 ![SLES 上的 Pacemaker 概觀](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> 規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，對於完整叢集設定的整體可靠性而言，最重要的是相關 VM 與裝載 SBD 裝置的 VM 之間，其路由傳送不會通過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 等任何其他裝置。 否則，與 NVA 相關的問題與維護事件，會對整體叢集設定的穩定性與可靠性造成負面影響。 為了避免這類障礙, 請不要定義 Nva 或[使用者定義的路由規則](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)的路由規則, 這些規則會在規劃和部署 Linux Pacemaker 叢集節點時, 透過 nva 和類似的裝置來路由傳送叢集節點與 SBD 裝置之間的流量, 以及SBD 裝置。 
+> 規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，對於完整叢集設定的整體可靠性而言，最重要的是相關 VM 與裝載 SBD 裝置的 VM 之間，其路由傳送不會通過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 等任何其他裝置。 否則，與 NVA 相關的問題與維護事件，會對整體叢集設定的穩定性與可靠性造成負面影響。 為了避免這類障礙，請不要定義 Nva 或[使用者定義的路由規則](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)的路由規則，這些規則會在規劃和部署 Linux Pacemaker 叢集節點時，透過 nva 和類似的裝置來路由傳送叢集節點與 SBD 裝置之間的流量，以及SBD 裝置。 
 >
 
 ## <a name="sbd-fencing"></a>SBD 隔離
@@ -83,7 +83,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 
 在所有 **iSCSI 目標虛擬機器**上執行下列命令，為 SAP 系統所用的叢集建立 iSCSI 磁碟。 在下列範例中，會建立多個叢集的 SBD 裝置。 它會顯示如何對多個叢集使用一部 iSCSI 目標伺服器。 SBD 裝置會置於 OS 磁碟上。 確定您有足夠的空間。
 
-**`nfs`** 是用來識別 NFS 叢集、使用**ascsnw1**來識別**NW1**的 ASCS 叢集、使用**dbnw1**來識別**NW1**的資料庫叢集、 **nfs-0**和**nfs-1**是 NFS 叢集節點的主機名稱、 **nw1-xscs-0**和**nw1-xscs-1**是**nw1** ASCS 叢集節點的主機名稱, 而**nw1-db-0**和**nw1-db-1**是資料庫叢集節點的主機名稱。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
+**`nfs`** 是用來識別 NFS 叢集、 **ascsnw1**是用來識別**NW1**的 ASCS 叢集、 **dbnw1**是用來識別**NW1**的資料庫叢集、 **nfs-0**和**NFS-1**是的主機名稱。NFS 叢集節點、 **nw1-xscs-0**和**nw1-xscs-1**是**nw1** ASCS 叢集節點的主機名稱，而**nw1-db-0**和**nw1-db-1**是資料庫叢集節點的主機名稱。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -301,7 +301,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   `softdog`建立設定檔
+   建立 `softdog` 設定檔
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -318,6 +318,11 @@ o- / ...........................................................................
 1. **[A]** 更新 SLES
 
    <pre><code>sudo zypper update
+   </code></pre>
+
+1. **[A]** 安裝叢集資源所需的元件
+
+   <pre><code>sudo zypper in socat
    </code></pre>
 
 1. **[A]** 設定作業系統
@@ -349,7 +354,7 @@ o- / ...........................................................................
 
 1. **[A]** 設定適用于 HA 叢集的雲端 netconfig-azure
 
-   變更網路介面的設定檔, 如下所示, 以防止雲端網路外掛程式移除虛擬 IP 位址 (Pacemaker 必須控制 VIP 指派)。 如需詳細資訊, 請參閱[SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)。 
+   變更網路介面的設定檔，如下所示，以防止雲端網路外掛程式移除虛擬 IP 位址（Pacemaker 必須控制 VIP 指派）。 如需詳細資訊，請參閱[SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)。 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -398,11 +403,11 @@ o- / ...........................................................................
    </code></pre>
 
    >[!IMPORTANT]
-   > 如果使用 Suse Linux Enterprise Server for SAP 15, 請注意您必須啟用其他模組並安裝其他元件, 這是使用 Azure 隔離代理程式的必要條件。 若要深入瞭解 SUSE 模組和擴充功能, 請參閱[說明的模組和擴充](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html)功能。 遵循鈴的指示來安裝 Azure Python SDK。 
+   > 如果使用 Suse Linux Enterprise Server for SAP 15，請注意您必須啟用其他模組並安裝其他元件，這是使用 Azure 隔離代理程式的必要條件。 若要深入瞭解 SUSE 模組和擴充功能，請參閱[說明的模組和擴充](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html)功能。 遵循鈴的指示來安裝 Azure Python SDK。 
 
    下列有關如何安裝 Azure Python SDK 的指示僅適用于 SAP **15**的 Suse Enterprise Server。  
 
-    - 如果您使用「自備訂用帳戶」, 請遵循這些指示  
+    - 如果您使用「自備訂用帳戶」，請遵循這些指示  
 
     <pre><code>
     #Activate module PackageHub/15/x86_64
@@ -411,7 +416,7 @@ o- / ...........................................................................
     sudo zypper in python3-azure-sdk
     </code></pre>
 
-     - 如果您使用隨用隨付訂用帳戶, 請遵循這些指示  
+     - 如果您使用隨用隨付訂用帳戶，請遵循這些指示  
 
     <pre><code>#Activate module PackageHub/15/x86_64
     zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
@@ -521,17 +526,17 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
    移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增註冊]
-1. 輸入名稱, 選取 [僅此組織目錄中的帳戶] 
-2. 選取應用程式類型 [Web], 輸入登入 URL (例如 HTTP:\//localhost), 然後按一下 [新增]  
+1. 輸入名稱，選取 [僅此組織目錄中的帳戶] 
+2. 選取應用程式類型 [Web]，輸入登入 URL （例如 HTTP：\//localhost），然後按一下 [新增]  
    登入 URL 並未使用，而且可以是任何有效的 URL
-1. 選取 [憑證和密碼], 然後按一下 [新增用戶端密碼]
-1. 輸入新金鑰的描述, 選取 [永不過期], 然後按一下 [新增]
+1. 選取 [憑證和密碼]，然後按一下 [新增用戶端密碼]
+1. 輸入新金鑰的描述，選取 [永不過期]，然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
 1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
-根據預設, 服務主體不具有存取 Azure 資源的許可權。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。 如果您尚未建立自訂角色，您可以使用 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) 或 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli) 來建立
+根據預設，服務主體不具有存取 Azure 資源的許可權。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。 如果您尚未建立自訂角色，您可以使用 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) 或 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli) 來建立
 
 針對輸入檔使用下列內容。 您必須調整訂用帳戶的內容，也就是使用您訂用帳戶的識別碼取代 c276fc76-9cd4-44c9-99a7-4fd71546436e 和 e91d47c4-76f3-4271-a796-21b4ecfe3624。 如果您只有一個訂用帳戶，請在 AssignableScopes 中移除第二個項目。
 
@@ -557,7 +562,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 將自訂角色指派給服務主體
 
-將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不再使用擁有者角色!
+將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不再使用擁有者角色！
 
 1. 移至 [https://portal.azure.com](https://portal.azure.com)
 1. 開啟 [所有資源] 刀鋒視窗
@@ -566,7 +571,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 按一下 [新增角色指派]
 1. 選取「Linux 柵欄代理程式角色」角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [Save] \(儲存)。
+1. 按一下 [Save] (儲存)。
 
 針對第二個叢集節點重複上述步驟。
 
@@ -600,7 +605,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 已排程事件的 Pacemaker 設定
 
-Azure 提供[排程的事件](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)。 排定的事件是透過中繼資料服務所提供, 並可讓應用程式針對 VM 關機、VM 重新部署等事件進行準備。資源代理程式 **[azure-](https://github.com/ClusterLabs/resource-agents/pull/1161)** 已排程 azure 事件的事件監視。 如果偵測到事件, 代理程式將會嘗試停止受影響 VM 上的所有資源, 並將其移至叢集中的另一個節點。 若要達到此目的, 必須設定額外的 Pacemaker 資源。 
+Azure 提供[排程的事件](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)。 排定的事件是透過中繼資料服務所提供，並可讓應用程式針對 VM 關機、VM 重新部署等事件進行準備。資源代理程式 **[azure-](https://github.com/ClusterLabs/resource-agents/pull/1161)** 已排程 azure 事件的事件監視。 如果偵測到事件，代理程式將會嘗試停止受影響 VM 上的所有資源，並將其移至叢集中的另一個節點。 若要達到此目的，必須設定額外的 Pacemaker 資源。 
 
 1. **[A]** 安裝**azure 事件**代理程式。 
 
@@ -622,10 +627,10 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > 設定 azure 事件代理程式的 Pacemaker 資源之後, 當您將叢集放入或移出維護模式時, 您可能會收到類似下列的警告訊息:  
-     警告: cib-啟動程式-選項: 不明的屬性 ' hostName_ <strong>hostName</strong>'  
-     警告: cib-啟動程式-選項: 不明的屬性 ' azure-events_globalPullState '  
-     警告: cib-啟動程式-選項: 不明的屬性 ' hostName_ <strong>hostName</strong>'  
+   > 設定 azure 事件代理程式的 Pacemaker 資源之後，當您將叢集放入或移出維護模式時，您可能會收到類似下列的警告訊息：  
+     警告： cib-啟動程式-選項：不明的屬性 ' hostName_<strong>主機名稱</strong>'  
+     警告： cib-啟動程式-選項：不明的屬性 ' azure-events_globalPullState '  
+     警告： cib-啟動程式-選項：不明的屬性 ' hostName_<strong>主機名稱</strong>'  
    > 您可以忽略這些警告訊息。
 
 ## <a name="next-steps"></a>後續步驟
@@ -635,4 +640,4 @@ sudo crm configure property maintenance-mode=false
 * [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 * [SUSE Linux Enterprise Server 上 Azure Vm 上 NFS 的高可用性][sles-nfs-guide]
 * [SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性][sles-guide]
-* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復, 請參閱[azure 虛擬機器 (vm) 上 SAP Hana 的高可用性][sap-hana-ha]
+* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]

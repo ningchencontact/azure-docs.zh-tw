@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e7742e7035f3c4f4827a2edae1ad5a705aa221f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472683"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693419"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensing Microsoft® Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>總覽
@@ -29,7 +29,7 @@ Microsoft Smooth Streaming Client Porting Kit (簡稱**SSPK** ) 是最佳化的 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>描述
+## <a name="description"></a>說明
 SSPK 是根據可提供絕佳商業價值的條款授權。 SSPK 授權提供給業界：
 
 * Smooth Streaming Porting Kit 的 C++ 原始碼 
@@ -78,6 +78,7 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 中期和最終 SSPK 被授權者都可以將技術問題提交到 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)。
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft Smooth Streaming 用戶端中期產品合約被授權者
+
 * Adroit Business Solutions, Inc
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
@@ -125,9 +126,9 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* FilmFlex 影片限制
+* FilmFlex 電影有限
 * Fluendo S.A.
-* FUNAI ELECTRIC CO.，LTD.
+* FUNAI 電動 CO，公司
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -141,6 +142,7 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
+* Shenzhen Chuangwei-RGB 電子產品 Co。
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd

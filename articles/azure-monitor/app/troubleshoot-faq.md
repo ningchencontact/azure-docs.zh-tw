@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights 常見問題集 | Microsoft Docs
 description: 關於 Application Insights 的常見問題集。
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 09/16/2019
+ms.openlocfilehash: 55a096cd4971664e55bb2cfd17f9f8927d7c32f5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802294"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899513"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -35,7 +30,7 @@ ms.locfileid: "71802294"
 * [設定 ASP.NET 伺服器](monitor-performance-live-website-now.md)
 * [設定 Java 伺服器](java-agent.md)
 
-## <a name="can-i-use-application-insights-with-"></a>我是否可以搭配 ... 來使用 Application Insights 嗎？
+## <a name="can-i-use-application-insights-with-"></a>我是否可以使用 Application Insights 搭配...？
 
 * [Azure VM 或 Azure 虛擬機器擴展集中 IIS 伺服器上的 Web 應用程式](azure-vm-vmss-apps.md)
 * [IIS 伺服器 (內部部署或 VM 中) 上的 Web 應用程式](asp-net.md)
@@ -84,19 +79,19 @@ ms.locfileid: "71802294"
 
   * Web.config
   * packages.config
-* (僅限新專案-如果您[將 Application Insights 新增至現有的專案][start], 就必須手動執行此動作)。將程式碼片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將這些片段初始化。 例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/_Layout.cshtml
+* （僅限新專案-如果您[將 Application Insights 新增至現有的專案][start]，就必須手動執行此動作）。在用戶端和伺服器程式碼中插入程式碼片段，以 Application Insights 資源識別碼將它們初始化。 例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>如何從舊版 SDK 升級？
 請參閱您的應用程式類型所適用之 SDK 的[版本資訊](release-notes.md)。
 
 ## <a name="update"></a>如何變更我的專案將資料傳送到哪一個 Azure 資源？
-在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [更新 Application Insights]。 您可以將資料傳送至 Azure 中的現有資源或新資源。 更新精靈會變更 ApplicationInsights.config 中的檢測金鑰，這決定伺服器 SDK 將您的資料送往何處。 除非您取消選取 [全部更新]，否則也會變更金鑰出現在您網頁中的位置。
+在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config` ，然後選擇 [ **更新 Application Insights**]。 您可以將資料傳送至 Azure 中的現有資源或新資源。 更新精靈會變更 ApplicationInsights.config 中的檢測金鑰，這決定伺服器 SDK 將您的資料送往何處。 除非您取消選取 [全部更新]，否則也會變更金鑰出現在您網頁中的位置。
 
 ## <a name="what-is-status-monitor"></a>什麼是狀態監視器？
 
 一個傳統型應用程式，您可以在 IIS Web 伺服器中使用它，以協助您在 Web 應用程式中設定 Application Insights。 它不會收集遙測資料：當您沒有在設定應用程式時，可以將它停止。 
 
-[深入了解](monitor-performance-live-website-now.md#questions)。
+[詳細資訊](monitor-performance-live-website-now.md#questions)。
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Application Insights 會收集什麼遙測資料？
 
@@ -105,7 +100,7 @@ ms.locfileid: "71802294"
 * HTTP 要求
 * [相依項目](asp-net-dependencies.md)。 對下列各項的呼叫：SQL Database、對外部服務的 HTTP 呼叫、Azure Cosmos DB、資料表、Blob 儲存體及佇列。 
 * [例外狀況](asp-net-exceptions.md)和堆疊追蹤。
-* [效能計數器](performance-counters.md)-如果您使用[狀態監視器](monitor-performance-live-website-now.md)、[適用于應用程式服務的 AZURE 監視](azure-web-apps.md)、[適用于 VM 或虛擬機器擴展集的 azure 監視](azure-vm-vmss-apps.md), 或[Application Insights collectd 寫入器](java-collectd.md)。
+* [效能計數器](performance-counters.md)-如果您使用[狀態監視器](monitor-performance-live-website-now.md)、[適用于應用程式服務的 AZURE 監視](azure-web-apps.md)、[適用于 VM 或虛擬機器擴展集的 azure 監視](azure-vm-vmss-apps.md)，或[Application Insights collectd 寫入器](java-collectd.md)。
 * 您以程式碼撰寫的[自訂事件和計量](api-custom-events-metrics.md)。
 * [追蹤記錄](asp-net-trace-logs.md) - 如果您設定適當的收集器。
 
@@ -142,7 +137,7 @@ ms.locfileid: "71802294"
 * 若要深入瞭解如何在 Application Insights 中收集 IP 位址和地理位置資料，請參閱這[篇文章](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)。
 
 
-您可以設定 `ClientIpHeaderTelemetryInitializer` 以從不同的標頭取得 IP 位址。 例如，在某些系統中，Proxy、負載平衡器或 CDN 會將它移至 `X-Originating-IP`。 [深入了解](https://apmtips.com/blog/2016/07/05/client-ip-address/)。
+您可以設定 `ClientIpHeaderTelemetryInitializer` 以從不同的標頭取得 IP 位址。 例如，在某些系統中，Proxy、負載平衡器或 CDN 會將它移至 `X-Originating-IP`。 [詳細資訊](https://apmtips.com/blog/2016/07/05/client-ip-address/)。
 
 您可以[使用 Power BI](export-power-bi.md ) 在地圖上顯示您的要求遙測資料。
 
@@ -165,7 +160,7 @@ ms.locfileid: "71802294"
 
 您可以：
 
-* 針對用戶端和伺服器資料, 請使用兩個個別的檢測金鑰 (個別的 Application Insights 資源)。 或
+* 針對用戶端和伺服器資料，請使用兩個個別的檢測金鑰（個別的 Application Insights 資源）。 或
 * 撰寫一個在您伺服器中執行的 Proxy，並讓 Web 用戶端透過該 Proxy 傳送資料。
 
 ## <a name="post"></a>如何在診斷搜尋中查看 POST 資料？
@@ -293,10 +288,10 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 ### <a name="proxy-passthrough"></a>Proxy 傳遞
 
-藉由設定電腦層級或應用層級 proxy, 即可達到 Proxy 傳遞。
-如需詳細資訊, 請參閱[DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)上的 dotnet 文章。
+藉由設定電腦層級或應用層級 proxy，即可達到 Proxy 傳遞。
+如需詳細資訊，請參閱[DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)上的 dotnet 文章。
  
- 範例 Web.config:
+ 範例 Web.config：
  ```xml
 <system.net>
     <defaultProxy>

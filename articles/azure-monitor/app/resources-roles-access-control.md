@@ -1,30 +1,25 @@
 ---
 title: Azure Application Insights 中的資源、角色及存取控制 | Microsoft Docs
 description: 您的組織詳細資料的擁有者、參與者及讀者。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/14/2019
+ms.openlocfilehash: cdc534325fd693dd34f2dc25c9953cd40ca96163
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373647"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162307"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的資源、角色及存取控制
 
-您可以使用 [Microsoft Azure 中的角色型存取控制](../../role-based-access-control/role-assignments-portal.md) ，控制誰對您在 Azure [Application Insights][start] 中的資料具有讀取和更新存取權。
+您可以使用[Microsoft Azure 中的角色型存取控制](../../role-based-access-control/role-assignments-portal.md)，控制誰具有 Azure [Application Insights][start]中資料的讀取和更新存取權。
 
 > [!IMPORTANT]
-> 指派存取權給您的應用程式資源所屬之 **資源群組或訂用帳戶** 中的使用者 - 不在資源本身。 指派 **Application Insights 元件參與者** 角色。 這可確保 Web 測試和警示以及您的應用程式資源的統一存取控制。 [深入了解](#access)。
+> 指派存取權給您的應用程式資源所屬之 **資源群組或訂用帳戶** 中的使用者 - 不在資源本身。 指派 **Application Insights 元件參與者** 角色。 這可確保 Web 測試和警示以及您的應用程式資源的統一存取控制。 [詳細資訊](#access)。
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -35,20 +30,20 @@ ms.locfileid: "60373647"
 
 * **資源** - Microsoft Azure 服務的執行個體。 您的 Application Insights 資源會收集、分析及顯示從您的應用程式傳送的遙測資料。  其他類型的 Azure 資源包括 Web 應用程式、資料庫和 VM。
   
-    若要查看資源，請開啟 [Azure 入口網站][portal]，登入並按一下 [所有資源]。 若要尋找的資源，請在篩選欄位中輸入名稱的一部分。
+    若要查看您的資源，請開啟 [ [Azure 入口網站][portal]]、[登入]，然後按一下 [所有資源]。 若要尋找的資源，請在篩選欄位中輸入名稱的一部分。
   
     ![Azure 資源清單](./media/resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [資源群組  ][group] - 每個資源屬於一個群組。 群組是管理相關資源的便利方式，特別是針對存取控制。 例如，您可以將 Web 應用程式、Application Insights 資源放到一個資源群組，以監視應用程式，以及放到儲存體資源以保存匯出的資料。
+* [**資源群組**][group]-每個資源都屬於一個群組。 群組是管理相關資源的便利方式，特別是針對存取控制。 例如，您可以將 Web 應用程式、Application Insights 資源放到一個資源群組，以監視應用程式，以及放到儲存體資源以保存匯出的資料。
 
 * [**訂用帳戶**](https://portal.azure.com) - 若要使用 Application Insights 或其他 Azure 資源，您可以登入 Azure 訂用帳戶。 每個資源群組都屬於一個 Azure 訂用帳戶，其中您選擇價格封裝，如果是組織的訂用帳戶，請選擇成員以及其存取權限。
-* [**Microsoft 帳戶**][account] - 您用來登入 Microsoft Azure 訂用帳戶、XBox Live、Outlook.com 及其他 Microsoft 服務的使用者名稱和密碼。
+* [**Microsoft 帳戶**][account]-您用來登入 Microsoft Azure 訂用帳戶、XBox Live、Outlook.com 和其他 Microsoft 服務的使用者名稱和密碼。
 
 ## <a name="access"></a> 控制資源群組中的存取
 
-請務必了解除了您為應用程式建立的資源之外，還有警示和 Web 測試的個別隱藏資源。 它們會附加至相同[資源群組](#resource-group)與您的 Application Insights 資源。 您也可以在那裡放置其他 Azure 服務，例如網站或儲存體。
+請務必了解除了您為應用程式建立的資源之外，還有警示和 Web 測試的個別隱藏資源。 它們會附加到與您 Application Insights 資源相同的[資源群組](#resource-group)。 您也可以在那裡放置其他 Azure 服務，例如網站或儲存體。
 
 為了控制這些資源的存取，因此建議您：
 
@@ -59,19 +54,19 @@ ms.locfileid: "60373647"
 
 您必須擁有訂用帳戶或資源群組的擁有者權限。
 
-使用者必須擁有 [Microsoft 帳戶][account]，或其[組織的 Microsoft 帳戶](../../active-directory/fundamentals/sign-up-organization.md)存取權。 您可以提供存取權給個人，也可以提供給在 Azure Active Directory 中定義的使用者群組。
+使用者必須擁有[Microsoft 帳戶][account]，或其[組織的 microsoft 帳戶](../../active-directory/fundamentals/sign-up-organization.md)的存取權。 您可以提供存取權給個人，也可以提供給在 Azure Active Directory 中定義的使用者群組。
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>瀏覽至資源群組，或直接瀏覽資源本身
 
-從左側功能表中選擇 [存取控制 (IAM)]  。
+從左側功能表中選擇 [存取控制 (IAM)]。
 
 ![Azure 入口網站中存取控制按鈕的螢幕擷取畫面](./media/resources-roles-access-control/0001-access-control.png)
 
-選取 [新增角色指派] 
+選取 [新增角色指派]
 
 ![此螢幕擷取畫面顯示以紅色醒目提示新增按鈕的存取控制功能表](./media/resources-roles-access-control/0002-add.png)
 
-下方的 [新增權限]  檢視主要是 Application Insights 資源的特定資料，如果您從較高的層級 (例如資源群組) 檢視存取控制權限，您將會看到其他並非以 Application Insights 為主的角色。
+下方的 [新增權限] 檢視主要是 Application Insights 資源的特定資料，如果您從較高的層級 (例如資源群組) 檢視存取控制權限，您將會看到其他並非以 Application Insights 為主的角色。
 
 若要檢視所有 Azure 角色型存取控制內建角色的資訊，請使用[官方參考內容](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
 
@@ -81,7 +76,7 @@ ms.locfileid: "60373647"
 
 我們可連結至相關聯的官方參考文件 (如果有的話)。
 
-| Role | 在資源群組中 |
+| 角色 | 在資源群組中 |
 | --- | --- |
 | [擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |可以變更任何項目，包括使用者存取。 |
 | [參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |可以編輯任何項目，包括所有資源。 |
@@ -105,7 +100,7 @@ ms.locfileid: "60373647"
 
 * 資源
 * Web 測試
-* 警示
+* Alerts
 * 連續匯出
 
 #### <a name="select-the-user"></a>選取使用者
@@ -130,16 +125,16 @@ ms.locfileid: "60373647"
 ### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>在特定 Application Insights 資源的範圍中查詢，以尋找擁有者與參與者
 
 ```powershell
-$resourceGroup = “RGNAME”
-$resourceName = “AppInsightsName”
-$resourceType = “microsoft.insights/components”
+$resourceGroup = "RGNAME"
+$resourceName = "AppInsightsName"
+$resourceType = "microsoft.insights/components"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>在特定資源群組的範圍中查詢，以尋找擁有者與參與者
 
 ```powershell
-$resourceGroup = “RGNAME”
+$resourceGroup = "RGNAME"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
