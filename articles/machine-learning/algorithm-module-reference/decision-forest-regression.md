@@ -1,28 +1,28 @@
 ---
 title: 決策樹系回歸：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用 [決策樹系回歸] 模組，以根據決策樹的集團建立回歸模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用 [決策樹系回歸] 模組，以根據決策樹的集團建立回歸模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693180"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497973"
 ---
 # <a name="decision-forest-regression-module"></a>決策樹系回歸模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來建立以決策樹集團為基礎的回歸模型。
 
-設定模型之後，您必須使用已加上標籤的資料集和 [[訓練模型](./train-model.md)] 模組來定型模型。  定型的模型接著就可以用來進行預測。 
+設定模型之後，您必須使用已加上標籤的資料集和 [[訓練模型](./train-model.md)] 模組來定型模型。 定型的模型接著就可以用來進行預測。 
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -42,11 +42,11 @@ ms.locfileid: "72693180"
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>如何設定決策樹系回歸模型
 
-1. 將 [**決策樹系回歸**] 模組加入至管線。 您可以在介面的 [ **Machine Learning**]、[**初始化模型**] 和 [**回歸**] 底下找到模組。
+1. 將 [**決策樹系回歸**] 模組加入至管線。 您可以在設計工具中的 [ **Machine Learning**]、[**初始化模型**] 和 [**回歸**] 下找到模組。
 
 2. 開啟模組屬性，並針對 [重新**取樣方法**] 選擇用來建立個別樹狀結構的方法。  您可以選擇 [**封袋**]**或 [** 複寫]。
 
-    - **封袋**：封袋也稱為「*啟動*程式匯總」。 回歸決策樹系中的每個樹狀結構都會透過預測來輸出高斯分佈。 匯總是用來找出一個高斯，其前兩個時間符合個別樹狀結構傳回的所有 Gaussians 所指定的 Gaussians 混合時間。
+    - **封袋**：封袋也稱為「*啟動*程式匯總」。 回歸決策樹系中的每個樹狀結構都會透過預測來輸出高斯分佈。 匯總是要找出一個高斯，其中的前兩個時間會結合個別樹狀結構所傳回的所有散發，使高斯分佈的混合時間符合。
 
          如需詳細資訊，請參閱適用于[啟動](https://wikipedia.org/wiki/Bootstrap_aggregating)程式匯總的維琪百科專案。
 
@@ -96,4 +96,4 @@ ms.locfileid: "72693180"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

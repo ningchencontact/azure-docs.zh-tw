@@ -1,24 +1,24 @@
 ---
 title: 編輯中繼資料：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [編輯中繼資料] 模組來變更與資料集內之資料行相關聯的中繼資料。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [編輯中繼資料] 模組來變更與資料集內之資料行相關聯的中繼資料。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693819"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497953"
 ---
 # <a name="edit-metadata-module"></a>編輯中繼資料模組
 
-本文說明 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中所包含的模組。
 
 使用 [編輯資料] 模組來變更與資料集內之資料行相關聯的中繼資料。 使用 [編輯中繼資料] 模組之後，資料集的值和資料類型將會變更。
 
@@ -98,4 +98,4 @@ ms.locfileid: "72693819"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。

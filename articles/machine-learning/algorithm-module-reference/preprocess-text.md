@@ -1,7 +1,7 @@
 ---
 title: 前置處理文字：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的前置處理文字模塊來清除和簡化文字。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的前置處理文字模塊來清除和簡化文字。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692696"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497672"
 ---
 # <a name="preprocess-text"></a>前置處理文字
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用前置處理**文字**模組來清除和簡化文字。 它支援下列常見的文字處理作業：
 
@@ -33,7 +33,7 @@ ms.locfileid: "72692696"
 
 ## <a name="configure-text-preprocessing"></a>設定文字前置處理  
 
-1.  在 Azure Machine Learning 服務中，將前置處理**文字**模組新增至您的實驗。 您可以在 [**文字分析**] 下找到此模組。
+1.  在 Azure Machine Learning 中，將前置處理**文字**模組新增至您的管線。 您可以在 [**文字分析**] 下找到此模組。
 
 1. 連接至少有一個包含文字之資料行的資料集。
 
@@ -47,7 +47,7 @@ ms.locfileid: "72692696"
 
 1. **詞形歸併還原**：如果您想要以標準格式呈現單字，請選取此選項。 此選項適用于減少其他類似文字標記的唯一出現次數。
 
-    詞形歸併還原程式與語言相關。
+    詞形歸併還原進程與語言相關。
 
 1. 偵測**句子**：如果您希望模組在執行分析時插入句子界限標記，請選取此選項。
 
@@ -83,8 +83,8 @@ ms.locfileid: "72692696"
 
     例如，字串 `MS---WORD` 會分成三個標記，`MS`、`-`和 `WORD`。
 
-1. 執行實驗。
+1. 執行管道。
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

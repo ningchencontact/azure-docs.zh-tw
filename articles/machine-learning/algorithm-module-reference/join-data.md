@@ -1,7 +1,7 @@
 ---
 title: 聯結資料：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的聯結聯結資料模組來合併資料集。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的聯結聯結資料模組來合併資料集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693100"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495083"
 ---
 # <a name="join-data"></a>聯結資料
 
-本文說明如何使用 Azure Machine Learning 服務視覺化介面中的**聯結資料**模組，以使用資料庫樣式的聯結作業來合併兩個資料集。  
+本文描述如何在 Azure Machine Learning 設計師（預覽）中使用**聯結資料**模組，以使用資料庫樣式的聯結作業來合併兩個資料集。  
 
 ## <a name="how-to-configure-join-data"></a>如何設定聯結資料
 
@@ -68,4 +68,4 @@ ms.locfileid: "72693100"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

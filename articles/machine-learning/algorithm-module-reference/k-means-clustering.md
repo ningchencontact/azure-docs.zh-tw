@@ -1,7 +1,7 @@
 ---
 title: K-表示叢集：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用 K 意指叢集模組來定型群集模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用 K 意指叢集模組來定型群集模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693101"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497756"
 ---
 # <a name="module-k-means-clustering"></a>模組： K-表示群集
 
-本文說明如何在 Azure Machine Learning Studio 中使用*K 意指*叢集模組，以建立未定型的 K 表示叢集模型。 
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用*K 意指*叢集模組，以建立未定型的 k 意義群集模型。 
  
 K-表示是其中一個最簡單且最知名的*不受監督*學習演算法。 您可以使用演算法來進行各種機器學習工作，例如： 
 

@@ -1,7 +1,7 @@
 ---
 title: 將資料指派給叢集：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [將資料指派給叢集] 模組來評分群集模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [將資料指派給叢集] 模組來評分群集模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,23 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 3caf568590beb5b1f9d346d472c93f134a4f3a5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693220"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493864"
 ---
 # <a name="module-assign-data-to-clusters"></a>模組：將資料指派給群集
 
-本文說明如何使用 Azure Machine Learning 視覺化介面中的 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
 
 [將資料指派給叢集] 模組會傳回資料集，其中包含每個新資料點的可能指派。 
 
 
 ## <a name="how-to-use-assign-data-to-clusters"></a>如何使用將資料指派給群集
   
-1. 在 [Azure Machine Learning] 視覺介面中，找出先前定型的群集模型。 您可以使用下列其中一種方法來建立和定型群集模型：  
+1. 在 Azure Machine Learning 設計工具中，找出先前定型的群集模型。 您可以使用下列其中一種方法來建立和定型群集模型：  
   
     - 使用[k 意指](k-means-clustering.md)叢集模組來設定 K 表示叢集演算法，並使用資料集和訓練叢集模型模組（本文）來定型模型。  
   
@@ -38,7 +38,7 @@ ms.locfileid: "72693220"
    在此資料集中，標籤是選擇性的。 一般而言，叢集是不受監督學習方法。 您不應該事先知道這些類別。 不過，輸入資料行必須與用來定型群集模型的資料行相同，否則會發生錯誤。
 
     > [!TIP]
-    > 若要減少從叢集預測寫入介面的資料行數目，請使用[[選取資料集中的資料行](select-columns-in-dataset.md)]，然後選取資料行的子集。 
+    > 若要減少從叢集預測寫入設計工具的資料行數目，請使用[[選取資料集中的資料行](select-columns-in-dataset.md)]，然後選取資料行的子集。 
     
 4. 如果您想要讓結果包含完整輸入資料集，包括顯示結果（叢集指派）的資料行，請保留 [**檢查附加] 或 [取消核取僅結果**] 核取方塊。
   

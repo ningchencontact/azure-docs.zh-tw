@@ -1,24 +1,24 @@
 ---
 title: 標準化資料：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的標準化資料模組 *，透過正規化*轉換資料集。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的標準化資料模組 *，透過正規化*轉換資料集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: c77ebbe8569ffd221fadb5b98a54fc26d0d70893
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692702"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466051"
 ---
 # <a name="normalize-data-module"></a>標準化資料模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此*模組透過正規化*轉換資料集。
 
@@ -109,4 +109,4 @@ ms.locfileid: "72692702"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

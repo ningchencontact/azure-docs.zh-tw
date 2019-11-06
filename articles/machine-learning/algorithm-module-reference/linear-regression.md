@@ -1,23 +1,23 @@
 ---
 title: 線性回歸：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用線性回歸模組，以建立要在管線中使用的線性回歸模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用線性回歸模組，以建立要在管線中使用的線性回歸模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693702"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497739"
 ---
 # <a name="linear-regression-module"></a>線性回歸模組
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來建立要在管線中使用的線性回歸模型。  線性回歸會嘗試建立一或多個獨立變數與數值結果或相依變數之間的線性關聯性。 
 
@@ -63,7 +63,7 @@ ms.locfileid: "72693702"
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a>使用一般最小平方來建立回歸模型
 
-1. 將**線性回歸模型**模組加入至您在介面中的管線。
+1. 將**線性回歸模型**模組加入至您在設計工具中的管線。
 
     您可以在 [ **Machine Learning** ] 類別目錄中找到此模組。 展開 [**初始化模型**]，展開 [**回歸**]，然後將 [**線性回歸模型**] 模組拖曳至您的管線。
 
@@ -97,7 +97,7 @@ ms.locfileid: "72693702"
 
 ## <a name="bkmk_GradientDescent"></a>使用線上梯度下降建立回歸模型
 
-1. 將**線性回歸模型**模組加入至您在介面中的管線。
+1. 將**線性回歸模型**模組加入至您在設計工具中的管線。
 
     您可以在 [ **Machine Learning** ] 類別目錄中找到此模組。 展開 [**初始化模型**]，展開 [**回歸**]，然後將 [**線性回歸模型**] 模組拖曳至您的管線
 
@@ -143,4 +143,4 @@ ms.locfileid: "72693702"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

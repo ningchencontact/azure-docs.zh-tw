@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: fb11b785cecbd021c0b894754e31d226edfe72f2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596487"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519314"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>對應資料流程的來源轉換 
-
-
 
 「來源」轉換會為數據流設定您的資料來源。 在設計資料流程時，您的第一個步驟一律會設定來源轉換。 若要新增來源，請按一下 [資料流程] 畫布中的 [**新增來源**] 方塊。
 
@@ -27,11 +25,12 @@ ms.locfileid: "72596487"
 
 對應資料流程遵循「解壓縮」、「載入」、「轉換」（ELT）方法，並適用于所有 Azure 中的*臨時*資料集。 目前，下列資料集可以用於來源轉換：
     
-* Azure Blob 儲存體
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Storage Gen2
+* Azure Blob 儲存體（JSON、Avro、Text、Parquet）
+* Azure Data Lake Storage Gen1 （JSON、Avro、Text、Parquet）
+* Azure Data Lake Storage Gen2 （JSON、Avro、Text、Parquet）
 * Azure SQL 資料倉儲
 * Azure SQL Database
+* Azure CosmosDB
 
 Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流程中包含來自其他來源的資料，請使用複製活動，將該資料載入其中一個支援的臨時區域。
 
@@ -130,7 +129,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 **輸入：** 選取您是要將來源指向資料表（相當於 ```Select * from <table-name>```）還是輸入自訂的 SQL 查詢。
 
-**查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。
+**查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。 使用查詢也是縮減資料列以進行測試或查閱的絕佳方式。 範例︰ ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **批次大小**：輸入批次大小以將大型資料區塊為讀取。
 
@@ -152,6 +151,19 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 如果您的文字檔沒有已定義的架構，請選取 [偵測**資料類型**]，讓 Data Factory 將會取樣並推斷資料類型。 選取 [**定義預設格式**] 以自動偵測預設資料格式。 
 
 您可以在「向下串流衍生資料行」轉換中修改資料行資料類型。 使用 [選取] 轉換來修改資料行名稱。
+
+### <a name="import-schema"></a>匯入架構
+
+支援複雜資料結構的資料集（例如 Avro 和 CosmosDB）不需要架構定義存在於資料集內。 因此，您可以按一下 [匯入架構] 按鈕，將這些來源類型的 [投射] 索引標籤。
+
+## <a name="cosmosdb-specific-settings"></a>CosmosDB 特定設定
+
+使用 CosmosDB 做為來源類型時，有幾個選項需要考慮：
+
+* 包含系統資料行：如果您核取此項，```id```、```_ts```和其他系統資料行將會包含在 CosmosDB 的資料流程中繼資料中。 更新集合時，請務必包含此資訊，以便您可以抓取現有的資料列識別碼。
+* 頁面大小：查詢結果每頁的檔數目。 預設值為 "-1"，使用最多1000的服務動態頁面。
+* 輸送量：在讀取作業期間，針對此資料流程的每次執行，設定您想要套用至 CosmosDB 集合的 ru 數目的選擇性值。 最小值為400。
+* 慣用區域：您可以選擇此進程的慣用讀取區域。
 
 ## <a name="optimize-the-source-transformation"></a>優化來源轉換
 

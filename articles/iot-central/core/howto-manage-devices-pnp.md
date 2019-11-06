@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 01346ba518a07da1ebb606393c2834994cfb42e2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: b5e4e27e059cdc84370bbf7dbf7c6bc651b1968e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990356"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177346"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>在 Azure IoT Central 應用程式中管理裝置（預覽功能）
 
@@ -179,6 +179,6 @@ ms.locfileid: "72990356"
 您現在已了解如何在 Azure IoT Central 應用程式中管理裝置，以下是建議的後續步驟：
 
 > [!div class="nextstepaction"]
-> [如何使用裝置集合](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [如何使用裝置群組](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

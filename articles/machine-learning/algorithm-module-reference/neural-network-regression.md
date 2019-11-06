@@ -1,20 +1,20 @@
 ---
 title: 類神經網路回歸：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用類神經網路回歸模組，以使用可自訂的類神經網路演算法建立回歸模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用類神經網路回歸模組，以使用可自訂的類神經網路演算法建立回歸模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692744"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466003"
 ---
 # <a name="neural-network-regression-module"></a>類神經網路回歸模組
 
@@ -24,7 +24,7 @@ ms.locfileid: "72692744"
   
 ## <a name="module-overview"></a>模組總覽  
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 您可以使用此模組，利用可自訂的類神經網路演算法來建立回歸模型。
   
@@ -51,8 +51,8 @@ ms.locfileid: "72692744"
     如果您已經有點熟悉類神經網路，最好使用此選項。 您可以使用 Net # 語言來定義網路架構。  
 
 ##  <a name="bkmk_DefaultArchitecture"></a>使用預設架構建立類神經網路模型
-  
-1.  將類**神經網路回歸**模組加入至您在介面中的管線。 您可以在 [**回歸**] 分類中的 [ **Machine Learning**]、[**初始化**] 下找到此模組。 
+
+1.  將類**神經網路回歸**模組新增至您在設計工具中的管線。 您可以在 [**回歸**] 分類中的 [ **Machine Learning**]、[**初始化**] 下找到此模組。 
   
 2. 藉由設定 [**建立定型模式]** 選項，指出您要如何訓練模型。  
   
@@ -98,4 +98,4 @@ ms.locfileid: "72692744"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

@@ -1,6 +1,6 @@
 ---
 title: 針對模組錯誤進行疑難排解
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 使用錯誤碼針對 Azure Machine Learning Studio 中的模組例外狀況進行疑難排解
 services: machine-learning
 ms.service: machine-learning
@@ -8,25 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: a1a6817c08223b360c08804e0595f12f2947ea5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: b07b1fc14ac7ac72a30f75a098b4aab35f2de713
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693082"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497721"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>演算法的例外狀況和錯誤碼 & 模組參考
 
-瞭解在 Azure Machine Learning Studio 中使用模組可能會遇到的錯誤訊息和例外狀況代碼。 
+瞭解您在 Azure Machine Learning 設計工具（預覽）中使用模組時可能會遇到的錯誤訊息和例外狀況代碼。 
 
-若要解決此問題，請尋找本文中的錯誤，以閱讀常見的原因。 有兩種方式可取得 Studio 中錯誤訊息的完整文字：  
+若要解決此問題，請尋找本文中的錯誤，以閱讀常見的原因。 有兩種方式可取得設計工具中錯誤訊息的完整文字：  
  
 - 按一下右窗格中的 [**查看輸出記錄**檔] 連結，並向下流覽至底部。 詳細的錯誤訊息會顯示在視窗的最後兩行中。  
   
 - 選取發生錯誤的模組，然後按一下紅色 X。只會顯示相關的錯誤文字。  
   
-如果錯誤訊息正文沒有説明，請將內容的相關資訊以及任何想要的新增或變更傳送給我們。 您可以提交有關錯誤主題的意見反應，或造訪[AZURE MACHINE LEARNING STUDIO 論壇](https://aka.ms/aml-forum-studio)並張貼問題。  
+如果錯誤訊息正文並不實用，請傳送意見反應給我們，並將內容的相關資訊和任何所需的新增或變更傳給我們。
 
 
 ## <a name="error-0001"></a>錯誤0001  
@@ -163,9 +163,9 @@ ms.locfileid: "72693082"
 ## <a name="error-0009"></a>錯誤0009  
  未正確指定 Azure 儲存體帳戶名稱或容器名稱時，就會發生例外狀況。  
   
-當您指定 Azure 儲存體帳戶的參數，但無法解析名稱或密碼時，Azure Machine Learning Studio 會發生此錯誤。 密碼或帳戶名稱的錯誤可能會因為許多原因而發生：
+當您指定 Azure 儲存體帳戶的參數，但無法解析名稱或密碼時，Azure Machine Learning 設計工具中會發生此錯誤。 密碼或帳戶名稱的錯誤可能會因為許多原因而發生：
  
- + 帳戶的類型錯誤。 某些新的帳戶類型不支援與 Machine Learning Studio 搭配使用。 如需詳細資訊，請參閱匯[入資料](import-data.md)。
+ + 帳戶的類型錯誤。 某些新的帳戶類型不支援與 Machine Learning 設計工具搭配使用。 如需詳細資訊，請參閱匯[入資料](import-data.md)。
  + 您輸入的帳戶名稱不正確
  + 帳戶已不存在
  + 儲存體帳戶的密碼錯誤或已變更
@@ -1063,7 +1063,7 @@ For general information about how the Matchbox recommendation algorithm works, a
   
 **Resolution:**
 
-1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
+1. In Azure Machine Learning designer, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
     + Messages from R marked as **warnings** typically do not cause the pipeline to fail.

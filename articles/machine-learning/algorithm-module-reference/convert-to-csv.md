@@ -1,24 +1,24 @@
 ---
 title: 轉換成 CSV：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [轉換成 CSV] 模組，將資料集轉換成 CSV 格式，您可以使用 R 或 Python 腳本模組進行下載、匯出或共用。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [轉換成 CSV] 模組，將資料集轉換成 CSV 格式，您可以使用 R 或 Python 腳本模組進行下載、匯出或共用。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693187"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493849"
 ---
 # <a name="convert-to-csv-module"></a>轉換成 CSV 模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 您可以使用此模組，將資料集轉換成 CSV 格式，以供使用 R 或 Python 腳本模組下載、匯出或共用。
 
@@ -36,7 +36,8 @@ CSV 格式（代表「逗號分隔值」）是許多外部機器學習工具所�
 
 ## <a name="how-to-configure-convert-to-csv"></a>如何設定轉換成 CSV
 
-1.  將 [[轉換成 CSV](./convert-to-csv.md) ] 模組新增至您的管線。 您可以在介面的 [**資料格式轉換**] 群組中找到此模組。 
+
+1.  將 [[轉換成 CSV](./convert-to-csv.md) ] 模組新增至您的管線。 您可以在設計工具的 [**資料格式轉換**] 群組中找到此模組。 
 
 2. 將它連接到輸出資料集的任何模組。   
   
@@ -56,4 +57,4 @@ CSV 格式（代表「逗號分隔值」）是許多外部機器學習工具所�
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

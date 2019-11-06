@@ -1,24 +1,24 @@
 ---
 title: 手動輸入資料：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用 [手動輸入資料] 模組，藉由輸入值來建立小型資料集。 Dataset 可以有多個資料行。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用 [手動輸入資料] 模組，藉由輸入值來建立小型資料集。 Dataset 可以有多個資料行。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.date: 10/22/2019
+ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693166"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497938"
 ---
 # <a name="enter-data-manually-module"></a>手動輸入資料模組
 
-本文描述適用于 Azure Machine Learning 服務的視覺化介面（預覽）模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組，藉由輸入值來建立小型資料集。 Dataset 可以有多個資料行。
   
@@ -102,4 +102,4 @@ ms.locfileid: "72693166"
      若要查看資料集，請按一下輸出埠，然後選取 [**視覺化**]。  
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

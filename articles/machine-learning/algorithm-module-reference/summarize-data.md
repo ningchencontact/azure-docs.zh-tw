@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694710"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492567"
 ---
 # <a name="summarize-data"></a>摘要資料
 
-本文說明 Azure Machine Learning 視覺化介面的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）的模組。
 
 使用 [摘要資料] 模組來建立一組標準統計量值，以描述輸入資料表中的每個資料行。
 
@@ -32,7 +32,7 @@ ms.locfileid: "72694710"
 
 ## <a name="how-to-configure-summarize-data"></a>如何設定摘要資料  
 
-1. 將**摘要資料**模組新增至您的管線。 您可以在視覺化介面的**統計函數**類別中找到此模組。
+1. 將**摘要資料**模組新增至您的管線。 您可以在設計工具的**統計函數**類別目錄中找到此模組。
 
 1. 連接您想要產生報表的資料集。
 

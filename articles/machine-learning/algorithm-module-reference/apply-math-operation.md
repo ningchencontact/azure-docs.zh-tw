@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694762"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493935"
 ---
 # <a name="apply-math-operation"></a>套用數學運算
 
-本文說明 Azure Machine Learning 視覺化介面的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）的模組。
 
 使用 [套用數學運算] 來建立在輸入資料集內套用至數值資料行的計算。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "72694762"
 -   **等於（Col2_Col1）** ，表示您已針對 Col1 測試 Col2。  
 -   **等於（Col2_ $ 10）** ，表示您已將資料行2與常數10進行比較。  
 
-即使您使用 [**就地**] 選項，來源資料也不會被刪除或變更;原始資料集內的資料行仍可在視覺化介面中使用。 若要查看原始資料，您可以連接 [[加入資料行](add-columns.md)] 模組，並將它加入 [套用**數學運算**] 的輸出。  
+即使您使用 [**就地**] 選項，來源資料也不會被刪除或變更;原始資料集中的資料行仍然可以在設計工具中使用。 若要查看原始資料，您可以連接 [[加入資料行](add-columns.md)] 模組，並將它加入 [套用**數學運算**] 的輸出。  
     
 ## <a name="basic-math-operations"></a>基本數學運算 
 
@@ -208,7 +208,7 @@ ms.locfileid: "72694762"
 
 ## <a name="comparison-operations"></a>比較作業  
 
-每當您需要測試兩組值時，請使用 Azure Machine Learning 視覺化介面中的比較函數。 例如，在管線中，您可能需要執行這些比較作業：  
+每當您需要測試兩組值時，請在 Azure Machine Learning 設計工具中使用比較函數。 例如，在管線中，您可能需要執行這些比較作業：  
 
 - 根據臨界值評估機率分數模型的資料行。
 - 判斷兩組結果是否相同。 針對每個不同的資料列，新增可用於進一步處理或篩選的 FALSE 旗標。  
@@ -280,7 +280,7 @@ ms.locfileid: "72694762"
 
 ##  <a name="rounding-operations"></a>進位運算 
 
-Azure Machine Learning 視覺化介面支援各種舍入作業。 對於許多作業，您必須指定四捨五入時要使用的精確度。 您可以使用靜態有效位數層級（指定為常數），也可以套用從值的資料行取得的動態有效位數值。  
+Azure Machine Learning 設計工具支援各種舍入作業。 對於許多作業，您必須指定四捨五入時要使用的精確度。 您可以使用靜態有效位數層級（指定為常數），也可以套用從值的資料行取得的動態有效位數值。  
 
 - 如果您使用常數，請將 [**精確度類型**] 設定為 [**常數**]，然後在 [**常數精確度**] 文字方塊中輸入整數的位數。 如果您輸入非整數，此模組不會引發錯誤，但結果可能不是預期的。  
 
