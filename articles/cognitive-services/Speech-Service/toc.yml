@@ -6,6 +6,8 @@
   items:
     - name: 什麼是語音服務？
       href: overview.md
+    - name: 語言與區域支援
+      href: language-support.md
 - name: 語音轉文字
   expanded: false
   items:
@@ -38,7 +40,7 @@
         - name: 使用壓縮的音訊輸入格式
           href: how-to-use-codec-compressed-audio-input-streams.md
         - name: 搭配 Docker 容器使用語音辨識
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=stt
     - name: 參考
       items:
         - name: 語音 SDK API
@@ -87,7 +89,7 @@
         - name: 使用長音訊 API 合成語音
           href: long-audio-api.md
         - name: 搭配 Docker 容器使用語音合成
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=tts
     - name: 參考
       items:
         - name: 語音 SDK

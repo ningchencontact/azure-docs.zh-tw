@@ -9,14 +9,14 @@ ms.service: databox
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 09/24/2018
+ms.date: 10/28/2019
 ms.author: alkohli
-ms.openlocfilehash: c0c5ea8dc069d24d01313bb68c0afb7c7aac1a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2a3d17dda5f0d7a1cecc13583981d3659775283
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456584"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583198"
 ---
 <div id="main" class="v2">
 <h1>Azure 資料箱</h1>
@@ -94,24 +94,6 @@ ms.locfileid: "61456584"
                         </div>
                         <div class="cardText">
                             <p>使用儲存體的 <b>Data Box Gateway</b> 虛擬裝置。 使用此裝置透過網路將資料傳送至 Azure。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/databox-online/data-box-edge-overview">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage"> 
-                                <img src="media/Edge_Icon_w_gear.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <p>使用儲存體和計算的 <b>Data Box Edge</b> 實體裝置。 當您想要分析、轉換或篩選移至 Azure 的資料時，請使用此裝置。</p>
                         </div>
                     </div>
                 </div>

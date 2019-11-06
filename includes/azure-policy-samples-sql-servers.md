@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: c8453a2ec00a2fca107f85a23a8af1e6313a70b6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dabadf3a4175947f09ba20b0e644f1d2b485ee38
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174140"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73590516"
 ---
 ### <a name="sql-servers"></a>SQL Server
 
@@ -23,4 +23,3 @@ ms.locfileid: "67174140"
 | [稽核伺服器層級威脅偵測設定](../articles/governance/policy/samples/audit-sql-server-threat-detection-setting.md) | 稽核 SQL 資料庫安全性警示原則是否未設定成指定的狀態。 您需指定一個指出已啟用或停用威脅偵測的值。  |
 | [稽核 SQL Server 稽核設定](../articles/governance/policy/samples/sql-server-audit.md) | 根據是否已啟用稽核設定，來稽核 SQL 伺服器。 |
 | [稽核 SQL Server 層級稽核設定](../articles/governance/policy/samples/audit-sql-server-audit-setting.md) | 稽核 SQL Server 稽核設定是否與指定的設定不符。 您需指定一個指出應啟用或停用稽核設定的值。 |
-| [要求 SQL Server 12.0 版](../articles/governance/policy/samples/require-sql-12.md) | 要求 SQL Server 使用 12.0 版。  |

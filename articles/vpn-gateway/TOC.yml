@@ -200,8 +200,6 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: 設定封包擷取
       href: packet-capture.md
-    - name: 設定自訂流量選取器
-      href: custom-traffic-selectors.md
     - name: 疑難排解
       href: vpn-gateway-troubleshoot.md
       items:

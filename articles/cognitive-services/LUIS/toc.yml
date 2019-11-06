@@ -42,7 +42,7 @@
     - name: 建置應用程式
       items:
         - name: 判斷使用者意圖
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: 使用預先建置的模型識別一般使用者資料
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: 從使用者的語句中取得情感分析
@@ -116,6 +116,7 @@
           displayName: roles
         - name: 特性
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: 預測分數
       href: luis-concept-prediction-score.md
     - name: 最佳作法
