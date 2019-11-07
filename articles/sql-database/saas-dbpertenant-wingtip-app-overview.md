@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 多租用戶應用程式範例 - Wingtip SaaS | Microsoft Docs
+title: Azure SQL Database 多租使用者應用程式範例-Wingtip SaaS
 description: 藉由使用採用 Azure SQL Database (Wingtip SaaS 範例) 的範例多租用戶應用程式來學習
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570335"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692070"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式簡介
 
@@ -39,7 +39,7 @@ Wingtip SaaS 應用程式會使用每一租用戶一個資料庫的模型。 它
 部署應用程式之後，請瀏覽下列以初始部署為基礎的教學課程。 這些教學課程會探索常見的 SaaS 模式，這些模式會利用 SQL Database、「Azure SQL 資料倉儲」及其他 Azure 服務的內建功能。 教學課程包括 PowerShell 指令碼及詳細的說明。 這些說明可讓您更容易了解及在您應用程式中實作相同的 SaaS 管理模式。
 
 
-| 教學課程 | 描述 |
+| 教學課程 | 說明 |
 |:--|:--|
 | [SQL Database 多租用戶 SaaS 應用程式範例的指引和祕訣](saas-tenancy-wingtip-app-guidance-tips.md) | 下載並執行 PowerShell 指令碼，以準備應用程式的組件。 |
 |[部署及探索 Wingtip SaaS 應用程式](saas-dbpertenant-get-started-deploy.md)|  使用您的 Azure 訂用帳戶來部署及探索 Wingtip SaaS 應用程式。 |
@@ -48,7 +48,7 @@ Wingtip SaaS 應用程式會使用每一租用戶一個資料庫的模型。 它
 |[使用 Azure 監視器記錄進行監視](saas-dbpertenant-log-analytics.md) | 瞭解如何使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)來監視跨多個集區的大量資源。 |
 |[還原單一租用戶](saas-dbpertenant-restore-single-tenant.md)| 了解如何將租用戶資料庫還原到先前的時間點。 此外，也了解如何還原到平行資料庫，這會讓現有的租用戶資料庫維持上線狀態。 |
 |[管理租用戶資料庫結構描述](saas-tenancy-schema-management.md)| 了解如何更新結構描述，以及更新跨所有租用戶資料庫的參考資料。 |
-|[執行跨租用戶分散式查詢](saas-tenancy-cross-tenant-reporting.md) | 建立臨機操作分析資料庫, 並跨所有租使用者執行即時分散式查詢。  |
+|[執行跨租用戶分散式查詢](saas-tenancy-cross-tenant-reporting.md) | 建立臨機操作分析資料庫，並跨所有租使用者執行即時分散式查詢。  |
 |[根據擷取的租用戶資料執行分析](saas-tenancy-tenant-analytics.md) | 將租用戶資料擷取到分析資料庫或資料倉儲中，以便執行離線分析查詢。 |
 
 

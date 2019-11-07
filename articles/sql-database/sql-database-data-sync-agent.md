@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure SQL Data Sync Agent 的 Data Sync Agent | Microsoft Docs
+title: 適用於 Azure SQL Data Sync 的 Data Sync Agent
 description: 了解如何安裝及執行「適用於 Azure SQL Data Sync 的 Data Sync Agent」，以與內部部署 SQL Server 資料庫同步資料
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 097c8547093a13f73f1ae5facdc0f7e6c75c071d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177707"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690793"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL Data Sync 的 Data Sync Agent
 
@@ -37,7 +37,7 @@ ms.locfileid: "73177707"
 
 - 如果您提供 `LocalSystem` 作為 **SERVICEACCOUNT** 的值，當您設定代理程式以連線至內部部署 SQL Server 時，請使用 SQL Server 驗證。
 
-- 如果您提供網域使用者帳戶或本機使用者帳戶作為 **SERVICEACCOUNT** 的值，您也必須使用 **SERVICEPASSWORD** 引數提供密碼。 例如： `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"` 。
+- 如果您提供網域使用者帳戶或本機使用者帳戶作為 **SERVICEACCOUNT** 的值，您也必須使用 **SERVICEPASSWORD** 引數提供密碼。 例如， `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`。
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -225,7 +225,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
 ### <a name="ping-the-service"></a>偵測服務
 
-#### <a name="usage"></a>用量
+#### <a name="usage"></a>使用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -239,7 +239,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>顯示已註冊的資料庫
 
-#### <a name="usage"></a>用量
+#### <a name="usage"></a>使用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -253,7 +253,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>提交代理程式金鑰
 
-#### <a name="usage"></a>用量
+#### <a name="usage"></a>使用量
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -267,7 +267,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>註冊資料庫
 
-#### <a name="usage"></a>用量
+#### <a name="usage"></a>使用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
@@ -286,7 +286,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 當您使用此命令來取消註冊資料庫時，它將會完全取消佈建資料庫。 如果資料庫參與其他同步群組，這項作業會中斷其他同步群組。
 
-#### <a name="usage"></a>用量
+#### <a name="usage"></a>使用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -300,7 +300,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>更新認證
 
-#### <a name="usage"></a>用量
+#### <a name="usage"></a>使用量
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]

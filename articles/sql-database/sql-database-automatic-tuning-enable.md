@@ -1,5 +1,5 @@
 ---
-title: 啟用 Azure SQL Database 的自動調整 | Microsoft Docs
+title: 啟用 Azure SQL Database 的自動調整
 description: 您可以輕鬆在 Azure SQL Database 上啟用自動調整。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 52e3dd01446a6292c3404f14bd8ebfb32aa00dd6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809640"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691123"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
@@ -25,7 +25,7 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 您可以透過 [Azure 入口網站](sql-database-automatic-tuning-enable.md#azure-portal)、[REST API](sql-database-automatic-tuning-enable.md#rest-api) 呼叫和 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 命令，在伺服器或資料庫層級啟用自動調整。
 
 > [!NOTE]
-> 針對受控執行個體，支援的選項 FORCE_LAST_GOOD_PLAN 只能透過[t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)來設定。 這篇文章中所述的以入口網站為基礎的設定和自動索引微調選項不適用於受控執行個體。
+> 針對受控執行個體，只可以透過[t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)設定支援的選項 FORCE_LAST_GOOD_PLAN。 這篇文章中所述的以入口網站為基礎的設定和自動索引微調選項不適用於受控執行個體。
 
 > [!NOTE]
 > 目前不支援透過 ARM （Azure Resource Manager）範本設定自動調整選項。
@@ -34,7 +34,7 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 
 在伺服器層級上，您可以選擇繼承「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 入口網站
 
 若要在 Azure SQL Database 邏輯**伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]。
 
@@ -60,7 +60,7 @@ Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 
 > 一般建議是在**伺服器層級**管理自動調整設定，以便在每一個資料庫上自動套用相同的組態設定。 只有在您要求該資料庫的設定不同於繼承自相同伺服器的其他設定時，設定自動調整個別的資料庫。
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 入口網站
 
 若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 和 SQL 資料倉儲連線性架構 |Microsoft Docs
+title: Azure SQL Database 和 SQL 資料倉儲連線性架構
 description: 本檔說明 azure SQL 連線架構，用於從 Azure 內或從 Azure 外部的資料庫連線。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72807925"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690859"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -61,11 +61,11 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 如何將流量遷移至特定區域中新閘道的詳細資料，請參閱下列文章： [Azure SQL Database 流量遷移至較新的閘道](sql-database-gateway-migration.md)
 
 
-| 地區名稱          | 閘道 IP 位址 |
+| 區域名稱          | 閘道 IP 位址 |
 | --- | --- |
-| 澳洲中部    | 20.36.105.0 |
+| 澳大利亞中部    | 20.36.105.0 |
 | 澳大利亞 Central2   | 20.36.113.0 |
-| 澳大利亞東部       | 13.75.149.87, 40.79.161.1 |
+| 澳洲東部       | 13.75.149.87, 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109, 13.73.109.251 |
 | 巴西南部         | 104.41.11.5, 191.233.200.14 |
 | 加拿大中部       | 40.85.224.249      |
@@ -108,7 +108,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 若要變更 Azure SQL Database 伺服器的 Azure SQL Database 連線原則，請使用 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) \(英文\) 命令。
 
-- 如果您的連線原則設定為 `Proxy`，所有網路封包都會流經 Azure SQL Database 閘道。 對於此設定，您必須只允許輸出至 Azure SQL Database 閘道 IP。 和使用 `Redirect` 的設定相比，使用 `Proxy` 的設定較為延遲。
+- 如果您的連線原則設定為 `Proxy`，所有網路封包都會流經 Azure SQL Database 閘道。 對於此設定，您必須只允許輸出至 Azure SQL Database 閘道 IP。 和使用 `Proxy` 的設定相比，使用 `Redirect` 的設定較為延遲。
 - 如果您的連線原則設為 `Redirect`，則所有網路封包都會直接流到資料庫叢集。 對於此設定，您需要允許輸出至多個 IP。
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>透過 PowerShell 變更連線設定的指令碼

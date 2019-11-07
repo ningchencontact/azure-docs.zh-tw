@@ -1,6 +1,6 @@
 ---
-title: 針對 Azure SQL 資料倉儲問題進行疑難排解 | Microsoft Docs
-description: 針對 Azure SQL 資料倉儲問題進行疑難排解。
+title: 連線性疑難排解
+description: 疑難排解 Azure SQL 資料倉儲中的連線能力。
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ebdeaf21253e89a9a14e3a56ca7be0f6e8adceb0
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1139032176b3b44c58471b87cabd10ffeaa3d20
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859223"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692417"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>對連線問題進行疑難排解
 
@@ -41,7 +42,7 @@ SQL 資料倉儲的狀態會顯示在這裡。 如果服務未顯示為 [**可�
 
 如果您的資源健康狀態顯示您的資料倉儲已暫停或調整，請遵循指引來繼續資料倉儲。
 
-![服務已](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)暫停有關資源健康狀態的其他資訊，可在這裡找到。
+![服務已暫停](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) 您可以在這裡找到有關資源健康狀態的其他資訊。
 
 ## <a name="check-for-paused-or-scaling-operation"></a>檢查已暫停或調整作業
 
@@ -57,7 +58,7 @@ SQL 資料倉儲的狀態會顯示在這裡。 如果服務未顯示為 [**可�
 
 ## <a name="check-your-firewall-settings"></a>檢查您的防火牆設定
 
-SQL 資料倉儲會透過連接埠 1433 通訊。   如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 在此情況下，除非您的 IT 部門開啟埠1433，否則您無法連線到您的 Azure SQL Database 伺服器。 如需防火牆設定的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)。
+SQL 資料倉儲會透過連接埠 1433 通訊。   如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過埠1433的輸出流量。 在此情況下，除非您的 IT 部門開啟埠1433，否則您無法連線到您的 Azure SQL Database 伺服器。 如需防火牆設定的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)。
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>檢查您的 VNet/服務端點設定
 

@@ -4,21 +4,22 @@ description: 瞭解如何將模型定型、將它轉換成 ONNX、將它部署�
 keywords: 部署 sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/04/2019
-ms.openlocfilehash: 2306a63aa46bd8816c742b0a6d076471705c46a6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514065"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692333"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>在 SQL Database Edge 預覽中使用 ONNX 模型部署和進行預測
 
-在本快速入門中，您將瞭解如何將模型定型、將它轉換成 ONNX、將它部署到 Azure SQL Database Edge 預覽，然後使用上傳的 ONNX 模型對資料執行原生預測。
+在本快速入門中，您將瞭解如何將模型定型、將它轉換成 ONNX、將它部署到 Azure SQL Database Edge 預覽，然後使用上傳的 ONNX 模型對資料執行原生預測。 如需詳細資訊，請參閱[SQL Database Edge 預覽中的機器學習服務和 AI 搭配 ONNX](onnx-overview.md)。
 
 本快速入門是以**scikit-learn**為基礎，學習並使用[波士頓機架資料集](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)。
 

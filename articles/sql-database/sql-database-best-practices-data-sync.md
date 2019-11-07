@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 資料同步最佳做法 | Microsoft Docs
+title: 'Azure SQL 資料同步的最佳做法 '
 description: 了解設定及執行 Azure SQL 資料同步的最佳做法。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 728ac8ab42573e1cab30eaf12dd38a6d33b97aac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569371"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691075"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 資料同步最佳做法 
 
@@ -41,7 +41,7 @@ ms.locfileid: "68569371"
 
 -   **針對同步安裝**。 建立/更改資料表、更改資料庫、建立程序、選取/更改結構描述、建立使用者定義型別。
 
--   **針對持續同步**。針對選取用來執行同步處理的資料表，以及針對同步處理中繼資料與追蹤資料表的選取/插入/更新/刪除、針對服務建立之預存程序的執行權限、針對使用者定義資料表型別的執行權限。
+-   **進行中的同步**處理。選取/插入/更新/刪除選取要同步處理的資料表，以及同步處理中繼資料和追蹤資料表;服務所建立之預存程式的 Execute 許可權;使用者定義資料表類型的 Execute 許可權。
 
 -   **針對取消佈建**。 在同步作業中針對資料表所做的更改、針對同步處理中繼資料資料表的選取/刪除、針對同步處理追蹤資料表、預存程序和使用者定義型別的控制。
 
@@ -50,7 +50,7 @@ Azure SQL Database 僅支援一組認證。 若要在此條件約束內完成這
 -   變更不同階段的認證 (例如，*credentials1* 適用於設定，*credentials2* 適用於持續)。  
 -   變更認證的權限 (也就是在設定同步處理後變更權限)。
 
-## <a name="setup"></a>安裝程式
+## <a name="setup"></a>設定
 
 ### <a name="database-considerations-and-constraints"></a> 資料庫考量與限制
 
@@ -94,7 +94,7 @@ SQL 資料同步提供基本資料庫自動佈建。
 -   不會佈建來源資料表上的現有觸發程序。  
 -   不會在目的地資料庫上建立檢視和預存程序。
 -   目的地資料表中不會針對外部索引鍵限制式重新建立 ON UPDATE CASCADE 和 ON DELETE CASCADE 動作。
--   若您有精確度大於 28 的十進位或數值資料行，「SQL 資料同步」在同步處理期間可能會遇到轉換溢位問題。建議您將十進位或數值的精確度限制為 28 以下 (含 28)。
+-   如果您有有效位數大於28的十進位或數值資料行，SQL 資料同步可能會在同步處理期間遇到轉換溢位問題。我們建議您將 decimal 或 numeric 資料行的有效位數限制為28或更少。
 
 #### <a name="recommendations"></a>建議
 
@@ -116,7 +116,7 @@ SQL 資料同步提供基本資料庫自動佈建。
 
 請將前述指導方針套用在複雜的同步群組設定，例如混合企業到雲端和雲端到雲端等案例的設定。
 
-## <a name="sync"></a>同步
+## <a name="sync"></a>Sync
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> 避免慢速和高成本的首次同步處理
 
@@ -193,12 +193,12 @@ SQL 資料同步提供基本資料庫自動佈建。
 
 在某些情況下，向用戶端代理程式取消註冊資料庫可能會導致同步處理失敗。
 
-#### <a name="scenario"></a>狀況
+#### <a name="scenario"></a>案例
 
 1. 同步群組 A 係使用 SQL Database 執行個體和內部部署 SQL Server 資料庫建立，其與本機代理程式 1 建立關聯。
 2. 相同的內部部署資料庫已向本機代理程式 2 註冊 (此代理程式並未與任何同步群組建立關聯)。
 3. 從本機代理程式 2 取消註冊內部部署資料庫，會移除內部部署資料庫之同步群組 A 的追蹤和中繼資料表。
-4. 同步群組 A 作業失敗，並發生此錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
+4. 同步群組 A 作業失敗，並發生下列錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
 
 #### <a name="solution"></a>方案
 

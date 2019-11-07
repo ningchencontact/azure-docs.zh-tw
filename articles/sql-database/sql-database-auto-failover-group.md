@@ -1,5 +1,5 @@
 ---
-title: 容錯移轉群組 - Azure SQL Database | Microsoft Docs
+title: 容錯移轉群組-Azure SQL Database
 description: 自動容錯移轉群組是 SQL Database 功能，允許您管理 SQL Database 伺服器上的一組資料庫，或受控執行個體中的所有資料庫的複寫和自動/協調容錯移轉。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 10/23/2019
-ms.openlocfilehash: bb47f0d2e02ce5cd055ebaae2e2a2f33ce77cd43
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 70c8bb618cd25c21d6cc59dde305fff113ffe22f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901409"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691156"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -161,7 +161,7 @@ ms.locfileid: "72901409"
 
 - **針對唯讀工作負載使用唯讀接聽程式**
 
-  如果您有容忍某些過時資料的邏輯隔離唯讀工作負載，則可以使用應用程式中的次要資料庫。 針對唯讀工作階段，請使用 `<fog-name>.secondary.database.windows.net` 作為伺服器 URL，連線會自動導向至次要伺服器。 此外，也建議您使用 `ApplicationIntent=ReadOnly`，在連接字串的讀取意圖中指出。 如果您想要確保唯讀工作負載可以在容錯移轉之後重新連線，或在次要伺服器離線時，請務必設定容錯移轉原則的 `AllowReadOnlyFailoverToPrimary` 屬性。 
+  如果您有容忍某些過時資料的邏輯隔離唯讀工作負載，則可以使用應用程式中的次要資料庫。 針對唯讀工作階段，請使用 `<fog-name>.secondary.database.windows.net` 作為伺服器 URL，連線會自動導向至次要伺服器。 也建議您使用 `ApplicationIntent=ReadOnly`，在連接字串的讀取意圖中指出。 如果您想要確保唯讀工作負載可以在容錯移轉之後重新連線，或在次要伺服器離線時，請務必設定容錯移轉原則的 `AllowReadOnlyFailoverToPrimary` 屬性。 
 
 - **對效能降低做好心理準備**
 
@@ -172,7 +172,7 @@ ms.locfileid: "72901409"
 
 - **對資料遺失做好心理準備**
 
-  如果偵測到中斷，SQL 會等待您 `GracePeriodWithDataLossHours`所指定的期間。 預設值為 1 小時。 如果您無法承受資料遺失，請務必將 `GracePeriodWithDataLossHours` 設定為夠大的數位，例如24小時。 使用手動群組容錯移轉，從次要伺服器容錯回復到主要伺服器。
+  如果偵測到中斷，SQL 會等待您指定的期間 `GracePeriodWithDataLossHours`。 預設值為 1 小時。 如果您無法承受資料遺失，請務必將 `GracePeriodWithDataLossHours` 設定為夠大的數位，例如24小時。 使用手動群組容錯移轉，從次要伺服器容錯回復到主要伺服器。
 
   > [!IMPORTANT]
   > 具有 800 個或更少 DTU 且使用異地複寫的資料庫超過 250 個的彈性集區，可能會遇到的問題包括規劃的容錯移轉時間較久與效能降低。  當地理複寫端點依地理位置廣泛相隔，或當每個資料庫使用多個次要端點時，較可能會發生這些寫入大量工作負載的問題。  異地複寫延遲隨時間而增加時，就可看出這些問題的徵兆。  您可以使用 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 來監視這個延遲。  如果發生這些問題，則風險降低方式包括增加集區 DTU 數目，或減少相同集區內異地複寫的資料庫數目。
@@ -205,7 +205,7 @@ ms.locfileid: "72901409"
 
 - **在不同訂用帳戶中的受控實例之間建立容錯移轉群組**
 
-  您可以在兩個不同的訂用帳戶中，于受控實例之間建立容錯移轉群組。 使用 PowerShell API 時，您可以指定次要實例的 `PartnerSubscriptionId` 參數來執行此動作。 使用 REST API 時，`properties.managedInstancePairs` 參數中所包含的每個實例識別碼都可以有自己的 subscriptionID。 
+  您可以在兩個不同的訂用帳戶中，于受控實例之間建立容錯移轉群組。 使用 PowerShell API 時，您可以指定次要實例的 `PartnerSubscriptionId` 參數來執行此動作。 使用 REST API 時，包含在 `properties.managedInstancePairs` 參數中的每個實例識別碼都可以有自己的 subscriptionID。 
   
   > [!IMPORTANT]
   > Azure 入口網站不支援跨不同訂用帳戶的容錯移轉群組。
@@ -315,7 +315,7 @@ ms.locfileid: "72901409"
 由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 `sp_wait_for_database_copy_sync` 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫為止。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 `sp_wait_for_database_copy_sync` 的範圍設定為特定的連續複製連結。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync` 會在容錯移轉之後防止資料遺失，但不保證讀取存取的完整同步處理。 `sp_wait_for_database_copy_sync` 程序呼叫所造成的延遲可能會很重要，並取決於呼叫時的交易記錄大小。
+> `sp_wait_for_database_copy_sync` 會在容錯移轉之後防止資料遺失，但是不保證讀取存取的完整同步處理。 `sp_wait_for_database_copy_sync` 程序呼叫所造成的延遲可能會很重要，並取決於呼叫時的交易記錄大小。
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>容錯移轉群組和時間點還原
 
@@ -327,7 +327,7 @@ ms.locfileid: "72901409"
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell：使用單一資料庫和彈性集區來管理 SQL database 容錯移轉
 
-| Cmdlet | 描述 |
+| Cmdlet | 說明 |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
 | [移除-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 從伺服器移除容錯移轉群組，並刪除包含群組的所有次要資料庫 |
@@ -343,7 +343,7 @@ ms.locfileid: "72901409"
 
 ### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell：使用受控實例管理 SQL database 容錯移轉群組 
 
-| Cmdlet | 描述 |
+| Cmdlet | 說明 |
 | --- | --- |
 | [新增-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
 | [設定-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |修改容錯移轉群組的設定|
@@ -354,7 +354,7 @@ ms.locfileid: "72901409"
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用單一和集區資料庫管理 SQL database 容錯移轉群組
 
-| API | 描述 |
+| API | 說明 |
 | --- | --- |
 | [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 建立或更新容錯移轉群組 |
 | [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 從伺服器中移除容錯移轉群組 |
@@ -367,7 +367,7 @@ ms.locfileid: "72901409"
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API：使用受控實例管理容錯移轉群組
 
-| API | 描述 |
+| API | 說明 |
 | --- | --- |
 | [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 建立或更新容錯移轉群組 |
 | [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 從伺服器中移除容錯移轉群組 |

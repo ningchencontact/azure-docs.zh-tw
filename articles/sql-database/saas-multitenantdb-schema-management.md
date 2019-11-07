@@ -1,5 +1,5 @@
 ---
-title: 在多租用戶應用程式中管理 Azure SQL Database 結構描述 | Microsoft Docs
+title: 管理多租使用者應用程式中的 Azure SQL Database 架構
 description: 在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a4838e571c6dc678fba470ef7f1026388f55d444
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570263"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691975"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>在使用分區化多租用戶 SQL 資料庫的 SaaS 應用程式中管理結構描述
 
@@ -52,7 +52,7 @@ Azure SQL Database 的[彈性作業](elastic-jobs-overview.md) 功能可用來�
 - 必須已安裝 Azure PowerShell。 如需詳細資料，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
 > [!NOTE]
-> 本教學課程使用的 Azure SQL Database 服務功能處於有限預覽版狀態 ([彈性資料庫作業](sql-database-elastic-database-client-library.md))。 如果您想要進行本教學課程, 請將您的訂用帳戶 ID 提供給*SaaSFeedback\@microsoft.com* , 主旨 = 彈性作業預覽。 在您收到訂用帳戶已啟用的確認之後，請[下載並安裝最新的發行前版本作業 Cmdlet (英文)](https://github.com/jaredmoo/azure-powershell/releases)。 此預覽版受到限制, 請與*SaaSFeedback\@microsoft.com* , 以取得相關問題或支援。
+> 本教學課程使用的 Azure SQL Database 服務功能處於有限預覽版狀態 ([彈性資料庫作業](sql-database-elastic-database-client-library.md))。 如果您想要進行本教學課程，請將您的訂用帳戶識別碼提供給*SaaSFeedback\@microsoft.com* ，主旨 = 彈性作業預覽。 在您收到訂用帳戶已啟用的確認之後，請[下載並安裝最新的發行前版本作業 Cmdlet (英文)](https://github.com/jaredmoo/azure-powershell/releases)。 此預覽版受到限制，請與*SaaSFeedback\@microsoft.com* ，以取得相關問題或支援。
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 結構描述管理模式的簡介
 
@@ -74,7 +74,7 @@ Azure SQL Database 的[彈性作業](elastic-jobs-overview.md) 功能可用來�
 
 本教學課程要求您必須使用 PowerShell 建立作業代理程式資料庫和作業代理程式。 如同 SQL Agent 使用的 MSDB 資料庫，作業代理程式會使用 Azure SQL 資料庫來儲存作業定義、作業狀態和記錄。 一旦建立作業代理程式後，您就可以立即建立及監視作業。
 
-1. 在 **PowerShell ISE** 中開啟...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1。
+1. 在 **PowerShell ISE** 中開啟...*Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1\\* 。
 2. 按 **F5** 以執行指令碼。
 
 Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令碼，以在類別目錄伺服器上建立名為 jobagent 的資料庫。 指令碼接著會建立作業代理程式，將 jobagent 資料庫作為參數來傳遞。
@@ -87,8 +87,8 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 首先，檢閱每個租用戶資料庫中的場地類型。 連線至 SQL Server Management Studio (SSMS) 中的其中一個租用戶資料庫，並檢查 VenueTypes 資料表。  您也可以在 Azure 入口網站的查詢編輯器中查詢此資料表 (從資料庫頁面進行存取)。
 
-1. 開啟 SSMS 並連線到租用戶伺服器：tenants1-dpt-&lt;user&gt;.database.windows.net
-1. 若要確認目前「尚未」包含 Motorcycle Racing (機車賽) 和 Swimming Club (游泳俱樂部)，請瀏覽至 tenants1-dpt-&lt;user&gt; 伺服器上的 contosoconcerthall 資料庫，並查詢 VenueTypes資料表。
+1. 開啟 SSMS 並連線到租用戶伺服器：tenants1-dpt-*user&lt;.database.windows.net&gt;*
+1. 若要確認目前「尚未」包含 Motorcycle Racing (機車賽) 和 Swimming Club (游泳俱樂部)，請瀏覽至 tenants1-dpt-*user* *&lt; 伺服器上的 contosoconcerthall&gt;* 資料庫，並查詢 VenueTypes資料表。
 
 
 
@@ -108,7 +108,7 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 5. 連線至目錄伺服器中的 jobagent 資料庫。
 
-6. 在 SSMS 中，開啟檔案…\\Learning Modules\\Schema Management\\DeployReferenceData.sql。
+6. 在 SSMS 中，開啟檔案…*Learning Modules\\Schema Management\\DeployReferenceData.sql\\* 。
 
 7. 修改陳述式：set @User = &lt;user&gt; ，並使用您在部署 Wingtip Tickets SaaS 多租用戶資料庫應用程式時使用的 User 值來取代。
 
@@ -133,15 +133,15 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 - 指令碼中的其餘檢視會顯示物件是否存在，以及監視作業執行。 使用這些查詢來檢閱 **lifecycle** 資料行中的狀態值，以判斷作業完成的時間。 作業會更新租用戶資料庫，並更新包含參考資料表的其他兩個資料庫。
 
-在 SSMS 中，瀏覽至 tenants1-mt-&lt;user&gt; 伺服器上的租用戶資料庫。 查詢 VenueTypes 資料表以確認 Motorcycle Racing (機車賽) 和 Swimming Club (游泳俱樂部) 現在已新增至資料表中。 場地類型的總數應已增加兩個。
+在 SSMS 中，瀏覽至 tenants1-mt-*user&lt;&gt;* 伺服器上的租用戶資料庫。 查詢 VenueTypes 資料表以確認 Motorcycle Racing (機車賽) 和 Swimming Club (游泳俱樂部) 現在已新增至資料表中。 場地類型的總數應已增加兩個。
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>建立作業以管理參考資料表索引
 
 此練習會在所有租用戶資料庫的參考資料表主索引鍵上，建立重建索引的作業。 索引重建是典型的資料庫管理作業，為提升效能，系統管理員可能會在載入大量資料負載後執行此作業。
 
-1. 在 SSMS 中，連線到 catalog-mt-&lt;User&gt;.database.windows.net 伺服器中的 jobagent 資料庫。
+1. 在 SSMS 中，連線到 catalog-mt-_User_.database.windows.net *&lt; 伺服器中的 jobagent&gt;* 資料庫。
 
-2. 在 SSMS 中，開啟...\\Learning Modules\\Schema Management\\OnlineReindex.sql。
+2. 在 SSMS 中，開啟...*Learning Modules\\Schema Management\\OnlineReindex.sql\\* 。
 
 3. 按 **F5** 以執行指令碼。
 
@@ -149,7 +149,7 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 請觀察 OnlineReindex.sql 指令碼中的下列項目：
 
-* **sp\_add\_job** 會建立稱為 Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 的新作業。
+* **sp\_add\_job** 會建立稱為 Online Reindex PK *\_VenueTyp\_\_265E44FD7FD4C885\_* 的新作業。
 
 * **sp\_add\_jobstep** 會建立作業步驟，其中包含要更新索引的 T-SQL 命令文字。
 
@@ -171,5 +171,5 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 > * 更新所有租用戶資料庫中的參考資料
 > * 針對所有租用戶資料庫中的資料表建立索引
 
-接下來, 請嘗試[特定報表教學](saas-multitenantdb-adhoc-reporting.md)課程, 以探索跨租使用者資料庫執行分散式查詢。
+接下來，請嘗試[特定報表教學](saas-multitenantdb-adhoc-reporting.md)課程，以探索跨租使用者資料庫執行分散式查詢。
 

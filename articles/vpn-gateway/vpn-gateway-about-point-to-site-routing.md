@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ced1bc647f93beec73b8101a952944f31e497658
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168471"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693221"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>關於點對站 VPN 路由
 
@@ -56,7 +56,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 使用 Windows 的用戶端可以直接存取已對等互連的 VNet，但如果對 VNet 對等互連或網路拓撲進行了任何變更，就必須重新下載 VPN 用戶端。 非 Windows 用戶端可以存取已對等互連的 VNet。 存取權不可轉移且僅限於已直接對等互連的 VNet。
 
-![多個對等互連的 VNet](./media/vpn-gateway-about-point-to-site-routing/2.jpg "多個對等互連的 VNet")
+![多個對等互連 Vnet](./media/vpn-gateway-about-point-to-site-routing/2.jpg "多個對等互連 Vnet")
 
 ### <a name="address-space"></a>位址空間：
 
@@ -86,7 +86,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 用戶端如果使用 Windows 或另一個支援的 OS，則只能存取 VNet1。 若要存取額外的 VNet，必須使用 BGP。
 
-![多個 VNet 和 S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "多個 VNet 和 S2S")
+![多個 Vnet 和 S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "多個 Vnet 和 S2S")
 
 ### <a name="address-space"></a>位址空間
 
@@ -114,7 +114,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 用戶端如果使用 Windows 或另一個支援的 OS，將可以存取所有使用站對站 VPN 連線來連線的 VNet，但必須手動將所連線 VNet 的路由新增至 Windows 用戶端。
 
-![多個 VNet 和 S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "多個 VNet 和 S2S BGP")
+![多個 Vnet 和 S2S （BGP）](./media/vpn-gateway-about-point-to-site-routing/4.jpg "多個 Vnet 和 S2S BGP")
 
 ### <a name="address-space"></a>位址空間
 
@@ -142,7 +142,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 Windows 和非 Windows 用戶端只能存取 VNet1。
 
-![VNet 和分公司的相關路由](./media/vpn-gateway-about-point-to-site-routing/5.jpg "VNet 和分公司的相關路由")
+![使用 VNet 和分公司進行路由](./media/vpn-gateway-about-point-to-site-routing/5.jpg "使用 VNet 和分公司進行路由")
 
 ### <a name="address-space"></a>位址空間
 
@@ -168,7 +168,7 @@ Windows 和非 Windows 用戶端只能存取 VNet1。
 
 Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Site1 的路由新增至用戶端。 非 Windows 用戶端可以存取 VNet，也可以存取內部部署的分公司。
 
-![一個 VNet 和一個分公司 (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "一個 VNet 和一個分公司")
+![一個 VNet 和一個分公司（BGP）](./media/vpn-gateway-about-point-to-site-routing/6.jpg "一個 VNet 和一個分公司")
 
 ### <a name="address-space"></a>位址空間
 
@@ -209,7 +209,7 @@ Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Sit
 
 ### <a name="routes-added"></a>新增的路由
 
-* 新增至用戶端的路由：10.1.0.0/16、192.168.0.0/24
+* 新增至 Windows 用戶端的路由：10.1.0.0/16、192.168.0.0/24
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、10.101.0.0/16、192.168.0.0/24
 
@@ -239,7 +239,7 @@ Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Sit
 
 ### <a name="routes-added"></a>新增的路由
 
-* 新增至用戶端的路由：10.1.0.0/16、192.168.0.0/24
+* 新增至 Windows 用戶端的路由：10.1.0.0/16、192.168.0.0/24
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、10.101.0.0/16、192.168.0.0/24
 

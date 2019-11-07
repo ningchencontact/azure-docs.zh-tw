@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL Database 受控實例資料庫中設定複寫 |Microsoft Docs
+title: '在 Azure SQL Database 受控執行個體資料庫中設定複寫 '
 description: 了解如何在 Azure SQL Database 受控執行個體資料庫中設定異動複寫
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338743"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692160"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
 
@@ -33,7 +33,7 @@ ms.locfileid: "71338743"
   > [!NOTE]
   > 本文旨在引導使用者從端對端設定 Azure 資料庫受控實例的複寫，從建立資源群組開始。 如果您已經部署受控實例，請直接跳到[步驟 4](#4---create-a-publisher-database)來建立發行者資料庫，如果您已經有發行者和訂閱者資料庫，而且準備好開始設定複寫，請略過步驟[6](#6---configure-distribution) 。  
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 將受控實例設定為「發行者」和/或「散發者」時，需要：
 
@@ -41,14 +41,14 @@ ms.locfileid: "71338743"
 - 發行者受控實例與散發者和訂閱者位於相同的虛擬網路上，或已在所有三個實體的虛擬網路之間建立[vNet 對等互連](../virtual-network/tutorial-connect-virtual-networks-powershell.md)。 
 - 連線會在複寫參與者之間使用 SQL 驗證。
 - 複寫工作目錄的 Azure 儲存體帳戶共用。
-- 埠445（TCP 輸出）已在 NSG 的安全性規則中開啟，以供受控實例存取 Azure 檔案共用。  如果您遇到「無法連線到 azure 儲存體 \<storage 帳戶名稱 >，作業系統錯誤53」錯誤，您必須將輸出規則新增至適當 SQL 受控執行個體子網的 NSG。
+- 埠445（TCP 輸出）已在 NSG 的安全性規則中開啟，以供受控實例存取 Azure 檔案共用。  如果您遇到「無法連線到 azure 儲存體 \<儲存體帳戶名稱 >，作業系統錯誤53」錯誤，您必須將輸出規則新增至適當 SQL 受控執行個體子網的 NSG。
 
 
  > [!NOTE]
  > Azure SQL Database 中的單一資料庫與集區資料庫只能是訂閱者。 
 
 
-## <a name="features"></a>功能
+## <a name="features"></a>特性
 
 支援：
 
@@ -63,7 +63,7 @@ Azure SQL Database 的受控執行個體中不支援下列功能：
  
 ## <a name="1---create-a-resource-group"></a>1-建立資源群組
 
-使用[Azure 入口網站](https://portal.azure.com)建立名為 `SQLMI-Repl` 的資源群組。  
+使用[Azure 入口網站](https://portal.azure.com)來建立名稱為 `SQLMI-Repl`的資源群組。  
 
 ## <a name="2---create-managed-instances"></a>2-建立受控實例
 
@@ -86,7 +86,7 @@ Azure SQL Database 的受控執行個體中不支援下列功能：
 
 ## <a name="4---create-a-publisher-database"></a>4-建立發行者資料庫
 
-使用 SQL Server Management Studio 連接到您的 @no__t 0 受控實例，並執行下列 Transact-sql （T-sql）程式碼來建立發行者資料庫：
+使用 SQL Server Management Studio 連接到您的 `sql-mi-pub` 受控實例，並執行下列 Transact-sql （T-sql）程式碼，以建立發行者資料庫：
 
 ```sql
 USE [master]
@@ -120,7 +120,7 @@ GO
 
 ## <a name="5---create-a-subscriber-database"></a>5-建立訂閱者資料庫
 
-使用 SQL Server Management Studio 連接到您的 @no__t 0 受控實例，並執行下列 T-sql 程式碼來建立空白的訂閱者資料庫：
+使用 SQL Server Management Studio 連接到您的 `sql-mi-sub` 受控實例，並執行下列 T-sql 程式碼來建立空白的訂閱者資料庫：
 
 ```sql
 USE [master]
@@ -141,7 +141,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6-設定散發
 
-使用 SQL Server Management Studio 連接到您的 @no__t 0 受控實例，並執行下列 T-sql 程式碼來設定散發資料庫。 
+使用 SQL Server Management Studio 連接到您的 `sql-mi-pub` 受控實例，並執行下列 T-sql 程式碼來設定散發資料庫。 
 
 ```sql
 USE [master]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7-將發行者設定為使用散發者 
 
-在您的發行者受控實例上 `sql-mi-pub`，將查詢執行變更為[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor)模式，然後執行下列程式碼，向您的發行者註冊新的散發者。 
+在您的發行者受控實例 `sql-mi-pub`上，將查詢執行變更為[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor)模式，然後執行下列程式碼，向您的發行者註冊新的散發者。 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance

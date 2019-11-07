@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料倉儲中使用預存程序 | Microsoft Docs
+title: 使用預存程式
 description: 在 Azure SQL 資料倉儲中實作預存程序以便開發解決方案的秘訣。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479598"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692820"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用預存程序
 在 Azure SQL 資料倉儲中實作預存程序以便開發解決方案的秘訣。
 
-## <a name="what-to-expect"></a>預期的情況
+## <a name="what-to-expect"></a>未來展望
 
 SQL 資料倉儲支援許多 SQL Server 中使用的 T-SQL 功能。 更重要的是有相應放大的特定功能，您可用來將解決方案效能最大化。
 
@@ -71,7 +72,7 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 ## <a name="limitations"></a>限制
 在 SQL 資料倉儲中不會實作 TRANSACT-SQL 預存程序的有些層面。
 
-其中包括：
+如下：
 
 * 暫存預存程序
 * 編號預存程序
@@ -86,5 +87,5 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 * return 陳述式
 
 ## <a name="next-steps"></a>後續步驟
-如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。
+如需更多開發秘訣，請參閱 [開發概觀](sql-data-warehouse-overview-develop.md)。
 

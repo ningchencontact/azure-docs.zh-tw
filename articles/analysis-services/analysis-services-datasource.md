@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 中支援的資料來源 | Microsoft Docs
-description: 說明 Azure Analysis Services 中資料模型支援的資料來源。
+description: 描述 Azure Analysis Services 中表格式1200和更高資料模型支援的資料來源和連接器。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146935"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572968"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -20,7 +20,7 @@ ms.locfileid: "73146935"
 
 ## <a name="azure-data-sources"></a>Azure 資料來源
 
-|資料來源  |記憶體內  |DirectQuery  |
+|資料來源  |記憶體內  |直接連接  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
 |Azure SQL 資料倉儲     |   是      |   是       |
@@ -71,7 +71,7 @@ ms.locfileid: "73146935"
 |IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
 |JSON 文件<sup>[1](#tab1400b)</sup>     |  
 |二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
-|MySQL 資料庫     | 
+|MySQL Database     | 
 |OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   

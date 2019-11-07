@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure SQL 資料倉儲中的工作負載重要性 |Microsoft Docs
-description: 了解如何設定要求層級的重要性。
+title: 設定工作負載的重要性
+description: 瞭解如何設定要求層級的重要性。
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,26 +10,27 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e4d410f32068b4d3035dcab0c61b7b9205103690
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 59ba4b936f6098b0d0b3f5e571f107af088206e0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588688"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692687"
 ---
-# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>設定 Azure SQL 資料倉儲中的工作負載的重要性
+# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設定工作負載重要性
 
-設定 SQL 資料倉儲中的重要性，可讓您以影響查詢的排程。 以高重要性的查詢將會執行查詢之前，以較低的重要性。 若要指派給查詢的重要性，您需要建立工作負載分類器。
+在 SQL 資料倉儲中設定 [重要性]，可讓您影響查詢的排程。 重要性較高的查詢會排程在較低重要性的查詢之前執行。 若要指派查詢的重要性，您必須建立工作負載分類器。
 
 ## <a name="create-a-workload-classifier-with-importance"></a>建立具有重要性的工作負載分類器
 
-通常在資料倉儲案例中您有需要快速地執行查詢的使用者。  使用者可能是您的公司需要執行報表或使用者的主管可能是分析師執行臨機操作查詢。 您建立的工作負載分類器指派至查詢的重要性。  下列範例會使用新[建立工作負載分類器](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)語法，來建立兩個分類器。  成員名稱可以是單一使用者或群組。 個別使用者分類的優先順序高於角色分類。 若要尋找現有的資料倉儲使用者，請執行：
+通常在資料倉儲案例中，您的使用者需要其查詢才能快速執行。  使用者可能是需要執行報表之公司的主管，或使用者可能是執行臨機操作查詢的分析師。 您可以建立工作負載分類器，將重要性指派給查詢。  下列範例使用新的[建立工作負載分類器](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)語法來建立兩個分類器。  成員名稱可以是單一使用者或群組。 個別使用者分類的優先順序高於角色分類。 若要尋找現有的資料倉儲使用者，請執行：
 
 ```sql
 Select name from sys.sysusers
 ```
 
-若要建立工作負載分類器，以更高重要性執行使用者：
+若要針對重要性較高的使用者建立工作負載分類器，請執行：
 
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
@@ -39,7 +40,7 @@ CREATE WORKLOAD CLASSIFIER ExecReportsClassifier 
 
 ```
 
-若要建立一位使用者執行臨機操作查詢，以較低重要性執行的工作負載分類器：  
+若要以較低的重要性執行執行臨機操作查詢的使用者，建立工作負載分類器：  
 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
@@ -49,8 +50,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 如需有關工作負載管理的詳細資訊，請參閱[工作負載分類](sql-data-warehouse-workload-classification.md)
-- 如需有關重要性的詳細資訊，請參閱[工作負載的重要性](sql-data-warehouse-workload-importance.md)
+- 如需工作負載管理的詳細資訊，請參閱[工作負載分類](sql-data-warehouse-workload-classification.md)
+- 如需重要性的詳細資訊，請參閱[工作負載重要性](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [請移至 管理和監視工作負載的重要性](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [前往管理和監視工作負載重要性](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

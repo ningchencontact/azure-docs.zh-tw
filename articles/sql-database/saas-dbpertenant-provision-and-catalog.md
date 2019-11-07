@@ -1,5 +1,5 @@
 ---
-title: 在使用 Azure SQL Database 在多租用戶應用程式中佈建新租用戶 | Microsoft Docs
+title: 在使用 Azure SQL Database 的多租使用者應用程式中布建新的租使用者
 description: 了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建新租用戶並將它們編入目錄中
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0f1ebd8b2ef719a9556b6b20f6685d1da493263
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570422"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692123"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
@@ -45,7 +45,7 @@ ms.locfileid: "68570422"
 
 目錄也可以儲存額外的租用戶或資料庫中繼資料，例如結構描述版本、服務方案或提供給租用戶的 SLA。 目錄可以儲存可啟用應用程式管理、客戶支援或 DevOps 的其他資訊。 
 
-SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip 票證 SaaS 每一租使用者一個資料庫範例中, 目錄是用來啟用跨租使用者查詢, 這會在隨選[報表教學](saas-tenancy-cross-tenant-reporting.md)課程中加以探索。 在[結構描述管理](saas-tenancy-schema-management.md)和[租用戶分析](saas-tenancy-tenant-analytics.md)教學課程中則會探索跨資料庫作業管理。 
+SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip 票證 SaaS 每一租使用者一個資料庫範例中，目錄是用來啟用跨租使用者查詢，這會在隨選[報表教學](saas-tenancy-cross-tenant-reporting.md)課程中加以探索。 在[結構描述管理](saas-tenancy-schema-management.md)和[租用戶分析](saas-tenancy-tenant-analytics.md)教學課程中則會探索跨資料庫作業管理。 
 
 在 Wingtip Tickets SaaS 範例中，會使用[彈性資料庫用戶端程式庫 (EDCL)](sql-database-elastic-database-client-library.md) 的「分區管理」功能來實作目錄。 EDCL 可供在 Java 和 .Net Framework 中使用。 EDCL 可讓應用程式建立、管理及使用資料庫為基礎的分區對應。 
 
@@ -91,7 +91,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip 票�
 
 4. 在指令碼於中斷點停止執行之後，按 F11 來逐步執行程式碼。
 
-   ![偵錯](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![Debugging](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 

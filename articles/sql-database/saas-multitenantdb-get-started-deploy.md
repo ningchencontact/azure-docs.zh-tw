@@ -1,5 +1,5 @@
 ---
-title: 部署使用 Azure SQL Database 的分區化多租用戶 SaaS 應用程式 | Microsoft Docs
+title: '部署使用 Azure SQL Database 的分區化多租使用者資料庫 SaaS 應用程式 '
 description: 部署及探索分區化 Wingtip SaaS 多租用戶資料庫應用程式，其使用 Azure SQL Database 示範 SaaS 模式。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570378"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692041"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>部署及探索分區化多租用戶應用程式
 
@@ -46,7 +46,7 @@ ms.locfileid: "68570378"
 
 建置此初始部署時可以取得一系列相關的教學課程。 教學課程會探索 SaaS 設計和管理模式的範圍。 當您進行教學課程時，我們鼓勵您逐步執行提供的指令碼，以查看如何實作不同的 SaaS 模式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定已完成下列必要條件：
 
@@ -54,11 +54,11 @@ ms.locfileid: "68570378"
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>部署 Wingtip Tickets 應用程式
 
-### <a name="plan-the-names"></a>計劃名稱
+### <a name="plan-the-names"></a>命名
 
 在本節的步驟中，您將提供使用者值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議使用以下名稱：
-- *使用者:* **af1** *(其姓名縮寫, 加上數位。* 如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
-- *資源群組：* **wingtip-mt-af1** *(wingtip-mt 表示這是共用的多租用戶應用程式。* 加上使用者名稱 af1，會使資源群組名稱與其中各項資源的名稱相互關聯)。
+- *使用者：* **af1**  *（其姓名縮寫，加上數位）。如果您第二次部署應用程式，請使用不同的值（例如 af2）。）*
+- *資源群組：* **wingtip-mt-af1** *（wingtip-mt 表示這是分區化多租使用者應用程式。附加使用者名稱 af1 會使資源組名與它所包含的資源名稱相互關聯）* 。
 
 現在請選擇您的名稱，然後將它們寫下來。 
 
@@ -107,9 +107,9 @@ ms.locfileid: "68570378"
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>更新此部署的設定檔
 
-執行任何指令碼之前，請在 **UserConfig.psm1** 中設定「資源群組」和「使用者」值。 將這些變數設定為您在部署期間所設定的相同值。
+執行任何指令碼之前，請在 *UserConfig.psm1* 中設定「資源群組」和「使用者」值。 將這些變數設定為您在部署期間所設定的相同值。
 
-1. 在 [PowerShell ISE] 中開啟 ...\\Learning Modules\\*UserConfig.psm1*。
+1. 在 [PowerShell ISE]\\\\ 中開啟 ...*Learning Modules* *UserConfig.psm1*。
 2. 將 ResourceGroupName 和 Name 更新為您部署的特定值 (只在第 10 行和第 11 行)。
 3. 儲存變更。
 
@@ -124,19 +124,19 @@ ms.locfileid: "68570378"
 中央 [事件中樞] 網頁提供特定部署中租用戶的連結清單。 使用下列步驟，以體驗 [事件中樞] 網頁和個別 Web 應用程式：
 
 1. 在網頁瀏覽器中開啟 [事件中樞]：
-   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; (將 &lt; user&gt; 取代為您部署的使用者值。)
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; (將 *user&lt; 取代為您部署的使用者值。)&gt;*
 
      ![事件中樞](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. 按一下 [Events Hub (活動中心)] 中的 [Fabrikam Jazz Club (Fabrikam 爵士俱樂部)]。
 
-   ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
+   ![事件](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Azure 流量管理員
 
 為了控制連入要求的發佈，Wingtip 應用程式會使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)。 每個租用戶的 [活動] 分頁在其 URL 中包含它的租用戶名稱。 每個 URL 也會包含特定「使用者」值。 每個 URL 都藉由使用下列步驟，遵守所顯示的格式：
 
-- http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. 活動應用程式會從 URL 剖析租用戶名稱。 在前述範例 URL 中，租用戶名稱是 fabrikamjazzclub。
 2. 然後應用程式會雜湊租用戶名稱，以使用[分區對應管理](sql-database-elastic-scale-shard-map-management.md)來建立索引鍵以存取目錄。
@@ -169,7 +169,7 @@ ms.locfileid: "68570378"
 
 初始部署在 Tenants1 資料庫中包含三個範例租用戶。 讓我們來建立另一個租用戶，並且觀察它對於已部署應用程式的影響。 在此步驟中，您按下一個按鍵以快速建立新的租用戶：
 
-1. 在 [PowerShell ISE] 中，開啟 ...\\Learning Modules\\Provision and Catalog\\Demo-ProvisionTenants.ps1。
+1. 在 [PowerShell ISE]\\\\ 中，開啟 ...\\Learning Modules*Provision and Catalog*Demo-ProvisionTenants.ps1。
 2. 按 **F5** (而不是 **F8**) 來執行指令碼 (目前先保持預設值)。
 
    > [!NOTE]
@@ -181,7 +181,7 @@ ms.locfileid: "68570378"
 
 重新整理「事件中樞」，而且新的租用戶現在會出現在清單中。
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>在它自己的資料庫中佈建新租用戶
+## <a name="provision-a-new-tenant-in-its-own-database"></a>在新的租用戶中佈建它自己的資料庫
 
 分區化多租用戶模型可讓您選擇是否要在包含其他租用戶的資料庫中佈建新的租用戶，或是在其自己的資料庫中佈建租用戶。 租用戶隔離在自己的資料庫中具有以下優點：
 
@@ -264,7 +264,7 @@ ms.locfileid: "68570378"
 > - 如何檢視集區使用率以監視租用戶活動。
 > - 如何刪除範例資源以停止相關計費。
 
-現在，請嘗試[佈建和類別目錄教學課程](sql-database-saas-tutorial-provision-and-catalog.md)。
+現在，請嘗試[佈建和目錄教學課程](sql-database-saas-tutorial-provision-and-catalog.md)。
 
 
 <!--  Link references.

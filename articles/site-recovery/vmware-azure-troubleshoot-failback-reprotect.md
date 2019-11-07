@@ -1,5 +1,5 @@
 ---
-title: 對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所進行的內部部署環境容錯回復進行疑難排解 | Microsoft Docs
+title: 使用 Azure Site Recovery 針對 VMware VM 嚴重損壞修復中的容錯回復進行疑難排解
 description: 本文說明對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所發生的容錯回復和重新保護問題進行疑難排解的方式。
 author: rajani-janaki-ram
 manager: gauravd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565594"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693160"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>針對從 Azure 至內部部署環境的容錯回復進行疑難排解
 
@@ -26,7 +26,7 @@ ms.locfileid: "60565594"
 
 ### <a name="error-code-95226"></a>錯誤碼 95226
 
-重新保護失敗，因為 Azure 虛擬機器無法觸達內部部署組態伺服器。 
+重新保護失敗，因為 Azure 虛擬機器無法觸達內部部署組態伺服器。
 
 此錯誤的發生條件如下：
 
@@ -36,7 +36,7 @@ ms.locfileid: "60565594"
 若要解決此問題︰
 
 * 確認 Azure VM 網路允許 Azure VM 與內部部署組態設定伺服器進行通訊。 您可以將站對站 VPN 設為您的內部部署資料中心，或是使用 Azure VM 之虛擬網路上的私人對等互連來設定 Azure ExpressRoute 連線。
-* 如果 VM 可以使用內部部署組態伺服器通訊，則請登入 VM。 然後檢查 InMage Scout 應用程式服務。 如果您看到其未執行，請手動啟動服務。 檢查服務啟動類型是否設定為 [自動]  。
+* 如果 VM 可以使用內部部署組態伺服器通訊，則請登入 VM。 然後檢查 InMage Scout 應用程式服務。 如果您看到其未執行，請手動啟動服務。 檢查服務啟動類型是否設定為 [自動]。
 
 ### <a name="error-code-78052"></a>錯誤碼 78052
 
@@ -56,7 +56,7 @@ ms.locfileid: "60565594"
 
 若要解決此問題︰
 
-若要重新保護已容錯移轉的 VM，Azure VM 必須執行，如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦位於不正確的網路，或未執行 （未回應或關閉），組態伺服器無法聯繫以開始重新保護 VM 上的行動服務。
+若要重新保護已容錯移轉的 VM，Azure VM 必須執行，如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行（沒有回應或關機），設定伺服器就無法連線到 VM 上的行動服務以開始重新保護。
 
 * 請重新啟動 VM，讓它能夠開始通訊回內部部署。
 * 啟動 Azure 虛擬機器之後，重新啟動重新保護作業。

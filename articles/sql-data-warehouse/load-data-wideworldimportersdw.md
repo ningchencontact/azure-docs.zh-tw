@@ -1,6 +1,6 @@
 ---
-title: 教學課程：將資料載入 Azure SQL 資料倉儲 | Microsoft Docs
-description: 教學課程會使用 Azure 入口網站和 SQL Server Management Studio, 將 WideWorldImportersDW 資料倉儲從全域 Azure blob 載入至 Azure SQL 資料倉儲。
+title: 教學課程：使用 Azure 入口網站 & SSMS 載入資料
+description: 教學課程會使用 Azure 入口網站和 SQL Server Management Studio，將 WideWorldImportersDW 資料倉儲從全域 Azure blob 載入至 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,15 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f81a19631b29954f9bd3da55a4b332e37746152e
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c59c5ba4e5447d01bb66b9f0ed2edcb948d34d40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574927"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693075"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入到 Azure SQL 資料倉儲
+# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入 Azure SQL 資料倉儲
 
 本教學課程會使用 PolyBase 將 WideWorldImportersDW 資料倉儲從 Azure Blob 儲存體載入 Azure SQL 資料倉儲中。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)：
 
@@ -44,7 +45,7 @@ ms.locfileid: "69574927"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>建立空白 SQL 資料倉儲
 
-系統會使用一組定義的[計算資源](memory-and-concurrency-limits.md)來建立 Azure SQL 資料倉儲。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
+建立 Azure SQL 資料倉儲時，會使用一組已定義的 [compute resources] 記憶體並行 limits.md）。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
 
 請遵循下列步驟來建立空白的 SQL 資料倉儲。 
 
@@ -56,7 +57,7 @@ ms.locfileid: "69574927"
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰   
 
-   | 設定 | 建議值 | 描述 | 
+   | 設定 | 建議的值 | 說明 | 
    | ------- | --------------- | ----------- | 
    | **資料庫名稱** | SampleDW | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -67,10 +68,10 @@ ms.locfileid: "69574927"
 
 4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-    | 設定 | 建議值 | Description | 
+    | 設定 | 建議的值 | 說明 | 
     | ------- | --------------- | ----------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 | 
-    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
+    | 伺服器管理員登入 | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
     | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
     | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
 
@@ -78,13 +79,13 @@ ms.locfileid: "69574927"
 
 5. 按一下 [選取]。
 
-6. 按一下 [**效能層**], 指定資料倉儲為 Gen1 或 Gen2, 以及資料倉儲單位的數目。 
+6. 按一下 [**效能層**]，指定資料倉儲為 Gen1 或 Gen2，以及資料倉儲單位的數目。 
 
-7. 在本教學課程中, 請選取 [ **Gen1** ] 服務層級。 根據預設，滑桿會設定為 **DW400**。  請嘗試向上和向下移動以查看其運作方式。 
+7. 在本教學課程中，請選取 [ **Gen1** ] 服務層級。 根據預設，滑桿會設定為 **DW400**。  請嘗試向上和向下移動以查看其運作方式。 
 
     ![設定效能](media/load-data-wideworldimportersdw/configure-performance.png)
 
-8. 按一下 **[套用]** 。
+8. 按一下 [套用]。
 9. 在 [SQL 資料倉儲] 頁面上，針對空白資料庫選取 [定序]。 本教學課程使用預設值。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 
 11. 您現在已完成 SQL Database 表單，請按一下 [建立] 來佈建資料庫。 佈建需要幾分鐘的時間。 
@@ -146,17 +147,17 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
 
-    | 設定      | 建議值 | 描述 | 
+    | 設定      | 建議的值 | 說明 | 
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 例如，**sample-svr.database.windows.net** 是完整的伺服器名稱。 |
     | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
-    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時指定的帳戶。 |
-    | 密碼 | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
+    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
 
     ![連接到伺服器](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. 按一下 **[連接]** 。 [物件總管] 視窗隨即在 SSMS 中開啟。 
+4. 按一下 [連接]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
 
 5. 在 [物件總管] 中，展開 [資料庫]。 然後展開 [系統資料庫] 和 [主要資料庫] 來檢視主要資料庫中的物件。  展開 [ **SampleDW** ] 以查看新資料庫中的物件。
 
@@ -207,7 +208,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 2. 輸入完整伺服器名稱，以及輸入 **LoaderRC60** 作為登入。  輸入您 LoaderRC60 的密碼。
 
-3. 按一下 **[連接]** 。
+3. 按一下 [連接]。
 
 4. 您的連線就緒時，會在 [物件總管] 中看到兩個伺服器連線。 一個是以 ServerAdmin 連線，另一個是以 LoaderRC60 連線。
 
@@ -540,13 +541,13 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     );
     ```
 
-8. 在物件總管中, 展開 [SampleDW] 以查看您所建立的外部資料表清單。
+8. 在物件總管中，展開 [SampleDW] 以查看您所建立的外部資料表清單。
 
     ![檢視外部資料表](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>將資料載入資料倉儲
 
-本節使用您定義的外部資料表, 將範例資料從 Azure Blob 載入 SQL 資料倉儲。  
+本節使用您定義的外部資料表，將範例資料從 Azure Blob 載入 SQL 資料倉儲。  
 
 > [!NOTE]
 > 本教學課程會將資料直接載入最終資料表。 在生產環境中，您通常會使用 CREATE TABLE AS SELECT 來載入暫存資料表。 當資料位於暫存資料表時，您可以執行任何必要的轉換。 若要將暫存資料表中的資料附加至生產資料表，您可以使用 INSERT...SELECT 陳述式。 如需詳細資訊，請參閱[將資料插入生產資料表中](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
@@ -554,7 +555,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 指令碼會使用 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 陳述式，將資料從 Azure 儲存體 Blob 載入資料倉儲中的新資料表。 CTAS 會以 select 陳述式的結果作為基礎，建立新的資料表。 新的資料表擁有和 select 陳述式結果相同的資料行和資料類型。 當 select 陳述式從外部資料表選取時，SQL 資料倉儲會將資料匯入資料倉儲中的關聯式資料表。 
 
-此腳本不會將資料載入至 wwi. dimension_Date 和 wwi. fact_Sale 資料表。 這些資料表會在稍後的步驟中產生，以便讓資料表擁有相當多的資料列。
+此腳本不會將資料載入 dimension_Date wwi 和 fact_Sale wwi 資料表中。 這些資料表會在稍後的步驟中產生，以便讓資料表擁有相當多的資料列。
 
 1. 執行下列指令碼，將資料載入資料倉儲中的新資料表。
 
@@ -750,7 +751,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>建立資料表和程序來產生日期和銷售資料表
 
-此區段會建立 wwi dimension_Date 和 wwi. fact_Sale 資料表。 它也會建立可在 wwi. dimension_Date 和 wwi fact_Sale 資料表中產生數百萬個數據列的預存程式。
+此區段會建立 dimension_Date wwi 和 fact_Sale wwi 資料表。 它也會建立可在 wwi 中產生數百萬個數據列的預存程式，dimension_Date 和 fact_Sale wwi 資料表。
 
 1. 建立 dimension_Date 和 fact_Sale 資料表。  
 
@@ -893,7 +894,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     DROP table #days;
     END;
     ```
-4. 建立此程式來填入 wwi. dimension_Date 和 wwi. fact_Sale 資料表。 它會呼叫 [wwi].[PopulateDateDimensionForYear] 來填入 wwi.dimension_Date。
+4. 建立此程式，以填入 dimension_Date wwi 和 fact_Sale wwi 資料表。 它會呼叫 [wwi].[PopulateDateDimensionForYear] 來填入 wwi.dimension_Date。
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +950,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     ```
 
 ## <a name="generate-millions-of-rows"></a>產生數百萬個資料列
-使用您所建立的預存程式, 在 fact_Sale 資料表中產生數百萬個數據列, 並在 wwi dimension_Date 資料表中 wwi 對應的資料。 
+使用您所建立的預存程式，在 wwi 中產生數百萬個數據列，並在 dimension_Date wwi 資料表中 fact_Sale 對應的資料。 
 
 
 1. 執行此程序以在 [wwi].[seed_Sale] 植入更多資料列。
@@ -958,7 +959,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. 執行此程式, 以每日100000個數據列填入2000年中的每一天的 wwi fact_Sale。
+2. 執行此程式來填入 fact_Sale wwi，每日100000的資料列為2000年的每一天。
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1099,7 @@ SQL 資料倉儲會藉由將資料快取到每個計算節點來複寫資料表�
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停計算。 藉由暫停計算, 您只需支付資料儲存體的費用, 而且當您準備好要使用資料時, 您可以繼續計算。 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請按一下 [啟動]。
+2. 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停運算。 藉由暫停計算，您只需支付資料儲存體的費用，而且當您準備好要使用資料時，您可以繼續計算。 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請按一下 [啟動]。
 
 3. 如果您需要移除未來的費用，可以將資料倉儲刪除。 若要移除資料倉儲而不再支付運算或儲存體的費用，請按一下 [刪除]。
 
@@ -1120,7 +1121,7 @@ SQL 資料倉儲會藉由將資料快取到每個計算節點來複寫資料表�
 > * 在載入時，已檢閱資料的進度
 > * 建立新載入資料的統計資料
 
-進入開發總覽, 以瞭解如何將現有的資料庫移轉至 SQL 資料倉儲。
+進入開發總覽，以瞭解如何將現有的資料庫移轉至 SQL 資料倉儲。
 
 > [!div class="nextstepaction"]
 >[將現有資料庫移轉至 SQL 資料倉儲的設計決策](sql-data-warehouse-overview-develop.md)

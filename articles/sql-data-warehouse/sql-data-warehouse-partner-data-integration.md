@@ -1,5 +1,5 @@
 ---
-title: SQL 資料倉儲資料整合合作夥伴 | Microsoft Docs
+title: 資料整合合作夥伴
 description: 具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的協力廠商合作夥伴清單。
 services: sql-data-warehouse
 author: mabasile-MSFT
@@ -10,18 +10,19 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 96ffeb12413f236ca0c131051245306ae16d4288
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e368894d7036d071285ebc7ba85056676d8d670d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045157"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692650"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在 Microsoft 合作夥伴公司，並提供支援 Azure SQL 資料倉儲的官方資料整合解決方案。
 
 ## <a name="data-integration-partners"></a>資料整合合作夥伴
-| Partner | 描述 | 網站/產品連結 |
+| 合作夥伴 | 說明 | 網站/產品連結 |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma 是一項 ETL 解決方案，可讓資料小組整合、豐富和串流各種資料定址接收器的資料，以即時 SQL 資料倉儲。 |[產品頁面][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer 提供可重複用來進行自助式資料分析的工作流程，以小時為單位進行更深入的見解，而不是傳統處理方式通常使用的以週為單位！ Alteryx Designer 藉由使用相同的直覺式使用者介面來結合資料準備、資料混合及分析 (預測、統計和空間)，來協助資料分析人員。 |[產品頁面][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|

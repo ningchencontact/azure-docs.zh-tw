@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 自動、異地備援備份 | Microsoft Docs
+title: Azure SQL Database 自動、異地多餘備份
 description: SQL Database 每隔幾鐘會自動建立一個本機資料庫備份，並使用 Azure 讀取權限異地備援儲存體來進行異地備援。
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5dd2cb8d266fcb2a17c50a2213509b968894737e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492228"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691186"
 ---
 # <a name="automated-backups"></a>自動備份
 

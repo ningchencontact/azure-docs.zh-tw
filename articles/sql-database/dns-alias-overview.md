@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 的 DNS 別名 | Microsoft Docs
+title: Azure SQL Database 的 DNS 別名
 description: 您的應用程式可以連線到 Azure SQL Database 伺服器名稱的別名。 同時，您可以隨時變更別名所指向的 SQL Database，以便進行測試等等。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 5d37b41fa7b51871f9ce1b21c62de1f9ab7f3b82
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c3681e882fea3e8e36472c8e540db0255cd654bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058568"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692278"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database 的 DNS 別名
 
@@ -55,7 +55,7 @@ Azure SQL Database 的 DNS 別名功能適用於下列案例：
 
 下列屬性適用於 SQL Database 伺服器的每個 DNS 別名：
 
-- *唯一名稱：* 就像伺服器名稱一樣，您所建立的每個別名名稱在所有 Azure SQL Database 伺服器中都是唯一的。
+- *唯一名稱：* 就像伺服器名稱一樣，您所建立的每個別名名稱都是所有 Azure SQL Database 伺服器中的唯一名稱。
 - *伺服器是必要的：* 無法建立 DNS 別名，除非該名稱參照正好一部伺服器，且該伺服器必須已存在。 更新後的別名必須一律參照正好一部現有的伺服器。
   - 當您卸除 SQL Database 伺服器時，Azure 系統也會卸除參照該伺服器的所有 DNS 別名。
 - *未繫結至任何區域：* DNS 別名未繫結至任何區域。 您可以將任何 DNS 別名更新為參照位於任何地理區域的 Azure SQL Database 伺服器。
@@ -82,7 +82,7 @@ REST API 和 PowerShell Cmdlet 可讓您以程式設計方式管理 DNS 別名�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 PowerShell Cmdlet 可用於呼叫 REST API。
 
@@ -92,10 +92,10 @@ PowerShell Cmdlet 可用於呼叫 REST API。
 
 程式碼範例中使用的 Cmdlet 如下所示：
 
-- [新 AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL Database 服務系統中建立新的 DNS 別名。 此別名會參照 Azure SQL Database 伺服器 1。
-- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：取得並列出所有指派給 SQL DB 伺服器 1 的 DNS 別名。
-- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：修改別名已設定要參照的伺服器名稱 (從伺服器 1 改為 SQL DB 伺服器 2)。
-- [移除-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用別名的名稱，移除 SQL DB 伺服器 2 中的 DNS 別名。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL Database 服務系統中建立新的 DNS 別名。 此別名會參照 Azure SQL Database 伺服器 1。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：取得並列出所有指派給 SQL DB 伺服器1的 DNS 別名。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：修改別名已設定為參考的伺服器名稱（從伺服器1到 SQL DB 伺服器2）。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用別名的名稱，移除 SQL DB 伺服器2中的 DNS 別名。
 
 ## <a name="limitations-during-preview"></a>預覽期間的限制
 
@@ -103,8 +103,8 @@ PowerShell Cmdlet 可用於呼叫 REST API。
 
 - *最多 2 分鐘的延遲：* 更新或移除 DNS 別名最多需要 2 分鐘的時間。
   - 不論是否有任何短暫的延遲，別名都會立即停止讓用戶端連線參照舊版伺服器。
-- *DNS 查閱：* 若要檢查指定的 DNS 別名是參照哪部伺服器，目前唯一的官方方式是執行 [DNS 查閱](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
-- _不支援資料表的審核：_ 您無法在資料庫已啟用「資料表稽核」的 Azure SQL Database 伺服器上使用 DNS 別名。
+- *DNS 查閱：* 現在，若要檢查指定的 DNS 別名是參照哪部伺服器，唯一的權威性方式便是執行 [DNS 查閱](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
+- _不支援資料表的審核：_ 您不能在已于資料庫上啟用*資料表審核*的 Azure SQL Database 伺服器上使用 DNS 別名。
   - 資料表稽核功能已淘汰。
   - 建議您改用 [Blob 稽核](sql-database-auditing.md)。
 

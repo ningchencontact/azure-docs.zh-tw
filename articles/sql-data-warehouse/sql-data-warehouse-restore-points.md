@@ -1,5 +1,5 @@
 ---
-title: 使用者定義的還原點 |Microsoft Docs
+title: 使用者定義的還原點
 description: 如何 Azure SQL 資料倉儲建立還原點。
 services: sql-data-warehouse
 author: anumjs
@@ -10,22 +10,23 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575258"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692504"
 ---
 # <a name="user-defined-restore-points"></a>使用者定義的還原點
 
-在本文中, 您將瞭解如何使用 PowerShell 和 Azure 入口網站為 Azure SQL 資料倉儲建立新的使用者定義還原點。
+在本文中，您將瞭解如何使用 PowerShell 和 Azure 入口網站為 Azure SQL 資料倉儲建立新的使用者定義還原點。
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>透過 PowerShell 建立使用者定義的還原點
 
-若要建立使用者定義的還原點, 請使用[AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] PowerShell Cmdlet。
+若要建立使用者定義的還原點，請使用[AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] PowerShell Cmdlet。
 
-1. 開始之前, 請務必[安裝 Azure PowerShell][Install Azure PowerShell]。
+1. 開始之前，請務必[安裝 Azure PowerShell][Install Azure PowerShell]。
 2. 開啟 PowerShell。
 3. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
 4. 選取包含要還原之資料庫的訂用帳戶。
@@ -63,11 +64,11 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 2. 流覽至您想要為其建立還原點的 SQL 資料倉儲。
 
-3. 從左窗格中選取 **[總覽**], 然後選取 [ **+ 新增還原點**]。 如果 [新增還原點] 按鈕未啟用, 請確定資料倉儲並未暫停。
+3. 從左窗格中選取 **[總覽**]，然後選取 [ **+ 新增還原點**]。 如果 [新增還原點] 按鈕未啟用，請確定資料倉儲並未暫停。
 
     ![新增還原點](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
-4. 指定使用者定義還原點的名稱, 然後按一下 [套用]。 使用者定義的還原點預設保留期間為七天。
+4. 指定使用者定義還原點的名稱，**然後按一下 [** 套用]。 使用者定義的還原點預設保留期間為七天。
 
     ![還原點名稱](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 

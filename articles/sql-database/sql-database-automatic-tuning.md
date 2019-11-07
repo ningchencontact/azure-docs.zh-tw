@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database - 自動調整 | Microsoft Docs
+title: Azure SQL Database-自動調整
 description: Azure SQL Database 會分析 SQL 查詢，並自動針對使用者的工作負載調整。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: bfac5a0eba68469d912efd02699624e1335e40e5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162325"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691105"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -69,7 +69,7 @@ Azure SQL Database 中可用的自動調整選項有：
 | :----------------------------- | ----- | ----- |
 | **建立索引**-識別可改善工作負載效能、建立索引，並自動驗證查詢效能已改善的索引。 | 是 | 否 | 
 | **DROP INDEX** -每日識別重複和重複的索引（唯一索引除外），以及長時間未使用的索引（> 90 天）。 請注意，此選項與使用分割區切換和索引提示的應用程式不相容。 高階和商務關鍵服務層級不支援卸載未使用的索引。 | 是 | 否 |
-| **強制執行最後一個良好的計畫**（自動計畫更正）-使用比上一個良好計畫慢的執行計畫來識別 SQL 查詢，並使用最後一個已知的良好計畫，而不是回歸計畫來查詢。 | 是 | 是 |
+| **強制執行最後一個良好的計畫**（自動計畫更正）-使用比上一個良好計畫更慢的執行計畫來識別 SQL 查詢，並使用最後一個已知的良好計畫，而不是回歸計畫來查詢。 | 是 | 是 |
 
 自動調整可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST GOOD PLAN** 建議，可以最佳化您的資料庫效能，並在 [Azure 入口網站](sql-database-advisor-portal.md)中顯示它們，還可以透過 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 來公開它們。 若要深入瞭解如何強制執行最後一個良好的計畫，以及透過 T-sql 設定自動調整選項，請參閱[自動調整會引進自動計畫更正](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)。
 

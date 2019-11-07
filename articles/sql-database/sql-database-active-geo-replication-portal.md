@@ -1,5 +1,5 @@
 ---
-title: Azure 入口網站：SQL Database 異地複寫 | Microsoft Docs
+title: 'Azure 入口網站： SQL Database 異地複寫 '
 description: 使用 Azure 入口網站為 Azure SQL Database 中的單一或集區資料庫設定異地複寫並啟動容錯移轉
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103234"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691325"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
 
-本文說明您如何使用 [Azure 入口網站](https://portal.azure.com)在 Azure SQL Database 中為[獨立和集區資料庫設定主動式異地複寫](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)，並起始容錯移轉。
+本文說明您如何使用 [Azure 入口網站](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)在 Azure SQL Database 中為[獨立和集區資料庫設定主動式異地複寫](https://portal.azure.com)，並起始容錯移轉。
 
 如需單一和集區資料庫的自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配單一和集區資料庫的最佳作法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)。 如需使用受控實例之自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配受控實例的最佳做法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)。
 

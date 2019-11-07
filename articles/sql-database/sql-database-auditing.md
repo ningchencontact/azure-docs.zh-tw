@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure SQL 資料庫稽核 | Microsoft Docs
+title: 開始使用 Azure SQL 資料庫稽核
 description: 使用 Azure SQL 資料庫稽核來將資料庫事件追蹤至稽核記錄。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045196"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691205"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -79,13 +79,13 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
 3. 如果您想要設定伺服器稽核原則，可以選取資料庫稽核頁面上的 [檢視伺服器設定] 連結。 然後，您可以檢視或修改伺服器稽核設定。 伺服器稽核原則會套用至此伺服器上所有現有和新建立的資料庫。
 
-    ![瀏覽窗格][2]
+    ![導覽窗格][2]
 
 4. 如果您偏向在資料庫層級啟用稽核，請將 [稽核] 切換到 [開啟]。
 
     如果已啟用伺服器稽核，資料庫設定的稽核將會與伺服器稽核並存。
 
-    ![瀏覽窗格][3]
+    ![導覽窗格][3]
 
 5. **新增** - 您現在有多個選項可設定要寫入稽核記錄的位置。 您可以將記錄寫入至 Azure 儲存體帳戶、Log Analytics 工作區，以透過 Azure 監視器記錄來取用，或使用事件中樞來取用事件中樞以供取用。 您可以設定這些選項的任何組合，並將稽核記錄寫入至每個組合。
 
@@ -157,7 +157,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
 - 使用 [Azure 入口網站](https://portal.azure.com)。  開啟相關的資料庫。 在資料庫的 [稽核] 頁面頂端，按一下 [檢視稽核記錄]。
 
-    ![瀏覽窗格][7]
+    ![導覽窗格][7]
 
     隨即開啟 [稽核記錄]，您可以在其中檢視記錄。
 
@@ -165,14 +165,14 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
   - 切換 [稽核來源]，即可在由「伺服器稽核原則」和「資料庫稽核原則」建立的稽核記錄之間切換。
   - 如果勾選 [只顯示 SQL 插入的稽核記錄] 核取方塊，只可以檢視 SQL 插入相關的稽核記錄。
 
-       ![瀏覽窗格][8]
+       ![導覽窗格][8]
 
 - 使用系統函數 **sys.fn_get_audit_file** (T-SQL) 以表格格式傳回稽核記錄資料。 如需使用此函式的詳細資訊，請參閱 [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)。
 
 - 使用 SQL Server Management Studio (SSMS 17 或更新版本) 中的 [合併稽核檔案]：
     1. 從 SSMS 功能表選取 [檔案] > [開啟] > [合併稽核檔案]。
 
-        ![瀏覽窗格][9]
+        ![導覽窗格][9]
     2. 隨即開啟 [新增稽核檔案] 對話方塊。 選取其中一個 [新增] 選項以選擇是否要從本機磁碟合併稽核檔案，或從 Azure 儲存體匯入稽核檔案。 您將需要提供您的 Azure 儲存體詳細資料和帳戶金鑰。
 
     3. 已新增要合併的所有檔案之後，請按一下 [確定] 以完成合併作業。
@@ -213,10 +213,10 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
 1. 開啟 [儲存體詳細資料]。 在 [儲存體存取金鑰] 方塊中，選取 [次要]，然後按一下 [確定]。 然後按一下稽核設定頁面頂端的 [儲存]。
 
-    ![瀏覽窗格][5]
+    ![導覽窗格][5]
 2. 移至儲存體設定頁面，並重新產生主要存取金鑰。
 
-    ![瀏覽窗格][6]
+    ![導覽窗格][6]
 3. 返回稽核設定頁面，將儲存體存取金鑰從次要切換成主要，然後按一下 [確定]。 然後按一下稽核設定頁面頂端的 [儲存]。
 4. 返回儲存體設定頁面，並重新產生次要存取金鑰 (為下一個金鑰重新整理週期做準備)。
 

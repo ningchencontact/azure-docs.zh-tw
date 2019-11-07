@@ -1,21 +1,22 @@
 ---
-title: 保護 SQL 資料倉儲中的資料庫 | Microsoft Docs
+title: 保護資料庫
 description: 保護 Azure SQL 資料倉儲中的資料庫以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c51a945bae7cc0b03c219bc041d64f4703baef19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61126935"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692569"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保護 SQL 資料倉儲中的資料庫
 > [!div class="op_single_selector"]
@@ -33,7 +34,7 @@ ms.locfileid: "61126935"
 
 伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。 若要允許來自應用程式或用戶端機器之公用 IP 位址的連線，您必須先使用 Azure 入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。 最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。  若要從您的本機電腦存取 Azure SQL 資料倉儲，請確定您的網路和本機電腦上的防火牆允許 TCP 連接埠 1433 上的傳出通訊。  
 
-SQL 資料倉儲會使用伺服器層級的防火牆規則。 它不支援資料庫層級的防火牆規則。 如需詳細資訊，請參閱 [Azure SQL Database 防火牆][Azure SQL Database firewall]、[sp_set_firewall_rule][sp_set_firewall_rule]。
+SQL 資料倉儲會使用伺服器層級的防火牆規則。 它不支援資料庫層級的防火牆規則。 如需詳細資訊，請參閱[Azure SQL Database 防火牆][Azure SQL Database firewall]， [sp_set_firewall_rule][sp_set_firewall_rule]。
 
 預設會加密與 SQL 資料倉儲的連線。  停用加密的修改連線設定會被忽略。
 
@@ -59,9 +60,9 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-若要提供使用者執行其他作業 (例如建立登入或建立新資料庫) 的權限，請為他們指派主要資料庫中的 `Loginmanager` 和 `dbmanager` 角色。 如需有關這些額外角色及向 SQL Database 驗證的詳細資訊，請參閱[管理 Azure SQL Database 的資料庫和登入][Managing databases and logins in Azure SQL Database]。  如需詳細資訊，請參閱[使用 Azure Active Directory 驗證連線到 SQL 資料倉儲][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]。
+若要提供使用者執行其他作業 (例如建立登入或建立新資料庫) 的權限，請為他們指派主要資料庫中的 `Loginmanager` 和 `dbmanager` 角色。 如需有關這些額外角色和驗證 SQL Database 的詳細資訊，請參閱[管理 Azure SQL Database 中的資料庫和登入][Managing databases and logins in Azure SQL Database]。  如需詳細資訊，請參閱[使用 Azure Active Directory 驗證連接到 SQL 資料倉儲][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]。
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 授權是指您在 Azure SQL 資料倉儲資料庫內可以執行的動作。 授權權限取決於角色成員資格和權限。 最好的作法是，您應該授與使用者所需的最低權限。 若要管理角色，您可以使用下列預存程序：
 
 ```sql
@@ -73,9 +74,9 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 有許多方式可以進一步限制使用者透過 Azure SQL 資料倉儲可以執行的動作：
 
-* 細微的[權限][Permissions]可讓您控制可對資料庫中的個別資料行、資料表、檢視、結構描述、程序和其他物件執行哪些作業。 使用細微權限，以擁有最大控制權，並授與所需的最小權限。 
+* 細微的[許可權][Permissions]可讓您控制您可以對資料庫中個別資料行、資料表、視圖、架構、程式和其他物件執行哪些作業。 使用細微權限，以擁有最大控制權，並授與所需的最小權限。 
 * 除了 db_datareader 和 db_datawriter 以外，[資料庫角色][Database roles]均可以用來建立權力較大的應用程式使用者帳戶，或權力較小的管理帳戶。 內建固定資料庫角色提供簡單的方式來授與權限，但可能會導致授與的權限多於所需的權限。
-* [預存程序][Stored procedures]可用來限制對資料庫可採取的動作。
+* [預存程序][Stored procedures] 可用來限制對資料庫可採取的動作。
 
 下列範例會針對使用者定義結構描述授予讀取權限。
 ```sql
@@ -83,17 +84,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-從 Azure 入口網站或使用 Azure Resource Manager API 管理資料庫和邏輯伺服器的能力，是由您入口網站使用者帳戶的角色指派所控制。 如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制][Role-based access control in Azure portal]。
+從 Azure 入口網站或使用 Azure Resource Manager API 管理資料庫和邏輯伺服器的能力，是由您入口網站使用者帳戶的角色指派所控制。 如需詳細資訊，請參閱[Azure 入口網站中的角色型存取控制][Role-based access control in Azure portal]。
 
 ## <a name="encryption"></a>加密
 Azure SQL 資料倉儲透明資料加密 (TDE) 可以對待用資料加密和解密，協助防止惡意活動的威脅。  當您加密資料庫時，相關聯的備份和交易記錄檔就會加密，完全不需要變更您的應用程式。 TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫的儲存體。 
 
-在 SQL Database 中，資料庫加密金鑰是由內建伺服器憑證保護。 內建伺服器憑證對每個 SQL Database 伺服器都是唯一的。 Microsoft 至少每 90 天會自動替換這些憑證。 「SQL 資料倉儲」使用的加密演算法是 AES-256。 如需 TDE 的一般描述，請參閱[透明資料加密][Transparent Data Encryption]。
+在 SQL Database 中，資料庫加密金鑰是由內建伺服器憑證保護。 內建伺服器憑證對每個 SQL Database 伺服器都是唯一的。 Microsoft 至少每 90 天會自動替換這些憑證。 「SQL 資料倉儲」使用的加密演算法是 AES-256。 如需 TDE 的一般描述，請參閱 [透明資料加密][Transparent Data Encryption]。
 
-您可以使用 [Azure 入口網站][Encryption with Portal]或 [T-SQL][Encryption with TSQL] 將資料庫加密。
+您可以使用[Azure 入口網站][Encryption with Portal]或[t-sql][Encryption with TSQL]來加密您的資料庫。
 
 ## <a name="next-steps"></a>後續步驟
-如需使用不同通訊協定連接到您的 SQL 資料倉儲的詳細資訊和範例，請參閱[連接到 SQL 資料倉儲][Connect to SQL Data Warehouse]。
+如需使用不同通訊協定連接到您的 SQL 資料倉儲的詳細資訊和範例，請參閱 [連接到 SQL 資料倉儲][Connect to SQL Data Warehouse]。
 
 <!--Image references-->
 

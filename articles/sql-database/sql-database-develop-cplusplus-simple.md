@@ -1,5 +1,5 @@
 ---
-title: 使用 C 和 C++ 連接到 SQL Database | Microsoft Docs
+title: 使用 C 和 C++ 連接到 SQL Database
 description: 使用這個快速入門中的範例程式碼建置現代應用程式，這個應用程式使用 C++，並受到具有 Azure SQL Database 的雲端中之強大關聯式資料庫的支援。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: c06a16071b1e22e7aa788ff5f15ce8afbf17da04
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb6094ec418d2b212759bddd2c4d49c7e6193849
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568927"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690712"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 連接到 SQL Database
 
@@ -33,10 +33,10 @@ ms.locfileid: "68568927"
 ## <a id="AzureSQL"></a>虛擬機器上的 Azure SQL Database 和 SQL Server
 Azure SQL 建置在 Microsoft SQL Server 上，旨在提供高可用性、高效能以及可調整的服務。 透過內部部署上所執行的專屬資料庫來使用 SQL Azure 有許多好處。 使用 SQL Azure，您無需安裝、設定、維護或管理您的資料庫，只需要資料庫的內容和結構。 我們所擔心像容錯和冗餘等資料庫的一般項目皆已內建。
 
-Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (VM) 上的 Azure SQL 資料庫、資料庫即服務和 SQL Server。 我們不會詳細說明這兩個之間的差異，除非 Azure SQL 資料庫是您新雲端應用程式，可充分節省成本的最佳選擇，且雲端服務可提供的效能最佳化。 如果您考慮將您的內部應用程式移轉或擴充至雲端，Azure 虛擬機器上的 SQL Server 可能較合適您。 若要將本文簡化，讓我們建立 Azure SQL 資料庫。
+Azure 目前有兩個裝載 SQL Server 工作負載的選項︰Azure SQL 資料庫 (資料庫即服務) 和虛擬機器 (VM) 上的 SQL 伺服器。 我們不會詳細說明這兩個之間的差異，除非 Azure SQL 資料庫是您新雲端應用程式，可充分節省成本的最佳選擇，且雲端服務可提供的效能最佳化。 如果您考慮將您的內部應用程式移轉或擴充至雲端，Azure 虛擬機器上的 SQL Server 可能較合適您。 若要將本文簡化，讓我們建立 Azure SQL 資料庫。
 
 ## <a id="ODBC"></a>資料存取技術︰ODBC 和 OLE DB
-連線到 Azure SQL DB 並無不同，目前有兩種方式可連接到資料庫：ODBC (開放式資料庫連接) 和 OLE DB (物件連結與嵌入資料庫)。 近年來，Microsoft 已配合 [ODBC 進行原生關聯式資料存取](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相當簡單，而且也比 OLE DB 更快速。 唯一必須注意的是 ODBC 會使用舊的 C 樣式 API。
+連接到 Azure SQL 資料庫並無不同，目前有兩種方式可連接到資料庫︰ODBC (開放式資料庫連接) 和 OLE DB (物件連結與嵌入資料庫)。 近年來，Microsoft 已配合 [ODBC 進行原生關聯式資料存取](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相當簡單，而且也比 OLE DB 更快速。 唯一必須注意的是 ODBC 會使用舊的 C 樣式 API。
 
 ## <a id="Create"></a>步驟 1：建立 Azure SQL Database
 請參閱 [快速入門頁面](sql-database-single-database-get-started.md) ，以了解如何建立範例資料庫。  或者，您可以依照此[兩分鐘短片](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)使用 Azure 入口網站建立 Azure SQL 資料庫。
@@ -52,7 +52,7 @@ Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (
 
 複製 **ODBC (包含 Node.js) [SQL 驗證]** 字串的內容。 我們稍後要使用此字串從我們的 C++ ODBC 命令列轉譯器進行連接。 此字串會提供詳細資料，例如驅動程式、伺服器和其他資料庫連接參數。
 
-## <a id="Firewall"></a>步驟 3：將您的 IP 新增至防火牆
+## <a id="Firewall"></a>步驟 3︰將您的 IP 新增至防火牆
 請移至您資料庫伺服器的防火牆區段，並使用下列步驟將您的[用戶端 IP 新增至防火牆](sql-database-configure-firewall-settings.md)，藉此確定我們可以建立成功的連線︰
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
@@ -74,7 +74,7 @@ Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (
 
 ![建立 DSN 檔案](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-恭喜您！ 您現在已在 Windows 上使用 C++ 和 ODBC 成功連接至 Azure SQL。 您可以繼續閱讀，針對 Linux 平台上執行相同的作業。
+恭喜！ 您現在已在 Windows 上使用 C++ 和 ODBC 成功連接至 Azure SQL。 您可以繼續閱讀，針對 Linux 平台上執行相同的作業。
 
 ## <a id="Linux"></a>步驟 5：從 Linux C/C++ 應用程式連接
 如果您還沒聽過新聞，那麼 Visual Studio 現在也可讓您開發 C++ Linux 應用程式。 您可以在 [Linux 開發的 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 部落格中閱讀這個新的案例。 若要針對 Linux 建置，您需要正在執行您 Linux 散發版本的遠端電腦。 如果您沒有帳戶，可以使用 [Linux Azure 虛擬機器](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速設定一個。
@@ -119,7 +119,7 @@ Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (
 
 ![Linux 主控台視窗輸出](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-恭喜您！ 您已順利完成本教學課程，現在可以在 Windows 和 Linux 平台上從 C++ 連線到您的 Azure SQL DB。
+恭喜！ 您已順利完成本教學課程，現在可以在 Windows 和 Linux 平台上從 C++ 連線到您的 Azure SQL DB。
 
 ## <a id="GetSolution"></a>取得完整的 C/C++ 教學課程方案
 您可以在 GitHub 中找到包含本文中所有範例的 GetStarted 方案：

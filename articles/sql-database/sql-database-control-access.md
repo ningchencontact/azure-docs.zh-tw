@@ -1,5 +1,5 @@
 ---
-title: 授與存取 Azure SQL Database 和 SQL 資料倉儲的權限 | Microsoft Docs
+title: 授與 Azure SQL Database 和 SQL 資料倉儲的存取權
 description: 了解授與存取 Microsoft Azure SQL Database 和 SQL 資料倉儲的權限。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c115cd7e4d531bfdc7ddbacd4f6eff2a892ea3c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569030"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690762"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database 和 SQL 資料倉儲存取控制
 
@@ -50,7 +50,7 @@ SQL Database 支援兩種驗證類型：
 
 最佳作法是，您的應用程式應該使用專用帳戶進行驗證，因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。 建議的方法是建立[自主資料庫使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)，讓您的應用程式直接與資料庫進行驗證。 
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 
 授權是指使用者可以在 Azure SQL Database 內執行的動作，這是由使用者帳戶的資料庫[角色成員資格](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles)和[物件層級權限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)所控制。 最好的作法是，您應該授與使用者所需的最低權限。 您所連線的伺服器管理員帳戶是 db_owner 的成員，有權限在資料庫中執行任何動作。 請儲存此帳戶，以便部署結構描述升級及其他管理作業。 請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。 如需詳細資訊，請參閱[管理登入](sql-database-manage-logins.md)。
 

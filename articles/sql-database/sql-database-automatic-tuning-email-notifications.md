@@ -1,5 +1,5 @@
 ---
-title: 自動調整電子郵件通知操作說明指南 - Azure SQL Database | Microsoft Docs
+title: 自動調整電子郵件通知的操作說明指南-Azure SQL Database
 description: 啟用 Azure SQL Database 自動查詢調整的電子郵件通知。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e1478ab6abc9705a67f2d47bc076d3c2fe54ccd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569445"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691139"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>針對自動調整的電子郵件通知
 
@@ -26,7 +26,7 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>對自動調整建議的電子郵件通知進行自動化
 
@@ -58,9 +58,9 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 ## <a name="update-azure-automation-modules"></a>更新 Azure 自動化模組
 
-用來抓取自動調整建議的 PowerShell 腳本會使用[get-azresource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource)和[AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction)命令, 其中需要 Azure 模組第4版和更新版本。
+用來抓取自動調整建議的 PowerShell 腳本會使用[get-azresource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource)和[AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction)命令，其中需要 Azure 模組第4版和更新版本。
 
-- 如果您的 Azure 模組需要更新, 請參閱[Azure 自動化中的 Az 模組支援](../automation/az-modules.md)。
+- 如果您的 Azure 模組需要更新，請參閱[Azure 自動化中的 Az 模組支援](../automation/az-modules.md)。
 
 ## <a name="create-azure-automation-runbook"></a>建立 Azure 自動化 Runbook
 

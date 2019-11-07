@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料倉儲中使用動態 SQL 檢視 | Microsoft Docs
+title: 使用動態 SQL
 description: 使用 Azure SQL 資料倉儲中的動態 SQL 以開發解決方案的秘訣。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4454b1d44d0be61dca8571e86c73e09a9527d1eb
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 87320128537a235e8047a2f826b0e59c08aef76b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479651"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692852"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL 資料倉儲中的動態 SQL
 使用 Azure SQL 資料倉儲中的動態 SQL 以開發解決方案的秘訣。
@@ -42,5 +43,5 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 > 
 
 ## <a name="next-steps"></a>後續步驟
-如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。
+如需更多開發秘訣，請參閱 [開發概觀](sql-data-warehouse-overview-develop.md)。
 

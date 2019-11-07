@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料倉儲中使用交易 | Microsoft Docs
+title: 使用交易
 description: 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479600"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692782"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
 
-## <a name="what-to-expect"></a>預期的情況
+## <a name="what-to-expect"></a>未來展望
 如您所預期，SQL 資料倉儲支援交易做為資料倉儲工作負載的一部分。 不過，為了確保 SQL 資料倉儲的效能維持在一定的程度，某些功能會受到限制 (相較於 SQL Server)。 本文特別強調差異，並列出其他交易。 
 
 ## <a name="transaction-isolation-levels"></a>交易隔離層級
@@ -36,7 +37,7 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的上限 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的上限（GB） | 散發的數目 | 交易大小上限（GB） | 每個散發的資料列數 | 每個交易的資料列數上限 |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -46,18 +47,18 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 | DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
 | DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
 | DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW2500c |18.75 |60 |1125 |75000000 |4500000000 |
 | DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW5000c |37.5 |60 |2250 |150000000 |9000000000 |
 | DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
-| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
-| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
-| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
-| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+| DW7500c |56.25 |60 |3375 |225000000 |13500000000 |
+| DW10000c |75 |60 |4500 |300,000,000 |18000000000 |
+| DW15000c |112.5 |60 |6750 |450000000 |27000000000 |
+| DW30000c |225 |60 |13500 |900,000,000 |54000000000 |
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的上限 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的上限（GB） | 散發的數目 | 交易大小上限（GB） | 每個散發的資料列數 | 每個交易的資料列數上限 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -130,7 +131,7 @@ SELECT @xact_state AS TransactionState;
 
 前述程式碼會產生下列錯誤訊息：
 
-Msg 111233, Level 16, State 1, Line 1 111233; 目前的交易已經中止，並已回復任何暫止的變更。 原因：處於僅限復原狀態中的交易，未在使用 DDL、DML 或 SELECT 陳述式之前明確復原。
+Msg 111233, Level 16, State 1, Line 1 111233; 目前的交易已經中止，並已回復任何暫止的變更。 原因︰處於僅限復原狀態中的交易，未在使用 DDL、DML 或 SELECT 陳述式之前明確復原。
 
 您不會收到 ERROR_* 函式的輸出。
 
@@ -175,7 +176,7 @@ SELECT @xact_state AS TransactionState;
 
 唯一的變更就是交易的 ROLLBACK 必須在讀取 CATCH 區塊中的錯誤資訊之前發生。
 
-## <a name="errorline-function"></a>Error_Line() 函式
+## <a name="error_line-function"></a>Error_Line() 函式
 另外值得注意的是，SQL 資料倉儲不會實作或支援 ERROR_LINE() 函式。 如果您的程式碼中有此函式，您必須將它移除才能符合 SQL 資料倉儲規範。 在程式碼中使用查詢標籤，而不需實作對等的功能。 如需詳細資訊，請參閱 [LABEL](sql-data-warehouse-develop-label.md) 文章。
 
 ## <a name="using-throw-and-raiserror"></a>使用 THROW 和 RAISERROR
@@ -198,5 +199,5 @@ SQL 資料倉儲有一些與交易相關的其他限制。
 * 使用者定義的交易內部不支援 DDL，例如 CREATE TABLE
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解最佳化交易，請參閱 [交易的最佳作法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要深入了解其他 SQL 資料倉儲最佳做法，請參閱 [SQL 資料倉儲最佳做法](sql-data-warehouse-best-practices.md)。
+若要深入了解最佳化交易，請參閱[交易的最佳做法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要深入了解其他 SQL 資料倉儲最佳作法，請參閱 [SQL 資料倉儲最佳作法](sql-data-warehouse-best-practices.md)。
 

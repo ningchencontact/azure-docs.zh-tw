@@ -1,5 +1,5 @@
 ---
-title: SaaS 多租用戶 Azure 中的佈建 | Microsoft Docs
+title: SaaS 多租使用者 Azure 中的布建
 description: 了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建及編目新租用戶
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: 3e8e0c69c93c992f31c515c2033a9ae57d2ee3e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f829c0d734838de42a82343876cefa007dcca04d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570306"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692005"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
@@ -74,7 +74,7 @@ ms.locfileid: "68570306"
 在租用戶佈建期間，可從應用程式或 PowerShell 指令碼使用 EDCL 函式來建立分區對應中的項目。 稍後可使用 EDCL 函式來連線到正確的資料庫。 EDCL 會快取連線資訊，以將對目錄資料庫的流量降到最低，並加快連線處理的速度。
 
 > [!IMPORTANT]
-> 請勿透過直接存取來編輯目錄資料庫中的資料！ 不支援直接更新，因其會導致資料損毀的高風險。 請改為僅使用 EDCL API 編輯對應資料。
+> 請勿透過直接存取來編輯目錄資料庫中的資料！ 由於資料毀損的風險過高，因此我們不支援直接更新的做法。 請改為僅使用 EDCL API 編輯對應資料。
 
 ## <a name="tenant-provisioning-pattern"></a>租用戶佈建模式
 
@@ -142,14 +142,14 @@ ms.locfileid: "68570306"
 
 以下是您逐步執行佈建工作流程的重要元素：
 
-- **計算新的租用戶金鑰**：會使用雜湊函式從租用戶名稱建立租用戶索引鍵。
-- **檢查租用戶金鑰是否已經存在**：會檢查目錄以確保尚未註冊金鑰。
-- **在預設租用戶資料庫中初始化租用戶**：會更新租用戶資料庫來新增新的租用戶資訊。  
+- **計算新的租用戶金鑰**：使用雜湊函式，從租用戶名稱建立租用戶金鑰。
+- **檢查租用戶金鑰是否已經存在**：檢查目錄以確保尚未註冊金鑰。
+- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。  
 - **在目錄中註冊租用戶**：將新租用戶金鑰與現有 tenants1 資料庫之間的對應新增至目錄。 
-- **將租用戶的名稱新增至目錄延伸模組資料表**：場地名稱會新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
+- **將租用戶的名稱新增至目錄延伸模組資料表**：將場地名稱新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
 - **開啟新租用戶的事件頁面**：*Bushwillow Blues* 事件頁面隨即在瀏覽器中開啟。
 
-   ![事件](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![活動](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -160,7 +160,7 @@ ms.locfileid: "68570306"
    - **$VenueType** = **blues**，其中一個預先定義的場地類型：blues、classicalmusic、dance、jazz、judo、motorracing、multipurpose、opera、rockmusic、soccer (小寫、不含空格)。
    - **$DemoScenario** = **1**，在與其他租用戶共用的資料庫中佈建租用戶。
 
-2. 將游標放在第38行的任何位置來新增中斷點, 這一行會顯示:[*新增-租*使用者], 然後按**F9**。
+2. 將游標置於第 38 行 (該行顯示︰*New-Tenant `* ) 上的任意位置來新增中斷點，然後按 **F9**。
 
    ![中斷點](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -168,7 +168,7 @@ ms.locfileid: "68570306"
 
 4. 在指令碼於中斷點停止執行之後，請按 **F11** 進入程式碼。
 
-   ![偵錯](media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![debug](media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. 使用 [偵錯] 功能表選項、**F10** 和 **F11** 追蹤指令碼的執行，可以跳過或進入呼叫的函式。
 
@@ -180,16 +180,16 @@ ms.locfileid: "68570306"
 
 以下是您在追蹤指令碼時，逐步執行工作流程的重要元素：
 
-- **計算新的租用戶金鑰**：會使用雜湊函式從租用戶名稱建立租用戶索引鍵。
-- **檢查租用戶金鑰是否已經存在**：會檢查目錄以確保尚未註冊金鑰。
-- **建立新的租用戶資料庫**：資料庫的建立方式為使用 Resource Manager 範本複製 basetenantdb 資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
-- **將資料庫新增至目錄**：新租用戶資料庫在目錄中會註冊為分區。
-- **在預設租用戶資料庫中初始化租用戶**：會更新租用戶資料庫來新增新的租用戶資訊。  
-- **在目錄中註冊租用戶**：將新租用戶金鑰與 sequoiasoccer 資料庫之間的對應新增至目錄。
-- **租用戶名稱會新增至目錄**：場地名稱會新增至目錄中的租用戶延伸模組資料表。
-- **開啟新租用戶的事件頁面**：Sequoia Soccer 事件頁面隨即在瀏覽器中開啟。
+- **計算新的租用戶金鑰**：使用雜湊函式，從租用戶名稱建立租用戶金鑰。
+- **檢查租用戶金鑰是否已經存在**：檢查目錄以確保尚未註冊金鑰。
+- **建立新的租用戶資料庫**：使用 Resource Manager 範本複製 *basetenantdb* 資料庫以建立資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
+- **新增要編目的資料庫**：新的租用戶資料庫會在目錄中註冊為分區。
+- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。  
+- **在目錄中註冊租用戶**：將新租用戶金鑰與 *sequoiasoccer* 資料庫之間的對應新增至目錄。
+- **將租用戶名稱新增至目錄**：將場地名稱新增至目錄中的租用戶延伸模組資料表。
+- **開啟新租用戶的事件頁面**：*Sequoia Soccer* 事件頁面隨即在瀏覽器中開啟。
 
-   ![事件](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
+   ![活動](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -200,7 +200,7 @@ ms.locfileid: "68570306"
    - **$VenueType** = **soccer**，其中一個預先定義的場地類型：blues、classicalmusic、dance、jazz、judo、motorracing、multipurpose、opera、rockmusic、soccer (小寫、不含空格)。
    - **$DemoScenario** = **2**，在它自己的資料庫中佈建租用戶。
 
-2. 將游標置於以第 57 行 (該行顯示︰&&nbsp;$PSScriptRoot\New-TenantAndDatabase `) 上的任意位置來新增中斷點，然後按 **F9**。
+2. 將游標置於以第 57 行 (該行顯示︰ *&$PSScriptRoot\New-TenantAndDatabase `&nbsp;* ) 上的任意位置來新增中斷點，然後按 **F9**。
 
    ![中斷點](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
@@ -236,7 +236,7 @@ ms.locfileid: "68570306"
 - 租用戶名稱會儲存在租用戶資料表中。
 - 資料庫名稱會儲存在分區管理資料表中。
 
-1. 在 SQL Server Management Studio (SSMS) 中, 連線到位於**目錄\<database.windows.net\>** 的租使用者伺服器, 登入 = **developer**, 密碼 =  **\@P ssword1**
+1. 在 SQL Server Management Studio （SSMS）中，連線到位於**目錄-mt 的租使用者伺服器。\<使用者\>. database.windows.net**，登入 = **developer**，密碼 = **P\@ssword1**
 
     ![SSMS 連線對話方塊](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

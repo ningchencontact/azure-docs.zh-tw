@@ -1,5 +1,5 @@
 ---
-title: 升級至最新一代 Azure SQL 資料倉儲 | Microsoft Docs
+title: 升級至最新一代
 description: 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575296"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692449"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
 
@@ -111,7 +112,7 @@ ms.locfileid: "69575296"
 ## <a name="start-the-upgrade"></a>開始升級
 
 1. 在 Azure 入口網站中移至計算最佳化 Gen1 層資料倉儲。 如果要升級的計算最佳化 Gen1 層資料倉儲已暫停，請[繼續執行資料倉儲](pause-and-resume-compute-portal.md)。 
-2. 選取 [工作] 索引標籤底下的 [升級至 Gen2] 卡片：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+2. 選取 [工作] 索引標籤底下的 [**升級至 Gen2**卡]： ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > 如果您未在 [工作] 索引標籤下看見 [升級至 Gen2] 卡片，您的訂用帳戶類型受限於目前的區域。
@@ -129,7 +130,7 @@ ms.locfileid: "69575296"
 
    升級程序的第二個步驟是資料移轉 (「升級 - 上線」)。 資料移轉是在線上慢慢進行的背景程序。 此程序會將單欄式資料慢慢地從舊的儲存體架構移至使用本機 SSD 快取的新儲存體架構。 在此期間，您的資料倉儲將會上線以進行查詢和載入。 您的資料無論已遷移與否，都將可供查詢。 資料移轉會依據您的資料大小、效能層級和資料行存放區的區段數目，而以不同的速率進行。 
 
-5. **選擇性建議：** 在調整作業完成之後，您就可以提高資料移轉背景程序的進行速度。 您可以用較大的 SLO 和資源類別，在您會查詢的所有主要資料行存放區資料表上執行 [Alter Index rebuild](sql-data-warehouse-tables-index.md)，以強制移動資料。 相較於會慢慢進行的背景程序，這項作業會**離線**進行，因此可能需要數小時才能完成 (視資料表的數量和大小而定)。 不過一旦完成，資料移轉速度就會大幅提升，因為增強後的新儲存體架構具有高品質的資料列群組。
+5. **選擇性建議：** 調整作業完成之後，您就可以加速資料移轉的背景處理常式。 您可以用較大的 SLO 和資源類別，在您會查詢的所有主要資料行存放區資料表上執行 [Alter Index rebuild](sql-data-warehouse-tables-index.md)，以強制移動資料。 相較於會慢慢進行的背景程序，這項作業會**離線**進行，因此可能需要數小時才能完成 (視資料表的數量和大小而定)。 不過一旦完成，資料移轉速度就會大幅提升，因為增強後的新儲存體架構具有高品質的資料列群組。
  
 > [!NOTE]
 > Alter Index rebuild 是一種離線作業，資料表在重建完成後才可使用。
@@ -215,7 +216,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要復原資料庫, 請使用[set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)Cmdlet。
+若要復原資料庫，請使用[set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)Cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至 Gen2！ 若要這麼做，請指定 Gen2 ServiceObjectiveName (例如 DW1000**c**) 作為選擇性參數。

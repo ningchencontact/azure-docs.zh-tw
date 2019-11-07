@@ -1,21 +1,22 @@
 ---
-title: Azure SQL 資料倉儲的資料行層級安全性 | Microsoft Docs
+title: 資料行層級安全性
 description: 資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。 CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制。
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61082789"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693078"
 ---
 # <a name="column-level-security"></a>資料行層級安全性
 資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL Database 設計全域可用的服務 | Microsoft Docs
+title: 使用 Azure SQL Database 設計全域可用的服務
 description: 了解使用 Azure SQL Database 對高可用性服務的應用程式設計。
 keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning,雲端災害復原,災害復原方案,應用程式資料備份,異地複寫,商務持續性計劃
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568952"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690713"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>使用 Azure SQL Database 設計全域可用的服務
 
@@ -26,7 +26,7 @@ ms.locfileid: "68568952"
 > [!NOTE]
 > 如果您目前使用進階或業務關鍵資料庫和彈性集區，您可以將它們轉換成區域備援部署組態，使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。  
 
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>案例 1：使用兩個 Azure 區域以獲得最少停機時間的業務持續性
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>情節 1：使用兩個 Azure 區域以獲得最少停機時間的業務持續性
 
 在此情節中，應用程式具有下列特性：
 
@@ -68,7 +68,7 @@ ms.locfileid: "68568952"
 
 主要的**取捨**是區域 B 中的應用程式資源在大部分的時間使用量過低。
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>案例 2：達到最大資料保留之業務持續性的 Azure 區域
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>情節 2：達到最大資料保留之業務持續性的 Azure 區域
 
 這個選項最適合具有下列特性的應用程式：
 
@@ -101,7 +101,7 @@ ms.locfileid: "68568952"
 
 **取捨**是指應用程式必須能夠在唯讀模式下運作。
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>案例 3：應用程式重新配置到不同的地理位置而不會遺失資料且幾乎零停機時間
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>情節 3：應用程式重新配置到不同的地理位置而不會遺失資料且幾乎零停機時間
 
 在此情節中，應用程式具有下列特性：
 
@@ -110,7 +110,7 @@ ms.locfileid: "68568952"
 * 針對多數使用者，必須在相同的地理位置支援寫入資料的存取權
 * 讀取延遲對終端使用者經驗很重要
 
-為了符合這些需求，您必須保證使用者裝置**一律**會連線到部署在相同地理位置中進行唯讀作業的應用程式，例如瀏覽資料、分析等。而**大部分時間**會在相同的地理位置中處理 OLTP 作業。 例如，在日間時間內，會在相同的地理位置中處理 OLTP 作業，但在下班時間內，它們會在不同的地理位置中進行處理。 如果終端使用者活動通常是發生在工作時間內，就可以保證大部分使用者在大多數情況下都能獲得最佳的效能。 下圖顯示此拓撲。
+為了符合這些需求，您必須保證使用者裝置**一律**會連線到部署在相同地理位置中的應用程式，以進行唯讀作業，例如流覽資料、分析等。而 OLTP 作業在**大多數時間**都是在相同的地理位置中處理。 例如，在日間時間內，會在相同的地理位置中處理 OLTP 作業，但在下班時間內，它們會在不同的地理位置中進行處理。 如果終端使用者活動通常是發生在工作時間內，就可以保證大部分使用者在大多數情況下都能獲得最佳的效能。 下圖顯示此拓撲。
 
 應該將應用程式的資源部署在您有大量使用需求的每個地理位置。 例如，如果您是在美國境內、歐盟和東南亞主動使用應用程式，就應該將應用程式部署在這所有的地理位置。 在工作時間結束時，應該以動態方式將主要資料庫從一個地理位置切換到下一個地理位置。 此方法稱為「追日」。 OLTP 工作負載一律會透過讀寫接聽程式 **&lt;failover-group-name&gt;.database.windows.net** 連線到資料庫 (1)。 唯讀工作負載會使用資料庫伺服器端點 **&lt;server-name&gt;.database.windows.net**，直接連線至本機資料庫 (2)。 已使用[效能路由方法](../traffic-manager/traffic-manager-configure-performance-routing-method.md)設定流量管理員。 它會確保使用者的裝置連線到最接近區域中的 web 服務。 應使用針對每個 web 服務端點啟用的端點監視來設定流量管理員 (3)。
 
@@ -148,7 +148,7 @@ ms.locfileid: "68568952"
 * 地區中斷會導致地理位置受到較長延遲的影響。 讀寫和唯讀工作負載都是由不同地理位置中的應用程式提供服務。
 * 唯讀工作負載必須連線到每個區域中的不同結束點。
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>商務持續性計畫：針對雲端災害復原選擇應用程式設計
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>商務持續性計劃：針對雲端災害復原選擇應用程式設計
 
 特定的雲端災害復原策略可以合併或擴充這些設計模式，以完全滿足應用程式的需求。  如先前所述，您選擇的策略取決於您想要提供給客戶的 SLA 和應用程式部署拓樸。 為了協助指導您做決定，下表是以復原點目標 (RPO) 和預估復原時間 (ERT) 作為基礎來比較各種選擇。
 

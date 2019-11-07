@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL 資料倉儲具體化 views 進行效能微調 |Microsoft Docs
+title: 使用具體化視圖進行效能微調
 description: 當您使用具體化視圖來改善查詢效能時，應該知道的建議和考慮。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338907"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692978"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>使用具體化視圖進行效能微調 
 Azure SQL 資料倉儲中的具體化視圖可針對複雜的分析查詢提供較低的維護方法，以在沒有任何查詢變更的情況下取得快速效能。 本文討論使用具體化視圖的一般指引。
@@ -32,12 +33,12 @@ Azure SQL 資料倉儲支援標準和具體化的視圖。  兩者都是使用 S
 
 
 
-| 比較                     | 檢視表                                         | 具體化檢視             
+| 比較                     | 檢視                                         | 具體化檢視模式             
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------| 
 |檢視定義                 | 儲存在 Azure 資料倉儲中。              | 儲存在 Azure 資料倉儲中。    
 |視圖內容                    | 每次使用 view 時就會產生。   | 在建立視圖期間，預先處理並儲存在 Azure 資料倉儲中。 已更新，因為資料已加入基礎資料表中。                                             
 |資料重新整理                    | 一律更新                               | 一律更新                          
-|從複雜查詢取得視圖資料的速度     | 一些                                         | 快  
+|從複雜查詢取得視圖資料的速度     | 一些                                         | 快速  
 |額外儲存空間                   | 否                                           | 是                             
 |語法                          | 建立視圖                                  | 建立具體化視圖做為選取           
      
@@ -86,7 +87,7 @@ Azure 資料倉儲是分散式大量平行處理（MPP）系統。   資料倉�
 
 在您開始建立具體化視圖之前，請務必先深入瞭解查詢模式、重要性、頻率和產生的資料大小等方面的工作負載。  
 
-使用者可以針對查詢最佳化工具所建議的具體化視圖，執行說明 WITH_RECOMMENDATIONS < SQL_statement >。  由於這些建議是查詢專屬的，因此，針對相同工作負載中的其他查詢，受益于單一查詢的具體化視圖可能不是最理想的。  請考慮您的工作負載需求來評估這些建議。  理想的具體化視圖是可受益于工作負載效能的瀏覽器。  
+使用者可以針對查詢最佳化工具建議的具體化視圖，執行說明 WITH_RECOMMENDATIONS < SQL_statement >。  由於這些建議是查詢專屬的，因此，針對相同工作負載中的其他查詢，受益于單一查詢的具體化視圖可能不是最理想的。  請考慮您的工作負載需求來評估這些建議。  理想的具體化視圖是可受益于工作負載效能的瀏覽器。  
 
 **請留意速度較快的查詢與成本之間的取捨** 
 
@@ -106,7 +107,7 @@ JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 
 - 捨棄具有低使用量或不再需要的具體化視圖。  已停用的具體化視圖不會維護，但仍會產生儲存體成本。  
 
-- 結合在相同或相似基表上建立的具體化 views，即使其資料不重迭也一樣。  合併具體化視圖的大小可能會比個別視圖的總和大得多，不過，視圖維護成本應該會減少。  例如:
+- 結合在相同或相似基表上建立的具體化 views，即使其資料不重迭也一樣。  合併具體化視圖的大小可能會比個別視圖的總和大得多，不過，視圖維護成本應該會減少。  例如：
 
 ```sql
 
@@ -136,7 +137,7 @@ GROUP BY A, C
 
 **監視具體化視圖** 
 
-具體化視圖會儲存在資料倉儲中，就像是具有叢集資料行存放區索引（CCI）的資料表一樣。  從具體化視圖讀取資料包括掃描 CCI 索引區段，以及套用基表的任何累加式變更。 當累加變更的數目過高時，從具體化視圖解析查詢可能需要比直接查詢基表更長的時間。  為避免查詢效能降低，請執行[DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)來監視視圖的 overhead_ratio （total_rows/max （1，base_view_row）），是很好的作法。  如果使用者的 overhead_ratio 太高，則應該重建具體化視圖。 
+具體化視圖會儲存在資料倉儲中，就像是具有叢集資料行存放區索引（CCI）的資料表一樣。  從具體化視圖讀取資料包括掃描 CCI 索引區段，以及套用基表的任何累加式變更。 當累加變更的數目過高時，從具體化視圖解析查詢可能需要比直接查詢基表更長的時間。  為了避免查詢效能降低，最好是執行[DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)來監視視圖的 overhead_ratio （total_rows/max （1，base_view_row））。  如果使用者的 overhead_ratio 太高，則應該重建具體化視圖。 
 
 **具體化視圖和結果集快取**
 

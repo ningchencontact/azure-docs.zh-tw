@@ -1,5 +1,5 @@
 ---
-title: 跨多個 Azure SQL 資料庫執行報表查詢 | Microsoft Docs
+title: 跨多個 Azure SQL 資料庫執行報告查詢
 description: 使用分散式查詢跨租用戶報告。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570240"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691897"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>使用分散式查詢跨租用戶報告
 
@@ -95,7 +95,7 @@ SaaS 應用程式的其中一個機會是使用儲存在雲端的大量租用戶
    ![檢視](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. 以滑鼠右鍵按一下 **dbo.Venues**。
-3. 選取 [產生檢視的指令碼為] > [CREATE To] > [新的查詢編輯器視窗]
+3. 選取 [指令碼檢視] > [CREATE To] > [新的查詢編輯器視窗]
 
 產生其他任何 *Venue* 檢視的指令碼，以查看如何新增 *VenueId*。
 
@@ -105,7 +105,7 @@ SaaS 應用程式的其中一個機會是使用儲存在雲端的大量租用戶
 
 1. 在 PowerShell ISE 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReporting.ps1。 
 
-1. 設定 **$DemoScenario = 2**,_部署隨選報表資料庫_。
+1. 設定 **$DemoScenario = 2**，_部署隨選報表資料庫_。
 
 1. 按 **F5** 以執行指令碼並建立 adhocreporting 資料庫。
 
@@ -147,7 +147,7 @@ SaaS 應用程式的其中一個機會是使用儲存在雲端的大量租用戶
 
 檢查執行計畫時，將滑鼠停留在計畫圖示上方，以取得詳細資料。 
 
-值得注意的是，定義外部資料來源時的設定 **DISTRIBUTION = SHARDED(VenueId)** 可改善許多情況的效能。 由於每個*VenueId*都會對應至個別的資料庫, 因此篩選可以從遠端執行, 只傳回所需的資料。
+值得注意的是，定義外部資料來源時的設定 **DISTRIBUTION = SHARDED(VenueId)** 可改善許多情況的效能。 由於每個*VenueId*都會對應至個別的資料庫，因此篩選可以從遠端執行，只傳回所需的資料。
 
 1. 在 SSMS 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReportingQueries.sql。
 2. 確定您已連線到 **adhocreporting** 資料庫。
@@ -172,7 +172,7 @@ SaaS 應用程式的其中一個機會是使用儲存在雲端的大量租用戶
 
    此查詢會執行比較複雜的聯結和彙總。 大部分處理是在遠端發生。  只有其中包含每個場地每日票證銷售計數的單一資料列，會傳回給前端資料庫。
 
-   ![查詢](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
+   ![query](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>後續步驟

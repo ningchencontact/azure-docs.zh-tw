@@ -1,18 +1,18 @@
 ---
-title: 使用 Visual Studio 部署至 Azure Analysis Services |Microsoft Docs
+title: 使用 Visual Studio 將模型部署至 Azure Analysis Services |Microsoft Docs
 description: 瞭解如何使用 Visual Studio 將表格式模型部署至 Azure Analysis Services 伺服器。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 60681739854515078a521a4ff795e52aa7d74183
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572888"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>從 Visual Studio 部署模型
 

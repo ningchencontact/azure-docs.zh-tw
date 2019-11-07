@@ -1,0 +1,306 @@
+---
+title: 變更 Azure Blob 儲存體中的摘要（預覽） |Microsoft Docs
+description: 深入瞭解 Azure Blob 儲存體中的變更摘要記錄，以及如何使用它們。
+author: normesta
+ms.author: normesta
+ms.date: 11/04/2019
+ms.topic: conceptual
+ms.service: storage
+ms.subservice: blobs
+ms.reviewer: sadodd
+ms.openlocfilehash: 07123fd5701e9041ff377ea5309cf1291e737ca6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693614"
+---
+# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 儲存體中的變更摘要支援（預覽）
+
+變更摘要的目的是要為儲存體帳戶中 blob 和 blob 中繼資料所發生的所有變更提供交易記錄。 變更摘要會提供這些變更的已**排序**、**保證**、**持久**、**不可變**、**唯讀**記錄。 用戶端應用程式可以隨時在串流處理或批次模式中讀取這些記錄。 變更摘要可讓您建立有效率且可調整的解決方案，以低成本處理 Blob 儲存體帳戶中發生的變更事件。
+
+> [!NOTE]
+> 變更摘要處於公開預覽狀態，並可在**westcentralus**和**westus2**區域中使用。 請參閱本文的[條件](#conditions)一節。 若要註冊預覽，請參閱本文的[註冊您的訂](#register)用帳戶一節。
+
+變更摘要會以[blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)的形式儲存在儲存體帳戶的特殊容器中，以標準[blob 定價](https://azure.microsoft.com/pricing/details/storage/blobs/)成本為限。 您可以根據您的需求來控制這些檔案的保留期限（請參閱目前版本的[條件](#conditions)）。 變更事件會以[Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html)格式規格的記錄形式附加至變更摘要，這是精簡、快速的二進位格式，可使用內嵌架構提供豐富的資料結構。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。
+
+您可以非同步或完整地處理這些記錄。 任何數目的用戶端應用程式都可以依自己的步調，以平行方式獨立讀取變更摘要。 [Apache](https://drill.apache.org/docs/querying-avro-files/)切入或[Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html)之類的分析應用程式可以直接取用記錄檔，其為 Avro 檔案，可讓您以低成本的方式處理這些檔案，且具有高頻寬，而不需要撰寫自訂應用程式。
+
+變更摘要支援非常適用于根據已變更物件來處理資料的案例。 例如，應用程式可以：
+
+  - 更新次要索引、與快取、搜尋引擎或任何其他內容管理案例進行同步處理。
+  
+  - 根據物件發生的變更，以資料流程方式或批次模式，將商務分析見解和計量解壓縮。
+  
+  - 針對安全性、合規性或企業資料管理的智慧，儲存、審查和分析物件的變更。
+
+  - 建立解決方案來備份、鏡像或複寫您帳戶中的物件狀態，以進行嚴重損壞的管理或合規性。
+
+  - 建立連接的應用程式管線，以根據所建立或變更的物件來回應變更事件或排程執行。
+
+> [!NOTE]
+> [Blob 儲存體事件](storage-blob-event-overview.md)會提供即時的一次性事件，讓您的 Azure Functions 或應用程式對 Blob 發生的變更做出反應。 變更摘要提供持久、已排序的變更記錄模型。 變更摘要中的變更會在變更摘要中的幾分鐘內，于您的變更摘要中提供。 如果您的應用程式必須更快速地回應事件，請考慮改為使用[Blob 儲存體事件](storage-blob-event-overview.md)。 Blob 儲存體事件可讓您的 Azure Functions 或應用程式即時回應個別事件。
+
+## <a name="enabling-and-disabling-the-change-feed"></a>啟用和停用變更摘要
+
+您必須啟用變更摘要，才能開始捕獲變更。 停用變更摘要以停止捕獲變更。 您可以使用入口網站或 Powershell 上 Azure Resource Manager 範本來啟用及停用變更。
+
+### <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+若要使用 Azure 入口網站部署範本：
+
+1. 在 Azure 入口網站中，選擇 **建立資源**。
+
+2. 在 [搜尋 Marketplace] 中，輸入**範本部署**，然後按 **ENTER**。
+
+3. 選擇 [**範本部署**]，選擇 [**建立**]，然後**在編輯器中選擇 [建立您自己的範本**]。
+
+5. 在 [範本編輯器] 中，貼上下列 json。 使用您的儲存體帳戶名稱取代 `<accountName>` 預留位置。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [{
+        "type": "Microsoft.Storage/storageAccounts/blobServices",
+        "apiVersion": "2019-04-01",
+        "name": "<accountName>/default",
+        "properties": {
+            "changeFeed": {
+            "enabled": true
+            }
+        } 
+     }]
+}
+```
+4. 選擇 [**儲存**] 按鈕，指定帳戶的資源群組，然後選擇 [**購買**] 按鈕以啟用變更摘要。
+
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+若要使用 PowerShell 部署範本：
+
+1. 安裝最新的 PowershellGet。
+
+   ```powershell
+   install-Module PowerShellGet –Repository PSGallery –Force
+   ```
+
+2. 關閉，然後重新開啟 Powershell 主控台。
+
+3. 安裝**Az** preview 模組。
+
+   ```powershell
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   ```
+
+4. 使用 `Connect-AzAccount` 命令登入 Azure 訂用帳戶，並遵循畫面上的指示進行驗證。
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+5. 為您的儲存體帳戶啟用變更摘要。
+
+   ```powershell
+   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   ```
+
+---
+
+當您啟用變更摘要時，請記住以下幾點。
+
+- 每個儲存體帳戶中的 blob 服務只有一個變更摘要。 
+
+- 變更只會在 blob 服務層級上捕捉。
+
+- 變更摘要會針對帳戶上發生的所有可用事件，捕捉*所有*的變更。 用戶端應用程式可以視需要篩選掉事件種類。 （請參閱目前版本的[條件](#conditions)）。
+
+- 不支援具有階層式命名空間的帳戶。
+
+## <a name="consuming-the-change-feed"></a>使用變更摘要
+
+變更摘要會產生數個中繼資料和記錄檔。 這些檔案位於儲存體帳戶的 **$blobchangefeed**容器中。 
+
+>[!NOTE]
+> 在目前的版本中，儲存體總管或 Azure 入口網站中看不到 **$blobchangefeed**容器。 
+
+您的用戶端應用程式可以使用 SDK 隨附的 blob 變更摘要處理器程式庫來取用變更摘要。 
+
+請參閱[Azure Blob 儲存體中的處理變更摘要記錄](storage-blob-change-feed-how-to.md)。
+
+## <a name="understanding-change-feed-organization"></a>瞭解變更摘要組織
+
+<a id="segment-index"></a>
+
+### <a name="segments"></a>使用者分佈
+
+變更摘要是組織成**每小時***區段*的變更記錄（請參閱[規格](#specifications)）。 這可讓您的用戶端應用程式取用在特定時間範圍內發生的變更，而不需要搜尋整個記錄檔。
+
+變更摘要的可用小時區段會在指定該區段變更摘要檔案路徑的資訊清單檔中描述。 `$blobchangefeed/idx/segments/` 虛擬目錄的清單會顯示依時間排序的這些區段。 區段的路徑描述區段所代表之每小時時間範圍的開始。 （請參閱[規格](#specifications)）。 您可以使用該清單來篩選出您感利率的記錄區段。
+
+```text
+Name                                                                    Blob Type    Blob Tier      Length  Content Type    
+----------------------------------------------------------------------  -----------  -----------  --------  ----------------
+$blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
+$blobchangefeed/idx/segments/2019/02/22/1810/meta.json                  BlockBlob                      584  application/json
+$blobchangefeed/idx/segments/2019/02/22/1910/meta.json                  BlockBlob                      584  application/json
+$blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlob                      584  application/json
+```
+
+> [!NOTE]
+> 當您啟用變更摘要時，就會自動建立 `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json`。 您可以放心地忽略此檔案。 它一律是空的。 
+
+區段資訊清單檔案（`meta.json`）會在 `chunkFilePaths` 屬性中顯示該區段的變更摘要檔案路徑。 以下是區段資訊清單檔案的範例。
+
+```json
+{
+    "version": 0,
+    "begin": "2019-02-22T18:10:00.000Z",
+    "intervalSecs": 3600,
+    "status": "Finalized",
+    "config": {
+        "version": 0,
+        "configVersionEtag": "0x8d698f0fba563db",
+        "numShards": 2,
+        "recordsFormat": "avro",
+        "formatSchemaVersion": 1,
+        "shardDistFnVersion": 1
+    },
+    "chunkFilePaths": [
+        "$blobchangefeed/log/00/2019/02/22/1810/",
+        "$blobchangefeed/log/01/2019/02/22/1810/"
+    ],
+    "storageDiagnostics": {
+        "version": 0,
+        "lastModifiedTime": "2019-02-22T18:11:01.187Z",
+        "data": {
+            "aid": "55e507bf-8006-0000-00d9-ca346706b70c"
+        }
+    }
+}
+```
+
+> [!NOTE]
+> 如果您在儲存體帳戶中列出容器，只有在您已啟用帳戶的變更摘要功能之後，才會顯示 `$blobchangefeed` 容器。 啟用變更摘要之後，您必須等候幾分鐘的時間，才能看到容器。
+
+<a id="log-files"></a>
+
+### <a name="change-event-records"></a>變更事件記錄
+
+變更摘要檔案包含一系列的變更事件記錄。 每個變更事件記錄都會對應到個別 blob 的一項變更。 這些記錄會使用[Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html)格式規格進行序列化並寫入檔案。 您可以使用 Avro 檔案格式規格來讀取記錄。 有數個程式庫可用來處理該格式的檔案。
+
+變更摘要檔案會以[附加 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)的形式儲存在 `$blobchangefeed/log/` 虛擬目錄中。 每個路徑下的第一個變更摘要檔案會在檔案名中 `00000` （例如 `00000.avro`）。 每個新增至該路徑的後續記錄檔名稱會遞增1（例如： `00001.avro`）。
+
+以下是從變更摘要檔案轉換為 Json 的變更事件記錄範例。
+
+```json
+{
+     "schemaVersion": 1,
+     "topic": "/subscriptions/dd40261b-437d-43d0-86cf-ef222b78fd15/resourceGroups/sadodd/providers/Microsoft.Storage/storageAccounts/mytestaccount",
+     "subject": "/blobServices/default/containers/mytestcontainer/blobs/mytestblob",
+     "eventType": "BlobCreated",
+     "eventTime": "2019-02-22T18:12:01.079Z",
+     "id": "55e5531f-8006-0000-00da-ca3467000000",
+     "data": {
+         "api": "PutBlob",
+         "clientRequestId": "edf598f4-e501-4750-a3ba-9752bb22df39",
+         "requestId": "00000000-0000-0000-0000-000000000000",
+         "etag": "0x8D698F13DCB47F6",
+         "contentType": "application/octet-stream",
+         "contentLength": 128,
+         "blobType": "BlockBlob",
+         "url": "",
+         "sequencer": "000000000000000100000000000000060000000000006d8a",
+         "storageDiagnostics": {
+             "bid": "11cda41c-13d8-49c9-b7b6-bc55c41b3e75",
+             "seq": "(6,5614,28042,28038)",
+             "sid": "591651bd-8eb3-c864-1001-fcd187be3efd"
+         }
+  }
+}
+
+```
+如需每個屬性的說明，請參閱[適用于 Blob 儲存體的 Azure Event Grid 事件架構](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties)。
+
+> [!NOTE]
+> 區段的變更摘要檔案不會立即在區段建立後出現。 延遲的長度是在變更摘要發佈延遲的標準間隔內，在變更摘要的幾分鐘內。
+
+<a id="specifications"></a>
+
+## <a name="specifications"></a>規格
+
+- 變更事件記錄只會附加至變更摘要。 一旦附加這些記錄，它們就是不可變的，且記錄位置是穩定的。 用戶端應用程式可以在變更摘要的讀取位置維護自己的檢查點。
+
+- 變更事件記錄會附加到變更幾分鐘的順序中。 用戶端應用程式可以選擇取用記錄，因為它們會針對串流存取而附加，或在任何其他時間大量地使用。
+
+- 變更事件記錄是依**每個 blob**的修改順序排序。 在 Azure Blob 儲存體中，未定義跨 blob 的變更順序。 先前區段中的所有變更都會在後續區段中的任何變更之前。
+
+- 變更事件記錄會使用[Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html)格式規格序列化成記錄檔。
+
+- 變更事件記錄，其中 `eventType` 的值為 [`Control`] 為內部系統記錄，而且不會反映您帳戶中的物件變更。 您應該忽略它們。
+
+- `storageDiagnonstics` 屬性包中的值僅供內部使用，不適合應用程式使用。 您的應用程式不應對該資料具有合約相關性。
+
+- 區段所表示的時間**大約**為15分鐘的界限。 因此，為了確保在指定的時間內取用所有記錄，會耗用連續的上一個和下一個小時區段。
+
+- 每個區段可以有不同數目的 `chunkFilePaths`。 這是由於記錄資料流程的內部資料分割，用來管理發佈輸送量。 每個 `chunkFilePath` 中的記錄檔一定會包含互斥的 blob，而且可以平行取用和處理，而不會違反反覆運算期間每個 blob 的修改順序。
+
+- 區段會以 `Publishing` 狀態開始。 一旦將記錄附加到區段完成後，就會 `Finalized`。 您的應用程式不應使用在 `$blobchangefeed/meta/Segments.json` 檔案中 `LastConsumable` 屬性日期之後的任何區段中的記錄檔。 以下是 `$blobchangefeed/meta/Segments.json` 檔案中 `LastConsumable`屬性的範例：
+
+```json
+{
+    "version": 0,
+    "lastConsumable": "2019-02-23T01:10:00.000Z",
+    "storageDiagnostics": {
+        "version": 0,
+        "lastModifiedTime": "2019-02-23T02:24:00.556Z",
+        "data": {
+            "aid": "55e551e3-8006-0000-00da-ca346706bfe4",
+            "lfz": "2019-02-22T19:10:00.000Z"
+        }
+    }
+}
+
+```
+
+<a id="register"></a>
+
+## <a name="register-your-subscription-preview"></a>註冊您的訂用帳戶（預覽）
+
+因為變更摘要僅適用于公開預覽，所以您必須註冊您的訂用帳戶才能使用此功能。
+
+### <a name="register-by-using-powershell"></a>使用 PowerShell 進行註冊
+
+在 PowerShell 主控台中，執行下列命令：
+
+   ```powershell
+   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+   ```
+### <a name="register-by-using-azure-cli"></a>使用 Azure CLI 進行註冊
+
+在 Azure Cloud Shell 中，執行下列命令：
+
+```cli
+az feature register --namespace Microsoft.Storage --name Changefeed
+az provider register --namespace 'Microsoft.Storage'
+```
+
+<a id="conditions"></a>
+
+## <a name="conditions-and-known-issues-preview"></a>條件和已知問題（預覽）
+
+本節說明變更摘要目前公開預覽版中的已知問題和條件。
+
+- 變更摘要只會捕捉建立、更新、刪除和複製作業。
+- 變更任何單一變更的事件記錄，可能會在變更摘要中出現一次以上。
+- 您還無法藉由在其上設定以時間為基礎的保留原則，來管理變更摘要記錄檔的存留期。
+- 記錄檔的 `url` 屬性一律是空的。
+- 區段. json 檔案的 `LastConsumable` 屬性不會列出變更摘要最終完成的第一個區段。 只有在第一個區段完成後，才會發生此問題。 第一個小時之後的所有後續區段會正確地在 `LastConsumable` 屬性中捕捉。
+
+## <a name="next-steps"></a>後續步驟
+
+- 請參閱如何使用 .NET 用戶端應用程式讀取變更摘要的範例。 請參閱[Azure Blob 儲存體中的處理變更摘要記錄](storage-blob-change-feed-how-to.md)。
+- 深入瞭解如何即時回應事件。 請參閱[回應 Blob 儲存體事件](storage-blob-event-overview.md)

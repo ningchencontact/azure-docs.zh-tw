@@ -1,8 +1,8 @@
 ---
-title: 安裝適用于 SQL 資料倉儲的 Visual Studio 2019 |Microsoft Docs
+title: 安裝 Visual Studio 2019
 description: 安裝適用於 Azure SQL 資料倉儲的 Visual Studio 和 SQL Server Development Tools (SSDT)
 services: sql-data-warehouse
-ms.custom: vs-azure
+ms.custom: seo-lt-2019
 ms.workload: azure-vs
 author: kevinvngo
 manager: craigg
@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 10/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ca59080b4056ba74e2f05038e07d647f12de765
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: caf4a3efbfafcdb10a8834c213b2469e30296501
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485054"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692684"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>開始使用適用于 SQL 資料倉儲的 Visual Studio 2019
 Visual Studio **2019** SQL SERVER DATA TOOLS （SSDT）是單一工具，可讓您執行下列動作：
@@ -39,7 +39,7 @@ Visual Studio **2019** SQL SERVER DATA TOOLS （SSDT）是單一工具，可讓�
 若要在使用 SSDT 與 SQL 資料倉儲時回報問題，請傳送電子郵件至下列電子郵件通訊群組清單： <sqldwssdtpreview@service.microsoft.com>
 
 ## <a name="next-steps"></a>後續步驟
-既然您已有最新版本的 SSDT，[就可以開始連線到您][connect]的 SQL 資料倉儲。
+既然您已有最新版本的 SSDT，就可以開始[連線][connect]到您的 SQL 資料倉儲。
 
 <!--Anchors-->
 

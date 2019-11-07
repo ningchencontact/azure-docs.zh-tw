@@ -1,5 +1,5 @@
 ---
-title: Always Encrypted：Azure SQL Database - Windows 憑證存放區 | Microsoft Docs
+title: 'Always Encrypted： Azure SQL Database-Windows 憑證存放區 '
 description: 本文說明如何使用 SQL Server Management Studio (SSMS) 中的 [一律加密精靈]，藉由資料庫加密來保護 SQL Database 中的機密資料。 它也會說明如何將您的加密金鑰儲存在 Windows 憑證存放區中。
 keywords: 加密資料, SQL 加密, 資料庫加密, 機密資料, 一律加密
 services: sql-database
@@ -12,16 +12,16 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569562"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691238"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted：保護機密資料並將加密金鑰儲存在 Windows 憑證存放區中
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>一律加密：保護機密資料並將加密金鑰儲存在 Windows 憑證存放區中
 
-本文說明如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) 中的[一律加密精靈](https://msdn.microsoft.com/library/mt459280.aspx)，藉由資料庫加密來保護 SQL Database 中的機密資料。 它也會說明如何將您的加密金鑰儲存在 Windows 憑證存放區中。
+本文說明如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt459280.aspx) 中的[一律加密精靈](https://msdn.microsoft.com/library/hh213248.aspx)，藉由資料庫加密來保護 SQL Database 中的機密資料。 它也會說明如何將您的加密金鑰儲存在 Windows 憑證存放區中。
 
 「一律加密」是 Azure SQL Database 和 SQL Server 中新的資料加密技術，不論是當機密資料在伺服器上待用時、在用戶端與伺服器之間移動時，還是使用中時，都可協助保護資料，確保機密資料在資料庫系統內一律不會以純文字顯示。 加密資料之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。 如需詳細資訊，請參閱 [一律加密 (資料庫引擎)](https://msdn.microsoft.com/library/mt163865.aspx)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "68569562"
 * 建立資料庫資料表並將資料行加密。
 * 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 針對本教學課程，您將需要：
 
@@ -101,7 +101,7 @@ SSMS 提供一個精靈，可為您設定 CMK、CEK 及加密的資料行，來�
 
     ![加密資料行](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰組態** (CMK)、**驗證**和**摘要**。
+「一律加密」精靈包含下列區段︰[資料行選取]、[主要金鑰組態] (CMK)、[驗證] 及 [摘要]。
 
 ### <a name="column-selection"></a>資料行選取
 
@@ -125,11 +125,11 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 您現在可以加密資料行，或儲存為 PowerShell 指令碼以供日後執行。 針對這個教學課程，請選取 [繼續以立即完成]，然後按 [下一步]。
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>摘要
 
 確認設定全都正確，然後按一下 [完成] 以完成 [一律加密] 的設定。
 
-![總結](./media/sql-database-always-encrypted/summary.png)
+![摘要](./media/sql-database-always-encrypted/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>確認精靈的動作
 

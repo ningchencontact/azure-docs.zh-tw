@@ -1,6 +1,6 @@
 ---
-title: 使用結果集快取進行效能微調 |Microsoft Docs
-description: 功能概觀
+title: 使用結果集快取進行效能微調
+description: Azure SQL 資料倉儲的結果集快取功能總覽
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 6dd3172dd9098db0cb7ec09e812eec65f717340a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 461320b9c3ed48176fb60fe695704c582edcd552
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163224"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692949"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>使用結果集快取進行效能微調  
 啟用結果集快取時，Azure SQL 資料倉儲會自動快取使用者資料庫中的查詢結果，以供重複使用。  這可讓後續的查詢執行直接從持續性快取取得結果，因此不需要重新計算。   結果集快取可改善查詢效能並減少計算資源使用量。  此外，使用快取結果集的查詢不會使用任何平行存取插槽，因此不會計算現有的並行限制。 基於安全性，如果使用者與建立快取結果的使用者具有相同的資料存取權限，則只能存取快取的結果。  
@@ -63,7 +64,7 @@ WHERE request_id  = <'request_id'>;
 - 新查詢與產生結果集快取的前一個查詢之間有完全相符的情況。
 - 從產生快取結果集的資料表中，沒有任何資料或架構變更。
 
-執行此命令，以檢查查詢是否以結果快取點擊或遺漏的方式執行。 如果有快取命中，result_cache_hit 會傳回1。
+執行此命令，以檢查查詢是否以結果快取點擊或遺漏的方式執行。 如果發生快取命中，result_cache_hit 會傳回1。
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 

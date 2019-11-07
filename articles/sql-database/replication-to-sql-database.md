@@ -1,5 +1,5 @@
 ---
-title: 複寫至 Azure SQL Database | Microsoft Docs
+title: 複寫至 Azure SQL Database」
 description: 了解如何搭配 Azure SQL Database 單一資料庫和彈性集區中的資料庫使用 SQL Server 複寫
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae564a98b77b1ac564fa9aae152b27c491187d0c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570482"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692214"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>複寫至 SQL Database 單一資料庫與集區資料庫
 
@@ -51,7 +51,7 @@ ms.locfileid: "68570482"
 - SQL Server 上的單一發行集可同時支援 Azure SQL Database 和 SQL Server (內部部署和 Azure 虛擬機器中的 SQL Server) 訂閱者。  
 - 複寫管理、監視和疑難排解都必須從內部部署 SQL Server 執行。  
 - 僅支援對 Azure SQL Database 的發送訂閱。  
-- 在 SQL Database 的 **sp_addsubscription** 中僅支援 `@subscriber_type = 0`。  
+- 在 SQL Database 的 `@subscriber_type = 0`sp_addsubscription**中僅支援**。  
 - Azure SQL Database 不支援雙向、即時、可更新或點對點複寫。
 
 ## <a name="replication-architecture"></a>複寫架構  

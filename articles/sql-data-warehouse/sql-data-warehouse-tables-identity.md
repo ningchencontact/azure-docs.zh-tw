@@ -1,5 +1,5 @@
 ---
-title: 使用 IDENTITY 建立 Surrogate 索引鍵 - Azure SQL 資料倉儲 | Microsoft Docs
+title: 使用身分識別建立代理金鑰
 description: 在 Azure SQL 資料倉儲中的資料表上，使用 IDENTITY 屬性建立 Surrogate 索引鍵的建議與範例。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515580"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692479"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中，使用 IDENTITY 建立 Surrogate 索引鍵
 
@@ -122,7 +123,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>正在載入資料
+## <a name="loading-data"></a>載入資料
 
 IDENTITY 屬性的存在會對您的資料載入程式碼造成一些影響。 本節會重點說明使用 IDENTITY 將資料載入資料表的一些基本模式。
 
@@ -203,7 +204,7 @@ SQL 資料倉儲中不支援下列相關函式：
 - [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql)
 - [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql)
 
-## <a name="common-tasks"></a>常見工作
+## <a name="common-tasks"></a>一般工作
 
 本節提供一些範例程式碼，可在您使用 IDENTITY 資料行時用來執行一般工作。
 
@@ -241,5 +242,5 @@ AND     tb.name = 'T1'
 ## <a name="next-steps"></a>後續步驟
 
 - [資料表概觀](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [CREATE TABLE (Transact-sql) IDENTITY (屬性)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
+- [CREATE TABLE （Transact-sql） IDENTITY （屬性）](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)

@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure SQL 資料庫執行分析查詢 | Microsoft Docs
+title: '對 Azure SQL 資料庫執行分析查詢 '
 description: 在多租用戶應用程式中使用從多個 Azure SQL Database 資料庫擷取的資料執行跨租用戶分析查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: b36911d274a3afb3582d60ea7e85b5afd5f52ece
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570288"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691994"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>使用擷取的資料執行跨租用戶分析 - 多租用戶應用程式
  
@@ -63,7 +63,7 @@ ms.locfileid: "68570288"
 
 了解每個租用戶使用服務的一致性，會提供機會得以建立符合其需求的服務方案。 本教學課程提供可以從租用戶資料收集之深入解析的基本範例。
 
-## <a name="setup"></a>安裝程式
+## <a name="setup"></a>設定
 
 ### <a name="prerequisites"></a>必要條件
 
@@ -91,17 +91,17 @@ ms.locfileid: "68570288"
 2. 在指令碼中設定 $DemoScenario 變數，以符合您對於分析存放區的選擇。 基於學習之目的，建議您使用沒有資料行存放區的 SQL 資料庫。
     - 若要使用沒有資料行存放區的 SQL 資料庫，請設定 **$DemoScenario** = **2**
     - 若要使用具有資料行存放區的 SQL 資料庫，請設定 **$DemoScenario** = **3**  
-3. 按**F5**執行示範腳本 (其會呼叫*部署-TenantAnalytics\<XX > ps1*腳本), 以建立租使用者分析存放區。 
+3. 按**F5**執行示範腳本（會呼叫*TenantAnalytics\<XX > ps1*腳本）來建立租使用者分析存放區。 
 
-現在您已部署應用程式, 並以有趣的租使用者資料加以填入, 請使用[SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)來連接**tenants1\<-\> mt-user**和**catalog\<-mt-使用者\>** 使用 Login = *developer*, Password = *P\@ssword1*的伺服器。
+現在您已部署應用程式，並使用有趣的租使用者資料加以填入，請使用[SQL Server Management Studio （SSMS）](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ，將**tenants1-Mt\<的使用者\>** 和**目錄-mt\<的使用者\>** 伺服器使用Login = *developer*，Password = *P\@ssword1*。
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
 在 [物件總管] 中，執行下列步驟：
 
-1. 展開 tenants1-mt-\<User\> 伺服器。
+1. 展開 tenants1-mt-*User\<\>* 伺服器。
 2. 展開 [資料庫] 節點，並查看包含多個租用戶的 tenants1 資料庫。
-3. 展開 catalog-mt-\<User\> 伺服器。
+3. 展開 catalog-mt-*User\<\>* 伺服器。
 4. 請確認您看到分析存放區和 jobaccount 資料庫。
 
 藉由展開分析存放區節點，查看 SSMS 物件總管中的下列資料庫項目：
@@ -118,7 +118,7 @@ ms.locfileid: "68570288"
 
 繼續之前，請確定您已部署作業帳戶與 jobaccount 資料庫。 在下一組步驟中，彈性作業是用來從分區的租用戶資料庫擷取資料，然後將資料儲存在分析存放區。 然後，第二個作業會切割資料，並將它儲存到星狀結構描述中的資料表。 這兩個作業會針對兩個不同的目標群組執行，也就是 **TenantGroup** 和 **AnalyticsGroup**。 擷取作業會針對 TenantGroup 執行，該群組包含所有租用戶資料庫。 切割作業會針對 AnalyticsGroup 執行，該群組只包含分析存放區。 使用下列步驟建立目標群組：
 
-1. 在 SSMS 中，連線至 catalog-mt-\<User\> 中的 **jobaccount** 資料庫。
+1. 在 SSMS 中，連線至 catalog-mt-**User** 中的 \<jobaccount\> 資料庫。
 2. 在 SSMS 中，開啟 …\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql 
 3. 在指令碼上方修改 @User 變數，將 `<User>` 取代為您部署 Wingtip Tickets SaaS 多租用戶資料庫應用程式時使用的使用者值。
 4. 按下 **F5** 以執行指令碼，該指令碼會建立這兩個目標群組。
@@ -132,7 +132,7 @@ ms.locfileid: "68570288"
 
 每個作業都會擷取其資料，並將它張貼至分析存放區。 個別作業會將擷取的資料分割為分析星狀結構描述。
 
-1. 在 SSMS 中，連線至 catalog-mt-\<User\> 伺服器中的 **jobaccount** 資料庫。
+1. 在 SSMS 中，連線至 catalog-mt-**User** 伺服器中的 \<jobaccount\> 資料庫。
 2. 在 SSMS 中，開啟 ...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql。
 3. 在指令碼上方修改 @User，將 `<User>` 取代為您部署 Wingtip Tickets SaaS 多租用戶資料庫應用程式時使用的使用者名稱。 
 4. 按下 **F5** 以執行指令碼，該指令碼會建立和執行作業，從每個租用戶資料庫擷取票證和客戶資料。 作業會將資料儲存至分析存放區。
@@ -152,7 +152,7 @@ ms.locfileid: "68570288"
 
 在本章節的教學課程中，您會定義和執行作業，合併擷取的未經處理資料與星狀結構描述資料表中的資料。 合併作業完成之後，未經處理資料會遭到刪除，讓資料表準備好由下一個租用戶資料擷取作業填入。
 
-1. 在 SSMS 中，連線至 catalog-mt-\<User\> 中的 **jobaccount** 資料庫。
+1. 在 SSMS 中，連線至 catalog-mt-**User** 中的 \<jobaccount\> 資料庫。
 2. 在 SSMS 中，開啟 …\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql。
 3. 按下 **F5** 以執行指令碼，定義會呼叫分析存放區中 sp_ShredRawExtractedData 預存程序的作業。
 4. 允許足夠時間讓作業成功執行。
@@ -175,13 +175,13 @@ ms.locfileid: "68570288"
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. 在左窗格中選取 [**資料庫**], 然後輸入 user name = *developer*, 並輸入 password = *P\@ssword1*。 按一下 **[連接]** 。  
+5. 在左窗格中選取 [**資料庫**]，然後輸入 user name = *developer*，並輸入 password = *P\@ssword1*。 按一下 [連接]。  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. 在分析資料庫底下的 [導覽] 窗格中，選取星狀結構描述資料表：fact_Tickets dim_Events、dim_Venues、dim_Customers 和 dim_Dates。 然後選取 [載入]。 
 
-恭喜您！ 您已成功將資料載入 Power BI。 現在您可以開始探索有趣的視覺效果，協助您深入解析您的租用戶。 接下來您會逐步了解分析如何讓您將資料驅動的建議提供給 Wingtip 票證業務小組。 建議可協助最佳化商務模型和客戶體驗。
+恭喜！ 您已成功將資料載入 Power BI。 現在您可以開始探索有趣的視覺效果，協助您深入解析您的租用戶。 接下來您會逐步了解分析如何讓您將資料驅動的建議提供給 Wingtip 票證業務小組。 建議可協助最佳化商務模型和客戶體驗。
 
 您會從分析票證銷售資料來查看跨地點之使用方式的變化來開始。 在 Power BI 中選取下列選項，以依據每個地點銷售的票證總數，繪製橫條圖。 由於票證產生器中的隨機變化，您的結果可能會不同。
  
@@ -227,7 +227,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > - 使用預先定義的星狀結構描述資料表部署租用戶分析資料庫
@@ -236,7 +236,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 > - 查詢分析資料庫 
 > - 使用適用於資料視覺效果的 Power BI 來觀察租用戶資料的趨勢 
 
-恭喜您！
+恭喜！
 
 ## <a name="additional-resources"></a>其他資源
 

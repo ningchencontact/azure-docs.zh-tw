@@ -1,5 +1,5 @@
 ---
-title: 跨多個 Azure SQL 資料庫執行隨選報表查詢 | Microsoft Docs
+title: 跨多個 Azure SQL 資料庫執行特定報表查詢
 description: 在多租用戶應用程式範例中，跨多個 SQL 資料庫執行隨選報表查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570356"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692078"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL 資料庫執行臨機操作分析查詢
 
@@ -72,7 +72,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 
 此練習會部署 adhocreporting 資料庫。 這就是包含用來查詢所有租用戶資料庫之結構描述的 head 資料庫。 此資料庫會部署到現有的目錄伺服器，也就是在範例應用程式中供所有管理相關資料庫使用的伺服器。
 
-1. 在 [PowerShell ISE] 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReporting.ps1 並設定下列值：
+1. 在 [PowerShell ISE]\\\\ 中開啟 ...\\Learning Modules\\Operational Analytics*Adhoc Reporting*Demo-AdhocReporting.ps1 並設定下列值：
    * **$DemoScenario** = 2，**部署臨機操作分析資料庫**。
 
 2. 按 **F5** 以執行指令碼並建立 adhocreporting 資料庫。
@@ -138,7 +138,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 
    此查詢會執行比較複雜的聯結和彙總。 值得注意的是，大部分處理都在遠端電腦上進行，同樣地，我們只取回我們所需的資料列，只傳回每天每個地點彙總的票證銷售計數的單一資料列。
 
-   ![查詢](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>後續步驟

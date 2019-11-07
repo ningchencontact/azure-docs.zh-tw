@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 驗證 - Azure SQL | Microsoft Docs
+title: Azure Active Directory auth-Azure SQL
 description: 了解如何使用 Azure Active Directory 向 SQL Database、受控執行個體及 SQL 資料倉儲進行驗證
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4516f75d80345312a6ca3b6dac3e5156d7e239e8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896991"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691360"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -44,7 +44,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 設定步驟包括以下設定和使用 Azure Active Directory 驗證的程序。
 
 1. 建立和填入 Azure AD。
-2. 選擇性：和目前與 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更。
+2. 選用：和目前與您的 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更
 3. 為 Azure SQL Database 伺服器、「受控執行個體」或 [Azure SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)建立 Azure Active Directory 系統管理員。
 4. 設定用戶端電腦。
 5. 在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者。
@@ -69,7 +69,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ![系統管理員結構][3]
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 若要建立新的使用者，您必須具有資料庫中的 `ALTER ANY USER` 權限。 任何資料庫使用者皆可授與 `ALTER ANY USER` 權限。 `ALTER ANY USER` 權限的擁有者還包括伺服器系統管理員帳戶、具備資料庫之 `CONTROL ON DATABASE` 或 `ALTER ON DATABASE` 權限的資料庫使用者，以及 `db_owner` 資料庫角色的成員。
 

@@ -1,5 +1,5 @@
 ---
-title: ActiveDirectoryInteractive 連線至 SQL | Microsoft Docs
+title: ActiveDirectoryInteractive 連接到 SQL
 description: C# 程式碼範例 (具有說明)，使用 SqlAuthenticationMethod.ActiveDirectoryInteractive 模式來連線到 Azure SQL Database。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi, vanto
 ms.date: 10/11/2019
-ms.openlocfilehash: c55fa6d58109345a0c600bd0c1c76c5a229c03bc
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5e7d58e5e0fc79e407e77ae9d73314a1d5d22666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554518"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692294"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>使用 Azure 多重要素驗證連接到 Azure SQL Database
 
@@ -45,7 +45,7 @@ ms.locfileid: "72554518"
 > [!TIP]
 > 您可以使用[.NET API 瀏覽器工具頁面](https://docs.microsoft.com/dotnet/api/)來搜尋 .NET Framework api。
 >
-> 您也可以直接使用選擇性的[？ term = &lt;search 值 &gt; 參數](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)進行搜尋。
+> 您也可以直接使用選擇性的[？ term =&lt;搜尋值&gt; 參數](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)進行搜尋。
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>在 Azure 入口網站中設定您的 C# 應用程式
 
@@ -59,7 +59,7 @@ ms.locfileid: "72554518"
 
 若要為應用程式註冊與設定必要權限，請遵循下列步驟：
 
-1. 在 Azure 入口網站中，選取  **Azure Active Directory**  > **應用程式註冊** > **新增註冊**。
+1. 在 Azure 入口網站中，選取  **Azure Active Directory** > **應用程式註冊** > **新增註冊**。
 
     ![應用程式註冊](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "72554518"
 
     ![顯示的應用程式識別碼](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. 選取  **API 許可權**  > **新增許可權**。
+2. 選取  **API 許可權** > **新增許可權**。
 
     ![已註冊應用程式的權限設定](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "72554518"
 
     ![將存取權新增至 Azure SQL Database 的 API](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. @No__t_1**user_impersonation**  >  [**新增許可權**] 中選取 [**委派的許可權**]。
+4. 選取 **委派的許可權** > **user_impersonation** > **新增許可權**。
 
     ![將權限委派給 Azure SQL Database 的 API](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "72554518"
 
 若要C#讓您的程式執行，Azure SQL server 系統管理員必須為您的 SQL Database 伺服器指派 Azure AD 系統管理員。 
 
-在  **SQL Server**  頁面上，選取  **Active Directory Admin**   > **設定 admin**。
+在  **SQL Server**  頁面上，選取  **Active Directory Admin**  > **設定 admin**。
 
 如需 Azure SQL Database Azure AD 系統管理員和使用者的詳細資訊，請參閱[使用 SQL Database 設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)中的螢幕擷取畫面。
 
@@ -118,10 +118,10 @@ C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/
 | 靜態欄位名稱 | 範例值 | 在 Azure 入口網站中的位置 |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | [SQL Server] > [依名稱篩選] |
-| AzureAD_UserID | "auser \@abc. onmicrosoft.com" | [Azure Active Directory] > [使用者] > [新增來賓使用者] |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | [Azure Active Directory] > [使用者] > [新增來賓使用者] |
 | Initial_DatabaseName | "myDatabase" | [SQL Server] > [SQL 資料庫] |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | [Azure Active Directory] > [應用程式註冊] > [依名稱搜尋] > [應用程式識別碼] |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory**  > **應用程式註冊** > **依名稱搜尋** >  *[您的應用程式註冊]*  > **設定** > **RedirectURIs**<br /><br />在本文中，任何有效的值都適用于 RedirectUri，因為此處並未用到它。 |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **應用程式註冊** > **依名稱搜尋** >  *[您的應用程式註冊]*  > **設定** > **RedirectURIs**<br /><br />在本文中，任何有效的值都適用于 RedirectUri，因為此處並未用到它。 |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>使用 SQL Server Management Studio 進行驗證

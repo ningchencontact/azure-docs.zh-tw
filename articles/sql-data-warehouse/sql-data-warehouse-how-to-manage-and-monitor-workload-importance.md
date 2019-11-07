@@ -1,6 +1,6 @@
 ---
-title: 管理和監視 Azure SQL 資料倉儲中的工作負載重要性 |Microsoft Docs
-description: 了解如何管理和監視要求層級的重要性。
+title: 管理及監視工作負載的重要性
+description: 瞭解如何在 Azure SQL 資料倉儲中管理和監視要求層級的重要性。
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,21 +10,22 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 30afe1805748012b0a137c865c799580f79d31d8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588648"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692703"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>管理和監視 Azure SQL 資料倉儲中的工作負載重要性
 
-管理和監視 Azure SQL 資料倉儲使用 Dmv 和目錄檢視中的要求層級重要性。
+使用 Dmv 和目錄檢視，在 Azure SQL 資料倉儲中管理和監視要求層級的重要性。
 
 ## <a name="monitor-importance"></a>監視重要性
 
-監視使用中的新 「 重要性 」 資料行的重要性[sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)動態管理檢視。
-下列監視顯示提交時間和開始時間查詢的查詢。 檢閱提交時間，並開始的時間，以及查看重要性如何影響排程的重要性。
+使用 [ [dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)動態管理] 視圖中的 [新重要性] 資料行來監視重要性。
+下列監視查詢會顯示查詢的提交時間和開始時間。 查看提交時間和開始時間以及重要性，以查看重要性如何影響排程。
 
 ```sql
 SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
@@ -34,11 +35,11 @@ SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
 ORDER BY r.start_time
 ```
 
-若要查看進一步的查詢如何在排程，使用目錄檢視。
+若要進一步查看查詢的排程方式，請使用目錄檢視。
 
-## <a name="manage-importance-with-catalog-views"></a>管理與目錄檢視的重要性
+## <a name="manage-importance-with-catalog-views"></a>使用目錄檢視管理重要性
 
-Sys.workload_management_workload_classifiers 目錄檢視包含在您的 Azure SQL 資料倉儲執行個體中的分類器的詳細資訊。 若要排除系統定義的分類器對應至資源類別會執行下列程式碼：
+Workload_management_workload_classifiers 目錄檢視包含 Azure SQL 資料倉儲實例中分類器的資訊。 若要排除對應至資源類別的系統定義分類器，請執行下列程式碼：
 
 ```sql
 SELECT *
@@ -46,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-目錄檢視[sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest)，包含用於建立的分類器參數的相關資訊。  下列查詢會顯示在建立 ExecReportsClassifier```membername```使用 ExecutiveReports 為值的參數：
+目錄檢視[workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest)，其中包含建立分類器時所使用之參數的資訊。  下列查詢顯示已使用 ExecutiveReports 在值的 ```membername``` 參數上建立 ExecReportsClassifier：
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -58,8 +59,8 @@ SELECT c.name,cd.classifier_type, classifier_value
 
 ![查詢結果](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
-若要簡化疑難排解分類誤判，我們建議您移除資源類別角色對應，當您建立工作負載分類器。 下列程式碼會傳回現有的資源類別角色成員資格。 針對每個執行 sp_droprolemember```membername```傳回對應的資源類別。
-以下是檢查存在，再卸除工作負載分類器的範例：
+若要簡化分類誤判的疑難排解，建議您在建立工作負載分類器時，移除資源類別角色對應。 下列程式碼會傳回現有的資源類別角色成員資格。 針對每個從對應的資源類別傳回的 ```membername``` 執行 sp_droprolemember。
+以下是在卸載工作負載分類器之前，檢查是否存在的範例：
 
 ```sql
 IF EXISTS (SELECT 1 FROM sys.workload_management_workload_classifiers WHERE name = 'ExecReportsClassifier')
@@ -68,8 +69,8 @@ GO
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 如需有關分類的詳細資訊，請參閱[工作負載分類](sql-data-warehouse-workload-classification.md)。
-- 如需有關重要性的詳細資訊，請參閱[工作負載的重要性](sql-data-warehouse-workload-importance.md)
+- 如需分類的詳細資訊，請參閱[工作負載分類](sql-data-warehouse-workload-classification.md)。
+- 如需重要性的詳細資訊，請參閱[工作負載重要性](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [移至 設定工作負載的重要性](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [前往設定工作負載重要性](sql-data-warehouse-how-to-configure-workload-importance.md)

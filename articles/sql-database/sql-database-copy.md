@@ -1,5 +1,5 @@
 ---
-title: 複製 Azure SQL 資料庫 | Microsoft Docs
+title: 複製 Azure SQL 資料庫
 description: 在同個伺服器或不同伺服器上，建立現有 Azure SQL 資料庫的交易一致性複本。
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934210"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690813"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
-Azure SQL Database 提供數種方法, 可在相同伺服器或不同的伺服器上, 建立現有 Azure SQL 資料庫 ([單一資料庫](sql-database-single-database.md)) 的交易一致複本。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。 
+Azure SQL Database 提供數種方法，可在相同伺服器或不同的伺服器上，建立現有 Azure SQL 資料庫（[單一資料庫](sql-database-single-database.md)）的交易一致複本。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
-資料庫複本是發生複製要求時的來源資料庫快照集。 您可以選取相同的伺服器或不同的伺服器。 此外, 您也可以選擇保留其服務層級和計算大小, 或在相同的服務層級 (版本) 中使用不同的計算大小。 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 此複本是使用異地複寫技術所建立，一旦植入完成，異地複寫連結就會自動終止。 使用異地複寫的所有需求都適用于資料庫複製作業。 如需詳細資訊，請參閱[主動式異地複寫總覽](sql-database-active-geo-replication.md)。
+資料庫複本是發生複製要求時的來源資料庫快照集。 您可以選取相同的伺服器或不同的伺服器。 此外，您也可以選擇保留其服務層級和計算大小，或在相同的服務層級（版本）中使用不同的計算大小。 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 此複本是使用異地複寫技術所建立，一旦植入完成，異地複寫連結就會自動終止。 使用異地複寫的所有需求都適用于資料庫複製作業。 如需詳細資訊，請參閱[主動式異地複寫總覽](sql-database-active-geo-replication.md)。
 
 > [!NOTE]
 > 當您建立資料庫複本時，會使用[自動資料庫備份](sql-database-automated-backups.md)。
@@ -49,7 +49,7 @@ Azure SQL Database 提供數種方法, 可在相同伺服器或不同的伺服�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要使用 PowerShell 來複製資料庫, 請使用[AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) Cmdlet。 
+若要使用 PowerShell 來複製資料庫，請使用[AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) Cmdlet。 
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -86,16 +86,16 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
    
 若要使用 Azure 入口網站來管理資料庫複製，您也需要下列許可權：
 
-&nbsp;&nbsp; Microsoft.resources/訂用&nbsp;帳戶/資源/讀取   
-&nbsp;&nbsp; Microsoft.resources/訂用&nbsp;帳戶/資源/寫入   
-&nbsp;&nbsp; Microsoft&nbsp; .resources/部署/讀取   
-&nbsp;&nbsp; Microsoft&nbsp; .resources/部署/寫入   
-&nbsp;&nbsp; Microsoft.resources/&nbsp;部署/operationstatuses/讀取    
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/資源/讀取   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/資源/寫入   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/部署/讀取   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/部署/寫入   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/部署/operationstatuses/讀取    
 
 如果您想要查看入口網站上資源群組中的 [部署] 底下的作業，跨多個資源提供者的作業（包括 SQL 作業），您將需要這些額外的 RBAC 角色： 
 
-&nbsp;&nbsp; Microsoft.resources/訂用帳戶/resourcegroups/&nbsp;部署/作業/讀取   
-&nbsp;&nbsp; Microsoft.resources/訂用帳戶/resourcegroups/&nbsp;部署/operationstatuses/讀取
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/resourcegroups/部署/作業/讀取   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/resourcegroups/部署/operationstatuses/讀取
 
 
 
@@ -130,10 +130,10 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>將 SQL 資料庫複製到不同的訂用帳戶
 
-您可以使用上一節所述的步驟, 將您的資料庫複製到不同訂用帳戶中的 SQL Database 伺服器。 請確定您使用的登入與源資料庫的資料庫擁有者具有相同的名稱和密碼, 而且它是 dbmanager 角色的成員, 或者是伺服器層級主體登入。 
+您可以使用上一節所述的步驟，將您的資料庫複製到不同訂用帳戶中的 SQL Database 伺服器。 請確定您使用的登入與源資料庫的資料庫擁有者具有相同的名稱和密碼，而且它是 dbmanager 角色的成員，或者是伺服器層級主體登入。 
 
 > [!NOTE]
-> [Azure 入口網站](https://portal.azure.com)不支援複製到不同的訂用帳戶, 因為入口網站會呼叫 ARM API, 並使用訂用帳戶憑證來存取與異地複寫相關的兩部伺服器。  
+> [Azure 入口網站](https://portal.azure.com)不支援複製到不同的訂用帳戶，因為入口網站會呼叫 ARM API，並使用訂用帳戶憑證來存取與異地複寫相關的兩部伺服器。  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>監視複製作業的進度
 

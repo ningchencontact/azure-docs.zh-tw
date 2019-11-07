@@ -1,5 +1,5 @@
 ---
-title: 使用 SQL Database 異地複寫進行 SaaS 應用程式的災害復原 | Microsoft Docs
+title: 使用 Azure SQL Database 異地複寫的 SaaS 應用程式的嚴重損壞修復
 description: 了解在發生中斷的狀況時如何使用 Azure SQL Database 異地複寫復原多租用戶 SaaS 應用程式
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: bebbb3d053db37a9716230dfbb14372696dd4936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f6f8ed39de36ce38b0bc4b879980a054bf480d0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570536"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692236"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用資料庫異地複寫進行多租用戶 SaaS 應用程式的災害復原
 
@@ -51,14 +51,14 @@ ms.locfileid: "68570536"
 
 這三方面都必須審慎考量，尤其是在大規模運作時。 整體來說，此計畫必須完成數個目標：
 
-* 安裝程式
+* 設定
     * 在復原區域中建立及維護鏡像映像環境。 在此復原環境中建立彈性集區並複寫任何資料庫，可保留復原區域中的容量。 維護此環境的工作，包括在新的租用戶資料庫佈建時加以複寫。  
 * 復原
     * 使用相應減少的復原環境來降低日常成本時，必須相應增加集區與資料庫，以達到復原區域中的完整運作容量
     * 讓新的租用戶盡快佈建於復原區域中  
     * 以最佳化方式依優先順序還原租用戶
     * 在可行的情況下平行執行步驟，以最佳化方式儘速將租用戶上線
-    * 有彈性地處理失敗、可重新啟動且具有等冪性
+    * 對失敗有彈性、可重新啟動且具有等冪性
     * 在原始區域重新上線時，能夠中途取消還原程序。
 * 回復 
     * 在租用戶受到最小影響的情況下，將資料庫從復原區域容錯移轉至原始區域：不會遺失資料，並盡可能縮短每個租用戶的離線期間。   
@@ -84,12 +84,12 @@ ms.locfileid: "68570536"
 隨後，在個別的回復步驟中，您會將復原區域中的目錄和租用戶資料庫容錯移轉至原始區域。 在整個回復期間，應用程式和資料庫皆可供使用。 完成後，應用程式會在原始區域中正常運作。
 
 > [!Note]
-> 應用程式會復原到部署應用程式之區域的_配對區域_中。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
+> 應用程式會復原到部署應用程式所在區域的_配對的區域_中。 如需詳細資訊，請參閱 [Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 ## <a name="review-the-healthy-state-of-the-application"></a>檢視應用程式的健康狀態
 
 在開始進行復原程序之前，請先查看應用程式的正常健康狀態。
-1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net，將 &lt; user&gt; 取代為部署的使用者值)。
+1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net，將 &lt;user&gt; 取代為部署的使用者值)。
     * 捲動至頁面底部，並查看頁尾處的目錄伺服器名稱和位置。 此位置是您部署應用程式的區域。
     *提示：將滑鼠置於此位置上方，可放大顯示畫面。* 
     ![原始區域中的事件中樞健康狀態](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -105,7 +105,7 @@ ms.locfileid: "68570536"
 在此工作中，您會開始進行將伺服器、彈性集區和資料庫的組態同步至租用戶目錄中的程序。 此程序會將目錄中的這些資訊保持在最新狀態。  此程序會處理使用中的目錄，無論目錄位於原始區域還是復原區域中。 組態資訊會作為復原程序的一部分，以確保復原環境與原始環境的一致性，並且在隨後的回復期間確保原始區域會透過在復原環境中所做的任何變更保有一致性。 此目錄也可用來追蹤租用戶資源的復原狀態
 
 > [!IMPORTANT]
-> 為了簡單起見, 同步處理常式和其他長時間執行的復原和回復程式都會在這些教學課程中實作為本機 PowerShell 作業或在您用戶端使用者登入下執行的會話。 在您登入時核發的驗證權杖將在數小時後到期，屆時作業即會失敗。 在生產環境中，應以某種可靠、在服務主體下執行的 Azure 服務來實作長時間執行的程序。 請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
+> 為了簡單起見，同步處理常式和其他長時間執行的復原和回復程式都會在這些教學課程中實作為本機 PowerShell 作業或在您用戶端使用者登入下執行的會話。 在您登入時核發的驗證權杖將在數小時後到期，屆時作業即會失敗。 在生產環境中，應以某種可靠、在服務主體下執行的 Azure 服務來實作長時間執行的程序。 請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
 
 1. 在 _PowerShell ISE_ 中，開啟 ...\Learning Modules\UserConfig.psm1 檔案。 請將第 10 和 11 行上的 `<resourcegroup>` 與 `<user>` 取代為您部署應用程式時所使用的值。  儲存檔案。
 
@@ -153,7 +153,7 @@ ms.locfileid: "68570536"
 
 復原指令碼會執行下列工作：
 
-1. 停用原始區域內的 Web 應用程式的流量管理員端點。 如果原始區域在復原過程中上線，停用此端點可防止使用者連線至處於無效狀態的應用程式。
+1. 停用原始區域內 Web 應用程式的流量管理員端點。 如果原始區域在復原過程中上線，停用此端點可防止使用者連線至處於無效狀態的應用程式。
 
 1. 在復原區域中使用目錄資料庫的容錯移轉並使其成為主要資料庫，然後更新 _activecatalog_ 別名以指向復原目錄伺服器。
 
@@ -163,7 +163,7 @@ ms.locfileid: "68570536"
 
 1. 更新復原區域中所有彈性集區與已複寫的單一資料庫的設定，以鏡像其在原始區域中的設定。 (只有在正常作業期間相應減少復原環境中的集區或複寫資料庫以降低成本時，才需要執行此工作)。
 
-1. 啟用復原區域中的 Web 應用程式的流量管理員端點。 啟用此端點可讓應用程式佈建至新的租用戶。 在此階段中，現有的租用戶仍處於離線狀態。
+1. 啟用復原區域中的 Web 應用程式的流量管理員端點。 啟用此端點可讓應用程式佈建新的租用戶。 在此階段中，現有的租用戶仍處於離線狀態。
 
 1. 提交批次要求，以強制依照優先順序容錯移轉資料庫。
     * 批次會進行組織，讓資料庫以平行方式在所有集區間容錯移轉。
@@ -173,7 +173,7 @@ ms.locfileid: "68570536"
    > 發生中斷的情況時，原始區域中的主要資料庫會離線。  對次要資料庫強制執行容錯移轉，會中斷主要資料庫的連線，且不會嘗試套用任何已排入佇列的其餘交易。 在類似於本教學課程的 DR 演練案例中，如果在容錯移轉期間發生任何更新活動，則可能會遺失部分資料。 隨後在回復期間，當您將復原區域中的資料庫重新容錯移轉至原始區域時，將使用一般容錯移轉來確保不會遺失任何資料。
 
 1. 監視 SQL 資料庫服務以判斷資料庫在何時進行容錯移轉。 租用戶資料庫在容錯移轉後，會更新目錄以記錄租用戶資料庫的復原狀態，並將租用戶標示為「已上線」。
-    * 租用戶資料庫在目錄中標示為「已上線」後，即可供應用程式存取。
+    * 租用戶資料庫在目錄中標示為上線後，即可供應用程式存取。
     * 租用戶資料庫中的 rowversion 值的總和會儲存在目錄中。 此值會作為指紋，據以允許回復程序判斷資料庫是否已在復原區域中更新。
 
 ### <a name="run-the-script-to-fail-over-to-the-recovery-region"></a>執行容錯移轉至復原區域的指令碼
@@ -185,7 +185,7 @@ ms.locfileid: "68570536"
 
 2. 按 **F5** 以執行指令碼。  
     * 此指令碼會在新的 PowerShell 視窗中開啟，然後啟動一系列平行執行的 PowerShell 作業。 這些作業會將租用戶資料庫容錯移轉至復原區域。
-    * 復原區域是與您的應用程式部署所在的 Azure 區域相關聯的_配對區域_。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
+    * 復原區域是與您的應用程式部署所在的 Azure 區域相關聯的_配對區域_。 如需詳細資訊，請參閱 [Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
 
 3. 在 PowerShell 視窗中監視復原程序的狀態。
     ![容錯移轉程序](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -193,7 +193,7 @@ ms.locfileid: "68570536"
 > [!Note]
 > 若要瀏覽復原作業的程式碼，請檢閱 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs 資料夾中的 PowerShell 指令碼。
 
-### <a name="review-the-application-state-during-recovery"></a>查看復原期間的應用程式狀態
+### <a name="review-the-application-state-during-recovery"></a>檢閱復原期間的應用程式狀態
 
 當應用程式端點在流量管理員中停用時，應用程式無法使用。 當目錄容錯移轉至復原區域，且所有租用戶皆標示為離線後，應用程式即會重新上線。 雖然應用程式可供使用，但每個租用戶在事件中樞內都會顯示為離線，直到其資料庫容錯移轉為止。 請務必設計您的應用程式以處理離線的租用戶資料庫。
 
@@ -206,7 +206,7 @@ ms.locfileid: "68570536"
  
      ![事件中樞離線](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * 如果您直接開啟離線租用戶的 [事件] 頁面，頁面上會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt user&gt;.trafficmanager.net/contosoconcerthall ![ Contoso 離線頁面](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * 如果您直接開啟離線租用戶的 [事件] 頁面，頁面上會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&ltuser&gt;.trafficmanager.net/contosoconcerthall ![Contoso 離線頁面](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>在復原區域中佈建新租用戶
 即使在所有現有的租用戶資料庫皆完成容錯移轉之前，您也可以在復原區域中佈建新的租用戶。  
@@ -255,7 +255,7 @@ ms.locfileid: "68570536"
 2. 在 *PowerShell ISE* 中，進入 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 指令碼，並設定下列值：
     * **$DemoScenario = 5**，從復原區域的租用戶中刪除事件
 3. 按 **F5** 以執行指令碼
-4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall - 請將 &lt; user&gt; 替換為部署的使用者值)，並留意系統已刪除最後一個事件。
+4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - 請將 &lt;user&gt; 替換為部署的使用者值)，並留意系統已刪除最後一個事件。
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>將應用程式回復至其原始生產區域
 
@@ -288,7 +288,7 @@ ms.locfileid: "68570536"
     * 按 **F5** 在新的 PowerShell 視窗中執行復原指令碼。  回復需要幾分鐘的時間，您可以在 PowerShell 視窗中加以監視。
     ![回復程序](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. 執行指令碼時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)
+4. 執行指令碼時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
     * 留意到在這整個程序中，所有租用戶皆處於線上狀態，且可供存取。
 
 5. 回復程序完成後，請重新整理事件中樞，並開啟 Hawthorn Hall 的事件頁面。 留意到此資料庫已回復至其原始區域。

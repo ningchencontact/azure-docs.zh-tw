@@ -1,5 +1,5 @@
 ---
-title: 複寫資料表設計指引 - Azure SQL 資料倉儲 | Microsoft Docs
+title: 複寫資料表的設計指引
 description: 針對在「Azure SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,35 +10,36 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479320"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693055"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>先決條件
-本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[架構](massively-parallel-processing-mpp-architecture.md)文章。 
+## <a name="prerequisites"></a>必要條件
+本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[架構](massively-parallel-processing-mpp-architecture.md)一文。 
 
-在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請思考一下下列問題：
+在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請考慮下列問題：
 
 - 資料表的大小為何？   
 - 資料表的重新整理頻率為何？   
 - 我是否在資料倉儲中有事實資料表和維度資料表？   
 
 ## <a name="what-is-a-replicated-table"></a>什麼是複寫資料表？
-複寫資料表在每個計算節點上都有一份可存取的完整資料表複本。 複寫資料表可使在進行聯結或彙總之前，不需要在計算節點之間傳輸資料。 由於資料表有多個複本，因此當資料表大小在壓縮後小於 2 GB 時，複寫資料表的運作效能最佳。  2 GB 不是固定限制。  如果資料是靜態的, 而且不會變更, 您可以複寫較大的資料表。
+複寫資料表在每個計算節點上都有一份可存取的完整資料表複本。 複寫資料表可使在進行聯結或彙總之前，不需要在計算節點之間傳輸資料。 由於資料表有多個複本，因此當資料表大小在壓縮後小於 2 GB 時，複寫資料表的運作效能最佳。  2 GB 不是固定限制。  如果資料是靜態的，而且不會變更，您可以複寫較大的資料表。
 
 下圖顯示每個計算節點上可存取的複寫資料表。 在「SQL 資料倉儲」中，會將複寫資料表完整複製到每個計算節點上的散發資料庫。 
 
-![複寫的資料表](media/guidance-for-using-replicated-tables/replicated-table.png "複寫的資料表")  
+![複寫資料表](media/guidance-for-using-replicated-tables/replicated-table.png "複寫的資料表")  
 
-複寫資料表適用于星型架構中的維度資料表。 維度資料表通常會聯結到與維度資料表不同的事實資料表。  維度通常是一種大小, 可讓您儲存及維護多個複本。 維度會儲存變更緩慢的描述性資料，例如客戶名稱和地址，以及產品詳細資料。 資料的緩時變本質導致複寫資料表的維護變得較少。 
+複寫資料表適用于星型架構中的維度資料表。 維度資料表通常會聯結到與維度資料表不同的事實資料表。  維度通常是一種大小，可讓您儲存及維護多個複本。 維度會儲存變更緩慢的描述性資料，例如客戶名稱和地址，以及產品詳細資料。 資料的緩時變本質導致複寫資料表的維護變得較少。 
 
 在下列情況下，請考慮使用複寫資料表：
 
@@ -47,8 +48,8 @@ ms.locfileid: "68479320"
  
 在下列情況下，複寫資料表可能無法產生最佳查詢效能：
 
-- 資料表有頻繁的插入、更新及刪除作業。 這些資料操作語言 (DML) 作業需要重建複寫資料表。 經常重建會導致效能變差。
-- 經常調整資料倉儲。 調整資料倉儲會變更計算節點的數目, 這會導致重建複寫資料表。
+- 資料表有頻繁的插入、更新及刪除作業。 這些資料操作語言（DML）作業需要重建複寫資料表。 經常重建可能會導致效能變慢。
+- 經常調整資料倉儲。 調整資料倉儲會變更計算節點的數目，這會導致重建複寫資料表。
 - 資料表有大量資料行，但資料作業通常只存取少數資料行。 在此情況下散發資料表，然後針對經常存取的資料行建立索引，可能會比複寫整個資料表還要有效。 當查詢需要進行資料移動時，「SQL 資料倉儲」只會移動所要求資料行中的資料。 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>使用複寫資料表搭配簡單查詢述詞
@@ -59,7 +60,7 @@ ms.locfileid: "68479320"
 
 需要大量 CPU 的查詢在工作分散於所有計算節點時效能最佳。 例如，以在資料表的每個資料列上執行計算的查詢來說，在複寫資料表上執行會比在分散式資料表上執行效能更佳。 由於複寫資料表是完整儲存在每個計算節點上，因此對複寫資料表執行需要大量 CPU 的查詢時，執行對象會是每個計算節點上的整個資料表。 額外的計算會降低查詢效能。
 
-例如，此查詢含有複雜的述詞。  當資料位於分散式資料表而不是複寫資料表時, 它的執行速度會更快。 在此範例中, 資料可以是迴圈配置資源散發。
+例如，此查詢含有複雜的述詞。  當資料位於分散式資料表而不是複寫資料表時，它的執行速度會更快。 在此範例中，資料可以是迴圈配置資源散發。
 
 ```sql
 
@@ -70,7 +71,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>將現有的循環配置資源資料表轉換成分散式資料表
-如果您已經有迴圈配置資源資料表, 建議您將它們轉換成複寫資料表 (如果它們符合本文中所述的準則)。 複寫資料表可提升循環配置資源資料表的效能，因為它們不需進行資料移動。  循環配置資源資料表針對聯結一律需要進行資料移動。 
+如果您已經有迴圈配置資源資料表，建議您將它們轉換成複寫資料表（如果它們符合本文中所述的準則）。 複寫資料表可提升循環配置資源資料表的效能，因為它們不需進行資料移動。  迴圈配置資源資料表一律需要聯結的資料移動。 
 
 此範例使用 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 將 DimSalesTerritory 資料表變更為複寫資料表。 不論 DimSalesTerritory 是雜湊分散式還是循環配置資源資料表，此範例都有效。
 

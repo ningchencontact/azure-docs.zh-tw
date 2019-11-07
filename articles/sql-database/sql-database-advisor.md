@@ -1,5 +1,5 @@
 ---
-title: 效能建議 - Azure SQL Database |Microsoft Docs
+title: 效能建議-Azure SQL Database
 description: Azure SQL Database 會提供可改善 SQL 資料庫查詢效能的建議。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de6ddd8886f8cadafa57724a5d5e33a3ba4e3c74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569522"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691241"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database 的效能建議
 
@@ -76,7 +76,7 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 
 當 Azure SQL Database 服務注意到 SQL 資料庫上發生結構描述數目異常相關的 SQL 錯誤時，即會出現「修正結構描述問題」建議。 下表顯示與結構描述問題相關的錯誤：
 
-| SQL 錯誤碼 | Message |
+| SQL 錯誤碼 | 訊息 |
 | --- | --- |
 | 201 |程序或函數 '' 必須有參數 ''，但未提供。 |
 | 207 |無效的資料行名稱 '*'。 |
