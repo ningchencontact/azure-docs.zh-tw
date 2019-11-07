@@ -1,174 +1,170 @@
 ---
-title: 整合 Azure Functions 與 Azure 虛擬網路
-description: 逐步教學課程說明如何連接到 Azure 虛擬網路的函式
-services: functions
+title: 將 Azure Functions 與 Azure 虛擬網路整合
+description: 說明如何將函式連線至 Azure 虛擬網路的逐步教學課程
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bc6c87a28078d25a212a681206258d6d369f2867
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612892"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575547"
 ---
-# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>教學課程： 整合 Azure 虛擬網路中的函式
+# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>教學課程：將函式與 Azure 虛擬網路整合
 
-本教學課程會示範如何使用 Azure Functions 來連線到 Azure 的虛擬網路中的資源。 您將建立具有兩個網際網路與虛擬網路中執行 WordPress 的 VM 存取的函式。
+本教學課程說明如何使用 Azure Functions 來連線到 Azure 虛擬網路中的資源。 您將建立可存取網際網路的函式，以及在虛擬網路中執行 WordPress 的 VM。
 
 > [!div class="checklist"]
-> * 在 「 進階 」 方案中建立函數應用程式
-> * 虛擬網路中將 WordPress 網站部署到 VM
-> * 將函式應用程式連線至虛擬網路
+> * 在 Premium 方案中建立函數應用程式
+> * 將 WordPress 網站部署至虛擬網路中的 VM
+> * 將函數應用程式連線到虛擬網路
 > * 建立函數 proxy 以存取 WordPress 資源
-> * 要求來自虛擬網路內的 WordPress 檔案
-
-> [!NOTE]  
-> 本教學課程中建立 「 進階 」 方案中的函式應用程式。 這個裝載的計劃目前為預覽狀態。 如需詳細資訊，請參閱 <<c0> [ 進階方案]。
+> * 從虛擬網路內部要求 WordPress 檔案
 
 ## <a name="topology"></a>拓撲
 
-下圖顯示您所建立之方案的架構：
+下圖顯示您所建立之解決方案的架構：
 
  ![虛擬網路整合的 UI](./media/functions-create-vnet/topology.png)
 
-在 「 進階 」 方案中執行的函式會將相同的裝載功能，為 web 應用程式在 Azure App Service，其中包括 VNet 整合功能。 若要深入了解 VNet 整合，包括疑難排解和進階組態，請參閱[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)。
+高階方案中執行的函式與 Azure App Service 中的 web 應用程式具有相同的裝載功能，其中包括 VNet 整合功能。 若要深入瞭解 VNet 整合，包括疑難排解和先進設定，請參閱[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-本教學課程中，務必了解 IP 位址和子網路 >。 您可以開始[涵蓋基本位址和子網路的這篇文章](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics)。 許多更多的文章與影片都可在線上。
+在本教學課程中，您必須瞭解 IP 位址和子網。 您可以從本文開始[，其中涵蓋定址和子網的基本概念](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics)。 您可以從線上取得更多文章和影片。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="create-a-function-app-in-a-premium-plan"></a>在 進階方案中建立函數應用程式
+## <a name="create-a-function-app-in-a-premium-plan"></a>在 Premium 方案中建立函數應用程式
 
-首先，您可以建立函數應用程式中的[ 進階方案]。 此計劃提供無伺服器的規模，同時支援虛擬網路整合。
+首先，您會在[Premium 方案]中建立函數應用程式。 此方案提供無伺服器規模，同時支援虛擬網路整合。
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
-您可以選取右上角的釘選圖示，釘選到儀表板函式應用程式。 釘選可讓您建立 VM 之後，返回此函式應用程式的工作變得更容易。
+您可以選取右上角的釘選圖示，將函數應用程式釘選到儀表板。 釘選可讓您在建立 VM 之後，更輕鬆地返回此函數應用程式。
 
-## <a name="create-a-vm-inside-a-virtual-network"></a>建立虛擬網路內的 VM
+## <a name="create-a-vm-inside-a-virtual-network"></a>在虛擬網路內建立 VM
 
-接下來，建立預先設定的 VM 虛擬網路內執行 WordPress ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)由 Jetware)。 WordPress 的 VM 會因為其低的成本和方便使用。 此相同案例適用於虛擬網路，例如 REST Api、 App Service 環境，以及其他 Azure 服務中的任何資源。 
+接下來，建立預先設定的 VM，在虛擬網路內執行 WordPress （[WORDPRESS LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware）。 會使用 WordPress VM，因為它的成本和便利性較低。 此相同案例適用于虛擬網路中的任何資源，例如 REST Api、App Service 環境和其他 Azure 服務。 
 
-1. 在入口網站中，選擇 **+ 建立資源**在左側的導覽窗格中，在搜尋欄位中輸入`WordPress LEMP7 Max Performance`，然後按 Enter。
+1. 在入口網站中，選擇左側流覽窗格中的 [ **+ 建立資源**]，在 [搜尋] 欄位中輸入 `WordPress LEMP7 Max Performance`，然後按 enter 鍵。
 
-1. 選擇**Wordpress LEMP Max Performance**搜尋結果中。 選取的軟體方案**Wordpress LEMP Max Performance centos**作為**軟體方案**，然後選取**建立**。
+1. 在搜尋結果中選擇 [Wordpress] [ **LEMP 最大效能**]。 選取 Wordpress 的軟體方案**LEMP [CentOS 的最大效能**] 作為 [**軟體方案**]，然後選取 [**建立**]。
 
-1. 在 **基本概念**索引標籤上，使用影像下方資料表中指定的 VM 設定：
+1. 在 [**基本**] 索引標籤中，使用映射下表中所指定的 VM 設定：
 
-    ![基本 索引標籤，來建立 VM](./media/functions-create-vnet/create-vm-1.png)
+    ![建立 VM 的 [基本] 索引標籤](./media/functions-create-vnet/create-vm-1.png)
 
-    | 設定      | 建議值  | 說明      |
+    | 設定      | 建議的值  | 說明      |
     | ------------ | ---------------- | ---------------- |
-    | **訂用帳戶** | 您的訂用帳戶 | 您的資源建立所在的訂用帳戶。 | 
-    | **[資源群組](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | 選擇`myResourceGroup`，或您建立與您的函式應用程式的資源群組。 函式應用程式中，WordPress 的 VM，使用相同的資源群組和主控方案可讓您更輕鬆地清除資源，當您完成本教學課程。 |
-    | **虛擬機器名稱** | VNET-Wordpress | VM 名稱必須是唯一的資源群組中 |
-    | **[區域](https://azure.microsoft.com/regions/)** | (歐洲) 西歐 | 選擇您附近或接近函式會存取 VM 的區域。 |
-    | **大小** | B1s | 選擇**變更大小**，然後選取 B1s 標準映像，其具有 1 個 vCPU 和 1 GB 的記憶體。 |
-    | **驗證類型** | 密碼 | 若要使用密碼驗證，您也必須指定**使用者名稱**，安全**密碼**，然後**確認密碼**。 本教學課程中，您不需要登入 VM 除非您需要進行疑難排解。 |
+    | **訂用帳戶** | 您的訂用帳戶 | 用來建立資源的訂用帳戶。 | 
+    | **[資源群組](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | 選擇 `myResourceGroup`，或使用您的函數應用程式建立的資源群組。 當您完成本教學課程時，針對函數應用程式、WordPress VM 和主控方案使用相同的資源群組，可讓您更輕鬆地清除資源。 |
+    | **虛擬機器名稱** | VNET Wordpress | VM 名稱在資源群組中必須是唯一的 |
+    | **[區內](https://azure.microsoft.com/regions/)** | (歐洲) 西歐 | 選擇接近您或接近存取 VM 之函數的區域。 |
+    | **大小** | B1s | 選擇 [**變更大小**]，然後選取 B1s 標準映射，其具有 1 vCPU 和 1 GB 的記憶體。 |
+    | **驗證類型** | 密碼 | 若要使用密碼驗證，您也必須指定使用者**名稱**、安全**密碼**，然後**確認密碼**。 在本教學課程中，您不需要登入 VM，除非您需要進行疑難排解。 |
 
-1. 選擇**Networking**索引標籤，然後在 [設定虛擬網路] 下選取**新建**。
+1. 選擇 [**網路**] 索引標籤，然後在 [設定虛擬網路] 下選取 [**新建**]。
 
-1. 在 **建立虛擬網路**，使用影像下方資料表中的設定：
+1. 在 [**建立虛擬網路**] 中，使用映射下表中的設定：
 
-    ![網路索引標籤建立 VM](./media/functions-create-vnet/create-vm-2.png)
+    ![建立 VM 的 [網路功能] 索引標籤](./media/functions-create-vnet/create-vm-2.png)
 
-    | 設定      | 建議值  | 說明      |
+    | 設定      | 建議的值  | 說明      |
     | ------------ | ---------------- | ---------------- |
-    | **名稱** | myResourceGroup-vnet | 您可以使用您的虛擬網路產生的預設名稱。 |
-    | **位址範圍** | 10.10.0.0/16 | 虛擬網路中使用單一的位址範圍。 |
-    | **子網路名稱** | 教學課程-Net | 子網路的名稱。 |
-    | **位址範圍**（子網路） | 10.10.1.0/24   | 子網路大小定義多少個介面可以新增至子網路。 這個子網路會使用 WordPress 網站。  A`/24`子網路提供 254 的主機位址。 |
+    | **名稱** | MyResourceGroup-vnet | 您可以使用為您的虛擬網路所產生的預設名稱。 |
+    | **位址範圍** | 10.10.0.0/16 | 將單一位址範圍用於虛擬網路。 |
+    | **子網路名稱** | 教學課程-Net | 子網的名稱。 |
+    | **位址範圍**（子網） | 10.10.1.0/24   | 子網大小會定義可新增至子網的介面數目。 WordPress 網站會使用此子網。  `/24` 子網提供254主機位址。 |
 
-1. 選取 **確定**建立虛擬網路。
+1. 選取 **[確定]** 以建立虛擬網路。
 
-1. 回到**Networking**索引標籤上，選擇**無**for**公用 IP**。
+1. 回到 [**網路**] 索引標籤，為 [**公用 IP**] 選擇 [**無**]。
 
-1. 選擇**管理** 索引標籤，然後在**診斷儲存體帳戶**，選擇您建立函式應用程式使用的儲存體帳戶。
+1. 選擇 [**管理**] 索引標籤，然後在 [**診斷儲存體帳戶**] 中，選擇您使用函數應用程式所建立的儲存體帳戶。
 
-1. 選取 [檢閱 + 建立]  。 驗證完成之後，請選取**建立**。 VM 建立程序需要幾分鐘的時間。 建立的 VM 只能存取虛擬網路。
+1. 選取 [檢閱 + 建立]。 驗證完成後，選取 [**建立**]。 VM 建立程式需要幾分鐘的時間。 建立的 VM 只能存取虛擬網路。
 
-1. 建立 VM 之後，請選擇**移至資源**若要檢視新的虛擬機器 頁面，然後選擇**網路**之下**設定**。
+1. 建立 VM 之後，請選擇 [**移至資源**] 以查看新 VM 的頁面，然後選擇 [**設定**] 底下的 [**網路**]。
 
-1. 請確認有無**公用 IP**。 請記下**私用 IP**，用來從您的函式應用程式連線到 VM。
+1. 確認沒有**公用 IP**。 記下**私人 IP**，以用來從您的函數應用程式連線到 VM。
 
-    ![在 VM 中的網路設定](./media/functions-create-vnet/vm-networking.png)
+    ![VM 中的網路設定](./media/functions-create-vnet/vm-networking.png)
 
-您現在可以完全在您的虛擬網路內部署的 WordPress 網站。 此站台不是從公用網際網路存取。
+您現在已將 WordPress 網站完全部署在虛擬網路內。 此網站無法從公用網際網路存取。
 
-## <a name="connect-your-function-app-to-the-virtual-network"></a>函式應用程式連接到虛擬網路
+## <a name="connect-your-function-app-to-the-virtual-network"></a>將您的函式應用程式連線到虛擬網路
 
-使用 WordPress 網站，在虛擬網路中的 VM 中執行，您現在可以函式應用程式連線至該虛擬網路。
+在虛擬網路中的 VM 上執行 WordPress 網站時，您現在可以將函式應用程式連線到該虛擬網路。
 
-1. 在新的函式應用程式，選取**平台功能** > **網路**。
+1. 在您的新函式應用程式中，選取 **平臺功能** > **網路**。
 
-    ![選擇 函式應用程式中的 網路功能](./media/functions-create-vnet/networking-0.png)
+    ![選擇函式應用程式中的網路功能](./media/functions-create-vnet/networking-0.png)
 
-1. 底下**VNet 整合**，選取**按一下此處以設定**。
+1. 在 [ **VNet 整合**] 底下，選取 [**按一下這裡進行設定**]。
 
     ![設定網路功能的狀態](./media/functions-create-vnet/Networking-1.png)
 
-1. 在 [虛擬網路整合] 頁面中，選取**新增 VNet （預覽）** 。
+1. 在 [虛擬網路整合] 頁面上，選取 [**新增 VNet （預覽）** ]。
 
     ![新增 VNet 整合預覽](./media/functions-create-vnet/networking-2.png)
 
-1. 在 **網路功能狀態**，使用影像下方資料表中的設定：
+1. 在 [**網路功能狀態**] 中，使用映射下表中的設定：
 
-    ![定義函式應用程式的虛擬網路](./media/functions-create-vnet/networking-3.png)
+    ![定義函數應用程式虛擬網路](./media/functions-create-vnet/networking-3.png)
 
-    | 設定      | 建議值  | 說明      |
+    | 設定      | 建議的值  | 說明      |
     | ------------ | ---------------- | ---------------- |
-    | **虛擬網路** | MyResourceGroup-vnet | 此虛擬網路是您稍早建立的一個。 |
-    | **子網路** | 建立新的子網路 | 在您的函式應用程式使用的虛擬網路中建立子網路。 VNet 整合必須設定為使用空白的子網路中。 它並不重要，您的函式會使用您的 VM 的不同子網路。 虛擬網路會自動將路由兩個子網路之間的流量。 |
-    | **子網路名稱** | Function-Net | 新子網路的名稱。 |
-    | **虛擬網路位址區塊** | 10.10.0.0/16 | 選擇 WordPress 網站所使用的相同位址區塊。 您應該只有一個定義的位址區塊。 |
-    | **位址範圍** | 10.10.2.0/24   | 子網路大小會限制您 Premium 方案函式應用程式可以向外延展至執行個體的總數。 這個範例會使用`/24`254 可用的主機位址的子網路。 這個子網路是過度佈建，但容易計算。 |
+    | **虛擬網路** | MyResourceGroup-vnet | 這是您稍早建立的虛擬網路。 |
+    | **子網路** | 建立新的子網 | 在虛擬網路中建立子網，以供您的函數應用程式使用。 VNet 整合必須設定為使用空的子網。 您的函式使用與您的 VM 不同的子網並不重要。 虛擬網路會自動路由兩個子網之間的流量。 |
+    | **子網路名稱** | 函數-Net | 新的子網路的名稱。 |
+    | **虛擬網路位址區塊** | 10.10.0.0/16 | 選擇 WordPress 網站所使用的相同位址區塊。 您應該只定義一個位址區塊。 |
+    | **位址範圍** | 10.10.2.0/24   | 子網大小會限制高階方案函式應用程式可相應放大的實例總數。 這個範例會使用具有254可用主機位址的 `/24` 子網。 這個子網已過度布建，但很容易計算。 |
 
-1. 選取 **確定**新增子網路。 關閉 VNet 整合和網路功能狀態 頁面，以返回 函式應用程式頁面。
+1. 選取 **[確定]** 以新增子網。 關閉 [VNet 整合] 和 [網路功能狀態] 頁面，返回您的函數應用程式頁面。
 
-函式應用程式現在可以存取 WordPress 網站執行所在的虛擬網路。 接下來，使用[Azure Functions Proxy](functions-proxies.md)將檔案從 WordPress 網站。
+函數應用程式現在可以存取 WordPress 網站執行所在的虛擬網路。 接下來，您可以使用[Azure Functions Proxy](functions-proxies.md)從 WordPress 網站傳回檔案。
 
-## <a name="create-a-proxy-to-access-vm-resources"></a>建立 proxy，以存取虛擬機器資源
+## <a name="create-a-proxy-to-access-vm-resources"></a>建立 proxy 以存取 VM 資源
 
-使用已啟用 VNet 整合，您可以將 proxy 在函式應用程式將要求轉送到虛擬網路中執行的 VM。
+啟用 VNet 整合之後，您可以在函式應用程式中建立 proxy，以將要求轉送至在虛擬網路中執行的 VM。
 
-1. 在您函式應用程式中，選取**Proxy** >  **+** ，然後使用影像下方資料表中的 proxy 設定：
+1. 在您的函數應用程式中 **，選取 [** proxy] >  **+** ，然後使用映射下表中的 proxy 設定：
 
-    ![定義的 proxy 設定](./media/functions-create-vnet/create-proxy.png)
+    ![定義 proxy 設定](./media/functions-create-vnet/create-proxy.png)
 
-    | 設定  | 建議值  | 說明      |
+    | 設定  | 建議的值  | 說明      |
     | -------- | ---------------- | ---------------- |
-    | **名稱** | 工廠 | 名稱可以是任何值。 它用來識別 proxy。 |
+    | **名稱** | 花草 | 名稱可以是任何值。 它是用來識別 proxy。 |
     | **路由範本** | /plant | 對應至 VM 資源的路由。 |
-    | **後端 URL** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | 取代`<YOUR_VM_IP>`您稍早建立 WordPress VM 的 IP 位址。 此對應會傳回單一檔案，從站台。 |
+    | **後端 URL** | HTTP：//< YOUR_VM_IP >/wp-content/themes/twentyseventeen/assets/images/header.jpg | 將 `<YOUR_VM_IP>` 取代為您稍早建立之 WordPress VM 的 IP 位址。 這個對應會從網站傳回單一檔案。 |
 
-1. 選取 **建立**將 proxy 加入至您的函式應用程式。
+1. 選取 [**建立**]，將 proxy 新增至您的函式應用程式。
 
-## <a name="try-it-out"></a>試做
+## <a name="try-it-out"></a>立即試用
 
-1. 在瀏覽器中嘗試存取您所做的 URL**後端 URL**。 如預期般運作，要求會逾時。您的 WordPress 網站僅供您的虛擬網路，而非透過網際網路連接，就會發生逾時。
+1. 在您的瀏覽器中，嘗試存取您用來做為**後端 url**的 url。 如預期般，要求會超時。因為您的 WordPress 網站僅連線到您的虛擬網路而不是網際網路，所以會發生超時。
 
-1. 複製**Proxy URL**值從新的 proxy，並將它貼到您的瀏覽器的網址列。 傳回的影像都是從您的虛擬網路內部執行的 WordPress 網站。
+1. 從您的新 proxy 複製 [ **PROXY URL** ] 值，並將它貼入瀏覽器的網址列。 傳回的映射來自于虛擬網路內執行的 WordPress 網站。
 
-    ![傳回從 WordPress 網站的工廠映像檔案](./media/functions-create-vnet/plant.png)
+    ![從 WordPress 網站傳回的工廠影像檔案](./media/functions-create-vnet/plant.png)
 
-函式應用程式連線到網際網路，您的虛擬網路。 Proxy 是透過公用網際網路，接收要求，並再做為簡單的 HTTP proxy，該要求轉送至連線的虛擬網路。 Proxy 接著會轉送回應給您公開透過網際網路。
+您的函數應用程式會連線到網際網路和您的虛擬網路。 Proxy 會透過公用網際網路接收要求，然後作為簡單的 HTTP proxy，將該要求轉送至已連線的虛擬網路。 Proxy 接著會透過網際網路將回應轉送回給您。
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，WordPress 網站作為 API 呼叫的函式應用程式中使用的 proxy。 此案例可讓良好的教學課程中，因為很容易設定，並加以視覺化。 您可以使用任何其他虛擬網路內部署的 API。 您可能也已建立函式呼叫部署於虛擬網路內的 Api 的程式碼。 更真實的案例是使用資料的用戶端 Api 呼叫的虛擬網路中部署的 SQL Server 執行個體的函式。
+在本教學課程中，WordPress 網站可做為使用函數應用程式中的 proxy 所呼叫的 API。 此案例是很好的教學課程，因為它很容易設定並以視覺化方式呈現。 您可以使用部署在虛擬網路內的任何其他 API。 您也可以使用可呼叫部署在虛擬網路內之 Api 的程式碼來建立函式。 更實際的案例是使用資料用戶端 Api 呼叫部署在虛擬網路中 SQL Server 實例的函式。
 
-進階方案中執行的函式會共用相同基礎 App Service 的基礎結構即 PremiumV2 計劃的 web 應用程式。 所有的文件[web 應用程式在 Azure App Service 中的](../app-service/overview.md)適用於 Premium 的計劃函式。
+在高階方案中執行的函式會與 PremiumV2 計畫上的 web 應用程式共用相同的基礎 App Service 基礎結構。 [Azure App Service 中 web 應用程式](../app-service/overview.md)的所有檔都適用于您的 Premium 方案功能。
 
 > [!div class="nextstepaction"]
-> [深入了解函式中的網路功能選項](./functions-networking-options.md)
+> [深入瞭解函式中的網路功能選項](./functions-networking-options.md)
 
-[ 進階方案]: functions-scale.md#premium-plan
+[Premium 方案]: functions-scale.md#premium-plan

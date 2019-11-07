@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d050385bb76817c8aeada1bef4c4697a1f58d09
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c70226ef58ed60a7be556b88366953796ed6fff1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497276"
+ms.locfileid: "73580571"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "73497276"
 
 ## <a name="select-your-experiment-type"></a>選取您的實驗類型
 
-在開始實驗之前，您應先決定所要解決的機器學習問題類型。 自動化機器學習支援分類、迴歸和預測等工作類型。
+在開始實驗之前，您應先決定所要解決的機器學習問題類型。 自動化機器學習支援分類、迴歸和預測等工作類型。 深入瞭解工作[類型](how-to-define-task-type.md)。
 
 在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。
 
@@ -57,10 +57,10 @@ ms.locfileid: "73497276"
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN 分類器](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN 線性分類器](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[線性回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[線性回歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[快速線性回歸輸入變數](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[自動 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[線上梯度下降回歸輸入變數](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[平均認知分類器](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[線性 SVM 分類器](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
+[貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[快速線性回歸輸入變數](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[自動 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[線上梯度下降回歸輸入變數](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|[平均認知分類器](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
+|[線性 SVM 分類器](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
 
 請在 `AutoMLConfig` 的程式中使用 `task` 參數，以指定您的實驗類型。
 
@@ -108,7 +108,7 @@ automl_config = AutoMLConfig(task = "classification")
 * 輕鬆地將靜態檔案或 URL 來源中的資料傳輸至您的工作區
 * 在雲端計算資源上執行時，將您的資料提供給訓練腳本
 
-如需使用 `Dataset` 類別將資料掛接至計算目標的範例，請參閱 how [to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 。
+如需使用[類別將資料掛接至計算目標的範例，請參閱 ](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target)how to`Dataset`。
 
 ## <a name="train-and-validation-data"></a>訓練和驗證資料
 
@@ -341,7 +341,7 @@ best_run, fitted_model = automl_run.get_output()
 請思考此範例：
 + 有4種輸入功能： A （數值）、B （數值）、C （數值）、D （DateTime）
 + 數值特徵 C 已卸載，因為它是具有所有唯一值的識別碼資料行
-+ 數值特徵 A 和 B 具有遺漏值，因此會以平均值插補
++ 數值特徵 A 和 B 具有遺漏值，因此會插補平均值
 + DateTime 功能 D 特徵化為11個不同的工程功能
 
 在適合模型的第一個步驟中使用這2個 Api，以深入瞭解。  請參閱[此範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)。
@@ -396,7 +396,7 @@ best_run, fitted_model = automl_run.get_output()
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   其中：
+   地點：
 
    |輸出|定義|
    |----|--------|

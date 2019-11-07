@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 備份與還原 | Microsoft Docs
-description: 說明如何備份和還原 Azure Analysis Services 資料庫。
+description: 本文說明如何從 Azure Analysis Services 資料庫備份和還原模型中繼資料和資料。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295409"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573439"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -73,7 +73,7 @@ ms.locfileid: "72295409"
 ### <a name="powershell"></a>PowerShell
 使用 [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) Cmdlet。
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>還原
 在還原時，您的備份檔案必須位於您為伺服器所設定的儲存體帳戶中。 如果您需要將備份檔案從內部部署位置移至儲存體帳戶，請使用 [Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)或 [AzCopy](../storage/common/storage-use-azcopy.md) 命令列公用程式。 
 
 

@@ -1,17 +1,17 @@
 ---
-title: 管理及更新 Azure HPC Cache （預覽）
+title: 管理及更新 Azure HPC Cache
 description: 如何使用 Azure 入口網站來管理及更新 Azure HPC 快取
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: b5607f1d97e4e240a86ba8e7800af7cb21083217
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582208"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>從 Azure 入口網站管理您的快取
 

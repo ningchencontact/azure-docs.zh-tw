@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489744"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615194"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ ms.locfileid: "73489744"
 
 1. 在 Azure 入口網站的左上角，選取 [+建立資源]。
 
-      ![建立新的資源](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+      ![建立新的資源](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. 使用搜尋列尋找 [Machine Learning 服務工作區]。
+1. 使用 [搜尋] 列來尋找**Machine Learning**。
 
-1. 選取 [Machine Learning 服務工作區]。
+1. 選取 [ **Machine Learning**]。
 
-1. 在 [Machine Learning 服務工作區] 窗格中選取 [建立] 來開始操作。
+1. 在 [ **Machine Learning** ] 窗格中，選取 [**建立**] 以開始。
 
 1. 提供下列資訊來設定新的工作區：
 
@@ -89,18 +89,15 @@ ms.locfileid: "73489744"
 
 ## <a name="view"></a>尋找工作區
 
-1. 在入口網站的左上角，選取 [所有服務]。
+1. 在 [頂端搜尋] 欄位中，輸入**Machine Learning**。  
 
-1. 在 [**所有服務**] 篩選欄位中，輸入**機器學習**服務。  
+1. 選取 [ **Machine Learning**]。
 
-1. 選取 [ **Azure Machine Learning**]。
-
-   ![搜尋 Azure Machine Learning 工作區](media/how-to-manage-workspace/all-services.png)
+   ![搜尋 Azure Machine Learning 工作區](media/how-to-manage-workspace/find-workspaces.png)
 
 1. 查看找到的工作區清單。 您可以根據訂用帳戶、資源群組和位置來篩選。  
 
 1. 選取工作區以顯示其屬性。
-   ![工作區屬性](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>刪除工作區
 

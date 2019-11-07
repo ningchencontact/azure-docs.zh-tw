@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330355"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606354"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>管理 Azure 實驗室服務中的教室實驗室 
 本文說明如何建立和刪除教室實驗室。 它也示範如何檢視實驗室帳戶中的所有教室實驗室。 
@@ -28,7 +28,7 @@ ms.locfileid: "72330355"
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室
 
-1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 請注意，目前不支援 Internet Explorer 11。 
+1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 尚不支援 Internet Explorer 11。 
 2. 選取 [登入]，然後輸入您的認證。 選取或輸入**使用者識別碼** (其為實驗室帳戶中具有**實驗室建立者**角色的成員)，然後輸入密碼。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
 3. 選取 [**新增實驗室**]。 
     
@@ -38,7 +38,7 @@ ms.locfileid: "72330355"
     2. 選取您需要的類別的**虛擬機器大小**。 如需可用的大小清單，請參閱[VM 大小](#vm-sizes)一節。 
     3. 選取您想要用於教室實驗室的**虛擬機器映射**。 如果您選取 Linux 映像，您會看到可啟用遠端桌面連接的選項。 如需詳細資料，請參閱[啟用 Linux 遠端桌面連線](how-to-enable-remote-desktop-linux.md)。
     4. 檢查頁面上顯示的**每小時總價格**。 
-    6. 選取 [儲存]。
+    6. 選取 [ **儲存**]。
 
         ![新增實驗室視窗](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. 在 [**虛擬機器認證**] 頁面上，為實驗室中的所有 vm 指定預設認證。
@@ -92,12 +92,12 @@ ms.locfileid: "72330355"
 
 ### <a name="vm-sizes"></a>VM 大小  
 
-| 大小 | 核心 | RAM | 描述 | 
+| 大小 | 核心 | RAM | 說明 | 
 | ---- | ----- | --- | ----------- | 
-| 小 | 2 | 3.5 GB | 此大小最適合用於命令列、開啟網頁瀏覽器、低流量網頁伺服器、小型至中型資料庫。 |
-| 中 | 4 | 7 GB | 此大小最適合用於關係資料庫、記憶體內部快取和分析 | 
+| 小型 | 2 | 3.5 GB | 此大小最適合用於命令列、開啟網頁瀏覽器、低流量網頁伺服器、小型至中型資料庫。 |
+| 中型 | 4 | 7 GB | 此大小最適合用於關係資料庫、記憶體內部快取和分析 | 
 | 中（嵌套虛擬化） | 4 | 16 GB | 此大小最適合用於關係資料庫、記憶體內部快取及分析。 此大小也支援嵌套虛擬化。 <p>此大小可用於每個學生都需要多個 Vm 的案例。 老師可以使用嵌套虛擬化，在虛擬機器內設定幾個小型的嵌套虛擬機器。 </p> |
-| 大 | 8 | 32 GB | 此大小最適合需要更快的 Cpu、更佳的本機磁片效能、大型資料庫、大型記憶體快取的應用程式。 此大小也支援嵌套虛擬化 |  
+| 大型 | 8 | 32 GB | 此大小最適合需要更快的 Cpu、更佳的本機磁片效能、大型資料庫、大型記憶體快取的應用程式。 此大小也支援嵌套虛擬化 |  
 | 小型 GPU （視覺效果） | 6 | 56 GB | 此大小最適合用於使用 OpenGL 和 DirectX 這類架構的遠端視覺效果、串流、遊戲、編碼。 | 
 | 小型 GPU （計算） | 6 | 56 GB | 此大小最適合用於計算密集型和網路密集型應用程式，例如人工智慧和深度學習應用程式。 | 
 | 中 GPU （視覺效果） | 12 | 112 GB | 此大小最適合用於使用 OpenGL 和 DirectX 這類架構的遠端視覺效果、串流、遊戲、編碼。 | 
@@ -123,6 +123,10 @@ ms.locfileid: "72330355"
 
 您也可以使用這個下拉式清單中的**新實驗室**來建立新的實驗室。 
 
+> [!NOTE]
+> 您也可以使用 Az LabServices PowerShell module （預覽）來管理實驗室。 如需詳細資訊，請參閱[GitHub 上的 Az. LabServices 首頁](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library)。
+
+若要切換至不同的實驗室帳戶，請選取實驗室帳戶旁的下拉式選單，然後選取其他實驗室帳戶。 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章：

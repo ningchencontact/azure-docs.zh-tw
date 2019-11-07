@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec1ea8bac35906969f051a70c44bd6f0685dc942
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: ed93eff6c137e125c2bc1707de441dc9971d6f3f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489433"
+ms.locfileid: "73584470"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>組建 scikit-learn-以 Azure Machine Learning 大規模學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "73489433"
 ## <a name="prerequisites"></a>必要條件
 
 在下列任一環境中執行此程式碼：
- - Azure Machine Learning 計算實例-不需要下載或安裝
+ - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
     - 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
     - 在筆記本伺服器的 [範例訓練] 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > ml-架構 > scikit-learn-瞭解 > 訓練 > 訓練-超參數-微調-部署-使用-sklearn**資料夾。

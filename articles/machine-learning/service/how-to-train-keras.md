@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb6bba26fd97a0219f183ffcc67e3e34e3973c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 42a824863766b5d4d91d9eaa3dad1012f5019f63
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489460"
+ms.locfileid: "73584503"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>使用 Azure Machine Learning 定型和註冊 Keras 分類模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Keras 是高階類神經網路 API，能夠執行其他熱門的 DNN 架構，�
 
 在下列任一環境中執行此程式碼：
 
- - Azure Machine Learning 計算實例-不需要下載或安裝
+ - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
      - 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
     - 在筆記本伺服器的 samples 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > 訓練-具有深度學習 > 訓練-超參數--keras**資料夾。

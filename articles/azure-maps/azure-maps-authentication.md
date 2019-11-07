@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478662"
+ms.locfileid: "73575662"
 ---
 # <a name="authentication-with-azure-maps"></a>向 Azure 地圖服務驗證
 
@@ -49,7 +49,7 @@ Azure 地圖服務會為每個 Azure 地圖服務帳戶產生「唯一識別碼 
 | Azure Government    | https://login.microsoftonline.us |
 
 
-如需如何為 Azure 地圖服務設定 Azure AD 和要求權杖的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
+如需如何為 Azure 地圖服務設定 Azure AD 和要求權杖的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
 
 如需如何向 Azure AD 要求權杖的一般資訊，請參閱[何謂驗證？](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)。
 
@@ -92,6 +92,6 @@ Azure 地圖服務可透過 Azure 資源的受控識別，支援個別 Azure AD 
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解如何向 Azure AD 和 Azure 地圖服務驗證應用程式，請參閱[管理 Azure 地圖服務中的驗證](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
+* 若要深入了解如何向 Azure AD 和 Azure 地圖服務驗證應用程式，請參閱[管理 Azure 地圖服務中的驗證](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
 
 * 若要深入了解如何驗證 Azure 地圖服務、地圖控制項和 Azure AD，請參閱[使用 Azure 地圖服務的地圖控制項](https://aka.ms/amaadmc)。

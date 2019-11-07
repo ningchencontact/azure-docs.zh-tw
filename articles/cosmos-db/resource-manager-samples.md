@@ -4,14 +4,14 @@ description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7861196daf3b04430200096a0d42bdcc6e6d5cf9
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053227"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582816"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure Resource Manager 範本
 
@@ -21,10 +21,8 @@ ms.locfileid: "73053227"
 
 |**範本**|**說明**|
 |---|---|
-|[建立 Azure Cosmos 帳戶、資料庫、容器](manage-sql-with-resource-manager.md#create-resource) | 此範本會在已啟用多宿主的兩個區域中建立 SQL （核心） API 帳戶。 Azure Cosmos 帳戶將會有兩個共用資料庫層級輸送量的容器。 |
+|[建立 Azure Cosmos 帳戶、資料庫、容器](manage-sql-with-resource-manager.md#create-resource) | 此範本會在兩個區域中建立 SQL （核心） API 帳戶，其中包含兩個具有共用資料庫輸送量的容器，以及一個具有專用輸送量的容器。 藉由重新提交具有更新的輸送量屬性值的範本，即可更新輸送量。 |
 |[使用預存程式、觸發程式和 UDF 建立 Azure Cosmos 帳戶、資料庫和容器](manage-sql-with-resource-manager.md#create-sproc) | 此範本會在兩個區域中建立 SQL （核心） API 帳戶，其中包含容器的預存程式、觸發程式和 UDF。 |
-|[更新資料庫的輸送量（RU/秒）](manage-sql-with-resource-manager.md#database-ru-update) | 此範本會更新 SQL （核心） API 帳戶中資料庫的輸送量。 |
-|[更新容器的輸送量（RU/秒）](manage-sql-with-resource-manager.md#container-ru-update) | 此範本會更新 SQL （核心） API 帳戶中容器的輸送量。 |
 
 ## <a name="mongodb-api"></a>MongoDB API
 

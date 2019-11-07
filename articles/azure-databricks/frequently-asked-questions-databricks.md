@@ -9,23 +9,23 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 8707aa55c1126af6a7fb2812d4c7314f031209d0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597484"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601812"
 ---
-# <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題集
+# <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
 
 本文列出關於 Azure Databricks 的最常見問題。 其中也會列出您在使用 Databricks 時可能遇到的一些常見問題。 如需詳細資訊，請參閱[何謂 Azure Databricks](what-is-azure-databricks.md)。 
 
 ## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>可以使用 Azure Key Vault 來儲存金鑰/祕密以使用於 Azure Databricks 嗎？
-可以。 您可以使用 Azure Key Vault 來儲存金鑰/祕密，以便搭配 Azure Databricks 使用。 如需詳細資訊，請參閱 [Azure Key Vault 支援的範圍](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss)。
+是。 您可以使用 Azure Key Vault 來儲存金鑰/祕密，以便搭配 Azure Databricks 使用。 如需詳細資訊，請參閱 [Azure Key Vault 支援的範圍](/azure/databricks/security/secrets/secret-scopes)。
 
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>我可以將 Azure 虛擬網路與 Databricks 搭配使用嗎？
-可以。 您可以將 Azure 虛擬網路 (VNET) 與 Azure Databricks 搭配使用。 如需詳細資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)。
+是。 您可以將 Azure 虛擬網路 (VNET) 與 Azure Databricks 搭配使用。 如需詳細資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)。
 
 ## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>如何? 從筆記本存取 Azure Data Lake Storage 嗎？ 
 
@@ -34,7 +34,7 @@ ms.locfileid: "72597484"
 1. 在 Data Lake Storage 中，將必要的許可權指派給服務主體。
 1. 若要存取 Data Lake Storage 中的檔案，請在筆記本中使用服務主體認證。
 
-如需詳細資訊，請參閱搭配[Azure Databricks 使用 Azure Data Lake Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)。
+如需詳細資訊，請參閱搭配[Azure Databricks 使用 Azure Data Lake Storage](/azure/databricks/data/data-sources/azure/azure-datalake.html)。
 
 ## <a name="fix-common-problems"></a>修正常見問題
 
@@ -82,7 +82,7 @@ ms.locfileid: "72597484"
 
 #### <a name="solution"></a>方案
 
-如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]。
+如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](/azure/databricks/administration-guide/users-groups/users)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]。
 
 ### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>問題：設定叢集時雲端提供者啟動失敗 (PublicIPCountLimitReached)
 
@@ -111,7 +111,7 @@ Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>問題：Azure Databricks 需要只有管理員才能授與的權限來存取您組織中的資源。
 
-#### <a name="background"></a>背景
+#### <a name="background"></a>背景資訊
 
 Azure Databricks 會與 Azure Active Directory 整合。 您可藉由指定 Azure AD 的使用者，在 Azure Databricks 內設定權限 (例如，在筆記型電腦或叢集上)。 若要讓 Azure Databricks 能夠列出來自您 Azure AD 的使用者名稱，它需要讀取該資訊的權限以及給予同意。 如果尚未取得同意，您就會看到錯誤。
 

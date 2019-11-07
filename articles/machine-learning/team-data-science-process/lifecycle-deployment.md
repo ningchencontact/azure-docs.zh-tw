@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 00710183828892c81d3ea887e4394237288eb6bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 156f2e95913dffd88de0b4669b13a5af5fc9605c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303531"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684693"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的部署階段
 
-本文將概要說明與 Team Data Science Process (TDSP) 部署相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
+本文將概要說明與 Team Data Science Process (TDSP) 部署相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期會概述專案通常執行時經常反覆進行的主要階段：
 
    1. **了解商務**
    2. **資料取得與認知**
@@ -39,7 +39,7 @@ ms.locfileid: "60303531"
 ## <a name="how-to-do-it"></a>作法
 此階段解決的主要工作︰
 
-**讓模型能夠運作**：將模型和管線部署到生產環境或類生產環境以供應用程式取用。
+**實作模型**︰將模型和管線部署到生產環境或類生產環境以供取用應用程式。
 
 ### <a name="operationalize-a-model"></a>模型運作
 在您擁有一組妥善執行的模型後，就可以運作這些模型，供其他應用程式取用。 預測可根據商業需求，以即時或批次的形式執行。 若要部署模型，您要使用開放的 API 介面公開模型。 介面可讓模型能從各種應用程式輕鬆地取用，例如：
@@ -50,9 +50,9 @@ ms.locfileid: "60303531"
    * 企業營運應用程式 
    * 後端應用程式 
 
-如需使用 Azure Machine Learning Web 服務實作模型的範例，請參閱[部署 Azure Machine Learning Web 服務](../studio/publish-a-machine-learning-web-service.md)。 對於您部署的生產模型和資料管線，建議您在其中建置遙測和監視。 這種做法有助於後續的系統狀態報告和疑難排解。  
+如需使用 Azure Machine Learning Web 服務實作模型的範例，請參閱[部署 Azure Machine Learning Web 服務](../studio/deploy-a-machine-learning-web-service.md)。 對於您部署的生產模型和資料管線，建議您在其中建置遙測和監視。 這種做法有助於後續的系統狀態報告和疑難排解。  
 
-## <a name="artifacts"></a>構件
+## <a name="artifacts"></a>Artifacts
 
 * 顯示系統健康情況和重要計量的狀態儀表板
 * 具有部署詳細資料的最終模型報告

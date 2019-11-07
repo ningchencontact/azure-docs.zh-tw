@@ -1,5 +1,5 @@
 ---
-title: 工作階段主機虛擬機器設定-Azure
+title: 針對 Windows 虛擬桌面工作階段主機進行疑難排解-Azure
 description: 如何解決在設定 Windows 虛擬桌面工作階段主機虛擬機器時的問題。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330828"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607403"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>設定工作階段主機虛擬機器
 
@@ -80,7 +80,7 @@ ms.locfileid: "72330828"
 
 請遵循這些指示來確認已安裝元件，並檢查是否有錯誤訊息。
 
-1. 勾選 [**控制台**] 中的 **[@no__t @no__t] [程式** **和功能]，** 確認已安裝這兩個元件。 如果**Windows 虛擬桌面 agent**和**Windows 虛擬桌面 agent 開機載入**器不可見，則不會安裝在 VM 上。
+1. 勾選 [**控制台**] 中的 [ > **程式**] > [**程式和功能**]，確認已安裝這兩個元件。 如果**Windows 虛擬桌面 agent**和**Windows 虛擬桌面 agent 開機載入**器不可見，則不會安裝在 VM 上。
 2. 開啟 [檔案**瀏覽器**] 並流覽至**C:\Windows\Temp\scriptlogs.log**。 如果檔案遺失，則表示安裝這兩個元件的 PowerShell DSC 無法在提供的安全性內容中執行。
 3. 如果檔案**C:\Windows\Temp\scriptlogs.log**存在，請將它開啟，並檢查是否有錯誤訊息。
 
@@ -123,7 +123,7 @@ ms.locfileid: "72330828"
 1. 在工作階段主機 VM 上下載新版本的代理程式。
 2. 啟動 [工作管理員]，然後在 [服務] 索引標籤中，停止 RDAgentBootLoader 服務。
 3. 針對新版本的 Windows 虛擬桌面代理程式執行安裝程式。
-4. 當系統提示您輸入註冊權杖時，請移除專案 INVALID_TOKEN，然後按 [下一步] （不需要新的權杖）。
+4. 當系統提示您輸入註冊權杖時，請移除 INVALID_TOKEN 的專案，然後按 [下一步] （不需要新的權杖）。
 5. 完成安裝精靈。
 6. 開啟 [工作管理員]，然後啟動 RDAgentBootLoader 服務。
 
@@ -309,7 +309,7 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>停用遠端桌面授權模式群組原則設定
 
-在 VM 中開啟群組原則編輯器，然後流覽至**系統管理範本** > **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機**@no，檢查群組原則設定。__t-7**授權** > **設定遠端桌面授權模式**。 如果已**啟用**群組原則設定，請將它變更為 [**停用**]。 如果已停用，請將它保持原狀。
+在 VM 中開啟群組原則編輯器，並流覽至**系統管理範本** > **Windows 元件** > **遠端桌面服務** > ，以檢查群組原則設定**遠端桌面工作階段主機** > **授權** > **設定遠端桌面授權模式**。 如果已**啟用**群組原則設定，請將它變更為 [**停用**]。 如果已停用，請將它保持原狀。
 
 >[!NOTE]
 >如果您透過網域設定群組原則，請在以這些 Windows 10 企業版多會話 Vm 為目標的原則上停用此設定。

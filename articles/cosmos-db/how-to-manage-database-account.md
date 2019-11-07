@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812535"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582625"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帳戶
 
@@ -33,13 +33,13 @@ ms.locfileid: "71812535"
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager 範本
 
-此 Azure Resource Manager 範本會以兩個區域和用來選取一致性層級、自動容錯移轉和多重主機的選項，為任何支援的 API 建立 Azure Cosmos 帳戶。 若要部署此範本，請在讀我檔案頁面的[建立 Azure Cosmos 帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)中，按一下 [部署至 Azure]
+此 Azure Resource Manager 範本會建立一個 Azure Cosmos 帳戶，適用于設定了兩個區域的 SQL API，以及用來選取一致性層級、自動容錯移轉和多宿主的選項。 若要部署此範本，請在讀我檔案頁面的[建立 Azure Cosmos 帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)中，按一下 [部署至 Azure]
 
 ## <a name="addremove-regions-from-your-database-account"></a>在資料庫帳戶中新增/移除區域
 
 ### <a id="add-remove-regions-via-portal"></a>Azure 入口網站
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 移至 Azure Cosmos 帳戶，然後開啟 [全域複寫資料] 功能表。
 
@@ -113,7 +113,7 @@ ms.locfileid: "71812535"
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ ms.locfileid: "71812535"
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

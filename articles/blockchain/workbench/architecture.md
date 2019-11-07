@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845206"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579730"
 ---
 # <a name="azure-blockchain-workbench-preview-architecture"></a>Azure Blockchain Workbench 預覽架構
 
@@ -99,7 +99,7 @@ Blockchain Workbench 會自動部署兩種類型的事件消費者。 其中一�
 
 例如，SQL 取用者會監視事件、取用事件，並在 SQL 資料庫中填入所包含的值。 進行複製可在鏈結關閉存放區中重新建立鏈結資料的複本。
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL 資料庫
 
 連結至 Blockchain Workbench 的 Azure SQL 資料庫會儲存合約定義、組態中繼資料，以及可透過 SQL 存取並儲存在區塊鏈中的資料複本。 直接存取資料庫，即可輕鬆地對此資料進行查詢、視覺化或分析。 開發人員和其他使用者可以使用資料庫來進行報告、分析或其他以資料為中心的整合。 例如，使用者可以使用 Power BI 將交易資料視覺化。
 
@@ -113,7 +113,7 @@ Azure 儲存體可用來儲存合約以及與合約相關聯的中繼資料。
 
 Blockchain Workbench 能夠使用區塊鏈商務邏輯來新增文件或其他媒體內容。 文件或媒體內容的雜湊會儲存在區塊鏈中，實際的文件或媒體內容則會儲存在 Azure 儲存體中。 相關聯的交易資訊會傳遞至輸入訊息代理人、加以封裝、簽署，並路由傳送至區塊鏈。 此程序會觸發事件，這些事件會透過輸出訊息代理人來共用。 SQL DB 會取用這項資訊，並將其傳送至 DB 以便稍後進行查詢。 下游系統也可取用這些事件以採取適當行動。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 Workbench 使用 Application Insights 和 Azure 監視器來提供應用程式記錄。 Application Insights 可用來儲存 Blockchain Workbench 中所記錄的所有資訊，並且會包含錯誤、警告和成功的作業。 Application Insights 可供開發人員用來對 Blockchain Workbench 的問題進行偵錯。 
 

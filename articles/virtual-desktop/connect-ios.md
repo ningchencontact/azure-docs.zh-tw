@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338695"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605840"
 ---
-# <a name="connect-with-the-ios-client"></a>與 iOS 用戶端連線
+# <a name="connect-with-the-ios-client"></a>連線至 iOS 用戶端
 
 > 適用于： iOS 8.0 或更新版本。 與 iPhone、iPad 和 iPod touch 相容。
 
@@ -28,7 +28,7 @@ ms.locfileid: "71338695"
 
 1. 在您的 iOS 裝置上安裝[Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664)應用程式。
 2. 在您的 iOS 裝置上，開啟瀏覽器並流覽至[aka.ms/rdiosBeta](https://aka.ms/rdiosbeta)。
-3. 在標籤**底下的步驟2：加入 Beta 版**，選取 [**開始測試**]。
+3. 在 [**步驟2：加入 Beta**] 標籤底下，選取 [**開始測試**]。
 4. 當您重新導向至 TestFlight 應用程式時，請選取 [**接受**]，然後選取 [**安裝**]。
 
 ## <a name="subscribe-to-a-feed"></a>訂閱摘要
@@ -37,9 +37,9 @@ ms.locfileid: "71338695"
 
 若要訂閱摘要：
 
-1. 在 [連接中心] 中 **+** ，點擊，然後按 [**新增工作區**]。
+1. 在 [連接中心] 中，依序按一下 [ **+** ] 和 [**新增工作區**]。
 2. 在 [摘要**url** ] 欄位中輸入摘要 url。 摘要 URL 可以是 URL 或電子郵件地址。
-   - 如果您使用 URL，請使用您的系統管理員提供給您的帳戶。 通常，URL 為<https://rdweb.wvd.microsoft.com>。
+   - 如果您使用 URL，請使用您的系統管理員提供給您的帳戶。 通常會 <https://rdweb.wvd.microsoft.com>URL。
    - 若要使用電子郵件，請輸入您的電子郵件地址。 如果您的系統管理員以這種方式設定伺服器，這會告訴用戶端搜尋與您的電子郵件地址相關聯的 URL。
 3. 按 **[下一步]** 。
 4. 出現提示時，請提供您的認證。

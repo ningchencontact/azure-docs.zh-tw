@@ -1,6 +1,6 @@
 ---
 title: 開始使用 R
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 使用此 R 程式設計教學課程，開始使用 R 語言搭配 Azure Machine Learning Studio （傳統）來建立預測解決方案。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1d3bc64291f58c5dd77531141c31490451cc8ea2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1a9fd7f6041961ee0f9f33e9e319d321050709f4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496825"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619162"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 中的 R 程式設計語言入門（傳統）
 

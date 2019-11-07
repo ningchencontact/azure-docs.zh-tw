@@ -7,35 +7,31 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b5e811daecbb7687abe7a37b75e2730d7830c2c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: cf160b767ee82701bad4c88d3b83951a3b875296
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983626"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614655"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的子協調流程
 
-除了呼叫活動函式，協調器函式還可以呼叫其他協調器函式。 例如，您可以從協調器函式庫中編譯更大的協調流程。 或者，也可以平行執行協調器函式的多個執行個體。
+除了呼叫活動函式，協調器函式還可以呼叫其他協調器函式。 例如，您可以從較小的協調器函式的程式庫建立較大的協調流程。 或者，也可以平行執行協調器函式的多個執行個體。
 
-協調器函式可以在 .NET 中呼叫 [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) 或 [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) 方法，或是在 JavaScript 中呼叫 `callSubOrchestrator` 或 `callSubOrchestratorWithRetry` 方法，來呼叫另一個協調器函式。 [錯誤處理和補償](durable-functions-error-handling.md#automatic-retry-on-failure)一文提供自動重試的詳細資訊。
+協調器函式可以使用 .NET 中的 `CallSubOrchestratorAsync` 或 `CallSubOrchestratorWithRetryAsync` 方法，或 JavaScript 中的 `callSubOrchestrator` 或 `callSubOrchestratorWithRetry` 方法，來呼叫另一個協調器函數。 [錯誤處理和補償](durable-functions-error-handling.md#automatic-retry-on-failure)一文提供自動重試的詳細資訊。
 
 從呼叫端的觀點來看，子協調器函式的行為就像活動函式一樣。 子協調器函式可以傳回值、擲回例外狀況，還可以由父代協調器函式來等候。 
-
-> [!NOTE]
-> 目前，必須在 JavaScript 中提供`instanceId`引數值給子協調流程 API。
-
 ## <a name="example"></a>範例
 
-下列範例說明 IoT (物聯網) 情節，其中有多個需要佈建的裝置。 有一個特別的協調流程是每個裝置都需要進行，看起來可能如下所示：
+下列範例說明 IoT (物聯網) 情節，其中有多個需要佈建的裝置。 下列函式代表需要針對每個裝置執行的布建工作流程：
 
 ### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string deviceId = context.GetInput<string>();
 
@@ -52,7 +48,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +69,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-這個協調器函式可直接用於一次性裝置佈建，也可以當作更大協調流程的一部分。 在後者的情況下，父協調器函式可以使用 `CallSubOrchestratorAsync` (C#) 或 `callSubOrchestrator` (JavaScript) API 來排定 `DeviceProvisioningOrchestration` 的執行個體。
+這個協調器函式可直接用於一次性裝置佈建，也可以當作更大協調流程的一部分。 在後者的情況下，父協調器函式可以使用 `CallSubOrchestratorAsync` （.NET）或 `callSubOrchestrator` （JavaScript） API 來排程 `DeviceProvisioningOrchestration` 的實例。
 
 以下示範如何平行執行多個協調器函式。
 
@@ -82,7 +78,7 @@ module.exports = df.orchestrator(function*(context) {
 ```csharp
 [FunctionName("ProvisionNewDevices")]
 public static async Task ProvisionNewDevices(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string[] deviceIds = await context.CallActivityAsync<string[]>("GetNewDeviceIds");
 
@@ -100,7 +96,10 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的範例適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");

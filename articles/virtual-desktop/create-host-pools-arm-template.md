@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 範本建立 Windows 虛擬桌面主機集區-Azure
+title: Windows 虛擬桌面主機集區 Azure Resource Manager-Azure
 description: 如何使用 Azure Resource Manager 範本在 Windows 虛擬桌面中建立主機集區。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 23d032a2496e975c7e6ceafb61691c2cb1216218
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679603"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605756"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立主機集區
 
@@ -42,7 +42,7 @@ ms.locfileid: "71679603"
 
 1. 向下捲動並以滑鼠右鍵按一下 [部署至 Azure]，然後選取 [複製連結位置]。
 2. 開啟文字編輯器 (例如 [記事本])，並在該處貼上連結。
-3. 在 "https://portal.azure.com/ " 之後，以及在主題標籤（#）前面輸入 @ 符號，後面接著租使用者功能變數名稱。 以下是您應該使用的格式範例： https://portal.azure.com/@Contoso.onmicrosoft.com#create/ 。
+3. 在 "https://portal.azure.com/" 後面，並在主題標籤（#）前面輸入 @ 符號，後面接著租使用者功能變數名稱。 以下是您應該使用的格式範例： https://portal.azure.com/@Contoso.onmicrosoft.com#create/。
 4. 以具有「雲端解決方案提供者」訂用帳戶系統管理員/參與者權限的使用者身分登入 Azure 入口網站。
 5. 將您之前複製到文字編輯器的連結貼到網址列。
 

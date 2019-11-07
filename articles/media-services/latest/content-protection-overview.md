@@ -1,6 +1,7 @@
 ---
-title: 使用媒體服務動態加密來保護您的內容-Azure |Microsoft Docs
-description: 本文提供使用動態加密的內容保護總覽。 它也會討論串流通訊協定和加密類型。
+title: 使用媒體服務動態加密來保護您的內容
+titleSuffix: Azure Media Services
+description: 瞭解在 Azure 媒體服務中使用動態加密、串流通訊協定和加密類型的內容保護。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,18 +15,18 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1f1f1b7448fb87135973a596017441ec02d8023
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: eeb1dc44341768984bd6e337a2fe65a277f5aa77
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581207"
 ---
-# <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>使用媒體服務動態加密來保護您的內容
+# <a name="protect-your-content-with-media-services-dynamic-encryption"></a>使用媒體服務動態加密來保護您的內容
 
-您可以使用 Azure 媒體服務來協助保護媒體，使其不受電腦的儲存、處理和傳遞時的防護。 使用媒體服務，您就能傳遞利用進階加密標準 (AES-128) 或下列三個主要數位版權管理 (DRM) 系統中任一個所動態加密的即時與隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。  
+使用 Azure 媒體服務協助保護您的媒體，使其不受電腦的儲存、處理和傳遞時的影響。 使用媒體服務，您就能傳遞利用進階加密標準 (AES-128) 或下列三個主要數位版權管理 (DRM) 系統中任一個所動態加密的即時與隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。  
 
-在媒體服務 v3 中，內容金鑰會與串流定位器相關聯（請參閱[此範例](protect-with-aes128.md)）。 如果使用媒體服務金鑰傳遞服務，您可以讓 Azure 媒體服務為您產生內容金鑰。 如果您使用自己的金鑰傳遞服務，或如果您需要處理高可用性案例，且在兩個資料中心內必須有相同的內容金鑰，您應該自行產生內容金鑰。
+在媒體服務 v3 中，內容金鑰會與串流定位器相關聯（請參閱[此範例](protect-with-aes128.md)）。 如果使用媒體服務金鑰傳遞服務，您可以讓 Azure 媒體服務為您產生內容金鑰。 如果您要使用自己的金鑰傳遞服務，或如果您需要處理高可用性案例，且在兩個資料中心內必須擁有相同的內容金鑰，則應該自行產生內容金鑰。
 
 播放程式要求串流時，媒體服務便會使用 AES 清除金鑰或 DRM 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式會向媒體服務金鑰傳遞服務或您指定的金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估您為金鑰指定的內容金鑰原則。
 
@@ -41,23 +42,23 @@ ms.locfileid: "73102017"
 
 ## <a name="main-components-of-a-content-protection-system"></a>內容保護系統的主要元件
 
-若要成功完成您的內容保護系統，您必須完全瞭解該工作的範圍。 下列各節概述您需要執行的三個部分。 
+若要成功完成您的內容保護系統，您必須完全瞭解該工作的範圍。 下列各節概述您需要執行的三個部分。
 
 > [!NOTE]
 > 我們強烈建議您在繼續進行下一個部分之前，先將焦點放在下列各節中的每個部分，並加以完整測試。 若要測試您的「內容保護」系統，請使用各節中指定的工具。
 
 ### <a name="media-services-code"></a>媒體服務程式碼
   
-[DRM 範例會示範](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)如何使用 .net，透過媒體服務 v3 來執行多重 DRM 系統。 它也會說明如何使用媒體服務授權/金鑰傳遞服務。   
+[DRM 範例會示範](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)如何使用 .net，透過媒體服務 v3 來執行多重 DRM 系統。 它也會說明如何使用媒體服務授權/金鑰傳遞服務。
   
 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每個資產。 若要查看結合的意義，請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
 
 下列範例示範如何：
 
-1. 建立和設定[內容金鑰原則](content-key-policy-concept.md)。    
+1. 建立和設定[內容金鑰原則](content-key-policy-concept.md)。
 
    您會建立內容金鑰原則，以設定內容金鑰（提供資產的安全存取）如何傳遞給終端用戶端：  
- 
+
    * 定義授權傳遞授權。 根據 JSON Web Token （JWT）中的宣告指定授權檢查的邏輯。
    * 設定[PlayReady](playready-license-template-overview.md)、 [Widevine](widevine-license-template-overview.md)和/或[FairPlay](fairplay-license-overview.md)授權。 範本可讓您設定每個 Drm 的權利和許可權。
 
@@ -66,13 +67,15 @@ ms.locfileid: "73102017"
      ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
      ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
      ```
-2. 建立[串流定位器](streaming-locators-concept.md)，其設定為串流加密的資產。 
+
+2. 建立[串流定位器](streaming-locators-concept.md)，其設定為串流加密的資產。
   
-   串流定位器必須與[串流原則](streaming-policy-concept.md)相關聯。 在範例中，我們會將 `StreamingLocator.StreamingPolicyName` 設定為 "Predefined_MultiDrmCencStreaming" 原則。 
-      
-   會套用 PlayReady 和 Widevine 加密，並根據所設定的 DRM 授權將金鑰傳遞至播放用戶端。 如果您也想要使用 CBCS （FairPlay）來加密您的串流，請使用 "Predefined_MultiDrmStreaming" 原則。
+   串流定位器必須與[串流原則](streaming-policy-concept.md)相關聯。 在範例中，我們會將 `StreamingLocator.StreamingPolicyName` 設定為「Predefined_MultiDrmCencStreaming」原則。
+
+   會套用 PlayReady 和 Widevine 加密，並根據所設定的 DRM 授權將金鑰傳遞至播放用戶端。 如果您也想要使用 CBCS （FairPlay）來加密您的串流，請使用「Predefined_MultiDrmStreaming」原則。
 
    串流定位器也會與您定義的內容金鑰原則相關聯。
+
 3. 建立測試權杖。
 
    `GetTokenAsync` 方法顯示如何建立測試 token。
@@ -80,46 +83,48 @@ ms.locfileid: "73102017"
 
    `GetDASHStreamingUrlAsync` 方法顯示如何建立串流 URL。 在此情況下，URL 會串流破折號內容。
 
-### <a name="player-with-an-aes-or-drm-client"></a>使用 AES 或 DRM 用戶端的播放程式 
+### <a name="player-with-an-aes-or-drm-client"></a>使用 AES 或 DRM 用戶端的播放程式
 
 以播放器 SDK (原生或以瀏覽器為基礎) 為基礎的影片播放器應用程式必須符合下列需求：
 
 * 播放機 SDK 支援所需的 DRM 用戶端。
-* 播放機 SDK 支援所需的串流通訊協定：平滑、虛線和/或 HLS。
+* 播放機 SDK 支援所需的串流通訊協定：平滑、虛線和（或） HTTP 即時串流（HLS）。
 * Player SDK 可以在授權取得要求中處理傳遞 JWT 權杖。
 
 您可以使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
 
 若要測試 AES 或 CENC (Widevine 和/或 PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](https://aka.ms/azuremediaplayer) \(英文\)。 請確定您選取 [ **Advanced options** ]，並檢查您的加密選項。
 
-如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](https://aka.ms/amtest)。 Player 支援 Widevine、PlayReady 和 FairPlay Drm，以及 AES-128 清除金鑰加密。 
+如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](https://aka.ms/amtest)。 Player 支援 Widevine、PlayReady 和 FairPlay Drm，以及 AES-128 清除金鑰加密。
 
 選擇正確的瀏覽器以測試不同的 Drm：
 
-* 適用于 Widevine 的 Chrome、Opera 或 Firefox
-* 適用于 PlayReady 的 Microsoft Edge 或 Internet Explorer 11
-* 適用于 FairPlay 的 macOS 上的 Safari
+* 適用于 Widevine 的 Chrome、Opera 或 Firefox。
+* 適用于 PlayReady 的 Microsoft Edge 或 Internet Explorer 11。
+* 適用于 FairPlay 的 macOS 上的 Safari。
 
 ### <a name="security-token-service"></a>安全性權杖服務
 
-Security Token Service （STS）會發出 JWT 做為後端資源存取的存取權杖。 您可以使用 Azure 媒體服務授權/金鑰傳遞服務做為後端資源。 STS 必須定義以下項目：
+Security Token Service （STS）會發出 JWT 做為後端資源存取的存取權杖。 您可以使用 Azure 媒體服務授權/金鑰傳遞服務做為後端資源。 STS 必須定義下列專案：
 
-* 簽發者和對象 (或範圍)
-* 宣告取決於內容保護中的商務需求
-* 簽章驗證的對稱或非對稱驗證
-* 金鑰變換支援 (如有必要)
+* 簽發者和物件（或範圍）。
+* 宣告，相依于內容保護中的商務需求。
+* 簽章驗證的對稱或非對稱式驗證。
+* 金鑰變換支援（如有必要）。
+
+您可以使用[此 sts 工具](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt)來測試 STS。 它支援所有三種類型的驗證金鑰：對稱、非對稱或 Azure Active Directory （Azure AD）與金鑰變換。
 
 ## <a name="streaming-protocols-and-encryption-types"></a>串流通訊協定和加密類型
 
-您可以使用媒體服務，來傳遞藉由使用 PlayReady、Widevine 或 FairPlay 並透過 AES 未加密金鑰或 DRM 加密所動態加密的內容。 您目前可以加密 HTTP 即時串流 (HLS)、MPEG DASH 和 Smooth Streaming 格式。 每個通訊協定都支援下列加密方法。
+您可以使用媒體服務，來傳遞藉由使用 PlayReady、Widevine 或 FairPlay 並透過 AES 未加密金鑰或 DRM 加密所動態加密的內容。 目前，您可以加密 HLS、MPEG 破折號和 Smooth Streaming 格式。 每個通訊協定都支援下列加密方法。
 
 ### <a name="hls"></a>HLS
 
-HLS 通訊協定支援下列容器格式和加密配置。
+HLS 通訊協定支援下列容器格式和加密配置：
 
 |容器格式|加密配置|URL 範例|
 |---|---|---|
-|所有|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS （FairPlay） |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS （FairPlay） |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -127,17 +132,17 @@ HLS 通訊協定支援下列容器格式和加密配置。
 
 下列裝置支援 HLS/CMAF + FairPlay （包括 HEVC/H. 265）：
 
-* iOS 11 或更新版本 
-* iPhone 8 或更新版本
-* Intel 第7代 CPU 的 MacOS 高塞拉里昂
+* iOS 11 或更新版本。
+* iPhone 8 或更新版本。
+* 使用 Intel 7 代 CPU MacOS 高塞拉里昂。
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
-MPEG-破折號通訊協定支援下列容器格式和加密配置。
+MPEG-破折號通訊協定支援下列容器格式和加密配置：
 
 |容器格式|加密配置|URL 範例
 |---|---|---|
-|所有|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
@@ -154,7 +159,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 常見的瀏覽器支援下列 DRM 用戶端：
 
-|瀏覽器|加密|
+|[瀏覽器]|加密|
 |---|---|
 |Chrome|Widevine|
 |Microsoft Edge、Internet Explorer 11|PlayReady|
@@ -164,15 +169,15 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 ## <a name="controlling-content-access"></a>控制內容存取
 
-您可以設定內容金鑰原則來控制可存取內容的人員。 媒體服務支援多種方式來授權提出金鑰要求的使用者。 您必須設定內容金鑰原則。 用戶端 (播放器) 必須先符合原則，系統才會將金鑰傳遞給用戶端。 內容金鑰原則可具有*開啟*或*權杖*限制。 
+您可以設定內容金鑰原則來控制可存取內容的人員。 媒體服務支援多種方式來授權提出金鑰要求的使用者。 用戶端 (播放器) 必須先符合原則，系統才會將金鑰傳遞給用戶端。 內容金鑰原則可具有*開啟*或*權杖*限制。
 
 當您想要在沒有授權的情況下頒發授權給任何人時，可能會使用開放限制的內容金鑰原則。 例如，如果您的收益是以 ad 為基礎，而不是以訂用帳戶為基礎。  
 
-使用權杖限制的內容金鑰原則時，只會將內容金鑰傳送給用戶端，以在授權/金鑰要求中出示有效的 JWT 權杖或簡單 web 權杖（SWT）。 此權杖必須由 STS 發行。 
+使用權杖限制的內容金鑰原則時，只會將內容金鑰傳送給用戶端，以在授權/金鑰要求中出示有效的 JWT 權杖或簡單 web 權杖（SWT）。 此權杖必須由 STS 發行。
 
 您可以使用 Azure AD 做為 STS 或部署[自訂 sts](#using-a-custom-sts)。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果這兩個條件都存在，媒體服務授權/金鑰傳遞服務會將要求的授權或金鑰傳回給用戶端：
 
-* 權杖有效。 
+* 權杖有效。
 * 權杖中的宣告符合為授權或金鑰所設定的宣告。
 
 設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的 STS。 物件（有時稱為範圍）描述權杖或權杖授權存取之資源的意圖。 媒體服務授權/金鑰傳遞服務會驗證權杖中的這些值是否符合範本中的值。
@@ -185,7 +190,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 * 客戶必須擁有權杖產生的控制權。 宣告必須放在權杖本身。
 * 使用這項功能時，會拒絕權杖的到期時間超過一小時的要求，而不會收到未經授權的回應。
-* 權杖是由其簽章唯一識別。 對承載所做的任何變更（例如，更新到期時間或宣告）都會變更權杖的簽章，並將其計為新的權杖，表示先前尚未遇到金鑰傳遞。
+* 權杖是由其簽章唯一識別。 對裝載所做的任何變更（例如，更新到期時間或宣告）都會變更權杖的簽章，而且會計算為新的權杖，表示金鑰傳遞不會在之前。
 * 如果權杖已超過客戶所設定的 `maxuses` 值，播放就會失敗。
 * 這項功能可用於所有現有的受保護內容（只需要變更發行的權杖）。
 * 這項功能適用于 JWT 和 SWT。
@@ -195,9 +200,10 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 客戶可能會選擇使用自訂 STS 來提供權杖。 原因包括：
 
 * 客戶使用的識別提供者（IDP）不支援 STS。 在此情況下，自訂 STS 可能是一個選項。
-* 客戶在整合 STS 與客戶的訂閱者計費系統時，可能需要更多彈性或更緊密的控制。 
+* 客戶在整合 STS 與客戶的訂閱者計費系統時，可能需要更多彈性或更緊密的控制。
 
    例如， [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services)服務操作員可能會提供多個訂閱者封裝，例如 premium、basic 和體育。 業者可能需要讓權杖中的宣告與訂閱者套件相符，如此一來，只有正確套件中的內容可供使用。 在此情況下，自訂 STS 提供所需的彈性和控制。
+
 * 在權杖中包含自訂宣告，以使用不同的 DRM 授權參數（訂用帳戶授權與出租授權）在不同的 ContentKeyPolicyOptions 之間進行選取。
 * 包含宣告，其代表權杖授與存取權之金鑰的內容金鑰識別碼。
 
@@ -211,7 +217,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 * 對稱金鑰：會使用相同的金鑰來產生及驗證 JWT。
 * 非對稱金鑰：搭配使用 x509 憑證中的私密-公開金鑰組，私密金鑰用來加密/產生 JWT，公開金鑰則用來驗證權杖。
 
-如果您使用 .NET Framework/C# 作為開發平台，用於非對稱安全性金鑰的 x509 憑證之金鑰長度必須至少為 2048。 這是 .NET Framework 中的 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 類別的需求。 否則，會擲回下列例外狀況： IDX10630：用於簽署的 ' Microsoft.identitymodel. System.identitymodel.tokens.x509asymmetricsecuritykey ' 不能小於 ' 2048 ' 位。
+如果您使用 .NET Framework/C# 作為開發平台，用於非對稱安全性金鑰的 x509 憑證之金鑰長度必須至少為 2048。 在 .NET Framework 中，此金鑰長度是 System.identitymodel.tokens.x509asymmetricsecuritykey 類別的需求。 否則，會擲回下列例外狀況： IDX10630：用於簽署的 ' Microsoft.identitymodel. System.identitymodel.tokens.x509asymmetricsecuritykey ' 不能小於 ' 2048 ' 位。
 
 ## <a name="custom-key-and-license-acquisition-url"></a>自訂金鑰和授權取得 URL
 
@@ -222,7 +228,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
    此範本支援可取代的權杖，服務會在執行時間以要求的特定值進行更新。  目前支援的標記值為：
    * `{AlternativeMediaId}`，以 StreamingLocatorId. AlternativeMediaId 的值取代。
    * `{ContentKeyId}`，會取代為所要求金鑰的識別碼值。
-* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`：提供授權給使用者播放程式之自訂服務 URL 的範本。 當您使用 Azure 媒體服務來發行授權時，這不是必要的。 
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`：提供授權給使用者播放程式之自訂服務 URL 的範本。 當您使用 Azure 媒體服務來發行授權時，這不是必要的。
 
    此範本支援可取代的權杖，服務會在執行時間以要求的特定值進行更新。 目前支援的標記值為：  
    * `{AlternativeMediaId}`，以 StreamingLocatorId. AlternativeMediaId 的值取代。

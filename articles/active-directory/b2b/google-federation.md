@@ -5,31 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 11/1/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b26679542753d5fb429c33e4220c23a3937c5cb
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430433"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603601"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>將 Google 新增為 B2B 來賓使用者的身分識別提供者（預覽）
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>將 Google 新增為 B2B 來賓使用者的識別提供者
 
-|     |
-| --- |
-| Google 同盟是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
-|     |
+藉由設定與 Google 的同盟，您可以允許受邀的使用者以自己的 Gmail 帳戶登入您的共用應用程式和資源，而不需要建立 Microsoft 帳戶（Msa）。 
 
-藉由設定與 Google 的同盟，您可以允許受邀的使用者以自己的 Gmail 帳戶登入您的共用應用程式和資源，而不需要建立 Microsoft 帳戶（Msa）或 Azure AD 帳戶。 Google 同盟是專為 Gmail 使用者所設計。 若要與 G Suite 網域同盟，請改用「[直接同盟」功能](direct-federation.md)。
 > [!NOTE]
-> Google 來賓使用者必須使用包含租用戶內容的連結 (例如 `https://myapps.microsoft.com/?tenantid=<tenant id>` 或 `https://portal.azure.com/<tenant id>`，如果是已驗證的網域，則為 `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`) 來登入。 應用程式和資源的直接連結只要包含租用戶內容，也可有同樣作用。 來賓使用者目前無法使用沒有租用戶內容的端點來登入。 例如，使用 `https://myapps.microsoft.com`、`https://portal.azure.com` 或小組通用端點將會導致錯誤。
- 
+> Google 同盟是專為 Gmail 使用者所設計。 若要與 G Suite 網域同盟，請使用 [[直接同盟] 功能](direct-federation.md)。
+
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 使用者有何體驗？
 當您傳送邀請給 Google Gmail 使用者時，來賓使用者應該會使用包含租用戶內容的連結來存取共用應用程式或資源。 其體驗會因為是否已登入 Google 而有所不同：
   - 如果來賓使用者未登入 Google，系統會提示他們登入 Google。
@@ -39,9 +35,22 @@ ms.locfileid: "72430433"
 
 ![顯示 Google 登入頁面的螢幕擷取畫面](media/google-federation/google-sign-in.png)
 
+## <a name="limitations"></a>限制
+
+小組完全支援所有裝置上的 Google 來賓使用者。 Google 使用者可以從一般端點（例如 `https://teams.microsoft.com`）登入小組。
+
+其他應用程式的通用端點可能不支援 Google 使用者。 Google 來賓使用者必須使用包含租使用者資訊的連結來登入。 範例如下：
+  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
+  * `https://portal.azure.com/<your tenant id>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+
+   如果 Google 來賓使用者嘗試使用 `https://myapps.microsoft.com` 或 `https://portal.azure.com`之類的連結，他們會收到錯誤。
+
+您也可以將應用程式或資源的直接連結授與 Google 來賓使用者，前提是此連結包含您的租使用者資訊，例如 `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`。 
+
 ## <a name="step-1-configure-a-google-developer-project"></a>步驟 1︰設定 Google 開發人員專案
 首先，在 Google 開發人員主控台中，建立新專案來取得用戶端識別碼和用戶端密碼，以供稍後新增至 Azure AD。 
-1. 移至 Google API (網址為： https://console.developers.google.com )，並使用 Google 帳戶來登入。 建議您使用共用小組的 Google 帳戶。
+1. 移至 Google API (網址為： https://console.developers.google.com)，並使用 Google 帳戶來登入。 建議您使用共用小組的 Google 帳戶。
 2. 建立新專案：在儀表板上，選取 [建立專案]，然後選取 [建立]。 在 [新增專案] 頁面上，輸入 [專案名稱]，然後選取 [建立]。
    
    ![顯示 Google 新專案頁面的螢幕擷取畫面](media/google-federation/google-new-project.png)
@@ -58,7 +67,7 @@ ms.locfileid: "72430433"
 
    ![顯示 [授權的網域] 區段的螢幕擷取畫面](media/google-federation/google-oauth-authorized-domains.png)
 
-6. 選取 [儲存]。
+6. 選取 [ **儲存**]。
 
 7. 選擇 [**認證**] 索引標籤。在 [**建立認證**] 功能表中，選擇 [ **OAUTH 用戶端識別碼**]。
 
@@ -69,11 +78,11 @@ ms.locfileid: "72430433"
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(其中，`<directory id>` 是目錄識別碼)
    
      > [!NOTE]
-     > 若要尋找目錄識別碼，請移至 https://portal.azure.com ，然後在 [Azure Active Directory] 底下，選擇 [屬性] 並複製 [目錄識別碼]。
+     > 若要尋找目錄識別碼，請移至 https://portal.azure.com，然後在 [Azure Active Directory] 底下，選擇 [屬性] 並複製 [目錄識別碼]。
 
    ![顯示 [授權的重新導向 Uri] 區段的螢幕擷取畫面](media/google-federation/google-create-oauth-client-id.png)
 
-9. 選取 [建立]。 複製用戶端識別碼和用戶端密碼，以便用來在 Azure AD 入口網站中新增識別提供者。
+9. 選取 [ **建立**]。 複製用戶端識別碼和用戶端密碼，以便用來在 Azure AD 入口網站中新增識別提供者。
 
    ![顯示 OAuth 用戶端識別碼和用戶端密碼的螢幕擷取畫面](media/google-federation/google-auth-client-id-secret.png)
 
@@ -84,7 +93,7 @@ ms.locfileid: "72430433"
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 在左窗格中，選取 [Azure Active Directory]。 
 2. 選取 [組織關係]。
 3. 選取 [識別提供者]，然後按一下 [Google] 按鈕。
-4. 輸入名稱。 然後輸入您稍早取得的用戶端識別碼和用戶端密碼。 選取 [儲存]。 
+4. 輸入名稱。 然後輸入您稍早取得的用戶端識別碼和用戶端密碼。 選取 [ **儲存**]。 
 
    ![顯示 [新增 Google 身分識別提供者] 頁面的螢幕擷取畫面](media/google-federation/google-identity-provider.png)
 

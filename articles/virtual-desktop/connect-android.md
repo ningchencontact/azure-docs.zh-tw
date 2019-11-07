@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: c19aa6e0acc936c5b03afdab99ce0b9230838ce2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339006"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605859"
 ---
 # <a name="connect-with-the-android-client"></a>連線至 Android 用戶端
 
-> 適用於：Android 4.1 和更新版本，使用 ChromeOS 53 和更新版本 Chromebook。
+> 適用于： Android 4.1 和更新版本，使用 ChromeOS 53 和更新版本 Chromebook。
 
 >[!NOTE]
 > 從 Android 用戶端存取 Windows 虛擬桌面資源的能力目前已提供預覽。
@@ -33,9 +33,9 @@ ms.locfileid: "71339006"
 
 若要訂閱摘要：
 
-1. 在 [連接中心] 中，按一下 [ **+** ]，然後按一下 [**遠端資源**摘要]。
+1. 在 [連接中心] 中，依序按一下 [ **+** ] 和 [**遠端資源**摘要]。
 2. 在 [摘要**url** ] 欄位中輸入摘要 url。 摘要 URL 可以是 URL 或電子郵件地址。
-   - 如果您使用 URL，請使用您的系統管理員提供給您的 URL，通常 <https://rdweb.wvd.microsoft.com>。
+   - 如果您使用 URL，請使用您系統管理員提供給您的帳戶，通常 <https://rdweb.wvd.microsoft.com>。
    - 若要使用電子郵件，請輸入您的電子郵件地址。 如果您的系統管理員以這種方式設定伺服器，用戶端將會搜尋與您的電子郵件地址相關聯的 URL。
 3. 按 **[下一步]** 。
 4. 出現提示時，請提供您的認證。

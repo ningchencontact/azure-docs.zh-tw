@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249223"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582408"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift 常見問題
 
 本文說明 Microsoft Azure Red Hat OpenShift 的常見問題（Faq）。
-
-## <a name="how-do-i-get-started"></a>如何開始使用？
-
-在您可以使用 Azure Red Hat OpenShift 之前，您必須購買至少4個 Azure Red Hat OpenShift 保留的應用程式節點。
-
-如果您是 Azure 客戶，請透過 Azure 入口網站[購買 Azure Red Hat OpenShift 保留實例](https://aka.ms/openshift/buy)。 購買之後，您的訂用帳戶將會在24小時內啟動，之後您就能夠布建叢集。
-
-如果您不是 Azure 客戶，請[聯絡銷售](https://aka.ms/openshift/contact-sales)，並在頁面底部填寫 [銷售] 表單，以開始處理常式。
-
-如需詳細資訊，請參閱[Azure Red Hat OpenShift 定價頁面](https://aka.ms/openshift/pricing)。
 
 ## <a name="which-azure-regions-are-supported"></a>支援哪些 Azure 區域？
 
@@ -35,7 +25,7 @@ ms.locfileid: "72249223"
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>我可以將叢集部署到現有的虛擬網路嗎？
 
-資料分割 但是，您可以透過對等互連將 Azure Red Hat OpenShift 叢集連線到現有的 VNET。 如需詳細資訊，請參閱[將叢集的虛擬網路連線到現有的虛擬網路](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)。
+不會。 但是，您可以透過對等互連將 Azure Red Hat OpenShift 叢集連線到現有的 VNET。 如需詳細資訊，請參閱[將叢集的虛擬網路連線到現有的虛擬網路](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)。
 
 ## <a name="what-cluster-operations-are-available"></a>有哪些叢集作業可供使用？
 
@@ -67,27 +57,27 @@ Docker 登錄可從 `https://docker-registry.apps.<clustername>.<region>.azmosa.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>系統管理員可以管理使用者和配額嗎？
 
-是的。 除了存取所有使用者建立的專案之外，Azure Red Hat OpenShift 系統管理員還可以管理使用者和配額。
+是。 除了存取所有使用者建立的專案之外，Azure Red Hat OpenShift 系統管理員還可以管理使用者和配額。
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>我可以將叢集限制為只有特定 Azure AD 的使用者嗎？
 
-是的。 您可以藉由設定 Azure AD 應用程式來限制哪些 Azure AD 使用者可以登入叢集。 如需詳細資訊，請參閱 [How to：將您的應用程式限制為一組使用者 @ no__t-0
+是。 您可以藉由設定 Azure AD 應用程式來限制哪些 Azure AD 使用者可以登入叢集。 如需詳細資訊，請參閱[如何：將您的應用程式限制為一組使用者](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>叢集可以跨多個 Azure 區域擁有計算節點嗎？
 
-資料分割 Azure Red Hat OpenShift 叢集中的所有節點都必須來自相同的 Azure 區域。
+不會。 Azure Red Hat OpenShift 叢集中的所有節點都必須來自相同的 Azure 區域。
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>主要和基礎結構節點是否會與 Azure Kubernetes Service （AKS）一起抽象化？
 
-資料分割 所有資源（包括叢集主機）都是在您的客戶訂用帳戶中執行。 這些類型的資源會放在唯讀的資源群組中。
+不會。 所有資源（包括叢集主機）都是在您的客戶訂用帳戶中執行。 這些類型的資源會放在唯讀的資源群組中。
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>是否支援 Open Service Broker for Azure （OSBA）？
 
-是的。 您可以使用 OSBA 搭配 Azure Red Hat OpenShift。 如需詳細資訊，請參閱[Open Service Broker For Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 。
+是。 您可以使用 OSBA 搭配 Azure Red Hat OpenShift。 如需詳細資訊，請參閱[Open Service Broker For Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 。
 
 ## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我想要對等互連至不同訂用帳戶中的虛擬網路，但收到 `Failed to get vnet CIDR` 錯誤。
 
-在具有虛擬網路的訂用帳戶中，請務必向 `az provider register -n Microsoft.ContainerService --wait` 註冊 @no__t 0 提供者 
+在具有虛擬網路的訂用帳戶中，請務必向 `az provider register -n Microsoft.ContainerService --wait` 註冊 `Microsoft.ContainerService` 提供者 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>什麼是 Azure Red Hat OpenShift （ARO）維護程式？
 
@@ -191,7 +181,7 @@ SDN 是 openshift-ovs-es-networkpolicy，而且無法設定。
 
 ## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>我們可以選擇任何持續性儲存體解決方案，例如 OCS 嗎？ 
 
-有兩個儲存類別可供選取：Azure 磁片和 Azure 檔案。
+有兩個儲存類別可供選取： Azure 磁片和 Azure 檔案。
 
 ## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>叢集如何更新（包括因弱點而主修和未成年人）？
 

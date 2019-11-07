@@ -1,5 +1,5 @@
 ---
-title: 自動調整 Windows 虛擬桌面工作階段主機規模-Azure
+title: 動態調整 Windows 虛擬桌面工作階段主機-Azure
 description: 說明如何為 Windows 虛擬桌面工作階段主機設定自動調整腳本。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842778"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607449"
 ---
 # <a name="scale-session-hosts-dynamically"></a>動態調整工作階段主機
 
@@ -49,7 +49,7 @@ ms.locfileid: "71842778"
 首先，準備您的環境以進行調整腳本：
 
 1. 使用網域系統管理帳戶登入將執行排程工作的 VM （scaler VM）。
-2. 在 scaler VM 上建立資料夾，以保存調整腳本和其設定（例如**C： \\scaling-HostPool1**）。
+2. 在 scaler VM 上建立資料夾，以保存調整腳本和其設定（例如**C：\\調整-HostPool1**）。
 3. 從[調整腳本存放庫](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script)下載**basicScale**、 **config.xml**和**Functions-PSStoredCredentials**檔案，以及**PowershellModules**資料夾，並將其複製到您在步驟2中建立的資料夾。 有兩種主要方式可在將檔案複製到 scaler VM 之前取得檔案：
     - 將 git 存放庫複製到本機電腦。
     - 查看每個檔案的**原始**版本，將每個檔案的內容複寫並貼到文字編輯器中，然後以對應的檔案名和檔案類型儲存檔案。 
@@ -72,7 +72,7 @@ ms.locfileid: "71842778"
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    例如，**集合-變數名稱 KeyPath-Scope Global-Value "c： \\scaling-HostPool1"**
+    例如，**集合-變數名稱 KeyPath-範圍全域值 "c：\\調整-HostPool1"**
 5. 執行**StoredCredential-KeyPath \$KeyPath** Cmdlet。 出現提示時，請輸入您的 Windows 虛擬桌面認證，其具有查詢主機集區的許可權（在**config.xml**中指定主機集區）。
     - 如果您使用不同的服務主體或標準帳戶，請針對每個帳戶執行**StoredCredential-KeyPath \$KeyPath** Cmdlet 一次，以建立本機儲存的認證。
 6. 執行**StoredCredential-List** ，確認已成功建立認證。
@@ -81,7 +81,7 @@ ms.locfileid: "71842778"
 
 在下欄欄位中輸入相關的值，以更新 config.xml 中的調整腳本設定：
 
-| 欄位                     | 描述                    |
+| 欄位                     | 說明                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 與會話主機 Vm 執行所在的訂用帳戶相關聯的 Azure AD 租使用者識別碼     |
 | AADApplicationId              | 服務主體應用程式識別碼                                                       |
@@ -89,7 +89,7 @@ ms.locfileid: "71842778"
 | currentAzureSubscriptionId    | 工作階段主機 Vm 執行所在的 Azure 訂用帳戶識別碼                        |
 | tenantName                    | Windows 虛擬桌面租使用者名稱                                                    |
 | hostPoolName                  | Windows 虛擬桌面主機集區名稱                                                 |
-| RDBroker                      | WVD 服務的 URL，預設值為 HTTPs： \//rdbroker. WVD. microsoft .com             |
+| RDBroker                      | WVD 服務的 URL，預設值為 HTTPs：\//rdbroker.wvd.microsoft.com             |
 | 使用者名稱                      | 服務主體應用程式識別碼（可能會有與 AADApplicationId 相同的服務主體）或不含多重要素驗證的標準使用者 |
 | isServicePrincipal            | 接受的值為**true**或**false**。 指出所使用的第二組認證是否為服務主體或標準帳戶。 |
 | BeginPeakTime                 | 當尖峰使用時間開始時                                                            |
@@ -111,7 +111,7 @@ ms.locfileid: "71842778"
 4. 移至 [**觸發**程式] 索引標籤，然後選取 [**新增 ...** ]
 5. 在 [**新增觸發**程式] 對話方塊的 [ **Advanced settings**] 底下，勾選 [**重複**工作]，然後選取適當的期間和持續時間（例如， **15 分鐘**或**無限期**）。
 6. 選取 [**動作**] 索引標籤和 [**新增 ...** ]
-7. 在 [**新增動作**] 對話方塊中，于 [**程式/腳本**] 欄位中輸入 [ **powershell** ]，然後在 [**新增引數（選擇性）** ] 欄位中輸入**C： \\scaling @ no__t-5basicScale。**
+7. 在 [**新增動作**] 對話方塊中，于 [**程式/腳本**] 欄位中輸入**Powershell** ，然後在 [**新增引數（選擇性）** ] 欄位中輸入**C：\\調整\\basicScale。**
 8. 移至 [**條件**和**設定**] 索引標籤，然後選取 **[確定]** 以接受每個的預設設定。
 9. 輸入您打算執行調整腳本之系統管理帳戶的密碼。
 

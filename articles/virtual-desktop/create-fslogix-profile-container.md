@@ -1,5 +1,5 @@
 ---
-title: 在 Windows 虛擬桌面中使用 Azure NetApp Files 建立主機集區的 FSLogix 設定檔容器-Azure
+title: FSLogix 設定檔容器 NetApp Windows 虛擬桌面-Azure
 description: 如何使用 Windows 虛擬桌面中的 Azure NetApp Files 建立 FSLogix 設定檔容器。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1f5d1050815961f51c2bb1cfce256b1ea37d3ac1
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311631"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605767"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>使用 Azure NetApp Files 建立主機集區的 FSLogix 設定檔容器
 
@@ -134,7 +134,7 @@ ms.locfileid: "72311631"
     - 針對 [**虛擬網路**]，從下拉式功能表中選取可連線到網域控制站的現有虛擬網路。
     - 在 [**子網**] 下，選取 [**新建**]。 請記住，此子網將會委派給 Azure NetApp Files。
 
-3.  完成時，選取 下一步:**通訊協定 \> @ no__t-1 @ no__t-2 開啟 通訊協定 索引標籤，並設定您的磁片區存取參數。
+3.  選取 **[下一步：通訊協定 \>] \>** 開啟 [通訊協定] 索引標籤，並設定磁片區存取參數。
 
 ## <a name="configure-volume-access-parameters"></a>設定磁片區存取參數
 
@@ -160,7 +160,7 @@ ms.locfileid: "72311631"
 
 2. 將下載的檔案解壓縮。
 
-3. 在檔案中，移至 [ **x64** > **發行**]，然後執行**FSLogixAppsSetup**。 [安裝] 功能表隨即開啟。
+3. 在檔案中，移至 [ **x64** ] > [**發行**]，然後執行 [ **FSLogixAppsSetup**]。 [安裝] 功能表隨即開啟。
 
 4.  如果您有產品金鑰，請在 [產品金鑰] 文字方塊中輸入。
 
@@ -168,15 +168,15 @@ ms.locfileid: "72311631"
 
 6. 選取 [安裝]。
 
-7. 流覽至**C： @no__t 1Program Files @ no__t-2FSLogix @ no__t-3Apps**以確認代理程式已安裝。
+7. 流覽至**C：\\Program Files\\FSLogix\\Apps**以確認代理程式已安裝。
 
 8. 在 [開始] 功能表中，以系統管理員身分執行**RegEdit** 。
 
-9. 流覽至**Computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**。
+9. 流覽至**電腦\\HKEY_LOCAL_MACHINE\\軟體\\FSLogix**。
 
 10. 建立名為**Profiles**的金鑰。
 
-11.  建立名為**Enabled**的值，並將**REG_DWORD**類型設定為數據值**1**。
+11.  建立名為**Enabled**的值，並將**REG_DWORD**類型設為**1**的資料值。
 
 12. 使用**多字串**類型建立名為**VHDLocations**的值，並將其資料值設定為 Azure NETAPP Files 共用的 URI。
 
@@ -219,7 +219,7 @@ ms.locfileid: "72311631"
 
 5. 移至 [**總覽**] 索引標籤，並確認 FSLogix 設定檔容器使用空間。
 
-6. 使用遠端桌面直接連接到主機集區的任何 VM 部分，然後開啟檔案**瀏覽器。** 然後流覽至**掛接路徑**（在下列範例中，掛接路徑為 \\\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3ANF-VOL）。
+6. 使用遠端桌面直接連接到主機集區的任何 VM 部分，然後開啟檔案**瀏覽器。** 然後流覽至**掛接路徑**（在下列範例中，掛接路徑會 \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\及-VOL）。
 
    在此資料夾中，應該會有一個設定檔 VHD （或 VHDX），如下列範例所示。
 

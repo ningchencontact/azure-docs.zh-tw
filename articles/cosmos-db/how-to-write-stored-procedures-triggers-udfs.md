@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中定義預存程序、觸發程�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092827"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606265"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中撰寫預存程序、觸發程序和使用者定義函式
 
@@ -21,6 +21,9 @@ Azure Cosmos DB 所提供的語言整合式、交易式 JavaScript 執行，可�
 
 > [!NOTE]
 > 對分割容器執行預存程序時，必須在要求選項中提供分割區索引鍵值。 預存程序的範圍一律為分割區索引鍵。 具有不同分割區索引鍵值的項目，將不會對預存程序顯示。 這也適用於觸發程序。
+
+> [!Tip]
+> Cosmos 支援使用預存程式、觸發程式和使用者定義函數來部署容器。 如需詳細資訊，請參閱[使用伺服器端功能建立 Azure Cosmos DB 容器。](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>如何撰寫預存程序
 
@@ -48,11 +51,11 @@ var helloWorldStoredProc = {
 
 ### <a id="create-an-item"></a>使用預存程序建立項目
 
-當您使用預存程序建立項目時，該項目會插入 Azure Cosmos 容器中，並傳回新建立的項目所具備的識別碼。 建立項目是非同步作業，並依存於 JavaScript 回呼函式。 此回呼函式有兩個參數 - 一個用於作業失敗時的錯誤物件，一個用於傳回值 (在此案例中為已建立的物件)。 在回呼內，您可以處理例外狀況或擲回錯誤。 如果未提供回呼，而且發生錯誤，則 Azure Cosmos DB 執行階段會擲回錯誤。 
+當您使用預存程式建立專案時，會將專案插入 Azure Cosmos 容器中，並傳回新建立之專案的識別碼。 建立項目是非同步作業，並依存於 JavaScript 回呼函式。 此回呼函式有兩個參數 - 一個用於作業失敗時的錯誤物件，一個用於傳回值 (在此案例中為已建立的物件)。 在回呼內，您可以處理例外狀況或擲回錯誤。 如果未提供回呼，而且發生錯誤，則 Azure Cosmos DB 執行階段會擲回錯誤。 
 
 預存程序也包含用來設定描述的參數，此為布林值。 當此參數設定為 true 時，若沒有描述，則預存程序將會擲回例外狀況。 否則，預存程序的其餘部分會繼續執行。
 
-下列範例預存程序會採用新的 Azure Cosmos 項目，作為輸入，並將其插入 Azure Cosmos 容器中，然後傳回新建立的項目所具備的識別碼。 在此範例中，我們使用[快速入門 .NET SQL API](create-sql-api-dotnet.md) 中提供的 ToDoList 範例
+下列範例預存程式會採用新的 Azure Cosmos 專案做為輸入，將其插入 Azure Cosmos 容器中，並傳回新建立之專案的識別碼。 在此範例中，我們使用[快速入門 .NET SQL API](create-sql-api-dotnet.md) 中提供的 ToDoList 範例
 
 ```javascript
 function createToDoItem(itemToCreate) {

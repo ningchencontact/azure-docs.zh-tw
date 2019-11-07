@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 69b81417e541bd6853e02065e8cee08e3e04b4a2
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433890"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582613"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure 資訊安全中心的安全性警示
 
@@ -115,7 +115,7 @@ Azure 資訊安全中心受益于在 Microsoft 中提供安全性研究和資料
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已瞭解資訊安全中心中可用的各種警示類型。 如需詳細資訊，請參閱
+在本文中，您已瞭解資訊安全中心中可用的各種警示類型。 如需詳細資訊，請參閱：
 
 * [Azure 資訊安全中心規劃和操作指南](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [Azure 資訊安全中心常見問題](https://docs.microsoft.com/azure/security-center/security-center-faq)

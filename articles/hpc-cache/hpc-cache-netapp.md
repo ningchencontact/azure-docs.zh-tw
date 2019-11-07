@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure HPC Cache （預覽）和 Azure NetApp Files
+title: 使用 Azure HPC Cache 和 Azure NetApp Files
 description: 如何使用 Azure HPC 快取來改善以 Azure NetApp Files 儲存之資料的存取權
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 35d7a11c4f39f15c6b2f904df77b88b85c2208e5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c6259dabd5ee9c53d37a3396f36832720a103c23
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954938"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582159"
 ---
-# <a name="use-azure-hpc-cache-preview-with-azure-netapp-files"></a>使用 Azure HPC Cache （預覽）搭配 Azure NetApp Files
+# <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>搭配 Azure NetApp Files 使用 Azure HPC Cache
 
 您可以使用[Azure NetApp Files](https://azure.microsoft.com/services/netapp/)作為 azure HPC 快取的儲存體目標。 本文說明這兩項服務如何搭配運作，並提供設定它們的秘訣。
 

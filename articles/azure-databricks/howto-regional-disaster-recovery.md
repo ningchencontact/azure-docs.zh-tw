@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596906"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601755"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 叢集的區域性災害復原
 
@@ -21,7 +21,7 @@ ms.locfileid: "72596906"
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 架構
 
-概括而言，當您從 Azure 入口網站建立 Azure Databricks 工作區時，[受控設備](../managed-applications/overview.md)會在所選的 Azure 區域 (例如，美國西部) 部署為您訂用帳戶中的 Azure 資源。 此設備會部署在具有[網路安全性群組](../virtual-network/manage-network-security-group.md)和 Azure 儲存體帳戶的 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)中 (適用於的您訂用帳戶)。 虛擬網路會提供周邊層級安全性給 Databricks 工作區，而且透過網路安全性群組保護。 在工作區內，提供背景工作角色和驅動程式 VM 類型及 Databricks 執行階段版本，即可建立 Databricks 叢集。 保存的資料可在您的儲存體帳戶中取得，而您可以 Azure Blob 儲存體或 Azure Data Lake Storage。 建立叢集之後，將 Notebook、REST API、ODBC/JDBC 端點附加到特定叢集，即可透過這些端點執行作業。
+概括而言，當您從 Azure 入口網站建立 Azure Databricks 工作區時，[受控設備](../managed-applications/overview.md)會在所選的 Azure 區域 (例如，美國西部) 部署為您訂用帳戶中的 Azure 資源。 此設備會部署在具有[網路安全性群組](../virtual-network/virtual-networks-overview.md)和 Azure 儲存體帳戶的 [Azure 虛擬網路](../virtual-network/manage-network-security-group.md)中 (適用於的您訂用帳戶)。 虛擬網路會提供周邊層級安全性給 Databricks 工作區，而且透過網路安全性群組保護。 在工作區內，提供背景工作角色和驅動程式 VM 類型及 Databricks 執行階段版本，即可建立 Databricks 叢集。 保存的資料可在您的儲存體帳戶中取得，而您可以 Azure Blob 儲存體或 Azure Data Lake Storage。 建立叢集之後，將 Notebook、REST API、ODBC/JDBC 端點附加到特定叢集，即可透過這些端點執行作業。
 
 Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控制平面可起始任何管理作業，例如建立叢集。 所有中繼資料 (例如排定工作) 都會利用異地複寫儲存在 Azure 資料庫中，以便容錯移轉。
 
@@ -47,7 +47,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
    本文說明許多程式碼範例，其使用命令列介面進行大部分的自動化步驟，因為它是透過 Azure Databricks REST API 的易用包裝函式。
 
-   執行任何移轉步驟之前，請在您的桌上型電腦或您打算執行此工作的虛擬機器上安裝 databricks-cli。 如需詳細資訊，請參閱[安裝 Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)。
+   執行任何移轉步驟之前，請在您的桌上型電腦或您打算執行此工作的虛擬機器上安裝 databricks-cli。 如需詳細資訊，請參閱[安裝 Databricks CLI](/azure/databricks/dev-tools/databricks-cli)。
 
    ```bash
    pip install databricks-cli
@@ -90,7 +90,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
    > [!NOTE]
    > 程式庫不會在此步驟中複製，因為基礎 API 不支援這些程式庫。
 
-   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py` 。
+   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如， `python scriptname.py`。
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
    下列提供的指令碼會列印新舊叢集識別碼的對應，其稍後會使用於作業移轉 (適用於設定為使用現有叢集的作業)。
 
-   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py` 。
+   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如， `python scriptname.py`。
 
    ```python
    from subprocess import call, check_output
@@ -286,7 +286,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 8. **遷移 Azure blob 儲存體和 Azure Data Lake Storage 裝載**
 
-   使用以筆記本為基礎的解決方案，手動重新掛接所有[Azure Blob 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)和[Azure Data Lake Storage （Gen 2）](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)掛接點。 儲存體資源會已掛接在主要工作區中，而且必須在次要工作區中重複。 沒有外部 API 可供掛接使用。
+   使用以筆記本為基礎的解決方案，手動重新掛接所有[Azure Blob 儲存體](/azure/databricks/data/data-sources/azure/azure-storage.html)和[Azure Data Lake Storage （Gen 2）](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html)掛接點。 儲存體資源會已掛接在主要工作區中，而且必須在次要工作區中重複。 沒有外部 API 可供掛接使用。
 
 9. **遷移叢集 init 指令碼**
 
@@ -302,7 +302,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 10. **手動重新設定並重新套用存取控制。**
 
-    如果現有的主要工作區已設定為使用進階層 (SKU)，您可能也會使用[存取控制功能](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control)。
+    如果現有的主要工作區已設定為使用進階層 (SKU)，您可能也會使用[存取控制功能](/azure/databricks/administration-guide/access-control/index)。
 
     如果您使用存取控制功能，請將存取控制手動重新套用到資源 (Notebook、叢集、作業、資料表)。
 
@@ -312,4 +312,4 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱 [Azure Databricks 文件](https://docs.azuredatabricks.net/user-guide/index.html)。
+如需詳細資訊，請參閱 [Azure Databricks 文件](index.yml)。

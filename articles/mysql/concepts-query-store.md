@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 40718cdb12cbc46bf0587dfdc657ee06c090061b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598249"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603018"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>使用查詢存放區監視適用於 MySQL 的 Azure 資料庫效能
 
 **適用物件：** 適用於 MySQL 的 Azure 資料庫5。7
-
-> [!IMPORTANT]
-> 查詢存放區處於預覽狀態。
 
 適用於 MySQL 的 Azure 資料庫中的查詢存放區功能可提供一段時間追蹤查詢效能的方式。 查詢存放區可協助您快速找到執行時間最長又最耗資源的查詢，簡化效能疑難排解。 查詢存放區會自動擷取查詢的歷程記錄和執行階段統計資料，並予以保留以供您檢閱。 依時間範圍區分資料，以便查看資料庫使用模式。 所有使用者、資料庫和查詢的資料都會儲存在適用於 MySQL 的 Azure 資料庫實例的**mysql**架構資料庫中。
 
@@ -78,7 +75,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 以下是如何查詢存放區中的等候統計資料，以更多深入了解工作負載的一些範例：
 
-| **觀測** | **Action** |
+| **觀測** | **動作** |
 |---|---|
 |高鎖定等候數 | 查看受影響查詢的查詢文字，並找出目標實體。 查看查詢存放區，針對經常執行和/或持續時間很長的實體，尋找修改同一實體的其他查詢。 找出這些查詢之後，請考慮變更應用程式邏輯，改善並行存取，或使用限制較少的隔離等級。 |
 |高緩衝區 IO 等候數 | 在查詢存放區中尋找實體讀取次數高的查詢。 如果它們符合具有高 IO 等候的查詢，請考慮在基礎實體上引進索引，以執行搜尋而不是掃描。 這可將查詢的 IO 額外負荷降到最低。 請在入口網站檢查伺服器的**效能建議**，以查看是否有此伺服器的索引建議，可供將查詢最佳化。 |
@@ -92,7 +89,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 | **參數** | **說明** | **預設值** | **Range** |
 |---|---|---|---|
-| query_store_capture_mode | 根據值開啟/關閉查詢存放區功能。 注意：如果 performance_schema 為 OFF，開啟 query_store_capture_mode 將會開啟 performance_schema 和此功能所需的效能架構儀器子集。 | ALL | 無、全部 |
+| query_store_capture_mode | 根據值開啟/關閉查詢存放區功能。 注意：如果 performance_schema 已關閉，開啟 query_store_capture_mode 將會開啟 performance_schema 以及此功能所需的效能架構儀器子集。 | ALL | 無、全部 |
 | query_store_capture_interval | 查詢存放區捕獲間隔（以分鐘為單位）。 允許指定匯總查詢計量的間隔 | 15 | 5 - 60 |
 | query_store_capture_utility_queries | 開啟或關閉以捕捉在系統中執行的所有公用程式查詢。 | 否 | 是，否 |
 | query_store_retention_period_in_days | 在查詢存放區中保留資料的時間範圍（以天為單位）。 | 7 | 1 - 30 |
@@ -105,9 +102,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 | query_store_wait_sampling_frequency | 改變等候取樣的頻率（以秒為單位）。 5到300秒。 | 30 | 5-300 |
 
 > [!NOTE]
-> 目前**query_store_capture_mode**會取代這項設定，這表示必須同時啟用**query_store_capture_mode**和**query_store_wait_sampling_capture_mode** ，等候統計資料才能正常執行。 如果**query_store_capture_mode**已關閉，則等候統計資料也會關閉，因為等候統計資料會使用 performance_schema，以及由查詢存放區所捕獲的 query_text。
+> 目前**query_store_capture_mode**取代這項設定，這表示必須同時啟用**query_store_capture_mode**和**query_store_wait_sampling_capture_mode** ，等候統計資料才能正常執行。 如果**query_store_capture_mode**關閉，則等候統計資料也會關閉，因為等候統計資料會使用已啟用的 performance_schema，以及查詢存放區所捕獲的 query_text。
 
-使用 [Azure 入口網站](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md)  to 取得或設定參數的不同值。
+使用 [Azure 入口網站](howto-server-parameters.md) 或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 來取得或設定參數的不同值。
 
 ## <a name="views-and-functions"></a>檢視和函式
 
@@ -130,10 +127,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `execution_count` | Bigint （20）| 否| 在設定的間隔期間內，查詢在此時間戳記識別碼/執行的次數|
 | `warning_count` | Bigint （20）| 否| 此查詢在內部產生的警告數目|
 | `error_count` | Bigint （20）| 否| 此查詢在間隔期間產生的錯誤數目|
-| `sum_timer_wait` | 兩倍| 是| 此查詢在間隔期間的總執行時間|
-| `avg_timer_wait` | 兩倍| 是| 此查詢在間隔期間的平均執行時間|
-| `min_timer_wait` | 兩倍| 是| 此查詢的執行時間下限|
-| `max_timer_wait` | 兩倍| 是| 執行時間上限|
+| `sum_timer_wait` | double| 是| 此查詢在間隔期間的總執行時間|
+| `avg_timer_wait` | double| 是| 此查詢在間隔期間的平均執行時間|
+| `min_timer_wait` | double| 是| 此查詢的執行時間下限|
+| `max_timer_wait` | double| 是| 執行時間上限|
 | `sum_lock_time` | Bigint （20）| 否| 這個時間範圍內，此查詢執行的所有鎖定所花費的總時間量|
 | `sum_rows_affected` | Bigint （20）| 否| 受影響的資料列數目|
 | `sum_rows_sent` | Bigint （20）| 否| 傳送至用戶端的資料列數目|
@@ -162,7 +159,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `event_type` | Varchar （32） | 否| 等待事件的類別 |
 | `event_name` | Varchar（128 | 否| 等待事件的名稱 |
 | `count_star` | Bigint （20） | 否| 查詢間隔期間所取樣的等候事件數目 |
-| `sum_timer_wait_ms` | 兩倍 | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
+| `sum_timer_wait_ms` | double | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
 
 ### <a name="functions"></a>Functions
 
@@ -174,8 +171,8 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="limitations-and-known-issues"></a>限制與已知問題
 
-- 如果 MySQL 伺服器的參數 `default_transaction_read_only` 開啟，查詢存放區無法捕獲資料。
-- 如果遇到長 Unicode 查詢（\> = 6000 個位元組），查詢存放區的功能可能會中斷。
+- 如果 MySQL 伺服器上的參數 `default_transaction_read_only`，查詢存放區無法捕獲資料。
+- 如果遇到長 Unicode 查詢（\> = 6000 個位元組），查詢存放區功能可能會中斷。
 - 等候統計資料的保留期限為24小時。
 - 等候統計資料會使用範例來捕獲部分事件。 您可以使用參數 `query_store_wait_sampling_frequency` 來修改頻率。
 

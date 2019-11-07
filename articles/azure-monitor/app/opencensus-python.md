@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d848027d6c754df371b4d87cf01c5b2fdbc8c02
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820730"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575578"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>設定 Python 應用程式的 Azure 監視器（預覽）
 
@@ -23,8 +23,6 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 - Python 安裝。 本文使用[Python 3.7.0](https://www.python.org/downloads/)，但較舊的版本可能會處理次要變更。
-
-
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -40,13 +38,13 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 
 1. [設定] 方塊隨即出現。 使用下表來填寫輸入欄位。
 
-   | 設定        | Value           | 描述  |
+   | 設定        | 值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 全域唯一值 | 識別您要監視之應用程式的名稱 |
    | **資源群組**     | myResourceGroup      | 要裝載 Application Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 您附近或接近應用程式裝載位置附近的位置 |
 
-1. 選取 [建立]。
+1. 選取 [ **建立**]。
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>使用適用于 Azure 監視器的 OpenCensus Python SDK 進行檢測
 
@@ -55,6 +53,8 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+如需封裝和整合的完整清單，請參閱[OpenCensus 套件](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus)。
 
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure` 命令會假設您已設定 Python 安裝的 `PATH` 環境變數。 如果您尚未設定此變數，您必須提供 Python 可執行檔所在位置的完整目錄路徑。 結果會是如下所示的命令： `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`。
@@ -84,7 +84,7 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
         main()
     ```
 
-2. 執行程式碼會重複提示您輸入值。 在每個專案中，值都會列印到 shell，而 OpenCensus Python 模組會產生對應的 `SpanData` 片段。 OpenCensus 專案會將[追蹤定義為範圍的樹狀結構](https://opencensus.io/core-concepts/tracing/)。
+2. 執行程式碼會重複提示您輸入值。 在每個專案中，值都會列印到 shell，而 OpenCensus Python 模組會產生對應的 `SpanData`片段。 OpenCensus 專案會將[追蹤定義為範圍的樹狀結構](https://opencensus.io/core-concepts/tracing/)。
     
     ```
     Enter a value: 4
@@ -128,7 +128,11 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
 
 4. 現在，當您執行 Python 腳本時，仍然應該提示您輸入值，但只會在 shell 中列印該值。 建立的 `SpanData` 將會傳送至 Azure 監視器。 您可以在 `dependencies` 下找到發出的 span 資料。
 
-### <a name="metrics"></a>計量
+5. 如需在 OpenCensus 中取樣的詳細資訊，請參閱[OpenCensus 中的取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python)。
+
+6. 如需追蹤資料中遙測相互關聯的詳細資訊，請參閱 OpenCensus[遙測相互關聯](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)。
+
+### <a name="metrics"></a>度量
 
 1. 首先，讓我們來產生一些本機計量資料。 我們將建立一個簡單的計量，以追蹤使用者按下 Enter 的次數。
 
@@ -292,6 +296,8 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
 
 4. 匯出程式會將記錄資料傳送至 Azure 監視器。 您可以在 `traces` 下找到資料。
 
+5. 如需如何使用追蹤內容資料來擴充記錄檔的詳細資訊，請參閱 OpenCensus Python[記錄整合](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)。
+
 ## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
 1. 您現在可以在 Azure 入口網站中重新開啟 [Application Insights**總覽**] 窗格，以查看目前執行中應用程式的詳細資料。 選取 [**即時計量資料流**]。
@@ -324,9 +330,9 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
 
 在 [作用中] 底下的清單**中：**
 
-- 針對使用 Azure 監視器追蹤匯出工具傳送的遙測，傳入要求會顯示在 [`requests`] 之下。 傳出或同進程要求會出現在 `dependencies` 之下。
-- 針對與 Azure 監視器計量匯出工具一起傳送的遙測，傳送的度量會顯示在 `customMetrics` 之下。
-- 針對使用 Azure 監視器記錄匯出工具傳送的遙測，記錄會出現在 `traces` 之下。 例外狀況會出現在 `exceptions` 之下。
+- 針對使用 Azure 監視器追蹤匯出工具傳送的遙測，傳入要求會顯示在 [`requests`] 之下。 傳出或同進程要求會出現在 `dependencies`之下。
+- 針對與 Azure 監視器計量匯出工具一起傳送的遙測，傳送的度量會顯示在 `customMetrics`之下。
+- 針對使用 Azure 監視器記錄匯出工具傳送的遙測，記錄會出現在 `traces`之下。 例外狀況會出現在 `exceptions`之下。
 
 如需如何使用查詢和記錄的詳細資訊，請參閱[Azure 監視器中的記錄](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs)。
 
@@ -344,7 +350,7 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
 * [應用程式對應](./../../azure-monitor/app/app-map.md)
 * [端對端效能監視](./../../azure-monitor/learn/tutorial-performance.md)
 
-### <a name="alerts"></a>警示
+### <a name="alerts"></a>Alerts
 
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)：建立測試，以確保網路上看得見您的網站。
 * [智慧型診斷](../../azure-monitor/app/proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。

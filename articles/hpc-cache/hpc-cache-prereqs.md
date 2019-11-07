@@ -1,28 +1,28 @@
 ---
-title: Azure HPC 快取（預覽）必要條件
+title: Azure HPC 快取必要條件
 description: 使用 Azure HPC 快取的必要條件
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709965"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582157"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Azure HPC 快取的必要條件（預覽）
+# <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 快取的必要條件
 
 在使用 Azure 入口網站建立新的 Azure HPC 快取之前，請確定您的環境符合這些需求。
 
-## <a name="azure-subscription"></a>Azure 訂用帳戶
+## <a name="azure-subscription"></a>Azure 訂閱
 
 建議使用付費訂用帳戶。
 
 > [!NOTE]
-> 在預覽版本中，Azure HPC 快取小組必須先將您的訂用帳戶新增至存取清單，才能用來建立快取實例。 此程式有助於確保每個客戶從其測試快取取得高品質的回應能力。 填寫[此表單](https://aka.ms/onboard-hpc-cache)以要求存取權。
+> 在 GA 版本的前幾個月期間，Azure HPC 快取小組必須先將您的訂用帳戶新增至存取清單，才能用來建立快取實例。 此程式有助於確保每個客戶從其快取取得高品質的回應能力。 填寫[此表單](https://aka.ms/onboard-hpc-cache)以要求存取權。
 
 ## <a name="network-infrastructure"></a>網路基礎結構
 
@@ -52,7 +52,7 @@ Azure HPC 快取需要具有下列品質的專用子網：
 
 [針對 azure 虛擬網路中的資源](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)，深入瞭解 azure 虛擬網路和 DNS 伺服器設定的名稱解析。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 開始建立快取之前，請先檢查這些許可權相關的必要條件。
 
@@ -81,12 +81,12 @@ NFS 後端存放裝置必須是相容的硬體/軟體平臺。 如需詳細資�
 若要建立相容的儲存體帳戶，請使用下列設定：
 
 * 效能：**標準**
-* 帳戶類型：**StorageV2 （一般用途 v2）**
+* 帳戶種類： **StorageV2 （一般用途 v2）**
 * 複寫：**本地備援儲存體 (LRS)**
-* 存取層（預設）：**經常性**
+* 存取層（預設）：**熱**
 
 最佳做法是在與快取相同的位置中使用儲存體帳戶。
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 您也必須為快取應用程式提供您 Azure 儲存體帳戶的存取權。 遵循[新增儲存體目標](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)中的說明，為快取授與存取角色儲存體帳戶參與者和儲存體 Blob 資料參與者。 如果您不是儲存體帳戶擁有者，請讓擁有者執行此步驟。
 

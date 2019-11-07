@@ -9,18 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4d8955517450ce3b4efdf30e2790e4be678dfc7b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0c1c92dde2d698fb2c92fb3680ab05393a25573d
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735188"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614744"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
 這個範例會示範如何建置[長期函式](durable-functions-overview.md)協調流程，其中牽涉到人為互動。 每當在自動化程序中牽涉到真人，處理程序必須能夠傳送通知給人員，並以非同步方式接收回應。 它也必須允許人員沒有空的可能性。 (此最後一個部分就是逾時變得重要的地方。)
 
-這個範例會實作以 SMS 為基礎的電話驗證系統。 這些類型的流量通常會在驗證客戶的電話號碼時，或針對多重要素驗證 (MFA) 使用。 這是功能強大的範例，因為整個實作是使用幾個小型函式來完成。 不需要外部資料存放區，例如資料庫。
+這個範例會實作以 SMS 為基礎的電話驗證系統。 這些類型的流量通常會在驗證客戶的電話號碼時，或針對多重要素驗證 (MFA) 使用。 這是一個強大的範例，因為整個執行都是使用幾個小型函式來完成。 不需要外部資料存放區，例如資料庫。
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -28,7 +30,7 @@ ms.locfileid: "70735188"
 
 電話驗證是用來驗證您應用程式的使用者不是濫發垃圾郵件者，而且確實是他們所聲稱的人。 多重要素驗證是保護使用者帳戶免於駭客入侵的常見使用案例。 實作您自己的電話驗證的挑戰，是它需要與真人的**可設定狀態互動**。 終端使用者通常會提供一些代碼 (例如，4 位數數字)，並且必須在**合理的時間量**之內回應。
 
-一般而言，Azure Functions 是無狀態 (如同其他平台上的其他許多雲端端點)，所以這些互動類型會明確牽涉到在外部的資料庫或其他某些永續性存放區中管理狀態。 此外，互動必須細分成可以協調在一起的多個函式。 例如，您需要至少一個函式以決定程式碼、保存在某處，以及將它傳送到使用者的電話。 而且您還需要至少一個其他的函式，以接收來自使用者的回應，並且以某種方式將其對應回原始函式呼叫，以進行程式碼驗證。 逾時也是確保安全性的重要層面。 很快就會變得相當複雜。
+一般而言，Azure Functions 是無狀態 (如同其他平台上的其他許多雲端端點)，所以這些互動類型會明確牽涉到在外部的資料庫或其他某些永續性存放區中管理狀態。 此外，互動必須細分成可以協調在一起的多個函式。 例如，您需要至少一個函式以決定程式碼、保存在某處，以及將它傳送到使用者的電話。 而且您還需要至少一個其他的函式，以接收來自使用者的回應，並且以某種方式將其對應回原始函式呼叫，以進行程式碼驗證。 逾時也是確保安全性的重要層面。 它可能很快就會變得相當複雜。
 
 當您使用長期函式時，此案例的複雜性就會大幅減少。 如同您在這個範例所見，協調器函式可以輕鬆地管理可設定狀態互動，不需要涉及任何外部資料存放區。 因為協調器函式是「長期」的，所以這些互動流量也非常可靠。
 
@@ -43,7 +45,7 @@ ms.locfileid: "70735188"
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-下列各節說明用於 C# 指令碼和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
+下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
 
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 驗證協調流程 (Visual Studio Code 和 Azure 入口網站範例程式碼)
 
@@ -57,7 +59,7 @@ ms.locfileid: "70735188"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -71,7 +73,7 @@ ms.locfileid: "70735188"
 使用者會收到具有四位數代碼的 SMS 訊息。 他們有 90 秒的時間將相同的 4 位數代碼傳送回協調器函式執行個體，以完成驗證程序。 如果提交錯誤的代碼，有額外三次嘗試可以進行修正 (在相同的 90 秒時間內)。
 
 > [!NOTE]
-> 起初可能不明顯，不過這個協調器函式完全具有決定性。 這是因為 `CurrentUtcDateTime` (.NET) and `currentUtcDateTime` (JavaScript) 屬性是用來計算計時器到期時間，且這些屬性會在協調器程式碼中此點的每個重新執行都傳回相同的值。 這對於確保每次重複呼叫 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 都有相同 `winner` 結果而言非常重要。
+> 起初可能不明顯，不過這個協調器函式完全具有決定性。 這是決定性的，因為 `CurrentUtcDateTime` （.NET）和 `currentUtcDateTime` （JavaScript）屬性會用來計算計時器到期時間，而這些屬性會在協調器程式碼中的這個時間點，于每次重新執行時傳回相同的值。 這個行為非常重要，可確保每次重複呼叫 `Task.WhenAny` （.NET）或 `context.df.Task.any` （JavaScript）時，都有相同的 `winner` 結果。
 
 > [!WARNING]
 > 如果您已經在上述範例中接受挑戰回應，且不再需要使用計時器，請務必[取消計時器](durable-functions-timers.md)。
@@ -88,7 +90,7 @@ ms.locfileid: "70735188"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -110,9 +112,9 @@ Content-Type: application/json
 HTTP/1.1 202 Accepted
 Content-Length: 695
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 協調器函式會接收提供的電話號碼，並且立即傳送 SMS 訊息給該電話號碼，訊息包含隨機產生的 4 位數驗證碼&mdash;，例如 2168。 此函式接著會在 90 秒的時間內等候回應。
@@ -120,7 +122,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 若要回覆代碼，您可以使用另一個函式內的 [`RaiseEventAsync` (.NET) 或 `raiseEvent` (JavaScript)](durable-functions-instance-management.md)，或叫用上述 202 回應中參考的 **sendEventUrl** HTTP POST Webhook，將 `{eventName}` 取代為事件的名稱，`SmsChallengeResponse`：
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Length: 4
 Content-Type: application/json
 
@@ -130,7 +132,7 @@ Content-Type: application/json
 如果您計時器到期之前傳送，協調流程就會完成且 `output` 欄位會設定為 `true`，指出驗證成功。
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 ```
@@ -162,7 +164,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>後續步驟
 
-此範例已示範一些長期函式的進階功能，尤其是 `WaitForExternalEvent` 和 `CreateTimer`。 您已經看到這些功能如何與 `Task.WaitAny` 結合，以實作可靠的逾時系統，對於與真人的互動通常相當有用。 藉由閱讀一系列深入探討特定主題的文章，您可以深入了解如何使用長期函式。
+這個範例已示範 Durable Functions 的一些先進功能，特別是 `WaitForExternalEvent` 和 `CreateTimer` Api。 您已經看到這些功能如何與 `Task.WaitAny` 結合，以實作可靠的逾時系統，對於與真人的互動通常相當有用。 藉由閱讀一系列深入探討特定主題的文章，您可以深入了解如何使用長期函式。
 
 > [!div class="nextstepaction"]
 > [系列中第一篇文章](durable-functions-bindings.md)

@@ -1,5 +1,5 @@
 ---
-title: Windows 虛擬桌面租使用者和主機集區建立-Azure
+title: Windows 虛擬桌面租使用者主機集區建立-Azure
 description: 如何在 Windows 虛擬桌面租使用者環境的安裝期間疑難排解和解決租使用者和主機集區的問題。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163297"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607443"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 

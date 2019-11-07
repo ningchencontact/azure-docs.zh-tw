@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678243"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606028"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>在 Azure 監視器中使用應用程式變更分析（預覽）
 
@@ -37,7 +37,7 @@ ms.locfileid: "72678243"
 
 變更分析會使用[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)，提供裝載應用程式的 Azure 資源在一段時間內變更的歷程記錄。 例如，變更分析可以偵測 IP 設定規則中的變更、受控身分識別，以及 SSL 設定。 因此，如果將標記新增至 web 應用程式，則變更分析會反映變更。 只要 Azure 訂用帳戶中已啟用 `Microsoft.ChangeAnalysis` 資源提供者，就可以使用這項資訊。
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Web 應用程式部署和設定的變更
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Web 應用程式部署和設定的變更（來賓內變更）
 
 變更分析會每隔4小時捕獲應用程式的部署和設定狀態。 例如，它可以偵測應用程式環境變數中的變更。 此工具會計算差異，並顯示已變更的內容。 不同于 Resource Manager 變更，工具中可能不會立即提供程式碼部署變更資訊。 若要在 [變更分析] 中查看最新的變更，請選取 [**立即掃描變更**]。
 
@@ -51,10 +51,32 @@ ms.locfileid: "72678243"
 - Azure 儲存體
 - Azure SQL
 
+## <a name="viewing-changes-for-all-resources-in-azure"></a>在 Azure 中查看所有資源的變更
+在 Azure 監視器中，有一個獨立的分頁，可供變更分析用來以深入解析和應用程式相依性資源來查看所有變更。
+
+在 Azure 入口網站上搜尋列中搜尋 [變更分析]，以啟動分頁。
+
+![在 Azure 入口網站中搜尋變更分析的螢幕擷取畫面](./media/change-analysis/search-change-analysis.png)
+
+選取 [資源群組和資源] 以開始查看變更。
+
+![Azure 入口網站中 [變更分析] 分頁的螢幕擷取畫面](./media/change-analysis/change-analysis-standalone-blade.png)
+
+您可以查看裝載應用程式的深入解析和相關相依性資源。 此視圖設計為以應用程式為中心，供開發人員針對問題進行疑難排解。
+
+目前支援的資源包括：
+- 虛擬機器
+- 虛擬機器擴展集
+- Azure 網路資源
+- 具有來賓檔案追蹤和環境變數變更的 Web 應用程式
+
+如有任何意見反應，請使用分頁或電子郵件 changeanalysisteam@microsoft.com中的 [傳送意見反應] 按鈕。 
+
+![[變更分析] 分頁中 [意見反應] 按鈕的螢幕擷取畫面](./media/change-analysis/change-analysis-feedback.png)
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>變更 Web Apps 功能的分析
 
-在 Azure 監視器中，變更分析目前內建于自助**診斷和解決問題**體驗。 從您 App Service 應用程式的 [**總覽**] 頁面存取這項體驗。
+在 Azure 監視器中，[變更分析] 也內建于自助**診斷和解決問題**體驗。 從您 App Service 應用程式的 [**總覽**] 頁面存取這項體驗。
 
 ![[總覽] 按鈕和 [診斷並解決問題] 按鈕的螢幕擷取畫面](./media/change-analysis/change-analysis.png)
 
@@ -77,7 +99,7 @@ ms.locfileid: "72678243"
     ![[啟用變更分析] 使用者介面的螢幕擷取畫面](./media/change-analysis/change-analysis-on.png)
 
 
-1. 若要存取變更分析，請選取 [**診斷並解決問題**]  > **可用性和效能** > **應用程式**當機。 您會看到一個圖表，其中匯總一段時間的變更類型，以及這些變更的詳細資料：
+1. 若要存取變更分析，請選取 [**診斷並解決問題**] > **可用性和效能** > **應用程式**當機。 您會看到一個圖表，其中匯總一段時間的變更類型，以及這些變更的詳細資料：
 
      ![變更差異視圖的螢幕擷取畫面](./media/change-analysis/change-view.png)
 

@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791300"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614519"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的版本控制
 
@@ -32,7 +32,7 @@ ms.locfileid: "72791300"
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-在協調器函式的所有新執行個體中，此變更不會有問題，但會中斷任何執行中的執行個體。 例如，假設協調流程執行個體會呼叫 **Foo**、取回布林值，然後執行檢查點。 如果此時部署簽章變更，則通過檢查點的執行個體在繼續並重新呼叫 `context.CallActivityAsync<int>("Foo")` 時會立刻失敗。 這是因為記錄資料表中的結果是 `bool`，但新的程式碼卻嘗試將它還原序列化為 `int`。
+> [!NOTE]
+> 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-這只是簽章變更可能中斷現有執行個體的各種情況之一。 一般而言，如果協調器需要變更呼叫函式的方式，則變更就很可能會有問題。
+在協調器函式的所有新執行個體中，此變更不會有問題，但會中斷任何執行中的執行個體。 例如，假設協調流程實例呼叫名為 `Foo`函式的情況下，取得布林值，然後檢查點。 如果此時部署簽章變更，則通過檢查點的執行個體在繼續並重新呼叫 `context.CallActivityAsync<int>("Foo")` 時會立刻失敗。 發生此失敗的原因是，歷程記錄資料表中的結果 `bool`，但新的程式碼會嘗試將它還原序列化成 `int`。
+
+這個範例只是簽章變更可能中斷現有實例的許多不同方式之一。 一般而言，如果協調器需要變更呼叫函式的方式，則變更就很可能會有問題。
 
 ### <a name="changing-orchestrator-logic"></a>變更協調器邏輯
 
@@ -62,7 +65,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -85,7 +88,10 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-此變更會在 **Foo** 和 **Bar** 之間新增呼叫 **SendNotification** 函式。 簽章不變。 當現有的執行個體在呼叫 **Bar** 之後繼續時，就發生問題。 在重新執行期間，如果原始呼叫 **Foo** 傳回 `true`，則協調器重新執行會呼叫 **SendNotification**，但這不在其執行記錄中。 結果，「永久性工作架構」會失敗，並傳回 `NonDeterministicOrchestrationException`，因為原本認為應該呼叫 **Bar**，但卻發現呼叫 **SendNotification**。 新增任何對「持久」 Api 的呼叫（包括 `CreateTimer`、`WaitForExternalEvent`等）時，可能會發生相同類型的問題。
+> [!NOTE]
+> 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+此變更會在 **Foo** 和 **Bar** 之間新增呼叫 **SendNotification** 函式。 簽章不變。 當現有的執行個體在呼叫 **Bar** 之後繼續時，就發生問題。 在重新執行期間，如果對**Foo**的原始呼叫傳回 `true`，則 orchestrator replay 會呼叫**SendNotification**，而不在其執行歷程記錄中。 結果，「永久性工作架構」會失敗，並傳回 `NonDeterministicOrchestrationException`，因為原本認為應該呼叫 **Bar**，但卻發現呼叫 **SendNotification**。 新增任何對「持久」 Api 的呼叫（包括 `CreateTimer`、`WaitForExternalEvent`等）時，可能會發生相同類型的問題。
 
 ## <a name="mitigation-strategies"></a>風險降低策略
 
@@ -99,11 +105,11 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 處理重大變更最簡單的方式，就是讓執行中的協調流程執行個體失敗。 新的執行個體會成功執行已變更的程式碼。
 
-這是否為問題取決於執行中之執行個體的重要性。 如果您正在進行開發，並不在意執行中的執行個體，這樣可能就很好。 不過，您必須處理診斷管道中的例外狀況及錯誤。 如果想要避免這些事情，請考慮其他版本設定選項。
+這類失敗是否為問題，取決於您的進行中實例的重要性。 如果您正在進行開發，並不在意執行中的執行個體，這樣可能就很好。 不過，您需要處理診斷管線中的例外狀況和錯誤。 如果想要避免這些事情，請考慮其他版本設定選項。
 
 ### <a name="stop-all-in-flight-instances"></a>停止所有執行中的執行個體
 
-另一個選項是停止所有執行中的執行個體。 作法是清除內部 **control-queue** 和 **workitem-queue**佇列中的內容。 執行個體會永遠卡住不動，但不會以錯誤訊息干擾遙測資料。 這在快速開發原型時很理想。
+另一個選項是停止所有執行中的執行個體。 藉由清除內部**控制佇列**和**工作專案佇列**佇列的內容，即可停止所有實例。 實例將會永遠停滯在何處，但它們不會使您的記錄發生失敗訊息的混亂。 這種方法非常適合用於快速原型開發。
 
 > [!WARNING]
 > 這些佇列的詳細資料可能隨著時間而變更，請勿依賴此技術來處理生產工作負載。
@@ -114,7 +120,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 * 將所有更新部署為全新的函式，以保持現有的功能。 這可能會很棘手，因為新函式版本的呼叫端也必須遵循相同的指導方針進行更新。
 * 以不同的儲存體帳戶，將所有更新部署為新的函式應用程式。
-* 使用相同的儲存體帳戶部署函式應用程式的新複本，但使用已更新的 `taskHub` 名稱。 這是建議使用的技巧。
+* 使用相同的儲存體帳戶部署函式應用程式的新複本，但使用已更新的 `taskHub` 名稱。 並存部署是建議的技巧。
 
 ### <a name="how-to-change-task-hub-name"></a>如何變更工作中樞名稱
 
@@ -130,7 +136,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>函數2。0
 
 ```json
 {

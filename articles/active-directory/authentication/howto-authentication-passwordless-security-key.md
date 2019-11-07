@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171991"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603439"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>啟用無密碼安全性金鑰登入（預覽）
 
@@ -26,7 +26,7 @@ ms.locfileid: "73171991"
 
 |     |
 | --- |
-| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>要求
@@ -95,7 +95,7 @@ ms.locfileid: "73171991"
 
 ### <a name="upn-changes"></a>UPN 變更
 
-我們正努力支援一項功能，可讓混合式 Azure AD 加入和 Azure AD 聯結的裝置上進行 UPN 變更。 如果使用者的 UPN 變更，您就無法再修改 FIDO2 安全性金鑰來考慮變更。 解決方式是重設裝置，且使用者必須重新註冊。
+如果使用者的 UPN 變更，您就無法再修改 FIDO2 安全性金鑰來考慮變更。 解決方式是重設裝置，且使用者必須重新註冊其 FIDO2 安全性金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 

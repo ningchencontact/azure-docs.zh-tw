@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514860"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615767"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -98,7 +98,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 | 已同步的物件數目| 125,000 個物件 (~1% 變換) |
 | 資料集大小| 50 GiB |
 | 平均檔案大小 | ~500 KiB |
-| 上傳輸送量 | 每秒 30 個物件 |
+| 上傳輸送量 | 每秒 20 個物件 |
 | 完整下載輸送量* | 每秒 60 個物件 |
 
 *如果雲端分層處理已啟用，您應該會發現效能有所提升，因為只會下載部分檔案資料。 只有在任何端點上的快取檔案資料有所變更時，Azure 檔案同步才會下載這些資料。 對於任何分層或新建的檔案，代理程式並不會下載檔案資料，而只會將命名空間同步至所有伺服器端點。 代理程式也支援在使用者存取分層的檔案時進行檔案的部分下載。 
@@ -111,7 +111,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 - 物件輸送量的消長大致上會與伺服器上的同步群組數目成正比。 在伺服器上將資料分割到多個同步群組時，會產生較佳的輸送量，但仍受限於伺服器和網路。
 - 物件輸送量與每秒 MiB 輸送量成反比。 檔案較小時，在每秒處理的物件數方面會呈現較高的輸送量，但每秒的 MiB 輸送量則會降低。 相反地，若檔案較大，每秒處理的物件數將會降低，但每秒的 MiB 輸送量則會提高。 每秒的 MiB 輸送量會受限於 Azure 檔案擴展目標。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [規劃 Azure 檔案部署](storage-files-planning.md)
 - [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)

@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: a5a19910d101f3f30afcafa049056c78cd976f75
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933070"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614452"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure 監視器記錄查詢範例
-本文包含多個使用 [Kusto 查詢語言](/azure/kusto/query/)的[查詢](log-query-overview.md)範例，以從 Azure 監視器擷取不同的記錄資料類型。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  
+本文包含多個使用 [Kusto 查詢語言](log-query-overview.md)的[查詢](/azure/kusto/query/)範例，以從 Azure 監視器擷取不同的記錄資料類型。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  
 
 請參閱 [Kusto 語言參考](https://docs.microsoft.com/azure/kusto/query/)了解在這些範例中使用不同關鍵字的詳細資料。 如果您不熟悉 Azure 監視器，請逐步查看[建立查詢的課程](get-started-queries.md)。
 
@@ -175,7 +175,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf
@@ -375,7 +374,7 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>用量
+## <a name="usage"></a>使用量
 
 ### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>計算每部電腦的效能使用量報告的平均大小
 
@@ -403,7 +402,7 @@ Usage
 ```
 
 ### <a name="usage-of-specific-computers-today"></a>特定電腦今天的使用量
-此範例會從前一天包含字串 _ContosoFile_ 的電腦名稱擷取**使用量**資料。 結果的排序依據為 **TimeGenerated**。
+此範例會從前一天包含字串 **ContosoFile** 的電腦名稱擷取_使用量_資料。 結果的排序依據為 **TimeGenerated**。
 
 ```Kusto
 Usage

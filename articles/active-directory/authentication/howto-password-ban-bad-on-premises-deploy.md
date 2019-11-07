@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2328bcd2b2d9fe957df82c46730091ffdf9366
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 695bd461ae7e979c0a803cd2d6cb450003a6bcee
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474286"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603006"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -135,7 +135,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 
      此 Cmdlet 需要您 Azure 租使用者的全域管理員認證。 您也需要內部部署 Active Directory 樹系根域中的網域系統管理員許可權。 在此命令成功針對 proxy 服務執行一次之後，其他的調用將會成功，但不需要。
 
-      `Register-AzureADPasswordProtectionProxy` Cmdlet 支援下列三種驗證模式。
+      `Register-AzureADPasswordProtectionProxy` Cmdlet 支援下列三種驗證模式。 前兩個模式支援 Azure 多重要素驗證，但第三個模式則否。 如需詳細資訊，請參閱下面的批註。
 
      * 互動式驗證模式：
 
@@ -179,7 +179,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 1. 註冊樹系。
    * 您必須使用 `Register-AzureADPasswordProtectionForest` PowerShell Cmdlet，以必要的認證來初始化內部部署 Active Directory 樹系，才能與 Azure 進行通訊。 此 Cmdlet 需要您 Azure 租使用者的全域管理員認證。 它也需要內部部署 Active Directory 企業系統管理員許可權。 此步驟會針對每一樹系執行一次。
 
-      `Register-AzureADPasswordProtectionForest` Cmdlet 支援下列三種驗證模式。
+      `Register-AzureADPasswordProtectionForest` Cmdlet 支援下列三種驗證模式。 前兩個模式支援 Azure 多重要素驗證，但第三個模式則否。 如需詳細資訊，請參閱下面的批註。
 
      * 互動式驗證模式：
 

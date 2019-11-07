@@ -5,26 +5,29 @@ author: ggailey777
 manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 11/03/2019
 ms.author: glenga
-ms.openlocfilehash: 0080365853e7a9c74d3ba0e5efb06ce5a3af2a21
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 95c6afcb2f7e864da4b9b43235326a17bed785fa
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967107"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614525"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 單元測試
 
-單元測試是現代軟體開發實務中很重要的一部分。 單元測試會驗證商務邏輯行為，並且防止在未來引進未注意到的中斷性變更。 Durable Functions 很容易變得複雜，所以引進單元測試有助於避免中斷性變更。 下列章節說明如何針對以下三種類型的函式進行單元測試 - 協調流程用戶端、協調器及活動函式。
+單元測試是現代軟體開發實務中很重要的一部分。 單元測試會驗證商務邏輯行為，並且防止在未來引進未注意到的中斷性變更。 Durable Functions 很容易變得複雜，所以引進單元測試有助於避免中斷性變更。 下列各節說明如何對三個函數類型進行單元測試：協調流程用戶端、協調器和活動函式。
 
-## <a name="prerequisites"></a>先決條件
+> [!NOTE]
+> 本文提供以 Durable Functions 1.x 為目標之 Durable Functions 應用程式單元測試的指導方針。 尚未更新，以將 Durable Functions 2.x 中引進的變更納入考慮。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+## <a name="prerequisites"></a>必要條件
 
 這篇文章中的範例需要下列概念和架構的知識：
 
 * 單元測試
 
-* Durable Functions
+* 長期函式
 
 * [xUnit](https://xunit.github.io/) - 測試架構
 
@@ -32,17 +35,17 @@ ms.locfileid: "68967107"
 
 ## <a name="base-classes-for-mocking"></a>模擬的基底類別
 
-模擬會透過 Durable Functions 中的三個抽象類別來提供支援：
+Durable Functions 1.x 中的三個抽象類別都支援模擬：
 
-* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
+* `DurableOrchestrationClientBase`
 
-* [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
+* `DurableOrchestrationContextBase`
 
-* [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html)
+* `DurableActivityContextBase`
 
-這些類別是 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)、[DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) 和 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 的基底類別，它們會定義協調流程用戶端、協調器和活動方法。 模擬會設定基底類別方法的預期行為，讓單元測試可以驗證商務邏輯。 有一個雙步驟工作流程可以針對協調流程用戶端和協調器中的商務邏輯進行單元測試：
+這些類別是定義協調流程用戶端、協調器和活動方法之 `DurableOrchestrationClient`、`DurableOrchestrationContext`和 `DurableActivityContext` 的基類。 模擬會設定基底類別方法的預期行為，讓單元測試可以驗證商務邏輯。 有一個雙步驟工作流程可以針對協調流程用戶端和協調器中的商務邏輯進行單元測試：
 
-1. 定義協調流程用戶端和協調器的簽章時，使用基底類別而不是具體實作。
+1. 定義協調流程用戶端和協調器函式簽章時，請使用基類，而不是具體的執行。
 2. 在單元測試中模擬基底類別的行為，並且驗證商務邏輯。
 
 在下列段落中尋找測試函式的詳細資料，這些函式使用協調流程用戶端繫結和協調器觸發程序繫結。
@@ -53,9 +56,9 @@ ms.locfileid: "68967107"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-單元測試工作會驗證回應承載中提供的 `Retry-After` 標頭值。 因此單元測試會模擬一些 [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 方法，以確保可預測的行為。
+單元測試工作會驗證回應承載中提供的 `Retry-After` 標頭值。 因此，單元測試會模擬一些 `DurableOrchestrationClientBase` 方法，以確保可預測的行為。
 
-首先，必須模擬基底類別 [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)。 模擬可以是實作 [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 的新類別。 不過，使用例如 [moq](https://github.com/moq/moq4) 的模擬架構可以簡化程序：
+首先，需要基本類別的 mock，`DurableOrchestrationClientBase`。 Mock 可以是執行 `DurableOrchestrationClientBase`的新類別。 不過，使用例如 [moq](https://github.com/moq/moq4) 的模擬架構可以簡化程序：
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -93,7 +96,6 @@ ms.locfileid: "68967107"
 ```csharp
     // Mock ILogger
     var loggerMock = new Mock<ILogger>();
-
 ```  
 
 現在 `Run` 方法是從單元測試呼叫：
@@ -174,7 +176,7 @@ ms.locfileid: "68967107"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-且單元測試會驗證輸出的格式。 單元測試可以直接使用參數類型，或是模擬 [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html) 類別：
+且單元測試會驗證輸出的格式。 單元測試可以直接使用參數類型，或模擬 `DurableActivityContextBase` 類別：
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996385"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576410"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -61,12 +61,12 @@ ms.locfileid: "71996385"
 - [在 Azure VM 分頁中設定 JIT 存取](#jit-vm)
 - [以程式設計方式在 VM 上設定 JIT 原則](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>在 ASC 中設定 JIT
+## <a name="configure-jit-in-security-center"></a>在資訊安全中心中設定 JIT
 
-從 ASC，您可以使用 JIT 原則來設定 JIT 原則並要求存取 VM
+從資訊安全中心，您可以使用 JIT 原則來設定 JIT 原則，並要求存取 VM
 
 
-### 在 ASC 中設定 VM 上的 JIT 存取<a name="jit-asc"></a>
+### 在資訊安全中心的 VM 上設定 JIT 存取<a name="jit-asc"></a>
 
 1. 開啟 [資訊安全中心] 儀表板。
 
@@ -114,9 +114,9 @@ ms.locfileid: "71996385"
 >啟用 VM 的 JIT VM 存取時，Azure 資訊安全中心會在與 Azure 防火牆相關聯的網路安全性群組中，為選取的埠建立「拒絕所有輸入流量」規則。 如果已針對選取的埠建立其他規則，則現有的規則會優先于新的「拒絕所有輸入流量」規則。 如果選取的埠上沒有現有的規則，則新的「拒絕所有輸入流量」規則會優先使用網路安全性群組和 Azure 防火牆。
 
 
-## <a name="request-jit-access-via-asc"></a>透過 ASC 要求 JIT 存取
+## <a name="request-jit-access-via-security-center"></a>透過資訊安全中心要求 JIT 存取
 
-若要透過 ASC 要求存取 VM：
+若要透過資訊安全中心要求存取 VM：
 
 1. 在 [Just-In-Time VM 存取] 下方，選取 [已設定] 索引標籤。
 
@@ -140,7 +140,7 @@ ms.locfileid: "71996385"
 > [!NOTE]
 > 如果要求存取的使用者位於 Proxy 後方，[我的 IP] 選項可能無法運作。 您可能需要定義組織的完整 IP 位址範圍。
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>透過 ASC 編輯 JIT 存取原則
+## <a name="edit-a-jit-access-policy-via-security-center"></a>透過資訊安全中心編輯 JIT 存取原則
 
 可以藉由新增和設定一個對 VM 保護的新連接埠，或是變更與受保護的連接埠相關的其他任何設定，來變更該 VM 現有的 Just-In-Time 原則。
 
@@ -151,7 +151,7 @@ ms.locfileid: "71996385"
 1. 在 [JIT VM 存取設定] 下方，您可以對於已經保護的連接埠編輯現有設定，也可以新增自訂連接埠。 
   ![JIT VM 存取](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>在 ASC 中審核 JIT 存取活動
+## <a name="audit-jit-access-activity-in-security-center"></a>資訊安全中心中的審核 JIT 存取活動
 
 您可以使用記錄搜尋來深入了解 VM 活動。 若要檢視記錄：
 
@@ -168,11 +168,11 @@ ms.locfileid: "71996385"
 
 
 
-## 在 Azure VM 分頁中設定 JIT 存取<a name="jit-vm"></a>
+## 從 Azure VM 的頁面設定 JIT 存取<a name="jit-vm"></a>
 
-為了方便起見，您可以直接從 Azure 中的虛擬機器刀鋒視窗中使用 JIT 連線至 VM。
+為了方便起見，您可以在資訊安全中心的 VM 頁面中直接使用 JIT 連接到 VM。
 
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>透過 Azure VM 分頁在 VM 上設定 JIT 存取
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>透過 Azure VM 頁面在 VM 上設定 JIT 存取
 
 若要在所有 VM 上輕鬆地推出 Just-In-Time 存取，您可以將 VM 設定為只允許直接從 VM 進行 Just-In-Time 存取。
 
@@ -206,7 +206,7 @@ ms.locfileid: "71996385"
 
   使用下列預設參數來要求存取：
 
-  - **來源 IP**：' Any ' （*）（無法變更）
+  - **來源 IP**： ' Any ' （*）（無法變更）
   - **時間範圍**：三小時（無法變更） <!--Isn't this set in the policy-->
   - **埠號碼**Windows/埠22（適用于 Linux）的 RDP 埠3389（可以變更）
 

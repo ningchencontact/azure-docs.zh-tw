@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ee1168c32cf4d8797b3957340e0acee5605ccc0f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951883"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583220"
 ---
 # <a name="what-are-application-templates"></a>什麼是應用程式範本？
 
@@ -32,20 +32,19 @@ Azure IoT Central 是與業界無關的應用程式平臺。 應用程式範本�
 
 - [零售](../retail/overview-iot-central-retail-pnp.md)
   - 物聯物流
-  - 數位散發中心
+  - 數位配送中心
   - 存放區內分析-條件監視
   - 存放區內分析-簽出
   - 智慧清查管理
 - [能源](../energy/overview-iot-central-energy.md)
-  - 連線的物流
   - 智慧計量監視
   - 日光面板監視
 - [身份證](../government/overview-iot-central-government.md)
-  - 連線的垃圾管理
-  - 水耗用量監控
-  - 水品質監控
+  - 物聯廢棄物管理
+  - 用水量監視
+  - 水質監視
 - [醫療保健](../healthcare/overview-iot-central-healthcare.md)。
-  - 持續患者監控
+  - 持續性患者監視
 
 ## <a name="next-steps"></a>後續步驟
 

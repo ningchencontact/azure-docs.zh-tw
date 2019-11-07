@@ -1,18 +1,18 @@
 ---
-title: 將服務主體新增至 Azure Analysis Services 伺服器管理員角色 | Microsoft Docs
-description: 了解如何將自動化服務主體新增至伺服器管理員角色
+title: 將服務主體新增至 Azure Analysis Services 管理員角色 |Microsoft Docs
+description: 瞭解如何將自動化服務主體新增至 Azure Analysis Services server 系統管理員角色
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c141bcea030f5afcc3cb33adba32f4a96c335eec
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0a3a86283c8ec9876fbec049a2a1a110eb1a80f3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147393"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573606"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>將服務主體新增至伺服器管理員角色 
 

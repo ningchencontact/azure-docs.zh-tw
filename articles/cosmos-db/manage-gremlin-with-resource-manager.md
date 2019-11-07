@@ -6,27 +6,29 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 82d15f342e6c0a4f107e8b089be14c0e670a33ca
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f50a6980cb26d6a89e2564b492a8be900ad57736
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815053"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606794"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB Gremlin API 資源
 
+本文說明如何使用 Azure Resource Manager 範本來執行不同的作業，以自動化管理您的 Azure Cosmos DB 帳戶、資料庫和容器。 本文僅提供 Gremlin API 帳戶的範例，若要尋找其他 API 類型帳戶的範例，請參閱：使用 Resource Manager 範本搭配 Azure Cosmos DB 的 API 來執行[Cassandra](manage-cassandra-with-resource-manager.md)、 [SQL](manage-sql-with-resource-manager.md)、 [MongoDB](manage-mongodb-with-resource-manager.md)、[資料表](manage-table-with-resource-manager.md)文章。
+
 ## 建立適用于 MongoDB 帳戶、資料庫和集合的 Azure Cosmos DB API<a id="create-resource"></a>
 
-使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會建立 Gremlin API 的 Azure Cosmos 帳戶, 其中包含兩個在資料庫層級共用 400 RU/秒輸送量的圖形。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會建立 Gremlin API 的 Azure Cosmos 帳戶，其中包含兩個在資料庫層級共用 400 RU/秒輸送量的圖形。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 > [!NOTE]
-> 帳戶名稱必須是小寫, 且 < 31 個字元。
+> 帳戶名稱必須是小寫，且 < 31 個字元。
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
-## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
+## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 部署
 
-若要使用 Azure CLI 部署 Resource Manager 範本, 請**複製**腳本, 然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 Azure CLI 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 
@@ -48,17 +50,17 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-此`az cosmosdb show`命令會在布建完成後, 顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本, 而不是使用 CloudShell, 請參閱[Azure 命令列介面 (CLI)](/cli/azure/)一文。
+`az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本，而不是使用 CloudShell，請參閱[Azure 命令列介面（CLI）](/cli/azure/)一文。
 
-## 更新資料庫上的輸送量 (RU/秒)<a id="database-ru-update"></a>
+## 更新資料庫上的輸送量（RU/秒）<a id="database-ru-update"></a>
 
-下列範本將會更新資料庫的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+下列範本將會更新資料庫的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 [!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
 
 ### <a name="deploy-database-template-via-azure-cli"></a>透過 Azure CLI 部署資料庫範本
 
-若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -71,15 +73,15 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
 ```
 
-## 更新圖形上的輸送量 (RU/秒)<a id="graph-ru-update"></a>
+## 更新圖形上的輸送量（RU/秒）<a id="graph-ru-update"></a>
 
-下列範本會更新圖形的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+下列範本會更新圖形的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 [!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
 
 ### <a name="deploy-graph-template-via-azure-cli"></a>透過 Azure CLI 部署圖形範本
 
-若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
+若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName

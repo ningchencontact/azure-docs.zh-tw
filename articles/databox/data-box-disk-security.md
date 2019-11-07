@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure 資料箱磁碟概觀 | 資料中的 Microsoft Docs
-description: 說明 Azure 資料箱磁碟，這是可讓您將大量資料傳輸至 Azure 的雲端解決方案
+title: Microsoft Azure 資料箱磁碟安全性功能 |資料中的 Microsoft Docs
+description: 說明為 Azure 資料箱磁碟所實行的安全性功能，這是可讓您將大量資料傳輸至 Azure 的雲端解決方案
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093451"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606566"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure 資料箱磁碟安全性和資料保護
 
