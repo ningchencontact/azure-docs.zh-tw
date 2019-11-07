@@ -8,20 +8,21 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/20/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f3277d76709fe14a5eaa28cc0f562d95c1e4004
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: dd215e754b7e72c9ac424a53015955332068558e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128937"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493561"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning，搭配 MNIST 資料和 scikit-learn 定型映像分類模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本教學課程中，您會以遠端計算資源訓練機器學習模型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
-本教學課程可讓您使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集，並搭配 [scikit-learn](https://scikit-learn.org) 與 Azure Machine Learning 定型簡單的羅吉斯迴歸。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，以識別特定影像所代表的數字。
+本教學課程可讓您使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集，並搭配 [scikit-learn](https://scikit-learn.org) 與 Azure Machine Learning 定型簡單的羅吉斯迴歸。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，來識別特定影像代表的數字。
 
 了解如何執行下列動作：
 
@@ -36,19 +37,25 @@ ms.locfileid: "71128937"
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 >[!NOTE]
-> 本文中的程式碼已經過 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 1.0.57 版的測試。
+> 此文章中的程式碼已經過 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 1.0.65 版的測試。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 完成[教學課程：開始建立您的第一個 ML 實驗](tutorial-1st-experiment-sdk-setup.md)，以便：
     * 建立工作區
-    * 建立雲端 Notebook 伺服器
-    * 啟動 Jupyter 筆記本儀表板
+    * 將教學課程 Notebook 複製到工作區中的資料夾。
+    * 建立雲端式計算執行個體。
 
-* 啟動 Jupyter 筆記本儀表板之後，請開啟 **tutorials/img-classification-part1-training.ipynb** 筆記本。
+* 在複製的 [教學課程]  資料夾中，開啟 **img-classification-part1-training.ipynb** 筆記本。 
 
-如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得此教學課程和隨附的 **utils.py** 檔案。  請確定您已在環境中安裝 `matplotlib` 和 `scikit-learn`。
 
+如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得此教學課程和隨附的 **utils.py** 檔案。 執行 `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` 以安裝此教學課程的相依性。
+
+> [!Important]
+> 本文的其餘部分包含與您在 Notebook 中所見相同的內容。  
+>
+> 如果您想要在執行程式碼時進行閱讀，請立即切換到 Jupyter Notebook。 
+> 若要在 Notebook 中執行單一程式碼資料格，請按一下程式碼資料格，然後按 **Shift+Enter**。 或者，從頂端工具列中選擇 [全部執行]  ，以執行整個 Notebook。
 
 ## <a name="start"></a>設定您的開發環境
 
@@ -143,51 +150,48 @@ else:
 
 ## <a name="explore-data"></a>探索資料
 
-在您將模型定型之前，必須先了解用來將模型定型的資料。 您也需要將資料上傳到雲端，以便您的雲端訓練環境進行存取。 在本節中，您會了解如何執行下列動作：
+在您將模型定型之前，必須先了解用來將模型定型的資料。 在本節中，您將了解如何：
 
 * 下載 MNIST 資料集。
 * 顯示一些範例影像。
-* 將資料上傳至雲端中的工作區。
 
 ### <a name="download-the-mnist-dataset"></a>下載 MNIST 資料集
 
-下載 MNIST 資料集，並將檔案儲存到 `data` 本機目錄。 這會同時下載定型和測試用的影像與標籤：
+使用 Azure 開放資料集來取得原始 MNIST 資料檔案。 [Azure 開放資料集](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)是策劃的公用資料集，您可以使用這些公用資料集，將案例專有的功能新增至機器學習解決方案，以獲得更準確的模型。 每個資料集都有對應的類別 (在此案例中為 `MNIST`)，來以不同的方式擷取資料。
+
+此程式碼以 `FileDataset` 物件的形式擷取資料，該物件是 `Dataset` 的子類別。 `FileDataset` 會參考資料存放區或公用 URL 中的單一或多個任意格式檔案。 透過建立資料來源位置的參考，類別可讓您將檔案下載或裝載至您的計算。 此外，您可以在工作區中註冊資料集，以便在定型期間進行輕鬆的擷取。
+
+依照[操作說明](how-to-create-register-datasets.md)以深入了解資料集與其在 SDK 中的使用方式。
 
 ```python
-import urllib.request
-import os
+from azureml.core import Dataset
+from azureml.opendatasets import MNIST
 
 data_folder = os.path.join(os.getcwd(), 'data')
 os.makedirs(data_folder, exist_ok=True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-                           filename=os.path.join(data_folder, 'train-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-                           filename=os.path.join(data_folder, 'train-labels.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-                           filename=os.path.join(data_folder, 'test-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
-                           filename=os.path.join(data_folder, 'test-labels.gz'))
-```
+mnist_file_dataset = MNIST.get_file_dataset()
+mnist_file_dataset.download(data_folder, overwrite=True)
 
-您將看到如下的輸出：```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
+mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
+                                                 name='mnist_opendataset',
+                                                 description='training and test dataset',
+                                                 create_new_version=True)
+```
 
 ### <a name="display-some-sample-images"></a>顯示一些範例影像
 
-將壓縮的檔案載入到 `numpy` 陣列。 然後使用 `matplotlib` 來繪製 30 個來自資料集的隨機影像，並且在其上加上標籤。 此步驟需要 `util.py` 檔案中所包含的 `load_data` 函式。 這個檔案包含在範例資料夾。 請確定將它放在與此 Notebook 相同的資料夾中。 `load_data` 函式會直接將壓縮檔案剖析為 numpy 陣列：
+將壓縮的檔案載入到 `numpy` 陣列。 然後使用 `matplotlib` 來繪製 30 個來自資料集的隨機影像，並且在其上加上標籤。 此步驟需要 `util.py` 檔案中所包含的 `load_data` 函式。 這個檔案包含在範例資料夾。 請確定將它放在與此 Notebook 相同的資料夾中。 `load_data` 函式會直接將壓縮檔案剖析為 numpy 陣列。
 
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(
-    data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(
-    data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(
-    data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
+X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
+y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -209,33 +213,6 @@ plt.show()
 
 現在您已了解這些影像外觀與預期的預測結果。
 
-### <a name="create-a-filedataset"></a>建立 FileDataset
-
-`FileDataset` 物件會參考您工作區資料存放區中的一個或多個檔案或公用 URL。 檔案可以是任何格式，而類別可讓您將檔案下載或掛接至您的計算。 您可以藉由建立 `FileDataset` 來建立來源位置的參考。 如果您對資料集套用任何轉換，這些轉換也會儲存在資料集中。 資料會保留在現有的位置，因此不會產生額外的儲存成本。 如需詳細資訊，請參閱 `Dataset` 套件上的[操作](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets)指南。
-
-```python
-from azureml.core.dataset import Dataset
-
-web_paths = [
-            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
-            ]
-dataset = Dataset.File.from_files(path=web_paths)
-```
-
-使用 `register()` 方法將資料集註冊到您的工作區，使其可以與其他人共用、在各種不同的實驗中重複使用，以及讓訓練指令碼中的名稱參照。
-
-```python
-dataset = dataset.register(workspace=ws,
-                           name='mnist dataset',
-                           description='training and test dataset',
-                           create_new_version=True)
-```
-
-您現在已經具備開始將模型定型所需的一切。
-
 ## <a name="train-on-a-remote-cluster"></a>在遠端叢集上定型
 
 針對這項工作，將工作提交至您稍早設定的遠端定型叢集。  若要提交工作，您要：
@@ -249,7 +226,6 @@ dataset = dataset.register(workspace=ws,
 建立目錄，以從您的電腦傳遞必要程式碼到遠端資源。
 
 ```python
-import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -351,7 +327,7 @@ env.python.conda_dependencies = cd
 from azureml.train.sklearn import SKLearn
 
 script_params = {
-    '--data-folder': dataset.as_named_input('mnist').as_mount(),
+    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
     '--regularization': 0.5
 }
 

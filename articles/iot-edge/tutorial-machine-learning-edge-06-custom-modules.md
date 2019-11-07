@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fa13f209d6f4df0ebd531f803e75cdb657abf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163115"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494003"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>教學課程：建立和部署自訂 IoT Edge 模組
 
@@ -172,7 +172,7 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
 4. 當系統提示您提供 Docker 映像存放庫時，請使用來自機器學習工作區的登錄 (您可以在 *deployment.template.json* 檔案的 registryCredentials 節點中找到此登錄)。 此值是登錄的完整位址，例如 **\<您的登錄\>.azurecr.io/turbofanrouter**。
 
     > [!NOTE]
-    > 在此文章中，我們會使用 Azure Machine Learning 服務工作區所建立的 Azure Container Registry，我們可用它來定型及部署分類器。 這純粹為了方便使用。 我們已建立新的容器登錄，並在該處發佈了模組。
+    > 在此文章中，我們會使用 Azure Machine Learning 工作區所建立的 Azure Container Registry，我們可用它來定型及部署分類器。 這純粹為了方便使用。 我們已建立新的容器登錄，並在該處發佈了模組。
 
 5. 在 Visual Studio Code 中開啟新的終端機視窗 ([檢視]   > [終端機]  )，並從 [模組] 目錄複製檔案。
 
@@ -752,7 +752,7 @@ Avro 寫入器模組在我們的解決方案中有兩個任務，即儲存訊息
 
 成功完成組建之後，我們將能夠使用 Azure 入口網站來檢閱已發佈的模組。
 
-1. 在 Azure 入口網站中，巡覽至您的 Azure Machine Learning 服務工作區，然後按一下 [登錄]  的超連結。
+1. 在 Azure 入口網站中，瀏覽至您的 Azure Machine Learning 工作區，然後按一下 [登錄]  的超連結。
 
     ![從機器學習服務工作區巡覽至登錄](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

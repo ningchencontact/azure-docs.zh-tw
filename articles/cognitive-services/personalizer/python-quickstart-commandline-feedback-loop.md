@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 947ca0b603483479479285ff14636240d2ac7433
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494430"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>快速入門：適用於 Python 的個人化工具用戶端程式庫
 

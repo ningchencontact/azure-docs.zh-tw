@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2eeada500de0f174178234ab92b51bcf16b3502
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176738"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480115"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>準備內部部署電腦以移轉至 Azure
 
-此文章描述如何在您使用 [Azure Migrate 伺服器移轉](migrate-services-overview.md#azure-migrate-server-migration)，將內部部署和雲端式電腦移轉至 Azure 之前，先進行準備。
+此文章說明如何在您使用 [Azure Migrate 伺服器移轉](migrate-services-overview.md#azure-migrate-server-migration-tool)將內部部署機器移轉至 Azure 之前，先進行準備。
 
 
 在本文章中，您將：

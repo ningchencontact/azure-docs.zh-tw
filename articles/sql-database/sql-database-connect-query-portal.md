@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/24/2019
+ms.openlocfilehash: 433f2a190cf24a7e59dcd1d5a5aba0d3aa4e8588
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569166"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492087"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>快速入門：使用 Azure 入口網站的 SQL 查詢編輯器進行連線並查詢資料
 
@@ -46,41 +46,47 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 
 ## <a name="connect-using-sql-authentication"></a>使用 SQL 驗證進行連線
 
-1. 從左側功能表選取 [SQL Database]  ，然後選取 **mySampleDatabase**。
+1. 移至 Azure 入口網站以連線到 SQL 資料庫。 搜尋並選取 [SQL 資料庫]  。
 
-2. 在左側功能表中，尋找並選取 [查詢編輯器 (預覽)]  。 此時會顯示 [登入]  頁面。
+    ![瀏覽至 SQL 資料庫清單，Azure 入口網站](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
+
+2. 選取您的 SQL 資料庫。
+
+    ![選取 SQL 資料庫，Azure 入口網站](./media/sql-database-connect-query-portal/select-a-sql-database.png)
+
+3. 在 [SQL 資料庫]  功能表中，選取 [查詢編輯器 (預覽)]  。
 
     ![尋找查詢編輯器](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. 從 [授權類型]  下拉式選單中，選取 [SQL Server 驗證]  並輸入建立資料庫時所用伺服器系統管理員帳戶的使用者識別碼和密碼。
+4. 從 [登入]  頁面的 [SQL Server 驗證]  標籤下方，輸入用來建立資料庫之伺服器系統管理員帳戶的**登入**識別碼和**密碼**。 然後選取 [確定]  。
 
     ![登入](./media/sql-database-connect-query-portal/login-menu.png)
 
-4. 選取 [確定]  。
-
-
 ## <a name="connect-using-azure-active-directory"></a>使用 Azure Active Directory 連線
 
-設定 Active Directory (AD) 系統管理員，可讓您使用單一識別身分登入 Azure 入口網站和您的 SQL 資料庫。 請遵循以下步驟設定您 SQL Server 的 AD 系統管理員。
+設定 Azure Active Directory (Azure AD) 系統管理員，可讓您使用單一身分識別來登入 Azure 入口網站和您的 SQL 資料庫。 遵循下列步驟來設定 SQL Server 的 Azure AD 系統管理員。
 
 > [!NOTE]
-> * AD 系統管理員尚未支援電子郵件帳戶 (例如 outlook.com、gmail.com、yahoo.com 等等)。 請務必選擇使用者在 Azure AD 中原生建立，或與 Azure AD 同盟的 AD 系統管理員。
+> * Azure AD 系統管理員尚未支援電子郵件帳戶 (例如 outlook.com、gmail.com、yahoo.com 等)。 請務必選擇使用者在 Azure AD 中原生建立，或與 Azure AD 同盟的 AD 系統管理員。
 > * Azure AD 系統管理員登入無法搭配已啟用 2 雙因素驗證的帳戶使用。
 
-1. 請從左側功能表選取 [所有資源]  ，然後選取您的 SQL Server。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [所有資源]  。
 
-2. 從您 SQL Server 的 [設定]  功能表，選取 [Active Directory 系統管理員]  。
+2. 選取您的 SQL Server。
 
-3. 從 AD 系統管理員頁面工具列，選取 [設定系統管理員]  並選擇使用者或群組做為您的 AD 系統管理員。
+3. 從 [SQL Server]  功能表的 [設定]  下方，選取 [Active Directory 系統管理員]  。
+
+4. 從 SQL Server 的 [Active Directory 系統管理員]  頁面工具列中，選取 [設定系統管理員]  ，然後選擇使用者或群組作為您的 Azure AD 系統管理員。
 
     ![選取 Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. 從 AD 系統管理員頁面工具列，選取 [儲存]  。
+5. 從 [新增系統管理員]  頁面的搜尋方塊中，輸入要尋找的使用者或群組、將其選取來作為系統管理員，然後選擇 [選取]  按鈕。
 
-5. 瀏覽至 **mySampleDatabase** 資料庫，然後從左側功能表選取 [查詢編輯器 (預覽)]  。 此時會顯示 [登入]  頁面。 如果您是 AD 系統管理員，右側 [Active Directory 單一登入]  底下就會顯示說明您已經登入的訊息。
+6. 返回 SQL Server 的 [Active Directory 系統管理員]  頁面工具列，選取 [儲存]  。
 
-6. 選取 [確定]  。
+7. 在 [SQL Server]  功能表中，選取 [SQL 資料庫]  ，然後選取您的 SQL 資料庫。
 
+8. 在 [SQL 資料庫]  功能表中，選取 [查詢編輯器 (預覽)]  。 在 [登入]  頁面的 [Active Directory 驗證]  標籤下方，如果您是 Azure AD 系統管理員，即會顯示一則訊息，指出您已登入。然後選取 [作為 \<您的使用者或群組識別碼>  繼續]  按鈕。
 
 ## <a name="view-data"></a>檢視資料
 
@@ -95,7 +101,7 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 
 2. 在工具列上，選取 [執行]  ，然後檢閱 [結果]  窗格中的輸出結果。
 
-![查詢編輯器結果](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![查詢編輯器結果](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## <a name="insert-data"></a>插入資料
 
@@ -103,8 +109,8 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 
 1. 使用此查詢取代先前的查詢。
 
-   ```sql
-   INSERT INTO [SalesLT].[Product]
+    ```sql
+    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
            , [Color]
@@ -113,7 +119,7 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
            , [ListPrice]
            , [SellStartDate]
            )
-     VALUES
+    VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0035495d9dd3b82b65aa3b4a7b1d918c73288df8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845286"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496137"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>快速入門：使用 Azure 入口網站、PowerShell 和 Azure CLI，在 Azure SQL Database 中建立單一資料庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "70845286"
 
 ## <a name="create-a-single-database"></a>建立單一資料庫
 
-您可以在已佈建的或無伺服器 (預覽) 計算層中建立單一資料庫。
+您可以在已佈建或無伺服器的計算層中建立單一資料庫。
 
 - 已佈建計算層中的單一資料庫會使用其中一種[購買模型](sql-database-purchase-models.md)，預先配置固定數量的計算資源，包括 CPU 和記憶體。
 - 無伺服器計算層中的單一資料庫具有 CPU 和記憶體等多種可自動調整的計算資源，且僅適用於[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。

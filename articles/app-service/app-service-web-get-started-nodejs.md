@@ -16,12 +16,12 @@ ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 380e587fc8c921b395d63d1dbca10e2f5fb1b9ba
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433197"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471467"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式 
 
@@ -93,7 +93,7 @@ npm install
 npm start
 ```
 
-現在，開啟您的瀏覽器並流覽至 [http://localhost:3000](http://localhost:3000)，您應該會在這裡看到如下的內容：
+現在，開啟您的瀏覽器並瀏覽至 [http://localhost:3000](http://localhost:3000)，您應該會在這裡看到如下的內容：
 
 ![執行 Express 應用程式](containers/media/quickstart-nodejs/express.png)
 
@@ -124,13 +124,13 @@ code .
 1. 根據您要部署的作業系統，選擇一個建立選項：
 
     - Linux：選擇 [建立新的 Web 應用程式]  。
-    - Windows:選擇 [建立新的 Web 應用程式...進階]  。
+    - Windows:選擇 [建立新的 Web 應用程式]  ，然後選取 [進階]  選項。
 
 1. 輸入 Web 應用程式的全域唯一名稱，然後按 ENTER。 應用程式名稱的有效字元為 'a-z'、'0-9' 和 '-'。
 
 1. 如果以 Linux 為，請在出現提示時選取 Node.js 版本。 建議使用 **LTS** 版本。
 
-1. 如果以使用 [進階]  選項的 Windows 為目標，請遵循其他提示：
+1. 如果使用 [進階]  選項來以 Windows 為目標，請遵循其他提示：
     1. 選取 [建立新的資源群組]  ，然後輸入資源群組的名稱。
     1. 針對作業系統選取 [Windows]  。
     1. 選取現有 App Service 方案或建立新方案。 您可以在建立新的方案時選取定價層。
@@ -152,7 +152,7 @@ code .
 
 ### <a name="browse-the-app-in-azure"></a>在 Azure 中瀏覽應用程式
 
-完成部署後，請選取提示中的 [流覽網站]  ，以檢視您剛部署的 Web 應用程式。
+完成部署後，請選取提示中的 [瀏覽網站]  ，以檢視您剛部署的 Web 應用程式。
 
 ### <a name="troubleshooting"></a>疑難排解
 

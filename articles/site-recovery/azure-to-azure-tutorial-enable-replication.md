@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6987c6f1191b0dfc7b78b14e77a5d6a0ab369f57
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e46bc9e4fbb2b573338b8be43c38e658ebde05a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782613"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468017"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>設定適用於 Azure VM 的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何為 Azure VM 設定災害復原，讓 VM 可以從一個 Azure 區域移至另一個。 在本教學課程中，您了解如何：
+本教學課程說明如何為 Azure VM 設定災害復原，讓 VM 可以從一個 Azure 區域移至另一個。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立復原服務保存庫
@@ -43,7 +43,7 @@ ms.locfileid: "68782613"
 在來源區域以外的任何區域中建立保存庫。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]  。
-2. 按一下 [建立資源]   > [管理工具]   > [備份和 Site Recovery]  。
+2. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 然後選取 [管理工具]   > [備份和 Site Recovery]  。
 3. 在 [名稱]  中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組，或選取現有的資源群組。 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
 5. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]  ，然後按一下 [建立]  。

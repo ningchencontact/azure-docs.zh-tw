@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515590"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490799"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>快速入門：適用於 .NET 的個人化工具用戶端程式庫
 
@@ -45,12 +45,11 @@ ms.locfileid: "72515590"
 
 ## <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
 
-Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 您也可以：
+請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 您也可以：
 
 * 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
 * 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源。
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 從試用版訂用帳戶或資源取得金鑰後，請建立兩個[環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)：
 
 * `PERSONALIZER_RESOURCE_KEY` 用於資源金鑰。
@@ -60,7 +59,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 
 ## <a name="change-the-model-update-frequency"></a>變更模型更新頻率
 
-在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更。
+在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，將 [模型更新頻率]  變更為 10 秒。 這個較短的時間將會快速定型服務，讓您可以查看名次最高的動作會如何針對每個反覆項目變更。
 
 ![變更模型更新頻率](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -110,11 +109,11 @@ dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.
 
 若要將獎勵傳送給個人化工具，請建立 [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview)，然後將其傳遞至 [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) 方法。 
 
-在本快速入門中，決定獎勵是很簡單的。 在生產系統中，判斷影響[獎勵分數](concept-rewards.md)的因素及影響程度可能是複雜的程序，您可能會隨著時間做出變更決定。 這應該是個人化工具架構中的一個主要設計決策。 
+在本快速入門中，決定獎勵是很簡單的。 在生產系統中，判斷影響[獎勵分數](concept-rewards.md)的因素及影響程度可能是複雜的程序，您可能會隨著時間做出變更決定。 此設計決策應該是您個人化工具架構中的其中一個主要決策。 
 
 ## <a name="code-examples"></a>程式碼範例
 
-這些程式碼片段會示範如何使用適用於 .NET 的個人化工具用戶端程式庫來執行下列動作：
+這些程式碼片段會示範如何使用適用於 .NET 的個人化工具用戶端程式庫來執行下列工作：
 
 * [建立個人化工具用戶端](#create-a-personalizer-client)
 * [要求排名](#request-a-rank)

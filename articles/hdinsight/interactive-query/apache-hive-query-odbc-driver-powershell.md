@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Hive ODBC 驅動程式與 PowerShell 執行查詢 - Azure HDInsight
+title: 使用 ODBC 驅動程式與 PowerShell 查詢 Apache Hive - Azure HDInsight
 description: 使用 Microsoft Hive ODBC 驅動程式和 PowerShell 查詢 Azure HDInsight 上的 Apache Hive 叢集。
 keywords: hive, hive odbc,powershell
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122165"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494319"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>教學課程：使用 ODBC 和 PowerShell 查詢 Apache Hive
 
@@ -36,7 +36,7 @@ Microsoft ODBC 驅動程式提供彈性的方式來與不同資料來源類型 (
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>安裝 Microsoft Hive ODBC 驅動程式
 
-下載並安裝 [Microsoft Hive ODBC 驅動程式](https://go.microsoft.com/fwlink/?LinkID=286698)。
+下載並安裝 [Microsoft Hive ODBC 驅動程式](https://www.microsoft.com/download/details.aspx?id=40886)。
 
 ## <a name="create-apache-hive-odbc-data-source"></a>建立 Apache Hive ODBC 資料來源
 
@@ -44,7 +44,7 @@ Microsoft ODBC 驅動程式提供彈性的方式來與不同資料來源類型 (
 
 1. 從 Windows 中，瀏覽至 [開始]   > [Windows 系統管理工具]   > [ODBC 資料來源 (32 位元)/(64 位元)]  。  [ODBC 資料來源管理員]  視窗會隨即開啟。
 
-    ![OBDC 資料來源管理員](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "使用 ODBC 資料來源管理員設定 DSN")
+    ![ODBC 資料來源管理員](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "使用 ODBC 資料來源管理員設定 DSN")
 
 1. 從 [使用者 DSN]  索引標籤，選取 [新增]  以開啟 [建立新資料來源]  視窗。
 

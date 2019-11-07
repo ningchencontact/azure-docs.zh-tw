@@ -1,6 +1,6 @@
 ---
 title: 快速入門：建立資料科學實驗
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 此機器學習快速入門會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515103"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493293"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>快速入門：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>快速入門：在 Azure Machine Learning Studio (傳統) 中建立您的第一個資料科學實驗
 
-在本快速入門中，您將在 [Azure Machine Learning Studio](what-is-ml-studio.md) 中建立一個機器學習實驗，根據使用製造和技術規格等不同變數來預測汽車的價格。
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+在此快速入門中，您將在 [Azure Machine Learning Studio (傳統)](what-is-ml-studio.md) 中建立一個機器學習實驗，根據使用製造和技術規格等不同變數來預測汽車的價格。
 
 如果您之前未曾接觸過機器學習，可以觀看[適用於初學者的資料科學](data-science-for-beginners-the-5-questions-data-science-answers.md)影片系列，其淺白的語言和概念講解將帶領您認識機器學習。
 
@@ -40,20 +42,18 @@ ms.locfileid: "68515103"
 [選擇及套用演算法]: #choose-and-apply-an-algorithm
 [預測新的汽車價格]: #predict-new-automobile-prices
 
-如果您沒有 Studio 帳戶，請移至 [Studio 首頁](https://studio.azureml.net)，然後選取 [在這裡註冊]  以建立免費帳戶。 免費工作區會有您在本快速入門中所需的所有功能。
-
 ## <a name="get-the-data"></a>取得資料
 
 要執行機器學習，首先您必須要有資料。
-Studio 附有多個範例資料集供您使用，或者，您可以從許多來源匯入資料。 在此範例中，我們將使用您的工作區內含的範例資料集**汽車價格資料 (原始)** 。
+傳統的 Studio 版本隨附數個範例資料集可供您使用，或者，您可以從許多來源匯入資料。 在此範例中，我們將使用您的工作區內含的範例資料集**汽車價格資料 (原始)** 。
 此資料集將包含許多個別汽車的項目，包括製造、模型、技術規格和價格等資訊。
 
 > [!TIP]
-> 您可以在 [Azure AI 資源庫](https://gallery.azure.ai)中找到下列實驗的工作複本。 移至 **[您的第一個資料科學實驗 - 汽車價格預測](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** ， 按一下 [在 Studio 中開啟]  ，以將實驗的複本下載到您的 Machine Learning Studio 工作區。
+> 您可以在 [Azure AI 資源庫](https://gallery.azure.ai)中找到下列實驗的工作複本。 移至 **[您的第一個資料科學實驗 - 汽車價格預測](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** \(英文\)，然後按一下 [在 Studio 中開啟]  ，以將實驗的複本下載到您的 Machine Learning Studio (傳統) 工作區。
 
 以下說明如何匯入資料集到您的實驗。
 
-1. 按一下 [Machine Learning Studio] 視窗底部的 [+新增]  ，以建立新的實驗。 選取 [實驗]   >  [空白實驗]  。
+1. 按一下 [Machine Learning Studio (傳統)] 視窗底部的 [+新增]  ，來建立新的實驗。 選取 [實驗]   >  [空白實驗]  。
 
 1. 您可以在畫布頂端看到實驗的預設名稱。 選取這段文字，然後重新命名為有意義的名稱，例如**汽車價格預測**。 此名稱不必是唯一的。
 
@@ -240,7 +240,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 在本快速入門中，您使用範例資料集建立了簡單的實驗。 若要深入探索建立和部署模型的程序，請繼續進行預測解決方案教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：在 Studio 中開發預測解決方案](tutorial-part1-credit-risk.md)
+> [教學課程：在 Studio (傳統) 中開發預測性解決方案](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

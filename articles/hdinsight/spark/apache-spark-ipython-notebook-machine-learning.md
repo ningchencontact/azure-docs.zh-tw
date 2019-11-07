@@ -1,5 +1,5 @@
 ---
-title: 教學課程：在 Azure HDInsight 中建置 Spark 機器學習應用程式
+title: 教學課程：建置 Spark 機器學習應用程式 - Azure HDInsight
 description: 教學課程 - 逐步指示如何使用 Jupyter Notebook 在 HDInsight Spark 叢集中建置 Apache Spark 機器學習應用程式。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327023"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494567"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中建置 Apache Spark 機器學習應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "71327023"
 
 應用程式會使用所有叢集預設提供的範例 **HVAC.csv** 資料。 檔案位於 `\HdiSamples\HdiSamples\SensorSampleData\hvac`。 這項資料會顯示某些已安裝 HVAC 系統之建築物的目標溫度和實際溫度。 [System]  資料行代表系統識別碼，而 [SystemAge]  資料行代表 HVAC 系統安裝在建築物中的年數。 在指定系統識別碼和系統年期的情況下，您可以使用這項資料來預測建築物的溫度會比目標溫度高或低。
 
-![用於 Spark 機器學習服務範例的資料快照集](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用於 Spark 機器學習服務範例的資料快照集")
+![用於 Spark 機器學習服務的資料快照集範例](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用於 Spark 機器學習服務的資料快照集範例")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>使用 Spark MLlib 開發 Spark 機器學習應用程式
 
@@ -141,7 +141,7 @@ ms.locfileid: "71327023"
 
     比較輸出和原始 CSV 檔案。 例如，CSV 檔案中第一個資料列的資料為：
 
-    ![適用於 Spark 機器學習服務範例的輸出資料快照集](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "適用於 Spark 機器學習服務範例的輸出資料快照集")
+    ![用於 Spark 機器學習服務的輸出資料快照集範例](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "用於 Spark 機器學習服務的輸出資料快照集範例")
 
     請注意，實際溫度比目標溫度低的情況代表建築物處於低溫狀態。 因此在訓練輸出中，第一個資料列的 [label]  值為 [0.0]  ，這代表建築物不是熱的。
 

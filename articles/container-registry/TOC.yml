@@ -39,7 +39,7 @@
           href: container-registry-tutorial-deploy-update.md
 - name: 概念
   items:
-    - name: 容器登錄 SKU
+    - name: 容器登錄 SKU 和限制
       href: container-registry-skus.md
     - name: 登錄、存放庫和映像
       href: container-registry-concepts.md
@@ -75,8 +75,6 @@
               href: container-registry-retention-policy.md
             - name: 自動清除標記和資訊清單 (預覽)
               href: container-registry-auto-purge.md
-        - name: 升級傳統登錄
-          href: container-registry-upgrade.md
         - name: 使用 ACR Webhook
           href: container-registry-webhook.md
         - name: Helm 圖表存放庫 (預覽)

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure HDInsight 中的互動式查詢執行 ETL 作業
+title: 教學課程：使用互動式查詢的 ETL 作業 - Azure HDInsight
 description: 教學課程 - 了解如何從原始 CSV 資料集擷取資料、使用 HDInsight 上的互動式查詢加以轉換，然後使用 Apache Sqoop 將已轉換的資料載入 Azure SQL 資料庫中。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 9ff215bb687ea2b6aa32ecb01dba7a61385b15a4
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735838"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494149"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的互動式查詢來擷取、轉換和載入資料
 
-在此教學課程中，您將取用公開航班資料的原始 CSV 資料檔案、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 中的互動式查詢來轉換資料。 資料轉換後，您會使用 [Apache Sqoop](https://sqoop.apache.org/) 將該資料載入 Azure SQL 資料庫中。
+在本教學課程中，您將取用公開航班資料的原始 CSV 資料檔案、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 中的互動式查詢來轉換資料。 資料轉換後，您會使用 [Apache Sqoop](https://sqoop.apache.org/) 將該資料載入 Azure SQL 資料庫中。
 
-此教學課程涵蓋下列工作：
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 下載範例航班資料
@@ -42,7 +42,7 @@ ms.locfileid: "70735838"
 
 2. 在此頁面上清除所有欄位，然後選取下列值：
 
-   | Name | 值 |
+   | 名稱 | 值 |
    | --- | --- |
    | 篩選年份 |2019 |
    | 篩選期間 |一月 |
@@ -289,13 +289,13 @@ ms.locfileid: "70735838"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-完成此教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](../hdinsight-delete-cluster.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已取用原始 CSV 資料檔、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 上的互動式查詢轉換了資料。  請前進到下一個教學課程，以了解 Apache Hive Warehouse Connector。
+在本教學課程中，您已取用原始 CSV 資料檔、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 上的互動式查詢轉換了資料。  請前進到下一個教學課程，以了解 Apache Hive Warehouse Connector。
 
 > [!div class="nextstepaction"]
 >[整合 Apache Spark 和 Apache Hive 與 Hive Warehouse Connector](./apache-hive-warehouse-connector.md)

@@ -3,14 +3,14 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
-ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933252"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496164"
 ---
 在此步驟中，您將建立 Azure SQL Database 單一資料庫。 
 
@@ -55,12 +55,12 @@ ms.locfileid: "72933252"
 
      ![SQL Database 詳細資料](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - 選取 [已佈建]  和 [Gen5]  。
+   - 選取 [已佈建]  。
 
      ![已佈建的 Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - 檢閱 [虛擬核心數上限]  、[虛擬核心數下限]  、[自動暫停延遲]  和 [資料大小上限]  的設定。 視需要變更這些設定。
-   - 接受預覽條款，然後按一下 [確定]  。
+   - 檢閱 [vCores]  和 [資料大小上限]  的設定。 視需要變更這些設定。 
+     - 您也可以選取 [變更組態]  來變更硬體世代。
    - 選取 [套用]  。
 
 5. 選取 [其他設定]  索引標籤。 

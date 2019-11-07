@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 04c09c60a8b633c9ddb51fbe97ac02a319472448
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 28e5e09ea64f7ac1272e8ed126d5b4153b952c1d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434691"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494035"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
 請使用 Azure Notebooks 來開發機器學習模組，並將模組部署至執行 Azure IoT Edge 的 Linux 裝置。 
 
-您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需與 IoT Edge 上的 Azure Machine Learning 服務有關的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/service/how-to-deploy-to-iot.md)。
+您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需 IoT Edge 上 Azure Machine Learning 的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/service/how-to-deploy-to-iot.md)。
 
 您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。
 
@@ -55,10 +55,10 @@ Azure IoT Edge 裝置：
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>建立並部署 Azure Machine Learning 模組
 
-在本節中，您會將定型的機器學習模型檔案轉換成 Azure Machine Learning 服務容器。 Docker 映像所需的所有元件都在[適用於 Azure IoT Edge 的 AI 工具組 Git 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中。 請遵循下列步驟，將該存放庫上傳至 Microsoft Azure Notebooks 以建立容器，並將它推送至 Azure Container Registry。
+在此節中，您會將定型的機器學習模型檔案轉換成 Azure Machine Learning 容器。 Docker 映像所需的所有元件都在[適用於 Azure IoT Edge 的 AI 工具組 Git 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中。 請遵循下列步驟，將該存放庫上傳至 Microsoft Azure Notebooks 以建立容器，並將它推送至 Azure Container Registry。
 
 
-1. 巡覽至您的 Azure Notebooks 專案。 您可以從 [Azure 入口網站](https://portal.azure.com)的 Azure Machine Learning 服務工作區進入，或使用您的 Azure 帳戶登入至 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)。
+1. 巡覽至您的 Azure Notebooks 專案。 您可以從 [Azure 入口網站](https://portal.azure.com)的 Azure Machine Learning 工作區進入，或使用您的 Azure 帳戶登入至 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)。
 
 2. 選取 [上傳 GitHub 存放庫]  。
 
@@ -72,7 +72,7 @@ Azure IoT Edge 裝置：
 
 6. 開啟 **aml_config/config.json** 檔案。
 
-7. 編輯設定檔，以包含適用於您 Azure 訂用帳戶識別碼的值、訂用帳戶中的資源群組，以及您的 Azure Machine Learning 服務工作區名稱。 您可以在 Azure 中從工作區的 [概觀]  區段取得所有這些值。 
+7. 編輯設定檔，以包含您 Azure 訂用帳戶識別碼、訂用帳戶中的資源群組，以及您的 Azure Machine Learning 工作區名稱的值。 您可以在 Azure 中從工作區的 [概觀]  區段取得所有這些值。 
 
 8. 儲存組態檔。
 
@@ -149,7 +149,7 @@ Azure IoT Edge 裝置：
 
 5. 每五秒就會觀察來自 tempSensor 的訊息。 訊息本文包含稱為 **anomaly** 的屬性，machinelearningmodule 會搭配 True 或 False 值來提供此屬性。 如果模型已順利執行，**AzureMLResponse** 屬性即會包含 "OK" 值。
 
-   ![訊息本文中的 Azure Machine Learning 服務回應](./media/tutorial-deploy-machine-learning/ml-output.png)
+   ![訊息本文中的 Azure Machine Learning 回應](./media/tutorial-deploy-machine-learning/ml-output.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

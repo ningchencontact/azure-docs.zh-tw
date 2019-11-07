@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474700"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>教學課程：將 Windows Server 虛擬機器加入受控網域
 
@@ -54,12 +54,13 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 如果您已經有想要加入網域的 VM，請跳至[將 VM 加入 Azure AD DS 受控網域](#join-the-vm-to-the-azure-ad-ds-managed-domain)一節。
 
-1. 在 Azure 入口網站的左上角，選取 [+ 建立資源]  。
-2. 從 [開始使用]  中，選擇 [Windows Server 2016 Datacenter]  。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。
+
+1. 從 [開始使用]  中，選擇 [Windows Server 2016 Datacenter]  。
 
     ![選擇在 Azure 入口網站中建立 Windows Server 2016 Datacenter VM](./media/join-windows-vm/select-vm-image.png)
 
-3. 在 [基本]  視窗中，設定虛擬機器的核心設定。 保留 [可用性選項]  、[映像]  及 [大小]  的預設設定。
+1. 在 [基本]  視窗中，設定虛擬機器的核心設定。 保留 [可用性選項]  、[映像]  及 [大小]  的預設設定。
 
     | 參數            | 建議的值   |
     |----------------------|-------------------|
@@ -69,17 +70,17 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     | 使用者名稱             | 輸入要在 VM 上建立之本機系統管理員帳戶的使用者名稱，例如 *azureuser* |
     | 密碼             | 輸入要在 VM 上建立的本機系統管理員安全密碼，然後確認。 請勿指定網域使用者帳戶的認證。 |
 
-4. 根據預設，您無法從網際網路存取在 Azure 中建立的 VM。 此設定可協助改善 VM 的安全性，並減少潛在攻擊的範圍。 在此教學課程的下一個步驟中，您需要使用遠端桌面通訊協定 (RDP) 連線到 VM，然後將 Windows Server 加入 Azure AD DS 受控網域。
+1. 根據預設，您無法從網際網路存取在 Azure 中建立的 VM。 此設定可協助改善 VM 的安全性，並減少潛在攻擊的範圍。 在此教學課程的下一個步驟中，您需要使用遠端桌面通訊協定 (RDP) 連線到 VM，然後將 Windows Server 加入 Azure AD DS 受控網域。
 
     啟用 RDP 時，可能會發生自動化登入攻擊，這可能會因為多次失敗的後續登入嘗試而停用具有一般名稱 (例如 *admin* 或 *administrator*) 的帳戶。 RDP 應該只在必要時啟用，而且僅限於一組已授權的 IP 範圍。 [Azure Just-In-Time VM 存取][jit-access]是 Azure 資訊安全中心的一部分，可以啟用這些短期且受限制的 RDP 工作階段。 您也可以[建立及使用 Azure Bastion 主機 (目前處於預覽狀態)][azure-bastion]，只允許使用 SSL 透過 Azure 入口網站進行存取。
 
     針對此教學課程，請手動啟用與 VM 的 RDP 連線。
 
-    在 [公用輸入連接埠]  下，選取 [允許選取的連接埠]  選項。 從 [選取輸入連接埠]  的下拉式功能表中，選擇 [RDP]  。
+    在 [公用輸入連接埠]  下，選取 [允許選取的連接埠]  選項。 從 [選取輸入連接埠]  的下拉式功能表中，選擇 [RDP (3389)]  。
 
-5. 完成時，請選取 [下一步:  磁碟]。
-6. 從 [OS 磁碟類型]  的下拉式功能表中，選擇 [標準 SSD]  ，然後選取 [下一步:**網路]** 。
-7. 您的 VM 必須連線到可與您 Azure AD DS 受控網域部署所在之子網路通訊的 Azure 虛擬網路子網路。 我們建議將 Azure AD DS 受控網域部署到其自身的專用子網路。 請勿將您的 VM 部署在與 Azure AD DS 受控網域相同的子網路中。
+1. 完成時，請選取 [下一步:  磁碟]。
+1. 從 [OS 磁碟類型]  的下拉式功能表中，選擇 [標準 SSD]  ，然後選取 [下一步:**網路]** 。
+1. 您的 VM 必須連線到可與您 Azure AD DS 受控網域部署所在之子網路通訊的 Azure 虛擬網路子網路。 我們建議將 Azure AD DS 受控網域部署到其自身的專用子網路。 請勿將您的 VM 部署在與 Azure AD DS 受控網域相同的子網路中。
 
     有兩種主要方式可部署您的 VM，並連線到適當的虛擬網路子網路：
     
@@ -88,20 +89,30 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     
     如果您選取的虛擬網路子網路未連線到您 Azure AD DS 執行個體的子網路，您就無法將 VM 加入受控網域。 在此教學課程中，我們將在 Azure 虛擬網路中建立新的子網路。
 
-    在 [網路]  窗格中，選取您 Azure AD DS 受控網域部署所在的虛擬網路，例如 *myVnet*
-8. 在此範例中，會顯示 Azure AD DS 受控網域已連線的現有 *DomainServices* 子網路。 請勿將您的 VM 連線到此子網路。 若要建立 VM 的子網路，請選取 [管理子網路設定]  。
+    在 [網路]  窗格中，選取 Azure AD DS 受控網域部署所在的虛擬網路，例如 *aaads-vnet*
+1. 在此範例中，會顯示 Azure AD DS 受控網域連線的現有 *aaads-subnet*。 請勿將您的 VM 連線到此子網路。 若要建立 VM 的子網路，請選取 [管理子網路設定]  。
 
     ![選擇以在 Azure 入口網站中管理子網路設定](./media/join-windows-vm/manage-subnet.png)
 
-9. 選取 [+ 子網路]  ，然後輸入子網路的名稱，例如 *ManagedVMs*。 提供**位址範圍 (CIDR 區塊)** ，例如 *10.1.1.0/24*。 請確定此 IP 位址範圍不會與任何其他現有的 Azure 或內部部署位址範圍重疊。 保留其他選項的預設值，然後選取 [確定]  。
+1. 在虛擬網路視窗的左側功能表中，選取 [位址空間]  。 建立虛擬網路時，會使用預設子網路所使用的單一位址空間 *10.0.1.0/24*。
+
+    將額外的 IP 位址範圍新增至虛擬網路。 此位址範圍的大小以及要使用的實際 IP 位址範圍，取決於已部署的其他網路資源。 IP 位址範圍不應與您 Azure 或內部部署環境中任何現有的位址範圍重疊。 請確定您的 IP 位址範圍大小足以容納預期要部署到子網路中的 VM 數目。
+
+    在下列範例中，會新增額外的 IP 位址範圍 *10.0.2.0/24*。 在準備就緒時，選取 [儲存]  。
+
+    ![在 Azure 入口網站中新增額外的虛擬網路 IP 位址範圍](./media/tutorial-configure-networking/add-vnet-address-range.png)
+
+1. 接下來，在虛擬網路視窗的左側功能表中選取 [子網路]  ，然後選擇 [+ 子網路]  以新增子網路。
+
+1. 選取 [+ 子網路]  ，然後輸入子網路的名稱，例如 *management*。 提供 [位址範圍 (CIDR 區塊)]  ，例如 *10.0.2.0/24*。 請確定此 IP 位址範圍不會與任何其他現有的 Azure 或內部部署位址範圍重疊。 保留其他選項的預設值，然後選取 [確定]  。
 
     ![在 Azure 入口網站中建立子網路設定](./media/join-windows-vm/create-subnet.png)
 
-10. 建立子網路需要幾秒鐘的時間。 建立之後，請選取 [X]  以關閉子網路視窗。
-11. 回到 [網路]  窗格以建立 VM，從下拉式功能表中選擇您建立的子網路，例如 *ManagedVMs*。 再次強調，請務必選擇正確的子網路，而且不要將 VM 部署在與 Azure AD DS 受控網域相同的子網路中。
-12. 將其他選項保留為預設值，然後選取 [管理]  。
-13. 將 [開機診斷]  設定為 [關閉]  。 將其他選項保留為預設值，然後選取 [檢閱 + 建立]  。
-14. 檢閱 VM 設定，然後選取 [建立]  。
+1. 建立子網路需要幾秒鐘的時間。 建立之後，請選取 [X]  以關閉子網路視窗。
+1. 回到 [網路]  窗格以建立 VM，從下拉式功能表中選擇您建立的子網路，例如 *management*。 再次強調，請務必選擇正確的子網路，而且不要將 VM 部署在與 Azure AD DS 受控網域相同的子網路中。
+1. 將其他選項保留為預設值，然後選取 [管理]  。
+1. 將 [開機診斷]  設定為 [關閉]  。 將其他選項保留為預設值，然後選取 [檢閱 + 建立]  。
+1. 檢閱 VM 設定，然後選取 [建立]  。
 
 建立 VM 需要幾分鐘的時間。 Azure 入口網站會顯示部署的狀態。 VM 準備就緒後，選取 [前往資源]  。
 
@@ -124,7 +135,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 建立 VM 與 RDP 連線之後，現在讓我們將 Windows Server 虛擬機器加入 Azure AD DS 受控網域。 此程序與連線到一般內部部署 Active Directory Domain Services 網域的電腦相同。
 
-1. 當您登入 VM 時，預設應該會開啟 [伺服器管理員]  。 如果沒有，請在 [開始]  功能表上，選取 [伺服器管理員]  。
+1. 如果 [伺服器管理員]  在您登入 VM 時並未預設為開啟狀態，請選取 [開始]  功能表，然後選擇 [伺服器管理員]  。
 1. 在 [伺服器管理員]  視窗的左窗格中，選取 [本機伺服器]  。 在右窗格的 [屬性]  下，選擇 [工作群組]  。
 
     ![在 VM 上開啟 [伺服器管理員] 並編輯工作群組屬性](./media/join-windows-vm/server-manager.png)
@@ -137,7 +148,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     ![指定要加入的 Azure AD DS 受控網域](./media/join-windows-vm/join-domain.png)
 
-1. 輸入網域認證以加入網域。 使用可供屬於「Azure AD DC 系統管理員」群組之使用者  使用的認證。 只有此群組的成員才有權限可以將機器加入 Azure AD DS 受控網域。 帳戶認證可以利用下列其中一種方式來指定：
+1. 輸入網域認證以加入網域。 使用可供屬於「Azure AD DC 系統管理員」群組之使用者  使用的認證。 只有此群組的成員才有權限可以將機器加入 Azure AD DS 受控網域。 帳戶必須是 Azure AD DS 受控網域的一部分，或 Azure AD 租用戶。與您的 Azure AD 租用戶相關聯之外部目錄中的帳戶，在網域加入程序期間無法正確地進行驗證。 帳戶認證可以利用下列其中一種方式來指定：
 
     * **UPN 格式** (建議) - 輸入 Azure AD 中所設定使用者帳戶的使用者主體名稱 (UPN) 尾碼。 例如，使用者 *contosoadmin* 的 UPN 尾碼會是 `contosoadmin@contoso.onmicrosoft.com`。 有幾個常見的使用案例，其中 UPN 格式可以可靠地用來登入網域，而不是使用 *SAMAccountName* 格式：
         * 如果使用者的 UPN 前置詞太長 (例如 *deehasareallylongname*)，就可能自動產生 *SAMAccountName*。
@@ -157,7 +168,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
 >
-> 若要在未連線的情況下將 VM 加入網域，並手動設定連線，您也可以瀏覽 [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell Cmdlet 的使用方式。
+> 若要在未連線的情況下將 VM 加入網域，並手動設定連線，您可以使用 [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell Cmdlet。
 
 Windows Server VM 重新啟動之後，在 Azure AD DS 受控網域中套用的任何原則都會推送至 VM。 您現在也可以使用適當的網域認證來登入 Windows Server VM。
 
@@ -212,6 +223,7 @@ Windows Server VM 應該成功加入 Azure AD DS 受控網域，其方式與一�
 嘗試下列每個疑難排解步驟之後，請再次嘗試將 Windows Server VM 加入受控網域。
 
 * 確定您所指定的使用者帳戶屬於「AAD DC 系統管理員」  群組。
+* 確認帳戶屬於 Azure AD DS 受控網域或 Azure AD 租用戶。 與您的 Azure AD 租用戶相關聯之外部目錄中的帳戶，在網域加入程序期間無法正確地進行驗證。
 * 嘗試使用 UPN 格式來指定認證，例如 `contosoadmin@contoso.onmicrosoft.com`。 如果您的租用戶中有許多使用者具有相同的 UPN 前置詞，或您的 UPN 前置詞太長，系統可能就會自動為您的帳戶產生 *SAMAccountName*。 在這些情況下，您帳戶的 *SAMAccountName* 格式可能會與您在內部部署網域中預期或使用的格式不同。
 * 確認您已為受控網域[啟用密碼同步化][password-sync]。 如果沒有此設定步驟，所需的密碼雜湊就不會出現在 Azure AD DS 受控網域中，以正確地驗證您的登入嘗試。
 * 等待密碼同步完成。 當使用者帳戶的密碼變更時，來自 Azure AD 的自動背景同步處理會更新 Azure AD DS 中的密碼。 需要一些時間，密碼才能用於加入網域。

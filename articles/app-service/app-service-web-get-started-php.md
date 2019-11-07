@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 90f83e3e6fa1910641b3e384460cf4aa14016c1a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471453"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中建立 PHP Web 應用程式
 
@@ -182,17 +182,19 @@ git push azure master
 
 ## <a name="manage-your-new-azure-app"></a>管理新的 Azure 應用程式
 
-請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
+1. 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。 搜尋並選取 [應用程式服務]  。
 
-按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
+    ![搜尋應用程式服務、Azure 入口網站、建立 PHP Web 應用程式](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. 選取您 Azure 應用程式的名稱。
 
-Web 應用程式的 [概觀] 頁面會隨即顯示。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。
+    ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![Azure 入口網站中的 App Service 頁面](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    您 Web 應用程式的 [概觀]  頁面會隨即顯示。 您可以在這裡執行基本管理工作，像是 [瀏覽]  、[停止]  、[重新啟動]  和 [刪除]  。
 
-左側功能表提供不同的選項來設定您的應用程式。 
+    ![Azure 入口網站中的 App Service 頁面](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    Web 應用程式功能表提供不同的選項來設定您的應用程式。 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

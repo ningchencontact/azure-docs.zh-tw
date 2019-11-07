@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952091"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521244"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 評估 VMware VM：伺服器評量
 
@@ -22,7 +22,7 @@ ms.locfileid: "68952091"
 
 
 
-本教學課程是一個系列中的第二篇，會示範如何評估 VMware VM 並將其遷移至 Azure。 在本教學課程中，您了解如何：
+本教學課程是一個系列中的第二篇，會示範如何評估 VMware VM 並將其遷移至 Azure。 在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 設定 Azure Migrate 專案。
 > * 設定內部部署環境中執行的 Azure Migrate 設備來評估 VM。
@@ -33,9 +33,9 @@ ms.locfileid: "68952091"
 
 
 > [!NOTE]
-> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程在情況允許時都會使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
+> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -104,7 +104,7 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 2. 執行下列命令以產生 OVA 的雜湊：
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 針對版本 2.19.07.30，產生的雜湊應符合這些值。 
+3. 針對版本 2.19.07.30，產生的雜湊應符合這些值。
 
   **演算法** | **雜湊值**
   --- | ---
@@ -166,17 +166,30 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 3. 指定設備的名稱。 名稱應該是英數位元，且長度不超過 14 個字元。
 4. 按一下 [註冊]  。
 
-
 ## <a name="start-continuous-discovery"></a>開始連續探索
 
-現在，從設備連線到 vCenter Server，然後啟動 VM 探索。
+設備必須連線到 vCenter Server，才能探索 VM 的設定與效能資料。
 
+### <a name="specify-vcenter-server-details"></a>指定 vCenter Server 詳細資料
 1. 在 [指定 vCenter Server 詳細資料]  中，指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。 您可以保留預設的連接埠，或指定您 vCenter Server 接聽的自訂連接埠。
 2. 在 [使用者名稱]  和 [密碼]  中，指定設備要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。 請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。 您可以藉由限制 vCenter 帳戶的存取來界定探索的範圍；[請從此處](tutorial-assess-vmware.md#scoping-discovery)深入了解探索範圍。
 3. 按一下 [驗證連線]  以確定設備可以連線到 vCenter Server。
-4. 建立連線之後，請按一下 [儲存並啟動探索]  。
 
-這會開始探索。 所探索到 VM 的中繼資料會在大約 15 分鐘後出現在入口網站中。
+### <a name="specify-vm-credentials"></a>指定 VM 認證
+若要探索應用程式、角色和功能，以及視覺化 VM 的相依性，您可以提供可存取 VMware VM 的 VM 認證。 您可以新增一個適用於 Windows VM 的認證，以及一個適用於 Linux VM 的認證。 [深入了解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions)所需的存取權限。
+
+> [!NOTE]
+> 這是選擇性的輸入，而且是啟用應用程式探索和無代理程式相依性視覺效果的必要項。
+
+1. 在 [探索 VM 上的應用程式和相依性]  中，按一下 [新增認證]  。
+2. 選取 [作業系統]  。
+3. 為認證提供易記名稱。
+4. 在 [使用者名稱]  與 [密碼]  中，指定至少在 VM 上具有來賓存取權的帳戶。
+5. 按一下 [新增]  。
+
+一旦指定 vCenter Server 與 VM 認證 (選擇性)，請按一下 [儲存並開始探索]  以開始探索內部部署環境。
+
+所探索到 VM 的中繼資料會在大約 15 分鐘後出現在入口網站中。 探索已安裝的應用程式、角色和功能需要一些時間，持續時間取決於所探索到的 VM 數目。 針對 500 部 VM，應用程式清查大約需要 1 小時才會出現在 Azure Migrate 入口網站中。
 
 ### <a name="scoping-discovery"></a>界定探索的範圍
 
@@ -205,18 +218,18 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 **指派 vCenter 物件的權限**
 
 有 2 種方法可將 vCenter 中清查物件的權限指派給已獲派角色的 vCenter 使用者帳戶。
-- 進行伺服器評估時，必須將**唯讀**角色套用至要探索的 VM 裝載所在之所有父物件的 vCenter 使用者帳戶。 到資料中心為止的階層中，所有父物件 (主機、主機的資料夾、叢集、叢集的資料夾) 都會包含在內。 這些權限會傳播到階層中的子物件。 
+- 進行伺服器評估時，必須將**唯讀**角色套用至要探索的 VM 裝載所在之所有父物件的 vCenter 使用者帳戶。 到資料中心為止的階層中，所有父物件 (主機、主機的資料夾、叢集、叢集的資料夾) 都會包含在內。 這些權限會傳播到階層中的子物件。
 
     同樣地，進行伺服器移轉時，已指派這些[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)的使用者定義角色 (可命名為 <em>Azure _Migrate</em>) 必須套用至要移轉的 VM 裝載所在之所有父物件的 vCenter 使用者帳戶。
 
 ![指派權限](./media/tutorial-assess-vmware/assign-perms.png)
 
 - 替代方法是在資料中心層級指派使用者帳戶和角色，並將其傳播到子物件。 然後，針對您不想要探索/移轉的每個物件 (例如 VM)，為帳戶提供**無存取**角色。 此組態相當繁瑣。 它會意外公開存取控制，因為會對每個新的子物件自動授與從父物件繼承的存取權。 因此建議採用第一種方法。
- 
+
 > [!NOTE]
 > 目前，如果 vCenter 帳戶具有在 vCenter VM 資料夾層級上授與的存取權，則伺服器評量無法探索 VM。 如果您想要依據 VM 資料夾來界定探索範圍，只要確保 vCenter 帳戶在 VM 層級上已獲派唯讀存取權即可。  以下是您可以執行此動作的指示：
 >
-> 1. 在您要設定探索範圍的 VM 資料夾中，為所有 VM 指派唯讀權限。 
+> 1. 在您要設定探索範圍的 VM 資料夾中，為所有 VM 指派唯讀權限。
 > 2. 對所有裝載 VM 的父物件授與唯讀存取權。 到資料中心為止的階層中，所有父物件 (主機、主機的資料夾、叢集、叢集的資料夾) 都會包含在內。 您不需要將權限傳播給所有子物件。
 > 3. 使用用於探索的認證，將資料中心選取為「集合範圍」  。 RBAC 設定會確保對應的 vCenter 使用者只能存取租用戶特定 VM。
 >

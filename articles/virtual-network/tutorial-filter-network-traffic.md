@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984896"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519274"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過網路安全性群組篩選網路流量
 
@@ -41,7 +41,7 @@ ms.locfileid: "70984896"
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
 2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
 3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]  ：
 
@@ -59,7 +59,7 @@ ms.locfileid: "70984896"
 
 應用程式安全性群組可讓您將具有類似功能 (例如 web 伺服器) 的伺服器群組在一起。
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
 2. 在 [搜尋 Marketplace]  方塊中，輸入「應用程式安全性群組」  。 當搜尋結果中出現 [應用程式安全性群組]  時，請加以選取，在 [所有項目]  下再次選取 [應用程式安全性群組]  ，然後選取 [建立]  。
 3. 輸入或選取下列資訊，然後選取 [建立]  ︰
 
@@ -81,7 +81,7 @@ ms.locfileid: "70984896"
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
 2. 選擇 [網路]  ，然後選取 [網路安全性群組]  。
 3. 輸入或選取下列資訊，然後選取 [建立]  ︰
 
@@ -138,7 +138,7 @@ ms.locfileid: "70984896"
 
 ### <a name="create-the-first-vm"></a>建立第一個 VM
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
 2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  。
 3. 輸入或選取下列資訊，然後接受其餘設定的預設值：
 

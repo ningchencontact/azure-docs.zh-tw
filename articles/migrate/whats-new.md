@@ -4,33 +4,44 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2c3bc596076f3ec4f9d41f0da819ddd386fee63c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1ecd15b36b677e65eadbe4e979925723c9eedd51
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811042"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498419"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate 中的新功能
 
-[Azure Migrate](migrate-services-overview.md) 能協助您探索及存取伺服器、應用程式與資料，並將其移轉至 Microsoft Azure 雲端。 此文章摘要說明 Azure Migrate 中的新功能。
+[Azure Migrate](migrate-services-overview.md) 可協助您探索及評定內部部署伺服器、應用程式與資料，並將其移轉至 Microsoft Azure 雲端。 此文章摘要說明 Azure Migrate 中的新功能。
 
 
 
-## <a name="azure-migrate-new-version"></a>Azure Migrate 新版本
+## <a name="update-november-2019"></a>更新 (2019 年 11 月)
 
-新版本的 Azure Migrate 已於 2019 年 7 月發行。 
+Azure Migrate 加入了一些新功能：
 
-- **目前 (新的) 版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署電腦，以及協調評量與移轉。 
-- **先前版本**：針對使用舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量) 的客戶，您現在應該改為使用目前的版本。 在舊版中，您已無法建立新的 Azure Migrate 專案，或是執行新的探索。 您仍然可以存取現有的專案。 若要這樣做，請在 Azure 入口網站 > [所有服務] 中搜尋 Azure Migrate。 在 [Azure Migrate] 的通知中，會有可存取舊 Azure Migrate 專案的連結。
+- **實體伺服器評量**。 除了已支援的實體伺服器移轉之外，現在也支援內部部署實體伺服器的評量。
+- **以匯入為基礎的評量**。 現在支援使用 CSV 檔案中提供的中繼資料和效能資料來進行機器評量。
+- **應用程式探索**：Azure Migrate 現在支援使用 Azure Migrate 設備，對應用程式、角色及功能進行應用層級探索。 這目前僅支援 VMware VM，而且僅限於探索 (目前不支援評量)。 [深入了解](how-to-discover-applications.md)
+- **無代理程式的相依性視覺效果**：您不再需要明確安裝代理程式來取得相依性視覺效果。 目前支援無代理程式和代理程式型。
+- **虛擬桌面**：使用 ISV 工具來評定內部部署虛擬桌面基礎結構 (VDI)，並將其移轉移至 Azure 中的 Windows 虛擬桌面。
+- **Web 應用程式**：用於評定和移轉 Web 應用程式的 Azure App Service 移轉小幫手現在已與 Azure Migrate 整合。
+
+## <a name="release-version-july-2019"></a>發行版本 (2019 年 7 月)
+
+目前的 Azure Migrate 版本已於 2019 年 7 月發行。 
+
+- **目前的版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署電腦，以及協調評量與移轉。 
+- **先前版本**：針對使用舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量) 的客戶，您現在應該改為使用目前的版本。 在舊版中，您已無法建立新的 Azure Migrate 專案，或是執行新的探索。 您仍然可以存取現有的專案。 若要這樣做，請在 Azure 入口網站 > [所有服務]  中搜尋 **Azure Migrate**。 在 [Azure Migrate] 的通知中，會有可存取舊 Azure Migrate 專案的連結。
 
 
-## <a name="azure-migrate-features"></a>Azure Migrate 功能
+### <a name="azure-migrate-features"></a>Azure Migrate 功能
 
-新版本的 Azure Migrate 提供數個新功能：
+目前的 Azure Migrate 版本提供數個新功能：
 
 
 - **整合式移轉平台**：Azure Migrate 現在會提供單一入口網站，以針對您移轉至 Azure 的旅途進行集中化、管理及追蹤，並提供改善的部署流程和入口網站體驗。

@@ -1,31 +1,34 @@
 ---
-title: Azure Active Directory B2C 中的使用者帳戶概觀 | Microsoft Docs
-description: 了解 Azure Active Directory B2C 中的使用者帳戶。
+title: Azure Active Directory B2C 中的使用者帳戶概觀
+description: 深入瞭解可在 Azure Active Directory B2C 中使用的使用者帳戶類型。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063146"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620461"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者帳戶概觀
 
-在 Azure Active Directory B2C （Azure AD B2C）中，您可以使用不同類型的帳戶。 Azure Active Directory、Azure Active Directory B2B 和 Azure Active Directory B2C 會共用可用的使用者帳戶類型。
+在 Azure Active Directory B2C （Azure AD B2C）中，可以建立數種類型的帳戶。 在可使用的使用者帳戶類型中，Azure Active Directory、Active Directory B2B 和 Active Directory B2C 共用。
 
 可用的帳戶類型如下：
 
 - **公司帳戶** - 公司帳戶可存取租用戶中的資源，並可在具有系統管理員角色後管理租用戶。
 - **來賓帳戶** - 來賓帳戶只能是 Microsoft 帳戶或 Azure Active Directory 使用者 (後者必須是可用來存取應用程式或管理租用戶的使用者)。
-- **取用者帳戶** - 取用者帳戶的建立方式為在 Azure AD B2C 應用程式中進行註冊使用者流程，亦可使用 Azure AD 圖形 API 來建立，此帳戶類型可供已向 Azure AD B2C 註冊的應用程式使用者使用。
+- 取用**者帳戶**-取用者帳戶是由您向 Azure AD B2C 註冊之應用程式的使用者所使用。 取用者帳戶可以透過下列方式建立：
+  - 使用者在 Azure AD B2C 應用程式中完成註冊使用者流程
+  - 使用 Azure AD 圖形 API
+  - 使用 Azure 入口網站
 
 ## <a name="work-account"></a>公司帳戶
 
@@ -67,17 +70,17 @@ ms.locfileid: "71063146"
 
 您可以邀請外部使用者成為租用戶的來賓使用者。 將來賓使用者邀請到 Azure AD B2C 租用戶的典型案例是為了分擔管理責任。 如需使用來賓帳戶的範例，請參閱 [Azure Active Directory B2B 共同作業使用者的屬性](../active-directory/b2b/user-properties.md)。
 
-將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用] 按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME` 。
+將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用] 按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME`。
 
 您也可以使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) 邀請來賓使用者。
 
 ## <a name="consumer-user"></a>取用者使用者
 
-取用者使用者可以登入 Azure AD B2C 所保護的應用程式，但無法存取 Azure 資源，例如 Azure 入口網站。  取用者使用者可以使用本機帳戶或同盟帳戶，例如 Facebook 或 Twitter。 您可以使用[註冊或登入使用者流程](../active-directory-b2c/active-directory-b2c-reference-policies.md)來建立取用者帳戶。
+取用者使用者可以登入 Azure AD B2C 所保護的應用程式，但無法存取 Azure 資源，例如 Azure 入口網站。 取用者使用者可以使用本機帳戶或同盟帳戶，例如 Facebook 或 Twitter。 取用者帳戶是藉由使用[註冊或登入使用者流程](../active-directory-b2c/active-directory-b2c-reference-policies.md)、使用 Azure AD 圖形 API，或使用 Azure 入口網站來建立。
 
 您可以指定使用自訂使用者屬性建立取用者使用者帳戶時所要收集的資料。 如需詳細資訊，請參閱[在 Azure Active Directory B2C 中定義自訂屬性](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md)。
 
-您可以使用[使用 Azure AD 圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 中**建立取用者使用者帳戶**一節的資訊，來建立 Azure AD B2C 取用者帳戶。 您也可以使用同一篇文章中**更新取用者使用者帳戶**一節的資訊，來管理帳戶的屬性。
+您可以使用**使用 Azure AD 圖形 API** 中[建立取用者使用者帳戶](active-directory-b2c-devquickstarts-graph-dotnet.md)一節的資訊，來建立 Azure AD B2C 取用者帳戶。 您也可以使用同一篇文章中**更新取用者使用者帳戶**一節的資訊，來管理帳戶的屬性。
 
 ### <a name="migrate-consumer-user-accounts"></a>遷移取用者使用者帳戶
 

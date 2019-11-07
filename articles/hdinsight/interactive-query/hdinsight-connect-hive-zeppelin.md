@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Azure HDInsight 中執行 Apache Hive 查詢 - Apache Zeppelin
+title: 快速入門：使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive
 description: 在此快速入門中，您將了解如何使用 Apache Zeppelin 執行 Apache Hive 查詢。
 keywords: hdinsight,hadoop,hive,互動式查詢,LLAP
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 36d9e9b34deb4bc6cd5f599cfe2d09a12f680730
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494290"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>快速入門：使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢
 
 在此快速入門中，您將會了解如何使用 Apache Zeppelin 在 Azure HDInsight 中執行 [Apache Hive](https://hive.apache.org/) 查詢。 HDInsight 互動式查詢叢集包含 [Apache Zeppelin](https://zeppelin.apache.org/) Notebook，可供您用來執行互動式 Hive 查詢。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 

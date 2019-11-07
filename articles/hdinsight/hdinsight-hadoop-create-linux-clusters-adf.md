@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure HDInsight 中建立隨選 Apache Hadoop 叢集 - Data Factory
+title: 教學課程：在 Azure HDInsight 中使用 Data Factory 的隨選叢集
 description: 教學課程 - 了解如何使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Handooop 叢集。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
-ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72264614"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494867"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 

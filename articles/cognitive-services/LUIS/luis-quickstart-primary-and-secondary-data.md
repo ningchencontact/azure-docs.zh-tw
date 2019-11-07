@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a917176cb06e833745996326520341c1f819c5bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376258"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465411"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
 在本教學課程中，使用**簡單**實體從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
 
 簡單實體會偵測字組或片語中包含的單一資料概念。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -93,7 +95,7 @@ ms.locfileid: "70376258"
 
 1. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]  。 
 
-    [![針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![已醒目提示建立實體步驟的 LUIS [ApplyForJob] 意圖螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "已醒目提示建立實體步驟的 LUIS [ApplyForJob] 意圖螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]  。
 
@@ -101,7 +103,7 @@ ms.locfileid: "70376258"
 
 1. 在其餘的語句中，選取字組或片語，然後從快顯功能表選取 [工作]  ，以 [工作]  實體標示工作相關字組。 
 
-    [![標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![已醒目提示 LUIS 標籤作業實體的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "已醒目提示 LUIS 標籤作業實體的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
 
 ## <a name="add-more-example-utterances-and-mark-entity"></a>新增更多語句及標示實體
@@ -231,7 +233,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 1. 將新的片語清單命名為 `JobNames`，然後將 jobs-phrase-list.csv 中的清單複製到 [值]  文字方塊。
 
-    [![建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![[建立新的片語清單] 對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "[建立新的片語清單] 對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     如果您想在片語清單中新增更多字組，請選取 [建議]  ，然後檢閱新的 [相關值]  並新增相關字組。 
 
@@ -239,7 +241,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 1. 選取 [完成]  以啟動該片語清單。
 
-    [![使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![在片語清單值方塊中具有文字的 [建立新的片語清單] 對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "在片語清單值方塊中具有文字的 [建立新的片語清單] 對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 1. 重新訓練並發行應用程式以使用片語清單。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212116"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474369"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 
@@ -33,7 +33,7 @@ ms.locfileid: "71212116"
 
 [在 YouTube 上以影片形式觀看此程序](https://youtu.be/Pa0eyqjEjvQ)
 
-1. 從您現有的 Azure AD 租用戶，在 [Azure 入口網站]  的 [Azure Active Directory]  下選取 [密碼重設]  。
+1. 從您現有的 Azure AD 租用戶，從 Azure 入口網站功能表或 [首頁]  頁面，選取 [Azure Active Directory]  。 然後，選取 [密碼重設]  。
 
 2. 在 [屬性]  頁面的 [已啟用自助式密碼重設]  下方，選擇 [已選取]  。
     * 在 [選取群組]  中，選擇您在本文的先決條件一節中建立的試驗群組。

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的資料流程活動 |Microsoft Docs
+title: Azure Data Factory 中的資料流程活動
 description: 如何從 data factory 管線內部執行資料流程。
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030520"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679951"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中的資料流程活動
 
@@ -49,14 +49,14 @@ ms.locfileid: "72030520"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
 資料流程 | 正在執行之資料流程的參考 | DataFlowReference | 是
 integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntimeReference | 是
 暫存。 linkedService | 如果您使用的是 SQL DW 來源或接收，用於 PolyBase 暫存的儲存體帳戶 | LinkedServiceReference | 只有在資料流程讀取或寫入至 SQL DW 時
 暫存。 folderPath | 如果您使用的是 SQL DW 來源或接收，則為用於 PolyBase 暫存的 blob 儲存體帳戶中的資料夾路徑 | 字串 | 只有在資料流程讀取或寫入至 SQL DW 時
 
-![執行資料流程](media/data-flow/activity-data-flow.png "執行")資料流程
+![執行資料流程](media/data-flow/activity-data-flow.png "執行資料流程")
 
 ### <a name="data-flow-integration-runtime"></a>資料流程整合執行時間
 
@@ -64,7 +64,7 @@ integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntim
 
 就管線執行而言，叢集是一種作業叢集，需要幾分鐘的時間才能開始執行。 如果未指定 TTL，每次執行管線時都需要此啟動時間。 如果您指定 TTL，暖叢集集區會在最後一次執行後指定的時間保持作用中狀態，因而縮短啟動時間。 例如，如果您有60分鐘的 TTL，並每隔一小時執行一次資料流程，叢集集區就會保持作用中狀態。 如需詳細資訊，請參閱[Azure 整合運行](concepts-integration-runtime.md)時間。
 
-![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure 整合執行階段")
 
 > [!NOTE]
 > [資料流程] 活動中的 Integration Runtime 選取專案僅適用于已*觸發*的管線執行。 在偵錯工具中指定的叢集上執行資料流程的管線處理。
@@ -91,7 +91,7 @@ integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntim
 
 若要使用「資料流程」活動執行「調試管線」，您必須在頂端列上透過 [資料流程 **] [資料流程**處理] 滑杆切換至 [資料流程] [調試] 模式。 [偵錯工具] 模式可讓您針對作用中的 Spark 叢集執行資料流程。 如需詳細資訊，請參閱[Debug Mode](concepts-data-flow-debug-mode.md)。
 
-![調試 按鈕](media/data-flow/debugbutton.png "調試 按鈕")
+![[調試] 按鈕](media/data-flow/debugbutton.png "[調試] 按鈕")
 
 Debug 管線會針對使用中的 debug 叢集執行，而不是在 [資料流程] 活動設定中指定的整合執行時間環境。 您可以在啟動 [debug] 模式時選擇 [debug compute] 環境。
 
@@ -103,8 +103,8 @@ Debug 管線會針對使用中的 debug 叢集執行，而不是在 [資料流�
 
 請參閱 Data Factory 支援的控制流程活動： 
 
-- [If Condition 活動](control-flow-if-condition-activity.md)
-- [執行管道活動](control-flow-execute-pipeline-activity.md)
+- [If 條件活動](control-flow-if-condition-activity.md)
+- [執行管線活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677304"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668016"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](https://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的「分析」查詢。
@@ -90,6 +90,8 @@ ms.locfileid: "72677304"
 
 1. 登入 Azure 入口網站，並確定您可以存取資源。
 2. 嘗試重新整理儀表板的認證。
+3. 嘗試從您的 PowerBI Desktop 清除快取。
+
 
    如果您沒有存取權且重新整理認證沒有作用，請開啟支援票證。
 
@@ -100,8 +102,8 @@ ms.locfileid: "72677304"
 
 1. 建立 [API 金鑰](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)。
 2. 更新您從 Analytics 匯出的 Power BI M 指令碼，方法是將 Azure Resource Manager URL 取代為 Application Insights API。
-   * 取代**HTTPs： \//management.azure.com/subscriptions/...**
-   * 使用， **HTTPs： \//api.applicationinsights.io/Beta/apps/...**
+   * 取代**HTTPs：\//management.azure.com/subscriptions/...**
+   * 使用， **HTTPs：\//api.applicationinsights.io/Beta/apps/...**
 3. 最後，將認證更新為基本，並且使用您的 API 金鑰。
 
 **現有的指令碼**

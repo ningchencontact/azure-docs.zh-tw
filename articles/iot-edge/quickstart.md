@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: edb100901dea4419d65635f9214555c27c1949f0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965996"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494059"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至虛擬 Windows 裝置
 
@@ -139,7 +139,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 1. 如果您尚未註冊，請依照[註冊新的 Azure IoT Edge 裝置](how-to-register-device.md)中的步驟註冊您的裝置，並擷取裝置連接字串。
 
-2. 以系統管理員身分執行 PowerShell。
+2. 在虛擬機器中，以系統管理員身分執行 PowerShell。
 
    >[!NOTE]
    >使用 PowerShell 的 AMD64 工作階段來安裝 IoT Edge，而不是使用 PowerShell (x86)。 如果您不確定正在使用的工作階段類型，請執行下列命令：
@@ -148,7 +148,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. **部署 IoTEdge** 命令會檢查您的 Windows 電腦上支援的版本、開啟容器功能、下載 Moby 執行階段，然後下載 IoT Edge 執行階段。
+3. **Deploy-IoTEdge** 命令會檢查您的 Windows 電腦目前為支援的版本、開啟容器功能、下載 Moby 執行階段，然後下載 IoT Edge 執行階段。
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

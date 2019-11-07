@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2a1fbe8d47af8a2215b0d0a3d81fbe67a62d4755
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474405"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -55,7 +55,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 若要啟動 [啟用 Azure AD Domain Services]  精靈，請完成下列步驟：
 
-1. 在 Azure 入口網站的左上角選取 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。
 1. 在搜尋列中輸入 [Domain Services]  ，然後從搜尋建議中選擇 [Azure AD Domain Services]  。
 1. 在 [Azure AD Domain Services] 頁面中，選取 [建立]  。 [啟用 Azure AD Domain Services]  精靈隨即啟動。
 1. 選取您要在其中建立受控網域的 Azure **訂用帳戶**。
@@ -87,7 +87,11 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 在 Azure 入口網站中完成 [基本資料]  視窗中的欄位，以建立 Azure AD DS 執行個體：
 
 1. 輸入受控網域的 **DNS 網域名稱**，並將前面幾項列入考慮。
-1. 選擇應該在其中建立受控網域的 Azure**位置**。
+1. 選擇應該在其中建立受控網域的 Azure**位置**。 如果您選擇支援可用性區域的區域，Azure AD DS 資源會跨區域分散，以供額外的備援。
+
+    「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。
+
+    您不需要針對要跨區域分散的 Azure AD DS 進行設定。 Azure 平台會自動處理在區域之間分散資源。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]
 
     ![設定 Azure AD Domain Services 執行個體的基本設定](./media/tutorial-create-instance/basics-window.png)
 
@@ -117,7 +121,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     ![成功布建後的 Domain Services 狀態](./media/tutorial-create-instance/successfully-provisioned.png)
 
-我們會在 Azure Active Directory 租用戶上佈建 Azure AD Domain Services，並在相關聯的 Azure 訂用帳戶內建立服務的 Azure AD Domain Services 資源。 在佈建過程中，Azure AD DS 會在您啟用 Azure AD 網域服務的 Azure Active 目錄執行個體中建立名為 Domain Controller Services  和 AzureActiveDirectoryDomainControllerServices  的兩個企業應用程式。 處理受控網域時需要這些企業應用程式。  這些應用程式絕對不能刪除。
+受控網域與 Azure AD 租用戶相關聯。 在佈建程序中，Azure AD DS 會在 Azure AD 租用戶中建立名為 *Domain Controller Services* 與 *AzureActiveDirectoryDomainControllerServices* 的兩個企業應用程式。 處理受控網域時需要這些企業應用程式。 不要刪除這些應用程式。
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>更新 Azure 虛擬網路的 DNS 設定
 
@@ -188,6 +192,7 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102356"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467172"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>使用存取控制原則提供 Key Vault 驗證
 
@@ -162,7 +162,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 您可以建立 Azure AD 群組、將應用程式和使用者新增至該群組，然後為該群組授與金鑰保存庫的存取權。  這可讓您將多個應用程式新增至金鑰保存庫作為單一存取原則項目，而無須為使用者授與直接存取金鑰保存庫的權限 (我們不鼓勵這麼做)。 如需詳細資訊，請參閱[使用 Azure Active Directory 群組來管理應用程式和資源的存取權](../active-directory/fundamentals/active-directory-manage-groups.md)。
 
-### <a name="addition-prerequisites"></a>其他必要條件
+### <a name="additional-prerequisites"></a>其他先決條件
 
 除了[上述必要條件](#prerequisites)以外，您還需要在 Azure Active Directory 租用戶中建立/編輯群組的權限。 如果您沒有權限，則可能需要連絡 Azure Active Directory 系統管理員。
 
