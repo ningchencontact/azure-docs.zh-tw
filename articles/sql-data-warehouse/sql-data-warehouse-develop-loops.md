@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料倉儲中使用 T-SQL 迴圈 | Microsoft Docs
+title: 使用 T-sql 迴圈
 description: 在 Azure SQL 資料倉儲中使用 T-SQL 迴圈和取代資料指標以開發解決方案的秘訣。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b57358e32bda83ef51fe67aa1057411d51773fa6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479632"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685819"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用 T-SQL 迴圈
 在 Azure SQL 資料倉儲中使用 T-SQL 迴圈和取代資料指標以開發解決方案的秘訣。
@@ -70,5 +71,5 @@ DROP TABLE #tbl;
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。
+如需更多開發秘訣，請參閱 [開發概觀](sql-data-warehouse-overview-develop.md)。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料倉儲中分割資料表 | Microsoft Docs
+title: 分割資料表
 description: 在 Azure SQL 資料倉儲中使用資料表分割的建議與範例。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477099"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685412"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中分割資料表
 在 Azure SQL 資料倉儲中使用資料表分割的建議與範例。
@@ -39,7 +40,7 @@ SQL 資料倉儲中資料分割的主要優點是藉由使用分割區刪除、�
 在**叢集資料行存放區**資料表上建立分割區時，請務必考慮每個分割區各有多少個資料列。 為了讓叢集資料行存放區資料表達到最佳壓縮和效能，每個散發與分割區都需要至少 100 萬個資料列。 建立分割區之前，SQL 資料倉儲已將每個資料表分割成 60 個分散式資料庫。 除了散發以外，任何加入至資料表的資料分割都是在幕後建立。 依據此範例，如果銷售事實資料表包含 36 個月的分割區，並假設 SQL 資料倉儲有 60 個散發，則銷售事實資料表每個月應包含 6 千萬個資料列，或是在填入所有月份時包含 21 億個資料列。 如果資料表包含的資料列少於每個分割區建議的最小資料列數，請考慮使用較少的分割區，以增加每個分割區的資料列數目。 如需詳細資訊，請參閱[索引](sql-data-warehouse-tables-index.md)一文，其中包含可評估叢集資料行存放區索引品質的查詢。
 
 ## <a name="syntax-differences-from-sql-server"></a>與 SQL Server 之間的語法差異
-SQL 資料倉儲引進一個方法，可定義比 SQL Server 更簡單的分割區。 資料分割函式和配置不會如同在 SQL Server 中一樣，使用於 SQL 資料倉儲。 相反地，您只需要識別已分割的資料行和邊界點。 雖然資料分割的語法與 SQL Server 稍有不同，但基本概念是一樣的。 SQL Server 和 SQL 資料倉儲支援每個資料表一個分割資料行，它可以是遠距資料分割。 若要深入了解資料分割，請參閱[分割資料表和索引](/sql/relational-databases/partitions/partitioned-tables-and-indexes)。
+SQL 資料倉儲引進一個方法，可定義比 SQL Server 更簡單的分割區。 資料分割函式和配置不會如同在 SQL Server 中一樣，使用於 SQL 資料倉儲。 相反地，您只需要識別已分割的資料行和邊界點。 雖然資料分割的語法與 SQL Server 稍有不同，但基本概念是一樣的。 SQL Server 和 SQL 資料倉儲支援每個資料表一個分割資料行，它可以是遠距資料分割。 若要深入了解資料分割，請參閱 [分割資料表和索引](/sql/relational-databases/partitions/partitioned-tables-and-indexes)。
 
 使用 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) 陳述式的下列範例，依據 OrderDateKey 資料行分割 FactInternetSales 資料表︰
 
@@ -226,7 +227,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>在一個步驟中將新資料載入包含資料的分割區
-將資料載入分割區切換是一個方便的方式, 可讓使用者在新的資料中看到新資料時, 不會看見該資料表中的新資料。  在忙碌的系統上處理與分割區切換相關聯的鎖定爭用時, 可能會造成挑戰。  若要清除分割區中的現有資料, `ALTER TABLE`則需要用來切換移出資料。  然後, `ALTER TABLE`另一個則需要在新資料中切換。  在 SQL 資料倉儲中, `TRUNCATE_TARGET` `ALTER TABLE`命令支援此選項。  With `TRUNCATE_TARGET`命令會使用新的資料來覆寫分割區中的現有資料。`ALTER TABLE`  以下範例會使用`CTAS`來建立包含現有資料的新資料表、插入新資料, 然後將所有資料切換回目標資料表, 並覆寫現有的資料。
+將資料載入分割區切換是一個方便的方式，可讓使用者在新的資料中看到新資料時，不會看見該資料表中的新資料。  在忙碌的系統上處理與分割區切換相關聯的鎖定爭用時，可能會造成挑戰。  若要清除分割區中的現有資料，則必須使用 `ALTER TABLE` 來切換出資料。  然後，需要另一個 `ALTER TABLE` 切換到新的資料。  在 SQL 資料倉儲中，`ALTER TABLE` 命令支援 [`TRUNCATE_TARGET`] 選項。  使用 `TRUNCATE_TARGET` `ALTER TABLE` 命令會以新的資料覆寫分割區中的現有資料。  以下範例會使用 `CTAS` 來建立包含現有資料的新資料表、插入新資料，然後將所有資料切換回目標資料表，並覆寫現有資料。
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

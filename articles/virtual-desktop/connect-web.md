@@ -1,5 +1,5 @@
 ---
-title: 從網頁瀏覽器連接到 Windows 虛擬桌面-Azure
+title: 連接 Windows 虛擬桌面 web 用戶端-Azure
 description: 如何使用 web 用戶端連接到 Windows 虛擬桌面。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a29081f77587a96dc48930eab359610a42fc0be5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676763"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605824"
 ---
 # <a name="connect-with-the-web-client"></a>與 Web 用戶端連線
 
@@ -25,7 +25,7 @@ Web 用戶端可讓您從網頁瀏覽器存取您的 Windows 虛擬桌面資源�
 
 雖然任何具備 HTML5 功能的瀏覽器應該都可以運作，但我們已正式支援下列作業系統和瀏覽器。
 
-| Browser           | 支援的 OS                     | 注意               |
+| [瀏覽器]           | 支援的 OS                     | 注意事項               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

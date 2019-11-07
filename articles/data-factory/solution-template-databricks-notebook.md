@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 中的 Databricks 轉換資料 | Microsoft Docs
+title: 使用 Azure Data Factory 中的 Databricks 轉換資料
 description: 了解如何使用 Azure Data Factory 中的 Databricks Notebook 以解決方案範本轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395142"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684247"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Databricks 轉換資料
 
@@ -33,13 +33,13 @@ ms.locfileid: "60395142"
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-1.  建立 **Blob 儲存體帳戶**，以及要作為**接收端**的容器 `sinkdata`。 請記下**儲存體帳戶名稱**、**容器名稱**和**存取金鑰**，因為後續在此範本中將會加以參考。
+1.  建立 **Blob 儲存體帳戶**，以及要作為`sinkdata`接收端**的容器** 。 請記下**儲存體帳戶名稱**、**容器名稱**和**存取金鑰**，因為後續在此範本中將會加以參考。
 
 2.  確定您具有 **Azure Databricks 工作區**，或建立新的工作區。
 
-1.  **匯入用於 ETL 的 Notebook**。 請將下列轉換 Notebook 匯入至 Databricks 工作區。 (其位置不必與以下所列的相同，但請記住您選擇的路徑，以供後續使用。)在 URL 欄位中輸入下列 URL，以由此 URL 匯入 Notebook：`https://adflabstaging1.blob.core.windows.net/share/Transformations.html`。 選取 [匯入]  。
+1.  **匯入用於 ETL 的 Notebook**。 請將下列轉換 Notebook 匯入至 Databricks 工作區。 （它不一定要與下面的相同位置，但請記住您稍後選擇的路徑）。在 [URL] 欄位中輸入此 URL，以從下列 URL 匯入筆記本： `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`。 選取 [匯入]。
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 
@@ -77,11 +77,11 @@ ms.locfileid: "60395142"
 
 ## <a name="create-linked-services-and-datasets"></a>建立連結服務和資料集
 
-1.  移至 [連線 > 連結服務 > 新增]  ，在 Data Factory UI 中建立新的**連結服務**
+1.  移至 [連線 > 連結服務 > 新增]，在 Data Factory UI 中建立新的*連結服務*
 
     1.  **來源** – 用來存取來源資料。 在此範例中，您可以使用包含來源檔案的公用 Blob 儲存體。
 
-        選取 [Blob 儲存體]  ，並使用下方的 **SAS URI** 連線至來源儲存體 (唯讀存取)。
+        選取 [Blob 儲存體]，並使用下方的 **SAS URI** 連線至來源儲存體 (唯讀存取)。
 
         `https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D`
 
@@ -95,7 +95,7 @@ ms.locfileid: "60395142"
 
     1.  **Databricks** – 用來連線至 Databricks 叢集
 
-        使用在必要條件 2.c 中產生的存取金鑰建立 Databricks 連結服務。 如果您有*互動式叢集*，可加以選取。 (此範例使用 [新增作業叢集]  選項。)
+        使用在必要條件 2.c 中產生的存取金鑰建立 Databricks 連結服務。 如果您有*互動式叢集*，可加以選取。 (此範例使用 [新增作業叢集] 選項。)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 
@@ -119,11 +119,11 @@ ms.locfileid: "60395142"
 
 ## <a name="create-activities"></a>建立活動
 
-1.  建立查閱活動「可用性旗標」  以進行來源可用性檢查 (可使用查閱或 GetMetadata)。 選取在 2.a 中建立的 'sourceAvailability_Dataset'。
+1.  建立查閱活動「可用性旗標」以進行來源可用性檢查 (可使用查閱或 GetMetadata)。 選取在 2.a 中建立的 'sourceAvailability_Dataset'。
 
     ![12](media/solution-template-Databricks-notebook/Databricks-tutorial-image12.png)
 
-1.  建立複製活動「檔案至 Blob」  ，以將資料集從來源複製到接收端。 在此案例中，資料是二進位檔案。 請參考下列螢幕擷取畫面，了解複製活動中的來源和接收端組態。
+1.  建立複製活動「檔案至 Blob」，以將資料集從來源複製到接收端。 在此案例中，資料是二進位檔案。 請參考下列螢幕擷取畫面，了解複製活動中的來源和接收端組態。
 
     ![13](media/solution-template-Databricks-notebook/Databricks-tutorial-image13.png)
 
