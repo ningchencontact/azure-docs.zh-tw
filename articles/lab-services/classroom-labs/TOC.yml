@@ -52,6 +52,8 @@
       items:
         - name: 建立和管理教室實驗室
           href: how-to-manage-classroom-labs.md
+        - name: 使用儀表板
+          href: use-dashboard.md
         - name: 設定、自訂和發行範本
           href: how-to-create-manage-template.md
         - name: 設定和管理虛擬機器集區
@@ -80,6 +82,8 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/labservices/'
+    - name: Az.LabServices PowerShell 模組 (預覽)
+      href: reference-powershell-module.md
 - name: 資源
   items:
     - name: Azure 更新
