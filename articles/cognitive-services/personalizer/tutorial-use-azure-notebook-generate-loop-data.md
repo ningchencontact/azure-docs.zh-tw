@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515180"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467239"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>教學課程：在 Azure Notebook 中使用個人化工具
 
@@ -81,7 +81,7 @@ ms.locfileid: "72515180"
 
 ## <a name="configure-personalizer-resource"></a>設定個人化工具資源
 
-在 Azure 入口網站中，將您的[個人化工具資源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)的 [更新模型頻率]  設為 15 秒，且 [奬勵等待時間]  為 15 秒。 這些設定可在 [[設定](how-to-settings.md#configure-service-settings-in-the-azure-portal)]  頁面上找到。 
+在 Azure 入口網站中，將您的[個人化工具資源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)的 [更新模型頻率]  設為 15 秒，且 [奬勵等待時間]  為 15 秒。 您可在 **[設定](how-to-settings.md#configure-service-settings-in-the-azure-portal)** 頁面上找到這些值。 
 
 |設定|值|
 |--|--|
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 使用這兩個 REST 呼叫來驗證服務的狀態。
 
-這些資料格沒有輸出。 函式會在呼叫時輸出服務設定。
+這些資料格沒有輸出。 函式會在呼叫時輸出服務值。
 
 ```python
 def get_service_settings():
@@ -574,11 +574,11 @@ createChart(count,rewards)
 ![此圖表顯示測試持續時間內，目前學習原則是否成功。](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-測試結束時的理想目標是，迴圈會平均成功率 (接近 100%) 減去探索。 探索的預設設定為 20%。 
+測試結束時的理想目標是，迴圈會平均成功率 (接近 100%) 減去探索。 探索的預設值為 20%。 
 
 `100-20=80`
 
-在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上可以找到此探索設定。 
+在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上可以找到此探索值。 
 
 若要找出更好的學習原則，請根據您的排名 API 資料，在入口網站中針對您的個人化工具迴圈執行[離線評估](how-to-offline-evaluation.md)。
 

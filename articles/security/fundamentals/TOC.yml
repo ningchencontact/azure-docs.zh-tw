@@ -2,7 +2,6 @@
   href: index.yml
 - name: 架構與設計
   href: overview.md
-  expanded: false
   items:
     - name: 雲端中共同承擔的責任
       href: shared-responsibility.md
@@ -23,6 +22,7 @@
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 安全性技術功能
       href: technical-capabilities.md
+  expanded: false
 - name: 資料安全性與加密
   href: encryption-overview.md
   items:
@@ -128,19 +128,6 @@
         - name: 遠端管理安全性
           href: management.md
         - name: Azure 記錄整合
-          items:
-            - name: 簡介
-              href: azure-log-integration-overview.md
-            - name: 開始使用
-              href: azure-log-integration-get-started.md
-            - name: 整合 Azure AD 稽核記錄
-              displayName: active directory
-              href: azure-log-integration-ad.md
-            - name: 整合 Key Vault 中的記錄
-              displayName: keyvault
-              href: azure-log-integration-keyvault-eventhub.md
-            - name: 常見問題集
-              href: azure-log-integration-faq.md
     - name: 作業安全性
       href: operational-overview.md
       items:

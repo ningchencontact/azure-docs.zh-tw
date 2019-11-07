@@ -1,24 +1,25 @@
 ---
-title: Azure SQL 資料倉儲速查表 | Microsoft Docs
-description: 尋找快速建置 Azure SQL 資料倉儲解決方案的連結和最佳做法。
+title: Azure Synapse Analytics (先前為 SQL DW) 的速查表 | Microsoft Docs
+description: 尋找快速建置 Azure Synapse Analytics (先前為 SQL DW) 解決方案的連結和最佳做法。
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 08/23/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195071"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492271"
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的速查表
-本速查表提供實用的秘訣和最佳作法，協助您建立 Azure SQL 資料倉儲解決方案。 開始之前，請先閱讀 [Azure SQL 資料倉儲工作負載模式和反向模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)，詳細瞭解每個步驟，文內會說明何謂 SQL 資料倉儲，何者又不屬於 SQL 資料倉儲。
+# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics (先前為 SQL DW) 的速查表
+
+本速查表提供實用的秘訣和最佳做法，協助您建置 Azure Synapse 解決方案。 
 
 下圖顯示資料倉儲的設計流程：
 
@@ -35,7 +36,7 @@ ms.locfileid: "70195071"
 
 ## <a name="data-migration"></a>資料移轉
 
-首先，請將資料載入 [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 或 Azure Blob 儲存體。 接下來，在單一資料表中使用 PolyBase 將資料載入 SQL 資料倉儲。 請使用下列組態︰
+首先，請將資料載入 [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 或 Azure Blob 儲存體。 接下來，使用 PolyBase 將資料載入至暫存表格。 請使用下列組態︰
 
 | 設計 | 建議 |
 |:--- |:--- |
@@ -98,28 +99,28 @@ ms.locfileid: "70195071"
 
 如果您要以累加方式載入資料，首先請務必配置較大的資源類別來載入資料。  載入具有叢集資料行存放區索引的資料表時，這一點特別重要。  如需詳細資訊，請參閱[資源類別](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management)。  
 
-我們建議您使用 PolyBase 和 ADF V2，將 ELT 管線自動處理到 SQL 資料倉儲中。
+我們建議您使用 PolyBase 和 ADF V2，將 ELT 管線自動處理到資料倉儲中。
 
 針對記錄資料中的大型批次更新，請考慮使用 [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) 來寫入您想要保留在資料表中的資料，而不是使用 INSERT、UPDATE 和 DELETE。
 
 ## <a name="maintain-statistics"></a>維護統計資料
- 在普遍提供自動統計資料之前，SQL 資料倉儲都需要手動維護統計資料。 對您的資料做重大變更  時，同時更新統計資料很重要。 這可協助最佳化您的查詢計劃。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇為哪些資料行統計資料。 
+ 在正式推出自動統計資料之前，您必須手動維護統計資料。 對您的資料做重大變更  時，同時更新統計資料很重要。 這可協助最佳化您的查詢計劃。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇為哪些資料行統計資料。 
 
 您也可以定義更新的頻率。 例如，您可能想要更新每天都要加入新值的日期資料行。 對於牽涉聯結的資料行、WHERE 子句中使用的資料行、在 GROUP BY 中找到的資料行，統計資料可以獲得最大效益。
 
 深入了解[統計資料]。
 
 ## <a name="resource-class"></a>資源類別
-SQL 資料倉儲會使用資源群組，做為將記憶體配置給查詢的一種方式。 如果您需要更多的記憶體，以便改善查詢或載入速度，則您需要配置較高的資源類別。 相反地，使用較大的資源類別會影響並行處理。 在將所有使用者移動至較大的資料類別之前，建議您考量以下事項。
+資源群組可作為將記憶體配置給查詢的方式。 如果您需要更多的記憶體，以便改善查詢或載入速度，則您需要配置較高的資源類別。 相反地，使用較大的資源類別會影響並行處理。 在將所有使用者移動至較大的資料類別之前，建議您考量以下事項。
 
 如果您注意到查詢時間過長，請檢查您的使用者沒有在大型的資源類別中執行。 大型的資源類別會耗用許多並行處理的位置。 它們會導致其他查詢排入佇列。
 
-最後，藉由使用 SQL 資料倉儲的 Gen2，每個資源類別都會獲得比 Gen1 多 2.5 倍的記憶體。
+最後，藉由使用 [SQL 集區](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)的 Gen2，每個資源類別都會獲得比 Gen1 多 2.5 倍的記憶體。
 
 深入了解如何使用[資源類別與並行處理]。
 
 ## <a name="lower-your-cost"></a>降低您的成本
-SQL 資料倉儲的主要功能就是能夠[管理計算資源](sql-data-warehouse-manage-compute-overview.md)。 您可以在不使用資料倉儲時予以暫停，這會停止計算資源的計費。 您可以調整資源，以符合您的效能需求。 若要暫停，請使用 [Azure 入口網站](pause-and-resume-compute-portal.md)或 [PowerShell](pause-and-resume-compute-powershell.md)。 若要調整規模，請使用 [Azure 入口網站](quickstart-scale-compute-portal.md)、[Powershell](quickstart-scale-compute-powershell.md)、[T-SQL](quickstart-scale-compute-tsql.md) 或 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)。
+Azure Synapse 的主要功能就是能夠[管理計算資源](sql-data-warehouse-manage-compute-overview.md)。 您可以在不使用 SQL 集區時予以暫停，這會停止計算資源的計費。 您可以調整資源，以符合您的效能需求。 若要暫停，請使用 [Azure 入口網站](pause-and-resume-compute-portal.md)或 [PowerShell](pause-and-resume-compute-powershell.md)。 若要調整規模，請使用 [Azure 入口網站](quickstart-scale-compute-portal.md)、[Powershell](quickstart-scale-compute-powershell.md)、[T-SQL](quickstart-scale-compute-tsql.md) 或 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)。
 
 使用 Azure 函式，在您想要的時間自動調整規模：
 
@@ -131,9 +132,9 @@ SQL 資料倉儲的主要功能就是能夠[管理計算資源](sql-data-warehou
 
 建議您考量中樞架構和支點架構中的 SQL 資料庫和 Azure Analysis Services。 該解決方案可以隔離不同使用者群組之間的工作負載，也可以使用 SQL Database 和 Azure Analysis Services 的進階安全性功能。 這也是將無限制的並行處理提供給您的使用者的一種方法。
 
-深入了解[利用 SQL 資料倉儲的一般架構](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
+深入了解[利用 Azure Synapse 的一般架構](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
 
-按一下 SQL 資料庫中的支點，從 SQL 資料倉儲進行部署：
+按一下 SQL 資料庫中的支點，從 SQL 集區進行部署：
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
