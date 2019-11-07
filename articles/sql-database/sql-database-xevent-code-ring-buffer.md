@@ -1,5 +1,5 @@
 ---
-title: SQL Database 的 XEvent 信號緩衝區程式碼 | Microsoft Docs
+title: SQL Database 的 XEvent 信號緩衝區程式碼
 description: 提供 Transact-SQL 程式碼範例，可在 Azure SQL Database 中輕鬆又快速使用信號緩衝區目標。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566165"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686805"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的信號緩衝區目標程式碼
 
@@ -40,7 +40,7 @@ ms.locfileid: "68566165"
 7. 卸除信號緩衝區目標以釋放其資源。
 8. 卸除事件工作階段和示範資料表。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -54,7 +54,7 @@ ms.locfileid: "68566165"
 
 ## <a name="code-sample"></a>程式碼範例
 
-只要稍加修改，就可以在 Azure SQL Database 或 Microsoft SQL Server 上執行下列信號緩衝區的程式碼範例。 不同之處在於有些動態管理檢視 (DMV) (步驟 5 的 FROM 子句中所使用) 的名稱中有 '_database' ()。 例如:
+只要稍加修改，就可以在 Azure SQL Database 或 Microsoft SQL Server 上執行下列信號緩衝區的程式碼範例。 不同之處在於有些動態管理檢視 (DMV) (步驟 5 的 FROM 子句中所使用) 的名稱中有 '_database' ()。 例如：
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -222,7 +222,7 @@ GO
 
 然後在結果窗格中，我們按了 **target_data_XML** 資料欄標題下的儲存格。 這個點按動作在 ssms.exe 中以 XML 格式建立了另一個檔案索引標籤，其中顯示了結果儲存格的內容。
 
-輸出如下列區塊所示。 它看起來很長，但它只是兩個 **\<事件 >** 項目。
+輸出如下列區塊所示。 看起來很長，但它只是兩個 **\<事件 >** 元素。
 
 &nbsp;
 
@@ -347,7 +347,7 @@ Azure SQL Database 上擴充事件的主要主題是：
 
 下列連結提供擴充事件的其他程式碼範例主題。 不過，您必須定期檢查所有範例以查看範例是否適用於 Microsoft SQL Server 與 Azure SQL Database。 然後您可以決定是否需要稍加變更來執行範例。
 
-* Azure SQL Database 的程式碼範例：[SQL Database 中擴充事件的事件檔案目標程式碼](sql-database-xevent-code-event-file.md)
+* Azure SQL Database 的程式碼範例： [SQL Database 中擴充事件的事件檔案目標程式碼](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

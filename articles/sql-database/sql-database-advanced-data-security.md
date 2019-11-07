@@ -1,5 +1,5 @@
 ---
-title: 進階資料安全性 - Azure SQL Database | Microsoft Docs
+title: 先進的資料安全性-Azure SQL Database
 description: 了解探索及分類敏感性資料、管理資料庫弱點，以及偵測可能表示對 Azure SQL 資料庫有威脅之異常活動的功能。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ce9cfa7e4b08dac878de52ba9765bcc204ed8196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965491"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691306"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database 的進階資料安全性
 

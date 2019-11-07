@@ -1,5 +1,5 @@
 ---
-title: Data Factory - .NET API 變更記錄 | Microsoft Docs
+title: Data Factory-.NET API 變更記錄檔
 description: 描述 Azure Data Factory 的特定版本 NET API 中的重大變更、新增功能、錯誤修正等等...
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: 35f0145526aa596691fde26e92695f64f5ac35e0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: e1902db6bc3a127262f5e37f36e82b07ab15c7c9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140526"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683184"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API 變更記錄
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 
+> 本文適用於 Data Factory 的第 1 版。 
 
 本文章提供 Azure Data Factory SDK 在特定版本中有何變更的相關資訊。 您可以在 [這裡](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -116,7 +116,7 @@ ms.locfileid: "70140526"
 
 ## <a name="version-420"></a>4\.2.0 版
 ### <a name="feature-additions"></a>新增功能
-* 已新增下列新的活動類型：[AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx)。 如需有關活動的詳細資訊，請參閱[使用更新資源活動更新 Azure ML 模型](data-factory-azure-ml-batch-execution-activity.md)。
+* 新增下列新的活動類型： [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx)。 如需有關活動的詳細資訊，請參閱[使用更新資源活動更新 Azure ML 模型](data-factory-azure-ml-batch-execution-activity.md)。
 * 新的選擇性屬性 [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) 已加入至 [AzureMLLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx)。
 * [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) 和 [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) 屬性已加入至 [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx) 類別。
 * 允許設定用戶端呼叫 Data Factory 服務的逾時值。
@@ -135,7 +135,7 @@ ms.locfileid: "70140526"
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>4\.0.1 版
-### <a name="breaking-changes"></a>中斷性變更
+### <a name="breaking-changes"></a>重大變更
 下列類別已重新命名。 新的名稱是 4.0.0 版之前的原始類別名稱。
 
 | 4\.0.0 中的名稱 | 4\.0.1 中的名稱 |
@@ -148,7 +148,7 @@ ms.locfileid: "70140526"
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>4\.0.0 版
-### <a name="breaking-changes"></a>中斷性變更
+### <a name="breaking-changes"></a>重大變更
 * 下列類別/介面已重新命名。
 
 | 舊名稱 | 新名稱 |
@@ -163,7 +163,7 @@ ms.locfileid: "70140526"
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* **List** 方法現在會傳回分頁式結果。 如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續提取下一個頁面，直到傳回了所有頁面為止。  請看以下範例：
+* **List** 方法現在會傳回分頁式結果。 如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續提取下一個頁面，直到傳回了所有頁面為止。  下列是一個範例：
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");

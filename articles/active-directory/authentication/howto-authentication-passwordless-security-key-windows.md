@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5758b1fbb9d311219e3dc4dd483691f6c9d80c1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172161"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603482"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>啟用無密碼安全性金鑰登入 Windows 10 裝置（預覽）
 
@@ -24,24 +24,18 @@ ms.locfileid: "73172161"
 
 |     |
 | --- |
-| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>要求
 
-| 裝置類型 | 已聯結的 Azure AD | 已聯結的混合式 Azure AD |
-| --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [結合的安全性資訊註冊預覽](concept-registration-mfa-sspr-combined.md) | X | X |
-| 相容的[FIDO2 安全性金鑰](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN 需要 Windows 10 1809 版或更高版本 | X | X |
-| 已[加入 Azure AD 的裝置](../devices/concept-azure-ad-join.md)需要 Windows 10 1809 版或更高版本 | X |   |
-| 已[加入混合式 Azure AD 的裝置](../devices/concept-azure-ad-join-hybrid.md)需要 Windows 10 Insider 組建18945或更高版本 |   | X |
-| 已完整修補的 Windows Server 2016/2019 網域控制站。 |   | X |
-| 升級至最新版本的[Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) （選擇性） | X | X |
-| 布建套件（選擇性） | X | X |
-| 群組原則（選擇性） |   | X |
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [結合的安全性資訊註冊預覽](concept-registration-mfa-sspr-combined.md)
+- 相容的[FIDO2 安全性金鑰](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN 需要 Windows 10 1809 版或更高版本
+- 已[加入 Azure AD 的裝置](../devices/concept-azure-ad-join.md)需要 Windows 10 1809 版或更高版本
+- [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) （選擇性）
+- 布建套件（選擇性）
 
 ### <a name="unsupported-scenarios"></a>不支援的情節
 
@@ -56,8 +50,6 @@ ms.locfileid: "73172161"
 
 您要試驗的 Azure AD 聯結裝置必須執行 Windows 10 1809 版或更高版本。 最佳體驗是在 Windows 10 1903 版或更新版本上。
 
-您將試驗的混合式 Azure AD 聯結裝置必須執行 Windows 10 Insider 組建18945或更新版本。
-
 ## <a name="enable-security-keys-for-windows-sign-in"></a>啟用 Windows 登入的安全性金鑰
 
 組織可以選擇使用下列一或多種方法，根據組織的需求，使用安全性金鑰來進行 Windows 登入。
@@ -65,12 +57,6 @@ ms.locfileid: "73172161"
 - [使用 Intune 啟用](#enable-with-intune)
    - [目標 Intune 部署](#targeted-intune-deployment)
 - [使用布建套件啟用](#enable-with-a-provisioning-package)
-- [使用群組原則啟用（僅混合式 Azure AD 加入的裝置）](#enable-with-group-policy)
-
-> [!IMPORTANT]
-> 已**加入混合式 Azure AD 裝置**的組織**也**必須完成文章中的步驟：在 Windows 10 FIDO2 安全性金鑰驗證生效之前，對[內部部署資源啟用 FIDO2 驗證](howto-authentication-passwordless-security-key-on-premises.md)。
->
-> 已**加入 Azure AD 裝置**的組織必須先執行此動作，他們的裝置才能使用 FIDO2 安全性金鑰向內部部署資源進行驗證。
 
 ### <a name="enable-with-intune"></a>使用 Intune 啟用
 
@@ -124,18 +110,7 @@ ms.locfileid: "73172161"
 > [!NOTE]
 > 執行 Windows 10 1809 版的裝置也必須啟用共用電腦模式（EnableSharedPCMode）。 如需啟用此功能的相關資訊，請參閱[使用 Windows 10 設定共用或來賓電腦](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc)一文。
 
-### <a name="enable-with-group-policy"></a>使用群組原則啟用
-
-針對已**加入混合式 Azure AD 的裝置**，組織可設定下列群組原則設定，以啟用 FIDO 安全性金鑰登入。
-
-您可以在 **電腦**設定 > **系統管理範本** > **系統** > **登**入 > **開啟安全性金鑰**。
-
-- 將此原則設定為 [**啟用**] 可讓使用者使用安全性金鑰登入。
-- 將此原則設定為 [**已停用**] 或 [**未設定**] 會阻止使用者使用安全性金鑰登入。
-
-此群組原則設定需要 `credentialprovider.admx` 群組原則範本的更新版本。 這個新範本適用于下一個版本的 Windows Server 和 Windows 10 20H1。 這項設定可透過執行下列其中一個較新版本 Windows 的裝置來管理，或依照支援主題中的指導方針、[如何建立和管理 Windows 中的群組原則系統管理範本中央存放區](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)中的指示進行。
-
-## <a name="sign-in-with-fido2-security-key"></a>以 FIDO2 安全性金鑰登入
+## <a name="sign-in-to-windows-with-a-fido2-security-key"></a>使用 FIDO2 安全性金鑰登入 Windows
 
 在下列範例中，使用者 Bala Sandhu 已使用上一篇文章中的步驟來布建其 FIDO2 安全性金鑰，請[啟用無密碼安全性金鑰登入](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys)。 Bala 可以從 Windows 10 鎖定畫面中選擇安全性金鑰認證提供者，並插入安全性金鑰以登入 Windows。
 
@@ -144,7 +119,7 @@ ms.locfileid: "73172161"
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>管理安全性金鑰生物識別、PIN 或重設安全性金鑰
 
 * Windows 10 1903 版或更高版本
-   * 使用者可以在其裝置上開啟**Windows 設定** **帳戶** > **安全性金鑰**
+   * 使用者可以在其裝置上開啟**Windows 設定**>**帳戶** > **安全性金鑰**
    * 使用者可以變更其 PIN、更新生物識別，或重設其安全性金鑰
 
 ## <a name="troubleshooting-and-feedback"></a>疑難排解與意見反應
@@ -157,9 +132,29 @@ ms.locfileid: "73172161"
    1. 子類別目錄： FIDO
 1. 若要捕獲記錄，請使用 [**重新建立我的問題**] 選項。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="frequently-asked-questions"></a>常見問題集
 
-[針對 Azure AD 和混合式 Azure AD 加入的裝置，啟用內部部署資源的存取權](howto-authentication-passwordless-security-key-on-premises.md)
+### <a name="does-this-work-in-my-on-premises-environment"></a>這會在我的內部部署環境中運作嗎？
+
+這項功能不適用於純粹的內部部署 Active Directory Domain Services （AD DS）環境。
+
+### <a name="my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement"></a>我的組織需要雙因素驗證才能存取資源，我該怎麼做才能支援這項需求？
+
+安全性金鑰有各種形式的規格。 請洽詢裝置製造商，以討論如何以 PIN 或生物特徵辨識作為第二個因素來啟用其裝置。
+
+### <a name="can-admins-set-up-security-keys"></a>系統管理員可以設定安全性金鑰嗎？
+
+我們正致力於此功能的公開上市（GA）功能。
+
+### <a name="where-can-i-go-to-find-compliant-security-keys"></a>哪裡可以找到相容的安全性金鑰？
+
+[FIDO2 安全性金鑰](concept-authentication-passwordless.md#fido2-security-keys)
+
+### <a name="what-do-i-do-if-i-lose-my-security-key"></a>如果我遺失安全性金鑰，該怎麼辦？
+
+您可以從 Azure 入口網站移除金鑰，方法是流覽至 [安全性資訊] 頁面，並移除安全性金鑰。
+
+## <a name="next-steps"></a>後續步驟
 
 [深入瞭解裝置註冊](../devices/overview.md)
 

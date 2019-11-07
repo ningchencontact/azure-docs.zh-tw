@@ -1,5 +1,5 @@
 ---
-title: 將 Excel 連線至 Azure SQL Database 中的單一資料庫 | Microsoft Docs
+title: 將 Excel 連接到 Azure SQL Database 中的單一資料庫
 description: 了解如何將 Microsoft Excel 連線至 Azure SQL 資料庫中的單一資料庫。 將資料匯入 Excel 中進行報告和資料探索。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 8711d8f7ebc00b2d0fa51ff9f420293e96766d1c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 603aa52aefc4c4d1200d433f7f73f6070849c8f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569361"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691028"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>將 Excel 連線至 Azure SQL 資料庫中的單一資料庫和建立報表
 
@@ -33,10 +33,10 @@ ms.locfileid: "68569361"
 1. 若要將 Excel 連接到 SQL Database，請開啟 Excel，然後建立新的活頁簿或開啟現有的 Excel 活頁簿。
 2. 在頁面頂端的功能表列中，依序選取 [資料] 索引標籤、[取得資料]、[從 Azure]，然後選取 [從 Azure SQL Database]。 
 
-   ![選取資料來源：將 Excel 連接到 SQL 資料庫。](./media/sql-database-connect-excel/excel_data_source.png)
+   ![選取資料來源：將 Excel 連接到 SQL Database。](./media/sql-database-connect-excel/excel_data_source.png)
 
    資料連線精靈隨即開啟。
-3. 在 [連接到資料庫伺服器] 對話方塊中，以 <*servername*> **.database.windows.net** 格式，輸入您要連接的 SQL Database **伺服器名稱**。 例如，**msftestserver.database.windows.net**。 選擇性地輸入您的資料庫名稱。 選取 [確定] 以開啟認證視窗。 
+3. 在 [連接到資料庫伺服器] 對話方塊中，以 <**servername**.database.windows.net> 格式，輸入您要連接的 SQL Database **伺服器名稱**。 例如，**msftestserver.database.windows.net**。 選擇性地輸入您的資料庫名稱。 選取 [確定] 以開啟認證視窗。 
 
    ![[連接到資料庫伺服器] 對話方塊](media/sql-database-connect-excel/server-name.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "68569361"
 
 > [!TIP]
 > 如果您想要將其他 Excel 活頁簿和工作表連線到資料庫，請選取 [資料] 索引標籤，然後選取 [最近使用的來源] 以啟動 [最近使用的來源] 對話方塊。 從對話方塊中的清單選擇您已建立的連線，然後按一下 [開啟]。
-> ![最近使用的來源對話方塊](media/sql-database-connect-excel/recent-connections.png)
+> ![最近使用的來源 對話方塊](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>使用 .odc 檔案建立永久連線
 

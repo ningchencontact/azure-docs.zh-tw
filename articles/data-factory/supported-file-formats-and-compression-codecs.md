@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中支援的檔案格式 | Microsoft Docs
+title: Azure Data Factory 中支援的檔案格式
 description: 本主題描述 Azure Data Factory 中以檔案為基礎的連接器所支援的檔案格式和壓縮碼。
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 00d8fb69abb6ce74a36ff017f3f356cb86114d99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930923"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683970"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -37,9 +37,9 @@ ms.locfileid: "72930923"
 >[!NOTE]
 >Data Factory 引進了新的分隔文字格式資料集，請參閱[分隔的文字格式](format-delimited-text.md)一文，其中包含詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
 
-如果您想要從文字檔讀取或寫入至文字檔，請將資料集之 `format` 區段中的 `type` 屬性設定成 **TextFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [TextFormat 範例](#textformat-example)一節。
+如果您想要從文字檔讀取或寫入至文字檔，請將資料集之 `type` 區段中的 `format` 屬性設定成 **TextFormat**。 您也可以在  **區段中指定下列**選擇性`format`屬性。 關於如何設定，請參閱 [TextFormat 範例](#textformat-example)一節。
 
-| 屬性 | 描述 | 允許的值 | 必要項 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | columnDelimiter |用來分隔檔案中的資料行的字元。 您可以考慮使用資料中不太可能存在的罕見不可列印字元。 例如，指定 "\u0001"，這代表「標題開頭」(SOH)。 |只允許一個字元。 **預設值**是**逗號 (',')** 。 <br/><br/>若要使用 Unicode 字元，請參考 [Unicode 字元 (英文)](https://en.wikipedia.org/wiki/List_of_Unicode_characters) 以取得其對應的代碼。 |否 |
 | rowDelimiter |用來分隔檔案中的資料列的字元。 |只允許一個字元。 **預設值**是下列任一個值： **["\r\n", "\r", "\n"]** (讀取時) 與 **"\r\n"** (寫入時)。 |否 |
@@ -48,7 +48,7 @@ ms.locfileid: "72930923"
 | nullValue |用來代表 null 值的一個或多個字元。 |一或多個字元。 **預設值**為 **"\N" 和 "NULL"** (讀取時) 及 **"\N"** (寫入時)。 |否 |
 | encodingName |指定編碼名稱。 |有效的編碼名稱。 請參閱 [Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。 例如：windows-1250 或 shift_jis。 **預設值**為 **UTF-8**。 |否 |
 | firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |是<br/><b>False (預設值)</b> |否 |
-| skipLineCount |指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |整數 |否 |
+| skipLineCount |指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |Integer |否 |
 | treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>否 |否 |
 
 ### <a name="textformat-example"></a>TextFormat 範例
@@ -93,9 +93,9 @@ ms.locfileid: "72930923"
 
 若要**將 JSON 檔案原封不動匯入到 Azure Cosmos DB 或從中匯出**，請參閱[將資料移進/移出 Azure Cosmos DB](connector-azure-cosmos-db.md) 一文中的「匯入/匯出 JSON 文件」一節。
 
-如果您想要剖析 JSON 檔案，或以 JSON 格式寫入資料，請將 `format` 區段中的 `type` 屬性設定成 **JsonFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。
+如果您想要剖析 JSON 檔案，或以 JSON 格式寫入資料，請將 `type` 區段中的 `format` 屬性設定成 **JsonFormat**。 您也可以在  **區段中指定下列**選擇性`format`屬性。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | filePattern |表示每個 JSON 檔案中儲存的資料模式。 允許的值為︰**setOfObjects** 和 **arrayOfObjects**。 **預設值**為 **setOfObjects**。 關於這些模式的詳細資訊，請參閱 [JSON 檔案模式](#json-file-patterns)一節。 |否 |
 | jsonNodeReference | 如果您想要逐一查看陣列欄位內相同模式的物件並擷取資料，請指定該陣列的 JSON 路徑。 **從** JSON 檔案複製資料時，才支援這個屬性。 | 否 |
@@ -454,22 +454,22 @@ ms.locfileid: "72930923"
 |:--- |:--- |:--- |:--- |
 | Boolean | Boolean | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
-| Byte | Int32 | UInt8 | Int16 |
+| 位元組 | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/二進位 | UInt64 | Decimal |
-| Single | Float | N/A | N/A |
-| DOUBLE | DOUBLE | N/A | N/A |
+| 單一 | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
 | Decimal | Binary | Decimal | Decimal |
-| String | Binary | Utf8 | Utf8 |
-| 日期時間 | Int96 | N/A | N/A |
-| 時間範圍 | Int96 | N/A | N/A |
-| DateTimeOffset | Int96 | N/A | N/A |
+| 字串 | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
+| Datetimeoffset | Int96 | N/A | N/A |
 | ByteArray | Binary | N/A | N/A |
-| GUID | Binary | Utf8 | Utf8 |
+| Guid | Binary | Utf8 | Utf8 |
 | Char | Binary | Utf8 | Utf8 |
 | CharArray | 不支援 | N/A | N/A |
 
@@ -506,23 +506,23 @@ ms.locfileid: "72930923"
 | Data Factory 過渡期資料類型 | ORC 類型 |
 |:--- |:--- |
 | Boolean | Boolean |
-| SByte | Byte |
-| Byte | 短 |
-| Int16 | 短 |
+| SByte | 位元組 |
+| 位元組 | 簡短 |
+| Int16 | 簡短 |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | 長 |
-| Int64 | 長 |
-| UInt64 | String |
-| Single | Float |
-| DOUBLE | DOUBLE |
+| UInt32 | long |
+| Int64 | long |
+| UInt64 | 字串 |
+| 單一 | Float |
+| Double | Double |
 | Decimal | Decimal |
-| String | String |
-| 日期時間 | Timestamp |
-| DateTimeOffset | Timestamp |
-| 時間範圍 | Timestamp |
+| 字串 | 字串 |
+| DateTime | Timestamp |
+| Datetimeoffset | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binary |
-| GUID | String |
+| Guid | 字串 |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>AVRO 格式

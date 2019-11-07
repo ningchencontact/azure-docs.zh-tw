@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中，將自我裝載整合執行時間設定為 SSIS 的 proxy |Microsoft Docs
+title: 在 Azure Data Factory 中，將自我裝載整合執行時間設定為 SSIS 的 proxy
 description: 瞭解如何設定自我裝載 Integration Runtime 做為 Azure SSIS Integration Runtime 的 proxy。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200309"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684293"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>設定自我裝載 IR 作為 ADF 中的 Azure SSIS IR 的 proxy
 本文說明如何使用設定為 proxy 的自我裝載 IR，在 Azure Data Factory （ADF）中的 Azure SSIS Integration Runtime （IR）上執行 SQL Server Integration Services （SSIS）套件。  這項功能可讓您存取內部部署資料，而不需要將[您的 AZURE SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。  當您的公司網路具有過於複雜的設定/限制原則，讓您在其中插入您的 Azure SSIS IR 時，這會很有用。
@@ -40,7 +40,7 @@ ms.locfileid: "71200309"
 請依照[如何建立 ADF 連結服務一](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service)文中的說明，在布建您的 AZURE SSIS IR 的相同 ADF 下建立 Azure Blob 儲存體連結服務。  請確定下列事項：
 - 已選取**資料存放區**的**Azure Blob 儲存體**
 - 已選取**AutoResolveIntegrationRuntime**以透過**整合執行時間連接**
-- 為**驗證方法**選取了**帳戶金鑰**/ **SAS URI** /**服務主體**
+- **帳戶金鑰**/**SAS URI**/**服務主體**已針對**驗證方法**選取
 
 ![準備 Azure Blob 儲存體連結服務以進行預備](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "71200309"
 ![啟用 ConnectByProxy 屬性](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 您也可以在執行現有的封裝時啟用此屬性，而不需要逐一手動變更它們。  有2個選項：
-- 使用要在您的 Azure SSIS IR 上執行的最新 SSDT，開啟、重建和重新部署包含這些套件的專案：接著，您可以將屬性設為 True，以便在從 SSMS 執行封裝時，出現在 [執行封裝] 快顯視窗的 [**連線管理員**] 索引標籤上的相關連線管理員中，設定為 [ **True** ]。
+- 使用要在您的 Azure SSIS IR 上執行的最新 SSDT，開啟、重建和重新部署包含這些套件的專案：此屬性可以藉由將其設定為**True** ，針對出現在連線上的相關連接管理員而啟用。從 SSMS 執行套件時，[執行封裝] 快顯視窗的 [管理員] 索引標籤。
 
   ![啟用 ConnectByProxy property2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -67,16 +67,16 @@ ms.locfileid: "71200309"
   
   ![啟用 ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- 重新部署包含要在 SSIS IR 上執行之封裝的專案：接著，可以藉由提供屬性路徑`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`來啟用屬性，並在從 SSMS 執行封裝時，將它設定為**True** ，做為 [執行封裝] 快顯視窗的 [ **Advanced** ] 索引標籤上的屬性覆寫。
+- 重新部署包含要在 SSIS IR 上執行之封裝的專案：您可以藉由提供屬性路徑、`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，然後在 [執行封裝] 快顯視窗的 [ **Advanced** ] 索引標籤上將它設定為**True** ，藉以啟用此屬性。從 SSMS 執行封裝時。
 
   ![啟用 ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  您也可以藉`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`由提供屬性路徑來啟用屬性，並在執行 ADF 管線中的封裝時，將它設定為**True** ，以做為 [[執行 SSIS 封裝活動](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)] 的 [**屬性覆**寫] 索引標籤上的屬性覆寫。
+  在 ADF 管線中[執行](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)封裝時，也可以藉由提供屬性路徑、`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，並將它設定為**True**做為屬性**覆**寫，來啟用屬性。
   
   ![啟用 ConnectByProxy property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
 ## <a name="debug-the-first-and-second-staging-tasks"></a>Debug 第一個和第二個預備工作
-在自我裝載 IR 上，您可以在`C:\ProgramData\SSISTelemetry`資料夾中找到執行時間記錄，並在資料夾中`C:\ProgramData\SSISTelemetry\ExecutionLog`尋找第一個暫存工作的執行記錄。  第二個預備工作的執行記錄可以在您的 SSISDB 或指定的記錄路徑中找到，這取決於您是在 SSISDB 或檔案系統/檔案共用/Azure 檔案儲存體中分別儲存封裝。  第一個預備工作的唯一識別碼也可以在第二個預備工作的執行記錄中找到，例如 
+在自我裝載 IR 上，您可以在 `C:\ProgramData\SSISTelemetry` 資料夾中找到執行時間記錄，並在 `C:\ProgramData\SSISTelemetry\ExecutionLog` 資料夾中尋找第一個暫存工作的執行記錄。  第二個預備工作的執行記錄可以在您的 SSISDB 或指定的記錄路徑中找到，這取決於您是在 SSISDB 或檔案系統/檔案共用/Azure 檔案儲存體中分別儲存封裝。  第一個預備工作的唯一識別碼也可以在第二個預備工作的執行記錄中找到，例如 
 
 ![第一個預備工作的唯一識別碼](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "71200309"
 ## <a name="current-limitations"></a>目前的限制
 
 - 目前僅支援 OLEDB/一般檔案連接管理員和 OLEDB/一般檔案來源。 
-- 目前僅支援以**帳戶金鑰**/ **SAS URI** /**服務主體**驗證設定 Azure Blob 儲存體連結服務。
+- 目前僅支援 Azure Blob 儲存體使用**帳戶金鑰**/**SAS URI**設定的已連結服務，/**服務主體**驗證。
 - 目前僅支援在您布建 Azure SSIS IR 的相同 ADF 下布建的自我裝載 IR。
 - 不支援在 OLEDB/一般檔案來源的屬性和連線管理員中使用 SSIS 參數/變數。
 

@@ -12,13 +12,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 11/05/2019
 ms.locfileid: "71258040"
 ---
-# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>已知問題：在 Azure Active Directory Domain Services 中安全 LDAP 警示
+# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>已知問題： Azure Active Directory Domain Services 中的安全 LDAP 警示
 
 使用輕量型目錄存取協定（LDAP）與 Azure Active Directory Domain Services （Azure AD DS）通訊的應用程式和服務，可以[設定為使用安全 LDAP](tutorial-configure-ldaps.md)。 必須開啟適當的憑證和必要的網路埠，安全的 LDAP 才能正常運作。
 
@@ -28,7 +28,7 @@ ms.locfileid: "71258040"
 
 ### <a name="alert-message"></a>警示訊息
 
-*受控網域已啟用透過網際網路的安全 LDAP。不過，卻未使用網路安全性群組鎖定連接埠 636 的存取。這可能會使受控網域上的使用者帳戶暴露於暴力密碼破解攻擊的威脅之下。*
+*受控網域已啟用透過網際網路的安全 LDAP。不過，無法使用網路安全性群組來鎖定埠636的存取。這可能會讓受控網域上的使用者帳戶暴露于暴力密碼破解攻擊。*
 
 ### <a name="resolution"></a>解析度
 
@@ -48,7 +48,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 > [!TIP]
 > TCP 通訊埠636不是 Azure AD DS 順利執行所需的唯一規則。 若要深入瞭解，請參閱[AZURE AD DS 網路安全性群組和所需的埠](network-considerations.md#network-security-groups-and-required-ports)。
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證即將到期
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證過期
 
 ### <a name="alert-message"></a>警示訊息
 

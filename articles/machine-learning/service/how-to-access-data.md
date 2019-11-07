@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: eac10c8c680caf834bbe4be18ca22a5af936c7a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 08094469da87a6aae31acac599f8422487c10d28
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497399"
+ms.locfileid: "73580742"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -163,7 +163,7 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-`target_path` 參數會指定檔案共用（或 blob 容器）中要上傳的位置。 該位置預設為 `None`，這表示會將資料上傳至根目錄。 當 `overwrite=True` 時，會覆寫 `target_path` 的任何現有資料。
+`target_path` 參數會指定檔案共用（或 blob 容器）中要上傳的位置。 該位置預設為 `None`，這表示會將資料上傳至根目錄。 否則，如果 `overwrite=True` 會覆寫 `target_path` 的任何現有資料。
 
 或透過 `upload_files()` 方法，將個別檔案清單上傳至資料存放區。
 

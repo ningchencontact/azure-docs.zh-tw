@@ -1,35 +1,37 @@
 ---
-title: 使用 Python 在 Azure 資料總管中內嵌的端對端 Blob
-description: 在本文中，您將瞭解如何透過使用 Python 的端對端範例，將內嵌 blob 用於 Azure 資料總管。
+title: 透過 Python 在 Azure 資料總管中內嵌的端對端 blob
+description: 在本文中，您將瞭解如何使用使用 Python 的端對端範例，將 blob 內嵌至 Azure 資料總管。
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 2cb3e73abf8a97e481a4260ee6abe79115521d18
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 1c78336880d685090ae21c725becc90d689c1817
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809609"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581829"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-using-python"></a>使用 Python 在 Azure 資料總管中內嵌的端對端 Blob
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>透過 Python 在 Azure 資料總管中內嵌的端對端 blob
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure 資料總管是一項快速又可調整的資料探索服務，可用於處理記錄和遙測資料。 本文提供有關如何將資料從 Blob 儲存體內嵌至 Azure 資料總管的端對端範例。 您將瞭解如何以程式設計方式建立資源群組、儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 您也將瞭解如何以程式設計方式設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。
+Azure 資料總管是一項快速又可調整的資料探索服務，可用於處理記錄和遙測資料。 本文提供如何將資料從 Azure Blob 儲存體內嵌至 Azure 資料總管的端對端範例。 
+
+您將瞭解如何以程式設計方式建立資源群組、儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 您也將瞭解如何以程式設計方式設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。
 
 ## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="install-python-package"></a>安裝 Python 套件
+## <a name="install-the-python-package"></a>安裝 Python 封裝
 
-若要為 Azure 資料總管 (Kusto) 安裝 Python 套件，請開啟在其路徑中有 Python 的命令提示字元。 請執行這個命令：
+若要為 Azure 資料總管 (Kusto) 安裝 Python 套件，請開啟在其路徑中有 Python 的命令提示字元。 執行以下命令：
 
 ```
 pip install azure-common
@@ -44,7 +46,9 @@ pip install azure-storage-blob
 
 ## <a name="code-example"></a>程式碼範例 
 
-下列程式碼範例會提供逐步程式，導致資料內嵌至 Azure 資料總管。 您必須先建立資源群組和 Azure 資源（例如儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫）。 接著，您會在 Azure 資料總管資料庫中建立事件方格訂用帳戶和資料表和資料行對應。 最後，您會建立資料連線來設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。
+下列程式碼範例會逐步解說如何使資料內嵌至 Azure 資料總管。 
+
+您必須先建立資源群組。 您也會建立 Azure 資源，例如儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 接著，您會在 Azure 資料總管資料庫中建立 Azure 事件方格訂用帳戶，以及資料表和資料行對應。 最後，您會建立資料連線來設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -61,12 +65,12 @@ from azure.mgmt.kusto.models import EventGridDataConnection
 tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 #Application ID
 client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-#Client Secret
+#Client secret
 client_secret = "xxxxxxxxxxxxxx"
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 location = "West Europe"
 location_small_case = "westeurope"
-#path to the Azure Resource Manager template json from the previous section
+#Path to the Azure Resource Manager template JSON from the previous section
 azure_resource_template_path = "xxxxxxxxx/template.json";
 
 deployment_name = 'e2eexample'
@@ -118,7 +122,7 @@ deployment_properties = {
     'parameters': parameters
 }
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.deployments.create_or_update(
     resource_group_name,
     deployment_name,
@@ -161,7 +165,7 @@ kusto_client.execute_mgmt(database_name, create_column_mapping_command)
 print('Step 5: Add an Event Grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.')
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 data_connections = kusto_management_client.data_connections
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=kusto_cluster_name, database_name=kusto_database_name, data_connection_name=kusto_data_connection_name,
                                            parameters=EventGridDataConnection(storage_account_resource_id=storage_resource_id,
                                                                               event_hub_resource_id=event_hub_resource_id, consumer_group="$Default", location=location, table_name=kusto_table_name, mapping_rule_name=kusto_column_mapping_name, data_format="csv"))
@@ -169,14 +173,14 @@ poller.wait()
 ```
 |**設定** | **欄位描述**|
 |---|---|---|
-| tenant_id | 您的租用戶識別碼。 也稱為目錄識別碼。|
+| tenant_id | 您的租用戶識別碼。 它也稱為目錄識別碼。|
 | subscription_id | 您用來建立資源的訂用帳戶識別碼。|
 | client_id | 應用程式的用戶端識別碼，可存取您租使用者中的資源。|
 | client_secret | 應用程式的用戶端密碼，可以存取您租使用者中的資源。 |
 
 ## <a name="test-the-code-example"></a>測試程式碼範例
 
-1. 將檔案上傳到儲存體帳戶
+1. 將檔案上傳到儲存體帳戶。
 
     ```python
     account_key = "xxxxxxxxxxxxxx"
@@ -190,7 +194,7 @@ poller.wait()
     |---|---|---|
     | account_key | 以程式設計方式建立之儲存體帳戶的存取金鑰。|
 
-2. 在 Azure 資料總管中執行測試查詢
+2. 在 Azure 資料總管中執行測試查詢。
 
     ```python
     kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
@@ -206,14 +210,14 @@ poller.wait()
 若要刪除資源群組和清除資源，請使用下列命令：
 
 ```python
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.resource_groups.delete(resource_group_name=resource_group_name)
 poller.wait()
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-*  [建立 Azure 資料總管叢集和資料庫](create-cluster-database-python.md)，以瞭解建立叢集和資料庫的其他方式。
-* [Azure 資料總管資料擷取](ingest-data-overview.md)，以深入瞭解擷取方法。
-* [快速入門：在 Azure 資料總管中查詢資料](web-query-data.md)Web UI。
+*  若要深入瞭解建立叢集和資料庫的其他方式，請參閱[建立 Azure 資料總管叢集和資料庫](create-cluster-database-python.md)。
+* 若要深入瞭解內嵌方法，請參閱[Azure 資料總管資料](ingest-data-overview.md)內嵌。
+* 若要深入瞭解 web 應用程式，請參閱[快速入門：在 Azure 資料總管 WEB UI 中查詢資料](web-query-data.md)。
 * 使用 Kusto 查詢語言[撰寫查詢](write-queries.md)。

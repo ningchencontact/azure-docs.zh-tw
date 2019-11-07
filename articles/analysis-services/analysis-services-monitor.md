@@ -1,18 +1,18 @@
 ---
 title: 監視 Azure Analysis Services 伺服器計量 | Microsoft Docs
-description: 了解如何在 Azure 入口網站中監視 Analysis Services 伺服器計量。
+description: 瞭解 Analysis Services 如何使用 Azure 計量瀏覽器，這是入口網站中的免費工具，可協助您監視伺服器的效能和健康情況。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 57bcffad2634ea556cc0dd53763011f921acc5e0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146810"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572724"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
 
@@ -37,7 +37,7 @@ Analysis Services 提供 Azure 計量瀏覽器中的計量，這是入口網站�
 
 請根據下表來決定哪些計量最適合您的監視情節。 同一圖表上只能顯示相同單位的計量。
 
-|計量|計量顯示名稱|單位|彙總類型|描述|
+|計量|計量顯示名稱|單位|彙總類型|說明|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|命令集區作業佇列長度|計數|平均值|命令執行緒集區佇列中的作業數目。|
 |CurrentConnections|連接：目前的連接|計數|平均值|目前已建立的用戶端連接數目。|
@@ -58,7 +58,7 @@ Analysis Services 提供 Azure 計量瀏覽器中的計量，這是入口網站�
 |virtual_bytes_metric|虛擬位元組 |位元組|平均值|Analysis Services 引擎進程和混合使用容器進程的虛擬位址空間目前大小。|
 |mashup_engine_private_bytes_metric|M 引擎私用位元組 |位元組|平均值|已配置的記憶體混合容器進程總數，不包含與其他進程共用的記憶體。|
 |mashup_engine_virtual_bytes_metric|M 引擎虛擬位元組 |位元組|平均值|混合容器進程的目前虛擬位址空間大小是使用。|
-|Quota|記憶體︰配額|位元組|平均值|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
+|配額|記憶體︰配額|位元組|平均值|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
 |QuotaBlocked|記憶體︰封鎖的配額|計數|平均值|在釋放其他記憶體配額之前，目前已封鎖的配額要求數目。|
 |VertiPaqNonpaged|記憶體︰未分頁的 VertiPaq|位元組|平均值|工作集中已封鎖來供記憶體內部引擎使用的記憶體位元組。|
 |VertiPaqPaged|記憶體︰分頁的 VertiPaq|位元組|平均值|可供記憶體內部資料使用的分頁記憶體位元組。|

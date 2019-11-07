@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4bd890adcaa4982c52366faed0f2975729290360
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68360308"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612019"
 ---
 下表列出適用於 Azure IoT 中樞裝置佈建服務資源的限制。
 
@@ -20,7 +20,7 @@ ms.locfileid: "68360308"
 | 登錄數目上限 | 1,000,000 |
 | 註冊群組數目上限 | 100 |
 | CA 數目上限 | 25 |
-| 連結的 IoT 中樞數目上限 | 10 |
+| 連結的 IoT 中樞數目上限 | 50 |
 | 訊息大小上限 | 96 KB|
 
 

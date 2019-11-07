@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Key Vault 中儲存認證 | Microsoft Docs
+title: 在 Azure Key Vault 中儲存認證
 description: 了解如何為 Azure Key Vault 中使用的資料存放區儲存認證，Azure Data Factory 可以在執行階段自動擷取。
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003398"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684000"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
@@ -41,9 +41,9 @@ ms.locfileid: "71003398"
 
 以下是針對 Azure Key Vault 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AzureKeyVault**。 | 是 |
+| 類型 | type 屬性必須設為：**AzureKeyVault**。 | 是 |
 | baseUrl | 指定 Azure Key Vault URL。 | 是 |
 
 **使用編寫 UI：**
@@ -74,9 +74,9 @@ ms.locfileid: "71003398"
 
 當您在參考金鑰保存庫密碼的已連結服務中設定欄位時，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 欄位的類型屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
+| 類型 | 欄位的 type 屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
 | secretName | Azure Key Vault 中的密碼名稱。 | 是 |
 | secretVersion | Azure Key Vault 中的密碼版本。<br/>如果未指定，它會一律使用最新版本的密碼。<br/>如果指定，則它會遵循指定的版本。| 否 |
 | store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | 是 |

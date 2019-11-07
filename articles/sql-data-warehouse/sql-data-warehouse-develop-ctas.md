@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 資料倉儲中的 CREATE TABLE AS SELECT (CTAS) | Microsoft Docs
+title: CREATE TABLE AS SELECT (CTAS)
 description: 在開發方案的 Azure SQL 資料倉儲中，CREATE TABLE AS SELECT （CTAS）語句的說明和範例。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: e347287a6d77cdc947a79ca497fdb2ffe83ad1bc
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 4992bb00fa5397ef6a4e055e08b445d35f5ed77a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685858"
 ---
 # <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE 為 Azure SQL 資料倉儲中的 SELECT （CTAS）
 
@@ -28,7 +28,7 @@ ms.locfileid: "72882477"
 
 ## <a name="selectinto-vs-ctas"></a>選取 .。。INTO 和 CTAS
 
-CTAS 是更容易自訂的[SELECT .。。INTO](/sql/t-sql/queries/select-into-clause-transact-sql)語句。
+CTAS 是更容易自訂的[SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql)語句。
 
 以下是簡單 SELECT ... 的範例登錄
 
@@ -38,7 +38,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-選取 .。。INTO 不允許您變更散發方法或索引類型做為作業的一部分。 您可以使用預設的 ROUND_ROBIN 散發類型，以及叢集資料行存放區索引的預設資料表結構來建立 `[dbo].[FactInternetSales_new]`。
+選取 ...INTO 不允許您變更散發方法或索引類型做為作業的一部分。 您可以使用預設的 ROUND_ROBIN 散發類型，以及叢集資料行存放區索引的預設資料表結構來建立 `[dbo].[FactInternetSales_new]`。
 
 另一方面，使用 CTAS，您可以同時指定資料表資料的分佈，以及資料表結構類型。 若要將上一個範例轉換為 CTAS：
 

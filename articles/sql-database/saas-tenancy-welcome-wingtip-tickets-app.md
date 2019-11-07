@@ -1,5 +1,5 @@
 ---
-title: 歡迎使用 Wingtips 應用程式 - Azure SQL Database | Microsoft Docs
+title: '歡迎使用 Wingtips 應用程式-Azure SQL Database '
 description: 了解雲端環境中 Azure SQL Database 的資料庫租用模型和相關範例 Wingtips SaaS 應用程式。
 keywords: SQL Database Azure
 services: sql-database
@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b8cb9bed2f5fdd0b246e73c84731081d0f2e41e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570100"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691833"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 應用程式
 
-相同的 *Wingtip Tickets* SaaS 應用程式會分別在三個範例中實作。 此應用程式是以小型場地 (戲院、俱樂部等) 為目標的簡易活動列表與售票 SaaS 應用程式。每個場地都是應用程式的租用戶，且都有其本身的資料：場地詳細資料、活動清單、客戶、訂票資料等。此應用程式可搭配使用管理指令碼和教學課程，示範端對端的 SaaS 案例。 其中包括佈建租用戶、監視及管理效能、結構描述管理，以及跨租用戶報告和分析。
+相同的 *Wingtip Tickets* SaaS 應用程式會分別在三個範例中實作。 應用程式是簡單的事件清單和票證 SaaS 應用程式，以小型地點為目標-劇院、俱樂部等等。每個場地都是應用程式的租使用者，而且有自己的資料：場地詳細資料、事件清單、客戶、票證訂單等。 應用程式連同管理腳本和教學課程，展示了端對端 SaaS 案例。 其中包括佈建租用戶、監視及管理效能、結構描述管理，以及跨租用戶報告和分析。
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>三個 SaaS 應用程式和租用模式
 
@@ -55,13 +55,13 @@ ms.locfileid: "68570100"
 
 #### <a name="conceptual-descriptions"></a>概念說明
 
-- 如需應用程式租用模式的詳細說明, 請查看[多租使用者 SaaS 資料庫租用模式][saas-tenancy-app-design-patterns-md]
+- 如需應用程式租用模式的詳細說明，請查看[多租使用者 SaaS 資料庫租用模式][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>教學課程和程式碼
 
 - 每個租用戶獨立應用程式：
     - [獨立應用程式的教學][docs-tutorials-for-wingtip-sa]課程。
-    - [獨立應用程式的程式碼, 位於 GitHub][github-code-for-wingtip-sa]。
+    - [獨立應用程式的程式碼，位於 GitHub][github-code-for-wingtip-sa]。
 
 - 每一租用戶一個資料庫：
     - [每個租使用者的資料庫教學][docs-tutorials-for-wingtip-dpt]課程。

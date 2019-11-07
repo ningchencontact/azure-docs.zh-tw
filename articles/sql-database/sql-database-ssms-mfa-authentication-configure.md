@@ -1,5 +1,5 @@
 ---
-title: 設定 Multi-Factor Authentication - Azure SQL | Microsoft Docs
+title: 設定多重要素驗證-Azure SQL
 description: 了解如何針對 SQL Database 和 SQL 資料倉儲，搭配使用多重要素驗證與 SSMS。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 5ffe9de6ecb740a2d8445e88a478e718585eb5d1
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 37b962b84e72cf3b0005ad744d81974a55c1a75e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018889"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687100"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>設定適用於 SQL Server Management Studio 和 Azure AD 的多重要素驗證
 
@@ -28,7 +28,7 @@ ms.locfileid: "70018889"
 ## <a name="configuration-steps"></a>組態步驟
 
 1. **設定 Azure Active Directory** - 如需詳細資訊，請參閱[管理 Azure AD 目錄](https://msdn.microsoft.com/library/azure/hh967611.aspx)、[整合內部部署身分識別與 Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md)、[將您自己的網域名稱新增至 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Microsoft Azure 現在支援與 Windows Server Active Directory 同盟](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
-2. **設定 MFA** - 如需逐步指示，請參閱[什麼是 Azure Multi-Factor Authentication？](../active-directory/authentication/multi-factor-authentication.md)、[使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)](sql-database-conditional-access.md)。 (完整條件式存取需要 Premium Azure Active Directory (Azure AD)。 有限的 MFA 適用於標準 Azure AD。)
+2. **設定 MFA** - 如需逐步指示，請參閱[什麼是 Azure Multi-Factor Authentication？](../active-directory/authentication/multi-factor-authentication.md)、[使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)](sql-database-conditional-access.md)。 （完整條件式存取需要 Premium Azure Active Directory （Azure AD）。 有限的 MFA 適用於標準 Azure AD。)
 3. **設定 SQL Database 或 SQL 資料倉儲進行 Azure AD 驗證** - 如需逐步指示，請參閱[使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)。
 4. **下載 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新的 SSMS。 對於本主題中的所有功能，至少使用 2017 年 7 月的 17.2 版。  
 
@@ -40,10 +40,10 @@ ms.locfileid: "70018889"
    ![1mfa-universal-connect][1]  
 2. 使用 Azure Active Directory 認證完成 [使用者名稱] 方塊 (採用 `user_name@domain.com` 格式)。  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
-3. 如果您以來賓使用者身分連線, 您就不再需要為來賓使用者完成 [AD 功能變數名稱] 或 [租使用者識別碼] 欄位, 因為 SSMS 18. x 或更新版本會自動辨識它。 如需詳細資訊，請參閱 [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)。
+3. 如果您以來賓使用者身分連線，您就不再需要為來賓使用者完成 [AD 功能變數名稱] 或 [租使用者識別碼] 欄位，因為 SSMS 18. x 或更新版本會自動辨識它。 如需詳細資訊，請參閱 [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)。
    ![mfa-無租使用者-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
-   不過, 如果您使用 SSMS 17. x 或更舊版本連接為來賓使用者, 您必須按一下 [**選項**], 然後在 [連線**屬性**] 對話方塊中, 完成 [ **AD 功能變數名稱或租使用者識別碼**] 方塊。
+   不過，如果您使用 SSMS 17. x 或更舊版本連接為來賓使用者，您必須按一下 [**選項**]，然後在 [連線**屬性**] 對話方塊中，完成 [ **AD 功能變數名稱或租使用者識別碼**] 方塊。
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
 4. 如同平常針對 SQL Database 和 SQL 資料倉儲所做的一樣，您必須按一下 [選項]，然後在 [選項] 對話方塊上指定資料庫。 (如果已連線的使用者是來賓使用者 (亦即joe@outlook.com)，您必須核取此方塊，並將目前的 AD 網域名稱或租用戶 ID 新增為 [選項] 的一部分。 請參閱 [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)。 然後按一下 [ **連接**]。  
@@ -66,8 +66,8 @@ ms.locfileid: "70018889"
 ## <a name="next-steps"></a>後續步驟
 
 - 如需 Azure SQL Database 多重要素驗證的概觀，請參閱 [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)。  
-- 授與其他人存取您的資料庫：[SQL Database 驗證和授權：授與存取權](sql-database-manage-logins.md)  
-- 請確定其他人可以透過防火牆連線：[使用 Azure 入口網站設定 Azure SQL Database 伺服器層級防火牆規則](sql-database-configure-firewall-settings.md)  
+- 授與對資料庫的其他存取權：[SQL Database 驗證和授權：授與存取權](sql-database-manage-logins.md)  
+- 確定其他人可透過防火牆連線：[使用 Azure 入口網站設定 Azure SQL Database 伺服器層級防火牆規則](sql-database-configure-firewall-settings.md)。  
 - 使用 [Active Directory- 通用 MFA] 驗證時，自 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 開始可以使用 ADAL 追蹤功能。 預設為關閉，您可以使用 [Azure 服務]、[Azure 雲端]、[ADAL 輸出視窗的追蹤層級] 下的 [工具]、[選項] 功能表，然後啟用 [檢視] 功能表中的 [輸出]，以開啟 ADAL 追蹤功能。 選取 [Azure Active Directory 選項] 時，可以在輸出視窗中取得追蹤結果。   
 
 

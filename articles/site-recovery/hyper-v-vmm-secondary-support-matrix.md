@@ -1,18 +1,18 @@
 ---
-title: 使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-v Vm 損毀修復至次要網站的支援矩陣
+title: 支援矩陣-Hyper-v 嚴重損壞修復至具有 Azure Site Recovery 的次要 VMM 網站
 description: 摘要說明使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站的支援。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933817"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686160"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
@@ -100,7 +100,7 @@ RDM | N/A
 
 ## <a name="vaults"></a>保存庫
 
-**Action** | **支援**
+**動作** | **支援**
 --- | --- 
 跨資源群組間移動保存庫 (在訂用帳戶之內或跨訂用帳戶) |  否
 跨資源群組間移動儲存體、網路、Azure VM (在訂用帳戶之內或跨訂用帳戶) | 否

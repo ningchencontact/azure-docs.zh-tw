@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL 資料倉儲對租用戶資料庫執行分析查詢 | Microsoft Docs
+title: '使用 Azure SQL 資料倉儲對租使用者資料庫執行分析查詢 '
 description: 使用從 Azure SQL Database、SQL 資料倉儲、Azure Data Factory 或 Power BI 擷取的資料，進行跨租用戶分析查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570136"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691870"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 
@@ -62,9 +62,9 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 本教學課程提供可以從 Wingtip Tickets 資料收集之深入解析的基本範例。 例如，了解每個地點使用服務的方式，可能會讓 Wingtip Tickets 廠商針對或多或少的使用中場地思考不同的服務方案。 
 
-## <a name="setup"></a>安裝程式
+## <a name="setup"></a>設定
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 > [!NOTE]
 > 本教學課程會使用目前處於有限預覽 (連結的服務參數化) 的 Azure Data Factory 功能。 如果想要進行本教學課程，請[在此](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu)提供訂用帳戶識別碼。 只要您的訂用帳戶一啟用，我們就會寄送確認函給您。
@@ -93,7 +93,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 現在，請檢閱您所部署的 Azure 資源：
 #### <a name="tenant-databases-and-analytics-store"></a>租用戶資料庫和分析存放區
-使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 連線到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 伺服器。 將 &lt;user&gt; 取代為您部署應用程式時所使用的值。 使用 Login = *developer*和 Password = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
+使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 連線到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 伺服器。 將 &lt;user&gt; 取代為您部署應用程式時所使用的值。 使用 Login = *developer* ，Password = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
 
 ![從 SSMS 連線到 SQL Database 伺服器](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -141,11 +141,11 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 在 [概觀] 頁面中，切換至左側面板的 [建立者] 索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-三個巢狀管線為：SQLDBToDW、DBCopy 及 TableCopy。
+三個巢狀管道為：SQLDBToDW、DBCopy 及 TableCopy。
 
 **管道 1 - SQLDBToDW** 查詢儲存在目錄資料庫的租用戶資料庫名稱 (資料表名稱：[__ShardManagement].[ShardsGlobal])，並針對每個租用戶資料庫執行 **DBCopy** 管道。 完成時，會執行提供的 **sp_TransformExtractedData** 預存程序結構描述。 這個預存程序會轉換暫存表格中載入的資料，並填入星型結構描述資料表。
 
-**管道 2 - DBCopy** 從儲存在 blob 儲存體的組態檔查詢來源資料表和資料行的名稱。  接著會針對四個資料表執行 **TableCopy** 管線：TicketFacts、CustomerFacts、EventFacts 及 VenueFacts。 針對所有 20 個資料庫同時執行 **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 活動。 ADF 允許最多同時執行 20 個迴圈反覆項目。 請考慮為多個資料庫建立多個管道。    
+**管道 2 - DBCopy** 從儲存在 blob 儲存體的組態檔查詢來源資料表和資料行的名稱。  接著會針對四個資料表執行 **TableCopy** 管道：TicketFacts、CustomerFacts、EventFacts 及 VenueFacts。 針對所有 20 個資料庫同時執行 **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 活動。 ADF 允許最多同時執行 20 個迴圈反覆項目。 請考慮為多個資料庫建立多個管道。    
 
 **管道 3 - TableCopy** 使用 SQL Database 中的資料列版本號碼 (_rowversion_) 來識別已變更或更新的資料列。 此活動查詢開始和結束資料列版本，用以擷取來自來源資料表的資料列。 儲存在每個租用戶資料庫中的 **CopyTracker** 資料表，會追蹤每次執行中從各來源資料表擷取的最後一個資料列。 全新或變更過的資料列會複製到資料倉儲中對應的暫存表格：**raw_Tickets**、**raw_Customers**、**raw_Venues** 及 **raw_Events**。 最後，最後一個資料列版本會儲存在 **CopyTracker** 資料表，做為下次擷取的初始資料列版本。 
 
@@ -158,7 +158,7 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 ### <a name="data-warehouse-pattern-overview"></a>資料倉儲模式概觀
 SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 在此範例中，PolyBase 會將資料載入 SQL 資料倉儲。 未經處理資料會載入具有識別欄位的暫存表格，以追蹤已轉換成星型結構描述資料表的資料列。 下列影像顯示載入模式：![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
 
-此範例使用緩時變維度 (SCD) 類型 1 的維度資料表。 每個維度都具有使用識別欄位定義的 Surrogate 索引鍵。 最佳做法是預先填入日期維度資料表，節省時間。 如需其他維度資料表，可使用 CREATE TABLE AS SELECT...(CTAS) 陳述式建立暫存資料表，其中包含現有修改和未修改的資料列，以及 Surrogate 索引鍵。 可使用 IDENTITY_INSERT=ON 進行。 然後將新資料列插入附有 IDENTITY_INSERT=OFF 的資料表。 若要簡單復原，可重新命名現有的維度資料表和暫存資料表，即可變成新的維度資料表。 每次執行之前，會刪除舊的維度資料表。
+此範例使用緩時變維度 (SCD) 類型 1 的維度資料表。 每個維度都具有使用識別欄位定義的 Surrogate 索引鍵。 最佳做法是預先填入日期維度資料表，節省時間。 若是其他維度資料表，CREATE TABLE 做為 SELECT .。。（CTAS）語句是用來建立臨時表，其中包含現有已修改和未修改的資料列，以及代理鍵。 可使用 IDENTITY_INSERT=ON 進行。 然後將新資料列插入附有 IDENTITY_INSERT=OFF 的資料表。 若要簡單復原，可重新命名現有的維度資料表和暫存資料表，即可變成新的維度資料表。 每次執行之前，會刪除舊的維度資料表。
 
 維度資料表會在事實資料表之前載入。 此排序可確保對於每個到達的事實，所有參考維度皆已存在。 載入事實時，每個對應維度的商務索引鍵會相符，而且對應的 Surrogate 索引鍵會新增至每個事實。
 
@@ -194,13 +194,13 @@ SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 在左窗格中選取 [**資料庫**], 然後輸入 user name = *developer*, 並輸入 password = *P\@ssword1*。 按一下 **[連接]** 。  
+5. 在左窗格中選取 [**資料庫**]，然後輸入 user name = *developer*，並輸入 password = *P\@ssword1*。 按一下 [連接]。  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. 在分析資料庫底下的 [導覽] 窗格中，選取星型結構描述資料表：**fact_Tickets**、**dim_Events**、**dim_Venues**、**dim_Customers** 及 **dim_Dates**。 然後選取 [載入]。 
 
-恭喜您！ 您已成功將資料載入 Power BI。 現在可以探索有趣的視覺效果，讓您深入解析您的租用戶。 您會逐步了解分析如何將部分資料驅動的建議提供給 Wingtip Tickets 業務小組。 建議可協助最佳化商務模型和客戶體驗。
+恭喜！ 您已成功將資料載入 Power BI。 現在可以探索有趣的視覺效果，讓您深入解析您的租用戶。 您會逐步了解分析如何將部分資料驅動的建議提供給 Wingtip Tickets 業務小組。 建議可協助最佳化商務模型和客戶體驗。
 
 從分析票證銷售資料查看跨地點使用方式的變化來開始。 選取 Power BI 中顯示的選項，以依據每個地點銷售的票證總數，繪製橫條圖。 (由於票證產生器中的隨機變化，您的結果可能會不同。)
  
@@ -248,7 +248,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 針對租用戶分析部署使用星型結構描述填入的 SQL 資料倉儲。
@@ -257,7 +257,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 > * 查詢分析資料倉儲。 
 > * 使用 Power BI 以視覺化方式呈現所有租用戶的資料趨勢。
 
-恭喜您！
+恭喜！
 
 ## <a name="additional-resources"></a>其他資源
 

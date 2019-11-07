@@ -1,5 +1,5 @@
 ---
-title: SQL Database 多租用戶應用程式指引 - Wingtip SaaS | Microsoft Docs
+title: 'SQL Database 多租使用者應用程式範例的指引-Wingtip SaaS '
 description: 提供使用 Azure SQL Database、Wingtip Tickets SaaS 範例之範例多租用戶應用程式的安裝和執行步驟及指引。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9258e1e8219300c47e77ea8164e54edd5855bb39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570065"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691802"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>使用 Wingtip Tickets 範例 SaaS 應用程式的一般指導方針
 
@@ -37,7 +37,7 @@ ms.locfileid: "68570065"
 6. 按一下 [確定]。
 7. 將檔案解壓縮。
 
-指令碼檔案位於 ..\\學習模組資料夾中。
+指令碼檔案位於 ..*學習模組\\* 資料夾中。
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>使用 Wingtip Tickets PowerShell 指令碼
@@ -56,7 +56,7 @@ ms.locfileid: "68570065"
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>按 F5 執行指令碼
 
-數個指令碼會使用 $PSScriptRoot 來瀏覽資料夾，而只有在按 F5 執行指令碼時才會評估 $PSScriptRoot。  醒目提示並執行選取項目 (**F8**) 可能會導致錯誤，因此請在執行指令碼時按 **F5**。
+數個指令碼會使用 $PSScriptRoot 來瀏覽資料夾，而只有在按 F5 執行指令碼時才會評估 $PSScriptRoot。  反白顯示並執行選取專案（**F8**）可能會導致錯誤，因此請在執行腳本時按**F5** 。
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>逐步執行指令碼來檢查實作
 
@@ -78,22 +78,22 @@ ms.locfileid: "68570065"
 
 部署一開始都有租用戶與目錄 SQL Database 伺服器加以連線。 伺服器的命名取決於資料庫租用戶模式 (如需詳細資訊，請參閱下方)。 
 
-   - **獨立應用程式：** 每個租用戶的伺服器 (例如 contosoconcerthall-&lt;User&gt; 伺服器) 和 catalog-sa-&lt;User&gt;
-   - **每一租用戶一個資料庫：** tenants1-dpt-&lt;User&gt; 和 catalog-dpt-&lt;User&gt; 伺服器
-   - **多租用戶資料庫：** tenants1-mt-&lt;User&gt; 和 catalog-mt-&lt;User&gt; 伺服器
+   - **獨立應用程式：** 每個租用戶的伺服器 (例如 contosoconcerthall-*User&lt;&gt;* 伺服器) 和 catalog-sa-*User&lt;&gt;*
+   - **每一租用戶一個資料庫：** tenants1-dpt-*User&lt;&gt;* 和 catalog-dpt-*User&lt;&gt;* 伺服器
+   - **多租用戶資料庫：** tenants1-mt-*User&lt;&gt;* 和 catalog-mt-*User&lt;&gt;* 伺服器
 
 若要確保示範連線成功，所有伺服器都有允許所有 IP 通過的[防火牆規則](sql-database-firewall-configure.md)。
 
 
 1. 開啟 *SSMS* 並連線到租用戶。 伺服器名稱取決於您所選取 (如需詳細資訊，請參閱下方) 的租用戶資料庫模式：
-    - **獨立應用程式：** 個別租用戶的伺服器 (例如 contosoconcerthall-&lt;User&gt;.database.windows.net) 
-    - **每一租用戶一個資料庫：** tenants1-dpt-&lt;User&gt;.database.windows.net
-    - **多租用戶資料庫：** tenants1-mt-&lt;User&gt;.database.windows.net 
+    - **獨立應用程式：** 個別租用戶的伺服器 (例如 contosoconcerthall-*User&lt;.database.windows.net&gt;* ) 
+    - **每一租用戶一個資料庫：** tenants1-dpt-*User&lt;.database.windows.net&gt;*
+    - **多租用戶資料庫：** tenants1-mt-*User&lt;.database.windows.net&gt;* 
 2. 按一下 [連線] >  **[資料庫引擎...]** ：
 
    ![目錄伺服器](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. 示範認證：Login = *developer*, Password = *P\@ssword1*
+3. 示範認證包括：登入 = *developer*、Password = *P\@ssword1*
 
     下圖會示範*每一租用戶一個資料庫*模式的登入。 
     ![連接](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
@@ -101,9 +101,9 @@ ms.locfileid: "68570065"
    
 
 4. 重複步驟 2-3，並連線到目錄伺服器 (請參閱下方以選取之資料庫租用戶模式作為基礎的特定伺服器名稱)
-    - **獨立應用程式：** catalog-sa-&lt;User&gt;.database.windows.net
-    - **每一租用戶一個資料庫：** catalog-dpt-&lt;User&gt;.database.windows.net
-    - **多租用戶資料庫：** catalog-mt-&lt;User&gt;.database.windows.net
+    - **獨立應用程式：** catalog-sa-*User&lt;.database.windows.net&gt;*
+    - **每一租用戶一個資料庫：** catalog-dpt-*User&lt;.database.windows.net&gt;*
+    - **多租用戶資料庫：** catalog-mt-*User&lt;.database.windows.net&gt;*
 
 
 成功連線之後，您會看到所有伺服器。 視您已佈建的租用戶而定，您的資料庫清單可能有所不同。

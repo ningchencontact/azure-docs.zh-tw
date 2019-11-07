@@ -11,19 +11,19 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0c3157d3ff020fd8c4974bf694b9a96d98e83c58
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f08e19ac08d39b19838582cdfbb0d00dfde9de62
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489446"
+ms.locfileid: "73584486"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 以大規模訓練 Pytorch 深度學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何使用 Azure Machine Learning 的[PyTorch 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)類別，以企業規模執行您的[PyTorch](https://pytorch.org/)訓練腳本。  
 
-本文中的範例腳本可用來將雞和土耳其影像分類，以根據 PyTorch 的[傳輸學習教學](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)課程來建立深度學習神經網路。 
+本文中的範例腳本可用來將雞和土耳其影像分類, 以根據 PyTorch 的傳輸學習[教學課程](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)來建立深度學習神經網路。 
 
 無論您是從基礎開始訓練深度學習 PyTorch 模型，或是將現有的模型帶入雲端，都可以使用 Azure Machine Learning，使用彈性雲端計算資源來相應放大開放原始碼訓練作業。 您可以使用 Azure Machine Learning 來建立、部署、版本及監視生產等級模型。 
 
@@ -33,7 +33,7 @@ ms.locfileid: "73489446"
 
 在下列任一環境中執行此程式碼：
 
- - Azure Machine Learning 計算實例-不需要下載或安裝
+ - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
     - 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
     - 在筆記本伺服器上的範例深入學習資料夾中，流覽至此目錄以尋找已完成且已展開的筆記本：**使用方法 > 訓練-具有深度學習 > 訓練-超參數-微調-部署-使用-pytorch**資料夾。 

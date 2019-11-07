@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9da057683f3da41f077b309db79271a10738b59d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c02c502dc2ab85a6ae1c602c53723e9b5a758250
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490000"
+ms.locfileid: "73576747"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>從 ML web 服務端點監視及收集資料
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -112,39 +112,6 @@ ms.locfileid: "73490000"
 ## replace <service_name> with the name of the web service
 <service_name>.update(enable_app_insights=False)
 ```
-    
-## <a name="use-studio-to-configure"></a>使用 studio 設定
-
-您可以在 Azure Machine Learning studio 中啟用和停用 Application Insights。
-
-1. 在[Azure Machine Learning studio](https://ml.azure.com)中，開啟您的工作區。
-
-1. 在 [部署] 索引標籤上，選取您要在其中啟用 Application Insights 的服務。
-
-   [![[部署] 索引標籤上的服務清單](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. 選取 [編輯]。
-
-   [![[編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. 在 [進階設定] 中，選取 [啟用 AppInsights 診斷] 核取選項。
-
-   [![已選取啟用診斷的核取方塊](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. 選取螢幕底部的 [更新] 以套用變更。 
-
-### <a name="disable"></a>停用
-1. 在[Azure Machine Learning studio](https://ml.azure.com)中，開啟您的工作區。
-1. 選取 [部署]，選取服務，然後選取 [編輯]。
-
-   [![使用 [編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. 在 [進階設定] 中，清除 [啟用 AppInsights 診斷] 核取選項。 
-
-   [![已清除啟用診斷的核取方塊](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. 選取螢幕底部的 [更新] 以套用變更。 
- 
 
 ## <a name="evaluate-data"></a>評估資料
 您的服務資料會儲存在您的 Azure 應用程式 Insights 帳戶中，與 Azure Machine Learning 相同的資源群組中。

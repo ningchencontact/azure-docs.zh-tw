@@ -1,5 +1,5 @@
 ---
-title: 在多租用戶 SaaS 應用程式中還原 Azure SQL 資料庫 | Microsoft Docs
+title: 在多租使用者 SaaS 應用程式中還原 Azure SQL 資料庫
 description: 了解如何在不小心刪除資料之後還原單一租用戶 SQL 資料庫
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
-ms.openlocfilehash: 0776935215b608211ad4f6cd66112fb92e33a34b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0719fc5482e583218d42e808a4d94045a497f33c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570388"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692099"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>使用每一租用戶一個資料庫的 SaaS 應用程式還原單一租用戶
 
@@ -90,14 +90,14 @@ ms.locfileid: "68570388"
 
 此練習會將 Contoso Concert Hall 資料庫還原到刪除事件前的時間點。 此案例假設您需要在平行資料庫中檢閱已刪除的資料。
 
- Restore-TenantInParallel.ps1 指令碼會建立一個名為 ContosoConcertHall\_old 的平行租用戶資料庫，以及一個平行目錄項目。 此復原模式最適用於從較不嚴重的資料遺失進行復原。 如果您需要就合規性或稽核用途檢閱資料，也可以使用此模式。 當您使用的是[主動式異地複寫](sql-database-active-geo-replication.md)時，這是建議採用的方法。
+ Restore-TenantInParallel.ps1 指令碼會建立一個名為 ContosoConcertHall*old\_* 的平行租用戶資料庫，以及一個平行目錄項目。 此復原模式最適用於從較不嚴重的資料遺失進行復原。 如果您需要就合規性或稽核用途檢閱資料，也可以使用此模式。 當您使用的是[主動式異地複寫](sql-database-active-geo-replication.md)時，這是建議採用的方法。
 
 1. 完成[模擬租用戶不小心刪除資料的情況](#simulate-a-tenant-accidentally-deleting-data)一節。
 2. 在 PowerShell ISE 中開啟 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_。
 3. 設定 **$DemoScenario** = **2**，平行還原租用戶。
 4. 若要執行指令碼，請按 F5。
 
-此指令碼會將租用戶資料庫還原到刪除事件前的時間點。 資料庫會還原至名為 _ContosoConcertHall\_old_ 的新資料庫。 系統會將存在於還原資料庫中的目錄中繼資料刪除，並使用從 ContosoConcertHall\_old 名稱建構的索引鍵將資料庫新增至目錄。
+此指令碼會將租用戶資料庫還原到刪除事件前的時間點。 資料庫會還原至名為 _ContosoConcertHall\_old_ 的新資料庫。 系統會將存在於還原資料庫中的目錄中繼資料刪除，並使用從 ContosoConcertHall*old\_* 名稱建構的索引鍵將資料庫新增至目錄。
 
 此示範指令碼會在瀏覽器中開啟此租用戶資料庫的事件頁面。 請注意 URL：```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old```，此頁面顯示的資料來自所還原的資料庫，其中在名稱新增了 _old。
 
@@ -125,7 +125,7 @@ ms.locfileid: "68570388"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 將資料庫還原到平行資料庫 (並存)。

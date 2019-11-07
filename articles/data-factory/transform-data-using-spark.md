@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 中的 Spark 活動轉換資料 | Microsoft Docs
+title: 使用 Azure Data Factory 中的 Spark 活動轉換資料
 description: 了解如何使用 Spark 活動從 Azure Data Factory 管線執行 Spark 程式以轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312079"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683760"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動轉換資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-spark.md)
 > * [目前的版本](transform-data-using-spark.md)
 
@@ -58,11 +58,11 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-| 屬性              | 描述                              | 必要項 |
+| 屬性              | 說明                              | 必要 |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | 管線中的活動名稱。    | 是      |
-| description           | 說明活動用途的文字。  | 否       |
-| type                  | 對於 Spark 活動，活動類型為 HDInsightSpark。 | 是      |
+| 名稱                  | 管線中的活動名稱。    | 是      |
+| 說明           | 說明活動用途的文字。  | 否       |
+| 類型                  | 對於 Spark 活動，活動類型為 HDInsightSpark。 | 是      |
 | linkedServiceName     | Spark 程式執行所在的 HDInsight Spark 連結服務名稱。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | SparkJobLinkedService | 存放 Spark 作業檔案、相依性和記錄的 Azure 儲存體連結服務。  如果您未指定此屬性的值，則會使用與 HDInsight 叢集相關聯的儲存體。 這個屬性的值只能是 Azure 儲存體連結服務。 | 否       |
 | rootPath              | Spark 檔案所在的 Azure Blob 容器和資料夾。 檔案名稱有區分大小寫。 如需了解此資料夾結構的詳細資料，請參閱資料夾結構一節 (下一節)。 | 是      |
@@ -70,15 +70,15 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在
 | className             | 應用程式的 Java/Spark 主要類別      | 否       |
 | arguments             | Spark 程式的命令列引數清單。 | 否       |
 | proxyUser             | 模擬來執行 Spark 程式的使用者帳戶 | 否       |
-| sparkConfig           | 指定下列主題中所列的 Spark 組態屬性值：[Spark 組態 - 應用程式屬性](https://spark.apache.org/docs/latest/configuration.html#available-properties)。 | 否       |
-| getDebugInfo          | 指定何時將 Spark 記錄檔複製到 HDInsight 叢集所使用 (或) sparkJobLinkedService 所指定的 Azure 儲存體。 允許的值：None、Always 或 Failure。 預設值：無。 | 否       |
+| sparkConfig           | 指定下列主題中所列的 Spark 組態屬性值：[Spark 組態 - 應用程式屬性](https://spark.apache.org/docs/latest/configuration.html#available-properties) (英文)。 | 否       |
+| getDebugInfo          | 指定何時將 Spark 記錄檔複製到 HDInsight 叢集所使用 (或) sparkJobLinkedService 所指定的 Azure 儲存體。 允許的值︰None、Always 或 Failure。 預設值：None。 | 否       |
 
 ## <a name="folder-structure"></a>資料夾結構
 Spark 作業比 Pig/Hive 作業更具擴充性。 對於 Spark 作業，您可以提供多個相依性，例如 jar 套件 (置於 java CLASSPATH)、python 檔案 (置於 PYTHONPATH) 和任何其他檔案。
 
 在 HDInsight 連結服務所參考的 Azure Blob 儲存體中，建立下列資料夾結構。 然後，將相依檔案上傳至根資料夾中以 **entryFilePath** 表示的適當子資料夾。 比方說，將 python 檔案上傳至根資料夾的 pyFiles 子資料夾，將 jar 檔案上傳至 jars 子資料夾。 在執行階段，Data Factory 服務會預期 Azure Blob 儲存體中有下列資料夾結構︰     
 
-| Path                  | 描述                              | 必要項 | 類型   |
+| 路徑                  | 說明                              | 必要 | 類型   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (root)            | Spark 作業在儲存體連結服務中的根路徑 | 是      | 資料夾 |
 | &lt;使用者定義&gt; | 指向 Spark 作業輸入檔案的路徑 | 是      | 檔案   |
