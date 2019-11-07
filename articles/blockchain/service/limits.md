@@ -2,24 +2,24 @@
 title: Azure 區塊鏈限制
 description: Azure 區塊鏈 Service 中的服務和功能限制總覽
 services: azure-blockchain
-keywords: 區塊鏈
+keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: aeed84f19da3843d043eafef9d7444661901c53e
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20c26db9453220270d17801b74d904384c74cb36
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147137"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577224"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Azure 區塊鏈 Service 中的限制
 
-Azure 區塊鏈 Service 具有服務和功能限制, 例如成員可以擁有的節點數目、聯盟限制和儲存體數量。
+Azure 區塊鏈 Service 具有服務和功能限制，例如成員可以擁有的節點數目、聯盟限制和儲存體數量。
 
 ## <a name="pricing-tier"></a>定價層
 
@@ -48,19 +48,19 @@ Azure 區塊鏈 Service 具有服務和功能限制, 例如成員可以擁有的
 
 * **參與聯盟的所有成員都必須位於相同的區域**
 
-    聯盟中所建立的第一個成員會規定區域。 聯盟的受邀成員必須位於與第一個成員相同的區域中。 將所有成員限制在相同的區域, 有助於確保網路共識不會受到負面影響。
+    聯盟中所建立的第一個成員會規定區域。 聯盟的受邀成員必須位於與第一個成員相同的區域中。 將所有成員限制在相同的區域，有助於確保網路共識不會受到負面影響。
 
 * **聯盟必須至少有一位系統管理員**
 
-    如果聯盟中只有一個系統管理員, 他們就無法從聯盟移除自己, 或刪除其成員, 直到在聯盟中新增或升級另一個系統管理員為止。
+    如果聯盟中只有一個系統管理員，他們就無法從聯盟移除自己，或刪除其成員，直到在聯盟中新增或升級另一個系統管理員為止。
 
 * **無法再次新增從聯盟移除的成員**
 
-    相反地, 他們必須重複邀請, 才能加入聯盟並建立新的成員。 不會刪除其現有的成員資源來保留歷程記錄交易。
+    相反地，他們必須重複邀請，才能加入聯盟並建立新的成員。 不會刪除其現有的成員資源來保留歷程記錄交易。
 
 * **聯盟中的所有成員都必須使用相同的總帳版本**
 
-    如需有關 Azure 區塊鏈 Service 中可用修補、更新和總帳版本的詳細資訊, 請參閱[修補、更新和版本](ledger-versions.md)。
+    如需有關 Azure 區塊鏈 Service 中可用修補、更新和總帳版本的詳細資訊，請參閱[修補、更新和版本](ledger-versions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

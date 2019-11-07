@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fbe4f34bb27d2de662f11dbdd047356ff3d3941
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497396"
+ms.locfileid: "73580753"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>什麼是 Azure Machine Learning 工作區？
 
@@ -32,7 +32,7 @@ ms.locfileid: "73497396"
 
 此圖顯示工作區的下列元件：
 
-+ 工作區可以包含[Azure Machine Learning 的計算實例](concept-compute-instance.md)、使用執行 Azure Machine Learning 所需的 Python 環境所設定的雲端資源。
++ 工作區可以包含 Azure Machine Learning 的筆記本 Vm、使用執行 Azure Machine Learning 所需的 Python 環境所設定的雲端資源。
 + [使用者角色](how-to-assign-roles.md)可讓您與其他使用者、小組或專案共用您的工作區。
 + [計算目標](concept-azure-machine-learning-architecture.md#compute-targets)是用來執行您的實驗。
 + 當您建立工作區時，也會為您建立[相關聯的資源](#resources)。
@@ -75,11 +75,8 @@ ms.locfileid: "73497396"
 | 管理工作區存取    | **&check;**   || |  **&check;**    |
 | 升級至 Enterprise edition    | **&check;** |  | |     |
 | 建立和管理計算資源    |   | **&check;** | **&check;** |  **&check;**   |
-| 建立計算實例 | **&check;**  | **&check;** | **&check;** |     |
+| 建立筆記本 VM |   | **&check;** | |     |
 
-> [!NOTE]
-> 計算實例僅適用于區域為**美國中北部**或**英國南部**的工作區。
->如果您的工作區位於任何其他區域，您可以繼續建立並使用[筆記本 VM](concept-compute-instance.md#notebookvm) 。
 
 ## <a name='create-workspace'></a>建立工作區
 
@@ -101,7 +98,7 @@ ms.locfileid: "73497396"
 建立新的工作區時，會自動建立工作區使用的幾個 Azure 資源：
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)：註冊您在定型期間和部署模型時使用的 docker 容器。 為了將成本降至最低，在建立部署映射之前，會**延遲載入**ACR。
-+ [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)：用來作為工作區的預設資料存放區。  與您 Azure Machine Learning 計算實例搭配使用的 Jupyter 筆記本也會儲存在這裡。
++ [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)：用來作為工作區的預設資料存放區。  與 Azure Machine Learning 筆記本 VM 搭配使用的 Jupyter 筆記本也會儲存在這裡。
 + [Azure 應用程式 Insights](https://azure.microsoft.com/services/application-insights/)：儲存有關模型的監視資訊。
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)：儲存計算目標所使用的秘密，以及工作區所需的其他機密資訊。
 

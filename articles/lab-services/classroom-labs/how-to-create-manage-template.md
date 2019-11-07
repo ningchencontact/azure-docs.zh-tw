@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332769"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584826"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>在 Azure 實驗室服務中建立和管理教室範本
 實驗室中的範本是所有使用者的虛擬機器據以建立的基底虛擬機器映像。 設定範本虛擬機器以便能確實設定您要提供給實驗室使用者的虛擬機器。 您可以提供要給實驗室使用者查看的範本名稱與描述。 然後，發佈範本以便讓範本 VM 的執行個體可供實驗室使用者使用。 當您發佈範本時，Azure 實驗室服務會使用範本在實驗室中建立 VM。 在此程序中建立的 VM 數目與實驗室中允許的使用者數量上限相同 (此上限可在實驗室的使用原則中設定)。 所有虛擬機器都有與範本相同的設定。
@@ -40,12 +40,10 @@ ms.locfileid: "72332769"
 使用下列步驟來更新範本 VM。  
 
 1. 在 [**範本**] 頁面上，選取工具列上的 [**自訂範本**]。 
-
-    ![自訂範本按鈕](../media/how-to-create-manage-template/customize-template-button.png)
 2. 在 [**自訂範本**] 對話方塊中，選取 [**繼續**]。 當您啟動範本並進行變更後，它將不再具有與最後發佈給使用者的虛擬機器相同的設定。 在您再次發佈之前，範本變更不會反映在使用者的現有虛擬機器上。
 
     ![自訂對話方塊](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. 選取工具列上的 **[連線至範本]** 按鈕，以連線至範本 VM，並遵循指示進行。 如果是 Windows 電腦，您會看到下載 RDP 檔案的選項。 
+1. 等待範本 VM 啟動，然後選取工具列上的 **[連線至範本**] 以連線至範本 vm，並遵循指示進行。 如果是 Windows 電腦，您會看到下載 RDP 檔案的選項。 
 
     ![連線至範本 VM](../media/how-to-create-manage-template/connect-template-vm.png)
 1. 安裝學生使用實驗室所需的任何軟體 (例如，Visual Studio、Azure 儲存體總管等)。 

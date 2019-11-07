@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678380"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577068"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：對分散式應用程式進行分級
 
@@ -77,7 +77,7 @@ ms.locfileid: "72678380"
 
 ![Analytics 體驗的螢幕擷取畫面](media/app-map/analytics.png)
 
-### <a name="alerts"></a>警示
+### <a name="alerts"></a>Alerts
 
 若要檢視作用中警示和導致警示觸發的基礎規則，請選取 [警示]。
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+從 Application Insights JAVA SDK 2.5.0 開始，您可以藉由將 `<RoleName>` 新增至 `ApplicationInsights.xml` 檔案來指定雲端角色名稱，例如
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 如果您是使用 Spring Boot 搭配 Application Insights Spring Boot 入門版，只需設定您在 application.properties 檔案中應用程式的自訂名稱。
 
 `spring.application.name=<name-of-app>`
 
 春季開機 starter 會自動將雲端角色名稱指派給您為 spring.application.name 屬性輸入的值。
-
-如需有關 JAVA 相互關聯的詳細資訊，以及如何為非 SpringBoot 的應用程式設定雲端角色名稱，請參閱這[一節](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name)的相互關聯。
 
 ### <a name="clientbrowser-side-javascript"></a>用戶端/瀏覽器端 JavaScript
 
@@ -205,7 +214,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ![應用程式對應螢幕擷取畫面](media/app-map/cloud-rolename.png)
 
-在 [應用程式對應] 中，每個綠色方塊中的名稱都是此特定分散式應用程式不同層面的 [雲端角色名稱] 值。 因此，此應用程式的角色包含： `Authentication`、`acmefrontend`、`Inventory Management` `Payment Processing Worker Role`。 
+在 [應用程式對應] 中，每個綠色方塊中的名稱都是此特定分散式應用程式不同層面的 [雲端角色名稱] 值。 因此，此應用程式的角色包含： `Authentication`、`acmefrontend`、`Inventory Management``Payment Processing Worker Role`。 
 
 在此應用程式的案例中，每個雲端角色名稱也代表不同的唯一 Application Insights 資源，以及自己的檢測金鑰。 因為此應用程式的擁有者可以存取這四個不同的 Application Insights 資源，所以應用程式對應能夠將基礎關聯性的對應結合在一起。
 

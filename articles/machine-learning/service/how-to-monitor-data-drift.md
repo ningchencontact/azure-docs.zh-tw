@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489671"
+ms.locfileid: "73574346"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -161,14 +161,13 @@ datadrift.disable_schedule()
 
 您可以在[Azure Machine Learning studio](https://ml.azure.com)工作區中 [**詳細**資料] 索引標籤的 [**模型**] 底下，看到資料漂移偵測器的設定。
 
-![Azure Machine Learning studio 資料漂移](media/how-to-monitor-data-drift/drift-config.png)
+[![Azure Machine Learning studio 資料漂移](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
 ## <a name="view-results-in-your-azure-machine-learning-studio"></a>在 Azure Machine Learning studio 中查看結果
 
 若要在[Azure Machine Learning studio](https://ml.azure.com)中的工作區中查看結果，請流覽至 [模型] 頁面。 在模型的 [詳細資料] 索引標籤上，會顯示資料漂移設定。 [**資料漂移**] 索引標籤現在可以視覺化資料漂移計量。 
 
 [![Azure Machine Learning studio 資料漂移](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
 
 ## <a name="receiving-drift-alerts"></a>接收漂移警示
 

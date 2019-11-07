@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 60d5b8197e142306a51922ce0e042ed2463457d6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301226"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584370"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>適用于 Linux 的 Key Vault 虛擬機器擴充功能
 
@@ -29,7 +29,7 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示金鑰保存庫 VM 擴充功能的結構描述。 此擴充功能不需要受保護的設定，其所有設定都會被視為沒有安全性影響的資訊。 此擴充功能需要有受監視的祕密、輪詢頻率和目的地憑證存放區的清單。 尤其是：  
+下列 JSON 顯示金鑰保存庫 VM 擴充功能的結構描述。 此擴充功能不需要受保護的設定，其所有設定都會被視為沒有安全性影響的資訊。 此擴充功能需要有受監視的祕密、輪詢頻率和目的地憑證存放區的清單。 具體而言：  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -61,22 +61,22 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
 > [!NOTE]
 > 您觀察到的憑證 Url 的格式應為 `https://myVaultName.vault.azure.net/secrets/myCertName`。
 > 
-> 這是因為 `/secrets` 路徑會傳回完整憑證（包括私密金鑰），而 @no__t 1 路徑則不會。 如需憑證的詳細資訊，請參閱：[Key Vault 憑證](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> 這是因為 `/secrets` 路徑會傳回完整憑證，包括私密金鑰，而 `/certificates` 路徑則不會。 如需憑證的詳細資訊，請參閱： [Key Vault 憑證](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault.Edp | string |
-| 型別 | KeyVaultForLinux | string |
+| apiVersion | 2019-07-01 | 日期 |
+| publisher | Microsoft.Azure.KeyVault.Edp | 字串 |
+| 類型 | KeyVaultForLinux | 字串 |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
-| certificateStoreName | MY | string |
-| linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | boolean |
+| pollingIntervalInS | 3600 | 字串 |
+| certificateStoreName | MY | 字串 |
+| linkOnRenewal | false | 布林值 |
+| certificateStoreLocation  | LocalMachine | 字串 |
+| requiredInitialSync | true | 布林值 |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 字串陣列
 
 

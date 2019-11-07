@@ -7,16 +7,19 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/26/2019
 ms.author: victorh
-ms.openlocfilehash: a7622489008a8fabef8aee3ffb2ffc4f33b48296
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516665"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606477"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>建立應用程式閘道的 Web 應用程式防火牆原則
 
 將 WAF 原則與接聽程式產生關聯，可讓單一 WAF 背後的多個網站受到不同原則的保護。 例如，如果您的 WAF 背後有五個網站，您可以有五個不同的 WAF 原則（每個接聽程式各一個），以自訂一個網站的排除專案、自訂規則和受控規則集，而不會影響其他四個。 如果您想要將單一原則套用至所有網站，您可以只將原則與應用程式閘道（而不是個別的接聽程式）建立關聯，使其成為全域適用。 原則也可以套用至以路徑為基礎的路由規則。 
+
+   > [!NOTE]
+   > 美國中南部和北歐皆提供每個網站的 WAF 原則。 若要在入口網站中存取它們，請使用[此連結](https://aka.ms/AppgwwafWithAllFeatureFlags)，直到每個人都上線為止。  
 
 您可以視需要建立任意數量的原則。 一旦您建立原則，它必須與應用程式閘道相關聯，才會生效，但它可以與應用程式閘道和接聽項的任何組合相關聯。 
 

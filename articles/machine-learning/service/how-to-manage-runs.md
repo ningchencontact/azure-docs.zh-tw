@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 32b477a108649abd3faedd70d1a3b54b31089b9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489709"
+ms.locfileid: "73574318"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中啟動、監視和取消定型執行
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -343,3 +343,4 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要瞭解如何為您的實驗記錄計量，請參閱[定型執行期間的記錄計量](how-to-track-experiments.md)。
+* 若要瞭解如何從 Azure Machine Learning 監視資源和記錄，請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。

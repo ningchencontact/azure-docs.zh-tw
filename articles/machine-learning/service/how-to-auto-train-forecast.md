@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497393"
+ms.locfileid: "73580698"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -181,7 +181,7 @@ best_run, fitted_model = local_run.get_output()
 
 為了利用 Dnn 進行預測，您必須將 AutoMLConfig 中的 `enable_dnn` 參數設定為 true。 
 
-若要使用 Dnn，建議使用具有 GPU Sku 的 AML 計算叢集，以及至少2個節點做為計算目標。 如需詳細資訊，請參閱[AML 計算檔](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute)。 如需包含 Gpu 之 VM 大小的詳細資訊，請參閱[GPU 優化虛擬機器大小](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu)。
+若要使用 Dnn，建議使用具有 GPU Sku 的 AML 計算叢集，以及至少2個節點做為計算目標。 如需詳細資訊，請參閱[AML 計算檔](how-to-set-up-training-targets.md#amlcompute)。 如需包含 Gpu 之 VM 大小的詳細資訊，請參閱[GPU 優化虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)。
 
 若要讓 DNN 訓練有足夠的時間完成，建議您將實驗時間設定為至少幾個小時。
 

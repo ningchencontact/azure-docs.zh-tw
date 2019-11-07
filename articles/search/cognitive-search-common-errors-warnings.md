@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6ed04c875140f3ecd14eff31829e931efbe84ea2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466767"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606657"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure 認知搜尋中 AI 擴充管線的常見錯誤和警告
 
@@ -32,7 +32,7 @@ ms.locfileid: "73466767"
 ### <a name="could-not-read-document"></a>無法讀取檔
 索引子無法從資料來源讀取檔。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 動作 |
+| 原因 | 範例 | 行動 |
 | --- | --- | --- |
 | 跨不同檔的欄位類型不一致 | 值的類型與資料行類型不相符。 無法在 [作者] 資料行中儲存 `'{47.6,-122.1}'`。  預期的類型為 JArray。 | 請確定每個欄位的類型在不同的檔中都相同。 例如，如果第一個檔 `'startTime'` 欄位是日期時間，而第二個檔是字串，則會遇到此錯誤。 |
 | 來自資料來源之基礎服務的錯誤 | （從 Cosmos DB） `{"Errors":["Request rate is large"]}` | 檢查您的儲存體實例，以確保其狀況良好。 您可能需要調整您的縮放/分割。 |
@@ -41,7 +41,7 @@ ms.locfileid: "73466767"
 ### <a name="could-not-extract-document-content"></a>無法解壓縮檔內容
 具有 Blob 資料來源的索引子無法從檔解壓縮內容（例如，PDF 檔案）。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 動作 |
+| 原因 | 範例 | 行動 |
 | --- | --- | --- |
 | blob 超過大小限制 | 檔為 `'150441598'` 個位元組，超過目前服務層級的檔解壓縮的大小上限 `'134217728'` 個位元組。 | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob 具有不支援的內容類型 | 檔具有不支援的內容類型 `'image/png'` | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -51,7 +51,7 @@ ms.locfileid: "73466767"
 ### <a name="could-not-parse-document"></a>無法剖析檔
 索引子從資料來源讀取檔，但將檔內容轉換成指定的欄位對應架構時發生問題。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 動作 |
+| 原因 | 範例 | 行動 |
 | --- | --- | --- |
 | 缺少檔索引鍵 | 檔索引鍵不能遺失或空白 | 確保所有檔都具有有效的檔索引鍵 |
 | 檔索引鍵無效 | 檔索引鍵的長度不能超過1024個字元 | 修改檔索引鍵以符合驗證需求。 |
@@ -61,7 +61,7 @@ ms.locfileid: "73466767"
 ### <a name="could-not-execute-skill"></a>無法執行技能
 索引子無法在技能集中執行技能。
 
-| 原因 | 範例 | 動作 |
+| 原因 | 範例 | 行動 |
 | --- | --- | --- |
 | 暫時性連線問題 | 發生暫時性錯誤。 請稍後再試一次。 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
 | 潛在的產品 bug | 發生意外錯誤。 | 這表示不明的失敗類別，可能表示有產品錯誤。 請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)以取得協助。 |
@@ -110,7 +110,7 @@ ms.locfileid: "73466767"
 
 已讀取並處理檔，但索引子無法將它新增至搜尋索引。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 動作 |
+| 原因 | 範例 | 行動 |
 | --- | --- | --- |
 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 欄位包含太大的詞彙 | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | 檔太大，無法編制索引 | [如何為大型資料集編制索引](search-howto-large-index.md)
@@ -161,7 +161,7 @@ ms.locfileid: "73466767"
 }
 ```
 
-| 原因 | 範例 | 動作 |
+| 原因 | 範例 | 行動 |
 | --- | --- | --- |
 | 技能輸入的類型錯誤 | 所需的技能輸入 `X` 不是預期的類型 `String`。 所需的技能輸入 `X` 不是預期的格式。 | 某些技能預期特定類型的輸入，例如[情感技能](cognitive-search-skill-sentiment.md)預期 `text` 為字串。 如果輸入指定非字串值，則技能不會執行，而且不會產生任何輸出。 請確定您的資料集具有類型的輸入值一致，或使用[自訂 WEB API 技能](cognitive-search-custom-skill-web-api.md)來前置處理輸入。 如果您要在陣列上逐一查看技能，請檢查技能內容和輸入是否有 `*` 在正確的位置。 通常內容和輸入來源的結尾都應該是陣列的 `*`。 |
 | 缺少技能輸入 | 缺少必要的技能輸入 `X`。 | 如果您的所有檔都收到此警告，則輸入路徑中很可能出現錯誤，您應該仔細檢查屬性名稱的大小寫、路徑中的額外或遺失 `*`，以及來自資料來源的檔會定義所需的輸入。 |
@@ -224,7 +224,12 @@ ms.locfileid: "73466767"
 
 您可以覆寫此行為，使用 [`assumeOrderByHighWatermarkColumn` 設定] 屬性來啟用累加進度，並隱藏這個警告。
 
-[Cosmos DB 增量進度和自訂查詢的詳細資訊。](https://go.microsoft.com/fwlink/?linkid=2099593)
+如需詳細資訊，請參閱[增量進度和自訂查詢](search-howto-index-cosmosdb.md#IncrementalProgress)。
+
+### <a name="truncated-extracted-text-to-x-characters"></a>已將解壓縮的文字截斷成 X 個字元
+索引子會限制可以從任何一份檔中解壓縮多少文字。 此限制取決於定價層：免費層的32000個字元、適用于基本的64000，以及標準、標準 S2 和標準 S3 層的4000000。 已截斷的文字將不會編制索引。 若要避免這個警告，請嘗試將包含大量文字的檔分解成多個小型的檔。 
+
+如需詳細資訊，請參閱[索引子限制](search-limits-quotas-capacity.md#indexer-limits)。
 
 ### <a name="could-not-map-output-field-x-to-search-index"></a>無法將輸出欄位 ' X ' 對應至搜尋索引
 參考不存在/null 資料的輸出欄位對應會產生每份檔的警告，並產生空的索引欄位。 若要解決此問題，請仔細檢查輸出欄位對應來源路徑是否可能出現錯誤，或使用[條件式技能](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist)來設定預設值。

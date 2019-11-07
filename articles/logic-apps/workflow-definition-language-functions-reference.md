@@ -1,6 +1,6 @@
 ---
 title: 運算式中函數的參考指南-Azure Logic Apps
-description: Azure Logic Apps 和 Microsoft Flow 運算式中函數的參考指南
+description: Azure Logic Apps 和電源自動化之運算式中函式的參考指南
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: 1d5197f585fde5388fdafac887d6a1454d6131e9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: db33708fb96ff3e1982579c11a3928750a076f65
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177087"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582680"
 ---
-# <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>在 Azure Logic Apps 和 Microsoft Flow 的運算式中使用函數的參考指南
+# <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>在運算式中使用函數來進行 Azure Logic Apps 和電源自動化的參考指南
 
-對於[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和[Microsoft Flow](https://docs.microsoft.com/flow/getting-started)中的工作流程定義，某些[運算式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)會從工作流程開始執行時可能還不存在的執行時間動作中取得其值。 若要參考這些值或處理這些運算式中的值，您可以使用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所提供的*函數*。 
+對於[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和[電源自動化](https://docs.microsoft.com/flow/getting-started)中的工作流程定義，某些[運算式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)會從工作流程開始執行時可能還不存在的執行時間動作中取得其值。 若要參考這些值或處理這些運算式中的值，您可以使用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所提供的*函數*。 
 
 > [!NOTE]
-> 此參考頁面同時適用于 Azure Logic Apps 和 Microsoft Flow，但會出現在 Azure Logic Apps 檔中。 雖然此頁面特別參考邏輯應用程式，但這些函數適用于流程和邏輯應用程式。 如需 Microsoft Flow 中函數和運算式的詳細資訊，請參閱[在條件中使用運算式](https://docs.microsoft.com/flow/use-expressions-in-conditions)。
+> 此參考頁面同時適用于 Azure Logic Apps 和電源自動化，但會出現在 Azure Logic Apps 檔中。 雖然此頁面特別參考邏輯應用程式，但這些函數適用于流程和邏輯應用程式。 如需電源自動化中函數和運算式的詳細資訊，請參閱[在條件中使用運算式](https://docs.microsoft.com/flow/use-expressions-in-conditions)。
 
 例如，當您想要整數或浮點數的總和時，您可以使用數學函數（例如[add （）函數](../logic-apps/workflow-definition-language-functions-reference.md#add)）來計算值。 以下是您可以使用函式執行的其他工作範例：
 
@@ -1884,7 +1884,7 @@ first(createArray(0, 1, 2))
 
 <a name="float"></a>
 
-### <a name="float"></a>FLOAT
+### <a name="float"></a>float
 
 將浮點數的字串版本轉換為實際浮點數。
 只有在將自訂參數傳遞給應用程式時，才可以使用此函式，例如邏輯應用程式或流程。
@@ -3727,7 +3727,7 @@ startsWith('hello world', 'greetings')
 
 <a name="string"></a>
 
-### <a name="string"></a>string
+### <a name="string"></a>字串
 
 傳回值的字串版本。
 

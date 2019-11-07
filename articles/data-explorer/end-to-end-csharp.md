@@ -1,39 +1,41 @@
 ---
-title: 使用在 Azure 資料總管中內嵌的端對端 BlobC#
-description: 在本文中，您將瞭解如何使用C#的端對端範例，將 blob 內嵌至 Azure 資料總管。
+title: 透過在 Azure 資料總管中內嵌的端對端 blobC#
+description: 在本文中，您將瞭解如何透過使用C#的端對端範例，將 blob 內嵌至 Azure 資料總管。
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 7d737319c9ddc8040a7cae6f7a9991c625cc4fcd
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: e22621083a44555cb3eda615c610f673cd841ec1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809592"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581843"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-using-c"></a>使用在 Azure 資料總管中內嵌的端對端 BlobC#
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>透過在 Azure 資料總管中內嵌的端對端 blobC#
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure 資料總管是一項快速又可調整的資料探索服務，可用於處理記錄和遙測資料。 本文提供有關如何將資料從 Blob 儲存體內嵌至 Azure 資料總管的端對端範例。 您將瞭解如何以程式設計方式建立資源群組、儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 您也將瞭解如何以程式設計方式設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。
+Azure 資料總管是一項快速又可調整的資料探索服務，可用於處理記錄和遙測資料。 本文提供如何將資料從 Azure Blob 儲存體內嵌至 Azure 資料總管的端對端範例。 
+
+您將瞭解如何以程式設計方式建立資源群組、儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 您也將瞭解如何以程式設計方式設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。
 
 ## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="install-c-nuget"></a>安裝C# Nuget
+## <a name="install-c-nuget"></a>安裝C# NuGet
 
 * 請安裝[kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
 * 安裝[Microsoft. Azure 管理元件](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)。
 * 請安裝[EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/)。
-* 安裝[Microsoft Azure. 儲存體 Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)。
-* 安裝[ClientRuntime](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)驗證以進行驗證。
+* 安裝[Microsoft Azure 儲存體 Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)。
+* 安裝[ClientRuntime](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)以進行驗證。
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
@@ -41,16 +43,18 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
 
 ## <a name="code-example"></a>程式碼範例 
 
-下列程式碼範例會提供逐步程式，導致資料內嵌至 Azure 資料總管。 您必須先建立資源群組和 Azure 資源（例如儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫）。 接著，您會在 Azure 資料總管資料庫中建立事件方格訂用帳戶和資料表和資料行對應。 最後，您會建立資料連線來設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。 
+下列程式碼範例會逐步解說如何使資料內嵌至 Azure 資料總管。 
+
+您必須先建立資源群組。 您也會建立 Azure 資源，例如儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 接著，您會在 Azure 資料總管資料庫中建立 Azure 事件方格訂用帳戶，以及資料表和資料行對應。 最後，您會建立資料連線來設定 Azure 資料總管，以從新的儲存體帳戶內嵌資料。 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
-var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
+var clientSecret = "xxxxxxxxxxxxxx";//Client secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 string location = "West Europe";
 string locationSmallCase = "westeurope";
-string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//path to the Azure Resource Manager template json from the previous section
+string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//Path to the Azure Resource Manager template JSON from the previous section
 
 string deploymentName = "e2eexample";
 string resourceGroupName = deploymentName + "resourcegroup";
@@ -147,14 +151,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **設定** | **欄位描述** |
 |---|---|---|
-| tenantId | 您的租用戶識別碼。 也稱為目錄識別碼。|
+| tenantId | 您的租用戶識別碼。 它也稱為目錄識別碼。|
 | subscriptionId | 您用來建立資源的訂用帳戶識別碼。|
 | clientId | 應用程式的用戶端識別碼，可存取您租使用者中的資源。|
 | clientSecret | 應用程式的用戶端密碼，可以存取您租使用者中的資源。 |
 
 ## <a name="test-the-code-example"></a>測試程式碼範例
 
-1. 將檔案上傳到儲存體帳戶
+1. 將檔案上傳到儲存體帳戶。
 
     ```csharp
     string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
@@ -170,7 +174,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     |---|---|---|
     | storageConnectionString | 以程式設計方式建立之儲存體帳戶的連接字串。|
 
-2. 在 Azure 資料總管中執行測試查詢
+2. 在 Azure 資料總管中執行測試查詢。
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -205,7 +209,7 @@ await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 
 ## <a name="next-steps"></a>後續步驟
 
-*  [建立 Azure 資料總管叢集和資料庫](create-cluster-database-csharp.md)，以瞭解建立叢集和資料庫的其他方式。
-* [Azure 資料總管資料擷取](ingest-data-overview.md)，以深入瞭解擷取方法。
-* [快速入門：在 Azure 資料總管中查詢資料](web-query-data.md)Web UI。
+*  若要深入瞭解建立叢集和資料庫的其他方式，請參閱[建立 Azure 資料總管叢集和資料庫](create-cluster-database-csharp.md)。
+* 若要深入瞭解內嵌方法，請參閱[Azure 資料總管資料](ingest-data-overview.md)內嵌。
+* 若要深入瞭解 web 應用程式，請參閱[快速入門：在 Azure 資料總管 WEB UI 中查詢資料](web-query-data.md)。
 * 使用 Kusto 查詢語言[撰寫查詢](write-queries.md)。

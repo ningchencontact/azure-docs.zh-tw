@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063965"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576865"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -35,7 +35,7 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 ## <a name="example"></a>範例
 
-讓我們以名為 Stock Prices 的應用程式為例，它使用名為 `Stock` 的外部 API 來顯示目前的股市價格。 Stock Prices 應用程式有一個名為 `Stock page` 的頁面，用戶端網頁瀏覽器會使用 `GET /Home/Stock` 來開啟此頁面。 此應用程式會使用 `GET /api/stock/value` HTTP 呼叫來查詢 `Stock` API。
+讓我們以名為 Stock Prices 的應用程式為例，它使用名為 `Stock` 的外部 API 來顯示目前的股市價格。 Stock Prices 應用程式有一個名為 `Stock page` 的頁面，用戶端網頁瀏覽器會使用 `GET /Home/Stock` 來開啟此頁面。 此應用程式會使用 `Stock` HTTP 呼叫來查詢 `GET /api/stock/value` API。
 
 您可以執行查詢來分析產生的遙測︰
 
@@ -90,8 +90,8 @@ W3C 追蹤內容支援是以回溯相容方式來完成，而相互關聯預期�
 `Microsoft.ApplicationInsights.Web` 和 `Microsoft.ApplicationInsights.DependencyCollector` 套件從 2.8.0-beta1 版開始，有提供此功能。
 此功能預設為停用。 若要啟用它，請變更 `ApplicationInsights.config`：
 
-- 在 `RequestTrackingTelemetryModule` 底下，新增值設定為 `true` 的 `EnableW3CHeadersExtraction` 元素。
-- 在 `DependencyTrackingTelemetryModule` 底下，新增值設定為 `true` 的 `EnableW3CHeadersInjection` 元素。
+- 在 `RequestTrackingTelemetryModule` 底下，新增值設定為 `EnableW3CHeadersExtraction` 的 `true` 元素。
+- 在 `DependencyTrackingTelemetryModule` 底下，新增值設定為 `EnableW3CHeadersInjection` 的 `true` 元素。
 - 在 `TelemetryInitializers` 之下新增 `W3COperationCorrelationTelemetryInitializer`，類似于 
 
 ```xml
@@ -168,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>啟用 Web 應用程式的 W3C 分散式追蹤支援
 
-這項功能在 `Microsoft.ApplicationInsights.JavaScript` 中。 此功能預設為停用。 若要啟用它，請使用 `distributedTracingMode` config。AI_AND_W3C 是針對與任何舊版 Application Insights 檢測服務的回溯相容性所提供：
+這項功能在 `Microsoft.ApplicationInsights.JavaScript`中。 此功能預設為停用。 若要啟用它，請使用 `distributedTracingMode` config。AI_AND_W3C 是針對與任何舊版 Application Insights 檢測服務的回溯相容性所提供：
 
 - **NPM 設定（如果使用程式碼片段設定則忽略）**
 
@@ -205,11 +205,11 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`，`PageView`                 | `span.kind = server` 的 `Span`                  |
-| `Dependency`                          | `span.kind = client` 的 `Span`                  |
-| `Request` 和 `Dependency` 的 `Id`    | `SpanId`                                          |
+| `Request`、`PageView`                 | `Span` 的 `span.kind = server`                  |
+| `Dependency`                          | `Span` 的 `span.kind = client`                  |
+| `Id` 和 `Request` 的 `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | 類型 `ChildOf` 的 `Reference` (父代範圍)   |
+| `Operation_ParentId`                  | 類型 `Reference` 的 `ChildOf` (父代範圍)   |
 
 如需詳細資訊，請參閱 [Application Insights 遙測資料模型](../../azure-monitor/app/data-model.md)。 
 
@@ -248,10 +248,10 @@ if __name__ == '__main__':
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
-查看[追蹤內容標頭格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，我們衍生了下列資訊： `version`： `00` 
- `trace-id`： `4bf92f3577b34da6a3ce929d0e0e4736` 
- `parent-id/span-id`： `00f067aa0ba902b7` 
- 0： 1
+查看[追蹤內容標頭格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，我們衍生了下列資訊： `version`： `00`
+`trace-id`： `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`： `00f067aa0ba902b7`
+`trace-flags`： `01`
 
 如果我們查看已傳送給 Azure 監視器的要求專案，我們可以看到以追蹤標頭資訊填入的欄位。 您可以在 Azure 監視器 Application Insights 資源中的 [記錄（分析）] 下找到此資料。
 
@@ -289,7 +289,7 @@ logger.warning('After the span')
 2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
-觀察 span 內記錄訊息的 spanId，這是屬於名為 `hello` 之範圍的相同 spanId。
+觀察 span 內記錄訊息的 spanId，這是屬於名為 `hello`之範圍的相同 spanId。
 
 您可以使用 `AzureLogHandler`匯出記錄檔資料。 您可以在 [這裡](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
@@ -304,7 +304,7 @@ logger.warning('After the span')
 
 不過，這些方法並未促成自動分散式追蹤支援。 `DiagnosticSource` 是一種支援自動跨電腦相互關聯的方法。 .NET 程式庫支援 'DiagnosticSource'，並允許透過傳輸 (例如 HTTP) 自動跨電腦傳播相互關聯內容。
 
-`DiagnosticSource` 中的[活動指南](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)說明了追蹤活動的基本概念。
+[ 中的](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)活動指南`DiagnosticSource`說明了追蹤活動的基本概念。
 
 ASP.NET Core 2.0 支援擷取 HTTP 標頭和啟動新的活動。
 
@@ -334,25 +334,22 @@ Application Insights SDK 從 2.4.0-beta1 版開始，會使用 `DiagnosticSource
 
 有時候，您可以自訂元件名稱在[應用程式對應](../../azure-monitor/app/app-map.md)中的顯示方式。 若要這樣做，您可以用下列其中一項動作手動設定 `cloud_RoleName`：
 
+- 從 Application Insights JAVA SDK 2.5.0 開始，您可以藉由將 `<RoleName>` 新增至 `ApplicationInsights.xml` 檔案來指定雲端角色名稱，例如
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - 如果您是使用 Spring Boot 搭配 Application Insights Spring Boot 入門版，只需設定您在 application.properties 檔案中應用程式的自訂名稱。
 
   `spring.application.name=<name-of-app>`
 
   Spring Boot 入門版會自動將 `cloudRoleName` 指派給您為 `spring.application.name` 屬性輸入的值。
-
-- 如果您使用 `WebRequestTrackingFilter`，則 `WebAppNameContextInitializer` 會自動設定應用程式名稱。 將下列新增至組態檔 (ApplicationInsights.xml)：
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- 如果您使用雲端內容類別：
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## <a name="next-steps"></a>後續步驟
 

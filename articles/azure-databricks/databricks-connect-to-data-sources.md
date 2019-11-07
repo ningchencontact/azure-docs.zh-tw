@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f40edec088172bf7460d99b611e6be80f818ff9c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597496"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601898"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>從 Azure Databricks 連線到資料來源
 
@@ -26,34 +26,34 @@ ms.locfileid: "72597496"
 
 ## <a name="data-sources-for-azure-databricks"></a>Azure Databricks 的資料來源
 
-下列清單提供 Azure 中可搭配 Azure Databricks 使用的資料來源。 如需可搭配 Azure Databricks 使用的完整資料來源清單，請參閱 [Azure Databricks 的資料來源](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)。
+下列清單提供 Azure 中可搭配 Azure Databricks 使用的資料來源。 如需可搭配 Azure Databricks 使用的完整資料來源清單，請參閱 [Azure Databricks 的資料來源](/azure/databricks/data/data-sources/index.html)。
 
-- [Azure SQL 資料庫](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
+- [Azure SQL 資料庫](/azure/databricks/data/data-sources/sql-databases.html)
 
     此連結提供使用 JDBC 連線到 SQL 資料庫的 DataFrame API，以及如何控制透過 JDBC 介面的讀取平行處理原則。 本主題提供使用 Scala API 的詳細範例，並於結尾提供簡短的 Python 和 Spark SQL 範例。
-- [Azure Data Lake 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
+- [Azure Data Lake 儲存體](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html)
 
     此連結提供如何使用 Azure Active Directory 服務主體向 Azure Data Lake Storage 進行驗證的範例。 它也提供如何從 Azure Databricks 存取 Azure Data Lake Storage 中資料的指示。
 
-- [Azure Blob 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
+- [Azure Blob 儲存體](/azure/databricks/data/data-sources/azure/azure-storage.html)
 
     此連結提供如何使用存取金鑰或給定容器的 SAS，直接從 Azure Databricks 存取 Azure Blob 儲存體的範例。 此連結也提供如何使用 RDD API 從 Azure Databricks 存取 Azure Blob 儲存體的資訊。
 
-- [Azure Cosmos DB](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
+- [Azure Cosmos DB](/azure/databricks/data/data-sources/azure/cosmosdb-connector.html)
 
     此連結提供如何從 Azure Databricks 使用 [Azure Cosmos DB Spark 連接器](https://github.com/Azure/azure-cosmosdb-spark)存取 Azure Cosmos DB 中資料的指示。
 
-- [Azure 事件中樞](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/eventhubs-connector.html)
+- [Azure 事件中樞](/azure/databricks/data/data-sources/azure/eventhubs-connector.html)
 
     此連結提供如何從 Azure Databricks 使用 [Azure 事件中樞 Spark 連接器](https://github.com/Azure/azure-event-hubs-spark)存取 Azure 事件中樞中資料的指示。
 
-- [Azure SQL 資料倉儲](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/sql-data-warehouse.html)
+- [Azure SQL 資料倉儲](/azure/databricks/data/data-sources/azure/sql-data-warehouse.html)
 
     此連結提供如何從 Azure Databricks 使用 Azure SQL 資料倉儲連接器連線的指示。
     
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解可從中將資料匯入 Azure Databricks 的來源，請參閱 [Azure Databricks 的資料來源](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#)。
+若要了解可從中將資料匯入 Azure Databricks 的來源，請參閱 [Azure Databricks 的資料來源](/azure/databricks/data/data-sources/index.html#)。
 
 

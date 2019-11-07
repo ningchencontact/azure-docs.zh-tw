@@ -1,25 +1,25 @@
 ---
-title: Azure HPC 快取預覽資料內嵌-msrsync
+title: Azure HPC 快取資料內嵌-msrsync
 description: 如何使用 msrsync 將資料移至 Azure HPC Cache 中的 Blob 儲存體目標
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6eac6c367be42021a4654f85c8f4ec980c9f6925
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3e5937a036763fab57f9e37494ace33e8452b1f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255292"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582261"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---msrsync-method"></a>Azure HPC Cache （預覽）資料內嵌-msrsync 方法
+# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC 快取資料內嵌-msrsync 方法
 
-本文提供詳細的指示，說明如何使用 @no__t 0 公用程式，將資料複製到 Azure Blob 儲存體容器，以與 Azure HPC 快取搭配使用。
+本文提供詳細指示，說明如何使用 ``msrsync`` 公用程式，將資料複製到 Azure Blob 儲存體容器，以與 Azure HPC 快取搭配使用。
 
 若要深入瞭解如何將資料移至 Azure HPC 快取的 Blob 儲存體，請參閱[將資料移至 Azure blob 儲存體以進行 AZURE hpc](hpc-cache-ingest.md)快取。
 
-@No__t-0 工具可以用來將資料移至 Azure HPC 快取的後端儲存體目標。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync 。
+``msrsync`` 工具可以用來將資料移至 Azure HPC 快取的後端儲存體目標。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync。
 
 ``msrsync`` 會將來源目錄分解成個別的「貯體」，然後在每個貯體上執行個別的 ``rsync`` 處理序。
 

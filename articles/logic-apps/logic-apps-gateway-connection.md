@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988743"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580860"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -28,8 +28,8 @@ ms.locfileid: "72988743"
 如需如何使用閘道與其他服務的資訊，請參閱下列文章：
 
 * [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Flow 內部部署資料閘道](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [自動執行內部部署資料閘道的電源](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft Power Apps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -81,7 +81,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 在 [**建立連線閘道**] 底下，為您的閘道資源提供此資訊。 當您完成時，選取 [建立]。
 
-   | 屬性 | 描述 |
+   | 屬性 | 說明 |
    |----------|-------------|
    | **資源名稱** | 提供閘道資源的名稱，其中只包含字母、數位、連字號（`-`）、底線（`_`）、括弧（`(`、`)`）或句點（`.`）。 |
    | **訂用帳戶** | 為用於閘道安裝的 Azure 帳戶選取 Azure 訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。 |
@@ -96,7 +96,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>連接至內部部署資料
+## <a name="connect-to-on-premises-data"></a>連線至內部部署資料
 
 在您建立閘道資源並且讓 Azure 訂用帳戶與此資源相關聯之後，即可使用閘道，建立邏輯應用程式與內部部署資料來源之間的連線。
 
@@ -117,7 +117,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
    唯一的連線名稱可協助您稍後輕鬆地找到該連接，特別是當您建立多個連接時。 如果情況允許，也請在使用者名稱中包含完整網域。
 
-   範例如下：
+   下列是一個範例：
 
    ![建立邏輯應用程式與資料閘道之間的連線](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 

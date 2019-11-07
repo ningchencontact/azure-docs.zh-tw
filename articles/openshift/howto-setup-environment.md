@@ -1,129 +1,118 @@
 ---
-title: 設定 Azure 的 Red Hat OpenShift 開發環境 |Microsoft Docs
-description: 以下是使用 Microsoft Azure 的 Red Hat OpenShift 的必要條件。
+title: 設定您的 Azure Red Hat OpenShift 開發環境 |Microsoft Docs
+description: 以下是使用 Microsoft Azure Red Hat OpenShift 的必要條件。
 services: openshift
-keywords: red hat openshift 設定設定
+keywords: red hat openshift 安裝程式已設定
 author: jimzim
 ms.author: jzim
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 manager: jeconnoc
-ms.openlocfilehash: a31655e8c8805505bdcc5e90bf25191590d35c18
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: fa09ed90258a62d37dafeea5f4760e1fabdc210b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581604"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>設定您的 Azure Red Hat OpenShift 開發環境
 
-若要建置並執行 Microsoft Azure 的 Red Hat OpenShift 的應用程式，您將需要：
+若要建立並執行 Microsoft Azure Red Hat OpenShift 應用程式，您必須：
 
-* 購買 Azure 保留的虛擬機器執行個體。
-* 安裝新版 2.0.65 （或更新版本） 的 Azure CLI （或使用 Azure Cloud Shell）。
-* 報名`AROGA`功能和相關聯的資源提供者。
-* 建立 Azure Active Directory (Azure AD) 租用戶。
+* 安裝 Azure CLI （或更高版本）的2.0.65 （或使用 Azure Cloud Shell）。
+* 註冊 `AROGA` 功能和相關聯的資源提供者。
+* 建立 Azure Active Directory （Azure AD）租使用者。
 * 建立 Azure AD 應用程式物件。
 * 建立 Azure AD 使用者。
 
-下列指示將引導您完成所有這些必要條件。
-
-## <a name="purchase-azure-red-hat-openshift-application-nodes-reserved-instances"></a>購買 Azure 的 Red Hat OpenShift 的應用程式節點保留執行個體
-
-您可以使用 Azure 的 Red Hat OpenShift 之前，您將需要購買至少 4 個 Azure 保留的 Red Hat OpenShift 的應用程式節點之後, 您將能夠佈建叢集。
-
-如果您是 Azure 的客戶[購買 Azure 保留的 Red Hat OpenShift 的執行個體](https://aka.ms/openshift/buy)透過 Azure 入口網站。 之後購買，您的訂用帳戶將會啟用在 24 小時內。
-
-如果您不是 Azure 的客戶[連絡銷售員](https://aka.ms/openshift/contact-sales)並填妥頁面底部的啟動程序的銷售表單。
-
-請參閱[Azure 定價頁面上的 Red Hat OpenShift](https://aka.ms/openshift/pricing)如需詳細資訊。
+下列指示將引導您完成上述所有必要條件。
 
 ## <a name="install-the-azure-cli"></a>安裝 Azure CLI
 
-Azure 的 Red Hat OpenShift 需要版本 2.0.65 或更高版本的 Azure cli。 如果您已經安裝 Azure CLI，您可以檢查您的執行哪一個版本：
+Azure Red Hat OpenShift 需要版本2.0.65 或更高的 Azure CLI。 如果您已安裝 Azure CLI，您可以執行下列動作來檢查您擁有的版本：
 
 ```bash
 az --version
 ```
 
-輸出的第一行會有的 CLI 版本，例如`azure-cli (2.0.65)`。
+輸出的第一行會有 CLI 版本，例如 `azure-cli (2.0.65)`。
 
-以下是指示[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)如果您需要新的安裝或升級。
+如果您需要新的安裝或升級，以下是[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)的指示。
 
-或者，您可以使用[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。 在使用 Azure Cloud Shell 時，務必要選取**Bash**環境，如果您打算遵循[建立和管理 Azure 的 Red Hat OpenShift 叢集](tutorial-create-cluster.md)教學課程系列。
+或者，您可以使用[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。 使用 Azure Cloud Shell 時，如果您打算遵循[建立和管理 Azure Red Hat OpenShift](tutorial-create-cluster.md)叢集教學課程系列，請務必選取**Bash**環境。
 
 ## <a name="register-providers-and-features"></a>註冊提供者和功能
 
-`Microsoft.ContainerService AROGA`功能， `Microsoft.Solutions`， `Microsoft.Compute`， `Microsoft.Storage`，`Microsoft.KeyVault`和`Microsoft.Network`您的訂用帳戶，以手動方式部署您的第一個 Azure Red Hat OpenShift 叢集之前，必須註冊提供者。
+您必須先手動將 `Microsoft.ContainerService AROGA` 功能、`Microsoft.Solutions`、`Microsoft.Compute`、`Microsoft.Storage`、`Microsoft.KeyVault` 和 `Microsoft.Network` 提供者註冊到您的訂用帳戶，才能部署您的第一個 Azure Red Hat OpenShift 叢集。
 
-若要手動註冊這些提供者和功能，請使用下列指示從 Bash 殼層，如果您已安裝 CLI，或從 Azure Cloud Shell (Bash) 工作階段在 Azure 入口網站中：
+若要手動註冊這些提供者和功能，請從 Bash shell 使用下列指示（如果您已安裝 CLI），或從 Azure 入口網站中的 Azure Cloud Shell （Bash）會話：
 
-1. 如果您有多個 Azure 訂用帳戶，指定相關訂用帳戶識別碼：
+1. 如果您有多個 Azure 訂閱，請指定相關的訂用帳戶識別碼：
 
     ```bash
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. 註冊 Microsoft.ContainerService AROGA 功能：
+1. 註冊 Microsoft.containerservice AROGA 功能：
 
     ```bash
     az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
-1. 註冊 Microsoft.Storage 提供者：
+1. 註冊 Microsoft 存放區提供者：
 
     ```bash
     az provider register -n Microsoft.Storage --wait
     ```
     
-1. 註冊 Microsoft.Compute 提供者：
+1. 註冊 Microsoft。計算提供者：
 
     ```bash
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. 註冊 Microsoft.Solutions 提供者：
+1. 註冊 Microsoft 解決方案提供者：
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-1. 註冊 Microsoft.Network 提供者：
+1. 註冊 Microsoft 網路提供者：
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-1. 註冊 Microsoft.KeyVault 提供者：
+1. 註冊 KeyVault 提供者：
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-1. 重新整理 Microsoft.ContainerService 資源提供者註冊：
+1. 重新整理 Microsoft.containerservice 資源提供者的註冊：
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait
     ```
 
-## <a name="create-an-azure-active-directory-azure-ad-tenant"></a>建立 Azure Active Directory (Azure AD) 租用戶
+## <a name="create-an-azure-active-directory-azure-ad-tenant"></a>建立 Azure Active Directory （Azure AD）租使用者
 
-Azure Red Hat OpenShift 服務所需的相關聯的 Azure Active Directory (Azure AD) 租用戶，Microsoft 代表您的組織和其關聯性。 Azure AD 租用戶，可讓您註冊、 建置和管理應用程式，以及使用其他 Azure 服務。
+Azure Red Hat OpenShift 服務需要相關聯的 Azure Active Directory （Azure AD）租使用者，以代表您的組織及其與 Microsoft 的關係。 您的 Azure AD 租使用者可讓您註冊、建立和管理應用程式，以及使用其他 Azure 服務。
 
-如果您沒有 Azure AD 作為租用戶用於 Azure 的 Red Hat OpenShift 叢集，或您想要建立租用戶進行測試，請依照下列中的指示[建立 Azure AD 租用戶 Azure Red Hat OpenShift 叢集](howto-create-tenant.md)之前繼續使用本指南。
+如果您沒有 Azure AD 做為 Azure Red Hat OpenShift 叢集的租使用者，或想要建立測試的租使用者，請遵循為[您的 Azure Red Hat OpenShift 叢集建立 Azure AD 租使用者](howto-create-tenant.md)中的指示，再繼續進行本指南.
 
-## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>建立 Azure AD 使用者、 安全性群組和應用程式物件
+## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>建立 Azure AD 使用者、安全性群組和應用程式物件
 
-Azure 的 Red Hat OpenShift 需要在您的叢集，例如設定存放裝置上執行工作的權限。 這些權限透過表示[服務主體](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)。 您也會想要測試您的 Azure Red Hat OpenShift 叢集上執行的應用程式建立新的 Active Directory 使用者。
+Azure Red Hat OpenShift 需要在您的叢集上執行工作的許可權，例如設定存放裝置。 這些許可權是透過[服務主體](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)來表示。 您也會想要建立新的 Active Directory 使用者，以測試在 Azure Red Hat OpenShift 叢集上執行的應用程式。
 
-請依照下列中的指示[建立 Azure AD 應用程式物件和使用者](howto-aad-app-configuration.md)若要建立服務主體，產生您的應用程式的用戶端密碼和驗證回呼 URL，並建立新的 Azure AD 安全性群組和使用者存取叢集。
+依照[建立 Azure AD 應用程式物件和使用者](howto-aad-app-configuration.md)的指示來建立服務主體、產生應用程式的用戶端密碼和驗證回呼 URL，以及建立新的 Azure AD 安全性群組和使用者來存取叢集。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以開始使用 Azure 的 Red Hat OpenShift ！
+您現在已經準備好使用 Azure Red Hat OpenShift！
 
-請嘗試本教學課程：
+嘗試教學課程：
 > [!div class="nextstepaction"]
 > [建立 Azure Red Hat OpenShift 叢集](tutorial-create-cluster.md)
 

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d85688d297eb0df00e71f388b2a3350eabe5f6d5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817193"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575606"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷
 
@@ -45,30 +45,26 @@ ms.locfileid: "72817193"
 
 4. 如果您可能在篩選中使用客戶名稱等敏感性資料，請[保護控制通道](#secure-the-control-channel)。
 
-### <a name="nodejs"></a>Node.js
+### <a name="no-data-check-your-server-firewall"></a>沒有資料？ 請檢查您的伺服器防火牆
 
-若要搭配使用即時計量與 node.js，您必須更新至1.30 版或更高版本的 SDK。 根據預設，會停用 node.js SDK 中的即時計量。 若要啟用即時計量，請在初始化 SDK 時，將 `setSendLiveMetrics(true)` 新增至您的設定[方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
-
-### <a name="no-data-check-your-server-firewall"></a>沒有資料嗎？ 請檢查您的伺服器防火牆
-
-檢查是否已開啟您伺服器防火牆中[即時計量資料流的連出連接埠](../../azure-monitor/app/ip-addresses.md#outgoing-ports)。 
+檢查是否已開啟您伺服器防火牆中[即時計量資料流的連出連接埠](../../azure-monitor/app/ip-addresses.md#outgoing-ports)。
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>即時計量資料流與計量瀏覽器和分析有何不同？
 
 | |即時資料流 | 計量瀏覽器和分析 |
 |---|---|---|
-|延遲|在一秒內顯示資料|在幾分鐘後進行彙總|
+|Latency|在一秒內顯示資料|在幾分鐘後進行彙總|
 |沒有保留|資料在圖表上就會保存，之後便會捨棄該資料|[資料會保留 90 天](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |隨選|當您開啟即時計量時會串流處理資料|每當安裝並啟用 SDK 時都會傳送資料|
 |免費|即時資料流資料免費|依[價格](../../azure-monitor/app/pricing.md)付費
 |取樣|傳輸所有選取的計量和計數器。 取樣失敗和堆疊追蹤。 不會套用 TelemetryProcessors。|可能[取樣](../../azure-monitor/app/api-filtering-sampling.md)事件|
-|控制通道|篩選控制項訊號會傳送至 SDK。 建議您保護這個通道。|對入口網站的單向通訊|
+|控制通道|篩選控制項訊號會傳送至 SDK。 建議您保護這個通道。|通訊是以單向方式前往入口網站|
 
 ## <a name="select-and-filter-your-metrics"></a>選取並篩選您的計量
 
 (適用於 ASP.NET、ASP.NET Core 及 Azure Functions (v2))。
 
-您可以從入口網站將任何篩選條件套用在任何 Application Insights 遙測上，以便即時監視自訂 KPI。 按一下您將滑鼠移過任何圖表時所顯示的篩選條件控制項。 下列圖表是使用 URL 和 Duration 屬性的篩選條件來繪製自訂要求計數 KPI。 利用可顯示符合您在任一時間點所指定準則之遙測即時摘要的「串流預覽」區段來驗證您的篩選條件。 
+您可以從入口網站將任何篩選條件套用在任何 Application Insights 遙測上，以便即時監視自訂 KPI。 按一下您將滑鼠移過任何圖表時所顯示的篩選條件控制項。 下列圖表是使用 URL 和 Duration 屬性的篩選條件來繪製自訂要求計數 KPI。 利用可顯示符合您在任一時間點所指定準則之遙測即時摘要的「串流預覽」區段來驗證您的篩選條件。
 
 ![自訂要求 KPI](./media/live-stream/live-stream-filteredMetric.png)
 
@@ -100,14 +96,6 @@ ms.locfileid: "72817193"
 如果您想要監視特定伺服器角色執行個體，可以依伺服器篩選。
 
 ![取樣的即時失敗](./media/live-stream/live-stream-filter.png)
-
-## <a name="sdk-requirements"></a>SDK 需求
-
-### <a name="net"></a>.NET
-[Application Insights SDK for Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 的 2.4.0-beta2 版或更新版本提供「自訂即時計量串流」。 請記得選取 NuGet 套件管理員的 [包括預先發行] 選項。
-
-### <a name="nodejs"></a>Node.js
-即時計量資料流可用於適用于 node.js 的[APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)版本1.3.0 或更新版本。 在您的程式碼中設定 SDK 時，請記得使用 `setSendLiveMetrics(true)`。
 
 ## <a name="secure-the-control-channel"></a>保護控制通道
 您指定的自訂篩選條件準則會傳回給 Application Insights SDK 中的即時計量元件。 篩選條件可能會包含機密資訊，例如 customerIDs。 除了檢測金鑰之外，您還可以利用祕密 API 金鑰來保護頻道安全。
@@ -165,7 +153,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### <a name="azure-function-apps"></a>Azure 函式應用程式
 
-就「Azure 函數應用程式 (v2)」而言，可以藉由環境變數來達到使用 API 金鑰保護通道的目的。 
+針對 Azure 函式應用程式（v2），可以使用環境變數來使用 API 金鑰來保護通道。
 
 請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]。 選取 [新增設訂]，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
 
@@ -193,11 +181,30 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 >我們強烈建議您在篩選條件準則中輸入潛在的機密資訊 (例如 CustomerID) 之前，先設定驗證的頻道。
 >
 
+## <a name="supported-features-table"></a>支援的功能資料表
+
+| 語言                         | 基本計量       | 效能度量 | 自訂篩選    | 範例遙測    | 依進程分割的 CPU |
+|----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
+| .NET                             | 支援（V 2.7.2 +） | 支援（V 2.7.2 +） | 支援（V 2.7.2 +） | 支援（V 2.7.2 +） | 支援（V 2.7.2 +）  |
+| .NET Core （target =. NET Framework）| 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | 支援（V 2.4.1 +）  |
+| .NET Core （target =. NET Core）     | 支援（V 2.4.1 +） | 支援*          | 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | **不支援**    |
+| Azure Functions v2               | 支援           | 支援           | 支援           | 支援           | **不支援**    |
+| Java                             | 支援（V 2.0.0 +） | 支援（V 2.0.0 +） | **不支援**   | **不支援**   | **不支援**    |
+| Node.js                          | 支援（V 1.3.0 +） | 支援（V 1.3.0 +） | **不支援**   | 支援（V 1.3.0 +） | **不支援**    |
+
+基本計量包括要求、相依性和例外狀況速率。 效能計量（效能計數器）包含記憶體和 CPU。 範例遙測會顯示失敗要求和相依性、例外狀況、事件和追蹤的詳細資訊串流。
+
+ \* PerfCounters 支援在不是以 .NET Framework 為目標的 .NET Core 版本上稍微不同：
+
+- 在 Windows Azure App Service 中執行時，支援 PerfCounters 度量。 （AspNetCore SDK Version 2.4.1 或更高版本）
+- 當應用程式在任何 Windows 機器（VM、雲端服務或內部內部部署等）中執行時，會支援 PerfCounters。（AspNetCore SDK Version 2.7.1 或更高版本），但適用于以 .NET Core 2.0 或更新版本為目標的應用程式。
+- 當應用程式在最新的搶鮮版（Linux、Windows、適用于 Linux 的 app service、容器等）中執行時，會支援 PerfCounters （亦即 AspNetCore SDK Version 2.8.0-Beta1 或更高版本），但適用于以 .NET Core 2.0 或更新版本為目標的應用程式。
+
+根據預設，會停用 node.js SDK 中的即時計量。 若要啟用即時計量，請在初始化 SDK 時，將 `setSendLiveMetrics(true)` 新增至您的設定[方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
+
 ## <a name="troubleshooting"></a>疑難排解
 
-沒有資料嗎？ 如果您的應用程式是在受保護的網路中︰即時計量串流會使用與其他 Application Insights 遙測不同的 IP 位址。 請確定[這些 IP 位址](../../azure-monitor/app/ip-addresses.md)在您的防火牆中為開啟狀態。
-
-
+沒有資料？ 如果您的應用程式位於受保護的網路中：即時計量資料流使用與其他 Application Insights 遙測不同的 IP 位址。 請確定[這些 IP 位址](../../azure-monitor/app/ip-addresses.md)在您的防火牆中為開啟狀態。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Application Insights 監視使用情況](../../azure-monitor/app/usage-overview.md)

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497532"
+ms.locfileid: "73580623"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 的運作方式：架構和概念
 
@@ -56,7 +56,7 @@ ms.locfileid: "73497532"
 
 ## <a name="glossary"></a>詞彙
 + <a href="#activities">活動</a>
-+ <a href="#compute-instance">計算實例</a>
++ <a href="#compute-instance">筆記本 VM</a>
 + <a href="#compute-targets">計算目標</a>
 + <a href="#datasets-and-datastores">資料集 & 資料存放區</a>
 + <a href="#endpoints">Endpoints</a>
@@ -84,15 +84,11 @@ ms.locfileid: "73497532"
 
 活動可透過 SDK 或 Web UI 提供通知，方便您輕鬆監視這些作業的進度。
 
-### <a name="compute-instance"></a>計算實例
+### <a name="compute-instance"></a>筆記本 VM
 
-> [!NOTE]
-> 計算實例僅適用于區域為**美國中北部**或**英國南部**的工作區。
->如果您的工作區位於任何其他區域，您可以繼續建立並使用[筆記本 VM](concept-compute-instance.md#notebookvm) 。 
+**Azure Machine Learning 筆記本 VM**是完全受控的雲端式工作站，其中包含針對機器學習服務安裝的多個工具和環境。 筆記本 Vm 可用來作為較小定型和推斷作業的計算目標。 對於大型工作，使用多重節點調整功能[Azure Machine Learning 計算](how-to-set-up-training-targets.md#amlcompute)叢集是較佳的計算目標選擇。
 
-**Azure Machine Learning 計算實例**（先前稱為「筆記本 VM」）是完全受控的雲端式工作站，其中包含針對機器學習服務安裝的多個工具和環境。 計算實例可用來做為定型和推斷作業的計算目標。 對於大型工作，使用多重節點調整功能[Azure Machine Learning 計算](how-to-set-up-training-targets.md#amlcompute)叢集是較佳的計算目標選擇。
-
-深入瞭解[計算實例](concept-compute-instance.md)。
+深入瞭解筆記本 Vm。
 
 ### <a name="compute-targets"></a>計算目標
 

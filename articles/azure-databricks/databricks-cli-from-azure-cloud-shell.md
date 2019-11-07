@@ -1,5 +1,5 @@
 ---
-title: '在 Azure Cloud Shell 中使用 Databricks CLI '
+title: '從 Azure Cloud Shell 使用 Databricks CLI '
 description: 瞭解如何從 Azure Cloud Shell 使用 Databricks CLI 來執行 Azure Databricks 的作業。
 services: azure-databricks
 author: mamccrea
@@ -9,14 +9,14 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299902"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605711"
 ---
-# <a name="use-databricks-cli-from-azure-cloud-shell"></a>在 Azure Cloud Shell 中使用 Databricks CLI
+# <a name="use-databricks-cli-from-azure-cloud-shell"></a>從 Azure Cloud Shell 使用 Databricks CLI
 
 了解如何從 Azure Cloud Shell 使用 Databricks CLI，進而在 Databricks 上執行作業。
 
@@ -24,7 +24,7 @@ ms.locfileid: "72299902"
 
 * Azure Databricks 工作區和叢集。 如需指示，請參閱[開始使用 Azure Databricks](quickstart-create-databricks-workspace-portal.md)。 
 
-* 在 Databricks 中設定個人存取權杖。 如需指示，請參閱[權杖管理](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management)。
+* 在 Databricks 中設定個人存取權杖。 如需指示，請參閱[權杖管理](/azure/databricks/dev-tools/api/latest/authentication)。
 
 ## <a name="use-the-azure-cloud-shell"></a>使用 Azure Cloud Shell
 
@@ -36,7 +36,7 @@ ms.locfileid: "72299902"
 
 3. 請確定您選取適用於 Cloud Shell 環境的 **Bash**。 您可以從下拉式選項中選取，如下列螢幕擷取畫面所示。
 
-   ![選取適用於 Cloud Shell 環境的 Bash](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "選取 Bash") 
+   ![選取 Bash 做為 Cloud Shell 環境](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "選取 Bash") 
 
 4. 建立可以在其中安裝 Databricks CLI 的虛擬環境。 在下列程式碼片段中，您會建立名為 `databrickscli` 的虛擬環境。
 
@@ -73,13 +73,13 @@ ms.locfileid: "72299902"
     databricks fs ls
 
 
-如需命令的完整參考，請參閱 [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)。
+如需命令的完整參考，請參閱 [Databricks CLI](/azure/databricks/dev-tools/databricks-cli)。
 
 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要深入了解 Azure CLI，請參閱 [Azure CLI 概觀](../cloud-shell/overview.md)
 * 若要查看 Azure CLI 命令的清單，請參閱 [Azure CLI 參考](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* 若要查看 Databricks CLI 命令的清單，請參閱[Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+* 若要查看 Databricks CLI 命令的清單，請參閱[Databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
 

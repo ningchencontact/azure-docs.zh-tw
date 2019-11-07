@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042147"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580891"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
-[從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部[部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以搭配其他雲端服務（例如 Power BI、Microsoft Flow、PowerApps 和 Azure Analysis Services）使用相同的閘道安裝。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
+[從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部[部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以將相同的閘道安裝與其他雲端服務搭配使用，例如 Power BI、電源自動化、Power Apps 和 Azure Analysis Services。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
 
 * [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Microsoft Flow 內部部署資料閘道](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft Power Apps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [自動執行內部部署資料閘道的電源](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
 本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。 如需閘道的詳細資訊，請參閱[什麼是內部部署閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)？
@@ -105,7 +105,7 @@ ms.locfileid: "73042147"
 
    您的閘道安裝只能連結到一個 Azure 帳戶。
 
-1. 選取 **在這部電腦上註冊新的閘道** ** >  下一步**。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
+1. 選取 **在這部電腦上註冊新的閘道** ** > 下一步**。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
 
    ![在本機電腦上註冊閘道](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "73042147"
 
       ![選取閘道服務的另一個區域](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. 檢查最後確認視窗中的資訊。 這個範例會針對 Logic Apps、Power BI、PowerApps 和 Microsoft Flow 使用相同的帳戶，因此所有這些服務都可使用該閘道。 當您準備好時，請選取 [**關閉**]。
+1. 檢查最後確認視窗中的資訊。 這個範例會使用相同的帳戶來進行 Logic Apps、Power BI、電源應用程式和電源自動化，讓閘道可供所有這些服務使用。 當您準備好時，請選取 [**關閉**]。
 
    ![確認資料閘道資訊](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 

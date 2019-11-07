@@ -1,18 +1,18 @@
 ---
 title: 使用 PowerShell 管理 Azure Analysis Services | Microsoft Docs
-description: 使用 PowerShell 的 Azure Analysis Services 管理。
+description: 說明適用于一般系統管理工作（例如建立伺服器、暫停作業或變更服務層級）的 Azure Analysis Services PowerShell Cmdlet。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: reference
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 329ea51895c45c8cdf50a323328fac3c580ffc16
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 2c8f4c0541d97a189087af692658cfe794eaaf7e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146230"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572698"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -44,7 +44,7 @@ SqlServer 模組提供特定工作的資料庫管理 Cmdlet，以及接受「表
 
 ### <a name="supported-cmdlets"></a>支援的 Cmdlet
 
-|Cmdlet|描述|
+|Cmdlet|說明|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|將成員新增到資料庫角色。| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|備份 Analysis Services 資料庫。|  
