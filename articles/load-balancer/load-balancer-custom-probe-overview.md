@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274109"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571108"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -48,6 +48,9 @@ ms.locfileid: "72274109"
 - 探查的通訊協定
 - 探查的埠
 - 使用 HTTP （S）探查時用於 HTTP GET 的 HTTP 路徑
+
+> [!NOTE]
+> 使用 Azure PowerShell、Azure CLI、範本或 API 時，不會強制或檢查探查定義。 只有在使用 Azure 入口網站時，才會進行探查驗證測試。
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>瞭解應用程式信號、偵測信號，以及平臺的反應
 
@@ -237,7 +240,7 @@ AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-net
 
 請勿啟用 [TCP 時間戳記](https://tools.ietf.org/html/rfc1323)。  啟用 TCP 時間戳記可能會導致健康情況探查失敗，因為 VM 的來賓 OS TCP 堆疊會卸載 TCP 封包，這會導致 Load Balancer 將個別端點標記在一起。  TCP 時間戳記依預設會在安全性強化的虛擬機器映像上定期啟用，而必須停用。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 公用和內部[Standard Load Balancer](load-balancer-standard-overview.md)都會透過 Azure 監視器以多維度計量的形式，將每個端點和後端端點的健康情況探查狀態公開。 這些計量可供其他 Azure 服務或合作夥伴應用程式使用。 
 

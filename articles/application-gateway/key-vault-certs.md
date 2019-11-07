@@ -7,21 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571985"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Key Vault 憑證的 SSL 終止
 
-[Azure Key Vault](../key-vault/key-vault-overview.md)是平臺管理的秘密存放區，可讓您用來保護秘密、金鑰和 SSL 憑證。 Azure 應用程式閘道支援與 Key Vault 的整合（公開預覽），適用于附加至啟用 HTTPS 之接聽程式的伺服器憑證。 這項支援僅限於應用程式閘道的 v2 SKU。
+[Azure Key Vault](../key-vault/key-vault-overview.md)是平臺管理的秘密存放區，可讓您用來保護秘密、金鑰和 SSL 憑證。 Azure 應用程式閘道支援與 Key Vault 整合連接到已啟用 HTTPS 之接聽程式的伺服器憑證。 這項支援僅限於應用程式閘道的 v2 SKU。
 
-> [!IMPORTANT]
-> 應用程式閘道與 Key Vault 整合目前為公開預覽狀態。 此預覽版是在沒有服務等級協定（SLA）的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-此公開預覽為 SSL 終止提供兩種模型：
+Key Vault 整合提供兩個用於 SSL 終止的模型：
 
 - 您可以明確地提供附加至接聽程式的 SSL 憑證。 此模型是將 SSL 憑證傳遞給應用程式閘道以進行 SSL 終止的傳統方式。
 - 當您建立具備 HTTPS 功能的接聽程式時，您可以選擇性地提供現有 Key Vault 憑證或密碼的參考。

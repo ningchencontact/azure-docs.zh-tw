@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 373713cc92379236385024beff201d16fbbfd4b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: a092647f9772aafdf610ee9a5ba85ded17d50def
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497052"
+ms.locfileid: "73577714"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,11 +37,7 @@ ML 管線會使用遠端計算目標來進行計算，以及與該管線相關�
 
 * 建立 [Azure Machine Learning 工作區](how-to-manage-workspace.md)以保存您的所有管線資源。
 
-* [設定您的開發環境](how-to-configure-environment.md)以安裝 Azure Machine Learning SDK，或使用已安裝 SDK 的[Azure Machine Learning 計算實例](concept-compute-instance.md)。
-
-> [!NOTE]
-> 計算實例僅適用于區域為**美國中北部**或**英國南部**的工作區。
->如果您的工作區位於任何其他區域，您可以繼續建立並使用[筆記本 VM](concept-compute-instance.md#notebookvm) 。 
+* [設定您的開發環境](how-to-configure-environment.md)以安裝 Azure Machine Learning SDK，或使用已安裝 SDK 的[Azure Machine Learning 筆記本 VM](concept-azure-machine-learning-architecture.md#compute-instance) 。
 
 一開始請先附加您的工作區：
 
@@ -330,7 +326,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 當您提交管線時，Azure Machine Learning 會檢查每個步驟的相依性，並上傳您指定之來原始目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為您工作區中實驗的一部分。
 
 > [!IMPORTANT]
-> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 `.amlignore`.gitignore[ 檔案相同的語法和模式。](https://git-scm.com/docs/gitignore) 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 >
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 

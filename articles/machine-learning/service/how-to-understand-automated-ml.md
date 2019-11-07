@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 93695e0bbcb81a570519a6f74cfdeab4ef85f076
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489400"
+ms.locfileid: "73571335"
 ---
 # <a name="understand-automated-machine-learning-results"></a>瞭解自動化機器學習結果
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,11 +50,11 @@ ms.locfileid: "73489400"
 
    [![實驗清單](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. 在底部的資料表中，選取 [**執行編號**]。
+1. 在底部的資料表中，選取 [**執行**]。
 
    [![實驗執行](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)）
 
-1. 在 [反覆運算] 資料表中，選取您想要進一步探索之模型的**反復專案編號**。
+1. 在 [模型] 中，選取您想要進一步探索之模型的**演算法名稱**。
 
    [![實驗模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
@@ -91,12 +91,12 @@ f1_score_micro|F1 分數是精確度和召回率的調和平均數。 微運算�
 f1_score_weighted|F1 分數是精確度和召回率的調和平均數。 以每個類別的 F1 分數其類別頻率將平均值加權|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
 log_loss|這是損失函數，用於 (多維度) 羅吉斯迴歸與其擴充功能中，例如類神經網路，如果有機率分類器的預測時，則定義為 true 標籤的負數對數似然比。 針對 {0,1} 中具有 true 標籤 yt 的單一範例，以及 yt = 1 的估計機率 yp，記錄遺失為-log P （&#124;yt yp） =-（yt log （yp） + （1-yt） log （1-yp））。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
 norm_macro_recall|Normalized Macro Recall 是正常化的 Macro Recall，因此隨機效能的分數為 0，完美效能的分數為 1。 這是藉由 norm_macro_recall： = （recall_score_macro-R）/（1-R）來達成，其中 R 是隨機預測的預期 recall_score_macro 值（亦即，二元分類的 R = 0.5 和 C 類別分類問題的 R = （1/C））。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "宏" |
-precision_score_macro|Precision 是標示為真正在該類別中特定類別的元素百分比。 Macro 是每個類別之精確度的算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
-precision_score_micro|Precision 是標示為真正在該類別中特定類別的元素百分比。 微運算會藉由計算真肯定和誤報的總計來計算全域。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
-precision_score_weighted|Precision 是標示為真正在該類別中特定類別的元素百分比。 加權是每個類別的精確度算術平均值，並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
-recall_score_macro|Recall 是真正在已正確標示的特定類別中的元素百分比。 Macro 是每個類別的召回算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-recall_score_micro|Recall 是真正在已正確標示的特定類別中的元素百分比。 微運算會藉由計算真肯定、誤否定和誤報的總計來計算全域|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
-recall_score_weighted|Recall 是真正在已正確標示的特定類別中的元素百分比。 加權是每個類別的召回算術平均值，並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
+precision_score_macro|「精確度」是已正確標示之明確預測元素的百分比。 Macro 是每個類別之精確度的算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
+precision_score_micro|「精確度」是已正確標示之明確預測元素的百分比。 微運算會藉由計算真肯定和誤報的總計來計算全域。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
+precision_score_weighted|「精確度」是已正確標示之明確預測元素的百分比。 加權是每個類別的精確度算術平均值，並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
+recall_score_macro|回想是特定類別的正確標記專案的百分比。 Macro 是每個類別的召回算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
+recall_score_micro|回想是特定類別的正確標記專案的百分比。 微運算會藉由計算真肯定、誤否定和誤報的總計來計算全域|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
+recall_score_weighted|回想是特定類別的正確標記專案的百分比。 加權是每個類別的召回算術平均值，並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|加權精確度是精確度，其中每個範例所提供的權數等於該範例的 true 類別中 true 實例的比例。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight 是一種向量，等於目標中每個元素為該類別的比例|
 
 ### <a name="confusion-matrix"></a>混淆矩陣

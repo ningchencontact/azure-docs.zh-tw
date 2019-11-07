@@ -1,59 +1,69 @@
 ---
-title: 新增、 移除及排序在 Azure 入口網站中的 [我的最愛] |Microsoft Docs
-description: 了解如何新增或移除 [我的最愛] 清單中的項目和排序順序的項目
+title: 在 Azure 入口網站中加入、移除和排序我的最愛 |Microsoft Docs
+description: 瞭解如何在 [我的最愛] 清單中新增或移除專案，以及排序專案的順序
 services: azure-portal
-keywords: '[我的最愛]'
+keywords: r
 author: kfollis
 ms.author: kfollis
-ms.date: 04/03/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690558"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579610"
 ---
 # <a name="add-remove-and-sort-favorites"></a>新增、移除及排序我的最愛
 
-新增或移除項目，從您**我的最愛**清單，以便您可以快速地移至您最常使用的服務。 我們已新增一些通用的服務，以您**我的最愛** 清單中，但您可能會想要加以自訂。 您是唯一會看到您對變更的人**我的最愛**。
+新增或移除**我的最愛清單中**的專案，讓您可以快速地移至最常使用的服務。 我們已將一些常用服務新增至**我的最愛清單，** 但您可能會想要自訂它。 您是唯一看到您對 [我的最愛 **]** 所做變更的人。
 
-## <a name="add-or-remove-a-favorite"></a>新增或移除我的最愛項目
+## <a name="add-a-favorite"></a>新增我的最愛
 
-下面列出的項目**我的最愛**會從選取**所有服務**。 星狀圖示![黃色星星的圖示](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-star.png)指出每個服務旁邊的 項目是否出現在清單上。 選取星狀圖示，即可新增或移除服務，以從**我的最愛**清單。
+[我的最愛 **]** 底下所列的專案會從 [**所有服務**] 中選取。 將滑鼠停留在服務名稱上，以顯示與服務相關的資訊和資源。 在服務名稱旁邊](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) 填滿星形圖示 ![填滿星形圖示，表示該專案出現在 [我的最愛 **]** 清單中。 選取星號圖示，將服務新增至 [我的最愛 **]** 清單。
 
-### <a name="add-cost-management--billing-to-favorites"></a>加到我的最愛] 的 [成本的管理 + 帳單
+### <a name="add-cost-management--billing-to-favorites"></a>將成本管理 + 帳單新增至我的最愛
 
-1. 選取 **所有服務**從資訊看板的上方區段。
+1. 從 [Azure 入口網站] 功能表中選取 [**所有服務**]。
 
-    ![顯示選取的所有服務螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-all-services.png)
+    ![顯示已選取所有服務的螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. 在 [搜尋] 欄位中輸入 「 成本 」 這個字。 唯一的服務，具有 「 成本 」 標題中或有 「 成本 」 關鍵字將所示。
+1. 在搜尋欄位中輸入「成本」一詞。 顯示標題為「成本」或具有「成本」作為關鍵字的服務。
 
-   ![在 所有服務的螢幕擷取畫面顯示搜尋](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-search.png)
+   ![顯示 [所有服務] 中搜尋的螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. 選取星狀圖示。
+1. 將滑鼠停留在服務名稱上，以顯示**成本管理 + 帳單**資訊卡。 選取星星圖示。
 
-   ![選取 顯示星形旁邊成本管理 + 計費的螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
+   ![顯示已選取 [成本管理 + 帳單] 旁星號的螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. **成本管理 + 計費**現在會成為最後一個項目，在您**我的最愛**清單。
+1. **成本管理 + 帳單**現在會新增為 [我的最愛 **]** 清單中的最後一個專案。
 
-## <a name="sort-favorites"></a>排序 [我的最愛]
+## <a name="remove-an-item-from-favorites"></a>從我的最愛移除專案
 
-您可以變更您最愛的服務所列的順序。 只要拖放到另一個位置下的功能表項目**我的最愛**。
+您現在可以直接從 [我的最愛 **]** 清單中移除專案。
 
-### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>移至頂端的 [我的最愛] 的成本管理 + 計費
+1. 在入口網站功能表的 [我的最愛 **]** 區段中，將滑鼠停留在您想要移除的服務名稱上。
 
-1. 選取並按住**成本管理 + 計費**項目上的**我的最愛**清單。
+   ![顯示我的最愛中暫留行為的螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-   ![螢幕擷取畫面顯示成本管理 + 計費選取](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+2. 在資訊卡片上，選取星號，讓它從填滿到未填入。 服務會從 [我的最愛 **]** 清單中移除。
 
-1. 同時仍繼續保存，將項目拖曳至頂端**我的最愛**然後放開。
+## <a name="sort-favorites"></a>排序我的最愛
+
+您可以變更列出我的最愛服務的順序。 只要將功能表項目拖放到 [我的最愛 **]** 下的另一個位置即可。
+
+### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>將成本管理 + 帳單移至我的最愛
+
+1. 選取並按住 [我的最愛] 清單中的 [**成本管理 + 帳單** **]** 專案。
+
+   ![顯示成本管理 + 已選取帳單的螢幕擷取畫面](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+
+1. 繼續保留時，請將專案拖曳到 [我的最愛 **]** 頂端，然後放開。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要建立專案為主的工作區，請參閱[在 Azure 入口網站中的建立和共用儀表板](../azure-portal/azure-portal-dashboards.md)
-* 探索更多如何-的[Azure 入口網站的使用方法影片系列](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)
+* 若要建立以專案為主的工作區，請參閱在[Azure 入口網站中建立和共用儀表板](../azure-portal/azure-portal-dashboards.md)
+* 深入瞭解[Azure 入口網站的 how-to 影片系列](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)

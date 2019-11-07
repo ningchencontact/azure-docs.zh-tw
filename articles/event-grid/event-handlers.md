@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080547"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606368"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure 事件方格中的事件處理常式
 
@@ -24,7 +24,7 @@ ms.locfileid: "67080547"
 
 使用 Azure 自動化，透過自動化的 Runbook 來處理事件。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 |[教學課程：Azure 自動化與事件方格和 Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |建立會傳送事件的虛擬機器。 事件會觸發標記虛擬機器的自動化 Runbook，以及觸發傳送給 Microsoft Teams 通道的訊息。 |
 
@@ -34,7 +34,7 @@ ms.locfileid: "67080547"
 
 使用 Azure Functions 作為處理常式時，請使用 Event Grid 觸發程序而不是泛型 HTTP 觸發程序。 Event Grid 會自動驗證 Event Grid 函式的觸發程序。 若要使用 HTTP 觸發程序，您必須實作[驗證回應](security-authentication.md#webhook-event-delivery)。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 | [Azure Functions 的事件方格觸發程序](../azure-functions/functions-bindings-event-grid.md) | 在 Functions 中使用事件方格觸發程序的概觀。 |
 | [教學課程：使用事件方格自動調整已上傳映像的大小](resize-images-on-storage-blob-upload-event.md) | 使用者透過 Web 應用程式將映像上傳至儲存體帳戶。 建立儲存體 Blob 時，事件方格會傳送一個事件給函式應用程式，讓其調整上傳映像的大小。 |
@@ -47,7 +47,7 @@ ms.locfileid: "67080547"
 
 事件中樞可以做為事件來源或事件處理常式。 下列文章會示範如何使用事件中樞做為處理常式。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 | [快速入門：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 事件中樞](custom-event-to-eventhub.md) | 將自訂事件傳送至事件中樞交給應用程式處理。 |
 | [Resource Manager 範本：自訂主題和事件中樞端點](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 建立自訂主題訂用帳戶的 Resource Manager 範本。 它會將事件傳送到 Azure 事件中樞。 |
@@ -58,7 +58,7 @@ ms.locfileid: "67080547"
 
 使用 Azure 轉送的混合式連線將事件傳送至應用程式，這些應用程式都位於企業網路中，而且沒有可公開存取的端點。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 | [教學課程：將事件傳送至混合式連線](custom-event-to-hybrid-connection.md) | 將自訂事件傳送至現有的混合式連線，以透過接聽應用程式進行處理。 |
 
@@ -66,57 +66,18 @@ ms.locfileid: "67080547"
 
 使用 Logic Apps 來自動化回應事件的商務程序。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 | [教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md) | 邏輯應用程式會監視虛擬機器的變更，並傳送有關這些變更的電子郵件。 |
 | [教學課程：使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](publish-iot-hub-events-to-logic-apps.md) | 每當有裝置新增至您的 IoT 中樞時，邏輯應用程式就會傳送電子郵件通知。 |
 | [教學課程：Azure 服務匯流排與 Azure 事件方格的整合範例](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 事件方格會從服務匯流排主題傳送訊息至函式應用程式和邏輯應用程式。 |
 
-## <a name="service-bus-queue-preview"></a>服務匯流排佇列 （預覽）
+## <a name="service-bus-queue"></a>服務匯流排佇列 
+您可以將事件方格中的事件直接路由至服務匯流排佇列，以用於企業應用程式中的緩衝處理或命令 & 控制項案例。
 
-使用服務匯流排做為事件處理常式，Event Grid 中路由事件，直接至緩衝處理 [收件者] 或命令與控制的情況下，企業應用程式中使用的服務匯流排佇列。 預覽未使用服務匯流排主題和工作階段，但它使用服務匯流排佇列的所有層級。
+### <a name="using-cli-to-add-a-service-bus-handler"></a>使用 CLI 加入服務匯流排處理常式
 
-請注意，服務匯流排時因為處理常式處於公開預覽中，您必須安裝的 CLI 或 PowerShell 延伸模組時使用其來建立事件訂用帳戶。
-
-### <a name="install-extension-for-azure-cli"></a>安裝 Azure CLI 擴充功能
-
-對於 Azure CLI，您需要[事件方格擴充功能](/cli/azure/azure-cli-extensions-list)。
-
-在 [CloudShell](/azure/cloud-shell/quickstart) 中：
-
-* 如果您先前安裝的擴充功能，來更新它與`az extension update -n eventgrid`。
-* 如果您還沒有先前安裝的延伸模組，安裝使用`az extension add -n eventgrid`。
-
-針對本機安裝：
-
-1. [安裝 Azure CLI](/cli/azure/install-azure-cli)。 請確定您有最新的版本，方法是檢查`az --version`。
-1. 解除安裝舊版的擴充功能的`az extension remove -n eventgrid`。
-1. 安裝`eventgrid`副檔名`az extension add -n eventgrid`。
-
-### <a name="install-module-for-powershell"></a>安裝 PowerShell 模組
-
-對於 PowerShell，您需要 [AzureRM.EventGrid 模組](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview)。
-
-在 [CloudShell](/azure/cloud-shell/quickstart-powershell) 中：
-
-* 安裝的模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。
-
-針對本機安裝：
-
-1. 以系統管理員身分開啟 PowerShell 主控台。
-1. 安裝的模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。
-
-如果 `-AllowPrerelease` 參數無法使用，請使用下列步驟：
-
-1. 執行 `Install-Module PowerShellGet -Force`。
-1. 執行 `Update-Module PowerShellGet`。
-1. 關閉 PowerShell 主控台。
-1. 以系統管理員身分，重新啟動 PowerShell。
-1. 安裝模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。
-
-### <a name="using-cli-to-add-a-service-bus-handler"></a>使用 CLI 來新增服務匯流排處理常式
-
-針對 Azure CLI，下列範例會訂閱，並連接至服務匯流排佇列的 Event Grid 主題：
+針對 Azure CLI，下列範例會訂閱事件方格主題，並將其連接到服務匯流排佇列：
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -134,7 +95,7 @@ az eventgrid event-subscription create \
 
 使用佇列儲存體來接收需要提取的事件。 若執行中的流程太過冗長導致回應時間過久，您可以使用佇列儲存體。 藉由傳送事件至佇列儲存體，應用程式即可按照自己的排程提取並處理事件。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 | [快速入門：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 佇列儲存體](custom-event-to-queue-storage.md) | 描述如何將自訂事件傳送至佇列儲存體。 |
 
@@ -142,7 +103,7 @@ az eventgrid event-subscription create \
 
 針對回應事件的自訂端點使用 Webhook。
 
-|標題  |描述  |
+|Title  |說明  |
 |---------|---------|
 | 快速入門：使用 [Azure CLI](custom-event-quickstart.md)、[PowerShell](custom-event-quickstart-powershell.md) 及[入口網站](custom-event-quickstart-portal.md)建立和路由傳送自訂事件。 | 示範如何將自訂事件傳送至 WebHook。 |
 | 快速入門：使用 [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)、[PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) 及[入口網站](blob-event-quickstart-portal.md)將 Blob 儲存體事件路由至自訂的 Web 端點。 | 示範如何將 Blob 儲存體事件傳送至 WebHook。 |

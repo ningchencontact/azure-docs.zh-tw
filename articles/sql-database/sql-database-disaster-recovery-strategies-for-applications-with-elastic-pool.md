@@ -1,5 +1,5 @@
 ---
-title: 設計災害復原解決方案 - Azure SQL Database | Microsoft Docs
+title: 設計嚴重損壞修復解決方案-Azure SQL Database
 description: 了解如何選擇正確的容錯移轉模式來設計災害復原的雲端解決方案。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 535397dcf32a617038ab4bef4ec7aa227f4563b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568883"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690660"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL Database 彈性集區之應用程式的災害復原策略
 
@@ -24,7 +24,7 @@ ms.locfileid: "68568883"
 
 本文使用下列標準的 SaaS ISV 應用程式模式︰
 
-現代化雲端型 Web 應用程式會為每位使用者佈建一個 SQL Database。 ISV 有許多客戶，因此會使用多個資料庫 (稱為租用戶資料庫)。 因為租用戶資料庫通常會有無法預測的活動模式，所以 ISV 會使用彈性集區，在一段時間之後，讓資料庫成本預測性變高。 彈性集區也可在使用者活動尖峰時簡化效能管理。 除了租用戶資料庫之外，應用程式也會使用數個資料庫來管理使用者設定檔、安全性、收集使用模式等。個別租用戶的可用性不會影響整個應用程式的可用性。 不過，管理資料庫的可用性和效能對應用程式函數而言十分重要，而且，如果管理資料庫離線，整個應用程式也會離線。
+現代化雲端型 Web 應用程式會為每位使用者佈建一個 SQL Database。 ISV 有許多客戶，因此會使用多個資料庫 (稱為租用戶資料庫)。 因為租用戶資料庫通常會有無法預測的活動模式，所以 ISV 會使用彈性集區，在一段時間之後，讓資料庫成本預測性變高。 彈性集區也可在使用者活動尖峰時簡化效能管理。 除了租使用者資料庫之外，應用程式也會使用數個資料庫來管理使用者設定檔、安全性、收集使用模式等等。個別租使用者的可用性並不會影響應用程式的整體可用性。 不過，管理資料庫的可用性和效能對應用程式函數而言十分重要，而且，如果管理資料庫離線，整個應用程式也會離線。
 
 本文會討論涵蓋各種案例 (從成本導向創業應用程式以至具有嚴格可用性需求的應用程式) 的 DR 策略。
 
@@ -162,9 +162,9 @@ ms.locfileid: "68568883"
 * 需要更複雜的管理資料庫設計。 例如，每個租用戶記錄都具有必須在容錯移轉和容錯回復期間變更的位置標記。  
 * 除非完成區域 B 中的集區升級，否則付費客戶的效能可能會低於正常情況。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
-本文著重於SaaS ISV 多租用戶應用程式所使用之資料庫層的災害復原策略。 要選擇哪個策略請根據應用程式的需求 (例如商務模型、您想提供給客戶的 SLA、預算限制等等)。每個所述的策略都會概述優缺點，因此您可以做出明智的決定。 此外，特定應用程式可能包含其他 Azure 元件。 所以您必須檢閱其商務持續性指引，並安排使用元件來復原資料庫層。 若要深入了解如何管理 Azure 中資料庫應用程式的復原，請參閱[設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。  
+本文著重於SaaS ISV 多租用戶應用程式所使用之資料庫層的災害復原策略。 您選擇的策略取決於應用程式的需求，例如商務模型、您想要提供給客戶的 SLA、預算限制等。每個所述的策略都會概述優點和取捨，讓您可以做出明智的決定。 此外，特定應用程式可能包含其他 Azure 元件。 所以您必須檢閱其商務持續性指引，並安排使用元件來復原資料庫層。 若要深入了解如何管理 Azure 中資料庫應用程式的復原，請參閱[設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。  
 
 ## <a name="next-steps"></a>後續步驟
 

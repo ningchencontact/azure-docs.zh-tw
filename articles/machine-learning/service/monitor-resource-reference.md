@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fb16f6ef58efc5c63e743e557558dc60cf52f86
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514234"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684904"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 監視資料參考
 
@@ -54,7 +54,7 @@ ms.locfileid: "73514234"
 | JobErrorMessage | 作業錯誤的詳細訊息 |
 | NodeId | 工作執行所在之節點的識別碼 |
 
-### <a name="amlcomputerclusterevents-table"></a>AmlComputerClusterEvents 資料表
+### <a name="amlcomputeclusterevents-table"></a>AmlComputeClusterEvents 資料表
 
 | 屬性 | 說明 |
 |:--- |:--- |
@@ -130,11 +130,11 @@ ms.locfileid: "73514234"
 
 | 模型 | 單位 | 說明 |
 | ----- | ----- | ----- |
-| 模型部署失敗 | Count | 失敗的模型部署數目。 |
-| 模型部署已開始 | Count | 已啟動的模型部署數目。 |
-| 模型部署成功 | Count | 成功的模型部署數目。 |
-| 模型註冊失敗 | Count | 失敗的模型註冊數目。 |
-| 模型註冊成功 | Count | 成功的模型註冊數目。 |
+| 模型部署失敗 | 計數 | 失敗的模型部署數目。 |
+| 模型部署已開始 | 計數 | 已啟動的模型部署數目。 |
+| 模型部署成功 | 計數 | 成功的模型部署數目。 |
+| 模型註冊失敗 | 計數 | 失敗的模型註冊數目。 |
+| 模型註冊成功 | 計數 | 成功的模型註冊數目。 |
 
 **配額**
 
@@ -142,19 +142,19 @@ ms.locfileid: "73514234"
 
 | 計量 | 單位 | 說明 |
 | ----- | ----- | ----- |
-| 現用核心 | Count | 使用中計算核心的數目。 |
-| 現用節點 | Count | 使用中節點的數目。 |
-| 閒置核心 | Count | 閒置計算核心的數目。 |
-| 閒置節點 | Count | 閒置計算節點的數目。 |
-| 離開核心 | Count | 離開核心的數目。 |
-| 離開節點 | Count | 離開節點的數目。 |
-| 搶先核心 | Count | 已佔用的核心數目。 |
-| 搶先節點 | Count | 已搶先節點的數目。 |
+| 現用核心 | 計數 | 使用中計算核心的數目。 |
+| 現用節點 | 計數 | 使用中節點的數目。 |
+| 閒置核心 | 計數 | 閒置計算核心的數目。 |
+| 閒置節點 | 計數 | 閒置計算節點的數目。 |
+| 離開核心 | 計數 | 離開核心的數目。 |
+| 離開節點 | 計數 | 離開節點的數目。 |
+| 搶先核心 | 計數 | 已佔用的核心數目。 |
+| 搶先節點 | 計數 | 已搶先節點的數目。 |
 | 配額使用量百分比 | 百分比 | 使用的配額百分比。 |
-| 核心總計 | Count | 核心總數。 |
-| 節點總計 | Count | 節點總數。 |
-| 無法使用的核心 | Count | 無法使用的核心數目。 |
-| 無法使用的節點 | Count | 無法使用的節點數目。 |
+| 核心總計 | 計數 | 核心總數。 |
+| 節點總計 | 計數 | 節點總數。 |
+| 無法使用的核心 | 計數 | 無法使用的核心數目。 |
+| 無法使用的節點 | 計數 | 無法使用的節點數目。 |
 
 以下是可以用來篩選配額計量的維度：
 
@@ -170,9 +170,9 @@ ms.locfileid: "73514234"
 
 | 計量 | 單位 | 說明 |
 | ----- | ----- | ----- |
-| 已完成的執行 | Count | 已完成的執行數目。 |
-| 失敗的執行 | Count | 失敗的執行數目。 |
-| 開始執行 | Count | 已啟動的執行數目。 |
+| 已完成的執行 | 計數 | 已完成的執行數目。 |
+| 失敗的執行 | 計數 | 失敗的執行數目。 |
+| 開始執行 | 計數 | 已啟動的執行數目。 |
 
 以下是可以用來篩選執行計量的維度：
 

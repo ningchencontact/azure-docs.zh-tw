@@ -5,24 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 38299a8ffd72722c2d2c1dda9227b7fbf76c0386
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595463"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603116"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 
 **適用物件：** 適用於 MySQL 的 Azure 資料庫5。7
 
-> [!IMPORTANT]
-> 查詢效能深入解析處於預覽狀態。
-
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
-## <a name="common-scenarios"></a>一般狀況
+## <a name="common-scenarios"></a>常見案例
 
 ### <a name="long-running-queries"></a>長時間執行的查詢
 

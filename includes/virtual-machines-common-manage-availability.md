@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657746"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73590489"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
 
-* **未規劃的硬體維護事件**發生在 Azure 平台預測與實體機器相關聯的硬體或任何平台元件即將失敗 (故障) 時。 平台會在預測到發生失敗時發出未規劃的硬體維護事件，以減少對該硬體上裝載之虛擬機器的影響。 Azure 會使用[即時移轉](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)技術, 將虛擬機器從失敗的硬體遷移到狀況良好的實體機器。 即時移轉是只會短時間暫停虛擬機器的 VM 保留作業。 系統會維護記憶體、開啟的檔案和網路連線，但在事件之前及 (或) 之後的效能可能會降低。 如果無法使用即時移轉，VM 將會發生未預期的停機時間，如下所述。
+* **未規劃的硬體維護事件**發生在 Azure 平台預測與實體機器相關聯的硬體或任何平台元件即將失敗 (故障) 時。 平台會在預測到發生失敗時發出未規劃的硬體維護事件，以減少對該硬體上裝載之虛擬機器的影響。 Azure 會使用[即時移轉](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)技術，將虛擬機器從失敗的硬體遷移到狀況良好的實體機器。 即時移轉是只會短時間暫停虛擬機器的 VM 保留作業。 系統會維護記憶體、開啟的檔案和網路連線，但在事件之前及 (或) 之後的效能可能會降低。 如果無法使用即時移轉，VM 將會發生未預期的停機時間，如下所述。
 
 
 * **非預期的停機時間**是指虛擬機器的硬體或實體基礎結構發生意外失敗的時間。 這可能包含本機網路失敗、本機磁碟失敗，或其他機架層級的失敗。 在偵測到失敗時，Azure 平台會自動將虛擬機器移轉 (修復) 至相同資料中心內狀況良好的實體機器。 在修復程序期間，虛擬機器會停機 (重新開機)，而在某些情況下，還會遺失暫存磁碟機。 連結的 OS 和資料磁碟一律會予以保留。
@@ -39,18 +39,18 @@ ms.locfileid: "69657746"
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>使用可用性區域來防禦資料中心層級的失敗
 
-[可用性區域](../articles/availability-zones/az-overview.md)可擴充您在 vm 上維護應用程式和資料可用性所需的控制層級。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 為確保復原, 所有已啟用的區域中至少有三個不同的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 區域備援服務會將應用程式和資料複寫至所有「可用性區域」，以防出現單一失敗點。
+[可用性區域](../articles/availability-zones/az-overview.md)可擴充您在 vm 上維護應用程式和資料可用性所需的控制層級。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 為確保復原，所有已啟用的區域中至少有三個不同的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 區域備援服務會將應用程式和資料複寫至所有「可用性區域」，以防出現單一失敗點。
 
 Azure 區域中的可用性區域是**容錯網域**和**更新網域**的組合。 例如，如果您在 Azure 區域中建立橫跨三個區域的三個 (或更多) VM，您的 VM 會有效地分散到三個容錯網域和三個更新網域。 Azure 平台會從更新網域中辨識此分佈，以確定不會同時更新不同區域中的 VM。
 
-使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 藉由架構您的解決方案, 以在區域中使用複寫的 Vm, 您可以保護應用程式和資料免于遺失資料中心。 如果有個區域遭到入侵，就可以立即在另一個區域中使用複寫的應用程式和資料。
+使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 藉由架構您的解決方案，以在區域中使用複寫的 Vm，您可以保護應用程式和資料免于遺失資料中心。 如果有個區域遭到入侵，就可以立即在另一個區域中使用複寫的應用程式和資料。
 
 ![可用性區域](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
 深入了解如何在可用性區域中部署 [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) 或[Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM。
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>針對備援在可用性設定組中設定多部虛擬機器
-可用性設定組是另一個資料中心設定, 可提供 VM 的冗余和可用性。 資料中心內的這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。 如需相關資訊，請參閱 [虛擬機器的 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。
+可用性設定組是另一個資料中心設定，可提供 VM 的冗余和可用性。 資料中心內的這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。 如需相關資訊，請參閱 [虛擬機器的 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。
 
 > [!IMPORTANT]
 > 避免一個可用性設定組中只有一部執行個體虛擬機器。 此組態中的 VM 不符合 SLA 的保證，而且會在 Azure 規劃的維護事件期間發生停機狀況，除非單一 VM 是使用 [Azure 進階 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd)。 使用進階 SSD 的單一 VM 適用 Azure SLA。
@@ -60,7 +60,7 @@ Azure 區域中的可用性區域是**容錯網域**和**更新網域**的組合
 容錯網域定義共用通用電源和網路交換器的虛擬機器群組。 根據預設，可用性設定組中設定的虛擬機器會分置於最多三個容錯網域中，以進行 Resource Manager 部署 (如果是傳統，則是兩個容錯網域)。 將虛擬機器放入可用性設定組，並無法保護應用程式不會遭受作業系統錯誤或特定應用程式錯誤，而只會限制可能的實體硬體錯誤、網路中斷或電源中斷所帶來的影響。
 
 <!--Image reference-->
-   ![更新網域和容錯網域設定的概念圖](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   更新網域和容錯網域設定的 ![概念圖](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>將受控磁碟使用於可用性設定組中的 VM
 如果您目前使用 VM 搭配非受控磁碟，強烈建議您[將可用性設定組中的 VM 轉換為受控磁碟](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)。
@@ -73,6 +73,13 @@ Azure 區域中的可用性區域是**容錯網域**和**更新網域**的組合
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
+> 注意：在某些情況下，相同 AvailabilitySet 的2個 Vm 部分可能會共用相同的 FaultDomain。 這可以藉由進入您的 AvailabilitySet 並檢查「容錯網域」資料行來確認。
+> 當部署 Vm 時發生下列順序時，可能會觀察到此行為：
+> - 部署第1個 VM
+> - 停止/解除配置第1個 VM
+> - 在這些情況下部署第2個 VM，第2個 VM 的 OS 磁片可能會建立在與第一個 VM 相同的容錯網域上，因此第二個 VM 也會落在相同的 FaultDomain 上。 
+> 若要避免此問題，建議不要在其部署之間停止/解除配置 VM。
+
 如果您打算使用 VM 搭配非受控磁碟，請針對 VM 的虛擬硬碟 (VHD) 在其中儲存為[分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) 的儲存體帳戶，遵循以下的最佳做法。
 
 1. **將與 VM 相關聯的所有磁碟 (OS 和資料) 保留於相同的儲存體帳戶中**
@@ -84,19 +91,19 @@ Azure 區域中的可用性區域是**容錯網域**和**更新網域**的組合
 當您訂閱[排定的事件](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)時，您的 VM 將會收到即將有維護事件可能會影響到 VM 的通知。 排定的事件啟用時，您的虛擬機器在維護活動執行之前將有最低限度的時間可因應。 例如，可能對 VM 造成影響的主機 OS 更新會排入佇列中作為事件，以指出相關影響，並在您未採取任何動作時指出將執行維護的時間。 當 Azure 偵測到即將有硬體故障可能對 VM 造成影響時，也會將排程事件排入佇列，以讓您決定應於何時執行修復。 客戶可以使用此事件在維護之前執行適當工作，例如儲存狀態、容錯移轉至次要機器等等。 在您完成依正常程序處理維護事件的邏輯之後，您可以核准待處理的已排定事件，以允許平台繼續進行維護。
 
 ## <a name="configure-each-application-tier-into-separate-availability-zones-or-availability-sets"></a>將每個應用層設定為不同的可用性區域或可用性設定組
-如果您的虛擬機器幾乎完全相同, 並為您的應用程式提供相同的用途, 建議您為應用程式的每個層級設定可用性區域或可用性設定組。  如果您將兩個不同的層放在相同的可用性區域或集合中, 則可以一次重新開機相同應用層中的所有虛擬機器。 藉由在可用性區域中設定至少兩部虛擬機器, 或為每個層級設定, 可確保每一層中至少有一部虛擬機器可供使用。
+如果您的虛擬機器幾乎完全相同，並為您的應用程式提供相同的用途，建議您為應用程式的每個層級設定可用性區域或可用性設定組。  如果您將兩個不同的層放在相同的可用性區域或集合中，則可以一次重新開機相同應用層中的所有虛擬機器。 藉由在可用性區域中設定至少兩部虛擬機器，或為每個層級設定，可確保每一層中至少有一部虛擬機器可供使用。
 
-例如, 您可以將所有虛擬機器放在應用程式的前端, 在單一可用性區域中執行 IIS、Apache 和 Nginx, 或設定完成。 請確定只有前端虛擬機器放在相同的可用性區域或集合中。 同樣地, 請確定只有資料層虛擬機器會放在自己的可用性區域或集合中, 例如複寫的 SQL Server 虛擬機器或 MySQL 虛擬機器。
+例如，您可以將所有虛擬機器放在應用程式的前端，在單一可用性區域中執行 IIS、Apache 和 Nginx，或設定完成。 請確定只有前端虛擬機器放在相同的可用性區域或集合中。 同樣地，請確定只有資料層虛擬機器會放在自己的可用性區域或集合中，例如複寫的 SQL Server 虛擬機器或 MySQL 虛擬機器。
 
 <!--Image reference-->
    ![應用層](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>結合負載平衡器與可用性區域或集合
-將[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)與可用性區域結合, 或設定以取得最大的應用程式復原。 Azure 負載平衡器會在多部虛擬機器之間分配流量。 我們的標準層虛擬機器中包含 Azure 負載平衡器。 並非所有的虛擬機器階層都包含 Azure Load Balancer。 如需關於負載平衡虛擬機器的詳細資訊，請參閱 [負載平衡虛擬機器](../articles/virtual-machines/virtual-machines-linux-load-balance.md)。
+將[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)與可用性區域結合，或設定以取得最大的應用程式復原。 Azure 負載平衡器會在多部虛擬機器之間分配流量。 我們的標準層虛擬機器中包含 Azure 負載平衡器。 並非所有的虛擬機器階層都包含 Azure Load Balancer。 如需關於負載平衡虛擬機器的詳細資訊，請參閱 [負載平衡虛擬機器](../articles/virtual-machines/virtual-machines-linux-load-balance.md)。
 
 若負載平衡器沒有設定為平衡多部虛擬機器之間的流量，則所有計劃性維護事件都只會影響處理流量的虛擬機器，並導致應用程式層中斷。 將同一個層的多部虛擬機器放在相同的負載平衡器和可用性設定組下，可讓至少一個執行個體持續處理流量。
 
-如需有關如何在可用性區域間進行負載平衡的教學課程, 請參閱[使用 Azure CLI 在所有可用性區域之間進行 vm 的負載平衡](../articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md)。
+如需有關如何在可用性區域間進行負載平衡的教學課程，請參閱[使用 Azure CLI 在所有可用性區域之間進行 vm 的負載平衡](../articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md)。
 
 
 <!-- Link references -->

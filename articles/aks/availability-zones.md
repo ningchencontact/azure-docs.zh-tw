@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472822"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605097"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>建立使用可用性區域的 Azure Kubernetes Service （AKS）叢集
 
@@ -72,9 +72,9 @@ Azure Kubernetes Service （AKS）叢集會將資源（例如節點和儲存體�
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>在可用性區域之間建立 AKS 叢集
 
-當您使用[az aks create][az-aks-create]命令建立叢集時，`--zones` 參數會定義要部署到哪些區域的代理程式節點。 當您建立指定 `--zones` 參數的叢集時，叢集的 AKS 控制平面元件也會分散到最高可用設定中的區域。
+當您使用[az aks create][az-aks-create]命令建立叢集時，`--zones` 參數會定義要部署到哪些區域的代理程式節點。 當您在叢集建立時定義 `--zones` 參數時，叢集的 AKS 控制平面元件也會分散到最高可用設定中的區域。
 
-如果您在建立 AKS 叢集時未定義預設代理程式組件區的任何區域，則叢集的 AKS 控制平面元件將不會使用可用性區域。 您可以使用[az aks nodepool add][az-aks-nodepool-add]命令來新增其他節點集區，並為這些新的代理程式節點指定 `--zones`，不過，控制平面元件會維持沒有可用性區域感知。 當節點集區或 AKS 控制平面元件部署完成之後，您就無法變更其區域感知。
+如果您在建立 AKS 叢集時未定義預設代理程式組件區的任何區域，則叢集的 AKS 控制平面元件將不會使用可用性區域。 您可以使用[az aks nodepool add][az-aks-nodepool-add]命令來新增其他節點集區，並指定這些新節點的 `--zones`，不過，控制平面元件會維持沒有可用性區域感知。 當節點集區或 AKS 控制平面元件部署完成之後，您就無法變更其區域感知。
 
 下列範例會在名為*myResourceGroup*的資源群組中建立名為*myAKSCluster*的 AKS 叢集。 總共建立*3*個節點-一個是區域*1*中的代理程式，一個在*2*，另一個是*3*。 AKS 控制平面元件也會在最高可用設定的區域間散發，因為它們是在叢集建立程式中定義的。
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e20f90a510795080f4f2e1f9dbd6961e700baab0
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d444ed21f3eb86975442f2176b8caa8dca6e0c3f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061462"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602440"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -37,7 +37,7 @@ ms.locfileid: "73061462"
 Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 
 
-## <a name="sap-hana-on-azure-large-instances"></a>Azure 上的 SAP HANA (大型執行個體)
+## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA on Azure (大型執行個體)
 
 一系列的檔會引導您完成 Azure （大型實例）或簡短的 HANA 大型實例的 SAP Hana。 如需有關「HANA 大型實例」的下欄區域的資訊，請參閱：
 
@@ -48,7 +48,7 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 - [Azure （大型實例）上 SAP Hana 的高可用性和嚴重損壞修復](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
 - [針對 Azure （大型實例）上的 SAP Hana 進行疑難排解和監視](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
-接下來的步驟：
+後續步驟：
 
 - 瞭解[Azure （大型實例）上 SAP Hana 的總覽和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
@@ -120,6 +120,7 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 
 
 ## <a name="change-log"></a>變更記錄檔
+- 11/04/2019：在[Azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](high-availability-guide-suse-pacemaker.md) ，以直接使用單播設定建立叢集的變更  
 - 10/29/2019：[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](high-availability-guide-standard-load-balancer-outbound-connections.md)
 - 10/25/2019： [SAP Hana azure 虛擬機器儲存體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)設定和 SAP Hana 使用 azure vm 上的待命節點向外延展的變更[SUSE Linux Enterprise Server 上的 azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) ，以澄清/HANA/SHARED 磁片區的 NFS 通訊協定
 - 10/22/2019：在適用于 sap 應用程式的[SUSE Linux Enterprise Server 上的 Azure vm](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)上，sap NetWeaver 的高可用性變更、azure vm 上的 sap [NetWeaver 高可用性（含適用于 sap 應用程式的 azure NetApp Files） SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)、 [SUSE Linux Enterprise Server 上的 azure vm 上的 NFS 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)、在[azure 的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)、在[azure VM SUSE Linux Enterprise Server 上使用 Pacemaker 的 IBM Db2 LUW 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)、[SUSE Linux Enterprise Server 上的 Azure vm 上 SAP Hana 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)，適用于 Azure 負載平衡器偵測強化

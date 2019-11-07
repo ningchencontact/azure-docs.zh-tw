@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489526"
+ms.locfileid: "73584534"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>監視 Azure ML 實驗的執行和計量
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "73489526"
 
 > [!NOTE]
 > Azure Machine Learning 也可能會在定型期間記錄來自其他來源的資訊，例如自動化機器學習執行，或執行定型作業的 Docker 容器。 這些記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。
+
+> [!TIP]
+> 本檔中的資訊主要適用于想要監視模型定型流程的資料科學家和開發人員。 如果您是系統管理員，想要監視 Azure Machine learning 中的資源使用方式和事件（例如配額、已完成的定型回合或完成的模型部署），請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
 
 ## <a name="available-metrics-to-track"></a>要追蹤的可用計量
 

@@ -1,18 +1,18 @@
 ---
 title: 非同步重新整理 Azure Analysis Services 模型 | Microsoft Docs
-description: 了解如何使用 REST API 撰寫非同步重新整理的程式碼。
+description: 說明如何使用 Azure Analysis Services REST API 來程式碼非同步重新整理模型資料。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147359"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573386"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 
@@ -56,7 +56,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 所有呼叫必須使用授權標頭中的有效 Azure Active Directory (OAuth 2) 權杖進行驗證，而且必須符合下列需求：
 
@@ -97,7 +97,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| Name             | Type  | 描述  |預設值  |
+| 名稱             | 類型  | 說明  |預設值  |
 |------------------|-------|--------------|---------|
 | `Type`           | 例舉  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 | `CommitMode`     | 例舉  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
@@ -211,7 +211,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 3.  執行範例。
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [範例](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

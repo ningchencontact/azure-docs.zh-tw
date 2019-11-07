@@ -4,16 +4,16 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 3608eb6182f7806c0d4df8b96aa69faac68928f1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174344"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73590499"
 ---
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | :--- |
-| 每一訂用帳戶的[容器群組](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| 每個[訂](../articles/billing-buy-sign-up-azure-subscription.md)用帳戶每個區域的容器群組 | 100<sup>1</sup> |
 | 每個容器群組的容器數目 | 60 |
 | 每個容器群組的磁碟區數目 | 20 |
 | 每個 IP 的連接埠數目 | 5 |

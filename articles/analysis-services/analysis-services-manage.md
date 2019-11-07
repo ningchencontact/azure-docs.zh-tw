@@ -1,23 +1,23 @@
 ---
 title: 管理 Azure Analysis Services | Microsoft Docs
-description: 瞭解如何以 Azure 管理 Analysis Services 伺服器。
+description: 本文說明用來管理 Azure Analysis Services server 管理和管理工作的工具。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6846eaedc7f20f5a7597ee889193e977e86a5ed6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146838"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572803"
 ---
 # <a name="manage-analysis-services"></a>Azure Analysis Services
 在 Azure 中建立 Analysis Services 伺服器之後，會有一些您必須立即或稍後執行的管理工作。 例如：執行資料重新整理處理作業、控制誰能夠存取您伺服器上的模型，或監視伺服器的健康狀態。 有些管理工作只能在 Azure 入口網站中執行，有些只能在 SQL Server Management Studio (SSMS) 中執行，也有些工作可以在這兩個位置中執行。
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure 入口網站
 [Azure 入口網站](https://portal.azure.com/)可讓您建立與刪除伺服器、監視伺服器資源、變更大小，以及管理誰能夠存取您的伺服器。  如果您有一些問題，也可以提交支援要求。
 
 ![在 Azure 中取得伺服器名稱](./media/analysis-services-manage/aas-manage-portal.png)
@@ -49,7 +49,7 @@ ms.locfileid: "73146838"
 
     [Windows 驗證] 以使用您的 Windows 網域\使用者名稱和密碼認證。
 
-    [Active Directory 密碼驗證] 以使用組織帳戶。 例如，當從未加入網域的電腦連線時。
+    [Active Directory 密碼驗證]：使用組織帳戶。 例如，當從未加入網域的電腦連線時。
 
     **具 MFA 支援的 Active Directory - 通用** 請使用 [非互動式或多重要素驗證](../sql-database/sql-database-ssms-mfa-authentication.md)。 
    

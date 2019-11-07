@@ -1,18 +1,18 @@
 ---
-title: Azure Analysis Services 中的驗證和使用者權限 | Microsoft Docs
-description: 了解 Azure Analysis Services 中的驗證和使用者權限。
+title: Azure Analysis Services 驗證和使用者權限 |Microsoft Docs
+description: 本文說明 Azure Analysis Services 如何使用 Azure Active Directory （Azure AD）進行身分識別管理和使用者驗證。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572756"
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
 
@@ -22,7 +22,7 @@ Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/a
 
 ![Azure Analysis Services 驗證架構](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 所有用戶端應用程式和工具會使用一或多個 Analysis Services [用戶端程式庫](analysis-services-data-providers.md) (AMO、MSOLAP、ADOMD) 連線到伺服器。 
 

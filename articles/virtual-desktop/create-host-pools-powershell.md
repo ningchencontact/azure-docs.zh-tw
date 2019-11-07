@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 建立 Windows 虛擬桌面主機集區-Azure
+title: 建立 Windows 虛擬桌面主機集區 PowerShell-Azure
 description: 如何使用 PowerShell Cmdlet 在 Windows 虛擬桌面中建立主機集區。
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 8ed0e1b1406eca6dd55e9e9faf184152a190da94
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a50a7966af8f6453441ac19c9dafac064015f9a2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757505"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607092"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主機集區
 
-主機集區是 Windows 虛擬桌面租用戶環境中一或多個相同虛擬機器的集合。 每個主機集區都可以包含一個應用程式群組，而使用者可如同在實體桌面上與其互動。
+主機集區是 Windows 虛擬桌面租使用者環境中一或多個相同虛擬機器的集合。 每個主機集區都可以包含一個應用程式群組，而使用者可如同在實體桌面上與其互動。
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>使用您的 PowerShell 用戶端建立主機集區
 

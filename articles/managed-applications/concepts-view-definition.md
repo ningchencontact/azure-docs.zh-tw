@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: f51dbce3c251f4e89483d925ac657aac7eb928d8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b23e844cb550a98328951bc6efae3c5039ff73bf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804123"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607544"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure 受控應用程式中的 View definition 成品
 
@@ -26,7 +26,7 @@ View definition 是 Azure 受控應用程式中的選擇性成品。 它可讓�
 
 ## <a name="view-definition-schema"></a>視圖定義架構
 
-**ViewDefinition**檔案只有一個最上層 `views` 屬性，這是一個 views 陣列。 每個視圖都會顯示在受控應用程式使用者介面中，作為目錄中的另一個功能表項目。 每個 view 都有一個 `kind` 屬性，可設定視圖的類型。 它必須設定為下列其中一個值：[總覽](#overview)、[計量](#metrics)、 [CustomResources](#custom-resources)。 如需詳細資訊，請參閱 viewDefinition 的目前[json 架構](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)。
+**ViewDefinition**檔案只有一個最上層 `views` 屬性，這是一個 views 陣列。 每個視圖都會顯示在受控應用程式使用者介面中，作為目錄中的另一個功能表項目。 每個 view 都有一個 `kind` 屬性，可設定視圖的類型。 它必須設定為下列其中一個值：[總覽](#overview)、[計量](#metrics)、 [CustomResources](#custom-resources)、[關聯](#associations)。 如需詳細資訊，請參閱 viewDefinition 的目前[json 架構](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)。
 
 View 定義的範例 JSON：
 
@@ -91,10 +91,18 @@ View 定義的範例 JSON：
                     {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
                 ]
             }
+        },
+        {
+            "kind": "Associations",
+            "properties": {
+                "displayName": "Test association resource type",
+                "version": "1.0.0",
+                "targetResourceType": "Microsoft.Compute/virtualMachines",
+                "createUIDefinition": { }
+            }
         }
     ]
 }
-
 ```
 
 ## <a name="overview"></a>概觀
@@ -119,7 +127,7 @@ View 定義的範例 JSON：
 }
 ```
 
-|屬性|必要項|描述|
+|屬性|必要|說明|
 |---------|---------|---------|
 |頁首|否|[總覽] 頁面的標頭。|
 |說明|否|受控應用程式的描述。|
@@ -127,7 +135,7 @@ View 定義的範例 JSON：
 
 ![概觀](./media/view-definition/overview.png)
 
-## <a name="metrics"></a>計量
+## <a name="metrics"></a>度量
 
 `"kind": "Metrics"`
 
@@ -158,15 +166,15 @@ View 定義的範例 JSON：
 }
 ```
 
-|屬性|必要項|描述|
+|屬性|必要|說明|
 |---------|---------|---------|
 |displayName|否|視圖的顯示標題。|
-|version|否|用來呈現視圖的平臺版本。|
+|版本|否|用來呈現視圖的平臺版本。|
 |圖表|是|[度量] 頁面的圖表陣列。|
 
 ### <a name="chart"></a>圖表
 
-|屬性|必要項|描述|
+|屬性|必要|說明|
 |---------|---------|---------|
 |displayName|是|圖表的顯示標題。|
 |chartType|否|要用於此圖表的視覺效果。 根據預設，它會使用折線圖。 支援的圖表類型： `Bar, Line, Area, Scatter`。|
@@ -174,7 +182,7 @@ View 定義的範例 JSON：
 
 ### <a name="metric"></a>計量
 
-|屬性|必要項|描述|
+|屬性|必要|說明|
 |---------|---------|---------|
 |名稱|是|計量的名稱。|
 |aggregationType|是|要用於此度量的匯總類型。 支援的匯總類型： `none, sum, min, max, avg, unique, percentile, count`|
@@ -182,7 +190,7 @@ View 定義的範例 JSON：
 |resourceTagFilter|否|將會顯示計量的資源標記陣列（將以 `or` 單字分隔）。 適用于資源類型篩選器之上。|
 |resourceType|是|要顯示計量的資源類型。|
 
-![計量](./media/view-definition/metrics.png)
+![度量](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>自訂資源
 
@@ -218,10 +226,10 @@ View 定義的範例 JSON：
 }
 ```
 
-|屬性|必要項|描述|
+|屬性|必要|說明|
 |---------|---------|---------|
 |displayName|是|視圖的顯示標題。 在您的**viewDefinition**中，每個 CustomResources 視圖的標題都應該是**唯一**的。|
-|version|否|用來呈現視圖的平臺版本。|
+|版本|否|用來呈現視圖的平臺版本。|
 |resourceType|是|自訂資源類型。 必須是自訂提供者的**唯一**自訂資源類型。|
 |icon|否|視圖的圖示。 範例圖示清單定義于[JSON 架構](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)中。|
 |createUIDefinition|否|建立 [建立自訂資源] 命令的 UI 定義架構。 如需建立 UI 定義的簡介，請參閱[CreateUiDefinition](create-uidefinition-overview.md)使用者入門|
@@ -247,12 +255,39 @@ View 定義的範例 JSON：
 }
 ```
 
-|屬性|必要項|描述|
+|屬性|必要|說明|
 |---------|---------|---------|
 |displayName|是|命令按鈕的顯示名稱。|
-|path|是|自訂提供者動作名稱。 動作必須定義在**mainTemplate**中。|
+|路徑|是|自訂提供者動作名稱。 動作必須定義在**mainTemplate**中。|
 |icon|否|命令按鈕的圖示。 範例圖示清單定義于[JSON 架構](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)中。|
 |createUIDefinition|否|建立命令的 UI 定義架構。 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。|
+
+## <a name="associations"></a>關聯
+
+`"kind": "Associations"`
+
+您可以定義此類型的多個視圖。 此視圖可讓您透過在**mainTemplate**中定義的自訂提供者，將現有資源連結至受控應用程式。 如需自訂提供者的簡介，請參閱 [Azure Custom Providers Preview 概觀](custom-providers-overview.md)\(英文\)。
+
+在此視圖中，您可以根據 `targetResourceType`來擴充現有的 Azure 資源。 當您選取資源時，它會建立對**公用**自訂提供者的上架要求，這會對資源套用副作用。 
+
+```json
+{
+    "kind": "Associations",
+    "properties": {
+        "displayName": "Test association resource type",
+        "version": "1.0.0",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "createUIDefinition": { }
+    }
+}
+```
+
+|屬性|必要|說明|
+|---------|---------|---------|
+|displayName|是|視圖的顯示標題。 在**viewDefinition**中，每個相關檢視的標題都應該是**唯一**的。|
+|版本|否|用來呈現視圖的平臺版本。|
+|targetResourceType|是|目標資源類型。 這是將針對資源上線顯示的資源類型。|
+|createUIDefinition|否|建立建立關聯資源命令的 UI 定義架構。 如需建立 UI 定義的簡介，請參閱[CreateUiDefinition](create-uidefinition-overview.md)使用者入門|
 
 ## <a name="looking-for-help"></a>尋求協助
 

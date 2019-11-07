@@ -1,18 +1,18 @@
 ---
 title: 管理 Azure Analysis Services 中的伺服器管理員 | Microsoft Docs
-description: 了解如何在 Azure 中管理 Analysis Services 伺服器的伺服器管理員。
+description: 本文說明如何使用 Azure 入口網站、PowerShell 或 REST Api 來管理 Azure Analysis Services 伺服器的伺服器系統管理員。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f597bc9e34a606a6e40a57e5fc7af791d972c68e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f7c57a5751f2ff34abb26b7653070ce4ee5010fe
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146269"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572616"
 ---
 # <a name="manage-server-administrators"></a>管理伺服器管理員
 
@@ -23,7 +23,7 @@ ms.locfileid: "73146269"
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>使用 Azure 入口網站來新增伺服器管理員
 
 1. 在入口網站中，針對您的伺服器按一下 [Analysis Services 管理員]。
-2. 在 [\<servername> - Analysis Services 管理員] 中，按一下 [新增]。
+2. 在 [**servername> - Analysis Services 管理員]\<** 中，按一下 [新增]。
 3. 在 [新增伺服器管理員] 中，選取 Azure AD 中的使用者帳戶，或透過電子郵件地址邀請外部使用者。
 
     ![Azure 入口網站的伺服器管理員](./media/analysis-services-server-admins/aas-manage-users-admins.png)

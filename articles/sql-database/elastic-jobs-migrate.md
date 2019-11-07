@@ -1,5 +1,5 @@
 ---
-title: 移轉至新的彈性資料庫作業 | Microsoft Docs
+title: '遷移至新的彈性資料庫作業 '
 description: 移轉至新的彈性資料庫作業。
 services: sql-database
 ms.service: sql-database
@@ -11,27 +11,27 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2cba7ecb4be500a8f7007c8da009e03e6f33dfde
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550558"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692272"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>移轉至新的彈性資料庫作業
 
 升級版本的[彈性資料庫作業](elastic-jobs-overview.md)可供使用。
 
-如果您有現有的客戶託管版本的彈性資料庫作業, 則會提供遷移 Cmdlet 和腳本, 以便輕鬆地遷移至最新版本。
+如果您有現有的客戶託管版本的彈性資料庫作業，則會提供遷移 Cmdlet 和腳本，以便輕鬆地遷移至最新版本。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 升級版本的彈性資料庫作業具有一組新的 PowerShell Cmdlet，可以在移轉期間使用。 這些新的 Cmdlet 會將您所有的現有作業認證、目標 (包括資料庫、伺服器、自訂集合)、作業觸發程序、作業排程、作業內容及作業傳輸至新的彈性資料庫代理程式。
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>安裝最新的彈性作業 Cmdlet
 
-如果您還沒有 Azure 訂用帳戶, 請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您還沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 安裝 **Az.Sql** 1.1.1 預覽模組，以取得最新的彈性作業 Cmdlet。 在 PowerShell 中以系統管理存取權執行下列命令。
 
@@ -88,11 +88,11 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 
 
-## <a name="migration"></a>遷移
+## <a name="migration"></a>移轉
 
 既然已初始化舊的和新的彈性作業 Cmdlet，請將認證、目標及作業移轉至新的「作業資料庫」。
 
-### <a name="setup"></a>安裝程式
+### <a name="setup"></a>設定
 
 ```powershell
 $ErrorActionPreference = "Stop";

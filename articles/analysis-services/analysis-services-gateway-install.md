@@ -1,18 +1,18 @@
 ---
 title: 安裝適用于 Azure Analysis Services 的內部部署資料閘道 |Microsoft Docs
-description: 了解如何安裝及設定內部部署資料閘道。
+description: 瞭解如何安裝和設定內部部署資料閘道，以從 Azure Analysis Services 伺服器連線到內部部署資料來源。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572846"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
@@ -127,7 +127,7 @@ ms.locfileid: "73147119"
 
     ![將伺服器連線至閘道資源成功](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-就這樣， 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
+就這麼簡單。 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

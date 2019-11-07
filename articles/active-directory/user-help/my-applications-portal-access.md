@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74033200bc365caf13035284108f2cf05eee7bbe
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e7eb3dbe3ce82b794a5ed530107781b634ceb32f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573846"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>從我的應用程式（預覽）入口網站存取及啟動應用程式
 
@@ -53,7 +53,7 @@ ms.locfileid: "73180747"
 
 1. 在您的電腦上登入您的公司或學校帳戶。
 
-2. 開啟支援的網頁瀏覽器並移至 https://myapps.microsoft.com ，或使用您組織所提供的連結。 例如，您可能會被導向到您的組織使用自訂的頁面，例如 `https://myapps.microsoft.com/contoso.com`。
+2. 開啟支援的網頁瀏覽器並移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向到您的組織使用自訂的頁面，例如 `https://myapps.microsoft.com/contoso.com`。
 
     [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
@@ -63,7 +63,7 @@ ms.locfileid: "73180747"
 
 1. 在您的行動裝置上，從[Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)或[Google Play 商店](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)下載並安裝 Intune Managed Browser 應用程式。
 
-2. 開啟 Intune Managed Browser 應用程式、移至 https://myapps.microsoft.com ，或使用貴組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com 。
+2. 開啟 Intune Managed Browser 應用程式、移至 https://myapps.microsoft.com，或使用貴組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
     [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
@@ -73,7 +73,7 @@ ms.locfileid: "73180747"
 
 1. 在您的行動裝置上，啟動 web 瀏覽器應用程式，例如 Safari。
 
-2. 請移至 https://myapps.microsoft.com ，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com 。
+2. 請移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
     [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
@@ -83,7 +83,7 @@ ms.locfileid: "73180747"
 
 1. 在您的行動裝置上，啟動 web 瀏覽器應用程式，例如 Google Chrome。
 
-2. 請移至 https://myapps.microsoft.com ，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com 。
+2. 請移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
     [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
@@ -108,8 +108,8 @@ ms.locfileid: "73180747"
 
 ## <a name="related-articles"></a>相關文章
 
-- [更新您的設定檔和帳戶資訊](myprofile-portal-overview.md)。 有關如何更新顯示在**我的設定檔**（預覽）入口網站上的個人資訊的指示。
+- [更新您的設定檔和帳戶資訊](my-account-portal-overview.md)。 有關如何更新顯示在**我的設定檔**（預覽）入口網站上的個人資訊的指示。
 
-- [管理您的組織](myprofile-portal-organizations-page.md)。 有關如何在 [**我的設定檔**] 入口網站的 [**組織**] 頁面上，查看及管理組織相關資訊的指示。
+- [管理您的組織](my-account-portal-organizations-page.md)。 有關如何在 [**我的設定檔**] 入口網站的 [**組織**] 頁面上，查看及管理組織相關資訊的指示。
 
-- [管理已連線的裝置](myprofile-portal-devices-page.md)。 有關如何在 [**我的設定檔**] 入口網站的 [**裝置**] 頁面上，使用您的工作或學校帳戶來管理您所連線之裝置的指示。
+- [管理已連線的裝置](my-account-portal-devices-page.md)。 有關如何在 [**我的設定檔**] 入口網站的 [**裝置**] 頁面上，使用您的工作或學校帳戶來管理您所連線之裝置的指示。

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166461"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601307"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
@@ -26,7 +26,7 @@ ms.locfileid: "72166461"
 
 定義您的容器規格時，特定參數需要遵循命名限制。 以下資料表具有容器群組屬性的特定需求。 如需 Azure 命名慣例的詳細資訊，請參閱 Azure Architecture Center 中的[命名慣例][azure-name-restrictions]。
 
-| `Scope` | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
+| Scope | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
 | --- | --- | --- | --- | --- | --- |
 | 容器群組名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -176,7 +176,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 ### <a name="cached-images"></a>快取的影像
 
-Azure 容器實例會使用快取機制，協助針對建置於通用[Windows 基底映射](container-instances-faq.md#what-windows-base-os-images-are-supported)的映射（包括 `nanoserver:1809`、`servercore:ltsc2019` 和 `servercore:1809`）來加速容器啟動時間。 常用的 Linux 映射，例如 `ubuntu:1604` 和 `alpine:3.6` 也會進行快取。 如需最新的快取映射和標籤清單，請使用列出快取的[影像][list-cached-images]API。
+Azure 容器實例會使用快取機制，協助針對建置於通用[Windows 基底映射](container-instances-faq.md#what-windows-base-os-images-are-supported)的映射（包括 `nanoserver:1809`、`servercore:ltsc2019`和 `servercore:1809`）來加速容器的啟動時間。 常用的 Linux 映射，例如 `ubuntu:1604` 和 `alpine:3.6` 也會進行快取。 如需最新的快取映射和標籤清單，請使用列出快取的[影像][list-cached-images]API。
 
 > [!NOTE]
 > 在 Azure 容器執行個體中使用以 Windows Server 2019 為基礎的映像是預覽功能。
@@ -206,9 +206,9 @@ Azure 容器執行個體不會公開基礎結構 (其中裝載容器群組) 的�
 
 Azure 容器實例尚未支援像是一般 docker 設定的埠對應。 如果您認為容器群組的 IP 位址應該是無法存取的，請確定您已將容器映射設定為接聽您在容器群組中使用 `ports` 屬性所公開的相同埠。
 
-如果您想要確認 Azure 容器實例可以在您于容器映射中設定的埠上接聽，請測試公開端口的 @no__t 0 映射部署。 同時執行 `aci-helloworld` 應用程式，使其在埠上接聽。 `aci-helloworld` 會接受選擇性的環境變數 `PORT`，以覆寫接聽的預設通訊埠80。 例如，若要測試埠9000：
+如果您想要確認 Azure 容器實例可以在您于容器映射中設定的埠上接聽，請測試公開該埠之 `aci-helloworld` 映射的部署。 同時執行 `aci-helloworld` 應用程式，使其在埠上接聽。 `aci-helloworld` 會接受選擇性的環境變數 `PORT`，以覆寫接聽的預設通訊埠80。 例如，若要測試埠9000，請在建立容器群組時設定[環境變數](container-instances-environment-variables.md)：
 
-1. 設定容器群組以公開端口9000，並將埠號碼傳遞為環境變數的值：
+1. 設定容器群組以公開端口9000，並將埠號碼傳遞為環境變數的值。 範例會針對 Bash shell 進行格式化。 如果您偏好使用其他 shell （例如 PowerShell 或命令提示字元），您必須據以調整變數指派。
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \

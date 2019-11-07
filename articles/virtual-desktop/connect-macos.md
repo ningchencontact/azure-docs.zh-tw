@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: fa61d69ae7aa650b6011696fd45d05ba20d2ac8b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: dc980d60c1db684a47c38b3b8efceb08dd618838
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338712"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605795"
 ---
-# <a name="connect-with-the-macos-client"></a>與 macOS 用戶端連線
+# <a name="connect-with-the-macos-client"></a>連線至 macOS 用戶端
 
 > 適用于： macOS 10.12 或更新版本
 
@@ -25,7 +25,7 @@ ms.locfileid: "71338712"
 
 ## <a name="install-the-client"></a>安裝用戶端
 
-若要開始使用，請在您的 macOS 裝置上[下載](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) 並安裝用戶端。
+若要開始使用，請[下載](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) 並在您的 macOS 裝置上安裝用戶端。
 
 ## <a name="subscribe-to-a-feed"></a>訂閱摘要
 
@@ -35,7 +35,7 @@ ms.locfileid: "71338712"
 
 1. 在主頁面上選取 [**新增**摘要]，以連線至服務並抓取您的資源。
 2. 輸入摘要 URL。 這可以是 URL 或電子郵件地址：
-   - 如果您使用 URL，請使用您的系統管理員提供給您的帳戶。 通常，URL 為<https://rdweb.wvd.microsoft.com>。
+   - 如果您使用 URL，請使用您的系統管理員提供給您的帳戶。 通常會 <https://rdweb.wvd.microsoft.com>URL。
    - 若要使用電子郵件，請輸入您的電子郵件地址。 如果您的系統管理員以這種方式設定伺服器，這會告訴用戶端搜尋與您的電子郵件地址相關聯的 URL。
 3. 選取 [**訂閱**]。
 4. 出現提示時，使用您的使用者帳戶登入。

@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49dc3b0542e3f5e24c556ed78c20b16c3a6f1796
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a8cc02831fa00a3974da1b74b07daf581f50dd22
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569617"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保護的 Web API：程式碼設定
 
@@ -124,9 +124,11 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
     // Instead of using the default validation (validating against a single tenant,
     // as we do in line-of-business apps),
     // we inject our own multitenant validation logic (which even accepts both v1 and v2 tokens).
-    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.ValidateAadIssuer;
+    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.GetIssuerValidator(options.Authority).Validate;;
 });
 ```
+
+此程式碼片段會從 WebApiServiceCollectionExtensions 中的 ASP.NET Core Web Api 累加式教學課程中解壓縮，[網址為 L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63)。 `AddProtectedWebApi` 的方法會從 Startup.cs 中呼叫，
 
 ## <a name="token-validation"></a>權杖驗證
 
@@ -146,7 +148,7 @@ Microsoft.aspnetcore.authentication.jwtbearer 中介軟體（例如 web 應用�
 
 此表格會說明驗證程式：
 
-| 驗證程式 | 描述 |
+| 驗證程式 | 說明 |
 |---------|---------|
 | `ValidateAudience` | 確保權杖適用于驗證權杖的應用程式（適用于我）。 |
 | `ValidateIssuer` | 確保權杖是由信任的 STS （來自我信任的人）所發行。 |

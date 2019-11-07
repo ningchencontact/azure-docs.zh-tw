@@ -1,21 +1,21 @@
 ---
-title: 建立 Azure HPC Cache (預覽)
-description: 如何建立 Azure HPC Cache 執行個體
+title: 建立 Azure HPC 快取
+description: 如何建立 Azure HPC 快取實例
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255261"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582187"
 ---
-# <a name="plan-the-aggregated-namespace"></a>規劃彙總的命名空間
+# <a name="plan-the-aggregated-namespace"></a>規劃匯總的命名空間
 
-Azure HPC 快取（預覽）可讓用戶端透過會隱藏後端儲存系統詳細資料的虛擬命名空間，來存取各種不同的儲存系統。
+Azure HPC 快取可讓用戶端透過會隱藏後端儲存系統詳細資料的虛擬命名空間，來存取各種不同的儲存系統。
 
 當您新增儲存體目標時，會設定用戶端面向的檔案路徑。 用戶端電腦會掛接此檔案路徑，而且可以對快取提出檔案讀取要求，而不是直接裝載儲存系統。
 

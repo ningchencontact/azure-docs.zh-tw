@@ -9,16 +9,24 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: dddc39a0b7b3c43f283750c95d4feaef2cf15b36
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514273"
+ms.locfileid: "73582896"
 ---
 # <a name="monitoring-azure-machine-learning"></a>監視 Azure Machine Learning
 
 本文說明 Azure Machine Learning 所產生的監視資料。 它也會說明如何使用 Azure 監視器來分析您的資料並定義警示。
+
+> [!TIP]
+> 本檔中的資訊主要是針對系統管理員，因為它會說明 Azure Machine Learning 服務的監視。 如果您是資料科學家或開發人員，而且想要監視模型定型執行的特定資訊，請參閱下列檔：
+>
+> * [啟動、監視和取消訓練執行](how-to-manage-runs.md)
+> * [定型執行的記錄計量](how-to-track-experiments.md)
+> * [使用 MLflow 追蹤 eexperiments](how-to-use-mlflow.md)
+> * [使用 TensorBoard 視覺化執行](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Azure 監視器
 

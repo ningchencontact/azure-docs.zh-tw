@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db700c1c06b89e1a3287b5eee1a11fc8877dedde
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520821"
+ms.locfileid: "73571564"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Azure 上 SQL server 的 Advanced data security 虛擬機器（預覽）
 Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全性功能的整合套件。 這項預覽功能包含可識別和減輕潛在資料庫弱點，以及偵測可能表示對資料庫有威脅之異常活動的功能。 
@@ -63,7 +63,7 @@ Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全
 
 ## <a name="set-up-email-notification-for-atp-alerts"></a>設定 ATP 警示的電子郵件通知 
 
-您可以設定要在產生 ASC 警示時接收電子郵件通知的收件者清單。 此電子郵件包含 Azure 資訊安全中心中警示的直接連結，以及所有相關的詳細資料。 
+您可以設定要在產生資訊安全中心警示時接收電子郵件通知的收件者清單。 此電子郵件包含 Azure 資訊安全中心中警示的直接連結，以及所有相關的詳細資料。 
 
 1. 移至**資訊安全中心** > **定價 & 設定**，然後按一下相關的訂用帳戶
 

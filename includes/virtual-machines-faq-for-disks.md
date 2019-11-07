@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522429"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612027"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -170,15 +170,6 @@ Azure 磁片保留會針對特定區域和 SKU （例如美國東部2中的 P30�
 您將會在到期前30天收到電子郵件通知，並在到期日再次出現。 保留到期後，部署的磁片將會繼續執行，且會以最新的[隨用隨付費率](https://azure.microsoft.com/pricing/details/managed-disks/)計費。
 
 ## <a name="ultra-disks"></a>Ultra 磁片
-
-**哪些區域目前支援 ultra 磁片？**
-- 美國東部 2
-- 東南亞
-- 北歐
-
-**哪些 VM 系列目前支援 ultra 磁片？**
-- ESv3
-- DSv3
 
 **我該如何將 ultra 磁片輸送量設定為？**
 如果您不確定要如何設定磁片輸送量，建議您先從假設 IO 大小 16 KiB 開始，並在監視應用程式時從該處調整效能。 此公式為：輸送量（MBps = IOPS） * 16/1000。

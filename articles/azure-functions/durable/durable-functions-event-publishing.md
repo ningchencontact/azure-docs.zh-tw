@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: f3fd59c0d17bd9094f6887aa5ec088f9fdcdd979
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4e1a714a6d46a9422fb298749cfe30ac70ffc8c3
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734443"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614899"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 
@@ -22,28 +22,30 @@ ms.locfileid: "70734443"
 
 以下是適合使用此功能的一些案例：
 
-* **類似 DevOps 案例的藍色/綠色部署**：您可能想知道在實作[並存部署策略](durable-functions-versioning.md#side-by-side-deployments)前是否有任何工作正在執行中。
+* **DevOps 案例，例如藍色/綠色部署**：您可能想要知道是否有任何工作正在執行中，然後再實行[並存部署策略](durable-functions-versioning.md#side-by-side-deployments)。
 
 * **進階監視和診斷支援**：您可以在已針對查詢最佳化的外部存放區 (例如 SQL 資料庫或 CosmosDB) 中，追蹤協調流程狀態資訊。
 
 * **長時間執行的背景活動**：如果您使用 Durable Functions 進行長時間執行的背景活動，這項功能可協助您知道目前的狀態。
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
-* 在您的 Durable Functions 專案中安裝 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc 或更新版本。
-* 安裝 [Azure 儲存體模擬器](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)。
-* 安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 或使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* 在您的 Durable Functions 專案中安裝[DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 。
+* 安裝 [Azure 儲存體模擬器](../../storage/common/storage-use-emulator.md)。
+* 安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 或使用 [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>建立自訂事件方格主題
 
 建立事件方格主題，以從 Durable Functions 傳送事件。 下列指示說明如何使用 Azure CLI 建立主題。 如需如何使用 PowerShell 或 Azure 入口網站執行此作業的相關資訊，請參閱下列文章：
 
-* [EventGrid 快速入門：建立自訂事件 - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid 快速入門：建立自訂事件 - Azure 入口網站](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [事件方格快速入門：建立自訂事件 - PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
+* [事件方格快速入門：建立自訂事件 - Azure 入口網站](../../event-grid/custom-event-quickstart-portal.md)
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-使用 `az group create` 命令建立資源群組。 Azure 事件方格目前不支援所有區域。 如需有關支援哪些區域的詳細資訊，請參閱[Azure 事件方格總覽](https://docs.microsoft.com/azure/event-grid/overview)。
+使用 `az group create` 命令建立資源群組。 Azure 事件方格目前不支援所有區域。 如需有關支援哪些區域的詳細資訊，請參閱[Azure 事件方格總覽](../../event-grid/overview.md)。
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -77,7 +79,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 在 Durable Functions 專案中，尋找 `host.json` 檔案。
 
-在 `durableTask` 屬性中新增 `eventGridTopicEndpoint` 和 `eventGridKeySettingName`。
+在 `eventGridTopicEndpoint` 屬性中新增 `eventGridKeySettingName` 和 `durableTask`。
 
 ```json
 {
@@ -88,7 +90,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 }
 ```
 
-可能的 Azure 事件方格設定屬性可以在[host. json 檔](../functions-host-json.md#durabletask)中找到。 設定`host.json`檔案之後，您的函數應用程式會將生命週期事件傳送至事件方格主題。 這適用于您在本機和 Azure 中執行函數應用程式的情況。
+可能的 Azure 事件方格設定屬性可以在[host. json 檔](../functions-host-json.md#durabletask)中找到。 設定 `host.json` 檔案之後，您的函數應用程式會將生命週期事件傳送至事件方格主題。 這適用于您在本機和 Azure 中執行函數應用程式的情況。
 
 在函式應用程式和 `local.setting.json` 中設定主題索引鍵的應用程式設定。 以下 JSON 是本機偵錯的 `local.settings.json` 範例。 以主題索引鍵取代 `<topic_key>`。  
 
@@ -103,7 +105,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 }
 ```
 
-確定[儲存體模擬器](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)運作正常。 在執行之前，最好先執行 `AzureStorageEmulator.exe clear all` 命令。
+確定[儲存體模擬器](../../storage/common/storage-use-emulator.md)運作正常。 在執行之前，最好先執行 `AzureStorageEmulator.exe clear all` 命令。
 
 ## <a name="create-functions-that-listen-for-events"></a>建立可接聽事件的函式
 
@@ -151,7 +153,7 @@ public static void Run(JObject eventGridEvent, ILogger log)
 
 ![選取事件方格觸發程序連結。](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-針對 [主題類型] 選取 `Event Grid Topics`。 選取您為事件方格主題所建立的資源群組。 然後選取事件方格主題的實例。 按 `Create`。
+針對 [主題類型] `Event Grid Topics`**選取**。 選取您為事件方格主題所建立的資源群組。 然後選取事件方格主題的實例。 按 `Create`。
 
 ![建立事件格線訂用帳戶。](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -168,6 +170,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
@@ -178,7 +181,7 @@ namespace LifeCycleEventSpike
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
-            [OrchestrationTrigger] DurableOrchestrationContext context)
+            [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
             var outputs = new List<string>();
 
@@ -201,7 +204,7 @@ namespace LifeCycleEventSpike
         [FunctionName("Sample_HttpStart")]
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClient starter,
+            [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
             // Function input comes from the request content.
@@ -213,13 +216,16 @@ namespace LifeCycleEventSpike
 }
 ```
 
-如果您使用 Postman 或您的瀏覽器呼叫 `Sample_HttpStart`，Durable Function 就會開始傳送生命週期事件。 端點通常是用於本機偵錯的 `http://localhost:7071/api/Sample_HttpStart`。
+> [!NOTE]
+> 先前的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext` 而不是 `IDurableOrchestrationContext`、`OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+如果您使用 Postman 或您的瀏覽器呼叫 `Sample_HttpStart`，Durable Function 就會開始傳送生命週期事件。 端點通常是用於本機偵錯的 `http://localhost:7071/api/Sample_HttpStart` 。
 
 請參閱您在 Azure 快速入門中建立的函式所提供的記錄。
 
 ```
-2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
-2018-04-20T09:28:21.104 [Info] {
+2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
+2019-04-20T09:28:21.104 [Info] {
     "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
@@ -230,15 +236,15 @@ namespace LifeCycleEventSpike
         "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
-    "eventTime": "2018-04-20T09:28:19.6492068Z",
+    "eventTime": "2019-04-20T09:28:19.6492068Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "topic": "/subscriptions/<your_subscription_id>/resourceGroups/eventResourceGroup/providers/Microsoft.EventGrid/topics/durableTopic"
 }
 
-2018-04-20T09:28:21.104 [Info] Function completed (Success, Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d, Duration=65ms)
-2018-04-20T09:28:37.098 [Info] Function started (Id=36fadea5-198b-4345-bb8e-2837febb89a2)
-2018-04-20T09:28:37.098 [Info] {
+2019-04-20T09:28:21.104 [Info] Function completed (Success, Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d, Duration=65ms)
+2019-04-20T09:28:37.098 [Info] Function started (Id=36fadea5-198b-4345-bb8e-2837febb89a2)
+2019-04-20T09:28:37.098 [Info] {
     "id": "8cf17246-fa9c-4dad-b32a-5a868104f17b",
     "subject": "durable/orchestrator/Completed",
     "data": {
@@ -249,12 +255,12 @@ namespace LifeCycleEventSpike
         "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
-    "eventTime": "2018-04-20T09:28:36.5061317Z",
+    "eventTime": "2019-04-20T09:28:36.5061317Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "topic": "/subscriptions/<your_subscription_id>/resourceGroups/eventResourceGroup/providers/Microsoft.EventGrid/topics/durableTopic"
 }
-2018-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
+2019-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
 ## <a name="event-schema"></a>事件結構描述
@@ -262,16 +268,16 @@ namespace LifeCycleEventSpike
 下列清單說明生命週期事件結構描述︰
 
 * **`id`** ：事件方格事件的唯一識別碼。
-* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
-* **`data`** ：Durable Functions 專屬參數。
-  * **`hubName`** ：[TaskHub](durable-functions-task-hubs.md) 名稱。
-  * **`functionName`** ：協調器函式名稱。
-  * **`instanceId`** ：Durable Functions 執行個體識別碼。
+* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}`。 `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
+* **`data`** ： Durable Functions 特定參數。
+  * **`hubName`** ： [TaskHub](durable-functions-task-hubs.md)名稱。
+  * **`functionName`** ：協調器函數名稱。
+  * **`instanceId`** ： Durable Functions instanceId。
   * **`reason`** ：與追蹤事件相關聯的其他資料。 如需詳細資訊，請參閱 [Durable Functions 中的診斷 (Azure Functions)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`** ：協調流程執行階段狀態。 執行中、已完成、失敗、已取消。
-* **`eventType`** : "orchestratorEvent"
-* **`eventTime`** ：事件時間 (UTC)。
-* **`dataVersion`** ：生命週期事件結構描述的版本。
+  * **`runtimeStatus`** ：協調流程執行時間狀態。 執行中、已完成、失敗、已取消。
+* **`eventType`** ： "orchestratorEvent"
+* **`eventTime`** ：事件時間（UTC）。
+* **`dataVersion`** ：生命週期事件架構的版本。
 * **`metadataVersion`** ：中繼資料的版本。
 * **`topic`** ：事件方格主題資源。
 

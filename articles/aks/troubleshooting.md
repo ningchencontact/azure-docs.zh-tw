@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517089"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604735"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -23,24 +23,24 @@ ms.locfileid: "72517089"
 嘗試[針對 Kubernetes 叢集進行疑難排解的官方指南](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)。
 此外，也有 Microsoft 工程師所發佈的[疑難排解指南](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)，該指南可用來針對 Pod、節點、叢集和其他功能進行疑難排解。
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>我在建立或升級期間收到「已超出配額」錯誤。 我該怎麼做？ 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>我在建立或升級期間收到「已超出配額」錯誤。 我該怎麼辦？ 
 
 您需要[要求核心](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>對於 AKS，每個節點的最大 Pod 數設定為何？
 
 如果您在 Azure 入口網站中部署 AKS 叢集，則每個節點的最大 Pod 數設定會預設為 30。
-如果您在 Azure CLI 中部署 AKS 叢集，則每個節點的最大 Pod 數設定會預設為 110。 (確定您使用最新版的 Azure CLI)。 在 `az aks create` 命令中使用 `–-max-pods` 旗標，即可變更此預設設定。
+如果您在 Azure CLI 中部署 AKS 叢集，則每個節點的最大 Pod 數設定會預設為 110。 (確定您使用最新版的 Azure CLI)。 在 `–-max-pods` 命令中使用 `az aks create` 旗標，即可變更此預設設定。
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時，收到 insufficientSubnetSize 錯誤。 我該怎麼做？
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時，收到 insufficientSubnetSize 錯誤。 我該怎麼辦？
 
-如果使用 Azure CNI (進階網路)，AKS 會根據每個節點上設定的「最大 Pod 數」預先配置 IP 位址。 AKS 叢集中的節點數目可以是介於 1 到 110 之間的任何數字。 根據每個節點所設定的最大 Pod 數，子網路大小應大於「節點數與每個節點最大 Pod 數的乘積」。 下列基本方程式概述此設計：
+如果使用 Azure CNI （advanced 網路），AKS 會根據每個節點設定的「最大 pod」來配置 IP 位址。 根據每個節點設定的最大 pod 數，子網大小必須大於節點數目和每個節點的最大 pod 數設定的乘積。 下列方程式會概述這一點：
 
-子網路大小 > 叢集中的節點數 (將未來的調整需求納入考量) * 每個節點最大 Pod 數。
+子網大小 > 叢集中的節點數目（考慮未來的調整需求） * 每個節點集的最大 pod 數。
 
 如需詳細資訊，請參閱[為你的叢集規劃 IP 位址](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)。
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 會在 CrashLoopBackOff 模式中停滯。 我該怎麼做？
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 會在 CrashLoopBackOff 模式中停滯。 我該怎麼辦？
 
 有各種不同的原因可能會讓 Pod 在該模式中停滯。 您可以查看：
 
@@ -53,17 +53,17 @@ ms.locfileid: "72517089"
 
 很遺憾，目前不支援在現有叢集上啟用角色型存取控制 (RBAC)。 您必須明確地建立新的叢集。 如果您使用 CLI，預設會啟用 RBAC。 如果您使用 AKS 入口網站，可在建立工作流程中使用切換按鈕來啟用 RBAC。
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我已使用 Azure CLI 搭配預設值或 Azure 入口網站來建立已啟用 RBAC 的叢集，但現在於 Kubernetes 儀表板上看到許多警告。 該儀表板一直可正常運作，而且未產生任何警告。 我該怎麼做？
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我已使用 Azure CLI 搭配預設值或 Azure 入口網站來建立已啟用 RBAC 的叢集，但現在於 Kubernetes 儀表板上看到許多警告。 該儀表板一直可正常運作，而且未產生任何警告。 我該怎麼辦？
 
 儀表板上警告的原因是因為根據預設，現在會透過 RBAC 啟用叢集並已停用對它的存取權。 這種方法通常是良好的做法，因為預設向叢集的所有使用者公開該儀表板可能會導致安全性威脅。 如果您仍然想要啟用該儀表板，請依照[這篇部落格文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/) \(英文\) 中的步驟執行。
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>我無法連線到儀表板。 我該怎麼做？
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>我無法連線到儀表板。 我該怎麼辦？
 
 存取叢集外部服務的最簡單方法是執行 `kubectl proxy`，它會將傳送至 localhost 連接埠 8001 的要求 Proxy 到 Kubernetes API 伺服器。 API 伺服器可以從該處 Proxy 到您的服務：`http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`。
 
 如果沒有看到 Kubernetes 儀表板，請檢查 `kube-proxy` Pod 是否正在 `kube-system` 命名空間中執行。 如果它並未處於執行中狀態，請刪除該 Pod，而它會重新啟動。
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到「伺服器發生錯誤：撥接後端：撥接 tcp ...」。 我該怎麼做？
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到「伺服器發生錯誤：撥接後端：撥接 tcp ...」。 我該怎麼辦？
 
 請確定預設的網路安全性群組並未修改，而且埠22和9000已開放給 API 伺服器連接。 使用 `kubectl get pods --namespace kube-system` 命令，檢查 `tunnelfront` pod 是否正在*kube 系統*命名空間中執行。 若非如此，請強制刪除該 Pod，而它會重新啟動。
 
@@ -88,7 +88,7 @@ ms.locfileid: "72517089"
 
 在具有單一節點集區或具有[多個節點](use-multiple-node-pools.md)集區之叢集的叢集上進行升級和調整作業是互斥的。 您不能同時升級和調整叢集或節點集區。 相反地，每個作業類型必須在目標資源上完成，然後才在該相同資源上進行下一個要求。 如此一來，當作用中的升級或調整作業進行中或已嘗試，且後續失敗時，作業就會受到限制。 
 
-若要協助診斷問題，請執行 `az aks show -g myResourceGroup -n myAKSCluster -o table` 以取出叢集上的詳細狀態。 根據結果：
+若要協助診斷問題，請執行 `az aks show -g myResourceGroup -n myAKSCluster -o table`，以取出叢集上的詳細狀態。 根據結果：
 
 * 如果叢集正在主動升級，請等候作業終止。 如果成功，請再次嘗試先前失敗的操作。
 * 如果叢集升級失敗，請遵循上一節中所述的步驟。
@@ -118,7 +118,7 @@ ms.locfileid: "72517089"
 
 命名限制是由 Azure 平臺和 AKS 所執行。 如果資源名稱或參數違反其中一個限制，則會傳回錯誤，要求您提供不同的輸入。 以下是適用的一般命名指導方針：
 
-* AKS *MC_* 資源組名結合了資源組名與資源名稱。 自動產生的 `MC_resourceGroupName_resourceName_AzureRegion` 語法必須不超過80個字元。 如有需要，請縮短您的資源組名或 AKS 叢集名稱的長度。
+* AKS *MC_* 資源組名結合了資源組名和資源名稱。 自動產生的 `MC_resourceGroupName_resourceName_AzureRegion` 語法必須不超過80個字元。 如有需要，請縮短您的資源組名或 AKS 叢集名稱的長度。
 * *DnsPrefix*的開頭和結尾都必須是英數位元值。 有效的字元包括英數位元值和連字號（-）。 *DnsPrefix*不能包含特殊字元，例如句號（.）。
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>我在嘗試建立、更新、調整、刪除或升級叢集時收到錯誤，因為另一個作業正在進行中，所以不允許該作業。
@@ -144,7 +144,7 @@ ms.locfileid: "72517089"
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>我在限制輸出流量之後收到錯誤
 
-限制來自 AKS 叢集的輸出流量時，有[必要和選用的建議](limit-egress-traffic.md)輸出埠/網路規則，以及適用于 AKS 的 FQDN/應用程式規則。 如果您的設定與上述任何規則發生衝突，您可能無法執行某些 `kubectl` 命令。 建立 AKS 叢集時，您可能也會看到錯誤。
+限制來自 AKS 叢集的輸出流量時，有[必要和選用的建議](limit-egress-traffic.md)輸出埠/網路規則，以及適用于 AKS 的 FQDN/應用程式規則。 如果您的設定與上述任何規則發生衝突，您可能無法執行特定的 `kubectl` 命令。 建立 AKS 叢集時，您可能也會看到錯誤。
 
 請確認您的設定不會與任何必要或選用的建議輸出埠/網路規則和 FQDN/應用程式規則相衝突。
 

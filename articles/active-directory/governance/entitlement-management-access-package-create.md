@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a2752302e5f6c3428139a0faa30ce347fc21f2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174919"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602711"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中建立新的存取套件
 
@@ -64,7 +64,7 @@ ms.locfileid: "73174919"
 1. 在左側功能表中，按一下 [存取套件]。
 
 1. 按一下 [新增存取套件]。
-
+   
     ![Azure 入口網站中的權利管理](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>基本概念
@@ -107,7 +107,7 @@ ms.locfileid: "73174919"
 
 1. 按一下 [下一步]。
 
-## <a name="requests"></a>Requests
+## <a name="requests"></a>要求
 
 在 [**要求**] 索引標籤上，您可以建立第一個原則來指定可以要求存取套件的人員，以及核准設定。 之後，您可以建立更多要求原則，以允許其他使用者群組使用自己的核准設定來要求存取封裝。
 

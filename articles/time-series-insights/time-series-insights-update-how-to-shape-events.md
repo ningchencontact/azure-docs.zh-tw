@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 10/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8a50e062d2dac1f30f8b745f351570262daac53
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8b9dd10a4017d821794af037e502c784b10cd62f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990884"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585285"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>使用 Azure 時間序列深入解析為事件塑形
 
-此文章可協助您為 JSON 檔案塑形以最佳化 Azure 時間序列深入解析預覽版查詢的效率。
+本文可協助您塑造 JSON 檔案以進行內嵌，並將 Azure 時間序列深入解析預覽查詢的效率發揮到極致。
 
 ## <a name="best-practices"></a>最佳作法
 
@@ -36,7 +36,9 @@ ms.locfileid: "72990884"
 * 請勿使用深層陣列巢狀結構。 時間序列深入解析 Preview 最多支援兩個包含物件的嵌套陣列層級。 時間序列深入解析會將訊息中的陣列壓平合併為具有屬性值組的多個事件。
 * 如果所有或大部分的事件只存在少數的量值，最好將這些量值當作相同物件內的個別屬性來傳送。 將它們分開傳送可減少事件數目，而且可能會改善查詢效能，因為需要處理的事件較少。
 
-## <a name="example"></a>範例
+在內嵌期間，包含嵌套的承載將會壓平合併，讓資料行名稱是具有 delineator 的單一值。 時間序列深入解析 Preview 會使用略圖的底線。 請注意，這是已使用的產品 GA 版本所做的變更。 在預覽期間，簡維會有警告，如下列第二個範例所示。
+
+## <a name="examples"></a>範例
 
 下列範例是以兩部或多部裝置傳送度量或訊號的案例為基礎。 測量或信號可以是*流動率*、*引擎石油壓力*、*溫度*和*濕度*。
 
@@ -44,75 +46,78 @@ ms.locfileid: "72990884"
 
 時間序列實例包含裝置中繼資料。 此中繼資料不會隨著每個事件而變更，但它會提供有用的資料分析屬性。 若要節省透過網路傳送的位元組，並讓訊息更有效率，請考慮批次處理通用維度值，並使用時間序列實例中繼資料。
 
-### <a name="example-json-payload"></a>範例 JSON 承載
+### <a name="example-1"></a>範例 1：
 
 ```JSON
 [
-    {
-        "deviceId": "FXXX",
-        "timestamp": "2018-01-17T01:17:00Z",
-        "series": [
-            {
-                "Flow Rate ft3/s": 1.0172575712203979,
-                "Engine Oil Pressure psi ": 34.7
-            },
-            {
-                "Flow Rate ft3/s": 2.445906400680542,
-                "Engine Oil Pressure psi ": 49.2
-            }
-        ]
-    },
-    {
-        "deviceId": "FYYY",
-        "timestamp": "2018-01-17T01:18:00Z",
-        "series": [
-            {
-                "Flow Rate ft3/s": 0.58015072345733643,
-                "Engine Oil Pressure psi ": 22.2
-            }
-        ]
-    }
+  {
+    "deviceId":"FXXX",
+    "timestamp":"2018-01-17T01:17:00Z",
+    "series":[
+      {
+        "Flow Rate ft3/s":1.0172575712203979,
+        "Engine Oil Pressure psi ":34.7
+      },
+      {
+        "Flow Rate ft3/s":2.445906400680542,
+        "Engine Oil Pressure psi ":49.2
+      }
+    ]
+  },
+  {
+    "deviceId":"FYYY",
+    "timestamp":"2018-01-17T01:18:00Z",
+    "series":[
+      {
+        "Flow Rate ft3/s":0.58015072345733643,
+        "Engine Oil Pressure psi ":22.2
+      }
+    ]
+  }
 ]
 ```
 
 ### <a name="time-series-instance"></a>時間序列執行個體 
+
 > [!NOTE]
 > 時間序列識別碼是 *deviceId*。
 
 ```JSON
-{
-    "timeSeriesId": [
+[
+  {
+    "timeSeriesId":[
       "FXXX"
     ],
-    "typeId": "17150182-daf3-449d-adaf-69c5a7517546",
-    "hierarchyIds": [
+    "typeId":"17150182-daf3-449d-adaf-69c5a7517546",
+    "hierarchyIds":[
       "b888bb7f-06f0-4bfd-95c3-fac6032fa4da"
     ],
-    "description": null,
-    "instanceFields": {
-      "L1": "REVOLT SIMULATOR",
-      "L2": "Battery System",
+    "description":null,
+    "instanceFields":{
+      "L1":"REVOLT SIMULATOR",
+      "L2":"Battery System"
     }
   },
   {
-    "timeSeriesId": [
+    "timeSeriesId":[
       "FYYY"
     ],
-    "typeId": "17150182-daf3-449d-adaf-69c5a7517546",
-    "hierarchyIds": [
+    "typeId":"17150182-daf3-449d-adaf-69c5a7517546",
+    "hierarchyIds":[
       "b888bb7f-06f0-4bfd-95c3-fac6032fa4da"
     ],
-    "description": null,
-    "instanceFields": {
-      "L1": "COMMON SIMULATOR",
-      "L2": "Battery System",
+    "description":null,
+    "instanceFields":{
+      "L1":"COMMON SIMULATOR",
+      "L2":"Battery System"
     }
-  },
+  }
+]
 ```
 
 時間序列深入解析預覽版會在查詢期間聯結資料表 (在壓平之後)。 該資料表包括額外的資料行，例如**類型**。 下列範例會示範如何[塑造](./time-series-insights-send-events.md#supported-json-shapes)您的遙測資料。
 
-| deviceId  | 類型 | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId  | 類型 | L1 | L2 | timestamp | series_Flow 速率 rate ft3/秒 | series_Engine 石油壓力 psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Battery System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Battery System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -123,11 +128,31 @@ ms.locfileid: "72990884"
 * 統計屬性是存放在時間序列深入解析預覽版中，以最佳化透過網路傳素的資料。
 * 時間序列深入解析預覽資料會透過實例中所定義的時間序列識別碼，在查詢時聯結。
 * 會使用兩層的嵌套。 此數位是時間序列深入解析 Preview 支援的最多。 請務必避免巢狀結構很深的陣列。
-* 因為有一些量值，它們會在相同的物件中以不同的屬性傳送。 在此範例中，**series.Flow Rate psi**、**series.Engine Oil Pressure psi** 與 **series.Flow Rate ft3/s** 是唯一資料行。
+* 因為有一些量值，它們會在相同的物件中以不同的屬性傳送。 在範例中， **Series_Flow 速率 psi**， **series_Engine 石油壓力 psi**，而**series_Flow 速率 rate ft3/s**是唯一的資料行。
 
 >[!IMPORTANT]
 > 實例欄位不會與遙測一起儲存。 它們會與中繼資料一起儲存在時間序列模型中。
 > 上面的資料表代表查詢檢視。
+
+### <a name="example-2"></a>範例 2：
+
+請考慮下列 JSON：
+
+```JSON
+{
+  "deviceId": "FXXX",
+  "timestamp": "2019-01-18T01:17:00Z",
+  "data": {
+        "flow": 1.0172575712203979,
+    },
+  "data_flow" : 1.76435072345733643
+}
+```
+在上述範例中，簡維 `data_flow` 屬性會顯示與 `data_flow` 屬性的命名衝突。 在此情況下，*最新*的屬性值會覆寫較舊的內容。 如果此行為對您的商務案例有挑戰，請洽詢 TSI 小組。
+
+> [!WARNING] 
+> 如果因為簡維或另一個機制而在相同的事件裝載中出現重複的屬性，則會儲存最新的屬性值，並即可任何先前的值。
+
 
 ## <a name="next-steps"></a>後續步驟
 

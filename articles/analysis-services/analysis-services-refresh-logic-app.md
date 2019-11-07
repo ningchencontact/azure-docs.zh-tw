@@ -1,17 +1,17 @@
 ---
 title: 使用 Azure Analysis Services 模型的 Logic Apps 進行重新整理 |Microsoft Docs
-description: 瞭解如何使用 Azure Logic Apps 來撰寫非同步重新整理的程式碼。
+description: 本文說明如何使用 Azure Logic Apps 為 Azure Analysis Services 進行非同步重新整理程式碼。
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: acf31bf3e7e8c3a0835640dee36f8435a1eba625
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294609"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572332"
 ---
 # <a name="refresh-with-logic-apps"></a>使用 Logic Apps 重新整理
 
@@ -26,7 +26,7 @@ ms.locfileid: "72294609"
 ## <a name="design-the-logic-app"></a>設計邏輯應用程式
 
 > [!IMPORTANT]
-> 下列範例假設 Azure Analysis Services 防火牆已停用。  如果已啟用防火牆，則要求啟動器的公用 IP 位址必須在 Azure Analysis Services 防火牆的允許清單中。 若要深入瞭解每個區域的邏輯應用程式 IP 範圍，請參閱[Azure Logic Apps 的限制和設定資訊](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)。
+> 下列範例假設 Azure Analysis Services 防火牆已停用。  如果已啟用防火牆，則要求啟動器的公用 IP 位址必須在 Azure Analysis Services 防火牆的白名單中。 若要深入瞭解每個區域的邏輯應用程式 IP 範圍，請參閱[Azure Logic Apps 的限制和設定資訊](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)。
 
 ### <a name="prerequisites"></a>必要條件
 
@@ -66,11 +66,11 @@ ms.locfileid: "72294609"
 |---------|---------|
 |**方法**     |POST         |
 |**URI**     | HTTPs://*您的伺服器區域*/servers/ *.aas 伺服器名稱*/models/*您的資料庫名稱*對/refreshes <br /> <br /> 例如： HTTPs： \//westus. asazure. net/servers/myserver/型號/AdventureWorks/重新整理|
-|**標頭**     |   內容類型、應用程式/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**標頭**     |   內容類型、應用程式/json <br /> <br />  ![標頭](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**內文**     |   若要深入瞭解如何形成要求主體，請參閱[使用 REST API 張貼對/refreshes 的非同步](analysis-services-async-refresh.md#post-refreshes)重新整理。 |
 |**驗證**     |Active Directory OAuth         |
 |**出租**     |填入您的 Azure Active Directory TenantId         |
-|**目標對象**     |https://*.asazure.windows.net         |
+|**目標對象**     |HTTPs：//*. asazure. net         |
 |**用戶端識別碼**     |輸入您的服務主體名稱 ClientID         |
 |**認證類型**     |Secret         |
 |**祕密**     |輸入您的服務主體名稱秘密         |

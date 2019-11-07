@@ -3,15 +3,15 @@ title: 瞭解如何審核虛擬機器的內容
 description: 瞭解 Azure 原則如何使用「來賓設定」來審核 Azure 機器內的設定。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464069"
+ms.locfileid: "73581435"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -121,30 +121,27 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 > [!NOTE]
 > **AuditIfNotExists**原則需要**DeployIfNotExists**原則才會傳回結果。 若沒有**DeployIfNotExists**， **AuditIfNotExists**原則會顯示 "0 of 0" 資源作為狀態。
 
-「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 [預覽] 的內建方案 *： Linux 和 Windows 機器內的「審核密碼安全性」設定*包含18個原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 [原則定義](definition-structure.md#policy-rule)邏輯會驗證只會評估目標作業系統。
+「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為\[Preview\]的內建方案 _： Linux 和 Windows 機器內的「Audit 密碼安全性」設定_包含18個原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 [原則定義](definition-structure.md#policy-rule)邏輯會驗證只會評估目標作業系統。
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>遵循業界基準進行作業系統設定的審核
 
-Azure 原則提供的其中一項計畫，可讓您在 Microsoft 的「基準」之後，從虛擬機器中審查作業系統設定。  定義 *[預覽]： [不符合 Azure 安全性基準設定的 Windows vm] 會*根據 Active Directory 群組原則的設定包含一組完整的 Audit 規則。
+Azure 原則提供的其中一項計畫，可讓您在 Microsoft 的「基準」之後，從虛擬機器中審查作業系統設定。 定義、 _\[預覽\]： [不符合 Azure 安全性基準設定的 Windows vm] 會_根據 Active Directory 群組原則的設定包含一組完整的 Audit 規則。
 
-大部分的設定都是以參數的形式提供。  此功能可讓您自訂要審核哪些內容，以符合您組織需求的原則，或將原則對應至協力廠商資訊，例如產業法規標準。
+大部分的設定都是以參數的形式提供。 此功能可讓您自訂所要審核的內容，以符合您組織需求的原則，或將原則對應到協力廠商資訊，例如產業法規標準。
 
-某些參數支援整數值範圍。  例如，您可以使用範圍運算子來設定 [密碼最長使用期限] 參數，為電腦擁有者提供彈性。  您可以注意，需要使用者變更其密碼的有效群組原則設定應該不超過70天，但不應小於1天。  如資訊中所述的參數反升，將此值設定為 "1，70"。
+某些參數支援整數值範圍。 例如，您可以使用範圍運算子來設定 [密碼最長使用期限] 參數，為電腦擁有者提供彈性。 您可以注意，需要使用者變更其密碼的有效群組原則設定應該不超過70天，但不應小於一天。 如資訊-反升的參數中所述，若要讓此商務原則成為有效的 audit 值，請將值設定為 "1，70"。
 
-如果您使用 Azure Resource Manager dployment 範本指派原則，則可以使用參數檔案，從原始檔控制管理這些設定。
-使用 Git 之類的工具管理每次簽入時具有批註的稽核原則變更時，將會記載辨識項，說明為何指派應為預期值的例外狀況。
+如果您使用 Azure Resource Manager 部署範本指派原則，則可以使用參數檔案，從原始檔控制管理這些設定。 使用 Git 這類工具來管理稽核原則的變更，其中包含每個簽入檔的批註，以及為何指派應該是預期值的例外狀況。
 
 #### <a name="applying-configurations-using-guest-configuration"></a>使用來賓設定套用設定
 
-Azure 原則的最新功能會設定機器內的設定。
-定義在*Windows 電腦上設定*時區，會藉由設定時區來對電腦進行變更。
+Azure 原則的最新功能會設定機器內的設定。 定義：在_Windows 機器上設定_時區，以對電腦進行變更。
 
-指派以*Configure*開頭的定義時，您也必須指派定義*部署必要條件，以在 Windows Vm 上啟用來賓設定原則。*
-如果您選擇，可以將這些定義結合在計畫中。
+指派以_Configure_開頭的定義時，您也必須指派定義_部署必要條件，以在 Windows Vm 上啟用來賓設定原則_。 如果您選擇，可以將這些定義結合在計畫中。
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>將原則指派給 Azure 外部的機器
 
-適用于來賓設定的稽核原則包括**HybridCompute/機器**資源類型。  上架至 Azure Arc 的任何電腦都會自動包含在指派的範圍內。
+適用于來賓設定的稽核原則包括**HybridCompute/機器**資源類型。 針對位於原則指派範圍內的伺服器，上架至[Azure Arc 的](../../../azure-arc/servers/overview.md)任何電腦都會自動包含在內。
 
 ### <a name="multiple-assignments"></a>多個指派
 
@@ -152,8 +149,7 @@ Azure 原則的最新功能會設定機器內的設定。
 
 ## <a name="built-in-resource-modules"></a>內建資源模組
 
-安裝來賓設定擴充功能時，' GuestConfiguration ' PowerShell 模組隨附于最新版的 DSC 資源模組。 您可以使用模組頁面[GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/)的 [手動下載] 連結，從 PowerShell 資源庫下載此模組。
-' Nupkg ' 檔案格式可以重新命名為 ' .zip '，以解壓縮和檢查。
+安裝來賓設定擴充功能時，' GuestConfiguration ' PowerShell 模組隨附于最新版的 DSC 資源模組。 您可以使用模組頁面[GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/)的 [手動下載] 連結，從 PowerShell 資源庫下載此模組。 ' Nupkg ' 檔案格式可以重新命名為 ' .zip '，以解壓縮和檢查。
 
 ## <a name="client-log-files"></a>用戶端記錄檔
 

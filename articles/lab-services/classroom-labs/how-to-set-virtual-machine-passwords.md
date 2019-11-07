@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331490"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583552"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>設定和管理虛擬機器集區 
 本文說明如何執行下列工作：
@@ -30,12 +30,12 @@ ms.locfileid: "72331490"
 ## <a name="update-the-lab-capacity"></a>更新實驗室容量
 若要增加或減少實驗室容量（實驗室中的虛擬機器數目），請執行下列步驟：
 
-1. 在 [**虛擬機器集**區] 頁面上，選取 [**實驗室容量： &lt;number @ no__t-3 部電腦**]。
+1. 在 [**虛擬機器集**區] 頁面上，選取 [**實驗室容量： &lt;號碼]&gt; [機器**]。
 2. 在實驗室中輸入您想要的新**vm 數目**。 此數位必須大於或等於實驗室中註冊的使用者數目。 
 3. 然後選取 [儲存]。 
 
     ![[全部啟動] 按鈕](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. 如果您增加了容量，您可以看到 VM 或正在建立的 Vm。 
+4. 如果您增加了容量，您可以看到 VM 或正在建立的 Vm。 如果您在清單中看不到新的 VM，請重新整理頁面。 
 
     ![正在建立 VM](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -51,11 +51,13 @@ ms.locfileid: "72331490"
     ![[全部停止] 按鈕](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>啟動選取的 Vm
-有兩種方式可以啟動選取的 Vm （一或多個）。 第一種方式是選取清單中的 VM 或 vm，然後選取工具列上的 [**啟動**]。 第二種方式是選取清單中的 VM 或 vm，在其中一個資料列的 [**狀態**] 資料行中選取 [dropdown]，然後選取 [**啟動**]。 
+有兩種方式可以啟動選取的 Vm （一或多個）。 第一種方式是選取清單中的 VM 或 vm，然後選取工具列上的 [**啟動**]。 
+
+第二種方式是選取清單中的一或多個 Vm，並切換 [**狀態**] 資料行中的按鈕。 
 
 ![啟動選取的 Vm](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-同樣地，您可以使用 [**狀態**] 資料行中的下拉式清單或工具列上的 [**停止**]，來停止一或多個 vm。 
+同樣地，您可以切換 [**狀態**] 欄中的按鈕，或在工具列上選取 [**停止**]，來停止一或多個 vm。 
 
 ## <a name="reset-vms"></a>重設 Vm
 若要重設一或多個 Vm，請在清單中選取它們，然後選取工具列上的 [**重設**]。 
@@ -81,11 +83,19 @@ ms.locfileid: "72331490"
 ### <a name="reset-password-later"></a>稍後重設密碼
 
 1. 在實驗室的 [**範本**] 頁面上，選取工具列上的 [**重設密碼**]。 
-
-    ![首頁上的重設密碼功能表](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. 在 [**重設密碼**] 對話方塊中，輸入密碼，然後選取 [**重設密碼**]。
     
     ![[設定密碼] 對話方塊](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## <a name="connect-to-student-vms"></a>連接到學生 Vm
+如果符合下列條件，實驗室建立者（講師/教授）就可以連線到學生 VM： 
+
+- 建立實驗室時，已選取 [**所有虛擬機器都使用相同的密碼**] 選項
+- VM 正在執行 
+
+ 若要連接到學生 VM，請將滑鼠停留在清單中的 VM 上，然後選取 [電腦] 按鈕。  
+
+![[連線至學生 VM] 按鈕](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## <a name="next-steps"></a>後續步驟
 若要瞭解您（身為實驗室擁有者）可以設定的其他學生使用選項，請參閱下列文章：[設定學生使用](how-to-configure-student-usage.md)方式。

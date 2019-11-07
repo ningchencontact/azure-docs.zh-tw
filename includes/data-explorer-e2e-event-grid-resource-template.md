@@ -4,16 +4,16 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: lugoldbe
-ms.openlocfilehash: 9aca01b24bc3351460c462c08689fdaa41e3a755
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d0cef9f8ec4d7afde4f83e4f83bccdb44d5615ca
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73057279"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581822"
 ---
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 
-在本文中，Azure Resource Manager 範本是用來建立資源群組、儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 將下列內容儲存到名稱為 `template.json`的檔案中，這將會用來執行程式碼範例。
+在本文中，您會使用 Azure Resource Manager 範本來建立資源群組、儲存體帳戶和容器、事件中樞，以及 Azure 資料總管叢集和資料庫。 將下列內容儲存在名稱為 `template.json`的檔案中。 您將使用這個檔案來執行程式碼範例。
 
 ```json
 {

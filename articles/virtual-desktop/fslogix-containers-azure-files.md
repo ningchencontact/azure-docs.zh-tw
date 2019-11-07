@@ -1,5 +1,5 @@
 ---
-title: Windows 虛擬桌面中的 FSLogix 設定檔容器和 Azure 檔案儲存體-Azure
+title: Windows 虛擬桌面 FSLogix 設定檔容器檔案-Azure
 description: 本文說明 Windows 虛擬桌面和 Azure 檔案中的 FSLogix 設定檔容器。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311791"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606838"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 設定檔容器和 Azure 檔案
 
@@ -46,10 +46,10 @@ UPD 和 RUP 是遠端桌面工作階段主機（RDSH）和虛擬硬碟（VHD）�
 
 下表顯示先前的使用者設定檔技術的優點與限制。
 
-| Technology | 新式設定 | Win32 設定 | OS 設定 | 使用者資料 | 伺服器 SKU 上支援 | Azure 上的後端儲存體 | 內部部署的後端儲存體 | 版本支援 | 後續登入時間 |注意|
+| Technology | 新式設定 | Win32 設定 | OS 設定 | 使用者資料 | 伺服器 SKU 上支援 | Azure 上的後端儲存體 | 內部部署的後端儲存體 | 版本支援 | 後續登入時間 |注意事項|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **使用者設定檔磁片（UPD）** | 是 | 是 | 是 | 是 | 是 | 否 | 是 | Win 7 + | 是 | |
-| **漫遊使用者設定檔（RUP），維護模式** | 否 | yes | 是 | 是 | 是| 否 | 是 | Win 7 + | 否 | |
+| **漫遊使用者設定檔（RUP），維護模式** | 否 | 是 | 是 | 是 | 是| 否 | 是 | Win 7 + | 否 | |
 | **企業狀態漫遊（ESR）** | 是 | 否 | 是 | 否 | 請參閱附註 | 是 | 否 | Win 10 | 否 | 伺服器 SKU 上的功能，但不支援使用者介面 |
 | **使用者體驗虛擬化（UE-V）** | 是 | 是 | 是 | 否 | 是 | 否 | 是 | Win 7 + | 否 |  |
 | **OneDrive 雲端檔案** | 否 | 否 | 否 | 是 | 請參閱附註 | 請參閱附註  | 請參閱附注 | Win 10 RS3 | 否 | 未在伺服器 SKU 上測試。 Azure 上的後端儲存體取決於同步處理用戶端。 內部部署上的後端儲存體需要同步用戶端。 |
@@ -71,7 +71,7 @@ S2D 叢集需要以安全狀態修補、更新及維護的作業系統。 這些
 Microsoft 已于2018年11月19日[取得 FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/)。 FSLogix 解決了許多設定檔容器的挑戰。 其中的索引鍵為：
 
 - **效能：** [FSLogix 設定檔容器](https://fslogix.com/products/profile-containers)是高效能，可解決過去已封鎖快取 exchange 模式的效能問題。
-- **Business**若沒有 FSLogix 設定檔容器，非持續性 RDSH 或 VDI 環境中不支援商務用 OneDrive。 [商務用 OneDrive 和 FSLogix 的最佳作法](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices)說明它們的互動方式。 如需詳細資訊，請參閱在[虛擬桌面電腦上使用同步用戶端](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi)。
+- **OneDrive：** 若沒有 FSLogix 設定檔容器，非持續性 RDSH 或 VDI 環境中不支援商務用 OneDrive。 [商務用 OneDrive 和 FSLogix 的最佳作法](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices)說明它們的互動方式。 如需詳細資訊，請參閱在[虛擬桌面電腦上使用同步用戶端](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi)。
 - **其他資料夾：** FSLogix 提供擴充使用者設定檔以包含其他資料夾的功能。
 
 自收購以來，Microsoft 已開始使用 FSLogix 設定檔容器取代現有的使用者設定檔解決方案，例如 UPD。

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: ce59b46667f9139157a751d7d7b0205504d71ab0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695644"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686563"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -45,10 +45,10 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ## <a name="key-components"></a>重要元件
 
-- **網路安全性群組 (NSG)** ：包含安全性規則清單，可允許或拒絕連線至 Azure 虛擬網路之資源的網路流量。 NSG 可以與子網路、個別 VM (傳統) 或已連結至 VM (Resource Manager) 的個別網路介面 (NIC) 建立關聯。 如需詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
-- **網路安全性群組 (NSG) 流程記錄**：可讓您檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊。 NSG 流量記錄是以 json 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的 NIC、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP 位址、來源/目的地連接埠、通訊協定)，以及流量是被允許或拒絕。 如須 NSG 流量記錄的詳細資訊，請參閱 [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)。
-- **Log Analytics**：一項 Azure 服務，會收集監視資料並將其儲存在中央存放庫中。 此資料可能包含事件、效能資料，或透過 Azure API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。 監視應用程式 (例如網路效能監視器和流量分析) 是以 Azure 監視器記錄做為基礎來建立的。 如需詳細資訊, 請參閱[Azure 監視器記錄](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
-- **Log Analytics 工作區**：Azure 監視器記錄的實例, 其中儲存與 Azure 帳戶相關的資料。 如需 Log Analytics 工作區的詳細資訊, 請參閱[建立 Log analytics 工作區](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- **網路安全性群組 (NSG)** 包含安全性規則清單，可允許或拒絕連線至 Azure 虛擬網路之資源的網路流量。 NSG 可以與子網路、個別 VM (傳統) 或已連結至 VM (Resource Manager) 的個別網路介面 (NIC) 建立關聯。 如需詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- **網路安全性群組 (NSG) 流量記錄**：可讓您檢視透過網路安全性群組傳輸之輸入和輸出 IP 流量的相關資訊。 NSG 流量記錄是以 json 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的 NIC、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP 位址、來源/目的地連接埠、通訊協定)，以及流量是被允許或拒絕。 如須 NSG 流量記錄的詳細資訊，請參閱 [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)。
+- **Log Analytics**：一項 Azure 服務，會收集監視資料並將其儲存在中央存放庫中。 此資料可能包含事件、效能資料，或透過 Azure API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。 監視應用程式（例如網路效能監視器和流量分析）是以 Azure 監視器記錄做為基礎來建立的。 如需詳細資訊，請參閱[Azure 監視器記錄](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- **Log Analytics 工作區**： Azure 監視器記錄的實例，其中儲存 Azure 帳戶的相關資料。 如需 Log Analytics 工作區的詳細資訊，請參閱[建立 Log analytics 工作區](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - **網路監看員**：一項區域性服務，可讓您監視與診斷 Azure 中的網路案例層級情況。 您可以透過網路監看員將 NSG 流量記錄開啟和關閉。 如需詳細資訊，請參閱[網路監看員](network-watcher-monitoring-overview.md)。
 
 ## <a name="how-traffic-analytics-works"></a>流量分析的運作方式
@@ -57,13 +57,13 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ![NSG 流量記錄處理的資料流程](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions-nsg"></a>支援的區域：NSG 
+## <a name="supported-regions-nsg"></a>支援的區域： NSG 
 
 您可以在下列任何支援的區域中使用 NSG 的流量分析：
 
 * 加拿大中部
 * 美國中西部
-* East US
+* 美國東部
 * 美國東部 2
 * 美國中北部
 * 美國中南部
@@ -76,7 +76,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 巴西南部
 * 英國西部
 * 英國南部
-* 澳大利亞東部
+* 澳洲東部
 * 澳大利亞東南部
 * 東亞
 * 東南亞
@@ -85,14 +85,15 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 印度南部
 * 日本東部 
 * 日本西部
-* US Gov 維吉尼亞州
+* 美國政府維吉尼亞州
+* 中國東部 2
 
-## <a name="supported-regions-log-analytics-workspaces"></a>支援的區域：Log Analytics 工作區
+## <a name="supported-regions-log-analytics-workspaces"></a>支援的區域： Log Analytics 工作區
 
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
 * 美國中西部
-* East US
+* 美國東部
 * 美國東部 2
 * 美國中南部
 * 美國西部
@@ -102,14 +103,15 @@ Log Analytics 工作區必須存在於下列區域：
 * 北歐
 * 西歐
 * 英國南部
-* 澳大利亞東部
+* 澳洲東部
 * 澳大利亞東南部
 * 東亞
 * 東南亞
 * 南韓中部
 * 印度中部
 * 日本東部
-* US Gov 維吉尼亞州
+* 美國政府維吉尼亞州
+* 中國東部 2
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -117,11 +119,11 @@ Log Analytics 工作區必須存在於下列區域：
 
 您的帳戶必須是下列 Azure [內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)的成員之一：
 
-|部署模型   | Role                   |
+|部署模型   | 角色                   |
 |---------          |---------               |
-|Resource Manager   | 擁有者                  |
+|資源管理員   | 擁有者                  |
 |                   | 參與者            |
-|                   | 讀者                 |
+|                   | 讀取器                 |
 |                   | 網路參與者    |
 
 如果您的帳戶未指派給其中一個內建角色，則必須指派給一個[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)，且該角色已獲得下列訂用帳戶層級的動作：
@@ -190,11 +192,11 @@ New-AzStorageAccount `
 > [!NOTE]
 >裝載流量分析解決方案和 NSG 的記錄分析工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
 
-8. 選取 [儲存]。
+8. 選取 [ **儲存**]。
 
     ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。 如果您針對不同的 Nsg 設定了不同的處理間隔，資料將會以不同的間隔收集。 例如: 您可以選擇針對 [重大 Vnet] 啟用 [10 分鐘] 的處理間隔，並針對非關鍵性的 Vnet 選擇 [1 小時]。
+針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。 如果您針對不同的 Nsg 設定了不同的處理間隔，資料將會以不同的間隔收集。 例如：您可以選擇針對 [重大 Vnet] 啟用 [10 分鐘] 的處理間隔，並針對非關鍵 Vnet 選擇 [1 小時]。
 
 您也可以在 Azure PowerShell 中使用[AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell Cmdlet 來設定流量分析。 執行 `Get-Module -ListAvailable Az` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
@@ -288,11 +290,11 @@ New-AzStorageAccount `
 
     ![顯示流量分布的儀表板](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- 地理地圖會顯示選取參數的頂端功能區, 例如資料中心 (已部署/無部署/使用中/非使用中分析/已啟用/未啟用的流量分析) 和國家/地區 (提供作用中的良性/惡意流量)部署
+- 地理地圖會顯示選取參數的頂端功能區，例如資料中心（已部署/無部署/使用中/非使用中分析/已啟用/未啟用的流量分析）和國家/地區（提供作用中的良性/惡意流量）部署
 
     ![顯示使用中部署的地理地圖檢視](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- 地理地圖會顯示從國家/地區, 到資料中心的流量分配, 並以藍色 (良性流量) 和紅色 (惡意流量) 彩色線溝通
+- 地理地圖會顯示從國家/地區，到資料中心的流量分配，並以藍色（良性流量）和紅色（惡意流量）彩色線溝通
 
     ![地理地圖視圖展示到國家/地區和大陸的流量分佈](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
@@ -311,7 +313,7 @@ New-AzStorageAccount `
     ![顯示虛擬網路分布的儀表板](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - 「虛擬網路拓撲」會顯示頂端功能區以供您選取參數，例如虛擬網路 (內部虛擬網路連線/使用中/非使用中)、外部連線、使用中流量，以及虛擬網路的惡意流量。
-- 您可以依照訂用帳戶、工作區、資源群組和時間間隔篩選虛擬網路拓撲。 可協助您了解流程的其他篩選器包括：流量類型 (Vnet 之間、IntraVNET 等)、流程方向 (輸入、輸出)、流量狀態 (允許、已封鎖)、Vnet (已設定目標和已連線)、連線類型 (對等互連或閘道 P2S 和 S2S), 以及 NSG。 使用這些篩選條件將焦點放在您想要檢查詳細資料的 Vnet。
+- 您可以依照訂用帳戶、工作區、資源群組和時間間隔篩選虛擬網路拓撲。 協助您瞭解流程的其他篩選準則包括：流量類型（Vnet 之間、IntraVNET 等）、流程方向（輸入、輸出）、流量狀態（允許、封鎖）、Vnet （已設定目標和已連線）、連線類型（對等互連或閘道 P2S 和 S2S），以及 NSG。 使用這些篩選條件將焦點放在您想要檢查詳細資料的 Vnet。
 - 「虛擬網路拓撲」會以若干層面來顯示虛擬網路的流量分布，例如流量 (允許/封鎖/輸入/輸出/良性/惡意)、應用程式通訊協定，以及網路安全性群組：
 
     ![顯示流量分布和流量詳細資料的虛擬網路拓撲](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -383,4 +385,4 @@ New-AzStorageAccount `
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何啟用流量記錄，請參閱[啟用 NSG 流量記錄](network-watcher-nsg-flow-logging-portal.md)。
-- 若要瞭解流量分析的架構和處理詳細資訊, 請參閱使用[分析架構](traffic-analytics-schema.md)。
+- 若要瞭解流量分析的架構和處理詳細資訊，請參閱使用[分析架構](traffic-analytics-schema.md)。

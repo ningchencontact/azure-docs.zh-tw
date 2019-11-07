@@ -1,6 +1,6 @@
 ---
 title: Azure Batch 服務工作
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Machine Learning Studio （傳統）作業的 Azure Batch 服務總覽。 批次集區處理可讓您建立集區，以便提交批次作業。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493033"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684810"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Machine Learning Studio （傳統）作業的 Azure Batch 服務
 
@@ -43,7 +43,7 @@ Machine Learning 批次集區處理提供客戶管理的 Azure Machine Learning 
 
 您可以使用任何全新 Resource Manager 型 Web 服務，但請注意，作業是根據與該服務相關聯的計費方案收費。 您可以特別建立 Web 服務和新的計費方案，以便執行批次集區作業。
 
-如需關於建立 Web 服務的詳細資訊，請參閱[部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
+如需關於建立 Web 服務的詳細資訊，請參閱[部署 Azure Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)。
 
 建立集區後，您可使用 Web 服務的批次要求 URL 提交 BES 作業。 您可以選擇將它提交至集區或傳統批次處理。 若要將作業提交至批次集區處理，請將下列參數新增至作業提交要求本文︰
 
