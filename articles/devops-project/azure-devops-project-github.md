@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4a48b5c413f6dfb58a1ba3f896ded49250cde306
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 15ac201a078864717d8e0079801507cf5fc0fe3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481104"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>教學課程：使用 Azure DevOps Projects 為現有的程式碼建立 CI/CD 管線
 
@@ -48,7 +48,11 @@ Azure DevOps Projects 會在 Azure Pipelines 中建立 CI/CD 管線。 您可以
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左側窗格中，選取左側瀏覽列中的 [+建立資源]  ，搜尋 [DevOps Projects]  ，然後選取 [建立]  。
+2. 從 Azure 入口網站功能表選取 [建立資源]  。
+
+   ![Azure 入口網站功能表 - 建立資源](_img/azure-devops-project-github/createaresource.png)
+
+3. 選取 [DevOps] > [DevOps 專案]  。
 
    ![DevOps Projects 儀表板](_img/azure-devops-project-github/azuredashboard.png)
 

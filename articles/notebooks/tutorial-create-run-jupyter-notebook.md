@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 827338c299b19d04245d7114a99d946d0332c82f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 42072894b99ebf1cfcbb5e622c2a9c3a4321a944
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973052"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496659"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學：使用 Python 建立和執行 Jupyter Notebook
 
@@ -430,4 +430,4 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 - [放映投影片](present-jupyter-notebooks-slideshow.md)
 - [使用資料檔案](work-with-project-data-files.md)
 - [存取資料資源](access-data-resources-jupyter-notebooks.md)
-- [使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)
+- [使用 Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

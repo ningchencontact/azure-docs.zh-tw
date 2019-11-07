@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b0adc75d2da1a8ef053edf0078746df8f36ed5e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 329e4b262731ae1b23fb94da7b937c9c1549185f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430314"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473656"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式
 
@@ -34,7 +34,7 @@ ms.locfileid: "72430314"
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory]  服務，然後選取 [應用程式註冊] > [新增註冊]  。
+1. 搜尋並選取 [Azure Active Directory]  。 在 [Active Directory]  頁面上，選取 [應用程式註冊]  ，然後選取 [新增註冊]  。
 1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊：
 
    - **名稱** - 輸入會顯示給應用程式使用者的有意義應用程式名稱。

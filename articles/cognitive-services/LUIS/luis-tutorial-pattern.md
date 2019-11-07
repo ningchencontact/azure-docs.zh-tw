@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390344"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498996"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教學課程：新增通用模式範本語句格式
 
 在本教學課程中，您將可以在提供較少語句範例的情況下，使用模式來提高意圖和實體預測準確度。 模式是透過範本語句範例的方式來提供的，其中包含用來識別實體及可忽略文字的語法。 模式是運算式比對與機器學習的組合。  範本語句範例搭配意圖語句，可讓 LUIS 更容易理解哪些語句符合意圖。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -69,7 +71,7 @@ ms.locfileid: "70390344"
     |Jill Jones 的直屬上司是誰？|
     |Jill Jones 的主管是誰？|
 
-    [![LUIS 將新語句新增至意圖的螢幕擷取畫面](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "LUIS 將新語句新增至意圖的螢幕擷取畫面")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![將新語句新增到意圖的 LUIS 螢幕擷取畫面](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "將新語句新增到意圖的 LUIS 螢幕擷取畫面")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     如果是在意圖的語句 (而不是員工實體的語句) 中標示 keyPhrase 實體，也沒關係。 這兩者都可在端點的 [測試] 窗格中正確預測。 
 

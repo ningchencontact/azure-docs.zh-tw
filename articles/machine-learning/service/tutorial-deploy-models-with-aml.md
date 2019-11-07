@@ -10,14 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476152"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教學課程：在 Azure 容器執行個體中部署映像分類模型
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本教學課程是**兩部分教學課程系列的第二部分**。 在[先前的教學課程](tutorial-train-models-with-aml.md)中，您定型了機器學習模型，並在您的雲端工作區內註冊模型。  
 
@@ -39,9 +40,15 @@ ms.locfileid: "71162534"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要執行筆記本，請先完成模型訓練，相關內容位於[教學課程 (第 1 部分)：將映像分類模型定型](tutorial-train-models-with-aml.md)。   然後使用同一個筆記本伺服器開啟 **tutorials/img-classification-part2-deploy.ipynb** 筆記本。
+若要執行筆記本，請先完成模型訓練，相關內容位於[教學課程 (第 1 部分)：將映像分類模型定型](tutorial-train-models-with-aml.md)。   然後在您複製的 **tutorials** 資料夾中開啟 **img-classification-part2-deploy.ipynb** 筆記本。
 
 如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得。  請確定您已在環境中安裝 `matplotlib` 和 `scikit-learn`。 
+
+> [!Important]
+> 本文的其餘部分包含與您在 Notebook 中所見相同的內容。  
+>
+> 如果您想要在執行程式碼時進行閱讀，請立即切換到 Jupyter Notebook。
+> 若要在 Notebook 中執行單一程式碼資料格，請按一下程式碼資料格，然後按 **Shift+Enter**。 或者，從頂端工具列中選擇 [全部執行]  ，以執行整個 Notebook。
 
 ## <a name="start"></a>設定環境
 

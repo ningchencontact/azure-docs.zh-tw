@@ -1,5 +1,5 @@
 ---
-title: 教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
+title: 教學課程：使用 Apache Spark 來載入資料和執行查詢 - Azure HDInsight
 description: 教學課程 - 了解如何在 Azure HDInsight 中的 Spark 叢集上載入資料和執行互動式查詢。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027799"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494488"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
@@ -36,7 +36,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
 2. 在 Jupyter 網頁中選取 [新增]   > [PySpark]  ，以建立 Notebook。
 
-   ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
+   ![建立 Jupyter Notebook 以執行互動式 Spark SQL 查詢](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 以執行互動式 Spark SQL 查詢")
 
    系統會建立新的 Notebook，並以 Untitled (`Untitled.ipynb`) 的名稱開啟。
 
@@ -47,7 +47,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
 應用程式可以直接建立資料框架，其建立來源可以是遠端儲存體 (例如，Azure 儲存體或 Azure Data Lake Storage) 上的檔案或資料夾；Hive 資料表；或是 Spark 所支援的其他資料來源 (例如，Cosmos DB、Azure SQL DB、DW 等等)。 下列螢幕擷取畫面顯示本教學課程中使用之 HVAC.csv 檔案的快照集。 該 csv 檔案會隨附於所有 HDInsight Spark 叢集。 資料會擷取相同建築物的溫度變化。
 
-![互動式 Spark SQL 查詢的資料快照集](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "互動式 Spark SQL 查詢的資料快照集")
+![互動式 Spark SQL 查詢資料的快照集](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "互動式 Spark SQL 查詢資料的快照集")
 
 1. 將以下程式碼貼入 Jupyter Notebook 的空白資料格，然後按 **SHIFT + ENTER** 以執行此程式碼。 此程式碼會匯入此案例所需的類型：
 
@@ -85,7 +85,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
 2. 您也可以查看其他視覺效果中的結果。 若要查看相同輸出的區域圖表，請選取 [區域]  ，然後設定其他值，如下所示。
 
-    ![互動式 Spark 查詢結果的區域圖表](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "互動式 Spark 查詢結果的區域圖表")
+    ![互動式 Spark 查詢結果的區域圖](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "互動式 Spark 查詢結果的區域圖")
 
 3. 從 [Notebook] 功能表列中，瀏覽至 [檔案]   > [儲存與檢查點]  。
 

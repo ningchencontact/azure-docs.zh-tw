@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 11/04/2019
+ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493688"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教學課程：使用自動化機器學習預測計程車車資
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本教學課程中，您將使用 Azure Machine Learning 中的自動化機器學習建立迴歸模型，以預測 NYC 計程車車資價格。 此程序接受定型資料和組態設定，並自動逐一查看不同功能正規化/標準化方法、模型及超參數設定的組合，以獲得最佳模型。
 
@@ -891,14 +892,15 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 
 ### <a name="define-training-settings"></a>定義定型設定
 
-定義用於定型的實驗參數與模型設定。 檢視[設定](how-to-configure-auto-train.md)的完整清單。 提交使用這些預設設定的實驗大約需要 5-10 分鐘的時間，但如果您想要縮短執行時間，請降低 `iterations` 參數。
+定義用於定型的實驗參數與模型設定。 檢視[設定](how-to-configure-auto-train.md)的完整清單。 提交使用這些預設設定的實驗大約需要 5 至 20 分鐘的時間，但如果您想要縮短執行時間，請降低 `experiment_timeout_minutes` 參數。
 
 |屬性| 本教學課程中的值 |說明|
 |----|----|---|
 |**iteration_timeout_minutes**|2|每次反覆運算的時間限制 (分鐘)。 降低此值以減少總執行時間。|
-|**反覆運算次數**|20|反覆運算次數。 在每次的反覆運算中，都會以您的資料訓練新的機器學習模型。 總執行時間主要會受此值影響。|
+|**experiment_timeout_minutes**|20|在實驗終止之前，所有反覆運算合在一起所花費的時間量上限 (以分鐘為單位)。|
+|**enable_early_stopping**|True|此旗標可在分數未在短期內改善時啟用提早終止。|
 |**primary_metric**| spearman_correlation | 您想要最佳化的度量。 最適化模型將根據此計量來選擇。|
-|**preprocess**| True | 使用 **True** 時，實驗可以預先處理輸入資料 (處理遺漏的資料、將文字轉換成數值等等)。|
+|**特徵化**| 自動 | 使用 **auto** 時，實驗可以預先處理輸入資料 (處理遺漏的資料、將文字轉換成數值等等)。|
 |**verbosity**| logging.INFO | 控制記錄層級。|
 |**n_cross_validations**|5|未指定驗證資料時所要執行的交叉驗證分割數目。|
 
@@ -907,9 +909,10 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
@@ -1059,14 +1062,9 @@ print(1 - mean_abs_percent_error)
 
 如果您打算執行其他 Azure Machine Learning 教學課程，請不要完成本節。
 
-### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
+### <a name="stop-the-compute-instance"></a>停止計算執行個體
 
-如果您使用雲端 Notebook 伺服器，當您不使用 VM 時，請停止該 VM 來降低成本。
-
-1. 在您的工作區中，選取 [Notebook VM]  。
-1. 從清單中選取 VM。
-1. 選取 [停止]  。
-1. 當您準備好再次使用伺服器時，請選取 [啟動]  。
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>刪除所有內容
 

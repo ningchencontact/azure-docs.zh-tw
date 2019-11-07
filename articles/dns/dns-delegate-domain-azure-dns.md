@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779771"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464240"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教學課程：在 Azure DNS 上裝載您的網域
 
@@ -21,7 +21,7 @@ ms.locfileid: "57779771"
 假設您項網域名稱註冊機構購買了網域 contoso.net，然後在 Azure DNS 中建立名為 contoso.net 的區域。 由於您是網域的擁有者，註冊機構會提供選項，讓您設定網域的名稱伺服器 (NS) 記錄。 註冊機構會將 NS 記錄儲存在 .net 父系網域中。 然後，當世界各地的網際網路使用者嘗試解析 contoso.net 中的 DNS 記錄時，系統會將他們導向至您在 Azure DNS 區域中的網域。
 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 DNS 區域。
@@ -40,12 +40,12 @@ ms.locfileid: "57779771"
 
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
-1. 登入 Azure 入口網站。
-1. 在左上方，選取 [建立資源] > [網路] > [DNS 區域]，以開啟 [建立 DNS 區域] 頁面。
+1. 移至 [Azure 入口網站](https://portal.azure.com/)來建立 DNS 區域。 搜尋並選取 [DNS 區域]  。
 
    ![DNS 區域](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. 在 [建立 DNS 區域] 頁面中輸入下列的值，然後選取 [建立]：
+1. 選取 [建立 DNS 區域]  。
+1. 在 [建立 DNS 區域]  頁面中輸入下列的值，然後選取 [建立]  ：
 
    | **設定** | **值** | **詳細資料** |
    |---|---|---|
@@ -58,7 +58,7 @@ ms.locfileid: "57779771"
 
 在委派 DNS 區域給 Azure DNS 之前，您必須知道區域的名稱伺服器。 每次建立區域時，Azure DNS 都會配置某個集區中的名稱伺服器。
 
-1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中選取 [所有資源]。 在 [所有資源] 頁面上，選取您的 DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選] 方塊中輸入您的網域名稱，以輕鬆存取應用程式閘道。 
+1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛]  窗格中選取 [所有資源]  。 在 [所有資源]  頁面上，選取您的 DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選]  方塊中輸入您的網域名稱，以輕鬆存取應用程式閘道。 
 
 1. 從 DNS 區域頁面中擷取名稱伺服器。 在此範例中，區域 contoso.net 已被指派名稱伺服器 *ns1-01.azure-dns.com*、*ns2-01.azure-dns.net*、*ns3-01.azure-dns.org* 和 *ns4-01.azure-dns.info*：
 
@@ -111,7 +111,7 @@ Azure DNS 目前不支援使用您區域中名稱伺服器的委派 (有時稱�
 
 如果您想要進行下一個教學課程，您可以保留 **contosoRG** 資源群組。 否則請刪除 **contosoRG** 資源群組，以刪除在本教學課程中建立的資源。
 
-- 選取 **contosoRG** 資源群組，然後選取 [刪除資源群組]。 
+- 選取 **contosoRG** 資源群組，然後選取 [刪除資源群組]  。 
 
 ## <a name="next-steps"></a>後續步驟
 

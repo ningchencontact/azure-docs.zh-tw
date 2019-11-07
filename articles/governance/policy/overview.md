@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980778"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498273"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure 原則服務的概觀
 
@@ -48,12 +48,11 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 
 在 Azure 原則中，我們預設提供數個可供使用的內建原則。 例如︰
 
-- **需要 SQL Server 12.0**：驗證所有 SQL 伺服器都使用 12.0 版。 其效果是拒絕不符合這些準則的所有伺服器。
 - **允許的儲存體帳戶 SKU**：確定要部署的儲存體帳戶是否在一組 SKU 大小內。 其效果是拒絕不符合已定義 SKU 大小集合的所有儲存體帳戶。
 - **允許的資源類型**：定義您可以部署的資源類型。 其效果是拒絕不屬於此定義清單的所有資源。
 - **允許的位置**：限制新資源的可用位置。 其效果可用來強制執行您的地理合規性需求。
 - **允許的虛擬機器 SKU**：指定您可以部署的一組虛擬機器 SKU。
-- **套用標籤及其預設值**：部署要求未指定時，套用必要的標籤及其預設值。
+- **將標籤新增至資源**：部署要求未指定時，套用必要的標籤及其預設值。
 - **強制執行標籤及其值**：對資源強制執行必要的標籤及其值。
 - **不允許的資源類型**：防止部署資源類型清單。
 

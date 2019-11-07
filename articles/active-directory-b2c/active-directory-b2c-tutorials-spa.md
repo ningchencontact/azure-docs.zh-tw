@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9b3d18a7f59415b27b1a70067c9a8a610140ca25
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672929"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475063"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>教學課程：使用 Azure Active Directory B2C (Azure AD B2C) 在單頁應用程式中啟用驗證
 
@@ -48,6 +48,10 @@ ms.locfileid: "71672929"
 
 在已完成的第二個必要教學課程中，您在 Azure AD B2C 中註冊了 Web 應用程式。 若要啟用範例與教學課程中的通訊，您需要新增 Azure AD B2C 中應用程式的重新導向 URI。
 
+您可以使用目前的 [應用程式]  體驗，或使用新整合的 [應用程式註冊 (預覽)]  體驗來更新應用程式。 [深入了解預覽體驗](http://aka.ms/b2cappregintro)。
+
+#### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 選取頂端功能表中的 [目錄 + 訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 1. 選取 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
@@ -55,6 +59,19 @@ ms.locfileid: "71672929"
 1. 在 [回覆 URL]  下方，新增 `http://localhost:6420`。
 1. 選取 [儲存]  。
 1. 在 [屬性] 頁面上，記錄 [應用程式識別碼]  。 當您在單頁 Web 應用程式中更新程式碼時，您可在稍後步驟中使用應用程式識別碼。
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[應用程式註冊 (預覽)](#tab/app-reg-preview/)
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在頂端功能表中選取 [目錄 + 訂用帳戶]  篩選，然後選取包含您 Azure AD B2C 租用戶的目錄。
+1. 在左側功能表中，選取 [Azure AD B2C]  。 或者，選取 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+1. 選取 [應用程式註冊 (預覽)]  ，選取 [擁有的應用程式]  索引標籤，然後選取 *webapp1* 應用程式。
+1. 選取 [驗證]  ，然後選取 [試用全新體驗]  (若已顯示)。
+1. 在 [Web]  底下，選取 [新增 URI]  連結，輸入 `http://localhost:6420`，然後選取 [儲存]  。
+1. 選取 [概觀]  。
+1. 當您在單頁 Web 應用程式中更新程式碼時，記錄 [應用程式 (用戶端) 識別碼]  ，以供後續步驟使用。
+
+* * *
 
 ## <a name="get-the-sample-code"></a>取得範例程式碼
 
@@ -115,13 +132,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
+> [!WARNING]
+> 註冊或登入之後，您可能會看到[權限不足錯誤](#error-insufficient-permissions)。 由於程式碼範例的目前實作，因此預期會發生此錯誤。 此問題將在程式碼範例的未來版本中解決，屆時將會移除此警告。
+
 1. 選取 [登入]  ，以起始您在先前的步驟中指定的 *B2C_1_signupsignin1* 使用者流程。
 1. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請選取 [立即註冊]  連結。
 1. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
 
     請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。
 
-    ![登入/註冊使用者流程所顯示的註冊頁面](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![登入/註冊使用者流程所顯示的註冊頁面](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. 選取 [建立]  ，在 Azure AD B2C 目錄中建立本機帳戶。
 
@@ -131,7 +151,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="error-insufficient-permissions"></a>錯誤：權限不足
 
-登入之後，應用程式會顯示權限不足錯誤 - 這是**預期的**：
+登入之後，應用程式可能會傳回權限不足錯誤：
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.

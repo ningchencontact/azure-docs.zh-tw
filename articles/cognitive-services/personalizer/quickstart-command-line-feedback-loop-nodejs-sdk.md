@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515199"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494447"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 

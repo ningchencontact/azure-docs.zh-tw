@@ -1,26 +1,21 @@
 ---
-title: 使用 Azure Functions 建立您的第一個 PowerShell 函式
+title: 在 Azure 中建立您的第一個 PowerShell 函式
 description: 了解如何使用 Visual Studio Code 在 Azure 中建立您的第一個 PowerShell 函式。
-services: functions
-keywords: ''
 author: joeyaiello
-manager: jeconnoc
+manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.devlang: powershell
-ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 1d6d641e141862b12fed40b800589aad70af2789
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248324"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469403"
 ---
-# <a name="create-your-first-powershell-function-in-azure-preview"></a>在 Azure 中建立您的第一個 PowerShell 函式 (預覽)
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+# <a name="create-your-first-powershell-function-in-azure"></a>在 Azure 中建立您的第一個 PowerShell 函式
 
 本快速入門文章會逐步說明如何使用 Visual Studio Code 建立您的第一個[無伺服器](https://azure.com/serverless) PowerShell 函式。
 
@@ -66,7 +61,7 @@ Visual Studio Code 中的 Azure Functions 專案範本會建立可發佈至 Azur
     > [!NOTE]
     > 本文主要設計為在工作區以外的地方完成。 在此案例中，請勿選取屬於工作區的專案資料夾。
 
-1. 選取 [Powershell (預覽)]  作為函式應用程式專案的語言，然後選取 [Azure Functions v2]  。
+1. 選取 [Powershell]  作為函式應用程式專案的語言，然後選取 [Azure Functions v2]  。
 
 1. 選擇 [HTTP 觸發程序]  作為您第一個函式的範本，使用 `HTTPTrigger` 作為函式名稱，然後選擇 [函式]  授權層級。
 
@@ -104,9 +99,9 @@ Azure Functions Core Tools 與 Visual Studio Code 整合，可讓您在本機執
 
 > [!NOTE]
 > 請記得先移除對 `Wait-Debugger` 的任何呼叫，再將函式發佈至 Azure。 
-
-> [!NOTE]
-> 在 Azure 中建立函數應用程式時，只會提示輸入函式應用程式名稱。 將 azureFunctions.advancedCreation 設為 true，系統會提示您輸入所有其他值。
+>
+> 在 Azure 中建立函式應用程式時，只會提示輸入您的函式應用程式名稱。 系統會為您定義其他值。
+> 將 `azureFunctions.advancedCreation` 設定為 `true`，以提示您輸入所有其他值。
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 10/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798985"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495706"
 ---
 # <a name="what-is-vpn-gateway"></a>什麼是 VPN 閘道？
 
@@ -21,11 +21,13 @@ VPN 閘道是特定的虛擬網路閘道類型，可透過公用網際網路在 
 
 ## <a name="whatis"></a>什麼是虛擬網路閘道？
 
-虛擬網路閘道是由部署到您所建立的特定子網路 (稱為「閘道子網路」  ) 的兩部以上虛擬機器所組成。 當您建立虛擬網路閘道時，會建立位於閘道子網路中的 VM。 虛擬網路閘道 VM 會設定為包含閘道特有的路由表和閘道服務。 您無法直接設定屬於虛擬網路閘道的 VM，您不該將額外的資源部署至閘道子網路。
+虛擬網路閘道是由部署到特定子網路 (由您所建並稱為「閘道子網路」  ) 的兩部或多部 VM 所組成。 虛擬網路閘道 VM 包含路由表，並且會執行特定的閘道服務。 當您建立虛擬網路閘道時，這些 VM 也會隨之建立。 您無法直接設定屬於虛擬網路閘道的 VM。
+
+您為虛擬網路閘道設定的其中一個設定是 [閘道類型]。 [閘道類型] 會指定使用虛擬網路閘道的方式，以及閘道所採取的動作。 閘道類型 'Vpn' 會指定所建立虛擬網路閘道的類型是「VPN 閘道」，而不是 ExpressRoute 閘道。 虛擬網路可以有兩個虛擬網路閘道；一個 VPN 閘道和一個 ExpressRoute 閘道，如同[並存](#coexisting)連線設定。 如需詳細資訊，請參閱[閘道類型](vpn-gateway-about-vpn-gateway-settings.md#gwtype)。
 
 您可以在 Azure 可用性區域中部署 VPN 閘道。 此方式可為虛擬網路閘道帶來復原力、延展性和更高的可用性。 在 Azure 可用性區域中部署閘道可從根本上和邏輯上分隔區域內的閘道，同時還能在發生區域層級的失敗時，保護您內部部署項目與 Azure 的網路連線。 請參閱[關於在 Azure 可用性區域中的區域備援虛擬網路閘道](about-zone-redundant-vnet-gateways.md)
 
-建立虛擬網路閘道最多可能需要花費 45 分鐘的時間來完成。 建立虛擬網路閘道時，閘道 VM 會部署到閘道子網路，並使用您指定的設定進行設定。 您所設定的其中一個設定是閘道類型。 閘道類型 'vpn' 會指定所建立虛擬網路閘道的類型是 VPN 閘道。 建立 VPN 閘道之後，您可以在 VPN 閘道與另一個 VPN 閘道 (VNet 對 VNet) 之間建立 IPsec/IKE VPN 通道連線，或在 VPN 閘道與內部部署 VPN 裝置 (站對站) 之間建立跨單位 IPsec/IKE VPN 通道連線。 您也可以建立點對站 VPN 連線 (透過 OpenVPN、IKEv2 或 SSTP 的 VPN)，它可讓您從遠端位置連線到您的虛擬網路，例如從會議或住家。
+建立虛擬網路閘道最多可能需要花費 45 分鐘的時間來完成。 建立虛擬網路閘道時，閘道 VM 會部署到閘道子網路，並使用您指定的設定進行設定。 建立 VPN 閘道之後，您可以在 VPN 閘道與另一個 VPN 閘道 (VNet 對 VNet) 之間建立 IPsec/IKE VPN 通道連線，或在 VPN 閘道與內部部署 VPN 裝置 (站對站) 之間建立跨單位 IPsec/IKE VPN 通道連線。 您也可以建立點對站 VPN 連線 (透過 OpenVPN、IKEv2 或 SSTP 的 VPN)，它可讓您從遠端位置連線到您的虛擬網路，例如從會議或住家。
 
 ## <a name="configuring"></a>設定 VPN 閘道
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550307"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479606"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立和加密 Linux 虛擬機器
 
@@ -55,8 +55,8 @@ ms.locfileid: "72550307"
 
 1. 在 [新增] 頁面中，選取 [熱門] 底下的 [Ubuntu Server 18.04 LTS]  。
 1. 在 [基本]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶。
-1. 針對 [資源群組]  ，選取您先前製作金鑰保存庫時所建立的資源群組 (例如，**myResourceGroup**)
-1. 針對 [虛擬機器名稱]  ，輸入 *MyVM*，然後選擇 
+1. 針對 [資源群組]  ，選取您先前製作金鑰保存庫時所建立的資源群組 (例如 **myResourceGroup**)。
+1. 針對 [虛擬機器名稱]  ，輸入 *MyVM*。
 1. 針對 [區域]  ，選取您先前製作金鑰保存庫所使用的相同區域 (例如，**美國東部**)。
 1. 確認 [大小]  為「標準 D2s v3」  。
 1. 在 [Administrator 帳戶]  底下，選取 [密碼]  。 輸入使用者名稱和密碼。

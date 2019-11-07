@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326842"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464634"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>教學課程：使用適用於 C# 的語音 SDK 從語音辨識意圖
 
@@ -45,11 +45,12 @@ ms.locfileid: "71326842"
 
 LUIS 會與語音服務整合以從語音辨識意圖。 您不需要語音服務訂用帳戶，只要有 LUIS 即可。
 
-LUIS 會使用兩種金鑰：
+LUIS 會使用三種金鑰：
 
 |金鑰類型|目的|
 |--------|-------|
 |編寫|可讓您透過程式設計建立和修改 LUIS 應用程式|
+|入門|可讓您只使用文字來測試 LUIS 應用程式|
 |端點 |可授權特定 LUIS 應用程式的存取權|
 
 在本教學課程中，您需要端點金鑰類型。 本教學課程使用「家庭自動化」LUIS 應用程式範例，遵循[使用預先建置的家庭自動化應用程式](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)快速入門即可建立。 如果您已建立自有 LUIS 應用程式，則可改用此應用程式。
@@ -195,4 +196,4 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [如何辨識語音](quickstart-csharp-dotnetcore-windows.md)
+> [如何辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

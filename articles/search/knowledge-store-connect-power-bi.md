@@ -8,27 +8,30 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790076"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485148"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>使用 Power BI 連線到知識存放區
 
 > [!Note]
-> 知識存放區處於預覽狀態，不應用於生產環境。 [Azure 認知搜尋 REST API 版本 2019-05-06-Preview](search-api-preview.md) 會提供此功能。 目前沒有 .NET SDK 支援。
+> 知識存放區處於預覽狀態，不應用於生產環境。 入口網站和[搜尋服務 REST API 版本 2019-05-06-Preview](search-api-preview.md) 會提供此功能。 目前沒有 .NET SDK 支援。
 >
-在本文中，您將了解如何使用 Power BI Desktop 應用程式中的 Power Query 來連接及探索知識存放區。 若要建立本逐步解說中使用的知識存放區範例，請參閱[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)。
+
+在本文中，了解如何使用 Power BI Desktop 應用程式中的 Power Query 來連線及探索知識存放區。 您可以透過範本更快地開始使用，或從頭開始建立自訂儀表板。
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 遵循[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)中的步驟，建立本逐步解說中所使用的知識存放區範例。 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
-
 + [安裝 Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-## <a name="connect-with-power-bi"></a>使用 Power BI 進行連接
++ 您將需要一個知識存放區，具有 Azure 資料表儲存體的投影。 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
+
+如果您想要使用範例知識存放區，請遵循相關指示來[建立知識存放區](knowledge-store-create-portal.md)。
+
+## <a name="create-a-custom-report"></a>建立自訂報告
 
 1. 啟動 Power BI Desktop 並按一下 [取得資料]  。
 

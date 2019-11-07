@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Azure PowerShell 在 HDInsight 中建立 Spark 叢集
+title: 快速入門：使用 Azure PowerShell 建立 HDInsight Spark 叢集
 description: 本快速入門會說明如何使用 Azure PowerShell 在 Azure HDInsight 中建立 Apache Spark 叢集，以及執行簡單的 Spark SQL 查詢。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
-ms.openlocfilehash: f4f876c6a0e208c949f8aec2781dda39ba66fb00
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d2ab605d3532df1623ff087dbf1f93dad35445f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337603"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494508"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入門：使用 PowerShell 在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -27,6 +27,8 @@ ms.locfileid: "71337603"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisite"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -143,11 +145,11 @@ ms.locfileid: "71337603"
 
 1. 從入口網站中選取 [叢集儀表板]  ，然後選取 [Jupyter Notebook]  。 出現提示時，輸入叢集的叢集登入認證。
 
-   ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
+   ![開啟 Jupyter Notebook 以執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 以執行互動式 Spark SQL 查詢")
 
 1. 選取 [新增]   > [PySpark]  來建立 Notebook。
 
-   ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
+   ![建立 Jupyter Notebook 以執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 以執行互動式 Spark SQL 查詢")
 
    新的 Notebook 隨即建立並以 Untitled(Untitled.pynb) 名稱開啟。
 

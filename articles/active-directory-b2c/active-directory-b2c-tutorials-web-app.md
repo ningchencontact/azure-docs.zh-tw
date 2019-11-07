@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 09/19/2019
+ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b42634aa86f210382adb1ae224c847a92d89109b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103315"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474897"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在 Web 應用程式中啟用驗證
 
@@ -35,9 +35,15 @@ ms.locfileid: "71103315"
 * [建立使用者流程](tutorial-create-user-flows.md)以在您的應用程式中達成使用者體驗。
 * 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 
-## <a name="update-the-application"></a>更新應用程式
+## <a name="update-the-application-registration"></a>更新應用程式註冊
 
-在已完成的必要教學課程中，您在 Azure AD B2C 中新增了 Web 應用程式。 若要啟用範例與本教學課程中的通訊，您需要新增 Azure AD B2C 中應用程式的重新導向 URI。
+在已完成的必要教學課程中，您在 Azure AD B2C 中註冊了 Web 應用程式。 若要能夠與本教學課程中的範例進行通訊，您必須針對已註冊的應用程式新增重新導向 URI 並建立用戶端秘密 (金鑰)。
+
+### <a name="add-a-redirect-uri-reply-url"></a>新增重新導向 URI (回覆 URL)
+
+您可以使用目前的 [應用程式]  體驗，或使用新整合的 [應用程式註冊 (預覽)]  體驗來更新應用程式。 [深入了解預覽體驗](http://aka.ms/b2cappregintro)。
+
+#### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 選取頂端功能表中的 [目錄 + 訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
@@ -45,8 +51,26 @@ ms.locfileid: "71103315"
 1. 選取 [應用程式]  ，然後選取 [webapp1]  應用程式。
 1. 在 [回覆 URL]  下方，新增 `https://localhost:44316`。
 1. 選取 [儲存]  。
-1. 在 [屬性] 頁面上，記錄您會在設定 Web 應用程式時使用的應用程式識別碼。
-1. 依序選取 [金鑰]  、[產生金鑰]  和 [儲存]  。 記錄您會在設定 Web 應用程式時使用的金鑰。
+1. 當您設定 Web 應用程式時，請在 [屬性] 頁面上，記錄應用程式識別碼，以供後續步驟使用。
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[應用程式註冊 (預覽)](#tab/app-reg-preview/)
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在頂端功能表中選取 [目錄 + 訂用帳戶]  篩選，然後選取包含您 Azure AD B2C 租用戶的目錄。
+1. 在左側功能表中，選取 [Azure AD B2C]  。 或者，選取 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+1. 選取 [應用程式註冊 (預覽)]  ，選取 [擁有的應用程式]  索引標籤，然後選取 *webapp1* 應用程式。
+1. 選取 [驗證]  ，然後選取 [試用全新體驗]  (若已顯示)。
+1. 在 [Web]  底下，選取 [新增 URI]  連結，輸入 `https://localhost:44316`，然後選取 [儲存]  。
+1. 選取 [概觀]  。
+1. 當您設定 Web 應用程式時，請記錄 [應用程式 (用戶端) 識別碼]  ，以供後續步驟使用。
+
+* * *
+
+### <a name="create-a-client-secret"></a>建立用戶端密碼
+
+接著，為已註冊的 Web 應用程式建立用戶端秘密。 Web 應用程式程式碼範例會在要求權杖時，使用此秘密來證明其身分識別。
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## <a name="configure-the-sample"></a>設定範例
 

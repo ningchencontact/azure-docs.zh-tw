@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
-ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: b5b3ca127aba62b39bd7236412d4c6a542347db3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173299"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476184"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>教學課程：定型第一個 ML 模型
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本教學課程是**兩部分教學課程系列的第二部分**。 在上一個教學課程中，您已[建立工作區並選擇了開發環境](tutorial-1st-experiment-sdk-setup.md)。 在本教學課程中，您將了解 Azure Machine Learning 中的基本設計模式，並根據糖尿病資料集來定型簡單的 Scikit-learn 模型。 完成本教學課程之後，您將具備 SDK 的實際知識，進而開發更複雜的實驗和工作流程。
 
@@ -37,7 +39,7 @@ ms.locfileid: "72173299"
 
 ## <a name="open-the-notebook"></a>開啟 Notebook
 
-1. 登入[工作區登陸頁面](https://ml.azure.com/) \(英文\)。
+1. 登入 [Azure Machine Learning Studio](https://ml.azure.com/)。
 
 1. 開啟資料夾中的 **tutorial-1st-experiment-sdk-train.ipynb**，如[第一部分](tutorial-1st-experiment-sdk-setup.md#open)所說明。
 
@@ -62,7 +64,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-現在，您可以在工作區中建立實驗。 實驗是另一個基本雲端資源，代表著一組試用功能 (個別的模型執行)。 在本教學課程中，您會使用實驗來建立執行，並在 Azure 入口網站中追蹤您的模型訓練。 參數包含您的工作區參考，以及實驗的字串名稱。
+現在，您可以在工作區中建立實驗。 實驗是另一個基本雲端資源，代表著一組試用功能 (個別的模型執行)。 在本教學課程中，您會使用實驗來建立執行，並在 Azure Machine Learning Studio 中追蹤您的模型訓練。 參數包含您的工作區參考，以及實驗的字串名稱。
 
 
 ```python
@@ -72,15 +74,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>載入資料並準備進行訓練
 
-本教學課程會使用糖尿病資料集，這是 Scikit-learn 中包含的預先標準化資料集。 此資料集使用年齡、性別和 BMI 等特質來預測糖尿病的進展。 從 `load_diabetes()` 靜態函式中載入資料，並使用 `train_test_split()` 將其分割成訓練集和測試集。 此函式會隔離資料，讓模型有未顯示的資料可用於測試下列訓練。
+在此教學課程中，您會使用糖尿病資料集，該資料集使用年齡、性別和 BMI 等特質來預測糖尿病的進展。 從 [Azure 開放資料集](https://azure.microsoft.com/services/open-datasets/)類別載入資料，然後使用 `train_test_split()` 將其分割成訓練集和測試集。 此函式會隔離資料，讓模型有未顯示的資料可用於測試下列訓練。
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## <a name="train-a-model"></a>將模型定型
@@ -193,19 +197,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 如果您打算執行其他 Azure Machine Learning 教學課程，請不要完成本節。
 
-### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
+### <a name="stop-the-compute-instance"></a>停止計算執行個體
 
-如果您使用雲端 Notebook 伺服器，當您不使用 VM 時，請停止該 VM 來降低成本。
-
-1. 在您的工作區中，選取 [Notebook VM]  。
-
-   ![停止 VM 伺服器](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. 從清單中選取 VM。
-
-1. 選取 [停止]  。
-
-1. 當您準備好再次使用伺服器時，請選取 [啟動]  。
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>刪除所有內容
 

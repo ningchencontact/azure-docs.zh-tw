@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211764"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494457"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>範例：使用文字分析來偵測情感
 
@@ -34,120 +34,23 @@ ms.locfileid: "71211764"
 
 情感分析會針對整份文件執行，而不會擷取對於文字中特定實體的情感。 在實務上，當文件包含一或兩個句子而非大型文字區塊時，會較容易提升評分的準確度。 在客觀評估階段，模型會判斷整份文件是客觀的，還是包含情感的。 主要為客觀的文件不會進展到情感偵測階段，因此分數為 0.50，而且不會進一步處理。 對於繼續在管線中處理的文件，下一個階段會產生高於或低於 0.50 的分數。 分數取決於在文件中偵測到的情感程度。
 
-## <a name="preparation"></a>準備工作
-
-情感分析會在您為它提供較小區塊的文字來處理時，產生較高品質的結果。 這與關鍵片語擷取相反，後者在較大型文字區塊上的表現會更好。 若要從這兩個作業中取得最佳結果，請考慮據以重建輸入。
-
-您必須具有此格式的 JSON 文件：識別碼、文字和語言。
-
-每份文件的大小必須低於 5,120 個字元。 每個集合最多可以有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 以下是您可能提交來進行情感分析的內容範例：
-
-```json
-    {
-        "documents": [
-            {
-                "language": "en",
-                "id": "1",
-                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-            },
-            {
-                "language": "en",
-                "id": "2",
-                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
-            },
-            {
-                "language": "en",
-                "id": "3",
-                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
-            },
-            {
-                "language": "en",
-                "id": "4",
-                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },
-            {
-                "language": "en",
-                "id": "5",
-                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
-            }
-        ]
-    }
-```
-
-## <a name="step-1-structure-the-request"></a>步驟 1：建立要求結構
-
-如需有關要求定義的詳細資訊，請參閱[呼叫文字分析 API](text-analytics-how-to-call-api.md)。 為了方便起見，我們將重申下列各點：
-
-+ 建立一個 POST 要求。 若要檢閱適用於此要求的 API 文件，請參閱[情感分析 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)\(英文)\。
-
-+ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來分析情感的 HTTP 端點。 您必須在 URL 中納入 `/text/analytics/v2.1/sentiment`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment` 。
-
-+ 設定要求標頭以包含文字分析作業的[存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
-
-+ 在要求主體中，提供您準備用於此分析的 JSON 文件集合。
-
-> [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它發佈到服務。
-
-## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
-
-分析會在接收要求時執行。 如需您每分鐘和每秒鐘可以傳送的要求大小和數量資訊，請參閱概觀中的[資料限制](../overview.md#data-limits)一節。
-
-請記得，服務是無狀態的。 您的帳戶中並不會儲存任何資料。 結果會在回應中立即傳回。
-
-
-## <a name="step-3-view-the-results"></a>步驟 3：View the results
-
-情感分析器會將文字明確地分類為正面或負面。 並指派範圍從 0 到 1 的分數。 接近 0.5 的值是中立或不確定的。 0\.5 的分數表示中立。 當無法針對情感分析字串，或字串沒有任何情感時，分數一律為 0.5。 例如，如果您使用英文語言代碼傳入西班牙字串，分數將會是 0.5。
-
-輸出會立即傳回。 您可以將結果串流至接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案。 然後，將輸出匯入應用程式，以便用來排序、搜尋和操作資料。
-
-下列範例顯示本文中文件集合的回應：
-
-```json
-    {
-        "documents": [
-            {
-                "score": 0.9999237060546875,
-                "id": "1"
-            },
-            {
-                "score": 0.0000540316104888916,
-                "id": "2"
-            },
-            {
-                "score": 0.99990355968475342,
-                "id": "3"
-            },
-            {
-                "score": 0.980544924736023,
-                "id": "4"
-            },
-            {
-                "score": 0.99996328353881836,
-                "id": "5"
-            }
-        ],
-        "errors": []
-    }
-```
-
 ## <a name="sentiment-analysis-v3-public-preview"></a>情感分析 V3 公開預覽
 
-[下一版情感分析](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) 現在已有公開預覽版。 其大幅改善了 API 文字分類和評分的精確度和詳細資料。
+[下一版情感分析](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) 現在已有公開預覽版。 其大幅改善了 API 文字分類和評分的精確度和詳細資料。
 
 > [!NOTE]
 > * 情感分析 v3 的要求格式和[資料限制](../overview.md#data-limits)與前版相同。
 > * 此外，情感分析 V3：
->    * 目前支援的語言有英文、法文、義大利文、日文、簡體中文和繁體中文。
+>    * 目前支援英文 (`en`)、日文 (`ja`)、簡體中文 (`zh-Hans`)、繁體中文 (`zh-Hant`)、法文 (`fr`)、義大利文 (`it`)、西班牙文 (`es`)、荷蘭文 (`nl`)、葡萄牙文 (`pt`) 和德文 (`de`) 語言。
 >    * 適用區域如下：`Australia East`、`Central Canada`、`Central US`、`East Asia`、`East US`、`East US 2`、`North Europe`、`Southeast Asia`、`South Central US`、`UK South`、`West Europe` 和 `West US 2`。
 
 |功能 |說明  |
 |---------|---------|
 |更高的精確度     | 在文字文件中偵測正面、中性、負面和混合情感的能力顯著優於舊版。           |
 |文件和句子層級的情感分數     | 同時偵測文件及其個別句子的情感。 如果文件包含多個句子，則會為每個句子指派情感分數。         |
-|情感類別和分數     | 現在，API 除了會傳回情感分數以外，還會傳回文字的情感分類。 這些類別包括 `positive`、`negative`、`neutral` 和 `mixed`。       |
+|情感標記和評分     | 現在，API 除了會傳回情感分數以外，還會傳回文字的情感分類。 這些類別包括 `positive`、`negative`、`neutral` 和 `mixed`。       |
 | 改善的輸出 | 現在，情感分析會同時傳回整份文字文件及其個別句子的資訊。 |
+| model-version 參數 | 選擇性參數，用於選擇要對您的資料使用哪個版本的文字分析模型。 |
 
 ### <a name="sentiment-labeling"></a>情感標籤
 
@@ -159,6 +62,13 @@ ms.locfileid: "71211764"
 | 至少有一個負面的句子，且其餘句子皆為中性。  | `negative`     |
 | 至少有一個負面的句子和至少一個正面的句子。         | `mixed`        |
 | 所有句子皆為中性。                                                 | `neutral`      |
+
+### <a name="model-versioning"></a>模型版本設定
+
+> [!NOTE]
+> 情感分析的模型版本設定是從版本 `v3.0-preview.1` 開始提供的。
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ### <a name="sentiment-analysis-v3-example-request"></a>情感分析 V3 的要求範例
 
@@ -258,6 +168,104 @@ ms.locfileid: "71211764"
 ### <a name="example-c-code"></a>範例 C# 程式碼
 
 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs) 上找到呼叫此情感分析版本的範例 C# 應用程式。
+
+## <a name="preparation"></a>準備工作
+
+情感分析會在您為它提供較小區塊的文字來處理時，產生較高品質的結果。 這與關鍵片語擷取相反，後者在較大型文字區塊上的表現會更好。 若要從這兩個作業中取得最佳結果，請考慮據以重建輸入。
+
+您必須具有此格式的 JSON 文件：識別碼、文字和語言。
+
+每份文件的大小必須低於 5,120 個字元。 每個集合最多可以有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 以下是您可能提交來進行情感分析的內容範例：
+
+```json
+    {
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
+            },
+            {
+                "language": "en",
+                "id": "2",
+                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
+            },
+            {
+                "language": "en",
+                "id": "3",
+                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
+            },
+            {
+                "language": "en",
+                "id": "4",
+                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
+            },
+            {
+                "language": "en",
+                "id": "5",
+                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
+            }
+        ]
+    }
+```
+
+## <a name="step-1-structure-the-request"></a>步驟 1：建立要求結構
+
+如需有關要求定義的詳細資訊，請參閱[呼叫文字分析 API](text-analytics-how-to-call-api.md)。 為了方便起見，我們將重申下列各點：
+
++ 建立一個 POST 要求。 若要檢閱適用於此要求的 API 文件，請參閱[情感分析 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)\(英文)\。
+
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來分析情感的 HTTP 端點。 您必須在 URL 中納入 `/text/analytics/v2.1/sentiment`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment` 。
+
++ 設定要求標頭以包含文字分析作業的[存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
+
++ 在要求主體中，提供您準備用於此分析的 JSON 文件集合。
+
+> [!Tip]
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它發佈到服務。
+
+## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
+
+分析會在接收要求時執行。 如需您每分鐘和每秒鐘可以傳送的要求大小和數量資訊，請參閱概觀中的[資料限制](../overview.md#data-limits)一節。
+
+請記得，服務是無狀態的。 您的帳戶中並不會儲存任何資料。 結果會在回應中立即傳回。
+
+
+## <a name="step-3-view-the-results"></a>步驟 3：View the results
+
+情感分析器會將文字明確地分類為正面或負面。 並指派範圍從 0 到 1 的分數。 接近 0.5 的值是中立或不確定的。 0\.5 的分數表示中立。 當無法針對情感分析字串，或字串沒有任何情感時，分數一律為 0.5。 例如，如果您使用英文語言代碼傳入西班牙字串，分數將會是 0.5。
+
+輸出會立即傳回。 您可以將結果串流至接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案。 然後，將輸出匯入應用程式，以便用來排序、搜尋和操作資料。
+
+下列範例顯示本文中文件集合的回應：
+
+```json
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
+```
 
 ## <a name="summary"></a>總結
 

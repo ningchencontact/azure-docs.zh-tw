@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307604"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492715"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教學課程：從語句取得完全相符的文字項目資料
 
 在本教學課程中，了解如何取得與預先定義的項目清單相符的實體資料。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -78,7 +80,7 @@ ms.locfileid: "70307604"
     |Steve Standish to 1234|
     |Tanner Thompson to 3456|
 
-    [![具有範例語句之意圖的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "具有範例語句之意圖的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![螢幕擷取畫面：具有語句範例的意圖](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "螢幕擷取畫面：具有語句範例的意圖")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 

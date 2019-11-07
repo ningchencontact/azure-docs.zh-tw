@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c8310b6fc33f1d03e1ccc9ccddfcd7b9e6c35d37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562063"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473349"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中建立新的租用戶
 您可以使用 Azure Active Directory (Azure AD) 入口網站執行所有的系統管理工作，包括為您的組織建立新的租用戶。 
@@ -26,22 +26,24 @@ ms.locfileid: "68562063"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
-使用全域系統管理員帳戶登入組織的 [Azure 入口網站](https://portal.azure.com/)。
-
-![包含 Azure AD 選項的 Azure 入口網站畫面](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
-
 ## <a name="create-a-new-tenant-for-your-organization"></a>為您的組織建立新的租用戶
 登入 Azure 入口網站之後，您可以為組織建立新的租用戶。 新的租用戶代表您的組織，並幫助您為內部與外部使用者管理 Microsoft 雲端服務的特定執行個體。
 
 ### <a name="to-create-a-new-tenant"></a>建立新的租用戶
-1. 依序選取 [建立資源]  、[身分識別]  和 [Azure Active Directory]  。
+
+1. 使用全域系統管理員帳戶登入組織的 [Azure 入口網站](https://portal.azure.com/)。
+
+1. 從 Azure 入口網站功能表選取 [建立資源]  。  
+
+    ![Azure Active Directory 建立資源頁面](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+
+1. 選取 [身分識別]  ，然後選取 [Azure Active Directory]  。
 
     [建立目錄]  頁面隨即出現。
 
     ![Azure Active Directory 建立頁面](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-2.  在 [建立目錄]  頁面上，輸入下列資訊：
+1.  在 [建立目錄]  頁面上，輸入下列資訊：
     
     - 在 [組織名稱]  方塊中輸入 _Contoso_。
 
@@ -49,7 +51,7 @@ ms.locfileid: "68562063"
 
     - 保留 [國家或地區]  方塊中的 [美國]  選項。
 
-3. 選取 [建立]  。
+1. 選取 [建立]  。
 
 您的新的租用戶是使用網域 contoso.onmicrosoft.com 建立。
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044409"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469740"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>管理 Azure VM 的更新和修補程式
 
@@ -47,8 +47,9 @@ ms.locfileid: "73044409"
 
 首先，在本教學課程中啟用 VM 的更新管理：
 
-1. 在 Azure 入口網站的左側窗格中，選取 [虛擬機器]  。 從清單中選取 VM。
-2. 在 VM 頁面的 [作業]  區段下，選取 [更新管理]  。 [啟用更新管理]  頁面隨即開啟。
+1. 在 [Azure 入口網站](https://portal.azure.com)功能表中，選取 [虛擬機器]  ，或從 [首頁]  搜尋並選取 [虛擬機器]  。
+1. 選取您要啟用更新管理的 VM。
+1. 在 VM 頁面的 [作業]  區段下，選取 [更新管理]  。 [啟用更新管理]  頁面隨即開啟。
 
 執行驗證來判斷此 VM 是否已啟用更新管理。 此驗證包括檢查 Azure Log Analytics 工作區及連結的自動化帳戶，以及更新管理解決方案是否在工作區中。
 

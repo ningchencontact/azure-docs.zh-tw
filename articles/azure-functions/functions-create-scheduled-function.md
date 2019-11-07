@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 13aa1f8cd643d579734cc603bbc81519a690fe59
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a070a7da48af8abe138900dd0221bace2149aa20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085853"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469301"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中建立由計時器觸發的函式
 
@@ -28,7 +28,7 @@ ms.locfileid: "70085853"
 
 若要完成本教學課程：
 
-+ 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
++ 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-an-azure-function-app"></a>建立 Azure 函數應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "70085853"
 
 ## <a name="create-a-timer-triggered-function"></a>建立由計時器觸發的函式
 
-1. 展開函式應用程式，然後按一下 [Functions]  旁的 [+]  按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內]  和 [繼續]  。 否則，請移至步驟三。
+1. 展開函式應用程式，然後按一下 [Functions]  旁的 [+]  按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內]  和 [繼續]  。 否則，移至步驟 3。
 
    ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 

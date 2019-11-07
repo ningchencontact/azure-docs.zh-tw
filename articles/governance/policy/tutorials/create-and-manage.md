@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d01a28e1b4cbd9b2dacef8059d46ea72e789094d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302868"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490457"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教學課程：建立和管理原則來強制執行相容性
 
@@ -29,9 +29,9 @@ ms.locfileid: "72302868"
 
 使用 Azure 原則強制執行相容性的第一步是指派原則定義。 原則定義會定義在何種條件下強制執行原則，以及要發揮什麼作用。 在此範例中，指派稱為「需要 SQL Server 12.0 版」  的內建原則定義，以強制執行所有 SQL Server 資料庫都必須是 v12.0 才能相容的條件。
 
-1. 藉由按一下 [所有服務]  然後搜尋並選取 [原則]  ，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 移至 Azure 入口網站來指派原則。 搜尋並選取 [原則]  。
 
-   ![搜尋所有服務中的原則](../media/create-and-manage/search-policy.png)
+   ![在搜尋列中搜尋原則](../media/create-and-manage/search-policy.png)
 
 1. 選取 Azure 原則分頁左側的 [指派]  。 指派是已指派在特定範圍內發生的原則。
 
@@ -41,7 +41,7 @@ ms.locfileid: "72302868"
 
    ![從 [指派] 頁面指派原則定義](../media/create-and-manage/select-assign-policy.png)
 
-1. 在 [指派原則]  頁面上，按一下省略符號並選取管理群組或訂用帳戶來選取 [範圍]  。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 然後，按一下位於 [範圍]  分頁底部的 [選取]  。
+1. 在 [指派原則]  頁面上，選取省略符號並選取管理群組或訂用帳戶來選取 [範圍]  。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 然後，選取位於 [範圍]  分頁底部的 [選取]  。
 
    這個範例會使用 **Contoso** 訂用帳戶。 您的訂用帳戶不同。
 
@@ -49,7 +49,7 @@ ms.locfileid: "72302868"
 
 1. 選取 [原則定義]  省略符號以開啟可用定義的清單。 您可以將原則定義 [類型]  篩選為 [內建]  ，以檢視所有項目並閱讀其描述。
 
-1. 選取 [需要 SQL Server 12.0 版]  。 如果您無法立即找到它，請在搜尋方塊中輸入 [需要 SQL Server]  ，然後按 ENTER 鍵或按一下 [搜尋] 方塊外面。 一旦您找到並選取原則定義後，請按一下 [可用的定義]  分頁底部的 [選取]  。
+1. 選取 [需要 SQL Server 12.0 版]  。 如果您無法立即找到它，請在搜尋方塊中輸入 [需要 SQL Server]  ，然後按 ENTER 鍵或選取 [搜尋] 方塊外面。 一旦您找到並選取原則定義後，請選取 [可用的定義]  分頁底部的 [選取]  。
 
    ![使用搜尋篩選條件來找出原則](../media/create-and-manage/select-available-definition.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "72302868"
 
 1. 讓 [建立受控識別]  保持未選取狀態。 但是，當要指派的原則或方案包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」  勾選此方塊。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
 
-1. 按一下 [指派]  。
+1. 選取 [指派]  。
 
 ## <a name="implement-a-new-custom-policy"></a>實作新的自訂原則
 
@@ -340,7 +340,7 @@ az policy definition list
 
 1. 針對 [類別]  ，從現有選項進行選擇，或建立新的類別。
 
-1. 瀏覽 [可用定義]  ([計畫定義]  分頁的右半部) 的清單，並選取您想要新增至此計畫的原則定義。 針對 [保障安全]  計畫，按一下原則定義資訊旁的 [+]  ，或按一下原則定義資料列，然後按一下詳細資料頁面中的 [+ 新增]  選項，以新增下列內建原則定義：
+1. 瀏覽 [可用定義]  ([計畫定義]  分頁的右半部) 的清單，並選取您想要新增至此計畫的原則定義。 針對 [保障安全]  計畫，選取原則定義資訊旁的 [+]  ，或選取原則定義資料列，然後選取詳細資料頁面中的 [+ 新增]  選項，以新增下列內建原則定義：
 
    - 需要 SQL Server 12.0 版
    - [Preview]: Monitor unprotected web applications in Security Center.
@@ -357,19 +357,19 @@ az policy definition list
    ![從允許的值變更計畫定義參數](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
-   > 就某些 `strongType` 參數而言，值清單是無法自動決定的。 在這些情況下，參數資料列的右側會出現省略符號。 按一下省略符號以開啟 [參數範圍 (&lt;參數名稱&gt;)] 分頁。 在此頁面上，請選取要用來提供值選項的訂用帳戶。 此參數範圍只會在建立計畫定義期間使用，且對於原則評估或指派的計畫範圍均無影響。
+   > 就某些 `strongType` 參數而言，值清單是無法自動決定的。 在這些情況下，參數資料列的右側會出現省略符號。 選取省略符號以開啟 [參數範圍 (&lt;參數名稱&gt;)] 分頁。 在此頁面上，請選取要用來提供值選項的訂用帳戶。 此參數範圍只會在建立計畫定義期間使用，且對於原則評估或指派的計畫範圍均無影響。
 
-1. 按一下 [檔案]  。
+1. 選取 [儲存]  。
 
 ### <a name="assign-an-initiative-definition"></a>指派計畫定義
 
 1. 選取 Azure 原則分頁左側 [製作]  下的 [定義]  。
 
-1. 找出您先前建立的 [保障安全]  計畫定義並按一下它。 選取頁面頂端的 [指派]  以開啟至 [保障安全:  指派計畫] 頁面。
+1. 找出您先前建立的 [保障安全]  計畫定義並加以選取。 選取頁面頂端的 [指派]  以開啟至 [保障安全:  指派計畫] 頁面。
 
    ![從 [計畫定義] 頁面指派定義](../media/create-and-manage/assign-definition.png)
 
-   您也可以用滑鼠右鍵按一下選取的資料列，或用滑鼠左鍵按一下資料列結尾的省略符號，以顯示快顯功能表。 然後選取 [指派]  。
+   您也可以用滑鼠右鍵按一下選取的資料列，或選取資料列結尾的省略符號，以顯示快顯功能表。 然後選取 [指派]  。
 
    ![計畫的替代選項](../media/create-and-manage/select-right-click.png)
 
@@ -384,14 +384,14 @@ az policy definition list
 
 1. 讓 [建立受控識別]  保持未選取狀態。 但是，當要指派的原則或方案包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」  勾選此方塊。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
 
-1. 按一下 [指派]  。
+1. 選取 [指派]  。
 
 ## <a name="check-initial-compliance"></a>檢查初始合規性
 
 1. 選取 Azure 原則分頁左側的 [合規性]  。
 
 1. 找出 [保障安全]  計劃。 其 [合規性狀態]  可能仍然是 [未啟動]  。
-   按一下該計畫可取得指派程序的完整詳細資料。
+   選取該計畫可取得指派程序的完整詳細資料。
 
    ![[計畫合規性] 頁面 - 未啟動評估](../media/create-and-manage/compliance-status-not-started.png)
 
@@ -399,7 +399,7 @@ az policy definition list
 
    ![[計畫合規性] 頁面 - 資源符合規範](../media/create-and-manage/compliance-status-compliant.png)
 
-1. 按一下計畫合規性分頁上的任何原則，即可開啟該原則的合規性詳細資料頁面。 此分頁提供資源層級上的合規性詳細資料。
+1. 選取計畫合規性分頁上的任何原則，即可開啟該原則的合規性詳細資料頁面。 此分頁提供資源層級上的合規性詳細資料。
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>使用排除來免除不相容或拒絕的資源
 
@@ -408,11 +408,12 @@ az policy definition list
 
 由於指派的原則或計畫可在兩個位置中檢視，因此無法部署：
 
-- 在作為部署目標的資源群組上：選取頁面左側的 [部署]  ，然後按一下失敗部署的 [部署名稱]  。 遭拒的資源將會以 [禁止]  狀態列出。 若要確認拒絕資源的原則或計畫和指派，請在 [部署概觀] 頁面上按一下 [失敗。  如需詳細資訊，請按一下這裡 ->]。 視窗會在分頁右側開啟，並附上錯誤資訊。 [錯誤詳細資料]  之下會有相關原則物件的 GUID。
+- 在作為部署目標的資源群組上：選取頁面左側的 [部署]  ，然後選取失敗部署的 [部署名稱]  。 遭拒的資源將會以 [禁止]  狀態列出。 若要確認拒絕資源的原則或計畫和指派，請在 [部署概觀] 頁面上選取 [失敗。  如需詳細資訊，請按一下這裡 ->]。
+  視窗會在分頁右側開啟，並附上錯誤資訊。 [錯誤詳細資料]  之下會有相關原則物件的 GUID。
 
   ![部署遭原則指派拒絕](../media/create-and-manage/rg-deployment-denied.png)
 
-- 在 Azure 原則頁面上：選取頁面左側的 [合規性]  ，並按一下 [需要 SQL Server 12.0 版]  原則。 在開啟的頁面上，您會看到 [拒絕]  計數增加。 在 [事件]  索引標籤下，您也會看到哪些人員所嘗試的部署遭到原則拒絕。
+- 在 Azure 原則頁面上：選取頁面左側的 [合規性]  ，並選取 [需要 SQL Server 12.0 版]  原則。 在開啟的頁面上，您會看到 [拒絕]  計數增加。 在 [事件]  索引標籤下，您也會看到哪些人員所嘗試的部署遭到原則拒絕。
 
   ![指派原則的合規性概觀](../media/create-and-manage/compliance-overview.png)
 
@@ -424,14 +425,14 @@ az policy definition list
 
 1. 瀏覽所有原則指派，並開啟 [需要 SQL Server 12.0 版]  指派。
 
-1. 按一下省略符號並選取要排除的資源群組 (在此範例中為 SQLServers_Excluded  ) 以設定 [排除]  。
+1. 選取省略符號並選取要排除的資源群組 (在此範例中為 SQLServers_Excluded  ) 以設定 [排除]  。
 
    ![將排除的資源群組新增至原則指派中](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > 根據原則及其效果，也可將排除授與給指派範圍內資源群組中的特定資源。 由於此教學課程中使用 [拒絕]  效果，因此對已經存在的特定資源設定排除將沒有意義。
 
-1. 依序按一下 [選取]  和 [儲存]  。
+1. 選取 [選取]  ，然後選取 [儲存]  。
 
 在本節中，您已在單一資源群組中建立排除項目，藉此解決了被拒絕的要求。
 

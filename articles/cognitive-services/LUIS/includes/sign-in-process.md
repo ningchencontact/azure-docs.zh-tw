@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 00eb6f40e77cbdb64249600e35ca8531f1a744a8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258170"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488748"
 ---
 ## <a name="sign-in-to-luis-portal"></a>登入 LUIS 入口網站
 
@@ -41,8 +41,8 @@ LUIS 的新使用者必須遵循此程序：
 
 1. 隨即會顯示所要建立資源的摘要。 選取 [下一步]  。
 
-    ![建立撰寫資源](./media/sign-in-confirm-key-selection.png)
+    ![建立撰寫資源](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. 步驟 3 是確認。 選取 [繼續]  以確認您的選取。 
+1. 請選取 [繼續]  來表示確認。 
 
-    ![建立撰寫資源](./media/sign-in-confirm-continue.png)
+    ![建立撰寫資源](../media/sign-in/sign-in-confirm-continue.png)

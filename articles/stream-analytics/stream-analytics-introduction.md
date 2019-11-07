@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467908"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure 串流分析是什麼？
 
@@ -61,7 +61,7 @@ Azure 串流分析使用已擴增的簡單 SQL 架構查詢語言，搭配強大
 
 串流分析查詢語言提供了各式各樣的函式，以供分析和處理串流資料。 此查詢語言支援簡單的資料操作、彙總函式，和複雜的地理空間函式。 您可以在入口網站中編輯查詢，然後使用從即時資料流所擷取出的範例資料來測試查詢。
 
-您可以透過定義和叫用其他函式來延伸查詢語言的功能。 您可以在 Azure Machine Learning 服務定義函式呼叫以利用 Azure Machine Learning 解決方案，並整合 JavaScript 或 C# 使用者定義的函式 (UDF) 或使用者定義的彙總以在串流分析查詢中執行複雜的計算。
+您可以透過定義和叫用其他函式來延伸查詢語言的功能。 您可以在 Azure Machine Learning 中定義函式呼叫以利用 Azure Machine Learning 解決方案，並整合 JavaScript 或 C# 使用者定義的函式 (UDF) 或使用者定義的彙總以在串流分析查詢中執行複雜的計算。
 
 ## <a name="fully-managed"></a>完全受控
 

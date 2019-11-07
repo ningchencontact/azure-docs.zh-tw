@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，並使用 Go SDK 來偵測物件。
 services: cognitive-services
 author: areddish
+ms.author: areddish
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.author: daauld
-ms.openlocfilehash: 3831f89842f969ecce582c5b5d7a5f8a54c5e7a1
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946219"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73519079"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>快速入門：使用自訂視覺 Go SDK 建立物件偵測專案
 
@@ -24,6 +24,7 @@ ms.locfileid: "68946219"
 ## <a name="prerequisites"></a>必要條件
 
 - [Go 1.8+](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>安裝自訂視覺 SDK
 
@@ -48,7 +49,9 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
 
-在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入訂用帳戶金鑰。 當您建立專案時，請參閱 [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) 方法來指定其他選項 (如[建置偵測器](get-started-build-detector.md) Web 入口網站指南中所述)。
+在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入訂用帳戶金鑰。 此外，請從自訂視覺網站的 [設定] 頁面取得您的 [端點 URL]。
+
+當您建立專案時，請參閱 [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) 方法來指定其他選項 (如[建置偵測器](get-started-build-detector.md) Web 入口網站指南中所述)。
 
 ```go
 import(
@@ -67,7 +70,7 @@ var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
     prediction_resource_id = "<your prediction resource id>"
-    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    endpoint string = "<your endpoint URL>"
     project_name string = "Go Sample OD Project"
     iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"

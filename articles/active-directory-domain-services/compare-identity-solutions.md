@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e3a8a537ae8c971119cfd08fbf80dc169df1d384
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 04a1f19ddf894467a9129e8a16c951298a6af529
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619749"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474721"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>比較自我管理 Active Directory Domain Services、Azure Active Directory 和受控 Azure Active Directory Domain Services
 
-若要對中央身分識別提供應用程式、服務或裝置存取權，有三種常見的方式可在 Azure 中使用以 Active Directory 為基礎的服務。 透過身分識別解決方案的這些選擇，您能夠彈性地依據組織需求來使用最適當的目錄。 例如，如果您主要管理執行行動裝置的僅限雲端使用者，那麼建立並執行您自己的 Active Directory Domain Services 身分識別解決方案可能就沒有意義。 相反地，您可以直接使用 Azure Active Directory。
+若要對中央身分識別提供應用程式、服務或裝置存取權，有三種常見的方式可在 Azure 中使用以 Active Directory 為基礎的服務。 透過身分識別解決方案的這些選擇，您能夠彈性地依據組織需求來使用最適當的目錄。 例如，如果您主要管理執行行動裝置的僅限雲端使用者，那麼建立並執行您自己的 Active Directory Domain Services (AD DS) 身分識別解決方案可能就沒有意義。 相反地，您可以直接使用 Azure Active Directory。
 
 雖然三個以 Active Directory 為基礎的身分識別解決方案共用共同的名稱和技術，但其設計訴求是提供符合不同客戶需求的服務。 概括地說，這些身分識別解決方案和功能集為：
 
@@ -36,12 +36,16 @@ ms.locfileid: "69619749"
 
 如果您有需要存取傳統驗證機制 (例如 Kerberos 或 NTLM) 的應用程式和服務，有兩種方式可以在雲端中提供 Active Directory Domain Services：
 
-* 使用 Azure Active Directory Domain Services 建立的「受控」  網域。 Microsoft 會建立並管理所需的資源。
-* 使用傳統資源 (例如虛擬機器 (VM)、Windows Server 客體 OS 和 Active Directory Domain Services) 建立和設定的「自我管理」  網域。 然後由您繼續管理這些資源。
+* 使用 Azure Active Directory Domain Services (Azure AD DS) 建立的「受控」  網域。 Microsoft 會建立並管理所需的資源。
+* 使用傳統資源 (例如虛擬機器 (VM)、Windows Server 客體 OS 和 Active Directory Domain Services (AD DS)) 建立和設定的「自我管理」  網域。 然後由您繼續管理這些資源。
 
-有了 Azure AD DS，Microsoft 就會為您部署和維護核心服務元件，如同「受控網域」  體驗。 您不需要針對 VM、Windows Server OS 或網域控制站 (DC) 等元件部署、管理、修補及保護 AD DS 基礎結構。 Azure AD DS 為傳統的自我管理 AD DS 環境提供較小的功能子集，可減少部分設計和管理的複雜度。 例如，沒有任何 AD 樹系、網域、站台和複寫連結需要設計和維護。 對於在雲端中執行並需要存取傳統驗證機制 (例如 Kerberos 或 NTLM) 的應用程式和服務，Azure AD DS 會以最少的系統管理負荷來提供受控網域體驗。
+有了 Azure AD DS，Microsoft 就會為您部署和維護核心服務元件，如同「受控網域」  體驗。 您不需要針對 VM、Windows Server OS 或網域控制站 (DC) 等元件部署、管理、修補及保護 AD DS 基礎結構。
 
-當您部署和執行自我管理 AD DS 環境時，您必須維護所有相關聯的基礎結構和目錄元件。 自我管理 AD DS 環境會有額外的維護負荷，但是您之後可以執行其他工作，例如延伸架構或建立樹系信任。 在提供身分識別給雲端中應用程式和服務的自我管理 AD DS 環境中，一般部署模型包括下列各項：
+Azure AD DS 為傳統的自我管理 AD DS 環境提供較小的功能子集，可減少部分設計和管理的複雜度。 例如，沒有任何 AD 樹系、網域、站台和複寫連結需要設計和維護。 對於在雲端中執行並需要存取傳統驗證機制 (例如 Kerberos 或 NTLM) 的應用程式和服務，Azure AD DS 會以最少的系統管理負荷來提供受控網域體驗。
+
+當您部署和執行自我管理 AD DS 環境時，您必須維護所有相關聯的基礎結構和目錄元件。 自我管理 AD DS 環境會有額外的維護負荷，但是您之後可以執行其他工作，例如延伸架構或建立樹系信任。
+
+在提供身分識別給雲端中應用程式和服務的自我管理 AD DS 環境中，一般部署模型包括下列各項：
 
 * **獨立的僅限雲端 AD DS** - Azure VM 會設定為網域控制站，並建立獨立的僅限雲端 AD DS 環境。 此 AD DS 環境不會與內部部署 AD DS 環境整合。 您會使用一組不同的認證來登入及管理雲端中的 VM。
 * **資源樹系部署** - Azure VM 會設定為網域控制站，而 AD DS 網域會建立為現有樹系的一部分。 然後對內部部署 AD DS 環境設定信任關係。 其他 Azure VM 可透過加入網域的方式加入雲端中的這個資源樹系。 使用者驗證會透過內部部署 AD DS 環境的 VPN/ExpressRoute 連線來執行。
@@ -70,9 +74,11 @@ ms.locfileid: "69619749"
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS 與 Azure AD
 
-Azure AD 可讓您管理組織所用裝置的身分識別，並控制這些裝置對公司資源的存取。 使用者可以向 Azure AD 註冊他們個人的裝置 (自備 (BYO) 模型)，以取得裝置的身分識別。 接著，當使用者登入 Azure AD 並使用裝置來存取受保護的資源時，Azure AD 就可以驗證裝置。 您可以使用 Microsoft Intune 等行動裝置管理 (MDM) 軟體來管理裝置。 此管理功能可讓您限制受控和符合原則的裝置對敏感資源的存取權。
+Azure AD 可讓您管理組織所用裝置的身分識別，並控制這些裝置對公司資源的存取。 使用者也可以向 Azure AD 註冊他們個人的裝置 (自備 (BYO) 模型)，以取得裝置的身分識別。 接著，當使用者登入 Azure AD 並使用裝置來存取受保護的資源時，Azure AD 就會驗證裝置。 您可以使用 Microsoft Intune 等行動裝置管理 (MDM) 軟體來管理裝置。 此管理功能可讓您限制受控和符合原則的裝置對敏感資源的存取權。
 
-傳統電腦和膝上型電腦也可以加入 Azure AD。 這項機制提供的優勢如同向 Azure AD 註冊個人裝置，例如允許使用者使用其公司認證來登入裝置。 Azure AD 聯結裝置提供下列優點：
+傳統電腦和膝上型電腦也可以加入 Azure AD。 這項機制提供的優勢如同向 Azure AD 註冊個人裝置，例如允許使用者使用其公司認證來登入裝置。
+
+Azure AD 聯結裝置提供下列優點：
 
 * 單一登入 (SSO) 至 Azure AD 所保護的應用程式。
 * 在跨裝置之間進行使用者設定的企業符合原則漫遊。
@@ -88,7 +94,9 @@ Azure AD 可讓您管理組織所用裝置的身分識別，並控制這些裝�
 | 公司所擁有但未加入內部部署 AD DS 的裝置 | Windows 10                       | 已聯結的 Azure AD        |
 | 公司所擁有且已加入內部部署 AD DS 的裝置  | Windows 10                       | 已聯結的混合式 Azure AD |
 
-在已加入 Azure AD 或已註冊的裝置上，使用者驗證會使用以最新 OAuth/OpenID Connect 為基礎的通訊協定。 這些通訊協定皆設計為可透過網際網路運作，且非常適合行動裝置使用，讓使用者可以從任何位置存取公司資源。 裝置加入 Azure AD DS 後，應用程式就可以使用 Kerberos 和 NTLM 通訊協定進行驗證，因此可支援遷移至 Azure VM 的繼承應用程式，作為隨即轉移策略的一部分。 下表概述如何呈現裝置及針對目錄進行自我驗證的差異：
+在已加入 Azure AD 或已註冊的裝置上，使用者驗證會使用以最新 OAuth/OpenID Connect 為基礎的通訊協定。 這些通訊協定皆設計為可透過網際網路運作，且非常適合行動裝置使用，讓使用者可以從任何位置存取公司資源。
+
+裝置加入 Azure AD DS 後，應用程式就可以使用 Kerberos 和 NTLM 通訊協定進行驗證，因此可支援遷移至 Azure VM 的繼承應用程式，作為隨即轉移策略的一部分。 下表概述如何呈現裝置及針對目錄進行自我驗證的差異：
 
 | **層面**                      | **已加入 Azure AD**                                 | **已加入 Azure AD DS**                                                    |
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -96,7 +104,7 @@ Azure AD 可讓您管理組織所用裝置的身分識別，並控制這些裝�
 | 在目錄中的表示法 | Azure AD 目錄中的裝置物件            | Azure AD DS 受控網域中的電腦物件                        |
 | Authentication                  | 以 OAuth / OpenID Connect 為基礎的通訊協定              | Kerberos 和 NTLM 通訊協定                                               |
 | 管理性                      | Intune 等行動裝置管理 (MDM) 軟體 | 群組原則                                                              |
-| 網路功能                      | 透過網際網路運作                             | 機器需要在與受控網域相同的虛擬網路上 |
+| 網路功能                      | 透過網際網路運作                             | 必須與受控網域部署所在的虛擬網路連線或對等互連 |
 | 適用於...                    | 使用者行動裝置或桌面裝置                  | 部署在 Azure 中的伺服器 VM                                              |
 
 ## <a name="next-steps"></a>後續步驟

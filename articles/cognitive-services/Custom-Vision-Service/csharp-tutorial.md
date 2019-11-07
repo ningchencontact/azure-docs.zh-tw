@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: anroth
-ms.openlocfilehash: 7faad2c432e15ed363bd1caf290e03dc75e9d298
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ca21bbd77b269e3034fd69cc4685311e91295f36
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141055"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "73519110"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>快速入門：使用自訂視覺 .NET SDK 建立影像分類專案
 
@@ -24,6 +24,7 @@ ms.locfileid: "70141055"
 ## <a name="prerequisites"></a>必要條件
 
 - [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 的任何版本
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>取得自訂視覺 SDK 與程式碼範例
 
@@ -40,13 +41,13 @@ ms.locfileid: "70141055"
 
 ## <a name="understand-the-code"></a>了解程式碼
 
-開啟 _Program.cs_ 檔案，並檢查程式碼。 在 **Main** 方法的適當定義中插入您的訂用帳戶金鑰。
+開啟 _Program.cs_ 檔案，並檢查程式碼。 分別為您名為 `CUSTOM_VISION_TRAINING_KEY` 和 `CUSTOM_VISION_PREDICTION_KEY` 的定型和預測金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。 指令碼會尋找這些項目。
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_keys)]
 
-端點參數應指向包含自訂視覺資源的 Azure 資源群組建立所在的區域。 此範例中我們會假設在美國中南部區域，並使用：
+此外，請從自訂視覺網站的 [設定] 頁面取得您的 [端點 URL]。 將它儲存到名為 `CUSTOM_VISION_ENDPOINT` 的環境變數。 指令碼會將它的參考儲存在類別的根目錄。
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_endpoint)]
 
 以下幾行程式碼會執行專案的主要功能。
 
@@ -54,68 +55,35 @@ ms.locfileid: "70141055"
 
 所建立的專案會顯示在您稍早瀏覽過的[自訂視覺網站](https://customvision.ai/)上。 當您建立專案時，請參閱 [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__) 方法來指定其他選項 (如[建置分類器](getting-started-build-a-classifier.md) Web 入口網站指南中所述)。   
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_create)]
 
 ### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=36-38)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_tags)]
 
 ### <a name="upload-and-tag-images"></a>上傳和標記影像
 
 此專案的影像會包含在其中。 它們會在 _Program.cs_ 的 **LoadImagesFromDisk** 方法中受到參考。 您最多可以在單一批次中上傳 64 個影像。
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_upload)]
 
 ### <a name="train-the-classifier-and-publish"></a>訓練分類器並發佈
 
 此程式碼會在專案中建立第一個反覆項目，然後將該反覆項目發佈至預測端點。 提供給已發佈反覆項目的名稱可用來傳送預測要求。 反覆項目要等到發佈後才可在預測端點中使用。
 
-```csharp
-var iteration = trainingApi.TrainProject(project.Id);
-// The returned iteration will be in progress, and can be queried periodically to see when it has completed
-while (iteration.Status == "Training")
-{
-        Thread.Sleep(1000);
-
-        // Re-query the iteration to get it's updated status
-        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-}
-
-// The iteration is now trained. Publish it to the prediction end point.
-var publishedModelName = "treeClassModel";
-var predictionResourceId = "<target prediction resource ID>";
-trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
-Console.WriteLine("Done!\n");
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 
 ### <a name="set-the-prediction-endpoint"></a>設定預測端點
 
 預測端點可作為參考供您用來提交影像給目前的模型，並取得分類預測。
 
-```csharp
-// Create a prediction endpoint, passing in obtained prediction key
-CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
-{
-        ApiKey = predictionKey,
-        Endpoint = SouthCentralUsEndpoint
-};
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction_endpoint)]
 
 ### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>將影像提交至預設預測端點
 
 在此指令碼中，會以 **LoadImagesFromDisk** 方法載入測試影像，且會在主控台中顯示模型的預測輸出。 PublishedModelName 變數的值應該對應至位在自訂視覺入口網站 [效能]  索引標籤上的 [發行形式] 值。 
 
-```csharp
-// Make a prediction against the new project
-Console.WriteLine("Making a prediction:");
-var result = endpoint.ClassifyImage(project.Id, publishedModelName, testImage);
-
-// Loop over each prediction and write out the results
-foreach (var c in result.Predictions)
-{
-        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
-}
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction)]
 
 ## <a name="run-the-application"></a>執行應用程式
 

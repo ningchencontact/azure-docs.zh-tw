@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d23d16d1315eeaf224a5291641ab088212fcdc77
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b06cae5bcb07831ba79b805802a7851c2b6ad2b3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146961"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467995"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>設定 Azure VM 到次要 Azure 區域的災害復原        
 
@@ -21,7 +21,7 @@ ms.locfileid: "70146961"
 
 本快速入門將說明如何藉由將 Azure VM 複寫至不同 Azure 區域，來設定災害復原。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!NOTE]
 > 本文也是新使用者的快速逐步解說。 其使用預設選項和最低的自訂來提供最簡單的路徑。  如需更完整的逐步解說，請檢閱[本教學課程](azure-to-azure-tutorial-enable-replication.md)。
@@ -32,11 +32,11 @@ ms.locfileid: "70146961"
 
 ## <a name="enable-replication-for-the-azure-vm"></a>啟用 Azure VM 的複寫
 
-1. 在 Azure 入口網站中，按一下 [虛擬機器]  ，然後選取您想要複寫的 VM。
-2. 在 [作業]  中，按一下 [災害復原]  。
+1. 在 Azure 入口網站功能表上，選取 [虛擬機器]  ，或在任何頁面上搜尋並選取 [虛擬機器]  。 選取您要複寫的 VM。
+2. 在 [作業]  中，選取 [災害復原]  。
 3. 在 [設定災害復原]   >  [目標區域]  中，選取您要複寫至的目標區域。
 4. 在本快速入門中，接受其他預設設定。
-5. 按一下 [啟用複寫]  。 這會開始一項作業來啟用 VM 的複寫。
+5. 選取 [檢閱 + 開始複寫]  。 然後選取 [開始複寫]  ，以啟動作業來啟用 VM 的複寫。
 
     ![啟用複寫](media/azure-to-azure-quickstart/enable-replication1.png)
 
@@ -44,8 +44,10 @@ ms.locfileid: "70146961"
 
 在複寫作業完成之後，您可以檢查複寫狀態、修改複寫設定，以及測試部署。
 
-1. 在 [作業]  中，按一下 [災害復原]  。
-2. 您可以確認複寫健康情況、已建立的復原點，以及地圖上的來源和目標區域。
+1. 在 Azure 入口網站功能表上，選取 [虛擬機器]  ，或在任何頁面上搜尋並選取 [虛擬機器]  。 選取您要驗證的 VM。
+2. 在 [作業]  中，選取 [災害復原]  。
+
+   您可以確認複寫健康情況、已建立的復原點，以及地圖上的來源和目標區域。
 
    ![複寫狀態](media/azure-to-azure-quickstart/replication-status.png)
 
@@ -58,8 +60,8 @@ ms.locfileid: "70146961"
 
 停止複寫，如下所示
 
-1. 選取 VM。
-2. 在 [災害復原]  中，按一下 [停用複寫]  。
+1. 在 Azure 入口網站功能表上，選取 [虛擬機器]  ，或在任何頁面上搜尋並選取 [虛擬機器]  。 選取您要修改的 VM。
+2. 在 [災害復原]  中，選取 [停用複寫]  。
 
    ![停用複寫](media/azure-to-azure-quickstart/disable2-replication.png)
 

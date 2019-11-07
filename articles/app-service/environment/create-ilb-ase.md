@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069499"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470563"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>建立及使用內部負載平衡器 App Service 環境 
 
@@ -31,7 +31,7 @@ Azure App Service 環境 (ASE) 是將 Azure App Service 部署到客戶 Azure �
 
 ## <a name="overview"></a>概觀 
 
-您可以使用網際網路可存取端點或是您的 VNet 中的 IP 位址來部署 ASE。 為了將 IP 位址設定為 VNet 位址，ASE 必須與 ILB 一起部署。 在部署 ASE 與 ILB 時，您必須提供您的 ASE 名稱。 ASE 名稱使用於您的 ASE 中應用程式的網域尾碼。  ILB ASE 的網域尾碼是 &lt;ASE 名稱&gt;.appservicewebsites.net。 在 ILB ASE 中製作的應用程式不會放在公用 DNS 中。 
+您可以使用網際網路可存取端點或是您的 VNet 中的 IP 位址來部署 ASE。 為了將 IP 位址設定為 VNet 位址，ASE 必須與 ILB 一起部署。 在部署 ASE 與 ILB 時，您必須提供您的 ASE 名稱。 ASE 名稱使用於您的 ASE 中應用程式的網域尾碼。  ILB ASE 的網域尾碼是 &lt;ASE 名稱&gt;.appserviceenvironment.net。 在 ILB ASE 中製作的應用程式不會放在公用 DNS 中。 
 
 舊版的 ILB ASE 會要求您提供網域尾碼和預設憑證，以便進行 HTTPS 連線。 網域尾碼不再於 ILB ASE 建立時收集，而且也不會再收集預設憑證。 當您立即建立 ILB ASE 時，預設憑證是由 Microsoft 提供並受到瀏覽器信任。 您仍可在 ASE 中的應用程式上設定自訂網域名稱，並在這些自訂網域名稱上設定憑證。 
 
@@ -107,9 +107,10 @@ ILB ASE 支援函式和 Web 工作，但若要讓入口網站可以使用，您�
 若要設定您的 DNS：
 
 - 為 *&lt;ASE 名稱&gt;.appserviceenvironment.net* 建立一個區域
-- 在該區域中建立一個指向 ILB IP 位址的 A 記錄 
+- 在該區域中建立一個指向 ILB IP 位址的 A 記錄
+- 在該區域中建立一個將 @ 指向 ILB IP 位址的 A 記錄
 - 在名為 scm 的 *&lt;ASE 名稱&gt;.appserviceenvironment.net* 中建立一個區域
-- 在 scm 區域中建立一個指向 ILB IP 位址的 A 記錄
+- 在 scm 區域中建立一個將 * 指向 ILB IP 位址的 A 記錄
 
 ## <a name="publish-with-an-ilb-ase"></a>使用 ILB ASE 發佈
 
@@ -156,7 +157,7 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

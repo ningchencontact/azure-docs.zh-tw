@@ -7,15 +7,15 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300755"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475933"
 ---
 # <a name="what-is-azure-private-link-preview"></a>什麼是 Azure Private Link？ (預覽)
-Azure Private Link 可讓您透過虛擬網路中的[私人端點](private-endpoint-overview.md)存取各項 Azure PaaS 服務 (例如 Azure 儲存體和 SQL Database)，以及 Azure 裝載的客戶/合作夥伴服務。 虛擬網路和服務間的流量會在通過 Microsoft 骨幹網路時隨之減少，降低資料在網際網路中公開的風險。 您也可以在虛擬網路 (VNet) 中建立自己的 [Private Link 服務](private-link-service-overview.md)，並私下提供給您的客戶。 使用 Azure Private Link 的設定和取用體驗在 Azure PaaS、客戶自有服務和共用合作夥伴服務之間是一致的。
+Azure Private Link 可讓您透過虛擬網路中的[私人端點](private-endpoint-overview.md)存取各項 Azure PaaS 服務 (例如 Azure 儲存體、Azure Cosmos DB 和 SQL Database)，以及 Azure 裝載的客戶/合作夥伴服務。 虛擬網路和服務間的流量會在通過 Microsoft 骨幹網路時隨之減少，降低資料在網際網路中公開的風險。 您也可以在虛擬網路 (VNet) 中建立自己的 [Private Link 服務](private-link-service-overview.md)，並私下提供給您的客戶。 使用 Azure Private Link 的設定和取用體驗在 Azure PaaS、客戶自有服務和共用合作夥伴服務之間是一致的。
 
 > [!IMPORTANT]
 > 此公開預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需了解已知的限制，請參閱[私人端點](private-endpoint-overview.md#limitations)和 [Private Link服務](private-link-service-overview.md#limitations)。
@@ -45,8 +45,9 @@ Azure Private Link 提供下列優點：
 |  | Azure Data Lake Storage Gen2        |  美國東部、美國西部、美國中西部       | 預覽         |
 |  |  Azure SQL Database         | 美國中西部；美國西部；美國中南部；美國東部；美國中北部      |   預覽      |
 ||Azure SQL 資料倉儲| 美國中西部；美國西部；美國中南部；美國東部；美國中北部 |預覽|
+||Azure Cosmos DB| 美國中西部；美國西部；美國東部；美國中北部；美國東部 2；美國西部 2 |預覽|
 
-如需最新通知，請查看 [Azure 虛擬網路更新頁面](https://azure.microsoft.com/updates/?product=virtual-network)。 
+如需最新通知，請查看 [Azure 虛擬網路更新頁面](https://azure.microsoft.com/updates/?product=virtual-network)。
 
 ## <a name="logging-and-monitoring"></a>記錄和監視
 
@@ -71,6 +72,7 @@ Azure Private Link 會與 Azure 監視器整合，讓您可以將記錄封存至
 - [使用 PowerShell 建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-powershell.md)
 - [使用 CLI 建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-cli.md)
 - [使用入口網站建立適用於儲存體帳戶的私人端點](create-private-endpoint-storage-portal.md)
+- [使用入口網站建立適用於 Azure Cosmos 帳戶的私人端點](../cosmos-db/how-to-configure-private-endpoints.md)
 - [使用 Azure PowerShell 建立您自己的 Private Link 服務](create-private-link-service-powershell.md)
 
 

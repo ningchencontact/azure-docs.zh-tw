@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 109c838d903faee7510441a8b3d502a7e95d8bb4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 4bdf482357789b71b2f87bb74afd76d9ebc7f7d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533679"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476808"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本
 
@@ -36,11 +36,15 @@ ms.locfileid: "72533679"
 
 許多有經驗的範本開發人員會在嘗試部署不熟悉的 Azure 資源時，使用此方法來產生範本。 如需如何使用入口網站匯出範本的詳細資訊，請參閱[將資源群組匯出至範本](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。 尋找可行範本的另一種方法是在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)中尋找。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [建立資源]   > [儲存體]   > [儲存體帳戶 - Blob、檔案、資料表、佇列]  。
+1. 在網頁瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)並且登入。
+2. 從 Azure 入口網站功能表選取 [建立資源]  。
 
-    ![使用 Azure 入口網站建立 Azure 儲存體帳戶](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-3. 輸入以下資訊：
+    ![從 Azure 入口網站功能表選取 [建立資源]](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
+
+3. 選取 [儲存體]   > [儲存體帳戶]  。
+
+    ![建立 Azure 儲存體帳戶](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+1. 輸入以下資訊：
 
     |名稱|值|
     |----|----|
@@ -54,8 +58,8 @@ ms.locfileid: "72533679"
     > [!NOTE]
     > 部分已匯出的範本必須先進行某些編輯才可供部署。
 
-4. 選取螢幕底部的 [檢閱 + 建立]  。 在下一個步驟中，請不要選取 [建立]  。
-5. 選取螢幕底部的 [下載範本以便自動化]  。 入口網站會顯示所產生的範本：
+5. 選取螢幕底部的 [檢閱 + 建立]  。 在下一個步驟中，請不要選取 [建立]  。
+6. 選取螢幕底部的 [下載範本以便自動化]  。 入口網站會顯示所產生的範本：
 
     ![從入口網站產生範本](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
@@ -64,9 +68,9 @@ ms.locfileid: "72533679"
     已定義六個參數。 其中一個稱為**storageAccountName**。 在上述螢幕擷取畫面中，第二個醒目提示的部分會示範如何參考範本中的這個參數。 在下一節中，您會編輯此範本，以使用為儲存體帳戶所產生的名稱。
 
     範本中已定義一個 Azure 資源。 類型是 `Microsoft.Storage/storageAccounts`。 請查看該資源的定義方式，以及定義結構。
-6. 從畫面頂端選取 [下載]  。
-7. 開啟下載的 zip 檔案，然後將 **template.json** 儲存到您的電腦。 在下一節中，您會使用範本部署工具來編輯範本。
-8. 選取 [參數]  索引標籤，查看您所提供的參數值。 記下這些值，您在下一節中部署範本時需要用到。
+7. 從畫面頂端選取 [下載]  。
+8. 開啟下載的 zip 檔案，然後將 **template.json** 儲存到您的電腦。 在下一節中，您會使用範本部署工具來編輯範本。
+9. 選取 [參數]  索引標籤，查看您所提供的參數值。 記下這些值，您在下一節中部署範本時需要用到。
 
     ![從入口網站產生範本](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
@@ -81,7 +85,7 @@ Azure 入口網站可用來執行一些基本範本編輯作業。 在本快速�
 
 Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已存在的儲存體帳戶名稱，部署可能會失敗。 若要避免發生此問題，您可以將範本修改為使用範本函式呼叫 `uniquestring()`，以產生唯一的儲存體帳戶名稱。
 
-1. 在 Azure 入口網站中，選取 [建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。
 2. 在 [搜尋 Marketplace]  中，輸入**範本部署**，然後按 **ENTER**。
 3. 選取 [範本部署]  。
 

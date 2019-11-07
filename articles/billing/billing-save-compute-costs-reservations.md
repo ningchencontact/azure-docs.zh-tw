@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390151"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499246"
 ---
 # <a name="what-are-azure-reservations"></a>什麼是 Azure 保留項目？
 
@@ -125,7 +125,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 
 ## <a name="when-the-reservation-term-expires"></a>當保留期限到期時
 
-在保留期限結束時，計費折扣會到期。 虛擬機器、SQL 資料庫、Azure Cosmos DB 或其他資源就會改以隨用隨付價格計費。 Azure 保留不會自動續約。 若要繼續獲得計費折扣，您必須針對符合資格的服務和軟體購買新的保留。
+在保留期限結束時，計費折扣會到期，隨後資源便會按照預付型方案的費率來計費。 根據預設，保留不會設定為自動更新。 您可以選擇 [更新] 設定中的選項，以啟用保留的自動更新。 使用自動更新時，將會在現有保留期限到期時購買取代保留。 根據預設，取代保留的屬性與到期保留相同，可選擇性地變更「更新」設定中的計費頻率、期間或數量。 任何擁有保留存取權的使用者，以及用來計費的訂用帳戶，都可以設定更新。  
 
 ## <a name="discount-applies-to-different-sizes"></a>折扣會套用於不同的大小
 

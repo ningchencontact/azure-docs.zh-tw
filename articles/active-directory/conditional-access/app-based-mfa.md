@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509068"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474006"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA
 
@@ -26,7 +26,7 @@ ms.locfileid: "67509068"
 
 ![Azure 入口網站中的條件式存取原則範例](./media/app-based-mfa/32.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -66,7 +66,7 @@ ms.locfileid: "67509068"
 **若要設定條件式存取原則：**
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分，登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在 Azure 入口網站的左側導覽列上，按一下 [Azure Active Directory]  。
+1. 在 Azure 入口網站中，搜尋並選取 [Azure Active Directory]  。
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "67509068"
 
 1. 在 [新增]  頁面的 [名稱]  文字方塊中，鍵入「必須使用 MFA 才能存取 Azure 入口網站」  。
 
-   ![Name](./media/app-based-mfa/05.png)
+   ![名稱](./media/app-based-mfa/05.png)
 
 1. 在 [指派]  區段中，按一下 [使用者和群組]  。
 

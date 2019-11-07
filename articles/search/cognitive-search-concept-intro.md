@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784983"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466864"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Azure 認知搜尋中的 AI 擴充簡介
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure 認知搜尋中的 AI 簡介
 
-AI 擴充是 Azure 認知搜尋服務索引的功能，可用來從影像、Blob 及其他非結構化的資料來源擷取文字，以擴充其內容並使其更容易在索引或知識存放區中被找到。 系統會透過附加到索引管線的「認知技術」  來進行擷取和擴充。 認知技能可分成下列幾類： 
+AI 擴充是 Azure 認知搜尋服務索引的功能，可用來從影像、Blob 及其他非結構化的資料來源擷取文字，以擴充其內容並使其更容易在索引或知識存放區中被找到。 系統會透過附加到索引管線的「認知技術」  來進行擷取和擴充。 服務內建的認知技能可分為下列幾個類別： 
 
 + **自然語言處理**技術，包括[實體辨識](cognitive-search-skill-entity-recognition.md)、[語言偵測](cognitive-search-skill-language-detection.md)、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、文字操作和[情感偵測](cognitive-search-skill-sentiment.md)。 透過這些技術，非結構化的文字將能取得新的型態，並對應為索引中可搜尋且可篩選的欄位。
 
@@ -36,6 +36,12 @@ Azure 認知搜尋服務中的認知技術是以認知服務 API 中的機器學
 
 ## <a name="when-to-use-cognitive-skills"></a>使用認知技能的時機
 
+如果您的原始內容是非結構化文字、影像內容或需要語言偵測和翻譯的內容，您應該考慮使用內建認知技能。 透過內建認知技能來套用 AI，可將此內容解除鎖定，在您的搜尋和資料科學應用程式中增加其價值和效用。 
+
+此外，如果您有想要整合到管線中的開放原始碼、第三方或第一方程式碼，可以考慮新增自訂技能。 可識別各類文件顯著特性的分類模型屬於此類別，但也可使用任何為內容增加價值的套件。
+
+### <a name="more-about-built-in-skills"></a>深入了解內建技能
+
 使用內建技能所組合的技能集非常適用於下列應用案例：
 
 + 想要使其成為可供全文檢索搜尋的掃描文件 (JPEG)。 您可以連結光學字元辨識 (OCR) 技能以識別、擷取和內嵌 JPEG 檔案中的文字。
@@ -49,6 +55,8 @@ Azure 認知搜尋服務中的認知技術是以認知服務 API 中的機器學
   尤其是 Blob 往往會包含封裝到單一「欄位」的大型內容主體。 藉由將影像和自然語言處理技能連結至索引子，您可以建立現存於原始內容但又不會呈現為相異欄位的新資訊。 某些立即可用、對您有所幫助的內建認知技能：關鍵片語擷取、情感分析和實體辨識 (人員、組織和位置)。
 
   此外，內建技能也可用來透過文字分割、合併和成形作業來重新建構內容。
+
+### <a name="more-about-custom-skills"></a>深入了解自訂技能
 
 自訂技能可支援更複雜的案例 (例如辨識表單) 或使用您在[自訂技能 Web 介面](cognitive-search-custom-skill-interface.md)中提供及包裝的模型來進行自訂實體偵測。 自訂技能的幾個範例包括[表單辨識器](/azure/cognitive-services/form-recognizer/overview)、[Bing 實體搜尋 API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) 的整合，以及[自訂實體辨識](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)。
 

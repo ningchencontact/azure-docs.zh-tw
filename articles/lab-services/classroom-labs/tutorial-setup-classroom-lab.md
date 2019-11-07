@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332247"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483893"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -111,11 +111,11 @@ ms.locfileid: "72332247"
 1. 切換至 [排程]  頁面，然後選取工具列上的 [新增已排定事件]  。 
 
     ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/add-schedule-button.png)
-2. 確認已為 [事件類型]  選取 [標準]  。 您可以選取 [僅啟動]  ，以便僅指定 VM 的啟動時間。 您可以選取 [僅停止]  ，以便僅指定 VM 的停止時間。 
-7. 在 [重複]  區段中，選取目前的排程。 
+2. 確認已選取 [標準]  作為 [事件類型]  。 您可以選取 [僅啟動]  ，以便僅指定 VM 的啟動時間。 您可以選取 [僅停止]  ，以便僅指定 VM 的停止時間。 
+3. 在 [重複]  區段中，選取目前的排程。 
 
     ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/select-current-schedule.png)
-5. 在 [重複]  對話方塊中，執行下列步驟：
+4. 選取排程將會開啟 [重複]  對話方塊。 在此對話方塊中，執行下列步驟：
     1. 確認已為 [重複]  欄位設定 [每週]  。 
     3. 指定 [啟動日期]  。
     4. 指定您想要讓 VM 啟動的 [啟動時間]  。
@@ -124,10 +124,8 @@ ms.locfileid: "72332247"
     2. 選取您想要讓排程生效的日期。 下列範例中選取了星期一至星期四。 
     8. 選取 [儲存]  。 
 
-        ![設定重複排程](../media/how-to-create-schedules/set-repeat-schedule.png)
-
-3. 現在，在 [新增已排定事件]  頁面上的 [附註 (選擇性)]  中，輸入排程的描述或附註。 
-4. 在 [新增已排定事件]  頁面上，選取 [儲存]  。 
+5. 現在，在 [新增已排定事件]  頁面上的 [附註 (選擇性)]  中，輸入排程的描述或附註。 
+6. 在 [新增已排定事件]  頁面上，選取 [儲存]  。 
 
     ![每週排程](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 

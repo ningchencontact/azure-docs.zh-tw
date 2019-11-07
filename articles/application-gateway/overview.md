@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146629"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469755"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -52,6 +52,13 @@ Web 應用程式防火牆 (WAF) 是一項應用程式閘道功能，可提供 We
 Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對許多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
 如需詳細資訊，請參閱[應用程式閘道中的 Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview) \(機器翻譯\)。
+
+## <a name="ingress-controller-for-aks"></a>AKS 的輸入控制器
+應用程式閘道輸入控制器 (AGIC) 可讓您使用應用程式閘道作為 [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) 叢集的輸入。 
+
+輸入控制器會在 AKS 叢集中以 Pod 的形式執行，並取用 [Kubernetes 輸入資源](https://kubernetes.io/docs/concepts/services-networking/ingress/)，然後將其轉換成應用程式閘道設定，讓閘道能夠對 Kubernetes Pod 的流量進行負載平衡。 輸入控制器僅支援應用程式閘道 V2 SKU。 
+
+如需詳細資訊，請參閱[應用程式閘道輸入控制器 (AGIC)](ingress-controller-overview.md)。
 
 ## <a name="url-based-routing"></a>URL 型路由
 
@@ -96,12 +103,6 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓伺服器與用戶端之間能進行全雙工通訊。 此功能可讓網頁伺服器和用戶端之間進行互動性更高的通訊，此通訊可以是雙向的，而不需要像 HTTP 型實作所要求的進行輪詢。 不同於 HTTP，這些通訊協定的負荷很低，而且可以對多個要求/回應重複使用相同的 TCP 連線，進而提升資源使用效率。 這些通訊協定設計為透過傳統 HTTP 連接埠 80 和 443 進行運作。
 
 如需詳細資訊，請參閱 [WebSocket 支援](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) \(機器翻譯\) 與 [HTTP/2 支援](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) \(機器翻譯\)。
-
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) 輸入控制器預覽 
-
-應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 這僅限搭配應用程式閘道 v2 使用。
-
-如需詳細資訊，請參閱 [Azure 應用程式閘道輸入控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
 
 ## <a name="connection-draining"></a>清空連線
 

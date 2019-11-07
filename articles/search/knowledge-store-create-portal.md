@@ -8,12 +8,12 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: d714e913d5e03233ed3ffcaaebca6eb989a56bd7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790041"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485177"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋知識存放區
 
@@ -35,7 +35,7 @@ ms.locfileid: "72790041"
 
 由於工作負載很小，因此，從 Azure 認知搜尋叫用時，認知服務會在幕後連線以提供免費處理，每天最多 20 筆交易。 如果使用我們提供的範例資料，就可以略過建立或連結認知服務資源的步驟。
 
-1. [下載 HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)。 這項資料是儲存在 CSV 檔案中的飯店評論資料 (源自於 Kaggle.com)，其中包含 19 個關於單一飯店的客戶意見反應。 
+1. [下載 HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D)。 這項資料是儲存在 CSV 檔案中的飯店評論資料 (源自於 Kaggle.com)，其中包含 19 個關於單一飯店的客戶意見反應。 
 
 1. [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)，或在您目前的訂用帳戶下方[尋找現有帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。 您會將 Azure 儲存體同時用於要匯入的原始內容，以及作為最終結果的知識存放區。
 
@@ -55,7 +55,7 @@ ms.locfileid: "72790041"
 
     ![建立 Azure Blob 容器](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "建立 Azure Blob 容器")
 
-1. 這項資源的作業即將完成，但在離開這些頁面之前，請使用左側導覽窗格上的連結開啟 [存取金鑰]  頁面。 取得連接字串以從 Blob 儲存體中擷取資料。 連接字串會如下列範例所示：`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
 1. [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在相同訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 

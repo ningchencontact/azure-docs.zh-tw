@@ -1,19 +1,19 @@
 ---
-title: 教學課程：在貴組織外部共用 - Azure Data Share 預覽版
-description: 教學課程 - 使用 Azure Data Share Preview 與客戶及合作夥伴共用資料
+title: 教學課程：在貴組織外部共用 - Azure Data Share
+description: 教學課程 - 使用 Azure Data Share 與客戶及合作夥伴共用資料
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327407"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499306"
 ---
-# <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>教學課程：使用 Azure Data Share Preview 共用資料
+# <a name="tutorial-share-data-using-azure-data-share"></a>教學課程：使用 Azure Data Share 共用資料  
 
 在本教學課程中，您會了解如何設定新的 Azure Data Share，並開始與 Azure 組織外的客戶及合作夥伴共用資料。 
 
@@ -28,9 +28,28 @@ ms.locfileid: "71327407"
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+* 您收件者的 Azure 登入電子郵件地址 (不能使用其電子郵件別名)。
+
+### <a name="share-from-a-storage-account"></a>從儲存體帳戶共用：
+
 * Azure 儲存體帳戶：如果您還沒有此帳戶，則可以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * 將角色指派新增至儲存體帳戶的權限，其存在於 Microsoft.Authorization/role assignments/write  權限中。 此權限存在於擁有者角色中。 
-* 您收件者的 Azure 登入電子郵件地址 (不能使用其電子郵件別名)。
+
+### <a name="share-from-a-sql-based-source"></a>從 SQL 型來源共用：
+
+* Azure SQL Database 或 Azure SQL 資料倉儲，具有您想要共用的資料表和檢視。
+* 存取資料倉儲的資料共用權限。 這可以透過下列步驟來完成： 
+    1. 將自己設定為伺服器的 Azure Active Directory 系統管理員。
+    1. 使用 Azure Active Directory 連線到 Azure SQL Database/資料倉儲。
+    1. 使用查詢編輯器 (預覽) 來執行下列指令碼，將 Data Share MSI 新增為 db_owner。 您必須使用 Active Directory 連線，而不是使用 SQL Server 驗證。 
+    
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```                   
+請注意，<share_acc_name>  是您 Data Share 帳戶的名稱。 如果您尚未建立 Data Share 帳戶，您可以稍後再回到此必要條件。  
+
+* 用戶端 IP SQL Server 防火牆存取：這可以透過下列步驟來完成：1. 瀏覽至 [防火牆和虛擬網路 1]  。 按一下 [開啟]  ，切換為允許存取 Azure 服務。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -44,7 +63,7 @@ ms.locfileid: "71327407"
 
 1. 搜尋「Data Share」  。
 
-1. 選取 [Data Share (預覽)]，然後選取 [建立]  。
+1. 選取 [Data Share]，然後選取 [建立]  。
 
 1. 使用下列資訊填寫 Azure Data Share 資源的基本詳細資料。 
 
@@ -64,7 +83,7 @@ ms.locfileid: "71327407"
 
 1. 瀏覽至 [Data Share 概觀] 頁面。
 
-    ![共用資料](./media/share-receive-data.png "共用資料") 
+    ![共用您的資料](./media/share-receive-data.png "共用您的資料") 
 
 1. 選取 [開始共用資料]  。
 

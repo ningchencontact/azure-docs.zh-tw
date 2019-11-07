@@ -7,18 +7,29 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/21/2019
-ms.custom: seodec18
-ms.openlocfilehash: c845966c86659c0ff983bf33c492a67dd99275f0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: f0f9a2e59e0e231c956e9f1c36bb6a54bcbaca24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692940"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476322"
 ---
 # <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
-Azure Machine Learning 是用來定型、部署、自動化及管理機器學習模型的雲端服務，而這一切都在雲端所提供的廣泛規模下進行。
+在本文中，您會了解 Azure Machine Learning，這是一種雲端式環境，可用來定型、部署、自動化、管理及追蹤 ML 模型。 
+
+Azure Machine Learning 可用於任何一種機器學習，從傳統 ML 到深度學習、受監督和不受監督的學習。 無論您想要撰寫 Python 或 R 程式碼或使用零程式碼/低程式碼選項 (例如[設計工具](ui-tutorial-automobile-price-train-score.md))，都可以在 Azure Machine Learning 工作區中建立、定型和追蹤高精確度的機器學習和深度學習模型。 
+
+開始訓練您的本機電腦，然後向外擴充到雲端。 
+
+此服務也會與熱門的開放原始碼工具 (例如 PyTorch、TensorFlow 和 scikit-learn) 交互操作。
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
+> [!Tip]
+> **免費試用！**  如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。 即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。
+
 
 ## <a name="what-is-machine-learning"></a>什麼是機器學習？
 
@@ -26,47 +37,54 @@ Azure Machine Learning 是用來定型、部署、自動化及管理機器學習
 
 機器學習的預測可讓應用程式和裝置更聰明。 例如，當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他您可能會想要的產品。 或是當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 而且，當您的吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否已完成。
 
-## <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
+## <a name="machine-learning-tools-to-fit-each-task"></a>適用於每個工作的機器學習工具 
 
-Azure Machine Learning 提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。 開始訓練您的本機電腦，然後向外擴充到雲端。 此服務完全支援開放原始碼技術，例如 PyTorch、TensorFlow 和 scikit-learn，並可用於任何一種機器學習，從傳統 ML 以至深度學習、監督式和非監督式學習。
+Azure Machine Learning 為開發人員和資料科學家提供其機器學習工作流程需要的所有工具，包括：
++ [Azure Machine Learning 設計工具](ui-tutorial-automobile-price-train-score.md) (預覽)：拖放模組可讓您建立實驗，然後部署管線。
 
-探索和準備資料、定型和測試模型，以及使用豐富工具加以部署，例如：
-+ [視覺化介面](ui-tutorial-automobile-price-train-score.md)，您可以在其中拖放模組來建置您的實驗，然後部署模型
-+ [Jupyter Notebook](https://jupyter.org)，您會在其中使用 [SDK](https://docs.microsoft.com/azure/machine-learning) 來撰寫自己的程式碼，例如[這些範例 Notebook](https://aka.ms/aml-notebooks)
++ Jupyter 筆記本：使用我們的[範例筆記本](https://aka.ms/aml-notebooks)或建立您自己的筆記本，將<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">適用於 Python 的 SDK</a> 範例用於機器學習。 
+
++ R 指令碼或筆記本，您可以在其中使用<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">適用於 R 的 SDK</a> 來撰寫您自己的程式碼，或在設計工具中使用 R 模組。
+
 + [Visual Studio Code 擴充功能](how-to-vscode-tools.md) \(英文\)
 
++ [機器學習 CLI](reference-azure-machine-learning-cli.md)
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
++ 開放原始碼架構，例如 PyTorch、TensorFlow 及 scikit-learn 等等。
 
-## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
+您甚至可使用 [MLflow 來追蹤計量及部署模型](how-to-use-mlflow.md) 或 Kubeflow，以[建置端對端工作流程管線](https://www.kubeflow.org/docs/azure/)。
 
-您可以使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
 
-您可選擇開放原始碼 Python 套件中所提供的許多機器學習元件，例如 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>、<a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>、<a href="https://pytorch.org" target="_blank">PyTorch</a> 和 <a href="https://mxnet.io" target="_blank">MXNet</a>。
+## <a name="build-ml-models-in-python-or-r"></a>以 Python 或 R 建置 ML 模型
 
-不論是否撰寫程式碼或使用視覺化介面，都可以在進行實驗以找出最佳解決方案以及管理已部署模型的過程中，追蹤多回個合。
+使用 Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> 或 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>，開始訓練您的本機電腦。 然後可以擴充至雲端。 
 
-### <a name="code-first-experience"></a>程式碼優先體驗
-
-您可使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a>，開始訓練您的本機電腦，然後向外擴充到雲端。 透過許多可用的[計算目標](how-to-set-up-training-targets.md) (例如 Azure Machine Learning Compute 和 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)) 及[進階的超參數微調服務](how-to-tune-hyperparameters.md)，您可以使用雲端功能更快地建置更好的模型。
+透過許多可用的[計算目標](how-to-set-up-training-targets.md) (例如 Azure Machine Learning Compute 和 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)) 及[進階的超參數微調服務](how-to-tune-hyperparameters.md)，您可以使用雲端功能更快地建置更好的模型。
 
 您也可以使用 SDK，[自動進行模型定型和微調](tutorial-auto-train-models.md)。
 
-### <a name="ui-based-low-code-experience"></a>以 UI 為基礎的低程式碼開發體驗
+## <a name="build-ml-models-with-no-code-tools"></a>使用無程式碼的工具建置 ML 模型
 
-若要進行無程式碼的訓練和部署，請嘗試：
+若要進行無程式碼或低程式碼的訓練和部署，請嘗試：
 
-+ 在便於使用的介面中建立[自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)。
-+ [視覺化介面中的拖放實驗](ui-tutorial-automobile-price-train-score.md)。
-  ![Azure Machine Learning 的視覺化介面](media/overview-what-is-azure-ml/visual-interface.png)
++ **Azure Machine Learning 設計工具 (預覽)**
 
+  使用設計工具來準備資料、定型、測試、部署、管理和追蹤機器學習模型，而不需撰寫任何程式碼。 不需要設計程式，就能以視覺化方式連線資料集和模組來建構模型。   試用[設計工具教學課程](tutorial-designer-automobile-price-train-score.md)。
 
+  若要深入了解，請參閱 [Azure Machine Learning 設計工具概觀文章](concept-designer.md)。 
 
-### <a name="operationalization-mlops"></a>運算化 (MLOps)
+  ![Azure Machine Learning 設計工具範例](/media/concept-ml-pipelines/visual-design-surface.gif)
 
++ **自動化機器學習 UI**
+
+  了解如何在易於使用的介面中建立[自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)。 
+
+  [![Azure Machine Learning Studio 導覽窗格](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
+## <a name="mlops-deploy--lifecycle-management"></a>MLOps：部署和生命週期管理
 當您有正確的模型時，您可以在 Web 服務中、在 IoT 裝置上或從 Power BI 輕鬆使用它。 如需詳細資訊，請參閱有關[如何部署和部署位置](how-to-deploy-and-where.md)的文章。
 
-接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) \(英文\)、[Azure 入口網站](https://portal.azure.com/)或您的[工作區登陸頁面 (預覽)](https://ml.azure.com) \(英文\)，管理所部署的模型。
+接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)、[Azure Machine Learning Studio](https://ml.azure.com) 或[機器學習 CLI](reference-azure-machine-learning-cli.md) 來管理所部署的模型。
 
 這些模型可被取用並[即時](how-to-consume-web-service.md)或[非同步](how-to-run-batch-predictions.md)地傳回大量資料的相關預測。
 
@@ -77,51 +95,33 @@ Azure Machine Learning 提供雲端架構的環境，可用於準備資料、定
 * 在每個步驟中使用不同的計算資源
 * 執行批次評分工作
 
+如果您想要使用指令碼來自動化機器學習工作流程，[機器學習 CLI](reference-azure-machine-learning-cli.md) 會提供命令列工具來執行一般工作，例如提交定型回合或部署模型。
+
 若要開始使用 Azure Machine Learning，請參閱以下的[後續步驟](#next-steps)。
 
-## <a name="how-does-azure-machine-learning-differ-from-studio"></a>Azure Machine Learning 與 Studio 有何不同？
+## <a name="sku"></a>基本版和 Enterprise 版
 
-[Machine Learning Studio](../studio/what-is-ml-studio.md) 是可進行共同作業的拖放式視覺化工作區，您可於該處建置、測試及部署機器學習解決方案，而無須撰寫任何程式碼。 它會使用預先建置且預先設定的機器學習演算法和資料處理模組，以及專屬計算平台。
+Azure Machine Learning 提供兩個針對您的機器學習需求量身打造的版本：
++ 基本 (正式推出)
++ Enterprise (預覽)
 
-Azure Machine Learning 同時提供 SDK **與**視覺化介面 (預覽)，可快速準備資料、定型及部署機器學習服務模型。 視覺化介面 (預覽) 對 Studio 提供類似的拖放體驗。 不過，不同於 Studio 的專屬計算平台，視覺化介面會使用您自己的計算資源，且已完全整合到 Azure Machine Learning 中。
+這些版本會決定開發人員和資料科學家可在其工作區中使用哪些機器學習工具。   
 
-以下是快速的比較。
+基本工作區可讓您繼續使用 Azure Machine Learning，且只針對機器學習過程中所用的 Azure 資源付費。 當 Enterprise 版處於預覽狀態時，該版工作區只會針對其 Azure 使用量計費。 深入了解 Azure Machine Learning [版本概觀和定價頁面](https://azure.microsoft.com/pricing/details/machine-learning/)中提供的內容。 
 
-|| Machine Learning Studio | Azure Machine Learning：<br/>視覺化介面|
-|---| --- | --- |
-|| 正式上市 (GA) | 預覽狀態|
-|拖放介面| yes | yes|
-|實驗| 調整 (有 10 GB 的訓練資料限制) | 使用計算目標進行調整|
-|介面適用的模組| 多種 | 初始的受歡迎模組集合|
-|定型計算目標| 專屬計算目標，僅限 CPU|AML 計算 (GPU/CPU)<br/> Notebook 虛擬機器 |
-|推斷計算目標| 專屬 Web 服務格式 (不可自訂) | Azure Kubernetes Service (即時推斷) <br/>AML 計算 (批次推斷) |
-|ML 管線| 不支援 | 管線撰寫 <br/> 已發佈的管線 <br/> 管線端點 <br/> [深入了解 ML 管線](concept-ml-pipelines.md)|
-|ML Ops| 基本模型管理和部署 | 可設定的部署、模型和管線版本控制|
-|模型| 專屬格式。 無法在 Studio 之外使用 | 標準格式 (可能會因為定型作業不同而有所差異)|
-|自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在Python SDK 和工作區登陸頁面中支援。) |
+您會在建立工作區時指派此版本。 而且，系統已為您將預先存在的工作區轉換為基本版。 基本版包含從 2019 年 10 月起正式推出的所有功能。 在您升級至 Enterprise 版之前，這些工作區中使用 Enterprise 版功能所建立的任何實驗，都將繼續以唯讀方式提供給您。 了解如何[將基本工作區升級為 Enterprise 版](how-to-manage-workspace.md#upgrade)。 
 
-試用視覺介面 (預覽)，經由[教學課程：透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)。
-
-> [!NOTE]
-> 在 Studio 中建立的模型無法由 Azure Machine Learning 進行部署或管理。 不過，可以透過 Azure Machine Learning 工作區管理在服務視覺化介面中建立和部署的模型。
-
-## <a name="free-trial"></a>免費試用
-
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
-
-即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。 或是[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，此服務每月提供您可以用於 Azure 付費服務的額度。
+客戶須負責支付計算和其他 Azure 資源在這段期間所產生的成本。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立 Machine Learning 服務工作區](how-to-manage-workspace.md)以開始作業。
-
-- 請遵循完整的教學課程：
-  + [建立工作區並定型您的第一個 ML 模型](tutorial-1st-experiment-sdk-setup.md)
-  + [使用 Azure Machine Learning 將影像分類模型定型](tutorial-train-models-with-aml.md)
-
+- 使用您慣用的方法建立您的第一個實驗：
+  + [使用 Python 筆記本來定型和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
+  + [使用 R Markdown 來定型和部署 ML 模型](tutorial-1st-r-experiment.md) 
+  + [使用自動化機器學習來定型和部署 ML 模型](  tutorial-first-experiment-automated-ml.md) 
+  + [使用設計工具的拖放功能進行定型和部署](tutorial-designer-automobile-price-train-score.md) 
+  + [使用機器學習 CLI 來定型和部署模型](tutorial-train-deploy-model-cli.md)
 
 - 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](/azure/machine-learning/service/concept-ml-pipelines)。
 
 - 進一步閱讀 [Azure Machine Learning 的架構和概念](concept-azure-machine-learning-architecture.md)一文。
-
-- 如需詳細資訊，請參閱 [Microsoft 的其他機器學習產品](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)。

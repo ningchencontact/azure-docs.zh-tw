@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure PowerShell 設定 HDInsight 上的 Apache Kafka - 快速入門
+title: 快速入門：使用 Azure PowerShell 建立 Apache Kafka - HDInsight
 description: 在本快速入門中，您會了解如何使用 Azure PowerShell，在 Azure HDInsight 上建立 Apache Kafka 叢集。 您也會了解 Kafka 主題、訂閱者與取用者。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 79224879dc0f23c7ad022134c6add087b90304b7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123157"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494758"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>快速入門：使用 PowerShell 在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -28,6 +28,8 @@ Kafka API 只能由同一個虛擬網路中的資源來存取。 在本快速入
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * 安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 

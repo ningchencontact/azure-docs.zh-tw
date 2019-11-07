@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ac0fe7a77496a0dae8606e4599bcb262a191196c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067312"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471528"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中建立靜態 HTML Web 應用程式
 
@@ -117,9 +117,11 @@ az webapp up --location westeurope --name <app_name>
 
 ## <a name="manage-your-new-azure-app"></a>管理新的 Azure 應用程式
 
-請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
+若要管理您建立的 web 應用程式，請在 [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 [應用程式服務]  。 
 
-按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
+![在 Azure 入口網站中選取應用程式服務](./media/app-service-web-get-started-html/portal0.png)
+
+在 [應用程式服務]  頁面上，選取您的 Azure 應用程式名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-html/portal1.png)
 

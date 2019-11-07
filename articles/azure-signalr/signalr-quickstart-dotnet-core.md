@@ -5,19 +5,19 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 3dc893ea10e47e867110f674a458498a6bd24a4f
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560698"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476751"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>快速入門：使用 SignalR 服務建立聊天室
 
 
-Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置 Web 應用程式的 Azure 服務。 此服務是以[適用於 ASP.NET Core 2.0 的 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) \(機器翻譯\) 為基礎。
+Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置 Web 應用程式的 Azure 服務。 此服務是以 [SignalR for ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1) 為基礎，但是也支援 [SignalR for ASP.NET Core 3.0](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.0)。
 
 本文會示範如何開始使用 Azure SignalR 服務。 在此快速入門中，您將會使用 ASP.NET Core MVC Web 應用程式建立聊天應用程式。 此應用程式會與您的 Azure SignalR 服務資源連線，以提供即時的內容更新。 您將會於本機裝載 Web 應用程式，並與多個瀏覽器用戶端連線。 每個用戶端都將能把內容更新推送至所有其他用戶端。 
 
@@ -95,7 +95,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
     此祕密可使用設定 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)。 請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。 
 
 
-4. 開啟 *Startup.cs* 並更新 `ConfigureServices` 方法，以透過呼叫 `services.AddSignalR().AddAzureSignalR()` 來使用 Azure SignalR 服務：
+4. 開啟 *Startup.cs* 並更新 `ConfigureServices` 方法，以透過呼叫 `services.AddSignalR().AddAzureSignalR()` 來使用 Azure SignalR 服務 (僅適用於 ASP.NET Core 2)：
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,10 +104,11 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
         services.AddSignalR().AddAzureSignalR();
     }
     ```
+    針對 ASP.NET Core 3+，`ConfigureServices` 方法不需要任何變更。
 
     透過不傳遞參數至 `AddAzureSignalR()`，此程式碼會針對 SignalR 服務資源連接字串使用預設組態金鑰。 預設組態金鑰為 *Azure: SignalR:ConnectionString*。
 
-5. 同時，透過在 *Startup.cs* 中以下列程式碼取代對 `app.UseStaticFiles()` 的呼叫並儲存檔案，來更新 `Configure` 方法。
+5. 同時在 *Startup.cs* 中，以下列程式碼取代對 `app.UseStaticFiles()` 的呼叫並儲存檔案，以更新 `Configure` 方法 (僅適用於 ASP.NET Core 2)。
 
     ```csharp
     app.UseFileServer();
@@ -116,6 +117,18 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
         routes.MapHub<Chat>("/chat");
     });
     ```            
+    針對 ASP.NET Core 3+，將上述程式碼取代為：
+
+    ```csharp
+    app.UseFileServer();
+    app.UseRouting();
+    app.UseAuthorization();
+
+    app.UseEndpoints(routes =>
+    {
+        routes.MapHub<Chat>("/chat");
+    });
+    ```
 
 ### <a name="add-a-hub-class"></a>新增中樞類別
 

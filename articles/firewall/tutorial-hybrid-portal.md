@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468475"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站在混合式網路中部署及設定 Azure 防火牆
 
@@ -107,14 +107,6 @@ ms.locfileid: "71018982"
 9. 在 [子網路]  底下的 [名稱]  中，輸入 **SN-Workload**。
 10. 在 [位址範圍]  中，輸入 **10.6.0.0/24**。
 11. 接受其他預設設定，然後選取 [建立]  。
-
-現在，為閘道建立第二個子網路。
-
-1. 在 [VNet-Spoke]  頁面上，選取 [子網路]  。
-2. 選取 [+ 子網路]  。
-3. 在 [名稱]  中，輸入 **GatewaySubnet**。
-4. 在 [位址範圍 (CIDR 區塊)]  中輸入 **10.6.1.0/24**。
-5. 選取 [確定]  。
 
 ## <a name="create-the-on-premises-virtual-network"></a>建立內部部署虛擬網路
 
@@ -341,7 +333,7 @@ ms.locfileid: "71018982"
 2. 建立路由表之後，請將其選取，以開啟 [路由表] 頁面。
 3. 選取左欄中的 [路由]  。
 4. 選取 [新增]  。
-5. 在 [路由名稱] 中，輸入 **ToSpoke**。
+5. 針對路由名稱，輸入 **ToHub**。
 6. 在 [位址首碼] 中，輸入 **0.0.0.0/0**。
 7. 在 [下一個躍點類型] 中，選取 [虛擬設備]  。
 8. 在 [下一個躍點位址] 中，輸入您先前記下的防火牆私人 IP 位址。
@@ -384,7 +376,7 @@ ms.locfileid: "71018982"
 ### <a name="install-iis"></a>安裝 IIS
 
 1. 從 Azure 入口網站中開啟 Cloud Shell，並確定其已設定為 **PowerShell**。
-2. 執行下列命令以在虛擬機器上安裝 IIS：
+2. 執行下列命令以在虛擬機器上安裝 IIS 並且視需要變更位置：
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -420,7 +412,7 @@ ms.locfileid: "71018982"
 
 ## <a name="test-the-firewall"></a>測試防火牆
 
-1. 首先，取得而後記下 **VM-spoke-01** 虛擬機器的私人 IP 位址。
+1. 首先，請記下 **VM-spoke-01** 虛擬機器的私人 IP 位址。
 
 2. 從 Azure 入口網站，連線到 **VM-Onprem** 虛擬機器。
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.

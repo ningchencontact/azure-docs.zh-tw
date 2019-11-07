@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 12d9a1a92c0b008244c7db4ec23d5a28888b042a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: ad4a1d89809ebd1b7ac933ef391965accbfd1a6c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973156"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496725"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 概觀
 
@@ -118,4 +118,4 @@ Azure Notebooks 已預先設定下列 Jupyter 擴充功能：
   - [放映投影片](present-jupyter-notebooks-slideshow.md)
   - [使用資料檔案](work-with-project-data-files.md)
   - [存取資料資源](access-data-resources-jupyter-notebooks.md)
-  - [使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)
+  - [使用 Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

@@ -1,25 +1,25 @@
 ---
-title: 什麼是 Azure Data Share Preview
-description: 了解如何使用 Azure Data Share Preview 輕鬆安全地與多個客戶和合作夥伴共用資料。
+title: 什麼是 Azure Data Share？
+description: 深入了解如何使用 Azure Data Share，輕鬆且安全地與多個客戶和合作夥伴共用資料。
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 6ba6e9df7b3fd2992891f4b085581c51fe900744
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499355"
 ---
-# <a name="what-is-azure-data-share-preview"></a>什麼是 Azure Data Share Preview？
+# <a name="what-is-azure-data-share"></a>什麼是 Azure Data Share？
 
 現今的世界認為，資料是重要的策略性資產，因此組織必須能夠輕鬆安全地與客戶和合作夥伴共用資料。 今天，客戶使用了許多方法來實現這一點，包括 FTP、電子郵件和 API 等等。 組織很容易就會失去其資料共用對象的追蹤。 透過 FTP 共用資料或建立自己的 API 基礎結構所需的佈建和管理成本通常很高。 使用這些方法來大規模共用資料會產生相關管理負擔。 
 
 許多組織必須對其所共用的資料負責。 除了應負的責任，許多組織還想要能夠控制、管理及監視所有以簡單方式共用的資料。 在今日的世界裡，資料應該會不斷急遽成長，因此組織需要簡單的方式來共用巨量資料。 客戶需要最新的資料來確保其能夠得出即時見解。
 
-Azure Data Share Preview 可讓組織輕鬆安全地與多個客戶和合作夥伴共用資料。 只要點幾下，您就可以佈建新的資料共用帳戶、新增資料集，以及邀請客戶和合作夥伴加入資料共用。 資料提供者永遠可以控制其所共用的資料。 Azure Data Share 可讓您輕鬆地管理及監視所共用的資料，以及共用時間和由誰共用的。 
+Azure Data Share 可讓組織輕鬆安全地與多個客戶和合作夥伴共用資料。 只要點幾下，您就可以佈建新的資料共用帳戶、新增資料集，以及邀請客戶和合作夥伴加入資料共用。 資料提供者永遠可以控制其所共用的資料。 Azure Data Share 可讓您輕鬆地管理及監視所共用的資料，以及共用時間和由誰共用的。 
 
 資料提供者可以隨時掌控其資料的處理方法，只要為其資料共用指定使用規定即可。 資料取用者必須先接受這些規定才能接收資料。 資料提供者可以指定資料取用者收到更新的頻率。 資料提供者可以隨時撤銷新更新的存取權。 
 
@@ -37,19 +37,23 @@ Azure Data Share 的另一個使用案例是建立資料協會。 例如，一�
 
 ## <a name="how-it-works"></a>運作方式
 
-Azure Data Share 會使用以快照集為基礎的共用方法，此方法會將資料從資料提供者的 Azure 訂用帳戶移至資料取用者的 Azure 訂用帳戶中。 身為資料提供者，您可以佈建資料共用，並邀請收件者加入資料共用。 資料取用者會透過電子郵件收到資料共用邀請。 資料取用者接受邀請後，就可以觸發其所能共用資料的完整快照集。 此資料會接收到資料取用者的儲存體帳戶中。 資料取用者可以定期收到其所共用資料的累加更新，因此會永遠能夠擁有最新版的資料。 
+Azure Data Share 目前提供以快照集為基礎的共用和就地共用 (在有限的預覽階段)。 
+
+在以快照集為基礎的共用中，資料會從資料提供者的 Azure 訂用帳戶移至資料取用者的 Azure 訂用帳戶中。 身為資料提供者，您可以佈建資料共用，並邀請收件者加入資料共用。 資料取用者會透過電子郵件收到資料共用邀請。 資料取用者接受邀請後，就可以觸發與他們共用資料的完整快照集。 此資料會接收到資料取用者的儲存體帳戶中。 資料取用者可以定期收到其所共用資料的累加更新，因此會永遠能夠擁有最新版的資料。 
 
 資料提供者可以透過快照集排程，來為其資料取用者提供他們所能共用資料的累加更新。 快照集排程會以每小時或每日的頻率來提供。 當資料取用者接受並設定其資料共用時，便可以訂閱快照集排程。 在共用資料會定期更新，而資料取用者需要最新資料的情況下，訂閱快照集排程會很有用。 
 
 ![資料共用流程](media/data-share-flow.png)
 
-資料取用者接受資料共用時，才可以在所選儲存體帳戶中接收資料。 例如，如果資料提供者使用 Azure Blob 儲存體共用資料，則資料取用者可以在 Azure Data Lake Store 中接收這項資料。 
+資料取用者接受資料共用時，才可以在所選資料儲存區中接收資料。 例如，如果資料提供者使用 Azure Blob 儲存體共用資料，則資料取用者可以在 Azure Data Lake Store 中接收這項資料。 同樣地，如果資料提供者共用 Azure SQL 資料倉儲的資料，資料取用者可以選擇要將資料接收到 Azure Data Lake Store、Azure SQL Database 還是 Azure SQL 資料倉儲。 在從 SQL 型來源共用的情況下，資料取用者也可以選擇是否要在 parquet 或 csv 中接收資料。 
+
+適用於 Azure 資料總管的就地共用目前處於有限預覽狀態。 資料提供者能夠在資料所在位置進行共用，不用透過符號連結移動資料。 在[這裡](https://aka.ms/azuredatasharepreviewsignup)註冊 Azure 資料總管的就地共用有限預覽。 
 
 ## <a name="key-capabilities"></a>主要功能
 
 Azure Data Share 可讓資料提供者：
 
-* 將 Azure 儲存體和 Azure Data Lake Store 中的資料與組織外部的客戶和合作夥伴共用
+* 從貴組織外部客戶和合作夥伴[支援資料存放區](supported-data-stores.md)的清單共用資料
 
 * 持續追蹤獲得您邀請共用資料的人員
 
@@ -69,24 +73,24 @@ Azure Data Share 可讓資料取用者：
 
 * 訂閱 Data Share 以透過累加快照集複本接收最新版的資料
 
-* 接受與您共用而存放到 Azure Blob 儲存體或 Azure Data Lake Gen2 帳戶的資料
+* 將與您共用的資料接受到[支援資料存放區](supported-data-stores.md)。
 
 上述所有重要功能均透過 Azure 或透過 REST API 來支援。 如需如何透過 REST API 來使用 Azure Data Share 的詳細資訊，請參閱我們的參考文件。 
 
 ## <a name="security"></a>安全性
 
-Azure Data Share 會利用 Azure 提供的基礎安全性來保護待用資料和傳輸中資料。 資料在待用情況下會加密，基礎儲存機制有這方面的支援。 傳輸中的資料也會加密。 資料共用的相關中繼資料也會在待用情況下和傳輸過程中加密。 
+Azure Data Share 會利用 Azure 提供的基礎安全性來保護待用資料和傳輸中資料。 資料在待用情況下會加密，基礎資料存放區有這方面的支援。 傳輸中的資料也會加密。 資料共用的相關中繼資料也會在待用情況下和傳輸過程中加密。 
 
 您可以在 Azure Data Share 資源層級設定存取控制，以確保資料存取者有獲得授權。 
 
-Azure Data Share 會利用 Azure 資源的受控身分識別 (先前稱為 MSI) 來自動管理 Azure Active Directory 中的身分識別。 Azure 資源的受控身分識別可用來存取要用於資料共用的儲存體帳戶。 資料提供者與資料取用者之間不會交換認證。 如需詳細資訊，請參閱 [Azure 資源的受控身分識別頁面](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)。 
+Azure Data Share 會利用 Azure 資源的受控身分識別 (先前稱為 MSI) 來自動管理 Azure Active Directory 中的身分識別。 Azure 資源的受控身分識別可用來存取要用於資料共用的資料存放區。 資料提供者與資料取用者之間不會交換認證。 如需詳細資訊，請參閱 [Azure 資源的受控身分識別頁面](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)。 
 
 
 ## <a name="supported-regions"></a>支援區域
 
-如需有提供 Azure Data Share 的 Azure 區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)頁面，並搜尋 Azure Data Share。 
+如需有提供 Azure Data Share 的 Azure 區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=data-share/)頁面，並搜尋 Azure Data Share。 
 
-Azure Data Share 本身並不會儲存任何資料。 資料會儲存在所要共用的基礎儲存體帳戶中。 例如，如果資料產生者將其資料儲存在位於美國西部的 Azure Data Lake Store 帳戶中，資料便會儲存在該處。 如果資料產生者與位於歐洲西部的 Azure 儲存體帳戶共用資料，資料便會直接傳輸到位於歐洲西部的 Azure 儲存體帳戶。 
+Azure Data Share 本身並不會儲存任何資料。 資料會儲存在要共用的基礎資料存放區中。 例如，如果資料產生者將其資料儲存在位於美國西部的 Azure Data Lake Store 帳戶中，資料便會儲存在該處。 如果資料產生者與位於歐洲西部的 Azure 儲存體帳戶共用資料，資料便會直接傳輸到位於歐洲西部的 Azure 儲存體帳戶。 
 
 您所在的區域即使沒有提供 Azure Data Share 服務也能利用該服務。 例如，如果您將資料儲存在某個 Azure 儲存體帳戶中，但該帳戶所位於的區域卻尚未提供 Azure Data Share，您仍可利用該服務來共用資料。 
 
