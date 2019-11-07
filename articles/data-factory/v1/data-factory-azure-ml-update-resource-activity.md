@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 更新 Machine Learning 模型 | Microsoft Docs
+title: 使用 Azure Data Factory 更新 Machine Learning 模型
 description: 說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140464"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683127"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 
@@ -34,11 +34,11 @@ ms.locfileid: "70140464"
 
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中更新機器學習模型](../update-machine-learning-models.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中更新機器學習模型](../update-machine-learning-models.md)。
 
-本文用來補充說明主要的 Azure Data Factory - Azure Machine Learning 整合文章：[使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線](data-factory-azure-ml-batch-execution-activity.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。 
+本文補充主要 Azure Data Factory - Azure Machine Learning 整合文件︰[使用 Azure Machine Learning 和 Azure Data Factory 建立預測管線](data-factory-azure-ml-batch-execution-activity.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 經過一段時間，必須使用新的輸入資料集重新訓練 Azure ML 評分實驗中的預測模型。 完成重新訓練之後，您想要使用已重新訓練的 ML 模型來更新評分 Web 服務。 透過 Web 服務啟用重新訓練和更新 Azure ML 模型的一般步驟如下：
 
 1. 在 [Azure ML Studio](https://studio.azureml.net)中建立實驗。

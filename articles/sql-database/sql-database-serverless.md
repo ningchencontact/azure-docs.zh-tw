@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 無伺服器 |Microsoft Docs
+title: Azure SQL Database 無伺服器
 description: 本文說明新的無伺服器計算層級，並將它與現有佈建計算層級進行比較
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496253"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687394"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 無伺服器
 
@@ -171,11 +171,9 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
    |參數|值選擇|預設值|
    |---|---|---|---|
-   |最小虛擬核心|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
+   |vCore 數下限|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
    |自動暫停延遲|最小值：60分鐘（1小時）<br>最大值：10080分鐘（7天）<br>遞增：60分鐘<br>停用自動暫停：-1|60 Minuten|
 
-> [!NOTE]
-> 目前不支援使用 T-SQL 將現有資料庫移到無伺服器中或變更其計算大小，但可以透過 Azure 入口網站或 PowerShell 進行。
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>在無伺服器計算層中建立新資料庫 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>使用 Transact-sql （T-sql）
+
+下列範例會在無伺服器計算層中建立新的資料庫。
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+如需詳細資訊，請參閱[建立資料庫](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)。  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>將資料庫從已布建的計算層移到無伺服器計算層
 
 #### <a name="use-powershell"></a>使用 PowerShell
@@ -219,6 +228,17 @@ Set-AzSqlDatabase `
   -AutoPauseDelayInMinutes 1440
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>使用 Transact-sql （T-sql）
+
+下列範例會將資料庫從已布建的計算層移到無伺服器計算層。 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+如需詳細資訊，請參閱[ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)。
+
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>將資料庫從無伺服器計算層移至已布建的計算層
 
 無伺服器資料庫可以移到佈建計算層級中，方法如同將佈建計算資料庫移到無伺服器計算層級中。
@@ -229,13 +249,13 @@ Set-AzSqlDatabase `
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 max 虛擬核心是使用 `MaxVcore` 引數，在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
+修改 max 虛擬核心的執行方式是在 PowerShell  [中使用引數的 ](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)set-azsqldatabase`MaxVcore` 搭配命令。
 
 ### <a name="minimum-vcores"></a>最小虛擬核心數
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 min 虛擬核心的執行方式是在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令，方法是使用 `MinVcore` 引數。
+修改 min 虛擬核心的執行方式是在 PowerShell  [中使用引數的 ](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)set-azsqldatabase`MinVcore` 搭配命令。
 
 ### <a name="autopause-delay"></a>自動暫停延遲
 
@@ -323,6 +343,10 @@ VCore 單位價格是每秒 vCore 的費用。 如需指定區域中的特定單
 |過去24小時內計費的總 vCore 秒數||||50400 vCore 秒數|
 
 假設計算單價為 $0.000073/虛擬核心/秒。  然後，此24小時制費用的計算就是計算單位價格和 vCore 秒數的乘積： $ 0.000073/vCore/second * 50400 vCore 秒數 = $3.68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure Hybrid Benefit 和保留容量
+
+Azure Hybrid Benefit （AHB）和保留容量折扣不適用於無伺服器計算層。
 
 ## <a name="available-regions"></a>可用區域
 

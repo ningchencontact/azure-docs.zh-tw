@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 進階 RS 服務層級淘汰 | Microsoft Docs
+title: Azure SQL Database 進階 RS 服務層級淘汰
 description: 進階 RS 服務層級已進入淘汰階段，支援也將終止 - 請參閱移轉選項。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
-ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 688fd3fdefb54fc25d5236277c85dd4262df5f34
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566641"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687236"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層級 (預覽狀態) 進入淘汰階段 - 移轉選項
 
@@ -26,7 +26,7 @@ ms.locfileid: "68566641"
 
 - 虛擬核心服務層級
 
-  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層級。 這兩個服務層級可供一般使用。 VCore 為基礎的購買模型也提供**超大規模資料庫**服務層級, 可根據您的工作負載需求調整, 並在每個資料庫中自動相應增加至 100 TB。 超大規模資料庫的服務層提供相當於[以 DTU 為基礎購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
+  **以虛擬核心為基礎購買模型**中的**一般用途**與[業務關鍵](sql-database-service-tiers-vcore.md)服務層級。 這兩個服務層級可供一般使用。 VCore 為基礎的購買模型也提供**超大規模資料庫**服務層級，可根據您的工作負載需求調整，並在每個資料庫中自動相應增加至 100 TB。 超大規模資料庫的服務層提供相當於[以 DTU 為基礎購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
 - 開發/測試定價
 
   [開發/測試定價](https://azure.microsoft.com/pricing/dev-test/)可讓 Visual Studio 訂用帳戶省下高達 55% 的隨附授權費率。
@@ -69,10 +69,10 @@ ms.locfileid: "68566641"
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|
-|進階 RS 1| 超大規模資料庫 1 vCore (第4代) 或商務關鍵性 1 vCore (第4代)|進階 1|
-|進階 RS 2| 超大規模資料庫2虛擬核心 (第4代) 或商務關鍵性2虛擬核心 (第4代|進階 2|
-|進階 RS 4| 超大規模資料庫4虛擬核心 (第4代) 或商務關鍵性4虛擬核心 (第4代)|進階 4
-|進階 RS 6| 超大規模資料庫6虛擬核心 (第4代) 或商務關鍵性6虛擬核心 (第4代)|進階 6|
+|進階 RS 1| 超大規模資料庫 1 vCore （第4代）或商務關鍵性 1 vCore （第4代）|進階 1|
+|進階 RS 2| 超大規模資料庫2虛擬核心（第4代）或商務關鍵性2虛擬核心（第4代|進階 2|
+|進階 RS 4| 超大規模資料庫4虛擬核心（第4代）或商務關鍵性4虛擬核心（第4代）|進階 4
+|進階 RS 6| 超大規模資料庫6虛擬核心（第4代）或商務關鍵性6虛擬核心（第4代）|進階 6|
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|

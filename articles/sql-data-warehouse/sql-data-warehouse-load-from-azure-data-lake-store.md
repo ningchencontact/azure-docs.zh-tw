@@ -1,5 +1,5 @@
 ---
-title: 教學課程從 Azure Data Lake Storage 載入至 Azure SQL 資料倉儲 |Microsoft Docs
+title: 教學課程從 Azure Data Lake Storage 載入資料
 description: 使用 PolyBase 外部資料表將資料從 Azure Data Lake Storage 載入 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,15 +10,16 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3db355cf5782620bda3a9e04afbee073c8929856
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935126"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685688"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>從 Azure Data Lake Storage 將資料載入 SQL 資料倉儲
-使用 PolyBase 外部資料表將資料從 Azure Data Lake Storage 載入 Azure SQL 資料倉儲。 雖然您可以對儲存在 Data Lake Storage 中的資料執行臨機操作查詢, 但建議您將資料匯入 SQL 資料倉儲以獲得最佳效能。
+使用 PolyBase 外部資料表將資料從 Azure Data Lake Storage 載入 Azure SQL 資料倉儲。 雖然您可以對儲存在 Data Lake Storage 中的資料執行臨機操作查詢，但建議您將資料匯入 SQL 資料倉儲以獲得最佳效能。
 
 > [!div class="checklist"]
 > * 建立從 Data Lake Storage 載入所需的資料庫物件。
@@ -39,9 +40,9 @@ ms.locfileid: "68935126"
 * Data Lake Storage 帳戶。 請參閱[開始使用 Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)。 
 
 ##  <a name="create-a-credential"></a>建立認證
-若要存取您的 Data Lake Storage 帳戶, 您必須建立資料庫主要金鑰來加密您在下一個步驟中使用的認證密碼。 接著, 您要建立資料庫範圍認證。 使用服務主體進行驗證時, 資料庫範圍認證會儲存 AAD 中設定的服務主體認證。 您也可以在 Gen2 的資料庫範圍認證中使用儲存體帳戶金鑰。 
+若要存取您的 Data Lake Storage 帳戶，您必須建立資料庫主要金鑰來加密您在下一個步驟中使用的認證密碼。 接著，您要建立資料庫範圍認證。 使用服務主體進行驗證時，資料庫範圍認證會儲存 AAD 中設定的服務主體認證。 您也可以在 Gen2 的資料庫範圍認證中使用儲存體帳戶金鑰。 
 
-若要使用服務主體連接到 Data Lake Storage, 您必須**先**建立 Azure Active Directory 應用程式、建立存取金鑰, 並將該應用程式的存取權授與 Data Lake Storage 帳戶。 如需指示, 請參閱[使用 Active Directory 向 Azure Data Lake Storage 進行驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
+若要使用服務主體連接到 Data Lake Storage，您必須**先**建立 Azure Active Directory 應用程式、建立存取金鑰，並將該應用程式的存取權授與 Data Lake Storage 帳戶。 如需指示，請參閱[使用 Active Directory 向 Azure Data Lake Storage 進行驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
 
 ```sql
 -- A: Create a Database Master Key.
@@ -112,7 +113,7 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>設定資料格式
-若要從 Data Lake Storage 匯入資料, 您需要指定外部檔案格式。 此物件會定義檔案在 Data Lake Storage 中的寫入方式。
+若要從 Data Lake Storage 匯入資料，您需要指定外部檔案格式。 此物件會定義檔案在 Data Lake Storage 中的寫入方式。
 如需完整清單，請查閱我們的 T-SQL 文件：[CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
@@ -173,7 +174,7 @@ REJECT_TYPE 和 REJECT_VALUE 選項可讓您定義最終的資料表中必須出
 Data Lake Storage Gen1 使用角色型存取控制 (RBAC) 來控制資料存取。 這表示服務主體必須具有在位置參數中所定義之目錄，以及最終目錄和檔案之子系的讀取權限。 這可讓 PolyBase 驗證及載入該資料。 
 
 ## <a name="load-the-data"></a>載入資料
-若要從 Data Lake Storage 載入資料, 請使用[CREATE TABLE AS SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)語句。 
+若要從 Data Lake Storage 載入資料，請使用[CREATE TABLE AS SELECT （transact-sql）](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)語句。 
 
 CTAS 建立新的資料表，並將選取陳述式的結果填入該資料表。 CTAS 定義新資料表，以使它擁有和選取陳述式之結果相同的資料行和資料類型。 如果您選取外部資料表上的所有資料行，則新資料表會是外部資料表中資料行和資料類型的複本。
 
@@ -190,7 +191,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>最佳化資料行存放區壓縮
-根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 載入完成後，某些資料列可能不會被壓縮為資料行存放區。  有許多原因會導致發生此情況。 若要深入了解，請參閱 [管理資料行存放區索引](sql-data-warehouse-tables-index.md)。
+根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 載入完成後，某些資料列可能不會被壓縮為資料行存放區。  有許多原因會導致發生此情況。 若要深入了解，請參閱[管理資料行存放區索引](sql-data-warehouse-tables-index.md)。
 
 若要最佳化載入後的查詢效能和資料行存放區壓縮，請重建資料表以強制資料行存放區索引對所有資料列進行壓縮。
 
@@ -203,7 +204,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>最佳化統計資料
 您最好在載入後立刻建立單一資料行統計資料。 針對統計資料，您將會有一些選項。 例如，如果您在每個資料行上建立單一資料行統計資料，可能會需要很長的時間才能重建所有統計資料。 如果您知道某些資料行不會被包含在查詢述詞中，您可以略過為那些資料行建立統計資料。
 
-如果您決定要在每個資料表的每個資料行上建立單一資料行統計資料，便可以使用[統計資料](sql-data-warehouse-tables-statistics.md)一文中的預存程序程式碼範例 `prc_sqldw_create_stats`。
+如果您決定要在每個資料表的每個資料行上建立單一資料行統計資料，便可以使用`prc_sqldw_create_stats`統計資料[一文中的預存程序程式碼範例 ](sql-data-warehouse-tables-statistics.md)。
 
 下列範例為建立統計資料的好起點。 它會在維度資料表中的每個資料行上，以及在事實資料表中的每個聯結資料行上建立單一資料行統計資料。 您之後隨時可以將單一或多個資料行統計資料新增到其他事實資料表資料行上。
 

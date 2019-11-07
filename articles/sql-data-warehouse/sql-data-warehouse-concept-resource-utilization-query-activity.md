@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 資料倉儲的管理及監視功能 - 查詢活動與資源使用率 | Microsoft Docs
+title: 管理能力和監視-查詢活動、資源使用率
 description: 了解哪些功能可用來管理和監視 Azure SQL 資料倉儲。 使用 Azure 入口網站和動態管理檢視 (DMV) 來了解資料倉儲的查詢活動和資源使用率。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 786ae1f18d52c6763b60f5019ecfe365f1cd540a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71334094"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692890"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>監視 Azure SQL 資料倉儲中的資源使用率和查詢活動
 Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓您可看到資料倉儲工作負載的深入解析。 Azure 入口網站是監視資料倉儲的建議工具，因為其提供可設定的保留期、警示、建議，以及可自訂的計量與記錄圖表及儀表板。 入口網站也可讓您與其他 Azure 監視服務（例如 Operations Management Suite （OMS）和 Azure 監視器（記錄））整合，以同時針對您的資料倉儲，以及整個 Azure 分析提供全面的監視體驗。整合式監視體驗的平臺。 本文件將說明哪些監視功能可用來最佳化及管理分析平台與 SQL 資料倉儲。 
@@ -24,13 +25,13 @@ Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓
 在 Azure 入口網站中，下列計量可供 SQL 資料倉儲使用。 我們透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)提供這些計量。
 
 
-| 計量名稱             | 描述                                                  | 彙總類型 |
+| 度量名稱             | 說明                                                  | 彙總類型 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | CPU 百分比          | 資料倉儲上所有節點的 CPU 使用率      | 最大值          |
 | 資料 IO 百分比      | 資料倉儲上所有節點的 IO 使用率       | 最大值          |
 | 記憶體百分比       | 資料倉儲所有節點的記憶體使用率（SQL Server） | 最大值          |
-| 連接成功  | 資料的成功連數目                 | 總計            |
-| 失敗的連接      | 資料倉儲的失敗連線數量           | 總計            |
+| 成功的連線  | 資料的成功連數目                 | 總計            |
+| 失敗的連線      | 資料倉儲的失敗連線數量           | 總計            |
 | 遭到防火牆封鎖     | 資料倉儲的已封鎖登入數目     | 總計            |
 | DWU 限制               | 資料倉儲的服務等級目標                | 最大值          |
 | DWU 百分比          | CPU 百分比與資料 IO 百分比之間的最大值        | 最大值          |

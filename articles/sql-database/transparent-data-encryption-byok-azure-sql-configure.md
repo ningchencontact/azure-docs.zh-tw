@@ -1,5 +1,5 @@
 ---
-title: PowerShell 和 CLI：啟用 SQL TDE-使用 Azure Key Vault-自備您自己的金鑰-Azure SQL Database |Microsoft Docs
+title: 'PowerShell 和 CLI：啟用 SQL TDE-使用 Azure Key Vault-自備金鑰-Azure SQL Database '
 description: 了解如何設定 Azure SQL Database 和資料倉儲，以透過 PowerShell 或 CLI 開始使用透明資料加密 (TDE) 進行待用資料加密。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: beeb5fa4f979ac457db8a779dd8f8f2e94ef87f5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 232f38b239090356ae3ad1a70b522188f6ab6a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163847"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686754"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用客戶管理的金鑰來啟用透明資料加密
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 服務層級 - 以 DTU 為基礎的購買模型 | Microsoft Docs
+title: 'Azure SQL Database 服務層級-以 DTU 為基礎的購買模型 '
 description: 對於提供計算大小和儲存體大小的單一和集區資料庫，了解以 DTU 為基礎的購買模型的服務層。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 43f4f9e0d1e5f33dde32e5274dddf9d17776db21
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000437"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687312"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
@@ -31,7 +31,7 @@ ms.locfileid: "72000437"
 
 服務層級的選擇主要視業務持續性、儲存體和效能需求而定。
 
-||基本|標準|進階|
+||基本|標準|高級|
 | :-- | --: |--:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產|
 |執行時間 SLA|99.99%|99.99%|99.99%|
@@ -50,7 +50,7 @@ ms.locfileid: "72000437"
 
 單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-purchase-models.md#dtu-based-purchasing-model)。
 
-||基本|標準|進階|
+||基本|標準|高級|
 | :-- | --: | --: | --: |
 | 儲存體大小上限 | 2 GB | 1 TB | 4 TB  |
 | DTU 上限 | 5 | 3000 | 4000 | 
@@ -71,7 +71,7 @@ ms.locfileid: "72000437"
 |||||
 
 > [!IMPORTANT]
-> 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)。  
+> 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列地區除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 地區和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)。  
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
@@ -89,7 +89,7 @@ ms.locfileid: "72000437"
 
 基準測試可測量基本資料庫作業混合的效能，這些作業最常發生在線上交易處理 (OLTP) 工作負載中。 雖然基準測試在設計時考量到雲端運算，但是資料庫結構描述、資料母體和交易的設計都廣泛代表 OLTP 工作負載中最常使用的基本元素。
 
-### <a name="schema"></a>架構
+### <a name="schema"></a>結構描述
 
 結構描述的設計具有足夠的多樣性和複雜性才能支援廣泛的作業。 對包含六個資料表的資料庫執行基準測試。 資料表分成三個類別：固定大小、調整和成長。 有兩個固定大小資料表、三個調整資料表，和一個成長資料表。 固定大小資料表有固定數目的資料列。 調整資料表有與資料庫效能成正比但不會在基準測試期間變更的基數。 成長資料表的大小在初始載入時類似調整資料表，但是在執行基準測試做為資料列的過程中，會插入並刪除基數變更。
 
@@ -103,7 +103,7 @@ ms.locfileid: "72000437"
 
 工作負載包含九種交易類型，如下表所示。 每一筆交易都設計為反白顯示資料庫引擎和系統硬體中特定的一組系統特性，與其他交易呈現高度對比。 此方法可讓您更容易評估不同元件對整體效能的影響。 例如，「頻繁讀取」交易會從磁碟產生大量的讀取作業。
 
-| 交易類型 | 描述 |
+| 交易類型 | 說明 |
 | --- | --- |
 | 輕度讀取 |SELECT；記憶體中；唯讀 |
 | 中度讀取 |SELECT；大部分記憶體中；唯讀 |
@@ -112,7 +112,7 @@ ms.locfileid: "72000437"
 | 重度更新 |UPDATE；大部分非記憶體中；讀寫 |
 | 輕度插入 |INSERT；記憶體中；讀寫 |
 | 重度插入 |INSERT；大部分非記憶體中；讀寫 |
-| DELETE |DELETE；記憶體中與非記憶體中的混合；讀寫 |
+| 刪除 |DELETE；記憶體中與非記憶體中的混合；讀寫 |
 | 重度 CPU |SELECT；記憶體中；非常重度的 CPU 負載；唯讀 |
 
 ### <a name="workload-mix"></a>工作負載混合
@@ -128,7 +128,7 @@ ms.locfileid: "72000437"
 | 重度更新 |3 |
 | 輕度插入 |3 |
 | 重度插入 |2 |
-| DELETE |2 |
+| 刪除 |2 |
 | 重度 CPU |10 |
 
 ### <a name="users-and-pacing"></a>使用者與步調
@@ -155,7 +155,7 @@ ms.locfileid: "72000437"
 
 有效的基準測試執行需要至少一個小時的穩定狀態測量持續時間。
 
-### <a name="metrics"></a>計量
+### <a name="metrics"></a>度量
 
 基準測試中的關鍵度量是輸送量和回應時間。
 
@@ -164,7 +164,7 @@ ms.locfileid: "72000437"
 
 | 服務類別 | 輸送量測量 | 回應時間需求 |
 | --- | --- | --- |
-| 進階 |每秒交易數 |0\.5 秒時第 95 個百分位數 |
+| 高級 |每秒交易 |0\.5 秒時第 95 個百分位數 |
 | 標準 |每分鐘交易 |1\.0 秒時第 90 個百分位數 |
 | 基本 |每小時交易 |2\.0 秒時第 80 個百分位數 |
 

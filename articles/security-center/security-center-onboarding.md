@@ -1,5 +1,5 @@
 ---
-title: 上架到 Azure 資訊安全中心標準版以增強安全性 | Microsoft Docs
+title: 標準層的增強式安全性-Azure 資訊安全中心
 description: " 了解如何上架到 Azure 資訊安全中心標準版以增強安全性。 "
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: db74415d3c6c5f6636a150d212bc2bc3d790fbec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996292"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686392"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>上架到 Azure 資訊安全中心標準版以增強安全性
-升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。  您可以免費試用「標準版」。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。 您可以免費試用「標準版」。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 資訊安全中心標準版包括：
 
 - **混合式安全性** – 取得您所有內部部署和雲端工作負載中安全性的統一檢視。 套用安全性原則，並持續評估您混合式雲端工作負載的安全性，以確保符合安全性標準。 從各種來源 (包括防火牆和其他合作夥伴解決方案) 收集、搜尋及分析安全性資料。
-- **進階威脅偵測** - 利用進階分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。  有效率的調控內建行為分析和機器學習服務，以發現攻擊和零時差惡意探索。 監視網路、機器和雲端服務中是否有傳入攻擊和侵入後活動。 使用互動式工具和內容相關威脅情報來簡化調查。
-- **存取與應用程式控制** - 藉由套用依特定工作負載調整並由機器學習服務提供的允許清單建議，來封鎖惡意程式碼和其他不想要的應用程式。 利用即時控制存取減少網路攻擊面，以管理 Azure VM 上的連接埠，大幅減少暴力密碼破解攻擊和其他網路攻擊。
+- **進階威脅偵測** - 利用進階分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。 有效率的調控內建行為分析和機器學習服務，以發現攻擊和零時差惡意探索。 監視網路、機器和雲端服務中是否有傳入攻擊和侵入後活動。 使用互動式工具和內容相關威脅情報來簡化調查。
+- **存取與應用程式控制** - 藉由套用依特定工作負載調整並由機器學習服務提供的白名單建議，來封鎖惡意程式碼和其他不想要的應用程式。 利用即時控制存取減少網路攻擊面，以管理 Azure VM 上的連接埠，大幅減少暴力密碼破解攻擊和其他網路攻擊。
 
-## <a name="detecting-unprotected-resources"></a>偵測未受保護的資源     
+## <a name="detecting-unprotected-resources"></a>偵測未受保護的資源
 資訊安全中心會自動偵測未向資訊安全中心標準版啟用的任何 Azure 訂用帳戶或工作區。 這包括使用未啟用安全性解決方案之資訊安全中心免費版和工作區的 Azure 訂用帳戶。
 
 您可以將整個 Azure 訂用帳戶升級為標準層，這會由訂用帳戶中所有支援的資源繼承。 將標準層套用至工作區時，適用于向工作區報告的所有資源。
 
 > [!NOTE]
-> 您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。 [解決方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)可讓您將某個範圍套用至解決方案，並將工作區中的電腦子集設定為目標。  如果您使用解決方案目標鎖定，資訊安全中心會將工作區列為沒有解決方案。
+> 您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。 [解決方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)可讓您將某個範圍套用至解決方案，並將工作區中的電腦子集設定為目標。 如果您使用解決方案目標鎖定，資訊安全中心會將工作區列為沒有解決方案。
 >
 >
 
@@ -54,14 +54,13 @@ ms.locfileid: "71996292"
    > [!NOTE]
    > 資訊安全中心的免費功能僅適用于您的 Azure Vm 和 VMSS。 免費版功能不會套用至非 Azure 電腦。 如果您選取 [標準]，標準功能會套用至向工作區報告的所有 Azure Vm、VM 擴展集和非 Azure 電腦。 我們建議您套用「標準版」，為您的 Azure 與非 Azure 資源提供進階的安全性。
    >
-   >
 
 ## <a name="onboard-non-azure-computers"></a>上架非 Azure 電腦
 資訊安全中心可以監視非 Azure 電腦的安全性狀態，但您需要先上架這些資源。 您可以從 [開始使用] 刀鋒視窗或從 [計算] 刀鋒視窗新增非 Azure 電腦。 我們將逐步解說這兩種方法。
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>從 [開始使用] 新增非 Azure 電腦
 
-1. 返回 [開始使用]。   
+1. 返回 [開始使用]。
 2. 選取 [開始使用] 索引標籤。
 
    ![非 Azure](./media/security-center-onboarding/non-azure.png)
@@ -84,7 +83,7 @@ ms.locfileid: "71996292"
    > [!NOTE]
    > OMS 工作區現在稱為 Log Analytics 工作區。
 3. 在 [OMS 工作區] 下，輸入您的工作區資訊。
-4. 在 [OMS 工作區] 下，選取 [確定]。  選取 [確定] 之後，您會得到下載 Windows 或 Linux 代理程式的連結，以及工作區識別碼的金鑰，以用於設定代理程式。
+4. 在 [OMS 工作區] 下，選取 [確定]。 選取 [確定] 之後，您會得到下載 Windows 或 Linux 代理程式的連結，以及工作區識別碼的金鑰，以用於設定代理程式。
 5. 在 [安全性與稽核] 下，選取 [確定]。
 
 **選取現有的工作區，並新增電腦**
@@ -93,7 +92,7 @@ ms.locfileid: "71996292"
 
 1. 返回資訊安全中心的主功能表[概觀] 儀表板。
 
-   ![總覽][5]
+   ![概觀][5]
 
 2. 選取 [計算及應用程式]。
 3. 在 [計算及應用程式] 下，選取 [新增電腦]。
@@ -104,10 +103,10 @@ ms.locfileid: "71996292"
 
    ![新增電腦][7]
 
-   [直接代理程式] 刀鋒視窗提供下載 Windows 或 Linux 代理程式的連結，以及用來設定代理程式的工作區識別碼和金鑰。   
+   [直接代理程式] 刀鋒視窗提供下載 Windows 或 Linux 代理程式的連結，以及用來設定代理程式的工作區識別碼和金鑰。
 
 ## <a name="next-steps"></a>後續步驟
-您可以在本文中了解如何上架 Azure 與非 Azure 資源，以從資訊安全中心的進階安全性受益。  若要透過上架的資源執行更多動作，請參閱
+您可以在本文中了解如何上架 Azure 與非 Azure 資源，以從資訊安全中心的進階安全性受益。 若要透過上架的資源執行更多動作，請參閱
 
 - [啟用資料收集](security-center-enable-data-collection.md)
 - [威脅情報報告](security-center-threat-report.md)

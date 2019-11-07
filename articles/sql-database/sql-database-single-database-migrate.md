@@ -1,5 +1,5 @@
 ---
-title: SQL Server 資料庫移轉至 Azure SQL Database 中的單一/集區資料庫 | Microsoft Docs
+title: SQL Server 資料庫移轉至 Azure SQL Database 中的單一/集區資料庫
 description: 了解將 SQL Server 資料庫移轉至 Azure SQL Database 中單一資料庫或彈性集區的相關做法。
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database,資料庫移轉,sql server 資料庫移轉,資料庫移轉工具,移轉資料庫,移轉 sql database
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566607"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687178"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>將 SQL Server 資料庫移轉至 Azure SQL Database
 
@@ -40,7 +40,7 @@ ms.locfileid: "68566607"
 
   ![VSSSDT 移轉圖表](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. 使用最新版的 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 來[評估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) \(英文\) 資料庫的相容性。
+1. 使用最新版的 [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) \(英文\) 來[評估](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 資料庫的相容性。
 2. 準備 Transact-SQL 指令碼形式的任何必要修正。
 3. 針對要移轉的來源資料庫建立交易一致性複本，或是在進行移轉時，防止在來源資料庫中進行新交易。 完成後面這個選項的方法包括停用用戶端連線或建立[資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。 移轉之後，您可能能夠使用異動複寫來更新所移轉的資料庫，以反映在移轉截止點之後所發生的變更。 請參閱[使用異動移轉來進行移轉](sql-database-single-database-migrate.md#method-2-use-transactional-replication)。  
 4. 部署 Transact-SQL 指令碼，將修正套用至資料庫複本。

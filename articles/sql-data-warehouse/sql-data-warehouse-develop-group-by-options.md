@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL 資料倉儲中的分組方式選項 | Microsoft Docs
+title: 使用 group by 選項
 description: 根據 Azure SQL 資料倉儲中的選項實作群組以便開發解決方案的秘訣。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8d5d0f28fa210a56460ced25323b96a68f245895
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479645"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685846"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>根據 SQL 資料倉儲中的選項分組
 根據 Azure SQL 資料倉儲中的選項實作群組以便開發解決方案的秘訣。
@@ -50,7 +51,7 @@ GROUP BY ROLLUP (
 藉由使用 ROLLUP，上述範例會要求下列彙總：
 
 * 國家及區域
-* Country
+* 國家 (地區)
 * 總計
 
 若要取代 ROLLUP，並傳回相同的結果，您可以使用 UNION ALL，並明確指定所需的彙總：
@@ -181,5 +182,5 @@ ORDER BY 1,2,3
 將程式碼分成區段，並產生迴圈建構，程式碼就會變得更容易管理及維護。
 
 ## <a name="next-steps"></a>後續步驟
-如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。
+如需更多開發秘訣，請參閱 [開發概觀](sql-data-warehouse-overview-develop.md)。
 

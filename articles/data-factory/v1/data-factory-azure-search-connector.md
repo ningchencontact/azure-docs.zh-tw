@@ -1,5 +1,5 @@
 ---
-title: 使用 Data Factory將資料推送到搜尋索引 | Microsoft Docs
+title: 使用 Data Factory 將資料推送至搜尋索引
 description: 了解如何使用 Azure Data Factory，將資料推送到 Azure 搜尋服務索引。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 30a5bc9c5f0b7d1443e7ca2a16d9f0e0d1120dd8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 09b891ba753291511bb1f203b7ac4437e6b2c542
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836637"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683099"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料推送到 Azure 搜尋服務索引
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -26,7 +26,7 @@ ms.locfileid: "67836637"
 > * [第 2 版 (目前的版本)](../connector-azure-search.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Azure 搜尋服務連接器](../connector-azure-search.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Azure 搜尋服務連接器](../connector-azure-search.md)。
 
 本文說明如何使用「複製活動」，將資料從支援的來源資料存放區推送到「Azure 搜尋」索引。 支援的來源資料存放區會列於[支援的來源與接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格的 [來源] 欄中。 本文是根據 [資料移動活動](data-factory-data-movement-activities.md) 一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
@@ -35,12 +35,12 @@ ms.locfileid: "67836637"
 
 資料管理閘道會透過安全且可管理的方式，將內部部署資料來源連接到雲端服務。 如需資料管理閘道的詳細資訊，請參閱 [在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以將資料從來源資料存放區推送到「Azure 搜尋」索引。
 
-若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
+建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
-您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線： [ **Visual Studio**]、[ **Azure PowerShell**]、[ **Azure Resource Manager 範本**]、[ **.net API**] 和 [ **REST API**]。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -48,7 +48,7 @@ ms.locfileid: "67836637"
 2. 建立**資料集**，代表複製作業的輸入和輸出資料。
 3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。
 
-使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到 Azure 搜尋服務索引之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從內部部署 SQL Server 複製到 Azure 搜尋索引](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index)一節。
+使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到「Azure 搜尋」索引之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從內部部署 SQL Server 複製到 Azure 搜尋索引](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index)一節。
 
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義「Azure 搜尋索引」特定的 Data Factory 實體：
 
@@ -56,19 +56,19 @@ ms.locfileid: "67836637"
 
 下表提供 Azure 搜尋服務連結服務專屬之 JSON 元素的描述。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| type | 類型屬性必須設定為：**AzureSearch**。 | 是 |
+| 類型 | type 屬性必須設為：**AzureSearch**。 | 是 |
 | url | Azure 搜尋服務的 URL。 | 是 |
-| key | Azure 搜尋服務的系統管理金鑰。 | 是 |
+| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 | 是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
 如需定義資料集的區段和屬性完整清單，請參閱 [建立資料集](data-factory-create-datasets.md) 一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型。 不同類型資料集的 **typeProperties** 區段不同。 **AzureSearchIndex** 類型資料集的 typeProperties 區段有下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| type | type 屬性必須設為 **AzureSearchIndex**。| 是 |
+| 類型 | type 屬性必須設為 **AzureSearchIndex**。| 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
 
 
@@ -77,7 +77,7 @@ ms.locfileid: "67836637"
 
 對於「複製活動」，當接收的類型為 **AzureSearchIndexSink** 時，typeProperties 區段中會有下列可用屬性：
 
-| 屬性 | 描述 | 允許的值 | 必要項 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。| 合併 (預設值)<br/>上傳| 否 |
 | WriteBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。 | 1 到 1000。 預設值為 1000。 | 否 |
@@ -100,24 +100,24 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 | Azure 搜尋服務資料類型 | 在 Azure 搜尋服務接收器中受到支援 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 字串 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
 | Boolean | Y |
 | DataTimeOffset | Y |
-| String Array | N |
+| 字串陣列 | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON 範例：將資料從內部部署 SQL Server 複製到 Azure 搜尋服務索引
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON 範例：將資料從內部部署 SQL Server 複製到 Azure 搜尋索引
 
 下列範例顯示︰
 
 1. [AzureSearch](#linked-service-properties) 類型的連結服務。
 2. [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties)類型的連結服務。
-3. [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
-4. [AzureSearchIndex](#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-4. 具有使用 [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 和 [AzureSearchIndexSink](#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+3. [SqlServerTable](data-factory-create-datasets.md) 類型的輸入[資料集](data-factory-sqlserver-connector.md#dataset-properties)。
+4. [AzureSearchIndex](data-factory-create-datasets.md) 類型的輸出[資料集](#dataset-properties)。
+4. 具有使用 [SqlSource](data-factory-create-pipelines.md) 和 [AzureSearchIndexSink](data-factory-sqlserver-connector.md#copy-activity-properties) 之複製活動的[管線](#copy-activity-properties)。
 
 這個範例每小時都會將時間序列的資料從內部部署 SQL Server 資料庫複製到 Azure 搜尋服務索引。 範例後面的各節將會說明此範例中使用的 JSON 屬性。
 

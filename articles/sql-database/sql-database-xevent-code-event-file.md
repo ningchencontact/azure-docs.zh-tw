@@ -1,5 +1,5 @@
 ---
-title: SQL Database 的 XEvent 事件檔案程式碼 | Microsoft Docs
+title: SQL Database 的 XEvent 事件檔案程式碼
 description: 提供 PowerShell 和 Transact-SQL 的兩階段程式碼範例，示範 Azure SQL Database 上擴充事件中的事件檔案目標。 此案例必須要有 Azure 儲存體。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566104"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686829"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的事件檔案目標程式碼
 
@@ -34,11 +34,11 @@ ms.locfileid: "68566104"
   * 將 Azure 儲存體容器指定為事件檔案目標。
   * 建立和啟動事件工作階段等等。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -71,7 +71,7 @@ ms.locfileid: "68566104"
 
 ### <a name="powershell-code"></a>PowerShell 程式碼
 
-此 PowerShell 腳本假設您已安裝 Az 模組。 如需相關資訊, 請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
+此 PowerShell 腳本假設您已安裝 Az 模組。 如需相關資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -461,11 +461,11 @@ GO
 ```
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
-Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 隨即顯示一個 **\<事件 >** 元素, 其中會顯示一個 UPDATE 語句。
+Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 隨即顯示一個 **\<事件 >** 元素，其中顯示一個 UPDATE 語句。
 
-以下是測試期間所產生的一個 **\<事件 >** 元素:
+以下是測試期間所產生的一個 **\<事件 >** 元素：
 
 
 ```xml

@@ -1,5 +1,5 @@
 ---
-title: 以視覺化方式監視 Azure 資料處理站 | Microsoft Docs
+title: 以視覺化方式監視 Azure 資料處理站
 description: 瞭解如何以視覺化方式監視 Azure data factory
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029151"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684633"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
 Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用它在雲端中建立資料驅動的工作流程，以協調和自動化資料移動和資料轉換。 藉由使用 Azure Data Factory，您可以：
@@ -27,7 +27,7 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 
 在此快速入門中，您將了解如何在不用撰寫任何程式碼的情況下，以視覺方式監視 Data Factory 管線。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="monitor-data-factory-pipelines"></a>監視 Data Factory 管線
 
@@ -40,16 +40,16 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 ## <a name="monitor-pipeline-runs"></a>監視管線回合
 清單視圖會顯示 Data Factory 管線的每個管線執行。 其中包含下列資料行：
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 管線名稱 | 管線的名稱 |
 | 動作 | 可供觀看活動執行的單一動作 |
 | 回合開始 | 管線執行的開始日期和時間（MM/DD/YYYY、HH： MM： SS AM/PM） |
-| Duration | 回合持續時間 (HH:MM:SS) |
+| 持續時間 | 回合持續時間 (HH:MM:SS) |
 | 觸發方式 | 手動觸發程式或排程觸發程式 |
 | 狀態 | **失敗**、**成功**或**進行中** |
 | 參數 | 管線執行的參數（名稱/值配對） |
-| Error | 管線執行錯誤（如果有的話） |
+| 錯誤 | 管線執行錯誤（如果有的話） |
 | 回合識別碼 | 管線執行的識別碼 |
 
 ![監視管線執行的清單視圖](media/monitor-visually/pipeline-runs.png)
@@ -57,16 +57,16 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 ## <a name="monitor-activity-runs"></a>監視活動回合
 清單視圖會顯示對應至每個管線執行的活動執行。 若要查看每個管線執行的活動執行，請選取 [**動作**] 資料行底下的 [**活動執行**] 圖示。 清單視圖包含下列資料行：
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 活動名稱 | 管線內的活動名稱 |
 | 活動類型 | 活動的類型，例如**Copy**、 **HDInsightSpark**或**HDInsightHive** |
 | 回合開始 | 活動執行的開始日期和時間（MM/DD/YYYY，HH： MM： SS AM/PM） |
-| Duration | 回合持續時間 (HH:MM:SS) |
+| 持續時間 | 回合持續時間 (HH:MM:SS) |
 | 狀態 | **失敗**、**成功**或**進行中** |
-| Input | 描述活動輸入的 JSON 陣列 |
-| Output | 描述活動輸出的 JSON 陣列 |
-| Error | 活動執行錯誤（如果有的話） |
+| 輸入 | 描述活動輸入的 JSON 陣列 |
+| 輸出 | 描述活動輸出的 JSON 陣列 |
+| 錯誤 | 活動執行錯誤（如果有的話） |
 
 ![監視活動執行的清單視圖](media/monitor-visually/activity-runs.png)
 
@@ -86,11 +86,11 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 
 順序管線會根據執行開始時間，在 DESC/ASC 中執行。 使用下列資料行篩選管線執行：
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 管線名稱 | 管線的名稱。 選項包括**過去24小時**、**過去一周**和**過去30天**的快速篩選。 或選取自訂的日期和時間。 |
 | 回合開始 | 管線執行的開始日期和時間。 |
-| 回合狀態 | 依狀態篩選執行：**成功**、**失敗**或**進行中**。 |
+| 回合狀態 | 依狀態篩選執行： [**成功**]、[**失敗**] 或 [**進行中**]。 |
 
 ![篩選選項](media/monitor-visually/filter.png)
 
@@ -159,9 +159,9 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 
 ![意見反應](media/monitor-visually/feedback.png)
 
-## <a name="alerts"></a>警示
+## <a name="alerts"></a>Alerts
 
-您可以針對 Data Factory 中支援的計量提出警示。 在 [Data Factory 監視] 頁面上選取 [**監視** >  個**警示 & 計量**]，即可開始使用。
+您可以針對 Data Factory 中支援的計量提出警示。 在 Data Factory 監視 頁面上選取 **監視** > **警示 & 計量**，即可開始使用。
 
 ![Data factory [監視] 頁面](media/monitor-visually/alerts01.png)
 

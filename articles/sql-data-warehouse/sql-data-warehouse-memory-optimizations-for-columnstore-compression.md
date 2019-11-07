@@ -1,6 +1,6 @@
 ---
-title: 改善 Azure SQL 資料倉儲中的資料行存放區索引效能 |Microsoft Docs
-description: 減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。
+title: 改善資料行存放區索引效能
+description: Azure SQL 資料倉儲減少記憶體需求或增加可用的記憶體，以將資料行存放區索引壓縮成每個資料列群組的資料列數目最大化。
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,17 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ec85bcc764ba7a7ae6341e0490530c31fdb5a02b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595469"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685650"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
-資料列群組品質取決於資料列群組中的資料列數目。 增加可用的記憶體可以最大化壓縮到每個資料列群組的資料行存放區索引的資料列數目。  使用這些方法來改善壓縮率和查詢資料行存放區索引的效能。
+資料列群組品質取決於資料列群組中的資料列數目。 增加可用的記憶體可以將資料行存放區索引壓縮成每個資料列群組的資料列數目最大化。  使用這些方法來改善壓縮率和查詢資料行存放區索引的效能。
 
 ## <a name="why-the-rowgroup-size-matters"></a>為什麼資料列群組很重要
 因為資料行存放區索引會藉由掃描個別資料列群組的資料行區段來掃描資料表，最大化每個資料列群組的資料列數目可以提升查詢效能。 當資料列群組會有大量的資料列時，可改善資料壓縮，這表示從磁碟讀取的資料比較少。
@@ -39,7 +40,7 @@ ms.locfileid: "67595469"
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>如何監視資料列群組品質
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)包含檢視定義比對到 SQL 資料倉儲的 SQL DB)，公開一些實用資訊例如在資料列群組] 和 [如果那里已修剪原因中的資料列數目。 您可以建立下列檢視，並將其作為查詢這個 DMV 以取得有關資料列群組修剪資訊的便利方法。
+DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats （[sys. dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)包含將 SQL db 對應到 SQL 資料倉儲的視圖定義），其會公開有用的資訊，例如中的資料列數目資料列群組和修剪的原因（如果有修剪的話）。 您可以建立下列檢視，並將其作為查詢這個 DMV 以取得有關資料列群組修剪資訊的便利方法。
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -67,7 +68,7 @@ from cte;
 ```
 
 trim_reason_desc 會告知是否已修剪資料列群組 (trim_reason_desc = NO_TRIM 表示沒有修剪，且資料列群組屬於最佳品質)。 下列修剪原因表示過早修剪了資料列群組：
-- 大量載入：當傳入的負載資料列批次具有少於 1 百萬個的資料列時，會使用這個修剪原因。 如果插入了多於 100,000 個資料列 (而不是插入到差異存放區)，則引擎會建立壓縮的資料列群組，但是會將修剪原因設定為大量載入。 在此案例中，請考慮增加您的批次載入包含多個資料列。 此外，重新評估您的資料分割配置，確保它不會太過細微，因為資料列群組不能跨越資料分割界限。
+- BULKLOAD：當傳入的負載資料列批次具有少於 1 百萬個的資料列時，會使用這個修剪原因。 如果插入了多於 100,000 個資料列 (而不是插入到差異存放區)，則引擎會建立壓縮的資料列群組，但是會將修剪原因設定為大量載入。 在此案例中，請考慮增加您的批次負載，以包含更多資料列。 此外，重新評估您的資料分割配置，確保它不會太過細微，因為資料列群組不能跨越資料分割界限。
 - MEMORY_LIMITATION：若要建立包含 1 百萬個資料列的資料列群組，引擎會需要特定數量的工作記憶體。 當載入工作階段的可用記憶體小於所需的工作記憶體時，會提前修剪資料列群組。 下列各節說明如何評估所需記憶體及配置更多記憶體。
 - DICTIONARY_SIZE：這個修剪原因表示因為至少有一個字串資料行具有寬/或高基數字串而發生資料列群組修剪。 記憶體中的字典大小限制為 16 MB，且一旦達到此限制，便會壓縮資料列群組。 如果您遇到這種情況，請考慮將問題資料行隔離到單獨的資料表中。
 
@@ -86,7 +87,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 
 短字串資料行使用 < = 32 個位元組的字串資料類型和長字串資料行使用 > 32 個位元組的字串資料類型。
 
-會使用專為壓縮文字的壓縮方法來壓縮長字串。 這個壓縮方法會使用字典  來儲存文字模式。 字典的大小上限為 16 MB。 資料列群組中的每一個長字串資料行只有一個字典。
+會使用專為壓縮文字的壓縮方法來壓縮長字串。 這個壓縮方法會使用字典來儲存文字模式。 字典的大小上限為 16 MB。 資料列群組中的每一個長字串資料行只有一個字典。
 
 如需資料行存放區記憶體需求的深入討論，請參閱影片 [Azure SQL 資料倉儲調整︰組態和指引](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)。
 

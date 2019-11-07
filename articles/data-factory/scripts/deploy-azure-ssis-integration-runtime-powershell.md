@@ -1,5 +1,5 @@
 ---
-title: PowerShell 指令碼 - 部署 Azure-SSIS 整合執行階段 | Microsoft Docs
+title: PowerShell 指令碼 - 部署 Azure-SSIS 整合執行階段
 description: 這個 PowerShell 指令碼會建立可在雲端中執行 SSIS 封裝的 Azure-SSIS 整合執行階段。
 services: data-factory
 ms.service: data-factory
@@ -10,12 +10,12 @@ ms.date: 09/12/2017
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a2d53ddb9f55942cd6ad396d42cc926f20c2d396
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beba0a8d01d7d10910716f03602116fe7673ffc8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166358"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684368"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell 指令碼 - 部署 Azure-SSIS 整合執行階段
 
@@ -46,13 +46,13 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 此指令碼會使用下列命令：
 
-| 命令 | 注意 |
+| 命令 | 注意事項 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 建立資料處理站。 |
-| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | 建立可在雲端中執行 SSIS 封裝的 Azure-SSIS 整合執行階段 |
-| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | 啟動 Azure-SSIS 整合執行階段。 |
-| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | 取得 Azure-SSIS 整合執行階段的相關資訊。 |
+| [設定-Set-azdatafactoryv2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 建立資料處理站。 |
+| [設定-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | 建立可在雲端中執行 SSIS 封裝的 Azure-SSIS 整合執行階段 |
+| [開始-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | 啟動 Azure-SSIS 整合執行階段。 |
+| [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | 取得 Azure-SSIS 整合執行階段的相關資訊。 |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 |||
 

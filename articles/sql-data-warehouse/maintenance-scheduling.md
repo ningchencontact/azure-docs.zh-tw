@@ -1,5 +1,5 @@
 ---
-title: Azure 維護排程 (預覽版) | Microsoft Docs
+title: Azure 維護排程
 description: 維護排程可讓客戶規劃必要的排程維護事件，Azure SQL 資料倉儲服務會使用它們來推出新功能、升級與修補程式。
 services: sql-data-warehouse
 author: antvgski
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5df583112bbb6db9651004e5deaceb6b5b9d12
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958884"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686063"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用維護排程管理服務更新和維護
 
@@ -89,7 +89,7 @@ ms.locfileid: "71958884"
 
    刀鋒視窗底部的 [排程摘要] 區域會根據所選取的值來更新。 
   
-6. 選取 [儲存]。 隨即出現一則訊息，確認您的新排程目前為作用中。 
+6. 選取 [ **儲存**]。 隨即出現一則訊息，確認您的新排程目前為作用中。 
 
    如果您將排程儲存於不支援維護排程的區域中，即會出現下列訊息。 您的設定已儲存，並在功能於您選取的區域中成為可用時變成作用中。    
 

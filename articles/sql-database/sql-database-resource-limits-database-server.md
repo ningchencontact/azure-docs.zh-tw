@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 伺服器資源限制 | Microsoft Docs
+title: Azure SQL Database 伺服器資源限制
 description: 此文章提供適用於單一資料庫和彈性集區之 Azure SQL Database 伺服器資源限制概觀。 它也提供抵達或超過那些資源限制時所會發生之情況的相關資訊。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687494"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -27,7 +27,7 @@ ms.locfileid: "68566861"
 
 ## <a name="maximum-resource-limits"></a>資源限制上限
 
-| Resource | 限制 |
+| 資源 | 限制 |
 | :--- | :--- |
 | 每一伺服器的資料庫 | 5000 |
 | 任何區域中每個訂用帳戶的伺服器預設數目 | 20 |
@@ -45,19 +45,19 @@ ms.locfileid: "68566861"
 > - 管理作業以及涉及列舉伺服器中資料庫入口網站檢視點的轉譯作業，皆增加延遲狀況。
 
 ### <a name="storage-size"></a>儲存體大小
-- 針對單一資料庫 rources, 請參閱以[DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md)或以[vCore 為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md), 以瞭解每個定價層的儲存體大小限制。
+- 針對單一資料庫 rources，請參閱以[DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md)或以[vCore 為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)，以瞭解每個定價層的儲存體大小限制。
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>達到資料庫資源限制時，會發生什麼事？
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>計算 (DTU 和 eDTU / 虛擬核心)
 
-當資料庫計算使用率 (根據 DTU 和 eDTU 或虛擬核心測量) 變高時，查詢延遲會增加，甚至可能逾時。在下列情況下，查詢可能會透過服務排入佇列，並在資源變成可用時，提供資源以供執行。
+當資料庫計算使用率（以 Dtu 和 Edtu 或虛擬核心測量）變得很高時，查詢延遲會增加，甚至可能會超時。在這些情況下，查詢可能會由服務進行佇列，並提供資源以供執行，因為資源會變成可用。
 遇到高計算使用率時，緩和選項包括：
 
 - 提高資料庫或彈性集區的計算大小，以提供更多計算資源給資料庫。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 將查詢最佳化，以降低每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
-### <a name="storage"></a>存放區
+### <a name="storage"></a>儲存體
 
 當使用的資料庫空間達到大小上限，若資料庫的插入和更新作業會增加資料大小，動作即會失敗，且用戶端會收到[錯誤訊息](sql-database-develop-error-messages.md)。 資料庫 SELECTS 與 DELETES 會繼續執行下去。
 
@@ -77,32 +77,32 @@ ms.locfileid: "68566861"
 - 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
 ## <a name="transaction-log-rate-governance"></a>交易記錄速率治理 
-交易記錄速率治理是 Azure SQL Database 中的程式, 用來限制大量插入、選取 INTO 和索引組建等工作負載的高內嵌速率。 這些限制會在子秒層級追蹤並強制執行, 以產生記錄檔記錄的速率, 而不論可能針對資料檔案發出多少 Io, 都能限制輸送量。  交易記錄產生速率目前已線性相應增加至與硬體相依的點, 且最大記錄速率允許使用 vCore 購買模型 96 MB/s。 
+交易記錄速率治理是 Azure SQL Database 中的程式，用來限制大量插入、選取 INTO 和索引組建等工作負載的高內嵌速率。 這些限制會在子秒層級追蹤並強制執行，以產生記錄檔記錄的速率，而不論可能針對資料檔案發出多少 Io，都能限制輸送量。  交易記錄產生速率目前已線性相應增加至與硬體相依的點，且最大記錄速率允許使用 vCore 購買模型 96 MB/s。 
 
 > [!NOTE]
 > 實際的實體 IOs 到交易記錄檔不受管理或限制。 
 
-記錄速率的設定可讓您在各種情況下達成和持續, 而整體系統可以維持其功能, 並將對使用者負載的影響降至最低。 記錄速率治理可確保交易記錄備份保留在已發佈的復原能力 Sla 內。  這種治理也會防止次要複本上有過多的待處理專案。
+記錄速率的設定可讓您在各種情況下達成和持續，而整體系統可以維持其功能，並將對使用者負載的影響降至最低。 記錄速率治理可確保交易記錄備份保留在已發佈的復原能力 Sla 內。  這種治理也會防止次要複本上有過多的待處理專案。
 
-產生記錄檔記錄時, 系統會評估每個作業並評估是否應延遲, 以維持最大所需的記錄速率 (每秒 MB/秒)。 當記錄檔記錄排清至儲存體時, 不會新增延遲, 而是在產生記錄速率時套用記錄速率治理。
+產生記錄檔記錄時，系統會評估每個作業並評估是否應延遲，以維持最大所需的記錄速率（每秒 MB/秒）。 當記錄檔記錄排清至儲存體時，不會新增延遲，而是在產生記錄速率時套用記錄速率治理。
 
-在執行時間加諸的實際記錄產生速率可能也會受到意見反應機制的影響, 暫時減少允許的記錄檔速率, 讓系統能夠穩定。 記錄檔空間管理, 避免遇到記錄空間不足的情況, 以及可用性群組複寫機制, 可以暫時降低整體系統限制。 
+在執行時間加諸的實際記錄產生速率可能也會受到意見反應機制的影響，暫時減少允許的記錄檔速率，讓系統能夠穩定。 記錄檔空間管理，避免遇到記錄空間不足的情況，以及可用性群組複寫機制，可以暫時降低整體系統限制。 
 
-記錄速率管理員流量成形是透過下列等候類型 (在[_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV 中公開) 來呈現:
+記錄速率管理員流量成形是透過下列等候類型（在[dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV 中公開）來呈現：
 
-| 等候類型 | 注意 |
+| 等候類型 | 注意事項 |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | 資料庫限制 |
 | POOL_LOG_RATE_GOVERNOR | 集區限制 |
 | INSTANCE_LOG_RATE_GOVERNOR | 實例層級限制 |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 意見反應控制, Premium/Business Critical 中的可用性群組實體複寫未趕上 |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | 意見反應控制, 限制速率以避免發生記錄空間不足的狀況 |
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 意見反應控制，Premium/Business Critical 中的可用性群組實體複寫未趕上 |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | 意見反應控制，限制速率以避免發生記錄空間不足的狀況 |
 |||
 
-當遇到阻礙所需擴充性的記錄速率限制時, 請考慮下列選項:
-- 相應增加至較大的層級, 以取得最大 96 MB/秒的記錄速率。 
-- 如果載入的資料是暫時性的, 也就是在 ETL 進程中暫存資料, 則可以將其載入至 tempdb (這是最低限度記錄)。 
-- 針對分析案例, 載入叢集資料行存放區涵蓋的資料表。 這會減少因為壓縮而需要的記錄速率。 這項技術會增加 CPU 使用率, 而且僅適用于從叢集資料行存放區索引獲益的資料集。 
+當遇到阻礙所需擴充性的記錄速率限制時，請考慮下列選項：
+- 相應增加至較大的層級，以取得最大 96 MB/秒的記錄速率。 
+- 如果載入的資料是暫時性的，也就是在 ETL 進程中暫存資料，則可以將其載入至 tempdb （這是最低限度記錄）。 
+- 針對分析案例，載入叢集資料行存放區涵蓋的資料表。 這會減少因為壓縮而需要的記錄速率。 這項技術會增加 CPU 使用率，而且僅適用于從叢集資料行存放區索引獲益的資料集。 
 
 ## <a name="next-steps"></a>後續步驟
 

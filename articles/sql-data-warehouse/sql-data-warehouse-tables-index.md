@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料倉儲中編製資料表的索引 | Microsoft Azure
+title: 編制資料表索引
 description: 在 Azure SQL 資料倉儲中編製資料表索引的建議與範例。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479849"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685447"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 
@@ -52,9 +52,9 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 ## <a name="heap-tables"></a>堆積資料表
 
-當您在 SQL 資料倉儲中暫時登陸資料時, 您可能會發現使用堆積資料表會讓整體程式更快速。 這是因為堆積的載入速度比索引資料表還要快，而在某些情況下，可以從快取進行後續的讀取。  如果您載入資料只是在做執行更多轉換之前的預備，將資料表載入堆積資料表會遠快於將資料載入叢集資料行存放區資料表。 此外，將資料載入[暫存資料表](sql-data-warehouse-tables-temporary.md)會比將資料表載入永久儲存體快速。  
+當您在 SQL 資料倉儲中暫時登陸資料時，您可能會發現使用堆積資料表會讓整體程式更快速。 這是因為堆積的載入速度比索引資料表還要快，而在某些情況下，可以從快取進行後續的讀取。  如果您載入資料只是在做執行更多轉換之前的預備，將資料表載入堆積資料表會遠快於將資料載入叢集資料行存放區資料表。 此外，將資料載入[暫存資料表](sql-data-warehouse-tables-temporary.md)會比將資料表載入永久儲存體快速。  
 
-對於小型查閱資料表而言, 少於60000000個數據列, 通常堆積資料表是合理的。  當超過60000000個數據列時, 叢集資料行存放區資料表就會開始達到最佳壓縮。
+對於小型查閱資料表而言，少於60000000個數據列，通常堆積資料表是合理的。  當超過60000000個數據列時，叢集資料行存放區資料表就會開始達到最佳壓縮。
 
 若要建立堆積資料表，只需在 WITH 子句中指定 HEAP︰
 
@@ -84,7 +84,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-若要在資料表上加入非叢集索引, 請使用下列語法:
+若要在資料表上加入非叢集索引，請使用下列語法：
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 一旦您執行查詢，就可以開始查看資料，並分析您的結果。 此表格會說明在您的資料列群組分析中要尋找的項目。
 
-| 「資料行」 | 如何使用這項資料 |
+| Column | 如何使用這項資料 |
 | --- | --- |
 | [table_partition_count] |如果資料表已分割，您可能會預期看到較高的開放資料列群組計數。 散發套件中的每個分割在理論上有與其相關聯的開放資料列群組。 將這個因素納入您的分析。 已分割的小型資料表可以藉由移除分割進行最佳化，因為這樣會改善壓縮。 |
 | [row_count_total] |資料表的資料列計數。 例如，您可以使用此值來計算資料列的百分比 (壓縮的狀態)。 |
@@ -171,7 +171,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 | [OPEN_rowgroup_rows_MAX] |同上。 |
 | [OPEN_rowgroup_rows_AVG] |同上。 |
 | [CLOSED_rowgroup_rows] |查看關閉的資料列群組資料列做為例行性檢查。 |
-| [CLOSED_rowgroup_count] |如果發現任何關閉資料列群組，其數目應該很小。 關閉資料列群組可以使用 ALTER INDEX 轉換成壓縮資料列群組...REORGANIZE 命令。 不過，通常並不需要。 關閉群組會透過背景 "tuple mover" 程序自動轉換成資料行存放區的資料列群組。 |
+| [CLOSED_rowgroup_count] |如果發現任何關閉資料列群組，其數目應該很小。 關閉的資料列群組可以使用 ALTER INDEX 轉換成壓縮的資料列群組 .。。重新組織命令。 不過，通常並不需要。 關閉群組會透過背景 "tuple mover" 程序自動轉換成資料行存放區的資料列群組。 |
 | [CLOSED_rowgroup_rows_MIN] |關閉資料列群組應該具有極高的填滿率。 如果關閉資料列群組的填滿率很低，就需要進一步分析資料行存放區。 |
 | [CLOSED_rowgroup_rows_MAX] |同上。 |
 | [CLOSED_rowgroup_rows_AVG] |同上。 |
@@ -200,7 +200,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 - 插入資料列會將資料列新增至名為差異資料列群組的內部資料列存放區資料表。 在差異資料列群組已滿且標示為已關閉之前，插入的資料列不會轉換成資料行存放區。 一旦達到 1,048,576 個資料列的容量上限，資料列群組就會關閉。
 - 更新資料行存放區格式的資料列會做為邏輯刪除和插入來處理。 插入的資料列可儲存在差異存放區。
 
-針對每個資料分割對齊分佈的 102,400 個資料列大量臨界值，超出臨界值的批次更新和插入作業會直接進入資料行存放區格式。 不過，假設在平均分佈情況下，您將需要在單一作業中修改超過 6.144 百萬個資料列才會發生這種情況。 如果指定之分割區對齊散發的資料列數目小於 102400, 則這些資料列會移至差異存放區, 並留在該處, 直到插入或修改足夠的資料列, 以關閉資料列群組或重建索引為止。
+針對每個資料分割對齊分佈的 102,400 個資料列大量臨界值，超出臨界值的批次更新和插入作業會直接進入資料行存放區格式。 不過，假設在平均分佈情況下，您將需要在單一作業中修改超過 6.144 百萬個資料列才會發生這種情況。 如果指定之分割區對齊散發的資料列數目小於102400，則這些資料列會移至差異存放區，並留在該處，直到插入或修改足夠的資料列，以關閉資料列群組或重建索引為止。
 
 ### <a name="small-or-trickle-load-operations"></a>小型或緩慢移動的載入作業
 
@@ -210,13 +210,13 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="too-many-partitions"></a>太多資料分割
 
-另一個考慮事項是資料分割對於叢集資料行存放區資料表的影響。  資料分割之前，SQL 資料倉儲已將您的資料分成 60 個資料庫。  進一步分割會分割您的資料。  如果您將資料分割，請考慮到**每個**資料分割需要有至少 1 百萬個資料列，使用叢集資料行存放區索引才會有幫助。  如果您將資料表分割成100個數據分割, 則您的資料表需要至少6000000000個數據列, 才能受益于叢集資料行存放區索引 (60 分佈*100*資料分割1000000資料列)。 如果您的 100 個分割資料表沒有 60 億個資料列，請減少資料分割數目，或考慮改用堆積資料表。
+另一個考慮事項是資料分割對於叢集資料行存放區資料表的影響。  資料分割之前，SQL 資料倉儲已將您的資料分成 60 個資料庫。  進一步分割會分割您的資料。  如果您將資料分割，請考慮到**每個**資料分割需要有至少 1 百萬個資料列，使用叢集資料行存放區索引才會有幫助。  如果您將資料表分割成100個數據分割，則您的資料表需要至少6000000000個數據列，才能受益于叢集資料行存放區索引（60分佈*100*資料分割1000000資料列）。 如果您的 100 個分割資料表沒有 60 億個資料列，請減少資料分割數目，或考慮改用堆積資料表。
 
 您的資料表載入一些資料之後，請依照下列步驟來識別並重建具有次佳叢集資料行存放區索引的資料表。
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>重建索引以提升區段品質
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>步驟 1:識別或建立會使用適當資源類別的使用者
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>步驟 1︰識別或建立會使用適當資源類別的使用者
 
 立即提升區段品質的快速方法就是重建索引。  上述檢視所傳回的 SQL 會傳回可用來重建索引的 ALTER INDEX REBUILD 陳述式。 重建索引時，請確定配置足夠的記憶體給重建索引的工作階段。  若要這樣做，請增加使用者的資源類別，該使用者有權將此資料表上的索引重建為建議的最小值。
 
@@ -226,9 +226,9 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>步驟 2:使用較高的資源類別使用者重建叢集資料行存放區索引
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>步驟 2︰使用較高的資源類別使用者重建叢集資料行存放區索引
 
-以步驟1的使用者身分登入 (例如 LoadUser), 這現在使用較高的資源類別, 並執行 ALTER INDEX 語句。 請確定這個使用者對於重建索引的資料表擁有 ALTER 權限。 這些範例示範如何重建整個資料行存放區索引或如何重建單一資料分割。 在大型資料表上，比較適合一次重建單一資料分割的索引。
+以步驟1的使用者身分登入（例如 LoadUser），這現在使用較高的資源類別，並執行 ALTER INDEX 語句。 請確定這個使用者對於重建索引的資料表擁有 ALTER 權限。 這些範例示範如何重建整個資料行存放區索引或如何重建單一資料分割。 在大型資料表上，比較適合一次重建單一資料分割的索引。
 
 或者，您可以[使用 CTAS](sql-data-warehouse-develop-ctas.md) 將資料表複製到新的資料表，而非重建索引。 哪一種方式最好？ 針對大量的資料，CTAS 的速度通常比 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql) 來得快。 針對較小量的資料，ALTER INDEX 較為容易使用，且您不需要交換出資料表。
 
@@ -254,7 +254,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 在 SQL 資料倉儲中重建索引是一項離線作業。  如需重建索引的詳細資訊，請參閱[資料行存放區索引重組](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) 中的 ALTER INDEX REBUILD 小節和 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)。
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>步驟 3：確認已改善叢集資料行存放區區段品質
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>步驟 3︰確認已改善叢集資料行存放區區段品質
 
 請重新執行已識別區段品質不佳之資料表的查詢，並驗證區段品質是否已改善。  如果區段品質並未改善，可能是您的資料表中的資料列過寬。  請考慮在重建索引時使用較高的資源類別或 DWU。
 

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e7f4d58ceab78aea7031d2c706504bdcb99434c6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a02e690e344678b512503f8c3beb57023a838ac0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520645"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686650"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -364,13 +364,13 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 
 某些 Microsoft 服務是從無法包含在網路規則中的網路進行操作。 您可以將這類受信任的 Microsoft 服務存取權授與儲存體帳戶，同時維護其他應用程式的網路規則。 這些受信任的服務接著可以使用增強式驗證，安全地連線到您的儲存體帳戶。 我們為 Microsoft 服務啟用了兩種類型的受信任存取。
 
-- 某些服務的資源（**如果已在您的訂用帳戶中註冊**）可以只在選取作業（例如寫入記錄檔或備份）上存取**相同訂用帳戶中**的儲存體帳戶。
-- 某些服務的資源實例可以藉由將[**RBAC 角色指派**](storage-auth-aad.md#assign-rbac-roles-for-access-rights)給資源實例，來授與對您儲存體帳戶的明確存取權。
+- 某些服務的資源在**您的訂用帳戶中註冊時**，可以存取**相同訂**用帳戶中的儲存體帳戶來進行選取作業，例如寫入記錄或備份。
+- 某些服務的資源可以藉由將[**RBAC 角色指派**](storage-auth-aad.md#assign-rbac-roles-for-access-rights)給資源實例，來授與對您儲存體帳戶的明確存取權。
 
 
-當您啟用 [**允許信任的 Microsoft 服務 ...** ] 例外狀況時，這些服務（如果已在您的訂用帳戶中註冊）會被授與存取權給選取作業的儲存體帳戶，如下所述：
+當您啟用 [**允許受信任的 Microsoft 服務 ...** ] 設定時，在與儲存體帳戶相同的訂用帳戶中註冊的下列服務資源，會被授與存取權給一組有限的作業，如下所述：
 
-| 服務                  | 資源提供者名稱     | 目的                            |
+| 服務                  | 資源提供者名稱     | 允許的作業                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure 備份             | Microsoft.RecoveryServices | 在 IAAS 虛擬機器中執行未受控磁碟備份與還原。 (若為受控磁碟則非必要)。 [詳細資訊](/azure/backup/backup-introduction-to-azure-backup)。 |
 | Azure 資料箱           | Microsoft.DataBox          | 使用資料箱，啟用將資料匯入至 Azure 的功能。 [詳細資訊](/azure/databox/data-box-overview)。 |
@@ -378,21 +378,20 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 | Azure Event Grid         | Microsoft.EventGrid        | 啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。 |
 | Azure 事件中心         | Microsoft.EventHub         | 使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。 |
 | Azure 檔案同步          | Microsoft.StorageSync      | 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復，以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft.HDInsight        | 為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [詳細資訊](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。 |
-| Azure Machine Learning | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [詳細資訊](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。   
+| Azure HDInsight          | Microsoft.HDInsight        | 為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [詳細資訊](/azure/hdinsight/hdinsight-hadoop-use-blob-storage)。 |
 | Azure 監視器            | Microsoft.Insights         | 允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。 |
 | Azure 網路         | Microsoft.Network          | 儲存及分析網路流量記錄。 [詳細資訊](/azure/network-watcher/network-watcher-packet-capture-overview)。 |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 當使用已啟用防火牆的快取、來源或目標儲存體帳戶時，啟用複寫以進行 Azure IaaS 虛擬機器的嚴重損壞修復。  [詳細資訊](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。 |
 
-如果您明確地將 RBAC 角色指派給該資源實例的[系統指派受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[**允許受信任的 Microsoft 服務**] 例外狀況可讓下列服務的特定實例存取儲存體帳戶。
+如果您明確地將 RBAC 角色指派給該資源實例的[系統指派受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[**允許受信任的 Microsoft 服務**] 設定可讓下列服務的特定實例存取儲存體帳戶。
 
 | 服務                        | 資源提供者名稱          | 目的                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft.DataFactory/factories | 允許透過 ADF 執行時間存取儲存體帳戶。 |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | 讓邏輯應用程式能夠存取儲存體帳戶。 |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | 讓邏輯應用程式能夠存取儲存體帳戶。 [詳細資訊](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md)。 |
 | Azure Machine Learning 服務 | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [詳細資訊](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。 | 
 | Azure SQL 資料倉儲       | Microsoft.Sql                   | 允許使用 PolyBase 從特定的 SQL Database 實例匯入和匯出資料。 [詳細資訊](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。 |
-| Azure 串流分析         | Microsoft.StreamAnalytics       | 允許將串流作業中的資料寫入 Blob 儲存體。 此功能目前為預覽狀態。 [詳細資訊](../../stream-analytics/blob-output-managed-identity.md)。 |
+| Azure 串流分析         | Microsoft.StreamAnalytics       | 允許將串流作業中的資料寫入 Blob 儲存體。 此功能目前為預覽狀態。 [詳細資訊](/azure/stream-analytics/blob-output-managed-identity.md)。 |
 
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取

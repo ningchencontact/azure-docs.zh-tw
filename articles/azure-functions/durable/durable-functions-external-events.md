@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e38f118e10c9d0e2347edb7cbaa5d7b68a0e63f2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1c2a2f08c31c427241bbd5e482906118a90ee178
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933403"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614841"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理外部事件
 
@@ -25,14 +25,14 @@ ms.locfileid: "70933403"
 
 ## <a name="wait-for-events"></a>等候事件
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 方法可讓協調器函式以非同步方式等候和接聽外部事件。 接聽協調器函式會宣告事件的「名稱」和預期收到的「資料形式」。
+[協調流程觸發](durable-functions-bindings.md#orchestration-trigger)程式系結的 `WaitForExternalEvent` （.net）和 `waitForExternalEvent` （JavaScript）方法，可讓協調器函式以非同步方式等候並接聽外來事件。 接聽協調器函式會宣告事件的「名稱」和預期收到的「資料形式」。
 
 ### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool approved = await context.WaitForExternalEvent<bool>("Approval");
     if (approved)
@@ -46,7 +46,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -70,7 +73,7 @@ module.exports = df.orchestrator(function*(context) {
 ```csharp
 [FunctionName("Select")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var event1 = context.WaitForExternalEvent<float>("Event1");
     var event2 = context.WaitForExternalEvent<bool>("Event2");
@@ -92,7 +95,10 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -120,7 +126,7 @@ module.exports = df.orchestrator(function*(context) {
 ```csharp
 [FunctionName("NewBuildingPermit")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string applicationId = context.GetInput<string>();
 
@@ -135,7 +141,10 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -154,7 +163,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 會無限期地等候一些輸入。  等候時可以安心卸載函式應用程式。 當此協調流程執行個體有事件抵達時，就會自動甦醒並立即處理事件。
+`WaitForExternalEvent` 會無限期地等候某些輸入。  等候時可以安心卸載函式應用程式。 當此協調流程執行個體有事件抵達時，就會自動甦醒並立即處理事件。
 
 > [!NOTE]
 > 如果函數應用程式使用使用情況方案，則協調器函式等候來自 `WaitForExternalEvent` (.NET) 或 `waitForExternalEvent` (JavaScript) 的工作時，不論等多久都不會產生費用。
@@ -163,7 +172,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>傳送事件
 
-[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 類別的 [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) 方法會傳送 `WaitForExternalEvent` (.NET) 或 `waitForExternalEvent` (JavaScript) 等待的事件。  `RaiseEventAsync` 方法接受 *eventName* 和 *eventData* 作為參數。 事件資料必須是 JSON 可序列化。
+[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的 `RaiseEventAsync` （.net）或 `raiseEvent` （javascript）方法會傳送 `WaitForExternalEvent` （.net）或 `waitForExternalEvent` （javascript）等候的事件。  `RaiseEventAsync` 方法接受 *eventName* 和 *eventData* 作為參數。 事件資料必須是 JSON 可序列化。
 
 以下的範例佇列觸發函式會將「核准」事件傳送至協調器函式執行個體。 協調流程執行個體識別碼來自佇列訊息的本文。
 
@@ -173,13 +182,16 @@ module.exports = df.orchestrator(function*(context) {
 [FunctionName("ApprovalQueueProcessor")]
 public static async Task Run(
     [QueueTrigger("approval-queue")] string instanceId,
-    [OrchestrationClient] DurableOrchestrationClient client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     await client.RaiseEventAsync(instanceId, "Approval", true);
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -193,10 +205,7 @@ module.exports = async function(context, instanceId) {
 在內部，`RaiseEventAsync` (.NET) 或 `raiseEvent` (JavaScript) 會將訊息加入佇列，供等候協調器函式取用。 如果執行個體不是在等候指定的「事件名稱」，事件訊息就會新增至記憶體內部佇列。 如果協調流程執行個體稍後開始接聽該「事件名稱」，它將會檢查佇列是否有事件訊息。
 
 > [!NOTE]
-> 如果沒有具有指定「執行個體識別碼」的協調流程執行個體，則會捨棄事件訊息。 如需這個行為的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-extension/issues/29)。 
-
-> [!WARNING]
-> 以 JavaScript 在本機開發時，您必須將環境變數 `WEBSITE_HOSTNAME` 設定為 `localhost:<port>`，例如 `localhost:7071`，以在 `DurableOrchestrationClient` 上使用方法。 如需此需求的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-js/issues/28) \(英文\)。
+> 如果沒有具有指定「執行個體識別碼」的協調流程執行個體，則會捨棄事件訊息。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics （先前稱為 SQL DW）中的資料倉儲單位（Dwu、Cdwu） |Microsoft Docs
+title: Azure Synapse Analytics （先前稱為 SQL DW）中的資料倉儲單位（Dwu、Cdwu）
 description: 選擇理想的資料倉儲單位 (DWU、cDWU) 數目以獲得最佳價格與效能，以及如何變更單位數目的建議。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,13 +10,13 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475743"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685335"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 
@@ -95,7 +95,7 @@ SQL 分析是一種向外延展系統，可以布建大量的計算和查詢相�
 >
 > 如果工作可以在計算節點之間分割，則查詢效能只會隨更多的平行處理增加。 如果您發現調整並未變更效能，則可能需要調整資料表設計和/或您的查詢。 如需查詢微調指引，請參閱[管理使用者查詢](sql-data-warehouse-overview-manage-user-queries.md)。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 變更資料倉儲單位需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) 中所述的權限。
 
@@ -215,4 +215,4 @@ DWU 變更可能需要幾分鐘的時間才能完成。 如果正在進行自動
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解管理效能，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)和[記憶體和並行存取限制](memory-and-concurrency-limits.md)。
+若要深入瞭解如何管理效能，請參閱[適用于工作負載管理的資源類別](resource-classes-for-workload-management.md)和 [記憶體和並行限制] 記憶體並行-limits.md）。

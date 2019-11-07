@@ -1,21 +1,22 @@
 ---
-title: SQL 資料倉儲中的透明資料加密 (入口網站) | Microsoft Docs
+title: 透明資料加密（入口網站）
 description: SQL 資料倉儲中的透明資料加密 (TDE)
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/30/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: rortloff
-ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 4435c5f246d6dd20fd0b2c560634f6980d6aa2ff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "65143169"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685777"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>開始使用 SQL 資料倉儲中的透明資料加密 (TDE)
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.locfileid: "65143169"
 > 
 > 
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>必要許可權
 您必須是系統管理員或 dbmanager 角色的成員，才能啟用透明資料加密 (TDE)。
 
 ## <a name="enabling-encryption"></a>啟用加密

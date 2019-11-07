@@ -4,8 +4,8 @@ description: 了解如何將驗證權杖從用戶端傳送到 Azure 媒體服務
 services: media-services
 keywords: content protection, DRM, token authentication, 內容保護, 權杖驗證
 documentationcenter: ''
-author: dbgeorge
-manager: jasonsue
+author: Juliako
+manager: femila
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: dwgeo
-ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: 15d4cbc372f5d5ec0d323170189329152ed436e3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463220"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684950"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>了解用戶端如何將權杖傳遞到 Azure 媒體服務金鑰傳遞服務
 客戶常常詢問播放程式如何將權杖傳遞至 Azure 媒體服務金鑰傳遞服務以進行認證，讓播放器能夠取得金鑰。 媒體服務支援簡單 Web 權杖 (SWT) 和 JSON Web 權杖 (JWT) 格式。 不論您在系統中使用的是一般加密或進階加密標準 (AES) 信封加密，權杖驗證都會套用至任何類型的金鑰。
@@ -29,7 +29,7 @@ ms.locfileid: "61463220"
 
 - 透過 HTTP 授權標頭。
     > [!NOTE]
-    > 根據 OAuth 2.0 規格，系統會預期 "Bearer" 前置詞。 某個範例播放程式的權杖設定已裝載於 Azure 媒體播放器[示範頁面](https://ampdemo.azureedge.net/) \(英文\) 上。 若要設定影片來源，請選擇 [AES (JWT 權杖)]  或 [AES (SWT 權杖)]  。 權杖會透過授權標頭來傳遞。
+    > 根據 OAuth 2.0 規格，系統會預期 "Bearer" 前置詞。 某個範例播放程式的權杖設定已裝載於 Azure 媒體播放器[示範頁面](https://ampdemo.azureedge.net/) \(英文\) 上。 若要設定影片來源，請選擇 [AES (JWT 權杖)] 或 [AES (SWT 權杖)]。 權杖會透過授權標頭來傳遞。
 
 - 透過新增含有 “token=tokenvalue” 的 URL 查詢參數。  
     > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: 使用保留原則管理時態表中的歷史資料 | Microsoft Docs
+title: 使用保留原則管理時態表中的歷史資料
 description: 了解如何使用時態保留原則來控制歷史資料。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2568f3be96604856d5353f7f5f94926162880bfd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566383"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687005"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留原則管理時態表中的歷史資料
 
@@ -73,7 +73,7 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Azure SQL Database 可讓您使用不同的時間單位來指定保留期限︰DAYS、WEEKS、MONTHS 和 YEARS。 如果省略 HISTORY_RETENTION_PERIOD，則假設為 INFINITE 保留。 您也可以明確使用 INFINITE 關鍵字。
+Azure SQL Database 可讓您使用不同的時間單位來指定保留期限︰DAYS、WEEKS、MONTHS 年 YEARS。 如果省略 HISTORY_RETENTION_PERIOD，則假設為 INFINITE 保留。 您也可以明確使用 INFINITE 關鍵字。
 
 在某些情況下，您可能想要在建立資料表之後設定保留，或變更先前設定的值。 在此情況下，請使用 ALTER TABLE 陳述式︰
 
@@ -116,11 +116,11 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 對於具有資料列存放區叢集索引的資料表，清除工作需有從對應 SYSTEM_TIME 時段結束的資料行開始的索引。 如果沒有這種索引，您就無法設定有限保留期限：
 
-*訊息 13765，層級 16，狀態 1 <br></br> 在由系統設定版本的時態表 'temporalstagetestdb.dbo.WebsiteUserInfo' 上，設定有限的保留期限失敗，因為記錄資料表 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' 不包含必要的叢集索引。在記錄資料表上，請考慮建立從符合 SYSTEM_TIME 時段結束的資料行開始的叢集資料行存放區或 B 型樹狀目錄索引。*
+*訊息13765，層級16，狀態 1 <br></br> 設定在系統建立版本的時態表 ' temporalstagetestdb.dbo.websiteuserinfohistory ' 上的有限保留期限失敗，因為歷程記錄資料表 ' temporalstagetestdb.dbo.websiteuserinfohistory. WebsiteUserInfo ' 不是包含必要的叢集索引。請考慮建立叢集資料行存放區或 B 型樹狀目錄索引，其開頭為符合記錄資料表上 SYSTEM_TIME 期間結尾的資料行。*
 
 請務必注意，Azure SQL Database 建立的預設記錄資料表已有相容於保留原則的叢集索引。 如果您嘗試在設定有限保留期限的資料表上移除該索引，作業會失敗並傳回下列錯誤︰
 
-*訊息 13766，層級 16，狀態 1 <br></br> 無法卸除叢集索引 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory'，因為它正用於自動清除過時資料。如果您需要卸除此索引，請在由系統設定版本的對應時態表上，考慮將 HISTORY_RETENTION_PERIOD 設定為 INFINITE。*
+*訊息13766，層級16，狀態 1 <br></br> 無法卸載叢集索引 ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory '，因為它正用於自動清除過時資料。如果您需要卸載此索引，請在對應的系統版本設定時態表上，考慮將 HISTORY_RETENTION_PERIOD 設為無限。*
 
 如果歷史資料列依遞增順序插入 (依時段結束資料行排序)，完全以 SYSTEM_VERSIONIOING 機制填入記錄資料表時就是如此，則會以最佳方式清除叢集資料行存放區索引。 如果記錄資料表中的資料列未依時段結束資料行排序 (可能是您已移轉現有的歷史資料)，您應該在已正確排序的 B 型樹狀目錄資料列存放區索引上，重新建立叢集資料行存放區索引，以發揮最佳效能。
 

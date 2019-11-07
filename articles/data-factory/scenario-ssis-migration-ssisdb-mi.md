@@ -1,5 +1,5 @@
 ---
-title: 以 Azure SQL Database 受控實例作為資料庫工作負載目的地的 SSIS 遷移 |Microsoft Docs
+title: 以 Azure SQL Database 受控實例作為資料庫工作負載目的地的 SSIS 遷移
 description: 使用 Azure SQL Database 受控實例作為資料庫工作負載目的地的 SSIS 遷移。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c1bb056909641ad0b8654e84f35c4fbd5b38db82
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968519"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684393"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>以 Azure SQL Database 受控實例作為資料庫工作負載目的地的 SSIS 遷移
 
@@ -27,7 +27,7 @@ ms.locfileid: "70968519"
 
 ## <a name="migrate-ssis-catalog-ssisdb"></a>遷移 SSIS 目錄（SSISDB）
 
-SSISDB 遷移可以使用 DMS 來完成，如下列文章所述：[將 SSIS 套件遷移至 Azure SQL Database 受控實例](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)。
+SSISDB 遷移可以使用 DMS 來完成，如將[SSIS 封裝遷移至 Azure SQL Database 受控實例一](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)文中所述。
 
 ## <a name="ssis-jobs-to-azure-sql-database-managed-instance-agent"></a>Azure SQL Database 受控實例代理程式的 SSIS 作業
 

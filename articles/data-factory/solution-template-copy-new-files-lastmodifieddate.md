@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 複製新的和已變更的檔案 |Microsoft Docs
+title: 使用 Azure Data Factory 複製新的和已變更的檔案
 description: 瞭解如何使用解決方案範本，以 Azure Data Factory LastModifiedDate 來複製新的和變更的檔案。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030067"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684225"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>使用 Azure Data Factory 複製新的和已變更的檔案
 
@@ -34,8 +34,8 @@ ms.locfileid: "72030067"
 範本會定義四個參數：
 -  *FolderPath_Source*是您可以從來源存放區讀取檔案的資料夾路徑。 您必須將預設值取代為您自己的資料夾路徑。
 -  *FolderPath_Destination*是您要將檔案複製到目的地存放區的資料夾路徑。 您必須將預設值取代為您自己的資料夾路徑。
--  *LastModified_From*是用來選取 LastModifiedDate 屬性等於或等於此日期時間值的檔案。  為了只選取最近未複製的新檔案，此日期時間值可以是上次觸發管線的時間。 您可以在 UTC 時區中，將預設值 ' 2019-02-01T00：00： 00Z ' 取代為您預期的 LastModifiedDate。 
--  *LastModified_To*是用來選取其 LastModifiedDate 屬性早于此日期時間值的檔案。 為了只選取最近尚未複製的新檔案，此日期時間值可以是目前的時間。  您可以在 UTC 時區中，將預設值 ' 2019-02-01T00：00： 00Z ' 取代為您預期的 LastModifiedDate。 
+-  *LastModified_From*可用來選取其 LastModifiedDate 屬性已晚于或等於此日期時間值的檔案。  為了只選取最近未複製的新檔案，此日期時間值可以是上次觸發管線的時間。 您可以在 UTC 時區中，將預設值 ' 2019-02-01T00：00： 00Z ' 取代為您預期的 LastModifiedDate。 
+-  *LastModified_To*可用來選取其 LastModifiedDate 屬性早于此日期時間值的檔案。 為了只選取最近尚未複製的新檔案，此日期時間值可以是目前的時間。  您可以在 UTC 時區中，將預設值 ' 2019-02-01T00：00： 00Z ' 取代為您預期的 LastModifiedDate。 
 
 ## <a name="how-to-use-this-solution-template"></a>如何使用此解決方案範本
 
@@ -62,8 +62,8 @@ ms.locfileid: "72030067"
 6. 選取 [ **Debug**]，寫入**參數**的值，然後選取 **[完成]** 。  在下圖中，我們會設定參數，如下所示。
    - **FolderPath_Source** =  **/source/**
    - **FolderPath_Destination** =  **/destination/**
-   - **LastModified_From** =  **2019-02-01T00:00:00Z**
-   - **LastModified_To** = **2019-03-01T00:00:00Z**
+   - **LastModified_From** =  **2019-02-01T00：00： 00Z**
+   - **LastModified_To** = **2019-03-01T00：00： 00Z**
     
      此範例表示在*2019-02-01T00：00： 00Z*和*2019-03-01T00：00： 00Z*之間的時間範圍內最後修改過的檔案，將會從 */source/* 資料夾複製到資料夾 */destination/* 。  您可以使用自己的參數來取代這些。
     
@@ -88,8 +88,8 @@ ms.locfileid: "72030067"
 11. 寫入**觸發程式執行參數**的值，如下所示，然後選取 **[完成]** 。
     - **FolderPath_Source** =  **/source/** 。  您可以將取代為您在來源資料存放區中的資料夾。
     - **FolderPath_Destination** =  **/destination/** 。  您可以將取代為目的地資料存放區中的資料夾。
-    - **LastModified_From** =   **\@trigger （）. windowStartTime**。  它是來自觸發程式的系統變數，用以判斷上次觸發管線的時間。
-    - **LastModified_To** =  **\@trigger （）. .windowendtime**。  這是來自觸發程式的系統變數，可決定這次觸發管線的時間。
+    - **LastModified_From** =   **\@觸發程式（）。 windowStartTime**。  它是來自觸發程式的系統變數，用以判斷上次觸發管線的時間。
+    - **LastModified_To** =  **\@觸發程式（）。 .windowendtime**。  這是來自觸發程式的系統變數，可決定這次觸發管線的時間。
     
     ![輸入參數](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

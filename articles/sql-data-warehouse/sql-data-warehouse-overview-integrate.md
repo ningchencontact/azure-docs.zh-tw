@@ -1,6 +1,6 @@
 ---
-title: 使用 SQL 資料倉儲建置整合式解決方案 | Microsoft Docs
-description: '工具以及提供可與 SQL 資料倉儲整合之解決方案的合作夥伴。 '
+title: 建立整合式解決方案
+description: 具有與 Azure SQL 資料倉儲整合之解決方案的工具和合作夥伴。
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 43a714ae175e0d60f20b5e7ad79e1fa90125b0f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6e159e0e254ae8b2515515dfaeb2c514e0f25e0b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873330"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685636"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>將其他服務與 SQL 資料倉儲整合
 除了其核心功能，SQL 資料倉儲可讓使用者整合許多其他 Azure 中的服務。 其中一些服務包括：
@@ -31,7 +32,7 @@ SQL 資料倉儲會持續與整個 Azure 中的更多服務，還有更多[整�
 Power BI 整合可讓您結合 SQL 資料倉儲的計算能力以及 Power BI 的動態報告和視覺效果。 目前 Power BI 整合包括：
 
 * **直接連接**：針對 SQL 資料倉儲進行之邏輯下推的更進階連接。 下推可提供更快速且更大規模的分析。
-* **在 Power BI 中開啟**：[在 Power BI 中開啟] 按鈕會傳遞執行個體資訊給 Power BI，提供簡化的連線方式。
+* **在 Power BI 中開啟**： [在 Power BI 中開啟] 按鈕會將實例資訊傳遞給 Power BI，以簡化連接的方式。
 
 如需詳細資訊，請參閱[與 Power BI 整合](sql-data-warehouse-get-started-visualize-with-power-bi.md)或 [Power BI 文件](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/)。
 
@@ -54,7 +55,7 @@ Azure Machine Learning 是完全受控的分析服務，可讓您使用一組大
 ## <a name="azure-stream-analytics"></a>Azure 串流分析
 Azure 串流分析是複雜、完全受控的基礎結構，可處理和取用產生自 Azure 事件中樞的事件資料。  與 SQL 資料倉儲的整合可讓串流資料有效地處理並與相關資料一起儲存以啟用更深入、更進階的分析。  
 
-* **作業輸出：** 將來自資料流分析工作的輸出直接傳送到 SQL 資料倉儲。
+* **工作輸出：** 將來自資料流分析工作的輸出直接傳送到 SQL 資料倉儲。
 
 如需詳細資訊，請參閱[與 Azure 串流分析整合](sql-data-warehouse-integrate-azure-stream-analytics.md)。
 
