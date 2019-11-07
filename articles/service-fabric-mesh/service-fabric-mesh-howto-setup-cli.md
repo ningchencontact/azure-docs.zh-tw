@@ -1,6 +1,6 @@
 ---
 title: 設定 Azure Service Fabric Mesh CLI | Microsoft Docs
-description: 了解如何設定 Azure Service Fabric Mesh CLI。
+description: 必須使用 Service Fabric Mesh 命令列介面 (CLI)，才能在本機和 Azure Service Fabric Mesh 中部署及管理資源。 設定方式如下。
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,23 +9,23 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5c9733a5fc5aec337a326fe39e78c3e5c0b8ca4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173778"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686298"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>設定 Service Fabric Mesh CLI
-必須使用 Service Fabric Mesh 命令列介面 (CLI)，才能在本機和 Azure Service Fabric Mesh 中部署及管理資源。 
+必須使用 Service Fabric Mesh 命令列介面 (CLI)，才能在本機和 Azure Service Fabric Mesh 中部署及管理資源。 設定方式如下。
 
-有三種類型的 CLI 可供使用，其摘要說明請見下表。 
+有三種類型的 CLI 可供使用，其摘要說明請見下表。
 
 | CLI 模組 | 目標環境 |  說明 | 
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | 可讓您在 Azure Service Fabric Mesh 環境中部署應用程式和管理資源的主要 CLI。 
 | sfctl | 本機叢集 | 可讓您對本機叢集部署及測試 Service Fabric 資源的 Service Fabric CLI。  
-| Maven CLI | 本機叢集和 Azure Service Fabric Mesh | `az mesh` 和`sfctl`的包裝函式，可讓 JAVA 開發人員使用熟悉的命令列體驗來進行本機和 Azure 開發體驗。  
+| Maven CLI | 本機叢集和 Azure Service Fabric Mesh | `az mesh` 和 `sfctl` 的包裝函式，可讓 JAVA 開發人員使用熟悉的命令列體驗來進行本機和 Azure 開發體驗。  
 
 針對預覽版本，Azure Service Fabric Mesh CLI 是以 Azure CLI 擴充功能的形式撰寫。 您可以將其安裝在 Azure Cloud Shell 或 Azure CLI 的本機安裝上。 
 

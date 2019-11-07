@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL 資料倉儲排序叢集資料行存放區索引的效能微調 |Microsoft Docs
+title: 使用已排序叢集資料行存放區索引的效能微調
 description: 當您使用已排序的叢集資料行存放區索引來改善查詢效能時，應該知道的建議和考慮。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595377"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685998"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用已排序叢集資料行存放區索引的效能微調  
 
@@ -43,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> 在已排序的 CCI 資料表中，不會自動排序 DML 或資料載入作業所產生的新資料。  使用者可以重建已排序的 CCI，以排序資料表中的所有資料。  在 Azure SQL 資料倉儲中，資料行存放區索引重建是一項離線作業。  針對資料分割資料表，一次重建就會執行一個資料分割。  分割區中正在重建的資料會處於「離線」狀態，且在該分割區的重建完成之前無法使用。 
+> 在已排序的 CCI 資料表中，從相同的 DML 或資料載入作業批次產生的新資料會在該批次中排序，而資料表中的所有資料都沒有全域排序。  使用者可以重建已排序的 CCI，以排序資料表中的所有資料。  在 Azure SQL 資料倉儲中，資料行存放區索引重建是一項離線作業。  針對資料分割資料表，一次重建就會執行一個資料分割。  分割區中正在重建的資料會處於「離線」狀態，且在該分割區的重建完成之前無法使用。 
 
 ## <a name="query-performance"></a>查詢效能
 
@@ -54,7 +55,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 1. 述詞資料行和已排序的 CCI 資料行相同。  
 1. 述詞資料行的使用順序與已排序之 CCI 資料行的資料行序數相同。  
  
-在此範例中，資料表 T1 具有以 Col_C、Col_B 和 Col_A 順序排序的叢集資料行存放區索引。
+在此範例中，資料表 T1 的叢集資料行存放區索引是以 Col_C、Col_B 和 Col_A 的順序排序。
 
 ```sql
 
@@ -63,7 +64,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-查詢1的效能比其他3個查詢更能受益于已排序的 CCI。 
+查詢1的效能比其他三個查詢更能受益于已排序的 CCI。 
 
 ```sql
 -- Query #1: 
@@ -112,19 +113,19 @@ OPTION (MAXDOP 1);
 - 先依照排序關鍵字預先排序資料，再將它們載入 Azure SQL 資料倉儲資料表。
 
 
-以下是已排序的 CCI 資料表散發範例，其中有零個區段重迭下列建議。 已排序的 CCI 資料表會在 DWU1000c 資料庫中，透過使用 MAXDOP 1 和 xlargerc 的20個堆積資料表中的 CTAS 來建立。  CCI 會在沒有重複專案的 BIGINT 資料行上排序。  
+以下是已排序的 CCI 資料表散發範例，其中有零個區段重迭下列建議。 已排序的 CCI 資料表是在 DWU1000c 資料庫中，透過使用 MAXDOP 1 和 xlargerc 的 20 GB 堆積資料表中的 CTAS 來建立。  CCI 會在沒有重複專案的 BIGINT 資料行上排序。  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>在大型資料表上建立已排序的 CCI
 建立已排序的 CCI 是一種離線作業。  對於沒有分割區的資料表，使用者必須等到排序的 CCI 建立程式完成之後，才能存取資料。   針對資料分割資料表，由於引擎會依資料分割建立已排序的 CCI 分割區，因此，使用者仍可存取已排序的 CCI 建立不在處理中的資料。   您可以使用此選項，將在大型資料表上排序的 CCI 建立期間的停機時間降至最低： 
 
-1.  在目標大型資料表上建立資料分割（稱為 Table_A）。
+1.  在目標大型資料表（稱為 Table_A）上建立分割區。
 2.  使用與資料表 A 相同的資料表和資料分割架構，建立空的已排序 CCI 資料表（稱為 Table_B）。
 3.  將一個資料分割從資料表 A 切換到資料表 B。
-4.  在 < Table_B 上執行 ALTER INDEX < Ordered_CCI_Index > > 在資料表 B 上重建 PARTITION = < Partition_ID > 以重建切換的資料分割。  
+4.  在 < 上執行 ALTER INDEX < Ordered_CCI_Index > Table_B > 重建資料分割 = < Partition_ID > 在資料表 B 上重建切換的資料分割。  
 5.  針對 Table_A 中的每個資料分割，重複步驟3和4。
-6.  當所有分割區從 Table_A 切換到 Table_B 並已重建之後，請卸載 Table_A，並將 Table_B 重新命名為 Table_A。 
+6.  當所有分割區從 Table_A 切換到 Table_B 並已重建之後，請卸載 Table_A，然後將 Table_B 重新命名為 Table_A。 
 
 ## <a name="examples"></a>範例
 

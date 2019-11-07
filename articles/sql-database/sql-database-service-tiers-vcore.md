@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 服務 vCore 模型總覽 |Microsoft Docs
+title: 'Azure SQL Database 服務 vCore 模型總覽 '
 description: VCore 購買模型可讓您獨立調整計算和儲存體資源、符合內部部署效能，並將價格優化。
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bbdd565a861004014ca4161856bba83ec0be511
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4795e709e1f43ebd952e37e36e2dc81a428dd539
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496074"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687246"
 ---
 # <a name="vcore-model-overview"></a>vCore 模型總覽
 
