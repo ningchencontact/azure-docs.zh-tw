@@ -1,5 +1,5 @@
 ---
-title: 分散式資料表設計指引 - Azure SQL 資料倉儲 | Microsoft Docs
+title: 分散式資料表設計指引
 description: 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4b322415592a7202387cb6776d2c040cda765b27
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479360"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685474"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
 
-本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構](massively-parallel-processing-mpp-architecture.md)。 
+本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[Azure SQL 資料倉儲大規模平行處理（MPP）架構](massively-parallel-processing-mpp-architecture.md)。 
 
 ## <a name="what-is-a-distributed-table"></a>什麼是分散式資料表？
 分散式資料表會顯示為單一資料表，但資料列實際上會儲存在 60 個散發。 這些資料列是透過雜湊或循環配置資源演算法來散發。  
@@ -29,7 +30,7 @@ ms.locfileid: "68479360"
 
 另一個資料表儲存體選項是將小型資料表複寫到所有計算節點。 如需詳細資訊，請參閱[複寫資料表的設計指引](design-guidance-for-replicated-tables.md)。 若要在三個選項中快速做選擇，請參閱[資料表概觀](sql-data-warehouse-tables-overview.md)中的分散式資料表。 
 
-在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請思考一下下列問題：
+在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請考慮下列問題：
 
 - 資料表的大小為何？   
 - 資料表的重新整理頻率為何？   

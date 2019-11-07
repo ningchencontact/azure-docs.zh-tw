@@ -1,5 +1,5 @@
 ---
-title: 教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲 | Microsoft Docs
+title: 教學課程：載入紐約計程車資料
 description: 教學課程會使用 Azure 入口網站和 SQL Server Management Studio 將紐約計程車資料從全域 Azure blob 載入至 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e799d84aee9ba4d3bfb00ddfad358c9b90c3d59
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5bf1a600bf57ecb598aac485e11f3618dda7244e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482397"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686085"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲
 
@@ -44,7 +45,7 @@ ms.locfileid: "73482397"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>建立空白 SQL 資料倉儲
 
-Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
+建立 Azure SQL 資料倉儲時，會使用一組已定義的 [compute resources] 記憶體並行 limits.md）。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
 
 請遵循下列步驟來建立空白的 SQL 資料倉儲。 
 

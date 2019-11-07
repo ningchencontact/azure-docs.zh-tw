@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料 | Microsoft Docs
+title: 使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 description: 說明如何使用 Azure Data Factory 中的 Hadoop 資料流活動，藉由在 Hadoop 叢集上執行 Hadoop 資料流程式來轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6977f7a6ad7fd79a51083bf2ef71c539e04837e5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848241"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683794"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -68,11 +68,11 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight 資料�
 
 ## <a name="syntax-details"></a>語法詳細資料
 
-| 屬性          | 描述                              | 必要項 |
+| 屬性          | 說明                              | 必要 |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | 活動的名稱                     | 是      |
-| description       | 說明活動用途的文字 | 否       |
-| type              | 針對 Hadoop 資料流活動，活動類型是 HDInsightStreaming | 是      |
+| 名稱              | 活動的名稱                     | 是      |
+| 說明       | 說明活動用途的文字 | 否       |
+| 類型              | 針對 Hadoop 資料流活動，活動類型是 HDInsightStreaming | 是      |
 | linkedServiceName | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | mapper            | 指定對應程式可執行檔的名稱 | 是      |
 | reducer           | 指定減壓器可執行檔的名稱 | 是      |
@@ -81,9 +81,9 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight 資料�
 | filePath          | 提供 fileLinkedService 引用之 Azure 儲存體中儲存的對應程式、結合子和減壓器程式的路徑陣列。 路徑區分大小寫。 | 是      |
 | input             | 指定對應程式輸入檔案的 WASB 路徑。 | 是      |
 | output            | 指定減壓器輸出檔案的 WASB 路徑。 | 是      |
-| getDebugInfo      | 指定何時將記錄檔複製到 HDInsight 叢集所使用 (或) scriptLinkedService 所指定的 Azure 儲存體。 允許的值：None、Always 或 Failure。 預設值：無。 | 否       |
+| getDebugInfo      | 指定何時將記錄檔複製到 HDInsight 叢集所使用 (或) scriptLinkedService 所指定的 Azure 儲存體。 允許的值︰None、Always 或 Failure。 預設值：None。 | 否       |
 | arguments         | 指定 Hadoop 作業的引數陣列。 引數會以命令列引數的方式傳遞給每項工作。 | 否       |
-| defines           | 指定參數作為機碼/值組，以供在 Hive 指令碼內參考。 | 否       | 
+| 定義           | 指定參數作為機碼/值組，以供在 Hive 指令碼內參考。 | 否       | 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章，其說明如何以其他方式轉換資料： 

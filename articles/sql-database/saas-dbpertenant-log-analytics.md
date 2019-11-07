@@ -1,5 +1,5 @@
 ---
-title: 搭配 SQL Database 多租使用者應用程式使用 Azure 監視器記錄 |Microsoft Docs
+title: 搭配 SQL Database 多租使用者應用程式使用 Azure 監視器記錄
 description: 設定和使用多租使用者 Azure SQL Database SaaS 應用程式的 Azure 監視器記錄
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d7b568424d5e33c19efc9d9d9c21d0023459b6c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570510"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692143"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>設定和使用多租使用者 SQL Database SaaS 應用程式的 Azure 監視器記錄
 
-在本教學課程中, 您會設定及使用[Azure 監視器記錄](/azure/log-analytics/log-analytics-overview)來監視彈性集區和資料庫。 本教學課程是以[效能監視與管理教學課程](saas-dbpertenant-performance-monitoring.md)為基礎。 它會示範如何使用 Azure 監視器記錄來加強 Azure 入口網站中提供的監視和警示。 Azure 監視器記錄檔支援監視數以千計的彈性集區和數十萬個資料庫。 Azure 監視器記錄提供單一監視解決方案, 可以跨多個 Azure 訂用帳戶整合不同應用程式和 Azure 服務的監視。
+在本教學課程中，您會設定及使用[Azure 監視器記錄](/azure/log-analytics/log-analytics-overview)來監視彈性集區和資料庫。 本教學課程是以[效能監視與管理教學課程](saas-dbpertenant-performance-monitoring.md)為基礎。 它會示範如何使用 Azure 監視器記錄來加強 Azure 入口網站中提供的監視和警示。 Azure 監視器記錄檔支援監視數以千計的彈性集區和數十萬個資料庫。 Azure 監視器記錄提供單一監視解決方案，可以跨多個 Azure 訂用帳戶整合不同應用程式和 Azure 服務的監視。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "68570510"
 
 針對 Azure SQL Database，Azure 入口網站中提供了有關資料庫和集區的監視與警示功能。 這個內建的監視與警示功能相當方便，但它也是資源特定的功能。 這意謂著它較不適合用來監視大型安裝項目，或是提供跨資源和訂用帳戶的合併檢視。
 
-針對高容量的案例, 您可以使用 Azure 監視器記錄來進行監視和警示。 Azure 監視器是個別的 Azure 服務, 可針對在工作區中收集的診斷記錄和遙測, 從可能的許多服務進行分析。 Azure 監視器記錄檔提供內建的查詢語言和資料視覺化檢視, 可讓您進行運算元據分析。 「SQL 分析」解決方案提供數個預先定義的彈性集區及資料庫監視與警示檢視和查詢。 Azure 監視器記錄也會提供自訂的視圖設計工具。
+針對高容量的案例，您可以使用 Azure 監視器記錄來進行監視和警示。 Azure 監視器是個別的 Azure 服務，可針對在工作區中收集的診斷記錄和遙測，從可能的許多服務進行分析。 Azure 監視器記錄檔提供內建的查詢語言和資料視覺化檢視，可讓您進行運算元據分析。 「SQL 分析」解決方案提供數個預先定義的彈性集區及資料庫監視與警示檢視和查詢。 Azure 監視器記錄也會提供自訂的視圖設計工具。
 
 OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口網站中開啟 Log Analytics 工作區和分析解決方案。 Azure 入口網站是較新的存取點，但在某些方面可能落後於 Operations Management Suite 入口網站。
 
@@ -52,13 +52,13 @@ OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口�
 
    a. 設定 **$DemoScenario = 1**，佈建一批租用戶。
 
-   b. 若要執行指令碼並部署額外的 17 個租用戶，請按 F5。
+   b.這是另一個 C# 主控台應用程式。 若要執行指令碼並部署額外的 17 個租用戶，請按 F5。
 
 1. 現在，啟動負載產生器，以在所有租用戶上執行模擬負載。
 
-    a. 設定 **$DemoScenario = 2**,_產生一般強度負載 (大約30個 DTU)_ 。
+    a. 設定 **$DemoScenario = 2**，_產生一般強度負載（大約30個 DTU）_ 。
 
-    b. 若要執行指令碼，請按 F5。
+    b.這是另一個 C# 主控台應用程式。 若要執行指令碼，請按 F5。
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>取得每一租用戶一個資料庫的 Wingtip Tickets SaaS 應用程式指令碼
 
@@ -76,17 +76,17 @@ Azure 監視器是必須設定的個別服務。 Azure 監視器記錄會收集 
 ## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>使用 Log Analytics 工作區和 SQL 分析解決方案來監視集區和資料庫
 
 
-在此練習中, 請在 Azure 入口網站中開啟 Log Analytics 工作區, 以查看針對資料庫和集區搜集的遙測資料。
+在此練習中，請在 Azure 入口網站中開啟 Log Analytics 工作區，以查看針對資料庫和集區搜集的遙測資料。
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [**所有服務**] 以開啟 [Log Analytics 工作區]。 然後搜尋 Log Analytics。
 
    ![開啟 Log Analytics 工作區](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. 選取名為 wtploganalytics-&lt;user&gt; 的工作區。
+1. 選取名為 wtploganalytics-_user&lt;&gt;_ 的工作區。
 
 1. 選取 [**總覽**] 以在 Azure 入口網站中開啟 log analytics 解決方案。
 
-   ![總覽](media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![概觀](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > 解決方案可能需要幾分鐘的時間才會變成作用中。 
@@ -132,11 +132,11 @@ Azure 監視器是必須設定的個別服務。 Azure 監視器記錄會收集 
 
 在 Log Analytics 工作區中，您可以進一步探索記錄和計量資料。 
 
-Azure 監視器記錄中的監視和警示是以工作區中資料的查詢為基礎, 不同于 Azure 入口網站中的每個資源上定義的警示。 由於警示是以查詢為基礎，因此您可以定義可查看所有資料庫的單一警示，而不是為每個資料庫定義一個警示。 查詢僅受限於工作區中可用的資料。
+Azure 監視器記錄中的監視和警示是以工作區中資料的查詢為基礎，不同于 Azure 入口網站中的每個資源上定義的警示。 由於警示是以查詢為基礎，因此您可以定義可查看所有資料庫的單一警示，而不是為每個資料庫定義一個警示。 查詢僅受限於工作區中可用的資料。
 
-如需如何使用 Azure 監視器記錄來查詢和設定警示的詳細資訊, 請參閱[使用 Azure 監視器記錄中的警示規則](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)。
+如需如何使用 Azure 監視器記錄來查詢和設定警示的詳細資訊，請參閱[使用 Azure 監視器記錄中的警示規則](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)。
 
-根據工作區中的資料量, Azure 監視器記錄 SQL Database 費用。 在本教學課程中，您已建立一個免費工作區，其每天的限制為 500 MB。 在達到該限制之後，就不會再將資料新增至該工作區。
+根據工作區中的資料量，Azure 監視器記錄 SQL Database 費用。 在本教學課程中，您已建立一個免費工作區，其每天的限制為 500 MB。 在達到該限制之後，就不會再將資料新增至該工作區。
 
 
 ## <a name="next-steps"></a>後續步驟

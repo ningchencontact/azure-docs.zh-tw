@@ -1,5 +1,5 @@
 ---
-title: SQL Database 中的擴充事件 | Microsoft Docs
+title: SQL Database 中的擴充事件
 description: 描述 Azure SQL Database 中的擴充事件 (XEvents)，以及事件工作階段與 Microsoft SQL Server 中的事件工作階段有如何的些微不同。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 64cfcd9451416a6eb35301268b285bd00cf0cad4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566081"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686774"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -31,10 +31,10 @@ ms.locfileid: "68566081"
 
 如需有關 Azure SQL Database 和 Microsoft SQL Server 之擴充事件的其他資訊，請參閱：
 
-- [快速入門：SQL Server 中的擴充事件](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Quick Start: Extended events in SQL Server (快速入門：SQL Server 中的擴充事件)](https://msdn.microsoft.com/library/mt733217.aspx)
 - [擴充事件](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本主題假設您已經有一些下列項目的知識：
 
@@ -81,7 +81,7 @@ ms.locfileid: "68566081"
 
 擴充事件功能受到多個 [目錄檢視](https://msdn.microsoft.com/library/ms174365.aspx)支援。 目錄檢視會告訴您目前資料庫中使用者建立事件工作階段的 *中繼資料或定義* 的相關資訊。 檢視不會傳回作用中事件工作階段的執行個體的相關資訊。
 
-| 名稱<br/>目錄檢視的名稱 | 描述 |
+| 名稱<br/>目錄檢視的名稱 | 說明 |
 |:--- |:--- |
 | **sys.database_event_session_actions** |針對事件工作階段的每個事件上的每個動作傳回資料列。 |
 | **sys.database_event_session_events** |針對事件工作階段中的每個事件傳回資料列。 |
@@ -89,13 +89,13 @@ ms.locfileid: "68566081"
 | **sys.database_event_session_targets** |針對事件工作階段的每個事件目標傳回資料列。 |
 | **sys.database_event_sessions** |針對 SQL Database 資料庫中的每個事件工作階段傳回資料列。 |
 
-在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_\_ 而不是 .database\_ 的名稱。 名稱模式類似 **sys.server_event_%** 。
+在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_ *\_* 而不是 .database *\_* 的名稱。 名稱模式類似 **sys.server_event_%** 。
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>新的動態管理檢視 [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) 。 DMV 會告訴您 *作用中* 事件工作階段的相關資訊。
 
-| DMV 的名稱 | 描述 |
+| DMV 的名稱 | 說明 |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |會傳回事件工作階段動作的相關資訊。 |
 | **sys.dm_xe_database_session_events** |會傳回工作階段事件的相關資訊。 |
@@ -169,9 +169,9 @@ SELECT
 
 您針對 Azure 儲存體容器產生的 SAS 權杖必須指定權限的 **rwl** 。 **rwl** 值會提供下列權限：
 
-- 閱讀
-- 撰寫
-- List
+- 讀取
+- 寫入
+- 列出
 
 ## <a name="performance-considerations"></a>效能考量
 

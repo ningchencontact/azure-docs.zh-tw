@@ -1,5 +1,5 @@
 ---
-title: SQL Database 災害復原 | Microsoft Docs
+title: SQL Database 嚴重損壞修復
 description: 了解如何使用 Azure SQL Database 的作用中異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
-ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bc4968541c29e3bf18eb4caca2abe648d17342a4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568828"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690595"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 
@@ -33,11 +33,11 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 > 如果您使用區域備援進階或業務關鍵資料庫或集區，系統就會自動執行復原程序，但這份資料的其餘部分不適用。
 
 > [!NOTE]
-> 主要和次要資料庫必須有相同的服務層級。 此外, 強烈建議使用與主要複本相同的計算大小 (Dtu 或虛擬核心) 來建立次要資料庫。 如需詳細資訊, 請參閱[升級或降級為主資料庫](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)。
+> 主要和次要資料庫必須有相同的服務層級。 此外，強烈建議使用與主要複本相同的計算大小（Dtu 或虛擬核心）來建立次要資料庫。 如需詳細資訊，請參閱[升級或降級為主資料庫](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)。
 
 > [!NOTE]
 > 使用一或多個容錯移轉群組來管理多個資料庫的容錯移轉。
-> 如果您在容錯移轉群組中新增現有的異地複寫關聯性，請確定異地次要資料庫所設定的服務層級與計算大小和主要資料庫相同。 如需詳細資訊, 請參閱[使用自動容錯移轉群組來啟用多個資料庫的透明和協調容錯移轉](sql-database-auto-failover-group.md)。
+> 如果您在容錯移轉群組中新增現有的異地複寫關聯性，請確定異地次要資料庫所設定的服務層級與計算大小和主要資料庫相同。 如需詳細資訊，請參閱[使用自動容錯移轉群組來啟用多個資料庫的透明和協調容錯移轉](sql-database-auto-failover-group.md)。
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>準備中斷事件
 
@@ -79,7 +79,7 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 - [使用 Azure 入口網站容錯移轉至異地複寫的次要伺服器](sql-database-geo-replication-portal.md)
 - [使用 PowerShell 容錯移轉至次要資料庫](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [使用 Transact-sql (T-sql) 故障切換至次要伺服器](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [使用 Transact-sql （T-sql）故障切換至次要伺服器](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>使用異地還原進行復原
 
@@ -97,7 +97,7 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 ### <a name="configure-firewall-rules"></a>設定防火牆規則
 
-您需要確認伺服器和資料庫上設定的防火牆規則符合主要伺服器與主要資料庫上設定的防火牆規則。 如需詳細資訊，請參閱[如何：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
+您需要確認伺服器和資料庫上設定的防火牆規則符合主要伺服器與主要資料庫上設定的防火牆規則。 如需詳細資訊，請參閱 [如何：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
 
 ### <a name="configure-logins-and-database-users"></a>設定登入和資料庫使用者
 

@@ -1,5 +1,5 @@
 ---
-title: 在 SQL 資料倉儲中使用使用者定義結構描述 | Microsoft Docs
+title: 使用使用者定義的架構
 description: 在 Azure SQL 資料倉儲中使用 T-SQL 使用者定義結構描述開發解決方案的秘訣。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e0ae00e0fca5ed4c6fba04444e5c50424462d297
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 697bffa36e9b208c1a027654df81fb356ddfc8ed
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479571"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685812"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用使用者定義結構描述
 在 Azure SQL 資料倉儲中使用 T-SQL 使用者定義結構描述開發解決方案的秘訣。
@@ -51,7 +52,7 @@ ms.locfileid: "68479571"
 > 
 > 
 
-### <a name="examples"></a>範例:
+### <a name="examples"></a>範例：
 根據資料庫名稱實作使用者定義的結構描述
 
 ```sql
@@ -121,5 +122,5 @@ FROM    [edw].customer
 > 
 
 ## <a name="next-steps"></a>後續步驟
-如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。
+如需更多開發秘訣，請參閱 [開發概觀](sql-data-warehouse-overview-develop.md)。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772352"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606444"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>設定私人雲端的防火牆資料表和規則
 
@@ -33,6 +33,9 @@ ms.locfileid: "70772352"
 4. 輸入資料表的名稱。
 5. 會列出資料表的預設規則。 按一下 [**建立新規則**] 以建立額外的規則。 如需詳細資訊，請參閱下列程式。
 6. 按一下 [**完成**] 以儲存防火牆資料表。
+
+> [!IMPORTANT]
+> 您最多可以為每個私人雲端建立兩個防火牆資料表。
 
 ## <a name="firewall-rules"></a>防火牆規則
 
@@ -61,6 +64,9 @@ ms.locfileid: "70772352"
     ![防火牆資料表新增規則](media/firewall-rule-create.png)
 
 3. 按一下 [**完成**] 以儲存規則，並將它新增至防火牆資料表的規則清單。
+
+> [!IMPORTANT]
+> 每個防火牆資料表最多可以有10個輸入規則和20個輸出規則。 您可以[聯繫支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)來增加這些限制。
 
 ## <a name="attach-vlanssubnets"></a>附加 Vlan/子網
 

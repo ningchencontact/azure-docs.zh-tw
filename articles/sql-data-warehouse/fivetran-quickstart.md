@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure SQL 資料倉儲的 Fivetran 快速入門 | Microsoft Docs
+title: Fivetran 快速入門
 description: 快速開始使用 Fivetran 和 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d829ee67d516892283fa31d9180336d768170ac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 250df3e106ae65cafc84a412c155e3a27c535c79
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65857007"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686113"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>快速開始使用 Fivetran 和 SQL 資料倉儲
 
@@ -70,7 +71,7 @@ ms.locfileid: "65857007"
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    如需詳細資訊，請參閱[記憶體和並行限制](memory-and-concurrency-limits.md)與[資源類別](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)。
+    如需詳細資訊，請參閱關於 [記憶體和並行限制] 記憶體並行 limits.md）和[資源類別](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)。
 
 
 ## <a name="sign-in-to-fivetran"></a>登入 Fivetran
@@ -80,5 +81,5 @@ ms.locfileid: "65857007"
 * 主機 (您的伺服器名稱)。
 * 連接埠。
 * 資料庫。
-* 使用者 (使用者名稱應該是**fivetran\@_server_name_** 其中 *_ n a m*是您的 Azure 主機 URI 的一部分: * **_ n a m *。database.windows.net**)。
+* 使用者（使用者名稱應**fivetran\@_server_name_**  ，其中*server_name*是 Azure 主機 URI 的一部分： ***server_name *。**
 * 密碼。

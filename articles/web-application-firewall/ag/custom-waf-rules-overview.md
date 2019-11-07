@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 844e24466e9a9b46be3212690767a408e75f234d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516613"
+ms.locfileid: "73585400"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Azure 應用程式閘道上的 Web 應用程式防火牆 v2 自訂規則
 
@@ -163,6 +163,11 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="geomatch-custom-rules-preview"></a>Geomatch 自訂規則（預覽）
 
+自訂規則可讓您建立量身打造的規則，以符合您應用程式的確切需求，以及您的安全性原則。 現在，您可以依國家/地區限制對 web 應用程式的存取，這可在公開預覽中取得。 如同所有的自訂規則，此邏輯可以與其他規則更複雜，以符合您應用程式的需求。 
+
+   > [!NOTE]
+   > Geomatch 自訂規則適用于美國中南部和北歐。 若要在入口網站中存取它們，請使用[此連結](https://aka.ms/AppGWWAFGeoMatch)，直到每個人都上線為止。 
+
 如果您使用 Geomatch 運算子，則選取器可以是下列兩位數的國家/地區代碼。 
 
 |國碼 (地區碼) | 國家/地區名稱 |
@@ -235,7 +240,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
 | GY | 蓋亞那|
 | HK | 香港特別行政區|
 | HN | 宏都拉斯|
-| HR | 克羅埃西亞|
+| 人力資源 | 克羅埃西亞|
 | HT | 海地|
 | HU | 匈牙利|
 | ID | 印尼|

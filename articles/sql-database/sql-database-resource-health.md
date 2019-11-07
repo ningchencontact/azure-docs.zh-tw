@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資源健康情況監視 SQL Database 的健康情況 | Microsoft Docs
+title: 使用 Azure 資源健康狀態來監視 SQL Database 健全狀況
 description: 使用 Azure 資源健康情況監視 SQL Database 的健康情況，可協助您進行診斷，並在 Azure 問題影響您的 SQL 資源時取得支援。
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 1c2720d61c7b4ea918a3d0c1ff7f41984ea42c69
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10ce2da8ae8bcd8a12f0972d437a84a37a8390b9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566908"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687516"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 SQL Database 的[資源健康情況](../service-health/resource-health-overview.md#get-started)可協助您進行診斷，並在 Azure 問題影響您的資源時取得支援。 它會通知您資源的目前及過去的健康狀態，並協助您解決問題。 資源健康狀態會在您需要解決 Azure 服務問題時提供技術支援。
 
-![總覽](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
+![概觀](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>健康情況檢查
 
@@ -50,11 +50,11 @@ SQL Database 的[資源健康情況](../service-health/resource-health-overview.
 
 ![無法使用](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>未知
+### <a name="unknown"></a>不明
 
 [不明] 健康狀態表示資源健康狀態超過 10 分鐘未收到此資源的相關資訊。 雖然此狀態並非資源狀態的明確指示，卻是疑難排解程序中的重要資料點。 如果資源如預期般執行，幾分鐘後資源的狀態會變更為 [可用]。 如果您遇到資源問題，[不明] 健康狀態可能暗示資源受到平台事件影響。
 
-![未知](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![不明](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>歷程記錄資訊
 
@@ -64,7 +64,7 @@ SQL Database 的[資源健康情況](../service-health/resource-health-overview.
 
 當您的 SQL Database 發生停止運作的狀況時，系統會執行分析以判斷原因。 找到的停止運作原因會報告在 [資源健康狀態] 的 [健康情況歷程記錄] 區段中。 停止運作的原因通常會在事件發生後的 30 分鐘發佈。
 
-#### <a name="planned-maintenance"></a>計劃性維護
+#### <a name="planned-maintenance"></a>預定的維修
 
 Azure 基礎結構會定期執行規劃的維護 – 資料中心的軟硬體元件升級。 在資料庫進行維護的期間，SQL 可能會終止某些現有的連線，並拒絕新連線。 在計劃性維護期間發生的登入失敗通常是暫時性的，[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)可有效降低其影響。 如果持續發生登入，請連絡支援人員。
 

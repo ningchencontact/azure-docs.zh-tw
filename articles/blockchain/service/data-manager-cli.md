@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1e92ae36aee5e62cd05b40bbaa38a226943f0adb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518017"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605910"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>使用 Azure CLI 設定區塊鏈資料管理員
 
@@ -259,6 +259,10 @@ az resource create \
 
 如果您新增區塊鏈應用程式，區塊鏈資料管理員會將應用程式的事件和屬性狀態解碼。 否則，只會傳送原始區塊和原始交易資料。 區塊鏈資料管理員也會在部署合約時探索合約位址。 您可以將多個區塊鏈應用程式新增至區塊鏈資料管理員實例。
 
+
+> [!IMPORTANT]
+> 目前，不完全支援宣告密度[陣列類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays)或[對應類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types)的區塊鏈應用程式。 宣告為數組或對應類型的屬性將不會在*ContractPropertiesMsg*或*DecodedContractEventsMsg*訊息中解碼。
+
 ``` azurecli
 az resource create \
                    --resource-group <Resource group> \
@@ -306,7 +310,7 @@ az resource create \
 | location | 要在其中建立應用程式資源的區域。 |
 | artifactType | 應用程式的類型。 目前支援**EthereumSmartContract** 。 |
 | abiFileUrl | 智慧合約 ABI JSON 檔案的 URL。 如需取得合約 ABI 和建立 URL 的詳細資訊，請參閱[取得合約 abi 和位元組](data-manager-portal.md#get-contract-abi-and-bytecode)程式碼，以及[建立合約 abi 和位元組](data-manager-portal.md#create-contract-abi-and-bytecode-url)程式碼 url。 |
-| bytecodeFileUrl | 智慧合約位元組程式碼位元組 JSON 檔案的 URL。 如需取得智慧合約位元組程式碼和建立 URL 的詳細資訊，請參閱[取得合約 abi 和位元組](data-manager-portal.md#get-contract-abi-and-bytecode)程式碼，以及[建立合約 abi 和位元組](data-manager-portal.md#create-contract-abi-and-bytecode-url)程式碼 url。 |
+| bytecodeFileUrl | 智慧合約已部署位元組程式碼的 URL JSON 檔案。 如需取得智慧合約部署的位元組程式碼，以及建立 URL 的詳細資訊，請參閱[取得合約 abi 和位元組](data-manager-portal.md#get-contract-abi-and-bytecode)程式碼，並[建立合約 abi 和位元組](data-manager-portal.md#create-contract-abi-and-bytecode-url)程式碼 url。 注意：區塊鏈資料管理員需要已**部署的位元組**。 |
 | queryTargetTypes | 已發行的訊息類型。 指定**ContractProperties**會發行*ContractPropertiesMsg*訊息類型。 指定**ContractEvents**會發行*DecodedContractEventsMsg*訊息類型。 注意：一律會發佈*RawBlockAndTransactionMsg*和*RawTransactionContractCreationMsg*訊息類型。 |
 
 為*mywatcher*建立名為*myApplication*的應用程式，以監視 JSON 字串所定義的智慧合約。
@@ -415,4 +419,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[Azure 事件方格中的事件處理常式](../../event-grid/event-handlers.md)。
+嘗試使用區塊鏈資料管理員和 Azure Cosmos DB 建立區塊鏈交易訊息瀏覽器。
+
+> [!div class="nextstepaction"]
+> [教學課程：使用區塊鏈資料管理員將資料傳送至 Azure Cosmos DB](data-manager-cosmosdb.md)

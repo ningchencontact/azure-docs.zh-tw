@@ -1,5 +1,5 @@
 ---
-title: 針對 Windows 虛擬桌面中的 Windows 7 虛擬機器進行疑難排解-Azure
+title: Windows 7 虛擬機器 Windows 虛擬桌面-Azure
 description: 如何解決 Windows 虛擬桌面環境中 Windows 7 虛擬機器（Vm）的問題。
 services: virtual-desktop
 author: Heidilohr
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: 282a4d166e48a41015cb2f08496fe39419bdcaf7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374270"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607331"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows 虛擬桌面的 Windows 7 虛擬機器問題疑難排解
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows 虛擬桌面中的 Windows 7 虛擬機器進行疑難排解
 
 使用本文來針對設定 Windows 虛擬桌面工作階段主機虛擬機器（Vm）時所發生的問題進行疑難排解。
 
@@ -42,7 +42,7 @@ Windows 虛擬桌面只能虛擬化 Windows 7 的完整桌上型電腦。
 1. 開啟 Azure 入口網站。
 2. 選取您看到的錯誤訊息所在的虛擬機器。
 3. 選取 [**執行命令**]。
-4. 以您要新增的使用者名稱取代 `<username>` 來執行下列命令：
+4. 以您要新增的使用者名稱取代 `<username>`，執行下列命令：
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

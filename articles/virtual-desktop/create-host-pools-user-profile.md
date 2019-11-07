@@ -1,5 +1,5 @@
 ---
-title: 使用以虛擬機器為基礎的檔案共用建立主機集區的 FSLogix 設定檔容器-Azure
+title: Windows 虛擬桌面 FSLogix 設定檔容器共用-Azure
 description: 如何使用以虛擬機器為基礎的檔案共用，為 Windows 虛擬桌面主機集區設定 FSLogix 設定檔容器。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311602"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606996"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>使用檔案共用建立主機集區的設定檔容器
 
@@ -59,15 +59,15 @@ Windows 虛擬桌面服務提供 FSLogix 設定檔容器作為建議的使用者
 
 1. 使用您在建立虛擬機器時提供的認證[連接到虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine)。
 2. 啟動網際網路瀏覽器，並流覽[至此連結](https://go.microsoft.com/fwlink/?linkid=2084562)以下載 FSLogix 代理程式。
-3. 流覽至 .zip 檔案中的 \\ @ no__t-1Win32 @ no__t-2Release 或 \\ @ no__t-4X64 @ no__t-5Release，然後執行**FSLogixAppsSetup**以安裝 FSLogix 代理程式。  若要深入瞭解如何安裝 FSLogix，請參閱[下載並安裝 FSLogix](https://docs.microsoft.com/fslogix/install-ht)。
-4. 流覽至**Program Files** > **FSLogix** > **應用程式**以確認代理程式已安裝。
-5. 在 [開始] 功能表中，以系統管理員身分執行**RegEdit** 。 流覽至**Computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**。
+3. 流覽至 .zip 檔案中的 \\\\Win32\\版本或 \\\\X64\\版本，然後執行**FSLogixAppsSetup**來安裝 FSLogix 代理程式。  若要深入瞭解如何安裝 FSLogix，請參閱[下載並安裝 FSLogix](https://docs.microsoft.com/fslogix/install-ht)。
+4. 流覽至**Program Files** > **FSLogix** > **應用**程式，以確認代理程式已安裝。
+5. 在 [開始] 功能表中，以系統管理員身分執行**RegEdit** 。 流覽至**電腦\\HKEY_LOCAL_MACHINE\\軟體\\FSLogix**。
 6. 建立名為**Profiles**的金鑰。
 7. 建立設定檔索引鍵的下列值：
 
-| Name                | Type               | 資料/值                        |
+| 名稱                | 類型               | 資料/值                        |
 |---------------------|--------------------|-----------------------------------|
-| Enabled             | 值              | 1                                 |
+| 已啟用             | 值              | 1                                 |
 | VHDLocations        | 多字串值 | 「檔案共用的網路路徑」     |
 
 >[!IMPORTANT]

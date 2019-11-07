@@ -1,5 +1,5 @@
 ---
-title: 多租用戶 SaaS 教學課程 - Azure SQL Database | Microsoft Docs
+title: 多租使用者 SaaS 教學課程-Azure SQL Database
 description: 使用獨立應用程式模式佈建新租用戶並編目
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570267"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691945"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>使用每一租用戶一個應用程式 SaaS 模式，佈建新租用戶及編目
 
 本文說明如何使用每一租用戶一個獨立應用程式 SaaS 模式佈建新租用戶及編目。
-本文包含兩個主要部分：
+本文有兩個主要部分：
 * 佈建新租用戶及編目的概念討論
 * 強調說明完成佈建和編目之範例 PowerShell 指令碼的教學課程
     * 本教學課程使用 Wingtip Tickets SaaS 範例 SaaS 應用程式，並已針對每一租用戶一個獨立應用程式模式進行調整。
@@ -98,7 +98,7 @@ Azure Resource Manager 範本可用來部署及設定應用程式、建立租用
 現在，請查看您建立的資源。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至資源群組。  開啟 **wingtip-sa-catalog-\<user\>** 資源群組，並記下目錄伺服器和資料庫。
-1. 在入口網站中開啟資料庫，再從左側功能表選取 [資料總管]。  按一下 [登入] 命令, 然後輸入 Password **=\@P ssword1**。
+1. 在入口網站中開啟資料庫，再從左側功能表選取 [資料總管]。  按一下 [登入] 命令，然後輸入 Password = **P\@ssword1**。
 
 
 1. 探索 *tenantcatalog* 資料庫的結構描述。  

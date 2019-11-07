@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure SQL 資料倉儲中的計算資源 | Microsoft Docs
+title: 管理計算資源
 description: 了解 Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 來相應放大，或藉由暫停資料倉儲來降低成本。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575333"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692624"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
 了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 
@@ -109,7 +110,7 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 若要檢查資料倉儲狀態，請參閱 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 來查看資料倉儲狀態。
 
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 調整資料倉儲時需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 中所述的權限。  暫停和繼續則需要 [SQL DB 參與者](../role-based-access-control/built-in-roles.md#sql-db-contributor)權限，特別是 Microsoft.Sql/servers/databases/action。
 

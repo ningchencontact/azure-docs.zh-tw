@@ -1,5 +1,5 @@
 ---
-title: 在 Windows 虛擬桌面上部署 Windows 7 虛擬機器-Azure
+title: 部署 Windows 7 虛擬機器 Windows 虛擬桌面-Azure
 description: 如何在 Windows 虛擬桌面上設定和部署 Windows 7 虛擬機器。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947574"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606878"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>在 Windows 虛擬桌面上部署 Windows 7 虛擬機器
 
@@ -35,7 +35,7 @@ ms.locfileid: "71947574"
 5. 移至 VM 上的 Windows Update。
 6. 安裝 [重要] 分類中的所有 Windows 更新。
 7. 安裝選用類別（不含語言套件）中的所有 Windows 更新。 這會安裝完成這些指示所需的遠端桌面通訊協定8.0 更新（[KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)）。
-8. 開啟本機群組原則編輯器並流覽至 [**電腦**設定  > ]**系統管理範本** > **Windows 元件**@no__t-**5 遠端桌面服務 @no__t-** 7**遠端桌面工作階段主機** > **遠端會話環境**。
+8. 開啟本機群組原則編輯器，然後流覽至 [**電腦**設定] > **系統管理範本** > **Windows 元件** ** > 遠端桌面服務 > ** **遠端桌面工作階段主機** > **遠端會話環境**。
 9. 啟用遠端桌面通訊協定8.0 原則。
 10. 執行下列命令來重新開機虛擬機器：
     

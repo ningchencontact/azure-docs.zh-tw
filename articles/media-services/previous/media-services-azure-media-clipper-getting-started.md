@@ -3,18 +3,18 @@ title: 開始使用 Azure Media Clipper | Microsoft Docs
 description: 開始使用 Azure Media Clipper，這是用來從 AMS 資產建置影片剪輯的工具
 services: media-services
 keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ecc81967d6a95f817b10bce7f8396d9379bc94
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466267"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685072"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
 本節說明開始使用 Azure Media Clipper 的基本步驟。 以下章節提供有關如何設定 Azure Media Clipper 的細節。
@@ -89,16 +89,16 @@ var subclipper = new subclipper({
 
 初始化方法呼叫的參數如下：
 - `selector` {必要，字串}：應該轉譯小工具之處相符 HTML 元素的 CSS 選取器。
-- `restVersion` {必要，字串}：目標的 Azure 媒體服務 REST API 版本。 REST 版本會定義小工具所產生的輸出格式。 目前僅支援 2.0。
+- `restVersion` {必要，字串}：目標的 Azure Media Services REST API 版本。 REST 版本會定義小工具所產生的輸出格式。 目前僅支援 2.0。
 - `submitSubclipCallback` {必要，承諾} 按一下小工具的 [提交] 按鈕時叫用的回呼函式。 回呼函式應該預期小工具所產生的輸出 (轉譯作業設定或篩選定義)。 如需詳細資訊，請參閱「提交子剪輯回呼」。
 - `logLevel` {選擇性，{'info', 'warn', 'error'}}：要在瀏覽器主控台中顯示的記錄等級。 預設值：錯誤
-- `minimumMarkerGap` {選擇性，整數}：子剪輯的大小下限 (以秒為單位)。 注意：值應該大於或等於 6，6 也是預設值。
+- `minimumMarkerGap` {選擇性，int}：子剪輯的大小下限 (以秒為單位)。 注意：值應該大於或等於 6，6 也是預設值。
 - `singleBitrateMp4Profile` {選擇性，JSON 物件} 要用於小工具所產生之轉譯作業設定的單一位元速率 mp4 設定檔。 如果未提供，它會使用[預設單一位元速率 MP4 設定檔](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p)。
 - `multiBitrateMp4Profile` {選擇性，JSON 物件} 要用於小工具所產生之轉譯作業設定的多位元速率 mp4 設定檔。 如果未提供，它會使用[預設多位元速率 MP4 設定檔](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p)。
 - `keymap` {選擇性，json 物件} 允許自訂小工具的鍵盤快速鍵。 如需詳細資訊，請參閱[可自訂的鍵盤快速鍵](media-services-azure-media-clipper-keyboard-shortcuts.md)。
 - `assetsPanelLoaderCallback` {選擇性，承諾} 每次使用者向下捲動到窗格底部時，叫用回呼函式以將資產的新分頁載入 (非同步) 至資產窗格。 如需詳細資訊，請參閱「資產窗格載入器回呼」。
 - `height` {選擇性，數字} 小工具高度總計 (不含資產窗格的高度下限為 600 px，含有資產窗格的高度下限為 850 px)。
-- `subclippingMode` (選擇性，{'all', 'render', 'filter'})：允許的子剪輯模式。 預設值為全部。
+- `subclippingMode` (選擇性，{'all', 'render', 'filter'})：允許子剪輯模式。 預設值為全部。
 - `filterAssetsTypes` (選擇性，布林值)：filterAssetsTypes 可讓您從資產窗格顯示/隱藏篩選下拉式清單。 預設值為 true。
 - `speedLevels` (選擇性，陣列)：speedLevels 允許為影片播放器設定不同的速度等級，請參閱 [Azure Media Player 文件](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions)以取得詳細資訊。
 - `resetOnJobDone` (選擇性，布林值)：resetOnJobDone 允許當成功提交作業時 Clipper 將子剪輯器重設為初始狀態。

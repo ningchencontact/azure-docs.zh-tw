@@ -1,6 +1,6 @@
 ---
-title: 重新定型並部署 Web 服務
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 重塑 Web 服務
+titleSuffix: ML Studio (classic) Azure
 description: 瞭解如何在 Azure Machine Learning Studio （傳統）中更新 web 服務，以使用新定型的機器學習模型。
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 55b054ffe55430ea106c72cdd91fdfba3a457cf5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482995"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684780"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>重新定型和部署機器學習模型
 
 若想要確保機器模型保持精準，並確定模型所根據的是相關性最高的可用資料，其中一種方式就是重新定型。 本文說明如何將機器學習服務模型重新定型並部署為 Studio （傳統）中的新 web 服務。 如果是要重新定型傳統的 Web 服務，請[參閱操作說明文章](retrain-classic-web-service.md)。
 
-本文假設您已部署了預測性 Web 服務。 如果您還沒有預測性 web 服務，請[在這裡瞭解如何部署 Studio （傳統） web 服務。](publish-a-machine-learning-web-service.md)
+本文假設您已部署了預測性 Web 服務。 如果您還沒有預測性 web 服務，請[在這裡瞭解如何部署 Studio （傳統） web 服務。](deploy-a-machine-learning-web-service.md)
 
 請按照這些步驟重新定型並部署機器學習新 Web 服務：
 

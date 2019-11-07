@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e8d1ba00043f43f626043d78ce0ab8953a0b3fbe
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ad8dc610d15742844b8bec630d7bc3e08fb46973
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679551"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606890"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows 虛擬桌面中委派的存取權
 
@@ -21,11 +21,11 @@ Windows 虛擬桌面具有委派的存取模型，可讓您藉由指派角色給
 Windows 虛擬桌面委派存取針對角色指派的每個元素支援下列值：
 
 * 安全性主體
-    * 使用者人數
+    * 使用者
     * 服務主體
 * 角色定義
     * 內建角色
-* `Scope`
+* Scope
     * 租使用者群組
     * 租用戶
     * 主機集區

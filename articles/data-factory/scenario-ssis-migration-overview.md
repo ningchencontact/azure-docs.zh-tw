@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 SSIS 工作負載遷移至 Azure Data Factory 中的 SSIS |Microsoft Docs
+title: 將內部部署 SSIS 工作負載遷移至 Azure Data Factory 中的 SSIS
 description: 將內部部署 SSIS 工作負載遷移至 ADF 中的 SSIS。
 services: data-factory
 documentationcenter: ''
@@ -12,30 +12,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 3bf5ddebd59c95d00d0d3270f0e8e1a2d29b379a
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968467"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684418"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>將內部部署 SSIS 工作負載遷移至 ADF 中的 SSIS
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 當您將資料庫工作負載從內部部署 SQL Server 遷移至 Azure 資料庫服務（亦即 Azure SQL Database 或 Azure SQL Database 受控實例）時，您的 ETL 工作負載會在 SQL Server Integration Services （SSIS）做為其中一個主要值-已新增服務也必須遷移。
 
 Azure Data Factory （ADF）中的 Azure SSIS Integration Runtime （IR）支援執行 SSIS 套件。 一旦布建 Azure SSIS IR 之後，您就可以使用熟悉的工具（例如 SQL Server Data Tools （SSDT）/SQL Server Management Studio （SSMS））和命令列公用程式（例如 dtinstall/dtutil/dtexec），在 Azure 中部署和執行您的套件。 如需詳細資訊，請參閱[AZURE SSIS 隨即轉移總覽](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)。
 
-本文著重于將您的 ETL 工作負載從內部部署 SSIS 遷移至 ADF 中的 SSIS 的過程。 遷移套裝程式含兩個階段：**評估**與**遷移**。
+本文著重于將您的 ETL 工作負載從內部部署 SSIS 遷移至 ADF 中的 SSIS 的過程。 遷移程式是由兩個階段所組成：**評估**和**遷移**。
 
-## <a name="assessment"></a>評定
+## <a name="assessment"></a>評量
 
 若要建立完整的遷移計畫，全面的評估將有助於識別來源 SSIS 套件的問題，而導致無法成功地進行遷移。
 
 Data Migration Assistant （DMA）是可免費下載的工具，適用于此用途，可以在本機安裝及執行。 您可以建立**Integration Services**類型的 DMA 評估專案，以批次方式評估 SSIS 封裝，並找出下列類別中提供的相容性問題：
 
-- 遷移封鎖器：這些是會封鎖在 Azure SSIS IR 上執行之遷移來源套件的相容性問題。 DMA 提供指引來協助您解決這些問題。
+- 遷移封鎖程式：這些是會封鎖在 Azure SSIS IR 上執行之遷移來源套件的相容性問題。 DMA 提供指引來協助您解決這些問題。
 
 - 資訊性問題：這些是部分支援或已淘汰的功能，可用於來源套件。 DMA 提供一組完整的建議、Azure 中可用的替代方法，以及減輕解決的步驟。
 
@@ -52,7 +52,7 @@ DMA 目前支援從**dma 4.5 版**起，儲存在**檔案系統**儲存體類型
 
 取得[DMA](https://docs.microsoft.com/sql/dma/dma-overview)，並[使用它來執行您的套件評估](https://docs.microsoft.com/sql/dma/dma-assess-ssis)。
 
-## <a name="migration"></a>遷移
+## <a name="migration"></a>移轉
 
 根據來源 SSIS 封裝的[儲存體類型](#four-storage-types-for-ssis-packages)和資料庫工作負載的遷移目的地 **，遷移 ssis 封裝和**排程 ssis 套件執行**SQL Server Agent 作業**的步驟可能會有所不同。 有兩種案例：
 

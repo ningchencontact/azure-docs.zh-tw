@@ -1,6 +1,6 @@
 ---
 title: 準備模型進行部署
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 如何藉由將您的 Machine Learning Studio （傳統）訓練實驗轉換成預測實驗，準備定型模型以作為 web 服務部署。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: caaed83417ac1eaadc407fb12dc8bb360aae45ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e24393783dac0f918009f3138f31bdda98bbd22e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493265"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684865"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>如何準備您的模型以在 Azure Machine Learning Studio 中部署（傳統）
 
@@ -115,7 +115,7 @@ Azure Machine Learning Studio （傳統）提供您開發預測性分析模型�
 
 如需完整部署流程的詳細資訊，請參閱[部署 Azure Machine Learning web 服務][deploy]
 
-[deploy]: publish-a-machine-learning-web-service.md
+[deploy]: deploy-a-machine-learning-web-service.md
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

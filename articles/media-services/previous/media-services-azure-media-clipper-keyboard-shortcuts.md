@@ -3,18 +3,18 @@ title: 設定 Azure Media Clipper 鍵盤設定 | Microsoft Docs
 description: 用來設定 Azure Media Clipper 可設定鍵盤快速鍵的步驟
 services: media-services
 keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013ca640d30baceeb41e9cb38fab69020b3c50dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685066"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>設定 Azure Media Clipper 鍵盤快速鍵 
 

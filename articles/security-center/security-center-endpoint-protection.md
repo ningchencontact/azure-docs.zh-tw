@@ -1,5 +1,5 @@
 ---
-title: Azure 資訊安全中心中的 Endpoint protection 解決方案探索和健康狀態評估 |Microsoft Docs
+title: Azure 安全性中心的端點保護建議
 description: 如何探索端點保護解決方案，並將其識別為狀況良好。
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: 8de0caa5db4a7e1d97c7d6c055bcb01fed635821
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202268"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686428"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure 資訊安全中心中的 Endpoint protection 評估和建議
 
@@ -29,29 +29,29 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* 資訊安全中心建議您在[MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)執行且結果為**AMServiceEnabled 時，「**在虛擬機器上安裝端點保護解決方案**」：False**
+* 資訊安全中心建議您在[MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)執行時，「**在虛擬機器上安裝端點保護解決方案**」，結果為**AMServiceEnabled： False**
 
 * 資訊安全中心在[MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)執行時，建議您「**解決電腦上的 endpoint protection 健康情況問題**」，併發生下列任何一種情況：
 
   * 下列任何屬性都是 false：
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * 如果下列其中一個或兩個屬性為7或以上。
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
 
@@ -61,58 +61,58 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
 
     * 下列其中一個屬性至少為 false：
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * 如果下列其中一個或兩個簽章更新大於或等於7，則為。 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
-## <a name="trend-micro"></a>Trend Micro
+## <a name="trend-micro"></a>趨勢科技
 
 * 資訊安全中心建議您在不符合下列任何一項檢查時，「**在虛擬機器上安裝端點保護解決方案**」：
     * **HKLM： \ SOFTWARE\TrendMicro\Deep 安全性代理程式**已存在
     * **HKLM： \ SOFTWARE\TrendMicro\Deep 安全性 Agent\InstallationFolder**存在
     * 在安裝資料夾中可找到**dsq_query .cmd**檔案
-    * 以 **Component. mode 執行 dsa_query 結果：偵測到趨勢微深度安全性代理程式**
+    * 以 Component. mode 執行**dsa_query .cmd**結果 **：偵測到趨勢微深度安全性代理程式**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec endpoint protection
 資訊安全中心建議您在不符合下列任何一項檢查時，「**在虛擬機器上安裝端點保護解決方案**」：
 
 * **HKLM： \ Software\Symantec\Symantec 端點 Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM： \ Software\Symantec\Symantec 端點 Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 或
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM： \ Software\Wow6432Node\Symantec\Symantec 端點 Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM： \ Software\Wow6432Node\Symantec\Symantec 端點 Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 當不符合下列任何一項檢查時，資訊安全中心建議您「**解決電腦上的 endpoint protection 健康情況問題**」：
 
-* 檢查 Symantec 版本 > = 12：登錄位置：**HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* 檢查 Symantec 版本 > = 12：登錄位置： **HKLM： \ Software\Symantec\Symantec 端點 Protection\CurrentVersion "-Value" PRODUCTVERSION "**
 
-* 檢查即時保護狀態：**HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
+* 檢查即時保護狀態： **HKLM： \ Software\Wow6432Node\Symantec\Symantec 端點 Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
 
-* 檢查簽章更新狀態：**HKLM\Software\Symantec\Symantec 端點 Protection\CurrentVersion\public-opstate\LatestVirusDefsDate < = 7 天**
+* 檢查簽章更新狀態： **HKLM\Software\Symantec\Symantec 端點 Protection\CurrentVersion\public-opstate\LatestVirusDefsDate < = 7 天**
 
-* 檢查完整掃描狀態：**HKLM： \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime < = 7 天**
+* 檢查完整掃描狀態： **HKLM： \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime < = 7 天**
 
-* 尋找 Symantec 12 簽名版本的簽章版本號碼路徑：**Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
+* 尋找 Symantec 12： **Registry 路徑 + "CurrentVersion\SharedDefs"-Value "SRTSP"** 的簽章版本號碼路徑 
 
-* Symantec 14 的簽章版本路徑：**Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
+* Symantec 14 的簽章版本路徑：登錄**路徑 + "CurrentVersion\SharedDefs\SDSDefs"-值 "SRTSP"**
 
 登錄路徑：
 
@@ -129,13 +129,13 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
 
 當不符合下列任何一項檢查時，資訊安全中心建議您「**解決電腦上的 endpoint protection 健康情況問題**」：
 
-* McAfee 版本：**HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
+* McAfee 版本： **HKLM： \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
 
-* 尋找簽章版本：**HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
+* 尋找簽章版本： **HKLM： \ Software\McAfee\AVSolution\DS\DS-值 "dwContentMajorVersion"**
 
-* 尋找簽章日期：**HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
+* 尋找簽章日期： **HKLM： \ Software\McAfee\AVSolution\DS\DS-值 "szContentCreationDate" > = 7 天**
 
-* 尋找掃描日期：**HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
+* 尋找掃描日期： **HKLM： \ Software\McAfee\Endpoint\AV\ODS-值 "LastFullScanOdsRunTime" > = 7 天**
 
 ## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>適用于 Linux 的 McAfee Endpoint Security 威脅防護 
 
@@ -143,7 +143,7 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
 
 - 檔案 **/opt/isec/ens/threatprevention/bin/isecav**結束 
 
-- **"/opt/isec/ens/threatprevention/bin/isecav--version"** 輸出為：**McAfee name = 適用于 Linux 威脅防護的 McAfee Endpoint Security 和 McAfee 版本 > = 10**
+- **"/opt/isec/ens/threatprevention/bin/isecav--version"** 輸出為： **mcafee name = 適用于 Linux 的 Mcafee Endpoint Security 威脅防護和 mcafee 版本 > = 10**
 
 當不符合下列任何一項檢查時，資訊安全中心建議您「**解決電腦上的 endpoint protection 健康情況問題**」：
 
@@ -163,22 +163,21 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
 
 當不符合下列任何一項檢查時，資訊安全中心建議您「**解決電腦上的 endpoint protection 健康情況問題**」：
 
-- **"/opt/sophos-av/bin/savlog--maxage = 7 |grep-i "已排程掃描。已\*完成 "| tail-1"** ，傳回值   
+- **"/opt/sophos-av/bin/savlog--maxage = 7 |grep-i "已排程掃描。\* 完成」 |tail-1 "** ，傳回值
 
-- **"/opt/sophos-av/bin/savlog--maxage = 7 |grep 「掃描已完成**」 |tail-1 "，傳回值   
+- **"/opt/sophos-av/bin/savlog--maxage = 7 |grep 「掃描已完成**」 |tail-1 "，傳回值
 
 - **"/opt/sophos-av/bin/savdstatus--lastupdate"** 會傳回 lastupdate，應 < = 7 天 
 
 - 「 **/opt/sophos-av/bin/savdstatus-v** 」等於「**正在執行存取掃描**」 
 
-- **"/opt/sophos-av/bin/savconfig Get LiveProtection"** 傳回已啟用  
+- **"/opt/sophos-av/bin/savconfig Get LiveProtection"** 傳回已啟用
 
 ## <a name="troubleshoot-and-support"></a>疑難排解與支援
 
 ### <a name="troubleshoot"></a>疑難排解
 
-您可以在下列位置取得 Microsoft Antimalware 擴充功能記錄檔：  
-**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
+Microsoft Antimalware 擴充功能記錄檔位於： **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware （或 PaaSAntimalware） \1.5.5.x （version #） \CommandExecution.log**
 
 ### <a name="support"></a>支援
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Databricks Notebook 來轉換資料 | Microsoft Docs
+title: 使用 Databricks 筆記本轉換資料-Azure
 description: 了解如何藉由執行 Databricks Notebook 來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233069"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683924"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>執行 Databricks Notebook 來轉換資料
 
-[Data Factory 管線](concepts-pipelines-activities.md)中的 Azure Databricks Notebook 活動會在 Azure Databricks 工作區中執行 Databricks Notebook。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 Azure Databricks 是用於執行 Apache Spark 的受控平台。
+[Data Factory 管線](concepts-pipelines-activities.md)中的 Azure Databricks Notebook 活動會在 Azure Databricks 工作區中執行 Databricks Notebook。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 Azure Databricks 是用來執行 Apache Spark 的受控平臺。
 
 ## <a name="databricks-notebook-activity-definition"></a>Databricks Notebook 活動定義
 
@@ -57,11 +57,11 @@ ms.locfileid: "70233069"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|描述|必要項|
+|屬性|說明|必要|
 |---|---|---|
-|name|管線中的活動名稱。|是|
-|description|說明活動用途的文字。|否|
-|Type|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
+|名稱|管線中的活動名稱。|是|
+|說明|說明活動用途的文字。|否|
+|類型|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
 |linkedServiceName|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|是|
 |baseParameters|機碼值組的陣列。 基礎映像參數可以用於每個活動執行。 如果 Notebook 採用未指定的參數，則系統會使用 Notebook 的預設值。 在 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair) 中尋找更多參數的相關資料。|否|
@@ -70,7 +70,7 @@ ms.locfileid: "70233069"
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 活動支援的程式庫
 
-在上述的 Databricks 活動定義中, 您可以指定下列程式庫類型: *jar*、*蛋狀物*、 *.whl*、 *maven*、 *pypi*、 *cran*。
+在上述的 Databricks 活動定義中，您可以指定下列程式庫類型： *jar*、*蛋狀物*、 *.whl*、 *maven*、 *pypi*、 *cran*。
 
 ```json
 {
@@ -114,16 +114,16 @@ ms.locfileid: "70233069"
 
 ## <a name="passing-parameters-between-notebooks-and-data-factory"></a>在筆記本與 Data Factory 之間傳遞參數
 
-您可以使用 databricks 活動中的*baseParameters*屬性, 將 data factory 參數傳遞至筆記本。 
+您可以使用 databricks 活動中的*baseParameters*屬性，將 data factory 參數傳遞至筆記本。 
 
-在某些情況下, 您可能需要將某些值從筆記本傳回 data factory, 以用於 data factory 中的控制流程 (條件式檢查), 或由下游活動取用 (大小限制為 2 MB)。 
+在某些情況下，您可能需要將某些值從筆記本傳回 data factory，以用於 data factory 中的控制流程（條件式檢查），或由下游活動取用（大小限制為 2 MB）。 
 
-1. 在您的筆記本中, 您可以呼叫[dbutils.fs ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) , 並將對應的 "returnValue" 傳回到 data factory。
+1. 在您的筆記本中，您可以呼叫[dbutils.fs （"returnValue"）](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) ，並將對應的 "returnValue" 傳回到 data factory。
 
-2. 您可以使用運算式 (例如) `'@activity('databricks notebook activity name').output.runOutput'`來取用 data factory 中的輸出。 
+2. 您可以使用 `'@activity('databricks notebook activity name').output.runOutput'`之類的運算式來取用 data factory 中的輸出。 
 
    > [!IMPORTANT]
-   > 如果您要傳遞 JSON 物件, 您可以藉由附加屬性名稱來取得值。 範例： `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > 如果您要傳遞 JSON 物件，您可以藉由附加屬性名稱來取得值。 範例︰ `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>如何在 Databricks 中上傳程式庫
 

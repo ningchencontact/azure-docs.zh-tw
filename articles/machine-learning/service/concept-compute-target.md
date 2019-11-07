@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497479"
+ms.locfileid: "73580594"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning 中的計算目標是什麼？ 
 
@@ -46,22 +46,11 @@ Azure Machine Learning 在不同的計算資源上有不同的支援。  您也�
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning 計算（受控）
 
-受管理的計算資源是由 Azure Machine Learning 來建立和管理。 此計算已針對機器學習工作負載進行優化。 Azure Machine Learning 計算叢集和[計算實例](concept-compute-instance.md)是唯一的受控計算。 未來可能會新增其他受控計算資源。
+受管理的計算資源是由 Azure Machine Learning 來建立和管理。 此計算已針對機器學習工作負載進行優化。 Azure Machine Learning 計算叢集。 未來可能會新增其他受控計算資源。
 
-您可以在中建立 Azure Machine Learning 計算實例或計算叢集：
-
-| | Azure Machine Learning Studio | Azure 入口網站 | SDK | Resource Manager 範本 | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| 計算實例 | 是 | 是 | 是 | 是 |  |
-| 計算叢集 | 是 | 是 | 是 | 是 | 是 |
+您可以在 Azure Machine Learning studio、Azure 入口網站、SDK、Resource Manager 範本或 CLI 中建立 Azure Machine Learning 計算叢集。
 
 建立這些計算資源時，會自動成為您工作區的一部分，而不像其他類型的計算目標。
-
-> [!NOTE]
-> 計算實例僅適用于區域為**美國中北部**或**英國南部**的工作區。
->如果您的工作區位於任何其他區域，您可以繼續建立並使用[筆記本 VM](concept-compute-instance.md#notebookvm) 。 
-
-### <a name="compute-clusters"></a>計算叢集
 
 您可以使用 Azure Machine Learning 計算叢集來進行定型和批次推斷（預覽）。  使用此計算資源，您可以：
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: cc7e510d9a6db93edc211799eda8df79116236a7
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/05/2019
+ms.openlocfilehash: ecd2750926fd04c84d2d6b48f5fde06363dd15df
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053642"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606749"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>從 Oracle 線上遷移至適用于于 postgresql 的 Azure DB 的已知問題/遷移限制-單一伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "73053642"
 
 Azure 資料庫移轉服務支援連接至：
 
-- Oracle version 10g、11c 和12c。
+- Oracle 版本的10g、11g 和12c。
 - Oracle Enterprise、Standard、Express 和 Personal Edition。
 
 Azure 資料庫移轉服務不支援連接到多租使用者容器資料庫（CDBs）。
@@ -47,7 +47,7 @@ Azure 資料庫移轉服務支援遷移至適用於 PostgreSQL 的 Azure 資料�
 - SDO_GEOMETRY
 - 嵌套資料表
 - 使用者定義資料類型
-- 注意
+- 注意事項
 - 虛擬資料行
 - 根據 ROWID 資料行的具體化視圖
 

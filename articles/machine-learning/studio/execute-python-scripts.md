@@ -1,6 +1,5 @@
 ---
-title: 執行 Python 機器學習服務指令碼
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 執行 Python 指令碼
 description: 瞭解如何使用 [執行 Python 腳本] 模組，在 Machine Learning Studio （傳統）實驗和 web 服務中使用 Python 程式碼。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +9,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 1be367191ab042611f45d1f773df0d499400c500
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dea8fd7971f0572350306ea11ee1f9d897438d11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493000"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684871"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>以 Azure Machine Learning Studio 執行 Python 機器學習服務腳本（傳統）
 
@@ -47,7 +46,7 @@ Python 模組的輸入會公開為 Pandas 資料框架。 `azureml_main` 函數�
 
 ### <a name="output-return-values"></a>輸出傳回值
 
-`azureml_main` 函式必須傳回以 Python[序列](https://docs.python.org/2/c-api/sequence.html)（例如元組、清單或 NumPy 陣列）封裝的單一 Pandas 資料框架。 此順序的第一個元素會傳回至模組的第一個輸出埠。 模組的第二個輸出埠會用於[視覺效果](#visualizations)，而不需要傳回值。 此配置如下所示。
+函式必須傳回以 Python `azureml_main`序列 [（例如元組、清單或 NumPy 陣列）封裝的單一 Pandas 資料框架。](https://docs.python.org/2/c-api/sequence.html) 此順序的第一個元素會傳回至模組的第一個輸出埠。 模組的第二個輸出埠會用於[視覺效果](#visualizations)，而不需要傳回值。 此配置如下所示。
 
 ![將輸入埠對應至參數並將值傳回輸出埠](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 

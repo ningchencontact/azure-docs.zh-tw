@@ -1,6 +1,6 @@
 ---
-title: SQL 資料倉儲中的暫存資料表 | Microsoft Docs
-description: 使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。
+title: 暫時資料表
+description: 在 Azure SQL 資料倉儲中使用臨時表的基本指引，其中反白顯示工作階段層級臨時表的原則。
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e43e52e56ec7abbf5d8eb879defef54bd7d50658
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 23a5825a32c602f70aff1d9f577ce13d3e9f2260
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479836"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685444"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
 本文包含使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。 使用這份文件中的資訊可協助您將程式碼模組化，以提高程式碼的重複使用性，維護起來更簡單。
@@ -24,7 +25,7 @@ ms.locfileid: "68479836"
 暫存資料表在處理資料時很有用 - 尤其是具有暫時性中繼結果的轉換期間。 在 SQL 資料倉儲中，暫存資料表存在於工作階段層級。  它們只出現在建立它們的工作階段中，工作階段登出時就會自動卸除它們。  暫存資料表的結果會寫入至本機，而不是遠端儲存體，這是它的效能優點。
 
 ## <a name="create-a-temporary-table"></a>建立暫存資料表
-建立暫存資料表時會在資料表名稱前面加上 `#`。  例如:
+建立暫存資料表時會在資料表名稱前面加上 `#`。  例如：
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -180,7 +181,7 @@ FROM    t1
 GO
 ```
 
-在這個階段, 唯一發生的動作是建立使用 DDL 語句來產生臨時表 (#stats_ddl) 的預存程式。  如果 #stats_ddl 已經存在，這個預存程序會卸除它，以確保在工作階段中執行一次以上時不會失敗。  不過，因為預存程序結尾沒有任何 `DROP TABLE`，當預存程序完成時，它會保留建立的資料表，以便能夠從預存程序之外讀取。  不同於其他 SQL Server 資料庫，在 SQL 資料倉儲中，從建立暫存資料表的程序之外能夠使用此暫存資料表。  工作階段內的 **任何位置** 都可以使用 SQL 資料倉儲暫存資料表。 這可以產生更具模組化和更易於管理的程式碼，如下列範例所示：
+在這個階段，唯一發生的動作是建立使用 DDL 語句來產生臨時表（#stats_ddl）的預存程式。  如果 #stats_ddl 已經存在，這個預存程序會卸除它，以確保在工作階段中執行一次以上時不會失敗。  不過，因為預存程序結尾沒有任何 `DROP TABLE`，當預存程序完成時，它會保留建立的資料表，以便能夠從預存程序之外讀取。  不同於其他 SQL Server 資料庫，在 SQL 資料倉儲中，從建立暫存資料表的程序之外能夠使用此暫存資料表。  工作階段內的 **任何位置** 都可以使用 SQL 資料倉儲暫存資料表。 這可以產生更具模組化和更易於管理的程式碼，如下列範例所示：
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

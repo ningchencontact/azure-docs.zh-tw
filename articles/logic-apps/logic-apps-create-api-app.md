@@ -10,22 +10,22 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609861"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583461"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
 
-雖然 Azure Logic Apps 提供您可以在邏輯應用程式工作流程中使用的[數百個連接器](../connectors/apis-list.md), 但您可能會想要呼叫不是連接器提供的 api、系統和服務。 您可以建立自己的 API 來提供要在邏輯應用程式中使用的動作和觸發程序。 以下是您可能會想要建立自己的且可從邏輯應用程式工作流程呼叫之 API 的其他原因：
+雖然 Azure Logic Apps 提供您可以在邏輯應用程式工作流程中使用的[數百個連接器](../connectors/apis-list.md)，但您可能會想要呼叫不是連接器提供的 api、系統和服務。 您可以建立自己的 API 來提供要在邏輯應用程式中使用的動作和觸發程序。 以下是您可能會想要建立自己的且可從邏輯應用程式工作流程呼叫之 API 的其他原因：
 
 * 延伸您目前的系統整合及資料整合工作流程。
 * 協助客戶使用您的服務來管理專業或個人工作。
 * 展開您服務的觸達、搜尋功能以及用途。
 
-基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](https://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 由於連接器是透過 HTTP 端點進行通訊的 REST Api, 因此您可以使用任何語言 (例如 .NET、JAVA、Python 或 node.js) 來建立連接器。 您也可以在 [Azure App Service](../app-service/overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
+基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](https://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 由於連接器是透過 HTTP 端點進行通訊的 REST Api，因此您可以使用任何語言（例如 .NET、JAVA、Python 或 node.js）來建立連接器。 您也可以在 [Azure App Service](../app-service/overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
 
 若要讓自訂 API 與 Logic Apps 搭配使用，您的 API 可以提供[*動作*](./logic-apps-overview.md#logic-app-concepts)，能在邏輯應用程式工作流程中執行特定的工作。 您的 API 也可作為[*觸發程序*](./logic-apps-overview.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式工作流程。 本主題描述常見的模式，以您想要 API 提供的行為作為基礎，加以遵循即可在您的 API 中建置動作和觸發程序。
 
@@ -45,7 +45,7 @@ ms.locfileid: "68609861"
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>自訂 API 與自訂連接器有何不同？
 
-自訂 API 和[自訂連接器](../logic-apps/custom-connector-overview.md)是針對可插式介面使用 REST、針對文件使用 [Swagger 中繼資料格式](https://swagger.io/specification/)以及使用 JSON 作為其資料交換格式的 Web API。 而且, 由於這些 Api 和連接器是透過 HTTP 端點進行通訊的 REST Api, 因此您可以使用任何語言 (例如 .NET、JAVA、Python 或 node.js) 來建立自訂 Api 和連接器。
+自訂 API 和[自訂連接器](../logic-apps/custom-connector-overview.md)是針對可插式介面使用 REST、針對文件使用 [Swagger 中繼資料格式](https://swagger.io/specification/)以及使用 JSON 作為其資料交換格式的 Web API。 而且，由於這些 Api 和連接器是透過 HTTP 端點進行通訊的 REST Api，因此您可以使用任何語言（例如 .NET、JAVA、Python 或 node.js）來建立自訂 Api 和連接器。
 
 自訂 API 可讓您呼叫不是連接器的 API，並提供您可以使用 HTTP + Swagger、「Azure API 管理」或「應用程式服務」來呼叫的端點。 自訂連接器的運作方式與自訂 API 類似，但還具有下列屬性：
 
@@ -53,7 +53,7 @@ ms.locfileid: "68609861"
 * 在「Logic Apps 設計工具」中會顯示在 Microsoft 受控連接器旁邊且帶有圖示。
 * 只有連接器的作者，以及在部署邏輯應用程式的區域中具有相同 Azure Active Directory 租用戶和 Azure 訂用帳戶的使用者，才能使用。
 
-您也可以提名已註冊的連接器來進行 Microsoft 認證。 此程序會確認已註冊的連接器符合公開使用準則，然後將這些連接器提供給 Microsoft Flow 和 Microsoft PowerApps 中的使用者使用。
+您也可以提名已註冊的連接器來進行 Microsoft 認證。 此程式會驗證註冊的連接器是否符合公用用途的準則，並讓這些連接器可供電源自動化和 Microsoft Power Apps 中的使用者使用。
 
 如需有關自訂連接器的詳細資訊，請參閱 
 
@@ -106,7 +106,7 @@ ms.locfileid: "68609861"
    
    * 必要：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
 
-   * *選擇性*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
+   * 選擇性：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
 
      根據預設，引擎每隔 20 秒會進行檢查。 若要指定不同的間隔，請包括 `retry-after` 標頭，以及下一次輪詢之前的秒數。
 
@@ -168,7 +168,7 @@ ms.locfileid: "68609861"
 | 找到新資料或事件了嗎？  | API 回應 | 
 | ------------------------- | ------------ |
 | 已找到 | 傳回包含回應承載的 HTTP `200 OK` 狀態 (下一個步驟的輸入)。 <br/>此回應會建立邏輯應用程式執行個體，並啟動工作流程。 | 
-| 找不到 | 傳回包含 `location` 標頭和 `retry-after` 標頭的 HTTP`202 ACCEPTED` 狀態。 <br/>針對觸發程序，`location` 標頭也應該包含 `triggerState` 查詢參數，通常是「時間戳記」。 您的 API 可以利用這個識別碼，來追蹤邏輯應用程式所觸發的最後時間。 | 
+| 找不到 | 傳回包含 `202 ACCEPTED` 標頭和 `location` 標頭的 HTTP`retry-after` 狀態。 <br/>針對觸發程序，`location` 標頭也應該包含 `triggerState` 查詢參數，通常是「時間戳記」。 您的 API 可以利用這個識別碼，來追蹤邏輯應用程式所觸發的最後時間。 | 
 ||| 
 
 例如，定期檢查您的服務是否有新檔案，您可能會建立具有這些行為的輪詢觸發程序：
@@ -176,7 +176,7 @@ ms.locfileid: "68609861"
 | 要求是否包含 `triggerState`？ | API 回應 | 
 | -------------------------------- | -------------| 
 | 否 | 傳回 HTTP `202 ACCEPTED` 狀態與 `location` 標頭，並將 `triggerState` 設為目前的時間，且 `retry-after` 間隔設為 15 秒。 | 
-| 是 | 請檢查您的服務是否有 `triggerState` 的 `DateTime` 之後新增的檔案。 | 
+| 是 | 請檢查您的服務是否有 `DateTime` 的 `triggerState` 之後新增的檔案。 | 
 ||| 
 
 | 找到的檔案數 | API 回應 | 
@@ -196,9 +196,9 @@ ms.locfileid: "68609861"
 Webhook 觸發程序是推送觸發程序，會等候並接聽您服務端點中的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並建立邏輯應用程式執行個體，然後處理資料作為輸入。
 Webhook 觸發程序作用很像本主題之前所述的 [webhook 動作](#webhook-actions)，並使用 `subscribe` 和 `unsubscribe` 端點加以設定。 
 
-* `subscribe` 端點：當您在邏輯應用程式中新增及儲存 Webhook 觸發程序時，Logic Apps 引擎會呼叫 `subscribe` 端點。 這個步驟會導致邏輯應用程式建立您 API 所儲存的回呼 URL。 當沒有新的資料或事件符合指定的條件時，您的 API 會使用 HTTP POST 回呼 URL。 內容承載和標頭會作為輸入傳遞至邏輯應用程式。
+* `subscribe` 端點：當您在邏輯應用程式中新增及儲存 webhook 觸發程序時，Logic Apps 引擎會呼叫 `subscribe` 端點。 這個步驟會導致邏輯應用程式建立您 API 所儲存的回呼 URL。 當沒有新的資料或事件符合指定的條件時，您的 API 會使用 HTTP POST 回呼 URL。 內容承載和標頭會作為輸入傳遞至邏輯應用程式。
 
-* `unsubscribe` 端點：如果刪除 Webhook 觸發程序或整個邏輯應用程式，Logic Apps 引擎就會呼叫 `unsubscribe` 端點。 接著，您的 API 就可以取消註冊回呼 URL，並視需要停止任何處理程序。
+* `unsubscribe` 端點：如果將 webhook 觸發程序或整個邏輯應用程式刪除時，Logic Apps 引擎會呼叫 `unsubscribe` 端點。 接著，您的 API 就可以取消註冊回呼 URL，並視需要停止任何處理程序。
 
 ![Webhook 觸發程序](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
@@ -222,7 +222,7 @@ Webhook 觸發程序作用很像本主題之前所述的 [webhook 動作](#webho
 
 若要將您的自訂 API 提供給 Azure 中的其他 Logic Apps 使用者使用，您必須新增安全性並將它們註冊為 Logic Apps 連接器。 如需詳細資訊，請參閱[自訂連接器概觀](../logic-apps/custom-connector-overview.md)。 
 
-若要將您的自訂 API 提供給 Logic Apps、Microsoft Flow 及 Microsoft PowerApps 中的所有使用者使用，您必須新增安全性、將 API 註冊為 Logic Apps 連接器，並提名您的連接器來進行 [Microsoft Azure 認證計劃](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)。 
+若要讓您的自訂 Api 可供 Logic Apps、電源自動化和 Microsoft Power Apps 中的所有使用者使用，您必須新增安全性、將 Api 註冊為邏輯應用程式連接器，並提名您的連接器使用[Microsoft Azure 認證方案](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)。 
 
 ## <a name="get-support"></a>取得支援
 

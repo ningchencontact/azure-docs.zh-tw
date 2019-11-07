@@ -1,5 +1,5 @@
 ---
-title: 透過範例了解 Azure Data Factory 定價 | Microsoft Docs
+title: 透過範例瞭解 Azure Data Factory 定價
 description: 此文章透過詳細範例說明及示範 Azure Data Factory 的定價模型
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387463"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684530"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>透過範例了解 Data Factory 定價
 
@@ -153,7 +153,7 @@ ms.locfileid: "72387463"
 | 建立管線 | 3 個讀取/寫入實體 (1 個用於建立管線，2 個用於資料集參考) |
 | 取得管線 | 1 個讀取/寫入實體 |
 | 執行管線 | 2 個活動執行 (1 個用於觸發程序執行，1 個用於活動執行) |
-| 資料流程假設：執行時間 = 10 分鐘 + 10 最小 TTL | 10 \* 8 的一般計算核心，TTL 為10 |
+| 資料流程假設：執行時間 = 10 分鐘 + 10 最小 TTL | 10 \* 8 個一般計算的核心，TTL 為10 |
 | 監視管線假設：僅發生 1 次執行 | 2 個重試的監視執行記錄 (1 個用於管線執行，1 個用於活動執行) |
 
 **總案例定價： $0.3011**

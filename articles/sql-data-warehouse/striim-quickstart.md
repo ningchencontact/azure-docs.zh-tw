@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL 資料倉儲的 Striim 快速入門 | Microsoft Docs
+title: Striim 快速入門
 description: 快速開始使用 Striim 和 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 65dc0b8fcece4364f3828fee09221612b999df4e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873402"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685358"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 供應項目安裝指南
 
@@ -29,7 +30,7 @@ ms.locfileid: "65873402"
 
 ![設定 Striim][configure]
 
-一旦部署之後，按一下\<VM 名稱 >-masternode 在 Azure 入口網站中，按一下 [連線]，並複製使用 VM 本機帳戶登入 
+部署之後，按一下 Azure 入口網站中的 \<VM 名稱 >-masternode，按一下 [連線]，然後使用 VM 本機帳戶複製登入 
 
 ![將 Striim 連線至 SQL 資料倉儲][connect]
 
@@ -55,7 +56,7 @@ ms.locfileid: "65873402"
 
 ![Start the Striim cluster][start-striim]
 
-現在，開啟您慣用的瀏覽器並瀏覽至\<DNS 名稱 >: 9080
+現在，開啟您慣用的瀏覽器，並流覽至 \<DNS 名稱 >：9080
 
 ![瀏覽至登入畫面][navigate]
 

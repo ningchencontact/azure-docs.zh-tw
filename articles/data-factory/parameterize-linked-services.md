@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中將連結服務參數化 | Microsoft Docs
+title: 在 Azure Data Factory 中將連結服務參數化
 description: 了解如何在 Azure Data Factory 中將連結服務參數化，並在執行階段傳遞動態值。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 285b7c182fc218a590b7a3980e43175c76555106
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 46ea65c09ec9567bb03a524470a3550c9cdfd00e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140965"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684570"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>在 Azure Data Factory 中將連結服務參數化
 
@@ -36,7 +36,7 @@ ms.locfileid: "70140965"
 目前，Azure 入口網站的 Data Factory UI 中支援下列資料存放區的連結服務參數化。 至於其他資料存放區，您可以選取 [連線] 索引標籤上的 [程式碼] 圖示，並使用 JSON 編輯器，將連結的服務參數化。
 - Azure SQL Database
 - Azure SQL 資料倉儲
-- [SQL Server]
+- SQL Server
 - Oracle
 - Cosmos DB
 - Amazon Redshift
