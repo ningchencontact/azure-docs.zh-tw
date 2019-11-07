@@ -1,5 +1,5 @@
 ---
-title: 輪流應用程式升級 - Azure SQL Database | Microsoft Docs
+title: 滾動應用程式升級-Azure SQL Database
 description: 了解如何使用 Azure SQL Database 異地複寫以支援雲端應用程式的線上升級。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 253a10e75832cf6ee8294405e34fa93b801c1b49
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567778"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689493"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>使用 SQL Database 主動式異地複寫管理雲端應用程式的輪流升級
 
@@ -109,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 中斷次要資料庫的連線以終止異地複寫 (11)。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 下列範例使用 Transact-sql, 但也提供[PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 。 
+2. 中斷次要資料庫的連線以終止異地複寫（11）。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 下列範例使用 Transact-sql，但也提供[PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 。 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -144,7 +144,7 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 主要的取捨是它需要每個應用程式元件的雙重備援，因此會產生較高的金額成本。 它也涉及更複雜的工作流程。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 本文中所描述的兩種升級方法有不同的複雜度與金額成本，但它們都著重於將使用者受限為唯讀作業的時間降到最低。 該時間由升級指令碼的期間直接定義。 時間不會取決於資料庫大小、您選擇的服務層級、網站設定，或其他您無法輕鬆控制的因素。 所有準備步驟會與升級步驟分離，且不會影響生產應用程式。 升級指令的效率是決定升級期間使用者的體驗的重要因素。 因此改進該體驗的最佳方式，舊是將工作焦點放在盡可能提高升級指令碼的效率。
 

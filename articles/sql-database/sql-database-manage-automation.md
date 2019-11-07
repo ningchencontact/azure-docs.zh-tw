@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 自動化來管理 Azure SQL 資料庫 | Microsoft Docs
+title: 使用 Azure 自動化管理 Azure SQL 資料庫
 description: 了解如何使用 Azure 自動化服務大規模地管理 Azure SQL 資料庫。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: bb195d5809ef0e2af2a4975a263a9739db1cdfa6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e29cd85c63bb2f6e083f9cda9abd48fa6d9975a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567736"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689445"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>使用 Azure 自動化來管理 Azure SQL 資料庫
 
@@ -32,7 +32,7 @@ Azure 自動化提供高可靠性且高可用性的工作流程執行引擎，�
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure 自動化為何有助於管理 Azure SQL 資料庫？
 
-Azure SQL 資料庫可透過 [Azure PowerShell 工具](/powershell/azure/overview)中提供的 [Azure SQL Database PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)，在 Azure 自動化中受到管理。 Azure 自動化的這些 Azure SQL 資料庫 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有的 SQL 資料庫管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
+Azure SQL 資料庫可透過 [Azure PowerShell 工具](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)中提供的 [Azure SQL Database PowerShell Cmdlet](/powershell/azure/overview)，在 Azure 自動化中受到管理。 Azure 自動化的這些 Azure SQL 資料庫 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有的 SQL 資料庫管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
 
 Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發出 SQL 命令即可。
 
@@ -49,4 +49,4 @@ Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發
 
 - [Azure 自動化概觀](../automation/automation-intro.md)
 - [我的第一個 Runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation:Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) (Azure 自動化：雲端中的 SQL Agent) 
+- [Azure Automation: Your SQL Agent in the Cloud (Azure 自動化：雲端中的 SQL 代理程式)](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

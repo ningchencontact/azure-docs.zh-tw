@@ -436,7 +436,7 @@
                   href: msal-js-prompt-behavior.md
             - name: 適用於 iOS 和 macOS 的 MSAL
               items:
-                - name: 適用於 iOS 和 macOS 的 Microsoft Authentication Library 差異
+                - name: 適用於 iOS 和 macOS 的 MSAL 相異之處
                   href: msal-differences-ios-macos.md
                 - name: 設定 keychain
                   href: howto-v2-keychain-objc.md

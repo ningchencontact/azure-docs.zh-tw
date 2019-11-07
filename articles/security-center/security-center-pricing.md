@@ -1,5 +1,5 @@
 ---
-title: 升級為 Azure 資訊安全中心標準層以增強安全性 | Microsoft Docs
+title: Azure 資訊安全中心層的定價
 description: 這篇文章提供 Azure 資訊安全中心的價格資訊。
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 43ae34b946fada4d27c6843dbb8c3f9511aefd81
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520790"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664253"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
 Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護，保護 Azure、內部部署和其他雲端中執行的工作負載。 其提供了針對混合式雲端工作負載的可見性和控制能力、可降低威脅曝露度的主動防禦措施、還有智慧型偵測可幫助您跟上網路攻擊快速發展的腳步。
@@ -54,7 +54,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 資訊安全中心為您的混合式雲端工作負載提供增強的安全性與威脅防護，包括：
 
 - **混合式安全性** – 取得您所有內部部署和雲端工作負載中安全性的統一檢視。 套用安全性原則，並持續評估您混合式雲端工作負載的安全性，以確保符合安全性標準。 收集、搜尋及分析來自多個來源（包括防火牆和其他合作夥伴解決方案）的安全性資料。
-- **進階威脅偵測** - 利用進階分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。  有效率的調控內建行為分析和機器學習服務，以發現攻擊和零時差惡意探索。 監視網路、機器和雲端服務中是否有傳入攻擊和侵入後活動。 使用互動式工具和內容相關威脅情報來簡化調查。
+- **進階威脅偵測** - 利用進階分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。 有效率的調控內建行為分析和機器學習服務，以發現攻擊和零時差惡意探索。 監視網路、機器和雲端服務中是否有傳入攻擊和侵入後活動。 使用互動式工具和內容相關威脅情報來簡化調查。
 - **存取與應用**程式控制-藉由套用機器學習服務的允許清單建議，並配合您的特定工作負載，來封鎖惡意程式碼和其他不必要的應用程式。 使用 Azure Vm 上管理埠的即時控制存取來減少網路攻擊面。 這會大幅減少暴力密碼破解和其他網路攻擊的風險。
 - **容器安全性功能**-受益于您容器化環境的弱點管理和即時威脅偵測。 啟用 container registry 資源時，可能需要12hrs，直到啟用所有功能為止。
 

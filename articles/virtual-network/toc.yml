@@ -39,6 +39,8 @@
       href: security-overview.md
     - name: 路由
       href: virtual-networks-udr-overview.md
+    - name: 服務標籤
+      href: service-tags-overview.md
     - name: 服務端點
       href: virtual-network-service-endpoints-overview.md
     - name: 服務端點原則
@@ -65,6 +67,8 @@
       href: ipv6-public-ip-address-prefix.md
     - name: DDoS 保護
       href: ddos-protection-overview.md
+    - name: 子網路延伸模組
+      href: subnet-extension.md
     - name: 後端連線能力互通性
       items:
         - name: 引用和測試設定
@@ -297,6 +301,8 @@
           href: diagnose-network-routing-problem.md
         - name: 輸送量測試
           href: virtual-network-bandwidth-testing.md
+        - name: 測試 VM 網路延遲
+          href: virtual-network-test-latency.md
         - name: 無法刪除虛擬網路
           href: virtual-network-troubleshoot-cannot-delete-vnet.md
         - name: VM 至 VM 連線問題

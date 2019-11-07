@@ -518,6 +518,8 @@
           href: data-movement-security-considerations.md
         - name: 在 Azure Key Vault 中儲存認證
           href: store-credentials-in-key-vault.md
+        - name: 在管線活動中使用 Azure Key Vault 祕密
+          href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
         - name: 對自我託管的整合執行階段認證進行加密
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: 適用於 Data Factory 的受控身分識別

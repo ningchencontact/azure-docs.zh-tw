@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1d8caafe312c123a9d572e9a5f4c5cf64a05f7ea
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373469"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721050"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -32,7 +32,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 密碼雜湊同步處理程序的實際資料流程，與使用者資料的同步處理類似。 不過，相較於其他屬性的標準目錄同步作業週期，密碼會更頻繁地進行同步。 密碼雜湊同步處理程序每 2 分鐘會執行一次。 您無法修改此程序的執行頻率。 當您同步處理密碼時，它便會覆寫現有的雲端密碼。
 
-第一次啟用密碼雜湊同步處理功能時，它會對範圍內的所有使用者執行初次密碼同步處理。 您無法明確定義一小組要同步處理的使用者密碼。
+第一次啟用密碼雜湊同步處理功能時，它會對範圍內的所有使用者執行初次密碼同步處理。 您無法明確定義一小組要同步處理的使用者密碼。 不過，如果有多個連接器，則可以使用[ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant)指令程式來停用某些連接器的密碼雜湊同步處理，而不是其他連接器。
 
 當您變更內部部署密碼時，更新後的密碼將會進行同步處理，而這個動作大多會在幾分鐘內完成。
 密碼雜湊同步處理功能會自動重試失敗的同步處理嘗試。 若嘗試同步密碼期間發生錯誤，該錯誤會記錄在事件檢視器中。
@@ -102,9 +102,9 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 `Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers  $true`
 
-啟用之後，Azure AD 不會移至每個已同步處理的使用者，從 PasswordPolicies 屬性中移除 `DisablePasswordExpiration` 值。 相反地，當每位使用者下次在內部部署 AD 中變更其密碼時，其值會設定為 `None`。  
+啟用之後，Azure AD 不會移至每個已同步處理的使用者，從 PasswordPolicies 屬性中移除 `DisablePasswordExpiration` 值。 相反地，當每位使用者下次在內部部署 AD 中變更其密碼時，此值會設定為 `None` 在下一個密碼同步處理期間。  
 
-建議您先啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，再啟用密碼雜湊同步處理，讓密碼雜湊的初始同步處理不會在使用者的 PasswordPolicies 屬性中加上 `DisablePasswordExpiration` 的值。
+建議您先啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，再啟用密碼雜湊同步處理，讓密碼雜湊的初始同步處理不會將 `DisablePasswordExpiration` 值新增至使用者的 PasswordPolicies 屬性。
 
 預設 Azure AD 密碼原則會要求使用者每90天變更密碼一次。 如果您在 AD 中的原則也是90天，則這兩個原則應相符。 不過，如果 AD 原則不是90天，您可以使用 Set-msolpasswordpolicy PowerShell 命令，將 Azure AD 密碼原則更新為相符。
 

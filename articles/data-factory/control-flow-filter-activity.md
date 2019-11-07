@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的篩選活動 | Microsoft Docs
+title: Azure Data Factory 中的篩選活動
 description: 篩選活動會篩選輸入。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: c0f5d3264d953498af61c6e8d36dadee7dd61931
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915520"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679863"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory 中的篩選活動
 您可以在管線中使用篩選活動，將篩選運算式套用至輸入陣列。 
@@ -36,16 +36,16 @@ ms.locfileid: "70915520"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | `Filter` 活動的名稱。 | String | 是
-Type | 必須設定為**篩選**。 | String | 是
-condition (條件) | 要用來篩選輸入的條件。 | 運算式 | 是
-items | 應套用篩選條件的輸入陣列。 | 運算式 | 是
+名稱 | `Filter` 活動的名稱。 | 字串 | 是
+類型 | 必須設定為**篩選**。 | 字串 | 是
+condition | 要用來篩選輸入的條件。 | 運算是 | 是
+items | 應套用篩選條件的輸入陣列。 | 運算是 | 是
 
 ## <a name="example"></a>範例
 
-在此範例中，管理有兩個活動：**Filter** 和 **ForEach**。 篩選活動設定為會對值大於 3 之項目的輸入陣列進行篩選。 ForEach 活動接著會逐一查看篩選的值，並將變數**測試**設定為目前的值。
+在此範例中，管線有兩個活動：**篩選**與 **ForEach**。 篩選活動設定為會對值大於 3 之項目的輸入陣列進行篩選。 ForEach 活動接著會逐一查看篩選的值，並將變數**測試**設定為目前的值。
 
 ```json
 {
@@ -114,8 +114,8 @@ items | 應套用篩選條件的輸入陣列。 | 運算式 | 是
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [If Condition 活動](control-flow-if-condition-activity.md)
-- [執行管道活動](control-flow-execute-pipeline-activity.md)
+- [If 條件活動](control-flow-if-condition-activity.md)
+- [執行管線活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

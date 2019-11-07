@@ -1,21 +1,24 @@
 ---
-title: 檔解壓縮認知搜尋技能
+title: 檔解壓縮認知搜尋技能（預覽）
 titleSuffix: Azure Cognitive Search
-description: 從擴充管線內的檔案解壓縮內容。
+description: 從擴充管線內的檔案解壓縮內容。 此技能目前為公開預覽狀態。
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512193"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720118"
 ---
 # <a name="document-extraction-cognitive-skill"></a>檔解壓縮認知技能
+
+> [!IMPORTANT] 
+> 此技能目前為公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前沒有入口網站或 .NET SDK 支援。
 
 檔**提取**技能會從擴充管線內的檔案中提取內容。 這可讓您利用通常在技能集執行之前發生的檔解壓縮步驟，以及可能由其他技能產生的檔案。
 
@@ -63,7 +66,7 @@ Util. DocumentExtractionSkill
 
  - 將索引子定義上的 `allowSkillsetToReadFileData` 參數設為 "true"。  這會建立一個路徑 `/document/file_data`，這是代表從 blob 資料來源下載之原始檔案資料的物件。 此參數只適用于 Blob 儲存體中的資料。
 
- - 將索引子定義上的 `imageAction` 參數設定為 `none`以外的值。  這會建立一個影像陣列 `/document/normalized_images`，遵循此技能的輸入慣例（如果個別傳遞的話）（也就是 `/document/normalized_images/*`）。
+ - 將索引子定義上的 `imageAction` 參數設定為 `none`以外的值。  這會建立影像陣列，遵循此技能的輸入慣例（如果個別傳遞的話）（亦即 `/document/normalized_images/*`）。
 
  - 擁有自訂技能會傳回完全依照上述方式定義的 json 物件。  `$type` 參數必須設定為完全 `file`，而 `data` 參數必須是檔案內容的基底64編碼位元組陣列資料。
 

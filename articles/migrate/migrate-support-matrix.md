@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18032250bc5c321d638ad46204738f49f1a0c744
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 90b1250009e6efdb2f8cb9351fe270c8324cc77a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480138"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715476"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 支援矩陣
 
@@ -34,20 +34,30 @@ Azure Migrate 服務有兩個版本：
 **部署** | **詳細資料** 
 --- | --- 
 **應用程式特定的探索** | 您可以探索在 VMware Vm 上執行的應用程式、角色和功能。 這項功能目前僅限於探索。 評量目前位於電腦層級。 我們尚未提供應用程式、角色或特定功能的評量。 
-**內部部署評量** | 評估在 VMware Vm 和 Hyper-v Vm 上執行的內部部署工作負載和資料。 評估使用 Azure Migrate Server 評估和 Microsoft Data Migration Assistant （DMA），以及包含 Cloudamize、Corent Tech 和 Turbonomic 伺服器的協力廠商工具。
-**內部部署至 Azure 的遷移** | 將實體伺服器、VMware Vm、Hyper-v Vm、實體伺服器和雲端式 VM 上執行的工作負載和資料移轉至 Azure。 使用 Azure Migrate Server 評估和 Azure 資料庫移轉服務（DMS）進行遷移，以及使用包含 Carbonite 和 CorentTech 的協力廠商工具。
+**內部部署評量** | 評估在 VMware Vm、Hyper-v Vm 和實體伺服器上執行的內部部署工作負載和資料。 評估使用 Azure Migrate Server 評估和 Microsoft Data Migration Assistant （DMA），以及其他工具和 ISV 供應專案。
+**內部部署至 Azure 的遷移** | 將實體伺服器、VMware Vm、Hyper-v Vm、實體伺服器和雲端式 VM 上執行的工作負載和資料移轉至 Azure。 使用 Azure Migrate Server 評估和 Azure 資料庫移轉服務（DMS），以及其他工具和 ISV 供應專案來進行遷移。
 
-特定工具支援摘要如下。
 
-**工具** | **評量/遷移** | **詳細資料**
+## <a name="supported-tools"></a>支援的工具
+
+資料表中摘要說明特定的工具支援。
+
+**工具** | **評估** | **移轉** 
 --- | --- | ---
-Azure Migrate 伺服器評量 | 評量 | 試用[hyper-v](tutorial-prepare-hyper-v.md)和[VMware](tutorial-prepare-vmware.md)的伺服器評估。
-Cloudamize | 評量 | [詳細資訊](https://www.cloudamize.com/platform#tab-0)。
-CorentTech | 評量 | [詳細資訊](https://www.corenttech.com/)。
-Turbonomic | 評量 | [詳細資訊](https://turbonomic.com/solutions/technologies/azure-cloud/)。
-Azure Migrate 伺服器移轉 | 移轉 | 試用[hyper-v](tutorial-migrate-hyper-v.md)和[VMware](tutorial-migrate-vmware.md)的伺服器遷移。
-Carbonite | 移轉 | [詳細資訊](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure)。
-CorentTech | 移轉 | [詳細資訊](https://www.corenttech.com/)。
+Azure Migrate 伺服器評量 | 評估[VMware vm](tutorial-prepare-vmware.md)、 [hyper-v vm](tutorial-prepare-hyper-v.md)和[實體伺服器](tutorial-prepare-physical.md)。 |  無法使用（NA）
+Azure Migrate 伺服器移轉 | NA | 遷移[VMware vm](tutorial-migrate-vmware.md)、 [hyper-v vm](tutorial-migrate-hyper-v.md)和[實體伺服器](tutorial-migrate-physical-virtual-machines.md)。
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) \(英文\) | NA | 遷移 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| 評估 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。 | NA
+[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) \(英文\) | 評估和遷移 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。 |  遷移 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) \(英文\) | 評估 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。| NA
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | 評估內部部署 SQL Server 資料庫。 | NA
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | 遷移 SQL Server、Oracle、MySQL、于 postgresql、MongoDB。 | NA
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | 評估虛擬桌面基礎結構（VDI） | NA
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | 評估 VMWare Vm、Hyper-v Vm、Xen Vm、實體機器、工作站（包括 VDI）、公用雲端工作負載 | NA
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | 遷移 VMWare Vm，Hyper-v Vm，Xen Vm，KVM Vm，實體機器，公用雲端工作負載 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295) \(英文\)  | 評估 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。 | NA
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) \(英文\) | 評估 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載，以及 SQL Server 資料庫。 | NA
+[Webapp 移轉小幫手](https://appmigration.microsoft.com/) | 評估 web 應用程式 | 遷移 web 應用程式。
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 專案

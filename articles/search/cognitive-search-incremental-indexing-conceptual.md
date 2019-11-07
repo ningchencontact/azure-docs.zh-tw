@@ -1,25 +1,24 @@
 ---
 title: 累加式編制索引簡介（預覽）
 titleSuffix: Azure Cognitive Search
-description: 設定您的 AI 擴充管線，以將您的資料驅動至最終一致性，以處理任何技能、技能集、索引子或資料來源的更新。
+description: 設定您的 AI 擴充管線，以將您的資料驅動至最終一致性，以處理任何技能、技能集、索引子或資料來源的更新。 這項功能目前為公開預覽狀態
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ea3bcfc25040f09b6871d85412ac64061ec2f9e8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549119"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715427"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>什麼是 Azure 認知搜尋中的增量編制索引？
 
-> [!Note]
-> 累加式索引編制僅供預覽，不適用於生產環境使用。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
->
+> [!IMPORTANT] 
+> 累加式編制索引目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
 
 增量索引是 Azure 認知搜尋的一項新功能，可將快取和狀態新增至認知技能集中的擴充內容，讓您控制在擴充管線中處理和重新處理個別步驟。 這不僅會保留您在處理中的金錢投資，還可讓系統更有效率。 快取結構和內容時，索引子可以判斷哪些技能已變更，並只執行已修改的技能，以及任何下游相依技能。 
 

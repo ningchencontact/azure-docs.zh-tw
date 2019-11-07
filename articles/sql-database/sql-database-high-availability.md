@@ -1,5 +1,5 @@
 ---
-title: 高可用性 - Azure SQL Database 服務 | Microsoft Docs
+title: 高可用性-Azure SQL Database 服務
 description: 了解 Azure SQL Database 服務的高可用性功能
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b34590ca275b6e7254af7820fdc1a03655351cea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965965"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689948"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 

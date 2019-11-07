@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Web 資料表複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Web 資料表複製資料
 description: 了解 Azure Data Factory 服務的「Web 資料表連接器」，此連接器可讓您將資料從 Web 資料表複製到 Data Factory 所支援作為接收器的資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 164b61d624efbe1ed6127f1ed974b221f4e4d304
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a13f3c2d2bbebd2cd6fa95bd7aa144722447ac9d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089158"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680051"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Web 資料表複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -28,7 +28,7 @@ ms.locfileid: "71089158"
 
 此 Web 資料表連接器、[REST 連接器](connector-rest.md)和 [HTTP 連接器](connector-http.md)之間的差異如下：
 
-- **Web 資料表連接器**會從 HTML 網頁擷取資料表內容。
+- **Web 資料表連接器**可從 HTML 網頁擷取資料表內容。
 - **REST 連接器**專門支援從 RESTful API 複製資料。
 - **HTTP 連接器**一般用來從任何 HTTP 端點擷取資料，例如下載檔案。 
 
@@ -47,7 +47,7 @@ ms.locfileid: "71089158"
 
 若要使用此 Web 資料表連接器，您需要設定「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -57,14 +57,14 @@ ms.locfileid: "71089158"
 
 以下是針對 Web 資料表已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**Web** |是 |
+| 類型 | 類型屬性必須設為： **Web** |是 |
 | url | Web 來源的 URL |是 |
-| authenticationType | 允許的值為：**Anonymous**。 |是 |
+| authenticationType | 允許的值為：**Anonymous** (匿名)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -89,13 +89,13 @@ ms.locfileid: "71089158"
 
 若要從 Web 資料表複製資料，請將資料集的類型屬性設定為 **WebTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**WebTable** | 是 |
-| path |包含資料表之資源的相對 URL。 |資料分割 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| 類型 | 資料集的類型屬性必須設定為：**WebTable** | 是 |
+| 路徑 |包含資料表之資源的相對 URL。 |不會。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -117,13 +117,13 @@ ms.locfileid: "71089158"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Web 資料表來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Web 資料表來源所支援的屬性清單。
 
 ### <a name="web-table-as-source"></a>Web 資料表作為來源
 
 若要從 Web 資料表複製資料，請將複製活動中的來源類型設定為 **WebSource**，不支援任何其他屬性。
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -162,7 +162,7 @@ ms.locfileid: "71089158"
 2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。
 
     ![Power Query 功能表](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/) ，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
+3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
 
     ![[從 Web] 對話方塊](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

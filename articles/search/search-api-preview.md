@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dff6473fd01fc2d41c5bb100eefd583afe4175b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496474"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720018"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure 認知搜尋服務 REST api-版本 2019-05-06-預覽
 
@@ -25,20 +25,27 @@ ms.locfileid: "73496474"
 
 ## <a name="new-in-2019-05-06-preview"></a>2019-05-06-Preview 的新功能
 
-[* * 增量索引](cognitive-search-incremental-indexing-conceptual.md)是新增狀態和快取之索引的新模式，可讓您在資料、索引子和技能集定義未變更時重複使用現有的輸出。 這項功能僅適用于透過認知技能集的擴充。
++ [增量索引](cognitive-search-incremental-indexing-conceptual.md)是一種新的索引模式，可將狀態和快取加入至技能集，讓您在來源資料、索引子和技能集定義未變更時重複使用現有的輸出。 這項功能僅適用于已定義認知技能集的擴充。
 
-[**知識存放區**](knowledge-store-concept-intro.md)是以 AI 為基礎的擴充管線的新目的地。 除了索引之外，您現在還可以保存在 Azure 儲存體中編制索引期間所建立的已填入資料結構。 您可以透過技能集中的專案來控制資料的實體結構，包括資料的成形方式、資料是否儲存在資料表儲存體或 Blob 儲存體中，以及是否有多個視圖。
++ [Cosmos DB 索引子](search-howto-index-cosmosdb.md)支援 MongoDB Api、Gremlin API 和 Cassandra API。
 
-服務端的[**客戶管理加密金鑰**](search-security-manage-encryption-keys.md)-待用加密也是新的預覽功能。 除了由 Microsoft 所管理的內建待用加密之外，您還可以套用額外的加密層級，其中您是金鑰的唯一擁有者。
++ [Azure Data Lake Storage Gen2 索引子](search-howto-index-azure-data-lake-storage.md)可以從 Data Lake Storage Gen2 編制內容和中繼資料的索引。
 
-## <a name="other-preview-features"></a>其他預覽功能
++ 檔[解壓縮（預覽）](cognitive-search-skill-document-extraction.md)是在編制索引期間使用的認知技能，可讓您從技能集中解壓縮檔案的內容。 過去，只有在技能集執行之前才會發生檔破解。 隨著這項技能的增加，您也可以在技能集執行期間執行此作業。
+
++ [文字翻譯（預覽）](cognitive-search-skill-text-translation.md)是在索引編制期間所使用的認知技能，可評估文字，而針對每一筆記錄，會傳回轉譯為指定目的語言的文字。
+
++ [知識存放區](knowledge-store-concept-intro.md)是以 AI 為基礎的擴充管線的新目的地。 實體資料結構存在於 Azure Blob 儲存體和 Azure 資料表儲存體中，而且當您執行具有附加認知技能集的索引子時，它會建立並填入。 知識存放區本身的定義是在技能集定義內指定。 在知識存放區定義中，您可以透過*投射*專案來控制資料的實體結構，這些元素會決定如何塑造資料、資料是否儲存在資料表儲存體或 Blob 儲存體中，以及是否有多個視圖。
+
++ 服務端的[客戶管理加密金鑰](search-security-manage-encryption-keys.md)-待用加密也是新的預覽功能。 除了由 Microsoft 所管理的內建待用加密之外，您還可以套用額外的加密層級，其中您是金鑰的唯一擁有者。
+
+## <a name="earlier-preview-features"></a>舊版預覽功能
 
 舊版預覽中宣布的功能仍處於公開預覽。 如果您使用舊版預覽 api-version 呼叫 API，則可以繼續使用該版本或切換到 `2019-05-06-Preview`，而不會更改預期的行為。
 
 + [moreLikeThis 查詢參數](search-more-like-this.md)，可尋找與特定文件相關的文件。 這個功能已存在舊版預覽中。 
-* [CSV blob 索引](search-howto-index-csv-blobs.md)會建立一行檔，而不是每個文字 blob 一份檔。
-* [Cosmos DB 索引子的 MONGODB API 支援](search-howto-index-cosmosdb.md)目前處於預覽階段。
 
++ [CSV blob 索引](search-howto-index-csv-blobs.md)會建立一行檔，而不是每個文字 blob 一份檔。
 
 ## <a name="how-to-call-a-preview-api"></a>如何呼叫預覽 API
 

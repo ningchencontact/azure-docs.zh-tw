@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 受控執行個體決定Vnet/子網路大小 | Microsoft Docs
+title: Azure SQL Database 受控執行個體判斷 VNet/子網大小
 description: 本主題會講解如何計算要部署 Azure SQL Database 受控執行個體的子網路大小。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fb0d79a82553349d5dad547a2d78a460301cbd6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273564"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688127"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>決定 Azure SQL Database 受控執行個體的 VNet 子網路大小
 

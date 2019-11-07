@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure SQL Database 安全性以供災害復原使用 | Microsoft Docs
+title: 設定嚴重損壞修復的 Azure SQL Database 安全性
 description: 了解在資料庫還原或容錯移轉至次要伺服器之後，設定和管理安全性時的安全性考量。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568140"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689981"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>建立和管理 Azure SQL Database 安全性以供異地還原或容錯移轉使用
 
@@ -48,7 +48,7 @@ ms.locfileid: "68568140"
 
 設定目標伺服器上的登入包含下列概述的三個步驟︰
 
-#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1.決定具備主要資料庫存取權的登入
+#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. 判斷具有主資料庫存取權的登入
 
 程序的第一個步驟是判斷目標伺服器上必須複製哪些登入。 這是以一組 SELECT 陳述式完成，一個在來源伺服器上的邏輯 master 資料庫中，一個在主要資料庫本身。
 
@@ -64,7 +64,7 @@ ms.locfileid: "68568140"
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
-#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2.尋找在步驟 1 中識別的登入 SID
+#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. 尋找在步驟1中識別的登入 SID
 
 藉由比較上一節查詢的輸出並比對 SID，您可以將伺服器登入對應到資料庫使用者。 具有資料庫使用者及相符 SID 的登入也會有該資料庫的使用者存取權做為資料庫使用者主體。
 
@@ -75,9 +75,9 @@ ms.locfileid: "68568140"
     WHERE [type_desc] = 'SQL_USER'
 
 > [!NOTE]
-> **INFORMATION_SCHEMA** 和 **sys** 使用者有「NULL」SID，而**來賓**的 SID 是 **0x00**。 如果資料庫建立者是伺服器系統管理員，而不是 **DbManager** 的成員，**dbo** SID 可能會以 *0x01060000000001648000000000048454* 開頭。
+> **INFORMATION_SCHEMA** 和 **sys** 使用者有「NULL」SID，而**來賓**的 SID 是 **0x00**。 如果資料庫建立者是伺服器系統管理員，而不是 **DbManager** 的成員，*dbo* SID 可能會以 **0x01060000000001648000000000048454** 開頭。
 
-#### <a name="3-create-the-logins-on-the-target-server"></a>3.在目標伺服器上建立登入
+#### <a name="3-create-the-logins-on-the-target-server"></a>3. 在目標伺服器上建立登入
 
 最後一個步驟是移至目標伺服器或伺服器，並以適當的 SID 產生登入。 基本語法如下所示。
 
@@ -96,8 +96,8 @@ ms.locfileid: "68568140"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需管理資料庫存取和登入的詳細資訊，請參閱 [SQL Database 安全性：管理資料庫存取和登入的安全性](sql-database-manage-logins.md)。
+* 如需管理資料庫存取和登入的詳細資訊，請參閱 [SQL Database 安全性︰管理資料庫存取與登入安全性](sql-database-manage-logins.md)。
 * 如需自主資料庫使用者的詳細資訊，請參閱 [自主資料庫使用者 - 使資料庫可攜](https://msdn.microsoft.com/library/ff929188.aspx)。
-* 若要深入了解作用中異地複寫，請參閱[作用中異地複寫](sql-database-active-geo-replication.md)。
+* 若要深入了解作用中異地複寫，請參閱[主動式異地複寫](sql-database-active-geo-replication.md)。
 * 若要深入了解自動容錯移轉群組，請參閱[自動容錯移轉群組](sql-database-auto-failover-group.md)。
 * 如需使用異地還原的相關資訊，請參閱[異地還原](sql-database-recovery-using-backups.md#geo-restore)

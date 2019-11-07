@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200598"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682265"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -31,13 +31,13 @@ ms.locfileid: "73200598"
 
 Azure 地區決定您叢集實際佈建的位置。 若要將讀取和寫入的延遲降至最低，叢集就應該接近您的資料。
 
-HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/)。
+HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight)。
 
 ## <a name="choose-storage-location-and-size"></a>選擇存放位置和大小
 
 ### <a name="location-of-default-storage"></a>預設儲存體的位置
 
-預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用-請參閱目前的[Data Lake Storage 可用性](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage)。
+預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用-請參閱目前的[Data Lake Storage 可用性](https://azure.microsoft.com/global-infrastructure/services/?products=storage)。
 
 ### <a name="location-of-existing-data"></a>現有資料的位置
 

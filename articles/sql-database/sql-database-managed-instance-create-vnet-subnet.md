@@ -1,5 +1,5 @@
 ---
-title: 建立 Azure SQL Database 受控執行個體的虛擬網路 | Microsoft Docs
+title: 建立 Azure SQL Database 受控執行個體的虛擬網路
 description: 本文說明如何建立可在其中部署 Azure SQL Database 受控執行個體的虛擬網路。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 2fd4055f1a2ec7b5b29d1a303f1c9ac3260f4cca
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958488"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688164"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>建立 Azure SQL Database 受控執行個體的虛擬網路
 
@@ -34,7 +34,7 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 >
 > 如果您打算使用現有的虛擬網路，您需要修改該網路組態以順應您的受控執行個體。 如需詳細資訊，請參閱[針對受控執行個體修改現有的虛擬網路](sql-database-managed-instance-configure-vnet-subnet.md)。
 >
-> 建立受控實例之後, 不支援將受控實例或 VNet 移至另一個資源群組或訂用帳戶。
+> 建立受控實例之後，不支援將受控實例或 VNet 移至另一個資源群組或訂用帳戶。
 
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路

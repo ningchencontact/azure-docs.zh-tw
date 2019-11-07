@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: 自訂視覺文件
-summary: 自訂視覺是一個認知服務，可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表類別)。
+summary: 自訂視覺可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表類別)。
 metadata:
   title: 自訂視覺文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
-  description: 自訂視覺是一個認知服務，可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表類別)。
+  description: 自訂視覺可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表類別)。
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 2ef22176b64638dc43a4a45096cf072a7c79931e
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931646"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73647585"
 landingContent:
 - title: 關於自訂視覺
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: test-your-model.md
     - text: 改善模型
       url: getting-started-improving-your-classifier.md
-    - text: 使用建議的標籤
+    - text: 使用智慧型 Labeler
       url: suggested-tags.md
 - title: 匯出模型
   linkLists:

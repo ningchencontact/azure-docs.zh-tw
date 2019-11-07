@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Office 365 載入資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Office 365 載入資料
 description: 使用 Azure Data Factory 從 Office 365 複製資料
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: da3d407b39ef00154b717b54213a3b40d2d110bb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754589"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672627"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Office 365 載入資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "72754589"
 
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值：
       
-   ![新增 Data Factory 網頁](./media/load-office-365-data/new-azure-data-factory.png)
+   ![新增資料處理站頁面](./media/load-office-365-data/new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱*LoadFromOffice365Demo*無法使用」錯誤，請為資料處理站輸入不同的名稱。 例如，您可以使用 _**yourname**_ **LoadFromOffice365Demo**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
@@ -38,7 +38,7 @@ ms.locfileid: "72754589"
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
-3. 選取 [建立]。
+3. 選取 [ **建立**]。
 4. 建立完成後，請移至資料處理站。 您會看到如下圖所示的 [Data Factory] 首頁：
    
    ![Data Factory 首頁](./media/load-office-365-data/data-factory-home-page.png)
@@ -73,7 +73,7 @@ ms.locfileid: "72754589"
 
     ![新增 Office 365 已連結的服務](./media/load-office-365-data/new-office-365-linked-service.png)
  
-7. 在連結服務建立後，您會回到資料集設定。 在 [**資料表**] 旁，選擇向下箭號以展開可用的 Office 365 資料集清單，然後選擇 [BasicDataSet_v0]。Message_v0 "從下拉式清單：
+7. 在連結服務建立後，您會回到資料集設定。 在 **資料表** 旁，選擇向下箭號以展開可用的 Office 365 資料集清單，然後選擇 BasicDataSet_v0。Message_v0 下拉式清單中：
 
     ![設定 Office 365 資料集資料表](./media/load-office-365-data/edit-dataset.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "72754589"
 
 ![監視活動](./media/load-office-365-data/activity-status.png) 
 
-如果這是您第一次要求此內容的資料（其中一個資料表正在存取的組合、哪個目的地帳戶是要載入的資料，以及哪些使用者身分識別正在進行資料存取要求），您將會看到複製活動狀態為 [**進行中**]，只有當您按一下 [動作] 底下的 [詳細資料] 連結時，您才會看到狀態為 [ **RequesetingConsent**]。  資料存取核准者群組的成員必須核准 Privileged Access Management 中的要求，資料擷取才能繼續。
+如果這是您第一次要求此內容的資料（其中一個資料表正在存取的組合、哪個目的地帳戶是要載入的資料，以及哪些使用者身分識別正在進行資料存取要求），您將會看到複製活動狀態為 [**進行中**]，只有當您按一下 [動作] 底下的 [詳細資料] 連結時，您才會看到狀態為 [ **RequesetingConsent**]。  資料存取核准者群組的成員必須先在 Privileged Access Management 中核准該要求，資料擷取才能繼續。
 
 _要求同意時的狀態：_ 
 ![活動執行詳細資料 - 要求同意](./media/load-office-365-data/activity-details-request-consent.png) 

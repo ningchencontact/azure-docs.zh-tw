@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 SAP ECC 複製資料 |Microsoft Docs
+title: 使用 Azure Data Factory 從 SAP ECC 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP ECC 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c2b9fcc3f75b8f310532978061c887776f007ff0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089539"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680301"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -72,9 +72,9 @@ ms.locfileid: "71089539"
 
 以下是 SAP ECC 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| `type` | 屬性必須設定為`SapEcc`。 `type` | 是 |
+| `type` | `type` 屬性必須設定為 `SapEcc`。 | 是 |
 | `url` | SAP ECC OData 服務的 URL。 | 是 |
 | `username` | 用來連接到 SAP ECC 的使用者名稱。 | 否 |
 | `password` | 用來連接到 SAP ECC 的純文字密碼。 | 否 |
@@ -107,11 +107,11 @@ ms.locfileid: "71089539"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)。 下一節提供 SAP ECC 資料集所支援的屬性清單。
 
-若要從 SAP ECC 複製資料，請`type`將資料集的屬性`SapEccResource`設定為。
+若要從 SAP ECC 複製資料，請將資料集的 `type` 屬性設定為 `SapEccResource`。
 
 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 實體的路徑。 | 是 |
 
@@ -140,14 +140,14 @@ ms.locfileid: "71089539"
 
 ### <a name="sap-ecc-as-a-source"></a>作為來源的 SAP ECC
 
-若要從 SAP ECC 複製資料，請`type`將複製活動`source`的區段中的屬性設定`SapEccSource`為。
+若要從 SAP ECC 複製資料，請將複製活動的 [`source`] 區段中的 [`type`] 屬性設定為 [`SapEccSource`]。
 
-複製活動的`source`區段支援下列屬性：
+複製活動的 [`source`] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| `type` | 複製`type` `SapEccSource`活動區段的屬性必須設定為。`source` | 是 |
-| `query` | 用來篩選資料的 OData 查詢選項。 例如:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
+| `type` | 複製活動的 [`source`] 區段的 [`type`] 屬性必須設定為 [`SapEccSource`]。 | 是 |
+| `query` | 用來篩選資料的 OData 查詢選項。 例如：<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 ### <a name="example"></a>範例
 

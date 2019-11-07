@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.date: 11/05/2019
+ms.openlocfilehash: 65e9e6235fd974a7731fa5e86322793f1b680ad9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372605"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721338"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -23,7 +23,7 @@ Digital Twins 物件模型能描述網域特定的概念、類別和屬性。 �
 
 Digital Twins 物件模型和本體皆準備就緒後，即可填入「空間圖形」。 空間圖形是與 IoT 解決方案相關的空間、裝置和人員之間各種關聯性的虛擬表示法。 此圖表顯示使用智慧建築本體的空間圖形範例。
 
-[@no__t 1Digital Twins 空間圖形建築物](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![數位 Twins 空間圖表建立](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 空間圖形可將空間、裝置、感應器和使用者結合在一起。 每個空間圖形都會以模仿真實世界的方式互相連結。 在此範例中，場地 43 具有四個樓層，每個樓層都有許多不同的區域。 使用者會與其工作站相關聯，並取得圖形某些部分的存取權。 系統管理員有權對空間圖形進行變更，而訪客只有檢視特定建築資料的權限。
 
@@ -78,14 +78,14 @@ Digital Twins 物件模型支援下列主要物件類別：
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | 更換為 |
+| 名稱 | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |
 
  完整的 URL 格式顯示在下列影像中。
 
-[@no__t 1Digital Twins 入口網站管理 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[![數位 Twins 入口網站管理 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 如需如何使用空間智慧圖形的詳細資料，請瀏覽「Azure Digital Twins 管理 API 搶先預覽」。
 

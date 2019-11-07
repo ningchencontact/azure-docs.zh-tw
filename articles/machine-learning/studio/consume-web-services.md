@@ -1,6 +1,6 @@
 ---
 title: 取用 Web 服務
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 從 Azure Machine Learning Studio （傳統）部署機器學習服務之後，就可以使用 RESTFul Web 服務作為即時要求-回應服務或批次執行服務。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: a5f73e9814adeb44c2838a1fd3bd9c9fd34d4de5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b955b274f3e96eab7e6075b0e966117c2871bbf8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493299"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671425"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>如何使用 Azure Machine Learning Studio （傳統） web 服務
 
@@ -24,7 +24,7 @@ ms.locfileid: "73493299"
 您可以在這裡找到有關如何使用 Machine Learning Studio （傳統）建立和部署 Machine Learning Web 服務的詳細資訊：
 
 * 如需如何在 Machine Learning Studio （傳統）中建立實驗的教學課程，請參閱[建立您的第一個實驗](create-experiment.md)。
-* 如需如何部署 Web 服務的詳細資訊，請參閱[部署 Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
+* 如需如何部署 Web 服務的詳細資訊，請參閱[部署 Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)。
 * 如需 Machine Learning 的一般詳細資訊，請參閱 [Machine Learning 文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)。
 
 
@@ -37,7 +37,7 @@ ms.locfileid: "73493299"
 * 要求-回應服務（RR）–這是一種低延遲、高擴充性的服務，可為從 Machine Learning Studio （傳統）建立和部署的無狀態模型提供介面。
 * 批次執行服務 (BES) – 這是一種非同步的服務，為一批資料記錄進行計分。
 
-如需 Machine Learning Web 服務的詳細資訊，請參閱[部署 Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
+如需 Machine Learning Web 服務的詳細資訊，請參閱[部署 Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)。
 
 ## <a name="get-an-authorization-key"></a>取得授權金鑰
 當您部署實驗時，會為 Web 服務產生 API 金鑰。 您可以從數個位置擷取金鑰。

@@ -1,34 +1,34 @@
 ---
-title: 觀看具有儲存體總管的知識存放區
+title: 使用儲存體總管來觀看知識存放區（預覽）
 titleSuffix: Azure Cognitive Search
-description: 使用 Azure 入口網站的儲存體總管來查看和分析 Azure 認知搜尋知識存放區。
+description: 使用 Azure 入口網站的儲存體總管來查看和分析 Azure 認知搜尋知識存放區。 知識存放區目前為公開預覽狀態。
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484991"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720058"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>觀看具有儲存體總管的知識存放區
 
-> [!Note]
-> 知識存放區處於預覽狀態，不應用於生產環境。 入口網站和[搜尋 REST API 版本 2019-05-06-Preview](search-api-preview.md)提供這項功能。 目前沒有 .NET SDK 支援。
->
+> [!IMPORTANT] 
+> 知識存放區目前為公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前有有限的入口網站支援，而且沒有 .NET SDK 支援。
+
 在本文中，您將瞭解如何使用 Azure 入口網站中的儲存體總管連接到知識存放區，並加以探索。
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 遵循在 Azure 入口網站中[建立知識存放區](knowledge-store-create-portal.md)中的步驟，建立本逐步解說中所使用的範例知識存放區。
++ 遵循在 Azure 入口網站中[建立知識存放區](knowledge-store-create-portal.md)中的步驟，或[使用 REST 建立 Azure 認知搜尋知識存放](knowledge-store-create-rest.md)區，以建立本逐步解說中所使用的範例知識存放區。
 
 + 您也將需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其從 Azure 入口網站的存取金鑰。
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>在儲存體總管中查看、編輯和查詢知識存放區
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>在儲存體總管中，查看、編輯和查詢知識存放區
 
 1. 在 Azure 入口網站中，開啟您用來建立知識存放區的[儲存體帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。
 

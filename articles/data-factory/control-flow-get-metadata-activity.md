@@ -1,5 +1,5 @@
 ---
-title: 取得 Azure Data Factory 中的中繼資料活動 |Microsoft Docs
+title: 取得 Azure Data Factory 中的中繼資料活動
 description: 瞭解如何在 Data Factory 管線中使用取得中繼資料活動。
 services: data-factory
 documentationcenter: ''
@@ -13,37 +13,37 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 081d7219407decac5dd36a06f289436aa0da627b
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679893"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>取得 Azure Data Factory 中的中繼資料活動
 
-您可以使用 [取得中繼資料] 活動來抓取 Azure Data Factory 中任何資料的中繼資料。 您可以在下列案例中使用此活動:
+您可以使用 [取得中繼資料] 活動來抓取 Azure Data Factory 中任何資料的中繼資料。 您可以在下列案例中使用此活動：
 
 - 驗證任何資料的中繼資料。
-- 當資料已就緒/可供使用時, 觸發管線。
+- 當資料已就緒/可供使用時，觸發管線。
 
 下列功能可用於控制流程：
 
 - 您可以使用條件運算式中的 [取得中繼資料] 活動的輸出來執行驗證。
-- 您可以透過 Do 直到迴圈, 以在滿足條件時觸發管線。
+- 您可以透過 Do 直到迴圈，以在滿足條件時觸發管線。
 
 ## <a name="capabilities"></a>功能
 
-取得中繼資料活動會採用資料集做為輸入, 並傳回中繼資料資訊做為輸出。 目前支援下列連接器和對應的可檢索中繼資料。 傳回的中繼資料大小上限為 1 MB。
+取得中繼資料活動會採用資料集做為輸入，並傳回中繼資料資訊做為輸出。 目前支援下列連接器和對應的可檢索中繼資料。 傳回的中繼資料大小上限為 1 MB。
 
 >[!NOTE]
->如果您在自我裝載整合執行時間上執行 [取得中繼資料] 活動, 3.6 或更新版本會支援最新的功能。
+>如果您在自我裝載整合執行時間上執行 [取得中繼資料] 活動，3.6 或更新版本會支援最新的功能。
 
 ### <a name="supported-connectors"></a>支援的連接器
 
 **檔案儲存體**
 
-| 連接器/中繼資料 | itemName<br>(檔案/資料夾) | itemType<br>(檔案/資料夾) | 大小<br>(檔案) | 已建立<br>(檔案/資料夾) | lastModified<br>(檔案/資料夾) |childItems<br>(資料夾) |contentMD5<br>(檔案) | 結構<br/>(檔案) | columnCount<br>(檔案) | 存在<br>(檔案/資料夾) |
+| 連接器/中繼資料 | itemName<br>(檔案/資料夾) | itemType<br>(檔案/資料夾) | size<br>(檔案) | created<br>(檔案/資料夾) | lastModified<br>(檔案/資料夾) |childItems<br>(資料夾) |contentMD5<br>(檔案) | structure<br/>(檔案) | columnCount<br>(檔案) | exists<br>(檔案/資料夾) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
@@ -55,12 +55,12 @@ ms.locfileid: "70061543"
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- 針對 Amazon S3 和 Google Cloud Storage, `lastModified`會套用至 bucket 和金鑰, 但不適用於虛擬資料夾, 並`exists`適用于值區和金鑰, 但不會套用至前置詞或虛擬資料夾。
-- 針對 Azure Blob 儲存體, `lastModified`會套用至容器和 Blob, 但不適用於虛擬資料夾。
+- 針對 Amazon S3 和 Google Cloud Storage，`lastModified` 會套用到 bucket 和金鑰，但不會套用至虛擬資料夾，而 `exists` 則適用于值區和金鑰，但不會套用至前置詞或虛擬資料夾。
+- 針對 Azure Blob 儲存體，`lastModified` 會套用至容器和 Blob，而不是虛擬資料夾。
 
 **關係資料庫**
 
-| 連接器/中繼資料 | 結構 | columnCount | 存在 |
+| 連接器/中繼資料 | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Azure SQL Database 受控執行個體](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -69,26 +69,26 @@ ms.locfileid: "70061543"
 
 ### <a name="metadata-options"></a>中繼資料選項
 
-您可以在 [取得中繼資料作用欄位] 清單中指定下列元資料類型, 以取得對應的資訊:
+您可以在 [取得中繼資料作用欄位] 清單中指定下列元資料類型，以取得對應的資訊：
 
-| 中繼資料類型 | 描述 |
+| 中繼資料類型 | 說明 |
 |:--- |:--- |
 | itemName | 檔案或資料夾的名稱。 |
-| itemType | 檔案或資料夾的類型。 傳回的值`File`為`Folder`或。 |
-| 大小 | 檔案的大小 (以位元組為單位)。 僅適用于檔案。 |
-| 已建立 | 檔案或資料夾的建立日期時間。 |
+| itemType | 檔案或資料夾的類型。 傳回的值為 `File` 或 `Folder`。 |
+| size | 檔案的大小（以位元組為單位）。 僅適用于檔案。 |
+| created | 檔案或資料夾的建立日期時間。 |
 | lastModified | 檔案或資料夾的上次修改日期時間。 |
 | childItems | 指定資料夾中的子資料夾和檔案清單。 僅適用于資料夾。 傳回的值是每個子專案的名稱和類型清單。 |
 | contentMD5 | 檔案的 MD5。 僅適用于檔案。 |
-| 結構 | 檔案或關係資料庫資料表的資料結構。 傳回的值是資料行名稱和資料行類型的清單。 |
+| structure | 檔案或關係資料庫資料表的資料結構。 傳回的值是資料行名稱和資料行類型的清單。 |
 | columnCount | 檔案或關聯式資料表中的資料行數目。 |
-| 存在| 檔案、資料夾或資料表是否存在。 請注意, `exists`如果在 [取得元資料欄位] 清單中指定了, 即使檔案、資料夾或資料表不存在, 活動也不會失敗。 相反地`exists: false` , 會在輸出中傳回。 |
+| exists| 檔案、資料夾或資料表是否存在。 請注意，如果在 [取得元資料欄位] 清單中指定了 `exists`，即使檔案、資料夾或資料表不存在，活動也不會失敗。 相反地，會在輸出中傳回 `exists: false`。 |
 
 >[!TIP]
->當您想要驗證檔案、資料夾或資料表是否存在時, 請在`exists` [取得中繼資料作用欄位] 清單中指定。 然後, 您可以在`exists: true/false`活動輸出中檢查結果。 如果`exists`未在欄位清單中指定, 則如果找不到物件, 則取得中繼資料活動將會失敗。
+>當您想要驗證檔案、資料夾或資料表是否存在時，請在 [取得中繼資料作用欄位] 清單中指定 `exists`。 然後，您可以在活動輸出中檢查 `exists: true/false` 結果。 如果未在欄位清單中指定 `exists`，如果找不到物件，則 [取得中繼資料] 活動將會失敗。
 
 >[!NOTE]
->當您從檔案存放區取得中繼資料`modifiedDatetimeStart` , `modifiedDatetimeEnd`並設定`childItems`或時, 在輸出中只會包含指定之路徑中的檔案, 該檔案中的最後修改時間是在指定的範圍內。 中的不會包含子資料夾中的專案。
+>當您從檔案存放區取得中繼資料，並設定 `modifiedDatetimeStart` 或 `modifiedDatetimeEnd`時，輸出中的 `childItems` 只會包含指定之路徑中的檔案，而這些檔案在指定的範圍內具有上次修改時間。 中的不會包含子資料夾中的專案。
 
 ## <a name="syntax"></a>語法
 
@@ -132,18 +132,18 @@ ms.locfileid: "70061543"
 
 ## <a name="type-properties"></a>類型屬性
 
-目前, 取得中繼資料活動可能會傳回下列類型的中繼資料資訊:
+目前，取得中繼資料活動可能會傳回下列類型的中繼資料資訊：
 
-屬性 | 描述 | 必要項
+屬性 | 說明 | 必要
 -------- | ----------- | --------
-欄位清單 | 所需的中繼資料資訊類型。 如需所支援中繼資料的詳細資訊, 請參閱本文的[中繼資料選項](#metadata-options)一節。 | 是 
-資料集 | 要由「取得中繼資料」活動抓取其中繼資料的參考資料集。 如需所支援連接器的詳細資訊, 請參閱[功能](#capabilities)一節。 如需資料集語法的詳細資訊, 請參閱特定的連接器主題。 | 是
+欄位清單 | 所需的中繼資料資訊類型。 如需所支援中繼資料的詳細資訊，請參閱本文的[中繼資料選項](#metadata-options)一節。 | 是 
+資料集 | 要由「取得中繼資料」活動抓取其中繼資料的參考資料集。 如需所支援連接器的詳細資訊，請參閱[功能](#capabilities)一節。 如需資料集語法的詳細資訊，請參閱特定的連接器主題。 | 是
 formatSettings | 適用于使用格式類型資料集時。 | 否
 storeSettings | 適用于使用格式類型資料集時。 | 否
 
 ## <a name="sample-output"></a>範例輸出
 
-取得中繼資料結果會顯示在活動輸出中。 以下是兩個範例, 其中顯示大量的中繼資料選項。 若要在後續活動中使用結果, 請使用此模式`@{activity('MyGetMetadataActivity').output.itemName}`:。
+取得中繼資料結果會顯示在活動輸出中。 以下是兩個範例，其中顯示大量的中繼資料選項。 若要在後續活動中使用結果，請使用此模式： `@{activity('MyGetMetadataActivity').output.itemName}`。
 
 ### <a name="get-a-files-metadata"></a>取得檔案的中繼資料
 
@@ -193,7 +193,7 @@ storeSettings | 適用于使用格式類型資料集時。 | 否
 ```
 
 ## <a name="next-steps"></a>後續步驟
-深入瞭解 Data Factory 支援的其他控制流程活動:
+深入瞭解 Data Factory 支援的其他控制流程活動：
 
 - [執行管線活動](control-flow-execute-pipeline-activity.md)
 - [ForEach 活動](control-flow-for-each-activity.md)

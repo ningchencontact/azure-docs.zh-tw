@@ -1,5 +1,5 @@
 ---
-title: 如何設定 Azure SQL Database 受控執行個體 | Microsoft Docs
+title: 如何設定 Azure SQL Database 受控實例
 description: 了解如何設定與管理 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22bad381a59a74237a5539cd4294a08797c017b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568064"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689919"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>如何在 Azure SQL Database 中使用受控執行個體
 
 本文提供各種指南、指令碼和講解說明，協助您管理和設定您的受控執行個體。
 
-## <a name="migration"></a>遷移
+## <a name="migration"></a>移轉
 
 - [移轉至受控執行個體](sql-database-managed-instance-migrate.md) – 了解移轉至受控執行個體的建議移轉程序與工具。
 

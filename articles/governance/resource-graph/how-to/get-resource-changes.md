@@ -7,16 +7,16 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274194"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622566"
 ---
 # <a name="get-resource-changes"></a>取得資源變更
 
-資源會在每日使用、重新設定，甚至重新部署的過程中有所變更。
+在每日使用、重新設定，甚至是重新部署時，源都會受到變更。
 變更可以來自個人或自動化程式。 大部分的變更都是根據設計，但有時不會。 在過去14天的變更歷程記錄中，Azure Resource Graph 可讓您：
 
 - 尋找在 Azure Resource Manager 屬性上偵測到變更的時間
@@ -44,8 +44,8 @@ ms.locfileid: "72274194"
 
 **ResourceChanges**端點會接受要求主體中的下列參數：
 
-- **resourceId** \[required @ no__t-2：要在其中尋找變更的 Azure 資源。
-- **interval** \[required @ no__t-2：具有_開始_和_結束_日期的屬性，可供何時使用**祖魯時間區域（Z）** 檢查變更事件。
+- **resourceId** \[必要\]：要在其中尋找變更的 Azure 資源。
+- \[所需的**間隔**\]：具有_開始_和_結束_日期的屬性，可供何時使用**祖魯時區（Z）** 檢查變更事件。
 - **fetchPropertyChanges** （選擇性）：布林值屬性，如果回應物件包含屬性變更，則設定。
 
 要求本文範例：
@@ -149,12 +149,12 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 - **changeId** -此值對該資源而言是唯一的。 雖然**changeId**字串有時可能會包含其他屬性，但它只保證是唯一的。
 - **beforeSnapshot** -包含偵測到變更之前所取得之資源快照集的**snapshotId**和**時間戳記**。
 - **afterSnapshot** -包含偵測到變更之後所建立之資源快照集的**snapshotId**和**時間戳記**。
-- **changeType** -描述在**beforeSnapshot**和**afterSnapshot**之間針對整個變更記錄偵測到的變更類型。 值為：_建立_、_更新_和_刪除_。 只有在**changeType**是_Update_時，才會包含**propertyChanges**屬性陣列。
+- **changeType** -描述在**beforeSnapshot**和**afterSnapshot**之間針對整個變更記錄偵測到的變更類型。 值為： _Create_、 _Update_和_Delete_。 只有在**changeType**是_Update_時，才會包含**propertyChanges**屬性陣列。
 - **propertyChanges** -此屬性陣列會詳細說明**beforeSnapshot**與**afterSnapshot**之間已更新的所有資源屬性：
   - **propertyName** -已改變之資源屬性的名稱。
-  - **changeCategory** -描述進行變更的內容。 值為：_系統_和_使用者_。
+  - **changeCategory** -描述進行變更的內容。 值為： [_系統_] 和 [_使用者_]。
   - **changeType** -描述針對個別資源屬性偵測到的變更類型。
-    值為：_Insert_、 _Update_、 _Remove_。
+    值為： _Insert_、 _Update_、 _Remove_。
   - **beforeValue** - **beforeSnapshot**中 resource 屬性的值。 當**changeType**為_Insert_時，不會顯示。
   - **afterValue** - **afterSnapshot**中 resource 屬性的值。 當**ChangeType** _移除_時，不會顯示。
 
@@ -164,8 +164,8 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 **ResourceChangeDetails**端點需要要求主體中的兩個參數：
 
-- **resourceId**：要用來比較變更的 Azure 資源。
-- **changeId**：從**resourceChanges**收集的**resourceId**的唯一變更事件。
+- **resourceId**：用來比較變更的 Azure 資源。
+- **changeId**：從**ResourceChanges**收集的**resourceId**的唯一變更事件。
 
 要求本文範例：
 
@@ -292,4 +292,4 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 - 請參閱[入門查詢](../samples/starter.md)中使用的語言。
 - 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。
-- 瞭解如何[探索資源](../concepts/explore-resources.md)。
+- 深入瞭解如何[探索資源](../concepts/explore-resources.md)。

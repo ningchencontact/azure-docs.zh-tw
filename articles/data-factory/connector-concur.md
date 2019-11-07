@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Concur 複製資料 (預覽) | Microsoft Docs
+title: 使用 Azure Data Factory 從 Concur 複製資料 (預覽)
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Concur 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 89c497286b8fcb7650bac2ed9c4eff6a2a500c1d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 403373324d32024c5559358563ee4025b3a3e1db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092146"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681077"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Concur 複製資料 (預覽)
 
@@ -40,7 +40,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 > [!NOTE]
 > 目前不支援夥伴帳戶。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -50,9 +50,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Concur 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**Concur** | 是 |
+| 類型 | type 屬性必須設定為：**Concur** | 是 |
 | clientId | Concur 應用程式管理所提供的應用程式 client_id。  | 是 |
 | username | 您用來存取 Concur 服務的使用者名稱。  | 是 |
 | password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -60,7 +60,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -85,10 +85,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Concur 複製資料，請將資料集的 type 屬性設定為 **ConcurObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**ConcurObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **ConcurObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 
 **範例**
@@ -110,18 +110,18 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Concur 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Concur 來源所支援的屬性清單。
 
 ### <a name="concursource-as-source"></a>將 ConcurSource 作為來源
 
 若要從 Concur 複製資料，請將複製活動中的來源類型設定為 **ConcurSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**ConcurSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Opportunities where Id = xxx "` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的 type 屬性必須設定為：**ConcurSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Opportunities where Id = xxx "`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

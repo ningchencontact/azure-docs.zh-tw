@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935177"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664311"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>使用受控識別來驗證您的 Azure 串流分析作業，以 Azure Blob 儲存體輸出（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "72935177"
 
 1. 建立新的串流分析作業，或在 Azure 入口網站中開啟現有的作業。 從位於畫面左側的功能表列中，選取位於 [**設定**] 底下的 [**受控識別**]。 確定已選取 [使用系統指派的受控識別]，然後按一下畫面底部的 [**儲存**] 按鈕。
 
-   ![設定串流分析受控識別](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![設定串流分析受控識別](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. 在 Azure Blob 儲存體輸出接收的 [輸出屬性] 視窗中，選取 [驗證模式] 下拉式選單，然後選擇 [**受控識別**]。 如需其他輸出屬性的相關資訊，請參閱[瞭解 Azure 串流分析的輸出](./stream-analytics-define-outputs.md)。 當您完成後，請按一下 [儲存]。
 

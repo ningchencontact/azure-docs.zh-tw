@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的 Until 活動 | Microsoft Docs
+title: Azure Data Factory 中的 Until 活動
 description: Until 活動會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true，或是該活動逾時為止。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 80eebf0813b6403d5e1e8ff510003f7f0f57c821
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142456"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679344"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Until 活動
 Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言中提供的功能相同。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。 
@@ -51,13 +51,13 @@ Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言�
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | `Until` 活動的名稱。 | String | 是
-Type | 必須設為 **Until**。 | String | 是
+名稱 | `Until` 活動的名稱。 | 字串 | 是
+類型 | 必須設為 **Until**。 | 字串 | 是
 expression | 必須評估為 true 或 false 的運算式 | 運算式。  | 是
-逾時 | do-until 迴圈在經過於此指定的時間之後便會逾時。 | 字串。 `d.hh:mm:ss` (或) `hh:mm:ss`。 預設值為 7 天。 最大值：90 天。 | 否
-activities | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  是
+timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | 字串。 `d.hh:mm:ss` (或) `hh:mm:ss`。 預設值為 7 天。 最大值為 90 天。 | 否
+活動 | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  是
 
 ## <a name="example-1"></a>範例 1
 
@@ -65,7 +65,7 @@ activities | 會在運算式評估為 `true` 之前持續執行的一系列活�
 > 本節提供 JSON 定義和 PowerShell 命令範例，以供執行管線。 針對使用 Azure PowerShell 和 JSON 定義來建立 Data Factory 管線，如需包含逐步指示的逐步解說，請參閱[教學課程：使用 Azure PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)。
 
 ### <a name="pipeline-with-until-activity"></a>具有 Until 活動的管線
-在此範例中，管理有兩個活動：**Until** 和 **Wait**。 Wait 活動會先等候一段指定的時間，然後再以迴圈的方式執行 Web 活動。 若要了解 Data Factory 中的運算式和函式，請參閱[運算式語言和函式](control-flow-expression-language-functions.md)。 
+在此範例中，管線有兩個活動：**Until** 與 **Wait**。 Wait 活動會先等候一段指定的時間，然後再以迴圈的方式執行 Web 活動。 若要了解 Data Factory 中的運算式和函式，請參閱[運算式語言和函式](control-flow-expression-language-functions.md)。 
 
 ```json
 {
@@ -291,8 +291,8 @@ while ($True) {
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [If Condition 活動](control-flow-if-condition-activity.md)
-- [執行管道活動](control-flow-execute-pipeline-activity.md)
+- [If 條件活動](control-flow-if-condition-activity.md)
+- [執行管線活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

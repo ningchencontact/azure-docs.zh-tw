@@ -6,14 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: snehaa
-ms.openlocfilehash: e09c430204dea490bace029b809f25304be53a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512713"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715778"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>探索機器應用程式、角色和功能 
+
+> [!NOTE]
+> 如果您在 Azure Migrate 入口網站中還沒有看到這項功能，請稍候。 它會出現在下一周或之後。
 
 本文說明如何使用 Azure Migrate： Server 評定，探索內部部署伺服器上的應用程式、角色和功能。
 

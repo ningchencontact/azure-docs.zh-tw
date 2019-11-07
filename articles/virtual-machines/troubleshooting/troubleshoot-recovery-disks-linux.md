@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: faa15e9cf6288bcd4014cbc03dcf9d82a2047bde
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088364"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620569"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>透過 Azure CLI 將 OS 磁碟連結到復原 VM，以對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure CLI 將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。 
@@ -39,12 +39,12 @@ ms.locfileid: "71088364"
 > [!Important]
 > 本文中的指令碼只適用於使用[受控磁碟](../linux/managed-disks-overview.md)的 VM。 
 
-在下列範例中，將參數名稱取代為您自己的值， `myResourceGroup`例如`myVM`和。
+在下列範例中，將參數名稱取代為您自己的值，例如 `myResourceGroup` 和 `myVM`。
 
 ## <a name="determine-boot-issues"></a>判斷開機問題
 檢查序列輸出來判斷 VM 為何無法正常開機。 常見的例子是 `/etc/fstab` 中的項目無效，或因為刪除或移動基礎虛擬硬碟。
 
-使用 [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics) 取得與開機記錄。 下列範例會從資源群組 `myResourceGroup` 中的 VM `myVM` 取得序列輸出：
+使用 [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics) 取得與開機記錄。 下列範例會從資源群組 `myVM` 中的 VM `myResourceGroup` 取得序列輸出：
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -54,7 +54,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 
 ## <a name="stop-the-vm"></a>停止 VM
 
-下列範例會從資源群組 `myResourceGroup` 中停止 VM `myVM`：
+下列範例會從資源群組 `myVM` 中停止 VM `myResourceGroup`：
 
 ```azurecli
 az vm stop --resource-group MyResourceGroup --name MyVm
@@ -72,7 +72,7 @@ az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --n
 ```
 ## <a name="create-a-disk-from-the-snapshot"></a>從快照集建立磁碟
 
-此指令碼會從快照集 `mySnapshot` 建立名為 `myOSDisk` 的受控磁碟。  
+此指令碼會從快照集 `myOSDisk` 建立名為 `mySnapshot` 的受控磁碟。  
 
 ```azurecli
 #Provide the name of your resource group
@@ -105,14 +105,14 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```
 
-如果資源群組和來源快照集不在相同的區域中，當您執行`az disk create`時，您會收到「找不到資源」錯誤。 在此情況下，您必須`--location <region>`指定，將磁片建立到與來源快照集相同的區域中。
+如果資源群組和來源快照集不在相同的區域中，當您執行 `az disk create`時，您會收到「找不到資源」錯誤。 在此情況下，您必須指定 `--location <region>`，將磁片建立到與來源快照集相同的區域中。
 
 您現在有原始 OS 磁碟的複本。 您可以將這個新的磁片掛接至另一個 Windows VM，以進行疑難排解。
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>將新的虛擬硬碟連結至另一個 VM
 在接下來幾個步驟中，您將使用另一個 VM 進行疑難排解。 您會將磁片連結到此疑難排解 VM，以流覽和編輯磁片的內容。 此程式可讓您更正任何設定錯誤，或檢查其他應用程式或系統記錄檔。
 
-此腳本會將磁片`myNewOSDisk`連結至 VM `MyTroubleshootVM`：
+此腳本會將磁片 `myNewOSDisk` 連結至 VM `MyTroubleshootVM`：
 
 ```azurecli
 # Get ID of the OS disk that you just created.
@@ -126,7 +126,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
 > [!NOTE]
 > 下列範例詳細說明 Ubuntu VM 上所需的步驟。 如果您使用不同的 Linux 發行版本，例如 Red Hat Enterprise Linux 或 SUSE，則記錄檔位置和 `mount` 命令可能稍微不同。 請參閱您的特定發行版本的文件，以了解命令中相應的變更。
 
-1. 使用適當的認證以 SSH 登入疑難排解 VM。 如果此磁碟是第一個連結至疑難排解 VM 的資料磁碟，則磁碟很可能連結至 `/dev/sdc`。 使用 `dmseg` 來檢視已連結的磁碟︰
+1. 使用適當的認證以 SSH 登入疑難排解 VM。 如果此磁碟是第一個連結至疑難排解 VM 的資料磁碟，則磁碟很可能連結至 `/dev/sdc`。 使用 `dmesg` 來檢視已連結的磁碟︰
 
     ```bash
     dmesg | grep SCSI
@@ -187,7 +187,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>變更受影響 VM 的 OS 磁碟
 
-您可以使用 Azure CLI 來交換 OS 磁片。 您不需要刪除及重新建立虛擬機器。
+您可以使用 Azure CLI 來交換 OS 磁片。 您不需要刪除並重新建立 VM。
 
 此範例會停止名為 `myVM` 的 VM，並將名為 `myNewOSDisk` 的磁碟指派為新的 OS 磁碟。
 

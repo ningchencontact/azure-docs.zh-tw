@@ -1,5 +1,5 @@
 ---
-title: 使用 DMV 監視 Azure SQL Database 的效能 | Microsoft Docs
+title: 使用 Dmv 監視效能 Azure SQL Database
 description: 了解如何使用動態管理檢視監視 Microsoft Azure SQL Database 來偵測和診斷常見的效能問題。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881564"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687748"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database 的效能
 
@@ -30,7 +30,7 @@ SQL Database 部分支援動態管理檢視的三個類別目錄：
 
 如需動態管理檢視的詳細資訊，請參閱《SQL Server 線上叢書》中的 [動態管理檢視和函數 (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 。 
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 在 SQL Database 中，查詢動態管理檢視需要 **VIEW DATABASE STATE** 權限。 **VIEW DATABASE STATE** 權限會傳回目前資料庫中所有物件的相關資訊。
 若要授與 **VIEW DATABASE STATE** 權限給特定的資料庫使用者，請執行下列查詢：
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>識別 `tempdb` 效能問題
 
-識別 IO 效能問題時，與 `tempdb` 問題相關聯的常見等候類型為 `PAGELATCH_*` (而非 `PAGEIOLATCH_*`)。 不過，`PAGELATCH_*` 等候不一定表示您有 `tempdb` 爭用。  這個等候也表示您有使用者物件資料頁面爭用，因為針對相同的資料頁面進行並行要求。 若要進一步`tempdb`確認競爭, 請使用[_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)來確認`2:x:y` wait_resource 值的開頭是, 其中2是`tempdb`資料庫識別碼, `x`是檔案識別碼, 而`y`是頁面識別碼。  
+識別 IO 效能問題時，與 `tempdb` 問題相關聯的常見等候類型為 `PAGELATCH_*` (而非 `PAGEIOLATCH_*`)。 不過，`PAGELATCH_*` 等候不一定表示您有 `tempdb` 爭用。  這個等候也表示您有使用者物件資料頁面爭用，因為針對相同的資料頁面進行並行要求。 若要進一步確認 `tempdb` 爭用，請使用[dm_exec_requests sys.databases](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)來確認 wait_resource 值的開頭為 `2:x:y`，其中2是 `tempdb` 是資料庫識別碼，`x` 是檔案識別碼，而 `y` 是頁面識別碼。  
 
 對於 tempdb 爭用，常見的方法是減少或重新撰寫依賴 `tempdb` 的應用程式程式碼。  常見的 `tempdb` 使用區域包括：
 
@@ -535,7 +535,7 @@ FROM sys.dm_db_resource_stats;
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-**master** 資料庫中的 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 檢視有其他資訊可協助您監視 SQL Database 在其特定服務層級和計算大小的效能。 這項資料每隔 5 分鐘就會收集一次，並且會維持大約 14 天。 這個檢視適合用於進行 SQL Database 如何使用資源的長期歷史分析。
+[master](https://msdn.microsoft.com/library/dn269979.aspx) 資料庫中的 **sys.resource_stats** 檢視有其他資訊可協助您監視 SQL Database 在其特定服務層級和計算大小的效能。 這項資料每隔 5 分鐘就會收集一次，並且會維持大約 14 天。 這個檢視適合用於進行 SQL Database 如何使用資源的長期歷史分析。
 
 下圖顯示在一週中 P2 計算大小之高階資料庫每小時的 CPU 資源使用量。 此圖從星期一開始，顯示 5 個工作天，然後顯示較少發生在應用程式的週末。
 

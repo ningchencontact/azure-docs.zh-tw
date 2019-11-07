@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 REST 來源複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 REST 來源複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從雲端或內部部署 REST 來源將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6bb597ab49050c2bb365379cfac44f4b4d176af1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276613"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680397"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 REST 端點複製資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "70276613"
 具體而言，此泛型 REST 連接器支援：
 
 - 使用 **GET** 或 **POST** 方法，從 REST 端點擷取資料。
-- 使用下列其中一種驗證來擷取資料︰**匿名**、**基本**、**AAD 服務主體**和 **Azure 資源的受控識別**。
+- 使用下列其中一種驗證來抓取資料：**匿名**、**基本**、 **AAD 服務主體**，以及**適用于 Azure 資源的受控**識別。
 - REST API 中的 **[分頁](#pagination-support)** 。
 - 複製 REST JSON 回應的[原狀](#export-json-response-as-is)或使用[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)加以剖析。 僅支援 **JSON** 格式的回應承載。
 
@@ -57,11 +57,11 @@ ms.locfileid: "70276613"
 
 以下是針對 REST 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | **Type**屬性必須設定為**RestService**。 | 是 |
+| 類型 | **Type**屬性必須設定為**RestService**。 | 是 |
 | url | REST 服務的基底 URL。 | 是 |
-| enableServerCertificateValidation | 連接到端點時, 是否要驗證服務器端 SSL 憑證。 | 否<br /> (預設值為 **true**) |
+| enableServerCertificateValidation | 連接到端點時，是否要驗證服務器端 SSL 憑證。 | 否<br /> (預設值為 **true**) |
 | authenticationType | 用來連線到 REST 服務的驗證類型。 允許的值為 **Anonymous**、**Basic**、**AadServicePrincipal** 和 **ManagedServiceIdentity**。 請分別參閱下列有關更多屬性和範例的對應區段。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，此屬性會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -69,7 +69,7 @@ ms.locfileid: "70276613"
 
 將 **authenticationType** 屬性設定為 [Basic]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | userName | 用來存取 REST 端點的使用者名稱。 | 是 |
 | password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -102,7 +102,7 @@ ms.locfileid: "70276613"
 
 將 **authenticationType** 屬性設定為 [AadServicePrincipal]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定 Azure Active Directory 應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定 Azure Active Directory 應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -139,7 +139,7 @@ ms.locfileid: "70276613"
 
 將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | aadResourceId | 指定您要求授權的 AAD 資源，例如 `https://management.core.windows.net`。| 是 |
 
@@ -171,14 +171,14 @@ ms.locfileid: "70276613"
 
 若要從 REST 複製資料，以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
+| 類型 | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
 
-如果您是在`requestMethod`資料集`requestBody`內`paginationRules`設定、 `additionalHeaders`和, 則仍會受到支援, 但建議您在未來使用活動來源中的新模型。
+如果您在資料集中設定 `requestMethod`、`additionalHeaders`、`requestBody` 和 `paginationRules`，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -207,9 +207,9 @@ ms.locfileid: "70276613"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
+| 類型 | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的主體。 | 否 |
@@ -217,7 +217,7 @@ ms.locfileid: "70276613"
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
 | requestInterval | 傳送下一個頁面要求之前的等候時間。 預設值為 [00:00:01] |  否 |
 
-**範例 1：搭配使用 Get 方法和分頁**
+**範例1：使用 Get 方法搭配分頁**
 
 ```json
 "activities":[
@@ -255,7 +255,7 @@ ms.locfileid: "70276613"
 ]
 ```
 
-**範例 2：使用 Post 方法**
+**範例 2︰使用 Post 方法**
 
 ```json
 "activities":[
@@ -291,7 +291,7 @@ ms.locfileid: "70276613"
 
 ## <a name="pagination-support"></a>分頁支援
 
-一般來說, REST API 會以合理的數位限制單一要求的回應承載大小;當傳回大量資料時, 它會將結果分割成多個頁面, 並要求呼叫端傳送連續要求, 以取得結果的下一頁。 通常，單一頁面要求是動態的，並且由前頁回應所傳回的資訊所組成。
+一般來說，REST API 會以合理的數位限制單一要求的回應承載大小;當傳回大量資料時，它會將結果分割成多個頁面，並要求呼叫端傳送連續要求，以取得結果的下一頁。 通常，單一頁面要求是動態的，並且由前頁回應所傳回的資訊所組成。
 
 此泛型 REST 連接器支援下列分頁模式： 
 
@@ -302,24 +302,24 @@ ms.locfileid: "70276613"
 * 下一個要求的標頭 = 目前回應本文中的屬性值
 * 下一個要求的標頭 = 目前回應標頭中的標頭值
 
-**分頁規則**會定義為資料集內的字典, 其中包含一或多個區分大小寫的索引鍵/值組。 此設定將用來產生從第二個頁面開始的要求。 連接器會在取得 HTTP 狀態碼 204 (沒有內容), 或 "paginationRules" 中的任何 JSONPath 運算式傳回 null 時, 停止逐一查看。
+**分頁規則**會定義為資料集內的字典，其中包含一或多個區分大小寫的索引鍵/值組。 此設定將用來產生從第二個頁面開始的要求。 連接器會在取得 HTTP 狀態碼204（沒有內容），或 "paginationRules" 中的任何 JSONPath 運算式傳回 null 時，停止逐一查看。
 
 分頁規則中的**支援金鑰**：
 
-| Key | 描述 |
+| 索引鍵 | 說明 |
 |:--- |:--- |
 | AbsoluteUrl | 指示 URL 發出下一個要求。 它可以是**絕對 url 或相對 url**。 |
-| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
-| Headers.*request_header* OR Headers['request_header'] | 使用者定義的 "request_header" 會參考下一個 HTTP 要求中的一個標頭名稱。 |
+| QueryParameters.*request_query_parameter* 或 QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
+| Headers.*request_header* 或 Headers['request_header'] | 使用者定義的 "request_header" 會參考下一個 HTTP 要求中的一個標頭名稱。 |
 
 分頁規則中的**支援值**：
 
-| 值 | 描述 |
+| 值 | 說明 |
 |:--- |:--- |
 | Headers.*response_header* 或 Headers['response_header'] | 使用者定義的 "response_header" 會參考目前 HTTP 回應中的一個標頭名稱，其值會用來發出下一個要求。 |
 | JSONPath 運算式會以 "$" 開頭 (代表回應本文的根) | 回應本文應只包含一個 JSON 物件。 JSONPath 運算式應會傳回單一基本值，而這會用來發出下一個要求。 |
 
-**範例:**
+**範例：**
 
 Facebook 圖形 API 會傳回採用下列結構的回應，在該案例中，下個頁面的 URL 會在 ***paging.next*** 中指出：
 
@@ -353,7 +353,7 @@ Facebook 圖形 API 會傳回採用下列結構的回應，在該案例中，下
 }
 ```
 
-對應的 REST 複製活動來源設定特別`paginationRules`如下所示:
+相對應的 REST 複製活動來源設定，尤其是 `paginationRules` 如下所示：
 
 ```json
 "typeProperties": {

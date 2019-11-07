@@ -1,5 +1,5 @@
 ---
-title: 將資料從 CSV 檔案載入 Azure SQL Database (bcp) | Microsoft Docs
+title: 將資料從 CSV 檔案載入 Azure SQL Database （bcp）
 description: 對於較小的資料大小，請使用 bcp 將資料匯入 Azure SQL Database。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9c4a6293fe2c52870e61488713455ac6c2ed4a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567821"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689557"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
 
@@ -24,7 +24,7 @@ ms.locfileid: "68567821"
 
 ## <a name="before-you-begin"></a>開始之前
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 若要完成本文中的步驟，您需要：
 
@@ -38,7 +38,7 @@ ms.locfileid: "68567821"
 
 如果您使用您自己的資料嘗試本教學課程，您的資料必須使用 ASCII 或 UTF-16 編碼，因為 bcp 不支援 UFT-8。 
 
-## <a name="1-create-a-destination-table"></a>1.建立目的資料表
+## <a name="1-create-a-destination-table"></a>1. 建立目的地資料表
 
 在 SQL Database 中定義做為目的地資料表的資料表。 資料表中的資料行必須對應到資料檔的每一個資料列中的資料。
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2.建立來源資料檔
+## <a name="2-create-a-source-data-file"></a>2. 建立源資料檔案
 
 開啟 [記事本]，將下列幾行資料複製到新的文字檔，然後將此檔案儲存到本機暫存目錄 C:\Temp\DimDate2.txt。 此資料是 ASCII 格式。
 
@@ -82,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
-## <a name="3-load-the-data"></a>3.載入資料
+## <a name="3-load-the-data"></a>3. 載入資料
 
 若要載入資料，請開啟命令提示字元並執行下列命令，使用您自己的資訊取代 ServerName、DatabaseName、Username 和 Password。
 

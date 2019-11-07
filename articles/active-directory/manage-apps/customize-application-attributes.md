@@ -1,5 +1,5 @@
 ---
-title: 自訂 Azure AD 屬性對應 | Microsoft Docs
+title: 自訂 Azure AD 屬性對應 |Microsoft Docs
 description: 了解 Azure Active Directory 中 SaaS 應用程式有哪些屬性對應，以及如何修改屬性對應來應付業務需求。
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240998"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641496"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者布建屬性對應
 
 Microsoft Azure AD 提供對協力廠商 SaaS 應用程式（例如 Salesforce、G Suite 等）進行使用者布建的支援。 如果您啟用協力廠商 SaaS 應用程式的使用者布建，Azure 入口網站會透過屬性對應來控制其屬性值。
 
@@ -69,13 +69,23 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
 在上一節中，您已經引進 [屬性對應類型] 屬性。
 除了這個屬性之外，屬性對應也支援下列屬性：
 
-- **來源屬性** - 來源系統中的使用者屬性 (例如：Azure Active Directory)。
-- **目標屬性** - 目標系統中的使用者屬性 (例如：ServiceNow)。
+- **來源屬性** - 來源系統的使用者屬性 (例如：Azure Active Directory)。
+- **目標屬性** – 目標系統中的使用者屬性 (例如：ServiceNow)。
 - **使用此屬性**比對物件–是否應該使用此對應來唯一識別來源與目標系統之間的使用者。 通常會在 Azure AD 中的 userPrincipalName 或 mail 屬性上設定，這通常會對應至目標應用程式中的使用者名稱欄位。
 - **比對優先順序** – 您可以設定多個比對屬性。 當有多個時，就會依照此欄位所定義的順序來評估它們。 只要找到相符項目，便不會評估進一步比對屬性。
 - **套用此對應**
   - **Always** –在使用者建立和更新動作上套用此對應。
   - **僅限建立期間**-僅適用于使用者建立動作的對應。
+
+## <a name="matching-users-in-the-source-and-target--systems"></a>對應來源和目標系統中的使用者
+Azure AD 布建服務可以部署在這兩個 greenfield （使用者不會在目標系統中結束）和 brownfield （使用者已存在於目標系統）案例中。 為了支援這兩種案例，布建服務會使用相符屬性的概念。 比對屬性可讓您決定如何唯一識別來源中的使用者，並符合目標中的使用者。 在規劃部署的過程中，請識別可用來唯一識別來源和目標系統中之使用者的屬性。 注意事項：
+
+- **相符的屬性應該是唯一的：** 客戶通常會使用 userPrincipalName、mail 或 object ID 等屬性作為比對屬性。
+- **可以使用多個屬性做為比對屬性：** 您可以定義多個要在比對使用者時進行評估的屬性，以及評估它們的順序（定義為 UI 中的比對優先順序）。 例如，如果您將三個屬性定義為符合的屬性，而且在評估前兩個屬性之後，使用者會唯一符合，則服務將不會 evaluat 第三個屬性。 服務將會依照指定的順序評估相符的屬性，並在找到相符的時停止評估。  
+- **來源和目標中的值不一定要完全相符：** 目標中的值可以是來源中值的一些簡單函數。 因此，在來源中可能有一個 emailAddress 屬性，而在目標中有 userPrincipalName，並以 emailAddress 屬性的函式比對，並以一些常數值取代部分字元。  
+- **不支援根據屬性的組合進行比對：** 大部分的應用程式不支援以兩個屬性為基礎的查詢，而且 service-fabric-reliable-services-backup-restore 無法根據屬性的組合進行比對。 您可以在之後評估單一屬性。
+- **所有使用者都必須至少有一個相符屬性的值：** 如果您定義一個符合的屬性，所有使用者都必須具有來源系統中該屬性的值。 例如，如果您將 userPrincipalName 定義為比對屬性，則所有使用者都必須具有 userPrincipalName。 如果您定義多個比對屬性（例如 extensionAttribute1 和 mail），則並非所有使用者都必須具有相同的相符屬性。 一位使用者可能會有 extensionAttribute1 但無法使用郵件，而另一位使用者可能會有郵件但沒有 extensionAttribute1。 
+- **目標應用程式必須支援篩選符合的屬性：** 應用程式開發人員可以在其使用者或群組 API 上篩選屬性子集。 針對資源庫中的應用程式，我們確保預設屬性對應是針對目標應用程式的 API 支援篩選的屬性。 變更目標應用程式的預設比對屬性時，請檢查協力廠商 API 檔，以確定可以篩選屬性。  
 
 ## <a name="editing-group-attribute-mappings"></a>編輯群組屬性對應
 
@@ -125,6 +135,113 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
 - 參考的**物件屬性**-如果它是參考型別屬性，則此功能表可讓您選取目標應用程式中的資料表和屬性，其中包含與屬性相關聯的值。 例如，如果您有名為 "Department" 的屬性，且其儲存值參考了個別 "Departments" 資料表中的物件，則您會選取 "Departments.Name"。 指定應用程式支援的參考資料表和主要識別碼欄位已預先設定，而且目前無法使用 Azure 入口網站進行編輯，但可以使用[圖形 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)編輯。
 
 若要新增新的屬性，請捲動至支援的屬性清單結尾處，使用提供的輸入填入上方的欄位，然後選取 [新增屬性]。 新增屬性完成後，請選取 [儲存]。 接著，您必須重載 [布**建] 索引**標籤，新屬性才會在 [屬性對應編輯器] 中變成可用。
+## <a name="provisioning-a-role-to-a-scim-app"></a>將角色布建至 SCIM 應用程式
+使用下列步驟，將使用者的角色布建到您的應用程式。 請注意，下列描述是自訂 SCIM 應用程式特有的。 針對資源庫應用程式（例如 Salesforce 和 ServiceNow），請使用預先定義的角色對應。 下列專案符號說明如何將 AppRoleAssignments 屬性轉換為您的應用程式所預期的格式。
+
+- 若要將 Azure AD 中的 appRoleAssignment 對應至應用程式中的角色，您需要使用[運算式](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)來轉換屬性。 AppRoleAssignment 屬性**不應該直接對應**至 role 屬性，而不需要使用運算式來剖析角色的詳細資料。 
+
+- **SingleAppRoleAssignment** 
+  - **使用時機：** 使用 SingleAppRoleAssignment 運算式為使用者布建單一角色，並指定主要角色。 
+  - **如何設定：** 使用上述步驟導覽至 [屬性對應] 頁面，並使用 SingleAppRoleAssignment 運算式對應至 [角色] 屬性。 有三個角色屬性可供選擇：（角色 [主要 eq "True"]。顯示，角色 [主要 eq "True]. 類型，以及角色 [主要 eq" True "]。值）。 您可以選擇在對應中包含任何或所有角色屬性。 如果您想要包含一個以上的，只要加入一個新的對應，並將它納入做為目標屬性即可。  
+  
+  ![新增 SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **應考慮的事項**
+    - 請確定未指派多個角色給使用者。 我們無法保證將會布建哪個角色。
+    
+  - **範例輸出** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **使用時機：** 使用 AppRoleAssignmentsComplex 運算式為使用者布建多個角色。 
+  - **如何設定：** 如上面所述編輯支援屬性的清單，以包含角色的新屬性： 
+  
+    ![新增角色](./media/customize-application-attributes/add-roles.png)<br>
+
+    然後使用 AppRoleAssignmentsComplex 運算式來對應至自訂角色屬性，如下圖所示：
+
+    ![新增 AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **應考慮的事項**
+    - 所有角色都會布建為 primary = false。
+    - POST 包含角色類型。 PATCH 要求不包含類型。 我們正致力於在 POST 和 PATCH 要求中傳送類型。
+    
+  - **範例輸出** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>布建多重值屬性
+某些屬性（例如 phoneNumbers 和電子郵件）是多重值的屬性，您可能需要指定不同類型的電話號碼或電子郵件。 請使用下列運算式來執行多重值屬性。 它可讓您指定屬性類型，並對應至值的對應 Azure AD 使用者屬性。 
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>還原預設屬性和屬性對應
 

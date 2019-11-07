@@ -1,5 +1,5 @@
 ---
-title: 探索 Azure SQL Database 受控執行個體內建防火牆 | Microsoft Docs
+title: 探索 Azure SQL Database 受控執行個體內建防火牆
 description: 了解如何驗證 Azure SQL Database 受控執行個體的內建防火牆保護。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: c98b0fd5669140559b4840e157394c2e8c6086ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 912eeb95895597b9172d50463f380dd511fe196c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567433"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688016"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>驗證受控執行個體的內建防火牆
 

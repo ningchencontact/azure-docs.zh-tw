@@ -1,5 +1,5 @@
 ---
-title: 使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解 | Microsoft Docs
+title: 使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 description: Intelligent Insights 可協助您針對 Azure SQL Database 效能問題進行疑難排解。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fef1ed386dbf3acccc09b9bba743b6b33492da0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262199"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689711"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -72,7 +72,7 @@ SQL Database 上的資源通常是指 [DTU](sql-database-what-is-a-dtu.md) 或�
 
 如果您已達到可用工作階段限制，則可以透過減少資料庫的登入次數來對應用程式進行最佳化。 如果您無法減少應用程式針對資料庫的登入數，請考慮提高資料庫的定價層。 或者，您可以將資料庫分割並移至多個資料庫，以取得更加平衡的工作負載分佈。
 
-如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
+如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md) \(英文\)。
 
 ## <a name="workload-increase"></a>工作負載增加
 
@@ -110,7 +110,7 @@ SQL Database 上的資源通常是指 [DTU](sql-database-what-is-a-dtu.md) 或�
 
 如需其他疑難排解建議，請參閱[記憶體授與深思：有許多名稱的神秘 SQL Server 記憶體取用者](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) \(英文\)。
 
-## <a name="locking"></a>正在鎖定
+## <a name="locking"></a>鎖定
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -188,7 +188,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 > 如需 SQL Database 的持續效能最佳化，建議您啟用 [SQL Database 自動調整](sql-database-automatic-tuning.md)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫，並自動為資料庫調整及建立索引。
 >
 
-## <a name="new-query"></a>新增查詢
+## <a name="new-query"></a>新查詢
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -222,7 +222,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 ### <a name="what-is-happening"></a>發生的情況
 
-這個可偵測的效能模式表示一種資料庫效能情況，亦即嘗試存取 tempDB 資源的執行緒發生瓶頸。 (此情況與 IO 無關)。此效能問題的典型案例就是有數百個並行查詢，這些查詢都建立，使用然後卸除小型 tempDB 資料表。 系統已偵測到使用相同 tempDB 資料表的並行查詢數目就統計而言明顯增加，以致與過去七天效能基準相比，影響資料庫效能。
+這個可偵測的效能模式表示一種資料庫效能情況，亦即嘗試存取 tempDB 資源的執行緒發生瓶頸。 （此條件與 IO 無關）。此效能問題的一般案例是數百個並行查詢，它們會建立、使用，然後卸載小型 tempDB 資料表。 系統已偵測到使用相同 tempDB 資料表的並行查詢數目就統計而言明顯增加，以致與過去七天效能基準相比，影響資料庫效能。
 
 ### <a name="troubleshooting"></a>疑難排解
 
@@ -274,7 +274,7 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 > 如需 SQL Database 的持續效能最佳化，建議您啟用 [SQL Database 自動調整](sql-database-automatic-tuning.md)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫，並自動為資料庫調整及建立效能最佳的查詢執行計畫。
 >
 
-## <a name="database-scoped-configuration-value-change"></a>資料庫範圍設定值變更
+## <a name="database-scoped-configuration-value-change"></a>資料庫範圍組態值變更
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -325,7 +325,7 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 > [!TIP]
 > 選取流程圖以下載 PDF 版本。
 
-Intelligent Insights 通常需要一小時的時間來執行效能問題的根本原因分析。 如果無法在 Intelligent Insights 中找到您的問題，且此問題對您而言很嚴重，請使用查詢存放區以手動識別效能問題的根本原因。 (這些問題存在的時間通常不會超過一個小時)。如需詳細資訊，請參閱[使用查詢存放區監視效能](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
+Intelligent Insights 通常需要一小時的時間來執行效能問題的根本原因分析。 如果無法在 Intelligent Insights 中找到您的問題，且此問題對您而言很嚴重，請使用查詢存放區以手動識別效能問題的根本原因。 （這些問題通常不到一小時）。如需詳細資訊，請參閱[使用查詢存放區監視效能](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。

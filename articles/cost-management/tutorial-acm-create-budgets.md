@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8d8f796fa7db9cab5bcac88a293dd1b98707a571
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c3c0574389fc9808af3cd70c928ede82d375076
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025767"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720721"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -30,7 +30,7 @@ ms.locfileid: "72025767"
 觀看[如何建立預算以透過 Azure 成本管理影片監視您的支出](https://www.youtube.com/watch?v=ExIVG_Gr45A)，以瞭解如何在 Azure 中建立預算來監視支出。
 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算
@@ -78,7 +78,7 @@ ms.locfileid: "72025767"
 
 ![顯示以每月成本資料建立預算的範例 ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-設定預算金額之後，請按 **[下一步]** 設定預算警示。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。 當達到預算閾值時，通常會在20小時內收到電子郵件通知。 如需有關通知的詳細資訊，請參閱[使用成本警示](cost-mgt-alerts-monitor-usage-spending.md)。 在下列範例中，當達到 90% 的預算時，便會產生電子郵件警示。
+設定預算金額之後，請按 **[下一步]** 設定預算警示。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。 當達到預算閾值時，通常會在20小時內收到電子郵件通知。 如需有關通知的詳細資訊，請參閱[使用成本警示](cost-mgt-alerts-monitor-usage-spending.md)。 在下列範例中，當達到90% 的預算時，便會產生電子郵件警示。 如果您使用預算 API 建立預算，您也可以將角色指派給其他人來接收警示。 Azure 入口網站不支援將角色指派給人員。 如需有關 Azure 預算 API 的詳細資訊，請參閱[預算 api](/rest/api/consumption/budgets)。
 
 ![顯示警示條件的範例](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -108,13 +108,15 @@ ms.locfileid: "72025767"
 
 ![顯示警示條件之動作群組選取的範例](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
 
-下列範例顯示將預算閾值設定為 50%、75% 和 100%。 每個都會設定為在指定的動作群組內觸發指定的動作。
+下列範例顯示將預算閾值設定為50%、75% 和100%。 每個都會設定為在指定的動作群組內觸發指定的動作。
 
 ![顯示使用各種動作群組和動作類型設定之警示條件的範例](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
+與動作群組的預算整合僅適用于已停用通用警示架構的動作群組。 如需停用架構的詳細資訊，請參閱[如何? 啟用一般警示架構？](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算

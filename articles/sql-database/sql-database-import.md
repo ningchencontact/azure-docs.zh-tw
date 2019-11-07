@@ -1,5 +1,5 @@
 ---
-title: 匯入 BACPAC 檔案以建立 Azure SQL 資料庫 | Microsoft Docs
+title: 匯入 BACPAC 檔案以建立 Azure SQL 資料庫
 description: 匯入 BACPAC 檔案以建立新的 Azure SQL Database。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 5e0f3ccafa449cc431166d5b4bd4135a1d1ac97c
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 4b96f076abf36a8f93d2b257be8fac2fd9e6de48
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675871"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689881"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 

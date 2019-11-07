@@ -1,5 +1,5 @@
 ---
-title: 使用 Execute SSIS 套件活動執行 SSIS 套件-Azure |Microsoft Docs
+title: 使用執行 SSIS 套件活動執行 SSIS 套件-Azure
 description: 本文說明如何使用執行 SSIS 套件活動，在 Azure Data Factory 管線中執行 SQL Server Integration Services （SSIS）套件。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 965bb0641aac3224ac98820006f308e6b5fb0f71
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b8ed0a04d2d13556f38873ef5f346d49ba4d1845
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255634"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673739"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文說明如何使用執行 SSIS 套件活動，在 Azure Data Factory 管線中執行 SQL Server Integration Services （SSIS）套件。 
@@ -27,7 +27,7 @@ ms.locfileid: "72255634"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-建立 Azure SSIS integration runtime （IR），如果您還沒有遵循 @no__t 0Tutorial 中的逐步指示：佈建 Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md)。
+建立 Azure SSIS integration runtime （IR），如果您還沒有遵循[教學課程：布建 AZURE SSIS IR](tutorial-create-azure-ssis-runtime-portal.md)中的逐步指示。
 
 ## <a name="run-a-package-in-the-azure-portal"></a>在 Azure 入口網站中執行套件
 在本節中，您會使用 Data Factory 的使用者介面（UI）或應用程式，以執行 SSIS 套件的 Execute SSIS 套件活動來建立 Data Factory 管線。
@@ -65,13 +65,13 @@ ms.locfileid: "72255634"
 
    ![在 [設定] 索引標籤上設定屬性 - 自動化](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   如果您的 Azure SSIS IR 未執行或已選取 [**手動輸入**] 核取方塊，請以下列格式直接輸入來自 SSISDB 的套件和環境路徑： `<folder name>/<project name>/<package name>.dtsx`，`<folder name>/<environment name>`。
+   如果您的 Azure SSIS IR 未執行或已選取 [**手動輸入**] 核取方塊，請直接以下列格式輸入 SSISDB 中的套件和環境路徑： `<folder name>/<project name>/<package name>.dtsx` 和 `<folder name>/<environment name>`。
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   如果您選取 **[檔案系統（套件）** ] 作為您的套件位置（如果未布建您的 AZURE SSIS IR，則會自動選取），請提供封裝檔案的通用命名慣例（UNC）路徑，以指定要執行的套件（`.dtsx`）在 [**封裝路徑**] 方塊中。 例如，如果您將封裝儲存在 Azure 檔案儲存體中，其封裝路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`。 
+   如果您選取**檔案系統（套件）**  作為您的套件位置（如果未布建您的 AZURE SSIS IR，則會自動選取），請提供封裝檔案的通用命名慣例（UNC）路徑，以指定要執行的套件（`.dtsx`） 的 **封裝路徑** 方塊中。 例如，如果您將封裝儲存在 Azure 檔案儲存體中，其封裝路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`。 
    
-   如果您在不同的檔案中設定封裝，您也必須在 [設定**路徑**] 方塊中提供設定檔案（`.dtsConfig`）的 UNC 路徑。 例如，如果您將設定儲存在 Azure 檔案儲存體中，其設定路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`。
+   如果您在不同的檔案中設定您的封裝，您也必須在 [設定**路徑**] 方塊中提供設定檔案（`.dtsConfig`）的 UNC 路徑。 例如，如果您將設定儲存在 Azure 檔案儲存體中，其設定路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`。
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
@@ -166,7 +166,7 @@ ms.locfileid: "72255634"
 依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-az-ps)中的逐步指示，安裝最新的 Azure PowerShell 模組。
 
 ### <a name="create-a-data-factory-with-azure-ssis-ir"></a>使用 Azure SSIS IR 建立 data factory
-您可以使用已布建 Azure SSIS IR 的現有資料處理站，或使用 Azure SSIS IR 建立新的 data factory。 遵循 [Tutorial 中的逐步指示：透過 PowerShell 將 SSIS 套件部署至 Azure](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)。
+您可以使用已布建 Azure SSIS IR 的現有資料處理站，或使用 Azure SSIS IR 建立新的 data factory。 遵循[教學課程：透過 PowerShell 將 SSIS 套件部署至 Azure](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)中的逐步指示。
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>使用 Execute SSIS 套件活動建立管線 
 在此步驟中，您要使用執行 SSIS 套件活動建立管線。 此活動會執行您的 SSIS 套件。 

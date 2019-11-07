@@ -12,12 +12,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 09/13/2019
-  ms.openlocfilehash: 59f8fcefd48425fb49d6a828046764a213bea18f
-  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.openlocfilehash: b7d85e3f6dc087d8f6c4345a9e15e4b5d78a28d5
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/27/2019
-  ms.locfileid: "72965709"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73646999"
 landingContent:
 - title: 關於 Data Lake Analytics
   linkLists:
@@ -94,8 +94,16 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 了解適用於 U-SQL 開發人員的 Apache Spark
-      url: data-lake-analytics-understand-spark-for-usql-developers.md
+      url: understand-spark-for-usql-developers.md
     - text: 了解 Apache Spark 資料格式
-      url: data-lake-analytics-understand-spark-data-formats.md
+      url: understand-spark-data-formats.md
     - text: 了解 Apache Spark 程式碼概念
-      url: data-lake-analytics-understand-spark-code-concepts.md
+      url: understand-spark-code-concepts.md
+- title: U-SQL 作業疑難排解
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: U-SQL 執行階段失敗疑難排解
+      url: runtime-troubleshoot.md
+    - text: .NET 升級疑難排解
+      url: dotnet-upgrade-troubleshoot.md

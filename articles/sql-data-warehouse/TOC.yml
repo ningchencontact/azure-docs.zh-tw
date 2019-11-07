@@ -47,10 +47,10 @@
           href: quickstart-scale-compute-tsql.md
     - name: 工作負載管理
       items:
-        - name: 建立工作負載分類器
+        - name: 建立工作負載隔離
           items:
             - name: T-SQL
-              href: quickstart-create-a-workload-classifier-tsql.md
+              href: quickstart-configure-workload-isolation-tsql.md
 - name: 概念
   items:
     - name: 安全性
@@ -213,14 +213,18 @@
           href: sql-data-warehouse-develop-label.md
     - name: 工作負載管理
       items:
-        - name: 資源類別與工作負載管理
-          href: resource-classes-for-workload-management.md
+        - name: 概觀
+          href: sql-data-warehouse-workload-management.md
         - name: 工作負載分類
           href: sql-data-warehouse-workload-classification.md
         - name: 工作負載重要性
           href: sql-data-warehouse-workload-importance.md
+        - name: 工作負載隔離
+          href: sql-data-warehouse-workload-isolation.md
         - name: 記憶體與並行限制
-          href: memory-and-concurrency-limits.md
+          href: memory-concurrency-limits.md
+        - name: 資源類別
+          href: resource-classes-for-workload-management.md
     - name: 可管理性與監視
       items:
         - name: 概觀
@@ -303,6 +307,8 @@
           href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
         - name: 設定工作負載的重要性
           href: sql-data-warehouse-how-to-configure-workload-importance.md
+        - name: 將資源類別轉換成工作負載群組
+          href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
     - name: 管理和監視
       items:
         - name: 升級至 Gen2

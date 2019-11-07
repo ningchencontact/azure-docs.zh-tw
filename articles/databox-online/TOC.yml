@@ -1,4 +1,4 @@
-- name: Azure 資料箱文件 - 線上傳輸
+- name: Azure Stack Edge 與資料箱閘道文件
   href: /azure/databox-online/
   expanded: true
 - name: 資料箱閘道
@@ -57,11 +57,11 @@
           href: data-box-gateway-1905-release-notes.md
         - name: 公開上市 (GA)
           href: data-box-gateway-release-notes.md
-- name: 資料箱邊緣
+- name: Azure Stack Edge
   items:
     - name: 概觀
       items:
-        - name: 什麼是 Azure 資料箱邊緣？
+        - name: 什麼是 Azure Stack Edge？
           href: data-box-edge-overview.md
     - name: 教學課程
       items:
@@ -125,9 +125,9 @@
           href: data-box-gateway-release-notes.md
 - name: 資源
   items:
-    - name: 'Data Box Edge C# 模組範例 (.NET)'
+    - name: 'Azure Stack Edge C# 模組範例 (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Data Box Edge/閘道產品
+    - name: Azure Stack Edge/資料箱閘道產品
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

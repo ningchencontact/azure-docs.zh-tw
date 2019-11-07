@@ -2,16 +2,16 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 11/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 11cc93e0eb11d0422fae4fbbbf0a549df067daca
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 694d7e6afbf7bd4b219d52254159dcf2e02f8769
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390685"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682100"
 ---
-若要更新 web 服務，請使用`update`方法。 您可以更新 web 服務，以使用新的模型、新的輸入腳本，或可在推斷設定中指定的新相依性。 如需詳細資訊，請參閱[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)的檔。
+若要更新 web 服務，請使用 `update` 方法。 您可以更新 web 服務，以使用新的模型、新的輸入腳本，或可在推斷設定中指定的新相依性。 如需詳細資訊，請參閱[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)的檔。
 
 > [!IMPORTANT]
 > 當您建立模型的新版本時，您必須手動更新您想要使用的每個服務。
@@ -61,6 +61,6 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > 在此範例中，會使用 JSON 檔，將來自註冊命令的模型資訊傳遞至 update 命令。
 >
-> 若要將服務更新為使用新的專案腳本或環境，請建立[推斷設定檔](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema)，並使用`ic`參數來指定它。
+> 若要將服務更新為使用新的專案腳本或環境，請建立[推斷設定檔](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema)，並使用 `ic` 參數加以指定。
 
 如需詳細資訊，請參閱[az ml 服務更新](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update)檔。

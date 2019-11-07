@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 將資料從內部部署 Netezza 伺服器遷移至 Azure |Microsoft Docs
+title: 使用 Azure Data Factory 將資料從內部部署 Netezza 伺服器遷移至 Azure
 description: 使用 Azure Data Factory，將資料從內部部署 Netezza 伺服器遷移至 Azure。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122839"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675794"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>使用 Azure Data Factory 將資料從內部部署 Netezza 伺服器遷移至 Azure 
 
@@ -120,9 +120,9 @@ Azure Data Factory 提供無伺服器架構，允許各種層級的平行處理�
 
 針對小型資料表（也就是，磁片區小於 100 GB 或可在兩個小時內遷移至 Azure 的資料表），您可以讓每個複製作業在每個資料表中載入資料。 如需更大的輸送量，您可以執行多個 Azure Data Factory 複製作業，以同時載入個別的資料表。 
 
-在每個複製作業中，若要依分割區執行平行查詢和複製資料，您也可以使用[ `parallelCopies`屬性設定](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy)搭配下列其中一個資料分割選項，達到某種程度的平行處理原則：
+在每個複製作業中，若要依分割區執行平行查詢和複製資料，您也可以使用 [`parallelCopies`][屬性設定](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy)與下列其中一個資料分割區選項，達到某種程度的平行處理原則：
 
-- 為了協助達成更高的效率，我們鼓勵您從資料配量開始。  請確定`parallelCopies`設定中的值小於您在 Netezza 伺服器上資料表中的資料配量分割區總數。  
+- 為了協助達成更高的效率，我們鼓勵您從資料配量開始。  請確定 [`parallelCopies`] 設定中的值小於 Netezza 伺服器上資料表中的資料配量分割區總數。  
 
 - 如果每個資料配量分割區的數量仍然很大（例如 10 GB 或更大），建議您切換到動態範圍分割區。 此選項可讓您更有彈性地依資料分割資料行、上限和下限來定義資料分割的數目和每個分割區的磁片區數量。
 
@@ -150,13 +150,13 @@ Azure Data Factory 提供無伺服器架構，允許各種層級的平行處理�
 
 最佳做法是使用具代表性的範例資料集來進行效能證明（POC），讓您可以針對每個複製活動判斷適當的分割區大小。 我們建議您在兩個小時內，將每個分割區載入至 Azure。  
 
-若要複製資料表，請從具有單一自我裝載 IR 機器的單一複製活動開始。 根據資料表中`parallelCopies`的資料配量分割區數目，逐漸增加設定。 根據複製作業所產生的輸送量，查看是否可在兩個小時內將整個資料表載入至 Azure。 
+若要複製資料表，請從具有單一自我裝載 IR 機器的單一複製活動開始。 根據資料表中的資料配量分割區數目，逐漸增加 `parallelCopies` 設定。 根據複製作業所產生的輸送量，查看是否可在兩個小時內將整個資料表載入至 Azure。 
 
 如果在兩個小時內無法將其載入至 Azure，且自我裝載 IR 節點和資料存放區的容量未完全使用，則會逐漸增加並行複製活動的數目，直到達到您的網路限制或資料存放區的頻寬限制為止今日. 
 
 在自我裝載的 IR 機器上持續監視 CPU 和記憶體使用量，並準備好在您看到 CPU 和記憶體完全使用時，相應增加機器或相應放大至多部電腦。 
 
-當您遇到節流錯誤（如 Azure Data Factory 複製活動所回報）時，請減少 Azure Data Factory `parallelCopies`的並行或設定，或考慮增加網路的每秒 i/o 作業數（IOPS）限制，資料存放區。 
+當您遇到節流錯誤（如 Azure Data Factory 複製活動所回報）時，請減少 Azure Data Factory 中的並行或 `parallelCopies` 設定，或考慮增加網路和資料的頻寬或 i/o 作業每秒（IOPS）限制商店. 
 
 
 ### <a name="estimate-your-pricing"></a>預估您的定價 
@@ -173,7 +173,7 @@ Azure Data Factory 提供無伺服器架構，允許各種層級的平行處理�
 
 - 50-TB 磁片區會分割成500個磁碟分割，且每個複製活動會移動一個分割區。
 
-- 每個複製活動都會針對四部機器設定一個自我裝載 IR，並達到每秒 20 mb 的輸送量（MBps）。 （在複製活動內`parallelCopies` ，會設定為4，而每個從資料表載入資料的執行緒都會達到 5 MBps 的輸送量）。
+- 每個複製活動都會針對四部機器設定一個自我裝載 IR，並達到每秒 20 mb 的輸送量（MBps）。 （在複製活動中，`parallelCopies` 設定為4，而每個從資料表載入資料的執行緒都會達到 5 MBps 的輸送量）。
 
 - ForEach concurrency 已設定為3，而匯總輸送量為 60 MBps。
 

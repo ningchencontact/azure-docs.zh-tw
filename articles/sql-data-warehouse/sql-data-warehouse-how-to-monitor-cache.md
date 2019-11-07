@@ -1,5 +1,5 @@
 ---
-title: 將 Gen2 快取最佳化 | Microsoft Docs
+title: 優化您的 Gen2 快取
 description: 了解如何使用 Azure 入口網站監視 Gen2 快取。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b33f7cedca4ef130eefa28c1dbaaedd82d11a9e4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474386"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645773"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>如何監視 Gen2 快取
 在針對 Gen2 資料倉儲所設計的 NVMe 型 SSD 上，Gen2 儲存體架構會自動在位於其中的快取內將最常查詢的資料行存放區區段分層。 當查詢擷取位於快取中的區段時，將可獲得更好的效能。 本文說明如何藉由判斷工作負載是否有充分利用 Gen2 快取，來監視緩慢的查詢效能並加以疑難排解。  
@@ -24,9 +24,9 @@ ms.locfileid: "61474386"
 
 ![Azure 監視器](./media/sql-data-warehouse-cache-portal/cache_0.png)
 
-選取 [計量] 按鈕，然後填入資料倉儲的 [訂用帳戶]  、[資源群組]  、[資源類型]  和 [資源名稱]   。
+選取 [計量] 按鈕，然後填入資料倉儲的 [訂用帳戶]、[資源群組]、[資源類型] 和 [資源名稱]。
 
-用於疑難排解 Gen2 快取的關鍵計量是 [快取命中百分比]  和 [已用快取百分比]  。 請設定 Azure 計量圖表，以顯示這兩個計量。
+用於疑難排解 Gen2 快取的關鍵計量是 [快取命中百分比] 和 [已用快取百分比]。 請設定 Azure 計量圖表，以顯示這兩個計量。
 
 ![快取計量](./media/sql-data-warehouse-cache-portal/cache_1.png)
 
@@ -41,13 +41,13 @@ ms.locfileid: "61474386"
 
 **案例 1：** 您充分使用快取。 針對其他可能會拖慢查詢速度的領域進行[疑難排解](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)。
 
-**案例 2：** 您目前的工作資料集不適用於快取，導致快取命中百分比因實體讀取次數而偏低。 請考慮相應增加效能層級，然後重新執行工作負載來填入快取。
+**案例 2：** 您目前的工作資料集不適合該快取，導致由於實體讀取次數的關係而產生低快取命中百分比。 請考慮相應增加效能層級，然後重新執行工作負載來填入快取。
 
-**案例 3：** 查詢可能因為與快取無關的原因而執行緩慢。 針對其他可能會拖慢查詢速度的領域進行[疑難排解](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)。 您也可以考慮[相應減少執行個體](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)來降低快取大小，以節省成本。 
+**案例 3：** 查詢可能是因為與快取無關的理由而導致執行速度緩慢。 針對其他可能會拖慢查詢速度的領域進行[疑難排解](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)。 您也可以考慮[相應減少執行個體](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)來降低快取大小，以節省成本。 
 
-**案例 4：** 您的冷快取可能是查詢速度緩慢的原因。 工作資料集現在應該已完成快取，所以請考慮重新執行查詢。 
+**案例 4：** 您擁有冷快取，這可能是查詢速度緩慢的理由。 工作資料集現在應該已完成快取，所以請考慮重新執行查詢。 
 
-**重要事項：如果快取命中百分比或快取使用百分比未在重新執行工作負載後更新，表示工作集可能已位於記憶體中。請注意只有叢集化的資料行存放區資料表才會進行快取。**
+**重要事項：如果重新執行您的工作負載之後，快取命中百分比或快取使用百分比未更新，則您的工作集可能已經位於記憶體中。請注意，只會快取叢集資料行存放區資料表。**
 
 ## <a name="next-steps"></a>後續步驟
 如需一般查詢效能微調的詳細資訊，請參閱[監視查詢的執行](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution)。

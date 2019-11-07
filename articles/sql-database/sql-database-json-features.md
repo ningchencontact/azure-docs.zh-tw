@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 資料庫中使用 JSON 資料 | Microsoft Docs
+title: 使用 Azure SQL Database 中的 JSON 資料
 description: Azure SQL Database 可讓您剖析、查詢及格式化採用「JavaScript 物件標記法」(JSON) 的資料。
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
-ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2fe760e3792b5540b18946fd9dbcc5d571b50ee9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567848"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689654"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的 JSON 功能
 Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](https://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。 Azure SQL 資料庫中可用的 JSON 案例如下：
-- 使用 `FOR JSON` 子句[以 JSON 格式將關聯式資料格式化](#formatting-relational-data-in-json-format)。
+- 使用 [ 子句](#formatting-relational-data-in-json-format)以 JSON 格式將關聯式資料格式化`FOR JSON`。
 - [使用 JSON 資料](#working-with-json-data)
 - 使用 JSON 純量函式[查詢 JSON 資料](#querying-json-data)。
-- 使用 `OPENJSON` 函式[將 JSON 轉換成表格式格式](#transforming-json-into-tabular-format)。
+- 使用 [ 函式](#transforming-json-into-tabular-format)將 JSON 轉換成表格式格式`OPENJSON`。
 
 ## <a name="formatting-relational-data-in-json-format"></a>以 JSON 格式將關聯式資料格式化
 如果您有會從資料庫層擷取資料並以 JSON 格式提供回應的 Web 服務，或是有會接受以 JSON 格式化之資料的用戶端 JavaScript 架構或程式庫，您就可以直接在 SQL 查詢中將資料庫內容格式化為 JSON。 您不再需要撰寫應用程式程式碼以將來自 Azure SQL Database 的結果格式化為 JSON，或包含一些 JSON 序列化程式庫來轉換表格式查詢結果，然後將物件序列化為 JSON 格式。 取得代之的是，您可以在 Azure SQL Database 中使用 FOR JSON 子句將 SQL 查詢結果格式化為 JSON，然後直接在您的應用程式中使用它。
@@ -71,7 +71,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 在此範例中，我們透過指定 [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) 選項，傳回了單一 JSON 物件而不是陣列。 如果您知道您要傳回單一物件來作為查詢結果，就可以使用此選項。
 
-FOR JSON 子句的主要價值在於，它可讓您從資料庫傳回格式化為巢狀 JSON 物件或陣列的複雜階層式資料。 下列範例說明如何將屬於 `Customer` 之 `Orders` 資料表中的資料列包含為 `Orders` 的巢狀陣列：
+FOR JSON 子句的主要價值在於，它可讓您從資料庫傳回格式化為巢狀 JSON 物件或陣列的複雜階層式資料。 下列範例說明如何將屬於 `Orders` 之 `Customer` 資料表中的資料列包含為 `Orders` 的巢狀陣列：
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,

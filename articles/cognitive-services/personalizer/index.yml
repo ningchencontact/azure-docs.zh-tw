@@ -12,12 +12,12 @@ metadata:
   title: 個人化工具文件
   titleSuffix: Azure Cognitive Services
   description: Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
-  ms.openlocfilehash: f3ba5f5eef7885896d774fd8aab35784cfb6465e
-  ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+  ms.openlocfilehash: 19736d881400a311964920f5669a0e9423891f9e
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/04/2019
-  ms.locfileid: "71950048"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73604208"
 landingContent:
 - title: 關於個人化工具
   linkLists:
@@ -97,7 +97,7 @@ landingContent:
       url: concepts-exploration.md
     - text: 功能、動作和內容
       url: concepts-features.md
-    - text: 主動學習
+    - text: 使用中和非使用中的事件
       url: concept-active-learning.md
     - text: 獎勵
       url: concept-rewards.md
@@ -107,7 +107,7 @@ landingContent:
     links:
     - text: 使用離線評估來改善迴圈
       url: concepts-offline-evaluation.md
-    - text: 主動學習
+    - text: 使用中和非使用中的事件
       url: concept-active-learning.md
     - text: 延展性和效能
       url: concepts-scalability-performance.md

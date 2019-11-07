@@ -1,6 +1,6 @@
 ---
-title: 從範例 Kickstart 您的實驗
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 從範例 Kickstart 實驗
+titleSuffix: ML Studio (classic) Azure
 description: 瞭解如何使用範例機器學習實驗，以 Azure AI 資源庫和 Azure Machine Learning Studio （傳統）來建立新的實驗。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 547cd7c97ddf7aa08ef94f6aeea82e16119c7135
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa23612070a5b0c1a33c2effb9cd9e533ca5eada
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496781"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670652"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立 Azure Machine Learning Studio （傳統）實驗
 
@@ -59,4 +59,4 @@ ms.locfileid: "73496781"
 ## <a name="next-steps"></a>後續步驟
 * [從各種資源匯入資料](import-data.md)
 * [Machine Learning 中的 R 語言所適用的快速入門教學課程](r-quickstart.md)
-* [部署 Machine Learning Web 服務](publish-a-machine-learning-web-service.md)
+* [部署 Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)

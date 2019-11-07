@@ -1,39 +1,74 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: IoT 隨插即用預覽版文件
+summary: IoT 隨插即用預覽版可讓您定義裝置模型，讓雲端解決方案能夠自動了解您的裝置並開始與其互動 — 完全不需要撰寫任何裝置程式碼。
 metadata:
-  title: IoT 隨插即用預覽版文件 - 教學課程和 API 參考 | Microsoft Docs
-  description: 了解如何透過教學課程、API 參考、影片和其他文件的協助來使用 IoT 隨插即用。
-  author: dominicbetts
-  manager: philmea
-  ms.service: iot-pnp
+  title: IoT 隨插即用預覽版文件
+  description: IoT 隨插即用預覽版可讓您定義裝置模型，讓雲端解決方案能夠自動了解您的裝置並開始與其互動 — 完全不需要撰寫任何裝置程式碼。
   services: iot-pnp
+  ms.service: iot-pnp
   ms.topic: landing-page
-  ms.date: 07/23/2019
+  author: dominicbetts
   ms.author: dobett
-abstract:
-  description: 了解如何使用 IoT 隨插即用預覽版來定義裝置模型，讓雲端解決方案能夠自動了解您的裝置並開始與其互動 — 完全不需要撰寫任何裝置程式碼。 教學課程、API 參考、影片和其他文件可協助您將裝置連線至雲端解決方案，例如 Azure IoT Central 或合作夥伴應用程式。
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video-thumb-pnp-introduction.png
-      width: 250
-    title: 'IoT 隨插即用簡介。 (11:54)'
-    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
-    width: 250
-sections:
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: 了解如何<a href="quickstart-create-pnp-device">使用裝置功能模型來建立裝置</a>。
-      - type: paragraph
-        text: 了解如何<a href="quickstart-connect-pnp-device-solution">將裝置連線到您的解決方案</a>。
-  - title: 逐步教學課程
-    items:
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-pnp-visual-studio-code">使用 Visual Studio Code 建立裝置</a>
-          - html: <a href="tutorial-build-device-certification">建立可供認證的裝置</a>
-          - html: <a href="tutorial-certification-test">認證您的裝置</a>
+  manager: philmea
+  ms.date: 10/31/2019
+  ms.openlocfilehash: 442b9c5028ef899329912fa9d21ce780437d7970
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73570184"
+landingContent:
+- title: 關於 IoT 隨插即用
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 IoT 隨插即用？
+      url: overview-iot-plug-and-play.md
+  - linkListType: video
+    links:
+    - text: IoT 隨插即用簡介
+      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
+- title: 開發裝置
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 將範例裝置連線到 IoT 中樞
+      url: quickstart-connect-pnp-device.md
+    - text: 將範例裝置連線到 IoT Central
+      url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: 使用裝置功能模型來建立裝置
+      url: quickstart-create-pnp-device.md
+  - linkListType: tutorial
+    links:
+    - text: 使用 Visual Studio Code 建立和測試裝置功能模型
+      url: tutorial-pnp-visual-studio-code.md
+    - text: 建置可供認證的裝置
+      url: tutorial-build-device-certification.md
+    - text: 認證您的裝置
+      url: tutorial-certification-test.md
+  - linkListType: how-to-guide
+    links:
+    - text: 使用適用於 Visual Studio Code 的 Azure IoT Tools
+      url: howto-develop-with-vs-vscode.md
+    - text: 在 Azure IoT 認證入口網站上線
+      url: howto-onboard-portal.md
+  - linkListType: concept
+    links:
+    - text: 通用介面
+      url: concepts-common-interfaces.md
+- title: 建置解決方案
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 與已連線至解決方案的裝置互動
+      url: quickstart-connect-pnp-device-solution.md
+  - linkListType: concept
+    links:
+    - text: 模型探索
+      url: concepts-model-discovery.md
+    - text: 通用介面
+      url: concepts-common-interfaces.md
+  - linkListType: how-to-guide
+    links:
+    - text: 從解決方案與裝置連線
+      url: howto-develop-solution.md

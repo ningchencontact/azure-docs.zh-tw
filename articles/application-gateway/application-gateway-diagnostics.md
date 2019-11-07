@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 7b9cbd4e84f60b42e8eb6cb250a9b25f398fd4a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176461"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718738"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>應用程式閘道的後端健康情況和診斷記錄
 
@@ -157,7 +157,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每個存取都會以 JSON 格式記錄，如下列 v1 範例所示：
 
-|Value  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
@@ -172,7 +172,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |sentBytes| 傳送的封包大小，單位為位元組。|
 |timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
 |sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
-|host| 要求已傳送到後端伺服器的主機名稱。 如果即將覆寫後端主機名稱，此名稱將會反映這一點。|
+|主機| 要求已傳送到後端伺服器的主機名稱。 如果即將覆寫後端主機名稱，此名稱將會反映這一點。|
 |originalHost| 應用程式閘道從用戶端接收要求的主機名稱。|
 ```json
 {
@@ -201,7 +201,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 ```
 對於應用程式閘道和 WAF v2，記錄檔會顯示更多詳細資訊：
 
-|Value  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
@@ -213,14 +213,14 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |httpVersion     | 要求的 HTTP 版本。        |
 |receivedBytes     | 接收的封包大小，單位為位元組。        |
 |sentBytes| 傳送的封包大小，單位為位元組。|
-|timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
+|timeTaken| 處理要求所花費的時間長度（以**秒為單位**），以及要傳送的回應。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
 |sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
 |sslCipher| 用於 SSL 通訊的加密套件（如果已啟用 SSL）。|
 |sslProtocol| 使用的 SSL/TLS 通訊協定（如果已啟用 SSL）。|
 |serverRouted| 應用程式閘道將要求路由至的後端伺服器。|
 |serverStatus| 後端伺服器的 HTTP 狀態碼。|
 |serverResponseLatency| 後端伺服器回應的延遲。|
-|host| 要求的主機標頭中所列的位址。|
+|主機| 要求的主機標頭中所列的位址。|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -255,7 +255,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有當您如上述步驟所述，在每個應用程式閘道上啟用效能記錄，才會產生效能記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 產生效能記錄資料的時間間隔為 1 分鐘。 它僅適用于 v1 SKU。 針對 v2 SKU，請使用效能資料的[計量](application-gateway-metrics.md)。 會記錄下列資料：
 
 
-|Value  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     |  將產生此應用程式閘道執行個體的效能資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。        |
 |healthyHostCount     | 後端集區中狀況良好主機的數目。        |
@@ -292,7 +292,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有當您如上述步驟所述，在每個應用程式閘道上啟用防火牆記錄，才會產生防火牆記錄。 此記錄也需要在應用程式閘道上設定該 Web 應用程式防火牆。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 會記錄下列資料：
 
 
-|Value  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     | 將產生此應用程式閘道執行個體的防火牆資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。         |
 |clientIp     |   要求的原始 IP。      |
@@ -301,7 +301,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |ruleSetType     | 規則集類型。 可用的值是 OWASP。        |
 |ruleSetVersion     | 規則集版本。 可用值為 2.2.9 和 3.0。     |
 |ruleId     | 觸發事件的規則識別碼。        |
-|message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
+|Message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
 |動作     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
 |site     | 將產生此網站的記錄。 目前只列出 Global，因為規則為全域。|
 |詳細資料     | 觸發事件的詳細資料。        |

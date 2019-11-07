@@ -1,5 +1,5 @@
 ---
-title: 在 Data Factory 中使用 Resource Manager 範本 | Microsoft Docs
+title: 在 Data Factory 中使用 Resource Manager 範本
 description: 了解如何建立及使用 Azure Resource Manager 範本來建立 Data Factory 實體。
 services: data-factory
 documentationcenter: ''
@@ -11,21 +11,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164688"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682527"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>使用範本來建立 Azure Data Factory 實體
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 
+> 本文適用於 Data Factory 的第 1 版。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 基於資料整合需求使用 Azure Data Factory 時，您可能會發現自己跨不同環境重複使用相同的模式，或在相同的解決方案內反覆地實作相同的工作。 範本可協助您輕鬆地實作和管理這些案例。 Azure Data Factory 中的範本最適用於涉及重複使用和重複時。
 
-假設某個組織在全球各地有 10 個製造工廠。 每個工廠中的記錄都會儲存在不同的內部部署 SQL Server 資料庫中。 該公司想要在雲端中建立單一資料倉儲, 以供臨機操作分析之用。 它也想要具有相同的邏輯，但開發、測試和生產環境的組態不同。
+假設某個組織在全球各地有 10 個製造工廠。 每個工廠中的記錄都會儲存在不同的內部部署 SQL Server 資料庫中。 該公司想要在雲端中建立單一資料倉儲，以供臨機操作分析之用。 它也想要具有相同的邏輯，但開發、測試和生產環境的組態不同。
 
 在此情況下，必須在相同的環境內重複執行工作，但每個製造工廠的 10 個資料處理站各有不同的值。 實際上，具有**重複**情況。 範本化允許任意使用這個泛形流程 (即在每個資料處理站中具有相同活動的管線)，但會針對每個製造工廠使用不同的參數檔案。
 

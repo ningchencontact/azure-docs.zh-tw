@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: cherylmc
-ms.openlocfilehash: f4241b2ace2d7c86e1ed9036ca6d1da4a59eb61f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 704dcd6335766a6058de4e520b8dcbca0d304c9d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517523"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721466"
 ---
 # <a name="configure-a-vpn-client-for-p2s-vpn-connections-azure-ad-authentication-preview"></a>設定 VPN 用戶端以進行 P2S VPN 連線： Azure AD authentication （預覽）
 
@@ -20,7 +20,7 @@ ms.locfileid: "73517523"
 
 ## <a name="profile"></a>使用用戶端設定檔
 
-若要連線，您需要在每一部要連線到 VNet 的電腦上設定 VPN 用戶端設定檔。 您可以在電腦上建立用戶端設定檔、將它匯出，然後將它匯入到其他電腦。
+若要連線，您必須[下載](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)Azure Vpn 用戶端，並在每一部要連線到 VNet 的電腦上設定 VPN 用戶端設定檔。 您可以在電腦上建立用戶端設定檔、將它匯出，然後將它匯入到其他電腦。
 
 ### <a name="cert"></a>建立以憑證為基礎的用戶端設定檔
 

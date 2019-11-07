@@ -1,5 +1,5 @@
 ---
-title: 使用彈性集區管理多個 SQL Database - Azure | Microsoft Docs
+title: 使用彈性集區管理多個 SQL 資料庫-Azure
 description: 管理及調整多個 SQL Database - 成百上千 - 使用彈性集區。 可視需要散發的資源只有一個價格。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 68bb68b47ca240d6c20153af3ed4b0eb42475282
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876416"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690450"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL 資料庫
 
@@ -101,7 +101,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 資料庫的尖峰和平均使用量之間的差異為，長時間的低使用量和短時間的高使用量。 這個使用量模式非常適合在資料庫之間共用資源。 若資料庫的尖峰使用量為平均使用量的 1.5 倍大，就應該將該資料庫視為集區。
 
-**以 DTU 為基礎的購買模型範例**：尖峰為 100 個 DTU 且平均使用 67 個 DTU 或更少的 S3 資料庫是在集區中共用 eDTU 的良好候選項目。 或者，尖峰為 20 個 DTU 且平均使用 13 個 DTU 或更少的 S1 資料庫是集區的良好候選項目。
+以**DTU 為基礎的購買模型範例**：尖峰到 100 dtu 且平均使用 67 dtu 或更少的 S3 資料庫，是在集區中共用 edtu 的理想候選。 或者，尖峰為 20 個 DTU 且平均使用 13 個 DTU 或更少的 S1 資料庫是集區的良好候選項目。
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>如何選擇正確的集區大小
 
@@ -116,10 +116,10 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 1. 估計集區所需的 eDTU 或虛擬核心，如下所示：
 
-   對於以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>  
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
+   針對以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>  
+   <並行尖峰 DB 的數目 X 每個 DB 的尖峰 DTU 使用量)
 
-   對於以虛擬核心為基礎的購買模型：最大值(<*DB 總數* X *每個 DB 的平均 vCore 使用量*>，<br>  
+   針對以虛擬核心為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均虛擬核心使用量>，<br>  
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰虛擬核心使用量*)
 
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。
@@ -155,14 +155,14 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 在 Azure 入口網站中建立彈性集區的方式有兩種。
 
-1. 在 Azure 入口網站的左側功能表中, 選取 [ **AZURE SQL** ]。 如果 Azure SQL 不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入*azure sql* 。
-2. 選取 [ **+ 新增**] 以開啟 [**選取 SQL 部署] 選項**頁面。 您可以選取 [**資料庫**] 磚上的 [**顯示詳細資料**], 以查看有關彈性集區的其他資訊。
-3. 在 [**資料庫**] 磚的 [**資源類型**] 下拉式清單中, 選取 [**彈性集**區], 然後選取 [**建立**]:
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]。 如果 Azure SQL 不在清單中，請選取 [所有服務]，然後在搜尋方塊中輸入 *Azure SQL*。
+2. 選取 [+ 新增] 以開啟 [選取 SQL 部署選項] 頁面。 您可以選取 [**資料庫**] 磚上的 [**顯示詳細資料**]，以查看有關彈性集區的其他資訊。
+3. 在 [**資料庫**] 磚的 [**資源類型**] 下拉式清單中，選取 [**彈性集**區]，然後選取 [**建立**]：
 
    ![建立彈性集區](./media/sql-database-elastic-pool/create-elastic-pool.png)
 
 
-1. 或者, 您可以流覽至現有的 Azure SQL server, 然後按一下 [ **+ 新增集**區], 直接在該伺服器中建立集區, 藉以建立彈性集區。
+1. 或者，您可以流覽至現有的 Azure SQL server，然後按一下 [ **+ 新增集**區]，直接在該伺服器中建立集區，藉以建立彈性集區。
 
 > [!NOTE]
 > 您可以在伺服器上建立多個集區，但無法將來自不同伺服器的資料庫新增到相同的集區。
@@ -210,15 +210,15 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart 使用彈性集區與 Azure SQL Database, 以每個月1000個新 Azure SQL 資料庫的速度快速擴充其商務服務。
+  SnelStart 使用彈性集區與 Azure SQL Database，以每個月1000個新 Azure SQL 資料庫的速度快速擴充其商務服務。
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco 搭配使用彈性集區與 Azure SQL Database, 為雲端中數以千計的租使用者快速布建和調整服務。
+  Umbraco 搭配使用彈性集區與 Azure SQL Database，為雲端中數以千計的租使用者快速布建和調整服務。
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Daxko/CSI 使用彈性集區與 Azure SQL Database 來加速其開發週期, 並增強其客戶服務和效能。   
+   Daxko/CSI 使用彈性集區與 Azure SQL Database 來加速其開發週期，並增強其客戶服務和效能。   
 
 ## <a name="next-steps"></a>後續步驟
 

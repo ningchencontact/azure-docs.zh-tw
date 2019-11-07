@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Phoenix 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Phoenix 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Phoenix 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3095c78a439a9d706aa91bcd3e0f62edf910baa4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 128946562fb3976bcb98de6c0911b7f89805b149
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089855"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680436"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>使用 Azure Data Factory 從 Phoenix 複製資料 
 
@@ -38,7 +38,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,13 +48,13 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Phoenix 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**Phoenix** | 是 |
-| host | Phoenix 伺服器的 IP 位址或主機名稱。 (也就是 192.168.222.160)  | 是 |
+| 類型 | Type 屬性必須設定為：**Phoenix** | 是 |
+| 主機 | Phoenix 伺服器的 IP 位址或主機名稱。 (也就是 192.168.222.160)  | 是 |
 | port | Phoenix 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8765。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
 | httpPath | 對應至 Phoenix 伺服器的部分 URL。 (也就是 /gateway/sandbox/phoenix/version)。 如果使用 HDInsights 叢集，請指定 `/hbasephoenix0`。  | 否 |
-| authenticationType | 用來連線到 Phoenix 伺服器的驗證機制。 <br/>允許的值包括：**Anonymous**、**UsernameAndPassword**、**WindowsAzureHDInsightService** | 是 |
+| authenticationType | 用來連線到 Phoenix 伺服器的驗證機制。 <br/>允許的值為：**Anonymous**、**UsernameAndPassword**、**WindowsAzureHDInsightService** | 是 |
 | username | 用來連線到 Phoenix 伺服器的使用者名稱。  | 否 |
 | password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
@@ -65,9 +65,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
->如果叢集不支援 HDInsight 等連續的工作階段，請明確地在 http 路徑設定結尾新增節點索引，例如，指定 `/hbasephoenix0` 而不是 `/hbasephoenix`。
+>如果叢集不支援 HDInsight 等黏性工作階段，請明確地在 http 路徑設定結尾新增節點索引 (例如，指定 `/hbasephoenix0` 而不是 `/hbasephoenix`)。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -95,12 +95,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Phoenix 複製資料，請將資料集的 type 屬性設定為 **PhoenixObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**PhoenixObject** | 是 |
-| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
-| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **PhoenixObject** | 是 |
+| 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -121,18 +121,18 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Phoenix 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Phoenix 來源所支援的屬性清單。
 
 ### <a name="phoenix-as-source"></a>以 Phoenix 作為來源
 
 若要從 Phoenix 複製資料，請將複製活動中的來源類型設定為 **PhoenixSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**PhoenixSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的 type 屬性必須設定為：**PhoenixSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

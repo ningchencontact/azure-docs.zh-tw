@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044130"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718741"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
@@ -29,8 +29,8 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | [地理位置] | 配對的區域 |  |
 |:--- |:--- |:--- |
 | 亞洲 |東亞 |東南亞 |
-| 澳洲 |澳大利亞東部 |澳大利亞東南部 |
-| 澳洲 |澳洲中部 |澳洲中部 2 |
+| 澳大利亞 |澳洲東部 |澳大利亞東南部 |
+| 澳大利亞 |澳大利亞中部 |澳大利亞中部 2 |
 | 巴西 |巴西南部 |美國中南部 |
 | 加拿大 |加拿大中部 |加拿大東部 |
 | 中國 |中國北部 |中國東部|
@@ -49,10 +49,10 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 南非 | 南非北部 | 南非西部
 | 英國 |英國西部 |英國南部 |
 | 阿拉伯聯合大公國 | 阿拉伯聯合大公國北部 | 阿拉伯聯合大公國中部
-| 美國國防部 |US DoD 東部 |US DoD 中部 |
-| 美國政府 |US Gov 亞利桑那州 |US Gov 德克薩斯州 |
-| 美國政府 |US Gov 愛荷華州 |US Gov 維吉尼亞州 |
-| 美國政府 |US Gov 維吉尼亞州 |US Gov 德克薩斯州 |
+| 美國國防部 |美國 DoD 東部 |美國國防部中央 |
+| 美國政府 |美國政府亞利桑那州 |美國政府德克薩斯州 |
+| 美國政府 |US Gov 愛荷華州 |美國政府維吉尼亞州 |
+| 美國政府 |美國政府維吉尼亞州 |美國政府德克薩斯州 |
 
 表 1 - Azure 區域配對對應表
 
@@ -75,7 +75,7 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 ## <a name="cross-region-activities"></a>跨區域活動
 如圖 2 所示。
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (IaaS)** ：您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。 如需詳細資訊，請參閱 [Azure 復原技術指導](resiliency/resiliency-technical-guidance.md)。
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (IaaS)** ：您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。 如需詳細資訊，請參閱 [Azure 復原技術指導](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md)。
 
 ![儲存體](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體**-如果您使用受控磁片，請瞭解如何使用 Azure 備份進行[跨區域備份](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines)，並使用 Azure Site Recovery 將[vm](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)從一個區域複寫到另一個區域。 如果您使用的是儲存體帳戶，則在建立 Azure 儲存體帳戶時，預設會設定異地冗余儲存體（GRS）。 使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/common/storage-redundancy.md)。
 

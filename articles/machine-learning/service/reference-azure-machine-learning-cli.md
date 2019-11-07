@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: dcbe535bb92f7755980929956093b0f0121ef41b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476445"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619964"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>使用適用于 Azure Machine Learning 的 CLI 擴充功能
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,6 +92,9 @@ az extension remove -n azure-cli-ml
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
+
+    > [!TIP]
+    > 此命令會建立基本版本工作區。 若要建立企業工作區，請使用 `--sku enterprise` 參數搭配 `az ml workspace create` 命令。 如需 Azure Machine Learning 版本的詳細資訊，請參閱[什麼是 Azure Machine Learning](overview-what-is-azure-ml.md#sku)。
 
     如需詳細資訊，請參閱[az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create)。
 

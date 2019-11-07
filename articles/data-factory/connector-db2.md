@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 DB2 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 DB2 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 DB2 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d89b4018da7c50127fc38219c6cb799a89509258
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: dad28da0b481467633bebf664fea2be39a50200b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092133"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681043"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -58,7 +58,7 @@ ms.locfileid: "71092133"
 
 「整合執行階段」提供內建的 DB2 驅動程式，因此從 DB2 複製資料時，您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -68,17 +68,17 @@ ms.locfileid: "71092133"
 
 以下是針對 DB2 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**Db2** | 是 |
-| server |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
-| database |DB2 資料庫的名稱。 |是 |
-| authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為：**基本**。 |是 |
+| 類型 | 類型屬性必須設為：**DB2** | 是 |
+| 伺服器 |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
+| 資料庫 |DB2 資料庫的名稱。 |是 |
+| authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為**基本**。 |是 |
 | username |指定要連線到 DB2 資料庫的使用者名稱。 |是 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -109,12 +109,12 @@ ms.locfileid: "71092133"
 
 若要從 DB2 複製資料，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**Db2Table** | 是 |
-| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
-| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **Db2Table** | 是 |
+| 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -134,22 +134,22 @@ ms.locfileid: "71092133"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
+如果您使用 `RelationalTable` 具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 DB2 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 DB2 來源所支援的屬性清單。
 
 ### <a name="db2-as-source"></a>DB2 作為來源
 
 若要從 DB2 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**Db2Source** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的類型屬性必須設定為： **Db2Source** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -181,7 +181,7 @@ ms.locfileid: "71092133"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
+如果您使用 `RelationalSource` 具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-db2"></a>DB2 的資料類型對應
 
@@ -190,30 +190,30 @@ ms.locfileid: "71092133"
 | DB2 資料庫類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | BigInt |Int64 |
-| 二進位 |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
-| 字元 |String |
-| Clob |String |
-| Date |Datetime |
-| DB2DynArray |String |
-| DbClob |String |
+| Char |字串 |
+| Clob |字串 |
+| 日期 |Datetime |
+| DB2DynArray |字串 |
+| DbClob |字串 |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| 圖形 |String |
+| 圖形 |字串 |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| Numeric |Decimal |
-| 實際 |Single |
+| LongVarChar |字串 |
+| LongVarGraphic |字串 |
+| 數值 |Decimal |
+| Real |單一 |
 | SmallInt |Int16 |
-| Time |TimeSpan |
-| Timestamp |Datetime |
+| 時間 |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |字串 |
+| VarGraphic |字串 |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性

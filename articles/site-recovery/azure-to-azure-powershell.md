@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery - 使用 Azure PowerShell 安裝和測試 Azure 虛擬機器的災害復原 | Microsoft Docs
+title: 使用 Azure PowerShell 和 Azure Site Recovery 的 Azure Vm 嚴重損壞修復
 description: 了解如何使用 Azure PowerShell 與 Azure Site Recovery 來設定 Azure 虛擬機器的災害復原。
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aa91725daf36113334849dd15dd01b6ce6ed4389
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671893"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621082"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -39,21 +39,21 @@ ms.locfileid: "67671893"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前：
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。
 - 檢閱所有元件的[支援需求](azure-to-azure-support-matrix.md)。
-- 您有 Azure PowerShell`Az`模組。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azure/install-az-ps)的說明。
+- 您有 Azure PowerShell `Az` 模組。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azure/install-az-ps)的說明。
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
 
-登入 Azure 訂用帳戶使用 Connect AzAccount cmdlet
+使用 Disconnect-azaccount Cmdlet 登入您的 Azure 訂用帳戶
 
 ```azurepowershell
 Connect-AzAccount
 ```
-選取 Azure 訂用帳戶。 您可以使用 Get AzSubscription cmdlet，取得您所擁有的 Azure 訂用帳戶的清單存取權。 選取 使用選取 AzSubscription cmdlet 運作的 Azure 訂用帳戶。
+選取 Azure 訂用帳戶。 使用 Get-azsubscription Cmdlet 來取得您有權存取的 Azure 訂用帳戶清單。 使用 Get-azsubscription 指令，選取要使用的 Azure 訂用帳戶。
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -154,7 +154,7 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-Azure 至 Azure 移轉，您可以設定至新建立的保存庫的保存庫內容： 
+針對 Azure 到 Azure 的遷移，您可以將保存庫內容設定為新建立的保存庫： 
 
 ```azurepowershell
 
@@ -596,7 +596,7 @@ Errors           : {}
 
 ## <a name="reprotect-and-failback-to-source-region"></a>重新保護和容錯回復至來源區域
 
-容錯移轉之後，當您準備好要回到原始區域，啟動反轉複寫方向使用更新 AzRecoveryServicesAsrProtectionDirection 指令程式的受保護的複寫項目。
+容錯移轉之後，當您準備好回到原始區域時，請使用 AzRecoveryServicesAsrProtectionDirection 指令程式啟動複寫受保護專案的反向複寫。
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -609,15 +609,15 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
 ```
 
-重新保護完成之後，您可以起始反向方向 （至美國東部美國西部） 和容錯回復至來源區域中的容錯移轉。
+重新保護完成之後，您可以反向起始容錯移轉（美國西部到美國東部）並容錯回復到來源區域。
 
 ## <a name="disable-replication"></a>停用複寫
 
-您可以使用 移除 ASRReplicationProtectedItem cmdlet 來停用複寫。
+您可以使用 ASRReplicationProtectedItem Cmdlet 來停用複寫。
 
 ```azurepowershell
 Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
 ```
 
 ## <a name="next-steps"></a>後續步驟
-檢視[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/az.RecoveryServices)若要了解如何執行其他工作，例如建立復原計劃及測試透過 PowerShell 的復原計劃的容錯移轉。
+請參閱[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/az.RecoveryServices)，以瞭解如何執行其他工作，例如建立復原計畫，以及透過 PowerShell 測試復原方案的容錯移轉。

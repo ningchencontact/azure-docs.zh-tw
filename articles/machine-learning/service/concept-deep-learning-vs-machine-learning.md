@@ -1,6 +1,6 @@
 ---
 title: 深度學習與機器學習服務
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure
 description: 瞭解深度學習與機器學習服務和人工智慧的關係。 深度學習適用于詐騙偵測、語音 & 臉部辨識、情感分析和時間序列預測等案例。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ed9f933e790aa70b257e27fa2bbbc04f6a2e077
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497486"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648002"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>深度學習與機器學習服務
 

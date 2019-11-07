@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 術語詞彙 | Microsoft Docs
+title: Azure SQL Database 術語詞彙
 description: Azure SQL Database 術語詞彙
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b23fbd435ce9496ac85927e84ae6ddd4df297c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488483"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689941"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 術語詞彙
 
-|Context|詞彙|詳細資訊|
+|Context|條款|詳細資訊|
 |:---|:---|:---|
 |Azure 服務名稱|Azure SQL Database 或 SQL Database|[Azure SQL Database 服務](sql-database-technical-overview.md)|
 |計算層|無伺服器 |[無伺服器計算層](sql-database-serverless.md)

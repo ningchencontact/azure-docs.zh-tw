@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472137"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620429"
 ---
 # <a name="access-and-customize-developer-portal"></a>存取和自訂開發人員入口網站
 
@@ -125,7 +125,7 @@ ms.locfileid: "73472137"
 
 ## <a name="visit-the-published-portal"></a>造訪已發佈的入口網站
 
-發佈入口網站後，您可以在與系統管理面板相同的 URL 上存取它，例如 `https://contoso-api.portal.azure-api.net`。 在新的瀏覽器索引標籤中開啟它，以將它視為外部訪客。
+發佈入口網站後，您可以在與系統管理面板相同的 URL 上存取它，例如 `https://contoso-api.developer.azure-api.net`。 以獨立的瀏覽器會話（incognito/私用瀏覽模式）來觀看，做為外部訪客。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -57,6 +57,8 @@
       href: data-manager-portal.md
     - name: 設定資料管理員 - CLI
       href: data-manager-cli.md
+    - name: 將資料發佈到 Cosmos DB
+      href: data-manager-cosmosdb.md
 - name: 資源
   items:
     - name: 區塊鏈 REST API

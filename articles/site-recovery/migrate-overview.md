@@ -1,19 +1,19 @@
 ---
-title: 關於內部部署機器和 Azure Vm 的遷移 Azure Site Recovery
-description: 本文說明如何使用 Azure Site Recovery 服務將內部部署和 Azure IaaS VM 移轉至 Azure。
+title: 使用 Azure Site Recovery 將伺服器和 Vm 遷移至 Azure
+description: 說明如何使用 Azure Site Recovery 服務，將內部部署和 Azure IaaS Vm 遷移至 Azure。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814480"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620605"
 ---
 # <a name="about-migration"></a>關於移轉
 
@@ -21,12 +21,12 @@ ms.locfileid: "70814480"
 
 以下是您可以使用 Site Recovery 移轉的項目：
 
-- **從內部部署遷移至 Azure**：將內部部署 Hyper-V VM、VMware VM 和實體伺服器遷移至 Azure。 移轉之後，內部部署機器上執行的工作負載將在 Azure VM 上執行。 
-- **在 Azure 內遷移**：在 Azure 區域之間遷移 Azure VM。 
-- **遷移 AWS**：將 AWS Windows 執行個體遷移到 Azure IaaS VM。 
+- **從內部部署移轉至 Azure**：將內部部署 Hyper-V VM、VMware VM 和實體伺服器移轉至 Azure。 移轉之後，內部部署機器上執行的工作負載將在 Azure VM 上執行。 
+- **在 Azure 中進行移轉**：在 Azure 區域之間移轉 Azure VM。 
+- **移轉 AWS**：將 AWS Windows 執行個體移轉至 Azure IaaS VM。 
 
 > [!NOTE]
-> 您現在可以使用 Azure Migrate 服務，從內部部署遷移至 Azure。 [深入了解](../migrate/migrate-overview.md)。
+> 您現在可以使用 Azure Migrate 服務，從內部部署遷移至 Azure。 [詳細資訊](../migrate/migrate-overview.md)。
 
 ## <a name="what-do-we-mean-by-migration"></a>移轉的意思為何？
 

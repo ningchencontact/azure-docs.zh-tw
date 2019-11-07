@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Spark 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Spark 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 Spark 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3556c3f2cc56c85bf256f7a352a1a74ad06735d8
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c155f72d2c95f47b450207ae4b6a8d9a79f61030
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089355"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680173"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>使用 Azure Data Factory 從 Spark 複製資料 
 
@@ -38,7 +38,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,14 +48,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Spark 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**Spark** | 是 |
-| host | Spark 伺服器的 IP 位址或主機名稱  | 是 |
+| 類型 | Type 屬性必須設定為：**Spark** | 是 |
+| 主機 | Spark 伺服器的 IP 位址或主機名稱  | 是 |
 | port | Spark 伺服器用來接聽用戶端連線的 TCP 連接埠。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 是 |
-| serverType | Spark 伺服器的類型。 <br/>允許的值包括：**SharkServer**、**SharkServer2**、**SparkThriftServer** | 否 |
-| thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值包括：**Binary**、**SASL**、**HTTP** | 否 |
-| authenticationType | 用來存取 Spark 伺服器的驗證方法。 <br/>允許的值包括：**Anonymous**、**Username**、**UsernameAndPassword**、**WindowsAzureHDInsightService** | 是 |
+| serverType | Spark 伺服器的類型。 <br/>允許的值為：**SharkServer**、**SharkServer2**、**SparkThriftServer** | 否 |
+| thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值為：**Binary**、**SASL**、**HTTP** | 否 |
+| authenticationType | 用來存取 Spark 伺服器的驗證方法。 <br/>允許的值為：**Anonymous**、**Username** **UsernameAndPassword** **WindowsAzureHDInsightService** | 是 |
 | username | 您用來存取 Spark 伺服器的使用者名稱。  | 否 |
 | password | 對應到使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | httpPath | 對應至 Spark 伺服器的部分 URL。  | 否 |
@@ -66,7 +66,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | allowSelfSignedServerCert | 指定是否允許來自伺服器的自我簽署憑證。 預設值為 False。  | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -93,12 +93,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Spark 複製資料，請將資料集的 type 屬性設定為 **SparkObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**SparkObject** | 是 |
-| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
-| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **SparkObject** | 是 |
+| 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -119,18 +119,18 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Spark 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Spark 來源所支援的屬性清單。
 
 ### <a name="spark-as-source"></a>Spark 作為來源
 
 若要從 Spark 複製資料，請將複製活動中的來源類型設定為 **SparkSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**SparkSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的 type 屬性必須設定為：**SparkSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

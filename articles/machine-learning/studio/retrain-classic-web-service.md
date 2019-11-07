@@ -1,6 +1,6 @@
 ---
-title: 重新定型並部署傳統的 Web 服務
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 重新定型傳統 web 服務
+titleSuffix: ML Studio (classic) Azure
 description: 瞭解如何重新定型模型，並更新傳統 web 服務，以在 Azure Machine Learning Studio （傳統）中使用新定型的模型。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17d15de3df73592c3ce410535235559c8c6fb584
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480196"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670525"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>重新定型和部署傳統 Studio （傳統） web 服務
 

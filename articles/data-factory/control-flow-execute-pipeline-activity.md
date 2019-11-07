@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中執行管線活動 | Microsoft Docs
+title: Azure Data Factory 中執行管線活動
 description: 了解如何使用「執行管線活動」從一個資料處理站管線叫用另一個資料處理站管線。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141713"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679926"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>在 Azure Data Factory 中執行管線活動
 執行管線活動可允許資料處理站管線叫用另一個管線。
@@ -59,15 +59,15 @@ ms.locfileid: "70141713"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | 執行管線活動的名稱。 | String | 是
-Type | 必須設定為：**ExecutePipeline**。 | String | 是
+名稱 | 執行管線活動的名稱。 | 字串 | 是
+類型 | 必須設為：**ExecutePipeline**。 | 字串 | 是
 管線 | 此管線叫用之相依管線的管線參考。 管線參考物件有兩個屬性：**referenceName** 和 **type**。 referenceName 屬性指定參考管線的名稱。 type 屬性必須設為 PipelineReference。 | PipelineReference | 是
 參數 | 要傳遞至叫用之管線的參數 | 將參數名稱對應到引數值的 JSON 物件 | 否
 waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 預設值為 false。 | Boolean | 否
 
-## <a name="sample"></a>樣本
+## <a name="sample"></a>範例
 此案例有兩個管線：
 
 - **主要管線** - 此管線有一個執行管線活動，會呼叫叫用的管線。 主要管線採用兩個參數：`masterSourceBlobContainer`、`masterSinkBlobContainer`。

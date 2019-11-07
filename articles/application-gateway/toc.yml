@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: 教學課程
   items:
-    - name: 啟用 Web 應用程式防火牆
-      href: application-gateway-web-application-firewall-portal.md
     - name: 使用 SSL 保護
       href: create-ssl-portal.md
     - name: 裝載多個網站
@@ -127,12 +125,6 @@
           items:
             - name: 設定 SSL 原則
               href: application-gateway-configure-ssl-policy-powershell.md
-    - name: 設定 Web 應用程式防火牆
-      items:
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-        - name: Azure CLI
-          href: tutorial-restrict-web-traffic-cli.md
     - name: AKS 的輸入
       items:
         - name: 使用現有應用程式閘道進行設定

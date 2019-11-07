@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，透過 Open Hub 將資料從 SAP Business Warehouse (BW) 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a35246aff99ec78e665e3be4afd47409959bef63
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089731"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680312"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
@@ -46,16 +46,16 @@ ms.locfileid: "71089731"
 
 [SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) 可讓您有效地從 SAP BW 中擷取資料。 下圖顯示客戶在其 SAP 系統中的常見流程之一，其資料流程為 SAP ECC -> PSA -> DSO -> Cube。
 
-SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資料傳輸程式（DTP）所支援的任何物件都可以做為開放式中樞資料來源使用，例如 DSO、InfoCube、DataSource 等等。Open Hub Destination 類型是轉送的資料儲存所在之處，可以是資料庫資料表 (本機或遠端) 和一般檔案。 此 SAP BW Open Hub 連接器支援從 BW 中的 OHD 本機資料表複製資料。 如果您使用其他類型，您可以使用其他連接器直接連線到資料庫或檔案系統。
+SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資料傳輸程式（DTP）所支援的任何物件都可以做為開放式中樞資料來源使用，例如 DSO、InfoCube、DataSource 等等。開放式中樞目的地類型-儲存轉送資料的位置-可以是資料庫資料表（本機或遠端）和一般檔案。 此 SAP BW Open Hub 連接器支援從 BW 中的 OHD 本機資料表複製資料。 如果您使用其他類型，您可以使用其他連接器直接連線到資料庫或檔案系統。
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="delta-extraction-flow"></a>差異抽取流程
 
-ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastRequest` ： `baseRequestId`和，可用來處理開放式中樞的差異負載。 
+ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性： `excludeLastRequest` 和 `baseRequestId`，可用來處理開放式中樞的差異載入。 
 
-- **excludeLastRequestId**：是否要排除最後一個要求的記錄。 預設值為 true。 
-- **baseRequestId**：差異載入的要求識別碼。 一旦設定之後，就只會抓取 requestId 大於此屬性值的資料。 
+- **excludeLastRequestId**：是否排除上一個要求的記錄。 預設值為 true。 
+- **baseRequestId**：差異載入要求的識別碼。 一旦設定之後，就只會抓取 requestId 大於此屬性值的資料。 
 
 整體來說，從 SAP InfoProviders 到 Azure Data Factory （ADF）的解壓縮包含2個步驟： 
 
@@ -90,7 +90,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 - 勾選 [技術金鑰] 選項，將 SAP Open Hub Destination 類型建立為 [資料庫資料表]。  此外也建議您將 [從資料表中刪除資料] 保留為未勾選，但這並非必要動作。 利用 DTP (直接執行或整合到現有的程序鏈結中) 將資料從您所選擇的來源物件 (例如 Cube) 移至 Open Hub Destination 資料表。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 > [!TIP]
 >
@@ -104,18 +104,18 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 以下是 SAP Business Warehouse Open Hub 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**SapOpenHub** | 是 |
-| server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
+| 類型 | Type 屬性必須設定為： **SapOpenHub** | 是 |
+| 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
-| language | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
+| 語言 | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -146,14 +146,14 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 若要從 SAP BW Open Hub 複製資料以及將資料複製到該處，請將資料集的 type 屬性設為 **SapOpenHubTable**。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
+| 類型 | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要從中複製資料的 Open Hub Destination 名稱。 | 是 |
 
-如果您是在`excludeLastRequest`資料`baseRequestId`集內設定和，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
+如果您是在資料集內設定 `excludeLastRequest` 和 `baseRequestId`，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -174,24 +174,24 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 SAP BW Open Hub 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 SAP BW Open Hub 來源所支援的屬性清單。
 
 ### <a name="sap-bw-open-hub-as-source"></a>以 SAP BW Open Hub 作為來源
 
 若要從 SAP BW 開放式中樞複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的**類型**屬性必須設定為**SapOpenHubSource**。 | 是 |
+| 類型 | 複製活動來源的**類型**屬性必須設定為**SapOpenHubSource**。 | 是 |
 | excludeLastRequest | 是否要排除最後一個要求的記錄。 | 否 (預設值為 **true**) |
 | baseRequestId | 差異載入的要求識別碼。 設定之後，將只會擷取 requestId **大於**此屬性值的資料。  | 否 |
 
 >[!TIP]
 >如果您的 Open Hub 資料表僅包含單一要求識別碼所產生的資料 (例如，您一律執行完整負載並覆寫資料表中的現有資料，或您只在測試時執行 DTP 一次)，請務必取消勾選 "excludeLastRequest" 選項，以複製資料。
 
-若要加速資料載入，您可以在複製[`parallelCopies`](copy-activity-performance.md#parallel-copy)活動上設定，以平行方式從 SAP BW 開放式中樞載入資料。 例如，如果您將設定`parallelCopies`為四個，Data Factory 會同時執行四個 rfc 呼叫，而每個 rfc 呼叫都會從您的 SAP BW 開放式中樞資料表中抓取部分資料，而這些資料是由 DTP 要求識別碼和套件識別碼所分割。 這適用于唯一 DTP 要求識別碼 + 套件識別碼的數目大於的值`parallelCopies`時。 將資料複製到以檔案為基礎的資料存放區時，也會建議寫入資料夾做為多個檔案（僅指定資料夾名稱），在此情況下，效能會比寫入單一檔案更好。
+若要加速資料載入，您可以在複製活動上設定[`parallelCopies`](copy-activity-performance.md#parallel-copy) ，以平行方式從 SAP BW 開放式中樞載入資料。 例如，如果您將 `parallelCopies` 設定為四，Data Factory 會同時執行四個 RFC 呼叫，而每個 RFC 呼叫都會從您的 SAP BW 開放式中樞資料表中，抓取由 DTP 要求識別碼和套件識別碼分割的部分資料。 這適用于唯一 DTP 要求識別碼 + 套件識別碼的數目大於 `parallelCopies`的值時。 將資料複製到以檔案為基礎的資料存放區時，也會建議寫入資料夾做為多個檔案（僅指定資料夾名稱），在此情況下，效能會比寫入單一檔案更好。
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -230,14 +230,14 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 | SAP ABAP 類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| C (String) | String |
-| I (integer) | Int32 |
-| F (Float) | Double |
-| D (日期) | String |
-| T (Time) | String |
-| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | String |
-| X (Binary and Raw) | String |
+| C (字串) | 字串 |
+| I (整數) | Int32 |
+| F (浮點數) | Double |
+| D (日期) | 字串 |
+| T (時間) | 字串 |
+| P (BCD 封裝、貨幣、小數、數量) | Decimal |
+| N (Numc) | 字串 |
+| X (二進位和原始) | 字串 |
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性
 

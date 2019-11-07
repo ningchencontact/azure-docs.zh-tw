@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 SAP Business Warehouse 移動資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 SAP Business 倉儲移動資料
 description: 了解如何使用 Azure Data Factory 從 SAP Business Warehouse 移動資料。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c928ad1fc9a8d6206c1b7e47591b17b6ae05ee4b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 47bc2db8730ebdedd180646d2fb86b642bbc631d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839875"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666047"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 移動資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -26,7 +26,7 @@ ms.locfileid: "67839875"
 > * [第 2 版 (目前的版本)](../connector-sap-business-warehouse.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 SAP Business Warehouse 連接器](../connector-sap-business-warehouse.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 SAP Business Warehouse 連接器](../connector-sap-business-warehouse.md)。
 
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從內部部署的 SAP Business Warehouse (BW) 移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
@@ -43,11 +43,11 @@ ms.locfileid: "67839875"
 > [!TIP]
 > 將從 NetWeaver RFC SDK 解壓縮的 dlls 放至 system32 資料夾。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
-- 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。 
-- 您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 您也可以使用下列工具來建立管線： [ **Visual Studio**]、[ **Azure PowerShell**]、[ **Azure Resource Manager 範本**]、[ **.net API**] 和 [ **REST API**]。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -62,15 +62,15 @@ ms.locfileid: "67839875"
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 SAP Business Warehouse (BW) 連結服務專屬 JSON 元素的描述。
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-server | SAP BW 執行個體所在之伺服器的名稱。 | string | 是
+伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 字串 | 是
 systemNumber | SAP BW 系統的系統編號。 | 以字串表示的二位數十進位數字。 | 是
 clientId | SAP W 系統中用戶端的用戶端識別碼。 | 以字串表示的三位數十進位數字。 | 是
-userName | 具有 SAP 伺服器存取權之使用者的名稱 | string | 是
-password | 使用者的密碼。 | string | 是
-gatewayName | 資料處理站服務應該用來連線至內部部署 SAP BW 執行個體的閘道器名稱。 | string | 是
-encryptedCredential | 加密的認證字串。 | string | 否
+username | 具有 SAP 伺服器存取權之使用者的名稱 | 字串 | 是
+password | 使用者的密碼。 | 字串 | 是
+gatewayName | 資料處理站服務應該用來連線至內部部署 SAP BW 執行個體的閘道器名稱。 | 字串 | 是
+encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -85,13 +85,13 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 當複製活動中的來源類型為 **RelationalSource** 時 (包括 SAP BW)，typeProperties 區段中會有下列屬性可用：
 
-| 屬性 | 描述 | 允許的值 | 必要項 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | MDX 查詢。 | 是 |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON 範例：將資料從 SAP Business Warehouse 複製到 Azure Blob
-下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 此範例示範如何將資料從內部部署 SAP Business Warehouse 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動， **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。  
+下列範例提供可用來使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)建立管線的範例 JSON 定義。 此範例示範如何將資料從內部部署 SAP Business Warehouse 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動， **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。  
 
 > [!IMPORTANT]
 > 此範例提供 JSON 程式碼片段。 其中並不包含建立 Data Factory 的逐步指示。 如需逐步指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。
@@ -100,9 +100,9 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 1. [SapBw](#linked-service-properties) 類型的連結服務。
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務。
-3. [RelationalTable](#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-5. 具有使用 [RelationalSource](#copy-activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+3. [RelationalTable](data-factory-create-datasets.md) 類型的輸入[資料集](#dataset-properties)。
+4. [AzureBlob](data-factory-create-datasets.md) 類型的輸出[資料集](data-factory-azure-blob-connector.md#dataset-properties)。
+5. 具有使用 [RelationalSource](data-factory-create-pipelines.md) 和 [BlobSink](#copy-activity-properties) 之複製活動的[管線](data-factory-azure-blob-connector.md#copy-activity-properties)。
 
 範例會每小時將資料從 SAP Business Warehouse 執行個體複製到 Azure Blob。 範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -171,7 +171,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 
 ### <a name="azure-blob-output-dataset"></a>Azure Blob 輸出資料集
-此資料集會定義輸出 Azure Blob 資料集。 Type 屬性設為 AzureBlob。 TypeProperties 區段提供從 SAP BW 執行個體複製的資料要儲存在何處。 資料會每小時寫入至新的 Blob (frequency：hour，interval：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。 資料夾路徑會使用開始時間的年、月、日和小時部分。
+此資料集會定義輸出 Azure Blob 資料集。 Type 屬性設為 AzureBlob。 TypeProperties 區段提供從 SAP BW 執行個體複製的資料要儲存在何處。 資料會每小時寫入新的 blob (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。 資料夾路徑會使用開始時間的年、月、日和小時部分。
 
 ```json
 {
@@ -292,26 +292,26 @@ encryptedCredential | 加密的認證字串。 | string | 否
 ABAP 字典中的資料類型 | .NET 資料類型
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | String
-CLNT | String
+CHAR | 字串
+CLNT | 字串
 CURR | Decimal
-CUKY | String
+CUKY | 字串
 DEC | Decimal
 FLTP | Double
-INT1 | Byte
+INT1 | 位元組
 INT2 | Int16
 INT4 | Int
-LANG | String
-LCHR | String
+LANG | 字串
+LCHR | 字串
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | String
-UNIT | String
-DATS | String
-NUMC | String
+STRING | 字串
+單位 | 字串
+DATS | 字串
+NUMC | 字串
 TIMS | 字串
 
 > [!NOTE]
@@ -319,7 +319,7 @@ TIMS | 字串
 
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
-若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
+若要了解如何將來源資料集內的資料行對應至接收資料集內的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
 ## <a name="repeatable-read-from-relational-sources"></a>從關聯式來源進行可重複的讀取
 從關聯式資料存放區複製資料時，請將可重複性謹記在心，以避免產生非預期的結果。 在 Azure Data Factory 中，您可以手動重新執行配量。 您也可以為資料集設定重試原則，使得在發生失敗時，重新執行配量。 以上述任一方式重新執行配量時，您必須確保不論將配量執行多少次，都會讀取相同的資料。 請參閱[從關聯式來源進行可重複的讀取](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)

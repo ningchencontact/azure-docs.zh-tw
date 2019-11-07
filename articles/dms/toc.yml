@@ -8,6 +8,8 @@
   items:
     - name: 建立服務 - 入口網站
       href: quickstart-create-data-migration-service-portal.md
+    - name: 在混合模式中建立服務 - 入口網站
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: 教學課程
   items:
     - name: 將 SQL Server 離線遷移到 Azure SQL DB 單一資料庫

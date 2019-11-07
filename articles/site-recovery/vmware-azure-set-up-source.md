@@ -1,5 +1,5 @@
 ---
-title: 設定以 Azure Site Recovery 從 VMware 複寫到 Azure 的來源環境 | Microsoft Docs
+title: 使用 Azure Site Recovery 設定 VMware 嚴重損壞修復至 Azure 的來源設定
 description: 本文說明如何設定您的內部部署環境，以利用 Azure Site Recovery 將 VMware 虛擬機器複寫到 Azure。
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791764"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622217"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>設定從 VMware 複寫到 Azure 的來源環境
 
@@ -24,7 +24,7 @@ ms.locfileid: "72791764"
 本文假設您已經：
 
 - 透過 [Azure Site Recovery 部署規劃工具](site-recovery-deployment-planner.md)的協助完成部署規劃。 這可協助您根據每日資料變化率來配置足夠的頻寬，以符合您所需的復原點目標 (RPO)。
-- 在 [Azure 入口網站](https://portal.azure.com)中[設定資源](tutorial-prepare-azure.md)。
+- 在 [Azure 入口網站](tutorial-prepare-azure.md)中[設定資源](https://portal.azure.com)。
 - [設定內部部署 VMware](vmware-azure-tutorial-prepare-on-premises.md)，包括進行自動探索的專用帳戶。
 
 ## <a name="choose-your-protection-goals"></a>選擇您的保護目標

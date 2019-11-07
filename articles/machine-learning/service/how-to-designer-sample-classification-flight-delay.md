@@ -1,5 +1,5 @@
 ---
-title: '設計工具範例 #6：用來預測航班延誤的分類'
+title: 設計工具：分類、預測航班延誤
 titleSuffix: Azure Machine Learning
 description: 本文說明如何使用拖放設計工具和自訂 R 程式碼，建立機器學習模型來預測航班延誤。
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4b21ebffe8959809acc71fc09aff7e58873e10b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515521"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647187"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>範例 6-分類：使用 R 預測航班延誤
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 SAP 資料表複製資料 |Microsoft Docs
+title: 使用 Azure Data Factory 從 SAP 資料表複製資料
 description: 瞭解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP 資料表複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 87f97d674b1dd4334ac0ca07648baa1e7cc6607a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9c4e22e997b4ad8c36d8aaf84d1bb8aacb5c5529
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089563"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680233"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP 資料表複製資料
 
@@ -61,7 +61,7 @@ ms.locfileid: "71089563"
 - 在 Data Factory SAP 資料表連接器中使用的 SAP 使用者必須具備下列許可權：
 
   - 使用遠端函式呼叫（RFC）目的地的授權。
-  - S_SDSAUTH 授權物件之 Execute 活動的許可權。
+  - S_SDSAUTH 授權物件的執行活動許可權。
 
 ## <a name="get-started"></a>開始使用
 
@@ -73,9 +73,9 @@ ms.locfileid: "71089563"
 
 以下是針對 SAP BW 開放式中樞連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| `type` | 屬性必須設定為`SapTable`。 `type` | 是 |
+| `type` | `type` 屬性必須設定為 `SapTable`。 | 是 |
 | `server` | SAP 實例所在的伺服器名稱。<br/>用來連接到 SAP 應用程式伺服器。 | 否 |
 | `systemNumber` | SAP 系統的系統編號。<br/>用來連接到 SAP 應用程式伺服器。<br/>允許的值：以字串表示的二位數十進位數。 | 否 |
 | `messageServer` | SAP 訊息伺服器的主機名稱。<br/>使用連接到 SAP 訊息伺服器。 | 否 |
@@ -85,15 +85,15 @@ ms.locfileid: "71089563"
 | `clientId` | SAP 系統中用戶端的識別碼。<br/>允許的值：以字串表示的三位數十進位數。 | 是 |
 | `language` | SAP 系統使用的語言。<br/>預設值為 `EN`。| 否 |
 | `userName` | 可存取 SAP 伺服器的使用者名稱。 | 是 |
-| `password` | 使用者的密碼。 將此欄位`SecureString`標記為類型，以安全地將它儲存在 Data Factory 中，或[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 | 是 |
-| `sncMode` | 用來存取資料表所在之 SAP 伺服器的 SNC 啟用指示器。<br/>如果您想要使用 SNC 連接到 SAP 伺服器，請使用。<br/>允許的值`0`為（關閉、預設值） `1`或（開啟）。 | 否 |
-| `sncMyName` | 要存取資料表所在之 SAP 伺服器的啟動器 SNC 名稱。<br/>當為`sncMode` on 時套用。 | 否 |
-| `sncPartnerName` | 通訊夥伴的 SNC 名稱，用以存取資料表所在的 SAP 伺服器。<br/>當為`sncMode` on 時套用。 | 否 |
-| `sncLibraryPath` | 外部安全性產品的程式庫，用來存取資料表所在的 SAP 伺服器。<br/>當為`sncMode` on 時套用。 | 否 |
-| `sncQop` | 要套用的 SNC 品質保護等級。<br/>當為`sncMode` On 時套用。 <br/>允許的值`1`為（驗證） `2` 、（完整性） `3` `8` 、 `9` （隱私權）、（最大值）。 | 否 |
+| `password` | 使用者的密碼。 將此欄位標記為 `SecureString` 類型，以安全地將它儲存在 Data Factory 中，或[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 | 是 |
+| `sncMode` | 用來存取資料表所在之 SAP 伺服器的 SNC 啟用指示器。<br/>如果您想要使用 SNC 連接到 SAP 伺服器，請使用。<br/>允許的值為 `0` （關閉、預設值）或 `1` （開啟）。 | 否 |
+| `sncMyName` | 要存取資料表所在之 SAP 伺服器的啟動器 SNC 名稱。<br/>適用于 `sncMode` 為 on 時。 | 否 |
+| `sncPartnerName` | 通訊夥伴的 SNC 名稱，用以存取資料表所在的 SAP 伺服器。<br/>適用于 `sncMode` 為 on 時。 | 否 |
+| `sncLibraryPath` | 外部安全性產品的程式庫，用來存取資料表所在的 SAP 伺服器。<br/>適用于 `sncMode` 為 on 時。 | 否 |
+| `sncQop` | 要套用的 SNC 品質保護等級。<br/>適用于 `sncMode` 為 On 時。 <br/>允許的值為 [`1` （驗證）]、[`2` （完整性）]、[`3` （隱私權）]、[`8` （預設）]、[`9` （最大）]。 | 否 |
 | `connectVia` | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如先前的[必要條件](#prerequisites)中所述，需要自我裝載整合執行時間。 |是 |
 
-**範例 1：連接到 SAP 應用程式伺服器**
+**範例1：連接到 SAP 應用程式伺服器**
 
 ```json
 {
@@ -118,7 +118,7 @@ ms.locfileid: "71089563"
 }
 ```
 
-### <a name="example-2-connect-to-an-sap-message-server"></a>範例 2：連接到 SAP 訊息伺服器
+### <a name="example-2-connect-to-an-sap-message-server"></a>範例2：連接到 SAP 訊息伺服器
 
 ```json
 {
@@ -145,7 +145,7 @@ ms.locfileid: "71089563"
 }
 ```
 
-### <a name="example-3-connect-by-using-snc"></a>範例 3：使用 SNC 進行連接
+### <a name="example-3-connect-by-using-snc"></a>範例3：使用 SNC 進行連接
 
 ```json
 {
@@ -181,9 +181,9 @@ ms.locfileid: "71089563"
 
 若要將資料從和複製到 SAP BW 開放式中樞連結服務，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| `type` | 屬性必須設定為`SapTableResource`。 `type` | 是 |
+| `type` | `type` 屬性必須設定為 `SapTableResource`。 | 是 |
 | `tableName` | 要從中複製資料的 SAP 資料表名稱。 | 是 |
 
 ### <a name="example"></a>範例
@@ -213,29 +213,29 @@ ms.locfileid: "71089563"
 
 若要從 SAP 資料表複製資料，支援下列屬性：
 
-| 屬性                         | 描述                                                  | 必要項 |
+| 屬性                         | 說明                                                  | 必要 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | 屬性必須設定為`SapTableSource`。 `type`         | 是      |
+| `type`                             | `type` 屬性必須設定為 `SapTableSource`。         | 是      |
 | `rowCount`                         | 要抓取的資料列數目。                              | 否       |
-| `rfcTableFields`                   | 要從 SAP 資料表複製的欄位（資料行）。 例如： `column0, column1` 。 | 否       |
-| `rfcTableOptions`                  | 用來篩選 SAP 資料表中之資料列的選項。 例如： `COLUMN0 EQ 'SOMEVALUE'` 。 另請參閱本文稍後的 SAP 查詢運算子資料表。 | 否       |
-| `customRfcReadTableFunctionModule` | 自訂 RFC 函數模組，可用來從 SAP 資料表讀取資料。<br>您可以使用自訂 RFC 函式模組來定義從 SAP 系統抓取資料並傳回 Data Factory 的方式。 自訂函式模組必須具有類似`/SAPDS/RFC_READ_TABLE2`于的介面（匯入、匯出、資料表），這是 Data Factory 所使用的預設介面。 | 否       |
-| `partitionOption`                  | 要從 SAP 資料表讀取的資料分割機制。 支援的選項包括： <ul><li>`None`</li><li>`PartitionOnInt`（左邊有零填補的一般整數或整數值，例如`0000012345`）</li><li>`PartitionOnCalendarYear`（4個格式為 "YYYY" 的數位）</li><li>`PartitionOnCalendarMonth`（6位數的格式為 "YYYYMM"）</li><li>`PartitionOnCalendarDate`（格式為 "YYYYMMDD" 的8位數）</li></ul> | 否       |
+| `rfcTableFields`                   | 要從 SAP 資料表複製的欄位（資料行）。 例如， `column0, column1`。 | 否       |
+| `rfcTableOptions`                  | 用來篩選 SAP 資料表中之資料列的選項。 例如， `COLUMN0 EQ 'SOMEVALUE'`。 另請參閱本文稍後的 SAP 查詢運算子資料表。 | 否       |
+| `customRfcReadTableFunctionModule` | 自訂 RFC 函數模組，可用來從 SAP 資料表讀取資料。<br>您可以使用自訂 RFC 函式模組來定義從 SAP 系統抓取資料並傳回 Data Factory 的方式。 自訂函式模組必須具有類似于 `/SAPDS/RFC_READ_TABLE2`的介面（匯入、匯出、資料表），這是 Data Factory 使用的預設介面。 | 否       |
+| `partitionOption`                  | 要從 SAP 資料表讀取的資料分割機制。 支援的選項包括： <ul><li>`None`</li><li>`PartitionOnInt` （左邊有零填補的一般整數或整數值，例如 `0000012345`）</li><li>`PartitionOnCalendarYear` （格式為 "YYYY" 的4個數字）</li><li>`PartitionOnCalendarMonth` （6位數，格式為 "YYYYMM"）</li><li>`PartitionOnCalendarDate` （格式為 "YYYYMMDD" 的8位數）</li></ul> | 否       |
 | `partitionColumnName`              | 用來分割資料的資料行名稱。                | 否       |
-| `partitionUpperBound`              | 中`partitionColumnName`所指定之資料行的最大值，將用來繼續進行資料分割。 | 否       |
-| `partitionLowerBound`              | 中`partitionColumnName`所指定之資料行的最小值，將用來繼續進行資料分割。 | 否       |
+| `partitionUpperBound`              | `partitionColumnName` 中所指定資料行的最大值，將用來繼續進行資料分割。 | 否       |
+| `partitionLowerBound`              | `partitionColumnName` 中所指定資料行的最小值，將用來繼續進行資料分割。 | 否       |
 | `maxPartitionsNumber`              | 資料分割的最大數目。     | 否       |
 
 >[!TIP]
->如果您的 SAP 資料表有大量資料（例如，數億個數據列）， `partitionOption`請`partitionSetting`使用和將資料分割成較小的磁碟分割。 在此情況下，每個分割區都會讀取資料，而且每個資料分割都會透過單一 RFC 呼叫從您的 SAP 伺服器抓取。<br/>
+>如果您的 SAP 資料表有大量資料（例如，數億個數據列），請使用 `partitionOption` 和 `partitionSetting`，將資料分割成較小的磁碟分割。 在此情況下，每個分割區都會讀取資料，而且每個資料分割都會透過單一 RFC 呼叫從您的 SAP 伺服器抓取。<br/>
 <br/>
->`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound`做為範例，每個資料分割中的資料列數目會使用下列公式來計算：（和之間的總數據列數）/。 `partitionOption` `partitionOnInt`<br/>
+>採用 `partitionOption` 做為 `partitionOnInt` 的範例，每個資料分割中的資料列數目會使用下列公式來計算：（`partitionUpperBound` 與 `partitionLowerBound`之間的總數據列數）/`maxPartitionsNumber`。<br/>
 <br/>
->若要平行載入資料分割以加速複製，平行程度是由複製活動上的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 例如，如果您將設定`parallelCopies`為四，Data Factory 會同時根據您指定的資料分割選項和設定，產生並執行四個查詢，而且每個查詢都會從您的 SAP 資料表中抓取部分資料。 我們強烈建議您`maxPartitionsNumber`建立`parallelCopies`屬性值的倍數。 將資料複製到以檔案為基礎的資料存放區時，也會建議寫入資料夾做為多個檔案（僅指定資料夾名稱），在此情況下，效能會比寫入單一檔案更好。
+>若要平行載入資料分割以加速複製，平行程度是由複製活動上的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 例如，如果您將 `parallelCopies` 設定為四，Data Factory 會同時根據您指定的資料分割選項和設定，產生並執行四個查詢，而且每個查詢都會從您的 SAP 資料表中抓取部分資料。 我們強烈建議您 `maxPartitionsNumber` `parallelCopies` 屬性值的倍數進行。 將資料複製到以檔案為基礎的資料存放區時，也會建議寫入資料夾做為多個檔案（僅指定資料夾名稱），在此情況下，效能會比寫入單一檔案更好。
 
-在`rfcTableOptions`中，您可以使用下列常用的 SAP 查詢運算子來篩選資料列：
+在 `rfcTableOptions`中，您可以使用下列常用的 SAP 查詢運算子來篩選資料列：
 
-| 運算子 | 描述 |
+| 運算子 | 說明 |
 | :------- | :------- |
 | `EQ` | 等於 |
 | `NE` | 不等於 |
@@ -243,7 +243,7 @@ ms.locfileid: "71089563"
 | `LE` | 小於或等於 |
 | `GT` | 大於 |
 | `GE` | 大於或等於 |
-| `LIKE` | 如同中的`LIKE 'Emma%'` |
+| `LIKE` | 如 `LIKE 'Emma%'` |
 
 ### <a name="example"></a>範例
 
@@ -290,14 +290,14 @@ ms.locfileid: "71089563"
 
 | SAP ABAP 類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| `C`字串 | `String` |
-| `I`介於 | `Int32` |
-| `F`Float | `Double` |
-| `D`日期 | `String` |
-| `T`階段 | `String` |
-| `P`（BCD 已封裝，貨幣，十進位，數量） | `Decimal` |
-| `N`數值 | `String` |
-| `X`（二進位和原始） | `String` |
+| `C` （字串） | `String` |
+| `I` （整數） | `Int32` |
+| `F` （Float） | `Double` |
+| `D` （日期） | `String` |
+| `T` （時間） | `String` |
+| `P` （BCD 封裝、貨幣、十進位、數量） | `Decimal` |
+| `N` （數值） | `String` |
+| `X` （二進位和原始） | `String` |
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性
 

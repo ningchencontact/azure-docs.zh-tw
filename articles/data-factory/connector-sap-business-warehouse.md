@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 SAP BW 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 SAP BW 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP Business Warehouse 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: e53cb822d1100b3d13a96c9f86aee6db420e4bb1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c2dbacc2fd7906aaf22447dfb39c543206f05392
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089601"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680293"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -56,7 +56,7 @@ ms.locfileid: "71089601"
 >- 所有從 NetWeaver RFC SDK 解壓縮的所有相依性程式庫都位於 %windir%\system32 資料夾中。 其中通常包含 icudt34.dll、icuin34.dll、icuuc34.dll、libicudecnumber.dll、librfc32.dll、libsapucum.dll、sapcrypto.dll、sapcryto_old.dll、sapnwrfc.dll。
 >- 用來連線至 SAP 伺服器所需的連接埠會在自我裝載的 IR 機器上啟用，這通常是連接埠 3300 和 3201。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,17 +66,17 @@ ms.locfileid: "71089601"
 
 以下是針對 SAP Business Warehouse (BW) 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**SapBw** | 是 |
-| server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
+| 類型 | 類型屬性必須設定為：**SapBw** | 是 |
+| 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -107,7 +107,7 @@ ms.locfileid: "71089601"
 
 若要從 SAP BW 複製資料，請將資料集的 type 屬性設定為**SapBwCube**。 針對 RelationalTable 類型的 SAP BW 資料集，不支援任何類型特定的屬性。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -124,22 +124,22 @@ ms.locfileid: "71089601"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
+如果您使用 `RelationalTable` 具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 SAP BW 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 SAP BW 來源所支援的屬性清單。
 
 ### <a name="sap-bw-as-source"></a>SAP BW 作為來源
 
 若要從 SAP BW 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**SapBwSource** | 是 |
+| 類型 | 複製活動來源的類型屬性必須設定為： **SapBwSource** | 是 |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | 是 |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -171,7 +171,7 @@ ms.locfileid: "71089601"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
+如果您使用 `RelationalSource` 具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW 的資料類型對應
 
@@ -180,27 +180,27 @@ ms.locfileid: "71089601"
 | SAP BW 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | String |
-| CLNT | String |
+| CHAR | 字串 |
+| CLNT | 字串 |
 | CURR | Decimal |
-| CUKY | String |
+| CUKY | 字串 |
 | DEC | Decimal |
 | FLTP | Double |
-| INT1 | Byte |
+| INT1 | 位元組 |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | String |
-| LCHR | String |
+| LANG | 字串 |
+| LCHR | 字串 |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| UNIT | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| STRING | 字串 |
+| 單位 | 字串 |
+| DATS | 字串 |
+| NUMC | 字串 |
+| TIMS | 字串 |
 
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性

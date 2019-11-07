@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的查閱活動 | Microsoft Docs
+title: Azure Data Factory 中的查閱活動
 description: 了解如何使用查閱活動查閱外部來源的值。 此輸出可供後續活動進一步參考。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141653"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679712"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory 中的查閱活動
 
@@ -53,11 +53,11 @@ ms.locfileid: "70141653"
 
 ## <a name="type-properties"></a>類型屬性
 
-Name | 描述 | Type | 必要項？
+名稱 | 說明 | 類型 | 必要？
 ---- | ----------- | ---- | --------
 資料集 | 提供查閱的資料集參考。 如需詳細資料，請參閱每個對應連接器文章中的＜**資料集屬性**＞一節。 | 索引鍵/值組 | 是
-source | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜**複製活動屬性**＞一節。 | 索引鍵/值組 | 是
-firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列。 | Boolean | 資料分割 預設為 `true`。
+來源 | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜**複製活動屬性**＞一節。 | 索引鍵/值組 | 是
+firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列。 | Boolean | 不會。 預設值為 `true`。
 
 > [!NOTE]
 > 
@@ -81,7 +81,7 @@ firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列�
     }
     ```
 
-* **當 `firstRowOnly` 設為 `false`** ，輸出格式如下列程式碼所示。 `count` 欄位會指出傳回多少筆記錄。 詳細的值會顯示在固定 `value` 陣列下。 在這種情況下，查閱活動後面會接著 [Foreach 活動](control-flow-for-each-activity.md)。 您可以使用 `@activity('MyLookupActivity').output.value` 模式，將 `value` 陣列傳遞至 ForEach 活動的 `items` 欄位。 若要存取 `value` 陣列中的元素，請使用下列語法：`@{activity('lookupActivity').output.value[zero based index].propertyname}`。 例如 `@{activity('lookupActivity').output.value[0].tablename}`。
+* **當 `firstRowOnly` 設為 `false`** ，輸出格式如下列程式碼所示。 `count` 欄位會指出傳回多少筆記錄。 詳細的值會顯示在固定 `value` 陣列下。 在這種情況下，查閱活動後面會接著 [Foreach 活動](control-flow-for-each-activity.md)。 您可以使用 `value` 模式，將 `items` 陣列傳遞至 ForEach 活動的 `@activity('MyLookupActivity').output.value` 欄位。 若要存取 `value` 陣列中的元素，請使用下列語法：`@{activity('lookupActivity').output.value[zero based index].propertyname}`。 例如 `@{activity('lookupActivity').output.value[0].tablename}`。
 
     ```json
     {

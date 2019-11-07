@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 177d8e6e9d4393df785f2caf55bf6cbe895bc640
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819373"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667901"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -49,7 +49,7 @@ appInsights.loadAppInsights();
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
@@ -80,7 +80,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ### <a name="telemetry-initializers"></a>遙測初始化運算式
 遙測初始化運算式是用來在從使用者的瀏覽器傳送之前，修改所收集遙測的內容。 它們也可以用來防止傳送特定遙測，方法是傳回 `false`。 您可以將多個遙測初始化運算式新增至您的 Application Insights 實例，並依加入它們的循序執行。
 
-`addTelemetryInitializer` 的輸入引數是回呼，其接受[`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer)做為引數，並傳回 `boolean` 或 `void`。 如果傳回 `false`，則不會傳送遙測專案，否則會繼續進行下一個遙測初始化運算式（如果有的話），或傳送至遙測集合端點。
+`addTelemetryInitializer` 的輸入引數是回呼，其接受[`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer)做為引數，並傳回 `boolean` 或 `void`。 如果傳回 `false`，則不會傳送遙測專案，否則會繼續進行下一個遙測初始化運算式（如果有的話），或傳送至遙測集合端點。
 
 使用遙測初始化運算式的範例：
 ```ts
@@ -94,9 +94,9 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 ## <a name="configuration"></a>組態
-大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了 `instrumentationKey` 以外，所有欄位都是選擇性的。
+大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了 `instrumentationKey`以外，所有欄位都是選擇性的。
 
-| Name | 預設值 | 描述 |
+| 名稱 | 預設值 | 說明 |
 |------|---------|-------------|
 | instrumentationKey | null | **必要**<br>從 Azure 入口網站取得的檢測金鑰。 |
 | accountId | null | 選擇性的帳戶識別碼，如果您的應用程式將使用者群組為帳戶。 不含空格、逗號、分號、等於或分隔號 |
@@ -136,11 +136,11 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | enableAutoRouteTracking | false | 自動追蹤單一頁面應用程式（SPA）中的路由變更。 若為 true，則每個路由變更都會將新的 Pageview 傳送至 Application Insights。 雜湊路由變更（`example.com/foo#bar`）也會記錄為新的頁面流覽。
 | enableRequestHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求標頭，預設值為 false。
 | enableResponseHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求的回應標頭，預設值為 false。
-| distributedTracingMode | `DistributedTracingModes.AI` | 設定分散式追蹤模式。 如果已設定 AI_AND_W3C 模式或 W3C 模式，則會產生 W3C 追蹤內容標頭（traceparent/tracestate），並將其包含在所有傳出的要求中。 AI_AND_W3C 是為了與任何舊版 Application Insights 檢測服務的回溯相容性而提供。
+| distributedTracingMode | `DistributedTracingModes.AI` | 設定分散式追蹤模式。 如果已設定 AI_AND_W3C 模式或 W3C 模式，則會產生 W3C 追蹤內容標頭（traceparent/tracestate），並將其包含在所有傳出的要求中。 AI_AND_W3C 是針對與任何舊版 Application Insights 檢測服務的回溯相容性而提供的。
 
 ## <a name="single-page-applications"></a>單一頁面應用程式
 
-根據預設，此 SDK**不**會處理在單一頁面應用程式中發生的狀態型路由變更。 若要為您的單一頁面應用程式啟用自動路由變更追蹤，您可以將 `enableAutoRouteTracking: true` 新增至您的安裝設定。
+根據預設，此 SDK**不**會處理在單一頁面應用程式中發生的狀態型路由變更。 若要為您的單一頁面應用程式啟用自動路由變更追蹤，您可以將 `enableAutoRouteTracking: true` 新增至您的安裝程式設定。
 
 目前，我們提供了個別的[回應外掛程式](#react-extensions)，您可以使用這個 SDK 來初始化。 它也會為您完成路由變更追蹤，並收集[其他回應特定的遙測](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)。
 
@@ -203,7 +203,7 @@ dataset
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-此版本隨附最少的特性和功能，並視您的需要建立它。 例如，它不會執行任何 autocollection （未攔截的例外狀況、AJAX 等等）。 傳送特定遙測類型的 Api （例如 `trackTrace`、`trackException` 等等）並未包含在此版本中，因此您必須提供自己的包裝函式。 唯一可用的 API 是 `track`。 [範例](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html)位於此處。
+此版本隨附最少的特性和功能，並視您的需要建立它。 例如，它不會執行任何 autocollection （未攔截的例外狀況、AJAX 等等）。 此版本不會包含傳送特定遙測類型的 Api （例如 `trackTrace`、`trackException`等），因此您必須提供自己的包裝函式。 唯一可用的 API 是 `track`。 [範例](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html)位於此處。
 
 ## <a name="examples"></a>範例
 

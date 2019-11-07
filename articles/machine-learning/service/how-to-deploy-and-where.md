@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 856f00b17a5ee994f8864c5d46ce4d796d68d367
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497020"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622400"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -254,7 +254,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 * `pyspark`
 * 標準 Python 物件
 
-若要使用架構產生，請在您的 Conda 環境檔案中包含 `inference-schema` 套件。
+若要使用架構產生，請在您的 Conda 環境檔案中包含 `inference-schema` 套件。 如需此套件的詳細資訊，請參閱[https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema)。
 
 ##### <a name="example-dependencies-file"></a>範例相依性檔案
 
@@ -608,9 +608,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy)檔。
 
-### <a id="notebookvm"></a>計算實例 web 服務（開發/測試）
+### <a id="notebookvm"></a>筆記本 VM web 服務（開發/測試）
 
-請參閱[將模型部署到 Azure Machine Learning 計算實例](how-to-deploy-local-container-notebook-vm.md)。
+請參閱[將模型部署到 Azure Machine Learning 筆記本 VM](how-to-deploy-local-container-notebook-vm.md)。
 
 ### <a id="aci"></a>Azure 容器實例（開發/測試）
 
@@ -999,10 +999,12 @@ docker kill mycontainer
 如需詳細資訊，請參閱[WebService. delete （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)和[Model. delete （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)的檔。
 
 ## <a name="preview-no-code-model-deployment"></a>預覽無程式碼模型部署
+
 無程式碼模型部署目前為預覽狀態，並支援下列機器學習架構：
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 格式
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1017,10 +1019,12 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ### <a name="onnx-models"></a>ONNX 模型
+
 任何 ONNX 推斷圖形都支援 ONNX 模型註冊和部署。 目前不支援前置處理和 postprocess 步驟。
 
 以下是如何註冊和部署 MNIST ONNX 模型的範例：
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1033,11 +1037,14 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
 ### <a name="scikit-learn-models"></a>Scikit-learn-學習模型
+
 所有內建的 scikit-learn-學習模型類型都不支援任何程式碼模型部署。
 
 以下範例示範如何註冊和部署 sklearn 模型，而不需要額外的程式碼：
-```
+
+```python
 from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
@@ -1055,7 +1062,8 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 注意：這些相依性會包含在預先建立的 sklearn 推斷容器中：
-```
+
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
@@ -1063,6 +1071,7 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * [如何使用自訂 Docker 映射部署模型](how-to-deploy-custom-docker-image.md)
 * [部署疑難排解](how-to-troubleshoot-deployment.md)
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)

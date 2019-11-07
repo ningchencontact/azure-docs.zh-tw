@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 05/02/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 34ff3f9704b9c84a7daddcfd14fb9cd3e990f794
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489830"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716523"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>匯出或刪除您的 Machine Learning services 工作區資料 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -243,17 +243,16 @@ Azure Machine Learning 所儲存的產品內資料可透過 Azure Machine Learni
 
 1. 在清單中，選取要刪除的個別管線草稿。
 
-1. 選取底部的 [**刪除**]。
+1. 選取 [刪除]。
 
-## <a name="unregister-data-in-the-designer"></a>在設計工具中取消註冊資料
+### <a name="delete-datasets-in-the-designer"></a>在設計工具中刪除資料集
+
+若要刪除設計工具中的資料集，請使用 Azure 入口網站或儲存體總管流覽至已連線的儲存體帳戶，並刪除其中的資料集。 在設計工具中取消註冊資料集，只會移除儲存體中的參考點。 
+
+## <a name="export-data-in-the-designer"></a>在設計工具中匯出資料
 
 在您建立實驗的設計工具中，匯出您已新增的資料：
 
 1. 在左側選取 [**資料集**]。
 
-
-
     ![下載資料](media/how-to-export-delete-data.md/unregister-dataset.png)
-
-1. 在清單中選取個別資料集，然後按一下 [取消註冊]。
-

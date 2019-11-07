@@ -1,5 +1,5 @@
 ---
-title: 使用復原管理員修正分區對應問題 | Microsoft Docs
+title: 使用復原管理員來修正分區對應問題
 description: 使用 RecoveryManager 類別來解決分區對應的問題
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568686"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690478"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 類別來修正分區對應問題
 
-[RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager)類別可讓 ADO.NET 應用程式輕鬆偵測並更正分區化資料庫環境中全域分區對應 (GSM) 和本機分區對應 (LSM) 之間的任何不一致。
+[RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager)類別可讓 ADO.NET 應用程式輕鬆偵測並更正分區化資料庫環境中全域分區對應（GSM）和本機分區對應（LSM）之間的任何不一致。
 
 GSM 和 LSM 會追蹤分區化環境中每個資料庫的對應。 但偶爾 GSM 和 LSM 之間會發生中斷的情況。 此時，請使用 RecoveryManager 類別來偵測並修復中斷的問題。
 
@@ -65,7 +65,7 @@ GSM 和 LSM 可能因為以下原因變成不同步：
 [DetachShard 方法](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) 會從給定的分區卸離分區對應，並刪除與分區相關聯的對應。  
 
 * location 參數是分區位置，特別是要卸離的分區的伺服器名稱和資料庫名稱。
-* shardMapName 參數是分區對應名稱。 只有在多個分區對應是由相同的分區對應管理員管理時才為必要。 選擇性。
+* shardMapName 參數是分區對應名稱。 只有在多個分區對應是由相同的分區對應管理員管理時才為必要。 選用。
 
 > [!IMPORTANT]
 > 只有在您確定更新對應的範圍是空白時，才可使用這項技術。 上述方法並不會檢查要移動的資料範圍，因此您最好在程式碼中納入檢查。
@@ -76,7 +76,7 @@ GSM 和 LSM 可能因為以下原因變成不同步：
    rm.DetachShard(s.Location, customerMap);
    ```
 
-此分區對應會反映刪除分區之前，分區在 GSM 中的位置。 因為已刪除分區，會假設這是特意的，而且分區化索引鍵範圍已不再使用中。 如果情況並非如此，您可以執行時間點還原， 從較早的時間點復原分區。 (在該情況下，請檢閱下一節來偵測分區不一致的情形。)若要復原，請參閱[時間點復原](sql-database-recovery-using-backups.md)。
+此分區對應會反映刪除分區之前，分區在 GSM 中的位置。 因為已刪除分區，會假設這是特意的，而且分區化索引鍵範圍已不再使用中。 如果情況並非如此，您可以執行時間點還原， 從較早的時間點復原分區。 （在此情況下，請參閱下一節來偵測分區不一致的情況）。若要復原，請參閱[時間點恢復](sql-database-recovery-using-backups.md)。
 
 由於假設刪除資料庫是在預期中，最終的系統管理清除動作是刪除分區對應管理員中分區的項目。 這可避免應用程式不小心將資訊寫入至未預期的範圍。
 
@@ -89,7 +89,7 @@ GSM 和 LSM 可能因為以下原因變成不同步：
    ```
 
 * *location* 指定伺服器名稱和資料庫名稱。
-* *shardMapName* 參數是分區對應名稱。 只有在多個分區對應是由相同的分區對應管理員管理時才為必要。 選擇性。
+* *shardMapName* 參數是分區對應名稱。 只有在多個分區對應是由相同的分區對應管理員管理時才為必要。 選用。
 
 ## <a name="to-resolve-mapping-differences"></a>解決對應的差異
 
@@ -112,7 +112,7 @@ GSM 和 LSM 可能因為以下原因變成不同步：
    ```
 
 * *location* 參數是要附加的分區的伺服器名稱和資料庫名稱。
-* *shardMapName* 參數是分區對應名稱。 只有在多個分區對應是由相同的分區對應管理員管理時才為必要。 選擇性。
+* *shardMapName* 參數是分區對應名稱。 只有在多個分區對應是由相同的分區對應管理員管理時才為必要。 選用。
 
 此範例會將分區新增到最近從較早時間點還原的分區對應。 因為已還原分區 (也就是 LSM 中的分區對應)，該分區可能會與 GSM 中的分區項目不一致。 在這個範例程式碼之外，分區已還原並重新命名為資料庫的原始名稱。 因為它已還原，就會假設 LSM 中的對應為受信任的對應。
 
@@ -129,7 +129,7 @@ GSM 和 LSM 可能因為以下原因變成不同步：
 
 如果發生異地容錯移轉，次要資料庫會變成可供寫入存取，並成為新的主要資料庫。 伺服器的名稱和可能的資料庫 (根據您的設定而定)，可能會將原始主要複本的不同。 因此，必須修正 GSM 和 LSM 分區的對應項目。 同樣地，如果資料庫還原至不同的名稱或位置，或到較早的時間點，這可能會在分區對應中造成不一致。 分區對應管理員會處理開啟連接到正確資料庫的散發。 分配時，會根據分區對應中的資料和作為應用程式要求目標之分區化金鑰的值，進行分配。 異地複寫容錯移轉之後，必須以正確的伺服器名稱、資料庫名稱和修復資料庫的分區對應更新這項資訊。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 異地容錯移轉和復原是一般由應用程式的雲端系統管理員管理的作業，刻意利用 Azure SQL 資料庫其中一個商務持續性功能。 商務持續性計劃需要處理程序、程序和措施以確保商務運作能持續而不會中斷。 應該在此工作流程中使用隨著 RecoveryManager 類別提供的方法，以確保根據採取的修復動作，GSM 和 LSM 都處於最新狀態。 在 5 個基本步驟可正確確保 GSM 和 LSM 在容錯移轉事件之後反映正確的資訊。 執行這些步驟的應用程式程式碼可以整合至現有的工具和工作流程。
 

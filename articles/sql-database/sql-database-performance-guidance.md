@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 效能微調指引 | Microsoft Docs
+title: Azure SQL Database 效能微調指導方針
 description: 深入了解如何使用建議來手動微調 Azure SQL Database 查詢效能。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 971b35838f370f31d6e2d2da06dfdbced2fafb02
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567108"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687686"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
@@ -37,7 +37,7 @@ ms.locfileid: "68567108"
 
 - **因為「多對話」行為而使效能變差的應用程式**
 
-  多對話應用程式會產生過多對網路延遲敏感的資料存取作業。 您可能需要修改這類應用程式以減少 SQL Database 的資料存取作業數目。 例如, 您可以使用像是批次處理臨機操作查詢或將查詢移至預存程式等技術, 來改善應用程式效能。 如需詳細資訊，請參閱 [批次查詢](#batch-queries)。
+  多對話應用程式會產生過多對網路延遲敏感的資料存取作業。 您可能需要修改這類應用程式以減少 SQL Database 的資料存取作業數目。 例如，您可以使用像是批次處理臨機操作查詢或將查詢移至預存程式等技術，來改善應用程式效能。 如需詳細資訊，請參閱 [批次查詢](#batch-queries)。
 
 - **無法由整部單一電腦支援之具有大量工作負載的資料庫**
 

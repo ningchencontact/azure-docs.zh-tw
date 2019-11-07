@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065102"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73642085"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入
 
 ## <a name="create-a-microsoft-account-application"></a>建立 Microsoft 帳戶應用程式
 
-若要使用 Microsoft 帳戶做為 Azure Active Directory B2C （Azure AD B2C）中的身分[識別提供者](active-directory-b2c-reference-oidc.md)，您需要在 Azure AD 租使用者中建立應用程式。 此 Azure AD 租用戶與您的 Azure AD B2C 租用戶不同。 如果您還沒有 Microsoft 帳戶，您可以在上[https://www.live.com/](https://www.live.com/)取得一個。
+若要使用 Microsoft 帳戶做為 Azure Active Directory B2C （Azure AD B2C）中的身分[識別提供者](active-directory-b2c-reference-oidc.md)，您需要在 Azure AD 租使用者中建立應用程式。 此 Azure AD 租用戶與您的 Azure AD B2C 租用戶不同。 如果您還沒有 Microsoft 帳戶，您可以在[https://www.live.com/](https://www.live.com/)取得一個。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您 Azure AD 租使用者的目錄，以確定您使用的是包含 Azure AD 租使用者的目錄。
@@ -30,8 +30,8 @@ ms.locfileid: "71065102"
 1. 輸入應用程式的**名稱**。 例如 *MSAapp1*。
 1. 在 [**支援的帳戶類型**] 底下，選取 **[任何組織目錄中的帳戶] 和 [個人 Microsoft 帳戶] （例如 Skype、Xbox、Outlook.com）** 。 此選項的目標是最廣泛的 Microsoft 身分識別集。
 
-   如需不同帳戶類型選項的詳細資訊，請[參閱快速入門：使用 Microsoft 身分識別平臺](../active-directory/develop/quickstart-register-app.md)註冊應用程式。
-1. 在 [重新**導向 URI （選用）** ] 底下， `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`選取 [ **Web** ]，然後在文字方塊中輸入。 將`your-tenant-name`取代為您的 Azure AD B2C 租使用者名稱。
+   如需不同帳戶類型選項的詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](../active-directory/develop/quickstart-register-app.md)。
+1. 在 [重新**導向 URI （選用）** ] 底下，選取 [ **Web** ]，然後在文字方塊中輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 以您的 Azure AD B2C 租使用者名稱取代 `your-tenant-name`。
 1. 選取 [**註冊**]
 1. 記錄 [應用程式總覽] 頁面上顯示的**應用程式（用戶端）識別碼**。 當您在下一節中設定身分識別提供者時，需要此資訊。
 1. 選取**憑證 & 秘密**
@@ -48,4 +48,4 @@ ms.locfileid: "71065102"
 1. 輸入 [名稱]。 例如， *MSA*。
 1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 Azure AD 應用程式的應用程式（用戶端）識別碼。
 1. 針對 [**用戶端密碼**]，輸入您所記錄的用戶端密碼。
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。

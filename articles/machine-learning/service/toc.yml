@@ -84,9 +84,6 @@
     - name: 自動化機器學習
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: 計算執行個體
-      displayName: 'resource, dsvm, Data Science Virtual Machine'
-      href: concept-compute-instance.md
     - name: 計算目標
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
@@ -115,6 +112,8 @@
     - name: 深入學習
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: 事件方格整合
+      href: concept-event-grid-integration.md
     - name: Git 整合
       displayName: git github gitlab
       href: concept-train-model-git-integration.md
@@ -163,6 +162,12 @@
         - name: 版本和追蹤資料集
           displayName: 'data, data set'
           href: how-to-version-track-datasets.md
+        - name: 取得標示的資料
+          displayName: 'data, dataset, labeling'
+          href: how-to-create-labeling-projects.md
+        - name: 標籤映像
+          displayName: 'data, dataset, labeling'
+          href: how-to-label-images.md
     - name: 將模型定型
       items:
         - name: 使用設計工具
@@ -227,11 +232,14 @@
         - name: 使用自動化 ML (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: 使用自動化 ML (工作區登陸頁面)
+        - name: 使用自動化 ML (介面)
           href: how-to-create-portal-experiments.md
         - name: 使用遠端計算目標
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: 定義 ML 工作
+          displayName: 'machine learning, task type'
+          href: how-to-define-task-type.md
         - name: 自動定型預測模型
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -270,7 +278,7 @@
         - name: Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: 計算執行個體
+        - name: Notebook 虛擬機器
           href: how-to-deploy-local-container-notebook-vm.md
         - name: 使用自訂 Docker 映像
           href: how-to-deploy-custom-docker-image.md
@@ -317,6 +325,9 @@
     - name: 匯出及刪除資料
       displayName: GDPR
       href: how-to-export-delete-data.md
+    - name: 建立事件驅動的工作流程
+      displayName: event grid
+      href: how-to-use-event-grid.md
 - name: 參考
   items:
     - name: ML SDK (Python)
@@ -328,6 +339,8 @@
     - name: 機器學習 CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
     - name: 監視資料參考
       href: monitor-resource-reference.md
     - name: 學習管線 YAML 參考

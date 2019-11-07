@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 將資料從內部部署 Hadoop 叢集遷移至 Azure 儲存體 |Microsoft Docs
+title: 使用 Azure Data Factory 將資料從內部部署 Hadoop 叢集遷移至 Azure 儲存體
 description: 瞭解如何使用 Azure Data Factory 將資料從內部部署 Hadoop 叢集遷移至 Azure 儲存體。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/30/2019
-ms.openlocfilehash: a2e98e46b168ff2e1270c6512aa515278190350f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677946"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675821"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>使用 Azure Data Factory 將資料從內部部署 Hadoop 叢集遷移至 Azure 儲存體 
 
@@ -25,8 +25,8 @@ Azure Data Factory 提供高效能、強大且符合成本效益的機制，將�
 
 Data Factory 提供兩種基本方法，可將資料從內部部署 HDFS 遷移至 Azure。 您可以根據您的案例來選取方法。 
 
-- **Data Factory DistCp 模式**（建議）：在 Data Factory 中，您可以使用[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) （分散式複製）將檔案依目前方式複製到 Azure Blob 儲存體（包括[分段複製](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)）或 Azure Data Lake 存放區 Gen2。 使用與 DistCp 整合的 Data Factory，利用現有強大的叢集來達到最佳複製輸送量。 您也可以從 Data Factory 取得彈性排程和統一監視體驗的優點。 根據您的 Data Factory 設定而定，複製活動會自動建立 DistCp 命令、將資料提交至您的 Hadoop 叢集，然後監視複製狀態。 我們建議 Data Factory DistCp 模式，將資料從內部部署 Hadoop 叢集遷移至 Azure。
-- **Data Factory 原生整合執行時間模式**：在所有案例中，DistCp 都不是一個選項。 例如，在 Azure 虛擬網路環境中，DistCp 工具不支援具有 Azure 儲存體虛擬網路端點的 Azure ExpressRoute 私用對等互連。 此外，在某些情況下，您不會想要使用現有的 Hadoop 叢集作為遷移資料的引擎，因此您不會在叢集上放置繁重的負載，這可能會影響現有 ETL 作業的效能。 相反地，您可以使用 Data Factory 整合執行時間的原生功能，做為將資料從內部部署 HDFS 複製到 Azure 的引擎。
+- **Data Factory DistCp 模式**（建議）：在 Data Factory 中，您可以使用[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) （分散式複製）將檔案依自己方式複製到 Azure Blob 儲存體（包括[分段複製](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)）或 Azure Data Lake 存放區 Gen2。 使用與 DistCp 整合的 Data Factory，利用現有強大的叢集來達到最佳複製輸送量。 您也可以從 Data Factory 取得彈性排程和統一監視體驗的優點。 根據您的 Data Factory 設定而定，複製活動會自動建立 DistCp 命令、將資料提交至您的 Hadoop 叢集，然後監視複製狀態。 我們建議 Data Factory DistCp 模式，將資料從內部部署 Hadoop 叢集遷移至 Azure。
+- **Data Factory 原生整合執行時間模式**：在所有案例中，DistCp 都不是選項。 例如，在 Azure 虛擬網路環境中，DistCp 工具不支援具有 Azure 儲存體虛擬網路端點的 Azure ExpressRoute 私用對等互連。 此外，在某些情況下，您不會想要使用現有的 Hadoop 叢集作為遷移資料的引擎，因此您不會在叢集上放置繁重的負載，這可能會影響現有 ETL 作業的效能。 相反地，您可以使用 Data Factory 整合執行時間的原生功能，做為將資料從內部部署 HDFS 複製到 Azure 的引擎。
 
 本文提供兩種方法的下列資訊：
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ Data Factory 原生整合執行時間模式也允許不同層級的平行處理�
 
 ## <a name="resilience"></a>復原能力
 
-在 Data Factory DistCp 模式中，您可以使用不同的 DistCp 命令列參數（例如，`-i`、忽略失敗或 `-update`，在原始程式檔和目的地檔案的大小差異時寫入資料），以進行不同的復原層級。
+在 Data Factory DistCp 模式中，您可以使用不同的 DistCp 命令列參數（例如，`-i`、忽略失敗或 `-update`、在來源檔案和目的地檔案大小差異時寫入資料），以取得不同的復原層級。
 
 在 Data Factory 的原生整合執行時間模式中，在單一複製活動執行中，Data Factory 有內建的重試機制。 它可以處理資料存放區或基礎網路中特定層級的暫時性失敗。 
 
@@ -82,7 +82,7 @@ Data Factory 原生整合執行時間模式也允許不同層級的平行處理�
 - 在此架構中，資料會透過 Azure ExpressRoute 透過私用對等互連連結進行遷移。 資料永遠不會透過公用網際網路進行。
 - DistCp 工具不支援具有 Azure 儲存體虛擬網路端點的 ExpressRoute 私用對等互連。 我們建議您透過整合執行時間使用 Data Factory 的原生功能來遷移資料。
 - 針對此架構，您必須在 Azure 虛擬網路中的 Windows VM 上安裝 Data Factory 自我裝載整合執行時間。 您可以手動相應增加 VM 或相應放大至多個 Vm，以充分利用您的網路和儲存體 IOPS 或頻寬。
-- 針對每個 Azure VM （已安裝 Data Factory 自我裝載整合執行時間）開始使用的建議設定是以 32 vCPU 和 128 GB 的記憶體 Standard_D32s_v3。 您可以在資料移轉期間監視 VM 的 CPU 和記憶體使用量，以瞭解您是否需要相應增加 VM 以獲得更佳的效能，或相應減少 VM 以降低成本。
+- 針對每個 Azure VM 開始使用的建議設定（已安裝 Data Factory 自我裝載整合執行時間）是以 32 vCPU 和 128 GB 記憶體 Standard_D32s_v3。 您可以在資料移轉期間監視 VM 的 CPU 和記憶體使用量，以瞭解您是否需要相應增加 VM 以獲得更佳的效能，或相應減少 VM 以降低成本。
 - 您也可以將最多四個 VM 節點與單一的自我裝載整合執行時間產生關聯，以相應放大。 針對自我裝載整合執行時間執行的單一複製作業會自動分割盤案集，並使用所有 VM 節點來平行複製檔案。 為了達到高可用性，我們建議您從兩個 VM 節點開始，以避免在資料移轉期間發生單一失敗點的情況。
 - 當您使用此架構時，可以使用初始快照集資料移轉和差異資料移轉。
 
@@ -107,7 +107,7 @@ Data Factory 原生整合執行時間模式也允許不同層級的平行處理�
 
 ### <a name="delta-data-migration"></a>差異資料移轉 
 
-在 Data Factory DistCp 模式中，您可以使用 DistCp 命令列參數，`-update`，在原始程式檔和目的地檔案大小差異時寫入資料，以進行差異資料移轉。
+在 Data Factory DistCp 模式中，您可以使用 DistCp 命令列參數 `-update`，在原始程式檔和目的地檔案大小差異時寫入資料，以進行差異資料移轉。
 
 在 Data Factory 原生整合模式中，從 HDFS 識別新的或已變更檔案的最高效能方法是使用時間分割的命名慣例。 當 HDFS 中的資料已使用檔案或資料夾名稱中的時間配量資訊進行時間分割時（例如， */yyyy/mm/dd/file.csv*），您的管線可以輕鬆地識別要以累加方式複製哪些檔案和資料夾。
 

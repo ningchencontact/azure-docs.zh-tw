@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure SQL Database 受控執行個體設定現有虛擬網路 | Microsoft Docs
+title: 針對 Azure SQL Database 受控執行個體設定現有虛擬網路
 description: 本文描述如何設定可以在其中部署 Azure SQL Database 受控執行個體的現有虛擬網路和子網路。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 01/15/2019
-ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f6ababa9d25798f4b150c322d48d4c7af04a511
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567643"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689372"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>針對 Azure SQL Database 受控執行個體設定現有虛擬網路
 
@@ -31,7 +31,7 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 > [!Note]
 > 您只能在透過 Azure Resource Manager 部署模型建立的虛擬網路中建立受控執行個體。 不支援透過傳統部署模型建立的 Azure 虛擬網路。 藉由遵循[決定受控執行個體的子網路大小](sql-database-managed-instance-determine-size-vnet-subnet.md)一文中的指導方針來計算子網路大小。 在其中部署資源後，就無法再調整子網路的大小。
 >
-> 建立受控實例之後, 不支援將受控實例或 VNet 移至另一個資源群組或訂用帳戶。
+> 建立受控實例之後，不支援將受控實例或 VNet 移至另一個資源群組或訂用帳戶。
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>驗證與修改現有的虛擬網路
 
@@ -52,12 +52,12 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 
 指令碼經由三個步驟準備子網路：
 
-1. 驗證：指令碼會針對受控執行個體網路需求，驗證所選虛擬網路和子網路。
-2. 確認：指令碼向使用者顯示需要進行的變更，以備妥要部署受控執行個體的子網路。 它也會要求同意。
-3. 準備：指令碼會適當地設定虛擬網路和子網路。
+1. 驗證：它會驗證選取的虛擬網路和子網是否有受控執行個體網路需求。
+2. 確認：它會向使用者顯示一組需要進行的變更，以準備受控執行個體部署的子網。 它也會要求同意。
+3. 準備：它會適當地設定虛擬網路和子網。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需概觀，請參閱[受控執行個體是什麼](sql-database-managed-instance.md)。
+- 如需概觀，請參閱[受控執行個體是什麼？](sql-database-managed-instance.md)。
 - 如需示範如何建立虛擬網路、建立受控執行個體，以及從資料庫備份還原資料庫的教學課程，請參閱[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-get-started.md)。
 - 針對 DNS 問題，請參閱[設定自訂 DNS](sql-database-managed-instance-custom-dns.md)。

@@ -1,6 +1,6 @@
 ---
 title: 模型如何成為 web 服務
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 概述您的 Azure Machine Learning Studio （傳統）模型如何從開發實驗進入 Web 服務的機制。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496845"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671240"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio （傳統）模型從實驗到 Web 服務的進展
 Azure Machine Learning Studio （傳統）提供互動式畫布，可讓您開發、執行、測試及逐一查看代表預測性分析模型的***實驗***。 有各種可用的模組可以︰
@@ -80,7 +80,7 @@ Azure Machine Learning Studio （傳統）提供互動式畫布，可讓您開�
 
 現在已部署您的 Web 服務，而且您可以如同預測性 Web 服務一般存取及管理它。
 
-## <a name="updating-your-web-service"></a>更新您的 Web 服務
+## <a name="updating-your-web-service"></a>使用您的 Web 服務
 現在您已將實驗部署為 Web 服務，如果需要更新它，該怎麼做？
 
 視您需要更新的項目而定：
@@ -108,7 +108,7 @@ Azure Machine Learning Studio （傳統）提供互動式畫布，可讓您開�
 如需開發和實驗程序的詳細資訊，請參閱下列文章︰
 
 * 轉換實驗-[如何準備您的模型以在 Azure Machine Learning Studio 中部署（傳統）](convert-training-experiment-to-scoring-experiment.md)
-* 部署 Web 服務 - [部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)
+* 部署 Web 服務 - [部署 Azure Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)
 * 重新定型模型 - [以程式設計方式重新定型機器學習服務模型](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 如需整個程序的範例，請參閱：

@@ -1,5 +1,5 @@
 ---
-title: 如何設定 Azure SQL Database | Microsoft Docs
+title: 如何設定 Azure SQL Database
 description: 了解如何設定與管理 Azure SQL Database。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 98c522f3d2718691e32b4e78180027b69f28289f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ccdeb883dc9cf2cba499e45e25ff4706bb120463
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568014"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689868"
 ---
 # <a name="how-to-use-azure-sql-database"></a>如何使用 Azure SQL Database
 
@@ -48,7 +48,7 @@ ms.locfileid: "68568014"
 - [使用 Intelligent Insights 診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [監視記憶體內部 OLTP 空間](sql-database-in-memory-oltp-monitoring.md)
 
-### <a name="extended-events"></a>擴充事件
+### <a name="extended-events"></a>擴充的事件
 
 - [擴充事件](sql-database-xevent-db-diff-from-svr.md)
 - [將擴充的事件儲存至事件檔案](sql-database-xevent-code-event-file.md)

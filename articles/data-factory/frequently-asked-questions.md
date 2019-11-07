@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory：常見問題集 | Microsoft Docs
+title: 'Azure Data Factory：常見問題 '
 description: 獲得 Azure Data Factory 常見問題的解答。
 services: data-factory
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481143"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674719"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文提供 Azure Data Factory 常見問題集的解答。  
 
 ## <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？ 
-Data Factory 是完全受控並以雲端為基礎的資料整合服務，用來自動化資料的移動和轉換。 就像會運轉設備以將原物料轉換成成品的工廠一樣，Azure Data Factory 會協調現有的服務來收集未經處理資料，並將其轉換成隨時可用的資訊。 
+Data Factory 是完全受控且以雲端為基礎的資料整合 ETL 服務，可自動化資料的移動和轉換。 就像會運轉設備以將原物料轉換成成品的工廠一樣，Azure Data Factory 會協調現有的服務來收集未經處理資料，並將其轉換成隨時可用的資訊。 
 
-您可使用 Azure Data Factory 建立資料驅動工作流程，以在內部部署與雲端資料存放區之間移動資料。 而且您可以使用計算服務（例如 Azure HDInsight、Azure Data Lake Analytics 和 SQL Server Integration Services （SSIS）整合執行時間）來處理和轉換資料。 
+您可使用 Azure Data Factory 建立資料驅動工作流程，以在內部部署與雲端資料存放區之間移動資料。 而且您可以使用資料流程來處理和轉換資料。 ADF 也支援使用計算服務（例如 Azure HDInsight、Azure Databricks 和 SQL Server Integration Services （SSIS）整合執行時間）進行手動編碼轉換的外部計算引擎。 
 
 透過 Data Factory，能夠在以 Azure 為基礎的雲端服務上執行資料處理，也可以使用自己的自我託管計算環境 (例如 SSIS、SQL Server 或 Oracle)。 建立可執行所需動作的管線之後，您可以將它排程為定期執行（例如每小時、每天或每週）、時間範圍排程，或從事件發生時觸發管線。 如需詳細資訊，請參閱 [Azure Data Factory 簡介](introduction.md)。
 
@@ -108,6 +108,9 @@ Azure 訂用帳戶可能會有一或多個 Azure Data Factory 執行個體 (或�
 
 ### <a name="pipelines"></a>管線
 資料處理站可以有一或多個管線。 管線是一個執行某個單位工作的活動邏輯群組。 管線中的活動會合作執行一項工作。 例如，管線可能包含一組活動，以從 Azure Blob 內嵌資料，然後對 HDInsight 叢集執行 Hive 查詢來分割資料。 其中的優勢在於，您可使用管線按組別管理活動，而無須個別管理每個活動。 您可將管線中的活動鏈結在一起以循序方式運作，或是以平行方式獨立運作。
+
+### <a name="data-flows"></a>資料流程
+資料流程是您以視覺方式建立的物件，可在後端 Spark 服務上大規模轉換資料的 Data Factory。 您不需要瞭解程式設計或 Spark 內部。 您只需使用圖形（對應）或試算表（整頓）來設計資料轉換意圖。
 
 ### <a name="activities"></a>活動
 活動代表管線中的處理步驟。 例如，您可以使用複製活動，將資料從一個資料存放區複製到另一個資料存放區。 同樣地，您可以使用在 Azure HDInsight 叢集上執行 Hive 查詢的 Hive 活動，來轉換或分析您的資料。 Data Factory 支援三種類型的活動︰資料移動活動、資料轉換活動，以及控制活動。

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Cassandra 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Cassandra 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 Cassandra 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 1531f2530af9c2fbc90d1bf25f04962fb4148a8d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090474"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681100"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>使用 Azure Data Factory 從 Cassandra 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -49,7 +49,7 @@ ms.locfileid: "71090474"
 
 「整合執行階段」提供內建的 Cassandra 驅動程式，因此從 Cassandra 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,12 +59,12 @@ ms.locfileid: "71090474"
 
 以下是針對 Cassandra 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 |類型屬性必須設定為：**Cassandra** |是 |
-| host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
+| 類型 |類型屬性必須設定為：**Cassandra** |是 |
+| 主機 |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
 | port |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
-| authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 |是 |
+| authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值為：**基本**和**匿名**。 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
 | password |指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是，如果 authenticationType 設定為 [基本]。 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -72,7 +72,7 @@ ms.locfileid: "71090474"
 >[!NOTE]
 >目前不支援使用 SSL 與 Cassandra 連線。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -102,13 +102,13 @@ ms.locfileid: "71090474"
 
 若要從 Cassandra 複製資料，請將資料集的類型屬性設定為 **CassandraTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
-| keySpace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
+| 類型 | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
+| keyspace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 | tableName |Cassandra 資料庫中資料表的名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -131,19 +131,19 @@ ms.locfileid: "71090474"
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Cassandra 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Cassandra 來源所支援的屬性清單。
 
 ### <a name="cassandra-as-source"></a>Cassandra 作為來源
 
 若要從 Cassandra 複製資料，請將複製活動中的來源類型設定為 **CassandraSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
+| 類型 | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
 | query |使用自訂查詢來讀取資料。 SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已指定資料集中的「tableName」和「keyspace」)。 |
-| consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。<br/><br/>允許的值包括：**ONE**、**TWO**、**THREE**、**QUORUM**、**ALL**、**LOCAL_QUORUM**、**EACH_QUORUM** 和 **LOCAL_ONE**。 |否 (預設值為 `ONE`) |
+| consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。<br/><br/>允許的值為：**ONE**、**TWO**、**THREE**、**QUORUM**、**ALL**、**LOCAL_QUORUM**、**EACH_QUORUM** 和 **LOCAL_ONE**。 |否 (預設值為 `ONE`) |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -181,20 +181,20 @@ ms.locfileid: "71090474"
 
 | Cassandra 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |字串 |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| Boolean |Boolean |
-| Decimal |Decimal |
-| DOUBLE |DOUBLE |
-| FLOAT |Single |
-| INET |String |
+| BOOLEAN |Boolean |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
+| FLOAT |單一 |
+| INET |字串 |
 | INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
+| TEXT |字串 |
+| 時間戳記 |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |字串 |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -253,7 +253,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
+| 1 |S2 |b |
 | 3 |S1 |t |
 
 **資料表「ExampleTable_vt_StringSet」：**
@@ -261,7 +261,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |
-| 1 |B |
+| 1 |b |
 | 1 |C |
 | 3 |A |
 | 3 |E |

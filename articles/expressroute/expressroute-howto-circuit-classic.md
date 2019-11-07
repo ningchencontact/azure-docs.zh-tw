@@ -1,20 +1,18 @@
 ---
-title: 修改 ExpressRoute 線路：PowerShell：Azure 傳統 | Microsoft Docs
+title: 修改 ExpressRoute 線路︰PowerShell：Azure 傳統| Microsoft Docs
 description: 本文將逐步引導您檢查狀態、更新或刪除，以及取消佈建 ExpressRoute 傳統部署模型線路。
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: ganesr
-ms.reviewer: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 7468338e7bc39128564e71831abe61bb1714ff72
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.date: 11/05/2019
+ms.author: cherylmc
+ms.openlocfilehash: 9f1c05b85fac6dd0168d9c2b2944326800e90493
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849234"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643679"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -35,39 +33,18 @@ ms.locfileid: "67849234"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="before-you-begin"></a>開始之前
 
-安裝最新版的 Azure 服務管理 (SM) PowerShell 模組和 ExpressRoute 模組。  當您使用下列範例時，請注意版本號碼 (此範例中為 5.1.1) 會因為發行較新的 Cmdlet 版本而變更。
+安裝最新版的 Azure 服務管理 (SM) PowerShell 模組和 ExpressRoute 模組。 您不能使用 Azure CloudShell 環境來執行 SM 模組。
 
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-如需 Azure PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/overview)，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。
-
-若要登入您的 Azure 帳戶，請使用下列範例：
-
-1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
+1. 使用[安裝服務管理模組](/powershell/azure/servicemanagement/install-azure-ps)一文中的指示來安裝 Azure 服務管理模組。 如果您已安裝 Az 或 RM 模組，請務必使用 '-AllowClobber '。
+2. 匯入已安裝的模組。 使用下列範例時，請調整路徑以反映已安裝之 PowerShell 模組的位置。
 
    ```powershell
-   Connect-AzAccount
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
    ```
-2. 檢查帳戶的訂用帳戶。
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. 如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. 接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。
+3. 若要登入您的 Azure 帳戶，請以較高的許可權開啟 PowerShell 主控台，並聯機到您的帳戶。 使用下列範例可協助您使用服務管理模組進行連接：
 
    ```powershell
    Add-AzureAccount
@@ -129,7 +106,7 @@ get-help get-azurededicatedcircuit -detailed
 * 啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
 * 只要連接埠有可用的容量，就增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。
 * 將計量方案從 [計量付費] 變更為 [無限制]。 不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
-* 您可以啟用和停用 [允許傳統作業]  。
+* 您可以啟用和停用 [允許傳統作業]。
 
 如需限制的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md) 。
 
@@ -231,7 +208,7 @@ At line:1 char:1
 
 * 您必須取消連結 ExpressRoute 線路的所有虛擬網路，此作業才會成功。 如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 * 如果 ExpressRoute 線路服務提供者佈建狀態為 **Provisioning** 或 **Provisioned**，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
-* 若服務提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建]  )，您便可以刪除線路。 這樣會停止針對線路計費。
+* 若服務提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，您便可以刪除線路。 這樣會停止針對線路計費。
 
 #### <a name="delete-a-circuit"></a>刪除電路
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段 | Microsoft Docs
+title: 在 Azure Data Factory 中建立共用的自我裝載整合執行時間
 description: 了解如何在 Azure Data Factory 中建立共用的自我裝載整合執行階段，讓多個資料處理站都能存取該整合執行階段。
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,47 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155161"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677063"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>使用 PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立共用的自我裝載整合執行時間
 
-本逐步指南說明如何使用 Azure PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段。 然後您可以在其他資料處理站中，使用該共用的自我裝載整合執行階段。 在本教學課程中，您會執行下列步驟： 
+本指南說明如何在 Azure Data Factory 中建立共用的自我裝載整合執行時間。 然後您可以在其他資料處理站中，使用該共用的自我裝載整合執行階段。
 
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>使用 Azure Data Factory UI 建立共用的自我裝載 IR
+
+若要使用 Azure Data Factory UI 建立共用的自我裝載 IR，您可以採取下列步驟：
+
+1. 在要共用的自我裝載 IR 中，將權限授與您要建立連結 IR 的資料處理站。
+      
+    ![在 [共用] 索引標籤上的權限授與按鈕](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
+      
+    ![指派權限的選取項目](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    
+2. 請記下要共用的自我裝載 IR 的資源識別碼。
+      
+   ![資源識別碼的位置](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
+    
+3. 在已授與權限的資料處理站中，建立新的自我裝載 IR (已連結) 並輸入資源識別碼。
+      
+   ![建立已連結自我裝載整合執行階段的按鈕](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
+      
+    ![名稱和資源識別碼方塊](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>使用 Azure PowerShell 建立共用的自我裝載 IR
+
+若要使用 Azure PowerShell 建立共用的自我裝載 IR，您可以採取下列步驟： 
 1. 建立資料處理站。 
 1. 建立自我裝載整合執行階段。
 1. 與其他資料處理站共用該自我裝載整合執行階段。
 1. 建立連結的整合執行階段。
 1. 撤銷共用。
 
-## <a name="prerequisites"></a>先決條件 
+### <a name="prerequisites"></a>必要條件 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,7 +62,7 @@ ms.locfileid: "66155161"
 > [!NOTE]  
 > 如需目前可取得 Data Factory 的 Azure 區域，請在 [依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory) 上選取您感興趣的區域。
 
-## <a name="create-a-data-factory"></a>建立 Data Factory
+### <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 啟動 Windows PowerShell 整合式指令碼環境 (ISE)。
 
@@ -76,7 +99,7 @@ ms.locfileid: "66155161"
     > [!NOTE]  
     > 此為選用步驟。 如果您已經有資料處理站，請略過此步驟。 
 
-    建立[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)利用[新增 AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)命令。 資源群組是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 下列範例會在 WestEurope 位置建立名為 `myResourceGroup` 的資源群組： 
+    使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)命令建立[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。 資源群組是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 下列範例會在 WestEurope 位置建立名為 `myResourceGroup` 的資源群組： 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -90,7 +113,7 @@ ms.locfileid: "66155161"
                              -Name $SharedDataFactoryName
     ```
 
-## <a name="create-a-self-hosted-integration-runtime"></a>建立自我裝載整合執行階段
+### <a name="create-a-self-hosted-integration-runtime"></a>建立自我裝載整合執行階段
 
 > [!NOTE]  
 > 此為選用步驟。 如果您已經有要與其他資料處理站共用的自我裝載整合執行階段，請略過此步驟。
@@ -106,7 +129,7 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>取得整合執行階段驗證金鑰並註冊節點
+#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>取得整合執行階段驗證金鑰並註冊節點
 
 執行下列命令，以取得自我裝載整合執行階段的驗證金鑰：
 
@@ -119,7 +142,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 
 回應會包含此自我裝載整合執行階段的驗證金鑰。 當您註冊整合執行階段節點時，會使用此金鑰。
 
-### <a name="install-and-register-the-self-hosted-integration-runtime"></a>安裝和註冊自我裝載整合執行階段
+#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>安裝和註冊自我裝載整合執行階段
 
 1. 從 [Azure Data Factory Integration Runtime](https://aka.ms/dmg) 下載自我裝載整合執行階段安裝程式。
 
@@ -127,9 +150,9 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 
 3. 使用您在上一步中擷取的驗證金鑰，註冊新的自我裝載整合。
 
-## <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>與另一個資料處理站共用該自我裝載整合執行階段
+### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>與另一個資料處理站共用該自我裝載整合執行階段
 
-### <a name="create-another-data-factory"></a>建立另一個資料處理站
+#### <a name="create-another-data-factory"></a>建立另一個資料處理站
 
 > [!NOTE]  
 > 此為選用步驟。 如果您已有要共用的資料處理站，請略過此步驟。
@@ -139,7 +162,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-### <a name="grant-permission"></a>授與權限
+#### <a name="grant-permission"></a>授與權限
 
 將存取您建立並註冊的自我裝載整合執行階段所需的權限授與資料處理站。
 
@@ -153,7 +176,7 @@ New-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-## <a name="create-a-linked-self-hosted-integration-runtime"></a>建立連結的自我裝載的整合執行階段
+### <a name="create-a-linked-self-hosted-integration-runtime"></a>建立連結的自我裝載的整合執行階段
 
 執行下列命令來建立連結的自我裝載整合執行階段：
 
@@ -169,7 +192,7 @@ Set-AzDataFactoryV2IntegrationRuntime `
 
 現在，您可以在任何已連結的服務中，使用此連結的整合執行階段。 連結的整合執行階段是使用共用的整合執行階段來執行活動。
 
-## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>將整合執行階段共用從資料處理站撤銷
+### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>將整合執行階段共用從資料處理站撤銷
 
 若要撤銷資料處理站對共用整合執行階段的存取權，請執行下列命令：
 
@@ -191,7 +214,7 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
-## <a name="next-steps"></a>後續步驟
+### <a name="next-steps"></a>後續步驟
 
 - 檢閱 [Azure Data Factory 中的整合執行階段概念](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)。
 

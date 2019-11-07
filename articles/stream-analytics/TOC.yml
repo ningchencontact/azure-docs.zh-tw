@@ -97,6 +97,8 @@
           href: stream-analytics-power-bi-dashboard.md
         - name: 停止或刪除作業
           href: stream-analytics-clean-up-your-job.md
+        - name: 複製或備份作業
+          href: copy-job.md
         - name: 配對作業以獲得較高的可靠性
           href: stream-analytics-job-reliability.md
         - name: 使用受控識別進行驗證 - ADLS Gen 1 輸出
@@ -105,6 +107,8 @@
           href: sql-reference-data.md
         - name: 使用受控識別進行驗證 - Blob 輸出
           href: blob-output-managed-identity.md
+        - name: 使用受控識別進行驗證 - Power BI
+          href: powerbi-output-managed-identity.md
     - name: 建置解決方案
       items:
         - name: Twitter 情緒分析

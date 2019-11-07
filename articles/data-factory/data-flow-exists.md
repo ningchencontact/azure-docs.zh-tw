@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 對應資料流程中的 Exists 轉換 |Microsoft Docs
+title: Azure Data Factory 對應資料流程中的 Exists 轉換
 description: 使用 Azure Data Factory 對應資料流程中的 exists 轉換來檢查現有的資料列
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596505"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676739"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>對應資料流程中的 Exists 轉換
 
@@ -54,7 +54,7 @@ Exists 轉換是一個資料列篩選轉換，它會檢查您的資料是否存�
 
 ### <a name="example"></a>範例
 
-下列範例是名為 `checkForChanges` 的 exists 轉換，它會將左資料流程 `NameNorm2` 和正確的資料流程 `TypeConversions`。  Exists 條件是運算式 `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` 如果每個資料流程中的 `EMPID` 和 `Region` 資料行都相符，就會傳回 true。 因為我們要檢查是否存在，`negate` 為 false。 我們不會在 [優化] 索引標籤中啟用任何廣播，因此 `broadcast` 具有 `'none'` 的值。
+下列範例是名為 `checkForChanges` 的 exists 轉換，它會將左資料流程 `NameNorm2` 和正確的資料流程 `TypeConversions`。  Exists 條件是運算式 `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` 如果每個資料流程中的 `EMPID` 和 `Region` 資料行都相符，就會傳回 true。 因為我們要檢查是否存在，`negate` 為 false。 我們不會在 [優化] 索引標籤中啟用任何廣播，因此 `broadcast` 具有 `'none'`的值。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 

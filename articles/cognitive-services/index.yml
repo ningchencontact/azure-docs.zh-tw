@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/16/2019
-  ms.openlocfilehash: f360150a06bd7cf0d41ebb193ab91823ea815dfc
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 4f9c17fabdcb333d172e7a983921ef89d879fce7
+  ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73466225"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73622735"
 highlightedContent:
   items:
   - title: 認知服務是什麼？
@@ -25,15 +25,21 @@ highlightedContent:
   - title: 認知服務和機器學習
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
-  - title: 建立認知服務資源
-    itemType: how-to-guide
-    url: ./cognitive-services-apis-create-account.md
   - title: 認知服務中的語言支援
     itemType: reference
     url: ./language-support.md
+  - title: 建立認知服務資源
+    itemType: how-to-guide
+    url: ./cognitive-services-apis-create-account.md
   - title: 在容器中使用認知服務
     itemType: concept
     url: ./cognitive-services-container-support.md
+  - title: 認知服務的虛擬網路
+    itemType: architecture
+    url: cognitive-services-virtual-networks.md
+  - title: 認知服務的自訂子網域
+    itemType: how-to-guide
+    url: cognitive-services-custom-subdomains.md
   - title: 驗證要求
     itemType: how-to-guide
     url: ./authentication.md
@@ -101,7 +107,7 @@ conceptualContent:
       text: 內容仲裁
     - url: ./personalizer/index.yml
       itemType: overview
-      text: 個人化工具 (預覽)
+      text: 個人化工具
   - title: 搜尋
     summary: 將 Bing 搜尋 API 新增至您的應用程式，並充分利用以單一 API 呼叫合併數十億個網頁、影像、影片和新聞的能力。
     links:

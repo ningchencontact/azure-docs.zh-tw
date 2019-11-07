@@ -8,14 +8,14 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286505"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622695"
 ---
-# <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題
+# <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題集
 
 本文說明 Azure Container Registry 的常見問題和已知問題。
 
@@ -31,11 +31,11 @@ ms.locfileid: "72286505"
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>我可以使用 Resource Manager 範本建立 Azure Container Registry 嗎？
 
-是的。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
+是。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR 中的映射是否有安全性弱點掃描？
 
-是的。 請參閱[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)和[淺綠色](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)的檔。
+是。 請參閱[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)和[淺綠色](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)的檔。
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>如何? 使用 Azure Container Registry 設定 Kubernetes 嗎？
 
@@ -111,7 +111,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>如何? 存取 Docker Registry HTTP API V2？
 
-ACR 支援 Docker Registry HTTP API V2。 Api 可以在 `https://<your registry login server>/v2/` 存取。 範例： `https://mycontainerregistry.azurecr.io/v2/`
+ACR 支援 Docker Registry HTTP API V2。 Api 可以在 `https://<your registry login server>/v2/` 存取。 範例︰ `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>如何? 刪除存放庫中的任何標記未參考的所有資訊清單嗎？
 
@@ -186,9 +186,9 @@ az acr login -n MyRegistry
 
 ### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Azure Container Registry 是否只提供 TLS v 1.2 的設定，以及如何啟用 TLS 1.2 版？
 
-是的。 使用任何最近的 docker 用戶端（18.03.0 版和更新版本）來啟用 TLS。 
+是。 使用任何最近的 docker 用戶端（18.03.0 版和更新版本）來啟用 TLS。 
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry 支援內容信任嗎？
+### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry 是否支援內容信任？
 
 是，您可以在 Azure Container Registry 中使用受信任的映射，因為[Docker Notary](https://docs.docker.com/notary/getting_started/)已整合並可啟用。 如需詳細資訊，請參閱[Azure Container Registry 中的內容信任](container-registry-content-trust.md)。
 
@@ -204,16 +204,16 @@ az acr login -n MyRegistry
 
 ### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>如何? 授與提取或推送映射的存取權，但沒有管理登錄資源的許可權？
 
-ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.md)。 具體而言，`AcrPull` 和 @no__t 1 角色可讓使用者提取和/或推送映射，而不需要在 Azure 中管理登錄資源。
+ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.md)。 具體而言，`AcrPull` 和 `AcrPush` 角色可讓使用者提取和/或推送映射，而不需要在 Azure 中管理登錄資源。
 
-* Azure 入口網站：您的登錄 > 存取控制（IAM）-> 新增 （選取 `AcrPull` 或 `AcrPush` 作為角色）。
+* Azure 入口網站：您的登錄 > 存取控制（IAM）-> 新增 （選取 `AcrPull` 或 `AcrPush` 角色）。
 * Azure CLI：執行下列命令來尋找登錄的資源識別碼：
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  接著，您可以將 `AcrPull` 或 @no__t 1 角色指派給使用者（下列範例會使用 `AcrPull`）：
+  接著，您可以將 `AcrPull` 或 `AcrPush` 角色指派給使用者（下列範例會使用 `AcrPull`）：
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -245,7 +245,7 @@ ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-只要使用 `AcrPull` 或 @no__t 1 角色，則受託人就沒有在 Azure 中管理登錄資源的許可權。 例如，`az acr list` 或 `az acr show -n myRegistry` 不會顯示登錄。
+只要使用 `AcrPull` 或 `AcrPush` 角色，則受託人就沒有在 Azure 中管理登錄資源的許可權。 例如，`az acr list` 或 `az acr show -n myRegistry` 不會顯示登錄。
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>如何? 啟用登錄的自動映射隔離功能嗎？
 
@@ -253,7 +253,7 @@ ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.
 
 ## <a name="diagnostics-and-health-checks"></a>診斷和健康狀態檢查
 
-- [使用 @no__t 檢查健全狀況-1](#check-health-with-az-acr-check-health)
+- [使用 `az acr check-health` 檢查健全狀況](#check-health-with-az-acr-check-health)
 - [docker pull 失敗，並出現錯誤： net/HTTP：要求在等候連接時取消（用戶端等待標頭時超過超時時間）](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push 成功，但 docker pull 失敗，發生錯誤：未經授權：需要驗證](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [啟用並取得 docker daemon 的偵錯工具記錄檔](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -263,7 +263,7 @@ ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.
 - [為什麼 Azure 入口網站無法提取存放庫或標籤？](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [如何? 在 Windows 上收集 HTTP 追蹤？](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>使用 @no__t 檢查健全狀況-0
+### <a name="check-health-with-az-acr-check-health"></a>使用 `az acr check-health` 檢查健全狀況
 
 若要針對常見的環境和登錄問題進行疑難排解，請參閱[檢查 Azure container registry 的健全狀況](container-registry-check-health.md)。
 
@@ -306,7 +306,7 @@ unauthorized: authentication required
 ```
 
 若要解決此錯誤：
-1. 將選項 `--signature-verification=false` 新增至 Docker daemon 設定檔 `/etc/sysconfig/docker`。 例如:
+1. 將選項 `--signature-verification=false` 新增至 Docker daemon 設定檔 `/etc/sysconfig/docker`。 例如：
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -398,9 +398,9 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-根本原因是某些 @no__t 0 的執行會遵循從原始要求的標頭重新導向。
+根本原因是某些 `curl` 的實施會遵循從原始要求的標頭重新導向。
 
-若要解決這個問題，您需要以手動方式追蹤不含標頭的重新導向。 使用 `curl` 的 `-D -` 選項來列印回應標頭，然後解壓縮： @no__t 2 標頭：
+若要解決這個問題，您需要以手動方式追蹤不含標頭的重新導向。 使用 `curl` 的 `-D -` 選項來列印回應標頭，然後解壓縮： `Location` 標頭：
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -448,6 +448,8 @@ curl $redirect_url
 
 - [如何? 批次取消執行？](#how-do-i-batch-cancel-runs)
 - [如何? 在 az acr build 命令中包含 git 資料夾嗎？](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [工作是否支援來源觸發程式的 GitLab？](#does-tasks-support-gitlab-for-source-triggers)
+- [哪些 git 存放庫管理服務支援工作？](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>如何? 批次取消執行？
 
@@ -460,13 +462,32 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>如何? 在 az acr build 命令中包含 git 資料夾嗎？
 
-如果您將本機源資料夾傳遞至 `az acr build` 命令，則預設會從上傳的封裝中排除 @no__t 1 資料夾。 您可以使用下列設定來建立 `.dockerignore` 檔案。 它會指示命令還原已上傳套件中 `.git` 底下的所有檔案。 
+如果您將本機源資料夾傳遞至 `az acr build` 命令，預設會從上傳的封裝中排除 `.git` 資料夾。 您可以使用下列設定來建立 `.dockerignore` 檔案。 它會指示命令還原已上傳套件中 `.git` 底下的所有檔案。 
 
-```
+```sh
 !.git/**
 ```
 
 此設定也適用于 `az acr run` 命令。
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>工作是否支援來源觸發程式的 GitLab？
+
+我們目前不支援來源觸發程式的 GitLab。
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>哪些 git 存放庫管理服務支援工作？
+
+| Git 服務 | 來源內容 | 手動組建 | 透過認可觸發程式自動建立 |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 是 | 是 |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 是 | 是 |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 是 | 否 |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 是 | 否 |
+
+## <a name="run-error-message-troubleshooting"></a>執行錯誤訊息的疑難排解
+
+| 錯誤訊息 | 疑難排解指南 |
+|---|---|
+|未設定 VM 的存取權，因此找不到任何訂用帳戶|如果您在 ACR 工作中使用 `az login --identity`，就會發生這種情況。 這是暫時性錯誤，當您的受控識別的角色指派尚未傳播時，就會發生這種情況。 請稍候幾秒，再重試工作。|
 
 ## <a name="cicd-integration"></a>CI/CD 整合
 

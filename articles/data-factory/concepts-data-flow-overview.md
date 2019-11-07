@@ -1,5 +1,5 @@
 ---
-title: 對應 Azure Data Factory 中的資料流程 |Microsoft Docs
+title: 對應 Azure Data Factory 中的資料流程
 description: 在 Azure Data Factory 中對應資料流程的總覽
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754702"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681567"
 ---
-# <a name="what-are-mapping-data-flows"></a>什麼是對應資料流程？
+# <a name="what-are-mapping-data-flows"></a>什麼是對應的資料流程？
 
 對應資料流程會以視覺化方式設計 Azure Data Factory 中的資料轉換。 資料流程可讓資料工程師開發圖形化資料轉換邏輯，而不需要撰寫程式碼。 產生的資料流程會當做使用相應放大 Spark 叢集 Azure Data Factory 管線內的活動來執行。 資料流程活動可以透過現有的 Data Factory 排程、控制、流程和監視功能來運作。
 
@@ -32,13 +32,13 @@ ms.locfileid: "72754702"
 
 資料流程畫布分成三個部分：頂端列、圖形和設定面板。 
 
-![繪圖](media/data-flow/canvas1.png "畫布")
+![Canvas](media/data-flow/canvas1.png "Canvas")
 
 ### <a name="graph"></a>圖表
 
 圖形會顯示轉換資料流程。 它會顯示來源資料流入一或多個接收時的歷程。 若要新增來源，請選取 [新增**來源**]。 若要加入新的轉換，請選取現有轉換右下方的加號。
 
-![繪圖](media/data-flow/canvas2.png "畫布")
+![Canvas](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Azure 整合執行時間資料流程屬性
 

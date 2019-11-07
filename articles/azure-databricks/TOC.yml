@@ -260,7 +260,7 @@
             - name: Cosmos DB
               href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
               maintainContext: true
-            - name: SQL 資料倉儲
+            - name: Azure SQL 資料倉儲
               href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
               maintainContext: true
             - name: 二進位檔案
@@ -272,7 +272,7 @@
             - name: Couchbase
               href: /azure/databricks/data/data-sources/couchbase
               maintainContext: true
-            - name: 彈性搜尋
+            - name: ElasticSearch
               href: /azure/databricks/data/data-sources/elasticsearch
               maintainContext: true
             - name: 映像
@@ -434,7 +434,7 @@
         - name: Python DataFrame 簡介
           href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
           maintainContext: true
-        - name: Scala Dataframe 簡介
+        - name: Scala DataFrames 簡介
           href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
           maintainContext: true
         - name: 資料集簡介
@@ -708,14 +708,17 @@
             - name: 決策樹範例
               href: /azure/databricks/applications/machine-learning/mllib/decision-trees
               maintainContext: true
-            - name: MLib 管線和結構化串流
+            - name: MLlib 管線和結構化串流
               href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
               maintainContext: true
-            - name: 進階 MLib 範例
+            - name: 進階 MLlib 範例
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
         - name: 自動 ML
           items:
+            - name: 自動 ML 概觀
+              href: /azure/databricks/applications/machine-learning/automl/index
+              maintainContext: true
             - name: Hyperopt
               items:
                 - name: Hyperopt 概觀
@@ -730,8 +733,16 @@
                 - name: 使用分散式 Hyperopt 的模型搜尋
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
                   maintainContext: true
-            - name: MLib 和自動化 MLflow 追蹤
+            - name: MLlib 和自動化 MLflow 追蹤
               href: /azure/databricks/applications/machine-learning/automl/mllib-mlflow-integration
+              maintainContext: true
+        - name: 匯出和匯入 ML 模型
+          items:
+            - name: 匯出和匯入概觀
+              href: /azure/databricks/applications/machine-learning/model-export-import/index
+              maintainContext: true
+            - name: MLeap ML模型匯出
+              href: /azure/databricks/applications/machine-learning/model-export-import/mleap-model-export
               maintainContext: true
         - name: 第三方機器學習整合
           href: /azure/databricks/applications/machine-learning/third-party/index
@@ -826,33 +837,39 @@
         - name: MLflow 概觀
           href: /azure/databricks/applications/mlflow/index
           maintainContext: true
-        - name: 開始使用 MLflow
-          href: /azure/databricks/applications/mlflow/quick-start
-          maintainContext: true
-        - name: 開始使用 MLflow Java 和 Scala
-          href: /azure/databricks/applications/mlflow/quick-start-java-scala
-          maintainContext: true
-        - name: 開始使用 MLflow Python
-          href: /azure/databricks/applications/mlflow/quick-start-python
-          maintainContext: true
-        - name: 開始使用 MLflow R
-          href: /azure/databricks/applications/mlflow/quick-start-r
-          maintainContext: true
+        - name: 開始使用
+          items:
+            - name: 開始使用 MLflow
+              href: /azure/databricks/applications/mlflow/quick-start
+              maintainContext: true
+            - name: 開始使用 MLflow Java 和 Scala
+              href: /azure/databricks/applications/mlflow/  quick-start-java-scala
+              maintainContext: true
+            - name: 開始使用 MLflow Python
+              href: /azure/databricks/applications/mlflow/  quick-start-python
+              maintainContext: true
+            - name: 開始使用 MLflow R
+              href: /azure/databricks/applications/mlflow/quick-start-r
+              maintainContext: true
         - name: 追蹤機器學習訓練回合
-          href: /azure/databricks/applications/mlflow/tracking
-          maintainContext: true
-        - name: MLflow 追蹤範例
-          href: /azure/databricks/applications/mlflow/tracking-examples
-          maintainContext: true
-        - name: 外部的存取追蹤
-          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-          maintainContext: true
+          items:
+            - name: 追蹤概觀
+              href: /azure/databricks/applications/mlflow/tracking
+              maintainContext: true
+            - name: MLflow 追蹤範例
+              href: /azure/databricks/applications/mlflow/  tracking-examples
+              maintainContext: true
+            - name: 外部的存取追蹤
+              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              maintainContext: true
         - name: 儲存、載入和部署模型
-          href: /azure/databricks/applications/mlflow/models
-          maintainContext: true
-        - name: MLflow 模型範例
-          href: /azure/databricks/applications/mlflow/model-examples
-          maintainContext: true
+          items:
+            - name: 儲存、載入和部署概觀
+              href: /azure/databricks/applications/mlflow/models
+              maintainContext: true
+            - name: MLflow 模型範例
+              href: /azure/databricks/applications/mlflow/  model-examples
+              maintainContext: true
         - name: 使用 MLflow 專案重現執行
           href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
@@ -880,9 +897,6 @@
         - name: Genomics 概觀
           href: /azure/databricks/applications/genomics/index
           maintainContext: true
-        - name: Genomics ETL 概觀
-          href: /azure/databricks/applications/genomics/etl/index
-          maintainContext: true
         - name: 次要分析
           items:
             - name: 次要分析概觀
@@ -908,6 +922,9 @@
               maintainContext: true
         - name: ETL
           items:
+            - name: Genomics ETL 概觀
+              href: /azure/databricks/applications/genomics/etl/index
+              maintainContext: true
             - name: 搭配 Apache Spark SQL 的變異 IO
               href: /azure/databricks/applications/genomics/etl/variant-data
               maintainContext: true
@@ -1211,10 +1228,7 @@
               maintainContext: true
             - name: 無法偵測 JSON 的編碼
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true
-            - name: JDBC 查詢選項不適用於 Oracle Database
-              href: /azure/databricks/kb/data-sources/query-option-not-work-oracle
-              maintainContext: true
+              maintainContext: true j
         - name: DBFS
           items:
             - name: 無法讀取儲存在 DBFS 根目錄中的物件
@@ -1293,6 +1307,9 @@
               maintainContext: true
             - name: 作業失敗 maxresultsize
               href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
+              maintainContext: true
+            - name: 確保冪等性
+              href: /azure/databricks/kb/jobs/jobs-idempotency
               maintainContext: true
         - name: 程式庫
           items:

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL Database 的資料相依路由 | Microsoft Docs
+title: Azure SQL Database 的資料相依路由
 description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一項功能)
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3f0ce4f3bdf3159e991bfd72590882dfa7412ee3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 319f2744cd437aea51a05592cd7a26f8b58fe761
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568493"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690282"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用資料相依路由將查詢路由至適當的資料庫
 
@@ -35,7 +35,7 @@ ms.locfileid: "68568493"
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>在資料相依路由應用程式中使用 ShardMapManager
 
-應用程式應該在初始化期間，使用 Factory 呼叫 **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) 來具現化 **ShardMapManager**。 此範例中會初始化 **ShardMapManager** 及其包含的特定 **ShardMap**。 這個範例示範 GetSqlShardMapManager 和 GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap)、[.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) 方法。
+應用程式應該在初始化期間，使用 Factory 呼叫 **GetSQLShardMapManager** (**Java**、[.NET](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager)) 來具現化 [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)。 此範例中會初始化 **ShardMapManager** 及其包含的特定 **ShardMap**。 這個範例示範 GetSqlShardMapManager 和 GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap)、[.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) 方法。
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);

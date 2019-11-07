@@ -1,6 +1,6 @@
 ---
 title: 演算法範例
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 機器學習服務基本概念的簡易概觀包含演算法範例。 可下載的資訊圖涵蓋大部分的機器學習服務問題。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 0864bdaf31d94469d30a745cfb911cda2c2e493d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 31bf3a5aed69e7fd903342ef229dbc4d1e2530bc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493337"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619670"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>可下載的資訊圖︰機器學習服務基本概念和演算法範例
 

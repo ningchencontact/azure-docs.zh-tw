@@ -30,6 +30,8 @@
                   href: hpc-cache-ingest-msrsync.md
                 - name: 使用檔案複製植入快取
                   href: hpc-cache-ingest-manual.md
+        - name: 編輯儲存體目標
+          href: hpc-cache-edit-storage.md
     - name: 連接到快取
       href: hpc-cache-mount.md
     - name: 管理快取

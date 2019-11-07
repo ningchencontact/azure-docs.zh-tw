@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure Data Factory 資料流程進行疑難排解 |Microsoft Docs
+title: 針對 Azure Data Factory 資料流程進行疑難排解
 description: 瞭解如何針對 Azure Data Factory 中的資料流程問題進行疑難排解。
 services: data-factory
 author: kromerm
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486188"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721341"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>針對 Azure Data Factory 資料流程進行疑難排解
 
@@ -75,6 +75,15 @@ ms.locfileid: "73486188"
 - **原因**：資料流程中的欄位對應到 SQL 資料庫中的資料行不足以儲存值，導致 SQL 驅動程式擲回此錯誤
 
 - **解決**方式：您可以使用衍生資料行中的 ```left()```，或實作為「錯誤資料列」模式，來減少字串資料行的資料長度[。](how-to-data-flow-error-rows.md)
+
+### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>錯誤訊息：自 Spark 2.3 起，當參考的資料行只包含內部損毀記錄資料行時，不允許來自原始 JSON/CSV 檔案的查詢。 
+
+- **徵兆**：從 JSON 來源讀取失敗
+
+- **原因**：從 JSON 來源讀取具有許多嵌套行、ADF、透過 Spark 的單一檔時，無法判斷新檔的開始位置，以及上一份檔結束的位置。
+
+- **解決**方式：在使用 JSON 資料集的來源轉換中，展開 [JSON 設定]，然後開啟 [單一檔]。
+
 
 ## <a name="general-troubleshooting-guidance"></a>一般疑難排解指引
 

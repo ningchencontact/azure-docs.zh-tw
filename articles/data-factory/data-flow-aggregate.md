@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 對應資料流程中的匯總轉換 |Microsoft Docs
+title: Azure Data Factory 對應資料流程中的匯總轉換
 description: 瞭解如何使用對應資料流程匯總轉換，在 Azure Data Factory 中大規模匯總資料。
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514838"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676903"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>對應資料流程中的匯總轉換 
 
@@ -42,7 +42,7 @@ Group by 子句在匯總轉換中是選擇性的。
 
 匯總轉換類似 SQL 匯總選取查詢。 不包含在 group by 子句或彙總函式中的資料行，將不會流經匯總轉換的輸出。 如果您想要在匯總輸出中包含其他資料行，請執行下列其中一種方法：
 
-* 請使用彙總函式（例如 `last()` 或 `first()`）來包含該額外的資料行。
+* 使用彙總函式（例如 `last()` 或 `first()`）包含該額外的資料行。
 * 使用[自我聯結模式](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/)，將資料行重新加入至您的輸出資料流程。
 
 ## <a name="data-flow-script"></a>資料流程腳本
@@ -68,7 +68,7 @@ Group by 子句在匯總轉換中是選擇性的。
 
 ### <a name="example"></a>範例
 
-下列範例會將傳入的資料流程 `MoviesYear`，並依資料行 `year` 將資料列分組。 轉換會建立 `avgrating` 的匯總資料行，評估為數據行 `Rating` 的平均值。 這個匯總轉換會命名為 `AvgComedyRatingsByYear`。
+下列範例會 `MoviesYear` 傳入的資料流程，並依資料行 `year`將資料列分組。 轉換會建立匯總資料行 `avgrating`，評估為數據行 `Rating`的平均值。 這個匯總轉換會命名為 `AvgComedyRatingsByYear`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 

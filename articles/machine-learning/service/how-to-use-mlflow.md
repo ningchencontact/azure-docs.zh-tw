@@ -1,5 +1,5 @@
 ---
-title: 使用 MLflow 搭配
+title: 適用于 ML 實驗的 MLflow 追蹤
 titleSuffix: Azure Machine Learning
 description: 使用 Azure Machine Learning 設定 MLflow，以記錄計量 & 成品，並從 Databricks、您的本機環境或 VM 環境部署模型。
 services: machine-learning
@@ -11,27 +11,30 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d98e45d3ef77fea6b64efef10c20ecce3787b14c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 946350af0c1a4e8140fbf7f926061aae250e9969
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489335"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716477"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure Machine Learning 追蹤計量和部署模型（預覽）
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文示範如何使用 Azure Machine Learning 來啟用 MLflow 的追蹤 URI 和記錄 API，統稱為[MLflow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)。 這麼做可讓您：
 
-+ 在您的[Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)中追蹤並記錄實驗計量和成品。 如果您已針對實驗使用 MLflow 追蹤，工作區會提供集中式、安全且可擴充的位置，以儲存您的定型計量和模型。
++ 在您的[Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)中追蹤並記錄實驗計量和成品。 如果您已針對實驗使用 MLflow 追蹤，工作區會提供集中式、安全且可擴充的位置來儲存定型計量和模型。
 
 + 將您的 MLflow 實驗部署為 Azure Machine Learning web 服務。 藉由部署為 web 服務，您可以將 Azure Machine Learning 監視和資料漂移偵測功能套用至生產環境模型。 
 
-[MLflow](https://www.mlflow.org)是一個開放原始碼程式庫，可用於管理機器學習實驗的生命週期。 MLFlow 追蹤是 MLflow 的元件，可記錄及追蹤您的定型執行計量和模型成品，無論您的實驗環境是在本機、在虛擬機器、遠端計算叢集上，甚至 Azure Databricks。
+[MLflow](https://www.mlflow.org)是一個開放原始碼程式庫，可用於管理機器學習實驗的生命週期。 MLFlow 追蹤是 MLflow 的元件，可記錄及追蹤您的定型執行計量和模型成品，不論您的實驗環境為何--在遠端計算目標上、虛擬機器本機、本機電腦或 Azure Databricks 叢集上。
 
-下圖說明使用 MLflow 追蹤時，您可以採取任何實驗--不論它是在虛擬機器上本機電腦上的遠端計算目標上，或是在 Azure Databricks 叢集上，並追蹤其執行計量和存放模型成品在您的 Azure Machine Learning 工作區中。
+下圖說明使用 MLflow 追蹤時，您可以追蹤實驗的執行計量，並將模型成品儲存在 Azure Machine Learning 工作區中。
 
 ![使用 azure machine learning mlflow 的圖表](media/how-to-use-mlflow/mlflow-diagram-track.png)
+
+> [!TIP]
+> 本檔中的資訊主要適用于想要監視模型定型流程的資料科學家和開發人員。 如果您是系統管理員，想要監視 Azure Machine learning 中的資源使用方式和事件（例如配額、已完成的定型回合或完成的模型部署），請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>比較 MLflow 和 Azure Machine Learning 用戶端
 
@@ -134,7 +137,7 @@ with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-透過此計算和定型回合設定，使用 `Experiment.submit('train.py')` 方法來提交執行。 這會自動設定 MLflow 追蹤 URI，並將記錄從 MLflow 導向至您的工作區。
+透過此計算和定型回合設定，使用 `Experiment.submit('train.py')` 方法來提交執行。 這個方法會自動設定 MLflow 追蹤 URI，並將記錄從 MLflow 導向至您的工作區。
 
 ```Python
 run = exp.submit(src)
@@ -163,7 +166,7 @@ run = exp.submit(src)
 
 一旦您的叢集設定完成，請匯入您的實驗筆記本，開啟它，並將您的叢集附加到其中。
 
-下列程式碼應該位於您的實驗筆記本中。 這會取得您的 Azure 訂用帳戶的詳細資料來具現化您的工作區。 這假設您有現有的資源群組和 Azure Machine Learning 工作區，否則您可以[建立它們](how-to-manage-workspace.md)。 
+下列程式碼應該位於您的實驗筆記本中。 此程式碼會取得您的 Azure 訂用帳戶的詳細資料，以具現化工作區。 此程式碼假設您已有現有的資源群組和 Azure Machine Learning 工作區，否則您可以[建立它們](how-to-manage-workspace.md)。 
 
 ```python
 import mlflow
@@ -194,7 +197,7 @@ ws = Workspace.get(name=workspace_name,
 
 ### <a name="link-mlflow-tracking-to-your-workspace"></a>將 MLflow 追蹤連結至您的工作區
 
-在您具現化工作區之後，請設定 MLflow 追蹤 URI。 如此一來，您就可以將 MLflow 追蹤連結到 Azure Machine Learning 工作區。 在此之後，您的所有實驗都會進入受控 Azure Machine Learning 追蹤服務。
+在您具現化工作區之後，請設定 MLflow 追蹤 URI。 如此一來，您就可以將 MLflow 追蹤連結到 Azure Machine Learning 工作區。 連結之後，您的所有實驗都會進入受控 Azure Machine Learning 追蹤服務。
 
 #### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>直接在您的筆記本中設定 MLflow 追蹤
 
@@ -249,7 +252,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### <a name="retrieve-model-from-previous-run"></a>從上一次執行取出模型
 
-若要取得所需的執行，您需要在儲存模型的執行歷程記錄中的執行識別碼和路徑。 
+若要取出執行，您需要在儲存模型所在之執行歷程記錄中的執行識別碼和路徑。 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -312,7 +315,7 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### <a name="deploy-to-aks"></a>部署到 AKS
 
-若要部署至 AKS，您需要建立 AKS 叢集，並將您要部署的 Docker 映射帶入其中。 針對此範例，請從 ACI 部署中帶入先前建立的映射。
+若要部署至 AKS，請先建立 AKS 叢集，並將您要部署的 Docker 映射帶入其中。 針對此範例，請從 ACI 部署中帶入先前建立的映射。
 
 若要從先前的 ACI 部署取得影像，請使用[image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py)類別。 
 
@@ -323,7 +326,7 @@ from azureml.core.image import Image
 myimage = Image(workspace=ws, name='sklearn-image') 
 ```
 
-建立 AKS compute 可能需要20-25 分鐘的時間來建立新的叢集
+使用[ComputeTarget. create （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)方法建立 AKS 叢集。 建立新叢集可能需要20-25 分鐘的時間。
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

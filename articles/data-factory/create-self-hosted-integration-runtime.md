@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中建立自我裝載整合執行階段 | Microsoft Docs | Microsoft Docs
+title: 在 Azure Data Factory 中建立自我裝載整合執行時間
 description: 了解如何在 Azure Data Factory 中建立自我裝載整合執行階段，它可讓資料處理站存取私人網路中的資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 594d4b941f3ed67daa4e1cfd57c2f5539e0cb9ee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285638"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677177"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -27,8 +27,13 @@ ms.locfileid: "72285638"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>安裝自我裝載 IR 的概略步驟
-1. 建立自我裝載整合執行階段。 您可以使用 Azure Data Factory UI 來執行這項工作。 以下是 PowerShell 範例︰
+## <a name="setting-up-a-self-hosted-integration-runtime"></a>設定自我裝載的 Integration Runtime
+
+若要建立及設定自我裝載整合執行時間，您可以使用下列方法：
+
+### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>透過 Azure PowerShell 建立自我裝載的 IR 
+
+1. 您可以使用此工作的 Azure PowerShell。 下列是一個範例：
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -44,8 +49,72 @@ ms.locfileid: "72285638"
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本在 Azure VM 上設定自我裝載 IR 
+### <a name="create-a-self-hosted-ir-via-azure-data-factory-ui"></a>透過 Azure Data Factory UI 建立自我裝載 IR
+
+您可以遵循下列步驟，使用 Azure Data Factory UI 來建立自我裝載 IR。 
+
+1. 在 Azure Data Factory UI 的 [**讓我們開始吧] 頁面**上，選取左窗格中的 [**作者**] 索引標籤。
+
+   ![首頁作者按鈕](media/doc-common-process/get-started-page-author-button.png)
+2. 按一下左窗格底部的 [**連接**]，然後切換至 [連線] 視窗中的**整合運行**時間。 選取 [ **+ 新增**]。
+
+   ![整合執行階段](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+3. 在 [**整合執行時間設定**] 視窗中，選取 [*執行資料移動並將活動分派到外部計算*]，然後按一下 [**繼續**]。
+4. 輸入 IR 的 [名稱]，然後選取 [**建立**]。
+5. 您可以使用**選項 1**在電腦上啟動快速安裝。 或者，使用**選項 2**手動設定。 下列指示是以**手動設定**為基礎：
+
+   ![整合執行階段設定](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
+
+    1. 複製並貼上驗證金鑰。 選取 [**下載並安裝整合運行**時間]。
+        
+    1. 在本機 Windows 電腦上下載自我裝載整合執行時間。 執行安裝。
+        
+    1. 在 [註冊 Integration Runtime (自我裝載)] 頁面上，貼上您在上一節中儲存的金鑰，然後選取 [註冊]。
+    
+       ![註冊整合執行階段](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
+
+    1. 在 [**新增 Integration Runtime （自我裝載）節點**] 頁面上，選取 **[完成]** 。 
+
+6. 當自我裝載的整合執行階段註冊成功時，您會看到下列訊息：
+
+    ![已成功註冊](media/create-self-hosted-integration-runtime/registered-successfully.png)
+
+### <a name="set-up-a-self-hosted-ir-on-azure-vm-via-azure-resource-manager-template"></a>透過 Azure Resource Manager 範本在 Azure VM 上設定自我裝載 IR 
 您可以使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime)在 Azure 虛擬機器上自動進行自我裝載 IR 設定。 此範本可讓您在 Azure 虛擬網路內，輕鬆擁有具高可用性和延展性功能的全功能自我裝載 IR (只要您設定的節點計數等於或高於 2)。
+
+### <a name="set-up-an-existing-self-hosted-ir-via-local-powershell"></a>透過本機 PowerShell 設定現有的自我裝載 IR
+
+您可以使用命令列來設定或管理現有的自我裝載 IR。 這可以特別用於自動化安裝、自我裝載 IR 節點的註冊。 
+
+**Dmgcmd**會包含在自我裝載安裝中，通常位於： C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ 資料夾。 這支援各種參數，而且可以透過命令提示字元使用自動化的批次腳本來叫用。 
+
+*使用方式：* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *詳細資料（參數/屬性）：* 
+
+| 屬性                                                    | 說明                                                  | 必要 |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | 使用指定的驗證金鑰註冊 Integration Runtime （自我裝載）節點 | 否       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 啟用目前節點上的遠端存取，以設定高可用性叢集，以及（或）直接對自我裝載 IR （不需要透過 ADF 服務）設定認證，使用從相同網路中的遠端電腦 AzDataFactoryV2LinkedServiceEncryptedCredential Cmdlet。 | 否       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 當節點在容器中執行時，啟用對目前節點的遠端存取 | 否       |
+| DisableRemoteAccess                                         | 停用對目前節點的遠端存取。 需要遠端存取，才能進行多節點設定。 **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell Cmdlet 仍然可以運作，即使已停用遠端存取，只要它是在與自我裝載 IR 節點相同的電腦上執行即可。 | 否       |
+| 金鑰 "`<AuthenticationKey>`"                                 | 覆寫/更新先前的驗證金鑰。 請小心，因為如果金鑰是新的整合執行時間，則會導致您先前的自我裝載 IR 節點離線。 | 否       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | 產生目前節點的備份檔案，備份檔案會包含節點金鑰和資料存放區認證 | 否       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | 從備份檔案還原節點                          | 否       |
+| 重新啟動                                                     | 重新開機 Integration Runtime （自我裝載）主機服務   | 否       |
+| Start                                                       | 啟動 Integration Runtime （自我裝載）主機服務     | 否       |
+| 停止                                                        | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
+| StartUpgradeService                                         | 啟動 Integration Runtime （自我裝載）更新服務       | 否       |
+| StopUpgradeService                                          | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
+| TurnOnAutoUpdate                                            | 開啟 Integration Runtime （自我裝載）自動更新        | 否       |
+| TurnOffAutoUpdate                                           | 關閉 Integration Runtime （自我裝載）自動更新       | 否       |
+| SwitchServiceAccount "< domain\user >" ["password"]           | 將 DIAHostService 設定為以新帳戶的身分執行。 針對系統帳戶或虛擬帳戶使用空白密碼（""） | 否       |
+| Loglevel `<logLevel>`                                       | 設定 ETW 記錄層級（關閉、錯誤、詳細資訊或全部）。 在進行偵錯工具時，通常是由 Microsoft 支援服務所使用。 | 否       |
+
 
 ## <a name="command-flow-and-data-flow"></a>命令流程和資料流程
 當您在內部部署和雲端之間移動資料時，活動會使用自我裝載整合執行階段將資料從內部部署資料來源傳輸到雲端，反之亦然。
@@ -62,8 +131,8 @@ ms.locfileid: "72285638"
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>使用自我裝載 IR 的考量
 
-- 單一的自我裝載整合執行階段可用於多個內部部署資料來源。 單一的自我裝載整合執行階段可以與同一個 Azure Active Directory 租用戶內的另一個 資料處理站共用。 如需詳細資訊，請參閱[共用自我裝載整合執行階段](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)。
-- 單一電腦上只能安裝一個自我裝載整合執行階段執行個體。 如果您有兩個需要存取內部部署資料來源的資料處理站，請使用[自我裝載 IR 共用功能](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)來共用自我裝載整合執行時間，或在兩部內部部署電腦上安裝自我裝載整合執行時間，一個每個資料處理站。  
+- 單一的自我裝載整合執行階段可用於多個內部部署資料來源。 單一的自我裝載整合執行階段可以與同一個 Azure Active Directory 租用戶內的另一個 資料處理站共用。 如需詳細資訊，請參閱[共用自我裝載整合執行階段](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory)。
+- 單一電腦上只能安裝一個自我裝載整合執行階段執行個體。 如果您有兩個需要存取內部部署資料來源的資料處理站，請使用[自我裝載 IR 共用功能](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory)來共用自我裝載整合執行時間，或在兩部內部部署電腦上安裝自我裝載整合執行時間，一個每個資料處理站。  
 - 自我裝載整合執行階段不一定要在與資料來源相同的電腦上。 不過，讓自我裝載整合執行階段更靠近資料來源，可以減少自我裝載整合執行階段連線到資料來源花費的時間。 建議您將自我裝載整合執行階段安裝在與裝載內部部署資料來源不同的電腦上。 當自我裝載整合執行階段和資料來源位於不同的電腦上時，自我裝載整合執行階段才不會與資料來源爭奪資源。
 - 您可以在不同電腦上有多個自我裝載整合執行階段，但它們皆連接至相同的內部部署資料來源。 例如，您可能有兩個用於為兩個資料處理站提供服務的自我裝載整合執行階段，但相同的內部部署資料來源都會向這兩個資料處理站註冊。
 - 若您已在電腦上安裝用於 Power BI 案例的閘道，請在另一部電腦上安裝另一個用於 Azure Data Factory 的自我裝載整合執行階段。
@@ -82,14 +151,14 @@ ms.locfileid: "72285638"
 - 複製活動流程會在特定頻率下出現。 電腦上的資源使用方式 (CPU、記憶體) 會與尖峰和閒置時間的模式相同。 資源使用率也仰賴要移動的資料量。 如果有多個複製作業正在進行，您會看到資源使用量在尖峰時段增加。
 - 如果以 Parquet、ORC 或 Avro 格式解壓縮資料，工作可能會失敗。 檔案建立會在自我裝載整合機器上執行，而且需要下列必要條件才能如預期般運作（請參閱[Azure Data Factory 中的 Parquet 格式](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)）。
     - [Visual C++ 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe)可轉散發套件（x64）
-    - 來自 JRE 提供者的 JAVA Runtime （JRE）第8版，例如[採用 OpenJDK](https://adoptopenjdk.net/)，確保已設定 @no__t 1 環境變數。
+    - 來自 JRE 提供者的 JAVA Runtime （JRE）第8版，例如[採用 OpenJDK](https://adoptopenjdk.net/)，確保已設定 `JAVA_HOME` 環境變數。
 
 ## <a name="installation-best-practices"></a>安裝最佳做法
 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載 MSI 安裝套件來安裝自我裝載整合執行階段。 如需逐步指示，請參閱[在內部部署與雲端之間移動資料一文](tutorial-hybrid-copy-powershell.md)。
 
 - 為自我裝載整合執行階段設定主機電腦上的電源計劃，使電腦不休眠。 如果主機電腦休眠，自我裝載整合執行階段就會離線。
 - 請定期備份與自我裝載整合執行階段相關聯的認證。
-- 如需自動化自我裝載的 IR 設定作業，請參閱[以下章節](#automation-support-for-self-hosted-ir-function)。  
+- 如需自動化自我裝載的 IR 設定作業，請參閱[本節中的](#setting-up-a-self-hosted-integration-runtime)透過**PowerShell 設定現有的自我裝載 ir** 。  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>從下載中心安裝和註冊自我裝載 IR
 
@@ -110,48 +179,9 @@ ms.locfileid: "72285638"
 
     a. 將驗證金鑰貼到文字區域。
 
-    b. (選擇性) 選取 [顯示驗證金鑰] 以查看金鑰文字。
+    b.這是另一個 C# 主控台應用程式。 (選擇性) 選取 [顯示驗證金鑰] 以查看金鑰文字。
 
     c. 選取 [註冊]。
-
-## <a name="automation-support-for-self-hosted-ir-function"></a>自我裝載 IR 函數的自動化支援
-
-
-> [!NOTE]
-> 如果您打算在 Azure 虛擬機器上設定自我裝載 IR，而且想要使用 Azure Resource Manager 範本將設定自動化，請參閱[一節](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template)。
-
-您可以使用命令列來設定或管理現有的自我裝載 IR。 這可以特別用於自動化安裝、自我裝載 IR 節點的註冊。 
-
-**Dmgcmd**會包含在自我裝載安裝中，通常位於：C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ 資料夾。 這支援各種參數，而且可以透過命令提示字元使用自動化的批次腳本來叫用。 
-
-*使用方式：* 
-
-```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
-```
-
- *詳細資料（參數/屬性）：* 
-
-| 屬性                                                    | 描述                                                  | 必要項 |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| RegisterNewNode "`<AuthenticationKey>`"                     | 使用指定的驗證金鑰註冊 Integration Runtime （自我裝載）節點 | 否       |
-| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 啟用目前節點上的遠端存取，以設定高可用性叢集，以及（或）直接對自我裝載 IR （不需要透過 ADF 服務）設定認證，使用從相同網路中的遠端電腦 AzDataFactoryV2LinkedServiceEncryptedCredential Cmdlet。 | 否       |
-| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 當節點在容器中執行時，啟用對目前節點的遠端存取 | 否       |
-| DisableRemoteAccess                                         | 停用對目前節點的遠端存取。 需要遠端存取，才能進行多節點設定。 **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell Cmdlet 仍然可以運作，即使已停用遠端存取，只要它是在與自我裝載 IR 節點相同的電腦上執行即可。 | 否       |
-| 機碼 "`<AuthenticationKey>`"                                 | 覆寫/更新先前的驗證金鑰。 請小心，因為如果金鑰是新的整合執行時間，則會導致您先前的自我裝載 IR 節點離線。 | 否       |
-| GenerateBackupFile "`<filePath>`" "`<password>`"            | 產生目前節點的備份檔案，備份檔案會包含節點金鑰和資料存放區認證 | 否       |
-| ImportBackupFile "`<filePath>`" "`<password>`"              | 從備份檔案還原節點                          | 否       |
-| 重新啟動                                                     | 重新開機 Integration Runtime （自我裝載）主機服務   | 否       |
-| Start                                                       | 啟動 Integration Runtime （自我裝載）主機服務     | 否       |
-| Stop                                                        | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
-| StartUpgradeService                                         | 啟動 Integration Runtime （自我裝載）更新服務       | 否       |
-| StopUpgradeService                                          | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
-| TurnOnAutoUpdate                                            | 開啟 Integration Runtime （自我裝載）自動更新        | 否       |
-| TurnOffAutoUpdate                                           | 關閉 Integration Runtime （自我裝載）自動更新       | 否       |
-| SwitchServiceAccount "<domain\user>" ["password"]           | 將 DIAHostService 設定為以新帳戶的身分執行。 針對系統帳戶或虛擬帳戶使用空白密碼（""） | 否       |
-| Loglevel `<logLevel>`                                       | 設定 ETW 記錄層級（關閉、錯誤、詳細資訊或全部）。 在進行偵錯工具時，通常是由 Microsoft 支援服務所使用。 | 否       |
-
-   
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
@@ -192,11 +222,9 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 > [!NOTE]
 > 此憑證是用來加密自我裝載 IR 節點上的埠，用於**節點對節點通訊**（包括跨節點的連結服務認證同步處理的狀態同步處理），以及**使用適用于的 PowerShell Cmdlet**從區域網路內的連結服務認證設定。 如果您的私人網路環境不安全，或者您也想要保護您私人網路內節點之間的通訊，我們建議使用此憑證。 不論是否設定此憑證，從自我裝載 IR 移到其他資料存放區的傳輸中資料移動一律會使用已加密的通道進行。 
 
-## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>與多個資料處理站共用自我裝載整合執行階段
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立共用的自我裝載整合執行時間
 
 您可以重複使用您已經在資料處理站中設定的現有自我裝載整合執行階段基礎結構。 這可讓您藉由參考現有的自我裝載 IR (共用)，在不同的資料處理站中建立*連結的自我裝載整合執行階段*。
-
-若要使用 PowerShell 共用自我裝載整合執行階段，請參閱[使用 PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段](create-shared-self-hosted-integration-runtime-powershell.md)。
 
 如需此功能的簡介與示範，請觀看下列 12 分鐘長的影片：
 
@@ -207,25 +235,11 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - **共用 IR**：在實體基礎結構上執行的原始自我裝載 IR。  
 - **連結的 IR**：參考另一個共用 IR 的 IR。 這是邏輯整合執行階段並使用另一個自我裝載整合執行階段 (共用) 的基礎結構。
 
-### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>用於建立連結自我裝載 IR 的概略步驟
+### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>共用自我裝載整合執行時間的方法
 
-1. 在要共用的自我裝載 IR 中，將權限授與您要建立連結 IR 的資料處理站。 
+若要與多個資料處理站共用自我裝載整合執行時間，請參閱[此指示](create-shared-self-hosted-integration-runtime-powershell.md)以取得詳細資訊。
 
-   ![在 [共用] 索引標籤上的權限授與按鈕](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-
-   ![指派權限的選取項目](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
-
-2. 請記下要共用的自我裝載 IR 的資源識別碼。
-
-   ![資源識別碼的位置](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-
-3. 在已授與權限的資料處理站中，建立新的自我裝載 IR (已連結) 並輸入資源識別碼。
-
-   ![建立已連結自我裝載整合執行階段的按鈕](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-
-   ![名稱和資源識別碼方塊](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
-
-### <a name="monitoring"></a>監視 
+### <a name="monitoring"></a>監控
 
 - **共用 IR**
 
@@ -261,6 +275,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 ![通知區域中的通知](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>連接埠和防火牆
+
 有兩個您需要考量的防火牆：在組織的中央路由器上執行的*公司防火牆*，以及在已安裝自我裝載整合執行階段的本機電腦上設定為精靈的 *Windows 防火牆*。
 
 ![防火牆](media/create-self-hosted-integration-runtime/firewall.png)
@@ -278,6 +293,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 > 對於某些雲端資料庫（例如，Azure SQL Database 和 Azure Data Lake），您可能需要允許自我裝載整合執行時間電腦的 IP 位址在其防火牆設定上。
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>將資料從來源複製到接收器
+
 請確定在公司防火牆、自我裝載整合執行階段電腦上的 Windows 防火牆，及資料存放區本身都已正確啟用防火牆規則。 啟用這些規則可讓自我裝載整合執行階段成功連線到來源和接收器。 請為複製作業所涉及的每個資料存放區啟用規則。
 
 例如，若要從內部部署資料存放區複製到 Azure SQL Database 接收器或 Azure SQL 資料倉儲接收器，請執行下列步驟︰
@@ -288,8 +304,8 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 > [!NOTE]
 > 如果您的防火牆不允許使用輸出連接埠 1433，自我裝載整合執行階段將無法直接存取 Azure SQL 資料庫。 在此情況下，您可以使用[分段複製](copy-activity-performance.md)到 Azure SQL Database 和 Azure SQL 資料倉儲。 在此案例中，您只需要 HTTPS (連接埠 443) 即可進行資料移動。
 
-
 ## <a name="proxy-server-considerations"></a>Proxy 伺服器考量
+
 如果您的公司網路環境使用 Proxy 伺服器來存取網際網路，請將自我裝載整合執行階段設定為使用適當的 Proxy 設定。 您可以在初始註冊階段期間設定 Proxy。
 
 ![指定 Proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
@@ -301,8 +317,8 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 有三個組態選項：
 
 - **不使用 Proxy**︰自我裝載整合執行階段不會明確地使用任何 Proxy 來連線到雲端服務。
-- **使用系統 Proxy**：自我裝載整合執行階段會使用 diahost.exe.config 和 diawp.exe.config 中設定的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未設定任何 Proxy，自我裝載整合執行階段就會直接連線到雲端服務而不經由 Proxy。
-- **使用自訂 Proxy**：設定要用於自我裝載整合執行階段的 HTTP Proxy 設定，而不使用 diahost.exe.config 和 diawp.exe.config 中的設定。必須指定 [IP 位址]和 [連接埠]。 [使用者名稱]和 [密碼]則為選擇性使用，需視您的 Proxy 驗證設定而定。 自我裝載整合執行階段上的所有設定都會使用 Windows DPAPI 加密，並儲存在本機電腦上。
+- **使用系統 proxy**：自我裝載整合執行時間會使用 diahost.exe.config 中設定的 proxy 設定和 diawp.exe.config。如果在 diahost.exe.config 和 diawp.exe.config 中未設定 proxy，自我裝載整合執行時間就會直接連線到雲端服務，而不需要透過 proxy。
+- **使用自訂 proxy**：設定 HTTP proxy 設定以用於自我裝載整合執行時間，而不是使用 diahost.exe.config 和 diawp.exe.config 中的設定。需要**位址**和**埠**。 [使用者名稱]和 [密碼]則為選擇性使用，需視您的 Proxy 驗證設定而定。 自我裝載整合執行階段上的所有設定都會使用 Windows DPAPI 加密，並儲存在本機電腦上。
 
 在您儲存已更新的 Proxy 設定之後，自我裝載整合執行階段主機服務會自動重新啟動。
 
@@ -322,10 +338,10 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 ### <a name="configure-proxy-server-settings"></a>設定 Proxy 伺服器設定
 
-如果您為 HTTP Proxy 選取 [使用系統 Proxy] 設定，自我裝載整合執行階段就會使用 diahost.exe.config 和 diawp.exe.config 中的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未指定任何 Proxy，自我裝載整合執行階段就會直接連線到雲端服務而不經由 Proxy。 下列程序說明如何更新 diahost.exe.config 檔案：
+如果您針對 HTTP proxy 選取 [**使用系統 proxy** ] 設定，自我裝載整合執行時間會使用 diahost.exe.config 和 diawp.exe.config 中的 proxy 設定。如果在 diahost.exe.config 和 diawp.exe.config 中未指定 proxy，自我裝載整合執行時間就會直接連線到雲端服務，而不需要透過 proxy。 下列程序說明如何更新 diahost.exe.config 檔案：
 
 1. 在「檔案總管」中，建立一份 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config 的安全複本來備份原始檔案。
-2. 以系統管理員身分啟動 Notepad.exe，並開啟文字檔 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config。您會在以下程式碼中找到 system.net 的預設標籤：
+2. 以系統管理員身分開啟 [Notepad.exe]，然後開啟 [文字檔 C:\Program Files\Microsoft Integration Runtime\3.0\shared\diahost.exe.config。]。尋找 system.net 的預設標記，如下列程式碼所示：
 
     ```xml
     <system.net>
@@ -359,9 +375,10 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 您也必須確定 Microsoft Azure 在公司的允許清單中。 如需有效的 Microsoft Azure IP 位址清單，可從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=41653)下載。
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>防火牆和 Proxy 伺服器相關問題的可能徵兆
+
 如果發生如下錯誤，有可能是因為防火牆或 Proxy 伺服器的設定不正確，使得自我裝載整合執行階段無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
-* 當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點！ 請確認驗證金鑰有效，且「整合執行階段主機服務」正在這部電腦上執行。
+* 當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點! 請確認驗證金鑰有效，且「整合執行階段主機服務」正在這部電腦上執行。
 * 當您開啟「Integration Runtime 組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄時，在 [事件檢視器] >  **[應用程式和服務記錄]**  >  **[Microsoft Integration Runtime]** 下，您會看到如下錯誤訊息：
 
     ```
@@ -369,7 +386,8 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="enabling-remote-access-from-an-intranet"></a>啟用來自內部網路的遠端存取  
+### <a name="enabling-remote-access-from-an-intranet"></a>啟用來自內部網路的遠端存取 
+
 如果您使用 PowerShell 來加密另一部電腦（在網路中）的認證，而非安裝自我裝載整合執行時間，您可以啟用 [**從內部網路進行遠端存取**] 選項。 如果您在安裝自我裝載整合執行時間的同一部電腦上執行 PowerShell 來加密認證，就無法啟用內部網路的**遠端存取**。
 
 在新增其他節點來實現高可用性和延展性之前，您應啟用 [來自內部網路的遠端存取]。  

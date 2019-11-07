@@ -1,5 +1,5 @@
 ---
-title: Azure 備份：使用 REST API 建立備份原則
+title: Azure 備份︰使用 REST API 建立備份原則
 description: 使用 REST API 管理備份原則 (排程和保留期)
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 50cc327c69529e420837571fdd60c1b2a1364b10
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954973"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670129"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 建立 Azure 復原服務備份原則
 
-[原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)概述為 Azure 復原服務保存庫建立備份原則的步驟。 讓我們使用這份文件作為參考，以建立 Azure VM 備份的原則。
+[原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)概述為 Azure 復原服務保存庫建立備份原則的步驟。 讓我們使用這份文件作為參考，以建立 Azure VM 備份的原則。
 
 ## <a name="backup-policy-essentials"></a>備份原則基本資訊
 
@@ -30,18 +30,18 @@ ms.locfileid: "68954973"
   - Azure 檔案共用
 - 您可以將一個原則指派給多項資源。 Azure VM 備份原則可用來保護許多 Azure VM。
 - 原則是由兩個元件所組成
-  - 任務備份的時間
-  - 保存每個備份應保留的時間長度。
+  - 排程：製作備份的時間
+  - 保留期：每個備份應保留的時間長度。
 - 排程可以定義為「每日」或「每週」的特定時間點。
 - 您可以定義「每日」、「每週」、「每月」、「每年」備份點的保留期。
 - 「每週」是指於當週的特定一天備份，「每月」代表於當月的特定一天備份，而「每年」是指於當年的特定一天備份。
 - 「每月」、「每年」備份點的保留期也稱為 "LongTermRetention"。
-- 建立保存庫時, 也會建立名為 "DefaultPolicy" 的 Azure VM 備份原則, 並可用於備份 Azure Vm。
+- 建立保存庫時，也會建立名為 "DefaultPolicy" 的 Azure VM 備份原則，並可用於備份 Azure Vm。
 
 若要建立或更新 Azure 備份原則，請使用下列 PUT 作業
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
 `{policyName}` 和 `{vaultName}` 都會在 URI 中提供。 要求本文中會提供其他資訊。
@@ -50,12 +50,12 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 例如，若要建立 Azure VM 備份的原則，以下是要求本文的元件。
 
-|名稱  |必要項  |Type  |描述  |
+|名稱  |必要  |類型  |說明  |
 |---------|---------|---------|---------|
-|properties     |   真      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
-|tags     |         | 物件        |  資源標籤       |
+|properties     |   是      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
+|tags     |         | Object        |  資源標籤       |
 
-如需要求本文中的完整定義清單，請參閱[備份原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)。
+如需要求本文中的完整定義清單，請參閱[備份原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)。
 
 ### <a name="example-request-body"></a>要求本文範例
 
@@ -152,15 +152,15 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 > [!IMPORTANT]
 > 排程和保留期的時間格式僅支援 DateTime。 不單獨支援 Time 格式。
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>回應
 
 備份原則的建立/更新為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
-它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
+它會傳回兩個回應：在建立另一個作業時，202（已接受），然後在該作業完成時傳回200（確定）。
 
-|名稱  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
-|200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  [確定]       |
+|200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  確定       |
 |202 已接受     |         |     已接受    |
 
 ### <a name="example-responses"></a>範例回應
@@ -181,14 +181,14 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 *GET* 命令，來追蹤所產生的作業。
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 ```
 
 當作業完成時，它會在回應本文中傳回 200 (確定) 以及原則內容。

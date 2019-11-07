@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics （先前稱為 SQL DW）常見問題 |Microsoft Docs
+title: Azure Synapse Analytics （先前稱為 SQL DW）常見問題
 description: 本文列出來自客戶和開發人員的 Azure Synapse Analytics （先前稱為 SQL DW）的常見問題
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4db84ed69979713d613679e94d50cdb73475e2be
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f7b4f926bb9611d87c67276f754a6b596850b59d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645597"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics （先前稱為 SQL DW）常見問題
 
@@ -47,7 +47,7 @@ A. 請造訪 [Microsoft 合規性 (英文)]頁面，依產品取得不同的合�
 
 問： 我可以連接 Power BI 嗎？
 
-A. 可以！ 雖然 Power BI 支援直接查詢 Azure Synapse，但不適用於大量使用者或即時資料。 若要在生產環境中使用 Power BI，建議您在 Azure Analysis Services 或 Analysis Service IaaS 上使用 Power BI。 
+A. 可以！ 雖然 Power BI 支援使用 Azure Synapse 進行直接查詢，但它並不適用于大量的使用者或即時資料。 若要進一步優化 Power BI 效能，請考慮在 Azure Analysis Services 或 Analysis Service IaaS 上使用 Power BI。
 
 問： 什麼是 SQL 分析容量限制？
 

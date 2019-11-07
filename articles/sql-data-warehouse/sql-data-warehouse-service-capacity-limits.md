@@ -1,5 +1,5 @@
 ---
-title: 容量限制-Azure Synapse 分析（舊稱 SQL DW） |Microsoft Docs
+title: 容量限制-Azure Synapse 分析（舊稱 SQL DW）
 description: Azure Synapse 中各種 SQL 分析元件允許的最大值。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,25 +10,26 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 702f78f5bae12b2eba6669a344af14f6d1236856
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475810"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645298"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure Synapse 分析（先前為 SQL DW）容量限制
 
 Azure Synapse 的各種元件所允許的最大值。
 
 ## <a name="workload-management"></a>工作負載管理
+
 | 類別 | 說明 | 最大值 |
 |:--- |:--- |:--- |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |單一 SQL 集區（資料倉儲）單位的最大 DWU | Gen1：DW6000<br></br>Gen2：DW30000c |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每一部伺服器的預設 DTU |54,000<br></br>根據預設，每個 SQL server （例如 myserver.database.windows.net）的 DTU 配額為54000，最多可達9個 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，並選取「配額」 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
 | 資料庫連接 |並行開啟的會話數上限 |1024<br/><br/>並行開啟的會話數目會根據選取的 DWU 而有所不同。 DWU600c 和更新版本支援最多1024個開啟的會話。 DWU500c 和以下支援最大並行開啟會話限制512。 請注意，可同時執行的查詢數目有所限制。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
 | 資料庫連接 |準備陳述式的最大記憶體 |20 MB |
-| [工作負載管理](resource-classes-for-workload-management.md) |並行查詢上限 |128<br/><br/>  最多會執行128個並行查詢，而且剩餘的查詢將會排入佇列。<br/><br/>將使用者指派給較高的資源類別，或當[資料倉儲單位](memory-and-concurrency-limits.md)設定降低時，並行查詢的數目可能會降低。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行，而不影響並行查詢限制。 如需並行查詢執行的詳細資訊，請參閱[並行最大值](memory-and-concurrency-limits.md#concurrency-maximums)一文。 |
+| [工作負載管理](resource-classes-for-workload-management.md) |並行查詢上限 |128<br/><br/>  最多會執行128個並行查詢，而且剩餘的查詢將會排入佇列。<br/><br/>將使用者指派給較高的資源類別，或降低 [資料倉儲單位] 的 [記憶體並行-limits.md] 設定時，並行查詢的數目可能會降低。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行，而不影響並行查詢限制。 如需並行查詢執行的詳細資訊，請參閱 [平行存取上限] 記憶體-並行-limits.md）一文。 |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB 上限 |每一 DW100 399 GB。 因此在 DWU1000，tempdb 大小為 3.99 TB。 |
 
 ## <a name="database-objects"></a>資料庫物件

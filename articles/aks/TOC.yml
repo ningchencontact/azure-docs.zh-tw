@@ -345,6 +345,8 @@
           maintainContext: true
         - name: 部署中心啟動器
           href: deployment-center-launcher.md
+        - name: 適用於 Kubernetes 的 GitHub 動作
+          href: ../aks/kubernetes-action.md
     - name: 疑難排解
       items:
         - name: 常見問題

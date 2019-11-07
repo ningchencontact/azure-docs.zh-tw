@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery 中的 Azure 至 Azure 複寫架構 | Microsoft Docs
-description: 本文概述當您使用 Azure Site Recovery 服務在 Azure VM 的 Azure 區域之間設定災害復原時，所用的元件和架構。
+title: Azure Site Recovery 中的 azure 至 Azure 嚴重損壞修復架構
+description: 當您使用 Azure Site Recovery 服務，在 azure Vm 的 Azure 區域之間設定嚴重損壞修復時，所使用的架構總覽。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231463"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621113"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 至 Azure 災害復原架構
 
@@ -97,13 +97,13 @@ Site Recovery 會依照下列方式建立快照集：
 
 ### <a name="crash-consistent"></a>絕對一致
 
-**描述** | **詳細資料** | **建議**
+**說明** | **詳細資料** | **建議**
 --- | --- | ---
 絕對一致的快照集會擷取在快照建立時位於磁碟上的資料。 其中不含記憶體中的任何資料。<br/><br/> 其中所含的資料，相當於設若在建立快照集時發生 VM 當機的狀況，或從伺服器上拔開電源線，所將存在於磁碟上的資料。<br/><br/> 「絕對一致」並不保證資料在作業系統上或 VM 的應用程式間可保有一致性。 | Site Recovery 依預設會每五分鐘建立一次絕對一致復原點。 此設定無法修改。<br/><br/>  | 現在，大部分的應用程式都可以從絕對一致復原點妥善復原。<br/><br/> 對作業系統的複寫，以及 DHCP 伺服器和列印伺服器之類的應用程式而言，使用絕對一致復原點通常就已足夠。
 
 ### <a name="app-consistent"></a>應用程式一致
 
-**描述** | **詳細資料** | **建議**
+**說明** | **詳細資料** | **建議**
 --- | --- | ---
 應用程式一致復原點可從應用程式一致快照集建立。<br/><br/> 應用程式一致的快照集包含絕對一致快照集中的所有資訊，以及記憶體和進行中的交易所包含的所有資料。 | 應用程式一致快照集會使用磁碟區陰影複製服務 (VSS)：<br/><br/>   1) 在起始快照集時，VSS 會在磁碟區上執行「寫入時複製」(COW) 作業。<br/><br/>   2) 在執行 COW 之前，VSS 會通知機器上的每個應用程式它需要將其記憶體常駐資料排清到磁碟。<br/><br/>   3) 接著，VSS 會允許備份/災害復原應用程式 (在此案例中為 Site Recovery) 讀取快照集資料並繼續執行。 | 應用程式一致快照集會依據您指定的頻率建立。 此頻率一律應小於您的保留復原點設定。 例如，如果您使用預設設定 24 小時來保留復原點，您所設定的頻率就應該小於 24 小時。<br/><br/>此類快照集比絕對一致快照集更複雜，且需要較長的時間才能完成。<br/><br/> 在 VM 上執行且已啟用複寫的應用程式，效能將會受其影響。 
 
@@ -139,7 +139,7 @@ Site Recovery 會依照下列方式建立快照集：
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 位址範圍的輸出連線能力
 
 若要使用 IP 位址控制 VM 的輸出連線能力，請允許這些位址。
-請注意, 網路連接需求的詳細資料可在[網路技術白皮書](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)中找到 
+請注意，網路連接需求的詳細資料可在[網路技術白皮書](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)中找到 
 
 #### <a name="source-region-rules"></a>來源區域規則
 

@@ -1,5 +1,5 @@
 ---
-title: 搭配使用彈性資料庫用戶端程式庫與 Entity Framework | Microsoft Docs
+title: 搭配 Entity Framework 使用彈性資料庫用戶端程式庫
 description: 使用彈性資料庫用戶端程式庫與和 Entity Framework 來編寫資料庫
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a6ed6eb2596663dd276fe580c9f2574163589b1d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568299"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690115"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
 
-這份文件說明 Entity Framework 應用程式為了要與 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合所需做的變更。 重點將著重於使用 Entity Framework **Code First** 方法來編寫[分區對應管理](sql-database-elastic-scale-shard-map-management.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 這整份文件是以 EF 的 [Code First - 新的資料庫](https://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。 本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。
+這份文件說明 Entity Framework 應用程式為了要與 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合所需做的變更。 重點將著重於使用 Entity Framework [Code First](sql-database-elastic-scale-shard-map-management.md) 方法來編寫[分區對應管理](sql-database-elastic-scale-data-dependent-routing.md)和**資料相依路由**。 這整份文件是以 EF 的 [Code First - 新的資料庫](https://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。 本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。
 
 ## <a name="downloading-and-running-the-sample-code"></a>下載並執行範例程式碼
 
@@ -59,7 +59,7 @@ Entity Framework 開發人員依賴下列四種工作流程來建置應用程式
 
 分區對應管理員可防止使用者檢視 Shardlet 資料時出現不一致，這種情況發生在並行 Shardlet 管理作業中 (例如將資料從一個分區重新放置到另一個分區)。 在作法上，用戶端程式庫所管理的分區對應會代理應用程式的資料庫連接。 這可讓分區對應功能在分區管理作業可能影響已建立連接的 Shardlet 時，自動終止資料庫連接。 這種方法需要與一些 EF 功能整合，例如從現有連接建立新的連接以檢查資料庫是否存在。 一般而言，我們觀察是只有在已關閉的資料庫連接上 (EF 工作可安心複製)，標準 DbContext 建構函式才能可靠地運作。 彈性資料庫的設計原則只是代理已開啟的連接。 有人可能會認為先關閉用戶端程式庫所代理的連接，再交給 EF DbContext，就可以解決這個問題。 不過，若關閉連線並依賴 EF 來重新開啟它，就等於放棄程式庫所執行的驗證和一致性檢查。 不過，EF 的移轉功能會使用這些連接，在應用程式不知情的情況下管理基礎資料庫結構描述。 在理想的情況下，您要在相同的應用程式中保留並結合彈性資料庫用戶端程式庫和 EF 提供的所有這些功能。 下一節詳細討論這些屬性和需求。 
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 當使用彈性資料庫用戶端程式庫和 Entity Framework API 時，您需要保留下列屬性： 
 
@@ -190,7 +190,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 上述程式碼範例說明應用程式所需的預設建構函式重寫，以便使用資料相依路由與 Entity Framework。 下表將這個方法擴及其他建構函式。 
 
-| 目前的建構函式 | 重寫的資料建構函式 | 基底建構函式 | 注意 |
+| 目前的建構函式 | 重寫的資料建構函式 | 基底建構函式 | 注意事項 |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |連接必須是分區對應和資料相依路由索引鍵的函數。 您需要略過由 EF 自動建立連接，改用分區對應來代理連接。 |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |連接是分區對應和資料相依路由索引鍵的函數。 固定的資料庫名稱或連接字串無法運作，因為它們會略過分區對應所執行的驗證。 |

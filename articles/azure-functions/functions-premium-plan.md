@@ -1,22 +1,20 @@
 ---
-title: Azure Functions Premium 方案（預覽） |Microsoft Docs
+title: Azure Functions 進階方案
 description: Azure Functions Premium 方案的詳細資料和設定選項（VNet，無冷啟動、無限制的執行持續時間）。
-services: functions
 author: jeffhollan
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755405"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719045"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 方案（預覽）
+# <a name="azure-functions-premium-plan"></a>Azure Functions 進階方案
 
 Azure Functions Premium 方案是函數應用程式的裝載選項。 Premium 方案提供 VNet 連線能力、無冷啟動和 Premium 硬體等功能。  多個函數應用程式可以部署到相同的高階方案，而方案則可讓您設定計算實例大小、基本方案大小和最大方案大小。  如需高階計畫和其他計畫和裝載類型的比較，請參閱[函數級別和裝載選項](functions-scale.md)。
 
@@ -35,7 +33,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 建立計畫之後，您可以使用[az functionapp create](/cli/azure/functionapp#az-functionapp-create)來建立函數應用程式。 在入口網站中，會同時建立方案和應用程式。 
 
-## <a name="features"></a>功能
+## <a name="features"></a>特性
 
 下列功能可供部署至 Premium 方案的函數應用程式使用。
 
@@ -59,7 +57,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 部署至 Premium 方案的 Azure Functions 會利用[web 應用程式的新 VNet 整合](../app-service/web-sites-integrate-with-vnet.md)。  設定之後，您的應用程式就可以與 VNet 內的資源通訊，或透過服務端點來保護其安全。  應用程式也可以使用 IP 限制來限制連入流量。
 
-將子網指派給高階方案中的函式應用程式時，您需要有足夠的 IP 位址可用於每個潛在實例的子網。 雖然實例的最大數目可能會在預覽期間有所不同，但我們需要至少具有100個可用位址的 IP 區塊。
+將子網指派給高階方案中的函式應用程式時，您需要有足夠的 IP 位址可用於每個潛在實例的子網。 我們需要至少具有100個可用位址的 IP 區塊。
 
 如需詳細資訊，請參閱[整合您的函數應用程式與 VNet](functions-create-vnet.md)。
 
@@ -71,11 +69,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 取用方案中的 Azure Functions 僅限10分鐘的時間執行一次。  在 Premium 方案中，回合持續時間預設為30分鐘，以防止執行失控。 不過，您可以[修改 host. json](./functions-host-json.md#functiontimeout)設定，讓 Premium 方案應用程式不受限制。
 
-在預覽中，您的持續時間不保證超過12分鐘，而且如果您的應用程式未調整到超過其最小工作者計數，則會有30分鐘以上的執行機會。
-
 ## <a name="plan-and-sku-settings"></a>方案和 SKU 設定
 
-當您建立方案時，可以設定兩個設定：實例的最小數目（或方案大小）和最大高載限制。  高階方案的最小實例為1，而在預覽期間的最大高載為20。  實例的最小值為保留且一律正在執行。
+當您建立方案時，可以設定兩個設定：實例的最小數目（或方案大小）和最大高載限制。  實例的最小值為保留且一律正在執行。
 
 > [!IMPORTANT]
 > 不論函式是否正在執行，您都會針對每個配置於最小實例計數的實例向您收費。
@@ -100,17 +96,17 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>地區
+## <a name="regions"></a>區域
 
-以下是每個 OS 的公開預覽目前支援的區域。
+以下是每個 OS 目前支援的區域。
 
-|地區| Windows | Linux |
+|區域| Windows | Linux |
 |--| -- | -- |
-|澳洲中部| ✔ * | |
-|澳洲中部 2| ✔ * | |
-|澳大利亞東部| ✔ | |
+|澳大利亞中部| ✔<sup>1</sup> | |
+|澳大利亞中部 2| ✔<sup>1</sup> | |
+|澳洲東部| ✔ | |
 |澳大利亞東南部 | ✔ | ✔ |
-|巴西南部| ✔ * * |  |
+|巴西南部| ✔<sup>2</sup> |  |
 |加拿大中部| ✔ |  |
 |美國中部| ✔ |  |
 |東亞| ✔ |  |
@@ -130,14 +126,11 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |西歐| ✔ | ✔ |
 |印度西部| ✔ |  |
 |美國西部| ✔ | ✔ |
+|美國西部 2| ✔ |  |
 
-\* 的相應放大上限限制為20個實例
+<sup>1</sup>最大相應放大限制為20個實例。  
+<sup>2</sup>最大相應放大限制為60個實例。
 
-\* * 最大相應放大限制為60個實例
-
-## <a name="known-issues"></a>已知問題
-
-您可以[在 GitHub 上追蹤公開預覽](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues)的已知問題狀態。
 
 ## <a name="next-steps"></a>後續步驟
 

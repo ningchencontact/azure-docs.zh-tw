@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Amazon Redshift 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Amazon Redshift 複製資料
 description: 了解如何使用 Azure Data Factory 將資料從 Amazon Redshift 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f04bf8e1003e33a98c44e6776f8cf887a4645b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 57152c7d4aa558c2d6dd7c4ef0ad2c62311fc0c6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090565"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681375"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -46,7 +46,7 @@ ms.locfileid: "71090565"
 * 如果您要使用[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 將資料複製到內部部署資料存放區，請將 Amazon Redshift 叢集的存取權授與 Integration Runtime (使用電腦的 IP 位址)。 如需相關指示，請參閱 [授權存取叢集](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 。
 * 如果您要將資料複製到 Azure 資料存放區，請參閱 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) 以取得 Azure 資料中心所使用的計算 IP 位址和 SQL 範圍。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -56,17 +56,17 @@ ms.locfileid: "71090565"
 
 以下是針對 Amazon Redshift 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**AmazonRedshift** | 是 |
-| server |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
+| 類型 | 類型屬性必須設定為：**AmazonRedshift** | 是 |
+| 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
-| database |Amazon Redshift 資料庫的名稱。 |是 |
+| 資料庫 |Amazon Redshift 資料庫的名稱。 |是 |
 | username |可存取資料庫之使用者的名稱。 |是 |
 | password |使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -98,12 +98,12 @@ ms.locfileid: "71090565"
 
 若要從 Amazon Redshift 複製資料，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**AmazonRedshiftTable** | 是 |
-| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
-| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **AmazonRedshiftTable** | 是 |
+| 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -123,19 +123,19 @@ ms.locfileid: "71090565"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
+如果您使用 `RelationalTable` 具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Amazon Redshift 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Amazon Redshift 來源所支援的屬性清單。
 
 ### <a name="amazon-redshift-as-source"></a>Amazon Redshift 作為來源
 
 若要從 Amazon Redshift 複製資料，請將複製活動中的來源類型設定為 **AmazonRedshiftSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
+| 類型 | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
 | query |使用自訂查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中的 "tableName") |
 | redshiftUnloadSettings | 使用 Amazon Redshift UNLOAD 時的屬性群組。 | 否 |
 | s3LinkedServiceName | 係指要作為暫時存放區的 Amazon S3 (藉由指定 "AmazonS3" 類型的已連結服務名稱)。 | 如果使用 UNLOAD，則為必要 |
@@ -220,17 +220,17 @@ ms.locfileid: "71090565"
 | Amazon Redshift 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |String |
-| CHAR |String |
-| DATE |DateTime |
-| Decimal |DECIMAL |
+| BOOLEAN |字串 |
+| CHAR |字串 |
+| 日期 |DateTime |
+| DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
-| REAL |Single |
+| REAL |單一 |
 | SMALLINT |Int16 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
-| VARCHAR |String |
+| TEXT |字串 |
+| 時間戳記 |DateTime |
+| VARCHAR |字串 |
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性
 

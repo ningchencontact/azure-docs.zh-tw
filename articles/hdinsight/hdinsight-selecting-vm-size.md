@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d93c3599bb4a52a03d4ac436ca664ce6be1c55b9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200823"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682213"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>為您的 Azure HDInsight 叢集選取適當的 VM 大小
 
@@ -38,14 +38,14 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 Azure 中的虛擬機器系列已優化，以符合不同的使用案例。 在下表中，您可以找到一些最受歡迎的使用案例和與它們相符的 VM 系列。
 
-| Type                     | 大小           |    描述       |
+| 類型                     | 大小           |    說明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [專案層級](../virtual-machines/linux/sizes-general.md)          | A、Av2  | CPU 效能和記憶體設定最適合進入層級的工作負載，例如開發和測試。 對剛開始使用 Azure 而言，是項實惠的低成本選項。 |
-| [一般用途](../virtual-machines/linux/sizes-general.md)          | D、DSv2、Dv2  | CPU/記憶體比例平均。 很適合測試與開發、小型至中型資料庫及低至中流量網頁伺服器。 |
-| [計算最佳化](../virtual-machines/linux/sizes-compute.md)        | F           | CPU/記憶體比例高。 適用於中流量網頁伺服器、網路設備、批次處理及應用程式伺服器。        |
-| [記憶體最佳化](../virtual-machines/linux/sizes-memory.md)         | Esv3、Ev3  | 記憶體與 CPU 的比例高。 適用於關聯式資料庫伺服器、中型至大型快取及記憶體內部分析。                 |
+| [一般用途](../virtual-machines/linux/sizes-general.md)          | D、DSv2、Dv2  | CPU 與記憶體的比例平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 |
+| [計算最佳化](../virtual-machines/linux/sizes-compute.md)        | F           | CPU 與記憶體的比例高。 適用於中流量 Web 伺服器、網路設備、批次處理，以及應用程式伺服器。        |
+| [記憶體最佳化](../virtual-machines/linux/sizes-memory.md)         | Esv3、Ev3  | 記憶體與 CPU 的比例高。 適用於關聯式資料庫伺服器、中型至大型快取，以及記憶體內部分析。                 |
 
-- 如需有關 HDInsight 支援區域中可用 VM 實例價格的詳細資訊，請參閱[Hdinsight 定價](https://azure.microsoft.com/en-us/pricing/details/hdinsight/)。
+- 如需有關 HDInsight 支援區域中可用 VM 實例價格的詳細資訊，請參閱[Hdinsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="cost-saving-vm-types-for-light-workloads"></a>成本節省輕量工作負載的 VM 類型
 
@@ -55,13 +55,13 @@ Azure 中的虛擬機器系列已優化，以符合不同的使用案例。 在�
 
 | 叢集類型 | 版本 | 背景工作節點 | 前端節點 | Zookeeper 節點 |
 |---|---|---|---|---|
-| Spark | 所有 | F4 和更新版本 | 否 | 否 |
-| Hadoop | 所有 | F4 和更新版本 | 否 | 否 |
-| Kafka | 所有 | F4 和更新版本 | 否 | 否 |
-| hbase | 所有 | F4 和更新版本 | 否 | 否 |
-| LLAP | disabled | 否 | 否 | 否 |
-| Storm | disabled | 否 | 否 | 否 |
-| ML 服務 | 僅限 HDI 3。6 | F4 和更新版本 | 否 | 否 |
+| Spark | 全部 | F4 和更新版本 | no | no |
+| Hadoop | 全部 | F4 和更新版本 | no | no |
+| Kafka | 全部 | F4 和更新版本 | no | no |
+| hbase | 全部 | F4 和更新版本 | no | no |
+| LLAP | disabled | no | no | no |
+| Storm | disabled | no | no | no |
+| ML 服務 | 僅限 HDI 3。6 | F4 和更新版本 | no | no |
 
 若要查看每個 F 系列 SKU 的規格，請參閱[f 系列 VM 大小](https://azure.microsoft.com/blog/f-series-vm-size/)。
 

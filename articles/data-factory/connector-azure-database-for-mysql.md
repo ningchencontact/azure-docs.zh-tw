@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 在適用於 MySQL 的 Azure 資料庫之間複製資料 |Microsoft Docs
+title: 使用 Azure Data Factory 從適用於 MySQL 的 Azure 資料庫複製資料
 description: 瞭解如何使用 Azure Data Factory 管線中的複製活動，將資料複製到適用於 MySQL 的 Azure 資料庫。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: jingwang
-ms.openlocfilehash: c15a60b7329359ee8d3e429159eb178c0c9b4782
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: dd450852931fdc57192bcc126b710d8cfb3e27ac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018756"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681240"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 MySQL 的 Azure 資料庫複製資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "71018756"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -46,20 +46,20 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對適用於 MySQL 的 Azure 資料庫已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AzureMySql** | 是 |
+| 類型 | type 屬性必須設為：**AzureMySql** | 是 |
 | connectionString | 指定連線到適用於 MySQL 的 Azure 資料庫執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`。 您可以根據您的案例設定更多屬性：
 
-| 屬性 | 描述 | 選項。 | 必要項 |
+| 屬性 | 說明 | 選項 | 必要 |
 |:--- |:--- |:--- |:--- |
 | SSLMode | 此選項指定驅動程式在連接到 MySQL 時，是否會使用 SSL 加密及驗證。 例如 `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(預設)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | 否 |
 | UseSystemTrustStore | 此選項指定是否使用來自系統信任存放區或來自指定 PEM 檔案的 CA 憑證。 例如 `UseSystemTrustStore=<0/1>;`| 啟用 (1) / 停用 (0) **(預設)** | 否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -115,10 +115,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從適用於 MySQL 的 Azure 資料庫複製資料，將資料集的 type 屬性設定為 **AzureMySqlTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**AzureMySqlTable** | 是 |
-| tableName | MySQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的 type 屬性必須設定為：**AzureMySqlTable** | 是 |
+| tableName | MySQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -140,19 +140,19 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供適用於 MySQL 的 Azure 資料庫來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供適用於 MySQL 的 Azure 資料庫來源和接收器所支援的屬性清單。
 
 ### <a name="azure-database-for-mysql-as-source"></a>適用於 MySQL 的 Azure 資料庫作為來源
 
 若要從適用於 MySQL 的 Azure 資料庫複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**AzureMySqlSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
-| queryCommandTimeout | 查詢要求逾時之前的等待時間。預設值為120分鐘（02:00:00） | 否 |
+| 類型 | 複製活動來源的 type 屬性必須設定為：**AzureMyTableSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
+| queryCommandTimeout | 查詢要求超時之前的等候時間。預設值為120分鐘（02:00:00） | 否 |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -188,14 +188,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要將資料複製到適用於 MySQL 的 Azure 資料庫，複製活動的 [**接收**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| Type | 複製活動接收器的類型屬性必須設定為：**AzureMySqlSink** | 是 |
+| 類型 | 複製活動接收器的類型屬性必須設定為： **AzureMySqlSink** | 是 |
 | preCopyScript | 指定在每次執行中將資料寫入適用於 MySQL 的 Azure 資料庫之前，複製活動所要執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入適用於 MySQL 的 Azure 資料庫資料表。<br>允許的值為代表資料列數目的整數。 | 否 (預設值為 10000) |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br>允許的值為時間範圍。 範例是 00:30:00 (30 分鐘)。 | 否（預設值為00:00:30） |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Office 365 複製資料 |Microsoft Docs
+title: 使用 Azure Data Factory 從 Office 365 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 Office 365 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7290a7a2f0bf6e12234ff3c09f5c5211dcaeba2d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9bd059d42686a37701af0d42f54335b83c06b752
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931037"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680576"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Office 365 複製到 Azure
 

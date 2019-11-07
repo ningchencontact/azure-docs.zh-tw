@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure SQL 資料同步 | Microsoft Docs
+title: 設定 Azure SQL 資料同步
 description: 本教學課程說明如何設定 Azure SQL 資料同步
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 082721ef1436d0b6668016aca29870016038af86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568172"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689986"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 Azure SQL Database 與內部部署 SQL Server 之間的 SQL 資料同步
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 Azure SQL Database 和 SQL Server 內部部署之間的 SQL 資料同步
 
 在本教學課程中，您將了解如何使用包含 Azure SQL Database 和 SQL Server 執行個體的同步群組設定 Azure SQL 資料同步。 同步群組會依照您設定的排程自訂設定和同步。
 
@@ -48,7 +48,7 @@ ms.locfileid: "68568172"
 
    在 [建立資料同步群組] 頁面上，變更下列設定：
 
-   | 設定                        | 描述 |
+   | 設定                        | 說明 |
    | ------------------------------ | ------------------------------------------------- |
    | **同步群組名稱** | 輸入新同步群組的名稱。 這個名稱與資料庫本身的名稱不同。 |
    | **同步處理中繼資料資料庫** | 選擇建立資料庫 (建議) 或使用現有的資料庫。<br/><br/>如果您選擇 [新增資料庫]，請選取 [建立新的資料庫]。 然後在 [SQL Database] 頁面上，命名並設定新的資料庫，然後選取 [確定]。<br/><br/>如果您選擇 [使用現有資料庫]，請從清單中選取資料庫。 |
@@ -76,7 +76,7 @@ ms.locfileid: "68568172"
 
   在 [設定 Azure SQL Database] 頁面上，變更下列設定：
 
-  | 設定                       | 描述 |
+  | 設定                       | 說明 |
   | ----------------------------- | ------------------------------------------------- |
   | **同步成員名稱** | 提供新同步成員的名稱。 這個名稱與資料庫本身的名稱不同。 |
   | **訂用帳戶** | 選取相關聯的 Azure 訂用帳戶以便計費。 |
@@ -119,7 +119,7 @@ ms.locfileid: "68568172"
 
     1. 在同步處理代理程式應用程式中，選取 [提交代理程式金鑰]。 [同步中繼資料的資料庫組態] 對話方塊隨即開啟。
 
-    1. 在 [同步中繼資料的資料庫組態] 對話方塊中，貼上從 Azure 入口網站複製的代理程式金鑰。 還要提供輸入中繼資料資料庫所在 Azure SQL Database 伺服器的現有認證。 (如果您已建立中繼資料資料庫，此資料庫會位在和中樞資料庫相同的伺服器)。選取 [確定] 並等待完成組態。
+    1. 在 [同步中繼資料的資料庫組態] 對話方塊中，貼上從 Azure 入口網站複製的代理程式金鑰。 還要提供輸入中繼資料資料庫所在 Azure SQL Database 伺服器的現有認證。 （如果您已建立中繼資料資料庫，此資料庫會與中樞資料庫位於相同的伺服器上）。選取 **[確定]** ，並等候設定完成。
 
         ![輸入代理程式金鑰和伺服器認證](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -155,7 +155,7 @@ ms.locfileid: "68568172"
 
 1. 在 [資料表] 頁面上，從同步群組成員清單中選取資料庫，然後選取 [重新整理結構描述]。
 
-1. 從清單中，選取您要同步的資料表。預設會選取所有的資料行，所以請取消選取您不想同步的資料行核取方塊。請務必保留選取的主索引鍵資料行。
+1. 從清單中，選取您想要同步的資料表。預設會選取所有資料行，因此請停用您不想要同步的資料行核取方塊。請務必保留選取的 [主鍵] 資料行。
 
 1. 選取 [ **儲存**]。
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e81eaf232e3234ac4de0cfb7412e23709f0c0b99
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: 3a2967ab40da8594b2d6372d5da816a6c76c9109
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549103"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721726"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 認知搜尋的新功能
 
@@ -31,16 +31,18 @@ API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的
 
 2019年11月4日-Ignite 會議
 
-+ 累加[式索引編制](cognitive-search-incremental-indexing-conceptual.md)（現為預覽階段）可讓您只處理或重新處理對擴充管線進行修改時絕對必要的步驟。 如果您有先前分析的影像內容，這會特別有用。 成本高昂分析的輸出會儲存起來，然後用來做為額外索引或擴充的基礎。
++ 累加[式索引編制（預覽）](cognitive-search-incremental-indexing-conceptual.md)可讓您只處理或重新處理對擴充管線進行修改時絕對必要的步驟。 如果您有先前分析的影像內容，這會特別有用。 成本高昂分析的輸出會儲存起來，然後用來做為額外索引或擴充的基礎。
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ 檔[解壓縮](cognitive-search-skill-document-extraction.md)是在編制索引期間使用的認知技能，可讓您從技能集中解壓縮檔案的內容。 過去，只有在技能集執行之前才會發生檔破解。 隨著這項技能的增加，您也可以在技能集執行期間執行此作業。
++ 檔[解壓縮（預覽）](cognitive-search-skill-document-extraction.md)是在編制索引期間使用的認知技能，可讓您從技能集中解壓縮檔案的內容。 過去，只有在技能集執行之前才會發生檔破解。 隨著這項技能的增加，您也可以在技能集執行期間執行此作業。
 
-+ [文字翻譯](cognitive-search-skill-text-translation.md)是在索引編制期間所使用的認知技能，可評估文字，而針對每筆記錄，會傳回轉譯為指定目的語言的文字。
++ [文字翻譯（預覽）](cognitive-search-skill-text-translation.md)是在索引編制期間所使用的認知技能，可評估文字，而針對每一筆記錄，會傳回轉譯為指定目的語言的文字。
 
 + [Power BI 範本](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md)可以快速開始您的視覺效果，並分析 Power BI desktop 中的知識存放區中豐富的內容。 此範本是針對透過 [匯[入資料] wizard](knowledge-store-create-portal.md)建立的 Azure 資料表投影所設計。
+
++ [Azure Data Lake Storage Gen2 （預覽）](search-howto-index-azure-data-lake-storage.md)、 [Cosmos DB Gremlin API （預覽）](search-howto-index-cosmosdb.md)和[Cosmos DB Cassandra API （預覽）](search-howto-index-cosmosdb.md)現在已在索引子中支援。 您可以使用[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)進行註冊。 一旦您接受預覽計畫，就會收到一封確認電子郵件。
 
 ## <a name="service-updates"></a>服務更新
 

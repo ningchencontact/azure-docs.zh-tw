@@ -1,25 +1,24 @@
 ---
 title: 知識存放區簡介（預覽）
 titleSuffix: Azure Cognitive Search
-description: 將擴充的檔傳送至 Azure 儲存體，您可以在 Azure 認知搜尋和其他應用程式中查看、重新塑造及取用擴充的檔。
+description: 將擴充的檔傳送至 Azure 儲存體，您可以在 Azure 認知搜尋和其他應用程式中查看、重新塑造及取用擴充的檔。 這項功能處於公開預覽狀態。
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e6d20a1eca7a6b3281e33d8534ab3456e79ccdf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485076"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720089"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure 認知搜尋中的知識存放區簡介
 
-> [!Note]
-> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
->
+> [!IMPORTANT] 
+> 知識存放區目前為公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前有有限的入口網站支援，而且沒有 .NET SDK 支援。
 
 知識存放區是 Azure 認知搜尋的一項功能，可保存[AI 擴充管線](cognitive-search-concept-intro.md)的輸出，以供日後分析或其他下游處理。 擴充的*檔*是管線的輸出，從使用 AI 程式進行解壓縮、結構化和分析的內容中建立。 在標準 AI 管線中，擴充的檔是暫時性的，只會在編制索引期間使用，然後捨棄。 使用知識存放區時，會保留擴充的檔。 
 

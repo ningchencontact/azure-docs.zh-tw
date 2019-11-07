@@ -4,7 +4,7 @@ description: 本文提供 Azure 作業安全性概觀。
 services: security
 documentationcenter: na
 author: unifycloud
-manager: barbkess
+manager: rkarlin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899812"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643776"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
@@ -30,13 +30,13 @@ ms.locfileid: "69899812"
 
 IT 作業小組負責管理資料中心基礎結構、應用程式和資料，包括這些系統的穩定性與安全性。 不過，要在日趨複雜的 IT 環境中取得安全性深入解析，通常需要組織將多個安全性和管理系統的資料加以併用。
 
-[Microsoft Azure 監視器記錄](/azure/operations-management-suite/operations-management-suite-overview)是雲端式 IT 管理解決方案, 可協助您管理及保護您的內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 Azure 包含多種服務，可協助您管理並保護您的內部部署和雲端基礎結構。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
+[Microsoft Azure 監視器記錄](/azure/operations-management-suite/operations-management-suite-overview)是雲端式 IT 管理解決方案，可協助您管理及保護您的內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 Azure 包含多種服務，可協助您管理並保護您的內部部署和雲端基礎結構。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
 
 ### <a name="azure-monitor"></a>Azure 監視器
 
-[Azure 監視器](/azure/azure-monitor/overview)能收集受控來源的資料，並將其儲存至中央資料存放區。 此資料可以包括事件、效能資料，或透過 API 提供的自訂資料。 收集資料之後，即可將其用於警示、分析和匯出。 
+[Azure 監視器](/azure/azure-monitor/overview)能收集受控來源的資料，並將其儲存至中央資料存放區。 此資料可以包括事件、效能資料，或透過 API 提供的自訂資料。 收集資料之後，即可將其用於警示、分析和匯出。
 
-您可以合併各種來源的資料，並結合來自 Azure 服務與現有內部部署環境的資料。 Azure 監視器記錄也會清楚地分隔資料的收集與對該資料採取的動作, 讓所有動作都可供所有類型的資料使用。
+您可以合併各種來源的資料，並結合來自 Azure 服務與現有內部部署環境的資料。 Azure 監視器記錄也會清楚地分隔資料的收集與對該資料採取的動作，讓所有動作都可供所有類型的資料使用。
 
 ### <a name="automation"></a>自動化
 
@@ -44,13 +44,13 @@ IT 作業小組負責管理資料中心基礎結構、應用程式和資料，�
 
 ### <a name="backup"></a>備份
 
-[Azure 備份](/azure/backup/backup-introduction-to-azure-backup)是以 Azure 為基礎的服務，可用來備份 (或保護) 和還原 Microsoft Cloud 中的資料。 Azure 備份會以一個可靠、安全且具成本競爭力的雲端式解決方案，來取代您的現有內部部署或異地備份解決方案。 
+[Azure 備份](/azure/backup/backup-introduction-to-azure-backup)是以 Azure 為基礎的服務，可用來備份 (或保護) 和還原 Microsoft Cloud 中的資料。 Azure 備份會以一個可靠、安全且具成本競爭力的雲端式解決方案，來取代您的現有內部部署或異地備份解決方案。
 
-Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺服器上，或是雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份元件 (無論您要保護的是內部部署或雲端中的資料) 都可用來將資料備份至 Azure 中的 Azure 復原服務保存庫。 
+Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺服器上，或是雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份元件 (無論您要保護的是內部部署或雲端中的資料) 都可用來將資料備份至 Azure 中的 Azure 復原服務保存庫。
 
 如需詳細資訊，請參閱 [Azure 備份元件表格](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)。
 
-### <a name="site-recovery"></a>Site Recovery
+### <a name="site-recovery"></a>站台復原
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) 透過協調內部部署虛擬和實體機器至 Azure 或次要網站的複寫，來提供商務持續性。 如果主要網站無法使用，您會容錯移轉到次要位置，讓使用者可以繼續工作。 您會在系統回到正常運作時進行容錯回復。 使用 Azure 資訊安全中心來執行更聰明且有效的威脅偵測。
 
@@ -102,7 +102,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](/azure/security/secu
 
 [Azure 監視器](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)是用以監視 Azure 上執行之服務的基本工具。 它會提供關於服務輸送量及周遭環境之基礎結構等級的資料。 如果您在 Azure 中管理所有應用程式，並決定要相應增加或減少資源，Azure 監視器就是起點。
 
-您還可以使用監視資料來取得應用程式的深入見解。 這些知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。 
+您還可以使用監視資料來取得應用程式的深入見解。 這些知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
 
 Azure 監視器包括下列元件。
 
@@ -118,7 +118,7 @@ Windows 事件系統記錄是適用於 VM 的診斷記錄類別之一。 Blob、
 
 診斷記錄與[活動記錄](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)不同。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解您的資源自行執行的作業。
 
-### <a name="metrics"></a>計量
+### <a name="metrics"></a>度量
 
 Azure 監視器提供遙測功能，讓您可以在 Azure 上查看工作負載的效能與健康情況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的[計量](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
 
@@ -142,11 +142,11 @@ Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您�
 
 - [拓撲](/azure/network-watcher/network-watcher-topology-overview)：提供資源群組中網路資源之間各種互相連線和關聯的檢視。
 - [變數封包擷取](/azure/network-watcher/network-watcher-packet-capture-overview)：擷取進出虛擬機器的封包資料。 進階篩選選項和微調控制項 (例如能夠設定時間和大小限制) 可讓您靈活擷取資料。 封包資料可以 .cap 格式儲存在 Blob 存放區或本機磁碟上。
-- [IP 流量驗證](/azure/network-watcher/network-watcher-ip-flow-verify-overview)：根據流量資訊的 5-Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查是否要允許或拒絕封包。 如果安全性群組拒絕了封包，則會傳回拒絕封包的規則和群組。
+- [IP 流量驗證](/azure/network-watcher/network-watcher-ip-flow-verify-overview)：根據流量資訊的 5-Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查允許或拒絕封包。 如果安全性群組拒絕了封包，則會傳回拒絕封包的規則和群組。
 - [下一個躍點](/azure/network-watcher/network-watcher-next-hop-overview)：決定在 Azure 網路網狀架構中路由傳送封包的下一個躍點，讓您可以診斷任何設定錯誤的使用者定義路由。
-- [安全性群組檢視](/azure/network-watcher/network-watcher-security-group-view-overview)：取得套用至 VM 的有效和已套用安全性規則。
+- [安全性群組檢視](/azure/network-watcher/network-watcher-security-group-view-overview)：取得要在 VM 上套用的有效和已套用安全性規則。
 - [網路安全性群組的 NSG 流量記錄](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)：可讓您擷取群組中安全性規則所允許或拒絕流量的相關記錄。 流量是由 5-Tuple 資訊所定義的：來源 IP、目的地 IP、來源連接埠、目的地連接埠和通訊協定。
-- [虛擬網路閘道和連線疑難排解](/azure/network-watcher/network-watcher-troubleshoot-manage-rest)：可提供針對虛擬網路閘道和連線進行疑難排解的能力。
+- [虛擬網路閘道和連線疑難排解](/azure/network-watcher/network-watcher-troubleshoot-manage-rest)：提供針對虛擬網路閘道和連線進行疑難排解的功能。
 - [網路訂用帳戶限制](/azure/network-watcher/network-watcher-monitoring-overview)：可讓您根據限制檢視網路資源使用狀況。
 - [診斷記錄](/azure/network-watcher/network-watcher-monitoring-overview)：提供單一窗格以啟用或停用資源群組中網路資源的診斷記錄。
 
@@ -154,13 +154,15 @@ Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您�
 
 ## <a name="cloud-service-provider-access-transparency"></a>雲端提供者存取透明度
 
-[適用於 Microsoft Azure 的客戶加密箱](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/) \(英文\) 是整合至 Azure 入口網站中的服務，能在 Microsoft 支援工程師可能需要存取您的資料以解決問題的罕見情況下，給予您明確的控制。 Microsoft 支援工程師只有在極少數的情況下 (例如對遠端存取問題進行偵錯) 才會需要提高的權限以解決此問題。 在該情況下，Microsoft 工程師會使用 Just-In-Time 存取服務，其能提供有限且具時間約束的授權，並將存取權限制於該服務。  
+[適用於 Microsoft Azure 的客戶加密箱](customer-lockbox-overview.md) \(英文\) 是整合至 Azure 入口網站中的服務，能在 Microsoft 支援工程師可能需要存取您的資料以解決問題的罕見情況下，給予您明確的控制。
+Microsoft 支援工程師只有在極少數的情況下 (例如對遠端存取問題進行偵錯) 才會需要提高的權限以解決此問題。 在該情況下，Microsoft 工程師會使用 Just-In-Time 存取服務，其能提供有限且具時間約束的授權，並將存取權限制於該服務。  
 雖然 Microsoft 向來都會針對存取取得客戶同意，客戶加密箱現在能讓您從 Azure 入口網站檢閱並核准或拒絕此類要求。 在您核准要求之前，系統將不會把存取權授與 Microsoft 支援工程師。
 
 ## <a name="standardized-and-compliant-deployments"></a>標準化且符合規範的部署
 
 [Azure 藍圖](/azure/governance/blueprints/overview)可讓雲端架構人員和中央資訊技術人員定義一組可重複使用的 Azure 資源，其中實作並遵循組織的標準、模式和需求。  
-這可讓 DevOps 小組能迅速地建置並啟用新環境，並可保證其所建置環境的基礎結構會符合組織合規性。 藍圖能提供宣告方式來協調部署多種資源範本與其他成品，例如： 
+這可讓 DevOps 小組能迅速地建置並啟用新環境，並可保證其所建置環境的基礎結構會符合組織合規性。
+藍圖能提供宣告方式來協調部署多種資源範本與其他成品，例如：
 
 - 角色指派
 - 原則指派
@@ -189,6 +191,6 @@ DevOps 可讓小組以更快速且成本較低的方式提供更安全、更高�
 
 若要了解安全性和稽核解決方案，請參閱下列文章：
 
-- [安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [安全性與合規性](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Azure 資訊安全中心](/azure/security-center/security-center-intro)
 - [Azure 監視器](/azure/azure-monitor/overview)

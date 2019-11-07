@@ -1,6 +1,6 @@
 ---
 title: 將 Azure Service Fabric Mesh 專案的 Visual Studio 效能最佳化 | Microsoft Docs
-description: 將 Azure Service Fabric Mesh 應用程式的 Visual Studio 效能最佳化
+description: 本文說明如何將 Service Fabric Mesh 專案的 Visual Studio 效能最佳化，以大幅加快您執行第一次偵錯 (F5) 的速度。
 services: service-fabric-mesh
 keywords: 將偵錯效能最佳化
 author: dkkapur
@@ -9,12 +9,12 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: f7a0cb47ad8010bd54a817e9990221b320cde541
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04aeaa6b008b50789f4380e4bb98beba3957c2e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419045"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663424"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>將 Service Fabric Mesh 專案的 Visual Studio 效能最佳化
 
@@ -22,7 +22,7 @@ ms.locfileid: "60419045"
 
 ## <a name="change-visual-studio-settings"></a>變更 Visual Studio 設定
  
-在 Visual Studio 中的 [工具]   > [選項]    > [Service Fabric Mesh 工具]   > [一般]  下方，可以調整下列設定：
+在 Visual Studio 中的 [工具] > [選項]  > [Service Fabric Mesh 工具] > [一般] 下方，可以調整下列設定：
 
 - **在專案開啟時提取所需的 Docker 映像**可藉由在專案載入時啟動映像下載程序，使您執行第一次偵錯 (F5) 的速度更快。  
 - **在專案開啟時部署應用程式**可藉由在專案開啟後啟動部署程序，使您執行第一次偵錯 (F5) 的速度更快。  

@@ -1,7 +1,7 @@
 ---
-title: 使用 Azure 認知搜尋 Blob 索引子編制 CSV blob 的索引
+title: 使用 delimitedText 剖析模式（預覽）來編制 CSV blob 的索引
 titleSuffix: Azure Cognitive Search
-description: 使用 Azure 認知搜尋索引來編目 Azure Blob 儲存體中的 CSV blob，以進行全文檢索搜尋。 索引子可為選取的資料來源 (例如 Azure Blob 儲存體) 將資料擷取自動化。
+description: 使用 delimitedText 剖析模式（目前處於公開預覽狀態），從 Azure Blob 儲存體解壓縮和匯入 CSV。
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18d0eb704deba80bf83b5cae0a598f47181700f7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4edeb8d535504c305319aad35637bb1b09f65984
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793772"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719242"
 ---
-# <a name="how-to-index-csv-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中使用 Blob 索引子編制 CSV blob 的索引 
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>如何使用 delimitedText 剖析模式與 Azure 認知搜尋中的 Blob 索引子編制 CSV blob 的索引 
 
-> [!Note]
-> delimitedText 剖析模式目前為預覽狀態，不適用於生產環境使用。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前 .NET SDK 入口網站並不支援此功能。
->
+> [!IMPORTANT] 
+> DelimitedText 剖析模式目前為公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
 
 根據預設， [Azure 認知搜尋 blob 索引子](search-howto-indexing-azure-blob-storage.md)會將分隔的文字 blob 剖析為單一文字塊。 不過，使用包含 CSV 資料的 blob，您通常想要將 blob 中的每一行當做個別文件。 例如，在給訂下列分隔文字時，您可能想要將它剖析為 2 個文件，每個都包含 [識別碼]、[發佈日期] 和 [標籤] 欄位： 
 
@@ -28,7 +27,7 @@ ms.locfileid: "72793772"
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-在本文中，您將瞭解如何使用 Azure 認知搜尋 blob indexerby 設定 `delimitedText` 剖析模式來剖析 CSV blob。 
+在本文中，您將瞭解如何藉由設定 `delimitedText` 剖析模式來剖析 CSV blob 與 Azure 認知搜尋 blob 索引子。 
 
 > [!NOTE]
 > 依照[一對多索引](search-howto-index-one-to-many-blobs.md)中的索引子設定建議，從一個 Azure blob 輸出多個搜尋檔。

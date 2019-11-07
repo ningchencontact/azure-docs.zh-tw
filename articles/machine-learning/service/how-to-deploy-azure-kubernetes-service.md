@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 45d76328f4a5de4a5cf26b0a126825c1b0a906c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 9055223d1e4ed056ad606533219925972b623f86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496949"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682096"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -122,12 +122,16 @@ az ml computetarget create aks -n myaks
 >
 > 如果您想要使用 Azure 虛擬網路保護您的 AKS 叢集，您必須先建立虛擬網路。 如需詳細資訊，請參閱[使用 Azure 虛擬網路保護實驗和推斷](how-to-enable-virtual-network.md#aksvnet)。
 
+將 AKS 叢集附加至工作區時，您可以藉由設定 `cluster_purpose` 參數來定義使用叢集的方式。
+
+如果您未設定 `cluster_purpose` 參數，或設定 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`，則叢集必須至少有12個可用的虛擬 Cpu。
+
+如果您設定 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，則叢集不需要有12個虛擬 Cpu。 針對開發/測試，我們建議至少要有2個虛擬 Cpu。 不過，針對「開發/測試」設定的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
+
 > [!WARNING]
-> 將 AKS 叢集附加至工作區時，您可以藉由設定 `cluster_purpose` 參數來定義使用叢集的方式。
+> 請勿從您的工作區，同時建立多個同時附加至相同 AKS 叢集的附件。 例如，使用兩個不同的名稱，將一個 AKS 叢集附加至工作區。 每個新的附件都會中斷先前現有的附件。
 >
-> 如果您未設定 `cluster_purpose` 參數，或設定 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`，則叢集必須至少有12個可用的虛擬 Cpu。
->
-> 如果您設定 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，則叢集不需要有12個虛擬 Cpu。 針對開發/測試，我們建議至少要有2個虛擬 Cpu。 不過，針對「開發/測試」設定的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
+> 如果您想要重新附加 AKS 叢集（例如變更 SSL 或其他叢集設定），您必須先使用 AksCompute 移除現有的附件[（）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--)。
 
 如需使用 Azure CLI 或入口網站建立 AKS 叢集的詳細資訊，請參閱下列文章：
 

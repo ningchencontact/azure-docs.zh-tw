@@ -1,5 +1,5 @@
 ---
-title: 移轉 TDE 憑證 - Azure SQL Database 受控執行個體 | Microsoft Docs
+title: '遷移 TDE 憑證-Azure SQL Database 受控執行個體 '
 description: 將使用透明資料加密保護資料庫之資料庫加密金鑰的憑證，移轉到 Azure SQL Database 受控執行個體
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 6f9c1cefafdf6f7f33db3c5143e6b97b328fe699
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d931a927888cb96116043a72006ac77cfa7dded
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567413"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688062"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>將受 TDE 保護之資料庫的憑證移轉到 Azure SQL Database 受控執行個體
 
@@ -30,13 +30,13 @@ ms.locfileid: "68567413"
 如需使用完全受控服務以進行受 TDE 保護資料庫和對應憑證順暢移轉的替代選項，請參閱[如何使用 Azure 資料庫移轉服務，將您的內部部署資料庫移轉到受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。
 
 > [!IMPORTANT]
-> 移轉的憑證僅適用於還原受 TDE 保護的資料庫。 還原完成後, 已遷移的憑證會由不同的保護裝置 (服務管理的憑證或金鑰保存庫中的非對稱金鑰) 取代, 視您在實例上設定的透明資料加密類型而定。
+> 移轉的憑證僅適用於還原受 TDE 保護的資料庫。 還原完成後，已遷移的憑證會由不同的保護裝置（服務管理的憑證或金鑰保存庫中的非對稱金鑰）取代，視您在實例上設定的透明資料加密類型而定。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 若要完成本文中的步驟，您必須符合下列先決條件︰
 

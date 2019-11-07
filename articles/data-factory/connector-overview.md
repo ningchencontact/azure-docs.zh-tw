@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 連接器總覽 |Microsoft Docs
+title: Azure Data Factory 連接器總覽
 description: 瞭解 Data Factory 中支援的連接器。
 services: data-factory
 author: linda33wj
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 8/26/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 14efe4d71ef11f0a4d32266368f0eefa167dff4b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 386372b73940c4917305d89f2e4d16759797bb87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129883"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680473"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 連接器總覽
 
-Azure Data Factory 透過複製活動、資料流程、查閱活動、取得中繼資料活動和刪除活動來支援下列資料存放區。 按一下每個資料存放區, 以深入瞭解支援的功能, 以及對應的設定。
+Azure Data Factory 透過複製活動、資料流程、查閱活動、取得中繼資料活動和刪除活動來支援下列資料存放區。 按一下每個資料存放區，以深入瞭解支援的功能，以及對應的設定。
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
 

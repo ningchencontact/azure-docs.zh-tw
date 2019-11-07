@@ -1,5 +1,5 @@
 ---
-title: 跨相應放大的雲端資料庫報告 | Microsoft Docs
+title: 跨相應放大的雲端資料庫報告
 description: 如何設定水平資料分割的彈性查詢
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37b19cd86cd13dd2bdc8b3a38abf61898b81d01b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568577"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690377"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>跨相應放大的雲端資料庫報告 (預覽)
 
@@ -35,7 +35,7 @@ ms.locfileid: "68568577"
 * 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。
 * 需有 ALTER ANY EXTERNAL DATA SOURCE 權限，才能參考基礎資料來源。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 這些陳述式可在彈性查詢資料庫中建立分區化資料層的中繼資料表示法。
 
@@ -175,7 +175,7 @@ DISTRIBUTION 子句會指定用於此資料表的資料散發。 查詢處理器
     group by w_id, o_c_id
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>用於遠端 T-SQL 執行的預存程序：sp\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>用於遠端 T-SQL 執行的預存程序：sp\_execute_remote
 
 彈性查詢也會介紹可供直接存取分區的預存程序。 預存程序稱為 [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)，可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數：
 
@@ -186,7 +186,7 @@ DISTRIBUTION 子句會指定用於此資料表的資料散發。 查詢處理器
 
 sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠端資料庫上執行指定的 T-SQL 陳述式。 它會使用外部資料來源的認證連接 shardmap 管理員資料庫和遠端資料庫。  
 
-範例:
+範例：
 
 ```sql
     EXEC sp_execute_remote
@@ -198,7 +198,7 @@ sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠
 
 使用一般 SQL Server 連接字串，將您的應用程式、BI 和資料整合工具連接到包含外部資料表定義的資料庫。 請確定 SQL Server 可支援做為您的工具的資料來源。 然後像任何其他連接到工具的 SQL Server 資料庫一樣，參考彈性查詢資料庫，並如同本機資料表一樣，從您的工具或應用程式使用外部資料表。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 * 請確定分區對應資料庫和所有分區都已透過 SQL DB 防火牆取得彈性查詢端點資料庫的存取權。  
 * 驗證或強制執行外部資料表所定義的資料分佈。 如果您的實際資料分佈與資料表定義中指定的散發不同，您的查詢可能會產生非預期的結果。

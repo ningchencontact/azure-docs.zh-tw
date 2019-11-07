@@ -1,5 +1,5 @@
 ---
-title: 從備份還原 Azure SQL 資料庫 | Microsoft Docs
+title: 從備份還原 Azure SQL 資料庫
 description: 瞭解時間點還原，其可讓您復原最多35天的 Azure SQL 資料庫。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: b858776d8309be94a0dd64f994a9e34e589d3c49
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 799926eeb6a508ea04b879231625cf321e95d043
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750451"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687549"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>使用自動資料庫備份來復原 Azure SQL 資料庫
 
@@ -60,7 +60,7 @@ ms.locfileid: "72750451"
 > [!IMPORTANT]
 > 若要使用自動備份進行復原，您必須是訂用帳戶中 SQL Server 參與者角色的成員，或者是訂用帳戶擁有者。 如需詳細資訊，請參閱[RBAC：內建角色](../role-based-access-control/built-in-roles.md)。 您可以使用 Azure 入口網站、PowerShell 或 REST API 來進行復原。 您無法使用 Transact-sql。
 
-## <a name="point-in-time-restore"></a>時間點還原
+## <a name="point-in-time-restore"></a>還原時間點
 
 您可以使用 Azure 入口網站、 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)或[REST API](https://docs.microsoft.com/rest/api/sql/databases)，將獨立、集區或實例資料庫還原到較早的時間點。 要求可以針對還原的資料庫指定任何服務層級或計算大小。 確定您要還原資料庫的伺服器上有足夠的資源。 完成時，還原會在與原始資料庫相同的伺服器上建立新的資料庫。 還原的資料庫會根據其服務層級和計算大小，以標準費率計費。 在資料庫還原完成之前，您不會產生任何費用。
 
@@ -145,7 +145,7 @@ ms.locfileid: "72750451"
 
 若要從您選擇的區域和伺服器中的 Azure 入口網站異地還原單一 SQL 資料庫，請遵循下列步驟：
 
-1. 從 [**儀表板**] 中，選取 [**新增**]  > **建立 SQL Database**。 在 [**基本**] 索引標籤上，輸入所需的資訊。
+1. 從 [**儀表板**] 中，選取 [**新增**] > **建立 SQL Database**。 在 [**基本**] 索引標籤上，輸入所需的資訊。
 2. 選取 [**其他設定**]。
 3. 針對 [**使用現有的資料**]，選取 [**備份**]。
 4. 針對 [**備份**]，從可用的異地還原備份清單中選取備份。
@@ -198,7 +198,7 @@ ms.locfileid: "72750451"
 
 若要還原獨立或集區資料庫，請參閱[restore-set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)。
 
-  | Cmdlet | 描述 |
+  | Cmdlet | 說明 |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |取得一或多個資料庫。 |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 取得可還原的已刪除資料庫。 |
@@ -212,7 +212,7 @@ ms.locfileid: "72750451"
 
 若要還原受控實例資料庫，請參閱[AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)。
 
-  | Cmdlet | 描述 |
+  | Cmdlet | 說明 |
   | --- | --- |
   | [AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |取得一或多個受控實例。 |
   | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 取得實例資料庫。 |
@@ -222,7 +222,7 @@ ms.locfileid: "72750451"
 
 若要使用 REST API 來還原單一或集區資料庫：
 
-| API | 描述 |
+| API | 說明 |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |還原資料庫。 |
 | [取得建立或更新資料庫狀態](https://docs.microsoft.com/rest/api/sql/operations) |傳回還原作業期間的狀態。 |
@@ -237,7 +237,7 @@ ms.locfileid: "72750451"
 
 若要使用 Azure CLI 來還原受控實例資料庫，請參閱[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 自動備份可在發生使用者和應用程式錯誤、意外刪除資料庫和長時間中斷時保護您的資料庫。 所有服務層級和計算大小都可以取得此內建功能。
 

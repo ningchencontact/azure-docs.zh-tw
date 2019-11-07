@@ -1,5 +1,5 @@
 ---
-title: 在向外延展的雲端資料庫之間移動資料 | Microsoft Docs
+title: 在向外延展的雲端資料庫之間移動資料
 description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568385"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690202"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 
@@ -24,7 +24,7 @@ ms.locfileid: "68568385"
 
 分割合併工具執行的方式如同 Azure Web 服務。 系統管理員或開發人員使用工具在不同的資料庫 (分區) 之間移動 Shardlet (分區的資料)。 此工具會使用分區對應管理來維護服務中繼資料資料庫，並確保一致的對應。
 
-![總覽][1]
+![概觀][1]
 
 ## <a name="download"></a>下載
 
@@ -175,11 +175,11 @@ ms.locfileid: "68568385"
 - 要求處理期間，某些 Shardlet 資料可能會同時出現在來源和目標分區。 為了防止 Shardlet 移動期間失敗，這是必要的。 分割合併與分區對應的整合，可確保在分區對應上透過資料相依路由 API 使用 **OpenConnectionForKey** 方法來連線時，不會出現任何不一致的過渡狀態。 不過，當連線到來源或目標分區不是使用 **OpenConnectionForKey** 方法時，則在分割/合併/移動要求進行時，可能會出現不一致的過渡狀態。 這些連接可能會顯示不完整或重複的結果，視連接之下的時間或分區而定。 這項限制目前包括 Elastic Scale 多分區查詢所建立的連接。
 - 不同角色之間不可共用分割合併服務的中繼資料資料庫。 例如，在預備環境中執行分割合併服務的角色，必須指向與生產角色不同的中繼資料資料庫。
 
-## <a name="billing"></a>帳務
+## <a name="billing"></a>計費
 
 分割合併服務是以 Microsoft Azure 訂用帳戶中的雲端服務執行。 因此會對您的服務執行個體收取雲端服務的費用。 除非您經常執行分割/合併/移動作業，否則建議您刪除分割合併雲端服務。 這可以節省執行中或已部署的雲端服務執行個體的成本。 每當您需要執行分割或合併作業時，您可以重新部署和啟動可立即運作的組態。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 ### <a name="status-tables"></a>狀態資料表
 
@@ -211,13 +211,13 @@ ms.locfileid: "68568385"
 
 ### <a name="azure-diagnostics"></a>Azure 診斷
 
-分割合併服務會根據 Azure SDK 2.5 使用 Azure 診斷來監控與診斷。 您可以如這裡所述控制診斷組態：[在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下載封裝包含兩個診斷組態 - 一個用於 Web 角色，另一個用於背景工作角色。 其中包含定義來記錄效能計數器、IIS 記錄、Windows 事件記錄，以及分割合併應用程式事件記錄。
+分割合併服務會根據 Azure SDK 2.5 使用 Azure 診斷來監控與診斷。 您可以如這裡所述控制診斷組態： [在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下載封裝包含兩個診斷組態 - 一個用於 Web 角色，另一個用於背景工作角色。 其中包含定義來記錄效能計數器、IIS 記錄、Windows 事件記錄，以及分割合併應用程式事件記錄。
 
 ## <a name="deploy-diagnostics"></a>部署診斷
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 針對 NuGet 封裝所提供的 Web 和背景工作角色，若要使用診斷組態啟用監視和診斷，請使用 Azure PowerShell 執行下列命令：
 
@@ -233,7 +233,7 @@ ms.locfileid: "68568385"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-您可以在這裡找到有關如何設定和部署診斷設定的詳細資訊：[在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。
+您可以在這裡找到有關如何設定和部署診斷設定的詳細資訊： [在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。
 
 ## <a name="retrieve-diagnostics"></a>擷取診斷
 

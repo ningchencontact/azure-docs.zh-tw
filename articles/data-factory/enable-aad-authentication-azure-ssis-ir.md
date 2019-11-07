@@ -1,5 +1,5 @@
 ---
-title: 啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證 | Microsoft Docs
+title: 啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 description: 本文說明如何使用 Azure Data Factory 的受控識別啟用 Azure Active Directory 驗證，來建立 Azure-SSIS Integration Runtime。
 services: data-factory
 documentationcenter: ''
@@ -12,26 +12,26 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 51f67667caa9e0e564709de40c145b107c619b59
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 5f867126762924906aefada558a65cb68e884f6f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015999"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675658"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 
-本文說明如何使用適用于您 Azure Data Factory (ADF) 的受控識別來啟用 Azure Active Directory (Azure AD) 驗證, 並使用它來取代傳統驗證方法 (例如 SQL 驗證) 來執行下列動作:
+本文說明如何使用適用于您 Azure Data Factory （ADF）的受控識別來啟用 Azure Active Directory （Azure AD）驗證，並使用它來取代傳統驗證方法（例如 SQL 驗證）來執行下列動作：
 
-- 建立 Azure SSIS Integration Runtime (IR), 以代表您在 Azure SQL Database server/受控執行個體中提供 SSIS 目錄資料庫 (SSISDB)。
+- 建立 Azure SSIS Integration Runtime （IR），以代表您在 Azure SQL Database server/受控執行個體中提供 SSIS 目錄資料庫（SSISDB）。
 
-- 在 Azure SSIS IR 上執行 SSIS 套件時, 連接到各種 Azure 資源。
+- 在 Azure SSIS IR 上執行 SSIS 套件時，連接到各種 Azure 資源。
 
-如需 ADF 受控識別的詳細資訊, 請參閱[managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
+如需 ADF 受控識別的詳細資訊，請參閱[managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
 
 > [!NOTE]
->-  在此案例中, 使用您 ADF 的受控識別進行 Azure AD 驗證時, 只會用於 SSIS IR 的建立和後續啟動作業, 然後再布建和連線至 SSISDB。 針對 SSIS 套件執行, 您的 SSIS IR 仍然會使用 SQL 驗證搭配 ssisdb 布建期間所建立且完全受控的帳戶來連線至 SSISDB。
->-  如果您已經使用 SQL 驗證建立 SSIS IR, 您就無法將它重新設定為透過 PowerShell 使用 Azure AD 驗證, 但是您可以透過 Azure 入口網站/ADF 應用程式來這麼做。 
+>-  在此案例中，使用您 ADF 的受控識別進行 Azure AD 驗證時，只會用於 SSIS IR 的建立和後續啟動作業，然後再布建和連線至 SSISDB。 針對 SSIS 套件執行，您的 SSIS IR 仍然會使用 SQL 驗證搭配 ssisdb 布建期間所建立且完全受控的帳戶來連線至 SSISDB。
+>-  如果您已經使用 SQL 驗證建立 SSIS IR，您就無法將它重新設定為透過 PowerShell 使用 Azure AD 驗證，但是您可以透過 Azure 入口網站/ADF 應用程式來這麼做。 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  將 ADF 的受控識別新增至群組。 您可以遵循 Data Factory 的[受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)一文, 取得主體受控識別物件識別碼 (例如 765ad4ab-xxxx-xxxx-xxxx-51ed985819dc-xxxx 765ad4ab-xxxx-xxxx-xxxx-51ed985819dc, 但不要使用受控識別應用程式識別碼來達到此目的)。
+3.  將 ADF 的受控識別新增至群組。 您可以遵循 Data Factory 的[受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)一文，取得主體受控識別物件識別碼（例如 765ad4ab-xxxx-xxxx-xxxx-51ed985819dc-xxxx 765ad4ab-xxxx-xxxx-xxxx-51ed985819dc，但不要使用受控識別應用程式識別碼來達到此目的）。
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -88,7 +88,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 4.  在命令列中選取 [設定管理員]。
 
-5.  選取要設為伺服器系統管理員的 Azure AD 使用者帳戶, 然後選取 [**選取]。**
+5.  選取要設為伺服器系統管理員的 Azure AD 使用者帳戶，然後選取 [**選取]。**
 
 6.  在命令列中選取 [儲存]。
 
@@ -98,11 +98,11 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 1. 啟動 SSMS。
 
-2. 在 [**連接到伺服器**] 對話方塊的 [**伺服器名稱**] 欄位中, 輸入您的 Azure SQL Database 伺服器名稱。
+2. 在 [**連接到伺服器**] 對話方塊的 [**伺服器名稱**] 欄位中，輸入您的 Azure SQL Database 伺服器名稱。
 
-3. 在 [**驗證**] 欄位中, 選取 [**具有 MFA 支援的 Active Directory-通用**] (您也可以使用其他兩個 Active Directory 驗證類型, 請參閱[設定及管理使用 SQL 的 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure))。
+3. 在 [**驗證**] 欄位中，選取 [**具有 MFA 支援的 Active Directory-通用**] （您也可以使用其他兩個 Active Directory 驗證類型，請參閱[設定及管理使用 SQL 的 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)）。
 
-4. 在 [**使用者名稱**] 欄位中, 輸入您設定為伺服器管理員之 Azure AD 帳戶的名稱, 例如testuser@xxxonline.com。
+4. 在 [**使用者名稱**] 欄位中，輸入您設定為伺服器管理員之 Azure AD 帳戶的名稱，例如 testuser@xxxonline.com。
 
 5. 選取 **[** 連線並完成登入程式]。
 
@@ -110,7 +110,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 7. 在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢]。
 
-8. 在查詢視窗中, 輸入下列 T-sql 命令, 然後在工具列上選取 [**執行**]。
+8. 在查詢視窗中，輸入下列 T-sql 命令，然後在工具列上選取 [**執行**]。
 
    ```sql
    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -126,9 +126,9 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
    命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與內含的使用者。
 
-10. 如果您的 SSISDB 是使用 SQL 驗證建立的, 而您想要切換為使用 Azure AD authentication 來讓您的 Azure SSIS IR 存取它, 請以滑鼠右鍵按一下**ssisdb**資料庫, 然後選取 [追加**查詢**]。
+10. 如果您的 SSISDB 是使用 SQL 驗證建立的，而您想要切換為使用 Azure AD authentication 來讓您的 Azure SSIS IR 存取它，請以滑鼠右鍵按一下**ssisdb**資料庫，然後選取 [追加**查詢**]。
 
-11. 在查詢視窗中, 輸入下列 T-sql 命令, 然後在工具列上選取 [**執行**]。
+11. 在查詢視窗中，輸入下列 T-sql 命令，然後在工具列上選取 [**執行**]。
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -158,13 +158,13 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 1.  啟動 SSMS。
 
-2.  使用屬於**系統管理員 (sysadmin**) 的 SQL Server 帳戶, 連接到您的受控執行個體。 這是暫時性的限制, 一旦 Azure SQL Database 受控執行個體的伺服器主體 (登入) 變成 GA, 就會移除 Azure AD 一次。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：訊息 15247, 層級 16, 狀態 1, 行1使用者沒有執行此動作的許可權。
+2.  使用屬於**系統管理員（sysadmin**）的 SQL Server 帳戶，連接到您的受控執行個體。 這是暫時性的限制，一旦 Azure SQL Database 受控執行個體的伺服器主體（登入）變成 GA，就會移除 Azure AD 一次。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：訊息15247、層級16、狀態1、第1行使用者沒有執行此動作的許可權。
 
 3.  在 [物件總管] 中，展開 [資料庫][系統資料庫] ->  資料夾。
 
 4.  在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢]。
 
-5.  在查詢視窗中, 執行下列 T-sql 腳本, 以使用者身分新增 ADF 的受控識別
+5.  在查詢視窗中，執行下列 T-sql 腳本，以使用者身分新增 ADF 的受控識別
 
     ```sql
     CREATE LOGIN [{your ADF name}] FROM EXTERNAL PROVIDER
@@ -174,9 +174,9 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     
     命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與 ADF 的受控識別。
 
-6.  如果您的 SSISDB 是使用 SQL 驗證建立的, 而您想要切換為使用 Azure AD authentication 來讓您的 Azure SSIS IR 存取它, 請以滑鼠右鍵按一下**ssisdb**資料庫, 然後選取 [追加**查詢**]。
+6.  如果您的 SSISDB 是使用 SQL 驗證建立的，而您想要切換為使用 Azure AD authentication 來讓您的 Azure SSIS IR 存取它，請以滑鼠右鍵按一下**ssisdb**資料庫，然後選取 [追加**查詢**]。
 
-7.  在查詢視窗中, 輸入下列 T-sql 命令, 然後在工具列上選取 [**執行**]。
+7.  在查詢視窗中，輸入下列 T-sql 命令，然後在工具列上選取 [**執行**]。
 
     ```sql
     CREATE USER [{your ADF name}] FOR LOGIN [{your ADF name}] WITH DEFAULT_SCHEMA = dbo
@@ -199,7 +199,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 1.  安裝 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)  模組。
 
-2.  在您的指令碼中，請勿設定 `CatalogAdminCredential` 參數。 例如:
+2.  在您的指令碼中，請勿設定 `CatalogAdminCredential` 參數。 例如：
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -222,7 +222,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 ## <a name="run-ssis-packages-with-managed-identity-authentication"></a>使用受控識別驗證執行 SSIS 套件
 
-當您在 Azure SSIS IR 上執行 SSIS 套件時, 您可以使用受控識別驗證來連接到各種 Azure 資源。 目前我們已支援下列連線管理員中的受控識別驗證。
+當您在 Azure SSIS IR 上執行 SSIS 套件時，您可以使用受控識別驗證來連接到各種 Azure 資源。 目前我們已支援下列連線管理員中的受控識別驗證。
 
 - [OLE DB 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
 

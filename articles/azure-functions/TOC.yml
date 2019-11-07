@@ -53,6 +53,8 @@
       href: functions-create-function-linux-custom-image.md
     - name: IoT Edge 裝置上的 Azure Functions
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Java 搭配 Azure Cosmos DB 和事件中樞
+      href: functions-event-hub-cosmos-db.md
 - name: 範例
   items:
     - name: Azure Serverless Community Library
@@ -244,6 +246,8 @@
           href: install-update-binding-extensions-manual.md
         - name: 停用函式
           href: disable-function.md
+        - name: 異地災害復原
+          href: functions-geo-disaster-recovery.md
     - name: 監視
       items:
         - name: 監視函式
@@ -275,8 +279,6 @@
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: 從 Key Vault 參考祕密
           href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: 異地災害復原
-          href: functions-geo-disaster-recovery.md
     - name: 整合
       items:
         - name: 新增繫結

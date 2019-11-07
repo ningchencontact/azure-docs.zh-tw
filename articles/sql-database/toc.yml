@@ -502,6 +502,8 @@
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: 設定安全性
           href: sql-database-security-tutorial.md
+        - name: 搭配串流分析來串流資料
+          href: sql-database-stream-analytics.md
     - name: 概念
       items:
         - name: 單一資料庫資源

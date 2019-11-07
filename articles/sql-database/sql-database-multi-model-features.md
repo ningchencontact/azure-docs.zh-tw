@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 多模型功能 | Microsoft Docs
+title: Azure SQL Database 多模型功能
 description: Azure SQL Database 可讓您在相同的資料庫中使用多個資料模型。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567128"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687722"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -25,13 +25,13 @@ ms.locfileid: "68567128"
 ## <a name="when-to-use-multi-model-capabilities"></a>使用多模型功能的時機
 
 Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般用途應用程式的大部分情況下達到最佳效能。 不過，Azure SQL Database 不限於關聯式資料。 Azure SQL Database 可讓您使用緊密整合到關聯式模型中的各種非關聯式格式。
-在下列情況下, 您應該考慮使用 Azure SQL Database 的多模型功能:
-- 您有一些較適合 NoSQL 模型的資訊或結構, 而且您不想要使用個別的 NoSQL 資料庫。
-- 大部分的資料都適用于關聯式模型, 而您需要以 NoSQL 樣式為數據的某些部分建立模型。
-- 您想要利用豐富的 Transact-sql 語言來查詢和分析關聯式和 NoSQL 資料, 並將其與可使用 SQL 語言的各種工具和應用程式整合。
-- 您想要套用如[記憶體內部技術](sql-database-in-memory.md)的資料庫功能, 以改善 NoSQL 資料 strucutres 的分析或處理效能, 請使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取的複本](sql-database-read-scale-out.md)來建立資料的複本另一個地方, 然後從主資料庫卸載一些分析工作負載。
+在下列情況下，您應該考慮使用 Azure SQL Database 的多模型功能：
+- 您有一些較適合 NoSQL 模型的資訊或結構，而且您不想要使用個別的 NoSQL 資料庫。
+- 大部分的資料都適用于關聯式模型，而您需要以 NoSQL 樣式為數據的某些部分建立模型。
+- 您想要利用豐富的 Transact-sql 語言來查詢和分析關聯式和 NoSQL 資料，並將其與可使用 SQL 語言的各種工具和應用程式整合。
+- 您想要套用如[記憶體內部技術](sql-database-in-memory.md)的資料庫功能，以改善 NoSQL 資料 strucutres 的分析或處理效能，請使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取的複本](sql-database-read-scale-out.md)來建立資料的複本另一個地方，然後從主資料庫卸載一些分析工作負載。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure SQL 提供下列多模型功能：
 - [圖形功能](#graph-features)可讓您以一組節點和邊緣的形式表現資料，並使用以 `MATCH` 運算子增強的標準 Transact-SQL 查詢來查詢圖形資料。
@@ -89,7 +89,7 @@ Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式�
 
 ## <a name="spatial-features"></a>空間功能
 
-空間資料代表幾何物件的實體位置和圖形相關資訊。 這些物件可以是點位置或更複雜的物件, 例如國家/地區、道路或 lake。
+空間資料代表幾何物件的實體位置和圖形相關資訊。 這些物件可以是點位置或更複雜的物件，例如國家/地區、道路或 lake。
 
 Azure SQL Database 支援兩種空間資料類型 - 幾何資料類型和地理資料類型。
 - 幾何類型代表歐氏 (平面) 座標系統中的資料。

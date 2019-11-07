@@ -3,17 +3,17 @@ title: Azure 裝置佈建的裝置概念 | Microsoft Docs
 description: 說明具有裝置佈建服務和 IoT 中樞之裝置的特定裝置佈建概念
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0e3557588281cd392a7a8a1c2654f10e8387dd83
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897574"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720525"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中樞裝置佈建服務的裝置概念
 
@@ -31,7 +31,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 裝置佈建服務支援下列形式的證明：
 * 以標準 X.509 憑證驗證流程為基礎的 **X.509 憑證**。
 * **信賴平台模組 (TPM)** 是以 nonce 挑戰為基礎，使用金鑰的 TPM 標準，提供已簽署的共用存取簽章 (SAS) 權杖。 使用此種形式時，裝置不需要有實體 TPM 即可執行此動作，但該服務會因為 [TPM 規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)的需求，而預期裝置使用簽署金鑰進行證明。
-* 以共用存取簽章 (SAS) [安全性權杖](../iot-hub/iot-hub-devguide-security.md#security-tokens)為基礎的**對稱金鑰**，其包含雜湊簽章與內嵌到期日。 如需詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)。
+* 以共用存取簽章 (SAS) **安全性權杖**為基礎的[對稱金鑰](../iot-hub/iot-hub-devguide-security.md#security-tokens)，其包含雜湊簽章與內嵌到期日。 如需詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)。
 
 ## <a name="hardware-security-module"></a>硬體安全模組
 
@@ -51,7 +51,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ## <a name="device-id"></a>裝置識別碼
 
-裝置識別碼是 IoT 中樞裡顯示的識別碼。 您可以在申請項目中設定想要的裝置識別碼，但這並非為必要設定。 如果未在申請清單中未指定任何想的裝置識別碼，系統會在您註冊裝置時使用註冊識別碼作為裝置識別碼。 深入了解 [IoT 中樞裡的裝置識別碼](../iot-hub/iot-hub-devguide-identity-registry.md)。
+裝置識別碼是 IoT 中樞裡顯示的識別碼。 您可以在申請項目中設定想要的裝置識別碼，但這並非為必要設定。 只有個別註冊才支援設定所需的裝置識別碼。 如果未在申請清單中未指定任何想的裝置識別碼，系統會在您註冊裝置時使用註冊識別碼作為裝置識別碼。 深入了解 [IoT 中樞裡的裝置識別碼](../iot-hub/iot-hub-devguide-identity-registry.md)。
 
 ## <a name="id-scope"></a>識別碼範圍
 

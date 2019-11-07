@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL Database 相應放大 | Microsoft Docs
+title: 使用 Azure SQL Database 相應放大
 description: 軟體即服務 (SaaS) 開發人員可以輕鬆地使用這些工具在雲端中建立彈性的可擴充資料庫
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e5ae56b2050243831f10863bbb4184a9e89f5911
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 56556576dffd4e022f919af89459d92e48c6c895
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568407"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690249"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>使用 Azure SQL Database 相應放大
 您可以使用 **彈性資料庫** 工具，輕鬆地向外擴充 Azure SQL 資料庫。 這些工具和功能可讓您使用 **Azure SQL Database** 中的資料庫資源，建立交易式工作負載的解決方案，尤其是軟體即服務 (SaaS) 應用程式。 彈性資料庫功能的組成如下：
 
-* [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)：用戶端程式庫這項功能可允許您建立和維護分化資料庫。  請參閱 [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
+* [E彈性資料庫用戶端資料庫](sql-database-elastic-database-client-library.md)：用戶端資料庫這項功能可允許您建立和維護分化資料庫。  請參閱 [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 * [彈性資料庫分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)︰在分區化資料庫之間移動資料。 在將資料從多租用戶資料庫移到單一租用戶資料庫 (反之亦然) 時，此工具十分實用。 請參閱 [彈性資料庫分割合併工具教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
-* [彈性資料庫工作](elastic-jobs-overview.md):使用工作來管理大量的 Azure SQL 資料庫。 輕鬆執行系統管理作業，例如結構描述變更、認證管理、參考資料更新、效能資料收集，或使用作業的租用戶 (客戶) 遙測收集。
+* [彈性資料庫工作](elastic-jobs-overview.md)：使用作業來管理大量的 Azure SQL 資料庫。 輕鬆執行系統管理作業，例如結構描述變更、認證管理、參考資料更新、效能資料收集，或使用作業的租用戶 (客戶) 遙測收集。
 * [彈性資料庫查詢](sql-database-elastic-query-overview.md) (預覽)：可讓您跨多個 Azure SQL 資料庫執行 Transact-SQL 查詢。 這可讓您連線至報告工具，例如 Excel、Power BI、Tableau 等等。
 * [彈性交易](sql-database-elastic-transactions-overview.md)︰這項功能可讓您在 Azure SQL Database 中跨多個資料庫執行交易。 彈性資料庫交易適用於使用 ADO .NET 的 .NET 應用程式，而且與以往熟悉使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx)類別的程式設計經驗整合。
 

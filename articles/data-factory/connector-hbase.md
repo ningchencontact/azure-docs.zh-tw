@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 HBase 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 HBase 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 HBase 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d2750257748ab69a2f42385441b1ce12805d34
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4768a3fbe30cf338628be44cb003e8aab527c946
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090282"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680885"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>使用 Azure Data Factory 從 HBase 複製資料 
 
@@ -38,7 +38,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,13 +48,13 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 HBase 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**HBase** | 是 |
-| host | HBase 伺服器的 IP 位址或主機名稱。 亦即. `[clustername].azurehdinsight.net`， ）`192.168.222.160`  | 是 |
+| 類型 | 類型屬性必須設為：**HBase** | 是 |
+| 主機 | HBase 伺服器的 IP 位址或主機名稱。 亦即. `[clustername].azurehdinsight.net`，`192.168.222.160`）  | 是 |
 | port | HBase 執行個體用來接聽用戶端連線的 TCP 連接埠。 預設值為 9090。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
 | httpPath | 部分 URL 對應至 HBase 伺服器，例如使用 HDInsights 叢集時的 `/hbaserest0`。 | 否 |
-| authenticationType | 用來連線到 HBase 伺服器的驗證機制。 <br/>允許的值包括：**匿名**、**基本** | 是 |
+| authenticationType | 用來連線到 HBase 伺服器的驗證機制。 <br/>允許的值為：**Anonymous**、**Basic** | 是 |
 | username | 用來連線到 HBase 執行個體的使用者名稱。  | 否 |
 | password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
@@ -64,7 +64,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
->如果叢集不支援 HDInsight 等連續的工作階段，請明確地在 http 路徑設定結尾新增節點索引，例如，指定 `/hbaserest0` 而不是 `/hbaserest`。
+>如果叢集不支援 HDInsight 等黏性工作階段，請明確地在 http 路徑設定結尾新增節點索引 (例如，指定 `/hbaserest0` 而不是 `/hbaserest`)。
 
 **例如，HDInsights HBase：**
 
@@ -129,10 +129,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 HBase 複製資料，請將資料集的類型屬性設定為 **HBaseObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**HBaseObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **HBaseObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -153,18 +153,18 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 HBase 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 HBase 來源所支援的屬性清單。
 
 ### <a name="hbasesource-as-source"></a>將 HBaseSource 作為來源
 
 若要從 HBase 複製資料，請將複製活動中的來源類型設定為 **HBaseSource**. 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**HBaseSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的類型屬性必須設定為：**HBaseSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

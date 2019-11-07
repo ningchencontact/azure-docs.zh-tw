@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 記憶體內部範例 | Microsoft Docs
+title: Azure SQL Database 記憶體內部範例
 description: 使用 OLTP 和資料行存放區範例試用 Azure SQL 資料庫記憶體內部技術。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828218"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689813"
 ---
 # <a name="in-memory-sample"></a>記憶體內部範例
 
@@ -34,7 +34,7 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1.安裝記憶體內部 OLTP 範例
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. 安裝記憶體內部 OLTP 範例
 
 在 [Azure 入口網站](https://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT 範例資料庫。 然後，本節中的步驟會說明如何使用記憶體內部 OLTP 物件擴充 AdventureWorksLT 資料庫，並示範效能優點。
 
@@ -51,7 +51,7 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 3. 將 [In-Memory OLTP Transact-SQL 指令碼](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 複製到剪貼簿。 T-SQL 指令碼會在步驟 1 建立的 AdventureWorksLT 範例資料庫中建立所需的 In-Memory 物件。
 
-4. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 陳述式很重要。 例如:
+4. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 陳述式很重要。 例如：
 
 
 ```sql
@@ -256,13 +256,13 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 #### <a name="expected-comparison-results"></a>預期的比較結果
 
-就這個過度簡單的工作負載而言，我們的「記憶體內部」測試顯示當 `ostress` 是在與資料庫相同 Azure 區域中的 Azure VM 上執行時，可獲得「九倍」的效能改善。
+就這個過度簡單的工作負載而言，我們的「記憶體內部」測試顯示當  **是在與資料庫相同 Azure 區域中的 Azure VM 上執行時，可獲得「九倍」** `ostress`的效能改善。
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2.安裝記憶體內部分析範例
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. 安裝記憶體內部分析範例
 
 
 在本節中，您將比較使用資料行存放區索引與使用傳統 B 型樹狀結構索引時的 IO 和統計資料結果。
@@ -382,7 +382,7 @@ GO
 
 ## <a name="next-steps"></a>後續步驟
 
-- [快速入門 1：快速入門 1：可讓 Transact-SQL 擁有更快效能的記憶體內部 OLTP 技術](https://msdn.microsoft.com/library/mt694156.aspx)
+- [快速入門1：可加快 T-sql 效能的記憶體內部 OLTP 技術](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 

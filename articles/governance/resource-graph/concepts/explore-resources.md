@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387641"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622671"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>使用 Resource Graph 探索您的 Azure 資源
 
@@ -308,10 +308,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-若要瞭解如何在使用 `join` 運算子的單一查詢中完成這些步驟，請參閱[列出虛擬機器及其網路介面和公用 IP](../samples/advanced.md#join-vmpip)範例。
+若要瞭解如何使用 `join` 運算子在單一查詢中完成這些步驟，請參閱[列出具有其網路介面和公用 IP 的虛擬機器](../samples/advanced.md#join-vmpip)範例。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[查詢語言](query-language.md)
-- 請參閱[入門查詢](../samples/starter.md)中使用的語言
-- 請參閱[進階查詢](../samples/advanced.md)中的進階使用方式
+- 深入瞭解[查詢語言](query-language.md)。
+- 請參閱[入門查詢](../samples/starter.md)中使用的語言。
+- 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。

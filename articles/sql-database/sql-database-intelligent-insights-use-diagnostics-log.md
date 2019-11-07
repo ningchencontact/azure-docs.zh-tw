@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights 效能診斷記錄 - Azure SQL Database | Microsoft Docs
+title: Intelligent Insights 效能診斷記錄-Azure SQL Database
 description: Intelligent Insights 會提供 Azure SQL Database 效能問題的診斷記錄
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262138"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689709"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 
@@ -80,7 +80,7 @@ Intelligent Insights 效能記錄的下一個區段包含透過內建的人工�
 | 達到資源限制 | <li>受影響的資源</li><li>查詢雜湊</li><li>資源耗用量百分比</li> |
 | 工作負載增加 | <li>執行時間增加的查詢數目</li><li>對工作負載增加影響最大之查詢的查詢雜湊</li> |
 | 記憶體壓力 | <li>記憶體 Clerk</li> |
-| 正在鎖定 | <li>受影響的查詢雜湊</li><li>封鎖查詢雜湊</li> |
+| 鎖定 | <li>受影響的查詢雜湊</li><li>封鎖查詢雜湊</li> |
 | MAXDOP 增加 | <li>查詢雜湊</li><li>CXP 等候時間</li><li>等候時間</li> |
 | 頁面閂鎖爭用 | <li>造成爭用之查詢的查詢雜湊</li> |
 | 遺漏索引 | <li>查詢雜湊</li> |
@@ -89,7 +89,7 @@ Intelligent Insights 效能記錄的下一個區段包含透過內建的人工�
 | TempDB 爭用 | <li>造成爭用之查詢的查詢雜湊</li><li>整體資料庫頁面閂鎖爭用等候時間的查詢歸屬 [%]</li> |
 | 彈性集區 DTU 不足 | <li>彈性集區</li><li>DTU 取用量最高的資料庫</li><li>取用量最高之取用者所使用的不良 DTU 百分比</li> |
 | 計畫迴歸 | <li>查詢雜湊</li><li>良好計畫識別碼</li><li>不良計畫識別碼</li> |
-| 資料庫範圍設定值變更 | <li>與預設值相比的資料庫範圍組態變更</li> |
+| 資料庫範圍組態值變更 | <li>與預設值相比的資料庫範圍組態變更</li> |
 | 用戶端執行速度太慢 | <li>查詢雜湊</li><li>等候時間</li> |
 | 定價層降級 | <li>文字通知</li> |
 
@@ -113,7 +113,7 @@ Intelligent Insights 記錄的下一個區段提供受所偵測到之效能問�
 }]
 ```
 
-### <a name="metrics"></a>計量
+### <a name="metrics"></a>度量
 
 計量 (metric) 屬性底下會提供所回報之每個計量的度量單位，可能的值為：秒、數字及百分比。 值 (value) 屬性中會回報所測量計量的值。
 

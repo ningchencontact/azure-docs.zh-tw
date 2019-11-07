@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 PostgreSQL 移動資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從于 postgresql 移動資料
 description: 了解如何使用 Azure Data Factory 從 PostgreSQL 資料庫移動資料。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6d8c63551bd6bcc7a7e00dffa6c2b6d9e0e644db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839919"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666078"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 移動資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -45,10 +45,10 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
 若要讓資料管理閘道連線至 PostgreSQL 資料庫，請在與資料管理閘道相同的系統上，安裝 [PostgreSQL 的 Ngpsql 資料提供者](https://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 和 3.1.9 之間的版本。 支援 PostgreSQL 版本 7.4 和以上版本。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 PostgreSQL 資料存放區移動資料。
 
-- 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
+- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 - 您也可以使用下列工具來建立管線：
   - Visual Studio
   - Azure PowerShell
@@ -71,14 +71,14 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 PostgreSQL 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**OnPremisesPostgreSql** |是 |
-| server |PostgreSQL 伺服器的名稱。 |是 |
-| database |PostgreSQL 資料庫的名稱。 |是 |
-| schema |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
-| authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
-| userName |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
+| 類型 |類型屬性必須設為： **OnPremisesPostgreSql** |是 |
+| 伺服器 |PostgreSQL 伺服器的名稱。 |是 |
+| 資料庫 |PostgreSQL 資料庫的名稱。 |是 |
+| 結構描述 |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
+| authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 PostgreSQL 資料庫的閘道器名稱。 |是 |
 
@@ -87,7 +87,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。 **RelationalTable** 資料集類型的 typeProperties 區段 (包含 PostgreSQL 資料集) 具有下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | tableName |PostgreSQL 資料庫執行個體中連結服務所參照的資料表名稱。 tableName 會區分大小寫。 |否 (如果已指定 **RelationalSource** 的 **query**) |
 
@@ -98,19 +98,19 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 當來源的類型為 **RelationalSource** (包括 PostgreSQL) 時，typeProperties 區段中會有下列可用屬性：
 
-| 屬性 | 描述 | 允許的值 | 必要項 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `"query": "select * from \"MySchema\".\"MyTable\""` 。 |否 (如果已指定 **dataset** 的 **tableName**) |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `"query": "select * from \"MySchema\".\"MyTable\""`。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢中以 `""` (雙引號) 括住它們。
 
-**範例:**
+**範例：**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON 範例：從 PostgreSQL 複製資料到 Azure Blob
-此範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例示範如何將資料從 PostgreSQL 資料庫複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON 範例：將資料從 PostgreSQL 複製到 Azure Blob
+這個範例提供範例 JSON 定義，您可以使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)來建立管線。 這些範例示範如何將資料從 PostgreSQL 資料庫複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
 
 > [!IMPORTANT]
 > 此範例提供 JSON 程式碼片段。 其中並不包含建立 Data Factory 的逐步指示。 如需逐步指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。
@@ -119,9 +119,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 1. [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#linked-service-properties)類型的連結服務。
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務。
-3. [RelationalTable](data-factory-onprem-postgresql-connector.md#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-5. 具有使用 [RelationalSource](data-factory-onprem-postgresql-connector.md#copy-activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+3. [RelationalTable](data-factory-create-datasets.md) 類型的輸入[資料集](data-factory-onprem-postgresql-connector.md#dataset-properties)。
+4. [AzureBlob](data-factory-create-datasets.md) 類型的輸出[資料集](data-factory-azure-blob-connector.md#dataset-properties)。
+5. 具有使用 [RelationalSource](data-factory-create-pipelines.md) 和 [BlobSink](data-factory-onprem-postgresql-connector.md#copy-activity-properties) 之複製活動的[管線](data-factory-azure-blob-connector.md#copy-activity-properties)。
 
 此範例會每個小時將資料從 PostgreSQL 資料庫中的查詢結果複製到 Blob。 範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -190,7 +190,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 **Azure Blob 輸出資料集：**
 
-資料會每小時寫入至新的 Blob (frequency：hour，interval：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月、日和小時部分。
+資料會每小時寫入至新的 Blob (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月、日和小時部分。
 
 ```json
 {
@@ -310,7 +310,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[]、String |
 | 位元不同 [ (n) ] |varbit |Byte[]、String |
-| boolean |bool |Boolean |
+| 布林值 |bool |Boolean |
 | 方塊 | |Byte[]、String |
 | bytea | |Byte[]、String |
 | character [(n)] |char [(n)] |字串 |
@@ -318,7 +318,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | cid | |字串 |
 | cidr | |字串 |
 | 圓形 | |Byte[]、String |
-| date | |Datetime |
+| 日期 | |Datetime |
 | daterange | |字串 |
 | 雙精度 |float8 |Double |
 | inet | |Byte[]、String |
@@ -336,18 +336,18 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |字串 |
 | oid | |Int32 |
-| path | |Byte[]、String |
+| 路徑 | |Byte[]、String |
 | pg_lsn | |Int64 |
 | 點 | |Byte[]、String |
 | 多邊形 | |Byte[]、String |
-| real |float4 |Single |
+| real |float4 |單一 |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |字串 |
+| 文字 | |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
-若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
+若要了解如何將來源資料集內的資料行對應至接收資料集內的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
 ## <a name="repeatable-read-from-relational-sources"></a>從關聯式來源進行可重複的讀取
 從關聯式資料存放區複製資料時，請將可重複性謹記在心，以避免產生非預期的結果。 在 Azure Data Factory 中，您可以手動重新執行配量。 您也可以為資料集設定重試原則，使得在發生失敗時，重新執行配量。 以上述任一方式重新執行配量時，您必須確保不論將配量執行多少次，都會讀取相同的資料。 請參閱[從關聯式來源進行可重複的讀取](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)。

@@ -41,7 +41,7 @@
         - name: 功能動作和內容
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: 主動學習
+        - name: 使用中和非使用中的事件
           href: concept-active-learning.md
           displayName: 'active, inactive'
         - name: 獎勵

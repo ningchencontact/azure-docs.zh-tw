@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2dea1c160b07ac08075dad3a1ca1f6fc753e3481
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387617"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622660"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph 中的節流要求指引
 
@@ -33,7 +33,7 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
 - `x-ms-user-quota-remaining` （int）：使用者的剩餘資源配額。 此值會對應至查詢計數。
 - `x-ms-user-quota-resets-after` （hh： mm： ss）：重設使用者的配額耗用量前的持續時間。
 
-為了說明標頭的作用，讓我們來看一個具有標頭和值 `x-ms-user-quota-remaining: 10` 並 `x-ms-user-quota-resets-after: 00:00:03` 的查詢回應。
+為了說明標頭的作用，讓我們來看一個查詢回應，其中具有 `x-ms-user-quota-remaining: 10` 和 `x-ms-user-quota-resets-after: 00:00:03`的標頭和值。
 
 - 在接下來的3秒內，最多可以提交10個查詢，而不會進行節流。
 - 在3秒內，`x-ms-user-quota-remaining` 和 `x-ms-user-quota-resets-after` 的值會分別重設為 `15` 和 `00:00:05`。
@@ -184,7 +184,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>頁數
+## <a name="pagination"></a>分頁
 
 因為 Azure Resource Graph 在單一查詢回應中最多傳回1000個專案，所以您可能需要將查詢[分頁](./work-with-data.md#paging-results)，以取得您要尋找的完整資料集。 不過，某些 Azure Resource Graph 的用戶端處理分頁的方式與其他不同。
 
@@ -240,4 +240,4 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 - 請參閱[入門查詢](../samples/starter.md)中使用的語言。
 - 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。
-- 瞭解如何[探索資源](explore-resources.md)。
+- 深入瞭解如何[探索資源](explore-resources.md)。

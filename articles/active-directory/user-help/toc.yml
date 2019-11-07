@@ -54,18 +54,22 @@
       href: user-help-auth-app-backup-recovery.md
     - name: 常見問題集
       href: user-help-auth-app-faq.md
-- name: 我的設定檔 (預覽) 入口網站說明
+- name: 我的帳戶入口網站說明
   items:
     - name: 概觀
-      href: myprofile-portal-overview.md
+      href: my-account-portal-overview.md
     - name: 管理安全性資訊
       href: user-help-security-info-overview.md
-    - name: 管理您的組織
-      href: myprofile-portal-organizations-page.md
     - name: 管理您的已連線裝置
-      href: myprofile-portal-devices-page.md
+      href: my-account-portal-devices-page.md
+    - name: 變更密碼
+      href: my-account-change-password-page.md
+    - name: 管理您的組織
+      href: my-account-portal-organizations-page.md
     - name: 檢視您的隱私權相關資訊
-      href: myprofile-portal-privacy-page.md
+      href: my-account-portal-privacy-page.md
+    - name: 檢視您最近的登入活動
+      href: my-account-portal-sign-ins-page.md
 - name: 安全性資訊 (預覽) 說明
   items:
     - name: 概觀

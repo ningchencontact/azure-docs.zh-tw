@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Xero 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Xero 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 Xero 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 59b9ecb7af53468dc18cf47d2e0510a48d07f925
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d52e536170c649cbc84b6c6dce92afb76ffe3125
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930962"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680014"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>使用 Azure Data Factory 從 Xero 複製資料
 

@@ -1,5 +1,5 @@
 ---
-title: 使用啟用 Azure 的 dtexec 公用程式來執行 SQL Server Integration Services （SSIS）套件 |Microsoft Docs
+title: 使用啟用 Azure 的 dtexec 公用程式來執行 SQL Server Integration Services （SSIS）套件
 description: 瞭解如何使用已啟用 Azure 的 dtexec 公用程式來執行 SQL Server Integration Services （SSIS）套件。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 472792351b8b7ab96e055bacd64141840ce7a630
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596953"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673560"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>使用啟用 Azure 的 dtexec 公用程式來執行 SQL Server Integration Services 套件
 本文說明啟用 Azure 的 dtexec （AzureDTExec）命令提示字元公用程式。 它可用來在 Azure Data Factory 中的 Azure SSIS Integration Runtime （IR）上執行 SQL Server Integration Services （SSIS）套件。
@@ -34,7 +34,7 @@ AzureDTExec 可以透過 SSMS 設定，以使用在您的 data factory 中產生
 若要使用 AzureDTExec，請下載並安裝最新版本的 SSMS，也就是18.3 版或更新版本。 從[這個網站](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)下載。
 
 ## <a name="configure-the-azuredtexec-utility"></a>設定 AzureDTExec 公用程式
-在您的本機電腦上安裝 SSMS 也會安裝 AzureDTExec。 若要設定其設定，請使用 [以**系統管理員身分執行**] 選項來啟動 SSMS。 然後選取 [**工具**]  >  [**遷移至 Azure** ]  > **設定啟用 azure 的 DTExec**。
+在您的本機電腦上安裝 SSMS 也會安裝 AzureDTExec。 若要設定其設定，請使用 [以**系統管理員身分執行**] 選項來啟動 SSMS。 然後選取 [**工具**] > [**遷移至 Azure** ] > **設定啟用 azure 的 DTExec**。
 
 ![設定啟用 Azure 的 dtexec 功能表](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
 
@@ -86,7 +86,7 @@ AzureDTExec 可以透過 SSMS 設定，以使用在您的 data factory 中產生
 - **/Conf [igFile]** ：指定要從中解壓縮值的設定檔。 使用此選項，您可以針對封裝設定與設計階段所指定不同的執行時間設定。 您可以將不同的設定儲存在 XML 設定檔中，然後在封裝執行之前載入它們。 如需詳細資訊，請參閱[SSIS 封裝](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017)設定。 若要指定此選項的值，請在檔案系統、檔案共用或 Azure 檔案儲存體的設定檔案中使用 UNC 路徑，其副檔名為 Ssistutorial.dtsconfig。 如果指定的 UNC 路徑包含任何空格，請在整個路徑前後加上引號。
 - **/Conn [ection]** ：指定封裝中現有連接管理員的連接字串。 使用此選項，您可以針對封裝中現有的連線管理員，設定與設計階段所指定不同的執行時間連接字串。 指定此選項的值，如下所示： `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`。
 - **/Set**：覆寫封裝中參數、變數、屬性、容器、記錄提供者、Foreach 列舉值或連接的設定。 可以多次指定這個選項。 指定此選項的值，如下所示： `property_path;value`。 例如，`\package.variables[counter].Value;1` 會將 `counter` 變數的值覆寫為1。 您可以使用 [**套件**設定] wizard 來尋找、複製和貼上您想要覆寫其值之套件中專案的 `property_path` 值。 如需詳細資訊，請參閱[Package Configuration wizard](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014)。
-- **/De [crypt]** ：設定使用**EncryptAllWithPassword** /**EncryptSensitiveWithPassword**保護層級所設定之套件的解密密碼。
+- **/De [crypt]** ：設定使用**EncryptAllWithPassword**/**EncryptSensitiveWithPassword**保護層級所設定之套件的解密密碼。
 
 > [!NOTE]
 > 以新值叫用 AzureDTExec 的選項會產生新的管線，但選項 **/De [腳本]** 除外。

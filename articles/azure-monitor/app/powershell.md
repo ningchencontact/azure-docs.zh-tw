@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 938511069500c551eb526b6c7238546b85d59dce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 5ae043c356559b2e675f05af3eb7eb61973eb170
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818939"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621942"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 資源
 
@@ -27,7 +27,7 @@ ms.locfileid: "72818939"
 
 在您要執行指令碼的電腦上安裝 Azure Powershell 模組：
 
-1. 安裝 [Microsoft Web Platform Installer (v5 或更新版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
+1. 安裝 [Microsoft Web Platform Installer (v5 或更高版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
 2. 請使用它來安裝 Microsoft Azure Powershell。
 
 除了使用 Resource Manager 範本之外，還有一組豐富的[Application Insights PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)，可讓您輕鬆地以程式設計方式設定 Application Insights 資源。 Cmdlet 所啟用的功能包括：
@@ -235,7 +235,7 @@ Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Forma
 
 ## <a name="set-the-data-retention"></a>設定資料保留期 
 
-若要取得 Application Insights 資源的目前資料保留，您可以使用 OSS 工具[ARMClient](https://github.com/projectkudu/ARMClient)。  （深入瞭解從[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMClient）。 以下是使用 `ARMClient` 的範例，以取得目前的保留期：
+若要取得 Application Insights 資源的目前資料保留，您可以使用 OSS 工具[ARMClient](https://github.com/projectkudu/ARMClient)。  （深入瞭解從[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMClient）。 以下是使用 `ARMClient`的範例，以取得目前的保留期：
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -250,10 +250,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 若要使用上述範本將資料保留設定為365天，請執行：
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
-               -TemplateFile .\template1.json `
-               -retentionInDays 365 `
-               -appName myApp
+New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+       -TemplateFile .\template1.json `
+       -retentionInDays 365 `
+       -appName myApp
 ```
 
 下列腳本也可以用來變更保留期。 複製此腳本以 [另存新檔] `Set-ApplicationInsightsRetention.ps1`。

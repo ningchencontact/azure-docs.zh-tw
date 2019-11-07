@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure 儲存體 |Microsoft Docs
+title: 使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure 儲存體
 description: 使用 Azure Data Factory，將資料從 Amazon S3 遷移至 Azure 儲存體。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/04/2019
-ms.openlocfilehash: 5f98cb29bd61c674ef7d7e6af781760fe81a5085
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4d4e0453105dacfbf35624a2a9acb9d5994f4dea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177884"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675751"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure 儲存體 
 
@@ -101,7 +101,7 @@ ADF 提供無伺服器架構，允許不同層級的平行處理原則，讓開�
 
 無論您是透過私人連結來遷移資料，或想要允許 Amazon S3 防火牆上的特定 IP 範圍，都必須在 Azure Windows VM 上安裝自我裝載整合執行時間。 
 
-- 針對每個 Azure VM 開始使用的建議設定是使用 32 vCPU 和 128 GB 記憶體進行 Standard_D32s_v3。  您可以在資料移轉期間持續監視 IR VM 的 CPU 和記憶體使用量，以瞭解您是否需要進一步相應增加 VM 以獲得更佳的效能，或相應減少 VM 以節省成本。 
+- 針對每個 Azure VM 開始使用的建議設定是以 32 vCPU 和 128 GB 記憶體 Standard_D32s_v3。  您可以在資料移轉期間持續監視 IR VM 的 CPU 和記憶體使用量，以瞭解您是否需要進一步相應增加 VM 以獲得更佳的效能，或相應減少 VM 以節省成本。 
 - 您也可以將最多4個 VM 節點與單一的自我裝載 IR 產生關聯，以相應放大。  針對自我裝載 IR 執行的單一複製作業會自動分割盤案集，並利用所有 VM 節點來平行複製檔案。  為達高可用性，建議您從2個 VM 節點開始，以避免在資料移轉期間發生單一失敗點。 
 
 ### <a name="rate-limiting"></a>速率限制 

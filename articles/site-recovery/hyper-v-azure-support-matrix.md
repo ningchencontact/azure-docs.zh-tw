@@ -1,18 +1,18 @@
 ---
-title: 內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
+title: 使用 Azure Site Recovery 支援 Hyper-v Vm 至 Azure 的嚴重損壞修復
 description: 摘要說明使用 Azure Site recovery 將 Hyper-V VM 災害復原至 Azure 的支援元件和需求
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: e34140f9e014cfd41b0c14e980ca74e4d07d0c85
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: HT
+ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933854"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620826"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -134,7 +134,7 @@ RDM | NA | NA
 待用加密 (SSE)| 是 | 是
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
-已啟用防火牆的 Azure 儲存體帳戶 | 是的。 適用于目標儲存體和快取。 | 是的。 適用于目標儲存體和快取。
+已啟用防火牆的 Azure 儲存體帳戶 | 是。 適用于目標儲存體和快取。 | 是。 適用于目標儲存體和快取。
 修改儲存體帳戶 | 不會。 啟用複寫之後，即無法修改目標 Azure 儲存體帳戶。 若要修改，請停用再重新啟用嚴重損壞修復。 | 否
 
 
@@ -181,7 +181,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 若要確定您的部署與本文中的設定相容，請確定您所執行的是最新的提供者和代理程式版本。
 
-**名稱** | **描述** | **詳細資料**
+**名稱** | **說明** | **詳細資料**
 --- | --- | --- 
 Azure Site Recovery 提供者 | 協調內部部署伺服器與 Azure 之間的通訊 <br/><br/> HYPER-V (含 Virtual Machine Manager)：安裝在 Virtual Machine Manager 伺服器上<br/><br/> HYPER-V (不含 Virtual Machine Manager)：安裝在 HYPER-V 主機上| 最新版本：5.1.2700.1 (可從 Azure 入口網站取得)<br/><br/> [最新功能和修正](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure 復原服務代理程式 | 協調 HYPER-V VM 與 Azure 之間的複寫<br/><br/> 安裝在內部部署 Hyper-V 伺服器上 (無論是否有 Virtual Machine Manager) | 最新的代理程式可從入口網站取得

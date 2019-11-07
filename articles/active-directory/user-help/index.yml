@@ -12,12 +12,12 @@ metadata:
   author: eross-msft
   ms.author: lizross
   ms.date: 08/26/2019
-  ms.openlocfilehash: 96fd0f6612b6c91ce4021b50ffe121b571a5032b
-  ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+  ms.openlocfilehash: c60b536c43b8a82a46ef9176eb077b212da529c0
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73161006"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73574216"
 landingContent:
 - title: 設定並使用 Microsoft Authenticator 應用程式
   linkLists:
@@ -73,18 +73,20 @@ landingContent:
       url: security-info-add-update-methods-overview.md
     - text: 在登入提示期間新增資訊
       url: security-info-setup-signin.md
-- title: 在「我的設定檔」入口網站上管理您的資訊 (預覽)
+- title: 在「我的帳戶」入口網站中管理資訊
   linkLists:
   - linkListType: overview
     links:
-    - text: 何謂「我的設定檔」 (預覽) 入口網站？
-      url: myprofile-portal-overview.md
+    - text: 什麼是「我的帳戶」入口網站？
+      url: my-account-portal-overview.md
   - linkListType: how-to-guide
     links:
-    - text: 管理您的組織
-      url: myprofile-portal-organizations-page.md
     - text: 管理您的已連線裝置
-      url: myprofile-portal-devices-page.md
+      url: my-account-portal-devices-page.md
+    - text: 管理您的組織
+      url: my-account-portal-organizations-page.md
+    - text: 檢視您最近的登入活動
+      url: my-account-portal-sign-ins-page.md
 - title: 重設您自己的密碼
   linkLists:
   - linkListType: overview

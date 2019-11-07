@@ -174,7 +174,7 @@
 - name: 開機錯誤
   href: boot-error-troubleshoot.md
   items:
-    - name: Azure 虛擬機器開機錯誤
+    - name: Grub 修復
       href: troubleshoot-vm-boot-error.md
     - name: 開機診斷
       href: boot-diagnostics.md

@@ -26,15 +26,31 @@
         - name: 使用 Blob 開發
           items:
             - name: .NET
-              href: storage-quickstart-blobs-dotnet.md
+              items:
+                - name: .NET (v12 SDK)
+                  href: storage-quickstart-blobs-dotnet.md
+                - name: .NET (v11 SDK)
+                  href: storage-quickstart-blobs-dotnet-legacy.md
             - name: Java
-              href: storage-quickstart-blobs-java.md
+              items:
+                - name: Java (v12 SDK)
+                  href: storage-quickstart-blobs-java.md
+                - name: Java (v8 SDK)
+                  href: storage-quickstart-blobs-java-legacy.md
             - name: Python
-              href: storage-quickstart-blobs-python.md
-            - name: Javascript (Node.js)
-              href: storage-quickstart-blobs-nodejs-v10.md
-            - name: Javascript (瀏覽器)
-              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+              items:
+                - name: Python (v12 SDK)
+                  href: storage-quickstart-blobs-python.md
+                - name: Python (v2.1 SDK)
+                  href: storage-quickstart-blobs-python-legacy.md
+            - name: JavaScript
+              items:
+                - name: JavaScript (適用於 Node.js 的 v12 SDK)
+                  href: storage-quickstart-blobs-nodejs.md
+                - name: JavaScript (適用於 Node.js 的 v10 SDK)
+                  href: storage-quickstart-blobs-nodejs-v10.md
+                - name: JavaScript (適用於瀏覽器的 v10 SDK)
+                  href: storage-quickstart-blobs-javascript-client-libraries-v10.md
             - name: Go
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -147,7 +163,7 @@
               href: storage-blob-performance-tiers.md
             - name: 管理 Azure Blob 儲存體生命週期
               href: storage-lifecycle-management-concepts.md
-        - name: 效能及延展性
+        - name: 效能、調整和成本最佳化
           items:
             - name: 擴充和效能目標
               href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -155,8 +171,16 @@
               href: storage-performance-checklist.md
             - name: Blob 儲存體中的延遲
               href: storage-blobs-latency.md
+            - name: Azure 儲存體保留容量
+              href: storage-blob-reserved-capacity.md
         - name: 並行
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 搜尋並了解 Blob 資料
+          items:
+            - name: 使用 AI 了解 Blob 資料
+              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Blob 資料中的全文檢索搜尋
+              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 資料移轉
           items:
             - name: 比較資料轉送解決方案
@@ -223,6 +247,8 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 事件處理
           href: storage-blob-event-overview.md
+        - name: 變更摘要
+          href: storage-blob-change-feed.md
         - name: 分頁 Blob 功能
           href: storage-blob-pageblob-overview.md
         - name: 靜態網站
@@ -350,6 +376,8 @@
           href: storage-custom-domain-name.md
         - name: 將事件路由至自訂端點
           href: storage-blob-event-quickstart.md
+        - name: 處理變更摘要記錄
+          href: storage-blob-change-feed-how-to.md
         - name: 使用 Azure 搜尋服務搜尋 Blob 儲存體
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 傳送資料
@@ -384,9 +412,9 @@
               href: storage-xamarin-blob-storage.md
             - name: 先前的 SDK 版本
               items:
-                - name: Javascript (Node.js) (儲存體 SDK v2)
-                  href: storage-quickstart-blobs-nodejs.md
-                - name: Javascript (瀏覽器) (儲存體 SDK v2)
+                - name: JavaScript (Node.js) (儲存體 SDK v2)
+                  href: storage-quickstart-blobs-nodejs-legacy.md
+                - name: JavaScript (瀏覽器) (儲存體 SDK v2)
                   href: storage-quickstart-blobs-javascript-client-libraries.md
         - name: 管理 Blob
           items:
@@ -408,24 +436,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: Blob、佇列和檔案儲存體
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blob (版本 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: 資料移動
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: 儲存體資源提供者
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: Blob、佇列和檔案 (版本 12.x - 預覽)
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: Blob、佇列和檔案 (版本 8)
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blob (版本 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blob (版本 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: 儲存體資源提供者
               href: /java/api/overview/azure/storage/management
-        - name: Node.js
-          href: /javascript/api/overview/azure/storage
-        - name: Python
-          href: /python/api/overview/azure/storage
+        - name: JavaScript (版本 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python (版本 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: Blob、佇列、資料表和檔案
@@ -600,7 +628,7 @@
         - name: 巨量資料處理
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 與 Azure 服務整合
-          href: ../blobs/data-lake-store-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 適用於 Hadoop 的 Azure Blob 檔案系統驅動程式
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure Blob 檔案系統 URI
@@ -713,20 +741,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: Blob、佇列、資料表和檔案
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blob (版本 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: 資料移動
               href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Resource Manager
+            - name: 儲存體資源提供者
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: Blob、佇列和檔案 (版本 12.x - 預覽)
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: Blob、佇列和檔案 (版本 8)
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blob (版本 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blob (版本 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: 儲存體資源提供者
               href: /java/api/overview/azure/storage/management
+        - name: JavaScript (版本 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python (版本 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: Blob、佇列、資料表和檔案

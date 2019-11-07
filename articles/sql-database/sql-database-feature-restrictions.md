@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 功能限制 |Microsoft Docs
+title: Azure SQL Database 功能限制
 description: Azure SQL Database 功能限制藉由限制資料庫中可讓攻擊者存取其中資訊的功能，來改善您的資料庫安全性。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: f2fd6cb73428c69fbb27cb93377f851a4e06221d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: e9518065b2240d72698ed75f2fa8a7aed343b7bf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690056"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Azure SQL Database 功能限制
 
@@ -24,7 +24,7 @@ SQL Server 攻擊的常見來源是透過存取資料庫的 web 應用程式，�
 
 ## <a name="enabling-feature-restrictions"></a>啟用功能限制
 
-啟用功能限制是使用`sp_add_feature_restriction`預存程式來完成，如下所示：
+啟用功能限制是使用 `sp_add_feature_restriction` 預存程式來完成，如下所示：
 
 ```sql
 EXEC sp_add_feature_restriction <feature>, <object_class>, <object_name>
@@ -32,14 +32,14 @@ EXEC sp_add_feature_restriction <feature>, <object_class>, <object_name>
 
 下列功能可以受到限制：
 
-| 功能          | 描述 |
+| 功能          | 說明 |
 |------------------|-------------|
 | N'ErrorMessages' | 受限制時，會將錯誤訊息內的任何使用者資料加上遮罩。 請參閱[錯誤訊息功能限制](#error-messages-feature-restriction) |
 | N'Waitfor'       | 受限制的情況下，命令會立即傳回，而不會有任何延遲。 查看[WAITFOR 功能限制](#waitfor-feature-restriction) |
 
-的值`object_class`可以`N'User'`是或`N'Role'` ，以表示是否`object_name`為資料庫中的使用者名稱或角色名稱。
+`object_class` 的值可以是 `N'User'` 或 `N'Role'`，以表示 `object_name` 是資料庫中的使用者名稱或角色名稱。
 
-下列範例會造成使用者`MyUser`遮罩的所有錯誤訊息：
+下列範例會將使用者 `MyUser` 的所有錯誤訊息遮罩：
 
 ```sql
 EXEC sp_add_feature_restriction N'ErrorMessages', N'User', N'MyUser'
@@ -47,13 +47,13 @@ EXEC sp_add_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 
 ## <a name="disabling-feature-restrictions"></a>停用功能限制
 
-停用功能限制是使用`sp_drop_feature_restriction`預存程式來完成，如下所示：
+停用功能限制是使用 `sp_drop_feature_restriction` 預存程式來完成，如下所示：
 
 ```sql
 EXEC sp_drop_feature_restriction <feature>, <object_class>, <object_name>
 ```
 
-下列範例會停用使用者`MyUser`的錯誤訊息遮罩：
+下列範例會停用使用者 `MyUser`的錯誤訊息遮罩：
 
 ```sql
 EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
@@ -61,13 +61,13 @@ EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 
 ## <a name="viewing-feature-restrictions"></a>查看功能限制
 
-此`sys.sql_feature_restrictions`視圖會顯示資料庫上所有目前定義的功能限制。 它具有下列資料行：
+[`sys.sql_feature_restrictions`] 視圖會顯示資料庫上所有目前定義的功能限制。 它具有下列資料行：
 
-| 資料行名稱 | 資料類型 | 描述 |
+| 資料行名稱 | 資料類型 | 說明 |
 |-------------|-----------|-------------|
-| 類別       | nvarchar(128) | 套用限制之物件的類別 |
-| object      | nvarchar(256) | 套用限制的物件名稱 |
-| 功能     | nvarchar(128) | 受限制的功能 |
+| class       | nvarchar(128) | 套用限制之物件的類別 |
+| 物件      | nvarchar(256) | 套用限制的物件名稱 |
+| 特徵     | nvarchar(128) | 受限制的功能 |
 
 ## <a name="feature-restrictions"></a>功能限制
 
@@ -87,7 +87,7 @@ http://www.contoso.com/employee.php?id=1
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 ```
 
-如果要複製當做`id`參數傳遞至 web 應用程式要求的值，以取代資料庫查詢中的 $EmpId，攻擊者可能會提出下列要求：
+如果要複製當做 `id` 參數傳遞至 web 應用程式要求的值，以取代資料庫查詢中的 $EmpId，攻擊者可能會提出下列要求：
 
 ```html
 http://www.contoso.com/employee.php?id=1 AND CAST(DB_NAME() AS INT)=0
@@ -125,7 +125,7 @@ Arithmetic overflow error for data type ******, value = ******.
 
 ### <a name="waitfor-feature-restriction"></a>WAITFOR 功能限制
 
-盲人 SQL 插入是指應用程式不會為攻擊者提供插入 SQL 或錯誤訊息的結果，但攻擊者可以藉由建立兩個條件式分支中的條件式查詢，從資料庫推斷資訊。執行所需的時間不同。 藉由比較回應時間，攻擊者可以知道已執行哪個分支，進而瞭解系統的相關資訊。 這種攻擊最簡單的變體是`WAITFOR`使用語句來引進延遲。
+盲人 SQL 插入是指應用程式不會為攻擊者提供插入 SQL 或錯誤訊息的結果，但攻擊者可以藉由建立兩個條件式分支中的條件式查詢，從資料庫推斷資訊。執行所需的時間不同。 藉由比較回應時間，攻擊者可以知道已執行哪個分支，進而瞭解系統的相關資訊。 這種攻擊最簡單的變體是使用 `WAITFOR` 語句來引進延遲。
 
 假設有一個 web 應用程式，其要求的格式如下：
 
@@ -145,4 +145,4 @@ SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 http://www.contoso.com/employee.php?id=1; IF SYSTEM_USER='sa' WAITFOR DELAY '00:00:05'
 ```
 
-如果`sa`使用帳戶，查詢將需要額外5秒的時間。 如果`WAITFOR`資料庫中的功能限制已停用， `WAITFOR`則會忽略語句，而不會使用此攻擊來洩漏資訊。
+如果正在使用 `sa` 帳戶，則查詢會需要額外的5秒。 如果在資料庫中停用 `WAITFOR` 功能限制，將會忽略 `WAITFOR` 語句，而不會使用此攻擊洩漏資訊。

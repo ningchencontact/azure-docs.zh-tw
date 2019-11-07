@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 對應資料流程中的聯結轉換 |Microsoft Docs
+title: Azure Data Factory 對應資料流程中的聯結轉換
 description: 使用 Azure Data Factory 對應資料流程中的聯結轉換，結合來自兩個數據源的資料
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597063"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675919"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>對應資料流程中的聯結轉換
 
@@ -32,7 +32,7 @@ ms.locfileid: "72597063"
 
 ### <a name="right-outer"></a>右方外部
 
-左方外部聯結會從右邊的資料流程傳回所有資料列，並從左邊的資料流程傳回相符的記錄。 如果右邊資料流程中的資料列沒有相符項，則右邊資料流程的輸出資料行會設定為 Null。 輸出將會是內部聯結所傳回的資料列，再加上右邊資料流程中不相符的資料列。
+右方外部聯結會從右邊的資料流程傳回所有資料列，並從左邊的資料流程傳回相符的記錄。 如果右邊資料流程中的資料列沒有相符項，則左側資料流程的輸出資料行會設定為 Null。 輸出將會是內部聯結所傳回的資料列，再加上右邊資料流程中不相符的資料列。
 
 ### <a name="full-outer"></a>完整外部
 
@@ -48,7 +48,7 @@ ms.locfileid: "72597063"
 1. 選取您的**聯結類型**
 1. 選擇您想要與之聯結條件相符的索引鍵資料行。 根據預設，資料流程會在每個資料流程中的一個資料行之間尋找是否相等。 若要透過計算值進行比較，請將滑鼠停留在資料行下拉式清單中，然後選取 [**計算資料行**]
 
-![聯結轉換](media/data-flow/join.png "聯結")
+![聯結轉換](media/data-flow/join.png "Join")
 
 ## <a name="optimizing-join-performance"></a>優化聯結效能
 
@@ -83,7 +83,7 @@ ms.locfileid: "72597063"
 
 ### <a name="inner-join-example"></a>內部聯結範例
 
-下列範例是名為 `JoinMatchedData` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。  聯結條件是運算式 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` 如果每個資料流程中的 `hack_license`、`medallion`、`vendor_id` 和 `pickup_datetime` 資料行相符，就會傳回 true。 @No__t_0 為 `'inner'`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
+下列範例是名為 `JoinMatchedData` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。  聯結條件是運算式 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` 如果每個資料流程中的 `hack_license`、`medallion`、`vendor_id`和 `pickup_datetime` 資料行相符，就會傳回 true。 `joinType` 為 `'inner'`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>交叉聯結範例
 
-下列範例是名為 `CartesianProduct` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。 這項轉換會接受兩個數據流，並傳回其資料列的笛卡兒乘積。 聯結條件是 `true()` 的，因為它會輸出完整的笛卡兒乘積。 @No__t_1 中的 `joinType`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
+下列範例是名為 `CartesianProduct` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。 這項轉換會接受兩個數據流，並傳回其資料列的笛卡兒乘積。 聯結條件是 `true()` 的，因為它會輸出完整的笛卡兒乘積。 `cross`中的 `joinType`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 

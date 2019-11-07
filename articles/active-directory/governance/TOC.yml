@@ -84,6 +84,14 @@
               href: entitlement-management-request-access.md
     - name: 存取權檢閱
       items:
+        - name: 存取套件
+          items:
+            - name: 建立存取權檢閱
+              href: entitlement-management-access-reviews-create.md
+            - name: 檢閱存取
+              href: entitlement-management-access-reviews-review-access.md
+            - name: 檢閱您自己的存取權
+              href: entitlement-management-access-reviews-self-review.md
         - name: 群組和應用程式
           items:
             - name: 建立存取權檢閱

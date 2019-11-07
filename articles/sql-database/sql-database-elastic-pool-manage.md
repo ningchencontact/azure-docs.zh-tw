@@ -1,5 +1,5 @@
 ---
-title: 管理彈性集區-Azure SQL database |Microsoft Docs
+title: 管理彈性集區-Azure SQL database
 description: 建立和管理 Azure SQL 彈性集區。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ca00326d5704d3dd26027d90a3e48bfc52ec5653
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ad8f076c65c852f338e380f1ad8fca4e5dcb79ba
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744451"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690474"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>管理 Azure SQL Database 中的彈性集區
 
@@ -48,13 +48,13 @@ ms.locfileid: "70744451"
 > 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立彈性集區並在集區之間移動資料庫以及將其移出集區](scripts/sql-database-move-database-between-pools-powershell.md)和[使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區](scripts/sql-database-monitor-and-scale-pool-powershell.md)。
 >
 
-| Cmdlet | 描述 |
+| Cmdlet | 說明 |
 | --- | --- |
 |[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|建立彈性集區。|
-|[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|取得彈性集區及其屬性值。|
+|[AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|取得彈性集區及其屬性值。|
 |[Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool)|修改彈性集區的屬性。例如，使用 **StorageMB** 屬性可修改彈性集區的最大儲存體。|
-|[Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|刪除彈性集區。|
-|[Get-AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|取得彈性集區上的作業狀態|
+|[移除-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|刪除彈性集區。|
+|[AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|取得彈性集區上的作業狀態|
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|在現有的集區建立新的資料庫，或建立新的資料庫做為單一資料庫。 |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|取得一或多個資料庫。|
 |[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|設定資料庫的屬性，或將現有資料庫移入彈性集區、移出彈性集區，或在彈性集區之間移動。|
@@ -71,7 +71,7 @@ ms.locfileid: "70744451"
 > 關於 Azure CLI 範例指令碼，請參閱[使用 CLI 移動 SQL 彈性集區中的 Azure SQL 資料庫](scripts/sql-database-move-database-between-pools-cli.md)和[使用 Azure CLI 在 Azure SQL Database 中調整 SQL 彈性集區](scripts/sql-database-scale-pool-cli.md)。
 >
 
-| Cmdlet | 描述 |
+| Cmdlet | 說明 |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|建立彈性集區。|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|傳回將伺服器中的彈性集區列出的清單。|
@@ -88,7 +88,7 @@ ms.locfileid: "70744451"
 > 您無法使用 Transact-SQL 建立、更新或刪除 Azure SQL Database 彈性集區。 您可以新增或移除彈性集區中的資料庫，也可以使用 DMV 傳回現有彈性集區的資訊。
 >
 
-| 命令 | 描述 |
+| 命令 | 說明 |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|在現有的集區建立新的資料庫，或建立新的資料庫做為單一資料庫。 您必須連線到 master 資料庫才能建立新的資料庫。|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |將資料庫移入彈性集區、將資料庫移出彈性集區，或在彈性集區之間移動資料庫。|
@@ -100,7 +100,7 @@ ms.locfileid: "70744451"
 
 若要建立和管理 SQL Database 彈性集區和集區資料庫，請使用這些 REST API 要求。
 
-| 命令 | 描述 |
+| 命令 | 說明 |
 | --- | --- |
 |[彈性集區 - 建立或更新](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|建立新的彈性集區或更新現有的彈性集區。|
 |[彈性集區 - 刪除](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|刪除彈性集區。|

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Teradata 有利複製資料 |Microsoft Docs
+title: 使用 Azure Data Factory 從 Teradata 有利複製資料
 description: Data Factory 服務的 Teradata 連接器可讓您將 Teradata 有利的資料複製到 Data Factory 所支援的資料存放區作為接收。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 923e248ff7b793d5187faeabdbf073ca90d9efc2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4074c50aa17bf804696060134e37055a18bd0137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930975"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680096"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 有利複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -39,7 +39,7 @@ ms.locfileid: "72930975"
 具體而言，這個 Teradata 連接器支援：
 
 - Teradata**版本14.10、15.0、15.10、16.0、16.10 和 16.20**。
-- 使用**基本**或**Windows**驗證來複製資料。
+- 使用**Basic**或**Windows**驗證來複製資料。
 - 從 Teradata 來源進行平行複製。 如需詳細資訊，請參閱[從 Teradata 的平行複製](#parallel-copy-from-teradata)一節。
 
 > [!NOTE]
@@ -64,7 +64,7 @@ ms.locfileid: "72930975"
 
 Teradata 連結服務支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | Type 屬性必須設定為**Teradata**。 | 是 |
 | connectionString | 指定連接到 Teradata 實例所需的資訊。 請參考下列範例。<br/>您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -74,9 +74,9 @@ Teradata 連結服務支援下列屬性：
 
 您可以在連接字串中，根據您的案例設定更多的連接屬性：
 
-| 屬性 | 描述 | 預設值 |
+| 屬性 | 說明 | 預設值 |
 |:--- |:--- |:--- |
-| CharacterSet | 要用於會話的字元集。 例如，`CharacterSet=UTF16`。<br><br/>此值可以是使用者定義的字元集，或是下列其中一個預先定義的字元集： <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>-Shift-JIS （Windows、DOS 相容、KANJISJIS_0S）<br/>-EUC （Unix 相容，KANJIEC_0U）<br/>-IBM 大型主機（KANJIEBCDIC5035_0I）<br/>- KANJI932_1S0<br/>-BIG5 （TCHBIG5_1R0）<br/>-GB （SCHGB2312_1T0）<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | 預設值為 `ASCII`。 |
+| CharacterSet | 要用於會話的字元集。 例如，`CharacterSet=UTF16`。<br><br/>此值可以是使用者定義的字元集，或是下列其中一個預先定義的字元集： <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS （Windows、DOS 相容、KANJISJIS_0S）<br/>-EUC （Unix 相容，KANJIEC_0U）<br/>-IBM 大型主機（KANJIEBCDIC5035_0I）<br/>-KANJI932_1S0<br/>-BIG5 （TCHBIG5_1R0）<br/>-GB （SCHGB2312_1T0）<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean （HANGULKSC5601_2R4）<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | 預設值為 `ASCII`。 |
 | MaxRespSize |SQL 要求的回應緩衝區大小上限（以 kb 為單位）（Kb）。 例如，`MaxRespSize=‭10485760‬`。<br/><br/>針對 Teradata 資料庫16.00 版或更新版本，最大值為7361536。 若為使用舊版的連接，最大值為1048576。 | 預設值為 `65536`。 |
 
 **使用基本驗證的範例**
@@ -151,7 +151,7 @@ Teradata 連結服務支援下列屬性：
 
 若要從 Teradata 複製資料，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為 `TeradataTable`。 | 是 |
 | 資料庫 | Teradata 實例的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -205,7 +205,7 @@ Teradata 連結服務支援下列屬性：
 
 若要從 Teradata 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為 `TeradataSource`。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割載入時，您必須在查詢中攔截任何對應的內建資料分割參數。 如需範例，請參閱[從 Teradata 平行複製](#parallel-copy-from-teradata)一節。 | 否（如果已指定資料集中的資料表） |
@@ -303,15 +303,15 @@ Data Factory Teradata 連接器會提供內建的資料分割，以平行方式�
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
-| Byte |Byte[] |
+| 位元組 |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| 日期 |日期時間 |
+| Char |字串 |
+| Clob |字串 |
+| 日期 |DateTime |
 | Decimal |Decimal |
-| DOUBLE |DOUBLE |
+| Double |Double |
 | 圖形 |不支援。 在來源查詢中套用明確轉換。 |
-| 整數 |Int32 |
+| Integer |Int32 |
 | 間隔日 |不支援。 在來源查詢中套用明確轉換。 |
 | 間隔日至小時 |不支援。 在來源查詢中套用明確轉換。 |
 | 間隔日至分鐘 |不支援。 在來源查詢中套用明確轉換。 |
@@ -325,21 +325,21 @@ Data Factory Teradata 連接器會提供內建的資料分割，以平行方式�
 | 間隔第二 |不支援。 在來源查詢中套用明確轉換。 |
 | 間隔年 |不支援。 在來源查詢中套用明確轉換。 |
 | 間隔年至月 |不支援。 在來源查詢中套用明確轉換。 |
-| Number |DOUBLE |
+| 數字 |Double |
 | 期間（日期） |不支援。 在來源查詢中套用明確轉換。 |
 | 期間（時間） |不支援。 在來源查詢中套用明確轉換。 |
 | 期間（使用時區的時間） |不支援。 在來源查詢中套用明確轉換。 |
 | 期間（時間戳記） |不支援。 在來源查詢中套用明確轉換。 |
 | Period （含時區的時間戳記） |不支援。 在來源查詢中套用明確轉換。 |
 | SmallInt |Int16 |
-| 時間 |時間範圍 |
-| 時區的時間 |時間範圍 |
-| Timestamp |日期時間 |
-| 時區的時間戳記 |日期時間 |
+| 時間 |TimeSpan |
+| 時區的時間 |TimeSpan |
+| Timestamp |DateTime |
+| 時區的時間戳記 |DateTime |
 | VarByte |Byte[] |
-| VarChar |String |
+| VarChar |字串 |
 | VarGraphic |不支援。 在來源查詢中套用明確轉換。 |
-| xml |不支援。 在來源查詢中套用明確轉換。 |
+| Xml |不支援。 在來源查詢中套用明確轉換。 |
 
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性
@@ -348,4 +348,4 @@ Data Factory Teradata 連接器會提供內建的資料分割，以平行方式�
 
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436802"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721086"
 ---
 # <a name="create-containers-with-large-partition-key"></a>建立具有大型分割區索引鍵的容器
 
@@ -71,7 +71,8 @@ database,
 |.NET     |    1.18     |
 |JAVA 同步處理     |   2.4.0      |
 |JAVA 非同步   |  2.5.0        |
-| REST API | 版本高於 `2017-05-03`，方法是使用 `x-ms-version` 要求標頭。|
+| REST API | 使用 `x-ms-version` 要求標頭的版本高於 `2017-05-03`。|
+| Resource Manager 範本 | 第2版，使用 `partitionKey` 物件內的 `"version":2` 屬性。 |
 
 目前，您無法在 Power BI 和 Azure Logic Apps 中使用具有大型分割區索引鍵的容器。 您可以從這些應用程式使用沒有大型分割區索引鍵的容器。
 

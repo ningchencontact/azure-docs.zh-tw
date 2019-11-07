@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 資訊安全中心自訂 SQL 資訊保護原則 | Microsoft Docs
+title: 自訂 SQL 資訊保護-Azure 資訊安全中心
 description: 了解如何在 Azure 資訊安全中心自訂資訊保護原則。
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520796"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664398"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>在 Azure 資訊安全中心自訂 SQL 資訊保護原則 (預覽)
  
-在 Azure 資訊安全中心，可以定義和自訂整個 Azure 租用戶的 SQL 資訊保護原則。
+您可以在 Azure 資訊安全中心中定義和自訂整個 Azure 租使用者的 SQL 資訊保護原則。
 
-資訊保護是進階安全性功能，用於探索、分類、標記和保護 Azure 資料資源中的敏感性資料。 探索和分類最敏感的資料（商務、財務、醫療保健、個人資料等等），可以在您的組織資訊保護等級中扮演 pivotal 角色。 它可以作為以下的基礎結構：
+資訊保護是一項先進的安全性功能，可用於探索、分類、標記及保護 Azure 資料資源中的機密資料。 探索和分類最敏感的資料（商務、財務、醫療保健、個人資料等等），可以在您的組織資訊保護等級中扮演 pivotal 角色。 它可以作為以下的基礎結構：
 - 協助符合資料隱私標準和法規合規性需求
-- 各種安全性情節，例如針對敏感性資料異常存取的監視 (稽核) 及警示
+- 安全性案例，例如監視（審核）和警示對敏感性資料的異常存取
 - 對包含高度敏感性資料的資料存放區進行存取控制並強化安全性
  
-[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) 會針對 SQL 資料存放區實作此範例，而 Azure SQL Database 目前予以支援。 SQL Information Protection 會自動探索和分類可能的敏感性資料、提供標記機制以使用分類屬性持續標記敏感性資料，並提供詳細儀表板以顯示資料庫的分類狀態。 此外，它還會計算 SQL 查詢的結果集敏感度，以明確地稽核可擷取敏感性資料的查詢，並保護資料。 如需 SQL Information Protection 的詳細資訊，請參閱 [Azure SQL Database 的資料探索與分類](../sql-database/sql-database-data-discovery-and-classification.md)。
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) 會針對 SQL 資料存放區實作此範例，而 Azure SQL Database 目前予以支援。 SQL Information Protection 會自動探索和分類可能的敏感性資料、提供標記機制以使用分類屬性持續標記敏感性資料，並提供詳細儀表板以顯示資料庫的分類狀態。 此外，它還會計算 SQL 查詢的結果集敏感度，以明確地稽核可擷取敏感性資料的查詢，並保護資料。 如需 SQL 資訊保護的詳細資訊，請參閱[Azure SQL Database 資料探索與分類](../sql-database/sql-database-data-discovery-and-classification.md)。
  
 分類機制根據構成分類法的兩個主要建構：**標籤**和**資訊類型**。
 - **標籤** – 主要分類屬性，用來定義儲存在資料行中的資料敏感度等級。 
 - **資訊類型** – 為儲存在資料行中的資料類型提供額外的細微性。
  
-Information Protection 隨附一組預設會使用的內建標籤和資訊類型。 若要自訂這些項目，您可以在 Azure 資訊安全中心自訂資訊保護原則。
+Information Protection 隨附一組預設會使用的內建標籤和資訊類型。 若要自訂這些標籤和類型，您可以在資訊安全中心中自訂資訊保護原則。
  
 ## <a name="customize-the-information-protection-policy"></a>自訂資訊保護原則
 若要自訂 Azure 租用戶的資訊保護原則，您需要具有[租用戶根管理群組的管理權限](security-center-management-groups.md)。 

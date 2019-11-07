@@ -1,5 +1,5 @@
 ---
-title: 相應放大 Azure SQL 資料庫 | Microsoft Docs
+title: 相應放大 Azure SQL 資料庫
 description: 如何使用彈性資料庫用戶端程式庫 ShardMapManager
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d704e22dcd9ce4442ed16ae901c9c447fc025ebd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568340"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690164"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分區對應管理員相應放大資料庫
 
@@ -24,7 +24,7 @@ ms.locfileid: "68568340"
 
 ![分區對應管理](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-了解這些對應建構的方式，是分區對應管理的基本。 使用可在[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)中找到的 ShardMapManager 類別 ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 來管理分區對應，即可達成。  
+了解這些對應建構的方式，是分區對應管理的基本。 使用可在[彈性資料庫用戶端程式庫](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager)中找到的 ShardMapManager 類別 ([Java](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)、[.NET](sql-database-elastic-database-client-library.md)) 來管理分區對應，即可達成。  
 
 ## <a name="shard-maps-and-shard-mappings"></a>分區對應和分區對應方式
 
@@ -53,12 +53,12 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 | .NET | Java |
 | --- | --- |
-| 整數 |整數 |
+| integer |integer |
 | long |long |
-| GUID |uuid |
+| guid |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| 時間範圍 | 持續時間|
+| timespan | duration|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>清單和範圍分區對應
@@ -69,7 +69,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 **分區**包含 **Shardlet**，Shardlet 至分區的對應是由分區對應所維護。 **清單分區對應** 是個別索引鍵值 (識別 Shardlet) 與資料庫 (做為分區) 之間的關聯。  **清單對應** 十分明確，而且不同的索引鍵值可以對應到相同資料庫。 例如，索引鍵值 1 對應到 Database A，而索引鍵值 3 和 6 都會對應到 Database B。
 
-| Key | 分區位置 |
+| 索引鍵 | 分區位置 |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -83,7 +83,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 例如， **[0, 100)** 包含所有大於或等於 0 且小於 100 的整數。 請注意，多個範圍可指向相同的資料庫，而且可支援不相連的範圍 (例如 [100, 200) 和 [400, 600) 都指向下列範例中的資料庫 C。)
 
-| Key | 分區位置 |
+| 索引鍵 | 分區位置 |
 | --- | --- |
 | [1,50) |Database_A |
 | [50,100) |Database_B |
@@ -107,7 +107,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 **請注意：** 對於每個應用程式網域，**ShardMapManager** 應該只具現化一次 (在應用程式的初始化程式碼內)。 如果在相同的應用程式網域中建立 ShardMapManager 的其他執行個體，將會導致應用程式的記憶體和 CPU 使用率增加。 **ShardMapManager** 可以包含任意數目的分區對應。 雖然單一分區對應可能足夠用於許多應用程式，但有時幾組不同的資料庫會用於不同的結構描述或做為特殊用途；在這些情況下，最好使用多個分區對應。
 
-在這段程式碼中，應用程式會以 TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 方法嘗試開啟現有的 **ShardMapManager**。 如果代表全域 **ShardMapManager** (GSM) 的物件尚不存在資料庫內，則用戶端程式庫會使用 CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 方法建立這些物件。
+在這段程式碼中，應用程式會以 TryGetSqlShardMapManager (**Java**、[.NET](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager)) 方法嘗試開啟現有的 [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)。 如果代表全域 **ShardMapManager** (GSM) 的物件尚不存在資料庫內，則用戶端程式庫會使用 CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 方法建立這些物件。
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -157,7 +157,7 @@ else
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>取得 RangeShardMap 或 ListShardMap
 
-建立分區對應管理員之後，您可以使用 TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap))、TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) 或 GetShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)) 方法來取得 RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 或 ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1))。
+建立分區對應管理員之後，您可以使用 TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1))、TryGetListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) 或 GetShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)) 方法來取得 RangeShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) 或 ListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap))。
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -220,9 +220,9 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 ### <a name="only-metadata-affected"></a>只影響中繼資料
 
-用來填入或變更 **ShardMapManager** 資料的方法不會改變分區本身中儲存的使用者資料。 比方說，**CreateShard**、**DeleteShard**、**UpdateMapping** 等方法只會影響分區對應中繼資料。 它們不會移除、新增或改變分區中所包含的使用者資料。 相反地，這些方法是設計來搭配其他作業一起使用，例如，您可能執行這些作業來建立或移除實際的資料庫，或將資料列從一個分區移至另一個分區，以重新平衡分區化環境。  (彈性資料庫工具隨附的**分割合併**工具會使用這些 API，以及協調分區之間實際的資料移動。)請參閱[使用彈性資料庫分割合併工具來縮放](sql-database-elastic-scale-overview-split-and-merge.md)。
+用來填入或變更 **ShardMapManager** 資料的方法不會改變分區本身中儲存的使用者資料。 比方說，**CreateShard**、**DeleteShard**、**UpdateMapping** 等方法只會影響分區對應中繼資料。 它們不會移除、新增或改變分區中所包含的使用者資料。 相反地，這些方法是設計來搭配其他作業一起使用，例如，您可能執行這些作業來建立或移除實際的資料庫，或將資料列從一個分區移至另一個分區，以重新平衡分區化環境。  （彈性資料庫工具隨附的**分割合併**工具會使用這些 api，以及協調分區之間實際的資料移動。）請參閱[使用彈性資料庫分割合併工具進行調整](sql-database-elastic-scale-overview-split-and-merge.md)。
 
-## <a name="data-dependent-routing"></a>資料相依路由
+## <a name="data-dependent-routing"></a>依資料路由
 
 需要資料庫連線來執行應用程式特定資料作業的應用程式，會使用分區對應管理員。 這些連線都必須與正確的資料庫相關聯。 這稱為 **資料相依路由**。 對於這些應用程式，請使用對 GSM 資料庫具有唯讀存取的認證，從 Factory 具現化分區對應管理員物件。 稍後連接的個別要求會提供連接到適當分區資料庫所需的認證。
 
@@ -236,10 +236,10 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 這些方法一起做為建置組塊，可用於修改分區化資料庫環境中的整體資料分佈。  
 
-* 若要新增或移除分區：請使用 Shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)) 類別的 **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) 和 **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard))。
+* 若要新增或移除分區：請使用 Shardmap (**Java**、[.NET](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard)) 類別的 [CreateShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard) (**Java**、[.NET](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard)) 和 [DeleteShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard) ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap))。
   
     代表目標分區的伺服器和資料庫必須存在，才能執行這些作業。 這些方法完全不影響資料庫本身，只影響分區對應中的中繼資料。
-* 若要建立或移除對應至分區的點或範圍：請使用 RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 類別的 **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping)、[.NET](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100)))、**DeleteMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1))，以及 ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) 類別的 **CreatePointMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1))。
+* 若要建立或移除對應至分區的點或範圍：請使用 RangeShardMapping (**Java**、[.NET](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping)) 類別的 [CreateRangeMapping](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100)) (**Java**、[.NET](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping))、[DeleteMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1))，以及 ListShardMap (**Java**、[.NET](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping)) 類別的 [CreatePointMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1) ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1))。
   
     許多不同的點或範圍可以對應至相同的分區。 這些方法只會影響中繼資料 - 不會影響分區中可能已經存在的任何資料。 如果需要從資料庫移除資料，才能與 **DeleteMapping** 作業維持一致，您必須另外執行這些作業，但要搭配使用這些方法。  
 * 若要將現有的範圍分割成兩個，或將相鄰的範圍合併成一個：請使用 **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping)、[.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) 和 **MergeMappings** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings)、[.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx))。  
@@ -261,7 +261,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 ## <a name="adding-a-shard"></a>加入分區
 
-對於已經存在的分區對應，應用程式通常需要新增分區，以處理預期來自新的索引鍵或索引鍵範圍的資料。 例如，以租用戶識別碼分區化的應用程式，可能需要為新的租用戶佈建新的分區，或者，每月分區化的資料可能需要在每個新月份開始之前佈建新的分區。
+對於已經存在的分區對應，應用程式通常需要加入新的分區，以處理預期來自新的索引鍵或索引鍵範圍的資料。 例如，以租用戶識別碼分區化的應用程式，可能需要為新的租用戶佈建新的分區，或者，每月分區化的資料可能需要在每個新月份開始之前佈建新的分區。
 
 如果索引鍵值的新範圍尚不屬於現有的對應，而且不需要移動任何資料，則加入新的分區並將新的索引鍵或範圍與該分區產生關聯就很簡單。 如需有關加入新分區的詳細資訊，請參閱 [加入新的分區](sql-database-elastic-scale-add-a-shard.md)。
 

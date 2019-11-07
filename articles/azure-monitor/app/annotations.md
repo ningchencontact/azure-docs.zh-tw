@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/01/2019
-ms.openlocfilehash: 9dbdd683a8545e0f8c573dfba60daa96ef5ff08d
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f9ab1f1ef2b64c07a3b0c8ddf93d6ef4293517db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677862"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668107"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights 中度量圖表上的註解
 
@@ -53,6 +53,9 @@ ms.locfileid: "72677862"
 1. 選取 [**新增**工作]，然後從功能表中選取 [ **Application Insights 發行注釋**] 工作。
    
    ![選取 [新增工作]，然後選取 [Application Insights 版本注釋]。](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > 發行批註工作目前僅支援以 Windows 為基礎的代理程式;它不會在 Linux、macOS 或其他類型的代理程式上執行。
    
 1. 在 [**應用程式識別碼**] 底下，貼上您從 [ **API 存取**] 索引標籤複製的 Application Insights 識別碼。
    
@@ -88,7 +91,7 @@ ms.locfileid: "72677862"
    
 1. 使用上述程式中的步驟來取得您的 Application Insights 識別碼，並從您的 Application Insights **Api 存取**索引標籤建立 API 金鑰。
    
-1. 使用下列程式碼呼叫 PowerShell 腳本，並以您的值取代以角括弧括住的預留位置。 @No__t_0 是選擇性的。 
+1. 使用下列程式碼呼叫 PowerShell 腳本，並以您的值取代以角括弧括住的預留位置。 `-releaseProperties` 是選擇性的。 
    
    ```powershell
    

@@ -1,5 +1,5 @@
 ---
-title: 安裝 Azure-SSIS 整合執行階段的授權元件 | Microsoft Docs
+title: '安裝 Azure SSIS 整合執行時間的授權元件 '
 description: 了解 ISV 如何開發及安裝 Azure SSIS 整合執行階段的付費或授權自訂元件
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708016"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673588"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>安裝 Azure-SSIS 整合執行階段的付費或授權自訂元件
 
@@ -39,7 +39,7 @@ Azure SSIS 整合執行階段的本質會帶來幾項挑戰，使得一般授權
 
 ![授權元件的安裝](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>範例的指示
 1. ISV 可以在各種 SKU 或層級提供其授權元件 (例如，單一節點、最多 5 個節點、最多 10 個節點，依此類推)。 當客戶購買產品時，ISV 會提供對應的產品金鑰。 ISV 也會提供 Azure 儲存體 Blob 容器，其中包含 ISV 安裝指令碼和相關聯的檔案。 客戶可以將這些檔案複製到他們自己的儲存體容器，並且使用自己的產品金鑰進行修改 (例如，藉由執行 `IsvSetup.exe -pid xxxx-xxxx-xxxx`)。 然後客戶可以使用其容器的 SAS URI 作為參數，佈建或重新設定 Azure-SSIS IR。 如需詳細資訊，請參閱 [Azure-SSIS 整合執行階段自訂設定](how-to-configure-azure-ssis-ir-custom-setup.md)。
 
 2. 當 Azure-SSIS IR 已佈建或重新設定時，ISV 安裝會在每個節點上執行以查詢 Windows 環境變數 (`SSIS_CLUSTERID` 和 `SSIS_CLUSTERNODECOUNT`)。 然後 Azure-SSIS IR 會將其授權產品的叢集識別碼和產品金鑰提交給 ISV 啟用伺服器，來產生啟用金鑰。

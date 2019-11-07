@@ -31,6 +31,8 @@
       href: publish-marketplace-app.md
     - name: 使用自訂提供者建立受控應用程式
       href: tutorial-create-managed-app-with-custom-provider.md
+    - name: 使用自訂提供者的資源上線
+      href: tutorial-custom-providers-resource-onboarding.md
 - name: 範例
   items:
     - name: Azure CLI
@@ -45,6 +47,10 @@
       href: custom-providers-overview.md
     - name: 檢視定義成品
       href: concepts-view-definition.md
+    - name: 角色定義成品
+      href: concepts-custom-role-definition.md
+    - name: 資源上線
+      href: concepts-custom-providers-resourceonboarding.md
 - name: 使用說明指南
   items:
     - name: 自訂提供者

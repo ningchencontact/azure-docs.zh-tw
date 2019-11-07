@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中對應資料集資料行 | Microsoft Docs
+title: 對應 Azure Data Factory 中的資料集資料行
 description: 了解如何將來源資料行對應至目的地資料行。
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80ba7dc48da7cb5c43aae209c4e76c54948b8f88
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238119"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666779"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>將來源資料集資料行對應至目的地資料集資料行
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 
+> 本文適用於 Data Factory 的第 1 版。 
 
 資料行對應可用於指定將來源資料表「 結構 」中指定資料行對應至接收器資料表 「 結構 」 中指定資料行的方式。 複製活動的 **typeProperties** 區段中可使用 **columnMapping** 屬性。
 

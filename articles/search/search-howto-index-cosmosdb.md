@@ -9,69 +9,72 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0224905f8d3872aca9055a77c8182cb2cac67cb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793816"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719959"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
-> [!Note]
-> MongoDB API 支援處於預覽階段，不適用於生產環境使用。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
->
+> [!IMPORTANT] 
 > SQL API 已正式推出。
+> MongoDB API、Gremlin API 和 Cassandra API 支援目前處於公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 您可以填寫[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)來要求預覽的存取權。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前有有限的入口網站支援，而且沒有 .NET SDK 支援。
 
 本文說明如何設定 Azure Cosmos DB[索引子](search-indexer-overview.md)來解壓縮內容，並讓它在 Azure 認知搜尋中可供搜尋。 此工作流程會建立 Azure 認知搜尋索引，並使用從 Azure Cosmos DB 解壓縮的現有文字來載入它。 
 
 由於術語可能會造成混淆，值得注意的是， [Azure Cosmos DB 索引](https://docs.microsoft.com/azure/cosmos-db/index-overview)和[Azure 認知搜尋索引](search-what-is-an-index.md)是不同的作業，每個服務都是唯一的。 開始進行 Azure 認知搜尋索引之前，您的 Azure Cosmos DB 資料庫必須已經存在並包含資料。
 
-您可以使用[入口網站](#cosmos-indexer-portal)、REST api 或 .net SDK 來編制 Cosmos 內容的索引。 Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過這些通訊協定存取的[Azure Cosmos 專案](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items)：
+Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定存取的[Azure Cosmos DB 專案](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items)。
 
-* [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [MongoDB API （預覽）](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
++ 針對正式推出的[SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference)，您可以使用[入口網站](#cosmos-indexer-portal)、 [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)或[.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)。
+
++ 針對[MONGODB api （預覽）](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)和[Gremlin api （預覽）](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)，您可以在[建立索引子（REST）](https://docs.microsoft.com/rest/api/searchservice/create-indexer)呼叫上使用[入口網站](#cosmos-indexer-portal)或[REST API 版本 2019-05-06-preview](search-api-preview.md)來建立索引子。
+
++ 針對[Cassandra API （預覽）](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)，您只能在[建立索引子（REST）](https://docs.microsoft.com/rest/api/searchservice/create-indexer)呼叫上使用[REST API 版本 2019-05-06-preview](search-api-preview.md) 。
+
 
 > [!Note]
-> User Voice 有現有的專案可支援其他 API。 您可以針對想要在 Azure 認知搜尋中看到支援的 Cosmos Api，轉型投票：[資料表 API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)、[圖形 API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4) [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)。
+> 如果您想要在「Azure 認知搜尋」中看到支援，您可以針對[資料表 API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) ，將投票轉型為「使用者語音」。
 >
 
 <a name="cosmos-indexer-portal"></a>
 
 ## <a name="use-the-portal"></a>使用入口網站
 
-為 Azure Cosmos 專案編制索引最簡單的方法是在[Azure 入口網站](https://portal.azure.com/)中使用 wizard。 藉由取樣資料並讀取容器的中繼資料，Azure 認知搜尋中的「匯[**入資料**](search-import-data-portal.md)」 wizard 可以建立預設索引、將來源欄位對應至目標索引欄位，以及在單一作業中載入索引。 根據來源資料的大小和複雜度，只需要幾分鐘的時間，您就可以擁有正常運作的全文檢索搜尋索引。
+> [!Note]
+> 入口網站目前支援 SQL API 和 MongoDB API （預覽）。
+
+索引 Azure Cosmos DB 專案最簡單的方法是使用[Azure 入口網站](https://portal.azure.com/)中的 wizard。 藉由取樣資料並讀取容器的中繼資料，Azure 認知搜尋中的「匯[**入資料**](search-import-data-portal.md)」 wizard 可以建立預設索引、將來源欄位對應至目標索引欄位，以及在單一作業中載入索引。 根據來源資料的大小和複雜度，只需要幾分鐘的時間，您就可以擁有正常運作的全文檢索搜尋索引。
 
 我們建議使用相同的 Azure 訂用帳戶來進行 Azure 認知搜尋和 Azure Cosmos DB，最好是在相同的區域中。
 
 ### <a name="1---prepare-source-data"></a>1 - 準備來源資料
 
-您應該會有 Cosmos 帳戶、對應至 SQL API 或 MongoDB API 的 Azure Cosmos 資料庫，以及 JSON 檔的容器。 
+您應該會有 Cosmos DB 帳戶、對應至 SQL API、MongoDB API （預覽）的 Azure Cosmos DB 資料庫，或 Gremlin API （預覽），以及資料庫中的內容。
 
 請確定您的 Cosmos DB 資料庫包含資料。 「匯[入資料」 wizard](search-import-data-portal.md)會讀取中繼資料，並執行資料取樣來推斷索引架構，但它也會從 Cosmos DB 載入資料。 如果資料遺失，嚮導會停止並出現下列錯誤：「從資料來源偵測索引架構時發生錯誤：無法建立原型索引，因為資料來源 ' emptycollection ' 未傳回任何資料」。
 
 ### <a name="2---start-import-data-wizard"></a>2 - 啟動匯入資料精靈
 
-您可以從 Azure 認知搜尋服務頁面中的命令列[啟動精靈](search-import-data-portal.md)，或在儲存體帳戶左側流覽窗格的 [**設定**] 區段中按一下 [**新增 Azure 認知搜尋**]。
+您可以從 Azure 認知搜尋服務頁面中的命令列[啟動精靈](search-import-data-portal.md)，或者如果您要連線到 COSMOS DB SQL API，您可以在 Cosmos DB 帳戶左側的 [**設定**] 區段中按一下 [**新增 Azure 認知搜尋**]。流覽窗格。
 
    ![入口網站中的匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
 
 ### <a name="3---set-the-data-source"></a>3 - 設定資料來源
 
-> [!NOTE] 
-> 目前，您無法使用 Azure 入口網站或 .NET SDK 來建立或編輯**MongoDB**資料來源。 不過，您**可以**在入口網站中監視 MongoDB 索引子的執行歷程記錄。
-
 在 [**資料來源**] 頁面中，來源必須是 [ **Cosmos DB**]，並具有下列規格：
 
 + **Name**是資料來源物件的名稱。 建立之後，您可以為其他工作負載選擇它。
 
-+ **Cosmos DB 帳戶**應該是 Cosmos DB 的主要或次要連接字串，以及 `AccountEndpoint` 和 `AccountKey`。 此帳戶會決定資料是否轉換成 SQL API 或 Mongo DB API
++ **Cosmos DB 帳戶**應該是 Cosmos DB 的主要或次要連接字串，以及 `AccountEndpoint` 和 `AccountKey`。 針對 MongoDB 集合，請將**ApiKind = MongoDB**新增至連接字串的結尾，並以分號分隔它與連接字串。 針對 Gremlin API 和 Cassandra API，請使用[REST API](#cosmosdb-indexer-rest)的指示。
 
 + **資料庫**是帳戶中的現有資料庫。 
 
 + **集合**是檔的容器。 檔必須存在，才能成功匯入。 
 
-+ 如果您想要所有檔，**查詢**可以是空白，否則可以輸入可選取檔子集的查詢。 
++ 如果您想要所有檔，**查詢**可以是空白，否則可以輸入可選取檔子集的查詢。 **查詢**只適用于 SQL API。
 
    ![Cosmos DB 資料來源定義](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB 資料來源定義")
 
@@ -120,11 +123,12 @@ ms.locfileid: "72793816"
 
 ## <a name="use-rest-apis"></a>使用 REST API
 
-您可以使用 REST API 來編制 Azure Cosmos DB 資料的索引，遵循 Azure 認知搜尋中所有索引子通用的三部分工作流程：建立資料來源、建立索引、建立索引子。 當您提交建立索引子要求時，會發生來自 Cosmos 儲存體的資料解壓縮。 完成此要求之後，您將會有可查詢的索引。 
+您可以使用 REST API 來編制 Azure Cosmos DB 資料的索引，遵循 Azure 認知搜尋中所有索引子通用的三部分工作流程：建立資料來源、建立索引、建立索引子。 當您提交建立索引子要求時，會從 Cosmos DB 進行資料解壓縮。 完成此要求之後，您將會有可查詢的索引。 
 
-如果您正在評估 MongoDB，則必須使用 REST `api-version=2019-05-06-Preview` 來建立資料來源。
+> [!NOTE]
+> 若要從 Cosmos DB Gremlin API 或 Cosmos DB 編制索引資料 Cassandra API 您必須先填寫[這份表單](https://aka.ms/azure-cognitive-search/indexer-preview)，以要求存取閘道預覽。 處理您的要求之後，您會收到如何使用[REST API 版本 2019-05-06-Preview](search-api-preview.md)來建立資料來源的指示。
 
-在您的 Cosmos DB 帳戶中，您可以選擇是否要讓集合自動編製所有文件的索引。 根據預設，所有文件會自動編制索引，但您可以關閉自動編制索引。 關閉編製索引時，只能透過文件自己的連結或使用文件識別碼透過查詢來存取文件。 Azure 認知搜尋需要在將由「Azure 認知搜尋」編制索引的集合中，開啟 Cosmos DB 自動編制索引。 
+本文稍早提到， [Azure Cosmos DB 編制索引](https://docs.microsoft.com/azure/cosmos-db/index-overview)和[Azure 認知搜尋索引](search-what-is-an-index.md)編制索引是不同的作業。 針對 Cosmos DB 編制索引，預設會自動為所有檔編制索引，但不含 Cassandra API。 如果您關閉自動編制索引，則只能透過其自我連結或使用檔識別碼的查詢來存取檔。 Azure 認知搜尋索引需要在將由 Azure 認知搜尋編制索引的集合中開啟 Cosmos DB 自動編制索引。 註冊 Cosmos DB Cassandra API 索引子預覽時，將會提供如何設定 Cosmos DB 索引的指示。
 
 > [!WARNING]
 > Azure Cosmos DB 是新一代的 DocumentDB。 先前使用 API 版本**2017-11-11** ，您可以使用 `documentdb` 語法。 這表示您可以將資料來源類型指定為 `cosmosdb` 或 `documentdb`。 從 API 版本**2019-05-06**開始，Azure 認知搜尋 Api 和入口網站僅支援本文中指示的 `cosmosdb` 語法。 這表示，如果您想要連接到 Cosmos DB 端點，則資料來源類型必須 `cosmosdb`。
@@ -172,12 +176,12 @@ ms.locfileid: "72793816"
 
 要求的主體包含資料來源定義，其中應包含下列欄位：
 
-| 欄位   | 描述 |
+| 欄位   | 說明 |
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱來表示您的資料來源物件。 |
 |**type**| 必要。 必須是 `cosmosdb`。 |
-|**credentials** | 必要。 必須是 Cosmos DB 連接字串。<br/>若是 SQL 集合，連接字串的格式如下： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>針對 MongoDB 集合，請將**ApiKind = MongoDB**新增至連接字串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>請避免在端點 URL 中使用連接埠號碼。 如果您包含埠號碼，Azure 認知搜尋將無法為您的 Azure Cosmos DB 資料庫編制索引。|
-| **container** | 包含下列元素： <br/>**名稱**：必要。 指定要編制索引之資料庫集合的識別碼。<br/>**查詢**：選擇性。 您可以指定查詢，將任意 JSON 檔壓平合併為 Azure 認知搜尋可以編制索引的一般架構。<br/>針對 MongoDB 集合，不支援查詢。 |
+|**credentials** | 必要。 必須是 Cosmos DB 連接字串。<br/>若是 SQL 集合，連接字串的格式如下： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>針對 MongoDB 集合，請將**ApiKind = MongoDB**新增至連接字串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>針對 Gremlin 圖形和 Cassandra 資料表，請註冊[閘道索引子預覽](https://aka.ms/azure-cognitive-search/indexer-preview)以取得預覽的存取權，以及如何格式化認證的相關資訊。<br/><br/>請避免在端點 URL 中使用連接埠號碼。 如果您包含埠號碼，Azure 認知搜尋將無法為您的 Azure Cosmos DB 資料庫編制索引。|
+| **container** | 包含下列元素： <br/>**名稱**：必要。 指定要編制索引之資料庫集合的識別碼。<br/>**查詢**：選擇性。 您可以指定查詢，將任意 JSON 檔壓平合併為 Azure 認知搜尋可以編制索引的一般架構。<br/>針對 MongoDB API、Gremlin API 和 Cassandra API，不支援查詢。 |
 | **dataChangeDetectionPolicy** | 建議使用。 請參閱[索引變更的文件](#DataChangeDetectionPolicy)小節。|
 |**dataDeletionDetectionPolicy** | 選用。 請參閱[索引刪除的文件](#DataDeletionDetectionPolicy)小節。|
 
@@ -185,7 +189,7 @@ ms.locfileid: "72793816"
 您可以指定 SQL 查詢來壓平合併巢狀屬性或陣列、投影 JSON 屬性，以及篩選要編製索引的資料。 
 
 > [!WARNING]
-> **MongoDB** 集合不支援自訂查詢：`container.query` 參數必須設定為 Null 或省略。 如果您需要使用自訂查詢，請在 [User Voice](https://feedback.azure.com/forums/263029-azure-search) 告訴我們。
+> **MONGODB api**、 **Gremlin API**和**Cassandra API**不支援自訂查詢： `container.query` 參數必須設定為 null 或省略。 如果您需要使用自訂查詢，請在 [User Voice](https://feedback.azure.com/forums/263029-azure-search) 告訴我們。
 
 範例文件︰
 
@@ -246,7 +250,7 @@ ms.locfileid: "72793816"
 請確定目標索引的結構描述會與來源 JSON 文件的結構描述或自訂查詢投射的輸出相容。
 
 > [!NOTE]
-> 針對已分割的集合，預設檔索引鍵是 Azure Cosmos DB 的 `_rid` 屬性，而 Azure 認知搜尋會自動將其重新命名為 `rid`，因為功能變數名稱不能以 undescore 字元開頭。 此外，Azure Cosmos DB `_rid` 值包含 Azure 認知搜尋金鑰中的無效字元。 因此，`_rid` 值採用 Base64 編碼。
+> 針對已分割的集合，預設檔索引鍵是 Azure Cosmos DB 的 `_rid` 屬性，而 Azure 認知搜尋會自動將其重新命名為 `rid`，因為功能變數名稱的開頭不能是底線字元。 此外，Azure Cosmos DB `_rid` 值包含 Azure 認知搜尋金鑰中的無效字元。 因此，`_rid` 值採用 Base64 編碼。
 > 
 > 針對 MongoDB 集合，Azure 認知搜尋會自動將 `_id` 屬性重新命名為 `doc_id`。  
 
@@ -256,7 +260,7 @@ ms.locfileid: "72793816"
 | Bool |Edm.Boolean、Edm.String |
 | 看起來像是整數的數字 |Edm.Int32、Edm.Int64、Edm.String |
 | 看起來像是浮點的數字 |Edm.Double、Edm.String |
-| String |Edm.String |
+| 字串 |Edm.String |
 | 基本類型的陣列，例如 ["a", "b", "c"] |Collection(Edm.String) |
 | 看起來像是日期的字串 |Edm.DateTimeOffset、Edm.String |
 | GeoJSON 物件，例如 { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -281,7 +285,7 @@ ms.locfileid: "72793816"
 
 如需建立索引子 API 的詳細資訊，請參閱 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 
-如需定義索引子排程的詳細資訊，請參閱[如何排定 Azure 認知搜尋的索引子](search-howto-schedule-indexers.md)。
+如需定義索引子排程的詳細資訊，請參閱[如何針對 Azure 認知搜尋排定索引子](search-howto-schedule-indexers.md)。
 
 ## <a name="use-net"></a>使用 .NET
 
@@ -296,7 +300,7 @@ ms.locfileid: "72793816"
 
 ## <a name="indexing-changed-documents"></a>索引已變更的文件
 
-資料變更偵測原則是用來有效識別已變更的資料項目。 目前，唯一支援的原則是使用 Azure Cosmos DB 所提供之 `_ts` (時間戳記) 屬性的 `High Water Mark` 原則，指定方式如下：
+資料變更偵測原則是用來有效識別已變更的資料項目。 目前，唯一支援的原則是使用 Azure Cosmos DB 所提供之 `High Water Mark` (時間戳記) 屬性的 `_ts` 原則，指定方式如下：
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -361,7 +365,7 @@ ms.locfileid: "72793816"
         }
     }
 
-## <a name="NextSteps"></a>後續步驟
+## <a name="NextSteps"></a>接續步驟
 
 恭喜！ 您已瞭解如何使用索引子來整合 Azure Cosmos DB 與 Azure 認知搜尋。
 

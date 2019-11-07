@@ -1,5 +1,5 @@
 ---
-title: 監視和管理資料管線 - Azure |Microsoft Docs
+title: 監視及管理資料管線-Azure
 description: 了解如何使用監視及管理應用程式來監視及管理 Azure Data Factory 及管線。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139582"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666933"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>使用監視及管理應用程式，以監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "70139582"
 >
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 本文說明如何使用監視及管理應用程式來監視、管理與偵錯您的 Data Factory 管線。 您可以藉由觀賞下列影片開始使用應用程式：
 
@@ -144,7 +144,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 
 ![活動時段總管的向左/向右箭號](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-在 [圖表檢視] 的底部，您會看到下列按鈕：放大、縮小、縮放至適當比例、顯示比例 100%、鎖定配置。 [鎖定配置] 按鈕會防止您在 [圖表檢視] 中不小心移動了資料表和管線。 此按鈕預設為開啟。 但您可以關閉該設定，以便移動圖表中的實體。 當您關閉該設定，您可以使用上一個按鈕來自動把資料表和管線移動到適當的地方。 您也可以使用滑鼠滾輪來放大或縮小。
+在 [圖表檢視] 的底部，您會看到 [放大]、[縮小]、[縮放至適當比例]、[顯示比例 100%]、[鎖定配置] 等按鈕。 [鎖定配置] 按鈕會防止您在 [圖表檢視] 中不小心移動了資料表和管線。 此按鈕預設為開啟。 但您可以關閉該設定，以便移動圖表中的實體。 當您關閉該設定，您可以使用上一個按鈕來自動把資料表和管線移動到適當的地方。 您也可以使用滑鼠滾輪來放大或縮小。
 
 ![圖表檢視縮放命令](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -159,7 +159,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 
 <table>
 <tr>
-    <th align="left">狀態</th><th align="left">子狀態</th><th align="left">描述</th>
+    <th align="left">狀態</th><th align="left">子狀態</th><th align="left">說明</th>
 </tr>
 <tr>
     <td rowspan="8">等候</td><td>ScheduleTime</td><td>活動時段執行的時間還沒到。</td>
@@ -187,16 +187,16 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 </tr>
 <tr>
 <tr>
-<td rowspan="2">進行中</td><td>正在驗證</td><td>驗證正在進行中。</td>
+<td rowspan="2">InProgress</td><td>Validating</td><td>驗證正在進行中。</td>
 </tr>
 <td>-</td>
 <td>系統正在處理該活動時段。</td>
 </tr>
 <tr>
-<td rowspan="4">已失敗</td><td>TimedOut</td><td>活動執行超過活動所允許的時間。</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>活動執行超過活動所允許的時間。</td>
 </tr>
 <tr>
-<td>已取消</td><td>使用者動作已取消活動時段。</td>
+<td>Canceled</td><td>使用者動作已取消活動時段。</td>
 </tr>
 <tr>
 <td>驗證</td><td>驗證失敗。</td>
@@ -207,7 +207,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 <td>就緒</td><td>-</td><td>活動時段已可供使用。</td>
 </tr>
 <tr>
-<td>已略過</td><td>-</td><td>活動時段未處理。</td>
+<td>Skipped</td><td>-</td><td>活動時段未處理。</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>曾經以不同的狀態存在，但目前已重設的活動時段。</td>
@@ -222,7 +222,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 ### <a name="refresh-activity-windows"></a>重新整理活動時段
 詳細資料並不會自動重新整理，因此您必須使用命令列上的 [重新整理] 按鈕 (第二個按鈕) 來手動重新整理活動時段清單。  
 
-### <a name="properties-window"></a>屬性視窗
+### <a name="properties-window"></a>[屬性] 視窗
 [屬性] 視窗在監視及管理應用程式最右側的窗格中。
 
 ![[屬性] 視窗](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
@@ -266,7 +266,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 >
 >
 
-請在 [活動時段清單]中，按一下某個資料行的名稱 (例如：狀態)。
+請在 [活動時段清單]中，按一下某個資料行的名稱 (例如：[狀態])。
 
 ![活動時段清單的資料行功能表](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -289,7 +289,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 選取某個活動時段、按一下第一個命令列按鈕旁的向下箭號，然後選取 [重新執行] / [搭配管線上游來重新執行]。 當您選取 [搭配管線上游來重新執行] 時，系統也會傳回所有上游的活動時段。
     ![重新執行某個活動時段](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-您也可以選取清單中的數個活動時段，然後同時重新執行這些活動時段。 您可能會想要根據狀態來篩選活動時段 (例如：[失敗])，然後在修正導致活動時段執行失敗的問題之後，重新執行失敗的活動時段。 請參閱下一節來取得如何篩選清單中活動時段的詳細資料。  
+您也可以選取清單中的數個活動時段，然後同時重新執行這些活動時段。 您可能會想要根據狀態 (例如 [失敗]) 來篩選活動時段，然後在修正導致活動時段執行失敗的問題之後，重新執行失敗的活動時段。 請參閱下一節來取得如何篩選清單中活動時段的詳細資料。  
 
 ### <a name="pauseresume-multiple-pipelines"></a>暫停/繼續多個管線
 您可以使用 Ctrl 鍵，以多重選取兩個以上的管線。 您可以使用命令列按鈕 (在下圖以紅色矩形反白顯示) 來暫停/繼續這些管線。

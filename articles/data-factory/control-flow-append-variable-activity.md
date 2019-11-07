@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的附加變數活動 | Microsoft Docs
+title: Azure Data Factory 中的附加變數活動
 description: 了解如何設定「附加變數」活動，以將值新增至 Data Factory 管線中定義的現有陣列變數
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
-ms.openlocfilehash: 24808c9ed4bda5e8d3b0ce23ab93bc59eb260374
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bcecd3411b6e6e751032f33862a671d8adbca046
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141732"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679983"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data Factory 中的附加變數活動
 
@@ -24,11 +24,11 @@ ms.locfileid: "70141732"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 必要項
+屬性 | 說明 | 必要
 -------- | ----------- | --------
-name | 管線中的活動名稱 | 是
-description | 說明活動用途的文字 | 否
-Type | 活動類型是 AppendVariable | 是
+名稱 | 管線中的活動名稱 | 是
+說明 | 說明活動用途的文字 | no
+類型 | 活動類型是 AppendVariable | 是
 value | 用來附加到指定變數的字串常值或運算式物件值 | 是
 variableName | 將由活動修改的變數名稱，該變數必須是「陣列」類型 | 是
 

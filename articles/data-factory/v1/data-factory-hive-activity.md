@@ -1,5 +1,5 @@
 ---
-title: 使用 Hive 活動轉換資料 - Azure | Microsoft Docs
+title: 使用 Hive 活動轉換資料-Azure
 description: 了解如何使用 Azure 資料處理站中的 Hive 活動，以在隨選/您自己的 HDInsight 叢集上執行 Hive 查詢。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139538"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666985"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hive 活動轉換資料 
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -33,12 +33,12 @@ ms.locfileid: "70139538"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Hive 活動來轉換資料](../transform-data-using-hadoop-hive.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Hive 活動來轉換資料](../transform-data-using-hadoop-hive.md)。
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選的](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 架構 HDInsight 叢集上執行 Hive 查詢。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 > [!NOTE] 
-> 如果您是 Azure Data Factory 的新手，請在閱讀本文之前先閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及研習[建置第一個資料管線](data-factory-build-your-first-pipeline.md)。 
+> 如果您是 Azure Data Factory 的新手，請在閱讀本文章之前閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及進行教學課程：[建置您的第一個資料管線](data-factory-build-your-first-pipeline.md)。 
 
 ## <a name="syntax"></a>語法
 
@@ -72,17 +72,17 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 }
 ```
 ## <a name="syntax-details"></a>語法詳細資料
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| name |活動的名稱 |是 |
-| description |說明活動用途的文字 |否 |
-| Type |HDinsightHive |是 |
-| inputs |Hive 活動所耗用的輸入 |否 |
-| outputs |Hive 活動所耗用的輸出 |是 |
+| 名稱 |活動的名稱 |是 |
+| 說明 |說明活動用途的文字 |否 |
+| 類型 |HDinsightHive |是 |
+| 輸入 |Hive 活動所耗用的輸入 |否 |
+| 輸出 |Hive 活動所耗用的輸出 |是 |
 | linkedServiceName |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
-| 指令碼 |指定 Hive 指令碼內嵌 |否 |
+| script |指定 Hive 指令碼內嵌 |否 |
 | scriptPath |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
-| defines |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
+| 定義 |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
 
 ## <a name="example"></a>範例
 我們來看看遊戲記錄分析的範例，您想要識別使用者花多少時間在玩貴公司開發的遊戲。 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Dynamics CRM 或 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics CRM 或 Dynamics 365 | Microsoft Docs
+title: 使用 Azure Data Factory 將資料從和複製到 Dynamics CRM 或 Dynamics 365 （Common Data Service）
 description: 了解如何使用資料處理站管線中的複製活動，將資料從 Microsoft Dynamics CRM 或 Microsoft Dynamics 365 (Common Data Service) 複製到支援的接收資料存放區，或是從支援的來源資料存放區複製到 Dynamics CRM 或 Dynamics 365。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ad9ac3f0a3106b4562217a9c444b58423374318
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c9adcf72eeec82fd4b8f1805fca1f284c0b953b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931115"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680990"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -72,7 +72,7 @@ ms.locfileid: "72931115"
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 和 Dynamics CRM Online
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | Type 屬性必須設定為**Dynamics**、 **DynamicsCrm**或**CommonDataServiceForApps**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"** 。 | 是 |
@@ -115,17 +115,17 @@ ms.locfileid: "72931115"
 
 相較於 Dyanmics Online，額外的屬性為 "hostName" 和 "port"。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | Type 屬性必須設定為**Dynamics**、 **DynamicsCrm**或**CommonDataServiceForApps**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"** 。| 是 |
 | hostName | 內部部署 Dynamics 伺服器的主機名稱。 | 是 |
-| 連接埠 | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
+| port | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
 | organizationName | Dynamics 執行個體的組織名稱。 | 是 |
 | authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"** 。 | 是 |
 | username | 指定要連線到 Dynamics 的使用者名稱。 | 是 |
-| password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 是 |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (用於來源)；是 (用於接收) |
 
 **範例：使用 IFD 驗證之搭配 IFD 的 Dynamics 內部部署版**
 
@@ -161,7 +161,7 @@ ms.locfileid: "72931115"
 
 若要將資料從和複製到 Dynamics，支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為**DynamicsEntity**、 **DynamicsCrmEntity**或**CommonDataServiceForAppsEntity**。 |是 |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
@@ -193,7 +193,7 @@ ms.locfileid: "72931115"
 
 若要從 Dynamics 複製資料，複製活動的 [**來源**] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為**DynamicsSource**、 **DynamicsCrmSource**或**CommonDataServiceForAppsSource**。 | 是 |
 | query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入瞭解，請參閱[使用 FetchXML 建立查詢](https://msdn.microsoft.com/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
@@ -261,7 +261,7 @@ ms.locfileid: "72931115"
 
 若要將資料複製到 Dynamics，複製活動的 [**接收**] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動接收器的 type 屬性必須設定為**DynamicsSink**、 **DynamicsCrmSink**或**CommonDataServiceForAppsSink**。 | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為 **"Upsert"** 。 | 是 |
@@ -318,22 +318,22 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 
 | Dynamics 資料類型 | Data Factory 過渡期資料類型 | 支援作為來源 | 支援作為接收 |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | 長 | ✓ | ✓ |
+| AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | GUID | ✓ | |
-| AttributeType.DateTime | DateTime | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | |
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | DOUBLE | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | 字串 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | ✓ (具有相關聯的單一目標) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (具有相關聯的單一目標) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Memo | 字串 | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType.String | 字串 | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
@@ -345,4 +345,4 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

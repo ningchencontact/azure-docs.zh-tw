@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中開發資料倉儲的資源 | Microsoft Docs
+title: 在 Azure 中開發資料倉儲的資源
 description: SQL 資料倉儲的開發概念、設計決策、建議和程式碼撰寫技巧。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a6cb7937bdd5dea9eb1a48b2b350db9077431fe0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479463"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645607"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 資料倉儲的設計決策和程式碼撰寫技術
 若要進一步了解 SQL 資料倉儲的重要的設計決策、建議和程式碼撰寫技術，請參閱這些開發文章。

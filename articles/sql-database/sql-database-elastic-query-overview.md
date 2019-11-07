@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 彈性查詢概觀 | Microsoft Docs
+title: Azure SQL Database 彈性查詢總覽
 description: 彈性查詢可讓您執行跨多個資料庫的 Transact-SQL 查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 313e8af0e42f5108a22261a475b5340208adb7bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568553"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690356"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -139,12 +139,12 @@ ms.locfileid: "68568553"
 * 尚未支援來自 SSMS 或 SSDT 的外部資料來源或外部資料表的指令碼。
 * SQL DB 匯入/匯出還不支援外部資料來源和外部資料表。 如果您需要使用匯入/匯出，請在匯出前卸除這些物件，然後在匯入後予以重新建立。
 * 彈性查詢目前僅支援以唯讀方式存取外部資料表。 不過，您可以在定義外部資料表的資料庫上使用完整的 T-SQL 功能。 例如，在使用 SELECT <column_list> INTO <local_table> (舉例而言) 保存暫存結果時，或在彈性查詢資料庫上定義預存程序來參考外部資料表時，這可能有其效用。
-* 除了 Nvarchar (max) 以外, 外部資料表定義中不支援 LOB 類型 (包括空間類型)。 若要解決此問題，您可以在將 LOB 類型轉型成 nvarchar (max) 的遠端資料庫上建立檢視表、透過此檢視表而非基底資料表定義外部資料表，然後在查詢中將它轉換回原始的 LOB 類型。
+* 除了 Nvarchar （max）以外，外部資料表定義中不支援 LOB 類型（包括空間類型）。 若要解決此問題，您可以在將 LOB 類型轉型成 nvarchar (max) 的遠端資料庫上建立檢視表、透過此檢視表而非基底資料表定義外部資料表，然後在查詢中將它轉換回原始的 LOB 類型。
 * 結果集中屬於 nvarchar(max) 資料類型的資料行會停用彈性查詢實作中使用的批次處理術語，且可能對查詢造成一個數量級的影響，或甚至在要將大量非彙總的資料視為查詢結果進行傳輸的非標準使用案例中，造成兩個數量級的影響。
 * 目前不支援外部資料表的資料行統計資料。 支援資料表統計資料，但必須以手動方式建立。
-* 彈性查詢僅適用于 Azure SQL Database。 您無法使用它來查詢內部部署 SQL Server, 或在 VM 中 SQL Server。
+* 彈性查詢僅適用于 Azure SQL Database。 您無法使用它來查詢內部部署 SQL Server，或在 VM 中 SQL Server。
 
-## <a name="feedback"></a>意見
+## <a name="feedback"></a>意見反應
 
 請在以下MSDN 論壇或 Stack Overflow 上，與我們分享您在彈性查詢體驗方面的意見。 我們很樂意接受關於服務的各種意見 (缺失、不完善、功能落差)。
 

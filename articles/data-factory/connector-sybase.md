@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Sybase 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Sybase 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Sybase 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f6fcdddb2da005d563ee0a10381e7aa4f26487d0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4877706c487f389539e8e5c73bb984b01d200f38
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089245"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680111"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>使用 Azure Data Factory 從 Sybase 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -38,7 +38,7 @@ ms.locfileid: "71089245"
 具體而言，這個 Sybase 連接器支援：
 
 - SAP Sybase SQL Anywhere (ASA) **第 16 版和更新版本**；不支援 IQ 和 ASE。
-- 使用 **Basic** 或 **Windows** 驗證來複製資料。
+- 使用 **Basic** (基本) 或 **Windows** 驗證來複製資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -47,7 +47,7 @@ ms.locfileid: "71089245"
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 - 在 Integration Runtime 電腦上安裝 [Sybase iAnywhere.Data.SQLAnywhere 的資料提供者](https://go.microsoft.com/fwlink/?linkid=324846) 16 版或更新版本。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -57,17 +57,17 @@ ms.locfileid: "71089245"
 
 以下是針對 Sybase 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 類型屬性必須設定為：**Sybase** | 是 |
-| server | Sybase 伺服器的名稱。 |是 |
-| database | Sybase 資料庫的名稱。 |是 |
-| authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值包括：**Basic**和 **Windows**。 |是 |
+| 類型 | 類型屬性必須設定為：**Sybase** | 是 |
+| 伺服器 | Sybase 伺服器的名稱。 |是 |
+| 資料庫 | Sybase 資料庫的名稱。 |是 |
+| authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows**。 |是 |
 | username | 指定連線到 Sybase 資料庫時所要使用的使用者名稱。 |是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -98,10 +98,10 @@ ms.locfileid: "71089245"
 
 若要從 Sybase 複製資料，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 資料集的類型屬性必須設定為：**SybaseTable** | 是 |
-| tableName | Sybase 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
+| 類型 | 資料集的類型屬性必須設定為： **SybaseTable** | 是 |
+| tableName | Sybase 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -120,22 +120,22 @@ ms.locfileid: "71089245"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
+如果您使用 `RelationalTable` 具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Sybase 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Sybase 來源所支援的屬性清單。
 
 ### <a name="sybase-as-source"></a>Sybase 作為來源
 
 若要從 Sybase 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 型別 | 複製活動來源的類型屬性必須設定為：**SybaseSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的類型屬性必須設定為： **SybaseSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -167,7 +167,7 @@ ms.locfileid: "71089245"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
+如果您使用 `RelationalSource` 具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-sybase"></a>Sybase 的資料類型對應
 

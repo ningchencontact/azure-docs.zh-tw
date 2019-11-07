@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 1eb769ec64e50be65d63be43d897c1190789e555
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 254c2645d842a6f6a2eaaeca2369b93a81e1a8cd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518758"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681685"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>設定 azure Cosmos 帳戶的 Azure 私人連結（預覽）
 
@@ -53,6 +53,7 @@ ms.locfileid: "73518758"
     | 資源 |選取您的 Azure Cosmos 帳戶 |
     |目標子資源 |選取您想要對應的 Cosmos DB API 類型。 這預設為 SQL、MongoDB 和 Cassandra Api 的一個選項。 針對 Gremlin 和資料表 Api，您也可以選擇 [ *sql* ]，因為這些 api 可與 Sql API 互通。 |
     |||
+
 1. 選取 **[下一步：設定]** 。
 1. 在 **[建立私人端點（預覽）-** 設定] 中，輸入或選取這項資訊：
 
@@ -62,14 +63,26 @@ ms.locfileid: "73518758"
     | 虛擬網路| 選取您的虛擬網路。 |
     | 子網路 | 選取您的子網。 |
     |**私人 DNS 整合**||
-    |與私人 DNS 區域整合 |選取 [是]。 |
-    |私人 DNS 區域 |選取*privatelink.documents.azure.com* |
+    |與私人 DNS 區域整合 |選取 [是]。 <br><br/> 若要私下與您的私人端點連接，您需要 DNS 記錄。 建議您整合私人端點與私人 DNS 區域。 您也可以利用自己的 DNS 伺服器，或使用虛擬機器上的主機檔案來建立 DNS 記錄。 |
+    |私人 DNS 區域 |選取*privatelink.documents.azure.com* <br><br/> 私人 DNS 區域會自動決定，而且目前無法使用 Azure 入口網站進行變更。|
     |||
 
 1. 選取 [檢閱 + 建立]。 您會移至 [檢閱 + 建立] 頁面，其中 Azure 會驗證您的設定。
 1. 當您看到 [驗證成功] 訊息時，請選取 [建立]。
 
 當您已核准 Azure Cosmos 帳戶的私人連結時，[**防火牆和虛擬網路**] 窗格中的 [Azure 入口網站**所有網路**] 選項會呈現灰色。
+
+下表顯示不同 Azure Cosmos 帳戶 API 類型、支援的子資源和對應的私人區功能變數名稱稱之間的對應。 Gremlin 和資料表 API 帳戶也可以透過 SQL API 存取，因此這些 Api 有2個專案：
+
+|Azure Cosmos 帳戶 API 類型  |支援的子資源（或 groupIds） |私人區功能變數名稱稱  |
+|---------|---------|---------|
+|Sql    |   Sql      | privatelink.documents.azure.com   |
+|Cassandra    | Cassandra        |  privatelink.cassandra.cosmos.azure.com    |
+|Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
+|Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
+|Gremlin     |  Sql       |  privatelink.documents.azure.com    |
+|資料表    |    資料表     |   privatelink.table.cosmos.azure.com    |
+|資料表     |   Sql      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>提取私人 IP 位址
 
@@ -280,9 +293,11 @@ $deploymentOutput
 
 部署範本之後，私人 IP 位址會保留在子網內。 Azure Cosmos 帳戶的防火牆規則已設定為只接受來自私人端點的連線。
 
-## <a name="configure-private-dns"></a>設定私人 DNS
+## <a name="configure-custom-dns"></a>設定自訂 DNS
 
 在公開連結的預覽期間，您應該在已建立私用端點的子網內使用私人 DNS。 並設定端點，讓每個私人 IP 位址都對應到 DNS 專案（請參閱上面所示回應中的「fqdn」屬性）。
+
+建立私用端點時，您可以將它與 Azure 中的私人 DNS 區域整合。 如果您選擇不要整合私人端點與 Azure 中的私人 DNS 區域，而改為使用自訂 DNS，則必須將 DNS 設定為針對對應至新區域的私人 IP 新增新的 DNS 記錄。
 
 ## <a name="firewall-configuration-with-private-link"></a>具有私人連結的防火牆設定
 
@@ -292,7 +307,7 @@ $deploymentOutput
 
 * 如果已設定公用流量或服務端點，並建立私人端點，則會由對應類型的防火牆規則來授權不同類型的連入流量。
 
-* 如果未設定公用流量或服務端點，且已建立私人端點，則只能透過私人端點來存取 Azure Cosmos 帳戶。
+* 如果未設定公用流量或服務端點，且已建立私人端點，則只能透過私人端點來存取 Azure Cosmos 帳戶。 如果未設定任何公用流量或服務端點，則在拒絕或刪除所有已核准的私人端點之後，就會對所有網路開啟該帳戶。
 
 ## <a name="update-private-endpoint-when-you-add-or-remove-a-region"></a>當您新增或移除區域時，更新私人端點
 
@@ -304,9 +319,9 @@ $deploymentOutput
 
 例如，如果您在3個區域中部署 Azure Cosmos 帳戶：「美國西部」、「美國中部」和「西歐」。 當您建立帳戶的私人端點時，會在子網中保留4個私人 Ip。 一個用於每個區域，其總計為3個，一個用於全域/區域無關端點。
 
-稍後，如果您將新的區域（例如「美國東部」）新增至 Azure Cosmos 帳戶。 根據預設，無法從現有的私用端點存取新的區域。 Azure Cosmos 帳戶系統管理員應該先重新整理私人端點連線，然後再從新區域存取它。
+稍後，如果您將新的區域（例如「美國東部」）新增至 Azure Cosmos 帳戶。 根據預設，無法從現有的私用端點存取新的區域。 Azure Cosmos 帳戶系統管理員應該先重新整理私人端點連線，然後再從新區域存取它。 
 
-當您執行 ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 命令時，命令的輸出會包含 `ActionRequired` 參數，這會設定為 "重新建立"。 此值表示應重新整理私用端點。 接下來，Azure Cosmos 帳戶管理員會執行 `Set-AzPrivateEndpoint` 命令，以觸發私人端點重新整理。
+當您執行 ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 命令時，命令的輸出會包含 `actionsRequired` 參數，這會設定為 "重新建立"。 此值表示應重新整理私用端點。 接下來，Azure Cosmos 帳戶管理員會執行 `Set-AzPrivateEndpoint` 命令，以觸發私人端點重新整理。
 
 ```powershell
 $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
@@ -314,9 +329,11 @@ $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupNam
 Set-AzPrivateEndpoint -PrivateEndpoint $pe
 ```
 
-新的私人 IP 會自動保留在此私人端點下的子網中，而 `ActionRequired` 值會變成 `None`。 如果您沒有任何私人 DNZ 區域整合（換句話說，如果您使用的是自訂的私人 DNS），就必須設定您的私人 DNS，針對對應至新區域的私人 IP 新增新的 DNS 記錄。
+新的私人 IP 會自動保留在此私人端點下的子網中，而 `actionsRequired` 值會變成 `None`。 如果您沒有任何私人 DNZ 區域整合（換句話說，如果您使用的是自訂的私人 DNS），就必須設定您的私人 DNS，針對對應至新區域的私人 IP 新增新的 DNS 記錄。
 
-移除區域時，您可以使用相同的步驟。 已移除區域的私人 IP 會自動回收，而 `ActionRequired` 旗標會變成 `None`。 如果您沒有任何私人 DNZ 區域整合，您必須設定私人 DNS 以移除已移除區域的 DNS 記錄。
+移除區域時，您可以使用相同的步驟。 已移除區域的私人 IP 會自動回收，而 `actionsRequired` 旗標會變成 `None`。 如果您沒有任何私人 DNZ 區域整合，您必須設定私人 DNS 以移除已移除區域的 DNS 記錄。
+
+刪除私人端點或移除 Azure Cosmos 帳戶中的區域時，不會自動移除私人 DNS 區域中的 DNS 記錄。 您必須手動移除 DNS 記錄。
 
 ## <a name="current-limitations"></a>目前的限制
 
@@ -328,7 +345,7 @@ Set-AzPrivateEndpoint -PrivateEndpoint $pe
 
 * 針對具有私用連結的 MongoDB 帳戶使用 Azure Cosmos DB 的 API 時，您無法使用 Robo 3T、Studio 3T、Mongoose 等工具。只有在指定 appName =<account name> 參數時，端點才可以具有私用連結支援。 例如： replicaSet = globaldb & appName = mydbaccountname。 因為這些工具不會將連接字串中的應用程式名稱傳遞給服務，所以您無法使用私用連結。 不過，您仍然可以使用具有3.6 版本的 SDK 驅動程式來存取這些帳戶。
 
-* Azure Cosmos 帳戶和 Vnet 的私人連結支援僅適用于特定區域。 如需支援的區域清單，請參閱私用連結文章的[可用區域](../private-link/private-link-overview.md#availability)一節。
+* Azure Cosmos 帳戶和 Vnet 的私人連結支援僅適用于特定區域。 如需支援的區域清單，請參閱私用連結文章的[可用區域](../private-link/private-link-overview.md#availability)一節。 **VNET 和 Azure Cosmos 帳戶都應該在支援的區域中，才能建立私人端點**。
 
 * 如果虛擬網路包含私人連結，則無法加以移動或刪除。
 
@@ -337,6 +354,15 @@ Set-AzPrivateEndpoint -PrivateEndpoint $pe
 * Azure Cosmos 帳戶無法故障切換至未對應至其附加之所有私人端點的區域。 如需詳細資訊，請參閱上一節中的新增或移除區域。
 
 * 系統管理員應至少授與 Azure Cosmos 帳戶範圍的 "*/PrivateEndpointConnectionsApproval" 許可權，以建立自動核准的私人端點。
+
+### <a name="private-dns-zone-integration-limitations"></a>私人 DNS 區域整合限制
+
+刪除私人端點或移除 Azure Cosmos 帳戶中的區域時，不會自動移除私人 DNS 區域中的 DNS 記錄。 您必須先手動移除 DNS 記錄：
+
+* 加入連結至此私人 DNS 區域的新私人端點。
+* 將新區域新增至任何已連結至此私人 DNS 區域之私人端點的資料庫帳戶。
+
+若未清除 DNS 記錄，會發生非預期的資料平面問題，例如在移除私人端點或移除區域後新增的區域資料中斷
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -98,11 +98,15 @@
             - name: 從 Azure 容器執行個體進行驗證
               href: container-registry-auth-aci.md
             - name: 從 Azure Kubernetes Service (AKS) 進行驗證
-              href: ../aks/cluster-container-registry-integration.md
-        - name: 角色和權限
+              href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+        - name: 角色型存取控制
           href: container-registry-roles.md
+        - name: 存放庫範圍的權限 (預覽)
+          href: container-registry-repository-scoped-permissions.md
         - name: 內容信任
           href: container-registry-content-trust.md
+        - name: 使用資訊安全中心掃描影像 (預覽)
+          href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
     - name: ACR 工作
       items:
         - name: ACR 工作概觀
@@ -162,7 +166,7 @@
     - name: Webhook 結構描述
       href: container-registry-webhook-reference.md
     - name: 事件格線結構描述
-      href: ../event-grid/event-schema-container-registry.md
+      href: ../event-grid/event-schema-container-registry.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
     - name: 健康情況檢查錯誤
       href: container-registry-health-error-reference.md
       maintainContext: true

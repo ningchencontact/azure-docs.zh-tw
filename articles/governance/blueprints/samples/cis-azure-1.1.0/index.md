@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 0c33c0832590fdfd4fe78a1645ef1b0e3e391163
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: bf4b79dbb3da15605dc4362b5f0578a457886316
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200578"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581364"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure 基礎基準測試藍圖範例的概觀
 
@@ -19,8 +19,7 @@ CIS Microsoft Azure 基礎基準測試藍圖範例提供利用 [Azure 原則](..
 
 ## <a name="recommendation-mapping"></a>建議對應
 
-建議對應區段提供此藍圖中所含原則的詳細資料，以及這些原則如何處理 CIS Microsoft Azure 基礎基準測試中的各項建議。
-將資源指派給架構時，Azure 原則會評估不符合已指派原則的資源。 如需詳細資訊，請參閱 [Azure 原則](../../../policy/overview.md)。
+建議對應區段提供此藍圖中所含原則的詳細資料，以及這些原則如何處理 CIS Microsoft Azure 基礎基準測試 v1.1.0 中的各項建議。 將資源指派給架構時，Azure 原則會評估不符合已指派原則的資源。 如需詳細資訊，請參閱 [Azure 原則](../../../policy/overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -29,6 +28,7 @@ CIS Microsoft Azure 基礎基準測試藍圖範例提供利用 [Azure 原則](..
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure 基礎基準測試藍圖 - 建議對應](./control-mapping.md)
+> [CIS Microsoft Azure 基礎基準測試藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

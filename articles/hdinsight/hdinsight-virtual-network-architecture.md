@@ -2,17 +2,17 @@
 title: Azure HDInsight 虛擬網路架構
 description: 瞭解當您在 Azure 虛擬網路中建立 HDInsight 叢集時可用的資源。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.date: 10/31/2019
+ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960608"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665330"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虛擬網路架構
 
@@ -22,7 +22,7 @@ ms.locfileid: "70960608"
 
 Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點類型在系統的作業中扮演著角色。 下表摘要說明這些節點類型及其在叢集中的角色。
 
-| Type | 描述 |
+| 類型 | 說明 |
 | --- | --- |
 | 前端節點 |  對於除了 Apache Storm 以外的所有叢集類型，前端節點會主控管理分散式應用程式執行的進程。 前端節點也是您可以透過 SSH 連線並執行應用程式的節點，然後協調以在叢集資源上執行。 所有叢集類型的前端節點數目固定為兩個。 |
 | ZooKeeper 節點 | Zookeeper 會在執行資料處理的節點之間協調工作。 它也會對前端節點進行前導選擇，並追蹤哪個前端節點正在執行特定的主要服務。 ZooKeeper 節點的數目固定為三。 |
@@ -44,34 +44,34 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 | 資源類型 | 有數位 | 詳細資料 |
 | --- | --- | --- |
-|前端節點 | 二 |    |
-|Zookeeper 節點 | 三 | |
-|背景工作節點 | 二 | 此數目會根據叢集設定和調整而有所不同。 Apache Kafka 需要至少三個背景工作角色節點。  |
-|閘道節點 | 二 | 閘道節點是在 Azure 上建立的 Azure 虛擬機器，但在您的訂用帳戶中看不到。 如果您需要重新開機這些節點，請聯絡支援人員。 |
+|前端節點 | two |    |
+|Zookeeper 節點 | three | |
+|背景工作節點 | two | 此數目會根據叢集設定和調整而有所不同。 Apache Kafka 需要至少三個背景工作角色節點。  |
+|閘道節點 | two | 閘道節點是在 Azure 上建立的 Azure 虛擬機器，但在您的訂用帳戶中看不到。 如果您需要重新開機這些節點，請聯絡支援人員。 |
 
 下列網路資源會自動建立在與 HDInsight 搭配使用的虛擬網路內：
 
 | 網路資源 | 有數位 | 詳細資料 |
 | --- | --- | --- |
-|負載平衡器 | 三 | |
-|網路介面 | 九 | 這個值是以一般叢集為基礎，其中每個節點都有自己的網路介面。 這九個介面適用于這兩個前端節點、三個 zookeeper 節點、兩個背景工作節點，以及上表中所述的兩個閘道節點。 |
-|公用 IP 位址 | 二 |    |
+|負載平衡器 | three | |
+|網路介面 | 份 | 這個值是以一般叢集為基礎，其中每個節點都有自己的網路介面。 這九個介面適用于這兩個前端節點、三個 zookeeper 節點、兩個背景工作節點，以及上表中所述的兩個閘道節點。 |
+|公用 IP 位址 | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>連接到 HDInsight 的端點
 
 您可以透過三種方式存取您的 HDInsight 叢集：
 
-- 位於`CLUSTERNAME.azurehdinsight.net`虛擬網路外部的 HTTPS 端點。
-- 用來直接連接到前端節點`CLUSTERNAME-ssh.azurehdinsight.net`的 SSH 端點。
-- 虛擬網路`CLUSTERNAME-int.azurehdinsight.net`內的 HTTPS 端點。 請注意此 URL 中的 "-int"。 此端點會解析為該虛擬網路中的私人 IP，而且無法從公用網際網路存取。
+- 位於虛擬網路外部的 HTTPS 端點，位於 `CLUSTERNAME.azurehdinsight.net`。
+- 可在 `CLUSTERNAME-ssh.azurehdinsight.net`直接連接到前端節點的 SSH 端點。
+- 虛擬網路內的 HTTPS 端點 `CLUSTERNAME-int.azurehdinsight.net`。 請注意此 URL 中的 "-int"。 此端點會解析為該虛擬網路中的私人 IP，而且無法從公用網際網路存取。
 
 這三個端點會分別指派負載平衡器。
 
 公用 IP 位址也會提供給允許從虛擬網路外部連線的兩個端點。
 
-1. 從網際網路連線`CLUSTERNAME.azurehdinsight.net`到叢集時，會將一個公用 IP 指派給負載平衡器，以使用完整功能變數名稱（FQDN）。
-1. 第二個公用 IP 位址僅用於 SSH 的功能變數名稱`CLUSTERNAME-ssh.azurehdinsight.net`。
+1. 從網際網路 `CLUSTERNAME.azurehdinsight.net`連線到叢集時，會將一個公用 IP 指派給負載平衡器，以供使用完整功能變數名稱（FQDN）。
+1. 第二個公用 IP 位址僅用於 SSH 的功能變數名稱 `CLUSTERNAME-ssh.azurehdinsight.net`。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [以私人端點保護虛擬網路中 HDInsight 叢集的連入流量](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [以私人端點保護虛擬網路中 HDInsight 叢集的連入流量](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

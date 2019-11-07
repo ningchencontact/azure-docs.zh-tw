@@ -1,5 +1,5 @@
 ---
-title: 彈性資料庫工具字彙 | Microsoft Docs
+title: 彈性資料庫工具字彙
 description: 彈性資料庫工具所用詞彙的解釋
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ed0cc9dce312cb9736b3e32ba46d2cb1cca3ef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3a06bb65c4f836d2c0fb049946ab62c395ec81e1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568453"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690303"
 ---
 # <a name="elastic-database-tools-glossary"></a>彈性資料庫工具字彙
 
@@ -26,7 +26,7 @@ ms.locfileid: "68568453"
 
 ![彈性擴縮詞彙][1]
 
-**資料庫：** Azure SQL 資料庫。 
+**資料庫**：Azure SQL 資料庫。 
 
 **資料依存路由**：可讓應用程式根據特定的分區化索引鍵連接到分區的功能。 請參閱 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 請對照 **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** 。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中建立 Azure SSIS 整合執行時間 |Microsoft Docs
+title: 在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 description: 了解如何在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段，您就可以在 Azure 部署並執行 SSIS 套件。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ddc91a3317d362f6b56e486556f2edf6cdb85131
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ce688248a205981f4a4c60ad01231c0b8f6bae3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326684"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677364"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 
@@ -26,7 +26,7 @@ ms.locfileid: "72326684"
 - 執行部署到 Azure SQL Database 伺服器或受控實例（專案部署模型）所裝載之 SSIS 目錄（SSISDB）中的封裝。
 - 執行部署至檔案系統、檔案共用或 Azure 檔案儲存體（封裝部署模型）中的封裝。 
 
-布建 Azure SSIS IR 之後，您可以使用熟悉的工具，在 Azure 中部署和執行您的套件。 這些工具組括 SQL Server Data Tools、SQL Server Management Studio 和命令列工具（例如 `dtinstall`、`dtutil` 和 `dtexec`）。
+布建 Azure SSIS IR 之後，您可以使用熟悉的工具，在 Azure 中部署和執行您的套件。 這些工具組括 SQL Server Data Tools、SQL Server Management Studio 和命令列工具，例如 `dtinstall`、`dtutil`和 `dtexec`。
 
 布建[AZURE SSIS ir](tutorial-create-azure-ssis-runtime-portal.md)教學課程會示範如何透過 Azure 入口網站或 Data Factory 應用程式來建立 AZURE ssis ir。 本教學課程也會說明如何選擇性地使用 Azure SQL Database 伺服器或受控實例來裝載 SSISDB。 本文會針對教學課程進行擴充，並說明如何執行這些選擇性工作：
 
@@ -72,7 +72,7 @@ ms.locfileid: "72326684"
 | 功能 | 單一資料庫/彈性集區| 受控執行個體 |
 |---------|--------------|------------------|
 | **排程** | SQL Server Agent 無法使用。<br/><br/>請參閱[在 Data Factory 管線中排程封裝執行](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)。| 受控執行個體代理程式可供使用。 |
-| **驗證** | 您可以使用自主資料庫使用者建立 SSISDB 實例，其代表具有 data factory 受控識別的任何 Azure AD 群組，做為**db_owner**角色中的成員。<br/><br/>請參閱[啟用 Azure AD 驗證，以在 Azure SQL Database 伺服器上建立 SSISDB 實例](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)。 | 您可以使用自主資料庫使用者來建立 SSISDB 實例，以代表您的 data factory 受控識別。 <br/><br/>請參閱[啟用 Azure AD 驗證，以在 Azure SQL Database 受控實例中建立 SSISDB 實例](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)。 |
+| **驗證** | 您可以使用自主資料庫使用者來建立 SSISDB 實例，其代表任何 Azure AD 群組，並以您的 data factory 受控識別作為**db_owner**角色中的成員。<br/><br/>請參閱[啟用 Azure AD 驗證，以在 Azure SQL Database 伺服器上建立 SSISDB 實例](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)。 | 您可以使用自主資料庫使用者來建立 SSISDB 實例，以代表您的 data factory 受控識別。 <br/><br/>請參閱[啟用 Azure AD 驗證，以在 Azure SQL Database 受控實例中建立 SSISDB 實例](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)。 |
 | **服務層** | 當您使用 Azure SQL Database 伺服器建立 Azure SSIS IR 時，可以選取 SSISDB 的服務層級。 目前有多個服務層級。 | 當您使用受控實例建立 Azure SSIS IR 時，您無法選取 SSISDB 的服務層級。 受控實例中的所有資料庫會共用配置給該實例的相同資源。 |
 | **虛擬網路** | 只有當您使用具有虛擬網路服務端點的 Azure SQL Database 伺服器，或如果您需要存取內部部署資料存放區，而不需設定自我裝載的 IR 時，您的 Azure SSIS IR 才可以聯結 Azure Resource Manager 虛擬網路。 | 您的 Azure SSIS IR 只能聯結 Azure Resource Manager 虛擬網路。 當您未啟用受控實例的公用端點時，需要虛擬網路。<br/><br/>如果您將 Azure SSIS IR 加入與受控實例相同的虛擬網路，請確定您的 Azure SSIS IR 與受控實例位於不同的子網中。 如果您將 Azure SSIS IR 加入受控實例中的不同虛擬網路，建議使用虛擬網路對等互連或網路對網路連線。 請參閱[將您的應用程式連線至 Azure SQL Database 受控實例](../sql-database/sql-database-managed-instance-connect-app.md)。 |
 | **分散式交易** | 透過彈性交易可支援這項功能。 不支援 Microsoft Distributed Transaction Coordinator (MSDTC) 交易。 如果您的 SSIS 套件使用 MSDTC 來協調分散式交易，請考慮遷移至彈性交易以進行 Azure SQL Database。 如需詳細資訊，請參閱[跨雲端資料庫的分散式交易](../sql-database/sql-database-elastic-transactions-overview.md)。 | 不支援。 |
@@ -182,7 +182,7 @@ ms.locfileid: "72326684"
 
    c. 針對 [**暫存路徑**]，請在您選取的 Azure blob 儲存體帳戶中指定 blob 容器。 或者，將它保留為空白，以使用預設值進行暫存。
 
-7. 選取 [ **VNet 驗證** >  **] [下一步]** 。 
+7. 選取 [ **VNet 驗證** > **下一步]** 。 
 
 8. 在 [**摘要**] 頁面上，檢查所有布建設定、將建議的檔連結設為書簽，然後選取 **[完成]** 以開始建立您的整合執行時間。
 
@@ -355,9 +355,9 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 執行下列命令，以建立在 Azure 中執行 SSIS 套件的 Azure-SSIS 整合執行階段。
 
-如果您不使用 SSISDB，可以省略 `CatalogServerEndpoint`、`CatalogPricingTier` 和 @no__t 2 參數。
+如果您不使用 SSISDB，可以省略 `CatalogServerEndpoint`、`CatalogPricingTier`和 `CatalogAdminCredential` 參數。
 
-如果您未使用具有虛擬網路服務端點的 Azure SQL Database 伺服器，或具有私人端點的受控實例來裝載 SSISDB，或如果您需要存取內部部署資料，則可以省略 `VNetId` 和 @no__t 1 參數，或傳遞空值客戶. 如果您將自我裝載 IR 設定為 Azure SSIS IR 的 proxy 以存取內部部署資料，您也可以省略它們。 否則，您不能省略它們，而且必須從您的虛擬網路設定傳遞有效的值。 如需詳細資訊，請參閱將[AZURE SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。
+如果您未使用具有虛擬網路服務端點的 Azure SQL Database 伺服器，或具有私人端點的受控實例來裝載 SSISDB，或如果您需要存取內部部署資料，則可以省略 `VNetId` 和 `Subnet` 參數，或傳遞空值客戶. 如果您將自我裝載 IR 設定為 Azure SSIS IR 的 proxy 以存取內部部署資料，您也可以省略它們。 否則，您不能省略它們，而且必須從您的虛擬網路設定傳遞有效的值。 如需詳細資訊，請參閱將[AZURE SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。
 
 如果您使用受控實例來裝載 SSISDB，您可以省略 `CatalogPricingTier` 參數，或為其傳遞空白值。 否則，您不能省略它，而且必須從 Azure SQL Database 的支援定價層清單中傳遞有效的值。 如需詳細資訊，請參閱[SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
 
@@ -668,7 +668,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 - 針對具有私用端點的受控實例，伺服器端點格式為 `<server name>.<dns prefix>.database.windows.net`。
 - 針對具有公用端點的受控實例，伺服器端點格式為 `<server name>.public.<dns prefix>.database.windows.net,3342`。 
 
-如果您不使用 SSISDB，可以將封裝部署到檔案系統、檔案共用或 Azure 檔案儲存體。 然後，您可以使用 `dtinstall`、`dtutil` 和 @no__t 2 命令列工具，在 Azure SSIS IR 上執行它們。 如需詳細資訊，請參閱[部署 SSIS 套件](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server)。 
+如果您不使用 SSISDB，可以將封裝部署到檔案系統、檔案共用或 Azure 檔案儲存體。 然後，您可以使用 `dtinstall`、`dtutil`和 `dtexec` 命令列工具，在 Azure SSIS IR 上執行它們。 如需詳細資訊，請參閱[部署 SSIS 套件](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server)。 
 
 在這兩種情況下，您也可以使用 Data Factory 管線中的執行 SSIS 套件活動，在 Azure SSIS IR 上執行已部署的套件。 如需詳細資訊，請參閱[將 SSIS 封裝執行當做第一類 Data Factory 活動叫用](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)。
 
@@ -678,5 +678,5 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 - [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行時間的一般相關資訊，包括 Azure SSIS IR。
 - [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文說明如何取得及瞭解 Azure SSIS IR 的相關資訊。
-- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文說明如何停止、啟動或刪除您的 Azure SSIS IR。 它也會示範如何藉由新增更多節點來相應放大您的 Azure SSIS IR。
+- [管理 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文說明如何停止、啟動或刪除您的 Azure SSIS IR。 它也會示範如何藉由新增更多節點來相應放大您的 Azure SSIS IR。
 - [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 本文提供將您的 Azure SSIS IR 加入虛擬網路的相關資訊。

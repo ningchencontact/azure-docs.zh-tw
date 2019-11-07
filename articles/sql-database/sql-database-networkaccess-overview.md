@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 和資料倉儲網路存取控制 |Microsoft Docs
+title: Azure SQL Database 和資料倉儲網路存取控制
 description: 概述 Azure SQL Database 和資料倉儲來管理存取權，以及設定單一或集區資料庫的網路存取控制。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703278"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687708"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 和資料倉儲網路存取控制
 
@@ -88,7 +88,7 @@ Ip 型防火牆是 Azure SQL Server 的一項功能，可防止所有對您資�
 **虛擬網路規則：** SQL Database 伺服器的虛擬網路規則是 SQL Database 伺服器的存取控制清單 (ACL) 中所列的子網路。 子網路必須包含 **Microsoft.Sql** 類型名稱，才能列在 SQL Database 的 ACL 中。 虛擬網路規則會指示 SQL Database 伺服器接受來自子網路上每個節點的通訊。
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>IP 與虛擬網路防火牆規則
+## <a name="ip-vs-virtual-network-firewall-rules"></a>IP 與虛擬網路防火牆規則的比較
 
 Azure SQL Server 防火牆可讓您指定接受通訊的 IP 位址範圍，以 SQL Database。 此方法對 Azure 私人網路外部的穩定 IP 位址很適合。 不過，Azure 私人網路內的虛擬機器（Vm）會以*動態*IP 位址進行設定。 當您的 VM 重新開機時，動態 IP 位址可能會變更，而又會使以 IP 為基礎的防火牆規則失效。 在生產環境中，請勿在防火牆規則中指定動態 IP 位址。
 
@@ -107,7 +107,7 @@ Azure SQL Server 防火牆可讓您指定接受通訊的 IP 位址範圍，以 S
 
 - 如需從開放原始碼或協力廠商應用程式連線到 Azure SQL 資料庫的說明，請參閱[SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
 
-- 如需詳細資訊，請參閱 [針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈**SQL Database：外部與內部**〉一節。
+- 如需詳細資訊，請參閱**針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠**的〈[SQL Database：外部與內部](sql-database-develop-direct-route-ports-adonet-v12.md)〉一節
 
 - 如需 Azure SQL Database 連線的總覽，請參閱[AZURE SQL 連線架構](sql-database-connectivity-architecture.md)
 

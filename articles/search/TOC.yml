@@ -195,6 +195,8 @@
           href: search-blob-storage-integration.md
         - name: 設定 Blob 索引器
           href: search-howto-indexing-azure-blob-storage.md
+        - name: 設定 Azure Data Lake Storage Gen2 索引子
+          href: search-howto-index-azure-data-lake-storage.md
         - name: 針對一對多個 Bolb 編製索引
           href: search-howto-index-one-to-many-blobs.md
         - name: 索引 CSV Blob

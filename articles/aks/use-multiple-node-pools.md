@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472458"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662587"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
 
@@ -33,19 +33,20 @@ ms.locfileid: "73472458"
 
 * 您無法刪除預設（第一個）節點集區。
 * 無法使用 HTTP 應用程式路由附加元件。
+* AKS 叢集必須使用標準 SKU 負載平衡器來使用多個節點集區，但基本 SKU 負載平衡器不支援此功能。
+* AKS 叢集必須使用節點的虛擬機器擴展集。
 * 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地，請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)，對 AKS 叢集中的節點集區進行變更。
 * 節點集區的名稱必須以小寫字母開頭，而且只能包含英數位元。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
 * AKS 叢集最多可以有八個節點集區。
 * AKS 叢集在這八個節點集區中最多可以有400個節點。
 * 所有節點集區都必須位於相同的子網中。
-* AKS 叢集必須使用節點的虛擬機器擴展集。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
 若要開始使用，請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令，在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.13.10*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
 
 > [!NOTE]
-> 使用多個節點集區時，不支援*基本*LOAD balanacer SKU。 根據預設，系統會使用*標準*loadbalacer SKU 來建立 AKS 叢集。
+> 使用多個節點集區時，不支援*基本*LOAD balanacer SKU。 根據預設，系統會使用 Azure CLI 和 Azure 入口網站的*標準*負載平衡器 SKU 來建立 AKS 叢集。
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -547,20 +548,7 @@ AKS 節點不需要自己的公用 IP 位址進行通訊。 不過，某些情�
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-成功註冊之後，請遵循[上述](#manage-node-pools-using-a-resource-manager-template)相同指示部署 Azure Resource Manager 範本，並在 agentPoolProfiles 上新增下列布林值屬性 "enableNodePublicIP"。 將此設定為 [`true`]，預設為如果未指定，則設定為 [`false`]。 這是僅限建立時間的屬性，而且需要最低 API 版本2019-06-01。 這可同時套用至 Linux 和 Windows 節點集區。
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+成功註冊之後，請遵循[上述](#manage-node-pools-using-a-resource-manager-template)相同指示部署 Azure Resource Manager 範本，並將 [布林值] 屬性 `enableNodePublicIP` 新增至 agentPoolProfiles。 將值設定為 `true`，預設為，如果未指定，則會設定為 `false`。 這是僅限建立時間的屬性，而且需要最低 API 版本2019-06-01。 這可同時套用至 Linux 和 Windows 節點集區。
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -1,5 +1,5 @@
 ---
-title: 升級至最新的彈性資料庫用戶端程式庫 | Microsoft Docs
+title: 升級至最新的彈性資料庫用戶端程式庫
 description: 使用 Nuget 升級彈性資料庫用戶端程式庫。
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: acf722268ae7ea5c8b444467f0b5c658d919096c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981361"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690122"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>將應用程式升級以使用最新的彈性資料庫用戶端程式庫
 
 新版本的[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)可透過 nuget 和 Visual Studio 中的 Nuget 套件管理員介面取得。 升級包含用戶端程式庫的錯誤修正以及對新功能的支援。
 
-**如需最新版本**：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
+**如需最新版本** ：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
 使用新的程式庫重新建置您的應用程式，以及變更您 Azure SQL 資料庫中儲存的現有分區對應管理員中繼資料以支援新功能。
 
@@ -38,11 +38,11 @@ ms.locfileid: "69981361"
 * (Visual Studio 2017) 在對話方塊頂端，選取 [更新]。 選取要更新的套件，然後按一下 [更新] 按鈕。
 * 建置並部署。
 
-**2.升級您的指令碼。** 如果您是使用 **PowerShell** 指令碼來管理分區，請[下載新的程式庫版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)並將它複製到您從中執行指令碼的目錄。
+**2. 升級您的腳本。** 如果您是使用 **PowerShell** 指令碼來管理分區，請[下載新的程式庫版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)並將它複製到您從中執行指令碼的目錄。
 
-**3.升級您的分割合併服務。** 如果您使用彈性資料庫分割合併工具來重新安排分區資料，請[下載並部署最新版本的工具](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)。 服務的詳細升級步驟可以在[這裡](sql-database-elastic-scale-overview-split-and-merge.md)找到。
+**3. 升級您的分割合併服務。** 如果您使用彈性資料庫分割合併工具來重新安排分區資料，請[下載並部署最新版本的工具](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)。 服務的詳細升級步驟可以在[這裡](sql-database-elastic-scale-overview-split-and-merge.md)找到。
 
-**4.升級您的分區對應管理員資料庫**。 升級支援您 Azure SQL Database 中之分區對應的中繼資料。  您可以使用 PowerShell 或 C# 來完成此作業。 下面會說明這兩個選項。
+**4. 升級您的分區對應管理員資料庫**。 升級支援您 Azure SQL Database 中之分區對應的中繼資料。  您可以使用 PowerShell 或 C# 來完成此作業。 下面會說明這兩個選項。
 
 ***選項 1：使用 PowerShell 升級中繼資料***
 

@@ -4,19 +4,19 @@ description: 說明如何建立 Azure Migrate 專案，以及新增評量/遷移
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934168"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720236"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>第一次使用請新增評量/移轉工具
 
 本文說明如何在第一次將評估或遷移工具加入至[Azure Migrate](migrate-overview.md)專案。  
-Azure Migrate 提供中央中樞，以追蹤內部部署應用程式和工作負載的探索、評估和遷移，以及私人/公用雲端 Vm 至 Azure。 中樞提供評估和遷移的 Azure Migrate 工具，以及協力廠商獨立軟體廠商（ISV）[產品](migrate-services-overview.md#isv-integration)。 
+Azure Migrate 提供中央中樞，以追蹤內部部署應用程式和工作負載的探索、評估和遷移，以及私人/公用雲端 Vm 至 Azure。 中樞提供評估和遷移的 Azure Migrate 工具，以及其他工具和獨立軟體廠商（ISV）[產品](migrate-services-overview.md#isv-integration)。 
 
 ## <a name="create-a-project-and-add-a-tool"></a>建立專案並新增工具
 
@@ -25,7 +25,7 @@ Azure Migrate 提供中央中樞，以追蹤內部部署應用程式和工作負
 - Azure Migrate 專案用來儲存從您要評估或遷移的環境中收集到的探索、評估和遷移中繼資料。 
 - 在專案中，您可以追蹤探索到的資產，並協調評估和遷移。
 
-1. 在 Azure 入口網站 > [所有服務] 中，搜尋 **Azure Migrate**。
+1. 在 Azure 入口網站 > [所有服務] 中搜尋 **Azure Migrate**。
 2. 在 [服務] 下，選取 [Azure Migrate]。
 
     ![設定 Azure Migrate](./media/how-to-add-tool-first-time/azure-migrate-search.png)
@@ -66,8 +66,8 @@ Azure Migrate 提供中央中樞，以追蹤內部部署應用程式和工作負
     > [!NOTE]
     > 當您建立專案時，您必須新增至少一個評估或遷移工具。
 
-5. 在 [**選取評估工具**] 中，新增評定工具。 如果您不需要評估工具，請選取 [ > **立即略過新增評估工具** **]** 。 
-2. 在 [**選取遷移工具**] 中，視需要新增遷移工具。 如果您目前不需要遷移工具，請選取 > [**立即略過新增遷移工具** **]** 。
+5. 在 [**選取評估工具**] 中，新增評定工具。 如果您不需要評估工具，請選取 **立即略過新增評估工具** ** > 下一步**。 
+2. 在 [**選取遷移工具**] 中，視需要新增遷移工具。 如果您目前不需要遷移工具，請選取 **立即略過新增遷移工具** > **下一步**。
 3. 在 [審核] 和 [**新增工具**] 中，檢查設定，然後按一下 [**新增工具**]。
 
 建立專案之後，您可以選取其他工具來評估和遷移伺服器和工作負載、資料庫和 web 應用程式。

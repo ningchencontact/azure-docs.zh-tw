@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 資源限制 - 受控執行個體 | Microsoft Docs
+title: Azure SQL Database 資源限制-受控實例
 description: 本文將概略說明 Azure SQL Database 的受控執行個體有哪些資源限制。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 17ffc07bb5632b1b56b7bff1e843e5955d396089
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372205"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687909"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -49,7 +49,7 @@ ms.locfileid: "72372205"
 | --- | --- | --- |
 | 4虛擬核心  | 3.14 GB | |   
 | 8虛擬核心  | 6.28 GB | 8 GB |
-| 16虛擬核心 | 15.77 GB | 20GB |
+| 16虛擬核心 | 15.77 GB | 20 GB |
 | 24虛擬核心 | 25.25 GB | 36 GB |
 | 32虛擬核心 | 37.94 GB | |
 | 40虛擬核心 | 52.23 GB | |
@@ -65,7 +65,7 @@ ms.locfileid: "72372205"
 
 | **功能** | **一般用途** | **商務關鍵性** |
 | --- | --- | --- |
-| 虛擬核心數目\* | Gen4：8、16、24<br/>第5代：4、8、16、24、32、40、64、80 | Gen4：8、16、24 <br/> 第5代：4、8、16、24、32、40、64、80 <br/>@no__t 0Same 的虛擬核心數目是專門用於唯讀查詢。 |
+| 虛擬核心數目\* | Gen4：8、16、24<br/>第5代：4、8、16、24、32、40、64、80 | Gen4：8、16、24 <br/> 第5代：4、8、16、24、32、40、64、80 <br/>\*相同數目的虛擬核心是專門用於唯讀查詢。 |
 | 最大記憶體 | 第4代： 56 GB-168 GB （7GB/vCore）<br/>第5代： 20.4 GB-408 GB （5.1 GB/vCore）<br/>新增更多虛擬核心以取得更多記憶體。 | 第4代： 56 GB-168 GB （7GB/vCore）<br/>第5代： 20.4 GB-408 GB （5.1 GB/vCore），適用于讀寫查詢<br/>+ 額外 20.4 GB-408 GB （5.1 GB/vCore）用於唯讀查詢。<br/>新增更多虛擬核心以取得更多記憶體。 |
 | 最大實例儲存體大小（保留） | -2 TB 適用于4虛擬核心（僅限第5代）<br/>-適用于其他大小的 8 TB | 第4代： 1 TB <br/> 第 5 代： <br/>-1 TB 適用于4、8、16虛擬核心<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
 | 資料庫大小上限 | 目前可用的實例大小上限（最多 2 TB-8 TB，視虛擬核心的數目而定）。 | 目前可用的實例大小上限（最多 1 TB-4 TB，視虛擬核心的數目而定）。 |
@@ -74,9 +74,9 @@ ms.locfileid: "72372205"
 | 每個實例的資料庫檔案數目上限 | 最多280，除非已達到實例儲存體大小或[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)的限制。 | 32767每個資料庫的檔案，除非已達到實例儲存體大小限制。 |
 | 資料檔案大小上限 | 受限於目前可用的實例儲存體大小（最多 2 TB-8 TB）和[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)。 | 受限於目前可用的實例儲存體大小（最多 1 TB-4 TB）。 |
 | 記錄檔大小上限 | 受限於 2 TB 和目前可用的實例儲存體大小。 | 受限於 2 TB 和目前可用的實例儲存體大小。 |
-| 資料/記錄 IOPS (大約) | 每個實例最多 30-40 K IOPS *，500-每個檔案7500<br/>\* 會[增加檔案大小以取得更多 IOPS](#file-io-characteristics-in-general-purpose-tier)| 5.5 K-110 K （1375 IOPS/vCore）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
+| 資料/記錄 IOPS (大約) | 每個實例最多 30-40 K IOPS *，500-每個檔案7500<br/>\*[增加檔案大小以取得更多 IOPS](#file-io-characteristics-in-general-purpose-tier)| 5.5 K-110 K （1375 IOPS/vCore）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
 | 記錄寫入輸送量限制（每個實例） | 每個虛擬核心 3 MB/秒<br/>最大值 22 MB/秒 | 每個 vCore 4 MB/秒<br/>最大 48 MB/秒 |
-| 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\* 會[增加檔案大小，以取得更佳的 IO 效能](#file-io-characteristics-in-general-purpose-tier) | 不受限制。 |
+| 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[增加檔案大小以取得更佳的 IO 效能](#file-io-characteristics-in-general-purpose-tier) | 不受限制。 |
 | 儲存 IO 延遲（近似） | 5-10 毫秒 | 1-2 毫秒 |
 | 記憶體內部 OLTP | 不支援 | 可用，[大小取決於 vCore 數目](#in-memory-oltp-available-space) |
 | 會話數上限 | 30000 | 30000 |
@@ -144,7 +144,7 @@ ms.locfileid: "72372205"
 
 \* 在規劃部署中，請考慮商務關鍵性（BC）服務層級需要四（4）倍以上的 vCore 容量，而不是一般用途（GP）服務層級。 例如：1個 GP vCore = 1 個 vCore unit 和1個 BC vCore = 4 個 vCore 單位。 若要簡化您對預設限制的耗用量分析，請摘要說明部署受控實例之區域中所有子網的 vCore 單位，並將結果與訂用帳戶類型的實例單位限制進行比較。 **VCore 單位限制的最大數目**適用于區域中的每個訂用帳戶。 每個個別子網沒有限制，不同之處在于跨多個子網部署的所有虛擬核心總和必須小於或等於**vCore 單位的最大數目**。
 
-\* @ no__t-1 個較大的子網和 vCore 限制適用于下欄區域：澳大利亞東部、美國東部、美國東部2、北歐、美國中南部、東南亞、英國南部、西歐、美國西部2。
+\*\* 較大的子網和 vCore 限制可在下欄區域使用：澳大利亞東部、美國東部、美國東部2、北歐、美國中南部、東南亞、英國南部、西歐、美國西部2。
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>取得較大的 SQL 受控實例配額
 

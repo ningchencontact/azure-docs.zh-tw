@@ -1,5 +1,5 @@
 ---
-title: 使用預存程序活動執行 SSIS 套件 - Azure | Microsoft Docs
+title: 使用預存程式活動執行 SSIS 套件-Azure
 description: 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SQL Server Integration Services (SSIS) 套件。
 services: data-factory
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3bfef0d787d8289055ab80e2ac30408dd7a13fb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155025"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673753"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SSIS 套件。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 這篇文章中的逐步解說會使用裝載 SSIS 目錄的 Azure SQL 資料庫。 您也可以使用 Azure SQL Database 受控執行個體。
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>建立 Azure-SSIS 整合執行階段
-如果您還沒有依照中的逐步指示，請建立 Azure SSIS 整合執行階段[教學課程：將 SSIS 套件部署](tutorial-create-azure-ssis-runtime-portal.md)。
+如果您未依照[教學課程：部署 SSIS 套件](tutorial-create-azure-ssis-runtime-portal.md)中的逐步指示進行，請建立 Azure SSIS 整合執行階段。
 
 ## <a name="data-factory-ui-azure-portal"></a>資料處理站使用者介面 (Azure 入口網站)
 在本節中，您可以使用資料處理站 UI 以叫用 SSIS 封裝的預存程序活動建立資料處理站管線。
@@ -39,10 +39,10 @@ ms.locfileid: "66155025"
 
 1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 
-3. 按一下左邊功能表上的 [新增]  、[資料 + 分析]  ，再按一下 [Data Factory]  。 
+3. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. 在 [新增資料處理站]  頁面中，輸入 **ADFTutorialDataFactory** 作為 [名稱]  。 
+2. 在 [新增資料處理站] 頁面中，輸入 [ADFTutorialDataFactory] 作為 [名稱]。 
       
      ![新增資料處理站頁面](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
@@ -50,56 +50,56 @@ ms.locfileid: "66155025"
   
      ![名稱無法使用 - 錯誤](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
-4. 針對 [資源群組]  ，請執行下列其中一個步驟︰
+4. 針對 [資源群組]，請執行下列其中一個步驟︰
      
-   - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
-   - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
+   - 選取 [使用現有的]，然後從下拉式清單選取現有的資源群組。 
+   - 選取 [建立新的]，然後輸入資源群組的名稱。   
          
      若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 針對 [版本]  選取 [V2]  。
-5. 選取 Data Factory 的 [位置]  。 只有受到 Data Factory 支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他位置。
-6. 選取 [釘選到儀表板]  。     
-7. 按一下 [建立]  。
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
+4. 針對 [版本] 選取 [V2]。
+5. 選取 Data Factory 的 [位置] 。 只有受到 Data Factory 支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他位置。
+6. 選取 [釘選到儀表板]。     
+7. 按一下 [建立]。
+8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
 
      ![部署資料處理站圖格](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. 建立完成之後，您會看到如圖中所示的 [Data Factory]  頁面。
+9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
      ![Data Factory 首頁](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
-10. 按一下 [編寫與監視]  圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI) 應用程式。 
+10. 按一下 [編寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI) 應用程式。 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>使用預存程序活動建立管線
 在此步驟中，您可以使用資料處理站 UI 建立管線。 您將預存程序活動新增至管線，並設定它使用 sp_executesql 預存程序執行 SSIS 封裝。 
 
-1. 在 [開始使用]  頁面中，按一下 [建立管線]： 
+1. 在 [開始使用] 頁面中，按一下 [建立管線]： 
 
     ![開始使用頁面](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. 在 [活動]  工具箱中，展開 [一般]  ，並將 [預存程序]  活動拖放至管線設計工具表面。 
+2. 在 [活動] 工具箱中，展開 [一般]，並將 [預存程序] 活動拖放至管線設計工具表面。 
 
     ![拖放功能預存程序活動](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. 在第二個程序活動的 [屬性] 視窗中，切換到 [SQL 帳戶]  索引標籤，並按一下 [+ 新增]  。 您可對於主控 SSIS 目錄 (SSIDB 資料庫) 的 Azure SQL 資料庫建立連線。 
+3. 在第二個程序活動的 [屬性] 視窗中，切換到 [SQL 帳戶] 索引標籤，並按一下 [+ 新增]。 您可對於主控 SSIS 目錄 (SSIDB 資料庫) 的 Azure SQL 資料庫建立連線。 
    
     ![新增連結服務按鈕](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. 在 [新增連結服務]  視窗中，執行下列步驟： 
+4. 在 [新增連結服務] 視窗中，執行下列步驟： 
 
-    1. 選取 [類型]  的 [Azure SQL Database]  。
+    1. 選取 [類型] 的 [Azure SQL Database]。
     2. 選取**預設** Azure Integration Runtime，以連線到裝載 `SSISDB` 資料庫的 Azure SQL Database。
-    3. 針對 [伺服器名稱]  欄位，選取裝載 SSISDB 資料庫的 Azure SQL Database。
-    4. 選取 [資料庫名稱]  的 [SSISDB]  。
-    5. 對於 [使用者名稱]  ，輸入可存取資料庫的使用者名稱。
-    6. 對於 [密碼]  ，輸入使用者的密碼。 
-    7. 按一下 [測試連接]  按鈕以測試資料庫連接。
-    8. 按一下 [儲存]  按鈕以儲存連結服務。 
+    3. 針對 [伺服器名稱] 欄位，選取裝載 SSISDB 資料庫的 Azure SQL Database。
+    4. 選取 [資料庫名稱] 的 [SSISDB]。
+    5. 對於 [使用者名稱]，輸入可存取資料庫的使用者名稱。
+    6. 對於 [密碼]，輸入使用者的密碼。 
+    7. 按一下 [測試連接] 按鈕以測試資料庫連接。
+    8. 按一下 [儲存] 按鈕以儲存連結服務。 
 
         ![Azure SQL Database 的連結服務](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
-5. 在 [屬性] 視窗中，從 [SQL 帳戶]  索引標籤切換到 [預存程序]  索引標籤，並執行下列步驟： 
+5. 在 [屬性] 視窗中，從 [SQL 帳戶] 索引標籤切換到 [預存程序] 索引標籤，並執行下列步驟： 
 
-    1. 選取 [編輯]  。 
-    2. 對於 [預存程序名稱]  ，輸入 `sp_executesql`。 
-    3. 按一下 [預存程序參數]  區段中的 [+ 新增]  。 
-    4. 對於參數的 [名稱]  ，輸入 **stmt**。 
-    5. 針對參數的 [類型]  ，輸入 [字串]  。 
-    6. 針對參數的 [值]  ，輸入下列 SQL 查詢：
+    1. 選取 [編輯]。 
+    2. 對於 [預存程序名稱]，輸入 `sp_executesql`。 
+    3. 按一下 [預存程序參數] 區段中的 [+ 新增]。 
+    4. 對於參數的 [名稱]，輸入 **stmt**。 
+    5. 針對參數的 [類型]，輸入 [字串]。 
+    6. 針對參數的 [值]，輸入下列 SQL 查詢：
 
         在 SQL 查詢中，指定 **folder_name**、**project_name** 和 **package_name** 參數的正確值。 
 
@@ -108,26 +108,26 @@ ms.locfileid: "66155025"
         ```
 
         ![Azure SQL Database 的連結服務](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. 若要驗證管線設定，按一下工具列上的 [驗證]  。 若要關閉 [管線驗證報告]  ，按一下 **>>** 。
+6. 若要驗證管線設定，按一下工具列上的 [驗證]。 若要關閉 [管線驗證報告]，按一下 **>>** 。
 
     ![驗證管線](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
-7. 按一下 [全部發行]  按鈕，將管線發行至資料處理站。 
+7. 按一下 [全部發行] 按鈕，將管線發行至資料處理站。 
 
     ![發佈](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
 
 ### <a name="run-and-monitor-the-pipeline"></a>執行並監視管線
 在本節中，您會觸發管線執行，然後監視執行的情況。 
 
-1. 若要觸發管線執行，按一下工具列上的 [觸發程序]  ，然後按一下 [立即觸發]  。 
+1. 若要觸發管線執行，按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 
 
     ![立即觸發](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
 
-2. 在 [管線執行]  視窗中，選取 [完成]  。 
-3. 切換至左側的 [監視]  索引標籤。 您會看到管線執行、其狀態，以及其他資訊 (例如執行開始時間)。 若要重新整理檢視，按一下 [重新整理]  。
+2. 在 [管線執行] 視窗中，選取 [完成]。 
+3. 切換至左側的 [監視] 索引標籤。 您會看到管線執行、其狀態，以及其他資訊 (例如執行開始時間)。 若要重新整理檢視，請按一下 [重新整理]。
 
     ![管線執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-3. 按一下 [動作]  資料行中的 [檢視活動執行]  連結。 管線只有一個活動 (預存程序活動) 時，您只會看到一個活動執行。
+3. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 管線只有一個活動 (預存程序活動) 時，您只會看到一個活動執行。
 
     ![活動執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "66155025"
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 您可以使用具有 Azure SSIS IR 的同一個資料處理站，也可以建立另一個資料處理站。 下列程序提供建立資料處理站的步驟。 您會在此資料處理站中建立具有預存程序活動的管線。 預存程序活動會執行 SSISDB 資料庫中的預存程序來執行 SSIS 套件。 
 
-1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如：`"adfrg"`。 
+1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如： `"adfrg"`。 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -190,10 +190,10 @@ ms.locfileid: "66155025"
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為**參與者**或**擁有者**角色，或是 Azure 訂用帳戶的**管理員**。
-* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務
-建立連結服務，將主控 SSIS 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連線到 SSISDB 資料庫，並執行預存程序來執行 SSIS 套件。 
+建立連結服務，將裝載 SSI 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連線到 SSISDB 資料庫，並執行預存程序來執行 SSIS 套件。 
 
 1. 使用下列內容，在 **C:\ADF\RunSSISPackage** 資料夾中建立名為 **AzureSqlDatabaseLinkedService.json** 的 JSON 檔案： 
 
@@ -217,14 +217,14 @@ ms.locfileid: "66155025"
 
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
 
-3. 執行 **Set-AzDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureSqlDatabaseLinkedService**。 
+3. 執行**set-azdatafactoryv2linkedservice**指令，以建立連結服務： **AzureSqlDatabaseLinkedService**。 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>使用預存程序活動建立管線 
-在此步驟中，您會建立具有預存程序活動的管線。 活動會叫用 sp_executesql 預存程序執行 SSIS 封裝。 
+在此步驟中，您會建立具有預存程序活動的管線。 活動會叫用 sp_executesql 預存程序以執行 SSIS 套件。 
 
 1. 使用下列內容，在 **C:\ADF\RunSSISPackage** 資料夾中建立名為 **RunSSISPackagePipeline.json** 的 JSON 檔案：
 
@@ -258,7 +258,7 @@ ms.locfileid: "66155025"
     }
     ```
 
-2. 若要建立管線：**RunSSISPackagePipeline**，請執行**組 AzDataFactoryV2Pipeline** cmdlet。
+2. 若要建立管線： **RunSSISPackagePipeline**，請執行**set-azdatafactoryv2pipeline** Cmdlet。
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -275,7 +275,7 @@ ms.locfileid: "66155025"
     ```
 
 ### <a name="create-a-pipeline-run"></a>建立管線執行
-使用**Invoke AzDataFactoryV2Pipeline** cmdlet 執行管線。 Cmdlet 會傳回管線執行識別碼，方便後續監視。
+使用**set-azdatafactoryv2pipeline** Cmdlet 來執行管線。 Cmdlet 會傳回管線執行識別碼，方便後續監視。
 
 ```powershell
 $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
@@ -332,17 +332,17 @@ while ($True) {
     }    
     ```
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
-3. 執行**組 AzDataFactoryV2Trigger** cmdlet，以建立觸發程序。 
+3. 執行**start-azdatafactoryv2trigger 指令程式**，以建立觸發程式。 
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. 觸發程序預設處於已停止狀態。 執行來啟動觸發程序**開始 AzDataFactoryV2Trigger** cmdlet。 
+4. 觸發程序預設處於已停止狀態。 執行**start-azdatafactoryv2trigger** Cmdlet 來啟動觸發程式。 
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. 確認 執行啟動觸發程序**Get AzDataFactoryV2Trigger** cmdlet。 
+5. 藉由執行**start-azdatafactoryv2trigger** Cmdlet，確認觸發程式已啟動。 
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     
@@ -353,7 +353,7 @@ while ($True) {
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列查詢，確認已執行套件。 
+    您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列查詢，確認已執行封裝。 
 
     ```sql
     select * from catalog.executions

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的反覆式開發和偵測 | Microsoft Docs
+title: Azure Data Factory 中的反復式開發和調試
 description: 了解如何在 Azure 入口網站中反覆地開發和偵錯 Data Factory 管線。
 ms.date: 09/26/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 38e51e33ef487da8879132eb1ce9cf1e63a814e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178610"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672836"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>透過 Azure Data Factory 的反覆式開發與偵錯
 
@@ -58,7 +58,7 @@ Azure Data Factory 可讓您反覆地開發和偵錯 Data Factory 管線。
 
 ## <a name="monitoring-debug-runs"></a>監視偵錯回合
 
-[監視] 索引標籤上不會列出使用 [偵錯] 功能起始的測試回合。在 [監視] 索引標籤中，您只能看到使用 [立即觸發]、[排程] 或 [輪轉視窗] 觸發程序所觸發的回合。在管線畫布的 [輸出] 視窗中，您可以看到使用 [偵錯] 功能起始的最後一個測試回合。
+在 [**監視**] 索引標籤上的清單中，無法使用以**Debug**功能起始的測試回合。在 [**監視器**] 索引標籤中，您只能看到 [觸發**Now**]、[**排程**] 或 [**輪轉] 視窗**觸發程式。您可以在管線畫布的 [**輸出**] 視窗中，看到以 [**調試**] 功能起始的最後一個測試回合。
 
 ## <a name="setting-breakpoints-for-debugging"></a>設定偵錯的中斷點
 

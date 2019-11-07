@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 和 Azure SQL 資料倉儲 IP 防火牆規則 |Microsoft Docs
+title: Azure SQL Database 和 Azure SQL 資料倉儲 IP 防火牆規則
 description: 設定 SQL database 或 SQL 資料倉儲防火牆的伺服器層級 IP 防火牆規則。 管理單一或集區資料庫的存取和設定資料庫層級 IP 防火牆規則。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 52566dbc60c3c2fd532891ab4f7d3461f9d77557
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686460"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690043"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 和 Azure SQL 資料倉儲 IP 防火牆規則
 
@@ -85,7 +85,7 @@ ms.locfileid: "71686460"
 
 *是否可以混合使用伺服器層級和資料庫層級的 IP 防火牆規則？*
 
-是的。 某些使用者（例如系統管理員）可能需要伺服器層級 IP 防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級 IP 防火牆規則。
+是。 某些使用者（例如系統管理員）可能需要伺服器層級 IP 防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級 IP 防火牆規則。
 
 ### <a name="connections-from-the-internet"></a>從網際網路的連接
 
@@ -144,7 +144,7 @@ ms.locfileid: "71686460"
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>使用 Transact-sql 來管理 IP 防火牆規則
 
-| 目錄檢視或預存程式 | 層級 | 描述 |
+| 目錄檢視或預存程式 | 等級 | 說明 |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |伺服器 |顯示目前的伺服器層級 IP 防火牆規則 |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |伺服器 |建立或更新伺服器層級 IP 防火牆規則 |
@@ -176,14 +176,14 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有開發現在都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有開發現在都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 和 AzureRm 模組中命令的引數本質上完全相同。
 
-| Cmdlet | 層級 | 描述 |
+| Cmdlet | 等級 | 說明 |
 | --- | --- | --- |
-| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |伺服器 |返回目前的伺服器層級防火牆規則 |
+| [New-azsqlserverfirewallrule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |伺服器 |返回目前的伺服器層級防火牆規則 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |伺服器 |建立新的伺服器層級防火牆規則 |
-| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |伺服器 |更新現有伺服器層級防火牆規則的屬性 |
-| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |伺服器 |移除伺服器層級防火牆規則 |
+| [設定-New-azsqlserverfirewallrule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |伺服器 |更新現有伺服器層級防火牆規則的屬性 |
+| [移除-New-azsqlserverfirewallrule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |伺服器 |移除伺服器層級防火牆規則 |
 
 下列範例會使用 PowerShell 來設定伺服器層級 IP 防火牆規則：
 
@@ -198,7 +198,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>使用 CLI 來管理伺服器層級 IP 防火牆規則
 
-| Cmdlet | 層級 | 描述 |
+| Cmdlet | 等級 | 說明 |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|伺服器|建立伺服器 IP 防火牆規則|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|伺服器|列出伺服器上的 IP 防火牆規則|
@@ -218,7 +218,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>使用 REST API 來管理伺服器層級 IP 防火牆規則
 
-| API | 層級 | 描述 |
+| API | 等級 | 說明 |
 | --- | --- | --- |
 | [列出防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |伺服器 |顯示目前的伺服器層級 IP 防火牆規則 |
 | [建立或更新防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |伺服器 |建立或更新伺服器層級 IP 防火牆規則 |
@@ -231,7 +231,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 - **本機防火牆組態：**
 
-  您可能需要在電腦上為 TCP 通訊埠1433建立防火牆例外，您的電腦才能存取 SQL Database。 若要在 Azure 雲端界限內進行連線，您可能必須開啟其他埠。 如需詳細資訊，請參閱 < SQL Database：[ADO.NET 4.5 和 SQL Database 的埠超過1433的](sql-database-develop-direct-route-ports-adonet-v12.md)外部「與內部」區段。
+  您可能需要在電腦上為 TCP 通訊埠1433建立防火牆例外，您的電腦才能存取 SQL Database。 若要在 Azure 雲端界限內進行連線，您可能必須開啟其他埠。 如需詳細資訊，請參閱[ADO.NET 4.5 和 SQL Database 的埠超過 1433](sql-database-develop-direct-route-ports-adonet-v12.md)的「SQL Database：外部與內部」區段。
 
 - **網路位址轉譯：**
 
@@ -260,7 +260,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 - 確認您的公司網路環境允許 Azure 資料中心所使用的計算 IP 位址範圍（包括 SQL 範圍）進行輸入通訊。 您可能必須將這些 IP 位址新增至允許清單。 請參閱[Microsoft Azure DATACENTER IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。  
 - 如需有關建立伺服器層級 IP 防火牆規則的快速入門，請參閱[建立 AZURE SQL 資料庫](sql-database-single-database-get-started.md)。
 - 如需從開放原始碼或協力廠商應用程式連線到 Azure SQL 資料庫的說明，請參閱[用戶端快速入門程式碼範例以 SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
-- 如需您可能需要開啟的其他埠的詳細資訊，請參閱 < SQL Database：超出[1433 ADO.NET 4.5 和 SQL Database 的埠](sql-database-develop-direct-route-ports-adonet-v12.md)的外部與內部」區段
+- 如需您可能需要開啟的其他埠的詳細資訊，請參閱[ADO.NET 4.5 和 SQL Database 的埠超過 1433](sql-database-develop-direct-route-ports-adonet-v12.md)的「SQL Database：外部與內部」區段
 - 如需 Azure SQL Database 安全性的總覽，請參閱[保護您的資料庫](sql-database-security-overview.md)。
 
 <!--Image references-->

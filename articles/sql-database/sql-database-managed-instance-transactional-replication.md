@@ -1,5 +1,5 @@
 ---
-title: 透過 Azure SQL Database 進行異動複寫 | Microsoft Docs
+title: 具有 Azure SQL Database 的異動複寫 "
 description: 了解如何將 SQL Server 異動複寫搭配 Azure SQL Database 中的單一、集區和執行個體資料庫使用。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 016b4f2ee191443cf608af18d1be6a94b6d53a39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879063"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687825"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
@@ -27,9 +27,9 @@ ms.locfileid: "68879063"
 異動複寫對於下列情況非常有用：
 - 發佈在資料庫中的一或多個資料表中所進行的變更，然後將它們散發到訂閱變更的 SQL Server 或 Azure SQL 資料庫。
 - 讓數個散發資料庫處於同步狀態。
-- 藉由持續發佈變更, 將資料庫從一個 SQL Server 或受控實例遷移至另一個資料庫。
+- 藉由持續發佈變更，將資料庫從一個 SQL Server 或受控實例遷移至另一個資料庫。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 下圖顯示異動複寫中的主要元件：  
 
@@ -45,11 +45,11 @@ ms.locfileid: "68879063"
 - SQL Server 2012 SP2 CU8 (11.0.5634.0)
 - 針對其他不支援發行到 Azure 中物件的 SQL Server 版本，可以利用[重新發行](https://docs.microsoft.com/sql/relational-databases/replication/republish-data)資料方法將資料移動到版本較新的 SQL Server。 
 
-**散發者**是執行個體過伺服器，它會從發行者收集文章中的變更，然後將變更散發到訂閱者。 散發者可以是 Azure SQL Database 受控實例或 SQL Server (任何版本只要等於或高於發行者版本)。 
+**散發者**是執行個體過伺服器，它會從發行者收集文章中的變更，然後將變更散發到訂閱者。 散發者可以是 Azure SQL Database 受控實例或 SQL Server （任何版本只要等於或高於發行者版本）。 
 
 **訂閱者**是執行個體或伺服器，它會接收所收到的發行者所做的變更。 訂閱者可以是 Azure SQL Database 或 SQL Server 資料庫中的單一、集區和執行個體資料庫。 單一或集區資料庫上的訂閱者必須設定為發送訂閱者。 
 
-| Role | 單一和集區資料庫 | 執行個體資料庫 |
+| 角色 | 單一和集區資料庫 | 執行個體資料庫 |
 | :----| :------------- | :--------------- |
 | **發行者** | 否 | 是 | 
 | **散發者** | 否 | 是|
@@ -58,7 +58,7 @@ ms.locfileid: "68879063"
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > 當散發者是實例資料庫而不支援提取訂閱時, 則不支援提取訂閱。 
+  > 當散發者是實例資料庫而不支援提取訂閱時，則不支援提取訂閱。 
 
 [複寫有不同類型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)：
 
@@ -84,22 +84,22 @@ ms.locfileid: "68879063"
 | :------------   | :-------------- | :------------- |
 | SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
 | SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
-| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 | 
-| SQL SERVER 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 <br/>  |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 - 連線會在複寫參與者之間使用 SQL 驗證。 
 - 與工作目錄共用且用於複寫的 Azure 儲存體帳戶。 
-- 埠 445 (TCP 輸出) 必須在受控實例子網的安全性規則中開啟, 才能存取 Azure 檔案共用。 
-- 如果發行者/散發者位於受控實例上, 而且訂閱者為內部部署, 則必須開啟埠 1433 (TCP 輸出)。
+- 埠445（TCP 輸出）必須在受控實例子網的安全性規則中開啟，才能存取 Azure 檔案共用。 
+- 如果發行者/散發者位於受控實例上，而且訂閱者為內部部署，則必須開啟埠1433（TCP 輸出）。
 
 
 >[!NOTE]
-> - 當「散發者」為實例資料庫且「訂閱者」為內部部署時, 如果輸出網路安全性群組 (NSG) 埠445遭到封鎖, 您可能會在連接到 Azure 儲存體檔案時遇到錯誤53。 [更新 VNET NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)以解決此問題。 
-> - 如果受控實例上的發行者和散發者資料庫使用[自動容錯移轉群組](sql-database-auto-failover-group.md), 則受管理的實例系統管理員必須[刪除舊主要複本上的所有發行集, 並在發生容錯移轉之後, 在新的主要複本上重新設定它們](sql-database-managed-instance-transact-sql-information.md#replication)。
+> - 當「散發者」為實例資料庫且「訂閱者」為內部部署時，如果輸出網路安全性群組（NSG）埠445遭到封鎖，您可能會在連接到 Azure 儲存體檔案時遇到錯誤53。 [更新 VNET NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)以解決此問題。 
+> - 如果受控實例上的發行者和散發者資料庫使用[自動容錯移轉群組](sql-database-auto-failover-group.md)，則受管理的實例系統管理員必須[刪除舊主要複本上的所有發行集，並在發生容錯移轉之後，在新的主要複本上重新設定它們](sql-database-managed-instance-transact-sql-information.md#replication)。
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
 
@@ -117,15 +117,15 @@ ms.locfileid: "68879063"
 
 ![單一執行個體作為發行者和散發者](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-發行者和散發者設定在單一受控實例內, 並將變更散發到其他受控實例、單一資料庫、集區資料庫或內部部署 SQL Server。 
+發行者和散發者設定在單一受控實例內，並將變更散發到其他受控實例、單一資料庫、集區資料庫或內部部署 SQL Server。 
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>在受控實例上具有遠端散發者的發行者
 
-在此設定中, 一個受控實例會將變更發佈至位於另一個受控實例上的散發者, 此服務可提供許多來源受控實例, 並將變更散發到受控實例、單一資料庫、集區資料庫或上的一或多個目標SQL Server。
+在此設定中，一個受控實例會將變更發佈至位於另一個受控實例上的散發者，此服務可提供許多來源受控實例，並將變更散發到受控實例、單一資料庫、集區資料庫或上的一或多個目標SQL Server。
 
 ![發行者和散發者使用個別的執行個體](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
-在兩個受控執行個體上設定發行者和散發者。 此設定有一些條件約束: 
+在兩個受控執行個體上設定發行者和散發者。 此設定有一些條件約束： 
 
 - 這兩個受控實例都位於相同的 vNet 上。
 - 這兩個受控執行個體位於相同的位置。

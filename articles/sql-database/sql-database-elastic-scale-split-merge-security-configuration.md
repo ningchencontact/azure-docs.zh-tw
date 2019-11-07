@@ -1,5 +1,5 @@
 ---
-title: 分割合併安全性設定 | Microsoft Docs
+title: 分割合併安全性設定
 description: 透過 Elastic Scale 的分割/合併服務，設定加密的 x409 憑證。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98d645fc76010d96bc016a63b4882979f3489698
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568361"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690135"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 
@@ -47,7 +47,7 @@ ms.locfileid: "68568361"
     如果已安裝，請移至：
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* 從 [Windows 8.1：下載套件與工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)取得 WDK
+* 從 [Windows 8.1：下載套件與工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>設定 SSL 憑證
 
@@ -129,7 +129,7 @@ ms.locfileid: "68568361"
 </EndpointAcls>
 ```
 
-存取控制群組中的規則設定于服務設定檔\<的 AccessControl name = "" > 區段中。 
+存取控制群組中的規則設定于服務設定檔的 \<AccessControl name = "" > 區段中。 
 
 網路存取控制清單文件會說明其格式。
 例如，若只要允許範圍 100.100.0.0 至 100.100.255.255 中的 IP 存取 HTTPS 端點，則規則看起來如下：
@@ -423,7 +423,7 @@ ms.locfileid: "68568361"
 4. 按一下 [新增]。
 5. 選擇憑證存放區位置。
 6. 按一下 [完成]。
-7. 按一下 [確定 **Deploying Office Solutions**]。
+7. 按一下 [確定]。
 8. 展開 [ **憑證**]。
 9. 展開憑證存放區節點。
 10. 展開 [憑證] 子節點。
@@ -465,7 +465,7 @@ ms.locfileid: "68568361"
    * 若已選擇 [受信任的根憑證授權單位] 存放區，請按一下 [ **是**]。
 9. 在所有對話方塊視窗上，按一下 [ **確定** ]。
 
-## <a name="upload-certificate"></a>上傳憑證
+## <a name="upload-certificate"></a>Upload certificate
 在 [Azure 入口網站](https://portal.azure.com/)中
 
 1. 選取 [雲端服務]。

@@ -7,10 +7,14 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 使用裝置功能模型來建立裝置
+    - name: 建立裝置 - Windows
       href: quickstart-create-pnp-device.md
-    - name: 將裝置連線到 IoT 中樞
+    - name: 建立裝置 - Linux
+      href: quickstart-create-pnp-device-linux.md
+    - name: 將裝置連線到 IoT 中樞 - Windows
       href: quickstart-connect-pnp-device.md
+    - name: 將裝置連線到 IoT 中樞 - Linux
+      href: quickstart-connect-pnp-device-linux.md
     - name: 將裝置連線到 IoT Central
       href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 連線到解決方案中的裝置

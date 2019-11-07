@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262879"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681836"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服務主體進行 Azure Container Registry 驗證
 
@@ -29,15 +29,15 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 藉由使用 Azure AD 服務主體，您可以提供對您私人容器登錄之有限範圍的存取權。 為每個應用程式或服務建立不同的服務主體，每個都有您登錄的量身訂做存取權限。 此外，由於您可以避免在服務和應用程式之間共用認證，因此您可以替換認證，或只撤銷您所選擇之主體服務 (以及應用程式) 的存取權。
 
-例如，將您的 web 應用程式設定為使用提供映射的服務主體，僅 `pull` 存取，而您的組建系統使用服務主體，其中同時提供 `push` 和 @no__t 2 存取。 如果應用程式的開發轉手，您可以替換其服務主體認證，而不會影響該建置系統。
+例如，將您的 web 應用程式設定為使用僅提供影像 `pull` 存取權的服務主體，而您的組建系統使用服務主體，並同時提供 `push` 和 `pull` 存取權。 如果應用程式的開發變更，您可以旋轉其服務主體認證，而不會影響組建系統。
 
 ## <a name="when-to-use-a-service-principal"></a>何時使用服務主體
 
-您應該使用服務主體來提供**無周邊案例**中的登錄存取權。 也就是，任何必須以自動化或其他自動方式發送或提取容器映像的應用程式、服務或指令碼。 例如:
+您應該使用服務主體來提供**無周邊案例**中的登錄存取權。 也就是，任何必須以自動化或其他自動方式發送或提取容器映像的應用程式、服務或指令碼。 例如：
 
-  * *提取*：將容器從登錄部署到協調流程系統，包括 Kubernetes、DC/OS 及 Docker Swarm。 您也可以從容器登錄提取到相關的 Azure 服務，例如[Azure Kubernetes Service （AKS）](../aks/cluster-container-registry-integration.md)、 [Azure 容器實例](container-registry-auth-aci.md)、 [App Service](../app-service/index.yml)、[批次](../batch/index.yml)、 [Service Fabric](/azure/service-fabric/)及其他專案。
+  * *Pull*：將容器從登錄部署至協調流程系統，包括 KUBERNETES、DC/OS 和 Docker Swarm。 您也可以從容器登錄提取到相關的 Azure 服務，例如[Azure Kubernetes Service （AKS）](../aks/cluster-container-registry-integration.md)、 [Azure 容器實例](container-registry-auth-aci.md)、 [App Service](../app-service/index.yml)、[批次](../batch/index.yml)、 [Service Fabric](/azure/service-fabric/)及其他專案。
 
-  * *推送*：建置容器映像，並使用 Azure Pipelines 或 Jenkins 等持續整合和部署解決方案將其推送到登錄。
+  * *推送*：使用持續整合和部署解決方案（例如 Azure Pipelines 或 Jenkins）來建立容器映射，並將其推送至登錄。
 
 對於登錄的個別存取（例如，當您手動將容器映射提取到您的開發工作站時），我們建議使用您自己的[Azure AD 身分識別](container-registry-authentication.md#individual-login-with-azure-ad)，而不是登錄存取（例如，使用[az acr login][az-acr-login]）。
 
@@ -52,7 +52,7 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 ## <a name="authenticate-with-the-service-principal"></a>使用服務主體進行驗證
 
-一旦您擁有已授與容器登錄存取權的服務主體，您可以設定其認證以存取「無周邊」服務和應用程式，或使用 `docker login` 命令來輸入它們。 使用下列值：
+一旦您擁有已授與容器登錄存取權的服務主體，您可以設定其認證以存取「無周邊」服務和應用程式，或使用 `docker login` 命令來輸入它們。 輸入下列值：
 
 * **使用者名稱**-服務主體應用程式識別碼（也稱為*用戶端識別碼*）
 * **密碼**-服務主體密碼（也稱為*用戶端秘密*）
@@ -65,13 +65,13 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 ### <a name="use-credentials-with-azure-services"></a>搭配 Azure 服務使用認證
 
-您可以使用服務主體認證，從使用 Azure 容器登錄進行驗證的任何 Azure 服務。  在各種情況下，請使用服務主體認證來取代登錄的系統管理員認證。
+您可以使用從使用 Azure container registry 進行驗證的任何 Azure 服務中的服務主體認證。  在各種情況下，請使用服務主體認證來取代登錄的系統管理員認證。
 
 例如，使用認證將映射從 Azure container registry 提取至[Azure 容器實例](container-registry-auth-aci.md)。
 
 ### <a name="use-with-docker-login"></a>搭配 docker 登入使用
 
-您也可以使用服務主體來執行 `docker login`。 在下列範例中，服務主體應用程式識別碼會在環境變數中傳遞 `$SP_APP_ID`，而變數中的密碼 `$SP_PASSWD`。 如需管理 Docker 認證的最佳作法，請參閱[Docker login](https://docs.docker.com/engine/reference/commandline/login/)命令參考。
+您可以使用服務主體來執行 `docker login`。 在下列範例中，服務主體應用程式識別碼會在環境變數中傳遞 `$SP_APP_ID`，而變數中的密碼 `$SP_PASSWD`。 如需管理 Docker 認證的最佳作法，請參閱[Docker login](https://docs.docker.com/engine/reference/commandline/login/)命令參考。
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -79,6 +79,26 @@ docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
 登入之後，Docker 會快取認證。
+
+### <a name="use-with-certificate"></a>搭配憑證使用
+
+如果您已將憑證新增至您的服務主體，您可以使用以憑證為基礎的驗證來登入 Azure CLI，然後使用[az acr login][az-acr-login]命令來存取登錄。 當您使用 CLI 時，使用憑證做為秘密而非密碼會提供額外的安全性。 
+
+當您[建立服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)時，可以建立自我簽署的憑證。 或者，將一或多個憑證新增至現有的服務主體。 例如，如果您使用本文中的其中一個腳本來建立或更新具有從登錄提取或推送映射之許可權的服務主體，請使用[az ad sp credential reset][az-ad-sp-credential-reset]命令來新增憑證。
+
+若要使用服務主體搭配憑證來登[入 Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)，憑證必須是 PEM 格式，並包含私密金鑰。 如果您的憑證不是所需的格式，請使用 `openssl` 之類的工具加以轉換。 當您執行[az login][az-login]以使用服務主體登入 CLI 時，也請提供服務主體的應用程式識別碼和 Active Directory 的租使用者識別碼。 下列範例會將這些值顯示為環境變數：
+
+```azurecli
+az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
+```
+
+然後，執行[az acr login][az-acr-login]以向登錄進行驗證：
+
+```azurecli
+az acr login --name myregistry
+```
+
+CLI 會使用您執行 `az login` 時所建立的權杖，以向登錄驗證您的會話。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -92,3 +112,5 @@ docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-login]: /cli/azure/reference-index#az-login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]

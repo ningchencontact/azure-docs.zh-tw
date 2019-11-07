@@ -1,5 +1,5 @@
 ---
-title: 連線用戶端 VM - Azure SQL Database 受控執行個體 | Microsoft Docs
+title: '連接用戶端 VM-Azure SQL Database 受控執行個體 '
 description: 使用 Azure 虛擬機器中的 SQL Server Management Studio 連線到 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb45df869bc9ecbe6584837894844c29bafa6223
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567648"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689403"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體
 
 此快速入門示範了如何設定 Azure 虛擬機器，以使用 SQL Server Management Studio (SSMS) 連線到 Azure SQL Database 受控執行個體。 如需如何使用點對站連線從內部部署用戶端電腦進行連線的快速入門，請參閱[設定點對站連線](sql-database-managed-instance-configure-p2s.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此快速入門會使用在[建立受控執行個體](sql-database-managed-instance-get-started.md)中建立的資源作為起點。
 
@@ -44,7 +44,7 @@ ms.locfileid: "68567648"
 
 3. 使用此資料表中的資訊填妥表單：
 
-   | 設定| 建議值 | 說明 |
+   | 設定| 建議的值 | 說明 |
    | ---------------- | ----------------- | ----------- |
    | **名稱** | 任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    | **位址範圍 (CIDR 區塊)** | 有效範圍 | 針對此快速入門，使用預設值即可。|
@@ -67,22 +67,22 @@ ms.locfileid: "68567648"
 
 要使用所有的必要工具建立用戶端虛擬機器，最簡單的方式是使用 Azure Resource Manager 範本。
 
-1. 請務必在另一個瀏覽器分頁中登入 Azure 入口網站。接著請選取下列按鈕以建立用戶端虛擬機器，並安裝 SQL Server Management Studio：
+1. 請確定您已在另一個瀏覽器索引標籤中登入 Azure 入口網站。然後，選取下列按鈕以建立用戶端虛擬機器，並安裝 SQL Server Management Studio：
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. 使用下表中的資訊填妥表單：
 
-   | 設定| 建議值 | 說明 |
+   | 設定| 建議的值 | 說明 |
    | ---------------- | ----------------- | ----------- |
    | **訂用帳戶** | 有效的訂用帳戶 | 必須是您有權限在其中建立新資源的訂用帳戶。 |
    | **資源群組** |您在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中指定的資源群組。|此資源群組必須是 VNet 所在的資源群組。|
-   | **Location** | 資源群組的位置 | 根據選取的資源群組填入此值。 |
+   | **位置** | 資源群組的位置 | 根據選取的資源群組填入此值。 |
    | **虛擬機器名稱**  | 任何有效名稱 | 如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    |**系統管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個密碼。|
    | **虛擬機器大小** | 任何有效大小 | 在此快速入門中，使用此範本的預設值 **Standard_B2s** 就已足夠。 |
-   | **Location**|[resourceGroup().location]。| 請勿變更此值。 |
+   | **位置**|[resourceGroup().location]。| 請勿變更此值。 |
    | **虛擬網路名稱**|您在其中建立受控執行個體的虛擬網路。|
    | **子網路名稱**|您在上一個程序中建立的子網路名稱| 請勿選擇您在其中建立受控執行個體的子網路。|
    | **構件位置** | [deployment().properties.templateLink.uri] | 請勿變更此值。 |

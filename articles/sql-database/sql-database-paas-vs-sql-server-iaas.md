@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL 中選擇正確的部署選項 |Microsoft Docs
+title: 在 Azure SQL 中選擇正確的部署選項
 description: 瞭解如何在 azure 虛擬機器上的 SQL 資料庫、SQL 受控實例和 SQL Server 之間，選擇 Azure SQL 中的部署選項。
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 791a4e95048bec8b3c5664bb97760f7c852950e0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279925"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687701"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>在 Azure SQL 中選擇正確的部署選項
 
@@ -55,9 +55,9 @@ ms.locfileid: "70279925"
 
 下表列出額外的差異，但***資料庫和受控實例都已優化，可將布建和管理許多資料庫的整體管理成本降到最低。*** 由於您無需管理任何虛擬機器、作業系統或資料庫軟體，它會將進行中的系統管理成本降到最低。 您不需要管理升級、高可用性或 [備份](sql-database-automated-backups.md)。 一般而言，Azure SQL Database 可能會大幅增加由單一 IT 或開發資源管理的資料庫數目。 [彈性集區](sql-database-elastic-pool.md)也支援 SaaS 多租用戶應用程式架構，其中包括租用戶隔離和調整等功能，可藉由跨資料庫共用資源來降低成本。 [受控執行個體](sql-database-managed-instance.md)可提供執行個體範圍功能的支援，以便輕鬆地移轉現有的應用程式，以及在資料庫之間共用資源。
 
-| SQL 資料庫 | SQL 受管理的執行個體 | SQL 虛擬機器 |
+| SQL DATABASE | SQL 受控實例 | SQL 虛擬機器 |
 | :--- | :--- | :--- |
-|支援大多數的內部部署資料庫層級功能。 提供最常使用的 SQL Server 功能。<br/>保證 99.995% 的可用性。<br/>內建備份、修補、復原。<br/>資料庫引擎最新穩定版。<br/>將所需的資源 (CPU/儲存體) 指派給個別資料庫的能力。<br/>內建進階智能和安全性。<br/>線上資源變更 (CPU/儲存體)。| 支援幾乎所有的內部部署執行個體層級和資料庫層級功能。 與內部部署 SQL Server 高度相容。<br/>保證 99.99% 可用性。<br/>內建備份、修補、復原。<br/>資料庫引擎最新穩定版。<br/>從 SQL Server 輕鬆移轉。<br/>Azure VNet 中的私人 IP 位址。<br/>內建進階智能和安全性。<br/>線上資源變更 (CPU/儲存體)。| 您對 SQL Server 引擎具有完全的控制權。 支援所有內部部署功能。<br/>最高可達 99.99% 的可用性。<br/>與內部部署 SQL Server 的相符版本完全一致。<br/>已修正，這是已知的資料庫引擎版本。<br/>從內部部署 SQL Server 輕鬆移轉。<br/>Azure VNet 中的私人 IP 位址。<br/>您可以在 SQL Server 所在的主機上部署應用程式或服務。|
+|支援大多數的內部部署資料庫層級功能。 提供最常使用的 SQL Server 功能。<br/>保證99.995% 的可用性。<br/>內建備份、修補、復原。<br/>資料庫引擎最新穩定版。<br/>將所需的資源 (CPU/儲存體) 指派給個別資料庫的能力。<br/>內建進階智能和安全性。<br/>線上資源變更 (CPU/儲存體)。| 支援幾乎所有的內部部署執行個體層級和資料庫層級功能。 與內部部署 SQL Server 高度相容。<br/>保證 99.99% 可用性。<br/>內建備份、修補、復原。<br/>資料庫引擎最新穩定版。<br/>從 SQL Server 輕鬆移轉。<br/>Azure VNet 中的私人 IP 位址。<br/>內建進階智能和安全性。<br/>線上資源變更 (CPU/儲存體)。| 您對 SQL Server 引擎具有完全的控制權。 支援所有內部部署功能。<br/>最高可達99.99% 的可用性。<br/>與內部部署 SQL Server 的相符版本完全一致。<br/>已修正，這是已知的資料庫引擎版本。<br/>從內部部署 SQL Server 輕鬆移轉。<br/>Azure VNet 中的私人 IP 位址。<br/>您可以在 SQL Server 所在的主機上部署應用程式或服務。|
 |從 SQL Server 移轉可能很難。<br/>無法使用部分 SQL Server 功能。<br/>不保證確切的維護時間 (但近乎透明)。<br/>可以只使用資料庫相容性層級來達成與 SQL Server 版本的相容性。<br/>無法指派私人 IP 位址 (您可以使用防火牆規則限制存取)。|仍有極少數的 SQL Server 功能無法使用。<br/>不保證確切的維護時間 (但近乎透明)。<br/>可以只使用資料庫相容性層級來達成與 SQL Server 版本的相容性。|您需要管理備份和修補程式。<br>您需要實作自己的高可用性解決方案。<br/>變更資源 (CPU/儲存體) 時會出現停機時間|
 | 最多 100 TB 的資料庫。 | 最多 8 TB。 | SQL Server 的實例，最多可達 256 TB 的儲存體。 執行個體可以支援所需數量的資料庫。 |
 | 內部部署應用程式可以存取 Azure SQL Database 中的資料。 | [實作原生虛擬網路](sql-database-managed-instance-vnet-configuration.md)和使用 Azure Express Route 或 VPN 閘道與內部部署環境連線。 | 有了 SQL 虛擬機器，您就可以讓應用程式在雲端中執行，而且部分內部部署。 例如，您可以透過 [ [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)] 將內部部署網路和 Active Directory 網域延伸到雲端。 如需有關混合式雲端解決方案的詳細資訊，請參閱[將內部部署資料解決方案擴充至雲端](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)。 |
@@ -71,14 +71,14 @@ ms.locfileid: "70279925"
 
 - [成本](#cost) - PaaS 和 IaaS 選項都包括基底價格，其中涵蓋基礎結構和授權。 但是，使用 IaaS 選項，您需要投入更多時間和資源來管理資料庫，而在 PaaS 中，您會收到價格中包含的這些管理功能。 IaaS 選項可讓您在不使用資源時將其關機以降低成本，而 PaaS 版本一律會執行，除非您在需要時卸載並重新建立您的資源。
 - [管理](#administration) - PaaS 選項會降低您管理資料庫所需投入的時間量。 不過，它也會限制您可以執行或執行的自訂管理工作和腳本的範圍。 例如，單一或集區資料庫不支援 CLR，但受控實例支援。 此外，PaaS 中沒有任何部署選項支援使用追蹤旗標。
-- [服務等級協定](#service-level-agreement-sla) - IaaS 和 PaaS 都提供最高業界標準的 SLA。 針對基礎架構，PaaS 選項可保證 99.99 % 的 SLA，而 IaaS 保證 99.95% 的 SLA，這表示您需要實作其他的機制來確保資料庫的可用性。 您可以藉由在 VM 中建立額外的 SQL Server 並設定 AlwaysOn 可用性群組，在 99.99% 執行高可用性解決方案。
+- [服務等級協定](#service-level-agreement-sla) - IaaS 和 PaaS 都提供最高業界標準的 SLA。 針對基礎架構，PaaS 選項可保證 99.99 % 的 SLA，而 IaaS 保證 99.95% 的 SLA，這表示您需要實作其他的機制來確保資料庫的可用性。 您可以藉由在 VM 中建立額外的 SQL Server 並設定 AlwaysOn 可用性群組，在99.99% 執行高可用性解決方案。
 - [移至 Azure 的時間](#market) - Azure VM 中的 SQL Server 與您的環境完全相符，因此從內部部署移轉至 Azure SQL VM 與將資料庫從一個內部部署伺服器移動到另一個伺服器沒有什麼不同。 受控執行個體還可以實現極其輕鬆的移轉；但是，在移轉至受控執行個體之前，可能需要套用一些變更。
 
 下列各節將更詳細地討論這些因素。
 
 ### <a name="cost"></a>成本
 
-無論您是現金不足的新公司，或是在預算有限的情況下運作的已成立公司內部小組，有限資金經常會是決定主控資料庫方式的主要關鍵。 在本節，您會了解 Azure 中與下列這兩個關聯式資料庫選項相關的計費和授權基本概念：SQL Database 和 SQL 虛擬機器。 您也會了解應用程式總成本的計算。
+無論您是現金不足的新公司，或是在預算有限的情況下運作的已成立公司內部小組，有限資金經常會是決定主控資料庫方式的主要關鍵。 在本節中，您會瞭解 Azure 中與這兩個關係資料庫選項相關的計費和授權基本概念： SQL Database 和 SQL 虛擬機器。 您也會了解應用程式總成本的計算。
 
 #### <a name="billing-and-licensing-basics"></a>計費和授權基本概念
 
@@ -101,10 +101,10 @@ ms.locfileid: "70279925"
 如需價格的詳細資訊，請參閱下列資源：
 
 - [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)
-- [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) 和 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows) 的[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/) 和 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) 的[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)
 
-### <a name="administration"></a>管理
+### <a name="administration"></a>系統管理
 
 對許多企業來說，決定轉換至雲端服務的關鍵主要在於降低系統管理的複雜度。 使用 IaaS 和 PaaS，Microsoft 可以管理基礎硬體、自動複製所有資料以提供災害復原、設定及升級資料庫軟體、管理負載平衡，以及在資料中心發生伺服器故障時進行透明容錯移轉。
 
@@ -117,11 +117,11 @@ ms.locfileid: "70279925"
 
 對於 **SQL Database**，Microsoft 提供 99.99% 的可用性 SLA。 如需最新資訊，請參閱 [服務等級協定](https://azure.microsoft.com/support/legal/sla/sql-database/)。
 
-針對**SQL 虛擬機器**，Microsoft 提供 99.95% 的可用性 SLA，僅涵蓋虛擬機器。 本 SLA 未涵蓋在 VM 上執行的程序 (例如 SQL Server)，而且您必須裝載一個可用性設定組中的至少兩個 VM 執行個體。 如需最新資訊，請參閱 [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 如需 VM 內的資料庫高可用性 (HA)，您應在 SQL Server 中設定其中一個支援的高可用性選項，例如 [AlwaysOn 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)。 使用支援的高可用性選項並不提供額外的 SLA，但可讓您達成 >99.99% 的資料庫可用性。
+針對**SQL 虛擬機器**，Microsoft 提供99.95% 的可用性 SLA，僅涵蓋虛擬機器。 本 SLA 未涵蓋在 VM 上執行的程序 (例如 SQL Server)，而且您必須裝載一個可用性設定組中的至少兩個 VM 執行個體。 如需最新資訊，請參閱 [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 如需 VM 內的資料庫高可用性 (HA)，您應在 SQL Server 中設定其中一個支援的高可用性選項，例如 [AlwaysOn 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)。 使用支援的高可用性選項並不提供額外的 SLA，但可讓您達成 >99.99% 的資料庫可用性。
 
 ### <a name="market"></a>移至 Azure 的時間
 
-**SQL database**（單一資料庫或彈性集區）是適用于雲端設計應用程式的正確解決方案，當新解決方案的開發人員生產力和快速上市時間很重要時。 有了程式設計 DBA 類似功能，此選項非常適合雲端架構設計人員和開發人員，因為它會降低管理基礎作業系統和資料庫的需求。
+當新解決方案的開發人員生產力和快速上市時間很重要時， **SQL database** （單一資料庫或彈性集區）是適合雲端設計應用程式的解決方案。 有了程式設計 DBA 類似功能，此選項非常適合雲端架構設計人員和開發人員，因為它會降低管理基礎作業系統和資料庫的需求。
 
 **SQL 受控實例**可大幅簡化將現有應用程式遷移至 azure SQL 的工作，讓您能夠快速將遷移的資料庫應用程式帶入 azure 市場。
 

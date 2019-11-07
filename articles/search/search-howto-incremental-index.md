@@ -1,7 +1,7 @@
 ---
-title: 設定擴充內容式變更追蹤的累加編制索引
+title: 設定擴充內容式變更追蹤的累加編制索引（預覽）
 titleSuffix: Azure Cognitive Search
-description: 啟用變更追蹤，並保留擴充內容的狀態，以在認知技能集中進行控制處理。
+description: 啟用變更追蹤，並保留擴充內容的狀態，以在認知技能集中進行控制處理。 此功能目前為公開預覽狀態。
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512180"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719933"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中設定擴充檔的增量編制索引
+
+> [!IMPORTANT] 
+> 累加式編制索引目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
 
 本文說明如何將狀態和快取新增至透過 Azure 認知搜尋擴充管線移動的擴充檔，讓您可以從任何支援的資料來源以累加方式編制檔的索引。 根據預設，技能集是無狀態的，而且變更其組合的任何部分，都需要完整重新執行索引子。 使用累加式編制索引時，索引子可以判斷管線的哪些部分已變更、重複使用現有的擴充做為未變更的部分，以及修改擴充，以瞭解進行變更的步驟。 快取的內容會放在 Azure 儲存體中。
 
 如果您不熟悉如何設定索引子，請從[索引子總覽](search-indexer-overview.md)開始，然後繼續[技能集](cognitive-search-working-with-skillsets.md)以瞭解擴充管線。 如需重要概念的詳細背景，請參閱累加[式索引編制](cognitive-search-incremental-indexing-conceptual.md)。
-
-累加式編制索引是使用[搜尋 REST api-version = 2019-05 06-01.5.1-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)來設定。
-
-> [!NOTE]
-> 此功能尚無法在入口網站中使用，而且必須以程式設計方式使用。
->
 
 ## <a name="modify-an-existing-indexer"></a>修改現有的索引子
 

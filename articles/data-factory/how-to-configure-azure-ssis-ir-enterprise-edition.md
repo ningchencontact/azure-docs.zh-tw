@@ -1,5 +1,5 @@
 ---
-title: 佈建 Azure-SSIS 整合執行階段的企業版 | Microsoft Docs
+title: '佈建 Azure-SSIS 整合執行階段的企業版 '
 description: 本文說明 Azure-SSIS 整合執行階段企業版的功能及其佈建方式
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c9db18d416d508dd5a98cbacc14b7db6c075a55
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152437"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673963"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>佈建 Azure-SSIS 整合執行階段的企業版
 
@@ -48,7 +48,7 @@ Azure-SSIS 整合執行階段的企業版可讓您使用下列進階功能：
 
 1.  下載並安裝 [Azure PowerShell](/powershell/azure/install-az-ps)。
 
-2.  當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請使用 **Enterprise** 作為 **Edition** 參數的值來執行 `Set-AzDataFactoryV2IntegrationRuntime`。 以下是範例指令碼：
+2.  當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請使用 `Set-AzDataFactoryV2IntegrationRuntime`Enterprise**作為**Edition**參數的值來執行**。 以下是範例指令碼：
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"

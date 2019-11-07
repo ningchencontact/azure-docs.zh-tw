@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 對應資料流程中的篩選轉換 |Microsoft Docs
+title: Azure Data Factory 對應資料流程中的篩選轉換
 description: 使用 Azure Data Factory 對應資料流程中的篩選準則轉換來篩選出資料列
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: a4dd53f37a8a963d05a3ad9c49769528e945f6a1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527391"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676164"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>對應資料流程中的篩選轉換
 

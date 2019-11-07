@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: 9462d9c807f8300d65e8e5a3e997ebc858342a97
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3bccae7c0e45f21609a5a67d20811240648570d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514476"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719137"
 ---
-一般用途的虛擬機器大小可讓 CPU 與記憶體比例達到平均。 很適合測試與開發、小型至中型資料庫及低至中流量網頁伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量的相關資訊。
+一般用途的虛擬機器大小可讓 CPU 與記憶體比例達到平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量的相關資訊。
 
-- [DC 系列](#dc-series)是 Azure 中的一系列虛擬機器，可在公用雲端中進行處理時，協助保護您的資料和程式碼的機密性和完整性。 這些機器由最新一代的 3.7GHz Intel Xeon E-2176G 處理器 (具 SGX 技術) 支援。 在 Intel 渦輪加速技術加持下，這些機器的時脈最高可達 4.7GHz。 DC 系列執行個體可讓客戶建置以安全記憶體保護區為基礎的應用程式，以在應用程式處於使用狀態時保護其程式碼與資料。
+- [DC 系列](#dc-series)是 Azure 中的一系列虛擬機器，可在公用雲端中進行處理時，協助保護您的資料和程式碼的機密性和完整性。 這些機器由最新一代的 3.7GHz Intel XEON E-2176G 處理器 (具 SGX 技術) 支援。 在 Intel Turbo Boost 技術加持下，這些機器最高可達到 4.7GHz 的時脈。 DC 系列執行個體可讓客戶建置安全的飛地型應用程式，以在其程式碼與資料使用期間保護其安全。
 
 - Av2 系列 VM 可以部署在各種不同的硬體類型和處理器上。 A 系列 VM 的 CPU 效能及記憶體設定最適合初階的工作負載，例如開發及測試， 根據硬體節流大小，為執行中的執行個體提供一致的處理器效能，不論硬體部署的位置。 若要判斷此大小部署所在的實體硬體，請從虛擬機器內查詢虛擬硬體。
 
   使用案例範例包括開發與測試伺服器、低流量網頁伺服器、中小型資料庫、概念證明以及程式碼存放庫。
 
-- Dv2 系列是原始 D 系列的升級版，搭載更強大的 CPU 及最佳的 CPU 記憶體設定，更適合大多數生產工作負載。 Dv2 系列的速度比 D 系列快 35%。 Dv2 系列執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的® E5-2673 v4 2.3 GHz （Broadwell），或 Intel®的® E5-2673 v3 2.4 g h z （Haswell）處理器與 Intel Turbo 加速技術2.0。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+- Dv2 系列是原始 D 系列的升級版，搭載更強大的 CPU 及最佳的 CPU 記憶體設定，更適合大多數生產工作負載。 Dv2 系列的速度比 D 系列快35%。 Dv2 系列執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的® E5-2673 v4 2.3 GHz （Broadwell），或 Intel®的® E5-2673 v3 2.4 g h z （Haswell）處理器與 Intel Turbo 加速技術2.0。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
 - Dv3 系列執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的® E5-2673 v4 2.3 g h z （Broadwell），或超執行緒設定中的 Intel®（r）® E5-2673 v3 2.4 g h z （Haswell）處理器，為最常見的提供更好的價值主張目的工作負載。  除了記憶體已擴充 (從 ~3.5 GiB/vCPU 到 4 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Dv3 系列不再具有 D/Dv2 系列的高記憶體 VM 大小，而是已移至適用于[Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#ev3-series)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#ev3-series)的記憶體優化 Ev3 系列。
 
   D 系列使用案例的範例包括企業級應用程式、關係資料庫、記憶體內部快取及分析。
 
-- Da 系列和 Dasv3 系列是利用 AMD 的2.35 版 Ghz EPYC<sup>TM</sup> 7452V 處理器的新大小，其中包含多執行緒設定，最高可達 256 gb l3 快取，專門用 8 gb 的 l3 快取，每8個核心增加了執行其一般的客戶選項目的工作負載。 Da 系列和 Dasv3 系列具有與 D & Dsv3 系列相同的記憶體和磁片設定。
+- Dav4 系列和 Dasv4 系列是在多執行緒設定中使用 AMD 的2.35 版 Ghz EPYC<sup>TM</sup> 7452 處理器的新大小，最多有 256 GB L3 快取，專門用 8 GB 的 l3 快取，為每8個核心增加了執行其一般的客戶選項目的工作負載。 Dav4 系列和 Dasv4 系列具有與 D & Dsv3 系列相同的記憶體和磁片設定。
   
 ## <a name="b-series"></a>B 系列
 
@@ -50,10 +50,10 @@ B 系列高載的 VM 非常適合不需要持續性完整 CPU 效能的工作負
 | Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
 | Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
-| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320/50                                 | 4320/50                                 | 4  |
-| Standard_B12ms | 12           | 48             | 96                         | 202%                  | 1200%                   | 360                   | 121                 | 2909           | 16                                     | 6480/75                                 | 4320/50                                 | 6  |
-| Standard_B16ms | 16           | 64             | 128                         | 270%                  | 1600%                   | 480                   | 162                 | 3888           | 32                                     | 8640/100                                 | 4320/50                                 | 8  |
-| Standard_B20ms | 20           | 80             | 160                         | 337%                  | 2000%                   | 600                   | 203                 | 4860           | 32                                     | 10800/125                                 | 4320/50                                 | 8  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Standard_B12ms | 12           | 48             | 96                         | 202%                  | 1200%                   | 360                   | 121                 | 2909           | 16                                     | 6480/75                                 | 4320 / 50                                 | 6  |
+| Standard_B16ms | 16           | 64             | 128                         | 270%                  | 1600%                   | 480                   | 162                 | 3888           | 32                                     | 8640/100                                 | 4320 / 50                                 | 8  |
+| Standard_B20ms | 20           | 80             | 160                         | 337%                  | 2000%                   | 600                   | 203                 | 4860           | 32                                     | 10800/125                                 | 4320 / 50                                 | 8  |
 
 <sup>1</sup>只有在 Linux 上才支援 B1ls
 
@@ -65,7 +65,7 @@ ACU：160-190
 
 進階儲存體快取：支援
 
-Dsv3 系列大小執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的® E5-2673 v4 2.3 GHz （Broadwell），或 Intel®的® E5-2673 v3 2.4 g h z （Haswell）處理器，搭配 Intel Turbo 加速技術2.0 並使用 premium storage。 Dsv3 系列大小提供 vCPU、記憶體和暫存位置的組合，可容納最多的生產工作負載。
+Dsv3 系列大小執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的® E5-2673 v4 2.3 GHz （Broadwell），或 Intel®的® E5-2673 v3 2.4 g h z （Haswell）處理器，搭配 Intel Turbo 加速技術2.0 並使用 premium storage。 Dsv3 系列大小提供 CPU、記憶體與暫存儲存憶體組合，適用於大多數生產環境工作負載。
 
 
 | 大小             | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
@@ -80,25 +80,28 @@ Dsv3 系列大小執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的
 
 <sup>1</sup> Dsv3 系列 VM 的功能 Intel® 超執行緒技術
 
-## <a name="dasv3-series-preview"></a>Dasv3 系列（預覽）
+## <a name="dasv4-series"></a>Dasv4 系列
+
+ACU：230-260
 
 進階儲存體：支援
 
 進階儲存體快取：支援
 
-Dasv3 系列大小以2.35 版 Ghz AMD EPYC<sup>TM</sup> 7452 處理器為基礎，可達成 3.35 ghz 的提升 Fmax 並使用 premium 儲存體。 Dasv3 系列大小提供 vCPU、記憶體和暫存儲存體的組合，可用於大部分的生產環境工作負載。
+Dasv4 系列大小以2.35 版 Ghz AMD EPYC<sup>TM</sup> 7452 處理器為基礎，可達成 3.35 ghz 的提升頻率，並使用 premium SSD。 Dasv4 系列大小提供 vCPU、記憶體和暫存儲存體的組合，可用於大部分的生產環境工作負載。
 
-[按一下這裡以註冊預覽版](http://aka.ms/azureamdpreview)。
+| 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 Nic/預期的網路頻寬（MBps） |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2as_v4|2|8|16|4|4000/32 （50）|3200/48|2 / 1000 |
+| Standard_D4as_v4|4|16|32|8|8000/64 （100）|6400/96|2 / 2000 |
+| Standard_D8as_v4|8|32|64|16|16000/128 （200）|12800/192|4 / 4000 |
+| Standard_D16as_v4|16|64|128|32|32000/255 （400）|25600/384|8 / 8000 |
+| Standard_D32as_v4|32|128|256|32|64000/510 （800）|51200/768|8 / 16000 |
+| Standard_D48as_v4 <sup>**</sup>|48|192|384|32| | | 
+| Standard_D64as_v4 <sup>**</sup>|64|256|512|32| | | 
+| Standard_D96as_v4 <sup>**</sup>|96|384|768|32| | | 
 
-| 大小 | vCPU | 記憶體：GiB | 暫存儲存體（SSD）： GiB |
-|---|---|---|---|
-| Standard_D2as_v3  | 2  | 8   | 16  |
-| Standard_D4as_v3  | 4  | 16  | 32  |
-| Standard_D8as_v3  | 8  | 32  | 64  |
-| Standard_D16as_v3 | 16 | 64  | 128 |
-| Standard_D32as_v3 | 32 | 128 | 256 |
-| Standard_D48as_v3 | 48 | 192 | 384 |
-| Standard_D64as_v3 | 64 | 256 | 512 |
+<sup>**</sup>這些大小目前為預覽狀態。  如果您想要試用這些較大的大小，請在[https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)註冊。
 
 ## <a name="dv3-series-sup1sup"></a>Dv3 系列 <sup>1</sup>
 
@@ -125,25 +128,28 @@ Dv3 系列大小執行于 Intel®的® 8171M 2.1 GHz （Skylake）、Intel®的�
 
 <sup>1</sup> Dv3 系列 VM 的功能 Intel® 超執行緒技術
 
-## <a name="dav3-series-preview"></a>Dav3 系列（預覽）
+## <a name="dav4-series"></a>Dav4 系列
+
+ACU：230-260
 
 進階儲存體：不支援
 
 進階儲存體快取：不支援
 
-Dav3 系列大小以2.35 版 Ghz AMD EPYC<sup>TM</sup> 7452 處理器為基礎，可達成 3.35 ghz 的提升 Fmax。 Dav3 系列大小提供 vCPU、記憶體和暫存儲存體的組合，可用於大部分的生產環境工作負載。 資料磁碟儲存體與虛擬機器分開計費。 若要使用 premium 儲存體磁片，請使用 Dasv3 大小。 Dasv3 大小的定價和計費方式與 Dav3 系列相同。
+Dav4 系列大小以2.35 版 Ghz AMD EPYC<sup>TM</sup> 7452 處理器為基礎，可達到最高的 3.35 ghz 的提升頻率。 Dav4 系列大小提供 vCPU、記憶體和暫存儲存體的組合，可用於大部分的生產環境工作負載。 資料磁碟儲存體與虛擬機器分開計費。 若要使用 premium SSD，請使用 Dasv4 大小。 Dasv4 大小的定價和計費方式與 Dav4 系列相同。
 
-[按一下這裡以註冊預覽版](http://aka.ms/azureamdpreview)。
+| 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大 Nic/預期的網路頻寬（MBps） |
+|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 / 1000 |
+| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 / 2000 |
+| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12000 / 187 / 93 | 4 / 4000 |
+| Standard_D16a_v4|  16 | 64 | 400 |32  | 24000 / 375 / 187 |8 / 8000 |
+| Standard_D32a_v4|  32 | 128| 800 | 32 | 48000 / 750 / 375 |8 / 16000 |
+| Standard_D48a_v4 <sup>**</sup> | 48 | 192| 1200 | 32 | | |
+| Standard_D64a_v4 <sup>**</sup> | 64 | 256 | 1600 | 32 | | |
+| Standard_D96a_v4 <sup>**</sup> | 96 | 384 | 2400 | 32 | | |
 
-| 大小 | vCPU | 記憶體：GiB | 暫存儲存體（SSD）： GiB |
-|---|---|---|---|
-| Standard_D2a_v3  | 2  | 8   | 50   |
-| Standard_D4a_v3  | 4  | 16  | 100  |
-| Standard_D8a_v3  | 8  | 32  | 200  |
-| Standard_D16a_v3 | 16 | 64  | 400  |
-| Standard_D32a_v3 | 32 | 128 | 800  |
-| Standard_D48a_v3 | 48 | 192 | 1200 |
-| Standard_D64a_v3 | 64 | 256 | 1600 |
+<sup>**</sup>這些大小目前為預覽狀態。  如果您想要試用這些較大的大小，請在[https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)註冊。
 
 ## <a name="dsv2-series"></a>DSv2 系列
 

@@ -1,5 +1,5 @@
 ---
-title: '設計師範例 #3：對價格的回歸並比較演算法'
+title: 設計工具：預測汽車價格（回歸）
 titleSuffix: Azure Machine Learning
 description: 本文說明如何使用設計工具（預覽）來建立複雜的機器學習管線，而不需要撰寫任何一行程式碼。 瞭解如何定型和比較多個回歸模型，以根據技術功能來預測汽車的價格
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fb2e4c5c96c0c4c1b4d8ef14de65e470d545638
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515430"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647959"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>範例 2-回歸：預測價格和比較演算法
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

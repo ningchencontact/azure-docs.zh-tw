@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 登入與使用者 | Microsoft Docs
+title: Azure SQL 登入和使用者
 description: 深入了解 SQL Database 和 SQL 資料倉儲安全性管理，特別是如何透過伺服器層級主體帳戶管理資料庫存取與登入安全性。
 keywords: sql 資料庫安全性, 資料庫安全性管理, 登入安全性, 資料庫安全性, 資料庫存取權
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014491"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689488"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -45,7 +45,7 @@ ms.locfileid: "69014491"
 
   一個 Azure Active Directory 帳戶 (個人或安全性群組帳戶) 也可以設定為系統管理員。 選擇性地設定 Azure AD 系統管理員，但是如果您想要使用 Azure AD 帳戶連線到 SQL Database，則**必須**設定 Azure AD 系統管理員。 如需有關設定 Azure Active Directory 存取權的詳細資訊，請參閱[使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)和[適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](sql-database-ssms-mfa-authentication.md)。
 
-**伺服器管理員**和**Azure AD 系統管理員**帳戶具有下列特性:
+**伺服器管理員**和**Azure AD 系統管理員**帳戶具有下列特性：
 
 - 是唯一可以自動連線到伺服器上任何 SQL Database 的帳戶。 (若要連接至使用者資料庫，其他帳戶必須是資料庫的擁有者，或在使用者資料庫中擁有使用者帳戶。)
 - 這些帳戶會輸入使用者資料庫做為 `dbo` 使用者，而且具有使用者資料庫中的所有權限。 (使用者資料庫的擁有者也會進入資料庫做為 `dbo` 使用者。) 
@@ -97,7 +97,7 @@ ms.locfileid: "69014491"
 
    為了改進效能，系統會暫時在資料庫層級快取登入 (伺服器層級主體)。 若要重新整理驗證快取，請參閱 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。
 
-3. 在 `master` 資料庫中，使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式來建立使用者。 使用者可以是 Azure Active Directory 驗證自主資料庫使用者 (如果您已針對 Azure AD 驗證設定您的環境)，或 SQL Server 驗證自主資料庫使用者，或根據 SQL Server 驗證登入 (在上一個步驟中建立) 的 SQL Server 驗證使用者。範例陳述式︰
+3. 在 `master` 資料庫中，使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式來建立使用者。 使用者可以是 Azure Active Directory 的驗證自主資料庫使用者（如果您已設定要 Azure AD authentication 的環境）或 SQL Server authentication 自主資料庫使用者，或是以 SQL Server 為基礎的 SQL Server 驗證使用者驗證登入（在上一個步驟中建立）。範例語句：
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -105,7 +105,7 @@ ms.locfileid: "69014491"
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. 使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 陳述式，將新的使用者新增至 `master` 中的 **dbmanager** 資料庫角色。 範例陳述式︰
+4. 使用 **ALTER ROLE** 陳述式，將新的使用者新增至 `master` 中的 [dbmanager](https://msdn.microsoft.com/library/ms189775.aspx) 資料庫角色。 範例陳述式︰
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -125,7 +125,7 @@ ms.locfileid: "69014491"
 
 ## <a name="non-administrator-users"></a>非系統管理員的使用者
 
-一般而言，非系統管理員帳戶不需要 master 資料庫的存取權。 請使用 [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式，在資料庫層級建立自主資料庫使用者。 使用者可以是 Azure Active Directory 驗證自主資料庫使用者 (如果您已針對 Azure AD 驗證設定您的環境)，或 SQL Server 驗證自主資料庫使用者，或根據 SQL Server 驗證登入 (在上一個步驟中建立) 的 SQL Server 驗證使用者。如需詳細資訊，請參閱 [自主資料庫使用者 - 讓資料庫具有可攜性](https://msdn.microsoft.com/library/ff929188.aspx)。 
+一般而言，非系統管理員帳戶不需要 master 資料庫的存取權。 請使用 [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式，在資料庫層級建立自主資料庫使用者。 使用者可以是 Azure Active Directory 的驗證自主資料庫使用者（如果您已設定要 Azure AD authentication 的環境）或 SQL Server authentication 自主資料庫使用者，或是以 SQL Server 為基礎的 SQL Server 驗證使用者驗證登入（在上一個步驟中建立）。如需詳細資訊，請參閱自主[資料庫使用者-使資料庫可](https://msdn.microsoft.com/library/ff929188.aspx)攜。 
 
 若要建立使用者，請連線到資料庫，然後執行類似以下範例的陳述式︰
 
@@ -177,7 +177,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 資料庫角色可以是內建的角色，例如 **db_owner**、**db_ddladmin**、**db_datawriter**、**db_datareader**、**db_denydatawriter** 和 **db_denydatareader**。 **db_owner** 通常是用來將完整權限授與少數幾個使用者。 其他固定的資料庫角色適用於快速開發簡單的資料庫，但不建議用於大多數實際執行資料庫。 例如，**db_datareader** 固定資料庫角色可授與資料庫中每個資料表的讀取存取權，這通常並非絕對必要。 最好是使用 [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 陳述式來建立您自己的使用者定義資料庫角色，並謹慎地授與每個角色在業務需求上所需的最小權限。 當使用者是多個角色的成員時，會集所有這些角色的權限在一身。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 有超過 100 個權限可在 SQL Database 中分別授與或拒絕。 這些權限有許多為巢狀。 例如，結構描述上的 `UPDATE` 權限包括該結構描述中每個資料表的 `UPDATE` 權限。 如同大多數的權限系統，拒絕權限會覆寫授與權限。 因為權限的巢狀本質和數目，可能需要仔細研究，設計適當的權限系統以便適當地保護您的資料庫。 請從[權限 (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) 的權限清單開始著手，然後檢閱[海報大小的權限圖](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png)。
 
@@ -186,7 +186,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 在 SQL Database 中管理登入和使用者時，請考慮下列各項︰
 
-- 執行 `CREATE/ALTER/DROP DATABASE` 陳述式時，您必須連接到 **master** 資料庫。   
+- 執行 **陳述式時，您必須連接到**master`CREATE/ALTER/DROP DATABASE` 資料庫。   
 - 無法更改或刪除與**伺服器管理員**登入對應的資料庫使用者。 
 - 英文 (美國) 是**伺服器管理員**登入的預設語言。
 - 只有系統管理員 (**伺服器管理員**登入或 Azure AD 系統管理員) 及 **master** 資料庫中 **dbmanager** 資料庫角色的成員，才具備執行 `CREATE DATABASE` 和 `DROP DATABASE` 陳述式的權限。
@@ -204,7 +204,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
   GO
   ```
   
-  請改用下列 Transact-sql 語句:
+  請改用下列 Transact-sql 語句：
   
   ```sql
   DROP DATABASE IF EXISTS [database_name]

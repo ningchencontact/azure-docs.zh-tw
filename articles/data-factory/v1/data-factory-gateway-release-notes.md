@@ -1,5 +1,5 @@
 ---
-title: 資料管理閘道的版本資訊 | Microsoft Docs
+title: 資料管理閘道的版本資訊
 description: 資料管理閘道 tory 版本資訊
 services: data-factory
 author: nabhishek
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486459"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682578"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>資料管理閘道的版本資訊
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 現代資料整合的挑戰之一就是在內部部署和雲端之間來回移動資料。 Data Factory 會透過「資料管理閘道」進行此整合；「資料管理閘道」是一個您可以在內部部署環境安裝來啟用混合式資料移動功能的代理程式。
 
@@ -42,12 +42,12 @@ ms.locfileid: "60486459"
 ### <a name="enhancements-"></a>增強功能
 - 您可以新增 DNS 項目來將「服務匯流排」加入允許清單，而不是將所有 Azure IP 位址都加入防火牆的允許清單 (如有需要)。 您可以在 Azure 入口網站上找到各自的 DNS 項目 (Data Factory-> [製作和部署] -> [閘道] -> [serviceUrls] \(在 JSON 中)
 - HDFS 連接器現在支援自我簽署的公開憑證，方法是讓您略過 SSL 驗證。
-- 已修正：更新期間的閘道離線問題 (因為時鐘誤差)
+- 已修正︰更新期間的閘道離線問題 (因為時鐘誤差)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>增強功能
--   您可以新增 DNS 項目來將「服務匯流排」加入允許清單，而不是將所有 Azure IP 位址都加入防火牆的允許清單 (如有需要)。 以下提供更多詳細資料。
+-   您可以新增 DNS 項目來將「服務匯流排」加入白名單，而不是將所有 Azure IP 位址都加入防火牆的白名單 (如有需要)。 以下提供更多詳細資料。
 -   您現在可以將資料複製到單一區塊 Blob 或從該 Blob 複製資料，Blob 最大可達 4.75 TB，這是區塊 Blob 的最大支援大小。 (之前的上限為 195 GB)。
 -   已修正：在進行複製活動期間將數個較小檔案解壓縮時發生的憶體不足問題。
 -   已修正：使用等冪功能從 Document DB 複製到內部部署 SQL Server 時發生的索引超出範圍問題。

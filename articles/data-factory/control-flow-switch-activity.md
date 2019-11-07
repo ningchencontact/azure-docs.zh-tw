@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的切換活動 |Microsoft Docs
+title: Azure Data Factory 中的切換活動
 description: '[切換] 活動可讓您根據條件控制處理流程。'
 services: data-factory
 author: djpmsft
@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 3f60965ad54fb94e7f69b69c161b482f0b953c5a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293948"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679410"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory 中的切換活動
 
@@ -65,10 +65,10 @@ Switch 活動所提供的功能與 switch 語句在程式設計語言中所提�
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | 切換活動的名稱。 | 字串 | 是
-型別 | 必須設定為*切換** | 字串 | 是
+名稱 | 切換活動的名稱。 | 字串 | 是
+類型 | 必須設定為*切換** | 字串 | 是
 expression | 必須評估為字串值的運算式 | 結果類型為 string 的運算式 | 是
 案例 | 一組案例，其中包含值，以及當值符合運算式評估時要執行的一組活動。 必須至少提供一個案例。 最大限制為25個案例。 | Case 物件的陣列 | 是
 defaultActivities | 未滿足運算式評估時所執行的一組活動。 | 活動陣列 | 是
@@ -289,7 +289,7 @@ defaultActivities | 未滿足運算式評估時所執行的一組活動。 | 活
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-這些命令假設您已將 JSON 檔案儲存到資料夾中：C:\ADF。 
+這些命令假設您已將 JSON 檔案儲存到資料夾中： C:\ADF。 
 
 ```powershell
 Connect-AzAccount
@@ -334,8 +334,8 @@ $result.Error -join "`r`n"
 
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [If Condition 活動](control-flow-if-condition-activity.md)
-- [執行管道活動](control-flow-execute-pipeline-activity.md)
+- [If 條件活動](control-flow-if-condition-activity.md)
+- [執行管線活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

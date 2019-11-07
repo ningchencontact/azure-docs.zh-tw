@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171631"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646875"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 虛擬桌面合作夥伴整合
 
@@ -22,9 +22,9 @@ ms.locfileid: "73171631"
 
 ![Citrix 標誌](./media/partners/citrix.png)
 
-Citrix 是已核准的提供者，可讓企業以集中式方式管理 Azure 中的虛擬應用程式和桌面工作負載，並與內部部署並存。 具有虛擬應用程式和桌面服務的 Citrix 工作區可讓使用者從任何裝置存取應用程式和桌面，利用 advanced Citrix HDX 通訊協定從任何地方提供高定義體驗。
+Citrix 是一個經核准的提供者，可讓企業以集中化的方式管理 Azure 中的虛擬應用程式和桌面工作負載，並與內部部署並存。 具有虛擬應用程式和桌面服務的 Citrix 工作區可讓使用者從任何裝置存取應用程式和桌面，利用 advanced Citrix HDX 通訊協定從任何地方提供高定義體驗。
 
-Citrix 利用強大的企業工具擴充 Windows 虛擬桌面的價值，以提升使用者的密度和效能、依需求布建工作負載，以及簡化映射和應用程式管理。 它可以使用智慧型調整工具來將成本優化，同時提供絕佳的使用者體驗，針對跨產業的最棘手應用程式進行現場測試。
+Citrix 利用強大的企業工具擴充 Windows 虛擬桌面的價值，以提升使用者的密度和效能、依需求布建工作負載，以及簡化映射和應用程式管理。 它可以使用智慧型調整工具來將成本優化，同時提供絕佳的使用者體驗，針對跨產業的最棘手應用程式進行現場測試。 此外，Citrix 受控桌面是一種 Windows 虛擬桌面啟用的桌面即服務程式，提供一個簡單的雲端式管理解決方案，可將虛擬應用程式和桌上型電腦提供給任何裝置。
 
 - [前往合作夥伴網站](https://more.citrix.com/wvd)。
 
@@ -35,7 +35,7 @@ Citrix 利用強大的企業工具擴充 Windows 虛擬桌面的價值，以提�
 
 Microsoft Azure 的 VMware 範圍雲端可讓組織將自己的 Microsoft Azure 實例連線到簡單、直覺的雲端控制平面，建立安全、完整的雲端裝載解決方案，以提供虛擬化的功能Windows 應用程式和桌上型電腦。 隨著 Windows 虛擬桌面的發行，VMware 已與 Microsoft 合作，將 Windows 虛擬桌面的功能延伸到在 Microsoft Azure 上使用水準雲端的客戶。 這項功能將于2019年底的技術預覽中提供。
  
-身為核准的提供者，Windows 虛擬桌面的優點將會延伸到 Microsoft Azure 客戶的 VMware 範圍雲端，包括多重會話的 Windows 10 企業版、Windows 7 （含最多三年的免費擴充安全性更新），以及FSLogix. 此外，客戶將會收到大規模雲端的企業級功能，例如廣泛的端點支援;全域、雲端優化的仲介;彈性的桌面選項和設定;使用者環境管理;和混合式環境的支援。
+身為核准的提供者，Windows 虛擬桌面的優點將會延伸到 Microsoft Azure 客戶的 VMware 範圍雲端，包括多重會話的 Windows 10 企業版、Windows 7 （含最多三年的免費擴充安全性更新），以及FSLogix. 此外，客戶將會收到大規模雲端的企業級功能，例如廣泛的端點支援;全域、雲端優化的仲介;彈性的桌面選項和設定;使用者-環境管理;和混合式環境的支援。
 
 - [在 Microsoft Azure 上註冊適用于地平線雲端的技術預覽](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)。
 - [前往合作夥伴網站](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)。
@@ -44,7 +44,7 @@ Microsoft Azure 的 VMware 範圍雲端可讓組織將自己的 Microsoft Azure 
 
 ![CloudJumper 標誌](./media/partners/cloudjumper.png)
 
-CloudJumper 是 Windows 虛擬桌面增值的服務提供者，可讓解決方案提供者和企業 IT 具備軟體，以全面性地布建和管理 Windows 虛擬桌面環境。 透過 CloudJumper 軟體，IT 可以管理 Windows 虛擬桌面部署的每一層。 工作負載和應用程式的傳遞會自動化，確保使用者可以在任何裝置上的任何位置快速存取其桌面。
+CloudJumper 是 Windows 虛擬桌面增值的服務提供者，可讓解決方案提供者和企業 IT 使用軟體來布建和管理 Windows 虛擬桌面環境全面性地。 透過 CloudJumper 軟體，IT 可以管理 Windows 虛擬桌面部署的每一層。 工作負載和應用程式的傳遞會自動化，確保使用者可以在任何裝置上的任何位置快速存取其桌面。
 
 雲端工作區管理套件 CloudJumper 的軟體，藉由在 Azure 中簡化部署和進行中的管理工作，來擴充 Windows 虛擬桌面的價值。 透過單一窗格，IT 可以布建、管理和優化使用者工作區的基礎結構。 CloudJumper 的簡單腳本觸發引擎整合了 IT 服務平臺，可將布建 Windows 虛擬桌面所需的工作自動化。 此外，CloudJumper Api 可進一步擴充性，並與其他企業系統（如 ServiceNow 和 BMC 就緒）整合。
 
@@ -66,11 +66,21 @@ ControlUp 是一個 Windows 虛擬桌面增值的服務提供者，可讓 IT 小
 
 ![deviceTRUST 標誌](./media/partners/devicetrust.png)
 
-deviceTRUST 是一種 Windows 虛擬桌面增值的服務提供者，可就公司企業，讓使用者能夠自由地從任何位置、任何裝置上的任何地點存取其 Windows 虛擬桌面，同時提供系所需要的資訊和控制，以符合其治理需求。 
+deviceTRUST 是就公司企業的 Windows 虛擬桌面增值服務提供者。 它可讓使用者自由地從任何位置、任何裝置上的任何網路存取其 Windows 虛擬桌面，同時為 IT 部門提供滿足其治理需求所需的資訊與控制。 
 
 deviceTRUST 利用其內容相關的安全性技術來擴充 Windows 虛擬桌面的價值。 deviceTRUST 可讓您進行條件式存取以進行安全的 Windows 虛擬桌面存取、Windows 虛擬桌面內的條件式應用程式存取，以及套用條件式 Windows 虛擬桌面原則，而不需要任何其他基礎 使用 deviceTRUST 可提供符合所有安全性、合規性和法規需求的行動裝置彈性工作區。 
 
 - [前往合作夥伴網站](https://devicetrust.com/wvd)。
+
+## <a name="igel"></a>IGEL
+
+![IGEL 標誌](./media/partners/igel.png)
+
+IGEL 是經過核准且通過驗證的 Microsoft Azure 和 Windows 虛擬桌面服務合作夥伴。 IGEL 提供 IGEL OS，此為雲端工作區的下一代邊緣作業系統，其設計目的是要從一或多個使用者裝置使用輕量、簡單且安全的 Linux 端點來存取虛擬應用程式、桌面和雲端工作區。 平臺獨立的軟體解決方案，IGEL 作業系統及其以伺服器為基礎的管理與控制軟體，IGEL 通用管理套件（UMS）包含端點管理和控制解決方案，可讓企業充分利用以 Azure 為基礎的雲端實例和 Windows 虛擬桌面桌面，包括經濟實惠的多會話 Windows 虛擬桌面，同時降低端點硬體和端點裝置管理和營運成本。
+ 
+IGEL OS 支援 Citrix、Microsoft 和 VMware 的所有熱門虛擬應用程式、桌上型電腦和雲端工作區用戶端通訊協定。 其中包含來自85周邊、介面和通訊協定合作夥伴的整合技術，可協助組織快速地將 Windows 虛擬桌面服務納入其獨特的使用者環境中。 IGEL OS 是唯讀且模組化的端點作業系統，可協助保護它免于遭到篡改。 它現在也包含完整的「信任鏈」，它會驗證在端點上執行之所有主要程式的完整性，從端點硬體（某些選取的模型）或 UEFI 程式，一直到 Azure 雲端和 Windows 虛擬桌面服務。 有了 IGEL 作業系統，企業就可以從 Azure 雲端訂閱 Windows 虛擬桌面，並完全安心其使用者端點裝置的完整性、安全性和管理性。
+
+- [前往合作夥伴網站。](https://www.igel.com/igel-os-universal-desktop-operating-system/)
 
 ## <a name="ivanti"></a>Ivanti
 
@@ -137,7 +147,7 @@ PolicyPak 的首要使用案例是移除本機系統管理員許可權，並克�
 
 ![PrinterLogic 標誌](./media/partners/printerlogic.png)
 
-PrinterLogic 是 Windows 虛擬桌面的增值服務提供者平臺，可讓 IT 專業人員排除所有列印伺服器，並提供高可用性的無伺服器列印基礎結構。 PrinterLogic 擴充了 Windows 虛擬桌面和 Azure 的價值，讓您可以輕鬆地集中管理印表機物件，並將其部署至任何印表機或端點作業系統。   
+PrinterLogic 是一個 Windows 虛擬桌面增值的服務提供者平臺，可讓 IT 專業人員排除所有列印伺服器，並提供高可用性的無伺服器列印基礎結構。 PrinterLogic 擴充了 Windows 虛擬桌面和 Azure 的價值，讓您輕鬆地集中管理並將印表機物件部署到任何印表機或端點作業系統。   
 
 PrinterLogic 平臺可在您自己的私人雲端中以 SaaS 或 web 堆疊的形式提供，以根據使用者識別碼、裝置名稱或位置，確保使用者在其虛擬會話中一律擁有所需的適當印表機。 這項功能是透過一組完整的企業列印管理功能（例如列印追蹤和報告、行動列印，以及安全徽章版本列印）來獲得補充。 
 
@@ -147,7 +157,7 @@ PrinterLogic 平臺可在您自己的私人雲端中以 SaaS 或 web 堆疊的�
 
 ![Numecent 標誌](./media/partners/numecent.png)
 
-Numecent 是 Windows 虛擬桌面增值的服務提供者，透過在 Windows 虛擬桌面環境中快速上架及遷移複雜或不相容的 Windows 應用程式，大幅降低總營運成本。 Numecent 也可將使用者必須執行的設定量降到最低、減少應用程式更新，並簡化複雜的進程。 由於 Numecent Cloudpaging 支援的應用程式比其他任何應用程式傳遞工具更順暢，因此它會在具有一組多樣化應用程式的環境中減少時間和 IT 工作負載。 
+Numecent 是 Windows 虛擬桌面增值的服務提供者，透過在 Windows 虛擬桌面環境中快速上架及遷移複雜或不相容的 Windows 應用程式，大幅降低總營運成本。 Numecent 也可將使用者需要執行的設定量減到最少、減少應用程式更新，並簡化複雜的進程。 由於 Numecent Cloudpaging 支援的應用程式比其他任何應用程式傳遞工具更順暢，因此它會在具有一組多樣化應用程式的環境中減少時間和 IT 工作負載。 
 
 與 Windows 虛擬桌面搭配使用時，Cloudpaging 可透過從部署到升級、計量和移除應用程式的方式來完成軟體資產生命週期，以進一步降低成本。 Cloudpaging 會視需要以動態方式將應用程式布建到 Windows 虛擬桌面部署，以簡化映射管理。 Cloudpaging 可協助應用程式在沒有系統管理或介入的情況下，透過週期性 Windows 10 更新執行。 Cloudpaging 也可讓您更有效率地部署和使用這些應用程式，以減少昂貴應用程式的授權成本。 
 

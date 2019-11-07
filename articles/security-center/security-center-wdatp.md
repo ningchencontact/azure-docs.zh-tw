@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資訊安全中心的 Microsoft Defender Advanced 威脅防護
+title: Microsoft Defender Advanced 威脅防護-Azure 資訊安全中心
 description: 本檔介紹 Azure 資訊安全中心與 Microsoft Defender Advanced 威脅防護之間的整合。
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819881"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663599"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>使用 Azure 資訊安全中心的 Microsoft Defender Advanced 威脅防護
 
@@ -95,7 +95,7 @@ Azure 資訊安全中心現在提供下列功能：
 
 若要產生良性的 Microsoft Defender ATP 測試警示：
 
-1. 您可以使用遠端桌面來存取 Windows Server 2012 R2 VM 或 Windows Server 2016 VM。  開啟命令提示字元視窗。
+1. 您可以使用遠端桌面來存取 Windows Server 2012 R2 VM 或 Windows Server 2016 VM。 開啟命令提示字元視窗。
 
 2. 在提示中，複製並執行下列命令： 命令提示字元視窗將會自動關閉。
 
@@ -107,7 +107,7 @@ Azure 資訊安全中心現在提供下列功能：
 
 3. 如果命令成功，您會在 Azure 資訊安全中心儀表板和 Microsoft Defender ATP 入口網站上看到新的警示。 此警示可能需要幾分鐘才會顯示。
 
-4. 若要在資訊安全中心檢閱警示，請前往**安全性警示** >  **可疑的 Powershell 命令列**。
+4. 若要在資訊安全中心檢閱警示，請前往**安全性警示** > **可疑的 Powershell 命令列**。
 
 5. 從 [調查] 視窗中，選取 [移至 Microsoft Defender ATP 入口網站] 連結。
 

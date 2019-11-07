@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844668"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669172"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure 監視器中的自訂計量
 
@@ -36,9 +36,9 @@ ms.locfileid: "70844668"
 若要驗證要求，Azure 監視器會使用 Azure AD 公開金鑰驗證應用程式權杖。 現有的「監視計量發行者」角色已經有這個權限。 其可在 Azure 入口網站提供。 可根據要為其發出自訂計量的資源，在所需的範圍將「監視計量發行者」角色指定給服務主體。 範例包括訂用帳戶、資源群組或特定資源。
 
 > [!NOTE]  
-> 當您要求 Azure AD 權杖以發出自訂計量時，請確定所要求權杖的受眾或資源為 https://monitoring.azure.com/ 。 請務必包含尾端的斜線 '/'。
+> 當您要求 Azure AD 權杖以發出自訂計量時，請確定所要求權杖的受眾或資源為 https://monitoring.azure.com/。 請務必包含尾端的斜線 '/'。
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>主旨
 這個屬性會擷取所報告自訂計量的 Azure 資源識別碼。 此資訊會編碼在所進行 API 呼叫的 URL 中。 每個 API 都只能為單一的 Azure 資源提交計量值。
 
 > [!NOTE]  
@@ -58,9 +58,9 @@ ms.locfileid: "70844668"
 傳送至 Azure 監視器每個資料點都必須以時間戳記標記。 此時間戳記會擷取該計量值的測量或收集日期時間。 Azure 監視器接受時間戳記為過去 20 分鐘內和未來 5 分鐘內的計量資料。 時間戳記必須是 ISO 8601 格式。
 
 ### <a name="namespace"></a>命名空間
-命名空間是將類似計量分類或分組的方法。 您可以使用命名空間，將收集不同見解或效能指標的計量群組隔離。 比方說，您可能有稱為 **ContosoMemoryMetrics** 的命名空間，可追蹤用來分析應用程式的記憶體使用計量。 另一個稱為 **ContosoAppTransaction** 的命名空間可能會追蹤應用程式中有關使用者交易的所有計量。
+命名空間是將類似計量分類或分組的方法。 您可以使用命名空間，將收集不同見解或效能指標的計量群組隔離。 例如，您可能會有一個名為**contosomemorymetrics**的命名空間，它會追蹤用來分析應用程式的記憶體使用計量。 另一個名為**contosoapptransaction**的命名空間可能會追蹤應用程式中有關使用者交易的所有計量。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 **名稱**是要報告的計量名稱。 通常名稱的描述就足以協助識別所測量的項目。 舉例來說，可測量指定 VM 上所用記憶體位元組數目的計量。 其計量名稱可能為「使用中的記憶體位元組」。
 
 ### <a name="dimension-keys"></a>維度索引鍵
@@ -81,7 +81,7 @@ ms.locfileid: "70844668"
 Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們了解在指定的分鐘內，計量可能需要取樣數次。 例如，CPU 使用率。 或者可能需要針對許多不連續的事件進行測量。 例如，登入交易延遲。 若要限制您在 Azure 監視器中必須發出和支付未經處理的值數目，您可以在本機預先彙總，然後再將值發出：
 
 * **最小值**︰在該分鐘期間的所有樣本及測量中觀察到的最小值。
-* **最大值**：在該分鐘期間的所有樣本及測量中觀察到的最大值。
+* **最大值**︰在該分鐘期間的所有樣本及測量中觀察到的最大值。
 * **總和**︰在該分鐘期間的所有樣本及測量中所有觀察值的總和。
 * **計數**：在該分鐘期間的樣本及測量數目。
 
@@ -171,23 +171,23 @@ Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們�
 |Azure 區域 |區域端點前置詞|
 |---|---|
 | **美國和加拿大** | |
-|美國中西部 | https:\//westcentralus.monitoring.azure.com/ |
-|美國西部 2       | https:\//westus2.monitoring.azure.com/ |
+|美國中西部 | HTTPs：\//westcentralus.monitoring.azure.com/ |
+|美國西部 2       | HTTPs：\//westus2.monitoring.azure.com/ |
 |美國中北部 | HTTPs：\//northcentralus.monitoring.azure.com
-|美國中南部| https:\//southcentralus.monitoring.azure.com/ |
+|美國中南部| HTTPs：\//southcentralus.monitoring.azure.com/ |
 |美國中部      | HTTPs：\//centralus.monitoring.azure.com |
 |加拿大中部 | HTTPs：\//canadacentral.monitoring.azure.comc
-|East US| HTTPs：\//eastus.monitoring.azure.com/ |
+|美國東部| HTTPs：\//eastus.monitoring.azure.com/ |
 | **歐洲** | |
 |北歐    | HTTPs：\//northeurope.monitoring.azure.com/ |
-|西歐     | https:\//westeurope.monitoring.azure.com/ |
+|西歐     | HTTPs：\//westeurope.monitoring.azure.com/ |
 |英國南部 | HTTPs：\//uksouth.monitoring.azure.com
 |法國中部 | HTTPs：\//francecentral.monitoring.azure.com |
 | **非洲** | |
 |南非北部 | HTTPs：\//southafricanorth.monitoring.azure.com
 | **亞洲** | |
 |印度中部 | HTTPs：\//centralindia.monitoring.azure.com
-|澳大利亞東部 | HTTPs：\//australiaeast.monitoring.azure.com
+|澳洲東部 | HTTPs：\//australiaeast.monitoring.azure.com
 |日本東部 | HTTPs：\//japaneast.monitoring.azure.com
 |東南亞  | HTTPs：\//southeastasia.monitoring.azure.com |
 |東亞 | HTTPs：\//eastasia.monitoring.azure.com
@@ -197,7 +197,7 @@ Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們�
 ## <a name="quotas-and-limits"></a>配額和限制
 Azure 監視器會對自訂計量加諸下列使用量限制：
 
-|Category|限制|
+|類別|限制|
 |---|---|
 |使用中的時間序列/訂用帳戶/區域|50,000|
 |每個計量的維度索引鍵|10|

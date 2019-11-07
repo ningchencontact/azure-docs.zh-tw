@@ -1,5 +1,5 @@
 ---
-title: 使用 ONNX 進行高效能、跨平臺的推斷
+title: ONNX：高效能、跨平臺的推斷
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Open Neural Network Exchange （ONNX）來協助優化機器學習模型的推斷。
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc4a5984f42e87aa42c6873bb1ee63d66744e633
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c94d36065b27b0afcaeb214b8a86e5e2a09df14b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053575"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648028"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 和 Azure Machine Learning：建立並加速 ML 模型
 
@@ -30,7 +30,7 @@ Microsoft 和合作夥伴所建立的 ONNX，是代表機器學習模型的開�
 
 ONNX 執行時間用於高級別的 Microsoft 服務，例如 Bing、Office 和認知服務。 效能提升取決於數個因素，但這些 Microsoft 服務已看到 CPU 的__平均2倍效能提升__。 ONNX 執行時間也用來做為數百萬部裝置上 Windows ML 的一部分。 您可以使用執行時間搭配 Azure Machine Learning。 藉由使用 ONNX 執行時間，您可以從大量的生產等級優化、測試和持續改進中獲益。
 
-[顯示訓練、轉換器和部署![ONNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[顯示訓練、轉換器和部署 ![ONNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>取得 ONNX 模型
 
@@ -84,7 +84,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="more-info"></a>詳細資訊
+## <a name="more-info"></a>其他資訊
 
 深入了解 ONNX 或參與專案：
 + [ONNX 專案網站](https://onnx.ai)

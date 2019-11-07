@@ -16,26 +16,45 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7256791c0b6bfbc72a26f6093cdd3c39410f702f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6a08779d171367d982392ae4e987fb46e019e61f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807597"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720273"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中停用企業應用程式的使用者登入
 
-它很容易就能停用企業應用程式，因此沒有任何使用者可以登入 Azure Active Directory (Azure AD) 中。 您需要適當的權限，才能管理企業應用程式。 而且，您必須是目錄全域管理員。
+您可以輕鬆停用企業應用程式，讓任何使用者都無法在 Azure Active Directory （Azure AD）中登入。 您需要有適當的許可權，才能管理企業應用程式。 而且，您必須是目錄的全域管理員。
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>如何停用使用者登入？
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-1. 選取 [所有服務]  ，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
-1. 在  **Azure Active Directory** -  ***directoryname***窗格 （也就是 Azure AD 窗格為您管理的目錄），選取**企業應用程式**.
-1. 在 [**企業應用程式-所有應用程式**] 窗格中，您會看到一份可以管理的應用程式。 選取應用程式。
-1. 在 [appname] 窗格 (亦即標題中含有所選應用程式之名稱的窗格) 上，選取 [屬性]  。
-1. 在 [appname - 屬性]  窗格上，針對 [為使用者啟用登入?]  選取 [否]  。
-1. 選取 [儲存]  命令。
+1. 選取 [所有服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
+1. 在 [ **Azure Active Directory** -  ***directoryname*** ] 窗格（也就是您所管理之目錄的 [Azure AD] 窗格）上，選取 [**企業應用程式**]。
+1. 在 [**企業應用程式-所有應用程式**] 窗格中，您會看到一份您可以管理的應用程式清單。 選取應用程式。
+1. 在 [appname] 窗格 (亦即標題中含有所選應用程式之名稱的窗格) 上，選取 [屬性]。
+1. 在 [appname - 屬性] 窗格上，針對 [為使用者啟用登入?] 選取 [否]。
+1. 選取 [儲存] 命令。
+
+## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>使用 Azure AD PowerShell 來停用未列出的應用程式
+
+如果您知道不會出現在企業應用程式清單上的應用程式 AppId （例如，因為您已刪除應用程式，或由於 Microsoft 預先授權的應用程式而尚未建立服務主體），您可以手動建立的服務主體應用程式，然後使用[AzureAD PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0)將它停用。
+
+```PowerShell
+# The AppId of the app to be disabled
+$appId = "{AppId}"
+
+# Check if a service principal already exists for the app
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$appId'"
+if ($servicePrincipal) {
+    # Service principal exists already, disable it
+    Set-AzureADServicePrincipal -ObjectId $servicePrincipal.ObjectId -AccountEnabled $false
+} else {
+    # Service principal does not yet exist, create it and disable it at the same time
+    $servicePrincipal = New-AzureADServicePrincipal -AppId $appId -AccountEnabled $false
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

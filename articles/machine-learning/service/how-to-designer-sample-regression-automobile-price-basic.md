@@ -1,5 +1,5 @@
 ---
-title: '設計師範例 #1：預測價格的回歸'
+title: 設計工具：預測價格（回歸）
 titleSuffix: Azure Machine Learning
 description: 瞭解如何建立機器學習模型來預測汽車的價格，而不需要撰寫任何一行程式碼。
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 14b9f5fd1459ebd3341218a4ada14b16ddb4853f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515469"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647160"
 ---
 # <a name="sample-1---regression-predict-price"></a>範例 1-回歸：預測價格
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

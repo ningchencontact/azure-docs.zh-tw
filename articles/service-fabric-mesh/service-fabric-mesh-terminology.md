@@ -1,6 +1,6 @@
 ---
 title: 適用於 Azure Service Fabric Mesh 的術語 | Microsoft Docs
-description: 了解適用於 Azure Service Fabric Mesh 的常見詞彙。
+description: 本文詳細說明 Azure Service Fabric 網格所使用的術語，以協助您進一步瞭解檔中使用的詞彙。
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,16 +9,16 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 2d2661593ba3d9be2755d81803c8e248a2f7d0e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810597"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663017"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 術語
 
-Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。 本文詳細說明 Azure Service Fabric Mesh 所使用的術語，以利您了解文件中使用的詞彙。
+Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。 本文詳細說明 Azure Service Fabric 網格所使用的術語，以協助您進一步瞭解檔中使用的詞彙。
 
 ## <a name="service-fabric"></a>Service Fabric
 
@@ -72,15 +72,15 @@ Service Fabric 是一項開放原始碼平台技術，有數個不同的服務�
 
 | 應用程式類型 | 描述依據 | Azure Service Fabric Mesh | Azure Service Fabric 叢集 (任何 OS)| 本機叢集 | 獨立叢集 |
 |---|---|---|---|---|---|
-| Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | 支援 |不支援 | Windows - 支援，Linux 和 Mac - 不支援 | Windows - 不支援 |
-|Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | 不支援| 支援|支援|Windows - 支援|
+| Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | 支援的 |不支援 | Windows - 支援，Linux 和 Mac - 不支援 | Windows - 不支援 |
+|Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | 不支援| 支援的|支援的|Windows - 支援|
 
 下表針對 Service Fabric 描述不同的應用程式模型以及對應存在的工具。
 
 | 應用程式類型 | 描述依據 | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | VS 2017 |不支援 |不支援 | 支援 - 僅限 Mesh 環境 | 不支援|
-|Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | VS 2017 和 VS 2015| 支援|支援|支援|支援|
+|Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | VS 2017 和 VS 2015| 支援的|支援的|支援的|支援的|
 
 ## <a name="next-steps"></a>後續步驟
 

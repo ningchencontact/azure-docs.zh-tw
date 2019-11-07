@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 叫用 SSIS 套件 - 預存程序活動 | Microsoft Docs
+title: 使用 Azure Data Factory 預存程式活動叫用 SSIS 封裝
 description: 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 封裝。
 services: data-factory
 documentationcenter: ''
@@ -13,29 +13,29 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 030617d3afd73c68793ca0a1d6185264c92b791f
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f0a63db95d0948951ec98159af381e0a04ac91ff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839907"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666389"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用預存程序活動來叫用 SSIS 套件](../how-to-invoke-ssis-package-stored-procedure-activity.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用預存程序活動來叫用 SSIS 套件](../how-to-invoke-ssis-package-stored-procedure-activity.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 這篇文章中的逐步解說會使用裝載 SSIS 目錄的 Azure SQL 資料庫。 您也可以使用 Azure SQL Database 受控執行個體。
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>建立 Azure-SSIS 整合執行階段
-如果您還沒有依照中的逐步指示，請建立 Azure SSIS 整合執行階段[教學課程：將 SSIS 套件部署](../tutorial-create-azure-ssis-runtime-portal.md)。 您無法使用第 1 版的 Data Factory 來建立 Azure-SSIS 整合執行階段。 
+如果您未依照[教學課程：部署 SSIS 套件](../tutorial-create-azure-ssis-runtime-portal.md)中的逐步指示進行，請建立 Azure SSIS 整合執行階段。 您無法使用第 1 版的 Data Factory 來建立 Azure-SSIS 整合執行階段。 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-在本節中，您可以使用 Azure PowerShell 以叫用 SSIS 封裝的預存程序活動建立資料處理站管線。
+在此節中，您可以使用 Azure PowerShell 以建立具有會叫用 SSIS 套件之預存程序活動的 Data Factory 管線。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,7 +44,7 @@ ms.locfileid: "67839907"
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 下列程序提供建立資料處理站的步驟。 您會在此資料處理站中建立具有預存程序活動的管線。 預存程序活動會執行 SSISDB 資料庫中的預存程序來執行 SSIS 套件。
 
-1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如：`"adfrg"`。 
+1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如： `"adfrg"`。 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -66,7 +66,7 @@ ms.locfileid: "67839907"
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. 若要建立資料處理站，執行下列**新增 AzDataFactory** cmdlet，並使用 Location 和 ResourceGroupName 屬性從 $ResGrp 變數： 
+5. 若要建立資料處理站，請使用 $ResGrp 變數中的 Location 和 ResourceGroupName 屬性，執行下列**new-azdatafactory** Cmdlet： 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -82,7 +82,7 @@ ms.locfileid: "67839907"
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為**參與者**或**擁有者**角色，或是 Azure 訂用帳戶的**管理員**。
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務
-建立連結服務，將主控 SSIS 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連線到 SSISDB 資料庫，並執行預存程序來執行 SSIS 套件。 
+建立連結服務，將裝載 SSI 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連線到 SSISDB 資料庫，並執行預存程序來執行 SSIS 套件。 
 
 1. 使用下列內容，在 **C:\ADF\RunSSISPackage** 資料夾中建立名為 **AzureSqlDatabaseLinkedService.json** 的 JSON 檔案： 
 
@@ -101,7 +101,7 @@ ms.locfileid: "67839907"
         }
     ```
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
-3. 執行 **New-AzDataFactoryLinkedService** Cmdlet 來建立連結服務：**AzureSqlDatabaseLinkedService**。 
+3. 執行**AzDataFactoryLinkedService** Cmdlet 來建立連結服務： **AzureSqlDatabaseLinkedService**。 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -126,7 +126,7 @@ ms.locfileid: "67839907"
         }
     }
     ```
-2. 執行**新增 AzDataFactoryDataset** cmdlet 來建立資料集。 
+2. 執行**AzDataFactoryDataset** Cmdlet 來建立資料集。 
 
     ```powershell
     New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -168,7 +168,7 @@ ms.locfileid: "67839907"
     }    
     ```
 
-2. 若要建立管線：**RunSSISPackagePipeline**，請執行**新增 AzDataFactoryPipeline** cmdlet。
+2. 若要建立管線： **RunSSISPackagePipeline**，請執行**AzDataFactoryPipeline** Cmdlet。
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -176,7 +176,7 @@ ms.locfileid: "67839907"
 
 ### <a name="monitor-the-pipeline-run"></a>監視管道執行
 
-1. 執行**Get AzDataFactorySlice**以取得詳細的輸出資料集 * *，也就是管線的輸出資料表的所有配量。
+1. 執行**AzDataFactorySlice**以取得輸出資料集的所有配量的詳細資料 * *，這是管線的輸出資料表。
 
     ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
@@ -190,7 +190,7 @@ ms.locfileid: "67839907"
 
     您可以繼續執行此 Cmdlet 直到您看到配量處於**就緒**狀態或**失敗**狀態。 
 
-    您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列查詢，確認已執行套件。 
+    您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列查詢，確認已執行封裝。 
 
     ```sql
     select * from catalog.executions

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Impala 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Impala 複製資料
 description: 了解如何使用資料處理站管線中的複製活動，將資料從 Impala 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 54f46c09cfab64d53e8f5f503ca46004289f18c2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4fa43246278c33755f6a8a5b62f914689e6e9b40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935558"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680792"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Impala 複製資料
 

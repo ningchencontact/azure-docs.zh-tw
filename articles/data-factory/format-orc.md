@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的 ORC 格式 |Microsoft Docs
+title: Azure Data Factory 中的 ORC 格式
 description: 本主題說明如何處理 Azure Data Factory 中的 ORC 格式。
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: beff81b7e8d207a2173497d039b915b7614fc30e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a5125b53d960ddead063435666de5b26ce0bc291
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952273"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674768"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory 中的 ORC 格式
 
@@ -26,10 +26,10 @@ ms.locfileid: "72952273"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 ORC 資料集所支援的屬性清單。
 
-| 屬性         | 描述                                                  | 必要項 |
+| 屬性         | 說明                                                  | 必要 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | 類型             | 資料集的類型屬性必須設定為**Orc**。 | 是      |
-| location         | 檔案的位置設定。 每個以檔案為基礎的連接器都有自己的位置類型，且支援的屬性 `location`。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
+| location         | 檔案的位置設定。 每個以檔案為基礎的連接器在 `location`之下都有自己的位置類型和支援的屬性。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
 
 以下是 Azure Blob 儲存體上的 ORC 資料集範例：
 
@@ -66,21 +66,21 @@ ms.locfileid: "72952273"
 
 ### <a name="orc-as-source"></a>ORC 作為來源
 
-複製活動***\*來源\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | 類型          | 複製活動來源的類型屬性必須設定為**OrcSource**。 | 是      |
-| storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings` 之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
+| storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings`之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 ### <a name="orc-as-sink"></a>ORC 作為接收
 
-複製活動***\*接收\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | 類型          | 複製活動來源的類型屬性必須設定為**OrcSink**。 | 是      |
-| storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings` 之下都有自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
+| storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings`之下都有它自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>使用自我裝載的 Integration Runtime
 

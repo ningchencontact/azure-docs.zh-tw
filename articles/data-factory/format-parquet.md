@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的 Parquet 格式 |Microsoft Docs
+title: Azure Data Factory 中的 Parquet 格式
 description: 本主題說明如何處理 Azure Data Factory 中的 Parquet 格式。
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9047e82713b709027275c75b17eb955877c62f08
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387713"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674776"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory 中的 Parquet 格式
 
@@ -26,10 +26,10 @@ ms.locfileid: "72387713"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Parquet 資料集所支援的屬性清單。
 
-| 屬性         | 描述                                                  | 必要項 |
+| 屬性         | 說明                                                  | 必要 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | 類型             | 資料集的類型屬性必須設定為**Parquet**。 | 是      |
-| location         | 檔案的位置設定。 每個以檔案為基礎的連接器都有自己的位置類型，且支援的屬性 `location`。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
+| location         | 檔案的位置設定。 每個以檔案為基礎的連接器在 `location`之下都有自己的位置類型和支援的屬性。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
 | compressionCodec | 寫入 Parquet 檔案時要使用的壓縮編解碼器。 從 Parquet 檔案讀取時，Data Factory 會根據檔案中繼資料自動決定壓縮編解碼器。<br>支援的類型為 "**none**"、"**gzip**"、"**snappy**" （預設值）和 "**lzo**"。 注意：目前的複製活動不支援 LZO。 | 否       |
 
 > [!NOTE]
@@ -65,21 +65,21 @@ ms.locfileid: "72387713"
 
 ### <a name="parquet-as-source"></a>Parquet 作為來源
 
-複製活動***\*source @ no__t-2***一節支援下列屬性。
+以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | 類型          | 複製活動來源的類型屬性必須設定為**ParquetSource**。 | 是      |
-| storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings` 之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
+| storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings`之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 ### <a name="parquet-as-sink"></a>Parquet 作為接收
 
-複製活動***\*sink @ no__t-2***一節支援下列屬性。
+以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | 類型          | 複製活動來源的類型屬性必須設定為**ParquetSink**。 | 是      |
-| storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings` 之下都有自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
+| storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings`之下都有它自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 

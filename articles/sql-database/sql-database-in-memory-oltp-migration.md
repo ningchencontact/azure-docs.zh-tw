@@ -1,5 +1,5 @@
 ---
-title: In-Memory OLTP 可改善 SQL 交易效能 | Microsoft Docs
+title: 記憶體內部 OLTP 改善 SQL txn 效能
 description: 採用記憶體內部 OLTP 來改善現有 SQL Database 的交易效能。
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: e869b2bba3bd64b58d9063e9445889ef709efdc3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82b24b51a103d31bf20bbb7a9fc304095be523d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567942"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689833"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
 
-在[進階和業務關鍵層](sql-database-service-tiers-vcore.md)資料庫中，[記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 
+在[進階和業務關鍵層](sql-database-in-memory.md)資料庫中，[記憶體內部 OLTP](sql-database-service-tiers-vcore.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 
 
 > [!NOTE] 
 > [了解仲裁如何透過 SQL Database 讓重要資料庫的工作負載加倍，同時降低 70% 的 DTU](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -28,7 +28,7 @@ ms.locfileid: "68567942"
 
 請依照下列步驟，在您現有的資料庫中採用 In-Memory OLTP。
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>步驟 1:確定您使用進階和業務關鍵層資料庫
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>步驟 1︰確定您使用進階和業務關鍵層資料庫
 
 只有進階和業務關鍵層資料庫支援記憶體內部 OLTP。 如果傳回的結果為 1 (不是 0)，則支援 In-Memory：
 
@@ -40,7 +40,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>步驟 2:識別要遷移到 In-Memory OLTP 的物件
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>步驟 2：識別要移轉至 In-Memory OLTP 的物件
 SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易效能分析概觀] 報告。 此報告會識別要移轉至 In-Memory OLTP 的候選資料表和預存程序。
 
 在 SSMS 中，若要產生報告︰
@@ -66,7 +66,7 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>步驟 4：遷移資料表
+## <a name="step-4-migrate-tables"></a>步驟 4：移轉資料表
 您必須建立並填入您想要測試之資料表的記憶體最佳化複本。 您可以使用下列其中一種方式加以建立：
 
 * SSMS 中好用的記憶體最佳化精靈。
@@ -106,7 +106,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>步驟 5 (選用)：遷移預存程序
+## <a name="step-5-optional-migrate-stored-procedures"></a>步驟 5 (選擇性)：移轉預存程序
 In-Memory 功能也可以修改預存程序，以改善效能。
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>原生編譯預存程序的考量

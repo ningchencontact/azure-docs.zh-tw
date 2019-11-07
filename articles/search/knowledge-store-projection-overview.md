@@ -1,25 +1,24 @@
 ---
 title: 在知識存放區中使用投影（預覽）
 titleSuffix: Azure Cognitive Search
-description: 儲存並塑造來自 AI 擴充索引管線的擴充資料，以用於全文檢索搜尋以外的案例。
+description: 儲存 AI 擴充索引管線中的擴充資料，並將其塑造到知識存放區，以供全文檢索搜尋以外的案例使用。 知識存放區目前為公開預覽狀態。
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8e6c285e8917c4224e2007c565d5ac5447b20853
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790009"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720033"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>在 Azure 認知搜尋中使用知識存放區中的投影
 
-> [!Note]
-> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前 .NET SDK 入口網站並不支援此功能。
->
+> [!IMPORTANT] 
+> 知識存放區目前為公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前有有限的入口網站支援，而且沒有 .NET SDK 支援。
 
 Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充內容，做為編制索引的一部分。 擴充將結構新增至您的檔，並讓搜尋更有效率。 在許多情況下，擴充的檔適用于搜尋以外的案例，例如知識發掘。
 
