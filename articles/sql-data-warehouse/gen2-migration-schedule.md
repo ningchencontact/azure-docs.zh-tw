@@ -1,5 +1,5 @@
 ---
-title: 將現有 Azure SQL 資料倉儲遷移至 Gen2 | Microsoft Docs
+title: 將您的資料倉儲遷移至 Gen2
 description: 將現有資料倉儲遷移至 Gen 2 的指示和各區域的移轉排程。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,18 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900312"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693031"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>將您的資料倉儲升級為 Gen2
 
 Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低的計算層能夠處理需求最高的查詢，現已可供 Azure SQL 資料倉儲。 閱讀 Gen2 的完整公告[較低的計算層支援](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)。 新的供應專案適用于下表所述的區域。 在支援的區域中，現有 Gen1 資料倉儲可以透過下列方式升級至 Gen2：
 
-- **自動升級程序：** 在區域中提供服務時，自動升級不會立即啟動。  在特定區域中啟動自動升級時，個別的 DW 升級會在您選取的維護排程期間進行。
+- **自動升級程式：** 在區域中提供服務時，自動升級不會立即啟動。  在特定區域中啟動自動升級時，個別的 DW 升級會在您選取的維護排程期間進行。
 - [**自我升級至 Gen2：** ](#self-upgrade-to-gen2)您可以執行自我升級至 Gen2，以控制升級的時機。 如果您的區域尚不受支援，您可以從還原點直接還原至支援區域中的 Gen2 實例。
 
 ## <a name="automated-schedule-and-region-availability-table"></a>自動化排程和國家可用性表格
@@ -32,7 +33,7 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 
 | **區域** | **可用的較低 Gen2** | **自動升級開始** |
 |:--- |:--- |:--- |
-| 澳大利亞東部 |可用 |完成 |
+| 澳洲東部 |可用 |完成 |
 | 澳大利亞東南部 |可用 |完成 |
 | 巴西南部 |可用 |完成 |
 | 加拿大中部 |可用 |完成 |
@@ -43,7 +44,7 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 | 中國北部 |\* |\* |
 | 中國北部 2 |可用 |完成 |
 | 東亞 |可用 |完成 |
-| East US |可用 |完成 |
+| 美國東部 |可用 |完成 |
 | 美國東部 2 |可用 |完成 |
 | 法國中部 |可用 |進行中 |
 | 德國中部 |\* |\* |
@@ -88,8 +89,8 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 - [就地升級](upgrade-to-latest-generation.md) - 這個選項會將您現有的 Gen1 資料倉儲升級至 Gen2。 當我們重新開機您的資料倉儲時，升級程式會包含連線的短暫下降（大約5分鐘）。  重新啟動後，您的資料倉儲就會完全可供使用。 如果您在升級期間遇到問題，請開啟[支援要求](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，並參考「Gen2 升級」做為可能的原因。
 - [從還原點升級](sql-data-warehouse-restore.md) - 在目前的 Gen1 資料倉儲上建立使用者定義的還原點，然後直接還原到 Gen2 執行個體。 現有的 Gen1 資料倉儲會保持原狀。 完成還原後，您的 Gen2 資料倉儲就會完全可供使用。  在已還原的 Gen2 執行個體上執行所有測試和驗證程序之後，才能刪除原始的 Gen1 執行個體。
 
-   - 步驟 1:從 Azure 入口網站，[建立使用者定義的還原點](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)。
-   - 步驟 2:從使用者定義的還原點還原時，將「效能層級」設定為您慣用的 Gen2 層。
+   - 步驟1：從 Azure 入口網站[建立使用者定義的還原點](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)。
+   - 步驟2：從使用者定義的還原點還原時，將「效能層級」設定為您慣用的 Gen2 層。
 
 當升級程序繼續在背景中升級資料檔案時，您可能會遇到效能降低的期間。 效能降低的總時間會因您的資料檔案大小而有所不同。
 
@@ -104,15 +105,15 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 
 ## <a name="migration-frequently-asked-questions"></a>移轉常見問題集
 
-**問：Gen2 與 Gen1 的成本相同嗎？**
+**問： Gen2 成本與 Gen1 相同嗎？**
 
-- 答：是的。
+- 答： 會。
 
-**問：升級會如何影響我的自動化指令碼？**
+**問：升級會如何影響我的自動化腳本？**
 
-- 答：任何參考服務等級目標的自動化指令碼都應該變更為對應至 Gen2 對等項目。  請參閱[這裡](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal)的詳細資料。
+- 答：參考服務等級目標的任何自動化腳本都應該變更為對應至 Gen2 對等的。  請參閱[這裡](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal)的詳細資料。
 
-**問：自我升級通常需要花費多久時間？**
+**問：自我升級通常需要多久的時間？**
 
 - 答：您可以就地升級或從還原點升級。  
    - 就地升級會導致資料倉儲短暫地暫停和繼續。  資料倉儲上線時，就會繼續進行背景程序。  
@@ -120,33 +121,33 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 
 **問：自動升級需要多久時間？**
 
-- 答：升級的實際停機時間就只是暫停並繼續服務所需的時間，這介於 5 到 10 分鐘。 在短暫的停機之後，背景程序會執行儲存體移轉。 背景程序的時間長度取決於您的資料倉儲大小。
+- 答：升級的實際停機時間只是暫停和繼續服務所花費的時間，這是介於5到10分鐘之間。 在短暫的停機之後，背景程序會執行儲存體移轉。 背景程序的時間長度取決於您的資料倉儲大小。
 
-**問：此自動升級何時會進行？**
+**問：這個自動升級何時會發生？**
 
-- 答：在您的維護排程期間。 運用您選擇的維護排程會盡可能不中斷您的業務。
+- 答：您的維護排程期間。 運用您選擇的維護排程會盡可能不中斷您的業務。
 
-**問：如果背景升級程序似乎停滯，我該怎麼辦？**
+**問：如果我的背景升級程式似乎停滯，該怎麼辦？**
 
- - 答：開始重新編製資料行存放區資料表的索引。 請注意，在此作業期間，重新編製資料表的索引將會離線進行。
+ - 答：啟動資料行存放區資料表的重新索引。 請注意，在此作業期間，重新編製資料表的索引將會離線進行。
 
-**問：如果 Gen2 沒有我在 Gen1 上擁有的服務等級目標，該怎麼辦？**
-- 答：如果您在 Gen1 上執行 DW600 或 DW1200，建議分別使用 DW500c 或 DW1000c，因為 Gen2 提供比 Gen1 更多的記憶體、資源和更高的效能。
+**問：如果 Gen2 沒有我在 Gen1 上的服務等級目標，該怎麼辦？**
+- 答：如果您在 Gen1 上執行 DW600 或 DW1200，建議您分別使用 DW500c 或 DW1000c，因為 Gen2 提供比 Gen1 更多的記憶體、資源和更高的效能。
 
-**問：可以停用異地備份嗎？**
-- 答：資料分割 異地備份是企業版功能，可在區域變得無法使用時，保留您的資料倉儲可用性。 如果您有進一步考量，請開啟[支援要求](sql-data-warehouse-get-started-create-support-ticket.md)。
+**問：我可以停用異地備份嗎？**
+- 答：沒有。 異地備份是企業版功能，可在區域變得無法使用時，保留您的資料倉儲可用性。 如果您有進一步考量，請開啟[支援要求](sql-data-warehouse-get-started-create-support-ticket.md)。
 
-**問：Gen1 與 Gen2 之間的 T-SQL 語法有差異嗎？**
+**問： Gen1 與 Gen2 之間的 T-sql 語法有何差異？**
 
-- 答：Gen1 與 Gen2 之間的 T-SQL 語言語法沒有任何變更。
+- 答：從 Gen1 到 Gen2 的 T-sql 語言語法不會有任何變更。
 
-**問：Gen2 是否支援維護時段？**
+**問： Gen2 是否支援維護時段？**
 
-- 答：是的。
+- 答： 會。
 
-**問：在我的區域升級之後，我可以建立新的 Gen1 執行個體嗎？**
+**問：我的區域升級後是否能夠建立新的 Gen1 實例？**
 
-- 答：資料分割 在區域升級之後，新 Gen1 執行個體的建立將會停用。
+- 答：沒有。 在區域升級之後，新 Gen1 執行個體的建立將會停用。
 
 ## <a name="next-steps"></a>後續步驟
 

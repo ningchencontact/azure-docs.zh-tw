@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 3f619caf7e2713e1c9251550b06c8bdefba5936f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 1854599956755716955a6e691c3266ac54ddafd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493386"
+ms.locfileid: "73581556"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>教學課程：從 CLI 訓練和部署模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -183,7 +183,7 @@ az ml folder attach -w <workspace-name> -g <resource-group-name>
 
 ## <a name="create-the-compute-target-for-training"></a>建立用於定型的計算目標
 
-這個範例會使用 Azure Machine Learning 計算叢集來定型模型。 若要建立新的計算叢集，請使用下列命令：
+這個範例會使用 Azure Machine Learning 筆記本 VM 來定型模型。 若要建立新的筆記本 VM，請使用下列命令：
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -239,7 +239,7 @@ Cleaning up all outstanding Run operations, waiting 300.0 seconds
 
 如果您檢查 `train-sklearn.py`，您會發現它也會在將定型的模型儲存至檔案時，使用 Alpha 值。 在此情況下，它會訓練數個模型。 具有最高 Alpha 的人應該是最棒的一個。 查看上述輸出和程式碼，Alpha 為0.95 的模型會儲存為 `./outputs/ridge_0.95.pkl`
 
-模型已儲存至已定型之計算目標上的 `./outputs` 目錄。 在此情況下，會在 Azure 雲端中 Azure Machine Learning 計算實例。 定型程式會自動將 `./outputs` 目錄的內容，從進行定型的計算目標上傳到您的 Azure Machine Learning 工作區。 它會儲存為實驗的一部分（在此範例中`myexperiment`）。
+模型已儲存至已定型之計算目標上的 `./outputs` 目錄。 在此情況下，Azure 雲端中的 Azure Machine Learning 筆記本 VM。 定型程式會自動將 `./outputs` 目錄的內容，從進行定型的計算目標上傳到您的 Azure Machine Learning 工作區。 它會儲存為實驗的一部分（在此範例中`myexperiment`）。
 
 ## <a name="register-the-model"></a>註冊模型
 

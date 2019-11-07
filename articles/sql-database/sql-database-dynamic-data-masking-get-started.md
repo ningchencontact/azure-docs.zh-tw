@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 和資料倉儲的動態資料遮罩 |Microsoft 檔
+title: Azure SQL Database 和資料倉儲的動態資料遮罩
 description: 動態資料遮罩會對 SQL Database 和資料倉儲的非特殊許可權使用者遮罩敏感性資料，以限制其曝光
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: e36e91330232a90ff51cf92ce8dc920b51e2d914
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: dc0eab6aa45a943841d19a3aec2eddf4ab22d75d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690552"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 和資料倉儲的動態資料遮罩
 
@@ -42,7 +42,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 | 遮罩函數 | 遮罩邏輯 |
 | --- | --- |
-| **預設值** |**根據指定欄位的資料類型進行完整遮罩**<br/><br/>• 如果字串資料類型的欄位大小少於 4 個字元 (nchar、ntext、nvarchar)，請使用 XXXX 或更少 X。<br/>• 針對數值資料類型 (bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real)，使用零值。<br/>• 針對日期/時間資料類型 (date、datetime2、datetime、datetimeoffset、smalldatetime、time)，使用 01-01-1900 時間。<br/>• 對於 SQL 變數，會使用目前類型的預設值。<br/>•針對 XML，會使用 0masked/> 檔 @no__t。<br/>• 針對特殊資料類型 (時間戳記、資料表、hierarchyid、GUID、二進位值、影像、varbinary spatial 類型)，使用空值。 |
+| **預設值** |**根據指定欄位的資料類型進行完整遮罩**<br/><br/>• 如果字串資料類型的欄位大小少於 4 個字元 (nchar、ntext、nvarchar)，請使用 XXXX 或更少 X。<br/>• 針對數值資料類型 (bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real)，使用零值。<br/>• 針對日期/時間資料類型 (date、datetime2、datetime、datetimeoffset、smalldatetime、time)，使用 01-01-1900 時間。<br/>• 對於 SQL 變數，會使用目前類型的預設值。<br/>•針對 XML，會使用 \<遮罩/> 的檔。<br/>• 針對特殊資料類型 (時間戳記、資料表、hierarchyid、GUID、二進位值、影像、varbinary spatial 類型)，使用空值。 |
 | **信用卡** |**遮罩方法會公開指定欄位的末四碼**，並新增常數字串做為信用卡格式的前置詞。<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **電子郵件** |**遮罩方法會公開第一個字母並以 XXX.com 取代網域**，使用的常數字串前置詞會以電子郵件地址為格式。<br/><br/>aXX@XXXX.com |
 | **隨機數字** |**遮罩方法會產生一個隨機數字**，其根據為選取的界限與實際資料類型。 如果指定的邊界相等，則遮罩函數是常數。<br/><br/>![導覽窗格](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |

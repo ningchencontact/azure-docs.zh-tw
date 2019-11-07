@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure SQL Database 服務？ | Microsoft Docs
+title: 什麼是 Azure SQL Database 服務？
 description: 取得 SQL Database 的簡介：雲端中 Microsoft 關係資料庫管理系統（RDBMS）的技術詳細資料和功能。
 keywords: sql 簡介,sql 簡介,什麼是 sql database
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066270"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687018"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？
 
@@ -25,7 +25,7 @@ Azure SQL Database 是一般用途的關係資料庫，以受控服務形式提�
 
 它是以[Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)的最新穩定版本為基礎。 您可以使用先進的查詢處理功能，例如[高效能的記憶體內部技術](sql-database-in-memory.md)和[智慧型查詢處理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json)。 事實上，SQL Server 的最新功能會先發行至 SQL Database，然後再 SQL Server 本身。 您可以取得最新的 SQL Server 功能，而不需額外的修補或升級，即可跨數百萬個資料庫進行測試。 
 
-SQL Database 可讓您在兩種不同的購買模型內輕鬆定義和調整效能: 以[vCore 為基礎的購買](sql-database-service-tiers-vcore.md)模型和以 DTU 為基礎的[購買模型](sql-database-service-tiers-dtu.md)。 SQL Database 是完全受控的服務，具有內建的高可用性、備份和其他常見的維護作業。 Microsoft 會處理所有的 SQL 和作業系統程式碼修補和更新。 您不需要管理基礎結構。
+SQL Database 可讓您在兩種不同的購買模型內輕鬆定義和調整效能：以[vCore 為基礎的購買](sql-database-service-tiers-vcore.md)模型和以 DTU 為基礎的[購買模型](sql-database-service-tiers-dtu.md)。 SQL Database 是完全受控的服務，具有內建的高可用性、備份和其他常見的維護作業。 Microsoft 會處理所有的 SQL 和作業系統程式碼修補和更新。 您不需要管理基礎結構。
 
 > [!NOTE]
 > 如需相關的詞彙及其定義，請參閱[SQL Database 詞彙詞彙](sql-database-glossary-terms.md)。
@@ -48,7 +48,7 @@ SQL Database 提供多個資源類型、服務層級和計算大小的可預測�
 ## <a name="scalable-performance-and-pools"></a>可擴充的效能和集區
 
 您可以定義指派的資源數量。 
-- 使用單一資料庫時，每個資料庫會與其他資料庫隔離，而且可移植。 每個都有自己保證的計算、記憶體和儲存體資源量。 指派給資料庫的資源數量專門用於該資料庫，而且不會與 Azure 中的其他資料庫共用。 您可以動態地相應增加或相應減少[單一資料庫資源](sql-database-single-database-scale.md)。 單一資料庫選項會針對不同的需求提供不同的計算、記憶體和儲存體資源。 例如，您可以從1到80虛擬核心，或 32 GB 到 4 TB。 單一資料庫的[超大規模資料庫服務層級](sql-database-service-tier-hyperscale.md)可讓您使用快速的備份和還原功能, 調整為 100 TB。
+- 使用單一資料庫時，每個資料庫會與其他資料庫隔離，而且可移植。 每個都有自己保證的計算、記憶體和儲存體資源量。 指派給資料庫的資源數量專門用於該資料庫，而且不會與 Azure 中的其他資料庫共用。 您可以動態地相應增加或相應減少[單一資料庫資源](sql-database-single-database-scale.md)。 單一資料庫選項會針對不同的需求提供不同的計算、記憶體和儲存體資源。 例如，您可以從1到80虛擬核心，或 32 GB 到 4 TB。 單一資料庫的[超大規模資料庫服務層級](sql-database-service-tier-hyperscale.md)可讓您使用快速的備份和還原功能，調整為 100 TB。
 - 有了彈性集區，您就可以指派由集區中的所有資料庫共用的資源。 您可以建立新的資料庫，或將現有的單一資料庫移至資源集區，以充分利用資源並節省成本。 此選項也可讓您以動態方式向上和向下[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 使用受控執行個體，每個執行個體會利用保證的資源與其他執行個體隔離。 在受控實例內，實例資料庫會共用一組資源。 您可以動態[擴充受控實例資源](sql-database-managed-instance-resource-limits.md)。
 
@@ -99,8 +99,8 @@ Azure SQL Database 提供先進的監視和疑難排解功能，可協助您取�
 
 Azure 提供[內建的效能監視](sql-database-performance.md)和[警示](sql-database-insights-alerts-portal.md)工具，並結合效能評等，讓您監視上千個資料庫的狀態。 使用這些工具，您可以根據目前或預測的效能需求，快速評估相應增加或減少的影響。 此外，SQL Database 可以[發出計量和診斷記錄](sql-database-metrics-diag-logging.md)以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
 
-- **Azure 儲存體**：用於封存大量遙測，價格較小。
-- **Azure 事件中樞**：用於整合 SQL Database 遙測與您的自訂監視解決方案或熱門管線。
+- **Azure 儲存體**：用於封存大量遙測，價格實惠。
+- **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或熱門管線。
 - **Azure 監視器記錄**：適用于具有報告、警示及緩和功能的內建監視解決方案。
 
 ![Azure 監視架構的圖表](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -117,7 +117,7 @@ Azure 可用性區域會嘗試防止在單一區域內建立單一資料中心�
 
 事實上，Azure 的服務等級協定[（SLA）](https://azure.microsoft.com/support/legal/sla/)是由 Microsoft 管理的全球資料中心網路所提供，可協助讓您的應用程式執行24/7。 Azure 平臺可完全管理每個資料庫，並保證不會遺失資料，也不會有高百分比的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 藉由整合單一節點上的計算和儲存以取得效能，然後執行類似于 Always On 可用性群組的技術，即可達成高階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 
 
-此外，SQL Database 提供內建的[商務持續性和全球擴充性](sql-database-business-continuity.md)功能。 它們包括：
+此外，SQL Database 提供內建的[商務持續性和全球擴充性](sql-database-business-continuity.md)功能。 這些區域包括：
 
 - [自動備份](sql-database-automated-backups.md)：
 
@@ -146,14 +146,14 @@ SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database �
 
 不過，持續監控資料庫是一項困難又繁瑣的工作，特別是在處理許多資料庫時。 [Intelligent Insights](sql-database-intelligent-insights.md)會自動監視大規模的 SQL Database 效能，為您執行這項工作。 它會通知您效能降低的問題，它會識別每個問題的根本原因，並盡可能提供效能改進建議。
 
-即使使用 SQL Database 和 Azure 提供的所有可用工具和報告，也可能無法有效率地管理大量資料庫。 您可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database，而不是手動監視和調整資料庫。 SQL Database 會自動套用建議、測試及驗證其每個調整動作, 以確保效能持續提升。 如此一來，SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每次調整動作前後，會仔細監視資料庫的效能並進行比較。 如果效能沒有改善，則會還原調整動作。
+即使使用 SQL Database 和 Azure 提供的所有可用工具和報告，也可能無法有效率地管理大量資料庫。 您可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database，而不是手動監視和調整資料庫。 SQL Database 會自動套用建議、測試及驗證其每個調整動作，以確保效能持續提升。 如此一來，SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每次調整動作前後，會仔細監視資料庫的效能並進行比較。 如果效能沒有改善，則會還原調整動作。
 
 在 SQL Database 上執行[SaaS 多租使用者應用程式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的許多合作夥伴都依賴自動效能微調，以確保其應用程式一律具有穩定且可預測的效能。 對他們而言，這項功能可大幅降低夜間發生效能事件的風險。 此外，因為其部分客戶基底也使用 SQL Server，所以他們會使用 SQL Database 所提供的相同索引建議來協助其 SQL Server 客戶。
 
 [SQL Database 提供](sql-database-automatic-tuning.md)兩個自動調整的層面：
 
-- **自動索引管理**：識別應加入您資料庫的索引，以及應移除的索引。
-- **自動計劃修正**：識別有問題的計畫並修正 SQL 計畫效能問題。
+- **自動索引管理**：識別應該在資料庫中新增的索引，以及應該移除的索引。
+- **自動計畫更正**：識別有問題的計畫並修正 SQL 計畫效能問題。
 
 ### <a name="adaptive-query-processing"></a>自適性查詢處理
 
@@ -221,7 +221,7 @@ SQL Database 支援在 macOS、Linux 和 Windows 上使用 Python、JAVA、node.
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>我可以控制何時發生修補停機？
 
-資料分割 如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，修補的影響通常不明顯。 如需詳細資訊，請參閱[在 Azure SQL Database 中規劃 Azure 維護事件](sql-database-planned-maintenance.md)。
+不會。 如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，修補的影響通常不明顯。 如需詳細資訊，請參閱[在 Azure SQL Database 中規劃 Azure 維護事件](sql-database-planned-maintenance.md)。
 
 ### <a name="azure-hybrid-benefit-questions"></a>Azure Hybrid Benefit 問題
 
@@ -250,10 +250,10 @@ SQL Database 客戶具有與 SQL Server Azure Hybrid Benefit 相關聯的下列�
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>洽詢 SQL Server 工程團隊
 
-- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server) \(英文\)：詢問資料庫管理問題。
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server) \(英文\)：詢問開發問題。
+- [DBA Stack 交換](https://dba.stackexchange.com/questions/tagged/sql-server)：詢問資料庫管理問題。
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server)：詢問開發問題。
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?category=sqlserver)：詢問技術問題。
-- [意見反應](https://aka.ms/sqlfeedback)：報告錯誤和要求功能。
+- [意見](https://aka.ms/sqlfeedback)反應：報告錯誤和要求功能。
 - [Reddit](https://www.reddit.com/r/SQLServer/)：討論 SQL Server。
 
 ## <a name="next-steps"></a>後續步驟

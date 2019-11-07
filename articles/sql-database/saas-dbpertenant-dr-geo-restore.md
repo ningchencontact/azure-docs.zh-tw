@@ -1,5 +1,5 @@
 ---
-title: SaaS 應用程式：用於災害復原的 Azure SQL Database 異地備援備份 | Microsoft Docs
+title: 'SaaS 應用程式： Azure SQL Database 用於嚴重損壞修復的異地冗余備份 '
 description: 了解在發生中斷的狀況時，如何使用 Azure SQL Database 異地備援備份來復原多租用戶 SaaS 應用程式
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f058a5cd20fff845a1feafe42b66beb1afef766
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570503"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692206"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用異地還原從資料庫備份復原多租用戶 SaaS 應用程式
 
@@ -57,7 +57,7 @@ ms.locfileid: "68570503"
  * 在中斷問題解決之後，將資料庫回復至其原始區域，對租用戶的影響最小。  
 
 > [!NOTE]
-> 應用程式會復原到部署應用程式所在區域的配對的區域中。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。   
+> 應用程式會復原到部署應用程式所在區域的配對的區域中。 如需詳細資訊，請參閱 [Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。   
 
 本教學課程會使用 Azure SQL Database 和 Azure 平台的功能來因應下列挑戰：
 
@@ -79,7 +79,7 @@ ms.locfileid: "68570503"
 ## <a name="review-the-healthy-state-of-the-application"></a>檢視應用程式的健康狀態
 在開始進行復原程序之前，請先查看應用程式的正常健康狀態。
 
-1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net，將 &lt; user&gt; 取代為部署的使用者值)。
+1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net，將 &lt;user&gt; 取代為部署的使用者值)。
     
    捲動至頁面底部，並查看頁尾處的目錄伺服器名稱和位置。 此位置是您部署應用程式的區域。    
 
@@ -148,7 +148,7 @@ ms.locfileid: "68570503"
 
     區域內發生中斷，可能會對配對區域內的可用資源造成顯著壓力。 如果您依賴 DR 的異地還原，則建議您立即保留資源。 如果在特定區域中還原應用程式極為重要，請考慮使用異地複寫。 
 
-8. 啟用復原區域中的 Web 應用程式的流量管理員端點。 啟用此端點可讓應用程式佈建至新的租用戶。 在此階段中，現有的租用戶仍處於離線狀態。
+8. 啟用復原區域中的 Web 應用程式的流量管理員端點。 啟用此端點可讓應用程式佈建新的租用戶。 在此階段中，現有的租用戶仍處於離線狀態。
 
 9. 提交批次要求，以依照優先順序還原資料庫。 
 
@@ -160,7 +160,7 @@ ms.locfileid: "68570503"
 
 10. 監視 SQL Database 服務以判斷資料庫在何時進行還原。 還原租用戶資料庫之後，會在目錄中將它標示為上線，並且會記錄租用戶資料庫的 rowversion 總和。 
 
-    * 租用戶資料庫在目錄中標示為「已上線」後，即可供應用程式存取。
+    * 租用戶資料庫在目錄中標示為上線後，即可供應用程式存取。
 
     * 租用戶資料庫中的 rowversion 值的總和會儲存在目錄中。 此總和會作為指紋，以允許回復程序判斷資料庫是否已在復原區域中更新。       
 
@@ -179,7 +179,7 @@ ms.locfileid: "68570503"
 
     * 此指令碼會在新的 PowerShell 視窗中開啟，然後啟動一組平行執行的 PowerShell 作業。 這些作業會將伺服器、集區和資料庫還原到復原區域。
 
-    * 復原區域是與您的應用程式部署所在的 Azure 區域相關聯的配對區域。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
+    * 復原區域是與您的應用程式部署所在的 Azure 區域相關聯的配對區域。 如需詳細資訊，請參閱 [Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
 
 3. 在 PowerShell 視窗中監視復原程序的狀態。
 
@@ -199,7 +199,7 @@ ms.locfileid: "68570503"
  
     ![復原程序](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * 如果您在租用戶離線時直接開啟租用戶的 [事件] 頁面，該頁面會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall。
+  * 如果您在租用戶離線時直接開啟租用戶的 [事件] 頁面，該頁面會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall。
 
     ![復原程序](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -265,7 +265,7 @@ ms.locfileid: "68570503"
 
 3. 若要執行此指令碼，請選取 F5。
 
-4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall) 並注意已缺少事件 Seriously Strauss。
+4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall) 並注意已缺少事件 Seriously Strauss。
 
 在此時的教學課程中，您已復原應用程式，該應用程式現在正在復原區域中執行。 您已在復原區域中佈建一個新租用戶，而且修改其中一個已還原租用戶的資料。  
 
@@ -329,7 +329,7 @@ ms.locfileid: "68570503"
 
     若要在新的 PowerShell 視窗中執行復原指令碼，請選取 F5。 回復需要幾分鐘的時間，您可以在 PowerShell 視窗中加以監視。
 
-3. 在指令碼執行時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)。
+3. 在指令碼執行時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)。
 
     留意到在這整個程序中，所有租用戶皆處於線上狀態，且可供存取。
 
@@ -364,7 +364,7 @@ ms.locfileid: "68570503"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 > [!div class="checklist"]
 > 
 > * 使用租用戶目錄來保存定期重新整理的組態資訊，如此可在另一個區域中建立鏡像映像復原環境。

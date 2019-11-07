@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497217"
+ms.locfileid: "73581293"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio 建立、探索及部署自動化的機器學習實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,7 +104,7 @@ ms.locfileid: "73497217"
 
     選取 [下一步]。
 
-1. 在 [工作**類型和設定**] 表單上，選取 [工作類型]： [分類]、[回歸] 或 [預測]。 
+1. 在 [工作**類型和設定**] 表單上，選取 [工作類型]： [分類]、[回歸] 或 [預測]。 如需詳細資訊，請參閱[如何定義工作類型](how-to-define-task-type.md)。
 
     1. 針對分類，您也可以啟用用於文字 featurizations 的深度學習。
 
@@ -141,7 +141,7 @@ ms.locfileid: "73497217"
 類型|推斷的資料行類型。 可能的值包括：字串、布林值、日期和小數。
 Min| 資料行的最小值。 如果功能的類型沒有固有的順序（例如布林值），則會出現空白專案。
 max| 資料行的最大值。 
-Count| 資料行中遺漏和不遺失的專案總數。
+計數| 資料行中遺漏和不遺失的專案總數。
 未遺漏計數| 資料行中未遺漏的專案數。 空字串和錯誤會被視為值，因此它們不會參與「未遺漏計數」。
 分量| 每個分量的近似值可讓您瞭解資料的分佈。
 平均值| 資料行的算術平均值或平均值。
@@ -205,12 +205,17 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
 
     欄位| 值
     ----|----
-    部署名稱| 為您的部署輸入唯一的名稱。
-    部署描述| 輸入描述，以更清楚地識別此部署的用途。
-    評分指令碼| 自動產生或上傳您自己的評分檔案。 [深入瞭解評分腳本](how-to-deploy-and-where.md#script)。
-    環境指令碼| 自動產生或上傳您自己的環境檔案。
+    名稱| 為您的部署輸入唯一的名稱。
+    說明| 輸入描述，以更清楚地識別此部署的用途。
+    計算類型| 選取您想要部署的端點類型： *Azure Kubernetes Service （AKS）* 或*Azure 容器實例（ACI）* 。
+    名稱| *僅適用于 AKS：* 選取您想要部署的 AKS 叢集名稱。
+    啟用驗證 | 選取即可允許以權杖或金鑰為基礎的驗證。
+    使用自訂部署資產| 如果您想要上傳自己的評分腳本和環境檔案，請啟用此功能。 [深入瞭解評分腳本](how-to-deploy-and-where.md#script)。
+
     >[!Important]
     > 檔案名的長度必須是32個字元，而且必須以英數位元開頭和結尾。 可能包含虛線、底線、點和之間的英數位元。 不允許使用空格。
+
+    [ *Advanced* ] 功能表提供預設的部署功能，例如資料收集和資源使用設定。 如果您想要覆寫這些預設值，請在此功能表中執行此動作。
 
 1. 選取 [部署]。 部署可能需要大約20分鐘的時間才能完成。
 

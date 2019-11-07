@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 04ea4a4ebecec958ba9d9a72711e101adb3690ab
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ddb3f02662c0c71ebc90e1a740b4068d6fbcded4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329299"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577500"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure 區塊鏈 Service 聯盟
 
@@ -50,7 +50,7 @@ ms.locfileid: "72329299"
 
 使用者是沒有系統管理員功能的聯盟參與者。 他們無法參與管理與聯盟相關的成員。 使用者可以變更其成員的顯示名稱，並可從聯盟中移除自己。
 
-### <a name="administrator"></a>管理員
+### <a name="administrator"></a>系統管理員
 
 系統管理員可以管理聯盟內的成員。 系統管理員可以邀請成員、移除成員，或更新聯盟內的成員角色。
 聯盟中至少必須有一位系統管理員。 在離開聯盟之前，最後一個系統管理員必須先將另一個參與者指定為系統管理員角色。

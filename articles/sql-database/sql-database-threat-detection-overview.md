@@ -1,6 +1,6 @@
 ---
-title: 進階威脅防護 - Azure SQL 資料庫 | Microsoft Docs
-description: 先進的威脅防護會偵測異常資料庫活動, 指出 Azure SQL Database 中的潛在安全性威脅。
+title: 先進的威脅防護-Azure SQL Database
+description: 先進的威脅防護會偵測異常資料庫活動，指出 Azure SQL Database 中的潛在安全性威脅。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,37 +11,37 @@ author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 03/31/2019
-ms.openlocfilehash: de802d17f57077e2b4df195e04f35cbf9665f6b3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fca68fbc1ee30b1df100255e463eca2fc895980b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566353"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686966"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 資料庫的進階威脅防護
 
-[Azure SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的先進威脅防護會偵測異常活動, 指出不尋常且可能有害的嘗試存取或惡意探索資料庫。
+[Azure SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的先進威脅防護會偵測異常活動，指出不尋常且可能有害的嘗試存取或惡意探索資料庫。
 
-先進的威脅防護是先進的[資料安全性](sql-database-advanced-data-security.md)(ADS) 供應專案的一部分, 它是先進 SQL 安全性功能的整合套件。 先進的威脅防護可透過中央 SQL ADS 入口網站存取及管理。
+先進的威脅防護是先進的[資料安全性](sql-database-advanced-data-security.md)（ADS）供應專案的一部分，它是先進 SQL 安全性功能的整合套件。 先進的威脅防護可透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
 
 ## <a name="what-is-advanced-threat-protection"></a>什麼是先進的威脅防護
 
- 先進的威脅防護提供一層新的安全性, 藉由提供異常活動的安全性警示, 讓客戶偵測並回應潛在威脅。 一旦有可疑活動、潛在弱點、SQL 插入式攻擊以及異常的資料庫存取和查詢模式發生時，使用者就會收到警示。 先進的威脅防護整合了警示與[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/), 其中包括可疑活動的詳細資料, 以及如何調查和緩和威脅的建議動作。 先進的威脅防護可讓您輕鬆解決資料庫的潛在威脅, 而不需要是安全性專家或管理先進的安全性監視系統。
+ 先進的威脅防護提供一層新的安全性，藉由提供異常活動的安全性警示，讓客戶偵測並回應潛在威脅。 一旦有可疑活動、潛在弱點、SQL 插入式攻擊以及異常的資料庫存取和查詢模式發生時，使用者就會收到警示。 先進的威脅防護整合了警示與[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，其中包括可疑活動的詳細資料，以及如何調查和緩和威脅的建議動作。 先進的威脅防護可讓您輕鬆解決資料庫的潛在威脅，而不需要是安全性專家或管理先進的安全性監視系統。
 
 如需完整的調查體驗，建議您啟用 [SQL Database 稽核](sql-database-auditing.md)，這會將資料庫事件寫入您 Azure 儲存體帳戶中的稽核記錄。  
 
 ## <a name="advanced-threat-protection-alerts"></a>進階威脅防護警示
 
-Azure SQL Database 的先進威脅防護會偵測異常活動, 指出不尋常且可能有害的嘗試存取或惡意探索資料庫, 而且它可以觸發下列警示:
+Azure SQL Database 的先進威脅防護會偵測異常活動，指出不尋常且可能有害的嘗試存取或惡意探索資料庫，而且它可以觸發下列警示：
 
-- **SQL 插入式攻擊的弱點**：應用程式在資料庫中產生錯誤的 SQL 陳述式時，會觸發此警示。 此警示表示 SQL 插入式攻擊的可能弱點。 錯誤的陳述式之所以產生，有兩項可能的原因：
+- **SQL 插入的弱點**：當應用程式在資料庫中產生錯誤的 SQL 語句時，就會觸發此警示。 此警示表示 SQL 插入式攻擊的可能弱點。 錯誤的陳述式之所以產生，有兩項可能的原因：
 
   - 應用程式的程式碼中有缺失，而建構了錯誤的 SQL 陳述式
   - 應用程式的程式碼或預存程序在建構錯誤的 SQL 陳述式時未處理使用者輸入，這可能會遭到 SQL 插入式攻擊的侵害
-- **潛在的 SQL 插入式攻擊**：若有主動攻擊是藉由 SQL 插入中已識別到的已知應用程式弱點來發動時，就會觸發此警示。 這表示有攻擊者嘗試使用有弱點的應用程式程式碼或預存程序插入惡意 SQL 陳述式。
+- **可能的 SQL 插入**：在 SQL 插入的已知應用程式弱點遭到作用中的攻擊時，會觸發此警示。 這表示有攻擊者嘗試使用有弱點的應用程式程式碼或預存程序插入惡意 SQL 陳述式。
 - **從不尋常的位置存取**：有人從不尋常的地理位置登入 SQL Server，而使 SQL Server 的存取模式有所變更時，會觸發此警示。 在某些情況下，警示會偵測到合法的動作 (新的應用程式或開發人員維護)。 在其他情況下，警示則是偵測惡意動作 (離職員工、外部攻擊者)。
 - **從不尋常的 Azure 資料中心存取**：有人從不尋常的 Azure 資料中心登入 SQL Server (在近期曾在此伺服器上發現此資料中心)，而使 SQL Server 的存取模式有所變更時，會觸發此警示。 在某些情況下，警示會偵測到合法的動作 (您在 Azure、Power BI、Azure SQL 查詢編輯器中使用新的應用程式)。 在其他情況下，警示則是偵測來自 Azure 資源/服務的惡意動作 (離職員工、外部攻擊者)。
 - **從不熟悉的主體存取**：有人使用不尋常的主體 (SQL 使用者) 登入 SQL Server，而使 SQL Server 的存取模式有所變更時，會觸發此警示。 在某些情況下，警示會偵測到合法的動作 (新的應用程式、開發人員維護)。 在其他情況下，警示則是偵測惡意動作 (離職員工、外部攻擊者)。
@@ -68,7 +68,7 @@ Azure SQL Database 的先進威脅防護會偵測異常活動, 指出不尋常�
 
 Advanced 威脅防護會將其警示與[Azure 安全性中心](https://azure.microsoft.com/services/security-center/)整合。 [資料庫] 和 [SQL ADS] blade 內的即時 SQL Advanced 威脅防護磚會追蹤作用 Azure 入口網站中威脅的狀態。
 
-按一下 [ **Advanced 威脅防護警示**] 以啟動 [Azure 資訊安全中心警示] 頁面, 並取得在資料庫或資料倉儲上偵測到的作用中 SQL 威脅的總覽。
+按一下 [ **Advanced 威脅防護警示**] 以啟動 [Azure 資訊安全中心警示] 頁面，並取得在資料庫或資料倉儲上偵測到的作用中 SQL 威脅的總覽。
 
    ![Advanced 威脅防護警示](./media/sql-database-threat-detection/threat_detection_alert.png)
 

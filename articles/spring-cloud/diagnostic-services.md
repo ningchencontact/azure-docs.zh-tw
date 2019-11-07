@@ -1,20 +1,17 @@
 ---
 title: 分析 Azure 春季雲端中的記錄和計量 |Microsoft Docs
 description: 瞭解如何分析 Azure 春季雲端中的診斷資料
-services: spring-cloud
 author: jpconnock
-manager: gwallace
-editor: ''
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 955641f3511989baa5bfc3c0fa4d7df7ccbf9bfa
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554588"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607868"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>使用診斷設定來分析記錄和計量
 
@@ -36,7 +33,7 @@ ms.locfileid: "72554588"
     * **傳送至 Log Analytics**
 
 1. 選擇您想要監視的記錄類別和計量類別，然後指定保留時間（以天為單位）。 保留時間僅適用于儲存體帳戶。
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 > [!NOTE]
 > 當記錄或計量發出時，以及它們出現在您的儲存體帳戶、事件中樞或 Log Analytics 時，可能會有最多15分鐘的間隔。

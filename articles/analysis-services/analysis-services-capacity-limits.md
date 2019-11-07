@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 資源和物件限制 | Microsoft Docs
-description: 描述 Azure Analysis Services 資源和物件限制。
+description: 本文說明 Azure Analysis Services 伺服器的資源和物件限制。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fe43602c66af72357e16822ee9d4b5a741d3f86
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298698"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573204"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services 資源和物件限制。
 
@@ -30,7 +30,7 @@ ms.locfileid: "72298698"
 |------------|----------------------------|  
 |執行個體中的資料庫|16,000|  
 |資料庫中資料表和資料行的合併數|16,000|  
-|資料表中的資料列|無限<br /><br /> **警告：** 有一項限制，就是資料表中的任何資料行都不能擁有超過 1,999,999,997 個相異值。|  
+|資料表中的資料列|無限制<br /><br /> **警告：** 有一項限制是，資料表中的任何資料行都不能擁有超過 1,999,999,997 個相異值。|  
 |資料表中的階層|15,999|  
 |階層中的層級|15,999|  
 |關聯性|8,000|  

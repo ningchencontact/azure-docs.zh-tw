@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c0694bf53f4a0644c8da2b50660dbfd6a5b339c7
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038856"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607830"
 ---
 # <a name="az-spring-cloud"></a>az 春季-雲端
 
@@ -183,11 +183,11 @@ az spring-cloud app create --name -n
 
 | 選擇性參數 | |
 | --- | ---: |
-| --cpu | 每個實例的虛擬核心數目。  預設值：1. |
+| --cpu | 每個實例的虛擬核心數目。  預設值：1。 |
 | --啟用-持續性儲存體 | 布林值。  若為 true，則裝載具有預設路徑的50GB 磁片。 |
-| --instance-count | 實例的數目。  預設值：1. |
+| --instance-count | 實例的數目。  預設值：1。 |
 | --為-公用 | 布林值。  若為 true，則指派公用網域。 |
-| --記憶體 | 每個實例的記憶體 GB 數。  預設值：1. |
+| --記憶體 | 每個實例的記憶體 GB 數。  預設值：1。 |
 
 ### <a name="examples"></a>範例
 
@@ -736,7 +736,7 @@ az spring-cloud app binding redis add --app
 | --- | ---: |
 | --cpu | 每個實例的虛擬 CPU 核心數目。  預設值：1 |
 | --env | 以空格分隔的環境變數 ' key [= value] ' 格式。 |
-| --instance-count | 實例的數目。 預設值：1. |
+| --instance-count | 實例的數目。 預設值：1。 |
 | --jar-path | 若有提供，請部署 jar。  否則，請將目前資料夾部署為 tar。 |
 | --jvm-選項 | 包含 JVM 選項的字串。  請使用 ' = ' 而不是 ' ' 來避免 shell 剖析錯誤。 例如，`--jvm-options='-Xms1024m -Xmx2048m`。 |
 | --記憶體 | 每個實例的記憶體 GB 數。 |
@@ -894,7 +894,7 @@ az spring-cloud config-server git set --name -n
 | --標籤 | 新增之設定的標籤。 |
 | --password | 已新增之設定的密碼。 |
 | --私用金鑰 | 已新增之設定的私密金鑰。 |
-| --搜尋-路徑 | 搜尋新增之設定的路徑。針對多個路徑使用逗號分隔符號。 |
+| --搜尋-路徑 | 搜尋新增之設定的路徑。 針對多個路徑使用逗號分隔符號。 |
 | --strict-主機金鑰檢查 | 啟用所新增設定的嚴格主機金鑰檢查。 |
 | --username | 新增之設定的使用者名稱。 |
 
@@ -933,7 +933,7 @@ az spring-cloud config-server git repo add --name -n
 | --password | 已新增之設定的密碼。 |
 | --pattern | 存放庫的模式。  針對多個路徑使用逗號分隔符號。|
 | --私用金鑰 | 已新增之設定的私密金鑰。 |
-| --搜尋-路徑 | 搜尋新增之設定的路徑。針對多個路徑使用逗號分隔符號。 |
+| --搜尋-路徑 | 搜尋新增之設定的路徑。 針對多個路徑使用逗號分隔符號。 |
 | --strict-主機金鑰檢查 | 啟用所新增設定的嚴格主機金鑰檢查。 |
 | --username | 新增之設定的使用者名稱。 |
 

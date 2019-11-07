@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 的診斷記錄 | Microsoft Docs
-description: 深入了解設定 Azure Analysis Services 的診斷記錄。
+description: 說明如何設定 Azure 資源診斷記錄來監視您的 Azure Analysis Services 伺服器。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298617"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572781"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
@@ -42,10 +42,10 @@ ms.locfileid: "72298617"
 |查詢     |   查詢結束      |
 |命令     |  命令開始       |
 |命令     |  命令結束       |
-|錯誤與警告     |   Error      |
+|錯誤與警告     |   錯誤      |
 |探索     |   探索結束      |
 |通知     |    通知     |
-|工作階段     |  工作階段初始化       |
+|Session     |  工作階段初始化       |
 |鎖定    |  鎖死       |
 |查詢處理     |   VertiPaq SE 查詢開始      |
 |查詢處理     |   VertiPaq SE 查詢結束      |
@@ -158,13 +158,13 @@ ms.locfileid: "72298617"
 
 ![Azure 入口網站中的記錄搜尋選項](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s] 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
+在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass**s]\_** 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
 
 ### <a name="example-queries"></a>查詢範例
 
 #### <a name="example-1"></a>範例 1
 
-下列查詢會針對模型資料庫和伺服器的每個查詢結束/重新整理結束事件傳回持續時間。 如果相應放大，結果會依複本細分，因為複本編號包含在 ServerName_s 中。 依 RootActivityId_g 分組會減少從 Azure 診斷 REST API 抓取的資料列計數，並協助保持在限制內，如[Log Analytics 速率限制](https://dev.loganalytics.io/documentation/Using-the-API/Limits)中所述。
+下列查詢會針對模型資料庫和伺服器的每個查詢結束/重新整理結束事件傳回持續時間。 如果相應放大，結果會依複本細分，因為複本編號包含在 ServerName_s 中。 依 RootActivityId_g 分組會減少從 Azure 診斷 REST API 取得的資料列計數，並協助保持在限制內，如[Log Analytics 速率限制](https://dev.loganalytics.io/documentation/Using-the-API/Limits)中所述。
 
 ```Kusto
 let window = AzureDiagnostics

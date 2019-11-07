@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151858"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603516"
 ---
 # <a name="passwordless-authentication-options"></a>無密碼驗證選項
 
@@ -52,7 +52,7 @@ Windows Hello 企業版[規劃指南](https://docs.microsoft.com/windows/securit
 
 FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證方法，可採用任何形式的規格。 快速身分識別線上（FIDO）是無密碼 authentication 的開放標準。 它可讓使用者和組織利用外部安全性金鑰或裝置內建的平臺金鑰，使用標準來登入其資源，而不需要使用者名稱或密碼。
 
-對於公開預覽，員工可以使用安全性金鑰來登入其 Azure AD 或混合式 Azure AD 加入的 Windows 10 裝置，並取得單一登入其雲端和內部部署資源。 他們也可以登入支援的瀏覽器。
+對於公開預覽，員工可以使用安全性金鑰登入其 Azure AD 加入的 Windows 10 裝置，並取得單一登入其雲端和內部部署資源。 他們也可以登入支援的瀏覽器。
 
 ![使用安全性金鑰登入 Microsoft Edge](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -64,7 +64,7 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 | --- | --- | --- |
 | 1 | 常駐金鑰 | 這項功能可讓安全性金鑰成為可移植的，您的認證會儲存在安全性金鑰上。 |
 | 2 | 用戶端 pin | 這項功能可讓您使用第二個因素來保護您的認證，並套用至沒有使用者介面的安全性金鑰。 |
-| 3 | hmac-秘密 | 此延伸模組可確保您可以在裝置離線或在飛機模式時，登入您的裝置。 |
+| 3 | hmac-secret | 此延伸模組可確保您可以在裝置離線或在飛機模式時，登入您的裝置。 |
 | 4 | 每個 RP 的多個帳戶 | 這項功能可確保您可以在多個服務（例如 Microsoft 帳戶和 Azure Active Directory）上使用相同的安全性金鑰。 |
 
 下列提供者提供 FIDO2 的安全性金鑰，這些是已知與無密碼體驗相容的不同外型規格。 Microsoft 鼓勵客戶透過聯繫廠商以及 FIDO 聯盟，來評估這些金鑰的安全性屬性。

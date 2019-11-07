@@ -1,6 +1,6 @@
 ---
-title: 連線到 Azure SQL 資料倉儲 - VSTS | Microsoft Docs
-description: 使用 Visual Studio 查詢 SQL 資料倉儲。
+title: 連線到 VSTS
+description: 使用 Visual Studio 查詢 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e2d37b2d71f605077903197d25b5da2803e34ad3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575305"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685566"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 連接到 SQL 資料倉儲
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@ ms.locfileid: "69575305"
 > 
 > 
 
-使用 Visual Studio 在短短幾分鐘內查詢 Azure SQL 資料倉儲。 這個方法會使用 Visual Studio 2019 中的 SQL Server Data Tools (SSDT) 延伸模組。 
+使用 Visual Studio 在短短幾分鐘內查詢 Azure SQL 資料倉儲。 這個方法會使用 Visual Studio 2019 中的 SQL Server Data Tools （SSDT）延伸模組。 
 
 ## <a name="prerequisites"></a>必要條件
 若要使用本教學課程，您需要：
@@ -36,7 +37,7 @@ ms.locfileid: "69575305"
 * 適用於 Visual Studio 的 SSDT。 如果您有 Visual Studio，您可能已經有此 SSDT。 如需安裝指示和選項，請參閱 [安裝 Visual Studio 和 SSDT][Installing Visual Studio and SSDT]。
 * 完整的 SQL 伺服器名稱。 若要找到此名稱，請參閱 [連接到 SQL 資料倉儲][Connect to SQL Data Warehouse]。
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. 連接到您的 SQL 資料倉儲
 1. 開啟 Visual Studio 2019。
 2. 開啟 [SQL Server 物件總管]。 若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
    
@@ -51,12 +52,12 @@ ms.locfileid: "69575305"
    * **伺服器名稱**。 輸入先前找到的 **伺服器名稱** 。
    * **驗證**。 選取 [SQL Server 驗證] 或 [Active Directory 整合式驗證]。
    * [使用者名稱] 和 [密碼]。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
-   * 按一下 **[連接]** 。
+   * 按一下 [連接]。
 5. 若要瀏覽，請展開您的 Azure SQL 伺服器。 您可以檢視與伺服器相關聯的資料庫。 展開 AdventureWorksDW 以查看範例資料庫中的資料表。
    
     ![探索 AdventureWorksDW][4]
 
-## <a name="2-run-a-sample-query"></a>2.執行範例查詢
+## <a name="2-run-a-sample-query"></a>2. 執行範例查詢
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。

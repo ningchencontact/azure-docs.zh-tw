@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c3d07c95592c1c43a070afbbf5091693ce0a6611
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: adcaa29ed894f2d61871f467369bcdd05f8cc593
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950349"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601600"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中管理裝置
 
@@ -21,7 +21,7 @@ ms.locfileid: "72950349"
 
 本文說明如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。 身為操作員，您可以：
 
-- 使用 [Device Explorer] 頁面檢視、新增及刪除已連線至您 Azure IoT Central 應用程式的裝置。
+- 使用 [**裝置**] 頁面，即可查看、新增及刪除連線至 Azure IoT Central 應用程式的裝置。
 - 維護裝置的最新清查。
 - 透過變更儲存於裝置屬性中的值，將裝置中繼資料保持為最新的版本。
 - 透過從 [設定] 頁面更新特定裝置上的設定來控制裝置的行為。
@@ -30,11 +30,11 @@ ms.locfileid: "72950349"
 
 檢視個別裝置：
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。 您將能在此看見[裝置範本](howto-set-up-template.md)的清單。
+1. 選擇左窗格中的 [**裝置**]。 您將能在此看見[裝置範本](howto-set-up-template.md)的清單。
 
 1. 在 [範本] 清單中選擇一個裝置範本。
 
-1. 在 [Device Explorer] 頁面的右側窗格中，您會看到從該裝置範本建立的裝置清單。 選擇個別的裝置以查看該裝置的 [裝置詳細資料] 頁面：
+1. 在 [**裝置**] 頁面的右窗格中，您會看到從該裝置範本建立的裝置清單。 選擇個別的裝置以查看該裝置的 [裝置詳細資料] 頁面：
 
     ![[裝置詳細資料] 頁面](./media/howto-manage-devices/devicelist.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "72950349"
 
 將裝置新增至 Azure IoT Central 應用程式：
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 選擇要用來建立裝置的裝置範本。
 
@@ -59,7 +59,7 @@ ms.locfileid: "72950349"
 
 在應用程式中大量註冊裝置：
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 在左側窗格上，選擇您要用來大量建立裝置的裝置範本。
 
@@ -84,7 +84,7 @@ ms.locfileid: "72950349"
 
 如果您是藉由在 [未關聯的裝置] 下啟動匯入來註冊裝置，則裝置會在沒有與任何裝置範本產生關聯的情況下建立。 裝置必須與範本產生關聯，才能探索有關裝置的資料和其他詳細資料。 請遵循下列步驟讓裝置與範本產生關聯：
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 在左側面板上，選擇 [未關聯的裝置]：
 
@@ -109,7 +109,7 @@ ms.locfileid: "72950349"
 
 若要從您的應用程式大量匯出裝置：
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 在左側面板上，選擇您要從中匯出裝置的裝置範本。
 
@@ -140,7 +140,7 @@ ms.locfileid: "72950349"
 
 從 Azure IoT Central 應用程式刪除真實或模擬裝置：
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 選取所要刪除裝置的裝置範本。
 
@@ -152,7 +152,7 @@ ms.locfileid: "72950349"
 
 設定能控制裝置的行為。 也就是說，它們能讓您為裝置提供輸入。 您可以在 [裝置詳細資料] 頁面上檢視及更新裝置設定。
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 針對要變更設定的裝置，選擇裝置的裝置範本。
 
@@ -166,7 +166,7 @@ ms.locfileid: "72950349"
 
 屬性為與裝置相關聯的裝置中繼資料，例如城市和序號。 您可以在 [裝置詳細資料] 頁面上檢視及更新屬性。
 
-1. 選擇左窗格中的 [ **Device Explorer** ]。
+1. 選擇左窗格中的 [**裝置**]。
 
 1. 針對要變更屬性的裝置，選擇裝置的裝置範本。
 

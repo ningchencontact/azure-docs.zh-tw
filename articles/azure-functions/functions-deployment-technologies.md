@@ -1,21 +1,19 @@
 ---
 title: Azure Functions 中的部署技術 |Microsoft Docs
 description: 瞭解您可以將程式碼部署到 Azure Functions 的不同方式。
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674952"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576134"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions 中的部署技術
 
@@ -31,7 +29,7 @@ Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。
 
 每個方案都有不同的行為。 並非所有的部署技術都適用于 Azure Functions 的各個類別。 下圖顯示作業系統和主控方案的每個組合支援的部署技術：
 
-| 部署技術 | Windows 耗用量 | Windows Premium （預覽） | Windows 專用  | Linux 使用量 | Linux Premium （預覽） | Linux 專用 |
+| 部署技術 | Windows 耗用量 | Windows Premium | Windows 專用  | Linux 使用量 | Linux Premium | Linux 專用 |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | 外部套件 URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip 部署 |✔|✔|✔|✔|✔|✔|
@@ -46,7 +44,7 @@ Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。
 <sup>1</sup>需要[手動觸發同步](#trigger-syncing)處理的部署技術。  
 <sup>2</sup>只有針對 Linux 上的函式使用 Premium 和專用方案的 HTTP 和計時器觸發程式，才會啟用入口網站編輯功能。
 
-## <a name="key-concepts"></a>主要概念
+## <a name="key-concepts"></a>重要概念
 
 若要瞭解部署在 Azure Functions 中的使用方式，某些重要概念十分重要。
 
@@ -82,11 +80,11 @@ Azure Functions 可以自動在 zip 部署後所收到的程式碼上執行組�
 
 當應用程式在 Linux 上以遠端方式建立時，它們會[從部署套件執行](run-functions-from-deployment-package.md)。 
 
-##### <a name="consumption-plan"></a>使用量方案
+##### <a name="consumption-plan"></a>取用方案
 
 在取用方案中執行的 Linux 函式應用程式沒有 SCM/Kudu 網站，這會限制部署選項。 不過，在取用方案中執行的 Linux 上的函式應用程式會支援遠端組建。
 
-##### <a name="dedicated-and-premium-preview-plans"></a>專用和 Premium （預覽）方案
+##### <a name="dedicated-and-premium-plans"></a>專用和 Premium 方案
 
 在[專用（App Service）方案](functions-scale.md#app-service-plan)和[Premium 方案](functions-scale.md#premium-plan)的 Linux 上執行的函式應用程式，也有受限的 SCM/Kudu 網站。
 
@@ -183,13 +181,13 @@ Web Deploy 封裝，並將您的 Windows 應用程式部署至任何 IIS 伺服�
 
 下表顯示支援入口網站編輯的作業系統和語言：
 
-| | Windows 耗用量 | Windows Premium （預覽） | Windows 專用 | Linux 使用量 | Linux Premium （預覽）| Linux 專用 |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Windows 耗用量 | Windows Premium | Windows 專用 | Linux 使用量 | Linux Premium | Linux 專用 |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C# 指令碼 |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
+| C# 指令碼 |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (預覽) | | | | | | |
 | PowerShell （預覽） |✔|✔|✔| | | |
 | TypeScript （node.js） | | | | | | |

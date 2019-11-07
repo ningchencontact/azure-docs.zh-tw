@@ -1,17 +1,17 @@
 ---
-title: 使用 Azure HPC Cache 進列區域冗余和容錯移轉復原（預覽）
+title: 使用 Azure HPC Cache 進列區域冗余和容錯移轉復原
 description: 為使用 Azure HPC 快取的嚴重損壞修復提供容錯移轉功能的技術
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: ca771ceed433c6eb0ed26bba6fcb1bf11db211f0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031613"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582089"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>使用多個快取進列區域容錯移轉復原
 
@@ -55,7 +55,7 @@ ms.locfileid: "72031613"
 
 所有用戶端都必須掛接新的快取，即使用戶端不會受到區域中斷的影響。 新的快取與舊的快取有不同的掛接位址。
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>詳細資訊
 
 Azure 應用程式架構指南包含如何[從全區域服務中斷復原](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)的詳細資訊。
 <!-- this should be an internal link instead of a URL but I can't find the tree  -->

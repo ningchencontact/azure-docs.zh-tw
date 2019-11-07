@@ -1,6 +1,6 @@
 ---
 title: 應用程式生命週期管理
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 在傳統版本的 Azure Machine Learning Studio 中套用應用程式生命週期管理最佳作法
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: ce1a398939a65bb47c74f00159b667c3659f5a93
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d5e2ee72c30933305356cd2a7792d1972fa938da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467013"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684718"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 中的應用程式生命週期管理（傳統）
 Azure Machine Learning Studio （傳統）是一種工具，可用於開發在 Azure 雲端平臺中運作的機器學習實驗。 它就像是合併到單一平台的 Visual Studio IDE 和可調整的雲端服務。 您可以將標準應用程式生命週期管理（ALM）做法從版本控制各種資產納入自動化執行和部署，以 Azure Machine Learning Studio 的傳統版本。 本文會討論其中的部分選項和方法。
@@ -96,4 +96,4 @@ ALM 的重要層面就是能夠自動進行應用程式的執行和部署程序�
 ## <a name="next-steps"></a>後續步驟
 * 下載[Azure Machine Learning Studio （傳統） PowerShell](https://aka.ms/amlps)模組並開始自動執行 ALM 工作。
 * 了解如何透過 PowerShell 和重新訓練 API [只使用單一實驗建立和管理大量 ML 模型](create-models-and-endpoints-with-powershell.md)。
-* 深入了解如何[部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
+* 深入了解如何[部署 Azure Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)。

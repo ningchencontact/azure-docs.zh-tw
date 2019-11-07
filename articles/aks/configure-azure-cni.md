@@ -7,26 +7,26 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e7c63d3b52a57a952c311937036f0f7da15ebefc
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299611"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604776"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
-根據預設, AKS 叢集會使用[kubenet][kubenet], 並為您建立虛擬網路和子網。 使用 *kubenet*，節點會從虛擬網路子網路取得 IP 位址。 接著會在節點上設定網路位址轉譯 (NAT)，而 Pod 會接收「隱藏」於節點 IP 後面的 IP 位址。 此方法可減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
+根據預設，AKS 叢集會使用[kubenet][kubenet]，並為您建立虛擬網路和子網。 使用 *kubenet*，節點會從虛擬網路子網路取得 IP 位址。 接著會在節點上設定網路位址轉譯 (NAT)，而 Pod 會接收「隱藏」於節點 IP 後面的 IP 位址。 此方法可減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
-使用[Azure 容器網路介面 (CNI)][cni-networking], 每個 pod 都會從子網取得 IP 位址, 而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大型子網路中重建叢集。
+使用[Azure 容器網路介面（CNI）][cni-networking]，每個 pod 都會從子網取得 IP 位址，而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
 
-本文示範如何使用 *Azure CNI* 網路，針對 AKS 叢集建立和使用虛擬網路子網路。 如需網路選項和考慮的詳細資訊, 請參閱[Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
+本文示範如何使用 *Azure CNI* 網路，針對 AKS 叢集建立和使用虛擬網路子網路。 如需網路選項和考慮的詳細資訊，請參閱[Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 適用於 AKS 叢集的虛擬網路必須允許輸出網際網路連線.
 * 請勿在相同子網路中建立多個 AKS 叢集。
-* AKS 叢集可能不會`169.254.0.0/16`使用`172.30.0.0/16` `172.31.0.0/16`、、或`192.0.2.0/24`作為 Kubernetes 服務位址範圍。
+* AKS 叢集可能不會使用 Kubernetes 服務位址範圍的 `169.254.0.0/16`、`172.30.0.0/16`、`172.31.0.0/16`或 `192.0.2.0/24`。
 * AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -41,7 +41,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 > 所需的 IP 位址數目應包含針對升級和調整作業考量的數目。 如果設定只支援固定節點數目的 IP 位址範圍，將無法升級或擴展您的叢集。
 >
 > - 當您**升級** AKS 叢集時，會部署新的節點到叢集中。 服務和工作負載會開始在新的節點上執行，並移除叢集中較舊的節點。 此輪流升級程序需要至少一個額外的 IP 位址區塊以供使用。 因此您的節點計數為 `n + 1`。
->   - 當您使用 Windows Server 節點集區時 (目前在 AKS 中處於預覽狀態), 這項考慮特別重要。 AKS 中的 windows Server 節點不會自動套用 Windows 更新, 而是改為在節點集區上執行升級。 此升級會使用最新的 Window Server 2019 基底節點映射和安全性修補程式來部署新的節點。 如需有關升級 Windows Server 節點集區的詳細資訊, 請參閱[升級 AKS 中的節點集][nodepool-upgrade]區。
+>   - 當您使用 Windows Server 節點集區時（目前在 AKS 中處於預覽狀態），這項考慮特別重要。 AKS 中的 windows Server 節點不會自動套用 Windows 更新，而是改為在節點集區上執行升級。 此升級會使用最新的 Window Server 2019 基底節點映射和安全性修補程式來部署新的節點。 如需有關升級 Windows Server 節點集區的詳細資訊，請參閱[升級 AKS 中的節點集][nodepool-upgrade]區。
 >
 > - 當您**擴展** AKS 叢集時，會部署新的節點到叢集中。 服務和工作負載會開始在新的節點上執行。 您的 IP 位址範圍必須將您可能想要相應增加的節點數和您的叢集可支援的 Pod 數目納入考量。 也應包含一個額外的節點以用於升級作業。 因此您的節點計數為 `n + number-of-additional-scaled-nodes-you-anticipate + 1`。
 
@@ -52,7 +52,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 | 位址範圍 / Azure 資源 | 限制和調整大小 |
 | --------- | ------------- |
 | 虛擬網路 | Azure 虛擬網路可以和 /8 一樣大，但可能只有 65,536 個已設定的 IP 位址。 |
-| Subnet | 必須大到足以容納節點、Pod，以及可能會在您叢集中佈建的所有 Kubernetes 和 Azure 資源。 例如，如果您部署內部 Azure Load Balancer，其前端 IP 會從叢集子網路配置，而不是從公用 IP 配置。 子網路大小也應該考量帳戶升級作業或未來的擴展需求。<p />若要計算包括用於升級作業之額外節點的*最小*子網路大小：`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 個節點叢集的範例：`(51) + (51  * 30 (default)) = 1,581` (/21 或更大)<p/>擁有 50 個節點的叢集範例，其中也包含相應增加額外 10 個節點的佈建：`(61) + (61 * 30 (default)) = 1,891` (/21 或更大)<p>如果您未指定每個節點的最大 Pod 數目，當您建立叢集時，每個節點的最大 Pod 數目設定為 30。 IP 位址所需的最小數目是根據該值。 如果您以不同的最大值來計算最小 IP 位址需求，請參閱[如何設定每個節點的最大 Pod 數目](#configure-maximum---new-clusters)，在您部署叢集時設定此值。 |
+| 子網路 | 必須大到足以容納節點、Pod，以及可能會在您叢集中佈建的所有 Kubernetes 和 Azure 資源。 例如，如果您部署內部 Azure Load Balancer，其前端 IP 會從叢集子網路配置，而不是從公用 IP 配置。 子網路大小也應該考量帳戶升級作業或未來的擴展需求。<p />若要計算包括用於升級作業之額外節點的*最小*子網路大小：`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 個節點叢集的範例：`(51) + (51  * 30 (default)) = 1,581` (/21 或更大)<p/>擁有 50 個節點的叢集範例，其中也包含相應增加額外 10 個節點的佈建：`(61) + (61 * 30 (default)) = 1,891` (/21 或更大)<p>如果您未指定每個節點的最大 Pod 數目，當您建立叢集時，每個節點的最大 Pod 數目設定為 30。 IP 位址所需的最小數目是根據該值。 如果您以不同的最大值來計算最小 IP 位址需求，請參閱[如何設定每個節點的最大 Pod 數目](#configure-maximum---new-clusters)，在您部署叢集時設定此值。 |
 | Kubernetes 服務位址範圍 | 此範圍不應由此虛擬網路上或連線到此虛擬網路的任何網路元素所使用。 服務位址 CIDR 必須小於 /12。 |
 | Kubernetes DNS 服務 IP 位址 | 將由叢集服務探索 (kube-dns) 所使用之 Kubernetes 服務位址範圍內的 IP 位址。 請勿使用您位址範圍中的第一個 IP 位址，例如 .1。 您子網路範圍內的第一個位址會用於 kubernetes.default.svc.cluster.local 位址。 |
 | Docker 橋接器位址 | Docker 橋接器網路位址代表所有 Docker 安裝中出現的預設*docker0*橋接器網路位址。 雖然 AKS 叢集或 pod 本身不會使用*docker0*橋接器，但您必須將此位址設定為繼續支援在 AKS 叢集中的*docker build*等案例。 您必須為 Docker 橋接器網路位址選取 CIDR，否則 Docker 會自動挑選可能與其他 CIDRs 發生衝突的子網。 您必須挑選不會與網路上的其餘 CIDRs 發生衝突的位址空間，包括叢集的服務 CIDR 和 pod CIDR。 預設值為 172.17.0.1/16。 |
@@ -63,25 +63,27 @@ AKS 叢集中每個節點的 pod 數目上限為250。 每個節點「預設」�
 
 | 部署方法 | Kubenet 預設值 | Azure CNI 預設值 | 可在部署時設定 |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | 是 (最多 250) |
-| Resource Manager 範本 | 110 | 30 | 是 (最多 250) |
+| Azure CLI | 110 | 30 | 是（最多250） |
+| Resource Manager 範本 | 110 | 30 | 是（最多250） |
 | 入口網站 | 110 | 30 | 否 |
 
 ### <a name="configure-maximum---new-clusters"></a>設定最大值 - 新叢集
 
-您*只能在叢集部署階段*設定每一節點的 Pod 數目上限。 如果您使用 Azure CLI 或 Resource Manager 範本進行部署, 則可以將每個節點的最大 pod 值設定為高達250。
+您*只能在叢集部署階段*設定每一節點的 Pod 數目上限。 如果您使用 Azure CLI 或 Resource Manager 範本進行部署，則可以將每個節點的最大 pod 值設定為高達250。
 
-| 網路功能 | 最小值 | 最大值 |
+會強制執行每個節點最大 pod 數的最小值，以確保系統 pod 對叢集健康狀態的重大空間。 只有在每個節點集區的設定至少有30個 pod 的空間時，才可以針對每個節點的最大 pod 數設定的最小值為10。 例如，將每個節點的最大 pod 數設定為最小值10時，每個個別節點集區至少要有3個節點。 這項需求也適用于每個建立的新節點集區，因此如果10定義為每個節點的最大 pod 數，則每個新增的節點集區至少必須有3個節點。
+
+| 網路 | 最小值 | 最大值 |
 | -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubenet | 30 | 110 |
+| Azure CNI | 10 | 250 |
+| Kubenet | 10 | 110 |
 
 > [!NOTE]
-> AKS 服務會嚴格強制執行上表中的最小值。 您不能將 maxPods 值設定為低於所顯示的最小值, 因為這麼做可能會導致叢集無法啟動。
+> AKS 服務會嚴格強制執行上表中的最小值。 您不能將 maxPods 值設定為低於所顯示的最小值，因為這麼做可能會導致叢集無法啟動。
 
-* **Azure CLI**：當您`--max-pods`使用[az aks create][az-aks-create]命令部署叢集時, 請指定引數。 最大值為250。
-* **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。 最大值為250。
-* **Azure 入口網站**︰當您使用 Azure 入口網站部署叢集時，您無法變更每一節點的 Pod 數目上限。 使用 Azure 入口網站進行部署時，Azure CNI 網路叢集限制為每一節點 30 個 Pod。
+* **Azure CLI**：當您使用[az aks create][az-aks-create]命令部署叢集時，請指定 `--max-pods` 引數。 最大值為250。
+* **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 `maxPods`ManagedClusterAgentPoolProfile[ManagedClusterAgentPoolProfile] 屬性。 最大值為250。
+* **Azure 入口網站**：當您使用 Azure 入口網站部署叢集時，您無法變更每一節點的 Pod 數目上限。 使用 Azure 入口網站進行部署時，Azure CNI 網路叢集限制為每一節點 30 個 Pod。
 
 ### <a name="configure-maximum---existing-clusters"></a>設定最大值 - 現有叢集
 
@@ -100,13 +102,13 @@ AKS 叢集中每個節點的 pod 數目上限為250。 每個節點「預設」�
 * 不得在叢集的虛擬網路 IP 位址範圍內
 * 不得與叢集虛擬網路對等的任何其他虛擬網路重疊
 * 不得與任何內部部署 IP 重疊
-* 不得在`169.254.0.0/16` `172.30.0.0/16`、 、或範圍內`172.31.0.0/16``192.0.2.0/24`
+* 不得在 `169.254.0.0/16`、`172.30.0.0/16`、`172.31.0.0/16`或 `192.0.2.0/24` 的範圍內
 
-雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需 Kubernetes 服務的詳細資訊, 請參閱 Kubernetes 檔中的[服務][services]。
+雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 檔中的[服務][services]。
 
 **Kubernetes DNS 服務 IP 位址**：叢集 DNS 服務的 IP 位址。 此位址必須位於 Kubernetes 服務位址範圍內。 請勿使用您位址範圍中的第一個 IP 位址，例如 .1。 您子網路範圍內的第一個位址會用於 kubernetes.default.svc.cluster.local 位址。
 
-**Docker 橋接器位址**：Docker 橋接器網路位址代表所有 Docker 安裝中出現的預設*docker0*橋接器網路位址。 雖然 AKS 叢集或 pod 本身不會使用*docker0*橋接器，但您必須將此位址設定為繼續支援在 AKS 叢集中的*docker build*等案例。 您必須為 Docker 橋接器網路位址選取 CIDR，否則 Docker 會自動挑選可能與其他 CIDRs 發生衝突的子網。 您必須挑選不會與網路上的其餘 CIDRs 發生衝突的位址空間，包括叢集的服務 CIDR 和 pod CIDR。
+**Docker 橋接器位址**： docker 橋接器網路位址代表所有 Docker 安裝中出現的預設*docker0*橋接器網路位址。 雖然 AKS 叢集或 pod 本身不會使用*docker0*橋接器，但您必須將此位址設定為繼續支援在 AKS 叢集中的*docker build*等案例。 您必須為 Docker 橋接器網路位址選取 CIDR，否則 Docker 會自動挑選可能與其他 CIDRs 發生衝突的子網。 您必須挑選不會與網路上的其餘 CIDRs 發生衝突的位址空間，包括叢集的服務 CIDR 和 pod CIDR。
 
 ## <a name="configure-networking---cli"></a>設定網路功能 - CLI
 
@@ -123,7 +125,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-使用[az aks create][az-aks-create]命令`--network-plugin azure`搭配引數, 以建立具有 advanced 網路功能的叢集。 使用在上一個步驟中收集的子網路識別碼來更新 `--vnet-subnet-id` 值：
+使用[az aks create][az-aks-create]命令搭配 `--network-plugin azure` 引數，以建立具有 advanced 網路功能的叢集。 使用在上一個步驟中收集的子網路識別碼來更新 `--vnet-subnet-id` 值：
 
 ```azurecli-interactive
 az aks create \
@@ -149,11 +151,11 @@ az aks create \
 
 * 是否可以在叢集子網路中部署 VM？
 
-  資料分割 不支援在 Kubernetes 叢集所使用的子網路中部署 VM。 虛擬機器可部署在相同虛擬網路中，但不能部署在不同的子網路。
+  不會。 不支援在 Kubernetes 叢集所使用的子網路中部署 VM。 虛擬機器可部署在相同虛擬網路中，但不能部署在不同的子網路。
 
 * 是否可以針對個別 Pod 設定網路原則？
 
-  是, AKS 中有提供 Kubernetes 網路原則。 若要開始, 請參閱[在 AKS 中使用網路原則來保護 pod 之間的流量][network-policy]。
+  是，AKS 中有提供 Kubernetes 網路原則。 若要開始，請參閱[在 AKS 中使用網路原則來保護 pod 之間的流量][network-policy]。
 
 * 是否可以設定可部署到節點的 Pod 數目上限？
 
@@ -161,7 +163,7 @@ az aks create \
 
   您無法在現叢集上變更每個節點的 Pod 數目上限。
 
-* 如何針對在 AKS 叢集建立期間所建立的子網路設定其他屬性？例如，服務端點。
+* *如何? 為我在 AKS 叢集建立期間所建立的子網設定其他屬性？例如，服務端點。*
 
   在 AKS 叢集建立期間所建立的虛擬網路和子網路屬性完整清單，均可在 Azure 入口網站的標準虛擬網路組態頁面中進行設定。
 
@@ -179,12 +181,12 @@ az aks create \
 - [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
 - [啟用 HTTP 應用程式路由附加元件][aks-http-app-routing]
 - [建立使用內部、私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
-- [使用動態公用 IP 建立輸入控制器, 並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-tls]
-- [建立具有靜態公用 IP 的輸入控制器, 並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-static-tls]
+- [使用動態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-tls]
+- [建立具有靜態公用 IP 的輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-static-tls]
 
 ### <a name="aks-engine"></a>AKS 引擎
 
-[Azure Kubernetes Service 引擎 (AKS engine)][aks-engine]是一個開放原始碼專案, 會產生 Azure Resource Manager 範本, 您可以用來在 Azure 上部署 Kubernetes 叢集。
+[Azure Kubernetes Service 引擎（AKS engine）][aks-engine]是一個開放原始碼專案，會產生 Azure Resource Manager 範本，您可以用來在 Azure 上部署 Kubernetes 叢集。
 
 使用 AKS 引擎建立的 Kubernetes 叢集同時支援[kubenet][kubenet]和[Azure CNI][cni-networking]外掛程式。 因此，這兩個網路案例都會受到 AKS 引擎支援。
 

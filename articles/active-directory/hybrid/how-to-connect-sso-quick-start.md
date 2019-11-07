@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176831"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603399"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -31,31 +31,31 @@ ms.locfileid: "71176831"
 
 若要部署無縫 SSO，請遵循下列步驟。
 
-## <a name="step-1-check-the-prerequisites"></a>步驟 1:檢查必要條件
+## <a name="step-1-check-the-prerequisites"></a>步驟 1：檢查必要條件
 
 請確保已具備下列必要條件︰
 
-* **設定您的 Azure AD Connect 伺服器**：如果您使用[傳遞驗證](how-to-connect-pta.md)作為登入方法，則不需要其他必要條件檢查。 如果您使用[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)作為登入方法，而且 Azure AD Connect 與 Azure AD 之間有防火牆，請確定︰
+* **設定 Azure AD Connect 伺服器**：如果您使用[傳遞驗證](how-to-connect-pta.md)作為登入方法，不需要進行額外的必要條件檢查。 如果您使用[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)作為登入方法，而且 Azure AD Connect 與 Azure AD 之間有防火牆，請確定︰
    - 您使用 Azure AD Connect 1.1.644.0 或更新版本。 
-   - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將透過連接埠 443 進行的 **\*.msappproxy.net** URL 連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 只有啟用此功能時，此必要條件才適用。 不需要實際的使用者登入。
+   - 如果您的防火牆或 Proxy 允許建立 DNS 白名單，便可將透過連接埠 443 進行的 **\*.msappproxy.net** URL 連線加入白名單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 只有啟用此功能時，此必要條件才適用。 不需要實際的使用者登入。
 
     >[!NOTE]
-    >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您 _不_ 想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。
+    >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您_不_想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。
 
-* **使用支援支援的 Azure AD Connect 拓撲**：確定您是使用[這裡](plan-connect-topologies.md)所述 Azure AD Connect 的其中一個受支援拓撲。
+* **使用支援的 Azure AD Connect 拓撲**：確定您會使用[這裡](plan-connect-topologies.md)所述的 Azure AD Connect 支援技術之一。
 
     >[!NOTE]
     >無縫 SSO 可支援多個 AD 樹系，無論其間是否有 AD 信任，都是如此。
 
-* **設定網域系統管理員認證**：對於符合下列描述的每個 Active Directory 樹系，您需要有網域系統管理員認證：
+* **設定網域管理員員認證**：下列情況的每個 Active Directory 樹系，均需擁有網域管理員認證：
     * 透過 Azure AD Connect 同步至 Azure AD。
     * 包含您要啟用無縫 SSO 的使用者。
     
-* **啟用新式驗證**：您需要在您的租用戶上啟用[新式驗證](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) \(機器翻譯\)，此功能才會運作。
+* **啟用新式驗證**：您必須在租用戶上啟用[新式驗證](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016)，此功能才能運作。
 
-* **使用 Office 365 用戶端的最新版本**：若要透過 Office 365 用戶端 (Outlook、Word、Excel 等等) 獲得無訊息登入體驗，您的使用者必須使用 16.0.8730.xxxx 版或更新版本。
+* **使用最新版的 Office 365 用戶端**：若要使用 Office 365 用戶端 (Outlook、Word、Excel 和其他產品) 來取得無訊息登入體驗，您的使用者需要 16.0.8730.xxxx 版或更新版本。
 
-## <a name="step-2-enable-the-feature"></a>步驟 2:啟用此功能
+## <a name="step-2-enable-the-feature"></a>步驟 2︰啟用功能
 
 透過 [Azure AD Connect](whatis-hybrid-identity.md) 啟用無縫 SSO。
 
@@ -90,13 +90,13 @@ ms.locfileid: "71176831"
 3. 選取 [Azure AD Connect]。
 4. 確認 [無縫單一登入] 功能顯示為 [已啟用]。
 
-![Azure 入口網站：[Azure AD Connect] 窗格](./media/how-to-connect-sso-quick-start/sso10.png)
+![Azure 入口網站：Azure AD Connect 窗格](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> 無縫 SSO 會在您的`AZUREADSSOACC`內部部署 Active Directory （AD）中，于每個 AD 樹系中建立名為的電腦帳戶。 基於`AZUREADSSOACC`安全考慮，電腦帳戶必須受到嚴格的保護。 只有網域系統管理員才能夠管理電腦帳戶。 請確定已停用電腦帳戶上的 Kerberos 委派，而且 Active Directory 中的其他帳戶都具有電腦帳戶的`AZUREADSSOACC`委派許可權。 將電腦帳戶儲存在組織單位（OU）中，以防止意外刪除，而且只有網域系統管理員才有存取權。
+> 無縫 SSO 會在您的內部部署 Active Directory （AD）中，于每個 AD 樹系中建立名為 `AZUREADSSOACC` 的電腦帳戶。 基於安全考慮，`AZUREADSSOACC` 電腦帳戶必須受到嚴格保護。 只有網域系統管理員才能夠管理電腦帳戶。 請確定已停用電腦帳戶上的 Kerberos 委派，而且 Active Directory 中沒有其他帳戶具有 `AZUREADSSOACC` 電腦帳戶的委派許可權。 將電腦帳戶儲存在組織單位（OU）中，以防止意外刪除，而且只有網域系統管理員才有存取權。
 
 >[!NOTE]
-> 如果您在內部部署環境中使用傳遞雜湊和認證竊取風險降低架構，請進行適當的變更，以確保`AZUREADSSOACC`電腦帳戶不會出現在隔離容器中。 
+> 如果您在內部部署環境中使用雜湊傳遞和認證竊取風險降低架構，請進行適當的變更，以確保 `AZUREADSSOACC` 的電腦帳戶不會最後放在隔離容器中。 
 
 ## <a name="step-3-roll-out-the-feature"></a>步驟 3：推出功能
 
@@ -124,7 +124,7 @@ ms.locfileid: "71176831"
 
 1. 開啟群組原則管理編輯器工具。
 2. 編輯套用至部分或所有使用者的群組原則。 此範例使用**預設網域原則**。
-3. 流覽至**使用者** > 設定**原則** > **系統管理範本** **Windows 元件** **internet Explorer**internet >   >   >  **[控制台** **安全性] 頁面。**  >  然後選取 [指派網站到區域清單]。
+3. 流覽至 [**使用者**設定] > **原則** > **系統管理範本** > **Windows 元件** ** > [internet] 控制台 > [安全性] 頁面**。 >  然後選取 [指派網站到區域清單]。
     ![單一登入](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 啟用原則，然後在對話方塊中輸入下列值：
    - **值名稱**：轉送 Kerberos 票證的 Azure AD URL。
@@ -144,7 +144,7 @@ ms.locfileid: "71176831"
 
     ![單一登入](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. 流覽至**使用者** > 設定**原則** > **系統管理範本** **Windows 元件** **internet Explorer**internet >   >   >  **控制台安全性**頁面內部 > 網路**區域**。 >  然後選取 [允許透過指令碼更新狀態列]。
+6. 流覽至 [**使用者**設定] > **原則** > **系統管理範本** > **Windows 元件** ** > [internet] 控制台 > 安全性頁面** > **內部網路區域**。 >  然後選取 [允許透過指令碼更新狀態列]。
 
     ![單一登入](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -164,7 +164,7 @@ ms.locfileid: "71176831"
    - **機碼路徑**：***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
    - **值名稱**：***https***。
    - **值類型**：***REG_DWORD***。
-   - **值資料**：***00000001***。
+   - **數值資料**︰***00000001***。
  
      ![單一登入](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -185,6 +185,14 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 確定執行 macOS 的電腦已加入 AD。 將您的 macOS 裝置加入 AD 的指示並不在本文的討論之列。
 
+#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>以 Chromium 為基礎的 Microsoft Edge （所有平臺）
+
+如果您已覆寫環境中的[AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist)或[AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist)原則設定，請確定您也將 Azure AD 的 URL （`https://autologon.microsoftazuread-sso.com`）新增至其中。
+
+#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>以 Chromium 為基礎的 Microsoft Edge （macOS 和其他非 Windows 平臺）
+
+針對以 Mac OS 和其他非 Windows 平臺上的 Chromium 為基礎的 Microsoft Edge，請參閱以[Chromium 原則為基礎的 Microsoft Edge 清單](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist)，以取得如何將整合式驗證的 Azure AD URL 新增至您的允許清單的相關資訊。
+
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (所有平台)
 
 如果您已覆寫環境中的 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) \(英文\) 或 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) \(英文\) 原則設定，請確定您也會將 Azure AD 的 URL (`https://autologon.microsoftazuread-sso.com`) 新增到這些設定。
@@ -197,7 +205,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 #### <a name="known-browser-limitations"></a>已知的瀏覽器限制
 
-無縫 SSO 無法在 Firefox 和 Microsoft Edge 瀏覽器的隱私瀏覽模式中運作。 如果瀏覽器是在「增強保護」模式中執行，它也無法在 Internet Explorer 上運作。
+無縫 SSO 無法在 Firefox 和 Microsoft Edge 瀏覽器的隱私瀏覽模式中運作。 如果瀏覽器是在「增強保護」模式中執行，它也無法在 Internet Explorer 上運作。 針對以 Chromium 為基礎的下一個 Microsoft Edge 版本，其設計不會在 InPrivate 和來賓模式下工作。
 
 ## <a name="step-4-test-the-feature"></a>步驟 4：測試功能
 
@@ -216,7 +224,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 ## <a name="step-5-roll-over-keys"></a>步驟 5：變換金鑰
 
-在步驟 2 中，Azure AD Connect 會在您已啟用無縫 SSO 的所有 Active Directory 樹系中建立電腦帳戶 (代表 Azure AD)。 若要深入了解，請參閱 [Azure Active Directory 無縫單一登入：深入技術性討論](how-to-connect-sso-how-it-works.md)。
+在步驟 2 中，Azure AD Connect 會在您已啟用無縫 SSO 的所有 Active Directory 樹系中建立電腦帳戶 (代表 Azure AD)。 若要深入了解，請參閱 [Azure Active Directory 無縫單一登入：技術深入探討](how-to-connect-sso-how-it-works.md)。
 
 >[!IMPORTANT]
 >如果電腦帳戶上的 Kerberos 解密金鑰外洩，則可用來針對其 AD 樹系中的任何使用者產生 Kerberos 票證。 惡意執行者接著可針對遭到入侵的使用者模擬行 Azure AD 登入。 強烈建議您定期變換這些 Kerberos 解密金鑰 (至少每隔 30 天一次)。
@@ -228,7 +236,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [深入技術性討論](how-to-connect-sso-how-it-works.md)：了解無縫單一登入功能的運作方式。
-- [常見問題集](how-to-connect-sso-faq.md)：取得無縫單一登入相關常見問題的解答。
+- [技術深入探討](how-to-connect-sso-how-it-works.md)：了解無縫單一登入功能的運作方式。
+- [常見問題集](how-to-connect-sso-faq.md)：取得無縫單一登入常見問題集的答案。
 - [疑難排解](tshoot-connect-sso.md)：了解如何解決無縫單一登入功能的常見問題。
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) \(英文\)：使用 Azure Active Directory 論壇提出新功能要求。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect)：使用 Azure Active Directory 論壇提出新功能要求。

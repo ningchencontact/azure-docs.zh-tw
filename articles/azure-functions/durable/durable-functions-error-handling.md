@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: adc23cad4ad7c55ce81096b1550520c496f744c1
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933418"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614879"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理錯誤
 
@@ -22,7 +22,7 @@ ms.locfileid: "70933418"
 
 ## <a name="errors-in-activity-functions"></a>活動函式中的錯誤
 
-在活動函式中擲回的任何例外狀況會封送處理回到協調器函式`FunctionFailedException`，並以的形式擲回。 您可以在協調器函式中撰寫符合需求的錯誤處理和補償程式碼。
+在活動函式中擲回的任何例外狀況會封送處理回到協調器函式，並以 `FunctionFailedException`的形式擲回。 您可以在協調器函式中撰寫符合需求的錯誤處理和補償程式碼。
 
 例如，假設有下列協調器函式會從一個帳戶轉帳到另一個帳戶：
 
@@ -30,7 +30,7 @@ ms.locfileid: "70933418"
 
 ```csharp
 [FunctionName("TransferFunds")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -69,7 +69,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -103,7 +103,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的範例適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -149,7 +152,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -164,7 +167,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ### <a name="c-script"></a>C# 指令碼
 
 ```csharp
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -176,7 +179,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的範例適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -190,26 +196,26 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-`CallActivityWithRetryAsync` (.NET) 或 `callActivityWithRetry` (JavaScript) API 會接受 `RetryOptions` 參數。 子協調流程呼叫如果使用 `CallSubOrchestratorWithRetryAsync` (.NET) 或 `callSubOrchestratorWithRetry` (JavaScript) API，便可使用這些相同的重試原則。
+`CallActivityWithRetryAsync` (.NET) 或 `callActivityWithRetry` (JavaScript) API 會接受 `RetryOptions` 參數。 使用 `CallSubOrchestratorWithRetryAsync` （.NET）或 `callSubOrchestratorWithRetry` （JavaScript） API 的子協調流程呼叫，可以使用這些相同的重試原則。
 
 有數個選項可自訂自動重試原則：
 
-* **重試次數上限**：重試嘗試的次數上限。
-* **第一次重試間隔**：第一次重試嘗試之前等候的時間長度。
+* **嘗試次數上限**：重試嘗試次數上限。
+* **第一次重試間隔**：第一次重試嘗試之前等候的時間量。
 * **輪詢係數**：用來決定輪詢增加速率的係數。 預設值為 1。
-* **重試間隔上限**：重試嘗試之間等候的時間長度上限。
-* **重試逾時**：花費在重試的時間長度上限。 預設行為是無限期地重試。
-* **控制代碼**：您可以指定使用者定義的回呼，以決定是否應該重試函數。
+* **最大重試間隔**：重試嘗試之間等候的最大時間量。
+* **重試逾時**：花費在重試的最大時間量。 預設行為是無限期地重試。
+* **控制碼**：可以指定使用者定義的回呼，以決定是否應該重試函數。
 
 ## <a name="function-timeouts"></a>函式逾時
 
-如果協調器函式中的函式呼叫花費太多時間來完成，您可能會想要放棄它。 目前，適當的做法是使用 `context.CreateTimer` (.NET) 或 `context.df.createTimer` (JavaScript) 搭配 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 來建立[持久性計時器](durable-functions-timers.md)，如下列範例所示：
+如果協調器函式中的函式呼叫花費太多時間來完成，您可能會想要放棄它。 目前，適當的做法是使用 [ (.NET) 或 ](durable-functions-timers.md) (JavaScript) 搭配 `context.CreateTimer` (.NET) 或 `context.df.createTimer` (JavaScript) 來建立`Task.WhenAny`持久性計時器`context.df.Task.any`，如下列範例所示：
 
 ### <a name="precompiled-c"></a>先行編譯 C#
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
-public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -238,7 +244,7 @@ public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationCo
 ### <a name="c-script"></a>C# 指令碼
 
 ```csharp
-public static async Task<bool> Run(DurableOrchestrationContext context)
+public static async Task<bool> Run(IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -264,7 +270,10 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+> [!NOTE]
+> 先前C#的範例適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
 
 ```javascript
 const df = require("durable-functions");

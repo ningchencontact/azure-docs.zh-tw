@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e2b866ddd888261e7d8817c73952d4830a4f8147
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: cd7b8c3de46cb88833f27cbebb7d07f944a711e4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464015"
+ms.locfileid: "73580844"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
-本文說明使用 Azure Logic Apps 來建立和執行自動化工作流程的限制和設定詳細資料。 如果是 Microsoft Flow，則請參閱 [Microsoft Flow 中的限制和設定](https://docs.microsoft.com/flow/limits-and-config)。
+本文說明使用 Azure Logic Apps 來建立和執行自動化工作流程的限制和設定詳細資料。 如需電源自動化，請參閱[電源自動化中的限制和](https://docs.microsoft.com/flow/limits-and-config)設定。
 
 <a name="definition-limits"></a>
 
@@ -267,7 +267,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 Azure Logic Apps 用於傳入和撥出電話的 IP 位址，取決於您的邏輯應用程式所在的區域。 相同區域中的*所有*邏輯應用程式都會使用相同的 IP 位址範圍。
 
 > [!NOTE]
-> 某些 Microsoft Flow 呼叫，例如**HTTP**和**HTTP + OpenAPI**要求，會直接通過 Azure Logic Apps 服務，並來自此處所列的 IP 位址。 如需 Microsoft Flow 所使用 IP 位址的詳細資訊，請參閱[Microsoft Flow 中的限制和](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)設定。
+> 某些電源會自動進行呼叫，例如**HTTP**和**HTTP + OpenAPI**要求，直接透過 Azure Logic Apps 服務，並來自此處所列的 IP 位址。 如需電源自動化所使用之 IP 位址的詳細資訊，請參閱[電源自動化中的限制和](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)設定。
 
 * 若要支援您的邏輯應用程式直接使用[HTTP](../connectors/connectors-native-http.md)、 [HTTP + SWAGGER](../connectors/connectors-native-http-swagger.md)及其他 HTTP 要求所進行的呼叫，請使用 Logic Apps 所使用的*所有*[輸入](#inbound)*和*[輸出](#outbound)IP 位址來設定您的防火牆。服務，根據您的邏輯應用程式所在的區域。 這些位址會出現在本節中的**輸入**和**輸出**標題底下，並且依照區域排序。
 

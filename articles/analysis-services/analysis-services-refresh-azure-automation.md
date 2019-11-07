@@ -1,17 +1,17 @@
 ---
 title: 使用 Azure 自動化重新整理 Azure Analysis Services 模型 |Microsoft Docs
-description: 瞭解如何使用 Azure 自動化以程式碼模型重新整理。
+description: 本文說明如何使用 Azure 自動化，針對 Azure Analysis Services 的程式碼模型重新整理。
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294791"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572361"
 ---
 # <a name="refresh-with-azure-automation"></a>使用 Azure 自動化重新整理
 
@@ -72,7 +72,7 @@ ms.locfileid: "72294791"
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. 建立 Runbook 之後，它會自動進入編輯模式。  選取 [發行]。
+5. 建立 Runbook 之後，它會自動進入編輯模式。  選取 [發佈]。
 
     ![發佈 Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
@@ -101,7 +101,7 @@ Runbook 可以設定為根據排程觸發 Azure Analysis Services 模型重新�
  
     ![建立排程](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. 按一下 [**排程**]  > **建立新的排程**，然後填入詳細資料。
+2. 按一下 [**排程**] > **建立新的排程**，然後填入詳細資料。
 
     ![設定排程](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -146,9 +146,9 @@ Runbook 可以設定為根據排程觸發 Azure Analysis Services 模型重新�
 
 |屬性  |值  |
 |---------|---------|
-|**AnalysisServicesDatabase**     |Azure Analysis Services 資料庫的名稱 <br/> 範例：AdventureWorksDB         |
+|**AnalysisServicesDatabase**     |Azure Analysis Services 資料庫的名稱 <br/> 範例： AdventureWorksDB         |
 |**AnalysisServicesServer**     |Azure Analysis Services 伺服器名稱。 <br/> 範例： HTTPs： \//westus. asazure. net/servers/myserver/型號/AdventureWorks/         |
-|**DatabaseRefreshType**     |要執行的重新整理類型。 <br/> 範例：完整         |
+|**DatabaseRefreshType**     |要執行的重新整理類型。 <br/> 範例： Full         |
 
 範例 JSON 主體：
 
@@ -175,7 +175,7 @@ Runbook 可以設定為根據排程觸發 Azure Analysis Services 模型重新�
 >
 >若要深入瞭解如何設定 Azure 自動化混合式背景工作角色，請參閱[使用混合式 Runbook 背景工作角色將資料中心或雲端中的資源自動化](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker)。
 
-設定混合式背景工作角色之後，請[依照使用與 Data Factory](#consume-with-data-factory)一節中所述的方式建立 Webhook。  這裡唯一的差異在於，在設定 Webhook 時選取 [在  >  混合式背景**工作角色** **上執行**] 選項。
+設定混合式背景工作角色之後，請[依照使用與 Data Factory](#consume-with-data-factory)一節中所述的方式建立 Webhook。  這裡唯一的差異在於，在設定 Webhook 時選取 [在 > 混合式背景**工作角色** **上執行**] 選項。
 
 使用混合式背景工作角色的範例 webhook：
 

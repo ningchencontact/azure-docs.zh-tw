@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Databricks Jar 來轉換資料 | Microsoft Docs
+title: 使用 Databricks Jar 轉換資料-Azure
 description: 了解如何藉由執行 Databricks Jar 來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 982f00b5de9fd3e84233e5fe3b68e22fa6f7fe2a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812784"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683949"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Jar 活動來轉換資料
 
-[Data Factory 管線](concepts-pipelines-activities.md)中的 Azure Databricks Jar 活動會在 Azure Databricks 叢集中執行 Spark Jar 檔案。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 Azure Databricks 是用於執行 Apache Spark 的受控平台。
+[Data Factory 管線](concepts-pipelines-activities.md)中的 Azure Databricks Jar 活動會在 Azure Databricks 叢集中執行 Spark Jar 檔案。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 Azure Databricks 是用來執行 Apache Spark 的受控平臺。
 
 如需此功能的簡介與示範，請觀看下列 11 分鐘長的影片：
 
@@ -56,11 +56,11 @@ ms.locfileid: "70812784"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|描述|必要項|
+|屬性|說明|必要|
 |:--|---|:-:|
-|name|管線中的活動名稱。|是|
-|description|說明活動用途的文字。|否|
-|Type|若是 Databricks Jar 活動，則活動類型是 DatabricksSparkJar。|是|
+|名稱|管線中的活動名稱。|是|
+|說明|說明活動用途的文字。|否|
+|類型|若是 Databricks Jar 活動，則活動類型是 DatabricksSparkJar。|是|
 |linkedServiceName|Jar 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |mainClassName|類別的完整名稱，該類別包含要執行的 main 方法。 這個類別必須包含在提供做為程式庫的 JAR 中。|是|
 |參數|將傳遞至 main 方法的參數。  這是字串陣列。|否|

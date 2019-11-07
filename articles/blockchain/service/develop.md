@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 2990917243507d93cb6a86da11cf771f3a42eebd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a9444847fb75bdf01cabba98057605afbe03c9fc
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298422"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577437"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Azure 區塊鏈服務開發總覽
 
@@ -39,7 +39,7 @@ Geth 是命令列介面，可執行在 Go 中執行的完整乙太坊節點。 �
 
 Truffle 是一種熱門的區塊鏈開發架構，可在乙太坊區塊鏈上撰寫、編譯、部署及測試分散的應用程式。 您也可以將 Truffle 視為一種架構，它會嘗試順暢地整合智慧型合約開發和傳統 網頁程式開發。
 
-即使是最小的專案也會與至少兩個區塊鏈節點互動：一個在開發人員的電腦上，另一個則代表開發人員部署其應用程式的網路。 例如，主要的公用乙太坊網路或 Azure 區塊鏈服務。 Truffle 提供一個系統來管理每個網路的編譯和部署成品，並以簡化最終應用程式部署的方式來執行此動作。 如需詳細資訊，請參閱[快速入門：使用 Truffle 連接到 Azure 區塊鏈 Service 網路 @ no__t-0。
+即使是最小的專案也會與至少兩個區塊鏈節點互動：一個在開發人員的電腦上，另一個則代表開發人員部署其應用程式的網路。 例如，主要的公用乙太坊網路或 Azure 區塊鏈服務。 Truffle 提供一個系統來管理每個網路的編譯和部署成品，並以簡化最終應用程式部署的方式來執行此動作。 如需詳細資訊，請參閱[快速入門：使用 Truffle 連接到 Azure 區塊鏈 Service 網路](connect-truffle.md)。
 
 ## <a name="ethereum-quorum-private-transaction"></a>乙太坊仲裁私人交易
 
@@ -51,7 +51,7 @@ Truffle 是一種熱門的區塊鏈開發架構，可在乙太坊區塊鏈上撰
 * 對等互連-使用智慧合約的節點和對等互連，確保只有已知的合作物件可以加入網路
 * 較高的效能-仲裁提供比公用 Geth 更高的效能
 
-請參閱[教學課程：使用 Azure 區塊鏈 Service @ no__t-0 傳送交易，以取得私用交易的範例。
+如需私用交易的範例，請參閱[教學課程：使用 Azure 區塊鏈服務傳送交易](send-transaction.md)。
 
 ## <a name="block-explorers"></a>封鎖流覽
 
@@ -66,4 +66,4 @@ Truffle 是一種熱門的區塊鏈開發架構，可在乙太坊區塊鏈上撰
 
 ## <a name="next-steps"></a>後續步驟
 
-[快速入門：使用 Truffle 連接到 Azure 區塊鏈 Service 網路 @ no__t-0
+[快速入門：使用 Truffle 連接到 Azure 區塊鏈 Service 網路](connect-truffle.md)

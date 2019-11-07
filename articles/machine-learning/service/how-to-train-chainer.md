@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91278bdc1748615c91675e3894ebae4cf5fce1e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489497"
+ms.locfileid: "73584518"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 大規模定型和註冊 Chainer 模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "73489497"
 
 在下列任一環境中執行此程式碼：
 
-- Azure Machine Learning 計算實例-不需要下載或安裝
+- Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
     - 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
     - 在筆記本伺服器上的範例深入學習資料夾中，尋找已完成的筆記本和**使用方式 > ml 架構中的檔案 > chainer > 部署 > 訓練-超參數-chainer**  資料夾。  此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。

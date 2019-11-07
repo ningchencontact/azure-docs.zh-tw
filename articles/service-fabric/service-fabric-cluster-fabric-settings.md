@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: d0d87b42232a19d6bcd3c225fb4a4f8f8b459350
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cf070e91d6f15e80f51242722a59918d1bc70696
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177803"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615544"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -88,7 +88,7 @@ ms.locfileid: "73177803"
 |MaxDataMigrationTimeout |時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 在網狀架構升級之後，資料移轉復原作業的逾時上限。 |
 |MaxOperationRetryDelay |時間 (秒)，預設值為 5|動態| 以秒為單位指定時間範圍。 發生失敗時的內部重試延遲上限。 |
 |MaxOperationTimeout |時間 (秒)，預設值為 MaxValue |動態| 以秒為單位指定時間範圍。 在 ClusterManager 上內部處理作業的全域逾時上限。 |
-|MaxTimeoutRetryBuffer | 時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 當內部重試由於超時而進行的最大作業超時時間 `<Original Time out> + <MaxTimeoutRetryBuffer>`。 會以 MinOperationTimeout 增量來加上額外的逾時。 |
+|MaxTimeoutRetryBuffer | 時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 當內部重試因超時而進行的最大作業超時時間 `<Original Time out> + <MaxTimeoutRetryBuffer>`。 會以 MinOperationTimeout 增量來加上額外的逾時。 |
 |MinOperationTimeout | 時間 (秒)，預設值為 60 |動態|以秒為單位指定時間範圍。 在 ClusterManager 上內部處理作業的全域逾時下限。 |
 |MinReplicaSetSize |整數，預設值為 3 |不允許|ClusterManager 的 MinReplicaSetSize。 |
 |PlacementConstraints | 字串，預設值為 "" |不允許|ClusterManager 的 PlacementConstraints。 |
@@ -122,7 +122,7 @@ ms.locfileid: "73177803"
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|藉由指定範圍 [0.0-1.0] 中的百分比或空節點的數目作為數位 > = 1.0，來決定需要考慮重組叢集的可用節點數目 |
 
-## <a name="diagnostics"></a>診斷程式
+## <a name="diagnostics"></a>診斷
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -132,8 +132,8 @@ ms.locfileid: "73177803"
 |ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
 |AuditHttpRequests |布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 審核。 「審核」的目的是要查看針對叢集執行的活動;包括起始要求的物件。 請注意，這是最佳的嘗試記錄;而且可能會發生追蹤遺失的情況。 不會記錄具有「使用者」驗證的 HTTP 要求。 |
 |CaptureHttpTelemetry|布林值，預設值為 true | 動態 | 開啟或關閉 HTTP 遙測。 遙測的目的是要讓 Service Fabric 能夠捕獲遙測資料，以協助規劃未來的工作並找出問題區域。 遙測不會記錄任何個人資料或要求主體。 除非另有設定，否則遙測會捕捉所有 HTTP 要求。 |
-|ClusterId |String | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
-|ConsumerInstances |String | 動態 |DCA 取用者執行個體的清單。 |
+|ClusterId |字串 | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
+|ConsumerInstances |字串 | 動態 |DCA 取用者執行個體的清單。 |
 |DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 |EnableCircularTraceSession |布林值，預設值為 false | 靜態 |旗標會指出是否應使用循環追蹤工作階段。 |
 |EnablePlatformEventsFileSink |布林值，預設值為 false | 靜態 |啟用/停用寫入磁片的平臺事件 |
@@ -141,7 +141,7 @@ ms.locfileid: "73177803"
 |FailuresOnlyHttpTelemetry | 布林值，預設值為 false | 動態 | 如果已啟用 HTTP 遙測捕捉，則為，只捕捉失敗的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |HttpTelemetryCapturePercentage | 整數，預設值為50 | 動態 | 如果已啟用 HTTP 遙測捕捉，則為，只捕捉隨機百分比的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
-|ProducerInstances |String | 動態 |DCA 產生者執行個體的清單。 |
+|ProducerInstances |字串 | 動態 |DCA 產生者執行個體的清單。 |
 
 ## <a name="dnsservice"></a>DnsService
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
@@ -234,13 +234,12 @@ ms.locfileid: "73177803"
 |QuorumLossWaitDuration |時間 (秒)，預設值為 MaxValue |動態|以秒為單位指定時間範圍。 這是資料分割可處於仲裁遺失狀態的持續時間上限。 如果此持續時間過後，資料分割仍處於仲裁遺失狀態，則會以將停止運作的複本視為遺失的方式，讓資料分割從仲裁遺失狀態復原。 請注意，這可能會造成資料遺失。 |
 |ReconfigurationTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 重新設定的時間限制，此時間過後，便會起始警告健康情況報告 |
 |ReplicaRestartWaitDuration|TimeSpan，預設值為 Common：： TimeSpan：： FromSeconds （60.0 \* 30）|不允許|以秒為單位指定時間範圍。 這是 FMService 的 ReplicaRestartWaitDuration |
+| SeedNodeQuorumAdditionalBufferNodes | int，預設值為 0 | 動態 | 需要啟動的種子節點緩衝區（連同種子節點的仲裁），FM 應允許最多（totalNumSeedNodes-（seedNodeQuorum + SeedNodeQuorumAdditionalBufferNodes））種子節點關閉。 |
 |StandByReplicaKeepDuration|Timespan，預設值為 Common：： TimeSpan：： FromSeconds （3600.0 \* 24 \* 7）|不允許|以秒為單位指定時間範圍。 這是 FMService 的 StandByReplicaKeepDuration |
 |TargetReplicaSetSize|整數，預設值為 7|不允許|這是 Windows Fabric 會維護的 FM 複本目標數目。 數字越高，FM 資料的可靠性越高，而交換條件則是損失少許效能。 |
 |UserMaxStandByReplicaCount |整數，預設值為 1 |動態|系統針對使用者服務所保留之待命複本的預設數目上限。 |
 |UserReplicaRestartWaitDuration |時間（秒），預設值為 60.0 \* 30 |動態|以秒為單位指定時間範圍。 當保存的複本停止運作時，Windows Fabric 會先在這段持續時間內等候複本恢復運作，不行的話再建立新的取代複本 (這需要狀態複本)。 |
 |UserStandByReplicaKeepDuration |時間 (秒)，預設值為 3600.0 \* 24 \* 7 |動態|以秒為單位指定時間範圍。 當保存的複本從停止運作狀態恢復過來，它可能已被取代。 此計時器會決定 FM 會將待命複本保留多久才予以捨棄。 |
-|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan，預設值為 Common：： TimeSpan：： FromSeconds （60 * 10）|動態|以秒為單位指定時間範圍。 選擇性 WaitForInBuildReplica 安全性檢查超時的設定專案。 此設定會定義節點停用和升級的 WaitForInBuildReplica 安全性檢查的時間。 如果下列任何一項為真，則此安全性檢查會失敗：-正在建立主要複本，而 ft 目標複本集大小 > 1-如果目前的複本在組建中且已保存-如果這是目前的主要複本，而且正在建立新的複本，則會略過此安全性檢查ed，即使先前的其中一個條件仍為 true，也會過期。 |
-|WaitForReconfigurationSafetyCheckTimeout|TimeSpan，預設值為 Common：： TimeSpan：： FromSeconds （60.0 * 10）|動態|以秒為單位指定時間範圍。 選擇性 WaitForReconfiguration 安全性檢查超時的設定專案。 此設定會定義節點停用和升級的 WaitForReconfiguration 安全性檢查的時間。 如果要檢查的複本屬於正在重新設定的分割區，則此安全性檢查會失敗。 即使分割區仍在重新設定中，也會在此超時時間過後略過安全檢查。|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -340,6 +339,8 @@ ms.locfileid: "73177803"
 |ActivationRetryBackoffInterval |時間 (秒)，預設值為 5 |動態|每次啟用失敗的輪詢間隔；在每次連續啟用失敗之後，系統會重試啟用最多 MaxActivationFailureCount 次。 每次嘗試的重試間隔是連續啟用失敗與啟用輪詢間隔的乘積。 |
 |ActivationTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(180)|動態| 以秒為單位指定時間範圍。 應用程式的啟用、停用和升級逾時。 |
 |ApplicationHostCloseTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 在自我啟動的程序中偵測到網狀架構結束時，FabricRuntime 會關閉使用者主機 (applicationhost) 處理序中的所有複本。 這是關閉作業的逾時值。 |
+| CnsNetworkPluginCnmUrlPort | wstring，預設值為 L "48080" | 靜態 | Azure cnm api url 埠 |
+| CnsNetworkPluginCnsUrlPort | wstring，預設值為 L "10090" | 靜態 | Azure cn url 埠 |
 |ContainerServiceArguments|string，預設值為 "-H localhost:2375 -H npipe://"|靜態|Service Fabric (SF) 會管理 Docker 精靈 (在 Win10 之類的 Windows 用戶端電腦上除外)。 此組態允許使用者指定自訂引數，而這些引數應該在啟動 Docker 精靈時傳遞至該精靈。 若指定了自訂引數，除了 '--pidfile' 引數外，Service Fabric 不會再將任何其他引數傳遞至 Docker 引擎。 因此使用者不得指定 '-pidfile' 引數作為其自訂引數的一部分。 此外，自訂引數也應該確保 Docker 精靈在 Windows 的預設名稱管道 (或在 Linux 上的 Unix 網域通訊端) 上接聽，Service Fabric 才能與它通訊。|
 |ContainerServiceLogFileMaxSizeInKb|整數，預設值為 32768|靜態|Docker 容器所產生的記錄檔檔案大小上限。  僅限 Windows。|
 |ContainerImageDownloadTimeout|整數，秒數，預設為 1200 (20 分鐘)|動態|下載映像逾時之前的秒數。|
@@ -357,6 +358,7 @@ ms.locfileid: "73177803"
 |DisableContainers|布林值，預設值為 FALSE|靜態|停用容器的設定 - 用來取代 DisableContainerServiceStartOnContainerActivatorOpen (此為淘汰的設定) |
 |DisableDockerRequestRetry|布林值，預設值為 FALSE |動態| 當 SF 與 DD (Docker 精靈) 進行通訊時，針對傳送給 DD 的每個 HTTP 要求，逾時會預設為 'DockerRequestTimeout'。 如果 DD 沒有在此期間內回應；當最上層作業仍有剩餘時間時，SF 就會重新傳送要求。  使用 HyperV 容器時；DD 有時會花費更長的時間來啟動或停用容器。 在這種情況下，從 SF 的觀點看來會是 DD 要求逾時，而 SF 就會重試該作業。 有時，這似乎會給 DD 增加更多壓力。 此設定可讓您停用此重試以等候 DD 回應。 |
 |DnsServerListTwoIps | 布林值，預設值為 FALSE | 靜態 | 此旗標會新增本機 dns 伺服器兩次，以協助減輕間歇性的解決問題。 |
+| DoNotInjectLocalDnsServer | 布林值，預設值為 FALSE | 靜態 | 防止執行時間將本機 IP 插入作為容器的 DNS 伺服器。 |
 |EnableActivateNoWindow| 布林值，預設值為 FALSE|動態| 已啟動的程序會建立在沒有任何主控台的背景中。 |
 |EnableContainerServiceDebugMode|布林值，預設值為 TRUE|靜態|啟用/停用 Docker 容器的記錄。  僅限 Windows。|
 |EnableDockerHealthCheckIntegration|布林值，預設值為 TRUE|靜態|啟用 docker HEALTHCHECK 事件與 Service Fabric 系統健康狀態報告的整合 |
@@ -423,7 +425,7 @@ ms.locfileid: "73177803"
 | --- | --- | --- | --- |
 |IsEnabled|布林值，預設值為 FALSE|靜態|旗標控制叢集中受控識別權杖服務的目前狀態和狀態; 這是使用 Service Fabric 應用程式的受控識別功能的必要條件。|
 
-## <a name="management"></a>管理性
+## <a name="management"></a>管理
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -513,7 +515,7 @@ ms.locfileid: "73177803"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|Counters |String | 動態 |要收集之效能計數器的逗號分隔清單。 |
+|Counters |字串 | 動態 |要收集之效能計數器的逗號分隔清單。 |
 |IsEnabled |布林值，預設值為 true | 動態 |旗標會指出是否啟用本機節點的效能計數器收集。 |
 |MaxCounterBinaryFileSizeInMB |整數，預設值為 1 | 動態 |每個效能計數器之二進位檔案的大小上限 (MB)。 |
 |NewCounterBinaryFileCreationIntervalInMinutes |整數，預設值為 10 | 動態 |間隔上限 (秒)，在此時間過後便會建立新的效能計數器二進位檔案。 |
@@ -649,14 +651,14 @@ ms.locfileid: "73177803"
 ## <a name="security"></a>安全性
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|字串，預設值為 ""|靜態|AAD 憑證端點格式（預設為 Azure 商業），為非預設環境指定，例如 Azure Government "HTTPs： \//microsoftonline。 us/{0}/federationmetadata/2007-06/federationmetadata .xml" |
+|AADCertEndpointFormat|字串，預設值為 ""|靜態|AAD 憑證端點格式（預設為 Azure 商業），為非預設環境指定，例如 Azure Government "HTTPs：\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|字串，預設值為 ""|靜態|代表網狀架構用戶端的原生用戶端應用程式名稱或識別碼 |
 |AADClusterApplication|字串，預設值為 ""|靜態|代表叢集的 Web API 應用程式名稱或識別碼 |
-|AADLoginEndpoint|字串，預設值為 ""|靜態|AAD 登入端點，預設為 Azure 商業，針對非預設環境（例如 Azure Government "HTTPs： \//microsoftonline"）指定。 |
+|AADLoginEndpoint|字串，預設值為 ""|靜態|AAD 登入端點，預設的 Azure 商業，為非預設環境指定，例如 Azure Government "HTTPs：\//login.microsoftonline.us" |
 |AADTenantId|字串，預設值為 ""|靜態|租用戶識別碼 (GUID) |
 |AcceptExpiredPinnedClusterCertificate|布林值，預設值為 FALSE|動態|指出是否接受由指紋宣告之過期叢集憑證的旗標，僅適用于叢集憑證;因此，讓叢集保持運作狀態。 |
 |AdminClientCertThumbprints|字串，預設值為 ""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
-|AADTokenEndpointFormat|字串，預設值為 ""|靜態|AAD 權杖端點（預設為 Azure 商業），為非預設環境指定，例如 Azure Government "HTTPs： \//登入 microsoftonline。 us/{0}" |
+|AADTokenEndpointFormat|字串，預設值為 ""|靜態|AAD 權杖端點（預設為 Azure 商業），為非預設環境指定，例如 Azure Government "HTTPs：\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|字串，預設值為 ""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |
 |AdminClientIdentities|字串，預設值為 ""|動態|系統管理員角色之網狀架構用戶端的 Windows 身分識別，可用來授權特殊權限的網狀架構作業。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動對執行 fabric.exe 的帳戶指派系統管理員角色，ServiceFabricAdministrators 群組也是如此。 |
 |AppRunAsAccountGroupX509Folder|字串，預設值為 /home/sfuser/sfusercerts |靜態|AppRunAsAccountGroup X509 憑證和私密金鑰的所在資料夾 |
@@ -677,6 +679,7 @@ ms.locfileid: "73177803"
 |DisableFirewallRuleForDomainProfile| 布林值，預設值為 TRUE |靜態| 指出是否不應該對網域設定檔啟用防火牆規則 |
 |DisableFirewallRuleForPrivateProfile| 布林值，預設值為 TRUE |靜態| 指出是否不應該對私人設定檔啟用防火牆規則 | 
 |DisableFirewallRuleForPublicProfile| 布林值，預設值為 TRUE | 靜態|指出是否不應該對公用設定檔啟用防火牆規則 |
+| EnforceLinuxMinTlsVersion | 布林值，預設值為 FALSE | 動態 | 如果設定為 true，則為，僅支援 TLS 版本 1.2 +。  如果為 false，則為，支援舊版的 TLS 版本。 僅適用于 Linux |
 |FabricHostSpn| 字串，預設值為 "" |靜態| 當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行，而且 FabricHost 是在機器帳戶下執行時，FabricHost 的服務主體名稱。 它是 FabricHost 的 IPC 接聽程式 SPN，因為 FabricHost 是在機器帳戶下執行，因此依預設應該保持空白 |
 |IgnoreCrlOfflineError|布林值，預設值為 FALSE|動態|是否要在伺服器端驗證內送用戶端憑證時忽略 CRL 離線錯誤 |
 |IgnoreSvrCrlOfflineError|布林值，預設值為 TRUE|動態|是否要在用戶端驗證內送伺服器憑證時忽略 CRL 離線錯誤，預設為 true。 使用已撤銷的伺服器憑證來進行攻擊需要入侵 DNS，其難度比使用已撤銷的用戶端憑證更高。 |
@@ -743,7 +746,7 @@ ms.locfileid: "73177803"
 |InvokeContainerApi|string，預設值為 "Admin"|動態|Invoke container API |
 |InvokeInfrastructureCommand |字串，預設值為 "Admin" |動態| 基礎結構工作管理命令的安全性組態。 |
 |InvokeInfrastructureQuery |字串，預設值為 "Admin\|\|User" | 動態|用於查詢基礎結構工作的安全性組態。 |
-|List |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
+|列出 |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
 |MoveNextFabricUpgradeDomain |字串，預設值為 "Admin" |動態| 使用明確升級網域繼續進行叢集升級的安全性設定。 |
 |MoveNextUpgradeDomain |字串，預設值為 "Admin" |動態| 用於以明確的「升級網域」繼續進行應用程式升級的安全性組態。 |
 |MoveReplicaControl |字串，預設值為 "Admin" | 動態|移動複本。 |
@@ -837,10 +840,10 @@ ms.locfileid: "73177803"
 | --- | --- | --- | --- |
 |ContainerNetworkName|字串，預設值為 ""| 靜態 |要在設定容器網路時使用的網路名稱。|
 |ContainerNetworkSetup|布林值，預設值為 FALSE| 靜態 |是否要設定容器網路。|
-|FabricDataRoot |String | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
-|FabricLogRoot |String | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
+|FabricDataRoot |字串 | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
+|FabricLogRoot |字串 | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
 |NodesToBeRemoved|字串，預設值為 ""| 動態 |應在設定升級過程中移除的節點。 (僅適用於獨立部署)|
-|ServiceRunAsAccountName |String | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
+|ServiceRunAsAccountName |字串 | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
 |SkipContainerNetworkResetOnReboot|布林值，預設值為 FALSE|NotAllowed|是否在重新開機時跳過重設容器網路。|
 |SkipFirewallConfiguration |布林值，預設值為 false | 不允許 |指定是否需要由系統設定防火牆設定。 這只有當您使用 Windows 防火牆時才適用。 如果您使用協力廠商防火牆，則您必須開啟要供系統和應用程式使用的連接埠 |
 
@@ -854,7 +857,7 @@ ms.locfileid: "73177803"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|層級 |整數，預設值為 4 | 動態 |追蹤 etw 層級可以接受值 1、2、3、4。 您必須保持在追蹤層級 4，才可以支援 |
+|等級 |整數，預設值為 4 | 動態 |追蹤 etw 層級可以接受值 1、2、3、4。 您必須保持在追蹤層級 4，才可以支援 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 
@@ -869,14 +872,14 @@ ms.locfileid: "73177803"
 |MaxSecondaryReplicationQueueSize |單位，預設值為 16384 | 靜態 |這是次要複寫佇列中可存在的作業數目上限。 請注意，此值必須是 2 的乘冪。 |
 |ReplicatorAddress |字串，預設值為 "localhost:0" | 靜態 | -'IP:Port' 字串形式的端點，Windows Fabric 複寫器使用此端點來建立與其他複本的連線，以便傳送/接收作業。 |
 
-## <a name="transport"></a>運輸
+## <a name="transport"></a>傳輸
 | **參數** | **允許的值** |**升級原則** |**指引或簡短描述** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60)|靜態|以秒為單位指定時間範圍。 內送和接收端 (包括安全模式下的安全性交涉) 的連線設定逾時 |
 |FrameHeaderErrorCheckingEnabled|布林值，預設值為 TRUE|靜態|在非安全模式的框架標題上檢查時發生錯誤的預設設定；元件設定會加以覆寫。 |
 |MessageErrorCheckingEnabled|布林值，預設值為 FALSE|靜態|在非安全模式的訊息標題和本文上檢查時發生錯誤的預設設定；元件設定會加以覆寫。 |
 |ResolveOption|string，預設值為 "unspecified"|靜態|決定 FQDN 的解析方式。  有效值為 "unspecified/ipv4/ipv6"。 |
-|SendTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 偵測停滯連線時傳送逾時。 TCP 失敗報告在某些環境中並不可靠。 這可能必須根據可用的網路頻寬和輸出資料的大小進行調整 (MaxMessageSize\/\*\*SendQueueSizeLimit)。 |
+|SendTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 偵測停滯連線時傳送逾時。 TCP 失敗報告在某些環境中並不可靠。 這可能必須根據可用的網路頻寬和輸出資料的大小進行調整 (MaxMessageSize\*\/\*SendQueueSizeLimit)。 |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 

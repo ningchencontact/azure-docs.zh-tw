@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 超大規模資料庫概觀 | Microsoft Docs
+title: Azure SQL Database 超大規模資料庫總覽
 description: 本文描述 Azure SQL Database 以虛擬核心為基礎的購買模型中的超大規模服務層級，並說明其與一般用途和商務關鍵性服務層級的差異。
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496192"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687317"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -82,7 +82,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 下圖說明超大規模資料庫中不同類型的節點：
 
-![架構](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![架構](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 超大規模資料庫資料庫包含下列不同類型的元件：
 
@@ -104,7 +104,7 @@ Azure 儲存體包含資料庫中的所有資料檔案。 頁面伺服器會將 
 
 ## <a name="backup-and-restore"></a>備份與還原
 
-備份是以檔案快照集為基礎，因此幾乎瞬間完成。 儲存體和計算區隔可讓您將備份/還原作業向下推送至儲存層，以降低主要計算複本的處理負擔。 因此，資料庫備份不會影響主要計算節點的效能;同樣地，還原會藉由還原到檔案快照集來完成，因此這不是資料作業的大小。 Restore 是一種持續時間的作業，甚至可以在數分鐘內還原多 tb 的資料庫，而不需要數小時或數天。 藉由還原現有的備份來建立新的資料庫也會利用這項功能：建立用於開發或測試用途的資料庫複本，甚至是大小 tb 的資料庫，在數分鐘內就會雖可行。
+備份是以檔案快照集為基礎，因此幾乎瞬間完成。 儲存體和計算區隔可讓您將備份/還原作業向下推送至儲存層，以降低主要計算複本的處理負擔。 因此，資料庫備份不會影響主要計算節點的效能;同樣地，還原會藉由還原到檔案快照集來完成，因此這不是資料作業的大小。 Restore 是一種持續時間的作業，甚至可以在數分鐘內還原多 tb 的資料庫，而不需要數小時或數天。 藉由還原現有的備份來建立新的資料庫也會利用這項功能：在相同的邏輯伺服器內建立資料庫複本以供開發或測試之用（即使大小較大的資料庫），在幾分鐘內就會雖可行。
 
 ## <a name="scale-and-performance-advantages"></a>規模和效能優點
 

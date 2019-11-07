@@ -1,5 +1,5 @@
 ---
-title: Windows 虛擬桌面中的遠端桌面用戶端連接-Azure
+title: 針對遠端桌面 Windows 虛擬桌面進行疑難排解-Azure
 description: 如何解決在 Windows 虛擬桌面租使用者環境中設定用戶端連線時的問題。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 22590a7ecc94efbfad5eefe27f284bdb191e876d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676395"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607379"
 ---
 # <a name="remote-desktop-client-connections"></a>遠端桌面用戶端連線
 
@@ -34,23 +34,23 @@ nslookup rdweb.wvd.microsoft.com
 
 請嘗試與其他用戶端連線，例如適用于 Windows 7 或 Windows 10 的遠端桌面用戶端，並檢查您是否可以開啟網頁用戶端。
 
-### <a name="error-opening-another-site-fails"></a>Error:開啟另一個網站失敗
+### <a name="error-opening-another-site-fails"></a>錯誤：開啟另一個網站失敗
 
 **原因：** 網路問題和/或中斷。
 
-**補丁**請聯絡網路支援。
+**修正：** 請聯絡網路支援。
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Error:Nslookup 無法解析名稱
+### <a name="error-nslookup-cannot-resolve-the-name"></a>錯誤： Nslookup 無法解析名稱
 
 **原因：** 網路問題和/或中斷。
 
-**補丁**聯絡網路支援
+**修正：** 聯絡網路支援
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Error:您無法連線，但其他用戶端可以連接
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>錯誤：您無法連線，但其他用戶端可以連接
 
 **原因：** 瀏覽器未如預期般運作，且已停止運作。
 
-**補丁**請遵循這些指示來疑難排解瀏覽器。
+**修正：** 請遵循這些指示來疑難排解瀏覽器。
 
 1. 重新開機瀏覽器。
 2. 清除瀏覽器 cookie。 請參閱[如何刪除 Internet Explorer 中的 cookie](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)檔案。
@@ -61,11 +61,11 @@ nslookup rdweb.wvd.microsoft.com
 
 嘗試使用另一個瀏覽器或用戶端進行連接。
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Error:其他瀏覽器和用戶端也會故障或無法開啟
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>錯誤：其他瀏覽器和用戶端也會故障或無法開啟
 
 **原因：** 網路和/或作業系統問題或中斷
 
-**補丁**聯絡支援小組。
+**修正：** 聯絡支援小組。
 
 ## <a name="web-client-keeps-prompting-for-credentials"></a>Web 用戶端會持續提示輸入認證
 
@@ -135,28 +135,28 @@ Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Error:O_ADD_USER_TO_GROUP_FAILED/無法將 USER = ≤ username ≥新增至群組 = 遠端桌面使用者。 原因：Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>錯誤： O_ADD_USER_TO_GROUP_FAILED/無法將 USER = ≤ username ≥新增至群組 = 遠端桌面使用者。 原因： Win32. ERROR_NO_SUCH_MEMBER
 
 **原因：** VM 尚未聯結至使用者物件所在的網域。
 
-**補丁**將 VM 新增至正確的網域。 請參閱將[Windows Server 虛擬機器加入受控網域](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
+**修正：** 將 VM 新增至正確的網域。 請參閱將[Windows Server 虛擬機器加入受控網域](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Error:Nslookup 無法解析名稱
+### <a name="error-nslookup-cannot-resolve-the-name"></a>錯誤： Nslookup 無法解析名稱
 
 **原因：** 網路問題或中斷。
 
-**補丁**聯絡網路支援
+**修正：** 聯絡網路支援
 
-### <a name="error-connectionfailedclientprotocolerror"></a>Error:ConnectionFailedClientProtocolError
+### <a name="error-connectionfailedclientprotocolerror"></a>錯誤： ConnectionFailedClientProtocolError
 
 **原因：** 使用者嘗試連接的 Vm 未加入網域。
 
-**補丁**將屬於主機集區一部分的所有 Vm 加入網域控制站。
+**修正：** 將屬於主機集區一部分的所有 Vm 加入網域控制站。
 
-### <a name="error-connectionfailedusersidinformationmismatch"></a>Error:ConnectionFailedUserSIDInformationMismatch
+### <a name="error-connectionfailedusersidinformationmismatch"></a>錯誤： ConnectionFailedUserSIDInformationMismatch
 **原因：** 嘗試啟用遠端登入的使用者時，使用者的 Azure Active Directory （AD）權杖中的 SID 不符合網域控制站所傳回的 SID。 當嘗試以原本源自 Windows Server AD 的使用者登入 Azure Active Directory Domain Services （Azure AD DS）環境時，通常會發生此錯誤。
 
-**補丁**目前不支援此案例。 只有源自 Azure Active Directory 的使用者可以登入連線到 Azure AD DS Windows 虛擬桌面 Vm。
+**修正：** 目前不支援此案例。 只有源自 Azure Active Directory 的使用者可以登入連線到 Azure AD DS Windows 虛擬桌面 Vm。
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>使用者連接，但不顯示任何內容（沒有摘要）
 
@@ -174,8 +174,8 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需疑難排解 Windows 虛擬桌面和擴大追蹤的總覽, 請參閱[疑難排解總覽、意見反應和支援](troubleshoot-set-up-overview.md)。
-- 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解, 請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
-- 若要在 Windows 虛擬桌面中設定虛擬機器 (VM) 時針對問題進行疑難排解, 請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
-- 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解, 請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)進行疑難排解。
+- 如需疑難排解 Windows 虛擬桌面和擴大追蹤的總覽，請參閱[疑難排解總覽、意見反應和支援](troubleshoot-set-up-overview.md)。
+- 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解，請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
+- 若要在 Windows 虛擬桌面中設定虛擬機器（VM）時針對問題進行疑難排解，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
+- 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)。

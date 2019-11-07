@@ -1,6 +1,6 @@
 ---
 title: 部署和取用
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 您可以使用 Azure Machine Learning Studio （傳統）將機器學習工作流程和模型部署為 web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: bf169a9b7064bd83caf0c9f8ec6dd6dd55894d67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 47cd04615919fcc9db757ed4b9e8fd06eb297592
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493013"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684818"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio （傳統） Web 服務：部署和耗用量
 
@@ -31,8 +31,8 @@ Studio （傳統）入口網站和 Microsoft Azure Machine Learning Web 服務�
 
 下列連結提供有關如何部署新的 Web 服務的一般資訊︰
 
-* 如需如何部署以 Azure Resource Manager 為基礎的新 Web 服務的概觀，請參閱 [部署新的 Web 服務](publish-a-machine-learning-web-service.md)。
-* 如需如何部署 Web 服務的逐步解說，請參閱 [部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
+* 如需如何部署以 Azure Resource Manager 為基礎的新 Web 服務的概觀，請參閱 [部署新的 Web 服務](deploy-a-machine-learning-web-service.md)。
+* 如需如何部署 Web 服務的逐步解說，請參閱 [部署 Azure Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)。
 * 如需如何建立和部署 web 服務的完整逐步解說，請從[教學課程1：預測信用風險](tutorial-part1-credit-risk.md)開始。
 * 如需部署 Web 服務的特定範例，請參閱︰
 
@@ -87,8 +87,8 @@ Web 服務 Azure Machine Learning Studio 資源提供者的傳統版本可讓您
 
 您可以從 Azure Machine Learning Web Services 入口網站測試您的 Web 服務。 這包括測試要求-回應服務 (RRS) 和批次執行服務 (BES) 介面。
 
-* [部署新的 Web 服務](publish-a-machine-learning-web-service.md)
-* [部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)
+* [部署新的 Web 服務](deploy-a-machine-learning-web-service.md)
+* [部署 Azure Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)
 * [教學課程3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>從 Excel

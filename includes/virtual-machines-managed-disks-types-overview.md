@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955854"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601397"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>在 Azure 中可使用哪些磁碟類型？
 
@@ -26,10 +26,10 @@ Azure 受控磁片目前提供四種磁片類型，每種類型都是針對特�
 |   | Ultra 磁片   | 進階 SSD   | 標準 SSD   | 標準 HDD   |
 |---------|---------|---------|---------|---------|
 |磁碟類型   |SSD   |SSD   |SSD   |HDD   |
-|狀況   |IO 密集的工作負載 (例如 SAP HANA)、最上層資料庫 (例如 SQL、Oracle)，以及其他高交易量的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
+|案例   |IO 密集的工作負載，例如[SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)、最上層資料庫（例如 SQL、Oracle）和其他大量交易的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
 |最大磁片大小   |65536 gib （GiB）    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |最大輸送量   |2000 MiB/秒    |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
-|IOPS 上限   |160,000    |20,000   |6,000   |2,000   |
+|最大 IOPS   |160,000    |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-disk"></a>Ultra 磁片
 
@@ -41,9 +41,9 @@ Azure ultra 磁片可為 Azure IaaS Vm 提供高輸送量、高 IOPS 以及一�
 
 Ultra 磁片的一些主要功能如下：
 
-- 磁碟容量：Ultra 磁片容量的範圍是從 4 GiB 到 64 TiB。
-- 磁碟 IOPS：Ultra 磁片支援 300 IOPS/GiB 的 IOPS 限制，最多可達每個磁片 160 K IOPS。 若要達到您所布建的 IOPS，請確定選取的磁片 IOPS 小於 VM IOPS 限制。 每個磁片的 IOPS 下限為 2 IOPS/GiB，整體基準最小值為 100 IOPS。 例如，如果您有4個 GiB 的 ultra 磁片，您最少會有 100 IOPS，而不是八個 IOPS。
-- 磁碟輸送量：使用 ultra 磁片時，單一磁片的輸送量限制為每個已布建 IOPS 的 256 KiB/秒，最多可達每個磁片 2000 MBps （其中 MBps = 10 ^ 6 位元組/秒）。 每個磁片的最小輸送量為每個已布建 IOPS 的 4KiB/秒，整體基準最小值為 1 MBps。
+- 磁片容量： Ultra 磁片容量的範圍是從 4 GiB 到 64 TiB。
+- 磁片 IOPS： Ultra 磁片支援 300 IOPS/GiB 的 IOPS 限制，最多可達每個磁片 160 K IOPS。 若要達到您所布建的 IOPS，請確定選取的磁片 IOPS 小於 VM IOPS 限制。 每個磁片的 IOPS 下限為 2 IOPS/GiB，整體基準最小值為 100 IOPS。 例如，如果您有4個 GiB 的 ultra 磁片，您最少會有 100 IOPS，而不是八個 IOPS。
+- 磁片輸送量：使用 ultra 磁片時，單一磁片的輸送量限制為每個已布建 IOPS 的 256 KiB/秒，最多可達每個磁片 2000 MBps （MBps = 10 ^ 6 位元組/秒）。 每個磁片的最小輸送量為每個已布建 IOPS 的 4KiB/秒，整體基準最小值為 1 MBps。
 - Ultra 磁片支援在執行時間調整磁片效能屬性（IOPS 和輸送量），而不需從虛擬機器卸離磁片。 向磁碟發出磁碟效能調整作業後，最多可能需要一個小時，變更才會實際生效。 24小時的時間範圍內有四種效能調整大小作業的限制。 效能調整大小作業可能會因為缺乏效能頻寬容量而失敗。
 
 ### <a name="disk-size"></a>磁碟大小
@@ -62,13 +62,4 @@ Ultra 磁片的一些主要功能如下：
 
 ### <a name="ga-scope-and-limitations"></a>GA 範圍和限制
 
-目前，ultra 磁片有額外的限制，如下所示：
-
-- 在美國東部2、東南亞和北歐（每個區域的兩個可用性區域）中受到支援  
-- 只能用於可用性區域 (區域以外的可用性設定組和單一 VM 部署將無法連結 Ultra磁碟)
-- 僅在 ES/DS v3 VM 上受到支援
-- 只能作為資料磁碟，且僅支援 4k 實體磁區大小  
-- 只能建立為空磁碟  
-- 尚不支援磁片快照、VM 映射、可用性設定組、虛擬機器擴展集和 Azure 磁片加密
-- 尚不支援與 Azure 備份或 Azure Site Recovery 的整合
-- GA Vm 上目前的 IOPS 上限為80000。
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]

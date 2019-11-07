@@ -1,5 +1,5 @@
 ---
-title: 連線到 Azure SQL 資料倉儲 - SSMS | Microsoft Docs
+title: 以 SSMS 連線
 description: 使用 SQL Server Management Studio (SSMS) 連接及查詢 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5c903a24ea47cb152555330688dd0bc515c625b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575340"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692592"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>連接 SQL 資料倉儲與 SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -33,10 +34,10 @@ ms.locfileid: "69575340"
 若要使用本教學課程，您需要：
 
 * 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
-* SQL Server Management Studio (SSMS) 已安裝。 如果您還沒有 SSMS, 請將其[安裝][Install SSMS]為免費。
+* SQL Server Management Studio (SSMS) 已安裝。 如果您還沒有 SSMS，請將其[安裝][Install SSMS]為免費。
 * 完整的 SQL 伺服器名稱。 若要找到此名稱，請參閱 [連接到 SQL 資料倉儲][Connect to SQL Data Warehouse]。
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. 連接到您的 SQL 資料倉儲
 1. 開啟 SSMS。
 2. 開啟物件總管。 若要這樣做，請選取 [檔案]  >  [連接物件總管]。
    
@@ -48,12 +49,12 @@ ms.locfileid: "69575340"
    * **伺服器名稱**。 輸入先前找到的 **伺服器名稱** 。
    * **驗證**。 選取 [SQL Server 驗證] 或 [Active Directory 整合式驗證]。
    * [使用者名稱] 和 [密碼]。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
-   * 按一下 **[連接]** 。
+   * 按一下 [連接]。
 4. 若要瀏覽，請展開您的 Azure SQL 伺服器。 您可以檢視與伺服器相關聯的資料庫。 展開 AdventureWorksDW 以查看範例資料庫中的資料表。
    
     ![探索 AdventureWorksDW][3]
 
-## <a name="2-run-a-sample-query"></a>2.執行範例查詢
+## <a name="2-run-a-sample-query"></a>2. 執行範例查詢
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。

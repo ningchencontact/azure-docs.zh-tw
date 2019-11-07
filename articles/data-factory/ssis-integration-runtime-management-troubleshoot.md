@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure Data Factory 中的 SSIS Integration Runtime 管理進行疑難排解 |Microsoft Docs
+title: '針對 Azure Data Factory 中的 SSIS Integration Runtime 管理進行疑難排解 '
 description: 本文提供 SSIS Integration Runtime 管理問題的疑難排解指引（SSIS IR）
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: d16267e104d753770dc40ce99b0f56e5c749b2d0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752159"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684017"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>針對 Azure Data Factory 中的 SSIS Integration Runtime 管理進行疑難排解
 
@@ -77,7 +77,7 @@ ms.locfileid: "72752159"
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-這種錯誤訊息看起來像這樣：「不正確物件名稱 ' catalog. catalog_properties '」。在此情況下，您可能已經有名為 SSISDB 的資料庫，但它不是由 SSIS IR 所建立，或者資料庫處於不正確狀態，因為最後一個 SSIS IR 布建發生錯誤。 您可以使用名稱 SSISDB 來卸除現有資料庫，也可以為 IR 設定新的 Azure SQL Database 伺服器或受控執行個體。
+這種錯誤訊息看起來像這樣：「不正確物件名稱」目錄。 catalog_properties '」。在此情況下，您可能已經有名為 SSISDB 的資料庫，但它不是由 SSIS IR 所建立，或者資料庫處於不正確狀態，因為最後一個 SSIS IR 布建發生錯誤。 您可以使用名稱 SSISDB 來卸除現有資料庫，也可以為 IR 設定新的 Azure SQL Database 伺服器或受控執行個體。
 
 ## <a name="custom-setup-issues"></a>自訂安裝問題
 

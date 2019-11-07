@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1f46fe92fd6650daa3ba4b9a930c4d781925d3fc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 484322fb0486eeb4ab67366d32350c69a18da743
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518251"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605930"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>使用 Azure 入口網站設定區塊鏈資料管理員
 
@@ -53,7 +53,7 @@ ms.locfileid: "73518251"
 
 1. 選取 [確定]。
 
-    建立區塊鏈資料管理員實例需要不到一分鐘的時間。 部署實例之後，它就會自動啟動。 執行中的區塊鏈資料管理員實例會從交易節點中捕捉區塊鏈事件，並將資料傳送至輸出連線。 如果您也想要從交易節點捕獲已解碼的事件和屬性資料，請為區塊鏈資料管理員實例建立區塊鏈應用程式。
+    建立區塊鏈資料管理員實例需要不到一分鐘的時間。 部署實例之後，它就會自動啟動。 執行中的區塊鏈資料管理員實例會從交易節點中捕捉區塊鏈事件，並將資料傳送至輸出連線。
 
     新的實例會出現在 Azure 區塊鏈服務成員的區塊鏈資料管理員實例清單中。
 
@@ -63,7 +63,10 @@ ms.locfileid: "73518251"
 
 如果您新增區塊鏈應用程式，區塊鏈資料管理員會將應用程式的事件和屬性狀態解碼。 否則，只會傳送原始區塊和原始交易資料。 區塊鏈資料管理員也會在部署合約時探索合約位址。 您可以將多個區塊鏈應用程式新增至區塊鏈資料管理員實例。
 
-區塊鏈資料管理員需要智慧型合約 ABI 和位元組程式碼檔案來新增應用程式。
+> [!IMPORTANT]
+> 目前，不完全支援宣告密度[陣列類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays)或[對應類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types)的區塊鏈應用程式。 宣告為數組或對應類型的屬性將不會在*ContractPropertiesMsg*或*DecodedContractEventsMsg*訊息中解碼。
+
+區塊鏈資料管理員需要智慧型合約 ABI 並部署的位元組程式碼檔案，才能新增應用程式。
 
 ### <a name="get-contract-abi-and-bytecode"></a>取得合約 ABI 和位元組碼
 
@@ -79,17 +82,15 @@ ms.locfileid: "73518251"
 
 1. 將**abi**陣列儲存為 JSON 檔案。 例如 abi. *json*。 您在稍後的步驟中會用到此檔案。
 
-合約位元組程式碼是由乙太坊虛擬機器所執行的已編譯智慧合約。 您可以使用此擴充功能，將合約位元組碼複製到剪貼簿。
+區塊鏈資料管理員需要智慧合約的已部署位元組程式碼。 部署的位元組和智慧合約的位元組碼不同。 您可以從已編譯的合約中繼資料檔案取得已部署的位元組。
 
-1. 在 [Visual Studio Code explorer] 窗格中，展開您的密度專案的 [**組建/合約**] 資料夾。
-1. 以滑鼠右鍵按一下 [合約中繼資料 JSON 檔案]。 檔案名是智慧合約名稱，後面接著**json**延伸模組。
-1. 選取 [**複製合約位元組碼**]。
+1. 開啟包含在您的密度專案的 [**組建/合約**] 資料夾中的合約中繼資料檔案。 檔案名是智慧合約名稱，後面接著**json**延伸模組。
+1. 尋找 JSON 檔案中的**deployedBytecode**元素。
+1. 複製不含引號的十六進位值。
 
-    ![具有複製合約位元組的選取範圍的 Visual Studio Code 窗格](./media/data-manager-portal/bytecode-devkit.png)
+    ![在中繼資料中具有位元組的 Visual Studio Code 窗格](./media/data-manager-portal/bytecode-metadata.png)
 
-    合約位元組的會複製到剪貼簿。
-
-1. 將 [**位元組碼**] 值儲存為 JSON 檔案。 例如，位元組程式碼 *。* 只儲存十六進位值。 您在稍後的步驟中會用到此檔案。
+1. 將 [**位元組碼**] 值儲存為 JSON 檔案。 例如，位元組程式碼 *。* 您在稍後的步驟中會用到此檔案。
 
 下列範例會顯示在 [VS Code 編輯器] 中開啟的*abi*和*位元組檔. json*檔案。 您的檔案看起來應該類似。
 
@@ -169,4 +170,7 @@ ms.locfileid: "73518251"
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[Azure 事件方格中的事件處理常式](../../event-grid/event-handlers.md)。
+嘗試使用區塊鏈資料管理員和 Azure Cosmos DB 建立區塊鏈交易訊息瀏覽器。
+
+> [!div class="nextstepaction"]
+> [教學課程：使用區塊鏈資料管理員將資料傳送至 Azure Cosmos DB](data-manager-cosmosdb.md)

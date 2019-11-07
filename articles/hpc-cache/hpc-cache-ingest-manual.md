@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 快取預覽資料內嵌-手動複製
+title: Azure HPC 快取資料內嵌-手動複製
 description: 如何在 Azure HPC 快取中使用 cp 命令將資料移至 Blob 儲存體目標
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254462"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582293"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Azure HPC 快取（預覽）資料內嵌-手動複製方法
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 快取資料內嵌-手動複製方法
 
 本文提供詳細的指示，說明如何手動將資料複製到 Blob 儲存體容器，以與 Azure HPC 快取搭配使用。 它會使用多執行緒平行作業來優化複製速度。
 
@@ -81,7 +81,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>新增掛接點的時機
 
-當您有足夠的平行線程進入單一目的地檔案系統掛接點之後，將會有一個點，讓新增更多執行緒不會提供更多的輸送量。 (輸送量會以每秒檔案數或每秒位元組數來測量，視您的資料類型而定)。或是更糟，過多執行緒有時會造成輸送量降低。  
+當您有足夠的平行線程進入單一目的地檔案系統掛接點之後，將會有一個點，讓新增更多執行緒不會提供更多的輸送量。 （輸送量將根據您的資料類型，以每秒的檔案數或位元組/秒來測量）。或更糟的是，過度執行緒有時可能會導致輸送量降低。  
 
 發生這種情況時，您可以使用相同的遠端檔案系統掛接路徑，將用戶端掛接點新增至其他 Azure HPC 快取裝載位址：
 
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>建立檔案資訊清單
 
-瞭解上述方法（每個目的地有多個複製執行緒、每個用戶端有多個目的地、每個網路可存取的來源檔案系統有多個用戶端）之後，請考慮下列建議：建置檔案資訊清單，然後跨多個用戶端將其與複製命令搭配使用。
+瞭解上述方法（每個目的地多個複製執行緒、每個用戶端的多個目的地、每個網路可存取的來源檔案系統的多個用戶端）時，請考慮下列建議：組建檔案資訊清單，然後將它們與 copy 搭配使用跨多個用戶端的命令。
 
 此案例會使用 UNIX ``find`` 命令來建立檔案或目錄的資訊清單：
 
@@ -208,7 +208,7 @@ for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-針對六個用戶端...請視需要依此類推。
+還有六個 ...。視需要推斷。
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done

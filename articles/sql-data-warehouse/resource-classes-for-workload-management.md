@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 資料倉儲中工作負載管理的資源類別 |Microsoft Docs
+title: 適用於工作負載管理的資源類別
 description: 在 Azure SQL 資料倉儲中，使用資源類別來管理並行和適用於查詢之計算資源的指引。
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ef95faf162a6774e42b7cf258515757fdc9c7eb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035072"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685937"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 
@@ -35,7 +36,7 @@ ms.locfileid: "72035072"
 
 資源類別會使用並行位置來測量資源耗用量。  [並行位置](#concurrency-slots)稍後會在本文中加以說明。
 
-- 若要檢視資源類別的資源使用率，請參閱[記憶體和並行存取限制](memory-and-concurrency-limits.md#concurrency-maximums)。
+- 若要查看資源類別的資源使用率，請參閱 [記憶體和並行限制] 記憶體並行-limits.md）。
 - 若要調整資源類別，您可以在不同的使用者下執行查詢，或[變更目前使用者的資源類別](#change-a-users-resource-class)成員資格。
 
 ### <a name="static-resource-classes"></a>靜態資源類別
@@ -157,13 +158,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 資源類別會藉由將使用者指派給資料庫角色來實作。 當使用者執行查詢時，查詢會利用使用者的資源類別來執行。 例如，如果使用者是 staticrc10 資料庫角色的成員，其查詢就會以少量的記憶體執行。 如果資料庫使用者是 xlargerc 或 staticrc80 資料庫角色的成員，其查詢就會以海量儲存體執行。
 
-若要增加使用者的資源類別，請使用[sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)將使用者新增至大型資源類別的資料庫角色。  下列程式碼會將使用者新增至 largerc 資料庫角色。  每個要求都會取得系統記憶體的 22%。
+若要增加使用者的資源類別，請使用[sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)將使用者新增至大型資源類別的資料庫角色。  下列程式碼會將使用者新增至 largerc 資料庫角色。  每個要求都會取得系統記憶體的22%。
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(英文\)。  如果 ' loaduser ' 不是成員或任何其他資源類別，它們會進入預設的 smallrc 資源類別，並提供 3% 的記憶體授與。  
+若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(英文\)。  如果 ' loaduser ' 不是成員或任何其他資源類別，它們會進入預設的 smallrc 資源類別，並提供3% 的記憶體授與。  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -331,7 +332,7 @@ SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_
     SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
+,map  
 AS
 (
   SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
@@ -580,7 +581,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-step"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 如需管理資料庫使用者和安全性的詳細資訊，請參閱[保護 SQL 資料倉儲中的資料庫][Secure a database in SQL Data Warehouse]。 如需較大資源類別如何改善叢集資料行存放區索引品質的詳細資訊，請參閱[資料行存放區壓縮的記憶體最佳化](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
 

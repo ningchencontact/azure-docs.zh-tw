@@ -8,27 +8,32 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301486"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614491"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions 的零停機部署
+
 Durable Functions 的[可靠執行模型](durable-functions-checkpointing-and-replay.md)需要協調流程具有決定性，這會在部署更新時產生額外的挑戰。 當部署包含活動函式簽章或 orchestrator 邏輯的變更時，進行中的協調流程實例會失敗。 這種情況對於長時間執行的協調流程實例而言特別有問題，這可能代表數小時或幾天的工作。
 
 為避免發生這些錯誤，您必須延遲部署，直到所有執行中的協調流程實例都完成為止，或確定任何執行中的協調流程實例都使用現有的函式版本。 如需版本控制的詳細資訊，請參閱[Durable Functions 中的版本控制](durable-functions-versioning.md)。
 
+> [!NOTE]
+> 本文提供以 Durable Functions 1.x 為目標之函式應用程式的指引。 尚未更新，以將 Durable Functions 2.x 中引進的變更納入考慮。 如需有關延伸模組版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+
 下圖比較三個主要策略，以達到 Durable Functions 的零停機部署： 
 
-| 策略 |  使用時機 | 優點 | 缺點 |
+| 策略 |  When to use | 優點 | 缺點 |
 | -------- | ------------ | ---- | ---- |
 | **[版本](#versioning)** |  不常遇到[重大變更](durable-functions-versioning.md)的應用程式。 | 容易執行。 |  增加記憶體中的函數應用程式大小和函式數目。<br/>程式碼重複。 |
 | **[具有位置的狀態檢查](#status-check-with-slot)** | 沒有長時間執行的協調流程持續超過24小時或經常重迭協調流程的系統。 | 簡單的程式碼基底。<br/>不需要額外的函數應用程式管理。 | 需要額外的儲存體帳戶或任務管理中樞。<br/>當沒有任何協調流程正在執行時，需要一段時間。 |
 | **[應用程式路由](#application-routing)** | 沒有執行協調流程的系統，例如協調流程持續超過24小時或經常重迭的協調流程。 | 處理新版本的系統，持續執行具有重大變更的協調流程。 | 需要智慧型應用程式路由器。<br/>可能會使您的訂用帳戶所允許的函式應用程式數目上限（預設值100）。 |
 
 ## <a name="versioning"></a>版本控制
+
 定義函式的新版本，並將舊版本保留在函數應用程式中。 如您在圖表上所見，函式的版本會成為其名稱的一部分。 因為已保留舊版的函式，所以進行中的協調流程實例可以繼續參考它們。 同時，新的協調流程實例的要求會呼叫最新版本，您的協調流程用戶端函式可以從應用程式設定參考。
 
 ![版本控制策略](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ Durable Functions 的[可靠執行模型](durable-functions-checkpointing-and-re
 
 下列 JSON 片段是主機. JSON 檔案中連接字串設定的範例。
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>函數2。0
 
 ```json
 {
@@ -160,7 +165,7 @@ Azure Pipelines 檢查函式應用程式，以在部署開始之前執行協調�
 
 ### <a name="tracking-store-settings"></a>追蹤存放區設定
 
-每個函數應用程式都應該使用個別的排程佇列，可能在不同的儲存體帳戶中。 不過，如果您想要跨所有應用程式版本查詢所有協調流程實例，您可以在函式應用程式中共用實例和歷程記錄資料表。 您可以在[host. json](durable-functions-bindings.md#host-json)設定檔案中設定 `trackingStoreConnectionStringName` 並 `trackingStoreNamePrefix` 來共用資料表，讓它們全都使用相同的值。
+每個函數應用程式都應該使用個別的排程佇列，可能在不同的儲存體帳戶中。 不過，如果您想要跨所有應用程式版本查詢所有協調流程實例，您可以在函式應用程式中共用實例和歷程記錄資料表。 您可以在[host. json](durable-functions-bindings.md#host-json)設定檔案中設定 `trackingStoreConnectionStringName` 和 `trackingStoreNamePrefix`，讓它們全都使用相同的值，藉以共用資料表。
 
 如需詳細資訊，請[在 Azure 中管理 Durable Functions](durable-functions-instance-management.md)中的實例。
 

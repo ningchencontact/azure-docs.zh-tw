@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器記錄監視 Azure SQL 資料同步 |Microsoft Docs
+title: '使用 Azure 監視器記錄監視 Azure SQL 資料同步 '
 description: 瞭解如何使用 Azure 監視器記錄來監視 Azure SQL 資料同步
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791747"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687039"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>使用 Azure 監視器記錄監視 SQL 資料同步 
 
@@ -85,7 +85,7 @@ ms.locfileid: "72791747"
 
 4.  在 [Runbook 檔案] 下方，使用指定的 `DataSyncLogPowerShellRunbook` 檔案。 將 [Runbook 類型] 設為 `PowerShell`。 為 Runbook 指定名稱。
 
-5.  選取 [建立]。 現在您已有 Runbook。
+5.  選取 [ **建立**]。 現在您已有 Runbook。
 
 6.  在您的 Azure 自動化帳戶中，選取 [共用資源] 下方的 [變數] 索引標籤。
 
@@ -123,7 +123,7 @@ ms.locfileid: "72791747"
 
 5.  將 [週期] 設為 [週期性] 並設定所要的間隔。 在這裡、腳本和 Azure 監視器記錄中使用相同的間隔。
 
-6.  選取 [建立]。
+6.  選取 [ **建立**]。
 
 ### <a name="check-the-automation"></a>檢查自動化
 

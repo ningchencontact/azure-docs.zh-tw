@@ -1,5 +1,5 @@
 ---
-title: 一般用途服務層級-Azure SQL Database |Microsoft Docs
+title: 一般用途服務層級-Azure SQL Database
 description: 深入瞭解 Azure SQL Database 一般用途層
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: b4c0f88a1a21b0734c1652d19f74dc662d0a7ce1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8223e4061f842e42335777bbd613be2c43fe0857
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496224"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687348"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>一般用途服務層級 - Azure SQL Database
 

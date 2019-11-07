@@ -1,6 +1,6 @@
 ---
-title: 在 Azure SQL 資料倉儲中暫停、繼續、使用 REST 調整 | Microsoft Docs
-description: 透過 REST API 管理 SQL 資料倉儲中的計算能力。
+title: 使用 REST Api 暫停、繼續、調整
+description: 透過 REST Api 管理 Azure SQL 資料倉儲中的計算能力。
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f72b3fd1024a68a6f48d2e9e676fc7ca23bf2a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476068"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686049"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的 REST API
 在 Azure SQL 資料倉儲中用於管理計算能力的 REST API。
@@ -36,7 +37,7 @@ Content-Type: application/json; charset=UTF-8
 
 ## <a name="pause-compute"></a>暫停計算
 
-若要暫停資料庫，請使用 [暫停資料庫](/rest/api/sql/databases/pause) REST API。 下例會暫停裝載在 Server01 伺服器上的 Database02 資料庫。 此伺服器位於 ResourceGroup1 這個 Azure 資源群組。
+若要暫停資料庫，請使用[暫停資料庫](/rest/api/sql/databases/pause) REST API。 下例會暫停裝載在 Server01 伺服器上的 Database02 資料庫。 此伺服器位於 ResourceGroup1 這個 Azure 資源群組。
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -53,14 +54,14 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="check-database-state"></a>檢查資料庫狀態
 
 > [!NOTE]
-> 目前，請檢查資料庫狀態可能會傳回 ONLINE，而資料庫完成線上的工作流程，導致連線錯誤。 您可能需要在應用程式程式碼中加入 2 到 3 分鐘的延遲，如果您使用此 API 呼叫來觸發程序連線嘗試。
+> 目前當資料庫正在完成線上工作流程時，檢查資料庫狀態可能會恢復上線，因而導致連接錯誤。 如果您使用此 API 呼叫來觸發連接嘗試，您可能需要在應用程式代碼中增加2到3分鐘的延遲。
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
 ## <a name="get-maintenance-schedule"></a>取得維護排程
-檢查已設定資料倉儲的維護排程。 
+檢查已針對資料倉儲設定的維護排程。 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -68,7 +69,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>設定維護排程
-若要設定，並更新現有的資料倉儲上 maintnenance 排程。
+在現有的資料倉儲上設定和更新 maintnenance 排程。
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

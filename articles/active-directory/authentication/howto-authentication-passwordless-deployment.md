@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151622"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603459"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>完成無密碼 authentication 部署
 
@@ -61,7 +61,7 @@ Microsoft 的無密碼 authentication 方法可啟用不同的案例。 請考�
 
 ### <a name="technical-considerations-for-the-microsoft-authenticator-app"></a>Microsoft Authenticator 應用程式的技術考慮
 
-**AD FS 整合**-當使用者啟用 Microsoft Authenticator 無密碼認證時，該使用者的驗證會預設為傳送通知以供核准。 除非在混合式租使用者中選取 [改用您的密碼]，否則無法將其導向至 ADFS 進行登入。 此程式也會略過任何內部部署的條件式存取原則，以及傳遞驗證流程。 不過，如果指定 login_hint，則會將使用者轉送至 ADFS，並略過使用無密碼認證的選項。
+**AD FS 整合**-當使用者啟用 Microsoft Authenticator 無密碼認證時，該使用者的驗證會預設為傳送通知以供核准。 除非在混合式租使用者中選取 [改用您的密碼]，否則無法將其導向至 ADFS 進行登入。 此程式也會略過任何內部部署的條件式存取原則，以及傳遞驗證流程。 不過，如果指定了 login_hint，使用者將會轉送到 ADFS，並略過使用無密碼認證的選項。
 
 **AZURE mfa server** -透過組織的內部部署 azure mfa SERVER 啟用 MFA 的使用者，仍然可以建立並使用單一無密碼電話登入認證。 如果使用者嘗試使用認證升級 Microsoft Authenticator 的多個安裝 (5+)，這項變更可能會導致錯誤。
 
@@ -71,7 +71,7 @@ Microsoft 的無密碼 authentication 方法可啟用不同的案例。 請考�
 
 組織必須符合下列必要條件，才能開始進行無密碼部署。
 
-| 先決條件 | 驗證器應用程式 | FIDO2 安全性金鑰 |
+| 必要條件 | 驗證器應用程式 | FIDO2 安全性金鑰 |
 | --- | --- | --- |
 | 已啟用[AZURE MFA 和自助式密碼重設（SSPR）的合併註冊](howto-registration-mfa-sspr-combined.md)（預覽功能） | √ | √ |
 | [使用者可以執行 Azure MFA](howto-mfa-getstarted.md) | √ | √ |
@@ -110,15 +110,6 @@ Windows Hello 的必要條件非常依賴您是部署在內部部署、混合式
    - 如果無法部署 Intune，系統管理員必須在每部電腦上部署套件，以啟用認證提供者功能。 您可以使用下列其中一個選項來執行封裝安裝：
       - 群組原則或 System Center Configuration Manager （SCCM）
       - 在 Windows 10 電腦上進行本機安裝
-- [啟用群組原則的認證提供者](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - 僅支援混合式 Azure AD 已加入裝置。
-
-#### <a name="enable-on-premises-integration"></a>啟用內部部署整合
-
-遵循[啟用無密碼安全性金鑰登入內部部署資源（預覽）](howto-authentication-passwordless-security-key-on-premises.md)一文中的步驟，以啟用內部部署資源的存取權。
-
-> [!IMPORTANT]
-> 您也必須針對任何已加入混合式 Azure AD 的裝置完成這些步驟，才能使用 FIDO2 的安全性金鑰進行 Windows 10 登入。
 
 ### <a name="register-security-keys"></a>註冊安全性金鑰
 
@@ -138,12 +129,12 @@ Windows Hello 的必要條件非常依賴您是部署在內部部署、混合式
 
 下表概述此專案期間要執行的使用案例。
 
-| 區域 | 描述 |
+| 領域 | 說明 |
 | --- | --- |
-| **Access** | 無密碼登入可從公司網路內部或外部的公司或個人裝置取得。 |
+| **存取** | 無密碼登入可從公司網路內部或外部的公司或個人裝置取得。 |
 | **稽核** | 使用方式資料可供系統管理員近乎即時地進行審核。 <br> 使用量資料會至少每隔29天下載到公司系統，或使用 SIEM 工具。 |
 | **條例** | 定義和監視適當驗證方法和相關聯群組之使用者指派的生命週期。 |
-| **Security** | 存取適當的驗證方法是透過使用者和群組指派來控制。 <br> 只有授權的使用者可以使用無密碼登入。 |
+| **安全性** | 存取適當的驗證方法是透過使用者和群組指派來控制。 <br> 只有授權的使用者可以使用無密碼登入。 |
 | **效能** | 已記載並監視存取指派傳播時間軸。 <br> 登入時間是為了方便使用而測量。 |
 | **使用者體驗** | 使用者瞭解行動相容性。 <br> 使用者可以設定驗證器應用程式無密碼登入。 |
 | **支援** | 使用者知道如何尋找無密碼登入問題的支援。 |
@@ -163,7 +154,7 @@ Windows Hello 的必要條件非常依賴您是部署在內部部署、混合式
 - [在 Microsoft Authenticator 應用程式中註冊](howto-authentication-passwordless-phone.md)
 - [使用您的電話登入](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft 提供 MFA[通訊範本](https://aka.ms/mfatemplates)、自助式密碼重設（SSPR）[通訊範本](https://www.microsoft.com/download/details.aspx?id=56768)以及[使用者檔](../user-help/security-info-setup-signin.md)，以協助草擬您的通訊。 您可以藉由選取該頁面上的安全性資訊連結，將使用者傳送至[https://myprofile.microsoft.com](https://myprofile.microsoft.com/) ，直接註冊。
+Microsoft 提供 MFA[通訊範本](https://aka.ms/mfatemplates)、自助式密碼重設（SSPR）[通訊範本](https://www.microsoft.com/download/details.aspx?id=56768)以及[使用者檔](../user-help/security-info-setup-signin.md)，以協助草擬您的通訊。 您可以藉由選取該頁面上的安全性資訊連結，將使用者傳送至[https://myprofile.microsoft.com](https://myprofile.microsoft.com/)直接註冊。
 
 ### <a name="testing-passwordless"></a>測試無密碼
 
@@ -254,7 +245,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 
 ### <a name="required-administrative-roles"></a>必要的系統管理角色
 
-| Azure AD 角色 | 描述 |
+| Azure AD 角色 | 說明 |
 | --- | --- |
 | 驗證系統管理員 | 最低特殊許可權角色能夠執行及管理驗證方法 |
 | User | 在裝置上設定驗證器應用程式，或註冊 web 或 Windows 10 登入的安全性金鑰裝置的最低特殊許可權角色。 |
@@ -285,7 +276,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 | **錯誤訊息**：我們偵測到此瀏覽器或作業系統不支援 FIDO2 安全性金鑰。 | 無密碼 FIDO2 安全性裝置只能在 Windows 10 1809 版或更新版本上的支援瀏覽器（Microsoft Edge、Firefox 67 版）中註冊。 |
 | **錯誤訊息**：您的公司原則要求您使用不同的方法來登入。 | 不確定已在租使用者中啟用安全性金鑰。 |
 | 使用者無法在 Windows 10 版本1809上管理我的安全性金鑰 | 1809版需要您使用 FIDO2 金鑰廠商所提供的安全性金鑰管理軟體。 請洽詢廠商尋求支援。 |
-| 我認為我的 FIDO2 安全性金鑰可能會有問題，我該如何進行測試 | 流覽至[https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)，輸入測試帳戶的認證，插入可疑的安全性金鑰，按一下畫面右上方的 [+] 按鈕，按一下 [建立]，然後完成建立程式。 如果此案例失敗，您的裝置可能會有問題。 |
+| 我認為我的 FIDO2 安全性金鑰可能會有問題，我該如何進行測試 | 流覽至 [ [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)]，輸入測試帳戶的認證，插入可疑的安全性金鑰，按一下畫面右上方的 [+] 按鈕，按一下 [建立]，然後完成建立程式。 如果此案例失敗，您的裝置可能會有問題。 |
 
 ## <a name="next-steps"></a>後續步驟
 

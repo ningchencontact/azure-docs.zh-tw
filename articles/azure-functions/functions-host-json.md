@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469213"
+ms.locfileid: "73575885"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -182,23 +182,7 @@ ms.locfileid: "73469213"
 
 ## <a name="http"></a>http
 
-可在 [HTTP 觸發程序和繫結](functions-bindings-http-webhook.md)中找到組態設定。
-
-```json
-{
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
-    }
-}
-```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+可在 [HTTP 觸發程序和繫結](functions-bindings-http-webhook.md#hostjson-settings)中找到組態設定。
 
 ## <a name="logging"></a>logging
 
@@ -206,7 +190,7 @@ ms.locfileid: "73469213"
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly",
+    "fileLoggingMode": "debugOnly"
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"

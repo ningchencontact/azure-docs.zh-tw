@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure 虛擬網路資料來源的內部部署資料閘道 | Microsoft Docs
-description: 了解如何將伺服器設定為使用 VNet 上的資料來源閘道。
+title: 為 VNet 資料來源設定 Azure Analysis Services |Microsoft Docs
+description: 瞭解如何設定 Azure Analysis Services 伺服器，以使用 Azure 虛擬網路（VNet）上的資料來源閘道。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301211"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572270"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>使用 Azure 虛擬網路 (VNet) 上的資料來源閘道
 
-本文描述當資料來源位於 [Azure 虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 上時可使用的 **AlwaysUseGateway** 伺服器屬性。
+本文說明在[azure 虛擬網路（VNet）](../virtual-network/virtual-networks-overview.md)上的資料來源時，所要使用的 Azure Analysis Services **AlwaysUseGateway**伺服器屬性。
 
 ## <a name="server-access-to-vnet-data-sources"></a>對 VNet 資料來源的伺服器存取
 

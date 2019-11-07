@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的原始檔控制 |Microsoft Docs
+title: Azure Data Factory 中的原始檔控制
 description: 瞭解如何在 Azure Data Factory 中設定原始檔控制
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326386"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684038"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory 中的原始檔控制
 
@@ -71,7 +71,7 @@ Azure Data Factory 的使用者介面體驗（UX）有兩種適用于視覺製�
 
 [設定] 窗格會顯示下列 Azure Repos 程式碼存放庫設定：
 
-| 設定 | 描述 | Value |
+| 設定 | 說明 | 值 |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/> | Azure DevOps Git 或 GitHub |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | `<your tenant name>` |
@@ -142,8 +142,8 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。 | GitHub |
 | **使用 GitHub Enterprise** | 選取 GitHub Enterprise 的核取方塊 | 未選取（預設值） |
-| **GitHub Enterprise URL** | GitHub Enterprise 的根 URL。 例如： https://github.mydomain.com 。 只有在選取 **使用 GitHub Enterprise**時才需要 | `<your GitHub enterprise url>` |                                                           
-| **GitHub 帳戶** | 您的 GitHub 帳戶名稱。 您可以從 HTTPs： \//github .com/{account name}/{repository name} 找到此名稱。 瀏覽到此頁面時，系統會提示您輸入 GitHub 帳戶的 GitHub OAuth 認證。 | `<your GitHub account name>` |
+| **GitHub Enterprise URL** | GitHub Enterprise 的根 URL。 例如： https://github.mydomain.com。 只有在選取 **使用 GitHub Enterprise**時才需要 | `<your GitHub enterprise url>` |                                                           
+| **GitHub 帳戶** | 您的 GitHub 帳戶名稱。 您可以從 HTTPs：\//github.com/{account name}/{repository name} 找到此名稱。 瀏覽到此頁面時，系統會提示您輸入 GitHub 帳戶的 GitHub OAuth 認證。 | `<your GitHub account name>` |
 | **存放庫名稱**  | 您的 GitHub 程式碼存放庫名稱。 GitHub 帳戶包含 Git 存放庫，可用來管理原始程式碼。 您可以建立新的存放庫，或使用帳戶中既有的存放庫。 | `<your repository name>` |
 | **共同作業分支** | 用於發行的 GitHub 共同作業分支。 預設為主要。 如果您想要從其他分支發行資源，請變更此設定。 | `<your collaboration branch>` |
 | **根資料夾** | 在您 GitHub 共同作業分支中的根資料夾。 |`<your root folder name>` |
@@ -201,7 +201,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 ### <a name="publish-code-changes"></a>發佈程式碼變更
 
-將變更合併到共同作業分支之後（預設為 `master`），按一下 [**發佈**]，以手動方式將主要分支中的程式碼變更發佈至 Data Factory 服務。
+將變更合併到共同作業分支之後（`master` 是預設值），請按一下 [**發佈**]，以手動方式將主要分支中的程式碼變更發佈至 Data Factory 服務。
 
 ![將變更發佈到 Data Factory 服務](media/author-visually/publish-changes.png)
 

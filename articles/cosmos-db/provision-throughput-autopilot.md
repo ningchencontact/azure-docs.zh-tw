@@ -1,19 +1,19 @@
 ---
-title: 在 autopilot 模式中建立具有輸送量的 Azure Cosmos 容器和資料庫。
+title: 在 autopilot 模式中建立 Azure Cosmos 容器和資料庫。
 description: 瞭解優點、使用案例，以及如何在 autopilot 模式下布建 Azure Cosmos 資料庫和容器。
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 598dc6394e8be8b3372f4ed61a522454830a22d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3e2d9b892ad42563b481a0b1fe6a468daefad672
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512271"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606410"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-with-provisioned-throughput-in-autopilot-mode-preview"></a>在 autopilot 模式（預覽）中建立具有布建輸送量的 Azure Cosmos 容器和資料庫
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>在 autopilot 模式中建立 Azure Cosmos 容器和資料庫（預覽）
 
 Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送量。 本文說明 autopilot 模式的優點和使用案例。
 
@@ -24,7 +24,9 @@ Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送�
 
 您不再需要手動管理布建的輸送量或處理速率限制問題。 在 autopilot 模式中設定的 Azure Cosmos 容器可以立即調整以回應工作負載，而不會影響全域工作負載的可用性、延遲、輸送量或效能。 在高使用率的情況下，在 autopilot 模式中設定的 Azure Cosmos 容器可以相應增加或減少，而不會影響進行中的作業。
 
-在 autopilot 模式中設定容器和資料庫時，您必須指定最大輸送量 `Tmax` 不能超過。 然後，容器可以根據 `0.1*Tmax < T < Tmax` 範圍內的工作負載需求立即進行調整。 換句話說，容器和資料庫會根據工作負載需求立即調整，從最低到設定的輸送量值的10%，最多可達指定的最大設定值。 您可以在任何時間點變更 autopilot 資料庫或容器上的最大輸送量（Tmax）設定。
+在 autopilot 模式中設定容器和資料庫時，您必須指定最大輸送量 `Tmax` 不能超過。 然後，容器可以根據 `0.1*Tmax < T < Tmax` 範圍內的工作負載需求立即進行調整。 換句話說，容器和資料庫會根據工作負載需求立即調整，從最低到您已設定的最大輸送量值的10%，到設定的最大輸送量值。 您可以在任何時間點變更 autopilot 資料庫或容器上的最大輸送量（Tmax）設定。
+
+在 autopilot 預覽期間，針對容器或資料庫上指定的最大輸送量，系統允許在計算的儲存體限制內運作。 如果超過儲存空間限制，則會自動將最大輸送量調整為較高的值。 使用具有 autopilot 模式的資料庫層級輸送量時，資料庫內允許的容器數目會計算為：（0.001 * 最大輸送量）。 例如，如果您布建 20000 autopilot RU/秒，則資料庫可以有20個容器。
 
 ## <a name="benefits-of-autopilot-mode"></a>Autopilot 模式的優點
 
@@ -60,11 +62,21 @@ Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送�
 
 |  | 以手動模式設定的容器  | 在 autopilot 模式中設定的容器 |
 |---------|---------|---------|
-| **布建的輸送量** | 手動布建 | 根據工作負載使用模式，主動且被動地調整規模。 |
-| **要求/作業的速率限制（429）**  | 如果耗用量超過布建的容量，則可能會發生。 | 將不會發生。  |
+| **布建的輸送量** | 手動布建 | 根據工作負載使用模式自動和立即調整。 |
+| **要求/作業的速率限制（429）**  | 如果耗用量超過布建的容量，則可能會發生。 | 如果耗用的輸送量是在您以 autopilot 模式選擇的最大輸送量內，則不會發生。   |
 | **容量規劃** |  您必須進行初始容量規劃，並布建所需的輸送量。 |    您不必擔心容量規劃。 系統會自動負責容量規劃和容量管理。 |
 | **價格** | 每小時手動布建 RU/秒。 | 針對單一寫入區域帳戶，您需支付每小時使用的輸送量，方法是使用 autopilot RU/秒的每小時費率。 <br/><br/>針對具有多個寫入區域的帳戶，autopilot 不會額外收費。 您需支付每小時使用的輸送量，並使用相同的多宿主 RU/秒費率。 |
 | **最適合工作負載類型** |  可預測且穩定的工作負載|   無法預測和可變的工作負載  |
+
+## <a name="enable-autopilot-from-azure-portal"></a>從 Azure 入口網站啟用 autopilot
+
+您可以在中從 Azure 入口網站啟用，以試用 Azure Cosmos 帳戶中的 autopilot。 使用下列步驟來啟用 autopilot 選項：
+
+1. 登入[Azure 入口網站。](https://portal.azure.com)
+
+2. 流覽至您的 Azure Cosmos 帳戶，然後開啟 [**新增功能**] 索引標籤。選取 [**自動試驗**] 和 [**註冊**]，如下列螢幕擷取畫面所示：
+
+![在 autopilot 模式中建立容器](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>使用 autopilot 模式建立資料庫或容器
 
@@ -74,13 +86,13 @@ Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送�
 
 1. 流覽至您的 Azure Cosmos 帳戶，然後開啟 [**資料總管**] 索引標籤。
 
-1. 選取 [**新增資料庫**]，輸入您的資料庫名稱。 針對 [ **Autopilot**選項]，選擇 [**已啟用**]，並指定當使用 Autopilot 選項時，資料庫不能超過的最大輸送量。
+1. 選取 [**新增容器**]，輸入容器的名稱，也就是資料分割索引鍵。 選取 [ **Autopilot** ] 選項，然後選擇當使用 Autopilot 選項時，容器不能超過的最大輸送量。
 
-   ![在 autopilot 模式中建立資料庫](./media/provision-throughput-autopilot/create-database-autopilot-mode.png)
+   ![在 autopilot 模式中建立容器](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. 選取 [確定]
 
-使用類似的步驟，您也可以在 autopilot 模式中建立具有布建輸送量的容器。
+使用類似的步驟，您也可以在 autopilot 模式中建立具有布建輸送量的資料庫。
 
 ## <a name="next-steps"></a>後續步驟
 

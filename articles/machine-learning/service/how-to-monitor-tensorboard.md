@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: a45548d3698d28a0189be4f46c26e418da8c91ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489629"
+ms.locfileid: "73574302"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>使用 TensorBoard 和 Azure Machine Learning 將實驗執行和計量視覺化
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,13 +28,16 @@ ms.locfileid: "73489629"
 
 + 對於原本不會輸出 TensorBoard 可耗用檔案的實驗（例如 Scikit-learn-學習或 Azure Machine Learning 實驗），請使用[`export_to_tensorboard()` 方法](#export)，將執行歷程記錄匯出為 TensorBoard 記錄，並從該處啟動 TensorBoard。 
 
+> [!TIP]
+> 本檔中的資訊主要適用于想要監視模型定型流程的資料科學家和開發人員。 如果您是系統管理員，想要監視 Azure Machine learning 中的資源使用方式和事件（例如配額、已完成的定型回合或完成的模型部署），請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
+
 ## <a name="prerequisites"></a>必要條件
 
 * 若要啟動 TensorBoard 並查看您的實驗執行歷程記錄，您的實驗必須先前已啟用記錄，以追蹤其計量和效能。  
 
-* 此操作說明中的程式碼可在下列任一環境中執行： 
+* 本檔中的程式碼可在下列其中一個環境中執行： 
 
-    * Azure Machine Learning 計算實例-不需要下載或安裝
+    * Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
         * 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
 
@@ -216,7 +219,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>執行實驗和記錄計量
 
-在此程式碼中，我們會在執行歷程記錄中訓練線性回歸模型和記錄關鍵計量、Alpha 係數、`alpha` 和 mean 平方誤差 `mse`。
+在此程式碼中，我們會在執行歷程記錄中訓練線性回歸模型和記錄索引鍵計量、Alpha 係數、`alpha`和 mean 平方誤差 `mse`。
 
 ```Python
 from tqdm import tqdm

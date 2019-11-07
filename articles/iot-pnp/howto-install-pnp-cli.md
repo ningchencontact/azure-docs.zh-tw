@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 41a626ba602ad33f22c3ea4acc39dd4f3438cbd0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935686"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571006"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>安裝並使用適用于 Azure CLI 的 Azure IoT 擴充功能
 
@@ -57,12 +57,12 @@ az login
 
 若要使用適用于 Azure CLI 的 Azure IoT 擴充功能，您需要：
 
-- Azure IoT 中樞。 有許多方法可將 IoT 中樞新增至您的 Azure 訂用帳戶，例如[使用 Azure CLI 建立 iot 中樞](../iot-hub/iot-hub-create-using-cli.md)。 您需要 IoT 中樞的連接字串，才能執行 Azure IoT 擴充功能命令。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+- Azure IoT 中樞。 有許多方法可將 IoT 中樞新增至您的 Azure 訂用帳戶，例如[使用 Azure CLI 建立 iot 中樞](../iot-hub/iot-hub-create-using-cli.md)。 您需要 IoT 中樞的連接字串，才能執行 Azure IoT 擴充功能命令。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
     > [!NOTE]
     > 在公開預覽期間，IoT 隨插即用功能只能在「**美國中部** **」、「北歐」** 和「**日本東部**」區域中建立的 iot 中樞上使用。
 
-- 在 IoT 中樞註冊的裝置。 您可以使用下列 Azure CLI 命令來註冊裝置，請務必以您的`{YourIoTHubName}`值取代和`{YourDeviceID}`預留位置：
+- 在 IoT 中樞註冊的裝置。 您可以使用下列 Azure CLI 命令來註冊裝置，請務必以您的值取代 `{YourIoTHubName}` 和 `{YourDeviceID}` 預留位置：
 
     ```cmd/sh
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -126,31 +126,31 @@ az iot dt update-property --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-如果沒有`--repo-login`參數，此命令會使用公用模型存放庫。
+如果沒有 `--repo-login` 參數，此命令會使用公用模型存放庫。
 
 叫用命令：
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="telemetry"></a>遙測
+#### <a name="digital-twin-events"></a>數位對應項事件
 
-監視來自特定裝置和介面的所有 IoT 隨插即用遙測，進入 **$Default**事件中樞端點：
+監視來自特定裝置和介面的所有 IoT 隨插即用數位對應項事件，進入 **$Default**事件中樞取用者群組：
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-監視來自特定裝置和介面的所有 IoT 隨插即用遙測，以進行特定的取用者群組：
+監視來自特定裝置的所有 IoT 隨插即用數位對應項事件，以及進入特定取用者群組的介面：
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>管理模型存放庫中的介面
 
-下列命令會使用公用 IoT 隨插即用模型存放庫。 若要使用公司模型存放庫，請`--login`使用您的模型存放庫連接字串來新增引數。
+下列命令會使用公用 IoT 隨插即用模型存放庫。 若要使用公司模型存放庫，請使用您的模型存放庫連接字串來新增 `--login` 引數。
 
 列出公用 IoT 隨插即用模型存放庫中的介面：
 
@@ -190,7 +190,7 @@ az iot pnp interface publish --interface {YourInterfaceID} --login {YourCompanyM
 
 ### <a name="manage-device-capability-models-in-a-model-repository"></a>管理模型存放庫中的裝置功能模型
 
-下列命令會使用公用 IoT 隨插即用模型存放庫。 若要使用公司模型存放庫，請`--login`使用您的模型存放庫連接字串來新增引數。
+下列命令會使用公用 IoT 隨插即用模型存放庫。 若要使用公司模型存放庫，請使用您的模型存放庫連接字串來新增 `--login` 引數。
 
 列出 IoT 隨插即用公用模型存放庫中的裝置功能模型：
 

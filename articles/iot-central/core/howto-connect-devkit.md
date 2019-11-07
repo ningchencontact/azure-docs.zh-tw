@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954405"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583039"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "72954405"
 
 如需設定的完整詳細資料，請參閱[MXChip 裝置範本詳細資料](#mxchip-device-template-details)
 
-## <a name="add-a-real-device"></a>新增實際裝置
+## <a name="add-a-real-device"></a>新增真實裝置
 
 ### <a name="get-your-device-connection-details"></a>取得您的裝置連線詳細資料
 
@@ -119,7 +119,7 @@ ms.locfileid: "72954405"
 
 您可以檢視遙測量值和報告屬性值，並且在 Azure IoT 中心進行設定：
 
-1. 使用 [裝置總管]，瀏覽至您所新增真實 MXChip 裝置的 [量值] 頁面：
+1. 使用 [**裝置**] 流覽至您所新增實際 MXChip 裝置的 [**測量**] 頁面：
 
     ![瀏覽至真實裝置](media/howto-connect-devkit/realdevicenew.png)
 
@@ -184,17 +184,17 @@ git clone https://github.com/Azure/iot-central-firmware
 
 **AzureIOTClient**中的程式碼會使用來自[Microsoft Azure IoT sdk](https://github.com/Azure/azure-iot-sdk-c)的函式和 C 的程式庫，來與 IoT 中樞互動。
 
-如需如何修改、建置範例程式碼以及將其上傳到裝置的相關資訊，請參閱 `MXCHIP/mxchip_advanced` 資料夾中的 **readme.md** 檔案。
+如需如何修改、建置範例程式碼以及將其上傳到裝置的相關資訊，請參閱 **資料夾中的**readme.md`MXCHIP/mxchip_advanced` 檔案。
 
 ## <a name="mxchip-device-template-details"></a>MXChip 裝置範本詳細資料
 
 從範例 Devkits 應用程式範本建立的應用程式包含具有下列特性的 MXChip 裝置範本：
 
-### <a name="measurements"></a>量測
+### <a name="measurements"></a>測量
 
 #### <a name="telemetry"></a>遙測
 
-| 欄位名稱     | 單位數  | 最小值 | 最大值 | 小數位數 |
+| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | 溼度       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -210,12 +210,12 @@ git clone https://github.com/Azure/iot-central-firmware
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>狀態 
-| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| 名稱          | 顯示名稱   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 裝置狀態   | 綠色  | Orange  | 紅色    | 
+| DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
 #### <a name="events"></a>事件 
-| Name             | 顯示名稱      | 
+| 名稱             | 顯示名稱      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 
 
@@ -223,7 +223,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 數值設定
 
-| 顯示名稱 | 欄位名稱 | 單位數 | 小數位數 | 最小值 | 最大值 | Initial |
+| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
@@ -237,7 +237,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 ### <a name="properties"></a>屬性
 
-| Type            | 顯示名稱 | 欄位名稱 | Data type |
+| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 裝置屬性 | 裝置位置   | location  | location    |
@@ -247,7 +247,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 | 顯示名稱 | 欄位名稱 | 傳回類型 | 輸入欄位顯示名稱 | 輸入功能變數名稱 | 輸入欄位類型 |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| 回顯         | 回應       | text        | 要顯示的值         | displayedValue   | text             |
+| 回顯         | 回應       | 文字        | 要顯示的值         | displayedValue   | 文字             |
 | 倒數    | 倒數  | number      | 計數來源               | countFrom        | number           |
 
 ## <a name="next-steps"></a>後續步驟
