@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286400"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793926"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA Maker 知識庫內容的語言支援
 
@@ -38,16 +38,16 @@ QnA Maker 可讓您在建立第一個知識庫時，選取 QnA 服務的語言�
 ![QnA Maker 入口網站為第一個知識庫選取語言的螢幕擷取畫面](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>查詢比對和相關性
-QnA Maker 取決於提供結果的[Azure 搜尋服務語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)。 
+QnA Maker 取決於提供結果的[Azure 認知搜尋語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)。 
 
-雖然 Azure 搜尋服務功能與支援的語言同等重要，但 QnA Maker 有位於上述 Azure 搜尋結果的其他順位排定程式。 在此 ranker 模型中，我們會以下列語言使用一些特殊的語義和單字式功能。 
+雖然 Azure 認知搜尋功能與支援的語言相同，但 QnA Maker 具有位於 Azure 搜尋服務結果上方的其他 ranker。 在此 ranker 模型中，我們會以下列語言使用一些特殊的語義和單字式功能。 
 
 |具有其他 ranker 的語言|
 |--|
 |中文|
 |捷克文|
 |荷蘭文|
-|繁體中文|
+|English|
 |法文|
 |德文|
 |匈牙利文|

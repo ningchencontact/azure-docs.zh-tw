@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e3a76abe840a70ba7410855cde1d82ec96c28eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500874"
+ms.locfileid: "73579637"
 ---
 # <a name="audio-content-creation"></a>建立音訊內容
 
@@ -29,7 +29,7 @@ ms.locfileid: "73500874"
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. 第一個步驟是[建立 Azure 帳戶、註冊語音資源，並取得訂用帳戶金鑰](#create-a-speech-resource)。 有了訂用帳戶金鑰之後，您就可以使用它來呼叫語音服務，以及存取[音訊內容的建立](https://aka.ms/audiocontentcreation)。
+1. 第一個步驟是[建立 Azure 帳戶、註冊語音資源，並取得訂用帳戶金鑰](#create-a-speech-resource)。 擁有訂用帳戶金鑰之後，您就可以使用它來呼叫語音服務，以及存取[音訊內容的建立](https://aka.ms/audiocontentcreation)。
 2. 使用純文字或 SSML[建立音訊微調](#create-an-audio-tuning-file)檔案。
 3. 選擇您想要微調的語音和語言。 音訊內容的建立包含所有[Microsoft 文字轉換語音的聲音](language-support.md#text-to-speech)。 您可以使用標準、類神經或您自己的自訂語音。
    >[!NOTE]
@@ -43,7 +43,7 @@ ms.locfileid: "73500874"
 
 請遵循下列步驟來建立語音資源，並將它與語音 Studio 連線。
 
-1. 請遵循這些指示來[註冊 Azure 帳戶，並建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)。 請確定您的定價層已設定為**S0**。 如果您使用其中一個類神經語音，請務必在[支援的區域](regions.md#standard-and-neural-voices)中建立您的資源。
+1. 請遵循這些指示來[註冊 Azure 帳戶](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)，並[建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)。 請確定您的定價層已設定為**S0**。 如果您使用其中一個類神經語音，請務必在[支援的區域](regions.md#standard-and-neural-voices)中建立您的資源。
 2. 登入[音訊內容建立](https://aka.ms/audiocontentcreation)。
 3. 選取現有的專案，或按一下 **[新建]。**
 4. 您可以隨時使用 [**設定**] 選項（位於頂端導覽）修改訂閱。

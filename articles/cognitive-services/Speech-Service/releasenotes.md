@@ -11,14 +11,38 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b40df5878d08b222d145531bfdad1e30b2fe989d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481241"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647407"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-sdk-180-2019-november-release"></a>語音 SDK 1.8.0： 2019-11 月版本
+
+**新功能**
+*   已新增 FromHost （） API，以輕鬆搭配內部內部部署容器和主權雲端使用。
+*   已新增語音辨識的自動來源語言偵測（以 JAVA C++和）
+*   已新增語音辨識的 SourceLanguageConfig 物件，用來指定預期的來來源語言（以C++JAVA 和）
+*   已透過 Nuget 和 Unity 套件，在 Windows （UWP）、Android 和 iOS 上新增 KeywordRecognizer 支援
+*   已新增遠端對話 JAVA API，以在非同步批次中執行對話轉譯。
+
+**重大變更**
+*   對話 Transcriber 功能已移至 CognitiveServices 命名空間。
+*   對話 Transcriber 方法的一部分會移至新的交談類別。
+*   已捨棄32位（ARMv7 和 x86） iOS 的支援 
+
+**錯誤修正**
+*   如果在沒有有效語音服務訂用帳戶金鑰的情況下使用本機 KeywordRecognizer，請修正損毀的問題
+
+**範例**
+*   適用于 KeywordRecognizer 的 Xamarin 範例
+*   適用于 KeywordRecognizer 的 Unity 範例
+*   C++和適用于自動來源語言偵測的 JAVA 範例。
+
+
 ## <a name="speech-sdk-170-2019-september-release"></a>語音 SDK 1.7.0： 2019-9 月版
 
 **新功能**
@@ -37,7 +61,6 @@ ms.locfileid: "73481241"
 *   已修正在某些連接屬性中，Uuid 不是唯一的問題
 *   已修正 Swift 系結中有關 null 屬性規範的幾個警告（可能需要較小的程式碼變更）
 *   已修正在網路負載下導致 websocket 連線關閉強制的錯誤
-*   iOS：已捨棄 arm7s 架構的支援
 *   已修正 Android 的問題，有時會導致 DialogServiceConnector 使用重複的印象識別碼
 *   改善跨多回合互動的連線，以及在 DialogServiceConnector 發生失敗時的報告（經由已取消的事件）
 *   DialogServiceConnector 會話啟動現在會正確地提供事件，包括在使用中 StartKeywordRecognitionAsync 期間呼叫 ListenOnceAsync （）時（）

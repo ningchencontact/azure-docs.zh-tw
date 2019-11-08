@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 52e9fd986973c15d30790b981a5c2ccd1e6974d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501008"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681890"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>快速入門：在 Python 中針對長格式音訊進行非同步合成（預覽）
 
@@ -27,7 +27,7 @@ ms.locfileid: "73501008"
 
 * Python 2.7. x 或3.x。
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)]、[ [Visual Studio Code](https://code.visualstudio.com/download) 或您慣用的文字編輯器。
-* Azure 訂用帳戶和語音服務訂用帳戶金鑰。 [建立帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。
+* Azure 訂用帳戶和語音服務訂用帳戶金鑰。 [建立 Azure 帳戶](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)，並[建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)以取得金鑰。 建立語音資源時，請確定您的定價層已設定為**S0**，且 location 已設定為支援的[區域](../../regions.md#standard-and-neural-voices)。
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
@@ -47,7 +47,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> 如果您未曾使用這些模組，則必須先加以安裝，再執行您的程式。 若要安裝這些套件，請執行：`pip install requests`。
+> 如果您未曾使用這些模組，則必須先加以安裝，再執行您的程式。 若要安裝這些套件，請執行：`pip install requests urllib3`。
 
 這些模組是用來剖析引數、建立 HTTP 要求，以及呼叫文字轉換語音的長音訊 REST API。
 

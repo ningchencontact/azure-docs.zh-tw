@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 089d54a2aae288511a283dfb28b03efa34c33b53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715434"
+ms.locfileid: "73747961"
 ---
 # <a name="about-azure-networking-msp-partners"></a>關於 Azure 網路功能 MSP 合作夥伴
 
@@ -28,7 +28,7 @@ Azure 網路 Msp 是一組特製化的受控服務提供者，可解決雲端和
 
 如需 Azure 網路功能 MSP 合作夥伴提供之受管理雲端網路服務的詳細資訊，請使用本節中的連結。 如果您的雲端網路服務合作夥伴未列在下一節中，請讓提供者與我們聯繫。 他們可以傳送電子郵件到 ManagedVirtualWAN@microsoft.com 來與我們連絡。 
 
-| **MSP** | **雲端網路轉換服務** | **受控 ExpressRoute** | **受控虛擬 WAN** | **受控防火牆** |**受控網路邊緣計算** |
+| **MSP** | **雲端網路轉換服務** | **受控 ExpressRoute** | **受控虛擬 WAN** | **受控網路安全性服務** |**受控網路邊緣計算** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||是|
 |[英式的 ANS 群組](https://www.ans.co.uk/)|是|是||||

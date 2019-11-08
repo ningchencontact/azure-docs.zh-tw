@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: danlep
-ms.openlocfilehash: dbfadea9bc05614108333ef5a046e11b5280cc68
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7b9d220ac7e507513458eab6b55276b3aa434739
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588430"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742758"
 ---
 # <a name="repository-scoped-permissions-in-azure-container-registry"></a>Azure Container Registry 中的存放庫範圍許可權 
 
@@ -28,9 +28,8 @@ Azure Container Registry 使用對整個登錄具有[角色型存取權](contain
 
 ## <a name="preview-limitations"></a>預覽限制
 
-* 這項功能僅適用于**Premium**容器登錄。 如需登錄服務層的詳細資訊，請參閱[Azure Container Registry sku](container-registry-skus.md)。
+* 這項功能僅適用于**Premium**容器登錄。 如需登錄服務層和限制的相關資訊，請參閱[Azure Container Registry sku](container-registry-skus.md)。
 * 您目前無法將存放庫範圍的許可權指派給 Azure Active Directory 物件，例如服務主體或受控識別。
-* 登錄最多允許20000個範圍對應和20000個權杖。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -217,7 +216,7 @@ az acr token credential generate \
 
 * 每個指定存放庫上的**動作**都包含下列一或多個。
 
-  |行動  |說明  |
+  |動作  |說明  |
   |---------|---------|
   |`content/read`     |  讀取存放庫中的資料。 例如，提取成品。  |
   |`metadata/read`    | 讀取存放庫中的中繼資料。 例如，列出標記或顯示資訊清單中繼資料。   |

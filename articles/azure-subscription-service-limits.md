@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 12e9367ca9e330806af4c7cc5db626edddff5c25
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476942"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795291"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，清單就會展開並更新，以涵蓋更多服務。
@@ -48,6 +48,7 @@ ms.locfileid: "73476942"
 * [自動化](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure 雲端服務](#azure-cloud-services-limits)
+* [Azure 認知搜尋](#azure-cognitive-search-limits)
 * [Azure 認知服務](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [適用於 MySQL 的 Azure 資料庫](#azure-database-for-mysql)
@@ -60,7 +61,6 @@ ms.locfileid: "73476942"
 * [Azure 地圖服務](#azure-maps-limits)
 * [Azure 監視器](#azure-monitor-limits)
 * [Azure 原則](#azure-policy-limits)
-* [Azure 搜尋服務](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
 * [備份](#backup-limits)
 * [Batch](#batch-limits)
@@ -270,7 +270,7 @@ ms.locfileid: "73476942"
 ### <a name="azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫
 如需適用於 PostgreSQL 的 Azure 資料庫限制詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的限制](postgresql/concepts-limits.md)。
 
-### <a name="azure-search-limits"></a>Azure 搜尋服務限制
+### <a name="azure-cognitive-search-limits"></a>Azure 認知搜尋限制
 定價層會決定搜尋服務的容量和限制。 層級包括：
 
 * **免費**的多租使用者服務，與其他 Azure 訂閱者共用，適用于評估和小型開發專案。
@@ -285,7 +285,7 @@ ms.locfileid: "73476942"
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-若要深入了解更細微的限制，例如文件大小、每秒的查詢數、金鑰、要求和回應，請參閱 [Azure 搜尋服務的服務限制](search/search-limits-quotas-capacity.md)。
+若要深入瞭解更細微層級的限制，例如檔案大小、每秒的查詢數、金鑰、要求和回應，請參閱[Azure 認知搜尋中的服務限制](search/search-limits-quotas-capacity.md)。
 
 ### <a name="media-services-limits"></a>媒體服務限制
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

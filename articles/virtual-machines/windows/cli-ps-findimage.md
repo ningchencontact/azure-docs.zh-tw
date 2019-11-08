@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 645d969d71a0b8707d7969f4bf68a07ab0211d0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080017"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749577"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像
 
@@ -27,7 +27,7 @@ ms.locfileid: "70080017"
 
 您也可以使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 店面、[Azure 入口網站](https://portal.azure.com)或 [Azure CLI](../linux/cli-ps-findimage.md) 來瀏覽可用的映像和供應項目。 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "70080017"
 
 下表顯示指示發行者和供應項目可用 SKU 的子網路。
 
-| 發行者 | 供應項目 | SKU |
+| 發佈者 | 供應項目 | SKU |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
@@ -47,8 +47,8 @@ ms.locfileid: "70080017"
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |企業 |
-| MicrosoftRServer |RServer-WS2016 |企業 |
+| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>瀏覽映像
 
@@ -176,7 +176,7 @@ $skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-現在您可以將選取的發行者、供應項目、SKU 和版本結合為 URN (以 : 分隔的值)。 當您使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) \(英文\) Cmdlet 建立 VM 時，請傳遞此 URN 與 `--image` 參數。 您可以視需要以 "latest" 取代 URN 中的版本號碼，以取得最新版的映像。
+現在您可以將選取的發行者、供應項目、SKU 和版本結合為 URN (以 : 分隔的值)。 當您使用 `--image`New-AzVM[ \(英文\) Cmdlet 建立 VM 時，請傳遞此 URN 與 ](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 參數。 您可以視需要以 "latest" 取代 URN 中的版本號碼，以取得最新版的映像。
 
 如果您使用 Resource Manager 範本來部署 VM，則需在 `imageReference` 屬性中個別設定映像參數。 請參閱[範本參考](/azure/templates/microsoft.compute/virtualmachines)。
 
@@ -184,7 +184,7 @@ Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku 
 
 ### <a name="view-plan-properties"></a>檢視方案屬性
 
-若要檢視映像的購買方案資訊，請執行 `Get-AzVMImage` Cmdlet。 如果輸出中的 `PurchasePlan` 屬性不是 `null`，在以程式設計方式部署之前，必須接受映像包含的條款。  
+若要檢視映像的購買方案資訊，請執行 `Get-AzVMImage` Cmdlet。 如果輸出中的 `PurchasePlan` 屬性不是 `null`，此映像具有您必須在以程式設計方式部署之前接受的條款。  
 
 例如，*Windows Server 2016 Datacenter* 映像並沒有額外的條款，因此 `PurchasePlan` 資訊為 `null`：
 

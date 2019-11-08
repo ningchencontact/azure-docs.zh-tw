@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: e41a037e657a8d2b484a3fcb62eb3bc03f53682d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500898"
+ms.locfileid: "73579693"
 ---
 # <a name="custom-commands-preview"></a>自訂命令（預覽）
 
 [語音助理](voice-assistants.md)會聆聽使用者並採取動作來回應，通常會說回來。 他們使用[語音轉換文字](speech-to-text.md)來轉譯使用者的語音，然後對文字的自然語言理解採取行動。 此動作通常包含以[文字轉換語音](text-to-speech.md)所產生的小幫手的語音輸出。 裝置會使用語音 SDK 的 `DialogServiceConnector` 物件連接到助理。
 
-**自訂命令（預覽）** 是用來建立語音助理的簡化解決方案。 它提供統一的撰寫經驗、自動裝載模型，以及相對較低的複雜性與其他助理建立選項，像是[Direct Line 語音](direct-line-speech.md)。 不過，這種簡化功能會降低彈性。 因此，自訂命令（預覽）最適合用於工作完成或命令和控制案例。
+**自訂命令（預覽）** 是用來建立語音助理的簡化解決方案。 它提供統一的撰寫經驗、自動裝載模型，以及相對較低的複雜性與其他助理建立選項，像是[Direct Line 語音](direct-line-speech.md)。 不過，這種簡化功能會降低彈性。 因此，自訂命令（預覽）最適合用於工作完成或命令和控制案例。 這對於物聯網（IoT）和無周邊裝置而言特別符合。
 
 針對複雜的交談互動，以及與其他解決方案（例如[虛擬助理解決方案和企業範本](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)）的整合，建議您使用 Direct Line 語音。
 

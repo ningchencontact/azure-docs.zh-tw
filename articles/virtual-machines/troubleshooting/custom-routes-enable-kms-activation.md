@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: d554629c4a03b81ee3c04d27f6365c1a8734c952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 47ff8870df7c89ee2ab3e48e064e31aa581f65f0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058187"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748625"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>強制通道案例中的 Windows 啟用失敗
 
 本文說明如何解決在站對站 VPN 連線或 ExpressRoute 案例中啟用強制通道時可能遇到的 KMS 啟用問題。
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 您在 Azure 虛擬網路子網路上啟用[強制通道](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)，以將所有網際網路繫結流量導向回到您的內部部署網路。 在此案例中，執行 Windows 的 Azure 虛擬機器（Vm）無法啟動 Windows。
 
@@ -42,7 +42,7 @@ Azure Global 雲端其 KMS 伺服器的 IP 位址是 23.102.135.246。 其 DNS �
 |------|-------|-------|
 |Azure 全域|kms.core.windows.net|23.102.135.246|
 |Azure Germany|kms.core.cloudapi.de|51.4.143.248|
-|Azure US Government|kms.core.usgovcloudapi.net|23.97.0.13|
+|Azure 美國政府|kms.core.usgovcloudapi.net|23.97.0.13|
 |Azure China 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
 
 
@@ -50,13 +50,13 @@ Azure Global 雲端其 KMS 伺服器的 IP 位址是 23.102.135.246。 其 DNS �
 
 ### <a name="for-resource-manager-vms"></a>針對 Resource Manager VM
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 > [!NOTE] 
 > 啟用會使用公用 IP 位址，並會受到標準 SKU Load Balancer 設定的影響。 請仔細查看[Azure 中的輸出](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)連線，以瞭解需求。
 
 1. 開啟 Azure PowerShell，然後[登入您的 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
-2. 執行下列命令：
+2. 執行以下命令：
 
     ```powershell
     # First, get the virtual network that hosts the VMs that have activation problems. In this case, we get virtual network ArmVNet-DM in Resource Group ArmVNet-DM:
@@ -86,7 +86,7 @@ Azure Global 雲端其 KMS 伺服器的 IP 位址是 23.102.135.246。 其 DNS �
 ### <a name="for-classic-vms"></a>適用於傳統 VM
 
 1. 開啟 Azure PowerShell，然後[登入您的 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
-2. 執行下列命令：
+2. 執行以下命令：
 
     ```powershell
     # First, create a new route table:

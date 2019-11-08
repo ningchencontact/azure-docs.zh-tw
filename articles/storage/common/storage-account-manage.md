@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671364"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749005"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>管理在 Azure 入口網站中的儲存體帳戶設定
 
@@ -24,7 +24,7 @@ Azure 儲存體支援透過角色型存取控制（RBAC）的 Azure Active Direc
 
 對於使用者、群組、服務主體和受管理的身分識別，Azure 入口網站中的**存取控制**設定提供簡易的方式來指派 RBAC 角色。 如需指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理 blob 和佇列資料的存取權限](storage-auth-aad-rbac.md)。
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>標記
 
 Azure 儲存體支援 Azure Resource Manager 標記，可自訂分類並組合管理 Azure 資源。 您可以將標記套用至您的儲存體帳戶，以邏輯方式在您的訂用帳戶中分組這些帳戶。
 

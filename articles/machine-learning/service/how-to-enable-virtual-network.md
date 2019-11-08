@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576581"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796759"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源�
     - 在 [__虛擬網路__] 底下，選取 [__新增現有的虛擬網路__] 連結。 此動作會新增您的計算所在的虛擬網路（請參閱步驟1）。
 
         > [!IMPORTANT]
-        > 儲存體帳戶必須位於與用於定型或推斷的筆記本 Vm 或叢集相同的虛擬網路中。
+        > 儲存體帳戶必須與用於定型或推斷的叢集位於相同的虛擬網路中。
 
     - 選取 [__允許受信任的 Microsoft 服務存取此儲存體帳戶__] 核取方塊。
 
@@ -108,7 +108,7 @@ Azure Machine Learning 會使用與工作區相關聯的金鑰保存庫實例來
 
 ## <a name="use-a-machine-learning-compute"></a>使用 Machine Learning Compute
 
-若要在虛擬網路中使用 Azure Machine Learning 的筆記本 VM 或計算叢集，必須符合下列網路需求：
+若要在虛擬網路中使用 Azure Machine Learning 計算叢集，必須符合下列網路需求：
 
 > [!div class="checklist"]
 > * 虛擬網路必須位於與 Azure Machine Learning 工作區相同的訂用帳戶和區域中。
@@ -246,27 +246,6 @@ except ComputeTargetException:
 
 <a id="vmorhdi"></a>
 
-### <a name="create-a-compute-instance-in-a-virtual-network"></a>在虛擬網路中建立計算實例
-
-在虛擬網路中建立 Azure Machine Learning 計算實例。 若要建立計算實例，請執行下列動作：
-
-1. 在工作區 studio 中，選取左窗格中的 [**計算**]。
-
-1. 在 [計算實例] 索引標籤上，選取 [**新增**] 以開始建立新的計算實例。
-
-1. 設定 [計算名稱] 和 [虛擬機器大小] 欄位，並啟用/停用 SSH 存取。
-
-1. 若要將此計算實例設定為使用虛擬網路，請執行下列動作：
-
-    a. 選取 [ **Advanced settings**]。
-
-    b.這是另一個 C# 主控台應用程式。 在 [ **資源群組** ] 下拉式清單中，選取包含虛擬網路的資源群組。
-
-    c. 在 [ **虛擬網路** ] 下拉式清單中，選取包含子網的虛擬網路。
-
-    d. 在 [ **子網** ] 下拉式清單中，選取要使用的子網。
-
-1. 選取 [建立] 來布**建**虛擬網路內的計算實例。
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>使用虛擬機器或 HDInsight 叢集
 

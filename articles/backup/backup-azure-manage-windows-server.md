@@ -1,18 +1,18 @@
 ---
 title: 管理 Azure 復原服務保存庫與伺服器
-description: 管理 Azure 復原服務保存庫中的作業和警示。
+description: 在本文中，您將瞭解如何使用復原服務保存庫總覽儀表板來監視和管理您的復原服務保存庫。
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954769"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747435"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -23,7 +23,6 @@ ms.locfileid: "68954769"
 本文的必要條件如下：Azure 訂用帳戶、復原服務保存庫，以及至少有一個針對保存庫設定的備份項目。
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## <a name="open-a-recovery-services-vault"></a>開啟復原服務保存庫
 
@@ -66,7 +65,7 @@ ms.locfileid: "68954769"
 
 ![針對重大警示篩選的備份警示功能表](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-上圖中 [備份警示] 功能表的篩選依據：狀態為作用中、嚴重性為重大，且時間為前 24 小時。
+上圖中的 [備份警示] 功能表的篩選依據：狀態為作用中、嚴重性為重大，且時間為前 24 小時。
 
 ## <a name="manage-backup-alerts"></a>管理備份警示
 
@@ -78,13 +77,13 @@ ms.locfileid: "68954769"
 
 ![備份警示](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-### <a name="alerts"></a>警示
+### <a name="alerts"></a>Alerts
 
 [備份警示] 清單會顯示篩選後警示的所選資訊。 在 [備份警示] 功能表中，您可以針對 [重踏] 或 [警告] 警示篩選。
 
 | 警示層級 | 產生警示的事件 |
 | ----------- | ----------- |
-| 重大 | 您會在下列情況中收到重大警示：備份作業失敗、復原作業失敗，以及當您在伺服器停止保護時，但保留資料。|
+| 重要 | 您會在下列情況中收到重大警示：備份作業失敗、復原作業失敗，以及當您在伺服器停止保護時，但保留資料。|
 | 警告 | 您會在以下情況收到警示：備份作業完成，但有警告 (例如，當不到 100 個檔案因為損毀問題而未備份，或是有超過 1,000,000 個檔案成功備份時)。 |
 | 資訊 | 目前沒有使用中的資訊警示。 |
 
@@ -99,7 +98,7 @@ ms.locfileid: "68954769"
 * 警示
 * 備份項目
 * 受保護的伺服器
-* Severity
+* 嚴重性
 * 持續時間
 * 建立時間
 * 狀態
@@ -215,12 +214,12 @@ ms.locfileid: "68954769"
 * Azure 儲存體
 * Azure 工作負載
 
-#### <a name="operation"></a>運算
+#### <a name="operation"></a>作業
 
 您可以檢視一項作業或所有作業。 您無法選取兩項或三項作業。 可用的作業如下：
 
 * 所有作業
-* 註冊
+* Register
 * 設定備份
 * 備份
 * 還原
@@ -232,11 +231,11 @@ ms.locfileid: "68954769"
 您可以檢視 [所有狀態] 或一個狀態。 您無法選取兩個或三個狀態。 可用的狀態如下：
 
 * 所有狀態
-* 已完成
+* Completed
 * 進行中
-* 已失敗
-* 已取消
-* 已完成，但發生警告
+* Failed
+* Canceled
+* 已完成，但出現警告
 
 #### <a name="start-time"></a>開始時間
 
@@ -259,10 +258,9 @@ ms.locfileid: "68954769"
 * 與保存庫相關聯的雲端 LRS 儲存體使用量
 * 與保存庫相關聯的雲端 GRS 儲存體使用量
 
-
 ## <a name="troubleshooting-monitoring-issues"></a>疑難排解監視問題
 
-**問題：** 來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
+**問題︰** 來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
 
 **疑難排解步驟︰** ```OBRecoveryServicesManagementAgent``` 程序會將作業和警示資料傳送至 Azure 備份服務。 此程序可能偶爾會卡住或關閉。
 
@@ -275,6 +273,7 @@ ms.locfileid: "68954769"
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>後續步驟
+
 * [從 Azure 還原 Windows Server 或 Windows 用戶端](backup-azure-restore-windows-server.md)
 * 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md)
 * 瀏覽 [Azure 備份論壇](https://go.microsoft.com/fwlink/p/?LinkId=290933)

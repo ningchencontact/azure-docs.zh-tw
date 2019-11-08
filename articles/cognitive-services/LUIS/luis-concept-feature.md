@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 08f78e4945b612a92d372c832490c380d3749811
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487515"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647409"
 ---
 # <a name="machine-learned-features"></a>機器學習的功能 
 
 在機器學習中，*功能*是您的系統觀察 & 學習之資料的特性或屬性（attribute）。 在 Language Understanding （LUIS）中，功能會描述並說明您的意圖和實體有何意義。
 
-## <a name="features-in-language-understanding"></a>Language Understanding 中的功能
+在[預覽 LUIS 入口網站](https://preview.luis.ai)中，功能是描述項 _，因為它們是用_來_說明_意圖或實體。  
+
+## <a name="features-_descriptors_-in-language-understanding"></a>Language Understanding 中的功能（_描述_項）
 
 「功能」（也稱為「描述項」）描述可協助 Language Understanding 識別語句範例的線索。 功能包括： 
 

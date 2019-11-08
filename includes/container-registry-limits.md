@@ -5,17 +5,17 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bc4ac68cb415a43ac34d36afc2adc30307e6d37c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174343"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795228"
 ---
-| Resource | 基本 | 標準 | 進階 |
+| 資源 | 基本 | 標準 | 高級 |
 |---|---|---|---|
 | 儲存體<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | 影像圖層大小上限 | 200 GiB | 200 GiB | 200 GiB |
@@ -23,9 +23,15 @@ ms.locfileid: "67174343"
 | 每分鐘的 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 下載頻寬 Mbps<sup>2</sup> | 30 | 60 | 100 |
 | 上傳頻寬 Mbps<sup>2</sup> | 10 | 20 | 50 |
-| webhooks | 2 | 10 | 100 |
+| Webhook | 2 | 10 | 100 |
 | 異地複寫 | N/A | N/A | [支援][geo-replication] |
 | 內容信任 | N/A | N/A | [支援][content-trust] |
+| 虛擬網路存取 | N/A | N/A | [預覽][vnet] |
+| 存放庫範圍的許可權 | N/A | N/A | [預覽][token]|
+| &bull; 權杖 | N/A | N/A | 20,000 |
+| &bull; 範圍對應 | N/A | N/A | 20,000 |
+| &bull; 每個範圍對應的存放庫 | N/A | N/A | 500 |
+
 
 <sup>1</sup>指定的儲存體限制是每一層的*內含*儲存體數量。 對於超過這些限制的影像儲存，您需要依每 GiB 的每日費率另外支付費用。 如需費率資訊，請參閱[Azure Container Registry 定價][pricing]。
 
@@ -41,3 +47,5 @@ ms.locfileid: "67174343"
 <!-- LINKS - Internal -->
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
+[vnet]: ../articles/container-registry/container-registry-vnet.md
+[token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
