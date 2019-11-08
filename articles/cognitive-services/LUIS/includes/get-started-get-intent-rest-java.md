@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: 7199dfaaa476e4be27929010b76a6e0544857bdb
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: afa2dc950efe4c03b41afbd6090d9bf29ac5a798
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499624"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -21,37 +21,164 @@ ms.locfileid: "71838562"
 * [Visual Studio Code](https://code.visualstudio.com/) 或您最愛的 IDE
 * 公用應用程式識別碼：df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
-
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
-您可以使用 Java 來存取您在上一個步驟的瀏覽器視窗中看到的相同結果。 務必將 Apache 程式庫新增至您的專案。
+使用 JAVA 查詢預測端點 GET [API](https://aka.ms/luis-apim-v3-prediction) 取得預測結果。
 
-1. 複製下列程式碼，以在名為 `LuisGetRequest.java` 的檔案中建立類別：
+1. 建立名為 `lib` 的子目錄，並複製下列 java 程式庫：
 
-   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/java/call-endpoint.java)]
+    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
+    * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
-2. 以您的 LUIS 金鑰取代 `YOUR-KEY` 變數的值。
+1. 複製下列程式碼，以在名為 `Predict.java` 的檔案中建立類別：
 
-3. 取代為您的檔案路徑，並從命令列編譯 Java 程式：`javac -cp .;<FILE_PATH>\* LuisGetRequest.java`。
 
-4. 取代為您的檔案路徑，並從命令列執行應用程式：`java -cp .;<FILE_PATH>\* LuisGetRequest.java`。 它會顯示您稍早在瀏覽器視窗中看到的相同 JSON。
-
-    ![主控台視窗會顯示來自 LUIS 的 JSON 結果](../media/luis-get-started-java-get-intent/console-turn-on.png)
+    ```java
+    import java.io.*;
+    import java.net.URI;
+    import org.apache.http.HttpEntity;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.HttpClient;
+    import org.apache.http.client.methods.HttpGet;
+    import org.apache.http.client.utils.URIBuilder;
+    import org.apache.http.impl.client.HttpClients;
+    import org.apache.http.util.EntityUtils;
     
+    public class Predict {
+    
+        public static void main(String[] args) 
+        {
+            HttpClient httpclient = HttpClients.createDefault();
+    
+            try
+            {
+    
+                // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
+                String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+                
+                // Add your endpoint key 
+                String Key = "YOUR-KEY";
+    
+                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+                String Endpoint = "YOUR-ENDPOINT";
+    
+                String Utterance = "turn on all lights";
+    
+                // Begin endpoint URL string building
+                URIBuilder endpointURLbuilder = new URIBuilder("https://" + Endpoint + "/luis/prediction/v3.0/apps/" + AppId + "/slots/production/predict?");
+    
+                // query string params
+                endpointURLbuilder.setParameter("query", Utterance);
+                endpointURLbuilder.setParameter("subscription-key", Key);
+                endpointURLbuilder.setParameter("show-all-intents", "true");
+                endpointURLbuilder.setParameter("verbose", "true");
+    
+                // create URL from string
+                URI endpointURL = endpointURLbuilder.build();
+    
+                // create HTTP object from URL
+                HttpGet request = new HttpGet(endpointURL);
+    
+                // access LUIS endpoint - analyze text
+                HttpResponse response = httpclient.execute(request);
+    
+                // get response
+                HttpEntity entity = response.getEntity();
+    
+    
+                if (entity != null) 
+                {
+                    System.out.println(EntityUtils.toString(entity));
+                }
+            }
+    
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }   
+    }    
+    ```
 
+1. 取代下列值：
+
+    * `YOUR-KEY` 使用您的入門金鑰
+    * `YOUR-ENDPOINT` 使用您的端點，例如 `westus2.api.cognitive.microsoft.com`
+
+
+1. 從命令列編譯 java 程式： 
+
+    ```console
+    javac -cp ":lib/*" Predict.java
+    ```
+
+1. 從命令列執行 java 程式：
+
+    ```console
+    java -cp ":lib/*" Predict
+    ```
+
+1. 檢閱 JSON 格式的預測回應：
+
+    ```console
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    針對可讀性格式化的 JSON 回應： 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>LUIS 金鑰
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您完成本快速入門時，請關閉 Visual Studio 專案，並從檔案系統中移除專案目錄。 
+您完成本快速入門時，請從檔案系統中刪除該檔案。 
 
 ## <a name="next-steps"></a>後續步驟
 

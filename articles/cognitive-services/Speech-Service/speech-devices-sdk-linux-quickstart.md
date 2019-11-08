@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee39f4cf0c78850b0128fc5e497f2b2aee57bbc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559078"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490966"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>快速入門：在 Linux 上執行語音裝置 SDK 範例應用程式
 
@@ -113,14 +113,14 @@ ms.locfileid: "68559078"
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. 預設喚醒字 (關鍵字) 是 "Computer"。 您也可以嘗試其中一個其他提供的喚醒字，例如 "Machine" 或 "Assistant"。 這些替代喚醒字的資源檔在「語音裝置 SDK」的 [keyword] 資料夾中。 例如，`/home/wcaltest/JRE-Sample-Release/keyword/Computer` 包含用於喚醒字 "Computer" 的檔案。
+1. 預設關鍵字是「Computer」。 您也可以嘗試其中一個其他提供的關鍵字，例如「Machine」或「Assistant」。 這些替代關鍵字的資源檔在「語音裝置 SDK」的 [keyword] 資料夾中。 例如，`/home/wcaltest/JRE-Sample-Release/keyword/Computer` 包含用於關鍵字「Computer」的檔案。
 
    > [!TIP]
-   > 您也可以[建立自訂的喚醒字](speech-devices-sdk-create-kws.md)。
+   > 您也可以[建立自訂關鍵字](speech-devices-sdk-create-kws.md)。
 
-    若要使用新的喚醒字，請更新 `FunctionsList.java` 中的下列兩行，並將喚醒字套件複製到您的應用程式。 例如，若要使用來自喚醒字套件 `kws-machine.zip` 的喚醒字 'Machine'：
+    若要使用新的關鍵字，請更新 `FunctionsList.java` 中的下列兩行，並將關鍵字套件複製到您的應用程式。 例如，若要使用來自關鍵字套件 `kws-machine.zip` 的關鍵字「Machine」：
 
-   * 將喚醒字套件複製到專案資料夾 **target/classes** 中。
+   * 將關鍵字套件複製到專案資料夾 **target/classes** 中。
 
    * 以關鍵字和套件名稱更新 `FunctionsList.java`：
 

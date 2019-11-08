@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3204387a8e0920d2a7196edbad229bf811a9ba0a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958496"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469312"
 ---
-1. 從 [https://portal.azure.com](https://portal.azure.com) 開啟 Azure 入口網站
+1. 從 Azure 入口網站功能表選取 [建立資源]  。
 
-1. 選取 [建立資源]  按鈕
+    ![使用 Azure 入口網站功能表新增資源](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
-    ![建立資源](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. 選取 [計算]   > [函式應用程式]  。
-
-    ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-function-app-portal/function-app-create-start.png)
+1. 在 [新增]  頁面中，選取 [計算]   > [函數應用程式]  。
 
 1. 請使用影像下面的資料表中指定的函式應用程式設定。
 

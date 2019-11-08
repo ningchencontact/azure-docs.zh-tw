@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164063"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499882"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以虛擬網路對等互連連線虛擬網路
 
@@ -44,7 +44,7 @@ ms.locfileid: "73164063"
 
 ## <a name="create-virtual-networks"></a>建立虛擬網路
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。
 2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
 3. 在 [基本資料]  頁面上，輸入或選取下列資訊，然後接受其餘設定的預設值：
 
@@ -54,7 +54,7 @@ ms.locfileid: "73164063"
     |資源群組| 選取 [新建]  ，然後輸入 *myResourceGroup*。|
     |區域| 選取 [美國東部]  。|
     |名稱|myVirtualNetwork1|
-   
+
 4. 在 [IP 位址]  頁面上，針對 [位址空間]  欄位輸入 10.0.0.0/16。 按一下下方的 [新增子網路]  按鈕，然後針對 [子網路名稱]  輸入 Subnet1 並針對 [子網路位址範圍]  輸入 10.0.0.0/24。
    
 5. 以下列變更再次完成步驟 1-3：
@@ -69,7 +69,7 @@ ms.locfileid: "73164063"
 ## <a name="peer-virtual-networks"></a>對等互連虛擬網路
 
 1. 在 Azure 入口網站頂端的 [搜尋] 方塊中，開始輸入 MyVirtualNetwork1  。 當搜尋結果中出現 myVirtualNetwork1  時加以選取。
-2. 選取 [設定]  底下的 [對等互連]  ，然後選取 [+新增]  ，如下圖所示：
+2. 選取 [設定]  底下的 [對等互連]  ，然後選取 [新增]  ，如下圖所示：
 
     ![建立對等互連](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "73164063"
 
 ### <a name="create-the-first-vm"></a>建立第一個 VM
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。
 2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  。 您可以選取不同的作業系統，但是其餘步驟假設您選取的是 **Windows Server 2016 Datacenter**。 
 3. 針對 [基本資料]  輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]  ：
 

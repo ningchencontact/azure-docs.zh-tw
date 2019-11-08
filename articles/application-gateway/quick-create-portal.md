@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6d12b006583c004d12c50bda171c82397ff7949f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276612"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469693"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站
 
 本快速入門會示範如何使用 Azure 入門網站，建立應用程式閘道。  建立應用程式閘道之後，您要加以測試，確定它可正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則，以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。 為了簡單起見，本文使用簡單的設定，包括公用前端 IP、在此應用程式閘道上裝載單一網站的基本接聽程式、用於後端集區的兩部虛擬機器，以及基本的要求路由規則。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "68276612"
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-1. 在 Azure 入口網站的左側功能表上選取 [建立資源]  。 [新增]  視窗隨即出現。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 [新增]  視窗隨即出現。
 
 2. 在 [精選]  清單中選取 [網路]  ，然後選取 [應用程式閘道]  。
 
@@ -43,7 +43,7 @@ ms.locfileid: "68276612"
 
      ![建立新的應用程式閘道：基本概念](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，您將會在建立應用程式閘道時，同時建立新的虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
+2. Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，您將會在建立應用程式閘道時，同時建立新的虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
     在 [設定虛擬網路]  底下，選取 [新建]  以建立新的虛擬網路。 在隨即開啟的 [建立虛擬網路]  視窗中，輸入下列值以建立虛擬網路和兩個子網路：
 
@@ -59,7 +59,7 @@ ms.locfileid: "68276612"
 
      ![建立新的應用程式閘道：虛擬網路](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
-3. 在 [基本]  索引標籤上，接受其他設定的預設值，然後選取 [下一步:前端]  。
+3. 在 [基本]  索引標籤上，接受其他設定的預設值，然後選取 [下一步:  前端]。
 
 ### <a name="frontends-tab"></a>[前端] 索引標籤
 
@@ -88,7 +88,7 @@ ms.locfileid: "68276612"
 
      ![建立新的應用程式閘道：後端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
-4. 在 [後端]  索引標籤上，選取 [下一步:設定]  。
+4. 在 [後端]  索引標籤上，選取 [下一步:  設定]。
 
 ### <a name="configuration-tab"></a>組態索引標籤
 
@@ -135,7 +135,7 @@ ms.locfileid: "68276612"
 
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-1. 在 Azure 入口網站上，選取 [建立資源]  。 [新增]  視窗隨即出現。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 [新增]  視窗隨即出現。
 2. 選取 [計算]  ，然後選取 [熱門]  清單中的 [Windows Server 2016 Datacenter]  。 [建立虛擬機器]  頁面隨即出現。<br>應用程式閘道可將流量路由至其後端集區中所用任何類型的虛擬機器。 在此範例中，您會使用 Windows Server 2016 Datacenter。
 3. 在 [基本]  索引標籤中，為下列虛擬機器設定輸入這些值：
 
@@ -143,9 +143,9 @@ ms.locfileid: "68276612"
     - **虛擬機器名稱**：輸入 myVM  作為虛擬機器的名稱。
     - **使用者名稱**：輸入 azureuser  作為系統管理員使用者名稱。
     - **密碼**：輸入Azure123456!  作為系統管理員密碼。
-4. 接受其他預設值，然後選取 [下一步：**磁碟]** 。  
+4. 接受其他預設值，然後選取 [下一步：  磁碟]。  
 5. 接受 [磁碟]  索引標籤的預設值，然後選取 [下一步：  網路功能]。
-6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：**管理]** 。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
+6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：  管理]。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
 7. 在 [管理]  索引標籤上，將 [開機診斷]  設為 [關閉]  。 接受其他預設值，然後選取 [檢閱 + 建立]  。
 8. 在 [檢閱 + 建立]  索引標籤上檢閱設定，並更正任何驗證錯誤，然後選取 [建立]  。
 9. 請等候虛擬機器建立完成，再繼續操作。
@@ -176,7 +176,7 @@ ms.locfileid: "68276612"
 
 ### <a name="add-backend-servers-to-backend-pool"></a>將後端伺服器新增至後端集區
 
-1. 選取 [所有資源]  ，然後選取 [myAppGateway]  。
+1. 在 Azure 入口網站功能表上，選取 [所有資源]  ，或搜尋並選取 [所有資源]  。 然後選取 [myAppGateway]  。
 
 2. 從左側功能表中中選取 [後端集區]  。
 
@@ -188,7 +188,7 @@ ms.locfileid: "68276612"
 
     ![新增後端伺服器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
 
 7. 等候部署完成，再繼續進行下一個步驟。
 
@@ -205,7 +205,8 @@ ms.locfileid: "68276612"
 當您不再需要先前為應用程式閘道建立的資源時，請移除資源群組。 藉由移除資源群組，您也可以移除應用程式閘道及其所有相關資源。 
 
 若要移除資源群組：
-1. 在 Azure 入口網站的左側功能表上，選取 [資源群組]  。
+
+1. 在 Azure 入口網站功能表中，選取 [資源群組]  ，或搜尋並選取 [資源群組]  。
 2. 在 [資源群組]  頁面上，在清單中搜尋 **myResourceGroupAG** 並加以選取。
 3. 在 [資源群組]  頁面上，選取 [刪除資源群組]  。
 4. 針對 [輸入資源群組名稱]  輸入 myResourceGroupAG  ，然後選取 [刪除] 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12661c77c6a950b482187b09e4465c964e6d6652
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174097"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494073"
 ---
 Azure IoT Edge 的主要功能之一，是能夠從雲端將程式碼部署到您的 IoT Edge 裝置。 **IoT Edge 模組**是實作為容器的可執行檔套件。 在本節中，您會從 [Azure Marketplace 的 IoT Edge 模組區段](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)部署預先建置的模組。 
 
@@ -37,7 +37,7 @@ Azure IoT Edge 的主要功能之一，是能夠從雲端將程式碼部署到�
 
 3. 您現在已從 Azure Marketplace 中選擇 IoT Edge 模組，並選擇用來接收模組的 IoT Edge 裝置，接著您將前往可協助您明確定義如何部署模組的三步驟精靈。 在精靈的 [新增模組]  步驟中，您應留意 **SimulatedTemperatureSensor** 模組會自動填入。 在後續的教學課程中，您將使用此頁面將其他模組新增至您的部署。 在本快速入門中，只要部署此模組即可。 選取 [下一步]  ，繼續進行精靈的下一個步驟。
 
-4. 在精靈的 [指定路由]  步驟中，您會定義在模組之間傳遞訊息以及將訊息傳遞至 IoT 中樞的方式。 在本快速入門中，您想要將所有模組的所有訊息傳至 IoT 中樞 (`$upstream`)。 若未自動填入，請新增下列程式碼，然後選取 [下一步]  ：
+4. 在精靈的 [指定路由]  步驟中，您會定義在模組之間傳遞訊息以及將訊息傳遞至 IoT 中樞的方式。 在本快速入門中，您想要將所有模組的所有訊息傳至 IoT 中樞 (`$upstream`)。 若未自動填入，請新增下列程式碼：
 
    ```json
     {
@@ -46,6 +46,7 @@ Azure IoT Edge 的主要功能之一，是能夠從雲端將程式碼部署到�
         }
     }
    ```
+   然後，選取 [下一步]  。
 
 5. 在精靈的 [檢閱部署]  步驟中，您可以預覽 JSON 檔案；此檔案定義了所有部署至 IoT Edge 裝置的模組。 請注意，**SimulatedTemperatureSensor** 模組也會包含在其中，此外還有兩個名為 **edgeAgent** 和 **edgeHub** 的系統模組。 檢閱完畢後，請選取 [提交]  。
 

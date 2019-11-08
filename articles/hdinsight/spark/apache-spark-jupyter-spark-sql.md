@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用範本在 HDInsight 中建立 Spark 叢集
+title: 快速入門：使用範本建立 Spark 叢集 - Azure HDInsight
 description: 本快速入門會說明如何使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集，以及執行簡單的 Spark SQL 查詢。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
-ms.openlocfilehash: e3e8a61e07f3d61bd69bd9bb12db72a613eeff99
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 3d4c3b92139a5d1ba90c58cb998cbba99c8a5746
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337586"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494108"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -47,7 +47,7 @@ ms.locfileid: "71337586"
     | **叢集登入名稱和密碼**|預設登入名稱為 admin。選擇叢集登入的密碼。 針對本快速入門所使用的登入名稱是 **admin**。|
     | **SSH 使用者名稱和密碼**|選擇 SSH 使用者的密碼。 針對本快速入門所使用的 SSH 使用者名稱是 **sshuser**。|
 
-    ![使用 Azure Resource Manager 範本建立 HDInsight Spark 叢集](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "在 HDInsight 中使用 Azure Resource Manager 範本建立 Spark 叢集")
+    ![使用 Azure Resource Manager 範本來建立 HDInsight Spark 叢集](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "使用 Azure Resource Manager 範本在 HDInsight 中建立 Spark 叢集")
 
 3. 選取 [我同意上方所述的條款及條件]  ，選取 [釘選到儀表板]  ，然後選取 [購買]  。 您可以看到標題為 [進行範本部署]  的新圖格。 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。
 
@@ -73,11 +73,11 @@ ms.locfileid: "71337586"
 
 3. 從入口網站的 [叢集儀表板]  區段，按一下 [Jupyter Notebook]  。 出現提示時，輸入叢集的叢集登入認證。
 
-   ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
+   ![開啟 Jupyter Notebook 以執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 以執行互動式 Spark SQL 查詢")
 
 4. 選取 [新增]   > [PySpark]  來建立 Notebook。
 
-   ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
+   ![建立 Jupyter Notebook 以執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 以執行互動式 Spark SQL 查詢")
 
    新的 Notebook 隨即建立並以 Untitled(Untitled.pynb) 名稱開啟。
 

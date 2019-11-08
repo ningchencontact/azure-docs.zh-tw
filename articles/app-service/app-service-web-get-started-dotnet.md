@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240931"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471607"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 
@@ -139,17 +139,19 @@ ms.locfileid: "71240931"
 
 ## <a name="manage-the-azure-app"></a>管理 Azure 應用程式
 
-1. 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理 Web 應用程式。
+若要管理 Web 應用程式，請移至 [Azure 入口網站](https://portal.azure.com)，然後搜尋並選取 [應用程式服務]  。
 
-1. 從左側功能表，選取 [應用程式服務]  ，然後選取 Azure 應用程式的名稱。
+![選取 [應用程式服務]](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+在 [應用程式服務]  頁面上，選取您的 Web 應用程式名稱。
 
-   您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡進行基本管理，像是瀏覽、停止、啟動、重新啟動及刪除。
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![Azure 入口網站中的 App Service](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡進行基本管理，像是瀏覽、停止、啟動、重新啟動及刪除。
 
-   左側功能表提供不同的頁面來設定您的應用程式。
+![Azure 入口網站中的 App Service](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+左側功能表提供不同的頁面來設定您的應用程式。
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

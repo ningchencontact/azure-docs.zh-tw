@@ -1,6 +1,6 @@
 ---
-title: 使用適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) (預覽) 設計多租用戶資料庫的教學課程
-description: 本教學課程說明如何在適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) (預覽) 上建立、填入及查詢分散式資料表。
+title: 使用適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) 設計多租用戶資料庫的教學課程
+description: 本教學課程示範如何在適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) 上建立、填入及查詢分散式資料表。
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496539"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>教學課程：使用適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) (預覽) 設計多租用戶資料庫
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>教學課程：使用適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) 設計多租用戶資料庫
 
-在本教學課程中，您將使用適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) (預覽) 了解如何：
+在本教學課程中，您可以使用適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) 了解如何：
 
 > [!div class="checklist"]
 > * 建立 Hyperscale (Citus) 伺服器群組
@@ -35,7 +35,7 @@ ms.locfileid: "70163993"
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>使用 psql 公用程式建立結構描述
 
-使用 psql 連線到適用於 PostgreSQL 的 Azure 資料庫 - 超大規模 (Citus) (預覽) 後，您可以完成一些基本工作。 本教學課程會引導您建立可讓廣告商追蹤其行銷活動的 Web 應用程式。
+使用 psql 連線到適用於 PostgreSQL 的 Azure 資料庫 - 超大規模 (Citus) 後，您可以完成一些基本工作。 本教學課程會引導您建立可讓廣告商追蹤其行銷活動的 Web 應用程式。
 
 此應用程式可供多家公司使用，因此我們將建立一個資料表來保存公司，並且為其行銷活動建立另一個資料表。 在 psql 主控台中，執行下列命令：
 

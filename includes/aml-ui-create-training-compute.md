@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792638"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493627"
 ---
 對計算目標執行管線，此目標為連結至工作區的計算資源。 建立計算目標之後，您可以將其重複用於未來的執行。
 
@@ -25,7 +25,7 @@ ms.locfileid: "72792638"
     如果您已經有可用的計算目標，您可以選取該目標來執行此管線。
 
     > [!NOTE]
-    > 視覺化介面只能對 Machine Learning Compute 目標執行實驗。 其他計算目標將不會顯示。
+    > 設計工具只能對 Machine Learning Compute 目標執行實驗。 其他計算目標將不會顯示。
 
 1. 提供計算資源的名稱。
 

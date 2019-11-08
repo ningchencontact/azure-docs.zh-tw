@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595021"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471359"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure App Service
 
@@ -29,7 +29,7 @@ ms.locfileid: "67595021"
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 CNAME 記錄來對應子網域 (例如，`www.contoso.com`)
@@ -60,9 +60,13 @@ ms.locfileid: "67595021"
 
 開啟 [Azure 入口網站](https://portal.azure.com)並使用您的 Azure 帳戶登入。
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>瀏覽至 Azure 入口網站中的應用程式
+### <a name="select-the-app-in-the-azure-portal"></a>在 Azure 入口網站中選取應用程式
 
-從左側功能表，選取 [App Service]  ，然後選取應用程式的名稱。
+搜尋並選取 [應用程式服務]  。
+
+![選取 [應用程式服務]](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+在 [應用程式服務]  頁面上，選取您的 Azure 應用程式名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -156,7 +160,7 @@ ms.locfileid: "67595021"
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
+> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要新增 SSL 繫結，請參閱[在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)。
 
 如果稍早錯過某個步驟，或在某處打錯字，您在頁面底部會看到驗證錯誤。
 
@@ -197,7 +201,7 @@ ms.locfileid: "67595021"
 
 | 記錄類型 | Host | 值 |
 | - | - | - |
-| 具有使用 | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
+| A | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
@@ -205,7 +209,7 @@ ms.locfileid: "67595021"
 >
 > | 記錄類型 | Host | 值 |
 > | - | - | - |
-> | 具有使用 | `www` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
+> | A | `www` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
@@ -240,7 +244,7 @@ ms.locfileid: "67595021"
 ![A 記錄已新增](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
+> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要新增 SSL 繫結，請參閱[在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)。
 
 如果稍早錯過某個步驟，或在某處打錯字，您在頁面底部會看到驗證錯誤。
 
@@ -295,7 +299,7 @@ ms.locfileid: "67595021"
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
+> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要新增 SSL 繫結，請參閱[在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)。
 
 ## <a name="test-in-browser"></a>在瀏覽器中測試
 
@@ -374,4 +378,4 @@ Set-AzWebApp `
 前進到下一個教學課程，以了解如何將自訂 SSL 憑證繫結至 Web 應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)
+> [在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)

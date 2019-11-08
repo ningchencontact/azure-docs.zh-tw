@@ -1,0 +1,26 @@
+---
+title: 快速入門：翻譯語音轉換文字 - 語音服務
+titleSuffix: Azure Cognitive Services
+description: TBD
+services: cognitive-services
+author: yulin-li
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.date: 09/20/2019
+ms.author: yulili
+ms.openlocfilehash: c45e75038d1731c933ccf8bf26f9de573e409292
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500432"
+---
+在本快速入門中，您將會使用[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 以互動方式來將某一種語言的語音翻譯成另一種語言的文字。 在滿足幾個必要條件之後，翻譯語音轉換文字只需要採取五個步驟：
+> [!div class="checklist"]
+> * 從您的訂用帳戶金鑰和區域建立 ````SpeechConfig```` 物件。
+> * 更新 ````SpeechConfig```` 物件以指定來源和目標語言。
+> * 使用上面的 ````SpeechConfig```` 物件來建立 ````TranslationRecognizer```` 物件。
+> * 使用 ````TranslationRecognizer```` 物件，開始針對單一表達進行辨識程序。
+> * 檢查所傳回的 ````TranslationRecognitionResult````。

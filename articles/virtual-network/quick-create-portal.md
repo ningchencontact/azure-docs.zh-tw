@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: f95174efbffedd09946f5910a39285e7bec062c1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161492"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488484"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立虛擬網路
 
@@ -34,9 +34,11 @@ ms.locfileid: "73161492"
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 在畫面的左上方，選取 [建立資源]   > [網路]   > [虛擬網路]  。
+1. 從 Azure 入口網站功能表選取 [建立資源]  。
 
-1. 在 [建立虛擬網路]  中，輸入或選取這項資訊：
+2. 從 Azure Marketplace 選取 [網路]   > [虛擬網路]  。
+
+3. 在 [建立虛擬網路]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
@@ -48,7 +50,7 @@ ms.locfileid: "73161492"
     | 子網路 - 名稱 | 輸入 *myVirtualSubnet*。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
 
-1. 將其他項目保留為預設值，然後選取 [建立]  。
+4. 將其他項目保留為預設值，然後選取 [建立]  。
 
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
@@ -56,9 +58,11 @@ ms.locfileid: "73161492"
 
 ### <a name="create-the-first-vm"></a>建立第一個 VM
 
-1. 在畫面的左上方，選取 [建立資源]   > [計算]   > [Windows Server 2019 Datacenter]  。
+1. 從 Azure 入口網站功能表選取 [建立資源]  。
 
-1. 在 [建立虛擬機器 - 基本]  中，輸入或選取這項資訊：
+2. 從 Azure Marketplace 選取 [計算]   > [Windows Server 2019 資料中心]  。
+
+3. 在 [建立虛擬機器 - 基本]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
@@ -80,11 +84,11 @@ ms.locfileid: "73161492"
     | **節省費用** |  |
     | 已經有 Windows 授權？ | 保留預設值 [否]  。 |
 
-1. 選取 [下一步：  磁碟]。
+4. 選取 [下一步：  磁碟]。
 
-1. 在 [建立虛擬機器 - 磁碟]  ，保留預設值並選取 [下一步:  網路功能]。
+5. 在 [建立虛擬機器 - 磁碟]  ，保留預設值並選取 [下一步:  網路功能]。
 
-1. 在 [建立虛擬機器 - 網路功能]  中，選取這項資訊：
+6. 在 [建立虛擬機器 - 網路功能]  中，選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
@@ -94,11 +98,11 @@ ms.locfileid: "73161492"
     | 公用輸入連接埠 | 選取 [允許選取的連接埠]  。 |
     | 選取輸入連接埠 | 選取 [HTTP]  和 [RDP]  。
 
-1. 選取 [下一步:  管理]。
+7. 選取 [下一步:  管理]。
 
-1. 在 [建立虛擬機器 - 管理]  中，針對 [診斷儲存體帳戶]  ，選取 [新建]  。
+8. 在 [建立虛擬機器 - 管理]  中，針對 [診斷儲存體帳戶]  ，選取 [新建]  。
 
-1. 在 [建立儲存體帳戶]  中，輸入或選取這項資訊：
+9. 在 [建立儲存體帳戶]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
@@ -107,11 +111,11 @@ ms.locfileid: "73161492"
     | 效能 | 保留預設值 [標準]  。 |
     | 複寫 | 保留預設值 [本地備援儲存體 (LRS)]  。 |
 
-1. 選取 [確定] 
+10. 選取 [確定] 
 
-1. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，其中 Azure 會驗證您的設定。
+11. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，其中 Azure 會驗證您的設定。
 
-1. 當您看到 [驗證成功]  訊息時，請選取 [建立]  。
+12. 當您看到 [驗證成功]  訊息時，請選取 [建立]  。
 
 ### <a name="create-the-second-vm"></a>建立第二個 VM
 
@@ -122,9 +126,9 @@ ms.locfileid: "73161492"
     >
     > 在步驟 7 中，針對 [診斷儲存體帳戶]  ，務必選取 [myvmstorageaccount]  。
 
-1. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，且 Azure 會驗證您的設定。
+2. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，且 Azure 會驗證您的設定。
 
-1. 當您看到 [驗證成功]  訊息時，請選取 [建立]  。
+3. 當您看到 [驗證成功]  訊息時，請選取 [建立]  。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
@@ -132,34 +136,34 @@ ms.locfileid: "73161492"
 
 1. 在入口網站的搜尋列中，輸入 *myVm1*。
 
-1. 選取 [連線]  按鈕。
+2. 選取 [連線]  按鈕。
 
     ![連接到虛擬機器](./media/quick-create-portal/connect-to-virtual-machine.png)
 
     選取 [連線]  按鈕之後，隨即會開啟 [連線至虛擬機器]  。
 
-1. 選取 [下載 RDP 檔案]  。 Azure 會建立一個「遠端桌面通訊協定」( *.rdp*) 檔案，並下載至您的電腦。
+3. 選取 [下載 RDP 檔案]  。 Azure 會建立一個「遠端桌面通訊協定」( *.rdp*) 檔案，並下載至您的電腦。
 
-1. 開啟下載的 *.rdp* 檔案。
+4. 開啟下載的 *.rdp* 檔案。
 
     1. 如果出現提示，請選取 [連接]  。
 
-    1. 輸入您在建立 VM 時指定的使用者名稱和密碼。
+    2. 輸入您在建立 VM 時指定的使用者名稱和密碼。
 
         > [!NOTE]
         > 您可能需要選取 [其他選擇]   > [使用不同的帳戶]  ，以指定您在建立 VM 時輸入的認證。
 
-1. 選取 [確定]  。
+5. 選取 [確定]  。
 
-1. 您可能會在登入過程中收到憑證警告。 如果您收到憑證警告，請選取 [是]  或 [繼續]  。
+6. 您可能會在登入過程中收到憑證警告。 如果您收到憑證警告，請選取 [是]  或 [繼續]  。
 
-1. 當 VM 桌面出現之後，將它最小化以回到您的本機桌面。
+7. 當 VM 桌面出現之後，將它最小化以回到您的本機桌面。
 
 ## <a name="communicate-between-vms"></a>虛擬機器之間的通訊
 
 1. 在 *myVm1* 的遠端桌面中，開啟 PowerShell。
 
-1. 輸入 `ping myVm2` 。
+2. 輸入 `ping myVm2` 。
 
     您將收到如下訊息：
 
@@ -176,7 +180,7 @@ ms.locfileid: "73161492"
 
     `ping` 失敗，因為 `ping` 使用網際網路控制訊息通訊協定 (ICMP)。 根據預設，ICMP 不允許通過 Windows 防火牆。
 
-1. 為了讓 *myVm2* 在稍後的步驟中可以 Ping *myVm1*，輸入此命令：
+3. 為了讓 *myVm2* 在稍後的步驟中可以 Ping *myVm1*，輸入此命令：
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +188,11 @@ ms.locfileid: "73161492"
 
     此命令可讓 ICMP 連入流量通過 Windows 防火牆：
 
-1. 關閉對 *myVm1* 的遠端桌面連線。
+4. 關閉對 *myVm1* 的遠端桌面連線。
 
-1. 再次完成[從網際網路連線至 VM](#connect-to-a-vm-from-the-internet) 中的步驟，但連線至 *myVm2*。
+5. 再次完成[從網際網路連線至 VM](#connect-to-a-vm-from-the-internet) 中的步驟，但連線至 *myVm2*。
 
-1. 從命令提示字元，輸入 `ping myvm1`。
+6. 從命令提示字元，輸入 `ping myvm1`。
 
     您會收到類似此訊息：
 
@@ -207,7 +211,7 @@ ms.locfileid: "73161492"
 
     您會從 *myVm1* 收到回覆，因為您在步驟 3 中允許 ICMP 通過 *myVm1* VM 上的 Windows 防火牆。
 
-1. 關閉對 *myVm2* 的遠端桌面連線。
+7. 關閉對 *myVm2* 的遠端桌面連線。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -215,9 +219,9 @@ ms.locfileid: "73161492"
 
 1. 在入口網站頂端的 [搜尋]  方塊中輸入 *myResourceGroup*，然後從搜尋結果中選取 [myResourceGroup]  。
 
-1. 選取 [刪除資源群組]  。
+2. 選取 [刪除資源群組]  。
 
-1. 針對 [輸入資源群組名稱]  輸入 *myResourceGroup*，然後選取 [刪除]  。
+3. 針對 [輸入資源群組名稱]  輸入 *myResourceGroup*，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

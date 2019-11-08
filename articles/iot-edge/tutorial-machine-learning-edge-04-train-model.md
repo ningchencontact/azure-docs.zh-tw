@@ -8,19 +8,19 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: acf0b1984eb3e68858be6ed68731612448e672f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432697"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493981"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>教學課程：定型和部署 Azure Machine Learning 模型
 
 > [!NOTE]
 > 此文章是關於在 IoT Edge 上使用 Azure Machine Learning 的系列文章之一。 如果您是被直接引導至這篇文章，我們建議您先從本系列的[第一篇文章](tutorial-machine-learning-edge-01-intro.md)開始，以取得最佳成效。
 
-在此文章中，我們會先使用 Azure Notebooks 來使用 Azure Machine Learning 對機器學習模型進行定型，然後將該模型封裝成可部署為 Azure IoT Edge 模組的容器映像。 Azure Notebooks 能運用 Azure Machine Learning 服務工作區，其為用來對機器學習模型進行實驗、定型及部署的基本區塊。
+在此文章中，我們會先使用 Azure Notebooks 來使用 Azure Machine Learning 對機器學習模型進行定型，然後將該模型封裝成可部署為 Azure IoT Edge 模組的容器映像。 Azure Notebooks 能運用 Azure Machine Learning 工作區，其為用來對機器學習模型進行實驗、定型及部署的基本區塊。
 
 此教學課程這個部分中的活動已被分散至兩個筆記本之上。
 
@@ -72,7 +72,7 @@ Azure Notebooks 帳戶是獨立於 Azure 訂用帳戶。 若要使用 Azure Note
 
 * **01-turbofan\_regression.ipynb**：此 Jupyter 筆記本檔案能逐步引導您完成下載由來自 Azure 儲存體帳戶的裝置載入器所產生的資料，探索並準備用來將分類器定型的資料，對模型進行定型，使用在 Test\_FD003.txt 檔案中所找到的測試資料集測試資料，最後將分類器模型儲存在 Machine Learning 服務工作區中的程序。
 
-* **02-turbofan\_deploy\_model.ipynb：** 此 Jupyter 筆記本能引導您完成使用儲存在 Machine Learning 服務工作區中的分類器模型來產生容器映像的程序。 建立映像之後，此筆記本會引導您完成將映像部署為 Web 服務的程序，使您可以確認其能如預期運作。 已驗證的映像將會在此教學課程的[建立和部署自訂 IoT Edge 模組](tutorial-machine-learning-edge-06-custom-modules.md)部分中被部署至我們的 Edge 裝置。
+* **02-turbofan\_deploy\_model.ipynb：** 此 Jupyter 筆記本能引導您完成使用儲存在 Machine Learning 服務工作區中的分類器模型來產生容器映像的程序。 建立映像之後，此筆記本會引導您完成將映像部署為 Web 服務的程序，使您可以確認其能如預期運作。 已驗證的映像將會在此教學課程的[建立和部署自訂 IoT Edge 模組](tutorial-machine-learning-edge-06-custom-modules.md)部分中，部署至我們的 IoT Edge 裝置。
 
 * **Test\_FD003.txt：** 此檔案包含我們將在驗證已定型分類器時作為測試集使用的資料。 基於簡化範例的因素，我們會選擇使用針對原始競賽所提供的測試資料作為測試集。
 

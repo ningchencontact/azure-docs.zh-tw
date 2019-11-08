@@ -7,16 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/16/2019
-ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692426"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489931"
 ---
 >[!IMPORTANT]
->您可以使用您所建立的資源來作為其他 Azure Machine Learning 服務教學課程和操作說明文章的先決條件。
+>您可以使用您所建立的資源，作為其他 Azure Machine Learning 教學課程和操作說明文章的先決條件。
 
 ### <a name="delete-everything"></a>刪除所有內容
 
@@ -32,7 +32,7 @@ ms.locfileid: "72692426"
 
 1. 選取 [刪除資源群組]  。
 
-刪除資源群組同時會刪除您在視覺化介面中所建立的所有資源。  
+刪除資源群組同時會刪除您在設計工具中建立的所有資源。  
 
 ### <a name="delete-only-the-compute-target"></a>僅刪除計算目標
 
@@ -48,6 +48,12 @@ ms.locfileid: "72692426"
 
 ### <a name="delete-individual-assets"></a>刪除個別資產
 
-在實驗建立所在的視覺化介面中，藉由選取個別資產再選取 [刪除]  按鈕，即可刪除個別資產。 您可以選取每個資料集並選取 **Unregister** ，從工作區中將資料集取消註冊。
+在建立實驗的設計工具中，藉由選取個別資產，再選取 [刪除]  按鈕，即可刪除個別資產。
 
 ![刪除資產](./media/aml-ui-cleanup/delete-asset.png)
+
+您可以選取每個資料集並選取 **Unregister** ，從工作區中將資料集取消註冊。
+
+![取消註冊資料集](./media/aml-ui-cleanup/unregister-dataset.png)
+
+

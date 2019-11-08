@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: 6282e768ebc51d0d4ec2b15f057727f207a7d81a
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495227"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>快速入門：使用瀏覽器取得意圖
 
@@ -26,36 +26,55 @@ ms.locfileid: "71703618"
 
 若要查詢公用應用程式，您需要：
 
-* 您自己的 Language Understanding (LUIS) 金鑰。 若您還沒有訂用帳戶可建立金鑰，您可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
+* 您自己的 Language Understanding (LUIS) 金鑰。 若您還沒有訂用帳戶可建立金鑰，您可以註冊[免費帳戶](https://azure.microsoft.com/free/)。 LUIS 撰寫金鑰不會有作用。 
 * 公用應用程式的識別碼：`df67dcdb-c37d-46af-88e1-8b97951ca1c2`。 
 
 ## <a name="use-the-browser-to-see-predictions"></a>使用瀏覽器查看預測
 
 1. 請開啟網頁瀏覽器。 
-1. 使用下列完整的 URL，將 `{your-key}` 取代為您自己的 LUIS 金鑰。 要求是 GET 要求，包含以您的 LUIS 金鑰作為查詢字串參數的授權。
+1. 使用下列完整的 URL，將 `YOUR-KEY` 取代為您自己的 LUIS 金鑰。 要求是 GET 要求，包含以您的 LUIS 金鑰作為查詢字串參數的授權。
 
-    #### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 預測端點要求](#tab/V2)
-    
-    **GET** 端點要求的 V2 URL 格式為：
-    
-    `
-    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key={your-key}&q=turn on all lights
-    `
-    
-    #### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 預測端點要求](#tab/V3)
+    #### <a name="v3-prediction-requesttabv3-1-1"></a>[V3 預測要求](#tab/V3-1-1)
     
     
     **GET** 端點 (依位置) 要求的 V3 URL 格式為：
     
     `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
+    https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
+
+    #### <a name="v2-prediction-requesttabv2-1-2"></a>[V2 預測要求](#tab/V2-1-2)
     
-    * * *
+    **GET** 端點要求的 V2 URL 格式為：
+    
+    `
+    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
+    `
 
 1. 將 URL 貼入瀏覽器視窗，然後按 Enter。 瀏覽器會顯示 JSON 結果，指出 LUIS 偵測到 `HomeAutomation.TurnOn` 意圖 (最高意圖) 和 `HomeAutomation.Operation` 實體 (值為 `on`)。
 
-    #### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
+    #### <a name="v3-prediction-responsetabv3-2-1"></a>[V3 預測回應](#tab/V3-2-1)
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ]
+            }
+        }
+    }
+    ```
+
+    #### <a name="v2-prediction-responsetabv2-2-2"></a>[V2 預測回應](#tab/V2-2-2)
 
     ```json
     {
@@ -76,17 +95,32 @@ ms.locfileid: "71703618"
     }
     ```
 
-    #### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
+    * * *
+
+1. 若要查看所有意圖，請新增適當的查詢字串參數。 
+
+    #### <a name="v3-prediction-endpointtabv3-3-1"></a>[V3 預測端點](#tab/V3-3-1)
+
+    將 `show-all-intents=true` 新增至查詢字串結尾處，以**顯示所有意圖**：
+
+    `
+    https://westus.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY&show-all-intents=true
+    `
 
     ```JSON
     {
-        "query": "turn on all lights",
+        "query": "turn off the living room light",
         "prediction": {
-            "normalizedQuery": "turn on all lights",
             "topIntent": "HomeAutomation.TurnOn",
             "intents": {
                 "HomeAutomation.TurnOn": {
                     "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
                 }
             },
             "entities": {
@@ -97,10 +131,6 @@ ms.locfileid: "71703618"
         }
     }
     ```
-
-    * * *
-
-1. 若要查看所有意圖，請新增適當的查詢字串參數。 
 
     #### <a name="v2-prediction-endpointtabv2"></a>[V2 預測端點](#tab/V2)
 
@@ -143,41 +173,8 @@ ms.locfileid: "71703618"
     }
     ```
 
-    #### <a name="v3-prediction-endpointtabv3"></a>[V3 預測端點](#tab/V3)
 
-    將 `show-all-intents=true` 新增至查詢字串結尾處，以**顯示所有意圖**：
-
-    `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}&show-all-intents=true
-    `
-
-    ```JSON
-    {
-        "query": "turn on all lights",
-        "prediction": {
-            "normalizedQuery": "turn on all lights",
-            "topIntent": "HomeAutomation.TurnOn",
-            "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                },
-                "HomeAutomation.TurnOff": {
-                     "score": 0.0207554
-                },
-                "None": {
-                     "score": 0.08687421
-                }
-            },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ]
-            }
-        }
-    }
-    ```
-
-    * * * 
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
 
 ## <a name="next-steps"></a>後續步驟
 

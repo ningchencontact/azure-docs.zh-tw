@@ -8,26 +8,30 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a44dc35c27cd084e6589482f180b13b258f0b24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174139"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470987"
 ---
 ## <a name="prepare-your-web-app"></a>準備您的 Web 應用程式
 
 若要將自訂 SSL 憑證 (第三方憑證或 App Service 憑證) 繫結至 Web 應用程式，[App Service 方案](https://azure.microsoft.com/pricing/details/app-service/)必須為**基本**、**標準**、**進階**或**隔離**層。 在此步驟中，您要確定 Web 應用程式在支援的定價層。
 
-### <a name="log-in-to-azure"></a>登入 Azure
+### <a name="sign-in-to-azure"></a>登入 Azure
 
 開啟 [Azure 入口網站](https://portal.azure.com)。
 
 ### <a name="navigate-to-your-web-app"></a>瀏覽至您的 Web 應用程式
 
-按一下左側功能表中的 [應用程式服務]  ，然後按一下 Web 應用程式的名稱。
+搜尋並選取 [應用程式服務]  。
 
-![選取 Web 應用程式](./media/app-service-ssl-prepare-app/select-app.png)
+![選取 [應用程式服務]](./media/app-service-ssl-prepare-app/app-services.png)
+
+在 [應用程式服務]  頁面上，選取您的 Azure 應用程式名稱。
+
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-ssl-prepare-app/select-app.png)
 
 您已經位於 Web 應用程式的管理頁面。  
 
