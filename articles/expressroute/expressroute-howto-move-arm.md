@@ -1,5 +1,5 @@
 ---
-title: 將線路從傳統移至 Resource Manager - ExpressRoute：PowerShell：Azure | Microsoft Docs
+title: 將線路從傳統移至 Resource Manager-ExpressRoute： PowerShell： Azure |Microsoft Docs
 description: 本頁面會描述如何使用 PowerShell 將傳統的電路移至 Resource Manager 部署模型。
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34dd7ed4c6352ed90793288f918d78b7fb07af80
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365174"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748239"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型
 
@@ -21,9 +21,9 @@ ms.locfileid: "60365174"
 
 ## <a name="before-you-begin"></a>開始之前
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* 請確認您已安裝傳統和 Az Azure PowerShell 模組在本機電腦上。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
+* 確認您已在本機電腦上安裝傳統和 Az Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 * 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)、[路由需求](expressroute-routing.md)和[工作流程](expressroute-workflows.md)。
 * 請檢閱[將 ExpressRoute 電路從傳統移至 Resource Manager](expressroute-move.md) 下提供的資訊。 請確定您已完整了解各項限制。
 * 請確認電路在傳統部署模型中的運作完全正常。
@@ -31,7 +31,7 @@ ms.locfileid: "60365174"
 
 ## <a name="move-an-expressroute-circuit"></a>移動 ExpressRoute 電路
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>步驟 1：從傳統部署模型收集線路詳細資料
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>步驟 1︰從傳統部署模型收集電路詳細資訊
 
 登入 Azure 傳統環境並收集服務金鑰。
 
@@ -54,7 +54,7 @@ ms.locfileid: "60365174"
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
    ```
 
-4. 使用下列 Cmdlet 來取得所有 ExpressRoute 電路的服務金鑰。 在取得金鑰之後，請複製電路的「服務金鑰」  ，這個電路就是您想要移至 Resource Manager 部署模型的電路。
+4. 使用下列 Cmdlet 來取得所有 ExpressRoute 電路的服務金鑰。 在取得金鑰之後，請複製電路的「服務金鑰」，這個電路就是您想要移至 Resource Manager 部署模型的電路。
 
    ```powershell
    Get-AzureDedicatedCircuit
@@ -92,7 +92,7 @@ ms.locfileid: "60365174"
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-在傳統模式中，ExpressRoute 電路沒有繫結至區域的概念。 不過，在 Resource Manager 中，每個資源都必須對應至 Azure 區域。 移動 AzExpressRouteCircuit cmdlet 中指定的區域就技術上而言可以是任何區域。 基於組織目的，您可能想要選擇最能代表您對等互連位置的區域。
+在傳統模式中，ExpressRoute 電路沒有繫結至區域的概念。 不過，在 Resource Manager 中，每個資源都必須對應至 Azure 區域。 在技術上，AzExpressRouteCircuit Cmdlet 中指定的區域可以是任何區域。 基於組織目的，您可能想要選擇最能代表您對等互連位置的區域。
 
 > [!NOTE]
 > 移動完成之後，列在前一個 Cmdlet 中的新名稱會用來處理資源。 電路基本上會重新命名。

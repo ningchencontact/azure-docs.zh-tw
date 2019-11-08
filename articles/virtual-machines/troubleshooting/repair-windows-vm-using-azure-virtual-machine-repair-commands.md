@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: d942f3861eb2fcc4e096248d495b2db2d8119ea1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 6bda8cb831e84a56c889ed40109954551a34c113
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71132100"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796168"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>使用 Azure 虛擬機器修復命令修復 Windows VM
 
@@ -60,13 +60,13 @@ ms.locfileid: "71132100"
 
    如果您偏好在本機安裝和使用 CLI，本快速入門需要有 Azure CLI 2.0.30 版或更新版本。 執行 ``az --version`` 以尋找版本。 如果您需要安裝或升級您的 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-2. 如果這是您第一次使用這些`az vm repair`命令，請新增 vm-修復 CLI 擴充功能。
+2. 如果這是您第一次使用 `az vm repair` 命令，請新增 vm-修復 CLI 擴充功能。
 
    ```azurepowershell-interactive
    az extension add -n vm-repair
    ```
 
-   如果您先前已使用這些`az vm repair`命令，請將任何更新套用至 vm-修復延伸模組。
+   如果您先前已使用 `az vm repair` 命令，請將任何更新套用至 vm-修復延伸模組。
 
    ```azurepowershell-interactive
    az extension update -n vm-repair
@@ -92,7 +92,7 @@ ms.locfileid: "71132100"
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>確認並啟用開機診斷
 
-下列範例會在資源群組 ``myResourceGroup`` 中的 VM ``myVMDeployed`` 上啟用診斷擴充：
+下列範例會在資源群組 ``myVMDeployed`` 中的 VM ``myResourceGroup`` 上啟用診斷擴充：
 
 Azure CLI
 

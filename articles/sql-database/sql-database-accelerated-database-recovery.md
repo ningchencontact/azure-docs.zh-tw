@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691347"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796114"
 ---
 # <a name="accelerated-database-recovery"></a>加速資料庫復原
 
@@ -99,11 +99,11 @@ ADR 的四個主要元件如下：
 
 - **邏輯還原**
 
-  邏輯還原是負責執行以資料列層級版本為基礎之復原的非同步進程-針對所有已建立版本的作業提供立即交易回復和復原。
+  邏輯還原是負責執行以資料列層級版本為基礎之復原的非同步進程-針對所有已建立版本的作業提供立即交易回復和復原。 邏輯還原的完成方式：
 
-  - 追蹤所有已中止的交易
-  - 針對所有使用者交易，使用 PVS 來執行回復
-  - 在交易中止之後，立即釋放所有鎖定
+  - 追蹤所有已中止的交易，並將它們標示為不可見於其他交易。 
+  - 針對所有使用者交易使用 PV 來執行回復，而不是實際掃描交易記錄，並一次復原一個變更。
+  - 在交易中止後立即釋放所有鎖定。 由於「中止」牽涉到直接標記記憶體中的變更，因此程式非常有效率，因此不需要保留長時間的鎖定。
 
 - **sLog**
 

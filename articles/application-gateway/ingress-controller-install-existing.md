@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 045fb54956e78e826b06dc1c56c29e1c7bd430bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513415"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795946"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>使用現有的應用程式閘道安裝應用程式閘道輸入控制器（AGIC）
 
@@ -72,7 +72,7 @@ AGIC 會與 Kubernetes API 伺服器和 Azure Resource Manager 通訊。 它需�
 
 ## <a name="set-up-aad-pod-identity"></a>設定 AAD Pod 身分識別
 
-[AAD Pod 身分識別](https://github.com/Azure/aad-pod-identity)是一個控制器，類似于 AGIC，這也會在您的 AKS 上執行。 它會將 Azure Active Directory 身分識別系結至您的 Kubernetes pod。 Kubernetes pod 中的應用程式必須要有身分識別，才能夠與其他 Azure 元件通訊。 在特定情況下，我們需要 AGIC pod 的授權，才能對[ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)提出 HTTP 要求。
+[AAD Pod 身分識別](https://github.com/Azure/aad-pod-identity)是一個控制器，類似于 AGIC，這也會在您的 AKS 上執行。 它會將 Azure Active Directory 身分識別系結至您的 Kubernetes pod。 Kubernetes pod 中的應用程式必須要有身分識別，才能夠與其他 Azure 元件通訊。 在這裡的特定情況下，我們需要 AGIC pod 的授權，才能對[ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)提出 HTTP 要求。
 
 遵循[AAD Pod 身分識別安裝指示](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra)，將此元件新增至您的 AKS。
 
@@ -128,7 +128,7 @@ armAuth:
 ```
 
 ## <a name="install-ingress-controller-as-a-helm-chart"></a>安裝輸入控制器作為 Helm 圖
-在前幾個步驟中，我們會在您的 Kubernetes 叢集中安裝 Helm 的 Tiller。 使用[Cloud Shell](https://shell.azure.com/)安裝 AGIC Helm 套件：
+在前幾個步驟中，我們會將 Helm 的 Tiller 安裝在您的 Kubernetes 叢集中。 使用[Cloud Shell](https://shell.azure.com/)安裝 AGIC Helm 套件：
 
 1. 新增 `application-gateway-kubernetes-ingress` helm 存放庫並執行 helm 更新
 
@@ -244,7 +244,7 @@ armAuth:
 您下載的 zip 檔案將具有可用於還原的 JSON 範本、bash 和 PowerShell 腳本應用程式閘道
 
 ### <a name="example-scenario"></a>範例案例
-讓我們看一下一個虛構應用程式閘道，它會管理2個網站的流量：
+讓我們看一下一個虛構應用程式閘道，它會管理兩個網站的流量：
   - `dev.contoso.com` 裝載于新的 AKS 上，使用應用程式閘道和 AGIC
   - 在[Azure 虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)上 `prod.contoso.com` 託管
 

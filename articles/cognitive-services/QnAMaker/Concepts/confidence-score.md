@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
-ms.translationtype: MT
+ms.openlocfilehash: 4e6d86cb3fa304c8e85e7d0ff4a2810be1dc75af
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277115"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794954"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -72,9 +72,9 @@ ms.locfileid: "70277115"
 
 
 ## <a name="confidence-score-differences"></a>信賴分數差異
-在測試和發佈的知識庫版本之間，即使內容相同，不過答案的信賴分數可能會略微變化。 這是因為測試和發佈的知識庫位於不同的 Azure 搜尋服務索引中。 發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。 請查看[發佈](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)作業的運作方式。
+在測試和發佈的知識庫版本之間，即使內容相同，不過答案的信賴分數可能會略微變化。 這是因為測試的內容和已發佈的知識庫位於不同的 Azure 認知搜尋索引中。 發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。 請查看[發佈](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)作業的運作方式。
 
-如果您的知識庫位於不同區域，則每個區域都會使用自己的 Azure 搜尋服務索引。 由於會使用不同的索引，因此，分數將不會完全相同。 
+如果您在不同的區域中有知識庫，每個區域都會使用自己的 Azure 認知搜尋索引。 由於會使用不同的索引，因此，分數將不會完全相同。 
 
 
 ## <a name="no-match-found"></a>未找到相符項目

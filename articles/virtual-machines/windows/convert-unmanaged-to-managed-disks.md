@@ -6,18 +6,18 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: d43ad941fe68707bca873fa969fbc27806ba96a5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 64ff47f1dc4b06d1407497adf41981c670ea9064
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698817"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749526"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Windows 虛擬機器從非受控磁碟轉換成受控磁碟
 
 如果現有的 Windows 虛擬機器 (VM) 使用非受控磁碟，您可以透過 [Azure 受控磁碟](managed-disks-overview.md)服務，將這些 VM 轉換成使用受控磁碟。 此程序會轉換 OS 磁碟和任何附加的資料磁碟。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -28,13 +28,13 @@ ms.locfileid: "68698817"
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* VM 在傳換前使用的原始 VHD 和儲存體帳戶不會遭到刪除。 這些項目會繼續產生費用。 若要避免為這些成果支付費用，請在確認轉換完成之後，刪除原始的 VHD Blob。 如果您需要尋找這些未連結的磁片以刪除它們, 請參閱[尋找及刪除未連結的 Azure 受控和非受控磁片](find-unattached-disks.md)一文。
+* VM 在傳換前使用的原始 VHD 和儲存體帳戶不會遭到刪除。 這些項目會繼續產生費用。 若要避免為這些成果支付費用，請在確認轉換完成之後，刪除原始的 VHD Blob。 如果您需要尋找這些未連結的磁片以刪除它們，請參閱[尋找及刪除未連結的 Azure 受控和非受控磁片](find-unattached-disks.md)一文。
 
 
 ## <a name="convert-single-instance-vms"></a>轉換單一執行個體 VM
 本節說明如何將單一執行個體 Azure VM 從非受控磁碟轉換為受控磁碟。 (如果您的 VM 位於可用性設定組中，請參閱下一節)。 
 
-1. 使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) Cmdlet 將 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM： 
+1. 使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) Cmdlet 將 VM 解除配置。 下列範例會解除配置 `myVM` 資源群組中名為 `myResourceGroup` 的 VM： 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -54,7 +54,7 @@ ms.locfileid: "68698817"
 
 如果您想要轉換為受控磁碟的 VM 位於可用性設定組中，您必須先將此可用性設定組轉換為受控可用性設定組。
 
-1. 使用 [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) Cmdlet 來轉換可用性設定組。 下列範例會更新 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組：
+1. 使用 [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) Cmdlet 來轉換可用性設定組。 下列範例會更新 `myAvailabilitySet` 資源群組中名為 `myResourceGroup` 的可用性設定組：
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'

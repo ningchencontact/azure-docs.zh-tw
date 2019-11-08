@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2148d6ea869a87571008c1f84c5b1000d4030bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175945"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795634"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 Power BI 行動版的遠端存取
 
@@ -82,7 +82,7 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 現在您已經準備好設定 Azure AD 應用程式 Proxy。
 
 1. 使用下列設定，透過應用程式 Proxy 發行報表服務。 如需有關如何透過應用程式 Proxy 發佈應用程式的逐步指示，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)程式。
-   - **內部 URL**：輸入連接器可以在公司網路中連接之報表伺服器的 URL。 請確定可從安裝連接器的伺服器連線到此 URL。 最佳做法是使用最上層網域（例如 `https://servername/`）來避免子路徑的問題（例如，`https://servername/reports/` 和 `https://servername/reportserver/`）未透過應用程式 Proxy 發佈。
+   - **內部 URL**：輸入連接器可以在公司網路中連接之報表伺服器的 URL。 請確定可從安裝連接器的伺服器連線到此 URL。 最佳做法是使用最上層網域（例如 `https://servername/`）來避免透過應用程式 Proxy 發佈之子路徑的問題。 例如，使用 `https://servername/`，而不是 `https://servername/reports/` 或 `https://servername/reportserver/`。
      > [!NOTE]
      > 我們建議您對報表伺服器使用安全的 HTTPS 連接。 如需的詳細資訊，請參閱[在原生模式報表伺服器上設定 SSL 連線](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017)。
    - **外部 url**：輸入 Power BI 行動應用程式將連接的公用 URL。 例如，如果使用自訂網域，它可能看起來像 `https://reports.contoso.com`。 若要使用自訂網域，請上傳網域的憑證，並將 DNS 記錄指向您應用程式的預設 msappproxy.net 網域。 如需詳細步驟，請參閱[在 Azure AD 應用程式 Proxy 中使用自訂網域](application-proxy-configure-custom-domain.md)。

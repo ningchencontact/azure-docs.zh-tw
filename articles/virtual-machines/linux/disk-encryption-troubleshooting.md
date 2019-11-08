@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 864c806f146d7da4e45cc2b58159e5cad23364f8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c1e96a3acf2a576e0656afb3abea9dd787bf989a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828720"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750062"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -24,7 +24,7 @@ ms.locfileid: "71828720"
 - [網路需求](disk-encryption-overview.md#networking-requirements)
 - [加密金鑰儲存需求](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>針對 Linux OS 磁碟加密進行疑難排解
 
@@ -69,7 +69,7 @@ Microsoft.ostcextensions.customscriptforlinux. AzureDiskEncryptionForLinux 擴�
 
 Linux OS 磁碟加密順序會暫時取消掛接 OS 磁碟機。 然後會對整個 OS 磁碟執行逐區塊加密，再於它處於已加密狀態時重新掛接。 進行加密時，Linux 磁片加密不允許同時使用 VM。 VM 的效能特性在完成加密所需的時間上有顯著差異。 這些特性包括磁碟的大小以及儲存體帳戶是標準或進階 (SSD) 儲存體。
 
-若要檢查加密狀態，請輪詢[AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus)命令所傳回的**ProgressMessage**欄位。 加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。 **EncryptionInProgress** 訊息報告加密正在進行時的大部分時間。 數個小時之後，**VMRestartPending** 訊息會提示您重新啟動 VM。 例如:
+若要檢查加密狀態，請輪詢[AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus)命令所傳回的**ProgressMessage**欄位。 加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。 **EncryptionInProgress** 訊息報告加密正在進行時的大部分時間。 數個小時之後，**VMRestartPending** 訊息會提示您重新啟動 VM。 例如：
 
 
 ```azurepowershell

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102457"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749206"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立非受控 VM 映像
 
@@ -28,10 +28,10 @@ ms.locfileid: "70102457"
 
 本文示範如何使用 Azure PowerShell 建立使用儲存體帳戶的一般化 Azure VM 的映像。 然後可以使用映像來建立另一個 VM。 此映像包含作業系統磁碟與連結到虛擬機器的資料磁碟。 映像不包含虛擬網路資源，因此您需要在建立新的 VM 時設定這些資源。 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-vm"></a>一般化 VM 
-本節說明如何將 Windows 虛擬機器一般化以做為映像。 將 VM 一般化會移除您的所有個人帳戶資訊，以及其他項目，並準備電腦作為映像。 如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](https://technet.microsoft.com/library/bb457073.aspx) \(英文\)。
+本節說明如何將 Windows 虛擬機器一般化以做為映像。 將 VM 一般化會移除您的所有個人帳戶資訊，以及其他項目，並準備電腦作為映像。 如需 Sysprep 的詳細資訊，請參閱 [如何使用 Sysprep：簡介](https://technet.microsoft.com/library/bb457073.aspx)。
 
 請確定 Sysprep 支援電腦上執行的伺服器角色。 如需詳細資訊，請參閱 [Sysprep Support for Server Roles (伺服器角色的 Sysprep 支援)](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -40,7 +40,7 @@ ms.locfileid: "70102457"
 > 
 > 
 
-您也可以使用 `sudo waagent -deprovision+user` 將 Linux VM 一般化，然後使用 PowerShell 來擷取該 VM. 如需使用 CLI 來捕獲 VM 的相關資訊, 請參閱[如何使用 Azure CLI 將 Linux 虛擬機器一般化並加以捕獲](../linux/capture-image.md)。
+您也可以使用 `sudo waagent -deprovision+user` 將 Linux VM 一般化，然後使用 PowerShell 來擷取該 VM. 如需使用 CLI 來捕獲 VM 的相關資訊，請參閱[如何使用 Azure CLI 將 Linux 虛擬機器一般化並加以捕獲](../linux/capture-image.md)。
 
 
 1. 登入 Windows 虛擬機器。
