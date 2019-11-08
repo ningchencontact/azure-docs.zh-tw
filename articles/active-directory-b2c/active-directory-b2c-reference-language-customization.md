@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bced7a4b994172a1a2076149d6f25adb39c99b54
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 62d75267421d1f7587f136ea1e76f7c4b4341a37
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015573"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742627"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語言自訂
 
@@ -27,9 +27,9 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的使用�
 
 您可能不需要對客戶會看見哪種語言擁有這種程度的控制力。 如果您沒有提供 `ui_locales` 參數，則客戶的使用體驗會由其瀏覽器的設定來決定。 您仍可將各種語言新增為支援的語言，以控制要將使用者流程翻譯為何種語言。 如果客戶瀏覽器所設定要顯示的語言不是您想要支援的語言，則系統會改為顯示您選取作為支援的文化特性預設值語言。
 
-* **ui_locales 所指定的語言**：在啟用語言自訂後，您的使用者流程會翻譯為此處指定的語言。
-* **瀏覽器所要求的語言**：如果未指定 `ui_locales`，則使用者流程會翻譯為瀏覽器所要求的語言 (如果有支援該語言)。
-* **原則的預設語言**：如果瀏覽器未指定語言，或指定不支援的語言，使用者流程就會翻譯為使用者流程預設語言。
+* **ui-地區設定指定的語言**：啟用語言自訂之後，您的使用者流程會轉譯為此處指定的語言。
+* **瀏覽器要求的語言**：如果未指定 `ui_locales` 參數，則*如果支援該語言*，則會將您的使用者流程轉譯為瀏覽器要求的語言。
+* **原則預設語言**：如果瀏覽器未指定語言，或指定不支援的語言，則會將使用者流程轉譯為使用者流程預設語言。
 
 > [!NOTE]
 > 如果您使用自訂使用者屬性，則必須提供自己的翻譯。 如需詳細資訊，請參閱[自訂您的字串](#customize-your-strings)。
@@ -145,7 +145,7 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的使用�
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>使用語言自訂來自訂頁面 UI
 
-有兩種方法可將您的 HTML 內容當地語系化。 一種方式是開啟[語言自訂](active-directory-b2c-reference-language-customization.md)。 啟用此功能可讓 Azure AD B2C 將 OpenID connect 參數`ui-locales`轉送至您的端點。 內容伺服器可以使用這個參數來提供語言特定的自訂 HTML 頁面。
+有兩種方法可將您的 HTML 內容當地語系化。 一種方式是開啟[語言自訂](active-directory-b2c-reference-language-customization.md)。 啟用此功能可讓 Azure AD B2C 將 OpenID Connect 參數（`ui-locales`）轉送至您的端點。 內容伺服器可以使用這個參數來提供語言特定的自訂 HTML 頁面。
 
 或者，您也可以根據所使用的地區設定，從不同的地方提取內容。 在已啟用 CORS 的端點中，您可以針對特定語言設定主機內容的資料夾結構。 如果您使用萬用字元值 `{Culture:RFC5646}`，則會呼叫正確的語言。 例如，假設這是您的自訂頁面 URI：
 
@@ -199,60 +199,60 @@ Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到
 
 ## <a name="supported-languages"></a>支援的語言
 
-Azure AD B2C 包含下列語言的支援。 Azure AD B2C 提供使用者流程語言。 多重要素驗證 (MFA) 通知語言是由[AZURE MFA](../active-directory/authentication/concept-mfa-howitworks.md)提供。
+Azure AD B2C 包含下列語言的支援。 Azure AD B2C 提供使用者流程語言。 多重要素驗證（MFA）通知語言是由[AZURE MFA](../active-directory/authentication/concept-mfa-howitworks.md)提供。
 
 | 語言              | 語言代碼 | 使用者流程         | MFA 通知  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| 阿拉伯文                | ar            | :x:                | :heavy_check_mark: |
-| 保加利亞文             | bg            | :x:                | :heavy_check_mark: |
-| 孟加拉文                | bn            | :heavy_check_mark: | :x:                |
-| 卡達隆尼亞文               | ca            | :x:                | :heavy_check_mark: |
-| 捷克文                 | cs            | :heavy_check_mark: | :heavy_check_mark: |
-| 丹麥文                | da            | :heavy_check_mark: | :heavy_check_mark: |
-| 德文                | de            | :heavy_check_mark: | :heavy_check_mark: |
-| 希臘文                 | el            | :heavy_check_mark: | :heavy_check_mark: |
-| 英文               | zh-TW            | :heavy_check_mark: | :heavy_check_mark: |
-| 西班牙文               | es            | :heavy_check_mark: | :heavy_check_mark: |
-| 愛沙尼亞文              | et            | :x:                | :heavy_check_mark: |
-| 巴斯克文                | eu            | :x:                | :heavy_check_mark: |
-| 芬蘭文               | fi            | :heavy_check_mark: | :heavy_check_mark: |
-| 法文                | fr            | :heavy_check_mark: | :heavy_check_mark: |
-| 加利西亞文              | 總帳            | :x:                | :heavy_check_mark: |
-| 古吉拉特文              | gu            | :heavy_check_mark: | :x:                |
-| Hebrew                | he            | :x:                | :heavy_check_mark: |
-| Hindi                 | hi            | :heavy_check_mark: | :heavy_check_mark: |
-| 克羅埃西亞文              | 小時            | :heavy_check_mark: | :heavy_check_mark: |
-| 匈牙利文             | hu            | :heavy_check_mark: | :heavy_check_mark: |
-| 印尼文            | ID            | :x:                | :heavy_check_mark: |
-| 義大利文               | it            | :heavy_check_mark: | :heavy_check_mark: |
-| 日文              | ja            | :heavy_check_mark: | :heavy_check_mark: |
-| 哈薩克文                | kk            | :x:                | :heavy_check_mark: |
-| 坎那達文               | kn            | :heavy_check_mark: | :x:                |
-| 韓文                | ko            | :heavy_check_mark: | :heavy_check_mark: |
-| 立陶宛文            | lt            | :x:                | :heavy_check_mark: |
-| 拉脫維亞文               | lv            | :x:                | :heavy_check_mark: |
-| 馬來亞拉姆文             | ml            | :heavy_check_mark: | :x:                |
-| 馬拉提文               | mr            | :heavy_check_mark: | :x:                |
-| 馬來文                 | 毫秒            | :heavy_check_mark: | :heavy_check_mark: |
-| 挪威文 (巴克摩)      | nb            | :heavy_check_mark: | :x:                |
-| 荷蘭文                 | nl            | :heavy_check_mark: | :heavy_check_mark: |
-| 挪威文             | 否            | :x:                | :heavy_check_mark: |
-| 旁遮普文               | pa            | :heavy_check_mark: | :x:                |
-| 波蘭文                | pl            | :heavy_check_mark: | :heavy_check_mark: |
-| 葡萄牙文 - 巴西   | pt-br         | :heavy_check_mark: | :heavy_check_mark: |
-| 葡萄牙文 - 葡萄牙 | pt-pt         | :heavy_check_mark: | :heavy_check_mark: |
-| 羅馬尼亞文              | ro            | :heavy_check_mark: | :heavy_check_mark: |
-| 俄文               | ru            | :heavy_check_mark: | :heavy_check_mark: |
-| 斯洛伐克文                | sk            | :heavy_check_mark: | :heavy_check_mark: |
-| 斯洛維尼亞文             | sl            | :x:                | :heavy_check_mark: |
-| 塞爾維亞文-斯拉夫    | cryl-cs    | :x:                | :heavy_check_mark: |
-| 塞爾維亞文-拉丁       | latn-cs    | :x:                | :heavy_check_mark: |
-| 瑞典文               | sv            | :heavy_check_mark: | :heavy_check_mark: |
-| 坦米爾文                 | ta            | :heavy_check_mark: | :x:                |
-| 特拉古文                | te            | :heavy_check_mark: | :x:                |
-| 泰文                  | 個            | :heavy_check_mark: | :heavy_check_mark: |
-| 土耳其文               | tr            | :heavy_check_mark: | :heavy_check_mark: |
-| 烏克蘭文             | 英式            | :x:                | :heavy_check_mark: |
-| 越南文            | vi            | :x:                | :heavy_check_mark: |
-| 中文 - 簡體  | zh-hans       | :heavy_check_mark: | :heavy_check_mark: |
-| 中文 - 繁體 | zh-hant       | :heavy_check_mark: | :heavy_check_mark: |
+| 阿拉伯文                | ar            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 保加利亞文             | bg            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 孟加拉文                | bn            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 卡達隆尼亞文               | ca            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 捷克文                 | cs            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 丹麥文                | da            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 德文                | de            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 希臘文                 | el            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| English               | en            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 西班牙文               | es            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 愛沙尼亞文              | et            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 巴斯克文                | eu            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 芬蘭文               | fi            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 法文                | fr            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 加利西亞文              | 總帳            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 古吉拉特文              | gu            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 希伯來文                | he            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 北印度文                 | hi            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 克羅埃西亞文              | hr            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 匈牙利文             | hu            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 印尼文            | id            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 義大利文               | it            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 日文              | ja            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 哈薩克文                | kk            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 坎那達文               | kn            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 韓文                | ko            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 立陶宛文            | lt            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 拉脫維亞文               | lv            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 馬來亞拉姆文             | ml            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 馬拉地文               | mr            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 馬來文                 | ms            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 挪威文 (巴克摩)      | nb            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 荷蘭文                 | nl            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 挪威文             | no            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 旁遮普文               | pa            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 波蘭文                | pl            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 葡萄牙文 - 巴西   | pt-br         | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 葡萄牙文 - 葡萄牙 | pt-pt         | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 羅馬尼亞文              | ro            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 俄文               | ru            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 斯洛伐克文                | sk            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 斯洛維尼亞文             | sl            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 塞爾維亞文-斯拉夫    | cryl-cs    | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 塞爾維亞文-拉丁       | latn-cs    | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 瑞典文               | sv            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 坦米爾文                 | ta            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 泰盧固文                | te            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 泰文                  | th            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 土耳其文               | tr            | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 烏克蘭文             | 英式            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 越南文            | vi            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 中文 - 簡體  | zh-hans       | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 中文 - 繁體 | zh-hant       | ![是](media/active-directory-b2c-reference-language-customization/yes.png) | ![是](media/active-directory-b2c-reference-language-customization/yes.png) |

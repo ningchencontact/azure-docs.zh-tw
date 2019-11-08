@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580891"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796300"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -33,9 +33,9 @@ ms.locfileid: "73580891"
 
 * Azure 帳戶和訂用帳戶。 如果您沒有訂用帳戶的 Azure 帳戶，請[註冊免費的 azure 帳戶](https://azure.microsoft.com/free/)。
 
-  * 您必須使用相同的 Azure 帳戶來安裝和管理本機電腦上的閘道。
+  * 您的 Azure 帳戶必須屬於單一[Azure Active Directory （Azure AD）租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)。 您必須使用相同的 Azure 帳戶來安裝和管理本機電腦上的閘道。
 
-    在閘道安裝期間，您會使用您的 Azure 帳戶登入，這會將您的閘道安裝連結至您的 Azure 帳戶，而只會將該帳戶 稍後在 Azure 入口網站中，您必須使用相同的 Azure 帳戶來建立 Azure 閘道資源，以註冊並宣告閘道安裝。 在 Azure Logic Apps 中，內部部署觸發程式和動作會使用閘道資源來連接到內部部署資料來源。
+  * 在閘道安裝期間，您會使用您的 Azure 帳戶登入，這會將您的閘道安裝連結至您的 Azure 帳戶，而只會將該帳戶 之後，在 Azure 入口網站中，當您建立註冊並宣告閘道安裝的 Azure 閘道資源時，您必須使用相同的 Azure 帳戶和 Azure AD 租使用者。 在 Azure Logic Apps 中，內部部署觸發程式和動作會使用閘道資源來連接到內部部署資料來源。
 
     > [!NOTE]
     > 您只能將一個閘道安裝和一個 Azure 閘道資源連結到彼此。 您無法將相同的閘道安裝連結至多個 Azure 帳戶或 Azure 閘道資源。 不過，Azure 帳戶可以連結至多個閘道安裝和 Azure 閘道資源。 在內部部署觸發程式或動作中，您可以從各種不同的 Azure 訂用帳戶中進行選取，然後選取相關聯的閘道資源。

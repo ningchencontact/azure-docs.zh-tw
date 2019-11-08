@@ -1,6 +1,6 @@
 ---
-title: Azure 備份：使用 REST API 來還原 Azure VM
-description: 使用 REST API 管理 Azure VM 備份的還原作業
+title: Azure 備份：使用 REST API 還原 Azure VM
+description: 在本文中，您將瞭解如何使用 REST API 來管理 Azure 虛擬機器備份的還原作業。
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954896"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747527"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>使用 REST API 還原 Azure 虛擬機器
 
-使用 Azure 備份完成 Azure 虛擬機器的備份後，您可以從相同的備份複本還原整個 Azure 虛擬機器、磁碟或檔案。 本文說明如何使用 REST API 還原 Azure VM 或磁碟。
+一旦使用 Azure 備份完成 Azure 虛擬機器的備份，就可以從相同的備份複本還原整個 Azure 虛擬機器或磁片或檔案。 本文說明如何使用 REST API 還原 Azure VM 或磁碟。
 
 對於任何還原作業，您必須先識別相關的復原點。
 
@@ -35,11 +35,11 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 GET URI 具備所有必要參數。 不需要額外的要求內文
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>回應
 
-|名稱  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
-|200 確定     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       [確定]  |
+|200 確定     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
 #### <a name="example-response"></a>範例回應
 
@@ -123,7 +123,7 @@ X-Powered-By: ASP.NET
 
 ## <a name="restore-disks"></a>還原磁碟
 
-如果需要自訂從備份資料建立 VM，您只要將磁碟還原至所選的儲存體帳戶，並根據需求從這些磁碟建立 VM。 儲存體帳戶應與復原服務保存庫位於相同的區域中，且不得區域備援。 磁片和已備份 VM ("vmconfig.json") 的設定將會儲存在指定的儲存體帳戶中。
+如果需要自訂從備份資料建立 VM，您只要將磁碟還原至所選的儲存體帳戶，並根據需求從這些磁碟建立 VM。 儲存體帳戶應與復原服務保存庫位於相同的區域中，且不得區域備援。 磁片和已備份 VM （"vmconfig.json"）的設定將會儲存在指定的儲存體帳戶中。
 
 觸發還原磁碟為 *POST* 要求。 若要深入了解還原磁碟作業，請參閱[「觸發還原」REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger)。
 
@@ -131,13 +131,13 @@ X-Powered-By: ASP.NET
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
 ```
 
-`{containerName}` 和 `{protectedItemName}` 的建構方式在[這裡](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)。 `{fabricName}` 是 "Azure"，而 `{recoveryPointId}` 是[上述](#example-response)復原點的 `{name}` 欄位。
+`{containerName}` 和 `{protectedItemName}` 的建構方式在[這裡](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)。 `{fabricName}` 是 "Azure"，而 `{recoveryPointId}` 是`{name}`上述[復原點的 ](#example-response) 欄位。
 
 ### <a name="create-request-body"></a>建立要求本文
 
 若要觸發從 Azure VM 備份還原磁碟，以下是要求本文的元件。
 
-|名稱  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -171,7 +171,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
@@ -197,7 +197,7 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 *GET* 命令，來追蹤所產生的作業。
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01

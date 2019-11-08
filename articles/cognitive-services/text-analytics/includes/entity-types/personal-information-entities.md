@@ -8,33 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 6e46d58b3f1ef33902ab44043e954d9718d865af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501072"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799733"
 ---
 ## <a name="personal-information-entity-types"></a>個人資訊實體類型：
-
-### <a name="person"></a>Person
-文字中的已辨識名稱和其他人員。
-語言：
-* 公開預覽： `English`
-
-| 子類型名稱 | 說明             |
-|--------------|-------------------------|
-| N/A          | 識別的名稱，例如 `Bill Gates`，`Marie Curie` |
-
-### <a name="organization"></a>組織  
-
-已辨識的組織、公司、機構和其他人員群組。 例如：公司、政治群組、音樂波段、運動俱樂部、政府機構和公用組織。 Nationalities 和 religions 不包含在此實體類型中。 語言： 
-
-* 公開預覽： `English`
-
-| 子類型名稱 | 說明                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | 組織（例如 `Microsoft`） `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>電話號碼
 

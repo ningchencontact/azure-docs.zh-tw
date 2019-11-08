@@ -8,23 +8,23 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f5fe49130742d116775b75f17c726b56150c574f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 92b51b3955833bac6f87457a19e4d6359600a25a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792343"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747853"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
-當您使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 和實體伺服器災害復原到 Azure 時，便會部署內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊。 它也會管理資料複寫。 本文會逐步引導您完成當您將 VMware VM 複寫至 Azure 時部署設定伺服器所需的步驟。 如果您必須設定實體伺服器複寫的設定伺服器，請[遵循這篇文章](physical-azure-set-up-source.md)。
+當您使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 和實體伺服器災害復原到 Azure 時，便會部署內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊。 它也會管理資料複寫。 本文會逐步引導您完成當您將 VMware VM 複寫至 Azure 時部署設定伺服器所需的步驟。 如果您需要設定實體伺服器複寫的設定伺服器，請參閱[設定伺服器以在實體伺服器到 Azure 的](physical-azure-set-up-source.md)嚴重損壞修復。
 
 > [!TIP]
-> 您可以從[這裡](vmware-azure-architecture.md)了解組態伺服器在 Azure Site Recovery 架構中扮演的角色。
+> 若要瞭解設定伺服器在 Azure Site Recovery 架構中的角色，請參閱[VMware 至 Azure 嚴重損壞修復架構](vmware-azure-architecture.md)。
 
-## <a name="deployment-of-configuration-server-through-ova-template"></a>透過 OVA 範本部署設定伺服器
+## <a name="deploy-a-configuration-server-through-an-ova-template"></a>透過 OVA 範本部署設定伺服器
 
-設定伺服器必須搭配特定的最基本硬體和大小需求來設定為高可用性 VMware VM。 為了能夠便利且輕鬆地進行部署，Site Recovery 提供一個可下載的 OVA (開放式虛擬化應用程式) 範本，以設定能符合下列所有規定需求的設定伺服器。
+設定伺服器必須設定為具有特定最低硬體和大小需求的高可用性 VMware VM。 為了方便且輕鬆地部署，Site Recovery 提供可下載的開放式虛擬化應用程式（OVA）範本，以設定符合此處所列所有規定需求的設定伺服器。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,61 +34,60 @@ ms.locfileid: "72792343"
 
 ## <a name="azure-active-directory-permission-requirements"></a>Azure Active Directory 許可權需求
 
-您需要具有 AAD 中的**下列其中一個**許可權的使用者（Azure Active Directory），才能向 Azure Site Recovery 服務註冊設定伺服器。
+您必須具有在 Azure Active Directory （Azure AD）中設定下列其中一種許可權的使用者，才能向 Azure Site Recovery 服務註冊設定伺服器。
 
-1. 使用者應該具有「應用程式開發人員」角色，才能建立應用程式。
-    - 若要確認，請登入 Azure 入口網站</br>
-    - 流覽至 Azure Active Directory > 角色和系統管理員</br>
-    - 確認是否已將 "應用程式開發人員" 角色指派給使用者。 如果沒有，請使用具有此許可權的使用者，或與[系統管理員聯繫以啟用許可權](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)。
+1. 使用者必須具有應用程式開發人員角色，才能建立應用程式。
+    - 若要確認，請登入 Azure 入口網站。</br>
+    - 移至**Azure Active Directory** > **角色和系統管理員**。</br>
+    - 確認應用程式開發人員角色已指派給使用者。 如果不是，請使用具有此許可權的使用者，或洽詢[系統管理員以啟用許可權](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)。
     
-2. 如果無法指派「應用程式開發人員」角色，請確定已將 [使用者可註冊應用程式] 旗標設定為 [true]，讓使用者建立身分識別。 若要啟用上述許可權，
-    - 登入 Azure 入口網站
-    - 流覽至 Azure Active Directory > 使用者設定
-    - 在 [應用程式註冊] 底下的 [使用者可以註冊應用程式] 應該選擇為 [是]。
+2. 如果無法指派應用程式開發人員角色，請確定已將 [**使用者可註冊應用程式**] 旗標設定為 [ **true** ]，讓使用者建立身分識別。 若要啟用這些許可權：
+    - 登入 Azure 入口網站。
+    - 移至**Azure Active Directory** > **使用者設定**。
+    - 在 [**應用程式註冊**] 下，**使用者可以註冊應用程式**，請選取 **[是]** 。
 
-      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> **不支援**ACTIVE DIRECTORY 同盟服務（ADFS）。 請使用透過[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)管理的帳戶。
+> *不支援*Active Directory 同盟服務。 使用透過[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)管理的帳戶。
 
 ## <a name="download-the-template"></a>下載範本
 
 1. 在保存庫中，移至 [準備基礎結構] > [來源]。
 2. 在 [準備來源] 中，選取 [+設定伺服器]。
 3. 在 [新增伺服器] 中，檢查 [VMware 的組態伺服器] 是否出現在 [伺服器類型] 中。
-4. 下載適用於設定伺服器的「開放式虛擬化應用程式」(OVA) 範本。
+4. 下載設定伺服器的 OVA 範本。
 
    > [!TIP]
-   >您也可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版的設定伺服器範本。
+   >您也可以直接從[Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版的設定伺服器範本。
 
 > [!NOTE]
-> OVA 範本所提供的授權是有效期限為180天的評估授權。 在這段期間後，客戶必須使用購買的授權來啟用 windows。
+> OVA 範本所提供的授權是有效180天的評估授權。 在這段期間之後，您必須購買授權。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中匯入範本
 
 1. 使用 VMWare vSphere 用戶端，登入 VMware vCenter 伺服器或 vSphere ESXi 主機。
-2. 在 [檔案] 功能表上，選取 [部署 OVF 範本] 以啟動 [部署 OVF 範本] 精靈。
+2. **在 [檔案] 功能表上**，選取 [**部署 OVF 範本**] 以啟動 [**部署 OVF 範本**]。
 
-     ![OVF 範本](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
+     ![部署 OVF 範本](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
 
-3. 在 [選取來源] 中，輸入所下載 OVF 的位置。
-4. 在 [檢閱詳細資料] 中，選取 [下一步]。
-5. 在 [選取名稱和資料夾] 和 [選取設定] 中，接受預設設定。
-6. 在 [選取儲存體] 中，於 [選取虛擬磁碟格式] 中選取 [Thick Provision Eager Zeroed]，以達到最佳效能。 使用精簡佈建選項可能會影響設定伺服器的效能。
-7. 在精靈的其餘頁面中，接受所有的預設設定。
-8. 在 [準備要完成] 中：
+3. 在 [選取來源] 上，輸入所下載 OVF 的位置。
+4. 在 [檢閱詳細資料] 上，選取 [下一步]。
+5. 在 [選取名稱和資料夾] 和 [選取組態] 上，接受預設設定。
+6. 在 [選取儲存體] 上，於 [選取虛擬磁碟格式] 中選取 [Thick Provision Eager Zeroed]，以達到最佳效能。 使用精簡布建選項可能會影響設定伺服器的效能。
+7. 在精靈的其餘頁面上，接受所有的預設設定。
+8. 在 [準備要完成] 上：
 
     * 若要使用預設設定來設定 VM，請選取 [在部署後開啟電源] > [完成]。
-
     * 若要新增額外的網路介面，請清除 [在部署後開啟電源]，然後選取 [完成]。 預設會使用單一 NIC 部署設定伺服器範本。 您可以在部署後新增其他 NIC。
 
 > [!IMPORTANT]
-> 請勿在部署後變更資源設定 (記憶體/核心/CPU限制)，修改/刪除安裝服務或設定伺服器上的檔案。 這會影響設定伺服器與 Azure 服務的註冊，以及設定伺服器的效能。
+> 請勿變更資源設定（例如記憶體、核心和 CPU 限制），或在部署後修改或刪除設定伺服器上已安裝的服務或檔案。 這些類型的變更會影響設定伺服器與 Azure 服務的註冊，以及設定伺服器的效能。
 
 ## <a name="add-an-additional-adapter"></a>新增其他介面卡
 
 > [!NOTE]
-> 如果您打算在容錯移轉時保留來源機器的 IP 位址，並想要在稍後容錯回復至內部部署，則需要兩個 Nic。 其中一個 NIC 會連線到來源電腦，而另一個 NIC 則會用於 Azure 連接。
+> 如果您打算在容錯移轉時保留來源機器的 IP 位址，並想要在稍後容錯回復到內部部署，則需要兩個 Nic。 一個 NIC 會連線到來源機器，而另一個 NIC 則用於 Azure 連接。
 
 如果您想要將其他 NIC 新增至設定伺服器，請在保存庫中註冊伺服器前新增。 註冊之後，便不支援新增其他介面卡。
 
@@ -102,89 +101,89 @@ ms.locfileid: "72792343"
 1. 從 VMWare vSphere 用戶端主控台開啟 VM。
 2. VM 會開機進入 Windows Server 2016 安裝體驗。 接受授權合約，並輸入系統管理員密碼。
 3. 在安裝完成之後，以系統管理員身分登入 VM。
-4. 您第一次登入時，「Azure Site Recovery 設定工具」在幾秒內就會啟動。
+4. 第一次登入時，Azure Site Recovery 設定工具會在幾秒內啟動。
 5. 輸入用來向 Site Recovery 註冊設定伺服器的名稱。 然後，選取 [下一步]。
 6. 此工具會檢查 VM 是否可連線到 Azure。 建立連線之後，選取 [登入] 以登入您的 Azure 訂用帳戶。</br>
     a. 認證必須能夠存取您要在其中註冊組態伺服器的保存庫。</br>
-    b.這是另一個 C# 主控台應用程式。 請確定所選的使用者帳戶具有在 Azure 中建立應用程式的許可權。 若要啟用必要許可權，請遵循[這裡](#azure-active-directory-permission-requirements)提供的指導方針。
+    b.這是另一個 C# 主控台應用程式。 請確定所選擇的使用者帳戶具有在 Azure 中建立應用程式的許可權。 若要啟用必要的許可權，請遵循[Azure Active Directory 許可權需求](#azure-active-directory-permission-requirements)一節中的指導方針。
 7. 此工具會執行一些設定工作，而後重新開機。
-8. 再次登入電腦。 設定伺服器管理精靈會在幾秒內**自動**啟動。
+8. 再次登入機器。 [設定伺服器管理嚮導] 會在幾秒內自動啟動。
 
 ### <a name="configure-settings"></a>配置設定
 
-1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式清單中，先選取內建處理序伺服器用來在來源機器上進行行動服務探索及推入安裝的 NIC，然後選取設定伺服器用來與 Azure 連線的 NIC。 然後選取 [儲存]。 設定之後，您就無法變更此設定。 強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的 IP 是靜態 IP 並不是 DHCP IP。
-2. 在 [**選取復原服務保存庫**] 中，使用「[向 Azure Site Recovery 服務](#register-the-configuration-server-with-azure-site-recovery-services)登錄設定伺服器」**步驟 6**中使用的認證登入 Microsoft Azure。
+1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式方塊中，先選取內建的進程伺服器用來在來源機器上進行行動服務探索和推入安裝的 NIC。 然後選取設定伺服器用來與 Azure 連線的 NIC。 選取 [ **儲存**]。 您在設定後便無法變更此設定。 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的 IP 是靜態 IP，而不是 DHCP IP。
+2. 在 [**選取復原服務保存庫**] 上，使用[向 Azure Site Recovery 服務註冊設定伺服器](#register-the-configuration-server-with-azure-site-recovery-services)的步驟6中所使用的認證登入 Microsoft Azure。
 3. 登入之後，請選取您的 Azure 訂用帳戶和相關的資源群組和保存庫。
 
     > [!NOTE]
-    > 復原服務保存庫在註冊之後，即沒有變更的彈性。
-    > 變更復原服務保存庫需要從目前的保存庫解除與設定伺服器的配置，而且設定伺服器下所有受保護虛擬機器的複寫都會停止。 深入[了解](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)。
+    > 註冊之後，就不會有彈性變更復原服務保存庫。
+    > 變更復原服務保存庫需要從目前的保存庫解除與設定伺服器的配置，而且設定伺服器下所有受保護虛擬機器的複寫都會停止。 若要深入瞭解，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)。
 
-4. 在 [安裝協力廠商軟體] 中，
+4. 在 **安裝協力廠商軟體**：
 
     |案例   |要依循的步驟  |
     |---------|---------|
-    |是否可以下載並手動安裝 MySQL？     |  可以。 請下載 MySQL 並將它放在資料夾 **C:\Temp\ASRSetup** 資料夾中，然後手動安裝。 現在，當您接受條款 > 按一下 [下載並安裝] 時，入口網站會顯示「已經安裝」。 您可以繼續進行下一個步驟。       |
-    |是否可以避免線上下載 MySQL？     |   可以。 請將您的 MySQL 安裝程式應用程式放在 **C:\Temp\ASRSetup** 資料夾中。 接受條款 > 按一下 [下載並安裝]，入口網站將會使用您新增的安裝程式並安裝應用程式。 您可以繼續進行安裝後的下一個步驟。    |
-    |我想要透過 Azure Site Recovery 下載並安裝 MySQL     |  接受授權合約，然後按一下 [下載並安裝]。 接著，您可以繼續進行安裝後的下一個步驟。       |
+    |我可以手動下載並安裝 MySQL 嗎？     |  是。 下載 MySQL 應用程式，將它放在**C:\Temp\ASRSetup**資料夾中，然後手動安裝。 在您接受條款並選取 [**下載並安裝**] 之後，入口網站會顯示 [*已安裝*]。 您可以繼續進行下一個步驟。       |
+    |是否可以避免線上下載 MySQL？     |   是。 請將您的 MySQL 安裝程式應用程式放在 **C:\Temp\ASRSetup** 資料夾中。 接受條款，選取 [**下載並安裝**]，入口網站會使用您新增的安裝程式來安裝應用程式。 安裝完成之後，請繼續進行下一個步驟。    |
+    |我想要透過 Azure Site Recovery 下載並安裝 MySQL。    |  接受授權合約，然後選取 [**下載並安裝**]。 安裝完成之後，請繼續進行下一個步驟。       |
 
-5. 在 [驗證設備設定] 中，必要條件會在您繼續之前進行驗證。
-6. 在 [設定 vCenter 伺服器/vSphere ESXi 伺服器] 中，輸入 vCenter 伺服器或 vSphere 主機 (您要複寫的 VM 位於其上) 的 FQDN 或 IP 位址。 輸入伺服器所接聽的連接埠。 輸入要用於保存庫中 VMware 伺服器的易記名稱。
-7. 輸入供設定伺服器用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 選取 [新增]，然後選取 [繼續]。 在這裡輸入的認證會儲存在本機。
-8. 在 [設定虛擬機器認證] 中，輸入虛擬機器的使用者名稱和密碼，以在複寫期間自動安裝「行動服務」。 針對 **Windows** 電腦，此帳戶必須具備您要複寫之電腦的本機系統管理員權限。 針對 **Linux**，請提供根帳戶的詳細資料。
+5. 在 [**驗證設備**設定] 上，必要條件會在您繼續之前進行驗證。
+6. 在 [**設定 vCenter Server/VSphere ESXi 伺服器**] 上，輸入 vCenter 伺服器或 vSphere 主機（您要複寫的 vm 位於其上）的 FQDN 或 IP 位址。 輸入伺服器所接聽的連接埠。 輸入要用於保存庫中 VMware 伺服器的易記名稱。
+7. 輸入供設定伺服器用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 選取 [新增] > [繼續]。 在這裡輸入的認證會儲存在本機。
+8. 在 [**設定虛擬機器認證**] 中，輸入虛擬機器的使用者名稱和密碼，以在複寫期間自動安裝行動服務。 針對 **Windows** 電腦，此帳戶必須具備您要複寫之電腦的本機系統管理員權限。 針對 **Linux**，請提供根帳戶的詳細資料。
 9. 選取 [完成設定] 以完成註冊。
-10. 註冊完成之後，開啟 Azure 入口網站，確認 [復原服務保存庫] > [管理] > [Site Recovery 基礎結構] > [設定伺服器] 上已列出設定伺服器和 VMware 伺服器。
+10. 註冊完成之後，請開啟 Azure 入口網站並確認設定伺服器和 VMware 伺服器已列在復原**服務保存庫**上， > **管理** > **Site Recovery 基礎結構** > **設定伺服器**。
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
-若要將組態伺服器升級為最新版本，請遵循[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟。 如需如何升級所有 Site Recovery 元件的詳細指示，請造訪[服務更新管理](service-updates-how-to.md)。
+若要將設定伺服器升級為最新版本，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 如需有關如何升級所有 Site Recovery 元件的指示，請參閱[Site Recovery 中的服務更新](service-updates-how-to.md)。
 
 ## <a name="manage-the-configuration-server"></a>管理組態伺服器
 
-若要避免進行中的複寫中斷，請確定已向保存庫註冊組態伺服器後，組態伺服器的 IP 位址不會變更。 您可在[此處](vmware-azure-manage-configuration-server.md)深入了解常見組態伺服器管理工作。
+為避免進行中的複寫中斷，在設定伺服器註冊到保存庫之後，請確定設定伺服器的 IP 位址不會變更。 若要深入瞭解一般設定伺服器管理工作，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md)。
 
-## <a name="faq"></a>常見問題集
+## <a name="faqs"></a>常見問題集
 
-1. 透過 OVF 部署的設定伺服器上所提供的授權有效期限是多久？ 如果我未重新啟用授權，會發生什麼事？
+* 透過 OVF 部署的設定伺服器上所提供的授權時間長度是有效的嗎？ 如果我沒有重新啟用授權，會發生什麼事？
 
-    OVA 範本所提供的授權是有效期限為180天的評估授權。 您必須在到期之前啟用授權。 否則，它可能會導致設定伺服器頻繁關機，因而導致阻礙複寫活動。 如需其他詳細資訊，請參閱[管理設定伺服器授權](vmware-azure-manage-configuration-server.md#update-windows-license)一文。
+    OVA 範本所提供的授權是有效期限為180天的評估授權。 到期之前，您必須啟用授權。 否則，它可能會導致設定伺服器頻繁關機，並導致複寫活動阻礙。 如需詳細資訊，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md#update-windows-license)。
 
-2. 是否可以將已安裝組態伺服器的 VM 用於不同用途？
+* 可以針對不同用途使用設定伺服器安裝所在的 VM 嗎？
 
-    **否**，建議您使用 VM 作為設定伺服器的唯一用途。 請務必遵循[必要條件](#prerequisites)所述的所有規格，以便有效管理災害復原。
-3. 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
+    不會。 將 VM 用於設定伺服器的唯一用途。 請確定您遵循[必要條件](#prerequisites)中所述的所有規格，以有效率地管理嚴重損壞修復。
+* 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
 
-    **否**，在保存庫向設定伺服器註冊之後，即無法變更。
-4. 是否可以使用同一部設定伺服器來保護實體和虛擬機器？
+    不會。 在設定伺服器註冊保存庫之後，就無法變更。
+* 我可以使用相同的設定伺服器來保護實體和虛擬機器嗎？
 
-    **是**，可以使用同一部組態伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
-5. 組態伺服器的用途為何而其使用位置為何？
+    是。 您可以使用相同的設定伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
+* 設定伺服器的用途及其使用位置為何？
 
-    請參考 [VMware 到 Azure 複寫架構](vmware-azure-architecture.md)，以深入了解組態伺服器及其功能。
-6. 哪裡可以找到最新版的設定伺服器？
+    若要深入瞭解設定伺服器和其功能，請參閱[VMware 至 Azure 複寫架構](vmware-azure-architecture.md)。
+* 哪裡可以找到最新版的設定伺服器？
 
-    如需透過入口網站升級組態伺服器的步驟，請參閱[升級組態伺服器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 如需如何升級所有 Site Recovery 元件的詳細指示，請參閱[此處](https://aka.ms/asr_how_to_upgrade)。
-7. 哪裡可以下載設定伺服器的複雜密碼？
+    如需透過入口網站升級組態伺服器的步驟，請參閱[升級組態伺服器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 如需有關如何升級所有 Site Recovery 元件的指示，請參閱[Site Recovery 中的服務更新](https://aka.ms/asr_how_to_upgrade)。
+* 哪裡可以下載設定伺服器的複雜密碼？
 
-    請參閱[本文](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)以下載複雜密碼。
-8. 我可以變更複雜密碼嗎？
+    若要下載複雜密碼，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)。
+* 我可以變更複雜密碼嗎？
 
-    **否**，**強烈建議您不要變更設定伺服器的複雜密碼**。 變更複雜密碼會破壞受保護機器的複寫，並導致危急的健全狀態。
-9. 哪裡可以下載保存庫註冊金鑰？
+    不會。 請勿變更設定伺服器的複雜密碼。 複雜密碼的變更會中斷受保護機器的複寫，並導致嚴重的健全狀況狀態。
+* 哪裡可以下載保存庫註冊金鑰？
 
-    在 [復原服務保存庫] 的 [管理] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] 中。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
-10. 是否可以複製現有的設定伺服器並將它用於複寫協調流程？
+    在 [復原**服務保存庫**] 中，選取 [**管理** > **Site Recovery 基礎結構** > 設定**伺服器**]。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
+* 我可以複製現有的設定伺服器，並將它用於複寫協調流程嗎？
 
-    **否**，不支援使用複製的設定伺服器元件。 相應放大進程伺服器的複製也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
+    不會。 不支援使用複製的設定伺服器元件。 複製相應放大進程伺服器也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
 
-11. 我可以變更設定伺服器的 IP 嗎？
+* 我可以變更設定伺服器的 IP 嗎？
 
-    **否**，強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的所有 IP 都是靜態 IP 而不是 DHCP IP。
-12. 我可以在 Azure 上設定設定伺服器嗎？
+    不會。 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 Ip 都是靜態 Ip，而不是 DHCP Ip。
+* 我可以在 Azure 上設定設定伺服器嗎？
 
-    建議在內部部署環境中使用 v-Center 直接設定設定伺服器，並將資料傳輸的延遲降至最低。 您可以對設定伺服器建立排程的備份，以實現[容錯回復目的](vmware-azure-manage-configuration-server.md#failback-requirements)。
+    在內部部署環境中設定一部設定伺服器，並可透過 v 中心直接進行連線，並將資料傳輸延遲降到最低。 您可以對設定伺服器建立排程的備份，以實現[容錯回復目的](vmware-azure-manage-configuration-server.md#failback-requirements)。
 
-如需設定伺服器上的多個常見問題集，請參閱[有關設定伺服器常見問題的文件](vmware-azure-common-questions.md#configuration-server)。
+如需設定伺服器的常見問題，請參閱設定[伺服器常見問題](vmware-azure-common-questions.md#configuration-server)。
 
 ## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解
 

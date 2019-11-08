@@ -1,7 +1,7 @@
 ---
 title: 如何上傳文件 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
-description: 您可以使用文件上傳功能來上傳用於訓練的平行文件。 平行文件是配對文件，其中的一份文件是另一份文件的翻譯。 該配對中的一份文件會包含原始語言的句子，而另一分文件會包含已翻譯成目標語言的這些句子。
+description: 檔上傳功能會將平行檔（兩個檔，其中一個是原點，另一個則是轉譯）上傳至服務。
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595640"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647374"
 ---
 # <a name="upload-a-document"></a>上傳文件
 
@@ -43,14 +43,14 @@ ms.locfileid: "68595640"
     -  片語字典：這些文件將用於片語字典。
     -  句子字典：這些文件將用於句子字典
 
-    b.  語言組
+    b.這是另一個 C# 主控台應用程式。  語言組
 
     c.  覆寫已存在的文件：如果您想使用相同名稱覆寫任何現有的文件，請選取此核取方塊。
 
     d.  填寫平行資料或組合資料的相關區段。
 
     -  平行資料：
-        -  來源檔案：從本機電腦選取來源語言檔案。
+        -  原始檔案：從本機電腦選取原始語言檔案。
         -  目標檔案：從本機電腦選取目標語言檔案。
         -  文件名稱：只在您上傳平行檔案時才會用到。
 

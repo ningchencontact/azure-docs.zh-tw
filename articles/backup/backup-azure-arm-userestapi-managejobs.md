@@ -1,6 +1,6 @@
 ---
-title: Azure 備份：使用 REST API 管理備份作業
-description: 使用 REST API 管理 Azure 備份的備份和還原作業
+title: Azure 備份︰使用 REST API 管理備份作業
+description: 在本文中，您將瞭解如何使用 REST API 來追蹤和管理 Azure 備份的備份和還原作業。
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b10283c2946d01101b941d53b6bf03be3a12e99e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c0ce79c68b9d9cf11ea20c2d6469f4240fb38a95
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954919"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747552"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>使用 REST API 追蹤備份和還原
 
-Azure 備份服務會在各種情況下觸發在背景執行的作業, 例如觸發備份、還原作業、停用備份。 這些工作可以使用其識別碼進行追蹤。
+Azure 備份服務會在各種情況下觸發在背景執行的作業，例如觸發備份、還原作業、停用備份。 這些工作可以使用其識別碼進行追蹤。
 
 ## <a name="fetch-job-information-from-operations"></a>從作業 (Operation) 擷取作業 (Job) 資訊
 
-觸發備份之類的作業一律會傳回 jobID。 例如: [觸發程式備份 REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3)作業的最後回應如下所示:
+觸發備份之類的作業一律會傳回 jobID。 例如：[觸發程式備份 REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3)作業的最後回應如下所示：
 
 ```http
 {
@@ -51,9 +51,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>回應
 
-|名稱  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
-|200 確定     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | [確定]        |
+|200 確定     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>範例回應
 

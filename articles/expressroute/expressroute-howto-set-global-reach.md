@@ -1,5 +1,5 @@
 ---
-title: 設定 Global Reach - ExpressRoute：Azure | Microsoft Docs
+title: 設定全球接觸-ExpressRoute： Azure |Microsoft Docs
 description: 本文可協助您將 ExpressRoute 線路連結在一起，在內部部署網路之間產生私人網路，並使觸角擴及全球。
 services: expressroute
 author: jaredr80
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64abf820a502db0ee0033ce52ed148bae6b8ffc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572748"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748179"
 ---
 # <a name="configure-expressroute-global-reach"></a>設定 ExpressRoute Global Reach
 
@@ -23,32 +23,32 @@ ms.locfileid: "64572748"
 
 在開始進行設定之前，請先確認下列情況︰
 
-* 您已了解 ExpressRoute 線路佈建[工作流程](expressroute-workflows.md)。
-* ExpressRoute 線路處於佈建狀態。
-* Azure 私人對等互連在 ExpressRoute 線路上設定。
-* 如果您想要在本機執行 PowerShell，請確認最新版的 Azure PowerShell 安裝在電腦上。
+* 您瞭解 ExpressRoute 線路布建[工作流程](expressroute-workflows.md)。
+* 您的 ExpressRoute 線路處於已布建狀態。
+* 您的 ExpressRoute 線路上已設定 Azure 私用對等互連。
+* 如果您想要在本機執行 PowerShell，請確認電腦上已安裝最新版的 Azure PowerShell。
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="identify-circuits"></a>找出循環
+## <a name="identify-circuits"></a>識別線路
 
-1. 若要開始設定，登入您的 Azure 帳戶並選取您想要使用的訂用帳戶。
+1. 若要開始設定，請登入您的 Azure 帳戶，然後選取您想要使用的訂用帳戶。
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. 找出您要使用的 ExpressRoute 線路。 您可以啟用 ExpressRoute 觸及全球範圍之間任何兩個 ExpressRoute 線路，只要它們位於支援的國家/地區，並建立不同的對等互連位置。 
+2. 識別您想要使用的 ExpressRoute 線路。 只要有兩個 ExpressRoute 線路位於支援的國家/地區，而且是在不同的對等互連位置建立，您就可以啟用 ExpressRoute 全球的範圍。 
 
    * 如果兩個線路皆為您的訂用帳戶所擁有，則您可以選擇使用任一線路來執行下列各節中的設定。
    * 如果兩個線路在不同的 Azure 訂用帳戶中，您便需要從一個 Azure 訂用帳戶取得授權。 接著，您需在於另一個 Azure 訂用帳戶中執行設定命令時，傳入該授權金鑰。
 
 ## <a name="enable-connectivity"></a>啟用連線能力
 
-可讓您在內部部署網路之間的連線。 有不同的相同 Azure 訂用帳戶中的線路的線路，不同的訂用帳戶的指示集。
+啟用內部部署網路之間的連線。 相同 Azure 訂用帳戶中的線路有個別的指示集，而線路則是不同的訂閱。
 
-### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>在相同的 Azure 訂用帳戶中的 ExpressRoute 線路
+### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>相同 Azure 訂用帳戶中的 ExpressRoute 線路
 
 1. 使用下列命令來取得線路 1 和線路 2。 這兩個線路位於相同的訂用帳戶中。
 
@@ -74,7 +74,7 @@ ms.locfileid: "64572748"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-上一個作業完成後，您將擁有您透過兩個 ExpressRoute 線路兩端的內部部署網路之間的連線。
+當先前的作業完成時，您將可透過兩個 ExpressRoute 線路，在內部部署網路之間進行連線。
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>在不同 Azure 訂用帳戶中的 ExpressRoute 線路
 
@@ -100,7 +100,7 @@ ms.locfileid: "64572748"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-上一個作業完成後，您將擁有您透過兩個 ExpressRoute 線路兩端的內部部署網路之間的連線。
+當先前的作業完成時，您將可透過兩個 ExpressRoute 線路，在內部部署網路之間進行連線。
 
 ## <a name="verify-the-configuration"></a>驗證組態
 
@@ -111,9 +111,9 @@ $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName
 
 如果您直接在 PowerShell 中執行 *$ckt1*，就會在輸出中看到 *CircuitConnectionStatus*。 它會告訴您連線狀態是已建立 (已連線) 還是未建立 (已中斷連線)。 
 
-## <a name="disable-connectivity"></a>停用連線能力
+## <a name="disable-connectivity"></a>停用連接
 
-若要停用您內部部署網路，已設定線路對執行命令 （例如線路 1 在上述範例中） 之間的連線。
+若要停用內部部署網路之間的連線，請針對進行設定的線路執行命令（例如，上一個範例中的線路1）。
 
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200645"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749613"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
 您可以從在儲存體帳戶中儲存為受控磁碟或非受控磁碟的一般化虛擬機器 (VM)，建立受控映像資源。 映像接著便可用來建立多個 VM。 如需受控映像計費方式的相關資訊，請參閱[受控磁碟定價](https://azure.microsoft.com/pricing/details/managed-disks/)。 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 將 Windows VM 一般化
 
@@ -44,11 +44,11 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 1. 登入您的 Windows VM。
    
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。 將目錄變更到 %windir%\system32\sysprep，然後執行 `sysprep.exe`。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 %windir%\system32\sysprep 目錄，然後執行 `sysprep.exe`。
    
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，然後選取 [一般化] 核取方塊。
    
-4. 針對 [關機選項]，選取 [關機]。
+4. 針對 [關機選項] 選取 [關機]。
    
 5. 選取 [確定]。
    
@@ -94,7 +94,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>使用 Powershell 建立 VM 的映像
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 直接從 VM 建立映像，可確保映像包含 VM 的所有相關磁碟，包括 OS 磁碟與任何資料磁碟。 此範例示範如何從使用受控磁碟的 VM 建立受控映像。
 
@@ -102,7 +102,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 
 > [!NOTE]
-> 如果您想要將映像儲存於區域備援的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且在映像設定 (`New-AzImageConfig` 命令) 中包含 `-ZoneResilient` 參數的區域中建立它。
+> 如果您想要將映像儲存於區域備援的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且在映像設定 (`-ZoneResilient` 命令) 中包含 `New-AzImageConfig` 參數的區域中建立它。
 
 若要建立 VM 映像，請依照下列步驟執行：
 

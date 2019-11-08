@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176677"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750085"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -35,7 +35,7 @@ DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可�
 - 將自訂 DSC 模組安裝至 Linux VM (安裝 ExtensionAction)
 - 移除 Linux VM 的自訂 DSC 模組 (移除 ExtensionAction)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -43,7 +43,7 @@ DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可�
 
 DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](/azure/virtual-machines/linux/endorsed-distros)，但下列項目除外：
 
-| 配送映像 | Version |
+| 配送映像 | 版本 |
 |---|---|
 | Debian | 所有版本 |
 | Ubuntu| 18.04 |
@@ -64,7 +64,7 @@ DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](/azur
 * `NodeConfigurationName`：(選擇性，字串) 要套用的節點組態名稱。
 * `RefreshFrequencyMins`：(選擇性，int) 指定 DSC 嘗試從提取伺服器取得組態的頻率 (以分鐘為單位)。 
        如果提取伺服器上的組態不同於目標節點上目前的組態，則會將該組態複製到擱置存放區並套用。
-* `ConfigurationMode`：(選擇性，字串) 指定 DSC 套用組態的方式。 有效值為：ApplyOnly、ApplyAndMonitor、ApplyAndAutoCorrect。
+* `ConfigurationMode`：(選擇性，字串) 指定 DSC 套用組態的方式。 有效的值為：ApplyOnly、ApplyAndMonitor、ApplyAndAutoCorrect。
 * `ConfigurationModeFrequencyMins`：(選擇性，int) 指定 DSC 確認組態處於適當狀態的頻率 (以分鐘為單位)。
 
 > [!NOTE]
@@ -305,7 +305,7 @@ $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
+#### <a name="212-resource-manager"></a>2.1.2. 資源管理員
 您可以執行下列命令，以切換至 Azure Resource Manager 模式：
 ```
 $ azure config mode arm
@@ -420,7 +420,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-錯誤碼:51 代表不支援的發行版本或不支援的擴充功能動作。
+錯誤碼：51 代表不支援的發行版本或不支援的擴充功能動作。
 在某些情況下，如果電腦上已有較高版本的 OMI 存在，DSC Linux 擴充功能會無法安裝 OMI。 [錯誤回應：(000003) 不允許降級]
 
 

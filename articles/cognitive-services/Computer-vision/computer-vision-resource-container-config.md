@@ -1,7 +1,7 @@
 ---
 title: 設定容器 - 電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 在電腦視覺中設定辨識文字容器的各種設定。
+description: 本文說明如何在電腦視覺中設定辨識文字容器的必要和選擇性設定。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 1df8199abbbc195db873ab3da515cb1dd5fe9761
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484074"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718983"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>設定電腦視覺 Docker 容器
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 49ea726e00eb321c758f2b36381185cfab048604
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 24cb9db9dff670ece75db24df873d24c08919722
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089010"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749255"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>用於建立及管理 Azure 虛擬機器的常用 PowerShell 命令
 
 本文涵蓋一些 Azure PowerShell 命令，您可用來建立及管理您的 Azure 訂用帳戶中的虛擬機器。  如需特定命令列參數和選項的詳細說明，您可以使用 **Get-Help** *命令*。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 如果您要執行本文中的多個命令，下列變數可能會相當實用：
 
@@ -35,7 +35,7 @@ ms.locfileid: "70089010"
 
 ## <a name="create-a-vm---simplified"></a>建立 VM (簡化)
 
-| 工作 | 命令 |
+| Task | 命令 |
 | ---- | ------- |
 | 建立簡易 VM | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) -命名 $myVM <BR></BR><BR></BR> New-AzVM 有一組「已簡化」的參數，其只需要單一名稱。 -Name 的值會用來作為所有建立新 VM 所需資源的名稱。 您可以指定多個，但這是唯一必要的值。|
 | 從自訂映像建立 VM | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>您必須已建立自己的[受控映像](capture-image-resource.md)。 您可以使用映像來建立多個相同的 VM。 |
@@ -44,7 +44,7 @@ ms.locfileid: "70089010"
 
 ## <a name="create-a-vm-configuration"></a>建立 VM 組態
 
-| 工作 | 命令 |
+| Task | 命令 |
 | ---- | ------- |
 | 建立 VM 組態 |$vm = [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) -VMName $myVM -VMSize "Standard_D1_v1"<BR></BR><BR></BR>VM 組態用來定義或更新 VM 的設定。 系統會使用 VM 的名稱及其 [大小](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)初始化組態。 |
 | 新增組態設定 |$vm = [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>包含[認證](https://technet.microsoft.com/library/hh849815.aspx)的作業系統設定會新增至您先前使用 New-AzVMConfig 建立的組態物件。 |
@@ -55,14 +55,14 @@ ms.locfileid: "70089010"
 
 ## <a name="get-information-about-vms"></a>取得 VM 的相關資訊
 
-| 工作 | 命令 |
+| Task | 命令 |
 | ---- | ------- |
 | 列出訂用帳戶中的 VM |[Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) |
 | 列出資源群組中的 VM |Get-AzVM -ResourceGroupName $myResourceGroup<BR></BR><BR></BR>若要取得您的訂用帳戶中的資源群組清單，請使用 [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup)初始化組態。 |
 | 取得 VM 的相關資訊 |Get-AzVM -ResourceGroupName $myResourceGroup -Name $myVM |
 
 ## <a name="manage-vms"></a>管理 VM
-| 工作 | 命令 |
+| Task | 命令 |
 | --- | --- |
 | 啟動 VM |[Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | 停止 VM |[Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |

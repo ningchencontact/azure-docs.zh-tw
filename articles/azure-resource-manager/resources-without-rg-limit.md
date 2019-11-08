@@ -4,14 +4,14 @@ description: 列出資源群組中可有超過800個實例的 Azure 資源類型
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: c08b80a841199ed2737f6fe8d7f2b76943c5b269
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249128"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795662"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>每個資源群組的資源不限於800實例
 
@@ -36,7 +36,7 @@ ms.locfileid: "72249128"
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* disks
+* 磁碟
 * images
 * snapshots
 * virtualMachines
@@ -70,12 +70,22 @@ ms.locfileid: "72249128"
 * servers
 * serversv2
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>EnterpriseKnowledgeGraph
 
 * 服務
 
+## <a name="microsofteventhub"></a>Microsoft.EventHub
+
+* clusters
+* namespaces
+
+## <a name="microsoftexperimentation"></a>Microsoft 實驗
+
+* experimentWorkspaces
+
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -141,9 +151,17 @@ ms.locfileid: "72249128"
 
 * workspaceCollections-根據預設，限制為800個實例。 這項限制可以透過聯絡支援人員來增加。
 
+## <a name="microsoftrelay"></a>Microsoft.Relay
+
+* namespaces
+
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * jobcollections
+
+## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
+
+* namespaces
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 

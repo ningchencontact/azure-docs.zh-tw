@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294351"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796043"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 匯入的限制和已知問題
 
@@ -33,13 +33,15 @@ ms.locfileid: "72294351"
 ### <a name="open-api-general"> </a>一般
 
 -   整個路徑和查詢所需的參數必須具有唯一的名稱。 (在 OpenAPI 中，參數名稱只需要在某個位置內是唯一的，例如路徑、查詢、標頭。 不過，在 API 管理中，可透過路徑和查詢參數來區分作業 (OpenAPI 並不支援此做法)。 這就是為什麼參數名稱必須在整個 URL 範本內是唯一的。)
--   **@no__t 1ref**指標無法參考外部檔案。
+-   **\$ref**指標無法參考外部檔案。
 -   **x-ms-paths** 和 **x-servers** 是唯二支援的副檔名。
 -   在匯入時系統會忽略自訂副檔名，不會儲存或保留用於匯出。
 -   **遞迴** - API 管理不支援以遞迴方式定義的定義 (例如，結構描述參考本身)。
 -   來源檔案 URL (如果有的話) 會套用到相對的伺服器 URL。
 -   系統會忽略安全性定義。
 -   不支援 API 作業的內嵌架構定義。 架構定義會定義在 API 範圍中，並可在 API 作業要求或回應範圍中加以參考。
+-   定義的 URL 參數必須是 URL 範本的一部分。
+-   不支援**產生**關鍵字（描述 API 所傳回的 MIME 類型）。 
 
 ### <a name="open-api-v2"> </a>OpenAPI 第 2 版
 

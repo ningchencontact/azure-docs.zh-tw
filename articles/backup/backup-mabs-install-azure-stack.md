@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 上安裝 Azure 備份伺服器 | Microsoft Docs
-description: 使用 Azure 備份伺服器來保護或備份 Azure Stack 中的工作負載。
+description: 在本文中，您將瞭解如何使用 Azure 備份伺服器來保護或備份 Azure Stack 中的工作負載。
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639851"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747283"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安裝 Azure 備份伺服器
 
@@ -25,6 +25,7 @@ ms.locfileid: "68639851"
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
+
 Azure 備份伺服器會保護下列 Azure Stack 虛擬機器工作負載。
 
 | 受保護的資料來源 | 保護和復原 |
@@ -46,20 +47,26 @@ Azure 備份伺服器會保護下列 Azure Stack 虛擬機器工作負載。
 在 Azure Stack 環境中安裝 Azure 備份伺服器時，請將本節的建議納入考量。 Azure 備份伺服器安裝程式會檢查您的環境是否具備各項必要條件，但在安裝前先準備妥當可以省下更多時間。
 
 ### <a name="determining-size-of-virtual-machine"></a>決定虛擬機器大小
+
 若要在 Azure Stack 虛擬機器上執行 Azure 備份伺服器，請使用 A2 或更大的大小。 如需選擇虛擬機器大小方面的協助，請下載 [Azure Stack VM 大小計算機](https://www.microsoft.com/download/details.aspx?id=56832) (英文)。
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器上的虛擬網路
+
 Azure Stack 工作負載中使用的所有虛擬機器必須屬於同一個 Azure 虛擬網路與 Azure 訂用帳戶。
 
 ### <a name="azure-backup-server-vm-performance"></a>Azure 備份伺服器 VM 效能
+
 如果與其他虛擬機器共用，儲存體帳戶大小與 IOPS 限制會影響 Azure 備份伺服器虛擬機器的效能。 有鑑於此，Azure 備份伺服器虛擬機器應使用另外的存放區帳戶。 在 Azure 備份伺服器上執行的 Azure 備份代理程式需要暫存存放區，以供：
+
 - 自用 (快取位置)
 - 供從雲端還原的資料使用 (本機暫存區域)
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>設定 Azure 備份暫存磁碟存放區
+
 每個 Azure Stack 虛擬機器皆隨附暫存磁碟存放區，可供使用者作為磁碟區 `D:\`。 Azure 備份所需的本機暫存區域可設定成位在 `D:\` 中，快取位置可位於 `C:\`。 如此一來，便無須將存放區與連結到 Azure 備份伺服器虛擬機器的資料磁碟劃分開來。
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>將備份資料儲存在本機磁碟與 Azure 中
+
 Azure 備份伺服器會將備份資料儲存在連結至虛擬機器的 Azure 磁碟上，以復原作業。 在磁碟與儲存空間連結到虛擬機器後，Azure 備份伺服器便會為您管理存放區。 備份資料存放區的數量視連結到每個 [Azure Stack 虛擬機器](/azure-stack/user/azure-stack-storage-overview)的磁碟數目和大小而定。 每個 Azure Stack VM 的大小，均有可連結至虛擬機器的磁碟數目上限。 例如，A2 是四個磁碟。 A3 是八個磁碟。 A4 是 16 個磁碟。 同樣地，磁碟的大小和數目決定了總備份存放集區。
 
 > [!IMPORTANT]
@@ -69,12 +76,14 @@ Azure 備份伺服器會將備份資料儲存在連結至虛擬機器的 Azure �
 將備份資料儲存在 Azure 中，會縮小 Azure Stack 上的備份基礎結構。 如果資料超過五天，請儲存到 Azure 中。
 
 若要將備份資料儲存在 Azure 中，請建立或使用復原服務保存庫。 在準備 Azure 備份伺服器工作負載的備份作業時，需[設定復原服務保存庫](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault)。 設定完成後，每次執行備份作業時，系統就會在保存庫中建立復原點。 每個復原服務保存庫可保留最多 9999 個復原點。 您可以保留備份資料多年，視復原點建立的數目及保留的天數而定。 例如，您可以建立每月復原點，並保留復原點五年。
- 
+
 ### <a name="scaling-deployment"></a>調整部署
+
 如果您想要調整部署，您有以下幾種選擇：
-  - 縱向擴展：將 Azure 備份伺服器虛擬機器的大小從 A 系列增加到 D 系列，並[遵照 Azure Stack 虛擬機器指示](/azure-stack/user/azure-stack-manage-vm-disks)增加本機存放區。
-  - 卸載資料：將較舊的資料傳送至 Azure，只將最新資料保留在與 Azure 備份伺服器連結的存放區。
-  - 橫向擴展：新增更多的 Azure 備份伺服器來保護工作負載。
+
+- 縱向擴展：將 Azure 備份伺服器虛擬機器的大小從 A 系列增加到 D 系列，並[遵照 Azure Stack 虛擬機器指示](/azure-stack/user/azure-stack-manage-vm-disks)增加本機存放區。
+- 卸載資料：將較舊的資料傳送至 Azure，只將最新資料保留在與 Azure 備份伺服器連結的存放區。
+- 橫向擴展：新增更多的 Azure 備份伺服器來保護工作負載。
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -86,12 +95,13 @@ Azure 備份伺服器虛擬機器必須加入網域。 具有系統管理員權�
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>使用 Azure Stack 中的 IaaS 虛擬機器
 
-為 Azure 備份伺服器選擇伺服器時，請從 Windows Server 2012 R2 Datacenter 或 Windows Server 2016 Datacenter 資源庫映像開始。 即使您之前從未使用過 Azure，[快速入門：在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文提供有教學課程，說明如何使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰A2 標準，具備 2 個核心及 3.5 GB 的 RAM。
+為 Azure 備份伺服器選擇伺服器時，請從 Windows Server 2012 R2 Datacenter 或 Windows Server 2016 Datacenter 資源庫映像開始。 即使您之前從未使用過 Azure，[快速入門：在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文提供有教學課程，說明如何使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求︰A2 標準，具備雙核心及 3.5-GB 的 RAM。
 
 使用 Azure 備份伺服器保護工作負載有許多細節需要注意。 [將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/jj852163.aspx)一文可協助說明這些細節。 在部署機器之前，請先確實閱讀此文章。
 
 > [!NOTE]
 > Azure 備份伺服器的設計目的是在專用、單一用途的虛擬機器上執行。 您無法在下列位置安裝 Azure 備份伺服器︰
+>
 > - 執行為網域控制站的電腦
 > - 安裝應用程式伺服器角色所在的電腦
 > - Exchange Server 執行所在的電腦
@@ -103,7 +113,7 @@ Azure 備份伺服器一律加入網域。 如果您需要將 Azure 備份伺服
 
 ### <a name="set-storage-replication"></a>設定儲存體複寫
 
-復原服務保存庫儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但較不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
+復原服務保存庫儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但較不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy-grs.md)中，深入了解[異地備援](../storage/common/storage-redundancy-lrs.md)和[本地備援](../storage/common/storage-redundancy.md)儲存體選項。
 
 若要編輯儲存體複寫設定︰
 
@@ -159,7 +169,7 @@ Azure 備份伺服器一律加入網域。 如果您需要將 Azure 備份伺服
 
     ![下載中心 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    所有安裝檔案的下載大小超過 3 GB。 在 10 Mbps 下載連結中，下載所有安裝檔案可能需要長達 60 分鐘。 檔案會下載到您指定的下載位置。
+    所有安裝檔案的下載大小大於 3 GB。 在 10 Mbps 下載連結中，下載所有安裝檔案可能需要長達 60 分鐘。 檔案會下載到您指定的下載位置。
 
 ## <a name="extract-azure-backup-server-install-files"></a>擷取 Azure 備份伺服器安裝檔案
 
@@ -320,18 +330,18 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 在您了解 Azure 連線和 Azure 訂用帳戶的狀態後，您可以使用下表來確認提供的備份/還原功能會受到哪些影響。
 
-| 連線狀態 | Azure 訂用帳戶 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
+| 連線狀態 | Azure 訂閱 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
 | --- | --- | --- | --- | --- | --- |
-| 連線 |Active |已允許 |允許 |允許 |已允許 |
-| 已連線 |已過期 |已停止 |已停止 |已允許 |已允許 |
-| 已連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
-| 連線中斷 > 15 天 |有效 |已停止 |已停止 |已允許 |已允許 |
-| 連線中斷 > 15 天 |已過期 |已停止 |已停止 |已允許 |已允許 |
+| 連線 |Active |允許 |允許 |允許 |允許 |
+| 連線 |已過期 |已停止 |已停止 |允許 |允許 |
+| 連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
+| 連線中斷 > 15 天 |Active |已停止 |已停止 |允許 |允許 |
+| 連線中斷 > 15 天 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線中斷 > 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
 
-如果防火牆或 Proxy 無法存取 Azure，請將防火牆/Proxy 設定檔中的下列網域位址列入允許清單中：
+如果防火牆或 proxy 無法存取 Azure，請在防火牆/proxy 設定檔允許清單中新增下列網域位址：
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168759"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749691"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>針對 Azure 虛擬機器的遠端桌面連線進行疑難排解
 有各式各樣的原因可能導致 Windows 型 Azure 虛擬機器 (VM) 的遠端桌面通訊協定 (RDP) 連線失敗，讓您無法存取您的 VM。 問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。 本文將引導您完成一些可解決 RDP 連線問題的最常見方法。 
 
 如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 
@@ -86,7 +86,7 @@ ms.locfileid: "71168759"
     ![在 Azure 入口網站中重設使用者認證](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **重新啟動您的 VM**。 此疑難排解步驟可以修正 VM 本身具有的任何基礎問題。
    
-    在 Azure 入口網站中選取您的 VM，按一下 [概觀] 索引標籤。按一下 [重新啟動] 按鈕︰
+    在 Azure 入口網站中選取您的 VM，然後按一下 [**總覽**] 索引標籤。按一下 [**重新開機**] 按鈕：
    
     ![在 Azure 入口網站中重新啟動 VM](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **重新部署您的 VM**。 此疑難排解步驟可將您的 VM 重新部署至 Azure 內的另一部主機，以更正任何基礎平台或網路問題。
@@ -115,7 +115,7 @@ ms.locfileid: "71168759"
 
 1. **重設您的 RDP 連線**。 當遠端連線已停用或 Windows 防火牆規則封鎖 RDP 時，此疑難排解步驟可重設 RDP 組態。
    
-    下列範例會在位於 `WestUS` 且名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM 上重設 RDP 連線：
+    下列範例會在位於 `myVM` 且名為 `WestUS` 的資源群組中名為 `myResourceGroup` 的 VM 上重設 RDP 連線：
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -123,7 +123,7 @@ ms.locfileid: "71168759"
     ```
 2. **確認網路安全性群組規則**。 此疑難排解步驟可確認您有可允許 RDP 流量的網路安全性群組規則。 RDP 的預設連接埠是 TCP 連接埠 3389。 當您建立您的 VM 時，可能不會自動建立可允許 RDP 流量的規則。
    
-    首先，將網路安全性群組的所有組態資料指派給 `$rules` 變數。 下列範例會在名為 `myResourceGroup` 的資源群組中取得名為 `myNetworkSecurityGroup` 的網路安全性群組相關資訊：
+    首先，將網路安全性群組的所有組態資料指派給 `$rules` 變數。 下列範例會在名為 `myNetworkSecurityGroup` 的資源群組中取得名為 `myResourceGroup` 的網路安全性群組相關資訊：
    
     ```powershell
     $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -163,7 +163,7 @@ ms.locfileid: "71168759"
     $cred=Get-Credential
     ```
    
-    現在，更新 VM 上的認證。 下列範例會在位於 `WestUS` 且名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM 上更新認證：
+    現在，更新 VM 上的認證。 下列範例會在位於 `myVM` 且名為 `WestUS` 的資源群組中名為 `myResourceGroup` 的 VM 上更新認證：
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -173,14 +173,14 @@ ms.locfileid: "71168759"
     ```
 4. **重新啟動您的 VM**。 此疑難排解步驟可以修正 VM 本身具有的任何基礎問題。
    
-    下列範例會重新啟動名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
+    下列範例會重新啟動名為 `myVM` 的資源群組中名為 `myResourceGroup` 的 VM：
    
     ```powershell
     Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **重新部署您的 VM**。 此疑難排解步驟可將您的 VM 重新部署至 Azure 內的另一部主機，以更正任何基礎平台或網路問題。
    
-    下列範例會重新部署位於 `WestUS` 且名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
+    下列範例會重新部署位於 `myVM` 且名為 `WestUS` 的資源群組中名為 `myResourceGroup` 的 VM：
    
     ```powershell
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -224,7 +224,7 @@ ms.locfileid: "71168759"
     ![在 Azure 入口網站中重設使用者認證](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **重新啟動您的 VM**。 此疑難排解步驟可以修正 VM 本身具有的任何基礎問題。
    
-    在 Azure 入口網站中選取您的 VM，按一下 [概觀] 索引標籤。按一下 [重新啟動] 按鈕︰
+    在 Azure 入口網站中選取您的 VM，然後按一下 [**總覽**] 索引標籤。按一下 [**重新開機**] 按鈕：
    
     ![在 Azure 入口網站中重新啟動 VM](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 

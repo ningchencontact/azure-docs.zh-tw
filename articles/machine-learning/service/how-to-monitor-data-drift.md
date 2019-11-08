@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574346"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796726"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -189,6 +189,8 @@ datadrift.disable_schedule()
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需使用資料漂移的完整範例，請參閱[AZURE ML 資料漂移筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb)。 此 Jupyter Notebook 示範如何使用[Azure 開放資料集](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)來定型模型，以預測氣象、將其部署至 AKS，以及監視資料漂移。 
+* 如需使用資料漂移的完整範例，請參閱[AZURE ML 資料漂移筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb)。 此 Jupyter Notebook 示範如何使用[Azure 開放資料集](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)來定型模型，以預測氣象、將其部署至 AKS，以及監視資料漂移。 
+
+* 使用[資料集監視](how-to-monitor-datasets.md)偵測資料漂移。
 
 * 當資料漂移移至正式運作時，我們會大幅感謝您的問題、意見或建議。 使用下方的 [產品意見反應] 按鈕！ 

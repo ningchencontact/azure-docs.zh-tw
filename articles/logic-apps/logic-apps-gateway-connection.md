@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580860"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796260"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -57,7 +57,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 * 您已在[本機電腦上安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。
 
-* 您擁有在安裝該資料閘道時所使用的[相同 Azure 帳戶和訂用帳戶](../logic-apps/logic-apps-gateway-install.md#requirements)。
+* 您使用的是安裝該資料閘道時所使用的[相同 Azure 帳戶和訂用帳戶](../logic-apps/logic-apps-gateway-install.md#requirements)。 此 Azure 帳戶必須屬於單一[Azure Active Directory （Azure AD）租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)。
 
 * 您的閘道安裝尚未註冊並由另一個 Azure 閘道資源所宣告。
 
@@ -87,7 +87,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
    | **訂用帳戶** | 為用於閘道安裝的 Azure 帳戶選取 Azure 訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。 |
    | **資源群組** | 您想要使用的[Azure 資源群組](../azure-resource-manager/resource-group-overview.md) |
    | **位置** | [閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務選取的相同區域或位置。 否則，您的閘道安裝將不會出現在 [**安裝名稱**] 清單中。 您的邏輯應用程式位置可能與閘道資源位置不同。 |
-   | **安裝名稱** | 選取只有在符合下列條件時，才會出現在清單中的閘道安裝： <p><p>-存在於與您要建立的閘道資源相同的區域中 <br>-未連結至另一個 Azure 閘道資源 <br>-連結至您用來建立閘道資源的相同 Azure 帳戶 <p><p>如需詳細資訊，請參閱[常見問題](#faq)一節。 |
+   | **安裝名稱** | 選取只有在符合下列條件時，才會出現在清單中的閘道安裝： <p><p>-閘道安裝會使用與您想要建立的閘道資源相同的區域。 <br>-閘道安裝未連結至另一個 Azure 閘道資源。 <br>-閘道安裝會連結到您用來建立閘道資源的相同 Azure 帳戶。 <br>-您的 Azure 帳戶屬於單一[Azure Active Directory （Azure AD）租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)，而且是用來安裝閘道的相同帳戶。 <p><p>如需詳細資訊，請參閱[常見問題](#faq)一節。 |
    |||
 
    以下範例顯示的閘道安裝與閘道資源位於相同的區域，並連結至相同的 Azure 帳戶：
@@ -164,7 +164,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 **問**：為什麼我在 Azure 中建立閘道資源時，我的閘道安裝不會出現？ <br/>
 **答**：發生此問題的原因如下：
 
-* 您的 Azure 帳戶必須是連結到本機電腦上閘道安裝的相同帳戶。 請確認您已使用與閘道安裝連結的相同身分識別登入 Azure 入口網站。
+* 您的 Azure 帳戶必須與在本機電腦上連結到閘道安裝的帳戶相同。 請確認您已使用與閘道安裝連結的相同身分識別登入 Azure 入口網站。 此外，請確定您的 Azure 帳戶屬於單一[Azure AD 租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)，並且設定為與閘道安裝期間所使用的相同 Azure AD 租使用者或目錄。
 
 * 您的閘道資源和閘道安裝必須使用相同的區域。 不過，您的邏輯應用程式位置可能與閘道資源位置不同。
 
