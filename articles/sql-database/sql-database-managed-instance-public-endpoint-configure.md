@@ -1,5 +1,5 @@
 ---
-title: 設定公用端點-Azure SQL Database 受控實例
+title: 設定公用端點管理的實例
 description: 瞭解如何設定受控實例的公用端點
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 6f953e4c549619a30564bdb061e98761474174c3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687975"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828035"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控實例中設定公用端點
 
@@ -29,7 +29,7 @@ ms.locfileid: "73687975"
 > - 將您的受控實例網路安全性群組設定為允許流向受控實例公用端點的流量
 > - 取得受控實例公用端點連接字串
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 由於受控實例中的資料敏感度，啟用受控實例公用端點的設定需要兩個步驟的程式。 此安全性措施符合責任劃分（SoD）：
 

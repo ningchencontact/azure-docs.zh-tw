@@ -1,5 +1,5 @@
 ---
-title: 主動式異地複寫-Azure SQL Database
+title: 主動式異地複寫
 description: 使用作用中異地複寫，在相同或不同資料中心 (區域) 中建立個別資料庫之可讀取的次要資料庫。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 74cbb9fa5a00b287746afd92fe74f50bfa19110b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691312"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822664"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
 

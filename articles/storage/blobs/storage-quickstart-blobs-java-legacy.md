@@ -1,22 +1,22 @@
 ---
-title: 快速入門：適用于 JAVA SDK 的 Azure Blob 儲存體用戶端程式庫 v8
-description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後使用適用于 JAVA SDK v8 的 Azure 儲存體用戶端程式庫，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
+title: 快速入門：適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫 v8
+description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後使用適用于 JAVA 的 Azure 儲存體用戶端程式庫 v8，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 404599ade960d43ef2cb86777fb41701ce96e11b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609121"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825380"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>快速入門：適用于 JAVA SDK 的 Azure Blob 儲存體用戶端程式庫 v8
+# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>快速入門：適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫 v8
 
-開始使用適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體已針對儲存大量非結構化資料最佳化。
+開始使用適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫 v8。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體已針對儲存大量非結構化資料最佳化。
 
 使用適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫：
 

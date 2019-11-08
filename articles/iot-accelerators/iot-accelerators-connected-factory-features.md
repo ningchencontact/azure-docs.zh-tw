@@ -1,6 +1,6 @@
 ---
 title: 連線處理站解決方案功能 - Azure | Microsoft Docs
-description: 概述連線處理站的預先設定解決方案功能。
+description: 本文說明連線處理站預先設定解決方案的功能，例如雲端儀表板、規則和警示。
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 2a11640959a8c7fdd0d238aba92698eb47934969
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080457"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820099"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>連線處理站 IoT 解決方案加速器是什麼？
 
@@ -65,4 +65,4 @@ ms.locfileid: "67080457"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解連線處理站解決方案加速器，請參閱快速入門[試用雲端式解決方案來管理我的工業 IoT 裝置](quickstart-connected-factory-deploy.md)。
+若要深入瞭解連線的處理站解決方案加速器，請參閱快速入門：[嘗試以雲端為基礎的解決方案來管理我的工業 IoT 裝置](quickstart-connected-factory-deploy.md)。

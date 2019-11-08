@@ -1,18 +1,19 @@
 ---
-title: 擷取特定的供應項目 API |Azure Marketplace
+title: 取得特定供應專案 API |Azure Marketplace
 description: API 會在發行者命名空間內擷取特定供應項目。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935429"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827356"
 ---
 <a name="retrieve-a-specific-offer"></a>擷取特定供應項目
 =========================
@@ -38,30 +39,30 @@ ms.locfileid: "64935429"
 --------------
 
 
-| **名稱**    | **描述**                                                                          | **資料類型** |
+| **名稱**    | **說明**                                                                          | **資料類型** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId。 例如 Contoso                                                        | 字串        |
 | offerId     | 可唯一識別供應項目的 GUID。                                                 | 字串        |
-| version     | 要擷取之供應項目的版本。 根據預設值，會擷取最新的供應項目版本。 | 整數       |
+| 版本     | 要擷取之供應項目的版本。 根據預設值，會擷取最新的供應項目版本。 | Integer       |
 | slotId      | 要從中擷取供應項目的位置，這可以是下列其中一個：      <br/>  - `Draft` (預設值) 會擷取目前處於草稿狀態的供應項目版本。  <br/>  -  `Preview` 會擷取目前處於預覽狀態的供應項目版本。     <br/>  -  `Production` 會擷取目前處於生產狀態的供應項目版本。          |      列舉 |
-| api-version | API 的最新版本                                                                    | Date          |
+| api-version | API 的最新版本                                                                    | 日期          |
 |  |  |  |
 
 
-<a name="header"></a>標頭
+<a name="header"></a>頁首
 ------
 
 |  **名稱**          |   **值**            |
 |  ---------------   |  --------------        |
 |  Content-Type      | `application/json`     |
-|  Authorization     | `Bearer YOUR_TOKEN`    |
+|  授權     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
 
 <a name="body-example"></a>本文範例
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ``` json
 {
@@ -168,13 +169,13 @@ ms.locfileid: "64935429"
 
 ### <a name="response-body-properties"></a>回應主體屬性
 
-|  **名稱**       |   **描述**                                                                                                               |
+|  **名稱**       |   **說明**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | 指出供應項目類型                                                                                                    |
 |  publisherId    | 發行者的唯一識別碼                                                                                              |
 |  status         | 供應項目的狀態。 如需可能值清單，請參閱下面的[供應項目狀態](#offer-status)。                                  |
-|  Id             | 可唯一識別供應項目的 GUID                                                                                         |
-|  version        | 供應項目的目前版本。 用戶端無法修改版本屬性。 每次發行時，它都會累加。    |
+|  id             | 可唯一識別供應項目的 GUID                                                                                         |
+|  版本        | 供應項目的目前版本。 用戶端無法修改版本屬性。 每次發行時，它都會累加。    |
 |  定義     | 工作負載的實際定義                                                                                               |
 |  changedTime    | 供應項目上次修改時間 (UTC 日期時間)                                                                                   |
 |  |  |
@@ -182,7 +183,7 @@ ms.locfileid: "64935429"
 
 ### <a name="response-status-codes"></a>回應狀態碼
 
-| **代碼**  | **說明**                                                                                                                 |
+| **程式碼**  | **說明**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK` - 已成功處理要求，且發行者下的所有供應項目已傳回給用戶端。               |
 |  400      | `Bad/Malformed request` - 錯誤回應本文可能包含更多資訊。                                                 |
@@ -193,7 +194,7 @@ ms.locfileid: "64935429"
 
 ### <a name="offer-status"></a>供應項目狀態
 
-|  **名稱**                   |   **描述**                             |
+|  **名稱**                   |   **說明**                             |
 | --------------------------- |  -------------------------------------------- |
 |  NeverPublished             | 供應項目從未發行。               |
 |  NotStarted                 | 供應項目是新的，但未啟動。              |

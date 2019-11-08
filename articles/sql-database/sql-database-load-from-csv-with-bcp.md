@@ -1,5 +1,5 @@
 ---
-title: 將資料從 CSV 檔案載入 Azure SQL Database （bcp）
+title: 將資料從 CSV 檔案載入資料庫（bcp）
 description: 對於較小的資料大小，請使用 bcp 將資料匯入 Azure SQL Database。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d9c4a6293fe2c52870e61488713455ac6c2ed4a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b0df3d588f1d9b0a50c3ea7a583b0704e7e85c39
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689557"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827479"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
 

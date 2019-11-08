@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 11/06/2019
-ms.openlocfilehash: ed30ba305ec990256625052cb92f1b7524c826e2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720951"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826306"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 將 SQL Server 或 Azure SQL Database 的工作流程自動化
 
@@ -44,10 +44,11 @@ ms.locfileid: "73720951"
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* 您必須先[設定內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)，才可以將邏輯應用程式連線到內部部署系統（例如 SQL Server）。 這樣一來，您就可以在建立邏輯應用程式的 SQL 連線時選取閘道。
+* 內部[部署資料閘道](../logic-apps/logic-apps-gateway-install.md)安裝在本機電腦上，以及在這些案例[的 Azure 入口網站中建立的 Azure 資料閘道資源](../logic-apps/logic-apps-gateway-connection.md)：
 
-  > [!IMPORTANT]
-  > 若要對此連接器使用 Windows 驗證，您必須使用內部部署資料閘道。 此連接器不支援[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)中邏輯應用程式的 Windows 驗證。
+  * 您的邏輯應用程式不會在[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)中執行。
+
+  * 您的邏輯應用程式會在整合服務環境中*執行*，但您必須將 Windows 驗證用於您的 SQL Server 連接。 針對此案例，請使用 SQL Server 連接器的非 ISE 版本以及資料閘道，因為 ISE 版本不支援 Windows 驗證。
 
 * 需要存取 SQL 資料庫的邏輯應用程式。 若要使用 SQL 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

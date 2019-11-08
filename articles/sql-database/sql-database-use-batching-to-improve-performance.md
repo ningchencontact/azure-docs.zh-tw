@@ -1,5 +1,5 @@
 ---
-title: 如何使用批次處理來改善 Azure SQL Database 應用程式效能
+title: 如何使用批次處理來改善應用程式效能
 description: 本主題提供證據，表明批次處理資料庫作業可大幅改善 Azure SQL Database 應用程式的速度和延展性。 雖然這些批次處理技術適用於任何 SQL Server 資料庫，但本文的重點在於 Azure。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566241"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822427"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批次處理來改善 SQL Database 應用程式效能
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-在上述範例中, **SqlCommand**物件會從資料表值參數 **\@TestTvp**插入資料列。 先前建立的 **DataTable** 物件透過 **SqlCommand.Parameters.Add** 方法指派給此參數。 在一個呼叫中批次處理插入的效能明顯高於循序插入。
+在上述範例中， **SqlCommand**物件會從資料表值參數插入資料列， **\@TestTvp**。 先前建立的 **DataTable** 物件透過 **SqlCommand.Parameters.Add** 方法指派給此參數。 在一個呼叫中批次處理插入的效能明顯高於循序插入。
 
 若要進一步改善上述範例，請使用預存程序代替文字式命令。 下列 Transact-SQL 命令會建立一個接受 **SimpleTestTableType** 資料表值參數的預存程序。
 
@@ -191,7 +191,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 在大部分情況下，資料表值參數的效能同於或高於其他批次處理技術。 資料表值參數通常較適合，因為比其他選項更有彈性。 例如，其他技術 (例如 SQL 大量複製) 只允許插入新資料列。 但使用資料表值參數時，您可以在預存程序中使用邏輯，判斷哪些資料列是更新和哪些是插入。 也可以修改資料表類型來包含「作業」資料行，指出是否應該插入、更新或刪除指定的資料列。
 
-下表顯示使用資料表值參數的特定測試結果 (以毫秒為單位)。
+下表顯示使用資料表值參數的特定測試結果（以毫秒為單位）。
 
 | 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
@@ -231,7 +231,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 在某些情況下，大量複製比資料表值參數更適合。 請參閱[資料表值參數](https://msdn.microsoft.com/library/bb510489.aspx)一文中的資料表值參數與 BULK INSERT 作業的比較表。
 
-下列臨機操作測試結果顯示**SqlBulkCopy**的批次處理效能 (以毫秒為單位)。
+下列臨機操作測試結果顯示**SqlBulkCopy**的批次處理效能（以毫秒為單位）。
 
 | 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
@@ -276,7 +276,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 此範例主要是示範基本概念。 在更實際的案例中會循環查看需要的實體，以同時建構查詢字串和命令參數。 總計以 2100 個查詢參數為限，此方法可處理的資料列總數受限於此。
 
-下列臨機操作測試結果顯示這種插入語句的效能 (以毫秒為單位)。
+下列臨機操作測試結果顯示這種插入語句的效能（以毫秒為單位）。
 
 | 作業 | 資料表值參數 (毫秒) | 單一陳述式 INSERT (毫秒) |
 | --- | --- | --- |

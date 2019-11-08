@@ -1,22 +1,22 @@
 ---
-title: 將資料庫從 SQL Server 實例遷移至 Azure SQL Database 受控實例
+title: 從 SQL Server 遷移至受控實例
 description: 瞭解如何將資料庫從 SQL Server 實例遷移至 Azure SQL Database 管理的實例。
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688005"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828083"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 

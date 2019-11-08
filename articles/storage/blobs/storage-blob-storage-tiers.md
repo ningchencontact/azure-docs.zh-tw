@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521169"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825437"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 儲存體：經常性、非經常性和封存存取層
 
@@ -59,7 +59,7 @@ Blob 儲存體和 GPv2 帳戶會在帳戶層級公開 [**存取層**] 屬性。 
 
 ## <a name="archive-access-tier"></a>封存存取層
 
-封存存取層具有最低的儲存成本。 但相較于經常性存取和非經常性存取層，其資料抓取成本會更高。 封存層中的資料可能需要幾個小時的時間才能取得。 封存層中至少必須有180天的資料，或受限於提早刪除費用。
+封存存取層具有最低的儲存成本。 但相較于經常性存取和非經常性存取層，其資料抓取成本會更高。 封存層中的資料可能需要幾個小時的時間才能取得。 資料必須保留在封存層中至少180天，或受限於提早刪除費用。
 
 當 blob 位於封存儲存體時，blob 資料會離線，而且無法讀取、複製、覆寫或修改。 您無法在封存儲存體中拍攝 blob 的快照集。 不過，Blob 中繼資料會保持連線且可以取得，讓您可列出 Blob 和其屬性。 針對封存中的 blob，唯一有效的作業是 GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。
 

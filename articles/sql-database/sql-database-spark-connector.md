@@ -1,5 +1,5 @@
 ---
-title: Spark 連接器與 Azure SQL Database 和 SQL Server| Microsoft Docs
+title: 具有 Azure SQL Database 和 SQL Server 的 Spark 連接器
 description: 了解如何使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d398019b62078da6943cb98cbafc3ac39640513f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163178"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820864"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
@@ -32,8 +32,8 @@ ms.locfileid: "73163178"
 | Apache Spark                         |2.0.2 或更新版本           |
 | Scala                                |2.10 或更新版本            |
 | Microsoft JDBC Driver for SQL Server |6.2 或更新版本             |
-| 連接字串                 |SQL Server 2008 或更新版本 |
-| Azure SQL Database                   |支援的                |
+| Microsoft SQL Server                 |SQL Server 2008 或更新版本 |
+| Azure SQL Database                   |支援                |
 
 適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器會利用 Microsoft JDBC Driver for SQL Server 在 Spark 背景工作節點與 SQL 資料庫之間移動資料：
  

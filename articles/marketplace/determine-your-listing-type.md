@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 49723a80bb198e8151c7e85a90453183068c9d2b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962828"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825911"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，選取 [發佈選項] 和 [供應專案類型] 會定義使用者與您的 marketplace 供應專案互動的方式。
@@ -31,11 +32,11 @@ ms.locfileid: "70962828"
 
 ## <a name="selecting-a-storefront-publishing-option-and-offer-type-for-your-solution"></a>為您的解決方案選取店面、發佈選項和供應項目類型
 
-選取發佈選項之前，請務必了解市集解決方案、應用程式和服務的店面資格需求：
+在您選取發行選項之前，請務必瞭解 marketplace 解決方案、應用程式和服務的店面資格需求：
 
 **Azure Marketplace**應用程式是針對 Azure 建立或建立的技術「建立區塊」解決方案，適用于 IT 或開發人員。 Azure Marketplace 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Azure。
 
-**AppSource** 應用程式是企業營運解決方案，可以內建於 Azure 或針對下列項目建置：Dynamics 365、Office 365、Power BI 或 Power Apps。 AppSource 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Dynamics 365 和 Power BI。
+**AppSource**應用程式是企業營運解決方案，可以建置於 Azure 或內建： Dynamics 365、Office 365、Power BI 或 Power Apps。 AppSource 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Dynamics 365 和 Power BI。
 
 
 ## <a name="understand-storefront-selection"></a>了解店面選取範圍
@@ -43,18 +44,18 @@ ms.locfileid: "70962828"
 您的供應專案將在其中呈現的店面、Azure Marketplace 和/或 AppSource，將會由您的供應專案詳細資料和目標物件，以及您在建立供應專案時所選取的類別和產業自動決定。 
 
 >[!Note]
->「跨清單」(僅適用於 SaaS App)：當清單型或試用型供應項目符合技術和商務使用者對象的準則時，您的供應項目就會同時列在兩者的店面中。 在下方深入了解發佈選項。
+>「交叉清單」（僅適用于 SaaS 應用程式）：當清單或試用版供應專案符合技術和企業使用者物件的準則時，您的供應專案將會列在這兩個店面。 在下方深入了解發佈選項。
 
 ## <a name="choose-a-publishing-option"></a>選擇發佈選項
 
 可用的發行選項提供不同的客戶參與，同時讓您存取潛在客戶共用和[商業 marketplace 權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)。  請注意與發佈選項對應的呼籲行動：
 
-| **發行選項**    | **描述**  |
+| **發行選項**    | **說明**  |
 | :------------------- | :-------------------|
 | **清單** | 應用程式或服務的簡易清單，可讓市集使用者向您要求透過**與我連絡**呼籲行動，與客戶聯繫。 |
 | **試用版** | 使用 marketplace 來增強探索功能並自動布建解決方案的試用體驗，讓潛在使用者在購買之前，在有限的時間內免費使用您的 SaaS、IaaS 或 Microsoft 應用程式內體驗。 用於試用發佈選項的呼籲行動有：**免費試用**或**試用產品**。 |
 |**BYOL**  |使用 marketplace 來增強探索功能並自動布建您的解決方案，並分別完成財務交易。 BYOL 供應專案類型適用于內部部署至雲端的遷移。 動作的呼叫會**立即取得**。
-| **交易** | 當客戶選取 [**立即取得**] 動作時，您的應用程式會在 azure 上執行，並可將資源直接布建到客戶的 Azure 訂用帳戶中。 您可以透過客戶選擇的付款方式和條款，選擇性地購買軟體並支付授權費用；也可以讓客戶限時存取**免費軟體試用** (僅適用於 Azure Marketplace)。 |
+| **交易** | 當客戶選取 [**立即取得**] 動作時，您的應用程式會在 azure 上執行，並可將資源直接布建到客戶的 Azure 訂用帳戶中。 您的軟體授權費用可以選擇性地透過客戶選擇的付款條件和條款購買並計費，而且您可以選擇提供**免費軟體試用**的限時存取（僅適用于 Azure Marketplace）。 |
 
 >[!Note]
 >當使用交易發佈選項時，請務必了解定價、計費、發票處理和付款考量，然後再選取供應項目類型與建立供應項目。 檢閱[市集計費與商業考量文章以深入了解](./marketplace-commercial-transaction-capabilities-and-considerations.md)。

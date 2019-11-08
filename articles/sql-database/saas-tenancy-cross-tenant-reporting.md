@@ -1,5 +1,5 @@
 ---
-title: 跨多個 Azure SQL 資料庫執行報告查詢
+title: 跨多個資料庫報告查詢
 description: 使用分散式查詢跨租用戶報告。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c863946934df9990c14e49ef1a0a82bbc55b27c6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691897"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822071"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>使用分散式查詢跨租用戶報告
 

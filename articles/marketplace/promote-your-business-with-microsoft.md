@@ -1,19 +1,20 @@
 ---
-title: 升級您的 Microsoft 業務 |Azure Marketplace
+title: 透過 Microsoft 推廣您的業務 |Azure Marketplace
 description: 使用適用於應用程式和服務發行者的 Azure Marketplace 和 AppSource 來推廣您的業務
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0f33402c5ff9f970e2ffebf405178dbc0974690
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937623"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827796"
 ---
 # <a name="promote-your-business-with-microsoft"></a>透過 Microsoft 推廣您的業務 
 

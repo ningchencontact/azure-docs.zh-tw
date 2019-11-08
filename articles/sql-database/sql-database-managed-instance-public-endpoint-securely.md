@@ -1,5 +1,5 @@
 ---
-title: 保護受控實例公用端點-Azure SQL Database 受控實例
+title: 保護受控實例公用端點
 description: 在 Azure 中安全地使用受控實例的公用端點
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d97eb16ee2a8b3203b187dca7b2a17974473098
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687957"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821747"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>以公用端點安全地使用 Azure SQL Database 受控實例
 

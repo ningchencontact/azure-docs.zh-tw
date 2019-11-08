@@ -1,73 +1,74 @@
 ---
-title: 如何購買在 AppSource 上的軟體 |Azure Marketplace
-description: 其中一個來購買軟體在 AppSource 上的步驟 |Azure Marketplace。
+title: 如何在 AppSource 上購買軟體 |Azure Marketplace
+description: 在 AppSource 上購買軟體的步驟 |Azure Marketplace。
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: dd68ac502a92b044e958969cc6a2863b5d197416
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621655"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827739"
 ---
-# <a name="how-to-purchase-software-on-microsoft-appsource"></a>如何購買 Microsoft AppSource 上的軟體
+# <a name="how-to-purchase-software-on-microsoft-appsource"></a>如何在 Microsoft AppSource 上購買軟體
 
-Microsoft [AppSource](https://appsource.microsoft.com/)現在可讓客戶訂閱的 Microsoft 合作夥伴提供的 SaaS 應用程式。 客戶可以尋找存放區認證的 web 應用程式，而且可以管理費用、 升級、 降級，與在單一位置，使用 Microsoft 的系統管理中心的取消作業。 本文說明如何購買的應用程式，從存放區。
+Microsoft [AppSource](https://appsource.microsoft.com/)現在可讓客戶訂閱 microsoft 合作夥伴所提供的 SaaS 應用程式。 客戶可以在商店找到認證的 web 應用程式，並使用 Microsoft 的系統管理中心來管理單一位置的費用、升級、降級和取消。 本文說明如何從商店購買應用程式。
 
 ## <a name="requirements"></a>需求
 
-若要購買 SaaS 供應項目，您需要：
+若要購買 SaaS 供應專案，您需要：
 
 - 工作或學校帳戶。
 
     > [!Note]
-    > 如果您沒有工作或學校帳戶，您需要建立 Azure Active Directory 租用戶可以加入工作或學校帳戶。 若要深入了解，請參閱[快速入門：在 Azure Active Directory 中建立新的租用戶](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)。
+    > 如果您沒有工作或學校帳戶，您需要建立可新增工作或學校帳戶的 Azure Active Directory 租使用者。 若要深入瞭解，請參閱[快速入門：在 Azure Active Directory 中建立新的租](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)使用者。
 
-- 有效的信用卡資訊。
+- 有效的信用卡。
 
     > [!Note]
-    > 信用卡必須屬於 國家/地區中的客戶購買供應項目。 若要選取不同的國家/地區，請選取在頁面底部的 [變更計費國家/地區]。
+    > 信用卡必須屬於客戶購買供應專案的國家/地區。 若要選取不同的國家/地區，請選取頁面底部的 [變更帳單國家/地區]。
 
 ## <a name="steps-for-making-purchases-on-appsource"></a>在 AppSource 上進行購買的步驟
 
-1. 選取您的計費國家/地區[AppSource](https://appsource.microsoft.com/)。
-1. 尋找您想要購買的應用程式。
+1. 在[AppSource](https://appsource.microsoft.com/)上選取您的帳單/國家/地區區域。
+1. 尋找您要購買的應用程式。
 
     > [!Note]
-    > AppSource 提供您的應用程式可供選擇，包括免費試用，和付費訂用帳戶。 這篇文章說明如何付費訂用帳戶可以購買透過 AppSource。
+    > AppSource 提供您選擇的應用程式供您選擇，包括免費、試用和付費訂閱。 本文說明如何透過 AppSource 來購買付費訂閱。
 
-1. 選取 **立即取得**。
+1. 選取 [**立即取得**]。
 1. 選擇方案：
 
-    1. 設定的基座數目
-    1. 設定計費的詞彙。
+    1. 設定基座數目
+    1. 設定計費期限。
     
-1. 輸入您的帳單地址。
+1. 輸入您的帳單位址。
 1. 輸入您的付款方法：
-    * 支援的信用卡：Visa、 Master 信用卡 American Express，探索。
+    * 支援的信用卡：簽證、主要卡片、美國 Express、探索。
     
-1. 選取 **訂購**。
+1. 選取 [**下單**]。
 
-## <a name="how-to-configure-software-post-purchase"></a>如何設定軟體在購買後
+## <a name="how-to-configure-software-post-purchase"></a>如何設定購買後的軟體
 
-在收到訂單之後，可能需要幾秒鐘的時間來確認。 您會收到連結，以設定您的 SaaS 訂用帳戶 頁面上，以及確認購買，並完成設定連結的電子郵件。
+收到訂單之後，可能需要幾秒鐘的時間才能獲得確認。 您會在頁面上收到用來設定 SaaS 訂閱的連結，以及確認購買的電子郵件和完成設定的連結。
 
-1. 在 **訂單**頁面上，選取**設定**。 或者，您可以使用 [Configuration] 連結中的確認電子郵件傳送給您。
-1. 完成佈建及設定軟體提供者的網站上。
+1. 在 [**訂購確認**] 頁面上，選取 [**設定**]。 或者，您可以使用在確認電子郵件中傳送給您的 [設定] 連結。
+1. 完成布建，並在軟體提供者的網站上設定。
 
     > [!Note]
-    > 這個步驟是必要的並可以在任何時間完成。
+    > 此步驟是必要的，而且可以隨時完成。
 
 ## <a name="contact-support"></a>請連絡支援人員
 
-一個可[提交支援票證](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)透過 Microsoft 365 系統管理中心。
+其中一個可以透過 Microsoft 365 系統管理中心[提交支援票證](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)。
 
-適用於商務產品[連絡尋求解答](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone)。
+如需商業產品，請[在這裡聯絡](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone)說明。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[商業 Marketplace 文件](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview)如需詳細資訊。
+- 如需詳細資訊，請參閱[商業 Marketplace 檔](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview)。

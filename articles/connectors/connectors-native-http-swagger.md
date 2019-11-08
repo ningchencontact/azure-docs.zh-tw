@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 663ef16511269dd61a6567d6570f3445b7da6447
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804251"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824809"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 呼叫 REST 端點
 
@@ -23,9 +23,9 @@ ms.locfileid: "72804251"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* Swagger 檔案的 URL，該檔案會描述目標 REST 端點
+* 用於描述目標 REST 端點的 Swagger （非 OpenAPI）檔案的 URL
 
   一般而言，REST 端點必須符合此條件，連接器才能正常執行：
 
@@ -125,7 +125,7 @@ ms.locfileid: "72804251"
 
 1. 現在啟用 blob 的 CORS。 在儲存體帳戶的功能表上，選取 [ **CORS**]。 在 [ **Blob 服務**] 索引標籤上，指定這些值，然後選取 [**儲存**]。
 
-   | 屬性 | Value |
+   | 屬性 | 值 |
    |----------|-------|
    | **允許的來源** | `*` |
    | **允許的方法** | `GET`、`HEAD`, `PUT` |
@@ -148,16 +148,16 @@ ms.locfileid: "72804251"
 
 以下是來自 HTTP + Swagger 觸發程式或動作之輸出的詳細資訊。 HTTP + Swagger 呼叫會傳回下列資訊：
 
-| 屬性名稱 | Type | 描述 |
+| 屬性名稱 | 類型 | 說明 |
 |---------------|------|-------------|
-| 標頭 | object | 要求的標頭 |
-| body | object | JSON 物件 | 具有來自要求之本文內容的物件 |
+| headers | 物件 | 要求的標頭 |
+| body | 物件 | JSON 物件 | 具有來自要求之本文內容的物件 |
 | 狀態碼 | int | 來自要求的狀態碼 |
 |||
 
-| 狀態碼 | 描述 |
+| 狀態碼 | 說明 |
 |-------------|-------------|
-| 200 | 確定 |
+| 200 | OK |
 | 202 | 已接受 |
 | 400 | 不正確的要求 |
 | 401 | 未經授權 |

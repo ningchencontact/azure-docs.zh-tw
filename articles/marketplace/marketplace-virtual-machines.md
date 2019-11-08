@@ -4,15 +4,16 @@ description: 本文說明發佈虛擬機器的需求，以及從 Marketplace 部
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937731"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818983"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>虛擬機器供應項目發佈指南
 
@@ -62,7 +63,7 @@ ms.locfileid: "64937731"
 | Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。 <ul> <li>如需建立 Linux VHD 的詳細資訊，請參閱 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。</li> <li>如需建立 Windows VHD 的詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。</li> </ul> |  
 
 >[!Note]
->雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](./cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
+>雲端解決方案提供者（CSP）合作夥伴頻道加入宣告現已推出。  如需透過 Microsoft CSP 合作夥伴頻道行銷供應專案的詳細資訊，請參閱[雲端解決方案提供者](./cloud-solution-providers.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

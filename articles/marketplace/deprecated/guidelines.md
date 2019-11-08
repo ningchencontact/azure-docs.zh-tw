@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 57eeb9b6ac6eb826e2b371e6ff4dfd71f8cef49c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258980"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825940"
 ---
 # <a name="guidelines"></a>指導方針  
 
@@ -29,7 +30,7 @@ ms.locfileid: "66258980"
 
 >[!IMPORTANT]
 >若要授權多位使用者存取您的 Microsoft 開發人員中心 (Dev Center) 帳戶，Microsoft 建議您使用 Azure Active Directory (Azure AD) 將角色指派給個別使用者。 每位使用者都必須使用個別 Azure AD 認證進行登入，以存取該帳戶。 請使用註冊至貴公司網域中的電子郵件地址，來建立您的 Microsoft ID；Microsoft 建議不要將電子郵件指派給個人。 例如 `windowsapps@fabrikam.com`。  
->*   如需詳細資訊，請瀏覽[問題：在 Azure AD 中的 Microsoft ID 同盟網域](#issue-microsoft-id-in-an-azure-ad-federated-domain)一節。  
+>*   如需詳細資訊，請造訪[問題：Azure AD 同盟網域中的 Microsoft ID](#issue-microsoft-id-in-an-azure-ad-federated-domain) 一節。  
 
 *   請盡可能只讓最少數的開發人員能夠存取 Microsoft ID。 
 *   設定公司電子郵件通訊群組清單 (DL)，其中包含每一位必須存取您開發人員中心帳戶的使用者。 將 DL 電子郵件地址新增至您的安全性資訊。 DL 可讓清單上的所有員工在要求時接收安全碼，以及管理您 Microsoft ID 的安全性資訊。 如果設定通訊群組清單不可行，則個人電子郵件帳戶的擁有者必須能在出現提示時，存取及共用安全碼。  
@@ -45,7 +46,7 @@ ms.locfileid: "66258980"
 
 ---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>問題：在 Azure AD 同盟網域中的 Microsoft ID  
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>問題：Azure AD 同盟網域中的 Microsoft ID  
 貴公司帳戶可透過 Azure Active Directory (Azure AD) 進行同盟。 如果您嘗試使用與 Azure AD 同盟的公司電子郵件地址來建立 Microsoft ID，則會收到錯誤訊息。 如果您收到錯誤訊息，請洽詢您的 IT 團隊，以確認您的帳戶是否透過 Azure AD 同盟。 Azure AD 同盟的電子郵件是已知的問題，Microsoft 已著手進行解決。  
 *   如需有關 Azure AD 的詳細資訊，請瀏覽 [Azure Active Directory 文件] 頁面：[docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)。
 
@@ -68,6 +69,6 @@ Microsoft 建議的因應措施。 請遵循下列步驟，在 `outlook.com` 網
 
 ## <a name="next-steps"></a>後續步驟
 
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)網頁。 
+*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)頁面。 
  
 ---

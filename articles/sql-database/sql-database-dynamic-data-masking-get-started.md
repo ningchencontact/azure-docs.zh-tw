@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database 和資料倉儲的動態資料遮罩
+title: 動態資料遮罩
 description: 動態資料遮罩會對 SQL Database 和資料倉儲的非特殊許可權使用者遮罩敏感性資料，以限制其曝光
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: dc0eab6aa45a943841d19a3aec2eddf4ab22d75d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2ff2dfe6384acc8a56558e6e7ba0fc5cc05f7783
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690552"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819978"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 和資料倉儲的動態資料遮罩
 
