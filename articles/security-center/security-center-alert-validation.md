@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d3ea0adb4adf88e557ca360799836555cb90078e
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520934"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748456"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Azure 資訊安全中心中的警示驗證（EICAR 測試檔案）
 這份文件可協助您了解如何驗證您的系統是否已針對 Azure 資訊安全中心警示正確設定。
@@ -33,7 +33,7 @@ ms.locfileid: "73520934"
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## 驗證 Windows VM 上的警示<a name="validate-windows"></a>
+## 驗證 Windows Vm 上的警示<a name="validate-windows"></a>
 
 在電腦上安裝資訊安全中心代理程式之後，請從您想要成為警示受攻擊資源的電腦執行下列步驟：
 
@@ -46,7 +46,7 @@ ms.locfileid: "73520934"
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## 驗證 Linux VM 上的警示<a name="validate-linux"></a>
+## 驗證 Linux Vm 上的警示<a name="validate-linux"></a>
 
 在電腦上安裝資訊安全中心代理程式之後，請從您想要成為警示受攻擊資源的電腦執行下列步驟：
 1. 將可執行檔案複製到方便存取的位置，並將它重新命名為 **./asc_alerttest_662jfi039n**，例如：

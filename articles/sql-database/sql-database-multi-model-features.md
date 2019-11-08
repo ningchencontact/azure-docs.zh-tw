@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 0d59db65e940cab12dccaeeacc9083eb7fbba20e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687722"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795756"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -29,7 +29,7 @@ Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般�
 - 您有一些較適合 NoSQL 模型的資訊或結構，而且您不想要使用個別的 NoSQL 資料庫。
 - 大部分的資料都適用于關聯式模型，而您需要以 NoSQL 樣式為數據的某些部分建立模型。
 - 您想要利用豐富的 Transact-sql 語言來查詢和分析關聯式和 NoSQL 資料，並將其與可使用 SQL 語言的各種工具和應用程式整合。
-- 您想要套用如[記憶體內部技術](sql-database-in-memory.md)的資料庫功能，以改善 NoSQL 資料 strucutres 的分析或處理效能，請使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取的複本](sql-database-read-scale-out.md)來建立資料的複本另一個地方，然後從主資料庫卸載一些分析工作負載。
+- 您想要套用如[記憶體內部技術](sql-database-in-memory.md)的資料庫功能，以改善 NoSQL 資料結構的分析或處理效能，請使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取的複本](sql-database-read-scale-out.md)來建立資料的複本。另一個地方，然後從主資料庫卸載一些分析工作負載。
 
 ## <a name="overview"></a>概觀
 
@@ -38,7 +38,7 @@ Azure SQL 提供下列多模型功能：
 - [JSON 功能](#json-features)可讓您將 JSON 文件放在資料表、將關聯式資料轉換為 JSON 文件，反之亦然。 您可以使用以 JSON 函式增強的標準 Transact-SQL 語言來剖析文件，並使用非叢集式索引、資料行存放區索引或記憶體最佳化的資料表，將查詢最佳化。
 - [空間功能](#spatial-features)可讓您儲存地理和幾何資料、使用空間索引來編製其索引，以及使用空間查詢來擷取資料。
 - [XML 功能](#xml-features)可讓您在資料庫中儲存 XML 資料及編製其索引，並使用原生 XQuery/XPath 作業來處理 XML 資料。 Azure SQL 資料庫有專門處理 XML 資料的內建 XML 查詢引擎。
-- [索引鍵/值組](#key-value-pairs)並未明確獲得支援，因為可以原生方式將索引鍵/值組模型化為雙資料行的資料表。
+- 索引[鍵/值](#key-value-pairs)組不會明確支援做為特殊特徵，因為索引鍵/值組可以原生模式化為兩個數據行的資料表。
 
   > [!Note]
   > 您可以在相同的 Transact-SQL 查詢中使用 JSON 路徑運算式、XQuery/XPath 運算式、空間函式和圖形查詢運算式，以存取您儲存在資料庫中的任何資料。 此外，任何執行 Transact-SQL 查詢的工具或程式設計語言，也可以使用該查詢介面來存取多模型資料。 相較於多模型資料庫 (例如可針對不同資料模型提供特製化 API 的 [Azure Cosmos DB](/azure/cosmos-db/))，這是主要差異。
@@ -68,7 +68,7 @@ Azure SQL Database 會提供圖形資料庫功能，以將資料庫中的多對�
 
 Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](https://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。
 
-JSON 是一種用於在新式的 Web 與行動應用程式中交換資料的常用資料格式。 JSON 也用於將半結構化的資料儲存在記錄檔或 NoSQL 資料庫 (例如 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)) 中。 許多 REST Web 服務都會傳回採用 JSON 文字格式的結果，或是接受採用 JSON 格式的資料。 大多數 Azure 服務 (例如 [Azure 搜尋服務](https://azure.microsoft.com/services/search/)、[Azure 儲存體](https://azure.microsoft.com/services/storage/)、[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)) 都有會傳回或取用 JSON 的 REST 端點。
+JSON 是一種用於在新式的 Web 與行動應用程式中交換資料的常用資料格式。 JSON 也用於將半結構化的資料儲存在記錄檔或 NoSQL 資料庫 (例如 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)) 中。 許多 REST Web 服務都會傳回採用 JSON 文字格式的結果，或是接受採用 JSON 格式的資料。 大部分的 Azure 服務（例如[Azure 認知搜尋](https://azure.microsoft.com/services/search/)、 [Azure 儲存體](https://azure.microsoft.com/services/storage/)和[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ）都會有傳回或取用 JSON 的 REST 端點。
 
 Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式服務整合。 Azure SQL Database 提供下列可與 JSON 資料搭配使用的函數：
 

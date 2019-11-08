@@ -1,5 +1,5 @@
 ---
-title: 針對 Microsoft 對等互連設定路由篩選 - ExpressRoute：PowerShell：Azure | Microsoft Docs
+title: 設定 Microsoft 對等互連的路由篩選-ExpressRoute： PowerShell： Azure |Microsoft Docs
 description: 本文說明如何使用 PowerShell 針對 Microsoft 對等互連設定路由篩選
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: c5a5ca4949ca223e9123d59c9578a2628dacd351
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 7a830b01bb66f807972b642ad46d54d124d16d8d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123412"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748136"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>針對 Microsoft 對等互連設定路由篩選：PowerShell
 > [!div class="op_single_selector"]
@@ -36,14 +36,14 @@ Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skyp
 
 ### <a name="about"></a>關於路由篩選
 
-當 Microsoft 對等互連在 ExpressRoute 線路上設定時，Microsoft 邊緣路由器會建立一組 BGP 工作階段與邊緣路由器 (您或您的連線提供者)。 沒有路由會公告至您的網路。 若要讓路由公告至您的網路，您必須建立與路由篩選的關聯。
+當您的 ExpressRoute 線路上設定 Microsoft 對等互連時，Microsoft 網路邊緣路由器會建立一組 BGP 會話與邊緣路由器（您或您的連線提供者）。 沒有路由會公告至您的網路。 若要讓路由公告至您的網路，您必須建立與路由篩選的關聯。
 
-路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是 BGP 社群值的允許清單。 一旦定義路由篩選資源，並且連結至 ExpressRoute 線路，對應到 BGP 社群值的所有前置詞都會公告至您的網路。
+路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 基本上，它是所有 BGP 社區值的允許清單。 一旦定義路由篩選資源，並且連結至 ExpressRoute 線路，對應到 BGP 社群值的所有前置詞都會公告至您的網路。
 
 您必須具有透過 ExpressRoute 使用 Office 365 服務的授權，才能在上面連結路由篩選與 Office 365 服務。 如果您未獲授權透過 ExpressRoute 使用 Office 365 服務，連結路由篩選的作業會失敗。 如需授權程序的詳細資訊，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連會透過 Microsoft 對等互連公告所有服務前置詞，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。
 > 
 > 
 
@@ -75,7 +75,7 @@ Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skyp
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -103,14 +103,14 @@ Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
 ## <a name="prefixes"></a>步驟 1：取得前置詞和 BGP 社群值的清單
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1.取得 BGP 社群值的清單
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. 取得 BGP 社區值的清單
 
 使用下列 Cmdlet 來取得與可透過 Microsoft 對等互連存取之服務相關聯的 BGP 社群值清單，以及與其相關聯的前置詞清單：
 
 ```azurepowershell-interactive
 Get-AzBgpServiceCommunity
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2.製作您想要使用的值清單
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. 建立您想要使用的值清單
 
 製作您想要在路由篩選中使用的 BGP 社群值清單。
 
@@ -118,7 +118,7 @@ Get-AzBgpServiceCommunity
 
 路由篩選只能有一個規則，且規則的類型必須是 'Allow'。 此規則可以具有與其相關聯的 BGP 社群值清單。
 
-### <a name="1-create-a-route-filter"></a>1.建立路由篩選
+### <a name="1-create-a-route-filter"></a>1. 建立路由篩選
 
 首先，建立路由篩選。 ' AzRouteFilter ' 命令只會建立路由篩選資源。 建立資源之後，您必須建立規則，然後將它附加到路由篩選物件。 執行下列命令以建立路由篩選資源：
 
@@ -126,7 +126,7 @@ Get-AzBgpServiceCommunity
 New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
-### <a name="2-create-a-filter-rule"></a>2.建立篩選規則
+### <a name="2-create-a-filter-rule"></a>2. 建立篩選規則
 
 您可以使用以逗號分隔的清單格式，指定一組 BGP 社群，如範例所示。 執行下列命令以建立新規則：
  
@@ -134,7 +134,7 @@ New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Lo
 $rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList 12076:5010,12076:5040
 ```
 
-### <a name="3-add-the-rule-to-the-route-filter"></a>3.將規則新增至路由篩選
+### <a name="3-add-the-rule-to-the-route-filter"></a>3. 將規則新增至路由篩選
 
 執行下列命令以將篩選規則新增至路由篩選：
  
@@ -144,7 +144,7 @@ $routefilter.Rules.Add($rule)
 Set-AzRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>步驟 3：將路由篩選連結至 ExpressRoute 線路
+## <a name="attach"></a>步驟 3：將路由篩選連接到 ExpressRoute 線路
 
 若您只有 Microsoft 對等互連，請執行下列命令，將路由器篩選附加在 ExpressRoute 線路上：
 

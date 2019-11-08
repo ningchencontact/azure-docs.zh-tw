@@ -1,7 +1,7 @@
 ---
 title: 語言支援-電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 電腦視覺功能所支援的自然語言清單。
+description: 本文提供電腦視覺功能所支援的自然語言清單;OCR，辨識文字並讀取。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 516d21bc69bbc20f924a3bdf39eda7245fc08a28
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882974"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718605"
 ---
 # <a name="language-support-for-computer-vision"></a>電腦視覺的語言支援
 
@@ -23,19 +23,19 @@ ms.locfileid: "68882974"
 
 ## <a name="text-recognition"></a>文字辨識
 
-電腦視覺可以辨識許多語言的文字。 具體而言, [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API 支援多種語言, 而[讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)api 和[辨識文字](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)api 則僅支援英文。 如需這項功能的詳細資訊和每個 API 的優點, 請參閱[辨識印刷和手寫文字](concept-recognizing-text.md)。
+電腦視覺可以辨識許多語言的文字。 具體而言， [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API 支援多種語言，而[讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)api 和[辨識文字](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)api 則僅支援英文。 如需這項功能的詳細資訊和每個 API 的優點，請參閱[辨識印刷和手寫文字](concept-recognizing-text.md)。
 
-OCR 會自動偵測輸入材質的語言, 因此不需要在 API 呼叫中指定語言代碼。 不過, 語言代碼一律會傳回為 JSON 回應中的`"language"`節點值。
+OCR 會自動偵測輸入材質的語言，因此不需要在 API 呼叫中指定語言代碼。 不過，語言代碼一律會傳回為 JSON 回應中 `"language"` 節點的值。
 
 |語言| 語言代碼 | OCR API |
 |:-----|:----:|:-----:|
 |阿拉伯文 | `ar`|✔ |
-|簡體中文 | `zh-Hans`|✔ |
-|繁體中文 | `zh-Hant`|✔ |
+|中文 (簡體) | `zh-Hans`|✔ |
+|中文 (繁體) | `zh-Hant`|✔ |
 |捷克文 | `cs` |✔ |
 |丹麥文 | `da` |✔ |
 |荷蘭文 | `nl` |✔ |
-|英文 | `en` |✔ |
+|English | `en` |✔ |
 |芬蘭文 | `fi` |✔ |
 |法文 | `fr` |✔ |
 |德文 | `de` |✔ |
@@ -58,12 +58,12 @@ OCR 會自動偵測輸入材質的語言, 因此不需要在 API 呼叫中指定
 
 ## <a name="image-analysis"></a>影像分析
 
-[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)API 的某些動作可以傳回其他語言的結果, 並`language`以查詢參數指定。 無論指定何種語言, 其他動作都會傳回英文的結果, 而其他動作則會擲回不支援語言的例外狀況。 動作是使用`visualFeatures`和`details`查詢參數所指定; 請參閱[總覽](home.md), 以取得您可以使用影像分析執行的所有動作清單。
+[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)API 的某些動作可能會以 `language` 查詢參數所指定的其他語言傳回結果。 無論指定何種語言，其他動作都會傳回英文的結果，而其他動作則會擲回不支援語言的例外狀況。 動作是使用 `visualFeatures` 和 `details` 查詢參數所指定。請參閱[總覽](home.md)，以取得您可以使用影像分析執行的所有動作清單。
 
-|語言 | 語言代碼 | Categories | Tags | 描述 | 成人 | 品牌 | 色彩 | 臉部 | ImageType | 物件 | 名人 | 特徵點 |
+|語言 | 語言代碼 | 類別 | 標記 | 說明 | 成人 | 品牌 | 色彩 | 臉部 | ImageType | 物件 | 名人 | 特徵點 |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |中文 | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|英文 | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
+|English | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
 |日文 | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |葡萄牙文 | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |西班牙文 | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
@@ -72,5 +72,5 @@ OCR 會自動偵測輸入材質的語言, 因此不需要在 API 呼叫中指定
 
 開始使用本指南中所述的電腦視覺功能。
 
-* [分析本機影像 (REST)](./quickstarts/csharp-analyze.md)
-* [解壓縮列印的文字 (REST)](./quickstarts/csharp-print-text.md)
+* [分析本機影像（REST）](./quickstarts/csharp-analyze.md)
+* [解壓縮列印的文字（REST）](./quickstarts/csharp-print-text.md)

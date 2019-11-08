@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 11/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1e4fe4c06833302ac3ef9794981ee4a47fa454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177023"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747764"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -75,12 +75,12 @@ ms.locfileid: "73177023"
 
 > [!IMPORTANT]
 > 對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如：
-
-* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑，驗證系統管理員可以假設應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步假設特殊許可權應用程式的識別。
-* Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
-* 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
-* Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
-* 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
+>
+>- 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑，驗證系統管理員可以假設應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步假設特殊許可權應用程式的識別。
+>- Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
+>- 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
+>- Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
+>- 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
 ### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps 系統管理員](#azure-devops-administrator-permissions)
 
@@ -139,7 +139,7 @@ ms.locfileid: "73177023"
 [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
 [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求<br><br>此角色具有與 Office 365 安全性 & 合規性中心角色型存取控制中的[相容性系統管理員 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同的許可權。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視所有的 Intune 稽核資料
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br> 可檢視 [資料管理] 下的所有內建報告
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br>可檢視 [資料管理] 下的所有內建報告
 
 ### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[合規性資料管理員](#compliance-data-administrator-permissions)
 
@@ -151,7 +151,7 @@ ms.locfileid: "73177023"
 [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
 [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求<br><br>此角色具有與 Office 365 安全性 & 合規性中心角色型存取控制中的[相容性資料管理員 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同的許可權。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視所有的 Intune 稽核資料
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br> 可檢視 [資料管理] 下的所有內建報告
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br>可檢視 [資料管理] 下的所有內建報告
 
 ### <a name="conditional-access-administratorconditional-access-administrator-permissions"></a>[條件式存取系統管理員](#conditional-access-administrator-permissions)
 
@@ -170,7 +170,7 @@ ms.locfileid: "73177023"
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[裝置系統管理員](#device-administrators-permissions)
 
-此角色僅供指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
+此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[目錄讀取器](#directory-readers-permissions)
 
@@ -185,7 +185,7 @@ ms.locfileid: "73177023"
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[目錄寫入器](#directory-writers-permissions)
 
-這是舊版角色，可指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的應用程式。 不應將它指派給任何使用者。
+這是舊版角色，用來指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的應用程式。 不應將它指派給任何使用者。
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Dynamics 365 管理員/CRM 管理員](#crm-service-administrator-permissions)
 
@@ -224,14 +224,14 @@ ms.locfileid: "73177023"
 > [!NOTE]
 > 全域讀取者角色現在有幾個限制：
 >
->* SharePoint 系統管理中心-SharePoint 系統管理中心不支援全域讀取者角色。 在左窗格中，您不會在[Microsoft 365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)的 [系統管理中心] 下看到 [SharePoint]。
->* [Onedrive 系統管理中心](https://admin.onedrive.com/)-onedrive 系統管理中心不支援全域讀取者角色。
->* [Azure AD 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)-全域讀取器無法讀取企業應用程式的布建模式。
->* [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
->* [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
->* [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
->* [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
->* [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)-全域讀取器僅支援[集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，以及當您的租使用者不在[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上時。
+>- SharePoint 系統管理中心-SharePoint 系統管理中心不支援全域讀取者角色。 在左窗格中，您不會在[Microsoft 365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)的 [系統管理中心] 下看到 [SharePoint]。
+>- [Onedrive 系統管理中心](https://admin.onedrive.com/)-onedrive 系統管理中心不支援全域讀取者角色。
+>- [Azure AD 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)-全域讀取器無法讀取企業應用程式的布建模式。
+>- [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
+>- [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
+>- [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
+>- [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
+>- [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)-全域讀取器僅支援[集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，而當您的 Azure AD 組織不在[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上時。
 >
 > 這些功能目前正在開發中。
 >
@@ -242,7 +242,7 @@ ms.locfileid: "73177023"
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[來賓邀請者](#guest-inviter-permissions)
 
-當 [**成員可以邀請**] 使用者設定設為 [否] 時，此角色中的使用者可以管理 Azure Active Directory B2B 來賓使用者邀請。 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
+當 [成員可邀請] 使用者設定為 [否] 時，此角色中的使用者可以管理 Azure Active Directory B2B 來賓使用者的邀請 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[技術服務管理員](#helpdesk-administrator-permissions)
 
@@ -256,17 +256,16 @@ ms.locfileid: "73177023"
 
 > [!IMPORTANT]
 > 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如：
-
-* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與技術支援中心系統管理員。 技術支援中心系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
-* Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
-* 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
-* Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
-* 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
-
-> [!NOTE]
-> 將系統管理許可權委派給使用者子集，並將原則套用到使用者子集，可以使用[管理單位（預覽）](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)。
 >
-> 此角色先前在[Azure 入口網站](https://portal.azure.com/)中稱為「密碼管理員」。 我們已將其名稱變更為「技術服務管理員」，以符合其在 Azure AD PowerShell 中的名稱，Azure AD 圖形 API 和 Microsoft Graph API。
+>- 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與技術支援中心系統管理員。 技術支援中心系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
+>- Azure 訂用帳戶擁有者，他們可以存取機密或私人資訊，或 Azure 中的重要設定。
+>- 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
+>- Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
+>- 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
+
+將系統管理許可權委派給使用者子集，並將原則套用到使用者子集，可以使用[管理單位（現在處於公開預覽狀態）](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)。
+
+此角色先前在[Azure 入口網站](https://portal.azure.com/)中稱為「密碼管理員」。 Azure AD 中的「技術服務管理員」名稱現在符合其在 Azure AD PowerShell 中的名稱，Azure AD 圖形 API 和 Microsoft Graph API。
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune 系統管理員](#intune-service-administrator-permissions)
 
@@ -289,7 +288,7 @@ ms.locfileid: "73177023"
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[訊息中心讀者](#message-center-reader-permissions)
 
-此角色中的使用者可以在已設定的服務（例如 Exchange、Intune 和 Microsoft 小組）上，監視[Office 365 訊息中心](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)內的通知和諮詢健康情況更新。 訊息中心讀者每週會收到貼文的電子郵件摘要和更新，並且可以在 Office 365 中分享訊息中心的貼文。 在 Azure AD 中，指派至此角色的使用者只會有 Azure AD 服務的唯讀存取權，與使用者和群組一樣。 這個角色沒有檢視、建立或管理支援票證的存取權。
+此角色中的使用者可以在 [Office 365 訊息中心](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)內，為他們的組織監視所設服務 (例如 Exchange、Intune 和 Microsoft Teams) 的通知和諮詢健康情況更新。 訊息中心讀者每週會收到貼文的電子郵件摘要和更新，並且可以在 Office 365 中分享訊息中心的貼文。 在 Azure AD 中，指派至此角色的使用者只會有 Azure AD 服務的唯讀存取權，與使用者和群組一樣。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
 ### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Office 應用程式系統管理員](#office-apps-administrator-permissions)
 
@@ -440,12 +439,12 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 > [!IMPORTANT]
 > 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如：
-
-* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與使用者系統管理員。 使用者系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
-* Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
-* 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
-* Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
-* 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
+>
+>- 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與使用者系統管理員。 使用者系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
+>- Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
+>- 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
+>- Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
+>- 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
 ## <a name="role-permissions"></a>角色權限
 

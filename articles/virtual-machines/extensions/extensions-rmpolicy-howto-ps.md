@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: e096982c7bbf4f06b96ef4e3918ca1caa9d481a0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169077"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750017"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure 原則來限制 Windows VM 上的延伸模組安裝
 
@@ -26,7 +26,7 @@ ms.locfileid: "71169077"
 
 本教學課程會使用 Cloud Shell 內的 Azure PowerShell，這會不斷更新至最新版本。 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-rules-file"></a>建立規則檔
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>測試原則
 
-若要測試原則，請嘗試使用「VM 存取」延伸模組。 以下範例應該會失敗並出現「Set-AzVMAccessExtension：原則不允許資源 'myVMAccess'」訊息。
+若要測試原則，請嘗試使用「VM 存取」延伸模組。 下列情況應該會失敗，並出現「原則不允許資源 ' Set-azvmaccessextension： Resource ' Myvmaccess」訊息 '」訊息。
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

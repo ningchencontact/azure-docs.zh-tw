@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102286"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749141"
 ---
 # <a name="create-a-snapshot"></a>建立快照集
 
@@ -37,13 +37,13 @@ ms.locfileid: "70102286"
 6. 選取 Azure 資料中心的 [位置]。  
 7. 在 [來源磁碟] 中，選取要建立快照集的受控磁碟。
 8. 選取用來儲存快照集的 [帳戶類型]。 除非需要將快照集存放在高效能磁碟上，否則選取 [Standard_HDD]。
-9. 選取 [建立]。
+9. 選取 [ **建立**]。
 
 ## <a name="use-powershell"></a>使用 PowerShell
 
 下列步驟示範如何複製 VHD 磁碟、建立快照集組態，以及使用 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet 建立磁碟的快照集。 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. 設定一些參數： 
 

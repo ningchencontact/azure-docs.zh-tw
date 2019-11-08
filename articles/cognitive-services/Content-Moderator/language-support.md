@@ -1,7 +1,7 @@
 ---
 title: 語言支援 - 內容仲裁 API
 titleSuffix: Azure Cognitive Services
-description: 這是內容仲裁 API 支援的自然語言清單。
+description: 這是 Azure 認知服務內容仲裁 API 支援的自然語言清單。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: b4e6a5ca2dc19671dab3087c0a182925ac8f9a1b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755326"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744374"
 ---
 # <a name="language-support-for-content-moderator-api"></a>內容仲裁 API 的語言支援
 
@@ -30,10 +30,10 @@ ms.locfileid: "72755326"
 | 阿拉伯文 (羅馬拼音)   | 南非荷蘭文   | 阿拉伯文   | 阿拉伯文 |
 | 峇里文 | 阿爾巴尼亞文 | 中文 (簡體)    | 丹麥文 |
 | 孟加拉文 | 阿姆哈拉文 | 中文 (繁體)     | 荷蘭文 |
-| 布吉斯文 | 阿拉伯文 | 捷克文                     | 繁體中文 |
+| 布吉斯文 | 阿拉伯文 | 捷克文                     | English |
 | 布錫文 | 亞美尼亞文 | 丹麥文                     | 芬蘭文 |
 | 卡里亞文 | 阿薩姆文 | 荷蘭文                     | 法文 |
-| 中文 (簡體) | 亞塞拜然文 | 繁體中文  | 希臘文 (現代) |
+| 中文 (簡體) | 亞塞拜然文 | English  | 希臘文 (現代) |
 | 中文 (繁體) | 孟加拉文 - 孟加拉 | 芬蘭文  | 義大利文 |
 | 教會 (斯拉夫文) | 孟加拉文 - 印度 | 法文     | 韓文 |
 | 科普特文 | 巴斯克文 | 德文                      | 挪威文 |
@@ -53,7 +53,7 @@ ms.locfileid: "72755326"
 | 義大利文 | 丹麥文 | 西班牙文 | |
 | 日文 | 達利文 | 瑞典文 | |
 | 韓文 | 荷蘭文 | 土耳其文 | |
-| 庫德文 (阿拉伯文) | 繁體中文 | | |
+| 庫德文 (阿拉伯文) | English | | |
 | 庫德文 (拉丁) | 愛沙尼亞文 | | |
 | 雷布查文 | 菲律賓文 | | |
 | 林布文 | 芬蘭文 | | |

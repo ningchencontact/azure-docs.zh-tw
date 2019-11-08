@@ -6,6 +6,7 @@ documentationcenter: na
 author: v-miegge
 manager: dcscontentpm
 editor: ''
+tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 0898a65323957cbab4c2ab5278e9970cf0c16a90
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219231"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796244"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>針對虛擬網路對等互連問題進行疑難排解
 
@@ -66,11 +67,11 @@ ms.locfileid: "71219231"
 
 ### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>適用于站對站連線或 ExpressRoute 連線
 
-請遵循中的步驟進行：[為虛擬網路對等互連設定 VPN 閘道傳輸](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)。
+遵循：[設定虛擬網路對等互連的 VPN 閘道傳輸](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)中的步驟。
 
 ### <a name="for-point-to-site-connections"></a>針對點對站連線
 
-1. 請遵循中的步驟進行：[為虛擬網路對等互連設定 VPN 閘道傳輸](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)。
+1. 遵循：[設定虛擬網路對等互連的 VPN 閘道傳輸](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)中的步驟。
 2. 建立或變更虛擬網路對等互連之後，請下載並重新安裝點對站套件，讓點對站用戶端取得已更新的輪輻虛擬網路路由。
 
 ## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>設定與中樞輪輻拓朴虛擬網路的虛擬網路對等互連
@@ -126,7 +127,7 @@ ms.locfileid: "71219231"
    1. 在目的地 VM 上啟動網路追蹤。 針對 Windows，您可以使用**Netsh**。 針對 Linux，請使用**TCPDump**。
    2. 從來源執行**TcpPing**或**PSPING**至目的地 IP。
 
-      這是**TcpPing**命令的範例：`tcping64.exe -t <destination VM address> 3389`
+      這是**TcpPing**命令的範例： `tcping64.exe -t <destination VM address> 3389`
 
    3. **TcpPing**完成之後，請停止目的地上的網路追蹤。
    4. 如果封包抵達來源，就不會有網路問題。 檢查 VM 防火牆和接聽該埠的應用程式，找出設定問題。
@@ -215,18 +216,18 @@ ms.locfileid: "71219231"
 1. 在 web 應用程式中，選取 [**網路**]，然後選取 [ **VNet 整合**]。
 1. 檢查是否可以看到遠端虛擬網路。 手動輸入遠端虛擬網路位址空間（[**同步網路**] 和 [**新增路由**]）。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 * [將您的應用程式與 Azure 虛擬網路整合](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [關於點對站 VPN 路由](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>針對虛擬網路對等互連設定錯誤訊息進行疑難排解 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>目前的`<TENANT ID>`租使用者未獲授權，無法存取連結的訂用帳戶
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>目前的租使用者 `<TENANT ID>` 未獲授權存取連結的訂用帳戶
 
 若要解決此問題，請參閱[建立對等互連-Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)。
 
-### <a name="not-connected"></a>未連線
+### <a name="not-connected"></a>Not connected
 
 若要解決此問題，請刪除這兩個虛擬網路的對等互連，然後重新建立它們。
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 備份的安全性控制項
-description: 評估 Azure 備份的安全性控制檢查清單
+description: 瞭解 Azure 備份服務中使用的安全性控制項。 這些控制項可協助服務預防、偵測及回應安全性弱點。
 ms.reviewer: mbaldwin
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8170022a3ee4b4b65e8da0d9e5a2f8464675d08f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 9d7bb2e9ea2d2cf9cce6c4f6d3b4f3346e7ce363
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528103"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747158"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure 備份的安全性控制項
 
@@ -23,7 +23,7 @@ ms.locfileid: "72528103"
 
 ## <a name="network"></a>網路
 
-| 安全性控制 | 是/否 | 注意 | 文件
+| 安全性控制 | 是/否 | 注意事項 | 文件
 |---|---|--|
 | 服務端點支援| 否 |  |  |
 | VNet 插入支援| 否 |  |  |
@@ -32,7 +32,7 @@ ms.locfileid: "72528103"
 
 ## <a name="monitoring--logging"></a>監視 & 記錄
 
-| 安全性控制 | 是/否 | 注意| | 文件
+| 安全性控制 | 是/否 | 注意事項| | 文件
 |---|---|--|
 | Azure 監視支援（Log analytics、App insights 等）| 是 | Log Analytics 可透過資源記錄來支援。 如需詳細資訊，請參閱[使用 Log Analytics 監視 Azure 備份受保護的工作負載](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)。 |  |
 | 控制和管理平面記錄和審核| 是 | Azure 入口網站中所有由客戶觸發的動作都會都記錄到活動記錄。 |  |
@@ -40,14 +40,14 @@ ms.locfileid: "72528103"
 
 ## <a name="identity"></a>身分識別
 
-| 安全性控制 | 是/否 | 注意| | 文件
+| 安全性控制 | 是/否 | 注意事項| | 文件
 |---|---|--|
-| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |  |
-| Authorization| 是 | 會使用建立客戶和內建的 RBAC 角色。 如需詳細資訊，請參閱[使用以角色為基礎的存取控制來管理 Azure 備份復原點](/azure/backup/backup-rbac-rs-vault)。 |  |
+| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |  |
+| 授權| 是 | 會使用建立客戶和內建的 RBAC 角色。 如需詳細資訊，請參閱[使用以角色為基礎的存取控制來管理 Azure 備份復原點](/azure/backup/backup-rbac-rs-vault)。 |  |
 
 ## <a name="data-protection"></a>資料保護
 
-| 安全性控制 | 是/否 | 注意 | | 文件
+| 安全性控制 | 是/否 | 注意事項 | | 文件
 |---|---|--|
 | 待用的伺服器端加密： Microsoft 管理的金鑰 | 是 | 對儲存體帳戶使用儲存體服務加密。 |  |
 | 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 否 |  |  |
@@ -57,7 +57,7 @@ ms.locfileid: "72528103"
 
 ## <a name="configuration-management"></a>設定管理
 
-| 安全性控制 | 是/否 | 注意| | 文件
+| 安全性控制 | 是/否 | 注意事項| | 文件
 |---|---|--|
 | 設定管理支援（設定的版本設定等）| 是|  |  |
 

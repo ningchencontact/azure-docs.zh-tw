@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 備份伺服器，將工作負載備份至 Azure
-description: 使用 Azure 備份伺服器來保護工作負載，或備份至 Azure 入口網站。
+description: 在本文中，您將瞭解如何準備您的環境，以使用 Microsoft Azure 備份 Server （MABS）來保護和備份工作負載。
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,22 +8,23 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982844"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747433"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 
 > [!div class="op_single_selector"]
+>
 > * [Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
 >
 
-> 適用於：MABS v3。 （不再支援 MABS v2。 如果您使用的版本早于 MABS v3，請升級至最新版本。）
+> 適用于： MABS v3。 （不再支援 MABS v2。 如果您使用的版本早于 MABS v3，請升級至最新版本。）
 
 本文說明如何準備環境，以使用 Microsoft Azure 備份伺服器 (MABS) 來備份工作負載。 透過 Azure 備份伺服器，您將可從單一主控台保護 Hyper-V VM、Microsoft SQL Server、SharePoint Server、Microsoft Exchange 和 Windows 用戶端等應用程式工作負載。
 
@@ -35,7 +36,7 @@ ms.locfileid: "71982844"
 部署在 Azure VM 中的 MABS 可以在 Azure 中備份 Vm，但它們必須位於相同的網域中，才能啟用備份作業。 備份 Azure VM 的程式與備份內部部署 Vm 的程式相同，但在 Azure 中部署 MABS 有一些限制。 如需有關限制的詳細資訊，請參閱[DPM 做為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
+> Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
 >
 >
 
@@ -47,7 +48,7 @@ Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的大部分工作�
 
 ### <a name="using-a-server-in-azure"></a>使用 Azure 中的伺服器
 
-選擇要執行 Azure 備份伺服器的伺服器時，建議您從 Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的圖庫映射開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰具有四個核心和 8 GB RAM 的 Standard_A4_v2。
+選擇要執行 Azure 備份伺服器的伺服器時，建議您從 Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的圖庫映射開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器（VM）的建議最低需求應該是： Standard_A4_v2 具有四個核心和 8 GB 的 RAM。
 
 使用 Azure 備份伺服器保護工作負載有許多細節需要注意。 [將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/jj852163.aspx)一文可協助說明這些細節。 在部署機器之前，請先確實閱讀此文章。
 
@@ -60,16 +61,16 @@ Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的大部分工作�
 | Windows Server 2019 |64 位元 |Standard、Datacenter、Essentials |
 | Windows Server 2016 和最新的 SP |64 位元 |Standard、Datacenter、Essentials  |
 
-
 您可以使用 Windows Server Deduplication 為 DPM 儲存體刪除重複資料。 深入了解在 Hyper-V VM 中部署時， [DPM 和重複資料刪除](https://technet.microsoft.com/library/dn891438.aspx) 如何搭配運作。
 
 > [!NOTE]
 > Azure 備份伺服器的設計目的是在專用、單一用途的伺服器上執行。 您無法在下列位置安裝 Azure 備份伺服器︰
-> - 執行為網域控制站的電腦
-> - 安裝應用程式伺服器角色所在的電腦
-> - 本身是 System Center Operations Manager 管理群組的電腦
-> - Exchange Server 執行所在的電腦
-> - 本身是叢集節點的電腦
+>
+> * 執行為網域控制站的電腦
+> * 安裝應用程式伺服器角色所在的電腦
+> * 本身是 System Center Operations Manager 管理群組的電腦
+> * Exchange Server 執行所在的電腦
+> * 本身是叢集節點的電腦
 
 Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不同的網域，請先安裝 Azure 備份伺服器，然後將伺服器加入新網域。 若在部署後將現有的 Azure 備份伺服器機器移至新網域，該動作將「不受支援」。
 
@@ -79,7 +80,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
 ### <a name="set-storage-replication"></a>設定儲存體複寫
 
-儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
+儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy-grs.md)中，深入了解[異地備援](../storage/common/storage-redundancy-lrs.md)和[本地備援](../storage/common/storage-redundancy.md)儲存體選項。
 
 若要編輯儲存體複寫設定︰
 
@@ -138,7 +139,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     ![準備用於 Azure 備份伺服器的基礎結構](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
-7. 選取所有檔案，然後按 [下一步]。 下載 [Microsoft Azure 備份] 下載頁面中的所有檔案，並將所有檔案放在相同的資料夾中。
+7. 選取所有檔案，然後按 [下一步]。 下載「Microsoft Azure 備份」下載頁面中的所有檔案，並將所有檔案放在相同的資料夾中。
 
     ![下載中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
@@ -182,11 +183,11 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     當您使用自己的 SQL 2017 實例時，您需要手動設定 SSRS。 設定 SSRS 之後，請確保 SSRS 的 IsInitialized 屬性設定為 True。 當這個屬性設定為 True 時，MABS 會假設 SSRS 已設定好，並且會跳過 SSRS 設定。
 
-    將下列值使用於 SSRS 設定： 
-    - 服務帳戶：' 使用內建帳戶 ' 應為網路服務
-    - Web 服務 URL：' 虛擬目錄 ' 應為 ReportServer_ @ no__t-0
-    - 資料庫：DatabaseName 應為 ReportServer $ <SQLInstanceName>
-    - 入口網站 URL：' 虛擬目錄 ' 應為 Reports_ @ no__t-0
+    將下列值使用於 SSRS 設定：
+    * 服務帳戶： ' 使用內建帳戶 ' 應為網路服務
+    * Web 服務 URL： ' 虛擬目錄 ' 應 ReportServer_<SQLInstanceName>
+    * 資料庫： DatabaseName 應該是 ReportServer $<SQLInstanceName>
+    * 入口網站 URL：應 Reports_ [虛擬目錄]<SQLInstanceName>
 
     [深入了解](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS 設定。
 
@@ -257,10 +258,10 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
 
 如果您需要將 MABS 移至新伺服器，同時保留儲存體，請遵循步驟。 只有所有資料都位於新式備份儲存體時，才能這麼做。
 
-
   > [!IMPORTANT]
-  > - 新的伺服器名稱必須與原始 Azure 備份伺服器執行個體的名稱相同。 如果您想要使用先前的存放集區和 MABS 資料庫（DPMDB）來保留復原點，則無法變更新 Azure 備份伺服器實例的名稱。
-  > - 您必須擁有 MABS 資料庫（DPMDB）的備份。 您必須還原資料庫。
+  >
+  > * 新的伺服器名稱必須與原始 Azure 備份伺服器執行個體的名稱相同。 如果您想要使用先前的存放集區和 MABS 資料庫（DPMDB）來保留復原點，則無法變更新 Azure 備份伺服器實例的名稱。
+  > * 您必須擁有 MABS 資料庫（DPMDB）的備份。 您必須還原資料庫。
 
 1. 在顯示窗格中，選取您要更新保護代理程式的用戶端電腦。
 2. 關閉原始的 Azure 備份伺服器，或將其從網路中取出。
@@ -273,7 +274,7 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
 9. 從 SQL 還原 DPMDB
 10. 從新伺服器上的系統管理員命令列，切換至 Microsoft Azure 備份安裝位置和 bin 資料夾
 
-    路徑範例：C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin @ no__t-0
+    路徑範例： C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. 若要 Azure 備份，請執行 DPMSYNC-SYNC
 
@@ -287,13 +288,13 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 在您了解 Azure 連線和 Azure 訂用帳戶的狀態後，您可以使用下表來確認提供的備份/還原功能會受到哪些影響。
 
-| 連線狀態 | Azure 訂用帳戶 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
+| 連線狀態 | Azure 訂閱 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
 | --- | --- | --- | --- | --- | --- |
-| 連線 |Active |已允許 |允許 |允許 |已允許 |
-| 已連線 |已過期 |已停止 |已停止 |已允許 |已允許 |
-| 已連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
-| 連線中斷 > 15 天 |有效 |已停止 |已停止 |已允許 |已允許 |
-| 連線中斷 > 15 天 |已過期 |已停止 |已停止 |已允許 |已允許 |
+| 連線 |Active |允許 |允許 |允許 |允許 |
+| 連線 |已過期 |已停止 |已停止 |允許 |允許 |
+| 連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
+| 連線中斷 > 15 天 |Active |已停止 |已停止 |允許 |允許 |
+| 連線中斷 > 15 天 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線中斷 > 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
@@ -345,7 +346,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 3. 在受保護的伺服器上更新保護代理程式。
 4. 備份應會繼續，而不需重新啟動您的生產伺服器。
-5. 您現在可以開始保護您的資料。 如果您要升級到新式備份儲存體，同時提供保護，您也可選擇您要儲存備份的磁碟區，以及檢查佈建不足的空間。 [深入了解](backup-mabs-add-storage.md)。
+5. 您現在可以開始保護您的資料。 如果您要升級到新式備份儲存體，同時提供保護，您也可選擇您要儲存備份的磁碟區，以及檢查佈建不足的空間。 [詳細資訊](backup-mabs-add-storage.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 

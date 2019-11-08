@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984369"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794220"
 ---
 # <a name="manage-qna-maker-resources"></a>管理 QnA Maker 資源
 
@@ -28,7 +28,7 @@ ms.locfileid: "70984369"
 
 ![金鑰管理](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Location|用途|
+|名稱|位置|目的|
 |--|--|--|
 |訂用帳戶金鑰|[Azure 入口網站](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|這些金鑰可用來存取 [QnA Maker 管理服務 API](https://go.microsoft.com/fwlink/?linkid=2092179)。 這些 Api 可讓您編輯知識庫中的問題和答案，併發布您的知識庫。 當您建立新的 QnA Maker 服務時，會建立這些金鑰。<br><br>在 [**金鑰**] 頁面上的**認知服務**資源上尋找這些金鑰。|
 |端點金鑰|[QnA Maker 入口網站](http://www.qnamaker.ai)|這些金鑰可用來存取已發佈的知識庫端點，以取得使用者問題的回應。 您通常會在聊天機器人或連接到 QnA Maker 服務的用戶端應用程式程式碼中使用此端點。 當您發佈 QnA Maker 知識庫時，會建立這些金鑰。<br><br>在 [**服務設定**] 頁面中尋找這些金鑰。 從下拉式選單上頁面右上方的使用者功能表中，尋找此頁面。|
@@ -52,8 +52,8 @@ ms.locfileid: "70984369"
     * 選取 QnA Maker 管理服務（入口網站和管理 Api）的**定價層**。 查看[更多 SKU 定價的詳細資料](https://aka.ms/qnamaker-pricing)。
     * 建立新的**資源群組**（建議），或使用現有的資源群組來部署此 QnA Maker 資源。 QnA Maker 會建立數個 Azure 資源。 當您建立資源群組來保存這些資源時，您可以使用資源組名輕鬆地尋找、管理和刪除這些資源。
     * 選取**資源群組位置**。
-    * 選擇 Azure 搜尋服務的 [定價層搜尋]。 如果 [免費層] 選項無法使用（呈現暗灰色），表示您已透過訂用帳戶部署免費的 Azure 搜尋服務層。 在這種情況下，您必須從基本的 Azure 搜尋服務層開始。 請參閱[Azure 搜尋服務定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。
-    * 選擇您想要部署 Azure 搜尋服務資料的**搜尋位置**。 必須儲存客戶資料的限制，將有助於判斷您選擇的 Azure 搜尋服務位置。
+    * 選擇 Azure 認知搜尋服務的 [**搜尋] 定價層**。 如果 [免費層] 選項無法使用（顯示為灰色），表示您已透過訂用帳戶部署免費服務。 在此情況下，您必須從基本層開始。 請參閱[Azure 認知搜尋定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。
+    * 選擇您想要部署 Azure 認知搜尋索引的**搜尋位置**。 必須儲存客戶資料的限制，將有助於判斷您選擇的 Azure 認知搜尋位置。
     * 在 [**應用程式名稱**] 欄位中，輸入 Azure App Service 實例的名稱。
     * 根據預設，App Service 會預設為標準（S1）層。 您可以在建立之後變更方案。 深入瞭解[App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
     * 選擇將部署 App Service 的**網站位置**。
@@ -63,7 +63,7 @@ ms.locfileid: "70984369"
 
     * 選擇您是否要啟用**Application Insights**。 如果啟用 **Application Insights**，QnA Maker 會收集流量、交談記錄和錯誤的遙測資料。
     * 選擇將部署 Application Insights 資源的**App insights 位置**。
-    * 如需節省成本的方法，您可以[共用](#share-existing-services-with-qna-maker)一些 (不是全部) 為 QnA Maker 建立的 Azure 資源。 
+    * 針對成本節約量值，您可以[共用](#share-existing-services-with-qna-maker)部分（而非所有）為 QnA Maker 建立的 Azure 資源。 
 
 1. 驗證所有欄位之後，請選取 [**建立**]。 此程式可能需要幾分鐘的時間才能完成。
 
@@ -106,13 +106,13 @@ ms.locfileid: "70984369"
 
 QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本共用，請使用下表來瞭解您可以和無法共用的內容：
 
-|服務|共用|`Reason`|
+|服務|共用|原因|
 |--|--|--|
 |認知服務|X|設計不可行|
 |App Service 方案|✔|已修正配置給 App Service 方案的磁碟空間。 如果其他共用相同 App Service 方案的應用程式使用大量磁碟空間，QnAMaker App Service 實例就會發生問題。|
 |App Service|X|設計不可行|
 |Application Insights|✔|可以共用|
-|Search 服務|✔|1. `testkb`是 QnAMaker 服務的保留名稱，不能供其他人使用。<br>2.依名稱`synonym-map`的同義字對應會保留給 QnAMaker 服務。<br>3.已發佈的知識庫數目會受到搜尋服務層級的限制。 如果有可用的索引，其他服務就可以使用它們。|
+|搜尋服務|✔|1. `testkb` 是 QnAMaker 服務的保留名稱;不能供其他人使用。<br>2. 依名稱 `synonym-map` 的同義字對應會保留給 QnAMaker 服務。<br>3. 已發佈的知識庫數目會受到搜尋服務層級的限制。 如果有可用的索引，其他服務就可以使用它們。|
 
 深入瞭解[App service](../../../app-service/index.yml)和[Search 服務](../../../search/index.yml)。
 
@@ -124,11 +124,11 @@ QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本�
 
 ## <a name="upgrade-qna-maker"></a>升級 QnA Maker
 
-|升級|`Reason`|
+|升級|原因|
 |--|--|
 |[升級](#upgrade-qna-maker-sku)QnA Maker 管理 SKU|您想要在知識庫中有更多問題和答案。|
 |[升級](#upgrade-app-service)App Service SKU|您的知識庫需要為來自用戶端應用程式的更多要求提供服務，例如聊天機器人。|
-|[升級](#upgrade-the-azure-search-service)Azure 搜尋服務服務|您打算有許多知識庫。|
+|[升級](#upgrade-the-azure-cognitive-search-service)Azure 認知搜尋服務|您打算有許多知識庫。|
 
 
 ### <a name="upgrade-qna-maker-sku"></a>升級 QnA Maker SKU
@@ -155,9 +155,9 @@ QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本�
 
 ![QnA Maker App Service 規模](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-search-service"></a>升級 Azure 搜尋服務服務
+### <a name="upgrade-the-azure-cognitive-search-service"></a>升級 Azure 認知搜尋服務
 
-如果您打算有許多知識庫，請升級您的 Azure 搜尋服務服務定價層。
+如果您打算有許多知識庫，請升級您的 Azure 認知搜尋服務定價層。
 
 目前，您無法執行 Azure 搜尋服務 SKU 的就地升級。 不過，您可以使用所需的 SKU 建立新的 Azure 搜尋服務資源，並將資料還原到新的資源，然後再將新的資源連結至 QnA Maker 堆疊。 若要這樣做，請遵循下列步驟：
 
@@ -187,7 +187,7 @@ QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本�
 
 QnAMaker 執行時間是您在 Azure 入口網站中[建立 QnAMaker 服務](./set-up-qnamaker-service-azure.md)時所部署 Azure App Service 實例的一部分。 執行階段會定期進行更新。 2019年4月網站延伸模組版本（第5版 +）之後，QnA Maker App Service 實例處於自動更新模式。 此更新的設計目的是要在升級期間處理零停機時間。
 
-您可以在上 https://www.qnamaker.ai/UserSettings 檢查目前的版本。 如果您的版本早于版本5.x，則必須重新開機 App Service，才能套用最新的更新：
+您可以在 https://www.qnamaker.ai/UserSettings檢查目前的版本。 如果您的版本早于版本5.x，則必須重新開機 App Service，才能套用最新的更新：
 
 1. 在[Azure 入口網站](https://portal.azure.com)中，移至您的 QnAMaker 服務（資源群組）。
 

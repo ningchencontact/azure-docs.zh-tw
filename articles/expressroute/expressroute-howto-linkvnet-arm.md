@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路連結至 ExpressRoute 線路：PowerShell：Azure | Microsoft Docs
+title: 將虛擬網路連結到 ExpressRoute 線路：PowerShell：Azure | Microsoft Docs
 description: 本文提供以下內容的概觀：如何使用 Resource Manager 部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4b746a245fc1ee2b0d3532bfabc973f513c7661
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950379"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748286"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>將虛擬網路連線到 ExpressRoute 電路
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.locfileid: "65950379"
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -61,7 +61,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>將不同訂用帳戶中的虛擬網路連接到線路
 您可以讓多個訂用帳戶共用 ExpressRoute 線路。 下圖顯示簡單的圖解，示範多個訂用帳戶共用 ExpressRoute 線路的方式。
 
-大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連接回內部部署網路。 單一部門 (在此範例中為IT) 可擁有 ExpressRoute 線路。 組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
+大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連接回內部部署網路。 單一部門 (在此範例中：IT) 可以擁有 ExpressRoute 循環。 組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
 
 > [!NOTE]
 > 訂用帳戶擁有者需支付 ExpressRoute 循環的連線和頻寬費用。 所有虛擬網路都會共用相同的頻寬。
@@ -176,11 +176,11 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 *RoutingWeight* 的範圍是從 0 到 32000。 預設值為 0。
 
-## <a name="configure-expressroute-fastpath"></a>設定 ExpressRoute 快速 
-您可以讓[ExpressRoute 快速](expressroute-about-virtual-network-gateways.md)如果您的 ExpressRoute 線路位於[ExpressRoute 直接](expressroute-erdirect-about.md)和您的虛擬網路閘道是超級效能或 ErGw3AZ。 快速提升資料路徑效能，例如每秒封包及每秒在內部部署網路與虛擬網路之間的連線。 
+## <a name="configure-expressroute-fastpath"></a>設定 ExpressRoute FastPath 
+如果您的 ExpressRoute 線路位於[Expressroute Direct](expressroute-erdirect-about.md) ，且您的虛擬網路閘道為 Ultra 效能或 ErGw3AZ，則您可以啟用[expressroute FastPath](expressroute-about-virtual-network-gateways.md) 。 FastPath 可改善資料路徑效能，例如每秒封包數，以及內部部署網路與虛擬網路之間的每秒連線數。 
 
 > [!NOTE] 
-> 如果您已經有虛擬網路連線，但您尚未啟用快速您要刪除虛擬網路連線，建立新密碼。 
+> 如果您已經有虛擬網路連線，但尚未啟用 FastPath，您必須刪除虛擬網路連線，並建立一個新的連接。 
 > 
 >  
 

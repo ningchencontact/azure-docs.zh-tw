@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 90b1250009e6efdb2f8cb9351fe270c8324cc77a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715476"
+ms.locfileid: "73747990"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 支援矩陣
 
@@ -51,7 +51,7 @@ Azure Migrate 伺服器移轉 | NA | 遷移[VMware vm](tutorial-migrate-vmware.m
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) \(英文\) | 評估和遷移 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。 |  遷移 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) \(英文\) | 評估 VMware Vm、Hyper-v Vm、實體伺服器、公用雲端工作負載。| NA
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | 評估內部部署 SQL Server 資料庫。 | NA
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | 遷移 SQL Server、Oracle、MySQL、于 postgresql、MongoDB。 | NA
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | 遷移 SQL Server、Oracle、MySQL、于 postgresql、MongoDB。 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | 評估虛擬桌面基礎結構（VDI） | NA
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | 評估 VMWare Vm、Hyper-v Vm、Xen Vm、實體機器、工作站（包括 VDI）、公用雲端工作負載 | NA
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | 遷移 VMWare Vm，Hyper-v Vm，Xen Vm，KVM Vm，實體機器，公用雲端工作負載 

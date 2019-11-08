@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: de394a98f78b0bdb7cdf090de5c052cc761aa92d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951506"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748614"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -29,12 +29,12 @@ ms.locfileid: "72951506"
 
 若要完成本文中的步驟，您需要下列資源：
 
-1. [DevKit 裝置](https://aka.ms/iot-devkit-purchase)。
-1. 從**預覽應用程式**範本建立的 IoT Central 應用程式。 您可以依照[建立 IoT 隨插即用應用程式](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)中的步驟進行。
+- [DevKit 裝置](https://aka.ms/iot-devkit-purchase)。
+- 從**預覽應用程式**範本建立的 IoT Central 應用程式。 您可以依照[建立 IoT 隨插即用應用程式](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)中的步驟進行。
 
 ## <a name="get-device-connection-details"></a>取得裝置連線詳細資料
 
-在 Azure IoT Central 應用程式中，選取 [系統**管理**] 索引標籤，然後選取 [**裝置**連線]。 記下 [**識別碼範圍**] 和 [**主要金鑰**]。
+在 Azure IoT Central 應用程式中，選取 [系統**管理**] 索引標籤，然後選取 [**裝置**連線]。 記下 [**範圍識別碼**] 和 [**主要金鑰**] （在 [**查看金鑰**] 連結中）。 並確認已啟用 [**自動核准**]。
 
 ![裝置群組連線詳細資料](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "72951506"
 
 1. 使用 USB 纜線將 DevKit 裝置連接到開發電腦。 在 Windows 中，檔案總管視窗會在對應到 DevKit 裝置上儲存體的磁碟機上開啟。 例如，此磁碟機可能會稱為 **AZ3166 (D:)** 。
 
-1. 將 [ **iotc_devkit** ] 檔案拖曳至 [磁片磁碟機] 視窗。 複製完成時，使用新的韌體重新啟動裝置。
+1. 將 [ **iotc_devkit] bin**檔案拖曳至 [磁片磁碟機] 視窗。 複製完成時，使用新的韌體重新啟動裝置。
 
     > [!NOTE]
     > 如果您在畫面上看到錯誤，例如**沒有 wi-fi**，這是因為 DevKit 尚未連線到 WiFi。
@@ -61,7 +61,7 @@ ms.locfileid: "72951506"
 
     - 您的 WiFi 網路（SSID）的名稱。
     - 您的 WiFi 網路密碼。
-    - 連線詳細資料：您可以自行選擇的**裝置識別碼**，以及您先前所記下的**識別碼範圍**和**群組 SAS 主要金鑰**。
+    - 連線詳細資料：您可以自行選擇的**裝置識別碼**，以及您先前所記下的**範圍識別碼**和**群組 SAS 主要金鑰**。
 
     > [!NOTE]
     > 目前，IoT DevKit 只能連線到 2.4 GHz 的 Wi-fi，由於硬體限制，不支援 5 GHz。
@@ -82,11 +82,11 @@ DevKit 會先在 IoT Central 應用程式中註冊新裝置，然後開始傳送
 
 在您的 IoT Central 應用程式中，選取 [**裝置**] 索引標籤，選取您新增的裝置。 在 [**總覽**] 索引標籤中，您可以看到來自 DevKit 裝置的遙測：
 
-   ![IoT Central 裝置總覽](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![IoT Central 裝置總覽](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-若要檢查程式碼或修改並編譯它，請移至程式[代碼範例](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/)。
+若要查看程式碼或修改並編譯它，請移至[MXChip IoT DevKit 範例程式碼 GitHub 存放庫](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp)。
 
 ## <a name="next-steps"></a>後續步驟
 

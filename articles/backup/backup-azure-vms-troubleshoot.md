@@ -1,6 +1,6 @@
 ---
 title: 針對 Azure 虛擬機器的備份錯誤進行疑難排解
-description: Azure 虛擬機器備份與還原的疑難排解
+description: 在本文中，您將瞭解如何針對 Azure 虛擬機器備份和還原時遇到的錯誤進行疑難排解。
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: fba9a42bd3b4eb86f2951793a8fcd03e6a1dd0ec
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162155"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747185"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>針對 Azure 虛擬機器上的備份失敗進行疑難排解
 
 您可以針對使用 Azure 備份時所遇到的錯誤進行疑難排解，並提供下列資訊：
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>備份
 
 本節涵蓋 Azure 虛擬機器的備份作業失敗。
 
@@ -28,16 +28,16 @@ ms.locfileid: "73162155"
 * 確定 VM 代理程式（WA 代理程式）為[最新版本](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)。
 * 請確定已支援 Windows 或 Linux VM 作業系統版本，請參閱[IAAS VM 備份支援矩陣](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)。
 * 確認另一個備份服務並未執行。
-   * 若要確保沒有任何快照集擴充功能問題，請[卸載擴充功能以強制重載，然後再重試備份](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)。
+  * 若要確保沒有任何快照集擴充功能問題，請[卸載擴充功能以強制重載，然後再重試備份](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)。
 * 確認 VM 具有網際網路連線能力。
-   * 請確定另一個備份服務並未執行。
+  * 請確定另一個備份服務並未執行。
 * 從 `Services.msc`，確定**Windows Azure 來賓代理程式** **服務正在執行。** 如果**Windows Azure 來賓代理程式**服務遺失，請從[備份復原服務保存庫中的 Azure vm](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)進行安裝。
 * **事件記錄**檔可能會顯示來自其他備份產品的備份失敗（例如，Windows Server backup），而不是 Azure 備份所致。 使用下列步驟來判斷問題是否為 Azure 備份：
-   * 如果事件來源或訊息中的專案**備份**發生錯誤，請檢查 AZURE IaaS VM 備份是否成功，以及是否使用所需的快照集類型建立還原點。
-    * 如果 Azure 備份運作中，則問題可能是另一個備份解決方案。
-    * 以下是事件檢視器錯誤517的範例，其中 Azure 備份正常運作，但 "Windows Server Backup" 失敗：<br>
+  * 如果事件來源或訊息中的專案**備份**發生錯誤，請檢查 AZURE IaaS VM 備份是否成功，以及是否使用所需的快照集類型建立還原點。
+  * 如果 Azure 備份運作中，則問題可能是另一個備份解決方案。
+  * 以下是事件檢視器錯誤517的範例，其中 Azure 備份正常運作，但 "Windows Server Backup" 失敗：<br>
     ![Windows Server Backup 失敗](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * 如果 Azure 備份失敗，請在本文的常見 VM 備份錯誤一節中尋找對應的錯誤碼。
+  * 如果 Azure 備份失敗，請在本文的常見 VM 備份錯誤一節中尋找對應的錯誤碼。
 
 ## <a name="common-issues"></a>常見問題
 
@@ -55,7 +55,7 @@ ms.locfileid: "73162155"
 錯誤碼： UserErrorVmNotInDesirableState <br/>
 錯誤訊息： VM 不是處於允許備份的狀態。<br/>
 
-備份作業失敗，因為 VM 處於失敗狀態。 若要成功備份，VM 狀態應為執行中、已停止或已停止（已解除配置）。
+備份作業失敗，因為 VM 處於失敗狀態。 若要成功完成備份，VM 的狀態應該處於「執行中」、「已停止」或「已停止 (已解除配置)」。
 
 * 如果 VM 處於 [正在執行] 和 [關機] 之間的暫時性狀態，請等候狀態變更。 然後再觸發備份作業。
 * 如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。
@@ -84,13 +84,13 @@ ms.locfileid: "73162155"
 由於 Windows 服務**Com + 系統**應用程式發生問題，導致備份操作失敗。  若要解決此問題，請依照下列步驟執行︰
 
 * 嘗試啟動/重新開機 Windows 服務**Com + 系統應用程式**（從提高許可權的命令提示字元 **-net start COMSysApp**）。
-* 請確定**分散式交易協調器**服務是以**Network Service**帳戶的身分執行。 如果沒有，請將它變更為 [以**網路服務**帳戶執行]，然後重新開機**Com + 系統應用程式**。
+* 請確定**分散式交易協調器**服務是以**Network service**帳戶的身分執行。 如果沒有，請將它變更為 [以**網路服務**帳戶執行]，然後重新開機**Com + 系統應用程式**。
 * 如果無法重新開機服務，請遵循下列步驟來重新安裝**分散式交易協調器**服務：
-    * 停止 MSDTC 服務
-    * 開啟命令提示字元 (cmd)
-    * 執行命令 "msdtc-uninstall"
-    * 執行命令 "msdtc-install"
-    * 啟動 MSDTC 服務
+  * 停止 MSDTC 服務
+  * 開啟命令提示字元 (cmd)
+  * 執行命令 "msdtc-uninstall"
+  * 執行命令 "msdtc-install"
+  * 啟動 MSDTC 服務
 * 啟動 Windows 服務 **COM+ System Application**。 **COM+ System Application** 啟動後，請從 Azure 入口網站觸發備份作業。</ol>
 
 ## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState-快照集作業失敗，因為 VSS 寫入器處於不良狀態
@@ -100,8 +100,8 @@ ms.locfileid: "73162155"
 
 請重新啟動處於不良狀態的 VSS 寫入器。 從提升權限的命令提示字元，執行 ```vssadmin list writers```。 輸出會包含所有 VSS 寫入器和其狀態。 針對每個狀態不是「[1] 穩定」的 VSS 寫入器，請從提升權限的命令提示字元執行下列命令，以重新啟動那些 VSS 寫入器：
 
-  * ```net stop serviceName```
-  * ```net start serviceName```
+* ```net stop serviceName```
+* ```net start serviceName```
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure-剖析備份延伸模組的設定失敗
 
@@ -112,6 +112,7 @@ ms.locfileid: "73162155"
 執行下列命令，並確認**MachineKeys**目錄的許可權是預設的：**icacls%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**。
 
 預設的權限如下︰
+
 * 每個人：（R，W）
 * BUILTIN\Administrators：（F）
 
@@ -119,17 +120,18 @@ ms.locfileid: "73162155"
 
 1. 修正 **MachineKeys** 目錄上的權限。 在目錄中使用 Explorer 安全性屬性和進階安全性設定，來將權限重設為預設值。 從目錄中移除所有使用者物件 (預設值除外)，然後確定 [所有人] 權限有下列特殊存取權︰
 
-    * 列出資料夾/讀取資料
-    * 讀取屬性
-    * 讀取擴充屬性
-    * 建立檔案/寫入資料
-    * 建立資料夾/附加資料
-    * 寫入屬性
-    * 寫入擴充屬性
-    * 讀取權限
+   * 列出資料夾/讀取資料
+   * 讀取屬性
+   * 讀取擴充屬性
+   * 建立檔案/寫入資料
+   * 建立資料夾/附加資料
+   * 寫入屬性
+   * 寫入擴充屬性
+   * 讀取權限
 2. 刪除 [發給] 是傳統部署模型或 **Windows Azure CRP 憑證產生器**的所有憑證：
-    * [在本機電腦主控台上開啟憑證](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx) \(機器翻譯\)。
-    * 在 [個人] > [憑證] 底下，刪除 [核發對象] 是傳統部署模型或 **Windows Azure CRP 憑證產生器**的所有憑證。
+
+   * [在本機電腦主控台上開啟憑證](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx) \(機器翻譯\)。
+   * 在 [個人] > [憑證] 底下，刪除 [核發對象] 是傳統部署模型或 **Windows Azure CRP 憑證產生器**的所有憑證。
 3. 觸發 VM 備份作業。
 
 ## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-延伸模組狀態不是備份作業的可進行操作
@@ -140,9 +142,9 @@ ms.locfileid: "73162155"
 備份作業失敗，因為備份延伸模組的狀態不一致。 若要解決此問題，請依照下列步驟執行︰
 
 * 確認客體代理程式已安裝且可回應
-* 從 Azure 入口網站中移至 [虛擬機器] > [所有設定] > [擴充]
+* 從 Azure 入口網站，移至 [**虛擬機器**] > [**所有設定**] > [**延伸**模組]
 * 選取備份擴充 VmSnapshot 或 VmSnapshotLinux，然後按一下 [解除安裝]
-* 刪除備份擴充後，請再嘗試執行備份作業
+* 刪除備份擴充功能之後，請重試備份作業
 * 後續的備份作業將會以所需狀態安裝新的擴充
 
 ## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError-快照集作業失敗，因為部分連結的磁片已超出快照集限制
@@ -152,12 +154,12 @@ ms.locfileid: "73162155"
 
 快照集作業失敗，因為某些連接的磁片已超過快照集限制。 請完成下列疑難排解步驟，然後再次嘗試操作。
 
-* 刪除非必要的磁片 blob 快照集。 請小心不要刪除磁片 blob，只應刪除快照集 blob。
+* 刪除不需要的磁片 blob 快照集。 請小心不要刪除磁片 blob，只應刪除快照集 blob。
 * 如果已在 VM 磁片儲存體帳戶上啟用虛刪除，請設定虛刪除保留，讓現有的快照集小於任何時間點所允許的最大值。
 * 如果已在備份的 VM 中啟用 Azure Site Recovery，請執行下列步驟：
 
-    * 確定在/etc/azure/vmbackup.conf 中， **isanysnapshotfailed**的值設定為 false
-    * 排程 Azure Site Recovery 在不同的時間，使其不會與備份作業衝突。
+  * 確定在/etc/azure/vmbackup.conf 中， **isanysnapshotfailed**的值設定為 false
+  * 排程 Azure Site Recovery 在不同的時間，使其不會與備份作業衝突。
 
 ## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-快照集作業失敗，因為 VM 資源不足。
 
@@ -193,10 +195,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **錯誤碼**： VmNotInDesirableState <br/> **錯誤訊息**： VM 不是處於允許備份的狀態。 |<ul><li>如果 VM 處於 [正在執行] 和 [關機] 之間的暫時性狀態，請等候狀態變更。 然後再觸發備份作業。 <li> 如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。  |
 | 虛擬機器上沒有 VM 代理程式： <br>請安裝所有必要條件和 VM 代理程式。 接著請重新啟動作業。 |深入了解 [VM 代理程式安裝，以及如何驗證 VM 代理程式安裝](#vm-agent)。 |
 | **錯誤碼**： ExtensionSnapshotFailedNoSecureNetwork <br/> **錯誤訊息**：快照集作業失敗，因為無法建立安全的網路通道。 | <ol><li> 在提高權限的模式中執行 **regedit.exe**，來開啟登錄編輯程式。 <li> 識別系統中存在的所有 .NET Framework 版本。 它們位於登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft** 的階層下。 <li> 針對登錄機碼中的每個 .NET Framework，新增下列機碼︰ <br> **SchUseStrongCrypto"=dword:00000001**。 </ol>|
-| **錯誤碼**： ExtensionVCRedistInstallationFailure <br/> **錯誤訊息**：快照集作業失敗，因為無法安裝適用于C++ Visual Studio 2012 的 Visual 可轉散發套件。 | 流覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion 並安裝 vcredist2013_x64。<br/>請確定允許服務安裝的登錄機碼值設定為正確的值。 也就是將**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver**中的**Start**值設定為**3** ，而不是**4**。 <br><br>如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 **MSIEXEC /UNREGISTER**，再執行 **MSIEXEC /REGISTER**，以重新啟動安裝服務。  |
+| **錯誤碼**： ExtensionVCRedistInstallationFailure <br/> **錯誤訊息**：快照集作業失敗，因為無法安裝適用于C++ Visual Studio 2012 的 Visual 可轉散發套件。 | 流覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion 並安裝 vcredist2013_x64。<br/>請確定允許服務安裝的登錄機碼值設定為正確的值。 也就是將**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver**中的**Start**值設定為**3** ，而不是**4**。 <br><br>如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 **MSIEXEC /UNREGISTER**，再執行 **MSIEXEC /REGISTER**，以重新啟動安裝服務。  |
 
-
-## <a name="jobs"></a>工作
+## <a name="jobs"></a>作業
 
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
@@ -222,10 +223,13 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | 備份服務無權存取您訂用帳戶中的資源。 |若要解決此錯誤，請先使用[還原備份的磁碟](backup-azure-arm-restore-vms.md#restore-disks)中的步驟來還原磁碟。 然後使用[從還原的磁碟建立 VM](backup-azure-vms-automation.md#restore-an-azure-vm) 中的 PowerShell 步驟。 |
 
 ## <a name="backup-or-restore-takes-time"></a>備份或還原需花費很長的時間
-如果您的備份時間超過 12 小時，或者還原時間超過 6 小時，請檢閱[最佳做法](backup-azure-vms-introduction.md#best-practices)和[效能考量](backup-azure-vms-introduction.md#backup-performance)
+
+如果您的備份時間超過12小時，或還原時間超過6小時，請參閱[最佳做法](backup-azure-vms-introduction.md#best-practices)和[效能考慮](backup-azure-vms-introduction.md#backup-performance)
 
 ## <a name="vm-agent"></a>VM 代理程式
+
 ### <a name="set-up-the-vm-agent"></a>設定 VM 代理程式
+
 一般而言，VM 代理程式已存在於從 Azure 資源庫建立的 VM 中。 不過，從內部部署資料中心移轉的虛擬機器並不會安裝 VM 代理程式。 針對那些 VM，必須明確安裝 VM 代理程式。
 
 #### <a name="windows-vms"></a>Windows VM
@@ -239,6 +243,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 * 針對使用傳統部署模型建立的 VM，請[使用此部落格](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) \(英文\) 來更新 VM 屬性並確認代理程式已安裝。 資源管理員虛擬機器不需要此步驟。
 
 ### <a name="update-the-vm-agent"></a>更新 VM 代理程式
+
 #### <a name="windows-vms"></a>Windows VM
 
 * 若要更新 VM 代理程式，請重新安裝 [VM 代理程式二進位檔](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 更新代理程式之前，請先確定 VM 代理程式更新期間不會進行任何備份作業。
@@ -260,21 +265,23 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 2. 請以滑鼠右鍵按一下該檔案，然後移至 [內容]。 然後選取 [**詳細資料**] 索引標籤。[**產品版本**] 欄位應為 [2.6.1198.718] 或更新版本。
 
 ## <a name="troubleshoot-vm-snapshot-issues"></a>對 VM 快照集問題進行疑難排解
+
 VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體或快照集工作執行上的延遲，可能會造成備份作業失敗。 下列狀況可能導致快照集工作失敗：
 
-- **因使用 NSG 而導致封鎖儲存體的網路存取**。 深入瞭解如何使用允許的 Ip 清單或透過 proxy 伺服器，建立存放裝置的[網路存取](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
-- **已設定 SQL Server 備份的 VM 可能會造成快照集工作延遲**。 根據預設，VM 備份會在 Windows VM 上建立 VSS 完整備份。 執行 SQL Server 並已設定 SQL Server 備份的 VM，可能會遇到快照集延遲。 如果快照集延遲會導致備份失敗，請設定下列登錄機碼：
+* **因使用 NSG 而導致封鎖儲存體的網路存取**。 深入瞭解如何使用允許的 Ip 清單或透過 proxy 伺服器，建立存放裝置的[網路存取](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
+* **已設定 SQL Server 備份的 VM 可能會造成快照集工作延遲**。 根據預設，VM 備份會在 Windows VM 上建立 VSS 完整備份。 執行 SQL Server 並已設定 SQL Server 備份的 VM，可能會遇到快照集延遲。 如果快照集延遲會導致備份失敗，請設定下列登錄機碼：
 
    ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 
-- **所報告的 VM 狀態不正確，因為 VM 已在 RDP 中關機**。 如果您使用遠端桌面來將虛擬機器關機，請確認該 VM 在入口網站中的狀態是否正確。 如果狀態不正確，請使用入口網站 VM 儀表板中的 [關機] 選項來關閉 VM。
-- **如果有超過四個 VM 共用相同的雲端服務，請將 VM 分散到多個備份原則上**。 錯開備份時間，來讓同一時間開始的 VM 備份不超過四個。 請嘗試讓原則中的開始時間至少錯開一小時。
-- **VM 執行會使用大量 CPU 或記憶體資源**。 若虛擬機器執行時的記憶體或 CPU 使用量非常高 (>90%)，快照集工作會被排入佇列並延遲。 最後，它會超時。如果發生此問題，請嘗試隨選備份。
+* **所報告的 VM 狀態不正確，因為 VM 已在 RDP 中關機**。 如果您使用遠端桌面來將虛擬機器關機，請確認該 VM 在入口網站中的狀態是否正確。 如果狀態不正確，請使用入口網站 VM 儀表板中的 [關機] 選項來關閉 VM。
+* **如果有超過四個 VM 共用相同的雲端服務，請將 VM 分散到多個備份原則上**。 錯開備份時間，來讓同一時間開始的 VM 備份不超過四個。 請嘗試讓原則中的開始時間至少錯開一小時。
+* **VM 執行會使用大量 CPU 或記憶體資源**。 若虛擬機器執行時的記憶體或 CPU 使用量非常高 (>90%)，快照集工作會被排入佇列並延遲。 最後，它會超時。如果發生此問題，請嘗試隨選備份。
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
+
 如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。 沒有公用網際網路的存取權，可能會以各種不同方式的資訊清單形式顯現：
 
 * 延伸模組安裝可能會失敗。
@@ -285,18 +292,19 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體或�
 
 正確完成名稱解析後，也必須提供 Azure IP 的存取權。 若要解除封鎖對 Azure 基礎結構的存取，請遵循下列步驟進行：
 
-- 允許 Azure 資料中心 IP 範圍的清單：
+* 允許 Azure 資料中心 IP 範圍的清單：
    1. 取得要在允許清單中的[Azure 資料中心 ip](https://www.microsoft.com/download/details.aspx?id=41653)清單。
    1. 使用 [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) \(英文\) Cmdlet 來解除封鎖 IP。 在 Azure VM 內提升權限的 PowerShell 視窗中執行這個 Cmdlet。 請以系統管理員身分執行。
    1. 將規則加入 NSG (若已有 NSG)，以允許存取該 IP。
-- 建立路徑來使 HTTP 流量得以流動：
+* 建立路徑來使 HTTP 流量得以流動：
    1. 如果您有一些網路限制，請部署 HTTP Proxy 伺服器來路由傳送流量。 其中一個網路限制的範例為網路安全性群組。 請在[建立網路連線](backup-azure-arm-vms-prepare.md#establish-network-connectivity)中查看部署 HTTP Proxy 伺服器的步驟。
    1. 將規則加入 NSG (若已有 NSG)，以允許從 HTTP Proxy 存取網際網路。
 
 > [!NOTE]
 > 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果您需要靜態私人 IP，請透過 Azure 入口網站或 PowerShell 加以設定。 確定 VM 內的 DHCP 選項已啟用。
 > 取得如何透過 PowerShell 設定靜態 IP 的詳細資訊：
-> - [如何將靜態內部 IP 位址新增至現有的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> - [針對指派至網路介面的私人 IP 位址變更配置方法](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+>
+> * [如何將靜態內部 IP 位址新增至現有的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+> * [針對指派至網路介面的私人 IP 位址變更配置方法](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 >
 >

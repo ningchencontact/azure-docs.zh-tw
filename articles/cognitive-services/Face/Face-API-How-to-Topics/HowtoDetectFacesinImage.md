@@ -1,7 +1,7 @@
 ---
 title: 偵測影像中的臉部-臉部 API
 titleSuffix: Azure Cognitive Services
-description: 瞭解如何使用臉部偵測功能所傳回的各種資料。
+description: 本指南示範如何使用臉部偵測來從指定的影像中，將性別、年齡或姿勢等屬性解壓縮。
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306625"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744273"
 ---
 # <a name="get-face-detection-data"></a>取得臉部偵測資料
 
@@ -27,9 +27,9 @@ ms.locfileid: "70306625"
 - 取得影像中各種臉部地標的位置，例如瞳孔、鼻子和嘴。
 - 猜測所偵測到臉部的性別、年齡、表情和其他屬性。
 
-## <a name="setup"></a>安裝程式
+## <a name="setup"></a>設定
 
-本指南假設您已使用臉部訂用帳戶金鑰和`faceClient`端點 URL 來建立名為的 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 物件。 從這裡開始，您可以藉由呼叫本指南中所使用的[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)或[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)，來使用臉部偵測功能。 如需有關如何設定此功能的指示，請遵循其中一個快速入門。
+本指南假設您已使用臉部訂用帳戶金鑰和[端點 URL 來建立名為的 ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)FaceClient`faceClient` 物件。 從這裡開始，您可以藉由呼叫本指南中所使用的[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)或[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)，來使用臉部偵測功能。 如需有關如何設定此功能的指示，請遵循其中一個快速入門。
 
 本指南著重于偵測呼叫的細節，例如您可以傳遞的引數，以及您可以對傳回的資料執行哪些動作。 我們建議您只查詢所需的功能。 每項作業需要額外的時間才能完成。
 

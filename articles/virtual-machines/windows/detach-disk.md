@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: efbb6ccef9096ed89f6ccd16f8d3b37c9a97b278
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103220"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749483"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何從 Windows 虛擬機器卸離資料磁碟
 
 當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。 這會將磁碟從虛擬機器中卸離，但這不會將它從儲存體中移除。
 
 > [!WARNING]
-> 將磁碟中斷連結時，並不會自動將它刪除。 如果您已訂閱「進階」儲存體，您將會繼續因該磁碟而導致產生儲存體費用。 如需詳細資訊，請參閱[使用進階儲存體時的定價和計費](disks-types.md#billing)。
+> 將磁碟中斷連結時，並不會自動將它刪除。 如果您已訂閱「進階」儲存體，您將會繼續因該磁碟而導致產生儲存體費用。 如需詳細資訊，請參閱[使用進階儲存體時的價格和計費](disks-types.md#billing)。
 
 如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連接至相同或其他虛擬機器。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="detach-a-data-disk-using-powershell"></a>使用 PowerShell 來中斷資料磁碟連結
 
@@ -53,7 +53,7 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 2. 選取含有您想要中斷連結之資料磁碟的虛擬機器，然後按一下 [停止] 以將該 VM 解除配置。
 3. 在 [虛擬機器] 窗格中，選取 [磁碟]。
 4. 在 [磁碟] 窗格頂端，選取 [編輯]。
-5. 在 [磁碟] 窗格中，在您想要中斷連結的資料磁碟最右側，按一下 [中斷連結按鈕影像]![](./media/detach-disk/detach.png) 中斷連結按鈕。
+5. 在 [磁碟] 窗格中，在您想要中斷連結的資料磁碟最右側，按一下 ![[中斷連結] 按鈕影像](./media/detach-disk/detach.png) [中斷連結] 按鈕。
 5. 移除磁碟之後，按一下窗格頂端的 [儲存]。
 6. 在 [虛擬機器] 窗格中，按一下 [概觀]，然後按一下窗格頂端的 [啟動] 按鈕以重新啟動 VM。
 

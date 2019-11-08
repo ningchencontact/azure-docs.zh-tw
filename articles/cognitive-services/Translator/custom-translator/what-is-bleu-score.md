@@ -1,7 +1,7 @@
 ---
 title: 什麼是 BLEU 分數？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
-description: BLEU 是指對於相同來源句子的自動翻譯與一或多個人工參考翻譯之間的差異所做的量測。 BLEU 演算法會比較自動翻譯的連續片語與它在參考翻譯中找到的連續片語，並以加權方式計算相符項數目。
+description: BLEU 是針對相同來源句子的機器翻譯和人類建立的參考翻譯之間的差異測量。
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: 1993819ad227d7e9aa5ef899045e00447a6740b8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 85c4ee27a828a05c64ca6cbf84bff438535328be
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595409"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647363"
 ---
 # <a name="what-is-a-bleu-score"></a>什麼是 BLEU 分數？
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: ec8250f6cdb44af3c99c1d34d1f14fbd2209aac0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530091"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747721"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中安裝 Linkerd （AKS）
 
@@ -23,7 +23,7 @@ ms.locfileid: "72530091"
 > [!NOTE]
 > 這些指示參考 Linkerd 版本 `stable-2.6.0`。
 >
-> Linkerd `stable-2.6.x` 可以針對 Kubernetes `1.13+` 版本執行。 您可以在[GitHub Linkerd 版本][linkerd-github-releases]中找到其他穩定和 edge Linkerd 版本。
+> Linkerd `stable-2.6.x` 可以針對 Kubernetes `1.13+`版本執行。 您可以在[GitHub Linkerd 版本][linkerd-github-releases]中找到其他穩定和 edge Linkerd 版本。
 
 在本文中，您將了解：
 
@@ -248,7 +248,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > 從執行中的系統刪除 Linkerd 可能會導致您的服務之間發生流量相關的問題。 請確定您已在不 Linkerd 的情況下，將您的系統布建為正常運作，再繼續進行。
 
-首先，您必須移除資料平面 proxy。 從工作負載命名空間移除任何自動 Proxy 插入[注釋][linkerd-automatic-proxy-injection]，並變換工作負載部署。 您的工作負載應該不會再有任何相關聯的資料平面元件。
+首先，您必須移除資料平面 proxy。 從工作負載命名空間移除任何自動 Proxy 插入[注釋][linkerd-automatic-proxy-injection]，並推出您的工作負載部署。 您的工作負載應該不會再有任何相關聯的資料平面元件。
 
 最後，移除控制平面，如下所示：
 

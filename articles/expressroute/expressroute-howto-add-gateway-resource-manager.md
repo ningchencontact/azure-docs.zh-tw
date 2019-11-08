@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路閘道新增至 ExpressRoute 的 VNet：PowerShell：Azure | Microsoft Docs
+title: 將虛擬網路閘道新增到 ExpressRoute 的 VNet：PowerShell：Azure | Microsoft Docs
 description: 本文會協助您將 VNet 閘道新增到已經建立的 ExpressRoute 的 Resource Manager VNet。
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 6ab701adcc2122270c607604f222ac5edbceeb37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb091addd078a08a075d2754256ed016d8dd086
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730521"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748347"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>使用 PowerShell 為 ExpressRoute 設定虛擬網路閘道
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "66730521"
 > 
 > 
 
-本文會協助您為既存的 VNet 新增虛擬網路 (VNet) 閘道、調整該閘道大小及移除該閘道。 此組態的步驟適用於使用 Resource Manager 部署模型，ExpressRoute 組態所建立的 Vnet。 如需詳細資訊，請參閱[關於 ExpressRoute 的虛擬網路閘道](expressroute-about-virtual-network-gateways.md)。
+本文會協助您為既存的 VNet 新增虛擬網路 (VNet) 閘道、調整該閘道大小及移除該閘道。 此設定的步驟適用于使用 Resource Manager 部署模型為 ExpressRoute 設定所建立的 Vnet。 如需詳細資訊，請參閱[關於 ExpressRoute 的虛擬網路閘道](expressroute-about-virtual-network-gateways.md)。
 
 ## <a name="before-beginning"></a>開始之前
 
 ### <a name="working-with-powershell"></a>使用 PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-### <a name="configuration-reference-list"></a>組態參考清單
+### <a name="configuration-reference-list"></a>設定參考清單
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

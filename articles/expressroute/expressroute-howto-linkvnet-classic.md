@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路連結至 ExpressRoute 線路：PowerShell： 傳統：Azure | Microsoft Docs
+title: 將虛擬網路連結到 ExpressRoute 線路：PowerShell：傳統：Azure | Microsoft Docs
 description: 本文提供以下內容的概觀：如何使用傳統部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。
 services: expressroute
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370623"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748264"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 將虛擬網路連接到 ExpressRoute 線路 (傳統)
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.locfileid: "60370623"
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="configuration-prerequisites"></a>組態必要條件
 
 * 開始設定之前，請先檢閱[必要條件](expressroute-prerequisites.md)、[路由需求](expressroute-routing.md)及[工作流程](expressroute-workflows.md)。
@@ -57,7 +55,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 如需 Azure PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/overview)，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指導方針。
 
-### <a name="sign-in"></a>登入
+### <a name="sign-in"></a>Sign in
 
 若要登入您的 Azure 帳戶，請使用下列範例：
 
@@ -102,7 +100,7 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>將不同訂用帳戶中的虛擬網路連接到線路
 您可以讓多個訂用帳戶共用 ExpressRoute 線路。 下圖顯示簡單的圖解，示範多個訂用帳戶共用 ExpressRoute 線路的方式。
 
-大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連接回內部部署網路。 單一部門 (在此範例中為IT) 可擁有 ExpressRoute 線路。 組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
+大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連接回內部部署網路。 單一部門 (在此範例中：IT) 可以擁有 ExpressRoute 循環。 組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
 
 > [!NOTE]
 > ExpressRoute 循環擁有者需支付專用循環的連線和頻寬費用。 所有虛擬網路都會共用相同的頻寬。
@@ -112,7 +110,7 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ![跨訂用帳戶的連線能力](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>系統管理
-「線路擁有者」  是訂用帳戶的管理員/共同管理員，而 ExpressRoute 線路即建立於該訂用帳戶中。 線路擁有者可以授權其他訂用帳戶的管理員/共同管理員 (工作流程圖中稱為「線路使用者」  ) 來使用他們擁有的專用線路。 獲得使用組織 ExpressRoute 線路的授權後，這些線路使用者就可以將其訂用帳戶中的虛擬網路連結到 ExpressRoute 線路。
+「線路擁有者」 是訂用帳戶的管理員/共同管理員，而 ExpressRoute 線路即建立於該訂用帳戶中。 線路擁有者可以授權其他訂用帳戶的管理員/共同管理員 (工作流程圖中稱為「線路使用者」) 來使用他們擁有的專用線路。 獲得使用組織 ExpressRoute 線路的授權後，這些線路使用者就可以將其訂用帳戶中的虛擬網路連結到 ExpressRoute 線路。
 
 電路擁有者能夠隨時修改及撤銷授權。 如果撤銷授權，則在存取權遭撤銷的訂用帳戶中，所有連結均會被刪除。
 
