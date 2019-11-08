@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d0067fe51efef8efffe31860e16f4530adf3ac
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972359"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825690"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>壓縮 CloudSimple 私用雲端
 
-CloudSimple 提供動態縮減私用雲端的彈性。  私人雲端是由一或多個 vSphere 叢集所組成。 每個叢集可以有3到16個節點。 縮小私人雲端時, 您可以從現有的叢集中移除節點, 或刪除整個叢集。 
+CloudSimple 提供動態縮減私用雲端的彈性。  私人雲端是由一或多個 vSphere 叢集所組成。 每個叢集可以有3到16個節點。 縮小私人雲端時，您可以從現有的叢集中移除節點，或刪除整個叢集。 
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要壓縮私人雲端, 必須符合下列條件。  無法刪除建立私人雲端時所建立的管理叢集 (第一個叢集)。
+若要壓縮私人雲端，必須符合下列條件。  無法刪除建立私人雲端時所建立的管理叢集（第一個叢集）。
 
 * VSphere 叢集必須有三個節點。  只有三個節點的叢集無法壓縮。
 * 已耗用的總儲存體不應超過叢集壓縮後的總容量。 
@@ -38,7 +38,7 @@ CloudSimple 提供動態縮減私用雲端的彈性。  私人雲端是由一或
 
 3. 按一下您要壓縮的私人雲端
 
-4. 在 [摘要] 頁面上, 按一下 [**壓縮**]。
+4. 在 [摘要] 頁面上，按一下 [**壓縮**]。
 
     ![壓縮私用雲端](media/shrink-private-cloud.png)
 
@@ -52,7 +52,11 @@ CloudSimple 提供動態縮減私用雲端的彈性。  私人雲端是由一或
 
 8. 按一下 [**提交**] 以縮小私人雲端。
 
-開始壓縮私用雲端。  您可以在 [工作] 中監視進度。  壓縮程式可能需要幾個小時的時間, 視資料而定, 這需要在 vSAN 上 resynced。
+開始壓縮私用雲端。  您可以在 [工作] 中監視進度。  壓縮程式可能需要幾個小時的時間，視資料而定，這需要在 vSAN 上 resynced。
+
+> [!NOTE]
+> 如果您藉由刪除資料中心內的最後一個或唯一的叢集來縮小私人雲端，資料中心將不會被刪除。  
+
 
 ## <a name="next-steps"></a>後續步驟
 

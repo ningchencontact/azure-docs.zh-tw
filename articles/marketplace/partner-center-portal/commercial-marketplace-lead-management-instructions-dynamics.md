@@ -4,15 +4,16 @@ description: 針對 Customer Engagement 設定 Dynamics 365 的潛在客戶管�
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177811"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812298"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>設定 Dynamics 365 for Customer Engagement 的潛在客戶管理
 
@@ -93,7 +94,7 @@ ms.locfileid: "72177811"
 10. 一旦成功建立用戶端密碼，請**複製用戶端密碼值**。 離開頁面之後，您將無法取出此值。 儲存此值，因為它是您需要在發佈入口網站中提供的*用戶端密碼*值，以接收 marketplace 供應專案的潛在客戶。 
 11. 從 [應用程式] 左側導覽選取 [ **API 許可權**]，然後選取 [**新增許可權**]。
 12. 選取 [Microsoft Api]，然後選取 [ **DYNAMICS CRM** ] 作為 API。
-13. 在*您的應用程式所需的許可權類型*之下，請確定已選取 [**委派的許可權**]。 *以組織使用者*的身分，檢查**user_impersonation** Access Common Data Service 的許可權。 選取 [**新增許可權**]。
+13. 在*您的應用程式所需的許可權類型*之下，請確定已選取 [**委派的許可權**]。 檢查 *以組織使用者身分 user_impersonation 存取 Common Data Service*的許可權。 選取 [**新增許可權**]。
 
     ![新增權限](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
@@ -105,7 +106,7 @@ ms.locfileid: "72177811"
 
     ![建立新的使用者](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. 在 [**新使用者**] 中，確認使用者：已選取應用程式使用者。 針對您要與此連線搭配使用的使用者，提供使用者名稱、全名和電子郵件地址。 此外，請貼上您在步驟8的 Azure 入口網站中所建立應用程式的**應用程式識別碼**。 選取 [**儲存後關閉**] 以完成新增使用者。
+19. 在 [**新使用者**] 中，確認已選取 [使用者：應用程式使用者]。 針對您要與此連線搭配使用的使用者，提供使用者名稱、全名和電子郵件地址。 此外，請貼上您在步驟8的 Azure 入口網站中所建立應用程式的**應用程式識別碼**。 選取 [**儲存後關閉**] 以完成新增使用者。
 
     ![新增使用者](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -156,11 +157,11 @@ ms.locfileid: "72177811"
 
     ![安全性角色](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. 一旦進入安全性角色，請選取 [**核心記錄**] 索引標籤。搜尋 [使用者實體 UI 設定] 實體，並在每個對應的圓形中按一下一次，即可為該實體啟用 [建立]、[讀取] 和 [寫入] 許可權給使用者（1/4 黃色圓形）。
+7. 一旦進入安全性角色，請選取 [**核心記錄**] 索引標籤。搜尋 [使用者實體 UI 設定] 實體，並針對該實體啟用 [建立]、1/4 [讀取] 和 [寫入] 許可權，方法是在每個對應的圓形中按一下 [一次]。
 
     ![Microsoft Marketplace 潛在客戶寫入器核心記錄](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. 現在，流覽至 [**自訂**] 索引標籤。搜尋 tor 「系統作業」實體，並在每個對應的圓形中按一下四次，即可為該實體的組織（綠色）提供讀取、寫入和 AppendTo 許可權。
+8. 現在流覽至 [**自訂**] 索引標籤。搜尋 Tor 「系統作業」實體，並在每個對應的圓形中按一下四次，即可啟用該實體的 [讀取]、[寫入] 和 [AppendTo] 許可權給組織（穩固的綠色）。
 
     ![Microsoft Marketplace 潛在客戶撰寫者-自訂](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
@@ -185,7 +186,7 @@ ms.locfileid: "72177811"
 
     ![連接詳細資料-Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-7. 如果您選取了 Office 365，請提供**使用者名稱**（例如： `contoso@contoso.onmicrosoft.com`）和密碼（範例： `P@ssw0rd`）。
+7. 如果您選取了 Office 365，請提供**使用者名稱**（例如： `contoso@contoso.onmicrosoft.com`）和密碼（例如： `P@ssw0rd`）。
 
     ![連接詳細資料-使用者名稱](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 

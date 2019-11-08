@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 伺服器
+title: 伺服器
 description: 了解 Azure SQL Database 伺服器及其管理方式。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8ebe08f37255743578cbc3dd44f7d84d79b9d17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a3ad3314b8a18ec6a63b5d51bc7d8b3f9d7a6260
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687402"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818292"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database 伺服器及其管理方式
 

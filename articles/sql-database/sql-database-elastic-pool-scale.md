@@ -1,5 +1,5 @@
 ---
-title: 調整彈性集區資源-Azure SQL Database
+title: 縮放彈性集區資源
 description: 此頁面將針對 Azure SQL Database 中的彈性集區說明調整資源。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: 812de89b43d1cb2bc7f9b5c5c619f3860344d5dd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ed67a21107f6a7d90341ae40feeb817671785778
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690428"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823806"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整彈性集區
 

@@ -1,5 +1,5 @@
 ---
-title: 從我的應用程式入口網站更新您的設定檔和帳戶資訊-Azure Active Directory |Microsoft Docs
+title: 在我的應用程式入口網站上更新您的設定檔和帳戶-Azure AD
 description: 瞭解如何更新您的個人資料，以及您的工作或學校帳戶資訊，包括變更密碼、開啟密碼重設、更新安全性驗證方法、查看貴組織的使用規定聲明，以及登出您已使用工作或學校帳戶登入的任何位置。
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160761"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820371"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>從我的應用程式入口網站更新您的設定檔和帳戶資訊
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>在我的應用程式入口網站上更新您的設定檔和帳戶資訊
 
 您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
 

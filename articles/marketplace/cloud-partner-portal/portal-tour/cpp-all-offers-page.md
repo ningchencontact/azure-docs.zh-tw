@@ -1,18 +1,19 @@
 ---
-title: 所有 Azure marketplace 中提供 頁面
-description: 所有的概觀會提供 Azure Marketplace 的 Cloud Partner 入口網站中的頁面。
+title: Azure Marketplace 的所有供應專案頁面
+description: Azure Marketplace 的 Cloud Partner 入口網站中的 [所有供應專案] 頁面的總覽。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler
-ms.openlocfilehash: d674cc154dd46704051c3c75ca2589dfd7a9ca4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb67ac44ee73d4d8074b577b2157f5846f451210
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942107"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821592"
 ---
 # <a name="all-offers-page"></a>所有供應項目頁面
 
@@ -21,7 +22,7 @@ ms.locfileid: "64942107"
 
 ## <a name="example-page"></a>範例頁面
 
-下圖顯示針對字串 `Contoso` 篩選的 [所有供應項目]  頁面。
+下圖顯示針對字串  **篩選的 [所有供應項目]** `Contoso` 頁面。
 
 ![所有供應項目頁面](./media/all-offers-page1.png)
 

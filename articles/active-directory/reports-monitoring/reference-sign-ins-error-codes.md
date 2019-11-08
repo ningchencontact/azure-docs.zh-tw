@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820867"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809830"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -36,7 +36,7 @@ ms.locfileid: "72820867"
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>如何顯示失敗的登入？ 
 
-巡覽至 [Azure 入口網站](https://portal.azure.com)中的[登入報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)。
+巡覽至 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)中的[登入報告](https://portal.azure.com)。
 
 ![登入活動](./media/reference-sign-ins-error-codes/61.png "登入活動")
 
@@ -53,7 +53,7 @@ ms.locfileid: "72820867"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|Error|描述|
+|錯誤|說明|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -127,6 +127,7 @@ ms.locfileid: "72820867"
 |50177|未針對傳遞使用者支援外部挑戰。|
 |50178|未針對傳遞使用者支援工作階段控制。|
 |50180|需要 Windows 整合式驗證。 為租用戶啟用無縫 SSO。|
+|50181|登入期間與 OTP 相關的失敗。 |
 |50201|當使用者提供其他資訊時，將會在登入期間向使用者顯示此訊息提示中斷。|
 |51001|所顯示的網域提示沒有內部部署安全性識別碼 - 內部部署 UPN。|
 |51004|目錄中不存在使用者帳戶。|
@@ -163,7 +164,7 @@ ms.locfileid: "72820867"
 |75016|SAML2 驗證要求所具有的 NameIdPolicy 無效。 請連絡應用程式擁有者。|
 |80001|驗證代理程式無法連線至 Active Directory。 請確定能看到使用者登入要求處理 DC、且已加入網域的機器上，已安裝驗證代理程式。|
 |80002|內部錯誤。 密碼驗證要求已超時。我們無法將驗證要求傳送給內部的混合式身分識別服務。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
-|80003|驗證代理程式收到無效的回應。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80003|驗證代理程式收到的回應無效。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80005|驗證代理程式：處理驗證代理程式所傳來的回應時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80007|驗證代理程式無法驗證使用者的密碼。|
 |80010|驗證代理程式無法連線將密碼解密。 |

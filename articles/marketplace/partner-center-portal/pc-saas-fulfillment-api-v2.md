@@ -4,15 +4,16 @@ description: 本文說明如何使用相關聯的履行 v2 Api，在 AppSource �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 4c73a59352422626ec3c6012607009995479d0cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025280"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816612"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api，第2版 
 
@@ -37,7 +38,7 @@ Azure SaaS 會管理 SaaS 訂閱購買的整個生命週期。 它使用履行 A
 
 ![布建 SaaS 服務的 API 呼叫](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>佈建
+#### <a name="provisioned"></a>已佈建
 
 此狀態是已布建服務的穩定狀態。
 
@@ -70,7 +71,7 @@ Azure SaaS 會管理 SaaS 訂閱購買的整個生命週期。 它使用履行 A
 訂閱會達到此狀態，以回應明確的客戶要求或因為未付款。 合作夥伴預期的是，客戶的資料會保留在要求的特定天數內進行復原，然後予以刪除。 
 
 
-## <a name="api-reference"></a>API 參考
+## <a name="api-reference"></a>API 參考資料
 
 本節記載 SaaS 訂用帳戶*api*和*作業 api*。  第2版 Api 的 `api-version` 參數值是 `2018-08-31`。  
 
@@ -212,7 +213,7 @@ Mock API 的回應承載：<br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
+          "isFreeTrial": "true", // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -250,7 +251,7 @@ Mock API 的回應承載：<br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.(optional field - default false)
           "isTest": false, //indicating whether the current subscription is a test asset
           "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
@@ -320,7 +321,7 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
-        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
+        "isFreeTrial": "true", // true - customer subscription is currently in free trial, false - customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
@@ -519,7 +520,7 @@ Request Body:
 ```
 
 >[!Note]
->一次只能修補一個方案或數量，而不是兩者。 具有**更新**之訂用帳戶的編輯不在 `allowedCustomerOperations` 中。
+>一次只能修補一個方案或數量，而不是兩者。 具有**更新**之訂用帳戶的編輯不在 `allowedCustomerOperations`中。
 
 #### <a name="change-the-quantity-on-the-subscription"></a>變更訂用帳戶的數量
 
@@ -586,7 +587,7 @@ Request Body:
 ```
 
 >[!Note]
->一次只能修補一個方案或數量，而不是兩者。 具有**更新**之訂用帳戶的編輯不在 `allowedCustomerOperations` 中。
+>一次只能修補一個方案或數量，而不是兩者。 具有**更新**之訂用帳戶的編輯不在 `allowedCustomerOperations`中。
 
 #### <a name="delete-a-subscription"></a>刪除訂用帳戶
 
@@ -616,7 +617,7 @@ Request Body:
 夥伴起始了取消訂閱 SaaS 訂用帳戶的呼叫。<br>
 
 代碼：400<br>
-刪除不在 `allowedCustomerOperations` 中**的訂**用帳戶。
+刪除不在 `allowedCustomerOperations`中**的訂**用帳戶。
 
 代碼：403<br>
 未經授權。 未提供驗證 token 或其無效，或要求嘗試存取不屬於目前發行者的取得。
@@ -839,7 +840,7 @@ Response body:
   "id": "<this is a GUID operation id, you can call operations API with this to get status>",
   "activityId": "<this is a Guid correlation id>",
   "subscriptionId": "<Guid to uniquely identify this resource>",
-  "publisherId": "<this is the publisher’s name>",
+  "publisherId": "<this is the publisher's name>",
   "offerId": "<this is the offer name>",
   "planId": "<this is the plan id>",
   "quantity": "<the number of seats, will be null if not per-seat saas offer>",

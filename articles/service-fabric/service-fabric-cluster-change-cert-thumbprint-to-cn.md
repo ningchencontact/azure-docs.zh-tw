@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3618339349d618b371a40d3b37ebc30192c067ca
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 25aaad02cf8c90c67e87d49553a02cacf033281f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764831"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819481"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>將叢集從憑證指紋變更為通用名稱
 由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  將使用憑證指紋的已部署叢集切換為使用憑證通用名稱，有助於大幅簡化憑證管理作業。 本文章描述如何更新執行中的 Service Fabric 叢集，改為使用憑證通用名稱，而非憑證指紋。
@@ -188,6 +188,8 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
             },
         ...
     ```
+
+如需其他資訊，請參閱[將叢集從憑證指紋變更為一般名稱。](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)
 
 ## <a name="deploy-the-updated-template"></a>部署更新的範本
 完成變更之後，重新部署更新的範本。

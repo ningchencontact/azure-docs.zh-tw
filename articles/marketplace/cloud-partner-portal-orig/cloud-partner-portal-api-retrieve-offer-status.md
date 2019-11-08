@@ -1,18 +1,19 @@
 ---
-title: 擷取的供應項目狀態 |Azure Marketplace
+title: 取得供應專案狀態 |Azure Marketplace
 description: API 可擷取供應項目的目前狀態。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935447"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819673"
 ---
 <a name="retrieve-offer-status"></a>擷取供應項目狀態 
 =====================
@@ -28,24 +29,24 @@ ms.locfileid: "64935447"
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | 發行者識別碼，例如 `Contoso`  |     字串     |
 |  offerId        | 可唯一識別供應項目的 GUID      |     字串     |
-|  api-version    | API 的最新版本                        |     Date       |
+|  api-version    | API 的最新版本                        |     日期       |
 |  |  |
 
 
-<a name="header"></a>標頭
+<a name="header"></a>頁首
 ------
 
 |  名稱           |  值               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
-|  Authorization  | `Bearer YOUR_TOKEN`  |
+|  授權  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
 <a name="body-example"></a>本文範例
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ``` json
   {
@@ -125,14 +126,14 @@ ms.locfileid: "64935447"
 |  **名稱**             |    **說明**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | 供應項目的狀態。 如需可能值清單，請參閱下面的[供應項目狀態](#offer-status)。 |
-|  上限             | 與供應項目相關聯的訊息陣列                                                    |
+|  messages             | 與供應項目相關聯的訊息陣列                                                    |
 |  steps                | 供應項目發行期間，供應項目所歷經的步驟陣列                      |
 |  estimatedTimeFrame   | 完成此步驟要花費的估計時間 (易記格式)                       |
 |  id                   | 步驟的識別碼                                                                         |
 |  stepName             | 步驟的名稱                                                                               |
-|  description          | 步驟的說明                                                                        |
+|  說明          | 步驟的說明                                                                        |
 |  status               | 步驟的狀態。 如需可能值清單，請參閱下面的[步驟狀態](#step-status)。    |
-|  上限             | 與步驟相關聯的訊息陣列                                                          |
+|  messages             | 與步驟相關聯的訊息陣列                                                          |
 |  processPercentage    | 步驟的完成百分比                                                              |
 |  previewLinks         | 目前尚未實作                                                                    |
 |  liveLinks            | 目前尚未實作                                                                    |
@@ -142,7 +143,7 @@ ms.locfileid: "64935447"
 
 ### <a name="response-status-codes"></a>回應狀態碼
 
-| **代碼** |   **描述**                                                                                 |
+| **程式碼** |   **說明**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` - 已成功處理要求，並已傳回供應項目的最新狀態。 |
 |  400     | `Bad/Malformed request` - 錯誤回應本文可能包含更多資訊。                 |
@@ -166,7 +167,7 @@ ms.locfileid: "64935447"
 
 ### <a name="step-status"></a>步驟狀態
 
-|  **名稱**                    |    **描述**                           |
+|  **名稱**                    |    **說明**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | 步驟尚未啟動。                        |
 |  InProgress                  | 步驟正在執行。                             |

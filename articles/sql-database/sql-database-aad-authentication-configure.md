@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure Active Directory 驗證-SQL
+title: 設定 Azure Active Directory 驗證
 description: 瞭解如何在設定 Azure AD 之後，使用 Azure Active Directory 驗證連接到 SQL Database、受控實例和 SQL 資料倉儲。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 11/06/2019
-ms.openlocfilehash: d23fcb781f5eddd71d5ddce9344d988d2e323611
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 48334d8ce266ddcc92e4d2b27634db3d8c9f1bc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691381"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816785"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 設定及管理 Azure Active Directory 驗證
 

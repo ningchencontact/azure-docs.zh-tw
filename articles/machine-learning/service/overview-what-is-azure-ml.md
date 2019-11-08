@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: f0f9a2e59e0e231c956e9f1c36bb6a54bcbaca24
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9399353cb676ef4525e81229cf3920fd9d7e3aaf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476322"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684933"
 ---
 # <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
@@ -73,7 +73,7 @@ Azure Machine Learning 為開發人員和資料科學家提供其機器學習工
 
   若要深入了解，請參閱 [Azure Machine Learning 設計工具概觀文章](concept-designer.md)。 
 
-  ![Azure Machine Learning 設計工具範例](/media/concept-ml-pipelines/visual-design-surface.gif)
+  ![Azure Machine Learning 設計工具範例](media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 + **自動化機器學習 UI**
 

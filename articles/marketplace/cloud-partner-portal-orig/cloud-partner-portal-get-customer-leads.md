@@ -1,18 +1,19 @@
 ---
-title: 設定 潛在客戶 |Azure Marketplace
+title: 設定潛在客戶 |Azure Marketplace
 description: 在 Cloud Partner 入口網站中設定潛在客戶。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934994"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818818"
 ---
 <a name="get-customer-leads"></a>取得潛在客戶
 ==================
@@ -65,7 +66,7 @@ ms.locfileid: "64934994"
 
 潛在客戶來源的格式為**來源**-**動作** |  **供應項目**
 
-**來源**：「 AzureMarketplace"、"AzurePortal 」、 「 試用 」 和 「 AppSource (SPZA) 」
+**來源**："AzureMarketplace"、"AzurePortal"、"TestDrive"，和 "AppSource (SPZA)"
 
 **動作**：
 - "INS" -- 安裝。 當客戶購買您的產品時，會在 Azure Marketplace 或 AppSource 上進行此動作。
@@ -76,19 +77,19 @@ ms.locfileid: "64934994"
 
 **供應項目**
 
-下列範例會顯示指派給發行者和特定優惠的唯一識別碼： checkpoint.check-點-r77-10sg-byol、 bitnami.openedxcypress 和 docusign.3701c77e-1cfa-4c 56 91e6 3ed0b622145a。
+下列範例會顯示指派給發行者和特定供應專案的唯一識別碼： checkpoint。 r77-10sg-byol，bitnami. openedxcypress，and docusign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a。
 
 
 ### <a name="customer-info"></a>客戶資訊
 
 下列範例中的欄位顯示了潛在客戶中包含的客戶資訊。
 - 名字：John
-- 在 [姓氏]:Smith
+- 姓氏：Smith
 - 電子郵件： jsmith\@microsoft.com
 - 電話：1234567890
-- 國家/地區:US
+- 國家/地區：美國
 - 公司：Microsoft
-- 標題：CTO
+- 職稱：技術長
 
 >[!Note]
 >上述範例中，並非所有資料一律可供每位潛在客戶使用。

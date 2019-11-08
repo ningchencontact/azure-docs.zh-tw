@@ -1,19 +1,20 @@
 ---
 title: Web 分析
-description: .
+description: 》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962888"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814651"
 ---
 <a name="web-analytics"></a>Web 分析
 =============
@@ -43,7 +44,7 @@ ms.locfileid: "70962888"
 
 例如，您可以使用：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. （Advanced）：在 URL 中使用我們支援的其中一個一般行銷活動識別碼。 我們想要能適應您需要使用的額外 ref 標記，因此我們支援自動識別這些額外標記的慣例：
+1. (進階)：在 URL 中使用我們其中一個支援的一般行銷活動識別碼。 我們想要能適應您需要使用的額外 ref 標記，因此我們支援自動識別這些額外標記的慣例：
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -54,7 +55,7 @@ ms.locfileid: "70962888"
 
 您可以選擇結合多個這些行銷活動識別碼，以進一步指出為行銷活動帶來流量的多個來源，例如客戶來自何處 (電子郵件、部落格、社交媒體來源等)。
 
-例如:
+例如：
 
 1. 電子報推薦者：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. LinkedIn 推薦者：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -63,15 +64,15 @@ ms.locfileid: "70962888"
 
 您的行銷活動可能會有中繼頁面，您將流量導向該頁面，然後該頁面接著將客戶導向 Marketplace。 務必將您的初始行銷活動識別碼傳遞到您傳送到 Marketplace 的最終 URL。
 
-請看以下範例：
+下列是一個範例：
 
-1. 行銷員工向 Google 購買廣告以將流量導向公司的登陸頁面 <https://contoso.com>。 登陸頁面有「嘗試我的產品」連結，該連結會連到 <https://appsource.com>。
+1. 行銷員工向 Google 購買廣告以將流量導向公司的登陸頁面 \'。 登陸頁面有「嘗試我的產品」連結，該連結會連到 \"。
 2. 使用者按一下廣告並登陸此公司登陸頁面。
     1.  轉介 URL = google.com
     2.  登陸頁面 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. 使用者按一「嘗試我的產品」連結並連到 AppSource。
     1. 轉介 URL =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. 登陸頁面 URL (**確定此 URL 已將 utm\_campaign and  utm\_source 新增到此 URL**) =  [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. 登陸頁面 URL (**確定此 URL 已將 utm\_campaign and  utm\_source 新增到此 URL**) =  [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>如何評估行銷活動是否成功
 -----------------------------------------
@@ -94,7 +95,7 @@ ms.locfileid: "70962888"
 
 與我們如何看待您客戶的網域相同，此圖表可讓您查看您每個行銷活動資料的分佈情況 (關於使用者如何來到 Marketplace)。 \_NoCampaign 表示當客戶瀏覽到 Marketplace 時，其 URL 中沒有行銷活動識別碼。
 
-<a name="next-steps"></a>**後續步驟**
+<a name="next-steps"></a>**Next Steps**
 --------------
 
 既然您已經有能力追蹤您供應項目的成效，我們想要鼓勵您建立您自己的行銷活動。

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e9e41ffa335aa95b139a5d5658424c1c5915b569
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 771124d0b8ca15bf72501fdeff8c31d0a43050b8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914945"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73578678"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service 常見問題集
 
@@ -59,7 +59,7 @@ SignalR Service 會監視來自應用程式伺服器的活動訊號。
 在 Azure SignalR Service SDK 中，`HubConnectionContext context` 則是來自於邏輯用戶端連線的內容。 實體用戶端連線會連線到 SignalR Service 執行個體，因此只會提供有限數量的屬性。
 
 目前只有 `HubConnectionContext.GetHttpContext()` 和 `HubConnectionContext.User` 可供存取。
-您可以在[這裡](https://github.com/Azure/azure-signalr/blob/kevinzha/faq/src/Microsoft.Azure.SignalR/ServiceHubConnectionContext.cs)查看原始程式碼。
+您可以在[這裡](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/HubHost/ServiceHubConnectionContext.cs)查看原始程式碼。
 
 ## <a name="can-i-configure-the-transports-available-in-signalr-service-as-configuring-it-on-server-side-with-aspnet-core-signalr-for-example-disable-websocket-transport"></a>我是否可設定 SignalR Service 中的可用傳輸，如同在伺服器端為 ASP.NET Core SignalR 設定一般？ 例如，停用 WebSocket 傳輸？
 

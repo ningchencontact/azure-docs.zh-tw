@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: db501c34a4418bc7b08b19105a9b28585288f877
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949532"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823057"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 模組
 
@@ -76,7 +77,7 @@ Marketplace 目前針對 IoT Edge 模組支援 [免費] 和 [自備授權 (BYOL)
 
 ## <a name="documentation-and-resources"></a>文件和資源
 
-[建立 IoT Edge 模組供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) – 使用「雲端發佈入口網站」來發佈新 IoT Edge 模組供應項目的步驟。
+[建立 IoT Edge 模組供應](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer)專案--透過雲端發佈入口網站發佈新 IoT Edge 模組供應專案的步驟。
 
 ## <a name="next-steps"></a>後續步驟
 

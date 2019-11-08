@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 的自動化 ML 介面來定型 & 部署模型
+title: 組建 & 部署自動化的 ML 模型
 titleSuffix: Azure Machine Learning
 description: 在 Azure Machine Learning studio 中建立、管理和部署自動化的機器學習實驗。
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 25e775cf7bfd415768144b28ab2ca6989f360edd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581293"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818494"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio 建立、探索及部署自動化的機器學習實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -141,7 +141,7 @@ ms.locfileid: "73581293"
 類型|推斷的資料行類型。 可能的值包括：字串、布林值、日期和小數。
 Min| 資料行的最小值。 如果功能的類型沒有固有的順序（例如布林值），則會出現空白專案。
 max| 資料行的最大值。 
-計數| 資料行中遺漏和不遺失的專案總數。
+Count| 資料行中遺漏和不遺失的專案總數。
 未遺漏計數| 資料行中未遺漏的專案數。 空字串和錯誤會被視為值，因此它們不會參與「未遺漏計數」。
 分量| 每個分量的近似值可讓您瞭解資料的分佈。
 平均值| 資料行的算術平均值或平均值。
@@ -215,7 +215,7 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
     >[!Important]
     > 檔案名的長度必須是32個字元，而且必須以英數位元開頭和結尾。 可能包含虛線、底線、點和之間的英數位元。 不允許使用空格。
 
-    [ *Advanced* ] 功能表提供預設的部署功能，例如資料收集和資源使用設定。 如果您想要覆寫這些預設值，請在此功能表中執行此動作。
+    [ *Advanced* ] 功能表提供預設的部署功能，例如[資料收集](how-to-enable-app-insights.md)和資源使用量設定。 如果您想要覆寫這些預設值，請在此功能表中執行此動作。
 
 1. 選取 [部署]。 部署可能需要大約20分鐘的時間才能完成。
 

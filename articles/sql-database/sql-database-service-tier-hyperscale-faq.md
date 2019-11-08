@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 超大規模資料庫常見問題
+title: 超大規模資料庫常見問題集
 description: 回答客戶針對超大規模資料庫服務層級中的 Azure SQL 資料庫 (通常稱為「超大規模」資料庫) 經常提出的問題。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: c7960ca4e2dc2e676bc8668981108ce0f8589c0d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 89316811f39b4cab918b913b45ae5945686e6b15
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687345"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818219"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database 超大規模資料庫常見問題
 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721379"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820660"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
@@ -108,8 +108,8 @@ ISE 也會針對執行持續時間、儲存體保留、輸送量、HTTP 要求�
 
 * 適用于該系統的 ISE 標示連接器
 
-  > [!IMPORTANT]
-  > 若要搭配 SQL Server 連接器使用 Windows 驗證，您必須使用內部[部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。 SQL Server 連接器不支援 ISE 中邏輯應用程式的 Windows 驗證。
+  > [!NOTE]
+  > 若要在[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)中搭配使用 Windows 驗證與 SQL Server 連接器，請使用連接器的非 ISE 版本搭配內部[部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。 ISE 標記的版本不支援 Windows 驗證。
 
 * 自訂連接器
 

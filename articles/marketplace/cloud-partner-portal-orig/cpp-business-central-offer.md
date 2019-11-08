@@ -4,19 +4,20 @@ description: 已取代並連結至對應的電腦文章;was 「說明如何在 C
 services: Dynamics 365 Business Central, AppSource Marketplace,
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: 66ba5a6a54f22b6b76d94e8d29f72dda8895c9c5
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 772f96f4e8d5c3c87c2e62cd01500075a5327210
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105202"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819544"
 ---
 # <a name="dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 供應項目
 
-[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 Business Central 供應專案。 相反地, 此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 Business Central 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)專案。
+[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 Business Central 供應專案。 相反地，此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 Business Central 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)專案。
 
 ## <a name="next-steps"></a>後續步驟
 

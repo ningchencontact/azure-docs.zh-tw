@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracych
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4390fab3d59706bf692de46d17923dad4f9a8f21
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 615536fbba38279a23516352c69461c19f9972ed
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489613"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796719"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>使用 Azure Machine Learning 對大量資料執行批次推斷
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>撰寫推斷指令碼
 
 >[!Warning]
->下列程式碼只是[筆記本範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb)所使用的範例。 請針對您的案例建立自己的指令碼。
+>下列程式碼只是[筆記本範例](https://aka.ms/batch-inference-notebooks)所使用的範例。 請針對您的案例建立自己的指令碼。
 
 指令碼「必須包含」  兩個函式：
 - `init()`：請將此函式用於高成本或一般的準備，以進行後續的推斷。 例如，使用此函式將模型載入至全域物件。
@@ -347,7 +347,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>後續步驟
 
-若要查看此程序的完整運作過程，請試試[批次推斷筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/)。 
+若要查看此程序的完整運作過程，請試試[批次推斷筆記本](https://aka.ms/batch-inference-notebooks)。 
 
 如需管線的偵錯和疑難排解指引，請參閱[操作指南](how-to-debug-pipelines.md)。
 

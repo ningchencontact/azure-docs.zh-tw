@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 5c583270428a459f500ae0e220592805fd1bf454
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: HT
+ms.openlocfilehash: 0a2b48a6c046150f6e685ecda0c0d765342e0194
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718903"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818959"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>如何將有限的試用版專案移至 Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "73718903"
 
 ## <a name="find-your-limited-trial-project-information"></a>尋找您的有限試用版專案資訊
 
-若要移動您的專案，您將需要您嘗試要遷移之專案的_專案識別碼_和_訓練索引鍵_。 如果您沒有這項資訊，請造訪[https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects)以取得每個專案的識別碼和金鑰。 
+若要移動您的專案，您將需要您嘗試要遷移之專案的_專案識別碼_和_訓練索引鍵_。 如果您沒有這項資訊，請造訪[https://www.customvision.ai/projects](https://www.customvision.ai/projects)以取得每個專案的識別碼和金鑰。 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>使用 Python 範例程式碼，將您的專案複製到 Azure
 

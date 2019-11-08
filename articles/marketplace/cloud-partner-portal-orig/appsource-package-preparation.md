@@ -1,19 +1,20 @@
 ---
-title: AppSource 封裝準備 |Azure Marketplace
+title: AppSource 套件準備 |Azure Marketplace
 description: 說明如何準備及建置 AppSource 套件。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c6b78e62afb43562910c872d31e2c9f564040da
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935637"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806107"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 套件準備
 
@@ -33,8 +34,8 @@ Package Deployer 的套件是 AppSource 套件的一部分。
 
 若要建立 Package Deployer 的套件，請使用下列指示：[https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx)。 完成時，您的套件將包含下列資產：
 
-1. 套件資料夾：包含所有的解決方案、組態資料、一般檔案，以及您套件的內容。 _注意：在接下來的範例假設套件資料夾名為"PkgFolder 」_
-2. dll:組件包含自訂程式碼，為您的封裝。 _注意：在接下來的範例假設這個檔案稱為 「 MicrosoftSample.dll。 」_
+1. 套件資料夾：包含所有的解決方案、組態資料、一般檔案，以及您套件的內容。 _注意：在接下來的範例中，我們假設套件資料夾名為 "PkgFolder"_
+2. dll：包含套件自訂程式碼的組件。 _注意：在接下來的範例中，我們假設此檔案名為 "MicrosoftSample.dll"。_
 
 現在，您需要建立一個名為 "**Content_Types.xml**" 的檔案。此檔案將列出所有屬於您套件的資產擴充功能。 以下是檔案的範例程式碼。
 
@@ -73,14 +74,14 @@ Package Deployer 的套件是 AppSource 套件的一部分。
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
-## <a name="b-create-an-appsource-package"></a>b. 建立 AppSource 套件
+## <a name="b-create-an-appsource-package"></a>b.這是另一個 C# 主控台應用程式。 建立 AppSource 套件
 
 AppSource 套件需要一些額外的檔案。
 
 1. jpg (32x32 解析度)
 2. html (HTML 格式的檔案)
 3. **Content_Types.xml** (同上)
-4. Xml
+4. xml
 
 以下是 input.xml 的範例程式碼。 請參閱下表中的定義。
 
@@ -111,13 +112,13 @@ AppSource 套件需要一些額外的檔案。
 |SolutionAnchorName |Package Deployer 中用於解決方案資產顯示名稱和描述的解決方案 zip 檔案名稱。|
 | StartDate| 這是方案套件提供使用的日期。 格式為 MM/DD/YYYY|
 |EndDate|這是方案套件將停止使用的日期。 格式為 MM/DD/YYYY |
-|SupportedCountries |這是以逗號分隔的清單應該會看到此套件的國家/地區。 請連絡線上服務，以取得一份所有目前的國家/地區代碼的清單。 同時，本文撰寫清單為：AE，AL，AM，AO，AR、 AT、 AU，AZ、 BA、 BB、 BD，是，BG、 BH、 BM、 BN、 BO、 巴西、 依 CA，CH，CI，CL，CM，CO、 CR、 CV，CW，CY、 CS-CZ、 DE、 DK、 執行、 DZ、 EC、 EE，例如，ES、 WI-FI、 FR、 GB、 GE、 GH、 GR、 GT、 香港特別行政區HN、 HR、 HU、 識別碼、 IE、 IL、 IN、 IQ，是，它、 JM，JO、 JP、 KE、 KG、 KN、 韓國、 千瓦，KY、 KZ、 LB、 LK、 L、 LU、 LV、 LY 拼湊的麻薩諸塞州、 MC，MD、 我、 MK，MN，MO，MT、 MU、 MX，我，NG，NI、 NL、 否、 紐西蘭、 OM、 PA、 PE、 PHPK、 PL、 提取要求、 PS、 PT、 PY、 QA、 RO、 RS、 RU、 RW、 SA、 SE、 SG、 SI，SK、 SN、 SV、 TH、 TM，TN、 TR、 TT、 TW、 UA、 美國、 UY、 UZ、 VE、 VI、 VN、 A-ZA、 ZW |
+|SupportedCountries |這是以逗號分隔的國家/地區清單，其中應會顯示此套件。 請連絡線上服務，以取得一份所有目前的國家/地區代碼的清單。 在撰寫本文時，清單是：AE、AL、AM、AO、AR、AT、AU、AZ、BA、BB、BD、BE、BG、BH、BM、BN、BO、BR、BY、CA、CH、CI、CL、CM、CO、CR、CV、CW、CY、CZ、DE、DK、DO、DZ、EC、EE、EG、ES、FI、FR、GB、GE、GH、GR、GT、HK、HN、HR、HU、ID、IE、IL、IN、IQ、IS、IT、JM、JO、JP、KE、KG、KN、KR、KW、KY、KZ、LB、LK、LT、LU、LV、LY、MA、MC、MD、ME、MK、MN、MO、MT、MU、MX、MY、NG、NI、NL、NO、NZ、OM、PA、PE、PH、PK、PL、PR、PS、PT、PY、QA、RO、RS、RU、RW、SA、SE、SG、SI、SK、SN、SV、TH、TM、TN、TR、TT、TW、UA、US、UY、UZ、VE、VI、VN、ZA、ZW |
 |LearnMoreLink | 此套件的詳細資訊頁面 URL。 |
 |Locales|針對您要在慣用方案 UX 中支援之每種 UX 語言的此節點的執行個體。 此節點包含描述每種語言之地區設定、標誌和字詞的子系|
 |地區設定：PackageLocale.Code|此節點之語言的 LCID。 範例：美式英文為 1033|
 |地區設定：PackageLocale.IsDefault|指出這是預設語言。 如果客戶選擇的 UX 語言無法使用，則將其用作回復語言。|
 |地區設定：標誌|這是您想要針對此套件使用的標誌。 圖示的大小為 32x32。 允許的格式有 PNG 和 JPG|
-|地區設定： 條款：PackageTerm.File|這是包含您的授權條款的 HTML 文件的檔案名稱。|
+|地區設定：字詞：PackageTerm.File|這是包含您的授權條款的 HTML 文件的檔案名稱。|
 
 這是標誌顯示的位置：
 
@@ -127,7 +128,7 @@ AppSource 套件需要一些額外的檔案。
 
 1. zip (稍早建立)
 2. **Content_Types.xml**
-3. Xml
+3. xml
 4. png
 5. html
 

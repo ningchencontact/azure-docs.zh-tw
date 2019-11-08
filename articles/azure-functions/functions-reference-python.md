@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e0e649045e3efe488804fd37c030fe01991ad232
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674951"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803614"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -30,7 +30,7 @@ ms.locfileid: "72674951"
 
 Azure Functions 預期函式在 Python 腳本中是可處理輸入並產生輸出的無狀態方法。 根據預設，執行時間會預期方法會實作為在 `__init__.py` 檔案中稱為 `main()` 的全域方法。 您也可以[指定替代的進入點](#alternate-entry-point)。
 
-來自觸發程式和系結的資料，會使用函式*json*檔案中定義的 `name` 屬性，透過方法屬性系結至函式。 例如，下面的_函數. json_描述由名為 `req` 的 HTTP 要求所觸發的簡單函式：
+來自觸發程式和系結的資料，會使用函式*json*檔案中定義的 `name` 屬性，透過方法屬性系結至函式。 例如，下面的_函數. json_描述由名為 `req`的 HTTP 要求所觸發的簡單函式：
 
 ```json
 {
@@ -180,7 +180,7 @@ def main(req: func.HttpRequest,
 
 輸出可以使用傳回值和輸出參數來表示。 如果只有一個輸出，我們建議使用傳回的值。 若為多個輸出，您必須使用輸出參數。
 
-若要使用函式的傳回值作為輸出繫結的值，應該將 `function.json` 中的繫結 `name` 屬性設定為 `$return`。
+若要使用函式的傳回值作為輸出繫結的值，應該將 `name` 中的繫結 `$return` 屬性設定為 `function.json`。
 
 若要產生多個輸出，請使用[`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python)介面提供的 `set()` 方法，將值指派給系結。 例如，下列函式可以將訊息推送至佇列，同時也會傳回 HTTP 回應。
 
@@ -238,7 +238,7 @@ def main(req):
 
 其他的記錄方法可讓您在不同追蹤層級寫入主控台記錄中︰
 
-| 方法                 | 描述                                |
+| 方法                 | 說明                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 在根記錄器上寫入層級為 CRITICAL (重大) 的訊息。  |
 | **`error(_message_)`**   | 在根記錄器上寫入層級為 ERROR (錯誤) 的訊息。    |
@@ -294,7 +294,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ### <a name="async"></a>非同步處理
 
-建議您使用 `async def` 語句，讓函式以非同步協同程式的方式執行。
+建議您使用 `async def` 語句，讓您的函式以非同步協同程式的方式執行。
 
 ```python
 # Runs with asyncio directly
@@ -314,7 +314,7 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>使用多個語言工作者進程
 
-根據預設，每個函式主控制項實例都有單一的語言工作者進程。 不過，支援每個主控制項實例有多個語言工作者進程。 接著，函式呼叫可以平均分散在這些語言工作者進程中。 使用[FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count)應用程式設定來變更此值。 
+根據預設，每個函式主控制項實例都有單一的語言工作者進程。 不過，支援每個主控制項實例有多個語言工作者進程。 接著，函式呼叫可以平均分散在這些語言工作者進程中。 請使用[FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count)應用程式設定來變更此值。 
 
 ## <a name="context"></a>Context
 
@@ -360,7 +360,7 @@ def main(req):
 
 ## <a name="environment-variables"></a>環境變數
 
-在函數中，[應用程式設定](functions-app-settings.md)（例如服務連接字串）在執行期間會公開為環境變數。 您可以藉由宣告 `import os`，然後使用 `setting = os.environ["setting-name"]`，來存取這些設定。
+在函數中，[應用程式設定](functions-app-settings.md)（例如服務連接字串）在執行期間會公開為環境變數。 您可以藉由宣告 `import os`，然後使用 `setting = os.environ["setting-name"]` 來存取這些設定。
 
 下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)，並將金鑰命名為 `myAppSetting`：
 
@@ -533,6 +533,27 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
+## <a name="temporary-files"></a>暫存檔案
+
+`tempfile.gettempdir()` 方法會傳回在 Linux 上 `/tmp`的暫存資料夾。 您的應用程式可以使用此目錄來儲存您的函式在執行期間所產生及使用的暫存檔案。 
+
+> [!IMPORTANT]
+> 寫入臨時目錄的檔案不保證會在調用之間保存。 在相應放大期間，暫存檔案不會在實例之間共用。 
+
+下列範例會在臨時目錄中建立名為的暫存檔案（`/tmp`）：
+
+```python
+import logging
+import azure.functions as func
+import tempfile
+from os import listdir
+
+#---
+   tempFilePath = tempfile.gettempdir()   
+   fp = tempfile.NamedTemporaryFile()     
+   fp.write(b'Hello world!')              
+   filesDirListInTemp = listdir(tempFilePath)     
+```   
 
 ## <a name="known-issues-and-faq"></a>已知問題和常見問題集
 
@@ -540,7 +561,7 @@ class TestFunction(unittest.TestCase):
 
 ### <a name="cross-origin-resource-sharing"></a>跨原始資源共用
 
-Azure Functions 支援跨原始來源資源分享（CORS）。 CORS 會[在入口網站中](functions-how-to-use-azure-function-app-settings.md#cors)以及透過[Azure CLI](/cli/azure/functionapp/cors)進行設定。 CORS 允許的原始來源清單適用于函數應用層級。 在啟用 CORS 的情況下，回應會包含 `Access-Control-Allow-Origin` 標頭。 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
+Azure Functions 支援跨原始來源資源分享（CORS）。 CORS 會[在入口網站中](functions-how-to-use-azure-function-app-settings.md#cors)以及透過[Azure CLI](/cli/azure/functionapp/cors)進行設定。 CORS 允許的原始來源清單適用于函數應用層級。 啟用 CORS 後，回應會包含 `Access-Control-Allow-Origin` 標頭。 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
 
 Python 函式應用程式[目前不支援](https://github.com/Azure/azure-functions-python-worker/issues/444)允許的原始來源清單。 由於這項限制，您必須在 HTTP 函式中明確設定 `Access-Control-Allow-Origin` 標頭，如下列範例所示：
 

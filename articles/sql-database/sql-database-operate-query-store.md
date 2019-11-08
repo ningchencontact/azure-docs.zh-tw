@@ -1,5 +1,5 @@
 ---
-title: 操作 Azure SQL Database 中的查詢存放區
+title: 操作查詢存放區
 description: 了解如何操作 Azure SQL Database 中的查詢存放區
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b4f999818fe3b3517ee3fb48c22e616ee50f2d88
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa60992c85e69143bfd65cc1a1f420ed85c8fd93
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567154"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802760"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>操作 Azure SQL Database 中的查詢存放區
 
@@ -31,7 +31,7 @@ Azure 中的查詢資料存放區是完全受控的資料庫功能，可持續�
 
 本節描述最佳的組態預設值，其設計目的是確保查詢存放區及相依功能 (例如 [SQL Database 建議程式和效能儀表板](https://azure.microsoft.com/updates/sqldatabaseadvisorga/)) 能夠可靠地運作。 預設組態已針對持續收集資料最佳化，也就是在 OFF/READ_ONLY 狀態花費最少的時間。
 
-| 組態 | 描述 | 預設 | 註解 |
+| 組態 | 說明 | 預設值 | 註解 |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |指定查詢存放區在客戶資料庫內佔用的資料空間限制 |100 |對新資料庫強制執行 |
 | INTERVAL_LENGTH_MINUTES |定義彙總和保存查詢計畫所收集到的執行階段統計資料的時段大小。 對於此組態定義的一段時間，每個使用中的查詢計劃最多會有一個資料列 |60 |對新資料庫強制執行 |

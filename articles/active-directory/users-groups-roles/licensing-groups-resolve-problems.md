@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfe5b886ff389cf2d0f01d402990929c0ef5628
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 247dee2cfbb00b185e941fde05c2198459a05e20
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033995"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815731"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 
@@ -29,6 +29,11 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 當您將授權直接指派給個別使用者，而不使用以群組為基礎的授權時，指派作業會失敗。 例如，當您在使用者系統上執行 PowerShell Cmdlet `Set-MsolUserLicense` 時，許多與商務邏輯相關的原因可能會造成此 Cmdlet 失敗。 例如，可能是授權數量不足，或無法同時指派兩個服務方案的衝突。 系統會立即向您回報此問題。
 
 當您使用以群組為基礎的授權時，可能會發生相同錯誤，但是當 Azure AD 服務指派授權時，則會在背景中發生錯誤。 基於這個原因，無法立即向您通知這些錯誤。 而是會記錄在使用者物件上，然後透過系統管理入口網站報告。 授權使用者的原意永遠不會遺失，但會記錄為錯誤狀態，供未來調查和解決。
+
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>Audit 記錄中的 LicenseAssignmentAttributeConcurrencyException
+
+**問題：** 使用者已 LicenseAssignmentAttributeConcurrencyException 審核記錄中的授權指派。
+當以群組為基礎的授權嘗試對使用者處理相同授權的並行授權指派時，此例外狀況會記錄在使用者上。 這通常發生于使用者是多個具有相同指派授權之群組的成員時。 AZure AD 將會重試處理使用者授權，並會解決此問題。 客戶不需要採取任何動作來修正此問題。
 
 ## <a name="find-license-assignment-errors"></a>尋找授權指派錯誤
 
@@ -77,7 +82,7 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 
 **PowerShell：** PowerShell Cmdlet 會將此錯誤報告為 _MutuallyExclusiveViolation_。
 
-## <a name="other-products-depend-on-this-license"></a>其他相依於此授權的產品
+## <a name="other-products-depend-on-this-license"></a>其他產品相依於此授權
 
 **問題：** 群組中指定的其中一個產品包含服務方案，必須在另一個產品中針對另一個服務方案啟用，才能夠運作。 當 Azure AD 嘗試移除基礎服務方案時會發生此錯誤。 比方說，從群組移除使用者時可能會發生這種情形。
 

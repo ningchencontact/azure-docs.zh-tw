@@ -1,5 +1,5 @@
 ---
-title: 如何設定 Azure SQL Database 受控實例
+title: 如何設定受控實例
 description: 了解如何設定與管理 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 22bad381a59a74237a5539cd4294a08797c017b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689919"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811206"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>如何在 Azure SQL Database 中使用受控執行個體
 

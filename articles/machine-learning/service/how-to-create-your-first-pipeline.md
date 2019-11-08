@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a092647f9772aafdf610ee9a5ba85ded17d50def
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577714"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818405"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -166,7 +166,7 @@ Azure Databricks 是 Azure 雲端中的 Apache Spark 型環境。 它可與 Azur
 
 * __Databricks 計算名稱__：您想要指派給這個計算資源的名稱。
 * __Databricks 工作區名稱__： Azure Databricks 工作區的名稱。
-* __Databricks 存取權杖__：用來驗證 Azure Databricks 的存取權杖。 若要產生存取權杖，請參閱[驗證](https://docs.azuredatabricks.net/api/latest/authentication.html)文件。
+* __Databricks 存取權杖__：用來驗證 Azure Databricks 的存取權杖。 若要產生存取權杖，請參閱[驗證](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html)文件。
 
 下列程式碼示範如何搭配 Azure Machine Learning SDK 來連結 Azure Databricks 作為計算目標：
 

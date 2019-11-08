@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database DTU 資源限制彈性集區 |Microsoft Docs
+title: DTU 資源限制彈性集區
 description: 此頁面說明 Azure SQL Database 中彈性集區的一些常見 DTU 資源限制。
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 08e6c27b359e8fcf48caed6faf21c0aed8fad224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5d87d62f1db5e7d472af4cc2153d8841be6241
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521025"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826548"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>使用 DTU 購買模型的彈性集區資源限制
 

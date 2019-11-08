@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
-ms.openlocfilehash: d92e24836a0eb5757de9bbdb516be290456deb7f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819097"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 GROUP BY 子句
 
 GROUP BY 子句會根據一個或多個指定屬性的值來分割查詢的結果。
 
 > [!NOTE]
-> Azure Cosmos DB 目前支援在[.NET SDK 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0)或更新版本中使用 GROUP BY。
-> 支援其他語言 SDK 和 Azure 入口網站目前無法使用，但已進行規劃。
+> Azure Cosmos DB 目前支援 .NET SDK 3.3 和更新版本，以及 JavaScript SDK 3.4 和更新版本中的 GROUP BY。
+> 目前無法使用其他語言 SDK 的支援，但已進行規劃。
 
 ## <a name="syntax"></a>語法
 

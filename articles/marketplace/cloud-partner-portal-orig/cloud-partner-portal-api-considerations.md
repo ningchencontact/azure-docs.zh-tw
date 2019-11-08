@@ -4,20 +4,21 @@ description: 使用 Marketplace API 時的版本設定、錯誤處理與授權�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 762c90b62ed2a9347ae88a50a11bfe02f3b23ba4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 07cdb5e44dde0ca655191111d0a23dbab85b4cb2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162660"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819732"
 ---
 # <a name="api-considerations"></a>API 考量
 
 
-<a name="api-versioning"></a>API 版本設定
+<a name="api-versioning"></a>API 版本控制
 --------------
 
 同時可能會提供多個版本的 API。 用戶端必須透過提供 `api-version` 參數做為查詢字串的一部分，以指出希望叫用的版本。
@@ -35,7 +36,7 @@ ms.locfileid: "73162660"
     }
 ```            
 
-<a name="errors"></a>Errors
+<a name="errors"></a>錯誤數
 ------
 
 API 會以對應的 HTTP 狀態碼與選擇性的額外資訊 (在回應中序列化為 JSON) 回應錯誤。

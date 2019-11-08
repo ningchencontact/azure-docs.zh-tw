@@ -1,6 +1,6 @@
 ---
 title: 快速入門：建立資料科學實驗
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 此機器學習快速入門會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 99cc453387ed32c4d7cbba31c1fec2ff24a8255f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493293"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621884"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>快速入門：在 Azure Machine Learning Studio (傳統) 中建立您的第一個資料科學實驗
 

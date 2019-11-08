@@ -1,5 +1,5 @@
 ---
-title: '設定 P2S-Azure SQL Database 受控執行個體 '
+title: 設定 P2S 受控實例
 description: 使用 SQL Server Management Studio，利用點對站連線從內部部署用戶端電腦連線到 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 3b3a0ce28c4a936e185ac5f07ba3810c93f4c866
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689408"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818921"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線
 

@@ -1,20 +1,21 @@
 ---
-title: 超大規模資料庫服務層級中的 Azure SQL Database 效能診斷
+title: 超大規模資料庫中的效能診斷
 description: 本文說明如何針對 Azure SQL Database 中的超大規模資料庫效能問題進行疑難排解。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: b8acdbc63098ae99355e8874f7c1585759e5fb7f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689856"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811155"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL 超大規模資料庫效能疑難排解診斷
 

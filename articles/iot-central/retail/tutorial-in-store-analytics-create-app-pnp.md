@@ -3,6 +3,7 @@ title: 在 Azure IoT Central 中建立店內分析應用程式 | Microsoft Docs
 description: 本教學課程說明如何在 IoT Central 中建立店內分析零售應用程式。 您將會建立此應用程式、加以自訂，並新增感應器裝置。
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom:
 - iot-storeAnalytics-checkout
@@ -10,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 0d586aaab4fc87bb671e67152cf66e9fb1447504
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a662201823808c9e2e34e9210096cb081e1b9430
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495171"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615318"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>教學課程：在 Azure IoT Central 中建立店內分析應用程式
 
@@ -203,7 +204,7 @@ ms.locfileid: "73495171"
 
 1. 將 [最小長度]  設定為 [2]  。 
 
-1. 將 [修剪空白]  設定為 [開啟]** **。
+1. 將 [修剪空白]  設定為 [開啟]  。
 
 1. 選取 [儲存]  以儲存自訂雲端屬性。
 

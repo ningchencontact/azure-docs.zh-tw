@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure Synapse Analytics (先前為 SQL DW)？| Microsoft Docs
+title: 什麼是 Azure Synapse Analytics (先前為 SQL DW)？
 description: Azure Synapse Analytics (先前為 SQL DW) 是一種無限制的分析服務，可將企業資料倉儲和巨量資料分析整合在一起。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d10ea99e2dc8513a9cfebec782535f9e3185a3b9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 07bf3070e42af8a03ce1fd7ea4445fc76557e8a3
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496298"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645506"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>什麼是 Azure Synapse Analytics (先前為 SQL DW)？
 

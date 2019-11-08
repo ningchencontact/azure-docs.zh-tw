@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 87fb0535bb4597ff1f0fd2bf73783b661ae9a23d
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 144540b3d50c217f74608cedb546b80ab7ba222b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816982"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825574"
 ---
 您可以選擇性地選取每個產業下最多兩個產業和兩個縱向。 當您的供應專案在搜尋篩選中使用，並在店面中套用時，這些類別會用來顯示您的供應專案。  如果您的供應專案以特定產業和/或垂直為目標，請務必在供應專案描述中描述您的供應專案如何支援選取的產業或縱向。  否則，如果您的供應專案不是產業專屬的，請勿進行選擇，並將此區段保留空白。
 
@@ -30,10 +31,10 @@ ms.locfileid: "72816982"
 | :------------------- | :-------------------|
 | \* 汽車     | \* 汽車 |
 | 農業     | \* 其他-Unsegmented |
-| 通路業    | \* 批發 <br> \* 包裹 & 套件運送 |
+| 配送映像    | \* 批發 <br> \* 包裹 & 套件運送 |
 | 教育訓練     | \* 高等教育 <br> \* 主要 & 次要教育/K-12 <br> \* & 博物館的程式庫 |
 | 金融服務     | \* 銀行業 & 資本市場 <br> \* 保險 |
-| 政府機關    | \* 防禦 & 情報（用來稱之為國家和公共安全性） <br> \* 公開安全 & 司法 <br> \* 文職政府 |
+| 政府    | \* 防禦 & 情報（用來稱之為國家和公共安全性） <br> \* 公開安全 & 司法 <br> \* 文職政府 |
 | 醫療保健（用來稱為「健康情況」）   | \* 健全狀況醫療給付 <br> \* 健全狀況提供者 <br> \* 製藥 |
 | 製造 & 資源（用來呼叫製造）   | \* 化學 & Agrochemical <br> \* 離散製造 <br> \* 能源 |
 | 零售 & 消費商品（用來稱為零售）  | \* 消費性商品 <br> \* 零售商 |

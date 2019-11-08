@@ -1,21 +1,21 @@
 ---
-title: 在刪除 Azure SQL Database 受控實例之後刪除子網
+title: 在刪除受控實例之後刪除子網
 description: 瞭解如何在刪除 Azure SQL Database 受控實例之後刪除 Azure 虛擬網路。
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 84298e49de2de2ac43c33ec38c22846fd8d1e968
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 496d67a73207fd17182c31c5adad25c1fbe60c4f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688131"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820471"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>在刪除 Azure SQL Database 受控實例之後刪除子網
 

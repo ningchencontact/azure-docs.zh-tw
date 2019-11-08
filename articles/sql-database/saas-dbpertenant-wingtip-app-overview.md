@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 多租使用者應用程式範例-Wingtip SaaS
+title: 多租使用者應用程式範例-Wingtip SaaS
 description: 藉由使用採用 Azure SQL Database (Wingtip SaaS 範例) 的範例多租用戶應用程式來學習
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692070"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822170"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式簡介
 

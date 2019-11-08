@@ -4,19 +4,20 @@ description: 已淘汰且含有電腦文章連結的文章;was 「說明新 Dyna
 services: Azure, Marketplace, Cloud Partner Portal
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: 84932d693c9c74c74095eb78e750f8d3b1452068
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e52be51fd9c945f67044e8d807ce0a97beaf4487
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105557"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820064"
 ---
 # <a name="how-to-fill-out-the-offer-settings-form"></a>如何填寫供應項目設定表單
 
-[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 Business Central 供應專案。 相反地, 此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 Business Central 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)專案。
+[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 Business Central 供應專案。 相反地，此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 Business Central 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)專案。
 
 ## <a name="next-steps"></a>後續步驟
 

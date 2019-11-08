@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ba9b06c9a3e6025d7227493713fe9187fba233
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514900"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818899"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>從同盟移轉至 Azure Active Directory 的密碼雜湊同步處理
 
@@ -52,7 +52,7 @@ Azure AD Connect Active Directory Domain Services (AD DS) 服務帳戶需要有�
 
 ### <a name="plan-the-migration-method"></a>規劃移轉方法
 
-您可以從兩種方法中做選擇，以從同盟身分識別管理遷移至密碼雜湊同步處理和無縫單一登入 (SSO)。 您會使用的方法取決於 AD FS 執行個體原本的設定方式。
+您可以從兩種方法中做選擇，以從同盟身分識別管理遷移至密碼雜湊同步處理和無縫單一登入 (SSO)。 所應使用的方法取決於您 AD FS 執行個體原本的設定方式。
 
 * **Azure AD Connect**。 如果您原本使用 Azure AD Connect 來設定 AD FS，則「必須」使用 Azure AD Connect 精靈來變更密碼雜湊同步處理。
 
@@ -68,18 +68,18 @@ Azure AD Connect Active Directory Domain Services (AD DS) 服務帳戶需要有�
 
 若要確認目前的使用者登入設定：
 
-1. 使用全域系統管理員帳戶登入 [Azure AD 入口網站](https://aad.portal.azure.com/)。
+1. 使用全域管理員帳戶登入 [Azure AD 入口網站](https://aad.portal.azure.com/)。
 2. 在 [使用者登入] 區段中，確認下列設定：
    * [同盟] 已設定為 [啟用]。
    * [無縫單一登入] 設為 [停用]。
    * [傳遞驗證] 設為 [停用]。
 
-   ![螢幕擷取畫面：Azure AD Connect [使用者登入] 區段中的設定](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
+   ![此螢幕擷取畫面顯示 Azure AD Connect [使用者登入] 區段中的設定](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
 #### <a name="verify-the-azure-ad-connect-configuration"></a>確認 Azure AD Connect 設定
 
 1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect。 選取 [設定]。
-2. 在 [其他工作] 頁面上，選取 [檢視目前的設定]，然後選取 [下一步]。<br />
+2. 在 [其他工作] 頁面上選取 [檢視目前的設定]，然後選取 [下一步]。<br />
 
    ![螢幕擷取畫面：[其他工作] 頁面上已選取 [檢視目前的設定] 選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
 3. 在 [檢閱解決方案] 頁面上，請注意 [密碼雜湊同步處理] 狀態。<br /> 
@@ -161,7 +161,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 當您將裝置加入 Azure AD 時，您可以建立條件式存取規則，強制裝置符合您的安全性和合規性存取標準。 此外，使用者也可使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。 使用已加入混合式 Azure AD 的裝置時，您可以將已加入 Active Directory 網域的裝置加入 Azure AD。 您的同盟環境可能已設定成使用這項功能。
 
-為確保在網域轉換為密碼雜湊同步處理之後，加入網域的任何裝置都能繼續使用混合式聯結，針對 Windows 10 用戶端，您必須使用 Azure AD Connect 裝置選項來填入 SCP，然後同步處理要 Azure AD 的目錄電腦帳戶。 
+為確保在網域轉換為密碼雜湊同步處理之後，加入網域的任何裝置都能繼續使用混合式聯結，針對 Windows 10 用戶端，您必須使用 Azure AD Connect 裝置選項來同步 Active Directory 電腦要 Azure AD 的帳戶。 
 
 對於 Windows 8 和 Windows 7 電腦帳戶，混合式加入會使用無縫 SSO 在 Azure AD 中註冊電腦。 您不需要像 Windows 10 裝置那樣同步處理 Windows 8 和 Windows 7 電腦帳戶。 但您必須將更新的 workplacejoin.exe 檔案 (透過 .msi 檔案) 部署到 Windows 8 和 Windows 7 用戶端，使其可使用無縫 SSO 進行註冊。 [下載 .msi 檔案](https://www.microsoft.com/download/details.aspx?id=53554)。
 
@@ -276,7 +276,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 #### <a name="option-a-switch-from-federation-to-password-hash-synchronization-by-using-azure-ad-connect"></a>選項 A：使用 Azure AD Connect 從同盟切換至密碼雜湊同步處理
 
-如果您最初是以 Azure AD Connect 設定 AD FS 環境，請使用此方法。 如果您最初「並非」使用 Azure AD Connect 來設定 AD FS 環境，請勿使用此方法。
+如果您最初是以 Azure AD Connect 設定 AD FS 環境，請使用此方法。 如果您最初*並非*使用 Azure AD Connect 來設定 AD FS 環境，請勿使用此方法。
 
 首先，請變更登入方法：
 
@@ -335,9 +335,9 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 3. 在 [連線到 Azure AD] 頁面上，輸入全域管理員帳戶的使用者名稱和密碼。
 4. 在 [使用者登入] 頁面上，選取 [密碼雜湊同步處理] 按鈕。 選取 [啟用單一登入]，然後選取 [下一步]。
 
-   啟用密碼雜湊同步處理之前： ![Screenshot，其會在使用者登入頁面上顯示 [不要設定] 選項 ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
+   啟用密碼雜湊同步處理之前： ![螢幕擷取畫面，其中顯示 [使用者登入] 頁面上的 [不要設定] 選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   啟用密碼雜湊同步處理之後： ![Screenshot 會在 [使用者登入] 頁面上顯示新選項 ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   啟用密碼雜湊同步處理之後： ![螢幕擷取畫面，其中顯示 [使用者登入] 頁面上的新選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > 開始使用 Azure AD Connect 1.1.880.0 版，在預設情況下會選取 [無縫單一登入] 核取方塊。

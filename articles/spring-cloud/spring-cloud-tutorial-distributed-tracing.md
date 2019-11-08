@@ -1,20 +1,17 @@
 ---
 title: 教學課程：搭配 Azure Spring Cloud 使用分散式追蹤 | Microsoft Docs
 description: 了解如何透過 Azure Application Insights 使用 Spring Cloud 的分散式追蹤
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 95aae47bddffd102c5d6d6dac67f22e6777cc3e7
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038227"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607558"
 ---
 # <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>教學課程：搭配 Azure Spring Cloud 使用分散式追蹤
 
@@ -88,7 +85,7 @@ spring.sleuth.sampler.probability=0.5
 
 返回 [分散式追蹤] 頁面，並選取 [檢視應用程式對應]  。 檢閱您應用程式及監視設定的視覺效果呈現。 若要了解如何使用應用程式對應，請參閱[這篇文章](https://docs.microsoft.com/azure/azure-monitor/app/app-map) \(部分機器翻譯\)。
 
-## <a name="search"></a>Search
+## <a name="search"></a>搜尋
 
 使用搜尋功能來查詢其他特定的遙測項目。 在 [分散式追蹤]  頁面上，選取 [搜尋]  。 如需如何使用搜尋功能的詳細資訊，請參閱[這篇文章](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search) \(部分機器翻譯\)。
 

@@ -10,16 +10,16 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695199"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825248"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
-若要使用 [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) 通訊協定在[安全檔案傳輸通訊協定 (SFTP)](https://www.ssh.com/ssh/sftp/) \(英文\) 伺服器上，將監視、建立、傳送及接收檔案的工作自動化，您可以使用 Azure Logic Apps 和 SFTP-SSH 連接器來建置整合工作流程並自動化。 SFTP 是一個網路通訊協定，可透過任何可靠的資料流提供檔案存取、檔案傳輸和檔案管理。 以下是一些您可自動化的範例工作：
+若要使用 [Secure Shell (SSH)](https://www.ssh.com/ssh/sftp/) 通訊協定在[安全檔案傳輸通訊協定 (SFTP)](https://www.ssh.com/ssh/protocol/) \(英文\) 伺服器上，將監視、建立、傳送及接收檔案的工作自動化，您可以使用 Azure Logic Apps 和 SFTP-SSH 連接器來建置整合工作流程並自動化。 SFTP 是一個網路通訊協定，可透過任何可靠的資料流提供檔案存取、檔案傳輸和檔案管理。 以下是一些您可自動化的範例工作：
 
 * 監視檔案何時新增或變更。
 * 取得、建立、複製、重新命名、更新、列出及刪除檔案。
@@ -49,7 +49,7 @@ ms.locfileid: "71695199"
 
 * 使用[SSH.NET 程式庫](https://github.com/sshnet/SSH.NET)，這是支援 .net 的開放原始碼安全殼層（SSH）程式庫。
 
-* 根據預設，SFTP SSH 動作可以讀取或寫入*1 GB 或更小*的檔案，但一次只能有*15 MB*的區塊。 若要處理大於 15 MB 的檔案，SFTP SSH 動作可以使用[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化。 不過，[複製檔案] 動作僅支援 15 MB 的檔案，因為該動作不支援訊息區塊化。 SFTP-SSH 觸發程式不支援區塊化。
+* 根據預設，SFTP SSH 動作可以讀取或寫入*1 GB 或更小*的檔案，但一次只能有*15 MB*的區塊。 若要處理大於 15 MB 的檔案，SFTP SSH 動作可以使用[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化。 若要上傳大型檔案，您也需要讀取和寫入權限。 不過，[複製檔案] 動作僅支援 15 MB 的檔案，因為該動作不支援訊息區塊化。 SFTP-SSH 觸發程式不支援區塊化。
 
 * 提供**建立資料夾**動作，可在 SFTP 伺服器上指定的路徑中建立資料夾。
 
@@ -61,13 +61,13 @@ ms.locfileid: "71695199"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* 您的 SFTP 伺服器位址和帳戶認證，這讓您的邏輯應用程式能夠存取您的 SFTP 帳戶。 您也可以存取 SSH 私密金鑰和 SSH 私密金鑰密碼。
+* 您的 SFTP 伺服器位址和帳戶認證，這讓您的邏輯應用程式能夠存取您的 SFTP 帳戶。 您也可以存取 SSH 私密金鑰和 SSH 私密金鑰密碼。 若要在上傳大型檔案時使用區塊處理，您需要讀取和寫入權限。
 
   > [!IMPORTANT]
   >
   > SFTP-SSH 連接器*只*支援這些私密金鑰格式、演算法和指紋：
   >
-  > * **私密金鑰格式**：採用 OpenSSH 和 ssh.com 格式的 RSA （Rivest Shamir Adleman）和 DSA （數位簽章演算法）金鑰。 如果您的私密金鑰是 PuTTY （. .ppk）檔案格式，請先[將金鑰轉換成 OpenSSH （pem）檔案格式](#convert-to-openssh)。
+  > * **私密金鑰格式**： OpenSSH 和 ssh.com 格式的 RSA （Rivest Shamir Adleman）和 DSA （數位簽章演算法）金鑰。 如果您的私密金鑰是 PuTTY （. .ppk）檔案格式，請先[將金鑰轉換成 OpenSSH （pem）檔案格式](#convert-to-openssh)。
   >
   > * **加密演算法**：DES-EDE3-CBC、DES-EDE3-CFB、 DES-CBC、AES-128-CBC、AES-192-CBC 和 AES-256-CBC
   >
@@ -84,7 +84,7 @@ ms.locfileid: "71695199"
 
 SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次輪詢後已變更的任何檔案。 某些工具可讓您在檔案變更時保留時間戳記。 在這些情況下，您必須停用此功能，以便讓您的觸發程序可以運作。 以下是一些常見的設定：
 
-| SFTP 用戶端 | Action |
+| SFTP 用戶端 | 動作 |
 |-------------|--------|
 | Winscp | 移至 [選項] > [喜好設定] > [傳輸] > [編輯] > [保留時間戳記] > [停用] |
 | FileZilla | 移至 [傳輸] > [保留傳輸檔案的時間戳記] > [停用] |
@@ -108,7 +108,7 @@ SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   例如:
+   例如：
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -126,7 +126,7 @@ SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次�
 
    ![選取 [匯出 OpenSSH 金鑰]](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. 以 `.pem` 的副檔名儲存私密金鑰檔案。
+1. 儲存具有 `.pem` 副檔名的私密金鑰檔案。
 
 <a name="connect"></a>
 
@@ -136,11 +136,11 @@ SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp ssh" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp ssh" 作為篩選條件。 請在觸發程序清單底下，選取您想要的觸發程序。
 
    -或-
 
-   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "sftp ssh" 作為篩選條件。 在動作清單底下，選取您想要的動作。
+   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "sftp ssh" 作為篩選條件。 請在動作清單底下，選取您想要的動作。
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 
@@ -168,7 +168,7 @@ SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次�
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH 觸發：當新增或修改檔案時
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH 觸發程序：當新增或修改檔案時
 
 此觸發程序會在 SFTP 伺服器上新增或變更了檔案時，啟動邏輯應用程式工作流程。 舉例來說，您可以新增條件來檢查檔案的內容，並根據內容是否符合指定條件來取得內容。 接著，您可以新增要取得檔案內容的動作，並將該內容放置於 SFTP 伺服器上的資料夾中。
 
@@ -176,7 +176,7 @@ SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次�
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - SSH 動作：使用路徑來取得內容
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP-SSH 動作：使用路徑取得內容
 
 此動作會從 SFTP 伺服器上的檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及新增檔案內容必須符合的條件。 如果條件為 true，則可以執行會取得內容的動作。
 

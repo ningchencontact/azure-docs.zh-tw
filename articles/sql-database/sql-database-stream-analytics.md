@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL Database 串流分析整合來串流資料（預覽）
+title: 使用串流分析整合來串流資料（預覽）
 description: 使用 Azure 串流分析將資料串流至 Azure SQL 資料庫。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: fb889f14c3370e1297f98110903c64e93e09c946
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d233d3c98cc495e4b9e84142781f5eb9faa7eec8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687071"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820834"
 ---
 # <a name="stream-data-by-using-azure-sql-database-stream-analytics-integration-preview"></a>使用 Azure SQL Database 串流分析整合來串流資料（預覽）
 

@@ -1,5 +1,5 @@
 ---
-title: 如何設定 Azure SQL Database-單一
+title: 如何設定單一資料庫
 description: 了解如何設定與管理 Azure SQL Database - 單一資料庫
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/08/2019
-ms.openlocfilehash: 45e25641092fae36cd58a59400cea025f74cbc1f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689913"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811212"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>如何在 Azure SQL Database 中使用單一資料庫
 

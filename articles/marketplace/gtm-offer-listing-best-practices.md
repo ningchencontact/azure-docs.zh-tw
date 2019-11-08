@@ -4,15 +4,16 @@ description: Go-To-Market 服務 - 本節將描述陳列供應項目的最佳做
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9f55abf85803adf0f52bbfa445b9f3e489c9448b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821066"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818655"
 ---
 # <a name="offer-listing-best-practices"></a>陳列供應項目的最佳做法
 
@@ -21,7 +22,7 @@ ms.locfileid: "72821066"
 ## <a name="storefront-offer-details"></a>店面供應項目詳細資料
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
-| 優惠名稱 | 提供有力標題：<br> <ul> <li> 您的應用程式名稱應向客戶傳達核心價值。 </li> <li> 在您的應用程式標題中包含搜尋關鍵字，才能在搜尋引擎結果中得到高排名。 </li> </ul> 針對諮詢服務清單依照已設定的標題格式：<br>[供應專案名稱： [持續時間] [供應專案類型] （例如*Contoso：2周的執行*） <br><br> 遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
+| 供應項目名稱 | 提供有力標題：<br> <ul> <li> 您的應用程式名稱應向客戶傳達核心價值。 </li> <li> 在您的應用程式標題中包含搜尋關鍵字，才能在搜尋引擎結果中得到高排名。 </li> </ul> 針對諮詢服務清單依照已設定的標題格式：<br>[供應專案名稱： [持續時間] [供應專案類型] （例如*Contoso：2周的執行*） <br><br> 遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
 | 供應項目描述 | 提供清楚的供應項目描述：<br> <ul> <li> 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 </li> <li> 請記住，前幾個句子可能會顯示在搜尋引擎結果中。 </li> <li> 請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 </li> <li> 請盡可能使用業界特定詞彙或凸顯優點的字眼。</li> <li> 此外，諮詢服務清單必須清楚表明您提供的專業服務。 </li></ul> 您的價值主張核心部分應該包含下列資訊：<ul><li>產品的描述。</li><li>可從產品獲益的使用者類型。</li><li>產品可解決的客戶需求或問題。</li></ul> |
 
 ## <a name="storefront-listing-details"></a>店面清單詳細資料
@@ -42,10 +43,10 @@ Azure Marketplace 和 Microsoft AppSource 是店面，可提供不同且獨特�
 | :------------------- | :-------------------|
 | \* 汽車     | \* 汽車 |
 | 農業     | \* 其他-Unsegmented |
-| 通路業    | \* 批發 <br> \* 包裹 & 套件運送 |
+| 配送映像    | \* 批發 <br> \* 包裹 & 套件運送 |
 | 教育訓練     | \* 高等教育 <br> \* 主要 & 次要教育/K-12 <br> \* & 博物館的程式庫 |
 | 金融服務     | \* 銀行業 & 資本市場 <br> \* 保險 |
-| 政府機關    | \* 防禦 & 情報（用來稱之為國家和公共安全性） <br> \* 公開安全 & 司法 <br> \* 文職政府 |
+| 政府    | \* 防禦 & 情報（用來稱之為國家和公共安全性） <br> \* 公開安全 & 司法 <br> \* 文職政府 |
 | 醫療保健（用來稱為「健康情況」）   | \* 健全狀況醫療給付 <br> \* 健全狀況提供者 <br> \* 製藥 |
 | 製造 & 資源（用來呼叫製造）   | \* 化學 & Agrochemical <br> \* 離散製造 <br> \* 能源 |
 | 零售 & 消費商品（用來稱為零售）  | \* 消費性商品 <br> \* 零售商 |

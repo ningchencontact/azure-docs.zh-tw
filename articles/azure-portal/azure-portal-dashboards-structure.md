@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551482"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815711"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 儀表板結構
 此文件將使用下列儀表板做為範例，逐步說明 Azure 儀表板的結構：
@@ -295,7 +295,7 @@ ms.locfileid: "60551482"
 
 ### <a name="the-id-property"></a>識別碼屬性
 
-Azure 資源識別碼，受限於 [Azure 資源的命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 入口網站建立儀表板時，通常會選擇 guid 形式的識別碼，但是以程式設計方式建立儀表板時，可以隨意使用任何有效的名稱。 
+Azure 資源識別碼，受限於 [Azure 資源的命名慣例](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 入口網站建立儀表板時，通常會選擇 guid 形式的識別碼，但是以程式設計方式建立儀表板時，可以隨意使用任何有效的名稱。 
 
 ### <a name="the-name-property"></a>名稱屬性
 名稱是資源識別碼的區段，不包含訂用帳戶、資源類型或資源群組資訊。 基本上，它是資源識別碼的最後一個區段。
@@ -429,6 +429,6 @@ __位置__屬性包含組件的大小和位置資訊，分別以 __x__、__y__�
 ```
 
 ### <a name="the-asset-object"></a>資產物件
-繫結至第一個可管理入口網站物件 (稱為資產) 的圖格透過資產物件表示此關聯性。  在我們的範例儀表板中，虛擬機器圖格包含此資產描述。  __IdInputName__ 屬性告知入口網站識別碼輸入包含資產的唯一識別碼，在此案例中是資源識別碼。大部分的 Azure 資源類型都有在入口網站中定義的資產。
+繫結至第一個可管理入口網站物件 (稱為資產) 的圖格透過資產物件表示此關聯性。  在我們的範例儀表板中，虛擬機器圖格包含此資產描述。  __IdInputName__屬性會告知入口網站，識別碼輸入包含資產的唯一識別碼，在此案例中為資源 id。大部分的 Azure 資源類型都已在入口網站中定義資產。
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

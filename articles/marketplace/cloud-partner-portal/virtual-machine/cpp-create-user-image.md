@@ -1,18 +1,19 @@
 ---
-title: 在 Azure marketplace 中建立使用者 VM 映像
+title: 建立 Azure Marketplace 的使用者 VM 映射
 description: 列出建立使用者 VM 映像所需的步驟和參考。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 0005ab517d38903b87889b67449569495e396265
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e63f09dc538c5e66b244826cf3b5f92ac388b6a9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938323"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818689"
 ---
 # <a name="create-a-user-vm-image"></a>建立使用者 VM 映像
 
@@ -24,7 +25,7 @@ ms.locfileid: "64938323"
 請按照下列文章中的說明，擷取與您存取方式對應的 VM：
 
 -  PowerShell：[如何從 Azure VM 建立非受控 VM 映像](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI：[如何建立虛擬機器或 VHD 的映像](../../../virtual-machines/linux/capture-image.md)
+-  Azure CLI：[如何建立虛擬機器或 VHD 映像](../../../virtual-machines/linux/capture-image.md)
 -  API：[虛擬機器 - 擷取](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
 
 

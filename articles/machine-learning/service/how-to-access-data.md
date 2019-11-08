@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08094469da87a6aae31acac599f8422487c10d28
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580742"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818465"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -183,7 +183,7 @@ datastore.download(target_path='your target path',
 ## <a name="access-your-data-during-training"></a>在定型期間存取您的資料
 
 > [!IMPORTANT]
-> 使用[Azure Machine Learning 資料集（預覽）](how-to-create-register-datasets.md)是在定型中存取資料的新建議方式。 資料集提供將表格式資料載入 pandas 或 spark 資料框架的功能，以及從 Azure Blob、Azure 檔案、Azure Data Lake Gen 1、Azure Data Lake Gen 2、Azure SQL、Azure 于 postgresql 下載或掛接任何格式檔案的功能。 深入瞭解[如何使用資料集進行定型](how-to-train-with-datasets.md)。
+> 使用[Azure Machine Learning 資料集](how-to-create-register-datasets.md)是在定型中存取資料的新建議方式。 資料集提供將表格式資料載入 pandas 或 spark 資料框架的功能，以及從 Azure Blob、Azure 檔案、Azure Data Lake Gen 1、Azure Data Lake Gen 2、Azure SQL、Azure 于 postgresql 下載或掛接任何格式檔案的功能。 深入瞭解[如何使用資料集進行定型](how-to-train-with-datasets.md)。
 
 下表列出指示計算目標如何在執行期間使用資料存放區的方法。 
 

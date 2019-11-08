@@ -1,6 +1,6 @@
 ---
-title: 從我的應用程式入口網站執行存取權審查-Azure Active Directory |Microsoft Docs
-description: 瞭解如何為貴組織的應用程式和群組, 查看及管理安全性存取權。
+title: 從我的應用程式入口網站執行存取權審查-Azure AD
+description: 瞭解如何為貴組織的應用程式和群組，查看及管理安全性存取權。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383159"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804034"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>從我的應用程式入口網站執行存取權審查
 
@@ -31,46 +31,46 @@ ms.locfileid: "68383159"
 
 ## <a name="manage-access-reviews"></a>管理存取權檢閱
 
-如果您的系統管理員已授與您執行自己的存取權審查的許可權, 您可以從**我的應用程式**入口網站頁面上的 [**存取審查**] 磚, 管理您的群組或應用程式存取權。
+如果您的系統管理員已授與您執行自己的存取權審查的許可權，您可以從**我的應用程式**入口網站頁面上的 [**存取審查**] 磚，管理您的群組或應用程式存取權。
 
 >[!Note]
->如果您看不到 [**存取評論**] 磚, 表示您沒有執行存取權審查的許可權, 或者您沒有任何擱置中的評論正在等待您的核准。 如果您認為您應該有磚的存取權, 請洽詢服務台尋求協助。
+>如果您看不到 [**存取評論**] 磚，表示您沒有執行存取權審查的許可權，或者您沒有任何擱置中的評論正在等待您的核准。 如果您認為您應該有磚的存取權，請洽詢服務台尋求協助。
 
 ### <a name="to-perform-your-access-reviews"></a>若要執行您的存取權審查
 
 1. 登入您的公司或學校帳戶。
 
-2. 開啟您的網頁瀏覽器並 https://myapps.microsoft.com 移至, 或使用您組織所提供的連結。 例如, 您可能會被導向至您組織的自訂頁面, 例如 https://myapps.microsoft.com/contoso.com 。
+2. 開啟您的網頁瀏覽器並移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
-    [**應用程式**] 頁面隨即出現, 其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
+    [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
     ![我的應用程式入口網站中的 [應用程式] 頁面](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
-3. 選取 [**存取評論**] 磚, 以查看等待您核准的存取評論清單。
+3. 選取 [**存取評論**] 磚，以查看等待您核准的存取評論清單。
 
     ![具有組織暫止存取審查的 [存取評論] 頁面](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
 4. 選取 [**開始審核**] 以開始存取權審查。
 
-5. 檢查您的存取權, 並判斷是否仍然需要。
+5. 檢查您的存取權，並判斷是否仍然需要。
 
-    ![[存取權審查] 頁面, 其中顯示審核詳細資料](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
+    ![[存取權審查] 頁面，其中顯示審核詳細資料](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >如果您是系統管理員, 而且允許您檢查組織對群組和應用程式的存取權, 您會看到不同的頁面。 如需有關為組織審查群組或應用程式的詳細資訊, 請參閱[在 Azure AD 存取審查中審查群組或應用程式的存取權](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review)。
+    >如果您是系統管理員，而且允許您檢查組織對群組和應用程式的存取權，您會看到不同的頁面。 如需有關為組織審查群組或應用程式的詳細資訊，請參閱[在 Azure AD 存取審查中審查群組或應用程式的存取權](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review)。
 
-6. 選取 **[是]** 以保留您的存取權, 或按一下 [**否**] 以移除存取權。
+6. 選取 **[是]** 以保留您的存取權，或按一下 [**否**] 以移除存取權。
 
-    如果您選取 [**是]** , 您可能需要在 [**原因**] 方塊中指定理由。
+    如果您選取 [**是]** ，您可能需要在 [**原因**] 方塊中指定理由。
 
-    ![[存取權審查] 頁面, 顯示 [原因] 方塊與範例文字](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
+    ![[存取權審查] 頁面，顯示 [原因] 方塊與範例文字](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
 7. 選取 [提交]。
 
-    您的存取權檢查已完成, 您會返回**我的應用程式**入口網站。
+    您的存取權檢查已完成，您會返回**我的應用程式**入口網站。
 
     >[!Note]
-    >您可以隨時變更您的存取權, 直到存取權審查期間結束為止。 如果您移除對應用程式或群組的存取權, 它不會立即移除。 當存取審查期間結束或系統管理員關閉審核時, 就會進行移除。
+    >您可以隨時變更您的存取權，直到存取權審查期間結束為止。 如果您移除對應用程式或群組的存取權，它不會立即移除。 當存取審查期間結束或系統管理員關閉審核時，就會進行移除。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466434"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818551"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>編制 blob 的索引以產生多個搜尋檔
 根據預設，blob 索引子會將 blob 的內容視為單一搜尋檔。 某些**parsingMode**值支援個別 blob 可能會導致多個搜尋檔的案例。 不同類型的**parsingMode**可讓索引子從 blob 解壓縮一個以上的搜尋檔，如下所示：
@@ -99,7 +99,7 @@ _Blob2 json_
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您還不熟悉 blob 索引編制的基本結構和工作流程，您應該先參閱[Azure 搜尋服務的索引編制 Azure Blob 儲存體](search-howto-index-json-blobs.md)。 如需不同 blob 內容類型剖析模式的詳細資訊，請參閱下列文章。
+如果您還不熟悉 blob 索引編制的基本結構和工作流程，您應該先參閱[Azure 認知搜尋的索引編制 Azure Blob 儲存體](search-howto-index-json-blobs.md)。 如需不同 blob 內容類型剖析模式的詳細資訊，請參閱下列文章。
 
 > [!div class="nextstepaction"]
 > [編制 CSV blob 的索引](search-howto-index-csv-blobs.md)

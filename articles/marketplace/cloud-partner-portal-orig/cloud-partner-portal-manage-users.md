@@ -1,19 +1,20 @@
 ---
-title: Cloud partner 入口網站上管理使用者 |Azure Marketplace
+title: 在 cloud partner 入口網站上管理使用者 |Azure Marketplace
 description: 在 Cloud Partner 入口網站上管理使用者
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935159"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823273"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>在 Cloud Partner 入口網站上管理使用者
 ======================================
@@ -37,13 +38,13 @@ Cloud Partner 入口網站可讓您新增具有虛擬機器供應項目之角色
 
 您可以將新使用者新增為「擁有者」或「參與者」。
 
-**電子郵件**：新增即將發佈供應項目之組員的電子郵件地址。 支援 Microsoft 帳戶 (Outlook、Hotmail 和 Live) 和組織識別碼。
+**電子郵件**︰新增即將發佈供應項目之組員的電子郵件地址。 支援 Microsoft 帳戶 (Outlook、Hotmail 和 Live) 和組織識別碼。
 
 o 新增「小組/群組電子郵件別名/安全性群組」，以免負責處理供應項目的人員離職。
 
 o 確保在 Cloud Partner 入口網站上提供的電子郵件識別碼，在與 Microsoft 進行通訊時會受到監視。
 
-**角色**：請參閱下表，找出適當的使用者角色類型。
+**角色**︰請參閱下表，找出適當的使用者角色類型。
 
 ![指派角色](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
 ![角色層級](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
@@ -54,7 +55,7 @@ o 確保在 Cloud Partner 入口網站上提供的電子郵件識別碼，在與
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> [發行者] 的下拉式清單中會顯示您的電子郵件新增為其擁有者或參與者的 [發行者名稱] 以供選取。
+> 將您的電子郵件新增為擁有者或參與者的 [發行者名稱]，將會顯示在 [發行者] 的下拉式清單中以供選取。
 
 ![指派角色 - 選取發行者](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

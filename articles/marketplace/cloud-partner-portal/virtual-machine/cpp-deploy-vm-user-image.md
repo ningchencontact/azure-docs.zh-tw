@@ -1,18 +1,19 @@
 ---
-title: 部署使用者 VHD 的 Azure VM |Azure Marketplace
+title: 從使用者 VHD 部署 Azure VM |Azure Marketplace
 description: 說明如何部署使用者 VHD 映像來建立 Azure VM 執行個體。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816634"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>從使用者 VHD 部署 Azure VM
 
@@ -24,14 +25,14 @@ ms.locfileid: "64938250"
 
 將適用於 [VHD 部署](cpp-deploy-json-template.md)的 Azure Resource Manager 範本複製到名為 `VHDtoImage.json` 的本機檔案。  編輯此檔案以提供下列參數值。 
 
-|  **參數**             |   **描述**                                                              |
+|  **參數**             |   **說明**                                                              |
 |  -------------             |   ---------------                                                              |
-| ResourceGroupName          | 現有的 Azure 資源群組名稱。  通常會使用與您金鑰保存庫相關聯的相同 RG  |
+| resourceGroupName          | 現有的 Azure 資源群組名稱。  通常會使用與您金鑰保存庫相關聯的相同 RG  |
 | TemplateFile               | 檔案 `VHDtoImage.json` 的完整路徑名稱                                    |
 | userStorageAccountName     | 儲存體帳戶的名稱                                                    |
 | sNameForPublicIP           | 公用 IP 的 DNS 名稱。 必須是小寫                                  |
 | subscriptionId             | Azure 訂用帳戶識別碼                                                  |
-| Location                   | 資源群組的標準 Azure 地理位置                       |
+| 位置                   | 資源群組的標準 Azure 地理位置                       |
 | vmName                     | 虛擬機器的名稱                                                    |
 | vaultName                  | 金鑰保存庫的名稱                                                          |
 | vaultResourceGroup         | 金鑰保存庫的資源群組

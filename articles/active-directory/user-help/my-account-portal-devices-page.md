@@ -1,5 +1,5 @@
 ---
-title: 從我的帳戶入口網站管理已連線的裝置-Azure Active Directory |Microsoft Docs
+title: 在我的帳戶入口網站上管理已連線的裝置-Azure AD
 description: 如何從我的帳戶入口網站的 [裝置] 頁面，查看和停用已連線的裝置。
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3ccbe133ed37476766c24cbc10d48dcffb5a72
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3c0eb691abaabf09ae8f89354e1fdb6f18cf8e5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587793"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804264"
 ---
 # <a name="manage-your-connected-devices-from-the-my-account-portal"></a>從我的帳戶入口網站管理已連線的裝置
 

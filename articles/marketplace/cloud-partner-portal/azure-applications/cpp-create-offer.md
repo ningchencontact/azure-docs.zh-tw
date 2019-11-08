@@ -1,18 +1,19 @@
 ---
-title: 建立 Azure 應用程式供應項目 |Azure Marketplace
+title: 建立 Azure 應用程式供應專案 |Azure Marketplace
 description: 如何在 Azure Marketplace 上發佈新的 Azure 應用程式供應項目。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2eed5ed60d5aed7fb537e886f39b97dfc8257f19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 173e371c97ed2ab281bd7badae29f253e1e3e1f8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942995"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827630"
 ---
 # <a name="create-an-azure-application-offer"></a>建立 Azure 應用程式供應項目
 
@@ -20,7 +21,7 @@ ms.locfileid: "64942995"
 
 ## <a name="new-offer-form"></a>新增供應項目表單
 
-登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]  。 在 [新增供應項目] 功能表上，選取 [Azure 應用程式]  以顯示 [新增供應項目]  表單，然後開始定義新供應項目的資產程序。
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [Azure 應用程式] 以顯示 [新增供應項目] 表單，然後開始定義新供應項目的資產程序。
 
 ![新增供應項目表單](./media/azure-new-managedapp-offer.png)
 

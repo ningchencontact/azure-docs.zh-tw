@@ -1,5 +1,5 @@
 ---
-title: 使用 Chainer 訓練深度學習類神經網路
+title: 訓練深度學習 Chainer 模型
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Azure Machine Learning 的 Chainer 估計工具類別，以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會使用在 numpy 上執行的 Chainer Python 程式庫來分類手寫數位影像，以建立深度學習神經網路。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584518"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814984"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 大規模定型和註冊 Chainer 模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

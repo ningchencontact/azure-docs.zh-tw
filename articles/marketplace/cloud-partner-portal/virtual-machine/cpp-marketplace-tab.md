@@ -1,48 +1,49 @@
 ---
-title: Azure Marketplace 的 Cloud Partner 入口網站中的虛擬機器 Marketplace 索引標籤
+title: Azure Marketplace 的 Cloud Partner 入口網站中的 [虛擬機器 Marketplace] 索引標籤
 description: 說明用來建立 Microsoft Azure Marketplace 虛擬機器供應項目的 Marketplace 索引標籤。
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938195"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824454"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>虛擬機器 Marketplace 索引標籤
 
-在 [新增供應項目]  頁面的 [Marketplace]  索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
+**新增供應項目**頁面的 **Marketplace** 索引標籤可讓您為潛在客戶提供行銷、銷售和法律資訊與合約，並管理 Marketplace 產生的潛在客戶。 這個長表單分成四個區段：**概觀**、**行銷成品**、**潛在客戶管理**和**法律聲明**。
 
 
 ## <a name="overview-section"></a>概觀區段
-在本區段中，可以輸入 Azure Marketplace Offer 的一般資訊。  欄位名稱上附加星號 (*) 表示為必填欄位。
+在本區段中，您可以輸入有關 Marketplace Offer 的一般資訊。  欄位名稱上附加星號 (*) 表示為必填欄位。
 
-![虛擬機器的 [Marketplace] 索引標籤的 [概觀] 區段](./media/publishvm_008.png)
+![虛擬機器的 [Marketplace] 索引標籤的 [總覽] 區段](./media/publishvm_008.png)
 
 下表說明這些欄位的用途和內容。 必要欄位由星號 (*) 標示。
 
-|  **欄位**                |     **描述**                                                          |
+|  **欄位**                |     **說明**                                                          |
 |  ---------                |     ---------------                                                          |
-| **標題\***                 | 供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。  長度上限為 50 個字元。 |
+| **標題\***                 | 供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。  長度上限是 50 個字元。 |
 | **摘要\***               | 解決方案功能的簡短用途。  長度上限是 100 個字元。 |
-| **完整摘要\***          | 解決方案功能的用途。  長度上限為 256 個字元。 |
+| **長摘要\***          | 解決方案功能的用途。  長度上限是 256 個字元。 |
 | **說明\***           | 解決方案說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。 |
-| **Microsoft CSP 轉銷商通路\*** | 雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。 |
-| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Microsoft CSP 轉銷商頻道\*** | 雲端解決方案提供者（CSP）合作夥伴頻道加入宣告現已推出。  如需透過 Microsoft CSP 合作夥伴頻道行銷供應專案的詳細資訊，請參閱[雲端解決方案提供者](../../cloud-solution-providers.md)。 |
+| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如： <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **預覽訂用帳戶識別碼\*** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 | **實用連結**          | 新增文件、版本資訊、常見問題等等的 URL。 |
-| **建議的分類 （最多 5 個）\*** | 可選擇多個適合與供應項目建立關聯的企業和技術類別，  最多可選擇五個。  |
+| **建議的類別（最多5個）\*** | 選擇多個適合與供應項目建立關聯的企業和技術類別。  最多可選擇五個。  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>行銷成品區段
 
-此第二個區段會分成三個子節：**標誌**，**螢幕擷取畫面**，以及**影片**。 標誌是唯一必要的行銷成品，但強烈建議您填寫所有項目，以提升對客戶的吸引力。 
+第二個區段分成三個子區段：**標誌**、**螢幕擷取畫面**和**影片**。 標誌是唯一必要的行銷成品，但強烈建議您填寫所有項目，以提升對客戶的吸引力。 
 
 ![虛擬機器 [新增供應項目] 表單上的 [Marketplace] 索引標籤行銷成品區段](./media/publishvm_009.png)
 
@@ -58,7 +59,7 @@ ms.locfileid: "64938195"
 | **主圖**                  | 815 x 290 點陣圖。  (選擇性) 主圖圖示一旦上傳，即無法刪除。 |
 | *螢幕擷取畫面*  | (選擇性) 每個 SKU 的螢幕擷取畫面上限為五個。 |
 | **名稱**                  | 名稱或標題 <!-- TODO - max char length? none specified in UI -->                               |
-| **影像**                 | 螢幕擷取映像，533x324 像素                                         |
+| **映像**                 | 螢幕擷取映像，533x324 像素                                         |
 | *影片*  |  |
 | **名稱**                  | 名稱或標題  <!-- TODO - max char length? -->                              |
 | **連結**                  | 裝載於 YouTube 或 Vimeo 的影片 URL                                        |
@@ -103,25 +104,25 @@ Cloud Partner 入口網站中所上傳的所有標誌都應該遵循指導方針
 
 第三個區段可讓您收集 Azure Marketplace 供應項目產生的潛在客戶。 此區段提供下列潛在客戶資訊的儲存選項 (位於下拉式清單)。
 
-* **無** - 預設值，未收集潛在客戶資訊。
+* **無**：預設值，未收集潛在客戶資訊。
 * Azure 資料表：寫入連接字串所指定的 Azure 資料表。
 * Dynamics CRM Online：寫入 [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) 執行個體，由 URL 和驗證認證加以指定。
 * HTTPS 端點：寫入指定的 HTTPS 端點，做為 JSON 承載。
 * Marketo：寫入指定的 [Marketo](https://www.marketo.com/) 執行個體，由伺服器識別碼、munchkin 識別碼和表單識別碼加以指定。
-* Salesforce - 寫入 [Salesforce](https://www.salesforce.com/) 資料庫，由物件識別碼指定。
+* Salesforce：寫入 [Salesforce](https://www.salesforce.com/) 資料庫，由物件識別碼指定。
 
-成功發行供應項目之後，即已驗證潛在客戶連線，而且測試潛在客戶會自動傳送到您設定的目的地。 應該持續管理潛在客戶資訊，而且只要對客戶管理架構進行變更，就應該立即更新這些設定。
+成功發行供應項目之後，即已驗證潛在客戶連線，而且測試潛在客戶會自動傳送到您設定的目的地。 請持續管理潛在客戶資訊，只要客戶管理架構有所變更，就應立即更新設定。
 
 <!-- TD: For more info, see [Need a topic on lead information and processing that mimics the Appendix of the VM Pub Guide]. -->
 
 ## <a name="legal-section"></a>法律聲明區段
 
-這最後一節可讓您提供必要的法律文件所需的每個供應項目。  
+最後一個區段可讓您提供每個供應專案所需的必要法律檔。  
 
-|  **欄位**                    |     **描述**                                        |
+|  **欄位**                    |     **說明**                                        |
 |  ---------                    |     ---------------                                        |
-| **隱私權原則 URL\***      | 張貼隱私權原則的 URL                          |
-| **使用標準的合約？\***  |   |
+| **隱私權原則 URL\***      | 張貼之隱私權原則的 URL                          |
+| **使用標準合約嗎？\***  |   |
 | **使用規定\***            | 純文字或簡單 HTML 原則。                       |
 |  |  |
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資源健康狀態來監視 SQL Database 健全狀況
+title: 使用 Azure 資源健康狀態來監視資料庫健全狀況
 description: 使用 Azure 資源健康情況監視 SQL Database 的健康情況，可協助您進行診斷，並在 Azure 問題影響您的 SQL 資源時取得支援。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 10ce2da8ae8bcd8a12f0972d437a84a37a8390b9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1cf14c9e133b7e6e3e0b5219eb9e16bd3a0178dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687516"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821165"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
 

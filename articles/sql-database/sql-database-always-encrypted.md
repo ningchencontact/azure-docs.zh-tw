@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted： Azure SQL Database-Windows 憑證存放區 '
+title: Always Encrypted-Windows 憑證存放區
 description: 本文說明如何使用 SQL Server Management Studio (SSMS) 中的 [一律加密精靈]，藉由資料庫加密來保護 SQL Database 中的機密資料。 它也會說明如何將您的加密金鑰儲存在 Windows 憑證存放區中。
 keywords: 加密資料, SQL 加密, 資料庫加密, 機密資料, 一律加密
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691238"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822047"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>一律加密：保護機密資料並將加密金鑰儲存在 Windows 憑證存放區中
 

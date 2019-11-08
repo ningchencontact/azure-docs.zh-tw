@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf7d15ba375faf7dfb38bf5f691799875f2dd6e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935590"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819818"
 ---
 # <a name="build-your-landing-page"></a>建置登陸頁面
 
@@ -24,7 +25,7 @@ ms.locfileid: "64935590"
 *   立即取得解決方案
 
 您可以跨多個行銷策略參考登陸頁面。 您可以使用下列行銷策略： 
-*   Events
+*   事件
 *   網路廣播
 *   社交媒體
 *   白皮書

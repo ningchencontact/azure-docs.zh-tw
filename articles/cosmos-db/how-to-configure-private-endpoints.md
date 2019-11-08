@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 6602a47a9d1d34b04f37c6b65a3c3f84cd60c845
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796093"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820163"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>設定 azure Cosmos 帳戶的 Azure 私人連結（預覽）
 
@@ -330,9 +330,9 @@ $deploymentOutput
 
 ## <a name="configure-custom-dns"></a>設定自訂 DNS
 
-在公開連結的預覽期間，您應該在已建立私用端點的子網內使用私人 DNS。 並設定端點，讓每個私人 IP 位址都對應到 DNS 專案（請參閱上面所示回應中的「fqdn」屬性）。
+您應在已建立私用端點的子網中使用私人 DNS。 並設定端點，讓每個私人 IP 位址都對應到 DNS 專案（請參閱上面所示回應中的「fqdn」屬性）。
 
-建立私用端點時，您可以將它與 Azure 中的私人 DNS 區域整合。 如果您選擇不要整合私人端點與 Azure 中的私人 DNS 區域，而改為使用自訂 DNS，則必須將 DNS 設定為針對對應至新區域的私人 IP 新增新的 DNS 記錄。
+建立私用端點時，您可以將它與 Azure 中的私人 DNS 區域整合。 如果您選擇不要整合私人端點與 Azure 中的私人 DNS 區域，而改為使用自訂 DNS，則必須將 DNS 設定為為私人端點保留的所有私人 IP 位址新增 DNS 記錄。
 
 ## <a name="firewall-configuration-with-private-link"></a>具有私人連結的防火牆設定
 
@@ -374,19 +374,19 @@ Set-AzPrivateEndpoint -PrivateEndpoint $pe
 
 搭配 Azure Cosmos 帳戶使用私用連結時，適用下列限制：
 
+* Azure Cosmos 帳戶和 Vnet 的私人連結支援僅適用于特定區域。 如需支援的區域清單，請參閱私用連結文章的[可用區域](../private-link/private-link-overview.md#availability)一節。 **VNET 和 Azure Cosmos 帳戶都應該在支援的區域中，才能建立私人端點**。
+
 * 搭配 Azure Cosmos 帳戶使用「直接模式」連線的私用連結時，您只能使用 TCP 通訊協定。 尚不支援 HTTP 通訊協定
 
 * 使用 Azure Cosmos DB 適用于 MongoDB 的 API 帳戶時，僅支援伺服器版本3.6 帳戶的私用端點（也就是使用 `*.mongo.cosmos.azure.com`格式之端點的帳戶）。 伺服器版本3.2 上的帳戶不支援私用連結（也就是使用 `*.documents.azure.com`格式之端點的帳戶）。 若要使用私用連結，您應該將舊的帳戶遷移至新版本。
 
 * 針對具有私用連結的 MongoDB 帳戶使用 Azure Cosmos DB 的 API 時，您無法使用 Robo 3T、Studio 3T、Mongoose 等工具。只有在指定 appName =<account name> 參數時，端點才可以具有私用連結支援。 例如： replicaSet = globaldb & appName = mydbaccountname。 因為這些工具不會將連接字串中的應用程式名稱傳遞給服務，所以您無法使用私用連結。 不過，您仍然可以使用具有3.6 版本的 SDK 驅動程式來存取這些帳戶。
 
-* Azure Cosmos 帳戶和 Vnet 的私人連結支援僅適用于特定區域。 如需支援的區域清單，請參閱私用連結文章的[可用區域](../private-link/private-link-overview.md#availability)一節。 **VNET 和 Azure Cosmos 帳戶都應該在支援的區域中，才能建立私人端點**。
-
 * 如果虛擬網路包含私人連結，則無法加以移動或刪除。
 
 * 如果 Azure Cosmos 帳戶已附加至私人端點，就無法刪除。
 
-* Azure Cosmos 帳戶無法故障切換至未對應至其附加之所有私人端點的區域。 如需詳細資訊，請參閱上一節中的新增或移除區域。
+* Azure Cosmos 帳戶無法故障切換至未對應至附加至帳戶之所有私人端點的區域。 如需詳細資訊，請參閱上一節中的新增或移除區域。
 
 * 系統管理員應至少授與 Azure Cosmos 帳戶範圍的 "*/PrivateEndpointConnectionsApproval" 許可權，以建立自動核准的私人端點。
 

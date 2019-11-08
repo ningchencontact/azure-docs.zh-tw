@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站設定警示和通知
+title: 設定警示和通知（Azure 入口網站）
 description: 使用 Azure 入口網站建立 SQL Database 的警示，在符合指定條件時觸發通知或自動化。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: d68055bc64ea36bd3ad024123a8d5b7b239858dc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689760"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810391"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
 

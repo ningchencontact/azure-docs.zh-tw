@@ -1,22 +1,22 @@
 ---
-title: '使用 Azure SQL 資料倉儲對租使用者資料庫執行分析查詢 '
+title: 對租使用者資料庫執行分析查詢
 description: 使用從 Azure SQL Database、SQL 資料倉儲、Azure Data Factory 或 Power BI 擷取的資料，進行跨租用戶分析查詢。
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691870"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816775"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 

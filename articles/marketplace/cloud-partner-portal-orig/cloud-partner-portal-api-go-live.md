@@ -4,15 +4,16 @@ description: Go Live API 會起始供應項目即時上市程序。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935480"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819674"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -24,28 +25,28 @@ ms.locfileid: "64935480"
 <a name="uri-parameters"></a>URI 參數
 --------------
 
-|  **名稱**      |   **描述**                                                           | **資料類型** |
+|  **名稱**      |   **說明**                                                           | **資料類型** |
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | 要擷取之供應項目的發行者識別碼，例如 `contoso`       |  字串       |
 | offerId        | 要擷取之供應項目的供應項目識別碼                                   |  字串       |
-| api-version    | API 的最新版本                                                   |  Date         |
+| api-version    | 最新版的 API                                                   |  日期         |
 |  |  |  |
 
 
-<a name="header"></a>標頭
+<a name="header"></a>頁首
 ------
 
 |  **名稱**       |     **值**       |
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
-| Authorization   | `Bearer YOUR_TOKEN` |
+| 授權   | `Bearer YOUR_TOKEN` |
 |  |  |
 
 
 <a name="body-example"></a>本文範例
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 
@@ -60,7 +61,7 @@ ms.locfileid: "64935480"
 
 ### <a name="response-status-codes"></a>回應狀態碼
 
-| **代碼** |  **說明**                                                                        |
+| **程式碼** |  **說明**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted`：已順利接受要求。 回應會包含用來追蹤作業狀態的位置。 |
 |  400     | `Bad/Malformed request` - 在回應本文中找到其他錯誤資訊。 |

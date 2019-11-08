@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: v-qiwe
-ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: bdb2a54748c734d7b44dfa0b1f106d37e817f80e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154941"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822923"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 應用程式：受控應用程式供應項目發佈指南
 
@@ -32,15 +33,15 @@ ms.locfileid: "67154941"
 
 |需求 |詳細資料  |
 |---------|---------|
-|部署至客戶的 Azure 訂用帳戶 | 受管理的應用程式必須部署在客戶的訂用帳戶，而且可以由協力廠商管理。 | 
-|計費和計量    |  資源會在客戶的 Azure 訂用帳戶中加以佈建。 隨用隨付 (PAYGO) 虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶 (PAYGO) 計費。 <br> 在將為您擁有的授權，而 Microsoft 會向客戶的訂用帳戶，產生的基礎結構成本將 transact 您直接授權費用，以客戶的軟體。        |
+|已部署至客戶的 Azure 訂用帳戶 | 受管理的應用程式必須部署在客戶的訂用帳戶中，而且可以由協力廠商管理。 | 
+|計費和計量    |  系統會在客戶的 Azure 訂用帳戶中布建資源。 隨用隨付（PAYGO）虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶（PAYGO）計費。 <br> 在自備授權的情況下，雖然 Microsoft 會向客戶訂用帳戶中產生的基礎結構成本收費，但您會直接向客戶收取軟體授權費用。        |
 |Azure 相容的虛擬硬碟 (VHD)    |   VM 必須建置在 Windows 或 Linux 上。<ul> <ul> <li>如需建立 Linux VHD 的詳細資訊，請參閱 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。</li> <li>如需建立 Windows VHD 的詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。</li> </ul> |
 
 >[!NOTE]
 > 受控應用程式必須可透過 Marketplace 部署。 如果與客戶的交流是您的關注焦點，則在啟用潛在客戶分享之後，您應該與感興趣的客戶連絡。  
 
 >[!Note]
->雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](./cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
+>雲端解決方案提供者（CSP）合作夥伴頻道加入宣告現已推出。  如需透過 Microsoft CSP 合作夥伴頻道行銷供應專案的詳細資訊，請參閱[雲端解決方案提供者](./cloud-solution-providers.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如果您還沒有這麼做，請 
@@ -49,4 +50,4 @@ ms.locfileid: "67154941"
 
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
-- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)來建立或完成您的供應項目。
+- 登[入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應專案。

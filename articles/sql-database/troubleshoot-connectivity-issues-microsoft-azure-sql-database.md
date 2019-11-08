@@ -1,19 +1,20 @@
 ---
-title: 針對 Microsoft Azure SQL Database 的連線問題進行疑難排解 |Microsoft Docs
+title: 疑難排解連線問題
 description: 說明如何針對 Azure SQL Database 中的連線問題進行疑難排解。
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 9de6d85e1fc54d60f999cfa18665067b3998a432
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 20988296b5eac7152c53abd6d238043288feacc8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390667"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807280"
 ---
 # <a name="troubleshooting-connectivity-issues-with-microsoft-azure-sql-database"></a>針對 Microsoft Azure SQL Database 的連線問題進行疑難排解
 
@@ -28,9 +29,9 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
 若要解決此問題︰
 
 1. 檢查[Microsoft Azure 服務儀表板](https://status.azure.com/status)是否有任何已知的中斷。 
-2. 如果沒有任何已知的中斷，請移至[Microsoft Azure 支援網站](http://azure.microsoft.com/support/options)，以開啟支援案例。
+2. 如果沒有任何已知的中斷，請移至[Microsoft Azure 支援網站](https://azure.microsoft.com/support/options)，以開啟支援案例。
 
-如需詳細資訊，請參閱針對「[目前無法使用伺服器上的資料庫」錯誤進行疑難排解](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors)。
+如需詳細資訊，請參閱針對「[目前無法使用伺服器上的資料庫」錯誤進行疑難排解](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors)。
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server"></a>建立連接到 SQL Server 時發生網路相關或實例特定的錯誤
 
@@ -62,7 +63,7 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
 
 若要解決此問題，請嘗試[修正常見](#steps-to-fix-common-connection-issues)的連線問題一節中的步驟（以顯示的順序）。
 
-## <a name="cannot-connect-to-servername-due-to-firewall-issues"></a>因為防火牆問題，所以無法連接到 <servername>
+## <a name="cannot-connect-to-servername-due-to-firewall-issues"></a>因為防火牆問題而無法連線至 <servername>
 
 ### <a name="error-40615-cannot-connect-to--servername-"></a>錯誤40615：無法連接到 < servername >
 
@@ -188,7 +189,7 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
   > [!NOTE]
   > 這是可能無法解決問題的極簡方法。
 
-  1. 執行下列 SQL 查詢來檢查[_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)視圖，以查看任何封鎖的要求：
+  1. 執行下列 SQL 查詢來檢查 [ [sys.databases] dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)查看是否有任何封鎖的要求：
 
              ```
              SELECT * FROM dm_exec_requests
@@ -197,7 +198,7 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
   2. 判斷 head 封鎖程式的**輸入緩衝區**。
   3. 調整 [head 封鎖器] 查詢。
 
-    如需深入的疑難排解程式，請參閱[我的查詢在雲端中是否正常運作？](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
+    如需深入的疑難排解程式，請參閱[我的查詢在雲端中是否正常運作？](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
 
 * 如果資料庫在解決封鎖和長時間執行的查詢時一直達到其限制，請考慮升級至其中一個新的預覽版本（例如[Standard 或 Premium edition](https://azure.microsoft.com/pricing/details/sql-database/)）。
 
@@ -265,7 +266,7 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
 
 如果您重複遇到此錯誤，請嘗試依照下列步驟來解決此問題： 
 
-1. 檢查 [_exec_requests] 視圖，查看任何已開啟的會話，其 total_elapsed_time 資料行的值都很高。 執行下列 SQL 腳本來執行這項檢查：
+1. 檢查 [sys.databases dm_exec_requests] 視圖，查看是否有 [total_elapsed_time] 資料行具有較高值的任何已開啟會話。 執行下列 SQL 腳本來執行這項檢查：
 
    ```
    SELECT * FROM dm_exec_requests
@@ -275,7 +276,7 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
 
 也請考慮批次處理您的查詢。 如需批次處理的詳細資訊，請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance)。
 
-如需深入的疑難排解程式，請參閱[我的查詢在雲端中是否正常運作？](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
+如需深入的疑難排解程式，請參閱[我的查詢在雲端中是否正常運作？](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>錯誤40551：已終止會話，因為過度使用 TEMPDB
 
@@ -311,7 +312,7 @@ Azure SQL Database 的連線失敗時，您會收到錯誤訊息。 這些連接
 
 若要解決此問題，請嘗試優化查詢。
 
-如需深入的疑難排解程式，請參閱[我的查詢在雲端中是否正常運作？](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
+如需深入的疑難排解程式，請參閱[我的查詢在雲端中是否正常運作？](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
 
 
 ### <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>無法開啟登入所要求的資料庫「主要」。 登入失敗。
@@ -336,7 +337,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-當查詢問題觸發例外狀況時，您會注意到類似下列的呼叫堆疊（請注意**SqlCommand**類別的參考）。 在此情況下，請[調整您的查詢](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
+當查詢問題觸發例外狀況時，您會注意到類似下列的呼叫堆疊（請注意**SqlCommand**類別的參考）。 在此情況下，請[調整您的查詢](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -364,7 +365,7 @@ ClientConnectionId:<Client connection ID>
 
 5. 最佳做法是確保重試邏輯已就緒。 如需重試邏輯的詳細資訊，請參閱針對[暫時性錯誤和連接錯誤進行疑難排解以 SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues)。
 
-如果這些步驟無法解決您的問題，請嘗試收集更多資料，然後聯絡支援人員。 如果您的應用程式是雲端服務，請啟用記錄功能。 此步驟會傳回失敗的 UTC 時間戳記。 此外，SQL Azure 會傳回追蹤識別碼。 [Microsoft 客戶支援服務](http://azure.microsoft.com/support/options/)可以使用此資訊。 
+如果這些步驟無法解決您的問題，請嘗試收集更多資料，然後聯絡支援人員。 如果您的應用程式是雲端服務，請啟用記錄功能。 此步驟會傳回失敗的 UTC 時間戳記。 此外，SQL Azure 會傳回追蹤識別碼。 [Microsoft 客戶支援服務](https://azure.microsoft.com/support/options/)可以使用此資訊。 
 
 如需有關如何啟用記錄的詳細資訊，請參閱[在 Azure App Service 中啟用應用程式的診斷記錄](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)。
 

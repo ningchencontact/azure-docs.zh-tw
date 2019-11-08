@@ -1,5 +1,5 @@
 ---
-title: 容錯移轉群組-Azure SQL Database
+title: 容錯移轉群組
 description: 自動容錯移轉群組是 SQL Database 功能，允許您管理 SQL Database 伺服器上的一組資料庫，或受控執行個體中的所有資料庫的複寫和自動/協調容錯移轉。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 10/23/2019
-ms.openlocfilehash: 70c8bb618cd25c21d6cc59dde305fff113ffe22f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691156"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821962"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -124,7 +124,7 @@ ms.locfileid: "73691156"
   > [!NOTE]
   > 受控執行個體不支援多個容錯移轉群組。
   
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 容錯移轉群組的許可權是透過[角色型存取控制（RBAC）](../role-based-access-control/overview.md)來管理。 [ [SQL Server 參與者](../role-based-access-control/built-in-roles.md#sql-server-contributor)] 角色具有管理容錯移轉群組的所有必要許可權。 
 
 ### <a name="create-failover-group"></a>建立容錯移轉群組

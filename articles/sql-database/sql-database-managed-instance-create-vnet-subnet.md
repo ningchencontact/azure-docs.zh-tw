@@ -1,5 +1,5 @@
 ---
-title: 建立 Azure SQL Database 受控執行個體的虛擬網路
+title: 建立受控實例的虛擬網路
 description: 本文說明如何建立可在其中部署 Azure SQL Database 受控執行個體的虛擬網路。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688164"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823369"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>建立 Azure SQL Database 受控執行個體的虛擬網路
 

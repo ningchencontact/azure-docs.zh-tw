@@ -1,5 +1,5 @@
 ---
-title: 使用 Dmv 監視效能 Azure SQL Database
+title: 使用 Dmv 監視效能
 description: 了解如何使用動態管理檢視監視 Microsoft Azure SQL Database 來偵測和診斷常見的效能問題。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687748"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802928"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database 的效能
 
@@ -30,7 +30,7 @@ SQL Database 部分支援動態管理檢視的三個類別目錄：
 
 如需動態管理檢視的詳細資訊，請參閱《SQL Server 線上叢書》中的 [動態管理檢視和函數 (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 。 
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 在 SQL Database 中，查詢動態管理檢視需要 **VIEW DATABASE STATE** 權限。 **VIEW DATABASE STATE** 權限會傳回目前資料庫中所有物件的相關資訊。
 若要授與 **VIEW DATABASE STATE** 權限給特定的資料庫使用者，請執行下列查詢：

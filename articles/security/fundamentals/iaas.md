@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177686"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805984"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 本文說明適用於 VM 和作業系統的最佳做法。
@@ -67,8 +67,8 @@ ms.locfileid: "73177686"
 
 可用性設定組是一種可在 Azure 中使用的邏輯群組，用以確保其中所放置的 VM 資源在部署到 Azure 資料中心時會彼此隔離。 Azure 可確保您在可用性設定組中所放置的 VM，會橫跨多部實體伺服器、計算機架、儲存體單位和網路交換器來執行。 如果硬體或 Azure 軟體發生故障，只有 VM 的子集會受到影響，整體的應用程式則可供客戶繼續使用。 如果您想要建置可靠的雲端解決方案，可用性設定組是不可或缺的重要功能。
 
-## <a name="protect-against-malware"></a>防範惡意程式碼
-您應安裝反惡意程式碼軟體，以協助識別及移除病毒、間諜軟體和其他惡意軟體。 您可安裝 [Microsoft Antimalware](antimalware.md) 或 Microsoft 合作夥伴的端點保護解決方案 ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1) 及 [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1))。
+## <a name="protect-against-malware"></a>抵禦惡意程式碼
+您應安裝反惡意程式碼軟體，以協助識別及移除病毒、間諜軟體和其他惡意軟體。 您可安裝 [Microsoft Antimalware](antimalware.md) 或 Microsoft 合作夥伴的端點保護解決方案 ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 及 [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection))。
 
 Microsoft Antimalware 包含下列功能：即時防護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告和排除事件收集。 對於與您的生產環境分開裝載的環境，您可以使用反惡意程式碼擴充功能來協助保護 VM 和雲端服務。
 
@@ -181,7 +181,7 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 **詳細資料**：您可以使用即時[（JIT） VM 存取](../../security-center/security-center-just-in-time.md)來鎖定 Azure vm 的輸入流量、降低暴露于攻擊的風險，並在需要時輕鬆地連接到 vm。 啟用 JIT 時，資訊安全中心會藉由建立網路安全性群組規則，來鎖定對您的 Azure Vm 的輸入流量。 系統會鎖定選取的 VM 連接埠的輸入流量。 這些埠是由 JIT 解決方案所控制。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱 [Azure 安全性最佳做法與模式](best-practices-and-patterns.md)，以獲得您在使用 Azure 來設計、部署和管理雲端解決方案時，可以使用的安全性最佳做法。
+如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。
 
 下列資源可提供更多有關 Azure 安全性和相關 Microsoft 服務的一般資訊：
 * [Azure 安全性小組部落格](https://blogs.msdn.microsoft.com/azuresecurity/) - Azure 安全性的最新資訊

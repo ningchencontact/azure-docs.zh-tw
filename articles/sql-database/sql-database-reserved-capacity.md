@@ -1,5 +1,5 @@
 ---
-title: 節省 Azure SQL Database 虛擬核心的成本
+title: 節省成本
 description: 了解如何購買 Azure SQL Database 保留容量，以節省計算費用。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
-ms.openlocfilehash: 70e274d765b409d4024155f8553ba92200598394
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 52a3665da99ca9885c57db1a2779dc6ce4dbec21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687518"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821186"
 ---
 # <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>節省 Azure SQL Database 保留容量 SQL Database 計算資源的成本
 
@@ -56,7 +56,7 @@ ms.locfileid: "73687518"
 |區域      |SQL Database 保留容量所涵蓋的 Azure 區域。|
 |部署類型|您要為其購買保留容量的 SQL 資源類型。|
 |效能層級|SQL Database 執行個體的服務層級。
-|條款        |一年或三年。|
+|詞彙        |一年或三年。|
 |數量    |在 SQL Database 保留容量保留內購買的計算資源量。 數量是所選 Azure 區域中的數個虛擬核心，以及要保留的效能層級，將會獲得計費折扣。 例如，如果您正在執行或計畫在美國東部區域的第5代16虛擬核心總計算容量中執行 SQL Database 實例，則您會將數量指定為16，以將所有實例的權益最大化。 |
 
 1. 檢閱 [成本] 區段中 SQL Database 保留容量的成本。

@@ -1,5 +1,5 @@
 ---
-title: '遷移 TDE 憑證-Azure SQL Database 受控執行個體 '
+title: 遷移 TDE 憑證受控實例
 description: 將使用透明資料加密保護資料庫之資料庫加密金鑰的憑證，移轉到 Azure SQL Database 受控執行個體
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d931a927888cb96116043a72006ac77cfa7dded
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821798"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>將受 TDE 保護之資料庫的憑證移轉到 Azure SQL Database 受控執行個體
 

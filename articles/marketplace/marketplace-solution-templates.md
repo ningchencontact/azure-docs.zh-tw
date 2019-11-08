@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/25/2019
 ms.author: ellacroi
-ms.openlocfilehash: 725be2ee239a879be8200d33acaf566b1d42d446
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 934a5e050e190c9a1f90bb3a22c2d1323a3ccecf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300348"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808291"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure 應用程式：解決方案範本供應項目發佈指南
 
@@ -28,10 +29,10 @@ ms.locfileid: "71300348"
 
 | **需求** | **詳細資料**  |
 | ---------------  | -----------  |
-|計費和計量    |  資源會在客戶的 Azure 訂用帳戶中加以佈建。 隨用隨付 (PAYGO) 虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶 (PAYGO) 計費。  <br/> 在自備授權 (BYOL) 的案例中，雖然 Microsoft 會向客戶訂用帳戶中產生的基礎結構成本收費，但您將直接向客戶收取軟體授權費用。   |
+|計費和計量    |  系統會在客戶的 Azure 訂用帳戶中布建資源。 隨用隨付（PAYGO）虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶（PAYGO）計費。  <br/> 在自備授權 (BYOL) 的案例中，雖然 Microsoft 會向客戶訂用帳戶中產生的基礎結構成本收費，但您將直接向客戶收取軟體授權費用。   |
 |Azure 相容的虛擬硬碟 (VHD)  |   VM 必須建置在 Windows 或 Linux 上。  如需詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。 |
 | 客戶使用狀況屬性 | 在所有發佈至 Azure Marketplace 的解決方案範本上，都必須啟用客戶使用狀況屬性。 如需客戶使用狀況屬性及其啟用方式的詳細資訊，請參閱 [Azure 合作夥伴客戶使用狀況屬性](./azure-partner-customer-usage-attribution.md)。  |
-| 使用受控磁碟 | [受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)是 Azure 中 IaaS vm 的持續性磁片的預設選項。 您必須使用方案範本中的受控磁碟。 <br> <br> 1.遵循在 Azure ARM 範本中使用受控磁碟的[指引](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments)和[範例](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)，以更新您的解決方案範本。 <br> <br> 2.請依照下列指示將受控磁碟的基礎 VHD 匯入到儲存體帳戶，以將 VHD 發佈為 Marketplace 中的映射： <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
+| 使用受控磁碟 | [受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)是 Azure 中 IaaS vm 的持續性磁片的預設選項。 您必須使用方案範本中的受控磁碟。 <br> <br> 1. 遵循在 Azure ARM 範本中使用受控磁碟的[指引](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments)和[範例](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)，以更新您的解決方案範本。 <br> <br> 2. 依照下列指示將受控磁碟的基礎 VHD 匯入到儲存體帳戶，以將 VHD 發佈為 Marketplace 中的映射： <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>後續步驟
 如果您還未註冊，請在 Marketplace 中[註冊](https://azuremarketplace.microsoft.com/sell)。

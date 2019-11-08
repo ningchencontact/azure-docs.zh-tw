@@ -1,7 +1,7 @@
 ---
-title: 建立資料集以使用 azureml-dataset 來存取資料
+title: 建立用來存取資料的 Azure Machine Learning 資料集
 titleSuffix: Azure Machine Learning
-description: 瞭解如何從各種來源建立資料集，並向您的工作區註冊資料集。
+description: 瞭解如何建立 Azure Machine Learning 資料集，以存取您的資料以進行機器學習實驗執行。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 1379085e410ddf119ae4ed1fe45389f00eb1b2a5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 51102962879b43d4ef3ae8662d7c3136bc7441d9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716581"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818448"
 ---
-# <a name="create-and-access-datasets-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集
+# <a name="create-azure-machine-learning-datasets"></a>建立 Azure Machine Learning 資料集
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將瞭解如何建立 Azure Machine Learning 資料集（預覽），以及如何從本機或遠端實驗存取資料。
+在本文中，您將瞭解如何建立 Azure Machine Learning 資料集，以存取本機或遠端實驗的資料。
 
 有了 Azure Machine Learning 資料集，您可以：
 
@@ -43,7 +43,7 @@ ms.locfileid: "73716581"
 * [已安裝適用于 Python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)，其中包括 azureml 資料集封裝。
 
 > [!NOTE]
-> 某些資料集類別（預覽）在[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件上具有相依性。 針對 Linux 使用者，只有下列散發版本才支援這些類別： Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
+> 某些資料集類別具有[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件的相依性。 針對 Linux 使用者，只有下列散發版本才支援這些類別： Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
 
 ## <a name="dataset-types"></a>資料集類型
 
@@ -114,9 +114,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|式|Pclass|名稱|性別|年齡|SibSp|Parch|票|費用|插槽|著手
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|否|3|Braund，Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|是|1|Cumings，Mrs John Bradley （Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
-2|3|是|3|Heikkinen，錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
+0|1|False|3|Braund，Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings，Mrs John Bradley （Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
+2|3|True|3|Heikkinen，錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
 
 使用 `TabularDatasetFactory` 類別上的[`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-)方法來讀取 Azure SQL Database：
 

@@ -1,5 +1,5 @@
 ---
-title: 將公司或學校帳戶新增至 Microsoft Authenticator 應用程式 - Azure Active Directory | Microsoft Docs
+title: 將公司或學校帳戶新增至驗證器應用程式-Azure AD
 description: 如何將公司和學校帳戶新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880805"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803744"
 ---
 # <a name="add-your-work-or-school-account"></a>新增公司或學校帳戶
 
@@ -31,7 +31,7 @@ ms.locfileid: "68880805"
 1. 在您的電腦上，移至[其他安全性驗證](https://aka.ms/mfasetup)頁面。
 
     >[!Note]
-    >如果您未看到 [其他安全性驗證] 頁面，有可能是您的系統管理員已開啟安全性資訊 (預覽) 體驗。 若是如此，您即應依照[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)一節中的指示操作。 若非如此，您必須連絡組織的技術支援人員以尋求協助。 如需安全性資訊的詳細資訊, 請參閱[安全性資訊 (預覽) 總覽](user-help-security-info-overview.md)。
+    >如果您未看到 [其他安全性驗證] 頁面，有可能是您的系統管理員已開啟安全性資訊 (預覽) 體驗。 若是如此，您即應依照[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)一節中的指示操作。 若非如此，您必須連絡組織的技術支援人員以尋求協助。 如需安全性資訊的詳細資訊，請參閱[安全性資訊（預覽）總覽](user-help-security-info-overview.md)。
 
 2. 核取 [驗證器應用程式] 旁的方塊，然後選取 [設定]。
 
@@ -42,7 +42,7 @@ ms.locfileid: "68880805"
 3. 開啟 Microsoft Authenticator 應用程式、從右上角的 [自訂和控制] 圖示中選取 [新增帳戶]，然後選取 [公司或學校帳戶]。
 
     >[!Note]
-    >如果這是您第一次設定 Microsoft Authenticator 應用程式, 您可能會收到提示, 詢問是否允許應用程式存取您的相機 (iOS), 或允許應用程式取得圖片並錄製影片 (Android)。 您必須選取 [**允許**], 讓驗證器應用程式可以存取您的相機, 以在下一個步驟中取得 QR 代碼的圖片。 如果您不允許相機, 您仍然可以設定驗證器應用程式, 但您必須手動新增程式碼資訊。 如需如何手動新增程式碼的相關資訊, 請參閱[手動將帳戶新增至應用程式](user-help-auth-app-add-account-manual.md)。
+    >如果這是您第一次設定 Microsoft Authenticator 應用程式，系統可能會顯示提示詢問您是否允許應用程式存取您的相機 (iOS)，或是否允許應用程式拍攝相片和錄製影片 (Android)。 您必須選取 [允許]，讓驗證器應用程式能夠存取您的相機，以在下一個步驟中拍攝 QR 代碼的相片。 如果您不允許存取相機，您仍可設定驗證器應用程式，但必須手動新增代碼資訊。 如需如何手動新增代碼的相關資訊，請參閱[手動新增帳戶至應用程式](user-help-auth-app-add-account-manual.md)。
 
 4. 使用裝置相機掃描電腦的 [設定行動應用程式] 畫面中顯示的 QR 代碼，然後選擇 [完成]。
 

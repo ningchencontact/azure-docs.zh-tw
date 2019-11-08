@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bade2e7ac53277b2e23e8cf6847cc30940cd4819
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b72be7026b0b8077cf5bf9f775d10fd03edd9118
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666819"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815629"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
@@ -378,7 +378,7 @@ structure:
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL 資料倉儲](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure 搜尋服務](#azure-search) |
+| &nbsp; |[Azure 認知搜尋](#azure-cognitive-search) |
 | &nbsp; |[Azure 表格儲存體](#azure-table-storage) |
 | **資料庫** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -1224,7 +1224,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |指定要讓「複製活動」執行的查詢，以便清除特定分割的資料。 |查詢陳述式。 |否 |
-| allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 |是 <br/>FALSE (預設值) |否 |
+| allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 |True <br/>FALSE (預設值) |否 |
 | polyBaseSettings |可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 |&nbsp; |否 |
 | rejectValue |指定在查詢失敗前可以拒絕的資料列數目或百分比。 <br/><br/>在 **CREATE EXTERNAL TABLE (Transact-SQL)** 主題的 [引數](https://msdn.microsoft.com/library/dn935021.aspx) 一節中，深入了解 PolyBase 的拒絕選項。 |0 (預設值)、1、2、… |否 |
 | rejectType |指定要將 rejectValue 選項指定為常值或百分比。 |值 (預設值)、百分比 |否 |
@@ -1279,15 +1279,15 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)文件。
 
-## <a name="azure-search"></a>Azure 搜尋服務
+## <a name="azure-cognitive-search"></a>Azure 認知搜尋
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure 搜尋服務連結服務，請將連結服務的 **type** 設為 **AzureSearch**，並在 **typeProperties** 區段中指定下列屬性︰
+若要定義 Azure 認知搜尋連結服務，請將連結服務的**類型**設定為**AzureSearch**，並在**typeProperties**區段中指定下列屬性：
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| url | Azure 搜尋服務的 URL。 | 是 |
-| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 | 是 |
+| url | 搜尋服務的 URL。 | 是 |
+| 索引鍵 | 搜尋服務的管理金鑰。 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -1304,15 +1304,15 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure 搜尋服務連接器](data-factory-azure-search-connector.md#linked-service-properties)文件。
+如需詳細資訊，請參閱[Azure 認知搜尋連接器](data-factory-azure-search-connector.md#linked-service-properties)一文。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure 搜尋服務資料集，請將資料集的 **type** 設為 **AzureSearchIndex**，並在 **typeProperties** 區段中指定下列屬性︰
+若要定義 Azure 認知搜尋資料集，請將資料集的**類型**設定為**AzureSearchIndex**，並在**typeProperties**區段中指定下列屬性：
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
 | 類型 | type 屬性必須設為 **AzureSearchIndex**。| 是 |
-| IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
+| IndexName | 搜尋索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 認知搜尋中。 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -1333,15 +1333,15 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure 搜尋服務連接器](data-factory-azure-search-connector.md#dataset-properties)文件。
+如需詳細資訊，請參閱[Azure 認知搜尋連接器](data-factory-azure-search-connector.md#dataset-properties)一文。
 
-### <a name="azure-search-index-sink-in-copy-activity"></a>複製活動中的 Azure 搜尋服務索引接收
-如果您將資料複製到 Azure 搜尋服務索引，請將複製活動的 **sink type** 設為 **AzureSearchIndexSink**，並在 **sink** 區段中指定下列屬性︰
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>複製活動中的 Azure 認知搜尋索引接收器
+如果您要將資料複製到搜尋索引，請將複製活動的**sink type**設為**AzureSearchIndexSink**，並在**sink**區段中指定下列屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 | 合併 (預設值)<br/>上傳| 否 |
-| WriteBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 | 1 到 1000。 預設值為 1000。 | 否 |
+| WriteBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至搜尋索引。 | 1 到 1000。 預設值為 1000。 | 否 |
 
 #### <a name="example"></a>範例
 
@@ -1386,7 +1386,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure 搜尋服務連接器](data-factory-azure-search-connector.md#copy-activity-properties)文件。
+如需詳細資訊，請參閱[Azure 認知搜尋連接器](data-factory-azure-search-connector.md#copy-activity-properties)一文。
 
 ## <a name="azure-table-storage"></a>Azure 表格儲存體
 

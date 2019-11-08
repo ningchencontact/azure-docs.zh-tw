@@ -1,39 +1,40 @@
 ---
-title: Seller Insights 版本資訊
+title: 賣方 Insights 版本資訊
 description: 提供 Seller Insights 功能變更的相關資訊。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 3/3/2019
 ms.author: pabutler
-ms.openlocfilehash: c6e9e4fe672c7e171ed4b1cd60655f9e71a562e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f7e461241793b27d838c04311509f43932df291
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943114"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808948"
 ---
 # <a name="seller-insights-release-notes"></a>Seller Insights 版本資訊 
 
-(發行日期：2019 年 3 月 1 日)
+（發行日期：2019年3月1日）
 
 此文章提供 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)中 Seller Insights 功能變更的相關資訊。
 
-## <a name="release-highlights-for-march-1-2019"></a>發行會反白顯示的 於 2019 年 3 月 1 日
+## <a name="release-highlights-for-march-1-2019"></a>2019年3月1日的發行重點
 
-* *客戶趨勢*加入至摘要
-* *前五個客戶*摘要上反映所有的 Azure 訂用帳戶客戶有
-* *正規化使用率趨勢與使用中的 「 訂單 」 趨勢*摘要帳戶移入*一眼的每月訂單*
-* *支出對帳報告*更新
-* *前五個客戶*支出上反映所有的 Azure 訂用帳戶客戶有
-* *使用量報告*更新客戶識別碼
-* *客戶任職*上訂單和使用量會反映所有的 Azure 訂用帳戶客戶有
+* 新增至摘要的*客戶趨勢*
+* 摘要上的*前五個客戶*會反映出客戶所擁有的所有 Azure 訂用帳戶
+* *標準化的使用趨勢 & 作用中訂單趨勢*概覽在*每月訂單*下移動的摘要
+* *支出對帳報告*已更新
+* *前五大客戶*的付款會反映出客戶所擁有的所有 Azure 訂用帳戶
+* *使用量報表*已更新為客戶識別碼
+* *客戶期*訂單 & 使用量會反映客戶所擁有的所有 Azure 訂用帳戶
 
 
 (發行日期：2018 年 7 月 28 日)
 
-## <a name="release-highlights-for-july-28-2018"></a>針對 2018 年 7 月 28 日版本焦點內容
+## <a name="release-highlights-for-july-28-2018"></a>2018年7月28日發行重點
 
 
 -   *預估價格*提供含有貨幣轉換影響的客戶收費檢視。
@@ -49,10 +50,10 @@ ms.locfileid: "64943114"
 | **新字詞**                   |    **定義**                                                             |
 |--------------------------------|  ---------------------------------------------------------------------------- |
 | 價格 (CC)                     | 指定 SKU 單位使用量的價格 (以客戶的貨幣為單位)。       |
-| 預估擴充費用 (CC) | 指定 SKU 單位使用量數量的預估擴充費用 (以客戶的貨幣為單位)。 由於四捨五入或截斷錯誤，這個值可能並不精確。   |
+| 預估擴充費用 (CC) | 指定 SKU 的使用單位數量的預估擴充費用（以客戶的貨幣為單位）。 由於四捨五入或截斷錯誤，這個值可能並不精確。   |
 | 發行者貨幣 (PC)        | 發行者用於支出的常用貨幣。                               |
-| 預估價格 (PC)           | 指定 SKU 的單位使用量預估價格，以計算使用量當日的外幣兌換匯率為基礎 (以發行者的貨幣為單位)。 由於四捨五入或截斷錯誤，這個值可能並不精確。   |
-| 預估擴充費用 (PC) | 指定 SKU 的單位使用量數量預估擴充費用，以計算使用量當日的外幣兌換匯率為基礎 (以發行者的貨幣為單位)。 由於四捨五入或截斷錯誤，這個值可能並不精確。 |
-| 預估支出 (PC)          | 指定 SKU 的單位使用量數量預估支出，以計算使用量當日的外幣兌換匯率為基礎 (以發行者的貨幣為單位)。 由於四捨五入或截斷錯誤，這個值可能並不精確。   |
+| 預估價格 (PC)           | 指定 SKU 的使用量單位預估價格，以計算日期使用量的外部交換轉換為依據（以發行者的貨幣為准）。 由於四捨五入或截斷錯誤，這個值可能並不精確。   |
+| 預估擴充費用 (PC) | 依據計算日期使用量的外部交換轉換（以發行者的貨幣為單位），指定 SKU 的使用單位數量預估延伸費用。 由於四捨五入或截斷錯誤，這個值可能並不精確。 |
+| 預估付款 (PC)          | 指定 SKU 之使用量單位的預估付款，以計算使用量的日期（以發行者的貨幣為准）為基礎的外部交換轉換。 由於四捨五入或截斷錯誤，這個值可能並不精確。   |
 | 使用量參考                | 針對指定 SKU 的一或多天客戶使用量識別碼，與支出報告中的某個項目相關聯。 |
 |  |  |

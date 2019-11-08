@@ -1,5 +1,5 @@
 ---
-title: 使用 scikit-learn 訓練機器學習模型-學習
+title: 訓練 scikit-learn-瞭解機器學習模型
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Azure Machine Learning 的 SKlearn 估計工具類別，以企業規模執行您的 scikit-learn-學習訓練腳本。 範例腳本會將鳶尾花花卉影像分類，以根據 scikit-learn 學習的鳶尾花資料集來建立機器學習模型。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed93eff6c137e125c2bc1707de441dc9971d6f3f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584470"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814850"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>組建 scikit-learn-以 Azure Machine Learning 大規模學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

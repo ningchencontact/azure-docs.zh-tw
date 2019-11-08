@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics (先前為 SQL DW) 的速查表 | Microsoft Docs
+title: Azure Synapse Analytics (先前為 SQL DW) 的速查表
 description: 尋找快速建置 Azure Synapse Analytics (先前為 SQL DW) 解決方案的連結和最佳做法。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9355ae1522c653924574b94594e894fdaf3f764e
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492271"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646653"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics (先前為 SQL DW) 的速查表
 

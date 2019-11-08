@@ -4,15 +4,16 @@ description: 如何使用私人 SKU 來管理供應項目可用性。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883126"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818825"
 ---
 <a name="private-skus-and-plans"></a>私人 SKU 和方案
 ============
@@ -53,7 +54,7 @@ ms.locfileid: "70883126"
 
 確認 SKU 重複使用影像之後，請選取映射的來源或*基底*SKU：
 
-![選取影像](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
+![選取映像](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
 當您發佈供應項目時，所選 SKU 的映像會在私人 SKU 識別碼下以自訂費率/條款開放使用。 私人 SKU 只有目標對象可以看見。
 
@@ -98,7 +99,7 @@ ms.locfileid: "70883126"
 
 ###  <a name="managing-subscriptions-with-the-api"></a>使用 API 管理訂用帳戶
 
-您可以使用 API 來上傳 CSV，或直接管理您的物件（不使用 CSV）。 一般而言，您只需要取得您的`restrictedAudience`供應專案、更新物件，然後將這些變更提交回您的供應專案，以便新增或移除觀眾成員。
+您可以使用 API 來上傳 CSV，或直接管理您的物件（不使用 CSV）。 一般而言，您只需要取得您的供應專案、更新 `restrictedAudience` 物件，然後將這些變更提交回您的供應專案，以便新增或移除物件成員。
 
 以下說明如何以程式設計方式更新您的物件清單：
 
@@ -126,17 +127,17 @@ ms.locfileid: "70883126"
 
     針對每個受限制的觀眾物件：
 
-    a. 下載的內容`restrictedAudience.uploadedCsvUri`。 內容只是具有標頭的 CSV 檔案。 例如:
+    a. 下載 `restrictedAudience.uploadedCsvUri`的內容。 內容只是具有標頭的 CSV 檔案。 例如：
 
         type,id,description
         subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
         subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
 
-    b. 視需要在下載的 CSV 檔案中新增或刪除訂閱。
+    b.這是另一個 C# 主控台應用程式。 視需要在下載的 CSV 檔案中新增或刪除訂閱。
 
     c. 將更新的 CSV 檔案上傳到位置（例如[Azure Blob 儲存體](../../storage/blobs/storage-blobs-overview.md)或[OneDrive](https://onedrive.live.com)），並建立檔案的唯讀連結。 這會是您的新*SasUrl*。
 
-    d. 使用您的新*SasUrl*來更新金鑰。`restrictedAudience.uploadedCsvUri`
+    d. 使用您的新*SasUrl*來更新 `restrictedAudience.uploadedCsvUri` 金鑰。
 
     **如果您從 Cloud Partner 入口網站手動輸入私人供應專案的原始訂用帳戶清單：**
 
@@ -156,7 +157,7 @@ ms.locfileid: "70883126"
         ]}
     ```
 
-    a. 針對每個受限制的觀眾物件，視需要在`restrictedAudience.manualEntries`清單中新增或刪除專案。
+    a. 針對每個受限制的觀眾物件，視需要新增或刪除 `restrictedAudience.manualEntries` 清單中的專案。
 
 4. 完成更新私人供應專案的每個 SKU 的所有*restrictedAudience*物件時，請[更新供應](cloud-partner-portal-api-creating-offer.md)專案：
 

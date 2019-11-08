@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: blevens
-ms.openlocfilehash: 469268637db0b3118b2db8190e9eaf2043662dea
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bb6abc616be98f85228c4f84f37b26110b48c2ed
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011490"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824024"
 ---
 # <a name="add-bank-and-tax-information"></a>新增銀行和稅務資訊  
 
@@ -25,6 +26,6 @@ ms.locfileid: "70011490"
 
 
 ## <a name="next-steps"></a>後續步驟
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
+*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
  
 ---

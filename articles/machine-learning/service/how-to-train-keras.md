@@ -1,5 +1,5 @@
 ---
-title: 使用 Keras 訓練深度學習類神經網路
+title: 訓練深度學習 Keras 模型
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Azure Machine Learning 來定型和註冊在 TensorFlow 上執行的 Keras 深度類神經網路分類模型。
 services: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 42a824863766b5d4d91d9eaa3dad1012f5019f63
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c6a6af6d32e0664e66696523f53ac81cd921609e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584503"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814878"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>使用 Azure Machine Learning 定型和註冊 Keras 分類模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

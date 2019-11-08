@@ -1,22 +1,23 @@
 ---
-title: Azure IoT Edge 模組的必要條件 |Azure Marketplace
+title: Azure IoT Edge 模組必要條件 |Azure Marketplace
 description: 發佈 IoT Edge 模組的先決條件。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: a5d1d6fdaf07f8b27820021d4d2ac45ec67c9915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 610f9bc8d87ac75e2868e247fe1332574480b498
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942120"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813865"
 ---
 # <a name="iot-edge-module-publishing-prerequisites"></a>IoT Edge 模組發佈先決條件
 
-本文將說明發佈 IoT Edge 模組供應項目所需先決條件。  如果您尚未這樣做，請檢閱[IoT Edge 模組發佈指南](../..//iot-edge-module.md)。
+本文將說明發佈 IoT Edge 模組供應項目所需先決條件。  如果您尚未這麼做，請參閱[IoT Edge 模組發佈指南](../..//iot-edge-module.md)。
 
 
 ## <a name="publishing-prerequisites"></a>發佈先決條件
@@ -33,10 +34,10 @@ ms.locfileid: "64942120"
     - 標誌影像 (PNG 格式且影像大小固定，包括 40x40px、90x90px、115x115px、255x115px)
     - 使用規定及隱私權原則
     - 預設的模組設定包括：路由、對應項所需屬性、createOptions 以及環境變數。
-    - 模組文件
+    - 模組檔
     - 支援連絡人
 
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦[備妥您的 IoT Edge 模組技術資產](./cpp-create-technical-assets.md)，您就可以開始[建立您的 IoT Edge 模組供應項目](./cpp-create-offer.md)。 
+[準備好 IoT Edge 模組技術資產](./cpp-create-technical-assets.md)之後，您就可以開始[建立您的 IoT Edge 模組供應](./cpp-create-offer.md)專案。 

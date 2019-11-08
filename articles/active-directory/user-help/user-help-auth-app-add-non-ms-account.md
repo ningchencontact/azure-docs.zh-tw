@@ -1,5 +1,5 @@
 ---
-title: 將非 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式 - Azure Active Directory | Microsoft Docs
+title: 將非 Microsoft 帳戶新增至驗證器應用程式 Azure AD
 description: 如何將非 Microsoft 帳戶 (例如 Google、Facebook 或 GitHub 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942937"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803670"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>新增您的非 Microsoft 帳戶
 
@@ -35,7 +35,7 @@ ms.locfileid: "68942937"
 2. 將帳戶新增至 Microsoft Authenticator 應用程式。 系統可能會要求您掃描 QR 代碼作為此程序的一部分。
 
     >[!Note]
-    >如果這是您第一次設定 Microsoft Authenticator 應用程式, 您可能會收到提示, 詢問是否允許應用程式存取您的相機 (iOS), 或允許應用程式取得圖片並錄製影片 (Android)。 您必須選取 [**允許**], 讓驗證器應用程式可以存取您的相機, 以在下一個步驟中取得 QR 代碼的圖片。 如果您不允許相機, 您仍然可以設定驗證器應用程式, 但您必須手動新增程式碼資訊。 如需如何手動新增程式碼的相關資訊, 請參閱[手動將帳戶新增至應用程式](user-help-auth-app-add-account-manual.md)。
+    >如果這是您第一次設定 Microsoft Authenticator 應用程式，系統可能會顯示提示詢問您是否允許應用程式存取您的相機 (iOS)，或是否允許應用程式拍攝相片和錄製影片 (Android)。 您必須選取 [允許]，讓驗證器應用程式能夠存取您的相機，以在下一個步驟中拍攝 QR 代碼的相片。 如果您不允許存取相機，您仍可設定驗證器應用程式，但必須手動新增代碼資訊。 如需如何手動新增代碼的相關資訊，請參閱[手動新增帳戶至應用程式](user-help-auth-app-add-account-manual.md)。
 
 我們在此提供的是 Facebook、Google、GitHub 及 Amazon 帳戶的相關程序，但此程序也適用於任何其他應用程式，例如 Instagram、Netflix 或 Adobe。
 
@@ -45,7 +45,7 @@ ms.locfileid: "68942937"
 
 ### <a name="turn-on-two-factor-verification"></a>開啟雙因素驗證
 
-1. 在您的電腦上移至 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome ，並選取 [開始使用]，然後驗證您的身分識別。
+1. 在您的電腦上移至 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome，並選取 [開始使用]，然後驗證您的身分識別。
 
 2. 依照頁面上的步驟，為您的個人 Google 帳戶開啟雙步驟驗證。
 
@@ -187,7 +187,7 @@ ms.locfileid: "68942937"
 
 10. 在您電腦的 [新增備份驗證方法] 頁面上，為您的 Amazon 帳戶輸入備份驗證方法所提供的六位數驗證碼，然後選取 [驗證代碼並繼續]。
 
-11. 在 [**即將完成**] 頁面上, 決定是否要讓您的電腦成為受信任的**裝置, 然後選取 [獲得]。** 。
+11. 在 [**即將完成**] 頁面上，決定是否要讓您的電腦成為受信任的裝置，然後選取 [**獲得]。開啟雙步驟驗證**。
 
     [進階安全性設定] 頁面隨即出現，顯示更新的雙因素驗證詳細資料。
 

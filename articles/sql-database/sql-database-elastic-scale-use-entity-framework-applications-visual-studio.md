@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: a6ed6eb2596663dd276fe580c9f2574163589b1d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690115"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823495"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
 
@@ -59,7 +59,7 @@ Entity Framework 開發人員依賴下列四種工作流程來建置應用程式
 
 分區對應管理員可防止使用者檢視 Shardlet 資料時出現不一致，這種情況發生在並行 Shardlet 管理作業中 (例如將資料從一個分區重新放置到另一個分區)。 在作法上，用戶端程式庫所管理的分區對應會代理應用程式的資料庫連接。 這可讓分區對應功能在分區管理作業可能影響已建立連接的 Shardlet 時，自動終止資料庫連接。 這種方法需要與一些 EF 功能整合，例如從現有連接建立新的連接以檢查資料庫是否存在。 一般而言，我們觀察是只有在已關閉的資料庫連接上 (EF 工作可安心複製)，標準 DbContext 建構函式才能可靠地運作。 彈性資料庫的設計原則只是代理已開啟的連接。 有人可能會認為先關閉用戶端程式庫所代理的連接，再交給 EF DbContext，就可以解決這個問題。 不過，若關閉連線並依賴 EF 來重新開啟它，就等於放棄程式庫所執行的驗證和一致性檢查。 不過，EF 的移轉功能會使用這些連接，在應用程式不知情的情況下管理基礎資料庫結構描述。 在理想的情況下，您要在相同的應用程式中保留並結合彈性資料庫用戶端程式庫和 EF 提供的所有這些功能。 下一節詳細討論這些屬性和需求。 
 
-## <a name="requirements"></a>要求
+## <a name="requirements"></a>需求
 
 當使用彈性資料庫用戶端程式庫和 Entity Framework API 時，您需要保留下列屬性： 
 

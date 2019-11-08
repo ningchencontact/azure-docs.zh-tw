@@ -1,6 +1,6 @@
 ---
 title: 教學課程 2：訓練信用風險模型
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 一個詳盡的教學課程，說明如何在傳統版本的 Azure Machine Learning Studio 中建立適用於信用風險評估的預測性分析解決方案。 本教學課程是三部分教學課程系列的第二部分。 其內容會說明如何訓練和評估模型。
 keywords: 信用風險, 預測性分析解決方案, 風險評估
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: ce3661a75d35ab39b7e8b551cc0b84b57a76e032
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 375fdf9b64afcce2d521008d353949e650f9df5e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492562"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622067"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>教學課程 2：訓練信用風險模型 - Azure Machine Learning Studio (傳統)
 
@@ -80,7 +80,7 @@ ms.locfileid: "73492562"
 
 現在您要告訴[訓練模型][train-model]模組，您要讓模型預測信用風險值。
 
-1. 選取 [訓練模型][][train-model] 模組。 按一下 [屬性]  窗格中的 [啟動資料行選取器]  。
+1. 選取 [訓練模型][train-model] 模組。 按一下 [屬性]  窗格中的 [啟動資料行選取器]  。
 
 1. 在 [選取單一資料行]  對話方塊中，在 [可用的資料行]  下的 [搜尋] 欄位中輸入「信用風險」，然後選取下方的 [信用風險]，按一下向右箭號按鈕 ( **>** ) 將 [信用風險] 移至 [選取的資料行]  。 
 

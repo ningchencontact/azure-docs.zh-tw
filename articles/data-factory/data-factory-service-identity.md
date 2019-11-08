@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 437d1e13bfb0831bb3ece26f761cef4f5e2e0c6f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676994"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822722"
 ---
 # <a name="managed-identity-for-data-factory"></a>適用於 Data Factory 的受控身分識別
 
@@ -26,7 +26,7 @@ ms.locfileid: "73676994"
 
 ## <a name="overview"></a>概觀
 
-建立資料處理站時，可以建立受控身分識別和 factory 建立。 受控識別是向 Azure 活動目錄註冊的受控應用程式，代表此特定的資料處理站。
+建立資料處理站時，可以建立受控身分識別和 factory 建立。 受控識別是向 Azure Active Directory 註冊的受控應用程式，代表此特定的 data factory。
 
 Data Factory 的受控識別可享有下列功能：
 

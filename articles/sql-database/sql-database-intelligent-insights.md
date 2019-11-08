@@ -1,5 +1,5 @@
 ---
-title: 使用 Intelligent Insights Azure SQL Database 監視資料庫效能
+title: 使用 Intelligent Insights 監視資料庫效能
 description: Azure SQL Database Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視資料庫使用情況，並偵測導致效能不佳的干擾性事件。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c073b535271ba8f9f11e17ba5203b13e257e211b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689692"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810175"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights 使用 AI 來針對資料庫的效能進行監視和疑難排解
 
@@ -28,7 +28,7 @@ Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視�
 
 Intelligent Insights 是 Azure 內建智慧功能的一項獨特功能，可提供下列價值：
 
-- 主動式監視
+- 主動監視
 - 量身打造的效能深入解析
 - 提早偵測到資料庫效能降低
 - 針對所偵測到問題的根本原因分析

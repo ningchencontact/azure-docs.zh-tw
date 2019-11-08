@@ -1,5 +1,5 @@
 ---
-title: '部署使用 Azure SQL Database 的分區化多租使用者資料庫 SaaS 應用程式 '
+title: 部署分區化的多租使用者資料庫 SaaS 應用程式
 description: 部署及探索分區化 Wingtip SaaS 多租用戶資料庫應用程式，其使用 Azure SQL Database 示範 SaaS 模式。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692041"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827998"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>部署及探索分區化多租用戶應用程式
 

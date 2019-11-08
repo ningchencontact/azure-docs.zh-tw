@@ -1,5 +1,5 @@
 ---
-title: 保護 Azure SQL Database 中的單一或集區資料庫 | Microsoft Docs
+title: 保護單一或集區資料庫
 description: 本教學課程將教導您保護 Azure SQL Database 中單一或集區資料庫的技術和功能。
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231181"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818026"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教學課程：保護單一或集區資料庫
 
@@ -80,7 +80,7 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 1. 在 [概觀]  頁面上，選取 [設定伺服器防火牆]  。 資料庫伺服器的 [防火牆設定]  頁面隨即開啟。
 
-   1. 選取工具列上的 [新增用戶端 IP]  ，以將目前的 IP 位址新增至新的防火牆規則。 此規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。 選取 [ **儲存**]。
+   1. 選取工具列上的 [新增用戶端 IP]  ，以將目前的 IP 位址新增至新的防火牆規則。 此規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。 選取 [儲存]  。
 
       ![設定伺服器防火牆規則](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
@@ -290,7 +290,7 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
        - **事件中樞**，允許路由傳送事件，以便在其他應用程式中使用
 
-   1. 選取 [ **儲存**]。
+   1. 選取 [儲存]  。
 
       ![稽核設定](./media/sql-database-security-tutorial/audit-settings.png)
 
@@ -315,7 +315,7 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
     ![遮罩設定](./media/sql-database-security-tutorial/mask-settings.png)
 
-1. 選取 [ **儲存**]。 選取的資訊現在已遮罩，以提供隱私權。
+1. 選取 [儲存]  。 選取的資訊現在已遮罩，以提供隱私權。
 
     ![遮罩範例](./media/sql-database-security-tutorial/mask-query.png)
 
@@ -329,7 +329,7 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
 1. 在 [安全性]  區段中，選取 [透明資料加密]  。
 
-1. 如有必要，請將 [資料加密]  設為 [開啟]  。 選取 [ **儲存**]。
+1. 如有必要，請將 [資料加密]  設為 [開啟]  。 選取 [儲存]  。
 
     ![透明資料加密](./media/sql-database-security-tutorial/encryption-settings.png)
 

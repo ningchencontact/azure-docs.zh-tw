@@ -1,5 +1,5 @@
 ---
-title: Azure 入口網站：建立 SQL Database 受控執行個體 | Microsoft Docs
+title: Azure 入口網站：建立受控執行個體
 description: 建立 SQL Database 受控執行個體、網路環境，以及用於存取的用戶端 VM。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 4f9ea699bd6d09f902a3ff97c95ff3455926a9d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 578ab250d0759aa7216327124417019f2e5f1fc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350930"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825455"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -54,10 +54,10 @@ ms.locfileid: "71350930"
    | 設定| 建議的值 | 說明 |
    | ------ | --------------- | ----------- |
    | **訂用帳戶** | 您的訂用帳戶。 | 讓您有權建立新資源的訂用帳戶。 |
-   | **資源群組** | 新的或現有的資源群組。|如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
-   | **受控執行個體名稱** | 任何有效名稱。|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
+   | **資源群組** | 新的或現有的資源群組。|如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。|
+   | **受控執行個體名稱** | 任何有效名稱。|如需有效的名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。|
    | **區域** |要用來建立受控執行個體的區域。|如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
-   | **受控執行個體系統管理員登入** | 任何有效的使用者名稱。 | 如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。|
+   | **受控執行個體系統管理員登入** | 任何有效的使用者名稱。 | 如需有效的名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。|
    | **密碼** | 任何有效密碼。| 密碼長度至少必須有 16 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
 
 - 選取 [設定受控執行個體]  來調整計算和儲存體資源的大小，以及檢閱定價層。 使用滑桿或文字方塊來指定儲存體容量和虛擬核心數目。 當您完成時，選取 [套用]  來儲存您的選擇。 

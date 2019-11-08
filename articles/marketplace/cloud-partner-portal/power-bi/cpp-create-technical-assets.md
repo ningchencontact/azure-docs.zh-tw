@@ -1,18 +1,19 @@
 ---
-title: 建立 Power BI 應用程式供應項目的的技術資產 |Azure Marketplace
+title: 建立 Power BI 應用程式供應專案的技術資產 |Azure Marketplace
 description: 列出在 Microsoft AppSource Marketplace 上發佈 Power BI 應用程式供應項目所需的技術資產。
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
-ms.openlocfilehash: 7736dcb892d829fc0e3af4bc87f1e6d80a3fa6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d0ae48b7314b63f2863e238fd38d0351546502d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817916"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>建立 Power BI 應用程式供應項目技術資產
 

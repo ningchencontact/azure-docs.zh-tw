@@ -4,15 +4,16 @@ description: Azure Marketplace 和 Microsoft AppSource 的常見問題解答
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330245"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822987"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 商業 Marketplace 常見問題
 
@@ -35,10 +36,10 @@ Azure Marketplace 是針對對商業 IT 軟體和服務感興趣的 IT 專業人
 Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和服務，其建置目的是為了擴充 Azure 產品和服務。 解決方案目錄橫跨數個類別，包括：
 
 * 基本作業系統
-* databases
-* 安全性
+* 資料庫
+* security
 * 身分識別
-* 網路
+* 網路功能
 * 區塊鏈
 * 開發人員工具
 
@@ -77,7 +78,7 @@ Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和
 
 **如果我的 Azure Marketplace 購買項目相依於其他資產 (例如 Azure 網站)，我必須管理這些相依性嗎？**
 
-並不會為 Azure 市集的供應項目自動管理相依性。 在使用 Azure Marketplace 購買之前請先仔細檢閱其描述，以確認在部署之前是否有任何必要的相依性。
+Azure Marketplace 供應項目的相依性不會自動受到管理。 在使用 Azure Marketplace 購買之前請先仔細檢閱其描述，以確認在部署之前是否有任何必要的相依性。
 
 **我可以向 Azure 雲端解決方案提供者購買 Azure Marketplace 解決方案嗎？**
 
@@ -105,7 +106,7 @@ Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和
 
 **Azure Marketplace 訂用帳戶如何計價？**
 
-定價會因產品類型和發行者規格而有所不同。 軟體授權費用和 Azure 使用成本是透過 Azure 訂用帳戶分開收費。
+定價會因產品類型和發行者規格而有所不同。 軟體授權費用和 Azure 使用成本會透過 Azure 訂用帳戶分開收費。
 
 *解除捆搭：*
 
@@ -127,7 +128,7 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商（ISV）解決方案�
 
 + *每位使用者：* SaaS 訂用帳戶可依每位使用者定價，每個月或每年計費。 
 
-您可以在[https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/)上的解決方案詳細資料頁面上，或在[Azure 入口網站]中找到供應專案特定的定價詳細資料。
+您可以在[https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/)或[Azure 入口網站]中的 [解決方案詳細資料] 頁面上找到供應專案特定的定價詳細資料。
 
 > [!Note]
 > 除了月費外，所有定價模式都還會收取 Azure 使用費用 (除非另有指定)。
@@ -182,7 +183,7 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商（ISV）解決方案�
 
 MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)（web direct）客戶可以在[Azure 入口網站]的 [成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
 
-Enterprise 合約（EA）客戶可以在[Azure 入口網站][成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
+Enterprise 合約（EA）客戶可以在 [Azure 入口網站] [成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
 
 雲端解決方案提供者（CSP）合作夥伴可以在 [訂單歷程記錄] 索引標籤中的每個客戶，于 [客戶] 視圖中選取公司之後，查看 Marketplace 購買詳細資料。
 
@@ -246,7 +247,7 @@ MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/s
 
 **以耗用量為基礎的供應專案是否支援退款？**
 
-任何根據耗用量的費用（不論是每小時的 Vm 或自訂計量），都不會透過取消來退款。 一旦發生耗用量，Microsoft 的商業平臺會處理費用，而要求退款的任何服務爭議品質都會直接在「發行者」和「客戶」之間的 Microsoft 系統以外的地方處理。 支援一般費率加計量計費的供應專案，會遵循標準退款原則來支付固定費率費用。
+任何以耗用量為基礎的費用（不論是每小時的 Vm 或自訂計量）都不會透過取消來退款。 一旦發生耗用量，Microsoft 的商業平臺會處理費用，而要求退款的任何服務爭議品質都會直接在「發行者」和「客戶」之間的 Microsoft 系統以外的地方處理。 支援一般費率加計量計費的供應專案，會遵循標準退款原則來支付固定費率費用。
 
 **是否可以變更計畫的期限？**
 
@@ -279,13 +280,13 @@ Azure Marketplace 適用於對商業 IT 軟體和服務感興趣的 IT 專業人
 
 **為何要在 Azure Marketplace 上發佈應用程式，這樣做對我有何好處？**
 
-Azure Marketplace 提供了可讓 Microsoft 合作夥伴將產品與服務推廣並銷售給 Azure 客戶的市場。 發行者，可以立即取得140全球市場、我們的 300000 + 合作夥伴和 Azure 的企業客戶網路的存取權。  Marketplace 包含超過 90% 的「財富500」公司，以及許多全球領先的開發人員。 Azure Marketplace 中的新合作夥伴會自動提供一組[無成本的進入市場優勢](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits)，協助您在 Azure Marketplace 中提高其供應專案的認知。
+Azure Marketplace 提供了可讓 Microsoft 合作夥伴將產品與服務推廣並銷售給 Azure 客戶的市場。 發行者，可以立即取得140全球市場、我們的 300000 + 合作夥伴和 Azure 的企業客戶網路的存取權。  Marketplace 包含超過90% 的「財富500」公司，以及許多全球領先的開發人員。 Azure Marketplace 中的新合作夥伴會自動提供一組[無成本的進入市場優勢](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits)，協助您在 Azure Marketplace 中提高其供應專案的認知。
 
 **Azure Marketplace 與 AppSource 之間的區別因素為何？**
 
 Microsoft 合作夥伴可根據其目標受眾選擇發佈位置。
 
-Microsoft 提供兩個不同的雲端市集店面 – Azure Marketplace 和 AppSource。 這些店面可讓客戶尋找、試用及購買雲端應用程式和服務。 每個店面可滿足獨特的客戶需求，並且可讓 Microsoft 合作夥伴根據目標受眾決定其解決方案或服務的定位。
+Microsoft 提供兩個不同的雲端 marketplace 店面-Azure Marketplace 和 AppSource。 這些店面可讓客戶尋找、試用及購買雲端應用程式和服務。 每個店面可滿足獨特的客戶需求，並且可讓 Microsoft 合作夥伴根據目標受眾決定其解決方案或服務的定位。
 
 選取 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)，可將 IT 專業人員和開發人員或技術使用者作為目標受眾。
 

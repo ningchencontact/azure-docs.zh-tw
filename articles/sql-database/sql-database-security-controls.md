@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 的安全性控制項
+title: 安全性控制
 description: 評估 Azure SQL Database 的安全性控制檢查清單
 services: sql-database
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77ff55389bac53d8719d86b4ac77f281415af49f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886425"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802833"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Azure SQL Database 的安全性控制項
 
@@ -21,11 +21,11 @@ ms.locfileid: "70886425"
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-SQL Database 包括[單一資料庫](sql-database-single-index.yml)和[受控實例](sql-database-managed-instance.md)。 下列專案適用于這兩個供應專案, 除非另有注明。
+SQL Database 包括[單一資料庫](sql-database-single-index.yml)和[受控實例](sql-database-managed-instance.md)。 下列專案適用于這兩個供應專案，除非另有注明。
 
 ## <a name="network"></a>網路
 
-| 安全性控制 | 是/否 | 注意 |
+| 安全性控制 | 是/否 | 注意事項 |
 |---|---|--|
 | 服務端點支援| 是 | 僅適用于[單一資料庫](sql-database-single-index.yml)。 |
 | Azure 虛擬網路插入支援| 是 | 僅適用于[受控實例](sql-database-managed-instance.md)。 |
@@ -34,42 +34,42 @@ SQL Database 包括[單一資料庫](sql-database-single-index.yml)和[受控實
 
 ## <a name="monitoring--logging"></a>監視 & 記錄
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
-| Azure 監視支援, 例如 Log Analytics 或 Application Insights| 是 | SecureSphere (來自 Imperva 的 SIEM 解決方案) 也透過[SQL 審核](sql-database-auditing.md) [Azure 事件中樞](../event-hubs/index.yml)整合來支援。 |
-| 控制平面和管理平面記錄和審核| 是 | 是, 僅適用于某些事件 |
+| Azure 監視支援，例如 Log Analytics 或 Application Insights| 是 | SecureSphere （來自 Imperva 的 SIEM 解決方案）也透過[SQL 審核](sql-database-auditing.md) [Azure 事件中樞](../event-hubs/index.yml)整合來支援。 |
+| 控制平面和管理平面記錄和審核| 是 | 是，僅適用于某些事件 |
 | 資料平面記錄和審核 | 是 | 透過[SQL audit](sql-database-auditing.md) |
 
 ## <a name="identity"></a>身分識別
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
 | 驗證| 是 | Azure Active Directory (Azure AD) |
-| Authorization| 是 | None |
+| 授權| 是 | None |
 
 ## <a name="data-protection"></a>資料保護
 
-| 安全性控制 | 是/否 | 注意 |
+| 安全性控制 | 是/否 | 注意事項 |
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 如[Always Encrypted](sql-database-always-encrypted.md)一文所述, 稱為「加密使用中」。 伺服器端加密會使用[透明資料加密](transparent-data-encryption-azure-sql.md)。|
+| 待用的伺服器端加密： Microsoft 管理的金鑰 | 是 | 如[Always Encrypted](sql-database-always-encrypted.md)一文所述，稱為「加密使用中」。 伺服器端加密會使用[透明資料加密](transparent-data-encryption-azure-sql.md)。|
 | 傳輸中加密：<ul><li>Azure ExpressRoute 加密</li><li>虛擬網路中的加密</li><li>虛擬網路之間的加密</ul>| 是 | 使用 HTTPS。 |
-| 加密金鑰處理, 例如 CMK 或 BYOK| 是 | 提供服務管理和客戶管理的金鑰處理。 後者會透過[Azure Key Vault](../key-vault/index.yml)來提供。 |
+| 加密金鑰處理，例如 CMK 或 BYOK| 是 | 提供服務管理和客戶管理的金鑰處理。 後者會透過[Azure Key Vault](../key-vault/index.yml)來提供。 |
 | Azure data services 提供的資料行層級加密| 是 | 透過[Always Encrypted](sql-database-always-encrypted.md)。 |
 | 加密的 API 呼叫| 是 | 使用 HTTPS/SSL。 |
 
 ## <a name="configuration-management"></a>設定管理
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
-| 設定管理支援, 例如設定的版本設定| 否  | None |
+| 設定管理支援，例如設定的版本設定| 否  | None |
 
 ## <a name="additional-security-controls-for-sql-database"></a>SQL Database 的其他安全性控制
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
-| 預防性: 弱點評估 | 是 | 請參閱[SQL 弱點評定服務協助您識別資料庫弱點](sql-vulnerability-assessment.md)。 |
-| 預防性: 資料探索與分類  | 是 | 請參閱[Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類](sql-database-data-discovery-and-classification.md)。 |
-| 偵測: 威脅偵測 | 是 | 請參閱[Azure SQL Database 的 Advanced 威脅防護](sql-database-threat-detection-overview.md)。 |
+| 預防性：弱點評估 | 是 | 請參閱[SQL 弱點評定服務協助您識別資料庫弱點](sql-vulnerability-assessment.md)。 |
+| 預防性：資料探索與分類  | 是 | 請參閱[Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類](sql-database-data-discovery-and-classification.md)。 |
+| 偵測：威脅偵測 | 是 | 請參閱[Azure SQL Database 的 Advanced 威脅防護](sql-database-threat-detection-overview.md)。 |
 
 ## <a name="next-steps"></a>後續步驟
 

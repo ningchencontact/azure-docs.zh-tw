@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177853"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826829"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
-使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
+使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 本文章說明 Azure 檔案同步部署的重要考量。 建議您另行閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)。 
 
@@ -63,7 +63,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 > Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時才會起始一次。 此外，透過 REST 通訊協定對 Azure 檔案共用所做的變更，將不會更新 SMB 上次修改時間，而且不會視為同步變更。如需詳細資訊，請參閱[Azure 檔案儲存體常見問題](storage-files-faq.md#afs-change-detection)。
 
 ### <a name="cloud-tiering"></a>雲端階層處理 
-雲端階層處理是 Azure 檔案同步的選擇性功能，其中經常存取的檔案會以本機方式快取到伺服器上，而其他的檔案則會依原則設定分層處理至 Azure 檔案服務。 如需詳細資訊，請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md)。
+雲端階層處理是 Azure 檔案同步的一個選用功能，其中經常存取的檔案會快取到伺服器本機上，而其他的檔案會依原則設定分層處理至 Azure 檔案服務。 如需詳細資訊，請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md)。
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 檔案同步系統需求和互通性 
 本節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
@@ -73,7 +73,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 您可以藉由安裝 Az PowerShell module 來安裝評估 Cmdlet，此模組可依照以下指示安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
-#### <a name="usage"></a>用量  
+#### <a name="usage"></a>使用量  
 您可以使用幾個不同的方式來叫用評估工具：您可以執行系統檢查、資料集檢查，或兩者都執行。 若要執行系統和資料集的檢查： 
 
 ```powershell
@@ -122,7 +122,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="file-system-features"></a>檔案系統功能
 
-| 功能 | 支援狀態 | 注意 |
+| 功能 | 支援狀態 | 注意事項 |
 |---------|----------------|-------|
 | 存取控制清單 (ACL) | 完全支援 | Azure 檔案同步會保留 Windows ACL，並由 Windows Server 在伺服器端點上強制執行。 如果檔案是直接在雲端中存取，則 Azure 檔案服務尚未支援 Windows ACL。 |
 | 永久連結 | Skipped | |
@@ -139,7 +139,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="files-skipped"></a>跳過的檔案
 
-| 檔案/資料夾 | 附註 |
+| 檔案/資料夾 | 注意 |
 |-|-|
 | Desktop.ini | 系統專用檔案 |
 | ethumbs.db$ | 暫存檔案的縮圖 |
@@ -158,7 +158,7 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 > 必須在容錯移轉叢集中的每個節點上安裝 Azure 檔案同步代理程式，同步才能正確運作。
 
 ### <a name="data-deduplication"></a>重複資料刪除
-**代理程式版本5.0.2.0 或更新**   
+**Windows server 2016 和 Windows server 2019**   
 在 Windows Server 2016 上啟用雲端階層處理的磁片區上，支援重復資料刪除。 在啟用雲端階層處理的磁片區上啟用重復資料刪除，可讓您在內部部署快取更多檔案，而不需要布建更多 
 
 在啟用雲端階層處理的磁片區上啟用重復資料刪除時，伺服器端點位置中的重復資料刪除優化檔案將會根據雲端階層處理原則設定，與一般檔案分層。 當重復資料刪除優化檔案已分層之後，重復資料刪除垃圾收集工作將會自動執行，藉由移除磁片區上其他檔案不再參考的不必要區塊來回收磁碟空間。
@@ -168,8 +168,8 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 > [!Note]  
 > 因為在未來的更新中將會修正錯誤，所以伺服器2019上的同一個磁片區目前不支援重復資料刪除和雲端階層處理。
 
-**Windows Server 2012 R2 或舊版代理程式**  
-針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
+**Windows Server 2012 R2**  
+Azure 檔案同步不支援在相同磁片區上進行重復資料刪除和雲端階層處理。 如果已在磁片區上啟用重復資料刪除，則必須停用雲端階層處理。 
 
 **注意事項**
 - 如果在安裝 Azure 檔案同步代理程式之前已安裝重復資料刪除，則需要重新開機，以支援相同磁片區上的重復資料刪除和雲端階層處理。
@@ -244,17 +244,17 @@ Azure 檔案共用已知無法用於：
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>其他階層式存放裝置管理 (HSM) 解決方案
 不應該搭配 Azure 檔案同步使用其他 HSM 解決方案。
 
-## <a name="region-availability"></a>區域供應狀況
+## <a name="region-availability"></a>區域可用性
 Azure 檔案同步僅於下列區域提供：
 
-| 地區 | 資料中心位置 |
+| 區域 | 資料中心位置 |
 |--------|---------------------|
-| 澳大利亞東部 | 新南威爾斯 |
+| 澳洲東部 | 新南威爾斯 |
 | 澳大利亞東南部 | 維多利亞 |
 | 巴西南部 | 聖保羅州 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
-| 印度中部 | 鵬尼 |
+| 印度中部 | 浦那 |
 | 美國中部 | 愛荷華州 |
 | 東亞 | 香港特別行政區 |
 | 美國東部 | 維吉尼亞州 |
@@ -262,27 +262,27 @@ Azure 檔案同步僅於下列區域提供：
 | 法國中部 | 巴黎 |
 | 法國南部 * | 馬賽 |
 | 南韓中部 | 首爾 |
-| 南韓南部 | 釜山 |
+| 南韓南部 | 斧山 |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
 | 美國中北部 | 伊利諾州 |
 | 北歐 | 愛爾蘭 |
 | 南非北部 | 約翰尼斯堡 |
 | 南非西部 * | 開普敦 |
-| 美國中南部 | 德克薩斯州 |
+| 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
 | 英國西部 | 卡地夫 |
-| US Gov 亞利桑那州 | 亞利桑那州 |
-| US Gov 德克薩斯州 | 德克薩斯州 |
-| US Gov 維吉尼亞州 | 維吉尼亞州 |
+| 美國政府亞利桑那州 | 亞利桑那州 |
+| 美國政府德克薩斯州 | Texas |
+| 美國政府維吉尼亞州 | 維吉尼亞州 |
 | 阿拉伯聯合大公國北部 | 杜拜 |
 | 阿拉伯聯合大公國中部 * | 阿布達比 |
 | 西歐 | 荷蘭 |
 | 美國中西部 | 懷俄明州 |
-| 美國西部 | 加利福尼亞州 |
-| 美國西部 2 | 華盛頓州 |
+| 美國西部 | California |
+| 美國西部 2 | Washington |
 
 Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
 
@@ -298,8 +298,8 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 
 | 主要區域      | 配對的區域      |
 |---------------------|--------------------|
-| 澳大利亞東部      | 澳大利亞東南部|
-| 澳大利亞東南部 | 澳大利亞東部     |
+| 澳洲東部      | 澳大利亞東南部|
+| 澳大利亞東南部 | 澳洲東部     |
 | 巴西南部        | 美國中南部   |
 | 加拿大中部      | 加拿大東部        |
 | 加拿大東部         | 加拿大中部     |
@@ -323,9 +323,9 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 東南亞      | 東亞          |
 | 英國南部            | 英國西部            |
 | 英國西部             | 英國南部           |
-| US Gov 亞利桑那州      | US Gov 德克薩斯州       |
-| US Gov 愛荷華州         | US Gov 維吉尼亞州    |
-| US Gov 維吉尼亞州      | US Gov 德克薩斯州       |
+| 美國政府亞利桑那州      | 美國政府德克薩斯州       |
+| US Gov 愛荷華州         | 美國政府維吉尼亞州    |
+| 美國政府維吉尼亞州      | 美國政府德克薩斯州       |
 | 西歐         | 北歐       |
 | 美國中西部     | 美國西部 2          |
 | 美國西部             | 美國東部            |

@@ -1,5 +1,5 @@
 ---
-title: 持續整合及部署 | Microsoft Docs
+title: 持續整合及部署
 description: 適用於 SQL 資料倉儲的企業級資料庫 DevOps 體驗，並搭配使用 Azure Pipelines 進行持續整合及部署的內建支援。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7afb616fffaf01b1efa4f5d5a4af9dddd9683781
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70143844"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646140"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的持續整合和部署
 

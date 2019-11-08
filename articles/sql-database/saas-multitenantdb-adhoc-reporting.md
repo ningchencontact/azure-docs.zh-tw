@@ -1,5 +1,5 @@
 ---
-title: 跨多個 Azure SQL 資料庫執行特定報表查詢
+title: 跨多個資料庫的特定報表查詢
 description: 在多租用戶應用程式範例中，跨多個 SQL 資料庫執行隨選報表查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692078"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822177"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL 資料庫執行臨機操作分析查詢
 

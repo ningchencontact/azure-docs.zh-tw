@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 8ce032a6ad10b22bed5d266bb23fe81846e8a072
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6349f90eeacaedb03db4d6e91902fea69a8d0dae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795844"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818009"
 ---
 # <a name="different-stages-in-mobile-application-development"></a>行動應用程式開發的不同階段
 建立行動應用程式牽涉到多個階段，而開發人員可以輕鬆地利用 Microsoft 服務、工具和技術來建立高階行動應用程式。
@@ -35,6 +35,6 @@ ms.locfileid: "72795844"
 
 ## <a name="additional-services"></a>其他服務
 有許多 Azure 服務可以根據所建立之應用程式的類型和本質來取用。
-  - 使用快速查詢來搜尋所有內部資料類型的 Azure 搜尋服務。
+  - Azure 認知搜尋，用來搜尋所有類型的內部資料，並進行快速查詢。
   - Azure 認知服務在您的應用程式中使用人工智慧。
   - Azure SignalR 可在您的應用程式中啟用即時通訊。

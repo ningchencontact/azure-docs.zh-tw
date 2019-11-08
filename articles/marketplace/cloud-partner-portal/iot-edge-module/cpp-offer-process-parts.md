@@ -1,18 +1,19 @@
 ---
-title: Azure IoT Edge 模組供應項目發行概觀 |Azure Marketplace
+title: Azure IoT Edge 模組供應專案發佈總覽 |Azure Marketplace
 description: 在 Microsoft Azure Marketplace 上發佈 IoT Edge 供應項目之流程概觀。
 services: Azure, Marketplace, Cloud Partner Portal
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler
-ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97df9a61d15e0d90e81f42cef327aea23873ffa0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942604"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814331"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IoT Edge 模組供應項目發佈概觀
 

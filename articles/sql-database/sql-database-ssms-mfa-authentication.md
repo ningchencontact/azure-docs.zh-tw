@@ -1,9 +1,10 @@
 ---
-title: 搭配 Azure SQL Database 和 Azure SQL 資料倉儲使用多重要素 AAD 驗證
+title: 使用多因素 AAD 驗證
 description: Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/08/2018
-ms.openlocfilehash: d9d391c1496102d38e9da767ad26b408860ca682
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7183193f3639ea809c6e7aa19af7844bd134111e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687075"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820910"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>搭配使用多重要素 AAD 驗證與 Azure SQL Database 和 Azure SQL 資料倉儲（適用于 MFA 的 SSMS 支援）
 Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。 本文討論各種驗證選項之間的差異，以及與使用通用驗證相關聯的限制。 

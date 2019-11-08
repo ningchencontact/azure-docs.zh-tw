@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory auth-Azure SQL
+title: Azure Active Directory
 description: 了解如何使用 Azure Active Directory 向 SQL Database、受控執行個體及 SQL 資料倉儲進行驗證
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 4516f75d80345312a6ca3b6dac3e5156d7e239e8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0eeb48490c869c4a3b46bfd71fca72e0ab1c2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691360"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816545"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -69,7 +69,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ![系統管理員結構][3]
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 若要建立新的使用者，您必須具有資料庫中的 `ALTER ANY USER` 權限。 任何資料庫使用者皆可授與 `ALTER ANY USER` 權限。 `ALTER ANY USER` 權限的擁有者還包括伺服器系統管理員帳戶、具備資料庫之 `CONTROL ON DATABASE` 或 `ALTER ON DATABASE` 權限的資料庫使用者，以及 `db_owner` 資料庫角色的成員。
 

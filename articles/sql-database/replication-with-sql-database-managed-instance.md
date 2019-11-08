@@ -1,5 +1,5 @@
 ---
-title: '在 Azure SQL Database 受控執行個體資料庫中設定複寫 '
+title: 在受控實例資料庫中設定複寫
 description: 了解如何在 Azure SQL Database 受控執行個體資料庫中設定異動複寫
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692160"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822581"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
 
@@ -33,7 +33,7 @@ ms.locfileid: "73692160"
   > [!NOTE]
   > 本文旨在引導使用者從端對端設定 Azure 資料庫受控實例的複寫，從建立資源群組開始。 如果您已經部署受控實例，請直接跳到[步驟 4](#4---create-a-publisher-database)來建立發行者資料庫，如果您已經有發行者和訂閱者資料庫，而且準備好開始設定複寫，請略過步驟[6](#6---configure-distribution) 。  
 
-## <a name="requirements"></a>要求
+## <a name="requirements"></a>需求
 
 將受控實例設定為「發行者」和/或「散發者」時，需要：
 

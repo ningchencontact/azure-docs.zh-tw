@@ -1,7 +1,7 @@
 ---
 title: 範例：識別影像中的臉部 - 臉部 API
 titleSuffix: Azure Cognitive Services
-description: 使用臉部 API 識別影像中的人臉。
+description: 本指南示範如何使用 PersonGroup 物件來識別不明的臉部，這些臉部是事先從已知的人員中建立的。
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c21647e3fbbc38e905a6d6ec116551004da20d5c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 10ab11669569b16293ccf9b8777190cf271e5795
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300523"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744312"
 ---
 # <a name="example-identify-faces-in-images"></a>範例：識別影像中的臉部
 

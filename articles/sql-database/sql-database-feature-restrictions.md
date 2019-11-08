@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 功能限制
+title: 功能限制
 description: Azure SQL Database 功能限制藉由限制資料庫中可讓攻擊者存取其中資訊的功能，來改善您的資料庫安全性。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: e9518065b2240d72698ed75f2fa8a7aed343b7bf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce10daca23299f838e4086426fa89d9cade314ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690056"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823438"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Azure SQL Database 功能限制
 
