@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 記憶體內部範例
+title: 記憶體內部範例
 description: 使用 OLTP 和資料行存放區範例試用 Azure SQL 資料庫記憶體內部技術。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689813"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810335"
 ---
 # <a name="in-memory-sample"></a>記憶體內部範例
 

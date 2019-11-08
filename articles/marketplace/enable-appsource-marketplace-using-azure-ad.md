@@ -5,15 +5,16 @@ services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchai
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: pabutler
-ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876009"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825879"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>使用 Azure Active Directory 來啟用 AppSource 和 Marketplace 清單
 
@@ -38,7 +39,7 @@ Microsoft AppSource 和 Azure Marketplace 客戶會使用產品內體驗來搜�
 | 虛擬機器 | N/A | 否 | 否 | 否 |
 | Azure 應用程式 (解決方案範本)  | N/A | N/A | N/A | N/A |
 | 受管理的應用程式  | N/A | N/A | N/A | 否 |
-| SaaS  | 否 | yes | 是 | 是 |
+| SaaS  | 否 | 是 | 是 | 是 |
 | 容器  | N/A | N/A | N/A | 否 |
 | 諮詢服務  | 否 | N/A | N/A | N/A |
 
@@ -82,11 +83,11 @@ Microsoft AppSource 和 Azure Marketplace 客戶會使用產品內體驗來搜�
 使用 Azure AD 來支援下列其中一個動作：
 
 - 使用 [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將來賓使用者新增至目錄。
-- 使用 [與我連絡]  發佈選項，為客戶手動設定試用版。
+- 使用 [與我連絡] 發佈選項，為客戶手動設定試用版。
 - 開發每個客戶的「試用產品」。
 - 建置使用 SSO 的多租用戶範例示範應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 請確定您已[在 Azure Marketplace 中註冊](https://azuremarketplace.microsoft.com/sell)。
-- 如需如何建立或完成供應專案的詳細資訊, 請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
+- 如需如何建立或完成供應專案的詳細資訊，請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。

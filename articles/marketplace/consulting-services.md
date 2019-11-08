@@ -4,20 +4,21 @@ description: 本文說明 Azure Marketplace 中最新諮詢服務供應項目的
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285991"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825980"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
 
-Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合作夥伴提供的諮詢服務供應項目，目標是提供高品質的諮詢服務，讓客戶能夠與他們所需的專業服務連繫。 協助客戶進行評估，並部署適合的解決方案和實作，將有助於實現客戶的營運目標。  
+Azure Marketplace 和 AppSource 支援從 Microsoft 的系統整合者（SI）合作夥伴列出諮詢服務供應專案，目標是要提供品質諮詢服務，讓客戶能夠與所需的專家服務連接。 協助客戶進行評估，並部署適合的解決方案和實作，將有助於實現客戶的營運目標。  
 
 這些諮詢服務供應項目會由特定客戶使用。 發行者可決定清單類型，且有固定的範圍和持續時間，也可選擇固定價格或免費，並擁有為客戶定義的交付項目議程。 合作夥伴 CRM 系統中的通知會收到潛在客戶群的資訊，並盡力在 48 小時內回應客戶。 
 
@@ -123,13 +124,13 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 ## <a name="offer-listings-and-content-review-criteria"></a>供應項目清單和內容檢閱準則
 供應項目必須是以下五種服務類型之一 (您可以列出一個以上)： 
 
-* **評估**：可以評估客戶的環境，以判斷解決方案的適用性，並提供估計的成本和時間。 
+* **評**量：評估客戶的環境，以判斷解決方案的適用性，並提供估計的成本和時間。 
 * **簡報**：可以介紹解決方案或諮詢服務，使用架構、示範和客戶範例引起客戶的興趣。 
-* **實作**：完整安裝以產生完全可行的解決方案。 建議您限制在可於 2 週以內完成實作的解決方案。 
+* **實作**：可進行完整安裝以產生完整有效的解決方案。 建議您限制在可於 2 週以內完成實作的解決方案。 
 * **概念證明**：可以判斷解決方案是否符合客戶需求的有限範圍實作。 
-* **研討會**：在客戶場地進行的互動式交流。 它可以包含以客戶資料或環境為基礎的訓練、簡報、評量或示範。 
+* **研討會**：在客戶的部署上進行的互動式 engagement。 它可以包含以客戶的資料或環境為基礎的訓練、簡報、評量或示範。 
 
-**注意：** 除了「簡報」服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
+**注意：** 除了「*簡報*」服務類型以外，諮詢服務可由人員（也就是在客戶的位置或合作夥伴的設施）或虛擬（也就是透過電話會議、網路會議或遠端執行）提供。 簡報必須親赴現場提供。
 
 一旦您已設定以上所列的必要元素，內容檢閱小組將會針對您的目標對象，驗證供應項目描述是否具有足夠資訊且完整。 
 
@@ -137,20 +138,20 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 
 標題欄位具有 50 個字元的限制，而且必須傳達供應項目的持續時間和服務類型，以將搜尋引擎最佳化發揮到極致。 必要格式如下：名稱：持續時間類型
 
-例如：
+範例：
 
 
 |範例標題  |正確格式  |
 |---------|---------|
 |在製造中開始使用 Azure IoT    |   製造 IoT：2 天評量      |
-|Smart Toaster 工作坊        |  Smart Toaster：1 週研討會       |
+|Smart Toaster 工作坊        |  Smart Toaster：1 週工作坊       |
 |  SQL Server 移轉概念證明    | SQL 移轉：3 週概念證明        |
 
 #### <a name="listing-summaries-and-descriptions"></a>清單摘要和描述
 
 檢閱供應項目描述和供應項目摘要時，小組會套用下列準則：
 
-|供應項目類型  |必要項 |建議  |
+|供應項目類型  |必要 |建議  |
 |---------|---------|---------|
 |**評量**    |   包含多天或多週評量的詳細議程，並且清楚表達客戶可以預期有什麼交付成果      |    使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要     |
 |**簡報**    |   清楚表達客戶可以預期有什麼交付成果。 請記住，簡報必須親赴現場提供。 如果您提供虛擬服務，請選擇不同的供應項目類型    |  使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要       |

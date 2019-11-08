@@ -1,7 +1,7 @@
 ---
-title: 偵測 AKS 部署上的資料漂移（預覽）
+title: 偵測 AKS 部署上的資料漂移
 titleSuffix: Azure Machine Learning
-description: 偵測 Azure Machine Learning 中 Azure Kubernetes Service 部署模型的資料漂移。
+description: 偵測 Azure Machine Learning 中 Azure Kubernetes Service 部署模型的資料漂移（預覽）。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796726"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824262"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

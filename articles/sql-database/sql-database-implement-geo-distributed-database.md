@@ -1,5 +1,5 @@
 ---
-title: 實作異地分散的 Azure SQL 資料庫解決方案| Microsoft Docs
+title: 執行地理位置分散的解決方案
 description: 了解如何設定您的 Azure SQL 資料庫和應用程式來容錯移轉至複寫資料庫，並測試容錯移轉。
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568093"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810930"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散資料庫
+# <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散式資料庫
 
 設定 Azure SQL 資料庫和應用程式來容錯移轉到遠端區域，並測試您的容錯移轉計畫。 您會了解如何：
 
@@ -29,11 +29,11 @@ ms.locfileid: "68568093"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 若要完成本教學課程，請確定您已安裝下列項目：
 
@@ -133,7 +133,7 @@ ms.locfileid: "68568093"
    </dependency>
    ```
 
-1. 在 `dependencies` 區段之後新增 `properties` 區段來指定 Java 版本：
+1. 在 `properties` 區段之後新增 `dependencies` 區段來指定 Java 版本：
 
    ```xml
    <properties>
@@ -142,7 +142,7 @@ ms.locfileid: "68568093"
    </properties>
    ```
 
-1. 在 `properties` 區段之後新增 `build` 區段來支援資訊清單檔：
+1. 在 `build` 區段之後新增 `properties` 區段來支援資訊清單檔：
 
    ```xml
    <build>

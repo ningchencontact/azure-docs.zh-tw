@@ -1,18 +1,19 @@
 ---
-title: 開始使用 |Azure Marketplace
+title: 消費者入門 |Azure Marketplace
 description: 開始使用 Cloud Partner 入口網站。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6065f0485b03a53fa55ae700831869998d9453cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935768"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818381"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>開始使用 Cloud Partner 入口網站
 
@@ -44,7 +45,7 @@ Cloud Partner 入口網站包含您所需的一切，能讓您在雲端中提供
 ![供應項目頁面](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 在供應項目頁面上，您可以：
-- 新增內容，或檢查您的供應項目狀態方法於兩個頂層層級模式之間切換：**編輯器**並**狀態**。
+- 透過切換兩個頂層層級模式，來新增內容，或檢查您的供應項目狀態︰[編輯器] 和 [狀態]。
 - 使用**動作列**儲存及捨棄您的輸入，可明確地管理您的供應項目變更。
 - 變更供應項目設定時，請瀏覽每個供應項目的必要**表單**。
 
@@ -54,6 +55,6 @@ Cloud Partner 入口網站包含您所需的一切，能讓您在雲端中提供
 
 ![功能表列](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/menu-bar.png)
 
--   需要協助嗎？  - 如果您曾感到困惑並需要協助，請建立支援要求，並尋找相關文件連結。
--   **意見反應** - 有話要說嗎？ 請在這裡告訴我們。 Microsoft 想要讓 Azure Marketplace、AppSource 發佈程序及整體 Cloud Partner 入口網站體驗盡可能簡單，盡可能直覺化。 我們會將所有意見反應分級並檢閱，而且我們永遠尊重您的隱私權。 我們只會在要求更多資訊時連絡您。
+-   需要協助嗎？ - 如果您曾感到困惑並需要協助，請建立支援要求，並尋找相關文件連結。
+-   **意見反應** - 有話要說嗎？ 請在這裡告訴我們。 Microsoft 想要讓 Azure Marketplace (AppSource 發佈程序) 與整體雲端合作夥伴入口網站體驗盡量簡單與直覺。 我們會將所有意見反應分級並檢閱，而且我們永遠尊重您的隱私權。 我們只會在要求更多資訊時連絡您。
 - **發佈者帳戶** - 當您第一次造訪入口網站時，將會看到發佈者合約，接受合約內容即可成為發佈者。 從那之後，您便可以在此編輯發佈者設定檔，或重新閱覽合約內容。 您也能此處連結您的開發人員中心帳戶，藉此銷售您的供應項目。

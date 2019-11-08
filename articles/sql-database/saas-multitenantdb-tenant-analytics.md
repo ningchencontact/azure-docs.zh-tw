@@ -1,5 +1,5 @@
 ---
-title: '對 Azure SQL 資料庫執行分析查詢 '
+title: 執行分析查詢
 description: 在多租用戶應用程式中使用從多個 Azure SQL Database 資料庫擷取的資料執行跨租用戶分析查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 067afd09f942b8062825553a3cf90f715e8d3938
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691994"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822154"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>使用擷取的資料執行跨租用戶分析 - 多租用戶應用程式
  

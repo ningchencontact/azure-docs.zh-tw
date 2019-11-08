@@ -1,5 +1,5 @@
 ---
-title: 在適用于 node.js 的 Azure 儲存體中建立 blob
+title: 快速入門：適用于 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v2
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js v2 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 8d0afc5a224e752bdd745ab4df0473a134b4180b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609095"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825335"
 ---
-# <a name="upload-download-and-list-blobs-using-the-client-library-for-nodejs"></a>使用適用于 node.js 的用戶端程式庫來上傳、下載及列出 blob
+# <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>快速入門：適用于 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v2
 
 在本操作指南中，您會了解如何使用適用於 Node.js v2 的用戶端程式庫，透過 Azure Blob 儲存體上傳、下載及列出 Blob。
 

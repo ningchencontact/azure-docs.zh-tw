@@ -1,5 +1,5 @@
 ---
-title: 使用 PyTorch 訓練深度學習類神經網路
+title: 訓練深度學習 PyTorch 模型
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Azure Machine Learning 的 PyTorch 估計工具類別，以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會將雞和土耳其影像分類，以根據 PyTorch 的傳輸學習教學課程來建立深度學習神經網路。
 services: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f08e19ac08d39b19838582cdfbb0d00dfde9de62
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2c704e36f4353b34733ccc29b785c752b2a5c559
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584486"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822700"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 以大規模訓練 Pytorch 深度學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d88ad13c1326ce62b73dbffa0c79904c6f81e6f4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474897"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641782"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在 Web 應用程式中啟用驗證
 
@@ -41,7 +41,7 @@ ms.locfileid: "73474897"
 
 ### <a name="add-a-redirect-uri-reply-url"></a>新增重新導向 URI (回覆 URL)
 
-您可以使用目前的 [應用程式]  體驗，或使用新整合的 [應用程式註冊 (預覽)]  體驗來更新應用程式。 [深入了解預覽體驗](http://aka.ms/b2cappregintro)。
+您可以使用目前的 [應用程式]  體驗，或使用新整合的 [應用程式註冊 (預覽)]  體驗來更新應用程式。 [深入了解新的體驗](https://aka.ms/b2cappregintro)。
 
 #### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 

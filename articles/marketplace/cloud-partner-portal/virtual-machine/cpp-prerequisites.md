@@ -1,22 +1,23 @@
 ---
-title: 適用於 Microsoft Azure 虛擬機器的必要條件 |Azure Marketplace
+title: Microsoft Azure 的虛擬機器必要條件 |Azure Marketplace
 description: 若要發佈 VM 供應項目至 Microsoft Azure Marketplace，此為先決條件清單。
 services: Azure, Marketplace, Cloud Partner Portal
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a657ceaacf3680de54dc0d639a3f1a0aff6a6a03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257391"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824427"
 ---
 # <a name="virtual-machine-prerequisites"></a>虛擬機器先決條件
 
-本文列出這兩種技術和商務需求，您必須符合您之前可以發佈到的 VM 供應項目[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)。  如果您尚未這樣做，請檢閱[虛擬機器提供發佈指南](../../marketplace-virtual-machines.md)。
+本文列出您必須滿足的技術和商務需求，您才能將 VM 供應專案發佈至[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)。  如果您尚未這麼做，請參閱[虛擬機器供應專案發佈指南](../../marketplace-virtual-machines.md)。
 
 
 ## <a name="technical-requirements"></a>技術需求
@@ -42,15 +43,15 @@ ms.locfileid: "66257391"
     > 您需要使用與註冊 Microsoft 開發人員中心相同的帳戶來登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)。
     > 您所有的 Azure Marketplace 供應項目應該只會共有一個 Microsoft 帳戶。 帳戶不應僅供單一服務或供應項目使用。
     
-- 您的公司 （或其子公司） 必須位於銷售-從-國家/地區支援 Azure marketplace。  目前的國家/地區清單，請參閱 < [Microsoft Azure Marketplace 參與原則](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
+- 您的公司（或其子公司）必須位於 Azure Marketplace 所支援的銷售來源國家/地區。  如需這些國家/地區的最新清單，請參閱[Microsoft Azure Marketplace 參與原則](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
 - 您的產品授權，必須與 Azure Marketplace 支援的計費模式相容。  如需詳細資訊，請參閱 [Azure Marketplace 的計費選項](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace)。 
 - 您必須以合乎商業行為的方式，負責為客戶提供技術支援。 此支援可以免費、收費或透過社群提供。
 - 您必須負責為您的軟體和任何第三方廠商相依性進行授權。
 - 為了使您的供應項目可列於 Microsoft Azure Marketplace 和 Microsoft Azure 入口網站中，您提供的內容必須符合標準。 <!-- TD: Meaning/links? -->
 - 您必須同意[Microsoft Azure Marketplace 參與原則](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)和發行者合約中的條款。
-- 您必須遵守[Microsoft Azure 網站使用規定](https://azure.microsoft.com/support/legal/website-terms-of-use/)， [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)，並[Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
+- 您必須遵守[Microsoft Azure 網站使用](https://azure.microsoft.com/support/legal/website-terms-of-use/)規定、 [Microsoft 隱私權聲明](https://privacy.microsoft.com/privacystatement)，以及[Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-您已符合這些必要條件之後，您可以[建立您的 VM 供應項目](./cpp-create-offer.md)。
+符合這些必要條件之後，您就可以[建立 VM 供應](./cpp-create-offer.md)專案。

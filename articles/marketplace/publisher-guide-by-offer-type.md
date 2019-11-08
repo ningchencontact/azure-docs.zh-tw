@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 8a06573e6bcb2d5a6c6c97ad19e168f9c71aaa13
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 43ca74faadf7890f1274afc4905af79237918f4a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308227"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827816"
 ---
 # <a name="publishing-guide-by-offer-type"></a>依供應項目類型的發行指南
 
@@ -31,7 +32,7 @@ ms.locfileid: "70308227"
 
 下表列出 Azure Marketplace 的供應項目類型。
 
-| **供應項目類型**    | **描述**  |
+| **供應項目類型**    | **說明**  |
 | :------------------- | :-------------------|
 | [**虛擬機器**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | 當您要將虛擬設備部署到與客戶相關的訂用帳戶時，請使用「虛擬機器」供應項目類型。 |
 | [**解決方案範本**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | 當您的解決方案需要簡單的 VM 以外的額外部署和設定自動化時，請使用解決方案範本（也稱為 Azure 應用程式）供應專案類型。 解決方案範本可以採用許多不同類型的 Azure 資源，包括但不限於 Vm。  |

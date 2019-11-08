@@ -1,5 +1,5 @@
 ---
-title: 從我的應用程式（預覽）入口網站存取及啟動應用程式-Azure Active Directory |Microsoft Docs
+title: 從我的應用程式（預覽）入口網站存取及啟動應用程式-Azure AD
 description: 瞭解如何從我的應用程式（預覽）入口網站存取並啟動貴組織的雲端式應用程式。
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eb3dbe3ce82b794a5ed530107781b634ceb32f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573846"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820403"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>從我的應用程式（預覽）入口網站存取及啟動應用程式
 

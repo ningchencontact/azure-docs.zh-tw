@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 資源限制-受控實例
+title: 資源限制-受控實例
 description: 本文將概略說明 Azure SQL Database 的受控執行個體有哪些資源限制。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687909"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823343"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 

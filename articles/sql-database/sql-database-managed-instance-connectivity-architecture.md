@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 中受控實例的連線架構
+title: 受控實例的連線架構
 description: 深入瞭解 Azure SQL Database 受控實例通訊和連線架構，以及元件如何將流量導向至受控實例。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 881f116988ae0c9a6a33c8454cd1e4012580bfab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0c21271eb19a8fd69cb42e30c6a45bd3af9a5600
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688212"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820484"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中受控實例的連線架構
 
@@ -96,7 +96,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
 
-| 名稱       |Port                        |通訊協定|來源           |目的地|行動|
+| 名稱       |Port                        |通訊協定|來源           |目的地|動作|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允許 |
 |mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
@@ -104,7 +104,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
 
-| 名稱       |Port          |通訊協定|來源           |目的地|行動|
+| 名稱       |Port          |通訊協定|來源           |目的地|動作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允許 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
@@ -251,7 +251,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>具有服務輔助子網設定的必要輸入安全性規則 
 
-| 名稱       |Port                        |通訊協定|來源           |目的地|行動|
+| 名稱       |Port                        |通訊協定|來源           |目的地|動作|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |SqlManagement    |MI SUBNET  |允許 |
 |            |9000、9003                  |TCP     |CorpnetSaw       |MI SUBNET  |允許 |
@@ -261,7 +261,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>具有服務輔助子網設定的必要輸出安全性規則 
 
-| 名稱       |Port          |通訊協定|來源           |目的地|行動|
+| 名稱       |Port          |通訊協定|來源           |目的地|動作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允許 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |

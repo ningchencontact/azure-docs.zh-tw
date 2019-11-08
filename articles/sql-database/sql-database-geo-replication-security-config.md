@@ -1,5 +1,5 @@
 ---
-title: 設定嚴重損壞修復的 Azure SQL Database 安全性
+title: 設定嚴重損壞修復的安全性
 description: 了解在資料庫還原或容錯移轉至次要伺服器之後，設定和管理安全性時的安全性考量。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689981"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807485"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>建立和管理 Azure SQL Database 安全性以供異地還原或容錯移轉使用
 

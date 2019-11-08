@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6ed04c875140f3ecd14eff31829e931efbe84ea2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: bbaec55666b877e1d9343d8b80ea44a189c0c5b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606657"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806115"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure 認知搜尋中 AI 擴充管線的常見錯誤和警告
 
@@ -32,7 +32,7 @@ ms.locfileid: "73606657"
 ### <a name="could-not-read-document"></a>無法讀取檔
 索引子無法從資料來源讀取檔。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 行動 |
+| 原因 | 範例 | 動作 |
 | --- | --- | --- |
 | 跨不同檔的欄位類型不一致 | 值的類型與資料行類型不相符。 無法在 [作者] 資料行中儲存 `'{47.6,-122.1}'`。  預期的類型為 JArray。 | 請確定每個欄位的類型在不同的檔中都相同。 例如，如果第一個檔 `'startTime'` 欄位是日期時間，而第二個檔是字串，則會遇到此錯誤。 |
 | 來自資料來源之基礎服務的錯誤 | （從 Cosmos DB） `{"Errors":["Request rate is large"]}` | 檢查您的儲存體實例，以確保其狀況良好。 您可能需要調整您的縮放/分割。 |
@@ -41,7 +41,7 @@ ms.locfileid: "73606657"
 ### <a name="could-not-extract-document-content"></a>無法解壓縮檔內容
 具有 Blob 資料來源的索引子無法從檔解壓縮內容（例如，PDF 檔案）。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 行動 |
+| 原因 | 範例 | 動作 |
 | --- | --- | --- |
 | blob 超過大小限制 | 檔為 `'150441598'` 個位元組，超過目前服務層級的檔解壓縮的大小上限 `'134217728'` 個位元組。 | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob 具有不支援的內容類型 | 檔具有不支援的內容類型 `'image/png'` | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -51,7 +51,7 @@ ms.locfileid: "73606657"
 ### <a name="could-not-parse-document"></a>無法剖析檔
 索引子從資料來源讀取檔，但將檔內容轉換成指定的欄位對應架構時發生問題。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 行動 |
+| 原因 | 範例 | 動作 |
 | --- | --- | --- |
 | 缺少檔索引鍵 | 檔索引鍵不能遺失或空白 | 確保所有檔都具有有效的檔索引鍵 |
 | 檔索引鍵無效 | 檔索引鍵的長度不能超過1024個字元 | 修改檔索引鍵以符合驗證需求。 |
@@ -61,8 +61,10 @@ ms.locfileid: "73606657"
 ### <a name="could-not-execute-skill"></a>無法執行技能
 索引子無法在技能集中執行技能。
 
-| 原因 | 範例 | 行動 |
+| 原因 | 範例 | 動作 |
 | --- | --- | --- |
+| 欄位包含太大的詞彙 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
+| 檔太大，無法編制索引 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | [如何為大型資料集編制索引](search-howto-large-index.md)
 | 暫時性連線問題 | 發生暫時性錯誤。 請稍後再試一次。 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
 | 潛在的產品 bug | 發生意外錯誤。 | 這表示不明的失敗類別，可能表示有產品錯誤。 請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)以取得協助。 |
 | 技能在執行期間發生錯誤 | （來自合併技能）有一或多個位移值無效，無法剖析。 專案已插入至文字結尾 | 請使用錯誤訊息中的資訊來修正問題。 這種失敗會需要採取動作來解決。 |
@@ -110,10 +112,11 @@ ms.locfileid: "73606657"
 
 已讀取並處理檔，但索引子無法將它新增至搜尋索引。 發生這種情況的原因可能是：
 
-| 原因 | 範例 | 行動 |
+| 原因 | 範例 | 動作 |
 | --- | --- | --- |
 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 欄位包含太大的詞彙 | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | 檔太大，無法編制索引 | [如何為大型資料集編制索引](search-howto-large-index.md)
+| 檔在集合中包含太多物件 | 檔中的集合超過[所有複雜集合限制的元素上限](search-limits-quotas-capacity.md#index-limits) | 我們建議您將檔中複雜集合的大小縮減為低於限制，並避免高儲存體使用率。
 | 無法連接到目標索引（在重試後仍會繼續），因為服務正在進行其他負載，例如查詢或索引。 | 無法建立連接以更新索引。 搜尋服務正在負荷過重。 | [相應增加您的搜尋服務](search-capacity-planning.md)
 | 搜尋服務正在修補以進行服務更新，或處於拓撲重新設定的過程中。 | 無法建立連接以更新索引。 搜尋服務目前已關閉/搜尋服務正在進行轉換。 | 以至少3個複本設定服務，每個[SLA 檔](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的可用性99.9%
 | 基礎計算/網路資源（罕見）中的失敗 | 無法建立連接以更新索引。 發生未知的失敗。 | 設定要依照[排程執行](search-howto-schedule-indexers.md)的索引子，以從失敗狀態中收取。
@@ -161,7 +164,7 @@ ms.locfileid: "73606657"
 }
 ```
 
-| 原因 | 範例 | 行動 |
+| 原因 | 範例 | 動作 |
 | --- | --- | --- |
 | 技能輸入的類型錯誤 | 所需的技能輸入 `X` 不是預期的類型 `String`。 所需的技能輸入 `X` 不是預期的格式。 | 某些技能預期特定類型的輸入，例如[情感技能](cognitive-search-skill-sentiment.md)預期 `text` 為字串。 如果輸入指定非字串值，則技能不會執行，而且不會產生任何輸出。 請確定您的資料集具有類型的輸入值一致，或使用[自訂 WEB API 技能](cognitive-search-custom-skill-web-api.md)來前置處理輸入。 如果您要在陣列上逐一查看技能，請檢查技能內容和輸入是否有 `*` 在正確的位置。 通常內容和輸入來源的結尾都應該是陣列的 `*`。 |
 | 缺少技能輸入 | 缺少必要的技能輸入 `X`。 | 如果您的所有檔都收到此警告，則輸入路徑中很可能出現錯誤，您應該仔細檢查屬性名稱的大小寫、路徑中的額外或遺失 `*`，以及來自資料來源的檔會定義所需的輸入。 |

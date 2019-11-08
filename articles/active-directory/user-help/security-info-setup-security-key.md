@@ -1,5 +1,5 @@
 ---
-title: 將安全性資訊設定為使用安全性金鑰（預覽）-Azure Active Directory |Microsoft Docs
+title: 設定安全性金鑰的安全性資訊（預覽）-Azure AD
 description: 如何設定您的安全性資訊，以使用快速身分識別線上（FIDO2）安全性金鑰來驗證您的身分識別。
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160716"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803780"
 ---
-# <a name="set-up-security-info-to-use-a-security-key-preview"></a>將安全性資訊設定為使用安全性金鑰（預覽）
+# <a name="set-up-security-info-preview-for-a-security-key"></a>設定安全性金鑰的安全性資訊（預覽）
 
 您可以使用安全性金鑰做為您組織內的無密碼登入方法。 安全性金鑰是與唯一 PIN 搭配使用的實體裝置，用以登入您的公司或學校帳戶。 由於安全性金鑰需要您擁有實體裝置，而且只有您知道的東西，因此它會被視為比使用者名稱和密碼更強的驗證方法。
 

@@ -5,27 +5,28 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 788a50b85b47b104f12c22ea3d4c39627c412cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b150f48e0eab0d83ec50a269f171a0bbfa4ed80
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937551"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827720"
 ---
 # <a name="support-for-appsource"></a>適用於 AppSource 的支援  
 AppSource 的支援選項。  
 
 ## <a name="technical"></a>技術需求  
 
-| 支援通道 | 描述 |  
+| 支援通道 | 說明 |  
 |:--- |:--- |  
-| MSDN 論壇：在位於 azure Active Directory [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "MSDN 論壇中的 Azure AD") | Microsoft Developer Network 論壇。 |  
-| StackOverflow:在位於 azure Active Directory [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "stackoverflow 上的 Azure AD") | Stack Overflow 環境，可供取得解決方案以及詢問和 Azure Active Directory (Azure AD) 相關的一切問題。 |  
+| MSDN 論壇：位於[social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "MSDN 論壇中的 Azure AD")的 Azure Active Directory | Microsoft Developer Network 論壇。 |  
+| StackOverflow：位於[stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Stackoverflow 上的 Azure AD")的 Azure Active Directory | Stack Overflow 環境，可供取得解決方案以及詢問和 Azure Active Directory (Azure AD) 相關的一切問題。 |  
 
 ## <a name="next-steps"></a>後續步驟
-請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
+請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
  
 ---

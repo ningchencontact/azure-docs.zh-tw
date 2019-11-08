@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure API 管理原則中使用具名值
-description: 了解如何在 Azure API 管理原則中使用具名值。
+title: 如何在 Azure API 管理原則中使用已命名的值
+description: 瞭解如何在 Azure API 管理原則中使用已命名的值。
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,72 +10,72 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 11/05/2019
 ms.author: apimpm
-ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072336"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824167"
 ---
-# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用具名值
+# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用已命名的值
 
 API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 原則陳述式可以使用常值文字值、原則運算式和具名值來建構。
 
-每個 API 管理服務執行個體都有服務執行個體全域適用的的鍵/值組 (稱為具名值) 的屬性集合。 集合中的專案數沒有強加的限制。 已命名的值可用來管理所有 API 設定和原則的常數位串值。 每個指名的值都可能具有下列屬性:
+每個 API 管理服務實例都有索引鍵/值組的屬性集合（稱為「值」），這對服務實例而言是全域的。 集合中的專案數沒有強加的限制。 已命名的值可用來管理所有 API 設定和原則的常數位串值。 每個指名的值都可能具有下列屬性：
 
-| 屬性      | Type            | 描述                                                                                                                         |
+| 屬性      | 類型            | 說明                                                                                                                         |
 | -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | 用於參考原則中的屬性。 一到256個字元的字串。 只允許字母、數位、點和破折號。 |
-| `Value`        | string          | 實際值。 不得為空白或只包含空白字元。 長度上限為4096個字元。                                     |
-| `Secret`       | boolean         | 決定該值是否為密碼且是否應該加密。                                                            |
-| `Tags`         | 字串陣列 | 用來篩選屬性清單。 最多32個標記。                                                                                    |
+| `Display name` | 字串          | 用於參考原則中的已命名值。 一到256個字元的字串。 只允許字母、數位、點和破折號。 |
+| `Value`        | 字串          | 實際值。 不得為空白或只包含空白字元。 長度上限為4096個字元。                                     |
+| `Secret`       | 布林值         | 決定該值是否為密碼且是否應該加密。                                                            |
+| `Tags`         | 字串陣列 | 用來篩選指名的值清單。 最多32個標記。                                                                                    |
 
 ![具名值](./media/api-management-howto-properties/named-values.png)
 
-指名的值可以包含常值字串和[原則運算式](/azure/api-management/api-management-policy-expressions)。 例如，`Expression` 的值是原則運算式，會傳回包含目前日期與時間的字串。 已將指名`Credential`的值標示為秘密, 因此預設不會顯示其值。
+指名的值可以包含常值字串和[原則運算式](/azure/api-management/api-management-policy-expressions)。 例如，`Expression` 的值是原則運算式，會傳回包含目前日期與時間的字串。 `Credential` 的已命名值標示為秘密，因此預設不會顯示其值。
 
-| Name       | 值                      | Secret | Tags          |
+| 名稱       | 值                      | Secret | 標記          |
 | ---------- | -------------------------- | ------ | ------------- |
-| 值      | 42                         | 偽  | 重要-數位 |
-| 認證 | ••••••••••••••••••••••     | 真   | 安全性      |
-| 運算式 | @(DateTime.Now.ToString()) | 偽  |               |
+| 值      | 42                         | False  | 重要-數位 |
+| 認證 | ••••••••••••••••••••••     | True   | security      |
+| 運算是 | @(DateTime.Now.ToString()) | False  |               |
 
-## <a name="to-add-and-edit-a-property"></a>若要新增及編輯屬性
+## <a name="to-add-and-edit-a-named-value"></a>若要新增和編輯已命名的值
 
-![新增屬性](./media/api-management-howto-properties/add-property.png)
+![新增名為的值](./media/api-management-howto-properties/add-property.png)
 
 1. 選取 [API 管理] 下方的 [API]。
 2. 選取 [具名值]。
 3. 按 [+新增]。
 
-    [名稱] 和 [值] 都是必要值。 如果此屬性值是祕密，請勾選 [這是祕密] 核取方塊。 輸入一或多個選擇性標籤來協助組織您的具名值，然後按一下 [儲存]。
+    [名稱] 和 [值] 都是必要值。 如果 [值] 是密碼，請選取 [*這是密碼*] 核取方塊。 輸入一或多個選擇性標籤來協助組織您的具名值，然後按一下 [儲存]。
 
 4. 按一下 [建立]。
 
-屬性建立之後，您可以按一下屬性來加以編輯。 如果您變更屬性名稱，任何參照該屬性的原則會自動更新以使用新的名稱。
+建立命名值之後，您可以按一下它來編輯它。 如果您變更了已命名的值名稱，任何參考該指名值的原則都會自動更新為使用新的名稱。
 
-如需使用 REST API 編輯屬性的詳細資訊，請參閱 [使用 REST API 編輯屬性](/rest/api/apimanagement/2019-01-01/property?patch)。
+如需使用 REST API 編輯已命名值的詳細資訊，請參閱[使用 REST API 編輯已命名的值](/rest/api/apimanagement/2019-01-01/property?patch)。
 
-## <a name="to-delete-a-property"></a>刪除屬性
+## <a name="to-delete-a-named-value"></a>若要刪除已命名的值
 
-若要刪除屬性，請按一下屬性旁邊的 [刪除] 來刪除。
+若要刪除已命名的值，請按一下要刪除之指名值旁的 [**刪除**]。
 
 > [!IMPORTANT]
-> 如有任何原則參照該屬性，則您必須將該屬性從所有使用它的原則中移除，才能成功刪除該屬性。
+> 如果指定的值是由任何原則所參考，除非您從使用它的所有原則中移除已命名的值，否則將無法成功刪除它。
 
-如需使用 REST API 刪除屬性的詳細資訊，請參閱 [使用 REST API 刪除屬性](/rest/api/apimanagement/2019-01-01/property/delete)。
+如需使用 REST API 刪除已命名值的詳細資訊，請參閱[使用 REST API 刪除名為的值](/rest/api/apimanagement/2019-01-01/property/delete)。
 
-## <a name="to-search-and-filter-named-values"></a>搜尋與篩選具名值
+## <a name="to-search-and-filter-named-values"></a>搜尋和篩選已命名的值
 
-[具名值] 索引標籤包括可協助您管理具名值的搜尋與篩選功能。 若要按照屬性名稱篩選屬性清單，請在 [搜尋屬性] 文字方塊中輸入搜尋字詞。 若要顯示所有具名值，請清除 [搜尋屬性] 文字方塊，然後按 Enter 鍵。
+[具名值] 索引標籤包括可協助您管理具名值的搜尋與篩選功能。 若要依名稱篩選已命名的值清單，請在 [**搜尋屬性**] 文字方塊中輸入搜尋字詞。 若要顯示所有具名值，請清除 [搜尋屬性] 文字方塊，然後按 Enter 鍵。
 
-若要按照標籤值篩選屬性清單，請在 [依標籤篩選] 文字方塊中輸入一或多個標籤。 若要顯示所有具名值，請清除 [依標記篩選] 文字方塊，然後按 Enter 鍵。
+若要依標記篩選清單，請在 [**依標記篩選**] 文字方塊中輸入一或多個標記。 若要顯示所有具名值，請清除 [依標記篩選] 文字方塊，然後按 Enter 鍵。
 
-## <a name="to-use-a-property"></a>使用屬性
+## <a name="to-use-a-named-value"></a>使用已命名的值
 
-若要在原則中使用屬性，請將屬性名稱放在雙大括號 (如 `{{ContosoHeader}}`) 內，如以下範例所示：
+若要在原則中使用已命名的值，請將其名稱放在雙大括弧（如 `{{ContosoHeader}}`）內，如下列範例所示：
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -83,7 +83,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 </set-header>
 ```
 
-在此範例中，`ContosoHeader` 是做為 `set-header` 原則中標頭的名稱，且 `ContosoHeaderValue` 是用來做為該標頭的值。 當此原則在對 API 管理閘道提出要求或回應管理閘道期間被評估時，`{{ContosoHeader}}` 和 `{{ContosoHeaderValue}}` 會被其各自的屬性值取代。
+在此範例中，`ContosoHeader` 是做為 `set-header` 原則中標頭的名稱，且 `ContosoHeaderValue` 是用來做為該標頭的值。 當此原則在對 API 管理閘道提出要求或回應期間進行評估時，`{{ContosoHeader}}` 和 `{{ContosoHeaderValue}}` 會取代為其各自的值。
 
 如前述範例所示，具名值可以作為完整的屬性或元素值使用，但它們也可以插入部分的常值文字運算式或與之結合，如以下範例所示：`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
@@ -101,17 +101,17 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 ![開發人員入口網站][api-management-send-results]
 
-如果您在 [API 檢查器追蹤](api-management-howto-api-inspector.md)中查看包含前述兩個含具名值之範例原則的呼叫，您會看到兩個已插入屬性值的 `set-header` 原則，以及包含原則運算式之屬性的原則運算式評估。
+如果您查看 API 偵測[器追蹤](api-management-howto-api-inspector.md)，以取得包含前兩個具有已命名值之範例原則的呼叫，您可以看到兩個 `set-header` 原則，其中已插入名為的值，以及已命名值的原則運算式評估。包含原則運算式。
 
 ![API 檢查器追蹤][api-management-api-inspector-trace]
 
-雖然屬性值可以包含原則運算式，但屬性值不可包含其他具名值。 如果文字包含做為屬性值的屬性參照 (例如 `Property value text {{MyProperty}}`)，該屬性參照不會被取代，且將會包含做為屬性值的一部分。
+雖然命名值可以包含原則運算式，但不能包含其他的已命名值。 如果包含已命名值參考的文字用於某個值，例如 `Text: {{MyProperty}}`，該參考將不會解析並取代。
 
 ## <a name="next-steps"></a>後續步驟
 
 -   深入了解原則的使用方式
     -   [API 管理中的原則](api-management-howto-policies.md)
-    -   [原則參考文件](/azure/api-management/api-management-policies)
+    -   [原則參考](/azure/api-management/api-management-policies)
     -   [原則運算式](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png

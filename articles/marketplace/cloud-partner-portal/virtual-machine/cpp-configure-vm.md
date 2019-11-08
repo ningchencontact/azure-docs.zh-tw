@@ -4,15 +4,16 @@ description: 說明如何針對 Azure 上裝載的虛擬機器，執行調整大
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880352"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824487"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>設定 Azure 裝載的虛擬機器
 
@@ -22,7 +23,7 @@ ms.locfileid: "68880352"
 ## <a name="sizing-the-vhds"></a>調整 VHD 大小
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-如果您已選取其中一個預先設定作業系統的 Vm (以及選擇性的其他服務), 則您已挑選標準的 Azure VM 大小, 如[虛擬機器 sku](./cpp-skus-tab.md)索引標籤中所述。建議使用預先設定的作業系統啟動您的解決方案。  不過，如果您要以手動方式安裝作業系統，則必須在 VM 映像中調整主要 VHD 的大小：
+如果您已選取其中一個預先設定作業系統的 Vm （以及選擇性的其他服務），則您已挑選標準的 Azure VM 大小，如[虛擬機器 sku](./cpp-skus-tab.md)索引標籤中所述。 建議您使用預先設定的 OS 來啟動您的解決方案，這是建議的方法。  不過，如果您要以手動方式安裝作業系統，則必須在 VM 映像中調整主要 VHD 的大小：
 
 - 若為 Windows，應將作業系統 VHD 建立為 127-128 GB 固定格式的 VHD。 
 - 入圍 Linux，應將此 VHD 建立為 30-50 GB 固定格式的 VHD。
@@ -66,11 +67,11 @@ Windoes 作業系統磁碟是使用 [sysprep 工具](https://docs.microsoft.com/
 > [!WARNING]
 >  由於系統可能會自動執行更新，因此一旦執行了 sysprep，請在執行部署前關閉虛擬機器。  關閉動作可避免後續的更新對 VHD 作業系統或是已安裝的服務進行執行個體特定的變更。
 
-如需執行 sysprep 的詳細資訊, 請參閱[將 VHD 一般化的步驟](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+如需執行 sysprep 的詳細資訊，請參閱[將 VHD 一般化的步驟](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
-下列兩個步驟的程式會一般化 Linux VM, 並將其重新部署為個別的 VM。 這兩個步驟只是處理常式的基本工作。 如需這兩個步驟的詳細資訊, 以及它們必須完成的原因, 請參閱[如何建立虛擬機器或 VHD 的映射](../../../virtual-machines/linux/capture-image.md)。 為了針對您的 Azure Marketplace 供應專案建立 VHD, 您可以在到達「從已捕獲的映射建立 VM」一節時停止。
+下列兩個步驟的程式會一般化 Linux VM，並將其重新部署為個別的 VM。 這兩個步驟只是處理常式的基本工作。 如需這兩個步驟的詳細資訊，以及它們必須完成的原因，請參閱[如何建立虛擬機器或 VHD 的映射](../../../virtual-machines/linux/capture-image.md)。 為了針對您的 Azure Marketplace 供應專案建立 VHD，您可以在到達「從已捕獲的映射建立 VM」一節時停止。
 
 #### <a name="remove-the-azure-linux-agent"></a>移除 Azure Linux 代理程式
 1.  使用 SSH 用戶端連線到 Linux VM。
@@ -89,10 +90,10 @@ Windoes 作業系統磁碟是使用 [sysprep 工具](https://docs.microsoft.com/
 
 在需要進行備份、測試、自訂容錯或負載平衡時，建立虛擬機器副本常常相當有用，可藉此提供解決方案的不同設定等。 如需如何複製和下載主要 VHD 以建立未受管複製品的相關資訊，請參閱：
 
-- Linux VM：[從 Azure 下載 Linux VHD](../../../virtual-machines/linux/download-vhd.md)
-- Windows VM：[從 Azure 下載 Windows VHD](../../../virtual-machines/windows/download-vhd.md)
+- Linux 虛擬機器：[從 Azure 下載 Linux VHD](../../../virtual-machines/linux/download-vhd.md)
+- Windows 虛擬機器：[從 Azure 下載 Windows VHD](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的 VM 一般化之後, 已解除配置, 而且您已建立 VM 的映射, 您就可以開始[從虛擬硬碟部署虛擬機器](./cpp-deploy-vm-vhd.md)。
+在您的 VM 一般化之後，已解除配置，而且您已建立 VM 的映射，您就可以開始[從虛擬硬碟部署虛擬機器](./cpp-deploy-vm-vhd.md)。

@@ -1,5 +1,5 @@
 ---
-title: 複製 Azure SQL 資料庫
+title: 複製資料庫
 description: 在同個伺服器或不同伺服器上，建立現有 Azure SQL 資料庫的交易一致性複本。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690813"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826644"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 

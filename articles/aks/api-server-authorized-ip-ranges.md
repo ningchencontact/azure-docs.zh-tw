@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 558c04be77f911f40be9e8880950d1670a3c169e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747742"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815663"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中使用授權的 IP 位址範圍來保護 API 伺服器的存取
 
@@ -25,17 +25,9 @@ ms.locfileid: "73747742"
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文假設您使用的是使用[kubenet][kubenet]的叢集。  使用以[Azure Container 網路介面（CNI）][cni-networking]為基礎的叢集，您將不需要用來保護存取的必要路由表。  您將需要手動建立路由表。  如需管理路由表的詳細資訊，請參閱[建立、變更或刪除路由表][route-tables]。
-
 API 伺服器授權的 IP 範圍僅適用于您所建立的新 AKS 叢集。 本文說明如何使用 Azure CLI 建立 AKS 叢集。
 
 您需要安裝並設定 Azure CLI 版本2.0.76 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
-
-## <a name="limitations"></a>限制
-
-當您設定 API 伺服器授權的 IP 範圍時，適用下列限制：
-
-* 您目前無法使用 Azure Dev Spaces，因為與 API 伺服器的通訊也會遭到封鎖。
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>API 伺服器授權的 IP 範圍總覽
 
@@ -69,6 +61,7 @@ az aks create \
 > 您應該將這些範圍新增至允許清單：
 > - 防火牆公用 IP 位址
 > - 任何範圍，代表您將從中管理叢集的網路
+> - 如果您在 AKS 叢集上使用 Azure Dev Spaces，您必須根據您的[區域允許額外的範圍][dev-spaces-ranges]。
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>指定標準 SKU 負載平衡器的輸出 Ip
 
@@ -141,6 +134,7 @@ az aks update \
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

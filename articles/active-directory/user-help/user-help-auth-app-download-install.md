@@ -1,5 +1,5 @@
 ---
-title: 下載並安裝 Microsoft Authenticator 應用程式 - Azure Active Directory | Microsoft Docs
+title: 下載並安裝 Microsoft Authenticator 應用程式 Azure AD
 description: 如何下載、安裝和使用 Microsoft Authenticator 應用程式以進行雙因素驗證。
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616055"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820232"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>下載並安裝 Microsoft Authenticator 應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "69616055"
 - **Apple iOS。** 在 Apple iOS 裝置上，移至 App Store 以[下載並安裝 Microsoft Authenticator 應用程式](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)。
 
 >[!Important]
->如果您目前不在行動裝置上, 您仍然可以從 [ [Microsoft Authenticator] 頁面](https://www.microsoft.com/account/authenticator)傳送下載連結給自己, 以取得 Microsoft Authenticator 應用程式。
+>如果您目前不在行動裝置上，您仍然可以從 [ [Microsoft Authenticator] 頁面](https://www.microsoft.com/en-us/account/authenticator)傳送下載連結給自己，以取得 Microsoft Authenticator 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 

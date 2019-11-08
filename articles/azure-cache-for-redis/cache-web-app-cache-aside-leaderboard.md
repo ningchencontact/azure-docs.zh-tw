@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873024"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826400"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教學課程：在 ASP.NET 上建立另行快取排行榜
 
 在本教學課程中，您將會更新 *ContosoTeamStats* ASP.NET Web 應用程式 (在 [Azure Redis 快取的 ASP.NET 快速入門](cache-web-app-howto.md)中所建立)，以包含會搭配「Azure Redis 快取」使用[另行快取模式](https://docs.microsoft.com/azure/architecture/patterns/cache-aside)的排行榜。 此範例應用程式會顯示來自資料庫的隊伍統計資料清單，並示範各種使用「Azure Redis 快取」在快取中儲存和擷取資料以改進效能的不同方式。 完成本教學課程時，您會擁有一個執行中的應用程式，此應用程式會對資料庫進行讀取和寫入、已使用「Azure Redis 快取」進行最佳化，並裝載在 Azure 中。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 藉由使用「Azure Redis 快取」來儲存和擷取資料，改善資料輸送量並降低資料庫負載。
@@ -671,7 +671,7 @@ ms.locfileid: "65873024"
 
    | 設定       | 建議的值 | 說明 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
+   | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
    | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
    | **位置** | 美國東部  | 選取您用來建立快取和 App Service 的相同區域。 |
@@ -709,7 +709,7 @@ ms.locfileid: "65873024"
 
     下表說明範例應用程式中的每個動作連結：
 
-    |  動作 | 說明 |
+    | 動作 | 說明 |
     | --- | --- |
     | 建立新的 |建立新的隊伍。 |
     | 遊戲賽季 |玩一個賽季的遊戲、更新隊伍統計資料，並清除快取中任何已過時的隊伍資料。 |

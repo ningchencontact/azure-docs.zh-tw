@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted： SQL Database-Azure Key Vault '
+title: Always Encrypted-Azure Key Vault
 description: 本文說明如何使用 SQL Server Management Studio 中的 [永遠加密精靈]，藉由資料加密來保護 SQL Database 中的機密資料。
 keywords: 資料加密, 加密金鑰, 雲端加密
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7ba19f3f3e03c414d651082898976c5bd17e89c9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4fa4c461a3bcf5921be74eab9259fd07cc6b5f61
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691260"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826440"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>一律加密：保護機密資料，並將加密金鑰儲存在 Azure Key Vault 中
 

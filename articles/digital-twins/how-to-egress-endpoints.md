@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959104"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822263"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
@@ -23,7 +23,7 @@ Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊�
 
 若要深入了解事件、路由與事件類型，請參閱 [Azure Digital Twins 中的路由事件和訊息](./concepts-events-routing.md)。
 
-## <a name="events"></a>Events
+## <a name="events"></a>事件
 
 IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和事件代理程式進行處理。 事件會根據下列 [Azure 事件方格事件結構描述參考](../event-grid/event-schema.md)來定義。
 
@@ -47,21 +47,21 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | Type | 描述 |
+| 屬性 | 類型 | 說明 |
 | --- | --- | --- |
-| id | string | 事件的唯一識別碼。 |
-| subject | string | 發行者定義事件主體的路徑。 |
-| data | object | 資源提供者特有的事件資料。 |
-| eventType | string | 此事件來源已註冊的事件類型之一。 |
-| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
-| topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| id | 字串 | 事件的唯一識別碼。 |
+| subject | 字串 | 發行者定義事件主體的路徑。 |
+| data | 物件 | 資源提供者特有的事件資料。 |
+| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
+| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 
 如需有關事件方格事件結構描述的詳細資訊：
 
 - 請檢閱 [Azure 事件方格事件結構描述參考](../event-grid/event-schema.md)。
-- 請閱讀 [Azure EventGrid Node.js SDK EventGridEvent 參考](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest)。
+- 請閱讀 [Azure EventGrid Node.js SDK EventGridEvent 參考](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest)。
 
 ## <a name="event-types"></a>事件類型
 
@@ -85,18 +85,18 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- 報表
+- 報告
 - RoleDefinition
 - 感應器
 - SensorBlobMetadata
 - SensorExtendedProperty
-- 空格鍵
+- 空白字元
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
 - 系統
-- 使用者
+- User
 - UserBlobMetadata
 - UserExtendedProperty
 

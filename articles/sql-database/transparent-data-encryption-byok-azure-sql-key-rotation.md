@@ -1,22 +1,22 @@
 ---
-title: PowerShell - 輪替 TDE 保護裝置 - Azure SQL Database| Microsoft Docs
+title: 輪替 TDE 保護裝置-PowerShell
 description: 了解如何輪替 Azure SQL Server 的透明資料加密 (TDE) 保護裝置。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 464ea73d9b3d7116205377600ffccee13a9e2dcb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5bfcacb9348940e0b36947f6e4e0d27839de35bb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566044"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824673"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 輪替透明資料加密 (TDE) 保護裝置
 
@@ -36,7 +36,7 @@ ms.locfileid: "68566044"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 - 本操作指南假設您已使用 Azure Key Vault 中的金鑰作為 Azure SQL Database 或資料倉儲的 TDE 保護裝置。 請參閱[具有 BYOK 支援的透明資料加密](transparent-data-encryption-byok-azure-sql.md)。
 - 您必須已安裝且正在執行 Azure PowerShell。
@@ -44,7 +44,7 @@ ms.locfileid: "68566044"
 
 ## <a name="manual-key-rotation"></a>手動金鑰輪替
 
-手動金鑰輪替會使用[AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey)、 [AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey)和[AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) Cmdlet 來新增全新的金鑰, 這可能會在新的索引鍵名稱或甚至是另一個金鑰底下保險櫃. 使用此方法，可支援將相同金鑰新增至不同的金鑰保存庫，以支援高可用性和異地災害復原案例。
+手動金鑰輪替會使用[AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey)、 [AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey)和[AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) Cmdlet 來新增全新的金鑰，這可能會在新的索引鍵名稱或甚至是另一個金鑰底下保險櫃. 使用此方法，可支援將相同金鑰新增至不同的金鑰保存庫，以支援高可用性和異地災害復原案例。
 
 >[!NOTE]
 >金鑰保存庫名稱和金鑰名稱的合併長度不可超過 94 個字元。
@@ -73,7 +73,7 @@ ms.locfileid: "68566044"
 
 ## <a name="other-useful-powershell-cmdlets"></a>其他實用的 PowerShell Cmdlet
 
-- 若要將 TDE 保護裝置從 Microsoft 管理切換到 BYOK 模式, 請使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector)。
+- 若要將 TDE 保護裝置從 Microsoft 管理切換到 BYOK 模式，請使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector)。
 
    ```powershell
    Set-AzSqlServerTransparentDataEncryptionProtector `
@@ -83,7 +83,7 @@ ms.locfileid: "68566044"
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-- 若要將 TDE 保護裝置從 BYOK 模式切換到 Microsoft 管理, 請使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector)。
+- 若要將 TDE 保護裝置從 BYOK 模式切換到 Microsoft 管理，請使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector)。
 
    ```powershell
    Set-AzSqlServerTransparentDataEncryptionProtector `
@@ -96,4 +96,4 @@ ms.locfileid: "68566044"
 
 - 如有安全性風險，請了解如何移除可能遭破壞的 TDE 保護裝置：[移除可能遭破壞的金鑰](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- 針對 TDE 開始使用 Azure Key Vault 整合與攜帶您自己的金鑰支援：[透過 PowerShell 從 Key Vault 使用您自己的金鑰開啟 TDE](transparent-data-encryption-byok-azure-sql-configure.md)
+- 開始使用 Azure Key Vault 整合和攜帶您自己的金鑰 TDE 支援：使用[PowerShell 從 Key Vault 開啟使用自己金鑰的 TDE](transparent-data-encryption-byok-azure-sql-configure.md)

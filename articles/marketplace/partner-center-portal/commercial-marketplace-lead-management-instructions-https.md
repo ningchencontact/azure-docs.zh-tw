@@ -4,15 +4,16 @@ description: 設定 HTTPS 端點的潛在客戶管理。
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902191"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812279"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>使用 HTTPS 端點設定潛在客戶管理
 
@@ -24,7 +25,7 @@ ms.locfileid: "69902191"
 
 2. 登入並選取功能表列上的 [我的流程]。
 
-3. 選取 [ **+ 自動化–從空白**]。
+3. 選取 [ **+ 自動化-從空白**]。
 
     ![我的流程 + 自動化-從空白](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
@@ -108,7 +109,7 @@ ms.locfileid: "69902191"
 1. 選取 [+ 新步驟]。
 2. 藉由搜尋 [*搜尋連接器] 和 [動作*]，選擇您選擇的 CRM 系統，然後在 [*動作*] 區段底下選取 [執行]，以建立新的記錄。 下列螢幕擷取畫面顯示**Dynamics 365-建立**新記錄做為範例。
 
-    ![建立新記錄](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+    ![建立新的記錄](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
 3. 提供與 CRM 系統相關聯的**組織名稱**。 從 [實體名稱] 下拉式清單選取 [潛在客戶]。
 
@@ -118,7 +119,7 @@ ms.locfileid: "69902191"
 
     ![新增動態內容](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. 對應您想要的欄位，然後選取 [儲存]，儲存您的流程。 隨即建立 HTTP POST URL，並可在 [*收到 HTTP 要求時*] 視窗中存取。 使用位於 HTTP POST URL 右邊的複製控制項來複製這個 URL –這很重要，因為您不會誤錯過整個 URL 的任何部分。 儲存此 URL，因為當您在發佈入口網站中設定潛在客戶管理時，將會需要它。
+5. 對應您想要的欄位，然後選取 [儲存]，儲存您的流程。 隨即建立 HTTP POST URL，並可在 [*收到 HTTP 要求時*] 視窗中存取。 使用位於 HTTP POST URL 右邊的複製控制項複製此 URL-這很重要，因為您不會誤錯過整個 URL 的任何部分。 儲存此 URL，因為當您在發佈入口網站中設定潛在客戶管理時，將會需要它。
 
     ![收到 HTTP 要求時。](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -148,7 +149,7 @@ ms.locfileid: "69902191"
 
        ![新增電子郵件動作](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. 選取 [儲存] 完成流程。 HTTP POST URL 已建立，並可在 [*收到 HTTP 要求時*] 視窗中存取。 使用位於 HTTP POST URL 右邊的複製控制項來複製這個 URL –這很重要，因為您不會誤錯過整個 URL 的任何部分。 儲存此 URL，因為當您在發佈入口網站中設定潛在客戶管理時，將會需要它。
+5. 選取 [儲存] 完成流程。 HTTP POST URL 已建立，並可在 [*收到 HTTP 要求時*] 視窗中存取。 使用位於 HTTP POST URL 右邊的複製控制項複製此 URL-這很重要，因為您不會誤錯過整個 URL 的任何部分。 儲存此 URL，因為當您在發佈入口網站中設定潛在客戶管理時，將會需要它。
 
    ![HTTP POST URL ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 

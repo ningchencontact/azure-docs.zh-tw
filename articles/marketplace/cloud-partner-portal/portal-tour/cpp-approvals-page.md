@@ -1,18 +1,19 @@
 ---
-title: Azure Marketplace 的核准頁面
-description: 在 Azure marketplace 的 Cloud Partner 入口網站的 [核准] 頁面的概觀。
+title: Azure Marketplace 的 [核准] 頁面
+description: Azure Marketplace 的 Cloud Partner 入口網站中的 [核准] 頁面總覽。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 69727b2eb4259f106d114050e6fc6e8a21410cc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de6ad58ebd0442772eddfcf14792bc77cd76aad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943386"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821539"
 ---
 # <a name="approvals-page"></a>核准頁面
 
@@ -21,7 +22,7 @@ ms.locfileid: "64943386"
 
 ## <a name="example-page"></a>範例頁面
 
-下圖顯示 Contoso 的 [核准]  頁面。
+下圖顯示 Contoso 的 [核准] 頁面。
 
 ![已核准的供應項目頁面](./media/approvals-page1.png)
 

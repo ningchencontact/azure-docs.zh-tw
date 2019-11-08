@@ -1,59 +1,60 @@
 ---
-title: 發佈 Power BI 應用程式供應項目 |Azure Marketplace
-description: 發佈 Microsoft AppSource marketplace 上的 Power BI 應用程式供應項目。
+title: 發佈 Power BI 應用程式供應專案 |Azure Marketplace
+description: 在 Microsoft AppSource marketplace 上發佈 Power BI 應用程式供應專案。
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
-ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 324be960bd2d22623763ca3e24b99be92ff04174
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943186"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826044"
 ---
-# <a name="publish-a-power-bi-app-offer"></a>發佈 Power BI 應用程式供應項目
+# <a name="publish-a-power-bi-app-offer"></a>發佈 Power BI 應用程式供應專案
 
-最後一個步驟中，當您在 Cloud Partner 入口網站中定義供應項目並建立相關聯的技術資產之後, 是提交進行發佈供應項目。 若要啟動此程序，在左窗格中**新增供應項目**視窗中，選取**發佈**。 如需詳細資訊，請參閱[發佈 Azure Marketplace 和 AppSource 供應項目](../manage-offers/cpp-publish-offer.md)。
+在 Cloud Partner 入口網站中定義供應專案並建立相關聯的技術資產之後，最後一個步驟是提交供應專案以供發佈。 若要啟動此程式，請在 [**新增供應**專案] 視窗的左窗格中選取 [**發佈**]。 如需詳細資訊，請參閱[發佈 Azure Marketplace 和 AppSource 供應項目](../manage-offers/cpp-publish-offer.md)。
 
 
 ## <a name="publishing-steps"></a>發佈步驟
 
-以下是在發佈程序中的主要步驟：
+以下是發佈程式中的主要步驟：
 
-![提供 Power BI 應用程式的發佈程序步驟](./media/publishing-process-steps.png)
+![發佈 Power BI 應用程式供應專案的流程步驟](./media/publishing-process-steps.png)
 
-下表描述每個步驟，並提供估計的完成時間：
+下表描述每個步驟，並提供其預估完成時間：
 
-|   發行步驟            |   Time     |   描述                                                                  |
+|   發行步驟            |   時間     |   說明                                                                  |
 | --------------------         |------------| ----------------                                                               |
-| 檢查必要條件       | 15 分鐘     | 檢查供應項目資訊和供應項目設定。                            |
-| 認證                | 1-7 天   | Power BI 認證團隊會分析您的供應項目。 小組安裝的應用程式，透過提供的安裝 URL，透過手動驗證測試執行您的 Power BI 應用程式。 （在本文件稍後所述） 的應用程式認證程序的一部分，會執行主要驗證。         |
-| 包裝中                    | \< 1 小時  | 供應項目的技術資產封裝供客戶使用。                        |
-| 會導致產生註冊 | \< 1 小時  | 設定和部署潛在客戶系統。                                      |
-| 發行者簽核            | \-         | 供應項目上線之前完成最終檢閱和確認。 您現在也必須連結以預覽您的供應項目。 您滿意預覽的外觀之後，請選取**Go Live**上**狀態** 索引標籤。這是要列出您在 AppSource 上的應用程式上架小組傳送要求。    |
-| 即時                         | \< 3 小時 | 供應項目現在會公開列 （「 即時 」） 於 AppSource，客戶可以檢視您的應用程式，並將它部署在其 Power BI 訂用帳戶中。 您也會收到確認電子郵件。 在右側的欄**所有供應項目**索引標籤上，您可以看到所有供應項目的狀態。 在 **狀態**索引標籤上，您可以看到您的供應項目的詳細發佈流程狀態。 |
+| 檢查必要條件       | 15 Minuten     | 檢查供應項目資訊和供應項目設定。                            |
+| 認證                | 1-7 天   | Power BI 認證小組會分析您的供應專案。 小組會透過手動驗證測試來執行您的 Power BI 應用程式，方法是透過提供的安裝 URL 來安裝應用程式。 主要驗證會在應用程式認證過程中執行（本檔稍後會加以說明）。         |
+| 包裝中                    | \< 1 小時  | 供應專案的技術資產會封裝供客戶使用。                        |
+| 潛在客戶產生註冊 | \< 1 小時  | 設定和部署潛在客戶系統。                                      |
+| 發行者簽核            | \-         | 在供應專案上線之前，您必須先完成最後的評論和確認。 您現在也會有一個連結可預覽您的供應專案。 當您滿意預覽的外觀之後，請選取 [**狀態**] 索引標籤上的 **[上線]** 。這會將要求傳送給上線小組，以在 AppSource 上列出您的應用程式。    |
+| 即時                         | \< 3 小時 | 您的供應專案現在會在 AppSource 上公開列出（「即時」），而客戶可以查看您的應用程式，並將其部署在 Power BI 訂用帳戶中。 您也會收到確認電子郵件。 在 [**所有**供應專案] 索引標籤的右側欄位中，您可以看到所有供應專案的狀態。 在 [**狀態**] 索引標籤上，您可以看到供應專案的詳細發佈流程狀態。 |
 |   |   |
 
-允許最多八天才能完成此程序。 您瀏覽這些發佈的步驟之後，您的 Power BI 應用程式供應項目將會列在[AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power BI 應用程式 區段。
+此程式最多允許8天完成。 完成這些發佈步驟之後，您的 Power BI 應用程式供應專案將會列在[AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power BI apps 區段中。
 
 
 ### <a name="app-certification-process"></a>應用程式認證流程
 
-Microsoft 上架小組會使用此程序來驗證您的 Power BI 應用程式供應項目提交：
+Microsoft 上架小組會使用此程式來驗證您的 Power BI 應用程式供應專案提交：
 
-1. 檢閱法律文件和說明連結。
-2. 驗證的支援連絡資訊。
-3. 使用安裝程式的 URL 來確認適當的安裝。
-4. 掃描惡意程式碼和其他惡意內容的應用程式。
+1. 查看法律檔和說明連結。
+2. 驗證支援連絡人資訊。
+3. 使用安裝程式 URL 來驗證正確的安裝。
+4. 掃描應用程式中是否有惡意程式碼和其他惡意內容。
 5. 確認顯示的內容符合應用程式的描述。
-6. 請確認應用程式相關的作業運作如預期般在 Power BI 中。 小組會開啟報表和儀表板的範例資料，連接到自訂資料來源，重新整理資料，並依此類推。
+6. 確認應用程式相關作業在 Power BI 中如預期般運作。 小組會開啟包含範例資料的報表和儀表板、連接到自訂資料來源、重新整理資料等等。
 
-如果認證小組發現任何問題，他們會提供意見反應。  如需有關 Power BI 應用程式需求的詳細資訊，請參閱 < [Power BI 應用程式文件](https://go.microsoft.com/fwlink/?linkid=2028636)。
+如果認證小組發現任何問題，他們會提供意見反應。  如需 Power BI 應用程式需求的詳細資訊，請參閱[Power BI 應用程式檔](https://go.microsoft.com/fwlink/?linkid=2028636)。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-我們建議您定期監視您的應用程式中[AppSource marketplace](https://appsource.microsoft.com)。  您也應該使用[Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md)功能[Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)若要深入了解您的 marketplace 客戶和應用程式使用量。 最後，您可以[更新您的供應項目](./cpp-update-existing-offer.md)。
+我們建議您定期在[AppSource marketplace](https://appsource.microsoft.com)中監視您的應用程式。  您也應該使用[Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)的[賣方見解](../../cloud-partner-portal-orig/si-getting-started.md)功能，取得 marketplace 客戶和應用程式使用方式的深入解析。 最後，您可以[更新您的供應](./cpp-update-existing-offer.md)專案。

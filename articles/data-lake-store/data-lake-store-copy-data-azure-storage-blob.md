@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ecd27c1be0fa6b4f13415cc21a57fcdaaf962de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878826"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824577"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>將資料從 Azure 儲存體 Blob 複製到 Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "60878826"
 >
 >
 
-Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/downloadadlcopy)，以從下列來源複製資料：
+Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358)，以從下列來源複製資料：
 
 * 從 Azure 儲存體 Blob 複製到 Data Lake Storage Gen1。 您無法使用 AdlCopy 將資料從 Data Lake Storage Gen1 複製到 Azure 儲存體 Blob。
 * 在兩個 Azure Data Lake Storage Gen1 帳戶之間。
@@ -39,11 +39,11 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 ## <a name="prerequisites"></a>必要條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure 儲存體 Blob** 容器 (其中含有一些資料)。
 * **Azure Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics 帳戶 (選用)** - 如需如何建立 Data Lake Analytics 帳戶的指示，請參閱[開始使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)。
-* **AdlCopy 工具**。 從 [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy) 安裝 AdlCopy 工具。
+* **AdlCopy 工具**。 安裝[AdlCopy 工具](https://www.microsoft.com/download/details.aspx?id=50358)。
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy 工具的語法
 利用下列語法來使用 AdlCopy 工具
@@ -52,9 +52,9 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
 以下將說明語法中的參數：
 
-| 選項 | 描述 |
+| 選項 | 說明 |
 | --- | --- |
-| Source |指定來源資料在 Azure 儲存體 Blob 中的位置。 來源可以是 Blob 容器、Blob 或其他 Data Lake Storage Gen1 帳戶。 |
+| 來源 |指定來源資料在 Azure 儲存體 Blob 中的位置。 來源可以是 Blob 容器、Blob 或其他 Data Lake Storage Gen1 帳戶。 |
 | Dest |指定要複製的 Data Lake Storage Gen1 目的地。 |
 | SourceKey |指定 Azure 儲存體 Blob 來源的儲存體存取金鑰。 這只有在來源是 Blob 容器或 Blob 時才是必要的。 |
 | 帳戶 |**選用**。 如果您想要使用 Azure Data Lake Analytics 帳戶來執行複製工作，請使用此選項。 如果您在語法中使用 /Account 選項，但未指定 Data Lake Analytics 帳戶，AdlCopy 就會使用預設帳戶來執行工作。 此外，如果您使用此選項，就必須加入來源 (Azure 儲存體 Blob) 和目的地 (Azure Data Lake Storage Gen1) 做為 Data Lake Analytics 帳戶的資料來源。 |
@@ -67,7 +67,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    例如:
+    例如：
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -86,7 +86,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    例如:
+    例如：
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -102,7 +102,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
         AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
 
-    例如:
+    例如：
 
         AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
@@ -129,7 +129,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>使用 AdlCopy (利用 Data Lake Analytics 帳戶) 複製資料
 您也可以使用 Data Lake Analytics 帳戶來執行 AdlCopy 工作，將資料從 Azure 儲存體 Blob 複製到 Data Lake Storage Gen1。 若要移動的資料大小範圍在 GB 或 TB 內，而且您想要獲得更好且可預期的效能輸送量，您通常會使用此選項。
 
-若要使用您的 Data Lake Analytics 帳戶與 AdlCopy 從 Azure 儲存體 Blob 複製，必須將來源 (Azure 儲存體 Blob) 新增為您 Data Lake Analytics 帳戶的資料來源。 如需將其他資料來源加入至 Data Lake Analytics 帳戶的指示，請參閱[管理 Data Lake Analytics 帳戶資料來源](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources)。
+若要使用您的 Data Lake Analytics 帳戶與 AdlCopy 從 Azure 儲存體 Blob 複製，必須將來源 (Azure 儲存體 Blob) 新增為您 Data Lake Analytics 帳戶的資料來源。 如需將其他資料來源加入至資料湖分析帳戶的指示，請參閱 [管理資料湖分析帳戶資料來源](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources)。
 
 > [!NOTE]
 > 如果您是使用 Data Lake Analytics 帳戶，從 Azure Data Lake Storage Gen1 帳戶複製做為來源，則您不需要將 Data Lake Storage Gen1 帳戶與 Data Lake Analytics 帳戶建立關聯。 當來源為 Azure 儲存體帳戶時，才需要將來源儲存體與 Data Lake Analytics 帳戶產生關聯。
@@ -140,7 +140,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
-例如:
+例如：
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -160,13 +160,13 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    例如:
+    例如：
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
 ## <a name="billing"></a>計費
 * 如果您獨立使用 AdlCopy 工具，而且如果來源 Azure 儲存體帳戶與 Data Lake Storage Gen1 位於不同區域，則您將需支付移動資料的輸出成本。
-* 如果您將 AdlCopy 工具與 Data Lake Analytics 帳戶搭配使用，即會套用標準的 [Data Lake Analytics 計費費率](https://azure.microsoft.com/pricing/details/data-lake-analytics/) 。
+* 如果您將 AdlCopy 工具與資料湖分析帳戶搭配使用，即會套用標準的 [資料湖分析計費費率](https://azure.microsoft.com/pricing/details/data-lake-analytics/) 。
 
 ## <a name="considerations-for-using-adlcopy"></a>使用 AdlCopy 的考量
 * AdlCopy (適用於 1.0.5 版) 支援從共同擁有超過數千個檔案和資料夾的來源複製資料。 但是，如果您在複製大型資料集時發生問題，可將檔案/資料夾分散到不同的子資料夾，並改用這些子資料夾的路徑做為來源。

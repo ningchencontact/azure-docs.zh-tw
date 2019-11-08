@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 安全性總覽
+title: 安全性概觀
 description: 了解 Azure SQL Database 和 SQL Server 的 安全性，包含雲端和 SQL Server 內部部署之間的差異。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2365f9cedef73c61870f6e83fa491de5e950c801
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d952229ab327440771db6cc5ac64db2256491179
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687450"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823244"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 

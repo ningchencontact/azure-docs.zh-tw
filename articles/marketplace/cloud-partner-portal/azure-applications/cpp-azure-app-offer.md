@@ -1,18 +1,19 @@
 ---
-title: Azure 應用程式供應項目 |Azure Marketplace
+title: Azure 應用程式供應專案 |Azure Marketplace
 description: 在 Azure Marketplace 上發佈 Azure 應用程式供應項目的程序概觀。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pabutler
-ms.openlocfilehash: 3691664ee6212f838e7a9b95089893e4b52c689f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9125b5c71b63b27c58ea72b7bfd49f730854b33d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943022"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818796"
 ---
 # <a name="azure-application-offer"></a>Azure 應用程式供應項目
 
@@ -38,7 +39,7 @@ Azure 應用程式有兩種：受控應用程式和解決方案範本。
 除了 Azure Marketplace，您也可以提供服務類別目錄中的受控應用程式。 服務類別目錄是組織中使用者適用的已核准解決方案的內部目錄。 您會使用目錄來符合組織標準，同時為組織中的群組提供解決方案。 員工會使用目錄輕鬆尋找其 IT 部門所建議和核准的應用程式。
 
 >[!Note]
->雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
+>雲端解決方案提供者（CSP）合作夥伴頻道加入宣告現已推出。  如需透過 Microsoft CSP 合作夥伴頻道行銷供應專案的詳細資訊，請參閱[雲端解決方案提供者](../../cloud-solution-providers.md)。
 
 如需受控應用程式的優點與類型詳細資訊，請參閱 [Azure 受控應用程式概觀](https://docs.microsoft.com/azure/managed-applications/overview)。
 

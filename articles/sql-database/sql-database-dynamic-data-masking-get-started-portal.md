@@ -1,5 +1,5 @@
 ---
-title: 'Azure 入口網站： SQL Database 動態資料遮罩 '
+title: Azure 入口網站：動態資料遮罩
 description: 如何開始在 Azure 入口網站中使用 SQL Database 動態資料遮罩
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2018
-ms.openlocfilehash: d92f77c56221d7c79ed30a6ca67d31d1b3f7f703
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0053958c0681e98ee225232249b050583d4e13b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690593"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826574"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>透過 Azure 入口網站開始使用 SQL Database 動態資料遮罩
 

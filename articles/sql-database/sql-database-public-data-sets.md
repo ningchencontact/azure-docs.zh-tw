@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: dc8b2a00882abc2e88b357d5778eaf96ec71b1bd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687581"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821273"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用於測試和建立原型的公用資料集
 
@@ -42,7 +42,7 @@ ms.locfileid: "73687581"
 | [紐約市計程車資料](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | 「計程車車程記錄的欄位會擷取上車和下車日期/時間、上車和下車地點、車程距離、車資明細、費率類型、付款類型和司機回報的乘客數。」 | 資料集依月份放在 CSV 檔案中。 |
 | [Microsoft Research 資料集 -「研究用的資料科學」](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 多個資料集，涵蓋人機互動、音訊/視訊、資料採礦/資訊擷取、地理空間/位置、自然語言處理和機器人/電腦視覺。 | 資料集採用各種格式 (經過壓縮以供下載)。 |
 | [公用基因體資料](https://www.completegenomics.com/public-data/) | 「整個人類基因體的各種資料集都可以免費公開使用，以加強任何基因研究 ...」提供者 Complete Genomics 是私用公司。 | 解壓縮後的資料集採用 UNIX 文字格式。 您也可取得分析工具。 |
-| [Open Science Data Cloud 資料](https://www.opensciencedatacloud.org/) | 「Open Science Data Cloud 為科學界提供用於儲存、共用及分析 TB 和 PB 規模科學資料集的資源」。| 資料集採用各種格式。 |
+| [Open Science Data Cloud 資料](https://www.opensciencedatacloud.org/projects/) | 「Open Science Data Cloud 為科學界提供用於儲存、共用及分析 TB 和 PB 規模科學資料集的資源」。| 資料集採用各種格式。 |
 | [全球氣候資料 - WorldClim](https://worldclim.org/) | 「WorldClim 是一組全球氣候圖層 (格狀氣候資料)，包含大約 1 平方公里的空間解析。 這些資料可用於對應和空間模擬。」 | 這些檔案包含地理空間資料。 如需詳細資訊，請參閱[資料格式](https://worldclim.org/formats1)。 |
 | [人類社會相關資料 - GDELT 專案](https://www.gdeltproject.org/data.html) | 「GDELT 專案是人類社會曾建立過的最大、最詳盡且最高解析度的開放資料庫。」 | 未經處理的資料檔採用 CSV 格式。 |
 | [來自 Criteo 且可供機器學習的廣告點擊預測資料](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | 「曾公開發行的最大 ML 資料集。」 如需詳細資訊，請參閱 [Criteo 的 1 TB 點擊預測資料集](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/)。 | |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749016"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824871"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性
 
@@ -94,7 +94,7 @@ NFS 伺服器會針對每個使用此 NFS 伺服器的 SAP 系統，使用專用
 * 探查連接埠
   * NW1 的連接埠為 61000
   * NW2 的連接埠為 61001
-* Loadbalancing 規則（如果使用基本負載平衡器）
+* 負載平衡規則（如果使用基本負載平衡器）
   * NW1 的 TCP 為 2049
   * NW1 的 UDP 為 2049
   * NW2 的 TCP 為 2049
@@ -114,7 +114,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    1. 資源前置詞  
       輸入您想要使用的前置詞。 該值會作為所部署之資源的前置詞。
    2. SAP 系統計數  
-      輸入將使用此檔案伺服器的 SAP 系統數目。 這會部署所需數量的前端設定、負載平衡規則、探查連接埠、磁碟等。
+      輸入將使用此檔案伺服器的 SAP 系統數目。 這會部署所需數量的前端設定、負載平衡規則、探查埠、磁片等。
    3. OS 類型  
       選取一個 Linux 發行版本。 在此範例中，請選取 SLES 12
    4. 管理員使用者名稱和管理員密碼  
@@ -165,7 +165,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          1. NW2 的連接埠為 61001
             * 重複上述步驟來為 NW2 建立健康狀態探查
       1. 負載平衡規則
-         1. 開啟負載平衡器、選取負載平衡規則，然後按一下 [新增]
+         1. 開啟負載平衡器，選取 [負載平衡規則]，然後按一下 [新增]
          1. 輸入新負載平衡器規則的名稱（例如**nw1-lb**）
          1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查（例如**nw1-前端**。 **nw1-後端**與**nw1-hp**）
          1. 選取 [ **HA 埠**]。
@@ -215,6 +215,9 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
             * 重複上述步驟來為 NW2 設定連接埠 2049 和 TCP
          1. NW2 的 UDP 為 2049
             * 重複上述步驟來為 NW2 設定連接埠 2049 和 UDP
+
+> [!Note]
+> 當沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中時，除非執行額外設定以允許路由傳送至公用端點，否則將不會有輸出網際網路連線能力。 如需如何達到輸出連線能力的詳細資訊，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)。  
 
 > [!IMPORTANT]
 > 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp. tcp_timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。

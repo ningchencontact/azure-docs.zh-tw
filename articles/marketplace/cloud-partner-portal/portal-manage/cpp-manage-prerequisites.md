@@ -4,15 +4,16 @@ description: 在 Cloud Partner 入口網站上管理 Azure Marketplace 帳戶的
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: b0a9f312ba78e148a573064b81ff1f52fbd85c03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720075"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826676"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>在 Cloud Partner 入口網站上管理帳戶的必要條件 
 
@@ -33,14 +34,14 @@ ms.locfileid: "71720075"
 
 |                   步驟                   |  產生的註冊或資源                     |
 |                  ------                  |  -----------------------------------                    |
-| 1.在 Microsoft 合作夥伴網路中註冊 |  貴組織的 Microsoft 合作夥伴網路識別碼 |
-| 2.建立 Microsoft 帳戶 *           |  已驗證的 Microsoft 帳戶，結尾@outlook.com為@live.com、等等。 |
-| 3.提交市集註冊表單 | Cloud Partner 入口網站上的發行者帳戶      |
-| 4.登入 Cloud Partner 入口網站        | 建立及發佈供應專案、管理使用者、收集 marketplace 計量等的授權。 |
-| 5.在 Microsoft 開發人員中心註冊 * | 已驗證的開發人員中心帳戶;執行 marketplace 交易的授權單位  |
+| 1. 在 Microsoft 合作夥伴網路中註冊 |  貴組織的 Microsoft 合作夥伴網路識別碼 |
+| 2. 建立 Microsoft 帳戶 *           |  已驗證的 Microsoft 帳戶，以 @outlook.com、@live.com等結束。 |
+| 3. 提交 marketplace 註冊表單 | Cloud Partner 入口網站上的發行者帳戶      |
+| 4. 登入 Cloud Partner 入口網站        | 建立及發佈供應專案、管理使用者、收集 marketplace 計量等的授權。 |
+| 5. 在 Microsoft 開發人員中心註冊 * | 已驗證的開發人員中心帳戶;執行 marketplace 交易的授權單位  |
 |   |   |
 
-\*這些是 Azure Marketplace 交易供應專案的必要步驟，但強烈建議用於所有供應專案。  建立 Microsoft 帳戶並註冊為 Microsoft 開發人員之後，您就可以存取其他 Microsoft 客戶和開發人員資源，以及選用的合作夥伴供應專案。  
+\* Azure Marketplace 交易供應專案需要這些步驟，但強烈建議用於所有供應專案。  建立 Microsoft 帳戶並註冊為 Microsoft 開發人員之後，您就可以存取其他 Microsoft 客戶和開發人員資源，以及選用的合作夥伴供應專案。  
 
 
 ## <a name="next-steps"></a>後續步驟

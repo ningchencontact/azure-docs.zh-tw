@@ -1,5 +1,5 @@
 ---
-title: 在遷移後管理單一和集區資料庫-Azure SQL Database
+title: 在遷移之後管理單一和集區資料庫
 description: 了解如何在移轉至 Azure SQL Database 之後管理資料庫。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: d92b4b99e6ae6a7a07174e59d7cf3c9766c0eabf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689531"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818972"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 

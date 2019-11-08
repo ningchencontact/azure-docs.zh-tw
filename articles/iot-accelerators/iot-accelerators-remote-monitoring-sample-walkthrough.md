@@ -1,6 +1,6 @@
 ---
 title: 遠端監視解決方案加速器概觀 - Azure | Microsoft Docs
-description: 遠端監視解決方案加速器的概觀。
+description: 本文概要說明遠端監視解決方案的一些重要元素，讓您瞭解它的運作方式。
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442526"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824839"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>遠端監視解決方案加速器概觀
 
@@ -127,7 +127,7 @@ ASA 作業從連線裝置將遙測資料傳送到 Time Series Insights 進行儲
 [Azure 時間序列深入解析](https://docs.microsoft.com/azure/time-series-insights/)會儲存連接到解決方案加速器的裝置之中的遙測資料。 它也可透過解決方案 Web UI 以視覺效果呈現和查詢裝置遙測資料。
 
 > [!NOTE]
-> Azure China 雲端目前不提供時間序列見解。 Azure China 雲端中新的遠端監視解決方案加速器部署，將 Cosmos DB 用於所有儲存體。
+> Azure 中國雲端目前不提供時間序列深入解析。 Azure China 雲端中新的遠端監視解決方案加速器部署，將 Cosmos DB 用於所有儲存體。
 
 ### <a name="configuration-microservice"></a>設定微服務
 

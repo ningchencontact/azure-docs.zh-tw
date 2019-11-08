@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Machine Learning 服務 （預覽） 的主要差異
+title: Machine Learning 服務的主要差異（預覽）
 description: 本主題說明 Azure SQL Database 機器學習服務 (搭配 R) 和 SQL Server 機器學習服務的主要差異。
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1397f5d81ddf63740d733111b965a0517a2b917f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485997"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827475"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL Database （預覽） 中的機器學習服務和 SQL Server 的主要差異
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL Database （預覽）和 SQL Server 中 Machine Learning 服務之間的主要差異
 
-Azure SQL Database Machine Learning 服務 （使用 R) （預覽） 中的功能大致[SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)。 以下是一些主要差異。
+（預覽）中 Azure SQL Database Machine Learning 服務（含 R）的功能與[SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)類似。 以下是一些主要的差異。
 
 > [!IMPORTANT]
 > Azure SQL Database 機器學習服務目前是公開預覽版。
@@ -34,37 +34,37 @@ SQL Server 透過[擴充性架構](https://docs.microsoft.com/sql/advanced-analy
 
 - R 是 SQL Database 中唯一支援的語言， 目前不支援 Python。
 - R 版本為 3.4.4。
-- 不需要透過 `sp_configure` 設定 `external scripts enabled`。 [註冊](sql-database-machine-learning-services-overview.md#signup)後，您 SQL 資料庫的機器學習就會啟用。
+- 不需要透過 `external scripts enabled` 設定 `sp_configure`。 [註冊](sql-database-machine-learning-services-overview.md#signup)後，您 SQL 資料庫的機器學習就會啟用。
 
 ## <a name="package-management"></a>封裝管理
 
 SQL Database 和 SQL Server 對於 R 套件的管理和安裝方式有所不同。 這些差異包括：
 
 - R 套件是透過 [sqlmlutils](https://github.com/Microsoft/sqlmlutils) 或 [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 安裝。
-- 套件無法執行輸出網路呼叫。 這項限制是類似[Machine Learning 服務的預設防火牆規則](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration)在 SQL Server，但無法變更 SQL Database 中。
+- 套件無法執行輸出網路呼叫。 這項限制類似于 SQL Server 中[Machine Learning 服務的預設防火牆規則](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration)，但無法在 SQL Database 中變更。
 - 對於依賴外部執行階段 (如 Java) 或需要 OS API 安裝或使用存取權的套件並不支援。
 
-## <a name="writing-to-a-temporary-table"></a>寫入暫存資料表
+## <a name="writing-to-a-temporary-table"></a>寫入臨時表
 
-如果您在 Azure SQL Database，使用 RODBC，則您無法寫入暫存資料表時，是否就會建立之內或之外`sp_execute_external_script`工作階段。 因應措施是使用[RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata)並[rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (覆寫 = FALSE，並將附加 = 「 資料列 」) 將寫入之前建立的全域暫存資料表`sp_execute_external_script`查詢。
+如果您在 Azure SQL Database 中使用 RODBC，則無法寫入臨時表，不論是在 `sp_execute_external_script` 會話內部或外部建立。 因應措施是使用[RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata)和[rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) （with overwrite = FALSE 和 append = "rows"）來寫入在 `sp_execute_external_script` 查詢之前建立的全域臨時表。
 
 ## <a name="resource-governance"></a>資源管理
 
 無法透過 [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) 和外部資源集區限制 R 資源。
 
-公開預覽期間，R 資源設定為最多 20%的 SQL Database 資源，且取決在您選擇哪個服務層上。 如需詳細資訊，請參閱 [Azure SQL Database 購買模型](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)。
-### <a name="insufficient-memory-error"></a>記憶體不足的錯誤
+在公開預覽期間，R 資源會設定為最多20% 的 SQL Database 資源，並取決於您選擇的服務層級。 如需詳細資訊，請參閱 [Azure SQL Database 購買模型](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)。
+### <a name="insufficient-memory-error"></a>記憶體不足錯誤
 
-如果沒有適用於 R 的記憶體不足，就會出現錯誤訊息。 常見的錯誤訊息如下：
+如果 R 沒有足夠的記憶體可用，您會收到錯誤訊息。 常見的錯誤訊息為：
 
-- 無法要求識別碼的 'R' 指令碼的執行階段與通訊: * * *。 請檢查 'R' 執行階段需求
-- 執行 'sp_execute_external_script' hresult 0x80004004 時發生 'R' 指令碼錯誤。 ...發生外部指令碼錯誤: 「...無法配置 C 函式 'R_AllocStringBuffer' 中的記憶體 (也就是 0 Mb) 」
-- 發生外部指令碼錯誤：錯誤： 無法配置大小的向量。
+- 無法與要求識別碼： * * * * * * 的 ' R ' 腳本的執行時間通訊。 請檢查 ' R ' 執行時間的需求
+- 執行 ' sp_execute_external_script ' 時發生 ' R ' 腳本錯誤，HRESULT 0x80004004。 ...發生外部腳本錯誤： ".。無法在 C 函數 ' R_AllocStringBuffer ' 中配置記憶體（0 Mb）
+- 發生外部腳本錯誤：錯誤：無法配置大小的向量。
 
-使用方式取決於多少記憶體可在 R 指令碼和正在執行的平行查詢的數目。 如果您收到上述錯誤，您可以調整您的資料庫以較高的服務層，以解決此問題。
+記憶體使用量取決於 R 腳本中使用的數量，以及執行的平行查詢數目。 如果您收到上述錯誤，您可以將資料庫調整為較高的服務層級，以解決此問題。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 概觀，請參閱 < [Azure SQL 資料庫機器學習服務使用 R （預覽）](sql-database-machine-learning-services-overview.md)。
-- 若要了解如何使用 R 來查詢 Azure SQL Database Machine Learning 服務 （預覽），請參閱[快速入門指南](sql-database-connect-query-r.md)。
-- 若要開始使用一些簡單的 R 指令碼，請參閱[建立及執行簡單的 R 指令碼，在 Azure SQL Database Machine Learning 服務 （預覽） 中](sql-database-quickstart-r-create-script.md)。
+- 請參閱[使用 R （預覽） Machine Learning 服務](sql-database-machine-learning-services-overview.md)的總覽 Azure SQL Database。
+- 若要瞭解如何使用 R 來查詢 Azure SQL Database Machine Learning 服務（預覽），請參閱[快速入門手冊](sql-database-connect-query-r.md)。
+- 若要開始使用一些簡單的 R 腳本，請參閱[在 Azure SQL Database Machine Learning 服務（預覽）中建立和執行簡單的 r 腳本](sql-database-quickstart-r-create-script.md)。

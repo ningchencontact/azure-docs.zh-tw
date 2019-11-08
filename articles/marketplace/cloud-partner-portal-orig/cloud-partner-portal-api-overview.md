@@ -1,18 +1,19 @@
 ---
-title: Cloud Partner 入口網站的 API 參考 |Azure Marketplace
+title: Cloud Partner 入口網站 API 參考 |Azure Marketplace
 description: Marketplace API 作業的描述、使用先決條件及清單。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 9626fdb5dbdf720a65217421565fc559a0cee684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935466"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819639"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud Partner 入口網站 API 參考
 ==================================
@@ -28,8 +29,8 @@ Cloud Partner 入口網站 REST API 允許對工作負載、供應項目及發�
 在使用 API 之前，您應該檢閱：
 
 - [先決條件](./cloud-partner-portal-api-prerequisites.md)文章以了解如何將服務主體新增至您的帳戶，並取得 Azure Active Directory (Azure AD) 存取權杖以用於驗證。 
-- 這兩個[並行存取控制](./cloud-partner-portal-api-concurrency-control.md)。
-可用來呼叫這些 Api 的策略。
+- 兩個[並行存取控制](./cloud-partner-portal-api-concurrency-control.md)。
+可供呼叫這些 Api 的策略。
 - 其他 API [考量](./cloud-partner-portal-api-considerations.md)，例如版本控制和錯誤處理。
 
 

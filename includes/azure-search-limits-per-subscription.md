@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 380a0a76de763df5f2cc6ff702750b36d233728d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174358"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818360"
 ---
-您可以在訂用帳戶內建立多個服務。 每一個都可以在特定層布建。 您只受限於每一層所允許的服務數目。 例如，您最多可在基本層建立 12 個服務，並在同一個訂用帳戶內的 S1 層另外建立 12 個服務。 如需各層的詳細資訊，請參閱[選擇 Azure 搜尋服務的 SKU 或](../articles/search/search-sku-tier.md)階層。
+您可以在訂用帳戶內建立多個服務。 每一個都可以在特定層布建。 您只受限於每一層所允許的服務數目。 例如，您最多可在基本層建立 12 個服務，並在同一個訂用帳戶內的 S1 層另外建立 12 個服務。 如需有關階層的詳細資訊，請參閱[選擇 Azure 認知搜尋的 SKU 或層級](../articles/search/search-sku-tier.md)。
 
 最大服務限制可以視要求引發。 如果您需要相同訂用帳戶內的更多服務，請聯絡 Azure 支援。
 
-| Resource            | 免費<sup>1</sup> | 基本 | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| 資源            | 免費<sup>1</sup> | 基本 | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | 服務數目上限    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | 搜尋單位的最大縮放數（SU）<sup>2</sup> |N/A |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |

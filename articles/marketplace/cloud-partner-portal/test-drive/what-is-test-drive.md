@@ -5,22 +5,23 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938468"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828147"
 ---
 <a name="what-is-test-drive"></a>什麼是試用產品？
 ===================
 
-「試用產品」是向潛在客戶展示供應項目的絕佳方式，藉由提供他們\'「先試用再購買」\'的選項，進而增加轉換，並且獲得最適合的潛在客戶。
+「試用產品」是向潛在客戶展示供應項目的絕佳方式，藉由提供他們「先試用再購買」的選項，進而增加轉換，並且獲得最適合的潛在客戶。
 
-客戶提供連絡資訊後，就能存取您預先建置的試用產品體驗︰可實際操作的自我引導式試用版，以真實世界實作案例來示範您產品的重要功能和優點。\'
+客戶提供連絡資訊後，就能存取您預先建置的試用產品體驗︰可實際操作的自我引導式試用版，以真實世界實作案例來示範您產品的重要功能和優點。
 
 試用產品可讓您將產品提供給客戶，並在過程中獲得最適合的潛在客戶。
 
@@ -47,9 +48,9 @@ ms.locfileid: "64938468"
 
 無論您的產品多複雜，Microsoft Test Drive 都能協助您將產品提供給客戶。 我們現已根據產品類型、案例和您所在的 Marketplace，提供三種不同類型的試用產品。
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** :Azure Resource Manager 試用產品是一個部署範本，其中包含組成發行者所建置之解決方案的所有 Azure 資源。 適用於此案例的產品為僅使用 Azure 資源的產品。
-- **[邏輯應用程式](./logic-app-test-drive.md)** :邏輯應用程式試用產品已包含所有複雜的解決方案架構是為了部署範本。 所有 Dynamics 應用程式或自訂產品，都應該使用此類型的試用產品。
-- **Power BI**：Power BI 試用產品是直接內建的自訂儀表板內嵌的連結。 任何只是要示範互動式 Power BI 視覺效果的產品，都應該使用此類型的試用產品。
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** ：「Resource Manager 試用產品」是部署範本，其中包含組成發行者所建置之解決方案的所有 Azure 資源。 適用於此案例的產品為僅使用 Azure 資源的產品。
+- **[邏輯應用程式](./logic-app-test-drive.md)** ：「邏輯應用程式試用產品」是部署範本，其目的是要包含所有複雜解決方案架構。 所有 Dynamics 應用程式或自訂產品，都應該使用此類型的試用產品。
+- **Power BI**：「Power BI 試用產品」僅是自訂建置儀表板的內嵌連結。 任何只是要示範互動式 Power BI 視覺效果的產品，都應該使用此類型的試用產品。
     您只需要上傳內嵌的 Power BI URL。
 
 <a name="what-goes-on-in-the-background"></a>在背景發生什麼事？

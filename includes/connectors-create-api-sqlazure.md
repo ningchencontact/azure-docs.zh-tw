@@ -7,13 +7,13 @@ ms.service: logic-apps
 ms.topic: include
 ms.author: estfan
 ms.custom: include file
-ms.date: 05/15/2018
-ms.openlocfilehash: d60d7727e0674298fa6da7e7330221318da23efd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/08/2019
+ms.openlocfilehash: 0be29f6f541aa58e57eb665ebaf29e35f42865e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161643"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826332"
 ---
 * 如果您是使用 Azure SQL Database，請遵循[連線到 Azure SQL Database](#connect-azure-sql-db) 下的步驟。
 
@@ -44,7 +44,9 @@ ms.locfileid: "73161643"
 
 ### <a name="connect-to-sql-server"></a>連接到 SQL Server
 
-當 SQL 觸發程式或動作提示您輸入連線資訊時，請遵循這些步驟，這適用于觸發程式和動作。 不過，在開始之前，請確定您已[設定您的內部部署資料閘道](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)。 否則，當您建立連線時，閘道將不會出現在閘道清單中。
+當 SQL 觸發程式或動作提示您輸入連線資訊時，請遵循這些步驟，這適用于觸發程式和動作。 針對需要在本機電腦上安裝內部[部署資料閘道](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install)，並[建立 Azure 資料閘道資源](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)的案例，請務必先完成這些需求。 否則，當您建立連線時，您的閘道資源不會出現在閘道清單中。
+
+此外，若要在[整合服務環境（ISE）](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)中搭配使用 Windows 驗證與 SQL Server 連接器，請使用連接器的非 ISE 版本和內部部署資料閘道。 ISE 標記的版本不支援 Windows 驗證。
 
 1. 針對 [**連接名稱**]，建立連線的名稱。
 

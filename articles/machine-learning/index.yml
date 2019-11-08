@@ -2,7 +2,7 @@
 title: Azure Machine Learning 文件
 summary: Azure Machine Learning 提供 Web 介面和各種 SDK，讓您可快速大規模定型和部署機器學習服務模型及管道。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。
 metadata:
-  title: Machine Learning 文件 - Azure
+  title: Azure Machine Learning 文件
   description: Azure Machine Learning 提供 Web 介面和各種 SDK，讓您可快速大規模定型和部署機器學習服務模型及管道。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。
   services: machine-learning
   ms.service: machine-learning
@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: 0b5e264cc7fd2e220e2d6b5b7c4e886f4c8a8d32
-  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.openlocfilehash: c6b0b67f206ec335a5e30098dd75b7e71db5770f
+  ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/07/2019
-  ms.locfileid: "73748013"
+  ms.lasthandoff: 11/08/2019
+  ms.locfileid: "73828121"
 landingContent:
 - title: 開始使用 Azure ML
   linkLists:

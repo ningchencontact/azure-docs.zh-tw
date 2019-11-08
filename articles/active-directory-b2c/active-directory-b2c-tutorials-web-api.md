@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: bb33f7f2ec917e9ae168a013a8775ec4f551848d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cd2eff7e3fafc1a6f3418a1f86629cfb1584e89
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475024"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641760"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與存取 ASP.NET Web API 的權限
 
@@ -39,7 +39,7 @@ ms.locfileid: "73475024"
 
 Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到用戶端應用程式保護而提供存取權杖的資源要求。
 
-若要在您的 Azure AD B2C 租用戶中註冊應用程式，您可以使用目前的**應用程式**體驗，或使用新整合的**應用程式註冊 (預覽)** 體驗。 [深入了解預覽體驗](https://aka.ms/b2cappregintro) \(部分機器翻譯\)。
+若要在您的 Azure AD B2C 租用戶中註冊應用程式，您可以使用目前的**應用程式**體驗，或使用新整合的**應用程式註冊 (預覽)** 體驗。 [深入了解新的體驗](https://aka.ms/b2cappregintro)。
 
 #### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
@@ -61,7 +61,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 1. 在左側功能表中，選取 [Azure AD B2C]  。 或者，選取 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
 1. 選取 [應用程式註冊 (預覽)]  ，然後選取 [新增註冊]  。
 1. 輸入應用程式的 [名稱]  。 例如，*webapi1*。
-1. 在 [重新導向 URI]  下，選取 [Web]  ，然後輸入 Azure AD B2C 應傳回您應用程式所要求之任何權杖的端點。 在本教學課程中，範例會在本機執行並在 `https://localhost:44332` 接聽。
+1. 在 [重新導向 URI]  底下，選取 [Web]  ，然後輸入 Azure AD B2C 應傳回您應用程式所要求之任何權杖的端點。 在本教學課程中，範例會在本機執行並在 `https://localhost:44332` 接聽。
 1. 選取 [註冊]  。
 1. 記錄 [應用程式 (用戶端) 識別碼]  ，以便在稍後的步驟中使用。
 

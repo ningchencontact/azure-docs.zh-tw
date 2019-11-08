@@ -1,5 +1,5 @@
 ---
-title: 在單一租使用者應用程式中管理 Azure SQL Database 架構
+title: 在單一租使用者應用程式中管理架構
 description: 在使用 Azure SQL Database 的單一租用戶應用程式中管理多個租用戶的結構描述
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 32460feebeb55b2639a237db32dbc3923ba27171
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691851"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822005"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>使用每一租用戶一個資料庫的模式，透過 Azure SQL Database 管理 SaaS 應用程式中的結構描述
  

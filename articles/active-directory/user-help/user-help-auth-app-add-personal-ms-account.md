@@ -1,5 +1,5 @@
 ---
-title: 將個人 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式 - Azure Active Directory | Microsoft Docs
+title: 將個人 Microsoft 帳戶新增至驗證器應用程式 Azure AD
 description: 如何將個人 Microsoft 帳戶 (例如 Outlook.com 或 Xbox LIVE 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616088"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820248"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>新增您的個人 Microsoft 帳戶
 
@@ -39,7 +39,7 @@ ms.locfileid: "69616088"
 
 ### <a name="turn-on-two-factor-verification"></a>開啟雙因素驗證
 
-1. 在您的電腦上移至[安全性基本概念](https://account.microsoft.com/security)頁面，並使用您的個人 Microsoft 帳戶登入。 例如： alain@outlook.com 。
+1. 在您的電腦上移至[安全性基本概念](https://account.microsoft.com/security)頁面，並使用您的個人 Microsoft 帳戶登入。 例如， alain@outlook.com。
 
 2. 在 [安全性基本概念] 頁面底部，選擇 [更多安全性選項] 連結。
 
@@ -70,6 +70,6 @@ ms.locfileid: "69616088"
 
 - 將您的帳戶新增至應用程式之後，您即可在裝置上使用 Authenticator 應用程式登入。 如需詳細資訊，請參閱[使用應用程式登入](user-help-auth-app-sign-in.md)。
 
-- 如果您在取得個人 Microsoft 帳戶的驗證碼時遇到問題, 請參閱[Microsoft 帳戶安全性資訊 & 驗證碼](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)一文中的**疑難排解驗證程式代碼問題**一節。
+- 如果您在取得個人 Microsoft 帳戶的驗證碼時遇到問題，請參閱[Microsoft 帳戶安全性資訊 & 驗證碼](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)一文中的**疑難排解驗證程式代碼問題**一節。
 
 - 對於執行 iOS 的裝置，您也可以將您的帳戶認證和相關應用程式設定 (例如您的帳戶順序) 備份到雲端。 如需更多資訊，請參閱[使用 Microsoft Authenticator 應用程式備份和復原](user-help-auth-app-backup-recovery.md)。

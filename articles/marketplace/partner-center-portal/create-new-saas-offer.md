@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934108"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825559"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -44,7 +45,7 @@ ms.locfileid: "72934108"
 
 <br>範例：測試供應專案1&#8482;
 
-選取 [建立]。  系統會為此供應專案建立供應專案的 **[總覽**] 頁面。  
+選取 [ **建立**]。  系統會為此供應專案建立供應專案的 **[總覽**] 頁面。  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -57,10 +58,10 @@ ms.locfileid: "72934108"
 - **發行狀態**會顯示發佈此供應專案所需步驟的視覺標記法，以及完成每個步驟所需的時間。 不完整的發行步驟圖示將會呈現灰色。 
 
 - [**供應專案總覽**] 功能表包含在此供應專案上執行作業的連結清單。 這份動作清單會根據您對供應專案所做的選擇而變更。  
-    - 如果供應專案為草稿–刪除草稿 
-    - 如果供應專案上線–停止銷售供應專案 
-    - 如果供應專案處於預覽狀態–上線 
-    - 如果您尚未完成發行者登出–取消發行
+    - 如果供應專案為草稿-刪除草稿 
+    - 如果供應專案為 live Stop 銷售供應專案 
+    - 如果供應專案處於預覽狀態-上線 
+    - 如果您尚未完成發行者登出-取消發佈
 
 ## <a name="offer-setup"></a>供應專案設定
 
@@ -124,7 +125,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 提供可存取您應用程式的有效 URL （從*HTTP*或*HTTPs*開始），免費向客戶列出您的供應專案。  例如：`https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>免費試用（清單）
-藉由提供有效的 URL （從*HTTP*或*HTTPs*開始），向客戶列出您的供應專案，其可透過[使用 Azure Active Directory （Azure AD）](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)以單鍵驗證的方式來取得試用版。  例如： `https://contoso.com/trial/saas-app` 。 供應專案列出免費試用版是由您的服務所建立、管理及設定，而且沒有由 Microsoft 管理的訂用帳戶。
+藉由提供有效的 URL （從*HTTP*或*HTTPs*開始），向客戶列出您的供應專案，其可透過[使用 Azure Active Directory （Azure AD）](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)以單鍵驗證的方式來取得試用版。  例如： `https://contoso.com/trial/saas-app`。 供應專案列出免費試用版是由您的服務所建立、管理及設定，而且沒有由 Microsoft 管理的訂用帳戶。
 
 > [!NOTE]
 > 您的應用程式將透過試用連結接收的權杖，只能用來透過 Azure AD 取得使用者資訊，以在您的應用程式中自動建立帳戶。 Microsoft 帳戶（MSA）不支援使用此權杖進行驗證。
@@ -177,7 +178,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 ### <a name="category"></a>類別
 選取最少一個（1）和最多三個（3）分類，用來將您的供應專案分組至適當的 marketplace 搜尋區域。 請在供應專案描述中，打電話給您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>產業
+### <a name="industry"></a>業界
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
@@ -192,7 +193,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而不是製作自訂的條款及條件，而是客戶只需要審查並接受一次。 
 
-您可以在這裡找到標準合約： https://go.microsoft.com/fwlink/?linkid=2041178 。
+您可以在這裡找到標準合約： https://go.microsoft.com/fwlink/?linkid=2041178。
 
 #### <a name="terms-of-use"></a>使用規定
 
@@ -249,7 +250,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
     <p> 這是我的第一個段落。 </p>
     <p> 這是我的第二段。 </p>
 
-1. 如果您想要新增專案的點**符清單**，請將您的文字放在下面的 `<li>` 標記內。 您可以在 `<ul>` 和 `</ul>` 標記中，複製並貼上更多點符專案（`<li>` 與 `</li>` 標記之間的專案）。 請確定您已新增 `<ul></ul>`。 
+1. 如果您想要新增專案的點**符清單**，請將您的文字放在下方的 `<li>` 標籤中。 您可以在 `<ul>` 和 `</ul>` 標記中，複製並貼上更多點符專案（`<li>` 與 `</li>` 標記之間的專案）。 請確定您已新增 `<ul></ul>`。 
 
     **範例**：
 
@@ -268,7 +269,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
         <li> 在此加入文字 </li> 
     </ul> 
 
-1. 若要以**粗體顯示**內容，請在您要以粗體顯示的文字開頭加入 `<b>`，然後在您要以粗體顯示的文字結尾處新增 `</b>`。 
+1. 若要以**粗體顯示**內容，請在您想要以粗體顯示的文字開頭新增 `<b>`，並在您想要以粗體顯示的文字結尾處新增 `</b>`。 
 
     **範例**： `<b>` 免費試用 `</b>`
     
@@ -367,8 +368,8 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 **計畫總覽**中的可用**動作**會因方案的目前狀態而有所不同，可能包括：
 
-- 如果方案狀態為**草稿**–刪除草稿
-- 如果方案狀態是**Live** –停止銷售方案或同步私用物件
+- 如果方案狀態為**草稿**-刪除草稿
+- 如果方案狀態為**Live** -停止銷售方案或同步私用物件
 
 **建立新方案**（選取要透過 Microsoft 銷售的人員的最少一個方案）
 
@@ -437,7 +438,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 - **價格**：每月美元或每年美元
 
 以當地貨幣（美元 = 美國貨幣）設定的價格，會使用安裝期間目前可用的匯率，轉換為所有選定市場的本地貨幣。 在發佈之前，請先匯出定價試算表，並查看每個市場的價格，以驗證這些價格。 如果您想要在個別市場中設定自訂價格，請修改並匯入定價試算表。 您必須負責驗證此定價並擁有這些設定。
-*\*您必須先儲存定價變更，以啟用匯出定價資料。*
+*\*您必須先儲存定價變更, 以啟用匯出定價資料。*
 
 發行之前，請先仔細檢查您的價格，因為在計畫發行後可能會變更的部分有一些限制：
 
@@ -483,9 +484,9 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 如果這是您第一次發佈此供應專案，您可以：
 
 - 請參閱供應專案每個區段的完成狀態。
-    - *未啟動*–表示區段尚未觸及，需要完成。
-    - *不完整*–表示區段中有需要修正的錯誤，或需要提供更多資訊的詳細資訊。 請返回一節並加以更新。
-    - *Complete* –表示區段已完成，所有必要的資料都已提供，而且沒有任何錯誤。 供應專案的所有區段都必須處於「完整」狀態，您才能提交供應專案。
+    - *未啟動*-表示區段尚未觸及，需要完成。
+    - *不完整*-表示區段具有必須修正的錯誤，或需要提供更多資訊的詳細資訊。 請返回一節並加以更新。
+    - *Complete* -表示區段已完成，所有必要的資料都已提供，而且沒有任何錯誤。 供應專案的所有區段都必須處於「完整」狀態，您才能提交供應專案。
 - 將測試指示提供給認證小組，以確保您的應用程式已正確測試，以及有助於瞭解應用程式的任何補充注意事項。
 - 選取 [**提交**] 以提交供應專案進行發佈。 我們會傳送一封電子郵件給您，讓您知道供應專案的預覽版本何時可供您審查和核准。 您必須回到合作夥伴中心，並為供應專案選取 [**上線**]，以將您的供應專案發佈至公用（或私用供應專案給私人物件）。
 

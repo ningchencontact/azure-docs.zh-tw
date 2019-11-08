@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 804ef04f0066a8b8dd9df82aef03fcfc32d7cb43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d980cefa5aa953a3fb9683adb589bf202e73250
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826287"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用範本來建立含有事件中樞的命名空間並啟用擷取
 
@@ -27,14 +27,14 @@ ms.locfileid: "60343715"
 
 本文也會示範如何根據您選擇的目的地，指定將事件擷取到 Azure 儲存體 Blob 或 Azure Data Lake Store 中。
 
-如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。 如需要在範本中使用的 JSON 語法和屬性，請參閱 [Microsoft.EventHub 資源類型](/azure/templates/microsoft.eventhub/allversions)。
+如需關於建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。 如需要在範本中使用的 JSON 語法和屬性，請參閱 [Microsoft.EventHub 資源類型](/azure/templates/microsoft.eventhub/allversions)。
 
-如需 Azure 資源命名慣例相關模式和實務的詳細資訊，請參閱 [Azure 資源命名慣例][Azure Resources naming conventions]。
+如需 Azure 資源命名慣例模式和實務的詳細資訊，請參閱[Azure 資源命名慣例][Azure Resources naming conventions]。
 
 對於所有範本，按一下下列 GitHub 連結：
 
-- [事件中樞和啟用擷取至儲存體範本][Event Hub and enable Capture to Storage template] 
-- [事件中樞和啟用擷取至 Azure Data Lake Store 範本][Event Hub and enable Capture to Azure Data Lake Store template]
+- [事件中樞並啟用 [捕獲至儲存體] 範本][Event Hub and enable Capture to Storage template] 
+- [事件中樞並啟用 Capture to Azure Data Lake Store 範本][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
 > 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates] 資源庫並搜尋事件中樞。
@@ -439,6 +439,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
+[Azure Resources naming conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
 [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

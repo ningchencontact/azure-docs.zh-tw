@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5a65ee27d5175887b7bf0d9146afa025e665657c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488402"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818941"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和金鑰的界限
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-reference-regions.md) API 之間的[世界區域對應](luis-glossary.md#endpoint)。 
@@ -35,7 +35,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 | 外部實體 | 無限制 |
 | [意圖][intents]|每個應用程式500：499個自訂意圖，以及必要的_None_意圖。<br>[發送型](https://aka.ms/dispatch-tool) \(英文\) 應用程式具有相對應的 500 個發送來源。|
 | [清單實體](./luis-concept-entity-types.md) | 父系：50 個項目，子系：20,000 個項目。 正式名稱為*預設字元上限。同義值沒有長度限制。 |
-| [機器學習的實體 + 角色](./luis-concept-entity-types.md)：<br> 複<br>單個<br>實體角色|100父實體或330實體的限制，以一開始的限制為准。 角色會計算為此界限用途的實體。 其中一個範例是具有簡單實體的複合，其中有2個角色：1個複合 + 1 簡單 + 2 個角色 = 4 個330實體。|
+| [機器學習的實體 + 角色](./luis-concept-entity-types.md)：<br> 複<br>單個<br>實體角色|100父實體或330實體的限制，以一開始的限制為准。 角色會計算為此界限用途的實體。 其中一個範例是具有簡單實體的複合，其中有2個角色：1個複合 + 1 簡單 + 2 個角色 = 4 個330實體。<br>子元件可以嵌套到5個層級。|
 |模型即功能| 可做為特定模型之描述項（特徵）的模型數目上限，為10個模型。 用來做為特定模型之描述項（功能）的片語清單數目上限為10個片語清單。|
 | [預覽-動態清單實體](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2個每個查詢預測端點要求的清單|
 | [模式](luis-concept-patterns.md)|每個應用程式 500 個模式。<br>模式的長度上限為 400 個字元。<br>每個模式 3 個 pattern.any 實體<br>模式中最多有 2 個巢狀選擇性文字|
@@ -74,7 +74,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 
 |Object|排除字元|
 |--|--|
-|意圖、實體和角色名稱|`:`<br>`$`|
+|意圖、實體和角色名稱|`:`<br>`$` <br> `&`|
 |版本名稱|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>金鑰使用量

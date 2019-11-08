@@ -1,18 +1,19 @@
 ---
 title: 從 Azure Marketplace 部署 VM
-description: 說明如何部署虛擬機器從 Azure Marketplace 的預先設定虛擬機器。
+description: 說明如何從 Azure Marketplace 預先設定的虛擬機器部署虛擬機器。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 482840f5e611bc2d8092add2822a0ed5b2c8f883
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2888d7643fd4f624634dc2ec520bec6e753382f1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816834"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>從 Azure Marketplace 部署虛擬機器
 
@@ -24,7 +25,7 @@ ms.locfileid: "64938706"
 
 快速入門 Azure VM 部署範本，可以線上檔案 [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json) 的形式取得。  該範本包含下列參數：
 
-|  **參數**        |   **描述**                                 |
+|  **參數**        |   **說明**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | 儲存體帳戶的名稱                       |
 | dnsNameForPublicIP    | 公用 IP 的 DNS 名稱。 必須是小寫字母。    |

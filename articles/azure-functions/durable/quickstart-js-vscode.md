@@ -11,16 +11,18 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b47e828f3b8d760594cb04ba40ceaa7248050c52
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1a1586124a1cfb05f2b7c4e9c3b0070170447b96
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933481"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614579"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 建立第一個耐久函式
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 在本文中，您會了解如何使用 Visual Studio Code Azure Functions 擴充功能，在本機建立及測試 "hello world" 耐久函式。  此函式會協調對其他函式的呼叫並鏈結在一起。 接著會將函式程式碼發佈至 Azure。
 

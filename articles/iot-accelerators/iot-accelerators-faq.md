@@ -1,6 +1,6 @@
 ---
 title: IoT 解決方案加速器的常見問題集 - Azure | Microsoft Docs
-description: IoT 解決方案加速器的常見問題集
+description: 本文會回答 IoT 解決方案加速器的常見問題。 它包含 GitHub 存放庫的連結。
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826263"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 解決方案加速器的常見問題集
 
@@ -71,14 +71,14 @@ ms.locfileid: "61447945"
 
 是，可在相同的地理區域中使用新的遠端監視。
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>刪除 Azure 入口網站中的資源群組，然後按一下 刪除解決方案加速器中 azureiotsolutions.com 之間的差異為何？
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>刪除 Azure 入口網站中的資源群組和在 azureiotsolutions.com 中的解決方案加速器上按一下 [刪除] 有何差異？
 
-* 如果您刪除在 solution accelerator [azureiotsolutions.com](https://www.azureiotsolutions.com/)，刪除當您建立的解決方案加速器已部署的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
+* 如果您在[azureiotsolutions.com](https://www.azureiotsolutions.com/)中刪除解決方案加速器，就會刪除您在建立解決方案加速器時所部署的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
 * 如果您在 [Azure 入口網站](https://portal.azure.com)中刪除資源群組，則只會刪除該資源群組中的資源。 您還必須刪除與解決方案加速器相關聯的 Azure Active Directory 應用程式。
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>可以繼續利用我在 Azure IoT 解決方案加速器中的現有投資嗎？
 
-是的。 目前存在的任何解決方案都會繼續在您的 Azure 訂用帳戶中運作，而且原始碼在 GitHub 中仍保持可用。
+是。 目前存在的任何解決方案都會繼續在您的 Azure 訂用帳戶中運作，而且原始碼在 GitHub 中仍保持可用。
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>我可以在一個訂用帳戶中佈建多少個 IoT 中樞執行個體？
 

@@ -1,0 +1,40 @@
+- name: 概觀
+  items:
+    - name: 什麼是 FarmBeats？
+      href: overview.md
+- name: 教學課程
+  expanded: true
+  items:
+    - name: 產生泥土濕度地圖
+      href: generate-soil-moisture-map.md
+    - name: 內嵌歷程記錄遙測資料
+      href: ingest-historical-telemetry-data.md
+- name: 概念
+  items:
+    - name: 整合模式
+      href: integration-patterns.md
+    - name: 感應器合作夥伴整合
+      href: sensor-partner-integration.md
+    - name: 影像合作夥伴整合
+      href: imagery-partner-integration.md
+- name: 使用說明指南
+  items:
+    - name: 部署 FarmBeats
+      href: prepare-for-deployment.md
+    - name: 管理農場
+      href: manage-farms.md
+    - name: 取得感應器資料
+      href: get-sensor-data-from-sensor-partner.md
+    - name: 產生地圖
+      href: generate-maps.md
+    - name: 設定規則和管理警示
+      href: configure-rules-alerts.md
+    - name: 取得無人機影像
+      href: get-drone-imagery.md
+- name: 疑難排解
+  items:
+    - name: FarmBeats 疑難排解
+      href: troubleshoot-project-farmbeats.md
+- name: 參考
+  items: null
+  href: references-for-farmbeats.md

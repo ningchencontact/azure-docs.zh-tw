@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure SQL 資料庫稽核
+title: 開始使用審核
 description: 使用 Azure SQL 資料庫稽核來將資料庫事件追蹤至稽核記錄。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65d092b36ed0e339a77bb423f24079caae38ab84
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691205"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821981"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 

@@ -1,5 +1,5 @@
 ---
-title: 啟用 Azure SQL Database 的自動調整
+title: 啟用自動微調
 description: 您可以輕鬆在 Azure SQL Database 上啟用自動調整。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 52e3dd01446a6292c3404f14bd8ebfb32aa00dd6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691123"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821902"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
@@ -104,7 +104,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 自動調整會監視它在資料庫上採取的所有動作，而且在某些情況下，它可以判斷自動調整無法適當地在資料庫上運作。 在此情況下，調整選項將會被系統停用。 在大部分情況下，發生此問題的原因是因為特定資料庫上未啟用查詢資料存放區，或是查詢存放區處於唯讀的狀態。
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 因為自動調整是 Azure 功能，所以若要使用它，您必須使用 Azure 的內建 RBAC 角色。 僅使用 SQL 驗證並不會足以使用 Azure 入口網站的功能。
 

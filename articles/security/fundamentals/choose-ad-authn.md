@@ -2,19 +2,19 @@
 title: 針對 Azure AD 混合式身分識別解決方案選擇正確的驗證方法 | Microsoft Docs
 description: 本指南可協助中大型組織內的 CEO、CIO、CISO、首席身分識別架構設計人員、企業架構設計人員，以及負責選擇 Azure AD 混合式身分識別解決方案的安全性和 IT 決策者。
 keywords: ''
-author: TerryLanfear
-ms.author: terrylan
+author: martincoetzer
+ms.author: martinco
 ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 564175141a8076d2ac4324b0dccf02cc250a613c
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 71b4a8abc641a3ab11d6b17bbc8de3b42b61c34c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621185"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820546"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法
 

@@ -1,5 +1,5 @@
 ---
-title: 多租使用者 SaaS 教學課程-Azure SQL Database
+title: 多租使用者 SaaS 教學課程
 description: 使用獨立應用程式模式佈建新租用戶並編目
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c4859554f361b262366bc2442d3819e2a029aa85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822099"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>使用每一租用戶一個應用程式 SaaS 模式，佈建新租用戶及編目
 

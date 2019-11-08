@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 327bc40e5989cc3bca148f415113de32b19a7022
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500118"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670537"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>什麼是 Machine Learning Studio (傳統)？
 
@@ -107,7 +107,7 @@ Machine Learning Studio (傳統) 讓資料科學、預測性分析、雲端資�
 如需瀏覽大型可用機器學習演算法程式庫的一些說明，請參閱[如何選擇適用於 Microsoft Azure Machine Learning Studio (傳統) 的演算法](algorithm-choice.md)。
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>部署預測性分析 Web 服務
-當您的預測性分析模型已就緒時，即可從 Machine Learning Studio (傳統) 將它部署為 Web 服務。 如需此程序的詳細資訊，請參閱[部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
+當您的預測性分析模型已就緒時，即可從 Machine Learning Studio (傳統) 將它部署為 Web 服務。 如需此程序的詳細資訊，請參閱[部署 Azure Machine Learning Web 服務](deploy-a-machine-learning-web-service.md)。
 
 ## <a name="next-steps"></a>後續步驟
 您可以使用[逐步快速入門](create-experiment.md)和[以範例建置](sample-experiments.md)，來了解預測性分析和機器學習的基本概念。

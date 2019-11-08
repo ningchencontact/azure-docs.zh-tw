@@ -1,25 +1,26 @@
 ---
-title: Azure marketplace 中建立與 Azure 相容的 VHD
+title: 為 Azure Marketplace 建立與 Azure 相容的 VHD
 description: 說明如何在 Microsoft Azure Marketplace 中為虛擬機器供應項目建立 VHD。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pabutler
-ms.openlocfilehash: a47d16108d98c5449d57d1db4892bffcead7e5f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072617"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816809"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>建立與 Azure 相容的 VHD
 
 本文會詳細說明建立 Microsoft Azure Marketplace 中虛擬機器 (VM) 供應項目虛擬硬碟 (VHD) 的所需步驟。  本文也會涵蓋其他不同層面，例如如何使用遠端桌面通訊協定 (RDP)、選擇 VM 的大小、安裝最新的 Windows 更新以及將 VHD 映像一般化的最佳作法。  下列各節主要著重於以 Windows 為基礎的 VHD；如需更多建立以 Linux 為基礎的 VHD 的詳細資訊，請參閱[經 Azure 背書的 Linux 發佈](../../../virtual-machines/linux/endorsed-distros.md)。 
 
 > [!WARNING]
-> 強烈建議您遵循本文中的指示，使用 Azure 建立內有經過預先設定和背書之作業系統的 VM。  如果這不是與您的解決方案相容，則可以建立並設定內部部署 VM，使用已核准的作業系統。  接著您可以依照[準備 Windows VHD 或 VHDX 以上傳至 Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) 中所述，設定並準備上傳。
+> 強烈建議您遵循本文中的指示，使用 Azure 建立內有經過預先設定和背書之作業系統的 VM。  如果這與您的解決方案不相容，則可以使用已核准的作業系統來建立及設定內部部署 VM。  接著您可以依照[準備 Windows VHD 或 VHDX 以上傳至 Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) 中所述，設定並準備上傳。
 
 
 ## <a name="select-an-approved-base"></a>選擇已核准的基礎映像
@@ -42,17 +43,17 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 
 1. 利用您想用於發佈 VM 供應方案的 Azure 訂用帳戶之 Microsoft 帳戶和密碼登入入口網站。
 2. 建立新的資源群組，並提供您的**資源群組名稱**、**訂用帳戶**以及**資源群組位置**。  如需詳細指引，請參閱[管理資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
-3. 按一下左側功能表中的 [虛擬機器]  ，以開啟虛擬機器詳細資料頁面。 
-4. 在此新頁面中，按一下 [+ 新增]  以開啟 [計算]  刀鋒視窗。  如果您在初始畫面上看不到 VM 型別，可以搜尋基底 VM 的名稱，例如：
+3. 按一下左側功能表中的 [虛擬機器]，以開啟虛擬機器詳細資料頁面。 
+4. 在此新頁面中，按一下 [+ 新增] 以開啟 [計算] 刀鋒視窗。  如果您在初始畫面上看不到 VM 型別，可以搜尋基底 VM 的名稱，例如：
 
     ![新 VM 的計算刀鋒視窗](./media/publishvm_014.png)
 
 5. 選取適當的虛擬映像之後，請提供下列值：
-   * 在 [基本概念]  刀鋒視窗中，輸入虛擬機器的 [名稱]  ，長度須介於 1 到 15 個英數字元間。 (此範例使用 `DemoVm009`。)
-   * 輸入要用於在 VM 上建立本機帳戶的 [使用者名稱]  和強度高的 [密碼]  。  (此處使用 `adminUser`。)密碼長度必須是 8-123 個字元，且符合下列四個複雜性需求的其中三項：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。 如需詳細資訊，請參閱[使用者名稱和密碼需求](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)。
+   * 在 [基本概念] 刀鋒視窗中，輸入虛擬機器的 [名稱]，長度須介於 1 到 15 個英數字元間。 (此範例使用 `DemoVm009`。)
+   * 輸入要用於在 VM 上建立本機帳戶的 [使用者名稱]和強度高的 [密碼]。  （這裡會使用 `adminUser`）。 密碼的長度必須是8-123 個字元，且符合下列四個複雜性需求的其中三個：一個小寫字元、一個大寫字元、一個數位和一個特殊字元。 如需詳細資訊，請參閱[使用者名稱和密碼需求](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)。
    * 選取您先前建立的資源群組 (此處為 `DemoResourceGroup`)。
    * 選取 Azure 資料中心**位置** (此處為 `West US`)。
-   * 按一下 [確定]  儲存這些值。 
+   * 按一下 [確定] 儲存這些值。 
 
 6. 選取要使用下列建議部署的 VM 大小：
    * 如果您打算開發 VHD 內部部署，大小不會造成影響。 請考慮使用其中一個較小的 VM。
@@ -61,15 +62,15 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 
    ![新 VM 的大小刀鋒視窗](./media/publishvm_015.png)
 
-7. 在 [設定]  刀鋒視窗中，將 [使用受控資料箱磁碟]  選項設定為 [否]  。  這可讓您以手動方式管理新的 VHD。 ([設定]  刀鋒視窗也可讓您變更其他儲存空間和網路選項，例如：在 [磁碟類型]  中選取 [進階 (SSD)]  。)按一下 [確定]  以繼續。
+7. 在 [設定]刀鋒視窗中，將 [使用受控資料箱磁碟] 選項設定為 [否]。  這可讓您以手動方式管理新的 VHD。 （[**設定**] 分頁也可讓您變更儲存體和網路選項的其他變更，例如，選取 [**磁片類型**] 中的 **[Premium （SSD）** ]）。 按一下 **[確定]** 以繼續。
 
     ![新 VM 的設定刀鋒視窗](./media/publishvm_016.png)
 
-8. 按一下 [摘要]  以檢閱您的選擇。 當您看到 [通過驗證]  訊息時，請按一下 [確定]  。
+8. 按一下 [摘要] 以檢閱您的選擇。 當您看到 [通過驗證] 訊息時，請按一下 [確定]。
 
     ![新 VM 的摘要刀鋒視窗](./media/publishvm_017.png)
 
-Azure 會開始佈建您所指定的虛擬機器。  您可以按一下左側的 [虛擬機器]  索引標籤來追蹤其進度。  建立虛擬機器後，狀態會變更為 [執行中]  。  此時，您可以[連線到新的虛擬機器](./cpp-connect-vm.md)。
+Azure 會開始佈建您所指定的虛擬機器。  您可以按一下左側的 [虛擬機器] 索引標籤來追蹤其進度。  建立虛擬機器後，狀態會變更為 [執行中]。  此時，您可以[連線到新的虛擬機器](./cpp-connect-vm.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

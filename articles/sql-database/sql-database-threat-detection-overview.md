@@ -1,5 +1,5 @@
 ---
-title: 先進的威脅防護-Azure SQL Database
+title: 進階威脅防護
 description: 先進的威脅防護會偵測異常資料庫活動，指出 Azure SQL Database 中的潛在安全性威脅。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 03/31/2019
-ms.openlocfilehash: fca68fbc1ee30b1df100255e463eca2fc895980b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d09cc202c3f7e18358ec693d1cfe4bd2648811ba
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686966"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820706"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 資料庫的進階威脅防護
 

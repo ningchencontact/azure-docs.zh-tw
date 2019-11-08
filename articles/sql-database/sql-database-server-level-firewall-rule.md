@@ -1,5 +1,5 @@
 ---
-title: 建立伺服器層級防火牆規則 - Azure SQL Database| Microsoft Docs
+title: 建立伺服器層級防火牆規則
 description: 為單一和集區資料庫建立 SQL Database 伺服器層級防火牆規則
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162302"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818246"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站為單一和集區資料庫建立伺服器層級防火牆規則
 

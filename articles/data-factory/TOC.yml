@@ -209,6 +209,8 @@
           href: format-avro.md
         - name: Azure Blob 儲存體
           href: connector-azure-blob-storage.md
+        - name: Azue 認知搜尋
+          href: connector-azure-search.md
         - name: Azure Cosmos DB SQL API
           href: connector-azure-cosmos-db.md
         - name: 適用於 MongoDB 的 Azure Cosmos DB API
@@ -227,8 +229,6 @@
           href: connector-azure-database-for-postgresql.md
         - name: Azure 檔案儲存體
           href: connector-azure-file-storage.md
-        - name: Azure 搜尋服務
-          href: connector-azure-search.md
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Azure SQL Database 受控執行個體

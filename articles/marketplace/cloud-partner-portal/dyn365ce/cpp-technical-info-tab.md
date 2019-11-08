@@ -4,15 +4,16 @@ description: 已取代的 .CPP 文章，連結至電腦文章;was 「如何在 A
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 364bc5148ee821882b1de803b03ccc2df5c234a4
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 61a82d2bde5406fabb68badfc45c750364b46f77
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033855"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824671"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 for Customer Engagement 技術資訊索引標籤
 

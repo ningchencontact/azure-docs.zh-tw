@@ -1,5 +1,5 @@
 ---
-title: 監視並改善效能-Azure SQL Database
+title: 監視並改善效能
 description: Azure SQL Database 會提供可協助您找出可改善目前查詢效能區域的效能工具。
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 483cd9f185cfa626d21fe0a5b86ba782ebb2f612
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687659"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821329"
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
 

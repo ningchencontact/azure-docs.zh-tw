@@ -1,6 +1,6 @@
 ---
 title: 設計 Azure Cosmos DB 資料表以支援擴充與效能
-description: Azure 儲存體資料表設計指南：在 Azure Cosmos DB 和 Azure 儲存體資料表中設計可擴充且效能良好的資料表
+description: Azure 儲存體資料表設計指南：在 Azure Cosmos DB 和 Azure 儲存體資料表中設計可擴充且高效能的資料表
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 499ac3a394339ebb07c36abeaaa761de22927941
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447291"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827782"
 ---
-# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可擴充且效能良好的資料表
+# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -49,8 +49,8 @@ ms.locfileid: "67447291"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -69,8 +69,8 @@ ms.locfileid: "67447291"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>Jun</td>
@@ -82,7 +82,7 @@ ms.locfileid: "67447291"
 </tr>
 <tr>
 <td>行銷</td>
-<td>系所</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -106,8 +106,8 @@ ms.locfileid: "67447291"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -132,7 +132,7 @@ ms.locfileid: "67447291"
 
 在資料表服務中，個別節點可為一或多個完整資料分割提供服務，且服務會透過動態的負載平衡資料分割在節點間進行調整。 如果某節點的負載過大，表格服務可將由該節點提供服務的分割範圍*分割*到不同的節點；當流量變小時，服務可將分割範圍從靜止節點*合併*回單一節點。  
 
-如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)。  
+如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
 
 ### <a name="entity-group-transactions"></a>實體群組交易
 在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 在某些文件中，EGT 也稱為 *批次交易* 。 EGT 只能對儲存在相同資料分割中的實體運作 (共用給定資料表中的相同資料分割索引鍵)，所以每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確保這些實體位於相同的資料分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
@@ -200,12 +200,12 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 | *資料行名稱* | *資料類型* |
 | --- | --- |
-| **PartitionKey** (部門名稱) |String |
-| **RowKey** (員工識別碼) |String |
-| **名字** |String |
+| **PartitionKey** (部門名稱) |字串 |
+| **RowKey** (員工識別碼) |字串 |
+| **名字** |字串 |
 | **姓氏** |字串 |
 | **年齡** |Integer |
-| **EmailAddress** |String |
+| **EmailAddress** |字串 |
 
 稍早的「Azure 資料表服務概觀」一節說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
@@ -213,7 +213,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * 次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。 **PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
 * 再其次是***分割掃描***，它使用 **PartitionKey**，並篩選另一個非索引鍵的，可傳回多個實體。 **PartitionKey** 值會識別特定的分割，而屬性值會選取該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***資料表掃描***不包含 **PartitionKey**，且效率不佳，因為它會依序在所有組成資料表的分割中搜尋是否有任何相符的實體。 無論您的篩選是否使用 **RowKey**，它都會執行資料表掃描。 例如：$filter=LastName eq 'Jones'  
-* 傳回多個實體的 Azure 表格儲存體查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。 Azure Cosmos DB 中的 「 Azure 資料表 API 所傳回的查詢結果不會排序的資料分割索引鍵或資料列索引鍵。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+* 傳回多個實體的 Azure 表格儲存體查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。 Azure 資料表 API 在 Azure Cosmos DB 中傳回的查詢結果不會依資料分割索引鍵或資料列索引鍵排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。 因此，您應該避免會使用下列篩選條件的搜尋：例如 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
@@ -255,7 +255,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 系統會先根據 **PartitionKey** 再根據 **RowKey**，以遞增順序排序「資料表」服務所傳回的查詢結果。
 
 > [!NOTE]
-> Azure Cosmos DB 中的 「 Azure 資料表 API 所傳回的查詢結果不會排序的資料分割索引鍵或資料列索引鍵。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+> Azure 資料表 API 在 Azure Cosmos DB 中傳回的查詢結果不會依資料分割索引鍵或資料列索引鍵排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序數字值，您應該將它們轉換成固定長度，並以零填補它們。 例如，如果您用來做為 **RowKey** 的員工識別碼值是整數值，您應將員工識別碼 **123** 轉換為 **00000123**。 
 
@@ -303,7 +303,7 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 ## <a name="encrypting-table-data"></a>加密資料表的資料
 .NET Azure 儲存體用戶端程式庫支援在插入和取代作業時進行字串實體屬性的加密。 加密的字串儲存在服務上作為二進位屬性，且解密後會轉換回字串。    
 
-針對資料表，除了加密原則之外，使用者必須指定要加密的屬性。 作法是指定 [EncryptProperty] 屬性 (針對衍生自 TableEntity 的 POCO 實體)，或在要求選項中指定加密解析程式。 加密解析程式是委派，接受資料分割索引鍵、資料列索引鍵和屬性名稱，然後傳回布林值，指出是否應該加密該屬性。 在加密期間，用戶端程式庫會使用此資訊，決定將屬性在寫到網路時是否應該加密。 委派也提供關於屬性如何加密的可能邏輯。 (例如，如果 X，則加密屬性 A，否則加密屬性 A 和 B。)讀取或查詢實體時不需要提供這項資訊。
+針對資料表，除了加密原則之外，使用者必須指定要加密的屬性。 作法是指定 [EncryptProperty] 屬性 (針對衍生自 TableEntity 的 POCO 實體)，或在要求選項中指定加密解析程式。 加密解析程式是委派，接受資料分割索引鍵、資料列索引鍵和屬性名稱，然後傳回布林值，指出是否應該加密該屬性。 在加密期間，用戶端程式庫會使用此資訊，決定將屬性在寫到網路時是否應該加密。 委派也提供關於屬性如何加密的可能邏輯。 （例如，如果 X，則會加密屬性 A，否則會加密屬性 A 和 B）。讀取或查詢實體時不需要提供此資訊。
 
 目前不支援合併。 因為屬性子集先前可能是使用不同的金鑰加密，直接合併新的屬性並更新中繼資料會導致資料遺失。 合併可能需要額外的服務呼叫來從服務讀取預先存在的實體，或在每個屬性上都使用新的金鑰，兩者都不利用於效能。     
 
@@ -415,7 +415,7 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 
 ![資料表設計模式的影像][5]
 
-上方的模式圖強調顯示本指南中提及的模式 (藍色) 與反向模式 (橘色) 之間的一些關聯性。 當然還有許多其他模式也值得考量。 例如，表格服務的其中一個主要案例是從[命令查詢責任隔離 (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 模式使用[具體化檢視模式](https://msdn.microsoft.com/library/azure/dn589782.aspx)。  
+上方的模式圖強調顯示本指南中提及的模式 (藍色) 與反向模式 (橘色) 之間的一些關聯性。 當然還有許多其他模式也值得考量。 例如，表格服務的其中一個主要案例是從[命令查詢責任隔離 (CQRS)](https://msdn.microsoft.com/library/azure/dn589782.aspx) 模式使用[具體化檢視模式](https://msdn.microsoft.com/library/azure/jj554200.aspx)。  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>內部資料分割次要索引模式
 為每個實體儲存多個複本且使用不同 **RowKey** 值 (在相同的資料分割內)，透過使用不同的 **RowKey** 值，就能快速且有效率的查閱和替代排序次序。 複本之間的更新可以使用 EGT 保持一致。  
@@ -427,8 +427,8 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 
 如果您也想能夠根據其他屬性 (例如電子郵件地址) 的值尋找員工實體，您必須使用效率較低的資料分割掃描來尋找相符項目。 這是因為資料表服務不會提供次要索引。 此外，您無法要求以 **RowKey** 順序以外的不同順序來排序的員工清單。  
 
-#### <a name="solution"></a>解決方法
-若要解決缺少次要索引的問題，您可以為每個實體儲存多個複本，且每個複本分別使用不同 **RowKey** 值。 如果您使用如下所示的結構來儲存實體，就能夠根據電子郵件地址或員工識別碼，有效率地擷取員工實體。**RowKey**、"empid_" 及 "email_" 的前置詞值可讓您使用一組電子郵件地址或員工識別碼的範圍，來查詢單一員工或某個範圍內的員工。  
+#### <a name="solution"></a>方案
+若要解決缺少次要索引的問題，您可以為每個實體儲存多個複本，且每個複本分別使用不同 **RowKey** 值。 如果您使用如下所示的結構來儲存實體，您可以根據電子郵件地址或員工識別碼有效率地抓取員工實體。「Empid_」和「email_ **」的前置**詞值可讓您使用一系列的電子郵件地址或員工識別碼來查詢單一員工或某個範圍的員工。  
 
 ![具有不同 RowKey 值的員工實體][7]
 
@@ -481,8 +481,8 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 
 您預期這些實體會有大量的交易，而想要為您的用戶端限制速率，以將資料表服務的風險降至最低。  
 
-#### <a name="solution"></a>解決方法
-若要解決缺少次要索引的問題，您可以為每個實體儲存多個複本，且每個複本分別使用不同的 **PartitionKey** 和 **RowKey** 值。 如果您使用如下所示的結構來儲存實體，就能夠根據電子郵件地址或員工識別碼，有效率地擷取員工實體。**PartitionKey**、"empid_" 及 "email_" 的前置詞值可讓您識別想要用於查詢的索引。  
+#### <a name="solution"></a>方案
+若要解決缺少次要索引的問題，您可以為每個實體儲存多個複本，且每個複本分別使用不同的 **PartitionKey** 和 **RowKey** 值。 如果您使用如下所示的結構來儲存實體，您可以根據電子郵件地址或員工識別碼有效率地抓取員工實體。**PartitionKey**、"empid_" 和 "email_" 的前置詞值可讓您識別要用於查詢的索引。  
 
 ![具有主要索引的員工實體和具有次要索引的員工實體][10]
 
@@ -531,9 +531,9 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 * 儲存在相同資料表的兩個不同分割區中、不同的資料表中或不同儲存體帳戶中的實體。  
 * 儲存在資料表服務中的實體和儲存在 Blob 服務中的 Blob。  
 * 儲存在資料表服務中的實體和檔案系統中的檔案。  
-* 儲存在資料表服務中、但使用 Azure 搜尋服務編製索引的實體。  
+* 表格服務中的實體存放區已使用 Azure 認知搜尋服務編制索引。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 藉由使用 Azure 佇列，您可以實作解決方案，提供跨兩個或多個資料分割或儲存系統的最終一致性。
 為了說明這種方法，我們假設您需要能夠封存舊的員工實體。 舊的員工實體很少受到查詢，應從處理目前員工的任何活動中排除。 若要實作這項需求，您必須將作用中員工儲存在**目前**資料表中，並將舊員工儲存在**封存**資料表中。 要封存員工，您必須先從**目前**資料表中刪除實體，並將實體加入**封存**資料表，但您無法使用 EGT 來執行這兩項作業。 若要避免因失敗而導致實體同時出現或未出現在這兩個資料表中，封存作業必須最終一致。 下列順序圖說明此作業的步驟。 後續文字提供了例外狀況路徑的詳細資料。  
 
@@ -544,7 +544,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 此範例的步驟 4 會將員工插入 **封存** 資料表。 這可以將員工新增至 Blob 服務中的 Blob 或檔案系統中的檔案。  
 
 #### <a name="recovering-from-failures"></a>從失敗復原
-步驟 **4** 和 **5** 中的作業務必等冪  ，免得背景工作角色必須重新啟動封存作業。 使用表格服務時，在步驟 **4** 中，您應使用「插入或取代」作業；在步驟 **5** 中，則應在您使用的用戶端程式庫中使用「如果存在即刪除」作業。 如果您使用其他儲存體系統，您必須使用適當的冪等作業。  
+步驟 **4** 和 **5** 中的作業務必等冪，免得背景工作角色必須重新啟動封存作業。 使用表格服務時，在步驟 **4** 中，您應使用「插入或取代」作業；在步驟 **5** 中，則應在您使用的用戶端程式庫中使用「如果存在即刪除」作業。 如果您使用其他儲存體系統，您必須使用適當的冪等作業。  
 
 如果背景工作角色一直未完成步驟 **6**，則在逾時後，訊息會重新出現在佇列上，可讓背景工作角色嘗試重新加以處理。 背景工作角色可以檢查訊息在佇列上的已讀取次數，如有必要可將其傳送至不同的佇列，以標示為「有害」訊息接受調查。 如需讀取佇列訊息及檢查清除佇列計數的詳細資訊，請參閱 [取得訊息](https://msdn.microsoft.com/library/azure/dd179474.aspx)。  
 
@@ -581,18 +581,18 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 如果您也想能夠根據其他非唯一屬性 (例如其姓氏) 的值擷取員工實體清單，您必須使用效率較低的資料分割掃描來尋找相符項目，而不要使用索引直接加以查閱。 這是因為資料表服務不會提供次要索引。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 若要透過如上所示的實體結構啟用依據姓氏的查閱，您必須維護員工識別碼清單。 如果您想要擷取具有特定姓氏 (例如 Jones) 的員工實體，您必須先針對姓氏為 Jones 的員工找出員工識別碼清單，然後擷取這些員工實體。 有三個主要的選項可儲存員工識別碼清單：  
 
 * 使用 Blob 儲存體。  
 * 在與員工實體相同的磁碟分割中建立索引實體。  
 * 在個別的資料分割或資料表中建立索引實體。  
 
-<u>選項 #1：使用 Blob 儲存體</u>  
+<u>選項 1：使用 Blob 儲存體</u>  
 
 使用第一個選項時，您會為每個唯一的姓氏建立一個 Blob，並在每個 Blob 中，針對具有該姓氏的員工儲存 **PartitionKey** (部門) 和 **RowKey** (員工識別碼) 值的清單。 當您新增或刪除某位員工時，您應該確保相關的 Blob 內容與員工實體最終一致。  
 
-<u>選項 #2：</u>在相同的資料分割中建立索引實體  
+<u>選項 2：</u>在相同的資料分割中建立索引實體  
 
 使用第二個選項時，您會使用儲存下列資料的索引實體：  
 
@@ -614,7 +614,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 2. 剖析 EmployeeIDs 欄位中的員工識別碼清單。  
 3. 如果您需要這些員工的詳細資訊 (例如其電子郵件地址)，請從您在步驟 2 中取得的員工清單使用 **PartitionKey** 值 "Sales" 和 **RowKey** 值來擷取每個員工實體。  
 
-<u>選項 #3：</u>在個別的資料分割或資料表中建立索引實體  
+<u>選項 3：</u>在個別的資料分割或資料表中建立索引實體  
 
 使用第三個選項時，您會使用儲存下列資料的索引實體：  
 
@@ -652,8 +652,8 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 ![部門實體與員工實體][16]
 
-#### <a name="solution"></a>解決方法
-不要將資料儲存在兩個不同的實體中，而是將資料反正規化，並將管理員詳細資料的複本保存在部門實體中。 例如:  
+#### <a name="solution"></a>方案
+不要將資料儲存在兩個不同的實體中，而是將資料反正規化，並將管理員詳細資料的複本保存在部門實體中。 例如：  
 
 ![反正規化且合併的部門實體][17]
 
@@ -691,7 +691,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 請注意，使用此方法時，您可以選擇在新的實體中重複某些資訊 (例如名字和姓氏)，以便透過單一要求擷取您的資料。 不過，您無法維護強式一致性，因為您無法使用 EGT 自動更新兩個實體。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 使用具有下列結構的實體，在您的原始資料表中儲存新的實體類型：  
 
 ![具有複合索引鍵的員工實體][20]
@@ -723,12 +723,12 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 > [!NOTE]
-> Azure Cosmos DB 中的 「 Azure 資料表 API 所傳回的查詢結果不是依資料分割索引鍵或資料列索引鍵排序。 因此，此模式適合 Azure 表格儲存體，而不適合 Azure Cosmos DB。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+> Azure 資料表 API 在 Azure Cosmos DB 中傳回的查詢結果不會依資料分割索引鍵或資料列索引鍵排序。 因此，此模式適合 Azure 表格儲存體，而不適合 Azure Cosmos DB。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 #### <a name="context-and-problem"></a>內容和問題
 常見的需求是要能夠取出最近建立的實體，例如員工提交的最近 10 筆費用請款。 資料表查詢支援 **$top** 查詢作業，以從某個集合中傳回前 *n* 個實體：沒有對等的查詢作業可傳回某個集合中的最後 n 個實體。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 儲存使用可自然以反向的日期/時間順序排序的 **RowKey** 的實體，使最新的項目一律排在資料表中的首位。  
 
 比方說，若要能夠擷取某員工最近提交的十筆費用請款，您可以使用衍生自目前日期/時間的反向刻度值。 下列 C# 程式碼範例說明如何針對從最新排序到最舊的 **RowKey** 建立適當的「反向刻度」值：  
@@ -770,7 +770,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 這個方法可避免產生資料分割熱點，因為應用程式可以在個別的資料分割中插入和刪除每一位使用者的登入實體。 不過如果您有大量的實體，這種方法可能既昂貴又耗時，因為您必須先執行資料表掃描以識別所有要刪除的實體，然後必須刪除每個舊的實體。 您可以藉由將多個刪除要求批次處理到 EGT 中，以減少刪除舊實體所需的伺服器往返次數。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 為每天的登入嘗試使用個別的資料表。 當您要插入的實體時，您可以使用上述的實體設計來避免熱點，且刪除舊實體目前只不過是每天刪除一個資料表 (單一儲存體作業) 的問題而已，而無須每天尋找和刪除成千上百的個別登入實體。  
 
 #### <a name="issues-and-considerations"></a>問題和考量
@@ -800,7 +800,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 採用這種設計，您可以輕鬆地找出並更新實體，以在應用程式需要更新訊息計數值時更新每個員工。 不過，若要擷取資訊以繪製過去 24 小時內的活動圖，您必須擷取 24 個實體。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 使用下列具有個別屬性的設計，儲存每個小時的訊息計數：  
 
 ![具有個別屬性的訊息統計資料實體][23]
@@ -829,7 +829,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="context-and-problem"></a>內容和問題
 個別實體可以擁有超過 252 個 (不含必要的系統屬性) 屬性，而且無法儲存總計超過 1 MB 的資料。 在關聯式資料庫中，您會通常可藉由新增資料表並對其施行一對一關聯性，來解決任何資料列的大小限制。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 使用資料表服務，可讓您儲存多個實體來代表具有超過 252 個屬性的單一大型商業物件。 例如，如果您想要儲存每個員工在 365 天內傳送的 IM 訊息計數，您可以採用下列設計，使用兩個具有不同結構描述的實體：  
 
 ![具有 Rowkey 01 的訊息統計資料實體和具有 Rowkey 02 的訊息統計資料實體][24]
@@ -856,7 +856,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="context-and-problem"></a>內容和問題
 個別實體無法儲存總計超過 1 MB 的資料。 如果有一或多個屬性所儲存的值會導致您的實體大小總計超過此值，您將無法在資料表服務中儲存整個實體。  
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 如果您的實體因為一或多個屬性包含大量資料而使大小超過 1 MB，您可以將資料儲存在 Blob 服務，然後將 Blob 的位址儲存在實體的屬性中。 比方說，您可以在 Blob 儲存體中儲存員工的相片，並將相片的連結儲存在員工實體的 **Photo** 屬性中：  
 
 ![具有指向 Blob 儲存體之相片字串的員工實體][25]
@@ -886,7 +886,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 ![員工實體][26]
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 下列替代實體結構可在應用程式記錄事件時避免在任何特定資料分割上產生熱點：  
 
 ![具有複合年、月、日、小時及事件識別碼之 RowKey 的員工實體][27]
@@ -925,7 +925,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 不過，此結構描述的問題是，若要擷取特定時間範圍內的所有記錄訊息，您必須在資料表中搜尋每個資料分割。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 上一節加強說明了嘗試使用資料表服務來儲存記錄項目的問題，並提供了兩個無法令人滿意的設計。 一個方案會導致熱點資料分割，且具有寫入記錄檔訊息效能不佳的風險；另一個方案會導致查詢效能不佳，因為必須要掃描資料表中的每個資料分割，才能擷取特定時間範圍內的記錄訊息。 Blob 儲存體可為這種類型的案例提供更好的方案，Azure Storage Analytics 就是以此方式來儲存它所收集到的記錄資料。  
 
 本節概述 Storage Analytics 將記錄資料儲存在 Blob 儲存體中的方式，以說明如何以此方法儲存您常會依範圍查詢的資料。  
@@ -1124,8 +1124,8 @@ foreach (var e in entities)
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td></td>
@@ -1144,8 +1144,8 @@ foreach (var e in entities)
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td></td>
@@ -1181,8 +1181,8 @@ foreach (var e in entities)
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td></td>
@@ -1217,8 +1217,8 @@ foreach (var e in entities)
 <th>EntityType</th>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1239,8 +1239,8 @@ foreach (var e in entities)
 <th>EntityType</th>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1280,8 +1280,8 @@ foreach (var e in entities)
 <th>EntityType</th>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1309,7 +1309,7 @@ foreach (var e in entities)
 #### <a name="retrieving-heterogeneous-entity-types"></a>擷取異質性實體類型
 在使用儲存體用戶端程式庫時，有三個選項可供您使用多個實體類型。  
 
-如果您知道以特定**RowKey** 和 **PartitionKey** 值儲存的實體類型，則您在擷取實體時將可指定實體類型，如先前兩個擷取實體類型 **EmployeeEntity** 的範例所說明：[使用儲存體用戶端程式庫執行點查詢](#executing-a-point-query-using-the-storage-client-library)和[使用 LINQ 擷取多個實體](#retrieving-multiple-entities-using-linq)。  
+如果您知道以特定**RowKey** 和 **PartitionKey** 值儲存的實體類型，則在您擷取實體 (如先前兩個擷取實體類型 **EmployeeEntity** 的範例所說明) 時，將可指定實體類型：[使用儲存體用戶端程式庫執行點查詢](#executing-a-point-query-using-the-storage-client-library)和[使用 LINQ 擷取多個實體](#retrieving-multiple-entities-using-linq)。  
 
 第二個選項是使用 **DynamicTableEntity** 類型 (屬性包)，而不是具體的 POCO 實體類型 (這個選項也可改善效能，因為不需要將實體序列化和還原序列化成 .NET 類型)。 下列 C# 程式碼可能會從資料表中擷取多個不同類型的實體，但會傳回所有實體做為 **DynamicTableEntity** 執行個體。 然後，它會使用 **EntityType** 屬性來判斷每個實體的類型：  
 

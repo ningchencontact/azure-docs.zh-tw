@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Cosmos DB 進行 Java 應用程式開發教學課程
-description: 本 Java Web 應用程式教學課程示範如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Java 應用程式資料。
+title: 教學課程：使用 Azure Cosmos DB 進行 Java 應用程式開發教學課程
+description: 教學課程：本 Java Web 應用程式教學課程示範如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Java 應用程式資料。
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: ramkris
-ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616663"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720847"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>教學課程：使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -42,7 +42,7 @@ ms.locfileid: "69616663"
 ## <a id="Prerequisites"></a>針對此 Java Web 應用程式教學課程的必要條件
 開始進行本應用程式開發教學課程之前，您必須具備下列條件：
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "69616663"
 * [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已啟用某個 Java Runtime Environment (例如 Tomcat 或 Jetty) 的 Azure 網站。](../app-service/app-service-web-get-started-java.md)
 
-如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的逐步解說，請參閱其 [教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 一節。
+如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的的逐步解說，請參閱其 [教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 一節。
 
 ## <a id="CreateDB"></a>步驟 1：建立 Azure Cosmos DB 帳戶
 我們將從建立 Azure Cosmos DB 帳戶開始著手。 如果您已經擁有帳戶，或如果您正在使用 Azure Cosmos DB 模擬器來進行本教學課程，可以跳到[步驟 2：建立 Java JSP 應用程式](#CreateJSP)。
@@ -122,7 +122,7 @@ ms.locfileid: "69616663"
         }
    
     在此專案中，您會使用 [Project Lombok](https://projectlombok.org/) 來產生建構函式、getter、setter 及產生器。 或者，您也可以手動撰寫此程式碼，或讓 IDE 產生它。
-2. 若要叫用 Azure Cosmos DB 服務，您必須將新的 **DocumentClient**具現化。 一般而言，最好是重複使用 **DocumentClient**，而不要針對每個後續要求建構新的用戶端。 我們可以將用戶端包裝在 **DocumentClientFactory**中以重複使用用戶端。 您必須在 DocumentClientFactory.java 中，貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。 將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
+2. 若要叫用 Azure Cosmos DB 服務，您必須將新的 **DocumentClient**具現化。 一般而言，最好是重複使用 **DocumentClient** ，而不要針對每個後續要求建構新的用戶端。 我們可以將用戶端包裝在 **DocumentClientFactory**中以重複使用用戶端。 您必須在 DocumentClientFactory.java 中，貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。 將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";

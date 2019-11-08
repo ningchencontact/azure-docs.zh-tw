@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 117c74eac1e234f84af6be2d275637d7b8f4e2a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03cf8eb2036a9670dbc75e3efb55e52a70de5c54
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794017"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607271"
 ---
 # <a name="what-is-azure-event-grid"></a>什麼是 Azure 事件方格？
 
@@ -56,7 +56,7 @@ Azure 事件方格的部署方式是以原生方式分散到每個區域中中�
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [佇列儲存體](event-handlers.md#queue-storage)
-* [服務匯流排](event-handlers.md#service-bus-queue-preview) (預覽)
+* [服務匯流排](event-handlers.md#service-bus-queue)
 * [WebHook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>概念

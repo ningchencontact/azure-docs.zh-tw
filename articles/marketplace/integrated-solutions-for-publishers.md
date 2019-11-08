@@ -4,15 +4,16 @@ description: Azure Marketplace 和 Microsoft AppSource 中的整合式解決方�
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706319"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818553"
 ---
 # <a name="publish-an-integrated-solution"></a>發佈整合式解決方案
 
@@ -61,23 +62,23 @@ ms.locfileid: "71706319"
 1. 以研討會格式完成重要的商務和技術討論，以定義解決方案和整合方法。 
 
     您的解決方案討論應包含下列幾點：
-    * `Scope`
+    * Scope
     * 目標客戶
     * 價值主張
-    * 定價
+    * 價格
     * 授權
-    * Terms and conditions
+    * 條款及條件
     * 支援方法
     * 行銷活動
     * 銷售程式
-    * activities
+    * 活動
 
     您對整合方法的討論應牽涉到下列幾點： 
     * 整合點
     * 方案架構
     * 驗證
     * 使用者介面
-    * 監視
+    * 監控
     * 部署機制
     * API
     * 整合資料存放庫
@@ -86,7 +87,7 @@ ms.locfileid: "71706319"
 
     * [商務決策研討會討論指南](https://aka.ms/AA5qicx)
     * [技術決策研討會討論指南](https://aka.ms/AA5qid1)
-    * @no__t 0Quickstart 影片：商務和技術研討會 @ no__t-0
+    * [快速入門影片：商務和技術研討會](https://aka.ms/AA5qos9)
 
 1. 識別跨合作夥伴的專案經理，以推動您在商務和技術研討會中開發的專案計劃和時程表。
 

@@ -4,15 +4,16 @@ description: Go To Market 服務 - 本節說明如何加入 Azure Marketplace �
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 12dcdff082ce1bac350d0e3a426df6acec6efe99
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962745"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819011"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>如何成為 AppSource 和 Azure Marketplace 中的精選項目
 
@@ -21,13 +22,13 @@ Azure Marketplace 和 AppSource 都有**精選應用程式**區段，您可以�
 * 首先，如果您有試用或交易供應專案，您可以透過[商業 marketplace 權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)來使用「類別促銷」權益。
 * 第二，檢閱下方最佳做法和準則清單，以爭取曝光度。
 
-精選應用程式的選取演算法會對 Microsoft 所支援的應用程式產生分數，就像美國的個人信用分數一樣。  每週精選應用程式會根據應用程式和服務效能的分數計算來選取。
+精選應用程式選擇演算法會向 Microsoft 產生應用程式的分數，就像美國的個人信用分數一樣。  每週精選應用程式會根據應用程式和服務效能的分數計算來選取。
 
 ## <a name="steps-to-take"></a>需採取的步驟
 
 您可以採取下列動作項目來提升您的分數：
 
-1. 確定您的應用程式或服務已正確分類：選擇代表您應用程式或服務功能的三個類別。
+1. *請確定您的應用程式或服務已適當地分類*：選擇代表您的應用程式或服務功能的三種類別。
 2. Azure Marketplace 應用程式：每月增加您的 Azure 耗用量。 如果您能夠達到每月 1,000 小時的 Azure 使用量，您將可大幅增加獲選為精選應用程式的機會。
 3. AppSource 應用程式：增加取得您供應項目的次數。 如果您能夠達到每月 10 次的取得次數，您將可大幅增加獲選為精選應用程式的機會。 
 4. 達到可共同銷售 (Co-Sell Ready) 狀態：完成可共同銷售的需求。

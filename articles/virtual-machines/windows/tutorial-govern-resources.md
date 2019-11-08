@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a0821885361fa4781c75b0ed4caa71f9fda37a1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674996"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749119"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來管理 Windows 虛擬機器
 
@@ -26,7 +26,7 @@ ms.locfileid: "71674996"
 
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 

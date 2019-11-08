@@ -1,22 +1,22 @@
 ---
-title: 複寫至 Azure SQL Database」
+title: 複寫
 description: 了解如何搭配 Azure SQL Database 單一資料庫和彈性集區中的資料庫使用 SQL Server 複寫
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: ae564a98b77b1ac564fa9aae152b27c491187d0c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ac198ed8eac6221831fbb280129b76e5fa4e3413
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692214"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815771"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>複寫至 SQL Database 單一資料庫與集區資料庫
 

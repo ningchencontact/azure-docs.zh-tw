@@ -1,18 +1,19 @@
 ---
-title: 適用於 Azure SQL Database 和資料倉儲的 Private Link | Microsoft Docs
+title: 私人連結
 description: 私人端點功能的概觀
 author: rohitnayakmsft
 ms.author: rohitna
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71066248"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821300"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>適用於 Azure SQL Database 和資料倉儲的 Private Link (預覽)
 

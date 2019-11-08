@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 41a09be36262ff09c383b8ccb64a94230a11d3f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937922"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823000"
 ---
 # <a name="containers-offer-publishing-guide"></a>容器供應項目發佈指南
 
@@ -35,7 +36,7 @@ Microsoft 目前支援免費和自備授權 (BYOL) 授權模型。
 | 計費和計量 | 支援免費或 BYOL 計費模型。 |  
 | 從 Dockerfile 建置的映像 | 容器映像必須以 Docker 映像規格為基礎，而必須從 Dockerfile 建置。<ul> <li>如需建置 Docker 映像的詳細資訊，請瀏覽＜使用方式＞一節 (網址為 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage))。</li> </ul> |  
 | 裝載於 ACR 中 | 容器映像必須裝載於 Azure Container Registry (ACR) 存放庫中。<ul> <li>如需使用 ACR 的詳細資訊，請瀏覽＜快速入門：使用 Azure 入口網站建立容器登錄＞頁面 (網址為 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal))。</li> </ul> |  
-| 映像標記 | 容器映像必須包含至少 1 個標籤 (最多可容納標籤：16 個)。<ul> <li>如需標記映像的詳細資訊，請瀏覽＜Docker 標籤＞頁面 (網址為 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag))。</li> </ul> |  
+| 映像標記 | 容器映像必須包含至少 1 個標籤 (最多可容納 16 個標籤)。<ul> <li>如需標記映像的詳細資訊，請瀏覽＜Docker 標籤＞頁面 (網址為 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag))。</li> </ul> |  
 
 ## <a name="next-steps"></a>後續步驟
 

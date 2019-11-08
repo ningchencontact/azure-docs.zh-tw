@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d4a16fc3d4c29b1e270fa088af75d287a81180c0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552058"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827447"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 
@@ -69,7 +69,7 @@ Circonus 是針對內部部署或 SaaS 部署建置的微服務監視和分析�
 
 使用建置來節省時間和金錢的平台聯集並自動化您的雲端。 CloudHealth 提供雲端管理的可見性、直覺式最佳化和穩固控管的做法。 CloudHealth 平臺可讓企業和 Msp 將雲端投資的報酬率最大化。 對成本、使用方式、效能和安全性進行有信心的決策。
 
-[瞭解更多資訊。][cloudhealth-doc]
+[深入了解。][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -95,7 +95,7 @@ Dynatrace OneAgent 會透過 Azure 延伸模組機制來與 Azure VM 和應用�
 
 [請移至檔。][dynatrace-doc]
 
-## <a name="elastic"></a>彈性
+## <a name="elastic"></a>Elastic
 
 ![彈性標誌](./media/partners/elastic.png)
 
@@ -267,5 +267,5 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds 文件。"
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 文件。"
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 文件。"
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic 簡介。"
+[turbonomic-doc]: https://turbonomic.com/ "Turbonomic 簡介。"
 

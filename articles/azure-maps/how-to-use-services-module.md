@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 77659fdf93947cfbaa0daa322dccf4e9cb1a41fa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844709"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827280"
 ---
 # <a name="use-the-azure-maps-services-module"></a>使用 Azure 地圖服務 services 模組
 
@@ -23,7 +23,7 @@ Azure 地圖服務 Web SDK 提供*服務模組*。 此模組是協助程式程�
 
 1. 建立新的 HTML 檔案。
 1. 載入 Azure 地圖服務 services 模組。 您可以透過下列兩種方式的其中一種來載入它：
-    - 使用 Azure 地圖服務服務模組的全球託管 Azure 內容傳遞網路版本。 將腳本參考新增至`<head>`檔案的元素：
+    - 使用 Azure 地圖服務服務模組的全球託管 Azure 內容傳遞網路版本。 將腳本參考新增至檔案的 `<head>` 元素：
 
         ```html
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
@@ -33,7 +33,7 @@ Azure 地圖服務 Web SDK 提供*服務模組*。 此模組是協助程式程�
     
         > **npm 安裝 azure-地圖服務-rest**
     
-        然後，將腳本參考新增至`<head>`檔案的元素：
+        然後，將腳本參考新增至檔案的 `<head>` 元素：
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -124,7 +124,7 @@ Azure 地圖服務 Web SDK 提供*服務模組*。 此模組是協助程式程�
 
     如需詳細資訊，請參閱[使用 Azure 地圖服務進行驗證](azure-maps-authentication.md)。
 
-1. 下列程式碼會使用新建立的 Azure 搜尋服務服務 URL 用戶端來地理編碼位址：「1個 Microsoft 的方式，Redmond，WA」。 程式碼會使用`searchAddress`函式，並將結果顯示為頁面主體中的資料表。
+1. 下列程式碼會使用新建立的 Azure 地圖服務搜尋服務 URL 用戶端來地理編碼位址： "1 Microsoft 的方式，Redmond，WA"。 程式碼會使用 `searchAddress` 函式，並將結果顯示為頁面主體中的資料表。
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -160,7 +160,7 @@ Azure 地圖服務 Web SDK 提供*服務模組*。 此模組是協助程式程�
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="使用服務模組" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>），請參閱<a href='https://codepen.io/azuremaps/pen/zbXGMR/'>使用服務模組</a>的畫筆。
+Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>），請參閱在<a href='https://codepen.io'>CodePen</a>上<a href='https://codepen.io/azuremaps/pen/zbXGMR/'>使用服務模組</a>的畫筆。
 </iframe>
 
 ## <a name="next-steps"></a>後續步驟

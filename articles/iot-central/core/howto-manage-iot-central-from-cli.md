@@ -1,6 +1,6 @@
 ---
 title: 從 Azure CLI 管理 IoT Central |Microsoft Docs
-description: 從 Azure CLI 管理 IoT Central。
+description: 本文說明如何使用 CLI 建立和管理您的 IoT Central 應用程式。 您可以使用 CLI 來查看、修改和移除應用程式。
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 91ef85a0e74af6488d22345ac056431ad5ba0533
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ddf1cfb1cb3997431b83812d03535ed990c88922
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953417"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806880"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>從 Azure CLI 管理 IoT Central
 
@@ -50,19 +50,19 @@ az iotcentral app create \
 
 這些命令會先在「美國東部」區域中為應用程式建立資源群組。 下表描述搭配**az iotcentral app create**命令使用的參數：
 
-| 參數         | 描述 |
+| 參數         | 說明 |
 | ----------------- | ----------- |
 | resource-group    | 包含應用程式的資源群組。 此資源群組必須已經存在於您的訂用帳戶中。 |
 | location          | 根據預設，此命令會使用來自資源群組的位置。 目前，您可以在「**美國東部**」、「**美國西部** **」、「北歐」** 或「**西歐」區域中**，或在「**澳大利亞**」或「**亞太地區**地理位置」中建立 IoT Central 應用程式。 |
 | 名稱              | 應用程式在 Azure 入口網站中的名稱。 |
-| 子域         | 應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com 。 |
+| 子域         | 應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com。 |
 | sku               | 目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
 | 範本          | 要使用的應用程式範本。 如需詳細資訊，請參閱下列表格： |
 | display-name      | 在 UI 中顯示的應用程式名稱。 |
 
 **應用程式範本**
 
-| 範本名稱            | 描述 |
+| 範本名稱            | 說明 |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
 | iotc-demo@1.0.0          | 建立一個應用程式，其中包含已為冷飲自動販賣機建立的裝置範本。 使用此範本來開始探索 Azure IoT 中心。 |

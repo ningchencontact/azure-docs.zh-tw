@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687018"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820736"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？
 
@@ -117,7 +117,7 @@ Azure 可用性區域會嘗試防止在單一區域內建立單一資料中心�
 
 事實上，Azure 的服務等級協定[（SLA）](https://azure.microsoft.com/support/legal/sla/)是由 Microsoft 管理的全球資料中心網路所提供，可協助讓您的應用程式執行24/7。 Azure 平臺可完全管理每個資料庫，並保證不會遺失資料，也不會有高百分比的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 藉由整合單一節點上的計算和儲存以取得效能，然後執行類似于 Always On 可用性群組的技術，即可達成高階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 
 
-此外，SQL Database 提供內建的[商務持續性和全球擴充性](sql-database-business-continuity.md)功能。 這些區域包括：
+此外，SQL Database 提供內建的[商務持續性和全球擴充性](sql-database-business-continuity.md)功能。 其中包含：
 
 - [自動備份](sql-database-automated-backups.md)：
 

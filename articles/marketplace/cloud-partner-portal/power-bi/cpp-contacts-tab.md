@@ -1,22 +1,23 @@
 ---
-title: Power BI 應用程式供應項目的連絡資訊 |Azure Marketplace
+title: Power BI 應用程式供應專案的連絡人資訊 |Azure Marketplace
 description: 為 Microsoft AppSource Marketplace 的 Power BI 應用程式供應項目設定 [連絡人] 欄位。
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: f659ad2f75f9dad390c37f0e1736af5991a32dfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec1ed23b253f705e1830c1c014492fe52b2133f0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943232"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826529"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Power BI 應用程式的 [連絡人] 索引標籤
 
-使用 [新增供應項目]  頁面的 [連絡人]  索引標籤，為您的供應項目提供技術和使用者支援資源。 它分成兩部分：**工程**和**客戶支援**。
+使用 [新增供應項目] 頁面的 [連絡人] 索引標籤，為您的供應項目提供技術和使用者支援資源。 它分成兩個部分：**工程**和**客戶支援**。
 
 ![連絡人索引標籤](media/contacts-tab.png)
 
@@ -25,12 +26,12 @@ ms.locfileid: "64943232"
 
 下表描述每個欄位的用途。  必要欄位由星號 (*) 標示。 
 
-|   欄位               |   描述                                                            |
+|   欄位               |   說明                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *工程連絡人* | AppSource 與貴組織的技術連絡人。    |
 | **名稱\***              | 負責技術/工程支援的人員或群組名稱。 |
 | **電子郵件\***             | 此技術連絡人的電子郵件地址。                                  |
-| **Phone\***             | 此技術連絡人的電話號碼。                                       |
+| **電話\***             | 此技術連絡人的電話號碼。                                       |
 | *支援連絡人*     | 接收客戶在 AppSource 中開立的支援票證。            |
 | **名稱\***              | 負責客戶支援的人員或群組名稱。              |
 | **電子郵件\***             | 客戶支援部門的電子郵件地址。                                        |

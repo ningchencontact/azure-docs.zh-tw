@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: d6bf0f788f7c71a55a4c3667023d8b1d9f571baf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820973"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826344"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>針對 Azure Cache for Redis 超時進行疑難排解
 
@@ -34,7 +34,7 @@ ms.locfileid: "72820973"
 
 ## <a name="redis-server-patching"></a>Redis 伺服器修補
 
-Azure Cache for Redis 會定期更新其伺服器軟體，做為它所提供的受控服務功能的一部分。 此[修補](cache-failover.md)活動主要會在幕後進行。 在容錯移轉期間，當 Redis 伺服器節點正在進行修補時，連接到這些節點的 Redis 用戶端可能會在這些節點之間切換連接時遇到暫時性的超時。 請參閱[容錯移轉如何影響我的用戶端應用程式](cache-failover.md#how-does-a-failover-impact-my-client-application)，以取得您的應用程式上可能有哪些副作用修補的詳細資訊，以及如何改善其修補事件的處理方式。
+Azure Cache for Redis 會定期更新其伺服器軟體，做為它所提供的受控服務功能的一部分。 此[修補](cache-failover.md)活動主要會在幕後進行。 在容錯移轉期間，當 Redis 伺服器節點正在進行修補時，連接到這些節點的 Redis 用戶端可能會在這些節點之間切換連接時遇到暫時性的超時。 請參閱[容錯移轉如何影響我的用戶端應用程式](cache-failover.md#how-does-a-failover-affect-my-client-application)，以取得您的應用程式上可能有哪些副作用修補的詳細資訊，以及如何改善其修補事件的處理方式。
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>StackExchange.Redis 逾時例外狀況
 

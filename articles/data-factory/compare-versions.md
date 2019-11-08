@@ -1,5 +1,5 @@
 ---
-title: 比較 Azure Data Factory 與 Data Factory 第 1 版 | Microsoft Docs
+title: 比較 Azure Data Factory 與 Data Factory 第 1 版
 description: 本文將比較 Azure Data Factory 與 Azure Data Factory 第 1 版。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 4cdb517e644d55504bfdafbd3bacdfd4bfa0b36c
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: cab4f156aa1fb2fa4d3b122377be1b28337f15a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479308"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681598"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>比較 Azure Data Factory 與 Data Factory 第 1 版
 本文將比較 Data Factory 與 Data Factory 第 1 版。 如需 Data Factory 的指示，請參閱 [Data Factory 簡介](introduction.md)。如需 Data Factory 第 1 版的指示，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 

@@ -1,6 +1,6 @@
 ---
 title: 設定連線處理站拓撲 - Azure | Microsoft Docs
-description: 如何設定連線處理站解決方案加速器的拓撲。
+description: 本文說明如何設定連線的工廠解決方案加速器，包括其拓撲。
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428309"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820123"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
@@ -265,9 +265,9 @@ ms.locfileid: "67428309"
 此分類中的屬性會定義連線處理站儀表板的視覺外觀。 範例包括：
 
 * 名稱
-* 描述
-* Image
-* Location
+* 說明
+* 映像
+* 位置
 * Units
 * 可見
 
@@ -282,7 +282,7 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 * 要包含在計算中的 OPC UA 節點值。
 * 如何從遙測值計算數據。
 
-連線處理站會使用 OEE 公式所發佈[ http://www.oeefoundation.org ](http://www.oeefoundation.org)。
+連線的處理站會使用[http://www.oeefoundation.org](http://www.oeefoundation.org)所發佈的 OEE 公式。
 
 站台中的 OPC UA 節點物件會啟用可在 OEE/KPI 計算中使用的標記。 **Relevance** 屬性指出 OPC UA 節點值應該用於哪個 OEE/KPI 數據。 **OpCode** 屬性定義如何將值包含在計算中。
 
@@ -307,7 +307,7 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 
   識別 OPC UA 伺服器中的節點值。 此屬性的格式必須是如在 OPC UA 規格中所指定。 在內嵌訊息中，此屬性會當作 **NodeId** 傳送。
 
-請參閱[什麼是 OPC 發行者](overview-opc-publisher.md)如需有關的遙測資料內嵌至連線處理站的方式。
+如需有關如何將遙測資料內嵌至連線的處理站的詳細資訊，請參閱[什麼是 OPC 發行者](overview-opc-publisher.md)。
 
 ## <a name="example-how-kpi1-is-calculated"></a>範例：如何計算 KPI1
 
@@ -340,4 +340,4 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 
 ## <a name="next-steps"></a>後續步驟
 
-建議採取的下一個步驟是了解如何[自訂連線工廠解決方案](iot-accelerators-connected-factory-customize.md)。
+建議的下一個步驟是瞭解如何[自訂連線的](iot-accelerators-connected-factory-customize.md)處理站解決方案。

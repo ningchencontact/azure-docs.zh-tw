@@ -4,17 +4,17 @@ description: 深入了解 Azure Digital Twins，一個關於空間智慧的 Azur
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
-ms.date: 09/17/2019
+ms.date: 11/05/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
-ms.openlocfilehash: 2194afe4784d1b59dc5fd5628e3a9223d13f92be
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 93adf946ac630d2839f761b01a02d02f6ca92b64
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949295"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718231"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 概觀
 

@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98b09d8b07c625613e3be149e64ac8f06adc089
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561686"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805553"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 新增或刪除使用者
-從您的 Azure Active Directory (Azure AD) 組織新增使用者或刪除現有的使用者。
+從您的 Azure Active Directory （Azure AD）組織新增使用者或刪除現有的使用者。 若要新增或刪除使用者，您必須是使用者系統管理員或全域管理員。 
 
 ## <a name="add-a-new-user"></a>新增使用者
 您可以使用 Azure Active Directory 入口網站建立新使用者。
@@ -39,7 +39,7 @@ ms.locfileid: "68561686"
 
    - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
 
-   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com 。
+   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如， mary@contoso.com。
     
        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
 
@@ -47,11 +47,11 @@ ms.locfileid: "68561686"
 
    - **群組。** (選擇性) 您可以將使用者新增到一或多個現有的群組。 您也可以稍後再將使用者新增到群組。 如需有關將使用者新增到群組的詳細資訊，請參閱[如何建立基本的群組及新增成員](active-directory-groups-create-azure-portal.md)。
 
-   - **目錄角色。** (選擇性) 您可以將使用者新增至 Azure AD 系統管理員角色。 您可以將使用者指派為全域管理員或 Azure AD 中的一或多個受限系統管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
+   - **目錄角色。** （選擇性）您可以將使用者新增至 Azure AD 系統管理員角色。 您可以將使用者指派為全域管理員或 Azure AD 中的一或多個受限系統管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
 
 4. 複製在 [密碼] 方塊中提供的自動產生密碼。 您必須將此密碼提供給使用者，讓其進行初始登入程序。
 
-5. 選取 [建立]。
+5. 選取 [ **建立**]。
 
     使用者已建立並新增至您的 Azure AD 租用戶。
 
@@ -70,10 +70,10 @@ ms.locfileid: "68561686"
 
     ![使用者 - 已反白顯示 [刪除使用者] 的 [所有使用者] 頁面](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    使用者會被刪除，而且再也不會出現在 [使用者 - 所有使用者] 頁面上。 在接下來的 30 天，您可以在 [刪除的使用者] 頁面上看到該使用者，而且在此期間內可將該使用者還原。 如需有關還原使用者的詳細資訊，請參閱[如何還原或永久移除最近刪除的使用者](active-directory-users-restore.md)。 刪除使用者時, 使用者所取用的任何授權都可供其他使用者使用。
+    使用者會被刪除，而且再也不會出現在 [使用者 - 所有使用者] 頁面上。 在接下來的 30 天，您可以在 [刪除的使用者] 頁面上看到該使用者，而且在此期間內可將該使用者還原。 如需有關還原使用者的詳細資訊，請參閱[如何還原或永久移除最近刪除的使用者](active-directory-users-restore.md)。 刪除使用者時，使用者所取用的任何授權都可供其他使用者使用。
 
     >[!Note]
-    >您必須使用 Windows Server Active Directory 來更新使用者(其授權來源是 Windows Server Active Directory) 的身分識別、連絡資訊或工作資訊。 完成更新之後，您必須等候下一次同步處理循環完成，才能看到您所做的變更。
+    >您必須使用 Windows Server Active Directory 來更新授權來源是 Windows Server Active Directory 之使用者的身分識別、連絡資訊或作業資訊。 完成更新之後，您必須等候下一次同步處理循環完成，才能看到您所做的變更。
 
 ## <a name="next-steps"></a>後續步驟
 

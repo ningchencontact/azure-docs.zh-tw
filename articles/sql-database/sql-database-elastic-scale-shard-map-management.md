@@ -1,5 +1,5 @@
 ---
-title: 相應放大 Azure SQL 資料庫
+title: 相應放大資料庫
 description: 如何使用彈性資料庫用戶端程式庫 ShardMapManager
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d704e22dcd9ce4442ed16ae901c9c447fc025ebd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690164"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823565"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分區對應管理員相應放大資料庫
 
@@ -69,7 +69,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 **分區**包含 **Shardlet**，Shardlet 至分區的對應是由分區對應所維護。 **清單分區對應** 是個別索引鍵值 (識別 Shardlet) 與資料庫 (做為分區) 之間的關聯。  **清單對應** 十分明確，而且不同的索引鍵值可以對應到相同資料庫。 例如，索引鍵值 1 對應到 Database A，而索引鍵值 3 和 6 都會對應到 Database B。
 
-| 索引鍵 | 分區位置 |
+| 金鑰 | 分區位置 |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -83,7 +83,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 例如， **[0, 100)** 包含所有大於或等於 0 且小於 100 的整數。 請注意，多個範圍可指向相同的資料庫，而且可支援不相連的範圍 (例如 [100, 200) 和 [400, 600) 都指向下列範例中的資料庫 C。)
 
-| 索引鍵 | 分區位置 |
+| 金鑰 | 分區位置 |
 | --- | --- |
 | [1,50) |Database_A |
 | [50,100) |Database_B |
@@ -222,7 +222,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 用來填入或變更 **ShardMapManager** 資料的方法不會改變分區本身中儲存的使用者資料。 比方說，**CreateShard**、**DeleteShard**、**UpdateMapping** 等方法只會影響分區對應中繼資料。 它們不會移除、新增或改變分區中所包含的使用者資料。 相反地，這些方法是設計來搭配其他作業一起使用，例如，您可能執行這些作業來建立或移除實際的資料庫，或將資料列從一個分區移至另一個分區，以重新平衡分區化環境。  （彈性資料庫工具隨附的**分割合併**工具會使用這些 api，以及協調分區之間實際的資料移動。）請參閱[使用彈性資料庫分割合併工具進行調整](sql-database-elastic-scale-overview-split-and-merge.md)。
 
-## <a name="data-dependent-routing"></a>依資料路由
+## <a name="data-dependent-routing"></a>資料相依路由
 
 需要資料庫連線來執行應用程式特定資料作業的應用程式，會使用分區對應管理員。 這些連線都必須與正確的資料庫相關聯。 這稱為 **資料相依路由**。 對於這些應用程式，請使用對 GSM 資料庫具有唯讀存取的認證，從 Factory 具現化分區對應管理員物件。 稍後連接的個別要求會提供連接到適當分區資料庫所需的認證。
 

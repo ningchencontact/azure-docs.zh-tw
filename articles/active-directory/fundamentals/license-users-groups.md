@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034239"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805528"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 入口網站中指派或移除授權
 
@@ -37,7 +37,7 @@ Azure AD 服務有數個可用的授權方案，包括：
 
 如需有關每個授權方案和相關聯授權詳細資料的特定資訊，請參閱[我需要什麼授權？](https://azure.microsoft.com/pricing/details/active-directory/)。
 
-某些位置無法使用部分 Microsoft 服務。 必須先為所有成員指定 [使用位置]，才可以將授權指派給群組。 您可以在 Azure AD 中的 [Azure Active Directory]&gt;[使用者]&gt;[設定檔]&gt;[設定] 區域中設定此值。 未指定其使用位置的任何使用者都會繼承 Azure AD 組織的位置。
+某些位置無法使用部分 Microsoft 服務。 必須先為所有成員指定 [使用位置]，才可以將授權指派給群組。 您可以在 Azure AD 中的 [Azure Active Directory] **[使用者]&gt;[設定檔]&gt;[設定] 區域中設定此值。&gt;** 未指定其使用位置的任何使用者都會繼承 Azure AD 組織的位置。
 
 ## <a name="view-license-plans-and-plan-details"></a>查看授權方案和方案詳細資料
 
@@ -82,11 +82,13 @@ Azure AD 服務有數個可用的授權方案，包括：
     [指派授權] 頁面隨即更新，顯示已選取一名使用者且已設定指派。
 
     > [!NOTE]
-    > 某些位置無法使用部分 Microsoft 服務。 必須先指定 [使用位置]，才可以將授權指派給使用者。 您可以在 Azure AD 中的 [Azure Active Directory]&gt;[使用者]&gt;[設定檔]&gt;[設定] 區域中設定此值。 未指定其使用位置的任何使用者都會繼承 Azure AD 組織的位置。
+    > 某些位置無法使用部分 Microsoft 服務。 必須先指定 [使用位置]，才可以將授權指派給使用者。 您可以在 Azure AD 中的 [Azure Active Directory] **[使用者]&gt;[設定檔]&gt;[設定] 區域中設定此值。&gt;** 未指定其使用位置的任何使用者都會繼承 Azure AD 組織的位置。
 
 1. 選取 [指派]。
 
     系統會將使用者新增至授權使用者清單中，且該使用者擁有隨附 Azure AD 服務的存取權。
+    > [!NOTE]
+    > 您也可以從使用者的 [**授權**] 頁面直接將授權指派給使用者。 如果使用者具有透過群組成員資格指派的授權，而您想要直接將相同的授權指派給使用者，則只能從步驟1中所述的 [**產品**] 頁面進行。
 
 ### <a name="to-assign-a-license-to-a-group"></a>若要將授權指派給群組
 

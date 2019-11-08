@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145ab994bbd2ac2445947968ccdeadbb730eb76a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 16066ceeb7196bb181d144cc9529d6db627ed828
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476101"
+ms.locfileid: "73582526"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "73476101"
 
 本文說明如何從下列環境存取存放庫：
 
-- [Azure Machine Learning 計算執行個體](#notebookvm)
+- [Azure Machine Learning Notebook VM](#notebookvm)
 - [自攜 Notebook 伺服器](#byo)
 - [資料科學虛擬機器](#dsvm)
 
@@ -32,7 +32,7 @@ ms.locfileid: "73476101"
 > 在複製存放庫之後，您可在 **tutorials** 資料夾中找到教學課程 Notebook，並且可在 **how-to-use-azureml** 資料夾中找到特定功能的 Notebook。
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>取得 Azure Machine Learning 計算執行個體的範例
+## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>在 Azure Machine Learning Notebook VM 上取得範例
 
 要開始使用範例，最簡單的方式是完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。 完成後，您將會有已預先載入 SDK 與範例存放庫的專用 Notebook 伺服器。 您不需要下載或安裝。
 

@@ -1,25 +1,26 @@
 ---
-title: Azure Resource Manager 測試磁碟機 |Azure Marketplace
+title: Azure Resource Manager 試用產品 |Azure Marketplace
 description: 使用 Azure Resource Manager 建置 Markeplace 試用產品
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606428"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827556"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
 
 此文章適用於在 Azure Marketplace 上提供供應項目或在 AppSource 上提供供應項目但只想要使用 Azure 資源建置其試用產品的發行者。
 
-Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的解決方案的 Azure 資源的容器。 如果您熟悉 Resource Manager 範本是，研讀[了解 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)並[製作 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)藉此確定您了解如何建置和測試您自己的範本。
+Azure Resource Manager （Resource Manager）範本是一種 Azure 資源的程式碼容器，您可以將其設計成最適合您的解決方案。 如果您不熟悉 Resource Manager 範本為何，請閱讀[瞭解 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)和[撰寫 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)，以確保您知道如何建立和測試您自己的範本。
 
 試用產品會利用提供的 Resource Manager 範本並將所有必要資源從該 Resource Manager 範本部署到資源群組。
 
@@ -31,25 +32,25 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>如何建置 Azure Resource Manager 試用產品
 
-以下是建置的 Azure Resource Manager 試用產品的程序：
+以下是建立 Azure Resource Manager 試用產品的流程：
 
-1. 設計您想要您的客戶在流程圖中執行動作。
-1. 定義何種體驗，您想要建置您的客戶。
-1. 根據上述的定義，決定哪些項目和資源所需的客戶，若要完成這類經驗： 例如 D365 執行個體或具有資料庫的網站。
-1. 建置在本機的設計及測試體驗。
-1. 套件在 ARM 範本部署中，並從該處的經驗：
-    1. 定義資源的哪些部分是輸入的參數。
-    1. 變數是什麼;
-    1. 哪些輸出會提供給客戶的體驗。
-1. 發行、 測試及上線。
+1. 設計您希望客戶在流程圖中執行的工作。
+1. 定義您希望客戶建立的體驗。
+1. 根據上述定義，決定客戶要完成這類體驗所需的部分和資源：例如，D365 移轉實例或具有資料庫的網站。
+1. 在本機建立設計，並測試體驗。
+1. 在 ARM 範本部署中封裝體驗，然後從這裡：
+    1. 定義資源的哪些部分是輸入參數;
+    1. 哪些變數是;
+    1. 提供給客戶經驗的輸出。
+1. 發行、測試及上線。
 
 有關如何建置 Azure Resource Manager 試用產品最重要的部分是定義您想讓您的客戶體驗的案例。 您提供防火牆產品並想要示範如何妥善處理指令碼插入式攻擊？ 您提供儲存體產品並想要示範您的解決方案快速並輕鬆地壓縮檔案？
 
-請務必花足夠的時間評估的最佳方式來到攝影棚展示您的產品有哪些。 特別是有關所需的資源您需要，因為它可封裝更容易充分的 Resource Manager 範本。
+請務必花相當長的時間來評估您的產品的最佳顯示方式。 特別針對您需要的所有必要資源，因為它可讓封裝 Resource Manager 範本的作業變得更容易。
 
 繼續討論上面所講的防火牆範例，架構可能是您需要為您的服務使用公用 IP URL，並為您防火牆所保護的網站使用另一個公用 IP URL。 每個 IP 都是部署在虛擬機器上並使用網路安全性群組 + 網路介面彼此連線。
 
-一旦您設計的資源所需的套件之後, 現在包含撰寫和測試磁碟機的 Resource Manager 範本的建置。
+一旦您設計了所需的資源套件，現在就可以開始撰寫和建立試用產品 Resource Manager 範本。
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>撰寫試用產品 Resource Manager 範本
 
@@ -82,14 +83,14 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ### <a name="accepted-parameter-metadata-types"></a>接受的參數中繼資料類型
 
-| 中繼資料類型   | 參數類型  | 描述     | 範例值    |
+| 中繼資料類型   | 參數類型  | 說明     | 範例值    |
 |---|---|---|---|
-| **baseuri**     | string          | 您部署套件的基底 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **username**    | string          | 新的隨機使用者名稱。| admin68876      |
+| **baseuri**     | 字串          | 您部署套件的基底 URI| HTTPs：\//\<\.。\>blob.core.windows.net/\<\.。\> |
+| **username**    | 字串          | 新的隨機使用者名稱。| admin68876      |
 | **password**    | 安全字串    | 新的隨機使用者密碼 | Lp!ACS\^2kh     |
-| **session id**   | string          | 唯一試用產品工作階段識別碼 (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **session id**   | 字串          | 唯一試用產品工作階段識別碼 (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>userName
+#### <a name="username"></a>username
 
 試用產品會使用您部署套件的**基底 Uri** 初始化此參數，因此您可以使用此參數將任何檔案的建構 Uri 包含到您的套件中。
 
@@ -116,7 +117,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 }
 ```
 
-#### <a name="username"></a>userName
+#### <a name="username"></a>username
 
 試用產品會使用新的隨機使用者名稱來初始化此參數：
 
@@ -257,7 +258,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 您必須確認您的訂用帳戶允許您在您選擇的每個區域部署您要部署的所有資源。 此外，您也必須確認您的虛擬機器映像在您要啟用的的所有區域中都可供使用，否則您的部署範本在某些區域將無法運作。
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>輸出
 
 一般而言，使用 Resource Manager 範本時，您可以在不產生任何輸出的情況下進行部署。 這是因為您知道用來填寫範本參數的所有值，而且您一律可以手動檢查任何資源的屬性。
 
@@ -300,26 +301,26 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 | package.zip                       | 試用產品 Blob 容器         |
 |---|---|
-| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
-| templates/solution.json           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
-| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
+| main-template.json                | HTTPs：\//\<\.。\>blob.core.windows.net/\<\.。\>/main-template.json  |
+| templates/solution.json           | HTTPs：\//\<\.。\>blob.core.windows.net/\<\.。\>/templates/solution.json |
+| scripts/warmup.ps1                | HTTPs：\//\<\.。\>blob.core.windows.net/\<\.。\>/scripts/warmup.ps1  |
 
 
 我們將此 Blob 容器的 Uri 稱為基底 Uri。 您實驗的每個版次都有自己的 Blob 容器，因此您實驗的每個版次都有自己的基底 Uri。 試用產品可以透過範本參數，將您已解壓縮之部署套件的基底 Uri 傳遞到您的範本。
 
 ## <a name="transforming-template-examples-for-test-drive"></a>轉換試用產品的範本範例
 
-將資源架構轉換為試用產品 Resource Manager 範本的程序可能很困難。 為協助您更輕鬆地完成此程序，我們已建立範例，說明如何以最佳方式[轉換目前的部署範本](./transforming-examples-for-test-drive.md)。
+將資源架構轉換為試用產品 Resource Manager 範本的程序可能很困難。 為協助您更輕鬆地完成此程序，我們已建立範例，說明如何以最佳方式\'轉換目前的部署範本[。
 
-## <a name="how-to-publish-a-test-drive"></a>如何發佈試用產品
+## <a name="how-to-publish-a-test-drive"></a>如何發行試用產品
 
 既然您已經建置您的試用產品，此節逐步解說成功發佈試用產品所需的每個欄位。
 
 ![在使用者介面中啟用試用產品](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-第一個且最重要的欄位是切換是否要為您的供應項目啟用試用產品。 當您選取 [是]  時，會呈現具有其餘所有必要欄位的表單供您填寫。當您選取 [否]  時，表單會被停用，而且若您在已停用試用產品的情況下重新發佈，您的試用產品將從生產環境移除。
+第一個且最重要的欄位是切換是否要為您的供應項目啟用試用產品。 當您選取 **[是] 時，** 會顯示包含所有必要欄位的表單的其餘部分，以供您填寫。當您選取 [否] 時 **，** 表單會變成停用狀態，如果您在已停用試用產品的情況下重新發佈，就會從生產環境中移除
 
-注意:若任何試用產品仍由使用者使用中，那些試用產品將會繼續執行，直到其工作階段過期。
+注意：若任何試用產品仍由使用者使用中，那些試用產品將會繼續執行，直到其工作階段過期。
 
 ### <a name="details"></a>詳細資料
 
@@ -370,7 +371,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ![試用產品部署訂用帳戶詳細資料](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**Azure 訂用帳戶識別碼 -** *必要* 這會授與對 Azure 服務與 Azure 入口網站的存取權。 訂用帳戶是回報資源使用狀況並針對所使用服務計費的位置。 若您還沒有將只用於試用產品的**獨立** Azure 訂用帳戶，請建立一個獨立訂用帳戶。 您可以透過登入 Azure 入口網站並瀏覽到左側功能表中的 [Azure] 以尋找 Azure 訂用帳戶識別碼。 (範例："a83645ac-1234-5ab6-6789-1h234g764ghty")
+**Azure 訂用帳戶識別碼 -** *必要* 這會授與對 Azure 服務與 Azure 入口網站的存取權。 訂用帳戶是回報資源使用狀況並針對所使用服務計費的位置。 若您還沒有將只用於試用產品的**獨立** Azure 訂用帳戶，請建立一個獨立訂用帳戶。 您可以透過登入 Azure 入口網站並瀏覽到左側功能表中的 [訂用帳戶] 以尋找 Azure 訂用帳戶識別碼。 (範例："a83645ac-1234-5ab6-6789-1h234g764ghty")
 
 ![Azure 訂用帳戶](./media/azure-resource-manager-test-drive/subdetails2.png)
 
@@ -382,7 +383,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ![Azure Active Directory 租用戶清單](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![定義 Azure AD 租用戶的組織、 網域和國家/地區](./media/azure-resource-manager-test-drive/subdetails5.png)
+![定義 Azure AD 租使用者的組織、網域和國家/地區](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![確認選取範圍](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -403,15 +404,15 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 我們使用應用程式來部署到訂用帳戶，我們必須在訂用帳戶上將應用程式新增為參與者。 有關這些動作的指示如下：
 
 1. 瀏覽到 [訂用帳戶] 刀鋒視窗，並選取您僅用於試用產品的適當訂用帳戶。
-1. 按一下 [存取控制 (IAM)]  。
-1. 按一下 [角色指派]  索引標籤。![新增新的存取控制原則](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-1. 按一下 [新增角色指派]  。
-1. 將角色設定為 [參與者]  。
+1. 按一下 [存取控制 (IAM)]。
+1. 按一下 [**角色指派**] 索引標籤。 ![新增存取控制主體](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. 按一下 [新增角色指派]。
+1. 將角色設定為 [參與者]。
 1. 輸入 Azure AD 應用程式的名稱，並選取 應用程式以指派角色。
     ![新增權限](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. 按一下 [儲存]  。
+1. 按一下 [儲存]。
 
-**Azure AD App 金鑰 -** *必要* 最後一個欄位是要產生驗證金鑰。 在 [金鑰] 下，新增 [金鑰描述] 並將期間設定為永不到期，然後選取 [儲存]。 **務必**避免擁有已到期的金鑰，這將會使得生產環境中的試用產品中斷。 複製此值並將它貼到您的必要 [試用產品] 欄位中。
+**Azure AD App 金鑰 -** *必要* 最後一個欄位是要產生驗證金鑰。 在 [金鑰] 下，新增 [金鑰描述] 並將期間設定為永不到期，然後選取 [儲存]。 **務必**避免擁有已到期的金鑰，這將會使得生產環境中的試用產品中斷。 複製此值並將它貼到您的必填 [試用產品] 欄位中。
 
 ![顯示 Azure AD 應用程式的金鑰](./media/azure-resource-manager-test-drive/subdetails8.png)
 

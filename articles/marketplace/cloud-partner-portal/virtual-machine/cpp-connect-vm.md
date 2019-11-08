@@ -1,18 +1,19 @@
 ---
-title: 連接到您 Microsoft Azure 為基礎的虛擬機器 |Azure Marketplace
+title: 連接到您的 Microsoft Azure 型虛擬機器 |Azure Marketplace
 description: 說明如何連線到在 Azure 上建立的新虛擬機器。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: ca002a77fd7252466f604b995af949b54694bc8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 256952d06e8b417be9ab2bc3c6c8c6857d50e2ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938586"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817377"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>連線至您的 Azure 型虛擬機器
 
@@ -22,7 +23,7 @@ ms.locfileid: "64938586"
 
 您將使用遠端桌面用戶端連線至裝載於 Azure 上的 Windows 型 VM。  大部分的 Windows 版本原本就支援遠端桌面通訊協定 (RDP)。  如需其他機器的用戶端資訊，請參閱[遠端桌面用戶端](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)。  
 
-下列文件詳細說明如何使用內建的 Windows RDP 支援連接到您的 VM:[如何連接和登入執行 Windows 的 Azure 虛擬機器](../../../virtual-machines/windows/connect-logon.md)。  
+下列文章詳細說明如何使用內建的 Windows RDP 支援服務連線至您的 VM：[如何連線並登入搭載 Windows 的 Azure 虛擬機器](../../../virtual-machines/windows/connect-logon.md)。  
 
 >[!TIP]
 > 您可能會在過程中收到安全性警告，例如 .rdp 檔案來自未知的發行者，或使用者的認證無法驗證。  您可以放心忽略這些警告。
@@ -32,7 +33,7 @@ ms.locfileid: "64938586"
 
 若要連線至 Linux 型 VM，您需要使用安全殼層通訊協定 (SSH) 用戶端。  本討論會使用免費的 [PuTTY](https://www.ssh.com/ssh/putty/) SHH 終端機。
 
-1. 在 [Azure 入口網站](https://ms.portal.azure.com)的**虛擬機器**刀鋒視窗中，選取您要連線的 VM。  
+1. 在 **Azure 入口網站**的[虛擬機器](https://ms.portal.azure.com)刀鋒視窗中，選取您要連線的 VM。  
 2. **啟動** VM (如果尚未執行)。
 3. 按一下 VM 的名稱，以開啟其**概觀**頁面。
 4. 請記下您 VM 的公用 IP 位址和 DNS 名稱。  (如果尚未設定這些值，則必須[建立網路介面](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
@@ -47,7 +48,7 @@ ms.locfileid: "64938586"
 7. 按一下**開啟**以開啟 PuTTY 終端機。  
 8. 系統提示時，請輸入您 Linux VM 帳戶的帳戶名稱和密碼。 
 
-   如果您有連線問題，請參閱文件以取得您的 SSH 用戶端，例如[第 10 章：常見的錯誤訊息](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors)。
+   如有連線問題，請參閱 SSH 用戶端的文件，例如[第 10 章：常見錯誤訊息](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors)。
 
 如需詳細資訊，包括如何將桌面新增至佈建的 Linux VM，請參閱[安裝和設定遠端桌面以在 Azure 中連線至 Linux VM](../../../virtual-machines/linux/use-remote-desktop.md)。
 

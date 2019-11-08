@@ -4,15 +4,16 @@ description: 取消作業。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935554"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819777"
 ---
 # <a name="cancel-operation"></a>取消作業 
 
@@ -25,21 +26,21 @@ ms.locfileid: "64935554"
 <a name="uri-parameters"></a>URI 參數
 --------------
 
-|  **名稱**    |      **描述**                                  |    **資料類型**  |
+|  **名稱**    |      **說明**                                  |    **資料類型**  |
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  發行者識別碼，例如 `contoso`         |   字串          |
 | offerId      |  供應項目識別碼                                     |   字串          |
-| api-version  |  API 目前的版本                               |    Date           |
+| api-version  |  API 目前的版本                               |    日期           |
 |  |  |  |
 
 
-<a name="header"></a>標頭
+<a name="header"></a>頁首
 ------
 
 |  **名稱**              |  **值**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
-|  Authorization         |  Bearer 您的權杖 |
+|  授權         |  Bearer 您的權杖 |
 |  |  |
 
 
@@ -64,7 +65,7 @@ ms.locfileid: "64935554"
 |  |  |
 
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
   `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 
@@ -79,7 +80,7 @@ ms.locfileid: "64935554"
 
 ### <a name="response-status-codes"></a>回應狀態碼
 
-| **代碼**  |  **描述**                                                                       |
+| **程式碼**  |  **說明**                                                                       |
 |  ------   |  ------------------------------------------------------------------------               |
 |  200      | 正常。 已成功處理要求，並同步取消作業。 |
 |  202      | 已接受。 已成功處理要求，而且正在取消該作業。 取消作業的位置會在回應標頭中傳回。 |

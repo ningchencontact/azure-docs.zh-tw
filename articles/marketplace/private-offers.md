@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: cd61a30ccc9de08c3f0950d811d0d10ec5cd842a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598381"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827834"
 ---
 # <a name="private-offers"></a>私人供應項目
 
@@ -33,7 +34,7 @@ ms.locfileid: "72598381"
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>建立使用 SKU 和方案的私人供應項目
 
-針對「具有公用 SKU 或方案的新供應項目或現有供應項目」，發行者可以透過建立新的 SKU 或方案並將其標記為私人，輕鬆建立新的私人變體。  [私人 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 和方案是供應項目的元件，而且只有目標客戶可以看到及購買。 私人 SKU 和方案可以重複使用已針對公用 SKU 或方案發行的基底映像及 (或) 供應項目中繼資料。 此選項可讓發行者建立公用供應項目的多種私人變體，而不需要發行相同基底映像和供應項目中繼資料的多種版本。 (僅限虛擬機器和 Azure 應用程式供應項目) 當私人 SKU 與公用 SKU 共用基底映像時，對供應項目基底映像所做的任何變更都會傳播到使用該基底映像的所有公用和私人 SKU。
+針對「具有公用 SKU 或方案的新供應項目或現有供應項目」，發行者可以透過建立新的 SKU 或方案並將其標記為私人，輕鬆建立新的私人變體。  [私人 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 和方案是供應項目的元件，而且只有目標客戶可以看到及購買。 私人 SKU 和方案可以重複使用已針對公用 SKU 或方案發行的基底映像及 (或) 供應項目中繼資料。 此選項可讓發行者建立公用供應項目的多種私人變體，而不需要發行相同基底映像和供應項目中繼資料的多種版本。 僅針對虛擬機器和 Azure 應用程式供應專案，當私人 SKU 與公用 SKU 共用基底映射時，對供應專案基底映射所做的任何變更，都會使用該基底映射傳播到所有公用和私人 Sku 上。
 
 針對「只包含私人 SKU 或方案的新供應項目」，發行者可以像是任何其他供應項目一樣建立其供應項目，再將 SKU 或方案標記為私人。 與供應項目無關的客戶將無法透過 [Azure Marketplace](https://azuremarketplace.microsoft.com) 或 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)探索或存取只包含私人 SKU 或方案的供應項目。
 
@@ -48,7 +49,7 @@ ms.locfileid: "72598381"
 
 ![[私人供應項目]](./media/marketplace-publishers-guide/private-offer.png)
 
-私人供應項目也會出現在搜尋結果中。 只尋找「私人」徽章。
+私人供應項目也會出現在搜尋結果中。 只要尋找「私用」徽章就好了。
 
 >[!Note]
 >透過雲端解決方案提供者方案（CSP）的轉銷商所建立的訂用帳戶，不支援私用供應專案。

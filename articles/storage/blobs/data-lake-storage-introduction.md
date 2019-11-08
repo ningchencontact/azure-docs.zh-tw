@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299645"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580437"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 簡介
 
@@ -83,7 +83,7 @@ Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Bl
 
 ## <a name="supported-azure-services"></a>支援的 Azure 服務
 
-Data Lake Storage gen2 支援數個 Azure 服務，可用於內嵌資料、執行分析，以及建立視覺表示法。 如需支援的 Azure 服務清單，請參閱[整合 Azure Data Lake Storage 與 Azure 服務](data-lake-store-integrate-with-azure-services.md)。
+Data Lake Storage gen2 支援數個 Azure 服務，可用於內嵌資料、執行分析，以及建立視覺表示法。 如需支援的 Azure 服務清單，請參閱[整合 Azure Data Lake Storage 與 Azure 服務](data-lake-storage-integrate-with-azure-services.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -92,4 +92,4 @@ Data Lake Storage gen2 支援數個 Azure 服務，可用於內嵌資料、執�
 - [階層式命名空間](data-lake-storage-namespace.md)
 - [建立儲存體帳戶](data-lake-storage-quickstart-create-account.md)
 - [Azure Data Lake Storage 上的多重通訊協定存取](data-lake-storage-multi-protocol-access.md)
-- [整合 Azure Data Lake Storage 與 Azure 服務](data-lake-store-integrate-with-azure-services.md)
+- [整合 Azure Data Lake Storage 與 Azure 服務](data-lake-storage-integrate-with-azure-services.md)

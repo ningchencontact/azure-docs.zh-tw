@@ -1,5 +1,5 @@
 ---
-title: 取得應用程式驗證的值-Azure SQL Database
+title: 取得應用程式驗證的值
 description: 建立服務主體以從程式碼存取 SQL Database。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a8f5263e2f79f130814aa520712f679430440fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1c2f45aeeaadbbaedc839dd0e2c10804d720a6cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691008"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827172"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>取得驗證應用程式以從程式碼存取 SQL Database 的所需值
 

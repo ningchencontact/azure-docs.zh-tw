@@ -1,6 +1,6 @@
 ---
 title: 在 IoT Central 上管理您的個人喜好設定 |Microsoft Docs
-description: 如何在 IoT Central 上管理您的個人應用程式喜好設定
+description: 如何管理您的個人應用程式喜好設定，例如變更 IoT Central 應用程式中的語言和主題。
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 154ac608d9d6174ca981f3c358bff1e8272182f8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6bfc70ada906f5c444ace5cd7bb96555700586db
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950076"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806145"
 ---
 # <a name="manage-your-personal-application-preferences"></a>管理您的個人應用程式喜好設定
 
-*此文章適用於操作員、建置人員及系統管理員。*
+*本文適用於操作員、建置員及系統管理員。*
 
 IoT Central 具備可配合您的需求自訂應用程式的彈性。 也會針對個別使用者提供一些彈性，讓您自訂自己的檢視畫面。 本文會介紹各種使用者可套用到設定檔上的自訂選項。
 

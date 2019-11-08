@@ -1,6 +1,6 @@
 ---
 title: 遠端監視解決方案加速器的常見問題集 - Azure | Microsoft Docs
-description: 遠端監視解決方案加速器的常見問題集
+description: 本文會回答遠端監視解決方案加速器的常見問題。
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447900"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826243"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>遠端監視解決方案加速器的常見問題集
 
@@ -23,8 +23,8 @@ ms.locfileid: "61447900"
 
 新的解決方案加速器提供兩種部署選項：
 
-* 基本  選項，是針對尋求降低開發成本的開發人員，或需要建置示範或概念證明的客戶所設計。
-* 標準  選項，是針對需要部署備妥基礎結構的企業而設計。
+* 基本選項，是針對尋求降低開發成本的開發人員，或需要建置示範或概念證明的客戶所設計。
+* 標準選項，是針對需要部署備妥基礎結構的企業而設計。
 
 ### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>如何確定我在開發解決方案的同時保持降低成本？
 
