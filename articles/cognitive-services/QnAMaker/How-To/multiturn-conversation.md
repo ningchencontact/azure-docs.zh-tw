@@ -11,20 +11,20 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695152"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486934"
 ---
-# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>使用後續追蹤提示來建立多回合對話
+# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>使用後續追蹤提示來建立對話的多個回合
 
 使用後續追蹤提示和內容來管理 bot 的多個回合（稱為_多回合_），從一個問題到另一個。
 
 若要查看多回合功能的運作方式，請觀看下列示範影片：
 
-[![Multi-開啟 QnA Maker 中的交談](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[在 QnA Maker 中 ![多回合交談](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>什麼是多重回合交談？
 
@@ -42,12 +42,10 @@ ms.locfileid: "71695152"
 
 當使用者選取選項（#3）時，會顯示下一個精簡選項（#4）清單。 此順序會繼續（#5），直到使用者判斷正確的最後答案（#6）為止。
 
-> [!NOTE]
-> 在上圖中，已選取 [**啟用多回合**] 核取方塊，以確保會顯示提示。 
 
 ### <a name="use-multi-turn-in-a-bot"></a>在 bot 中使用多回合
 
-若要管理內容相關交談，請將程式[代碼新增至您的 bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting)來變更用戶端應用程式。 新增程式碼可讓使用者看到提示。  
+發佈您的知識庫之後，您可以選取 [**建立 Bot** ] 按鈕，將您的 QnA Maker Bot 部署至 Azure bot 服務。 提示會出現在您已為 bot 啟用的聊天用戶端中。
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>從檔的結構建立多回合交談
 
@@ -55,25 +53,25 @@ ms.locfileid: "71695152"
 
 ![啟用多重回合解壓縮的核取方塊](../media/conversational-context/enable-multi-turn.png)
 
-當您選取此選項時，可以從檔結構隱含多回合交談。 如果該結構存在，QnA Maker 會在匯入過程中建立對您的問題和答案進行配對的後續提示。 
+當您選取此選項時，QnA Maker 會解壓縮存在於檔結構中的階層。 階層會在中轉換以追蹤提示，而階層的根則做為父 QnA。 在某些檔中，階層的根沒有可以做為答案的內容，您可以提供「預設回應文字」做為替代答案文字，以將這類階層解壓縮。   
 
-只能從 Url、PDF 檔案或 .DOCX 檔案推斷多回合結構。 如需結構的範例，請參閱[Microsoft Surface 使用者手冊 PDF](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)檔案的影像。 由於此 PDF 檔案的大小，QnA Maker 資源需要**B** （15個索引）或更高的**搜尋定價層**。 
+只能從 Url、PDF 檔案或 .DOCX 檔案推斷多回合結構。 如需結構的範例，請參閱[Microsoft Surface 使用者手冊 PDF](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)檔案的影像。 
 
 ![![使用者手冊中的結構範例](../media/conversational-coNtext/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-### <a name="determine-multi-turn-structure-from-format"></a>從格式判斷多回合結構
+### <a name="building-your-own-multi-turn-document"></a>建立您自己的多回合檔
 
-QnA Maker 決定多回合結構的來源：
+如果您要建立多回合檔，請記住下列指導方針：
 
-* 標題字型大小-如果您使用樣式、色彩或一些其他機制來表示檔中的結構，QnA Maker 將不會解壓縮多回合提示。 
+* 使用標題和子標題來表示階層。 例如，您可以利用 h1 來表示父 QnA 和 h2，以表示應該當做提示的 QnA。 使用 [小標題大小] 來表示後續的階層。 請勿使用樣式、色彩或其他一些機制來表示檔中的結構，QnA Maker 不會解壓縮多回合提示。 
 
-標題的規則包括：
+* 請不要以問號結束標題，`?`。 
 
-* 不要結束具有問號的標題，`?`。 
+* 您可以使用[範例檔](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)作為範例，以建立您自己的多回合檔。
 
-### <a name="add-file-with-multi-turn-prompts"></a>新增具有多回合提示的檔案
+### <a name="adding-files-to-a-multi-turn-kb"></a>將檔案新增至多回合 KB
 
-當您新增多回合檔時，QnA Maker 會從結構中決定後續的提示，以建立對話流程。 
+當您新增階層式檔時，QnA Maker 會從結構中決定後續的提示，以建立對話流程。 
 
 1. 在 QnA Maker 中，選取以 **從 url、.pdf 或 .docx 檔案啟用多重回合解壓縮** 建立的現有知識庫。 後. 
 1. 移至 [**設定**] 頁面，選取要新增的檔案或 URL。 
@@ -91,7 +89,7 @@ QnA Maker 決定多回合結構的來源：
 
 將顯示的問答組縮減成隻有具有內容相關交談的配對。 
 
-選取 [**查看選項**]，然後選取 **[顯示內容（預覽）** ]。 此清單會顯示包含後續追蹤提示的問答配對。 
+選取 [**視圖選項**]，然後選取 [**顯示內容**]。 此清單會顯示包含後續追蹤提示的問答配對。 
 
 ![依內容相關交談篩選問題和答案配對](../media/conversational-context/filter-question-and-answers-by-context.png)
 
@@ -111,7 +109,7 @@ QnA Maker 決定多回合結構的來源：
 
 1. 若要連結現有的問答組作為後續提示，請選取 [問答組] 的資料列。 針對表面手冊，搜尋**登出**以減少清單。
 1. 在**Signout**的資料列中，選取 [**回應**] 資料行中的 [**新增後續追蹤提示**]。
-1. 在 [**後續提示（預覽）** ] 快顯視窗的欄位中，輸入下列值：
+1. 在 [**後續提示**] 快顯視窗的欄位中，輸入下列值：
 
     |欄位|值|
     |--|--|
@@ -265,7 +263,7 @@ QnA Maker 決定多回合結構的來源：
 }
 ```
 
-@No__t-0 陣列提供 `displayText` 屬性和 @no__t 2 值中的文字。 您可以在對話流程中，將這些答案顯示為下一個顯示的選項，然後將選取的 `qnaId` 傳送回下列要求中的 QnA Maker。 
+`prompts` 陣列會在 `displayText` 屬性和 `qnaId` 值中提供文字。 您可以將這些答案顯示為對話流程中的下一個顯示選項，然後將選取的 `qnaId` 傳回至下列要求中的 QnA Maker。 
 
 <!--
 
@@ -355,11 +353,8 @@ QnA Maker _GenerateAnswer_ JSON 回應包含 `answers` 物件中第一個專案�
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>查詢具有 QnA Maker 識別碼的知識庫
 
-在初始問題的回應中，會傳回任何後續的提示及其相關聯的 `qnaId`。 現在您已有識別碼，您可以在後續提示的要求本文中傳遞。 如果要求本文包含 `qnaId` 和內容物件（其中包含先前的 QnA Maker 屬性），則 GenerateAnswer 會依識別碼傳回確切的問題，而不是使用排名演算法來根據問題文字尋找答案。 
+如果您要使用多回合功能來建立自訂應用程式。 在初始問題的回應中，會傳回任何後續追蹤提示及其相關聯的 `qnaId`。 現在您已有識別碼，您可以在後續提示的要求本文中傳遞。 如果要求本文包含 `qnaId`和內容物件（其中包含先前的 QnA Maker 屬性），則 GenerateAnswer 會依識別碼傳回確切的問題，而不是使用排名演算法來根據問題文字尋找答案。 
 
-## <a name="display-prompts-and-send-context-in-the-client-application"></a>在用戶端應用程式中顯示提示和傳送內容 
-
-您已在知識庫中新增提示，並在 [測試] 窗格中測試流程。 現在您需要在用戶端應用程式中使用這些提示。 針對 Bot Framework，提示不會自動顯示在用戶端應用程式中。 您可以在程式碼中包含此[Bot Framework 範例](https://aka.ms/qnamakermultiturnsample)，將提示顯示為建議的動作或按鈕，做為使用者在用戶端應用程式中查詢的一部分。 用戶端應用程式應該儲存目前的 QnA Maker 識別碼和使用者查詢，並將它們傳遞至[GENERATEANSWER API 的內容物件](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts)，以供下一個使用者查詢之用。 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>更新 API 支援顯示順序
 
@@ -367,7 +362,7 @@ QnA Maker _GenerateAnswer_ JSON 回應包含 `answers` 物件中第一個專案�
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>使用 Update API 新增或刪除多回合提示
 
-您可以使用[QnA Maker 更新 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)來新增或刪除多回合提示。  系統會在 `context` 屬性的 `promptsToAdd` 陣列和 @no__t 2 陣列中加入提示。 
+您可以使用[QnA Maker 更新 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)來新增或刪除多回合提示。  系統會在 `context` 屬性的 `promptsToAdd` 陣列和 `promptsToDelete` 陣列中加入提示。 
 
 ## <a name="export-knowledge-base-for-version-control"></a>匯出版本控制的知識庫
 
