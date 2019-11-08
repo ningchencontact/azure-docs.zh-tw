@@ -1,7 +1,7 @@
 ---
 title: 發佈區域 & 端點-LUIS
 titleSuffix: Azure Cognitive Services
-description: 3撰寫區域及其入口網站支援許多發列區域。 您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您發行應用程式時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。
+description: Azure 入口網站中指定的區域與您將發佈 LUIS 應用程式的位置相同，而且會為此相同區域產生端點 URL。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: f859047caf64d27ef63783ecd42f12fc9b79b4fd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fe4436afe56e631ae308b70ae35b1fb4a7c32e11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933354"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669176"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>撰寫和發佈區域及相關聯的金鑰
 
@@ -30,7 +30,7 @@ ms.locfileid: "68933354"
 |LUIS|撰寫區域|Azure 區功能變數名稱稱|
 |--|--|--|
 |[www.luis.ai][www.luis.ai]|美國<br>非歐洲<br>非澳大利亞| `westus`|
-|[au.luis.ai][au.luis.ai]|澳洲| `australiaeast`|
+|[au.luis.ai][au.luis.ai]|澳大利亞| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai]|歐洲|`westeurope`|
 
 撰寫區域具有[配對的故障時區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
@@ -38,7 +38,7 @@ ms.locfileid: "68933354"
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>發列區域和 Azure 資源
-應用程式會發佈至與 LUIS 入口網站中新增的 LUIS 資源相關聯的所有區域。 例如, 針對在[www.luis.ai][www.luis.ai]上建立的應用程式, 如果您在**WESTUS**中建立 luis 或認知服務資源, 並[將它新增至應用程式做為資源](luis-how-to-azure-subscription.md), 則會在該區域中發佈應用程式。 
+應用程式會發佈至與 LUIS 入口網站中新增的 LUIS 資源相關聯的所有區域。 例如，針對在[www.luis.ai][www.luis.ai]上建立的應用程式，如果您在**WESTUS**中建立 luis 或認知服務資源，並[將它新增至應用程式做為資源](luis-how-to-azure-subscription.md)，則會在該區域中發佈應用程式。 
 
 ## <a name="public-apps"></a>公開應用程式
 公用應用程式會在所有區域中發佈，以便具有區域型 LUIS 資源金鑰的使用者在與其資源金鑰相關聯的區域中存取應用程式。
@@ -53,7 +53,7 @@ ms.locfileid: "68933354"
 
 ## <a name="publishing-to-europe"></a>發行至歐洲
 
-若要發行至歐洲區域，您僅能在 https://eu.luis.ai 建立 LUIS 應用程式。 若您嘗試使用歐洲區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://eu.luis.ai 。 LUIS 建立的[https://eu.luis.ai][eu.luis.ai]應用程式不會自動遷移至其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
+若要發行至歐洲區域，您僅能在 https://eu.luis.ai 建立 LUIS 應用程式。 若您嘗試使用歐洲區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://eu.luis.ai。 在[https://eu.luis.ai][eu.luis.ai]建立的 LUIS 應用程式不會自動遷移到其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
 
 ## <a name="europe-publishing-regions"></a>歐洲發行地區
 
@@ -66,17 +66,17 @@ ms.locfileid: "68933354"
 
 ## <a name="publishing-to-australia"></a>發行至澳大利亞
 
-若要發行至澳大利亞區域，您僅能在 https://au.luis.ai 建立 LUIS 應用程式。 若您嘗試使用澳大利亞區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://au.luis.ai 。 LUIS 建立的[https://au.luis.ai][au.luis.ai]應用程式不會自動遷移至其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
+若要發行至澳大利亞區域，您僅能在 https://au.luis.ai 建立 LUIS 應用程式。 若您嘗試使用澳大利亞區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://au.luis.ai。 在[https://au.luis.ai][au.luis.ai]建立的 LUIS 應用程式不會自動遷移到其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
 
 ## <a name="australia-publishing-regions"></a>澳大利亞發行地區
 
  全球區域 | 撰寫 API 區域和編寫網站| 發行與查詢區域<br>`API region name`   |  端點 URL 格式   |
 |-----|------|------|------|
-| [澳大利亞](#publishing-to-australia) | `australiaeast`<br>[au.luis.ai][au.luis.ai]| 澳大利亞東部<br>`australiaeast`     |  https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| [澳大利亞](#publishing-to-australia) | `australiaeast`<br>[au.luis.ai][au.luis.ai]| 澳洲東部<br>`australiaeast`     |  https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 ## <a name="publishing-to-other-regions"></a>發行至其他區域
 
-若要發佈到其他區域, 您[https://www.luis.ai](https://www.luis.ai)只需要建立 LUIS apps。 
+若要發佈到其他區域，您只需要在[https://www.luis.ai](https://www.luis.ai)建立 LUIS 應用程式。 
 
 ## <a name="other-publishing-regions"></a>其他發列區域
 
@@ -91,7 +91,7 @@ ms.locfileid: "68933354"
 | 亞洲 | `westus`<br>[www.luis.ai][www.luis.ai]| 東南亞<br>`southeastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | 北美洲 |`westus`<br>[www.luis.ai][www.luis.ai] | 加拿大中部<br>`canadacentral`     |   https://canadacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | 北美洲 |`westus`<br>[www.luis.ai][www.luis.ai] | 美國中部<br>`centralus`     |   https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 北美洲 |`westus`<br>[www.luis.ai][www.luis.ai] | East US<br>`eastus`      |  https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 北美洲 |`westus`<br>[www.luis.ai][www.luis.ai] | 美國東部<br>`eastus`      |  https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | 北美洲 | `westus`<br>[www.luis.ai][www.luis.ai] | 美國東部 2<br>`eastus2`     |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | 北美洲 | `westus`<br>[www.luis.ai][www.luis.ai] | 美國中北部<br>`northcentralus`  |  https://northcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
 | 北美洲 | `westus`<br>[www.luis.ai][www.luis.ai] | 美國中南部<br>`southcentralus`  |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
@@ -102,18 +102,18 @@ ms.locfileid: "68933354"
 
 ## <a name="endpoints"></a>端點
 
-LUIS 目前有2個端點: 一個用於撰寫, 另一個用於查詢預測分析。
+LUIS 目前有2個端點：一個用於撰寫，另一個用於查詢預測分析。
 
-|用途|URL|
+|目的|URL|
 |--|--|
-|製作|`https://{region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|編寫|`https://{region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
 |文字分析 (查詢預測)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
 
 下表說明上表中的參數 (以大括號 `{}` 表示)。
 
-|參數|用途|
+|參數|目的|
 |--|--|
-|地區|Azure 區域 - 撰寫和發佈具有不同區域|
+|region|Azure 區域 - 撰寫和發佈具有不同區域|
 |appID|URL 路由中使用的 LUIS 應用程式識別碼，於應用程式儀表板上找到|
 |q|用戶端應用程式 (例如聊天機器人) 所傳來的語句文字|
 

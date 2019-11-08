@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: bfb012116f74e451f9479c8c65057e5c8405bbb4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513779"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747701"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>將 Azure API 管理自我裝載閘道部署至 Docker
 
@@ -31,6 +31,9 @@ ms.locfileid: "73513779"
 - 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 - 建立 Docker 環境。 [Docker For Desktop](https://www.docker.com/products/docker-desktop)是適用于開發和評估用途的絕佳選項。 如需有關 docker 的所有版本、其功能，以及 Docker 本身的完整檔，請參閱[docker 檔](https://docs.docker.com)。
 - [在您的 API 管理實例中布建閘道資源](api-management-howto-provision-self-hosted-gateway.md)
+
+> [!NOTE]
+> 自我裝載閘道會封裝為以 Linux 為基礎的 Docker 容器。
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>將自我裝載閘道部署到 Docker
 
@@ -63,4 +66,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入瞭解自我裝載閘道，請參閱[AZURE API 管理自我裝載閘道總覽](self-hosted-gateway-overview.md)
+* 若要深入瞭解自我裝載閘道，請參閱[AZURE API 管理自我裝載閘道總覽](self-hosted-gateway-overview.md)。
+* [設定自我裝載閘道的自訂功能變數名稱](api-management-howto-configure-custom-domain-gateway.md)。

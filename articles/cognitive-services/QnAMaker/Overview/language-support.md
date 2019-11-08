@@ -1,7 +1,7 @@
 ---
 title: 語言支援 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 知識庫的語言會影響 QnA Maker 從來源自動擷取問題和答案的能力，以及 QnA Maker 為回應使用者查詢所提供之結果的相關性。 QnA Maker 針對您的知識庫支援的文化特性、自然語言清單。 請勿在相同知識庫中混用語言。
+description: QnA Maker 針對您的知識庫支援的文化特性、自然語言清單。 請勿在相同知識庫中混用語言。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: f4f7fffdde7d103271fa667bbab11c09ebc54825
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285870"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720993"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 資源和知識庫的語言支援
 
@@ -43,7 +43,7 @@ ms.locfileid: "72285870"
 |捷克文|
 |丹麥文|
 |荷蘭文|
-|繁體中文|
+|English|
 |愛沙尼亞文|
 |芬蘭文|
 |法文|

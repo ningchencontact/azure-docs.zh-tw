@@ -1,7 +1,7 @@
 ---
 title: 使用 .NET 來建立影片文字記錄審核項目 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 使用 Content Moderator SDK for .NET 來建立影片文字記錄審核項目
+description: 瞭解如何使用適用于 .NET 的 Azure 認知服務內容仲裁 SDK 來建立影片文字記錄審核。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ea1b8af69402aade370725f3a4dfdee4b5595ce6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931660"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744388"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -44,7 +44,7 @@ ms.locfileid: "72931660"
 
 ![影片示範縮圖](images/ams-video-demo-view.PNG)
 
-- 複製這個 [Azure 媒體服務示範](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest)頁面上的 **URL** 作為資訊清單 URL。
+- 複製這個 **Azure 媒體服務示範**頁面上的 [URL](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) 作為資訊清單 URL。
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -144,7 +144,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有下列必要參數：
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
-1. **IList \<CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
+1. **IList\<CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
 
 **CreateVideoReviewsBodyItem** 具有數個屬性。 您必須至少設定下列屬性：
 - **Content**。 要審核的影片 URL。
@@ -152,7 +152,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **Createvideoreviews 專案識別碼**會傳回 IList \<string >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
+> **Createvideoreviews 專案識別碼**會傳回 IList\<字串 >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
@@ -190,7 +190,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 ```
 
 > [!NOTE]
-> Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
+> 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
 >
 > 免費層金鑰有一個 RPS 速率限制。
 
@@ -234,15 +234,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
 1. **CreateVideoReviews** 所傳回的影片審核項目識別碼。
-1. IList \<TranscriptModerationBodyItem >。 **TranscriptModerationBodyItem** 具有下列屬性：
-1. **Terms**。 IList \<TranscriptModerationBodyItemTermsItem >。 **TranscriptModerationBodyItemTermsItem** 具有下列屬性：
+1. IList\<TranscriptModerationBodyItem >。 **TranscriptModerationBodyItem** 具有下列屬性：
+1. **Terms**。 IList\<TranscriptModerationBodyItemTermsItem >。 **TranscriptModerationBodyItemTermsItem** 具有下列屬性：
 1. **Index**。 字詞的從零開始索引。
 1. **Term**。 一個包含字詞的字串。
 1. **Timestamp**。 一個包含在文字記錄中找到字詞之時間 (以秒為單位) 的字串。
 
 文字記錄的格式必須是 WebVTT。 如需詳細資訊，請參閱 [WebVTT：網路影片文字播放軌格式](https://www.w3.org/TR/webvtt1/) \(英文\)。
 
-將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也會將結果轉譯為 IList \<TranscriptModerationBodyItem >，並提交至**AddVideoTranscriptModerationResult**。
+將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也會將結果轉譯為 IList\<TranscriptModerationBodyItem >，並提交至**AddVideoTranscriptModerationResult**。
 
 ```csharp
 /// <summary>
@@ -381,4 +381,4 @@ Press any key to close the application.
 
 了解如何在審核工具中產生[影片審核項目](video-reviews-quickstart-dotnet.md)。
 
-查看有關如何開發[完整影片審查解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。
+查看有關如何開發[完整影片仲裁解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。

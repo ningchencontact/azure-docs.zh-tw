@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 7ad3f932e9a10723d6cc1bae2fc4854c932d4c64
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500896"
+ms.locfileid: "73579675"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>語音助理：常見問題
 
@@ -29,7 +29,7 @@ ms.locfileid: "73500896"
 
 **問：我應該使用自訂命令（預覽）或 Direct Line 語音嗎？有何不同？**
 
-**答：** [自訂命令（預覽）](custom-commands.md)是較低複雜度的工具組，可輕鬆建立並裝載適合工作完成案例的小幫手。 [Direct Line Speech](direct-line-speech.md)提供更豐富、更精密的功能，可啟用健全的對話案例。 如需詳細資訊，請參閱[assistant 解決方案的比較](voice-assistants.md#comparing-assistant-solutions)。
+**答：** [自訂命令（預覽）](custom-commands.md)是較低複雜度的工具組，可輕鬆建立並裝載適合工作完成案例的小幫手。 [Direct Line Speech](direct-line-speech.md)提供更豐富、更精密的功能，可啟用健全的對話案例。 如需詳細資訊，請參閱[assistant 解決方案的比較](voice-assistants.md#choosing-an-assistant-solution)。
 
 **問：如何開始使用？**
 
@@ -40,6 +40,17 @@ ms.locfileid: "73500896"
 * [將 bot 連線至 Direct Line 語音訊道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Debugging
+
+**問：我的通道秘密在哪裡？**
+
+**答：** 如果您已使用 Direct Line 語音的預覽版本，或正在閱讀相關檔，您可能會預期會在 Direct Line 語音訊道註冊頁面上找到秘密金鑰。 在語音 SDK 中 `FromBotSecret` 的 1.7 `DialogServiceConfig` factory 方法也需要此值。
+
+最新版的 Direct Line Speech 可簡化從裝置聯繫 bot 的程式。 在 [通道註冊] 頁面上，頂端的下拉式會將您的 Direct Line 語音通道註冊與語音資源產生關聯。 一旦建立關聯之後，1.8 版語音 SDK 會包含一個 `BotFrameworkConfig::FromSubscription` factory 方法，可將 `DialogServiceConnector` 設定為與您的訂用帳戶相關聯的 bot。
+
+如果您仍在將用戶端應用程式從1.7 版遷移至1.8 版，`DialogServiceConfig::FromBotSecret` 可能會繼續使用非空白的非 null 值作為其通道秘密參數，例如先前使用的秘密。 使用與較新頻道註冊相關聯的語音訂用帳戶時，只會略過此功能。 請注意，此值*必須*為非 null 且不是空的，因為在服務端關聯相關之前，會在裝置上檢查這些值。
+
+
+如需更詳細的指南，請參閱逐步解說通道註冊的[教學課程一節](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel)。
 
 **問：我在連接時收到401錯誤，沒有任何作用。我知道我的語音訂用帳戶金鑰有效。這是怎麼回事？**
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607881"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748563"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
 
@@ -62,7 +62,7 @@ IoT 中樞的容錯移轉作業完成後，從裝置和後端應用程式執行�
 > [!CAUTION]
 > - 在容錯移轉之後，IoT 中樞內建事件端點的事件中樞相容名稱和端點都會變更。 在使用事件中樞用戶端或事件處理器主機接收到來自內建端點的遙測訊息時，您應[使用 IoT 中樞連接字串](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)來建立連線。 這可以確保您的後端應用程式在容錯移轉後可繼續運作，而無需手動介入。 如果您直接在後端應用程式中使用事件中樞相容名稱和端點，您將必須在容錯移轉之後[擷取新的事件中樞相容名稱和端點](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)，以重新設定應用程式，而繼續作業。
 >
-> - 當路由至儲存體時，我們建議您登記儲存體容器，然後逐一查看它們，以確保所有容器都已讀取，而不會對磁碟分割做任何假設。 在 Microsoft 起始的容錯移轉或手動容錯移轉期間，資料分割範圍可能會變更。 若要瞭解如何列舉 blob 清單，請參閱[路由傳送至 Azure 儲存體](iot-hub-devguide-messages-d2c.md#azure-storage)。
+> - 路由至儲存體時，建議您列出 blob 或檔案，然後逐一查看它們，以確保讀取所有 blob 或檔案，而不會對磁碟分割做任何假設。 在 Microsoft 起始的容錯移轉或手動容錯移轉期間，資料分割範圍可能會變更。 您可以使用[清單 BLOB API](https://docs.microsoft.com/rest/api/storageservices/list-blobs)來列舉檔案清單中的 Blob 或[清單 ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list)清單。 
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 起始的容錯移轉
 

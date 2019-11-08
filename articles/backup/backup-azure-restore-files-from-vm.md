@@ -1,6 +1,6 @@
 ---
 title: Azure 備份：從 Azure VM 備份復原檔案和資料夾
-description: 從 Azure 虛擬機器的復原點復原檔案
+description: 在本文中，您將瞭解如何從 Azure 虛擬機器復原點復原檔案和資料夾。
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968493"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747378"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -215,14 +215,14 @@ $ mount [RAID Disk Path] [/mountpath]
 |元件 | 版本  |
 | --------------- | ---- |
 | Bash | 4 和更新版本 |
-| python | 2.6.6 和更新版本  |
+| Python | 2.6.6 和更新版本  |
 | TLS | 應支援 1.2  |
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>從具有大型磁片的虛擬機器備份進行檔復原
 
 本節說明如何從 Azure 虛擬機器備份執行檔案復原，其磁片數目為 > 16，而每個磁片大小為 > 4 TB。
 
-由於檔案復原程式會從備份連結所有磁片，因此如果有大量磁片（> 16）或大型磁片（每個 > 4 TB），則建議使用下列動作點。
+因為檔案復原程式會從備份附加所有磁片，所以當使用大量磁片（> 16）或大型磁片（每個 > 4 TB）時，建議採用下列動作點：
 
 - 保留個別的還原伺服器（Azure VM D2v3 Vm）以進行檔復原。 您只能使用該檔案復原，並在不需要時關閉。 不建議在原始電腦上還原，因為它對 VM 本身會有顯著的影響。
 - 然後執行腳本一次，檢查檔案復原操作是否成功。
@@ -242,16 +242,16 @@ $ mount [RAID Disk Path] [/mountpath]
 
 - 如果還原伺服器是 Linux VM
   - 在 [檔案/etc/iscsi/iscsid.conf] 中，將設定從
-    - node.js [0]. timeo. noop_out_timeout = 5 to node. conn [0]. timeo. noop_out_timeout = 30
+    - node.js [0]. timeo. noop_out_timeout = 5 到 node. conn [0]. timeo. noop_out_timeout = 30
 - 執行下列動作之後，現在請再次執行腳本。 有了這些變更，檔案復原的可能性就很高。
-- 每次使用者下載腳本時，Azure 備份會起始準備復原點以進行下載的程式。 如果是大型磁片，這將需要相當長的時間。 如果有連續的要求高載，則目標準備將會進入下載螺旋。 因此，建議您從入口網站/Powershell/CLI 下載腳本，等待20-30 分鐘（啟發學習法），然後加以執行。 此時，目標應該已準備好從腳本連接。
+- 每次使用者下載腳本時，Azure 備份會起始準備復原點以進行下載的程式。 若使用大型磁片，這將需要相當長的時間。 如果有連續的要求高載，則目標準備將會進入下載螺旋。 因此，建議您從入口網站/Powershell/CLI 下載腳本，等待20-30 分鐘（啟發學習法），然後加以執行。 此時，目標應該已準備好從腳本連接。
 - 在檔案復原之後，請務必返回入口網站，針對無法掛接磁片區的復原點，按一下 [卸載磁片]。 基本上，此步驟會清除任何現有的處理常式/會話，並增加復原的機會。
 
 ## <a name="troubleshooting"></a>疑難排解
 
 如果您從虛擬機器復原檔案時遇到問題，請檢查下表中的其他資訊。
 
-| 錯誤訊息 / 案例 | 可能的原因 | 建議動作 |
+| 錯誤訊息 / 案例 | 可能的原因 | 建議的動作 |
 | ------------------------ | -------------- | ------------------ |
 | Exe 輸出︰連線到目標的例外狀況 |指令碼無法存取復原點    | 檢查電腦是否符合上述的存取需求。 |  
 | Exe 輸出︰目標已透過 iSCSI 工作階段登入。 | 指令碼已在相同電腦上執行，並已附加磁碟機 | 復原點磁碟區已連接。 它們可能未使用原始 VM 的相同磁碟機代號裝載。 在檔案總管中的檔案瀏覽所有可用的磁碟區 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101776"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749101"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
@@ -27,7 +27,7 @@ ms.locfileid: "70101776"
 
 有許多[組件庫中的範本](https://azure.microsoft.com/documentation/templates/?term=VM)包含 VM 資源。 此處並未說明可以包含在範本中的所有項目。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 此範例顯示用來建立指定數目之 VM 範本的一般資源區段︰
 
@@ -182,7 +182,7 @@ ms.locfileid: "70101776"
 
 當您部署範例範本時，您要輸入每個 VM 上系統管理員帳戶的名稱和密碼值，以及要建立的 VM 數目。 您可以選擇指定使用範本管理之不同檔案中的參數值，或當系統提示時提供值。
 
-[變數](../../resource-group-authoring-templates.md)方便您設定範本中整個重複使用或會隨著時間而改變的值。 此變數章節用於範例中︰
+[變數](../../resource-group-authoring-templates.md)方便您在範本中設定始終能夠重複使用的值，或者會隨著時間而改變的值。 此變數章節用於範例中︰
 
 ```
 "variables": { 
@@ -252,7 +252,7 @@ ms.locfileid: "70101776"
 } ]
 ```
 
-## <a name="dependencies"></a>相依性
+## <a name="dependencies"></a>相依項目
 
 大部分的資源相依於其他資源才能正確地運作。 虛擬機器必須與虛擬網路相關聯，且需要網路介面才能執行它。 [ependsOn](../../resource-group-define-dependencies.md) 項目用來確定網路介面在 VM 建立之前已備妥可供使用：
 
@@ -374,7 +374,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 ],
 ```
 
-## <a name="extensions"></a>延伸模組
+## <a name="extensions"></a>擴充功能
 
 雖然[擴充功能](extensions-features.md)是不同的資源，它們會緊密繫結至 VM。 擴充功能可新增為 VM 的子資源或不同的資源。 範例會示範要新增至 VM 的[診斷擴充功能](extensions-diagnostics-template.md)：
 

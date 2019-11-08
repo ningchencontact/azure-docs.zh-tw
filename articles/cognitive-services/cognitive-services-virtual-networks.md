@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 36e0742101203764a731dd2007d239593a500bfa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501050"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647341"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>設定 Azure 認知服務虛擬網路
 
@@ -24,7 +24,7 @@ Azure 認知服務提供多層式安全性模型。 此模型可讓您將認知�
 
 > [!IMPORTANT]
 > 開啟認知服務帳戶的防火牆規則預設會封鎖傳入的資料要求。 為了允許要求通過，必須符合下列其中一個條件：
-> * 此要求應來自目標認知服務帳戶的 [允許的子網] 清單中，在 Azure 虛擬網路（VNet）內運作的服務。
+> * 此要求應來自目標認知服務帳戶的 [允許的子網] 清單中，在 Azure 虛擬網路（VNet）內運作的服務。 來自 VNet 的要求中的端點必須設定為您認知服務帳戶的[自訂子域](cognitive-services-custom-subdomains.md)。
 > * 或者，要求應該來自允許的 IP 位址清單。
 >
 > 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。

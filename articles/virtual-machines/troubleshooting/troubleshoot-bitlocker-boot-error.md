@@ -12,26 +12,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058099"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749678"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 開機錯誤
 
  本文說明當您在 Microsoft Azure 中啟動 Windows 虛擬機器 (VM) 時，可能會遇到的 BitLocker 錯誤。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
  Windows 虛擬機器未啟動。 當您檢查[開機診斷](../windows/boot-diagnostics.md)視窗中的螢幕擷取畫面時，您看到下列其中一個錯誤訊息：
 
 - 插入的 USB 驅動程式具有 BitLocker 金鑰
 
-- 您已遭到鎖定！ 請輸入復原金鑰以便重新繼續 (鍵盤配置：美國)。輸入錯誤登入資訊太多次，因此已將電腦鎖定來保護隱私權。 若要擷取復原金鑰，請從其他電腦或行動裝置前往 https://windows.microsoft.com/recoverykeyfaq 。 如有需要，金鑰識別碼為 XXXXXXX。 或者，您也可以重設電腦。
+- 您已遭到鎖定！ 請輸入復原金鑰以便重新繼續 (鍵盤配置：美國)。輸入錯誤登入資訊太多次，因此已將電腦鎖定來保護隱私權。 若要擷取復原金鑰，請從其他電腦或行動裝置前往 https://windows.microsoft.com/recoverykeyfaq。 如有需要，金鑰識別碼為 XXXXXXX。 或者，您也可以重設電腦。
 
 - 輸入密碼以將此磁碟機 [] 解除鎖定。按 Insert 鍵可看到輸入的密碼。
 - 輸入復原金鑰。從 USB 裝置載入復原金鑰。
@@ -273,13 +273,13 @@ ms.locfileid: "71058099"
 
 **錯誤：無法載入檔案或元件**
 
-之所以發生此錯誤，是因為 ADAL 元件的路徑錯誤。 如果僅針對目前的使用者安裝 AZ 模組，ADAL 元件將位於`C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`。
+之所以發生此錯誤，是因為 ADAL 元件的路徑錯誤。 如果 AZ 模組僅針對目前的使用者安裝，ADAL 元件將位於 `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`。
 
-您也可以搜尋`Az.Accounts`資料夾來尋找正確的路徑。
+您也可以搜尋 `Az.Accounts` 資料夾來尋找正確的路徑。
 
-**錯誤：AzKeyVaultSecret 或 Get-AzKeyVaultSecret 無法辨識為 Cmdlet 的名稱**
+**錯誤： AzKeyVaultSecret 或 Get-AzKeyVaultSecret 無法辨識為 Cmdlet 的名稱**
 
-如果您使用舊的 AZ PowerShell 模組，您必須將這兩個命令變更`Get-AzureKeyVaultSecret`為`Get-AzureKeyVaultSecret`和。
+如果您使用舊的 AZ PowerShell 模組，您必須將這兩個命令變更為 `Get-AzureKeyVaultSecret` 和 `Get-AzureKeyVaultSecret`。
 
 **參數範例**
 

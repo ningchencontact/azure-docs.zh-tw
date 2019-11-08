@@ -1,7 +1,7 @@
 ---
 title: 支援的資料來源 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔案或 MS Word DOC 檔的常見問題集、產品手冊、指導方針、支援文件和原則) 擷取問答組合。 內容也可以從結構化 QnA 內容檔案新增至知識庫。
+description: QnA Maker 會自動解壓縮以網頁、PDF 檔案或 MS Word doc 檔案或結構化 QnA 內容檔案儲存的問答組。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176370"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721218"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -144,7 +144,7 @@ Answer2
 
 採用結構化 .txt、.tsv 或 .xls 檔案形式的 QnA 也可上傳至 QnA Maker，以便建立或擴大知識庫。  這些檔案可以是純文字，也可以具有 RTF 或 HTML 的內容。 
 
-| 問題  | 答案  | 中繼資料（1個索引鍵：1個值） |
+| 問題  | Answer  | 中繼資料（1個索引鍵：1個值） |
 |-----------|---------|-------------------------|
 | 問題 1 | 解答 1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 |      `Key:Value`           |
@@ -171,7 +171,7 @@ Answer2
 
 匯入知識庫後，將會取代現有知識庫的內容。 匯入時必須要有包含資料來源資訊的結構化 .tsv 檔案。 這項資訊可協助 QnA Maker 將問答組分組，並將其歸於特定資料來源。
 
-| 問題  | 答案  | 來源| 中繼資料（1個索引鍵：1個值） |          
+| 問題  | Answer  | 來源| 中繼資料（1個索引鍵：1個值） |          
 |-----------|---------|----|---------------------|
 | 問題 1 | 解答 1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 | 編輯|    `Key:Value`       |
@@ -239,6 +239,6 @@ Answer2
 > [!div class="nextstepaction"]
 > [設定 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>請參閱 
+## <a name="see-also"></a>另請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)

@@ -1,6 +1,6 @@
 ---
 title: 備份 Azure Stack 中的 SQL Server 工作負載
-description: 使用 Azure 備份伺服器來保護 Azure Stack 中的 SQL Server 工作負載。
+description: 在本文中，您將瞭解如何設定 Microsoft Azure 備份 Server （MABS），以保護 Azure Stack 上 SQL Server 資料庫。
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: ab65a1bf371ff8581f347403b49fafed6697374c
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 28d4ad1a94cea6f21d1fe75483357d8788524b88
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210238"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747214"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>備份 Azure Stack 中的 SQL Server
+
 運用本文資訊來設定 Microsoft Azure 備份伺服器 (MABS)，以保護 Azure Stack 中的 SQL Server 資料庫。
 
 將 SQL Server 資料庫備份至 Azure 及從 Azure 復原的管理作業包含三個步驟：
@@ -29,6 +30,7 @@ ms.locfileid: "70210238"
 [安裝及準備 Azure 備份伺服器](backup-mabs-install-azure-stack.md)。
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>建立備份原則以在 Azure 保護 SQL Server 資料庫
+
 1. 在 Azure 備份伺服器 UI 上，按一下 [保護] 工作區。
 
 2. 在工具功能區中，按一下 [新增] 以建立新的保護群組。
@@ -112,6 +114,7 @@ ms.locfileid: "70210238"
     ![保護群組的建立正在進行中](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>SQL Server 資料庫的隨選備份
+
 雖然先前的步驟建立了備份原則，但只有在第一次備份發生時，才會建立「復原點」。 不需等待排程器開始作用，下列步驟會手動觸發復原點的建立。
 
 1. 建立復原點之前，請等到資料庫的保護群組狀態顯示 [確定] 。
@@ -128,6 +131,7 @@ ms.locfileid: "70210238"
     ![監視主控台](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>從 Azure 復原 SQL Server 資料庫
+
 以下是從 Azure 復原受保護的實體 (SQL Server 資料庫) 所需的步驟。
 
 1. 開啟 [Azure 備份伺服器管理主控台]。 前往 [復原] 工作區，您可以在此處查看受到保護的伺服器。 瀏覽所需的資料庫 (在此例中為 ReportServer$MSDPM2012)。 選取 [復原開始時間]，該時間會指定為**線上**點。

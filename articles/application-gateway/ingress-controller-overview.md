@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 79ddfe6b536dcdd7e930960c51854849b94df1bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9635798720667e38a767f26fc2e5f5374e420059
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513350"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795540"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>什麼是應用程式閘道輸入控制器？
 應用程式閘道輸入控制器（AGIC）是 Kubernetes 應用程式，可讓[Azure Kubernetes Service （AKS）](https://azure.microsoft.com/services/kubernetes-service/)客戶利用 Azure 的原生[應用程式閘道](https://azure.microsoft.com/services/application-gateway/)L7 負載平衡器，將雲端軟體公開至網際網路。 AGIC 會監視其裝載所在的 Kubernetes 叢集，並持續更新應用程式閘道，讓選取的服務向網際網路公開。

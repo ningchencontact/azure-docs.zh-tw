@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332552"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749632"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 啟動在 Azure 中停滯在「Windows 正在就緒。 請勿關閉電腦」的狀態
 
 本文說明當您在 Microsoft Azure 中啟動 Windows 虛擬機器（VM）時，您可能會遇到的「準備就緒」和「正在取得 Windows 就緒」畫面。 它提供步驟，以協助您收集支援票證的資料。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptoms"></a>徵兆
 
@@ -100,7 +100,7 @@ Windows VM 不會開機。 當您使用 [**開機診斷**] 取得 VM 的螢幕�
 3. [卸離 OS 磁碟，然後將 OS 磁碟重新連結至受影響的 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 4. 啟動 VM 並存取序列主控台。
 5. 選取 **[傳送非遮罩式插斷（NMI）** ] 以觸發記憶體傾印。
-    @no__t 0the 的影像，告訴您要將無法遮罩的中斷 @ no__t-1 傳送到何處
+    ![影像，以瞭解傳送不可遮罩中斷的位置](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. 再次將 OS 磁片連結至復原 VM，並收集傾印檔案。
 
 ## <a name="contact-microsoft-support"></a>連絡 Microsoft 支援

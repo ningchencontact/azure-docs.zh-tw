@@ -8,20 +8,20 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: bbe236bd4575ffb849b6f4739fc3a27c09aa5e47
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595152"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749236"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>使用執行命令在 Windows VM 中執行 PowerShell 腳本
 
 執行命令功能會使用虛擬機器（VM）代理程式，在 Azure Windows VM 中執行 PowerShell 腳本。 您可以使用這些腳本進行一般電腦或應用程式管理。 它們可協助您快速診斷和修復 VM 存取和網路問題，並讓 VM 恢復正常狀態。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="benefits"></a>優勢
+## <a name="benefits"></a>優點
 
 您可以透過多種方式來存取虛擬機器。 執行命令可以使用 VM 代理程式，從遠端在您的虛擬機器上執行腳本。 您可以透過適用于 Windows Vm 的 Azure 入口網站、 [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)或[PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)來使用執行命令。
 
@@ -77,7 +77,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
     --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
 ```
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure 入口網站
 
 移至[Azure 入口網站](https://portal.azure.com)中的 VM，然後選取 [**作業**] 底下的 [**執行命令**]。 您會看到可在 VM 上執行的可用命令清單。
 
@@ -86,7 +86,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 選擇要執行的命令。 某些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為文字欄位，以供您提供輸入值。 針對每個命令，您可以藉由展開**view script**來查看正在執行的腳本。 **RunPowerShellScript**與其他命令不同，因為它可讓您提供自己的自訂腳本。
 
 > [!NOTE]
-> 無法編輯內建命令。
+> 內建命令是無法編輯的。
 
 選擇命令之後，請選取 [**執行**] 來執行腳本。 腳本完成之後，它會在 [輸出] 視窗中傳回輸出和任何錯誤。 下列螢幕擷取畫面顯示執行 **RDPSettings** 命令的範例輸出。
 

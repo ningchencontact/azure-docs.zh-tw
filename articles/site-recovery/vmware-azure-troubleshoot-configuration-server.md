@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725562"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748544"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
 
@@ -22,7 +22,7 @@ ms.locfileid: "60725562"
 
 當您安裝行動代理程式時，來源電腦會向設定伺服器註冊。 您可以遵循下列的指導方針，對此步驟期間所發生的任何失敗偵錯：
 
-1. 開啟 C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視]  索引標籤上，[顯示/隱藏]  區段中，選取 [隱藏項目]  核取方塊。)失敗可能是由多個問題所造成。
+1. 開啟 C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看到 [ProgramData] 資料夾，請在 [檔案管理器] 的 [**視圖**] 索引標籤的 [**顯示/隱藏**] 區段中，選取 [**隱藏的專案**] 核取方塊。）失敗可能是由多個問題所造成。
 
 2. 搜尋字串 **No Valid IP Address found**。 如果找到該字串：
    1. 請驗證要求的主機識別碼與來源電腦的主機識別碼相同。
@@ -34,22 +34,22 @@ ms.locfileid: "60725562"
 3. 如果找不到字串 **No Valid IP Address found**，則搜尋字串 **Reason=>NULL**。 如果來源電腦使用空白主機向設定伺服器註冊時，就會發生此錯誤。 如果找到該字串：
     - 在您解決問題後，請依照[向設定伺服器註冊來源電腦](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)中所列的指導方針來手動重試註冊。
 
-4. 如果找不到字串 **Reason=>NULL**，則在來源電腦上開啟 C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視]  索引標籤上，[顯示/隱藏]  區段中，選取 [隱藏項目]  核取方塊。)失敗可能是由多個問題所造成。 
+4. 如果找不到字串 **Reason=>NULL**，則在來源電腦上開啟 C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看到 [ProgramData] 資料夾，請在 [檔案管理器] 的 [**視圖**] 索引標籤的 [**顯示/隱藏**] 區段中，選取 [**隱藏的專案**] 核取方塊。）失敗可能是由多個問題所造成。 
 
-5. 搜尋字串 **post request:(7) - Couldn't connect to server**。 如果找到該字串：
+5. 搜尋字串**post 要求：（7）-無法連接到伺服器**。 如果找到該字串：
     1. 解決來源電腦與設定伺服器之間的網路問題。 確認可透過使用如 ping、traceroute 或網頁瀏覽器等網路工具，從來源電腦連線到設定伺服器。 確認來源電腦可透過連接埠 443 連線到設定伺服器。
     2. 檢查來源電腦上是否有任何防火牆規則會封鎖來源電腦與設定伺服器之間的連線。 請與您的網路管理員合作來解除封鎖任何連線問題。
     3. 請確認[自防毒程式排除的 Site Recovery 資料夾](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)中所列的資料夾已自防毒軟體排除。
     4. 解決網路問題後，請依照[向設定伺服器註冊來源電腦](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)中的指導方針重試註冊。
 
-6. 如果找不到字串 **post request:(7) - Couldn't connect to server**，則請在相同的記錄檔中尋找字串 **request:(60) - Peer certificate cannot be authenticated with given CA certificates**。 因為設定伺服器憑證已過期，或來源電腦不支援 TLS 1.0 或更新版本的 SSL 通訊協定，因此可能會發生此錯誤。 如果防火牆封鎖來源電腦與設定伺服器之間的 SSL 通訊，也可能會發生此錯誤。 如果找到該字串： 
+6. 如果找不**到字串 post 要求：（7）-無法連接到伺服器**，請在相同的記錄檔中尋找字串**要求：（60）-對等憑證無法使用指定的 CA 憑證進行驗證**。 因為設定伺服器憑證已過期，或來源電腦不支援 TLS 1.0 或更新版本的 SSL 通訊協定，因此可能會發生此錯誤。 如果防火牆封鎖來源電腦與設定伺服器之間的 SSL 通訊，也可能會發生此錯誤。 如果找到該字串： 
     1. 若要解決，請在來源電腦上使用網頁瀏覽器連線至設定伺服器的 IP 位址。 使用 URI https:\/\/<設定伺服器 IP 位址\>:443/。 確認來源電腦可透過連接埠 443 連線到設定伺服器。
     2. 檢查來源電腦上是否必須新增或移除任何防火牆規則，來源電腦才能與設定伺服器通訊。 由於可能有各種防火牆軟體正在使用中，因此我們無法列出所有必要的防火牆設定。 請與您的網路管理員合作來解除封鎖任何連線問題。
     3. 請確認[自防毒程式排除的 Site Recovery 資料夾](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)中所列的資料夾已自防毒軟體排除。  
     4. 在您解決問題後，請依照[向設定伺服器註冊來源電腦](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)中的指導方針重試註冊。
 
-7. 在 Linux 上，如果 <INSTALLATION_DIR\>/etc/drscout.conf 中的平台值損毀，則註冊會失敗。 若要識別此問題，請開啟 /var/log/ua_install.log 檔案。 搜尋字串 **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**。 平台應設為 **VmWare** 或 **Azure**。 如果 drscout.conf 檔案已損毀，建議您[解除安裝行動代理程式](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)，然後重新安裝行動代理程式。 如果解除安裝失敗，請完成下列步驟：。 開啟 Installation_Directory/uninstall.sh 檔案，並為 **StopServices** 函式的呼叫加上註解。
-    b. 開啟 Installation_Directory/Vx/bin/uninstall.sh 檔案，並為 **stop_services** 函式的呼叫加上註解。
+7. 在 Linux 上，如果 <INSTALLATION_DIR\>/etc/drscout.conf 中的平台值損毀，則註冊會失敗。 若要識別此問題，請開啟 /var/log/ua_install.log 檔案。 搜尋字串 **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**。 平台應設為 **VmWare** 或 **Azure**。 如果 drscout.conf 檔案已損毀，建議您[解除安裝行動代理程式](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)，然後重新安裝行動代理程式。 如果卸載失敗，請完成下列步驟： a。 開啟 Installation_Directory/uninstall.sh 檔案，並為 **StopServices** 函式的呼叫加上註解。
+    b.這是另一個 C# 主控台應用程式。 開啟 Installation_Directory/Vx/bin/uninstall.sh 檔案，並為 **stop_services** 函式的呼叫加上註解。
     c. 開啟 Installation_Directory/Fx/uninstall.sh 檔案，並將嘗試停止 Fx 服務的整個區段加上註解。
     d. [解除安裝](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)行動代理程式。 成功解除安裝之後，請將系統重新開機，然後嘗試重新安裝代理程式。
 
@@ -65,13 +65,13 @@ ms.locfileid: "60725562"
 - 藉由執行下列命令列   psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"，在系統使用者內容中開啟 Internet Explorer
 - 在 IE 中新增 Proxy 設定，然後重新啟動 tmanssvc 服務。
 - 若要設定 DRA Proxy 設定，請執行   cd C:\Program Files\Microsoft Azure Site Recovery Provider
-- 接下來，執行 DRCONFIGURATOR.EXE /configure /AddBypassUrls [新增[組態伺服器部署](vmware-azure-deploy-configuration-server.md#configure-settings)的**設定 vCenter Server/vSphere ESXi 伺服器**步驟進行期間所提供的 IP 位址/FQDN]
+- 接下來，執行 DRCONFIGURATOR.EXE /configure /AddBypassUrls [新增**組態伺服器部署**的[設定 vCenter Server/vSphere ESXi 伺服器](vmware-azure-deploy-configuration-server.md#configure-settings)步驟進行期間所提供的 IP 位址/FQDN]
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>變更設定伺服器的 IP 位址
 
 強烈建議不要變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 IP 位址皆為靜態位址。 請勿使用 DHCP IP 位址。
 
-## <a name="acs50008-saml-token-is-invalid"></a>ACS50008：SAML 權杖無效
+## <a name="acs50008-saml-token-is-invalid"></a>ACS50008： SAML 權杖無效
 
 若要避免這個錯誤，請確定系統時鐘上的時間與本地時間的差異未超過 15 分鐘。 重新執行安裝程式以完成註冊。
 
@@ -79,9 +79,9 @@ ms.locfileid: "60725562"
 
 無法建立驗證 Site Recovery 所需的憑證。 請先確定您是以本機系統管理員身分執行安裝程式，再重新執行安裝程式。
 
-## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>若要啟用伺服器標準的 Windows 授權伺服器標準的評估失敗
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>無法啟動從伺服器標準評估到伺服器標準的 Windows 授權
 
-1. 透過 OVF 組態伺服器部署的一部分，會使用 evaluation 授權，其有效期限為 180 天。 您必須在此授權過期前啟用此授權。 否則，這可以導致頻繁的關機，組態伺服器，並因此會導致複寫活動的障礙。
+1. 在透過 OVF 進行設定伺服器部署的過程中，會使用評估授權，其有效期為180天。 您必須在此授權過期前啟用此授權。 否則，這可能會導致設定伺服器頻繁關機，因而導致阻礙複寫活動。
 2. 如果您無法啟用 Windows 的授權，請連絡 [Windows 支援小組](https://aka.ms/Windows_Support)來解決此問題。
 
 ## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦
@@ -122,7 +122,7 @@ ms.locfileid: "60725562"
 
 組態伺服器必須是單一用途伺服器，不支援使用它作為共用伺服器。 
 
-如需詳細資訊，請參閱[部署組態伺服器](vmware-azure-deploy-configuration-server.md#faq)中的設定常見問題集。 
+如需詳細資訊，請參閱[部署組態伺服器](vmware-azure-deploy-configuration-server.md#faqs)中的設定常見問題集。 
 
 ## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>從組態伺服器資料庫中移除受保護項目的過時項目 
 
@@ -145,7 +145,7 @@ ms.locfileid: "60725562"
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    如果您的 ip 位址為 10.0.0.4"OnPrem VM01"的來源伺服器項目則改為使用下列命令。
+    如果您的來源伺服器專案為 "內部部署-VM01"，ip 位址為10.0.0.4，則請改為使用下列命令。
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  
@@ -185,13 +185,13 @@ ms.locfileid: "60725562"
 
 ## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory 應用程式建立失敗
 
-您在 Azure Active Directory (AAD) 中使用[開放虛擬化應用程式 (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+您在 Azure Active Directory (AAD) 中使用[開放虛擬化應用程式 (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
 ) 範本建立應用程式的權限不足。
 
 若要解決此問題，請登入 Azure 入口網站並執行下列其中一項：
 
 - 在 AAD 中要求應用程式開發人員角色。 如需應用程式開發人員角色的詳細資訊，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
-- 在 AAD 中確認 [使用者可以建立應用程式]  旗標設為 true  。 如需詳細資訊，請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+- 在 AAD 中確認 [使用者可以建立應用程式] 旗標設為 true。 如需詳細資訊，請參閱[如何：使用入口網站建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>處理序伺服器/主要目標無法與組態伺服器通訊 
 
@@ -203,7 +203,7 @@ ms.locfileid: "60725562"
 
 若要確認主要目標代理程式可以針對組態伺服器 IP 建立 TCP 工作階段，請在主要目標代理程式記錄中尋找類似以下的追蹤：
 
-TCP\<取代 IP 這裡 CS IP >: 52739\<取代這裡 CS ip 的 IP >: 443 SYN_SENT 
+TCP \<在此將 IP 取代為 CS IP >： 52739 \<在此將 IP 取代為 CS IP >： 443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 以這裡的 CS IP 取代 IP
 

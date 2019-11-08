@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 926c2c0bbe4fdd24a6a8271b2e01ababcacf77d5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 958acd042acba2a8c6c38ad1e6bac614db509da8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499194"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604430"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
-Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的相同豐富 API，並同時享有 [Docker 容器](https://www.docker.com/what-container) \(英文\) 所帶來的部署及裝載服務彈性。 容器支援目前以預覽形式提供給 Azure 認知服務的一部分，包括下列各部分：
+Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的相同豐富 API，並同時享有 [Docker 容器](https://www.docker.com/what-container) \(英文\) 所帶來的部署及裝載服務彈性。 容器支援目前僅適用于 Azure 認知服務的一部分，包括下列各部分：
 
 > [!div class="checklist"]
 > * [異常偵測器][ad-containers]
@@ -132,13 +132,9 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-<<<<<<< HEAD
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-=======
-[ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [tt-containers]: translator/how-to-install-containers.md
->>>>>>> refs/遠端/MicrosoftDocs/master

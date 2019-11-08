@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: c97f6414876441290cade68b8f9a054970586402
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501016"
+ms.locfileid: "73577964"
 ---
 # <a name="about-voice-assistants"></a>關於語音助理
 
@@ -27,26 +27,29 @@ ms.locfileid: "73501016"
 
    ![語音助理協調流程服務流程的概念圖](media/voice-assistants/overview.png "語音助理流程")
 
+## <a name="choosing-an-assistant-solution"></a>選擇助理解決方案
+
+建立語音助理的第一個步驟是決定應執行的動作。 Azure 語音服務提供多個互補的解決方案，以製作您的助理互動。 無論您是否想要有 Bot Framework 的[Direct Line 語音](direct-line-speech.md)通道所提供的彈性和多功能性，或簡單的[自訂命令（預覽）](custom-commands.md) ，都可以選擇適當的工具，讓您開始使用。
+
+| 如果您想要... | 然後考慮 。 | 例如 。 |
+|-------------------|------------------|----------------|
+|具有強大技能整合和完全部署控制的開放式交談 | Bot Framework 的[Direct Line 語音](direct-line-speech.md)頻道 | <ul><li>「我需要前往西雅圖」</li><li>「我可以訂購哪種比薩餅？」</li></ul>
+|透過簡化的撰寫和裝載來進行命令與控制或工作導向的交談 | [自訂命令（預覽）](custom-commands.md) | <ul><li>「開啟額外負荷燈」</li><li>「讓它成為5度的暖」</ul>
+
+如果您還不確定想要協助程式處理的內容，建議[Direct Line 語音](direct-line-speech.md)做為最佳的預設選擇。 它可以與一組豐富的工具和撰寫協助工具整合，例如[虛擬小幫手解決方案和企業範本](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)，以及用來建立通用模式和使用現有知識來源的[QnA Maker 服務](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview)。
+
+[自訂命令（預覽）](custom-commands.md)提供簡化的撰寫和裝載體驗，特別針對自然語言命令和控制項案例量身打造。
+   ![助理解決方案的比較](media/voice-assistants/assistant-solution-comparison.png "Comparison assistant 解決方案」）
+
 ## <a name="core-features"></a>核心功能
+
+無論您選擇[Direct Line 語音](direct-line-speech.md)或[自訂命令（預覽）](custom-commands.md)來建立助理互動，都可以使用一組豐富的自訂功能，針對您的品牌、產品和特性自訂您的小幫手。
 
 | 類別 | 特性 |
 |----------|----------|
 |[Custom 關鍵字](speech-devices-sdk-create-kws.md) | 使用者可以使用自訂關鍵字（例如 "嗨 Contoso"）來開始與助理交談。 應用程式會使用語音 SDK 中的自訂關鍵字引擎來執行這項工作，您可以使用[這裡產生](speech-devices-sdk-create-kws.md)的自訂關鍵字來設定。 語音助理可以使用服務端關鍵字驗證來改善關鍵字啟用的精確度（與裝置本身的比較）。
 |[語音轉換文字](speech-to-text.md) | 語音助理會使用 Azure 語音服務的[語音轉換文字，](speech-to-text.md)將即時音訊轉換成已辨識的文字。 這項文字已轉譯，可供您的小幫手和用戶端應用程式使用。
 |[文字轉換語音](text-to-speech.md) | 來自您小幫手的文字回應會使用 Azure 語音服務中的[文字轉換語音](text-to-speech.md)進行合成。 然後，您的用戶端應用程式可以使用此合成作為音訊串流。 Microsoft 提供建立您自己的自訂高品質神經 TTS 語音的功能，讓您的品牌能夠發聲。 若要深入瞭解，請[洽詢我們](mailto:mstts@microsoft.com)。
-
-## <a name="comparing-assistant-solutions"></a>比較 assistant 解決方案
-
-語音助理服務會將您的裝置上應用程式連接到您的獨特助理執行。 開發人員可以使用（1） Bot Framework 的[Direct Line 語音](direct-line-speech.md)通道，或（2）[自訂命令（預覽）](custom-commands.md)解決方案，來撰寫語音助理。
-
-   ![助理解決方案的比較](media/voice-assistants/assistant-solution-comparison.png "助理解決方案的比較")
-
-| 方案 | 特性 |
-|----------|----------|
-|[自訂命令（預覽）](custom-commands.md) | 自訂命令（預覽）為語音助理提供簡化的撰寫和裝載解決方案。 它是針對工作完成和命令及控制案例的需求而量身打造。
-|[Direct Line 語音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Direct Line 語音可讓（1）您的用戶端應用程式、（2）相容的 bot，以及（3） Azure 語音服務的功能順暢且順暢地連線。 如需有關將 bot 設定為使用 Direct Line 語音通道的詳細資訊，請參閱[Bot Framework 檔中的頁面](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)。
-
-一旦您使用上述其中一種解決方案建立了語音助理，請使用語音 SDK 中的 `DialogServiceConnector`，將您的裝置應用程式連線到該電腦。 如需詳細資訊，請參閱每個解決方案的快速入門和範例。
 
 ## <a name="getting-started-with-voice-assistants"></a>開始使用語音助理
 

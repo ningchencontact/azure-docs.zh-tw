@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a15d450d033c04c59f6981a887689f1fc08919f1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958860"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795703"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體加密
 
@@ -26,7 +26,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 加密不會影響 Azure 儲存體效能。 Azure 儲存體加密不會產生額外的費用。
 
-如需 Azure 儲存體加密之基礎密碼編譯模組的詳細資訊，請參閱 @no__t 0Cryptography API：新一代](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)。
+如需 Azure 儲存體加密之基礎密碼編譯模組的詳細資訊，請參閱[密碼編譯 API：新一代](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)。
 
 ## <a name="about-encryption-key-management"></a>關於加密金鑰管理
 
@@ -41,9 +41,9 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    加密/解密作業    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    支援的 Azure 儲存體服務    |    全部                                                |    Blob 儲存體，Azure 檔案儲存體                                                                                                               |    Blob 儲存體                                                                  |
-|    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure Key Vault                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
-|    金鑰輪替責任         |    Microsoft                                          |    客戶                                                                                                                                     |    客戶                                                                      |
-|    金鑰使用方法                           |    Microsoft                                          |    Azure 入口網站，儲存體資源提供者 REST API，Azure 儲存體管理程式庫，PowerShell，CLI        |    Azure 儲存體 REST API （Blob 儲存體），Azure 儲存體用戶端程式庫    |
+|    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure 金鑰保存庫                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
+|    金鑰輪替責任         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
+|    金鑰使用量                           |    Microsoft                                          |    Azure 入口網站，儲存體資源提供者 REST API，Azure 儲存體管理程式庫，PowerShell，CLI        |    Azure 儲存體 REST API （Blob 儲存體），Azure 儲存體用戶端程式庫    |
 |    金鑰存取                          |    僅限 Microsoft                                     |    Microsoft、客戶                                                                                                                    |    僅限客戶                                                                 |
 
 下列各節會更詳細地說明金鑰管理的每個選項。
@@ -74,7 +74,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 若要撤銷儲存體帳戶上客戶管理金鑰的存取權，請參閱[Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/)和[Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)。 撤銷存取權可有效封鎖對儲存體帳戶中所有資料的存取，因為 Azure 儲存體無法存取加密金鑰。
 
-[Azure 受控磁片](../../virtual-machines/windows/managed-disks-overview.md)不支援客戶管理的金鑰。
+客戶管理的金鑰也適用于 Azure 受控磁片作為公開預覽，客戶管理的金鑰在受控磁片上的運作方式與儲存空間的其餘部分不同。 如需詳細資訊，請參閱[主題的文章](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview)。
 
 若要瞭解如何搭配 Azure 儲存體使用客戶管理的金鑰，請參閱下列其中一篇文章：
 
@@ -105,7 +105,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 針對 REST 呼叫，用戶端可以使用下列標頭，安全地將要求的加密金鑰資訊傳遞至 Blob 儲存體：
 
-|要求標頭 | 描述 |
+|要求標頭 | 說明 |
 |---------------|-------------|
 |`x-ms-encryption-key` |寫入和讀取要求都需要。 Base64 編碼的 AES-256 加密金鑰值。 |
 |`x-ms-encryption-key-sha256`| 寫入和讀取要求都需要。 加密金鑰的 Base64 編碼 SHA256。 |

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2247b7678573594c4929bd33747fffb91203f457
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561792"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742558"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者
 如果貴組織的使用者需要管理 Azure Active Directory (Azure AD) 資源的權限，您必須根據使用者需要權限才能執行的動作，在 Azure AD 中為使用者指派適當的角色。
@@ -35,13 +35,15 @@ ms.locfileid: "68561792"
 
 2. 選取 [Azure Active Directory] 並選取 [使用者]，然後搜尋並選取要接受角色指派的使用者。 例如 _Alain Charon_。
 
-3. 在 [Alain Charon - 設定檔] 頁面上選取 [目錄角色]。
+      ![[所有使用者] 頁面-選取使用者](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
+
+3. 在 [ **Alain Charon-設定檔**] 頁面上，選取 [**指派的角色**]。
 
     隨即會顯示 [Alain Charon - 目錄角色] 頁面。
 
-4. 選取 [新增角色]，選取要指派給 Alain 的角色 (例如 [應用程式系統管理員])，然後選擇 [選取]。
+4. 選取 [**新增指派**]，選取要指派給 Alain 的角色（例如_應用程式系統管理員_），然後選擇 [**選取**]。
 
-    ![[目錄角色] 頁面上顯示所選的角色](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+    ![[指派的角色] 頁面-顯示選取的角色](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
     應用程式系統管理員角色隨即會指派給 Alain Charon，並顯示在 [Alain Charon - 目錄角色]頁面上。
 
@@ -52,9 +54,9 @@ ms.locfileid: "68561792"
 
 1. 選取 [Azure Active Directory] 並選取 [使用者]，然後搜尋並選取要移除角色指派的使用者。 例如 _Alain Charon_。
 
-2. 選取 [目錄角色]，選取 [應用程式系統管理員]，然後選取 [移除角色]。
+2. 選取 [**指派的角色**]，選取 [**應用程式系統管理員**]，然後選取 [**移除指派**]。
 
-    ![[目錄角色] 頁面上顯示所選的角色和移除選項](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+    ![[指派的角色] 頁面，顯示選取的角色和移除選項](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
     Alain Charon 的應用程式系統管理員角色隨即會移除，並消失在 [Alain Charon - 目錄角色]頁面上。
 
@@ -65,6 +67,6 @@ ms.locfileid: "68561792"
 
 - [從另一個目錄中新增來賓使用者](../b2b/what-is-b2b.md)
 
-或者，您也可以執行其他使用者管理工作，例如指派委派、使用原則及共用使用者帳戶。 如需其他可用動作的詳細資訊，請參閱 [Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。
+或者您也可以執行其他使用者管理工作，例如指派委派、使用原則及共用使用者帳戶。 如需有關其他可用動作的詳細資訊，請參閱 [Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26210ab226f8e907aa845d51dca94f59badd6a3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115830"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748093"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連，設定站對站 VPN
 
@@ -24,7 +24,7 @@ ms.locfileid: "66115830"
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>架構
 
@@ -53,7 +53,7 @@ ms.locfileid: "66115830"
 6. (選擇性) 在內部部署 VPN 裝置上設定防火牆/篩選。
 7. 測試並驗證 ExpressRoute 線路上的 IPsec 通訊。
 
-## <a name="peering"></a>1.設定 Microsoft 對等互連
+## <a name="peering"></a>1. 設定 Microsoft 對等互連
 
 若要設定 ExpressRoute 上的站對站 VPN 連線，您必須利用 ExpressRoute Microsoft 對等互連。
 
@@ -61,19 +61,19 @@ ms.locfileid: "66115830"
 
 * 如果您已經擁有 ExpressRoute 線路，但還未設定 Microsoft 對等互連，請利用[建立和修改 ExpressRoute 線路的對等互連](expressroute-howto-routing-arm.md#msft)一文，設定 Microsoft 對等互連。
 
-一旦您已設定線路及 Microsoft 對等互連，就可以輕鬆地使用 Azure 入口網站中的 [概觀]  頁面來檢視它。
+一旦您已設定線路及 Microsoft 對等互連，就可以輕鬆地使用 Azure 入口網站中的 [概觀] 頁面來檢視它。
 
 ![線路](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="routefilter"></a>2.設定路由篩選
+## <a name="routefilter"></a>2. 設定路由篩選
 
-路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是所有 BGP 社群值的允許清單。 
+路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 基本上，它是所有 BGP 社區值的允許清單。 
 
 ![路由篩選](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-在此範例中，部署僅在 *Azure 美國西部 2* 區域中。 系統會新增路由篩選規則，以便僅允許 Azure 美國西部 2 區域前置詞的通告，其 BGP 社群值為 *12076:51026*。 您可以選取 [管理規則]  來指定您想要允許的區域前置詞。
+在此範例中，部署僅在 *Azure 美國西部 2* 區域中。 系統會新增路由篩選規則，以便僅允許 Azure 美國西部 2 區域前置詞的通告，其 BGP 社群值為 *12076:51026*。 您可以選取 [管理規則] 來指定您想要允許的區域前置詞。
 
-在路由篩選內，您也需要選擇路由篩選要套用的 ExpressRoute 線路。 您可以選取 [新增線路]  來選擇 ExpressRoute 線路。 在上圖中，路由篩選與範例 ExpressRoute 線路相關聯。
+在路由篩選內，您也需要選擇路由篩選要套用的 ExpressRoute 線路。 您可以選取 [新增線路] 來選擇 ExpressRoute 線路。 在上圖中，路由篩選與範例 ExpressRoute 線路相關聯。
 
 ### <a name="configfilter"></a>2.1 設定路由篩選
 
@@ -91,7 +91,7 @@ ms.locfileid: "66115830"
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-下列的部分輸出顯示 68 的前置詞接收自芳鄰\*.243.229.34 具有 ASN 12076 (MSEE):
+下列部分輸出顯示使用 ASN 12076 （MSEE）從鄰近 \*收到68首碼：
 
 ```
 ...
@@ -112,7 +112,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="vpngateway"></a>3.設定 VPN 閘道和 IPsec 通道
+## <a name="vpngateway"></a>3. 設定 VPN 閘道和 IPsec 通道
 
 在本節中，Azure VPN 閘道與內部部署 VPN 裝置之間會建立 IPsec VPN 通道。 這些範例會使用 Cisco Cloud Service Router (CSR1000) VPN 裝置。
 
@@ -354,7 +354,7 @@ Get-AzBgpServiceCommunity
   }
 ```
 
-## <a name="device"></a>4.設定內部部署 VPN 裝置
+## <a name="device"></a>4. 設定內部部署 VPN 裝置
 
 Azure VPN 閘道與許多不同廠商的 VPN 裝置相容。 如需設定資訊以及已經過驗證，可搭配 VPN 閘道使用的裝置，請參閱[關於 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md)。
 
@@ -475,11 +475,11 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="firewalls"></a>5.設定 VPN 裝置篩選和防火牆 (選擇性)
+## <a name="firewalls"></a>5. 設定 VPN 裝置篩選和防火牆（選擇性）
 
 根據您的需求，設定防火牆和篩選。
 
-## <a name="testipsec"></a>6.測試並驗證 IPsec 通道
+## <a name="testipsec"></a>6. 測試並驗證 IPsec 通道
 
 IPsec 通道的狀態可以在 Azure VPN 閘道上，透過 Powershell 命令進行驗證：
 

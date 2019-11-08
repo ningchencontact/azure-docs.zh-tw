@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 55e802aa1f7bdf0d67d1a9c3f020d255afdc8130
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4291db0bb1edbc366c42febed992a7c27d46eb15
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261912"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796741"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用傾印和還原來移轉 PostgreSQL 資料庫
 您可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到傾印檔案，並使用 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 從 pg_dump 所建立的封存檔案還原 PostgreSQL 資料庫。
@@ -34,7 +34,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>使用 pg_restore 將資料還原至目標「適用於 PostrgeSQL 的 Azure 資料庫」
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>使用 pg_restore 將資料還原到目標適用於 PostgreSQL 的 Azure 資料庫
 在建立目標資料庫後，您可以使用 pg_restore 命令和 -d、--dbname 參數，從傾印檔案將資料還原至目標資料庫。
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
@@ -61,7 +61,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 >
 
 ### <a name="for-the-backup"></a>進行備份
-- 使用 -Fc 參數建立備份，能夠平行執行還原，加快執行速度。 例如:
+- 使用 -Fc 參數建立備份，能夠平行執行還原，加快執行速度。 例如：
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 - 根據預設，這應已完成，但請開啟傾印檔案，確認 Create Index 陳述式位在插入的資料之後。 若非如此，請將 Create Index 陳述式移至插入的資料之後。
 
-- 還原時使用參數-Fc 和-j *#* ，可對還原進行平行處理。 *#* 是目標伺服器上的核心數目。 您也可以嘗試將 *#* 設定為目標伺服器核心數目的兩倍，以查看所產生的影響。 例如:
+- 還原時使用參數-Fc 和-j *#* ，可對還原進行平行處理。 *#* 是目標伺服器上的核心數目。 您也可以嘗試將 *#* 設定為目標伺服器核心數目的兩倍，以查看所產生的影響。 例如：
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

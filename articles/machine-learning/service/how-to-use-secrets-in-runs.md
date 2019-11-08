@@ -11,23 +11,23 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0d696e3fc060a2779eba7d7e895397ea3245383
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e2074cec65ea4c1df803999c6a995f73ea4227ee
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489283"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796680"
 ---
 # <a name="use-secrets-in-training-runs"></a>在定型執行中使用秘密
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何安全地在定型執行中使用秘密。 例如，若要連接到外部資料庫以查詢定型資料，您必須將使用者名稱和密碼傳遞給遠端執行內容。 以純文字將這類值編碼成定型腳本並不安全，因為它會公開秘密。 
 
-相反地，您的 Azure Machine Learning 工作區已[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)為相關聯的資源。 此 Key Vault 可透過 Azure Machine Learning Python SDK 中的一組 Api，用來安全地將秘密傳遞至遠端執行
+相反地，您的 Azure Machine Learning 工作區已[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)為相關聯的資源。 此 Key Vault 可透過 Azure Machine Learning Python SDK 中的一組 Api，用來安全地將秘密傳遞至遠端執行。
 
 使用秘密的基本流程如下：
- 1. 在本機電腦上，登入 Azure 並連接至您的工作區
- 2. 在 [本機電腦] 上，于 [工作區] 中設定密碼 Key Vault
+ 1. 在 [本機電腦] 上，登入 Azure 並聯機到您的工作區。
+ 2. 在 本機電腦 上，于 工作區 Key Vault 中設定密碼。
  3. 提交遠端執行。
  4. 在遠端執行中，從金鑰值取得秘密並加以使用。
 
@@ -47,13 +47,13 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 
 請勿將秘密值放在 Python 程式碼中，因為以純文字形式將它儲存在檔案中是不安全的。 相反地，從環境變數取得秘密值，例如 Azure DevOps 組建密碼，或從互動式使用者輸入。
 
-您可以使用[list_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-)方法列出秘密名稱。 如果名稱已存在，則__set_secret__方法會更新密碼值。
+您可以使用[list_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--)方法列出秘密名稱。 如果名稱已存在，則__set_secret__方法會更新密碼值。
 
 ## <a name="get-secrets"></a>取得密碼
 
 在您的本機程式碼中，您可以使用[Get_secret Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-)方法，依名稱取得密碼值。
 
-在使用[實驗](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-)提交的回合中，請使用[Run. get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-)方法。 由於提交的執行會感知其工作區，因此這個方法會將工作區具現化的快捷方式，並直接傳回秘密值。
+在使用[實驗](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-)提交的回合中，請使用[Run. get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-)方法。 因為已提交的執行會感知其工作區，所以此方法會將工作區具現化的快捷方式，並直接傳回秘密值。
 
 ```python
 # Code in submitted run

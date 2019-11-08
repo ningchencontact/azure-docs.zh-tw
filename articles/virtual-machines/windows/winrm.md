@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100149"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749064"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中設定虛擬機器的 WinRM 存取
 
@@ -31,16 +31,16 @@ ms.locfileid: "70100149"
 4. 取得金鑰保存庫中您的自我簽署憑證的 URL
 5. 在建立 VM 時參考您的自我簽署憑證的 URL
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="step-1-create-a-key-vault"></a>步驟 1:建立金鑰保存庫
+## <a name="step-1-create-a-key-vault"></a>步驟 1︰建立金鑰保存庫
 您可以使用下列命令來建立金鑰保存庫
 
 ```
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
-## <a name="step-2-create-a-self-signed-certificate"></a>步驟 2:建立自我簽署憑證
+## <a name="step-2-create-a-self-signed-certificate"></a>步驟 2：建立自我簽署憑證
 您可以使用下列 PowerShell 指令碼建立自我簽署憑證
 
 ```
@@ -55,7 +55,7 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>步驟 3：將自我簽署憑證上傳至 Key Vault
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>步驟 3：將自我簽署憑證上傳至金鑰保存庫
 在將憑證上傳至於步驟 1 中建立的金鑰保存庫之前，必須先將它轉換成 Microsoft.Compute 資源提供者可以了解的格式。 下面的 PowerShell 指令碼可讓您這麼做
 
 ```
@@ -82,7 +82,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Microsoft.Compute 資源提供者在佈建 VM 時，需要金鑰保存庫內密碼的 URL。 這可讓 Microsoft.Compute 資源提供者下載密碼，並在 VM 上建立對等憑證。
 
 > [!NOTE]
-> 密碼的 URL 也必須包含版本。 範例 URL 看起來像 HTTPs:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> 密碼的 URL 也必須包含版本。 範例 URL 看起來像 HTTPs：\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>範本
 您可以使用下列程式碼取得範本中的 URL 連結
@@ -143,7 +143,7 @@ Microsoft.Compute 資源提供者在佈建 VM 時，需要金鑰保存庫內密�
     $CertificateStore = "My"
     $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>步驟 6：連線到 VM
+## <a name="step-6-connecting-to-the-vm"></a>步驟 6︰連接到 VM
 在您可以連接至 VM 之前，您必須確定您的電腦已設定 WinRM 遠端管理。 以系統管理員身分啟動 PowerShell 並執行下列命令來確認您已設定完畢。
 
     Enable-PSRemoting -Force

@@ -1,29 +1,28 @@
 ---
 title: 包含檔案
 description: 包含檔案
-services: vpn-gateway
+services: expressroute
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: expressroute
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 11/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ba6673b5fda6af8c9bd3ef53dff33fe63f41e26d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a78a44f9e4dd1b64ae989dffa04892a490b986d4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133810"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748133"
 ---
-本文使用 PowerShell Cmdlet。 若要執行 cmdlet，您可以使用 Azure Cloud Shell。 Azure Cloud Shell 是免費的互動式 shell 具有預先安裝常用的 Azure 工具，並已設定為使用與您的帳戶。 只要按一下 [複製]  即可複製程式碼，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。 以下有幾種啟動 Cloud Shell 的方式：
+您可以使用 Azure Cloud Shell 來執行大部分的 PowerShell Cmdlet，而不是在本機上安裝 Azure PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，其已預先安裝了通用 Azure 工具，並已設定為與您的帳戶搭配使用。
+若要在 Azure Cloud Shell 上執行本文所包含的任何程式碼，請開啟 Cloud Shell 工作階段、使用某個程式碼區塊上的 [複製] 按鈕來複製程式碼，然後使用 __Ctrl+Shift+V__ (在 Windows 和 Linux 上) 或 __Cmd+Shift+V__ (在 macOS 上) 將程式碼貼到 Cloud Shell 工作階段中。 貼上的文字不會自動執行，按**enter**鍵以執行程式碼。
+
+以下有幾種啟動 Cloud Shell 的方式：
 
 |  |   |
 |-----------------------------------------------|---|
-| 按一下程式碼區塊右上角的 [試試看]  。 | ![本文中的 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
+| 按一下程式碼區塊右上角的 [試試看]。 | ![本文中的 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
 | 在您的瀏覽器中開啟 Cloud Shell。 | [![https://shell.azure.com/powershell](./media/vpn-gateway-cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
-| 按一下 Azure 入口網站右上方功能表上的 [Cloud Shell]  按鈕。 | [![入口網站中的 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
+| 按一下 Azure 入口網站右上方功能表上的 [Cloud Shell] 按鈕。 | [![入口網站中的 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
-
-**在本機執行 Azure PowerShell**
-
-您也可以安裝，並在本機執行 Azure PowerShell cmdlet，在您的電腦上。 PowerShell cmdlet 會經常更新。 如果您不會執行最新版本，指示中所指定的值可能會失敗。 若要尋找系統上安裝的 PowerShell 版本，請使用`Get-Module -ListAvailable Az`cmdlet。 若要安裝或更新，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。

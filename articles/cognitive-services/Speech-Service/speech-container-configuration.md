@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 15739b735b67e29ed07521d31857f1b176447487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e09a476398134d92b4492c68ed4ebebc468f272
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491049"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796187"
 ---
 # <a name="configure-speech-service-containers"></a>設定語音服務容器
 
@@ -52,7 +52,7 @@ ms.locfileid: "73491049"
 
 |必要| 名稱 | 資料類型 | 說明 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI。 如需有關計費 URI 的詳細資訊，請參閱[收集必要的參數](speech-container-howto.md#gathering-required-parameters)。 |
+|是| `Billing` | 字串 | 計費端點 URI。 如需取得帳單 URI 的詳細資訊，請參閱[收集必要的參數](speech-container-howto.md#gathering-required-parameters)。 如需詳細資訊和完整的區域端點清單，請參閱[認知服務的自訂子網域名稱](../cognitive-services-custom-subdomains.md)。 |
 
 ## <a name="eula-setting"></a>Eula 設定
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278347"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748443"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
@@ -43,45 +43,45 @@ ms.locfileid: "68278347"
  [Premium SKU](service-bus-premium-messaging.md) 不再支援分割的實體。 
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些埠？ 
-您可以搭配使用下列通訊協定與 Azure 服務匯流排來傳送和接收訊息:
+您可以搭配使用下列通訊協定與 Azure 服務匯流排來傳送和接收訊息：
 
 - 進階訊息佇列通訊協定 (AMQP)
 - 服務匯流排傳訊通訊協定 (SBMP)
 - HTTP
 
-請參閱下表, 以瞭解您需要開啟的輸出埠, 以使用這些通訊協定與 Azure 事件中樞進行通訊。 
+請參閱下表，以瞭解您需要開啟的輸出埠，以使用這些通訊協定與 Azure 事件中樞進行通訊。 
 
-| Protocol | 連接埠 | 詳細資料 | 
+| 通訊協定 | 連接埠 | 詳細資料 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671和5672 | 請參閱[AMQP 通訊協定指南](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350到9354 | 請參閱連線[模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP、HTTPS | 80、443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要列入允許清單的 IP 位址為何？
-若要針對您的連線尋找適當的 IP 位址給允許清單, 請遵循下列步驟:
+若要針對您的連線尋找適當的 IP 位址給白名單，請遵循下列步驟：
 
-1. 從命令提示字元執行下列命令: 
+1. 從命令提示字元執行下列命令： 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 記下中`Non-authoritative answer`傳回的 IP 位址。 這個 IP 位址是靜態的。 只有當您將命名空間還原到不同的叢集時, 才會發生變更的唯一時間點。
+2. 記下 `Non-authoritative answer`中傳回的 IP 位址。 這個 IP 位址是靜態的。 只有當您將命名空間還原到不同的叢集時，才會發生變更的唯一時間點。
 
-如果您使用命名空間的區域複本, 則需要執行一些額外的步驟: 
+如果您使用命名空間的區域複本，則需要執行一些額外的步驟： 
 
-1. 首先, 您會在命名空間上執行 nslookup。
+1. 首先，您會在命名空間上執行 nslookup。
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. 記下 [**非權威式回應**] 區段中的名稱, 這是下列其中一種格式: 
+2. 記下 [**非權威式回應**] 區段中的名稱，這是下列其中一種格式： 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. 針對每個尾碼為 s1、s2 和 s3 的程式執行 nslookup, 以取得三個可用性區域中執行之三個實例的 IP 位址。 
+3. 針對每個尾碼為 s1、s2 和 s3 的程式執行 nslookup，以取得三個可用性區域中執行之三個實例的 IP 位址。 
 
 
 ## <a name="best-practices"></a>最佳作法
@@ -112,9 +112,16 @@ ms.locfileid: "68278347"
 ### <a name="does-service-bus-charge-for-storage"></a>服務匯流排是否會收取儲存體費用？
 不會，服務匯流排不會收取儲存體費用。 不過，有配額會限制每個佇列/主題可保存的資料數量上限。 請參閱下一個常見問題。
 
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>我有一個服務匯流排標準命名空間。 為什麼我會看到資源群組 ' $system ' 下的費用？
+Azure 服務匯流排最近已升級計費元件。 因此，如果您有服務匯流排標準命名空間，您可能會在資源群組 ' $ 底下看到資源 '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' 的明細專案系統 '。
+
+這些費用代表已布建服務匯流排標準命名空間的每個 Azure 訂用帳戶基本費用。 
+
+請務必注意，這些不是新的費用，也就是它們也存在於先前的計費模型中。 唯一的變更是它們現在會列在 ' $system ' 之下。 這是因為新計費系統中的條件約束，其會將訂用帳戶等級費用（而不是系結至特定資源）在「$system」資源識別碼底下進行分組。
+
 ## <a name="quotas"></a>配額
 
-如需服務匯流排限制和配額的清單, 請參閱[服務匯流排配額總覽][Quotas overview]。
+如需服務匯流排限制和配額的清單，請參閱[服務匯流排配額總覽][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服務匯流排是否有任何使用量配額？
 根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 若您需要的配額比這些限制來得多，您可以隨時與客戶服務部門連絡，以了解您的需求並適當地調整這些限制。 針對服務匯流排，彙總使用量配額為每個月 50 億則訊息。
@@ -131,10 +138,10 @@ ms.locfileid: "68278347"
 在您從訂用帳戶刪除命名空間之後，必須先等候 4 個小時的時間，才能在另一個訂用帳戶中以相同的名稱重新建立它。 否則，您可能會收到下列錯誤訊息︰`Namespace already exists`。 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure 服務匯流排 API 所產生的例外狀況有哪些，其建議的動作為何？
-如需可能的服務匯流排例外狀況清單, 請參閱[例外狀況總覽][Exceptions overview]。
+如需可能的服務匯流排例外狀況清單，請參閱[例外狀況總覽][Exceptions overview]。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什麼是共用存取簽章，何種語言可支援產生簽章？
-共用存取簽章是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 node.js、PHP、JAVA、Python 和C#中產生您自己的簽章的相關資訊, 請參閱[共用存取][Shared Access Signatures]簽章一文。
+共用存取簽章是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 node.js、PHP、JAVA、Python 和C#中產生您自己的簽章的相關資訊，請參閱[共用存取][Shared Access Signatures]簽章一文。
 
 ## <a name="subscription-and-namespace-management"></a>訂用帳戶和命名空間管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何將命名空間移轉到另一個 Azure 訂用帳戶？

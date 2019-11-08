@@ -7,49 +7,49 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: d835eda044c2a6d1e0e7c678073711e45fde7395
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972153"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747813"
 ---
-# <a name="about-site-recovery-components-configuration-process-master-target"></a>關於 Site Recovery 元件 (設定、處理、主要目標)
+# <a name="about-site-recovery-components-configuration-process-master-target"></a>關於 Site Recovery 元件（設定、處理、主要目標）
 
 本文說明使用[Site Recovery](site-recovery-overview.md)服務將 VMware vm 和實體伺服器複寫至 Azure 時所用的設定、處理和主要目標伺服器。
 
-## <a name="configuration-server"></a>設定伺服器
+## <a name="configuration-server"></a>組態伺服器
 
-針對內部部署 VMware Vm 和實體伺服器的嚴重損壞修復, 您需要部署在內部部署環境的 Site Recovery 設定伺服器。
+針對內部部署 VMware Vm 和實體伺服器的嚴重損壞修復，您需要部署在內部部署環境的 Site Recovery 設定伺服器。
 
-**設定** | **詳細資料** | **Links**
+**設定** | **詳細資料** | **連結**
 --- | --- | ---
-**元件**  | 設定伺服器電腦會執行所有內部部署 Site Recovery 元件, 包括設定伺服器、進程伺服器和主要目標伺服器。<br/><br/> 設定伺服器時, 會自動安裝所有元件。 | [閱讀](vmware-azure-common-questions.md#configuration-server)設定伺服器常見問題。
+**元件**  | 設定伺服器電腦會執行所有內部部署 Site Recovery 元件，包括設定伺服器、進程伺服器和主要目標伺服器。<br/><br/> 設定伺服器時，會自動安裝所有元件。 | [閱讀](vmware-azure-common-questions.md#configuration-server)設定伺服器常見問題。
 **角色** | 組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。 | 深入瞭解[VMware](vmware-azure-architecture.md)和[實體伺服器](physical-azure-architecture.md)嚴重損壞修復至 Azure 的架構。
-**VMware 需求** | 針對內部部署 VMware Vm 的嚴重損壞修復, 您必須安裝並執行設定伺服器做為內部部署、高可用性 VMware VM。 | [瞭解](vmware-azure-deploy-configuration-server.md#prerequisites)必要條件。
-**VMware 部署** | 建議您使用下載的 OVA 範本來部署設定伺服器。 此方法可讓您直接設定符合所有需求和必要條件的設定伺服器。<br/><br/> 如果基於某些原因而無法使用 OVA 範本部署 VMware VM, 您可以手動設定伺服器電腦, 如下所述進行實體機器嚴重損壞修復。 | 使用 OVA 範本進行[部署](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template)。
-**實體伺服器需求** | 針對內部部署實體伺服器上的嚴重損壞修復, 您可以手動部署設定伺服器。 | [瞭解](physical-azure-set-up-source.md#prerequisites)必要條件。
-**實體伺服器部署** | 如果無法安裝為 VMware VM, 您可以將它安裝在實體伺服器上。 | 手動[部署](physical-azure-set-up-source.md#set-up-the-source-environment)設定伺服器。
+**VMware 需求** | 針對內部部署 VMware Vm 的嚴重損壞修復，您必須安裝並執行設定伺服器做為內部部署、高可用性 VMware VM。 | [瞭解](vmware-azure-deploy-configuration-server.md#prerequisites)必要條件。
+**VMware 部署** | 建議您使用下載的 OVA 範本來部署設定伺服器。 此方法可讓您直接設定符合所有需求和必要條件的設定伺服器。<br/><br/> 如果基於某些原因而無法使用 OVA 範本部署 VMware VM，您可以手動設定伺服器電腦，如下所述進行實體機器嚴重損壞修復。 | 使用 OVA 範本進行[部署](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template)。
+**實體伺服器需求** | 針對內部部署實體伺服器上的嚴重損壞修復，您可以手動部署設定伺服器。 | [瞭解](physical-azure-set-up-source.md#prerequisites)必要條件。
+**實體伺服器部署** | 如果無法安裝為 VMware VM，您可以將它安裝在實體伺服器上。 | 手動[部署](physical-azure-set-up-source.md#set-up-the-source-environment)設定伺服器。
 
 
-## <a name="process-server"></a>處理伺服器
+## <a name="process-server"></a>處理序伺服器
 
-**設定** | **詳細資料** | **Links**
+**設定** | **詳細資料** | **連結**
 --- | --- | ---
-**部署**  | 針對內部部署 VMware Vm 和實體伺服器的嚴重損壞修復和複寫, 您需要內部部署的進程伺服器。 根據預設, 當您部署時, 進程伺服器會安裝在設定伺服器上。 | [深入了解](vmware-azure-architecture.md?#architectural-components)。
-**角色 (內部部署)** | -從啟用複寫的機器接收復寫資料。<br/> -使用快取、壓縮和加密來優化複寫資料, 並將其傳送至 Azure 儲存體。<br/> -在您想要複寫的內部部署 VMware Vm 和實體伺服器上執行 Site Recovery 行動服務的推送安裝。<br/> -執行內部部署機器的自動探索。 | [深入了解](vmware-physical-azure-config-process-server-overview.md#process-server)。 
-**角色 (從 Azure 容錯回復)** | 從內部部署網站容錯移轉之後, 您會在 Azure 中將進程伺服器設定為 Azure VM, 以處理容錯回復至您的內部部署位置。<br/><br/> Azure 中的進程伺服器是暫時性的。 容錯回復完成之後, 即可刪除 Azure VM。 | [深入了解](vmware-azure-set-up-process-server-azure.md)。
-**調整大小** | 對於較大型的部署, 內部部署您可以設定額外的相應放大進程伺服器。 額外的伺服器會藉由處理較大量的複寫電腦和較大量的複寫流量來相應放大容量。<br/><br/> 您可以在兩個進程伺服器之間移動機器, 以便對複寫流量進行負載平衡。 | [深入瞭解](vmware-azure-set-up-process-server-scale.md),
+**部署**  | 針對內部部署 VMware Vm 和實體伺服器的嚴重損壞修復和複寫，您需要內部部署的進程伺服器。 根據預設，當您部署時，進程伺服器會安裝在設定伺服器上。 | [詳細資訊](vmware-azure-architecture.md?#architectural-components)。
+**角色（內部部署）** | -從啟用複寫的機器接收復寫資料。<br/> -使用快取、壓縮和加密來優化複寫資料，並將其傳送至 Azure 儲存體。<br/> -在您想要複寫的內部部署 VMware Vm 和實體伺服器上執行 Site Recovery 行動服務的推送安裝。<br/> -執行內部部署機器的自動探索。 | [詳細資訊](vmware-physical-azure-config-process-server-overview.md#process-server)。 
+**角色（從 Azure 容錯回復）** | 從內部部署網站容錯移轉之後，您會在 Azure 中將進程伺服器設定為 Azure VM，以處理容錯回復至您的內部部署位置。<br/><br/> Azure 中的進程伺服器是暫時性的。 容錯回復完成之後，即可刪除 Azure VM。 | [詳細資訊](vmware-azure-set-up-process-server-azure.md)。
+**調整大小** | 對於較大型的部署，內部部署您可以設定額外的相應放大進程伺服器。 額外的伺服器會藉由處理較大量的複寫電腦和較大量的複寫流量來相應放大容量。<br/><br/> 您可以在兩個進程伺服器之間移動機器，以便對複寫流量進行負載平衡。 | [深入瞭解](vmware-azure-set-up-process-server-scale.md)，
 
 
 ## <a name="master-target-server"></a>主要目標伺服器
 
 主要目標伺服器會在從 Azure 容錯回復期間，處理複寫資料。
 
-- 根據預設, 它會安裝在設定伺服器上。
+- 根據預設，它會安裝在設定伺服器上。
 - 針對大型部署，您可以新增額外的個別主要目標伺服器進行容錯回復。
 
 
 ## <a name="next-steps"></a>後續步驟
 - 檢查 VMware Vm 和實體伺服器的嚴重損壞修復[架構](vmware-azure-architecture.md)。
-- 針對 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復, 檢查其[需求和必要條件](vmware-physical-azure-support-matrix.md)。 
+- 針對 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復，檢查其[需求和必要條件](vmware-physical-azure-support-matrix.md)。 

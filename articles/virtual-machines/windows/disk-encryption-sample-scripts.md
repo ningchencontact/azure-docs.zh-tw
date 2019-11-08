@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874372d64fdbb667a23f2ded37a68cd68e32993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 50addbec1717c7bb76a248053dd889b09441f6f6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245080"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749459"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure 磁碟加密範例腳本 
 
 本文提供準備預先加密的 Vhd 和其他工作的範例腳本。
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="list-vms-and-secrets"></a>列出 Vm 和秘密
 
@@ -40,15 +40,15 @@ Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('Disk
 
 下表顯示可在 PowerShell 指令碼中使用的參數： 
 
-|參數|描述|是否為強制？|
+|參數|說明|是否為強制？|
 |------|------|------|
 |$resourceGroupName| 金鑰保存庫所屬資源群組的名稱。  如果不存在此名稱的應用程式，將會以此名稱建立新的資源群組。| True|
 |$keyVaultName|要用來放置加密金鑰的金鑰保存庫名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的保存庫。| True|
 |$location|金鑰保存庫的位置。 請確定金鑰保存庫和要加密的 VM 位於相同位置。 使用 `Get-AzLocation` 取得位置清單。|True|
 |$subscriptionId|要使用的 Azure 訂用帳戶識別碼。  您可以使用 `Get-AzSubscription` 取得您的訂用帳戶識別碼。|True|
-|$aadAppName|會用來將祕密寫入到金鑰保存庫的 Azure AD 應用程式名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的應用程式。 如果此應用程式已經存在，請將 aadClientSecret 參數傳遞至指令碼。|偽|
-|$aadClientSecret|稍早建立的 Azure AD 應用程式用戶端密碼。|偽|
-|$keyEncryptionKeyName|金鑰保存庫中選用金鑰加密金鑰的名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的金鑰。|偽|
+|$aadAppName|會用來將祕密寫入到金鑰保存庫的 Azure AD 應用程式名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的應用程式。 如果此應用程式已經存在，請將 aadClientSecret 參數傳遞至指令碼。|False|
+|$aadClientSecret|稍早建立的 Azure AD 應用程式用戶端密碼。|False|
+|$keyEncryptionKeyName|金鑰保存庫中選用金鑰加密金鑰的名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的金鑰。|False|
 
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
 

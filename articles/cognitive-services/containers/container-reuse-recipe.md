@@ -1,7 +1,7 @@
 ---
 title: Docker 容器的配方
 titleSuffix: Azure Cognitive Services
-description: 使用這些容器配方來建立可重複使用的認知服務容器。 您可以使用部分或所有設定設定來建立容器, 以便在容器啟動時不需要它們。 一旦擁有這個新的容器層 (含設定), 而且您已在本機進行測試, 您就可以將容器儲存在容器登錄中。 當容器啟動時, 它只會需要目前未儲存在容器中的設定。
+description: 瞭解如何使用您的部分或所有設定設定來建立、測試和儲存容器，以進行部署和重複使用。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,50 +10,50 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: a8162f96051a73b9f6e6a6fe3ece020e0a94f08f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068834"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647288"
 ---
 # <a name="create-containers-for-reuse"></a>建立要重複使用的容器
 
-使用這些容器配方來建立可重複使用的認知服務容器。 您可以使用部分或所有設定設定來建立容器, 以便在容器啟動時_不_需要它們。
+使用這些容器配方來建立可重複使用的認知服務容器。 您可以使用部分或所有設定設定來建立容器，以便在容器啟動時_不_需要它們。
 
-一旦擁有這個新的容器層 (含設定), 而且您已在本機進行測試, 您就可以將容器儲存在容器登錄中。 當容器啟動時, 它只會需要目前未儲存在容器中的設定。 私用登錄容器會提供設定空間, 讓您在中傳遞這些設定。
+一旦擁有這個新的容器層（含設定），而且您已在本機進行測試，您就可以將容器儲存在容器登錄中。 當容器啟動時，它只會需要目前未儲存在容器中的設定。 私用登錄容器會提供設定空間，讓您在中傳遞這些設定。
 
 ## <a name="docker-run-syntax"></a>Docker 執行語法
 
-本`docker run`檔中的任何範例都假設 Windows 主控台`^`包含行接續字元。 請考慮下列各項以供您自己使用:
+本檔中的任何 `docker run` 範例都假設 Windows 主控台具有 `^` 行接續字元。 請考慮下列各項以供您自己使用：
 
 * 若非十分熟悉 Docker 容器，請勿變更引數的順序。
-* 如果您使用的作業系統不是 Windows, 或是 Windows 主控台以外的主控台, 請使用正確的主控台/終端機、掛接的資料夾語法, 以及主控台和系統的行接續字元。  由於認知服務容器是 Linux 作業系統, 因此目標掛接會使用 Linux 樣式的資料夾語法。
-* `docker run`範例會使用`c:`磁片磁碟機上的目錄, 以避免在 Windows 上發生任何許可權衝突。 如果您需要使用特定目錄作為輸入目錄，您可能需要授與 Docker 服務權限。
+* 如果您使用的作業系統不是 Windows，或是 Windows 主控台以外的主控台，請使用正確的主控台/終端機、掛接的資料夾語法，以及主控台和系統的行接續字元。  由於認知服務容器是 Linux 作業系統，因此目標掛接會使用 Linux 樣式的資料夾語法。
+* `docker run` 範例會使用 `c:` 磁片磁碟機的目錄，以避免在 Windows 上發生任何許可權衝突。 如果您需要使用特定目錄作為輸入目錄，您可能需要授與 Docker 服務權限。
 
 ## <a name="store-no-configuration-settings-in-image"></a>在映射中不儲存任何設定
 
-每個`docker run`服務的範例命令不會在容器中儲存任何設定。 當您從主控台或登錄服務啟動容器時, 這些設定值必須傳入。 私用登錄容器會提供設定空間, 讓您在中傳遞這些設定。
+每個服務的範例 `docker run` 命令不會在容器中儲存任何設定。 當您從主控台或登錄服務啟動容器時，這些設定值必須傳入。 私用登錄容器會提供設定空間，讓您在中傳遞這些設定。
 
-## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>重複使用配方: 儲存所有具有容器的設定
+## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>重複使用配方：儲存所有具有容器的設定
 
-若要儲存所有的設定, 請`Dockerfile`使用這些設定來建立。
+為了儲存所有的設定，請使用這些設定來建立 `Dockerfile`。
 
-這種方法的問題:
+這種方法的問題：
 
 * 新容器的名稱和標記會與原始容器不同。
-* 若要變更這些設定, 您必須變更 Dockerfile 的值、重建映射, 然後重新發佈至您的登錄。
-* 如果有人取得您容器登錄或本機主機的存取權, 他們就可以執行容器, 並使用認知服務端點。
-* 如果您的認知服務不需要輸入裝載, 請不要`COPY`將這些行新增至您的 Dockerfile。
+* 若要變更這些設定，您必須變更 Dockerfile 的值、重建映射，然後重新發佈至您的登錄。
+* 如果有人取得您容器登錄或本機主機的存取權，他們就可以執行容器，並使用認知服務端點。
+* 如果您的認知服務不需要輸入裝載，請勿將 `COPY` 行新增至 Dockerfile。
 
-建立 Dockerfile, 從您想要使用的現有認知服務容器中提取, 然後在 Dockerfile 中使用 docker 命令來設定或提取容器所需的資訊。
+建立 Dockerfile，從您想要使用的現有認知服務容器中提取，然後在 Dockerfile 中使用 docker 命令來設定或提取容器所需的資訊。
 
-這個範例:
+這個範例：
 
-* `{BILLING_ENDPOINT}` 使用`ENV`, 從主機的環境金鑰設定計費端點。
-* 使用 ' ENV ', `{ENDPOINT_KEY}`從主機的環境金鑰設定計費 API 金鑰。
+* 使用 `ENV`，設定從主機的環境金鑰 `{BILLING_ENDPOINT}` 計費端點。
+* 使用 ' ENV，設定從主機的環境金鑰 `{ENDPOINT_KEY}` 計費 API 金鑰。
 
-### <a name="reuse-recipe-store-billing-settings-with-container"></a>重複使用配方: 使用容器儲存帳單設定
+### <a name="reuse-recipe-store-billing-settings-with-container"></a>重複使用配方：使用容器儲存帳單設定
 
 這個範例示範如何從 Dockerfile 建立文字分析 ' 情感容器。
 
@@ -64,15 +64,15 @@ ENV apikey={ENDPOINT_KEY}
 ENV EULA=accept
 ```
 
-視需要在本機或從您的私用[登錄](#how-to-use-container-on-your-local-host)[容器](#how-to-add-container-to-private-registry)中, 建立並執行容器。
+視需要在本機或從您的私用[登錄](#how-to-use-container-on-your-local-host)[容器](#how-to-add-container-to-private-registry)中，建立並執行容器。
 
-### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>重複使用配方: 使用容器儲存帳單和掛接設定
+### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>重複使用配方：使用容器儲存帳單和掛接設定
 
-這個範例示範如何使用 Language Understanding, 從 Dockerfile 儲存計費和模型。
+這個範例示範如何使用 Language Understanding，從 Dockerfile 儲存計費和模型。
 
-* 使用`COPY`, 從主機的檔案系統複製 Language Understanding (LUIS) 模型檔案。
-* LUIS 容器支援多個模型。 如果所有模型都儲存在相同的資料夾中, 您就需要`COPY`一個語句。
-* 從模型輸入目錄的相對父系執行 docker 檔案。 在下列範例中, 請`docker build` `/input`從的`docker run`相對父系執行和命令。 命令的`/input`第一個是主機電腦的目錄。 `COPY` 第二`/input`個是容器的目錄。
+* 使用 `COPY`，從主機的檔案系統複製 Language Understanding （LUIS）模型檔案。
+* LUIS 容器支援多個模型。 如果所有模型都儲存在相同的資料夾中，您就需要一個 `COPY` 語句。
+* 從模型輸入目錄的相對父系執行 docker 檔案。 在下列範例中，請執行 `docker build`，並從 `/input`的相對父系 `docker run` 命令。 `COPY` 命令上的第一個 `/input` 是主機電腦的目錄。 第二個 `/input` 是容器的目錄。
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -82,17 +82,17 @@ ENV EULA=accept
 COPY /input /input
 ```
 
-視需要在本機或從您的私用[登錄](#how-to-use-container-on-your-local-host)[容器](#how-to-add-container-to-private-registry)中, 建立並執行容器。
+視需要在本機或從您的私用[登錄](#how-to-use-container-on-your-local-host)[容器](#how-to-add-container-to-private-registry)中，建立並執行容器。
 
 ## <a name="how-to-use-container-on-your-local-host"></a>如何使用本機主機上的容器
 
-若要建立 Docker 檔案, 請`<your-image-name>`將取代為映射的新名稱, 然後使用:
+若要建立 Docker 檔案，請將 `<your-image-name>` 取代為映射的新名稱，然後使用：
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-若要執行映射, 並在容器停止時將它移除`--rm`():
+若要執行映射，並在容器停止時將它移除（`--rm`）：
 
 ```console
 docker run --rm <your-image-name>
@@ -100,21 +100,21 @@ docker run --rm <your-image-name>
 
 ## <a name="how-to-add-container-to-private-registry"></a>如何將容器新增至私用登錄
 
-請遵循下列步驟來使用 Dockerfile, 並將新的映射放在您的私人容器登錄中。  
+請遵循下列步驟來使用 Dockerfile，並將新的映射放在您的私人容器登錄中。  
 
-1. `Dockerfile`使用 [重複使用] 配方中的文字建立。 A `Dockerfile`沒有延伸模組。
+1. 使用 [重複使用] 配方中的文字建立 `Dockerfile`。 `Dockerfile` 沒有延伸模組。
 
 1. 以您自己的值取代角括弧中的任何值。
 
-1. 使用下列命令, 將檔案建立在命令列或終端機的映射中。 將角括弧`<>`中的值取代為您自己的容器名稱和標記。  
+1. 使用下列命令，將檔案建立在命令列或終端機的映射中。 以您自己的容器名稱和標記取代角括弧中的值，`<>`。  
 
-    標記選項`-t`是一種方式, 可新增您已變更之容器的相關資訊。 例如, 容器名稱`modified-LUIS`表示原始容器已分層。 的標記名稱`with-billing-and-model`表示 Language Understanding (LUIS) 容器的修改方式。
+    [標籤] 選項（`-t`）是一種方式，可新增您已變更之容器的相關資訊。 例如，`modified-LUIS` 的容器名稱表示原始容器已分層。 標記名稱 `with-billing-and-model` 表示 Language Understanding （LUIS）容器的修改方式。
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
     ```
 
-1. 從主控台登入 Azure CLI。 此命令會開啟瀏覽器並要求驗證。 驗證之後, 您可以關閉瀏覽器並繼續在主控台中工作。
+1. 從主控台登入 Azure CLI。 此命令會開啟瀏覽器並要求驗證。 驗證之後，您可以關閉瀏覽器並繼續在主控台中工作。
 
     ```azurecli
     az login
@@ -122,27 +122,27 @@ docker run --rm <your-image-name>
 
 1. 使用主控台的 Azure CLI 登入您的私用登錄。
 
-    將角括弧`<my-registry>`中的值取代為您自己的登錄名稱。  
+    以您自己的登錄名稱取代角括弧中的值，`<my-registry>`。  
 
     ```azurecli
     az acr login --name <my-registry>
     ```
 
-    如果您已指派服務主體, 您也可以使用 docker 登入來登入。
+    如果您已指派服務主體，您也可以使用 docker 登入來登入。
 
     ```Bash
     docker login <my-registry>.azurecr.io
     ```
 
-1. 以私人登錄位置標記容器。 將角括弧`<my-registry>`中的值取代為您自己的登錄名稱。 
+1. 以私人登錄位置標記容器。 以您自己的登錄名稱取代角括弧中的值，`<my-registry>`。 
 
     ```Bash
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-    如果您不使用標記名稱, `latest`則會隱含。
+    如果您不使用標記名稱，則會隱含 `latest`。
 
-1. 將新的映射推送至您的私人容器登錄。 當您查看私人容器登錄時, 下列 CLI 命令中使用的容器名稱會是存放庫的名稱。
+1. 將新的映射推送至您的私人容器登錄。 當您查看私人容器登錄時，下列 CLI 命令中使用的容器名稱會是存放庫的名稱。
 
     ```Bash
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>

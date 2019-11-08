@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 647edcab5ec2925016e8a099ae43b6133037f8de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491126"
+ms.locfileid: "73578391"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝和執行語音服務容器
 
@@ -167,19 +167,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 2.0.0-amd64-en-us-preview
 ```
 
-下表列出容器的2.0.0 版本中，**語音轉換文字**支援的地區設定：
-
-| 語言地區設定 | 標記 |
-|--|--|
-| 中文 | `zh-CN` |
-| English | `en-US`<br>`en-GB`<br>`en-AU`<br>`en-IN` |
-| 法文 | `fr-CA`<br>`fr-FR` |
-| 德文 | `de-DE` |
-| 義大利文 | `it-IT` |
-| 日文 | `ja-JP` |
-| 韓文 | `ko-KR` |
-| 葡萄牙文 | `pt-BR` |
-| 西班牙文 | `es-ES`<br>`es-MX` |
+如需**語音轉換文字**容器的2.0.0 版本中所有支援的地區設定，租用，請參閱[語音轉換文字語言支援](language-support.md#speech-to-text)資料表的**容器支援**資料行。
 
 # <a name="custom-speech-to-texttabcstt"></a>[自訂語音轉換文字](#tab/cstt)
 
@@ -221,24 +209,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-下表列出容器的1.3.0 版本中，**文字轉換語音**支援的地區設定：
-
-| 語言地區設定 | 標記 | 支援的語音 |
-|--|--|--|
-| 中文 | `zh-CN` | huihuirus<br>kangkang-apollo<br>yaoyao-apollo |
-| English | `en-AU` | catherine<br>hayleyrus |
-| English | `en-GB` | george-apollo<br>hazelrus<br>susan-apollo |
-| English | `en-IN` | heera-apollo<br>priyarus<br>ravi-apollo<br> |
-| English | `en-US` | jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus |
-| 法文 | `fr-CA` | caroline<br>harmonierus |
-| 法文 | `fr-FR` | hortenserus<br>julie-apollo<br>paul-apollo |
-| 德文 | `de-DE` | hedda<br>heddarus<br>stefan-apollo |
-| 義大利文 | `it-IT` | cosimo-apollo<br>luciarus |
-| 日文 | `ja-JP` | ayumi-apollo<br>harukarus<br>ichiro-apollo |
-| 韓文 | `ko-KR` | heamirus |
-| 葡萄牙文 | `pt-BR` | daniel-apollo<br>heloisarus |
-| 西班牙文 | `es-ES` | elenarus<br>劉娜-apollo<br>pablo-apollo<br> |
-| 西班牙文 | `es-MX` | hildarus<br>raul-apollo |
+如需**文字轉換語音**容器的1.3.0 版本中所有支援的地區設定和對應的語音，請參閱[標準語音語言支援](language-support.md#standard-voices)表格的**容器支援**資料行。
 
 > [!IMPORTANT]
 > 當您建立*標準的文字轉換語音*HTTP POST 時，[語音合成標記語言（SSML）](speech-synthesis-markup.md)訊息需要具有 `name` 屬性的 `voice` 元素。 值是對應的容器地區設定和語音，也稱為「[簡短名稱](language-support.md#standard-voices)」。 例如，`latest` 標記的語音名稱會是 `en-US-JessaRUS`。

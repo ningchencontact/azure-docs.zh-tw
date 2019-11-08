@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 771064774371e71c0664918790b296c156ed1c1f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084781"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750096"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷
 
 Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用診斷延伸模組，從執行 Windows 的 Azure 虛擬機器 (VM) 收集診斷資料 (例如應用程式記錄或效能計數器)。 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>如果您使用資源管理員部署模型，請啟用診斷延伸模組
 將延伸模組組態新增至資源管理員範本，即可在透過 Azure 資源管理員部署模型建立 Windows VM 時啟用診斷延伸模組。 請參閱 [使用 Azure Resource Manager 範本建立具有監視和診斷的 Windows 虛擬機器](diagnostics-template.md)。

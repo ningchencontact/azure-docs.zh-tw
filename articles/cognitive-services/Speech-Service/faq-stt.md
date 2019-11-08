@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595330"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579689"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>語音轉換文字常見問題集
 
@@ -87,7 +87,7 @@ ms.locfileid: "72595330"
 或
 
 - 訂用帳戶的資源識別碼：
-  - 前往 https://portal.azure.com ，
+  - 前往 https://portal.azure.com，
   - 在搜尋方塊中選取 [`Cognitive Services`]，
   - 從顯示的服務挑選您想要增加並行的語音服務，
   - 顯示此服務的屬性，
@@ -175,6 +175,18 @@ ms.locfileid: "72595330"
 **問：我可以只上傳字組清單嗎？**
 
 **答**：上傳字組清單會將字組納入詞彙中，但不會告知系統這些字組的通常用法。 藉由提供完整或部分語句 (使用者可能會說的句子或片語)，語言模型可以學習新的字組及其用法。 自訂語言模型不僅對於新增系統中的新字組很有幫助，也可用於調整您應用程式中已知字組的可能性。 提供完整語句有助於提升系統的學習能力。 
+
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>租使用者模型（使用 Office 365 資料的自訂語音）
+
+**問：租使用者模型中所包含的資訊及其建立方式為何？**
+
+**答：** 租使用者模型是使用[公用群組](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2)電子郵件和檔所建立的，您組織中的任何人都可以看到此功能。 
+ 
+**問：租使用者模型改進了哪些語音體驗？**
+
+**答：** 當租使用者模型已啟用、建立和發佈時，它可用來改善使用語音服務所建立之任何企業應用程式的辨識;這也會傳遞使用者 AAD 權杖，指出企業的成員資格。 
+ 
+當您建立語音服務應用程式的租使用者模型時，不會變更內建于 Office 365 的語音體驗（例如聽寫和 PowerPoint 字幕）。
 
 ## <a name="next-steps"></a>後續步驟
 

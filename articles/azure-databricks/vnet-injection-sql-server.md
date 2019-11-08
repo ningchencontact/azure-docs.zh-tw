@@ -1,25 +1,25 @@
 ---
 title: 使用 Azure Databricks 查詢 SQL Server Linux Docker 容器
-description: 本文說明如何將 Azure Databricks 部署至您的虛擬網路，也稱為 VNet 插入。
+description: 本文說明如何將 Azure Databricks 部署至您的虛擬網路，也稱為 VNet Injection。
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/07/2019
+ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273973"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747656"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>教學課程：從 Azure Databricks 筆記本查詢虛擬網路中的 SQL Server Linux Docker 容器
 
 本教學課程會教您如何將 Azure Databricks 與虛擬網路中 SQL Server Linux Docker 容器整合。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 將 Azure Databricks 工作區部署到虛擬網路
@@ -42,7 +42,7 @@ ms.locfileid: "72273973"
 
     ![新增 Azure 虛擬機器](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. 在 [**基本**] 索引標籤上，選擇 [Ubuntu SERVER 16.04 LTS]。 將 VM 大小變更為 B1ms，其中有一個個 VCPU 和 2 GB 的 RAM。 Linux SQL Server Docker 容器的最低需求是 2 GB。 選擇系統管理員使用者名稱和密碼。
+2. 在 [**基本**] 索引標籤上，選擇 [Ubuntu SERVER 18.04 LTS]，並將 VM 大小變更為 [B2s]。 選擇系統管理員使用者名稱和密碼。
 
     ![新虛擬機器設定的 [基本] 索引標籤](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
@@ -62,32 +62,31 @@ ms.locfileid: "72273973"
 
 7. 新增規則以開啟 SSH 的埠22。 套用下列設定：
     
-    |設定|建議值|描述|
+    |設定|建議的值|說明|
     |-------|---------------|-----------|
-    |Source|IP 位址|IP 位址指定此規則將允許或拒絕來自特定來源 IP 位址的連入流量。|
-    |來源 IP 位址|< 您的公用 ip @ no__t-0|輸入您的公用 IP 位址。 您可以造訪[bing.com](https://www.bing.com/)並搜尋「**我的 IP**」來尋找您的公用 IP 位址。|
-    |Source port ranges|*|允許來自任何埠的流量。|
-    |Destination|IP 位址|IP 位址指定此規則將允許或拒絕特定來源 IP 位址的連出流量。|
-    |目的地 IP 位址|< 您的 vm 公用 ip @ no__t-0|輸入您虛擬機器的公用 IP 位址。 您可以在虛擬機器的 [**總覽**] 頁面上找到此資訊。|
+    |來源|IP 位址|IP 位址指定此規則將允許或拒絕來自特定來源 IP 位址的連入流量。|
+    |來源 IP 位址|< 您的公用 ip\>|輸入您的公用 IP 位址。 您可以造訪[bing.com](https://www.bing.com/)並搜尋「**我的 IP**」來尋找您的公用 IP 位址。|
+    |來源連接埠範圍|*|允許來自任何埠的流量。|
+    |目的地|IP 位址|IP 位址指定此規則將允許或拒絕特定來源 IP 位址的連出流量。|
+    |目的地 IP 位址|< 您的 vm 公用 ip\>|輸入您虛擬機器的公用 IP 位址。 您可以在虛擬機器的 [**總覽**] 頁面上找到此資訊。|
     |目的地連接埠範圍|22|開啟 SSH 的埠22。|
-    |Priority|290|為規則提供優先順序。|
-    |Name|ssh-databricks-tutorial-vm|為規則命名。|
+    |優先順序|290|為規則提供優先順序。|
+    |名稱|ssh-databricks-教學課程-vm|為規則命名。|
 
 
     ![新增埠22的輸入安全性規則](./media/vnet-injection-sql-server/open-port.png)
 
 8. 新增規則，以使用下列設定開啟適用于 SQL 的埠1433：
 
-    |設定|建議值|描述|
+    |設定|建議的值|說明|
     |-------|---------------|-----------|
-    |Source|IP 位址|IP 位址指定此規則將允許或拒絕來自特定來源 IP 位址的連入流量。|
-    |來源 IP 位址|10.179.0.0/16|輸入您虛擬網路的 [位址範圍]。|
-    |Source port ranges|*|允許來自任何埠的流量。|
-    |Destination|IP 位址|IP 位址指定此規則將允許或拒絕特定來源 IP 位址的連出流量。|
-    |目的地 IP 位址|< 您的 vm 公用 ip @ no__t-0|輸入您虛擬機器的公用 IP 位址。 您可以在虛擬機器的 [**總覽**] 頁面上找到此資訊。|
+    |來源|任意|來源指定此規則將允許或拒絕來自特定來源 IP 位址的連入流量。|
+    |來源連接埠範圍|*|允許來自任何埠的流量。|
+    |目的地|IP 位址|IP 位址指定此規則將允許或拒絕特定來源 IP 位址的連出流量。|
+    |目的地 IP 位址|< 您的 vm 公用 ip\>|輸入您虛擬機器的公用 IP 位址。 您可以在虛擬機器的 [**總覽**] 頁面上找到此資訊。|
     |目的地連接埠範圍|1433|針對 SQL Server 開啟埠22。|
-    |Priority|300|為規則提供優先順序。|
-    |Name|sql-databricks-tutorial-vm|為規則命名。|
+    |優先順序|300|為規則提供優先順序。|
+    |名稱|databricks-教學課程-vm|為規則命名。|
 
     ![新增埠1433的輸入安全性規則](./media/vnet-injection-sql-server/open-port2.png)
 
@@ -205,4 +204,4 @@ ms.locfileid: "72273973"
 
 前進到下一篇文章，以瞭解如何使用 Azure Databricks 來解壓縮、轉換和載入資料。
 > [!div class="nextstepaction"]
-> [教學課程：使用 Azure Databrick 擷取、轉換和載入資料](databricks-extract-load-sql-data-warehouse.md)
+> [教學課程：使用 Azure Databricks 解壓縮、轉換和載入資料](databricks-extract-load-sql-data-warehouse.md)

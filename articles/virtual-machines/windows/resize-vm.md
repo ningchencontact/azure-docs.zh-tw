@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 9537744787df7fc6c470bc1ee6862ad3f2991ae9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1f5f8f3a315b894ab8bc972d36008b5bce85d8e7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088732"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749253"
 ---
 # <a name="resize-a-windows-vm"></a>調整 Windows VM 大小
 
@@ -29,7 +29,7 @@ ms.locfileid: "70088732"
 
 如果您的 VM 使用進階儲存體，請確實選擇 **s** 版本的大小，以取得進階儲存體支援。 例如，請選擇 Standard_E4**s**_v3，而不是 Standard_E4_v3。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>調整不在可用性設定組中 Windows VM 的大小
 
@@ -124,5 +124,5 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>後續步驟
 
-如需提高延展性，可執行多個 VM 執行個體並相應放大。如需詳細資訊，請參閱[在虛擬機器擴展集中自動調整機器](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)。
+如需更多的擴充性，請執行多個 VM 實例並向外延展。如需詳細資訊，請參閱[自動調整虛擬機器擴展集中的 Windows 機器](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)。
 

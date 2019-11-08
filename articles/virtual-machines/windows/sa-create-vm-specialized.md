@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdbf55aae52cec9df1ba34cbeb34c67b8e5fc5d0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088629"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749194"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "70088629"
 * [上傳 VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [複製現有 Azure VM 的 VHD？](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>選項 1：上傳特製化 VHD
@@ -70,7 +70,7 @@ Get-AzStorageAccount
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. 使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) \(英文\) Cmdlet，在此資源群組中建立名為 **mystorageaccount** 的儲存體帳戶：
+2. 使用 **New-AzStorageAccount** \(英文\) Cmdlet，在此資源群組中建立名為 [mystorageaccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) 的儲存體帳戶：
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -118,8 +118,8 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ### <a name="deallocate-the-vm"></a>解除配置 VM
 解除配置 VM，這會釋出要複製的 VHD。 
 
-* **入口網站**：按一下 [虛擬機器] > [myVM] > [停止]
-* **Powershell**：使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) \(英文\) 來停止 (解除配置) **myResourceGroup** 資源群組中名為 **myVM** 的 VM。
+* **入口網站**︰ 按一下 [虛擬機器]  >  [myVM] > [停止]
+* **Powershell**：使用[update-azvm](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)來停止（解除配置）資源群組**myResourceGroup**中名為**myVM**的 VM。
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -132,8 +132,8 @@ Azure 入口網站中 VM 的 [狀態] 會從 [已停止] 變更為 [已停止 (�
 
 您可以使用 Azure 入口網站或 Azure PowerShell 來取得 URL：
 
-* **入口網站**：按一下 **>** [所有服務] > [儲存體帳戶] > *儲存體帳戶* > [Blob]，而您的來源 VHD 檔可能在 **vhds** 容器中。 按一下容器的 [屬性]，複製標示為[URL] 的文字。 您會需要來源和目的地容器的 URL。 
-* **Powershell**：使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) \(英文\) 來取得 **myResourceGroup** 資源群組中名為 **myVM** 的 VM 資訊。 在結果中，查看 [儲存體設定檔] 區段的 [VHD URI]。 URI 的第一個部分是容器的 URL，最後一個部分是 VM 的作業系統 VHD 名稱。
+* **入口網站**︰按一下 **>** [所有服務] > [儲存體帳戶] > *儲存體帳戶* > [Blob]，而您的來源 VHD 檔可能在 **vhds** 容器中。 按一下容器的 [屬性]，複製標示為[URL] 的文字。 您會需要來源和目的地容器的 URL。 
+* **Powershell**：使用[update-azvm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)來取得資源群組**myResourceGroup**中名為**myVM**之 VM 的資訊。 在結果中，查看 [儲存體設定檔] 區段的 [VHD URI]。 URI 的第一個部分是容器的 URL，最後一個部分是 VM 的作業系統 VHD 名稱。
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -142,8 +142,8 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>取得儲存體存取金鑰
 找出來源和目的地儲存體帳戶的存取金鑰。 如需存取金鑰的詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)。
 
-* **入口網站**：按一下 [所有服務]  > [儲存體帳戶]  > [儲存體帳戶] > [存取金鑰]。 複製標示為 [金鑰1] 的金鑰。
-* **Powershell**：使用 [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) \(英文\) 來取得 **myResourceGroup** 資源群組中 **mystorageaccount** 儲存體帳戶的儲存體金鑰。 複製標示 [金鑰1] 的金鑰。
+* **入口網站**︰按一下 [所有服務]  > [儲存體帳戶]  > [儲存體帳戶] > [存取金鑰]。 複製標示為 [金鑰1] 的金鑰。
+* **Powershell**：使用[AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)來取得資源群組**myResourceGroup**中**mystorageaccount**儲存體帳戶的儲存體金鑰。 複製標示 [金鑰1] 的金鑰。
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -270,14 +270,14 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. 新增 OS 磁碟。 在此範例中, 建立 OS 磁片時, 會將 "osDisk" 一詞附加至 VM 名稱, 以建立 OS 磁片名稱。 這個範例也指定這個以 Windows 為基礎的 VHD，應該附加至 VM 作為 OS 磁碟。
+2. 新增 OS 磁碟。 在此範例中，建立 OS 磁片時，會將 "osDisk" 一詞附加至 VM 名稱，以建立 OS 磁片名稱。 這個範例也指定這個以 Windows 為基礎的 VHD，應該附加至 VM 作為 OS 磁碟。
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
     $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
-選擇性：如果您有資料磁碟需要附加至 VM，請使用資料 VHD 的 URL 和適當的邏輯單元編號 (Lun) 新增資料磁碟。
+選擇性︰如果您有資料磁碟需要附加至 VM，請使用資料 VHD 的 URL 和適當的邏輯單元編號 (Lun) 新增資料磁碟。
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"

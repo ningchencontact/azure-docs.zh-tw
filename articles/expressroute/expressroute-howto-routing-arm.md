@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3f2c768fe7998cc166e3102619e7183c96d1ccbb
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 813263442bc82254d0cb5ea9e9f7e8a265de5b4a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965351"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748210"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路的對等互連
 
-本文將協助您使用 PowerShell，在 Resource Manager 部署模型中建立和管理 ExpressRoute 線路的路由設定。 您還可以檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路的對等互連。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
+本文將協助您使用 PowerShell，在 Resource Manager 部署模型中建立和管理 ExpressRoute 線路的路由設定。 您還可以檢查狀態、更新，或是刪除與取消佈建 ExpressRoute 線路的對等互連。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
@@ -46,7 +46,7 @@ ms.locfileid: "72965351"
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -109,7 +109,7 @@ ms.locfileid: "72965351"
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊。
+4. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊：
 
    * 主要連結的 /30 或 /126 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4或 IPv6 首碼。
    * 次要連結的 /30 或/126 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4或 IPv6 首碼。
@@ -148,7 +148,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updatemsft"></a>更新 Microsoft 對等組態
+### <a name="updatemsft"></a>更新 Microsoft 對等互連設定
 
 您可以使用下列範例來更新設定的任何部分：
 

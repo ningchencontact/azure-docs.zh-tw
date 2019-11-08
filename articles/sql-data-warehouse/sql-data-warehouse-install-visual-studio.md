@@ -9,15 +9,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 10/17/2019
+ms.date: 11/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: caf4a3efbfafcdb10a8834c213b2469e30296501
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 96d66e6190732d88ba9a33094b6c27bbadfd4aae
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692684"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747800"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>開始使用適用于 SQL 資料倉儲的 Visual Studio 2019
 Visual Studio **2019** SQL SERVER DATA TOOLS （SSDT）是單一工具，可讓您執行下列動作：
@@ -29,14 +29,8 @@ Visual Studio **2019** SQL SERVER DATA TOOLS （SSDT）是單一工具，可讓�
 - 將您的資料庫專案與原始檔控制系統（例如 Git）整合 Azure Repos
 - 使用自動化伺服器設定持續整合和部署管線，例如 Azure DevOps
 
-> [!NOTE]
-> 目前 Visual Studio SSDT 資料庫專案處於預覽狀態。 若要定期接收這項功能的更新，請在 [UserVoice] 投票。
-
-## <a name="install-visual-studio-2019-preview"></a>安裝 Visual Studio 2019 Preview
+## <a name="install-visual-studio-2019"></a>安裝 Visual Studio 2019
 請參閱[下載 Visual Studio 2019][] ，下載並安裝 Visual Studio **16.3 和**更新版本。 在安裝期間，選取資料儲存和處理工作負載。 Visual Studio 2019 中不再需要安裝獨立 SSDT。
-
-## <a name="reporting-issues-with-ssdt-visual-studio-2019-preview"></a>報告 SSDT Visual Studio 2019 的問題（預覽）
-若要在使用 SSDT 與 SQL 資料倉儲時回報問題，請傳送電子郵件至下列電子郵件通訊群組清單： <sqldwssdtpreview@service.microsoft.com>
 
 ## <a name="next-steps"></a>後續步驟
 既然您已有最新版本的 SSDT，就可以開始[連線][connect]到您的 SQL 資料倉儲。

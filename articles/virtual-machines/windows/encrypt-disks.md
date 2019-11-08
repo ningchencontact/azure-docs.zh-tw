@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 87777d3a6abfeaeac74fd69126cc3e71e11be825
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 73f38760153a6e1db5621801282c71216b3e8560
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597845"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749428"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>將 Windows VM 上的虛擬磁碟加密
 如需強化虛擬機器 (VM) 安全性與法規遵循，可以將 Azure 中的虛擬磁碟加密。 磁碟會使用 Azure Key Vault 中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文說明如何使用 Azure PowerShell 將 Windows VM 上的虛擬磁碟加密。 您也可以將[Linux 虛擬機器加密](../linux/disk-encryption-overview.md)。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="overview-of-disk-encryption"></a>磁碟加密概觀
 Windows VM 上的虛擬磁碟在待用時是使用 BitLocker 進行加密。 將 Azure 中的虛擬磁碟加密完全免費。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure Key Vault 中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 密碼編譯金鑰會用來加密及解密連結到 VM 的虛擬磁碟。 您可保有這些密碼編譯金鑰的控制權，並可稽核其使用情況。 
@@ -60,7 +60,7 @@ Windows VM 上的虛擬磁碟在待用時是使用 BitLocker 進行加密。 將
 
 
 ## <a name="create-an-azure-key-vault-and-keys"></a>建立 Azure Key Vault 和金鑰
-開始之前，請確定已安裝最新版的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。 在下列命令範例中，將所有的範例參數取代為您自己的名稱、位置和金鑰值，例如 *myResourceGroup*、*myKeyVault*、*myVM*等等。
+開始之前，請確定已安裝最新版的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 在下列命令範例中，將所有的範例參數取代為您自己的名稱、位置和金鑰值，例如 *myResourceGroup*、*myKeyVault*、*myVM*等等。
 
 建立 Azure 金鑰保存庫的第一個步驟是儲存您的密碼編譯金鑰。 Azure Key Vault 可儲存讓您安全地在應用程式和服務中實作的金鑰、祕密或密碼。 針對虛擬磁碟加密，您將需要建立 Key Vault 來儲存用來將虛擬磁碟加密或解密的密碼編譯金鑰。 
 

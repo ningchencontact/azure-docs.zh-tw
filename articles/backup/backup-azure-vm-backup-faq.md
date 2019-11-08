@@ -1,6 +1,6 @@
 ---
 title: 常見問題-使用 Azure 備份來備份 Azure Vm
-description: 有關使用 Azure 備份來備份 Azure Vm 的常見問題解答。
+description: 在本文中，您會找到有關使用 Azure 備份服務來備份 Azure Vm 的常見問題解答。
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: d93225186fe5b16300a3138d67dd40c66d56976e
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968399"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747275"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題-備份 Azure Vm
 
 本文會回答有關使用[Azure 備份](backup-introduction-to-azure-backup.md)服務來備份 Azure vm 的常見問題。
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>備份
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>建立虛擬機器映射時，可以針對備份啟用哪些 VM 映射？
 
@@ -51,7 +51,7 @@ ms.locfileid: "72968399"
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>我在最近一些 VM 上啟用了 Azure 磁碟加密。 我的備份是否會繼續運作？
 
-提供存取 Key Vault Azure 備份的許可權。 在 PowerShell 中指定權限，如 [Azure 備份 PowerShell](backup-azure-vms-automation.md) 文件的**啟用備份**一節中所述。
+提供存取 Key Vault Azure 備份的許可權。 在 PowerShell 中指定權限，如 **Azure 備份 PowerShell** 文件的[啟用備份](backup-azure-vms-automation.md)一節中所述。
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>我已將 VM 磁碟遷移至受控磁碟。 我的備份是否會繼續運作？
 
@@ -63,11 +63,11 @@ ms.locfileid: "72968399"
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>我的 VM 關閉了。 隨選或排程的備份工作會運作嗎？
 
-可以。 備份會在機器關機時執行。 復原點會標示為「當機時保持一致」。
+是。 備份會在機器關機時執行。 復原點會標示為「當機時保持一致」。
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
 
-可以。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
+是。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
 
 ### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務所建立之資源群組的鎖定（也就是 `AzureBackupRG_<geo>_<number>`），我的備份是否會繼續正常執行？
 
@@ -130,7 +130,7 @@ Azure 虛擬機器備份原則支援最短的保留範圍，最多7天到9999天
 
 ### <a name="can-i-restore-the-vm-thats-been-deleted"></a>我可以還原已刪除的 VM 嗎？
 
-可以。 即使您刪除 VM，還是可以移至保存庫中對應的備份項目，然後從復原點還原。
+是。 即使您刪除 VM，還是可以移至保存庫中對應的備份項目，然後從復原點還原。
 
 ### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>如何將 VM 還原至相同的可用性設定組？
 
