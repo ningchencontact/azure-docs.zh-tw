@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955467"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832202"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory （Azure AD）應用程式 Proxy 的常見問題
 
@@ -66,7 +66,7 @@ ms.locfileid: "71955467"
 其中包含隨連接器一起安裝的效能監視器計數器。 若要查看它們：  
 
 1. 選取 [**開始**]，輸入 "Perfmon"，然後按 enter。
-2. 選取 **效能監視器**，然後按一下綠色的 **+**  圖示。
+2. 選取 [**效能監視器**]，然後按一下綠色 **+** 圖示。
 3. 新增您想要監視的**MICROSOFT AAD 應用程式 Proxy 連接器**計數器。
 
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Azure AD 應用程式 Proxy 連接器是否必須與資源位於相同的子網？
@@ -95,7 +95,7 @@ ms.locfileid: "71955467"
 如果連接器伺服器和 web 應用程式服務帳戶位於相同的網域中，您可以使用 Active Directory 的使用者和電腦來設定每個連接器電腦帳戶上的委派設定，讓它們可以委派給目標 SPN。
 
 如果連接器伺服器和 web 應用程式服務帳戶位於不同的網域，則會使用以資源為基礎的委派。 委派許可權是在目標 web 伺服器和 web 應用程式服務帳戶上設定。 這種限制委派的方法相當新。 這個方法是在 Windows Server 2012 中引進，它可讓資源（web 服務）擁有者控制哪些機器和服務帳戶可以委派給它，藉此支援跨網域委派。 沒有任何 UI 可協助此設定，因此您必須使用 PowerShell。
-如需詳細資訊，請參閱白皮書[瞭解使用應用程式 Proxy 的 Kerberos 限制委派](http://aka.ms/kcdpaper)。
+如需詳細資訊，請參閱白皮書[瞭解使用應用程式 Proxy 的 Kerberos 限制委派](https://aka.ms/kcdpaper)。
 
 ## <a name="pass-through-authentication"></a>傳遞驗證
 
@@ -139,19 +139,19 @@ ms.locfileid: "71955467"
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>我可以使用 Azure AD 應用程式 Proxy 做為 AD FS Proxy （例如 Web 應用程式 Proxy）嗎？
 
-資料分割 Azure AD 應用程式 Proxy 是設計用來與 Azure AD 搭配運作，並不符合作為 AD FS Proxy 的需求。
+不會。 Azure AD 應用程式 Proxy 是設計用來與 Azure AD 搭配運作，並不符合作為 AD FS Proxy 的需求。
 
 ## <a name="websocket"></a>WebSocket
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket 支援適用于 QlikSense 以外的應用程式嗎？
 
-目前，WebSocket 通訊協定支援仍處於公開預覽狀態，對其他應用程式可能無法使用。 有些客戶使用 WebSocket 通訊協定與其他應用程式的混合成功。 如果您測試過這類案例，我們很樂意聽到您的結果。 請在 aadapfeedback@microsoft.com 將您的意見反應傳送給我們。
+目前，WebSocket 通訊協定支援仍處於公開預覽狀態，對其他應用程式可能無法使用。 有些客戶使用 WebSocket 通訊協定與其他應用程式的混合成功。 如果您測試過這類案例，我們很樂意聽到您的結果。 請在 aadapfeedback@microsoft.com將您的意見反應傳送給我們。
 
 ## <a name="link-translation"></a>連結轉譯
 
 ### <a name="does-using-link-translation-affect-performance"></a>使用連結轉譯會影響效能嗎？
 
-是的。 連結轉譯會影響效能。 應用程式 Proxy 服務會掃描應用程式中是否有硬式編碼的連結，並將它們取代為其各自的已發佈外部 Url，然後才呈現給使用者。 
+是。 連結轉譯會影響效能。 應用程式 Proxy 服務會掃描應用程式中是否有硬式編碼的連結，並將它們取代為其各自的已發佈外部 Url，然後才呈現給使用者。 
 
 為了達到最佳效能，我們建議您藉由設定[自訂網域](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)來使用相同的內部和外部 url。 如果無法使用自訂網域，您可以在行動裝置上使用我的應用程式安全登入延伸模組或 Microsoft Edge 瀏覽器來改善連結轉譯效能。 請參閱重新[導向使用 Azure AD 應用程式 Proxy 發佈之應用程式的硬式編碼連結](application-proxy-configure-hard-coded-link-translation.md)。
 

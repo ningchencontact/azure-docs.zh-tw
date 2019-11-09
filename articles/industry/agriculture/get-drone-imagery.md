@@ -5,16 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 598248a0efb3322a9c22a5e38e4986f5ba5142ab
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 19d709a2eb0af5bdb9d40a2bce96c5716ce3c6f6
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798449"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847421"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>從無人機合作夥伴取得無人機影像
 
-本文說明如何從中的無人機影像合作夥伴，將 orthomosaic 資料帶入 Azure FarmBeats 資料中樞。 目前支援下列影像合作夥伴：  
+本文說明如何從中的無人機影像合作夥伴，將 orthomosaic 資料帶入 Azure FarmBeats 資料中樞。 Orthomosaic 是從無人機所收集的資料進行幾何校正和拼接的鳥瞰圖/影像。
+
+目前支援下列影像合作夥伴。
 
   ![專案伺服器陣列的節拍](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 

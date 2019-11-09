@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c126d72720c16d4ba869156e86a6e60110b2c31b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847484"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>即將在客戶擁有的網站之間，使用 Hyper-v 和從 SCVMM 管理的網站之間的 DR 淘汰到 Azure
 
@@ -43,7 +43,7 @@ ms.locfileid: "73492278"
 - 選擇[開始使用 Azure 做為 hyper-v 主機上 vm 的 DR 目標](hyper-v-azure-tutorial.md)。
 
 > [!IMPORTANT]
-> 請注意，您的內部部署環境仍然可以有 SCVMMM，但您會將僅限 Hyper-v 主機的參考設定為 ASR。
+> 請注意，您的內部部署環境仍然可以有 SCVMM，但您會將僅限 Hyper-v 主機的參考設定為 ASR。
 
 - 選擇繼續進行站對站複寫，但使用基礎[Hyper-v 複本解決方案](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)，但將無法使用 Azure 入口網站中的 Azure Site Recovery 來管理 DR 設定。 
 

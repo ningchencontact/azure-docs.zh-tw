@@ -5,21 +5,22 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e7de815b7254fb071b3094f9ae636b712b38684b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 7a85ed93d9ee01255d809cce84ebe24e6c3f71d1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797682"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847403"
 ---
 # <a name="sensor-partner-integration"></a>感應器合作夥伴整合
-本文提供 Azure FarmBeats **Translator**元件的相關資訊。
+
+本文提供 Azure FarmBeats **Translator**元件的相關資訊，以啟用感應器夥伴整合。
 
 藉由使用此元件，合作夥伴可以開發與 FarmBeats 整合的感應器，方法是利用我們的 API，並將客戶裝置資料和遙測傳送至 FarmBeats 資料中樞。 資料會使用 FarmBeats 加速器進行視覺化。 資料可以用於資料融合，以及用來建立機器語言/人工智慧模型。
 
 ## <a name="link-farmbeats-account"></a>連結 FarmBeats 帳戶
 
-客戶購買並部署裝置/感應器之後，即可在裝置合作夥伴的 SaaS 入口網站（軟體即服務）上存取裝置資料和遙測。 裝置合作夥伴必須讓客戶將其帳戶連結至其在 Azure 上的 FarmBeats 實例。 下列認證必須以 customer/SI 填寫：
+客戶購買並部署裝置/感應器之後，即可在裝置合作夥伴的 SaaS 入口網站（軟體即服務）上存取裝置資料和遙測。 裝置合作夥伴必須讓客戶將其帳戶連結至其在 Azure 上的 FarmBeats 實例。 客戶/系統整合者必須填寫下列認證：
 
    - 顯示名稱（用於定義此整合名稱之使用者的選擇性欄位）
    - API 端點
@@ -41,14 +42,11 @@ ms.locfileid: "73797682"
 
 ## <a name="edit-farmbeats-integration"></a>編輯 FarmBeats 整合
 
-客戶可以編輯 FarmBeats 整合。 編輯的主要案例是當用戶端密碼或連接字串因為到期而變更時，在此情況下，customer 只能編輯下欄欄位。
+如果用戶端密碼或連接字串變更，客戶可以編輯 FarmBeats 整合設定。 在此情況下，客戶只能編輯下欄欄位：
 
    - 顯示名稱（如果適用）
    - 用戶端密碼（應顯示為 "2x8 * * * * * * * * * * *" 格式或顯示/隱藏功能，而不是純文字）
    - 連接字串（應該顯示為 "2x8 * * * * * * * * * * *" 格式或顯示/隱藏功能，而不是純文字）
-
-   > [!NOTE]
-   > [編輯] 不應中斷中繼資料物件的建立。
 
 ## <a name="view-last-telemetry-sent"></a>查看上次傳送的遙測
 
@@ -192,7 +190,7 @@ ParentDeviceId | 此裝置所連接之父裝置的識別碼。 例如： 連接�
   說明  | 提供有意義的描述
   properties  | 製造商提供的其他屬性
 
- 如需每個物件及其屬性的詳細資訊，請參閱[swagger](httpa://aka.ms/FarmBeatsDatahubSwagger)。
+ 如需每個物件及其屬性的詳細資訊，請參閱[swagger](https://aka.ms/FarmBeatsDatahubSwagger)。
 
  > [!NOTE]
  > Api 會針對每個建立的實例傳回唯一的識別碼。 此識別碼必須由翻譯工具保留，以進行裝置管理和元資料同步。

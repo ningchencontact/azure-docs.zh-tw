@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0ff9e055ecc0c4f58e4b3df0494debbe3f4cd8a4
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797851"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847427"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -59,8 +59,6 @@ ms.locfileid: "73797851"
 
 7. 請遵循畫面上的指示來完成程式。
 
-    如果您沒有 FarmBeats 或 Azure 訂用帳戶的存取權，請洽詢 FarmBeats 系統管理員。
-
 ## <a name="create-devicesensor-metadata"></a>建立裝置/感應器中繼資料
 
  現在您已有必要的認證，您可以使用 FarmBeats Api 建立中繼資料來定義裝置和感應器。
@@ -85,7 +83,7 @@ ms.locfileid: "73797851"
 |    **裝置**             |                      |
 |   DeviceModelId     |     相關聯裝置型號的識別碼  |
 |  hardwareId          | 裝置的唯一識別碼，例如 MAC 位址等等。
-|  ReportingInterval        |   報告間隔（以秒為單位）
+|  reportingInterval        |   報告間隔（以秒為單位）
 |  位置            |  裝置緯度（-90 到 + 90）/Longitude （-180 到180）/Elevation （以計量計）   
 |ParentDeviceId       |    此裝置所連接之父裝置的識別碼。 例如，連接到閘道的節點。 節點會以閘道的形式 parentDeviceId。  |
 |    名稱            | 用來識別資源的名稱。 裝置合作夥伴必須傳送與合作夥伴端上的裝置名稱一致的名稱。 如果合作夥伴裝置名稱是使用者定義的，則相同的使用者定義名稱應傳播至 FarmBeats。|
