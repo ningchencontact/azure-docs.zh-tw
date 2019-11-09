@@ -1,23 +1,24 @@
 ---
 title: 針對 Azure 訂用帳戶登入問題進行疑難排解
 description: 協助解決無法登入 Azure 入口網站或 Azure 帳戶中心的問題。
+services: azure
 author: v-miegge
-manager: na
+manager: dcscontentpm
 editor: na
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: ca641813e8b01a39d31a56e3730424b0fa1d6436
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e2cbaa5cf226eaf9835c1a63d21fae54c7093117
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69657043"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795427"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>針對 Azure 訂用帳戶登入問題進行疑難排解
 

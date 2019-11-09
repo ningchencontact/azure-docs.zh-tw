@@ -12,12 +12,12 @@ metadata:
   ms.date: 08/28/2019
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 4689a573bf8d58aa9734af97ea66f78ab4e5707a
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: db210331e07ec1b23c3300a5a5a972570be5b591
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70126935"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73885812"
 landingContent:
 - title: 關於使用者、群組、角色和授權
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     - text: 委派系統管理
       url: roles-concept-delegation.md
     - text: 比較 Azure RBAC 角色與 Azure AD 管理員角色
-      url: https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
 - title: 開始使用
   linkLists:
   - linkListType: quickstart
@@ -42,7 +42,7 @@ landingContent:
     - text: 設定群組的到期原則
       url: groups-quickstart-expiration.md
     - text: 將授權指派給使用者
-      url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: https://docs.microsoft.com/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
 - title: 指派 Azure AD 管理員角色
   linkLists:
   - linkListType: how-to-guide
@@ -78,6 +78,6 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 新增自訂網域名稱
-      url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
     - text: 管理自訂網域名稱
       url: domains-manage.md

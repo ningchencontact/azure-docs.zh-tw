@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806944"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746454"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>購買或每月付款的 Azure 保留
 
@@ -24,6 +24,7 @@ ms.locfileid: "70806944"
 每月付款適用於：
 
 - 虛擬機器
+- Azure 儲存體
 - SQL Database
 - SQL 資料倉儲
 - Cosmos DB
@@ -60,20 +61,6 @@ ms.locfileid: "70806944"
 如果取消每月付款的保留，Microsoft 可能會對一併取消的未來承諾付款收取取消費用。 剩餘承諾付款會朝 $50,000 美元的退款限制累積。
 
 如需有關交換和退款的詳細資訊，請參閱 [Azure 保留的自助式交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
-
-## <a name="faq"></a>常見問題集
-
-問： Azure 是否提供「部分預先付款的保留？」<br>
-A. 沒有。 由於預先付款和每月付款的保留費用都相同，所以 Microsoft 不支援部分預先付款的付款方式。
-
-問： Microsoft 雲端解決方案提供者 (CSP) 計畫是否可使用每月付款？<br>
-A. 是，合作夥伴可以在 Azure 入口網站中為其 CSP 客戶購買保留。 但在合作夥伴中心內，您無法使用每月計費的方式購買保留。
-
-問： 我是美國 Azure Government 客戶，我是否可以按月支付保留的購買費用？<br>
-A. 目前不支援。
-
-問： 我何時可以在 Azure 入口網站中自行進行交換或退款，而不是建立支援票證？<br>
-A. 目前不支援。 月付保留的交換和退款都會由 Azure 支援來處理。
 
 ## <a name="next-steps"></a>後續步驟
 

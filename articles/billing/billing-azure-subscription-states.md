@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: andalmia
-ms.openlocfilehash: 62c21c988f69c14b5d62c618163b172e2fa10397
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 27664fef04e9b52294f0689eba49f16f84433c16
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71341074"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888464"
 ---
 # <a name="azure-subscription-states"></a>Azure 訂用帳戶狀態
 本文說明 Azure 訂用帳戶可能擁有的各種狀態。 在 [訂用帳戶] 刀鋒視窗底下，您會發現這些狀態顯示為「狀態」。
@@ -25,6 +25,6 @@ ms.locfileid: "71341074"
 | 訂用帳戶狀態 | 說明 |
 |-------------| ----------------|
 | **使用中** | 您的 Azure 訂用帳戶為作用中。 您可以使用此訂用帳戶來部署新的資源及管理現有的資源。|
-| **超過期限** | 您的 Azure 訂用帳戶有擱置的未付款項。 您的訂用帳戶仍為作用中，但無法支付費用可能會導致訂用帳戶被停用。 [解決 Azure 訂用帳戶的逾期未付帳款。](https://docs.microsoft.com/en-us/azure/billing/billing-azure-subscription-past-due-balance) |
-| **Disabled** | 您的 Azure 訂用帳戶已停用，無法再用來建立或管理 Azure 資源。 雖然處於此狀態，系統會解除配置您的虛擬機器、釋出暫時 IP 位址、儲存體會變成唯讀，而且停用其他服務。 訂用帳戶可以停用，因為您的點數可能已到期、您可能已達消費限制、您有逾期未繳帳單、您的信用卡限制已超過，或您已將其明確停用/取消。 視訂用帳戶類型和停用原因而定，訂用帳戶在 1-90 天之間可能會保持停用狀態，之後就會永久刪除。 [重新啟用已停用的 Azure 訂用帳戶。](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable)|
+| **超過期限** | 您的 Azure 訂用帳戶有擱置的未付款項。 您的訂用帳戶仍為作用中，但無法支付費用可能會導致訂用帳戶被停用。 [解決 Azure 訂用帳戶的逾期未付帳款。](https://docs.microsoft.com/azure/billing/billing-azure-subscription-past-due-balance) |
+| **Disabled** | 您的 Azure 訂用帳戶已停用，無法再用來建立或管理 Azure 資源。 雖然處於此狀態，系統會解除配置您的虛擬機器、釋出暫時 IP 位址、儲存體會變成唯讀，而且停用其他服務。 訂用帳戶可以停用，因為您的點數可能已到期、您可能已達消費限制、您有逾期未繳帳單、您的信用卡限制已超過，或您已將其明確停用/取消。 視訂用帳戶類型和停用原因而定，訂用帳戶在 1-90 天之間可能會保持停用狀態，之後就會永久刪除。 [重新啟用已停用的 Azure 訂用帳戶。](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable)|
 | **已刪除** | 您的 Azure 訂用帳戶已連同所有基礎資源/資料一起刪除。 |

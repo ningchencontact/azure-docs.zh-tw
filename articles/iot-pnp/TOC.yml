@@ -16,7 +16,7 @@
     - name: 將裝置連線到 IoT 中樞 - Linux
       href: quickstart-connect-pnp-device-linux.md
     - name: 將裝置連線到 IoT Central
-      href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      href: ../iot-central/preview/quick-create-pnp-device.md
     - name: 連線到解決方案中的裝置
       href: quickstart-connect-pnp-device-solution.md
 - name: 教學課程

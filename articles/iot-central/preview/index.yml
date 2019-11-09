@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: ff8f5772880f047bbe0b0d798c944b38da486468
+  ms.openlocfilehash: d769b906324c1022baffff198fea6e4e44821757
   ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73888804"
+  ms.locfileid: "73891800"
 landingContent:
 - title: 關於 Azure IoT Central
   linkLists:
@@ -42,35 +42,37 @@ landingContent:
     - text: 設定裝置範本
       url: howto-set-up-template.md
     - text: 與 IoT 隨插即用裝置連線
-      url: tutorial-add-device.md
+      url: tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
     - text: 準備及連線 MX Chip IoT DevKit
       url: howto-connect-devkit.md
     - text: 連線其他 IoT 雲端
-      url: howto-build-iotc-device-bridge.md
+      url: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
 - title: 保持連線
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 使用裝置設定
-      url: howto-use-device-sets.md
+    - text: 使用裝置群組
+      url: tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: 管理您的裝置
       url: howto-manage-devices.md
     - text: 執行作業
-      url: howto-run-a-job.md
+      url: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - text: 分析您的裝置資料
       url: howto-create-analytics.md
 - title: 轉換
   linkLists:
   - linkListType: tutorial
     links:
+    - text: 建立規則
+      url: quick-configure-rules.md
     - text: 建立遙測規則
-      url: howto-create-telemetry-rules.md
+      url: tutorial-create-telemetry-rules.md
     - text: 匯出至 Blob 儲存體
-      url: howto-export-data-blob-storage.md
+      url: howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: 建立自訂規則
@@ -90,8 +92,8 @@ landingContent:
     - text: 自訂應用程式 UI
       url: howto-customize-ui.md
     - text: 設定個人儀表板
-      url: howto-create-personal-dashboards.md
+      url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - text: 使用儀表板圖格
-      url: howto-add-tiles-to-your-dashboard.md
+      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - text: 使用應用程式範本
       url: howto-use-app-templates.md
