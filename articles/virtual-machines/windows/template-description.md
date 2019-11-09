@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749101"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838898"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
@@ -282,7 +282,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 定義虛擬機器資源時，會使用數個設定檔項目。 某些是必要的而有些則是選擇性。 例如，hardwareProfile、osProfile、storageProfile 和 networkProfile 元素是必要的，但 diagnosticsProfile 為選擇性。 這些設定檔會定義設定，例如︰
    
 - [大小](sizes.md)
-- [名稱](/azure/architecture/best-practices/naming-conventions)和認證
+- [名稱](/azure/architecture/best-practices/resource-naming)和認證
 - 磁碟和[作業系統設定](cli-ps-findimage.md)
 - [網路介面](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 開機診斷

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 10/15/2019
-ms.openlocfilehash: 31c3cd944651b9ba4ca4fcaa275e5b0ccedd947c
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/06/2019
+ms.openlocfilehash: ded95800c482d43fcaf27993869f1e71eee68f47
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831801"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>使用適用于 Python 的 Azure Machine Learning SDK 來排程機器學習管線
 
@@ -54,11 +54,11 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>建立排程
 
-若要定期執行管線，您必須建立排程。 @No__t_0 會使管線、實驗和觸發程式產生關聯。 觸發程式可以是描述執行之間等待的 `ScheduleRecurrence` 或資料存放區路徑，以指定要監看是否有變更的目錄。 不論是哪一種情況，您都需要管線識別碼和用來建立排程的實驗名稱。
+若要定期執行管線，您必須建立排程。 `Schedule` 會使管線、實驗和觸發程式產生關聯。 觸發程式可以是描述執行之間等待的`ScheduleRecurrence` 或資料存放區路徑，以指定要監看是否有變更的目錄。 不論是哪一種情況，您都需要管線識別碼和用來建立排程的實驗名稱。
 
 ### <a name="create-a-time-based-schedule"></a>建立以時間為基礎的排程
 
-@No__t_0 的函式具有必要的 `frequency` 引數，必須是下列其中一個字串： "Minute"、"Hour"、"Day"、"Week" 或 "Month"。 它也需要一個整數 `interval` 引數，指定排程開始之間應經過多少 `frequency` 單位。 選擇性引數可讓您更明確地瞭解開始時間，如[SCHEDULERECURRENCE SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py)檔中所述。
+`ScheduleRecurrence` 的函式具有必要的 `frequency` 引數，必須是下列其中一個字串： "Minute"、"Hour"、"Day"、"Week" 或 "Month"。 它也需要一個整數 `interval` 引數，指定排程開始之間應經過多少 `frequency` 單位。 選擇性引數可讓您更明確地瞭解開始時間，如[SCHEDULERECURRENCE SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py)檔中所述。
 
 建立每隔15分鐘開始執行一次的 `Schedule`：
 
@@ -77,7 +77,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 若要建立檔案-被動 `Schedule`，您必須在[Schedule. create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)的呼叫中設定 `datastore` 參數。 若要監視資料夾，請設定 `path_on_datastore` 引數。
 
-@No__t_0 引數可讓您指定資料存放區檢查是否有變更的頻率（以分鐘為單位）。
+`polling_interval` 引數可讓您指定資料存放區檢查是否有變更的頻率（以分鐘為單位）。
 
 如果管線是使用[資料路徑](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)所建立，您可以藉由設定 `data_path_parameter_name` 引數，將該變數設定為已變更檔案的名稱。
 
@@ -94,9 +94,9 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ## <a name="view-your-scheduled-pipelines"></a>查看已排程的管線
 
-在您的網頁瀏覽器中，流覽至您的 Machine Learning 服務工作區。 從流覽面板的 [**資產**] 區段中，選擇 [**管線**]。 此連結會帶您前往工作區中發佈的管線清單。
+在您的網頁瀏覽器中，流覽至 [Azure Machine Learning]。 從導覽面板的 [**端點**] 區段中，選擇 [**管線端點**]。 這會帶您前往工作區中發佈的管線清單。
 
-![工作區的管線頁面](media/how-to-schedule-a-pipeline/pipelines-list.png)
+![AML 的 [管線] 頁面](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 在此頁面中，您可以查看工作區中所有管線的摘要資訊：名稱、描述、狀態等等。 在您的管線中按一下以深入瞭解。 在產生的頁面上，您會有更多關於管線的詳細資料，您可以向下切入到個別的執行。
 
@@ -134,7 +134,7 @@ stop_by_schedule(ws, schedule_id)
 
 在本文中，您使用了適用于 Python 的 Azure Machine Learning SDK，以兩種不同的方式來排程管線。 一個排程會根據經過的時鐘時間而重複。 如果在指定的 `Datastore` 上或在該存放區的目錄內修改檔案，就會執行另一個排程。 您已瞭解如何使用入口網站來檢查管線和個別執行。 最後，您已瞭解如何停用排程，讓管線停止執行。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 > [!div class="nextstepaction"]
 > [使用 Azure Machine Learning 管線進行批次評分](tutorial-pipeline-batch-scoring-classification.md)

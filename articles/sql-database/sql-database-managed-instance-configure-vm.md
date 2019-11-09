@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822784"
+ms.locfileid: "73839055"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體
 
@@ -46,7 +46,7 @@ ms.locfileid: "73822784"
 
    | 設定| 建議的值 | 說明 |
    | ---------------- | ----------------- | ----------- |
-   | **名稱** | 任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。|
+   | **名稱** | 任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。|
    | **位址範圍 (CIDR 區塊)** | 有效範圍 | 針對此快速入門，使用預設值即可。|
    | **網路安全性群組** | None | 針對此快速入門，使用預設值即可。|
    | **路由表** | None | 針對此快速入門，使用預設值即可。|
@@ -78,8 +78,8 @@ ms.locfileid: "73822784"
    | **訂用帳戶** | 有效的訂用帳戶 | 必須是您有權限在其中建立新資源的訂用帳戶。 |
    | **資源群組** |您在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中指定的資源群組。|此資源群組必須是 VNet 所在的資源群組。|
    | **位置** | 資源群組的位置 | 根據選取的資源群組填入此值。 |
-   | **虛擬機器名稱**  | 任何有效名稱 | 如需有效的名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。|
-   |**系統管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。|
+   | **虛擬機器名稱**  | 任何有效名稱 | 如需有效的名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。|
+   |**系統管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個密碼。|
    | **虛擬機器大小** | 任何有效大小 | 在此快速入門中，使用此範本的預設值 **Standard_B2s** 就已足夠。 |
    | **位置**|[resourceGroup().location]。| 請勿變更此值。 |

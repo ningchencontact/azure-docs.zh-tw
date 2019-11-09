@@ -4,14 +4,14 @@ description: 描述如何在 Azure Resource Manager 範本中建立資源群組�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532186"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832721"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在訂用帳戶層級建立資源群組和資源
 
@@ -23,7 +23,7 @@ ms.locfileid: "72532186"
 
 您可以在訂用帳戶層級部署下列資源類型：
 
-* [部署](/azure/templates/microsoft.resources/deployments) 
+* [部署](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -36,10 +36,16 @@ ms.locfileid: "72532186"
 
 您用於訂用帳戶層級部署的架構與資源群組部署的架構不同。
 
-針對架構，請使用：
+針對範本，請使用：
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+針對參數檔案，請使用：
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>部署命令
@@ -76,14 +82,14 @@ New-AzDeployment `
 
 您可以提供部署的名稱，或使用預設的部署名稱。 預設名稱是範本檔案的名稱。 例如，部署名為 **azuredeploy.json** 的範本會建立預設的部署名稱 **azuredeploy**。
 
-針對每個部署名稱，此位置是不可變的。 您無法在某一位置建立部署，若相同名稱的現有部署已存在於其他位置。 如果您收到錯誤代碼 `InvalidDeploymentLocation`，請使用不同的名稱或與先前該名稱部署相同的位置。
+針對每個部署名稱，此位置是不可變的。 當不同位置有相同名稱的現有部署時，您無法在一個位置建立部署。 如果您收到錯誤代碼 `InvalidDeploymentLocation`，請使用不同的名稱或與先前該名稱部署相同的位置。
 
 ## <a name="use-template-functions"></a>使用範本函式
 
 針對訂用帳戶層級部署，使用範本函式時有一些重要考量：
 
-* **不**支援 [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 函式。
-* 支援 [resourceId()](resource-group-template-functions-resource.md#resourceid) 函式。 您可以使用它針對用於訂用帳戶層級部署的資源取得資源識別碼。 比方說，針對具有 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))` 的原則定義取得資源識別碼
+* [不](resource-group-template-functions-resource.md#resourcegroup)支援 **resourceGroup()** 函式。
+* 支援 [resourceId()](resource-group-template-functions-resource.md#resourceid) 函式。 您可以使用它針對用於訂用帳戶層級部署的資源取得資源識別碼。 例如，使用 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`取得原則定義的資源識別碼。 或者，使用[subscriptionResourceId （）](resource-group-template-functions-resource.md#subscriptionresourceid)函數來取得訂用帳戶層級資源的資源識別碼。
 * 支援 [reference()](resource-group-template-functions-resource.md#reference) 和 [list()](resource-group-template-functions-resource.md#list) 函式。
 
 ## <a name="create-resource-groups"></a>建立資源群組

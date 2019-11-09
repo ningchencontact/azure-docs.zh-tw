@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811923"
+ms.locfileid: "73838765"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>在合作夥伴中心建立商業 Marketplace 帳戶
 
@@ -137,7 +137,7 @@ ms.locfileid: "73811923"
 
 1. 從 [合作夥伴中心] 選取 [**設定**] > [**開發人員設定**] [ > **程式**] > [**開始**]，然後輸入您的公司電子郵件地址
 2. 完成 [發行者設定檔] 頁面上的詳細資料。
-3. 閱讀[Microsoft Marketplace 發行者合約](http://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件，然後選取 [**接受並繼續**] 完成您的註冊。
+3. 閱讀[Microsoft Marketplace 發行者合約](https://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件，然後選取 [**接受並繼續**] 完成您的註冊。
 
     >[!Important]
     >*貴使用者必須獲得授權，才能代表貴公司採取行動以接受這些條款。*

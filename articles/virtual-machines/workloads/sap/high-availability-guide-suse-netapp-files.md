@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 3764ae9ff3a20de6d31f0438b73597933080e372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791742"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832591"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files
 
@@ -96,7 +96,7 @@ SAP Netweaver 中央服務的高可用性（HA）需要共用儲存體。
 
 ![SAP NetWeaver 高可用性概觀](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料庫會使用虛擬主機名稱和虛擬 IP 位址。 在 Azure 上，需要有[負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)，才能使用虛擬 IP 位址。 下列清單顯示 (A)SCS 和 ERS 負載平衡器的組態。
+SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料庫會使用虛擬主機名稱和虛擬 IP 位址。 在 Azure 上，需要有[負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)，才能使用虛擬 IP 位址。 我們建議使用[標準負載平衡器](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)。 下列清單顯示 (A)SCS 和 ERS 負載平衡器的組態。
 
 > [!IMPORTANT]
 > **不支援**在 Azure vm 中使用具有 SUSE Linux 作為客體作業系統的 SAP ASCS/ERS 多 SID 叢集。 多 SID 叢集描述在一個 Pacemaker 叢集中安裝多個具有不同 Sid 的 SAP ASCS/ERS 實例
@@ -111,13 +111,15 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 * 探查連接埠
   * 連接埠 620<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 如果使用 Standard Load Balancer，請選取 [ **HA 埠**]
+  * 如果使用基本 Load Balancer，請建立下列埠的負載平衡規則
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -128,11 +130,13 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 * 探查連接埠
   * 連接埠 621<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 如果使用 Standard Load Balancer，請選取 [ **HA 埠**]
+  * 如果使用基本 Load Balancer，請建立下列埠的負載平衡規則
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>設定 Azure NetApp Files 基礎結構 
 
@@ -207,7 +211,42 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
 首先，您必須建立 Azure NetApp Files 磁片區。 部署 Vm。 之後，您需建立負載平衡器，然後使用後端集區中的虛擬機器。
 
-1. 建立負載平衡器 (內部)  
+1. 建立負載平衡器（內部、標準）：  
+   1. 建立前端 IP 位址
+      1. ASCS 的 IP 位址10.1.1.20
+         1. 開啟負載平衡器，選取前端 IP 集區，然後按一下 [新增]
+         1. 輸入新前端 IP 集區的名稱（例如前端） **。QAS.ASCS**）
+         1. 將 [指派] 設定為 [靜態]，然後輸入 IP 位址（例如**10.1.1.20**）
+         1. Click OK
+      1. ASCS ERS 的 IP 位址10.1.1.21
+         * 在 "a" 底下重複上述步驟，以建立 ERS 的 IP 位址（例如**10.1.1.21**和前端） **。QAS.ERS**）
+   1. 建立後端集區
+      1. 建立 ASCS 的後端集區
+         1. 開啟負載平衡器，選取後端集區，然後按一下 [新增]
+         1. 輸入新後端集區的名稱（例如**後端）。QAS**）
+         1. 按一下 [新增虛擬機器]。
+         1. 選取虛擬機器
+         1. 選取（A） SCS 叢集及其 IP 位址的虛擬機器。
+         1. 按一下 [新增]
+   1. 建立健康狀態探查
+      1. 針對 ASCS 是連接埠 620**00**
+         1. 開啟負載平衡器，選取健康情況探查，然後按一下 [新增]
+         1. 輸入新健康狀態探查的名稱（例如**健全狀況）。QAS.ASCS**）
+         1. 選取 [TCP] 作為通訊協定、連接埠 620**00**，保留 [間隔] 5 和 [狀況不良閾值] 2
+         1. Click OK
+      1. 適用于 ASCS ERS 的埠 621**01**
+            * 在 "c" 底下重複上述步驟，以建立 ERS 的健康情況探查（例如 621**01**和**健全狀況）。QAS.ERS**）
+   1. 負載平衡規則
+      1. 建立 ASCS 的後端集區
+         1. 開啟負載平衡器，選取 [負載平衡規則]，然後按一下 [新增]
+         1. 輸入新負載平衡器規則的名稱（例如**lb。QAS.ASCS**）
+         1. 選取您稍早建立的 ASCS、後端集區及健康情況探查的前端 IP 位址（例如**前端）。QAS.ASCS**，**後端。QAS**和**健全狀況。QAS.ASCS**）
+         1. 選取**HA 埠**
+         1. 將閒置逾時增加為 30 分鐘
+         1. **務必啟用浮動 IP**
+         1. Click OK
+         * 重複上述步驟以建立 ERS 的負載平衡規則（例如**lb。QAS.ERS**）
+1. 或者，如果您的案例需要基本負載平衡器（內部），請遵循下列步驟：  
    1. 建立前端 IP 位址
       1. ASCS 的 IP 位址10.1.1.20
          1. 開啟負載平衡器，選取前端 IP 集區，然後按一下 [新增]
@@ -246,8 +285,11 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
       1. ASCS ERS 的其他連接埠
          * 針對 ASCS ERS 的埠 33**01**、5**01**13、5**01**14、5**01 16 和**TCP 的 "d" 底下重複上述步驟
 
+> [!Note]
+> 當沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中時，除非執行額外設定以允許路由傳送至公用端點，否則將不會有輸出網際網路連線能力。 如需如何達到輸出連線能力的詳細資訊，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)。  
+
 > [!IMPORTANT]
-> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp _timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
+> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp. tcp_timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
 
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 
@@ -434,7 +476,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
   
 2. **[1]** 安裝 SAP NetWeaver ASCS  
 
-   使用對應至 ASCS 負載平衡器前端設定的 IP 位址的虛擬主機，在第一個節點上以 root 身分安裝 SAP NetWeaver ASCS，例如<b>anftstsapvh</b>、 <b>10.1.1.20</b>和您用於的實例號碼負載平衡器的探查，例如<b>00</b>。
+   使用對應至 ASCS 負載平衡器前端設定之 IP 位址的虛擬主機，在第一個節點上以 root 身分安裝 SAP NetWeaver ASCS，例如<b>anftstsapvh</b>、 <b>10.1.1.20</b>和您用於探查負載平衡器的實例編號，例如<b>00</b>。
 
    您可以使用 sapinst 參數 SAPINST_REMOTE_ACCESS_USER 來允許非 root 使用者連線到 sapinst。 您可以使用參數 SAPINST_USE_HOSTNAME，使用虛擬主機名稱來安裝 SAP。
 
@@ -495,7 +537,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
 4. **[2]** 安裝 SAP NetWeaver ERS
 
-   使用對應至 ERS 負載平衡器前端設定的 IP 位址的虛擬主機，在第二個節點上以 root 身分安裝 SAP NetWeaver ERS，例如<b>anftstsapers</b>、 <b>10.1.1.21</b>和您用於的實例號碼負載平衡器的探查，例如<b>01</b>。
+   使用對應至 ERS 負載平衡器前端設定之 IP 位址的虛擬主機（例如<b>anftstsapers</b>、 <b>10.1.1.21</b>和您用於探查負載平衡器的實例號碼），在第二個節點上以 Root 身分安裝 SAP NetWeaver ERS，例如<b>01</b>。
 
    您可以使用 sapinst 參數 SAPINST_REMOTE_ACCESS_USER 來允許非 root 使用者連線到 sapinst。 您可以使用參數 SAPINST_USE_HOSTNAME，使用虛擬主機名稱來安裝 SAP。
 

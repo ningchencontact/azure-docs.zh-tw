@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972697"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837084"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 範本與 Azure PowerShell 來部署資源
 
@@ -33,9 +33,11 @@ New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Template
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-目前，只有透過 REST API 支援管理群組部署。 請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
+如需訂用帳戶層級部署的詳細資訊，請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
 
-本文中的範例會使用資源群組部署。 如需訂用帳戶部署的詳細資訊，請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
+目前，只有透過 REST API 支援管理群組部署。 如需管理群組層級部署的詳細資訊，請參閱在[管理群組層級建立資源](deploy-to-management-group.md)。
+
+本文中的範例會使用資源群組部署。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,7 +65,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 ## <a name="deploy-remote-template"></a>部署遠端範本
 
-您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，讓組織共用存取。
+您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，以在組織內共用存取。
 
 若要部署外部範本，請使用 **TemplateUri** 參數。 在範例中使用 URI 以部署來自 GitHub 的範例範本。
 

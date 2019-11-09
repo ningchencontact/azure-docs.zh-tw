@@ -1,6 +1,6 @@
 ---
 title: 應用程式生命週期管理
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 在傳統版本的 Azure Machine Learning Studio 中套用應用程式生命週期管理最佳作法
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: d5e2ee72c30933305356cd2a7792d1972fa938da
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2dd401918edc0b2d08390b1012efbf44fe2be1e9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684718"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839426"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 中的應用程式生命週期管理（傳統）
 Azure Machine Learning Studio （傳統）是一種工具，可用於開發在 Azure 雲端平臺中運作的機器學習實驗。 它就像是合併到單一平台的 Visual Studio IDE 和可調整的雲端服務。 您可以將標準應用程式生命週期管理（ALM）做法從版本控制各種資產納入自動化執行和部署，以 Azure Machine Learning Studio 的傳統版本。 本文會討論其中的部分選項和方法。

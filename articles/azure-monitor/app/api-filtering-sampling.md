@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677817"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847253"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -25,15 +25,15 @@ ms.locfileid: "72677817"
 
 開始之前：
 
-* 為您的應用程式安裝適當的 SDK： [ASP.NET](asp-net.md)、 [ASP.NET Core](asp-net-core.md)、[適用于 .Net/.net Core 的非 HTTP/背景工作](worker-service.md)或[JAVA](../../azure-monitor/app/java-get-started.md)。
+* 為您的應用程式安裝適當的 SDK： [ASP.NET](asp-net.md)、 [ASP.NET Core](asp-net-core.md)、[適用于 .Net/.Net Core](worker-service.md)、 [JAVA](../../azure-monitor/app/java-get-started.md)或[JavaScript](javascript.md)的非 HTTP/背景工作
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>篩選︰ITelemetryProcessor
+## <a name="filtering"></a>Filtering
 
 這項技術可讓您直接控制遙測串流中包含或排除的內容。 篩選可用來卸載要傳送至 Application Insights 的遙測專案。 您可以將它與取樣搭配使用或分開使用。
 
-若要篩選遙測，請撰寫遙測處理器，並向 `TelemetryConfiguration` 進行註冊。 所有遙測會通過您的處理器，您可以選擇將它從串流中卸載，或將它提供給鏈中的下一個處理器。 這包括來自標準模組的遙測，例如 HTTP 要求收集器和相依性收集器，以及您自行追蹤的遙測。 比方說，您可以篩選出有關來自傀儡程式要求或成功的相依性呼叫的遙測。
+若要篩選遙測，請撰寫遙測處理器，並向 `TelemetryConfiguration`註冊。 所有遙測會通過您的處理器，您可以選擇將它從串流中卸載，或將它提供給鏈中的下一個處理器。 這包括來自標準模組的遙測，例如 HTTP 要求收集器和相依性收集器，以及您自行追蹤的遙測。 比方說，您可以篩選出有關來自傀儡程式要求或成功的相依性呼叫的遙測。
 
 > [!WARNING]
 > 篩選傳送自使用處理器的 SDK 的遙測可能會曲解您在入口網站中看到的統計資料，並且難以追蹤相關的項目。
@@ -117,9 +117,9 @@ builder.Build();
 **ASP.NET Core/背景工作服務應用程式**
 
 > [!NOTE]
-> 使用 `ApplicationInsights.config` 來新增處理器，或使用 `TelemetryConfiguration.Active` 對 ASP.NET Core 應用程式無效，或如果您使用 ApplicationInsights. WorkerService SDK。
+> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 來新增處理器對 ASP.NET Core 應用程式而言是不正確，或者，如果您使用 ApplicationInsights. WorkerService SDK。
 
-針對使用[ASP.NET Core](asp-net-core.md#adding-telemetry-processors)或[WorkerService](worker-service.md#adding-telemetry-processors)所撰寫的應用程式，在 `IServiceCollection` 上使用 `AddApplicationInsightsTelemetryProcessor` 擴充方法來新增 `TelemetryProcessor`，如下所示。 這個方法是在 `Startup.cs` 類別的 `ConfigureServices` 方法中呼叫。
+針對使用[ASP.NET Core](asp-net-core.md#adding-telemetry-processors)或[WorkerService](worker-service.md#adding-telemetry-processors)所撰寫的應用程式，在 `IServiceCollection`上使用 `AddApplicationInsightsTelemetryProcessor` 擴充方法來新增 `TelemetryProcessor`，如下所示。 這個方法是在 `Startup.cs` 類別的 `ConfigureServices` 方法中呼叫。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -198,7 +198,30 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>新增屬性︰ITelemetryInitializer
+### <a name="javascript-web-applications"></a>JavaScript Web 應用程式
+
+**使用 ITelemetryInitializer 進行篩選**
+
+1. 建立遙測初始化運算式回呼函數。 回呼函式會採用 `ITelemetryItem` 做為參數，也就是正在處理的事件。 從這個回呼傳回 `false` 會導致要篩選掉的遙測專案。  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+        return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. 新增遙測初始化運算式回呼：
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## <a name="addmodify-properties-itelemetryinitializer"></a>新增/修改屬性： ITelemetryInitializer
+
 
 使用遙測初始化運算式，以額外資訊和/或覆寫標準遙測模組所設定的遙測屬性來充實遙測。
 
@@ -276,9 +299,9 @@ protected void Application_Start()
 **ASP.NET Core/背景工作服務應用程式：載入您的初始化運算式**
 
 > [!NOTE]
-> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 來加入初始化運算式對 ASP.NET Core 應用程式無效，或如果您使用 ApplicationInsights. WorkerService SDK。
+> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 來新增初始化運算式對 ASP.NET Core 應用程式而言無效，或如果您使用 ApplicationInsights. WorkerService SDK。
 
-針對使用[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)或[WorkerService](worker-service.md#adding-telemetryinitializers)所撰寫的應用程式，新增 `TelemetryInitializer` 是藉由將其加入至相依性插入容器來完成，如下所示。 這會在 `Startup.ConfigureServices` 方法中完成。
+針對使用[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)或[WorkerService](worker-service.md#adding-telemetryinitializers)所撰寫的應用程式，加入新 `TelemetryInitializer` 是藉由將它新增至相依性插入容器來完成，如下所示。 這項作業是在 `Startup.ConfigureServices` 方法中完成。
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -410,11 +433,11 @@ public void Initialize(ITelemetry telemetry)
 
 ## <a name="sdk-code"></a>SDK 程式碼
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next"></a>後續步驟
+## <a name="next"></a>接續步驟
 * [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)
 * [取樣](../../azure-monitor/app/sampling.md)
 * [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)

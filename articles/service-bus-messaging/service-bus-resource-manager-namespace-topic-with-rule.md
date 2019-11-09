@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444752"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832070"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題、訂用帳戶和規則
 
@@ -27,7 +27,7 @@ ms.locfileid: "67444752"
 
 如需關於建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
-如需 Azure 資源命名慣例相關實務和模式詳細資訊，請參閱 < [Azure 資源的建議命名慣例][Recommended naming conventions for Azure resources]。
+如需 Azure 資源命名慣例之實務和模式的詳細資訊，請參閱[azure 資源的建議命名慣例][Recommended naming conventions for Azure resources]。
 
 如需完整的範本，請參閱 GitHub 上的[服務匯流排命名空間與主題、訂用帳戶和規則][Service Bus namespace with topic, subscription, and rule]範本。
 
@@ -47,7 +47,7 @@ ms.locfileid: "67444752"
 
 使用此範本，您將部署具有主題、訂用帳戶和規則 (篩選器) 的服務匯流排命名空間。
 
-[服務匯流排主題和訂用帳戶](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)使用「發佈/訂閱」  模式，提供一對多的通訊形式。 使用主題和訂用帳戶時，分散式應用程式的元件彼此不直接通訊，相反的，它們會透過扮演中繼角色的主題來交換訊息。主題的訂用帳戶類似於虛擬佇列，同樣可接收已傳送到主題的訊息複本。 訂用帳戶上的篩選器可讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
+[服務匯流排主題和訂用帳戶](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)使用「發佈/訂閱」模式，提供一對多的通訊形式。 使用主題和訂用帳戶時，分散式應用程式的元件彼此不直接通訊，相反的，它們會透過扮演中繼角色的主題來交換訊息。主題的訂用帳戶類似於虛擬佇列，同樣可接收已傳送到主題的訊息複本。 訂用帳戶上的篩選器可讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
 
 ## <a name="what-are-rules-filters"></a>什麼是規則 (篩選器)？
 
@@ -179,9 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列主題示範如何建立訂用帳戶篩選器：[建立服務匯流排命名空間與主題、 訂用帳戶和使用 Azure Resource Manager 範本的規則](service-bus-resource-manager-namespace-topic-with-rule.md)
+請參閱下列主題，以瞭解如何建立訂用帳戶篩選：[使用 Azure Resource Manager 範本來建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-了解如何檢視這些文件管理這些資源：
+藉由查看下列文章，瞭解如何管理這些資源：
 
 * [管理 Azure 服務匯流排](service-bus-management-libraries.md)
 * [使用 PowerShell 管理服務匯流排](service-bus-manage-with-ps.md)
@@ -192,7 +192,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
+[Recommended naming conventions for Azure resources]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 

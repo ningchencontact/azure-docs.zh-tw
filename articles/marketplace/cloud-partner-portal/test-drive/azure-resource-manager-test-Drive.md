@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827556"
+ms.locfileid: "73838084"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
 
@@ -208,7 +208,7 @@ Azure Resource Manager （Resource Manager）範本是一種 Azure 資源的程�
 
 例如，大部分的資源名稱開頭都不能是數字，但唯一字串函式可以傳回開頭為數字的字串。 因此，若您使用原始唯一字串輸出，您的部署將會失敗。 
 
-您可以在[此文章](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions)獲得資源命名規則與限制的額外資訊。
+您可以在[此文章](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)獲得資源命名規則與限制的額外資訊。
 
 ### <a name="deployment-location"></a>部署位置
 

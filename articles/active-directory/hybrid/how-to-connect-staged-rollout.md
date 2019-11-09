@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24efd9d67e5bcc083ce1a02dcf0850a39189afe8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2596091324acde5c4fdc3f7c467849f90266fec9
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173101"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847237"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>雲端驗證：分段推出（公開預覽）
 
@@ -117,18 +117,18 @@ ms.locfileid: "73173101"
 
 2. 流覽至% programfiles%\\Microsoft Azure Active Directory Connect 資料夾。
 
-3. 使用此命令匯入無縫 SSO PowerShell 模組： `Import-Module .\\AzureADSSO.psd1`。
+3. 使用此命令匯入無縫 SSO PowerShell 模組： `Import-Module .\AzureADSSO.psd1`。
 
 4. 以系統管理員身分執行 PowerShell。 在 PowerShell 中，呼叫 `New-AzureADSSOAuthenticationContext`。 此命令應該會提供對話方塊，您可以在其中輸入租使用者的全域管理員認證。
 
-5. 呼叫 `Get-AzureADSSOStatus \| ConvertFrom-Json`。 此命令會提供已啟用這項功能的 AD 樹系列表（查看 \"網域\" 清單）。 根據預設，租使用者層級的設定為 false。
+5. 呼叫 `Get-AzureADSSOStatus | ConvertFrom-Json`。 此命令會提供已啟用這項功能的 AD 樹系列表（查看 \"網域\" 清單）。 根據預設，租使用者層級的設定為 false。
 
    > **範例：** 
    > Windows PowerShell 輸出的 ![範例](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. 呼叫 `\$creds = Get-Credential`。 出現提示時，輸入預定 Azure AD 樹系的網域系統管理員認證。
+6. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Azure AD 樹系的網域系統管理員認證。
 
-7. 呼叫 `Enable-AzureADSSOForest -OnPremCredentials \$creds`。 此命令會從內部部署網域控制站，針對無縫 SSO 所需的這個特定 Active Directory 樹系，建立 AZUREADSSOACC 電腦帳戶。
+7. 呼叫 `Enable-AzureADSSOForest -OnPremCredentials $creds`。 此命令會從內部部署網域控制站，針對無縫 SSO 所需的這個特定 Active Directory 樹系，建立 AZUREADSSOACC 電腦帳戶。
 
 8. 無縫 SSO 要求 Url 必須位於內部網路區域中。 請參閱[無縫單一登入快速入門](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature)，以使用群組原則來部署這些 URL。
 
@@ -240,7 +240,7 @@ ms.locfileid: "73173101"
 
 -   **問：我們可以使用 PowerShell 來執行分段推出嗎？**
 
--   答：是的，請在這裡尋找使用 PowerShell 執行分段推出的檔。
+-   答：是的，請在[這裡](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)尋找使用 PowerShell 執行分段推出的檔。
 
 ## <a name="next-steps"></a>後續步驟
 - [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

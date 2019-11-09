@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 569ac844a971970c22f5cc0a511545020fe802c5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d08f17bd22188f3d969261d8626d47a9e0faf08e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791694"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839616"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -84,7 +84,7 @@ ms.locfileid: "72791694"
 
 ![SAP NetWeaver 高可用性概觀](./media/high-availability-guide-suse/ha-suse.png)
 
-NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 資料庫會使用虛擬主機名稱和虛擬 IP 位址。 在 Azure 上必須有負載平衡器才能使用虛擬 IP 位址。 下列清單顯示 (A)SCS 和 ERS 負載平衡器的組態。
+NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 資料庫會使用虛擬主機名稱和虛擬 IP 位址。 在 Azure 上必須有負載平衡器才能使用虛擬 IP 位址。 我們建議使用[標準負載平衡器](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)。 下列清單顯示 (A)SCS 和 ERS 負載平衡器的組態。
 
 > [!IMPORTANT]
 > **不支援**在 Azure vm 中使用具有 SUSE Linux 作為客體作業系統的 SAP ASCS/ERS 多 SID 叢集。 多 SID 叢集描述在一個 Pacemaker 叢集中安裝多個具有不同 Sid 的 SAP ASCS/ERS 實例
@@ -97,15 +97,16 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
   * 連接埠 620<strong>&lt;nr&gt;</strong>
-* 載入 
-* 平衡規則
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+* 負載平衡規則
+  * 如果使用 Standard Load Balancer，請選取 [ **HA 埠**]
+  * 如果使用基本 Load Balancer，請建立下列埠的負載平衡規則
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -116,11 +117,13 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
 * 探查連接埠
   * 連接埠 621<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 如果使用 Standard Load Balancer，請選取 [ **HA 埠**]
+  * 如果使用基本 Load Balancer，請建立下列埠的負載平衡規則
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>設定高可用性的 NFS 伺服器
 
@@ -156,7 +159,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    9. 管理員使用者名稱和管理員密碼  
       建立可用來登入電腦的新使用者。
    10. 子網路識別碼  
-   如果您想要將 VM 部署至現有的 VNet 中，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/ **&lt;訂用帳戶識別碼&gt;** /resourceGroups/ **&lt;資源群組名稱&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;虛擬網路名稱&gt;** /subnets/ **&lt;子網路名稱&gt;**
+   如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/ **&lt;訂用帳戶識別碼&gt;** /resourceGroups/ **&lt;資源群組名稱&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;虛擬網路名稱&gt;** /subnets/ **&lt;子網路名稱&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>透過 Azure 入口網站手動部署 Linux
 
@@ -176,7 +179,44 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    選取稍早建立的「可用性設定組」  
 1. 將至少一個資料磁碟新增至兩部虛擬機器  
    資料磁碟用於 /usr/sap/`<SAPSID`> 目錄
-1. 建立負載平衡器 (內部)  
+1. 建立負載平衡器（內部、標準）：  
+   1. 建立前端 IP 位址
+      1. 針對 ASCS 是 IP 位址 10.0.0.7
+         1. 開啟負載平衡器，選取前端 IP 集區，然後按一下 [新增]
+         1. 輸入新前端 IP 集區的名稱 (例如 **nw1-ascs-frontend**)
+         1. 將 [指派] 設定為 [靜態]，然後輸入 IP 位址 (例如 **10.0.0.7**)
+         1. Click OK
+      1. 針對 ASCS ERS 是 IP 位址 10.0.0.8
+         * 重複上述步驟以建立 ERS 的 IP 位址 (例如 **10.0.0.8** 和 **nw1-aers-backend**)
+   1. 建立後端集區
+      1. 建立 ASCS 的後端集區
+         1. 開啟負載平衡器，選取後端集區，然後按一下 [新增]
+         1. 輸入新後端集區的名稱 (例如 **nw1-ascs-backend**)
+         1. 按一下 [新增虛擬機器]。
+         1. 選取虛擬機器
+         1. 選取（A） SCS 叢集及其 IP 位址的虛擬機器。
+         1. 按一下 [新增]
+      1. 建立 ASCS ERS 的後端集區
+         * 重複上述步驟以建立 ERS 的後端集區 (例如 **nw1-aers-backend**)
+   1. 建立健康狀態探查
+      1. 針對 ASCS 是連接埠 620**00**
+         1. 開啟負載平衡器，選取健康情況探查，然後按一下 [新增]
+         1. 輸入新健康情況探查的名稱 (例如 **nw1-ascs-hp**)
+         1. 選取 [TCP] 作為通訊協定、連接埠 620**00**，保留 [間隔] 5 和 [狀況不良閾值] 2
+         1. Click OK
+      1. 針對 ASCS ERS 是連接埠 621**02**
+         * 重複上述步驟以建立 ERS 的健康情況探查 (例如 621**02** 和 **nw1-aers-hp**)
+   1. 負載平衡規則
+      1. ASCS 的負載平衡規則
+         1. 開啟負載平衡器，選取 [負載平衡規則]，然後按一下 [新增]
+         1. 輸入新負載平衡器規則的名稱（例如**nw1-lb-ascs**）
+         1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查（例如**nw1-ascs-前端**、 **nw1-ascs-後端**和**nw1-ascs-hp**）
+         1. 選取**HA 埠**
+         1. 將閒置逾時增加為 30 分鐘
+         1. **務必啟用浮動 IP**
+         1. Click OK
+         * 重複上述步驟以建立 ERS 的負載平衡規則（例如**nw1-lb-ERS**）
+1. 或者，如果您的案例需要基本負載平衡器（內部），請遵循下列步驟：  
    1. 建立前端 IP 位址
       1. 針對 ASCS 是 IP 位址 10.0.0.7
          1. 開啟負載平衡器，選取前端 IP 集區，然後按一下 [新增]
@@ -217,8 +257,11 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
       1. ASCS ERS 的其他連接埠
          * 重複上述步驟來為 ASCS ERS 設定連接埠 33**02**、5**02**13、5**02**14、5**02**16 和 TCP
 
+> [!Note]
+> 當沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中時，除非執行額外設定以允許路由傳送至公用端點，否則將不會有輸出網際網路連線能力。 如需如何達到輸出連線能力的詳細資訊，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)。  
+
 > [!IMPORTANT]
-> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp _timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
+> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp. tcp_timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
 
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 

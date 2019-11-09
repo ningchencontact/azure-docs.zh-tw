@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 11/07/2019
+ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105435"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837956"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -35,7 +35,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 
 ### <a name="cluster-details"></a>叢集詳細資料
 
-下列叢集詳細資料相當實用，可協助收集您記錄管理策略中的資訊。 請從您已在特定 Azure 帳戶中建立的所有 HDInsight 叢集收集此資訊。
+下列叢集詳細資料相當實用，可協助收集您記錄管理策略中的資訊。 從您在特定 Azure 帳戶中建立的所有 HDInsight 叢集收集這項資訊。
 
 * 叢集名稱
 * 叢集區域和 Azure 可用性區域
@@ -45,8 +45,8 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 您可以使用 Azure 入口網站來取得此最上層資訊的大部分。  或者，您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)來取得 HDInsight 叢集的相關資訊：
 
 ```azurecli
-    az hdinsight list --resource-group <ResourceGroup>
-    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
 您還可以使用 PowerShell 來檢視此資訊。  如需詳細資訊，請參閱 [Apache 使用 Azure PowerShell 來管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-powershell.md)。
@@ -67,7 +67,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 
 * 考量如何從該叢集或從多個叢集收集記錄，然後整理這些記錄以供稽核、監視、規劃及警示用途使用。 您可以使用自訂的解決方案來定期存取和下載記錄檔，然後對記錄檔進行結合和分析以在儀表板上顯示。 您也可以新增額外的功能以進行安全性警示或失敗偵測。 您可以使用 PowerShell、HDInsight SDK 或可存取 Azure 傳統部署模型的程式碼，來建置這些公用程式。
 
-* 考量監視解決方案或服務是否能提供實用的效益。 Microsoft System Center 提供 [HDInsight 管理組件](https://www.microsoft.com/download/details.aspx?id=42521)。 您也可以使用協力廠商工具 (例如 Apache Chukwa 和 Ganglia) 來收集和集中記錄。 許多公司都有提供可監視 Hadoop 型巨量資料解決方案的服務，例如：Centerity、 Compuware APM、 Sematext SPM 及 Zettaset Orchestrator。
+* 考量監視解決方案或服務是否能提供實用的效益。 Microsoft System Center 提供 [HDInsight 管理組件](https://www.microsoft.com/download/details.aspx?id=42521)。 您也可以使用協力廠商工具 (例如 Apache Chukwa 和 Ganglia) 來收集和集中記錄。 許多公司都提供服務來監視以 Hadoop 為基礎的 big data 解決方案，例如： Centerity、Compuware APM、Sematext SPM 和 Zettaset Orchestrator。
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>步驟 2：管理叢集服務版本及檢視指令碼動作記錄
 
@@ -91,7 +91,7 @@ HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以�
 
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>步驟 3：管理叢集作業執行記錄檔
 
-下一步是檢閱各種服務的作業執行記錄檔。  服務可能包括 Apache HBase、Apache Spark 及許多其他服務。 Hadoop 叢集會產生大量的詳細資訊記錄，因此判斷哪些記錄有用 (以及哪些記錄沒用) 會相當耗時。  對於目標性的記錄檔管理來說，了解記錄系統相當重要。  以下是一個範例記錄檔。
+下一步是檢閱各種服務的作業執行記錄檔。  服務可能包括 Apache HBase、Apache Spark 及許多其他服務。 Hadoop 叢集會產生大量的詳細資訊記錄檔，因此判斷哪些記錄檔很有用（而不是）會很耗時。  對於目標性的記錄檔管理來說，了解記錄系統相當重要。  以下是一個範例記錄檔。
 
 ![HDInsight 範例記錄檔範例輸出](./media/hdinsight-log-management/hdi-log-file-example.png)
 
@@ -99,7 +99,7 @@ HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以�
 
 HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 您可以藉由開啟與叢集的[SSH](hdinsight-hadoop-linux-use-ssh-unix.md)連線並流覽檔案系統，或使用遠端前端節點伺服器上的 Hadoop YARN 狀態入口網站，檢查叢集中的記錄檔。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 例如， [AzCopy](../storage/common/storage-use-azcopy.md)、 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)和 Visual Studio 伺服器總管。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
 
-Hadoop 會將作業的工作以「工作嘗試」的形式在叢集中的各種節點上執行。 HDInsight 可以起始理論式工作嘗試，其中會先終止所有其他未完成的工作嘗試。 這會產生將即時記錄至控制器、stderr 及 syslog 記錄檔的重要活動。 此外，多個工作嘗試會同時執行，但記錄檔只能以線性方式顯示結果。
+Hadoop 會將作業的工作以「工作嘗試」的形式在叢集中的各種節點上執行。 HDInsight 可以起始理論上的工作嘗試，終止任何其他未先完成的工作嘗試。 這會產生將即時記錄至控制器、stderr 及 syslog 記錄檔的重要活動。 此外，多個工作嘗試會同時執行，但記錄檔只能以線性方式顯示結果。
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>寫入至 Azure Blob 儲存體的 HDInsight 記錄
 
@@ -109,21 +109,21 @@ HDInsight 叢集已設定成針對使用 Azure PowerShell Cmdlet 或 .NET 作業
 
 ### <a name="hdinsight-logs-generated-by-yarn"></a>YARN 所產生的 HDInsight 記錄
 
-YARN 會彙總背景工作節點上所有容器的記錄，然後將這些記錄依每個背景工作節點儲存成單一彙總記錄。 該記錄會在應用程式完成之後，儲存在預設的檔案系統上。 您的應用程式可以使用數百或數千個容器，但在單一背景工作節點上執行之所有容器的記錄一律會彙總成單一檔案。 您應用程式使用的每一背景工作節點只會有一個記錄。 在 HDInsight 叢集 3.0 版和更新版本上，預設會啟用記錄彙總。 彙總記錄位於叢集的預設儲存體。
+YARN 會彙總背景工作節點上所有容器的記錄，然後將這些記錄依每個背景工作節點儲存成單一彙總記錄。 該記錄會在應用程式完成之後，儲存在預設的檔案系統上。 您的應用程式可以使用數百或數千個容器，但在單一背景工作節點上執行之所有容器的記錄一律會彙總成單一檔案。 您的應用程式所使用的每個背景工作節點只會有一個記錄。 在 HDInsight 叢集 3.0 版和更新版本上，預設會啟用記錄彙總。 彙總記錄位於叢集的預設儲存體。
 
 ```
-    /app-logs/<user>/logs/<applicationId>
+/app-logs/<user>/logs/<applicationId>
 ```
 
-您無法直接閱讀彙總的記錄，因為其撰寫格式是由容器編製索引的 TFile 二進位格式。 對於您感興趣的應用程式或容器，請使用 YARN ResourceManager 記錄或 CLI 工具來檢視純文字記錄。
+匯總記錄檔無法直接讀取，因為它們是以容器編制索引的 TFile 二進位格式寫入。 對於您感興趣的應用程式或容器，請使用 YARN ResourceManager 記錄或 CLI 工具來檢視純文字記錄。
 
 #### <a name="yarn-cli-tools"></a>YARN CLI 工具
 
 若要使用 YARN CLI 工具，您必須先使用 SSH 連接到 HDInsight 叢集。 請在執行這些命令時，指定 `<applicationId>``<user-who-started-the-application>``<containerId>`及 `<worker-node-address>` 資訊。 您可以使用下列其中一個命令，以純文字的形式檢視這些記錄：
 
 ```bash
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
 #### <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
@@ -140,13 +140,13 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 
 接著，請分析一段時間內主要記錄儲存體位置中的記錄資料磁碟區。 例如，您可以分析 30-60-90 天期間內的磁碟區和成長情況。  請將此資訊記錄在試算表中，或使用其他工具 (例如 Visual Studio、「Azure 儲存體總管」或 Power Query for Excel) 來記錄此資訊。 如需詳細資訊，請參閱[分析 HDInsight 記錄](hdinsight-debug-jobs.md)。  
 
-您現在已有足夠的資訊來建立主要記錄的記錄管理策略。  請使用您的試算表 (或所選擇的工具) 來預測記錄大小成長及 Azure 服務成本增加的記錄儲存體。  此外，針對您要檢查的一組記錄，也請考量是否有任何記錄保留需求。  在判斷哪些記錄可以刪除 (如果有的話) 及哪些記錄應該保留並封存至較低廉的 Azure 儲存體之後，現在您即可重新預測未來的記錄儲存體成本。
+您現在已有足夠的資訊來建立主要記錄的記錄管理策略。  請使用您的試算表 (或所選擇的工具) 來預測記錄大小成長及 Azure 服務成本增加的記錄儲存體。  也請考慮您要檢查之記錄集的任何記錄保留需求。  在判斷哪些記錄可以刪除 (如果有的話) 及哪些記錄應該保留並封存至較低廉的 Azure 儲存體之後，現在您即可重新預測未來的記錄儲存體成本。
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>步驟 5：判斷記錄封存原則和程序
 
 在判斷哪些記錄檔可以刪除之後，您可以調整許多 Hadoop 服務上的記錄參數，以在指定的期間之後，便自動刪除記錄檔。
 
-針對特定的記錄檔，您可以使用較低廉的記錄檔封存方法。 針對 Azure Resource Manager 活動記錄，您可以使用 Azure 入口網站來探索此功能。  請在 HDInsight 執行個體的 Azure 入口網站中選取 [活動記錄] 連結，來設定 ARM 記錄的封存。  在 [活動記錄] 搜尋頁面的頂端，選取 [匯出] 功能表項目來開啟 [匯出活動記錄] 窗格。  填入訂用帳戶、區域、是否要匯出至儲存體帳戶，以及記錄的保留天數。 在這同一個窗格上，您也可以指出是否要匯出至事件中樞。
+針對特定的記錄檔，您可以使用較低廉的記錄檔封存方法。 針對 Azure Resource Manager 活動記錄，您可以使用 Azure 入口網站探索此方法。  在 HDInsight 實例的 Azure 入口網站中選取 **活動記錄** 連結，以設定 Resource Manager 記錄的封存。  在 [活動記錄] 搜尋頁面的頂端，選取 [匯出] 功能表項目來開啟 [匯出活動記錄] 窗格。  填入訂用帳戶、區域、是否要匯出至儲存體帳戶，以及記錄的保留天數。 在這同一個窗格上，您也可以指出是否要匯出至事件中樞。
 
 ![Azure 入口網站匯出活動記錄檔預覽](./media/hdinsight-log-management/hdi-export-log-files.png)
 

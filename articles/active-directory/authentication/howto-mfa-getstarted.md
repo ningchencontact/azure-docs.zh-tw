@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22e3131a204589a506b2d5f1e2508c37ad3b4100
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474337"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847211"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -209,6 +209,9 @@ function Set-MfaState {
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
+> [!NOTE]
+> 我們最近據此變更了上述行為和 PowerShell 腳本。 先前，腳本會儲存在 MFA 方法中，停用 MFA，並還原方法。 現在已不再需要，因為 disable 的預設行為並不會清除方法。
+
 ## <a name="plan-conditional-access-policies"></a>規劃條件式存取原則
 
 若要規劃您的條件式存取原則策略，以決定何時需要 MFA 和其他控制項，請參閱[什麼是 Azure Active Directory 中的條件式存取？](../conditional-access/overview.md)。
@@ -274,7 +277,7 @@ NPS 擴充功能可作為 RADIUS 與雲端式 Azure MFA 之間的介面卡，以
 
 選擇當未向 MFA 註冊的使用者嘗試進行驗證時，會發生什麼事。 使用登錄路徑 `HKLM\Software\Microsoft\AzureMFA` 中的登錄設定 `REQUIRE_USER_MATCH` 來控制功能行為。 此設定具有單一設定選項。
 
-| 金鑰 | 值 | 預設值 |
+| 索引鍵 | 值 | 預設值 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | 未設定 (相當於 TRUE) |
 

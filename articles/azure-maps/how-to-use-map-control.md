@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ceb3b7315439aced7f781e8de5e62b49fd83818c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756538"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833807"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
 
@@ -66,7 +66,7 @@ ms.locfileid: "72756538"
     </style>
     ```
 
-4. 在頁面的主體中，新增 `<div>` 元素，並為它提供 **myMap** 的 `id`。
+4. 在頁面的主體中，新增 `<div>` 元素，並為它提供 `id`myMap**的**。
 
     ```HTML
     <body>
@@ -174,7 +174,7 @@ ms.locfileid: "72756538"
 
 8. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。 看起來應該類似下列程式碼：
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的
+    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的 如何透過 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）<a href='https://codepen.io/azuremaps/pen/yZpEYL/'>使用地圖控制項</a>。
     </iframe>
 
 ## <a name="localizing-the-map"></a>當地語系化對應
@@ -183,7 +183,7 @@ Azure 地圖服務提供兩種不同的方式來設定地圖的語言和地區�
 
 ```javascript
 atlas.setLanguage('fr-FR');
-atlas.setView('auto');
+atlas.setView('Auto');
 ```
 
 第二個選項是在載入對應時，將此資訊傳入對應選項，如下所示：
@@ -191,7 +191,7 @@ atlas.setView('auto');
 ```javascript
 map = new atlas.Map('myMap', {
     language: 'fr-FR',
-    view: 'auto',
+    view: 'Auto',
 
     authOptions: {
         authType: 'aad',
@@ -205,7 +205,7 @@ map = new atlas.Map('myMap', {
 > [!Note]
 > 使用 Web SDK，可以使用不同的語言和區域設定，在相同的頁面上載入多個對應實例。 此外，您可以在使用對應的 [`setStyle`] 功能載入對應之後，更新這些設定。 
 
-以下是語言設為 "fr-fr" 且地區視圖設為 "auto" 的 Azure 地圖服務範例。
+以下是語言設為 "fr-fr" 且地區視圖設為 "Auto" 的 Azure 地圖服務範例。
 
 ![以法文顯示標籤的地圖影像](./media/how-to-use-map-control/websdk-localization.png)
 

@@ -1,10 +1,10 @@
 ---
-title: 在 PIM 中建立 Azure AD 角色的存取權審查-Azure Active Directory |Microsoft Docs
+title: 在 PIM 中建立 Azure AD 角色的存取權審查-Azure AD |Microsoft Docs
 description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中建立 Azure AD 角色的存取權審查。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,16 +14,16 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809032"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847118"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中建立 Azure AD 角色的存取權審查
 
-使用者取得特殊許可權 Azure Active Directory （Azure AD）角色存取權的需求，可能會隨著時間而改變。 若要降低與過時角色指派相關聯的風險，您應該定期查看存取權。 您可以使用 Azure AD Privileged Identity Management （PIM）來建立特殊許可權 Azure AD 角色的存取權審查。 您也可以設定自動進行的週期性存取審查。
+若要降低與過時角色指派相關聯的風險，您應該定期查看存取權。 您可以使用 Azure AD Privileged Identity Management （PIM）來建立特殊許可權 Azure AD 角色的存取權審查。 您也可以設定自動進行的週期性存取審查。
 
 本文說明如何針對特殊許可權 Azure AD 角色建立一或多個存取權審查。
 

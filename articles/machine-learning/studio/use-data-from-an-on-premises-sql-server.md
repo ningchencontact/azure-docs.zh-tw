@@ -1,6 +1,6 @@
 ---
 title: 內部部署 SQL Server
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 使用來自內部部署 SQL Server 資料庫的資料，以 Azure Machine Learning Studio 的傳統版本執行 advanced analytics。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 7f525a2a81d6cda52b363d1fb808327c9d3c1fb1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 074a3e4521660f8f1ea905ddab1d3b13f48a0680
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622093"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839512"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>使用內部部署 SQL Server 資料庫執行 Azure Machine Learning Studio （傳統）分析
 

@@ -1,6 +1,6 @@
 ---
 title: 模型如何成為 web 服務
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 概述您的 Azure Machine Learning Studio （傳統）模型如何從開發實驗進入 Web 服務的機制。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce1e7d3b3b9908d5c4608f6ab62e9b743f80c0b0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671240"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838002"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio （傳統）模型從實驗到 Web 服務的進展
 Azure Machine Learning Studio （傳統）提供互動式畫布，可讓您開發、執行、測試及逐一查看代表預測性分析模型的***實驗***。 有各種可用的模組可以︰

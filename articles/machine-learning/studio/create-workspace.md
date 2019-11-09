@@ -1,6 +1,6 @@
 ---
 title: 建立工作區
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 若要使用 Azure Machine Learning Studio （傳統），您需要有 Machine Learning Studio （傳統）工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: c5aa5a0ea4a74c2047e600fa3c46e226d12f69c0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647089"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839906"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>建立和共用 Azure Machine Learning Studio （傳統）工作區
 

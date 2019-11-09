@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a5176f74964e0809cea39aa160943cc6f3451237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176517"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847312"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
 > [!Important] 
 > 如果您跨越訂用帳戶/租用戶移轉應用程式，App Service 和 Azure Functions 的受控身分識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
 
-此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控識別可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
+此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控身分識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 您的應用程式可以授與兩種類型的身分識別： 
 - **系統指派的身分識別**會繫結至您的應用程式，如果您的應用程式已刪除，則會被刪除。 應用程式只能有一個系統指派的身分識別。
@@ -41,7 +41,7 @@ ms.locfileid: "73176517"
 
 2. 如果您使用函式應用程式，請瀏覽至 [平台功能]。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]。
 
-3. 選取 [受控身分識別]。
+3. 選取 [身分**識別**]。
 
 4. 在 [系統指派] 索引標籤內，將 [狀態] 切換為 [開啟]。 按一下 [儲存]。
 
@@ -168,7 +168,7 @@ ms.locfileid: "73176517"
 
 3. 如果您使用函式應用程式，請瀏覽至 [平台功能]。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]。
 
-4. 選取 [受控身分識別]。
+4. 選取 [身分**識別**]。
 
 5. 在 [**使用者指派**] 索引標籤中，按一下 [**新增**]。
 
@@ -193,7 +193,7 @@ ms.locfileid: "73176517"
 > [!NOTE] 
 > 應用程式可以同時具有系統指派的身分識別和使用者指派的身分識別。 在此情況下，`type` 屬性將會是 `SystemAssigned,UserAssigned`
 
-新增使用者指派的類型能告訴 Azure 該如何建立及管理應用程式的身分識別。
+新增使用者指派的類型，會指示 Azure 使用為您的應用程式指定的使用者指派身分識別。
 
 例如，Web 應用程式可能與下圖中的範例相似：
 ```json
@@ -256,11 +256,11 @@ ms.locfileid: "73176517"
 
 **MSI_ENDPOINT** 是應用程式要求權杖的來源本機 URL。 若要取得資源的權杖，請向該端點提出包含以下參數的 HTTP GET 要求：
 
-> |參數名稱|在|描述|
+> |參數名稱|在|說明|
 > |-----|-----|-----|
-> |資源|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
+> |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
-> |secret|標頭|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
+> |secret|頁首|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
 > |clientid|查詢|（除非為使用者指派，否則為選擇性）要使用之使用者指派身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|
 
 > [!IMPORTANT]
@@ -268,11 +268,11 @@ ms.locfileid: "73176517"
 
 成功的 200 OK 回應包括含以下屬性的 JSON 本文：
 
-> |屬性名稱|描述|
+> |屬性名稱|說明|
 > |-------------|----------|
 > |access_token|所要求的存取權杖。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
 > |expires_on|存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。|
-> |資源|接收端 Web 服務的應用程式識別碼 URI。|
+> |resource|接收端 Web 服務的應用程式識別碼 URI。|
 > |token_type|表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。|
 
 該回應與 [AAD 服務對服務存取權杖要求的回應](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)。

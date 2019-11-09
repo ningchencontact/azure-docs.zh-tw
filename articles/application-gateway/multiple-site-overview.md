@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 1/17/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715835"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835349"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>應用程式閘道多站台裝載
 
@@ -23,9 +23,9 @@ ms.locfileid: "60715835"
 > [!IMPORTANT]
 > 規則會依照其列在入口網站中的順序進行處理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。
 
-對 http://contoso.com 的要求會路由傳送至 ContosoServerPool，而對 http://fabrikam.com 的要求則會路由傳送至 FabrikamServerPool。
+對 `http://contoso.com` 的要求會路由傳送至 ContosoServerPool，而對 `http://fabrikam.com` 的要求則會路由傳送至 FabrikamServerPool。
 
-同樣地，相同父系網域的兩個子網域也可以裝載在相同的應用程式閘道部署上。 使用子網域的範例可能包括單一應用程式閘道部署上裝載的 http://blog.contoso.com 和 http://app.contoso.com 。
+同樣地，相同父系網域的兩個子網域也可以裝載在相同的應用程式閘道部署上。 使用子網域的範例可能包括單一應用程式閘道部署上裝載的 `http://blog.contoso.com` 和 `http://app.contoso.com`。
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>主機標頭和伺服器名稱指示 (SNI)
 

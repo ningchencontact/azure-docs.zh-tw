@@ -1,6 +1,6 @@
 ---
 title: 使用影片索引器上傳影片及編製影片索引
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 本主題將示範如何透過影片索引器使用 API 來上傳影片及編製影片索引。
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372382"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839146"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -27,7 +27,7 @@ ms.locfileid: "72372382"
 
 本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
 
-上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
+上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立 Video Indexer 帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
 
 ## <a name="uploading-considerations-and-limitations"></a>上傳考慮和限制
  
@@ -37,7 +37,7 @@ ms.locfileid: "72372382"
 - 要求 URL 長度限制為6144個字元，其中查詢字串 URL 長度限制為4096個字元。
 - 使用位元組陣列選項的上傳大小限制為 2 GB。
 - 位元組陣列選項在30分鐘後就會超時。
-- @No__t-0 參數中提供的 URL 必須進行編碼。
+- `videoURL` param 中提供的 URL 必須進行編碼。
 - 編制索引媒體服務資產與從 URL 編制索引的限制相同。
 - 影片索引子的最大持續時間限制為單一檔案4小時。
 
@@ -61,24 +61,24 @@ ms.locfileid: "72372382"
 - 索引狀態變更： 
     - 屬性：    
     
-        |Name|描述|
+        |名稱|說明|
         |---|---|
         |id|影片識別碼|
         |state|影片狀態|  
-    - 範例： HTTPs： \//test .com/notifyme？專案名稱 = MyProject & 識別碼 = 1234abcd & 狀態 = 已處理
+    - 範例： HTTPs：\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 在影片中識別到的人員：
   - 屬性
     
-      |Name|描述|
+      |名稱|說明|
       |---|---|
       |id| 影片識別碼|
       |faceId|影片索引中出現的臉部識別碼|
       |knownPersonId|臉部模型中唯一的個人識別碼|
       |personName|人員名稱|
         
-    - 範例： HTTPs： \//test .com/notifyme？專案名稱 = MyProject & id = 1234abcd & faceid = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personName = Inigo_Montoya 
+    - 範例： HTTPs：\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>注意
+#### <a name="notes"></a>注意事項
 
 - 影片索引器會傳回原始 URL 中提供的任何現有參數。
 - 提供的 URL 必須進行編碼。
@@ -285,7 +285,7 @@ public class AccountContractSlim
 
 下表列出上傳作業可能會傳回的狀態碼。
 
-|狀態碼|ErrorType (在回應本文中)|描述|
+|狀態碼|ErrorType (在回應本文中)|說明|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|指定帳戶中已有正在處理的相同影片。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小時前，指定帳戶中有相同的影片處理失敗。 API 用戶端應該等待至少 2 小時，才能重新上傳影片。|

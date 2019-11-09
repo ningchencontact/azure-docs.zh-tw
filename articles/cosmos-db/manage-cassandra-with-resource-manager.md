@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 的 Azure Resource Manager 範本 Cassandra API
 description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos DB Cassandra API。
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.author: mjbrown
-ms.openlocfilehash: f36b167b6ddacadb8c5aef8a4609be13834bf174
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 11/07/2019
+ms.author: thvankra
+ms.openlocfilehash: d71847da4b395be230bce5773a5ba7a472a412f4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606765"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832692"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Azure Cosmos DB Cassandra API 資源
 
@@ -22,11 +22,12 @@ ms.locfileid: "73606765"
 使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會為 Cassandra API 建立 Azure Cosmos 帳戶，其中包含兩個數據表，在 keyspace 層級共用 400 RU/秒的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 > [!NOTE]
-> 帳戶名稱必須是小寫，且 < 31 個字元。
+> 帳戶名稱必須是小寫，且 < 44 個字元。
+> 若要更新 RU/秒，請重新提交具有已更新輸送量屬性值的範本。
 
 [!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
 
-## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 部署
+## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
 
 若要使用 Azure CLI 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
@@ -52,48 +53,6 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 `az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本，而不是使用 CloudShell，請參閱[Azure 命令列介面（CLI）](/cli/azure/)一文。
 
-## 更新 keyspace 上的輸送量（RU/秒）<a id="keyspace-ru-update"></a>
-
-下列範本會更新 keyspace 的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
-
-[!code-json[cosmosdb-cassandra-keyspace-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json)]
-
-### <a name="deploy-keyspace-template-via-azure-cli"></a>透過 Azure CLI 部署 keyspace 範本
-
-若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
-
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the keyspace name: ' keyspaceName
-read -p 'Enter the new throughput: ' throughput
-
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json \
-   --parameters accountName=$accountName keyspaceName=$keyspaceName throughput=$throughput
-```
-
-## 更新資料表上的輸送量（RU/秒）<a id="table-ru-update"></a>
-
-下列範本會更新資料表的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
-
-[!code-json[cosmosdb-cassandra-table-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json)]
-
-### <a name="deploy-table-template-via-azure-cli"></a>透過 Azure CLI 部署資料表範本
-
-若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
-
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the keyspace name: ' keyspaceName
-read -p 'Enter the table name: ' tableName
-read -p 'Enter the new throughput: ' throughput
-
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json \
-   --parameters accountName=$accountName keyspaceName=$keyspaceName tableName=$tableName throughput=$throughput
-```
 
 ## <a name="next-steps"></a>後續步驟
 

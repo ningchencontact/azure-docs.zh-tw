@@ -1,22 +1,22 @@
 ---
 title: 如何在 Linux 上將 Azure Blob 儲存體掛接為檔案系統 | Microsoft Docs
 description: 在 Linux 上使用 FUSE 掛接 Azure Blob 儲存體容器
-author: normesta
+author: rishabpoh
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: normesta
+ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 35a4313d10231aec74685069a67d803ea32e68b1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845015"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847552"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) 是 Azure Blob 儲存體的虛擬檔案系統驅動程式。 Blobfuse 可讓您透過 Linux 檔案系統存取您儲存體帳戶中現有的區塊 Blob 資料。 Blobfuse 會使用以正斜線 '/' 做為分隔符號的虛擬目錄配置。  
 
 本指南示範如何使用 Blobfuse，以及如何在 Linux 上掛接 Blob 儲存體容器並存取資料。 若要深入了解 Blobfuse，請閱讀 [Blobfuse 存放庫](https://github.com/Azure/azure-storage-fuse)中的詳細資料。
@@ -51,11 +51,11 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-同樣地, 將 URL 變更`.../ubuntu/16.04/...`為`.../ubuntu/18.04/...`或, 以參考另一個 Ubuntu 版本。
+同樣地，將 URL 變更為 `.../ubuntu/16.04/...` 或 `.../ubuntu/18.04/...` 以參照另一個 Ubuntu 版本。
 
 ### <a name="install-blobfuse"></a>安裝 Blobfuse
 
-在 Ubuntu/Debian 發佈上:
+在 Ubuntu/Debian 發佈上：
 ```bash
 sudo apt-get install blobfuse
 ```
@@ -97,15 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName`是您儲存體帳戶的前置詞, 而不是完整的 URL。
+`accountName` 是您儲存體帳戶的前置詞，而不是完整的 URL。
 
-使用下列內容建立此檔案:
+使用下列內容建立此檔案：
 
 ```
 touch ~/fuse_connection.cfg
 ```
 
-建立並編輯此檔案之後, 請務必限制存取, 讓其他使用者都無法讀取它。
+建立並編輯此檔案之後，請務必限制存取，讓其他使用者都無法讀取它。
 ```bash
 chmod 600 fuse_connection.cfg
 ```

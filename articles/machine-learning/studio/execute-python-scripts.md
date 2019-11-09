@@ -1,5 +1,6 @@
 ---
 title: 執行 Python 指令碼
+titleSuffix: ML Studio (classic) - Azure
 description: 瞭解如何使用 [執行 Python 腳本] 模組，在 Machine Learning Studio （傳統）實驗和 web 服務中使用 Python 程式碼。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: dea8fd7971f0572350306ea11ee1f9d897438d11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684871"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837631"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>以 Azure Machine Learning Studio 執行 Python 機器學習服務腳本（傳統）
 

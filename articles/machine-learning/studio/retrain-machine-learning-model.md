@@ -1,6 +1,6 @@
 ---
 title: 重塑 Web 服務
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 瞭解如何在 Azure Machine Learning Studio （傳統）中更新 web 服務，以使用新定型的機器學習模型。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c24eb50688efcf220b26b5a0f352d012876dbab3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684780"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838672"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>重新定型和部署機器學習模型
 

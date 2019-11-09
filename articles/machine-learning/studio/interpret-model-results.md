@@ -1,6 +1,6 @@
 ---
 title: 解譯模型結果
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: cdeded35e1afb9313f2dd2c5842aef511ea0dd61
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621658"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839854"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>在 Azure Machine Learning Studio 中解讀模型結果（傳統）
 本主題說明如何在 Azure Machine Learning Studio （傳統）中將預測結果視覺化並加以解讀。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。

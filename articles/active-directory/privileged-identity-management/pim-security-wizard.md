@@ -1,25 +1,25 @@
 ---
-title: Privileged Identity Management Azure Active Directory 中的 Azure AD 角色安全性嚮導 |Microsoft Docs
+title: PIM 中的 Azure AD 角色安全性嚮導-Azure Active Directory |Microsoft Docs
 description: 說明您可以透過 Azure AD Privileged Identity Management (PIM) 用來將永久特殊權限 Azure AD 角色轉換為合格角色的安全性精靈。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d1c9905047cb4b234bf80ba82f2395f72f67f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895211"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847039"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Privileged Identity Management 中的 Azure AD 角色安全性嚮導
 

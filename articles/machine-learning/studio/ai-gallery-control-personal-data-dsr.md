@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure AI 資源庫資料
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 您可以使用介面或 AI 資源庫目錄 API，從 Azure AI 資源庫匯出和刪除產品中的使用者資料。 本文將說明如何做到。
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: b99fa6ae740de4e9c87061b201f2104d6d025e6c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 248c4d38141f30016837f090ab04c64f82749f2b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684885"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838478"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>從 Azure AI 資源庫檢視和刪除產品中的使用者資料
 

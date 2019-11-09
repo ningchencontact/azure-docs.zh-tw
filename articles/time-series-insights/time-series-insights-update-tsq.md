@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 97265a83a73d45f45a4bd1183df61521f4ca29bf
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: e660db5db3d1afc14a3c895e6786d1b6a8b82c13
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989678"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832414"
 ---
 # <a name="data-querying"></a>資料查詢
 
@@ -39,9 +39,9 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 下列環境 API 可以使用：
 
-* [取得環境 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api)：傳回呼叫者有權存取的環境清單。
-* [取得環境可用性 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api)：傳回事件時間戳記 `$ts` 的事件計數分佈。 此 API 藉由傳回事件計數 (如果有的話) 來協助判斷時間戳記中是否存在任何事件。
-* [取得事件架構 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api)：傳回指定搜尋範圍的事件架構中繼資料。 此 API 可協助擷取指定搜尋範圍的結構描述中可用的所有中繼資料和屬性。
+* [取得環境 API](/rest/api/time-series-insights/management/environments/get)：傳回呼叫者有權存取的環境清單。
+* [取得環境可用性 API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability)：傳回事件時間戳記 `$ts`的事件計數分佈。 此 API 藉由傳回事件計數 (如果有的話) 來協助判斷時間戳記中是否存在任何事件。
+* [取得事件架構 API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema)：傳回指定搜尋範圍的事件架構中繼資料。 此 API 可協助擷取指定搜尋範圍的結構描述中可用的所有中繼資料和屬性。
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>時間序列模型查詢 (TSM-Q) API
 
@@ -58,16 +58,16 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 下列時間序列查詢 Api 可供使用。 這些 Api 適用于時間序列深入解析中所有支援的多層式儲存體。 查詢 URL 參數是用來指定查詢應該在其上執行的[存放區類型](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)：
 
-* [取得事件 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api)：當事件從來源提供者的時間序列深入解析記錄時，可讓您查詢和抓取時間序列深入解析資料。 此 API 可讓您針對指定的時間序列識別碼和搜尋範圍來抓取原始事件。 此 API 支援分頁，以取得所選輸入的完整資料集。 
+* [取得事件 API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents)：當事件從來源提供者的時間序列深入解析記錄時，可讓您查詢和抓取時間序列深入解析資料。 此 API 可讓您針對指定的時間序列識別碼和搜尋範圍來抓取原始事件。 此 API 支援分頁，以取得所選輸入的完整資料集。 
 
-* [取得數列 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api)：使用網路上記錄的資料，從已捕捉的事件中查詢和抓取時間序列深入解析資料。 傳回的值是以模型或提供的內嵌中定義的變數為基礎。 此 API 支援分頁，以取得所選輸入的完整資料集。 此 API 有助於定義計算屬性或資料行。
+* [取得數列 API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries)：使用網路上記錄的資料，從已捕捉的事件中查詢和抓取時間序列深入解析資料。 傳回的值是以模型或提供的內嵌中定義的變數為基礎。 此 API 支援分頁，以取得所選輸入的完整資料集。 此 API 有助於定義計算屬性或資料行。
 
     >[!NOTE]
     > 即使已在模型或提供的內嵌中指定彙總子句，也會忽略它。
 
   取得數列 API 會為每個間隔傳回每個變數的時間序列值。 時間序列值是時間序列深入解析用於從查詢輸出 JSON 的格式。 傳回的值是以時間序列識別碼和一組所提供的變數為基礎。
 
-* [匯總數列 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api)：藉由取樣和匯總已記錄的資料，啟用從已捕捉事件查詢和抓取時間序列深入解析資料的功能。 此 API 支援使用接續 token 來執行[持續](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage)性。
+* [匯總數列 API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregatevariable)：藉由取樣和匯總已記錄的資料，啟用從已捕捉事件查詢和抓取時間序列深入解析資料的功能。 此 API 支援使用接續 token 來執行[持續](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage)性。
 
   彙總數列 API 會為每個間隔傳回每個變數的時間序列值。 值是以時間序列識別碼和一組所提供的變數為基礎。 彙總數列 API 透過使用儲存在時間序列模型或提供的內嵌中的變量來彙總或取樣資料，以達到降低的目的。
 

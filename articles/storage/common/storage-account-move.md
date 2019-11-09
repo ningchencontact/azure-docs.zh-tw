@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76648428e6adcaed579b0e4f1896fdf83e11a8b6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348856"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838710"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>將 Azure 儲存體帳戶移至另一個區域
 
@@ -51,11 +51,11 @@ ms.locfileid: "71348856"
 
 若要使用 Azure 入口網站匯出範本：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [**所有資源**], 然後選取您的儲存體帳戶。
+2. 選取 [**所有資源**]，然後選取您的儲存體帳戶。
 
-3. 選取 >**設定** >  **匯出範本**。
+3. 選取 [>**設定**] > [**匯出範本**]。
 
 4. 在 [**匯出範本**] 分頁中，選擇 [**下載**]。
 
@@ -109,7 +109,7 @@ ms.locfileid: "71348856"
 
     ![Azure Resource Manager 範本程式庫](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. 選取 [建立]。
+4. 選取 [ **建立**]。
 
 5. 選取 [在編輯器中組建您自己的範本]。
 
@@ -137,7 +137,7 @@ ms.locfileid: "71348856"
          "location": "centralus"
          }]          
     ```
-    若要取得區域位置代碼，請參閱[Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  區域的程式碼是不含空格、**美國** = 中部**centralus**的區功能變數名稱稱。
+    若要取得區域位置代碼，請參閱[Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  區域的程式碼是不含空格的區功能變數名稱稱、**美國中部** = **centralus**。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -186,9 +186,9 @@ ms.locfileid: "71348856"
 
 2. 輸入或選取屬性值：
 
-- 訂用帳戶：選取 Azure 訂用帳戶。
+- **訂用帳戶**：選取 Azure 訂用帳戶。
 
-- **资源组**：選取 [新建] 並提供資源群組的名稱。
+- **資源群組**：選取 [新建] 並指定資源群組名稱。
 
 - **位置**：選取 Azure 位置。
 
@@ -219,7 +219,7 @@ ms.locfileid: "71348856"
 
 下表列出這些功能，以及將它們新增至新儲存體帳戶的指導方針。
 
-| 功能    | 指引    |
+| 功能    | 指導方針    |
 |--------|-----------|
 | **生命週期管理原則** | [管理 Azure Blob 儲存體生命週期](../blobs/storage-lifecycle-management-concepts.md) |
 | **靜態網站** | [在 Azure 儲存體中裝載靜態網站](../blobs/storage-blob-static-website-how-to.md) |
@@ -234,19 +234,19 @@ ms.locfileid: "71348856"
 
 以下是將資料移至的一些方式。
 
-:heavy_check_mark:**Azure 儲存體總管**
+： heavy_check_mark： **Azure 儲存體總管**
 
   它很容易使用，適用于小型資料集。 您可以複製容器和檔案共用，然後將它們貼入目標帳戶。
 
   請參閱[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/);
 
-:heavy_check_mark:**AzCopy**
+： heavy_check_mark： **AzCopy**
 
   這是慣用的方法。 它已針對效能進行優化。  其中一個較快的方法是，資料會直接複製到存放伺服器之間，因此 AzCopy 不會使用您電腦的網路頻寬。 在命令列或自訂腳本中使用 AzCopy。
 
   請參閱[開始使用 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-:heavy_check_mark:**Azure Data Factory** 
+： heavy_check_mark： **Azure Data Factory** 
 
   只有在您需要目前版本的 AzCopy 不支援的功能時，才使用此工具。 例如，在目前的 AzCopy 版本中，您無法在具有階層命名空間的帳戶之間複製 blob。 此外，AzCopy 也不會保留檔案存取控制清單或檔案時間戳記（例如：建立和修改時間戳記）。 
 

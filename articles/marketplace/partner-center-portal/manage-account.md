@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 2edc644f003af2b33054a5cbdbaee81c9baa38cd
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825512"
+ms.locfileid: "73847458"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>如何在合作夥伴中心管理您的商業 Marketplace 帳戶 
 
@@ -145,6 +145,11 @@ ms.locfileid: "73825512"
 如需詳細資訊，請參閱[使用 Guid 追蹤 Azure 客戶使用量常見問題](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq)。
 
 
+## <a name="establish-a-billing-profile"></a>建立帳單設定檔
+
+如果您要發佈[Dynamics 365 For Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md)或[Dynamics 365 For Operations](./create-new-operations-offer.md)供應專案，您需要完成**帳單設定檔**。
+
+計費位址會預先填入您的 MPN 識別碼，您稍後可以更新此位址。 [稅務] 和 [加值稅] 識別碼欄位是選擇性的。  無法編輯國家/地區名稱和公司名稱。
 
 ## <a name="multi-user-account-management"></a>多使用者帳戶管理
 

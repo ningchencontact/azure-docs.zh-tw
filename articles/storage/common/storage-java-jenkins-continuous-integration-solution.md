@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986538"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839140"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>將 Azure 儲存體用於 Jenkins 連續整合解決方案
 
@@ -35,7 +35,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 * 在您的客戶和合作夥伴下載組建成品時提供良好的效能。
 * 提供使用者存取原則控制，可以選擇匿名存取、期限型共用存取簽章存取、私用存取等。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 一個 Jenkins 連續整合解決方案。
   
     如果您目前沒有 Jenkins CI 解決方案，可以透過下列步驟執行 Jenkins CI 解決方案：
@@ -67,9 +67,9 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 1. 在 Jenkins 儀表板中，選取 [管理 Jenkins]。
 2. 在 [管理 Jenkins] 頁面中，選取 [設定系統]。
 3. 在 [Microsoft Azure Storage Account Configuration] 區段中：
-   1. 輸入您的儲存體帳戶名稱, 您可以從[Azure 入口網站](https://portal.azure.com)取得。
-   2. 輸入您的儲存體帳戶金鑰, 也可從[Azure 入口網站](https://portal.azure.com)中獲得。
-   3. 如果您使用全域 Azure 雲端，請讓 [Blob 服務端點 URL] 使用預設值。 如果您使用不同的 Azure 雲端, 請使用儲存體帳戶的[Azure 入口網站](https://portal.azure.com)中指定的端點。 
+   1. 輸入您的儲存體帳戶名稱，您可以從[Azure 入口網站](https://portal.azure.com)取得。
+   2. 輸入您的儲存體帳戶金鑰，也可從[Azure 入口網站](https://portal.azure.com)中獲得。
+   3. 如果您使用全域 Azure 雲端，請讓 [Blob 服務端點 URL] 使用預設值。 如果您使用不同的 Azure 雲端，請使用儲存體帳戶的[Azure 入口網站](https://portal.azure.com)中指定的端點。 
    4. 按一下 [驗證儲存體認證] 以驗證您的儲存體帳戶。 
    5. [選擇性] 如果您有其他儲存體帳戶要提供給 Jenkins CI 使用，請選取 [新增更多儲存體帳戶]。
    6. 選取 [儲存] 以儲存您的設定。
@@ -92,7 +92,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
 5. 在作業組態的 [建置後動作] 區段中，選取 [新增建置後動作]，然後選取 [將構件上傳至 Azure Blob 儲存體]。
 6. 在 [儲存體帳戶名稱]中，選取要使用的儲存體帳戶。
-7. 在 [容器名稱] 中，指定容器名稱。 (如果上傳組建成品時該容器尚未存在，將會建立該容器。)您可以使用環境變數，就這個範例而言，請輸入 `${JOB_NAME}` 作為容器名稱。
+7. 在 [容器名稱] 中，指定容器名稱。 （如果上傳組建成品時，容器不存在，則會建立容器）。您可以使用環境變數，因此在此範例中，請輸入 `${JOB_NAME}` 做為容器名稱。
    
     **秘訣**
    
@@ -118,7 +118,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 1. 在工作組態的 [組建] 區段中，選取 [新增組建步驟]，然後選取 [從 Azure Blob 儲存體下載]。
 2. 在 [儲存體帳戶名稱]中，選取要使用的儲存體帳戶。
 3. 在 [容器名稱]中，指定您要下載的 Blob 所在之容器的名稱。 您可以使用環境變數。
-4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如, **project\\** * 會指定名稱開頭為**project**的所有 blob。
+4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**專案\\** * 會指定名稱開頭為**project**的所有 blob。
 5. [選擇性] 在 [下載路徑] 中，指定在 Jenkins 機器上您要從 Azure Blob 儲存體下載檔案的路徑。 也可以使用環境變數 (如果您未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區。)
 
 如果您還有其他項目要從 Azure Blob 儲存體下載，您可以建立其他組建步驟。
@@ -128,27 +128,27 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 ## <a name="components-used-by-the-blob-service"></a>Blob 服務所使用的元件
 本節提供 Blob 服務元件的概觀。
 
-* **儲存體帳戶**：所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。 儲存體帳戶是存取 Blob 的最上層命名空間。 帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
-* **容器**：容器可對一組 Blob 進行分組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。
+* **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。 儲存體帳戶是存取 Blob 的最上層命名空間。 帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
+* **容器**：容器提供一組 Blob 的群組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。
 * **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 * **URL 格式**：可利用下列 URL 格式來定址 Blob：
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (上述格式適用於全域 Azure 雲端。 如果您使用不同的 Azure 雲端, 請使用[Azure 入口網站](https://portal.azure.com)內的端點來判斷您的 URL 端點。)
+    (上述格式適用於全域 Azure 雲端。 如果您使用不同的 Azure 雲端，請使用[Azure 入口網站](https://portal.azure.com)內的端點來判斷您的 URL 端點。）
   
     在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。 容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/** (英文)。 本教學課程中使用的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD\_ID}/${BUILD\_NUMBER}** ，產生的 Blob URL 格式如下：
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
+## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
 
 如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 
 ## <a name="next-steps"></a>後續步驟
 * [認識 Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-* [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure 儲存體用戶端 SDK 參考](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 儲存體團隊部落格](https://blogs.msdn.com/b/windowsazurestorage/)
 

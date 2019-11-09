@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 的 Azure Resource Manager 範本
 description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos DB。
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/07/2019
+ms.author: thvankra
+ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835526"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure Resource Manager 範本
 
@@ -37,8 +37,6 @@ ms.locfileid: "73582816"
 |**範本**|**說明**|
 |---| ---|
 |[建立 Azure Cosmos 帳戶、keyspace、資料表](manage-cassandra-with-resource-manager.md#create-resource) | 此範本會在已啟用多宿主的兩個區域中建立 Cassandra API 帳戶。 Azure Cosmos 帳戶將會有兩個共用 keyspace 層級輸送量的資料表。 |
-|[更新 keyspace 的輸送量（RU/秒）](manage-cassandra-with-resource-manager.md#keyspace-ru-update) | 此範本會更新 Cassandra API 帳戶中 keyspace 的輸送量。 |
-|[更新資料表的輸送量（RU/秒）](manage-cassandra-with-resource-manager.md#table-ru-update) | 此範本會更新 Cassandra API 帳戶中資料表的輸送量。 |
 
 ## <a name="gremlin-api"></a>Gremlin API
 

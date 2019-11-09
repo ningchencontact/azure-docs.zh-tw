@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 84c06c0ac45a5005646cf7b4fb1e274d0347593c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 1c7a406f0b06b94aaa6d8b4af63b1416b11c7c56
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958497"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847339"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 磁碟的永續性磁碟區
 
@@ -40,7 +40,7 @@ ms.locfileid: "71958497"
 * *managed-premium* 儲存體類別會佈建進階 Azure 磁碟。
     * 進階磁碟是以 SSD 為基礎的高效能、低延遲磁碟為後盾。 最適合用於執行生產工作負載的 VM。 如果您叢集內的 AKS 節點使用進階儲存體，請選取 *managed-premium* 類別。
     
-這些預設儲存類別不允許您在建立之後更新磁片區大小。 若要啟用這項功能，請將*allowVolumeExpansion： true*行新增至其中一個預設儲存類別，或建立您自己的自訂儲存類別。 您可以使用 `kubectl edit sc` 命令編輯現有的儲存類別。 如需儲存體類別和自行建立 youor 的詳細資訊，請參閱[AKS 中應用程式的儲存體選項][storage-class-concepts]。
+這些預設儲存類別不允許您在建立之後更新磁片區大小。 若要啟用這項功能，請將*allowVolumeExpansion： true*行新增至其中一個預設儲存類別，或建立您自己的自訂儲存類別。 您可以使用 `kubectl edit sc` 命令來編輯現有的儲存類別。 如需儲存體類別和自己建立的詳細資訊，請參閱[AKS 中應用程式的儲存體選項][storage-class-concepts]。
 
 使用[kubectl get sc][kubectl-get]命令來查看預先建立的儲存體類別。 以下範例顯示 AKS 叢集中可用的預先建立儲存體類別：
 
@@ -53,7 +53,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 Sku 範圍 32GiB S4 P4 磁碟到 32TiB S80 或 P80 磁碟 （處於預覽狀態）。 進階受控磁碟的輸送量和 IOPS 效能，取決於 SKU 和 AKS 叢集中節點的執行個體大小。 如需詳細資訊，請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
+> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 Sku 的範圍從32Gib 到 for S4 或 P4 磁片到 32TiB for S80 或 P80 磁片（預覽版）。 進階受控磁碟的輸送量和 IOPS 效能，取決於 SKU 和 AKS 叢集中節點的執行個體大小。 如需詳細資訊，請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
 
 ## <a name="create-a-persistent-volume-claim"></a>建立永續性磁碟區宣告
 

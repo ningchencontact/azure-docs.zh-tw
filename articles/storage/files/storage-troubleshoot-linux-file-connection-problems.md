@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097371"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838541"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -58,14 +58,14 @@ ms.locfileid: "73097371"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通訊通道未加密
 
-基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 如果儲存體帳戶上啟用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則也可能會封鎖相同資料中心內未加密的連線。 唯有當使用者的用戶端 OS 支援 SMB 加密時，系統才會提供加密的通訊通道。
+基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 如果儲存體帳戶上啟用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則也可能會封鎖相同資料中心內未加密的連線。 唯有當使用者的用戶端作業系統支援 SMB 加密，才會提供加密的通訊通道。
 
-若要深入了解，請參閱[以 Linux 和 cifs-utils 套件掛接 Azure 檔案共用的必要條件](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package)。 
+若要深入了解，請參閱[以 Linux 和 cifs-utils 套件掛接 Azure 檔案共用的必要條件](storage-how-to-use-files-linux.md#prerequisites)。 
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 1. 從支援 SMB 加密的用戶端，或從與用於 Azure 檔案共用的 Azure 儲存體帳戶相同資料中心中的虛擬機器進行連線。
-2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上已停用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。
+2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上的[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定已經停用。
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因2：已在儲存體帳戶上啟用虛擬網路或防火牆規則 
 

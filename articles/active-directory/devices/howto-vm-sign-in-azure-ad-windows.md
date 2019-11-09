@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f0d732917a6587307e6d60581e0189687cc7e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832862"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>使用 Azure Active Directory authentication （預覽）登入 Azure 中的 Windows 虛擬機器
 
@@ -24,7 +24,7 @@ ms.locfileid: "73164766"
 
 |     |
 | --- |
-| 適用于 Azure Windows Vm 的 Azure AD 登入是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| 適用于 Azure Windows Vm 的 Azure AD 登入是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 使用 Azure AD 驗證來登入 Azure 中的 Windows Vm 有許多好處，包括：
@@ -33,7 +33,7 @@ ms.locfileid: "73164766"
 - 不再需要管理本機系統管理員帳戶。
 - Azure RBAC 可讓您根據需求授與 Vm 適當的存取權，並在不再需要時將其移除。
 - 在允許存取 VM 之前，Azure AD 條件式存取可以強制執行額外的需求，例如： 
-   - 多因素驗證
+   - Multi-Factor Authentication
    - 登入風險
 - 針對以 Azure 為基礎的 Windows Vm，將 Azure AD 聯結自動化並加以調整。
 
@@ -166,7 +166,7 @@ az vm extension set \
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>使用 Azure Cloud Shell 體驗
 
-下列範例會使用[az 角色指派 create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) ，將虛擬機器系統管理員登入角色指派給您目前 Azure 使用者的 VM。 您使用中 Azure 帳戶的使用者名稱是[透過 az account show](https://docs.microsoft.com/cli/azure/account#az-account-show)取得，而範圍則設定為上一個步驟中使用[az vm show](https://docs.microsoft.com/cli/azure/vm#az-vm-show)所建立的 VM。 範圍也可指派於資源群組或訂用帳戶層級上，並套用一般 RBAC 繼承權限。 如需詳細資訊，請參閱[角色型存取控制](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control)。
+下列範例會使用[az 角色指派 create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) ，將虛擬機器系統管理員登入角色指派給您目前 Azure 使用者的 VM。 您使用中 Azure 帳戶的使用者名稱是[透過 az account show](https://docs.microsoft.com/cli/azure/account#az-account-show)取得，而範圍則設定為上一個步驟中使用[az vm show](https://docs.microsoft.com/cli/azure/vm#az-vm-show)所建立的 VM。 範圍也可指派於資源群組或訂用帳戶層級上，並套用一般 RBAC 繼承權限。 如需詳細資訊，請參閱[角色型存取控制](../../virtual-machines/linux/login-using-aad.md)。
 
 ```AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -217,30 +217,30 @@ AADLoginForWindows 擴充功能必須成功安裝，VM 才能完成 Azure AD 聯
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > 如果在初始失敗後重新開機延伸模組，則會將含有部署錯誤的記錄儲存為 CommandExecution_YYYYMMDDHHMMSSSSS。 
+   > 如果在初始失敗後重新開機延伸模組，則會將含有部署錯誤的記錄儲存為 CommandExecution_YYYYMMDDHHMMSSSSS .log。 
 
 1. 在 VM 上開啟命令提示字元，並針對在 Azure 主機上執行的 Instance Metadata Service （IMDS）端點，確認這些查詢會傳回：
 
    | 要執行的命令 | 預期的輸出 |
    | --- | --- |
-   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | 更正 Azure VM 的相關資訊 |
-   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | 與 Azure 訂用帳戶相關聯的有效租使用者識別碼 |
-   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | 為指派給此 VM 的受控識別 Azure Active Directory 所簽發的有效存取權杖 |
+   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | 更正 Azure VM 的相關資訊 |
+   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | 與 Azure 訂用帳戶相關聯的有效租使用者識別碼 |
+   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | 為指派給此 VM 的受控識別 Azure Active Directory 所簽發的有效存取權杖 |
 
    > [!NOTE]
    > 您可以使用[http://calebb.net/](http://calebb.net/)之類的工具來解碼存取權杖。 確認存取權杖中的「appid」符合指派給 VM 的受控識別。
 
 1. 請使用命令列，確定可從 VM 存取所需的端點：
    
-   - 捲曲 https://login.microsoftonline.com/ -D –
-   - 捲曲 https://login.microsoftonline.com/`<TenantID>` /-D –
+   - 捲曲 https://login.microsoftonline.com/-D –
+   - 捲曲 https://login.microsoftonline.com/`<TenantID>`/-D –
 
    > [!NOTE]
    > 將 `<TenantID>` 取代為與 Azure 訂用帳戶相關聯的 Azure AD 租使用者識別碼。
 
-   - 捲曲 https://enterpriseregistration.windows.net/ -D-
-   - 捲曲 https://device.login.microsoftonline.com/ -D-
-   - 捲曲 https://pas.windows.net/ -D-
+   - 捲曲 https://enterpriseregistration.windows.net/-D-
+   - 捲曲 https://device.login.microsoftonline.com/-D-
+   - 捲曲 https://pas.windows.net/-D-
 
 1. 您可以藉由執行 `dsregcmd /status`來查看裝置狀態。 目標是讓裝置狀態顯示為 `AzureAdJoined : YES`。
 
@@ -267,15 +267,15 @@ AADLoginForWindows 擴充功能必須成功安裝，VM 才能完成 Azure AD 聯
 
 1. 使用命令列確認可從 VM 存取所需的端點：
 
-   - 捲曲 https://login.microsoftonline.com/ -D –
-   - 捲曲 https://login.microsoftonline.com/`<TenantID>` /-D –
+   - 捲曲 https://login.microsoftonline.com/-D –
+   - 捲曲 https://login.microsoftonline.com/`<TenantID>`/-D –
    
    > [!NOTE]
    > 將 `<TenantID>` 取代為與 Azure 訂用帳戶相關聯的 Azure AD 租使用者識別碼。 如果您需要尋找 [租使用者識別碼]，您可以將滑鼠停留在帳戶名稱上以取得目錄/租使用者識別碼，或在 Azure 入口網站中選取 [Azure Active Directory > 屬性] > [目錄識別碼]。
 
-   - 捲曲 https://enterpriseregistration.windows.net/ -D-
-   - 捲曲 https://device.login.microsoftonline.com/ -D-
-   - 捲曲 https://pas.windows.net/ -D-
+   - 捲曲 https://enterpriseregistration.windows.net/-D-
+   - 捲曲 https://device.login.microsoftonline.com/-D-
+   - 捲曲 https://pas.windows.net/-D-
 
 1. 如果有任何命令因「無法解析主機 `<URL>`」而失敗，請嘗試執行此命令來判斷 VM 正在使用的 DNS 伺服器。
    
@@ -312,7 +312,7 @@ AADLoginForWindows 擴充功能必須成功安裝，VM 才能完成 Azure AD 聯
 
 ![您的帳戶已設定為防止您使用此裝置。](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-請確認您已為 VM[設定 RBAC 原則](https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad#configure-rbac-policy-for-the-virtual-machine)，以授與使用者「虛擬機器系統管理員登入」或「虛擬機器使用者登入」角色：
+請確認您已為 VM[設定 RBAC 原則](../../virtual-machines/linux/login-using-aad.md)，以授與使用者「虛擬機器系統管理員登入」或「虛擬機器使用者登入」角色：
  
 #### <a name="unauthorized-client"></a>未經授權的用戶端
 

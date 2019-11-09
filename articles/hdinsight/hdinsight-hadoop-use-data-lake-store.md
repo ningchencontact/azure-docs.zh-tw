@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/04/2019
+ms.openlocfilehash: 309af904f0dbfc0664c4341803cb6a4dc8a2c8a4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546281"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839293"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1
 
-> [!Note] 
+> [!Note]
 > 針對已改善的效能和新功能，將新 HDInsight 叢集搭配 [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) 使用。
 
-若要分析 HDInsight 叢集中的資料，您可以將資料儲存在 [Azure 儲存體](../storage/common/storage-introduction.md)、[Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) 或 [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)。 所有儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
+若要分析 HDInsight 叢集中的資料，您可以將資料儲存在[Azure 儲存體](../storage/common/storage-introduction.md)、 [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md)或[Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)中。 所有儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
 在本文中，您將了解 Data Lake Storage Gen1 與 HDInsight 叢集搭配運作的方式。 若要深入了解 Azure 儲存體與 HDInsight 叢集搭配運作的方式，請參閱[使用 Azure 儲存體搭配 Azure HDInsight 叢集](hdinsight-hadoop-use-blob-storage.md)。 如需建立 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "65546281"
 
 ## <a name="availability-for-hdinsight-clusters"></a>HDInsight 叢集的可用性
 
-Apache Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 進行 HDInsight 叢集建立程序時，您可以指定 Azure Blob 儲存體中的 Blob 容器作為預設檔案系統，或在使用 HDInsight 3.5 和更新版本時，選取 Azure 儲存體或 Azure Data Lake Storage Gen1 作為預設檔案系統，有一些例外狀況。 
+Apache Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 進行 HDInsight 叢集建立程序時，您可以指定 Azure Blob 儲存體中的 Blob 容器作為預設檔案系統，或在使用 HDInsight 3.5 和更新版本時，選取 Azure 儲存體或 Azure Data Lake Storage Gen1 作為預設檔案系統，有一些例外狀況。
 
 HDInsight 叢集可透過兩種方式來使用 Data Lake Storage Gen1︰
 
@@ -40,9 +40,9 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage Gen1︰
 
 目前，只有一些 HDInsight 叢集類型/版本支援使用 Data Lake Storage Gen1 來作為預設儲存體和其他儲存體帳戶：
 
-| HDInsight 叢集類型 | 使用 Data Lake Storage Gen1 作為預設儲存體 | 使用 Data Lake Storage Gen1 作為其他儲存體| 注意 |
+| HDInsight 叢集類型 | 使用 Data Lake Storage Gen1 作為預設儲存體 | 使用 Data Lake Storage Gen1 作為其他儲存體| 注意事項 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 版本 4.0 | 否 | 否 |HDInsight 4.0 不支援 ADLS Gen1 |
+| HDInsight 版本4。0 | 否 | 否 |HDInsight 4.0 不支援 ADLS Gen1 |
 | HDInsight 3.6 版 | 是 | 是 | HBase 的例外狀況|
 | HDInsight 3.5 版 | 是 | 是 | HBase 的例外狀況|
 | HDInsight 3.4 版 | 否 | 是 | |
@@ -53,7 +53,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage Gen1︰
 > [!WARNING]  
 > Azure Data Lake Storage Gen1 不支援 HDInsight HBase
 
-使用 Data Lake Storage Gen1 作為其他儲存體帳戶，並不會影響效能或從叢集讀取或寫入至 Azure 儲存體的能力。
+使用 Data Lake Storage Gen1 做為額外的儲存體帳戶，並不會影響效能或從叢集讀取或寫入至 Azure 儲存體的能力。
 
 ## <a name="use-data-lake-storage-gen1-as-default-storage"></a>使用 Data Lake Storage Gen1 作為預設儲存體
 
@@ -66,15 +66,15 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage Gen1︰
 
 若要能夠使用 Data Lake Storage Gen1 作為預設儲存體，您必須授與服務主體存取下列路徑：
 
-- 刪除 Data Lake Storage Gen1 帳戶根目錄。  例如：adl://mydatalakestore/。
-- 所有叢集資料夾的資料夾。  例如：adl://mydatalakestore/clusters。
-- 叢集的資料夾。  例如：adl://mydatalakestore/clusters/cluster1storage。
+* 刪除 Data Lake Storage Gen1 帳戶根目錄。  例如：adl://mydatalakestore/。
+* 所有叢集資料夾的資料夾。  例如：adl://mydatalakestore/clusters。
+* 叢集的資料夾。  例如：adl://mydatalakestore/clusters/cluster1storage。
 
 如需建立服務主體和授與存取權的詳細資訊，請參閱設定 Data Lake Storage 存取。
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>從 Azure Key Vault 擷取憑證以用於建立叢集
 
-如果您想要設定 Azure Data Lake Storage Gen1 來作為新叢集的預設儲存體，而且服務主體的憑證儲存在 Azure Key Vault 中，則必須再進行一些步驟以便將憑證轉換成正確的格式。 下列程式碼片段示範如何執行轉換。
+如果您想要設定 Azure Data Lake Storage Gen1 做為新叢集的預設儲存體，而且服務主體的憑證儲存在 Azure Key Vault 中，則必須執行一些額外步驟，才能將憑證轉換成正確的格式。 下列程式碼片段示範如何執行轉換。
 
 首先，從 Key Vault 下載憑證，並擷取 `SecretValueText`。
 
@@ -108,18 +108,17 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>使用 Data Lake Storage Gen1 作為其他儲存體
 
-您也可以使用 Data Lake Storage Gen1 作為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Storage 帳戶。 如果您正在作為其他儲存體的 Data Lake Storage 上針對其儲存的資料執行 HDInsight 作業，必須使用檔案的完整路徑。 例如:
+您也可以使用 Data Lake Storage Gen1 作為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Storage 帳戶。 如果您是針對儲存在 Data Lake Storage 中的資料執行 HDInsight 作業作為額外的儲存體，則必須使用檔案的完整路徑。 例如：
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-請注意，現在 URL 中沒有任何 **cluster_root_path**。 這是因為在此情況下 Data Lake Storage 不是預設儲存體，因此您只需要提供檔案的路徑。
+請注意，現在 URL 中沒有任何 **cluster_root_path**。 這是因為在這種情況下，Data Lake Storage 不是預設儲存體，因此您只需要提供檔案的路徑。
 
-若要能夠使用 Data Lake Storage Gen1 作為其他儲存體，您只需要將您儲存檔案之位置的路徑存取權授與服務主體即可。  例如:
+若要能夠使用 Data Lake Storage Gen1 作為其他儲存體，您只需要將您儲存檔案之位置的路徑存取權授與服務主體即可。  例如：
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 如需建立服務主體和授與存取權的詳細資訊，請參閱設定 Data Lake Storage 存取。
-
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>使用多個 Data Lake Storage 帳戶
 
@@ -131,7 +130,6 @@ New-AzResourceGroupDeployment `
 
 > [!NOTE]  
 > 如果您即將使用 Azure Data Lake Storage Gen1 作為 HDInsight 叢集的額外儲存體，強烈建議您如本文所述建立叢集時執行此作業。 將 Azure Data Lake Storage Gen1 新增為現有 HDInsight 叢集的額外儲存體不是支援的案例。
->
 
 ## <a name="access-files-from-the-cluster"></a>從叢集存取檔案
 
@@ -139,19 +137,82 @@ New-AzResourceGroupDeployment `
 
 * **使用完整格式名稱**。 使用這種方法，您可以針對想要存取的檔案提供完整路徑。
 
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
+    ```
+    adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
+    ```
 
-* **使用簡短路徑格式**。 使用這種方法，您可以利用 adl:/// 將路徑向上取代至叢集根目錄。 因此在上述範例中，您可以將 `adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/`取代為 `adl:///`。
+* **使用簡短路徑格式**。 使用這種方法，您可以將路徑取代為叢集根目錄，如下所示：
 
-        adl:///<file path>
+    ```
+    adl:///<file path>
+    ```
 
-* **使用相對路徑**。 使用這種方法，您可以針對想要存取的檔案，只提供相對路徑。 例如，如果檔案的完整路徑如下︰
+* **使用相對路徑**。 使用這種方法，您可以針對想要存取的檔案，只提供相對路徑。
 
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
+    ```
+    /<file.path>/
+    ```
 
-    您可以改用此相對路徑來存取相同的 sample.log 檔案。
+### <a name="data-access-examples"></a>資料存取範例
 
-        /example/data/sample.log
+範例是以連至叢集前端節點的[ssh](./hdinsight-hadoop-linux-use-ssh-unix.md)連線為基礎。 這些範例會使用這三個 URI 配置。 以相關的值取代 `DATALAKEACCOUNT` 和 `CLUSTERNAME`。
+
+#### <a name="a-few-hdfs-commands"></a>一些 hdfs 命令
+
+1. 在本機儲存體上建立簡單的檔案。
+
+    ```bash
+    touch testFile.txt
+    ```
+
+1. 在叢集儲存體上建立目錄。
+
+    ```bash
+    hdfs dfs -mkdir adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
+    hdfs dfs -mkdir adl:///sampledata2/
+    hdfs dfs -mkdir /sampledata3/
+    ```
+
+1. 將資料從本機儲存體複製到叢集儲存體。
+
+    ```bash
+    hdfs dfs -copyFromLocal testFile.txt adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
+    hdfs dfs -copyFromLocal testFile.txt adl:///sampledata2/
+    hdfs dfs -copyFromLocal testFile.txt /sampledata3/
+    ```
+
+1. 列出叢集存放區上的目錄內容。
+
+    ```bash
+    hdfs dfs -ls adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
+    hdfs dfs -ls adl:///sampledata2/
+    hdfs dfs -ls /sampledata3/
+    ```
+
+#### <a name="creating-a-hive-table"></a>建立 Hive 資料表
+
+顯示三個檔案位置以供說明之用。 若為實際執行，請只使用其中一個 `LOCATION` 專案。
+
+```hql
+DROP TABLE myTable;
+CREATE EXTERNAL TABLE myTable (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE
+LOCATION 'adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/example/data/';
+LOCATION 'adl:///example/data/';
+LOCATION '/example/data/';
+```
+
+## <a name="identify-storage-path-from-abmari"></a>識別來自 Abmari 的儲存體路徑
+
+若要識別已設定之預設存放區的完整路徑，請流覽至**HDFS** ** > 設定，然後**在 [篩選] 輸入方塊中輸入 `fs.defaultFS`。
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>建立可存取 Data Lake Storage Gen1 的 HDInsight 叢集
 
@@ -237,29 +298,15 @@ Invoke-AzResourceAction `
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 在本文中，您已了解如何搭配 HDInsight 使用 HDFS 相容的 Azure Data Lake Storage Gen1。 這可讓您建立可調整、長期封存的資料取得解決方案，並利用 HDInsight 來揭開儲存的結構化和非結構化資料內的資訊。
 
 如需詳細資訊，請參閱：
 
-* [開始使用 Azure HDInsight][hdinsight-get-started]
+* [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [使用 Azure PowerShell 建立 HDInsight 叢集以使用 Data Lake Storage Gen1](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
-* [將資料上傳至 HDInsight][hdinsight-upload-data]
-* [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
-* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
-* [使用 Azure 儲存體共用存取簽章來限制使用 HDInsight 對資料的存取][hdinsight-use-sas]
-
-[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: /powershell/azureps-cmdlets-docs
-[hdinsight-creation]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]:../storage/common/storage-create-storage-account.md
-
-[img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
-[img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
-[img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png  
+* [將資料上傳至 HDInsight](hdinsight-upload-data.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [使用 Azure 儲存體的共用存取簽章來限制使用 HDInsight 對資料的存取](hdinsight-storage-sharedaccesssignature-permissions.md)
+* [教學課程：在 Azure HDInsight 中使用互動式查詢來解壓縮、轉換和載入資料](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

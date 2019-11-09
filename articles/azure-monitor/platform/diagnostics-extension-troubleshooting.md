@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161965"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834699"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](diagnostics-extension-overview.md)。
@@ -90,7 +90,7 @@ Azure 診斷會提供計量資料，這些資料可以在 Azure 入口網站中�
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-如果結束代碼為「負值」，請參閱[參考](#references)一節中的[結束代碼表格](#azure-diagnostics-plugin-exit-codes)。
+如果結束代碼為「負值」，請參閱[參考](#azure-diagnostics-plugin-exit-codes)一節中的[結束代碼表格](#references)。
 
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>診斷資料未記錄至 Azure 儲存體
 判斷是沒有出現任何資料，或是出現部分的資料。
@@ -166,7 +166,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
             tableName = "WAD" + eventDestination;
 ```
 
-範例如下：
+下列是一個範例：
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -216,7 +216,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 ## <a name="references"></a>參考
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>如何檢查診斷擴充功能組態
-若要檢查擴充功能組態，最容易的方式就是移至 [Azure 資源總管](http://resources.azure.com)，然後移至 Azure 診斷擴充功能 (IaaSDiagnostics / PaaDiagnostics) 所在的虛擬機器或雲端服務。
+若要檢查擴充功能組態，最容易的方式就是移至 [Azure 資源總管](https://resources.azure.com)，然後移至 Azure 診斷擴充功能 (IaaSDiagnostics / PaaDiagnostics) 所在的虛擬機器或雲端服務。
 
 或者，使用遠端桌面連線到電腦，然後查看 [記錄成品路徑] 區段中說明的 Azure 診斷組態檔。
 
@@ -229,7 +229,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure 診斷外掛程式結束代碼
 外掛程式會傳回下列結束代碼：
 
-| 結束代碼 | 描述 |
+| 結束代碼 | 說明 |
 | --- | --- |
 | 0 |成功。 |
 | -1 |一般錯誤。 |
@@ -257,7 +257,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
-在對應的 `.tsf` 檔案所在的相同路徑中，會建立一個名為 `<relevantLogFile>.csv` 的新檔案。
+在對應的 `<relevantLogFile>.csv` 檔案所在的相同路徑中，會建立一個名為 `.tsf` 的新檔案。
 
 >[!NOTE]
 > 您只需要針對主要的 tsf 檔案 (例如 PerformanceCountersTable.tsf) 來執行此公用程式。 系統會自動處理隨附的檔案 (例如，PerformanceCountersTables_\*\*001.tsf、PerformanceCountersTables_\*\*002.tsf 等等)。

@@ -1,7 +1,7 @@
 ---
-title: 升級至 Azure 搜尋服務 .NET SDK 第10版
+title: 升級至 Azure 認知搜尋 .NET SDK 第10版
 titleSuffix: Azure Cognitive Search
-description: 將程式碼遷移至舊版中的 Azure 搜尋服務 .NET SDK 版本10。 了解新功能與必要的程式碼變更。
+description: 從舊版將程式碼遷移至 Azure 認知搜尋 .NET SDK 第10版。 了解新功能與必要的程式碼變更。
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,30 +9,30 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a8550a7f9c6a684a172da6f384039c6050797f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793046"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847512"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-10"></a>升級至 Azure 搜尋服務 .NET SDK 第10版
+# <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>升級至 Azure 認知搜尋 .NET SDK 第10版
 
 如果您使用的是9.0 或更舊版本的[Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文將協助您將應用程式升級為使用第10版。
 
-如需包括範例的 SDK 一般逐步解說，請參閱 [如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)。
+Azure 搜尋服務在第10版中重新命名為 Azure 認知搜尋，但命名空間和套件名稱不會變更。 舊版 SDK （9.0 和更早版本）會繼續使用先前的名稱。 如需使用 SDK 的詳細資訊（包括範例），請參閱[如何從 .Net 應用程式使用 Azure 認知搜尋](search-howto-dotnet-sdk.md)。
 
 第10版新增數個功能和 bug 修正，使其與最新版本的 REST API 版本 `2019-05-06`的功能等級相同。 在變更中斷現有程式碼的情況下，我們將逐步引導您完成[解決問題所需的步驟](#UpgradeSteps)。
 
 > [!NOTE]
 > 如果您使用 8.0-preview 版或更舊版本，您應該先升級至第9版，然後再升級至版本10。 如需相關指示，請參閱[升級至 Azure 搜尋服務 .NET SDK 第9版](search-dotnet-sdk-migration-version-9.md)。
 >
-> 您的「Azure 搜尋服務」執行個體支援數個 REST API 版本，包括最新版本。 當一個版本不再是最新版本時，您仍可繼續使用該版本，但建議您將程式碼移轉成使用最新版本。 使用 REST API 時，您必須每個要求中透過 api-version 參數指定 API 版本。 使用 .NET SDK 時，您使用的 SDK 版本會決定對應的 REST API 版本。 如果您使用的是舊版 SDK，則即使服務已升級成支援新版 API 版本，您仍可繼續執行該程式碼而無須變更。
+> 您的搜尋服務實例支援數個 REST API 版本，包括最新版本。 當一個版本不再是最新版本時，您仍可繼續使用該版本，但建議您將程式碼移轉成使用最新版本。 使用 REST API 時，您必須每個要求中透過 api-version 參數指定 API 版本。 使用 .NET SDK 時，您使用的 SDK 版本會決定對應的 REST API 版本。 如果您使用的是舊版 SDK，則即使服務已升級成支援新版 API 版本，您仍可繼續執行該程式碼而無須變更。
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>第10版的新功能
-Azure 搜尋服務 .NET SDK 的第10版以 Azure 搜尋服務 REST API （`2019-05-06`）的最新正式運作版本為目標，並具有這些更新：
+Azure 認知搜尋的第10版 .NET SDK 的目標是最新正式推出的 REST API （`2019-05-06`）版本，其中包含下列更新：
 
 * 引進兩種新的技能-[條件式技能](cognitive-search-skill-conditional.md)和[文字翻譯技能](cognitive-search-skill-text-translation.md)。
 * 已重構的[整形人員技能](cognitive-search-skill-shaper.md)輸入，以容納來自嵌套內容的匯總。 如需詳細資訊，請參閱此[JSON 定義範例](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts)。
@@ -40,7 +40,7 @@ Azure 搜尋服務 .NET SDK 的第10版以 Azure 搜尋服務 REST API （`2019-
     - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
     - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
 * 在某些情況下，在[索引子執行狀態](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)中顯示的錯誤和警告，可能會有其他詳細資料可協助您進行偵錯工具。 `IndexerExecutionResult` 已更新，以反映此行為。
-* 您可以選擇性地指定 `name` 屬性來識別[技能集](cognitive-search-defining-skillset.md)內定義的個別技能。
+* 您可以選擇性地指定 [屬性來識別](cognitive-search-defining-skillset.md)技能集`name`內定義的個別技能。
 * `ServiceLimits` 會顯示[複雜類型](https://docs.microsoft.com/azure/search/search-howto-complex-data-types)的限制，而 `IndexerExecutionInfo` 會顯示相關的索引子限制/配額。
 
 <a name="UpgradeSteps"></a>
@@ -62,7 +62,7 @@ Azure 搜尋服務 .NET SDK 的第10版以 Azure 搜尋服務 REST API （`2019-
 第10版有幾項重大變更，除了重建您的應用程式之外，可能還需要變更程式碼。
 
 > [!NOTE]
-> 以下的變更清單並不完整。 某些變更可能不會導致組建錯誤，但是在技術上會中斷，因為它們會破壞與舊版 Azure 搜尋服務 .NET SDK 元件相依的元件的二進位相容性。 在此類別下的重大變更也會與建議一併列出。 請在升級至第10版時重建您的應用程式，以避免發生二進位相容性問題。
+> 以下的變更清單並不完整。 某些變更可能不會導致組建錯誤，但是在技術上會中斷，因為它們會破壞與舊版 Azure 認知搜尋 .NET SDK 元件相依的元件的二進位相容性。 在此類別下的重大變更也會與建議一併列出。 請在升級至第10版時重建您的應用程式，以避免發生二進位相容性問題。
 
 ### <a name="custom-web-api-skill-definition"></a>自訂 Web API 技能定義
 

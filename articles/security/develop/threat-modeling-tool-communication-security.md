@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 54d34a120c575fd01f746131d909058951d1facf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498679"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839246"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構︰通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
@@ -136,7 +136,7 @@ ms.locfileid: "73498679"
   </system.webServer>
 </configuration>
 ```
-此規則的運作方式是當使用者使用 HTTP 要求頁面時，便傳回 HTTP 狀態碼 301 (永久重新導向)。 301 會將要求重新導向至與訪客要求相同的 URL，但使用 HTTPS 來取代要求的 HTTP 部分。 例如，HTTP://contoso.com 會重新導向至 HTTPS://contoso.com。 
+此規則的運作方式是當使用者使用 HTTP 要求頁面時，便傳回 HTTP 狀態碼 301 (永久重新導向)。 301 會將要求重新導向至與訪客要求相同的 URL，但使用 HTTPS 來取代要求的 HTTP 部分。 例如，`HTTP://contoso.com` 會重新導向至 `HTTPS://contoso.com`。 
 
 ## <a id="http-hsts"></a>啟用 HTTP Strict Transport Security (HSTS)
 

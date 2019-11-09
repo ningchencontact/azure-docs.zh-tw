@@ -1,6 +1,6 @@
 ---
 title: 匯出及刪除您的資料
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Azure Machine Learning Studio （傳統）所儲存的產品內資料可透過 Azure 入口網站和通過驗證的 REST Api 來進行匯出和刪除。 透過 Azure 隱私權入口網站可以存取遙測資料。 本文將說明如何做到。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 69e36ea83f308c4aee4bbd1dcfbfe55df3d275de
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619312"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837621"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>從 Azure Machine Learning Studio 匯出和刪除產品中的使用者資料（傳統）
 

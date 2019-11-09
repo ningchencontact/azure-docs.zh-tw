@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3f987b9e05bcdcda9afe26a1eb1354e5e2450ac5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820163"
+ms.locfileid: "73846527"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>設定 azure Cosmos 帳戶的 Azure 私人連結（預覽）
 
@@ -86,7 +86,7 @@ ms.locfileid: "73820163"
 
 ### <a name="fetch-the-private-ip-addresses"></a>提取私人 IP 位址
 
-布建私人端點之後，您就可以查詢 IP 位址。 若要從 Azure 入口網站中查看 IP 位址。 選取 [**所有資源**]，搜尋您稍早在此案例中建立的私用端點，其為 "dbPrivateEndpoint3"，並選取 [總覽] 索引標籤來查看 DNS 設定和 IP 位址：
+布建私人端點之後，您就可以查詢 IP 位址。 若要從 Azure 入口網站中查看 IP 位址，請選取 [**所有資源**]，搜尋您稍早在此案例中建立的私人端點，其為 "dbPrivateEndpoint3"，並選取 [總覽] 索引標籤來查看 DNS 設定和 IP 位址：
 
 ![Azure 入口網站中的私人 IP 位址](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
@@ -354,7 +354,7 @@ $deploymentOutput
 
 例如，如果您在3個區域中部署 Azure Cosmos 帳戶：「美國西部」、「美國中部」和「西歐」。 當您建立帳戶的私人端點時，會在子網中保留4個私人 Ip。 一個用於每個區域，其總計為3個，一個用於全域/區域無關端點。
 
-稍後，如果您將新的區域（例如「美國東部」）新增至 Azure Cosmos 帳戶。 根據預設，無法從現有的私用端點存取新的區域。 Azure Cosmos 帳戶系統管理員應該先重新整理私人端點連線，然後再從新區域存取它。 
+稍後，如果您將新的區域（例如「美國東部」）新增至 Azure Cosmos 帳戶。 根據預設，無法從現有的私用端點存取新的區域。 Azure Cosmos 帳戶系統管理員應該先重新整理私人端點連線，才能從新的區域存取它。 
 
 當您執行 ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 命令時，命令的輸出會包含 `actionsRequired` 參數，這會設定為 "重新建立"。 此值表示應重新整理私用端點。 接下來，Azure Cosmos 帳戶管理員會執行 `Set-AzPrivateEndpoint` 命令，以觸發私人端點重新整理。
 

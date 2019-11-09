@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure PowerShell 部署和設定 Azure 防火牆
-description: 在本文中, 您將瞭解如何使用 Azure PowerShell 來部署和設定 Azure 防火牆。
+description: 在本文中，您將瞭解如何使用 Azure PowerShell 來部署和設定 Azure 防火牆。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 494beb6ba2bf8a9409962b4418089cdad0e182e1
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114789"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831847"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和設定 Azure 防火牆
 
@@ -25,7 +25,7 @@ ms.locfileid: "70114789"
 
 當您將網路流量路由傳送到防火牆作為子網路預設閘道時，網路流量必須遵守設定的防火牆規則。
 
-在本文中, 您會建立具有三個子網的簡化單一 VNet, 以便進行部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中。 工作負載伺服器位於相同區域中的對等互連 VNet，其中包含一個或多個子網路。
+在本文中，您會建立具有三個子網的簡化單一 VNet，以便進行部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中。 工作負載伺服器位於相同區域中的對等互連 VNet，其中包含一個或多個子網路。
 
 * **AzureFirewallSubnet** - 防火牆位於此子網路中。
 * **Workload-SN** - 工作負載伺服器位於此子網路。 此子網路的網路流量會通過防火牆。
@@ -43,9 +43,9 @@ ms.locfileid: "70114789"
 > * 設定允許存取外部 DNS 伺服器的網路規則
 > * 測試防火牆
 
-如果您想要的話, 可以使用[Azure 入口網站](tutorial-firewall-deploy-portal.md)完成此程式。
+如果您想要的話，可以使用[Azure 入口網站](tutorial-firewall-deploy-portal.md)完成此程式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -65,17 +65,17 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-vnet"></a>建立 VNet
 
-此虛擬網路有三個子網:
+此虛擬網路有三個子網：
 
 > [!NOTE]
-> AzureFirewallSubnet 子網的大小為/26。 如需子網大小的詳細資訊, 請參閱[Azure 防火牆常見問題](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+> AzureFirewallSubnet 子網路的大小是 /26。 如需有關子網路大小的詳細資訊，請參閱 [Azure 防火牆的常見問題集](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
 
 ```azurepowershell
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
-現在, 建立虛擬網路:
+現在，建立虛擬網路：
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
@@ -186,7 +186,7 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 
 ## <a name="configure-a-network-rule"></a>設定網路規則
 
-網路規則允許在埠 53 (DNS) 對兩個 IP 位址進行輸出存取。
+網路規則允許在埠53（DNS）對兩個 IP 位址進行輸出存取。
 
 ```azurepowershell
 $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAddress 10.0.2.0/24 `
@@ -202,7 +202,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>變更 **Srv-Work** 網路介面的主要和次要 DNS 位址
 
-基於此程式中的測試目的, 請設定伺服器的主要和次要 DNS 位址。 這不是一般的 Azure 防火牆需求。
+基於此程式中的測試目的，請設定伺服器的主要和次要 DNS 位址。 這不是一般的 Azure 防火牆需求。
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -214,24 +214,24 @@ $NIC | Set-AzNetworkInterface
 
 現在請測試防火牆，以確認其運作符合預期。
 
-1. 記下**Srv 工作**虛擬機器的私人 IP 位址:
+1. 記下**Srv 工作**虛擬機器的私人 IP 位址：
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 從該處開啟與**Srv 工作**私人 IP 位址的遠端桌面連線, 然後登入。
+1. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 從該處開啟與**Srv 工作**私人 IP 位址的遠端桌面連線，然後登入。
 
-3. 開啟 PowerShell 視窗並執行下列命令：。
+3. 在 [ **SRV-工作**] 上，開啟 PowerShell 視窗並執行下列命令：
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   這兩個命令都應該會傳回答案, 顯示您的 DNS 查詢正在通過防火牆。
+   這兩個命令都應該會傳回答案，顯示您的 DNS 查詢正在通過防火牆。
 
-1. 執行下列命令：
+1. 執行以下命令：
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
@@ -241,7 +241,7 @@ $NIC | Set-AzNetworkInterface
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com](www.google.com) 要求，應該會成功，且 www.microsoft.com 要求應該會失敗。 這會示範您的防火牆規則如預期般運作。
+   `www.google.com` 要求應會成功，而且 `www.microsoft.com` 要求應該會失敗。 這會示範您的防火牆規則如預期般運作。
 
 因此，現在您已確認防火牆規則正在運作：
 
@@ -250,7 +250,7 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以保留防火牆資源供下一個教學課程, 如果不再需要, 請刪除**測試-FW-RG**資源群組來刪除所有防火牆相關資源:
+您可以保留防火牆資源供下一個教學課程，如果不再需要，請刪除**測試-FW-RG**資源群組來刪除所有防火牆相關資源：
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

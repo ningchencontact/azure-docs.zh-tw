@@ -1,6 +1,6 @@
 ---
 title: 從 Excel 遷移分析
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Excel 和 Azure Machine Learning Studio 中線性回歸模型的比較（傳統）
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 58ced0e08dc4cbc38f7fe41d01232bc158680dd0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f4169753e653a1c6c82c997d37769d8548e76ff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693432"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839430"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>將分析從 Excel 遷移至 Azure Machine Learning Studio （傳統）
 

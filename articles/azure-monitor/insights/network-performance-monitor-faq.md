@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931323"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832009"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
@@ -48,7 +48,7 @@ ms.locfileid: "72931323"
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>應該選擇監視 TCP 還是 ICMP 通訊協定？
 如果您使用以 Windows server 為基礎的節點監視網路，建議您使用 TCP 作為監視通訊協定，因為它提供更好的精確度。 
 
-建議將 ICMP 用於以 Windows 桌面/用戶端作業系統為基礎的節點。 此平臺 does'nt 可讓您透過原始通訊端傳送 TCP 資料，NPM 會使用它來探索網路拓撲。
+建議將 ICMP 用於以 Windows 桌面/用戶端作業系統為基礎的節點。 此平臺不允許透過原始通訊端傳送 TCP 資料，NPM 會使用它來探索網路拓撲。
 
 您可以在[此處](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol)取得有關各種通訊協定彼此優勢所在的詳細資料。
 
@@ -69,7 +69,7 @@ ms.locfileid: "72931323"
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>我可以使用的代理程式數目上限，或我看到錯誤」。您已達到設定限制」？
 NPM 將 IP 數目限制為每個工作區 5000 個 IP。 如果節點同時有 IPv4 和 IPv6 位址，這會當作該節點有 2 個 IP 來計算。 因此，5000 IP 的這項限制會決定代理程式數目上限。 您可以從 NPM 中的 [節點] 索引標籤 >> [設定] 刪除非使用中的代理程式。 NPM 也會維護所有已指派給裝載代理程式之 VM 的 Ip 歷程記錄，而且每個 ip 會計算為對該上限（5000個 ip）貢獻的個別 IP。 若要釋出工作區的 Ip，您可以使用 [節點] 頁面來刪除未使用的 Ip。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 ### <a name="how-are-loss-and-latency-calculated"></a>如何計算遺失和延遲
 來源代理程式會定期向目的地 IP 傳送 TCP SYN 要求 (如果選擇 TCP 做為監視用的通訊協定)，或傳送 ICMP ECHO 要求 (如果選擇 ICMP 做為監視用的通訊協定)，以確保來源到目的地的 IP 組合之間的所有路徑均在涵蓋範圍內。 會測量接收的封包百分比和封包往返時間，以計算每個路徑的遺失和延遲。 此資料會在輪詢間隔和所有路徑上彙總，以針對特定輪詢間隔的 IP 組合取得遺失和延遲的彙總值。
@@ -98,11 +98,47 @@ NPM 會根據其所屬之狀況不良的路徑數量，運用機率機制將故�
 ### <a name="how-can-i-create-alerts-in-npm"></a>如何在 NPM 中建立警示？
 如需逐步說明，請參閱[說明文件中的警示章節](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts)。
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>警示的預設 Log Analytics 查詢為何
+效能監視器查詢
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+服務連線能力監視查詢
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+ExpressRoute 監視查詢：線路查詢
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+私人對等互連
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Microsoft 對等互連
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+一般查詢   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM 是否可以將路由器和伺服器當做個別裝置進行監控？
 NPM 只會識別來源 IP 和目的地 IP 之間的基礎網路躍點 (交換器、路由器、伺服器等) 的 IP 和主機名稱， 也也會識別這些已識別躍點之間的延遲， 但不會個別監控這些基礎躍點。
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>NPM 是否可用來監控 Azure 與 AWS 之間的網路連線？
-可以。 如需詳細資料，請參閱[使用 NPM 監控 Azure、AWS 和內部部署網路](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)一文 (英文)。
+是。 如需詳細資料，請參閱[使用 NPM 監控 Azure、AWS 和內部部署網路](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)一文 (英文)。
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>ExpressRoute 頻寬的用量是傳入還是傳出？
 頻寬用量是傳入和傳出頻寬的總和， 以位元/秒表示。
@@ -110,17 +146,23 @@ NPM 只會識別來源 IP 和目的地 IP 之間的基礎網路躍點 (交換器
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>是否可以取得 ExpressRoute 的傳入和傳出的頻寬資訊？
 可以擷取主要和次要頻寬的傳入和傳出值。
 
-如需對等互連層級資訊，請使用下列記錄搜尋中提到的查詢
+如需 MS 對等互連層級資訊，請在記錄搜尋中使用下列所述的查詢
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+如需私用對等互連層級資訊，請在記錄搜尋中使用下列所述的查詢
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-如需線路層級資訊，請使用下列提到的查詢 
+如需線路層級資訊，請在記錄搜尋中使用下列所述的查詢
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM 的效能監控支援哪些區域？
 NPM 可以從其中一個[支援區域](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)中裝載的工作區中，監控世界各地網路之間的連線情形
@@ -142,8 +184,8 @@ NPM 使用追蹤路由的修改版本，來探索從來源代理程式到目的�
 * 網路裝置不允許 ICMP_TTL_EXCEEDED 流量。
 * 防火牆阻止來自網路裝置的 ICMP_TTL_EXCEEDED 回應。
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>我收到狀況不良測試的警示，但我在 NPM 的遺失和延遲圖表中看不到高的值。 如何? 檢查什麼狀況不良？
-如果來源與目的地之間的端對端延遲與閾值之間的任何路徑相交，則 NPM 會引發警示。 有些網路有一個以上的路徑連接相同的來源和目的地。 NPM 引發警示是任何路徑狀況不良。 圖表中顯示的遺失和延遲是所有路徑的平均值，因此它可能不會顯示單一路徑的確切值。 若要瞭解臨界值被違反的位置，請尋找警示中的「子類型」資料行。 如果問題是由路徑所造成，則會 NetworkPath 子類型值（適用于效能監控測試）、EndpointPath （適用于服務連線能力監視測試）和 ExpressRoutePath （適用于 ExpressRotue 監視器測試）。 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>我收到狀況不良測試的警示，但我在 NPM 的遺失和延遲圖表中看不到高的值。 如何? 檢查什麼狀況不良？
+如果來源與目的地之間的端對端延遲超出其之間任何路徑的臨界值，NPM 就會引發警示。 有些網路有多個路徑連接相同的來源和目的地。 NPM 引發警示是任何路徑狀況不良。 圖表中顯示的遺失和延遲是所有路徑的平均值，因此它可能不會顯示單一路徑的確切值。 若要瞭解臨界值被違反的位置，請尋找警示中的「子類型」資料行。 如果問題是由路徑所造成，則會 NetworkPath 子類型值（適用于效能監控測試）、EndpointPath （適用于服務連線能力監視測試）和 ExpressRoutePath （適用于 ExpressRotue 監視器測試）。 
 
 尋找的範例查詢是 path 狀況不良：
 
@@ -214,7 +256,7 @@ NPM 現在會在使用者有權存取的所有訂用帳戶中，探索 ExpressRo
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>在服務連線能力監視功能中，服務回應時間為 NA，但網路遺失以及延遲皆有效
 如果目標服務不是 Web 應用程式，但測試設定為 Web 測試，則會發生此情況。 編輯測試組態，然後選擇 [網路] (而不是 [Web]) 作為測試類型。
 
-## <a name="miscellaneous"></a>其他事項
+## <a name="miscellaneous"></a>其他資訊
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>是否會影響到用於監視的節點的效能？
 NPM 流程設定為當其所使用的主機 CPU 資源用量超過 5%，即會停止。 這是為了確保可以繼續將節點用於其一般工作負載，而不會影響效能。

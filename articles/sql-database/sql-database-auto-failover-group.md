@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
-ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/07/2019
+ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821962"
+ms.locfileid: "73839344"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -124,7 +124,7 @@ ms.locfileid: "73821962"
   > [!NOTE]
   > 受控執行個體不支援多個容錯移轉群組。
   
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 容錯移轉群組的許可權是透過[角色型存取控制（RBAC）](../role-based-access-control/overview.md)來管理。 [ [SQL Server 參與者](../role-based-access-control/built-in-roles.md#sql-server-contributor)] 角色具有管理容錯移轉群組的所有必要許可權。 
 
 ### <a name="create-failover-group"></a>建立容錯移轉群組
@@ -246,7 +246,7 @@ ms.locfileid: "73821962"
 
 - **認可容錯移轉群組的已知限制**
 
-  容錯移轉群組中的實例不支援資料庫重新命名和實例調整大小。 您將需要暫時刪除容錯移轉群組，才能執行這些動作。
+  容錯移轉群組中的實例不支援資料庫重新命名。 您將需要暫時刪除容錯移轉群組，才能重新命名資料庫。
 
 ## <a name="failover-groups-and-network-security"></a>容錯移轉群組和網路安全性
 
@@ -296,7 +296,7 @@ ms.locfileid: "73821962"
    > [!IMPORTANT]
    > 設定錯誤的 NSG 安全性規則會導致資料庫複製作業停滯。
 
-7. 次要實例會使用正確的 DNS 區域識別碼進行設定。 DNS 區域是受控實例的屬性，其識別碼會包含在主機名稱位址中。 當第一個受控實例在每個 VNet 中建立時，區域識別碼會產生為隨機字串，而且相同的識別碼會指派給相同子網中的所有其他實例。 一旦指派之後，就無法修改 DNS 區域。 包含在相同容錯移轉群組中的受控實例必須共用 DNS 區域。 若要完成這項操作，請在建立次要實例時，將主要實例的區域識別碼傳遞為 DnsZonePartner 參數的值。 
+7. 次要實例會使用正確的 DNS 區域識別碼進行設定。 DNS 區域是受控實例和虛擬叢集的屬性，而且其識別碼會包含在主機名稱位址中。 當第一個受控實例在每個 VNet 中建立時，區域識別碼會產生為隨機字串，而且相同的識別碼會指派給相同子網中的所有其他實例。 一旦指派之後，就無法修改 DNS 區域。 包含在相同容錯移轉群組中的受控實例必須共用 DNS 區域。 若要完成這項操作，請在建立次要實例時，將主要實例的區域識別碼傳遞為 DnsZonePartner 參數的值。 
 
    > [!NOTE]
    > 如需有關使用受控實例設定容錯移轉群組的詳細教學課程，請參閱[將受控實例新增至容錯移轉群組](sql-database-managed-instance-failover-group-tutorial.md)。

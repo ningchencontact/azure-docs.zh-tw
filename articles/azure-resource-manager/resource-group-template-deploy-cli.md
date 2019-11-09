@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286023"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834468"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
@@ -37,9 +37,11 @@ az group deployment create --resource-group <resource-group-name> --template-fil
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-目前，只有透過 REST API 支援管理群組部署。 請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
+如需訂用帳戶層級部署的詳細資訊，請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
 
-本文中的範例會使用資源群組部署。 如需訂用帳戶部署的詳細資訊，請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
+目前，只有透過 REST API 支援管理群組部署。 如需管理群組層級部署的詳細資訊，請參閱在[管理群組層級建立資源](deploy-to-management-group.md)。
+
+本文中的範例會使用資源群組部署。
 
 ## <a name="deploy-local-template"></a>部署本機範本
 
@@ -113,7 +115,7 @@ az group deployment create \
 
 如果您要使用 Azure CLI 搭配 Windows 命令提示字元（CMD）或 PowerShell，請以下列格式傳遞陣列： `exampleArray="['value1','value2']"`。
 
-您也可以取得檔案內容，並提供該內容作為內嵌參數。
+您也可以取得檔案內容，並將該內容當作內嵌參數提供。
 
 ```azurecli
 az group deployment create \
@@ -151,7 +153,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>處理延伸 JSON 格式
 
-若要部署含有多行字串或批註的範本，您必須使用 `--handle-extended-json-format` 參數。  例如:
+若要部署含有多行字串或批註的範本，您必須使用 `--handle-extended-json-format` 參數。  例如：
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: Azure AI 資源庫
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 共用及探索 Azure AI 資源庫中的分析資源等內容。 了解其他人並且自己貢獻社群。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 3f02c7377242dc031cd2d21d2b57bbd5f839eec3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9fe52fc16b763a03738442bb49a4969244a1d3c6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619131"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837587"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>共用及探索 Azure AI 資源庫中的資源
 
@@ -24,7 +24,7 @@ ms.locfileid: "73619131"
 
 ## <a name="what-can-i-find-in-the-gallery"></a>我可以在資源庫中找到什麼？
 
-Azure AI 資源庫包含一些由 Microsoft 和資料科學社群成員所發表的不同資源。 這些區域包括：
+Azure AI 資源庫包含一些由 Microsoft 和資料科學社群成員所發表的不同資源。 其中包含：
 
 * **實驗**-資源庫包含各種已在 Azure Machine Learning Studio （傳統）中開發的實驗。 小至示範特定機器學習服務技術的快速概念證明實驗，大至用於解決複雜機器學習服務問題的完整開發解決方案，都在這些實驗的涵蓋範圍內。
 * **教學課程**：此資源中提供了許多教學課程來引導您了解機器學習服務的技術和概念，或說明用來解決各種機器學習服務問題的進階方法。

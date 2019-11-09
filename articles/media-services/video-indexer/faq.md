@@ -1,6 +1,6 @@
 ---
 title: 關於影片索引器的常見問題集 - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 獲得影片索引器常見問題集的回答。
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799508"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838238"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -34,7 +34,7 @@ Video Indexer 可以對媒體檔案執行的一些作業包括：
 * 識別並擷取語音，以及識別說話者。
 * 識別並擷取影片中的螢幕上文字。
 * 在影片檔案中偵測物件。
-* 從音訊曲目和視訊中的螢幕上文字識別品牌 (例如：Microsoft)。
+* 從音訊曲目和影片中的螢幕上文字識別品牌（例如： Microsoft）。
 * 根據名人的資料庫和使用者定義的臉部資料庫偵測並辨識臉部。
 * 擷取所討論的主題，但不一定要在音訊和視訊內容中明確提及。
 * 從音訊曲目建立隱藏式輔助字幕或字幕。
@@ -71,7 +71,7 @@ Video Indexer 可以對媒體檔案執行的一些作業包括：
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>是否可以建立自訂工作流程以將影片索引器的程序自動化？
 
-是，您可以將影片索引器整合到無伺服器技術之中，例如 Logic Apps、Flow，以及 [Azure Functions](https://azure.microsoft.com/services/functions/)。 您可以在[這裡](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) \(英文\) 找到適用於影片索引器的 [Logic App](https://azure.microsoft.com/services/logic-apps/) 和 [Flow](https://flow.microsoft.com/en-us/) 連接器的詳細資料。 
+是，您可以將影片索引器整合到無伺服器技術之中，例如 Logic Apps、Flow，以及 [Azure Functions](https://azure.microsoft.com/services/functions/)。 您可以在[這裡](https://azure.microsoft.com/services/logic-apps/) \(英文\) 找到適用於影片索引器的 [Logic App](https://flow.microsoft.com/en-us/) 和 [Flow](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) 連接器的詳細資料。 
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>哪些 Azure 區域提供影片索引器？
 
@@ -159,7 +159,7 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 影片索引器會使用簡單的隨用隨付定價模型，其以您編製索引之內容輸入的持續時間為基礎。 對於編碼、資料流、儲存體、網路使用量和媒體保留單元，可能須支付額外的費用。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)頁面。
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>何時我的付費使用影片索引器？
+### <a name="when-am-i-billed-for-using-video-indexer"></a>使用影片索引子的計費時間為何？
 
 使用者在傳送影片編製索引時，必須定義影片的索引是視訊分析、音訊分析或這兩者。 這決定要收費的 SKU。 處理期間若發生嚴重等級的錯誤，將會傳回錯誤碼作為回應。 當發生此狀況時，將不收取任何費用。  嚴重錯誤可能是我們的程式碼包含的 Bug 所致，也可能是服務內部相依性失敗所引起。 諸如識別錯誤或見解擷取等情況，將不會視為嚴重錯誤，而且會傳回回應。 只要傳回了有效的回應 (不是錯誤碼)，就會收費。
  

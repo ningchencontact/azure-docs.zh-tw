@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 41173e088b000530030b24400640f8003f330db6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580959"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833952"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP 端點呼叫、觸發或嵌套邏輯應用程式
 
@@ -143,7 +143,7 @@ ms.locfileid: "73580959"
 
 ## <a name="accept-parameters-in-endpoint-url"></a>接受端點 URL 中的參數
 
-當您想要端點 URL 接受參數時，請指定觸發程式中的相對路徑。 您也必須明確地設定 HTTP 要求所預期[的方法](#set-method)。
+當您想要端點 URL 接受參數時，請指定觸發程式中的相對路徑。 您也需要明確設定 HTTP 要求所預期[的方法](#set-method)。
 
 1. 在要求觸發程式中，開啟 [**加入新的參數**] 清單，然後選取 [**相對路徑**]，這會將此屬性新增至觸發程式。
 
@@ -178,7 +178,7 @@ ms.locfileid: "73580959"
     HTTP 端點 URL 現在包括相對路徑，例如︰
 
     ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
 1. 若要測試 HTTP 端點，請複製更新過的 URL，並將其貼入另一個瀏覽器視窗中，但將 `{postalCode}` 取代為 `123456`，然後按 Enter 鍵。

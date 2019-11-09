@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f2929218b3a304099b1eb009df8e93d0e43c103
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102572"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839887"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -48,7 +48,7 @@ Azure 虛擬機器可用於許多用途。 部分範例如下：
 * VM 需要的相關資源
 
 ### <a name="naming"></a>命名
-虛擬機器指派一個[名稱](/azure/architecture/best-practices/naming-conventions)給它，而它設定一個電腦名稱作為作業系統的一部分。 VM 的名稱最多可為 15 個字元。
+虛擬機器指派一個[名稱](/azure/architecture/best-practices/resource-naming)給它，而它設定一個電腦名稱作為作業系統的一部分。 VM 的名稱最多可為 15 個字元。
 
 如果您使用 Azure 來建立作業系統磁碟，則電腦名稱和虛擬機器名稱為相同。 如果您[上傳並使用您自己的映像](upload-generalized-managed.md) (該映像包含先前所設定的作業系統)，並用它來建立虛擬機器，則名稱可能會不同。 我們建議您，當您上傳自己的映像檔時，將作業系統中的電腦名稱設為與虛擬機器的名稱相同。
 
@@ -57,7 +57,7 @@ Azure 中所建立的所有資源分散在世界各地的多個[地理區域](ht
 
 下表顯示一些您可以取得可用位置清單的方式。
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 | --- | --- |
 | Azure 入口網站 |當您建立 VM 時，請從清單中選取位置。 |
 | Azure PowerShell |使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 命令。 |
@@ -79,7 +79,7 @@ Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/
 
 下表顯示您可找到映像資訊的一些方法。
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 | --- | --- |
 | Azure 入口網站 |當您選取要使用的影像時，會自動為您指定值。 |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
@@ -100,7 +100,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="related-resources"></a>相關資源
 此資料表中的資源可供 VM 使用，且建立 VM 時必須存在或建立。
 
-| Resource | 必要項 | 描述 |
+| 資源 | 必要 | 說明 |
 | --- | --- | --- |
 | [資源群組](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必須包含在資源群組中。 |
 | [儲存體帳戶](../../storage/common/storage-create-storage-account.md) |是 |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
@@ -131,7 +131,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="get-information-about-a-vm"></a>取得 VM 的相關資訊
 下表顯示您可以取得 VM 相關資訊的一些方式。
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 | --- | --- |
 | Azure 入口網站 |在 [中樞] 功能表中，按一下 [虛擬機器]，然後從清單中選取 VM。 在 VM 的刀鋒視窗上，您可存取概觀資訊、設定值，並監視度量。 |
 | Azure PowerShell |如需使用 PowerShell 來管理 VM 的相關資訊，請參閱[使用 Azure PowerShell 模組來建立和管理 Windows VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |

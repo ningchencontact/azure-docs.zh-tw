@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f570cb6f945f403e77a36374cc9f82edb7b640c9
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 266e68b2378db7148649fd4067f1da6172932367
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174808"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833843"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>教學課程：設定 SAP Cloud Platform Identity Authentication 以進行自動使用者布建
 
-本教學課程的目的是要示範在 SAP Cloud Platform Identity Authentication 和 Azure Active Directory （Azure AD）中執行的步驟，以設定 Azure AD 自動布建和取消布建使用者和/或群組至 SAP 雲端平臺身分識別驗證。
+本教學課程的目的是要示範在 SAP Cloud Platform Identity Authentication 和 Azure Active Directory （Azure AD）中執行的步驟，以設定 Azure AD 自動布建和取消布建使用者和/或群組至 SAP Cloud Platform Identity Authentication。
 
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 >
-> 此連接器目前為公開預覽版。 如需預覽功能之一般 Microsoft Azure 使用規定的詳細資訊, 請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+> 此連接器目前為公開預覽版。 如需預覽功能之一般 Microsoft Azure 使用規定的詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -41,7 +41,7 @@ ms.locfileid: "71174808"
 
 ## <a name="assigning-users-to-sap-cloud-platform-identity-authentication"></a>將使用者指派給 SAP Cloud Platform Identity Authentication
 
-Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中, 只有已指派給 Azure AD 中應用程式的使用者和/或群組會進行同步處理。
+Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中，只有已指派給 Azure AD 中應用程式的使用者和/或群組會進行同步處理。
 
 在設定並啟用自動使用者布建之前，您應該決定 Azure AD 中的哪些使用者和/或群組需要存取 SAP Cloud Platform Identity Authentication。 一旦決定後，您可以遵循此處的指示，將這些使用者和/或群組指派給 SAP Cloud Platform Identity Authentication：
 * [將使用者或群組指派給企業應用程式](../manage-apps/assign-user-or-group-access-portal.md)
@@ -74,7 +74,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
 **若要從 Azure AD 應用程式庫新增 SAP Cloud Platform Identity Authentication，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽窗格中, 選取 [ **Azure Active Directory**]。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽窗格中，選取 [ **Azure Active Directory**]。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
@@ -82,7 +82,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式, 請選取窗格頂端的 [**新增應用程式**] 按鈕。
+3. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -99,7 +99,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>若要在 Azure AD 中設定 SAP Cloud Platform Identity Authentication 的自動使用者布建：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**], 然後選取 [**所有應用程式**]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**]，然後選取 [**所有應用程式**]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -115,7 +115,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![布建索引標籤](common/provisioning-automatic.png)
 
-5. 在 [**管理員認證**] 區段下`https://<tenantID>.accounts.ondemand.com/service/scim ` ，輸入 [**租使用者 URL**]。 分別在 [**管理員使用者名稱**] 和 [**管理員密碼**] 中，輸入先前抓取的**使用者識別碼**和**密碼**值。 按一下 [**測試**連線] 以確保 Azure AD 可以連線至 SAP Cloud Platform Identity Authentication。 如果連線失敗，請確定您的 SAP 雲端平臺身分識別驗證帳戶具有系統管理員許可權，然後再試一次。
+5. 在 [**管理員認證**] 區段下，于 [**租使用者 URL**] 中輸入 `https://<tenantID>.accounts.ondemand.com/service/scim `。 分別在 [**管理員使用者名稱**] 和 [**管理員密碼**] 中，輸入先前抓取的**使用者識別碼**和**密碼**值。 按一下 [**測試**連線] 以確保 Azure AD 可以連線至 SAP Cloud Platform Identity Authentication。 如果連線失敗，請確定您的 SAP 雲端平臺身分識別驗證帳戶具有系統管理員許可權，然後再試一次。
 
     ![租使用者 URL + 權杖](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
@@ -150,6 +150,10 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度，並遵循連結來布建活動報告，其中描述 SAP Cloud Platform Identity Authentication 上的 Azure AD 布建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
+
+## <a name="connector-limitations"></a>連接器限制
+
+* SAP Cloud Platform Identity Authentication 的 SCIM 端點需要特定格式的某些屬性。 您可以在[這裡](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#)深入瞭解這些屬性及其特定格式。
 
 ## <a name="additional-resources"></a>其他資源
 

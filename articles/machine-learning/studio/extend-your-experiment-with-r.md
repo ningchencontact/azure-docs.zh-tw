@@ -1,6 +1,6 @@
 ---
 title: 透過 R 擴展您的經驗
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 如何使用執行 R 腳本模組，透過 R 語言擴充 Azure Machine Learning Studio （傳統）的功能。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 1a64303702ffa5ccff9c79e0946d5df45eac9479
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 13d385c69151891030ea0ee8f87ea8b55197a73f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621653"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837595"
 ---
 # <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio （傳統）：使用 R 擴充您的實驗 
 您可以使用 [[執行 r 腳本][execute-r-script]] 模組，透過 R 語言擴充 Azure Machine Learning Studio （傳統）的功能。

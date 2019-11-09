@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
-ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675732"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839589"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>設定 Postman 以進行媒體服務 REST API 呼叫
 
@@ -54,7 +54,7 @@ ms.locfileid: "72675732"
 
     ![管理 env](./media/develop-with-postman/postman-import-env.png)
 4. 按一下 [管理環境] 對話方塊中的 [匯入]。
-2. 瀏覽至您在複製 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 時下載的 `Azure Media Service v3 Environment.postman_environment.json` 檔案。
+2. 瀏覽至您在複製 `Azure Media Service v3 Environment.postman_environment.json` 時下載的 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 檔案。
 6. 新增 **Azure Media Service v3 Environment** 環境。
 
     > [!Note]
@@ -69,7 +69,7 @@ ms.locfileid: "72675732"
 ### <a name="configure-the-collection"></a>設定集合
 
 1. 按一下 [匯入] 來匯入集合檔案。
-1. 瀏覽至您在複製 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 時下載的 `Media Services v3.postman_collection.json` 檔案
+1. 瀏覽至您在複製 `Media Services v3.postman_collection.json` 時下載的 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 檔案
 3. 選擇 **Media Services v3.postman_collection.json** 檔案。
 
     ![匯入檔案](./media/develop-with-postman/postman-import-collection.png)
@@ -92,7 +92,12 @@ ms.locfileid: "72675732"
 
     ![取得 AAD 權杖](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="troubleshooting"></a>疑難排解 
+
+* 如果您的應用程式因「HTTP 504：閘道超時」而失敗，請確定 location 變數尚未明確設定為媒體服務帳戶的預期位置以外的值。 
+* 如果您收到「找不到帳戶」錯誤，也請檢查並確定主體 JSON 訊息中的 location 屬性已設定為媒體服務帳戶所在的位置。 
+
+## <a name="see-also"></a>另請參閱
 
 - [將檔案上傳至媒體服務帳戶 - REST](upload-files-rest-how-to.md)
 - [使用媒體服務建立篩選 - REST](filters-dynamic-manifest-rest-howto.md)

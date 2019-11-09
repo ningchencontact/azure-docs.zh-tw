@@ -1,6 +1,6 @@
 ---
 title: 影片索引器概念
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 本主題將說明影片索引器服務的一些概念。
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799065"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839568"
 ---
 # <a name="video-indexer-concepts"></a>影片索引器概念
  
@@ -29,7 +29,7 @@ ms.locfileid: "65799065"
 
 TimeRange 是原始影片中的時間範圍。 AdjustedTimeRange 是相對於目前播放清單的時間範圍。 由於您可以從不同影片的不同時段建立播放清單，因此您可以取用 1 小時的影片，然後只使用其中的 1 個時段，例如，10:00-10:15。 在該案例中，您的播放清單中將會有 1 個時段，其時間範圍為 10:00-10:15，但 adjustedTimeRange 會是 00:00-00:15。
  
-## <a name="blocks"></a>區塊
+## <a name="blocks"></a>Blocks
 
 區塊是為了讓您能更輕鬆地瀏覽資料。 例如，區塊的分割點可能會在說話者變更或長時間暫停時。
 

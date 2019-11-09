@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4af18eaa0dc5622dcc52603e6fb4e569f505feeb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818405"
+ms.locfileid: "73838120"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -411,14 +411,14 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>查看已發行管線的結果
 
 查看所有已發佈管線的清單及其執行詳細資料：
-1. 登入[Azure Machine Learning studio](https://ml.azure.com)。
+1. 登入[Azure Machine Learning](https://ml.azure.com)。
 
 1. [檢視您的工作區](how-to-manage-workspace.md#view)以尋找管線清單。
  ![機器學習管線清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 選取特定管線以查看執行結果。
 
-這些結果也適用于 [Azure Machine Learning studio]] （ https://ml.azure.com)中的工作區。
+您也可以在[Azure Machine Learning](https://ml.azure.com)的工作區中取得這些結果。
 
 ### <a name="disable-a-published-pipeline"></a>停用已發行的管線
 

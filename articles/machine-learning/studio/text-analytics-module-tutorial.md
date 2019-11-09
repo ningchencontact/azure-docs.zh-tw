@@ -1,6 +1,6 @@
 ---
 title: 情感分析使用案例
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 如何使用適用于文字前置處理、N 字母或功能雜湊的模組，在 Azure Machine Learning Studio （傳統）中建立文字分析模型
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 63c1d19f1ab44fa56893c17edd78aeaf54a17314
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2e5cebb05549c2bd3cd810da58930efdae1422e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670691"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838627"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>在 Azure Machine Learning Studio 中建立情感分析模型（傳統）
 

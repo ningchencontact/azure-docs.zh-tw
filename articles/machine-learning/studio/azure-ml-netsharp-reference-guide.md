@@ -1,6 +1,6 @@
 ---
 title: 'Net # 自訂類神經網路'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 適用於 Net# 類神經網路規格語言的語法指南。 瞭解如何在 Azure Machine Learning Studio （傳統）中建立自訂類神經網路模型。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 0c413bbc3c3b0bd4b1a6e6d6ff40dc1061bbc834
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684849"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839752"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 的 Net # 類神經網路規格語言指南（傳統）
 

@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f52fc91d218e1a5448f6e6e7465f6416a04fd67d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825248"
+ms.locfileid: "73837142"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -49,7 +49,9 @@ ms.locfileid: "73825248"
 
 * 使用[SSH.NET 程式庫](https://github.com/sshnet/SSH.NET)，這是支援 .net 的開放原始碼安全殼層（SSH）程式庫。
 
-* 根據預設，SFTP SSH 動作可以讀取或寫入*1 GB 或更小*的檔案，但一次只能有*15 MB*的區塊。 若要處理大於 15 MB 的檔案，SFTP SSH 動作可以使用[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化。 若要上傳大型檔案，您也需要讀取和寫入權限。 不過，[複製檔案] 動作僅支援 15 MB 的檔案，因為該動作不支援訊息區塊化。 SFTP-SSH 觸發程式不支援區塊化。
+* 根據預設，SFTP SSH 動作可以讀取或寫入*1 GB 或更小*的檔案，但一次只能有*15 MB*的區塊。
+
+  若要處理大於 15 MB 的檔案，SFTP SSH 動作可以使用[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化。 不過，[複製檔案] 動作僅支援 15 MB 的檔案，因為該動作不支援訊息區塊化。 SFTP-SSH 觸發程式不支援區塊化。 若要上傳大型檔案，您需要 SFTP 伺服器上根資料夾的 [讀取] 和 [寫入] 許可權。
 
 * 提供**建立資料夾**動作，可在 SFTP 伺服器上指定的路徑中建立資料夾。
 
@@ -61,7 +63,7 @@ ms.locfileid: "73825248"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* 您的 SFTP 伺服器位址和帳戶認證，這讓您的邏輯應用程式能夠存取您的 SFTP 帳戶。 您也可以存取 SSH 私密金鑰和 SSH 私密金鑰密碼。 若要在上傳大型檔案時使用區塊處理，您需要讀取和寫入權限。
+* 您的 SFTP 伺服器位址和帳戶認證，這讓您的邏輯應用程式能夠存取您的 SFTP 帳戶。 您也可以存取 SSH 私密金鑰和 SSH 私密金鑰密碼。 若要在上傳大型檔案時使用區塊處理，您需要 SFTP 伺服器上根資料夾的 [讀取] 和 [寫入] 許可權。 否則，您會收到「401未授權」錯誤。
 
   > [!IMPORTANT]
   >

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815711"
+ms.locfileid: "73832784"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 儀表板結構
 此文件將使用下列儀表板做為範例，逐步說明 Azure 儀表板的結構：
@@ -295,7 +295,7 @@ ms.locfileid: "73815711"
 
 ### <a name="the-id-property"></a>識別碼屬性
 
-Azure 資源識別碼，受限於 [Azure 資源的命名慣例](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 入口網站建立儀表板時，通常會選擇 guid 形式的識別碼，但是以程式設計方式建立儀表板時，可以隨意使用任何有效的名稱。 
+Azure 資源識別碼，受限於 [Azure 資源的命名慣例](/azure/architecture/best-practices/resource-naming)。 入口網站建立儀表板時，通常會選擇 guid 形式的識別碼，但是以程式設計方式建立儀表板時，可以隨意使用任何有效的名稱。 
 
 ### <a name="the-name-property"></a>名稱屬性
 名稱是資源識別碼的區段，不包含訂用帳戶、資源類型或資源群組資訊。 基本上，它是資源識別碼的最後一個區段。

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795705"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832102"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Azure 監視器中的見解總覽
 深入解析針對特定應用程式和服務提供自訂的監視體驗。 它們會將資料儲存在[Azure 監視器資料平臺](../platform/data-platform.md)中，並利用其他 Azure 監視器的功能來進行分析和警示，但可能會收集其他資料，並在 Azure 入口網站中提供獨特的使用者體驗。 從 Azure 入口網站的 [Azure 監視器] 功能表的 [**深入**解析] 區段存取見解。
@@ -47,8 +47,8 @@ Application Insights 是多個平台上的 Web 開發人員所適用的可延伸
 
 ![適用於 VM 的 Azure 監視器](media/insights-overview/vm-insights.png)
 
-## <a name="azure-monitor-for-network-preview"></a>適用于網路的 Azure 監視器（預覽）
-網路的 Azure 監視器可讓您全面瞭解所有網路資源的健全狀況和計量。 先進的搜尋功能可協助您識別資源相依性，藉由直接搜尋您的網站名稱，來啟用識別裝載網站的資源等案例。
+## <a name="azure-monitor-for-networks-preview"></a>網路的 Azure 監視器（預覽）
+[網路的 Azure 監視器](network-insights-overview.md)可讓您全面瞭解所有網路資源的健全狀況和計量。 先進的搜尋功能可協助您識別資源相依性，藉由直接搜尋您的網站名稱，來啟用識別裝載網站的資源等案例。
 
 ![網路的 Azure 監視器](media/insights-overview/network-insights.png)
 

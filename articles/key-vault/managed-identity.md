@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720258"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837503"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>提供受控識別的 Key Vault 驗證
 
@@ -34,7 +34,7 @@ Azure Active Directory 的受控識別可讓您的應用程式輕鬆地存取其
    - [使用 Azure PowerShell 建立金鑰保存庫](quick-create-powershell.md)
    - [使用 Azure 入口網站建立金鑰保存庫](quick-create-portal.md)。
 - 要對其授與金鑰保存庫存取權的現有 App Service 應用程式。 您可以遵循[App Service 檔](../app-service/overview.md)中的步驟來快速建立一個。
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)或[Azure PowerShell](/powershell/azure/overview)。 或者，您可以使用[Azure 入口網站](http://portal.azure.com)。
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)或[Azure PowerShell](/powershell/azure/overview)。 或者，您可以使用[Azure 入口網站](https://portal.azure.com)。
 
 
 ## <a name="adding-a-system-assigned-identity"></a>新增系統指派的身分識別 
@@ -49,7 +49,7 @@ Azure Active Directory 的受控識別可讓您的應用程式輕鬆地存取其
 
 1. 選取 [受控身分識別]。 
 
-1. 在 [系統指派] 索引標籤內，將 [狀態] 切換為 [開啟]。 按一下 [儲存] 。 
+1. 在 [系統指派] 索引標籤內，將 [狀態] 切換為 [開啟]。 按一下 [儲存]。 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -76,7 +76,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-記`PrincipalId`下，這將在下一節中需要。
+請記下 `PrincipalId`，這將在下一節中需要。
 
 ```json
 {
@@ -111,9 +111,9 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>後續步驟
 
-- @no__t 0Azure Key Vault 安全性：身分識別與存取管理 @ no__t-0
+- [Azure Key Vault 安全性：身分識別和存取管理](overview-security.md#identity-and-access-management)
 - [使用存取控制原則提供 Key Vault 驗證](key-vault-group-permissions-for-apps.md)
 - [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)
 - [保護您的金鑰保存庫](key-vault-secure-your-key-vault.md)。
 - [Azure Key Vault 開發人員指南](key-vault-developers-guide.md)
-- 檢閱 [Azure Key Vault 最佳做法](key-vault-best-practices.md)
+- 審查[Azure Key Vault 最佳作法](key-vault-best-practices.md)

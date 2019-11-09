@@ -1,6 +1,6 @@
 ---
 title: 使用 API 管理來管理 web 服務
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 示範如何使用 API 管理來管理 AzureML Web 服務的指南 藉由定義使用者存取、使用節流設定和儀表板監視來管理 REST API 端點。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671580"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839818"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>使用 API 管理來管理 Azure Machine Learning Studio （傳統） web 服務
 ## <a name="overview"></a>概觀

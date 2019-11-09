@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 68c991396c92e6f288d1cc17d6b7dcf1ec79343f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165481"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834308"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>使用 Azure 備份服務管理 Microsoft Azure 復原服務代理程式備份
 
@@ -209,4 +209,4 @@ ms.locfileid: "73165481"
 ## <a name="next-steps"></a>後續步驟
 
 - 如需有關支援的案例和限制的詳細資訊，請參閱[MARS 的支援矩陣](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)。
-- 深入瞭解[特定備份原則保留行為](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md)。
+- 深入瞭解[特定備份原則保留行為](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior)。

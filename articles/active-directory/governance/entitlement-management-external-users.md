@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174170"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832713"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中管理外部使用者的存取權
 
@@ -97,7 +97,7 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>檢查您的 SharePoint Online 外部共用設定
 
-- 如果您想要在外部使用者的存取套件中包含 SharePoint Online 網站，請確定您的組織層級外部共用設定已設定為 [**任何人**] （使用者不需要登入）或**新的和現有來賓**（來賓必須簽署在或中提供驗證碼）。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
+- 如果您想要在外部使用者的存取套件中包含 SharePoint Online 網站，請確定您的組織層級外部共用設定已設定為 [**任何人**] （使用者不需要登入）或**新的和現有來賓**（來賓必須登入或提供驗證碼）。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
 
 - 如果您想要限制版權管理以外的任何外部共用，您可以將外部共用設定設為**現有的來賓**。 然後，只有透過權利管理邀請的新使用者，才能夠取得這些網站的存取權。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
 
@@ -113,7 +113,7 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 ### <a name="review-your-teams-sharing-settings"></a>審查小組共用設定
 
-- 如果您想要在外部使用者的存取套件中包含小組，請確定 [**允許 Microsoft 團隊的來賓存取**] 設為 [**開啟**]，以允許來賓存取。 如需詳細資訊，請參閱[Microsoft 小組系統管理中心的設定來賓存取](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center)。
+- 如果您想要在外部使用者的存取套件中包含小組，請確定 [**允許 Microsoft 團隊的來賓存取**] 設為 [**開啟**]，以允許來賓存取。 如需詳細資訊，請參閱[Microsoft 小組系統管理中心的設定來賓存取](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center)。
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>管理外部使用者的生命週期
 
@@ -125,7 +125,7 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 1. 在左側功能表的 [**權利管理**] 區段中，按一下 [**設定**]。
 
-1. 按一下 [編輯]。
+1. 按一下 [ **編輯**]。
 
     ![管理外部使用者生命週期的設定](./media/entitlement-management-external-users/settings-external-users.png)
 
