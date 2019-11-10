@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ffe0d3a85006bbaad53e471a10b10fb1bbea89b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7ea4762684a41e06687adcca91b13872a0c9f740
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664447"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897477"
 ---
 本文提供 Azure 虛擬機器（Vm）可用性功能的總覽。
 
@@ -65,7 +65,7 @@ Azure 虛擬機器擴展集可讓您建立和管理一組負載平衡的 Vm。 V
 虛擬機器擴展集會藉由調整容錯網域和更新網域，來簡化高可用性的設計。 您只需要定義擴展集的容錯網域計數。 擴展集可用的容錯網域數目可能會因區域而異。 請參閱[每個區域的容錯網域數目](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region)。
 
 
-## <a name="availability-sets"></a>可用性集合
+## <a name="availability-sets"></a>可用性設定組
 可用性設定組是資料中心內 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 可用性設定組本身不需要任何成本，您只需針對您建立的每個 VM 執行個體支付費用。 當單一 VM 是使用 [Azure 進階 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd) 時，非計劃性的維護事件適用 Azure SLA。
 
 在可用性設定組中，Vm 會自動分散到這些容錯網域。 此方法可限制潛在實體硬體錯誤、網路中斷或電源中斷的影響。
@@ -79,8 +79,8 @@ Azure 虛擬機器擴展集可讓您建立和管理一組負載平衡的 Vm。 V
 
 可用性設定組內的 Vm 也會自動分散到更新網域。 
 
-![可用性集合](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+![可用性設定組](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="next-steps"></a>後續步驟
-您現在可以開始使用這些可用性和備援功能來建置 Azure 環境。 如需最佳作法資訊，請參閱 [Azure 可用性最佳作法](../articles/best-practices-availability-checklist.md)。
+您現在可以開始使用這些可用性和備援功能來建置 Azure 環境。 如需最佳作法資訊，請參閱 [Azure 可用性最佳作法](/azure/architecture/checklist/resiliency-per-service)。
 
