@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 457154a797a4b6d9853b1effe0d8121053653a99
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174774"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887724"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure 地圖服務支援的地圖樣式
 「Azure 地圖服務」支援數個不同的內建地圖樣式，如下所述。
@@ -31,10 +31,10 @@ ms.locfileid: "72174774"
 
 ## <a name="blank-and-blank_accessible"></a>空白和 blank_accessible
 
-[**空白**] 和 [ **blank_accessible** ] 地圖樣式提供要在其上視覺化資料的空白畫布。 **Blank_accessible**樣式將繼續提供螢幕閱讀程式更新，其中包含地圖所在位置的位置詳細資料，即使沒有顯示基底地圖也一樣。
+[**空白**] 和 [ **blank_accessible**地圖樣式] 提供了空白畫布，可在其上將資料視覺化。 即使未顯示基底地圖， **blank_accessible**樣式仍會繼續提供具有地圖所在位置詳細資料的螢幕閱讀程式更新。
 
 > [!Note]
-> 在 web SDK 中，您可以藉由設定地圖 DIV 元素的 CSS `background-color` 樣式來變更地圖的背景色彩。
+> 在 web SDK 中，您可以藉由設定地圖 DIV 元素的 CSS `background-color` 樣式，來變更地圖的背景色彩。
 
 **適用 API：**
 * Web SDK 地圖控制項
@@ -103,4 +103,4 @@ ms.locfileid: "72174774"
 瞭解如何在 Azure 地圖服務中設定地圖樣式：
 
 > [!div class="nextstepaction"]
-> [選擇地圖樣式](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)
+> [選擇地圖樣式](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

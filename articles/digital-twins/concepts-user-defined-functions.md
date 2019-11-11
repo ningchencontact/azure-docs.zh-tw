@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 0708b1dd2d272757949d014d768c1da649b50146
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949978"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889688"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>資料處理與各項使用者定義功能
 
@@ -23,7 +23,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 裝置將遙測資料傳送至 Azure Digital Twins 後，開發人員可依四階段處理資料：*驗證*、*比對*、*計算*和*分派*。
 
-[@no__t 1Azure 數位 Twins 資料處理流程](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![Azure 數位 Twins 資料處理流程](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. 驗證階段會將傳入的遙測訊息轉換為一般認知的[資料轉送物件](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)格式。 此階段也會執行裝置和感應器驗證。
 1. 比對階段會尋找適當的使用者定義函式並加以執行。 預先定義的比對器會根據傳入的遙測訊息中包含的裝置、感應器和空間資訊，來尋找使用者定義函式。
@@ -34,7 +34,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比對器*、*使用者定義函式*和*角色指派*。
 
-[@no__t 1Azure 數位 Twins 資料處理物件](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![Azure 數位 Twins 資料處理物件](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>比對器
 
@@ -42,35 +42,40 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 
 - datatype **Temperature** 的所有感應器是由逸出字串值 `\"Temperature\"` 表示
 - 在其連接埠中具有 `01`
-- 所屬裝置具有設為逸出字串值 `\"GoodCorp\"` 的擴充屬性索引鍵 **Manufacturer**
+- 所屬裝置具有設為逸出字串值 **的擴充屬性索引鍵**Manufacturer`\"Contoso\"`
 - 它們屬於逸出字串 `\"Venue\"` 所指定之類型的空格
 - 屬於父系 **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD` 的子系
 
 ```JSON
 {
-  "SpaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Name": "My custom matcher",
-  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value GoodCorp and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Conditions": [
+  "id": "23535afafd-f39b-46c0-9b0c-0dd3892a1c30",
+  "name": "My custom matcher",
+  "spaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value Contoso and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "conditions": [
     {
+      "id": "43898sg43-e15a-4e9c-abb8-2gw464364",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     },
     {
+      "id": "wt3th44-e15a-35sg-seg3-235wf3ga463",
       "target": "Sensor",
       "path": "$.port",
       "value": "01",
       "comparison": "Contains"
     },
     {
+      "id": "735hs33-e15a-37jj-23532-db901d550af5",
       "target": "SensorDevice",
       "path": "$.properties[?(@.name == 'Manufacturer')].value",
-      "value": "\"GoodCorp\"",
+      "value": "\"Contoso\"",
       "comparison": "Equals"
     },
     {
+      "id": "222325-e15a-49fg-5744-463643644",
       "target": "SensorSpace",
       "path": "$.type",
       "value": "\"Venue\"",
@@ -92,7 +97,7 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 
 使用者定義函式是可在隔離之 Azure Digital Twins 環境內執行的自訂函式。 使用者定義函式可存取所接收到的原始感應器遙測訊息。 使用者定義函式也可存取空間圖形和發送器服務。 在圖形內註冊使用者定義函式之後，就必須建立比對器 (詳細說明請見[上方](#matchers))，以指定何時要執行 UDF。 例如，當 Azure Digital Twins 從指定的感應器接收新的遙測資料時，相符的使用者定義函式可計算過去數個感應器讀數的移動平均值。
 
-可使用 JavaScript 寫入使用者定義函式。 協助程式方法可在使用者定義的執行環境中用來與圖形互動。 開發人員可對感應器遙測訊息執行自訂程式碼片段。 範例包括：
+可使用 JavaScript 寫入使用者定義函式。 協助程式方法可在使用者定義的執行環境中用來與圖形互動。 開發人員可對感應器遙測訊息執行自訂程式碼片段。 範例包括︰
 
 - 設定直接在圖形中讀取感應器物件的感應器。
 - 根據圖形中的空間內不同的感應器讀數來執行動作。

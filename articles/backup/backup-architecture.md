@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035241"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888493"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 備份架構和元件
 
@@ -48,8 +48,8 @@ Azure 備份會將已備份的資料儲存在復原服務保存庫中。 保存�
 - 您可以在保存庫中監視已備份的專案，包括 Azure Vm 和內部部署機器。
 - 您可以使用 Azure [角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 來管理保存庫存取。
 - 您可以指定如何複寫保存庫中的資料以提供備援性：
-  - **本地備援儲存體 (LRS)** ：若要防止資料中心發生失敗，您可以使用 LRS。 LRS 會將資料複寫至儲存體縮放單位。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)。
-  - **異地備援儲存體 (GRS)** ：若要防止整個區域的中斷，您可以使用 GRS。 GRS 會將您的資料複寫至次要區域。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。
+  - **本機多餘儲存體（LRS）** ：若要防止資料中心發生失敗，您可以使用 LRS。 LRS 會將資料複寫至儲存體縮放單位。 [詳細資訊](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)。
+  - **異地多餘儲存體（GRS）** ：若要防止全區域中斷，您可以使用 GRS。 GRS 會將您的資料複寫至次要區域。 [詳細資訊](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。
   - 根據預設，復原服務保存庫會使用 GRS。
 
 ## <a name="backup-agents"></a>備份代理程式
@@ -67,7 +67,7 @@ Azure 備份提供不同的備份代理程式，視要備份的機器類型而�
 
 **備份類型** | **詳細資料** | **使用量**
 --- | --- | ---
-**Full** | 完整備份包含整個資料來源。 所需的網路頻寬比差異或增量備份更多。 | 用於初始備份。
+**完整** | 完整備份包含整個資料來源。 所需的網路頻寬比差異或增量備份更多。 | 用於初始備份。
 **差異** |  差異備份會儲存自從初始完整備份之後所變更的區塊。 會使用較少的網路和儲存空間，而且不會保留未變更資料的重複複本。<br/><br/> 效率不佳，因為會傳送並儲存在之後的備份之間未變更的資料區塊。 | Azure 備份並未使用。
 **累加** | 增量備份只會儲存自從上次備份之後變更的資料區塊。 儲存體和網路效率較高。 <br/><br/> 使用增量備份時，不需要以完整備份來補充。 | 供 DPM/MABS 用於磁碟備份，並且用於所有備份至 Azure 的作業。 不用於 SQL Server 備份。
 
@@ -98,15 +98,15 @@ Azure 備份提供不同的備份代理程式，視要備份的機器類型而�
 
 **功能** | **內部部署 Windows Server 機器（direct）** | **Azure VM** | **具有 DPM/MABS 的機器或應用程式**
 --- | --- | --- | ---
-備份至保存庫 | ![是][green] | ![是][green] | ![是][green]
-備份至 DPM/MABS 磁片，到 Azure | | | ![是][green]
-壓縮要備份的傳輸資料 | ![是][green] | 傳輸資料時不使用壓縮。 儲存體會略為膨脹，但還原速度較快。  | ![是][green]
-執行增量備份 |![是][green] |![是][green] |![是][green]
+備份至保存庫 | ![yes][green] | ![yes][green] | ![yes][green]
+備份至 DPM/MABS 磁片，到 Azure | | | ![yes][green]
+壓縮要備份的傳輸資料 | ![yes][green] | 傳輸資料時不使用壓縮。 儲存體會略為膨脹，但還原速度較快。  | ![yes][green]
+執行增量備份 |![yes][green] |![yes][green] |![yes][green]
 備份已刪除重複資料的磁碟 | | | ![部分][yellow]<br/><br/> 僅用於內部部署的 DPM/MABS 伺服器。
 
 ![資料表索引鍵](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>架構：直接備份 Azure VM
+## <a name="architecture-direct-backup-of-azure-vms"></a>架構：直接備份 Azure Vm
 
 1. 當您啟用 Azure VM 的備份時，備份會根據您指定的排程執行。
 1. 第一次備份時，如果 VM 正在執行，則會在 VM 上安裝備份擴充功能。
@@ -120,7 +120,7 @@ Azure 備份提供不同的備份代理程式，視要備份的機器類型而�
     - 只會複製自上次備份之後變更的資料區塊。
     - 資料不會加密。 Azure 備份可以使用 Azure 磁碟加密來備份已加密的 Azure Vm。
     - 快照集資料可能不會立即複製到保存庫。 在尖峰時間，備份可能需要一些時間。 針對每日備份原則，VM 的總備份時間會小於24小時。
-1. 將資料傳送至保存庫之後，就會建立復原點。 根據預設，快照集會在刪除前兩天保留。 這項功能可讓您從這些快照集進行還原作業，進而減少還原時間。 它可減少從保存庫轉換和複製資料所需的時間。 請參閱[Azure 備份立即還原功能](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability)。
+1. 將資料傳送至保存庫之後，就會建立復原點。 根據預設，快照集會在刪除前兩天保留。 這項功能可讓您從這些快照集進行還原作業，進而減少還原時間。 它可減少從保存庫轉換和複製資料所需的時間。 請參閱[Azure 備份立即還原功能](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability)。
 
 Azure Vm 需要網際網路存取才能進行控制命令。 如果您要備份 VM 內的工作負載（例如，SQL Server 資料庫備份），後端資料也需要網際網路存取。
 
@@ -157,15 +157,15 @@ Azure Vm 需要網際網路存取才能進行控制命令。 如果您要備份 
 Azure VM 會使用磁碟來儲存其作業系統、應用程式和資料。 每個 Azure VM 至少有兩個磁片：作業系統的磁片和暫存磁片。 Azure Vm 也可以有適用于應用程式資料的資料磁片。 磁碟會儲存為 VHD。
 
 - Vhd 會以分頁 blob 的形式儲存在 Azure 中的標準或 premium 儲存體帳戶中：
-  - **標準儲存體：** 為執行的工作負載不受延遲影響的 VM 提供可靠、低成本的磁碟支援。 標準儲存體可以使用標準固態硬碟（SSD）磁片或標準硬碟（HDD）磁片。
-  - **Premium 儲存體：** 高效能磁碟支援。 使用進階 SSD 磁碟。
+  - **標準儲存體：** 針對執行不區分延遲之工作負載的 Vm，提供可靠、低成本的磁片支援。 標準儲存體可以使用標準固態硬碟（SSD）磁片或標準硬碟（HDD）磁片。
+  - **Premium 儲存體：** 高效能磁片支援。 使用進階 SSD 磁碟。
 - 磁碟有不同的效能層級：
-  - **標準 HDD 磁片：** 採用 HDD，可用於符合成本效益的儲存。
+  - **標準 HDD 磁片：** 受到 Hdd 的支援，並用於符合成本效益的儲存體。
   - **標準 SSD 磁片：** 結合了 premium SSD 磁片和標準 HDD 磁片的元素。 提供比 HDD 更一致的效能和可靠性，但仍符合成本效益。
   - **進階 SSD 磁片：** 受 Ssd 支援，並為執行大量 i/o 工作負載的 Vm 提供高效能和低延遲。
 - 磁碟可以是受控或非受控的：
   - **非受控磁片：** 虛擬機器所使用的傳統磁片類型。 對於這些磁碟，您可以建立自己的儲存體帳戶，並在建立磁碟時指定該帳戶。 接著，您必須瞭解如何將 Vm 的儲存體資源極大化。
-  - **受控磁碟**：Azure 會為您建立及管理儲存體帳戶。 您可指定磁片大小和效能層級，Azure 會為您建立受控磁片。 當您新增磁片和調整 Vm 時，Azure 會處理儲存體帳戶。
+  - **受控磁片：** Azure 會為您建立及管理儲存體帳戶。 您可指定磁片大小和效能層級，Azure 會為您建立受控磁片。 當您新增磁片和調整 Vm 時，Azure 會處理儲存體帳戶。
 
 如需有關磁片儲存體和 Vm 可用磁片類型的詳細資訊，請參閱下列文章：
 
@@ -178,7 +178,7 @@ Azure VM 會使用磁碟來儲存其作業系統、應用程式和資料。 每�
 您可以使用具有 Azure 備份的 premium 儲存體來備份 Azure Vm：
 
 - 在使用 premium 儲存體備份 Vm 的過程中，備份服務會在儲存體帳戶中建立名為*AzureBackup 的*暫存位置。 預備位置的大小等於復原點快照集的大小。
-- 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 [深入了解](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。 請勿修改暫存位置。
+- 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 [詳細資訊](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。 請勿修改暫存位置。
 - 備份作業完成後，就會刪除暫存位置。
 - 用於暫存位置的儲存體，價格會與[進階儲存體價格](../virtual-machines/windows/disks-types.md#billing)一致。
 

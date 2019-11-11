@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606028"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885036"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>在 Azure 監視器中使用應用程式變更分析（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "73606028"
 > [!IMPORTANT]
 > 變更分析目前為預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供。 不建議將此版本用於生產工作負載。 某些功能可能不受支援，或可能有限制的功能。 如需詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 變更分析會偵測各種類型的變更，從基礎結構層到應用程式部署都是如此。 這是訂用帳戶層級的 Azure 資源提供者，可檢查訂用帳戶中的資源變更。 變更分析會針對各種診斷工具提供資料，以協助使用者瞭解哪些變更可能會造成問題。
 
@@ -31,11 +31,15 @@ ms.locfileid: "73606028"
 
 ![變更分析如何取得變更資料，並將其提供給用戶端工具的架構圖](./media/change-analysis/overview.png)
 
-目前的變更分析已整合到 App Service web 應用程式中的**診斷和解決問題**體驗。 若要在 web 應用程式中啟用變更偵測和查看變更，請參閱本文稍後的*變更 Web Apps 功能的分析*一節。
+目前已將變更分析整合到 App Service web 應用程式中的**診斷和解決問題**體驗，並可在 Azure 入口網站中以獨立的分頁形式提供。
+請參閱本文稍後的在 Web 應用程式入口網站中使用 [變更分析] 分頁和 [ *Web Apps 功能的變更分析*] 區段中的 [*查看所有資源*的變更] 區段。
 
-### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager 部署變更
+### <a name="azure-resource-manager-tracked-properties-changes"></a>Azure Resource Manager 追蹤的屬性變更
 
-變更分析會使用[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)，提供裝載應用程式的 Azure 資源在一段時間內變更的歷程記錄。 例如，變更分析可以偵測 IP 設定規則中的變更、受控身分識別，以及 SSL 設定。 因此，如果將標記新增至 web 應用程式，則變更分析會反映變更。 只要 Azure 訂用帳戶中已啟用 `Microsoft.ChangeAnalysis` 資源提供者，就可以使用這項資訊。
+變更分析會使用[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)，提供裝載應用程式的 Azure 資源在一段時間內變更的歷程記錄。 可以偵測受追蹤的設定，例如受控識別、平臺作業系統升級和主機名稱。
+
+### <a name="azure-resource-manager-proxied-setting-changes"></a>Azure Resource Manager proxy 設定變更
+在 ARG 中尚未提供 IP 設定規則、SSL 設定和延伸模組版本等設定，因此請變更分析查詢並安全地計算這些變更，以在應用程式中變更的內容提供更多詳細資料。 這些資訊尚未在 Azure Resource Graph 中提供，但很快就會提供。
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Web 應用程式部署和設定的變更（來賓內變更）
 
@@ -50,6 +54,10 @@ ms.locfileid: "73606028"
 - Web Apps
 - Azure 儲存體
 - Azure SQL
+
+### <a name="enablement"></a>支援
+"ChangeAnalysis" 資源提供者必須向訂用帳戶註冊，才能使用 Azure Resource Manager 追蹤的屬性，而 proxy 設定會將資料變更為可供使用。 當您輸入 Web 應用程式診斷並解決問題，或啟動 [變更分析] [獨立] 分頁時，此資源提供者會自動註冊。 您的訂用帳戶沒有任何效能和成本的實現。
+若是 web 應用程式的來賓變更，在 web 應用程式中掃描程式碼檔案時，需要個別的啟用。 如需詳細資訊，請參閱本文稍後*的診斷和解決問題工具一節中的啟用變更分析*。
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>在 Azure 中查看所有資源的變更
 在 Azure 監視器中，有一個獨立的分頁，可供變更分析用來以深入解析和應用程式相依性資源來查看所有變更。
@@ -70,7 +78,7 @@ ms.locfileid: "73606028"
 - Azure 網路資源
 - 具有來賓檔案追蹤和環境變數變更的 Web 應用程式
 
-如有任何意見反應，請使用分頁或電子郵件 changeanalysisteam@microsoft.com中的 [傳送意見反應] 按鈕。 
+如有任何意見反應，請使用分頁或電子郵件 changeanalysisteam@microsoft.com中的 [傳送意見反應] 按鈕。
 
 ![[變更分析] 分頁中 [意見反應] 按鈕的螢幕擷取畫面](./media/change-analysis/change-analysis-feedback.png)
 
@@ -94,12 +102,12 @@ ms.locfileid: "73606028"
 
    ![[應用程式當機] 選項的螢幕擷取畫面](./media/change-analysis/enable-changeanalysis.png)
 
-1. 開啟 [**變更分析**]，然後選取 [**儲存**]。
+1. 開啟 [**變更分析**]，然後選取 [**儲存**]。 此工具會顯示應用程式服務方案下的所有 web 應用程式。 您可以使用 [方案層級] 切換，針對方案下的所有 web 應用程式開啟變更分析。
 
     ![[啟用變更分析] 使用者介面的螢幕擷取畫面](./media/change-analysis/change-analysis-on.png)
 
 
-1. 若要存取變更分析，請選取 [**診斷並解決問題**] > **可用性和效能** > **應用程式**當機。 您會看到一個圖表，其中匯總一段時間的變更類型，以及這些變更的詳細資料：
+1. 若要存取變更分析，請選取 [**診斷並解決問題**] > **可用性和效能** > **應用程式**當機。 您會看到一個圖表，其中匯總一段時間的變更類型，以及這些變更的詳細資料。 根據預設，會顯示過去24小時內的變更，以協助您立即遇到問題。
 
      ![變更差異視圖的螢幕擷取畫面](./media/change-analysis/change-view.png)
 

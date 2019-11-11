@@ -7,26 +7,26 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677569"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887547"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 [Application Insights][start]可以藉由結合來自 Application Insights sdk 的資料與雲端服務的[Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來監視[Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)的可用性、效能、失敗和使用方式。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
 
 ![概觀儀表板](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在開始之前，您需要：
 
 * [Azure](https://azure.com) 訂用帳戶。 使用 Windows、Xbox Live 或其他 Microsoft 雲端服務適用的 Microsoft 帳戶登入。 
 * Microsoft Azure 工具 2.9 或更新版本。
 * 開發人員分析工具 7.10 或更新版本。
 
-## <a name="get-started-quickly"></a>快速入門
+## <a name="get-started-quickly"></a>即刻開始使用
 使用 Application Insights 來監視您雲端服務的最快、最簡單方式就是在將服務發佈到 Azure 時選擇該選項。
 
 ![診斷設定頁面範例](./media/cloudservices/azure-cloud-application-insights.png)
@@ -57,7 +57,7 @@ ms.locfileid: "72677569"
 ### <a name="resources-for-components"></a>元件的資源
 我們建議您建立為您應用程式的每個元件建立不同的資源。 也就是為每個 Web 角色和背景工作角色建立資源。 您可以個別分析每個元件，但建立一個[儀表板](../../azure-monitor/app/overview-dashboard.md)來彙總所有元件的重要圖表，讓您能夠在單一檢視中一起比較和監視這些圖表。 
 
-替代方法是將來自多個角色的遙測傳送給同一個資源，但[為每個遙測項目新增一個維度屬性](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)來識別其來源角色。 在此方法中，計量圖表 (例如例外狀況) 通常會顯示來自各種角色之計數的彙總，但您可以視需要依角色識別碼分割該圖表。 您也可以依相同的維度來篩選搜尋。 此替代方案可讓您稍微容易同時檢視每個項目，但也會造成角色之間的一些混淆。
+替代方法是將來自多個角色的遙測傳送給同一個資源，但[為每個遙測項目新增一個維度屬性](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)來識別其來源角色。 在此方法中，計量圖表 (例如例外狀況) 通常會顯示來自各種角色之計數的彙總，但您可以視需要依角色識別碼分割該圖表。 您也可以依相同的維度來篩選搜尋。 此替代方案可讓您稍微容易同時檢視每個項目，但也會造成角色之間的一些混淆。
 
 瀏覽器遙測通常包含在與其伺服器端 Web 角色相同的資源中。
 
@@ -74,7 +74,7 @@ ms.locfileid: "72677569"
 
 如果您已決定為每個角色建立個別的資源，或許也為每個組建組態建立一組個別的資源，則最簡單的方式就是全部都在 Application Insights 入口網站中建立。 如果您要建立很多資源，您可以[將程序自動化](../../azure-monitor/app/powershell.md)。
 
-1. 在 [ [Azure 入口網站][portal]中，選取 [**新增** > **開發人員服務**]  > **Application Insights**]。  
+1. 在 [ [Azure 入口網站][portal]中，選取 [**新增** > **開發人員服務**] > **Application Insights**]。  
 
     ![Application Insights 窗格](./media/cloudservices/01-new.png)
 
@@ -224,7 +224,7 @@ ms.locfileid: "72677569"
 ## <a name="performance-counters"></a>效能計數器
 根據預設會收集下列計數器：
 
-* \Process （？APP_WIN32_PROC??)\% 處理器時間
+* \Process （？APP_WIN32_PROC？？）\% 處理器時間
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -255,7 +255,7 @@ ms.locfileid: "72677569"
 ## <a name="client-telemetry"></a>用戶端遙測
 若要取得以瀏覽器為基礎的遙測資料，例如網頁檢視計數、頁面載入時間或腳本例外狀況，並在頁面腳本中撰寫自訂遙測，請參閱[將 JAVASCRIPT SDK 新增至您的網頁][client]。
 
-## <a name="availability-tests"></a>可用性集合
+## <a name="availability-tests"></a>可用性測試
 若要確保您的應用程式保持上線並回應，請[設定 web 測試][availability]。
 
 ## <a name="display-everything-together"></a>將所有內容一起顯示

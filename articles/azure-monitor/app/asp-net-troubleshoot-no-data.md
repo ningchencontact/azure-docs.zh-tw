@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678334"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887524"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -29,7 +29,7 @@ ms.locfileid: "72678334"
 
 *當應用程式即將停止時，我在主控台應用程式或 Web 應用程式上遇到資料遺失的情況。*
 
-* SDK 通道會將遙測資料保留在緩衝區中，並以批次方式傳送。 如果應用程式正在關閉，您可能需要明確地呼叫[Flush （）](api-custom-events-metrics.md#flushing-data)。 @No__t_0 的行為取決於實際使用的[通道](telemetry-channels.md#built-in-telemetry-channels)。
+* SDK 通道會將遙測資料保留在緩衝區中，並以批次方式傳送。 如果應用程式正在關閉，您可能需要明確地呼叫[Flush （）](api-custom-events-metrics.md#flushing-data)。 `Flush()` 的行為取決於實際使用的[通道](telemetry-channels.md#built-in-telemetry-channels)。
 
 ## <a name="no-data-from-my-server"></a>沒有來自我的伺服器的資料
 *我已在 web 伺服器上安裝我的應用程式，但現在看不到它的任何遙測。它在我的開發電腦上運作正常。*
@@ -174,7 +174,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 我們已在 2018 年 2 月 5 日宣布我們已移除記錄用戶端 IP 位址的功能。 這不會影響地理位置。
 
 > [!NOTE]
-> 如果您需要 IP 位址的前 3 個八位元，可以使用[遙測初始設定式](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)來新增自訂屬性。
+> 如果您需要 IP 位址的前 3 個八位元，可以使用[遙測初始設定式](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)來新增自訂屬性。
 > 這不會影響到 2018 年 2 月 5 日以前收集的資料。
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>使用者遙測中錯誤的地理資料
@@ -214,7 +214,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 AspNetCore 的最新版本是2.7.1，而它是指 ApplicationInsights 版本2.10。 因此，應2.10.0 要安裝的 ApplicationInsights 版本 HostingStartup。
 
-2. 修改 `Startup.cs` 類別中的 `ConfigureServices` 方法：
+2. 修改 `ConfigureServices` 類別中的 `Startup.cs` 方法：
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();

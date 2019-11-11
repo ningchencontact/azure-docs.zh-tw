@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959969"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886812"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -65,7 +65,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 ## <a name="configuring-change-tracking-and-inventory"></a>設定變更追蹤和清查
 
-若要了解如何將電腦登入解決方案，請瀏覽：[登入自動化解決方案](automation-onboard-solutions-from-automation-account.md)。 讓具有變更追蹤和清查解決方案的機器上線後，即可設定要追蹤的項目。當您啟用新的檔案或登錄機碼加以追蹤時，其變更追蹤和清查都會啟用。
+若要了解如何將電腦登入解決方案，請瀏覽：[登入自動化解決方案](automation-onboard-solutions-from-automation-account.md)。 一旦您的電腦上架了變更追蹤和清查解決方案，您就可以設定要追蹤的專案。當您啟用要追蹤的新檔案或登錄機碼時，它會同時啟用變更追蹤和清查。
 
 如需追蹤 Windows 和 Linux 上的檔案變更，則會使用檔案的 MD5 雜湊。 這些雜湊接著用來偵測自上次清查後是否已進行變更。
 
@@ -75,12 +75,12 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 - 軟體變更
 - Windows 服務
-- Linux 精靈
+- Linux 守護程式
 
 如果您已經啟用 FIM，而且想要試用完整的變更追蹤解決方案，您需要執行下列步驟。 這個進程不會移除您的設定。
 
 > [!NOTE]
-> 啟用完整變更追蹤解決方案可能會產生額外的費用。如需詳細資訊，請參閱[自動化定價](https://azure.microsoft.com/en-us/pricing/details/automation/)。
+> 啟用完整變更追蹤解決方案可能會產生額外的費用。如需詳細資訊，請參閱[自動化定價](https://azure.microsoft.com/pricing/details/automation/)。
 
 1. 流覽至工作區，然後在[已安裝的監視解決方案清單](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)中尋找，以移除監視解決方案。
 2. 按一下解決方案的名稱以開啟其 [摘要] 頁面，然後按一下 [刪除]，如[移除監視解決方案](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)中所述。
@@ -91,13 +91,13 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 使用下列步驟，設定要在 Linux 電腦上追蹤的檔案：
 
-1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] \(齒輪符號)。
+1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] (齒輪符號)。
 2. 在 [變更追蹤] 頁面上選取 [Linux 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Linux 檔案] 上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存]。
 
 |屬性  |描述  |
 |---------|---------|
-|Enabled     | 判斷是否已套用設定。        |
+|已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑。 例如："/etc/*.conf"       |
@@ -105,7 +105,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
 |連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄。<br>**遵循** - 在遞迴期間遵循符號連結，並且包含參考的檔案/目錄。<br>**管理** - 遵循符號連結並允許變更傳回的內容。     |
-|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用選項：**True** 或 **False**。|
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
 
 > [!NOTE]
 > 不建議選擇「管理」連結選項。 不支援檔案內容擷取。
@@ -120,12 +120,12 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 |屬性  |描述  |
 |---------|---------|
-|Enabled     | 判斷是否已套用設定。        |
+|已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"       |
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
-|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用選項：**True** 或 **False**。|
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>萬用字元、遞迴和環境設定
 
@@ -152,10 +152,10 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 |屬性  |描述  |
 |---------|---------|
-|Enabled     | 判斷是否已套用設定。        |
+|已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之登錄機碼的易記名稱。        |
 |群組     | 以邏輯方式分組登錄機碼的群組名稱。        |
-|Windows 登錄機碼   | 要檢查登錄機碼的路徑。 例如: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 登錄機碼   | 要檢查登錄機碼的路徑。 例如："HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>限制
 
@@ -176,7 +176,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 「變更追蹤」解決方案目前有下列問題︰
 
 * Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
-* 即使沒有任何變更，Linux 守護程式也可能會顯示已變更的狀態。 這是因為如何捕捉 `SvcRunLevels` 欄位。
+* 即使沒有任何變更，Linux 守護程式也可能會顯示已變更的狀態。 這是因為 `SvcRunLevels` 欄位的捕捉方式所致。
 
 ## <a name="change-tracking-data-collection-details"></a>「變更追蹤」資料收集詳細資訊
 
@@ -186,7 +186,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 | --- | --- |
 | Windows 登錄 | 50 分鐘 |
 | Windows 檔案 | 30 分鐘 |
-| Linux 檔案 | 15 分鐘 |
+| Linux 檔案 | 15 Minuten |
 | Windows 服務 | 10 秒到 30 分鐘</br> 預設值：30 分鐘 |
 | Linux 精靈 | 5 分鐘 |
 | Windows 軟體 | 30 分鐘 |
@@ -221,7 +221,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 監視登錄機碼變更的目的是找出第三方程式碼和惡意程式碼可啟用的擴充點。 下列清單顯示預先設定的登錄機碼清單。 這些機碼已設定，但並未啟用。 若要追蹤這些登錄機碼，必須每個都啟用。
 
 > [!div class="mx-tdBreakAll"]
-> |登錄機碼 | 用途 |
+> |登錄金鑰 | 目的 |
 > |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | 監視一般自動啟動項目，而這些項目直接連結到 Windows 檔案總管，而且通常會使用 Explorer.exe 以內含方式執行。
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | 監視在啟動時執行的指令碼。
@@ -309,8 +309,8 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|適用於追蹤系統重要服務的變更|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|適用於需要鎖定軟體組態的環境|
 |ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|適用於查看哪些電腦已過時或不符合所安裝軟體版本的規範。 它會報告上次所回報的組態狀態，毫無變更。|
-|ConfigurationChange <br>&#124;where RegistryKey = = @ "HKEY_LOCAL_MACHINE @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4CurrentVersion @ no__t-5QualityCompat"| 適用於追蹤重要防毒金鑰的變更|
-|ConfigurationChange <br>&#124;其中，RegistryKey 包含 @ "HKEY_LOCAL_MACHINE @ no__t-1SYSTEM @ no__t-2CurrentControlSet @ no__t-3Services @ no__t-4SharedAccess @ no__t-5Parameters @ no__t-6FirewallPolicy"| 適用於追蹤防火牆設定的變更|
+|ConfigurationChange <br>&#124;where RegistryKey = = @ "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| 適用於追蹤重要防毒金鑰的變更|
+|ConfigurationChange <br>&#124;其中，RegistryKey 包含 @ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Win2k3 sharedaccess\\Parameters\\FirewallPolicy"| 適用於追蹤防火牆設定的變更|
 
 ## <a name="next-steps"></a>後續步驟
 

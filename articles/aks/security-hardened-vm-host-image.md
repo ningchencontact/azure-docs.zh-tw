@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202969"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885637"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>AKS 虛擬機器主機中的安全性強化 
 
@@ -30,7 +30,7 @@ AKS 叢集會部署在主機虛擬機器上，以執行安全性優化的作業�
 
 * AKS 預設會提供安全性優化主機 OS。 目前沒有選擇替代作業系統的選項。 
 
-* Azure 會將每日修補程式（包括安全性修補程式）套用至 AKS 虛擬機器主機。 其中有些修補程式需要重新開機，有些則不會。 您必須負責排程 AKS VM 主機重新開機（如有需要）。 如需如何將 AKS 修補自動化的指引，請參閱[修補 AKS 節點](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured)。
+* Azure 會將每日修補程式（包括安全性修補程式）套用至 AKS 虛擬機器主機。 其中有些修補程式需要重新開機，有些則不會。 您必須負責排程 AKS VM 主機重新開機（如有需要）。 如需如何將 AKS 修補自動化的指引，請參閱[修補 AKS 節點](https://docs.microsoft.com/azure/aks/node-updates-kured)。
 
 以下摘要說明在 AKS 引擎中執行的映射強化工作，以產生安全性優化主機 OS。 已[在此 GitHub 專案中執行此](https://github.com/Azure/aks-engine/projects/7)工作。  
 
@@ -69,7 +69,7 @@ AKS 引擎目前不會升階或遵守任何特定的安全性標準，但在適�
 |第5.2.10 |確定 SSH PermitUserEnvironment 已停用 |
 |第5.2.11 |請確定只使用已核准的最大演算法 |
 |第5.2.12 |確保已設定 SSH 閒置逾時間隔 |
-|5.2.13 |確定 SSH LoginGraceTime 設定為一分鐘或更少 |
+|第5.2.13 |確定 SSH LoginGraceTime 設定為一分鐘或更少 |
 |第5.2.15 |確定已設定 SSH 警告橫幅 |
 |5.3.1 |確定已設定密碼建立需求 |
 |5.4.1.1 |確認密碼到期時間為90天或更少 |
@@ -77,7 +77,7 @@ AKS 引擎目前不會升階或遵守任何特定的安全性標準，但在適�
 |5.4.4 |確保預設使用者 umask 為027或更嚴格的限制 |
 |5.6 |確保對 su 命令的存取受到限制|
 
-## <a name="additional-notes"></a>其他備註
+## <a name="additional-notes"></a>其他注意事項
  
 * 為了進一步減少受攻擊面，作業系統中已停用一些不必要的核心模組驅動程式。 
 

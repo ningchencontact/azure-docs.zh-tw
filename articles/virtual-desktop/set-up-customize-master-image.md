@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330838"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891698"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
@@ -70,7 +70,7 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ### <a name="set-up-user-profile-container-fslogix"></a>設定使用者設定檔容器（FSLogix）
 
-若要包含 FSLogix 容器作為映射的一部分，請遵循[使用檔案共用建立主機集區的設定檔容器](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)中的指示。 您可以使用[本快速入門](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)來測試 FSLogix 容器的功能。
+若要包含 FSLogix 容器作為映射的一部分，請遵循[使用檔案共用建立主機集區的設定檔容器](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)中的指示。 您可以使用[本快速入門](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial)來測試 FSLogix 容器的功能。
 
 ### <a name="configure-windows-defender"></a>設定 Windows Defender
 
@@ -86,7 +86,7 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 若要透過本機群組原則停用自動更新：
 
-1. 開啟**本機群組原則編輯器 @ no__t-1Administrative Templates @ no__t-2Windows Components @ no__t-3Windows Update**。
+1. 開啟**本機群組原則編輯器\\系統管理範本\\Windows 元件\\Windows Update**。
 2. 以滑鼠右鍵按一下 [設定**自動更新**]，並將它設定為 [**停用**]。
 
 您也可以在命令提示字元上執行下列命令，以停用自動更新。
@@ -109,7 +109,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 若要設定遠端會話原則：
 
-1. 流覽至**系統管理範本** >  個**Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** >  個**會話時間限制**。
+1. 流覽至**系統管理範本** > **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** > **會話時間限制**。
 2. 在右側面板中，選取 [設定作用中**但閒置遠端桌面服務會話**] 原則的時間限制。
 3. 出現 [強制回應] 視窗之後，將 [**未設定**] 的 [原則] 選項變更為 [**啟用**] 以啟用原則。
 4. 在原則選項下方的下拉式功能表中，將時間長度設定為**3 小時**。
@@ -134,7 +134,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxId
 1. 在 Active Directory 伺服器上，開啟**群組原則管理主控台**。
 2. 展開您的網域，並群組原則物件。
 3. 在您為群組原則設定建立的**群組原則物件**上按一下滑鼠右鍵，然後選取 [**編輯**]。
-4. 在**群組原則管理編輯器**中，流覽至 [**電腦**設定] [ >  個**原則**]  > **系統管理範本** > **Windows 元件** > **遠端桌面服務**0**遠端桌面工作階段主機**2**裝置和資源**重新導向。
+4. 在**群組原則管理編輯器**中，流覽至**電腦**設定 ** > 原則** > **系統管理範本** > **Windows 元件** ** > 遠端桌面服務** > **遠端桌面工作階段主機** **裝置和資源**重新導向。 > 
 5. 啟用 [**允許時區**重新導向] 設定。
 
 您也可以在主要映射上執行這個命令，以重新導向時間區域：

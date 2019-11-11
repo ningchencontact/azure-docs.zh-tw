@@ -8,12 +8,12 @@ author: cijothomas
 ms.author: cithomas
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 82c0855e3ea3b6a89c1b20569971b0dc6b3d449c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899851"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884719"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -28,7 +28,7 @@ ms.locfileid: "72899851"
 * 預設會在所有最新版本的 ASP.NET 和 ASP.NET Core 軟體發展工具組（Sdk）中啟用調適型取樣。
 * 您也可以手動設定取樣。 您可以在入口網站中的 [*使用量和估計成本] 頁面*上，透過程式碼或 ApplicationInsights 的 JAVA SDK 中的 ASP.NET ASP.NET Core sdk 來設定此項。
 * 如果您記錄自訂事件，而且需要確保一組事件會一起保留或捨棄，事件就必須有相同的 OperationId 值。
-* 每個記錄的 `itemCount` 屬性中都會回報取樣除數 *n*，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中時 `itemCount==1`。
+* 每個記錄的 *屬性中都會回報取樣除數*n`itemCount`，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中時 `itemCount==1`。
 * 如果您要撰寫分析查詢，請 [考慮到取樣](../../azure-monitor/log-query/aggregations.md)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
 
 ## <a name="types-of-sampling"></a>取樣類型
@@ -48,7 +48,7 @@ ms.locfileid: "72899851"
 
 彈性取樣適用于 ASP.NET v 2.0.0 的 Application Insights SDK-Beta3 和更新版本，Microsoft. ApplicationInsights. AspNetCore SDK v 2.2.0-Beta1 和更新版本，預設會啟用。
 
-調適性取樣會影響從您的 Web 伺服器應用程式傳送給 Application Insights 服務端點的遙測量。 磁片區會自動調整以保留指定的最大流量速率，並透過 `MaxTelemetryItemsPerSecond` 的設定來控制。 如果應用程式產生較少的遙測資料（例如，在進行調試時或因為使用量過低時），取樣處理器就不會卸載專案，只要磁片區低於 `MaxTelemetryItemsPerSecond`。 隨著遙測量的增加，取樣率會調整成達到目標磁片區。
+調適性取樣會影響從您的 Web 伺服器應用程式傳送給 Application Insights 服務端點的遙測量。 磁片區會自動調整以保留指定的最大流量速率，並透過 `MaxTelemetryItemsPerSecond`設定來控制。 如果應用程式產生較少的遙測資料（例如，在進行調試時或因為低使用量而造成），取樣處理器就不會卸載專案，只要磁片區低於 `MaxTelemetryItemsPerSecond`。 隨著遙測量的增加，取樣率會調整成達到目標磁片區。
 
 為了要讓遙測量達到目標，系統會捨棄部分已產生的遙測。 但就跟其他取樣類型一樣，演算法會保留相關的遙測項目。 舉例來說，當您在 [搜尋] 中檢查遙測時，將能夠尋找與特定例外狀況相關的要求。
 
@@ -100,7 +100,7 @@ ms.locfileid: "72899851"
 
 除了在 .config 檔中設定取樣參數之外，您還可以透過程式設計的方式來設定這些值。
 
-1. 從 .config 檔案移除所有的 `AdaptiveSamplingTelemetryProcessor` 節點。
+1. 移除 .config 檔案中的所有 `AdaptiveSamplingTelemetryProcessor` 節點。
 2. 使用下列程式碼片段來設定調適型取樣。
 
 *C#*
@@ -140,12 +140,12 @@ ms.locfileid: "72899851"
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>設定 ASP.NET Core 應用程式的調適型取樣。
 
-ASP.NET Core 應用程式沒有 `ApplicationInsights.Config`，因此每個設定都是透過程式碼來完成。
+ASP.NET Core 的應用程式沒有 `ApplicationInsights.Config`，因此每個設定都透過程式碼完成。
 所有的 ASP.NET Core 應用程式預設會啟用調適型取樣。 您可以停用或自訂取樣行為。
 
 ### <a name="turning-off-adaptive-sampling"></a>關閉調適性取樣
 
-使用 `Startup.cs` 檔案中的 ```ApplicationInsightsServiceOptions```，在新增 Application Insights 服務時，可以停用預設的取樣功能 ```ConfigureServices```：
+使用 `Startup.cs` 檔案中的 ```ApplicationInsightsServiceOptions```，在方法 ```ConfigureServices```中新增 Application Insights 服務時，可以停用預設的取樣功能：
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -190,7 +190,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ```
 
-**如果使用上述方法來設定取樣，請務必搭配對於 addapplicationinsightstelemetry （）使用 ```aiOptions.EnableAdaptiveSampling = false;``` 設定。**
+**如果使用上述方法來設定取樣，請務必使用 ```aiOptions.EnableAdaptiveSampling = false;``` 設定搭配對於 addapplicationinsightstelemetry （）。**
 
 ## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications"></a>ASP.NET、ASP.NET Core、JAVA 網站和 Python 應用程式的固定速率取樣
 
@@ -257,7 +257,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>在 ASP.NET Core 中設定固定速率取樣
 
-1. **停**用彈性取樣：可以使用 ```ApplicationInsightsServiceOptions```，在方法 ```ConfigureServices``` 中進行變更：
+1. **停**用彈性取樣：可以使用 ```ApplicationInsightsServiceOptions```，在方法 ```ConfigureServices```中進行變更：
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -271,7 +271,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     }
     ```
 
-2. **啟用固定取樣率模組。** 如下列程式碼片段所示，在方法中可以進行變更 ```Configure```：
+2. **啟用固定取樣率模組。** 您可以在方法中進行變更 ```Configure``` 如下列程式碼片段所示：
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -376,7 +376,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 ## <a name="sampling-for-web-pages-with-javascript"></a>具有 JavaScript 的網頁的取樣
 您可以從任何伺服器設定固定取樣率的網頁。 
 
-當您[設定 Application Insights 的網頁](../../azure-monitor/app/javascript.md)時，請修改您從 Application Insights 入口網站取得的 JavaScript 片段。 （在 ASP.NET apps 中，程式碼片段通常會放在 _Layout 中）。 在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
+當您[設定 Application Insights 的網頁](../../azure-monitor/app/javascript.md)時，請修改您從 Application Insights 入口網站取得的 JavaScript 片段。 （在 ASP.NET apps 中，程式碼片段通常會 _Layout. cshtml）。 在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
 
     <script>
     var appInsights= ... 
@@ -502,7 +502,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *可以多次取樣遙測嗎？*
 
-* 不會。 如果已取樣專案，SamplingTelemetryProcessors 會忽略取樣考慮的專案。 也同樣適用于內嵌取樣，這不會將取樣套用至已在 SDK 本身取樣的那些專案。
+* 號 如果已取樣專案，SamplingTelemetryProcessors 會忽略取樣考慮的專案。 也同樣適用于內嵌取樣，這不會將取樣套用至已在 SDK 本身取樣的那些專案。
 
 *為什麼不取樣簡單的「收集每個遙測類型百分之 X」？*
 
@@ -534,7 +534,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *我一律想要看見特定罕見的事件。我要如何讓它們通過取樣模組？*
 
-* 達成此目標的最佳方式是撰寫自訂[TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)，將您要保留的遙測專案上的 `SamplingPercentage` 設定為100，如下所示。 因為初始化運算式保證會在遙測處理器（包括取樣）之前執行，所以這可確保所有取樣技術都會忽略任何取樣考慮的這個專案。
+* 達成此目標的最佳方式是撰寫自訂[TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)，將您要保留的遙測專案上的 `SamplingPercentage` 設為100，如下所示。 因為初始化運算式保證會在遙測處理器（包括取樣）之前執行，所以這可確保所有取樣技術都會忽略任何取樣考慮的這個專案。
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71672944"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891410"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure 上的 SAP 工作負載：規劃和部署檢查清單
 
@@ -128,7 +128,7 @@ ms.locfileid: "71672944"
             - Oracle Linux 7.5。 如果您使用的是 RHCKL 核心，則需要 release 3.10.0-862.13.1. el7。 如果您使用的是 Oracle UEK 核心，則需要第5版。
         - 根據 SAP 支援附注[#500235](https://launchpad.support.sap.com/#/notes/500235)和[#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)，測試和評估 sap 應用層 vm 與 DBMS vm 之間的網路延遲。 根據[SAP 支援附注 #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)中的網路延遲指引來評估結果。 網路延遲應為適中或良好的範圍。 例外狀況適用于 Vm 與 HANA 大型實例單位之間的流量，如[這篇文章](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)中所述。
         - 請確定 ILB 部署已設定為使用伺服器直接回傳。 當 Azure Ilb 在 DBMS 層上用於高可用性設定時，此設定可減少延遲。
-        - 如果您同時使用 Azure Load Balancer 與 Linux 客體作業系統，請檢查 Linux 網路參數**net.tcp _timestamps**是否設定為**0**。 這項建議與舊版[SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)中的建議衝突。 SAP 附注現在已更新，以指出此參數必須設定為**0** ，才能使用 Azure 負載平衡器。
+        - 如果您同時使用 Azure Load Balancer 與 Linux 客體作業系統，請檢查 Linux 網路參數**net.tcp. tcp_timestamps**是否設定為**0**。 這項建議與舊版[SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)中的建議衝突。 SAP 附注現在已更新，以指出此參數必須設定為**0** ，才能使用 Azure 負載平衡器。
         - 請考慮使用[Azure 鄰近放置群組](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)來取得最佳的網路延遲。 如需詳細資訊，請參閱[Azure 鄰近放置群組，以取得 SAP 應用程式的最佳網路延遲](sap-proximity-placement-scenarios.md)。
    4. 高可用性和嚴重損壞修復部署。
         - 如果您在未定義特定 Azure 可用性區域的情況下部署 SAP 應用層，請確定執行 SAP 對話實例或單一 SAP 系統中介軟體實例的所有 Vm 都部署在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)中。
@@ -160,7 +160,7 @@ ms.locfileid: "71672944"
    1.  請確認[網路安全性群組和 ASC](https://docs.microsoft.com/azure/virtual-network/security-overview)規則是否如預期般運作，並防護受保護的資源。
    1.  確定所有需要加密的資源都已加密。 定義和執行處理常式以備份憑證、儲存和存取這些憑證，以及還原加密的實體。
    1.  從 OS 支援的觀點來看，盡可能使用 OS 磁片的[Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq)。
-   1.  請確定您不是使用太多層的加密。 在某些情況下，搭配其中一個 DBMS 透明資料加密方法使用 Azure 磁碟加密是合理的。
+   1.  請確定您不是使用太多層的加密。 在某些情況下，使用 Azure 磁碟加密搭配其中一種 DBMS 透明資料加密方法來保護相同伺服器上的不同磁片或元件是合理的。  例如，在 SAP DBMS 伺服器上，可以在作業系統開機磁片（如果 OS 支援 ADE）和 DBMS 資料持續性檔案未使用的資料磁片上啟用 Azure 磁碟加密（ADE）。  例如，在保留 DBMS TDE 加密金鑰的磁片上使用 ADE。
 1. 效能測試。 在 SAP 中，根據 SAP 追蹤和度量，進行這些比較：
    - 適用時，請將前10個線上報表與您目前的執行方式進行比較。
    - 若適用，請將前10個批次作業與您目前的執行方式進行比較。

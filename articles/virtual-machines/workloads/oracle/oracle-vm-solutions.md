@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858569"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891445"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM 映射及其在 Microsoft Azure 的部署
 
@@ -79,7 +79,7 @@ Azure NetApp Files 的設計目的是為了符合執行高效能工作負載（�
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Azure 上的授權 Oracle Database & 軟體
 Microsoft Azure 是執行 Oracle Database 的授權雲端環境。 在雲端中授權 Oracle 資料庫時，不適用 Oracle 核心因素資料表。 相反地，使用已針對 Enterprise Edition 資料庫啟用超執行緒技術的 Vm 時，如果已啟用超執行緒，請將兩個個 vcpu 計算為等同于一個 Oracle 處理器授權（如原則檔中所述）。 您可以在[這裡](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)找到原則詳細資料。
-Oracle 資料庫通常需要較高的記憶體和 IO。 基於這個理由，建議針對這些工作負載使用[記憶體優化的 vm](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) 。 若要進一步優化您的工作負載，建議您針對需要高記憶體、儲存體和 i/o 頻寬，但不是高核心計數的 Oracle DB 工作負載進行[限制核心個 vcpu](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) 。
+Oracle 資料庫通常需要較高的記憶體和 IO。 基於這個理由，建議針對這些工作負載使用[記憶體優化的 vm](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) 。 若要進一步優化您的工作負載，建議您針對需要高記憶體、儲存體和 i/o 頻寬，但不是高核心計數的 Oracle DB 工作負載進行[限制核心個 vcpu](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) 。
 
 將 Oracle 軟體和工作負載從內部部署遷移至 Microsoft Azure 時，Oracle 會提供如[Oracle On AZURE 常見問題](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)中所述的授權流動性
 
@@ -90,7 +90,7 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>高可用性和災害復原考量
 在 Azure 中使用 Oracle 資料庫時，您必須負責執行高可用性和嚴重損壞修復解決方案，以避免任何停機時間。 
 
-針對 Oracle Database Enterprise Edition （不依賴 Oracle RAC）的高可用性和嚴重損壞修復，可以在 Azure 上使用[Data Guard、Active Data guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)或[Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate)來達成，這兩個資料庫位於兩個不同的虛擬上機時. 這兩個虛擬機器應該位於相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。  此外，建議您將虛擬機器放置於相同的可用性設定組，讓 Azure 將其放置於不同的容錯網域和升級網域。 如果您想要擁有異地冗余，請設定兩個要在兩個不同區域之間複寫的資料庫，然後使用 VPN 閘道連接兩個實例。
+使用[Data guard、Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)或[Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate)（在兩部不同的虛擬機器上有兩個資料庫），即可在 Azure 上達成 Oracle Database Enterprise Edition 的高可用性和嚴重損壞修復（不依賴 Oracle RAC）。 這兩個虛擬機器應該位於相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。  此外，建議您將虛擬機器放置於相同的可用性設定組，讓 Azure 將其放置於不同的容錯網域和升級網域。 如果您想要擁有異地冗余，請設定兩個要在兩個不同區域之間複寫的資料庫，然後使用 VPN 閘道連接兩個實例。
 
 在[azure 上執行 Oracle Data Guard](configure-oracle-dataguard.md)教學課程會引導您完成 azure 上的基本設定程式。  
 
@@ -102,7 +102,7 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 
 
 ## <a name="support-for-jd-edwards"></a>JD Edwards 的支援
-根據 Oracle 支援附注[Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)，符合其特定`Minimum Technical Requirements` （MTR）的**任何公用雲端**供應專案都支援 JD Edwards EnterpriseOne 9.2 版和更新版本。  您必須建立符合其 OS 和軟體應用程式相容性之 MTR 規格的自訂映像。 
+根據 Oracle 支援附注[DOC ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)，符合其特定 `Minimum Technical Requirements` （MTR）的**任何公用雲端**供應專案都支援 JD Edwards EnterpriseOne 9.2 版和更新版本。  您必須建立符合其 OS 和軟體應用程式相容性之 MTR 規格的自訂映像。 
 
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 虛擬機器映像
@@ -126,7 +126,7 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-如需相關資訊，請參閱位於 <https://support.oracle.com> 的 KB 文章 **860340.1**。
+如需相關資訊，請參閱位於 **的 KB 文章**860340.1<https://support.oracle.com>。
 
 * **動態叢集和負載平衡限制。** 假設您想要在 WebLogic Server 中使用動態叢集，並透過 Azure 中的單一、公用負載平衡端點將它公開。 只要您針對每部受管理伺服器使用固定通訊埠號碼（不是從範圍動態指派），而且不要啟動比系統管理員正在追蹤的電腦更多的受管理伺服器，就可以完成這項作業。 也就是說，每個虛擬機器不會有一個以上的受管理伺服器）。 如果您的設定導致啟動比虛擬機器更多的 WebLogic 伺服器（也就是多個 WebLogic 伺服器實例共用相同的虛擬機器），則不可能有一個以上的 WebLogic 伺服器實例系結至指定的通訊埠編號。 該虛擬機器上的其他專案會失敗。
 

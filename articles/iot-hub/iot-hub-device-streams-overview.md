@@ -1,18 +1,18 @@
 ---
-title: Azure IoT 中樞裝置串流 (預覽) | Microsoft Docs
-description: IoT 中樞裝置串流的總覽
+title: Azure IoT 中樞裝置串流 |Microsoft Docs
+description: 概述 Azure IoT 中樞裝置串流，這可針對各種雲端到裝置的通訊案例，加速安全的雙向 TCP 通道。
 author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: c71ca96ee657cd4d4d0d57e05dc31c03112dc848
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900734"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890461"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中樞裝置串流 (預覽)
 
@@ -22,7 +22,7 @@ Azure IoT 中樞「裝置串流」能協助建立適用於各種不同雲端到�
 
 使用 IoT 中樞裝置串流可讓裝置保持安全，並只需要開啟經由連接埠 443 針對 IoT 中樞串流端點的輸出 TCP 連線。 建立資料流之後，服務端和裝置端應用程式將能個別以程式設計方式存取 WebSocket 用戶端物件，以互相傳送及接收原始位元組。 此通道所提供的可靠性和排序保證皆等同於 TCP。
 
-## <a name="benefits"></a>優勢
+## <a name="benefits"></a>優點
 
 IoT 中樞裝置串流提供下列優點：
 
@@ -190,7 +190,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 4. 服務本機 Proxy 會在等候來自使用者之新 SSH 連線的指定連接埠上進行接聽 (範例中使用連接埠 2222，但可以設定成任何其他可用的連接埠)。 使用者將 SSH 用戶端指向 localhost 上的服務本機 Proxy 連接埠。
 
-### <a name="notes"></a>注意
+### <a name="notes"></a>注意事項
 
 * 上述步驟會完成 SSH 用戶端 (右側) 到 SSH 精靈 (左側) 之間的端對端通道。 這個端對端連線能力中有部分牽涉到將流量透過裝置資料流傳送給「IoT 中樞」。
 

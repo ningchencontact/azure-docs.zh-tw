@@ -3,10 +3,8 @@ title: Azure CLI 指令碼範例 - 使用 VM 平衡流量負載以達到高可�
 description: Azure CLI 指令碼範例 - 使用 VM 平衡流量負載以達到高可用性
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
+author: asudbring
+manager: KumudD
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -14,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
-ms.openlocfilehash: 916e9e1f7287757f19e93ecf7b8cc38f556e2dc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: bf5f4bb6bd15fa1fd440e679913a370bbe30b663
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564641"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890302"
 ---
-# <a name="load-balance-traffic-to-vms-for-high-availability"></a>使用 VM 平衡流量負載以達到高可用性
+# <a name="load-balance-traffic-to-vms-for-high-availability"></a>為目標為 VM 的流量進行負載平衡以達到高可用性
 
 此指令碼範例會建立所需的一切，以執行數部依據高可用性和負載平衡組態所設定的 Ubuntu 虛擬機器。 執行指令碼之後，您將擁有三部已加入至 Azure 可用性設定組並可透過 Azure Load Balancer 存取的虛擬機器。 
 
@@ -46,7 +44,7 @@ az group delete --name myResourceGroup
 
 此指令碼使用下列命令來建立資源群組、虛擬機器、可用性設定組、負載平衡器和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| 命令 | 注意事項 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | 建立 Azure 虛擬網路和子網路。 |

@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 裝置 SDK 平台支援 | Microsoft Docs
-description: 概念 - Azure IoT 裝置 SDK 所支援的平台清單
+description: 開放原始碼裝置 Sdk 可在 GitHub 上取得，包括 C、C#.net （）、JAVA、Node.js 和 Python，以將裝置連線到 Azure IoT 中樞和裝置布建服務（DPS）。
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693326"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889433"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 裝置 Sdk 平臺支援
 
@@ -50,7 +50,7 @@ Microsoft 會針對下列語言發行 GitHub 上的開放原始碼 Sdk： C、.N
 | iOS 12。2            | OpenSSL 或 Native OSX        | OSX 10.13.4 中的 XCode 模擬                                                               |
 | Windows 10 系列   | SChannel                     |                                                                                             |
 | Mbed 作業系統5。4         | Mbed TLS 2                   | [MXChip IoT 開發工具組](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>Python SDK
 
@@ -115,11 +115,11 @@ Microsoft 與數個合作夥伴合作，以透過 Azure IoT 測試和認證的�
 
 * 若要流覽 Azure IoT 認證的裝置，請參閱[Microsoft Azure IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/)。
 
-* 若要深入瞭解 Microsoft 信任的合作夥伴，或瞭解如何成為 Microsoft 信任的合作夥伴，請參閱[Microsoft Azure 認證物聯網信任的合作夥伴](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/)。
+* 若要深入瞭解 Microsoft 信任的合作夥伴，或瞭解如何成為 Microsoft 信任的合作夥伴，請參閱[Microsoft Azure 認證物聯網信任的合作夥伴](https://azure.microsoft.com/marketplace/certified-iot-partners/)。
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>不使用 SDK 連接到 IoT 中樞
 
-如果您無法使用其中一個 IoT 中樞裝置 Sdk，您可以從任何可傳送和接收 HTTPS 要求和回應的應用程式，使用[IOT 中樞 REST api](https://docs.microsoft.com/en-us/rest/api/iothub/)直接連接到 IoT 中樞。
+如果您無法使用其中一個 IoT 中樞裝置 Sdk，您可以從任何可傳送和接收 HTTPS 要求和回應的應用程式，使用[IOT 中樞 REST api](https://docs.microsoft.com/rest/api/iothub/)直接連接到 IoT 中樞。
 
 ## <a name="support-and-other-resources"></a>支援和其他資源
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8e8e4524034f0a296045691309b065f8547bdaa0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797695"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889601"
 ---
 # <a name="references"></a>參考
 
@@ -40,7 +40,7 @@ DeviceModel  | Devicemodel 傳遞會對應至裝置的中繼資料，例如 [製
 感應器  | 感應器會對應到記錄值的實體感應器。 感應器通常會連接到裝置識別碼為的裝置。
 SensorModel  | SensorModel 對應于感應器的中繼資料，例如製造商、感應器類型、類比或數位、感應器量值（例如，環境溫度、壓力等等）。
 遙測  | 遙測可讓您讀取特定感應器和時間範圍的遙測訊息。
-工作 (Job)  | 作業會對應至活動的任何工作流程，這些活動會在 FarmBeats 系統中執行，以取得所需的輸出。 每項作業都與作業識別碼和作業類型相關聯。
+作業  | 作業會對應至活動的任何工作流程，這些活動會在 FarmBeats 系統中執行，以取得所需的輸出。 每項作業都與作業識別碼和作業類型相關聯。
 JobType  | JobType 對應到系統支援的不同工作類型。 這包括系統定義的 & 使用者定義的作業類型。
 ExtendedType  | ExtendedType 對應至系統中的系統 & 使用者定義類型的清單。 這有助於在 FarmBeats 系統中設定新的感應器或場景或 Scenefile 類型。
 合作夥伴  | 合作夥伴對應至 FarmBeats 的感應器/影像整合合作夥伴
@@ -85,7 +85,7 @@ API 服務的 URL 是您的資料中樞 URL HTTPs://\<yourdatahub-網站名稱 >
 
 以下範例要求是取得裝置的清單：
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -108,8 +108,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 
 Azure FarmBeats 資料中樞 API 會傳回標準 HTTP 錯誤。 最常見的錯誤碼如下：
 
-
- |錯誤碼             | 說明 |
+ |錯誤碼             | 描述 |
  |---                    | --- |
  |200                    | 成功 |
  |201                    | 建立（Post）成功 |
@@ -121,29 +120,29 @@ Azure FarmBeats 資料中樞 API 會傳回標準 HTTP 錯誤。 最常見的錯�
 
 除了標準 HTTP 錯誤以外，Azure FarmBeats 資料中樞 Api 也會以下列格式傳回內部錯誤：
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
-```
+    ```
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
+    ```
 
 範例：建立伺服器陣列時，未在輸入裝載中指定強制欄位 "Name"。 產生的錯誤訊息會是：
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+    ```json
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+    ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>將使用者或應用程式註冊新增至 Azure Active Directory
 
- Azure Active Directory 中的使用者或應用程式註冊可以存取 Azure FarmBeats Api。 若要在您的 Azure Active Directory 上建立應用程式註冊，請執行下列步驟：  
+Azure Active Directory 中的使用者或應用程式註冊可以存取 Azure FarmBeats Api。 若要在您的 Azure Active Directory 上建立應用程式註冊，請執行下列步驟：  
 
 1. 移至[Azure 入口網站](https://portal.azure.com) **Azure Active Directory，應用程式註冊**，>**新的註冊**。 或者，您可以使用現有的帳戶。
 2. 針對新帳戶，請確定完成下列步驟：

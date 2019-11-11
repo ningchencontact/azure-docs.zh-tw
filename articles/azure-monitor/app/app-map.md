@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577068"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887761"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：對分散式應用程式進行分級
 
@@ -234,7 +234,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 如果您的應用程式是在容器化環境中執行，您可能想要覆寫雲端角色實例的值，而這種情況下，只要知道個別伺服器可能沒有足夠的資訊來找出指定的問題。
 
-如需如何使用遙測初始化運算式覆寫雲端角色名稱屬性的詳細資訊，請參閱[新增屬性： ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)。
+如需如何使用遙測初始化運算式覆寫雲端角色名稱屬性的詳細資訊，請參閱[新增屬性： ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)。
 
 ## <a name="troubleshooting"></a>疑難排解
 

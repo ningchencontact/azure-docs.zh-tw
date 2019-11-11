@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f3006dd3f474dea1add1621f35f902422e244ce1
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 4f3f435110f0cba5ea2370f2900d4e7031904067
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161553"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890321"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>在 Azure 實驗室服務中附加或卸離共用映射資源庫
 教師/實驗室系統管理員可以將範本 VM 映射儲存在 Azure[共用映射資源庫](../../virtual-machines/windows/shared-image-galleries.md)中，供其他人重複使用。 第一個步驟是，實驗室系統管理員將現有的共用映射資源庫附加至實驗室帳戶。 連結共用映射資源庫之後，在實驗室帳戶中建立的實驗室可以將影像儲存到共用映射資源庫。 其他老師可以從共用映射庫中選取此映射，以建立其類別的範本。 
@@ -26,7 +26,7 @@ ms.locfileid: "71161553"
 本文說明如何將共用映射資源庫連結或卸離至實驗室帳戶。 
 
 > [!NOTE]
-> 當映射儲存到共用映射資源庫時，Azure 實驗室服務會將儲存的影像複寫到相同[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)中可用的其他區域。 它可確保映射適用于在相同地理位置的其他區域中建立的實驗室。 將影像儲存到共用映射資源庫會產生額外的成本，包括所有複寫影像的成本。 這種成本與 Azure 實驗室服務的使用成本不同。 如需共用映射庫價格的詳細資訊，請參閱[共用映射資源庫–計費]( https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#billing)。
+> 當映射儲存到共用映射資源庫時，Azure 實驗室服務會將儲存的影像複寫到相同[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)中可用的其他區域。 它可確保映射適用于在相同地理位置的其他區域中建立的實驗室。 將影像儲存到共用映射資源庫會產生額外的成本，包括所有複寫影像的成本。 這種成本與 Azure 實驗室服務的使用成本不同。 如需共用映射庫價格的詳細資訊，請參閱[共用映射資源庫–計費]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing)。
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>在建立實驗室帳戶時設定
@@ -43,7 +43,7 @@ ms.locfileid: "71161553"
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>建立和附加共用映射資源庫
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室服務]。 如果您選取 [實驗室服務] 旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室服務]。
+2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室服務]。 如果您選取 [實驗室服務]`*` **旁邊的星號 (** )，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室服務]。
 
     ![[所有服務] -> [實驗室服務]](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. 選取您的實驗室帳戶以查看 [**實驗室帳戶**] 頁面。 

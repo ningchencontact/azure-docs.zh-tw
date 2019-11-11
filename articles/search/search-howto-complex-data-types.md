@@ -9,16 +9,16 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af68f232c893259747e6ed106eced70fd8b89351
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c7578b84fe1d23d2b4d97aa263cac576305db240
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792238"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889923"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中建立複雜資料類型的模型
 
-用來填入 Azure 認知搜尋索引的外部資料集可能會有許多圖形。 有時候它們會包含階層式或嵌套子結構。 範例可能包括單一客戶的多個位址、單一 SKU 的多種色彩和大小、單一書籍的多位作者等等。 在模型化詞彙中，您可能會看到這些結構稱為「*複雜*」、「*複合*」、「*複合*」或「*匯總*」資料類型。 Azure 認知搜尋用於此概念的一詞是**複雜類型**。 在 Azure 認知認知搜尋中，複雜類型會使用**複雜欄位**進行模型化。 「複雜欄位」是一個欄位，其中包含可以是任何資料類型（包括其他複雜類型）的子系（子欄位）。 其運作方式類似于程式設計語言中的結構化資料類型。
+用來填入 Azure 認知搜尋索引的外部資料集可能會有許多圖形。 有時候它們會包含階層式或嵌套子結構。 範例可能包括單一客戶的多個位址、單一 SKU 的多種色彩和大小、單一書籍的多位作者等等。 在模型化詞彙中，您可能會看到這些結構稱為「*複雜*」、「*複合*」、「*複合*」或「*匯總*」資料類型。 Azure 認知搜尋用於此概念的一詞是**複雜類型**。 在 Azure 認知搜尋中，複雜類型會使用**複雜欄位**進行模型化。 「複雜欄位」是一個欄位，其中包含可以是任何資料類型（包括其他複雜類型）的子系（子欄位）。 其運作方式類似于程式設計語言中的結構化資料類型。
 
 複雜欄位代表檔中的單一物件，或物件的陣列，視資料類型而定。 `Edm.ComplexType` 類型的欄位代表單一物件，而 `Collection(Edm.ComplexType)` 類型的欄位代表物件的陣列。
 

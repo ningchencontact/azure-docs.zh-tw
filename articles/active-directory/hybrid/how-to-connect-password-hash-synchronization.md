@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac1b75536e092203490a390860a1cead7ac333b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817981"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882830"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -32,7 +32,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 密碼雜湊同步處理程序的實際資料流程，與使用者資料的同步處理類似。 不過，相較於其他屬性的標準目錄同步作業週期，密碼會更頻繁地進行同步。 密碼雜湊同步處理程序每 2 分鐘會執行一次。 您無法修改此程序的執行頻率。 當您同步處理密碼時，它便會覆寫現有的雲端密碼。
 
-第一次啟用密碼雜湊同步處理功能時，它會對範圍內的所有使用者執行初次密碼同步處理。 您無法明確定義一小組要同步處理的使用者密碼。 不過，如果有多個連接器，則可以使用[ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant)指令程式來停用某些連接器的密碼雜湊同步處理，而不是其他連接器。
+第一次啟用密碼雜湊同步處理功能時，它會對範圍內的所有使用者執行初次密碼同步處理。 您無法明確定義一小組要同步處理的使用者密碼。 不過，如果有多個連接器，則可以使用[ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant)指令程式來停用某些連接器的密碼雜湊同步處理，而不是其他連接器。
 
 當您變更內部部署密碼時，更新後的密碼將會進行同步處理，而這個動作大多會在幾分鐘內完成。
 密碼雜湊同步處理功能會自動重試失敗的同步處理嘗試。 若嘗試同步密碼期間發生錯誤，該錯誤會記錄在事件檢視器中。

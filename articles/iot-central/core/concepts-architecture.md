@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9206bf07a36cc5724b173790eb94037cb86add9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 25b0ec1b86a59b944cdb895bd536da32a1f8595b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952078"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884487"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT 中心架構
 
@@ -57,7 +57,7 @@ Azure IoT 中心會在雲端儲存應用程式資料。 儲存的應用程式資
 
 Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資料。 分析服務會使用裝置的時間序列資料。
 
-## <a name="analytics"></a>分析
+## <a name="analytics"></a>Analytics
 
 分析服務負責產生應用程式顯示的自訂報告資料。 操作者可以[自訂分析](howto-create-analytics.md) (適用於應用程式中顯示的分析)。 分析服務是以 [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)為基礎，可處理您的裝置所傳送的量值資料。
 
@@ -83,7 +83,7 @@ Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資�
 
 ## <a name="data-export"></a>資料匯出
 
-在 Azure IoT Central 應用程式中，您可以[持續將資料匯出](howto-export-data-event-hubs-service-bus.md)至自己的 Azure 事件中樞，並 Azure 服務匯流排實例。 您也可以定期將資料匯出至 Azure Blob 儲存體帳戶。 IoT Central 可以匯出度量、裝置和裝置範本。
+在 Azure IoT Central 應用程式中，您可以[持續將資料匯出](howto-export-data-event-hubs-service-bus.md)至自己的 Azure 事件中樞、Azure 服務匯流排和 Azure Blob 儲存體實例。 IoT Central 可以匯出度量、裝置和裝置範本。
 
 ## <a name="batch-device-updates"></a>Batch 裝置更新
 
@@ -93,7 +93,7 @@ Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資�
 
 針對使用預先定義角色的 Azure IoT 中心應用程式，[系統管理員可以為其定義存取規則](howto-administer.md)。 系統管理員可以將使用者指派給角色，而這些角色可判斷使用者可以存取應用程式的哪些區域。
 
-## <a name="security"></a>安全性
+## <a name="security"></a>Security
 
 Azure IoT 中心內的安全性功能包括：
 

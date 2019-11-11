@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: 290fc279a7d2ff2369758c170b3fb64635ee01af
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: fba762a53ec562bdbd52468716ce6e44eb717aaa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532280"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887180"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK 和 CLI 工具
 
@@ -36,7 +36,7 @@ ms.locfileid: "72532280"
 |    Go    |    [Azure/azure-sdk-適用于 go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/azure-sdk-適用于 java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
 |    Javascript    |    [Azure/azure-適用于 js 的 sdk](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
-|    拼音   |    [Azure/azure-sdk-ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
+|    Ruby   |    [Azure/azure-sdk-ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 
 ## <a name="cli-tools"></a>CLI 工具
 
@@ -53,7 +53,7 @@ ms.locfileid: "72532280"
 
 |    語言/工具    |    程式碼範例檔    |
 |------------------|--------------------------------------------|
-|    .NET   |    [適用于的 Azure NetApp Files SDK 範例。NETCore](https://docs.microsoft.com/en-us/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
+|    .NET   |    [適用于的 Azure NetApp Files SDK 範例。NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
 |    Python    |    [適用于 Python 的 Azure NetApp Files SDK 範例](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>後續步驟   

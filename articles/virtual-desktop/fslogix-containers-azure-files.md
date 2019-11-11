@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606838"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891628"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 設定檔容器和 Azure 檔案
 
@@ -48,11 +48,11 @@ UPD 和 RUP 是遠端桌面工作階段主機（RDSH）和虛擬硬碟（VHD）�
 
 | Technology | 新式設定 | Win32 設定 | OS 設定 | 使用者資料 | 伺服器 SKU 上支援 | Azure 上的後端儲存體 | 內部部署的後端儲存體 | 版本支援 | 後續登入時間 |注意事項|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **使用者設定檔磁片（UPD）** | 是 | 是 | 是 | 是 | 是 | 否 | 是 | Win 7 + | 是 | |
-| **漫遊使用者設定檔（RUP），維護模式** | 否 | 是 | 是 | 是 | 是| 否 | 是 | Win 7 + | 否 | |
-| **企業狀態漫遊（ESR）** | 是 | 否 | 是 | 否 | 請參閱附註 | 是 | 否 | Win 10 | 否 | 伺服器 SKU 上的功能，但不支援使用者介面 |
-| **使用者體驗虛擬化（UE-V）** | 是 | 是 | 是 | 否 | 是 | 否 | 是 | Win 7 + | 否 |  |
-| **OneDrive 雲端檔案** | 否 | 否 | 否 | 是 | 請參閱附註 | 請參閱附註  | 請參閱附注 | Win 10 RS3 | 否 | 未在伺服器 SKU 上測試。 Azure 上的後端儲存體取決於同步處理用戶端。 內部部署上的後端儲存體需要同步用戶端。 |
+| **使用者設定檔磁片（UPD）** | yes | yes | yes | yes | yes | 否 | yes | Win 7 + | yes | |
+| **漫遊使用者設定檔（RUP），維護模式** | 否 | yes | yes | yes | yes| 否 | yes | Win 7 + | 否 | |
+| **企業狀態漫遊（ESR）** | yes | 否 | yes | 否 | 請參閱附註 | yes | 否 | Win 10 | 否 | 伺服器 SKU 上的功能，但不支援使用者介面 |
+| **使用者體驗虛擬化（UE-V）** | yes | yes | yes | 否 | yes | 否 | yes | Win 7 + | 否 |  |
+| **OneDrive 雲端檔案** | 否 | 否 | 否 | yes | 請參閱附註 | 請參閱附註  | 請參閱附注 | Win 10 RS3 | 否 | 未在伺服器 SKU 上測試。 Azure 上的後端儲存體取決於同步處理用戶端。 內部部署上的後端儲存體需要同步用戶端。 |
 
 #### <a name="performance"></a>效能
 
@@ -78,7 +78,7 @@ Microsoft 已于2018年11月19日[取得 FSLogix](https://blogs.microsoft.com/bl
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure 檔案儲存體與 Azure Active Directory 網域服務整合
 
-FSLogix 設定檔容器的效能和功能會利用雲端。 2019年8月7日，Microsoft Azure 檔案已宣佈[使用 Azure Active Directory 網域服務（AD DS） Azure 檔案儲存體驗證](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview)的正式運作。 藉由解決成本和系統管理負擔，Azure AD DS 驗證的 Azure 檔案儲存體是 Windows 虛擬桌面服務中使用者設定檔的 premium 解決方案。
+FSLogix 設定檔容器的效能和功能會利用雲端。 2019年8月7日，Microsoft Azure 檔案已宣佈[使用 Azure Active Directory 網域服務（AD DS） Azure 檔案儲存體驗證](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)的正式運作。 藉由解決成本和系統管理負擔，Azure AD DS 驗證的 Azure 檔案儲存體是 Windows 虛擬桌面服務中使用者設定檔的 premium 解決方案。
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 虛擬桌面的最佳做法
 

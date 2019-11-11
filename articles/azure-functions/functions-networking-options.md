@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668130"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884955"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 網路功能選項
 
@@ -70,7 +70,7 @@ ms.locfileid: "73668130"
 
 應用程式一次只能使用一種類型的虛擬網路整合功能。 雖然這兩種方法在許多情況下都很有用，但下表指出每個應該使用的位置：
 
-| 問題  | 方案 |
+| 問題  | 解決方案 |
 |----------|----------|
 | 想要在相同的區域中達到 RFC 1918 位址（10.0.0.0/8、172.16.0.0/12、192.168.0.0/16） | 區域虛擬網路整合 |
 | 想要連線至傳統虛擬網路或另一個區域中的虛擬網路中的資源 | 閘道所需的虛擬網路整合 |
@@ -116,6 +116,12 @@ Azure Functions 中的虛擬網路整合使用共用的基礎結構搭配 App Se
 當您建立函數應用程式時，您必須建立或連結至支援 Blob、佇列和資料表儲存體的一般用途 Azure 儲存體帳戶。 您目前無法在此帳戶上使用任何虛擬網路限制。 如果您在用來處理函式應用程式的儲存體帳戶上設定虛擬網路服務端點，將會中斷您的應用程式。
 
 [深入瞭解儲存體帳戶需求。](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### <a name="using-key-vault-references"></a>使用 Key Vault 參考 
+
+Key Vault 參考可讓您在 Azure Functions 應用程式中使用來自 Azure Key Vault 的秘密，而不需要變更任何程式碼。 Azure Key Vault 是提供集中式秘密管理的服務，可完整控制存取原則和審核歷程記錄。
+
+如果您的 Key Vault 受到服務端點的保護，目前[Key Vault 的參考](../app-service/app-service-key-vault-references.md)將無法使用。 若要使用虛擬網路整合來連線到 Key Vault，您必須在應用程式代碼中呼叫 Key Vault。
 
 ## <a name="virtual-network-triggers-non-http"></a>虛擬網路觸發程式（非 HTTP）
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2019
-ms.openlocfilehash: 7131cf1902cc92fed66ae4db59449700973c6913
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa37717c5037294c2b5ec61f7815b007cbf74992
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899442"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884815"
 ---
 # <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
@@ -56,7 +56,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 使用者與工作階段報告會依頁面或自訂事件來篩選資料，並透過諸如位置、環境及頁面等屬性，將這些頁面或自訂事件進行區隔。 您也可以新增自己的篩選條件。
 
-![使用者人數](./media/usage-overview/users.png)  
+![使用者](./media/usage-overview/users.png)  
 
 右方情資指出資料集內的有趣模式。  
 
@@ -73,7 +73,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 - 根據實際使用者資料的表單假設 
 - 判斷保留期是否為您產品的問題 
 
-![保留期](./media/usage-overview/retention.png) 
+![保留](./media/usage-overview/retention.png) 
 
 在最上層的保留期控制項可讓您定義用來計算保留期的特定事件和時間範圍。 中間的圖表會依指定的時間範圍提供整體保留期百分比的視覺表示法。 底部圖表代表指定時間內的個別保留期。 此詳細資料等級會使用更詳細的資料粒度，讓您了解使用者在做什麼，以及可能會影響舊有使用者的因素。  
 
@@ -125,7 +125,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 在 Application Insights 入口網站中，將資料依屬性值篩選並分割，以便比較不同版本。
 
-若要這樣做，[請設定遙測初始設定式](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)：
+若要這樣做，[請設定遙測初始設定式](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)：
 
 **ASP.NET 應用程式**
 

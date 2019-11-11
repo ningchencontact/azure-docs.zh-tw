@@ -1,5 +1,5 @@
 ---
-title: 遠端監視解決方案中的模擬裝置行為 - Azure | Microsoft Docs
+title: 遠端監視解決方案中的模擬裝置-Azure |Microsoft Docs
 description: 本文說明如何使用 JavaScript 定義模擬裝置在遠端監視解決方案中的行為。
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04d2ad2f0e86ee977600af86a2ffd1e9d7680375
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823409"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890853"
 ---
 # <a name="implement-the-device-model-behavior"></a>實作裝置模型行為
 
@@ -36,10 +36,10 @@ ms.locfileid: "65823409"
 
 裝置模型結構描述的 [模擬](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) 區段會定義模擬裝置的內部狀態：
 
-- `InitialState` 會針對裝置狀態物件的所有屬性，定義初始值。
-- `Script` 會識別排程執行以更新裝置狀態的 JavaScript 檔案。
+- `InitialState` 定義裝置狀態物件之所有屬性的初始值。
+- `Script` 識別排程執行以更新裝置狀態的 JavaScript 檔案。
 
-下列範例會顯示模擬 Chiller 裝置之裝置狀態物件的定義：
+下列範例會顯示模擬 chiller 裝置之裝置狀態物件的定義：
 
 ```json
 "Simulation": {
@@ -61,7 +61,7 @@ ms.locfileid: "65823409"
 }
 ```
 
-模擬裝置的狀態 (如 `InitialState` 區段中所定義) 會由模擬服務保留在記憶體中。 狀態資訊會當作輸入，傳遞至 **chiller-01-state.js** 中定義的 `main` 函式。 在此範例中，模擬服務會每 5 秒執行 **chiller-01-state.js** 檔案一次。 指令碼可以修改模擬裝置的狀態。
+模擬裝置的狀態 (如 `InitialState` 區段中所定義) 會由模擬服務保留在記憶體中。 狀態資訊會當作輸入，傳遞至 `main`chiller-01-state.js**中定義的** 函式。 在此範例中，模擬服務會每 5 秒執行 **chiller-01-state.js** 檔案一次。 指令碼可以修改模擬裝置的狀態。
 
 以下示範典型 `main` 函式的外框：
 
@@ -82,7 +82,7 @@ function main(context, previousState, previousProperties) {
 - `deviceId`，例如 `Simulated.Chiller.123`
 - `deviceModel`，例如 `Chiller`
 
-`state` 參數包含裝置的狀態，如裝置模擬服務中所維護。 此值是先前對 `main` 的呼叫所傳回的 `state` 物件。
+`state` 參數包含裝置的狀態，如裝置模擬服務中所維護。 此值是先前對 `state` 的呼叫所傳回的 `main` 物件。
 
 下列範例示範 `main` 方法的典型實作，以處理模擬服務所維護的裝置狀態：
 

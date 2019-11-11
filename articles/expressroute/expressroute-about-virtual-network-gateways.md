@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 8860a297332a3572890ceb4c843040f530b8a897
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f12f92294a9c30ddedea3c433ff65de4a635fd4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935508"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889642"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute 虛擬網路閘道和 FastPath
 若要透過 ExpressRoute 連接您的 Azure 虛擬網路和內部部署網路，您必須先建立虛擬網路閘道。 虛擬網路閘道有兩個用途：在網路之間交換 IP 路由，並路由傳送網路流量。 本文說明依 SKU 的閘道類型、閘道 Sku 和預估效能。 本文也會說明 ExpressRoute [FastPath](#fastpath)，這項功能可讓來自內部部署網路的網路流量略過虛擬網路閘道，以改善效能。
@@ -85,13 +85,13 @@ FastPath 適用于所有 ExpressRoute 線路。 它仍然需要建立虛擬網�
 FastPath 不支援下列功能：
 * 閘道子網上的 UDR：如果您將 UDR 套用至虛擬網路的閘道子網，來自內部部署網路的網路流量將會繼續傳送到虛擬網路閘道。
 * VNet 對等互連：如果您有其他虛擬網路對等互連連接到 ExpressRoute，則從內部部署網路到其他虛擬網路的網路流量（亦即所謂的「輪輻」 Vnet）將會繼續傳送到虛擬網路關機. 因應措施是將所有虛擬網路直接連接到 ExpressRoute 線路。
-* 基本 Load Balancer：如果您在虛擬網路中部署基本內部負載平衡器，或您在虛擬網路中部署的 Azure PaaS 服務使用基本內部負載平衡器，則來自內部部署網路的網路流量會傳送至裝載于的虛擬 Ip基本負載平衡器將會傳送到虛擬網路閘道。 解決方案是將基本負載平衡器升級為[標準負載平衡器](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)。
+* 基本 Load Balancer：如果您在虛擬網路中部署基本內部負載平衡器，或您在虛擬網路中部署的 Azure PaaS 服務使用基本內部負載平衡器，則來自內部部署網路的網路流量會傳送至裝載于的虛擬 Ip基本負載平衡器將會傳送到虛擬網路閘道。 解決方案是將基本負載平衡器升級為[標準負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)。
 * 私用連結：如果您從內部部署網路連線到虛擬網路中的[私人端點](../private-link/private-link-overview.md)，則會透過虛擬網路閘道連接。
  
 ## <a name="resources"></a>REST API 和 PowerShell Cmdlet
 如需將 REST API 和 PowerShell Cmdlet 使用於虛擬網路閘道組態時的其他技術資源和特定語法需求，請參閱下列頁面︰
 
-| **傳統** | **Resource Manager** |
+| **傳統** | **資源管理員** |
 | --- | --- |
 | [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |

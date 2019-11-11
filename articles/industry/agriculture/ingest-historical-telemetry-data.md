@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847427"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889620"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -50,11 +50,14 @@ ms.locfileid: "73847427"
 
     ![專案伺服器陣列的節拍](./media/for-tutorials/power-shell-two-1.png)
 
-5. 移至上傳檔案的目錄（根據預設，它會上傳至 [主目錄]/home/username/。
+5. 移至上傳檔案的目錄
+
+   >[!NOTE]
+   > 根據預設，檔案會上傳到主目錄/home/username/。
 6. 使用命令執行腳本：  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. 請遵循畫面上的指示來完成程式。
@@ -78,8 +81,8 @@ ms.locfileid: "73847427"
 |  ProductCode                    |  裝置產品代碼或型號名稱/號碼。 例如，EnviroMonitor # 6800。  |
 |            連接埠          |     埠名稱和類型（數位/類比）
 |     名稱                 |  用來識別資源的名稱。 例如，模型名稱/產品名稱。
-      說明     | 提供模型的有意義描述
-|    屬性          |    製造商提供的其他屬性   |
+      描述     | 提供模型的有意義描述
+|    properties          |    製造商提供的其他屬性   |
 |    **裝置**             |                      |
 |   DeviceModelId     |     相關聯裝置型號的識別碼  |
 |  hardwareId          | 裝置的唯一識別碼，例如 MAC 位址等等。
@@ -87,8 +90,8 @@ ms.locfileid: "73847427"
 |  位置            |  裝置緯度（-90 到 + 90）/Longitude （-180 到180）/Elevation （以計量計）   
 |ParentDeviceId       |    此裝置所連接之父裝置的識別碼。 例如，連接到閘道的節點。 節點會以閘道的形式 parentDeviceId。  |
 |    名稱            | 用來識別資源的名稱。 裝置合作夥伴必須傳送與合作夥伴端上的裝置名稱一致的名稱。 如果合作夥伴裝置名稱是使用者定義的，則相同的使用者定義名稱應傳播至 FarmBeats。|
-|     說明       |      提供有意義的描述  |
-|     屬性    |  製造商提供的其他屬性
+|     描述       |      提供有意義的描述  |
+|     properties    |  製造商提供的其他屬性
 |     **感應器型號**        |          |
 |       類型（類比、數位）          |      感應器類型，不論是類比或數位       |
 |          製造商            |       感應器的製造商     |
@@ -99,8 +102,8 @@ ms.locfileid: "73847427"
 |        SensorMeasures > 單位              | 感應器遙測資料的單位。 以下是系統定義的單位： NoUnit、攝氏、華氏、開氏、Rankine、Pascal、水星、PSI、毫米、釐米、計量、英寸、墊腳、英里、公里、MilesPerHour、MilesPerSecond、KMPerHour、KMPerSecond、MetersPerHour、MetersPerSecond、學位、WattsPerSquareMeter、KiloWattsPerSquareMeter、MilliWattsPerSquareCentiMeter、MilliJoulesPerSquareCentiMeter、VolumetricWaterContent、百分比、PartsPerMillion、MicroMol、MicroMolesPerLiter、SiemensPerSquareMeterPerMole、MilliSiemensPerCentiMeter、Centibar、DeciSiemensPerMeter、KiloPascal、VolumetricIonContent、升、MilliLiter、Seconds、UnixTimestamp、MicroMolPerMeterSquaredPerSecond、InchesPerHour 以新增更多，請參閱/ExtendedType API。|
 |    SensorMeasures > aggregationType    |  值可以是 none、average、maximum、下限或 StandardDeviation  |
 |          名稱            | 用來識別資源的名稱。 例如，模型名稱/產品名稱。  |
-|    說明        | 提供模型的有意義描述  |
-|   屬性       |  製造商提供的其他屬性  |
+|    描述        | 提供模型的有意義描述  |
+|   properties       |  製造商提供的其他屬性  |
 |    **感應器**      |          |
 | hardwareId          |   製造商所設定之感應器的唯一識別碼 |
 |  sensorModelId     |    相關聯感應器型號的識別碼   |
@@ -108,8 +111,8 @@ ms.locfileid: "73847427"
 |   埠 > 名稱        |  裝置上感應器連線的埠名稱和類型。 這必須與裝置模型中所定義的名稱相同。 |
 |    DeviceID  |    感應器所連接之裝置的識別碼     |
 | 名稱            |   用來識別資源的名稱。 例如，感應器名稱/產品名稱和模型編號/產品代碼。|
-|    說明      | 提供有意義的描述 |
-|    屬性        |製造商提供的其他屬性 |
+|    描述      | 提供有意義的描述 |
+|    properties        |製造商提供的其他屬性 |
 
 如需物件的詳細資訊，請參閱[Swagger](https://aka.ms/FarmBeatsDatahubSwagger)。
 
@@ -127,7 +130,9 @@ FarmBeats 資料中樞會使用持有人驗證，這需要我們在上一節中�
 
 呼叫者可以使用上述認證來要求存取權杖，這必須在標頭區段的後續 API 要求中傳送，如下所示：
 
-標頭 = *{"Authorization"： "持有者" + access_token，...}*
+```
+headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **HTTP 要求標頭**：
 
@@ -161,8 +166,10 @@ FarmBeats 資料中樞會使用持有人驗證，這需要我們在上一節中�
     "additionalProp3": {}
   }
 }
+```
 
-Device
+裝置
+
 ```json
 {
   "deviceModelId": "string",
@@ -242,7 +249,7 @@ SensorModel
 ```
 以下範例要求是建立裝置（這具有輸入 json 做為具有要求主體的承載）。  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -266,6 +273,7 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 
 一旦您將連線建立為 EventHub 用戶端，您就可以將訊息傳送至 EventHub 做為 json。  
 將歷程感應器資料格式轉換為 Azure FarmBeats 瞭解的標準格式。 標準訊息格式如下所示：  
+
 
 
  ```

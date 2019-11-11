@@ -1,19 +1,18 @@
 ---
-title: 客戶資料要求功能
-description: 客戶資料要求功能的摘要
+title: Azure IoT 中樞裝置的客戶資料要求
+description: Azure IoT 中樞中管理的大部分裝置都不是個人，但有些則是。 本文討論管理員能夠從裝置匯出或刪除個人資料。
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1519637eddf909040131a1efac5738fc7cc8e565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29b3ed46ffe7f2236fc63d65ed49385b29b1a08a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845795"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889474"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -41,7 +40,7 @@ Azure IoT 中樞是 REST API 型的雲端服務，目標是企業客戶，它能
 
 ## <a name="exporting-customer-data"></a>匯出客戶資料
 
-租用戶系統管理員可以利用 Azure 入口網站中，Azure IoT 中樞擴充功能的 IoT 裝置刀鋒視窗內的複製和貼上，來匯出與裝置相關聯的資料。
+租使用者系統管理員可以在 Azure 入口網站中 Azure IoT 中樞延伸模組的 [IoT 裝置] 窗格內，使用複製並貼上，以匯出與裝置相關聯的資料。
 
 也可以使用 REST API 執行裝置的匯出作業。 如需詳細資訊，請參閱[服務 - 取得裝置](/rest/api/iothub/service/getdevice)。
 

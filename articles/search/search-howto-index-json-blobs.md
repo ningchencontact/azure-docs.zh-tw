@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789512"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889891"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中使用 Blob 索引子編制 JSON blob 的索引
 
@@ -65,17 +65,11 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔（剖析模式是 
 
    ![Blob 資料來源定義](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - 略過精靈的 [新增認知搜尋] 頁面
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-略過 wizard 中的 [擴充內容] 頁面
 
-您並不需要新增認知技術就能匯入 JSON 文件。 除非您有特定的需求，才能[將 AI 擴充加入](cognitive-search-concept-intro.md)至索引管線，所以您應該略過此步驟。
+新增認知技能（或擴充）不是匯入需求。 除非您有特定的需求，才能[將 AI 擴充加入](cognitive-search-concept-intro.md)至索引管線，所以您應該略過此步驟。
 
-若要略過此步驟，請先移至下一個頁面。
-
-   ![認知搜尋的下一頁按鈕](media/search-get-started-portal/next-button-add-cog-search.png)
-
-您可以從該頁面直接跳到索引自訂。
-
-   ![跳過認知技術步驟](media/search-get-started-portal/skip-cog-skill-step.png)
+若要略過此步驟，請按一下頁面底部的藍色按鈕，以尋找 [下一步] 和 [略過]。
 
 ### <a name="5---set-index-attributes"></a>5 - 設定索引屬性
 
@@ -116,7 +110,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔（剖析模式是 
 
 針對以程式碼為基礎的 JSON 索引編制，請使用[Postman](search-get-started-postman.md)和 REST API 來建立這些物件：
 
-+ [指數](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [器](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
@@ -411,7 +405,7 @@ Blob 索引子會將 JSON 檔剖析成單一 Azure 認知搜尋檔。 索引子�
         }
     }
 
-假設搜尋索引有下列欄位︰`Edm.String` 類型的 `text`、`Edm.DateTimeOffset` 類型的 `date`、`Collection(Edm.String)` 類型的 `tags`。 請注意來源中的 "datePublished" 與索引中的 `date` 欄位之間的差異。 若要將 JSON 對應到所需形狀，請使用下列欄位對應︰
+假設搜尋索引有下列欄位︰`text` 類型的 `Edm.String`、`date` 類型的 `Edm.DateTimeOffset`、`tags` 類型的 `Collection(Edm.String)`。 請注意來源中的 "datePublished" 與索引中的 `date` 欄位之間的差異。 若要將 JSON 對應到所需形狀，請使用下列欄位對應︰
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -430,7 +424,7 @@ Blob 索引子會將 JSON 檔剖析成單一 Azure 認知搜尋檔。 索引子�
 >
 >
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 認知搜尋中的索引子](search-indexer-overview.md)
 + [使用 Azure 認知搜尋編制索引 Azure Blob 儲存體](search-howto-index-json-blobs.md)

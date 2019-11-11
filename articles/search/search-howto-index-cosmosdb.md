@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719959"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889900"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
@@ -78,17 +78,11 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
    ![Cosmos DB 資料來源定義](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB 資料來源定義")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - 略過精靈的 [新增認知搜尋] 頁面
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-略過 wizard 中的 [擴充內容] 頁面
 
-不需要為檔匯入新增認知技能。 除非您有特定的需求，才能[將 AI 擴充加入](cognitive-search-concept-intro.md)至索引管線，所以您應該略過此步驟。
+新增認知技能（或擴充）不是匯入需求。 除非您有特定的需求，才能[將 AI 擴充加入](cognitive-search-concept-intro.md)至索引管線，所以您應該略過此步驟。
 
-若要略過此步驟，請先移至下一個頁面。
-
-   ![新增技能的下一頁按鈕](media/search-get-started-portal/next-button-add-cog-search.png)
-
-您可以從該頁面直接跳到索引自訂。
-
-   ![跳過認知技術步驟](media/search-get-started-portal/skip-cog-skill-step.png)
+若要略過此步驟，請按一下頁面底部的藍色按鈕，以尋找 [下一步] 和 [略過]。
 
 ### <a name="5---set-index-attributes"></a>5 - 設定索引屬性
 
@@ -176,7 +170,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
 要求的主體包含資料來源定義，其中應包含下列欄位：
 
-| 欄位   | 說明 |
+| 欄位   | 描述 |
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱來表示您的資料來源物件。 |
 |**type**| 必要。 必須是 `cosmosdb`。 |

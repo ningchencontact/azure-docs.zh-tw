@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802236"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891470"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure 上的 Oracle 應用程式和解決方案總覽
 
@@ -54,9 +54,9 @@ ms.locfileid: "70802236"
 
 ## <a name="backup-oracle-workloads"></a>備份 Oracle 工作負載
 
-* 使用[Azure 備份](https://docs.microsoft.com/en-us/azure/backup/backup-overview)備份 Oracle vm
+* 使用[Azure 備份](https://docs.microsoft.com/azure/backup/backup-overview)備份 Oracle vm
 
-* 使用 Oracle RMAN 來備份您的 Oracle Database，並選擇性地使用[Azure Blob 保險絲](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux)來掛接[高度備援的 Azure Blob 儲存體帳戶](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)，並將您的 RMAN 備份寫入其中以增加復原能力。
+* 使用 Oracle RMAN 來備份您的 Oracle Database，並選擇性地使用[Azure Blob 保險絲](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)來掛接[高度備援的 Azure Blob 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-redundancy)，並將您的 RMAN 備份寫入其中以增加復原能力。
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Azure 與 OCI 的整合（預覽）
 

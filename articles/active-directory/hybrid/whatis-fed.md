@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f9832a4307ea9519df448f192eeca70043a6d6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: aeb8886987c09b504262d6ea12863a646d6022cc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035178"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883657"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>什麼是與 Azure AD 同盟？
 
@@ -35,10 +35,10 @@ ms.locfileid: "70035178"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [什麼是混合式身分識別？](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [什麼是混合式身分識別？](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [什麼是 Azure AD Connect 和 Connect Health？](whatis-azure-ad-connect.md)
 - [什麼是密碼雜湊同步處理？](whatis-phs.md)
 - [什麼是同盟？](whatis-fed.md)
-- [什麼是單一登入？](how-to-connect-sso.md)
+- [何謂單一登入？](how-to-connect-sso.md)
 - [同盟如何運作](how-to-connect-fed-whatis.md)
 - [與 PingFederate 同盟](how-to-connect-install-custom.md#configuring-federation-with-pingfederate)

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f6d1987012cb401d7167896d9352ba7eae821a04
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208012"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887978"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -64,7 +64,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 ## <a name="configure-geo-replication"></a>設定異地複寫
 
-設定異地複寫是簡單的，只要按一下地圖上的區域。 您也可以使用 Azure CLI 中的[az acr replication](/cli/azure/acr/replication)命令之類的工具來管理異地複寫, 或使用[Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)來部署已啟用異地複寫的登錄。
+設定異地複寫是簡單的，只要按一下地圖上的區域。 您也可以使用 Azure CLI 中的[az acr replication](/cli/azure/acr/replication)命令之類的工具來管理異地複寫，或使用[Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)來部署已啟用異地複寫的登錄。
 
 異地複寫是[進階登錄](container-registry-skus.md)的一項功能。 如果您的登錄還不是進階，您可以在 [Azure 入口網站](https://portal.azure.com)中從基本和標準變更為進階：
 
@@ -97,19 +97,19 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
 * 異地複寫登錄中的每個區域在設定完成後，都是獨立的。 Azure Container Registry SLA 會套用至每個異地複寫的區域。
 * 當您對異地複寫的登錄推送或提取映像時，背景中的 Azure 流量管理員會將要求傳送至離您最近的區域中的登錄。
 * 當您將映像或標記更新推送至最接近的區域之後，Azure Container registry 需要一些時間將資訊清單和層複寫至您選擇加入的其餘區域。 映像愈大，複寫就愈耗時。 各個複寫區域會透過最終的一致性模型同步處理映像和標記。
-* 若要管理相依于異地複寫之推送更新的工作流程, 我們建議您設定[webhook](container-registry-webhook.md)來回應推送事件。 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
+* 若要管理相依于異地複寫之推送更新的工作流程，我們建議您設定[webhook](container-registry-webhook.md)來回應推送事件。 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
 
 ## <a name="delete-a-replica"></a>刪除複本伺服器
 
-設定登錄的複本之後, 您可以在不再需要時將它刪除。 使用 Azure 入口網站或其他工具 (例如 Azure CLI 中的[az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete)命令) 來刪除複本。
+設定登錄的複本之後，您可以在不再需要時將它刪除。 使用 Azure 入口網站或其他工具（例如 Azure CLI 中的[az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete)命令）來刪除複本。
 
-若要刪除 Azure 入口網站中的複本:
+若要刪除 Azure 入口網站中的複本：
 
-1. 流覽至您的 Azure Container Registry, 然後選取 [複寫]。
-1. 選取複本的名稱, 然後選取 [**刪除**]。 確認您想要刪除複本。
+1. 流覽至您的 Azure Container Registry，然後**選取 [** 複寫]。
+1. 選取複本的名稱，然後選取 [**刪除**]。 確認您想要刪除複本。
 
 > [!NOTE]
-> 您無法在登錄的*主區域*(也就是您用來建立登錄的位置) 中刪除登錄複本。 您只能藉由刪除登錄本身來刪除 home 複本。
+> 您無法在登錄的*主區域*（也就是您用來建立登錄的位置）中刪除登錄複本。 您只能藉由刪除登錄本身來刪除 home 複本。
 
 ## <a name="geo-replication-pricing"></a>異地複寫價格
 
@@ -121,7 +121,7 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
  
 將映像推送至異地複寫登錄的 Docker 用戶端，可能不會將所有映像層及其資訊清單推送至單一複寫區域。 這可能是因為 Azure 流量管理員會將登錄要求路由傳送至最接近網路的複寫登錄。 如果登錄有兩個「鄰近」複寫區域，則映像層和資訊清單可能會散發至兩個網站，因而在驗證資訊清單時造成推送作業失敗。 之所以會發生此問題，原因是某些 Linux 主機上用來解析登錄 DNS 名稱的方式有誤。 此問題不會發生在 Windows 上，因為 Windows 會提供用戶端 DNS 快取。
  
-如果發生此問題，有一個解決方案是在 Linux 主機上套用用戶端 DNS 快取，例如 `dnsmasq`。 這有助於確保登錄名稱會以一致的方式進行解析。 如果您是使用 Azure 中的 Linux VM 來推送至登錄，請參閱 [Azure 中 Linux 虛擬機器的 DNS 名稱解析選項](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns)中的選項。
+如果發生此問題，有一個解決方案是在 Linux 主機上套用用戶端 DNS 快取，例如 `dnsmasq`。 這有助於確保登錄名稱會以一致的方式進行解析。 如果您是使用 Azure 中的 Linux VM 來推送至登錄，請參閱 [Azure 中 Linux 虛擬機器的 DNS 名稱解析選項](https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns)中的選項。
 
 若要將推送映像時的最接近複本 DNS 解析最佳化，請在與推送作業來源相同的 Azure 區域中設定異地複寫登錄，如果是在 Azure 外部工作，則請在最接近的區域設定。
 

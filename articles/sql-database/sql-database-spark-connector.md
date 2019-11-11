@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: d398019b62078da6943cb98cbafc3ac39640513f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 03150ef3a8799cd0f84fb1bc03f2fd712cddd541
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820864"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889803"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
@@ -32,7 +32,7 @@ ms.locfileid: "73820864"
 | Apache Spark                         |2.0.2 或更新版本           |
 | Scala                                |2.10 或更新版本            |
 | Microsoft JDBC Driver for SQL Server |6.2 或更新版本             |
-| Microsoft SQL Server                 |SQL Server 2008 或更新版本 |
+| 連接字串                 |SQL Server 2008 或更新版本 |
 | Azure SQL Database                   |支援                |
 
 適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器會利用 Microsoft JDBC Driver for SQL Server 在 Spark 背景工作節點與 SQL 資料庫之間移動資料：
@@ -130,7 +130,7 @@ val config = Config(Map(
   "queryCustom"  -> query
 ))
 
-sqlContext.SqlDBQuery(config)
+sqlContext.sqlDBQuery(config)
 ```
 
 ## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>使用 AAD 驗證將 Spark 連線到 Azure SQL Database

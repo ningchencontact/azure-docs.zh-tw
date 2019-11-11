@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472863"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885796"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>自動調整叢集以符合 Azure Kubernetes Service (AKS) 的應用程式需求
 
@@ -22,7 +22,7 @@ ms.locfileid: "73472863"
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文會要求您執行 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+本文會要求您執行 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="limitations"></a>限制
 
@@ -122,6 +122,35 @@ az aks update \
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>重新啟用已停用的叢集自動調整程式
 
 如果您想要在現有叢集上重新啟用叢集自動調整程式，您可以使用[az aks update][az-aks-update]命令來重新啟用它，並指定 *--enable-cluster-自動調整程式*、 *--min-count*和 *--max 計數*參數。
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>取出叢集自動調整程式記錄和狀態
+
+若要診斷和調試自動調整程式事件，可以從自動調整程式附加元件抓取記錄和狀態。
+
+AKS 會代表您管理叢集自動調整程式，並在受控控制平面中執行。 主要節點記錄必須設定為可視為結果。
+
+若要將記錄檔設定從叢集自動調整程式推送至 Log Analytics，請遵循下列步驟。
+
+1. 設定診斷記錄的規則，以將叢集自動調整程式記錄推送至 Log Analytics。 [這裡詳述指示](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs)，請確定您在選取 [記錄] 的選項時，核取了 `cluster-autoscaler` 的核取方塊。
+1. 按一下您叢集上的 [記錄] 區段，透過 Azure 入口網站。
+1. 將下列範例查詢輸入至 Log Analytics：
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+只要有要抓取的記錄，您應該會看到類似下列傳回的記錄。
+
+![Log Analytics 記錄](media/autoscaler/autoscaler-logs.png)
+
+叢集自動調整程式也會將健康狀態寫出至名為 `cluster-autoscaler-status`的 configmap。 若要取出這些記錄檔，請執行下列 `kubectl` 命令。 系統會針對以叢集自動調整程式設定的每個節點集區報告健全狀況狀態。
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+若要深入瞭解自動調整程式中記錄的內容，請閱讀[Kubernetes/自動調整程式 GitHub 專案](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why)上的常見問題。
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>使用已啟用多個節點集區的叢集自動調整程式
 

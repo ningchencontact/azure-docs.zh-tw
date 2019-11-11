@@ -1,5 +1,5 @@
 ---
-title: 將 IoT DevKit 連線到遠端監視解決方案加速器 - Azure | Microsoft Docs
+title: 將 IoT DevKit 連線到遠端監視解決方案-Azure |Microsoft Docs
 description: 在本操作指南中，您會了解如何將來自 IoT DevKit AZ3166 裝置上感應器的遙測資料傳送至遠端監視解決方案加速器，以進行監視和呈現視覺效果。
 author: isabelcabezasm
 manager: ''
@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 542a0780c0525ee7ceddfd36c3a4f7c348d0574f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930866"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888872"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>將 IoT DevKit 裝置連線到遠端監視解決方案加速器
 

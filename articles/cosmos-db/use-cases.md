@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: e22b426b2172c169f9343569fffac57f370afbee
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: de2bc551547706fb820813e57996e77bf49148d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219876"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888940"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -68,7 +68,7 @@ Azure Cosmos DB 通常用於事件來源，以其[變更摘要](change-feed.md)�
 ## <a name="gaming"></a>玩遊戲
 資料庫層是遊戲應用程式的重要元件。 現今的遊戲會在行動/主控台用戶端進行圖形處理，但依賴雲端來提供自訂和個人化的內容，如遊戲中的統計資料、社交媒體整合和得分排行榜。 遊戲的讀取和寫入通常需要單一毫秒延遲，以在遊戲中提供更吸引人的體驗。 在新遊戲推出和功能更新期間，遊戲資料庫必須快速且要能處理大量激增的要求率。
 
-Azure Cosmos DB 由像是[陰屍路：無人之境](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) ([Next Games](https://www.nextgames.com/)) 和[最後一戰 5：守護者](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/)等遊戲使用。 Azure Cosmos DB 可為遊戲開發人員提供下列優點︰
+Azure Cosmos DB 已獲得 [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) ([Next Games](https://www.nextgames.com/) 所製作) 和 [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/) 等遊戲採用。 Azure Cosmos DB 可為遊戲開發人員提供下列優點︰
 
 * Azure Cosmos DB 可彈性調高或調降效能。 這可讓遊戲藉由單一 API 呼叫就能處理同一時間區區十幾名玩家到數百萬名玩家的更新設定檔和統計資料。
 * Azure Cosmos DB 支援毫秒讀取和寫入，可避免在進行遊戲時發生任何延遲。
@@ -101,4 +101,4 @@ JSON (Cosmos DB 所支援的格式) 是一種呈現 UI 配置資料的有效格�
 
 * 若要開始使用 Azure Cosmos DB，請依照我們的[快速入門](create-sql-api-dotnet.md)操作，這會逐步引導您建立帳戶及開始使用 Cosmos DB。
 
-* 如果您想要閱讀有關使用 Azure Cosmos DB 之客戶的詳細資訊，請參閱[客戶案例研究](https://azure.microsoft.com/en-us/case-studies/?service=cosmos-db)頁面。
+* 如果您想要閱讀有關使用 Azure Cosmos DB 之客戶的詳細資訊，請參閱[客戶案例研究](https://azure.microsoft.com/case-studies/?service=cosmos-db)頁面。

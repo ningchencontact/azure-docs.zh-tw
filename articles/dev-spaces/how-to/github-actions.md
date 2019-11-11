@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: 使用 GitHub 動作和 Azure Dev Spaces，直接在 Azure Kubernetes Service 中檢查並測試提取要求的變更。
 keywords: Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，GitHub 動作，Helm，服務網格，服務網格路由，kubectl，k8s
 manager: gwallace
-ms.openlocfilehash: 590d49f4c189ff48f20369d18b17e0f6e4a46fa2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 09dc9440628ac5d808f90d086bd88e4f90765c28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571598"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889725"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub 動作 & Azure Kubernetes Service （預覽）
 
@@ -29,11 +29,11 @@ Azure Dev Spaces 提供使用 GitHub 動作的工作流程，可讓您在提取�
 * 在獨立的開發人員空間中以完整應用程式的內容測試單一微服務。
 
 > [!IMPORTANT]
-> 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 這項功能目前只能預覽。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
+* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 * [已安裝 Azure CLI][azure-cli-installed]。
 * [已安裝 Helm 2.13 或更新版本][helm-installed] \(英文\)。
 * [已啟用 Github 動作][github-actions-beta-signup]的 github 帳戶。
@@ -54,7 +54,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>建立用於驗證的服務主體
 
-使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體。 例如：
+使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體。 例如︰
 
 ```cmd
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -145,7 +145,7 @@ git commit -m "Removing hard coded imageUrl from /bikes/:id route"
 git push origin bike-images
 ```
 
-推播完成後，流覽至 GitHub 上的分支存放庫在您分支存放庫中建立具有*dev*的提取要求，做為與*自行車-images*分支相較之下的基底分支。
+推播完成後，流覽至 GitHub 上的分支存放庫，以在分支存放庫中建立具有*master*分支的提取要求，做為與*自行車影像*分支相較之下的基底分支。
 
 開啟提取要求之後，流覽至 [*動作*] 索引標籤。確認已啟動新的動作，並正在建立*自行車*服務。
 
@@ -158,7 +158,7 @@ git push origin bike-images
 
 從批註開啟 URL，以流覽至*bikesharingweb*服務。 選取 [ *Aurelia Briggs （customer）* ] 作為使用者，然後選取要出租的自行車。 確認您不會再看到自行車的預留位置影像。
 
-如果您將變更合併至*dev*分支，則會執行另一個動作，以在父開發人員空間中重建並執行整個應用程式。 在此範例中，父空間為*dev*。 此動作是在[github/workflow/bikesharing.clients.core. yml][github-action-bikesharing-yaml]中設定。
+如果您將變更合併到分叉中的*主要*分支，則會執行另一個動作，以在父開發人員空間中重建並執行整個應用程式。 在此範例中，父空間為*dev*。 此動作是在[github/workflow/bikesharing.clients.core. yml][github-action-bikesharing-yaml]中設定。
 
 ## <a name="clean-up-your-azure-resources"></a>清除 Azure 資源
 

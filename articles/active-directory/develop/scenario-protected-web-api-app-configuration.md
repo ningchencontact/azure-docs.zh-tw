@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8cc02831fa00a3974da1b74b07daf581f50dd22
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569617"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882635"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保護的 Web API：程式碼設定
 
@@ -148,7 +148,7 @@ Microsoft.aspnetcore.authentication.jwtbearer 中介軟體（例如 web 應用�
 
 此表格會說明驗證程式：
 
-| 驗證程式 | 說明 |
+| 驗證程式 | 描述 |
 |---------|---------|
 | `ValidateAudience` | 確保權杖適用于驗證權杖的應用程式（適用于我）。 |
 | `ValidateIssuer` | 確保權杖是由信任的 STS （來自我信任的人）所發行。 |
@@ -158,6 +158,10 @@ Microsoft.aspnetcore.authentication.jwtbearer 中介軟體（例如 web 應用�
 | `ValidateTokenReplay` | 確保不會重新執行 token。 （某些 onetime 使用通訊協定的特殊案例）。 |
 
 驗證程式全都與 `TokenValidationParameters` 類別的屬性相關聯，其本身是從 ASP.NET/ASP.NET 核心設定進行初始化。 在大部分的情況下，您不需要變更參數。 有一個例外狀況，適用于不是單一租使用者的應用程式。 （也就是接受來自任何組織或個人 Microsoft 帳戶的使用者）的 web 應用程式。在此情況下，必須驗證簽發者。
+
+## <a name="token-validation-in-azure-functions"></a>Azure Functions 中的權杖驗證
+
+您也可以在 Azure 函式中驗證傳入的存取權杖。 您可以在[Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)、 [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)和[Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)中找到在 Azure 函式中驗證權杖的範例。
 
 ## <a name="next-steps"></a>後續步驟
 

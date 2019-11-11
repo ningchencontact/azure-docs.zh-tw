@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988795"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890348"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 隨插即用預覽詞彙詞彙
 
@@ -64,7 +64,7 @@ Azure IoT explorer 是一種圖形化工具，可讓您用來與[IoT 隨插即�
 - 使用裝置[屬性](#properties)。
 - 呼叫裝置[命令](#commands)。
 
-## <a name="azure-iot-hub"></a>Azure IoT 中樞
+## <a name="azure-iot-hub"></a>Azure IoT 中心
 
 IoT 中樞是託管於雲端中的受控服務，可做為 IoT 應用程式與其管理裝置之間雙向通訊的中央訊息中樞。 [Iot 隨插即用裝置](#iot-plug-and-play-device)可以連線到 iot 中樞。 IoT 解決方案會使用 IoT 中樞來啟用：
 
@@ -117,7 +117,7 @@ IoT 中樞是託管於雲端中的受控服務，可做為 IoT 應用程式與�
 
 ## <a name="device-provisioning-service"></a>裝置佈建服務
 
-[Azure IoT Central](#azure-iot-central)使用裝置布建服務來管理所有裝置註冊和連線。 如需詳細資訊，請參閱[Azure 中的裝置連線能力 IoT Central](../iot-central/core/overview-iot-central-get-connected-pnp.md)。 您也可以使用裝置布建服務來管理裝置註冊，並聯機至 IoT 中樞型 IoT 解決方案。 如需詳細資訊，請參閱[使用 Azure IoT 中樞裝置](../iot-dps/about-iot-dps.md)布建服務布建裝置。
+[Azure IoT Central](#azure-iot-central)使用裝置布建服務來管理所有裝置註冊和連線。 如需詳細資訊，請參閱[Azure 中的裝置連線能力 IoT Central](../iot-central/preview/overview-iot-central-get-connected.md)。 您也可以使用裝置布建服務來管理裝置註冊，並聯機至 IoT 中樞型 IoT 解決方案。 如需詳細資訊，請參閱[使用 Azure IoT 中樞裝置](../iot-dps/about-iot-dps.md)布建服務布建裝置。
 
 ## <a name="device-registration"></a>裝置註冊
 
@@ -171,7 +171,7 @@ IoT 隨插即用裝置通常是小型的獨立計算裝置，可收集資料或�
 
 用來管理和與模型存放庫互動的 API。 例如，您可以使用 API 來新增[裝置功能模型](#device-capability-model)，並搜尋功能模型。
 
-## <a name="properties"></a>屬性
+## <a name="properties"></a>properties
 
 屬性是在[介面](#interface)中定義的資料欄位，代表數位對應項的某些狀態。 您可以將屬性宣告為唯讀或可寫入。 唯讀屬性（例如序號）是由[IoT 隨插即用裝置](#iot-plug-and-play-device)本身上執行的程式碼所設定。  可寫入的屬性（例如警示閾值）通常是從雲端型 IoT 解決方案進行設定。
 

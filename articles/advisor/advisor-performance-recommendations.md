@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898191"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885744"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
@@ -27,7 +27,7 @@ Azure Advisor 會識別設定較長 TTL 的流量管理員設定檔，並且建�
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>使用 SQL DB Advisor 來改善資料庫效能
 
-建議程式可針對所有的 Azure 資源提供一致的合併建議檢視。 它會與 SQL Database 建議程式整合，以提供改善 SQL Azure 資料庫效能的相關建議。 SQL Database 建議程式會藉由分析您的使用歷程記錄來評估 SQL Azure 資料庫的效能。 接著會提供最適合用於執行資料庫之一般工作負載的建議事項。
+建議程式可針對所有的 Azure 資源提供一致的合併建議檢視。 它會與 SQL Database 建議程式整合，以提供改善 SQL Azure 資料庫效能的相關建議。 SQL Database Advisor 藉由分析您的使用量歷程記錄，來評估 SQL Azure 資料庫的效能。 接著會提供最適合用於執行資料庫之一般工作負載的建議事項。
 
 > [!NOTE]
 > 若要取得建議，資料庫必須持續使用一週，而且那一週之內必須有一些一致的活動。 相較於隨機蹦出的活動，一致的查詢模式更有利於 SQL Database Advisor 最佳化。
@@ -73,7 +73,7 @@ Advisor 會識別不是複寫資料表、但可因轉換而受益的資料表，
 將儲存體帳戶部署模型遷移到 Azure Resource Manager (Resource Manager)，可使用範本部署、其他安全性選項，以及可升級至 GPv2 帳戶，以利用 Azure 儲存體的最新功能。 Advisor 會識別任何使用傳統部署模型的獨立儲存體帳戶，並建議遷移到 Resource Manager 部署模型。
 
 > [!NOTE]
-> Azure 監視器中的傳統警示已于2019年8月淘汰。 建議您將傳統儲存體帳戶升級為使用 Resource Manager，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)。
+> Azure 監視器中的傳統警示已于2019年8月淘汰。 建議您將傳統儲存體帳戶升級為使用 Resource Manager，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)。
 
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>設計您的儲存體帳戶，以避免達到最大訂用帳戶限制
 
@@ -88,7 +88,7 @@ Azure 區域每個訂用帳戶最多可支援250個儲存體帳戶。 達到限�
 較低的快取點擊率會導致查詢效能變慢，並增加 IOPS。 這可能是因為查詢計劃不正確或執行記憶體密集型工作負載所造成。 若要修正查詢計劃或增加適用於 PostgreSQL 的 Azure 資料庫資料庫伺服器、Azure MySQL 資料庫伺服器或 Azure 適用于 mariadb server [的記憶體](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers)，將有助於優化資料庫工作負載的執行。 Azure Advisor 識別由於這項高緩衝集區變換而受到影響的伺服器，並建議您修正查詢計劃、移至具有更多記憶體的較高 SKU，或增加儲存體大小以取得更多 IOPS。
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>使用 Azure MySQL 或 Azure 于 postgresql 讀取複本來向外延展大量讀取的工作負載
-Azure Advisor 利用以工作負載為基礎的啟發學習法，例如過去七天內，伺服器上的讀取與寫入比例，以識別大量讀取的工作負載。 您的 Azure database for 于 postgresql 資源或「適用于 MySQL 的 Azure 資料庫」資源具有非常高的讀取/寫入比率，可能會導致 CPU 和/或記憶體爭用，進而使查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於向外延展讀取至複本伺服器，以防止主伺服器上的 CPU 和/或記憶體限制。 Advisor 會識別具有大量讀取密集型工作負載的伺服器，並建議新增 [讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 來卸載部分讀取工作負載。
+Azure Advisor 利用以工作負載為基礎的啟發學習法，例如過去七天內，伺服器上的讀取與寫入比例，以識別大量讀取的工作負載。 您的 Azure database for 于 postgresql 資源或「適用于 MySQL 的 Azure 資料庫」資源具有非常高的讀取/寫入比率，可能會導致 CPU 和/或記憶體爭用，進而使查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於向外延展讀取至複本伺服器，以防止主伺服器上的 CPU 和/或記憶體限制。 Advisor 會識別具有大量讀取密集型工作負載的伺服器，並建議新增 [讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 以卸載部分讀取工作負載。
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>將您的 Azure MySQL、Azure 于 postgresql 或 Azure 適用于 mariadb server 調整為較高的 SKU，以避免連接限制
@@ -120,8 +120,8 @@ Azure Advisor 會識別使用100查詢頁面大小的 Azure Cosmos DB 容器，�
 
 若要深入了解 Advisor 建議，請參閱：
 
-* [Advisor 簡介](advisor-overview.md)
+* [建議程式簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [Advisor 成本建議](advisor-performance-recommendations.md)
-* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
-* [Advisor 安全性建議](advisor-security-recommendations.md)
+* [建議程式成本建議](advisor-performance-recommendations.md)
+* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
+* [建議程式安全性建議](advisor-security-recommendations.md)

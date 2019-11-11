@@ -1,18 +1,18 @@
 ---
-title: 產生對應
+title: 產生地圖
 description: 說明如何在 FarmBeats 中產生對應
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798475"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891014"
 ---
-# <a name="generate-maps"></a>產生對應
+# <a name="generate-maps"></a>產生地圖
 
 使用 Azure FarmBeats，您可以使用衛星圖像和感應器資料輸入來產生下列對應。 對應可協助您查看伺服器陣列的地理位置，並為您的裝置識別適當的位置。
 
@@ -170,7 +170,7 @@ FarmBeats 可讓您為伺服器陣列產生正規化的差異 Vegetation Index �
 嘗試產生「土裡濕度」熱度圖之前，請先確定下列事項：
 
 - 至少必須部署三個上的土濕度感應器。 Microsoft 建議您不要嘗試在部署感應器並使其與伺服器陣列相關聯之前，先建立一個土裡濕度對應。  
-- 在過去120天內，至少有一個雲端免費的 Sentinel 場景必須可供使用，而這天的要求是來自土濕度的對應。
+- 產生土裡的濕度熱度圖會受到 Sentinel 的路徑涵蓋範圍、雲端封面和雲端陰影的影響。 在過去120天內，至少有一個雲端免費的 Sentinel 場景必須可供使用，而這天的要求是來自土濕度的對應。
 - 在伺服器陣列上部署的至少一半感應器必須上線，並將資料串流處理到資料中樞。
 - 熱度圖應該使用來自相同提供者的感應器量值來產生。
 
@@ -220,6 +220,6 @@ FarmBeats 可讓您為伺服器陣列產生正規化的差異 Vegetation Index �
 4. 選取資料表標頭旁的**排序**圖示，依據 [伺服器陣列]、[日期]、[建立時間]、[工作識別碼] 和 [作業類型] 排序。
 5. 使用頁面結尾的瀏覽按鈕，以流覽可用的對應清單。
 6. 選取您想要查看的對應。 快顯視窗會顯示所選取對應的預覽。
-7. 選取 [**下載**] 下拉式功能表以選取下載格式，並將對應下載並儲存在您電腦的本機資料夾中。
+7. 選取 [**下載**] 下拉式功能表來選取下載格式，並將對應下載並儲存在指定的資料夾中。
 
     ![專案伺服器陣列的節拍](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

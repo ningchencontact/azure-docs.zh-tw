@@ -1,6 +1,6 @@
 ---
 title: 透過分散式追蹤將相互關聯識別碼新增至 IoT 訊息 (預覽)
-description: ''
+description: 瞭解如何使用分散式追蹤功能來追蹤解決方案所使用的 Azure 服務中的 IoT 訊息。
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a6e7d2dc9b6274c07fda011bff8ec9dc59f74f95
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259359"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889451"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>透過分散式追蹤來追蹤 Azure IoT 裝置到雲端的訊息 (預覽)
 
@@ -28,9 +28,9 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 - 測量並了解訊息流程，以及從裝置到 IoT 中樞和路由端點的延遲。
 - 開始考慮您要在 IoT 解決方案中如何實作非 Azure 服務的分散式追蹤。
 
-在本文中，您會使用 [適用於 C 的 Azure IoT 裝置 SDK](./iot-hub-device-sdk-c-intro.md) 搭配分散式追蹤。 其他 SDK 的分散式追蹤支援仍在進行中。
+在本文中，您會使用 [適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md) 搭配分散式追蹤。 其他 SDK 的分散式追蹤支援仍在進行中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 分散式追蹤的預覽版目前僅支援在下列區域建立的 IoT 中樞：
 
@@ -38,7 +38,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
   - **東南亞**
   - **美國西部 2**
 
-- 本文假設您已熟悉將遙測訊息傳送至 IoT 中樞。 請確定您已完成[傳送遙測 C 快速入門](./quickstart-send-telemetry-c.md)。
+- 本文假設您已熟悉將遙測訊息傳送至 IoT 中樞。 請確定您已完成[傳送遙測 C 快速入門](quickstart-send-telemetry-c.md)。
 
 - 向您的 IoT 中樞註冊裝置 (每個快速入門都會提供相關步驟)，並記下連接字串。
 
@@ -58,9 +58,9 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 1. 選擇下列其中一個或多個選項，以決定記錄要傳送到哪裡：
 
-    - **封存至儲存體帳戶**：設定儲存體帳戶來包含記錄資訊。
-    - **串流至事件中樞**：設定事件中樞來包含記錄資訊。
-    - **傳送至 Log Analytics**：設定記錄分析工作區來包含記錄資訊。
+    - 封存**至儲存體帳戶**：設定儲存體帳戶以包含記錄資訊。
+    - **串流至事件中樞**：將事件中樞設定為包含記錄資訊。
+    - **傳送至 Log analytics**：將 Log analytics 工作區設定為包含記錄資訊。
 
 1. 在 [記錄] 區段中，選取您希望記錄資訊用於的作業。
 
@@ -90,7 +90,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 1. 針對 Visual Studio 2015 或 2017 安裝[「使用 C++ 進行桌面開發」工作負載](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017)。
 
-1. 安裝 [CMake](https://cmake.org/)。 在命令提示字元中輸入 `cmake -version`，確定它位於您的 `PATH` 中。
+1. 安裝 [CMake](https://cmake.org/)。 在命令提示字元中輸入 `PATH`，確定它位於您的 `cmake -version` 中。
 
 1. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
 
@@ -111,7 +111,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
     如果 `cmake` 找不到 C++ 編譯器，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
 
-    建置成功後，最後幾行輸出會類似於下列輸出：
+    建置成功後，最後幾行輸出會看起來類似下列輸出：
 
     ```cmd
     $ cmake ..
@@ -135,7 +135,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    使用您在[傳送遙測 C 快速入門](./quickstart-send-telemetry-c.md)的[註冊裝置](./quickstart-send-telemetry-c.md#register-a-device)一節中記下的裝置連接字串，取代 `connectionString` 常數的值。
+    使用您在`connectionString`傳送遙測 C 快速入門[的](./quickstart-send-telemetry-c.md#register-a-device)註冊裝置[一節中記下的裝置連接字串，取代 ](./quickstart-send-telemetry-c.md) 常數的值。
 
 1. 將 `MESSAGE_COUNT` 定義變更為 `5000`：
 
@@ -153,7 +153,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 ### <a name="compile-and-run"></a>編譯和執行
 
-1. 從您先前建立的 CMake 目錄 (`azure-iot-sdk-c/cmake`) 瀏覽至 *iothub_ll_telemetry_sample* 專案目錄，然後編譯範例：
+1. 從您先前建立的 CMake 目錄 ( *) 瀏覽至* iothub_ll_telemetry_sample`azure-iot-sdk-c/cmake` 專案目錄，然後編譯範例：
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
@@ -174,10 +174,10 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 不需要使用 C SDK，就**能**輕鬆預覽分散式追蹤功能。 因此，不建議使用此方法。
 
-首先，您必須遵循開發指南[建立和讀取 IoT 中樞訊息](iot-hub-devguide-messages-construct.md)的方式，在您的訊息中執行所有 IoT 中樞的通訊協定基本專案。 然後，編輯 MQTT/AMQP 訊息中的通訊協定屬性，以`tracestate`新增為**系統屬性**。 具體而言，
+首先，您必須遵循開發指南[建立和讀取 IoT 中樞訊息](iot-hub-devguide-messages-construct.md)的方式，在您的訊息中執行所有 IoT 中樞的通訊協定基本專案。 然後，編輯 MQTT/AMQP 訊息中的通訊協定屬性，將 `tracestate` 新增為**系統屬性**。 具體而言，
 
-* 針對 MQTT，將`%24.tracestate=timestamp%3d1539243209`新增至訊息主題，其中`1539243209`應該以 unix 時間戳記格式的訊息建立時間來取代。 如需範例，請參閱[C SDK 中](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)的實作為
-* 針對 AMQP，新增`key("tracestate")`和`value("timestamp=1539243209")`作為訊息注釋。 如需參考的執行方式，請參閱[這裡](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)。
+* 針對 MQTT，請將 `%24.tracestate=timestamp%3d1539243209` 新增至訊息主題，其中 `1539243209` 應取代為 unix 時間戳記格式之訊息的建立時間。 如需範例，請參閱[C SDK 中](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)的實作為
+* 針對 AMQP，將 `key("tracestate")` 和 `value("timestamp=1539243209")` 加入為訊息批註。 如需參考的執行方式，請參閱[這裡](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)。
 
 若要控制包含此屬性的訊息百分比，請實作邏輯以接聽雲端起始的事件，例如對應項更新。
 
@@ -197,7 +197,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 1. 選擇介於 0%和 100%之間的 [取樣率]。
 
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 1. 等候幾秒鐘，然後按 [重新整理]，如果由裝置成功認可，隨即出現具有核取記號的同步圖示。
 
@@ -240,10 +240,10 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 }
 ```
 
-| 元素名稱 | 必要項 | Type | 描述 |
+| 元素名稱 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | 是 | Integer | 目前支援兩個模式值來開啟和關閉取樣。 `1` 為開啟，而 `2` 為關閉。 |
-| `sampling_rate` | 是 | Integer | 這個值是百分比。 只允許從 `0` 到 `100` (含) 的值。  |
+| `sampling_mode` | yes | 整數， | 目前支援兩個模式值來開啟和關閉取樣。 `1` 為開啟，而 `2` 為關閉。 |
+| `sampling_rate` | yes | 整數， | 這個值是百分比。 只允許從 `0` 到 `100` (含) 的值。  |
 
 ## <a name="query-and-visualize"></a>查詢並以視覺方式呈現
 
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Log Analytics 所顯示的範例記錄：
 
-| TimeGenerated | OperationName | Category | 層級 | CorrelationId | DurationMs | 屬性 |
+| TimeGenerated | OperationName | 類別 | 等級 | CorrelationId | DurationMs | properties |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 資訊 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 資訊 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
@@ -284,7 +284,7 @@ Log Analytics 所顯示的範例記錄：
 
 ## <a name="understand-azure-iot-distributed-tracing"></a>了解 Azure IoT 分散式追蹤
 
-### <a name="context"></a>內容
+### <a name="context"></a>Context
 
 許多 IoT 解決方案 (包括我們自己的[參考架構](https://aka.ms/iotrefarchitecture) (僅限英文)) 通常都會遵循[微服務架構](https://docs.microsoft.com/azure/architecture/microservices/)的變體。 隨著 IoT 解決方案日益複雜，您終究會使用數十個或更多微服務。 這些微服務或許來自 Azure。 指出 IoT 訊息卸除或變慢的位置可能變得很有挑戰性。 例如，您有使用 5 個不同 Azure 服務和 1500 個作用中裝置的 IoT 解決方案。 每個裝置每秒會傳送 10 則裝置到雲端的訊息 (總計每秒 15,000 則訊息)，但您會注意到您的 Web 應用程式每秒只看到 10,000 則訊息。 問題出在哪裡？ 如何找到罪魁禍首？
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60948499"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883999"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
 提供高可用性的關鍵在於確保服務能夠承受所有不同類型的故障。 這對於預料之外且無法控制的故障而言特別重要。 本文說明一些常見的故障模式，如果沒有未正確建立模型和管理，可能會造成嚴重損壞。 此外，本文也會探討發生災害時應採取的緩解措施和行動。 目標是發生故障 (無論計劃與否) 時，限制或排除停機或資料遺失的風險。
@@ -77,8 +77,8 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 
 <center>
 
-![節點散佈於 Service Fabric Explorer 中的容錯網域][sfx-cluster-map]
-</center>
+在 Service Fabric Explorer][sfx-cluster-map]
+中散佈到多個容錯網域的 ![節點 </center>
 
 > [!NOTE]
 > 失敗區域的模型化、輪流升級、執行服務程式碼和狀態的許多執行個體、確保您的服務執行於各容錯與升級網域之間的放置規則、還有內建的健康情況監視都只是 Service Fabric 提供的**部分**功能，可用來保持正常的運作問題和故障，避免變成災害。 
@@ -124,7 +124,7 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 一般來說，Service Fabric 叢集本身是高度分散式環境，沒有任何單一失敗點。 任何一個節點的失敗不會導致叢集的可用性或可靠性問題，主要是因為 Service Fabric 系統服務會依照稍早提供的相同指導方針：依預設，它們永遠會連同三個或多個複本一起執行，而無狀態的系統服務會在所有節點上執行。 基礎 Service Fabric 網路服務與失敗偵測層會完全分散。 大部分的系統服務可從叢集中的中繼資料重建，或了解如何從其他地方重新同步處理其狀態。 如果系統服務進入如上所述的仲裁遺失情況，則叢集的可用性可能會受損。 在這些情況下，您可能無法在叢集上執行某些作業，例如開始升級或部署新服務，但叢集本身仍正常運作。 已執行的服務將會在這些情況下繼續執行，除非它們要求寫入系統服務，以繼續運作。 例如，如果容錯移轉管理員處於仲裁遺失狀態，則所有服務都將繼續執行，但是任何失敗的服務將無法自動重新啟動，因為這需要容錯移轉管理員的參與。 
 
 ### <a name="failures-of-a-datacenter-or-azure-region"></a>資料中心或 Azure 區域的失敗
-在少數情況下，實體資料中心可能會因為斷電或網路連線中斷而暫時無法使用。 在這些情況下，在資料中心或 Azure 區域中的 Service Fabric 叢集和服務將無法使用。 不過，_您的資料會保留下來_。 對於在 Azure 中執行的叢集，您可以在 [Azure 狀態頁面][azure-status-dashboard]上檢視中斷的更新。 實體資料中心部分或完全毀損的事件不太可能發生，但如此可能會失去其裝載的任何 Service Fabric 叢集或其中的服務。 這包括在該資料中心或區域外部未備份的任何狀態。
+在少數情況下，實體資料中心可能會因為斷電或網路連線中斷而暫時無法使用。 在這些情況下，在資料中心或 Azure 區域中的 Service Fabric 叢集和服務將無法使用。 不過，_您的資料會保留下來_。 針對在 Azure 中執行的叢集，您可以在 [ [azure 狀態] 頁面][azure-status-dashboard]上查看中斷的更新。 實體資料中心部分或完全毀損的事件不太可能發生，但如此可能會失去其裝載的任何 Service Fabric 叢集或其中的服務。 這包括在該資料中心或區域外部未備份的任何狀態。
 
 有兩種不同策略可讓服務在單一資料中心或區域之永久性或持續性失敗的情況下存活。 
 
@@ -132,14 +132,14 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 2. 執行跨越多個資料中心或區域的單一 Service Fabric 叢集。 支援的最低設定是三個資料中心或區域。 建議的區域或資料中心數目為五個。 這需要更複雜的叢集拓撲。 不過，此模型的優點是，資料中心或區域的失敗會從災害轉換成一般失敗。 可藉由在單一區域內為叢集運作的機制來處理這些失敗。 容錯網域、升級網域，以及 Service Fabric 放置規則確保工作負載是分散的，以便容忍一般失敗。 如需有助於在此類叢集中操作服務之原則的詳細資訊，請參閱[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 
 ### <a name="random-failures-leading-to-cluster-failures"></a>導致叢集失敗故障的隨機失敗
-Service Fabric 有種子節點的概念。 種子節點是維護基礎叢集可用性的節點。 這些節點有助於藉由建立與其他節點的租用，並在某些類型的網路故障期間擔任仲裁者，來確保叢集保持正常運作。 如果隨機失敗移除叢集中的大多數種子節點，而且它們不會後，您的叢集同盟環形摺疊，為您丟了種子節點仲裁和，叢集就會失敗。 在 Azure 中，Service Fabric 資源提供者管理 Service Fabric 叢集設定，並預設將種子節點分散到主要節點類型的容錯和升級網域;如果主要 nodetype 標示為 Silver 或 Gold 持久性，當您移除種子節點，在您的主要 nodetype 中調整，或以手動方式移除種子節點，叢集會嘗試從可用的主要 nodetype 升級另一個非種子節點容量，如果您有較少的可用容量比您叢集的可靠性層級需要主要節點類型將會失敗。
+Service Fabric 有種子節點的概念。 種子節點是維護基礎叢集可用性的節點。 這些節點有助於藉由建立與其他節點的租用，並在某些類型的網路故障期間擔任仲裁者，來確保叢集保持正常運作。 如果隨機失敗會移除叢集中大部分的種子節點，而且它們不會恢復，則您的叢集同盟信號會折迭，因為您遺失種子節點仲裁，而叢集失敗。 在 Azure 中，Service Fabric 資源提供者會管理 Service Fabric 叢集設定，而且預設會在主要節點類型錯誤和升級網域之間散發種子節點;如果主要 nodetype 標示為銀級或金級持久性，當您藉由在主要 nodetype 中進行調整或手動移除種子節點來移除種子節點時，叢集會嘗試從可用的主要 nodetype 升級另一個非種子節點如果您的主要節點類型所需的容量低於叢集可靠性層級，則容量和將會失敗。
 
 在獨立 Service Fabric 叢集和 Azure 中，「主要節點類型」是指執行種子的節點類型。 定義主要節點類型時，Service Fabric 會自動利用藉由建立最多 9 個種子節點和每個系統服務的 7 個複本所提供的節點數目。 如果在一組隨機失敗同時移除大多數的系統服務複本，系統服務會進入仲裁遺失，如上所述。 如果大多數種子節點遺失，叢集將在不久後關閉。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何使用 [Testability 架構](service-fabric-testability-overview.md)
 - 閱讀其他災害復原和高可用性的資源。 Microsoft 已發佈大量有關這些主題的指引。 雖然其中有些文件提到其他產品中使用的特定技術，但還是包含許多您可在 Service Fabric 內容中應用的一般最佳作法︰
-  - [可用性檢查清單](../best-practices-availability-checklist.md)
+  - [可用性檢查清單](/azure/architecture/checklist/resiliency-per-service)
   - [執行災害復原演練](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Azure 應用程式的災害復原和高可用性][dr-ha-guide]
 - 了解 [Service Fabric 支援選項](service-fabric-support.md)

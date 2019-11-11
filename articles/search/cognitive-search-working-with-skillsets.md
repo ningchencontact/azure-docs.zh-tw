@@ -8,18 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790178"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890154"
 ---
 # <a name="working-with-skillsets-in-azure-cognitive-search"></a>使用 Azure 認知搜尋中的技能集
 
 本文適用于需要深入瞭解擴充管線運作方式的開發人員，並假設您已瞭解 AI 擴充程式的概念。 如果您是這個概念的新手，請從下列開始：
 + [Azure 認知搜尋中的 AI 擴充](cognitive-search-concept-intro.md)
-+ [知識存放區（預覽）](knowledge-store-concept-intro.md)
++ [知識存放區 (預覽)](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>指定技能集
 技能集是 Azure 認知搜尋中可重複使用的資源，可指定在編制索引期間用來分析、轉換和充實文字或影像內容的認知技能集合。 建立技能集可讓您在資料內嵌階段附加文字和影像擴充，並從原始內容中解壓縮和建立新的資訊和結構。
@@ -32,7 +32,7 @@ ms.locfileid: "72790178"
 
 
 
-技能集是以 JSON 撰寫。 您可以使用[運算式語言](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)來建立具有迴圈和[分支](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional)的複雜技能集。 運算式語言會使用[JSON 指標](https://tools.ietf.org/html/rfc6901)路徑標記法，並進行一些修改來識別擴充樹狀結構中的節點。 ```"/"``` 在樹狀結構中的層級較低，而 ```"*"``` 會作為內容中的每個運算子。 這些概念最適合用來說明範例。 為了說明其中一些概念和功能，我們將逐步解說[飯店評論範例](knowledge-store-connect-powerbi.md)技能集。 若要在您遵循匯入資料工作流程後查看技能集，您必須使用 REST API 用戶端來[取得技能集](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset)。
+技能集是以 JSON 撰寫。 您可以使用[運算式語言](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)來建立具有迴圈和[分支](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)的複雜技能集。 運算式語言會使用[JSON 指標](https://tools.ietf.org/html/rfc6901)路徑標記法，並進行一些修改來識別擴充樹狀結構中的節點。 ```"/"``` 在樹狀結構中的層級較低，而 ```"*"``` 會作為內容中的每個運算子。 這些概念最適合用來說明範例。 為了說明其中一些概念和功能，我們將逐步解說[飯店評論範例](knowledge-store-connect-powerbi.md)技能集。 若要在您遵循匯入資料工作流程後查看技能集，您必須使用 REST API 用戶端來[取得技能集](https://docs.microsoft.com/rest/api/searchservice/get-skillset)。
 
 ### <a name="enrichment-tree"></a>擴充樹狀結構
 
@@ -50,7 +50,7 @@ ms.locfileid: "72790178"
  當技能執行時，他們會將新節點新增至擴充樹狀結構。 然後，這些新節點可以做為下游技能的輸入、投射到知識存放區，或對應至索引欄位。 擴充不是可變動的：一旦建立之後，就無法編輯節點。 當您的技能集變得更複雜時，您的擴充樹狀結構，但擴充樹狀結構中的所有節點都不需要將它設為索引或知識存放區。 您可以選擇性地只將擴充的子集保存至索引或知識存放區。
 
 您可以選擇性地只將擴充的子集保存至索引或知識存放區。
-本檔的其餘部分，我們假設我們使用[飯店評論範例](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi)，但相同的概念也適用于從其他所有資料來源充實檔。
+本檔的其餘部分，我們假設我們使用[飯店評論範例](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi)，但相同的概念也適用于從其他所有資料來源充實檔。
 
 ### <a name="context"></a>Context
 每項技能都需要一個內容。 內容會決定：

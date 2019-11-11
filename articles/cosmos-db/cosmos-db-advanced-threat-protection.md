@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: dca653bfaf625ff31e4dd7f43752219b312779d1
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 57303c41d90f6205c284c7de67bb8643aa3cd368
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286773"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888059"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB 的先進威脅防護
 
@@ -61,7 +61,7 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報，可�
 ### <a name="using-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
 
 使用 Azure Resource Manager 範本來設定已啟用「先進的威脅防護」的 Cosmos DB。
-如需詳細資訊，請參閱[使用 Advanced 威脅防護建立 CosmosDB 帳戶](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)。
+如需詳細資訊，請參閱[使用 Advanced 威脅防護建立 CosmosDB 帳戶](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)。
 
 ### <a name="using-azure-policy"></a>使用 Azure 原則
 

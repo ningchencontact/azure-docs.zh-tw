@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 9c9dcd567b8632626bf4b1f0bf2ef6b5e69b8a9d
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530442"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885392"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -23,7 +23,7 @@ ms.locfileid: "72530442"
 > [!NOTE]
 > 這些指示會參考 Istio 版本 `1.3.2`，並使用至少 Helm 版本 `2.14.2`。
 >
-> Istio 團隊已針對 Kubernetes 版本 `1.13`、`1.14` `1.15`，測試了 Istio `1.3.x` 版本。 您可以在[GitHub Istio 版本][istio-github-releases]（英文）中找到其他 Istio 版本、 [Istio 新聞][istio-release-notes]中每個版本的相關資訊，以及[Istio 一般常見問題][istio-faq]中的支援 Kubernetes 版本。
+> Istio 團隊已針對 Kubernetes 版本 `1.13`、`1.14``1.15`，測試了 Istio `1.3.x` 版本。 您可以在[GitHub Istio 版本][istio-github-releases]（英文）中找到其他 Istio 版本、 [Istio 新聞][istio-release-notes]中每個版本的相關資訊，以及[Istio 一般常見問題][istio-faq]中的支援 Kubernetes 版本。
 
 在本文中，您將了解：
 
@@ -94,7 +94,7 @@ istio-init-crd-11-1.3.2   1/1           12s        14s
 istio-init-crd-12-1.3.2   1/1           14s        14s
 ```
 
-既然我們已確認成功完成作業，讓我們來確認是否已安裝正確的 Istio CRDs 數目。 您可以執行下列命令來確認已安裝所有 23 Istio CRDs。 此命令應該會傳回 `23` 的數目。
+既然我們已確認成功完成作業，讓我們來確認是否已安裝正確的 Istio CRDs 數目。 您可以執行下列命令來確認已安裝所有 23 Istio CRDs。 此命令應該會傳回 `23`的數目。
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -180,7 +180,7 @@ istio-init-crd-12-1.3.2   1/1           14s        14s
 
 ::: zone-end
 
-@No__t_0 Helm 圖會部署大量物件。 您可以從上述 `helm install` 命令的輸出查看清單。 根據您的叢集環境，部署 Istio 元件應需要2分鐘的時間才能完成。
+`istio` Helm 圖會部署大量物件。 您可以從上述 `helm install` 命令的輸出查看清單。 根據您的叢集環境，部署 Istio 元件應需要2分鐘的時間才能完成。
 
 此時，您已將 Istio 部署至 AKS 叢集。 為了確保我們已成功部署 Istio，讓我們繼續進行下一節，以[驗證 Istio 安裝](#validate-the-istio-installation)。
 
@@ -195,7 +195,7 @@ kubectl get svc --namespace istio-system --output wide
 下列範例輸出會顯示現在應該正在執行的服務：
 
 - `istio-*` 服務
-- `jaeger-*`、`tracing` 和 `zipkin` 附加元件追蹤服務
+- `jaeger-*`、`tracing`和 `zipkin` 附加元件追蹤服務
 - `prometheus` 附加元件計量服務
 - `grafana` 附加元件分析和監視儀表板服務
 - `kiali` 附加元件服務網格儀表板服務
@@ -252,7 +252,7 @@ kiali-65d55bcfb8-tqrfk                   1/1     Running     0          88s
 prometheus-846f9849bd-br8kp              1/1     Running     0          87s
 ```
 
-應該會有三個具有 `Completed` 狀態的 `istio-init-crd-*` pod。 這些 pod 負責執行在先前步驟中建立 CRDs 的工作。 所有其他 pod 都應該顯示 `Running` 的狀態。 如果您的 Pod 沒有這些狀態，請等候一兩分鐘直到其成為該狀態。 如果有任何 pod 回報問題，請使用[kubectl 描述 pod][kubectl-describe]命令來檢查其輸出和狀態。
+應該會有三個具有 `Completed` 狀態的 `istio-init-crd-*` pod。 這些 pod 負責執行在先前步驟中建立 CRDs 的工作。 所有其他 pod 都應該顯示 `Running`的狀態。 如果您的 Pod 沒有這些狀態，請等候一兩分鐘直到其成為該狀態。 如果有任何 pod 回報問題，請使用[kubectl 描述 pod][kubectl-describe]命令來檢查其輸出和狀態。
 
 ## <a name="accessing-the-add-ons"></a>存取附加元件
 
@@ -309,7 +309,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>移除 Istio 元件和命名空間
 
-若要從您的 AKS 叢集中移除 Istio，請使用下列命令。 @No__t_0 命令會移除 `istio` 和 `istio-init` 的圖表，而 `kubectl delete namespace` 命令會移除 `istio-system` 命名空間。
+若要從您的 AKS 叢集中移除 Istio，請使用下列命令。 `helm delete` 命令會移除 `istio` 和 `istio-init` 的圖表，而 `kubectl delete namespace` 命令會移除 `istio-system` 命名空間。
 
 ```azurecli
 helm delete --purge istio
@@ -383,7 +383,7 @@ kubectl delete namespace istio-system
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward

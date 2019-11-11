@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e06ac0c0647d9a9a6b5adee289b497f2fe94b222
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820660"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889379"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
@@ -50,7 +50,7 @@ ISE 中的 Logic Apps 提供與全域 Logic Apps 服務相同的使用者體驗�
 
 * Azure Blob 儲存體、檔案儲存體及表格儲存體
 * Azure 佇列、Azure 服務匯流排、Azure 事件中樞和 IBM MQ
-* FTP 和 SFTP-SSH
+* 檔案系統、FTP 和 SFTP-SSH
 * SQL Server、Azure SQL 資料倉儲、Azure Cosmos DB
 * AS2、X12 及 EDIFACT
 

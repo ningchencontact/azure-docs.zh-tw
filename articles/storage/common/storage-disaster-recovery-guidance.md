@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595195"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889777"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)
 
@@ -47,8 +47,8 @@ Azure 儲存體針對異地備援儲存體帳戶支援帳戶容錯移轉 (預覽
 
 您應該從一開始便針對高可用性來設計您的應用程式。 請參考這些 Azure 資源來取得設計應用程式並針對災害復原進行規劃的指引：
 
-* [設計適用于 azure 的復原應用程式](https://docs.microsoft.com/azure/architecture/resiliency/)：概述在 azure 中架構高可用性應用程式的重要概念。
-* [可用性檢查清單](https://docs.microsoft.com/azure/architecture/checklist/availability)：驗證您的應用程式是否會針對高可用性實行最佳設計做法的檢查清單。
+* [設計適用于 azure 的復原應用程式](/azure/architecture/checklist/resiliency-per-service)：概述在 azure 中架構高可用性應用程式的重要概念。
+* [可用性檢查清單](/azure/architecture/checklist/resiliency-per-service)：驗證您的應用程式是否會針對高可用性實行最佳設計做法的檢查清單。
 * [使用 Ra 設計高可用性應用程式-GRS](storage-designing-ha-apps-with-ragrs.md)：設計指引來建立應用程式，以利用 RA-GRS。
 * [教學課程：建立具有 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md)：此教學課程示範如何建立高可用性應用程式，以在失敗時自動切換端點，並模擬復原。 
 
@@ -121,8 +121,8 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 - 東亞
 - 東南亞
-- 澳大利亞東部
-- 澳大利亞東南部
+- 澳洲東部
+- 澳洲東南部
 - 美國中部
 - 美國東部 2
 - 美國中西部
@@ -186,7 +186,7 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 
 在區域因嚴重災害而遺失的極端情況下，Microsoft 可能會起始區域容錯移轉。 在此情況下，您不需要採取任何動作。 在 Microsoft 管理的容錯移轉完成之前，您將無法取得儲存體帳戶的寫入權限。 如果您的儲存體帳戶已針對 RA-GRS 進行設定，您的應用程式仍可從次要區域進行讀取。 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [起始帳戶容錯移轉 (預覽)](storage-initiate-account-failover.md)
 * [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)

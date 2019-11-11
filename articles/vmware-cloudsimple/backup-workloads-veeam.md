@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430862"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891391"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>使用 Veeam B & R 來備份 CloudSimple 私人雲端上的工作負載 Vm
 
@@ -194,7 +194,7 @@ Veeam 解決方案會要求您執行下列動作：
 
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>針對長期資料保留設定 Azure blob 儲存體
 
-1. 建立標準類型和 blob 容器的一般用途儲存體帳戶（GPv2），如 Microsoft video[消費者入門 with Azure 儲存體](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)所述。
+1. 建立標準類型和 blob 容器的一般用途儲存體帳戶（GPv2），如 Microsoft video[消費者入門 with Azure 儲存體](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)所述。
 2. 如[建立容器](https://docs.microsoft.com/rest/api/storageservices/create-container)參考中所述，建立 Azure 儲存體容器。
 2. 從 Microsoft 下載適用于 Linux 的 `azcopy` 命令列公用程式。 您可以在 CentOS 7.5 中的 bash shell 中使用下列命令。
 
@@ -206,7 +206,7 @@ Veeam 解決方案會要求您執行下列動作：
     sudo yum -y install icu
     ```
 
-3. 您可以使用 `azcopy` 命令，將備份檔案複製到 blob 容器，或從該檔案複製。  如需詳細的命令，請參閱[使用 AzCopy On Linux 傳送資料](../storage/common/storage-use-azcopy-linux.md)。
+3. 使用 `azcopy` 命令，將備份檔案複製到 blob 容器，或從該檔案複製。  如需詳細的命令，請參閱[使用 AzCopy On Linux 傳送資料](../storage/common/storage-use-azcopy-linux.md)。
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>私人雲端的 vCenter 主控台：安裝 Veeam B & R
 
@@ -290,7 +290,7 @@ Veeam 解決方案會要求您執行下列動作：
 * [將 VNet 連線到線路-不同的訂用帳戶](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [在 Azure 入口網站中建立 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)
 * [如何在 Azure 入口網站中將受控資料磁片連結至 Windows VM](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [使用 Azure 儲存體的消費者入門-影片](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [使用 Azure 儲存體的消費者入門-影片](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
 * [建立容器](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [使用 AzCopy on Linux 傳送資料](../storage/common/storage-use-azcopy-linux.md)
 

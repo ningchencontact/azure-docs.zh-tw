@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1c48e758e9ee69085034f714652632151912f8d4
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530624"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885397"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中安裝和使用 Consul （AKS）
 
@@ -23,7 +23,7 @@ ms.locfileid: "72530624"
 > [!NOTE]
 > 這些指示會參考 Consul 版本 `1.6.0`，並使用至少 Helm 版本 `2.14.2`。
 >
-> 可以針對 Kubernetes 版本 `1.13+` 執行 Consul `1.6.x` 版本。 您可以在[GitHub Consul 版本][consul-github-releases]中找到其他 Consul 版本，並在[Consul 版本][consul-release-notes]資訊中找到每個版本的相關資訊。
+> 可以針對 Kubernetes 版本 `1.13+`執行 Consul `1.6.x` 版本。 您可以在[GitHub Consul 版本][consul-github-releases]中找到其他 Consul 版本，並在[Consul 版本][consul-release-notes]資訊中找到每個版本的相關資訊。
 
 在本文中，您將了解：
 
@@ -95,7 +95,7 @@ ms.locfileid: "72530624"
 
 ::: zone-end
 
-@No__t_0 Helm 圖會部署一些物件。 您可以從上述 `helm install` 命令的輸出查看清單。 根據您的叢集環境，Consul 元件的部署可能需要約3分鐘的時間才能完成。
+`Consul` Helm 圖會部署一些物件。 您可以從上述 `helm install` 命令的輸出查看清單。 根據您的叢集環境，Consul 元件的部署可能需要約3分鐘的時間才能完成。
 
 此時，您已將 Consul 部署至 AKS 叢集。 為了確保我們已成功部署 Consul，讓我們繼續進行下一節，以驗證 Consul 安裝。
 
@@ -129,7 +129,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-所有 pod 都應該顯示 `Running` 的狀態。 如果您的 Pod 沒有這些狀態，請等候一兩分鐘直到其成為該狀態。 如果有任何 pod 回報問題，請使用[kubectl 描述 pod][kubectl-describe]命令來檢查其輸出和狀態。
+所有 pod 都應該顯示 `Running`的狀態。 如果您的 Pod 沒有這些狀態，請等候一兩分鐘直到其成為該狀態。 如果有任何 pod 回報問題，請使用[kubectl 描述 pod][kubectl-describe]命令來檢查其輸出和狀態。
 
 ## <a name="accessing-the-consul-ui"></a>存取 Consul UI
 
@@ -150,7 +150,7 @@ kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 
 ### <a name="remove-consul-components-and-namespace"></a>移除 Consul 元件和命名空間
 
-若要從您的 AKS 叢集中移除 Consul，請使用下列命令。 @No__t_0 命令會移除 `consul` 的圖表，而 `kubectl delete namespace` 命令會移除 `consul` 命名空間。
+若要從您的 AKS 叢集中移除 Consul，請使用下列命令。 `helm delete` 命令會移除 `consul` 的圖表，而 `kubectl delete namespace` 命令會移除 `consul` 命名空間。
 
 ```azurecli
 helm delete --purge consul
@@ -186,7 +186,7 @@ kubectl delete namespace consul
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

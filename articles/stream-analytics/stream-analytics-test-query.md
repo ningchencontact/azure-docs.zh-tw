@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918971"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891763"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>使用樣本資料測試 Azure 串流分析作業
 
-在 Azure 串流分析中，您可以測試查詢，而不需要啟動或停止您的作業。 您可以針對來自輸入接收的傳入資料，或從 Azure 入口網站上的本機檔案上傳的範例資料來測試查詢。 您也可以從本機範例資料或[Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing)和[Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run)中的即時資料，在本機測試查詢。 
+在 Azure 串流分析中，您可以測試查詢，而不需要啟動或停止您的作業。 您可以針對來自輸入接收的傳入資料，或從 Azure 入口網站上的本機檔案上傳的範例資料來測試查詢。 您也可以從本機範例資料或[Visual Studio](stream-analytics-live-data-local-testing.md)和[Visual Studio Code](vscode-local-run.md)中的即時資料，在本機測試查詢。 
 
 ## <a name="sample-incoming-data-from-input"></a>輸入的範例傳入資料
 
@@ -34,9 +34,9 @@ Azure 串流分析會自動從您的串流輸入提取事件。 您可以針對�
 
    a. 如果您的資料的 JSON 或 CSV，則會自動偵測到其序列化類型。 您也可以藉由變更下拉式功能表中的選項，手動將它變更為 JSON、CSV、AVRO。
     
-   b. 使用選取器來以**資料表**或**原始**格式來查看您的資料。
+   b.這是另一個 C# 主控台應用程式。 使用選取器來以**資料表**或**原始**格式來查看您的資料。
     
-   c. 如果顯示的資料不是最新的, 請選取 [重新整理] 以查看最新的事件。
+   c. 如果顯示的資料不是最新的，**請選取 [** 重新整理] 以查看最新的事件。
 
    下表是**資料表格式**的資料範例：
 

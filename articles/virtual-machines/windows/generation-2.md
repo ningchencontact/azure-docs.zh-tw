@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491922"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891490"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 上第2代 Vm 的支援
 
@@ -59,7 +59,9 @@ Azure 中的所有 VM 大小都支援第1代 Vm。 Azure 現在為下列選取�
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04、18.04、19.04、19.10
+* RHEL 8。0
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>內部部署與 Azure 第2代 Vm
 
@@ -149,7 +151,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer 
     是。 但並非所有層[代 2 VM 大小](#generation-2-vm-sizes)都可以在每個區域中使用。 第2代 VM 的可用性取決於 VM 大小的可用性。
 
 * **第1代和第2代 Vm 之間是否有價格差異？**  
-   不會。
+   號
 
 * **我有來自內部部署第2代 VM 的 .vhd 檔案。我可以在 Azure 中使用該 .vhd 檔案來建立第2代 VM 嗎？**
   是，您可以將第2代 .vhd 檔案帶入 Azure，並使用它來建立第2代 VM。 請使用下列步驟來執行這項操作：

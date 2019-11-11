@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83c185a6ba8f1c5e6edf095db5baf575f750fa3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176462"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887053"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -103,7 +103,7 @@ Get-AzureRmVm | Select Name
 ```
 
 > [!NOTE]
-> `Connect-AzureRMAccount -Identity` 適用于混合式 Runbook 背景工作角色，其使用系統指派的身分識別和單一使用者指派的身分識別。 如果您需要在 HRW 上使用多個使用者指派的身分識別，您必須指定 `-AccountId` 參數來選取特定使用者指派的身分識別。
+> `Connect-AzureRMAccount -Identity` 適用于使用系統指派的身分識別和單一使用者指派身分識別的混合式 Runbook 背景工作角色。 如果您需要在 HRW 上使用多個使用者指派的身分識別，您必須指定 `-AccountId` 參數來選取特定使用者指派的身分識別。
 
 ### <a name="runas-script"></a>自動化執行身分帳戶
 
@@ -315,4 +315,4 @@ gpg –-clear-sign <runbook name>
 * 若要深入了解可用來啟動 Runbook 的不同方法，請參閱[在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)。
 * 若要了解使用文字式編輯器在 Azure 自動化中處理 PowerShell Runbook 的不同方式，請參閱[在 Azure 自動化中編輯 Runbook](automation-edit-textual-runbook.md)
 * 如果您的 Runbook 未順利完成，請檢閱 [Runbook 執行失敗](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)中的疑難排解指南。
-* 如需 PowerShell 的詳細資訊（包括語言參考和學習模組），請參閱[powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview)檔。
+* 如需 PowerShell 的詳細資訊（包括語言參考和學習模組），請參閱[powershell](https://docs.microsoft.com/powershell/scripting/overview)檔。

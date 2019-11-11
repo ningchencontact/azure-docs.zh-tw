@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821346"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890450"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -99,7 +99,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 1. 移至 [裝置總管] 中的 [管理] 索引標籤。
 
-2. 按一下 [SAS 權杖] \(右上角)。
+2. 按一下 [SAS 權杖] (右上角)。
 
 3. 在 [SASTokenForm] 的 [DeviceID] 下拉式清單中，選取您的裝置。 設定您的 **TTL**。
 
@@ -132,7 +132,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 • DeviceTwinMQTTWin32：包含程式碼，可在 Windows 電腦上的 Azure IoT 中樞查詢和訂閱裝置的裝置對應項事件。
 
-• PnPMQTTWin32：包含用來將遙測訊息傳送至 Azure IoT 中樞，並在 Windows 電腦上建立和執行之 IoT 外掛程式的程式碼 & Play preview 裝置功能 深入瞭解 IoT 外掛程式 & 在[此](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)播放
+• PnPMQTTWin32：包含用來將遙測訊息傳送至 Azure IoT 中樞，並在 Windows 電腦上建立和執行之 IoT 外掛程式的程式碼 & Play preview 裝置功能 深入瞭解 IoT 外掛程式 & 在[此](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)播放
 
 **若為 Linux：**
 
@@ -142,7 +142,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 **針對 mosquito_pub：**
 
-•此資料夾包含兩個搭配 Mosquitto.org 所提供的 mosquitto_pub 公用程式工具使用的範例命令。
+•此資料夾包含兩個範例命令，用於 Mosquitto.org 所提供的 mosquitto_pub 公用程式工具。
 
 Mosquitto_sendmessage：將簡單的文字訊息傳送至作為裝置的 Azure IoT 中樞。
 
@@ -256,7 +256,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>傳送裝置到雲端訊息
 
-成功連線之後，裝置可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為**主題名稱**，將訊息傳送至 IoT 中樞。 `{property_bag}` 項目可讓裝置以 URL 編碼格式傳送具有其他屬性的訊息。 例如：
+成功連線之後，裝置可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為**主題名稱**，將訊息傳送至 IoT 中樞。 `{property_bag}` 項目可讓裝置以 URL 編碼格式傳送具有其他屬性的訊息。 例如︰
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -287,7 +287,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 ## <a name="retrieving-a-device-twins-properties"></a>擷取裝置對應項屬性
 
-首先，裝置會訂閱 `$iothub/twin/res/#`，以接收作業的回應。 然後，它會傳送空白訊息給主題 `$iothub/twin/GET/?$rid={request id}`，其中已填入**要求 ID** 的值。 服務接著會使用和要求相同的**要求 ID**，傳送內含關於 `$iothub/twin/res/{status}/?$rid={request id}` 主題之裝置對應項資料的回應訊息。
+首先，裝置會訂閱 `$iothub/twin/res/#`，以接收作業的回應。 然後，它會傳送空白訊息給主題 `$iothub/twin/GET/?$rid={request id}`，其中已填入**要求 ID** 的值。 服務接著會使用和要求相同的`$iothub/twin/res/{status}/?$rid={request id}`要求 ID **，傳送內含關於**  主題之裝置對應項資料的回應訊息。
 
 [要求識別碼] 可以是訊息屬性值的任何有效值（根據[IoT 中樞訊息開發人員指南](iot-hub-devguide-messaging.md)），而狀態會驗證為整數。
 
@@ -309,7 +309,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 可能的狀態碼如下︰
 
-|狀態 | 描述 |
+|Status | 描述 |
 | ----- | ----------- |
 | 204 | 成功 (不會傳回任何內容) |
 | 429 | 太多要求（節流），依據[IoT 中樞節流](iot-hub-devguide-quotas-throttling.md) |
@@ -329,7 +329,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 3. 服務接著會傳送回應訊息，其中包含`$iothub/twin/res/{status}/?$rid={request id}` 主題上報告之屬性集合的新 ETag 值。 這個回應訊息使用和要求相同的**要求 ID**。
 
-要求訊息本文會包含 JSON 文件，其包含已報告屬性的新值。 JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對應的成員。 設定為 `null` 的成員會從包含的物件中刪除成員。 例如：
+要求訊息本文會包含 JSON 文件，其包含已報告屬性的新值。 JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對應的成員。 設定為 `null` 的成員會從包含的物件中刪除成員。 例如︰
 
 ```json
 {
@@ -340,7 +340,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 可能的狀態碼如下︰
 
-|狀態 | 描述 |
+|Status | 描述 |
 | ----- | ----------- |
 | 200 | 成功 |
 | 400 | 不正確的要求。 JSON 格式錯誤 |
@@ -367,7 +367,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="receiving-desired-properties-update-notifications"></a>接收所需屬性更新通知
 
-當連接裝置時，IoT 中樞傳送通知給主題 `$iothub/twin/PATCH/properties/desired/?$version={new version}`，其中包含解決方案後端所執行的更新內容。 例如：
+當連接裝置時，IoT 中樞傳送通知給主題 `$iothub/twin/PATCH/properties/desired/?$version={new version}`，其中包含解決方案後端所執行的更新內容。 例如︰
 
 ```json
 {

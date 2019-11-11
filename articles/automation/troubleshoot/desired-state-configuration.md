@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259167"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887706"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>針對 Desired State Configuration (DSC) 問題進行疑難排解
 
@@ -24,7 +24,7 @@ ms.locfileid: "71259167"
 
 當您在 Azure 狀態設定中編譯或部署設定發生錯誤時，以下是可協助您診斷問題的幾個步驟。
 
-1. **請確定您的設定在本機電腦上成功編譯：** Azure 狀態設定建置於 PowerShell DSC 上。 您可以在[POWERSHELL dsc](https://docs.microsoft.com/en-us/powershell/scripting/overview)檔中找到 DSC 語言和語法的檔。
+1. **請確定您的設定在本機電腦上成功編譯：** Azure 狀態設定建置於 PowerShell DSC 上。 您可以在[POWERSHELL dsc](https://docs.microsoft.com/powershell/scripting/overview)檔中找到 DSC 語言和語法的檔。
 
    藉由在本機電腦上編譯 DSC 設定，您可以探索並解決常見錯誤，例如：
 
@@ -59,17 +59,17 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 此錯誤是計畫要解決的暫時性問題。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 * 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 來刪除設定。
 * 此 Cmdlet 的檔尚未更新。  在那之前，請參閱 AzureRM 模組的檔。
-  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+  * [移除-Export-azurermautomationdscconfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-to-register-agent"></a>案例：無法註冊 Dsc 代理程式
 
 #### <a name="issue"></a>問題
 
-當嘗試執行`Set-DscLocalConfigurationManager`或另一個 DSC Cmdlet 時，您會收到錯誤：
+嘗試執行 `Set-DscLocalConfigurationManager` 或另一個 DSC Cmdlet 時，您會收到錯誤：
 
 ```error
 Registration of the Dsc Agent with the server
@@ -86,7 +86,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 此錯誤通常是由防火牆、位於 proxy 伺服器後方的電腦，或其他網路錯誤所造成。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 請確認您的電腦可存取適當的 Azure 自動化 DSC 端點，然後再試一次。 如需所需的埠和地址清單，請參閱[網路規劃](../automation-dsc-overview.md#network-planning)
 
@@ -104,7 +104,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 此錯誤通常發生在將節點指派給設定名稱 (例如 ABC)，而不是指派給節點設定名稱 (例如 ABC.WebServer) 的情況下。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 * 請確定您指派的節點具有「節點設定名稱」，而不是「設定名稱」。
 * 您可以使用 Azure 入口網站或使用 PowerShell Cmdlet，將節點組態指派至節點。
@@ -126,7 +126,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 當 DSC 設定中緊接在 **Node** 關鍵字後面的運算式評估為 `$null` 時，便不會產生任何節點設定。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 下列任何一個解決方案都可以修正此問題：
 
@@ -147,7 +147,7 @@ No instance found with given property values
 
 您已將 WMF 版本升級，且有損毀的 WMI。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 若要修正此問題，請依照[DSC 已知問題和限制](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)一文中的指示進行。
 
@@ -165,7 +165,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 您已在設定中使用認證，但未提供適當的**ConfigurationData** ，將每個節點設定的**PSDscAllowPlainTextPassword**設為 true。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 * 請務必傳入適當的**ConfigurationData** ，以針對設定中所述的每個節點設定，將**PSDscAllowPlainTextPassword**設為 true。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)。
 
@@ -183,7 +183,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 當節點指派的節點設定名稱不存在於服務中時，通常會發生此錯誤。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 * 請確定您所指派的節點的節點設定名稱與服務中的名稱完全相符。
 * 您可以選擇不包含節點設定名稱，這會導致節點上架，但不會指派節點設定
@@ -200,13 +200,13 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>原因
 
-客戶已識別出如果`/tmp`位置設定為`noexec`，則目前的 DSC 版本將無法套用設定。
+客戶已發現，如果 `/tmp` 位置設定為 `noexec`，DSC 的目前版本將無法套用設定。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-* 從位置移除`noexec`選項 `/tmp` 。
+* 從 `/tmp` 位置移除 [`noexec`] 選項。
 
-### <a name="compilation-node-name-overlap"></a>案例：重迭的節點設定名稱可能會導致版本錯誤
+### <a name="compilation-node-name-overlap"></a>案例：重迭的節點設定名稱可能會導致錯誤的版本
 
 #### <a name="issue"></a>問題
 
@@ -218,7 +218,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 編譯服務的已知問題。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 最佳的解決方法是在本機或在 CI/CD 管線中進行編譯，並將 MOF 檔案直接上傳至服務。  如果服務中的編譯是需求，則下一個最佳的解決方法是分割編譯工作，讓名稱中沒有任何重迭。
 

@@ -1,5 +1,5 @@
 ---
-title: 在本機部署遠端監視解決方案（透過 IntelliJ IDE）-Azure |Microsoft Docs
+title: 在本機部署遠端監視解決方案-IntelliJ IDE-Azure |Microsoft Docs
 description: 本操作指南說明如何使用 IntelliJ 進行測試和開發，將遠端監視解決方案加速器部署到本機電腦。
 author: v-krghan
 manager: dominicbetts
@@ -8,26 +8,26 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70743293"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888817"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>在本機部署遠端監視解決方案加速器 - IntelliJ
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您將瞭解如何在 IntelliJ 中執行微服務。 本機微服務部署會使用下列雲端服務：IoT 中樞、Azure Cosmos DB、Azure 串流分析，以及 Azure 時間序列深入解析。
+本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您將瞭解如何在 IntelliJ 中執行微服務。 本機微服務部署會使用下列雲端服務： [IoT 中樞]、[Azure Cosmos DB]、[Azure 串流分析] 和 [Azure 時間序列深入解析]。
 
 如果您想要在本機電腦上執行 Docker 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ### <a name="machine-setup"></a>電腦設定
 
@@ -98,18 +98,18 @@ Node.js v8 是腳本用來建立 Azure 資源之電腦 CLI 的必要條件。 �
    此腳本也會將一組環境變數新增至您的本機電腦。 每個變數名稱都有**電腦**的前置詞。 這些環境變數提供的詳細資料可讓遠端監視從 Azure Key Vault 資源讀取其設定值。
 
    > [!TIP]
-   > 當腳本完成時，它會將環境變數儲存至名 **\<為主資料夾\\ \> \\的檔案。電腦\<的\>解決方案名稱. env**。 您可以將它們用於未來的解決方案加速器部署。 請注意，當您執行**docker 撰寫**時，在本機電腦上設定的任何環境變數都會覆寫**services\\ \\scripts 本機\\env**檔案中的值。
+   > 當腳本完成時，它會將環境變數儲存至名為的檔案 **\<您的主資料夾\>\\\\\<解決方案名稱\>env**。 您可以將它們用於未來的解決方案加速器部署。 請注意，當您執行**docker 撰寫**時，本機電腦上設定的任何環境變數都會覆寫**服務\\腳本\\本機\\env**檔案中的值。
 
 1. 關閉您的命令列環境。
 
 ### <a name="use-existing-azure-resources"></a>使用現有的 Azure 資源
 
 如果您已建立必要的 Azure 資源，請在您的本機電腦上設定對應的環境變數：
-* **PCS_KEYVAULT_NAME**：Key Vault 資源的名稱。
-* **PCS_AAD_APPID**：Azure Active Directory （Azure AD）應用程式識別碼。
-* **PCS_AAD_APPSECRET**：Azure AD 的應用程式密碼。
+* **PCS_KEYVAULT_NAME**： Key Vault 資源的名稱。
+* **PCS_AAD_APPID**： Azure Active Directory （Azure AD）應用程式識別碼。
+* **PCS_AAD_APPSECRET**： Azure AD 應用程式密碼。
 
-將從此 Key Vault 資源讀取設定值。 這些環境變數可以儲存在您的 **\<主資料夾\< \> \\中。電腦\\解決方案名稱\>.** 部署中的 env 檔案。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
+將從此 Key Vault 資源讀取設定值。 這些環境變數可以儲存在**主資料夾的\<中\>\\。電腦\\\<解決方案名稱**\>部署的 env 檔案。 請注意，當您執行 **docker-compose\\ 時，您本機電腦上設定的環境變數會覆寫 \\services\\scripts**local **.env** 檔案中的值。
 
 微服務所需的部分設定會儲存在初始部署所建立 Key Vault 的實例中。 金鑰保存庫中的對應變數應視需要修改。
 
@@ -159,11 +159,11 @@ Node.js v8 是腳本用來建立 Azure 資源之電腦 CLI 的必要條件。 �
 
 #### <a name="create-run-configurations"></a>建立執行設定
 
-1. 選取 [**執行** > **編輯**設定]。
-1. 選取 [**新增** > 設定**sbt**工作]。
+1. 選取 **執行** > **編輯**設定。
+1. 選取 [**新增 Configuration** > **sbt**工作]。
 1. 輸入 [**名稱**]，然後將 [工作]**輸入為 [** **執行**]。
 1. 根據您想要執行的服務來選取**工作目錄**。
-1. 選取 [套用 **] [確定]** 以儲存您的選擇。  > 
+1. 選取 [套用 **] > [確定]** 以儲存您的選擇。
 1. 建立下列 web 服務的執行設定：
     * WebService (services\config)
     * WebService (services\device-telemetry)
@@ -172,17 +172,17 @@ Node.js v8 是腳本用來建立 Azure 資源之電腦 CLI 的必要條件。 �
 
 例如，下圖顯示如何為服務新增設定：
 
-[![[IntelliJ IDE 執行/Debug 設定] 視窗的螢幕擷取畫面，其中顯示左窗格的 [sbt 工作] 清單中反白顯示的 Pcs storageadapter 選項，以及右窗格中 [名稱]、[工作]、[工作目錄] 和 [VM 參數] 方塊中的專案。](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[![[IntelliJ IDE 執行/Debug 設定] 視窗的螢幕擷取畫面，顯示左窗格的 [sbt 工作] 清單中反白顯示的 Pcs storageadapter 選項，以及右窗格中 [名稱]、[工作]、[工作目錄] 和 [VM 參數] 方塊中的專案。](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>建立複合設定
 
-1. 若要同時執行所有服務，請選取 [**新增** > 設定] [**複合**]。
+1. 若要同時執行所有服務，請選取 [**新增**設定] > [**複合**]。
 1. 輸入 [**名稱**]，然後選取 [**新增 sbt**工作]。
-1. 選取 [套用 **] [確定]** 以儲存您的選擇。  > 
+1. 選取 [套用 **] > [確定]** 以儲存您的選擇。
 
 例如，下圖顯示如何將所有 sbt 工作新增至單一設定：
 
-[![[IntelliJ IDE 執行/Debug 設定] 視窗的螢幕擷取畫面，其中顯示左窗格的複合清單中反白顯示的 AllServices 選項，以及右窗格中反白顯示的 sbt 工作 ' deviceTelemetry ' 選項。](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[![[IntelliJ IDE 執行/Debug 設定] 視窗的螢幕擷取畫面，顯示左窗格的複合清單中反白顯示的 AllServices 選項，以及右窗格中反白顯示的 sbt 工作 ' deviceTelemetry ' 選項。](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 選取 [**執行**] 以在本機電腦上建立並執行 web 服務。
 
@@ -190,10 +190,10 @@ Node.js v8 是腳本用來建立 Azure 資源之電腦 CLI 的必要條件。 �
 
 若要存取服務的狀態，請移至下列 Url：
 
-* IoT 中樞管理員：[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* 裝置遙測：[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* web.config[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* 存放裝置-介面卡：[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* IoT 中樞管理員： [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* 裝置遙測： [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* config： [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* 存放裝置-介面卡： [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
 ### <a name="start-the-stream-analytics-job"></a>啟動串流分析工作
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-當 [**啟動**] 命令完成時，您的瀏覽器會在位址[http://localhost:3000/dashboard](http://localhost:3000/dashboard)顯示頁面。 此頁面上的錯誤一如預期。 若要在不發生錯誤的情況下查看應用程式，請完成下列步驟。
+當 [**啟動**] 命令完成時，瀏覽器會在位址[http://localhost:3000/dashboard](http://localhost:3000/dashboard)顯示頁面。 此頁面上的錯誤一如預期。 若要在不發生錯誤的情況下查看應用程式，請完成下列步驟。
 
 ### <a name="configure-and-run-nginx"></a>設定和執行 Nginx
 
@@ -226,7 +226,7 @@ npm start
 
 ### <a name="connect-to-the-dashboard"></a>連線至儀表板
 
-若要存取遠端監視解決方案儀表板，請 http://localhost:9000 在瀏覽器中移至。
+若要存取遠端監視解決方案儀表板，請移至瀏覽器中的 http://localhost:9000。
 
 ## <a name="clean-up"></a>清除
 

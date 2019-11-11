@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470913"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886053"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -239,6 +239,24 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 若要將這些秘密插入您的春季或 Tomcat 設定檔中，請使用環境變數插入語法（`${MY_ENV_VAR}`）。 如需春季設定檔，請參閱這[外部化](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)設定的相關檔。
 
+## <a name="using-the-java-key-store"></a>使用 JAVA 金鑰存放區
+
+根據預設，任何[上傳至 App Service Linux](../configure-ssl-certificate.md)的公用或私用憑證，都會在容器啟動時載入至 JAVA 金鑰存放區。 這表示在進行輸出 TLS 連線時，您上傳的憑證將會在線上內容中提供。
+
+您可以藉由開啟與 App Service 的[SSH](app-service-linux-ssh-support.md)連線，並執行命令 `keytool`，來互動或調試 JAVA 金鑰工具。 如需命令清單，請參閱[重要工具檔](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html)。 憑證會儲存在 JAVA 的預設金鑰存放區檔案位置，`$JAVA_HOME/jre/lib/security/cacerts`。
+
+加密 JDBC 連接可能需要額外的設定。 請參閱您所選擇 JDBC 驅動程式的檔。
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+### <a name="manually-initialize-and-load-the-key-store"></a>手動初始化和載入金鑰存放區
+
+您可以初始化金鑰存放區，並手動新增憑證。 建立應用程式設定，`SKIP_JAVA_KEYSTORE_LOAD`，並將值設為 `1`，以停用 App Service 自動將憑證載入金鑰存放區。 透過 Azure 入口網站上傳至 App Service 的所有公用憑證都會儲存在 `/var/ssl/certs/`之下。 私人憑證會儲存在 `/var/ssl/private/`之下。
+
+如需金鑰儲存區 API 的詳細資訊，請參閱[官方檔](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)。
+
 ## <a name="configure-apm-platforms"></a>設定 APM 平臺
 
 本節說明如何將 Linux 上的 Azure App Service 上部署的 JAVA 應用程式與 NewRelic 和 AppDynamics 應用程式效能監視（APM）平臺連接在一起。
@@ -259,7 +277,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 建立 AppDynamics 帳戶
-2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。 *
+2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。
 3. 透過[SSH 連線到您的 App Service 實例](app-service-linux-ssh-support.md)，並建立新的目錄 */home/site/wwwroot/apm*。
 4. 將 JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/appdynamics*中。
 5. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
@@ -311,7 +329,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 </appSettings>
 ```
 
-或者，在 Azure 入口網站的 [設定 ** > ** **應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [**設定** > **應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -319,7 +337,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增 `Context` 專案，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 `Context` 元素，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
@@ -480,7 +498,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 當您擁有模組的檔案和內容之後，請遵循下列步驟，將模組新增至 WildFly 應用程式伺服器。
 
 1. 使用 FTP，將您的檔案上傳至 */home*目錄下的 App Service 實例中的位置，例如 */home/site/deployments/tools*。 如需詳細資訊，請參閱[使用 FTP/S 將您的應用程式部署到 Azure App Service](../deploy-ftp.md)。
-2. **在 Azure 入口網站**的 [**設定 > 一般設定**] 頁面中，將 [**啟動腳本**] 欄位設定為啟動 shell 腳本的位置，例如 */home/site/deployments/tools/startup.sh*。
+2. 在 Azure 入口網站的 [**設定** > **一般設定**] 頁面中，將 [**啟動腳本**] 欄位設定為啟動 shell 腳本的位置，例如 */home/site/deployments/tools/startup.sh*。
 3. 按入口網站 [**總覽**] 區段中的 [**重新開機**] 按鈕，或使用 Azure CLI，重新開機您的 App Service 實例。
 
 ### <a name="configure-data-sources"></a>設定資料來源
@@ -601,7 +619,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
     * **MySQL：** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
     * **SQL Server：** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
 
-7. 在 Azure 入口網站中，流覽至您的 App Service 並尋找 設定 ** > ** **一般設定** 頁面。 將 [**啟動腳本**] 欄位設定為啟動腳本的名稱和位置，例如 */home/startup.sh*。
+7. 在 Azure 入口網站中，流覽至您的 App Service 並尋找 **設定** > **一般設定** 頁面。 將 [**啟動腳本**] 欄位設定為啟動腳本的名稱和位置，例如 */home/startup.sh*。
 
 下次 App Service 重新開機時，它將會執行啟動腳本，並執行必要的設定步驟。 若要測試此設定是否正確發生，您可以使用 SSH 存取您的 App Service，然後從 Bash 提示字元自行執行啟動腳本。 您也可以檢查 App Service 記錄。 如需這些選項的詳細資訊，請參閱[記錄和偵錯工具](#logging-and-debugging-apps)。
 
@@ -712,7 +730,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 8. 更新您應用程式的*pom .xml*檔案中的 `azure-webapp-maven-plugin` 設定，以參考您的 Redis 帳戶資訊。 此檔案會使用您先前設定的環境變數，將您的帳戶資訊保留在原始程式檔中。
 
-    如有必要，請將 `1.7.0` 變更為 Azure App Service 的[Maven 外掛程式](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)的目前版本。
+    如有必要，請將 `1.7.0` 變更為最新版的 [Maven 外掛程式 (適用於 Azure App Service)](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)。
 
     ```xml
     <plugin>
