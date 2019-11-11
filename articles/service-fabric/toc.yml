@@ -487,6 +487,8 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: 設定加密憑證，並在 Linux 上將祕密加密
                   href: service-fabric-application-secret-management-linux.md
+                - name: 使用 KeyVaultReference 安全地儲存祕密 (預覽)
+                  href: service-fabric-keyvault-references.md
             - name: 設定安全通訊的反向 proxy
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: 以本機使用者或系統帳戶身分執行服務啟動指令碼
