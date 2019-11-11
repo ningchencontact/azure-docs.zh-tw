@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: aa4254673d426579a5e5f0e90e389db7c6cadff0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7f80fb07bbed3bdb478bce557241a92cd571cc83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607358"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904887"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>疑難排解概觀、意見反應和支援
 
@@ -44,6 +44,7 @@ ms.locfileid: "73607358"
 | 連接用戶端                                                                    | 請參閱[遠端桌面用戶端](troubleshoot-client-connection.md)連線，如果無法解決您的問題，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。 |
 | 遠端應用程式或桌上型電腦的回應能力                                      | 如果問題系結至特定的應用程式或產品，請洽詢負責該產品的小組。 |
 | 授權訊息或錯誤                                                          | 如果問題系結至特定的應用程式或產品，請洽詢負責該產品的小組。 |
+| 在 GitHub 上使用 Windows 虛擬桌面工具時的問題（Azure Resource Manager 範本、診斷工具、管理工具） | 如需報告問題的遠端桌面服務，請參閱[ARM 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)。 |
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -54,4 +55,4 @@ ms.locfileid: "73607358"
 - 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
 - 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
-- 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。
+- 若要瞭解在部署期間判斷錯誤的動作，請參閱[查看部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。

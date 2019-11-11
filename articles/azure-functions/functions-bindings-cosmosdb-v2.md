@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: d8aee88f6ef3f6a73beadfdf242d79d9b361de0a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 081a0e9ac165fdee2426780be6d1440cf8d4fcc0
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469400"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904008"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -255,7 +255,7 @@ namespace CosmosDBSamplesV2
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDBTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** || 必須設為 `cosmosDBTrigger`。 |
 |**direction** || 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
@@ -292,6 +292,10 @@ namespace CosmosDBSamplesV2
 
 Azure Cosmos DB 輸入繫結會使用 SQL API 來擷取一或多個 Azure Cosmos DB 文件，並傳遞給函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。
 
+> [!NOTE]
+> 如果集合已[分割](../cosmos-db/partition-data.md#logical-partitions)，查閱作業也必須指定資料分割索引鍵值。
+>
+
 ## <a name="input---examples"></a>輸入 - 範例
 
 請指定 ID 指，以讀取單一文件的方式參閱您慣用語言的範例：
@@ -324,6 +328,7 @@ namespace CosmosDBSamplesV2
     public class ToDoItem
     {
         public string Id { get; set; }
+        public string PartitionKey { get; set; }
         public string Description { get; set; }
     }
 }
@@ -333,7 +338,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>佇列觸發程序，從 JSON 中查閱識別碼 (C#)
 
-下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由包含 JSON 物件的佇列訊息觸發。 佇列觸發程序會將 JSON 剖析至名為 `ToDoItemLookup` 的 JSON，其中包含要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由包含 JSON 物件的佇列訊息觸發。 佇列觸發程式會將 JSON 剖析成名為 `ToDoItemLookup`的物件，其中包含要查詢的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -341,6 +346,8 @@ namespace CosmosDBSamplesV2
     public class ToDoItemLookup
     {
         public string ToDoItemId { get; set; }
+
+        public string ToDoItemPartitionKeyValue { get; set; }
     }
 }
 ```
@@ -361,10 +368,11 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{ToDoItemId}")]ToDoItem toDoItem,
+                Id = "{ToDoItemId}",
+                PartitionKey = "{ToDoItemPartitionKeyValue}")]ToDoItem toDoItem,
             ILogger log)
         {
-            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId} Key={toDoItemLookup?.ToDoItemPartitionKeyValue}");
 
             if (toDoItem == null)
             {
@@ -383,7 +391,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (C#)
 
-下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 >[!NOTE]
 >HTTP 查詢字串參數會區分大小寫。
@@ -409,7 +417,8 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{Query.id}")] ToDoItem toDoItem,
+                Id = "{Query.id}",
+                PartitionKey = "{Query.partitionKey}")] ToDoItem toDoItem,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -432,7 +441,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-route-data-c"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (C#)
 
-下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用路由資料指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -449,12 +458,13 @@ namespace CosmosDBSamplesV2
         [FunctionName("DocByIdFromRouteData")]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
-                Route = "todoitems/{id}")]HttpRequest req,
+                Route = "todoitems/{partitionKey}/{id}")]HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{id}")] ToDoItem toDoItem,
+                Id = "{id}",
+                PartitionKey = "{partitionKey}")] ToDoItem toDoItem,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -481,6 +491,9 @@ namespace CosmosDBSamplesV2
 
 範例會顯示如何在 `SqlQuery` 參數中使用繫結運算式。 您可以如範例所示，將路由資料傳遞至 `SqlQuery` 參數，但目前[您無法傳遞查詢字串值](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583)。
 
+> [!NOTE]
+> 如果您只需要根據識別碼來查詢，建議使用查閱，如同[先前的範例](#http-trigger-look-up-id-from-query-string-c)，因為它會耗用較少的[要求單位](../cosmos-db/request-units.md)。 點讀取作業（GET）比依識別碼查詢[更有效率](../cosmos-db/optimize-cost-queries.md)。
+>
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -730,7 +743,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (C# 指令碼)
 
-下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -759,7 +772,8 @@ namespace CosmosDBSamplesV2
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey" : "{Query.partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -792,7 +806,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 #### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (C# 指令碼)
 
-下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用路由資料指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -808,7 +822,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -822,7 +836,8 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1046,7 +1061,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 #### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (JavaScript)
 
-下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -1075,7 +1090,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1104,7 +1120,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (JavaScript)
 
-下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -1120,7 +1136,7 @@ module.exports = function (context, req, toDoItem) {
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -1134,7 +1150,8 @@ module.exports = function (context, req, toDoItem) {
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1257,7 +1274,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 #### <a name="http-trigger-look-up-id-from-query-string-python"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (Python)
 
-下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -1286,7 +1303,8 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
   "disabled": true,
@@ -1315,7 +1333,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (Python)
 
-下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -1331,7 +1349,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -1345,7 +1363,8 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false,
@@ -1489,7 +1508,7 @@ public class ToDoItem {
 
 #### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 - 字串參數 (Java)
 
-下列範例示範會擷取單一文件的 Java 函式。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，以字串形式擷取文件。
+下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中，以字串形式抓取檔。
 
 ```java
 public class DocByIdFromQueryString {
@@ -1504,7 +1523,7 @@ public class DocByIdFromQueryString {
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
-              partitionKey = "{Query.id}",
+              partitionKey = "{Query.partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
@@ -1535,7 +1554,7 @@ public class DocByIdFromQueryString {
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 - POJO 參數 (Java)
 
-下列範例示範會擷取單一文件的 Java 函式。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件。 該文件接著會轉換為先前建立之 ```ToDoItem``` POJO 的執行個體，並當成引數傳遞到函式。
+下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 用來從指定的資料庫和集合抓取檔的識別碼和分割區索引鍵值。 該文件接著會轉換為先前建立之 ```ToDoItem``` POJO 的執行個體，並當成引數傳遞到函式。
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1550,7 +1569,7 @@ public class DocByIdFromQueryStringPojo {
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
-              partitionKey = "{Query.id}",
+              partitionKey = "{Query.partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             ToDoItem item,
             final ExecutionContext context) {
@@ -1577,7 +1596,7 @@ public class DocByIdFromQueryStringPojo {
 
 #### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (Java)
 
-下列範例示範會擷取單一文件的 Java 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數來指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件，並以 ```Optional<String>``` 傳回該文件。
+下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，它會使用路由參數來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取檔，然後將它當做 ```Optional<String>```傳回。
 
 ```java
 public class DocByIdFromRoute {
@@ -1587,13 +1606,13 @@ public class DocByIdFromRoute {
             @HttpTrigger(name = "req",
               methods = {HttpMethod.GET, HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS,
-              route = "todoitems/{id}")
+              route = "todoitems/{partitionKeyValue}/{id}")
             HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{id}",
-              partitionKey = "{id}",
+              partitionKey = "{partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
@@ -1623,6 +1642,10 @@ public class DocByIdFromRoute {
 #### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中查閱識別碼 (Java)
 
 下列範例示範會擷取單一文件的 Java 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數來指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件，並將結果集轉換為 ```ToDoItem[]```，因為根據查詢準則而定，可能會傳回許多文件。
+
+> [!NOTE]
+> 如果您只需要根據識別碼來查詢，建議使用查閱，如同[先前的範例](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)，因為它會耗用較少的[要求單位](../cosmos-db/request-units.md)。 點讀取作業（GET）比依識別碼查詢[更有效率](../cosmos-db/optimize-cost-queries.md)。
+>
 
 ```java
 public class DocByIdFromRouteSqlQuery {
@@ -1714,7 +1737,7 @@ public class DocsFromRouteSqlQuery {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `cosmosDB`。        |
 |**direction**     || 必須設為 `in`。         |
@@ -1724,7 +1747,7 @@ public class DocsFromRouteSqlQuery {
 |**id**    | **Id** | 要擷取之文件的識別碼。 此屬性支援[繫結運算式](./functions-bindings-expressions-patterns.md)。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。 |
 |**sqlQuery**  |**SqlQuery**  | 用來擷取多份文件的 Azure Cosmos DB SQL 查詢。 屬性會支援執行階段繫結，如此範例所示：`SELECT * FROM c where c.departmentId = {departmentId}`。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。|
 |**connectionStringSetting**     |**ConnectionStringSetting**|包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
-|**partitionKey**|**PartitionKey**|指定分割區索引鍵值進行查閱。 可能包含繫結參數。|
+|**partitionKey**|**PartitionKey**|指定分割區索引鍵值進行查閱。 可能包含繫結參數。 這是在資料[分割](../cosmos-db/partition-data.md#logical-partitions)的集合中查閱的必要項。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -2351,7 +2374,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `cosmosDB`。        |
 |**direction**     || 必須設為 `out`。         |
@@ -2399,9 +2422,9 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
-|GatewayMode|閘道|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
+|GatewayMode|閘道器|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
 |通訊協定|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)|
 |leasePrefix|n/a|要在應用程式的所有函式上使用的租用前置詞。|
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: bbd08e49256886a1df334cbf36e6e468bb8f3895
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: ba52cac4ebe923b7217550ed90948d908d8daf7f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286777"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73900654"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
@@ -30,7 +30,7 @@ ms.locfileid: "72286777"
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>使用 ACR 整合建立新的 AKS 叢集
 
-您可以在初始建立 AKS 叢集期間，設定 AKS 和 ACR 整合。  為了讓 AKS 叢集與 ACR 互動，會使用 Azure Active Directory**服務主體**。 下列 CLI 命令可讓您授權訂用帳戶中現有的 ACR，並為服務主體設定適當的**ACRPull**角色。 請為您的參數提供有效的值。  方括弧中的參數是選擇性的。
+您可以在初始建立 AKS 叢集期間，設定 AKS 和 ACR 整合。  為了讓 AKS 叢集與 ACR 互動，會使用 Azure Active Directory**服務主體**。 下列 CLI 命令可讓您授權訂用帳戶中現有的 ACR，並為服務主體設定適當的**ACRPull**角色。 請為您的參數提供有效的值。 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
 MYACR=myContainerRegistry
@@ -39,15 +39,15 @@ MYACR=myContainerRegistry
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 
 # Create an AKS cluster with ACR integration
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr $MYACR
+az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 
 ```
 或者，您可以使用 ACR 資源識別碼指定 ACR 名稱，其格式如下：
 
-/subscriptions/\<subscription-id @ no__t-1/resourceGroups/\<resource-group-name @ no__t-3/provider/Microsoft. ContainerRegistry/registry/\<name @ no__t-5 
+/subscriptions/\<訂用帳戶識別碼\>/resourceGroups/\<資源群組名稱\>/providers/Microsoft.ContainerRegistry/registries/\<名稱\> 
  
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
+az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```
 
 此步驟可能需要幾分鐘的時間才能完成。

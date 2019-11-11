@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178587"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904456"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -37,43 +37,45 @@ ms.locfileid: "71178587"
 * 包含兩個 Azure 檔案共用作為磁碟區掛接，且每個容器會在本機掛接其中一個共用。
 
 > [!NOTE]
-> 多容器群組目前僅支援 Linux 容器。 針對 Windows 容器, Azure 容器實例僅支援部署單一實例。 雖然我們正致力於將所有功能帶入 Windows 容器, 但是您可以在服務[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
+> 多容器群組目前僅支援 Linux 容器。 針對 Windows 容器，Azure 容器實例僅支援部署單一實例。 雖然我們正致力於將所有功能帶入 Windows 容器，但是您可以在服務[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
 
 ## <a name="deployment"></a>部署
 
-以下是兩種部署多容器群組的常見方式：使用[Resource Manager 範本][resource-manager template]或[YAML][yaml-file]檔案。 當您部署容器實例時，如果需要部署其他 Azure 服務資源（例如， [Azure 檔案儲存體共用][azure-files]），建議使用 Resource Manager 範本。 由於 YAML 格式的本質較簡潔, 當您的部署只包含容器實例時, 建議使用 YAML 檔案。 如需您可以設定之屬性的詳細資訊，請參閱[Resource Manager 範本參考](/azure/templates/microsoft.containerinstance/containergroups)或[YAML 參考](container-instances-reference-yaml.md)檔。
+以下是兩種部署多容器群組的常見方式：使用[Resource Manager 範本][resource-manager template]或[YAML][yaml-file]檔案。 當您部署容器實例時，如果需要部署其他 Azure 服務資源（例如， [Azure 檔案儲存體共用][azure-files]），建議使用 Resource Manager 範本。 由於 YAML 格式的本質較簡潔，當您的部署只包含容器實例時，建議使用 YAML 檔案。 如需您可以設定之屬性的詳細資訊，請參閱[Resource Manager 範本參考](/azure/templates/microsoft.containerinstance/containergroups)或[YAML 參考](container-instances-reference-yaml.md)檔。
 
-若要保留容器群組的設定, 您可以使用 Azure CLI 命令[az container export][az-container-export], 將設定匯出至 YAML 檔案。 匯出可讓您將容器群組設定儲存在版本控制中, 以取得「設定即程式碼」。 或者，在 YAML 中開發新組態時，您可以使用匯出的檔案作為起點。
+若要保留容器群組的設定，您可以使用 Azure CLI 命令[az container export][az-container-export]，將設定匯出至 YAML 檔案。 匯出可讓您將容器群組設定儲存在版本控制中，以取得「設定即程式碼」。 或者，在 YAML 中開發新組態時，您可以使用匯出的檔案作為起點。
 
 
 
 ## <a name="resource-allocation"></a>資源配置
 
-Azure 容器實例會藉由新增群組中實例的[資源要求][resource-requests]，將 cpu、記憶體和選擇性[gpu][gpus] （預覽）等資源配置給容器群組。 以 CPU 資源為例, 如果您建立具有兩個實例的容器群組, 每個都要求1個 CPU, 則容器群組會配置2個 cpu。
+Azure 容器實例會藉由新增群組中實例的[資源要求][resource-requests]，將 cpu、記憶體和選擇性[gpu][gpus] （預覽）等資源配置給容器群組。 以 CPU 資源為例，如果您建立具有兩個實例的容器群組，每個都要求1個 CPU，則容器群組會配置2個 cpu。
 
-容器群組可用的資源上限取決於用於部署的[Azure 區域][region-availability]。
+### <a name="resource-usage-by-instances"></a>依實例的資源使用量
 
-### <a name="container-resource-requests-and-limits"></a>容器資源要求和限制
+每個容器實例都會配置其資源要求中指定的資源。 不過，群組中的容器實例所使用的資源，需視您設定其選擇性[資源限制][resource-limits]屬性的方式而定。
 
-* 根據預設, 群組中的容器實例會共用所要求的群組資源。 在具有兩個實例 (每個都要求1個 CPU) 的群組中, 整組群組可以存取2個 cpu。 每個實例最多可以使用2個 Cpu, 而實例在執行時可能會競爭 CPU 資源。
+* 如果您未指定資源限制，實例的最大資源使用量就會與資源要求相同。
 
-* 若要依據群組中的實例來限制資源使用量, 請選擇性地設定實例的[資源限制][resource-limits]。 在有兩個實例要求1個 CPU 的群組中, 其中一個容器可能需要更多的 Cpu 才能執行。
+* 如果您指定實例的資源限制，可以針對其工作負載調整實例的資源使用量，以減少或增加相對於資源要求的使用量。 您可以設定的最大資源限制是配置給群組的總資源。
+    
+    例如，在有兩個實例要求1個 CPU 的群組中，您的其中一個容器可能會執行需要比另一個更多 Cpu 執行的工作負載。
 
-  在此案例中, 您可以為一個實例設定 0.5 CPU 的資源限制, 並將第二個 cpu 的限制設為2個。 此設定會將第一個容器的資源使用量限制為 0.5 CPU, 讓第二個容器可以使用最多一個完整的2個 Cpu (如果有的話)。
+    在此案例中，您可以為一個實例設定 0.5 CPU 的資源限制，並將第二個 cpu 的限制設為2個。 此設定會將第一個容器的資源使用量限制為 0.5 CPU，讓第二個容器可以使用最多一個完整的2個 Cpu （如果有的話）。
 
-如需詳細資訊, 請參閱容器群組 REST API 中的[ResourceRequirements][resource-requirements]屬性。
+如需詳細資訊，請參閱容器群組 REST API 中的[ResourceRequirements][resource-requirements]屬性。
 
 ### <a name="minimum-and-maximum-allocation"></a>配置的最小和最大值
 
 * 為容器群組配置**最少**1 個 CPU 和 1 GB 的記憶體。 群組內的個別容器實例可以布建少於1個 CPU 和 1 GB 的記憶體。 
 
-* 如需容器群組中的資源**上限**, 請參閱部署區域中 Azure 容器實例的[資源可用性][region-availability]。
+* 如需容器群組中的資源**上限**，請參閱部署區域中 Azure 容器實例的[資源可用性][region-availability]。
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
-容器群組會共用 IP 位址以及該 IP 位址上的連接埠命名空間。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間, 所以不支援埠對應。 群組內的容器可以透過 localhost 在其公開的埠上透過 localhost 彼此連接, 即使這些埠不會在群組的 IP 位址外部公開。
+容器群組會共用 IP 位址以及該 IP 位址上的連接埠命名空間。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間，所以不支援埠對應。 群組內的容器可以透過 localhost 在其公開的埠上透過 localhost 彼此連接，即使這些埠不會在群組的 IP 位址外部公開。
 
-選擇性地將容器群組部署至[Azure 虛擬網路][virtual-network](預覽), 讓容器能夠安全地與虛擬網路中的其他資源進行通訊。
+選擇性地將容器群組部署至[Azure 虛擬網路][virtual-network]（預覽），讓容器能夠安全地與虛擬網路中的其他資源進行通訊。
 
 ## <a name="storage"></a>儲存體
 
@@ -88,7 +90,7 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 * 一個容器提供 Web 應用程式，一個容器從原始檔控制提取最新內容。
 * 一個應用程式容器和一個記錄容器。 記錄容器收集主應用程式所輸出的記錄和計量，並將這些資料寫入到長期存放區。
 * 一個應用程式容器和一個監視容器。 監視容器會定期向應用程式發出要求，以確保它會保持執行狀態並正確回應，如果沒有正確回應則引發警示。
-* 前端容器和後端容器。 前端可能會提供 web 應用程式, 後端會執行服務來抓取資料。 
+* 前端容器和後端容器。 前端可能會提供 web 應用程式，後端會執行服務來抓取資料。 
 
 ## <a name="next-steps"></a>後續步驟
 

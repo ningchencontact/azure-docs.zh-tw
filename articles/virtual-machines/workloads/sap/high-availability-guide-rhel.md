@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 13f751b472b3443ba50be5d54ab08e015d1a8f5a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a618a2cb976c90174125e54af645123c6b0a9dcd
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824880"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905023"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>SAP NetWeaver on Red Hat Enterprise Linux 的 Azure 虛擬機器高可用性
 
@@ -57,7 +57,7 @@ ms.locfileid: "73824880"
 
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
-* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP Hana 指導方針
+* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
 * SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
@@ -78,7 +78,7 @@ ms.locfileid: "73824880"
   * [RHEL 高可用性叢集的支援原則：以 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 為了實現高可用性，SAP NetWeaver 需要使用共用儲存體。 GlusterFS 會於獨立的叢集中設定，且可供多個 SAP 系統使用。
 
@@ -117,7 +117,7 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 * 探查連接埠
   * 連接埠 621<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 如果使用 Standard Load Balancer，請選取 [HA 埠] * *
+  * 如果使用 Standard Load Balancer，請選取 [ **HA 埠**]
   * 如果使用基本 Load Balancer，請建立下列埠的負載平衡規則
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 33<strong>&lt;nr&gt;</strong> TCP
@@ -154,7 +154,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
    1. 管理員使用者名稱、管理員密碼或 SSH 金鑰  
       隨即會建立新的使用者，以用來登入電腦。
    1. 子網路識別碼  
-   如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/ **&lt;訂用帳戶識別碼&gt;** /resourceGroups/ **&lt;資源群組名稱&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;虛擬網路名稱&gt;** /subnets/ **&lt;子網路名稱&gt;**
+   如果您想要將 VM 部署至現有 VNet，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/ **&lt;訂用帳戶識別碼&gt;** /resourceGroups/ **&lt;資源群組名稱&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;虛擬網路名稱&gt;** /subnets/ **&lt;子網路名稱&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>透過 Azure 入口網站手動部署 Linux
 
@@ -166,10 +166,10 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
    設定更新網域上限
 1. 建立虛擬機器 1  
    至少使用 RHEL 7，本範例中使用 Red Hat Enterprise Linux 7.4 映像 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
-   選取稍早建立的「可用性設定組」  
+   選取稍早建立的可用性設定組  
 1. 建立虛擬機器 2  
    至少使用 RHEL 7，本範例中使用 Red Hat Enterprise Linux 7.4 映像 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
-   選取稍早建立的「可用性設定組」  
+   選取稍早建立的可用性設定組  
 1. 將至少一個資料磁碟新增至兩部虛擬機器  
    資料磁碟用於 /usr/sap/`<SAPSID`> 目錄
 1. 建立負載平衡器（內部、標準）：  
@@ -250,9 +250,8 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
       1. ASCS ERS 的其他連接埠
          * 重複上述步驟來為 ASCS ERS 設定連接埠 33**02**、5**02**13、5**02**14、5**02**16 和 TCP
 
-> [!TIP]
-> 如果沒有公用 IP 位址的 Vm 放在內部標準負載平衡器的後端集區中，則除非執行額外的設定，否則 Vm 將不會有輸出網際網路連線能力。  
-> 如果您的案例需要對公用端點的輸出連線，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)，以取得如何達成輸出的秘訣和考慮公用端點的連線能力。
+> [!Note]
+> 當沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中時，除非執行額外設定以允許路由傳送至公用端點，否則將不會有輸出網際網路連線能力。 如需如何達到輸出連線能力的詳細資訊，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)。  
 
 > [!IMPORTANT]
 > 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp. tcp_timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
@@ -1047,5 +1046,5 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
 * [適用于 SAP 的 Azure 虛擬機器規劃和執行][planning-guide]
 * [適用于 SAP 的 Azure 虛擬機器部署][deployment-guide]
 * [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
-* 若要了解如何建立高可用性並為 Azure 上的 SAP HANA 規劃災害復原，請參閱 [Azure 上的 SAP HANA (大型執行個體) 高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
+* 若要了解如何建立高可用性並為 Azure 上的 SAP HANA (大型執行個體) 規劃災害復原，請參閱 [SAP HANA (大型執行個體) 在 Azure 上的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
 * 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]

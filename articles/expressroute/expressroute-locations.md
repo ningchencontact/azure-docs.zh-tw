@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 11/08/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa152bb4cfb7ab59daababf267d3da26170119c0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0a918c4276ced878bb3cbfc4362817cd975b99d7
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838139"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901638"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -43,12 +43,12 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **地緣政治區域** | **Azure 區域** | **ExpressRoute 位置** |
 | --- | --- | --- |
 | **澳洲政府** |澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 |
-| **歐洲** | 法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、哥本哈根、都柏林、法蘭克福、Geneva、倫敦、倫敦2、馬賽、米蘭、慕尼克、紐波特（威爾士）、巴黎、Stavanger、斯德哥爾摩、蘇黎世 |
+| **歐洲** | 法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、哥本哈根、都柏林、法蘭克福、Geneva、倫敦、倫敦2、馬賽、米蘭、慕尼克、紐波特（威爾士）、Oslo、巴黎、Stavanger、斯德哥爾摩、蘇黎世 |
 | **北美洲** |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、內華達州、洛杉磯、邁阿密、紐約、San Antonio、西雅圖、矽谷、矽 Valley2、華盛頓特區、華盛頓特區、蒙特利爾、魁北克市、多倫多 |
 | **亞洲** | 東亞、東南亞 |香港特別行政區、雅加達、吉隆坡、新加坡、新加坡2、臺北 |
 | **印度** | 印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 日本西部、日本東部 |大阪、東京 |
-| **大洋洲** | 澳洲東南部、澳洲東部 |奧克蘭, 墨爾本, 通過, 雪梨 |
+| **大洋洲** | 澳洲東南部、澳洲東部 |奧克蘭，墨爾本，Sydney2，悉尼， |
 | **南韓** | 南韓中部、南韓南部 |釜山、首爾|
 | **阿拉伯聯合大公國** | 阿拉伯聯合大公國中部，阿拉伯聯合大公國北部 | 杜拜、Dubai2 |
 | **南非** | 南非西部，南非北部 |開普敦、約翰尼斯堡 |
@@ -121,7 +121,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |支援 |支援 |倫敦 |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |支援 |支援 |達拉斯、洛杉磯、邁阿密、聖保羅、華盛頓特區 |
 | **[新一代資料](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |支援 |支援 |Newport(Wales) |
-| **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |支援 |支援 |墨爾本、伯斯、雪梨 |
+| **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |支援 |支援 |墨爾本、通過、悉尼、Sydney2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |支援 |支援 |阿姆斯特丹、香港特別行政區、倫敦、洛杉磯、大阪、新加坡、悉尼、東京、華盛頓特區 |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |支援 |支援 |東京 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |支援 |支援 |大阪 |

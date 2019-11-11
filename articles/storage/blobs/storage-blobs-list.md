@@ -1,23 +1,25 @@
 ---
 title: 使用 .NET 列出 blob-Azure 儲存體
-description: 瞭解如何使用 .NET 用戶端程式庫，列出 Azure 儲存體帳戶中容器內的 blob。
+description: 瞭解如何使用 .NET 用戶端程式庫，列出 Azure 儲存體帳戶中容器內的 blob。 程式碼範例會示範如何列出一般清單中的 blob，或如何以階層方式列出 blob，如同它們已組織成目錄或資料夾。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599925"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902008"
 ---
 # <a name="list-blobs-with-net"></a>使用 .NET 列出 blob
 
-當您列出程式碼中的 blob 時，您可以指定數個選項來管理 Azure 儲存體傳回結果的方式。 本文說明如何使用[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來列出 blob。  
+當您列出程式碼中的 blob 時，您可以指定數個選項來管理 Azure 儲存體傳回結果的方式。 您可以指定要在每一組結果中傳回的結果數目，然後取得後續的集合。 您可以指定前置詞，以傳回名稱開頭為該字元或字串的 blob。 而且您可以列出一般清單結構中或階層式的 blob。 階層式清單會傳回 blob，就好像它們已組織成資料夾一樣。 
+
+本文說明如何使用[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來列出 blob。  
 
 ## <a name="understand-blob-listing-options"></a>瞭解 blob 清單選項
 
@@ -53,7 +55,7 @@ ms.locfileid: "72599925"
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>一般清單與階層式清單
 
-Azure 儲存體中的 blob 是以一般架構來組織，而不是階層式架構（例如傳統檔案系統）。 不過，您可以將 blob 組織成*虛擬目錄*，以模仿階層式架構。 虛擬目錄是由分隔符號所 config.js 區分之 blob 名稱的一部分。
+Azure 儲存體中的 blob 是以一般架構來組織，而不是階層式架構（例如傳統檔案系統）。 不過，您可以將 blob 組織成*虛擬目錄*，以便模擬資料夾結構。 虛擬目錄會形成 blob 名稱的一部分，並以分隔符號來表示。
 
 若要將 blob 組織成虛擬目錄，請在 blob 名稱中使用分隔符號。 預設的分隔符號是正斜線（/），但您可以指定任何字元做為分隔符號。
 

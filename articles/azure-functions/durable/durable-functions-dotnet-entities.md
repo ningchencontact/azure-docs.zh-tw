@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614897"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904055"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET 中的持久性實體開發人員指南
 
@@ -117,7 +117,7 @@ public class Counter
 
 ## <a name="accessing-entities-directly"></a>直接存取實體
 
-以類別為基礎的實體可以直接存取，使用實體及其作業的明確字串名稱。 我們提供下列範例：如需基礎概念（例如信號和呼叫）的更深入說明，請參閱[存取實體](durable-functions-entities.md#accessing-entities)中的討論。 
+以類別為基礎的實體可以直接存取，使用實體及其作業的明確字串名稱。 我們提供下列範例：如需基礎概念（例如信號和呼叫）的更深入說明，請參閱[存取實體](durable-functions-entities.md#access-entities)中的討論。 
 
 > [!NOTE]
 > 可能的話，我們建議您[透過介面來存取實體](#accessing-entities-through-interfaces)，因為它提供更多的型別檢查。
@@ -207,7 +207,7 @@ public class Counter : ICounter
 
 ### <a name="example-client-signals-entity-through-interface"></a>範例：用戶端透過介面的信號實體
 
-用戶端程式代碼可以使用 `SignalEntityAsync<TEntityInterface>`，將信號傳送到實 `TEntityInterface` 的實體。 例如：
+用戶端程式代碼可以使用 `SignalEntityAsync<TEntityInterface>`，將信號傳送到實 `TEntityInterface` 的實體。 例如︰
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -373,9 +373,9 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="bindings-in-entity-classes"></a>實體類別中的系結
 
-與一般函式不同的是，實體類別方法無法直接存取輸入和輸出系結。 相反地，系結資料必須在進入點函式宣告中捕捉，然後傳遞至 `DispatchAsync<T>` 方法。 傳遞給 `DispatchAsync<T>` 的任何物件都會自動當做引數傳遞至實體類別的函式。
+與一般函式不同的是，實體類別方法無法直接存取輸入和輸出系結。 相反地，其必須在進入點函式宣告中擷取繫結資料，然後再傳遞至 `DispatchAsync<T>` 方法。 任何傳遞至 `DispatchAsync<T>` 的物件都會自動以引數的形式傳遞至實體類別建構函式。
 
-下列範例顯示如何將[blob 輸入](../functions-bindings-storage-blob.md#input)系結中的 `CloudBlobContainer` 參考提供給以類別為基礎的實體。
+下列範例會說明如何讓以類別為基礎的實體可以使用來自 `CloudBlobContainer`Blob 輸入繫結[的 ](../functions-bindings-storage-blob.md#input) 參考。
 
 ```csharp
 public class BlobBackedEntity
@@ -402,11 +402,11 @@ public class BlobBackedEntity
 }
 ```
 
-如需 Azure Functions 中系結的詳細資訊，請參閱[Azure Functions 觸發程式和](../functions-triggers-bindings.md)系結檔。
+如需 Azure Functions 中繫結的詳細資訊，請參閱 [Azure Functions 觸發程序和繫結](../functions-triggers-bindings.md)文件。
 
 ### <a name="dependency-injection-in-entity-classes"></a>實體類別中的相依性插入
 
-實體類別支援[Azure Functions](../functions-dotnet-dependency-injection.md)相依性插入。 下列範例示範如何將 `IHttpClientFactory` 服務註冊到以類別為基礎的實體。
+實體類別支援 [Azure Functions 相依性插入](../functions-dotnet-dependency-injection.md)。 下列範例會示範如何將 `IHttpClientFactory` 服務註冊到以類別為基礎的實體。
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -423,7 +423,7 @@ namespace MyNamespace
 }
 ```
 
-下列程式碼片段示範如何將插入的服務併入您的實體類別。
+下列程式碼片段會示範如何將插入的服務併入到實體類別。
 
 ```csharp
 public class HttpEntity
@@ -454,7 +454,7 @@ public class HttpEntity
 > 若要避免序列化的問題，請務必排除用來儲存序列化中插入值的欄位。
 
 > [!NOTE]
-> 不同于在一般 .NET Azure Functions 中使用函式插入，類別型實體的函式進入點方法*必須*宣告為 `static`。 宣告非靜態函式進入點可能會導致一般 Azure Functions 物件初始化運算式與持久性實體物件初始化運算式之間發生衝突。
+> 不同於在一般的 .NET Azure Functions 中使用建構函式插入時，以類別為基礎的實體「必須」將函式進入點方法宣告為 `static`。 宣告非靜態函式進入點可能會導致一般 Azure Functions 物件初始設定式與持久性實體物件初始設定式之間發生衝突。
 
 ## <a name="function-based-syntax"></a>以函式為基礎的語法
 

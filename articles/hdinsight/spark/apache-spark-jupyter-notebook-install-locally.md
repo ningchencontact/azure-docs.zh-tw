@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 11/07/2019
+ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337644"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903742"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在電腦上安裝 Jupyter Notebook，並連線到 HDInsight 上的 Apache Spark
 
@@ -28,11 +28,11 @@ ms.locfileid: "71337644"
 
 如需有關可供 HDInsight 叢集之相關 Jupyter Notebook 使用的自訂核心和 Spark magic 的詳細資訊，請參閱 [HDInsight 上的 Apache Spark Linux 叢集可供 Jupyter Notebook 使用的核心](apache-spark-jupyter-notebook-kernels.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-此處所列的必要條件不是針對安裝 Jupyter。 這些是用來在安裝 Notebook 之後將 Jupyter Notebook 連接到 HDInsight 叢集。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。 這是在安裝筆記本之後，將 Jupyter 筆記本連接到 HDInsight 叢集的必要條件。
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* 熟悉如何搭配使用 Jupyter Notebook 和 HDInsight 上的 Spark。
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>在電腦上安裝 Jupyter Notebook
 
@@ -46,10 +46,10 @@ ms.locfileid: "71337644"
 
     |叢集版本 | 安裝命令 |
     |---|---|
-    |3\.6 和3.5 版 |`pip install sparkmagic==0.12.7`|
-    |v3.4|`pip install sparkmagic==0.2.3`|
+    |3\.6 和3.5 版 |`pip install sparkmagic==0.13.1`|
+    |3\.4 版|`pip install sparkmagic==0.2.3`|
 
-1. 執行`ipywidgets`下列命令，確定已正確安裝：
+1. 執行下列命令，確定已正確安裝 `ipywidgets`：
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -57,7 +57,7 @@ ms.locfileid: "71337644"
 
 ## <a name="install-pyspark-and-spark-kernels"></a>安裝 PySpark 和 Spark 核心
 
-1. 輸入下列`sparkmagic`命令來識別安裝位置：
+1. 輸入下列命令來識別安裝 `sparkmagic` 的位置：
 
     ```cmd
     pip show sparkmagic
@@ -74,7 +74,7 @@ ms.locfileid: "71337644"
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. 選擇性。 輸入下列命令以啟用伺服器擴充功能：
+1. 選用。 輸入下列命令以啟用伺服器擴充功能：
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -100,7 +100,7 @@ ms.locfileid: "71337644"
     exit()
     ```
 
-3. 在資料夾`.sparkmagic`內，建立名為**config.xml**的檔案，並在其中新增下列 json 程式碼片段。  
+3. 在 `.sparkmagic`的資料夾中，建立名為**config.xml**的檔案，並在其中新增下列 json 程式碼片段。  
 
     ```json
     {
@@ -116,6 +116,10 @@ ms.locfileid: "71337644"
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -124,12 +128,12 @@ ms.locfileid: "71337644"
 
 4. 對檔案進行下列編輯：
 
-    |範本值 | 新增值 |
+    |範本值 | 新值 |
     |---|---|
-    |{USERNAME}|叢集登入，預設`admin`值為。|
+    |USERNAME|叢集登入，預設值為 `admin`。|
     |CLUSTERDNSNAME|叢集名稱|
-    |{BASE64ENCODEDPASSWORD}|以 base64 編碼的密碼，適用于您的實際密碼。  您可以在[https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)產生 base64 密碼。|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|如果使用`sparkmagic 0.12.7` （叢集3.5 和3.6 版），請保留。  如果使用`sparkmagic 0.2.3` （叢集3.4），請將取代`"should_heartbeat": true`為。|
+    |BASE64ENCODEDPASSWORD|以 base64 編碼的密碼，適用于您的實際密碼。  您可以在[https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)產生 base64 密碼。|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|如果使用 `sparkmagic 0.12.7` （叢集3.5 和3.6 版），請保留。  如果使用 `sparkmagic 0.2.3` （叢集3.4），請將取代為 `"should_heartbeat": true`。|
 
     您可以在[範例 config.xml](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)中看到完整的範例檔案。
 
@@ -146,12 +150,12 @@ ms.locfileid: "71337644"
 
     a. 建立新的 Notebook。 從右上角選取 [**新增**]。 您應該會看到預設的核心**Python 2**或**Python 3** ，以及您安裝的核心。 實際的值可能會根據您的安裝選項而有所不同。  選取 [ **PySpark**]。
 
-    (./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 筆記本中") ![Jupyter 筆記本]核心的可用核心
+    ![Jupyter 筆記本中的可用核心](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 筆記本中的核心")
 
     > [!IMPORTANT]  
-    > 選取 [**新增**] 之後，請檢查您的 shell 是否有任何錯誤。  如果您看到錯誤`TypeError: __init__() got an unexpected keyword argument 'io_loop'` ，您可能會遇到某些龍捲風版本的已知問題。  若是如此，請停止核心，然後使用下列命令將您的龍捲風安裝降級`pip install tornado==4.5.3`：。
+    > 選取 [**新增**] 之後，請檢查您的 shell 是否有任何錯誤。  如果您看到錯誤 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 您可能會遇到某些龍捲風版本的已知問題。  若是如此，請停止核心，然後使用下列命令來降級您的龍捲風安裝： `pip install tornado==4.5.3`。
 
-    b. 執行下列程式碼片段。
+    b.這是另一個 C# 主控台應用程式。 執行下列程式碼片段。
 
     ```sql
     %%sql
@@ -170,7 +174,7 @@ ms.locfileid: "71337644"
 * 使用本機可用的 Notebook，您可以根據您的應用程式需求，連接至不同的 Spark 叢集。
 * 您可以使用 GitHub 實作來源控制系統，並且具有 Notebook 的版本控制。 您也可以有共同作業環境，其中多個使用者可以使用相同的 Notebook。
 * 您甚至不需要啟用叢集，即可在本機使用 Notebook。 您只需要叢集針對 Notebook 進行測試，不必以手動方式管理您的 Notebook 或開發環境。
-* 設定自己的本機開發環境比設定叢集的 Jupyter 安裝更容易。  您可以利用您在本機安裝的所有軟體，而不需要設定一或多個遠端叢集。
+* 設定自己的本機開發環境可能比較容易，而不是在叢集上設定 Jupyter 安裝。  您可以利用您已在本機安裝的所有軟體，而不需要設定一或多個遠端叢集。
 
 > [!WARNING]  
 > 將 Jupyter 安裝在本機電腦上，多個使用者可以同時在相同的 Spark 叢集上執行相同的 Notebook。 在這種情況下，會建立多個 Livy 工作階段。 如果您遇到問題，而且想要偵錯，則追蹤哪個 Livy 工作階段屬於哪個使用者會是複雜的工作。  
@@ -178,5 +182,5 @@ ms.locfileid: "71337644"
 ## <a name="next-steps"></a>後續步驟
 
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
-* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)

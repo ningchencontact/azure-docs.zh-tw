@@ -2,23 +2,23 @@
 title: 使用 Azure HDInsight 為 Storm 進行疑難排解
 description: 取得有關使用 Apache Storm 和 Azure HDInsight 的常見問題解答。
 keywords: Azure HDInsight, Storm, 常見問題集, 疑難排解指南, 常見問題
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/15/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f307d6245b107fdbd3c6d6baafa5a162988235da
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e2cc9dd81a0bbefa5cf37facb6067bda07117eaf
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800002"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903729"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Storm 進行疑難排解
 
-了解在 [Apache Ambari](https://ambari.apache.org/) 中使用 [Apache Storm](https://storm.apache.org/) 承載時最常發生的問題及其解決方法。
+了解在 [Apache Ambari](https://storm.apache.org/) 中使用 [Apache Storm](https://ambari.apache.org/) 承載時最常發生的問題及其解決方法。
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在叢集上存取 Storm UI？
 
@@ -36,7 +36,7 @@ ms.locfileid: "72800002"
 
 `https://<cluster DNS name>/stormui`
 
-範例：`https://stormcluster.azurehdinsight.net/stormui`
+範例︰ `https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm 事件中樞 Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲？
 
@@ -104,7 +104,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 * 閘道節點
 * 前端節點
 * ZooKeeper 節點
-* 背景工作角色節點
+* 背景工作節點
 
 ### <a name="gateway-nodes"></a>閘道節點
 
@@ -124,7 +124,7 @@ HDInsight 隨附一個三節點的 ZooKeeper 仲裁。 仲裁大小是固定的�
 
 叢集中的 Storm 服務已設定為自動使用 ZooKeeper 仲裁。
 
-### <a name="worker-nodes"></a>背景工作角色節點
+### <a name="worker-nodes"></a>背景工作節點
 
 Storm 背景工作節點執行下列服務：
 * 監督員
@@ -168,12 +168,22 @@ Nimbus Log4J 設定是從 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`讀�
 範例： `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
+---
+
+## <a name="not-a-leader-exception"></a>不是領導者例外狀況
+
+提交拓撲時，使用者可能會收到類似下列的錯誤訊息： `Topology submission exception, cause not a leader, the current leader is NimbusInfo`。
+
+若要解決此問題，使用者可能需要提出票證，才能讓節點重新開機/重新開機。 如需詳細資訊，請參閱 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)。
+
+---
+
 ## <a name="next-steps"></a>後續步驟
 
 如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
 - 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-- 連接[@AzureSupport](https://twitter.com/azuresupport) -用來改善客戶體驗的官方 Microsoft Azure 帳戶。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+- 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 訂用帳戶包括訂用帳戶管理及帳務支援的存取權，而技術支援由其中一項 [Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

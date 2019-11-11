@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 901ae66281e1d68474304a4f5456a0163fcb6f2a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 39ab0caa31f79aca41f2c40a3220412e0683ee22
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747606"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903169"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>透過 REST API 使用 Azure 備份來備份 Azure VM
 
@@ -47,7 +47,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |204 沒有內容     |         |  確定，但不會傳回任何內容      |
 |202 已接受     |         |     已接受    |
@@ -110,7 +110,7 @@ GET URI 具備所有必要參數。 不需任何額外的要求本文。
 
 #### <a name="responses-1"></a>答案
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |200 確定     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -168,7 +168,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>啟用 Azure VM 的保護
 
-在「快取」並「識別出」相關的 VM 之後，選取要保護的原則。 若要深入了解保存庫中的現有原則，請參閱[清單原則 API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list) \(英文\)。 然後藉由參考原則名稱來選取[相關的原則](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) \(英文\)。 若要建立原則，請參閱[建立原則教學課程](backup-azure-arm-userestapi-createorupdatepolicy.md)。 已在下列範例中選取 "DefaultPolicy"。
+在「快取」並「識別出」相關的 VM 之後，選取要保護的原則。 若要深入了解保存庫中的現有原則，請參閱[清單原則 API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list) \(英文\)。 然後藉由參考原則名稱來選取[相關的原則](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) \(英文\)。 若要建立原則，請參閱[建立原則教學課程](backup-azure-arm-userestapi-createorupdatepolicy.md)。 已在下列範例中選取 "DefaultPolicy"。
 
 啟用保護是建立「受保護的項目」的非同步 *PUT* 作業。
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 若要建立受保護的項目，以下是要求本文的元件。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 資源屬性         |
 
@@ -214,7 +214,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |200 確定     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 已接受     |         |     已接受    |
@@ -241,7 +241,7 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 *GET* 命令，來追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 若要觸發隨選備份，以下是要求本文的元件。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 屬性         |
 
@@ -325,7 +325,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
@@ -351,7 +351,7 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 *GET* 命令，來追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
@@ -445,7 +445,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 204 (NoContent)。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 已接受     |         |     已接受    |

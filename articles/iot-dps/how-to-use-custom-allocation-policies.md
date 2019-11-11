@@ -8,42 +8,39 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 11872f8efcebf39edef2f97cd30c225edbe74bb4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348073"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903576"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自訂配置原則
 
-
 自訂配置原則可讓您進一步掌控將裝置指派給 IoT 中樞的方式。 此作業可藉由在 [Azure 函式](../azure-functions/functions-overview.md)中使用自訂程式碼將裝置指派給 IoT 中樞來完成。 裝置佈建服務會呼叫您的 Azure 函式程式碼，提供關於裝置和註冊的所有資訊。 您的函式程式碼會執行並傳回用來佈建裝置的 IoT 中樞資訊。
 
-藉由使用自訂配置原則，您可在裝置佈建服務所提供的原則不符合案例的需求時，定義您自己的配置原則。
+藉由使用自訂配置原則，當裝置布建服務提供的原則不符合您案例的需求時，您可以定義自己的配置原則。
 
-例如，或許您想要檢查裝置在佈建期間所使用的憑證，並根據憑證屬性將裝置指派給 IoT 中樞。 或許您將裝置的資訊儲存在資料庫中，而需要查詢資料庫以判斷應將裝置指派給哪個 IoT 中樞。
-
+例如，您可能想要在布建期間檢查裝置正在使用的憑證，並根據憑證屬性將裝置指派給 IoT 中樞。 或者，您的裝置可能有儲存在資料庫中的資訊，而且需要查詢資料庫，以判斷應該指派裝置的 IoT 中樞。
 
 本文將示範如何使用以 C# 撰寫的 Azure 函式設定自訂配置原則。 我們會建立兩個新的 IoT 中樞，分別代表 *Contoso 烤箱部門*和 *Contoso 熱泵部門*。 要求佈建的裝置必須具有包含下列其中一個尾碼的註冊識別碼，才能進行佈建：
 
-- **-contoso-tstrsd-007**：Contoso 烤箱部門
-- **-contoso-hpsd-088**：Contoso 熱泵部門
+* **-contoso-tstrsd-007**：Contoso 烤箱部門
+* **-contoso-hpsd-088**：Contoso 熱泵部門
 
-裝置會根據註冊識別碼的前述必要尾碼之一進行佈建。 我們將使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中包含的佈建範例來模擬這些裝置。 
+裝置會根據註冊識別碼的前述必要尾碼之一進行佈建。 我們將使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中包含的佈建範例來模擬這些裝置。
 
-您將在本文中執行下列步驟：
+您會在本文中執行下列步驟：
 
 * 使用 Azure CLI 建立兩個 Contoso 部門 IoT 中樞 (**Contoso 烤箱部門**和 **Contoso 熱泵部門**)
 * 使用 Azure 函式為自訂配置原則建立新的群組註冊
 * 建立兩個裝置模擬的裝置金鑰。
 * 設定適用於 Azure IoT C SDK 的開發環境
-* 模擬裝置，以觀察它們根據自訂配置原則的範例程式碼進行佈建的情形
-
+* 模擬裝置，並確認已根據自訂配置原則中的範例程式碼進行布建
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
@@ -53,42 +50,39 @@ ms.locfileid: "68348073"
 
 ## <a name="create-two-divisional-iot-hubs"></a>建立兩個部門 IoT 中樞
 
-在本節中，您將使用 Azure Cloud Shell 建立兩個新的 IoT 中樞，分別代表 **Contoso 烤箱部門**和 **Contoso 熱泵部門**。
+在本節中，您會使用 Azure Cloud Shell 來建立兩個新的 IoT 中樞，代表**Contoso 烤箱部門**和**contoso 熱泵部門**。
 
-1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在本文中建立的所有資源。 透過此方法，您在完成作業後將可更容易清除資源。
+    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 當您完成之後，這種方法會讓清理變得更容易。
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. 在 Azure Cloud Shell 中使用 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令建立 **Contoso 烤箱部門** IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
+2. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 烤箱部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
 
-    下列範例會在 eastus 位置中建立名為 contoso-toasters-hub-1098 的 IoT 中樞。 您必須使用自己的唯一中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-toasters-`。
+    下列範例會在 eastus 位置中建立名為 contoso-toasters-hub-1098 的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-toasters-`。
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
-    
+
     此命令可能需要數分鐘才能完成。
 
-3. 在 Azure Cloud Shell 中使用 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令建立 **Contoso 熱泵部門** IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
+3. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 熱泵部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
 
-    下列範例會在 eastus 位置中建立名為 contoso-heatpumps-hub-1098 的 IoT 中樞。 您必須使用自己的唯一中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-heatpumps-`。
+    下列範例會在 eastus 位置中建立名為 contoso-heatpumps-hub-1098 的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-heatpumps-`。
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
-    
+
     此命令可能也需要數分鐘才能完成。
-
-
-
 
 ## <a name="create-the-enrollment"></a>建立註冊
 
-在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
@@ -102,16 +96,15 @@ ms.locfileid: "68348073"
 
     **自動產生金鑰**：此核取方塊應已勾選。
 
-    **選取要如何將裝置指派到中樞**：選取 [自訂 (使用 Azure 函式)]。
+    **選取要如何將裝置指派給中樞**：選取 [自訂 (使用 Azure 函式)]。
 
     ![為對稱金鑰證明新增自訂配置註冊群組](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-
 4. 在 [新增註冊群組] 上按一下 [連結新的 IoT 中樞]，以連結您新的部門 IoT 中樞。 
 
-    您必須為這兩個部門 IoT 中樞執行此步驟。
+    針對這兩個部門 IoT 中樞執行此步驟。
 
-    訂用帳戶：如果您有多個訂用帳戶，請選擇您用來建立部門 IoT 中樞的訂用帳戶。
+    **訂用帳戶**：如果您有多個訂用帳戶，請選擇您用來建立部門 IoT 中樞的訂用帳戶。
 
     **IoT 中樞**：選取您建立的其中一個部門中樞。
 
@@ -119,11 +112,9 @@ ms.locfileid: "68348073"
 
     ![連結部門 IoT 中樞與佈建服務](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
-
 5. 在 [新增註冊群組] 上，在兩個部門 IoT 中樞都已連結後，您必須以 IoT 中樞群組的形式將其選取作為註冊群組，如下所示：
 
     ![建立註冊的部門中樞群組](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
 
 6. 在 [新增註冊群組] 上向下捲動至 [選取 Azure 函式] 區段，然後按一下 [建立新的函式應用程式]。
 
@@ -133,12 +124,11 @@ ms.locfileid: "68348073"
 
     **資源群組**：選取 [使用現有的] 和**contoso-us-resource-group**，以將本文中建立的所有資源保存在一起。
 
-    **Application Insights**：在此練習中，您可以關閉這項功能。
+    **Application Insights**：在此練習中，您可以關閉此功能。
 
     ![建立函式應用程式](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
-
-8. 回到您的 [新增註冊群組] 頁面，確定已選取新的函式應用程式。 您可能必須重新選取訂用帳戶，以重新整理函式應用程式清單。
+8. 回到您的 [新增註冊群組] 頁面，確定已選取新的函式應用程式。 您可能必須重新選擇訂用帳戶，才能重新整理函數應用程式清單。
 
     在選取新的函式應用程式之後，請按一下 [建立新的函式]。
 
@@ -146,7 +136,7 @@ ms.locfileid: "68348073"
 
     您新的函式應用程式將會開啟。
 
-9. 在函式應用程式上按一下，以建立新的函式
+9. 在您的函數應用程式上，按一下 [ **+** ] 以建立新的函式
 
     ![建立函式應用程式](./media/how-to-use-custom-allocation-policies/new-function.png)
 
@@ -154,7 +144,7 @@ ms.locfileid: "68348073"
 
     這會建立新的 C# 函式，名為 **HttpTriggerCSharp1**。
 
-10. 將新 C# 函式的程式碼取代為下列程式碼，然後按一下 [儲存]：    
+10. 將新 C# 函式的程式碼取代為下列程式碼，然後按一下 [儲存]：
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -166,7 +156,7 @@ ms.locfileid: "68348073"
     {
         // Just some diagnostic logging
         log.Info("C# HTTP trigger function processed a request.");
-        log.Info("Request.Content:...");    
+        log.Info("Request.Content:...");
         log.Info(req.Content.ReadAsStringAsync().Result);
 
         // Get request body
@@ -248,7 +238,7 @@ ms.locfileid: "68348073"
             {
                 Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
             };
-    }    
+    }
 
     public class DeviceTwinObj
     {
@@ -265,29 +255,26 @@ ms.locfileid: "68348073"
     }
     ```
 
-
-11. 回到您的 [新增註冊群組] 頁面，並確定已選取新函式。 您可能必須重新選取函式應用程式，以重新整理函式清單。
+11. 回到您的 [新增註冊群組] 頁面，並確定已選取新函式。 您可能必須重新選擇函式應用程式，才能重新整理函式清單。
 
     在選取新的函式後，請按一下 [儲存] 以儲存註冊群組。
 
     ![最後，儲存註冊群組](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
-
-12. 儲存註冊之後，請重新加以開啟，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
-
+12. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
 
 ## <a name="derive-unique-device-keys"></a>衍生唯一的裝置金鑰
 
-在本節中，您將建立兩個裝置金鑰。 一個金鑰將用於模擬的烤箱裝置。 另一個金鑰將用於模擬的熱泵裝置。
+在本節中，您會建立兩個唯一的裝置金鑰。 一個金鑰將用於模擬的烤箱裝置。 另一個金鑰將用於模擬的熱泵裝置。
 
-為了產生裝置金鑰，您將使用先前記下的 [主要金鑰]，為每個裝置計算裝置註冊識別碼的 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)，並將結果轉換為 Base64 格式。 如需關於為註冊群組建立衍生裝置金鑰的詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)的群組註冊小節。
+若要產生裝置金鑰，請使用您先前記下的**主要金鑰**來計算每個裝置之裝置註冊識別碼的[HMAC-SHA256](https://wikipedia.org/wiki/HMAC) ，並將結果轉換為 Base64 格式。 如需關於為註冊群組建立衍生裝置金鑰的詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)的群組註冊小節。
 
 針對本文的範例，請使用下列兩個裝置註冊識別碼，並計算這兩個裝置的裝置金鑰。 這兩種註冊識別碼都具有有效的尾碼，可用於自訂配置原則的範例程式碼：
 
-- **breakroom499-contoso-tstrsd-007**
-- **mainbuilding167-contoso-hpsd-088**
+* **breakroom499-contoso-tstrsd-007**
+* **mainbuilding167-contoso-hpsd-088**
 
-#### <a name="linux-workstations"></a>Linux 工作站
+### <a name="linux-workstations"></a>Linux 工作站
 
 如果您使用 Linux 工作站，您可以使用 openssl 來產生衍生的裝置金鑰，如下列範例所示。
 
@@ -311,10 +298,9 @@ ms.locfileid: "68348073"
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
 
+### <a name="windows-based-workstations"></a>以 Windows 為基礎的工作站
 
-#### <a name="windows-based-workstations"></a>以 Windows 為基礎的工作站
-
-如果您使用以 Windows 為基礎的工作站，您可以使用 PowerShell 來產生衍生的裝置金鑰，如下列範例所示。
+如果您使用的是以 Windows 為基礎的工作站，您可以使用 PowerShell 來產生衍生的裝置金鑰，如下列範例所示。
 
 1. 將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
 
@@ -339,29 +325,25 @@ ms.locfileid: "68348073"
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
 
-
 模擬裝置會使用每個註冊識別碼的衍生裝置金鑰來執行對稱金鑰證明。
-
-
-
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>準備 Azure IoT C SDK 開發環境
 
-在此節中，您會準備用來建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的開發環境。 SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝置開機順序期間進行佈建。
+在本節中，您會準備用來建立[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)的開發環境。 SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝置開機順序期間進行佈建。
 
 此節以 Windows 工作站為基礎來說明。 如需 Linux 範例，請參閱[如何針對多組織用戶佈建](how-to-provision-multitenant.md)中的 VM 設定。
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
-    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+    在開始安裝之前`CMake`，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
 2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 Azure IoT C SDK GitHub 存放庫：
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    預期此作業需要幾分鐘的時間才能完成。
 
+    預期此作業需要幾分鐘的時間才能完成。
 
 3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
 
@@ -376,10 +358,10 @@ ms.locfileid: "68348073"
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
-    
-    如果 `cmake` 找不到 C++ 編譯，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
 
-    建置成功後，最後幾行輸出會類似於下列輸出：
+    如果 `cmake` 找不到C++您的編譯器，您可能會在執行命令時收到組建錯誤。 如果發生這種情況，請嘗試在[Visual Studio 命令提示](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)字元中執行命令。
+
+    建置成功後，最後幾行輸出會看起來類似下列輸出：
 
     ```cmd/sh
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -395,16 +377,13 @@ ms.locfileid: "68348073"
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
-
-
 ## <a name="simulate-the-devices"></a>模擬裝置
 
-在本節中，您將在先前設定的 Azure IoT C SDK 中更新名為 **prov\_dev\_client\_sample** 的佈建範例。 
+在本節中，您會更新名為 prov 的布建範例 **\_dev\_用戶端\_範例**位於您先前設定的 Azure IOT C SDK 中。
 
 此範例程式碼會模擬將佈建要求傳送至裝置佈建服務執行個體的裝置開機順序。 此開機順序會使烤箱裝置接受辨識，並使用自訂配置原則指派給 IoT 中樞。
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並記下 [識別碼範圍]  值。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並記下 [識別碼範圍] 值。
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -433,28 +412,27 @@ ms.locfileid: "68348073"
 
 6. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
 
+### <a name="simulate-the-contoso-toaster-device"></a>模擬 Contoso 烤箱裝置
 
-#### <a name="simulate-the-contoso-toaster-device"></a>模擬 Contoso 烤箱裝置
-
-1. 若要模擬 toaster 裝置，請在 **prov\_dev\_client\_sample.c** 中尋找已標成註解之 `prov_dev_set_symmetric_key_info()` 的呼叫。
+1. 若要模擬 toaster 裝置，請在 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_ 中尋找已標成註解之**  的呼叫。
 
     ```c
     // Set the symmetric key if using they auth type
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    取消註解函式呼叫，並將預留位置值 (包括角括號) 取代為您稍早產生的 toaster 註冊識別碼和衍生裝置金鑰。 下列金鑰值 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 只是範例。
+    取消批註函式呼叫，並將預留位置值（包括角括弧）取代為您先前產生的 toaster 註冊識別碼和衍生裝置金鑰。 下列金鑰值 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 只是範例。
 
     ```c
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
     ```
-   
+
     儲存檔案。
 
-2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
 
-    以下顯示輸出範例，說明模擬的烤箱裝置在成功開機後連線至佈建服務執行個體，並依自訂配置原則指派給烤箱 IoT 中樞的情形：
+    下列輸出是模擬 toaster 裝置成功開機並聯機至布建服務實例的範例，其由自訂配置原則指派給烤箱 IoT 中樞：
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -470,21 +448,20 @@ ms.locfileid: "68348073"
     Press enter key to exit:
     ```
 
+### <a name="simulate-the-contoso-heat-pump-device"></a>模擬 Contoso 熱泵裝置
 
-#### <a name="simulate-the-contoso-heat-pump-device"></a>模擬 Contoso 熱泵裝置
-
-1. 若要模擬熱泵裝置，請使用您稍早產生的熱泵註冊識別碼和衍生裝置金鑰再次更新 **prov\_dev\_client\_sample.c** a 中的 `prov_dev_set_symmetric_key_info()`。 下列金鑰值 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 只是範例。
+1. 若要模擬熱泵裝置，請使用您稍早產生的熱泵註冊識別碼和衍生裝置金鑰再次更新 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_ a 中的** 。 下列金鑰值 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 只是範例。
 
     ```c
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
-   
+
     儲存檔案。
 
-2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在重建專案的提示中，按一下 **[是]** 以在執行之前重建專案。
 
-    以下顯示輸出範例，說明模擬的熱泵裝置在成功開機後連線至佈建服務執行個體，並依自訂配置原則指派給 Contoso 熱泵 IoT 中樞的情形：
+    下列輸出是模擬的熱泵裝置的範例，其已成功開機並聯機至布建服務實例，以透過自訂配置原則指派給 Contoso 熱泵 IoT 中樞：
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -500,30 +477,27 @@ ms.locfileid: "68348073"
     Press enter key to exit:
     ```
 
-
 ## <a name="troubleshooting-custom-allocation-policies"></a>對自訂配置原則進行疑難排解
 
-下表顯示預期的案例和您可能會看到的結果錯誤碼。 您可以利用此表格對 Azure Functions 的自訂配置原則失敗進行疑難排解。
+下表顯示預期的案例，以及您可能會收到的結果錯誤碼。 您可以利用此表格對 Azure Functions 的自訂配置原則失敗進行疑難排解。
 
-
-| 狀況 | 佈建服務的註冊結果 | 佈建 SDK 結果 |
+| 案例 | 佈建服務的註冊結果 | 佈建 SDK 結果 |
 | -------- | --------------------------------------------- | ------------------------ |
-| Webhook 傳回「200 確定」，且 'iotHubHostName' 設定為有效的 IoT 中樞主機名稱 | 結果狀態：獲指派  | SDK 傳回 PROV_DEVICE_RESULT_OK 與中樞資訊 |
-| Webhook 傳回「200 確定」，且回應中包含 'iotHubHostName'，但設定為空字串或 Null | 結果狀態：已失敗<br><br> 錯誤碼：CustomAllocationIotHubNotSpecified (400208) | SDK 傳回 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Webhook 傳回「401 未授權」 | 結果狀態：已失敗<br><br>錯誤碼：CustomAllocationUnauthorizedAccess (400209) | SDK 傳回 PROV_DEVICE_RESULT_UNAUTHORIZED |
+| Webhook 傳回「200 確定」，且 'iotHubHostName' 設定為有效的 IoT 中樞主機名稱 | 結果狀態：已指派  | SDK 傳回 PROV_DEVICE_RESULT_OK 與中樞資訊 |
+| Webhook 傳回「200 確定」，且回應中包含 'iotHubHostName'，但設定為空字串或 Null | 結果狀態：失敗<br><br> 錯誤碼：CustomAllocationIotHubNotSpecified (400208) | SDK 傳回 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Webhook 傳回「401 未授權」 | 結果狀態：失敗<br><br>錯誤碼：CustomAllocationUnauthorizedAccess (400209) | SDK 傳回 PROV_DEVICE_RESULT_UNAUTHORIZED |
 | 建立了個別註冊以停用裝置 | 結果狀態：已停用 | SDK 傳回 PROV_DEVICE_RESULT_DISABLED |
-| Webhook 傳回錯誤碼 >= 429 | DPS 的協調流程將會重試特定次數。 目前的重試原則為：<br><br>&nbsp;&nbsp;- 重試計數：10<br>&nbsp;&nbsp;- 初始間隔：1 秒<br>&nbsp;&nbsp;- Increment:9 秒 | SDK 將會忽略錯誤，並在指定的時間內提交另一個取得狀態訊息 |
-| Webhook 傳回任何其他狀態碼 | 結果狀態：已失敗<br><br>錯誤碼：CustomAllocationFailed (400207) | SDK 傳回 PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
-
+| Webhook 傳回錯誤碼 >= 429 | DPS 的協調流程將會重試特定次數。 目前的重試原則為：<br><br>&nbsp;&nbsp;- 重試計數：10<br>&nbsp;&nbsp;- 初始間隔：1s<br>&nbsp;&nbsp;- 增量：9s | SDK 將會忽略錯誤，並在指定的時間內提交另一個取得狀態訊息 |
+| Webhook 傳回任何其他狀態碼 | 結果狀態：失敗<br><br>錯誤碼：CustomAllocationFailed (400207) | SDK 傳回 PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續使用在此文章中建立的資源，可以保留它們。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
+如果您打算繼續使用在本文中建立的資源，可以將其保留。 如果您不打算繼續使用這些資源，請使用下列步驟來刪除在本文中建立的所有資源，以避免不必要的費用。
 
 以下步驟假設您依照指示在名為 **contoso-us-resource-group** 的相同資源群組中建立了此文章中的所有資源。
 
 > [!IMPORTANT]
-> 刪除資源群組是無法回復的動作。 資源群組和其中包含的所有資源都將永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。
+> 刪除資源群組是無法回復的動作。 資源群組和其中包含的所有資源都將永久刪除。 請確定您不會誤刪錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。
 >
 
 依名稱刪除資源群組：
@@ -534,20 +508,9 @@ ms.locfileid: "68348073"
 
 3. 在結果清單中的資源群組右側，按一下 **...** ，然後按一下 [刪除資源群組]。
 
-4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+4. 系統會要求您確認刪除資源群組。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入瞭解重新布建, 請參閱[IoT 中樞裝置重新布建概念](concepts-device-reprovision.md) 
-- 若要深入瞭解解除布建, 請參閱如何取消布建[先前自動布建的裝置](how-to-unprovision-devices.md) 
-
-
-
-
-
-
-
-
-
-
-
+* 若要深入瞭解重新布建，請參閱[IoT 中樞裝置重新布建概念](concepts-device-reprovision.md) 
+* 若要深入瞭解取消布建，請參閱如何取消布建[先前可的裝置](how-to-unprovision-devices.md) 

@@ -1,6 +1,6 @@
 ---
-title: 將成品新增至在 Azure DevTest Labs 中的 VM |Microsoft Docs
-description: 了解如何將成品新增至在 Azure DevTest Labs 中對實驗室中的虛擬機器
+title: 將成品新增至 Azure DevTest Labs 中的 VM |Microsoft Docs
+description: 瞭解如何在 Azure DevTest Labs 中將成品新增至實驗室中的虛擬機器
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304172"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901317"
 ---
-# <a name="add-an-artifact-to-a-vm"></a>將成品新增至 VM
-在建立 VM 時，您可以新增現有的成品。 這些成品可以是從其中[公用 DevTest Labs Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)或從您自己的 Git 存放庫。 這篇文章會示範如何在 Azure 入口網站中，並使用 Azure PowerShell 新增的成品。 
+# <a name="add-an-artifact-to-a-vm"></a>新增 VM 構件
+建立 VM 時，您可以在其中加入現有的成品。 這些構件可以來自[公用 DevTest Labs Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)，或來自您自己的 Git 存放庫。 本文說明如何使用 Azure PowerShell 在 Azure 入口網站中新增成品。 
 
-Azure DevTest Labs「構件」  可讓您指定會在 VM 佈建時執行的「動作」  ，例如執行 Windows PowerShell 指令碼、執行 Bash 命令，以及安裝軟體。 構件「參數」  可讓您自訂適用於特定案例的構件。
+Azure DevTest Labs「構件」可讓您指定會在 VM 佈建時執行的「動作」，例如執行 Windows PowerShell 指令碼、執行 Bash 命令，以及安裝軟體。 構件「參數」 可讓您自訂適用於特定案例的構件。
 
-若要深入了解如何建立自訂構件，請參閱文章：[建立自訂構件](devtest-lab-artifact-author.md)。
+若要瞭解如何建立自訂構件，請參閱[建立自訂構件](devtest-lab-artifact-author.md)一文。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
+1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 1. 從實驗室清單中，選取您想要使用之 VM 所在的實驗室。  
-1. 選取 [我的虛擬機器]  。
+1. 選取 [我的虛擬機器]。
 1. 選取所需的 VM。
-1. 選取 [管理構件]  。 
-1. 選取 [套用構件]  。
-1. 在 [套用構件]  窗格中，選取您要新增到 VM 的構件。
-1. 在 [新增構件]  窗格中，輸入必要的參數值以及任何您所需的選用參數。  
-1. 選取 [新增]  以新增構件，然後返回 [套用構件]  窗格。
+1. 選取 [管理構件]。 
+1. 選取 [套用構件]。
+1. 在 [套用構件] 窗格中，選取您要新增到 VM 的構件。
+1. 在 [新增構件] 窗格中，輸入必要的參數值以及任何您所需的選用參數。  
+1. 選取 [新增] 以新增構件，然後返回 [套用構件] 窗格。
 1. 視需要繼續為您的 VM 加入構件。
 1. 加入構件之後，您可以 [變更構件的執行順序](#change-the-order-in-which-artifacts-are-run)。 您也可以返回來 [檢視或修改構件](#view-or-modify-an-artifact)。
-1. 當您新增好構件時，選取 [套用] 
+1. 當您新增好構件時，選取 [套用]
 
 ### <a name="change-the-order-in-which-artifacts-are-run"></a>變更構件的執行順序
 根據預設，構件的動作是依照它們加入 VM 的順序來執行。 下列步驟說明如何變更構件的執行順序。
 
-1. 在 [套用構件]  窗格頂端，選取會指出已新增至 VM 之構件數目的連結。
+1. 在 [套用構件] 窗格頂端，選取會指出已新增至 VM 之構件數目的連結。
    
     ![新增至 VM 的構件數目](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. 在 [選取的構件]  窗格中，將構件拖放到所需的順序。 如果您在拖曳成品時發生問題，請確定您是從成品左側進行拖曳。 
-1. 完成時選取 [確定]  。  
+1. 在 [選取的構件] 窗格中，將構件拖放到所需的順序。 如果您在拖曳成品時發生問題，請確定您是從成品左側進行拖曳。 
+1. 完成時選取 [確定] 。  
 
 ### <a name="view-or-modify-an-artifact"></a>檢視或修改構件
 下列步驟說明如何檢視或修改構件的參數︰
 
-1. 在 [套用構件]  窗格頂端，選取會指出已新增至 VM 之構件數目的連結。
+1. 在 [套用構件] 窗格頂端，選取會指出已新增至 VM 之構件數目的連結。
    
     ![新增至 VM 的構件數目](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. 在 [選取的構件]  窗格中，選取您想要檢視或編輯的構件。  
-1. 在 [新增構件]  窗格中，進行任何所需的變更，然後選取 [確定]  以關閉 [新增構件]  窗格。
-1. 選取 [確定]  以關閉 [選取的構件]  窗格。
+1. 在 [選取的構件] 窗格中，選取您想要檢視或編輯的構件。  
+1. 在 [新增構件] 窗格中，進行任何所需的變更，然後選取 [確定] 以關閉 [新增構件] 窗格。
+1. 選取 [確定] 以關閉 [選取的構件] 窗格。
 
 ## <a name="use-powershell"></a>使用 PowerShell
-下列指令碼會套用指定的成品至指定的 VM。 [Invoke AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction)命令就是執行作業。  
+下列腳本會將指定的成品套用至指定的 VM。 [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction)命令是執行作業的命令。  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -90,7 +90,7 @@ param
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>後續步驟
-在成品，請參閱下列文章：
+請參閱下列文章：
 
-- [指定必要的成品，您的實驗室](devtest-lab-mandatory-artifacts.md)
+- [為實驗室指定強制構件](devtest-lab-mandatory-artifacts.md)
 - [建立自訂構件](devtest-lab-artifact-author.md)
-- [將構件儲存機制加入實驗室](devtest-lab-artifact-author.md)
+- [將成品存放庫新增至實驗室](devtest-lab-artifact-author.md)
 - [診斷構件失敗](devtest-lab-troubleshoot-artifact-failure.md)

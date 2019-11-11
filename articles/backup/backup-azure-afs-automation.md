@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747622"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903620"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 備份和還原 Azure 檔案儲存體
 
@@ -253,7 +253,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 使用[備份 backup-azrecoveryservicesbackupitem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0)來執行受保護 Azure 檔案共用的隨選備份。
 
 1. 使用[AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)，從保存備份資料的保存庫中的容器，取出儲存體帳戶和檔案共用。
-2. 若要開始備份作業，請使用[Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 取得 VM 的相關資訊。
+2. 若要開始備份作業，您需使用 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 來取得 VM 的相關資訊。
 3. 使用[備份 backup-azrecoveryservicesbackupitem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)執行隨選備份。
 
 執行隨選備份，如下所示：
@@ -276,7 +276,7 @@ Azure 檔案共用快照用於進行備份時，因此通常在命令傳回此�
 
 ### <a name="using-on-demand-backups-to-extend-retention"></a>使用隨選備份來延長保留期
 
-隨選備份可以用來保留您的快照10年。 排程器可用來以選擇的保留來執行隨選 PowerShell 腳本，因此每週、每月或每年都會定期拍攝快照集。 取得一般快照集時，請參閱使用 Azure 備份進行[隨選備份的限制](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-)。
+隨選備份可以用來保留您的快照10年。 排程器可用來以選擇的保留來執行隨選 PowerShell 腳本，因此每週、每月或每年都會定期拍攝快照集。 取得一般快照集時，請參閱使用 Azure 備份進行[隨選備份的限制](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share)。
 
 如果您要尋找範例腳本，您可以參考 GitHub 上的範例腳本（使用 Azure 自動化 runbook<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)>，讓您定期排程備份並保留最多10年的時間。
 

@@ -8,21 +8,21 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.date: 06/04/2019
-ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: c65a0464bbad6dbaca51dbc5bbc0d84adbd605d7
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680150"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904674"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>使用 Azure Functions 和 Azure 服務匯流排來呼叫或觸發邏輯應用程式
 
 當您需要部署長時間執行的接聽程式或工作時，您可以使用[Azure Functions](../azure-functions/functions-overview.md)來觸發邏輯應用程式。 例如，您可以建立 Azure 函式來接聽[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)佇列，並立即引發邏輯應用程式做為推播觸發程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * Azure 服務匯流排命名空間。 如果您沒有命名空間，請[先建立命名空間](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 
@@ -32,13 +32,13 @@ ms.locfileid: "72680150"
 
 ## <a name="create-logic-app"></a>建立邏輯應用程式
 
-在此案例中，您有一個函式正在執行您想要觸發的每個邏輯應用程式。 首先，建立以 HTTP 要求觸發程式開頭的邏輯應用程式。 每當收到佇列訊息時，函數即會呼叫該端點。  
+在此案例中，您有一個函式正在執行您想要觸發的每個邏輯應用程式。 首先，建立以 HTTP 要求觸發程式開頭的邏輯應用程式。 每當收到佇列訊息時，函數即會呼叫該端點。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後建立空白的邏輯應用程式。
 
    如果您還不熟悉邏輯應用程式，請檢閱[快速入門：如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜尋方塊中，輸入 "http request"。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時**
+1. 在搜尋方塊中，輸入 `http request`。 從觸發程式清單中，選取 [**收到 HTTP 要求時**] 觸發程式。
 
    ![選取觸發程序](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -50,9 +50,9 @@ ms.locfileid: "72680150"
 
    如果您沒有結構描述，但是有 JSON 格式的範例承載，即可從該承載產生 JSON 結構描述。
 
-   1. 在要求觸發程序中，選擇 [使用範例承載來產生結構描述]。
+   1. 在要求觸發程序中，選取 [使用範例承載來產生結構描述]。
 
-   1. 在 [輸入或貼上範例 JSON 承載] 之下，輸入您的範例承載，然後選擇 [完成]。
+   1. 在 [**輸入或貼上範例 JSON**承載] 底下，輸入您的範例承載，然後選取 [**完成**]。
 
       ![輸入範例承載](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -102,9 +102,9 @@ ms.locfileid: "72680150"
 
 1. 在 Azure 入口網站中，開啟並展開函式應用程式 (如果尚未開啟)。 
 
-1. 在函式應用程式名稱之下，展開 [Functions]。 在 [函式] 窗格上，選擇 [新增函式]。
+1. 在函式應用程式名稱之下，展開 [Functions]。 在 [**函數**] 窗格中，選取 [**新增函數**]。
 
-   ![展開 [函數]，然後選擇 [新增函數]](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![展開 [函數]，然後選取 [新增函數]](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
 1. 根據您是否已建立新的函式應用程式（其中已選取 .NET 做為執行時間堆疊），或您正在使用現有的函式應用程式，來選取此範本。
 
@@ -116,9 +116,17 @@ ms.locfileid: "72680150"
 
      ![選取現有函數應用程式的範本](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. 在 [ **Azure 服務匯流排佇列觸發**程式] 窗格中，提供您的觸發程式名稱，並設定佇列的**服務匯流排連接**（使用 Azure 服務匯流排 SDK `OnMessageReceive()` 接聽程式），然後選擇 [**建立**]。
+1. 在 [ **Azure 服務匯流排佇列觸發**程式] 窗格中，提供您的觸發程式名稱，並設定佇列的**服務匯流排連接**（使用 Azure 服務匯流排 SDK `OnMessageReceive()` 接聽程式），然後選取 [**建立**]。
 
-1. 撰寫基本函式，以使用佇列訊息做為觸發程式來呼叫先前建立的邏輯應用程式端點。 此範例會使用 `application/json` 訊息內容類型，但是您可以視需要變更此類型。 可能的話，請重複使用 HTTP 用戶端的實例。 如需詳細資訊，請參閱[管理 Azure Functions 中的連接](../azure-functions/manage-connections.md)。
+1. 撰寫基本函式，以使用佇列訊息做為觸發程式來呼叫先前建立的邏輯應用程式端點。 在您撰寫函數之前，請先參閱下列考慮：
+
+   * 此範例會使用 `application/json` 訊息內容類型，但是您可以視需要變更此類型。
+   
+   * 由於可能同時執行的函式、高磁片區或負載過重，請避免使用 `using` 語句將[HTTPClient 類別](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient)具現化，並針對每個要求直接建立 HTTPClient 實例。 如需詳細資訊，請參閱[使用 HttpClientFactory 來執行可復原的 HTTP 要求](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core)。
+   
+   * 可能的話，請重複使用 HTTP 用戶端的實例。 如需詳細資訊，請參閱[管理 Azure Functions 中的連接](../azure-functions/manage-connections.md)。
+
+   這個範例會在[非同步](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async)模式中使用[`Task.Run` 方法](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run)。 如需詳細資訊，請參閱[使用 async 和 await 進行非同步程式設計](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)。
 
    ```CSharp
    using System;
@@ -126,17 +134,16 @@ ms.locfileid: "72680150"
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
@@ -146,4 +153,4 @@ ms.locfileid: "72680150"
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 HTTP 端點呼叫、觸發或將工作流程加以嵌套](../logic-apps/logic-apps-http-endpoint.md)
+* [使用 HTTP 端點呼叫、觸發或將工作流程加以嵌套](../logic-apps/logic-apps-http-endpoint.md)

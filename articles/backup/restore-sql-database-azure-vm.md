@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 878658135bdb8844c5c86bc207db580ccd7ff63f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161845"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903607"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>在 Azure VM 上還原 SQL Server 資料庫
 
@@ -27,7 +27,7 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
 - 使用交易記錄備份還原到特定的日期或時間（到第二個）。 Azure 備份會自動決定適當的完整差異備份，以及根據所選時間還原所需的記錄備份鏈。
 - 還原特定的完整或差異備份，以還原到特定的復原點。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在還原資料庫之前，請注意下列事項：
 
@@ -51,7 +51,7 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
   - 如果您要還原至相同的 VM，這就是來源 VM。
   - 如果您要還原至替代位置，這就是新的目標 VM。
 
-以下列方式進行還原：
+以下方式進行還原：
 
 1. 開啟其中有已註冊 SQL Server VM 的保存庫。
 2. 在保存庫儀表板中的 [使用量] 底下，選取 [備份項目]。
@@ -76,9 +76,9 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
    - **替代位置**：將資料庫還原至替代位置，並保留原始源資料庫。
    - **覆寫 DB**：將資料還原至與原始來源相同的 SQL Server 執行個體。 此選項會覆寫原始資料庫。
 
-           > [!IMPORTANT]
-           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-           >
+    > [!IMPORTANT]
+    > 如果選取的資料庫屬於 AlwaysOn 可用性群組，SQL Server 不允許覆寫資料庫。 只有 [替代位置] 可用。
+    >
    - **還原成**檔案：不是還原為資料庫，而是在稍後使用 SQL Server Management Studio，將可以復原的備份檔案還原為資料庫中存在的任何電腦。
      ![還原設定 功能表](./media/backup-azure-sql-database/restore-configuration.png)
 

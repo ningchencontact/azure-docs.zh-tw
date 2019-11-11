@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692782"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903079"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
@@ -151,8 +151,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
@@ -199,5 +199,5 @@ SQL 資料倉儲有一些與交易相關的其他限制。
 * 使用者定義的交易內部不支援 DDL，例如 CREATE TABLE
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解最佳化交易，請參閱[交易的最佳做法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要深入了解其他 SQL 資料倉儲最佳作法，請參閱 [SQL 資料倉儲最佳作法](sql-data-warehouse-best-practices.md)。
+若要深入了解最佳化交易，請參閱 [交易的最佳作法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要深入了解其他 SQL 資料倉儲最佳作法，請參閱 [SQL 資料倉儲最佳作法](sql-data-warehouse-best-practices.md)。
 

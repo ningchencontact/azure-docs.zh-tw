@@ -10,23 +10,24 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: b921aabd8d71654d089c5f16aba27c286a1e91ec
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 6bf627b5456cbd878580d7b346536c98a513ca6a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305029"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903699"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>跨 Azure 租使用者共用資源庫 VM 映射
+
+共用映射資源庫可讓您使用 RBAC 共用影像。 您可以使用 RBAC，在租使用者中共用映射，甚至是租使用者外部的個人。 如需這個簡單共用選項的詳細資訊，請參閱[共用資源庫](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery)。
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> 您無法使用入口網站, 從另一個 azure 租使用者中的映射部署 VM。 若要從租使用者之間共用的映射建立 VM, 您必須使用[Azure CLI](../linux/share-images-across-tenants.md)或 Powershell。
+> 您無法使用入口網站，從另一個 azure 租使用者中的映射部署 VM。 若要從租使用者之間共用的映射建立 VM，您必須使用[Azure CLI](../linux/share-images-across-tenants.md)或 Powershell。
 
 ## <a name="create-a-vm-using-powershell"></a>使用 PowerShell 建立 VM
-
 
 使用應用程式識別碼、秘密和租使用者識別碼登入這兩個租使用者。 
 

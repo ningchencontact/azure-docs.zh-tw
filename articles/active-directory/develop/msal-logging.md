@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12badd84bd929bdeb7b60ad6e99d6b3169e5022
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150456"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902911"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 應用程式中的記錄
 
@@ -88,7 +88,7 @@ class Program
 - `tag` 是程式庫傳遞至回呼的字串。 它會與記錄專案相關聯，並可用於排序記錄訊息。
 - `logLevel` 可讓您決定想要的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info`和 `Verbose`。
 - `message` 是記錄專案的內容。
-- `containsPII` 指定是否記錄包含個人資料或組織資料的訊息。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 如果 `true``containsPII`，這個方法將會收到兩次訊息：一次是將 `containsPII` 參數設為 `false`，而不含個人資料，第二次將 `message` 參數設定為 `containsPii` 而且訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+- `containsPII` 指定是否記錄包含個人資料或組織資料的訊息。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 如果 `true``containsPII`，這個方法將會收到兩次訊息：一次是將 `containsPII` 參數設為 `false`，而不含個人資料，第二次將 `message` 參數設定為 `containsPii`，而訊息可能包含個人資料。`true` 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
 
 ```java
 private StringBuilder mLogs;
@@ -117,14 +117,15 @@ Logger.getInstance().setEnablePII(true);
 Logger.getInstance().setEnablePII(false);
 ```
 
-預設會停用記錄至 logcat。 若要啟用： 
+預設會停用記錄至 logcat。 若要啟用：
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>MSAL.js 中的記錄
 
- 藉由在建立 `UserAgentApplication` 實例的設定期間傳遞記錄器物件，在 MSAL 中啟用記錄。 此記錄器物件具有下列屬性：
+ 藉由在建立 `UserAgentApplication` 實例的設定期間傳遞記錄器物件，在 MSAL 中啟用記錄功能。 此記錄器物件具有下列屬性：
 
 - `localCallback`：可由開發人員提供的回呼實例，以自訂的方式取用和發行記錄。 請依您想要將記錄重新導向的方式實作 localCallback 方法。
 - `level` （選用）：可設定的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info`和 `Verbose`。 預設值為 `Info`。
@@ -173,7 +174,7 @@ var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-例如：
+例如︰
 
 Objective-C
 ```objc
@@ -202,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>個人識別資訊（PII）
+### <a name="personal-data"></a>個人資料
 
-根據預設，MSAL 不會捕捉或記錄任何 PII。 程式庫可讓應用程式開發人員透過 MSALLogger 類別中的屬性來開啟此功能。 藉由開啟 PII，應用程式會負責安全地處理高度敏感的資料，並遵循法規需求。
+根據預設，MSAL 不會捕捉或記錄任何個人資料（PII）。 程式庫可讓應用程式開發人員透過 MSALLogger 類別中的屬性來開啟此功能。 藉由開啟 `pii.Enabled`，應用程式會負責安全地處理高度敏感的資料，並遵循法規需求。
 
 Objective-C
 ```objc
@@ -232,15 +233,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 若要在使用 iOS 和 macOS 的 MSAL 記錄時設定記錄層級，請使用下列其中一個值：
 
-|層級  |描述 |
+|等級  |描述 |
 |---------|---------|
 | `MSALLogLevelNothing`| 停用所有記錄 |
 | `MSALLogLevelError` | 預設層級，只有在發生錯誤時才會列印資訊 |
 | `MSALLogLevelWarning` | 消息 |
 | `MSALLogLevelInfo` |  程式庫進入點，包含參數和各種 keychain 作業 |
-|`MSALLogLevelVerbose`     |  API 追蹤       |
+|`MSALLogLevelVerbose`     |  API 追蹤 |
 
-例如：
+例如︰
 
 Objective-C
 ```objc
@@ -256,8 +257,56 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 MSAL 記錄訊息的訊息部分格式為 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-例如：
+例如︰
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 提供相互關聯識別碼和時間戳記有助於追蹤問題。 時間戳記和相互關聯識別碼資訊可在記錄訊息中取得。 唯一可取得的可靠位置是從 MSAL 記錄訊息。
+
+## <a name="logging-in-msal-for-java"></a>適用于 JAVA 的 MSAL 記錄
+
+MSAL for JAVA （MSAL4J）可讓您使用已在應用程式中使用的記錄程式庫，前提是它與 SLF4J 相容。 MSAL4j 會使用 JAVA （SLF4J）的[簡單記錄外觀](http://www.slf4j.org/)作為各種記錄架構的簡單外觀或抽象概念，例如[util。記錄](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html)、 [Logback](http://logback.qos.ch/)和[Log4j](https://logging.apache.org/log4j/2.x/)。 SLF4J 可讓終端使用者在部署階段插入所需的記錄架構。
+
+例如，若要在您的應用程式中使用 Logback 作為記錄架構，請將 Logback 相依性新增至應用程式的 Maven pom 檔案：
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+然後新增 Logback 設定檔：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J 會在部署階段自動系結至 Logback。 MSAL 記錄將會寫入主控台。
+
+如需如何系結至其他記錄架構的指示，請參閱[SLF4J 手冊](http://www.slf4j.org/manual.html)。
+
+### <a name="personal-and-organization-information"></a>個人和組織資訊
+
+根據預設，MSAL 記錄不會捕捉或記錄任何個人或組織的資料。 在下列範例中，記錄個人或組織的資料預設為關閉：
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+藉由在用戶端應用程式產生器上設定 `logPii()`，來開啟個人和組織資料記錄。 如果您開啟個人或組織資料記錄，您的應用程式必須負責安全地處理高度敏感的資料，並遵守任何法規需求。
+
+在下列範例中，會啟用記錄個人或組織資料：
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

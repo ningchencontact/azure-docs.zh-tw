@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9c14afb22d95493deaf3552cb8c7392c3fc5a679
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a993c71e362a61b6861e001dfb5d6eca24873293
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934011"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903278"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
 
-Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期日最久的已定義憑證；而不管其主要或次要設定定義為何。 回到傳統行為是不建議的先進動作，而且需要在您的網狀架構中將 "UseSecondaryIfNewer" 設定參數值設定為 false。
+Azure 服務網狀架構 SDK 的預設憑證載入行為是部署並使用已定義的憑證，其到期日最晚于未來;不論其主要或次要設定定義為何。 回到傳統行為是不建議的先進動作，而且需要在您的 `Fabric.Code` 設定中，將 "UseSecondaryIfNewer" 設定參數值設定為 false。
 
 當您在叢集建立期間設定憑證安全性時，除了用戶端憑證之外，Service Fabric 還可讓您指定兩個叢集憑證：主要與次要。 請參閱[透過入口網站建立 Azure 叢集](service-fabric-cluster-creation-via-portal.md)或[透過 Azure Resource Manager 建立 Azure 叢集](service-fabric-cluster-creation-via-arm.md)，以詳細了解如何在建立這些叢集時進行叢集設定。 如果您在建立時僅指定一個叢集憑證，該憑證就會作為主要憑證。 在叢集建立完成後，您可新增憑證做為次要憑證。
 
@@ -40,7 +40,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 您無法透過 Azure 入口網站使用 Azure PowerShell 新增次要叢集憑證。 本文件稍後會簡要說明此程序。
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>使用入口網站來移除叢集憑證
-針對安全叢集，您一律必須至少有一個有效 (未撤銷或過期) 的憑證。 系統會使用部署了最久到期日的憑證，若將它移除，則叢集會停止運作；請務必只移除過期的憑證，或移除最快到期的未使用憑證。
+針對安全叢集，您一律必須至少有一個有效 (未撤銷或過期) 的憑證。 以最晚到未來到期日部署的憑證將會使用，並將它移除，讓您的叢集停止運作;請確定只移除過期的憑證，或過期 soonest 的未使用憑證。
 
 若要移除未使用的叢集安全性憑證，請瀏覽至 [安全性] 區段，然後在未使用的憑證上，從快顯功能表中選取 [刪除] 選項。
 
@@ -287,6 +287,10 @@ Get-ServiceFabricClusterHealth
 ### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>使用入口網站來刪除用戶端憑證 - 系統管理員或唯讀
 
 若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
+
+## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>將應用程式憑證新增至虛擬機器擴展集
+
+若要將您用於應用程式的憑證部署至您的叢集，請參閱[此範例 Powershell 腳本](scripts/service-fabric-powershell-add-application-certificate.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關叢集管理的詳細資訊，請參閱下列文件︰
