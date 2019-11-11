@@ -307,8 +307,8 @@
               href: concepts-gating-overview.md
             - name: 合成技術的部署
               href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: 自訂語音的透明度附註
-              href: 'https://aka.ms/neural-tts-transparency-note'
+            - name: 配音員揭露
+              href: 'https://aka.ms/disclosure-voice-talent'
             - name: 公開設計指引
               href: concepts-disclosure-guidelines.md
             - name: 公開設計模式

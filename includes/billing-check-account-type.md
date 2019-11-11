@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: 4b2533131407081b97bb491895d96cf566442090
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 79e5e0bf1476bf049e47ba6aedcc172cea0bb13c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375454"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850301"
 ---
 檢查合約類型以決定您的計費帳戶類型
  
-1. 登入 [Azure 入口網站]( http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
  
 2. 針對 [成本管理 + 帳單]  進行搜尋。
  
