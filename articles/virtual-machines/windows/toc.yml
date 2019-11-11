@@ -407,8 +407,8 @@
             - name: 入口網站
               href: shared-images-portal.md
             - name: CLI
-              href: ../linux/shared-images.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: 跨租用戶共用映像
+              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: 註冊應用程式以共用
               href: share-images-across-tenants.md
             - name: 針對共用映像進行疑難排解
               href: troubleshooting-shared-images.md

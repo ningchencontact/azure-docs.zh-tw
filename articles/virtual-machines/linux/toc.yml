@@ -326,7 +326,7 @@
               href: shared-images.md
             - name: 入口網站
               href: shared-images-portal.md
-            - name: 跨租用戶共用映像
+            - name: 註冊應用程式以共用
               href: share-images-across-tenants.md
             - name: 針對共用映像進行疑難排解
               href: troubleshooting-shared-images.md

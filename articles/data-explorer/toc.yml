@@ -150,6 +150,8 @@
               href: check-cluster-health.md
         - name: 資料庫
           items:
+            - name: 追蹤者資料庫
+              href: follower.md
             - name: 管理資料庫權限
               href: manage-database-permissions.md
             - name: 原則

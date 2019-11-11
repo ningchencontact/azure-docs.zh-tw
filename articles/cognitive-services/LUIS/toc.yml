@@ -39,12 +39,15 @@
           href: get-started-get-model-rest-apis.md
 - name: 教學課程
   items:
+    - name: 建置可分解的應用程式
+      items:
+        - name: 1. 判斷使用者意圖
+          href: tutorial-intents-only.md
+        - name: 2. 擷取使用者資料
+          href: tutorial-machine-learned-entity.md
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
     - name: 建置應用程式
       items:
-        - name: 判斷使用者意圖
-          href: tutorial-intents-only.md
-        - name: 使用預先建置的模型識別一般使用者資料
-          href: luis-tutorial-prebuilt-intents-entities.md
         - name: 從使用者的語句中取得情感分析
           href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: 使用規則運算式取得格式化的資料

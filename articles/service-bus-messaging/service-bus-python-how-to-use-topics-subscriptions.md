@@ -1,6 +1,6 @@
 ---
-title: 如何搭配 Python 使用 Azure 服務匯流排主題 | Microsoft Docs
-description: 了解如何從 Python 使用 Azure 服務匯流排主題和訂用帳戶。
+title: 快速入門：如何透過 Python 使用 Azure 服務匯流排主題
+description: 快速入門：了解如何從 Python 使用 Azure 服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -11,21 +11,21 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: MT
+ms.openlocfilehash: 8f7d47879a025742dbca6a5cafa634899e60ee68
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141891"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719172"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何透過 Python 使用服務匯流排主題和訂用帳戶
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-python"></a>快速入門：如何透過 Python 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文說明如何使用服務匯流排主題和訂用帳戶。 這些範例是以 Python 撰寫, 並使用[Azure PYTHON SDK 套件][Azure Python package]。 涵蓋的案例包括：
+本文說明如何使用服務匯流排主題和訂用帳戶。 相關範例以 Python 撰寫，並且使用 [Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括：
 
 - 建立主題和訂用帳戶 
 - 建立訂用帳戶篩選 
@@ -34,12 +34,12 @@ ms.locfileid: "70141891"
 - 刪除主題和訂用帳戶
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF), 或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 依照快速入門中[的步驟進行:使用 Azure 入口網站建立主題](service-bus-quickstart-topics-subscriptions-portal.md)的服務匯流排主題和訂用帳戶, 以建立服務匯流排**命名空間**並取得**連接字串**。
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用自己的 [Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 依照下列快速入門中的步驟操作：[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以建立服務匯流排**命名空間**及取得**連接字串**。
 
     > [!NOTE]
-    > 在本快速入門中, 您將會使用**Python**來建立主題和主題的**訂**用帳戶。 
-3. 安裝[Azure Python 套件][Azure Python package]。 請參閱[Python 安裝指南](/azure/python/python-sdk-azure-install)。
+    > 您將會在本快速入門中使用 **Python**，建立**主題**和主題的**訂用帳戶**。 
+3. 安裝 [Azure Python 套件][Azure Python package]。 請參閱 [Python 安裝指南](/azure/python/python-sdk-azure-install)。
 
 ## <a name="create-a-topic"></a>建立主題
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 **ServiceBusService** 物件也能用來建立主題的訂用帳戶。 訂閱是具名的，它們能擁有選用的篩選器，以限制傳遞至訂閱之虛擬佇列的訊息集合。
 
 > [!NOTE]
-> 根據預設, 訂用帳戶是持續性的, 而且會持續存在, 直到他們或其訂閱的主題被刪除為止。
+> 根據預設，訂用帳戶是持續性的，它們會持續存在，直到本身或其訂閱的主題遭到刪除為止。
 > 
-> 您可以藉由設定[auto_delete_on_idle 屬性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)來自動刪除訂閱。
+> 您可以藉由設定 [auto_delete_on_idle 屬性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)，將訂用帳戶自動刪除。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶
 
@@ -176,11 +176,11 @@ msg.delete()
 
 與在訂閱內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未呼叫 `delete` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為 至少處理\*一次; 也就是說, 每個訊息至少會被處理一次, 但在某些情況下, 可能會重新傳遞相同的訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性來完成此操作，該屬性在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，尚未呼叫 `delete` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為 至少處理一次\*；也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性來完成此操作，該屬性在各個傳遞嘗試中會保持不變。
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
 
-除非已設定[auto_delete_on_idle 屬性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python), 否則主題和訂閱是持續性的。 您可以透過[Azure 入口網站][Azure portal]或以程式設計方式來刪除它們。 下列範例示範如何刪除名為 `mytopic` 的主題：
+除非設定了 [auto_delete_on_idle 屬性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)，否則主題和訂用帳戶將是持續性的。 您可以透過 [Azure 入口網站][Azure portal]或以程式設計方式加以刪除。 下列範例示範如何刪除名為 `mytopic` 的主題：
 
 ```python
 bus_service.delete_topic('mytopic')

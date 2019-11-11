@@ -1011,7 +1011,7 @@
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
           href: create-website.md
-        - name: Azure 搜尋服務索引子
+        - name: Azure 認知搜尋索引子
           href: /azure/search/search-howto-index-cosmosdb
           maintainContext: true
         - name: Azure Functions

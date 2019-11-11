@@ -353,6 +353,10 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: 應用程式 Proxy 中的 CORS 問題
               href: application-proxy-understand-cors-issues.md
+    - name: 安全混合式存取 (雲端和內部部署)
+      items:
+        - name: 使用應用程式傳遞控制器或網路保護舊版應用程式
+          href: secure-hybrid-access.md
 - name: 參考
   items:
     - name: 應用程式佈建 (SCIM)

@@ -91,6 +91,8 @@
       items:
         - name: 設定活躍度探查
           href: container-instances-liveness-probe.md
+        - name: 設定整備度探查
+          href: container-instances-readiness-probe.md
         - name: 停止並啟動容器
           href: container-instances-stop-start.md
         - name: 更新執行中的容器

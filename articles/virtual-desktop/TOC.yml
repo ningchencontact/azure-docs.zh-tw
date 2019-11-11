@@ -96,6 +96,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Windows 虛擬桌面的 Windows 7 虛擬機器問題疑難排解
       href: troubleshoot-windows-7-vm.md
+    - name: Windows 虛擬桌面管理工具疑難排解
+      href: troubleshoot-management-tool.md
     - name: 遠端桌面用戶端連線
       href: troubleshoot-client-connection.md
     - name: Windows 虛擬桌面 PowerShell

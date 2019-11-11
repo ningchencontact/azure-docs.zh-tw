@@ -3,9 +3,8 @@ documentType: LandingData
 title: Azure IoT 中樞裝置佈建服務文件
 metadata:
   title: Azure IoT 中樞裝置佈建服務文件 - 教學課程及 API 參考
-  description: Azure IoT 中樞裝置佈建服務概觀。
+  description: Azure IoT 中樞裝置佈建服務 - 教學課程、快速入門、做法及 API 參考
   author: nberdy
-  manager: briz
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page

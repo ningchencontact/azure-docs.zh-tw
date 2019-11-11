@@ -241,6 +241,8 @@
                   href: migrate-android-adal-msal.md
                 - name: 遷移到 MSAL.iOS 和 MacOS
                   href: migrate-objc-adal-msal.md
+                - name: 遷移到 MSAL Java
+                  href: migrate-adal-msal-java.md
                 - name: 使用訊息代理程式將 Xamarin 應用程式遷移到 MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: 支援的驗證流程
@@ -390,6 +392,10 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: 應用程式設定
           items:
+            - name: Azure 入口網站應用程式註冊訓練指南 (舊版)
+              href: app-registrations-training-guide-for-app-registrations-legacy-users.md
+            - name: 應用程式註冊入口網站應用程式註冊指南
+              href: app-registration-portal-training-guide.md
             - name: 將單一租用戶應用程式轉換為多租用戶應用程式
               href: howto-convert-app-to-be-multi-tenant.md
             - name: 建立服務主體
@@ -446,6 +452,12 @@
                   href: request-custom-claims.md
                 - name: 重新導向 URI 組態
                   href: redirect-uris-ios.md
+            - name: MSAL Java
+              items:
+                - name: 權杖快取序列化
+                  href: msal-java-token-cache-serialization.md
+                - name: 從權杖快取新增和移除帳戶
+                  href: msal-java-get-remove-accounts-token-cache.md
         - name: 使用 Visual Studio
           items:
             - name: 使用 Active Directory 連線服務
@@ -594,8 +606,6 @@
               href: reference-saml-tokens.md
         - name: 應用程式設定
           items:
-            - name: 應用程式註冊訓練指南
-              href: app-registrations-training-guide.md
             - name: 應用程式與服務主體
               href: app-objects-and-service-principals.md
             - name: 如何以及為何將應用程式新增到 Azure AD

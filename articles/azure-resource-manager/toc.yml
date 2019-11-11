@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: 訂用帳戶層級資源
           href: deploy-to-subscription.md
+        - name: 管理群組層級資源
+          href: deploy-to-management-group.md
     - name: 部署範本
       items:
         - name: 部署 - 入口網站

@@ -16,7 +16,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure 媒體服務是以 Azure 媒體分析、Azure 搜尋服務、認知服務 (例如臉部 API、Microsoft Translator、電腦視覺 API 及自訂語音服務) 為建置基礎的雲端應用程式。 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。<br/>若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱<a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">比較文件</a>。
+  description: Azure 媒體服務是以 Azure 媒體分析、Azure 認知服務、認知服務 (例如臉部 API、Microsoft Translator、電腦視覺 API 及自訂語音服務) 為建置基礎的雲端應用程式。 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。<br/>若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱<a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">比較文件</a>。
 sections:
   - items:
       - type: list
