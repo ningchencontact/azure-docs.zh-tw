@@ -134,6 +134,8 @@
               href: azure-expressroute-connection.md
             - name: 設定 DNS 名稱解析
               href: on-premises-dns-setup.md
+            - name: 設定高可用性的站對站 VPN 連線
+              href: high-availability-vpn-connection.md
         - name: VMware 平台
           items:
             - name: 了解私人雲端權限模型

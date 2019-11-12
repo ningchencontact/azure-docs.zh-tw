@@ -616,6 +616,8 @@
           href: connector-troubleshoot-guide.md
         - name: 針對 Azure-SSIS IR 管理進行疑難排解
           href: ssis-integration-runtime-management-troubleshoot.md
+        - name: 自我裝載 IR 的疑難排解
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
           href: ssis-integration-runtime-ssis-activity-faq.md
         - name: 針對資料流程進行疑難排解
