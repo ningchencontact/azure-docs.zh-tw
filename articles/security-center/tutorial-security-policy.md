@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4ac6ac52d6d950d814a37e94ea2801c2ba8e4170
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521187"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906875"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -105,6 +105,10 @@ Azure 資訊安全中心根據您選擇的原則來做出其安全性建議。 �
    > [!NOTE]
    > 請記住，管理群組會將其原則套用至其訂用帳戶。 因此，如果您停用訂用帳戶的原則，而且訂用帳戶屬於仍使用相同原則的管理群組，則您會繼續收到原則建議。 原則仍然會從管理層級套用，而且仍會產生建議。
 
+1. 按一下 [**查看有效原則**]。
+
+   ![停用原則](./media/tutorial-security-policy/view-effective-policy.png)
+
 1. 按一下 [指派的原則]。
 
    ![停用原則](./media/tutorial-security-policy/security-policy.png)
@@ -113,7 +117,7 @@ Azure 資訊安全中心根據您選擇的原則來做出其安全性建議。 �
 
    ![停用原則](./media/tutorial-security-policy/disable-policy.png)
 
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
    > [!NOTE]
    > 停用原則變更最多可能需要12小時才會生效。

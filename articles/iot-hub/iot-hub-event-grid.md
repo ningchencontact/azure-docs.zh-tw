@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748589"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906771"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -25,13 +25,13 @@ ms.locfileid: "73748589"
 
 ## <a name="regional-availability"></a>區域可用性
 
-位於支援「事件格線」之區域中的 IoT 中樞都可使用「事件格線」整合。 裝置遙測事件除外的所有裝置事件都已正式推出。 裝置遙測事件處於公開預覽狀態，適用于美國東部、美國西部、西歐、 [Azure Government](/azure/azure-government/documentation-government-welcome)、 [azure 中國世紀](/azure/china)和[azure 德國](https://azure.microsoft.com/global-infrastructure/germany/)以外的所有區域。 如需最新的區域清單，請參閱 [Azure 事件方格簡介](../event-grid/overview.md)。
+位於支援「事件格線」之區域中的 IoT 中樞都可使用「事件格線」整合。 如需最新的區域清單，請參閱 [Azure 事件方格簡介](../event-grid/overview.md)。
 
 ## <a name="event-types"></a>事件類型
 
 「IoT 中樞」會發佈下列事件類型：
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | 向 IoT 中樞註冊裝置時發佈。 |
 | Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 |

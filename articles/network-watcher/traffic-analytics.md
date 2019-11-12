@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686563"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907151"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -77,7 +77,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 英國西部
 * 英國南部
 * 澳洲東部
-* 澳大利亞東南部
+* 澳洲東南部
 * 東亞
 * 東南亞
 * 南韓中部
@@ -95,16 +95,20 @@ Log Analytics 工作區必須存在於下列區域：
 * 美國中西部
 * 美國東部
 * 美國東部 2
+* 美國中北部
 * 美國中南部
+* 美國中部
 * 美國西部
 * 美國西部 2
 * 美國中部
 * 法國中部
-* 北歐
 * 西歐
+* 北歐
+* 巴西南部
+* 英國西部
 * 英國南部
 * 澳洲東部
-* 澳大利亞東南部
+* 澳洲東南部
 * 東亞
 * 東南亞
 * 南韓中部
@@ -113,7 +117,7 @@ Log Analytics 工作區必須存在於下列區域：
 * 美國政府維吉尼亞州
 * 中國東部 2
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="user-access-requirements"></a>使用者存取需求
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 10ff3cc940ac3d11154f1dec6c06ff3681328d38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890946"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906982"
 ---
 # <a name="deploy-farmbeats"></a>部署 FarmBeats
 
@@ -82,14 +82,13 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 在起始部署之前，請確定您具有下列各項：
 
 - Sentinel 帳戶
-- Azure Active Directory （應用程式註冊）
-- Azure FarmBeats
+- Azure Active Directory （AD）應用程式註冊
 
 ## <a name="create-a-sentinel-account"></a>建立 sentinel 帳戶    
 
 具有 sentinel 的帳戶可協助您將 sentinel 衛星影像從其官方網站下載至您的裝置。 請遵循下列步驟來建立免費帳戶：
 
-1. 移至 https://scihub.copernicus.eu/dhus/#/self-registration。 在 [註冊] 頁面中，提供名字、姓氏、使用者名稱、密碼和電子郵件。
+移至 https://scihub.copernicus.eu/dhus/#/self-registration。 在 [註冊] 頁面中，提供名字、姓氏、使用者名稱、密碼和電子郵件。
 驗證電子郵件將會傳送至已註冊的電子郵件地址以進行確認。 選取連結並確認。 您的註冊程式已完成。
 
 ## <a name="create-azure-ad-app-registration"></a>建立 Azure AD 應用程式註冊
@@ -103,7 +102,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 
 如果您已經有訂用帳戶，您可以直接移至下一個程式。
 
-**案例 2**：當您沒有足夠的許可權可以在訂用帳戶內建立和設定 Azure AD 應用程式註冊時，這個方法是慣用的步驟。 要求您的系統管理員使用[自訂腳本](https://aka.ms/FarmBeatsMarketplace)，以協助 IT 系統管理員在 Azure 入口網站上自動產生和設定 Azure AD 應用程式註冊。 若要使用 PowerShell 環境執行此自訂腳本的輸出，IT 系統管理員必須與您共用 Azure Active Directory 應用程式用戶端識別碼和密碼秘密。 記下這些值。
+**案例 2**：當您沒有足夠的許可權可以在訂用帳戶內建立和設定 Azure AD 應用程式註冊時，這個方法是慣用的步驟。 要求您的系統管理員使用[自訂腳本](https://aka.ms/FarmBeatsAADScript)，以協助 IT 系統管理員在 Azure 入口網站上自動產生和設定 Azure AD 應用程式註冊。 若要使用 PowerShell 環境執行此自訂腳本的輸出，IT 系統管理員必須與您共用 Azure Active Directory 應用程式用戶端識別碼和密碼秘密。 記下這些值。
 
 請使用下列步驟來執行 Azure AD 應用程式註冊腳本：
 
@@ -132,7 +131,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 
 在安裝過程中，請建立一個輸入 json 檔案，如下所示：
 
-    ```json
+    ```
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -150,24 +149,22 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 此檔案是用來 Azure Cloud Shell 的輸入檔，以及在安裝期間使用其值的參數。 Json 中的所有參數都必須以適當的值取代或移除;若已移除，安裝程式會在安裝期間提示您
 
 
-> [!NOTE]
-> 此檔案會輸入要 Azure Cloud Shell 的值。  為了節省時間，在部署期間，系統不會提示您新增到此檔案中的參數。 系統會提示您輸入遺漏的參數。
-
 請先檢查參數，然後再準備檔案。
 
 |命令 | 描述|
 |--- | ---|
 |sku  | 提供選擇以下載 Azure FarmBeats 的其中一個或兩個元件。 指定要下載的元件。 若只要安裝資料中樞，請使用 "onlydatabhub"。 若要安裝資料中樞和加速器，請使用 "both"|
-|訂閱  | 指定安裝 FarmBeats 的訂用帳戶|
-|"datahubResourceGroup"  | 資料中樞資源的資源組名|
-|"acceleratorWebsiteName"  |將資料中樞命名為唯一的 URL 前置詞|
-|"acceleratorResourceGroup"  | 命名您的加速器網站的唯一 URL 前置詞。|
-|"datahubWebsiteName"  | UUnique URL 前置詞以命名您的資料中樞網站。 |
-|''sentinelUsername'' | 用來登入的使用者名稱： https://scihub.copernicus.eu/dhus/#/self-registration。|
-|"notificationEmailAddress"  | 用來接收您在資料中樞內設定之任何警示通知的電子郵件地址。|
-|"updateIfExists" "  |選擇性只有在您想要升級現有的 FarmBeats 實例時，才會將參數包含在輸入 Json 中。 如需升級，請查看其他詳細資料，例如 資源組名、位置等必須相同。|
-|"aadAppClientId"  | [**選用**]只有在 Azure AD 應用程式已存在時，才會將參數包含在輸入 Json 中。  |
-|"aadAppClientSecret"   | [**選用**]只有在 Azure AD 應用程式已存在時，才會將參數包含在輸入 Json 中。|
+|subscriptionId | 指定安裝 FarmBeats 的訂用帳戶|
+|datahubResourceGroup| 資料中樞資源的資源組名|
+|location |您想要建立資源的位置|
+|acceleratorWebsiteName |將資料中樞命名為唯一的 URL 前置詞|
+|acceleratorResourceGroup  | 命名您的加速器網站的唯一 URL 前置詞。|
+|datahubWebsiteName  | UUnique URL 前置詞以命名您的資料中樞網站。 |
+|sentinelUsername | 用來登入的使用者名稱： https://scihub.copernicus.eu/dhus/#/self-registration。|
+|notificationEmailAddress  | 用來接收您在資料中樞內設定之任何警示通知的電子郵件地址。|
+|updateIfExists|選擇性只有在您想要升級現有的 FarmBeats 實例時，才會將參數包含在輸入 Json 中。 如需升級，請查看其他詳細資料，例如 資源組名、位置等必須相同。|
+|aadAppClientId | [**選用**]只有在 Azure AD 應用程式已存在時，才會將參數包含在輸入 Json 中。  |
+|aadAppClientSecret  | [**選用**]只有在 Azure AD 應用程式已存在時，才會將參數包含在輸入 Json 中。|
 
 ## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>在 Cloud Shell 以瀏覽器為基礎的命令列內部署
 
@@ -193,17 +190,15 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
     ```json
     {  
        "sku":"both", 
-       "subscriptionId": "da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
-       "datahubResourceGroup": "dummy-test-dh1", 
-       "datahubLocation": "westus2", 
-       "datahubWebsiteName": "dummy-test-dh1", 
-       "acceleratorResourceGroup": "dummy-test-acc1", 
-       "acceleratorLocation": "westus2", 
-       "acceleratorWebsiteName": "dummy-test-acc1", 
-       "sentinelUsername": "dummy-dev", 
-       "farmbeatsAppId": "c3cb3xxx-27xx-4xxb-8xx6-3xxx2xxdxxx5c", 
-       "notificationEmailAddress": "dummy@microsoft.com", 
-       "updateIfExists": true
+       "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
+       "datahubResourceGroup":"dummy-test-dh1", 
+       "location":"eastus2", 
+       "datahubWebsiteName":"dummy-test-dh1", 
+       "acceleratorResourceGroup":" dummy-test-acc1",   
+       "acceleratorWebsiteName":" dummy-test-acc1", 
+       "sentinelUsername":"dummy-dev", 
+       "notificationEmailAddress":" dummy@microsoft.com", 
+       "updateIfExists":true 
     }
     ```
 
@@ -213,10 +208,10 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
     ![專案伺服器陣列的節拍](./media/prepare-for-deployment/bash-2-1.png)
 
 4. 在 cloud shell 中移至您的主目錄。 根據預設，它是/home/<username>
-5. 在 Cloud Shell 中輸入或貼上下列兩個命令。 請務必修改輸入的路徑。 Json 檔案，然後按 enter 鍵。
+5. 在 Cloud Shell 中輸入或貼上下列命令。 請務必修改輸入的路徑。 Json 檔案，然後按 enter 鍵。
 
       ```azurepowershell-interactive
-      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
      ```
      安裝程式會自動下載所有相依性，並建立部署器。 系統會提示您同意 Azure FarmBeats 使用者授權合約（EULA）。
 
@@ -269,10 +264,10 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
     ![專案伺服器陣列的節拍](./media/prepare-for-deployment/bash-2-1.png)
 
 4. 在 cloud shell 中移至您的主目錄。 根據預設，它是/home/<username>
-5. 在 Cloud Shell 中輸入或貼上下列兩個命令。 請務必修改輸入的路徑。 Json 檔案，然後按 enter 鍵。
+5. 在 Cloud Shell 中輸入或貼上下列命令。 請務必修改輸入的路徑。 Json 檔案，然後按 enter 鍵。
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
 遵循畫面上的指示。
@@ -314,11 +309,6 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 
 1. 若要從加速器登入，請在瀏覽器中複製並貼上 URL。
 2. 使用 Azure 入口網站認證登入。
-3. 執行選擇性的健全測試。
-
-    - 檢查您是否能夠使用您收到作為成功部署輸出的加速器連結，成功登入加速器入口網站。
-    - 選取 [**建立伺服器**陣列]。
-    - 在 [？] 圖示下，使用 [**開始**使用] 按鈕開啟 FarmBeats 指南。
 
 ## <a name="upgrade"></a>升級
 
@@ -335,7 +325,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 6. 在 Cloud Shell 中輸入或貼上下列兩個命令。 請務必修改輸入 json 檔案的路徑，然後按 enter 鍵。
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 遵循畫面上的指示：
 

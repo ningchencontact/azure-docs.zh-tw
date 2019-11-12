@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 1f312e8a5034d238e4802e9323bc1b5ac5cdae21
+ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302755"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906246"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 NFS 磁碟區
 
@@ -31,19 +31,19 @@ Azure NetApp Files 支援 NFS （NFSv3 和 NFSv 4.1）和 SMBv3 磁片區。 磁
 子網路必須委派至 Azure NetApp Files。  
 [將子網路委派至 Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="considerations"></a>考量 
+## <a name="considerations"></a>注意事項 
 
 > [!IMPORTANT] 
-> NFSv 4.1 功能的存取權需要允許清單。  若要要求允許清單，請將要求提交給 <anffeedback@microsoft.com>。 
+> 需要列入允許清單，才能存取 NFSv4.1 功能。  若要要求列入允許清單，請將要求提交至 <anffeedback@microsoft.com>。 
 
 * 決定要使用的 NFS 版本  
   NFSv3 可以處理各種不同的使用案例，而且通常會部署在大部分的企業應用程式中。 您應該驗證應用程式所需的版本（NFSv3 或 NFSv 4.1），並使用適當的版本來建立磁片區。 例如，如果您使用[Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)，建議使用 nfsv 4.1 的檔案鎖定，而不是 NFSv3。 
 
-* 安全性  
+* Security  
   支援 UNIX 模式位（讀取、寫入和執行）適用于 NFSv3 和 NFSv 4.1。 NFS 用戶端上必須有根層級的存取權，才能掛接 NFS 磁片區。
 
 * NFSv 4.1 的本機使用者/群組和 LDAP 支援  
-  目前，NFSv 4.1 僅支援存取磁片區的根目錄。 
+  目前，NFSv 4.1 僅支援存取磁片區的根目錄。 請參閱[設定適用于 Azure NetApp Files 的 nfsv 4.1 預設網域](azure-netapp-files-configure-nfsv41-domain.md)。 
 
 ## <a name="best-practice"></a>最佳做法
 
@@ -93,15 +93,15 @@ Azure NetApp Files 支援 NFS （NFSv3 和 NFSv 4.1）和 SMBv3 磁片區。 磁
     
         ![建立子網路](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. 按一下 [**通訊協定**]，然後完成下列動作：  
-    * 選取 [ **NFS** ] 作為磁片區的通訊協定類型。   
+4. 按一下 [通訊協定]，然後完成下列動作：  
+    * 選取 [NFS] 作為磁碟區的通訊協定類型。   
     * 指定將用來建立新磁片區匯出路徑的檔案**路徑**。 匯出路徑會用來掛接和存取磁碟區。
 
         檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。 
 
         檔案路徑在每個訂用帳戶和每個區域中必須是唯一的。 
 
-    * 選取適用于磁片區的 NFS 版本（**NFSv3**或**nfsv 4.1**）。  
+    * 選取磁碟區的 NFS 版本 (**NFSv3** 或 **NFSv4.1**)。  
     * （選擇性）[設定 NFS 磁片區的匯出原則](azure-netapp-files-configure-export-policy.md)。
 
     ![指定 NFS 通訊協定](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -115,6 +115,7 @@ Azure NetApp Files 支援 NFS （NFSv3 和 NFSv 4.1）和 SMBv3 磁片區。 磁
 
 ## <a name="next-steps"></a>後續步驟  
 
+* [針對 Azure NetApp Files 設定 NFSv 4.1 預設網域](azure-netapp-files-configure-nfsv41-domain.md)
 * [針對 Windows 或 Linux 虛擬機器掛接或卸載磁片區](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [設定 NFS 磁碟區的匯出原則](azure-netapp-files-configure-export-policy.md)
 * [Azure NetApp Files 的資源限制](azure-netapp-files-resource-limits.md)

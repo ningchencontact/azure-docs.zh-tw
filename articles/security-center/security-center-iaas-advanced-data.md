@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571564"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907017"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Azure 上 SQL server 的 Advanced data security 虛擬機器（預覽）
 Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全性功能的整合套件。 這項預覽功能包含可識別和減輕潛在資料庫弱點，以及偵測可能表示對資料庫有威脅之異常活動的功能。 
@@ -26,7 +26,7 @@ Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全
 適用于 Azure Vm SQL server 的此安全性供應專案，是以[Azure SQL Database Advanced Data security 套件](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)中所用的相同基本技術為基礎。
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 先進的資料安全性提供一組先進的 SQL 安全性功能，其中包含弱點評估和先進的威脅防護。
 
@@ -54,7 +54,7 @@ Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全
     所有連線到所選工作區的 SQL Server 或所選訂用帳戶的預設工作區，都會啟用 SQL Server 的 Advanced Data Security。
 
     >[!NOTE]
-    > 解決方案將會在第一次 SQL Server 重新開機之後生效。 
+    > 在第一次重新開機 SQL Server 之後，解決方案將會完全有效。 
 
 若要建立新的工作區，請遵循[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)中的指示。
 
@@ -72,7 +72,7 @@ Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全
 1. 從 [設定] 功能表中，按一下 [**電子郵件通知**]。 
 1. 在 [**電子郵件地址**] 文字方塊中，輸入要接收通知的電子郵件地址。 您可以輸入一個以上的電子郵件地址，方法是以逗號（，）分隔電子郵件地址。  例如 admin1@mycompany.com、admin2@mycompany.com、admin3@mycompany.com
 
-      ![電子郵件設定](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![電子郵件設定](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. 在**電子郵件通知**設定中，設定下列選項：
   
@@ -88,29 +88,27 @@ Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全
 
 [弱點評定] 儀表板可讓您大致瞭解所有資料庫的評量結果。 您可以根據 SQL Server 版本來查看資料庫的散發，以及失敗與傳遞資料庫的摘要，以及根據風險散發而失敗檢查的整體摘要。
 
-您可以直接從 Log Analytics 查看您的弱點評估結果和報告。
+您可以直接從資訊安全中心查看弱點評估結果。
 
-1. 使用 Advanced Data Security 解決方案，流覽至您的 Log Analytics 工作區。
-1. 流覽至 [**方案**]，然後選取 [ **SQL 弱點評定**] 解決方案。
-1. 在 [**摘要**] 窗格中，按一下 [**查看摘要**]，然後選取您的**SQL 弱點評定報告**。
+1. 從資訊安全中心的提要欄位中，選取 [資源安全性防護] 底下的 [**資料 & 儲存體**]。
 
-    ![SQL 評定報表](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. **在 [應補救的 vm （預覽）] 中，選取您的 SQL 資料庫上**的建議弱點。 如需詳細資訊，請參閱[資訊安全中心建議](security-center-recommendations.md)。 
 
-    報表儀表板會載入。 請確定已將時間間隔設定為至少**過去7天**，因為弱點評估掃描是在您的資料庫上執行一次的固定排程。
+    [![* * Vm 中 SQL 資料庫的弱點應予以補救（預覽） * * 建議](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![設定過去7天](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    這項建議的詳細觀點隨即出現。
 
-1. 若要向下切入以取得更多詳細資料，請按一下任何儀表板元素。 例如：
+    [![詳細資訊，請參閱 Vm 中 SQL 資料庫的弱點（預覽） * * 建議事項](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. 按一下 [**失敗的檢查摘要**] 區段中的弱點檢查，以查看 Log Analytics 資料表，其中包含跨所有資料庫的此檢查結果。 會先列出具有結果的那些記錄。
+1. 若要向下切入以取得更多詳細資料：
 
-   1. 然後，按一下 [流覽] 以查看每個弱點的詳細資料，包括弱點描述和影響、狀態、相關風險，以及此資料庫上的實際結果。 您也可以查看執行此檢查所執行的實際查詢，以及解決此弱點的補救資訊。
+    * 如需掃描的資源（資料庫）和已測試的安全性檢查清單的總覽，請按一下感關注的伺服器。
+    [依 SQL server 分組的 ![弱點](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![選取工作區](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * 如需依特定 SQL 資料庫分組的弱點總覽，請按一下感關注的資料庫。
+    [依 SQL server 分組的 ![弱點](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![選取工作區](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. 您可以對您的弱點評量結果資料執行任何 Log Analytics 查詢，以根據您的需求來分割和骰子資料。
+    在每個視圖中，安全性檢查都會依**嚴重性**排序。 按一下特定的安全性檢查以查看詳細資料窗格，其中包含**描述**、如何**修復**它，以及其他相關資訊，例如**影響**或**基準測試**。
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Azure Vm 上 SQL server 的先進威脅防護警示
 警示是由不尋常且可能有害的嘗試存取或惡意探索 SQL Server 所產生。 這些事件會觸發下列警示：
