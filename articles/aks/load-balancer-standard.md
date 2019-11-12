@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 8ebd91f8f02ad7eacd8440b34a31b78f5cac5741
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472623"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929127"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器（AKS）
 
@@ -26,7 +26,7 @@ Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 版2.0.74 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 版2.0.74 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="before-you-begin"></a>開始之前
 本文假設您有一個 AKS 叢集，其中具有*標準*SKU Azure Load Balancer。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli]或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
@@ -148,6 +148,25 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
+## <a name="show-the-outbound-rule-for-your-load-balancer"></a>顯示負載平衡器的輸出規則
+
+若要顯示在負載平衡器中建立的輸出規則，請使用[az network lb 輸出規則清單][az-network-lb-outbound-rule-list]，並指定 AKS 叢集的節點資源群組：
+
+```azurecli-interactive
+NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
+```
+
+先前的命令會列出負載平衡器的輸出規則，例如：
+
+```console
+AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
+------------------------  ----------------  ----------------------  ---------------  ----------  -------------------  -------------
+0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
+```
+
+在範例輸出中， *AllocatedOutboundPorts*是0。 *AllocatedOutboundPorts*的值表示 SNAT 埠配置會根據後端集區大小還原為自動指派。 如需詳細資訊，請參閱[在 Azure 中][azure-lb-outbound-connections] [Load Balancer 輸出規則][azure-lb-outbound-rules]和輸出連線。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入瞭解 Kubernetes services，請[參閱 Kubernetes services 檔][kubernetes-services]。
@@ -176,11 +195,14 @@ az aks create \
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-list
 [az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
+[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md

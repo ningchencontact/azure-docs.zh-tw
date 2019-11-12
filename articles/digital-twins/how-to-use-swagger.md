@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6a99693c3f88e94c093910da6ba4a305c26fe39d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958878"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931352"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
@@ -42,15 +42,15 @@ Swagger 是一個很便利的工具，可協助您開發和測試對 Azure Digit
 
 透過簡單摘要來說明 API。
 
-[@no__t 1Swagger 頂端](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Swagger 頂端](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 此外，也會列出管理 API 物件模型。
 
-[@no__t 1Swagger 模型](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
+[![Swagger 模型](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 您可以選取每個列出的物件模型，以取得更詳細的主要屬性摘要。
 
-[@no__t 1Swagger 模型](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![Swagger 模型](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 使用產生的 Swagger 物件模型來查看所有可用的 Azure Digital Twins [物件和 API](./concepts-objectmodel-spatialgraph.md) 相當方便。 開發人員可在於 Azure Digital Twins 上建置解決方案時使用此資源。
 
@@ -64,7 +64,7 @@ Swagger 也提供管理 API 中所有端點的整體概觀。
 * 必要參數資料類型。
 * 要存取資源的 HTTP 方法。
 
-[@no__t 1Swagger 端點](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
+[![Swagger 端點](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 若要查看更詳細的概觀，請選取每個資源。
 
@@ -74,11 +74,11 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 在您選取特定端點之後，就會看到**歡迎試用**。
 
-[@no__t 1Swagger try](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
+[![Swagger try](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 展開該區段後，即會顯示每個必要和選擇性參數的輸入欄位。 輸入正確的值，然後選取 [執行]。
 
-[@no__t 1Swagger 嘗試](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
+[已嘗試 ![Swagger](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 當您執行測試之後，就可以驗證回應資料。
 
@@ -86,7 +86,7 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 每個列出的端點也會包含回應主體資料，可用來驗證您的開發和測試。 這些範例包含您想要看到適用於成功 HTTP 要求的狀態碼和 JSON。
 
-[@no__t 1Swagger 回應](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
+[![Swagger 回應](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 範例也會包含錯誤碼，可用來協助偵錯或改善失敗的測試。
 
@@ -95,14 +95,14 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 > [!NOTE]
 > * 建立 Azure 數位 Twins 資源的使用者主體將具有「空間管理員」角色指派，而且能夠為其他使用者建立其他角色指派。 這類使用者和其角色可以獲得授權以呼叫 Api。
 
-1. 請遵循[本快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)中的步驟，或向[Azure Active Directory 舊版註冊您的 Azure 數位 Twins 應用](./how-to-use-legacy-aad.md)程式，以建立和設定 Azure AD 應用程式。 或者，您可以重複使用現有的應用程式註冊。
+1. 請遵循[此快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)中的步驟來建立和設定 Azure AD 應用程式。 或者，您可以重複使用現有的應用程式註冊。
 
 1. 將下列回復 url 新增至應用程式註冊：
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | 更換為 | 範例 |
+    | 名稱  | 更換為 | 範例 |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | 您的管理 REST API 在入口網站中找到的檔 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -112,11 +112,11 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 1. 選取 swagger 頁面上的 [**授權**] 按鈕。
 
-    [@no__t 1Select [Swagger 授權] 按鈕](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![選取 [Swagger 授權] 按鈕](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. 將 [應用程式識別碼] 貼到 [ **client_id** ] 欄位中。
 
-    [@no__t 1Swagger client_id 欄位](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
+    [![Swagger client_id 欄位](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
 1. 然後，系統會將您重新導向至下列成功模式。
 

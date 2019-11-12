@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 7d8ed5ebde946134bc7e4779ec79c9ea853a6ef4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895185"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930136"
 ---
-# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
+# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式（預覽功能）
 
 本文說明如何將 MXChip IoT DevKit （DevKit）裝置連線到 Azure IoT Central 應用程式。 裝置會使用適用于 DevKit 裝置的認證 IoT 隨插即用模型，設定其與 IoT Central 的連接。
 

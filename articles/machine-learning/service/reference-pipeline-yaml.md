@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
-ms.date: 10/15/2019
-ms.openlocfilehash: a98a0e75c7a03baa663ccb4215e918a87bcc5df7
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.date: 11/11/2019
+ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821771"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929501"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>在 YAML 中定義機器學習管線
 
@@ -25,11 +25,11 @@ ms.locfileid: "72821771"
 
 | 步驟類型 | 支援? |
 | ----- | :-----: |
-| PythonScriptStep | 是 |
-| AdlaStep | 是 |
-| 」已 azurebatchstep | 是 |
-| DatabricksStep | 是 |
-| DataTransferStep | 是 |
+| PythonScriptStep | yes |
+| AdlaStep | yes |
+| 」已 azurebatchstep | yes |
+| DatabricksStep | yes |
+| DataTransferStep | yes |
 | AutoMLStep | 否 |
 | HyperDriveStep | 否 |
 | ModuleStep | 否 |
@@ -48,9 +48,7 @@ ms.locfileid: "72821771"
 | `default_compute` | 執行管線中所有步驟的預設計算目標。 |
 | `steps` | 管線中使用的步驟。 |
 
-下列 YAML 是一個範例管線定義：
-
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 
 `parameters` 區段會使用與[PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)類別對應的下列索引鍵：
 
@@ -104,15 +102,15 @@ pipeline:
 
 ## <a name="steps"></a>步驟
 
-步驟會定義計算環境，以及要在環境上執行的檔案。 YAML 定義代表下列步驟：
+步驟會定義計算環境，以及要在環境上執行的檔案。 若要定義步驟的類型，請使用 `type` 機碼：
 
-| YAML 索引鍵 | 描述 |
+| 步驟類型 | 描述 |
 | ----- | ----- |
-| `adla_step` | 使用 Azure Data Lake Analytics 執行 U-SQL 腳本。 對應至[AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py)類別。 |
-| `azurebatch_step` | 使用 Azure Batch 執行作業。 對應至[」已 azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py)類別。 |
-| `databricks_step` | 新增 Databricks 筆記本、Python 腳本或 JAR。 對應至[DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py)類別。 |
-| `data_transfer_step` | 在儲存體選項之間傳輸資料。 對應至[DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)類別。 |
-| `python_script_step` | 執行 Python 腳本。 對應至[PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)類別。 |
+| `AdlaStep` | 使用 Azure Data Lake Analytics 執行 U-SQL 腳本。 對應至[AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py)類別。 |
+| `AzureBatchStep` | 使用 Azure Batch 執行作業。 對應至[」已 azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py)類別。 |
+| `DatabricsStep` | 新增 Databricks 筆記本、Python 腳本或 JAR。 對應至[DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py)類別。 |
+| `DataTransferStep` | 在儲存體選項之間傳輸資料。 對應至[DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)類別。 |
+| `PythonScriptStep` | 執行 Python 腳本。 對應至[PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)類別。 |
 
 ### <a name="adla-step"></a>ADLA 步驟
 
@@ -146,15 +144,15 @@ pipeline:
     default_compute: adlacomp
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            adla_step:
-                name: "AdlaStep"
-                script_name: "sample_script.usql"
-                source_directory: "helloworld"
+            type: "AdlaStep"
+            name: "MyAdlaStep"
+            script_name: "sample_script.usql"
+            source_directory: "D:\\scripts\\Adla"
             inputs:
                 employee_data:
                     source: employee_data
@@ -198,18 +196,18 @@ pipeline:
     default_compute: testbatch
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            azurebatch_step:
-                name: "AzureBatchStep"
-                pool_id: "MyPoolName"
-                create_pool: true
-                executable: "azurebatch.cmd"
-                source_directory: "D:\\AzureMlCli\\cli_testing"
-                allow_reuse: false
+            type: "AzureBatchStep"
+            name: "MyAzureBatchStep"
+            pool_id: "MyPoolName"
+            create_pool: true
+            executable: "azurebatch.cmd"
+            source_directory: "D:\\scripts\\AureBatch"
+            allow_reuse: false
             inputs:
                 input:
                     source: input
@@ -251,18 +249,18 @@ pipeline:
     default_compute: mydatabricks
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            databricks_step:
-                name: "Databrickstep"
-                run_name: "DatabrickRun"
-                python_script_name: "train-db-local.py"
-                source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
-                num_workers: 1
-                allow_reuse: true
+            type: "DatabricksStep"
+            name: "MyDatabrickStep"
+            run_name: "DatabricksRun"
+            python_script_name: "train-db-local.py"
+            source_directory: "D:\\scripts\\Databricks"
+            num_workers: 1
+            allow_reuse: true
             inputs:
                 blob_test_data:
                     source: blob_test_data
@@ -301,14 +299,14 @@ pipeline:
     default_compute: adftest
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            data_transfer_step:
-                name: "DataTransferStep"
-                adla_compute_name: adftest
+            type: "DataTransferStep"
+            name: "MyDataTransferStep"
+            adla_compute_name: adftest
             source_data_reference:
                 adls_test_data:
                     source: adls_test_data
@@ -345,16 +343,16 @@ pipeline:
     default_compute: cpu-cluster
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            python_script_step:
-                name: "PythonScriptStep"
-                script_name: "train.py"
-                allow_reuse: True
-                source_directory: "helloworld"
+            type: "PythonScriptStep"
+            name: "MyPythonScriptStep"
+            script_name: "train.py"
+            allow_reuse: True
+            source_directory: "D:\\scripts\\PythonScript"
             inputs:
                 InputData:
                     source: DataReference1
@@ -408,7 +406,7 @@ Schedule:
 | `time_zone` | 開始時間的時區。 如果未提供時區，則會使用 UTC。 |
 | `hours` | 如果 `frequency` 是 `"Day"` 或 `"Week"`，您可以指定從0到23的一或多個整數（以逗號分隔），做為管線執行的一天中的時數。 只有 `time_of_day` 或 `hours` 和 `minutes` 可以使用。 |
 | `minutes` | 如果 `frequency` 是 `"Day"` 或 `"Week"`，您可以指定從0到59的一個或多個整數（以逗號分隔），做為管線執行時的分鐘數。 只有 `time_of_day` 或 `hours` 和 `minutes` 可以使用。 |
-| `time_of_day` | 如果 `frequency` 是 `"Day"` 或 `"Week"`，您可以指定排程執行的一天時間。 值的字串格式為 `hh:mm`。 只有 `time_of_day` 或 `hours` 和 `minutes` 可以使用。 |zzs
+| `time_of_day` | 如果 `frequency` 是 `"Day"` 或 `"Week"`，您可以指定排程執行的一天時間。 值的字串格式為 `hh:mm`。 只有 `time_of_day` 或 `hours` 和 `minutes` 可以使用。 |
 | `week_days` | 如果 `"Week"``frequency`，您可以指定排程應該執行的一或多個天數（以逗號分隔）。 有效的值為 `"Monday"`、`"Tuesday"`、`"Wednesday"`、`"Thursday"`、`"Friday"`、`"Saturday"`和 `"Sunday"`。 |
 
 下列範例包含週期性排程的定義：

@@ -1,5 +1,5 @@
 ---
-title: 使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證
+title: 從容器實例存取 Azure Container Registry
 description: 了解如何使用 Azure Active Directory 服務主體，從 Azure 容器執行個體提供私人容器登錄中映像的存取權。
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 53cdca72587dafd39abd3f13ad488dcb460bf622
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262854"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931664"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證
 

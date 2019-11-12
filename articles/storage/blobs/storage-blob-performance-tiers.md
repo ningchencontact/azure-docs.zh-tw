@@ -1,65 +1,81 @@
 ---
-title: Azure 區塊 Blob 儲存體效能層級-Azure 儲存體
-description: Azure blob 儲存體的效能層級。
+title: 區塊 blob 儲存體效能層級— Azure 儲存體
+description: 討論 Azure 區塊 blob 儲存體的 premium 和 standard 效能層級之間的差異。
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/02/2019
+ms.date: 11/12/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: e0d746f1b01784bc383c12543936f06dae66ca09
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063248"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932261"
 ---
-# <a name="azure-block-blob-storage-performance-tiers"></a>Azure 區塊 Blob 儲存體效能層級
+# <a name="performance-tiers-for-block-blob-storage"></a>區塊 blob 儲存體的效能層級
 
 當企業部署效能敏感的雲端原生應用程式時，請務必在不同的效能層級上具有符合成本效益的資料儲存選項。
 
 Azure 區塊 blob 儲存體提供兩個不同的效能層級：
 
-- Premium：已針對高交易速率和單一數位一致儲存體延遲進行優化
-- 標準：已針對高容量和高輸送量進行優化
+- **Premium**：已針對高交易速率和單一數位一致儲存體延遲進行優化
+- **標準**：已針對高容量和高輸送量進行優化
 
 下列考慮適用于不同的效能層級：
 
-- 標準效能適用于所有[Azure 區域](https://azure.microsoft.com/global-infrastructure/services/?products=storage)。 [[選取區域](https://azure.microsoft.com/global-infrastructure/services/?products=storage)] 中提供 Premium 效能。
-- 高階效能針對具有高交易率的應用程式提供優化的定價，以協助降低這些工作負載的[總儲存成本](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/)。
-- 若要取得區塊 blob 的 premium 效能，您必須使用 BlockBlobStorage 帳戶類型。
-- 標準效能適用一般用途 v1、一般用途 v2 和 Blob 儲存體帳戶。
-- Premium 和 standard 效能都支援[高輸送量區塊 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)。 高輸送量區塊 blob 適用于高於 256 KiB 的 premium 效能。 高輸送量區塊 blob 適用于高於 4 MiB Put 區塊或放置 Blob 大小的標準效能。
-- Premium 效能目前僅適用于本機多餘儲存體（LRS）。
+| 領域 |標準效能  |Premium 效能  |
+|---------|---------|---------|
+|區域可用性     |   所有區域      | 在[選取區域](https://azure.microsoft.com/global-infrastructure/services/?products=storage)中       |
+|支援的[儲存體帳戶類型](../common/storage-account-overview.md#types-of-storage-accounts)     |     一般用途 v2、BlobStorage、一般用途 v1    |    BlockBlobStorage     |
+|支援[高輸送量區塊 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    是，超過 4 MiB PutBlock 或 PutBlob 大小     |    是，大於 256 KiB PutBlock 或 PutBlob 大小    |
+|備援性     |     請參閱[儲存體帳戶的類型](../common/storage-account-overview.md#types-of-storage-accounts)   |  目前僅支援本機-多餘儲存體（LRS）和區域備援儲存體（ZRS）<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+
+<div id="zone-redundant-storage"><sup>1</sup>區域冗余儲存體（ZRS）可用於 premium 效能區塊 blob 儲存體帳戶的選取區域。</div>
+
+關於成本，premium 效能會針對具有高交易率的應用程式提供優化的定價，以協助降低這些工作負載的[總儲存成本](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/)。
 
 ## <a name="premium-performance"></a>Premium 效能
 
 Premium 性能區塊 blob 儲存體可透過高效能硬體提供資料。 資料會儲存在固態硬碟（Ssd）上，其已針對低延遲而優化。 相較于傳統硬碟，Ssd 提供更高的輸送量。
 
-Premium 效能區塊 blob 儲存體非常適合需要快速且一致回應時間的工作負載。 最適合執行許多小型交易的工作負載。
+Premium 效能儲存體適用于需要快速且一致回應時間的工作負載。 最適合執行許多小型交易的工作負載。 範例工作負載包括：
+
+- **互動式工作負載**。 這些工作負載需要立即更新和使用者意見反應，例如電子商務和對應應用程式。 例如，在電子商務應用程式中，可能不會快取較不常用的專案。 不過，他們必須立即向客戶顯示，視需要而定。
+
+- **分析**。 在 IoT 案例中，可能會每秒將許多較小的寫入作業推送到雲端。 大量的資料可能會在中進行匯總，以供分析之用，然後幾乎立即刪除。 Premium 區塊 blob 儲存體的高內嵌功能讓此類型的工作負載更有效率。
+
+- **人工智慧/機器學習服務（AI/ML）** 。 AI/ML 會處理不同資料類型（例如視覺效果、語音和文字）的耗用量和處理。 這種高效能運算類型的工作負載會處理大量資料，需要快速回應和有效率的資料分析內嵌時間。
+
+- **資料轉換**。 需要對資料進行持續編輯、修改和轉換的進程需要立即更新。 如需精確的資料標記法，此資料的取用者必須立即看到這些變更反映出來。
 
 ## <a name="standard-performance"></a>標準效能
 
 標準效能支援不同的[存取層](storage-blob-storage-tiers.md)，以最符合成本效益的方式儲存資料。 它已針對大型資料集上的高容量和高輸送量進行優化。
 
+## <a name="migrate-from-standard-to-premium"></a>從標準遷移至 premium
+
+您無法將現有的標準效能儲存體帳戶轉換成具有 premium 效能的區塊 blob 儲存體帳戶。 若要遷移至 premium 效能儲存體帳戶，您必須建立 BlockBlobStorage 帳戶，並將資料移轉至新帳戶。 如需詳細資訊，請參閱[建立 BlockBlobStorage 帳戶](storage-blob-create-account-block-blob.md)。
+
+若要在儲存體帳戶之間複製 blob，您可以使用最新版本的[AzCopy](../common/storage-use-azcopy-blobs.md)命令列工具。 其他工具（例如 Azure Data Factory）也適用于資料移動和轉換。
+
 ## <a name="blob-lifecycle-management"></a>Blob 生命週期管理
 
 Blob 儲存體生命週期管理提供豐富、以規則為基礎的原則：
 
-- Premium-在其生命週期結束時使資料過期
-- 標準-將資料轉換到最佳存取層，並在其生命週期結束時使資料過期
+- **Premium**：資料在其生命週期結束時過期。
+- **標準**：將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。
 
 若要深入瞭解，請參閱[管理 Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)。
 
-儲存在 premium 區塊 blob 儲存體帳戶中的資料無法在經常性、非經常性和封存層之間移動。 不過，您可以從區塊 blob 儲存體帳戶將 blob 複製到*不同*帳戶中的經常性存取層。 使用[Put Block FROM URL](/rest/api/storageservices/put-block-from-url) API 或[AzCopy v10](../common/storage-use-azcopy-v10.md)將資料複製到不同的帳戶。 **來自 URL API 的 Put 區塊**會同步複製伺服器上的資料。 只有在所有資料從源伺服器位置移至目的地位置之後，呼叫才會完成。
+您無法在經常性、非經常性和封存層之間移動儲存于 premium 區塊 blob 儲存體帳戶中的資料。 不過，您可以從區塊 blob 儲存體帳戶將 blob 複製到*不同*帳戶中的經常性存取層。 若要將資料複製到不同的帳戶，請使用[Put Block FROM URL](/rest/api/storageservices/put-block-from-url) API 或[AzCopy v10](../common/storage-use-azcopy-v10.md)。 **來自 URL API 的 Put 區塊**會同步複製伺服器上的資料。 只有在所有資料從源伺服器位置移至目的地位置之後，呼叫才會完成。
 
 ## <a name="next-steps"></a>後續步驟
 
-評估 GPv2 和 Blob 儲存體帳戶中的經常性存取、非經常性存取和封存
+評估 GPv2 和 Blob 儲存體帳戶中的經常性存取、非經常性存取和封存。
 
-- [依照區域檢查經常性存取、非經常性存取和封存的可用性](https://azure.microsoft.com/regions/#services)
-- [管理 Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)
 - [瞭解如何從封存層解除凍結 blob 資料](storage-blob-rehydration.md)
 - [啟用 Azure 儲存體計量以評估您目前的儲存體帳戶使用量](../common/storage-enable-and-view-metrics.md)
 - [依照區域檢查 Blob 儲存體和 GPv2 帳戶中的經常性存取、非經常性存取和封存價格](https://azure.microsoft.com/pricing/details/storage/)

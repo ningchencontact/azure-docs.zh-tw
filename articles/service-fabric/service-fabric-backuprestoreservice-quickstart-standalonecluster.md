@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: efdb2f51058eca456d622afda390dee17fffea0b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b949a0edff7ed6341d10518bc1c38afe2f7efad0
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819360"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929191"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 - 暫時暫停備份
 - 備份的保留管理 (即將推出)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 具有 Fabric 6.4 版或更新版本的 Service Fabric 叢集。 如需下載所需套件的步驟，請參閱這篇[文章](service-fabric-cluster-creation-for-windows-server.md)。
 * 用於加密祕密 (連線至儲存體以儲存備份時所需) 的 X.509 憑證。 若要了解如何取得或建立自我簽署的 X.509 憑證，請參閱這篇[文章](service-fabric-windows-cluster-x509-security.md)。
 
@@ -117,19 +117,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 
 4. 在您更新叢集設定檔以反映先前的變更之後，請套用它們，然後讓部署/升級完成。 完成之後，「備份與還原服務」就會開始在您的叢集中執行。 此服務的 URI 是 `fabric:/System/BackupRestoreService`，此服務可能位於 Service Fabric 總管中的系統服務區段底下。 
 
-### <a name="using-service-fabric-explorer"></a>使用 Service Fabric Explorer
 
-1. 請確定已啟用 [Advanced] 模式。
-
-    ![啟用 Advanced 模式][2]
-
-2. 選取應用程式並移至 [動作]。 按一下 [啟用/更新應用程式備份]。
-
-    ![啟用應用程式備份][3] 
-
-3. 最後，選取所需的原則，然後按一下 [啟用備份]。
-
-    ![選取原則][4]
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>啟用可靠具狀態服務和 Reliable Actors 的定期備份
 以下步驟將逐步解說如何啟用可靠具狀態服務和 Reliable Actors 的定期備份。 這些步驟假設
@@ -207,6 +195,16 @@ $url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
+
+#### <a name="using-service-fabric-explorer"></a>使用 Service Fabric Explorer
+
+1. 選取應用程式並移至 [動作]。 按一下 [啟用/更新應用程式備份]。
+
+    ![啟用應用程式備份][3] 
+
+2. 最後，選取所需的原則，然後按一下 [啟用備份]。
+
+    ![選取原則][4]
 
 ### <a name="verify-that-periodic-backups-are-working"></a>確認定期備份能夠運作
 
@@ -292,8 +290,6 @@ FailureError            :
 - [備份還原 REST API 參考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
-[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
-

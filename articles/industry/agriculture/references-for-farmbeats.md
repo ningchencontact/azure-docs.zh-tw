@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: efd294910531509d736dbda274406bd7c801c124
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889601"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931207"
 ---
 # <a name="references"></a>參考
 
@@ -85,7 +85,7 @@ API 服務的 URL 是您的資料中樞 URL HTTPs://\<yourdatahub-網站名稱 >
 
 以下範例要求是取得裝置的清單：
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -93,7 +93,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-T
 
 以下範例要求是建立裝置（這具有具有要求主體的輸入 json）。
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -120,25 +120,25 @@ Azure FarmBeats 資料中樞 API 會傳回標準 HTTP 錯誤。 最常見的錯�
 
 除了標準 HTTP 錯誤以外，Azure FarmBeats 資料中樞 Api 也會以下列格式傳回內部錯誤：
 
-    ```
+```json
     {
       "message": "<More information on the error>",
       "status": "<error code>”,
       "code": "<InternalErrorCode>",
       "moreInfo": "<Details of the error>"
     }
-    ```
+```
 
 範例：建立伺服器陣列時，未在輸入裝載中指定強制欄位 "Name"。 產生的錯誤訊息會是：
 
-    ```json
+ ```json    
     {
       "message": "Model validation failed",
       "status": 400,
       "code": "ModelValidationFailed",
       "moreInfo": "[\"The Name field is required.\"]"
     }
-    ```
+  ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>將使用者或應用程式註冊新增至 Azure Active Directory
 

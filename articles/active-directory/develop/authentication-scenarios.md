@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718377"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927103"
 ---
 # <a name="authentication-basics"></a>驗證基本概念
 
@@ -74,7 +74,7 @@ Azure AD 也提供 Azure Active Directory B2C，讓組織可以使用像是 Goog
 
 權杖只在有限的時間內有效。 通常，STS 會提供一對權杖：存取應用程式或受保護資源的存取權杖，以及當存取權杖接近過期時用來重新整理存取權杖的重新整理權杖。 
 
-存取權杖會當做 `Authenticate` 標頭中的持有人權杖，傳遞至 Web API。 應用程式可以為 STS 提供重新整理權杖，如果使用者存取應用程式時未撤銷，則會取得新的存取權杖和新的重新整理權杖。 這就是處理離開企業之人員案例的方式。 當 STS 收到重新整理權杖時，如果使用者不再獲得授權，就不會發出另一個有效的存取權杖。
+存取權杖會當做 `Authorization` 標頭中的持有人權杖，傳遞至 Web API。 應用程式可以為 STS 提供重新整理權杖，如果使用者存取應用程式時未撤銷，則會取得新的存取權杖和新的重新整理權杖。 這就是處理離開企業之人員案例的方式。 當 STS 收到重新整理權杖時，如果使用者不再獲得授權，就不會發出另一個有效的存取權杖。
 
 ## <a name="application-model"></a>應用程式模型
 

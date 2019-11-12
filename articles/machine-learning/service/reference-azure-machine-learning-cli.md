@@ -1,7 +1,7 @@
 ---
-title: 機器學習 CLI 擴充功能
+title: CLI 擴充功能
 titleSuffix: Azure Machine Learning
-description: 了解 Azure CLI 的 Azure Machine Learning CLI 擴充功能。 Azure CLI 是一個跨平台命令列公用工具，可讓您使用 Azure 雲端的資源。 Machine Learning 延伸模組可讓您使用 Azure Machine Learning。
+description: 了解 Azure CLI 的 Azure Machine Learning CLI 擴充功能。 Azure CLI 是一個跨平台命令列公用工具，可讓您使用 Azure 雲端的資源。 Machine Learning 延伸模組可讓您使用 Azure Machine Learning。 ML CLI 會建立和管理資源，例如您的工作區、資料存放區、資料集、管線、模型和部署。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e775689da93b5197d1c2f7d130466c2afc8391e4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619964"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932068"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>使用適用于 Azure Machine Learning 的 CLI 擴充功能
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,9 +31,9 @@ Azure Machine Learning CLI 是 [Azure CLI](https://docs.microsoft.com/cli/azure/
 
 CLI 不是 Azure Machine Learning SDK 的取代項目。 它是一種互補的工具，已優化以處理高度參數化的工作，這些工作非常適合自動化。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+* 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 743007d3636516a39dd36caf3d44d3edb650c030
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684904"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929530"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 監視資料參考
 
@@ -27,7 +27,7 @@ ms.locfileid: "73684904"
 
 ### <a name="amlcomputejobevents-table"></a>AmlComputeJobEvents 資料表
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:---|
 | TimeGenerated | 產生記錄專案的時間 |
 | OperationName | 與記錄事件相關聯的作業名稱 |
@@ -56,17 +56,17 @@ ms.locfileid: "73684904"
 
 ### <a name="amlcomputeclusterevents-table"></a>AmlComputeClusterEvents 資料表
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | TimeGenerated | 產生記錄專案的時間 |
 | OperationName | 與記錄事件相關聯的作業名稱 |
 | 類別 | 記錄事件的名稱，AmlComputeClusterNodeEvent |
 | ProvisioningState | 叢集的布建狀態 |
 | ClusterName | 叢集的名稱 |
-| clusterType | 叢集類型 |
+| ClusterType | 叢集類型 |
 | CreatedBy | 建立叢集的使用者 |
 | CoreCount | 叢集中的核心計數 |
-| vmSize | 叢集的 Vm 大小 |
+| VmSize | 叢集的 Vm 大小 |
 | VmPriority | 在叢集專用/LowPriority 內建立的節點優先順序 |
 | ScalingType | 手動/自動調整的叢集類型 |
 | InitialNodeCount | 叢集的初始節點計數 |
@@ -99,14 +99,14 @@ ms.locfileid: "73684904"
 
 ### <a name="amlcomputeclusternodeevents-table"></a>AmlComputeClusterNodeEvents 資料表
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | TimeGenerated | 產生記錄專案的時間 |
 | OperationName | 與記錄事件相關聯的作業名稱 |
 | 類別 | 記錄事件的名稱，AmlComputeClusterNodeEvent |
 | ClusterName | 叢集的名稱 |
 | NodeId | 建立的叢集節點識別碼 |
-| vmSize | 節點的 Vm 大小 |
+| VmSize | 節點的 Vm 大小 |
 | VmFamilyName | 節點所屬的 Vm 系列 |
 | VmPriority | 節點建立的專用/LowPriority 優先順序 |
 | 發佈者 | Vm 映射的發行者，例如 microsoft dsvm |
@@ -128,37 +128,37 @@ ms.locfileid: "73684904"
 
 **模型**
 
-| 模型 | 單位 | 說明 |
+| 度量 | 單位 | 描述 |
 | ----- | ----- | ----- |
-| 模型部署失敗 | 計數 | 失敗的模型部署數目。 |
-| 模型部署已開始 | 計數 | 已啟動的模型部署數目。 |
-| 模型部署成功 | 計數 | 成功的模型部署數目。 |
-| 模型註冊失敗 | 計數 | 失敗的模型註冊數目。 |
-| 模型註冊成功 | 計數 | 成功的模型註冊數目。 |
+| 模型部署失敗 | Count | 失敗的模型部署數目。 |
+| 模型部署已開始 | Count | 已啟動的模型部署數目。 |
+| 模型部署成功 | Count | 成功的模型部署數目。 |
+| 模型註冊失敗 | Count | 失敗的模型註冊數目。 |
+| 模型註冊成功 | Count | 成功的模型註冊數目。 |
 
 **配額**
 
 配額資訊僅適用于 Azure Machine Learning 計算。
 
-| 計量 | 單位 | 說明 |
+| 度量 | 單位 | 描述 |
 | ----- | ----- | ----- |
-| 現用核心 | 計數 | 使用中計算核心的數目。 |
-| 現用節點 | 計數 | 使用中節點的數目。 |
-| 閒置核心 | 計數 | 閒置計算核心的數目。 |
-| 閒置節點 | 計數 | 閒置計算節點的數目。 |
-| 離開核心 | 計數 | 離開核心的數目。 |
-| 離開節點 | 計數 | 離開節點的數目。 |
-| 搶先核心 | 計數 | 已佔用的核心數目。 |
-| 搶先節點 | 計數 | 已搶先節點的數目。 |
+| 現用核心 | Count | 使用中計算核心的數目。 |
+| 現用節點 | Count | 使用中節點的數目。 |
+| 閒置核心 | Count | 閒置計算核心的數目。 |
+| 閒置節點 | Count | 閒置計算節點的數目。 |
+| 離開核心 | Count | 離開核心的數目。 |
+| 離開節點 | Count | 離開節點的數目。 |
+| 搶先核心 | Count | 已佔用的核心數目。 |
+| 搶先節點 | Count | 已搶先節點的數目。 |
 | 配額使用量百分比 | 百分比 | 使用的配額百分比。 |
-| 核心總計 | 計數 | 核心總數。 |
-| 節點總計 | 計數 | 節點總數。 |
-| 無法使用的核心 | 計數 | 無法使用的核心數目。 |
-| 無法使用的節點 | 計數 | 無法使用的節點數目。 |
+| 核心總計 | Count | 核心總數。 |
+| 節點總計 | Count | 節點總數。 |
+| 無法使用的核心 | Count | 無法使用的核心數目。 |
+| 無法使用的節點 | Count | 無法使用的節點數目。 |
 
 以下是可以用來篩選配額計量的維度：
 
-| 維度 | 可用的度量 | 說明 |
+| 維度 | 可用的度量 | 描述 |
 | ---- | ---- | ---- |
 | 叢集名稱 | 所有配額標準 | 計算實例的名稱。 |
 | Vm 系列名稱 | 配額使用量百分比 | 叢集所使用的 VM 系列名稱。 |
@@ -168,15 +168,15 @@ ms.locfileid: "73684904"
 
 訓練執行的資訊。
 
-| 計量 | 單位 | 說明 |
+| 度量 | 單位 | 描述 |
 | ----- | ----- | ----- |
-| 已完成的執行 | 計數 | 已完成的執行數目。 |
-| 失敗的執行 | 計數 | 失敗的執行數目。 |
-| 開始執行 | 計數 | 已啟動的執行數目。 |
+| 已完成的執行 | Count | 已完成的執行數目。 |
+| 失敗的執行 | Count | 失敗的執行數目。 |
+| 開始執行 | Count | 已啟動的執行數目。 |
 
 以下是可以用來篩選執行計量的維度：
 
-| 維度 | 說明 |
+| 維度 | 描述 |
 | ---- | ---- |
 | ComputeType | 執行所使用的計算類型。 |
 | PipelineStepType | 執行時所使用的[PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py)類型。 |
@@ -185,7 +185,7 @@ ms.locfileid: "73684904"
 
 RunType 維度的有效值如下：
 
-| 值 | 說明 |
+| 值 | 描述 |
 | ----- | ----- |
 | 實驗 | 非管線執行。 |
 | 來擷取 | 管線執行，這是 StepRun 的父系。 |

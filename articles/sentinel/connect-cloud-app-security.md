@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32e7e79465b68caca9a636019f65b9f08284fc72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498661"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928224"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>從 Microsoft Cloud App Security 連接資料 
 
@@ -27,10 +27,10 @@ ms.locfileid: "73498661"
 
 您只要按一下，就可以將[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)的記錄串流至 Azure Sentinel。 此連接可讓您將 Cloud App Security 的警示串流至 Azure Sentinel。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 具有全域管理員或安全性系統管理員許可權的使用者
-- 若要將 Cloud Discovery 記錄串流至 Azure Sentinel，請[在 Microsoft Cloud App Security 中啟用 Azure Sentinel 作為您的 SIEM](aka.ms. https://aka.ms/AzureSentinelMCAS)。
+- 若要將 Cloud Discovery 記錄串流至 Azure Sentinel，請[在 Microsoft Cloud App Security 中啟用 Azure Sentinel 作為您的 SIEM](https://aka.ms/AzureSentinelMCAS)。
 
 > [!IMPORTANT]
 > 內嵌 Cloud Discovery 記錄目前處於公開預覽狀態。

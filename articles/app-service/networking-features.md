@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470253"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928512"
 ---
 # <a name="app-service-networking-features"></a>App Service 網路功能
 
@@ -91,7 +91,7 @@ App Service 有數個用來管理服務的端點。  這些位址會在個別的
 
 ### <a name="access-restrictions"></a>存取限制 
 
-「存取限制」功能可讓您根據來源 IP 位址篩選**輸入**要求。 篩選動作會在背景工作的前端角色上進行，而後者會在應用程式執行所在的位置匯總。 由於前端角色是來自背景工作的上游，因此可將存取限制功能視為您應用程式的網路層級保護。 此功能可讓您建立依優先順序評估的允許和拒絕位址區塊清單。 這類似于 Azure 網路中存在的「網路安全性群組」（NSG）功能。  您可以在 ASE 或多租使用者服務中使用這項功能。 與 ILB ASE 搭配使用時，您可以限制來自私人位址區塊的存取。
+「存取限制」功能可讓您根據來源 IP 位址篩選**輸入**要求。 篩選動作會在從您的應用程式執行所在之背景工作角色上游的前端角色上進行。 由於前端角色是來自背景工作的上游，因此可將存取限制功能視為您應用程式的網路層級保護。 此功能可讓您建立依優先順序評估的允許和拒絕位址區塊清單。 這類似于 Azure 網路中存在的「網路安全性群組」（NSG）功能。  您可以在 ASE 或多租使用者服務中使用這項功能。 與 ILB ASE 搭配使用時，您可以限制來自私人位址區塊的存取。
 
 ![存取限制](media/networking-features/access-restrictions.png)
 

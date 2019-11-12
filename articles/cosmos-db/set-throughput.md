@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: dcdc9c6a22f5d291b3773da02a79cc5ceebc3db1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101468"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931275"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和資料庫中佈建輸送量
 
@@ -28,7 +28,7 @@ Azure Cosmos 資料庫是一組容器的管理單位。 資料庫是由一組無
 
 在容器上設定布建的輸送量是最常使用的選項。 您可以使用[要求單位（ru）](request-units.md)布建任何數量的輸送量，以彈性調整容器的輸送量。 
 
-假設有一個很好的分割區索引鍵，可在實體磁碟分割之間平均分散邏輯磁碟分割，則輸送量也會平均分散到容器的所有邏輯分割區。 您無法選擇性地指定邏輯分割區的輸送量。 因為實體分割區會裝載容器的一或多個邏輯分割區；因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 
+為容器布建的輸送量會平均分散于其實體分割區中，而且假設有一個良好的資料分割索引鍵，可在實體磁碟分割之間平均分散邏輯資料分割，則輸送量也會平均分散到所有容器的邏輯分割區。 您無法選擇性地指定邏輯分割區的輸送量。 因為實體分割區會裝載容器的一或多個邏輯分割區；因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 
 
 如果邏輯分割區上執行的工作負載所耗用的輸送量超過配置給該邏輯分割區的輸送量，您的作業會有速率限制。 發生速率限制時，您可以提高整個容器的布建輸送量，或重試作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
 

@@ -4,14 +4,14 @@ description: 列出 Azure Resource Manager 的所有資源提供者命名空間�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3bbd52615962c2cd187fb16282a373688175cf59
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 203c28b89cc62b494e8edf04f7fbc4c13f6b4b9f
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476681"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929077"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 服務的資源提供者
 
@@ -22,7 +22,6 @@ ms.locfileid: "73476681"
 | 資源提供者命名空間 | Azure 服務 |
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../active-directory-domain-services/index.yml) |
-| microsoft.aadiam | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Addons | core |
 | Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Advisor | [Azure Advisor](../advisor/index.yml) |
@@ -35,10 +34,9 @@ ms.locfileid: "73476681"
 | Microsoft.Automation | [自動化](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
-| Microsoft.Batch | [Batch](../batch/index.yml) |
+| Microsoft.Batch | [批次](../batch/index.yml) |
 | Microsoft.Billing | [計費](/azure/billing/) |
 | Microsoft.BingMaps | [Bing 地圖](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
-| Microsoft.BizTalkServices | [BizTalk 服務](../logic-apps/logic-apps-move-from-mabs.md) |
 | Microsoft.Blockchain | [Azure 區塊鏈服務](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Azure 藍圖](/azure/governance/blueprints/) |
 | Microsoft.BotService | [Azure Bot 服務](/azure/bot-service/) |
@@ -59,10 +57,8 @@ ms.locfileid: "73476681"
 | Microsoft.ContainerInstance | [容器實例](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
-| Microsoft.ContentModerator | [Azure 內容仲裁](../cognitive-services/content-moderator/index.yml) |
 | Microsoft.CostManagement | [成本管理](/azure/cost-management/) |
 | CostManagementExports | [成本管理](/azure/cost-management/) |
-| Microsoft.CustomerInsights | Customer Insights |
 | CustomerLockbox | Microsoft Azure 的客戶加密箱 |
 | CustomProviders | [Azure 自訂提供者](../managed-applications/custom-providers-overview.md) |
 | Microsoft.DataBox | [Azure 資料箱](/azure/databox-family/) |
@@ -95,25 +91,19 @@ ms.locfileid: "73476681"
 | Microsoft.HardwareSecurityModules | [Azure 專用 HSM](../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../hdinsight/index.yml) |
 | HealthcareApis | [Azure API for FHIR](../healthcare-apis/index.yml) |
+| HybridCompute | [Azure Arc](../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](/azure/storsimple/) |
 | Microsoft.ImportExport | [Azure 匯入/匯出](../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure 監視器](../azure-monitor/index.yml) |
-| Microsoft.Intune | [Intune](/intune/) |
 | Microsoft.IoTCentral | [IoT Central](/azure/iot-central/) |
 | Microsoft.IoTSpaces | [Azure 數位 Twins](../digital-twins/index.yml) |
 | Microsoft.KeyVault | [金鑰保存庫](../key-vault/index.yml) |
 | Microsoft.Kusto | [Azure 資料總管](../data-explorer/index.yml) |
 | Microsoft.LabServices | [Azure 實驗室服務](../lab-services/index.yml) |
-| Microsoft.LocationBasedServices | [Azure 地圖服務](../azure-maps/index.yml) |
-| Microsoft.LocationServices | core |
-| Microsoft.LogAnalytics | [Azure 監視器](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning 服務](../machine-learning/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning 服務](../machine-learning/index.yml) |
 | Microsoft.MachineLearningServices | [Machine Learning 服務](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [適用於 Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/index.yml) |
-| Microsoft.ManagedLab | [Azure 實驗室服務](../lab-services/index.yml) |
 | ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [管理群組](/azure/governance/management-groups/) |
 | Microsoft.Maps | [Azure 地圖服務](../azure-maps/index.yml) |
@@ -121,7 +111,6 @@ ms.locfileid: "73476681"
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering | core |
 | Microsoft.Media | [媒體服務](../media-services/index.yml) |
-| Microservices4Spring | [Azure 上的 Spring](/azure/java/spring-framework/) |
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
@@ -145,6 +134,7 @@ ms.locfileid: "73476681"
 | Microsoft.Search | [Azure 搜尋服務](../search/index.yml) |
 | Microsoft.Security | [資訊安全中心](../security-center/index.yml) |
 | SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
+| SerialConsole | [Azure 序列主控台](../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [服務匯流排](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../service-fabric-mesh/index.yml) |
@@ -161,10 +151,10 @@ ms.locfileid: "73476681"
 | Microsoft.Subscription | core |
 | microsoft.support | core |
 | Microsoft.TimeSeriesInsights | [時間序列深入解析](../time-series-insights/index.yml) |
+| Microsoft.VirtualMachineImages | [Azure 映射產生器](../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | VMwareCloudSimple | [依 CloudSimple 的 Azure VMware 解決方案](/azure/vmware-cloudsimple/) |
 | Microsoft.Web | [App Service](../app-service/index.yml)<br />[函式](../azure-functions/index.yml) |
-| Microsoft.WindowsDefenderATP | [Windows Defender 進階威脅防護](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection) |
 | Microsoft.WindowsIoT | [Windows 10 IoT 核心版服務](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor | [Azure 監視器](../azure-monitor/index.yml) |
 

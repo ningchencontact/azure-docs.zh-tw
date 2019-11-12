@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: a6d38a9196d640ebc823b4f25e089cc04193212b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f9e5b5a70f7398483d5359a0489d5a6e6b241c6d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845745"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928198"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
 
@@ -27,9 +27,9 @@ ms.locfileid: "68845745"
 ### <a name="how-do-i-pay-for-azure-vms"></a>如何支付 Azure VM 費用？
 在複寫期間，資料會複寫至 Azure 儲存體，您無須為任何 VM 變更付費。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。 之後就會針對您在 Azure 中取用的運算資源進行計費。
 
-### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>複寫至一般用途 v2 儲存體帳戶時, 成本是否有任何差異？
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>複寫至一般用途 v2 儲存體帳戶時，成本是否有任何差異？
 
-您通常會看到 GPv2 儲存體帳戶所產生的交易成本增加, 因為 Azure Site Recovery 的交易量很高。 [閱讀更多](../storage/common/storage-account-upgrade.md#pricing-and-billing)以估計變更。
+您通常會看到 GPv2 儲存體帳戶所產生的交易成本增加，因為 Azure Site Recovery 的交易量很高。 [閱讀更多](../storage/common/storage-account-upgrade.md#pricing-and-billing)以估計變更。
 
 ## <a name="azure"></a>Azure
 
@@ -51,12 +51,12 @@ ms.locfileid: "68845745"
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>我可以將 Hyper-V 第 2 代虛擬機器複寫至 Azure 嗎？
-是的。 Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。 在容錯回復時，機器會轉換回第 2 代。 [閱讀更多](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
+是。 Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。 在容錯回復時，機器會轉換回第 2 代。 [閱讀更多資訊](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>如果我只有一部 VMM 伺服器，可以部署 Site Recovery 搭配 VMM 嗎？
 
-是的。 您可以將 VMM 雲端 Hyper-V 伺服器中的 VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。 若要在內部部署環境之間進行複寫，建議您在主要站台與次要站台都要有 VMM 伺服器。 
+是。 您可以將 VMM 雲端 Hyper-V 伺服器中的 VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。 若要在內部部署環境之間進行複寫，建議您在主要站台與次要站台都要有 VMM 伺服器。 
 
 ### <a name="what-do-i-need-in-azure"></a>在 Azure 中需要什麼？
 您需要 Azure 訂用帳戶、復原服務保存庫、儲存體帳戶和虛擬網路。 保存庫、儲存體帳戶和網路必須位於相同的區域中。
@@ -65,7 +65,7 @@ ms.locfileid: "68845745"
 您需要 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 可支援進階儲存體。
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帳戶是否需要建立 VM 的權限？
-如果您是訂用帳戶管理員，則會具有所需的複寫權限。 如果您不是，則需要必要權限才能在您設定 Site Reocvery 時指定的資源群組和虛擬網路中建立 Azure VM，且需要寫入至所選儲存體帳戶的權限。 [深入了解](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
+如果您是訂用帳戶管理員，則會具有所需的複寫權限。 如果您不是，則需要必要權限才能在您設定 Site Reocvery 時指定的資源群組和虛擬網路中建立 Azure VM，且需要寫入至所選儲存體帳戶的權限。 [詳細資訊](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>複寫資料是否會傳送至 Site Recovery？
 否，Site Recovery 不會攔截複寫的資料，也不會擁有任何關於您的 VM 上執行哪些項目的資訊。 複寫資料會在 Hyper-V 主機與 Azure 儲存體之間交換。 Site Recovery 並不具有攔截該資料的能力。 只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。  
@@ -73,7 +73,7 @@ ms.locfileid: "68845745"
 Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正在進行 SOC2 和 FedRAMP JAB 評定程序。
 
 ### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>我們可以將內部部署的中繼資料保留在地理區域內嗎？
-是的。 當您在某個區域中建立保存庫時，我們會確保 Site Recovery 所使用的所有中繼資料都會保留在該區域的地理界限內。
+是。 當您在某個區域中建立保存庫時，我們會確保 Site Recovery 所使用的所有中繼資料都會保留在該區域的地理界限內。
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 會將複寫加密嗎？
 是，傳輸中加密和 [Azure 中的加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)均受支援。
@@ -113,10 +113,10 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 不能，VM 所在的 Hyper-V 主機伺服器必須在支援的 Windows 伺服器機器上執行。 如果您需要保護用戶端電腦，您可以[用實體機器的形式將它複寫至 Azure](physical-azure-disaster-recovery.md)。
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>我可以將 Hyper-V 第 2 代虛擬機器複寫至 Azure 嗎？
-是的。 Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。 在容錯回復時，機器會轉換回第 2 代。
+是。 Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。 在容錯回復時，機器會轉換回第 2 代。
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>我是否可以透過 SDK 自動化 Site Recovery 案例？
-是的。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 目前支援使用 PowerShell 將 Hyper-V 複寫到 Azure 的案例：
+是。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 目前支援使用 PowerShell 將 Hyper-V 複寫到 Azure 的案例：
 
 - [在沒有 VMM 的情況下使用 PowerShell 來複寫 Hyper-V](hyper-v-azure-powershell-resource-manager.md)
 - [在有 VMM 的情況下使用 PowerShell 來複寫 Hyper-V](hyper-v-vmm-powershell-resource-manager.md)
@@ -147,16 +147,16 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>是否可透過站對站 VPN 複寫至 Azure？
 
-Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure 儲存體，或使用 ExpressRoute 公用對等互連進行複寫。 不支援透過站對站 VPN 網路的複寫。
+Site Recovery 會透過公用端點或使用 ExpressRoute Microsoft 對等互連，將資料從內部部署複寫至 Azure 儲存體。 不支援透過站對站 VPN 網路的複寫。
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>是否可透過 ExpressRoute 複寫至 Azure？
 
-是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 可透過公用端點將資料複寫到 Azure 儲存體帳戶，而您必須設定 Site Recovery 複寫所需的[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
+是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 會透過公用端點將資料複寫至 Azure 儲存體帳戶，而且您必須設定 Microsoft 對[等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)以進行 Site Recovery 複寫。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>為何我無法透過 VPN 進行複寫？
 
-當您複寫至 Azure 時, 複寫流量會到達 Azure 儲存體帳戶的公用端點。 因此, 您只能使用 ExpressRoute (公用對等互連) 透過公用網際網路進行複寫, 且 VPN 無法使用。 
+當您複寫至 Azure 時，複寫流量會到達 Azure 儲存體帳戶的公用端點。 因此，您只能使用 ExpressRoute （Microsoft 對等互連）透過公用網際網路進行複寫，且 VPN 無法使用。 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>複寫的 VM 有何需求？
 
@@ -180,7 +180,7 @@ Hyper-V VM 可以每隔 30 秒 (進階儲存體除外)、5 分鐘或 15 分鐘�
 
 
 
-## <a name="security"></a>安全性
+## <a name="security"></a>Security
 
 ### <a name="what-access-does-site-recovery-need-to-hyper-v-hosts"></a>Site Recovery 需要 Hyper-V 主機的哪些存取權
 
@@ -216,7 +216,7 @@ Site Recovery 不會在已針對複寫啟用的 Hyper-V VM 上安裝任何項目
 Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azure SLA 容錯移轉至次要 Azure 資料中心。 當容錯移轉發生時，我們會確保您的中繼資料和保存庫都保留在您為保存庫選擇的相同地理區域中。
 
 ### <a name="is-failover-automatic"></a>容錯移轉是自動發生的嗎？
-[容錯移轉](site-recovery-failover.md)不會自動執行。 您可以在入口網站中按一下來起始容錯移轉, 也可以使用[PowerShell](/powershell/module/az.recoveryservices)來觸發容錯移轉。
+[容錯移轉](site-recovery-failover.md)不會自動執行。 您可以在入口網站中按一下來起始容錯移轉，也可以使用[PowerShell](/powershell/module/az.recoveryservices)來觸發容錯移轉。
 
 ### <a name="how-do-i-fail-back"></a>如何容錯回復？
 
@@ -228,9 +228,9 @@ Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azur
     - 完整下載：使用此選項，資料會在容錯移轉期間進行同步處理。 此選項會下載整個磁碟。 它的速度更快，因為未計算任何總和檢查碼，但有更多的停機時間。 如果您已執行複本 Azure VM 一段時間，或已刪除內部部署 VM，請使用這個選項。
 
 2. 您可以選擇容錯回復到相同的 VM 或替代 VM。 您可指定 Site Recovery 應該建立 VM (如果尚未存在)。
-3. 初始同步處理完成之後，您可選擇完成容錯移轉。 完成之後, 您可以登入內部部署 VM 來檢查一切是否如預期般運作。 在 Azure 入口網站中，您可以看到 Azure VM 已停止。
+3. 初始同步處理完成之後，您可選擇完成容錯移轉。 完成之後，您可以登入內部部署 VM 來檢查一切是否如預期般運作。 在 Azure 入口網站中，您可以看到 Azure VM 已停止。
 4. 您要認可讓容錯移轉結束，並再次開始存取來自內部部署 VM 的工作負載。
 5. 容錯回復工作負載之後，您會啟用反向複寫，以便內部部署 VM 再次複寫至 Azure。
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>是否可容錯回復至不同的位置？
-是的，在容錯移轉至 Azure 之後，如果原始位置無法使用，您可以容錯回復至不同的位置。 [深入了解](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)。
+是的，在容錯移轉至 Azure 之後，如果原始位置無法使用，您可以容錯回復至不同的位置。 [詳細資訊](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)。

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294034"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930539"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -90,13 +90,13 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
    * 您可以記錄下列資料：
 
-      * **DataPlaneRequests**：選取此選項，即可將後端要求記錄到包含 SQL、Graph、MongoDB、Cassandra 和 Azure Cosmos DB 中資料表 API 帳戶的所有 Api。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 下列 JSON 資料是使用 DataPlaneRequests 記錄之詳細資訊的範例輸出。 要注意的重要屬性包括：Requestcharge、statusCode、clientIPaddress 和 partitionID：
+      * **DataPlaneRequests**：選取此選項可將後端要求記錄至所有 api，其中包括 Azure Cosmos DB 中的 SQL、Graph、MongoDB、Cassandra 和資料表 API 帳戶。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 下列 JSON 資料是使用 DataPlaneRequests 記錄之詳細資訊的範例輸出。 要注意的重要屬性包括： Requestcharge、statusCode、clientIPaddress 和 partitionID：
 
        ```
        { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
        ```
 
-      * **MongoRequests**：選取此選項可從前端記錄使用者起始的要求，以提供 Azure Cosmos DB 的 MongoDB API 的要求。 MongoDB 要求會出現在 MongoRequests 和 DataPlaneRequests 中。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 下列 JSON 資料是使用 MongoRequests 記錄之詳細資訊的範例輸出。 要注意的重要屬性包括：Requestcharge，opCode：
+      * **MongoRequests**：選取此選項可從前端記錄使用者起始的要求，以向 Azure Cosmos DB 的 MongoDB API 提供要求。 MongoDB 要求會出現在 MongoRequests 和 DataPlaneRequests 中。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 下列 JSON 資料是使用 MongoRequests 記錄之詳細資訊的範例輸出。 要注意的重要屬性包括： Requestcharge、opCode：
 
        ```
        { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
@@ -116,7 +116,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
       * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
-3. 選取 [儲存]。
+3. 選取 [ **儲存**]。
 
     如果您收到錯誤，指出「無法更新 \<工作區名稱> 的診斷。 訂用帳戶 \<訂用帳戶識別碼> 未註冊使用 microsoft.insights。請遵循[針對 Azure 診斷進行疑難排解](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)的指示註冊帳戶，然後重試此程序。
 
@@ -132,7 +132,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resource` 是 Azure Cosmos DB 帳戶的名稱。 資源的格式為 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/databaseAccounts/< Azure_Cosmos_account_name >"。 `storage-account` 是您要傳送記錄的目標儲存體帳戶名稱。 您可以將類別目錄參數值更新為 "MongoRequests" 或 "DataPlaneRequests"，以記錄其他記錄。 
+   `resource` 是 Azure Cosmos DB 帳戶的名稱。 資源的格式為 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >"，`storage-account` 是您要傳送記錄之目標儲存體帳戶的名稱。 您可以將類別目錄參數值更新為 "MongoRequests" 或 "DataPlaneRequests"，以記錄其他記錄。 
 
 - 若要啟用將診斷記錄串流至事件中樞，使用下列命令︰
 
@@ -140,7 +140,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resource` 是 Azure Cosmos DB 帳戶的名稱。 @No__t-0 是事件中樞規則識別碼。 
+   `resource` 是 Azure Cosmos DB 帳戶的名稱。 `event-hub-rule` 是事件中樞規則識別碼。 
 
 - 若要啟用將診斷記錄傳送至 Log Analytics 工作區的功能，請使用下列命令：
 
@@ -293,7 +293,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 由於相同的儲存體帳戶可用來收集多個資源的記錄，因此您可以使用 Blob 名稱中的完整資源識別碼來存取和下載所需特定 Blob。 在這麼做之前，我們要先討論如何下載所有 Blob。
 
-首先，建立資料夾來下載 blob。 例如:
+首先，建立資料夾來下載 blob。 例如︰
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -315,7 +315,7 @@ $blobs | Get-AzStorageBlobContent `
 
 在執行第二個命令時，blob 名稱中的 **/** 分隔符號會在目的地資料夾下建立完整資料夾結構。 此資料夾結構將會用來下載 blob 並儲存為檔案。
 
-若要有所選擇地下載 blob，請使用萬用字元。 例如:
+若要有所選擇地下載 blob，請使用萬用字元。 例如︰
 
 * 如果您有多個資料庫，並且只想下載其中名為 **CONTOSOCOSMOSDB3** 之資料庫的記錄，請使用下列命令：
 
@@ -401,61 +401,105 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 ![10 項最新記錄的範例記錄搜尋](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="queries"></a>查詢
+### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>在 Azure 監視器中 CosmosDB Log Analytics 查詢
 
-以下是一些您可以在 [**記錄搜尋**] 方塊中輸入的其他查詢，以協助您監視您的 Azure Cosmos 容器。 這些查詢使用[新語言](../log-analytics/log-analytics-log-search-upgrade.md)。 
+以下是一些您可以在 [**記錄搜尋**] 方塊中輸入的其他查詢，以協助您監視您的 Azure Cosmos 容器。 這些查詢使用[新語言](../log-analytics/log-analytics-log-search-upgrade.md)。  
 
 若要深入了解每個記錄搜尋傳回的資料所代表的涵義，請參閱[解讀 Azure Cosmos DB 記錄](#interpret)。
 
 * 若要查詢 Azure Cosmos DB 中在指定的時段內的所有診斷記錄：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
     ```
 
 * 若要查詢 10 個最近記錄的事件：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | limit 10
     ```
 
 * 若要查詢所有作業 (依作業類型分組)：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName
     ```
 
 * 若要查詢所有作業 (依**資源**分組)：
 
     ```
-    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
 
 * 若要查詢所有使用者活動 (依資源分組)：
 
     ```
-    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
     > [!NOTE]
     > 此命令適用於活動記錄，而非診斷記錄。
 
+* 若要讓所有大於 100 ru 的查詢與 DataPlaneRequests 和 QueryRunTimeStatistics 中的資料聯結
+
+    ```
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
+    
+      
+
 * 若要查詢哪些作業費時超過 3 毫秒：
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics 
+    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 若要查詢哪些代理程式正在執行此作業：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName, userAgent_s
     ```
 
 * 若要查詢長時間執行的作業於何時執行：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | project TimeGenerated , duration_s 
+    | render timechart
     ```
+    
+* 若要取得分割區索引鍵統計資料，以評估資料庫帳戶的前3個磁碟分割的扭曲：
+
+    ```
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+    
+   
+    ```
+    
 
 如需如何使用新的記錄搜尋語言的詳細資訊，請參閱[瞭解 Azure 監視器記錄中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。 
 
@@ -469,7 +513,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
 | **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|
-| **category** | **分類** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
+| **類別** | **類別** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
 | **operationName** | **OperationName** | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |

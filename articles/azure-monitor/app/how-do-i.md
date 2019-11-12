@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817379"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928410"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -20,7 +20,7 @@ ms.locfileid: "72817379"
 設定 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)。
 
 ### <a name="email-if-my-site-is-overloaded"></a>我的網站多載時寄送電子郵件
-針對 **伺服器回應時間** 設定 [警示](../../azure-monitor/app/alerts.md)。 介於 1 到 2 秒之間的閾值應該會運作。
+針對 [伺服器回應時間](../../azure-monitor/app/alerts.md) 設定 **警示**。 介於 1 到 2 秒之間的閾值應該會運作。
 
 ![](./media/how-do-i/030-server.png)
 
@@ -72,12 +72,12 @@ ms.locfileid: "72817379"
 [使用 PowerShell 建立新的警示](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>使用 PowerShell 管理 Application Insights
-* [建立新的資源](../../azure-monitor/app/powershell-script-create-resource.md)
+* [建立新的資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [建立新的警示](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>區分不同版本的遙測
 
-* 應用程式中的多個角色：使用單一 Application Insights 資源，並在[cloud_Rolename](../../azure-monitor/app/app-map.md)上進行篩選。
+* 應用程式中的多個角色：使用單一 Application Insights 資源，並篩選[cloud_Rolename](../../azure-monitor/app/app-map.md)。
 * 區分開發、測試和發行版本︰使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入瞭解](../../azure-monitor/app/separate-resources.md)
 * 報告組建版本︰使用遙測初始設定式新增屬性。 [深入了解](../../azure-monitor/app/separate-resources.md)
 
@@ -98,7 +98,7 @@ ms.locfileid: "72817379"
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>篩選出匿名或已驗證的使用者
-如果您的使用者登入，您可以設定[已驗證的使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)。（它不會自動發生）。
+如果您的使用者登入，您可以設定[已驗證的使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)。 (它不會自動重新整理)。
 
 接著，您可以：
 
@@ -114,12 +114,12 @@ ms.locfileid: "72817379"
 建立 [篩選器](../../azure-monitor/app/api-filtering-sampling.md#filtering)。 這可讓您先修改或篩選遙測，然後再將它從您的應用程式傳送至 Application Insights。
 
 ## <a name="list-specific-users-and-their-usage"></a>列出特定使用者和其使用方式
-如果您只想要[搜尋特定使用者](#search-specific-users)，就可以設定[驗證使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)。
+如果您只想要[搜尋特定使用者](#search-specific-users)，可以設定[已驗證的使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)。
 
 如果您想要使用者清單以及像是他們查看過哪些頁面或登入頻率等資料，則有兩個選項：
 
-* [設定驗證使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)、[匯出到資料庫](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md)，然後使用適當的工具來分析使用者資料。
-* 如果您只有少數的使用者，則可傳送自訂事件或計量、使用感興趣的資料做為計量值或事件名稱，然後設定使用者識別碼做為屬性。 若要分析頁面檢視，可取代標準的 JavaScript trackPageView 呼叫。 若要分析伺服器端遙測，可使用遙測初始設定式，將使用者識別碼新增至所有伺服器遙測。 然後您可以篩選與分割關於使用者識別碼的計量資訊和搜尋。
+* [設定已驗證的使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)、[匯出到資料庫](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md)，並使用適當的工具來分析您的使用者資料。
+* 如果您只有少數使用者，請使用所需的資料做為計量值或事件名稱，並將使用者識別碼設定為屬性，以傳送自訂事件或計量。 若要分析頁面檢視，可取代標準的 JavaScript trackPageView 呼叫。 若要分析伺服器端遙測，請使用遙測初始化運算式，將使用者識別碼新增至所有伺服器遙測。 接著，您可以篩選並分割計量，並在使用者識別碼上進行搜尋。
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>降低從我的 App 到 Application Insights 的流量
 * 在 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)中，停用任何您不需要的模組，例如效能計數器收集器。

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 21f1da8738946078cb625c76e11ce1bfd62d97ac
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809280"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927166"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 身分識別平臺的應用程式類型
 
@@ -59,7 +59,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 若要查看此案例的實際運作情況，請在[Microsoft 身分識別平臺開始](v2-overview.md#getting-started)使用一節中，試用其中一個單頁應用程式程式碼範例。
 
-## <a name="web-apps"></a>Web apps
+## <a name="web-apps"></a>Web 應用程式
 
 針對使用者透過瀏覽器存取的 Web 應用程式 (.NET、PHP、Java、Ruby、Python、Node)，您可以使用 [OpenID Connect](active-directory-v2-protocols.md) 來執行使用者登入。 在 OpenID Connect 中，Web 應用程式會收到識別碼權杖。 識別碼權杖是一個安全性權杖，可驗證使用者的身分識別並以宣告形式提供使用者的相關資訊：
 
@@ -90,7 +90,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 ## <a name="web-apis"></a>Web API
 
-您可以使用 Microsoft 身分識別平台端點來保護 Web 服務，例如應用程式的 RESTful Web API。 Web API 使用 OAuth 2.0 存取權杖來保護其資料及驗證連入要求，而不是使用識別碼權杖和工作階段 Cookie。 Web API 的呼叫端會在 HTTP 要求的授權標頭中附加存取權杖，就像這樣：
+您可以使用 Microsoft 身分識別平台端點來保護 Web 服務，例如應用程式的 RESTful Web API。 Web Api 可以在多種平臺和語言中執行。 也可以使用 Azure Functions 中的 HTTP 觸發程式來執行。 Web API 使用 OAuth 2.0 存取權杖來保護其資料及驗證連入要求，而不是使用識別碼權杖和工作階段 Cookie。 Web API 的呼叫端會在 HTTP 要求的授權標頭中附加存取權杖，就像這樣：
 
 ```
 GET /api/items HTTP/1.1

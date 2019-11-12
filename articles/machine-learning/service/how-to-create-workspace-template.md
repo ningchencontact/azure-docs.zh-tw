@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 範本來建立工作區
+title: 使用 Azure Resource Manager 範本建立工作區
 titleSuffix: Azure Machine Learning
 description: 瞭解如何使用 Azure Resource Manager 範本來建立新的 Azure Machine Learning 工作區。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f20c7955856e2e848d331d857d2564649c837bb0
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 8bcfb80d42e7cd1fad6ff4c04415bd8627a3293e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847467"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932150"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "73847467"
 
 如需詳細資訊，請參閱 [使用 Azure 資源管理員範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 如果您沒有帳戶，請試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
@@ -177,7 +177,7 @@ ms.locfileid: "73847467"
 
 * Azure 資源群組
 * Azure 儲存體帳戶
-* Azure 金鑰保存庫
+* Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Azure Machine Learning 工作區
@@ -201,7 +201,7 @@ ms.locfileid: "73847467"
 
 如需範本的詳細資訊，請參閱下列文章：
 
-* [編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [編寫 Azure 資源管理員範本](../../azure-resource-manager/resource-group-authoring-templates.md)
 * [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices resource 類型](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 

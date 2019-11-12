@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Container Registry 多步驟工作來自動執行映像建置、測試及修補
-description: 介紹多步驟工作，這是 Azure Container Registry 中「ACR 工作」的功能，可提供適用於在雲端建置、測試及修補容器映像的工作型工作流程。
+title: 建立、測試 & 修補影像 Azure Container Registry 的多步驟工作
+description: 多步驟工作簡介，這是 Azure Container Registry 中 ACR 工作的一項功能，可提供在雲端中建立、測試及修補容器映射的工作型工作流程。
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310557"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931501"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
 
@@ -31,7 +31,7 @@ ms.locfileid: "68310557"
 1. 如果測試通過，便建置 Helm 圖表封存套件
 1. 使用新的 Helm 圖表封存套件來執行 `helm upgrade`
 
-所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 如需價格的詳細資訊, 請參閱[Azure Container Registry 定價][pricing]中的**容器組建**一節。
+所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 如需價格的詳細資訊，請參閱[Azure Container Registry 定價][pricing]中的**容器組建**一節。
 
 
 ## <a name="common-task-scenarios"></a>常見的工作案例
@@ -48,9 +48,9 @@ ms.locfileid: "68310557"
 
 「ACR 工作」中的多步驟工作會在 YAML 檔案內定義為一系列的步驟。 每個步驟皆可指定是否要依據一或多個先前步驟成功完成才執行。 以下是可用的工作步驟類型：
 
-* [`build`](container-registry-tasks-reference-yaml.md#build)：使用熟悉`docker build`的語法, 以序列或平行方式建立一或多個容器映射。
-* [`push`](container-registry-tasks-reference-yaml.md#push)：將建立的映射推送至容器登錄。 支援 Azure Container Registry 之類的私人登錄，也支援公用 Docker Hub。
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd)：執行容器, 讓它可以在執行中工作的內容中以函式的形式運作。 您可以將參數傳遞給容器的 `[ENTRYPOINT]`，並指定 env、detach 等屬性及其他熟悉的 `docker run` 參數。 `cmd` 步驟類型可讓您搭配並行容器執行來進行單元和功能測試。
+* [`build`](container-registry-tasks-reference-yaml.md#build)：使用熟悉的 `docker build` 語法，以循序或平行方式建置一或多個容器映像。
+* [`push`](container-registry-tasks-reference-yaml.md#push)將所建置的映像推送至容器登錄。 支援 Azure Container Registry 之類的私人登錄，也支援公用 Docker Hub。
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd)：執行容器，使其能夠在執行中工作的內容內以函式方式執行。 您可以將參數傳遞給容器的 `[ENTRYPOINT]`，並指定 env、detach 等屬性及其他熟悉的 `docker run` 參數。 `cmd` 步驟類型可讓您搭配並行容器執行來進行單元和功能測試。
 
 下列程式碼片段說明如何結合這些工作步驟類型。 多步驟的工作有可能很簡單，像是使用如下的 YAML 檔案，從 Dockerfile 建置單一映像並推送至登錄：
 
@@ -84,13 +84,13 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-如需數個案例, 請參閱工作[範例][task-examples], 以取得完整的多步驟工作 YAML 檔案和 dockerfile。
+如需數個案例，請參閱工作[範例][task-examples]，以取得完整的多步驟工作 YAML 檔案和 dockerfile。
 
 ## <a name="run-a-sample-task"></a>執行範例工作
 
 工作支援手動執行 (稱為「快速執行」)，也支援在進行 Git 認可或基底影像更新時自動執行。
 
-若要執行工作, 您必須先在 YAML 檔案中定義工作的步驟, 然後執行 Azure CLI 命令[az acr run][az-acr-run]。
+若要執行工作，您必須先在 YAML 檔案中定義工作的步驟，然後執行 Azure CLI 命令[az acr run][az-acr-run]。
 
 以下是一個使用範例工作 YAML 檔案來執行工作的範例 Azure CLI 命令。 其步驟會建置映像，然後推送該映像。 請先使用您自己的 Azure 容器登錄名稱更新 `\<acrName\>`，再執行此命令。
 
@@ -155,7 +155,7 @@ Run ID: yd14 was successful after 19s
 您可以在下列位置找到多步驟工作參考和範例：
 
 * [工作參考](container-registry-tasks-reference-yaml.md) - 工作步驟類型、其屬性及使用方式。
-* 工作[範例][task-examples]-適用`task.yaml`于數個案例的範例檔案, 簡單到複雜。
+* 工作[範例][task-examples]-適用于數個案例的範例 `task.yaml` 檔案，簡單到複雜。
 * [Cmd 存放庫](https://github.com/AzureCR/cmd) - 作為 ACR 工作命令的容器集合。
 
 <!-- IMAGES -->

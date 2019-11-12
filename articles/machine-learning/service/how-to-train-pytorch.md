@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c704e36f4353b34733ccc29b785c752b2a5c559
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a18949799b948b962a5b24ffdc7c735fc1380808
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822700"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931082"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 以大規模訓練 Pytorch 深度學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "73822700"
 
 [深入瞭解深度學習與機器學習](concept-deep-learning-vs-machine-learning.md)服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在下列任一環境中執行此程式碼：
 
@@ -50,7 +50,7 @@ ms.locfileid: "73822700"
 
 本節會藉由載入所需的 python 套件、將工作區初始化、建立實驗，以及上傳定型資料和定型腳本，來設定定型實驗。
 
-### <a name="import-packages"></a>匯入封裝
+### <a name="import-packages"></a>匯入套件
 
 首先，匯入必要的 Python 程式庫。
 
@@ -174,6 +174,9 @@ run.wait_for_completion(show_output=True)
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 ```
+
+> [!TIP]
+> 您剛註冊的模型部署的方式與 Azure Machine Learning 中任何其他已註冊的模型完全相同，不論您使用哪一個估計工具來進行定型。 部署如何包含註冊模型的區段，但您可以直接跳到建立部署的[計算目標](how-to-deploy-and-where.md#choose-a-compute-target)，因為您已經有已註冊的模型。
 
 您也可以使用執行物件來下載模型的本機複本。 在定型腳本 `pytorch_train.py`中，PyTorch 儲存物件會將模型保存到本機資料夾（計算目標的本機）。 您可以使用執行物件來下載複本。
 

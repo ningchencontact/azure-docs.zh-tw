@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815993"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931147"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>使用 Azure 受控識別在實驗室中部署環境 
 身為實驗室擁有者，您可以使用受控識別在實驗室中部署環境。 當環境包含或有 Azure 資源的參考（例如金鑰保存庫、共用映射資源庫，以及環境資源群組外部的網路）時，這項功能會很有説明。 它可讓您建立不限於該環境之資源群組的沙箱環境。
@@ -24,7 +24,7 @@ ms.locfileid: "71815993"
 > [!NOTE]
 > 目前，每個實驗室都支援單一使用者指派的身分識別。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - [使用 Azure 入口網站建立、列出、刪除或指派角色給使用者指派的受控識別](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。 
 
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站
@@ -53,7 +53,7 @@ ms.locfileid: "71815993"
 
 1. 建立身分識別之後，請記下此身分識別的資源識別碼。 看起來應該如下列範例所示： 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`。
 1. 執行 PUT Https 方法，將新的 `ServiceRunner` 資源加入至實驗室，如下列範例所示。 服務執行器資源是用來管理和控制 DevTest Labs 中受控識別的 proxy 資源。 服務執行器名稱可以是任何有效的名稱，但建議您使用受控識別資源的名稱。 
  
     ```json
@@ -67,10 +67,14 @@ ms.locfileid: "71815993"
                 "[userAssignedIdentityResourceId]":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
+          
     }
     ```
  
-    以下為範例： 
+    以下是範例： 
 
     ```json
     PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity
@@ -83,6 +87,9 @@ ms.locfileid: "71815993"
                 "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
     }
     ```
  

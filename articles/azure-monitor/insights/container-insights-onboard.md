@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/11/2019
+ms.openlocfilehash: f2a33f96f77678e02c5b72c36563781e7d7ac334
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477125"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928288"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何啟用容器的 Azure 監視器
 
@@ -25,7 +25,7 @@ ms.locfileid: "73477125"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您有下列項目：
 
@@ -43,6 +43,13 @@ ms.locfileid: "73477125"
 
 * 預設不會收集 Prometheus 計量。 在設定[代理程式](container-insights-prometheus-integration.md)來收集它們之前，請務必先參閱 Prometheus[檔](https://prometheus.io/)，以瞭解您可以定義的內容。
 
+## <a name="supported-configurations"></a>支援的設定
+
+以下已正式支援容器的 Azure 監視器。
+
+- 環境： Kubernetes 內部部署、Azure 上的 AKS 引擎和 Azure Stack。 如需詳細資訊，請參閱[Azure Stack 上的 AKS Engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
+- Kubernetes 和支援原則的版本與[支援的 AKS](../../aks/supported-kubernetes-versions.md)版本相同。 
+
 ## <a name="network-firewall-requirements"></a>網路防火牆需求
 
 下表中的資訊列出容器化代理程式與容器的 Azure 監視器進行通訊所需的 proxy 和防火牆設定資訊。 來自代理程式的所有網路流量都會輸出到 Azure 監視器。
@@ -59,7 +66,7 @@ ms.locfileid: "73477125"
 
 下表中的資訊列出 Azure 中國的 proxy 和防火牆設定資訊。
 
-|代理程式資源|連接埠 |說明 | 
+|代理程式資源|連接埠 |描述 | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | 資料擷取 |
 | *. oms.opinsights.azure.cn | 443 | OMS 上線 |
@@ -69,7 +76,7 @@ ms.locfileid: "73477125"
 
 下表中的資訊列出 Azure 美國政府的 proxy 和防火牆設定資訊。
 
-|代理程式資源|連接埠 |說明 | 
+|代理程式資源|連接埠 |描述 | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | 資料擷取 |
 | *.oms.opinsights.azure.us | 443 | OMS 上線 |
@@ -93,7 +100,7 @@ ms.locfileid: "73477125"
 
 您可以使用下表所述的下列其中一種方法來啟用容器的 Azure 監視器。
 
-| 部署狀態 | 方法 | 說明 |
+| 部署狀態 | 方法 | 描述 |
 |------------------|--------|-------------|
 | 新增 AKS 叢集 | [使用 Azure CLI 建立叢集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| 您可以啟用使用 Azure CLI 建立的新 AKS 叢集的監視。 |
 | | [使用 Terraform 建立叢集](container-insights-enable-new-cluster.md#enable-using-terraform)| 您可以使用開放原始碼工具 Terraform，啟用您所建立之新 AKS 叢集的監視。 |

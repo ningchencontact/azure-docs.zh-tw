@@ -1,5 +1,5 @@
 ---
-title: 在 Microsoft Flow 中使用 Azure IoT Central 連接器建置工作流程 | Microsoft Docs
+title: 在 Microsoft Flow 中使用 Azure IoT Central 連接器 |Microsoft Docs
 description: 使用 Microsoft Flow 中的 IoT Central 連接器來觸發工作流程，以及建立、取得、更新、刪除裝置，以及在工作流程中執行命令。
 services: iot-central
 author: viv-liu
@@ -8,12 +8,12 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 258020c8ccd690c524460873387293e73fc89125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1912b90df75f3d85f6ba5d730c723cf42803237
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951727"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930383"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
@@ -22,7 +22,7 @@ ms.locfileid: "72951727"
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
 使用 Microsoft Flow，將商務使用者所依賴的多個應用程式和服務的工作流程自動化。 在 Microsoft Flow 中使用 IoT Central 連接器時，您可以在規則於 IoT Central 中被觸發時觸發工作流程。 在 IoT Central 或任何其他應用程式所觸發的工作流程中，您可以使用 IoT Central 連接器中的動作來：
-- 建立裝置
+- 建立一個裝置
 - 取得裝置資訊
 - 更新裝置的屬性和設定
 - 在裝置上執行命令
@@ -30,7 +30,7 @@ ms.locfileid: "72951727"
 
 請了解可將 IoT Central 連線至其他服務 (例如行動裝置和 Microsoft Teams 等) 的[這些 Microsoft Flow 範本](https://aka.ms/iotcentralflowtemplates)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 隨用隨付應用程式
 - 用來 Microsoft Flow 的 Microsoft 個人或公司或學校帳戶（[深入瞭解 Microsoft Flow 方案](https://aka.ms/microsoftflowplans)）

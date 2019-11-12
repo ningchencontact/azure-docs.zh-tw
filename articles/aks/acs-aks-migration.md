@@ -1,104 +1,128 @@
 ---
-title: 從 Azure Container Service （ACS）遷移至 Azure Kubernetes Service （AKS）
-description: 從 Azure Container Service （ACS）遷移至 Azure Kubernetes Service （AKS）。
+title: 遷移至 Azure Kubernetes Service （AKS）
+description: 遷移至 Azure Kubernetes Service （AKS）。
 services: container-service
-author: noelbundick
-manager: jeconnoc
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 06/13/2018
-ms.author: nobun
+ms.date: 11/07/2018
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 84e0af89e2b3247bc922ab84286a79a0934323a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0c243d216e00adf49a6425e5b7be0d38caeef043
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473000"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929053"
 ---
-# <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>從 Azure Container Service （ACS）遷移至 Azure Kubernetes Service （AKS）
+# <a name="migrate-to-azure-kubernetes-service-aks"></a>遷移至 Azure Kubernetes Service （AKS）
 
-本文可協助您規劃和執行 Azure Container Service （ACS）與 Kubernetes 和 Azure Kubernetes Service （AKS）之間的成功遷移。 為了協助您做出重要的決策，本指南將詳細說明 ACS 與 AKS 之間的差異，並提供遷移程式的總覽。
+本文可協助您規劃和執行成功的遷移至 Azure Kubernetes Service （AKS）。 為了協助您做出重要的決策，本指南提供 AKS 目前建議設定的詳細資料。 本文並未涵蓋每個案例，而且在適當的情況下，本文會包含更多詳細資訊的連結，以便規劃成功的遷移。
 
-## <a name="differences-between-acs-and-aks"></a>ACS 與 AKS 之間的差異
+本檔可用於協助支援下列案例：
 
-在某些影響遷移的主要領域中，ACS 和 AKS 會有所不同。 在進行任何遷移之前，您應該先複習並規劃解決下列差異：
+* 將[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)所支援的 AKS 叢集遷移至[虛擬機器擴展集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)
+* 遷移 AKS 叢集以使用[標準 SKU 負載平衡器](https://docs.microsoft.com/azure/aks/load-balancer-standard)
+* 從[Azure Container Service （ACS）遷移-從2020年1月31日淘汰](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)至 AKS
+* 從[AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)遷移至 AKS
+* 從非以 Azure 為基礎的 Kubernetes 叢集遷移至 AKS
 
-* AKS 節點會使用[受控磁片](../virtual-machines/windows/managed-disks-overview.md)。
-    * 您必須先轉換非受控磁片，才能將它們附加至 AKS 節點。
-    * 適用于 Azure 磁片的自訂 `StorageClass` 物件必須從 `unmanaged` 變更為 `managed`。
-    * 任何 `PersistentVolumes` 都應該使用 `kind: Managed`。
-* AKS 支援[多個節點](https://docs.microsoft.com/azure/aks/use-multiple-node-pools)集區。
-* 以 Windows Server 為基礎的節點目前在 AKS 中處於[預覽](https://azure.microsoft.com/blog/kubernetes-on-azure/)狀態。
-* AKS 支援一組有限的[區域](https://docs.microsoft.com/azure/aks/quotas-skus-regions)。
-* AKS 是受控服務，其中包含託管的 Kubernetes 控制平面。 如果您先前已修改 ACS 主機的設定，您可能需要修改應用程式。
+在遷移時，請確定您的目標 Kubernetes 版本位於支援的 AKS 視窗內。 如果使用較舊的版本，它可能不在支援的範圍內，而且需要升級 AKS 支援的版本。 如需詳細資訊，請參閱[AKS 支援的 Kubernetes 版本](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions)。
 
-## <a name="differences-between-kubernetes-versions"></a>Kubernetes 版本之間的差異
+如果您要遷移至較新版本的 Kubernetes，請參閱[Kubernetes 版本和版本誤差支援原則](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)。
 
-如果您要遷移至較新版本的 Kubernetes，請參閱下列資源以瞭解 Kubernetes 版本控制策略：
+視您的案例而定，有數個開放原始碼工具可協助您進行遷移：
 
-* [Kubernetes 版本和版本誤差支援原則](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
+* [Velero](https://velero.io/) （需要 Kubernetes 1.7 +）
+* [Azure Kube CLI 擴充功能](https://github.com/yaron2/azure-kube-cli)
+* [ReShifter](https://github.com/mhausenblas/reshifter)
 
-## <a name="migration-considerations"></a>移轉考量
+在本文中，我們將摘要說明的遷移詳細資料：
 
-### <a name="agent-pools"></a>代理程式組件區
+> [!div class="checklist"]
+> * Standard Load Balancer 和虛擬機器擴展集的 AKS
+> * 現有已附加的 Azure 服務
+> * 確保有效的配額
+> * 高可用性和商務持續性
+> * 無狀態應用程式的考慮
+> * 具狀態應用程式的考慮
+> * 部署叢集設定
 
-雖然 AKS 會管理 Kubernetes 控制平面，但您仍會定義要包含在新叢集中的節點大小和數目。 假設您想要以 1:1 的方式將 AKS 對應至 ACS，您需要擷取現有的 ACS 節點資訊。 當您建立新的 AKS 叢集時，請使用此資料。
+## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>Standard Load Balancer 和虛擬機器擴展集的 AKS
 
-範例：
+AKS 是受控服務，以較低的管理額外負荷提供獨特的功能。 由於成為受控服務，因此您必須從 AKS 支援的一組[區域](https://docs.microsoft.com/azure/aks/quotas-skus-regions)中選取。 從現有的叢集轉換到 AKS 可能需要修改現有的應用程式，使其在 AKS 受控控制平面上保持良好狀態。
 
-| 名稱 | Count | VM 大小 | 作業系統 |
-| --- | --- | --- | --- |
-| agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+我們建議使用[虛擬機器擴展集](https://docs.microsoft.com/azure/virtual-machine-scale-sets)和[Azure STANDARD LOAD BALANCER](https://docs.microsoft.com/azure/aks/load-balancer-standard)支援的 AKS 叢集，以確保您可以取得諸如[多個節點](https://docs.microsoft.com/azure/aks/use-multiple-node-pools)集區、[可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)、[授權的 IP 範圍](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)、叢集[自動調整程式](https://docs.microsoft.com/azure/aks/cluster-autoscaler)、 [AKS 的 Azure 原則](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)，以及發行時的其他新功能等功能。   
 
-由於在移轉期間會有額外的虛擬機器部署到訂用帳戶，因此您應確認您的配額與限制足以讓這些資源使用。 
+由[虛擬機器可用性設定組](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)支援的 AKS 叢集缺少許多這些功能的支援。
+
+下列範例會建立 AKS 叢集，其中包含虛擬機器擴展集所支援的單一節點集區。 它會使用標準負載平衡器。 它也會在叢集的節點集區上啟用叢集自動調整程式，並設定最少*1*個和最多*3*個節點：
+
+```azurecli-interactive
+# First create a resource group
+az group create --name myResourceGroup --location eastus
+
+# Now create the AKS cluster and enable the cluster autoscaler
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --vm-set-type VirtualMachineScaleSets \
+  --load-balancer-sku standard \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+## <a name="existing-attached-azure-services"></a>現有已附加的 Azure 服務
+
+在遷移叢集時，您可能已附加外部 Azure 服務。 這些不需要重新建立資源，但它們將需要更新從先前到新叢集的連線，才能維護功能。
+
+* Azure Container Registry
+* Log Analytics
+* Application Insights
+* 流量管理員
+* 儲存體帳戶
+* 外部資料庫
+
+## <a name="ensure-valid-quotas"></a>確保有效的配額
+
+由於在移轉期間會有額外的虛擬機器部署到訂用帳戶，因此您應確認您的配額與限制足以讓這些資源使用。 您可能需要要求增加[vCPU 配額](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)。
+
+您可能需要要求增加[網路配額](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests)，以確保您不會耗盡 ip。 如需其他資訊，請參閱[AKS 的網路和 IP 範圍](https://docs.microsoft.com/azure/aks/configure-kubenet)。
 
 如需詳細資訊，請參閱[Azure 訂用帳戶和服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)。 若要檢查您目前的配額，請在 Azure 入口網站[中，移](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)至 [訂用帳戶] 分頁，選取您的訂閱，然後選取 [**使用量 + 配額**]。
 
-### <a name="networking"></a>網路
+## <a name="high-availability-and-business-continuity"></a>高可用性和商務持續性
+
+如果您的應用程式無法處理停機時間，您將需要遵循高可用性遷移案例的最佳作法。  複雜商務持續性規劃、嚴重損壞修復和最大化執行時間的最佳作法已超出本檔的範圍。  若要深入瞭解，請參閱[Azure Kubernetes Service （AKS）中的商務持續性和嚴重損壞修復的最佳作法](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)。
 
 對於複雜的應用程式，您的遷移作業通常會進行一段時間，而非全部一次完成。 這表示新舊環境可能需要透過網路進行通訊。 先前用 `ClusterIP` 服務進行通訊的應用程式，可能需要公開為類型 `LoadBalancer` 並適當地加以保護。
 
 若要完成遷移，您需要將用戶端指向在 AKS 上執行的新服務。 我們建議您將 DNS 更新為指向位於 AKS 叢集前方的 Load Balancer，以重新導向流量。
 
-### <a name="stateless-applications"></a>無狀態應用程式
+[Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manager/)可以將客戶導向所需的 Kubernetes 叢集和應用程式實例。  流量管理員是以 DNS 為基礎的流量負載平衡器，可將網路流量分散到各個區域。  為了獲得最佳效能和冗余，請將所有應用程式流量導向至 AKS 叢集之前，先透過流量管理員。  在 multicluster 部署中，客戶應連線到指向每個 AKS 叢集上之服務的流量管理員 DNS 名稱。 使用流量管理員端點來定義這些服務。 每個端點都是*服務負載平衡器 IP*。 使用此設定可將某個區域中流量管理員端點的網路流量導向不同區域中的端點。
 
-無狀態應用程式移轉是最直接的案例。 您會將 YAML 定義套用至新的叢集，並確定所有專案都如預期般運作，然後重新導向流量以啟用新的叢集。
+![具有流量管理員的 AKS](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-### <a name="stateful-applications"></a>具狀態應用程式
+[Azure Front 開門服務](https://docs.microsoft.com/azure/frontdoor/front-door-overview)是路由傳送 AKS 叢集流量的另一個選項。  Azure Front Door Service 可讓您針對最佳效能和立即全域容錯移轉以獲得高可用性最佳化，定義、管理及監視網路流量的全域路由。 
+
+### <a name="considerations-for-stateless-applications"></a>無狀態應用程式的考慮 
+
+無狀態應用程式移轉是最直接的案例。 將您的資源定義（YAML 或 Helm）套用至新叢集，確定所有專案都如預期般運作，然後重新導向流量以啟用您的新叢集。
+
+### <a name="considers-for-stateful-applications"></a>考慮具狀態應用程式
 
 請仔細規劃您的具狀態應用程式遷移，以避免資料遺失或非預期的停機時間。
 
-#### <a name="highly-available-applications"></a>高可用性應用程式
+如果您使用 Azure 檔案儲存體，您可以將檔案共用掛接為磁片區以作為新的叢集：
+* [將靜態 Azure 檔案儲存體掛接為磁片區](https://docs.microsoft.com/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
 
-您可以在高可用性設定中部署一些具狀態的應用程式。 這些應用程式可以跨複本複製資料。 如果您目前使用這種部署類型，您可以在新的 AKS 叢集上建立新的成員，然後在下游呼叫端上以最小的效果進行遷移。 一般而言，此案例的遷移步驟如下：
+如果您使用 Azure 受控磁碟，只有在未連接到任何 VM 時，才可以掛接磁片：
+* [將靜態 Azure 磁片掛接為磁片區](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
 
-1. 在 AKS 上建立新的次要複本。
-2. 等待資料複寫。
-3. 故障切換，讓次要複本成為新的主要複本。
-4. 將流量指向 AKS 叢集。
-
-#### <a name="migrating-persistent-volumes"></a>遷移持續性磁片區
-
-如果您要將現有的持續性磁片區遷移至 AKS，通常會遵循下列步驟：
-
-1. 停止寫入應用程式。 （這是選擇性步驟，需要停機）。
-2. 製作磁片的快照集。
-3. 從快照集建立新的受控磁片。
-4. 在 AKS 中建立持續性磁片區。
-5. 將 pod 規格更新為[使用現有的磁片](https://docs.microsoft.com/azure/aks/azure-disk-volume)區，而不是 PersistentVolumeClaims （靜態布建）。
-6. 將應用程式部署至 AKS。
-7. 檢查.
-8. 將流量指向 AKS 叢集。
-
-> [!IMPORTANT]
-> 如果您選擇不停止寫入，則必須將資料複寫到新的部署。 否則，您將會錯過在磁片快照集之後所寫入的資料。
-
-某些開放原始碼工具可協助您建立受控磁片，並在 Kubernetes 叢集之間遷移磁片區：
-
-* [Azure CLI 磁碟複製延伸](https://github.com/noelbundick/azure-cli-disk-copy-extension)模組會在資源群組和 Azure 區域之間複製和轉換磁片。
-* [Azure KUBE CLI 擴充](https://github.com/yaron2/azure-kube-cli)功能會列舉 ACS Kubernetes 磁片區，並將其遷移至 AKS 叢集。
+如果這兩種方法都不適用，您可以使用備份和還原選項：
+* [Azure 上的 Velero](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 
 #### <a name="azure-files"></a>Azure 檔案
 
@@ -106,45 +130,52 @@ ms.locfileid: "73473000"
 
 如果您的應用程式可以裝載多個指向相同檔案共用的複本，請遵循無狀態遷移步驟，並將您的 YAML 定義部署至新叢集。 如果不是，則可能的移轉方法包含下列步驟：
 
-1. 將您的應用程式部署至複本計數為0的 AKS。
-2. 將 ACS 上的應用程式調整為0。 （此步驟需要停機時間。）
-3. 將 AKS 上的應用程式調整為1。
-4. 檢查.
-5. 將流量指向 AKS 叢集。
+* 驗證您的應用程式是否正常運作。
+* 將您的即時流量指向新的 AKS 叢集。
+* 中斷舊叢集的連線。
 
 如果您想要從空白共用開始，並複製來源資料，您可以使用[`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest)命令來遷移資料。
 
-### <a name="deployment-strategy"></a>部署策略
 
-建議您使用現有的 CI/CD 管線，將已知良好的設定部署至 AKS。 複製現有的部署工作，並確保 `kubeconfig` 指向新的 AKS 叢集。
+#### <a name="migrating-persistent-volumes"></a>移轉永久性磁碟區
 
-如果無法這麼做，請從 ACS 匯出資源定義，然後將它們套用至 AKS。 您可以使用 `kubectl` 匯出物件。
+如果您要將現有的永久性磁碟區移轉至 AKS，通常會遵循下列步驟：
+
+* 停止寫入應用程式。 （這是選擇性步驟，需要停機）。
+* 建立磁碟的快照集。
+* 從快照集建立新的受控磁碟。
+* 在 AKS 中建立永久性磁碟區。
+* 將 pod 規格更新為[使用現有的磁碟區](https://docs.microsoft.com/azure/aks/azure-disk-volume)，而不是 PersistentVolumeClaims (靜態佈建)。
+* 將您的應用程式部署至 AKS。
+* 驗證您的應用程式是否正常運作。
+* 將您的即時流量指向新的 AKS 叢集。
+
+> [!IMPORTANT]
+> 如果您選擇不停止寫入，則必須將資料複寫到新的部署。 否則，您將會錯過在建立磁碟快照集之後所寫入的資料。
+
+某些開放原始碼工具可協助您建立受控磁碟，並在 Kubernetes 叢集之間移轉磁碟區：
+
+* [Azure CLI 磁碟複製延伸模組](https://github.com/noelbundick/azure-cli-disk-copy-extension)會在資源群組和 Azure 區域之間複製和轉換磁碟。
+* [Azure KUBE CLI 延伸模組](https://github.com/yaron2/azure-kube-cli)會列舉 ACS Kubernetes 磁碟區，並將其移轉至 AKS 叢集。
+
+
+### <a name="deployment-of-your-cluster-configuration"></a>部署叢集設定
+
+建議您使用現有的持續整合（CI）和持續傳遞（CD）管線，將已知良好的設定部署至 AKS。 您可以使用 Azure Pipelines 來[建立及部署您的應用程式，以 AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)複製現有的部署工作，並確保 `kubeconfig` 指向新的 AKS 叢集。
+
+如果無法這麼做，請從現有的 Kubernetes 叢集中匯出資源定義，然後將它們套用至 AKS。 您可以使用 `kubectl` 匯出物件。
 
 ```console
 kubectl get deployment -o=yaml --export > deployments.yaml
 ```
 
-根據您的部署需求，有數個開放原始碼工具可以提供協助：
+在本文中，我們摘要說明下列專案的遷移詳細資料：
 
-* [Velero](https://github.com/heptio/ark) （此工具需要 Kubernetes 1.7）。
-* [Azure Kube CLI 擴充功能](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
-
-## <a name="migration-steps"></a>移轉步驟
-
-1. 透過 [Azure 入口網站]、[Azure CLI] 或 [Azure Resource Manager] 範本來[建立 AKS](https://docs.microsoft.com/azure/aks/create-cluster)叢集。
-
-   > [!NOTE]
-   > 在 GitHub 上的[Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet)存放庫中尋找適用于 AKS 的範例 Azure Resource Manager 範本。
-
-2. 對您的 YAML 定義進行任何必要的變更。 例如，將 `apps/v1beta1` 取代為 `Deployments`的 `apps/v1`。
-
-3. 將磁片區（選擇性）從您的 ACS 叢集[遷移](#migrating-persistent-volumes)至 AKS 叢集。
-
-4. 使用您的 CI/CD 系統將應用程式部署至 AKS。 或使用 kubectl 來套用 YAML 定義。
-
-5. 檢查. 請確定您的應用程式如預期般運作，且已複製任何已遷移的資料。
-
-6. 重新導向流量。 將 DNS 更新為將用戶端指向您的 AKS 部署。
-
-7. 完成遷移後工作。 如果您已遷移磁片區，並選擇不停止寫入，請將該資料複製到新的叢集。
+> [!div class="checklist"]
+> * Standard Load Balancer 和虛擬機器擴展集的 AKS
+> * 現有已附加的 Azure 服務
+> * 確保有效的配額
+> * 高可用性和商務持續性
+> * 無狀態應用程式的考慮
+> * 具狀態應用程式的考慮
+> * 部署叢集設定

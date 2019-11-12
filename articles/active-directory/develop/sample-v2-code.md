@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01ed7383515a725816679acb405b2ff3b1dc8e92
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 84c94675ac5c69055cd2811df206f81af55d3c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817237"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927199"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平臺程式碼範例（v2.0 端點）
 
@@ -39,7 +39,7 @@ ms.locfileid: "72817237"
 
 若要瞭解每個範例類型的基本案例，請參閱[Microsoft 身分識別平臺端點的應用程式類型](v2-app-types.md)。
 
-您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory) (英文)。
+您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory)。
 
 ## <a name="single-page-applications"></a>單頁應用程式
 
@@ -86,7 +86,7 @@ ms.locfileid: "72817237"
 
 | 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Console | ![此圖顯示 .NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| 主控台 | ![此圖顯示 .NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Web 應用程式 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) (英文) |
 
 ## <a name="headless-applications"></a>無周邊應用程式
@@ -106,11 +106,23 @@ ms.locfileid: "72817237"
 | ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | Dotnet 的 ASP.NET Core Web API （服務） [-原生-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | [Ms-identity-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof)的 Web API （服務） |
 
+## <a name="azure-functions-as-web-apis"></a>Azure Functions 作為 web Api
+
+下列範例示範如何使用 HttpTrigger 來保護 Azure 函式，以及如何使用 Microsoft 身分識別平臺端點來公開 Web API，以及如何從 Web API 呼叫下游 API。
+
+| 平台 | 範例 |
+| -------- | ------------------- |
+| ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | ASP.NET Core Web API （服務） dotnet 的 Azure 函[式-原生-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | NodeJS 和 passport 的 Web API （服務） [-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
+| ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png)</p>Python | [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)的 Web API （服務） |
+| ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | NodeJS 和 passport 的 Web API （服務） [-使用代表的 azure ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+
+
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例
 
 若要了解示範 Microsoft Graph API 不同使用模式 (包括使用 Azure AD 驗證) 的[範例](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) (英文) 和教學課程，請參閱 [Microsoft Graph 社群範例和教學課程](https://github.com/microsoftgraph/msgraph-community-samples) (英文).
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory （v1.0）開發人員指南](v1-overview.md)
 - [Azure AD 圖形 API 的概念和參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)

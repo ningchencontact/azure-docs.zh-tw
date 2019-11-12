@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327306"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928964"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>IoT 事件匯總的 Azure 資訊安全中心
 
@@ -44,7 +44,7 @@ Azure 資訊安全中心 IoT 安全性代理程式會從您的本機裝置收集
 
 只有在符合下列條件時，才會將事件視為相同： 
 
-* ProcessCreate 事件-**命令列**、**可執行檔**、* * 使用者名稱和**userid**都相同
+* ProcessCreate 事件-**命令列**、**可執行檔**、使用者**名稱**和**userid**都相同
 * ConnectionCreate 事件-**命令列**、 **userId**、 **direction**、**本機位址**、**遠端位址**、* * 通訊協定和**目的地埠**都相同
 * ProcessTerminate 事件-當**可執行檔**和結束**狀態**完全相同時
 
@@ -66,11 +66,11 @@ Azure 資訊安全中心 IoT 安全性代理程式會從您的本機裝置收集
 
 | 設定名稱 | 可能的值 | 詳細資料 | 備註 |
 |:-----------|:---------------|:--------|:--------|
-| aggregationEnabledProcessCreate | boolean | 啟用/停用進程建立事件的事件匯總 |
+| aggregationEnabledProcessCreate | 布林值 | 啟用/停用進程建立事件的事件匯總 |
 | aggregationIntervalProcessCreate | ISO8601 Timespan 字串 | 進程建立事件的匯總間隔 |
-| aggregationEnabledConnectionCreate | boolean| 啟用/停用連接建立事件的事件匯總 |
+| aggregationEnabledConnectionCreate | 布林值| 啟用/停用連接建立事件的事件匯總 |
 | aggregationIntervalConnectionCreate | ISO8601 Timespan 字串 | 連接建立事件的匯總間隔 |
-| aggregationEnabledProcessTerminate | boolean | 啟用/停用進程終止事件的事件匯總 | 僅限 Windows|
+| aggregationEnabledProcessTerminate | 布林值 | 啟用/停用進程終止事件的事件匯總 | 僅限 Windows|
 | aggregationIntervalProcessTerminate | ISO8601 Timespan 字串 | 進程終止事件的匯總間隔 | 僅限 Windows|
 |
 

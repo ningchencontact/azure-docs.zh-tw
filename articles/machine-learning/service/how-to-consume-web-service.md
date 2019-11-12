@@ -1,5 +1,5 @@
 ---
-title: 建立用戶端以取用已部署的 Web 服務
+title: 建立部署為 web 服務之模型的用戶端
 titleSuffix: Azure Machine Learning
 description: 了解如何取用在使用 Azure Machine Learning 模型部署模型時所產生的 Web 服務。 此 Web 服務會公開 REST API。 使用您選擇的程式設計語言來建立此 API 的用戶端。
 services: machine-learning
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387ba970aed68a5f4e682f932a362d3b04b35b8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 608f343166b528cacf3b1479d993466f6df7cb7e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671462"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932165"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。
 
 |驗證方法|ACI|AKS|
 |---|---|---|
-|索引鍵|預設為停用| 預設為啟用|
+|金鑰|預設為停用| 預設為啟用|
 |權杖| 無法使用| 預設為停用 |
 
 將要求傳送至以金鑰或權杖保護的服務時，請使用__Authorization__標頭來傳遞金鑰或權杖。 金鑰或權杖必須格式化為 `Bearer <key-or-token>`，其中 `<key-or-token>` 是您的金鑰或 token 值。

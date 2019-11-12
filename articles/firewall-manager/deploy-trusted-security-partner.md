@@ -7,14 +7,14 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: fe733b686f2b56beee26a6c33c4d6264d621e627
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516340"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931309"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>部署信任的安全性合作夥伴（預覽）
+# <a name="deploy-a-trusted-security-partner-preview"></a>部署信任的安全性合作夥伴 (預覽)
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
@@ -24,18 +24,18 @@ Azure 防火牆管理員中*受信任的安全性合作夥伴*可讓您使用熟
 
 支援的安全性合作夥伴為此預覽版的**ZScaler**和**iboss** 。 支援的區域為 WestCentralUS、NorthCentralUS、WestUS、WestUS2 和 EastUS。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 您必須使用 `Register-AzProviderFeature` PowerShell 命令，明確地啟用 Azure 防火牆管理員預覽。
 
-從 PowerShell 命令提示字元中，執行下列命令：
+從 PowerShell 命令提示字元執行下列命令：
 
 ```azure-powershell
 connect-azaccount
 Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
 ```
-最多需要30分鐘的時間，才能完成功能註冊。 執行下列命令來檢查您的註冊狀態：
+需要 30 分鐘才能完成功能註冊。 執行下列命令以檢查您的註冊狀態：
 
 `Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
 
@@ -83,12 +83,11 @@ VPN 閘道部署可能需要超過30分鐘的時間。
 
    > [!NOTE]
    > 您可以限制只有資源群組的存取權，以進行更細微的控制。
-3. 遵循下列連結中的指示。
+3. 請遵循[ZScaler：設定 Microsoft Azure 的虛擬 WAN 整合](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)指示來執行下列動作：
 
-   - 若要登入合作夥伴入口網站，並新增您的認證，以授與受信任的夥伴存取您的安全中樞。
-   - 驗證 Azure AD 驗證認證之後，請使用下列指示來同步合作夥伴入口網站中的虛擬中樞，並設定虛擬中樞的通道。
-
-   [ZScaler：設定 Microsoft Azure 的虛擬 WAN 整合](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - 登入合作夥伴入口網站，並新增您的認證，以授與受信任的合作夥伴對您安全中樞的存取權。
+   - 在合作夥伴入口網站中同步處理虛擬中樞，並設定虛擬中樞的通道。 您可以在驗證 Azure AD 驗證認證後執行此動作。
+   
 4. 您可以在 azure 中的 Azure 虛擬 WAN 入口網站上查看通道建立狀態。 一旦通道顯示 Azure 和合作夥伴入口網站上的**連線**，請繼續進行後續步驟來設定路由，以選取哪些分支和 vnet 應將網際網路流量傳送給夥伴。
 
 ## <a name="configure-route-settings"></a>設定路由設定

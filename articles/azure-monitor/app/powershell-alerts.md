@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819083"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928573"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-您可以在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中自動設定[警示](../../azure-monitor/app/alerts.md)的組態。
+您可以在 [Application Insights](../../azure-monitor/app/alerts.md) 中自動設定[警示](../../azure-monitor/app/app-insights-overview.md)的組態。
 
 此外，您可以[設定 webhook 以自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "72819083"
 
 在您要執行指令碼的電腦上，安裝 Azure Powershell 模組。
 
-* 安裝 [Microsoft Web Platform Installer (v5 或更新版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
+* 安裝 [Microsoft Web Platform Installer (v5 或更高版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
 * 使用該程式安裝 Microsoft Azure PowerShell
 
 ## <a name="connect-to-azure"></a>連接到 Azure
@@ -122,7 +122,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 
 | 度量群組 | 收集器模組 |
 | --- | --- |
-| basicExceptionBrowser、<br/>clientPerformance、<br/>檢視 |[瀏覽器 JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser、<br/>clientPerformance、<br/>view |[瀏覽器 JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[效能](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[相依性](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request、<br/>requestFailed |[伺服器要求](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -130,8 +130,8 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 ## <a name="webhooks"></a>Webhook
 您可以[自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)。 Azure 會在出現警示時呼叫您選擇的網址。
 
-## <a name="see-also"></a>請參閱
-* [用來設定 Application Insights 的指令碼](powershell-script-create-resource.md)
+## <a name="see-also"></a>另請參閱
+* [用來設定 Application Insights 的指令碼](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [從範本建立 Application Insights 和 Web 測試資源](powershell.md)
 * [自動化 Microsoft Azure 診斷與 Application Insights 的耦合](powershell-azure-diagnostics.md)
 * [自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)

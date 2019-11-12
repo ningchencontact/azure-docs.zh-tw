@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899903"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928308"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>區分開發、測試及生產環境的遙測
 
@@ -51,7 +51,7 @@ ms.locfileid: "72899903"
 在此範例中，不同資源的 ikeys 會放置在不同版本的 Web 組態檔中。 交換 Web 組態檔 (您可以在發行指令碼中進行) 將會交換目標資源。
 
 ### <a name="web-pages"></a>網頁
-iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視窗取得的指令碼](../../azure-monitor/app/javascript.md)中。 不要按其原義編寫至指令碼，請從伺服器狀態產生。 例如，在 ASP.NET 應用程式中：
+在您的應用程式網頁中，此 iKey 也會用於[您從快速入門](../../azure-monitor/app/javascript.md)分頁所得到的腳本中。 不要按其原義編寫至指令碼，請從伺服器狀態產生。 例如，在 ASP.NET 應用程式中：
 
 *Razor 中的 JavaScript*
 
@@ -81,7 +81,7 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
 
 建立資源需要幾秒鐘。 完成時，您會看到警示。
 
-(您可以撰寫 [PowerShell 指令碼](../../azure-monitor/app/powershell-script-create-resource.md)來自動建立資源)。
+(您可以撰寫 [PowerShell 指令碼](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)來自動建立資源)。
 
 ### <a name="getting-the-instrumentation-key"></a>取得檢測金鑰
 檢測金鑰會識別您所建立的資源。 
@@ -134,7 +134,7 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
     若要允許 MSBuild 產生版本號碼，請在 AssemblyReference.cs 中設定類似 `1.0.*` 的版本
 
 ## <a name="version-and-release-tracking"></a>版本和版次追蹤
-若要追蹤應用程式版本，請確定您的 Microsoft Build Engine 程序已產生 `buildinfo.config`。 在您的 .csproj 檔案中加入：  
+若要追蹤應用程式版本，請確定您的 Microsoft Build Engine 程序已產生 `buildinfo.config`。 在您的 `.csproj` 檔案中，新增：  
 
 ```XML
 
@@ -145,9 +145,9 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
 
 當它有組建資訊時，Application Insights Web 模組會自動新增 **應用程式版本** ，做為每個遙測項目的屬性。 如此可讓您在執行[診斷搜尋](../../azure-monitor/app/diagnostic-search.md)或在[探索計量](../../azure-monitor/app/metrics-explorer.md)時，依據版本來篩選。
 
-但請注意，組建版本號碼只由 Microsoft Build Engine 產生，而不是由 Visual Studio 中的開發人員組建產生。
+不過，請注意，組建版本號碼只會由 Microsoft Build Engine 產生，而不是由 Visual Studio 的開發人員組建產生。
 
-### <a name="release-annotations"></a>版本註釋
+### <a name="release-annotations"></a>版本註解
 如果您使用 Azure DevOps，您可以[取得註解標記](../../azure-monitor/app/annotations.md) (每當發行新版本時，此標記就會新增至您的圖表)。 下圖顯示此標記的顯示方式。
 
 ![圖表上版本註解範例的螢幕擷取畫面](media/separate-resources/release-annotation.png)

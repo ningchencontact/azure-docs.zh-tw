@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612227"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932294"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
@@ -34,7 +34,7 @@ ms.locfileid: "67612227"
 -   IoT 中樞 (需要明確地使用 PARTITION BY 關鍵字設定分割區索引鍵)
 -   Blob 儲存體
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>reference
 
 使用串流分析時，您可以利用輸出中的資料分割：
 -   Azure Data Lake 儲存體
@@ -56,11 +56,11 @@ Power BI 不支援資料分割。 不過，您仍然可以分割輸入，如[本
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>窘迫平行作業
-「窘迫平行」  作業是我們在 Azure 串流分析中調整性最高的情節。 它將對於查詢執行個體之輸入的某個資料分割，連接到輸出的某個資料分割。 此平行處理原則具有下列需求︰
+「窘迫平行」作業是我們在 Azure 串流分析中調整性最高的情節。 它將對於查詢執行個體之輸入的某個資料分割，連接到輸出的某個資料分割。 此平行處理原則具有下列需求︰
 
 1. 如果查詢邏輯相依於同一個查詢執行個體所處理的相同索引鍵，則您必須確保事件會傳送至輸入的相同分割區。 對於事件中樞或 IoT 中樞，這表示事件資料必須設定 **PartitionKey** 值。 或者，您可以使用分割的傳送者。 對於 Blob 儲存體，這表示事件會傳送至相同的磁碟分割資料夾。 如果查詢邏輯並不需要同一個查詢執行個體所處理的相同索引鍵，您可以忽略這項需求。 簡單的選取-投影-篩選查詢，即為此邏輯的一個例子。  
 
-2. 當資料放在輸入端時，您必須確保查詢已分割。 所有步驟中都必須使用 **PARTITION BY**。 您可以使用多個步驟，但全部都必須依相同的索引鍵來分割。 在 1.0 和 1.1 版相容性層級，分割區索引鍵必須設定為**PartitionId**才能完全平行作業的順序。 對於有 1.2 及更高版本的相容性 層級作業，自訂資料行可以指定為資料分割索引鍵中輸入的設定，因此作業 paralellized automoatically，即使沒有 PARTITION BY 子句。
+2. 當資料放在輸入端時，您必須確保查詢已分割。 所有步驟中都必須使用 **PARTITION BY**。 您可以使用多個步驟，但全部都必須依相同的索引鍵來分割。 在相容性層級1.0 和1.1 底下，必須將分割區索引鍵設定為**PartitionId** ，作業才能完全平行。 對於 compatility 層級為1.2 及更高版本的作業，可以在輸入設定中將自訂資料行指定為分割區索引鍵，即使沒有 PARTITION BY 子句，也會自動 paralellized 作業。 事件中樞輸出的屬性「分割區索引鍵資料行」必須設定為使用 "PartitionId"。
 
 3. 我們大部分的輸出都可以利用資料分割，不過，如果您使用不支援資料分割的輸出類型，您的作業將無法進行平行處理。 如需詳細資訊，請參閱[輸出](#outputs)一節。
 
@@ -77,7 +77,7 @@ Power BI 不支援資料分割。 不過，您仍然可以分割輸入，如[本
 ### <a name="simple-query"></a>簡單查詢
 
 * 輸入：具有 8 個分割區的事件中樞
-* 輸出：具有 8 個分割區的事件中樞
+* 輸出：具有8個分割區的事件中樞（「分割區索引鍵資料行」必須設定為使用 "PartitionId"）
 
 查詢：
 
@@ -87,7 +87,7 @@ Power BI 不支援資料分割。 不過，您仍然可以分割輸入，如[本
     WHERE TollBoothId > 100
 ```
 
-此查詢是簡單的篩選。 因此，我們不需要擔心將傳送到事件中樞的輸入分割。 請注意，相容性層級作業，才必須包含 1.2 **PARTITION BY PartitionId**子句，因此滿足稍早的需求 #2。 對於輸出，我們必須將作業中的事件中樞輸出設定為讓資料分割索引鍵設為 **PartitionId**。 最後一項檢查是確保輸入分割區數目等於輸出分割區數目。
+此查詢是簡單的篩選。 因此，我們不需要擔心將傳送到事件中樞的輸入分割。 請注意，具有1.2 之前相容性層級的作業必須包含**PARTITION BY PartitionId**子句，因此它滿足了先前所 #2 的需求。 對於輸出，我們必須將作業中的事件中樞輸出設定為讓資料分割索引鍵設為 **PartitionId**。 最後一項檢查是確保輸入分割區數目等於輸出分割區數目。
 
 ### <a name="query-with-a-grouping-key"></a>利用群組索引鍵的查詢
 
@@ -116,7 +116,7 @@ Power BI 不支援資料分割。 不過，您仍然可以分割輸入，如[本
 
 ### <a name="query-using-non-partitioned-output"></a>使用非資料分割的輸出查詢
 * 輸入：具有 8 個分割區的事件中樞
-* 輸出：Power BI
+* 輸出： Power BI
 
 Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平行。
 
@@ -138,13 +138,13 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-如您所見，第二個步驟把[TollBoothId]  當做資料分割索引鍵來使用。 此步驟和第一個步驟不同，因此需要變換一下。 
+如您所見，第二個步驟把[TollBoothId] 當做資料分割索引鍵來使用。 此步驟和第一個步驟不同，因此需要變換一下。 
 
 上述範例示範一些符合 (或不符合) 窘迫平行拓撲的串流分析作業。 如果符合，則可能有最大調整幅度。 對於不符合其中一個設定檔的作業，則提供未來更新時的調整指引。 現在，請在下列各節中使用一般指引。
 
 ### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>相容性層級 1.2-具有不同 PARTITION BY 值的多重步驟查詢 
 * 輸入：具有 8 個分割區的事件中樞
-* 輸出：具有 8 個分割區的事件中樞
+* 輸出：具有8個分割區的事件中樞（「分割區索引鍵資料行」必須設定為使用 "TollBoothId"）
 
 查詢：
 
@@ -160,7 +160,7 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-相容性層級 1.2 預設會啟用平行查詢執行。 例如，從上一節的查詢將會 parttioned，只要 「 TollBoothId 」 資料行設定為輸入的資料分割索引鍵。 資料分割所 ParttionId 子句則不需要。
+相容性層級1.2 預設會啟用平行查詢執行。 例如，只要將 "TollBoothId" 資料行設定為輸入資料分割索引鍵，就會 parttioned 上一節的查詢。 不需要 PARTITION BY ParttionId 子句。
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>計算工作的最大串流處理單元
 資料流分析工作可使用的串流處理單元總數，取決於為工作定義之查詢中的步驟數目，和每個步驟的資料分割數目。
@@ -248,41 +248,41 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
 > 
 > 
 
-## <a name="achieving-higher-throughputs-at-scale"></a>達成更高的輸送量規模
+## <a name="achieving-higher-throughputs-at-scale"></a>大規模達到更高的輸送量
 
-[窘迫平行](#embarrassingly-parallel-jobs)作業是必要的但不是足以承受較高的輸送量規模。 每個儲存體系統和其對應的 Stream Analytics 輸出有變化，如何達成最可能的寫入輸送量。 與任何規模的案例，有一些挑戰，就可解決使用正確的組態。 本節討論的幾個一般輸出設定，並提供範例，以維持每秒的 1 K 5k，10k 事件的擷取速率。
+[窘迫的平行](#embarrassingly-parallel-jobs)作業是必要的，但不足以承受大規模的輸送量更高。 每個儲存系統及其對應的串流分析輸出都具有如何達到最佳寫入輸送量的變化。 如同任何大規模的案例，您可以使用正確的設定來解決一些挑戰。 本節將討論一些通用輸出的設定，並提供範例，以維持每秒1、2和10K 個事件的的內嵌速率。
 
-下列觀察會使用無狀態 (passthrough) 查詢中，基本 JavaScript UDF 將寫入至事件中樞、 Azure SQL DB 或 Cosmos DB 中的 Stream Analytics 作業。
+下列觀察會使用具有無狀態（passthrough）查詢的串流分析作業，這是寫入事件中樞、Azure SQL DB 或 Cosmos DB 的基本 JavaScript UDF。
 
 #### <a name="event-hub"></a>事件中樞
 
-|擷取速率 （每秒的事件） | 串流處理單位 | 輸出資源  |
+|攝取速率（每秒的事件數） | 串流處理單位 | 輸出資源  |
 |--------|---------|---------|
-| 1K     |    1    |  2 個 TU   |
-| 5K     |    6    |  6 個 TU   |
-| 10K    |    12   |  10 個 TU  |
+| 1K     |    1    |  2 TU   |
+| 5K     |    6    |  6 TU   |
+| 10K    |    12   |  10 TU  |
 
-[事件中樞](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs)解決方案以線性方式調整為根據串流單位 (SU) 和輸送量、 進行最高的效率和高效能的方式來分析及串流 Stream Analytics 中的資料。 最多 192 SU，大致上會轉譯為最多 200 MB/秒或每日的 19 兆個事件的處理，您可以調整作業。
+[事件中樞](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs)解決方案會以串流處理單位（SU）和輸送量進行線性調整，讓它成為分析和串流資料的最有效率且高效能串流分析的方式。 作業可以相應增加到 192 SU，這大約會轉譯為最多 200 MB/s 的處理，或每天19000000000000個事件。
 
 #### <a name="azure-sql"></a>Azure SQL
-|擷取速率 （每秒的事件） | 串流處理單位 | 輸出資源  |
+|攝取速率（每秒的事件數） | 串流處理單位 | 輸出資源  |
 |---------|------|-------|
 |    1K   |   3  |  S3   |
 |    5K   |   18 |  P4   |
 |    10K  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)支援以平行方式撰寫，稱為繼承資料分割，但它預設不啟用。 不過，啟用繼承的資料分割，以及完全平行查詢時，不可能不足以達到更高的輸送量。 SQL 寫入輸送量大幅取決於您 SQL Azure 資料庫設定和資料表的結構描述。 [SQL 輸出效能](./stream-analytics-sql-output-perf.md)發行項有更多詳細的參數，可以將您的寫入輸送量最大化。 如中所述[到 Azure SQL Database 的 Azure Stream Analytics 輸出](./stream-analytics-sql-output-perf.md#azure-stream-analytics)文章中，此解決方案不會以線性方式擴充做為完全平行的管線，超過 8 個分割區，並可能需要重新分割之前 SQL 輸出 (請參閱[到](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))。 進階 Sku 所需承受高 IO 率，以及發生每隔幾個記錄備份的額外負荷分鐘的時間。
+[AZURE SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)支援以平行方式寫入，稱為繼承資料分割，但預設不會啟用。 不過，啟用 [繼承資料分割] 和 [完全平行查詢] 可能不足以達到較高的輸送量。 SQL write 輸送量明顯取決於您的 SQL Azure 資料庫設定和資料表架構。 [SQL 輸出效能](./stream-analytics-sql-output-perf.md)一文中有更多可將您的寫入輸送量最大化之參數的詳細資料。 如[Azure 串流分析輸出](./stream-analytics-sql-output-perf.md#azure-stream-analytics)中所述，在 Azure SQL Database 文章中，此解決方案無法以線性方式調整為超過8個數據分割的完整平行管線，而且可能[需要在 SQL](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)輸出之前重新分割（請參閱）。 需要 Premium Sku 以維持高 IO 速率，以及每隔幾分鐘發生記錄備份的額外負荷。
 
 #### <a name="cosmos-db"></a>Cosmos DB
-|擷取速率 （每秒的事件） | 串流處理單位 | 輸出資源  |
+|攝取速率（每秒的事件數） | 串流處理單位 | 輸出資源  |
 |-------|-------|---------|
 |  1K   |  3    | 20K RU  |
 |  5K   |  24   | 60K RU  |
 |  10K  |  48   | 120K RU |
 
-[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)輸出 Stream Analytics 已更新為使用底下的原生整合[相容性層級 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)。 相容性層級 1.2 啟用明顯較高的輸送量，並可降低 RU 耗用量，相較於 1.1 中，也就是新的作業的預設相容性層級。 解決方案會使用 CosmosDB /deviceId 上進行資料分割的容器，且具有相同設定解決方案的其餘部分。
+串流分析的[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)輸出已更新為使用[相容性層級 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)之下的原生整合。 相較于1.1，相容性層級1.2 可提供明顯更高的輸送量並減少 RU 耗用量，這是新作業的預設相容性層級。 解決方案會使用在/deviceId 上分割的 CosmosDB 容器，而其餘的解決方案則設定相同。
 
-所有[擴展 azure 範例資料流](https://github.com/Azure-Samples/streaming-at-scale)使用事件中樞傳送負載模擬測試用戶端，做為輸入。 每個輸入的事件是 1KB JSON 文件，可輕鬆地將轉譯為 （1 MB/秒、 5 MB/s 和 10 MB/秒） 的輸送量速率的設定的擷取速率。 事件會模擬 IoT 裝置傳送的下列 JSON 資料 （以縮短形式） 最多 1 K 裝置：
+所有[大規模的串流處理 azure 範例](https://github.com/Azure-Samples/streaming-at-scale)會使用透過負載模擬測試用戶端作為輸入來送出的事件中樞。 每個輸入事件都是 1KB JSON 檔，可輕鬆地將設定的內嵌速率轉譯為輸送量速率（1MB/s、5MB/s、10 MB/s）。 事件會模擬 IoT 裝置傳送下列 JSON 資料（以縮短形式）給最多1千個裝置：
 
 ```
 {
@@ -299,11 +299,11 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
 ```
 
 > [!NOTE]
-> 設定有可能因為解決方案中使用的各種元件的變更。 更精確的預估值，自訂以符合您案例的範例。
+> 由於解決方案中使用的各種元件，設定可能會變更。 如需更精確的評估，請自訂範例以符合您的案例。
 
 ### <a name="identifying-bottlenecks"></a>找出瓶頸
 
-使用 Azure Stream Analytics 作業中的 [計量] 窗格中，找出您的管線中的瓶頸。 檢閱**輸入/輸出事件**輸送量並[浮水印延遲 」](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)或**待處理項目事件**若要查看工作是否跟輸入速率。 針對事件中樞計量，尋求**節流要求**並據以調整臨界值的單位。 針對 Cosmos DB 計量，請檢閱**針對每個資料分割索引鍵範圍取用 RU/秒上限**下輸送量，以確保您的資料分割索引鍵範圍一致的方式取用。 適用於 Azure SQL DB，監視**記錄 IO**並**CPU**。
+使用 Azure 串流分析作業中的 [計量] 窗格，來識別管線中的瓶頸。 檢查輸送量的**輸入/輸出事件**和「[浮水印延遲](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)」或待處理的**事件**，以查看作業是否與輸入速率保持一致。 針對事件中樞計量，尋找已**節流的要求**，並據以調整閾值單位。 如 Cosmos DB 計量，請參閱輸送量之下**每個分割區索引鍵範圍的最大使用 RU/秒**，以確保您的資料分割索引鍵範圍會一致地取用。 若為 Azure SQL DB，請監視**記錄 IO**和**CPU**。
 
 ## <a name="get-help"></a>取得說明
 

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a7c19486fe6787c4548a77dcdd93a92a92c97d8c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814984"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931101"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 大規模定型和註冊 Chainer 模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,9 +26,9 @@ ms.locfileid: "73814984"
 
 [深入瞭解深度學習與機器學習](concept-deep-learning-vs-machine-learning.md)服務。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在下列任一環境中執行此程式碼：
 
@@ -48,7 +48,7 @@ ms.locfileid: "73814984"
 
 本節會藉由載入所需的 python 套件、將工作區初始化、建立實驗，以及上傳定型資料和定型腳本，來設定定型實驗。
 
-### <a name="import-packages"></a>匯入封裝
+### <a name="import-packages"></a>匯入套件
 
 首先，匯入 azureml. core Python 程式庫並顯示版本號碼。
 
@@ -193,7 +193,7 @@ model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/m
 ```
 
 > [!TIP]
-> 如果您收到錯誤，指出找不到模型，請提供一分鐘，然後再試一次。  在定型回合結束與輸出目錄中的模型可用性之間，有時會稍微延遲一段時間。
+> 您剛註冊的模型部署的方式與 Azure Machine Learning 中任何其他已註冊的模型完全相同，不論您使用哪一個估計工具來進行定型。 部署如何包含註冊模型的區段，但您可以直接跳到建立部署的[計算目標](how-to-deploy-and-where.md#choose-a-compute-target)，因為您已經有已註冊的模型。
 
 您也可以下載模型的本機複本。 這適用于在本機執行額外的模型驗證工作。 在定型腳本中，`chainer_mnist.py`，保護物件會將模型保存到本機資料夾（計算目標的本機）。 您可以使用執行物件從資料存放區下載複本。
 

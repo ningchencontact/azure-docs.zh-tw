@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675153"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929005"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 上執行 Apache Spark 作業
 
 [Apache Spark][apache-spark]是大規模資料處理的快速引擎。 在[Spark 2.3.0 版本][spark-latest-release]中，Apache Spark 支援與 Kubernetes 叢集的原生整合。 Azure Kubernetes Service (AKS) 是在 Azure 中執行的受控 Kubernetes 環境。 本文件詳述在 Azure Kubernetes Service (AKS) 叢集上準備和執行 Apache Spark 作業的做法。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 為了要完成本文中的步驟，您需要下列項目。
 
@@ -49,7 +49,7 @@ az group create --name mySparkCluster --location eastus
 az ad sp create-for-rbac --name SparkSP
 ```
 
-建立 AKS 叢集，其中包含 `Standard_D3_v2` 大小的節點，以及做為服務主體和用戶端秘密參數傳遞的 appId 和密碼值。
+建立 AKS 叢集，其中包含 `Standard_D3_v2`大小的節點，以及做為服務主體和用戶端秘密參數傳遞的 appId 和密碼值。
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -294,7 +294,7 @@ Pi is roughly 3.152155760778804
 
 在上述範例中，Spark jar 檔案已上傳至 Azure 儲存體。 另一個選項是將 jar 檔案封裝至自訂建置的 Docker 映像。
 
-若要這樣做，請找出 Spark 映像 (位於 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 目錄) 的 `dockerfile`。 為 `WORKDIR` 與 `ENTRYPOINT` 宣告之間某個位置的 Spark 作業 `jar` 新增 `ADD` 陳述式。
+若要這樣做，請找出 Spark 映像 (位於 `dockerfile` 目錄) 的 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`。 為 `ADD` 與 `jar` 宣告之間某個位置的 Spark 作業 `WORKDIR` 新增 `ENTRYPOINT` 陳述式。
 
 將 jar 路徑更新為您的開發系統上 `SparkPi-assembly-0.1.0-SNAPSHOT.jar` 檔案的位置。 您也可以使用自己的自訂 jar 檔案。
 
@@ -322,6 +322,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796759"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932095"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源�
 > [!WARNING]
 > Microsoft 不支援使用 Azure Machine Learning 設計工具或自動化機器學習（從 studio）與虛擬網路內的資源。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + Azure Machine Learning[工作區](how-to-manage-workspace.md)。
 

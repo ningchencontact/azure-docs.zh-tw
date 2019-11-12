@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 18e03b6828922b3444d9461bef394b5c6682c238
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063296"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930327"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>在 Azure HDInsight 中使用外部中繼資料存放區
 
@@ -56,6 +56,18 @@ HDInsight 也支援自訂中繼存放區，這是針對生產叢集建議的中�
 * 您可以視需要相應增加中繼存放區。
 
 ![HDInsight Hive 中繼資料存放區使用案例](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+
+### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>建立和設定自訂中繼存放區的 Azure SQL Database
+
+您必須先建立或擁有現有的 Azure SQL Database，才能設定 HDInsight 叢集的自訂 Hive 中繼存放區。  如需詳細資訊，請參閱[快速入門：在 AZURE SQL DB 中建立單一資料庫](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)。
+
+若要確保您的 HDInsight 叢集可以存取連線的 Azure SQL Database，請設定 Azure SQL Database 防火牆規則，以允許 Azure 服務和資源存取伺服器。
+
+若要在 Azure 入口網站中啟用此選項，請按一下 [**設定伺服器防火牆**]，然後**按一下下方的**[**允許 Azure 服務和資源存取此伺服器**]，以取得 Azure SQL Database 伺服器或資料庫。 如需詳細資訊，請參閱[建立和管理 IP 防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+![[設定伺服器防火牆] 按鈕](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+
+![允許 azure 服務存取](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>在叢集建立期間選取自訂中繼存放區
 

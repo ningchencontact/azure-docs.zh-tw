@@ -1,6 +1,6 @@
 ---
 title: 異地複寫 Azure 容器登錄
-description: 開始建立及管理異地複寫 Azure 容器登錄。
+description: 開始建立和管理異地複寫的 Azure container registry，讓登錄能夠使用多宿主區域複本服務多個區域。
 services: container-registry
 author: stevelas
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: f6d1987012cb401d7167896d9352ba7eae821a04
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: cddd55d3dfc2609b7a32a276e106e152f0868b32
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887978"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931642"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -121,7 +121,7 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
  
 將映像推送至異地複寫登錄的 Docker 用戶端，可能不會將所有映像層及其資訊清單推送至單一複寫區域。 這可能是因為 Azure 流量管理員會將登錄要求路由傳送至最接近網路的複寫登錄。 如果登錄有兩個「鄰近」複寫區域，則映像層和資訊清單可能會散發至兩個網站，因而在驗證資訊清單時造成推送作業失敗。 之所以會發生此問題，原因是某些 Linux 主機上用來解析登錄 DNS 名稱的方式有誤。 此問題不會發生在 Windows 上，因為 Windows 會提供用戶端 DNS 快取。
  
-如果發生此問題，有一個解決方案是在 Linux 主機上套用用戶端 DNS 快取，例如 `dnsmasq`。 這有助於確保登錄名稱會以一致的方式進行解析。 如果您是使用 Azure 中的 Linux VM 來推送至登錄，請參閱 [Azure 中 Linux 虛擬機器的 DNS 名稱解析選項](https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns)中的選項。
+如果發生此問題，有一個解決方案是在 Linux 主機上套用用戶端 DNS 快取，例如 `dnsmasq`。 這有助於確保登錄名稱會以一致的方式進行解析。 如果您是使用 Azure 中的 Linux VM 來推送至登錄，請參閱 [Azure 中 Linux 虛擬機器的 DNS 名稱解析選項](../virtual-machines/linux/azure-dns.md)中的選項。
 
 若要將推送映像時的最接近複本 DNS 解析最佳化，請在與推送作業來源相同的 Azure 區域中設定異地複寫登錄，如果是在 Azure 外部工作，則請在最接近的區域設定。
 

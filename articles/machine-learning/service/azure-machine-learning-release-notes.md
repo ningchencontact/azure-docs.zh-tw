@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0709143f1beb9726fc79eb837d59d7db7cf00d7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 986e146e2129d26aa6accd747c89e12462d46667
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888588"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931130"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
@@ -23,7 +23,54 @@ ms.locfileid: "73888588"
 
 若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
 
+## <a name="2019-11-11"></a>2019-11-11
 
+### <a name="azure-machine-learning-sdk-for-python-v1074"></a>適用于 Python 的 Azure Machine Learning SDK 1.0.74
+ 
+  + **預覽功能**
+    + **azureml-contrib-資料集**
+      + 匯入 contrib 資料集之後，您可以呼叫 `Dataset.Labeled.from_json_lines` 而不是 `._Labeled` 來建立加上標籤的資料集。
+      + 使用下載選項在加上標籤的資料集上呼叫 `to_pandas_dataframe` 時，您現在可以指定是否要覆寫現有的檔案。
+      + 當呼叫會導致時間序列、標籤或影像資料行遭到卸載的 `keep_columns` 或 `drop_columns` 時，也會卸載對應的功能供 dataset 使用。
+      + 已修正呼叫 `dataset.to_torchvision()`時，PyTorch 載入器的問題。
+
++ **Bug 修正和改善**
+  + **azure-cli-ml**
+    + 已將模型分析新增至 preview CLI。
+    + 修正 Azure 儲存體中的重大變更，導致 AzureML CLI 失敗。
+    + 已針對 AKS 類型將 Load Balancer 類型新增至 LIP.MLC
+  + **azureml-automl-核心**
+    + 已修正偵測到最大水準時間序列的問題，具有遺漏值和多個粒紋。
+    + 已修正 diring 產生交叉驗證分割的失敗問題。
+    + 將此區段取代為 markdown 格式的訊息，以顯示在版本資訊中：-改善預測資料集中較短粒紋的處理方式。
+    + 已修正在記錄期間遮罩部分使用者資訊的問題。 -改善預測執行期間的錯誤記錄。
+    + 將 psutil 當做 conda 相依性新增至自動產生的 yml 部署檔案。
+  + **azureml-contrib-mir**
+    + 修正 Azure 儲存體中的重大變更，導致 AzureML CLI 失敗。
+  + **azureml-core**
+    + 修正導致在 Azure Functions 上部署模型以產生財500公司的錯誤（bug）。
+    + 已修正 amlignore 檔案未套用至快照集的問題。
+    + 已加入新的 API amlcompute。 get_active_runs，它會傳回在指定 amlcompute 上執行和佇列執行的產生器。
+    + 已針對 AKS 類型將 Load Balancer 類型新增至 LIP.MLC。
+    + 已將 append_prefix bool 參數新增至 artifacts_client 中 run.py 和 download_artifacts_from_prefix 中的 download_files。 此旗標是用來選擇性地壓平合併原始 filepath，因此只會將檔案或資料夾名稱新增至 output_directory
+    + 修正具有資料集使用方式之 `run_config.yml` 的還原序列化問題。
+    + 呼叫會導致時間序列資料行被卸載的 `keep_columns` 或 `drop_columns` 時，也會卸載對應的功能，以供 dataset 使用。
+  + **azureml-解讀**
+    + 已將解讀-社區版本更新為0.1.0。3
+  + **azureml-train-automl**
+    + 已修正 automl_step 可能無法列印驗證問題的問題。
+    + 已修正 register_model 成功，即使模型的環境在本機遺失相依性也一樣。
+    + 已修正某些遠端執行未啟用 docker 的問題。
+    + 新增導致本機執行提前失敗的例外狀況記錄。
+  + **azureml-train-core**
+    + 請考慮在自動超參數微調最佳子執行的計算中執行 resume_from。
+  + **azureml-pipeline-core**
+    + 已修正管線引數結構中的參數處理。
+    + 已新增管線描述和步驟類型 yaml 參數。
+    + 管線步驟的新 yaml 格式，並已新增舊格式的取代警告。
+    
+    
+  
 ## <a name="2019-11-04"></a>2019-11-04
 
 ### <a name="web-experience"></a>Web 體驗 

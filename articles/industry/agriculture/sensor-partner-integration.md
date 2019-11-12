@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e90284ce2f8ea37eb9249822e38cef04e1356f59
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1e819c94732e1cbc2de39e6400f8305b7df5aca1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889572"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927663"
 ---
 # <a name="sensor-partner-integration"></a>感應器合作夥伴整合
 
@@ -79,7 +79,7 @@ FarmBeats 資料中樞會使用持有人驗證，其需要下列認證：
 
 呼叫者可以使用上述認證來要求存取權杖，這必須在標頭區段的後續 API 要求中傳送，如下所示：
 
-```json
+```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
@@ -124,14 +124,14 @@ Accept | 回應格式。 針對 FarmBeats 資料中樞 Api，格式為 json Acce
 
 以下範例要求是取得裝置的清單：
 
-```azurepowershell-interactive
-curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
+```bash
+curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
 大部分的 GET、POST 和 PUT 呼叫都需要 JSON 要求主體。
 
 以下範例要求是建立裝置（此範例具有具有要求本文的輸入 json）。
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -243,27 +243,26 @@ write_client.stop()
 
 ```json
 {
-“deviceid”: “<id of the Device created>”,
- "timestamp": "<timestamp in ISO 8601 format>",
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
 "version" : "1",
 "sensors": [
     {
-      "id": "<id of the sensor created>”
+      "id": "<id of the sensor created>",
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
+ ]
 }
-
 ```
-
 遙測 json 中的所有索引鍵名稱都應該是小寫，例如 deviceid、sensordata 等等。
 
 例如，遙測訊息：

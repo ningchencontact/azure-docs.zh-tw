@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 0969ee6dbc035ffa105dd54d34f3b4711d4915cf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e46d4f99075a0d3fa326c84e17792b8959e23517
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951207"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930226"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>將 SensorTile 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -86,7 +86,7 @@ ms.locfileid: "72951207"
 
 ### <a name="telemetry"></a>遙測
 
-| 欄位名稱     | 單位數  | 最小值 | 最大值 | 小數位數 |
+| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | 溼度       | %      | 30       | 90     | 1              |
 | temp           | °C     | 0     | 40     | 1              |

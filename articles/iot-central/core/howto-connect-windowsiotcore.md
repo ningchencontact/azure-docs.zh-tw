@@ -1,5 +1,5 @@
 ---
-title: 將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式 | Microsoft Docs
+title: 將 Windows IoT 核心版連接到您的 Azure IoT Central 應用程式 |Microsoft Docs
 description: 如何以裝置開發人員身分，將 MXChip IoT DevKit 裝置連線到 Azure IoT 中心應用程式。
 author: miriambrus
 ms.author: miriamb
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d880130e114b2bd3e4f978c2ae3fc7bacf0648c4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953898"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930199"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -25,11 +25,11 @@ ms.locfileid: "72953898"
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-- Azure IoT 中心應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
+- Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
 
 - 執行 Windows 10 IoT 核心版作業系統的裝置。 如需詳細資訊，請參閱[設定您的 Windows 10 IoT 核心版裝置](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup)。
 
-- 已[安裝 node.js 8.0.0 版或](https://nodejs.org/)更新版本的開發電腦。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於多種作業系統。
+- 已[安裝 node.js 8.0.0 版或](https://nodejs.org/)更新版本的開發電腦。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於各種作業系統。
 
 ## <a name="the-sample-devkits-application"></a>範例 Devkits 應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "72953898"
 
 如需裝置範本設定的完整詳細資訊，請參閱[Windows IoT 核心版裝置範本詳細資料](#device-template-details)。
 
-## <a name="add-a-real-device"></a>新增實際裝置
+## <a name="add-a-real-device"></a>新增真實裝置
 
 在您的 Azure IoT Central 應用程式中，使用 [ **Device Explorer** ] 頁面，從**Windows 10 IoT 核心版**裝置範本新增實際裝置。 記下裝置連線詳細資料（**範圍識別碼**、**裝置識別碼**和**主要金鑰**）。
 
@@ -90,7 +90,7 @@ ms.locfileid: "72953898"
 [Windows 裝置入口網站](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)包含的工具可讓您用來針對裝置進行疑難排解：
 
 - [**應用程式管理員**] 頁面可讓您控制在裝置上執行的應用程式。
-- 如果您的裝置沒有連線的監視器，您可以使用 [**裝置設定**] 頁面，從您的裝置中抓取螢幕擷取畫面。 例如：
+- 如果您的裝置沒有連線的監視器，您可以使用 [**裝置設定**] 頁面，從您的裝置中抓取螢幕擷取畫面。 例如︰
 
     ![應用程式螢幕擷取畫面](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "72953898"
 
 ### <a name="telemetry-measurements"></a>遙測量值
 
-| 欄位名稱     | 單位數  | 最小值 | 最大值 | 小數位數 |
+| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | 溼度       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -114,16 +114,16 @@ ms.locfileid: "72953898"
 
 數值設定
 
-| 顯示名稱 | 欄位名稱 | 單位數 | 小數位數 | 最小值 | 最大值 | Initial |
+| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>屬性
+### <a name="properties"></a>properties
 
-| Type            | 顯示名稱 | 欄位名稱 | Data type |
+| 在系統提示您進行確認時，輸入            | 顯示名稱 | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 文字            | Location     | location   | N/A       |
+| 文字            | 位置     | location   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 

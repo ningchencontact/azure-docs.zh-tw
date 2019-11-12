@@ -1,5 +1,5 @@
 ---
-title: 使用自訂的 Docker 基底映射部署模型
+title: 使用自訂 Docker 映射部署模型
 titleSuffix: Azure Machine Learning
 description: 瞭解如何在部署 Azure Machine Learning 模型時使用自訂的 Docker 基底映射。 雖然 Azure Machine Learning 會為您提供預設的基底映射，但您也可以使用自己的基底映射。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b34ef305a6f1cf41c7b7bdcf415e1a91653ad878
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496925"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932106"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自訂的 Docker 基底映射部署模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
 * 建立自訂基底映射：提供系統管理員和 DevOps 的資訊，以建立自訂映射，並使用 Azure CLI 和 Machine Learning CLI 設定 Azure Container Registry 的驗證。
 * 使用自訂基底映射部署模型：在從 Python SDK 或 ML CLI 部署定型的模型時，為數據科學家和 DevOps/ML 工程師提供有關使用自訂映射的資訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure Machine Learning workgroup。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)文章。
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。 
@@ -96,7 +96,7 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
 
     遵循提示向訂用帳戶進行驗證。
 
-2. 使用下列命令來列出工作區的容器登錄。 以您的 Azure Machine Learning 工作區名稱取代 `<myworkspace>`。 以包含您工作區的 Azure 資源群組取代 `<resourcegroup>`：
+2. 使用下列命令來列出工作區的容器登錄。 以您的 Azure Machine Learning 工作區名稱取代 `<myworkspace>`。 將 `<resourcegroup>` 取代為包含您工作區的 Azure 資源群組：
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -181,7 +181,7 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
 
 Microsoft 會在可公開存取的儲存機制上提供數個 docker 映射，此存放庫可以與本節中的步驟搭配使用：
 
-| 映像 | 說明 |
+| 映像 | 描述 |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 的基本映射 |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | 包含 CPU 推斷的 ONNX 執行時間 |

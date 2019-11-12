@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5104e6e037341c41a032f80287c6d56d17361d4c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497325"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932185"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
@@ -151,24 +151,6 @@ automl_config = AutoMLConfig(task='classification',
                              )
 ```
 
-### <a name="enable-model-explanations"></a>啟用模型說明
-
-在 `model_explainability` 建構函式中設定選擇性的 `AutoMLConfig` 參數。 此外，驗證資料架構物件必須當做參數 `X_valid` 來傳遞，以使用模型說明能力特徵。
-
-```python
-automl_config = AutoMLConfig(task='classification',
-                             debug_log='automl_errors.log',
-                             path=project_folder,
-                             compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
-                             **automl_settings,
-                             model_explainability=True,
-                             X_valid=X_test
-                             )
-```
-
 ## <a name="submit-training-experiment"></a>提交定型實驗
 
 現在提交設定以自動選取演算法、超參數，並訓練模型。
@@ -237,59 +219,13 @@ remote_run.get_portal_url()
 
 您的工作區中會提供相同的資訊。  若要深入瞭解這些結果，請參閱[瞭解自動化機器學習結果](how-to-understand-automated-ml.md)。
 
-### <a name="view-logs"></a>檢視記錄
-
-在 `/tmp/azureml_run/{iterationid}/azureml-logs` 下方的 DSVM 上尋找記錄。
-
-## <a name="explain"></a>最佳模型說明
-
-擷取模型說明資料可讓您查看有關模型的詳細資訊，以提高要在後端執行之項目的透明度。 在此範例中，您可以僅針對最佳調整模型執行模型說明。 如果您針對管線中的所有模型加以執行，它將會產生大量的執行時間。 模型說明資訊包括：
-
-* shap_values： shap lib 所產生的說明資訊。
-* expected_values：模型的預期值，適用于 X_train 資料集。
-* overall_summary：模型層級的特徵重要性值會以遞減順序排序。
-* overall_imp：功能名稱會依照 overall_summary 中的相同順序排序。
-* per_class_summary：類別層級的特徵重要性值會以遞減順序排序。 僅適用于分類案例。
-* per_class_imp：功能名稱會依照 per_class_summary 中的相同順序排序。 僅適用于分類案例。
-
-使用下列程式碼，從您的反覆項目中選取最佳管線。 `get_output` 方法會針對最後一個調整引動過程，傳回最佳回合和已調整的模型。
-
-```python
-best_run, fitted_model = remote_run.get_output()
-```
-
-匯入 `retrieve_model_explanation` 函式，並在最佳模型上執行。
-
-```python
-from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-    retrieve_model_explanation(best_run)
-```
-
-列印您想要檢視的 `best_run` 說明變數結果。
-
-```python
-print(overall_summary)
-print(overall_imp)
-print(per_class_summary)
-print(per_class_imp)
-```
-
-列印 `best_run` 說明摘要變數會產生下列輸出。
-
-![模型說明能力主控台輸出](./media/how-to-auto-train-remote/expl-print.png)
-
-您也可以透過 widget UI，或在[Azure Machine Learning studio](https://ml.azure.com)的工作區中，以視覺化功能的重要性。 
-
-![模型說明能力 UI](./media/how-to-auto-train-remote/model-exp.png)
-
 ## <a name="example"></a>範例
 
-[How-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb)筆記本會示範本文中的概念。
+下列[筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb)會示範本文中的概念。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-了解[如何設定自動訓練的設定](how-to-configure-auto-train.md)。
+* 了解[如何設定自動訓練的設定](how-to-configure-auto-train.md)。
+* 請參閱自動化 ML 實驗中啟用模型 interpretability 功能的操作[說明](how-to-machine-learning-interpretability-automl.md)。

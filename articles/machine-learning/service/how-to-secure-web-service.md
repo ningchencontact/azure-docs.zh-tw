@@ -1,5 +1,5 @@
 ---
-title: 使用 SSL 保護 s
+title: 使用 SSL 保護 web 服務
 titleSuffix: Azure Machine Learning
 description: 瞭解如何依序啟用 HTTPS，以保護透過 Azure Machine Learning 部署的 web 服務。
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1021ad1983f78252d924a5d3cb674419732d66e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489555"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932050"
 ---
 # <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>使用 SSL 透過 Azure Machine Learning 保護 a
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

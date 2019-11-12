@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Container Registry 工作（ACR 工作）自動建立及修補容器映射
+title: Azure Container Registry 工作-總覽
 description: ACR 工作簡介，這是 Azure Container Registry 中的一套功能，可在雲端中提供安全、自動化的容器映射組建、管理和修補。
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 45fdd68273ed2cd5cfccf37765935ce9f7bfdc13
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001396"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931482"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 工作自動化容器映射組建和維護
 
@@ -63,7 +63,7 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 | 觸發程序 | 預設為啟用 |
 | ------- | ------------------ |
-| 認可 | 是 |
+| 認可 | yes |
 | 提取要求 | 否 |
 
 若要設定觸發程式，請提供工作個人存取權杖（PAT），以在 GitHub 或 Azure DevOps 存放庫中設定 webhook。
@@ -74,7 +74,7 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 「ACR 工作」之所以能夠真正增強您的容器建置工作流程，是因為它能夠偵測基底映像的更新。 當更新的基底映射推送至您的登錄，或在公用儲存機制（例如 Docker Hub）中更新基底映射時，ACR 工作可以根據它自動建立任何應用程式映射。
 
-容器映像可概括地分類為「基底」映像和「應用程式」映像。 您的基底映像通常包含您的應用程式建置所在的作業系統和應用程式架構，以及其他自訂項目。 這些基底映像本身通常是以公用上游映像為基礎，例如：[Alpine Linux][base-alpine]、 [Windows][base-windows]、 [.net][base-dotnet]或[node.js][base-node]。 您有數個應用程式映像可能會共用一個通用基底映像。
+容器映像可概括地分類為「基底」映像和「應用程式」映像。 您的基底映像通常包含您的應用程式建置所在的作業系統和應用程式架構，以及其他自訂項目。 這些基底映射本身通常是以公用上游映射為基礎，例如： [Alpine Linux][base-alpine]、 [Windows][base-windows]、 [.net][base-dotnet]或[node.js][base-node]。 您有數個應用程式映像可能會共用一個通用基底映像。
 
 當上游維護程式 (例如重要 OS 安全性修補程式) 更新作業系統或應用程式架構映像時，您也必須更新您的基底映像以包含重要修正。 接著，還必須重建每個應用程式映像，以包含現在包含在基底映像中的這些上游修正。
 
@@ -129,9 +129,9 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 ## <a name="image-platforms"></a>映射平臺
 
-根據預設，ACR 工作會建立 Linux OS 和 amd64 架構的映射。 指定 `--platform` 標記，以建立其他架構的 Windows 映像或 Linux 映射。 指定 os/架構格式的作業系統和（選擇性）支援的架構（例如，`--platform Linux/arm`）。 針對 ARM 架構，選擇性地指定 OS/架構/變數格式的 variant （例如，`--platform Linux/arm64/v8`）：
+根據預設，ACR 工作會建立 Linux OS 和 amd64 架構的映射。 指定 `--platform` 標記，以建立其他架構的 Windows 映像或 Linux 映射。 指定 os/架構格式的作業系統和（選擇性）支援的架構（例如，`--platform Linux/arm`）。 針對 ARM 架構，選擇性地指定 OS/架構/變異格式的 variant （例如，`--platform Linux/arm64/v8`）：
 
-| OS | 架構|
+| 作業系統 | 架構|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

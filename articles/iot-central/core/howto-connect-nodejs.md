@@ -1,5 +1,5 @@
 ---
-title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central | Microsoft Docs
+title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central |Microsoft Docs
 description: 身為裝置開發人員，如何將一般 Node.js 裝置連線到您的 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951363"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930247"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 
@@ -25,8 +25,8 @@ ms.locfileid: "72951363"
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-- Azure IoT 中心應用程式。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
-- 已安裝 [Node.js](https://nodejs.org/) 4.0.0 版或更新版本的開發電腦。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於多種作業系統。
+- Azure IoT Central 應用程式。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
+- 已安裝 [Node.js](https://nodejs.org/) 4.0.0 版或更新版本的開發電腦。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於各種作業系統。
 
 ## <a name="create-a-device-template"></a>建立裝置範本
 
@@ -36,7 +36,7 @@ ms.locfileid: "72951363"
 
 在 [量**值**] 頁面上新增下列遙測：
 
-| 顯示名稱 | 欄位名稱  | 單位數 | 最小值 | 最大值 | 小數位數 |
+| 顯示名稱 | 欄位名稱  | Units | Min | max | 小數位數 |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | 溫度  | 溫度 | F     | 60  | 110 | 0              |
 | 溼度     | 溼度    | %     | 0   | 100 | 0              |
@@ -64,9 +64,9 @@ ms.locfileid: "72951363"
 
 在 [量**值**] 頁面上新增下列事件：
 
-| 顯示名稱 | 欄位名稱  | 嚴重性 |
+| 顯示名稱 | 欄位名稱  | Severity |
 | ------------ | ----------- | -------- |
-| 過熱  | overheat    | Error    |
+| 過熱  | overheat    | 錯誤    |
 
 > [!NOTE]
 > 事件量測的資料類型為字串。
@@ -77,7 +77,7 @@ ms.locfileid: "72951363"
 
 | 顯示名稱 | 欄位名稱  |
 | ------------ | ----------- |
-| Location     | location    |
+| 位置     | location    |
 
 位置量測資料類型是由經度和緯度的兩個浮點數所組成，而非高度的選擇性浮點數。
 
@@ -87,10 +87,10 @@ ms.locfileid: "72951363"
 
 在 [**屬性**] 頁面上新增下列裝置屬性：
 
-| 顯示名稱        | 欄位名稱        | Data type |
+| 顯示名稱        | 欄位名稱        | 資料類型 |
 | ------------------- | ----------------- | --------- |
-| 序號       | serialNumber      | text      |
-| 裝置製造商 | manufacturer      | text      |
+| 序號       | serialNumber      | 文字      |
+| 裝置製造商 | manufacturer      | 文字      |
 
 在裝置範本中輸入完全如上表所示的欄位名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱，則無法在應用程式中顯示內容。
 
@@ -98,7 +98,7 @@ ms.locfileid: "72951363"
 
 在 [**設定**] 頁面上新增下列**數目**設定：
 
-| 顯示名稱    | 欄位名稱     | 單位數 | 小數位數 | 最小值 | 最大值  | Initial |
+| 顯示名稱    | 欄位名稱     | Units | 小數位數 | Min | max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | 風扇速度       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | 設定溫度 | setTemperature | F     | 0        | 20  | 200  | 80      |
@@ -115,13 +115,13 @@ ms.locfileid: "72951363"
 
 將下列輸入欄位新增至倒數命令：
 
-| 顯示名稱    | 欄位名稱     | 資料類型 | Value |
+| 顯示名稱    | 欄位名稱     | 資料類型 | 值 |
 | --------------- | -------------- | --------- | ----- |
 | 計數來源      | countFrom      | number    | 10    |
 
 在裝置範本中輸入完全如上表所示的功能變數名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱，則裝置無法處理此命令。
 
-## <a name="add-a-real-device"></a>新增實際裝置
+## <a name="add-a-real-device"></a>新增真實裝置
 
 在您的 Azure IoT Central 應用程式中，將實際裝置新增至您在上一節中建立的裝置範本。
 
@@ -142,9 +142,9 @@ ms.locfileid: "72951363"
     npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
-1. 在 `connected-air-conditioner-adv` 資料夾中建立一個名為 **connectedAirConditionerAdv.js** 的檔案。
+1. 在 **資料夾中建立一個名為**connectedAirConditionerAdv.js`connected-air-conditioner-adv` 的檔案。
 
-1. 在 **connectedAirConditionerAdv.js** 檔案的開頭，新增下列 `require` 陳述式：
+1. 在 `require`connectedAirConditionerAdv.js**檔案的開頭，新增下列** 陳述式：
 
     ```javascript
     "use strict";
@@ -158,7 +158,7 @@ ms.locfileid: "72951363"
     var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
-1. 將下列變數宣告新增至該檔案：
+1. 將下列變數宣告新增至檔案：
 
     ```javascript
     var provisioningHost = 'global.azure-devices-provisioning.net';

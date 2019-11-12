@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9c4ba09c7e3eca4482ed56b0b337124aeec5b838
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333151"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928243"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>教學課程：建立自訂分析規則來偵測可疑威脅
 
-將 [資料來源連線](quickstart-onboard.md)@no__t 1to Azure Sentinel 之後，您可以建立自訂規則，以便在您的環境中搜尋特定準則，並在符合準則時產生事件，以便您進行調查。 本教學課程可協助您建立自訂規則，以使用 Azure Sentinel 來偵測威脅。
+在您將 [資料來源連線](quickstart-onboard.md) Azure Sentinel 之後，您可以建立自訂規則，以便在您的環境中搜尋特定準則，並在符合準則時產生事件，以便您進行調查。 本教學課程可協助您建立自訂規則，以使用 Azure Sentinel 來偵測威脅。
 
 本教學課程可協助您偵測 Azure Sentinel 的威脅。
 > [!div class="checklist"]
@@ -56,7 +56,7 @@ ms.locfileid: "72333151"
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > 查詢長度應介於1到1000個字元之間，且不能包含 "search \*" 或 "union \*"。
+   > 查詢長度應介於1到10000個字元之間，且不能包含 "search \*" 或 "union \*"。
 
     1. 在 [**查詢排程**] 底下，設定下列參數：
 

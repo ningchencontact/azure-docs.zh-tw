@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485397"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929550"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>在 Azure 中使用 Linux 資料科學虛擬機器的資料科學
 
@@ -24,7 +24,7 @@ ms.locfileid: "73485397"
 
 在此逐步解說中，我們會分析[spambase](https://archive.ics.uci.edu/ml/datasets/spambase)資料集。 Spambase 是一組標示為垃圾郵件或 ham （非垃圾郵件）的電子郵件。 Spambase 也包含有關電子郵件內容的一些統計資料。 我們稍後會在本逐步解說中討論統計資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須具備下列必要條件，才能使用 Linux DSVM：
 
@@ -58,8 +58,8 @@ ms.locfileid: "73485397"
 
 此資料集具有每個電子郵件的數種類型的統計資料：
 
-* **Word\_頻率\_* word*** 之類的資料行，表示電子郵件中符合*單字*的單字百分比。 例如，如果**word\_的\_頻率**為**1**，則電子郵件中所有單字的1% 都是「已*完成*」。
-* **Char\_頻率\_* char*** 之類的資料行，表示電子郵件中所有字元的百分比，其為*char*。
+* **Word\_頻率\__單字_** 之類的資料行，表示電子郵件中符合*單字*的單字百分比。 例如，如果**word\_的\_頻率**為**1**，則電子郵件中所有單字的1% 都是「已*完成*」。
+* **Char\_頻率\__char_** 之類的資料行表示電子郵件中所有字元的百分比，也就是*char*。
 * **capital\_run\_length\_longest** 是一連串大寫字母的最長長度。
 * **capital\_run\_length\_average** 是所有連串大寫字母的平均長度。
 * **capital\_run\_length\_total** 是所有連串大寫字母的總長度。

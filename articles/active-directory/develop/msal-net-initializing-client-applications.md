@@ -18,19 +18,19 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f15f6480c2dc77fb1f6e229b62a0114f0f6fb735
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a8cf7b7004097ef5a4d915d8fdff60cc9606c5be
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802829"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927070"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>使用 MSAL.NET 初始化用戶端應用程式
 本文說明如何使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）來初始化公用用戶端和機密用戶端應用程式。  若要深入瞭解用戶端應用程式類型和應用程式設定選項，請參閱[總覽](msal-client-applications.md)。
 
 使用 MSAL.NET 3.x 時，將應用程式具現化的建議方式是使用應用程式構建者： `PublicClientApplicationBuilder` 和 `ConfidentialClientApplicationBuilder`。 它們提供強大的機制，讓您可以從程式碼或設定檔，或甚至混用這兩種方法來設定應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在初始化應用程式之前，您必須先[註冊它](quickstart-register-app.md)，您的應用程式才能與 Microsoft 身分識別平臺整合。  註冊之後，您可能需要下列資訊（可在 Azure 入口網站中找到）：
 
 - 用戶端識別碼（代表 GUID 的字串）
@@ -101,7 +101,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以在公用用戶端或機密用戶端應用程式產生器上設定的修飾詞如下：
 
-|參數 | 描述|
+|者 | 描述|
 |--------- | --------- |
 |`.WithAuthority()` 7 覆寫 | 將應用程式預設授權單位設定為 Azure AD 授權單位，而且可能會選擇 Azure 雲端、物件、租使用者（租使用者識別碼或功能變數名稱），或直接提供授權單位 URI。|
 |`.WithAdfsAuthority(string)` | 將應用程式預設授權單位設定為 ADFS 授權單位。|
@@ -120,7 +120,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以在 Xamarin 的公用用戶端應用程式建立器上設定的修飾詞為：
 
-|參數 | 描述|
+|者 | 描述|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **僅限 Xamarin**：設定 ios 金鑰鏈安全性群組（適用于快取持續性）。|
 
@@ -128,7 +128,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以在機密用戶端應用程式產生器上設定的修飾詞如下：
 
-|參數 | 描述|
+|者 | 描述|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | 設定以 Azure AD 識別應用程式的憑證。|
 |`.WithClientSecret(string clientSecret)` | 設定以 Azure AD 識別應用程式的用戶端秘密（應用程式密碼）。|

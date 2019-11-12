@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906982"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927676"
 ---
 # <a name="deploy-farmbeats"></a>部署 FarmBeats
 
@@ -60,8 +60,8 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 1. 登入 Azure 入口網站並在右上角選取您的帳戶，然後切換至您要部署 Microsoft Azure FarmBeats 的 Azure AD 租使用者。
 2. Azure FarmBeats 可在 Azure Marketplace 取得。 在 [marketplace] 頁面上，選取 [立即取得]。
 3. 選取 [建立] 並輸入下列資訊：
-  - 訂用帳戶名稱。
-  - 現有的資源組名（僅限空的資源群組），或建立新的資源群組來部署 Azure FarmBeats。 請在後續章節中記下此資源群組。
+    - 訂用帳戶名稱。
+    - 現有的資源組名（僅限空的資源群組），或建立新的資源群組來部署 Azure FarmBeats。 請在後續章節中記下此資源群組。
 4. 您想要安裝 Azure FarmBeats 的區域。 目前 FarmBeats 下欄區域：美國中部、西歐、美國東部2、北歐、美國西部、東南亞、美國東部、澳大利亞東部、美國西部2。
 5. 選取 [確定]。
 [使用規定] 頁面隨即出現。 請參閱標準 marketplace 條款，或選取超連結以檢查使用條款。
@@ -131,7 +131,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 
 在安裝過程中，請建立一個輸入 json 檔案，如下所示：
 
-    ```
+```json
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -144,7 +144,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
        "notificationEmailAddress":"dummy@yourorg.com",
        "updateIfExists":true
     }
-    ```
+```
 
 此檔案是用來 Azure Cloud Shell 的輸入檔，以及在安裝期間使用其值的參數。 Json 中的所有參數都必須以適當的值取代或移除;若已移除，安裝程式會在安裝期間提示您
 
@@ -210,9 +210,9 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 4. 在 cloud shell 中移至您的主目錄。 根據預設，它是/home/<username>
 5. 在 Cloud Shell 中輸入或貼上下列命令。 請務必修改輸入的路徑。 Json 檔案，然後按 enter 鍵。
 
-      ```azurepowershell-interactive
+   ```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-     ```
+    ```
      安裝程式會自動下載所有相依性，並建立部署器。 系統會提示您同意 Azure FarmBeats 使用者授權合約（EULA）。
 
      - 如果您同意，請輸入 ' Y '，您會繼續進行下一個步驟。
@@ -266,7 +266,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 4. 在 cloud shell 中移至您的主目錄。 根據預設，它是/home/<username>
 5. 在 Cloud Shell 中輸入或貼上下列命令。 請務必修改輸入的路徑。 Json 檔案，然後按 enter 鍵。
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
@@ -324,7 +324,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 5. 將輸入 json 檔案上傳至 Azure Cloud Shell。
 6. 在 Cloud Shell 中輸入或貼上下列兩個命令。 請務必修改輸入 json 檔案的路徑，然後按 enter 鍵。
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 遵循畫面上的指示：

@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028989"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928359"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 GitHub 動作進行持續傳遞
 
@@ -27,11 +27,14 @@ ms.locfileid: "72028989"
 
 若為 Azure Functions 工作流程，檔案有三個區段： 
 
-| Section | 工作 |
+| 區段 | 工作 |
 | ------- | ----- |
 | **驗證** | <ol><li>定義服務主體。</li><li>下載發行設定檔。</li><li>建立 GitHub 秘密。</li></ol>|
 | **建置** | <ol><li>設定環境。</li><li>建置函式應用程式。</li></ol> |
 | **部署** | <ol><li>部署函數應用程式。</li></ol>|
+
+> [!NOTE]
+> 如果您決定使用發行設定檔進行驗證，則不需要建立服務主體。
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
@@ -42,9 +45,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 在此範例中，將資源中的預留位置取代為您的訂用帳戶識別碼、資源群組和函數應用程式名稱。 輸出是可提供函數應用程式存取權的角色指派認證。 複製這個 JSON 物件，您可以使用它從 GitHub 進行驗證。
-
-> [!NOTE]
-> 如果您決定使用發行設定檔進行驗證，則不需要建立服務主體。
 
 > [!IMPORTANT]
 > 授與最小存取權一律是最佳作法。 這就是為什麼上述範例中的範圍僅限於特定的函式應用程式，而非整個資源群組。
@@ -59,11 +59,11 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="configure-the-github-secret"></a>設定 GitHub 秘密
 
-1. 在[GitHub](https://github.com)中，流覽您的存放庫，選取 [**設定**] [ > ] [**密碼**]  >  新增**密碼**。
+1. 在[GitHub](https://github.com)中，流覽您的存放庫、選取 [**設定**] > [**密碼**] > 新增**新的密碼**。
 
    ![新增秘密](media/functions-how-to-github-actions/add-secret.png)
 
-1. 如果您選取 [**新增密碼**]，請使用 `AZURE_CREDENTIALS` 作為 [**名稱**] 和複製的 [**值**] 命令輸出。 如果您使用發行設定檔，請使用 `SCM_CREDENTIALS` 做為**名稱**和檔案內容，以取得**值**。
+1. 如果您接著選取 [**新增密碼**]，請使用 [**名稱**] 的 `AZURE_CREDENTIALS` 和複製的 [**值**] 命令輸出。 如果您使用發行設定檔，請使用 [**名稱**] 和 [檔案內容] 的 `SCM_CREDENTIALS` 做為 [**值**]。
 
 GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 

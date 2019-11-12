@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662587"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928985"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
 
@@ -25,7 +25,7 @@ ms.locfileid: "73662587"
 
 ## <a name="before-you-begin"></a>開始之前
 
-您需要安裝並設定 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您需要安裝並設定 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="limitations"></a>限制
 
@@ -36,7 +36,7 @@ ms.locfileid: "73662587"
 * AKS 叢集必須使用標準 SKU 負載平衡器來使用多個節點集區，但基本 SKU 負載平衡器不支援此功能。
 * AKS 叢集必須使用節點的虛擬機器擴展集。
 * 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地，請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)，對 AKS 叢集中的節點集區進行變更。
-* 節點集區的名稱必須以小寫字母開頭，而且只能包含英數位元。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
+* 節點集區的名稱只可包含小寫英數位元，且必須以小寫字母開頭。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
 * AKS 叢集最多可以有八個節點集區。
 * AKS 叢集在這八個節點集區中最多可以有400個節點。
 * 所有節點集區都必須位於相同的子網中。
@@ -46,7 +46,7 @@ ms.locfileid: "73662587"
 若要開始使用，請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令，在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.13.10*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
 
 > [!NOTE]
-> 使用多個節點集區時，不支援*基本*LOAD balanacer SKU。 根據預設，系統會使用 Azure CLI 和 Azure 入口網站的*標準*負載平衡器 SKU 來建立 AKS 叢集。
+> 使用多個節點集區時，**不支援***基本*負載平衡器 SKU。 根據預設，系統會使用 Azure CLI 和 Azure 入口網站的*標準*負載平衡器 SKU 來建立 AKS 叢集。
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -191,28 +191,34 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>升級具有多個節點集區的叢集控制平面
 
 > [!NOTE]
-> Kubernetes 使用標準的[語義版本](https://semver.org/)控制版本設定配置。 版本號碼會以*x-y*表示，其中*x*是主要版本， *y*是次要版本，而*z*是修補程式版本。 例如，在版本*1.12.6*中，1是主要版本，12是次要版本，而6是修補程式版本。 在叢集建立期間，會設定控制平面和初始節點集區的 Kubernetes 版本。 當所有其他節點集區新增至叢集時，會設定其 Kubernetes 版本。 節點集區以及節點集區與控制平面之間的 Kubernetes 版本可能不同，但適用下列限制：
-> 
-> * 節點集區版本必須與控制平面具有相同的主要版本。
-> * 節點集區版本可能是一個小於控制平面版本的次要版本。
-> * 節點集區版本可能是任何修補程式版本，只要遵循其他兩個條件約束即可。
+> Kubernetes 使用標準的[語義版本](https://semver.org/)控制版本設定配置。 版本號碼會以*x-y*表示，其中*x*是主要版本， *y*是次要版本，而*z*是修補程式版本。 例如，在版本*1.12.6*中，1是主要版本，12是次要版本，而6是修補程式版本。 在叢集建立期間，會設定控制平面和初始節點集區的 Kubernetes 版本。 當所有其他節點集區新增至叢集時，會設定其 Kubernetes 版本。 節點集區以及節點集區與控制平面之間的 Kubernetes 版本可能不同。
 
-AKS 叢集有兩個叢集資源物件與 Kubernetes 版本相關聯。 第一個是控制平面 Kubernetes 版本。 第二個是具有 Kubernetes 版本的代理程式組件區。 控制平面會對應至一或多個節點集區。 升級作業的行為取決於所使用的 Azure CLI 命令。
+AKS 叢集有兩個叢集資源物件與 Kubernetes 版本相關聯。
 
-* 升級控制平面需要使用 `az aks upgrade`
-   * 這會升級叢集中的控制平面版本和所有節點集區
-   * 藉由 `--control-plane-only` 旗標傳遞 `az aks upgrade`，只會升級叢集控制平面，而且不會變更任何相關聯的節點集區。
-* 升級個別節點集區需要使用 `az aks nodepool upgrade`
-   * 這只會升級具有指定 Kubernetes 版本的目標節點集區
+1. 叢集控制平面 Kubernetes 版本。
+2. 具有 Kubernetes 版本的節點集區。
 
-節點集區所保留的 Kubernetes 版本之間的關聯性也必須遵循一組規則。
+控制平面會對應至一或多個節點集區。 升級作業的行為取決於所使用的 Azure CLI 命令。
 
-* 您無法降級控制平面或節點集區 Kubernetes 版本。
-* 如果未指定節點集區 Kubernetes 版本，則行為取決於所使用的用戶端。 若為 Resource Manager 範本中的宣告，則會使用為節點集區定義的現有版本，如果未設定，則會使用控制平面版本。
-* 您可以在指定的時間升級或調整控制平面或節點集區，而無法同時提交這兩項作業。
-* 節點集區 Kubernetes 版本必須與控制平面具有相同的主要版本。
-* 節點集區 Kubernetes 版本最多可以有兩個（2）次要版本小於控制平面，而且永遠不會大於。
-* 節點集區可以是任何小於或等於控制平面的 Kubernetes 修補程式版本，永遠不會大於。
+升級 AKS 控制平面需要使用 `az aks upgrade`。 這會升級控制項平面版本以及叢集中的所有節點集區。 
+
+使用 `--control-plane-only` 旗標發出 `az aks upgrade` 命令時，只會升級叢集控制平面。 叢集中沒有任何相關聯的節點集區變更。
+
+升級個別節點集區需要使用 `az aks nodepool upgrade`。 這只會升級具有指定 Kubernetes 版本的目標節點集區
+
+### <a name="validation-rules-for-upgrades"></a>升級的驗證規則
+
+叢集的控制平面或節點集區所持有之 Kubernetes 版本的有效升級，會由下列規則組進行驗證。
+
+* 要升級至的有效版本規則：
+   * 節點集區版本必須與控制平面具有相同的*主要*版本。
+   * 節點集區版本可能是小於控制平面版本的兩個*次要*版本。
+   * 節點集區版本可能是小於控制平面版本的兩個*修補程式*版本。
+
+* 提交升級作業的規則：
+   * 您無法降級控制平面或節點集區 Kubernetes 版本。
+   * 如果未指定節點集區 Kubernetes 版本，則行為取決於所使用的用戶端。 Resource Manager 範本中的宣告會切換回已針對節點集區定義的現有版本（如果使用的話），如果未設定，則會使用控制平面版本來切換回來。
+   * 您可以在指定的時間升級或調整控制平面或節點集區，而無法同時在單一控制平面或節點集區資源上提交多項作業。
 
 ## <a name="scale-a-node-pool-manually"></a>手動調整節點集區
 
@@ -450,11 +456,11 @@ Events:
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>使用 Resource Manager 範本管理節點集區
 
-當您使用 Azure Resource Manager 範本來建立和管理資源時，您通常可以更新範本中的設定，並重新部署以更新資源。 在 AKS 中使用節點集區時，一旦建立 AKS 叢集之後，就無法更新初始節點集區設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、對節點集區進行變更，然後重新部署。 相反地，您必須建立個別的 Resource Manager 範本，只更新現有 AKS 叢集的代理程式組件區。
+當您使用 Azure Resource Manager 範本來建立和管理資源時，您通常可以更新範本中的設定，並重新部署以更新資源。 在 AKS 中使用節點集區時，一旦建立 AKS 叢集之後，就無法更新初始節點集區設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、對節點集區進行變更，然後重新部署。 相反地，您必須建立個別的 Resource Manager 範本，只更新現有 AKS 叢集的節點集區。
 
 建立 `aks-agentpools.json` 的範本，並貼上下列範例資訊清單。 這個範例範本會設定下列設定：
 
-* 更新名為*myagentpool*的*Linux*代理程式組件區，以執行三個節點。
+* 更新名為*myagentpool*的*Linux*節點集區，以執行三個節點。
 * 設定節點集區中的節點，以執行 Kubernetes 版本*1.13.10*。
 * 將節點大小定義為*Standard_DS2_v2*。
 

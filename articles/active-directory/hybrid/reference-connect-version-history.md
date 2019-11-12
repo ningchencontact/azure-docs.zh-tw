@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847167"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927446"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -43,9 +43,18 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 當我們進行此程式時，版本號碼會以 "X" 顯示在次要版本號碼位置中，如 "1.3. X. 0"-這表示本檔中的版本資訊對開頭為 "1.3" 的所有版本都是有效的。 一旦完成發行程式，發行版本號碼就會更新為最近發行的版本，而發行狀態將更新為「已發行，可供下載及自動升級」。
 並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>發行狀態
+08/11/2019：已發行以供下載。 無法供自動升級
+
+>[!IMPORTANT]
+>由於這一版 Azure AD Connect 中的內部架構變更，如果您使用 MSOnline PowerShell 來管理 ADFS 信任關係設定，則必須將 MSOnline PowerShell 模組更新為版本1.1.183.57 或更高版本
+### <a name="fixed-issues"></a>已修正的問題
+
+此版本修正了現有混合式 Azure AD 加入裝置的問題。 此版本包含可更正此問題的新裝置同步處理規則。
+請注意，這項規則變更可能會導致從 Azure AD 刪除過時的裝置。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置物件。 對於某些客戶，將透過此規則變更刪除的裝置數目可能會超過刪除閾值。 如果您看到刪除裝置物件的 Azure AD 超過匯出的刪除閾值，建議您允許刪除作業進行。 [如何允許刪除超過刪除閾值時的流程](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>發行狀態
 9/28/2019：已發行，可自動升級為選取租使用者。 未提供下載。
@@ -465,7 +474,7 @@ Azure AD Connect 1.1.654.0 版 (和更新版本) 已新增改進，以確保 Azu
 *   將特定物件上所有的 ACE 移除，除了 SELF 特有的 ACE 之外。 關於 SELF，我們需要將預設權限維持不變。
 *   指派這些特定權限：
 
-類型     | 名稱                          | Access               | 套用至
+在系統提示您進行確認時，輸入     | 名稱                          | 存取               | 套用至
 ---------|-------------------------------|----------------------|--------------|
 允許    | 系統                        | 完全控制         | 此物件  |
 允許    | 企業系統管理員             | 完全控制         | 此物件  |
@@ -808,7 +817,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|選取|
+    |CertVersion|CertSignatureAlgorithmOid|選取 [封裝設定]|
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
@@ -1237,7 +1246,7 @@ AD FS 管理
 * [使用者回寫](how-to-connect-preview.md#user-writeback)
 * [群組回寫](how-to-connect-preview.md#group-writeback)
 * [裝置回寫](how-to-connect-device-writeback.md)
-* [目錄延伸模組](how-to-connect-preview.md)
+* [目錄擴充](how-to-connect-preview.md)
 
 ## <a name="104940501"></a>1.0.494.0501
 發行日期：2015 年 5 月

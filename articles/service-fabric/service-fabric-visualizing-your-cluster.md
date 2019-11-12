@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496350"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927172"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 視覺化叢集
 
@@ -121,7 +121,7 @@ EventStore 是平台所提供的功能，可提供可在 Service Fabric Explorer
 >截至 Service Fabric 6.4 版為止， EventStore 不是預設啟用的功能，必須在 Resource Manager 範本中啟用
 
 >[!NOTE]
->截至 Service Fabric 6.4 版為止， EventStore API 僅適用於在 Azure 上執行的 Windows 叢集。 我們正在將這個功能和我們的獨立叢集移植到 Linux。
+>截至 Service Fabric 6.4 版為止， EventStore API 僅適用於在 Azure 上執行的 Windows 叢集。 我們正在將這個功能移植到 Linux 和我們的獨立叢集。
 
 ## <a name="image-store-viewer"></a>映射存放區檢視器
 映射存放區檢視器是使用原生映射存放區所提供的功能，可讓您查看映射存放區的目前內容，以及取得檔案和資料夾資訊，以及移除檔案/資料夾。
@@ -129,7 +129,11 @@ EventStore 是平台所提供的功能，可提供可在 Service Fabric Explorer
 ![Service Fabric 總管叢集對應][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>備份與還原
-Service Fabric Explorer 提供與[備份和還原](./service-fabric-reliable-services-backup-restore.md)互動的能力。 可能的作業如下：
+Service Fabric Explorer 提供與[備份和還原](./service-fabric-reliable-services-backup-restore.md)互動的能力。 若要查看 SFX 中的備份和還原功能，必須啟用 [advanced] 模式。
+
+![啟用 advanced 模式][0]
+ 
+可能的作業如下：
 
 * 建立、編輯和刪除備份原則。
 * 啟用和停用應用程式、服務或分割區的備份。
@@ -151,3 +155,4 @@ Service Fabric Explorer 提供與[備份和還原](./service-fabric-reliable-ser
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

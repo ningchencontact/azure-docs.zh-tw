@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6d71ea59b7094134cc70b9eeea6da89feacb3a14
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814850"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931045"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>組建 scikit-learn-以 Azure Machine Learning 大規模學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "73814850"
 
 無論您是從基礎開始訓練機器學習服務 scikit-learn-學習模型，或將現有的模型帶入雲端，您都可以使用 Azure Machine Learning，使用彈性雲端計算資源來相應放大開放原始碼訓練作業。 您可以使用 Azure Machine Learning 來建立、部署、版本及監視生產層級模型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在下列任一環境中執行此程式碼：
  - Azure Machine Learning 筆記本 VM-不需要下載或安裝
@@ -47,7 +47,7 @@ ms.locfileid: "73814850"
 
 本節會藉由載入所需的 python 套件、將工作區初始化、建立實驗，以及上傳定型資料和定型腳本，來設定定型實驗。
 
-### <a name="import-packages"></a>匯入封裝
+### <a name="import-packages"></a>匯入套件
 
 首先，匯入必要的 Python 程式庫。
 
@@ -177,20 +177,47 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-使用下列程式碼，將模型註冊到您的工作區。
+使用下列程式碼，將模型註冊到您的工作區。 藉由指定 `model_framework`、`model_framework_version`和 `resource_configuration`的參數，就無法使用任何程式碼模型部署。 這可讓您直接從已註冊的模型將您的模型部署為 web 服務，而 `ResourceConfiguration` 物件則會定義 web 服務的計算資源。
 
 ```Python
-model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='sklearn-iris', 
+                           model_path='model.joblib',
+                           model_framework=Model.Framework.SCIKITLEARN,
+                           model_framework_version='0.19.1',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
+
+## <a name="deployment"></a>部署
+
+您剛註冊的模型可以使用與 Azure Machine Learning 中任何其他已註冊的模型完全相同的方式來部署，不論您用於定型的估計工具為何。 部署如何包含註冊模型的區段，但您可以直接跳到建立部署的[計算目標](how-to-deploy-and-where.md#choose-a-compute-target)，因為您已經有已註冊的模型。
+
+### <a name="preview-no-code-model-deployment"></a>預覽無程式碼模型部署
+
+除了傳統部署路由以外，您也可以使用無程式碼部署功能（預覽）進行 scikit-learn-學習。 所有內建的 scikit-learn-學習模型類型都不支援任何程式碼模型部署。 藉由使用 `model_framework`、`model_framework_version`和 `resource_configuration` 參數來註冊您的模型，您可以直接使用 `deploy()` 靜態函式來部署您的模型。
+
+```python
+web_service = Model.deploy(ws, "scikit-learn-service", [model])
+```
+
+注意：這些相依性包含在預先建立的 scikit-learn 學習推斷容器中。
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
+[完整的](how-to-deploy-and-where.md)作法涵蓋 Azure Machine Learning 中的部署更深入。
+
 
 ## <a name="next-steps"></a>後續步驟
 
+在本文中，您已訓練並註冊 scikit-learn 學習模型，並瞭解部署選項。 若要深入瞭解 Azure Machine Learning，請參閱這些其他文章。
 
-在本文中，您已在 Azure Machine Learning 上訓練並註冊 Keras 模型。 若要瞭解如何部署模型，請繼續進行我們的模型部署一文。
-
-> [!div class="nextstepaction"]
-> [部署模型的方式和位置](how-to-deploy-and-where.md)
 * [追蹤定型期間的執行計量](how-to-track-experiments.md)
 * [調整超參數](how-to-tune-hyperparameters.md)
-* [部署定型的模型](how-to-deploy-and-where.md)
 * [Azure 中分散式深度學習訓練的參考架構](/azure/architecture/reference-architectures/ai/training-deep-learning)
