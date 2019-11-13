@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 針對 VMware 到 Azure 的災害復原進行容量和規模調整規劃 | Microsoft Docs
+title: 使用 Azure Site Recovery 規劃 VMware 損毀修復的容量
 description: 本文可協助您在使用 Azure Site Recovery 來設定 VMware VM 到 Azure 的災害復原時，進行容量和規模調整規劃。
 author: nsoneji
 manager: garavd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747894"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961364"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>針對復原到 Azure 的 VMware 災害復原進行容量和規模調整規劃
 

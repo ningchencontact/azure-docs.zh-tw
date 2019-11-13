@@ -1,34 +1,35 @@
 ---
 title: 適用于 MongoDB 的 Azure Cosmos DB API Azure Resource Manager 範本
 description: 使用 Azure Resource Manager 範本來建立和設定適用于 MongoDB 的 Azure Cosmos DB API。
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.author: mjbrown
-ms.openlocfilehash: 92aaa42aeca294db62445a9434d0b5838a1f3855
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 11/12/2019
+ms.author: thvankra
+ms.openlocfilehash: e0d28de67082c4b4d582f62653ad474e9ad5dadd
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606540"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960572"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB MongoDB API 資源
 
-本文說明如何使用 Azure Resource Manager 範本來執行不同的作業，以自動化管理您的 Azure Cosmos DB 帳戶、資料庫和容器。 本文僅提供適用于 MongoDB Azure Cosmos DB API 的範例，若要尋找其他 API 類型帳戶的範例，請參閱：搭配使用 Resource Manager 範本與 Azure Cosmos DB 的 API 來進行[Cassandra](manage-cassandra-with-resource-manager.md)、 [Gremlin](manage-gremlin-with-resource-manager.md)、 [SQL](manage-sql-with-resource-manager.md)、[資料表](manage-table-with-resource-manager.md)發行項。
+本文說明如何使用 Azure Resource Manager 範本來執行不同的作業，以自動化管理您的 Azure Cosmos DB 帳戶、資料庫和容器。 本文僅提供適用于 MongoDB Azure Cosmos DB API 的範例，若要尋找其他 API 類型帳戶的範例，請參閱：搭配使用 Azure Resource Manager 範本與 Azure Cosmos DB 的 API 來進行[Cassandra](manage-cassandra-with-resource-manager.md)、 [Gremlin](manage-gremlin-with-resource-manager.md)、 [SQL](manage-sql-with-resource-manager.md)、[資料表](manage-table-with-resource-manager.md)發行項。
 
 ## 建立適用于 MongoDB 帳戶、資料庫和集合的 Azure Cosmos DB API<a id="create-resource"></a>
 
 使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會建立適用于 MongoDB API 的 Azure Cosmos 帳戶，其中包含兩個在資料庫層級共用 400 RU/秒輸送量的集合。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 > [!NOTE]
-> 帳戶名稱必須是小寫，且 < 31 個字元。
+> 帳戶名稱必須是小寫、44或較少的字元。
+> 若要更新 RU/秒，請重新提交具有已更新輸送量屬性值的範本。
 
 [!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
 
-### <a name="deploy-via-azure-cli"></a>透過 Azure CLI 部署
+### <a name="deploy-via-the-azure-cli"></a>透過 Azure CLI 部署
 
-若要使用 Azure CLI 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+若要使用 Azure CLI 部署 Azure Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud Shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
 
 ```azurecli-interactive
 
@@ -50,50 +51,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-`az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本，而不是使用 CloudShell，請參閱[Azure 命令列介面（CLI）](/cli/azure/)一文。
-
-## 更新資料庫上的輸送量（RU/秒）<a id="database-ru-update"></a>
-
-下列範本將會更新資料庫的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-database-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
-
-[!code-json[cosmosdb-mongodb-database-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-database-ru-update/azuredeploy.json)]
-
-### <a name="deploy-database-template-via-azure-cli"></a>透過 Azure CLI 部署資料庫範本
-
-若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
-
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the database name: ' databaseName
-read -p 'Enter the new throughput: ' throughput
-
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-mongodb-database-ru-update/azuredeploy.json \
-   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
-```
-
-## 更新集合上的輸送量（RU/秒）<a id="collection-ru-update"></a>
-
-下列範本會更新集合的輸送量。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-collection-ru-update/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
-
-[!code-json[cosmosdb-mongodb-collection-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-collection-ru-update/azuredeploy.json)]
-
-### <a name="deploy-collection-template-via-azure-cli"></a>透過 Azure CLI 部署集合範本
-
-若要使用 Azure CLI 部署 Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
-
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the database name: ' databaseName
-read -p 'Enter the collection name: ' collectionName
-read -p 'Enter the new throughput: ' throughput
-
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-mongodb-collection-ru-update/azuredeploy.json \
-   --parameters accountName=$accountName databaseName=$databaseName collectionName=$collectionName throughput=$throughput
-```
+`az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本，而不是使用 Cloud Shell，請參閱[Azure CLI](/cli/azure/)文章。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5f1b41e345caafdc465872c948be76c31d55e8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7287e32fbeff751bddf91bed32afeeae84f9378c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928864"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014526"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory 中用於存取內部部署網站的 Cookie 設定
 
@@ -34,9 +34,9 @@ Azure Active Directory (Azure AD) 有可透過「應用程式 Proxy」存取內�
 | 使用永續性 Cookie | **否** | 使用 [是] 時，可讓「應用程式 Proxy」將其存取 Cookie 設定為在網頁瀏覽器關閉時不過期。 永續性會持續到存取權杖到期為止，或直到使用者手動刪除永續性 Cookie 為止。 | 由於讓使用者保持在已獲授權狀態會帶來安全性風險，因此請使用 [否]。<br></br><br></br>建議只有針對無法在處理序之間共用 Cookie 的舊版應用程式，才使用 [是]。 最好是更新您的應用程式以處理處理序之間的 Cookie 共用，而不要使用永續性 Cookie。 例如，您可能需要使用永續性 Cookie，才能允許使用者從 SharePoint 網站以總管檢視開啟 Office 文件。 在沒有永續性 Cookie 的情況下，如果未在瀏覽器、總管處理序及 Office 處理序之間共用存取 Cookie，此作業就會失敗。 |
 
 ## <a name="samesite-cookies"></a>SameSite Cookie
-從版本[Chrome 80](https://support.google.com/chrome/a/answer/7679408?hl=en)開始，最後在利用[Chromium](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)的瀏覽器中，未指定[SameSite](https://web.dev/samesite-cookies-explained)屬性的 Cookie 會被視為設定為**SameSite = 不嚴格**。 SameSite 屬性會宣告 cookie 應如何限制為相同網站的內容。 當設定為 [寬鬆] 時，cookie 只會傳送至相同的網站要求或最上層的導覽。 不過，應用程式 Proxy 需要在協力廠商內容中保留這些 cookie，才能讓使用者在其會話期間正確登入。 因此，我們會對應用程式 Proxy 存取和會話 cookie 進行更新，以避免對此變更造成不良影響。 這些更新包括：
+從版本 Chrome 80 開始，最後在利用 Chromium 的瀏覽器中，未指定[SameSite](https://web.dev/samesite-cookies-explained)屬性的 cookie 會被視為設定為**SameSite = 不嚴格**。 SameSite 屬性會宣告 cookie 應如何限制為相同網站的內容。 當設定為 [寬鬆] 時，cookie 只會傳送至相同的網站要求或最上層的導覽。 不過，應用程式 Proxy 需要在協力廠商內容中保留這些 cookie，才能讓使用者在其會話期間正確登入。 因此，我們會對應用程式 Proxy 存取和會話 cookie 進行更新，以避免對此變更造成不良影響。 這些更新包括：
 
-* 將**SameSite**屬性設定為**None**-這可讓應用程式 Proxy 存取和會話 cookie 在協力廠商內容中正確地傳送。
+* 將**SameSite**屬性設定為**None**。 這可讓您在協力廠商內容中正確傳送應用程式 Proxy 存取和會話 cookie。
 * 將 [**使用安全 Cookie** ] 設定設為使用 [**是]** 做為預設值。 Chrome 也會要求 cookie 指定安全旗標，否則將會遭到拒絕。 這種變更會套用至透過應用程式 Proxy 發佈的所有現有應用程式。 請注意，應用程式 Proxy 存取 cookie 一律設定為安全的，而且只會透過 HTTPS 傳輸。 這種變更只會套用至會話 cookie。
 
 這些對應用程式 Proxy cookie 的變更將在 Chrome 80 發行日期之前的幾個星期推出。

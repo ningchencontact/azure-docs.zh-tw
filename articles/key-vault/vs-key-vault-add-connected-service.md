@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815108"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012779"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
@@ -22,7 +22,7 @@ ms.locfileid: "73815108"
 
 針對「連線服務」在您專案中為啟用 Key Vault 所做的變更，如需詳細資料，請參閱 [Key Vault 連線服務 - 我的 ASP.NET 4.7.1 專案發生什麼情形](#how-your-aspnet-framework-project-is-modified)或 [Key Vault 連線服務 - 我的 ASP.NET Core 專案發生什麼情形](#how-your-aspnet-core-project-is-modified)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，請註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - **Visual Studio 2019 16.3 Preview 1**或更新版本，或**Visual Studio 2017 版本 15.7**並已安裝**Web 開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
@@ -135,6 +135,21 @@ ms.locfileid: "73815108"
 2. 選取 [刪除資源群組]。
 3. 在 [**輸入資源組名：** ] 方塊中，輸入資源群組的名稱，然後選取 [**刪除**]。
 
+## <a name="troubleshooting"></a>疑難排解
+
+如果您的金鑰保存庫執行所在的 Microsoft 帳戶不同于您登入 Visual Studio （例如，金鑰保存庫正在您的工作帳戶上執行，但 Visual Studio 使用您的私人帳戶），您的 Program.cs 檔案中會出現錯誤，這 Visual Studio 無法取得金鑰保存庫的存取權。 若要修正此問題：
+
+1. 移至  [Azure 入口網站](https://portal.azure.com)並開啟您的 Key Vault。
+
+1. 選擇 [**存取原則**]、[**新增存取原則**]，然後選擇您以 [主體] 登入的帳戶。
+
+1. 在 Visual Studio 中，**選擇 [** 檔案 > **帳戶設定**]。
+從 [**所有帳戶**] 區段中選取 [**新增帳戶**]。 使用您選擇做為存取原則主體的帳戶來登入。
+
+1. 選擇 [**工具**] > **選項**，並尋找 [ **Azure 服務驗證**]。 然後選取您剛才新增至 Visual Studio 的帳戶。
+
+現在，當您在偵錯工具時，Visual Studio 會連接到您的金鑰保存庫所在的帳戶。
+
 ## <a name="how-your-aspnet-core-project-is-modified"></a>ASP.NET Core 專案的修改方式
 
 本節識別使用 Visual Studio 新增 Key Vault 聯機服務時，對 ASP.NET 專案所做的確切變更。
@@ -143,7 +158,7 @@ ms.locfileid: "73815108"
 
 會影響專案檔案 .NET 參考和 NuGet 套件參考。
 
-| 類型 | 參考 |
+| 在系統提示您進行確認時，輸入 | 參考 |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -179,7 +194,7 @@ ms.locfileid: "73815108"
 
 會影響專案檔案 .NET 參考和 `packages.config` （NuGet 參考）。
 
-| 類型 | 參考 |
+| 在系統提示您進行確認時，輸入 | 參考 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 容器應用程式資訊清單範例 | Microsoft Docs
+title: Azure Service Fabric 容器應用程式資訊清單範例
 description: 了解如何設定多容器 Service Fabric 應用程式的應用程式和服務資訊清單設定。
 services: service-fabric
 documentationcenter: na
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: ece0b763a2dbe501b0f46d026c59e1294a448c59
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d79f7dbf492b9473bcff147891df308674a8cf0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650614"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013254"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器應用程式和服務資訊清單範例
 以下舉例說明多容器 Service Fabric 應用程式的應用程式和服務資訊清單。 這些範例的目的是要說明有哪些設定可供使用以及要如何使用。 這些應用程式和服務資訊清單是以 [Windows Server 2016 容器範例](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows)的資訊清單作為基礎。
 
 下面是會顯示的功能：
 
-|資訊清單|功能|
+|資訊清單|特性|
 |---|---|
 |[應用程式資訊清單](#application-manifest)| [覆寫環境變數](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[設定容器連接埠對主機的對應](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)、[設定容器登錄驗證](service-fabric-get-started-containers.md#configure-container-repository-authentication)、[資源管理](service-fabric-resource-governance.md)、[設定隔離模式](service-fabric-get-started-containers.md#configure-isolation-mode)、[指定 OS 組建專屬的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService 服務資訊清單](#frontendservice-service-manifest)| [設定環境變數](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[設定端點](service-fabric-get-started-containers.md#configure-communication)、將命令傳遞至容器、[將憑證匯入容器中](service-fabric-securing-containers.md)| 

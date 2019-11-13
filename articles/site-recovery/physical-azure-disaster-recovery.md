@@ -1,25 +1,24 @@
 ---
-title: 針對具有 Azure Site Recovery 的實體內部部署伺服器，設定 Azure 的嚴重損壞修復
+title: 使用 Azure Site Recovery 設定實體內部部署伺服器的嚴重損壞修復
 description: 了解如何使用 Azure Site Recovery 服務，以設定內部部署 Windows 和 Linux 伺服器至 Azure 的災害復原。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814551"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936175"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何設定內部部署實體 Windows 和 Linux 伺服器至 Azure 的災害復原。 在本教學課程中，您了解如何：
+本教學課程說明如何設定內部部署實體 Windows 和 Linux 伺服器至 Azure 的災害復原。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 設定 Azure 與內部部署的必要條件
@@ -28,7 +27,7 @@ ms.locfileid: "70814551"
 > * 建立複寫原則
 > * 啟用伺服器的複寫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -69,14 +68,14 @@ ms.locfileid: "70814551"
 設定 [Azure 網路](../virtual-network/quick-create-portal.md)。
 
 - 在容錯移轉之後建立的 Azure VM 會置於這個網路。
-- 此網路應位於與復原服務保存庫相同的區域
+- 此網路應該位於與「復原服務」保存庫相同的區域
 
 
 ## <a name="set-up-an-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
 設定 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
 
-- Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 容錯移轉發生後，會從儲存體建立 Azure VM。
+- Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 在容錯移轉發生後，會從該儲存體建立 Azure VM。
 - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
 
 
@@ -110,7 +109,7 @@ ms.locfileid: "70814551"
 2. 如果您沒有設定伺服器，請按一下 [+設定伺服器]。
 3. 在 [新增伺服器] 中，檢查 [設定伺服器] 是否出現在 [伺服器類型] 中。
 4. 下載 Site Recovery 統一安裝的安裝檔案。
-5. 下載存放庫註冊金鑰。 您會在執行統一安裝時用到此金鑰。 該金鑰在產生後會維持 5 天有效。
+5. 下載保存庫註冊金鑰。 您會在執行統一安裝時用到此金鑰。 該金鑰在產生後會維持 5 天有效。
 
    ![設定來源](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -181,7 +180,7 @@ ms.locfileid: "70814551"
 9. 在 [實體機器] 中，按一下 [+實體機器]。 指定名稱和 IP 位址。 選擇您想要複寫之機器的作業系統。 需要經過幾分鐘才會發現並列出伺服器。 
 10. 在 [名稱] > 中，選取處理序伺服器將用來在機器上自動安裝行動服務的帳戶。
 11. 在 [複寫設定] > [設定複寫設定] 中，確認已選取正確的複寫原則。 
-12. 按一下 [啟用複寫]。 您可以在 [設定]  >  [作業]  >  [Site Recovery 作業] 中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
+12. 按一下 [啟用複寫]。 您可以在 [設定]  **[作業]**  >   **[Site Recovery 作業]**  >  中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
 
 
 若要監視您新增的伺服器，您可以在 [設定伺服器] > [上次連絡時間] 中查看上次探索伺服器的時間。 若要新增機器而不等候已排定的探索時間，請醒目提示設定伺服器 (不要按一下)，然後按一下 [重新整理]。

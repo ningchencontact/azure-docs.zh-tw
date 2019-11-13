@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679595"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953958"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>設定 Windows 虛擬桌面的圖形處理器（GPU）加速
 
@@ -26,17 +26,14 @@ Azure 提供一些[GPU 優化的虛擬機器大小](/azure/virtual-machines/wind
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>建立主機集區、布建您的虛擬機器，以及設定應用程式群組
 
-使用您所選大小的 VM，建立新的主機集區。 如需指示，請參閱 [Tutorial：建立具有 Azure Marketplace @ no__t-0 的主機集區。
+使用您所選大小的 VM，建立新的主機集區。 如需指示，請參閱[教學課程：使用 Azure Marketplace 建立主機集](/azure/virtual-desktop/create-host-pools-azure-marketplace)區。
 
 Windows 虛擬桌面支援下列作業系統中的 GPU 加速轉譯和編碼：
 
 * Windows 10 1511 版或更新版本
 * Windows Server 2016 或更新版本
 
-您也必須設定應用程式群組，或使用當您建立新的主機集區時，自動建立的預設桌面應用程式群組（名為「桌面應用程式群組」）。 如需指示，請參閱 [Tutorial：管理 Windows 虛擬桌面 @ no__t-0 的應用程式群組。
-
->[!NOTE]
->Windows 虛擬桌面只支援已啟用 GPU 之主機集區的「桌面」應用程式群組類型。 具有 GPU 功能的主機集區不支援「RemoteApp」類型的應用程式群組。
+您也必須設定應用程式群組，或使用當您建立新的主機集區時，自動建立的預設桌面應用程式群組（名為「桌面應用程式群組」）。 如需指示，請參閱[教學課程：管理 Windows 虛擬桌面的應用程式群組](/azure/virtual-desktop/manage-app-groups)。
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>在您的虛擬機器中安裝支援的圖形驅動程式
 
@@ -52,7 +49,7 @@ Windows 虛擬桌面支援下列作業系統中的 GPU 加速轉譯和編碼：
 
 1. 使用具有本機系統管理員許可權的帳戶連接到 VM 的桌面。
 2. 開啟 [開始] 功能表，然後輸入 "gpedit.msc" 以開啟 [群組原則編輯器]。
-3. 流覽樹狀結構至**電腦**設定  > **系統管理範本** > **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** > **遠端會話環境**。
+3. 流覽樹狀結構至**電腦**設定 > **系統管理範本** > **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** > **遠端會話環境**。
 4. 選取 [原則] **[使用所有遠端桌面服務會話的硬體預設圖形配接器**]，並將此原則設定為 [**啟用**]，以在遠端會話中啟用 GPU 轉譯。
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>設定 GPU 加速框架編碼
@@ -85,9 +82,9 @@ Windows 虛擬桌面支援下列作業系統中的 GPU 加速轉譯和編碼：
 若要確認遠端桌面使用的是 GPU 加速編碼：
 
 1. 使用 Windows 虛擬桌面用戶端連接到 VM 的桌面。
-2. 啟動事件檢視器並流覽至下列節點：**應用程式和服務記錄** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **操作**
-3. 若要判斷是否使用 GPU 加速編碼，請尋找事件識別碼170。 如果您看到「已啟用 AVC 硬體編碼器：1 "然後使用 GPU 編碼。
-4. 若要判斷是否使用 AVC 444 模式，請尋找事件識別碼162。 如果您看到「AVC 可供使用：1初始設定檔：2048 "，然後使用 AVC 444。
+2. 啟動事件檢視器並流覽至下列節點： [**應用程式和服務記錄**檔] > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **操作**
+3. 若要判斷是否使用 GPU 加速編碼，請尋找事件識別碼170。 如果您看到「已啟用 AVC 硬體編碼器：1」，則會使用 GPU 編碼。
+4. 若要判斷是否使用 AVC 444 模式，請尋找事件識別碼162。 如果您看到「可用的 AVC：1個初始設定檔：2048」，則會使用 AVC 444。
 
 ## <a name="next-steps"></a>後續步驟
 

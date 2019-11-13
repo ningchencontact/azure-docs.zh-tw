@@ -6,46 +6,47 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 2da567a8f5ebd0161e41bf5a0aeb83b0d3b4ba4c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+author: peterclu
+ms.author: peterlu
+ms.date: 11/11/2019
+ms.openlocfilehash: 938286f0dafdeb11473bef1b88f876d7918e76ca
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466077"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012747"
 ---
-# <a name="algorithm--module-reference-overview"></a>演算法 & 模組參考總覽
+# <a name="algorithm--module-reference"></a>演算法和模組參考
 
 此參考內容提供 Azure Machine Learning 設計工具（預覽）中所提供的每個機器學習服務演算法和模組的技術背景。
 
 每個模組都代表一組程式碼，可以獨立執行並執行機器學習工作（指定必要的輸入）。 模組可能包含特定的演算法，或執行在機器學習中很重要的工作，例如遺漏值取代或統計分析。
 
 > [!TIP]
-> 在設計工具的任何管線中，您可以取得特定模組的相關資訊。 選取模組，然後在 [**快速協助**] 窗格中選取 [**更多**說明] 連結。
+> 在設計工具的任何管線中，您可以取得特定模組的相關資訊。 選取模組，然後在 [快速說明] 窗格中選取 [更多說明] 連結。
 
 ## <a name="modules"></a>模組
 
 模組會依功能組織：
 
-| 功能 | 說明 | 模組 |
+| 功能 | 描述 | 模組 |
 | --- |--- | ---- |
 | 資料輸入和輸出 | 將資料從雲端來源移至您的管線。 在執行管線時，將您的結果或中繼資料寫入 Azure 儲存體、SQL 資料庫或 Hive，或使用雲端儲存體在管線之間交換資料。  | [匯入資料](import-data.md) <br/> [手動輸入資料](enter-data-manually.md) <br/>[匯出資料](export-data.md) |
-| 資料轉換 | 機器學習服務特有資料的作業，例如正規化或分類收納資料、維度縮減，以及在各種不同的檔案格式之間轉換資料。| [新增資料行](add-columns.md) <br/> [加入資料列](add-rows.md) <br/> [清除遺漏的資料](clean-missing-data.md) <br/> [轉換成 CSV](convert-to-csv.md) <br/> [轉換成資料集](convert-to-dataset.md) <br/> [編輯中繼資料](edit-metadata.md) <br/> [聯結資料](join-data.md) <br/> [標準化資料](normalize-data.md) <br/> [資料分割和範例](partition-and-sample.md) <br/> [移除重複的資料列](remove-duplicate-rows.md) <br/> [選取資料行轉換](select-columns-transform.md) <br/> [選取資料集中的資料行](select-columns-in-dataset.md) <br/> [SMOTE](smote.md) <br/> [分割資料](split-data.md) |
+| 資料轉換 | 機器學習服務特有資料的作業，例如正規化或分類收納資料、維度縮減，以及在各種不同的檔案格式之間轉換資料。| [新增資料行](add-columns.md) <br/> [加入資料列](add-rows.md) <br/> [清除遺漏的資料](clean-missing-data.md) <br/> [轉換成 CSV](convert-to-csv.md) <br/> [轉換成資料集](convert-to-dataset.md) <br/> [編輯中繼資料](edit-metadata.md) <br/> [聯結資料](join-data.md) <br/> [標準化資料](normalize-data.md) <br/> [移除重複的資料列](remove-duplicate-rows.md) <br/> [選取資料行轉換](select-columns-transform.md) <br/> [選取資料集中的資料行](select-columns-in-dataset.md) |
+| 取樣 | 將您的資料分割成一或多個子集子集，以定型和測試機器學習模型。  | [交叉驗證模型](cross-validate-model.md) <br/> [資料分割和範例](partition-and-sample.md) <br/> [SMOTE](smote.md) <br/> [資料分割](split-data.md) |
 | 特徵選取 | 選取相關、有用的功能子集，以用於建立分析模型。 | [以篩選器為基礎的特徵選取](filter-based-feature-selection.md) <br/> [排列功能重要性](permutation-feature-importance.md) |
-| Python 和 R 模組 | 撰寫程式碼並將它內嵌在模組中，以整合 Python 和 R 與您的管線。 | [建立 Python 模型](create-python-model.md) <br/> [執行 Python 腳本](execute-python-script.md)   <br/>  [執行 R 腳本](execute-r-script.md)
+| Python 和 R | 撰寫程式碼並將它內嵌在模組中，以整合 Python 和 R 與您的管線。 | [建立 Python 模型](create-python-model.md) <br/> [執行 Python 腳本](execute-python-script.md)   <br/>  [執行 R 腳本](execute-r-script.md)
 | 文字分析 | 提供專門用來處理結構化和非結構化文字的計算工具。 | [從文字解壓縮 N 語法特徵](extract-n-gram-features-from-text.md) <br/> [功能雜湊](feature-hashing.md) <br/> [前置處理文字](preprocess-text.md) |
 |  | **機器學習演算法**： | |
-| 分類 | 預測類別。  選擇 [從二進位（雙類別）] 或 [多元] 演算法。| [多元決策樹系](multiclass-decision-forest.md) <br/> [多元促進式決策樹](multiclass-boosted-decision-tree.md) <br/> [多元羅吉斯回歸](multiclass-logistic-regression.md)  <br/> [多元類神經網路](multiclass-neural-network.md) <br/> [一個與所有多元](one-vs-all-multiclass.md) <br/>  [雙類別羅吉斯回歸](two-class-logistic-regression.md)  <br/>[雙類別平均認知](two-class-averaged-perceptron.md) <br/> [二元推進式決策樹](two-class-boosted-decision-tree.md)  <br/> [雙類別決策樹系](two-class-decision-forest.md)  <br/> [雙類別類神經網路](two-class-neural-network.md) <br/> [兩個類別支援向量機器](two-class-support-vector-machine.md) | 
+| 分類 | 預測類別。  選擇 [從二進位（雙類別）] 或 [多元] 演算法。| [多元決策樹系](multiclass-decision-forest.md) <br/> [多元促進式決策樹](multiclass-boosted-decision-tree.md) <br/> [多元羅吉斯回歸](multiclass-logistic-regression.md)  <br/> [多元類神經網路](multiclass-neural-network.md) <br/> [一個與所有多元](one-vs-all-multiclass.md) <br/>  [雙類別羅吉斯回歸](two-class-logistic-regression.md)  <br/>[雙類別平均認知](two-class-averaged-perceptron.md) <br/> [二元促進式決策樹](two-class-boosted-decision-tree.md)  <br/> [雙類別決策樹系](two-class-decision-forest.md)  <br/> [雙類別類神經網路](two-class-neural-network.md) <br/> [兩個類別支援向量機器](two-class-support-vector-machine.md) | 
 | 叢集 | 將資料群組在一起。| [K-表示群集](k-means-clustering.md)
 | 迴歸 | 預測值。 | [促進式決策樹回歸](boosted-decision-tree-regression.md) <br/> [決策樹系回歸](decision-forest-regression.md) <br/> [線性回歸](linear-regression.md)  <br/> [類神經網路回歸](neural-network-regression.md)  <br/> |
 | 推薦 | 建立建議模型。 | [評估推薦](evaluate-recommender.md) <br/> [評分 SVD 推薦](score-svd-recommender.md) <br/> [訓練 SVD 推薦](train-SVD-recommender.md) |
 |  | **建立和評估模型**： | |
-| 定型   | 透過演算法執行資料。 | [交叉驗證模型](cross-validate-model.md) <br/> [定型模型](train-model.md)  <br/> [定型群集模型](train-clustering-model.md) <br/>  [微調模型超參數](tune-model-hyperparameters.md) |
+| 訓練   | 透過演算法執行資料。 | [訓練模型](train-model.md)  <br/> [定型群集模型](train-clustering-model.md) <br/>  [微調模型超參數](tune-model-hyperparameters.md) |
 | 評估模型 | 測量定型模型的精確度。 |  [評估模型](evaluate-model.md) |
 | 分數 | 從您剛定型的模型取得預測。 | [套用轉換](apply-transformation.md)<br/>[將資料指派給群集](assign-data-to-clusters.md) <br/>[評分模型](score-model.md) |
-| 統計函數 | 提供與資料科學相關的各種數值方法。 | [套用數學運算](apply-math-operation.md) <br/> [摘要資料](summarize-data.md)|
+| 統計函數 | 提供各種與資料科學相關的統計方法。 | [套用數學運算](apply-math-operation.md) <br/> [摘要資料](summarize-data.md)|
 
 ## <a name="error-messages"></a>錯誤訊息
 

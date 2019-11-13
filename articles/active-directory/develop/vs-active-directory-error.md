@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure Active Directory 連線服務診斷錯誤
+title: 診斷 Azure Active Directory 聯機服務的錯誤
 description: Active directory 連線服務偵測到不相容的驗證類型
 author: ghogen
 manager: jillfra
@@ -12,26 +12,26 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e544942029532fdbe998c36917e688d70ce4ed5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851985"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941390"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 連線服務診斷錯誤
 
 偵測先前的驗證程式碼時，Azure Active Directory 連線伺服器偵測到不相容的驗證類型。
 
-必須建置專案，才能正確偵測該專案中先前的驗證碼。  如果您看到這個錯誤, 而且您的專案中沒有先前的驗證碼, 請重建後再試一次。
+必須建置專案，才能正確偵測該專案中先前的驗證碼。  如果您看到這個錯誤，而且您的專案中沒有先前的驗證碼，請重建後再試一次。
 
 ## <a name="project-types"></a>專案類型
 
-連線服務會檢查您正在開發的專案類型，使其可將正確的驗證邏輯插入專案中。 如果專案中有任何衍生自`ApiController`的控制器, 則專案會被視為 WebAPI 專案。 如果專案中只有衍生自 `MVC.Controller` 的控制器，則該專案會被視為 MVC 專案。 連線服務不支援任何其他專案類型。
+連線服務會檢查您正在開發的專案類型，使其可將正確的驗證邏輯插入專案中。 如果專案中有任何衍生自 `ApiController` 的控制器，則專案會被視為 WebAPI 專案。 如果專案中只有衍生自 `MVC.Controller` 的控制器，則該專案會被視為 MVC 專案。 連線服務不支援任何其他專案類型。
 
 ## <a name="compatible-authentication-code"></a>相容的驗證碼
 
-連線服務也會檢查先前以此服務設定，或與此服務相容的驗證設定。 如果有所有設定, 則會將它視為可重新進入的情況, 而已連線的服務會開啟顯示設定。  如果只有部分設定存在, 則會將它視為錯誤案例。
+連線服務也會檢查先前以此服務設定，或與此服務相容的驗證設定。 如果有所有設定，則會將它視為可重新進入的情況，而已連線的服務會開啟顯示設定。  如果只有部分設定存在，則會將它視為錯誤案例。
 
 在 MVC 專案中，連線服務會檢查先前使用此服務產生的以下任何設定：
 
@@ -40,7 +40,7 @@ ms.locfileid: "68851985"
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-此外, 聯機服務會檢查 Web API 專案中是否有下列任何設定, 這是先前使用此服務所產生的:
+此外，聯機服務會檢查 Web API 專案中是否有下列任何設定，這是先前使用此服務所產生的：
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
@@ -54,7 +54,7 @@ ms.locfileid: "68851985"
 * 個別使用者帳戶
 * 組織帳戶
 
-為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `web.config` 檔案中尋找 `authentication` 元素。
+為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `authentication` 檔案中尋找 `web.config` 元素。
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ ms.locfileid: "68851985"
 </configuration>
 ```
 
-為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `.csproj` 檔案中尋找 `IISExpressWindowsAuthentication` 元素：
+為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `IISExpressWindowsAuthentication` 檔案中尋找 `.csproj` 元素：
 
 ```xml
 <Project>

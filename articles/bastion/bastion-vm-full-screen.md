@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 防禦中將虛擬機器會話視圖變更為全螢幕 |Microsoft Docs
+title: Azure 防禦：觀看虛擬機器會話：全螢幕
 description: 在本文中，您將瞭解如何將此視圖變更為全螢幕。
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498052"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014237"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>變更 vm 會話的全螢幕視圖： Azure 防禦
 

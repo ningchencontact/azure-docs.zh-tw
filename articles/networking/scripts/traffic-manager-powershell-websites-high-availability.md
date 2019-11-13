@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 路由傳送流量以達到應用程式的高可用性 | Microsoft Docs
+title: 適用于應用程式 HA 的路由流量-Azure PowerShell-流量管理員
 description: Azure PowerShell 指令碼範例 - 路由傳送流量以達到應用程式的高可用性
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
-ms.openlocfilehash: 2f3b4ef9abdfae2c0400f54a90694db468470c94
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 99768afa9de22767d73576143a5c747be6a3bef9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889488"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013359"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>路由傳送流量以達到應用程式的高可用性
 

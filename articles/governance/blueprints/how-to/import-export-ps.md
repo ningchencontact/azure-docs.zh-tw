@@ -1,17 +1,14 @@
 ---
 title: 使用 PowerShell 匯入和匯出藍圖定義
 description: 瞭解如何使用您的藍圖定義做為程式碼。 共用、原始檔控制，並使用 export 和 import 命令來管理它們。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 30e734c99a87364acfba9a58d83fe9a377958607
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ca756ed093d5d423f6f83e5ca3953a8ecfce7d5a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978450"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960376"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>使用 PowerShell 匯入和匯出藍圖定義
 
@@ -26,7 +23,7 @@ Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使
 
 無論您的原因為何，以程式碼來管理您的藍圖定義都有其優點。 本文說明如何使用[Az. 藍圖](https://powershellgallery.com/packages/Az.Blueprint/)模組中的 `Import-AzBlueprintWithArtifact` 和 `Export-AzBlueprintWithArtifact` 命令。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您對 Azure 藍圖進行了中等程度的工作知識。 如果您尚未這麼做，請執行下列文章：
 
@@ -34,7 +31,7 @@ Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使
 - 閱讀[部署階段](../concepts/deployment-stages.md)和[藍圖生命週期的](../concepts/lifecycle.md)相關資訊
 - 使用 PowerShell[建立](../create-blueprint-powershell.md)和[管理](./manage-assignments-ps.md)藍圖定義和指派
 
-如果尚未安裝 **Az.Blueprint** 模組，請依照[新增 Az.Blueprint 模組](./manage-assignments-ps.md#add-the-azblueprint-module)中的指示，從 PowerShell 資源庫安裝並驗證它。
+如果尚未安裝 [Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) 模組，請依照**新增 Az.Blueprint 模組**中的指示，從 PowerShell 資源庫安裝並驗證它。
 
 ## <a name="folder-structure-of-a-blueprint-definition"></a>藍圖定義的資料夾結構
 
@@ -43,7 +40,7 @@ Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使
 > [!IMPORTANT]
 > 如果未將任何值傳遞至 `Import-AzBlueprintWithArtifact` Cmdlet 的**name**參數，則會使用藍圖定義儲存所在的資料夾名稱。
 
-除了藍圖定義（必須命名為 `blueprint.json`），也是藍圖定義組成的構件。 每個成品都必須位於名為 `artifacts` 的子資料夾中。
+除了藍圖定義（必須命名為 `blueprint.json`），也是藍圖定義組成的構件。 每個成品都必須位於名為 `artifacts`的子資料夾中。
 將您的藍圖定義結構放在一起，如同資料夾中的 JSON 檔案，其外觀如下：
 
 ```text
@@ -72,7 +69,7 @@ Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使
 - **版本**（選擇性）
   - 如果**藍圖**參考物件包含一個以上版本的參考，則指定要輸出的版本。
 
-1. 取得藍圖定義的參考，以從表示為 `{subId}` 的訂用帳戶匯出：
+1. 取得藍圖定義的參考，以從以 `{subId}`表示的訂用帳戶匯出：
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell

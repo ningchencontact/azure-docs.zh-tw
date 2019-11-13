@@ -1,6 +1,6 @@
 ---
 title: 發佈原生用戶端應用程式 - Azure AD | Microsoft Docs
-description: 涵蓋如何讓原生用戶端應用程式與 Azure AD 應用程式 Proxy 連接器通訊，為內部部署的應用程式提供安全的遠端存取。
+description: 涵蓋如何啟用原生用戶端應用程式，以與 Azure AD 應用程式 Proxy 連接器通訊，為內部部署的應用程式提供安全的遠端存取。
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,62 +16,62 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2cbee6bfcca3ddb356abe9dceab2fca07c152b07
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702413"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961799"
 ---
-# <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>如何啟用與 proxy 應用程式互動的原生用戶端應用程式
+# <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 proxy 應用程式互動
 
-您可以使用 Azure Active Directory (Azure AD) 應用程式 Proxy 來發佈 web 應用程式，但它也可用來發佈原生用戶端應用程式已與 Azure AD Authentication Library (ADAL)。 原生用戶端應用程式與 Web 應用程式不同，因為這種應用程式會安裝在裝置上，而 Web 應用程式則是透過瀏覽器存取。
+您可以使用 Azure Active Directory （Azure AD）應用程式 Proxy 來發佈 web 應用程式，但也可以用來發佈以 Azure AD 驗證程式庫（ADAL）設定的原生用戶端應用程式。 原生用戶端應用程式與 Web 應用程式不同，因為這種應用程式會安裝在裝置上，而 Web 應用程式則是透過瀏覽器存取。
 
-若要支援原生用戶端應用程式，應用程式 Proxy 會接受傳送的標頭中的 Azure AD 發出的權杖。 應用程式 Proxy 服務會為使用者驗證。 此解決方案不使用應用程式權杖進行驗證。
+為了支援原生用戶端應用程式，應用程式 Proxy 會接受在標頭中傳送 Azure AD 發行的權杖。 應用程式 Proxy 服務會對使用者進行驗證。 此解決方案不會使用應用程式權杖進行驗證。
 
-![終端使用者，Azure AD 之間的關聯性和發佈的應用程式](./media/application-proxy-configure-native-client-application/richclientflow.png)
+![終端使用者、Azure AD 和已發佈應用程式之間的關聯性](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-若要發佈原生應用程式，使用 Azure AD 驗證程式庫，它會負責驗證，並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](../develop/native-app.md)。
+若要發佈原生應用程式，請使用 Azure AD 驗證程式庫，它會負責驗證並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](../develop/native-app.md)。
 
 本文引導您完成使用應用程式 Proxy 和 Azure AD 驗證程式庫發佈原生應用程式的四個步驟。
 
-## <a name="step-1-publish-your-proxy-application"></a>步驟 1：發佈您的 proxy 應用程式
+## <a name="step-1-publish-your-proxy-application"></a>步驟1：發佈您的 proxy 應用程式
 
 如同任何其他應用程式一般，發佈您的 Proxy 應用程式，並指派使用者以存取您的應用程式。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 
-## <a name="step-2-register-your-native-application"></a>步驟 2：註冊原生應用程式
+## <a name="step-2-register-your-native-application"></a>步驟2：註冊您的原生應用程式
 
-您現在需要在 Azure AD 中註冊您的應用程式時，也將，如下所示：
+您現在必須在 Azure AD 中註冊您的應用程式，如下所示：
 
-1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 **儀表板**for **Azure Active Directory 系統管理中心**隨即出現。
-1. 在提要欄位中，選取**Azure Active Directory**。 **Azure Active Directory**概觀頁面隨即出現。
-1. 在 Azure AD 的概觀資訊看板中，選取**應用程式註冊**。 所有應用程式註冊清單隨即出現。
-1. 選取 [新增註冊]  。 **註冊應用程式**頁面隨即出現。
+1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 **Azure Active Directory 系統管理中心**的 [**儀表板**] 隨即出現。
+1. 在提要欄位中，選取 [ **Azure Active Directory**]。 [ **Azure Active Directory**總覽] 頁面隨即出現。
+1. 在 Azure AD 總覽 提要欄位中，選取 **應用程式註冊**。 所有應用程式註冊的清單隨即出現。
+1. 選取 [新增註冊]。 [**註冊應用程式**] 頁面隨即出現。
 
    ![在 Azure 入口網站中建立新的應用程式註冊](./media/application-proxy-configure-native-client-application/create.png)
 
-1. 在 **名稱**標題之下，指定您的應用程式的使用者端的顯示名稱。
-1. 底下**支援的帳戶類型**標題之下，選取存取層級使用這些指導方針：
+1. 在 [**名稱**] 標題中，為您的應用程式指定使用者面向的顯示名稱。
+1. 在 [**支援的帳戶類型**] 標題下，使用下列指導方針選取存取層級：
 
-   - 若要以您的組織內部的帳戶為目標，請選取**只有此組織目錄中的帳戶**。
-   - 若要只商務或教育客戶為目標，請選取**任何組織的目錄中的帳戶**。
-   - 若要以最寬的 Microsoft 身分識別集合為目標，請選取**任何組織的目錄和個人 Microsoft 帳戶中的帳戶**。
+   - 若只要將組織內部的帳戶設為目標，請選取 [**僅此組織目錄中的帳戶**]。
+   - 若只要以商業或教育客戶為目標，請選取**任何組織目錄中的 [帳戶**]。
+   - 若要以最廣泛的 Microsoft 身分識別為目標，請選取 [**任何組織目錄中的帳戶] 和 [個人 Microsoft 帳戶**]。
 
-1. 在 **重新導向 URI**標題之下，選取**公開用戶端 （行動和桌面）** ，然後輸入您的應用程式的重新導向 URI。
-1. 選取 讀**Microsoft 平台原則**，然後選取**註冊**。 建立新的應用程式登錄 [概觀] 頁面，並顯示。
+1. 在 [重新**導向 uri** ] 標題中，選取 [**公用用戶端（行動 & 桌面）** ]，然後輸入應用程式的重新導向 URI。
+1. 選取並閱讀**Microsoft 平臺原則**，然後選取 [**註冊**]。 隨即會建立並顯示新應用程式註冊的 [總覽] 頁面。
 
-如需詳細資訊建立新的應用程式註冊，請參閱[整合應用程式與 Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
+如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
 
-## <a name="step-3-grant-access-to-your-proxy-application"></a>步驟 3：授與存取權，您的 proxy 應用程式
+## <a name="step-3-grant-access-to-your-proxy-application"></a>步驟3：授與 proxy 應用程式的存取權
 
-既然您已註冊原生應用程式，您可以讓它能夠存取其他應用程式在您目錄中，在此情況下存取的 proxy 應用程式。 若要啟用原生應用程式 proxy 應用程式公開：
+既然您已註冊原生應用程式，就可以讓它存取您目錄中的其他應用程式，在此案例中，是用來存取 proxy 應用程式。 若要讓原生應用程式公開至 proxy 應用程式：
 
-1. 在新的應用程式註冊頁面的 [資訊看板]，選取**API 的權限**。 **API 的權限**頁面會顯示新的應用程式註冊。
-1. 選取 [新增權限]  。 **要求的 API 權限**頁面隨即出現。
-1. 底下**選取 API**設定中，選取**我的組織使用的 Api**。 清單隨即出現，其中包含您目錄中公開 Api 的應用程式。
-1. 在搜尋] 方塊或捲軸來尋找您在發佈的 proxy 應用程式的型別[步驟 1:將應用程式 proxy 發佈](#step-1-publish-your-proxy-application)，然後選取 [proxy 應用程式。
-1. 在 **應用程式需要何種權限？** 標題之下，選取權限類型。 如果原生應用程式需要存取 proxy 的應用程式 API，以登入的使用者，請選擇**委派的權限**。 如果原生應用程式執行為背景服務或精靈沒有登入的使用者，請選擇**應用程式權限**。
-1. 在 **選取 權限**標題之下，選取所需的權限，然後選取**新增權限**。 **API 的權限**頁面會針對原生應用程式現在會顯示 proxy 您新增的應用程式和權限的 API。
+1. 在 [新增應用程式註冊] 頁面的提要欄位中，選取 [ **API 許可權**]。 [新增應用程式註冊] 的 [ **API 許可權**] 頁面隨即出現。
+1. 選取 [新增權限]。 [**要求 API 許可權**] 頁面隨即出現。
+1. 在 [**選取 api** ] 設定下，選取 [**我的組織使用的 api**]。 隨即會出現清單，其中包含您目錄中公開 Api 的應用程式。
+1. 在 [搜尋] 方塊中鍵入，或按一下 [流覽] 以尋找您在[步驟1：發佈 proxy 應用程式](#step-1-publish-your-proxy-application)中發佈的 proxy 應用程式，然後選取 [proxy 應用程式]。
+1. 在 [**您的應用程式需要何種許可權？** ] 標題中，選取許可權類型。 如果您的原生應用程式需要以登入的使用者身分存取 proxy 應用程式 API，請選擇 [**委派的許可權**]。
+1. 在 [**選取許可權**] 標題中，選取所需的許可權，然後選取 [**新增許可權**]。 原生應用程式的 [ **API 許可權**] 頁面現在會顯示您所新增的 proxy 應用程式和許可權 API。
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>步驟 4：編輯 Active Directory 驗證程式庫
 
@@ -91,20 +91,20 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 ```
 
-在範例程式碼所需的資訊可在 Azure AD 入口網站中，如下所示：
+您可以在 Azure AD 入口網站中找到範例程式碼中的必要資訊，如下所示：
 
-| 所需的資訊 | 如何在 Azure AD 入口網站中找到它 |
+| 需要的資訊 | 如何在 Azure AD 入口網站中尋找 |
 | --- | --- |
-| \<租用戶識別碼 > | **Azure Active Directory** > **屬性** > **目錄識別碼** |
-| \<外部 Url 的 Proxy 應用程式 > | **企業應用程式** > *proxy 應用程式* > **應用程式 proxy** > **外部 Url** |
-| \<原生應用程式的應用程式識別碼 > | **企業應用程式** > *原生應用程式* > **屬性** > **應用程式識別碼** |
-| \<重新導向 URI 的原生應用程式 > | **Azure Active Directory** > **應用程式註冊** > *原生應用程式* > **重新導向 Uri** |
-| \<Proxy 應用程式 API Url > | **Azure Active Directory** > **應用程式註冊** > *原生應用程式* > **API 權限**  >  **API / 權限名稱** |
+| \<租使用者識別碼 > | **Azure Active Directory** > **屬性** > **目錄識別碼** |
+| \<Proxy 應用程式的外部 Url > |  > *proxy 應用程式的***企業應用**程式 > **應用程式 proxy** > **外部 Url** |
+| \<原生應用程式的應用程式識別碼 > |  > *您的原生應用*程式 > **屬性** > **應用程式識別碼**的**企業應用程式** |
+| \<原生應用程式的重新導向 URI > | **Azure Active Directory** > **應用程式註冊** > *您的原生應用程式* > 重新**導向 uri** |
+| \<Proxy 應用程式 API Url > | **Azure Active Directory** > **應用程式註冊** > *您的原生應用程式* > API**許可權** > api **/許可權名稱** |
 
-編輯使用這些參數的 ADAL 後，您的使用者可以驗證原生用戶端應用程式，即使它們是在公司網路外部。
+使用這些參數編輯 ADAL 之後，您的使用者就可以驗證原生用戶端應用程式，即使它們在公司網路外部也一樣。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關原生應用程式流程的詳細資訊，請參閱[Azure Active Directory 中的原生應用程式](../develop/native-app.md)。
+如需原生應用程式流程的詳細資訊，請參閱[Azure Active Directory 中的原生應用](../develop/native-app.md)程式。
 
-了解如何設定[單一登入 Azure Active Directory 中的應用程式](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。
+瞭解如何[在 Azure Active Directory 中設定應用程式的單一登入](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。

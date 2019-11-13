@@ -1,6 +1,6 @@
 ---
-title: 設定安全性以存取和管理 Azure 時間序列深入解析預覽 | Microsoft Docs
-description: 本文說明如何設定安全性和權限作為管理存取原則和資料存取原則，以保護 Azure 時間序列深入解析預覽。
+title: 設定安全性以授與資料存取權 Azure 時間序列深入解析預覽 |Microsoft Docs
+description: 瞭解如何在 Azure 時間序列深入解析預覽環境中設定安全性、許可權，以及管理資料存取原則。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d835916ab1a9d99149800a50690876080a8c5fd
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f49567b8060be2bf2a9ca2b8a1bdee23f58fdd6b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990160"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012694"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
@@ -25,7 +25,7 @@ ms.locfileid: "72990160"
 ## <a name="sign-in-to-time-series-insights"></a>登入以時間序列深入解析
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 找到您的時間序列深入解析環境。 在 [搜尋] 方塊中，輸入 `Time Series`。 選取搜尋結果中的 [時間序列環境]。
+1. 找到您的時間序列深入解析環境。 在 [搜尋]`Time Series`**方塊中，輸入**。 選取搜尋結果中的 [時間序列環境]。
 1. 從清單中選取 Time Series Insights 環境。
 
 ## <a name="grant-data-access"></a>授與資料存取

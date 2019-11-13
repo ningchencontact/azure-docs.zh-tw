@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 229d960f7851b5fab8504b6c2a109bece6c7b31f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969102"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012824"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫
 
@@ -24,6 +24,7 @@ ms.locfileid: "72969102"
 本教學課程說明如何：
 
 > [!div class="checklist"]
+>
 > * 設定 PowerShell，並註冊 Azure 復原服務提供者。
 > * 建立復原服務保存庫。
 > * 在 Azure VM 內設定 SQL DB 的備份。
@@ -251,7 +252,7 @@ Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDat
 ````
 
 提取相關的可保護專案之後，請依照[上一節](#configuring-backup)中的指示啟用備份。
-如果您不想要手動偵測新的 Db，他們可以選擇 start-autoprotection [，如下所述。](#enable-autoprotection)
+如果您不想要手動偵測新的 Db, 他們可以選擇 start-autoprotection, [如下](#enable-autoprotection)所述。
 
 ## <a name="enable-autoprotection"></a>啟用 Start-autoprotection
 
@@ -270,8 +271,8 @@ Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupMan
 
 Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所示：
 
-1. 使用交易記錄備份還原到特定的日期或時間（到第二個）。 Azure 備份會自動決定適當的完整差異備份，以及根據所選時間還原所需的記錄備份鏈。
-2. 還原特定的完整或差異備份，以還原到特定的復原點。
+* 使用交易記錄備份還原到特定的日期或時間（到第二個）。 Azure 備份會自動決定適當的完整差異備份，以及根據所選時間還原所需的記錄備份鏈。
+* 還原特定的完整或差異備份，以還原到特定的復原點。
 
 在還原 SQL Db 之前，請先檢查[這裡](restore-sql-database-azure-vm.md#prerequisites)所述的必要條件。
 
@@ -335,9 +336,9 @@ SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32
 
 若為 SQL DB 還原，則支援下列還原案例。
 
-1. 以另一個復原點的資料覆寫備份的 SQL DB-OriginalWorkloadRestore
-2. 將 SQL DB 還原為相同 SQL 實例中的新資料庫-AlternateWorkloadRestore
-3. 將 SQL DB 還原為另一個 SQL VM 中另一個 SQL 實例的新資料庫-AlternateWorkloadRestore
+* 以另一個復原點的資料覆寫備份的 SQL DB-OriginalWorkloadRestore
+* 將 SQL DB 還原為相同 SQL 實例中的新資料庫-AlternateWorkloadRestore
+* 將 SQL DB 還原為另一個 SQL VM 中另一個 SQL 實例的新資料庫-AlternateWorkloadRestore
 
 在提取相關的復原點（相異或記錄時間點）之後，請使用[AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS Cmdlet 來根據所需的復原方案來提取復原設定物件。
 
@@ -560,12 +561,12 @@ Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWo
 
 例如，假設 SQL AG 有兩個節點： ' SQL-伺服器-0 ' 和 ' sql-伺服器 1 '，以及1個 SQL AG DB。 一旦註冊這兩個節點後，如果使用者列出可保護[的專案](#fetching-sql-dbs)，就會列出下列元件
 
-1. SQL AG 物件-可保護專案類型為 Remove-sqlavailabilitygroup
-2. SQL AG 資料庫可保護的專案類型為 Backup-sqldatabase
-3. sql-伺服器-0-可保護的專案類型為 SQLInstance
-4. sql-伺服器-1-可保護的專案類型為 SQLInstance
-5. 任何預設 SQL Db （master、model、msdb），位於 SQL-伺服器-0-可保護的專案類型為 Backup-sqldatabase
-6. 任何預設 SQL Db （master、model、msdb），其下的 sql-伺服器-1-可保護的專案類型為 Backup-sqldatabase
+* SQL AG 物件-可保護專案類型為 Remove-sqlavailabilitygroup
+* SQL AG 資料庫可保護的專案類型為 Backup-sqldatabase
+* sql-伺服器-0-可保護的專案類型為 SQLInstance
+* sql-伺服器-1-可保護的專案類型為 SQLInstance
+* 任何預設 SQL Db （master、model、msdb），位於 SQL-伺服器-0-可保護的專案類型為 Backup-sqldatabase
+* 任何預設 SQL Db （master、model、msdb），其下的 sql-伺服器-1-可保護的專案類型為 Backup-sqldatabase
 
 當[備份容器列出](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0)時，sql-server-0、sql-server-1 也會列為 "AzureVMAppContainer"。
 

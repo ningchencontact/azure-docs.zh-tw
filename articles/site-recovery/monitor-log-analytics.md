@@ -1,18 +1,18 @@
 ---
-title: 使用 Azure 監視器記錄（Log Analytics）監視 Azure Site Recovery |Microsoft Docs
+title: 使用 Azure 監視器記錄監視 Azure Site Recovery
 description: 瞭解如何使用 Azure 監視器記錄來監視 Azure Site Recovery （Log Analytics）
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331925"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936079"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>透過 Azure 監視器記錄監視 Site Recovery
 
@@ -36,13 +36,13 @@ Azure 監視器記錄檔所提供的記錄檔資料平臺，會收集活動和�
 
 - 復原服務保存庫中至少有一部機器受到保護。
 - 用來儲存 Site Recovery 記錄的 Log Analytics 工作區。 [瞭解如何](../azure-monitor/learn/quick-create-workspace.md)設定工作區。
-- 如何在 Log Analytics 中撰寫、執行和分析記錄查詢的基本知識。 [深入了解提出技術問題。
+- 如何在 Log Analytics 中撰寫、執行和分析記錄查詢的基本知識。 [詳細資訊](../azure-monitor/log-query/get-started-portal.md)。
 
 我們建議您在開始之前，先檢查[常見的監控問題](monitoring-common-questions.md)。
 
 ## <a name="configure-site-recovery-to-send-logs"></a>設定 Site Recovery 來傳送記錄檔
 
-1. 在保存庫中，按一下 [**診斷設定**]  >  [**新增診斷設定**]。
+1. 在保存庫中，按一下 **診斷設定** > **新增診斷設定**。
 
     ![選取診斷記錄](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -61,7 +61,7 @@ Site Recovery 記錄會開始饋送至所選工作區中的資料表（**AzureDi
 您可以使用以[Kusto 查詢語言](../azure-monitor/log-query/get-started-queries.md)撰寫的記錄查詢，從記錄檔中取出資料。 本節提供一些您可能用於 Site Recovery 監視的常見查詢範例。
 
 > [!NOTE]
-> 某些範例使用**replicationProviderName_s**設定為**A2A**。 這會使用 Site Recovery 來抓取複寫到次要 Azure 區域的 Azure Vm。 在這些範例中，如果您想要使用 Site Recovery 來抓取複寫至 Azure 的內部部署 VMware Vm 或實體伺服器，您可以將**A2A**取代為**InMageAzureV2**。
+> 部分範例會使用**replicationProviderName_s**設定為**A2A**。 這會使用 Site Recovery 來抓取複寫到次要 Azure 區域的 Azure Vm。 在這些範例中，如果您想要使用 Site Recovery 來抓取複寫至 Azure 的內部部署 VMware Vm 或實體伺服器，您可以將**A2A**取代為**InMageAzureV2**。
 
 
 ### <a name="query-replication-health"></a>查詢複寫健全狀況
@@ -223,7 +223,7 @@ AzureDiagnostics 
 您可以根據 Azure 監視器資料來設定 Site Recovery 警示。 [深入瞭解](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal)如何設定記錄警示。 
 
 > [!NOTE]
-> 某些範例使用**replicationProviderName_s**設定為**A2A**。 這會針對複寫到次要 Azure 區域的 Azure Vm 設定警示。 在這些範例中，如果您想要設定複寫至 Azure 的內部部署 VMware Vm 或實體伺服器的警示，您可以將**A2A**取代為**InMageAzureV2** 。
+> 部分範例會使用**replicationProviderName_s**設定為**A2A**。 這會針對複寫到次要 Azure 區域的 Azure Vm 設定警示。 在這些範例中，如果您想要設定複寫至 Azure 的內部部署 VMware Vm 或實體伺服器的警示，您可以將**A2A**取代為**InMageAzureV2** 。
 
 ### <a name="multiple-machines-in-a-critical-state"></a>處於重大狀態的多部電腦
 

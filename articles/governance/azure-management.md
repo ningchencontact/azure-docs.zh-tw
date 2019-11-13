@@ -1,17 +1,14 @@
 ---
 title: Azure 管理概觀 - Azure 控管
 description: 管理 Azure 應用程式與資源的區域概觀，並提供 Azure 管理工具內容的連結。
-author: DCtheGeek
-ms.service: governance
-ms.topic: article
 ms.date: 12/06/2018
-ms.author: dacoulte
-ms.openlocfilehash: 2535b64380f67da440698c7577840d5319e6ca4f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: article
+ms.openlocfilehash: e85d5162146fb716ed9f846dc5a828d83c669627
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978541"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013912"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure 中的管理服務總覽
 
@@ -45,7 +42,7 @@ ms.locfileid: "71978541"
 
 管理資源和資料的安全性。 安全性計畫包括評估威脅、收集和分析資料，以及確保應用程式和資源的合規性。 安全性監視和威脅分析由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 請參閱 [Azure 安全性簡介](../security/fundamentals/overview.md)，以取得與保護 Azure 資源有關的完整資訊和指導方針。
 
-## <a name="protect"></a>保護
+## <a name="protect"></a>Protect
 
 保護是指即使發生了您無法控制的中斷狀況，也能確保應用程式和資料的可用性。 Azure 中的保護是由兩個服務提供。 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)提供雲端或內部部署中資料的備份和復原。 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 可在災害發生時提供商務持續性和立即復原的能力。
 

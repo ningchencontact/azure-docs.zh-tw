@@ -3,7 +3,7 @@ title: Azure 監視器中的登入記錄架構 |Microsoft Docs
 description: 描述用於 Azure 監視器的 Azure AD 登入記錄架構
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4259a23778db175de2a0331e692e878df39d0a07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895007"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014323"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>解讀 Azure 監視器中的 Azure AD 登入記錄架構
 
-此文章說明 Azure 監視器中的 Azure Active Directory (Azure AD) 登入記錄結構描述。 大部分與登入相關的資訊都會在 `records` 物件的 *Properties* 屬性下提供。
+此文章說明 Azure 監視器中的 Azure Active Directory (Azure AD) 登入記錄結構描述。 大部分與登入相關的資訊都會在 *物件的*Properties`records` 屬性下提供。
 
 
 ```json
@@ -163,9 +163,9 @@ ms.locfileid: "72895007"
 | CallerIpAddress | 發出要求之用戶端的 IP 位址。 | 
 | CorrelationId | 用戶端傳遞的選擇性 GUID。 此值能協助將用戶端作業和伺服器端作業相互關聯，當您在追蹤跨服務的記錄時它會很有用。 |
 | 身分識別 | 當您發出要求時，來自出示之權杖的身分識別。 它可以是使用者帳戶、系統帳戶或服務主體。 |
-| 層級 | 提供訊息的類型。 針對稽核，它一律是 *Informational*。 |
-| Location | 提供登入活動的位置。 |
-| 屬性 | 列出與登入相關聯的所有屬性。如需詳細資訊，請參閱[MICROSOFT GRAPH API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)。 此結構描述使用與登入資源相同的屬性名稱，以提高可讀性。
+| 等級 | 提供訊息的類型。 針對稽核，它一律是 *Informational*。 |
+| 位置 | 提供登入活動的位置。 |
+| properties | 列出與登入相關聯的所有屬性。如需詳細資訊，請參閱[MICROSOFT GRAPH API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)。 此結構描述使用與登入資源相同的屬性名稱，以提高可讀性。
 
 ## <a name="next-steps"></a>後續步驟
 

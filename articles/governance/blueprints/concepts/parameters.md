@@ -1,17 +1,14 @@
 ---
 title: 使用參數建立動態藍圖
 description: 了解靜態與動態參數，以及如何使用它們來建立動態藍圖。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981063"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960504"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -61,7 +58,7 @@ ms.locfileid: "71981063"
 
 1. 按一下現有的藍圖，然後按一下 [**編輯藍圖**]，或按一下 [ **+ 建立藍圖**]，並填寫 [**基本**] 索引標籤上的資訊。
 
-1. 按一下 **[下一步成品]** ，或按一下 [成品] 索引標籤。
+1. 按一下 [下一步: 成品]，或按一下 [成品] 索引標籤。
 
 1. 新增到具有參數選項之藍圖的成品會在 [參數] 欄中顯示 [已填入 X 個參數 (共 Y 個)]。 按一下成品列來編輯成品參數。
 
@@ -134,7 +131,7 @@ ms.locfileid: "71981063"
   }
   ```
 
-在此範例中，**principalIds** 屬性會利用 `[parameters('owners')]` 的值來使用**擁有者**藍圖層級參數。 使用藍圖層級參數在成品上設定參數，仍然是一個**靜態參數**範例。 藍圖層級參數無法在藍圖指派期間設定，而且在每個指派上都會是相同的值。
+在此範例中，**principalIds** 屬性會利用  **的值來使用**擁有者`[parameters('owners')]`藍圖層級參數。 使用藍圖層級參數在成品上設定參數，仍然是一個**靜態參數**範例。 藍圖層級參數無法在藍圖指派期間設定，而且在每個指派上都會是相同的值。
 
 ##### <a name="artifact-level-parameter"></a>成品層級參數
 

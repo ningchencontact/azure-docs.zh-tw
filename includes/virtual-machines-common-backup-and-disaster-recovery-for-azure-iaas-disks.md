@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302291"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012520"
 ---
-# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁碟的備份和災害復原
-
 本文說明如何在 Azure 中規劃 IaaS 虛擬機器 (VM) 和磁碟的備份和災害復原 (DR)。 本文件涵蓋受控磁碟和非受控磁碟。
 
 首先，我們會討論 Azure 平台中內建的容錯功能，該功能有助於防範本機失敗。 接著會討論內建功能未能完全涵蓋的災害案例。 我們也會示範幾個工作負載案例範例，其中可能會有不同的備份和 DR 考量。 接著檢閱 IaaS 磁碟的可能 DR 解決方案。
@@ -63,9 +61,9 @@ Azure 平台對當地語系化失敗的內建保護，在發生導致大規模�
 
 您的 DR 考量可能包括下列層面：
 
-- 高可用性：可讓應用程式繼續在狀況良好的狀態下執行，而不需要長期停機。 「狀況良好狀態」這個狀態是指應用程式有回應，而且使用者可以連線到應用程式並與其互動。 某些任務關鍵性應用程式和資料庫可能必須永遠可供使用，即使平台發生失敗也一樣。 針對這些工作負載，您可能需要規劃應用程式及資料的備援。
+- 高可用性：可讓應用程式繼續在狀況良好狀態下執行，而不需要長期停機。 「狀況良好狀態」這個狀態是指應用程式有回應，而且使用者可以連線到應用程式並與其互動。 某些任務關鍵性應用程式和資料庫可能必須永遠可供使用，即使平台發生失敗也一樣。 針對這些工作負載，您可能需要規劃應用程式及資料的備援。
 
-- 資料耐久性：在某些情況下，主要考量是確保發生災害時會保留資料。 因此，您可能需要在不同的網站上有資料備份。 針對這類工作負載，您可能不需要對應用程式進行完整備援，而只要定期備份磁碟。
+- 資料持久性：在某些情況下，主要考量是確保發生災害時會保留資料。 因此，您可能需要在不同的網站上有資料備份。 針對這類工作負載，您可能不需要對應用程式進行完整備援，而只要定期備份磁碟。
 
 ## <a name="backup-and-dr-scenarios"></a>備份和 DR 案例
 
@@ -109,7 +107,7 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
  下表是 DR 可用解決方案的摘要。
 
-| 狀況 | 自動複寫 | DR 解決方案 |
+| 案例 | 自動複寫 | DR 解決方案 |
 | --- | --- | --- |
 | 進階 SSD 磁碟 | 本機 ([本地備援儲存體](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 備份](https://azure.microsoft.com/services/backup/) |
 | 受控磁碟 | 本機 ([本地備援儲存體](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 備份](https://azure.microsoft.com/services/backup/) |
@@ -121,10 +119,10 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
 應用程式或基礎結構層級的高可用性、備份和 DR 選項如下所示：
 
-| 層級 |   高可用性   | 備份或 DR |
+| 等級 |   高可用性   | 備份或 DR |
 | --- | --- | --- |
 | 應用程式 | SQL Server AlwaysOn | Azure 備份 |
-| 基礎結構    | 可用性設定組  | 使用一致性快照的異地備援儲存體 |
+| 基礎結構    | 可用性集合  | 使用一致性快照的異地備援儲存體 |
 
 ### <a name="using-azure-backup"></a>使用 Azure 備份 
 
@@ -146,9 +144,9 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
     a. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽 [所有資源] 並尋找 [復原服務保存庫]。
 
-    b. 在 [復原服務保存庫] 功能表上，按一下 [新增]，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
+    b.這是另一個 C# 主控台應用程式。 在 [復原服務保存庫] 功能表上，按一下 [新增]，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
 
-1.  確認新建立保存庫的儲存體複寫。 存取復原服務保存**庫**底下的保存庫，然後移至 [內容 **] @no__t-** 2**備份**設定  > **更新**。 確定預設已選取 [異地備援儲存體] 選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
+1.  確認新建立保存庫的儲存體複寫。 存取復原服務保存**庫**底下的保存庫，然後移至 內容 ** > ** **備份**設定 > **更新**。 確定預設已選取 [異地備援儲存體] 選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
 
 1.  設定備份原則，然後從相同的 UI 中選取 VM。
 
@@ -233,7 +231,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 ## <a name="other-options"></a>其他選項
 
-### <a name="sql-server"></a>[SQL Server]
+### <a name="sql-server"></a>SQL Server
 
 在 VM 中執行的 SQL Server 有其本身內建的功能，可將您的 SQL Server 資料庫備份至 Azure Blob 儲存體或檔案共用。 如果儲存體帳戶是異地備援儲存體或存取權限異地備援儲存體，您可以在發生災害時，存取儲存體帳戶之次要資料中心內的備份，其限制如先前所述。 如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)。 除了備份和還原之外，[SQL Server Always On 可用性群組](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)可以維護資料庫的次要複本。 這項功能可大幅縮短災害復原時間。
 

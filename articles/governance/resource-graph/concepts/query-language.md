@@ -1,17 +1,14 @@
 ---
 title: 了解查詢語言
 description: 描述 Resource Graph 資料表和可用的 Kusto 資料類型、運算子和函數，Azure Resource Graph。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622628"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959041"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查詢語言
 
@@ -27,7 +24,7 @@ Azure Resource Graph 查詢語言支援多個運算子與函式。 每個工作�
 
 Resource Graph 會針對它所儲存的資料，提供有關 Resource Manager 資源類型及其屬性的多個資料表。 這些資料表可以與 `join` 或 `union` 運算子搭配使用，以取得相關資源類型的屬性。 以下是 Resource Graph 中可用的資料表清單：
 
-|Resource Graph 資料表 |說明 |
+|Resource Graph 資料表 |描述 |
 |---|---|
 |資源 |未在查詢中定義的預設資料表。 大部分的 Resource Manager 資源類型和屬性都在這裡。 |
 |ResourceContainers |包含訂用帳戶（預覽版--`Microsoft.Resources/subscriptions`）和資源群組（`Microsoft.Resources/subscriptions/resourcegroups`）資源類型和資料。 |
@@ -47,7 +44,7 @@ Resources
 | limit 1
 ```
 
-下列查詢會顯示更複雜的 `join`使用。 此查詢會將聯結的資料表限制為訂用帳戶資源，並使用 `project` 只包含原始欄位_subscriptionId_ ，而_名稱_欄位則會重新命名為 _[web.config]_ 。 欄位重新命名可避免 `join` 將它新增為_name1_ ，因為欄位已經存在_資源_中。 原始資料表會使用 `where` 進行篩選，而下列 `project` 包含兩個數據表的資料行。 查詢結果是顯示類型的單一金鑰保存庫、金鑰保存庫的名稱，以及它所在的訂用帳戶名稱。
+下列查詢會顯示更複雜的 `join`使用。 此查詢會將聯結的資料表限制為訂用帳戶資源，並利用 `project` 使其僅包含原始欄位 _subscriptionId_ 和已重新命名為 _SubName_ 的 _name_ 欄位。 欄位重新命名可避免 `join` 將它新增為_name1_ ，因為欄位已經存在_資源_中。 原始資料表會使用 `where` 進行篩選，而下列 `project` 包含兩個資料表的資料行。 查詢結果是單一金鑰保存庫顯示類型、金鑰保存庫的名稱，以及其所在的訂用帳戶名稱。
 
 ```kusto
 Resources
@@ -78,7 +75,7 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 |[mv-展開](/azure/kusto/query/mvexpandoperator) |[列出具有特定寫入位置的 Cosmos DB](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_最大值400 |
 |[即可](/azure/kusto/query/orderoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |`sort` 的同義字 |
 |[project](/azure/kusto/query/projectoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) | |
-|[project-away](/azure/kusto/query/projectawayoperator) |[從結果中移除資料行](../samples/advanced.md#remove-column) | |
+|[project-away](/azure/kusto/query/projectawayoperator) |[移除結果中的資料行](../samples/advanced.md#remove-column) | |
 |[sort](/azure/kusto/query/sortoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |`order` 的同義字 |
 |[summarize](/azure/kusto/query/summarizeoperator) |[計算的 Azure 資源計數](../samples/starter.md#count-resources) |僅限簡化的第一頁 |
 |[take](/azure/kusto/query/takeoperator) |[列出所有公用 IP 位址](../samples/starter.md#list-publicip) |`limit` 的同義字 |

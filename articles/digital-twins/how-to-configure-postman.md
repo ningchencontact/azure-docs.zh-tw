@@ -1,6 +1,6 @@
 ---
-title: 如何針對 Azure Digital Twins 設定 Postman | Microsoft Docs
-description: 如何針對 Azure Digital Twins 設定 Postman。
+title: 如何設定 Postman-Azure 數位 Twins |Microsoft Docs
+description: 瞭解如何設定和使用 Postman 來測試 Azure 數位 Twins Api。
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5a357a246f2ba6c294b107e447218f386623f5c5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949217"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014187"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -37,7 +37,7 @@ ms.locfileid: "71949217"
 
 1. 開啟應用程式註冊的 [API 權限] 窗格。 選取 [新增權限] 按鈕。 在 [要求 API 權限] 窗格中，選取 [我的組織使用的 API] 索引標籤，然後搜尋：
     
-    1. `Azure Digital Twins`. 選取 **Azure Digital Twins** API。
+    1. `Azure Digital Twins`。 選取 **Azure Digital Twins** API。
 
         [![搜尋 API 或 Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
@@ -46,8 +46,8 @@ ms.locfileid: "71949217"
         [![Azure 智慧空間的搜尋 API](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
-    > 將顯示的 Azure AD API 名稱和識別碼，取決於您的租使用者：
-    > * 測試租使用者和客戶帳戶應搜尋 `Azure Digital Twins`。
+    > 所顯示的 Azure AD API 名稱和識別碼取決於您的租用戶：
+    > * 測試租用戶和客戶帳戶應搜尋 `Azure Digital Twins`。
     > * 其他 Microsoft 帳戶應搜尋 `Azure Smart Spaces Service`。
 
 1. 選取的 API 會在相同的 [要求 API 權限] 窗格中顯示為 **Azure Digital Twins**。 選取 [讀取 (1)] 下拉式清單，然後選取 [Read.Write] 核取方塊。 選取 [新增權限] 按鈕。
@@ -56,12 +56,12 @@ ms.locfileid: "71949217"
 
 1. 根據您組織的設定，您可能需要執行其他步驟，授與對此 API 的系統管理員存取權。 請連絡系統管理員以取得詳細資訊。 管理員存取權一經核准，您 API 的 [API 權限] 窗格中的 [需要管理員同意] 資料行就會顯示如下：
 
-    [![新增 API 權限](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![系統管理員同意核准](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 
 1. 選取 [**資訊清單**] 以開啟應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
 
-    [@no__t 1Azure Active Directory 隱含流程](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+    [![Azure Active Directory 隱含流程](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. 將**回覆 URL** 設定為`https://www.getpostman.com/oauth2/callback`。
 
@@ -85,7 +85,7 @@ ms.locfileid: "71949217"
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Name  | 更換為 | 範例 |
+    | 名稱  | 更換為 | 範例 |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | 您的租用戶或組織的名稱 | `microsoft` |
 
@@ -97,13 +97,13 @@ ms.locfileid: "71949217"
     | 回呼 URL | `https://www.getpostman.com/oauth2/callback` |
     | 驗證 URL | 使用**步驟 2**中的**授權 URL** |
     | 用戶端識別碼 | 使用在上一節中建立或重複使用之 Azure Active Directory 應用**程式的應用程式識別碼** |
-    | `Scope` | 保留空白 |
+    | 範圍 | 保留空白 |
     | State | 保留空白 |
     | 用戶端驗證 | `Send as Basic Auth header` |
 
 1. 用戶端現在應該如下所示：
 
-    [@no__t 1Postman 用戶端範例](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Postman 用戶端範例](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. 選取 [要求權杖]。
 
@@ -119,14 +119,14 @@ ms.locfileid: "71949217"
 
 1. 在 [標頭] 索引標籤下，新增 HTTP 要求標頭索引鍵 **Content-Type** 且其值為 `multipart/mixed`。
 
-   [![Content 類型多部分/混合](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![內容類型多部分/混合](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. 將非文字資料序列化到檔案。 JSON 資料會儲存為 JSON 檔案。
 1. 在 [**主體**] 索引標籤底下，選取 [`form-data`]。 
-1. 藉由指派索引**鍵**名稱來新增每個檔案，然後選取 [`file`]。
+1. 藉由指派索引**鍵**名稱，然後選取 [`file`] 來新增每個檔案。
 1. 接著，透過 [選擇檔案] 按鈕選取每個檔案。
 
-   [@no__t 1Postman 用戶端範例](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Postman 用戶端範例](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * Postman 用戶端不需要多部分區塊具有手動指派的 **Content-type** 或 **Content-disposition**。

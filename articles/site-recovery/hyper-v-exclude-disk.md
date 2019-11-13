@@ -1,19 +1,18 @@
 ---
-title: 在使用 Azure Site Recovery 服務設定災害復原時從複寫作業排除磁碟 | Microsoft Docs
+title: 在具有 Azure Site Recovery 的嚴重損壞修復中，從複寫中排除磁片
 description: 說明如何在災害復原至 Azure 期間從複寫作業排除 VM 磁碟。
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773868"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961444"
 ---
 # <a name="exclude-disks-from-replication"></a>從複寫排除磁碟
 本文說明如何從複寫排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。
@@ -22,7 +21,7 @@ ms.locfileid: "60773868"
 
 **功能** | **VMware 至 Azure** | **Hyper-V 至 Azure** | **Azure 至 Azure**| **Hyper-V 至 Hyper-V** 
 --|--|--|--|--
-排除磁碟 | 是 | 是 | 否 | 否
+排除磁碟 | yes | yes | 否 | 否
 
 ## <a name="why-exclude-disks-from-replication"></a>為什麼要排除磁碟不要複寫？
 排除磁碟不要複寫往往是因為︰
@@ -43,7 +42,7 @@ ms.locfileid: "60773868"
 2. 排除 tempdb 磁碟不要複寫。
 
 ## <a name="how-to-exclude-disks"></a>如何排除磁碟？
-從 Azure Site Recovery 入口網站，依照[啟用複寫](site-recovery-hyper-v-site-to-azure.md)工作流程來保護虛擬機器。 在工作流程的第四個步驟中，使用 [要複寫的磁碟]  資料行，排除磁碟不要複寫。 依預設會選取所有磁碟進行複寫。 針對您想排除而不要複寫的磁碟清除核取方塊，然後完成步驟以啟用複寫。
+從 Azure Site Recovery 入口網站，依照[啟用複寫](site-recovery-hyper-v-site-to-azure.md)工作流程來保護虛擬機器。 在工作流程的第四個步驟中，使用 [要複寫的磁碟] 資料行，排除磁碟不要複寫。 依預設會選取所有磁碟進行複寫。 針對您想排除而不要複寫的磁碟清除核取方塊，然後完成步驟以啟用複寫。
 
 ![排除磁碟不要複寫，並針對 Hyper-V 到 Azure 容錯回復啟用複寫](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
 
@@ -73,7 +72,7 @@ ms.locfileid: "60773868"
 DB-Disk0-OS | DISK0 | C:\ | 作業系統磁碟
 DB-Disk1| Disk1 | D:\ | SQL 系統資料庫和使用者資料庫 1
 DB-Disk2 (已排除磁碟不要保護) | Disk2 | E:\ | 暫存檔案
-DB-Disk3 (已排除磁碟不要保護) | Disk3 | F:\ | SQL tempdb 資料庫 (資料夾路徑 (F:\MSSQL\Data\) <br /> <br />記下容錯移轉之前的資料夾路徑。
+DB-Disk3 (已排除磁碟不要保護) | Disk3 | F:\ | SQL tempdb 資料庫 (資料夾路徑 (F:\MSSQL\Data\) <br /> <br />在容錯移轉之前記下資料夾路徑。
 DB-Disk4 | Disk4 |G:\ |使用者資料庫 2
 
 因為當您保護 SalesDB 虛擬機器時，虛擬機器上兩個磁碟的資料變換是暫時的，所以排除 Disk2 和 Disk3 不要複寫。 Azure Site Recovery 不會複寫這些磁碟。 在容錯移轉時，這些磁碟將不會出現在 Azure 上的容錯移轉虛擬機器上。
@@ -83,7 +82,7 @@ Azure 虛擬機器上的磁碟在容錯移轉之後如下所示︰
 **客體作業系統磁碟#** | **磁碟機代號** | **磁碟上的資料類型**
 --- | --- | ---
 DISK0 | C:\ | 作業系統磁碟
-Disk1 | E:\ | 暫存儲存體<br /> <br />Azure 會新增此磁碟，並指派第一個可用的磁碟機代號。
+Disk1 | E:\ | 暫存儲存體<br /> <br />Azure 會新增此磁片，並指派第一個可用的磁碟機號。
 Disk2 | D:\ | SQL 系統資料庫和使用者資料庫 1
 Disk3 | G:\ | 使用者資料庫 2
 
@@ -147,7 +146,7 @@ Disk3，這是 SQL tempdb 磁碟 (tempdb 資料夾路徑 F:\MSSQL\Data\)，排�
 **客體作業系統磁碟#** | **磁碟機代號** | **磁碟上的資料類型**
 --- | --- | ---
 DISK0 | C:\ | 作業系統磁碟
-Disk1 | E:\ | 暫存儲存體<br /> <br />Azure 會新增此磁碟，並指派第一個可用的磁碟機代號。
+Disk1 | E:\ | 暫存儲存體<br /> <br />Azure 會新增此磁片，並指派第一個可用的磁碟機號。
 Disk2 | D:\ | SQL 系統資料庫和使用者資料庫 1
 Disk3 | G:\ | 使用者資料庫 2
 

@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b1287f9c7e946c7b4d035b2ad6301947ffad3cea
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 86d03e980a233a60e4f3a6541462264dae0862af
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522509"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005568"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
-
 這篇文章提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以使用這份文件所提供的指示，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。 為了說明指導方針，在這整份文件中，我們以進階儲存體上執行的 SQL Server 為範例。
 
 雖然我們在本文中說明儲存體層的效能案例，但您必須將應用程式層最佳化。 例如，如果您在 Azure 進階儲存體上裝載 SharePoint 伺服器陣列，您可以使用本文件的 SQL Server 範例將資料庫伺服器最佳化。 此外，也要將 SharePoint 伺服器陣列的 Web 伺服器和應用程式伺服器最佳化，才能發揮最高效能。

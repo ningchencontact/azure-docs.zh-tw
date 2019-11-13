@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747433"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012919"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 
@@ -185,14 +185,14 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     將下列值使用於 SSRS 設定：
     * 服務帳戶： ' 使用內建帳戶 ' 應為網路服務
-    * Web 服務 URL： ' 虛擬目錄 ' 應 ReportServer_<SQLInstanceName>
-    * 資料庫： DatabaseName 應該是 ReportServer $<SQLInstanceName>
-    * 入口網站 URL：應 Reports_ [虛擬目錄]<SQLInstanceName>
+    * Web 服務 URL： ' 虛擬目錄 ' 應該 ReportServer_\<SQLInstanceName >
+    * 資料庫： DatabaseName 應該是 ReportServer $\<SQLInstanceName >
+    * 入口網站 URL： ' 虛擬目錄 ' 應該 Reports_\<SQLInstanceName >
 
     [深入了解](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS 設定。
 
     > [!NOTE]
-    > 做為 MABS 資料庫使用之 SQL Server 的授權，受[Microsoft 線上服務條款](https://www.microsoft.com/en-us/licensing/product-licensing/products)（OST）所規範。 根據 OST，與 MABS 配套的 SQL Server 只能用來作為 MABS 的資料庫。
+    > 做為 MABS 資料庫使用之 SQL Server 的授權，受[Microsoft 線上服務條款](https://www.microsoft.com/licensing/product-licensing/products)（OST）所規範。 根據 OST，與 MABS 配套的 SQL Server 只能用來作為 MABS 的資料庫。
 
 4. 提供 Microsoft Azure 備份伺服器檔案的安裝位置，按 [下一步]。
 
@@ -288,12 +288,12 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 在您了解 Azure 連線和 Azure 訂用帳戶的狀態後，您可以使用下表來確認提供的備份/還原功能會受到哪些影響。
 
-| 連線狀態 | Azure 訂閱 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
+| 連線狀態 | Azure 訂用帳戶 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
 | --- | --- | --- | --- | --- | --- |
-| 連線 |Active |允許 |允許 |允許 |允許 |
+| 連線 |作用中 |允許 |允許 |允許 |允許 |
 | 連線 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
-| 連線中斷 > 15 天 |Active |已停止 |已停止 |允許 |允許 |
+| 連線中斷 > 15 天 |作用中 |已停止 |已停止 |允許 |允許 |
 | 連線中斷 > 15 天 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線中斷 > 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 
@@ -336,7 +336,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
    >
    > 請勿在升級 SQL 執行個體時結束，結束會將 SQL 報告執行個體解除安裝，因而使重新升級 MABS 的嘗試失敗。
 
-   需要注意的重要事項︰
+
 
    > [!IMPORTANT]
    >

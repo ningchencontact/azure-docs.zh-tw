@@ -7,18 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: c30b918be5e4185d6fb4fdd2fcfc47f8dd4d25ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969158"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012144"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>備份檔案和資料夾的相關常見問題
 
 本文提供使用[Azure 備份](backup-overview.md)服務中的 MICROSOFT AZURE 復原服務（MARS）代理程式來備份檔案和資料夾的常見問題為數眾多解答。
-
-## <a name="general"></a>一般
 
 ## <a name="configure-backups"></a>設定備份
 
@@ -47,11 +45,11 @@ ms.locfileid: "72969158"
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>我可以使用 MARS 代理程式來備份 Azure VM 上的檔案和資料夾嗎？  
 
-是的。 Azure 備份使用適用于 Azure VM 代理程式的 VM 擴充功能，為 Azure Vm 提供 VM 層級備份。 如果您想要備份 VM 上的來賓 Windows 作業系統上的檔案和資料夾，您可以安裝 MARS 代理程式來執行該作業。
+是。 Azure 備份使用適用于 Azure VM 代理程式的 VM 擴充功能，為 Azure Vm 提供 VM 層級備份。 如果您想要備份 VM 上的來賓 Windows 作業系統上的檔案和資料夾，您可以安裝 MARS 代理程式來執行該作業。
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>我可以使用 MARS 代理程式來備份 Azure VM 暫存儲存體上的檔案和資料夾嗎？
 
-是的。 安裝 MARS 代理程式，並將來賓 Windows 作業系統上的檔案和資料夾備份至暫存儲存體。
+是。 安裝 MARS 代理程式，並將來賓 Windows 作業系統上的檔案和資料夾備份至暫存儲存體。
 
 * 清除暫存儲存體資料時，備份作業會失敗。
 * 如果暫存的儲存體資料已刪除，您只能還原至非變動性儲存體。
@@ -62,7 +60,7 @@ ms.locfileid: "72969158"
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>MARS 代理程式是否支援 Windows Server 2012 重復資料刪除？
 
-是的。 MARS 代理程式在準備備份作業時，會將重復資料刪除的資料轉換成一般資料。 然後，它會將資料優化以進行備份、將資料加密，然後將加密的資料傳送至保存庫。
+是。 MARS 代理程式在準備備份作業時，會將重復資料刪除的資料轉換成一般資料。 然後，它會將資料優化以進行備份、將資料加密，然後將加密的資料傳送至保存庫。
 
 ## <a name="manage-backups"></a>管理備份
 
@@ -113,11 +111,11 @@ MARS 代理程式依賴 NTFS，並允許檔案名/路徑中[支援的字元](/wi
 
 1. 在提高許可權的命令提示字元中執行此命令，以停止備份引擎：
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. 如果您已設定系統狀態備份，請開啟 [磁片管理]，並將名稱格式為 `"CBSSBVol_<ID>"`的磁片卸載。
 3. 不要移動檔案。 相反地，請將快取空間資料夾複製到具有足夠空間的其他磁片磁碟機。
-4. 以新快取資料夾的路徑更新下列登錄專案。<br/>
+4. 以新快取資料夾的路徑更新下列登錄專案。
 
     | 登錄路徑 | 登錄金鑰 | 值 |
     | --- | --- | --- |
@@ -126,9 +124,11 @@ MARS 代理程式依賴 NTFS，並允許檔案名/路徑中[支援的字元](/wi
 
 5. 在提高許可權的命令提示字元下，重新開機備份引擎：
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
 6. 執行臨機操作備份。 使用新位置成功完成備份之後，您就可以移除原始的快取資料夾。
 

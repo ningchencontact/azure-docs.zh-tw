@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 服務整合 Azure ExpressRoute 與 Azure VM 的災害復原 | Microsoft Docs
+title: 整合 Azure ExpressRoute Azure VM 嚴重損壞修復與 Azure Site Recovery
 description: 說明如何使用 Azure Site Recovery 和 Azure ExpressRoute 設定 Azure VM 的災害復原
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722110"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954090"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>整合 Azure ExpressRoute 與 Azure VM 的災害復原
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>整合 ExpressRoute 與 Azure Vm 的嚴重損壞修復
 
 
 本文說明當您將 Azure VM 的災害復原設定為次要 Azure 區域時，如何整合 Azure ExpressRoute 與 [Azure Site Recovery](site-recovery-overview.md)。
@@ -104,22 +104,22 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 
 #### <a name="spoke-to-hub"></a>輪輻至中樞
 
-**Direction** | **設定** | **狀態**
+**Direction** | **設定** | **State**
 --- | --- | ---
-輪輻至中樞 | 允許虛擬網路位址 | Enabled
-輪輻至中樞 | 允許轉寄的流量 | Enabled
-輪輻至中樞 | 允許閘道器傳輸 | 已停用
-輪輻至中樞 | 使用移除閘道 | Enabled
+輪輻至中樞 | 允許虛擬網路位址 | 已啟用
+輪輻至中樞 | 允許轉送的流量 | 已啟用
+輪輻至中樞 | 允許閘道傳輸 | 已停用
+輪輻至中樞 | 使用移除閘道 | 已啟用
 
  ![輪輻到中樞對等互連設定](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>中樞至輪輻
 
-**Direction** | **設定** | **狀態**
+**Direction** | **設定** | **State**
 --- | --- | ---
-中樞至輪輻 | 允許虛擬網路位址 | Enabled
-中樞至輪輻 | 允許轉寄的流量 | Enabled
-中樞至輪輻 | 允許閘道器傳輸 | Enabled
+中樞至輪輻 | 允許虛擬網路位址 | 已啟用
+中樞至輪輻 | 允許轉送的流量 | 已啟用
+中樞至輪輻 | 允許閘道傳輸 | 已啟用
 中樞至輪輻 | 使用移除閘道 | 已停用
 
  ![中樞到輪輻對等互連設定](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
@@ -195,7 +195,7 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 
     a. 在目標區域中樞 VNet 中建立 Azure ExpressRoute 閘道。 必須有此閘道，才能將目標中樞 vNet 連線至 ExpressRoute 線路。
 
-    b. 建立從目標中樞 vNet 到目標 ExpressRoute 線路的連線。
+    b.這是另一個 C# 主控台應用程式。 建立從目標中樞 vNet 到目標 ExpressRoute 線路的連線。
 
     c. 在目標區域的中樞和輪輻虛擬網路之間設定 VNet 對等互連。 目標區域上的對等互連屬性將會與來源區域上的相同。
 

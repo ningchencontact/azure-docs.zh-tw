@@ -3,7 +3,7 @@ title: 在 Azure 入口網站中尋找使用者活動報告 |Microsoft Docs
 description: 了解 Azure Active Directory 使用者活動報告在 Azure 入口網站中的位置。
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820918"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008220"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
@@ -52,11 +52,11 @@ ms.locfileid: "72820918"
 
 分類包括：
 
-- 所有
+- 全部
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- Authorization
+- 驗證
+- 授權
 - 連絡人
 - 裝置
 - DeviceConfiguration
@@ -73,8 +73,8 @@ ms.locfileid: "72820918"
 
 各項服務包括：
 
-- 所有
-- 存取權審核
+- 全部
+- 存取權檢閱
 - 帳戶佈建 
 - 應用程式 SSO
 - 驗證方法
@@ -82,12 +82,12 @@ ms.locfileid: "72820918"
 - 條件式存取
 - 核心目錄
 - 權利管理
-- Identity Protection
+- 身分識別保護
 - 受邀的使用者
 - PIM
 - 自助式群組管理
 - 自助式密碼管理
-- 使用規定
+- 使用條款
 
 ## <a name="sign-ins-report"></a>登入報告 
 
@@ -108,7 +108,7 @@ ms.locfileid: "72820918"
 
 ![篩選登入事件頁面](./media/howto-find-activity-reports/07.png "篩選登入事件頁面")
 
-## <a name="security-reports"></a>安全報告
+## <a name="security-reports"></a>安全性報告
 
 ### <a name="anomalous-activity-reports"></a>異常活動報告
 
@@ -139,7 +139,7 @@ ms.locfileid: "72820918"
 - [有風險的使用者](concept-user-at-risk.md)
 - [有風險的登入](concept-risky-sign-ins.md)
 
-    ![安全性報告](./media/howto-find-activity-reports/04.png "安全報告")
+    ![安全性報告](./media/howto-find-activity-reports/04.png "安全性報告")
 
 ## <a name="troubleshoot-issues-with-activity-reports"></a>使用活動報告來進行問題疑難排解
 
@@ -147,7 +147,7 @@ ms.locfileid: "72820918"
 
 #### <a name="symptoms"></a>徵兆 
 
-我已下載活動記錄 (稽核或登入)，卻沒看到我所選擇時間的所有記錄。 為什麼呢？ 
+我已下載活動記錄 (稽核或登入)，卻沒看到我所選擇時間的所有記錄。 原因為何？ 
 
  ![報告](./media/troubleshoot-missing-data-download/01.png)
  
@@ -155,7 +155,7 @@ ms.locfileid: "72820918"
 
 當您下載 Azure 入口網站中的活動記錄時，我們會將縮放比例限制為250000筆記錄（依最新的第一個排序）。 
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 您可以利用 [Azure AD 報告 API](concept-reporting-api.md) 在任何指定時間點擷取最多一萬筆記錄。
 
@@ -176,7 +176,7 @@ ms.locfileid: "72820918"
 | 目錄稽核 | &nbsp; | 2 分鐘 | 5 分鐘 |
 | 登入活動 | &nbsp; | 2 分鐘 | 5 分鐘 | 
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 等候 15 分鐘到兩小時的時間，確認動作是否出現在記錄中。 如果在兩小時後仍看不到記錄，請[提出支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)，我們將加以探討。
 
@@ -197,7 +197,7 @@ ms.locfileid: "72820918"
 | 目錄稽核 | &nbsp; | 2 分鐘 | 5 分鐘 |
 | 登入活動 | &nbsp; | 2 分鐘 | 5 分鐘 | 
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 等候 15 分鐘到兩小時的時間，確認動作是否出現在記錄中。 如果在兩小時後仍看不到記錄，請[提出支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)，我們將加以探討。
 
@@ -205,7 +205,7 @@ ms.locfileid: "72820918"
 
 #### <a name="symptoms"></a>徵兆
 
-我無法從 Azure 入口網站檢視超過 30 天的登入和稽核資料。 為什麼呢？ 
+我無法從 Azure 入口網站檢視超過 30 天的登入和稽核資料。 原因為何？ 
 
  ![報告](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -220,7 +220,7 @@ ms.locfileid: "72820918"
 
 如需詳細資訊，請參閱 [Azure Active Directory 報告保留原則](reference-reports-data-retention.md)。  
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 您有兩個選項可用來保留超過 30 天的資料。 您可以使用 [Azure AD 報告 API](concept-reporting-api.md) 以程式設計方式擷取資料，並將其儲存在資料庫中。 或者，您可以將稽核記錄整合到第三方 SIEM 系統中，例如 Splunk 或 SumoLogic。
 

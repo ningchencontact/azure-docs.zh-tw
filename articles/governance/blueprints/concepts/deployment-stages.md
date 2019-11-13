@@ -1,17 +1,14 @@
 ---
 title: 藍圖部署的階段
 description: 瞭解 Azure 藍圖服務在部署期間所經歷的步驟。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 4645edde5163f1c8bca787416f5465e5a8f2d355
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d0d97ed01c4ae2ef96da151e1ab4ddc13a4b1d3e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978531"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960528"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>藍圖部署的階段
 
@@ -30,7 +27,7 @@ ms.locfileid: "71978531"
 
 Azure 藍圖服務主體會被授與擁有者許可權給指派的訂用帳戶或訂閱。 授與的角色允許藍圖建立並于稍後撤銷[系統指派的受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)。
 
-如果指派是透過入口網站完成，系統就會自動授與許可權。 不過，如果指派是透過 REST API 完成，則授與許可權需要使用個別的 API 呼叫來完成。 Azure 藍圖 AppId 為 `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`，但服務主體會因租使用者而異。 使用[Azure Active Directory 圖形 API](../../../active-directory/develop/active-directory-graph-api.md)和 REST 端點[servicePrincipals](/graph/api/resources/serviceprincipal)來取得服務主體。 然後，透過[入口網站](../../../role-based-access-control/role-assignments-portal.md)、 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)、 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md)、 [REST API](../../../role-based-access-control/role-assignments-rest.md)或[Resource Manager 範本](../../../role-based-access-control/role-assignments-template.md)，將「_擁有_者」角色授與 Azure 藍圖。
+如果指派是透過入口網站完成，系統就會自動授與許可權。 不過，如果指派是透過 REST API 完成，則授與許可權需要使用個別的 API 呼叫來完成。 Azure 藍圖 AppId 是 `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`的，但服務主體會因租使用者而異。 使用[Azure Active Directory 圖形 API](../../../active-directory/develop/active-directory-graph-api.md)和 REST 端點[servicePrincipals](/graph/api/resources/serviceprincipal)來取得服務主體。 然後，透過[入口網站](../../../role-based-access-control/role-assignments-portal.md)、 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)、 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md)、 [REST API](../../../role-based-access-control/role-assignments-rest.md)或[Resource Manager 範本](../../../role-based-access-control/role-assignments-template.md)，將「_擁有_者」角色授與 Azure 藍圖。
 
 藍圖服務不會直接部署資源。
 

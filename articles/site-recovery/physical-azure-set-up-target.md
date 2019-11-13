@@ -1,5 +1,5 @@
 ---
-title: 設定目標環境以從內部部署實體伺服器災害復原至 Azure | Microsoft Docs
+title: 在 Azure Site Recovery 中設定實體伺服器的目標環境
 description: 本文說明如何設定目標 Azure 環境，以便使用 Azure Site Recovery 進行實體伺服器的災害復原。
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60949060"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953892"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>準備目標 (VMware 至 Azure)
 
@@ -21,12 +21,12 @@ ms.locfileid: "60949060"
 ## <a name="prerequisites"></a>先決條件
 
 本文假設：
-- 您已建立復原服務保存庫，用以保護實體伺服器。 您可以從 [Azure 入口網站] (https://portal.azure.com "Azure 入口網站")建立復原服務保存庫。
+- 您已建立復原服務保存庫，用以保護實體伺服器。 您可以從[Azure 入口網站](https://portal.azure.com "Azure 入口網站")建立復原服務保存庫。
 - 您已[設定內部部署環境](physical-azure-disaster-recovery.md)以將實體伺服器複寫至 Azure。
 
 ## <a name="prepare-target"></a>準備目標
 
-完成之後**步驟 1 保護目標**並**步驟 2： 準備來源**，您會前往**步驟 3:目標**
+完成**步驟 1：選取保護目標**和**步驟 2︰準備來源**之後，即會進入**步驟 3︰目標**
 
 ![準備目標](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "60949060"
 
 驗證成功完成後，按一下 [確定] 以移至下一個步驟。
 
-如果您沒有相容的資源管理員儲存體帳戶或虛擬網路，您可以按一下頁面頂端的 [+ 儲存體帳戶]  或 [+ 網路]  按鈕來建立一個。
+如果您沒有相容的資源管理員儲存體帳戶或虛擬網路，您可以按一下頁面頂端的 [+ 儲存體帳戶] 或 [+ 網路] 按鈕來建立一個。
 
 ## <a name="next-steps"></a>後續步驟
 [設定複寫設定](vmware-azure-set-up-replication.md)。

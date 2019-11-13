@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439378"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961823"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>刪除 Azure Active Directory 中的目錄
 
@@ -67,7 +67,7 @@ ms.locfileid: "72439378"
 
 您可以使用 Microsoft 365 系統管理中心，讓訂用帳戶進入**取消布建**狀態，以在3天內刪除。
 
-1. 使用您組織中全域管理員的帳戶登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)。 如果您嘗試刪除具有初始預設網域 contoso.onmicrosoft.com 的 "Contoso" 目錄，請使用 admin@contoso.onmicrosoft.com 的 UPN 進行登入。
+1. 使用您組織中全域管理員的帳戶登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)。 如果您嘗試刪除具有初始預設網域 contoso.onmicrosoft.com 的 "Contoso" 目錄，請使用 admin@contoso.onmicrosoft.com的 UPN 進行登入。
 
 2. 請確定已啟用 [**試用新**的系統管理中心] 切換，以預覽新的 Microsoft 365 系統管理中心。
 
@@ -97,7 +97,7 @@ ms.locfileid: "72439378"
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>我有一個會封鎖刪除的試用訂用帳戶
 
-如 Microsoft Power BI、Rights Management Services、Microsoft Power Apps 或 Dynamics 365 等[自助式註冊產品](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide)，個別使用者可以透過 Office 365 註冊，這也會在您的 Azure AD 目錄中建立來賓使用者以進行驗證. 這些自助產品會封鎖目錄刪除，直到從目錄中完全刪除為止，以避免資料遺失。 只有在使用者個別註冊或被指派產品的情況下，Azure AD 系統管理員才可以刪除它們。
+如 Microsoft Power BI、Rights Management Services、Microsoft Power Apps 或 Dynamics 365 等[自助式註冊產品](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide)，個別使用者可以透過 Office 365 註冊，這也會在您的 Azure AD 目錄中建立來賓使用者進行驗證。 這些自助產品會封鎖目錄刪除，直到從目錄中完全刪除為止，以避免資料遺失。 只有在使用者個別註冊或被指派產品的情況下，Azure AD 系統管理員才可以刪除它們。
 
 有兩種類型的自助式註冊產品可供指派： 
 
@@ -108,24 +108,24 @@ ms.locfileid: "72439378"
 
 如需目前可用的自助式註冊產品和服務的詳細資訊，請參閱[可用的自助程式](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)。
 
-至於試用 Office 365 訂用帳戶過期時會發生的情況 (不含付費合作夥伴/CSP、Enterprise 合約或大量授權)，請見下表。 如需有關 Office 365 資料保留和訂用帳戶生命週期的詳細資訊，請參閱我的 [office 365 for business 訂閱結束時，我的資料和存取會發生什麼事？](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)。
+至於試用 Office 365 訂用帳戶過期時會發生的情況 (不含付費合作夥伴/CSP、Enterprise 合約或大量授權)，請見下表。 如需 Office 365 資料保留期與訂用帳戶生命週期的詳細資訊，請參閱 [What happens to my data and access when my Office 365 for business subscription ends?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide) (當商務用 Office 365 訂閱結束時，我的資料和存取權會如何？)。
 
 產品狀態 | 資料 | 資料存取權
 ------------- | ---- | --------------
 有效 (試用 30 天) | 資料可供全體存取 | 使用者可以正常存取自助式註冊產品、檔案或應用程式<br>系統管理員具有 Microsoft 365 系統管理中心和資源的一般存取權
-已刪除 | 資料已刪除 | 使用者無法存取自助式註冊產品、檔案或應用程式<br>系統管理員可以存取 Microsoft 365 系統管理中心，以購買及管理其他訂閱
+Deleted | 資料已刪除 | 使用者無法存取自助式註冊產品、檔案或應用程式<br>系統管理員可以存取 Microsoft 365 系統管理中心，以購買及管理其他訂閱
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>如何刪除 Azure 入口網站中的自助式註冊產品？
 
 您可以將 Microsoft Power BI 或 Azure Rights Management 服務之類的自助式註冊產品放入**刪除**狀態，以在 Azure AD 入口網站中立即刪除。
 
-1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with 組織中全域管理員的帳戶。 如果您嘗試刪除具有初始預設網域 contoso.onmicrosoft.com 的 "Contoso" 目錄，請使用 admin@contoso.onmicrosoft.com 的 UPN 進行登入。
+1. 使用組織中全域管理員的帳戶登入[Azure AD 系統管理中心](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。 如果您嘗試刪除具有初始預設網域 contoso.onmicrosoft.com 的 "Contoso" 目錄，請使用 admin@contoso.onmicrosoft.com的 UPN 進行登入。
 
-2. 選取 [**授權**]，然後選取 [ **自助式註冊產品**]。 您可以單獨查看所有的自助式註冊產品與以基座為基礎的訂用帳戶。 選擇您想要永久刪除的產品。 以下是 Microsoft Power BI 中的範例：
+2. 選取 [**授權**]，然後選取 [**自助式註冊產品**]。 您可以單獨查看所有的自助式註冊產品與以基座為基礎的訂用帳戶。 選擇您想要永久刪除的產品。 以下是 Microsoft Power BI 中的範例：
 
     ![使用者名稱不是輸入錯誤，或找不到](./media/directory-delete-howto/licenses-page.png)
 
-3. 選取 [ **刪除**]  to 刪除產品並接受資料立即刪除和無法變更的條款。 此刪除動作將會移除所有使用者，並移除對該產品的組織存取權。 按一下 [是] 以向前移動刪除。  
+3. 選取 [**刪除**] 以刪除產品，並接受立即刪除資料並無法變更的條款。 此刪除動作將會移除所有使用者，並移除對該產品的組織存取權。 按一下 [是] 以向前移動刪除。  
 
     ![使用者名稱不是輸入錯誤，或找不到](./media/directory-delete-howto/delete-product.png)
 

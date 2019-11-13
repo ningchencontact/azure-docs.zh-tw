@@ -1,30 +1,30 @@
 ---
-title: 使用 Azure Site Recovery 規劃 Hyper-V 容錯移轉的容量 | Microsoft Docs
+title: 使用 Azure Site Recovery 規劃 Hyper-v 嚴重損壞修復的容量
 description: 使用本文來在搭配 Azure Site Recovery 服務設定容錯移轉時估計容量。
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 7501982f90cd145e0fc918bf976a840323a31127
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972563"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936051"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>規劃 Hyper-V VM 災害復原的容量 
 
-Hyper-v 到 Azure 部署的 [Azure Site Recovery 部署規劃工具] (site-recovery-hyper-v-deployment-planner.md) 提供下列各項:
+Hyper-v 到 Azure 部署的 [Azure Site Recovery 部署規劃工具] （site-recovery-hyper-v-deployment-planner.md）提供下列各項：
 
 * 以磁碟數目、磁碟大小、IOPS、變換和數個 VM 特性為基礎的 VM 適用性評估
 * 網路頻寬需求與 RPO 評估
 * Azure 基礎結構需求
 * 內部部署基礎結構需求
 * 初始複寫批次處理指引
-* 向 Azure 進行災害復原的總估計成本
+* 針對 Azure 的災害復原總估計成本
 
 
 Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recovery 複寫 Hyper-V VM 時的容量需求。
@@ -53,7 +53,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
    a. 在 [選取您的案例] 中，選擇 [Hyper-V 到 Azure] 或 [VMware/實體到 Azure]。
 
-   b. 在 [平均每日資料變更率 (%)] 中，輸入使用 [Hyper-V 容量規劃工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Site Recovery 部署規劃工具](./site-recovery-deployment-planner.md)收集的資訊。
+   b.這是另一個 C# 主控台應用程式。 在 [平均每日資料變更率 (%)] 中，輸入使用 [Hyper-V 容量規劃工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Site Recovery 部署規劃工具](./site-recovery-deployment-planner.md)收集的資訊。
 
    c. 將 Hyper-V VM 複寫到 Azure 時，不使用 [壓縮] 設定。 如需壓縮，請使用第三方設備，例如 Riverbed。
 
@@ -72,12 +72,12 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
    * **所需的標準儲存體帳戶數目**：保護 VM 所需的標準儲存體帳戶總數。 標準儲存體帳戶可對標準儲存體中的所有 VM 支援多達 20,000 個 IOPS。 每個磁碟最多支援 500 個 IOPS。
    * **所需的 Blob 磁碟數目**：在 Azure 儲存體上建立的磁碟數目。
    * **所需的進階帳戶數目**：保護 VM 所需的進階儲存體帳戶總數。 具有高 IOPS (超過 20,000) 的來源 VM 需要進階儲存體帳戶。 進階儲存體帳戶可以支援多達 80,000 個 IOPS。
-   * **進階儲存體上的 IOPS 總計**：根據進階儲存體帳戶總計上的 256K IOPS 單位大小計算的數目。 針對快速規劃，數目是根據來源 VM 磁碟和每日資料變更率計算。 針對詳細規劃，數目是根據對應到進階 Azure VM (DS 和 GS 系列) 的 VM 數，以及那些 VM 上的資料變更率計算。
+   * **進階儲存體上的 IOPS 總數**：根據進階儲存體帳戶總計上的 256K IOPS 單位大小計算的數目。 針對快速規劃，數目是根據來源 VM 磁碟和每日資料變更率計算。 針對詳細規劃，數目是根據對應到進階 Azure VM (DS 和 GS 系列) 的 VM 數，以及那些 VM 上的資料變更率計算。
    * **所需的組態伺服器數目**：顯示需要多少組態伺服器以進行部署。
    * **所需的額外處理序伺服器數目**：顯示除了預設在組態伺服器上執行的處理序伺服器，是否需要額外的處理序伺服器。
    * **來源上的 100% 其他儲存體**：顯示來源位置中是否需要其他儲存體。
 
-      ![Output](./media/site-recovery-capacity-planner/output.png)
+      ![輸出](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>執行詳細規劃
 
@@ -91,7 +91,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
    a. 在 [處理器核心] 中，指定來源伺服器的核心總數。
 
-   b. 在 [記憶體配置 (MB)] 中，指定來源伺服器的 RAM 大小。
+   b.這是另一個 C# 主控台應用程式。 在 [記憶體配置 (MB)] 中，指定來源伺服器的 RAM 大小。
 
    c. 在 [NIC 數] 中，指定來源伺服器上的網路介面卡數目。
 
@@ -134,7 +134,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
   * VM5 和 VM6 需要進階儲存體帳戶，兩者都可以使用單一帳戶。
 
     > [!NOTE]
-    > 在標準及進階儲存體上的 IOPS 是在 VM 層級計算，而不是在磁碟層級。 標準虛擬機器可以處理每個磁碟最多 500 個 IOPS。 如果磁碟的 IOPS 大於 500，則您需要進階儲存體。 如果磁碟的 IOPS 超過 500，但 VM 磁碟總數的 IOPS 在標準 Azure VM 支援的限制中，那麼規劃工具會挑選標準 VM，而不是 DS 或 GS 系列。 (Azure VM 的限制有 VM 大小、磁碟數目、介面卡數目、CPU 和記憶體。)您必須以適當的 DS 或 GS 系列 VM 手動更新對應的 Azure 大小儲存格。
+    > 在標準及進階儲存體上的 IOPS 是在 VM 層級計算，而不是在磁碟層級。 標準虛擬機器可以處理每個磁碟最多 500 個 IOPS。 如果磁碟的 IOPS 大於 500，則您需要進階儲存體。 如果磁碟的 IOPS 超過 500，但 VM 磁碟總數的 IOPS 在標準 Azure VM 支援的限制中，那麼規劃工具會挑選標準 VM，而不是 DS 或 GS 系列。 （Azure VM 的限制為 VM 大小、磁片數目、介面卡數目、CPU 和記憶體）。您必須以適當的 DS 或 GS 系列 VM 手動更新對應的 Azure 大小儲存格。
 
 
 輸入所有資訊之後，請選取 [將資料提交至規劃工具] 來開啟 Capacity Planner。 工作負載會醒目提示，以顯示是否可以進行保護。
@@ -144,7 +144,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
 2. 如果您想要進行變更，您必須修改 [工作負載限定性條件] 工作表。 然後再次選取 [將資料提交至規劃工具]。
 
-   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![容量規劃](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>後續步驟
 [了解如何執行](site-recovery-capacity-planning-for-hyper-v-replication.md)容量規劃工具。

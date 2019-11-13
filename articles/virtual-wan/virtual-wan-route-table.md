@@ -1,19 +1,19 @@
 ---
-title: 建立 Azure 虛擬 WAN 虛擬中樞路由表以引導到 NVA |Microsoft Docs
+title: 虛擬 WAN：建立虛擬中樞路由表以 NVA： Azure PowerShell
 description: 虛擬 WAN 虛擬中樞路由表可將流量引導到網路虛擬設備。
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 18af56f6924484c6267871cf3fed34f80a8f12a4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74015001"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>建立虛擬中樞路由表以將流量引導到網路虛擬設備
 
@@ -43,7 +43,7 @@ ms.locfileid: "70744705"
 5. 請確認您已建立 2 個 Vnet。 它們會當作輪輻 Vnet。 在本文中，VNet 輪輻位址空間是 10.0.2.0/24 和 10.0.3.0/24。 如果您需要如何建立 VNet 的詳細資訊，請參閱[使用 PowerShell 建立虛擬網路](../virtual-network/quick-create-powershell.md)。
 6. 請確定任何 Vnet 中都沒有虛擬網路閘道。
 
-## <a name="signin"></a>1.登入
+## <a name="signin"></a>1. 登入
 
 務必安裝最新版的 Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/install-az-ps)。 這一點很重要，因為較早版本的 Cmdlet 未包含您在此練習中所需的現行值。
 
@@ -63,7 +63,7 @@ ms.locfileid: "70744705"
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
 
-## <a name="rg"></a>2.建立資源
+## <a name="rg"></a>2. 建立資源
 
 1. 建立資源群組。
 
@@ -81,7 +81,7 @@ ms.locfileid: "70744705"
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3.建立連線
+## <a name="connections"></a>3. 建立連接
 
 從「間接輪幅 VNet」與 DMZ VNet 到虛擬中樞之間建立中樞虛擬網路連線。
 
@@ -95,7 +95,7 @@ ms.locfileid: "70744705"
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4.建立虛擬中樞路由
+## <a name="route"></a>4. 建立虛擬中樞路由
 
 在本文中，「間接輪幅 VNet」位址空間是 10.0.2.0/24 和 10.0.3.0/24，而 DMZ NVA 網路介面私人 IP 位址是 10.0.4.5。
 
@@ -103,7 +103,7 @@ ms.locfileid: "70744705"
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5.建立虛擬中樞路由表
+## <a name="applyroute"></a>5. 建立虛擬中樞路由表
 
 建立虛擬中樞路由表，然後對它套用已建立的路由。
  
@@ -111,7 +111,7 @@ $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6.認可變更
+## <a name="commit"></a>6. 認可變更
 
 將變更認可到虛擬中樞。
 

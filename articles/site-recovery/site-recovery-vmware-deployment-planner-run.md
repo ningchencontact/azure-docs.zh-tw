@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 執行 VMware 損毀修復的部署規劃工具
+title: 使用 Azure Site Recovery 執行 VMware 嚴重損壞修復的部署規劃工具
 description: 本文說明如何針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具。
 author: mayurigupta13
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 611213f6cf0f51a8b6c6f7f89a795b2daa94a38a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693201"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953290"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>執行 VMware 嚴重損壞修復的部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
 
 
@@ -65,7 +65,7 @@ ms.locfileid: "73693201"
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| 參數名稱 | 說明 |
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | 要剖析其 VM 之 vCenter Server/vSphere ESXi 主機的完整網域名稱或 IP 位址。|
@@ -119,7 +119,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>範例 3：剖析 VM 60 分鐘以便快速測試工具
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>範例 3：分析 VM 60 分鐘以便快速測試工具
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
@@ -145,7 +145,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|參數名稱 | 說明 |
+|參數名稱 | 描述 |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  將產生報告之已分析 VM 所在的 vCenter/vSphere Server 完整網域名稱或 IP 位址 (使用您在分析時所用的相同名稱或 IP 位址)。 請注意，如果您在分析時使用 vCenter Server，則無法使用 vSphere Server 產生報告，反之亦然。|
@@ -257,7 +257,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|參數名稱 | 說明 |
+|參數名稱 | 描述 |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|

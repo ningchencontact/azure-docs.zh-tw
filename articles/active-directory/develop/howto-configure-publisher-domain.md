@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803340"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013067"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>如何：設定應用程式的發行者網域（預覽）
+# <a name="how-to-configure-an-applications-publisher-domain"></a>如何：設定應用程式的發行者網域
 
 應用程式的發行者網域會在[應用程式的同意提示](application-consent-experience.md)中顯示給使用者，讓使用者知道其資訊的傳送位置。 在 2019 5 月21日之後註冊的多租使用者應用程式，沒有發行者網域會顯示為未**驗證**。 多租使用者應用程式是支援單一組織目錄以外之帳戶的應用程式;例如，支援所有 Azure AD 帳戶，或支援所有 Azure AD 帳戶和個人 Microsoft 帳戶。
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 06/28/2019
-ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/08/2019
+ms.openlocfilehash: fc8159b3deba373948f513cb11540695362ecaf1
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574302"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954570"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>使用 TensorBoard 和 Azure Machine Learning 將實驗執行和計量視覺化
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "73574302"
 > [!TIP]
 > 本檔中的資訊主要適用于想要監視模型定型流程的資料科學家和開發人員。 如果您是系統管理員，想要監視 Azure Machine learning 中的資源使用方式和事件（例如配額、已完成的定型回合或完成的模型部署），請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 若要啟動 TensorBoard 並查看您的實驗執行歷程記錄，您的實驗必須先前已啟用記錄，以追蹤其計量和效能。  
 
@@ -41,16 +41,18 @@ ms.locfileid: "73574302"
 
         * 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
 
-        * 在筆記本伺服器的 samples 資料夾中，流覽至此目錄以尋找兩個已完成和已展開的筆記本：**使用方式 > 訓練與深度學習**。
-        * 匯出-執行-歷程記錄到執行-歷程記錄。 ipynb
-        * tensorboard. ipynb
+        * 在筆記本伺服器的 samples 資料夾中，流覽至下列目錄來尋找兩個已完成和已展開的筆記本：
+            * **使用方式 > 訓練-包含深度學習 > 匯出-執行歷程記錄到 tensorboard > 匯出-執行-歷程記錄到 tensorboard。 ipynb**
+
+            * **使用說明 > 的追蹤和監視 > tensorboard 的實驗。 ipynb**
 
     * 您自己的 Juptyer 筆記本伺服器
-          * 安裝具有 `tensorboard` 額外的[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
-          * [建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。  
-          * [建立工作區設定檔](how-to-configure-environment.md#workspace)。
+       * 安裝具有 `tensorboard` 額外的[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+        * [建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。  
+        * [建立工作區設定檔](how-to-configure-environment.md#workspace)。
   
 <a name="direct"></a>
+
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>選項1：在 TensorBoard 中直接查看執行歷程記錄
 
 此選項適用于原生輸出 TensorBoard 所使用之記錄檔的實驗，例如 PyTorch、Chainer 和 TensorFlow 實驗。 如果您的實驗不是這種情況，請改用[`export_to_tensorboard()` 方法](#export)。

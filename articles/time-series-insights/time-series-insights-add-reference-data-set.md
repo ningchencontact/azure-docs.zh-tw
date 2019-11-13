@@ -1,5 +1,5 @@
 ---
-title: 如何將參考資料集新增至 Azure 時間序列深入解析環境 | Microsoft Docs
+title: 如何將參考資料集新增至您的環境-Azure 時間序列深入解析 |Microsoft Docs
 description: 本文說明如何新增參考資料集來擴展 Azure 時間序列深入解析環境中的資料。
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3aca1f64d469ce228a4b2738c72c0b4bc1956051
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 31ae271a4ad6aa1370828640884a54eb2669804d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991281"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012713"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -102,4 +102,4 @@ ms.locfileid: "72991281"
 
 * 以程式設計的方式[管理參考資料](time-series-insights-manage-reference-data-csharp.md)。
 
-* 如需完整的 API 參考，請參閱[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 文件。
+* 如需完整的 API 參考，請參閱＜[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)＞文件。

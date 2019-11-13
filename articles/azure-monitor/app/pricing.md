@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 10/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: eedb9d811e35d606f4d3e1df55d9303d68678b3c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478740"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007744"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -32,7 +32,7 @@ Application Insights 的設計，是為了取得監視 web 應用程式的可用
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>估計管理應用程式的成本 
 
-如果您尚未使用 Application Insights，您可以使用[Azure 監視器定價計算機](https://azure.microsoft.com/pricing/calculator/?service=monitor)來預估使用 Application Insights 的成本。 一開始請在搜尋方塊中輸入 "Azure 監視器"，然後按一下產生的 [Azure 監視器] 磚。 在頁面上向下 Azure 監視器，然後從 [類型] 下拉式清單中選取 [Application Insights]。  您可以在這裡輸入每月預期要收集的資料 GB 數目，因此問題是 Application Insights 收集監視應用程式的資料量。 
+如果您尚未使用 Application Insights，您可以使用[Azure 監視器定價計算機](https://azure.microsoft.com/pricing/calculator/?service=monitor)來預估使用 Application Insights 的成本。 一開始請在搜尋方塊中輸入 "Azure 監視器"，然後按一下產生的 [Azure 監視器] 磚。 在頁面上向下 Azure 監視器，然後從 [類型] 下拉式清單中選取 [Application Insights]。  您可以在這裡輸入每月預期收集的資料 GB 數，因此問題是 Application Insights 收集監視應用程式的資料量。 
 
 有兩種方法可以解決這種情況：使用預設監視和調適型取樣（可在 ASP.NET SDK 中取得），或根據其他類似的客戶來估計可能的資料內嵌。
 
@@ -52,7 +52,7 @@ Application Insights 可讓您根據最近的使用模式，輕鬆了解可能�
 
 ![選擇價格](./media/pricing/pricing-001.png)
 
-A. 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../azure-monitor/app/sampling.md)之後)。  
+答： 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../azure-monitor/app/sampling.md)之後)。  
 B. 進行[多步驟 Web 測試](../../azure-monitor/app/availability-multistep.md)需另外收費。 (這不包括簡單的可用性測試，其已包含在資料量費用中。)  
 C. 檢視上個月的資料量趨勢。  
 D. 啟用資料擷取[取樣](../../azure-monitor/app/sampling.md)。   

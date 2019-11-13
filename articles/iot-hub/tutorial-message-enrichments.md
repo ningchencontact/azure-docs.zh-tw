@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8b74621f2c5a9c91ece58c8118cd2bc952c3a464
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0dd6c410040eea9eb4039ab5da183cc0b6799493
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809692"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005805"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>教學課程：使用 Azure IoT 中樞 message 擴充（預覽）
+# <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>教學課程：使用 Azure IoT 中樞 message 擴充
 
 *Message 擴充*是 IoT 中樞在訊息傳送至指定的端點之前，以其他資訊來*戳記*訊息的能力。 使用 message 擴充的其中一個原因是要包含可用於簡化下游處理的資料。 例如，使用裝置對應項標記來擴充裝置遙測訊息，可以降低客戶的負載，讓裝置對應項 API 呼叫此資訊。 如需詳細資訊，請參閱[message 擴充的總覽](iot-hub-message-enrichments-overview.md)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "72809692"
 > * 執行模擬 IoT 裝置的應用程式，將訊息傳送至中樞。
 > * 查看結果，並確認訊息擴充如預期般運作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "72809692"
 
 下載[IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)並將其解壓縮。 此存放庫中有數個應用程式，包括您將用來將訊息傳送至 IoT 中樞的其中一個。
 
-此下載也包含用來建立用來測試訊息擴充之資源的腳本。 腳本位於/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli。 現在，您可以查看腳本並加以使用。 您也可以直接從文章複製腳本。
+此下載也包含用來建立用來測試訊息擴充之資源的腳本。 腳本位於/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/中，iothub_msgenrichment_cli. azcli。 現在，您可以查看腳本並加以使用。 您也可以直接從文章複製腳本。
 
 當您準備好開始測試時，您將使用此下載中的裝置模擬應用程式，將訊息傳送至 IoT 中樞。
 
@@ -69,7 +69,7 @@ ms.locfileid: "72809692"
 
 以下是腳本所建立的資源。 擴充**表示資源**適用于具有擴充的訊息。 **原始**表示資源適用于未擴充的訊息。
 
-| Name | Value |
+| 名稱 | 值 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 容器名稱 | 來源語言  |
@@ -251,10 +251,10 @@ az iot hub route create \
 
 2. 將這些值新增至 ContosoStorageEndpointEnriched 端點的清單。
 
-   | Name | Value | 端點（下拉式清單） |
+   | 金鑰 | 值 | 端點（下拉式清單） |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | deviceLocation | $twin 標記。位置 | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | DeviceLocation | $twin 標記。位置 | AzureStorageContainers > ContosoStorageEndpointEnriched |
    |Id | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]

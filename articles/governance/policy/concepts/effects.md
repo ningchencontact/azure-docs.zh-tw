@@ -1,17 +1,14 @@
 ---
 title: 了解效果的運作方式
 description: Azure 原則定義有各種不同的效果，可決定合規性的管理和報告方式。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464043"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959894"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -161,7 +158,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 **Operation**屬性具有下列選項：
 
-|作業 |說明 |
+|作業 |描述 |
 |-|-|
 |addOrReplace |將已定義的標籤和值新增至資源，即使標記已經存在且具有不同的值。 |
 |新增 |將已定義的標記和值加入至資源。 |
@@ -542,7 +539,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述閘道管理員 v2 許�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如：
+一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如︰
 
 - 原則 1
   - 將資源位置限制為 'westus'

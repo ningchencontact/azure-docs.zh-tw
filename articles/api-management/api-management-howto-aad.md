@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176719"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012953"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
 本文說明如何讓使用者能夠從 Azure Active Directory (Azure AD) 來存取開發人員入口網站。 本指南也說明如何新增包含 Azure AD 使用者的外部群組來管理使用者。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 - 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱[匯入和發佈](import-and-publish.md)。
@@ -33,7 +33,7 @@ ms.locfileid: "73176719"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>使用 Azure AD 來授權開發人員帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 選取 ![箭號](./media/api-management-howto-aad/arrow.png)。
+2. 選取 [封裝設定] ![箭號](./media/api-management-howto-aad/arrow.png)，通常您會使用 collectd。
 3. 在搜尋方塊中，輸入 **api**。
 4. 選取 [API 管理服務]。
 5. 選取 API 管理服務執行個體。
@@ -71,7 +71,7 @@ ms.locfileid: "73176719"
 19. [新增識別提供者] 視窗也包含 [允許的租用戶] 文字方塊。 請在該處指定 Azure AD 執行個體的網域，您將會對它授與 API 管理服務執行個體的 API 存取權。 您可以使用換行符號、空格或逗號來分隔多個網域。
 
 > [!NOTE]
-> 您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與許可權，全域管理員應該： a。 移至 `https://<URL of your developer portal>/aadadminconsent` (例如， https://contoso.portal.azure-api.net/aadadminconsent) 。
+> 您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與許可權，全域管理員應該： a。 移至 `https://<URL of your developer portal>/aadadminconsent` (例如， https://contoso.portal.azure-api.net/aadadminconsent)。
 > b.這是另一個 C# 主控台應用程式。 輸入想要授與存取權的 Azure AD 租用戶網域名稱。
 > c. 選取 [提交]。 
 
@@ -100,11 +100,11 @@ ms.locfileid: "73176719"
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> 開發人員入口網站-新增 Azure AD 帳戶驗證
 
-若要在開發人員入口網站中啟用使用 AAD 登入，您需要將**OAuth 按鈕**widget 新增至登入表單。
+在開發人員入口網站中，可以使用 [ **OAuth 按鈕**] widget 來登入 AAD。 Widget 已包含在預設開發人員入口網站內容的登入頁面上。
 
 ![AAD 按鈕 widget](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-當新的使用者登入 AAD 時，會自動建立新的帳戶，您可以考慮在註冊表單中新增相同的 widget。
+當新的使用者登入 AAD 時，會自動建立新的帳戶，您可以考慮將相同的 widget 新增至註冊頁面。
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>舊版開發人員入口網站-如何使用 Azure AD 登入
 

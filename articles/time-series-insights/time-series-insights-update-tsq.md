@@ -1,6 +1,6 @@
 ---
-title: Azure 時間序列深入解析預覽版資料查詢 | Microsoft Docs
-description: Azure 時間序列深入解析預覽版資料查詢。
+title: 預覽中的資料查詢-Azure 時間序列深入解析 |Microsoft Docs
+description: 深入瞭解 Azure 時間序列深入解析預覽資料查詢。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e660db5db3d1afc14a3c895e6786d1b6a8b82c13
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832414"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006319"
 ---
-# <a name="data-querying"></a>資料查詢
+# <a name="data-querying-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料查詢
 
 Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事件和儲存在環境中的中繼資料進行資料查詢。 這些 API 也會在[時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)中使用。
 

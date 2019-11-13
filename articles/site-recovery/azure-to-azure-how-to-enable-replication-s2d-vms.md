@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Site Recovery 中設定儲存空間直接存取 (S2d) 的複寫 | Microsoft Docs
-description: 此文章說明如何使用 Site Recovery 將有 S2D 的 VM 從一個 Azure 區域複寫到另一個區域。
+title: 使用 Azure Site Recovery 複寫執行儲存空間直接存取的 Azure Vm
+description: 本文說明如何使用 Azure Site Recovery 複寫執行儲存空間直接存取的 Azure Vm。
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
-ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790276"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954455"
 ---
-# <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>將使用儲存空間直接存取的 Azure 虛擬機器複寫到另一個 Azure 區域
+# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>將執行儲存空間直接存取的 Azure Vm 複寫至另一個區域
 
 本文說明如何對於執行儲存空間直接存取的 Azure VM 啟用災害復原。
 
@@ -59,8 +59,8 @@ ms.locfileid: "60790276"
 
    ![storagespacesdirect 保護](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
-## <a name="creating-a-recovery-plan"></a>建立復原計劃
-復原方案支援在容錯移轉期間對多層式應用程式中的各層進行排序。 排序有助於維持應用程式的一致性。 當您為多層式 Web 應用程式建立復原方案時，請完成[使用 Site Recovery 建立復原方案](site-recovery-create-recovery-plans.md)中所述的步驟。
+## <a name="creating-a-recovery-plan"></a>建立復原方案
+復原計畫支援在容錯移轉期間對多層式應用程式中的各層進行排序。 排序有助於維持應用程式的一致性。 當您為多層式 Web 應用程式建立復原計畫時，請完成[使用 Site Recovery 建立復原計畫](site-recovery-create-recovery-plans.md)中所述的步驟。
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>將虛擬機器新增至容錯移轉群組
 
@@ -80,10 +80,10 @@ ms.locfileid: "60790276"
 ## <a name="run-a-test-failover"></a>執行測試容錯移轉
 1.  在 Azure 入口網站中，選取您的復原服務保存庫。
 2.  選取您建立的復原計畫。
-3.  選取 [測試容錯移轉]  。
+3.  選取 [測試容錯移轉]。
 4.  若要啟動測試容錯移轉程序，請選取復原點和 Azure 虛擬網路。
 5.  當次要環境啟動時，即可執行您驗證。
-6.  完成驗證後，若要清除此容錯移轉環境，請選取 [清除測試容錯移轉]  。
+6.  完成驗證後，若要清除此容錯移轉環境，請選取 [清除測試容錯移轉]。
 
 如需詳細資訊，請參閱[在 Site Recovery 中測試容錯移轉至 Azure](site-recovery-test-failover-to-azure.md)。
 
@@ -91,7 +91,7 @@ ms.locfileid: "60790276"
 
 1.  在 Azure 入口網站中，選取您的復原服務保存庫。
 2.  選取為 SAP 應用程式建立的復原計畫。
-3.  選取 [容錯移轉]  。
+3.  選取 [容錯移轉]。
 4.  若要啟動容錯移轉程序，請選取復原點。
 
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。

@@ -4,18 +4,18 @@ description: 說明如何指定是否要透過 Azure Resource Manager 使用完�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 10a9917d8ed763b133fbd33aedd16da399a224b2
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 762b0e74e8da20d1b48703385853765d5cc643af
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881647"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953235"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
-部署您的資源時，您可以指定部署是累加式更新或完整更新。  這兩種模式的主要差異在於 Resource Manager 如何處理資源群組中未在範本內的現有資源。 預設模式為累加。
+部署您的資源時，您可以指定部署是累加式更新或完整更新。  這兩種模式的差異在於 Resource Manager 如何處理不在範本中的資源群組中的現有資源。 預設模式為累加。
 
 在這兩種模式中，Resource Manager 都會嘗試建立範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，則不會對該資源執行任何作業。 如果您變更資源的屬性值，則會以這些新值來更新資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。
 
@@ -26,6 +26,8 @@ ms.locfileid: "72881647"
 如果您的範本包含未部署的資源，因為[條件](conditional-resource-deployment.md)評估為 false，則結果會取決於您用來部署範本的 REST API 版本。 如果您使用早于2019-05-10 的版本，則**不會刪除**資源。 使用2019-05-10 或更新版本時，**會刪除**資源。 Azure PowerShell 和 Azure CLI 的最新版本會刪除資源。
 
 請小心使用完整模式搭配[複製迴圈](resource-group-create-multiple.md)。 在解析複製迴圈之後，未在範本中指定的任何資源都會被刪除。
+
+如果您[在範本中部署到一個以上的資源群組](resource-manager-cross-resource-group-deployment.md)，部署作業中指定的資源群組中的資源就有資格刪除。 不會刪除次要資源群組中的資源。
 
 資源類型處理完整模式刪除的方式有一些差異。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，則會刪除這些子資源。 
 

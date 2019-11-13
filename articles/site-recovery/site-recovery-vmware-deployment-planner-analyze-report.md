@@ -1,20 +1,20 @@
 ---
-title: 分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告 | Microsoft Docs
-description: 本文說明如何分析 Azure Site Recovery 部署規劃工具針對「VMWare 至 Azure 的災害復原」所產生的報告。
+title: 使用 Azure Site Recovery 分析 VMware 損毀修復的部署規劃工具報告
+description: 本文說明如何使用 Azure Site Recovery，分析復原部署規劃工具針對 VMware 嚴重損壞修復所產生的報告。
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4240e17320cc62dc1a0e74db2f40a452a63f2982
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690716"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961386"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析部署規劃工具報告以進行 VMware 嚴重損壞修復至 Azure
 
 產生的 Microsoft Excel 報告包含下列工作表：
 ## <a name="on-premises-summary"></a>內部部署摘要
@@ -178,7 +178,7 @@ ms.locfileid: "72690716"
 
 **VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
-**VM 相容性**：值為 **[是]** 和 **[是**]\*。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如：
+**VM 相容性**：值為 [是] 和 [是 **]** \*。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如︰
 * <128 GB 為 P10。
 * 128 GB 至 256 GB 為 P15。
 * 256 GB 至 512 GB 為 P20。
@@ -186,7 +186,7 @@ ms.locfileid: "72690716"
 * 1025 GB 至 2048 GB 為 P40。
 * 2049 GB 至 4095 GB 為 P50。
 
-比方說，如果磁碟的工作負載特性讓它放在 P20 或 P30 類別中，但大小會將它對應到較低的進階儲存體磁碟類型，此工具會將該 VM 標示為 **[是**]\*。 此工具也建議您變更來源磁碟大小，以符合建議的進階儲存體磁碟類型，或變更容錯移轉後的目標磁碟類型。
+比方說，如果磁碟的工作負載特性讓它放在 P20 或 P30 類別中，但大小會將它對應到較低的進階儲存體磁碟類型，此工具會將該 VM 標示為 [是]\*。 此工具也建議您變更來源磁碟大小，以符合建議的進階儲存體磁碟類型，或變更容錯移轉後的目標磁碟類型。
 
 **儲存體類型**：標準或進階。
 
@@ -232,8 +232,6 @@ ms.locfileid: "72690716"
 * 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個 VM 80,000)。
 
 * 平均資料變換超出磁片平均 i/o 大小的支援 Site Recovery 的資料變換限制為 20 MB/s。
-
-* 平均資料變換超出 VM 平均 IO 大小支援的 Site Recovery 資料變換限制 25 MB/秒 (所有磁碟變換的總和)。
 
 * VM 上所有磁碟的尖峰資料變換超過每個 VM 支援的 Site Recovery 尖峰資料變換限制 54 MB/秒。
 

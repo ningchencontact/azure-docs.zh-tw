@@ -1,17 +1,14 @@
 ---
 title: 取得原則合規性資料
 description: Azure 原則評估和效果會決定合規性。 了解如何取得合規性詳細資料。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b460a3e70b5462be3fdc7f34dd7261d491a495b3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480263"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959576"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的相容性資料
 
@@ -56,7 +53,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
-- 訂用帳戶
+- 訂閱
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -89,9 +86,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 | 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
 | --- | --- | --- | --- |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | true | 不相容 |
 | exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
-| 新增 | 稽核、AuditIfNotExist\* | True | 不相容 |
+| 新增 | 稽核、AuditIfNotExist\* | true | 不相容 |
 | 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。

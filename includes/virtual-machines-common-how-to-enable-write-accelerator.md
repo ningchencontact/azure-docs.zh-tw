@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 7b9b30f1598f7e50d25b15aaf2fda896ee9e5012
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e0bb50e14467d2950d97da660fc8e6fa176b99
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248916"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008907"
 ---
-# <a name="enable-write-accelerator"></a>啟用寫入加速器
-
 寫入加速器在具有 Azure 受控磁碟的進階儲存體上，是 M 系列虛擬機器 (VM) 專屬的磁碟功能。 如同名稱所示，這個功能的目的是針對 Azure 進階儲存體改善寫入的 I/O 延遲。 需要記錄檔更新，才能以高效能的方式保存到新式資料庫的磁碟時，寫入加速器是最理想的選擇。
 
 寫入加速器以全面推出，供公用雲端中的 M 系列 VM 使用。
@@ -48,14 +46,14 @@ ms.locfileid: "66248916"
 
 | VM SKU | 寫入加速器磁碟的數目 | 每個 VM 的寫入加速器磁碟 IOPS |
 | --- | --- | --- |
-| M208ms_v2, M208s_v2| 8 | 10000 |
+| M208ms_v2，M208s_v2| 8 | 10000 |
 | M128ms，128s | 16 | 20000 |
 | M64ms，M64ls，M64s | 8 | 10000 |
 | M32ms，M32ls，M32ts，M32s | 4 | 5000 |
 | M16ms，M16s | 2 | 2500 |
 | M8ms，M8s | 1 | 1250 |
 
-IOPS 限制是針對每部虛擬機器而「不是」  每個磁碟。 所有寫入加速器磁碟都會共用相同的每部虛擬機器 IOPS 限制。
+IOPS 限制是針對每部虛擬機器而「不是」每個磁碟。 所有寫入加速器磁碟都會共用相同的每部虛擬機器 IOPS 限制。
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>在特定磁碟上啟用寫入加速器
 

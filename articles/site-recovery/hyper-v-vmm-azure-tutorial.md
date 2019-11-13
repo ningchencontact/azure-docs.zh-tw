@@ -1,18 +1,18 @@
 ---
-title: 使用 Site Recovery 設定 VMM 雲端中內部部署 Hyper-v Vm 至 Azure 的嚴重損壞修復
+title: 使用 Azure Site Recovery 設定 Hyper-v （含 VMM）嚴重損壞修復
 description: 瞭解如何使用 Site Recovery，將 System Center VMM 雲端中內部部署 Hyper-v Vm 的嚴重損壞修復設定到 Azure。
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933828"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953959"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>將 VMM 雲端中 Hyper-V VM 的災害復原設定至 Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "72933828"
 
 這是一系列中的第三個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在上一個教學課程中，我們已[備妥內部部署 hyper-v 環境](hyper-v-prepare-on-premises-tutorial.md)，以進行 Azure 的嚴重損壞修復。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 選取複寫來源和目標。
@@ -30,10 +30,10 @@ ms.locfileid: "72933828"
 > * 啟用 VM 複寫。
 
 > [!NOTE]
-> 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 [Site Recovery 文件](https://docs.microsoft.com/azure/site-recovery)的**操作指南**一節中的文章。
+> 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 **Site Recovery 文件**的[操作指南](https://docs.microsoft.com/azure/site-recovery)一節中的文章。
 
 > [!WARNING]
-> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](scvmm-site-recovery-deprecation.md)繼續進行。
+> 使用 System Center VMM 的 Hyper-v Vm 的嚴重損壞修復支援將在不久的將來淘汰。 我們建議您先閱讀[淘汰詳細資料](scvmm-site-recovery-deprecation.md)，再繼續進行。
 
 
 ## <a name="before-you-begin"></a>開始之前
@@ -133,7 +133,7 @@ Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶�
 4. 選取**contosovmsacct1910171607**儲存體帳戶和**ContosoASRnet** Azure 網路。
 5. 在 [虛擬機器] > [選取] 中，選取您要複寫的 VM。 然後選取 [確定]。
 
-   您可以在 [作業] > [Site Recovery 作業] 中，追蹤 [啟用保護] 動作的進度。 在**完成保護**作業完成後，即完成初始複寫，且 VM 已可進行容錯移轉。
+   您可以在 [作業] **[Site Recovery 作業]**  >  中，追蹤 [啟用保護] 動作的進度。 在**完成保護**作業完成後，即完成初始複寫，且 VM 已可進行容錯移轉。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

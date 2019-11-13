@@ -1,5 +1,5 @@
 ---
-title: 修改區域網路閘道 IP 位址首碼和 VPN 閘道 IP 位址| Azure| CLI| Microsoft Docs
+title: VPN 閘道：修改閘道 IP 位址設定： Azure CLI
 description: 本文逐步解說如何使用 Azure CLI 變更區域網路閘道的 IP 位址首碼。
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: 20e8269f0ee7463dcff9a5f66e46ebd81cb3df84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26462f73680d35371c6a03c3224742626e8f2090
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60652841"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014972"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>使用 Azure CLI 修改區域網路閘道設定
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988241"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961268"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -86,7 +86,7 @@ Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理�
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-為了減輕前一個查詢中由高基數所造成的任何問題，您可以將事件傳送至以 `clusterid`分割的事件中樞，並藉由允許系統個別處理每個輸入分割區來相應放大查詢 **，如下所**示在下列範例中：
+為了減輕前一個查詢中由高基數所造成的任何問題，您可以將事件傳送至 `clusterid`分割的事件中樞，並藉由允許系統使用**PARTITION by**來個別處理每個輸入分割區，以相應放大查詢，如下列範例所示：
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理�
 事件中樞分割區應依據群組索引鍵來分割，以避免需要進行減量步驟。 如需詳細資訊，請參閱[事件中樞概觀](../event-hubs/event-hubs-what-is-event-hubs.md)。 
 
 ## <a name="temporal-joins"></a>時態性聯結
-時態性聯結耗用的記憶體 (狀態大小)，與聯結時態性扭擺空間內的事件數目成正比，也就是事件輸入速率乘以扭擺空間大小。 換句話說，聯結所耗用的記憶體是與 DateDiff 時間範圍乘以平均事件速率成正比。
+時態性聯結的耗用記憶體（狀態大小）與聯結的時態性搖動空間中的事件數目成正比，也就是事件輸入速率乘以搖動空間大小。 換句話說，聯結所耗用的記憶體是與 DateDiff 時間範圍乘以平均事件速率成正比。
 
 在聯結中不相符的事件數目，會影響查詢的記憶體使用率。 下列查詢用來尋找能產生點擊率的廣告曝光項目︰
 

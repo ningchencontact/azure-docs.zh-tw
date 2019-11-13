@@ -1,17 +1,14 @@
 ---
 title: 建立管理群組來組織資源-Azure 治理
 description: 了解如何使用入口網站、Azure PowerShell 和 Azure CLI 建立 Azure 管理群組來管理多個資源。
-author: rthorn17
-ms.service: governance
 ms.date: 04/05/2019
-ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 17154ea72a49ff48a482b1149eeecf0229fcccd7
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 335dd8f7f3a9ec20c2b7740e4ec97454489027f6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254682"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960208"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
@@ -27,7 +24,7 @@ ms.locfileid: "72254682"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [**所有服務**] @no__t 1 [**管理 + 治理**]。
+1. 選取 **所有服務** > **管理 + 治理**。
 
 1. 選取**成本管理 + 帳單**
 
@@ -44,7 +41,7 @@ ms.locfileid: "72254682"
 
    ![用於建立新管理群組的選項窗格](./media/create_context_menu.png)  
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 ### <a name="create-in-powershell"></a>在 PowerShell 中建立
 
@@ -95,7 +92,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 
 若要深入了解管理群組，請參閱：
 
-- [建立管理群組以組織 Azure 資源](create.md)
+- [建立管理群組來組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
 - [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)

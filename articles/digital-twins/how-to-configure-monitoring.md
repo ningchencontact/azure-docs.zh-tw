@@ -1,6 +1,6 @@
 ---
 title: 如何設定監視-Azure 數位 Twins |Microsoft Docs
-description: 如何在 Azure Digital Twins 中設定監視。
+description: 瞭解如何設定 Azure 數位 Twins 的監視和記錄選項。
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7d81636bfb60c2d5fa059da01ac535e09b829f4
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 38d55df5f705aa3639540c4731c4c17c61c9b9ac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949987"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005967"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -40,17 +40,17 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 1. 選取您的 Azure Digital Twins 執行個體。
 1. 選擇 [活動記錄] 以帶出顯示面板：
 
-    [@no__t 1Activity 記錄檔](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
+    [![活動記錄](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 針對進階活動記錄：
 
 1. 選取 [記錄] 選項以顯示 [活動記錄分析概觀]：
 
-    [![Selection](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
+    [![選取專案](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. [活動記錄分析概觀] 會摘要說明基本活動記錄資料：
 
-    [@no__t 1Activity log analytics 總覽]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
+    [![活動記錄分析總覽]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >使用**活動記錄**來取得訂用帳戶層級事件的快速見解。
@@ -70,12 +70,12 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 1. 在 Azure 入口網站中讓資源上線。
 1. 選取 [**診斷設定**]：
 
-    [@no__t 1Diagnostic 設定1](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
+    [![診斷設定一](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. 選取 [**開啟診斷**以收集資料] （如果先前未啟用）。
 1. 填入要求的欄位，並選取如何儲存資料以及要將資料儲存在何處：
 
-    [@no__t 1Diagnostic 設定二](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
+    [![診斷設定二](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     診斷記錄通常會使用[Azure 檔案儲存體](../storage/files/storage-files-deployment-guide.md)儲存，並與[Azure 監視器記錄](../azure-monitor/log-query/get-started-portal.md)共用。 您可以同時選取這兩個選項。
 
@@ -99,15 +99,15 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓您在一個�
 1. 在 Azure 入口網站中搜尋 **Log Analytics**。
 1. 您會看到可用的**Log Analytics 工作區**實例。 選擇一個並選取 [記錄] 以查詢：
 
-    [@no__t 1Log 分析](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
+    [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. 如果您還沒有**Log Analytics 工作區**實例，可以藉由選取 [**新增**] 按鈕來建立工作區：
 
-    [![Create OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
+    [![建立 OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 布建您的**Log Analytics 工作區**實例之後，您可以使用強大的查詢來尋找多個記錄檔中的專案，或使用**記錄管理**來搜尋特定準則：
 
-   [@no__t 1Log 管理](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
+   [![記錄管理](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 如需有關強大的查詢作業的詳細資訊，請參閱[開始使用查詢](../azure-monitor/log-query/get-started-queries.md)。
 
@@ -116,7 +116,7 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓您在一個�
 
 Azure 監視器記錄也提供強大的錯誤和警示通知服務，可以藉由選取 [**診斷並解決問題**] 來查看：
 
-   [![Alert 和錯誤通知](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
+   [![警示和錯誤通知](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >使用**Log Analytics 工作區**來查詢多個應用程式功能、訂閱或服務的記錄歷程記錄。

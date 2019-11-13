@@ -1,6 +1,6 @@
 ---
-title: 佈建及管理 Azure 時間序列深入解析預覽版 | Microsoft Docs
-description: 了解如何佈建及管理 Azure 時間序列深入解析預覽版。
+title: 布建和管理預覽環境-Azure 時間序列 |Microsoft Docs
+description: 瞭解如何布建和管理 Azure 時間序列深入解析預覽環境。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47c96cb14f2e466d02d57f73fb2e66bc1f44a311
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f66925c20f6767286eb98a7f5fab180845da4c33
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989912"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014787"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>佈建及管理 Azure 時間序列深入解析預覽版
 
 此文說明如何使用 [Azure 入口網站](https://portal.azure.com/)建立及管理 Azure 時間序列深入解析預覽版環境。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 

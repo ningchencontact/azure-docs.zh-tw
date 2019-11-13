@@ -1,6 +1,6 @@
 ---
-title: 規劃調整您的 Azure 時間序列深入解析環境規模 | Microsoft Docs
-description: 本文說明如何在規劃 Azure 時間序列深入解析環境時遵循最佳作法。 涵蓋的區域包括儲存容量、資料保留、輸入容量、監視，以及商務持續性和嚴重損壞修復（BCDR）。
+title: 規劃您的 GA 環境-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解您在規劃 GA 環境時要遵循的最佳作法。
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 649ff31e40bf612f1b70f81e895920f7fc21f082
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991248"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006962"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃您的 Azure 時間序列深入解析 GA 環境
 

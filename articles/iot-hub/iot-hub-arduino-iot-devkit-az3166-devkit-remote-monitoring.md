@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit 到雲端 -- 將 IoT MXChip DevKit 連線到 Azure IoT 中樞 | Microsoft Docs
+title: 將 MXChip IoT DevKit 連線到 Azure IoT 中樞遠端監視
 description: 在本教學課程中，了解如何將 IoT DevKit AZ3166 上的感應器狀態傳送至 Azure IoT 遠端監視解決方案加速器。
 author: liydu
 manager: jeffya
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9eab035d494892671a2451866311ca06599ec030
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484048"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953726"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit 連線到 Azure IoT 遠端監視解決方案加速器
 
 在本教學課程中，您將會了解如何在 DevKit 上執行範例應用程式，以將感應器資料傳送至 Azure IoT 遠端監視解決方案加速器。
 
-[MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用[適用於 Arduino 的 Visual Studio Code 延伸模組](https://aka.ms/arduino)來對它進行開發。 它隨附一個不斷成長的[專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，可引導您設計運用 Microsoft Azure 服務的「物聯網」(IoT) 解決方案原型。
+[MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用[適用於 Arduino 的 Visual Studio Code 延伸模組](https://aka.ms/arduino)來對它進行開發。 它隨附不斷增長的[專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，以引導您設定運用 Microsoft Azure 服務的物聯網 (IoT) 解決方案原型。
 
 ## <a name="what-you-need"></a>您需要什麼
 

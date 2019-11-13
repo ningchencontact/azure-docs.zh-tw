@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb3b9504abcd453977d63a9bfccf77a33da6455a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489477"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961704"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-使用 Azure Machine Learning，您可以輕鬆地將您的定型指令碼提交到[各種計算目標](how-to-set-up-training-targets.md#compute-targets-for-training)，並使用[RunConfiguration 物件](how-to-set-up-training-targets.md#whats-a-run-configuration)和 [ScriptRunConfig 物件](how-to-set-up-training-targets.md#submit)。 這種模式可提升彈性並達到最大的控制度。
+透過 Azure Machine Learning，您可以使用[RunConfiguration 物件](how-to-set-up-training-targets.md#whats-a-run-configuration)和[ScriptRunConfig 物件](how-to-set-up-training-targets.md#submit)，輕鬆地將定型腳本提交至[各種計算目標](how-to-set-up-training-targets.md#compute-targets-for-training)。 這種模式可提升彈性並達到最大的控制度。
 
 為協助進行深入的學習模式定型，Azure Machine Learning Python SDK 提供更高層級抽象 (亦即預估器類別)，可供使用者輕鬆地建構回合組態。 您可以建立和使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)，以在您選擇的任何計算目標上（例如 scikit-learn），使用您選擇的任何學習架構來提交定型腳本，不論是您的本機電腦、azure 中的單一 VM，或 azure 中的 GPU 叢集。 對於 PyTorch、TensorFlow 和 Chainer 工作，Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器，以簡化使用這些架構的作業。
 
@@ -44,7 +44,8 @@ ms.locfileid: "73489477"
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    # to mount files referenced by mnist dataset
+    '--data-folder': ds.as_named_input('mnist').as_mount(),
     '--regularization': 0.8
 }
 
@@ -57,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 此程式碼片段會將下列參數指定給 `Estimator` 建構函式。
 
-參數 | 說明
+參數 | 描述
 --|--
 `source_directory`| 包含定型作業所需之所有程式碼的本機目錄。 此資料夾會從您的本機電腦複製到遠端計算。
 `script_params`| 指定命令列引數的字典，`entry_script`，以 `<command-line argument, value>` 組的形式傳遞給您的定型腳本。 若要在 `script_params`中指定詳細資訊旗標，請使用 `<command-line argument, "">`。
@@ -109,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 上面的程式碼公開下列新參數給 `Estimator` 建構函式：
 
-參數 | 說明 | 預設值
+參數 | 描述 | 預設值
 --|--|--
 `custom_docker_image`| 您要使用的映像名稱。 只提供公用 Docker 存放庫 (在此案例中是 Docker Hub) 中可用的映像。 若要使用來自私人 Docker 存放庫的映像，請改為使用建構函式的 `environment_definition` 參數。 [請參閱範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)。 | `None`
 `node_count`| 用於定型作業的節點數目。 | `1`
@@ -135,7 +136,8 @@ print(run.get_portal_url())
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 如需使用深度學習架構特定估算器的訓練模型筆記本，請參閱：
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+
+* [使用方法-azureml/ml-架構](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

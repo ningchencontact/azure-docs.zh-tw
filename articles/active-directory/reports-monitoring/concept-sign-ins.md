@@ -3,7 +3,7 @@ title: Azure Active Directory 入口網站中的登入活動報告 | Microsoft D
 description: 介紹 Azure Active Directory 入口網站中的登入活動報告
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/28/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553d882600203d0fa01cd876562d9ced7985d7a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043698"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014480"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -31,13 +31,13 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - **活動** 
     - **登入** – 受控應用程式和使用者登入活動的使用情況相關資訊。
     - **Audit logs** - [audit 記錄](concept-audit-logs.md)提供使用者和群組管理、受控應用程式和目錄活動的相關系統活動資訊。
-- **Security** 
+- **安全性** 
     - 有**風險**的登入-有風險的登[入](concept-risky-sign-ins.md)是指不是使用者帳戶合法擁有者的人登入嘗試的指標。
     - **標幟為有風險的使用者** - [有風險的使用者](concept-user-at-risk.md)表示可能被盜用的使用者帳戶。
 
 本文提供登入報告的總覽。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="who-can-access-the-data"></a>誰可以存取資料？
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>您需要哪項 Azure AD 授權才能存取登入活動？
 
-* 租用戶必須要有相關聯的 Azure AD Premium 授權，才能查看活動報告中的所有登入。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md)以升級您的 Azure Active Directory 版本。 當您升級至 premium 授權，但在升級前沒有任何資料活動，將需要幾天的時間，資料才會顯示在報告中。
+* 租用戶必須要有相關聯的 Azure AD Premium 授權，才能查看活動報告中的所有登入。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。 當您升級至 premium 授權，但在升級前沒有任何資料活動，將需要幾天的時間，資料才會顯示在報告中。
 
 ## <a name="sign-ins-report"></a>登入報告
 
@@ -105,19 +105,19 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 [登入狀態] 篩選條件可讓您選取︰
 
-- 所有
+- 全部
 - 成功
 - 失敗
 
 **條件式存取**篩選條件可讓您選取登入的 CA 原則狀態：
 
-- 所有
+- 全部
 - 未套用
 - 成功
 - 失敗
 
 [日期] 篩選條件可讓您定義傳回資料的時間範圍。  
-可能的值包括：
+可能的值為︰
 
 - 一個月
 - 7 天
@@ -164,7 +164,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 Azure AD 和 Azure 入口網站都提供登入資料的額外進入點：
 
 - 身分識別安全性保護概觀
-- 使用者人數
+- 使用者
 - 群組
 - 企業應用程式
 
@@ -186,14 +186,14 @@ Azure AD 和 Azure 入口網站都提供登入資料的額外進入點：
 按一下項目，即可取得有關登入作業的更多詳細資料：
 
 - 使用者識別碼
-- User
+- 使用者
 - 使用者名稱
 - 應用程式識別碼
-- Application
+- 應用程式
 - 用戶端
-- Location
+- 位置
 - IP 位址
-- 日期
+- Date
 - 需要 MFA
 - 登入狀態
 

@@ -1,17 +1,14 @@
 ---
 title: 瞭解 Azure Kubernetes Service 的 Azure 原則
 description: 瞭解 Azure 原則如何使用 Rego 和開啟原則代理程式來管理 Azure Kubernetes Service 上的叢集。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480895"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959789"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>瞭解 Azure Kubernetes Service 的 Azure 原則
 
@@ -21,7 +18,7 @@ Azure 原則與[Azure Kubernetes Service](../../../aks/intro-kubernetes.md) （A
 > [!NOTE]
 > 適用于 AKS 的 Azure 原則處於有限預覽狀態，而且只支援內建原則定義。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 若要啟用和使用 AKS 搭配 AKS 叢集的 Azure 原則，請採取下列動作：
 
@@ -92,11 +89,11 @@ Kubernetes 的_Azure 原則附加_元件會將 Azure 原則服務連接到閘道
 
 ### <a name="installing-the-add-on"></a>安裝附加元件
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 在您的 AKS 叢集中安裝附加元件之前，必須先安裝預覽延伸模組。 此步驟是使用 Azure CLI 完成：
 
-1. 您需要安裝並設定 Azure CLI 版本2.0.62 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+1. 您需要安裝並設定 Azure CLI 版本2.0.62 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 1. AKS 叢集必須是_1.10_或更高版本。 使用下列腳本來驗證您的 AKS 叢集版本：
 

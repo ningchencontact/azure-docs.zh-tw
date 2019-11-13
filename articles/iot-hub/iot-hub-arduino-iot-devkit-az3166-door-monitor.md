@@ -1,22 +1,21 @@
 ---
-title: 使用 SendGrid 服務和 Azure Functions 在門戶開啟時接收電子郵件 | Microsoft Docs
+title: 使用 Azure Functions 開啟門時傳送電子郵件
 description: 監視磁性感應器，以在門戶開啟時加以偵測並使用 Azure Functions 傳送電子郵件通知。
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6cbf3f906b511d9d76319f57f5508a2c584213cb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484056"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954741"
 ---
-# <a name="door-monitor"></a>門戶監視          
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>門監視器--使用 Azure Functions 和 SendGrid，開啟門時傳送電子郵件           
 
 MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵測附近是否有強力磁場存在 -- 在此案例中，此磁場來自於小型的永久性磁鐵。
 

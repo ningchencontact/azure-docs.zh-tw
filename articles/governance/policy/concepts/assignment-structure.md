@@ -1,17 +1,14 @@
 ---
 title: 原則指派結構的詳細資料
 description: 描述 Azure 原則用來將原則定義和參數關聯至資源進行評估的原則指派定義。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255904"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960028"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure 原則指派結構
 
@@ -20,7 +17,7 @@ Azure 原則會使用原則指派，以定義原則或方案所要指派的資�
 您可以使用 JSON 來建立原則指派。 原則指派包含的元素：
 
 - 顯示名稱
-- description
+- Description
 - 中繼資料
 - 強制模式
 - 原則定義
@@ -62,10 +59,10 @@ Azure 原則會使用原則指派，以定義原則或方案所要指派的資�
 
 此屬性具有下列值：
 
-|模式 |JSON 值 |Type |手動修復 |活動記錄專案 |描述 |
+|模式 |JSON 值 |在系統提示您進行確認時，輸入 |手動修復 |活動記錄專案 |描述 |
 |-|-|-|-|-|-|
-|Enabled |預設 |string |是 |是 |在資源建立或更新期間，會強制執行原則效果。 |
-|已停用 |DoNotEnforce |string |是 |否 | 在資源建立或更新期間不會強制執行原則效果。 |
+|已啟用 |預設值 |字串 |yes |yes |在資源建立或更新期間，會強制執行原則效果。 |
+|已停用 |DoNotEnforce |字串 |yes |否 | 在資源建立或更新期間不會強制執行原則效果。 |
 
 如果未在原則或計畫定義中指定**enforcementMode** ，則會使用_預設_值。 即使**enforcementMode**設為_DoNotEnforce_，也可以針對[deployIfNotExists](./effects.md#deployifnotexists)原則啟動[補救](../how-to/remediate-resources.md)工作。
 
@@ -74,7 +71,7 @@ Azure 原則會使用原則指派，以定義原則或方案所要指派的資�
 此欄位必須是原則定義或計畫定義的完整路徑名稱。
 `policyDefinitionId` 是字串，而不是陣列。 如果經常同時指派多個原則，建議您改用[計畫](./definition-structure.md#initiatives)。
 
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 
 原則指派的這個區段會提供[原則定義或計畫定義](./definition-structure.md#parameters)中定義之參數的值。
 這種設計可讓您以不同的資源重複使用原則或計畫定義，但檢查不同的商業價值或結果。
@@ -90,7 +87,7 @@ Azure 原則會使用原則指派，以定義原則或方案所要指派的資�
 }
 ```
 
-在此範例中，先前在原則定義中定義的參數會 `prefix`，並 `suffix`。 此特定原則指派會將 `prefix` 設定為**DeptA** ，並 `suffix` 到 **-LC**。 相同的原則定義可重複用於不同部門的一組不同參數，減少原則定義的重複程度和複雜度，同時提供彈性。
+在此範例中，先前在原則定義中定義的參數會 `prefix` 並 `suffix`。 此特定原則指派會將 `prefix` 設定為**DeptA** ，並 `suffix` 至 **-LC**。 相同的原則定義可重複用於不同部門的一組不同參數，減少原則定義的重複程度和複雜度，同時提供彈性。
 
 ## <a name="next-steps"></a>後續步驟
 

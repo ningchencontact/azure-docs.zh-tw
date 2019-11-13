@@ -1,22 +1,22 @@
 ---
-title: 管理伺服器上的行動代理程式, 以使用 Azure Site Recovery 進行 VMware Vm 和實體伺服器的嚴重損壞修復 |Microsoft Docs
-description: 使用 Azure Site Recovery 服務管理行動服務代理程式, 以進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復。
+title: 使用 Azure Site Recovery 管理 VMware/實體伺服器的行動代理程式
+description: 使用 Azure Site Recovery 服務管理行動服務代理程式，以進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復。
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972121"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953637"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>管理受保護機器上的行動代理程式
+# <a name="manage-the-mobility-agent"></a>管理行動代理程式 
 
-當您使用 Azure Site Recovery 進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復時, 您會在伺服器上設定行動代理程式。 行動代理程式會協調受保護機器、設定伺服器/相應放大進程伺服器和管理資料複寫之間的通訊。 本文摘要說明在部署行動代理程式之後管理其一般工作。
+當您使用 Azure Site Recovery 進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復時，您會在伺服器上設定行動代理程式。 行動代理程式會協調受保護機器、設定伺服器/相應放大進程伺服器和管理資料複寫之間的通訊。 本文摘要說明在部署行動代理程式之後管理其一般工作。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "69972121"
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>透過 Windows server 上的 powershell 腳本更新行動服務
 
-使用下列腳本, 透過 power shell Cmdlet 升級伺服器上的行動服務
+使用下列腳本，透過 power shell Cmdlet 升級伺服器上的行動服務
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
@@ -61,7 +61,7 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 
 ### <a name="on-a-linux-machine"></a>在 Linux 機器上
 1. 在 Linux 機器上，以 **root** 使用者身分登入。
-2. 在終端機中, 移至/Usr/local/asr。
+2. 在終端機中，移至/Usr/local/asr。
 3. 執行下列命令：
     ```
     uninstall.sh -Y
@@ -69,12 +69,12 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
    
 ## <a name="install-site-recovery-vss-provider-on-source-machine"></a>在來源電腦上安裝 Site Recovery VSS 提供者
 
-來源電腦上需要 Azure Site Recovery VSS 提供者, 才能產生應用程式一致性點。 如果安裝程式未透過推入安裝成功, 請遵循下列指定的指導方針手動安裝。
+來源電腦上需要 Azure Site Recovery VSS 提供者，才能產生應用程式一致性點。 如果安裝程式未透過推入安裝成功，請遵循下列指定的指導方針手動安裝。
 
 1. 開啟 [管理] cmd 視窗。
-2. 流覽至行動服務安裝位置。 (例如 C:\Program Files (x86) \Microsoft Azure Site Recovery\agent)
-3. 執行腳本 InMageVSSProvider_Uninstall。 這會卸載服務 (如果已存在)。
-4. 執行腳本 InMageVSSProvider_Install, 以手動方式安裝 VSS 提供者。
+2. 流覽至行動服務安裝位置。 （例如 C:\Program Files （x86） \Microsoft Azure Site Recovery\agent）
+3. 執行腳本 InMageVSSProvider_Uninstall .cmd。 這會卸載服務（如果已存在）。
+4. 執行腳本 InMageVSSProvider_Install .cmd，以手動方式安裝 VSS 提供者。
 
 ## <a name="next-steps"></a>後續步驟
 

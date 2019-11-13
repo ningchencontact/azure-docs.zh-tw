@@ -1,6 +1,6 @@
 ---
-title: 將事件傳送至 Azure 時間序列深入解析環境 | Microsoft Docs
-description: 了解如何設定事件中樞，並執行範例應用程式推送事件，以在 Azure 時間序列深入解析中檢視。
+title: 將事件傳送至環境-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解如何設定事件中樞、執行範例應用程式，以及將事件傳送至您的 Azure 時間序列深入解析環境。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: cdcd64b5281ce16002720072db3b5f29f1978cac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991133"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014820"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>使用事件中樞將事件傳送至時間序列深入解析環境
 

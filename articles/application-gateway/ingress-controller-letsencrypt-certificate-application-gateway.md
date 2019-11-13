@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2e91a888d0dc98a4f94b956e15336d75291f733e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795910"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957976"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>在 AKS 叢集的應用程式閘道上搭配 LetsEncrypt.org 使用憑證
 
@@ -130,8 +130,12 @@ ms.locfileid: "73795910"
     幾秒鐘之後，您就可以使用自動發行的**預備**`Lets Encrypt` 憑證，透過應用程式閘道 HTTPS url 存取 `guestbook` 服務。
     您的瀏覽器可能會警告您有不正確憑證授權單位單位。 暫存憑證是由 `CN=Fake LE Intermediate X1`所發行。 這表示系統已如預期般運作，而且您已準備好使用您的生產環境憑證。
 
-4. 實際執行憑證：一旦您的預備憑證成功安裝之後，您就可以切換到生產的 ACME 伺服器。
+4. 生產憑證
+
+    一旦成功設定您的暫存憑證，您就可以切換到生產的 ACME 伺服器：
     1. 將輸入資源上的預備註釋取代為： `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
     1. 刪除您在上一個步驟中建立的現有預備 `ClusterIssuer`，然後使用 `https://acme-v02.api.letsencrypt.org/directory` 的 ClusterIssuer YAML 取代 ACME 伺服器，建立一個新的
 
-5. 憑證到期和更新 `Lets Encrypt` 憑證到期之前，`cert-manager` 會自動更新 Kubernetes 秘密存放區中的憑證。 此時，應用程式閘道輸入控制器會套用用來設定應用程式閘道的輸入資源中所參考的更新密碼。
+5. 憑證到期和更新
+
+    在 `Lets Encrypt` 憑證過期之前，`cert-manager` 會自動更新 Kubernetes 秘密存放區中的憑證。 此時，應用程式閘道輸入控制器會套用用來設定應用程式閘道的輸入資源中所參考的更新密碼。

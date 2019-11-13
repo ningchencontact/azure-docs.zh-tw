@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949816"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013963"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
@@ -36,13 +36,13 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 下表描述每個屬性：
 
-| 屬性 | Name | 必要項 | Type | 描述 |
+| 屬性 | 名稱 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 | --- | --- | --- | --- | --- |
-| roleId | 角色定義識別碼 | 是 | String | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
-| objectId | 物件識別碼 | 是 | String | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
-| objectIdType | 物件識別碼類型 | 是 | String | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
-| path | 空間路徑 | 是 | String | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
-| tenantId | 租用戶識別碼 | 視情況而異 | String | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
+| roleId | 角色定義識別碼 | yes | 字串 | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
+| objectId | 物件識別碼 | yes | 字串 | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
+| objectIdType | 物件識別碼類型 | yes | 字串 | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
+| 路徑 | 空間路徑 | yes | 字串 | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
+| tenantId | 租用戶識別碼 | 視情況而異 | 字串 | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
 
 ### <a name="supported-role-definition-identifiers"></a>支援的角色定義識別碼
 
@@ -60,7 +60,7 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 Azure Digital Twins 對於角色指派支援完整的*建立*、*讀取*和*刪除*作業。 *更新*作業的處理方法是透過新增角色指派、移除角色指派，或修改角色指派允許存取的[空間智慧圖形](./concepts-objectmodel-spatialgraph.md)節點。
 
-[@no__t 1Role 指派端點](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[![角色指派端點](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 提供的 Swagger 參考文件包含所有可用 API 端點、要求作業和定義的更多相關資訊。
 
@@ -112,7 +112,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments
 
 ### <a name="retrieve-all-roles"></a>擷取所有角色
 
-[@no__t 1System 角色](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![系統角色](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 若要列出所有可用的角色 (角色定義)，請對下列事項提出驗證的 HTTP GET 要求：
 
@@ -161,12 +161,12 @@ YOUR_MANAGEMENT_API_URL/system/roles
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **參數值** | **必要** |  **型別** |  **描述** |
+| **參數值** | **必要** |  **類型** |  **描述** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  真 | String |   UserId objectIdType 的 objectId。 |
-| YOUR_PATH | 真 | String |   用來檢查存取權的選擇路徑。 |
-| YOUR_ACCESS_TYPE |  真 | String |   *讀取*、*建立*、*更新*或*刪除* |
-| YOUR_RESOURCE_TYPE | 真 | String |  *Device*、 *DeviceBlobMetadata*、 *DeviceExtendedProperty*、 *ExtendedPropertyKey*、 *ExtendedType*、 *Endpoint*、*金鑰*存放區、*比對器*、*本體*、 *Report*、 *RoleDefinition*、*感應器*、 *SensorExtendedProperty*、 *Space*、 *SpaceBlobMetadata*、 *SpaceExtendedProperty*、 *SpaceResource*、 *SpaceRoleAssignment*、 *System*、 *UerDefinedFunction*、 *User*、 *UserBlobMetadata*或*UserExtendedProperty* |
+| YOUR_USER_ID |  true | 字串 |   UserId objectIdType 的 objectId。 |
+| YOUR_PATH | true | 字串 |   用來檢查存取權的選擇路徑。 |
+| YOUR_ACCESS_TYPE |  true | 字串 |   *讀取*、*建立*、*更新*或*刪除* |
+| YOUR_RESOURCE_TYPE | true | 字串 |  *Device*、 *DeviceBlobMetadata*、 *DeviceExtendedProperty*、 *ExtendedPropertyKey*、 *ExtendedType*、 *Endpoint*、*金鑰*存放區、*比對器*、*本體*、 *Report*、 *RoleDefinition*、*感應器*、 *SensorExtendedProperty*、 *Space*、 *SpaceBlobMetadata*、 *SpaceExtendedProperty*、 *SpaceResource*、 *SpaceRoleAssignment*、 *System*、 *UerDefinedFunction*、 *User*、 *UserBlobMetadata*或*UserExtendedProperty* |
 
 成功的要求會傳回布林值 `true` 或 `false`，指示是否已為指定的路徑和資源，指派存取權類型給使用者。
 
@@ -240,7 +240,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments
 
 以下範例示範如何在幾個常見的角色指派案例中設定 JSON 主體。
 
-* **範例**：使用者必須具有最低限度租用戶空間的系統管理權限。
+* **範例**：使用者需要租使用者空間樓層的系統管理存取權。
 
    ```JSON
    {
@@ -252,7 +252,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments
    }
    ```
 
-* **範例**：模擬裝置和感應器以執行測試案例的應用程式。
+* **範例**：應用程式會執行模擬裝置和感應器的測試案例。
 
    ```JSON
    {
@@ -264,7 +264,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments
    }
     ```
 
-* **範例**：所有隸屬於網域的使用者都會接收到適用於空間、感應器和使用者的讀取權限。 此存取權包含其對應的相關物件。
+* **範例**：屬於網域成員的所有使用者都會收到空間、感應器和使用者的讀取權限。 此存取權包含其對應的相關物件。
 
    ```JSON
    {

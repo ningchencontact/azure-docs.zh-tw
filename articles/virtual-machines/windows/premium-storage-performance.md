@@ -7,29 +7,30 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7fbeb12f5b221685aad5cac5352318db10bd69a7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 073b0f0b0078f8e1159fad5e4eb6a70543c81700
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036257"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012371"
 ---
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
 > [!NOTE]
 > 有時候，看似磁碟效能問題的情況，其實是網路瓶頸。 在這些情況下，您應該將您的[網路效能](../../virtual-network/virtual-network-optimize-network-bandwidth.md)最佳化。
 >
-> 如果您想要對磁片進行基準測試, 請參閱關於[磁片的](disks-benchmarks.md)效能評定文章。
+> 如果您想要對磁片進行基準測試，請參閱關於[磁片的](disks-benchmarks.md)效能評定文章。
 >
 > 如果您的 VM 支援加速網路，您應確實加以啟用。 如果未啟用，您可以對 [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 和 [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 上已部署的 VM 加以啟用。
 
-開始之前, 如果您不熟悉進階儲存體, 請先閱讀[為 IaaS Vm 選取 Azure 磁片類型](disks-types.md), 並[Azure 儲存體儲存體帳戶的擴充性和效能目標](../../storage/common/storage-scalability-targets.md)。
+開始之前，如果您不熟悉進階儲存體，請先閱讀[為 IaaS Vm 選取 Azure 磁片類型](disks-types.md)，並[Azure 儲存體儲存體帳戶的擴充性和效能目標](../../storage/common/storage-scalability-targets.md)。
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 
-如果您想要對磁片進行基準測試, 請參閱關於[磁片的](disks-benchmarks.md)效能評定文章。
+如果您想要對磁片進行基準測試，請參閱關於[磁片的](disks-benchmarks.md)效能評定文章。
 
-深入了解可用的磁碟類型：[選取磁碟類型](disks-types.md)  
+深入瞭解可用的磁片類型：[選取磁片類型](disks-types.md)  
 
 若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
 

@@ -3,7 +3,7 @@ title: Azure Active Directory 報告 API 的必要條件 |Microsoft Docs
 description: 了解存取 Azure AD 報告 API 的必要條件
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895236"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014444"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>存取 Azure Active Directory 報告 API 的必要條件
 
@@ -110,7 +110,7 @@ ms.locfileid: "72895236"
 
     ![註冊應用程式](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. 在 [**必要許可權**] 頁面上，依序選取 [**應用程式許可權**] 和 [**目錄**] 核取方塊**ReadAll**。  選取 [**新增許可權**]。
+3. 在 [**必要許可權**] 頁面上，依序選取 [**應用程式許可權**] 和 [**目錄**] 核取方塊**ReadAll**。  選取 [新增權限]。
 
     ![註冊應用程式](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
@@ -183,7 +183,7 @@ ms.locfileid: "72895236"
 
     b.這是另一個 C# 主控台應用程式。 選取 [2 年後] 來作為 [到期]。
 
-    c. 按一下 [儲存]。
+    c. 按一下 [檔案]。
 
     d. 複製金鑰值。
 
@@ -225,5 +225,5 @@ ms.locfileid: "72895236"
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Azure Active Directory 報告 API 搭配憑證來取得資料](tutorial-access-api-with-certificates.md)
-* [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) \(英文\) 
 * [登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)

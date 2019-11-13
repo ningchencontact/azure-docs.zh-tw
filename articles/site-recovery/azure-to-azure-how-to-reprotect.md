@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Site Recovery 重新保護已容錯移轉回到主要 Azure 區域的 Azure VM | Microsoft Docs
-description: 說明在從主要區域進行容錯移轉之後，如何使用 Azure Site Recovery，在次要區域中重新保護 Azure VM。
+title: 使用 Azure Site Recovery 將 Azure Vm 重新保護到主要區域 |Microsoft Docs
+description: 說明如何使用 Azure Site Recovery，在容錯移轉之後重新保護 Azure Vm （次要到主要區域）。
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,32 +8,32 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 955e1b84f897a5eb877033e0a58b8d661f143a14
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472149"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954195"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保護已容錯移轉到主要區域的 Azure VM
 
 
-當您使用 [Azure Site Recovery](site-recovery-overview.md) 來將 Azure VM 從一個區域[容錯移轉](site-recovery-failover.md)到另一個區域時，VM 會以未受保護狀態在次要區域中開機。 如果要將 VM 容錯回復到主要區域，您需要執行下列作業：
+當您使用 [Azure Site Recovery](site-recovery-failover.md) 來將 Azure VM 從一個區域[容錯移轉](site-recovery-overview.md)到另一個區域時，VM 會以未受保護狀態在次要區域中開機。 如果要將 VM 容錯回復到主要區域，您需要執行下列作業：
 
 - 重新保護次要區域中的 VM，好讓它們開始複寫到主要區域。
 - 當重新保護完成且 VM 正在複寫之後，您就能將它們從次要區域容錯移轉到主要區域。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. 必須認可從主要到次要區域的 VM 容錯移轉。
 2. 主要目標網站應該可供使用，而且您應該能夠存取或建立該區域中的資源。
 
 ## <a name="reprotect-a-vm"></a>重新保護 VM
 
-1. 在 [保存庫]   > [已複寫的項目]  中，以滑鼠右鍵按一下已容錯移轉的 VM，然後選取 [重新保護]  。 重新保護的顯示方向應該是從次要到主要。
+1. 在 [保存庫] > [已複寫的項目] 中，以滑鼠右鍵按一下已容錯移轉的 VM，然後選取 [重新保護]。 重新保護的顯示方向應該是從次要到主要。
 
    ![重新保護](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-2. 檢閱資源群組、網路、儲存體和可用性設定組。 然後按一下 [確定]  。 如果已將任何資源標記為新資源，即會在重新保護過程中建立它們。
+2. 檢閱資源群組、網路、儲存體和可用性設定組。 然後按一下 [確定]。 如果已將任何資源標記為新資源，即會在重新保護過程中建立它們。
 3. 重新保護作業會在目標網站植入最新資料。 完成該作業之後，即會進行差異複寫。 然後，您可以容錯移轉回到主要網站。 您可以使用自訂選項，來選取您想要在重新保護期間使用的儲存體帳戶或網路。
 
    ![自訂選項](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
@@ -44,7 +44,7 @@ ms.locfileid: "65472149"
 
 ![自訂](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|屬性 |注意  |
+|屬性 |注意事項  |
 |---------|---------|
 |目標資源群組     | 修改要在其中建立 VM 的目標資源群組。 目標 VM 會在重新保護過程中加以刪除。 您可以選擇容錯移轉之後要在其中建立 VM 的新資源群組。        |
 |目標虛擬網路     | 目標網路無法在重新保護作業期間進行變更。 若要變更網路，請重新進行網路對應。         |
@@ -68,7 +68,7 @@ ms.locfileid: "65472149"
 1. 如果目標端 VM 正在執行，請加以關閉。
 2. 如果 VM 使用受控磁碟，就會建立具有 '-ASRReplica' 尾碼的原始磁碟複本。 原始磁碟則會被刪除。 '-ASRReplica' 複本會用於複寫。
 3. 如果 VM 使用非受控磁碟，就會將目標 VM 的資料磁碟中斷連結並用於複寫。 將會建立 OS 磁碟的複本並連結至 VM。 原始 OS 磁碟則會中斷連結並用於複寫。
-4. 只會針對來源磁碟與目標磁碟之間的變更進行同步處理。 系統會藉由比較這兩個磁碟來計算出差異，然後進行傳輸。 若要尋找以下的預估的時間檢查。
+4. 只會針對來源磁碟與目標磁碟之間的變更進行同步處理。 系統會藉由比較這兩個磁碟來計算出差異，然後進行傳輸。 若要尋找下面的預估時間檢查。
 5. 在同步處理完成之後，差異複寫就會開始，並依據複寫原則建立復原點。
 
 當您觸發重新保護作業，而目標 VM 和磁碟不存在時，會發生下列情況：
@@ -77,17 +77,17 @@ ms.locfileid: "65472149"
 3. 將會把全部磁碟從容錯移轉的區域複製到新的目標區域。
 4. 在同步處理完成之後，差異複寫就會開始，並依據複寫原則建立復原點。
 
-#### <a name="estimated-time--to-do-the-reprotection"></a>若要進行重新保護的預估的時間 
+#### <a name="estimated-time--to-do-the-reprotection"></a>執行重新保護的預估時間 
 
-在大部分情況下，Azure Site Recovery 不會將完整資料複寫到來源區域。 以下是決定會複寫資料量的條件：
+在大部分情況下，Azure Site Recovery 不會將完整的資料複寫至來源區域。 以下是決定複寫資料量的條件：
 
-1.  如果來源 VM 資料已刪除、 損毀或無法存取，因為某些原因，例如資源群組變更/刪除，然後在重新保護完成 IR 期間將會發生，因為沒有要使用的來源地區沒有可用的資料。
-2.  如果來源 VM 資料存取只有差異會計算比較這兩個磁碟，然後再傳送。 請檢查下表來取得估計的時間 
+1.  如果來源 VM 資料因為某些原因（例如資源群組變更/刪除）而被刪除、損毀或無法存取，則在重新保護完成 IR 期間，將會發生，因為來源區域上沒有可供使用的資料。
+2.  如果來源 VM 資料可供存取，則只有差異會藉由比較這兩個磁片然後傳輸來計算。 請檢查下表以取得預估時間 
 
 |\* * 範例狀況 * * | \* * 重新保護所花費的時間 * * |
 |--- | --- |
-|來源區域具有 1 與 1 TB 的標準磁碟的 VM<br/>-使用只有 127 GB 資料，並是空的磁碟的其餘部分<br/>磁碟型別是標準與 60 MiB/秒的輸送量<br/>-沒有容錯移轉之後的資料變更| 大約 45 分鐘 – 1.5 小時的時間<br/> -在重新保護期間，Site Recovery 將會填入這需要 127GB 的整個資料的總和檢查碼 / 45 Mb ~ 45 分鐘<br/>-一些額外負荷的時間是為了使用 Site Recovery，以執行自動為 20-30 分鐘的小數位數<br/>-沒有輸出費用 |
-|來源區域具有 1 與 1 TB 的標準磁碟的 VM<br/>-使用只有 127 GB 資料，並是空的磁碟的其餘部分<br/>磁碟型別是標準與 60 MiB/秒的輸送量<br/>-在容錯移轉之後的 45 GB 的資料變更| 大約 1 小時 – 2 個小時的時間<br/>-在重新保護期間，Site Recovery 將會填入這需要 127GB 的整個資料的總和檢查碼 / 45 Mb ~ 45 分鐘<br/>-傳輸時間，以套用變更為 45 GB 的 45 gb / 45 MBps ~ 17 分鐘的時間<br/>-輸出費用只會用於 45 GB 的資料，不適用於總和檢查碼|
+|來源區域有1個具有 1 TB 標準磁片的 VM<br/>-僅使用 127 GB 的資料，而磁片的其餘部分是空的<br/>-磁片類型為標準，具有 60 MiB/秒的輸送量<br/>-容錯移轉之後不會變更任何資料| 大約時間45分鐘–1.5 小時<br/> -在重新保護期間，Site Recovery 將會填入整個資料的總和檢查碼，將需要 127 GB/45 Mb ~ 45 分鐘<br/>-需要一些額外的時間，Site Recovery 執行自動調整，這是20-30 分鐘<br/>-無輸出費用 |
+|來源區域有1個具有 1 TB 標準磁片的 VM<br/>-僅使用 127 GB 的資料，而磁片的其餘部分是空的<br/>-磁片類型為標準，具有 60 MiB/秒的輸送量<br/>-容錯移轉後的 45 GB 資料變更| 大約時間1小時–2小時<br/>-在重新保護期間，Site Recovery 將會填入整個資料的總和檢查碼，將需要 127 GB/45 Mb ~ 45 分鐘<br/>-傳輸時間以套用 45 GB 的變更，也就是 45 GB/45 MBps ~ 17 分鐘<br/>-輸出費用僅適用于不適用於總和檢查碼的 45 GB 資料|
  
 
 

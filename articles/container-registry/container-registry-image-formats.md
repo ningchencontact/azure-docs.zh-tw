@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: danlep
-ms.openlocfilehash: 98bab18f9a8250b99410941a8f865fd7ec1c5fe0
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 38639f22457d923643e8de09cfbbb2fd7f4d2985
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931575"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007488"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry 中支援的內容格式
 
@@ -29,7 +29,7 @@ ms.locfileid: "73931575"
 
 ## <a name="oci-images"></a>OCI 影像
 
-Azure Container Registry 支援符合[開放容器計畫（OCI）影像格式規格](https://github.com/opencontainers/image-spec/blob/master/spec.md)的映射。 封裝格式包括[Singularity 影像格式（SIF）](https://www.sylabs.io/2018/03/sif-containing-your-containers/)。
+Azure Container Registry 支援符合[開放容器計畫（OCI）影像格式規格](https://github.com/opencontainers/image-spec/blob/master/spec.md)的映射。 封裝格式包括[Singularity 影像格式（SIF）](https://github.com/sylabs/sif)。
 
 ## <a name="oci-artifacts"></a>OCI 構件
 

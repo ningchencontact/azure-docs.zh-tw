@@ -1,17 +1,14 @@
 ---
 title: 原則定義結構的詳細資料
 description: 說明「Azure 原則」如何使用資源原則定義，藉由描述強制執行原則的時機及所產生的效果，為您組織中的資源建立慣例。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 50edf2941aeb24d800752eec1e93f69abf4211ea
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464039"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960005"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -25,7 +22,7 @@ ms.locfileid: "73464039"
 - 模式
 - 參數
 - 顯示名稱
-- 說明
+- Description
 - 原則規則
   - 邏輯評估
   - 效果
@@ -66,7 +63,7 @@ ms.locfileid: "73464039"
 
 所有 Azure 原則範例都位於[Azure 原則的範例](../samples/index.md)。
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>模式
 
 根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標，設定**模式**。
 
@@ -93,7 +90,7 @@ ms.locfileid: "73464039"
 > [!NOTE]
 > 資源提供者模式只支援內建原則定義，並在預覽期間不支援方案。
 
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 
 參數可減少原則定義數量來幫助您簡化原則管理。 將參數想像成就像表單上的欄位一樣 – `name``address`、`city``state`。 這些參數一律保持不變，不過它們的值則會根據填寫表單的個人而有所變更。
 在建立原則時，參數也是以相同的方式運作。 藉由在原則定義中納入參數，您便可以針對不同的案例使用不同的值，來重複使用該原則。
@@ -493,7 +490,7 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="understanding-the--alias"></a>了解 [*] 別名
 
-許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如：
+許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如︰
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

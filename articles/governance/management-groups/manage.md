@@ -1,17 +1,14 @@
 ---
 title: 如何使用您的管理群組-Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
-author: rthorn17
-ms.service: governance
 ms.date: 05/22/2019
-ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255939"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960231"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -43,7 +40,7 @@ ms.locfileid: "72255939"
 
    ![重新命名群組窗格以重新命名管理群組](./media/rename_context.png)
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 ### <a name="change-the-name-in-powershell"></a>在 PowerShell 中變更名稱
 
@@ -249,7 +246,7 @@ az account management-group show --name 'Contoso' -e -r
 
    ![移動窗格以變更父群組](./media/move_small_context.png)
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移動訂用帳戶
 
@@ -300,7 +297,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
    ![將管理群組移至新的或現有的群組](./media/add_context_MG.png)
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 ### <a name="move-management-groups-in-powershell"></a>在 PowerShell 中移動管理群組
 
@@ -349,7 +346,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 若要深入了解管理群組，請參閱：
 
-- [建立管理群組以組織 Azure 資源](create.md)
+- [建立管理群組來組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
 - [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)

@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins 中的輸出和端點 | Microsoft Docs
-description: 有關如何使用 Azure Digital Twins 建立端點的指導方針。
+title: 輸出和端點-Azure 數位 Twins |Microsoft Docs
+description: 瞭解如何在 Azure 數位 Twins 中建立及輸出事件端點。
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822263"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010062"
 ---
-# <a name="egress-and-endpoints"></a>輸出和端點
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Azure 數位 Twins 中的輸出和端點
 
 Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
 
@@ -47,10 +47,10 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 在系統提示您進行確認時，輸入 | 描述 |
 | --- | --- | --- |
 | id | 字串 | 事件的唯一識別碼。 |
-| subject | 字串 | 發行者定義事件主體的路徑。 |
+| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
 | data | 物件 | 資源提供者特有的事件資料。 |
 | eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
 | eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
@@ -96,7 +96,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 - SpaceResource
 - SpaceRoleAssignment
 - 系統
-- User
+- 使用者
 - UserBlobMetadata
 - UserExtendedProperty
 

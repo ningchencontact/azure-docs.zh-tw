@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820519"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007286"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>沒有密碼的世界 Azure Active Directory
 
@@ -24,7 +24,7 @@ ms.locfileid: "73820519"
 
 本文是您旅程的開端，可協助您瞭解及執行 Microsoft 的無密碼解決方案，並協助您在下列一個或多個選項之間做選擇：
 
-* **Windows Hello 企業版**。 在 Windows 10 中，Windows Hello 企業版會以電腦和行動裝置上的強式雙因素驗證取代密碼。 這項驗證是由與裝置繫結的新型使用者認證所組成的，而且會使用生物特徵辨識或 PIN 碼。
+* **Windows Hello 企業版**。 在 Windows 10 中，Windows Hello 企業版會以電腦和行動裝置上的強式雙因素驗證取代密碼。 這項驗證是由一種新的使用者認證類型所組成，該認證系結至裝置，並使用生物識別辨識或 PIN。
 
 * **使用 Microsoft Authenticator 無密碼登入**。 Microsoft Authenticator 應用程式可在不使用密碼的情況下，用來登入 Azure AD 帳戶。 與 Windows Hello 企業版的技術類似，Microsoft Authenticator 使用以金鑰為基礎的驗證來啟用系結至裝置的使用者認證，並使用生物特徵辨識或 PIN。
 
@@ -293,13 +293,13 @@ FIDO2 安全性金鑰可提供安全驗證，與外型規格無關。 安全性�
 
 |生活|案例|Environment|無密碼技術|
 |:-|:-|:-|:-|
-|**管理中心**|保護裝置的存取權以進行管理工作|指派的 Windows 10 裝置|Windows Hello 企業版和（或） FIDO2 安全性金鑰|
-|**管理中心**|非 Windows 裝置上的管理工作| 行動或非 windows 裝置|無密碼使用 Microsoft Authenticator 應用程式登入|
+|**管理員**|保護裝置的存取權以進行管理工作|指派的 Windows 10 裝置|Windows Hello 企業版和（或） FIDO2 安全性金鑰|
+|**管理員**|非 Windows 裝置上的管理工作| 行動或非 windows 裝置|無密碼使用 Microsoft Authenticator 應用程式登入|
 |**資訊工作者**|生產力工作|指派的 Windows 10 裝置|Windows Hello 企業版和（或） FIDO2 安全性金鑰|
 |**資訊工作者**|生產力工作| 行動或非 windows 裝置|無密碼使用 Microsoft Authenticator 應用程式登入|
 |**第一線背景工作**|工廠、工廠、零售或資料輸入中的 kiosk|共用的 Windows 10 裝置|FIDO2 安全性金鑰|
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>快速入門
 
 無密碼 authentication 是未來的一波，也是更安全環境的路徑。 建議組織開始規劃這項變更，並減少其對密碼的相依性。 若要開始使用，請考慮下列目標：
 

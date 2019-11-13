@@ -3,7 +3,7 @@ title: Azure Active Directory (Azure AD) 稽核活動參考 | Microsoft Docs
 description: 取得在 Azure Active Directory (Azure AD) 中可以記錄於稽核記錄中的稽核活動概觀。
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306020"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007758"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
@@ -40,9 +40,9 @@ Azure AD 中的報告架構包含下列元件：
 
 本文列出可以在稽核記錄中記錄的稽核活動。
 
-## <a name="access-reviews"></a>存取檢閱
+## <a name="access-reviews"></a>存取權檢閱
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |存取權檢閱|存取權檢閱結束|
 |存取權檢閱|將核准者新增至要求核准|
@@ -77,7 +77,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="account-provisioning"></a>帳戶佈建
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |應用程式管理|擷取 V2 應用程式授權|
 |應用程式管理|擷取目前租用戶中的 V2 應用程式服務主體|
@@ -89,9 +89,9 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="application-proxy"></a>應用程式 Proxy
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
-|應用程式管理|加入應用程式|
+|應用程式管理|新增應用程式|
 |應用程式管理|將擁有者新增至應用程式|
 |應用程式管理|將擁有者新增至服務主體|
 |應用程式管理|將原則新增至服務主體|
@@ -103,21 +103,21 @@ Azure AD 中的報告架構包含下列元件：
 |目錄管理|移除 OAuth2PermissionGrant|
 |目錄管理|移除服務主體的應用程式角色指派|
 |目錄管理|移除應用程式的擁有者|
-|Resource|移除服務主體的擁有者|
-|Resource|移除服務主體中的原則|
-|Resource|移除服務主體|
+|資源|移除服務主體的擁有者|
+|資源|移除服務主體中的原則|
+|資源|移除服務主體|
 
 
 ## <a name="automated-password-rollover"></a>自動密碼變換
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |應用程式管理|移除服務主體認證|
 
 
 ## <a name="b2c"></a>B2C
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |應用程式管理|還原應用程式|
 |應用程式管理|撤銷同意|
@@ -140,112 +140,112 @@ Azure AD 中的報告架構包含下列元件：
 |驗證|建立 V1 應用程式|
 |驗證|建立 V2 應用程式|
 |驗證|在租用戶中建立自訂網域|
-|Authorization|建立新的 AdminUserJourney|
-|Authorization|建立當地語系化資源 json|
-|Authorization|建立新的自訂 IDP|
-|Authorization|建立新的 IDP|
-|Authorization|建立或更新 B2C 目錄資源|
-|Authorization|建立原則|
-|Authorization|建立 trustFramework 原則|
-|Authorization|使用可設定的首碼建立 trustFramework 原則|
-|Authorization|建立使用者屬性|
-|Authorization|CreateTrustFrameworkPolicy|
-|Authorization|建立或更新新的 AdminUserJourney|
-|Authorization|刪除 IDP|
-|Authorization|建立 IdentityProvider|
-|Authorization|刪除 V1 應用程式|
-|Authorization|刪除 V2 應用程式|
-|Authorization|刪除 V2 應用程式授權|
-|Authorization|刪除 B2C 目錄資源|
-|Authorization|刪除 CPIM 金鑰容器|
-|Authorization|刪除 trustFramework 原則|
-|Authorization|刪除使用者屬性|
-|Authorization|啟用 B2C 功能|
-|Authorization|取得訂用帳戶中的 B2C 目錄資源|
-|Authorization|取得自訂 IDP|
-|Authorization|取得 IDP|
-|Authorization|取得 V1 和 V2 應用程式|
-|Authorization|取得 V1 應用程式|
-|Authorization|取得 V1 應用程式|
-|Authorization|取得 V2 應用程式|
-|Authorization|取得 V2 應用程式|
-|Authorization|取得 B2C 目錄資源|
-|Authorization|取得租用戶中的自訂網域清單|
-|Authorization|取得使用者旅程圖|
-|Authorization|取得使用者旅程圖的允許應用程式宣告|
-|Authorization|取得使用者旅程圖的允許自我判斷宣告|
-|Authorization|取得原則的允許自我判斷宣告|
-|Authorization|取得可用的輸出宣告清單|
-|Authorization|取得使用者旅程圖的內容定義|
-|Authorization|取得特定管理流程的 IDP|
-|Authorization|取得 JWK 中的金鑰容器作用中金鑰中繼資料|
-|Authorization|取得所有管理流程的清單|
-|Authorization|取得所有使用者的所有管理流程的標記清單|
-|Authorization|取得使用者的租用戶清單|
-|Authorization|取得本機帳戶的自我判斷宣告|
-|Authorization|取得當地語系化資源 json|
-|Authorization|取得 Microsoft.AzureActiveDirectory 資源提供者的作業|
-|Authorization|取得原則|
-|Authorization|取得原則|
-|Authorization|取得租用戶的資源屬性|
-|Authorization|取得支援的 IDP 清單|
-|Authorization|取得使用者旅程圖的支援 IDP 清單|
-|Authorization|取得租用戶資訊|
-|Authorization|取得租用戶允許的功能|
-|Authorization|取得租用戶定義的自訂 IDP 清單|
-|Authorization|取得租用戶定義的 IDP 清單|
-|Authorization|取得租用戶定義的本機 IDP 清單|
-|Authorization|取得使用者的租用戶詳細資料以便建立資源|
-|Authorization|取得租用戶清單|
-|Authorization|取得 tenantDomains|
-|Authorization|取得 CPIM 的預設支援文化特性|
-|Authorization|取得管理流程的詳細資料|
-|Authorization|取得此租用戶的 UserJourneys 清單|
-|Authorization|取得 CPIM 可用的支援文化特性集合|
-|Authorization|取得 trustFramework 原則|
-|Authorization|取得 xml 格式的 trustFramework 原則|
-|Authorization|取得使用者屬性|
-|Authorization|取得使用者屬性|
-|Authorization|取得使用者旅程圖清單|
-|Authorization|GetIEFPolicies|
-|Authorization|GetIdentityProviders|
-|Authorization|GetTrustFrameworkPolicy|
-|Authorization|取得 jwk 格式的 CPIM 金鑰容器|
-|Authorization|取得租用戶中的金鑰容器清單|
-|Authorization|取得租用戶的類型|
-|Authorization|MigrateTenantMetadata|
-|Authorization|修補程式 IdentityProvider|
-|Authorization|PutTrustFrameworkPolicy|
-|Authorization|PutTrustFrameworkpolicy|
-|Authorization|移除使用者旅程圖|
-|Authorization|還原 CPIM 金鑰容器備份|
-|Authorization|擷取 V2 應用程式授權|
-|Authorization|擷取目前租用戶中的 V2 應用程式服務主體|
-|Authorization|更新自訂 IDP|
-|Authorization|更新 IDP|
-|Authorization|更新本機 IDP|
-|Authorization|更新 V1 應用程式|
-|Authorization|更新 V2 應用程式|
-|Authorization|更新 V2 應用程式授權|
-|Authorization|更新原則|
-|Authorization|更新使用者屬性|
-|Authorization|上傳 CPIM 加密的金鑰|
-|Authorization|使用者授權：已停用租用戶功能集的 API|
-|Authorization|使用者授權：使用者以「租用戶管理員」身分授與存取權|
-|Authorization|使用者授權：使用者獲取「已驗證的使用者」存取權限|
-|Authorization|驗證是否已啟用 B2C 功能|
-|Authorization|驗證是否已啟用功能|
-|Authorization|建立程式|
-|Authorization|刪除程式|
-|Authorization|連結程式控制項|
-|Authorization|列於 Azure AD 存取權檢閱上|
-|Authorization|取消連結程式控制項|
-|Authorization|更新程式|
-|Authorization|停用桌面 Sso|
-|Authorization|停用特定網域的桌面 Sso|
-|Authorization|停用應用程式 Proxy|
-|Authorization|停用傳遞驗證|
-|Authorization|啟用桌面 Sso|
+|授權|建立新的 AdminUserJourney|
+|授權|建立當地語系化資源 json|
+|授權|建立新的自訂 IDP|
+|授權|建立新的 IDP|
+|授權|建立或更新 B2C 目錄資源|
+|授權|建立原則|
+|授權|建立 trustFramework 原則|
+|授權|使用可設定的首碼建立 trustFramework 原則|
+|授權|建立使用者屬性|
+|授權|CreateTrustFrameworkPolicy|
+|授權|建立或更新新的 AdminUserJourney|
+|授權|刪除 IDP|
+|授權|建立 IdentityProvider|
+|授權|刪除 V1 應用程式|
+|授權|刪除 V2 應用程式|
+|授權|刪除 V2 應用程式授權|
+|授權|刪除 B2C 目錄資源|
+|授權|刪除 CPIM 金鑰容器|
+|授權|刪除 trustFramework 原則|
+|授權|刪除使用者屬性|
+|授權|啟用 B2C 功能|
+|授權|取得訂用帳戶中的 B2C 目錄資源|
+|授權|取得自訂 IDP|
+|授權|取得 IDP|
+|授權|取得 V1 和 V2 應用程式|
+|授權|取得 V1 應用程式|
+|授權|取得 V1 應用程式|
+|授權|取得 V2 應用程式|
+|授權|取得 V2 應用程式|
+|授權|取得 B2C 目錄資源|
+|授權|取得租用戶中的自訂網域清單|
+|授權|取得使用者旅程圖|
+|授權|取得使用者旅程圖的允許應用程式宣告|
+|授權|取得使用者旅程圖的允許自我判斷宣告|
+|授權|取得原則的允許自我判斷宣告|
+|授權|取得可用的輸出宣告清單|
+|授權|取得使用者旅程圖的內容定義|
+|授權|取得特定管理流程的 IDP|
+|授權|取得 JWK 中的金鑰容器作用中金鑰中繼資料|
+|授權|取得所有管理流程的清單|
+|授權|取得所有使用者的所有管理流程的標記清單|
+|授權|取得使用者的租用戶清單|
+|授權|取得本機帳戶的自我判斷宣告|
+|授權|取得當地語系化資源 json|
+|授權|取得 Microsoft.AzureActiveDirectory 資源提供者的作業|
+|授權|取得原則|
+|授權|取得原則|
+|授權|取得租用戶的資源屬性|
+|授權|取得支援的 IDP 清單|
+|授權|取得使用者旅程圖的支援 IDP 清單|
+|授權|取得租用戶資訊|
+|授權|取得租用戶允許的功能|
+|授權|取得租用戶定義的自訂 IDP 清單|
+|授權|取得租用戶定義的 IDP 清單|
+|授權|取得租用戶定義的本機 IDP 清單|
+|授權|取得使用者的租用戶詳細資料以便建立資源|
+|授權|取得租用戶清單|
+|授權|取得 tenantDomains|
+|授權|取得 CPIM 的預設支援文化特性|
+|授權|取得管理流程的詳細資料|
+|授權|取得此租用戶的 UserJourneys 清單|
+|授權|取得 CPIM 可用的支援文化特性集合|
+|授權|取得 trustFramework 原則|
+|授權|取得 xml 格式的 trustFramework 原則|
+|授權|取得使用者屬性|
+|授權|取得使用者屬性|
+|授權|取得使用者旅程圖清單|
+|授權|GetIEFPolicies|
+|授權|GetIdentityProviders|
+|授權|GetTrustFrameworkPolicy|
+|授權|取得 jwk 格式的 CPIM 金鑰容器|
+|授權|取得租用戶中的金鑰容器清單|
+|授權|取得租用戶的類型|
+|授權|MigrateTenantMetadata|
+|授權|修補程式 IdentityProvider|
+|授權|PutTrustFrameworkPolicy|
+|授權|PutTrustFrameworkpolicy|
+|授權|移除使用者旅程圖|
+|授權|還原 CPIM 金鑰容器備份|
+|授權|擷取 V2 應用程式授權|
+|授權|擷取目前租用戶中的 V2 應用程式服務主體|
+|授權|更新自訂 IDP|
+|授權|更新 IDP|
+|授權|更新本機 IDP|
+|授權|更新 V1 應用程式|
+|授權|更新 V2 應用程式|
+|授權|更新 V2 應用程式授權|
+|授權|更新原則|
+|授權|更新使用者屬性|
+|授權|上傳 CPIM 加密的金鑰|
+|授權|使用者授權：已停用租用戶功能集的 API|
+|授權|使用者授權：使用者以「租用戶管理員」身分授與存取權|
+|授權|使用者授權：使用者獲取「已驗證的使用者」存取權限|
+|授權|驗證是否已啟用 B2C 功能|
+|授權|驗證是否已啟用功能|
+|授權|建立程式|
+|授權|刪除程式|
+|授權|連結程式控制項|
+|授權|列於 Azure AD 存取權檢閱上|
+|授權|取消連結程式控制項|
+|授權|更新程式|
+|授權|停用桌面 Sso|
+|授權|停用特定網域的桌面 Sso|
+|授權|停用應用程式 Proxy|
+|授權|停用傳遞驗證|
+|授權|啟用桌面 Sso|
 |目錄管理|啟用特定網域的桌面 Sso|
 |目錄管理|啟用應用程式 Proxy|
 |目錄管理|啟用傳遞驗證|
@@ -256,97 +256,97 @@ Azure AD 中的報告架構包含下列元件：
 |目錄管理|取得租用戶資訊|
 |目錄管理|取得租用戶允許的功能|
 |目錄管理|取得 tenantDomains|
-|Key|取得租用戶的類型|
-|Key|驗證是否已啟用 B2C 功能|
-|Key|驗證是否已啟用功能|
-|Key|將夥伴新增至公司|
-|Key|新增未驗證的網域|
-|Key|新增已驗證的網域|
-|Key|建立公司|
-|Key|建立公司設定|
-|Key|刪除公司設定|
-|Key|將夥伴降級|
-|Key|已刪除的目錄|
+|金鑰|取得租用戶的類型|
+|金鑰|驗證是否已啟用 B2C 功能|
+|金鑰|驗證是否已啟用功能|
+|金鑰|將夥伴新增至公司|
+|金鑰|新增未驗證的網域|
+|金鑰|新增已驗證的網域|
+|金鑰|建立公司|
+|金鑰|建立公司設定|
+|金鑰|刪除公司設定|
+|金鑰|將夥伴降級|
+|金鑰|已刪除的目錄|
 |其他|永久刪除的目錄|
 |其他|排程刪除的目錄|
-|Resource|將公司升級為夥伴|
-|Resource|清除 Rights Management 屬性|
-|Resource|移除公司的夥伴|
-|Resource|移除未驗證的網域|
-|Resource|移除已驗證的網域|
-|Resource|設定公司資訊|
-|Resource|設定 DirSync 功能|
-|Resource|設定 DirSyncEnabled 旗標|
-|Resource|設定合作關係|
-|Resource|設定意外刪除閾值|
-|Resource|設定公司允許的資料位置|
-|Resource|設定啟用公司多語系功能|
-|Resource|在租用戶上設定目錄功能|
-|Resource|設定網域驗證|
-|Resource|設定網域的同盟設定|
-|Resource|設定密碼原則|
-|Resource|設定 Rights Management 屬性|
-|Resource|更新公司|
-|Resource|更新公司設定|
-|Resource|更新網站|
-|Resource|驗證網域|
-|Resource|驗證電子郵件驗證的網域|
-|Resource|上架|
-|Resource|更新警示設定|
-|Resource|更新每週摘要設定|
-|Resource|停用目錄的密碼回寫|
-|Resource|啟用目錄的密碼回寫|
-|Resource|將應用程式角色指派新增至群組|
-|Resource|加入群組|
-|Resource|將成員新增到群組|
-|Resource|將擁有者新增至群組|
-|Resource|建立群組設定|
-|Resource|刪除群組|
-|Resource|刪除群組設定|
-|Resource|完成將群組型授權套用至使用者|
-|Resource|實刪除群組|
-|Resource|移除群組的應用程式角色指派|
-|Resource|從群組移除成員|
-|Resource|移除群組的擁有者|
-|Resource|還原群組|
-|Resource|設定群組授權|
-|Resource|將群組設定為由使用者管理|
-|Resource|開始將群組型授權套用至使用者|
-|Resource|觸發群組授權重新計算|
-|Resource|更新群組|
-|Resource|更新群組設定|
-|Resource|新增成員|
-|Resource|建立群組|
-|Resource|刪除群組|
-|Resource|移除成員|
-|Resource|更新群組|
-|Resource|核准擱置中的要求以加入群組|
-|Resource|取消擱置中的要求以加入群組|
-|Resource|建立生命週期管理原則|
-|Resource|刪除擱置中的要求以加入群組|
-|Resource|拒絕擱置中的要求以加入群組|
-|Resource|續約群組|
-|Resource|要求加入群組|
-|Resource|設定動態群組屬性|
-|Resource|更新生命週期管理原則|
-|Resource|將以 ASCII 密碼為基礎的金鑰新增至 CPIM 金鑰容器|
-|Resource|將金鑰新增至 CPIM 金鑰容器|
-|Resource|刪除 CPIM 金鑰容器|
-|Resource|刪除金鑰容器|
-|Resource|取得 JWK 中的金鑰容器作用中金鑰中繼資料|
-|Resource|取得金鑰容器中繼資料|
-|Resource|取得 jwk 格式的 CPIM 金鑰容器|
-|Resource|取得租用戶中的金鑰容器清單|
-|Resource|還原 CPIM 金鑰容器備份|
-|Resource|儲存金鑰容器|
-|Resource|上傳 CPIM 加密的金鑰|
-|Resource|將授權碼發給應用程式|
-|Resource|將 id_token 發給應用程式|
+|資源|將公司升級為夥伴|
+|資源|清除 Rights Management 屬性|
+|資源|移除公司的夥伴|
+|資源|移除未驗證的網域|
+|資源|移除已驗證的網域|
+|資源|設定公司資訊|
+|資源|設定 DirSync 功能|
+|資源|設定 DirSyncEnabled 旗標|
+|資源|設定合作關係|
+|資源|設定意外刪除閾值|
+|資源|設定公司允許的資料位置|
+|資源|設定啟用公司多語系功能|
+|資源|在租用戶上設定目錄功能|
+|資源|設定網域驗證|
+|資源|設定網域的同盟設定|
+|資源|設定密碼原則|
+|資源|設定 Rights Management 屬性|
+|資源|更新公司|
+|資源|更新公司設定|
+|資源|更新網站|
+|資源|驗證網域|
+|資源|驗證電子郵件驗證的網域|
+|資源|登入|
+|資源|更新警示設定|
+|資源|更新每週摘要設定|
+|資源|停用目錄的密碼回寫|
+|資源|啟用目錄的密碼回寫|
+|資源|將應用程式角色指派新增至群組|
+|資源|新增群組|
+|資源|將成員加入群組|
+|資源|將擁有者新增至群組|
+|資源|建立群組設定|
+|資源|刪除群組|
+|資源|刪除群組設定|
+|資源|完成將群組型授權套用至使用者|
+|資源|實刪除群組|
+|資源|移除群組的應用程式角色指派|
+|資源|從群組移除成員|
+|資源|移除群組的擁有者|
+|資源|還原群組|
+|資源|設定群組授權|
+|資源|將群組設定為由使用者管理|
+|資源|開始將群組型授權套用至使用者|
+|資源|觸發群組授權重新計算|
+|資源|更新群組|
+|資源|更新群組設定|
+|資源|新增成員|
+|資源|建立群組|
+|資源|刪除群組|
+|資源|移除成員|
+|資源|更新群組|
+|資源|核准擱置中的要求以加入群組|
+|資源|取消擱置中的要求以加入群組|
+|資源|建立生命週期管理原則|
+|資源|刪除擱置中的要求以加入群組|
+|資源|拒絕擱置中的要求以加入群組|
+|資源|更新群組|
+|資源|要求加入群組|
+|資源|設定動態群組屬性|
+|資源|更新生命週期管理原則|
+|資源|將以 ASCII 密碼為基礎的金鑰新增至 CPIM 金鑰容器|
+|資源|將金鑰新增至 CPIM 金鑰容器|
+|資源|刪除 CPIM 金鑰容器|
+|資源|刪除金鑰容器|
+|資源|取得 JWK 中的金鑰容器作用中金鑰中繼資料|
+|資源|取得金鑰容器中繼資料|
+|資源|取得 jwk 格式的 CPIM 金鑰容器|
+|資源|取得租用戶中的金鑰容器清單|
+|資源|還原 CPIM 金鑰容器備份|
+|資源|儲存金鑰容器|
+|資源|上傳 CPIM 加密的金鑰|
+|資源|將授權碼發給應用程式|
+|資源|將 id_token 發給應用程式|
 
 
 ## <a name="core-directory"></a>核心目錄
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |管理單位的管理|下載單一風險偵測類型|
 |管理單位的管理|下載加入每週摘要的管理員和狀態|
@@ -356,7 +356,7 @@ Azure AD 中的報告架構包含下列元件：
 |應用程式管理|已處理 Batch 邀請|
 |應用程式管理|已上傳 Batch 邀請|
 |應用程式管理|將擁有者新增至原則|
-|應用程式管理|新增原則|
+|應用程式管理|Add policy|
 |應用程式管理|刪除原則|
 |應用程式管理|移除原則認證|
 |應用程式管理|更新原則|
@@ -440,18 +440,18 @@ Azure AD 中的報告架構包含下列元件：
 |原則管理|GetIEFPolicies|
 |原則管理|GetIdentityProviders|
 |原則管理|GetTrustFrameworkPolicy|
-|Resource|MigrateTenantMetadata|
-|Resource|移動資源|
-|Resource|修補程式 IdentityProvider|
-|Resource|PutTrustFrameworkPolicy|
-|Resource|PutTrustFrameworkpolicy|
-|Resource|移除使用者旅程圖|
-|Resource|更新自訂 IDP|
-|Resource|更新 IDP|
-|Resource|更新本機 IDP|
-|Resource|更新 B2C 目錄資源|
-|Resource|更新原則|
-|Resource|更新訂用帳戶狀態|
+|資源|MigrateTenantMetadata|
+|資源|移動資源|
+|資源|修補程式 IdentityProvider|
+|資源|PutTrustFrameworkPolicy|
+|資源|PutTrustFrameworkpolicy|
+|資源|移除使用者旅程圖|
+|資源|更新自訂 IDP|
+|資源|更新 IDP|
+|資源|更新本機 IDP|
+|資源|更新 B2C 目錄資源|
+|資源|更新原則|
+|資源|更新訂用帳戶狀態|
 |角色管理|更新使用者屬性|
 |角色管理|驗證移動資源|
 |角色管理|新增裝置|
@@ -488,7 +488,7 @@ Azure AD 中的報告架構包含下列元件：
 |使用者管理|移除裝置中已註冊的擁有者|
 |使用者管理|移除裝置中已註冊的使用者|
 |使用者管理|移除角色的合格成員|
-|使用者管理|從角色移除成員|
+|使用者管理|移除角色的成員|
 |使用者管理|移除角色定義中的角色指派|
 |使用者管理|移除角色的範圍成員|
 |使用者管理|更新裝置|
@@ -502,7 +502,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="identity-protection"></a>身分識別保護
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |目錄管理|提高權限|
 |目錄管理|已移除|
@@ -521,7 +521,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="invited-users"></a>受邀的使用者
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |其他|建立要求核准|
 |其他|刪除存取權檢閱|
@@ -535,7 +535,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="microsoft-identity-manager-mim"></a>Microsoft Identity Manager (MIM)
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |群組管理|檢閱要求核准要求|
 |群組管理|更新存取權檢閱|
@@ -549,7 +549,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |PIM|ActivationAborted|
 |PIM|ActivationApproved|
@@ -576,7 +576,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="self-service-group-management"></a>自助式群組管理
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |群組管理|重設使用者密碼|
 |群組管理|還原使用者|
@@ -591,7 +591,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="self-service-password-management"></a>自助式密碼管理
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |目錄管理|管理員要求使用者重設密碼|
 |目錄管理|將外部使用者指派至應用程式|
@@ -607,7 +607,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="terms-of-use"></a>使用規定
 
-|稽核類別|activities|
+|稽核類別|活動|
 |---|---|
 |使用規定|接受使用規定|
 |使用規定|建立使用規定|

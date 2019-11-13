@@ -1,20 +1,20 @@
 ---
-title: 在 Azure Site Recovery 部署規劃工具中檢閱成本估計報告 | Microsoft Docs
-description: 本文說明如何在 Azure Site Recovery 部署規劃工具中檢閱進行從 VMware 至 Azure 之災害復原的成本估計報告。
+title: 查看 Azure Site Recovery 部署規劃工具中的成本估計
+description: 這篇文章說明如何在 VMware 嚴重損壞修復的 Azure Site Recovery 部署規劃工具中，檢查成本估計。
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620068"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953333"
 ---
-# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署規劃工具中檢閱針對 Azure 進行 VMware 災害復原的成本估計報告
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>查看 VMware 部署規劃工具中的成本估計 
 
 部署規劃工具報告在[建議](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)工作表中提供成本估計摘要，以及在成本估計工作表中提供詳細的成本分析。 其中包含每部 VM 的詳細成本分析。 
 
@@ -31,7 +31,7 @@ ms.locfileid: "68620068"
  
 您可以檢視每月或每年的成本。 深入了解[支援的目標區域](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)和[支援的貨幣](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)。
 
-**依元件的成本**：DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
+**依元件的成本** DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
 
 **依狀態的成本** 災害復原 (DR) 的總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。 
 
@@ -62,9 +62,9 @@ ms.locfileid: "68620068"
 ### <a name="overall-dr-cost-by-states"></a>依狀態的整體 DR 成本
 DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
-**複寫成本**：在複寫時產生的成本。 其中涵蓋儲存體、網路和 Azure Site Recovery 授權的成本。 
+**複寫成本**：在複寫時發生的成本。 其中涵蓋儲存體、網路和 Azure Site Recovery 授權的成本。 
 
-**DR 演練成本**：在 DR 演練時產生的成本。 Azure Site Recovery 會在 DR 演練期間啟動 VM。 DR 演練成本涵蓋執行 VM 的計算和儲存成本。
+**DR 演練成本**：DR 演練時發生的成本。 Azure Site Recovery 會在 DR 演練期間啟動 VM。 DR 演練成本涵蓋執行 VM 的計算和儲存成本。
 一年中的總計 DR 演練持續時間 = DR 演練的數目 x 每個 DR 演練持續時間 (天) 平均 DR 演練成本 (每月) = 總計 DR 演練成本 / 12
 
 ### <a name="storage-cost-table"></a>儲存成本表格：
@@ -75,7 +75,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **ExpressRoute**：根據預設，此工具會選取符合差異複寫所需網路頻寬的最接近 ExpressRoute 計劃。 您可以根據您的需求變更計劃。
 
-**VPN 閘道**：如果您的環境中有任何 VPN 閘道，請加以選取。 根據預設，這是 NA。
+**VPN 閘道**：如果您的環境中有任何，請選取 VPN 閘道。 根據預設，這是 NA。
 
 **目標區域**：針對 DR 指定的 Azure 區域。 報告中針對計算、儲存體、網路和授權使用的價格是以該地區的 Azure 價格為基礎。 
 
@@ -101,7 +101,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 * VM 數目、IaaS 大小 (您的選擇)
 * 儲存體類型 (標準/進階)
-* 來源機器的 VM 總儲存體大小 (GB)
+* 來源機器的 VM 總儲存體大小（GB）
 * 一年中的 DR 演練次數 
 * 每次 DR 演練持續時間 (天) 
 * OS 類型
@@ -112,17 +112,17 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 1. 按一下 [重新計算成本] 來更新成本。
 
-**虛擬機器名稱**：VM 的名稱。
+**VM 名稱**：VM 的名稱。
 
 **VM 數目**：符合組態的 VM 數目。 如果類似組態的 VM 未經過剖析，但是將會受到保護，您可以更新現有的 VM 數目。
 
-**IaaS 大小 (建議)** ：工具所建議的相容 VM 的 VM 角色大小。 
+**IaaS 大小 (建議)** ：這是工具建議之相容 VM 的 VM 角色大小。 
 
 **IaaS 大小 (您的選擇)** ：根據預設，這與建議的 VM 角色大小一樣。 您可以根據您的需求變更角色。 計算成本是以您選取的 VM 角色大小為基礎。
 
 **儲存體類型**：VM 所使用的儲存體類型。 這是標準或進階儲存體。
 
-**VM 總儲存體大小 (GB)** ：來源 VM 的總儲存體。
+**VM 總儲存體大小（GB）** ：來源 vm 的總儲存體。
 
 **一年中的 DR 演練次數**：您在一年中執行 DR 演練的次數。 根據預設，一年中有 4 次。 在頂端列輸入新值，然後按一下 [套用到全部] 按鈕，即可修改特定 VM 的期間，或將新值套用至所有 VM。 根據一年中的 DR 演練次數和每次 DR 演練持續期間，計算 DR 演練總成本。  
 
@@ -136,7 +136,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **Azure 總耗用量**：其中包含您的 DR 的計算、儲存及 Azure Site Recovery 授權成本。 根據您的選取項目，顯示每月或每年的成本。
 
-**穩定狀態複寫成本**：其中包含複寫的儲存成本。
+**穩定狀態複寫成本**：包含複寫的儲存成本。
 
 **DR 演練總成本 (平均)** ：其中包含 DR 演練的計算和儲存成本。
 
@@ -150,15 +150,15 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|Currency|名稱||Currency|名稱||Currency|名稱|
+|貨幣|名稱||貨幣|名稱||貨幣|名稱|
 |---|---|---|---|---|---|---|---|
-|ARS 披索|阿根廷披索 ($)||AUD|澳幣 ($)||BRL|巴西里耳 (R$)|
-|CAD|加幣 ($)||CHF|瑞士法郎 (chf)||DKK|丹麥克朗 (kr)|
-|EUR|歐元 (€)||GBP|英磅 (£)||港幣|港幣 (HK$)|
-|IDR|印尼盾 (Rp)||INR|印度盧比 (₹)||JPY|日圓 (¥)|
-|KRW|韓國圜 (₩)||MXN|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
-|NOK|挪威克朗 (kr)||NZD|紐西蘭幣 ($)||RUB|俄羅斯盧布 (руб)|
-|SAR 里亞爾|沙烏地里亞爾 (SR)||SEK|瑞典克朗 (kr)||TWD|新台幣 (NT$)|
+|ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
+|加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|
+|歐元|歐元 (€)||英鎊|英鎊 (£)||港幣|港幣 (HK$)|
+|印尼盾|印尼盾 (Rp)||印度幣|印度盧比 (₹)||日圓|日圓 (¥)|
+|韓元|Korean Won (₩)||墨西哥批索|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
+|挪威克朗|挪威克朗 (kr)||紐西蘭幣|紐西蘭元 ($)||盧布|俄羅斯盧布 (руб)|
+|SAR 里亞爾|沙烏地里亞爾 (SR)||瑞典克朗|瑞典克朗 (kr)||新台幣|新台幣 (NT$)|
 |土耳其里拉|土耳其里拉 (TL)||美元| 美元 ($)||南非幣|南非蘭特 (R)|
 
 ## <a name="next-steps"></a>後續步驟

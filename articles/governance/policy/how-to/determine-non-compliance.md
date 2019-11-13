@@ -1,17 +1,14 @@
 ---
 title: 判斷不符合的原因
 description: 當資源不符合規範時，有許多可能的原因。 學習如何找出導致不符合規範的原因。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978102"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959605"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -21,7 +18,7 @@ ms.locfileid: "71978102"
 > - [合規性詳細資料](#compliance-details)
 > - [變更歷程記錄（預覽）](#change-history)
 
-## <a name="compliance-details"></a>相容性詳細資料
+## <a name="compliance-details"></a>合規性詳細資料
 
 當資源不符合規範時，可以從 [**原則相容性**] 頁面取得該資源的相容性詳細資料。 [合規性詳細資料] 窗格包含下列資訊：
 
@@ -84,7 +81,7 @@ ms.locfileid: "71978102"
 
 下列矩陣會將每個可能的_原因_對應至原則定義中的負責[條件](../concepts/definition-structure.md#conditions)：
 
-|`Reason` | 條件 |
+|原因 | 條件 |
 |-|-|
 |目前的值必須包含目標值做為索引鍵。 |containsKey 或**not** notContainsKey |
 |目前的值必須包含目標值。 |包含或**不**notContains |
@@ -93,7 +90,7 @@ ms.locfileid: "71978102"
 |目前的值必須大於或等於目標值。 |greaterOrEquals 或**不**小於 |
 |目前的值必須大於目標值。 |大於或**不**lessOrEquals |
 |目前的值必須小於或等於目標值。 |lessOrEquals 或**不**大於 |
-|目前的值必須存在。 |存在 |
+|目前的值必須存在。 |exists |
 |目前的值必須在目標值中。 |in 或**not** notIn |
 |目前的值必須與目標值相同。 |like 或**not** notLike |
 |目前的值必須符合目標值的區分大小寫。 |match 或**not** notMatch |
@@ -124,7 +121,7 @@ ms.locfileid: "71978102"
 
 [**來賓指派**] 頁面會顯示所有可用的合規性詳細資料。 View 中的每個資料列都代表在機器內執行的評估。 在 [**原因**] 資料行中，會顯示說明為何不_符合_「來賓指派」的片語。 例如，如果您要審核密碼原則，[**原因**] 欄會顯示文字，包括每個設定的目前值。
 
-![檢視相容性詳細資料。](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![查看合規性詳細資料](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Change 歷程記錄（預覽）
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>變更歷程記錄（預覽）
 
 做為新**公開預覽**的一部分，所有支援[完整模式刪除](../../../azure-resource-manager/complete-mode-deletion.md)的 Azure 資源都可使用變更歷程記錄的過去14天。 變更歷程記錄會提供關於何時偵測到變更的詳細資料，以及每項變更的_視覺化差異_。 新增、移除或更改 Resource Manager 的屬性時，就會觸發變更偵測。
 

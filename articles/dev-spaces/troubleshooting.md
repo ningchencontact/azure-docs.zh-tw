@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
-ms.openlocfilehash: e145c234c7fc0bc7b9263f40f22d3fd90c1b7250
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
+ms.openlocfilehash: 0afdc0ac246e4cacbd4f45cca36c3c57b1c26e02
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064121"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005983"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -56,13 +56,13 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>控制器建立失敗，因為控制器名稱長度
 
-Azure Dev Spaces 控制器的名稱長度不能超過31個字元。 當您在 AKS 叢集上啟用 Dev Spaces 或建立控制器時，如果您的控制器名稱超過31個字元，就會收到錯誤。 例如：
+Azure Dev Spaces 控制器的名稱長度不能超過31個字元。 當您在 AKS 叢集上啟用 Dev Spaces 或建立控制器時，如果您的控制器名稱超過31個字元，就會收到錯誤。 例如︰
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-若要修正此問題，請使用替代名稱建立控制器。 例如：
+若要修正此問題，請使用替代名稱建立控制器。 例如︰
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -93,6 +93,10 @@ azure-cli                         2.0.60 *
 儘管在2.0.63 之前使用 Azure CLI 版本執行 `az aks use-dev-spaces` 時，仍會出現錯誤訊息，但安裝會成功。 您可以繼續使用 `azds` 而不會有任何問題。
 
 若要修正此問題，請將[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)安裝更新至2.0.63 或更新版本。 此更新將會解決您在執行 `az aks use-dev-spaces`時所收到的錯誤訊息。 或者，您可以繼續使用目前版本的 Azure CLI 和 Azure Dev Spaces CLI。
+
+### <a name="aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>已啟用 API 伺服器授權 IP 位址範圍的 AKS 叢集
+
+如果您的 AKS 叢集已啟用[API 伺服器授權的 IP 位址範圍](../aks/api-server-authorized-ip-ranges.md)，您也必須[建立](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled)或[更新](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges)叢集，以[允許根據您的區域的其他範圍](https://github.com/Azure/dev-spaces/tree/master/public-ips)。
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>準備專案以進行 Azure Dev Spaces 時常見的問題
 
@@ -143,7 +147,7 @@ Container image build failed
 
 若要修正此問題，請重新開機叢集中的代理程式節點。
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>錯誤「release azds-\<識別碼\>-\<spacename\>-\<servicename\> 失敗：服務 '\<servicename\>' 已存在」或「已拒絕 \<servicename 的提取存取權」\>，存放庫不存在，或可能需要 ' docker login ' '
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>錯誤「release azds-\<識別碼\>-\<spacename\>-\<servicename\> 失敗：服務 '\<servicename\>' 已存在」，或「拒絕 \<servicename\>的提取存取權，存放庫不存在，或可能需要 ' docker login ' '
 
 如果您在相同的開發人員空間內混合執行直接 Helm 命令（例如 `helm install`、`helm upgrade`或 `helm delete`）與 Dev Spaces 命令（例如 `azds up` 和 `azds down`），就會發生這些錯誤。 因為 Dev Spaces 有自己的 Tiller 實例，所以會與您在相同開發人員空間中執行的自有 Tiller 實例相衝突，因此會發生這種情況。
 
@@ -155,7 +159,7 @@ Container image build failed
 
 Azure Dev Spaces 可以設定為指向您專案中的特定 _Dockerfile_。 如果發生 Azure Dev Spaces 未使用您預期的 Dockerfile 來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 要使用哪個 Dockerfile。 
 
-若要修正此問題，請開啟 Azure Dev Spaces 在專案中產生的_yaml_檔案。 更新設定： [開發]： [*組建]： dockerfile*以指向您想要使用的 dockerfile。 例如：
+若要修正此問題，請開啟 Azure Dev Spaces 在專案中產生的_yaml_檔案。 更新設定： [開發]： [*組建]： dockerfile*以指向您想要使用的 dockerfile。 例如︰
 
 ```yaml
 ...
@@ -202,7 +206,7 @@ install:
 
 當您的服務程式碼無法啟動時，您可能會看到此錯誤訊息。 通常是使用者程式碼所造成的。 若要取得更多診斷資訊，請在啟動服務時啟用更詳細的記錄。
 
-從命令列中，使用 `--verbose` 來啟用更詳細的記錄。 您也可以使用 `--output`來指定輸出格式。 例如：
+從命令列中，使用 `--verbose` 來啟用更詳細的記錄。 您也可以使用 `--output`來指定輸出格式。 例如︰
 
 ```cmd
 azds up --verbose --output json
@@ -285,7 +289,7 @@ Service cannot be started.
 
 執行 Visual Studio Code 偵錯工具時，您可能會看到此錯誤。 VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄。 如果您已將 `Dockerfile` 更新成指定不同的工作目錄，就可能看到此錯誤。
 
-若要修正此問題，請更新專案資料夾的 `.vscode` 子目錄下的 `launch.json` 檔案。 將 `configurations->cwd` 指示詞變更成指向與您專案之 `Dockerfile`.中所定義 `WORKDIR` 相同的目錄。 您可能也需要更新 `configurations->program` 指示詞。
+若要修正此問題，請更新專案資料夾的 `.vscode` 子目錄下的 `launch.json` 檔案。 將 `configurations->cwd` 指示詞變更成指向與您專案之 `WORKDIR`.中所定義 `Dockerfile` 相同的目錄。 您可能也需要更新 `configurations->program` 指示詞。
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>「管道程式 ' azds ' 意外結束並出現代碼126」錯誤。
 
@@ -295,9 +299,9 @@ Service cannot be started.
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>將偵錯工具附加至 node.js 應用程式時發生錯誤「內部監看失敗：監看 ENOSPC」
 
-當執行 pod 的節點與您嘗試附加的 node.js 應用程式已超過*inotifypropertychanged. max _user_watches*值時，就會發生此錯誤。 在某些情況下， [ *inotifypropertychanged*的預設值可能太小，無法直接處理將偵錯工具附加至 pod](https://github.com/Azure/AKS/issues/772)。
+當執行 pod 的節點與您嘗試附加的 node.js 應用程式已超過*max_user_watches inotifypropertychanged*值時，就會發生此錯誤。 在某些情況下， [ *max_user_watches inotifypropertychanged*的預設值可能太小，無法直接處理將偵錯工具附加至 pod](https://github.com/Azure/AKS/issues/772)。
 
-此問題的暫時因應措施是增加叢集中每個節點上的*inotifypropertychanged 最大 _user_watches*值，然後重新開機該節點，讓變更生效。
+此問題的暫時因應措施是增加*max_user_watches inotifypropertychanged*在叢集中每個節點上的值，然後重新開機該節點，讓變更生效。
 
 ## <a name="other-common-issues"></a>其他常見的問題
 
@@ -316,7 +320,7 @@ Service cannot be started.
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>授權錯誤 "Microsoft. DevSpaces/register/action"
 
-您需要 Azure 訂用帳戶中的「擁有者」或「參與者」權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，但沒有相關聯 Azure 訂用帳戶的*擁有*者或*參與者*存取權，您可能會看到授權錯誤。 例如：
+您需要 Azure 訂用帳戶中的「擁有者」或「參與者」權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，但沒有相關聯 Azure 訂用帳戶的*擁有*者或*參與者*存取權，您可能會看到授權錯誤。 例如︰
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -372,11 +376,11 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
     * 針對 [*角色*]，選取 [*參與者*] 或 [*擁有*者]。
     * 在 [存取權指派對象為] 中，選取 [Azure AD 使用者、群組或服務主體]。
     * 針對 [*選取*]，搜尋您想要授與許可權的使用者。
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>與 Dev Spaces 服務相關聯的公用 URL 進行 DNS 名稱解析失敗
 
-您可以藉由對 `azds prep` 命令指定 `--public` 參數，或藉由在 Visual Studio 中選取 `Publicly Accessible` 核取方塊，來為服務設定公用 URL 端點。 當您在 Dev Spaces 中執行服務時，公用 DNS 名稱會自動完成註冊。 如果此 DNS 名稱未完成註冊，您就會在連線至公用 URL 時，於網頁瀏覽器中看到「頁面無法顯示」或「網站無法連線」的錯誤。
+您可以藉由對 `--public` 命令指定 `azds prep` 參數，或藉由在 Visual Studio 中選取 `Publicly Accessible` 核取方塊，來為服務設定公用 URL 端點。 當您在 Dev Spaces 中執行服務時，公用 DNS 名稱會自動完成註冊。 如果此 DNS 名稱未完成註冊，您就會在連線至公用 URL 時，於網頁瀏覽器中看到「頁面無法顯示」或「網站無法連線」的錯誤。
 
 若要修正此問題：
 

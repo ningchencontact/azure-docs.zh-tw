@@ -1,17 +1,14 @@
 ---
 title: 常見問題疑難排解
 description: 瞭解如何針對使用 Azure Resource Graph 查詢 Azure 資源的問題進行疑難排解。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: troubleshooting
-ms.service: resource-graph
-ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e8f42650265b1ca400731365203408eeb22a4e4c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389694"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958530"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>使用 Azure Resource Graph 疑難排解錯誤
 
@@ -33,7 +30,7 @@ ms.locfileid: "72389694"
 
 Azure CLI 和 PowerShell 只轉送前1000個訂用帳戶，以 Azure Resource Graph。 Azure Resource Graph 的 REST API 會接受執行查詢的最大訂閱數。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 具有訂用帳戶子集的查詢批次要求會保留在1000訂閱限制之下。 解決方案會使用 PowerShell 中的**訂**用帳戶參數。
 
@@ -70,9 +67,9 @@ $response
 
 Azure Resource Graph REST API 僅支援**application/json**`Content-Type`。 某些 REST 工具或代理程式預設為**text/純文字**，REST API 不支援。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-驗證您用來查詢 Azure Resource Graph 的工具或代理程式是否已為**application/json**設定 REST API 標頭 @no__t 0。
+驗證您用來查詢 Azure Resource Graph 的工具或代理程式是否已為**application/json**設定 REST API 標 `Content-Type` 頭。
 
 ### <a name="rest-403"></a>案例：沒有清單中所有訂用帳戶的讀取權限
 
@@ -84,7 +81,7 @@ Azure Resource Graph REST API 僅支援**application/json**`Content-Type`。 某
 
 如果客戶沒有所有提供之訂用帳戶的讀取權限，則要求會因為缺乏適當的安全性許可權而遭到拒絕。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 在訂用帳戶清單中至少包含一個訂用帳戶，而執行查詢的客戶至少具有的讀取存取權。 如需詳細資訊，請參閱[Azure Resource Graph 中的許可權](../overview.md#permissions-in-azure-resource-graph)。
 

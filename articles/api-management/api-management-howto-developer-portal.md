@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1eef7b6505c4800acbe8aa69cf6f17eecc503aed
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796010"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011489"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理開發人員入口網站總覽
 
@@ -27,7 +27,7 @@ ms.locfileid: "73796010"
 
 > [!WARNING]
 > 目前正在將新的開發人員入口網站推出至 API 管理服務。
-> 如果您的服務是新建立的或是開發人員層服務，您應該已經擁有最新版本。 否則，您可能會遇到問題（例如，使用發佈功能）。 此功能推出將于2019年11月11日星期一完成。
+> 如果您的服務是新建立的或是開發人員層服務，您應該已經擁有最新版本。 否則，您可能會遇到問題（例如，使用發佈功能）。 此功能的推出應于2019年11月22日日星期五完成。
 >
 > [瞭解如何從預覽版本遷移至正式推出版本](#preview-to-ga)的開發人員入口網站。
 
@@ -109,15 +109,15 @@ ms.locfileid: "73796010"
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>入口網站是否支援 Azure Resource Manager 範本和（或）是否與 API 管理 DevOps 資源套件相容？
 
-不會。
+號
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>我是否需要針對受管理的入口網站相依性啟用額外的 VNET 連線？
 
-不會。
+號
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>我在使用互動式主控台時遇到 CORS 錯誤。 我該怎麼辦？
 
-互動式主控台會從瀏覽器提出用戶端 API 要求。 您可以藉由在您的 API 上新增[cors 原則](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)來解決 CORS 問題。 您可以手動指定所有參數，或使用萬用字元 `*` 值。 例如：
+互動式主控台會從瀏覽器提出用戶端 API 要求。 您可以藉由在您的 API 上新增[cors 原則](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)來解決 CORS 問題。 您可以手動指定所有參數，或使用萬用字元 `*` 值。 例如︰
 
 ```XML
 <cors>

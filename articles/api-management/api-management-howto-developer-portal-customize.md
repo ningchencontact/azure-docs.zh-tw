@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620429"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012914"
 ---
 # <a name="access-and-customize-developer-portal"></a>存取和自訂開發人員入口網站
 
 開發人員入口網站是一個自動產生、可完全自訂的網站，其中包含您 Api 的檔。 API 取用者可以在此探索您的 Api、瞭解如何使用它們，以及要求存取權。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 存取開發人員入口網站的受控版本
@@ -38,9 +38,9 @@ ms.locfileid: "73620429"
 
 > [!WARNING]
 > 開發人員入口網站目前正推出至 API 管理服務。
-> 如果您的服務是新建立的或是開發人員層服務，您應該已經擁有最新版本。 否則，您可能會遇到問題（例如，使用發佈功能）。 此功能推出將于2019年11月11日星期一完成。 
+> 如果您的服務是新建立的或是開發人員層服務，您應該已經擁有最新版本。 否則，您可能會遇到問題（例如，使用發佈功能）。 此功能的推出應于2019年11月22日日星期五完成。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 - 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱匯[入和發佈](import-and-publish.md)
@@ -131,4 +131,4 @@ ms.locfileid: "73620429"
 
 深入瞭解開發人員入口網站：
 
-- [Azure API 管理開發人員入口網站總覽](api-management-howto-developer-portal.md)
+- [Azure API 管理開發人員入口網站概觀](api-management-howto-developer-portal.md)

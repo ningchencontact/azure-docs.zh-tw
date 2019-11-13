@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 08/09/2019
+ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4af18eaa0dc5622dcc52603e6fb4e569f505feeb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f87d835973410a7d8e134c676530a9476cd3c2fe
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838120"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012740"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將了解如何使用 [Azure Machine Learning SDK](concept-ml-pipelines.md) 來建立、發佈、執行及追蹤[機器學習管線](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。  使用**ML 管線**建立工作流程，以拼接各種 ML 階段，然後將該管線發佈到您的 Azure Machine Learning 工作區，以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例，使用各種計算、重複使用步驟而不是重新執行，以及與其他人共用 ML 工作流程。 
+在本文中，您將了解如何使用 [Azure Machine Learning SDK](concept-ml-pipelines.md) 來建立、發佈、執行及追蹤[機器學習管線](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。  使用**ML 管線**建立工作流程，以拼接各種 ML 階段，然後將該管線發佈到您的 Azure Machine Learning 工作區，以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例，使用各種計算、重複使用步驟而不是重新執行，以及與其他人共用 ML 工作流程。
 
 雖然您可以使用另一種稱為[Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml)的管線來進行 ML 工作的 CI/CD 自動化，但該類型的管線永遠不會儲存在您的工作區中。 [比較這些不同的管線](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)。
 
@@ -33,7 +33,7 @@ ML 管線會使用遠端計算目標來進行計算，以及與該管線相關�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 建立 [Azure Machine Learning 工作區](how-to-manage-workspace.md)以保存您的所有管線資源。
 
@@ -101,7 +101,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-中繼資料 (或步驟的輸出) 會由 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 物件代表。 `output_data1` 會產生為步驟的輸出，並用來作為一或多個未來步驟的輸入。 `PipelineData` 會在步驟之間導入資料相依性，並在管線中建立隱含的執行順序。
+中繼資料 (或步驟的輸出) 會由 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 物件代表。 `output_data1` 會產生為步驟的輸出，並用來作為一或多個未來步驟的輸入。 `PipelineData` 會在步驟之間導入資料相依性，並在管線中建立隱含的執行順序。 稍後建立管線步驟時，將會用到此物件。
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -112,9 +112,25 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
+### <a name="configure-data-using-datasets"></a>使用資料集設定資料
+
+如果您將表格式資料儲存在檔案或一組檔案中， [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)就是 `DataReference`的有效替代方式。 `TabularDataset` 物件支援版本控制、差異和摘要統計資料。 `TabularDataset`會延遲地進行評估（例如 Python 產生器），藉由分割或篩選來將其子集化是很有效率的。 `FileDataset` 類別提供類似的延遲評估資料，代表一或多個檔案。 
+
+您可以使用[from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-)之類的方法來建立 `TabularDataset`。
+
+```python
+from azureml.data import TabularDataset
+
+iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
+```
+
+ 您可以使用[from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)建立 `FileDataset`。
+
+ 您可以從[新增 & 緩存集](how-to-create-register-datasets.md)或[此範例筆記本](https://aka.ms/tabulardataset-samplenotebook)，深入瞭解如何使用資料集。
+
 ## <a name="set-up-compute-target"></a>設定計算目標
 
-在 Azure Machine Learning 中，computes__ （或__計算目標__）一詞是指在機器學習管線中執行計算步驟的機器或叢集。   如需完整的計算目標清單，以及了解如何建立這些目標並將其連結至您的工作區，請參閱[用於模型定型的計算目標](how-to-set-up-training-targets.md)。  不論您是要將模型定型還是執行管線步驟，建立和/或連結計算目標的程序都相同。 在您建立並連結計算目標之後，請在您的`ComputeTarget`管線步驟[中使用 ](#steps) 物件。
+在 Azure Machine Learning 中，__計算__（或__計算目標__）一詞是指在機器學習管線中執行計算步驟的機器或叢集。   如需完整的計算目標清單，以及了解如何建立這些目標並將其連結至您的工作區，請參閱[用於模型定型的計算目標](how-to-set-up-training-targets.md)。  不論您是要將模型定型還是執行管線步驟，建立和/或連結計算目標的程序都相同。 在您建立並連結計算目標之後，請在您的`ComputeTarget`管線步驟[中使用 ](#steps) 物件。
 
 > [!IMPORTANT]
 > 不支援從遠端作業內部對計算目標執行管理作業。 由於機器學習管線會作為遠端作業提交，因此請勿從管線內對計算目標使用管理作業。
@@ -123,7 +139,7 @@ output_data1 = PipelineData(
 
 * Azure Machine Learning Compute
 * Azure Databricks 
-* Azure Data Lake Analytics
+* Azure 資料湖分析
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 
@@ -319,6 +335,30 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+### <a name="use-a-dataset"></a>使用資料集 
+
+若要在管線中使用 eith `TabularDataset` 或 `FileDataset`，您必須藉由呼叫[as_named_input （name）](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-)，將它轉換成[DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py)物件。 您會將此 `DatasetConsumptionConfig` 物件當做管線步驟的其中一個 `inputs` 傳遞。 
+
+```python
+dataset_consuming_step = PythonScriptStep(
+    script_name="iris_train.py",
+    inputs=[iris_tabular_dataset.as_named_input("iris_data")],
+    compute_target=compute_target,
+    source_directory=project_folder
+)
+```
+
+接著，您可以使用[input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets)字典來抓取管線中的資料集。
+
+```python
+# iris_train.py
+from azureml.core import Run, Dataset
+
+run_context = Run.get_context()
+iris_dataset = run_context.input_datasets['iris_data']
+dataframe = iris_dataset.to_pandas_dataframe()
+```
+
 如需詳細資訊，請參閱[azure-管線-步驟套件](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)和[管線類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)參考。
 
 ## <a name="submit-the-pipeline"></a>提交管線
@@ -351,7 +391,18 @@ pipeline_run1.wait_for_completion()
 
 如需詳細資訊，請參閱[實驗類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)參考。
 
+### <a name="view-results-of-a-pipeline"></a>查看管線的結果
 
+在 studio 中查看所有管線及其執行詳細資料的清單：
+
+1. 登入 [Azure Machine Learning Studio](https://ml.azure.com)。
+
+1. [查看您的工作區](how-to-manage-workspace.md#view)。
+
+1. 在左側選取 [**管線**]，以查看您所有的管線執行。
+ ![機器學習管線清單](./media/how-to-create-your-first-pipeline/pipelines.png)
+ 
+1. 選取特定管線以查看執行結果。
 
 ## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
 
@@ -408,21 +459,26 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-### <a name="view-results-of-a-published-pipeline"></a>查看已發行管線的結果
 
-查看所有已發佈管線的清單及其執行詳細資料：
-1. 登入[Azure Machine Learning](https://ml.azure.com)。
+### <a name="use-published-pipelines-in-the-studio"></a>在 studio 中使用已發佈的管線
 
-1. [檢視您的工作區](how-to-manage-workspace.md#view)以尋找管線清單。
- ![機器學習管線清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
- 
-1. 選取特定管線以查看執行結果。
+您也可以從 studio 執行已發佈的管線：
 
-您也可以在[Azure Machine Learning](https://ml.azure.com)的工作區中取得這些結果。
+1. 登入 [Azure Machine Learning Studio](https://ml.azure.com)。
+
+1. [查看您的工作區](how-to-manage-workspace.md#view)。
+
+1. 在左側選取 [**端點**]。
+
+1. 在頂端，選取 [**管線端點**]。
+ ![機器學習服務發佈管線的清單](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+
+1. 選取特定管線來執行、取用或檢查管線端點先前執行的結果。
+
 
 ### <a name="disable-a-published-pipeline"></a>停用已發行的管線
 
-若要從已發佈的管線清單中隱藏管線，請將它停用：
+若要從已發佈的管線清單中隱藏管線，您可以在 studio 或 SDK 中停用它：
 
 ```
 # Get the pipeline by using its ID from Azure Machine Learning studio

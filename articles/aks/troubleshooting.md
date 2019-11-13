@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604735"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012975"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -88,7 +88,7 @@ ms.locfileid: "73604735"
 
 在具有單一節點集區或具有[多個節點](use-multiple-node-pools.md)集區之叢集的叢集上進行升級和調整作業是互斥的。 您不能同時升級和調整叢集或節點集區。 相反地，每個作業類型必須在目標資源上完成，然後才在該相同資源上進行下一個要求。 如此一來，當作用中的升級或調整作業進行中或已嘗試，且後續失敗時，作業就會受到限制。 
 
-若要協助診斷問題，請執行 `az aks show -g myResourceGroup -n myAKSCluster -o table`，以取出叢集上的詳細狀態。 根據結果：
+若要協助診斷問題，請執行 `az aks show -g myResourceGroup -n myAKSCluster -o table` 以取出叢集上的詳細狀態。 根據結果：
 
 * 如果叢集正在主動升級，請等候作業終止。 如果成功，請再次嘗試先前失敗的操作。
 * 如果叢集升級失敗，請遵循上一節中所述的步驟。
@@ -118,6 +118,7 @@ ms.locfileid: "73604735"
 
 命名限制是由 Azure 平臺和 AKS 所執行。 如果資源名稱或參數違反其中一個限制，則會傳回錯誤，要求您提供不同的輸入。 以下是適用的一般命名指導方針：
 
+* 叢集名稱必須是1-63 個字元。 唯一允許的字元是字母、數位、破折號和底線。 第一個和最後一個字元必須是字母或數位。
 * AKS *MC_* 資源組名結合了資源組名和資源名稱。 自動產生的 `MC_resourceGroupName_resourceName_AzureRegion` 語法必須不超過80個字元。 如有需要，請縮短您的資源組名或 AKS 叢集名稱的長度。
 * *DnsPrefix*的開頭和結尾都必須是英數位元值。 有效的字元包括英數位元值和連字號（-）。 *DnsPrefix*不能包含特殊字元，例如句號（.）。
 
@@ -144,7 +145,7 @@ ms.locfileid: "73604735"
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>我在限制輸出流量之後收到錯誤
 
-限制來自 AKS 叢集的輸出流量時，有[必要和選用的建議](limit-egress-traffic.md)輸出埠/網路規則，以及適用于 AKS 的 FQDN/應用程式規則。 如果您的設定與上述任何規則發生衝突，您可能無法執行特定的 `kubectl` 命令。 建立 AKS 叢集時，您可能也會看到錯誤。
+限制來自 AKS 叢集的輸出流量時，有[必要和選用的建議](limit-egress-traffic.md)輸出埠/網路規則，以及適用于 AKS 的 FQDN/應用程式規則。 如果您的設定與上述任何規則發生衝突，您可能無法執行某些 `kubectl` 命令。 建立 AKS 叢集時，您可能也會看到錯誤。
 
 請確認您的設定不會與任何必要或選用的建議輸出埠/網路規則和 FQDN/應用程式規則相衝突。
 
@@ -172,14 +173,14 @@ ms.locfileid: "73604735"
 
 在 Kubernetes 1.10 版中，MountVolume. WaitForAttach 可能會因為 Azure 磁片重新掛接而失敗。
 
-在 Linux 上，您可能會看到不正確的 DevicePath 格式錯誤。 例如：
+在 Linux 上，您可能會看到不正確的 DevicePath 格式錯誤。 例如︰
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-在 Windows 上，您可能會看到錯誤的 DevicePath （LUN）數位錯誤。 例如：
+在 Windows 上，您可能會看到錯誤的 DevicePath （LUN）數位錯誤。 例如︰
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -225,7 +226,7 @@ spec:
   >[!NOTE]
   > 由於 gid 和 uid 預設會以 root 或0的形式裝載。 如果 gid 或 uid 設定為非根目錄，例如1000，則 Kubernetes 會使用 `chown` 來變更該磁片下的所有目錄和檔案。 這種作業可能非常耗時，而且可能會使磁片的載入速度變慢。
 
-* 使用 initContainers 中的 `chown` 來設定 gid 和 uid。 例如：
+* 使用 initContainers 中的 `chown` 來設定 gid 和 uid。 例如︰
 
 ```yaml
 initContainers:
@@ -239,7 +240,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>刪除 pod 使用中的 Azure 磁片 PersistentVolumeClaim 時發生錯誤
 
-如果您嘗試刪除 pod 所使用的 Azure 磁片 PersistentVolumeClaim，可能會看到錯誤。 例如：
+如果您嘗試刪除 pod 所使用的 Azure 磁片 PersistentVolumeClaim，可能會看到錯誤。 例如︰
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -295,7 +296,7 @@ MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c2
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Azure 磁片正在等候無限期卸離
 
-在某些情況下，如果第一次嘗試時 Azure 磁片中斷連結失敗，則不會重試卸離作業，且會繼續連接至原始節點 VM。 將磁片從一個節點移至另一個節點時，可能會發生此錯誤。 例如：
+在某些情況下，如果第一次嘗試時 Azure 磁片中斷連結失敗，則不會重試卸離作業，且會繼續連接至原始節點 VM。 將磁片從一個節點移至另一個節點時，可能會發生此錯誤。 例如︰
 
 ```console
 [Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
@@ -468,13 +469,13 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 您可以使用 base64 編碼的儲存體帳戶金鑰，在 Azure 檔案密碼中手動更新*azurestorageaccountkey*欄位，以減輕問題。
 
-若要以 base64 編碼您的儲存體帳戶金鑰，您可以使用 `base64`。 例如：
+若要以 base64 編碼您的儲存體帳戶金鑰，您可以使用 `base64`。 例如︰
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-若要更新您的 Azure 秘密檔案，請使用 `kubectl edit secret`。 例如：
+若要更新您的 Azure 秘密檔案，請使用 `kubectl edit secret`。 例如︰
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

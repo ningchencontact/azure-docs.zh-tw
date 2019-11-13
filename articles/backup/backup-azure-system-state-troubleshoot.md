@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747315"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012117"
 ---
 # <a name="troubleshoot-system-state-backup"></a>針對系統狀態備份進行疑難排解
 
@@ -40,14 +40,14 @@ ms.locfileid: "73747315"
 - 在離線備份的情況下，請確定 Azure PowerShell 版本3.7.0 已安裝在來源和複製電腦上，然後再開始離線備份操作
 - [當備份代理程式在 Azure 虛擬機器上執行時的考慮](https://aka.ms/AB-AA4dwtr)
 
-### <a name="limitation"></a>限制
+### <a name="limitation"></a>升級至 V12
 
 - Microsoft 不建議使用系統狀態復原來復原到不同的硬體
 - 系統狀態備份目前支援「內部部署」 Windows 伺服器，這是 Azure Vm 無法使用的功能。
 
-## <a name="pre-requisite"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-在使用 Azure 備份進行系統狀態備份的疑難排解之前，請先執行下列先決條件檢查。  
+在使用 Azure 備份進行系統狀態備份的疑難排解之前，請先執行下列必要條件檢查。  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>確認已安裝 Windows Server Backup
 

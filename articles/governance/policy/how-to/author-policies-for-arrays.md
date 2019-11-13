@@ -1,17 +1,14 @@
 ---
 title: 在資源上撰寫陣列屬性的原則
 description: 瞭解如何建立陣列參數、建立陣列語言運算式的規則、評估 [*] 別名，以及使用 Azure 原則定義規則將元素附加至現有的陣列。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255820"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959705"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>在 Azure 資源上撰寫陣列屬性的原則
 
@@ -19,7 +16,7 @@ Azure Resource Manager 屬性通常會定義為字串和布林值。 當存在�
 
 - [定義參數](../concepts/definition-structure.md#parameters)的類型，可提供多個選項
 - 使用或**notIn** **中**之條件的[原則規則](../concepts/definition-structure.md#policy-rule)的一部分
-- 評估[\[ @ no__t-2 @ no__t-3 別名](../concepts/definition-structure.md#understanding-the--alias)的原則規則的一部分，以評估「**無**」、「**任何**」或「**全部**」等特定案例
+- 評估[\[\*\] 別名](../concepts/definition-structure.md#understanding-the--alias)以評估特定案例（例如**None**、 **Any**或**All** ）的原則規則之一部分
 - 在取代或加入現有陣列的[附加效果](../concepts/effects.md#append)中
 
 本文涵蓋 Azure 原則的每個使用方式，並提供數個範例定義。
@@ -97,15 +94,15 @@ As**類型**為_字串_，指派原則時只能設定一個值。 如果指派�
 若要將此字串與每個 SDK 搭配使用，請使用下列命令：
 
 - Azure CLI：命令[az policy 指派 create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
-- Azure PowerShell：Cmdlet [get-azpolicyassignment](/powershell/module/az.resources/New-Azpolicyassignment)與參數**PolicyParameter**
-- REST API：在中， _PUT_ [Create](/rest/api/resources/policyassignments/create)作業作為要求主體的一部分，做為 properties 屬性的值 **。**
+- Azure PowerShell： Cmdlet [get-azpolicyassignment](/powershell/module/az.resources/New-Azpolicyassignment)與參數**PolicyParameter**
+- REST API：在_PUT_ [create](/rest/api/resources/policyassignments/create)作業中做為要求主體的一部分，作為 properties 屬性的值 **。**
 
 ## <a name="policy-rules-and-arrays"></a>原則規則和陣列
 
 ### <a name="array-conditions"></a>陣列條件
 
 可搭配使用_陣列_
-**類型**參數的原則規則[條件](../concepts/definition-structure.md#conditions)僅限於 `in` 和 `notIn`。 以條件 `equals` 做為範例來執行下列原則定義：
+**類型**參數的原則規則[條件](../concepts/definition-structure.md#conditions)僅限於 `in` 和 `notIn`。 採用下列原則定義，並以條件 `equals` 做為範例：
 
 ```json
 {
@@ -137,11 +134,11 @@ As**類型**為_字串_，指派原則時只能設定一個值。 如果指派�
 
 - 「原則 ' {GUID} ' 無法參數化，因為發生驗證錯誤。 請檢查是否已正確定義原則參數。 語言運算式 ' [參數（' allowedLocations '）] ' 的內部例外狀況 ' 評估結果為類型 ' Array '，預期的類型為 ' String '。 '。
 
-預期的條件**類型**`equals` 是_string_。 由於**allowedLocations**是定義為**類型**_陣列_，原則引擎會評估語言運算式，並擲回錯誤。 在 `in` 和 `notIn` 條件中，原則引擎需要語言運算式中的**類型**_陣列_。 若要解決此錯誤訊息，請將 `equals` 變更為 `in` 或 `notIn`。
+預期的條件**類型**`equals` 為_字串_。 由於**allowedLocations**是定義為**類型**_陣列_，原則引擎會評估語言運算式，並擲回錯誤。 使用 `in` 和 `notIn` 條件時，原則引擎會預期語言運算式中的**類型**_陣列_。 若要解決此錯誤訊息，請將 `equals` 變更為 `in` 或 `notIn`。
 
 ### <a name="evaluating-the--alias"></a>評估 [*] 別名
 
-具有 **[\*]** 附加至其名稱的別名，表示該**類型**為_陣列_。 **[@No__t-1]** 可以評估陣列的每個元素，而不是評估整個陣列的值。 有三種案例：每個專案評估在中很有用。None、Any 和 All。
+具有 **[\*]** 附加至其名稱的別名，表示該**類型**為_陣列_。 **[\*]** 可以評估陣列的每個元素，而不是評估整個陣列的值。 在下列三種情況下，每個專案評估適用于： None、Any 和 All。
 
 只有當**if**規則評估為 true 時，原則**引擎才會觸發中的** **效果**。
 這一點很重要，請務必瞭解 **[\*]** 評估陣列的每個個別元素的方式。

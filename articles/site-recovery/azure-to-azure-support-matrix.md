@@ -1,20 +1,20 @@
 ---
-title: Azure 區域之間使用 Azure Site Recovery 進行 Azure Vm 嚴重損壞修復的支援矩陣 |Microsoft Docs
-description: 摘要說明使用 Azure Site Recovery 將 Azure Vm 從一個區域損毀修復至另一個區域的必要條件和支援
+title: 使用 Azure Site Recovery 進行 Azure VM 嚴重損壞修復的支援矩陣
+description: 摘要說明使用 Azure Site Recovery 對次要區域進行 Azure Vm 嚴重損壞修復的支援。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/26/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 726b7ebd21dadf0e179f2752a9783d63492cb4c3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622464"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961516"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>將 Azure VM 從一個區域複寫至另一個區域的支援矩陣
+# <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 區域之間的 Azure VM 嚴重損壞修復支援矩陣
 
 本文摘要說明使用[Azure Site Recovery](site-recovery-overview.md)服務，將 azure vm 從一個 azure 區域損毀修復至另一個區域的支援和必要條件。
 
@@ -71,9 +71,9 @@ Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞�
 
 **設定** | **支援** | **詳細資料**
 --- | --- | ---
-一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 支援的 | 不建議使用 GPv2，因為 V2 的交易成本明顯高於 V1 儲存體帳戶。
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 支援 | 不建議使用 GPv2，因為 V2 的交易成本明顯高於 V1 儲存體帳戶。
 進階儲存體 | 不支援 | 標準儲存體帳戶會用於快取儲存體，以協助將成本優化。
-適用於虛擬網路的 Azure 儲存體防火牆  | 支援的 | 如果您使用啟用防火牆的快取儲存體帳戶或目標儲存體帳戶，請確定您[「允許信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
+適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果您使用啟用防火牆的快取儲存體帳戶或目標儲存體帳戶，請確定您[「允許信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
 
 
 ## <a name="replicated-machine-operating-systems"></a>複寫的機器作業系統
@@ -102,7 +102,7 @@ Windows 7 （x64）含 SP1 和更新版本 | 從適用于 Azure Vm 的行動服�
 
 **作業系統** | **詳細資料**
 --- | ---
-Red Hat Enterprise Linux | 6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5、7.6、7.7、8。0
+Red Hat Enterprise Linux | 6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5、7.6、[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery)、 [8.0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
 CentOS | 6.5，6.6，6.7，6.8，6.9，6.10，7.0，7.1，7.2，7.3，7.4，7.5，7.6，7.7，8。0
 Ubuntu 14.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> 使用密碼型驗證和登入的 Ubuntu 伺服器，以及用來設定雲端 Vm 的雲端 init 封裝，可能會在容錯移轉時停用密碼型登入（視于 cloudinit 設定而定）。 您可以在虛擬機器上重新啟用密碼型登入，方法是從 支援 > 疑難排解 > 設定 功能表（在 Azure 入口網站中的已故障移 VM）重設密碼。
@@ -112,7 +112,7 @@ Debian 8 | [支援的核心版本](#supported-debian-kernel-versions-for-azure-v
 SUSE Linux Enterprise Server 12 | SP1、SP2、SP3、SP4。 [(支援的核心版本)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> 不支援將複寫機器從 SP3 升級至 SP4。 如果已升級複寫的機器，您需要在升級後停用複寫，然後再重新啟用複寫。
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4，6.5，6.6，6.7，6.8，6.9，6.10，7.0，7.1，7.2，7.3，7.4，7.5，7.6，7。7<br/><br/> 執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第3版，4 & 5 （UEK3，UEK4，UEK5） 
+Oracle Linux | 6.4，6.5，6.6，6.7，6.8，6.9，6.10，7.0，7.1，7.2，7.3，7.4，7.5，7.6， [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> 執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第3版，4 & 5 （UEK3，UEK4，UEK5） 
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Ubuntu 核心版本
@@ -124,14 +124,15 @@ Oracle Linux | 6.4，6.5，6.6，6.7，6.8，6.9，6.10，7.0，7.1，7.2，7.3�
 14.04 LTS | 9.26 | 3.13.0-24-generic to 3.13.0-170-generic，<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic to 4.4.0-148-generic，<br/>4.15.0-1023-azure 至 4.15.0-1045-azure |
 14.04 LTS | 9.25 | 3.13.0-24-generic to 3.13.0-169-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-146-generic、<br/>4.15.0-1023-azure 至 4.15.0-1042-azure |
 |||
+16.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-generic 至 4.4.0-166-generic，<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-66-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1061-azure|
 16.04 LTS | 9.28 | 4.4.0-21-generic 至 4.4.0-159-generic，<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-58-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1055-azure|
 16.04 LTS | 9.27 | 4.4.0-21-generic 至 4.4.0-154-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-55-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1051-azure|
 16.04 LTS | 9.26 | 4.4.0-21-generic to 4.4.0-148-generic，<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-50-一般<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1045-azure|
 16.04 LTS | 9.25 | 4.4.0-21-generic 至 4.4.0-146-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-48-泛型<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1042-azure|
 16.04 LTS | 9.24 | 4.4.0-21-泛型至 4.4.0-143-一般，<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-46-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1040-azure|
 |||
-18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-泛型至 4.15.0-64-一般 </br> 4.18.0-13-泛型至 4.18.0-25-一般 </br> 5.0.0-15-泛型至 5.0.0-29-一般 </br> 4.15.0-1009-azure 至 4.15.0-1037-azure </br> 4.18.0-1006-azure 至 4.18.0-1025-azure </br> 5.0.0-1012-azure 至 5.0.0-1020-azure
-
+18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-泛型至 4.15.0-64-一般 </br> 4.18.0-13-泛型至 4.18.0-25-一般 </br> 5.0.0-15-泛型至 5.0.0-29-一般 </br> 4.15.0-1009-azure 至 4.15.0-1037-azure </br> 4.18.0-1006-azure 至 4.18.0-1025-azure </br> 5.0.0-1012-azure 至 5.0.0-1020-azure|
+18.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-generic 至 4.15.0-66-generic </br> 4.18.0-13-泛型至 4.18.0-25-一般 </br> 5.0.0-15-泛型至 5.0.0-32-泛型 </br> 4.15.0-1009-azure 至 4.15.0-1037-azure </br> 4.18.0-1006-azure 至 4.18.0-1025-azure </br> 5.0.0-1012-azure 至 5.0.0-1023-azure
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Debian 核心版本
 
@@ -164,23 +165,23 @@ SUSE Linux Enterprise Server 12 （SP1、SP2、SP3、SP4） | 9.25 | SP1 3.12.49
 **設定** | **支援** | **詳細資料**
 --- | --- | ---
 大小 | 至少 2 顆 CPU 核心和 1 GB RAM 的任何 Azure VM 大小 | 確認 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)。
-可用性集合 | 支援的 | 如果您使用預設選項來啟用 Azure VM 的複寫，則會根據來源區域設定自動建立可用性設定組。 您可以修改這些設定。
-可用性區域 | 支援的 |
-Hybrid Use Benefit (HUB) | 支援的 | 如果來源 VM 已啟用 HUB 授權，測試容錯移轉或容錯移轉 VM 也會使用 HUB 授權。
+可用性設定組 | 支援 | 如果您使用預設選項來啟用 Azure VM 的複寫，則會根據來源區域設定自動建立可用性設定組。 您可以修改這些設定。
+可用性區域 | 支援 |
+Hybrid Use Benefit (HUB) | 支援 | 如果來源 VM 已啟用 HUB 授權，測試容錯移轉或容錯移轉 VM 也會使用 HUB 授權。
 虛擬機器擴展集 | 不支援 |
-Azure 資源庫映像 - Microsoft 發行 | 支援的 | 只要 VM 在支援的作業系統上執行即支援。
-Azure 資源庫映像 - 第三方發行 | 支援的 | 只要 VM 在支援的作業系統上執行即支援。
-自訂映像 - 第三方發行 | 支援的 | 只要 VM 在支援的作業系統上執行即支援。
-使用 Site Recovery 移轉 VM | 支援的 | 如果使用 Site Recovery 將 VMware VM 或實體機器遷移到 Azure，您需要將機器上執行的舊版行動服務解除安裝，然後重新啟動機器，再複寫到另一個 Azure 區域。
+Azure 資源庫映像 - Microsoft 發行 | 支援 | 只要 VM 在支援的作業系統上執行即支援。
+Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在支援的作業系統上執行即支援。
+自訂映像 - 第三方發行 | 支援 | 只要 VM 在支援的作業系統上執行即支援。
+使用 Site Recovery 移轉 VM | 支援 | 如果使用 Site Recovery 將 VMware VM 或實體機器遷移到 Azure，您需要將機器上執行的舊版行動服務解除安裝，然後重新啟動機器，再複寫到另一個 Azure 區域。
 RBAC 原則 | 不支援 | Vm 上以角色為基礎的存取控制（RBAC）原則不會複寫至目的地區域中的容錯移轉 VM。
 擴充功能 | 不支援 | 延伸模組不會複寫至目的地區域中的容錯移轉 VM。 您必須在容錯移轉之後手動安裝它。
 
 ## <a name="replicated-machines---disk-actions"></a>複寫的機器 - 磁碟動作
 
-**動作** | **詳細資料**
+**Action** | **詳細資料**
 -- | ---
-在複寫的 VM 上調整磁碟大小 | 支援的
-在複寫的 VM 上新增磁碟 | 支援的
+在複寫的 VM 上調整磁碟大小 | 支援
+在複寫的 VM 上新增磁碟 | 支援
 
 ## <a name="replicated-machines---storage"></a>複寫的機器 - 儲存體
 
@@ -198,29 +199,31 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 資料磁片大小下限 | 不限制非受控磁片。 2 GB 適用于受控磁片 | 
 資料磁碟的數目上限 | 最多 64 個 (根據特定的 Azure VM 大小支援) | [深入了解](../virtual-machines/windows/sizes.md) VM 大小。
 資料磁碟的變更率 | 進階儲存體的每個磁碟最多 10 MBps。 標準儲存體的每個磁碟最多 2 MBps。 | 如果磁碟的平均資料變更率持續高於最大值，複寫將趕不上進度。<br/><br/>  不過，如果是偶而超過最大值，則複寫可以趕上進度，但您可能會看到稍有延遲的復原點。
-資料磁碟 - 標準儲存體帳戶 | 支援的 |
-資料磁碟 - 進階儲存體帳戶 | 支援的 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定。
+資料磁碟 - 標準儲存體帳戶 | 支援 |
+資料磁碟 - 進階儲存體帳戶 | 支援 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定。
 受控磁碟 - 標準 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |
 受控磁碟 - 進階 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |
-標準 SSD | 支援的 |
+標準 SSD | 支援 |
 備援性 | 支援 LRS 和 GRS。<br/><br/> 不支援 ZRS。
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
-儲存空間 | 支援的 |
-待用加密 (SSE) | 支援的 | SSE 是儲存體帳戶上的預設設定。   
+儲存空間 | 支援 |
+待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
+待用加密（CMK） | 不支援 |   
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援具有受控磁片的 Vm。 不支援使用非受控磁片的 Vm |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
-熱新增 | 支援的 | 針對使用受控磁片的 Vm，支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。
+熱新增 | 支援 | 針對使用受控磁片的 Vm，支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。
 熱移除磁片 | 不支援 | 如果您移除 VM 上的資料磁片，您必須停用複寫，然後再次為 VM 啟用複寫。
 排除磁碟 | 部門. 您必須使用[Powershell](azure-to-azure-exclude-disks.md)來設定。 |  預設會排除暫存磁片。
 儲存空間直接存取  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 向外延展檔案伺服器  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
-LRS | 支援的 |
-GRS | 支援的 |
-RA-GRS | 支援的 |
+LRS | 支援 |
+GRS | 支援 |
+RA-GRS | 支援 |
 ZRS | 不支援 |
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
-適用於虛擬網路的 Azure 儲存體防火牆  | 支援的 | 如果限制對儲存體帳戶的虛擬網路存取，請啟用 [[允許信任的 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)]。
-一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 是 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
+適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果限制對儲存體帳戶的虛擬網路存取，請啟用 [[允許信任的 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)]。
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 支援 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
+第2代（UEFI 開機） | 支援
 
 >[!IMPORTANT]
 > 為避免效能問題，請確定您遵循適用于[Linux](../virtual-machines/linux/disk-scalability-targets.md)或[WINDOWS](../virtual-machines/windows/disk-scalability-targets.md) vm 的 VM 磁片擴充性和效能目標。 如果您使用預設值，Site Recovery 會根據來源設定來建立所需的磁片和儲存體帳戶。 如果您自訂並選取您自己的設定，請遵循來源 Vm 的磁片擴充性和效能目標。
@@ -232,7 +235,6 @@ ZRS | 不支援 |
 - 這些限制是以我們的測試為基礎，但顯然不會涵蓋所有可能的應用程式 i/o 組合。
 - 實際的結果會根據您的應用程式 i/o 混合而有所不同。
 - 有兩個要考慮的限制：每個磁片的資料變換和每一虛擬機器資料變換。
-- 例如，如果我們使用高階 P20 磁片（如下表所述），則 Site Recovery 可以處理每個磁片 5 Mb 的變換量，每個 vm 最多五個這類磁片，因為每個 VM 的總變換率限制為 25 MB/秒。
 
 **儲存體目標** | **平均來源磁片 i/o** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
 ---|---|---|---
@@ -247,23 +249,23 @@ ZRS | 不支援 |
 **設定** | **支援** | **詳細資料**
 --- | --- | ---
 NIC | 針對特定 Azure VM 大小支援的數目上限 | 在容錯移轉期間建立 VM 時，系統會建立 NIC。<br/><br/> 容錯移轉 VM 的 NIC 數目取決於啟用複寫時來源 VM 具有的 NIC 數量。 如果您在啟用複寫後新增或移除 NIC，不會影響容錯移轉後複寫 VM 上的 NIC 數目。 另請注意，容錯移轉後的 Nic 順序不保證會與原始訂單相同。
-網際網路負載平衡器 | 支援的 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
-內部負載平衡器 | 支援的 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
-公用 IP 位址 | 支援的 | 將現有公用 IP 位址與 NIC 產生關聯。 或者，建立公用 IP 位址，然後使用復原方案中的 Azure 自動化指令碼讓它與 NIC 產生關聯。
-NIC 上的 NSG | 支援的 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與 NIC 產生關聯。
-子網路上的 NSG | 支援的 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與子網路產生關聯。
-保留 (靜態) IP 位址 | 支援的 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。
-動態 IP 位址 | 支援的 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。
+網際網路負載平衡器 | 支援 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
+內部負載平衡器 | 支援 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
+公用 IP 位址 | 支援 | 將現有公用 IP 位址與 NIC 產生關聯。 或者，建立公用 IP 位址，然後使用復原方案中的 Azure 自動化指令碼讓它與 NIC 產生關聯。
+NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與 NIC 產生關聯。
+子網路上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與子網路產生關聯。
+保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。
+動態 IP 位址 | 支援 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。
 多個 IP 位址 | 不支援 | 當您損毀修復具有多個 IP 位址的 NIC 的 VM 時，只會保留來源區域中 NIC 的主要 IP 位址。 若要指派多個 IP 位址，您可以將 Vm 新增至復原[方案](recovery-plan-overview.md)，並附加腳本來指派其他 ip 位址給方案，或者您可以手動進行變更，或在容錯移轉之後使用腳本進行變更。 
-流量管理員     | 支援的 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
-Azure DNS | 支援的 |
-自訂 DNS  | 支援的 |
-未經驗證的 Proxy | 支援的 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
+流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
+Azure DNS | 支援 |
+自訂 DNS  | 支援 |
+未經驗證的 Proxy | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
 經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
-連至內部部署的 VPN 站對站連線<br/><br/>（不論是否有 ExpressRoute）| 支援的 | 請確定 Udr 和 Nsg 的設定方式，不會將 Site Recovery 流量路由傳送到內部部署。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
-VNET 對 VNET 連線 | 支援的 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)  
-虛擬網路服務端點 | 支援的 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
-加速網路 | 支援的 | 必須在來源 VM 上啟用加速網路。 [詳細資訊](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+連至內部部署的 VPN 站對站連線<br/><br/>（不論是否有 ExpressRoute）| 支援 | 請確定 Udr 和 Nsg 的設定方式，不會將 Site Recovery 流量路由傳送到內部部署。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
+VNET 對 VNET 連線 | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)  
+虛擬網路服務端點 | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
+加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [詳細資訊](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 
 

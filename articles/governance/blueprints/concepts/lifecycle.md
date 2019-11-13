@@ -1,17 +1,14 @@
 ---
 title: 了解藍圖生命週期
 description: 了解藍圖所會歷經的生命週期以及各階段的詳細資訊。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 154e66366d4a687e60d7bddd28278414e3a4ccd7
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981036"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960502"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
@@ -82,7 +79,7 @@ ms.locfileid: "71981036"
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#delete-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#delete-a-blueprint) 來刪除藍圖。
 
-## <a name="assignments"></a>工作分派
+## <a name="assignments"></a>指派
 
 在生命週期中，有數個時間點可將藍圖指派給訂用帳戶。 當藍圖版本的模式為**已發佈**時，即將將該版本指派給訂用帳戶。 此生命週期在新版本尚在開發時，就可使用並主動指派藍圖版本。
 

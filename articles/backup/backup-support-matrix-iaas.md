@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3f89b5aa427689d5f3da28726897d7a772bf0781
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: f699315855dc27fd70fdb60574414ef87037671f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533154"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953257"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 
@@ -28,9 +28,9 @@ ms.locfileid: "72533154"
 
 以下說明如何使用 Azure 備份服務來備份和還原 Azure VM。
 
-**案例** | **備份** | **代理程式** |**Restore**
+**案例** | **備份** | **代理程式** |**還原**
 --- | --- | --- | ---
-直接備份 Azure VM  | 備份整個 VM。  | Azure VM 上不需要代理程式。 Azure 備份會安裝並使用在 VM 上執行的[AZURE vm 代理](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)程式的擴充功能。 | 以下列方式進行還原：<br/><br/> - **建立基本 VM**。 如果 VM 沒有任何特殊設定（例如多個 IP 位址），這會很有用。<br/><br/> - **還原 VM 磁碟**。 還原磁碟。 然後將它連結至現有的 VM，或使用 PowerShell 從磁片建立新的 VM。<br/><br/> - **取代 VM 磁碟**。 如果有 VM 存在，且該 VM 使用受控磁碟 (未加密)，您可以還原某個磁碟，並用它來取代 VM 上現有的磁碟。<br/><br/> - **還原特定檔案/資料夾**。 您可以從 VM （而不是從整個 VM）還原檔案/資料夾。
+直接備份 Azure VM  | 備份整個 VM。  | Azure VM 上不需要代理程式。 Azure 備份會安裝並使用在 VM 上執行的[AZURE vm 代理](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)程式的擴充功能。 | 以下方式進行還原：<br/><br/> - **建立基本 VM**。 如果 VM 沒有任何特殊設定（例如多個 IP 位址），這會很有用。<br/><br/> - **還原 VM 磁碟**。 還原磁碟。 然後將它連結至現有的 VM，或使用 PowerShell 從磁片建立新的 VM。<br/><br/> - **取代 VM 磁碟**。 如果有 VM 存在，且該 VM 使用受控磁碟 (未加密)，您可以還原某個磁碟，並用它來取代 VM 上現有的磁碟。<br/><br/> - **還原特定檔案/資料夾**。 您可以從 VM （而不是從整個 VM）還原檔案/資料夾。
 直接備份 Azure Vm （僅限 Windows）  | 備份特定檔案/資料夾/磁片區。 | 安裝[Azure 復原服務代理程式](backup-azure-file-folder-backup-faq.md)。<br/><br/> 您可以將 MARS 代理程式與 Azure VM 代理程式的備份擴充功能一起執行，以在檔案/資料夾層級備份 VM。 | 還原特定資料夾/檔案。
 將 Azure VM 備份至備份伺服器  | 備份檔案/資料夾/磁片區;系統狀態/裸機檔案;應用程式資料至 System Center DPM 或 Microsoft Azure 備份 Server （MABS）。<br/><br/> DPM/MABS 接著會備份至備份保存庫。 | 在 VM 上安裝 DPM/MABS 保護代理程式。 在 DPM/MABS 上安装 MARS 代理程式。| 還原檔案/資料夾/磁碟區、系統狀態/裸機檔案、應用程式資料。
 
@@ -43,12 +43,12 @@ ms.locfileid: "72533154"
 建立 Windows Azure VM 時啟用備份 | 支援： <br/><br/> -Windows Server 2019 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2016 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2012 R2 （Datacenter/Standard） <br/><br/> -Windows Server 2008 R2 （RTM 和 SP1 標準）
 建立 Linux VM 時啟用備份 | 支援：<br/><br/> -Ubuntu Server：18.04、17.10、17.04、16.04 （LTS）、14.04 （LTS）<br/><br/> -Red Hat： RHEL 6.7、6.8、6.9、7.2、7.3、7。4<br/><br/> -SUSE Linux Enterprise Server： 11 SP4、12 SP2、12 SP3、15 <br/><br/> -Debian：8、9<br/><br/> -CentOS：6.9、7。3<br/><br/> -Oracle Linux：6.7、6.8、6.9、7.2、7。3
 備份已關閉/離線 VM 的 VM | 支援。<br/><br/> 僅建立絕對一致快照集，而非應用程式一致快照集。
-遷移至受控磁片之後備份磁片 | 支援。<br/><br/> 備份會繼續運作。 不需執行任何動作。
+遷移至受控磁片之後備份磁片 | 支援。<br/><br/> 備份會繼續運作。 不需採取任何動作。
 啟用資源群組鎖定後備份受控磁碟 | 不支援。<br/><br/> Azure 備份無法刪除較舊的還原點，而且當達到還原點的最大限制時，備份將會開始失敗。
 修改 VM 的備份原則 | 支援。<br/><br/> 系統會使用新原則中的排程和保留期設定來備份 VM。 如果延長保留期設定，就會標示現有的復原點，並加以保留。 如果降低，現有的復原點將會在下一次清除作業中剪除，最後刪除。
 取消備份作業| 在快照集程序中支援。<br/><br/> 在快照集傳輸至保存庫期間不支援。
 將 VM 備份至不同的區域或訂用帳戶 |不支援。
-每日備份 (透過 Azure VM 擴充功能) | 每天執行一次排程備份。<br/><br/> 您每天最多可以建立四個隨選備份。
+每日備份 (透過 Azure VM 擴充功能) | 每天執行一次排程備份。<br/><br/> 服務每天最多允許九個隨選備份，但 Microsoft 僅建議並支援最多四個每日隨選備份。
 每日備份 (透過 MARS 代理程式) | 每天執行三次排程備份。
 每日備份 (透過 DPM/MABS) | 每天執行兩次排程備份。
 每月/每年備份| 在使用 Azure VM 擴充功能進行備份時不支援。 僅支援每日和每週備份。<br/><br/> 您可以設定依每月/每年的保留期間來保留每日/每週備份的原則。
@@ -62,7 +62,7 @@ ms.locfileid: "72533154"
 
 **案例** | **OS 支援**
 --- | ---
-使用 Azure VM 代理程式擴充功能進行備份 | Windows 用戶端：不支援<br/><br/>-Windows Server 2019 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2016 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2012 R2 （Datacenter/Standard） <br/><br/> -Windows Server 2008 R2 （RTM 和 SP1 標準）
+使用 Azure VM 代理程式擴充功能進行備份 | -Windows 10 用戶端（僅限64位） <br/><br/>-Windows Server 2019 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2016 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2012 R2 （Datacenter/Standard） <br/><br/> -Windows Server 2008 R2 （RTM 和 SP1 標準）
 使用 MARS 代理程式進行備份 | [支援的](backup-support-matrix-mars-agent.md#support-for-direct-backups)作業系統。
 使用 DPM/MABS 備份 | 使用 [MABS](backup-mabs-protection-matrix.md) 和 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) 進行備份時支援的作業系統。
 
@@ -109,7 +109,7 @@ DPM/MABS 磁碟上的復原點 | 64（適用于檔案伺服器）和448（適用
 
 ## <a name="support-for-file-level-restore"></a>檔案層級還原的支援
 
-**Restore** | **支援**
+**還原** | **支援**
 --- | ---
 跨作業系統還原檔案 | 您可以在任何與備份的 VM 具有相同 (或相容) 作業系統的機器上還原檔案。 請參閱[相容的 OS 資料表](backup-azure-restore-files-from-vm.md#system-requirements)。
 還原傳統 VM 上的檔案 | 不支援。
@@ -123,7 +123,7 @@ DPM/MABS 磁碟上的復原點 | 64（適用于檔案伺服器）和448（適用
 
 下表摘要說明在 VM 管理工作（例如新增或更換 VM 磁片）期間的備份支援。
 
-**Restore** | **支援**
+**還原** | **支援**
 --- | ---
 跨訂用帳戶/區域 (region)/區域 (zone) 進行還原。 | 不支援。
 還原至現有的 VM | 使用更換磁碟選項。
@@ -144,13 +144,13 @@ VM 大小 |至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小。<b
 備份[可用性設定組](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)中的 VM | 支援。<br/><br/> 您無法使用快速建立 VM 的選項，來還原可用集合中的 VM。 相反地，當您還原 VM 時，請復原磁碟並使用它來部署 VM，或復原磁碟並使用它來取代現有的磁片。
 備份使用[混合式使用優勢（中樞）](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)部署的 vm | 支援。
 備份部署在[擴展集中](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)的 vm |不支援。
-備份從[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)部署的 vm<br/><br/> （由 Microsoft、協力廠商發行） |支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。 我們不會還原做為 Vm 的 Azure Marketplace Vm，因為這些虛擬機器需要購買資訊，但只能做為磁片。
+備份從[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)部署的 vm<br/><br/> （由 Microsoft、協力廠商發行） |支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。 我們不會還原做為 Vm 的 Azure Marketplace Vm，因為這些虛擬機器需要購買資訊，但只能做為磁片。
 備份從自訂映射（協力廠商）部署的 Vm |支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 備份遷移至 Azure 的 Vm| 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
 備份多部 VM 一致性 | Azure 備份不會提供跨多個 Vm 的資料和應用程式一致性。
 使用[診斷設定](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)進行備份  | 不支援. <br/><br/> 如果使用 [[建立新](backup-azure-arm-restore-vms.md#create-a-vm)的] 選項來觸發使用診斷設定來還原 Azure VM，則還原會失敗。
 還原區域釘選的 Vm | 支援（適用于在2019年1月之後備份且[可用性區域](https://azure.microsoft.com/global-infrastructure/availability-zones/)可供使用的 VM）。<br/><br/>我們目前支援還原至固定在 Vm 中的相同區域。 不過，如果區域無法使用，還原將會失敗。
-Gen2 Vm | 支援的 <br> Azure 備份支援[Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)的備份與還原。 從復原點還原這些 Vm 時，它們會還原為[Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)。
+Gen2 Vm | 支援 <br> Azure 備份支援[Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)的備份與還原。 從復原點還原這些 Vm 時，它們會還原為[Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)。
 
 ## <a name="vm-storage-support"></a>VM 儲存體支援
 
@@ -207,10 +207,10 @@ Azure 備份支援傳輸中和待用資料的加密：
 
 **機器** | **傳輸中** | **待用**
 --- | --- | ---
-不含 DPM/MABS 的內部部署 Windows 機器 | ![是][green] | ![是][green]
-Azure VM | ![是][green] | ![是][green]
-使用 DPM 的內部部署/Azure VM | ![是][green] | ![是][green]
-使用 MABS 的內部部署/Azure VM | ![是][green] | ![是][green]
+不含 DPM/MABS 的內部部署 Windows 機器 | ![yes][green] | ![yes][green]
+Azure VM | ![yes][green] | ![yes][green]
+使用 DPM 的內部部署/Azure VM | ![yes][green] | ![yes][green]
+使用 MABS 的內部部署/Azure VM | ![yes][green] | ![yes][green]
 
 ## <a name="vm-compression-support"></a>VM 壓縮支援
 
@@ -221,10 +221,10 @@ Azure VM | ![是][green] | ![是][green]
 
 **機器** | **壓縮到 MABS DPM (TCP)** | **壓縮至保存庫（HTTPS）**
 --- | --- | ---
-不含 DPM/MABS 的內部部署 Windows 機器 | NA | ![是][green]
+不含 DPM/MABS 的內部部署 Windows 機器 | NA | ![yes][green]
 Azure VM | NA | NA
-使用 DPM 的內部部署/Azure VM | ![是][green] | ![是][green]
-使用 MABS 的內部部署/Azure VM | ![是][green] | ![是][green]
+使用 DPM 的內部部署/Azure VM | ![yes][green] | ![yes][green]
+使用 MABS 的內部部署/Azure VM | ![yes][green] | ![yes][green]
 
 ## <a name="next-steps"></a>後續步驟
 

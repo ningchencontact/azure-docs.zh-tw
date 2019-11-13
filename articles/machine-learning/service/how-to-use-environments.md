@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489316"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957850"
 ---
-# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>建立和管理可重複使用的環境，以 Azure Machine Learning 進行定型和部署。
+# <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>重複使用環境，以 Azure Machine Learning 訓練 & 部署。
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本文中，您將瞭解如何建立和管理 Azure Machine Learning[環境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)，讓您可以追蹤和重現專案的軟體相依性。
@@ -51,7 +51,7 @@ ms.locfileid: "73489316"
 
 當您想要讓[Conda](https://conda.io/docs/)為您管理 Python 環境和腳本相依性時，會使用系統管理的環境。 服務預設會假設這種類型的環境，因為它在不是手動設定的遠端計算目標上有其效用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [已安裝](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)適用于 Python 的 Azure Machine Learning SDK。
 * [Azure Machine Learning 工作區](how-to-manage-workspace.md)。
@@ -270,7 +270,7 @@ myenv.docker.base_image_registry="your_registry_location"
 ```
 
 > [!NOTE]
-> 如果您在使用自訂 Docker 映射時指定 `environment.python.user_managed_dependencies=False`，服務將會在映射中建立 Conda 環境，並在該環境中執行此工作，而不是使用您可能已安裝在基底映射上的 Python 程式庫。 將參數設定為 `True`，以使用您自己安裝的套件。
+> 如果您在使用自訂 Docker 映射時指定 `environment.python.user_managed_dependencies=False`，服務會在映射中建立 Conda 環境，並在該環境中執行此工作，而不是使用您可能已安裝在基底映射上的 Python 程式庫。 將參數設定為 `True`，以使用您自己安裝的套件。
 
 ## <a name="using-environments-for-training"></a>使用環境進行定型
 

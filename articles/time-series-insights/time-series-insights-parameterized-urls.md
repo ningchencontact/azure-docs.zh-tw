@@ -1,6 +1,6 @@
 ---
-title: 使用參數化 URL 共用 Azure 時間序列深入解析自訂檢視 | Microsoft Docs
-description: 本文說明如何在 Azure 時間序列深入解析中開發參數化 URL，以便輕鬆地共用客戶檢視。
+title: 使用參數化 Url 共用自訂視圖-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解如何在 Azure 時間序列深入解析中開發參數化 Url，以輕鬆共用自訂的視圖。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991121"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006382"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -67,7 +67,7 @@ ms.locfileid: "72991121"
 
 `timeSeriesDefinitions=<collection of term objects>` 參數指定時間序列深入解析視圖的詞彙：
 
-| 參數 | URL 專案 | 說明 |
+| 參數 | URL 專案 | 描述 |
 | --- | --- | --- |
 | **name** | `\<string>` | term 的名稱。 |
 | **splitBy** | `\<string>` | split by 的資料行名稱。 |
@@ -80,7 +80,7 @@ ms.locfileid: "72991121"
 * 此 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 可讓您調整間隔滑杆，以提供更精細或更平滑的圖表匯總視圖。  
 * `timezoneOffset=<integer>` 參數可讓您設定圖表的時區，以作為 UTC 的位移。
 
-| 配對（s） | 說明 |
+| 配對（s） | 描述 |
 | --- | --- |
 | `multiChartStack=false` | `true` 預設為啟用，因此請將 `false` 傳遞至堆疊。 |
 | `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  預設為 `false`，因此傳遞「true」可啟用這項功能。 |

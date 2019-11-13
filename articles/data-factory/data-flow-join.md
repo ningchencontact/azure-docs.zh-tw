@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675919"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961843"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>對應資料流程中的聯結轉換
 
@@ -36,7 +36,7 @@ ms.locfileid: "73675919"
 
 ### <a name="full-outer"></a>完整外部
 
-完整外部聯結會從兩端輸出具有 Null 值的所有資料行和資料列，而不會相符。
+完整外部聯結會從兩端輸出具有 Null 值的所有資料行和資料列，而不符合的資料行。
 
 ### <a name="cross-join"></a>交叉聯結
 

@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 管理 VMware 和實體伺服器災害復原的組態伺服器 | Microsoft Docs
-description: 本文說明如何管理現有的設定伺服器，以使用 Azure Site Recovery 進行將 VMware VM 和實體伺服器復原到 Azure 的災害復原。
+title: 使用 Azure Site Recovery 管理設定伺服器以進行嚴重損壞修復
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791825"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954350"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>管理 VMware VM/實體伺服器嚴重損壞修復的設定伺服器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 和實體伺服器災害復原到 Azure 時，便會設定內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊，以及管理資料複寫。 本文摘要說明部署設定伺服器之後，管理設定伺服器的一般工作。
 
@@ -139,7 +138,7 @@ ms.locfileid: "72791825"
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
-您執行更新彙總來更新設定伺服器。 更新最多可以套用到 N-4 版本。 例如：
+您執行更新彙總來更新設定伺服器。 更新最多可以套用到 N-4 版本。 例如︰
 
 - 如果您執行 9.7、9.8、9.9 或 9.10，就可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
@@ -155,7 +154,7 @@ ms.locfileid: "72791825"
 
 1. 在保存庫中，移至 [管理] > [Site Recovery 基礎結構] > [組態伺服器]。
 2. 如果有可用的更新，[代理程式版本] > [資料行] 中會出現連結。
-    更新![](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![更新](./media/vmware-azure-manage-configuration-server/update2.png)
 3. 將更新安裝程式檔案下載到組態伺服器上。
 
     ![更新](./media/vmware-azure-manage-configuration-server/update1.png)
@@ -185,23 +184,23 @@ ms.locfileid: "72791825"
   ```
 
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-|參數名稱| Type | 描述| 值|
+|參數名稱| 在系統提示您進行確認時，輸入 | 描述| 值|
 |-|-|-|-|
-| /ServerMode|必要項|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
-|/InstallLocation|必要項|安裝元件的資料夾| 電腦上的任何資料夾|
-|/MySQLCredsFilePath|必要項|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
-|/VaultCredsFilePath|必要項|保存庫認證檔的路徑|有效的檔案路徑|
-|/EnvType|必要項|您想要保護的環境類型 |VMware<br>NonVMware|
-|/PSIP|必要項|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
-|/CSIP|必要項|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
-|/PassphraseFilePath|必要項|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
+| /ServerMode|必要|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
+|/InstallLocation|必要|安裝元件的資料夾| 電腦上的任何資料夾|
+|/MySQLCredsFilePath|必要|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
+|/VaultCredsFilePath|必要|保存庫認證檔的路徑|有效的檔案路徑|
+|/EnvType|必要|您想要保護的環境類型 |VMware<br>NonVMware|
+|/PSIP|必要|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
+|/CSIP|必要|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
+|/PassphraseFilePath|必要|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
 |/BypassProxy|選用|指定組態伺服器不使用 Proxy 連接至 Azure|若要這樣做，請從 Venu 取得此值|
 |/ProxySettingsFilePath|選用|Proxy 設定 (預設的 Proxy 需要驗證或自訂的 Proxy)|此檔案應該具備如下所指定的格式|
 |DataTransferSecurePort|選用|要用於複寫資料的 PSIP 上的連接埠號碼| 有效的連接埠號碼 (預設值是 9433)|
 |/SkipSpaceCheck|選用|略過快取磁碟的空間檢查| |
-|/AcceptThirdpartyEULA|必要項|旗標表示接受協力廠商使用者授權合約| |
+|/AcceptThirdpartyEULA|必要|旗標表示接受協力廠商使用者授權合約| |
 |/ShowThirdpartyEULA|選用|顯示協力廠商使用者授權合約。 如果提供作為輸入，則會忽略所有其他參數| |
 
 

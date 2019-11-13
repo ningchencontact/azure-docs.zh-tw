@@ -1,5 +1,5 @@
 ---
-title: 在 VMware VM 和實體伺服器的災害復原期間將 VM 從 Azure 重新保護至內部部署網站 | Microsoft Docs
+title: 使用 Azure Site Recovery 將 VMware Vm/實體伺服器重新保護至內部部署網站
 description: 在 VMware VM 和實體伺服器的災害復原期間容錯移轉至 Azure 後，了解如何從 Azure 容錯回復至內部部署網站。
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791810"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961350"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>在容錯移轉至 Azure 之後將機器重新保護和容錯回復至內部部署網站
 
@@ -42,7 +42,7 @@ ms.locfileid: "72791810"
 
     ![容錯移轉和容錯回復的端點](./media/vmware-azure-reprotect/failover-failback.png)
 
-- 詳盡閱讀[連接埠和 URL 白名單的先決條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
+- 詳盡閱讀[連接埠和 URL 允許清單的先決條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
 
 ## <a name="deploy-a-process-server-in-azure"></a>在 Azure 中部署處理序伺服器
 

@@ -3,7 +3,7 @@ title: 針對活動記錄中遺漏的資料進行疑難排解 |Microsoft Docs
 description: 為您提供 Azure Active Directory 活動記錄中遺漏資料的解決方案。
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aeac1180292ea5200e9eabc30ee01db05b67e75
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820860"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014280"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>對 Azure Active Directory 活動記錄中的遺漏資料進行疑難排解 
 
@@ -43,7 +43,7 @@ ms.locfileid: "72820860"
 | 目錄稽核 | &nbsp; | 2 分鐘 | 5 分鐘 |
 | 登入活動 | &nbsp; | 2 分鐘 | 5 分鐘 | 
 
-### <a name="resolution"></a>解析度
+### <a name="resolution"></a>解決方案
 
 等候 15 分鐘到兩小時的時間，確認動作是否出現在記錄中。 如果在兩小時後仍看不到記錄，請[提出支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)，我們將加以探討。
 
@@ -64,7 +64,7 @@ ms.locfileid: "72820860"
 | 目錄稽核 | &nbsp; | 2 分鐘 | 5 分鐘 |
 | 登入活動 | &nbsp; | 2 分鐘 | 5 分鐘 | 
 
-### <a name="resolution"></a>解析度
+### <a name="resolution"></a>解決方案
 
 等候 15 分鐘到兩小時的時間，確認動作是否出現在記錄中。 如果在兩小時後仍看不到記錄，請[提出支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)，我們將加以探討。
 
@@ -72,7 +72,7 @@ ms.locfileid: "72820860"
 
 ### <a name="symptoms"></a>徵兆
 
-我無法從 Azure 入口網站檢視超過 30 天的登入和稽核資料。 為什麼呢？ 
+我無法從 Azure 入口網站檢視超過 30 天的登入和稽核資料。 原因為何？ 
 
  ![報告](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "72820860"
 
 如需詳細資訊，請參閱 [Azure Active Directory 報告保留原則](reference-reports-data-retention.md)。  
 
-### <a name="resolution"></a>解析度
+### <a name="resolution"></a>解決方案
 
 您有兩個選項可用來保留超過 30 天的資料。 您可以使用 [Azure AD 報告 API](concept-reporting-api.md) 以程式設計方式擷取資料，並將其儲存在資料庫中。 或者，您可以將稽核記錄整合到第三方 SIEM 系統中，例如 Splunk 或 SumoLogic。
 

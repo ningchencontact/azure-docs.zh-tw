@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi 連接至 Azure IoT 中樞 | Microsoft Docs
+title: 將 Raspberry Pi 連線至雲端中的 Azure IoT 中樞（node.js）
 description: 瞭解如何在本教學課程中設定 Raspberry Pi，並將其連線至 Raspberry Pi 的 Azure IoT 中樞，以將資料傳送到 Azure 雲端平臺。
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266158"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954549"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 連接至 Azure IoT Hub (Node.js)
 
@@ -51,7 +51,7 @@ ms.locfileid: "71266158"
 
 * Raspberry Pi 2 或 Raspberry Pi 3 主機板。
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 * 連接至 Pi 的監視器、USB 鍵盤及滑鼠。
 
@@ -94,15 +94,15 @@ ms.locfileid: "71266158"
 
 1. 下載 Raspbian。
 
-   a. [使用桌面的 Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/)（.zip 檔案）。
+   a. [使用桌面的 Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) （.zip 檔案）。
 
-   b. 將 Raspbian 映像解壓縮到您電腦上的資料夾。
+   b.這是另一個 C# 主控台應用程式。 將 Raspbian 映像解壓縮到您電腦上的資料夾。
 
 2. 將 Raspbian 安裝到 microSD 記憶卡。
 
    a. [下載並安裝 Etcher SD 記憶卡燒錄器公用程式](https://etcher.io/)。
 
-   b. 執行 Etcher 並選取您在步驟 1 中解壓縮的 Raspbian 映像。
+   b.這是另一個 C# 主控台應用程式。 執行 Etcher 並選取您在步驟 1 中解壓縮的 Raspbian 映像。
 
    c. 選取 microSD 記憶卡磁碟機。 Etcher 可能已經選取正確的磁碟機。
 
@@ -116,7 +116,7 @@ ms.locfileid: "71266158"
 
 1. 將 Pi 連接至監視器、鍵盤及滑鼠。
 
-2. 啟動 Pi，然後使用`pi`做為使用者名稱和`raspberry`密碼來登入 Raspbian。
+2. 啟動 Pi，然後使用 `pi` 做為使用者名稱，並 `raspberry` 作為密碼來登入 Raspbian。
 
 3. 按一下 Raspberry 圖示 > [偏好設定] > [Raspberry Pi 組態]。
 
@@ -173,7 +173,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
    a. 下載並安裝適用於 Windows 的 [PuTTY](https://www.putty.org/)。
 
-   b. 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
+   b.這是另一個 C# 主控台應用程式。 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
 
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 
@@ -229,7 +229,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
    如果**沒有感應器**，請將 `simulatedData` 值設定為 `true`，使範例應用程式建立和使用模擬感應器資料。
 
-   *注意：根據預設，本教學課程中使用的 i2c 位址是0x77。根據您的設定，可能也會 0x76 . 如果您遇到 i2c 錯誤，請嘗試將此值變更為118，並查看是否有更好的效果。若要查看您的感應器所使用的位址， `sudo i2cdetect -y 1`請在 raspberry pi 上的 shell 中執行*
+   *注意：本教學課程中使用的 i2c 位址預設為0x77。根據您的設定，可能也會 0x76 . 如果您遇到 i2c 錯誤，請嘗試將此值變更為118，並查看是否有更好的效果。若要查看您的感應器所使用的位址，請在 raspberry pi 上的 shell 中執行 `sudo i2cdetect -y 1`*
 
 2. 輸入 Control-O > 按 Enter 鍵 > Control-X 來儲存並結束。
 
@@ -250,9 +250,9 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
 ## <a name="read-the-messages-received-by-your-hub"></a>讀取您的中樞所接收的訊息
 
-若要監視您的 IoT 中樞從裝置接收的訊息, 其中一種方式是使用 Visual Studio Code 的 Azure IoT Tools。 若要深入瞭解, 請參閱[使用 Visual Studio Code 的 Azure IoT Tools, 在您的裝置與 IoT 中樞之間傳送和接收訊息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
+若要監視您的 IoT 中樞從裝置接收的訊息，其中一種方式是使用 Visual Studio Code 的 Azure IoT Tools。 若要深入瞭解，請參閱[使用 Visual Studio Code 的 Azure IoT Tools，在您的裝置與 IoT 中樞之間傳送和接收訊息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
 
-如需更多方式來處理您的裝置所傳送的資料, 請繼續進行下一節。
+如需更多方式來處理您的裝置所傳送的資料，請繼續進行下一節。
 
 ## <a name="next-steps"></a>後續步驟
 

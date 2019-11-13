@@ -1,5 +1,5 @@
 ---
-title: 了解如何使用 Azure Digital Twins 參考 Swagger | Microsoft Docs
+title: 如何使用參考 Swagger 檔-Azure 數位 Twins |Microsoft Docs
 description: 了解如何使用 Azure Digital Twins Swagger 參考文件。
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a99693c3f88e94c093910da6ba4a305c26fe39d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931352"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009891"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 

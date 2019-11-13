@@ -1,6 +1,6 @@
 ---
-title: Azure 時間序列深入解析預覽中的資料儲存體和輸入 | Microsoft Docs
-description: 了解 Azure 時間序列深入解析預覽中的資料儲存體和輸入。
+title: 預覽中的資料儲存體和輸入-Azure 時間序列深入解析 |Microsoft Docs
+description: 深入瞭解 Azure 時間序列深入解析預覽中的資料儲存體和輸入。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0cdd78aaa2b58743e16a2e7cfe213a9daed85ff
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 62ee248c06d2b26b935f72b3bb73cf708f949c72
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605888"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014717"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 

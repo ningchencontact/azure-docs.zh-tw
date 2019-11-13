@@ -12,25 +12,25 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470103"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958023"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overview.md) \(英文\) 進行偵錯。 您會在本文中了解如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
 
 本文使用 [Azure 入口網站](https://portal.azure.com)和 Azure CLI 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](troubleshoot-dotnet-visual-studio.md)。
 
 > [!NOTE]
-> 除了本文中的記錄指示外，還有新的整合式記錄功能可與 Azure 監視搭配使用。 您會在[[記錄] 頁面和 [診斷設定（預覽）] 頁面](https://aka.ms/appsvcblog-azmon)中找到這項功能。 
+> 除了本文中的記錄指示外，還有新的整合式記錄功能可與 Azure 監視搭配使用。 您可以在將[記錄檔傳送至 Azure 監視器（預覽）](#send-logs-to-azure-monitor-preview)一節中找到這項功能的詳細資訊。 
 >
 >
 
-|類型|平台|位置|說明|
+|在系統提示您進行確認時，輸入|平台|位置|描述|
 |-|-|-|-|
 | 應用程式記錄檔 | Windows、Linux | App Service 檔案系統和/或 Azure 儲存體 blob | 記錄您的應用程式代碼所產生的訊息。 這些訊息可以由您選擇的 web 架構，或直接使用您語言的標準記錄模式來產生。 每則訊息會指派下列其中一個類別：**重大**、**錯誤**、**警告**、**資訊**、 **Debug**和**Trace**。 當您啟用應用程式記錄時，您可以藉由設定嚴重性層級，來選取您想要記錄的詳細資訊。|
 | Web 服務器記錄| Windows | App Service 檔案系統或 Azure 儲存體 blob| [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的原始 HTTP 要求資料。 每個記錄訊息都包含 HTTP 方法、資源 URI、用戶端 IP、用戶端埠、使用者代理程式、回應碼等資料。 |
@@ -66,8 +66,8 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 
 | 等級 | 包含的類別 |
 |-|-|
-|**已停用** | None |
-|**錯誤** | 錯誤、嚴重 |
+|**已停用** | 無 |
+|**Error** | 錯誤、嚴重 |
 |**警告** | 警告、錯誤、嚴重|
 |**資訊** | 資訊、警告、錯誤、嚴重|
 |**詳細資訊** | 追蹤、偵錯、資訊、警告、錯誤、嚴重 (所有類別) |
@@ -112,9 +112,9 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 
 ## <a name="add-log-messages-in-code"></a>在程式碼中新增記錄檔訊息
 
-在您的應用程式程式碼中，您可以使用一般記錄功能，將記錄檔訊息傳送至應用程式記錄檔。 例如：
+在您的應用程式程式碼中，您可以使用一般記錄功能，將記錄檔訊息傳送至應用程式記錄檔。 例如︰
 
-- ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如：
+- ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如︰
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -142,12 +142,12 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如：
+若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如︰
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如：
+若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如︰
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -170,7 +170,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 對於 Windows 應用程式，ZIP 檔案包含 App Service 檔案系統中*D:\Home\LogFiles*目錄的內容。 其結構如下：
 
-| 記錄類型 | 目錄 | 說明 |
+| 記錄類型 | 目錄 | 描述 |
 |-|-|-|
 | **應用程式記錄檔** |*/LogFiles/Application/* | 包含一個或多個文字檔。 記錄訊息的格式取決於您所使用的記錄提供者。 |
 | **失敗的要求追蹤** | */LogFiles/W3SVC # # # # # # # # #/* | 包含 XML 檔案和 XSL 檔案。 您可以在瀏覽器中查看格式化的 XML 檔案。 |
@@ -178,7 +178,28 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 | **Web 服務器記錄檔** | */LogFiles/HTTP/RawLogs/* | 包含使用[W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)來格式化的文字檔。 您可以使用文字編輯器或類似[記錄](https://go.microsoft.com/fwlink/?LinkId=246619)檔剖析器之類的公用程式來讀取此資訊。<br/>App Service 不支援 [`s-computername`]、[`s-ip`] 或 [`cs-version`] 欄位。 |
 | **部署記錄檔** | */LogFiles/Git/* 和 */deployments/* | 包含內部部署程式所產生的記錄，以及適用于 Git 部署的記錄。 |
 
+## <a name="send-logs-to-azure-monitor-preview"></a>將記錄傳送至 Azure 監視器（預覽）
+
+有了新的[Azure 監視器整合](https://aka.ms/appsvcblog-azmon)，您就可以[建立診斷設定（預覽）](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) ，以將記錄傳送至儲存體帳戶、事件中樞和 Log Analytics。 
+
+> [!div class="mx-imgBorder"]
+> ![診斷設定（預覽）](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+
+### <a name="supported-log-types"></a>支援的記錄類型
+
+下表顯示支援的記錄類型和描述： 
+
+| 記錄類型 | Windows 支援 | 支援 Linux | 描述 |
+|-|-|-|
+| AppServiceConsoleLogs | TBA | yes | 標準輸出和標準錯誤 |
+| AppServiceHTTPLogs | yes | yes | Web 伺服器記錄 |
+| AppServiceEnvironmentPlatformLogs | yes | yes | App Service 環境：調整、設定變更及狀態記錄|
+| AppServiceAuditLogs | yes | yes | 透過 FTP 和 Kudu 登入活動 |
+| AppServiceFileAuditLogs | TBA | TBA | 透過 FTP 和 Kudu 的檔案變更 |
+| AppServiceAppLogs | TBA | JAVA SE & Tomcat | 應用程式記錄 |
+
 ## <a name="nextsteps"></a> 後續步驟
+* [使用 Azure 監視器查詢記錄](../azure-monitor/log-query/log-query-overview.md)
 * [如何監視 Azure App Service](web-sites-monitor.md)
 * [在 Visual Studio 中進行 Azure App Service 的疑難排解](troubleshoot-dotnet-visual-studio.md)
 * [在 HDInsight 中分析應用程式記錄](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) \(英文\)

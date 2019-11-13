@@ -3,7 +3,7 @@ title: 如何安裝及使用 log analytics views |Microsoft Docs
 description: 瞭解如何安裝和使用 log analytics views for Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00bca8bca19f9a71c4eeb639017845987682661f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820904"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014427"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安裝與使用適用於 Azure Active Directory 的記錄分析檢視
 
@@ -31,7 +31,7 @@ Azure Active Directory 的記錄分析檢視可協助您分析和搜尋 Azure AD
 * 稽核記錄：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
 * 登入記錄：透過[登入活動報告](concept-sign-ins.md)，您可以判斷是誰執行了稽核記錄中所報告的工作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用記錄分析檢視，您需要：
 
@@ -59,7 +59,7 @@ Azure Active Directory 的記錄分析檢視可協助您分析和搜尋 Azure AD
     ![詳細資料](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. 選取 [設定警示]，然後在 [警示準則] 區段下方選取 [每當自訂記錄搜尋是&lt;未定義的邏輯&gt;時]。 由於我們想要在發生任何登入錯誤時發出警示，因此請將預設警示邏輯的 [閾值] 設定為 **1**，然後選取 [完成]。 
+4. 選取 [設定警示]，然後在 [警示準則] **&lt; 區段下方選取 [每當自訂記錄搜尋是&gt;未定義的邏輯**時]。 由於我們想要在發生任何登入錯誤時發出警示，因此請將預設警示邏輯的 [閾值] 設定為 **1**，然後選取 [完成]。 
 
     ![設定訊號邏輯](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 

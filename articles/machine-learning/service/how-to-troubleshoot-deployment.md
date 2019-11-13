@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489358"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961669"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
 
@@ -41,6 +41,16 @@ ms.locfileid: "73489358"
 4. 在 ACI 或 AKS 中啟動新的容器。 
 
 在[模型管理](concept-model-management-and-deployment.md)簡介中深入了解此程序。
+
+## <a name="prerequisites"></a>先決條件
+
+* **Azure 訂用帳戶**。 如果您沒有帳戶，請試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+* [Azure Machine Learning 的 CLI 擴充](reference-azure-machine-learning-cli.md)功能。
+* 若要在本機上進行偵錯工具，您必須在本機系統上擁有正常運作的 Docker 安裝。
+
+    若要驗證您的 Docker 安裝，請從終端機或命令提示字元使用命令 `docker run hello-world`。 如需有關安裝 Docker 或針對 Docker 錯誤進行疑難排解的資訊，請參閱[Docker 檔](https://docs.docker.com/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -152,12 +162,9 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 * 檢查 Key Vault 的存取原則，然後使用這些原則來設定範本的 `accessPolicies` 屬性。
 * 檢查 Key Vault 資源是否已存在。 如果有，請不要透過範本重新建立它。 例如，新增可讓您停用建立 Key Vault 資源的參數（如果已經存在）。
 
-## <a name="debug-locally"></a>本機的調試
+## <a name="debug-locally"></a>在本機執行偵錯
 
 如果您在將模型部署至 ACI 或 AKS 時遇到問題，請嘗試將它部署為本機。 使用本機可讓您更輕鬆地針對問題進行疑難排解。 包含模型的 Docker 映射會下載並在您的本機系統上啟動。
-
-> [!IMPORTANT]
-> 本機部署需要在您的本機系統上執行正常的 Docker 安裝。 您必須先執行 Docker，才能部署本機。 如需安裝和使用 Docker 的詳細資訊，請參閱[https://www.docker.com/](https://www.docker.com/)。
 
 > [!WARNING]
 > 針對生產案例，不支援本機部署。
@@ -260,7 +267,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 ## <a name="function-fails-runinput_data"></a>函式失敗：run(input_data)
 
-如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如：
+如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如︰
 
 ```python
 def run(input_data):
@@ -325,8 +332,8 @@ Azure Kubernetes Service 部署支援自動調整，這可讓您新增複本以�
 
 > [!IMPORTANT]
 > 使用 `Model.deploy()` 和 `LocalWebservice.deploy_configuration` 在本機部署模型時，這種調試方法無法運作。 相反地，您必須使用[install-containerimage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)類別來建立映射。 
->
-> 本機部署需要在您的本機系統上執行正常的 Docker 安裝。 您必須先執行 Docker，才能部署本機。 如需安裝和使用 Docker 的詳細資訊，請參閱[https://www.docker.com/](https://www.docker.com/)。
+
+本機部署需要在您的本機系統上執行正常的 Docker 安裝。 如需使用 Docker 的詳細資訊，請參閱[Docker 檔](https://docs.docker.com/)。
 
 ### <a name="configure-development-environment"></a>設定開發環境
 

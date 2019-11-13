@@ -2,26 +2,22 @@
 title: Azure AD Connect︰版本發行歷程記錄 | Microsoft Docs
 description: 本文章列出 Azure AD Connect 和 Azure AD Sync 的所有版本
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927446"
+ms.locfileid: "73944214"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -35,24 +31,23 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 --------- | --------- |
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](how-to-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
-
-下載 | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
+下載| [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
 >[!NOTE]
 >發行新版本的 Azure AD Connect 是需要數個品質控制步驟的程式，以確保服務的作業功能，而當我們進行此程式時，新版本的版本號碼以及發行狀態將會更新。以反映最新狀態。
 當我們進行此程式時，版本號碼會以 "X" 顯示在次要版本號碼位置中，如 "1.3. X. 0"-這表示本檔中的版本資訊對開頭為 "1.3" 的所有版本都是有效的。 一旦完成發行程式，發行版本號碼就會更新為最近發行的版本，而發行狀態將更新為「已發行，可供下載及自動升級」。
-並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](how-to-connect-install-automatic-upgrade.md)
 
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>發行狀態
-08/11/2019：已發行以供下載。 無法供自動升級
+11/08/2019：已發行以供下載。 無法供自動升級
 
 >[!IMPORTANT]
 >由於這一版 Azure AD Connect 中的內部架構變更，如果您使用 MSOnline PowerShell 來管理 ADFS 信任關係設定，則必須將 MSOnline PowerShell 模組更新為版本1.1.183.57 或更高版本
 ### <a name="fixed-issues"></a>已修正的問題
 
 此版本修正了現有混合式 Azure AD 加入裝置的問題。 此版本包含可更正此問題的新裝置同步處理規則。
-請注意，這項規則變更可能會導致從 Azure AD 刪除過時的裝置。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置物件。 對於某些客戶，將透過此規則變更刪除的裝置數目可能會超過刪除閾值。 如果您看到刪除裝置物件的 Azure AD 超過匯出的刪除閾值，建議您允許刪除作業進行。 [如何允許刪除超過刪除閾值時的流程](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+請注意，這項規則變更可能會導致從 Azure AD 刪除過時的裝置。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置物件。 對於某些客戶，將透過此規則變更刪除的裝置數目可能會超過刪除閾值。 如果您看到刪除裝置物件的 Azure AD 超過匯出的刪除閾值，建議您允許刪除作業進行。 [如何允許刪除超過刪除閾值時的流程](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
 
@@ -129,7 +124,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 ### <a name="fixed-issues"></a>已修正的問題 
 
-- 已修正 Microsoft Azure Active Directory Connect 組建1.3.20.0 中存在的權限提高弱點。  在某些情況下，此弱點可能會讓攻擊者在特殊許可權帳戶的內容中執行兩個 powershell Cmdlet，並執行特殊許可權的動作。  此安全性更新會藉由停用這些 Cmdlet 來解決此問題。 如需詳細資訊，請參閱[安全性更新](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)。
+- 已修正 Microsoft Azure Active Directory Connect 組建1.3.20.0 中存在的權限提高弱點。  在某些情況下，此弱點可能會讓攻擊者在特殊許可權帳戶的內容中執行兩個 powershell Cmdlet，並執行特殊許可權的動作。  此安全性更新會藉由停用這些 Cmdlet 來解決此問題。 如需詳細資訊，請參閱[安全性更新](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000)。
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -1186,7 +1181,7 @@ AD FS 管理
 
 **新的支援案例：**
 
-* 支援多個內部部署的 Exchange 組織。 如需詳細資訊，請參閱[內含多個 Active Directory 樹系的混合式部署](https://technet.microsoft.com/library/jj873754.aspx)。
+* 支援多個內部部署的 Exchange 組織。 如需詳細資訊，請參閱[內含多個 Active Directory 樹系的混合式部署](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150))。
 
 **已修正的問題：**
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins 常見查詢模式 | Microsoft Docs
-description: 了解查詢 Azure Digital Twins 管理 API 的常見模式。
+title: 一般查詢模式-Azure 數位 Twins |Microsoft Docs
+description: 瞭解 Azure 數位 Twins 管理 Api 的數個常見 API 查詢模式。
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: ef9e7a41f1de05e4d21a9ad7b45ed2b99885b6b8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c821524b344c8b741047ba415127cffe59a74ca2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044443"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005904"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>如何針對一般工作查詢 Azure Digital Twins API
 

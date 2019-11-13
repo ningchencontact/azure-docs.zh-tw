@@ -3,17 +3,17 @@ title: Azure IoT 中心的架構概念 | Microsoft Docs
 description: 本文介紹 Azure IoT 中心架構的重要相關概念
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cb2ca8fe227abd107daa60a0f7d31ba5dc4e7c1b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895328"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013855"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 架構（預覽功能）
 
@@ -33,6 +33,68 @@ ms.locfileid: "73895328"
 在 Azure IoT 中心，裝置範本會指定裝置可與您的應用程式交換的資料。 如需裝置範本的詳細資訊，請參閱[中繼資料管理](#metadata-management)。
 
 若要深入了解如何將裝置連線到 Azure IoT 中心應用程式，請參閱[裝置連線能力](overview-iot-central-get-connected.md)。
+
+## <a name="azure-iot-edge-devices"></a>Azure IoT Edge 裝置
+
+以及使用[Azure IoT sdk](https://github.com/Azure/azure-iot-sdks)建立的裝置，您也可以將[Azure IoT Edge 裝置](../../iot-edge/about-iot-edge.md)連線到 IoT Central 應用程式。 IoT Edge 可讓您直接在由 IoT Central 管理的 IoT 裝置上執行雲端智慧和自訂邏輯。 IoT Edge 執行時間可讓您：
+
+- 在裝置上安裝和更新工作負載。
+- 在裝置上維護 IoT Edge 的安全性標準。
+- 確定 IoT Edge 模組始終在執行。
+- 將模組健康情況報告至雲端，以便進行遠端監控。
+- 管理下游分葉裝置與 IoT Edge 裝置之間、IoT Edge 裝置上的模組之間，以及 IoT Edge 裝置與雲端之間的通訊。
+
+![具有 Azure IoT Edge 的 Azure IoT Central](./media/concepts-architecture/iotedge.png)
+
+IoT Central 啟用 IoT Edge 裝置的下列功能：
+
+- 裝置範本，用來描述 IoT Edge 裝置的功能，例如：
+  - 部署資訊清單上傳功能，可協助您管理一群裝置的資訊清單。
+  - 在 IoT Edge 裝置上執行的模組。
+  - 每個模組傳送的遙測資料。
+  - 每個模組所報告的屬性。
+  - 每個模組所回應的命令。
+  - IoT Edge 閘道裝置功能模型和下游裝置功能模型之間的關聯性。
+  - 不是儲存在 IoT Edge 裝置上的雲端屬性。
+  - 屬於 IoT Central 應用程式一部分的自訂、儀表板和表單。
+
+  如需詳細資訊，請參閱[建立 IoT Edge 裝置範本](./tutorial-define-edge-device-type.md)教學課程。
+
+- 使用 Azure IoT 裝置布建服務大規模布建 IoT Edge 裝置的能力
+- 規則和動作。
+- 自訂儀表板和分析。
+- 從 IoT Edge 裝置的遙測連續資料匯出。
+
+### <a name="iot-edge-device-types"></a>IoT Edge 裝置類型
+
+IoT Central 會將 IoT Edge 的裝置類型分類，如下所示：
+
+- 分葉裝置。 IoT Edge 裝置可以有下游分葉裝置，但是這些裝置不會布建在 IoT Central 中。
+- 具有下游裝置的閘道裝置。 閘道裝置和下游裝置都會布建在 IoT Central
+
+![IoT Edge 總覽的 IoT Central](./media/concepts-architecture/gatewayedge.png)
+
+### <a name="iot-edge-patterns"></a>IoT Edge 模式
+
+IoT Central 支援下列 IoT Edge 裝置模式：
+
+#### <a name="iot-edge-as-leaf-device"></a>做為分葉裝置的 IoT Edge
+
+![做為分葉裝置的 IoT Edge](./media/concepts-architecture/edgeasleafdevice.png)
+
+IoT Edge 裝置會布建在 IoT Central 中，且任何下游裝置及其遙測都會以來自 IoT Edge 裝置的形式呈現。 連線到 IoT Edge 裝置的下游裝置不會布建在 IoT Central 中。
+
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>使用身分識別連接到下游裝置的 IoT Edge 閘道裝置
+
+![具有下游裝置身分識別的 IoT Edge](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
+
+IoT Edge 裝置會布建在 IoT Central 中，以及連線至 IoT Edge 裝置的下游裝置。 目前不支援透過閘道布建下游裝置的執行時間支援。
+
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge 閘道裝置連線到具有 IoT Edge 閘道所提供身分識別的下游裝置
+
+![不具身分識別的下游裝置 IoT Edge](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
+
+IoT Edge 裝置會布建在 IoT Central 中，以及連線至 IoT Edge 裝置的下游裝置。 目前不支援將閘道提供識別給下游裝置和布建下游裝置的執行時間支援。 如果您攜帶自己的身分識別轉譯模組，IoT Central 可支援此模式。
 
 ## <a name="cloud-gateway"></a>雲端閘道
 

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 中樞 message 擴充的總覽
-description: Azure IoT 中樞訊息的訊息擴充總覽
+description: 本文說明 message 擴充，這可讓 IoT 中樞在訊息傳送至指定的端點之前，先以其他資訊對訊息進行戳記的功能。
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178000"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005834"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>裝置到雲端 IoT 中樞訊息的訊息擴充（預覽）
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>裝置到雲端 IoT 中樞訊息的訊息擴充
 
 *Message 擴充*是 IoT 中樞在訊息傳送至指定的端點之前，以其他資訊來*戳記*訊息的能力。 使用 message 擴充的其中一個原因是要包含可用於簡化下游處理的資料。 例如，使用裝置對應項標記來擴充裝置遙測訊息，可以降低客戶的負載，讓裝置對應項 API 呼叫此資訊。
 
@@ -82,10 +82,6 @@ Message 擴充有三個主要元素：
 
 Message 擴充可免費使用。 目前，當您將訊息傳送至 IoT 中樞時，會向您收取費用。 即使訊息傳送至多個端點，您只需要針對該訊息收取一次。
 
-## <a name="availability"></a>可用性
-
-這項功能目前可供預覽，適用于美國東部、美國西部、西歐、 [Azure Government](/azure/azure-government/documentation-government-welcome)、 [azure 中國世紀](/azure/china)和[azure 德國](https://azure.microsoft.com/global-infrastructure/germany/)以外的所有區域。
-
 ## <a name="next-steps"></a>後續步驟
 
 如需將訊息路由傳送至 IoT 中樞的詳細資訊，請參閱這些文章：
@@ -94,4 +90,4 @@ Message 擴充可免費使用。 目前，當您將訊息傳送至 IoT 中樞時
 
 * [使用 IoT 中樞訊息路由將裝置到雲端訊息傳送至不同的端點](iot-hub-devguide-messages-d2c.md)
 
-* [教學課程：IoT 中樞路由 @ no__t-0
+* [教學課程： IoT 中樞路由](tutorial-routing.md)

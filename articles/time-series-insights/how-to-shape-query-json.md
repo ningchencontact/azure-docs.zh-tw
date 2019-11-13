@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 時間序列深入解析查詢中成形 JSON 的最佳做法 | Microsoft Docs
-description: 了解如何改善您的 Azure 時間序列深入解析查詢效率。
+title: 塑造 JSON Azure 時間序列深入解析查詢的最佳做法 |Microsoft Docs
+description: 瞭解如何藉由塑造 JSON 來改善您的 Azure 時間序列深入解析查詢效率。
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990273"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007007"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查詢效能 
 
@@ -194,7 +194,7 @@ ms.locfileid: "72990273"
 對於具有大量可能值的屬性，最好以單一資料行中的相異值來傳送，而不是針對每個值建立新的資料行。 在前兩個範例中：
 
   - 在第一個範例中，有幾個屬性有數個值，因此最好讓每一個屬性都是不同的。
-  - 在第二個範例中，不會將量值指定為個別屬性。 相反地，它們是在通用數列屬性下的值或量值陣列。 會傳送新的索引鍵**tagId** ，這會在簡維資料表中建立新的**資料行數列 tagId** 。 新的屬性**類型**和**單位**是使用參考資料所建立，因此不會達到屬性限制。
+  - 在第二個範例中，不會將量值指定為個別屬性。 相反地，它們是在通用數列屬性下的值或量值陣列。 會傳送新的索引鍵**tagId** , 這會在簡維資料表中建立新的**series.tagId** 。 新的屬性**type**和**unit**是使用參考資料所建立, 因此不會達到屬性限制。
 
 ## <a name="next-steps"></a>後續步驟
 

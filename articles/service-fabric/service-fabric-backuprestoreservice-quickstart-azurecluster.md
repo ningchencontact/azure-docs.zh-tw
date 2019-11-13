@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 中的定期備份與還原 | Microsoft Docs
+title: 在 Azure Service Fabric 中定期備份和還原
 description: 使用 Service Fabric 的定期備份與還原功能，啟用應用程式資料的定期資料備份。
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: d5d87f153b5835d5d2b38f380e5c77c03a68e1b5
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 43adb9f9d9989b39faa3af705a61ae8b0626a43e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928238"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005542"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原 
 > [!div class="op_single_selector"]

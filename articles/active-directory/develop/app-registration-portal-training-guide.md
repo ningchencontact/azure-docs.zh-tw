@@ -1,6 +1,7 @@
 ---
-title: 應用程式註冊入口網站應用程式註冊訓練指南-Microsoft 身分識別平臺 |Azure
-description: 適用于熟悉應用程式註冊入口網站之使用者的 Azure 入口網站中的應用程式註冊
+title: 從應用程式註冊入口網站轉換至 Azure 入口網站中的新應用程式註冊體驗
+titleSuffix: Microsoft identity platform
+description: Azure 入口網站中的新應用程式註冊體驗簡介
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -17,14 +18,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1974616c0331203a803e4f13a19297940fb5d42e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905468"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013033"
 ---
-# <a name="training-guide-using-app-registrations-in-the-azure-portal-instead-of-application-registration-portal"></a>訓練指南：在 Azure 入口網站中使用應用程式註冊，而不是在應用程式註冊入口網站
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>從應用程式註冊入口網站轉換至 Azure 入口網站中的新應用程式註冊體驗
 
 Azure 入口網站的新[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗中有許多改進。 如果您更熟悉應用程式註冊入口網站（apps.dev.microsoft.com）體驗來註冊或管理聚合式應用程式（稱為「舊體驗」），本訓練指南會協助您開始使用新的體驗。
 
@@ -83,7 +84,7 @@ Azure 入口網站中的新體驗，會將這些功能呈現在不同的頁面�
 
 在新的體驗中，**應用程式密碼**已重新命名為**憑證 & 密碼**。 此外，**公開金鑰**稱為「**憑證**」，而「**密碼**」則稱為「**用戶端**密碼」。 基於安全性理由，我們選擇不要將此功能帶入新的體驗中，因此，您無法再產生新的金鑰組。
 
-## <a name="platformsauthentication---reply-urlsredirect-uris"></a>平臺/驗證-回復 Url/重新導向 Uri
+## <a name="platformsauthentication-reply-urlsredirect-uris"></a>平臺/驗證：回復 Url/重新導向 Uri
 在舊版的體驗中，應用程式具有 Web、原生和 Web API 的平臺區段，可設定重新導向 Url、登出 URL 和隱含流程。
 
 在新體驗中，回復 Url 可以在應用程式\'s 驗證一節中找到。 此外，它們也稱為重新導向 Uri，而重新導向 Uri 的格式也已變更。 它們必須與應用程式類型（web 或公用用戶端-行動裝置和桌上型電腦）相關聯。 [深入了解](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)

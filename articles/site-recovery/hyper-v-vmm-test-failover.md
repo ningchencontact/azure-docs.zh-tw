@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 執行從 Hyper-V VM 到次要網站的災害復原演練 | Microsoft Docs
+title: 使用 Azure Site Recovery 執行 NHyper-V 嚴重損壞修復至次要網站
 description: 了解如何使用 Azure Site Recovery 執行從 VMM 雲端中的 Hyper-V VM 到次要內部部署資料中心的 DR 演練。
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933466"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961387"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>執行從 Hyper-V VM 到次要網站的 DR 演練
 
@@ -53,7 +53,7 @@ ms.locfileid: "72933466"
 | **使用現有的** | 會在複本 VM 所在的主機上建立測試 VM。 此機器不會新增至雲端。<br/><br/>建立與您的生產網路隔離的 VM 網路。<br/><br/>如果您是使用 VLAN 網路，建議您在 VMM 中另外建立未用於生產網路的測試專用邏輯網路。 此邏輯網路是用來建立測試容錯移轉的 VM 網路。<br/><br/>邏輯網路應該至少要與所有裝載虛擬機器之 Hyper-V 伺服器的其中一個網路介面卡相關聯。<br/><br/>若使用 VLAN 邏輯網路，應該要隔離您新增至邏輯網路的網路站台。<br/><br/>如果您是使用 Windows 網路虛擬化型邏輯網路，Azure Site Recovery 會自動建立隔離的 VM 網路。 | |
 | **建立網路** | 暫時性測試網路將根據您在 [邏輯網路] 及其相關網路站台中指定的設定自動建立。<br/><br/> 容錯移轉會確認 VM 是否已建立。<br/><br/> 如果復原計劃使用多個 VM 網路，您應使用此選項。<br/><br/> 如果您使用的是 Windows 網路虛擬化網路，這個選項會使用複本虛擬機器網路中的相同設定 (子網路和 IP 位址集區) 自動建立 VM 網路。 在測試容錯移轉完成後，這些 VM 網路將自動清除。<br/><br/> 將會在複本虛擬機器所在的主機上建立測試 VM。 此機器不會新增至雲端。|
 
-### <a name="best-practices"></a>最佳做法
+### <a name="best-practices"></a>最佳作法
 
 - 測試生產網路會導致生產工作停滯。 請要求您的使用者不要在進行災害復原測試時使用相關應用程式。
 

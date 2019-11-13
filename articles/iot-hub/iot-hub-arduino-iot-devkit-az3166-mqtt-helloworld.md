@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure MQTT 用戶端程式庫將訊息傳送至 MQTT 伺服器 | Microsoft Docs
+title: 使用 Azure MQTT 用戶端程式庫將訊息傳送至 MQTT 伺服器
 description: 瞭解如何使用 MQTT 用戶端程式庫將訊息傳送到 MQTT broker。 另請瞭解如何將您的 mXChip IoT DevKit 設定為 MQTT 用戶端。
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889538"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954231"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>將訊息傳送至 MQTT 伺服器
 

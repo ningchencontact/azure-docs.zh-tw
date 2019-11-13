@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8c3c0574389fc9808af3cd70c928ede82d375076
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4de8b0d78d66709d13526c69f9d33b16dbad1dc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720721"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010226"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -30,13 +30,13 @@ ms.locfileid: "73720721"
 觀看[如何建立預算以透過 Azure 成本管理影片監視您的支出](https://www.youtube.com/watch?v=ExIVG_Gr45A)，以瞭解如何在 Azure 中建立預算來監視支出。
 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算
 > * 編輯預算
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 預算功能支援各種不同的 Azure 帳戶類型。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 若要檢視預算，您至少需要 Azure 帳戶的讀取存取。
 
@@ -90,7 +90,9 @@ ms.locfileid: "73720721"
 
 ## <a name="trigger-an-action-group"></a>觸發動作群組
 
-當您建立或編輯訂用帳戶或資源群組範圍的預算時，可以將它設定為呼叫動作群組。 當達到預算閾值時，動作群組可以執行各種不同的動作。 如需有關動作群組的詳細資訊，請參閱在[Azure 入口網站中建立和管理動作群組](../azure-monitor/platform/action-groups.md)。 如需使用以預算為基礎的自動化和動作群組的詳細資訊，請參閱[使用 Azure 預算管理成本](../billing/billing-cost-management-budget-scenario.md)。
+當您建立或編輯訂用帳戶或資源群組範圍的預算時，可以將它設定為呼叫動作群組。 當達到預算閾值時，動作群組可以執行各種不同的動作。 目前只有訂用帳戶和資源群組範圍支援動作群組。 如需有關動作群組的詳細資訊，請參閱在[Azure 入口網站中建立和管理動作群組](../azure-monitor/platform/action-groups.md)。 如需使用以預算為基礎的自動化和動作群組的詳細資訊，請參閱[使用 Azure 預算管理成本](../billing/billing-cost-management-budget-scenario.md)。
+
+
 
 若要建立或更新動作群組，請在建立或編輯預算時，按一下 [**管理動作群組**]。
 

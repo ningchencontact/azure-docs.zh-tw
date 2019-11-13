@@ -1,6 +1,6 @@
 ---
-title: 針對 Azure 時間序列深入解析 Preview 進行診斷和疑難排解 |Microsoft Docs
-description: 瞭解如何使用 Azure 時間序列深入解析 Preview 進行診斷和疑難排解。
+title: 診斷和疑難排解預覽環境-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解如何診斷 Azure 時間序列深入解析預覽環境並進行疑難排解。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b65edbd808abd6ff660ef00a8a680b4d3f0846c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989892"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014770"
 ---
-# <a name="diagnose-and-troubleshoot"></a>診斷和疑難排解
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>針對預覽環境進行診斷和疑難排解
 
 本文摘要說明使用 Azure 時間序列深入解析預覽環境時，可能會遇到的幾個常見問題。 文章中也會描述每個問題的可能發生原因和解決方案。
 

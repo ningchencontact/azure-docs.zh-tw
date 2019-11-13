@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d9c294d4ddadd1f6be7f66cd7fdd0f0dc723e18f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930539"
+ms.locfileid: "73950586"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -401,7 +401,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 ![10 項最新記錄的範例記錄搜尋](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>在 Azure 監視器中 CosmosDB Log Analytics 查詢
+### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Cosmos DB Azure 監視器中的 Log Analytics 查詢
 
 以下是一些您可以在 [**記錄搜尋**] 方塊中輸入的其他查詢，以協助您監視您的 Azure Cosmos 容器。 這些查詢使用[新語言](../log-analytics/log-analytics-log-search-upgrade.md)。  
 
@@ -445,6 +445,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
     | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
+
     > [!NOTE]
     > 此命令適用於活動記錄，而非診斷記錄。
 
@@ -462,8 +463,6 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
     | order by requestCharge_s desc
     | limit 100
     ```
-    
-      
 
 * 若要查詢哪些作業費時超過 3 毫秒：
 
@@ -496,11 +495,8 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
     AzureDiagnostics 
     | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
     | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    
-   
     ```
     
-
 如需如何使用新的記錄搜尋語言的詳細資訊，請參閱[瞭解 Azure 監視器記錄中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。 
 
 ## <a id="interpret"></a>解讀記錄

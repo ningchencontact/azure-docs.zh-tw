@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176840"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011658"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory B2C 授權開發人員帳戶
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式的雲端身分識別管理解決方案。 您可以使用它來管理開發人員入口網站的存取。 本指南會說明要與 Azure Active Directory B2C 整合所必須在 API 管理服務中進行的設定。 如需實現使用傳統 Azure Active Directory 來存取開發人員入口網站的相關資訊，請參閱[如何使用 Azure Active Directory 授權開發人員帳戶]。
 
@@ -87,11 +87,11 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>開發人員入口網站-新增 Azure AD B2C 帳戶驗證
 
-若要在開發人員入口網站中啟用 [使用 AAD B2C 登入]，您必須將 [ **OAuth 按鈕**] widget 新增至登入表單。
+在開發人員入口網站中，可以使用 [ **OAuth 按鈕**] widget 來登入 AAD B2C。 Widget 已包含在預設開發人員入口網站內容的登入頁面上。
 
 ![AAD 按鈕 widget](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-當新的使用者登入 AAD B2C 時，會自動建立新的帳戶，您可以考慮在註冊表單中新增相同的 widget。
+當新的使用者登入 AAD B2C 時，會自動建立新的帳戶，您可以考慮將相同的 widget 新增至註冊頁面。
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>舊版開發人員入口網站-如何註冊 Azure AD B2C
 

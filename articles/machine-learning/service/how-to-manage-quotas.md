@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 11/04/2019
-ms.openlocfilehash: 2206afc45c7ea35c41f51839b66dca33982939ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d44fb94978c450808c8a1c0852d4c771a100857e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489827"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961725"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "73489827"
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-如需配額限制的詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits)的全 Azure 配額文章。
+如需配額限制詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits)的全 Azure 配額文章。
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 就 Azure Machine Learning Compute 而言，對於訂用帳戶中的每個區域允許的核心數目與特有計算資源數目，均有預設的配額限制。 此配額與上述 VM 核心配額不同，而且這兩個資源類型之間不會共用核心限制，因為 AmlCompute 是一種受控服務，可將資源部署在託管代理的模型中。
@@ -89,10 +89,10 @@ ms.locfileid: "73489827"
 
 [!INCLUDE [container-instances-limits](../../../includes/container-instances-limits.md)]
 
-如需配額限制的詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)的全 Azure 配額文章。
+如需配額限制詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)的全 Azure 配額文章。
 
 ### <a name="storage"></a>儲存體
-針對每個區域以及指定的訂用帳戶中的儲存體帳戶數目有限制。 預設限制為 200 個，包括標準與進階儲存體帳戶兩者。 如果您在指定區域需要超過 200 個儲存體帳戶，請透過 [Azure 支援](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)提出要求。 Azure 儲存體小組將會檢閱您的商務案例，而且可以針對指定區域核准多達 250 個儲存體帳戶。
+針對每個區域以及指定的訂用帳戶中的儲存體帳戶數目有限制。 預設限制為250，同時包含標準和進階儲存體帳戶。 如果您在指定區域中需要超過250個儲存體帳戶，請透過[Azure 支援](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)提出要求。 Azure 儲存體小組將會檢閱您的商務案例，而且可以針對指定區域核准多達 250 個儲存體帳戶。
 
 
 ## <a name="workspace-level-quota"></a>工作區層級配額

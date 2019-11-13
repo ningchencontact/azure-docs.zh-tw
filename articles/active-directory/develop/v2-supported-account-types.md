@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852047"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942179"
 ---
 # <a name="supported-account-types"></a>支援的帳戶類型
 
@@ -41,7 +41,7 @@ ms.locfileid: "68852047"
   - 使用他們的公司、學校或個人 Microsoft 帳戶。
   - 僅使用個人 Microsoft 帳戶。
     > [!NOTE]
-    > 目前，Microsoft 身分識別平台支援個人 Microsoft 帳戶的方式只能藉由註冊適用於**公司、學校或個人 Microsoft 帳戶**的應用程式，然後藉由在建置應用程式時指定 Azure AD 授權單位 (例如 `https://login.onmicrosoftonline.com/consumers`)，以在應用程式的程式碼中限制登入。
+    > 目前，Microsoft 身分識別平台支援個人 Microsoft 帳戶的方式只能藉由註冊適用於**公司、學校或個人 Microsoft 帳戶**的應用程式，然後藉由在建置應用程式時指定 Azure AD 授權單位 (例如 `https://login.microsoftonline.com/consumers`)，以在應用程式的程式碼中限制登入。
 
 - 如果您要撰寫企業對消費者的應用程式，您也可以使用 Azure AD B2C，透過使用者的社交身分識別來登入他們。
 

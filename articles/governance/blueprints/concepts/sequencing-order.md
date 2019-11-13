@@ -1,17 +1,14 @@
 ---
 title: 了解部署順序
 description: 瞭解藍圖定義所經歷的生命週期，以及每個階段的詳細資料。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 87eff48f977f0308fea563090a44ff0b301909a9
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981006"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960442"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>了解 Azure 藍圖中的部署順序
 
@@ -55,7 +52,7 @@ Azure 藍圖在處理藍圖定義的指派時，會使用**排序次序**來決�
 
 ### <a name="example---ordered-resource-group"></a>範例-已排序的資源群組
 
-此範例藍圖定義的資源群組已定義自訂排序次序，其方式是宣告 `dependsOn` 的值以及標準的資源群組。 在此範例中，名為 **assignPolicyTags** 的成品會在 **ordered-rg** 資源群組之前進行處理。
+此範例藍圖定義的資源群組已定義自訂排序次序，其方式是宣告 `dependsOn`的值，以及標準的資源群組。 在此範例中，名為 **assignPolicyTags** 的成品會在 **ordered-rg** 資源群組之前進行處理。
 **standard-rg** 會根據預設排序順序進行處理。
 
 ```json

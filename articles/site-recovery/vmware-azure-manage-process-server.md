@@ -1,18 +1,18 @@
 ---
-title: 使用 Azure Site Recovery 管理用於 VMware Vm 和實體伺服器嚴重損壞修復的進程伺服器 |Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 來管理針對 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復所設定的進程伺服器。
+title: 在 Azure Site Recovery 中管理 VMware Vm/實體伺服器嚴重損壞修復的進程伺服器
+description: 本文說明如何使用 Azure Site Recovery 來管理 VMware Vm/實體伺服器嚴重損壞修復的進程伺服器。
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 509b9aed9f5daebb70a18336837da2152667a458
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242832"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954339"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
 

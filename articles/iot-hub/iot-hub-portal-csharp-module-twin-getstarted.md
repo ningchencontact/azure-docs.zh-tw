@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure IoT 中樞模組身分識別和模組對應項 (入口網站和 .NET) | Microsoft Docs
+title: Azure IoT 中樞模組識別 & 模組對應項（入口網站和 .NET）
 description: 了解如何使用入口網站和 .NET，建立模組身分識別及更新模組對應項。
 author: robinsh
 manager: philmea
@@ -9,34 +9,34 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 395b1fd3301925db0607f775c6b7367979ba367b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147427"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954609"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>透過入口網站和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [模組身分識別與模組對應項](iot-hub-devguide-module-twins.md)類似於 Azure IoT 中樞裝置身分識別與裝置對應項，但提供更精細的細微性。 雖然 Azure IoT 中樞裝置身分識別和裝置對應項可讓後端應用程式設定裝置, 並提供裝置狀況的可見度, 但模組身分識別和模組對應項會為裝置的個別元件提供這些功能。 在具有多個元件的可用裝置 (例如以作業系統為基礎的裝置或固件裝置) 上, 模組身分識別和模組 twins 允許每個元件的隔離設定和條件。
+> [模組身分識別與模組對應項](iot-hub-devguide-module-twins.md)類似於 Azure IoT 中樞裝置身分識別與裝置對應項，但提供更精細的細微性。 雖然 Azure IoT 中樞裝置身分識別和裝置對應項可讓後端應用程式設定裝置，並提供裝置狀況的可見度，但模組身分識別和模組對應項會為裝置的個別元件提供這些功能。 在具有多個元件的可用裝置（例如以作業系統為基礎的裝置或固件裝置）上，模組身分識別和模組 twins 允許每個元件的隔離設定和條件。
 >
 
 在本教學課程中，您將了解：
 
 * 如何在入口網站中建立模組身分識別。
 
-* 如何使用 .NET 裝置 SDK, 從您的裝置更新模組對應項。
+* 如何使用 .NET 裝置 SDK，從您的裝置更新模組對應項。
 
 > [!NOTE]
-> 如需您可以用來建立兩個應用程式以在裝置和您的解決方案後端執行的 Azure IoT Sdk 的相關資訊, 請參閱[Azure Iot sdk](iot-hub-devguide-sdks.md)。
+> 如需您可以用來建立兩個應用程式以在裝置和您的解決方案後端執行的 Azure IoT Sdk 的相關資訊，請參閱[Azure Iot sdk](iot-hub-devguide-sdks.md)。
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Visual Studio。
+* 。
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
@@ -50,9 +50,9 @@ ms.locfileid: "70147427"
 
 ## <a name="create-a-module-identity-in-the-portal"></a>在入口網站中建立模組身分識別
 
-在一個裝置身分識別內，您可以建立最多 20 個模組身分識別。 若要新增身分識別, 請遵循下列步驟:
+在一個裝置身分識別內，您可以建立最多 20 個模組身分識別。 若要新增身分識別，請遵循下列步驟：
 
-1. 針對您在上一節中建立的裝置, 選擇 [**新增模組身分識別**] 來建立您的第一個模組身分識別。
+1. 針對您在上一節中建立的裝置，選擇 [**新增模組身分識別**] 來建立您的第一個模組身分識別。
 
 1. 輸入名稱*myFirstModule*。 儲存您的模組身分識別。
 
@@ -70,21 +70,21 @@ ms.locfileid: "70147427"
 
 ### <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-若要建立可更新模組對應項報告屬性的應用程式, 請遵循下列步驟:
+若要建立可更新模組對應項報告屬性的應用程式，請遵循下列步驟：
 
-1. 在 Visual Studio 中, 選取 [**建立新專案**], 然後選擇 [**主控台應用程式 (.NET Framework)** ], 然後選取 **[下一步]** 。
+1. 在 Visual Studio 中，選取 [**建立新專案**]，然後選擇 [**主控台應用程式（.NET Framework）** ]，然後選取 **[下一步]** 。
 
-1. 在 [**設定您的新專案**] 中, 輸入*UpdateModuleTwinReportedProperties*做為**專案名稱**。 選取 [建立] 繼續作業。
+1. 在 [**設定您的新專案**] 中，輸入*UpdateModuleTwinReportedProperties*做為**專案名稱**。 選取 [建立] 繼續作業。
 
     ![設定您是 visual studio 專案](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
 
 ### <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>安裝最新的 Azure IoT Hub .NET 裝置 SDK
 
-模組身分識別與模組對應項都處於公開預覽階段。 僅適用于 IoT 中樞發行前版本裝置 Sdk。 若要安裝它, 請遵循下列步驟:
+模組身分識別與模組對應項都處於公開預覽階段。 僅適用于 IoT 中樞發行前版本裝置 Sdk。 若要安裝它，請遵循下列步驟：
 
-1. 在 Visual Studio 中, 開啟 [**工具** > ] [**nuget 套件管理員** > ] [**管理方案的 nuget 套件**]。
+1. 在 Visual Studio 中，開啟 [**工具**] [ > **nuget 套件管理員**] > [**管理解決方案的 nuget 套件**]。
 
-1. 選取 **[流覽]** , 然後選取 [**包含發行**前版本]。 搜尋 [ *Microsoft. Azure. 用戶端*]。 選取最新版本並安裝。
+1. 選取 **[流覽]** ，然後選取 [**包含發行**前版本]。 搜尋 [ *Microsoft. Azure. 用戶端*]。 選取最新版本並安裝。
 
     ![安裝 Azure IoT 中樞 .NET 服務 SDK 預覽](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
@@ -96,17 +96,17 @@ ms.locfileid: "70147427"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 流覽至您的 IoT 中樞, 然後選取 [ **Iot 裝置**]。 開啟**myFirstDevice** , 您會看到**myFirstModule**已成功建立。
+1. 流覽至您的 IoT 中樞，然後選取 [ **Iot 裝置**]。 開啟**myFirstDevice** ，您會看到**myFirstModule**已成功建立。
 
-1. 選取 [**模組**身分識別] 底下的 [ **myFirstModule** ]。 在 [**模組身分識別詳細資料**] 中, 複製 [**連接字串 (主要金鑰)** ]。
+1. 選取 [**模組**身分識別] 底下的 [ **myFirstModule** ]。 在 [**模組身分識別詳細資料**] 中，複製 [**連接字串（主要金鑰）** ]。
 
     ![Azure 入口網站模組詳細資料](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
 ### <a name="create-updatemoduletwinreportedproperties-console-app"></a>建立 UpdateModuleTwinReportedProperties 主控台應用程式
 
-若要建立您的應用程式, 請遵循下列步驟:
+若要建立您的應用程式，請遵循下列步驟：
 
-1. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
+1. 在 `using`Program.cs**檔案開頭處新增下列** 陳述式：
 
   ```csharp
   using Microsoft.Azure.Devices.Client;
@@ -138,7 +138,7 @@ ms.locfileid: "70147427"
       }
   ```
 
-4. 最後, 將**Main**方法取代為下列程式碼:
+4. 最後，將**Main**方法取代為下列程式碼：
 
   ```csharp
   static void Main(string[] args)

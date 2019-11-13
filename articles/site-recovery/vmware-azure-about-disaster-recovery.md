@@ -1,18 +1,17 @@
 ---
-title: 關於使用 Azure Site Recovery 進行 VMware VM 至 Azure 的災害復原 | Microsoft Docs
+title: 使用 Azure Site Recovery 的 VMware 損毀修復
 description: 本文概述如何使用 Azure Site Recovery 進行 VMware VM 至 Azure 的災害復原。
-author: raynew
+author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 9/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814319"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954400"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>關於 VMware VM 至 Azure 的災害復原
 
@@ -96,7 +95,7 @@ Site Recovery 可複寫在支援的 VMware VM 或實體伺服器上執行的任�
         - 進程伺服器會接收、優化複寫資料，並將其傳送至 Azure 中的快取儲存體帳戶。 它也會在您要複寫的機器上處理行動服務的自動安裝，並且在 VMware 伺服器上執行 VM 的自動探索。
         - 主要目標伺服器會在從 Azure 容錯回復期間，處理複寫資料。
     - 設定包括在保存庫中註冊組態伺服器、下載 MySQL 伺服器和 VMware PowerCLI，以及指定針對自動探索和行動服務安裝所建立的帳戶。
-4. **目標環境**：您可以藉由指定您的 Azure 訂用帳戶和網路設定來設定目標 Azure 環境。
+4. **目標環境**：藉由指定您的 azure 訂用帳戶和網路設定，來設定您的目標 azure 環境。
 5. **複寫原則**：您可指定應如何進行複寫。 設定包含建立和儲存復原點的頻率，以及是否應該建立應用程式一致的快照集。
 6. **啟用複寫**。 您可為內部部署機器啟用複寫。 如果您建立了用以安裝行動服務的帳戶，則該服務會在您為機器啟用複寫時安裝。 
 

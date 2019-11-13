@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 40da2016026c8a7e02d1b243a783d01559e8c197
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671308"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005508"
 ---
-# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)
 本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 
 
 ## <a name="goal-for-migration"></a>移轉目標
@@ -75,19 +74,19 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 > [!NOTE]
 > Resource Manager 部署模型並沒有「傳統」映像和磁碟的概念。 移轉儲存體帳戶時，「傳統」映像和磁碟不會顯示在 Resource Manager 堆疊中，但是作為基礎的 VHD 會繼續留在儲存體帳戶中。
 
-下列螢幕擷取畫面顯示如何將傳統儲存體帳戶升級至使用 Azure 入口網站的 Azure Resource Manager 儲存體帳戶：
+下列螢幕擷取畫面顯示如何使用 Azure 入口網站將傳統儲存體帳戶升級至 Azure Resource Manager 儲存體帳戶：
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至儲存體帳戶。
-3. 在 **設定**區段中，按一下**移轉至 ARM**。
-4. 按一下 **驗證**來決定移轉可行性。
-5. 如果通過驗證，按一下**準備**建立已移轉的儲存體帳戶。
-6. 型別 **[是]** 來確認移轉，然後按一下**認可**完成移轉。
+3. 在 [**設定**] 區段中，按一下 [**遷移至 ARM**]。
+4. 按一下 [**驗證**] 以判斷遷移可行性。
+5. 如果通過驗證，請按一下 [**準備**] 以建立遷移的儲存體帳戶。
+6. 輸入 **[是]** 確認遷移，然後按一下 [**認可**] 以完成遷移。
 
     ![驗證儲存體帳戶](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
     
     ![準備儲存體帳戶](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
     
-    ![完成儲存體帳戶移轉](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+    ![完成儲存體帳戶遷移](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>移轉未連結的資源
 沒有相關聯磁碟或虛擬機器資料的儲存體帳戶可獨立進行遷移。
@@ -115,7 +114,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 
 | 服務 | 組態 | 建議 |
 | --- | --- | --- |
-| Resource Manager |角色型存取控制 (RBAC) 的傳統資源 |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
+| 資源管理員 |傳統資源以角色為基礎的存取控制（RBAC） |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
 | 計算 |與 VM 關聯的多個子網路 |將子網路組態更新為只參考一個子網路。 這可能要求您從 VM 移除次要 NIC (其參考另一個子網路)，並在移轉完成後重新連結它。 |
 | 計算 |隸屬於虛擬網路但未獲指派明確子網路的虛擬機器。 |您可以選擇刪除此 VM。 |
 | 計算 |具有警示、自動調整原則的虛擬機器 |移轉會進行到完成，但會捨棄這些設定。 強烈建議您在執行移轉前先評估您的環境。 或者，您也可以在移轉完成之後重新設定警示設定。 |

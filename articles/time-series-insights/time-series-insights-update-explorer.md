@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 時間序列深入解析預覽總管中將資料視覺化 | Microsoft Docs
-description: 本文描述 Azure 時間序列深入解析預覽總管 Web 應用程式中的各種功能和可用選項。
+title: 在預覽瀏覽器中將資料視覺化-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解 Azure 時間序列深入解析預覽瀏覽器中可用的功能和選項。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f09de6fee4c9de39d98ec66714686ab1e805c4cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989961"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014886"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>在總管中將資料視覺化 (預覽)
 
 本檔說明 Azure 時間序列深入解析 Preview[示範 web 應用程式](https://insights.timeseries.azure.com/preview/demo)的使用者介面和使用者體驗功能和介面。 具體而言，它會討論託管範例的配置、介面自訂選項，以及透過提供的示範進行導覽。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始使用 Azure 時間序列深入解析 Preview explorer，您必須：
 
@@ -151,7 +151,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 1. **Web 控制項的日期範圍**：您可以使用這個 web 控制項，輕鬆地選取您想要的日期和時間範圍。 您也可以使用控制項切換不同的時區。 將變更套用至目前的工作區之後，請選取 [**儲存**]。
 
-   [從選取專案面板![（& a）](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [從選取專案面板 ![（& a）](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
 ## <a name="navigation-panel"></a>導覽面板
 
@@ -203,12 +203,12 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 **Where**：使用 where 子句，藉由使用下表所列的運算元集合來快速篩選事件。 如果透過選取運算元進行搜尋，述詞會依據該搜尋自動更新。 支援的運算元類型包括下列各項：
 
-| 作業 | 支援的類型   | 注意 |
+| 作業 | 支援的類型   | 注意事項 |
 | --- | --- | --- |
 | `<`、`>`、`<=`、`>=` | Double、DateTime、TimeSpan | |
 | `=`、`!=`, `<>` | String、Bool、Double、DateTime、TimeSpan、NULL |
 | `IN` | String、Bool、Double、DateTime、TimeSpan、NULL | 所有的運算元都應該是相同的類型或是 NULL 常數。 |
-| `HAS` | String | 右側只允許常數位串常值。 不允許空字串和 Null。 |
+| `HAS` | 字串 | 右側只允許常數位串常值。 不允許空字串和 Null。 |
 
 若要深入瞭解支援的查詢作業和資料類型，請參閱[時間序列運算式（TSX）](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx)。
 

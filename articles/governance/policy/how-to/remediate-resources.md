@@ -1,17 +1,14 @@
 ---
 title: 補救不相容的資源
 description: 本指南會逐步引導您在 Azure 原則中，修復不符合原則的資源。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977979"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959492"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
@@ -25,7 +22,7 @@ Azure 原則會為每個指派建立受控識別，但必須具有要授與受�
 ![受控識別 - 遺漏角色](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> 如果由**deployIfNotExists**或**modify**修改的資源超出原則指派的範圍，或範本在原則指派範圍以外的資源上存取屬性，則指派的受控識別必須是[手動授與存取權](#manually-configure-the-managed-identity)，或補救部署將會失敗。
+> 如果由**deployIfNotExists**或**modify**修改的資源超出原則指派的範圍，或範本存取原則指派範圍外之資源的屬性，則必須[手動授](#manually-configure-the-managed-identity)與指派的受控識別，否則補救部署將會失敗。
 
 ## <a name="configure-policy-definition"></a>設定原則定義
 
@@ -160,7 +157,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>透過 Azure CLI 建立補救工作
 
-若要建立具有 Azure CLI 的**補救**工作，請使用 `az policy remediation` 命令。 以您的訂用帳戶識別碼取代 `{subscriptionId}`，並使用您的**deployIfNotExists**或**修改**原則指派識別碼來 `{myAssignmentId}`。
+若要建立具有 Azure CLI 的**補救**工作，請使用 `az policy remediation` 命令。 以您的訂用帳戶 ID 取代 `{subscriptionId}`，並使用您的**deployIfNotExists**或**修改**原則指派識別碼來 `{myAssignmentId}`。
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -173,7 +170,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>透過 Azure PowerShell 建立補救工作
 
-若要建立具有 Azure PowerShell 的**補救**工作，請使用 `Start-AzPolicyRemediation` 命令。 以您的訂用帳戶識別碼取代 `{subscriptionId}`，並使用您的**deployIfNotExists**或**修改**原則指派識別碼來 `{myAssignmentId}`。
+若要建立具有 Azure PowerShell 的**補救**工作，請使用 `Start-AzPolicyRemediation` 命令。 以您的訂用帳戶 ID 取代 `{subscriptionId}`，並使用您的**deployIfNotExists**或**修改**原則指派識別碼來 `{myAssignmentId}`。
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
