@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747378"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961574"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -186,6 +186,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 |伺服器作業系統 | 相容的用戶端作業系統  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
@@ -261,7 +262,7 @@ $ mount [RAID Disk Path] [/mountpath]
 | Linux 特定︰無法檢視所需的磁碟區 | 執行指令碼所在電腦的作業系統可能無法辨識受保護 VM 的底層檔案系統 | 檢查復原點是否損毀一致還是檔案一致。 如果檔案一致，請在作業系統可辨識受保護 VM 檔案系統的其他電腦上執行指令碼 |
 | Windows 特定︰無法檢視所需的磁碟區 | 已連接磁碟，但未設定磁碟區 | 從 [磁碟管理] 畫面上，找出與復原點相關的其他磁碟。 如果其中有任何磁片處於離線狀態，請嘗試以滑鼠右鍵按一下磁片，然後按一下 [線上]，讓它們上線|
 
-## <a name="security"></a>安全性
+## <a name="security"></a>Security
 
 本節討論從 Azure VM 備份執行檔案復原所採取的各種安全性措施，讓使用者知道該功能的安全性層面。
 

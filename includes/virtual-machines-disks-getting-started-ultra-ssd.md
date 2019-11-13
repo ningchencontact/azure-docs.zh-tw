@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 838037804baad9105b4636934de957c2e5f3e810
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3525edb2a73811254b2a4dce70ce3edb58988492
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612017"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012451"
 ---
-# <a name="using-azure-ultra-disks"></a>使用 Azure ultra 磁片
-
 Azure ultra 磁片提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體，適用于 Azure IaaS 虛擬機器（Vm）。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra 磁片的一個主要優點是能夠以動態方式變更 SSD 的效能和您的工作負載，而不需要重新開機您的 Vm。 Ultra 磁片適用于資料密集的工作負載，例如 SAP Hana、最上層資料庫，以及高交易量的工作負載。
 
 ## <a name="ga-scope-and-limitations"></a>GA 範圍和限制
@@ -51,7 +49,7 @@ $vmSize = "Standard_E64s_v3"
 
 |ResourceType  |名稱  |位置  |區域  |限制  |功能  |值  |
 |---------|---------|---------|---------|---------|---------|---------|
-|磁碟     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
 > 如果命令沒有回應，則選取的區域中的 ultra 磁片不支援所選的 VM 大小。

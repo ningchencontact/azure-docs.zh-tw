@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure Resource Manager 範本管理 Azure 時間序列深入解析環境 | Microsoft Docs
-description: 本文說明如何使用 Azure Resource Manager 以程式設計方式管理 Azure 時間序列深入解析環境。
+title: 使用 Azure Resource Manager 範本管理您的環境-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解如何使用 Azure Resource Manager 以程式設計方式管理您的 Azure 時間序列深入解析環境。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: acafb9aab756507bb073b3e883ee190c72b4f9f8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991223"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006774"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -24,7 +24,7 @@ ms.locfileid: "72991223"
 
 「時間序列深入解析」支援下列資源：
 
-   | 資源 | 說明 |
+   | 資源 | 描述 |
    | --- | --- |
    | Environment | 時間序列深入解析環境是事件的邏輯群組，會從事件代理程式讀取、儲存並供查詢之用。 如需詳細資訊，請參閱[規劃您的 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |
@@ -59,25 +59,25 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 必要參數
 
-     | 參數 | 說明 |
+     | 參數 | 描述 |
      | --- | --- |
      | eventHubNamespaceName | 來源事件中樞的命名空間。 |
      | eventHubName | 來源事件中樞的名稱。 |
      | consumerGroupName | 「時間序列深入解析」服務將用來從事件中樞讀取資料的取用者群組名稱。 **注意：** 為避免資源爭用，此取用者群組必須專用於「時間序列深入解析」服務，而不和其他讀取者共用。 |
-     | environmentName | 環境的名稱。 名稱不能包含： `<`、`>`、`%`、`&`、`:`、`\\`、`?`、`/` 和任何控制字元。 允許所有其他字元。|
-     | eventSourceName | 事件來源子系資源的名稱。 名稱不能包含： `<`、`>`、`%`、`&`、`:`、`\\`、`?`、`/` 和任何控制字元。 允許所有其他字元。 |
+     | environmentName | 環境的名稱。 名稱不能包含： `<`、`>`、`%`、`&`、`:`、`\\`、`?`、`/`和任何控制字元。 允許所有其他字元。|
+     | eventSourceName | 事件來源子系資源的名稱。 名稱不能包含： `<`、`>`、`%`、`&`、`:`、`\\`、`?`、`/`和任何控制字元。 允許所有其他字元。 |
 
     <div id="optional-parameters"></div>
 
    * 選擇性參數
 
-     | 參數 | 說明 |
+     | 參數 | 描述 |
      | --- | --- |
      | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：** 部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
      | environmentDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是環境名稱。 |
      | environmentSkuName | SKU 的名稱。 如需詳細資訊，請參閱[時間序列深入解析定價頁面](https://azure.microsoft.com/pricing/details/time-series-insights/)。  |
      | environmentSkuCapacity | SKU 的單位容量。 如需詳細資訊，請參閱[時間序列深入解析定價頁面](https://azure.microsoft.com/pricing/details/time-series-insights/)。|
-     | environmentDataRetentionTime | 查詢時將能使用環境事件的最小時間範圍。 此值必須以 ISO 8601 格式指定，例如 `P30D` 用於30天的保留原則。 |
+     | environmentDataRetentionTime | 查詢時將能使用環境事件的最小時間範圍。 值必須以 ISO 8601 格式指定，例如 `P30D` 保留原則為30天。 |
      | eventSourceDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是事件來源名稱。 |
      | eventSourceTimestampPropertyName | 將用來作為事件來源時間戳記的事件屬性。 如果沒有為 timestampPropertyName 指定值，或如果指定的是空值或空字串，將會使用事件建立時間。 |
      | eventSourceKeyName | 「時間序列深入解析」服務將用來連線至事件中樞的共用存取金鑰名稱。 |
@@ -148,7 +148,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 如果沒有資源群組，請建立一個新的。
 
-   * 如果您沒有現有的資源群組，請使用**remove-azresourcegroup**命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如：
+   * 如果您沒有現有的資源群組，請使用**remove-azresourcegroup**命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如︰
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

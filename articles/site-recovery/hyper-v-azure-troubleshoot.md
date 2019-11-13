@@ -1,5 +1,5 @@
 ---
-title: 針對使用 Azure Site Recovery 所進行的 Hyper-V 至 Azure 災害復原進行疑難排解 | Microsoft Docs
+title: 使用 Azure Site Recovery 進行 Hyper-v 嚴重損壞修復的疑難排解
 description: 說明如何針對使用 Azure Site Recovery 進行 Hyper-V 至 Azure 複寫時所發生的災害復原問題進行疑難排解
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 2cf43f8a235b112cfcf1fc6c9dba626a5a0c9b7e
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828400"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961473"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>對 Hyper-V 至 Azure 的複寫和容錯移轉進行疑難排解
 
@@ -125,16 +125,16 @@ ms.locfileid: "68828400"
 1. 檢查事件記錄檔中是否有 VSS 錯誤和建議：
     - 在 Hyper-V 主機伺服器上，從 [事件檢視器] > [應用程式及服務記錄] > [Microsoft] > [Windows] > [Hyper V] > [管理] 開啟 Hyper-V 管理員事件記錄。
     - 確認是否有任何事件指出應用程式一致快照集失敗。
-    - 典型的錯誤為：「Hyper-V 無法產生虛擬機器 'XYZ' 的 VSS 快照集：寫入器發生非暫時性錯誤。 如果 VSS 服務沒有回應，重新啟動服務或許可解決問題」。
+    - 常見的錯誤是：「Hyper-V 無法產生虛擬機器 'XYZ' 的 VSS 快照集：寫入器發生非暫時性錯誤。 如果 VSS 服務沒有回應，重新啟動服務或許可解決問題」。
 
 2. 若要產生 VM 的 VSS 快照集，請確認已在 VM 上安裝 Hyper-V Integration Services，而且已啟用備份 (VSS) Integration Service。
     - 確定 Integration Services VSS 服務/精靈正在客體上執行，並且處於 [正常] 狀態。
-    - 您可以使用命令**enable-vmintegrationservice-VMName\<VMName >-Name VSS** , 從 hyper-v 主機上已提升許可權的 PowerShell 會話進行檢查, 您也可以藉由登入來賓 VM 來取得這項資訊。 [深入了解](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
+    - 您可以使用命令**enable-vmintegrationservice-VMName\<VMName > 名稱 VSS** ，從 hyper-v 主機上已提升許可權的 PowerShell 會話進行檢查，您也可以登入來賓 VM 來取得這項資訊。 [詳細資訊](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
     - 確定 VM 上的備份/VSS Integration Service 正在執行，且處於良好的狀態。 若非如此，請重新啟動這些服務，並結束 Hyper-V 主機伺服器上的 Hyper-V 磁碟區陰影複製要求者服務。
 
 ### <a name="common-errors"></a>常見錯誤
 
-**錯誤碼** | **Message** | **詳細資料**
+**錯誤碼** | **訊息** | **詳細資料**
 --- | --- | ---
 **0x800700EA** | 「Hyper-V 無法產生虛擬機器的 VSS 快照集：有更多可用的資料。 (0x800700EA)。 如果備份作業正在進行中，VSS 快照集可能無法產生。<br/><br/> 虛擬機器的複寫作業失敗：有更多可用的資料。」 | 檢查您的 VM 是否已啟用動態磁碟。 不支援此做法。
 **0x80070032** | 「Hyper-V 磁碟區陰影複製要求者無法連線至虛擬機器 <./VMname>，因為版本不符合 Hyper-V 所預期的版本」 | 檢查是否已安裝最新的 Windows 更新。<br/><br/> [升級](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)至最新版的 Integration Services。

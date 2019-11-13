@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471086"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012264"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Windows JAVA 應用程式
 
@@ -40,10 +40,6 @@ Azure App Service 可讓 JAVA 開發人員在完全受控的 Windows 服務上�
 ## <a name="logging-and-debugging-apps"></a>記錄和偵錯應用程式
 
 透過 Azure 入口網站，可以取得每個應用程式的效能報表、流量視覺化和健康狀態檢查。 如需詳細資訊，請參閱[Azure App Service 診斷總覽](overview-diagnostics.md)。
-
-### <a name="ssh-console-access"></a>SSH 主控台存取
-
-[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### <a name="stream-diagnostic-logs"></a>資料流診斷記錄
 
@@ -203,7 +199,7 @@ public int getServerPort()
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 建立 AppDynamics 帳戶
-2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。 *
+2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。
 3. 使用[Kudu 主控台](https://github.com/projectkudu/kudu/wiki/Kudu-console)來建立新的目錄 */home/site/wwwroot/apm*。
 4. 將 JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/appdynamics*中。
 5. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
@@ -235,7 +231,7 @@ public int getServerPort()
 </appSettings>
 ```
 
-或者，在 Azure 入口網站的 [設定 ** > ** **應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [**設定** > **應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -243,7 +239,7 @@ public int getServerPort()
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增 `Context` 專案，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 `Context` 元素，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>

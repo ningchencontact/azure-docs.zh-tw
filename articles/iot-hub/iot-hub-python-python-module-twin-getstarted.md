@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure IoT 中樞模組身分識別和模組對應項 (Python) | Microsoft Docs
+title: Azure IoT 中樞模組身分識別和模組對應項（Python）
 description: 了解如何使用適用於 Python 的 IoT SDK，建立模組身分識別及更新模組對應項。
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: d9aeb5130f565c5fc24e2d0ced9c7ce16d2927ef
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e18d448d9aee0137f1167d23a2bbf53486d0c764
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001155"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953851"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>開始使用 IoT 中樞模組身分識別和模組對應項（Python）
 
@@ -31,7 +31,7 @@ ms.locfileid: "71001155"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -85,7 +85,7 @@ except KeyboardInterrupt:
     print("IoTHubRegistryManager sample stopped")
 ```
 
-此應用程式會在 **myFirstDevice** 裝置下方建立識別碼為 **myFirstDevice** 的裝置身分識別，以及識別碼為 **myFirstModule** 的模組身分識別。 (如果該模組識別碼已經存在身分識別登錄中，程式碼就只會擷取現有的模組資訊)。接著，應用程式會顯示該身分識別的主要金鑰。 您會在模擬模組應用程式中使用此金鑰來連線到您的 IoT 中樞。
+此應用程式會在 **myFirstDevice** 裝置下方建立識別碼為 **myFirstDevice** 的裝置身分識別，以及識別碼為 **myFirstModule** 的模組身分識別。 （如果該模組識別碼已經存在身分識別登錄中，程式碼就會直接抓取現有的模組資訊）。應用程式接著會顯示該身分識別的主要金鑰。 您會在模擬模組應用程式中使用此金鑰來連線到您的 IoT 中樞。
 
 > [!NOTE]
 > IoT 中樞身分識別登錄只會儲存裝置和模組身分識別，以啟用對 IoT 中樞的安全存取。 身分識別登錄會儲存裝置識別碼和金鑰，以作為安全性認證使用。 身分識別登錄也會儲存每個裝置的已啟用/已停用旗標，以便您用來停用該裝置的存取權。 如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。 模組身分識別沒有啟用/停用旗標。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南](iot-hub-devguide-identity-registry.md)。
@@ -101,7 +101,7 @@ except KeyboardInterrupt:
 
 2. **建立 UpdateModuleTwinReportedProperties 應用程式**
 
-   在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
+   在 `using`Program.cs**檔案開頭處新增下列** 陳述式：
 
     ```python
     import sys

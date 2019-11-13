@@ -3,7 +3,7 @@ title: AD 報告 API 與憑證的教學課程 |Microsoft Docs
 description: 本教學課程說明如何使用 Azure AD 報告 API 配合憑證認證來取得目錄中的資料，而不需使用者介入。
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe5f2a6d1957a544c63cb8a7c223ba9734786f8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014274"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>教學課程：使用 Azure Active Directory 報告 API 配合憑證來取得資料
 
@@ -29,9 +29,9 @@ ms.locfileid: "72895137"
 
 在本教學課程中，您會了解如何使用測試憑證來存取 MS 圖形 API 以進行報告。 我們不建議在生產環境中使用測試憑證。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-1. 若要存取登入資料，請確定您有進階 (P1/P2) 授權的 Azure Active Directory 租用戶。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md)以升級您的 Azure Active Directory 版本。 請注意，如果您在升級前沒有任何活動資料，則在升級至進階授權之後，報告需要幾天的時間才會顯示出資料。 
+1. 若要存取登入資料，請確定您有進階 (P1/P2) 授權的 Azure Active Directory 租用戶。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。 請注意，如果您在升級前沒有任何活動資料，則在升級至進階授權之後，報告需要幾天的時間才會顯示出資料。 
 
 2. 建立或切換到租用戶角色為**全域系統管理員**、**安全性系統管理員**、**安全性讀取者**或**報告讀取者**的使用者帳戶。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "72895137"
   
 7. 現在，您可以使用此憑證來取得 MS 圖形 API 的存取權杖。 使用 MSCloudIdUtils PowerShell 模組中的 **Get-MSCloudIdMSGraphAccessTokenFromCert** Cmdlet，然後傳入您從上一個步驟中所取得的應用程式識別碼和指紋。 
 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure 入口網站](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. 使用 Powershell 指令碼中的存取權杖來查詢圖形 API。 使用 MSCloudIDUtils 中的 **Invoke-MSCloudIdMSGraphQuery** 指令程式來列舉 signins 和 directoryAudits 端點。 此指令程式可處理多個分頁結果，並將這些結果傳送至 PowerShell 管道。
 
@@ -102,5 +102,5 @@ ms.locfileid: "72895137"
 ## <a name="next-steps"></a>後續步驟
 
 * [取得報告 API 的第一印象](concept-reporting-api.md)
-* [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) \(英文\) 
 * [登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)

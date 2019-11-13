@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: raynew
-ms.openlocfilehash: 54416faa9140cf6e7c7c471e4b4c62db5f6f079b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 19bf79cdb6bcdc0c20d47c698647383b758338db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242950"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961325"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
@@ -20,11 +20,60 @@ ms.locfileid: "73242950"
 
 您可以遵循並訂閱[Azure 更新](https://azure.microsoft.com/updates/?product=site-recovery)通道中的 Site Recovery 更新通知。
 
+
+
+## <a name="supported-updates"></a>支援的更新
+
+針對 Site Recovery 元件，我們支援 N-4 版本，其中 N 是最新發行的版本。 下表摘要說明這些功能。
+
+**更新** |  **整合設定** | **設定伺服器 ova** | **行動服務代理程式** | **Site Recovery 提供者** | **復原服務代理程式**
+--- | --- | --- | --- | --- | ---
+[匯總套件42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
+[匯總套件41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
+[匯總套件40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[匯總套件39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[匯總套件38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+        
+
+[深入瞭解](service-updates-how-to.md)更新安裝與支援。
+
+
+## <a name="updates-november-2019"></a>更新（2019年11月）
+
+### <a name="update-rollup-42"></a>更新彙總套件42
+
+[更新彙總套件 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)提供下列更新。
+
+**更新** | **詳細資料**
+--- | ---
+**提供者和代理程式** | Site Recovery 代理程式和提供者的更新（如匯總中所述）
+**問題修正/改進** | 一些修正和改進（如匯總中所述）
+
+
+## <a name="azure-vm-disaster-recovery"></a>Azure VM 嚴重損壞修復
+
+資料表中摘要說明 Azure VM 嚴重損壞修復的新功能。
+
+**功能** | **詳細資料**
+--- | ---
+**UEFI** | Site Recovery 現在透過 UEFI 型開機架構，支援 Azure Vm 的嚴重損壞修復。
+**Linux** | Site Recovery 現在支援使用 Azure 磁碟加密（ADE）執行 Linux 的 Azure Vm。
+**第2代** | 所有第2代 Azure Vm 現在都支援損毀修復。
+**區域** | 您現在可以在挪威地區啟用 Azure Vm 的嚴重損壞修復。
+
+### <a name="vmware-to-azure-disaster-recovery"></a>VMware 至 Azure 災害復原
+
+資料表中摘要說明 VMware 至 Azure 嚴重損壞修復的新功能。
+
+**功能** | **詳細資料**
+--- | ---
+**UEFI** | Site Recovery 現在支援使用 UEFI 型開機架構的 VMware Vm 的嚴重損壞修復。<br/><br/> 支援的作業系統包括 Windows Server 2019、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、SLES 12 SP4、RHEL 8。
+
 ## <a name="update-to-servicing-stack-updatesha-2"></a>更新至服務堆疊更新/SHA-2
 
 針對 Azure Vm 到次要區域或內部部署 VMware Vm 或實體伺服器至 Azure 的嚴重損壞修復，請注意下列事項：
 
-- 從9.30 的版本中（預計自2019年11月發行），行動服務延伸模組（適用于 Azure Vm）和行動服務代理程式（適用于 VMware/實體機器）必須執行「服務堆疊更新」和「SHA-2」。 下表顯示詳細資料。
+- 從行動服務延伸模組的版本9.30.5407.1 （適用于 Azure Vm）和行動服務代理程式（適用于 VMware/實體機器），某些電腦作業系統必須執行服務堆疊更新和 SHA-1。 下表顯示詳細資料。
 - 請根據連結的 KB 安裝 update 和 SHA-1。 2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。
 - 深入了解 [SHA-2 的升級與需求](https://aka.ms/SHA-2KB)。
 
@@ -34,21 +83,6 @@ ms.locfileid: "73242950"
 **Windows 2008 SP2** | [服務堆疊更新](https://support.microsoft.com/help/4493730)<br/> [SHA-1](https://support.microsoft.com/help/4474419)| [服務堆疊更新](https://support.microsoft.com/help/4493730)<br/> [SHA-1](https://support.microsoft.com/help/4474419)
 **Windows 7 SP1** | [服務堆疊更新](https://support.microsoft.com/help/4490628)<br/> [SHA-1](https://support.microsoft.com/help/4474419)| [服務堆疊更新](https://support.microsoft.com/help/4490628)<br/> [Sha-1](https://support.microsoft.com/help/4474419)。
 
-
-## <a name="supported-updates"></a>支援的更新
-
-針對 Site Recovery 元件，我們支援 N-4 版本，其中 N 是最新發行的版本。 下表摘要說明這些功能。
-
-**更新** |  **整合設定** | **設定伺服器 ova** | **行動服務代理程式** | **Site Recovery 提供者** | **復原服務代理程式**
---- | --- | --- | --- | --- | ---
-[匯總套件41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 9.29.5367.1 | 5.15000.0 | 9.29.5367.1 | 5.15000.0 | 2.0.9165.0
-[匯總套件40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
-[匯總套件39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
-[匯總套件38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
-[匯總套件37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-        
-
-[深入瞭解](service-updates-how-to.md)更新安裝與支援。
 
 
 ## <a name="updates-october-2019"></a>更新（2019年10月）

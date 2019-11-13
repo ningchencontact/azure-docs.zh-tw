@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821369"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009092"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
@@ -253,7 +253,7 @@ SQL Server 使用者通常會在個別資料庫內結合許多功能。 例如�
 
 對於使用大量、頻繁的特定查詢存取資料的應用程式而言，大量的回應時間都花費在應用程式層和和 Azure SQL Database 層之間的網路通訊上。 即使應用程式和 Azure SQL Database 都位於相同的資料中心，兩者之間的網路延遲還是可能因為大量資料存取作業而放大。 若要減少資料存取作業的網路往返，請考慮選擇批次處理特定查詢或將其編譯成預存程序。 如果您批次處理特定查詢，您可以將多個查詢當做一個大型批次，在單一往返中傳送到 Azure SQL Database。 如果您在預存程序中編譯特定查詢，您可以達到和對其進行批次處理時相同的結果。 使用預存程序也能讓您獲益，因為在 Azure SQL Database 中快取查詢計劃的機會增加，因此您可以再次使於預存程序。
 
-某些應用程式是寫入密集型的。 有時候，您可以藉由考慮如何一併批次處理寫入來減少資料庫上的 IO 總負載。 這通常與在預存程序及特定查詢內使用明確的交易而不是自動認可的交易一樣容易。 如需評估您可以使用的不同技術，請參閱 [Azure 中 SQL Database 應用程式的批次處理技術](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx)。 實驗您自己的工作負載來尋找正確的批次處理模型。 請務必了解，模型在交易一致性保證上可能稍有不同。 要尋找可最小化資源使用的適當工作負載，就必須找出一致性與效能權衡取捨的正確組合。
+某些應用程式是寫入密集型的。 有時候，您可以藉由考慮如何一併批次處理寫入來減少資料庫上的 IO 總負載。 這通常與在預存程序及特定查詢內使用明確的交易而不是自動認可的交易一樣容易。 如需評估您可以使用的不同技術，請參閱 [Azure 中 SQL Database 應用程式的批次處理技術](sql-database-use-batching-to-improve-performance.md)。 實驗您自己的工作負載來尋找正確的批次處理模型。 請務必了解，模型在交易一致性保證上可能稍有不同。 要尋找可最小化資源使用的適當工作負載，就必須找出一致性與效能權衡取捨的正確組合。
 
 ### <a name="application-tier-caching"></a>應用程式層快取
 

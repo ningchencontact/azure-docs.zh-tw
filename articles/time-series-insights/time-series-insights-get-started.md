@@ -1,6 +1,6 @@
 ---
-title: 建立 Azure Time Series Insights 環境 | Microsoft Docs
-description: 本文說明如何使用 Azure 入口網站建立新的時間序列深入解析環境。
+title: 建立環境-Azure 時間序列深入解析 |Microsoft Docs
+description: 瞭解如何使用 Azure 入口網站建立新的時間序列深入解析環境。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1b51931385eb7e2e0bf2a1baf5cc4c3379eab2df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991239"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006907"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 入口網站中建立新的 Time Series Insights 環境
 
@@ -42,10 +42,10 @@ ms.locfileid: "72991239"
    
    [![建立時間序列深入解析資源群組](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
-   設定|建議的值|說明
+   設定|建議的值|描述
    ---|---|---
    環境名稱 | 唯一的名稱 | 此名稱代表[時間序列總管](https://insights.timeseries.azure.com)中的環境
-   訂用帳戶 | 您的訂用帳戶 | 如果您有多個訂用帳戶，最好是選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
+   訂閱 | 您的訂用帳戶 | 如果您有多個訂用帳戶，最好是選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
    資源群組 | 建立新的或使用現有的 | 資源群組是一起使用之 Azure 資源的集合。 您可以選擇現有的資源群組，例如包含事件中樞或 IoT 中樞的資源群組。 或者，如果此資源與其他資源不相關，您可以製作新的群組。
    位置 | 最接近您的事件來源 | 最好是選擇包含事件來源資料的相同資料中心位置，以避免跨區域和跨地區頻寬成本，以及在將資料移出區域時增加延遲。
    定價層 | S1 | 選擇所需的輸送量。 如需最低成本和入門容量，選取 S1。

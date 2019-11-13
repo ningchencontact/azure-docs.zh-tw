@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21117e551642571d5b974e66d0769ed9906b9d50
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018203"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013136"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -25,7 +25,7 @@ ms.locfileid: "71018203"
 將來賓使用者新增至目錄之後，您就可以將共用應用程式的直接連結傳送給來賓使用者，或者來賓使用者可以按一下邀請電子郵件中的兌換 URL。 如需關於兌換程序的詳細資訊，請參閱 [B2B 共同作業邀請兌換](redemption-experience.md)。
 
 > [!IMPORTANT]
-> 請按照[操作說明：在 Azure Active Directory 中新增組織的隱私權資訊](https://aka.ms/adprivacystatement)中的步驟，新增貴組織隱私權聲明的 URL。 在第一次邀請兌換程序中，受邀的使用者必須同意您的隱私權條款才能繼續進行。 
+> 您應該遵循[做法：在 Azure Active Directory 中新增貴組織的隱私權資訊](https://aka.ms/adprivacystatement)中的步驟，以新增貴組織隱私權聲明的 URL。 在第一次邀請兌換程序中，受邀的使用者必須同意您的隱私權條款才能繼續進行。 
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -45,14 +45,18 @@ ms.locfileid: "71018203"
    > [!NOTE]
    > [新增來賓使用者] 選項也在 [組織關係] 頁面上。 在 [Azure Active Directory] 中，[管理] 下方，選取 [組織關係]。
 
-5. 在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如:
-
-   ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/InviteGuest.png) 
+5. 在 [**新增使用者**] 頁面上，選取 [**邀請使用者**]，然後新增來賓使用者的資訊。 
 
     > [!NOTE]
     > 不支援群組電子郵件地址；請輸入個人的電子郵件地址。 此外，有些電子郵件提供者允許使用者將加號 (+) 和額外文字新增到其電子郵件地址，以協助收件匣篩選等事項。 不過，Azure AD 目前不支援電子郵件地址中有加號。 若要避免傳遞問題，請省略 @ 符號之前的加號及其後任何字元。
 
-6. 選取 [邀請] 即可自動對來賓使用者傳送邀請。 
+   - **名稱。** 來賓使用者的姓氏和名字。
+   - **電子郵件地址（必要）** 。 來賓使用者的電子郵件地址。
+   - **個人訊息（選擇性）** 將個人歡迎訊息包含給來賓使用者。
+   - **群組**：您可以將來賓使用者新增至一或多個現有的群組，也可以稍後再進行。
+   - **目錄角色**：如果您需要使用者 Azure AD 系統管理許可權，您可以將他們新增至 Azure AD 角色。 
+
+7. 選取 [邀請] 即可自動對來賓使用者傳送邀請。 
  
 在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
 
