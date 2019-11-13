@@ -1,6 +1,6 @@
 ---
-title: 如何將服務匯流排佇列搭配 PHP 使用 | Microsoft Docs
-description: 了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 PHP 撰寫。
+title: 快速入門：如何將服務匯流排佇列搭配 PHP 使用
+description: 快速入門：了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 PHP 撰寫。
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -11,30 +11,30 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: d958202ee42b1edec5e1b65c120536c656823ecf
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
-ms.translationtype: MT
+ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147245"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719198"
 ---
-# <a name="how-to-use-service-bus-queues-with-php"></a>如何將服務匯流排佇列搭配 PHP 使用
+# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>快速入門：如何將服務匯流排佇列搭配 PHP 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-在本教學課程中，您將瞭解如何建立 PHP 應用程式，以在服務匯流排佇列中傳送和接收訊息。 
+在本教學課程中，您將了解如何建立 PHP 應用程式以對服務匯流排佇列傳送和接收訊息。 
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 如果您沒有要使用的佇列，請遵循[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟來建立佇列。
-    1. 閱讀服務匯流排**佇列**的快速**總覽**。 
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 如果您沒有可用的佇列，請執行[使用 Azure 入口網站建立服務匯流排佇列](service-bus-quickstart-portal.md)一文中的步驟，以建立佇列。
+    1. 閱讀服務匯流排**佇列**的快速**概觀**。 
     2. 建立服務匯流排**命名空間**。 
     3. 取得**連接字串**。 
 
         > [!NOTE]
-        > 在本教學課程中，您將使用 PHP 在服務匯流排命名空間中建立**佇列**。 
+        > 您將在本教學課程中使用 PHP，在服務匯流排命名空間中建立**佇列**。 
 3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
@@ -43,7 +43,7 @@ ms.locfileid: "71147245"
 > [!NOTE]
 > 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸模組](https://php.net/openssl)。
 
-在本指南中，您將使用可從 PHP 應用程式內本機呼叫的服務功能，或在 Azure web 角色、背景工作角色或網站內執行的程式碼中呼叫的服務功能。
+在本指南中，您將使用可從 PHP 應用程式內本機呼叫的服務功能，或可從 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的資料表服務功能。
 
 ## <a name="get-the-azure-client-libraries"></a>取得 Azure 用戶端程式庫
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "71147245"
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用服務匯流排佇列 API，請執行下列動作：
 
-1. 使用[require_once][require_once]語句來參考自動換片器檔案。
+1. 使用 [require_once][require_once] 陳述式來參考自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 `ServicesBuilder` 類別。
@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-傳送至（和接收自）服務匯流排佇列的訊息是[BrokeredMessage][BrokeredMessage]類別的實例。 [BrokeredMessage][BrokeredMessage]物件具有一組標準方法和屬性，可用來保存自訂應用程式特定的屬性，以及任意應用程式資料的主體。
+傳送至 (和接收自) 服務匯流排佇列的訊息是 [BrokeredMessage][BrokeredMessage] 類別的執行個體。 [BrokeredMessage][BrokeredMessage] 物件具有一組標準方法和屬性，可用來保存自訂的應用程式特定屬性，以及任意的應用程式資料。
 
 服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 佇列大小的這項上限為 5 GB。
 
@@ -221,7 +221,7 @@ catch(ServiceException $e){
 
 與在佇列內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，但尚未發出 `deleteMessage` 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為「至少處理一次」，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，建議您在應用程式中新增其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 `getMessageId` 方法來達到此目的，該方法在各個傳遞嘗試中保持不變。
+如果應用程式在處理訊息之後，但尚未發出 `deleteMessage` 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為「至少處理一次」  ，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，建議您在應用程式中新增其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 `getMessageId` 方法來達到此目的，該方法在各個傳遞嘗試中保持不變。
 
 > [!NOTE]
 > 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 

@@ -1,26 +1,26 @@
 ---
-title: 使用串流分析處理 Apache Kafka 事件 - Azure 事件中樞 | Microsoft Docs
-description: 本文說明如何使用 Azure 串流分析，處理透過事件中樞擷取的 Kafka 事件。
+title: 教學課程：使用串流分析處理 Apache Kafka 事件 - Azure 事件中樞
+description: 教學課程：本文說明如何使用 Azure 串流分析，處理透過事件中樞擷取的 Kafka 事件。
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626178"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720624"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>使用串流分析處理適用於事件中樞的 Apache Kafka 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>教學課程：使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
 
 1. 建立已啟用 Kafka 的事件中樞命名空間。
@@ -30,7 +30,7 @@ ms.locfileid: "67626178"
 當您使用事件中樞所公開的 Kafka 端點時，您不需要變更您的通訊協定用戶端或執行自己的叢集。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。 和更新版本。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，請確定您具備下列必要條件︰
 
@@ -55,7 +55,7 @@ ms.locfileid: "67626178"
     4. 選取您要在其中建立事件中樞命名空間的**訂用帳戶**。 
     5. 建立新的**資源群組**，或選取現有的資源群組。 
     6. 選取**位置**。 
-    7. 按一下 [建立]  。
+    7. 按一下頁面底部的 [新增]  。
     
         ![建立命名空間](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
 4. 在**通知訊息**中，選取**資源群組名稱**。 
@@ -133,7 +133,7 @@ ms.locfileid: "67626178"
 
 ### <a name="configure-job-input"></a>設定作業輸入
 
-1. 在通知訊息中，選取**移至資源**若要查看**Stream Analytics 作業**頁面。 
+1. 在通知訊息中，選取 [前往資源]  以查看 [串流分析作業]  頁面。 
 2. 在功能表的 [作業拓撲]  區段中選取 [輸入]  。
 3. 選取 [新增資料流輸入]  並選取 [事件中樞]  。 
 

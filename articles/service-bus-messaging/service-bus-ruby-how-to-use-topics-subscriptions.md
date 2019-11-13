@@ -1,6 +1,6 @@
 ---
-title: 如何使用服務匯流排主題 (Ruby) | Microsoft Docs
-description: 了解如何在 Azure 使用服務匯流排主題及訂用帳戶。 程式碼範例專為 Ruby 應用程式撰寫。
+title: 快速入門：如何使用服務匯流排主題 (Ruby)
+description: 快速入門：了解如何在 Azure 使用服務匯流排主題及訂用帳戶。 程式碼範例專為 Ruby 應用程式撰寫。
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: MT
+ms.openlocfilehash: b5401eae844ed2113a9fbc07c8b3ad8601709d43
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543642"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718943"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何透過 Ruby 使用服務匯流排主題和訂用帳戶
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>快速入門：如何透過 Ruby 使用服務匯流排主題和訂用帳戶
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -35,11 +35,11 @@ ms.locfileid: "67543642"
 
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。 
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用自己的 [Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 依照下列快速入門中的步驟操作：[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以建立服務匯流排**命名空間**及取得**連接字串**。 
 
     > [!NOTE]
-    > 您將建立**主題**並**訂用帳戶**使用主題**Ruby**在本快速入門。 
+    > 您將會在本快速入門中使用 **Ruby**，建立**主題**和主題的**訂用帳戶**。 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -68,9 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>建立訂用帳戶
 **Azure::ServiceBusService** 物件也能用來建立主題訂用帳戶。 訂閱是具名的，它們能擁有選用的篩選器，以限制傳遞至訂閱之虛擬佇列的訊息集合。
 
-根據預設，訂用帳戶是持續性。 會持續到本身或相關的主題遭到刪除為止。 如果應用程式含有建立訂用帳戶的邏輯，它應該會先使用 getSubscription 方法檢查訂用帳戶是否存在。
+根據預設，訂用帳戶是持續性的。 會持續到本身或相關的主題遭到刪除為止。 如果應用程式含有建立訂用帳戶的邏輯，它應該會先使用 getSubscription 方法檢查訂用帳戶是否存在。
 
-您可以藉由設定自動刪除的訂用帳戶[AutoDeleteOnIdle 屬性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)。
+您可以藉由設定 [AutoDeleteOnIdle 屬性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)，將訂用帳戶自動刪除。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶
 如果在建立新的訂用帳戶時未指定篩選器，將會使用 **MatchAll** 篩選器 (預設)。 使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。 下列範例將建立名為「all-messages」的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
@@ -158,7 +158,7 @@ azure_service_bus_service.delete_subscription_message(message)
 如果應用程式在處理訊息之後，尚未呼叫 `delete_subscription_message()` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為*至少處理一次*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您通常可以使用訊息的 `message_id` 屬性來達到此邏輯，這在各個傳遞嘗試中保持不變。
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
-主題和訂用帳戶是持續性除非[AutoDeleteOnIdle 屬性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)設定。 可刪除透過[Azure 入口網站][Azure portal]或以程式設計的方式。 下列範例示範如何刪除名為 `test-topic` 的主題。
+除非設定了 [AutoDeleteOnIdle 屬性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)，否則主題和訂用帳戶將是持續性的。 您可以透過 [Azure 入口網站][Azure portal]或以程式設計方式加以刪除。 下列範例示範如何刪除名為 `test-topic` 的主題。
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Resource Manager 範本建立 Azure 服務匯流排命名空間、主題和訂用帳戶 | Microsoft Docs
-description: 使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題和訂用帳戶
+title: 快速入門：使用 Azure Resource Manager 範本建立 Azure 服務匯流排命名空間、主題和訂用帳戶
+description: 快速入門：使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題和訂用帳戶
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,25 +9,25 @@ editor: ''
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a63ad846f569f434e1cae33746f61e3a033de66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: a43b945ce11736b16e8e11edbe988a3c48f62d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755028"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718774"
 ---
-# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題和訂用帳戶
+# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題和訂用帳戶
 
 本文說明如何使用 Azure Resource Manager 範本，建立服務匯流排命名空間和該命名空間內的主題和訂用帳戶。 本文說明如何指定要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求
 
-如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
+如需關於建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
-如需完整的範本，請參閱[服務匯流排命名空間與主題和訂用帳戶][Service Bus namespace with topic and subscription]範本。
+如需完整的範本，請參閱 GitHub 上的 [服務匯流排命名空間與主題和訂用帳戶範本][Service Bus namespace with topic and subscription] 。
 
 > [!NOTE]
 > 下列 Azure Resource Manager 範本可供下載和部署。
@@ -37,7 +37,7 @@ ms.locfileid: "66755028"
 > * [建立服務匯流排命名空間與佇列和授權規則](service-bus-resource-manager-namespace-auth-rule.md)
 > * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋**服務匯流排**。
+> 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫，並搜尋**服務匯流排**。
 > 
 > 
 

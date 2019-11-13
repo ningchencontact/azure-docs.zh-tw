@@ -3,7 +3,7 @@ title: Azure Digital Twins 預覽文件
 summary: 了解如何使用 Azure Digital Twins 讓人員、地點及項目相互聯繫，並利用空間智慧建置 IoT 解決方案。 逐步了解快速入門及教學課程，以監控虛構的智慧型建築、深入學習各項概念並建立新一代的 IoT 解決方案，以作為實體環境的模型。
 metadata:
   title: Azure Digital Twins 預覽文件 - 教學課程和 API 參考 | Microsoft Docs
-  description: 使用 Azure Digital Twins 建立智慧型空間解決方案。
+  description: 了解如何使用 Azure Digital Twins 讓人員、地點及項目相互聯繫，並利用空間智慧建置 IoT 解決方案。
   services: digital-twins
   ms.service: digital-twins
   ms.subservice: digital-twins
@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/03/2019
-  ms.openlocfilehash: b5a449d09b1068dbf874828b9e65b1ac318b58fd
-  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.openlocfilehash: 3d55dcfc4b57d0179ca6e02bae50bf3d37dc70f3
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71219722"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74009307"
 landingContent:
 - title: 關於 Azure Digital Twins
   linkLists:

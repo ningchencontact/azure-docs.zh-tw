@@ -166,9 +166,7 @@
       items:
         - name: 新增意圖
           href: luis-how-to-add-intents.md
-        - name: 將實體新增至語句
-          href: luis-how-to-add-example-utterances.md
-        - name: 在沒有語句的情況下新增實體
+        - name: 新增實體來擷取資料
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: 使用預先建置的模型
@@ -306,6 +304,8 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: 自訂實體參考
       items:
+        - name: 已採用機器學習的實體
+          href: reference-entity-machine-learned-entity.md
         - name: 複合實體
           href: reference-entity-composite.md
         - name: 清單實體
@@ -316,6 +316,8 @@
           href: reference-entity-regular-expression.md
         - name: 簡單實體
           href: reference-entity-simple.md
+    - name: 模式語法
+      href: reference-pattern-syntax.md
     - name: 情感
       href: luis-reference-prebuilt-sentiment.md
     - name: 開發人員資源

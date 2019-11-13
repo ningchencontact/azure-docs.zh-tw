@@ -1,6 +1,6 @@
 ---
-title: 如何將服務匯流排主題搭配 PHP 使用 | Microsoft Docs
-description: 了解如何在 Azure 中搭配使用服務匯流排主題與 PHP。
+title: 快速入門：如何透過 PHP 使用服務匯流排主題
+description: 快速入門：了解如何在 Azure 中搭配使用服務匯流排主題與 PHP。
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: eba2c0aeb37f2bc2283e7afb108bb4578981120e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
-ms.translationtype: MT
+ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147225"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721646"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何透過 PHP 使用服務匯流排主題和訂用帳戶
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>快速入門：如何透過 PHP 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -34,11 +34,11 @@ ms.locfileid: "71147225"
 - 刪除主題和訂用帳戶
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)，或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 依照快速入門中[的步驟進行：使用 Azure 入口網站建立主題](service-bus-quickstart-topics-subscriptions-portal.md)的服務匯流排主題和訂用帳戶，以建立服務匯流排**命名空間**並取得**連接字串**。
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用自己的 [Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 依照下列快速入門中的步驟操作：[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以建立服務匯流排**命名空間**及取得**連接字串**。
 
     > [!NOTE]
-    > 在本快速入門中，您將會使用**PHP**來建立**主題**和主題的**訂**用帳戶。 
+    > 您將會在本快速入門中使用 **PHP**，建立**主題**和主題的**訂用帳戶**。 
 
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
 若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) 中的類別。 您可以使用任何開發工具來建立應用程式，或記事本。
@@ -62,7 +62,7 @@ ms.locfileid: "71147225"
       }
     }
     ```
-2. 在您的專案根目錄中，下載 **[composer.phar] [編輯器-composer.phar]** 。
+2. 將 **[composer.phar][composer-phar]** 下載到您的專案根目錄中。
 3. 開啟命令提示字元，在專案根目錄中執行下列命令
    
     ```
@@ -72,7 +72,7 @@ ms.locfileid: "71147225"
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用服務匯流排 API：
 
-1. 使用[require_once][require-once]語句來參考自動換片器檔案。
+1. 使用 [require_once][require-once] 陳述式來參考自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例說明如何納入自動換片器檔案及參考 **ServiceBusService** 類別。
@@ -184,7 +184,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>使用篩選器建立訂用帳戶
-您也可以設定篩選器，讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。 訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)。 SQL 篩選器會對發佈至主題之訊息的屬性運作。 如需 SqlFilters 的詳細資訊，請參閱[SqlFilter. Sqlfilter.sqlexpression 屬性][sqlfilter]。
+您也可以設定篩選器，讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。 訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)。 SQL 篩選器會對發佈至主題之訊息的屬性運作。 如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性][sqlfilter]。
 
 > [!NOTE]
 > 訂用帳戶的每個規則可獨立處理傳入的訊息，並將其結果訊息新增至訂用帳戶。 此外，每個新訂用帳戶都有具篩選器的預設 **Rule** 物件，而篩選器會將主題中的所有訊息新增至訂用帳戶。 To receive only messages matching your filter, you must remove the default rule. 您可以使用 `ServiceBusRestProxy->deleteRule` 方法以移除預設規則。
@@ -252,7 +252,7 @@ catch(ServiceException $e){
 }
 ```
 
-傳送至服務匯流排主題的訊息是 [BrokeredMessage][BrokeredMessage] 類別的執行個體。 [BrokeredMessage][BrokeredMessage]物件具有一組標準屬性和方法，以及可以用來保存自訂應用程式特定屬性的屬性。 下列範例示範如何將五則測試訊息傳送至先前建立的 `mytopic` 主題。 `setProperty` 方法會用來將自訂屬性 (`MessageNumber`) 新增至每個訊息。 每個訊息的 `MessageNumber` 屬性值有不同之處 (您可以使用此值來判斷哪些訂用帳戶會接收訊息，如[建立訂用帳戶](#create-a-subscription)一節所述)：
+傳送至服務匯流排主題的訊息是 [BrokeredMessage][BrokeredMessage] 類別的執行個體。 [BrokeredMessage][BrokeredMessage] 物件具有一組標準屬性和方法，以及可用來保存自訂應用程式特定屬性的屬性。 下列範例示範如何將五則測試訊息傳送至先前建立的 `mytopic` 主題。 `setProperty` 方法會用來將自訂屬性 (`MessageNumber`) 新增至每個訊息。 每個訊息的 `MessageNumber` 屬性值有不同之處 (您可以使用此值來判斷哪些訂用帳戶會接收訊息，如[建立訂用帳戶](#create-a-subscription)一節所述)：
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -364,7 +364,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 > 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱[佇列、主題和][Queues, topics, and subscriptions]訂用帳戶。
+如需詳細資訊，請參閱[佇列、主題和訂用帳戶][Queues, topics, and subscriptions]。
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

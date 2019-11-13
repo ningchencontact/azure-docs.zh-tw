@@ -62,6 +62,18 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
         - name: Node.js
           href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
+    - name: 技術部落格
+      items:
+        - name: 介紹 Azure Anomaly Detector API
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
+        - name: SR-CNN 演算法概觀
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
+    - name: 示範
+      items:
+        - name: 互動式示範
+          href: 'https://aka.ms/adDemo'
+        - name: 在 Jupyter Notebook 上
+          href: 'https://aka.ms/adNotebook'
     - name: KDD 2019 中的 SR-CNN 文件
       href: 'https://arxiv.org/abs/1906.03821'
 - name: 資源

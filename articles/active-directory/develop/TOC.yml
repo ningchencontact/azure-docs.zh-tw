@@ -392,9 +392,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: 應用程式設定
           items:
-            - name: Azure 入口網站應用程式註冊訓練指南 (舊版)
+            - name: 在 Azure 入口網站中從應用程式註冊 (舊版) 轉換到新的應用程式註冊體驗
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: 應用程式註冊入口網站應用程式註冊指南
+            - name: 在 Azure 入口網站中從應用程式註冊入口網站轉換到新的應用程式註冊體驗
               href: app-registration-portal-training-guide.md
             - name: 將單一租用戶應用程式轉換為多租用戶應用程式
               href: howto-convert-app-to-be-multi-tenant.md

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列 | Microsoft Docs
-description: 使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列
+title: 快速入門：使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列
+description: 快速入門：使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482384"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718806"
 ---
-# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列
 
 本文說明如何使用 Azure Resource Manager 範本，建立服務匯流排命名空間和在該命名空間內的佇列。 本文說明如何指定要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
@@ -37,7 +37,7 @@ ms.locfileid: "73482384"
 > * [建立服務匯流排命名空間](service-bus-resource-manager-namespace.md)
 > * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 若要檢查最新的範本，請造訪[Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋**服務匯流排**。
+> 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫，並搜尋**服務匯流排**。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -139,9 +139,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列主題，其中說明如何建立命名空間/佇列的授權規則：[使用 Azure Resource Manager 範本建立命名空間和佇列的服務匯流排授權規則](service-bus-resource-manager-namespace-auth-rule.md)
+參閱下列主題，了解如何建立命名空間/佇列的授權規則：[使用 Azure Resource Manager 範本建立命名空間和佇列的服務匯流排授權規則](service-bus-resource-manager-namespace-auth-rule.md)
 
-藉由查看下列文章，瞭解如何管理這些資源：
+檢視下列文章以了解如何管理這些資源︰
 
 * [使用 PowerShell 管理服務匯流排](service-bus-manage-with-ps.md)
 * [使用服務匯流排總管管理服務匯流排資源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

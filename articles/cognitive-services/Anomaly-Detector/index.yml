@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: d073adfbc1b05bbd4d92f5cfb500184653444f4b
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.openlocfilehash: 4f7eca51cd4ec6995618b68bd376fa5f4f6268e4
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71086790"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74013597"
 landingContent:
 - title: 關於異常偵測器 API
   linkLists:
@@ -39,7 +39,11 @@ landingContent:
       url: https://www.youtube.com/embed/ERTaAnwCarM
   - linkListType: reference
     links:
-    - text: 異常偵測使用的演算法 (白皮書)
+    - text: 介紹 Azure Anomaly Detector API
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+    - text: SR-CNN 演算法概觀
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+    - text: 異常偵測使用的演算法 (KDD 白皮書)
       url: https://arxiv.org/abs/1906.03821
 - title: 偵測資料中的異常情況
   linkLists:
@@ -54,7 +58,7 @@ landingContent:
     - text: 使用批次偵測與 Power BI 將異常狀況視覺化
       url: tutorials/batch-anomaly-detection-powerbi.md
     - text: 使用 Azure Databricks 偵測串流資料的異常情況
-      url: tutorials/batch-anomaly-detection-powerbi.md
+      url: tutorials/anomaly-detection-streaming-databricks.md
   - linkListType: video
     links:
     - text: 使用 Azure Databricks 對串流資料進行異常情況偵測

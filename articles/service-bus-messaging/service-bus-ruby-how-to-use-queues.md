@@ -1,6 +1,6 @@
 ---
-title: 如何搭配 Ruby 使用 Azure 服務匯流排佇列 | Microsoft Docs
-description: 了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 Ruby 撰寫。
+title: 快速入門：如何透過 Ruby 使用 Azure 服務匯流排佇列
+description: 快速入門：了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 Ruby 撰寫。
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,31 +11,31 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991885"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718767"
 ---
-# <a name="how-to-use-service-bus-queues-with-ruby"></a>如何將服務匯流排佇列搭配 Ruby 使用
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>快速入門：如何將服務匯流排佇列搭配 Ruby 使用
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-在本教學課程中，您將了解如何建立 Ruby 應用程式，以傳送和接收來自服務匯流排佇列的訊息。 這些範例均以 Ruby 撰寫，並使用 Azure gem。
+在本教學課程中，您將了解如何建立 Ruby 應用程式以對服務匯流排佇列傳送和接收訊息。 這些範例均以 Ruby 撰寫，並使用 Azure gem。
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 中的後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章。
-    1. 閱讀快速**概觀**的服務匯流排**佇列**。 
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 執行[使用 Azure 入口網站建立服務匯流排佇列](service-bus-quickstart-portal.md)一文中的步驟。
+    1. 閱讀服務匯流排**佇列**的快速**概觀**。 
     2. 建立服務匯流排**命名空間**。 
     3. 取得**連接字串**。 
 
         > [!NOTE]
-        > 您將建立**佇列**在本教學課程中使用 Ruby 的服務匯流排命名空間中。 
+        > 您將在本教學課程中使用 Ruby，在服務匯流排命名空間中建立**佇列**。 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -79,7 +79,7 @@ azure_service_bus_service.send_queue_message("test-queue", message)
 
 預設行為會使讀取和刪除變成兩階段作業，因此也可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 `delete_queue_message()` 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 `delete_queue_message()` 方法會將訊息標示為已取用，並將其從佇列中移除。
 
-如果`:peek_lock`參數設定為**false**、 讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式可容許在不處理訊息失敗時的案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排已將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+如果 `:peek_lock` 參數設為 **false**，讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式容許在發生失敗時不處理訊息的案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排已將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
 下列範例示範如何使用 `receive_queue_message()` 來接收和處理訊息。 此範例會先使用設為 **false** 的 `:peek_lock` 來接收及刪除訊息，然後再接收另一個訊息，接著使用 `delete_queue_message()` 刪除訊息：
 

@@ -1,6 +1,6 @@
 ---
-title: 如何搭配 Node.js 使用 Azure 服務匯流排主題和訂用帳戶 | Microsoft Docs
-description: 了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排主題和訂用帳戶。
+title: 快速入門：如何透過 Node.js 使用 Azure 服務匯流排主題和訂用帳戶
+description: 快速入門：了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,26 +11,26 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: MT
+ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541002"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719200"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>如何使用服務匯流排主題和訂用帳戶使用 Node.js 和 azure sb 封裝
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>快速入門：如何透過 Node.js 和 azure-sb 套件使用服務匯流排主題和訂用帳戶
 > [!div class="op_multi_selector" title1="程式設計語言" title2="Node.js 套件"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-在本教學課程，了解如何建立 Node.js 應用程式，以將訊息傳送至服務匯流排主題，然後從使用服務匯流排訂用帳戶接收訊息[azure sb](https://www.npmjs.com/package/azure-sb)封裝。 這些範例均以 JavaScript 撰寫並使用 Node.js [Azure 模組](https://www.npmjs.com/package/azure)內部使用`azure-sb`封裝。
+在本教學課程中，您將了解如何建立 Node.js 應用程式，以使用 [azure-sb](https://www.npmjs.com/package/azure-sb) 套件將訊息傳送至服務匯流排主題，以及接收來自服務匯流排訂用帳戶的訊息。 範例均以 JavaScript 撰寫，並使用在內部使用 `azure-sb` 套件的 Node.js [Azure 模組](https://www.npmjs.com/package/azure)。
 
-[Azure sb](https://www.npmjs.com/package/azure-sb)封裝會使用[服務匯流排 REST 執行階段 Api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以取得使用新的速度[ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus)封裝，它會使用速度就越快[AMQP 1.0 通訊協定](service-bus-amqp-overview.md)。 若要深入了解新的封裝，請參閱[如何透過 Node.js 使用服務匯流排主題和訂用帳戶並@azure/service-bus封裝](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package)，否則請繼續閱讀以了解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
+[azure-sb](https://www.npmjs.com/package/azure-sb) 套件會使用[服務匯流排 REST 執行階段 API](/rest/api/servicebus/service-bus-runtime-rest)。 您可以使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 套件 (採用更快速的 [AMQP 1.0 通訊協定](service-bus-amqp-overview.md))，以獲得更快速的體驗。 若要深入了解新的套件，請參閱[如何透過 Node.js 和 @azure/service-bus 套件使用服務匯流排主題和訂用帳戶](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package)，否則，請繼續閱讀以了解如何使用 [Azure](https://www.npmjs.com/package/azure) 套件。
 
-這裡所涵蓋的案例包括：
+此處涵蓋的案例包括：
 
 - 建立主題和訂用帳戶 
 - 建立訂用帳戶篩選 
@@ -41,11 +41,11 @@ ms.locfileid: "67541002"
 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 ## <a name="prerequisites"></a>必要條件
-- Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-- 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
+- Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用自己的 [Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- 依照下列快速入門中的步驟操作：[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以建立服務匯流排**命名空間**及取得**連接字串**。
 
     > [!NOTE]
-    > 您將建立**主題**並**訂用帳戶**使用主題**Node.js**在本快速入門。 
+    > 您將會在本快速入門中使用 **Node.js**，建立**主題**和主題的**訂用帳戶**。 
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 建立空白的 Node.js 應用程式。 如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或使用 WebMatrix 的網站。
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 **ServiceBusService** 物件也能用來建立主題訂閱。 訂用帳戶是具名的，它們能擁有選用的篩選器，以限制傳遞至訂閱的虛擬佇列訊息集合。
 
 > [!NOTE]
-> 根據預設，訂用帳戶會持續直到它們，或與其相關聯的主題，會刪除。 如果應用程式含有建立訂用帳戶的邏輯，它應該會先使用 `getSubscription` 方法檢查訂用帳戶是否存在。
+> 根據預設，訂用帳戶是持續性的，會持續到本身或其相關聯的主題遭到刪除為止。 如果應用程式含有建立訂用帳戶的邏輯，它應該會先使用 `getSubscription` 方法檢查訂用帳戶是否存在。
 >
-> 您可以藉由設定自動刪除的訂用帳戶[AutoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)。
+> 您可以藉由設定 [AutoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)，將訂用帳戶自動刪除。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶
 **MatchAll** 篩選器是訂用帳戶建立時使用的預設篩選器。 使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。 下列範例將建立名為 AllMessages 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
@@ -314,7 +314,7 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 如果應用程式在處理訊息之後，尚未呼叫 `deleteMessage` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這種行為通常稱為*至少處理一次*。 也就是說，每則訊息至少會處理一次；但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則您應在應用程式中加入邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性，該屬性在各個傳遞嘗試中會保持不變。
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
-主題和訂用帳戶是持續性除非[autoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)設定，且必須明確地刪除透過[Azure 入口網站][Azure portal]或以程式設計的方式。
+主題和訂用帳戶在未設定 [autoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)的情況下是持續性的，且必須透過 [Azure 入口網站][Azure portal]或以程式設計方式明確地刪除。
 下列範例示範如何刪除名為 `MyTopic` 的主題：
 
 ```javascript

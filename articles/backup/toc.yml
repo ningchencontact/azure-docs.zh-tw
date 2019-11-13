@@ -20,6 +20,8 @@
   items:
     - name: 大規模備份 Azure VM
       href: tutorial-backup-vm-at-scale.md
+    - name: 使用 PowerShell 來備份 Azure VM
+      href: tutorial-backup-azure-vm.md
     - name: 還原磁碟
       href: tutorial-restore-disk.md
     - name: 還原個別檔案

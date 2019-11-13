@@ -128,8 +128,6 @@
               href: virtual-nodes-cli.md
             - name: 使用 Azure 入口網站
               href: virtual-nodes-portal.md
-        - name: 使用 Virtual Kubelet
-          href: virtual-kubelet.md
         - name: 使用叢集自動調整程式
           href: cluster-autoscaler.md
         - name: 使用可用性區域

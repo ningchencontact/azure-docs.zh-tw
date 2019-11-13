@@ -1,6 +1,6 @@
 ---
-title: 使用 Apache Storm 來接收事件 - Azure 事件中樞 | Microsoft Docs
-description: 本文提供有關如何使用 Apache Storm 從「Azure 事件中樞」接收事件的資訊。
+title: 快速入門：使用 Apache Storm 接收事件 - Azure 事件中樞
+description: 快速入門：本文提供有關如何使用 Apache Storm 從「Azure 事件中樞」接收事件的資訊。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,25 +11,25 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
-ms.translationtype: MT
+ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800189"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717602"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 從事件中樞接收事件
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>快速入門：使用 Apache Storm 從事件中樞接收事件
 
 [Apache Storm](https://storm.incubator.apache.org) 是分散式即時運算系統，可簡化未繫結資料串流的可靠處理。 本節說明如何使用「Azure 事件中樞」Storm Spout 來接收來自「事件中樞」的事件。 使用 Apache Storm，您可以將事件分割到多個裝載於不同節點的處理序。 事件中心與 Storm 的整合透過使用 Storm 的 Zookeeper 安裝透明地設定檢查點以檢查其進度、管理持續檢查點以及來自事件中心的平行接收，以簡化事件的使用。
 
 如需事件中樞接收模式的詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
 
 ## <a name="prerequisites"></a>必要條件
-開始使用快速入門之前，請先**建立事件中樞命名空間和事件中樞**。 使用[Azure 入口網站](https://portal.azure.com)建立事件中樞類型的命名空間，並取得應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 
+在開始進行本快速入門之前，您必須先**建立事件中樞命名空間和事件中樞**。 請使用 [Azure 入口網站](https://portal.azure.com)建立「事件中樞」類型的命名空間，然後取得您的應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 
 
 ## <a name="create-project-and-add-code"></a>建立專案並新增程式碼
 
@@ -42,12 +42,12 @@ ms.locfileid: "72800189"
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. 在 Eclipse 中，建立新的 Maven 專案 (依序按一下 [檔案]、[新增]、[專案])。
+4. 在 Eclipse 中，建立新的 Maven 專案 (依序按一下 [檔案]  、[新增]  、[專案]  )。
    
     ![[檔案] > [新增] > [專案]][12]
-5. 選取 [使用預設工作區位置]，然後按 [下一步]。
-6. 選取 [maven-archetype-quickstart] 原型，然後按 [下一步]。
-7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [完成]。
+5. 選取 [使用預設工作區位置]  ，然後按 [下一步]  。
+6. 選取 [maven-archetype-quickstart]  原型，然後按 [下一步]  。
+7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [完成]  。
 8. 在 **pom.xml** 中，於 `<dependency>` 節點中新增下列相依性。
 
     ```xml  
