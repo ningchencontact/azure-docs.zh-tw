@@ -1,17 +1,14 @@
 ---
 title: FedRAMP適中等級藍圖範例 - 概觀
 description: FedRAMP適中等級藍圖範例概觀。 此藍圖範例可協助客戶評定特定 FedRAMP適中等級控制措施。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: c728e6d52b00ea21ba985c20bcb7854099319919
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8103756a40a4eb52b6e5fc778f29c0cd4e1011a7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581258"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032373"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP適中等級藍圖範例概觀
 

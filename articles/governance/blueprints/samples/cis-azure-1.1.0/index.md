@@ -1,17 +1,14 @@
 ---
 title: CIS Microsoft Azure 基礎基準測試藍圖範例 - 概觀
 description: CIS Microsoft Azure 基礎基準測試藍圖範例的概觀。 此藍圖範例可協助客戶評定特定控制措施。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: bf4b79dbb3da15605dc4362b5f0578a457886316
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 89b7396b39ed6d308240316bbb5e718922d5e156
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581364"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032414"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure 基礎基準測試藍圖範例的概觀
 
