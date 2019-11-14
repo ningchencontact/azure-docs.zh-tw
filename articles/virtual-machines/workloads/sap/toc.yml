@@ -166,6 +166,8 @@
               href: sap-high-availability-guide-wsfc-shared-disk.md
             - name: HA on Windows 和適用於 (A)SCS 執行個體的檔案共用
               href: sap-high-availability-guide-wsfc-file-share.md
+            - name: Windows 上的適用於 SAP NetWeaver 的 HA 搭配 Azure NetApp Files (SMB)
+              href: high-availability-guide-windows-netapp-files-smb.md
             - name: 適用於 (A)SCS 執行個體的 HA on SUSE Linux
               href: high-availability-guide-suse.md
             - name: 適用於 (A)SCS 執行個體的 HA on SUSE Linux 搭配 Azure NetApp Files

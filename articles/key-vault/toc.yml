@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: 使用事件方格路由金鑰保存庫通知
       href: event-grid-tutorial.md
+    - name: 與 Azure 原則整合
+      href: azure-policy.md
     - name: Azure Key Vault 記錄
       href: key-vault-logging.md
     - name: 防火牆後的存取

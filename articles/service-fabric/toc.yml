@@ -482,6 +482,8 @@
               href: service-fabric-tutorial-deploy-api-management.md
             - name: 管理應用程式密碼
               href: service-fabric-application-secret-management.md
+            - name: 使用 Service Fabric 祕密存放區
+              href: service-fabric-application-secret-store.md
               items:
                 - name: 設定加密憑證，並在 Windows 上將祕密加密
                   href: service-fabric-application-secret-management-windows.md
