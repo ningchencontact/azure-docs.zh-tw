@@ -1,32 +1,32 @@
 ---
-title: 使用群組管理 SaaS 應用程式的存取權 - Azure Active Directory | Microsoft Docs
+title: 使用群組來管理 SaaS 應用程式的存取-Azure AD |Microsoft Docs
 description: 如何使用 Azure Active Directory 中的群組指派與 Azure Active Directory 整合的 SaaS 應用程式存取權。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75fdd0fcd4ceeeb0f680b2cbdb743d30d236c93d
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 51375f057543c86fe021822eb9722ffd1be16804
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736511"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026846"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>使用群組管理 SaaS 應用程式的存取權
 
-使用 Azure Active Directory (Azure AD) 搭配 Azure AD Premium 授權方案, 您可以使用群組, 將存取權指派給與 Azure AD 整合的 SaaS 應用程式。 例如，如果您想要指派行銷部門使用五個不同 SaaS 應用程式的存取權，可以建立一個包含行銷部門中的使用者的群組，然後將該群組指派給行銷部門需要的這五個 SaaS 應用程式。 如此一來，您可以在同一個地方管理行銷部門的成員資格以節省時間。 接著當使用者新增為行銷群組的成員時，會將這些使用者指派給應用程式，並在使用者從行銷群組中移除時，從應用程式中移除其指派。 此功能可以搭配您能夠從 Azure AD 應用程式庫中新增的數百種應用程式使用。
+使用 Azure Active Directory （Azure AD）搭配 Azure AD Premium 授權方案，您可以使用群組，將存取權指派給與 Azure AD 整合的 SaaS 應用程式。 例如，如果您想要指派行銷部門使用五個不同 SaaS 應用程式的存取權，可以建立一個包含行銷部門中的使用者的群組，然後將該群組指派給行銷部門需要的這五個 SaaS 應用程式。 如此一來，您可以在同一個地方管理行銷部門的成員資格以節省時間。 接著當使用者新增為行銷群組的成員時，會將這些使用者指派給應用程式，並在使用者從行銷群組中移除時，從應用程式中移除其指派。 此功能可以搭配您能夠從 Azure AD 應用程式庫中新增的數百種應用程式使用。
 
 > [!IMPORTANT]
-> 只有在您開始 Azure AD Premium 試用版或購買 Azure AD Premium 授權方案之後, 才可以使用此功能。
+> 只有在您開始 Azure AD Premium 試用版或購買 Azure AD Premium 授權方案之後，才可以使用此功能。
 > 僅安全性群組支援以群組為基礎的指派。
 > 目前對應用程式的群組式指派並不支援巢狀群組成員資格。
 

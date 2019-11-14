@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797630"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048265"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -251,7 +251,7 @@ ms.locfileid: "73797630"
 
 **意義**： Azure AD 的應用程式註冊設定未正確地發生。  
 
-**更正動作**：詢問 IT 系統管理員（擁有租使用者讀取權限），以使用我們的[腳本](https://aka.ms/PPCreateAADappregistration)來產生建立 Azure AD 應用程式註冊。 此腳本也會自動負責設定步驟。 一旦  
+**更正動作**：詢問 IT 系統管理員（擁有租使用者讀取權限），以使用我們的[腳本](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts)來產生建立 Azure AD 應用程式註冊。 此腳本也會自動負責設定步驟。
 
 **錯誤**：無法在此租使用者中建立新的 Active Directory 應用程式 "dummyname"：具有相同屬性識別碼 uri 值的另一個物件已經存在
 

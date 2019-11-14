@@ -1,26 +1,25 @@
 ---
-title: 委派應用程式系統管理員建立和管理許可權-Azure Active Directory |Microsoft Docs
+title: 委派應用程式管理管理 perms-Azure AD |Microsoft Docs
 description: 在 Azure Active Directory 中授與應用程式存取管理的許可權
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025523"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024861"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委派應用程式註冊許可權
 
@@ -61,8 +60,8 @@ ms.locfileid: "72025523"
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>將擁有者指派給企業應用程式
 
-1. 登入[您的 Azure AD 組織](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with 符合組織應用程式系統管理員或雲端應用程式管理員的帳戶。
-1. 在 [ [應用程式註冊] 頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上 @no__t 1for 組織，選取一個應用程式以開啟應用程式的 [總覽] 頁面。
+1. 使用適用于組織應用程式系統管理員或雲端應用程式管理員的帳戶，登入[您的 Azure AD 組織](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 。
+1. 在組織 的 [ [應用程式註冊] 頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上，選取應用程式以開啟應用程式的 [總覽] 頁面。
 1. 選取 [擁有者] 以查看應用程式的擁有者清單。
 1. 選取 [新增]，以選取一或多個要新增至應用程式的擁有者。
 
@@ -75,8 +74,8 @@ ms.locfileid: "72025523"
 
 Azure AD 具有一組內建的系統管理員角色，可授與存取權來管理所有應用程式 Azure AD 中的設定。 建議使用這些角色來授與 IT 專家存取權，以管理廣泛的應用程式設定許可權，而不授予存取權來管理與應用程式設定無關之 Azure AD 的其他部分。
 
-- 應用程式系統管理員：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
-- 雲端應用程式系統管理員：此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
+- 應用程式系統管理員：此角色中的使用者可以建立及管理企業應用程式、應用程式註冊和應用程式 proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
+- 雲端應用程式系統管理員：此角色中的使用者具有與應用程式系統管理員角色相同的許可權，但不包括管理應用程式 proxy 的能力。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
 
 如需詳細資訊及查看這些角色的說明，請參閱 [可用的角色](directory-assign-admin-roles.md#available-roles)。
 

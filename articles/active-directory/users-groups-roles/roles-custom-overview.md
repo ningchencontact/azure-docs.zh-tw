@@ -1,24 +1,24 @@
 ---
-title: 預覽具有可自訂許可權的 Azure 系統管理員角色-Azure Active Directory |Microsoft Docs
+title: Azure Active Directory 中的自訂系統管理員角色 |Microsoft Docs
 description: 預覽用於委派身分識別管理的自訂 Azure AD 角色。 管理 Azure 入口網站、PowerShell 或圖形 API 中的 Azure 角色。
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26e77fdf6e10e53f5acc0271986700c98fa690d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772542"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024971"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Azure Active Directory 中的自訂系統管理員角色（預覽）
 
@@ -34,7 +34,7 @@ Azure AD 以角色為基礎的存取控制是 Azure AD 的公開預覽功能，�
 
 建立角色定義之後，您可以藉由建立角色指派，將它指派給使用者。 角色指派會授與使用者在指定範圍之角色定義中的許可權。 這個兩個步驟的程式可讓您建立單一角色定義，並在不同範圍指派多次。 「範圍」（scope）會定義角色成員可存取的一組 Azure AD 資源。 最常見的範圍是全公司（全組織）範圍。 您可以在整個組織範圍內指派自訂角色，這表示角色成員具有組織中所有資源的角色許可權。 您也可以在物件範圍指派自訂角色。 物件範圍的範例就是單一應用程式。 同一個角色可以指派給組織中所有應用程式的一個使用者，然後指派給另一個僅具有 Contoso Expense Reports 應用程式範圍的使用者。  
 
-Azure AD 內建和自訂角色會在類似于[Azure 角色型存取控制](../../role-based-access-control/overview.md)的概念上運作。 [這兩個以角色為基礎的存取控制系統之間的差異](../../role-based-access-control/rbac-and-directory-admin-roles.md)在於，azure RBAC 會使用 Azure 資源管理來控制對 Azure 資源（例如虛擬機器或儲存體）的存取，並 Azure AD 自訂角色來控制 Azure AD 資源的存取權使用圖形 API。 這兩個系統都利用角色定義和角色指派的概念。
+Azure AD 內建和自訂角色會在類似于[Azure 角色型存取控制](../../role-based-access-control/overview.md)的概念上運作。 [這兩個以角色為基礎的存取控制系統之間的差異](../../role-based-access-control/rbac-and-directory-admin-roles.md)在於，azure RBAC 會使用 Azure 資源管理來控制對 Azure 資源（例如虛擬機器或儲存體）的存取，並 Azure AD 自訂角色使用圖形 API 來控制 Azure AD 資源的存取權。 這兩個系統都利用角色定義和角色指派的概念。
 
 ### <a name="role-assignments"></a>角色指派
 
@@ -54,14 +54,14 @@ Azure AD 內建和自訂角色會在類似于[Azure 角色型存取控制](../..
 
 安全性主體代表要獲指派 Azure AD 資源存取權的使用者。 *使用者*是 Azure Active Directory 中具有使用者設定檔的個人。
 
-### <a name="role"></a>Role
+### <a name="role"></a>角色
 
 角色定義（或角色）是許可權的集合。 角色定義會列出可在 Azure AD 資源上執行的作業，例如建立、讀取、更新和刪除。 Azure AD 中有兩種角色類型：
 
 - 由 Microsoft 建立且無法變更的內建角色。
 - 您的組織所建立及管理的自訂角色。
 
-### <a name="scope"></a>`Scope`
+### <a name="scope"></a>範圍
 
 範圍是允許的動作對特定 Azure AD 資源的限制，做為角色指派的一部分。 當您指派角色時，您可以指定範圍來限制系統管理員對特定資源的存取權。 例如，如果您想要為開發人員授與自訂角色，但只是為了管理特定的應用程式註冊，您可以在角色指派中包含特定的應用程式註冊作為範圍。
 

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f095c962f08ab0207ffc51d1c898570d9be7ea9a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "68825770"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047242"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動佈建使用者
 
 本教學課程旨在說明您需要在 Salesforce 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Salesforce。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -64,7 +64,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 本節的目的是要說明如何對 Salesforce 啟用 Active Directory 使用者帳戶的使用者佈建。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式] 區段。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
 
 2. 如果您已經設定單一登入的 Salesforce，請使用 [搜尋] 欄位搜尋您的 Salesforce 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Salesforce]。 從搜尋結果中選取 Salesforce，並將它新增至您的應用程式清單。
 
@@ -84,7 +84,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![啟用自動使用者布建](./media/salesforce-provisioning-tutorial/sf-my-settings.png "啟用自動使用者佈建")
 
-7. 在左方導覽窗格上，按一下 [我的個人資訊] 展開相關的區段，然後按一下 [重設我的安全性權杖]。
+7. 在左方導覽窗格上，按一下 [我的個人資訊] 以展開相關的區段，然後按一下 [重設我的安全性權杖]。
   
     ![啟用自動使用者布建](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "啟用自動使用者佈建")
 
@@ -94,7 +94,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 9. 檢查與此系統管理員帳戶相關聯的電子郵件收件匣。 尋找來自 Salesforce.com，包含新安全性權杖的電子郵件。
 
-10. 複製權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
+10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
 11. 如果 Salesforce 執行個體是位於 Salesforce 政府雲端上，則應輸入**租用戶 URL**。 否則為選擇性。 使用 "https://\<your-instance\>.my.salesforce.com" 格式輸入租用戶 URL，將 \<your-instance\> 取代為您的 Salesforce 執行個體名稱。
 
@@ -118,6 +118,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 這會啟動在 [使用者和群組] 區段中指派給 Salesforce 的任何使用者和/或群組之首次同步處理。 請注意，初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Salesforce 應用程式上佈建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
+
+## <a name="common-issues"></a>常見問題
+* 布建至 Salesforce 的預設屬性對應包含 SingleAppRoleAssignments 運算式，可將使用者角色布建至 Salesforce。 請確定使用者未在應用程式上指派多個角色，因為屬性對應僅支援布建一個角色。 
 
 ## <a name="additional-resources"></a>其他資源
 

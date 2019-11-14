@@ -1,26 +1,26 @@
 ---
-title: 在 Privileged Identity Management Azure Active Directory 中完成 Azure 資源角色的存取權審查 |Microsoft Docs
-description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中完成 Azure 資源角色的存取權審查。
+title: 在 PIM 中完成 Azure 資源角色的存取權檢查-Azure AD |Microsoft Docs
+description: 瞭解如何在 Azure Active Directory 中完成 Azure 資源角色 Privileged Identity Management 的存取權審查。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6761d1d6aea796e0cca708676f69c47328642cc2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9e45249245aaab97070b7e774d4b6bab6827bdc9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895821"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021989"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中完成 Azure 資源角色的存取權審查
 
@@ -50,9 +50,9 @@ ms.locfileid: "72895821"
 
 ### <a name="reset"></a>重設
 
-您可以重設存取權檢閱，以移除在其上所做的所有決策。 重設存取權檢閱後，所有使用者都會再次標示為「未檢閱」。
+您可以重設存取權檢閱，以移除在其上所做的所有決策。 在您重設存取權審查之後，所有使用者都會標示為不再次檢查。
 
-### <a name="apply"></a>申請
+### <a name="apply"></a>套用
 
 完成存取權檢查之後，**請選取 [** 套用] 以執行審查的結果。 如果使用者的存取權在檢閱中遭拒，則此步驟就會將其角色指派移除。  
 

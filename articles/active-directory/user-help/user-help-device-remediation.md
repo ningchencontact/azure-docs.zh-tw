@@ -1,6 +1,6 @@
 ---
-title: 疑難排解 「 您無法從這裡前往該處 」 的錯誤-Azure Active Directory |Microsoft Docs
-description: 針對您收到「您無法從這裡完成」錯誤訊息的可能原因進行疑難排解。
+title: 修正「您無法從這裡取得」錯誤-Azure AD
+description: 尋找您為什麼會收到「無法從這裡取得」錯誤訊息的潛在修正。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473771"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028567"
 ---
-# <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>「您無法從這裡完成」錯誤訊息的可能原因
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>可能的修正程式「您無法從這裡取得」錯誤訊息
+
 存取貴組織的內部 Web 應用程式或服務時收到錯誤訊息，指出：**您無法從這裡完成**。 此訊息表示貴組織已讓原則就位，防止您的裝置存取貴組織的資源。 雖然最終您可能還是需要連絡技術服務人員來修正此問題，但是以下是您可以先嘗試的一些動作。
 
 ## <a name="make-sure-youre-using-a-supported-browser"></a>請確定您使用的是受支援的瀏覽器
@@ -50,7 +51,7 @@ ms.locfileid: "60473771"
 ![與您是否在網路上相關的錯誤訊息](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>若要檢查您的裝置是否已加入您的網路
-1. 使用您的公司或學校帳戶，登入 Windows。 例如： alain@contoso.com 。
+1. 使用您的公司或學校帳戶，登入 Windows。 例如， alain@contoso.com。
 
 2. 透過虛擬私人網路 (VPN) 或 DirectAccess 連線到貴組織的網路。
 
@@ -58,7 +59,7 @@ ms.locfileid: "60473771"
 
 4. 使用您的公司或學校帳戶來解除鎖定裝置，然後再次嘗試存取有問題的應用程式或服務。
 
-    如果您還是看到**您無法從這裡完成**錯誤訊息，請選取 [更多詳細資料]  連結，然後連絡技術服務人員以取得詳細資料。
+    如果您還是看到**您無法從這裡完成**錯誤訊息，請選取 [更多詳細資料] 連結，然後連絡技術服務人員以取得詳細資料。
 
 ### <a name="to-join-your-device-to-your-network"></a>若要將裝置加入您的網路
 如果您的裝置未加入貴組織的網路，可以執行下列其中一項操作：

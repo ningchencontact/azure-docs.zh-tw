@@ -4,23 +4,23 @@ description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f191eac841bd9f79844a09cd25725de7ea8b154
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895784"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023076"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中設定 Azure 資源角色的安全性警示
 
@@ -34,15 +34,15 @@ ms.locfileid: "72895784"
 
 ![警示報表，顯示上次掃描時間、描述、風險降低步驟、類型、嚴重性、安全性影響，以及如何預防下一次](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
-## <a name="alerts"></a>警示
+## <a name="alerts"></a>Alerts
 
-| 警示 | 嚴重性 | 觸發程序 | 建議 |
+| 警示 | Severity | 觸發程序 | 建議 |
 | --- | --- | --- | --- |
 | **指派了太多的擁有者到資源** |中 |太多使用者具有擁有者角色。 |檢閱清單中的使用者，然後將部分使用者重新指派給較少特殊權限的角色。 |
 | **指派太多永久擁有者過到資源** |中 |太多使用者永久指派給某個角色。 |檢閱清單中的使用者，然後重新指派部分使用者以要求啟用角色。 |
 | **建立了重複的角色** |中 |多個角色具有相同的準則。 |僅使用其中一個角色。 |
 
-### <a name="severity"></a>嚴重性
+### <a name="severity"></a>Severity
 
 - **高**：因為發生原則違規而需要立即採取行動。 
 - **中**：不需要立即採取行動，但表示可能發生原則違規。

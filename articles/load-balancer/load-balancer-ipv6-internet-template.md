@@ -1,6 +1,6 @@
 ---
 title: 部署採用 IPv6 的網際網路對應負載平衡器 - Azure 範本
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 如何部署 Azure Load Balancer 和負載平衡 VM 的 IPv6 支援。
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: bfecb2a57cf5f086b6c9f99c50b857c8c1183e3e
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: e5cfc980387b63701fb3ff36e7fa8ac43800ecce
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025595"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048436"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>使用範本部署配置有 IPv6 的網際網路面向負載平衡器解決方案
 
@@ -29,7 +29,7 @@ ms.locfileid: "73025595"
 > * [範本](load-balancer-ipv6-internet-template.md)
 
 
->[!注意：適用于 IPv6 的最佳作法變更此文章說明可讓基本負載平衡器同時提供 IPv4 和 IPv6 連線的入門 IPv6 功能。  [Ipv6 For Azure vnet](../virtual-network/ipv6-overview.md)現在提供更完整的 ipv6 連線能力，其整合了 ipv6 連線與您的虛擬網路，並包含 Ipv6 網路安全性群組規則、ipv6 使用者定義路由、ipv6 基本和等重要功能標準負載平衡等等。  適用于 azure Vnet 的 IPv6 是 Azure 中的 IPv6 應用程式建議的最佳作法。 
+>[!注意：適用于 IPv6 的最佳作法變更此文章說明可讓基本負載平衡器同時提供 IPv4 和 IPv6 連線的入門 IPv6 功能。  [Ipv6 For Azure vnet](../virtual-network/ipv6-overview.md)現在提供更完整的 ipv6 連線能力，其整合了 ipv6 連線與您的虛擬網路，並包含 Ipv6 網路安全性群組規則、ipv6 使用者定義的路由、ipv6 基本和標準負載平衡等主要功能。  適用于 azure Vnet 的 IPv6 是 Azure 中的 IPv6 應用程式建議的最佳作法。 
 >請參閱[適用于 AZURE VNET 範本部署的 IPv6](../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
 
 Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡器可藉由在負載平衡器集合中，將連入流量分散於雲端服務或虛擬機器中狀況良好的服務執行個體之間，來提供高可用性。 Azure Load Balancer 也會在多個連接埠、多個 IP 位址或兩者上顯示這些服務。
@@ -111,7 +111,7 @@ Azure Resource Manager 範本可包含多個變數和參數，讓您自訂自己
 
 本文中所用的範例範本包含下列變數和參數︰
 
-| 參數 / 變數 | 注意 |
+| 參數 / 變數 | 注意事項 |
 | --- | --- |
 | adminUsername |指定用來登入虛擬機器的系統管理員帳戶名稱。 |
 | adminPassword |指定用來登入虛擬機器的系統管理員帳戶密碼。 |

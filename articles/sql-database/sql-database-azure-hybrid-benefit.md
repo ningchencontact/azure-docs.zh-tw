@@ -8,20 +8,22 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: 17252f6544ee56647315dc44ace4db3e3abe9726
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: 4aab699ff0141b648066fae0de445c4467be7509
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821879"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048400"
 ---
 # <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-在 vCore 為基礎的購買模型的已布建計算層中，您可以使用[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，在 SQL Database 上交換您現有的授權以享有折扣優惠。 這項 Azure 權益可讓您使用內部部署 SQL Server 授權搭配軟體保證，最多省下 30% 的 Azure SQL Database。
+在 vCore 為基礎的購買模型的已布建計算層中，您可以使用[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，在 SQL Database 上交換您現有的授權以享有折扣優惠。 這項 Azure 權益可讓您使用內部部署 SQL Server 授權搭配軟體保證，最多省下30% 的 Azure SQL Database。 
+
+> [!NOTE]
+> 變更為 Azure Hybrid Benefit 不需要停機。
 
 ![定價](./media/sql-database-service-tiers/pricing.png)
-
 
 ## <a name="choose-a-license-model"></a>選擇授權模型
 
@@ -49,8 +51,6 @@ ms.locfileid: "73821879"
   - [資料庫 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

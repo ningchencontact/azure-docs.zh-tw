@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 2ab620ec456610029d699952bb9625abfe4c21dc
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 5361a820da0caa336ccc95ae657407889443268c
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307874"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048425"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>連接到媒體服務 v3 API-node.js
 
 本文說明如何使用服務主體登入方法來連線到 Azure 媒體服務 v3 node.js SDK。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 安裝 [Node.js](https://nodejs.org/en/download/)。
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源組名和媒體服務帳戶名稱。
@@ -54,7 +54,7 @@ ms.locfileid: "70307874"
 
 應指定下列套件：
 
-|套件|描述|
+|Package|描述|
 |---|---|
 |`azure-arm-mediaservices`|Azure 媒體服務 SDK。 <br/>若要確定您使用的是最新的 Azure 媒體服務套件，請核取 [ [NPM 安裝] [Azure-arm-windowsazure.mediaservices.extensions](https://www.npmjs.com/package/azure-arm-mediaservices/)]。|
 |`azure-storage`|儲存體 SDK。 將檔案上傳到資產時使用。|
@@ -130,5 +130,5 @@ node index.js
 
 ## <a name="next-steps"></a>後續步驟
 
-探索媒體服務 [Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)文件，並查看[範例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)示範如何搭配使用媒體服務 API 與 Node.js。
+探索媒體服務 [Node.js 參考](/javascript/api/overview/azure/mediaservices/management)文件，並查看[範例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)示範如何搭配使用媒體服務 API 與 Node.js。
 

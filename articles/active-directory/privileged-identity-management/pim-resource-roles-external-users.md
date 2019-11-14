@@ -1,33 +1,33 @@
 ---
-title: 邀請來賓並在 Privileged Identity Management Azure Active Directory 中指派 Azure 資源角色 |Microsoft Docs
+title: 將 Azure 資源角色指派給 PIM 中的來賓-Azure AD |Microsoft Docs
 description: 瞭解如何邀請外部來賓使用者，並在 Azure AD Privileged Identity Management （PIM）中指派 Azure 資源角色。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08c2ef1695d118c248abfc500025479d1186eb05
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 2efcf77d65fa2f9e203ed805cd7d78b9802ee3aa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895639"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021945"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>邀請來賓使用者並在 Privileged Identity Management 中指派 Azure 資源角色
 
 Azure Active Directory （Azure AD）來賓使用者是 Azure AD 內的企業對企業（B2B）共同作業功能的一部分，因此您可以在 Azure AD 中將外部來賓使用者和廠商管理為來賓。 當您結合 B2B 共同作業與 Azure AD Privileged Identity Management （PIM）時，您可以將合規性和治理需求延伸到來賓。 例如，您可以將這些 Privileged Identity Management 功能用於具有來賓的 Azure 身分識別工作：
 
 - 將存取權指派給特定 Azure 資源
-- 啟用 Just-In-Time 存取
+- 啟用 Just In Time 存取
 - 指定指派持續時間和結束日期
 - 在作用中指派或啟用時需要多重要素驗證
 - 執行存取權檢閱

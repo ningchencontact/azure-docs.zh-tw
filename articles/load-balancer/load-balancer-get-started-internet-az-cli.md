@@ -1,11 +1,11 @@
 ---
-title: 建立具有區域備援前端的 Load Balancer - Azure CLI
-titlesuffix: Azure Load Balancer
+title: 建立具有區域冗余前端的負載平衡器-Azure CLI
+titleSuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: allensu
-ms.openlocfilehash: 2dcd7d2cffa567307e1d6eb4326a379bc2d409be
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d5dd2dc04f4307c810fdc673286505f6001491ec
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275162"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048362"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域備援前端的 Standard Load Balancer
 
 本文會逐步說明如何使用 Public IP Standard 位址來建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

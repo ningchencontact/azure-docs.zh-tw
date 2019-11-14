@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 68bf455bbdfb6d2d45c5eccc60c3ad8ce40d3247
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515777"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048260"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>將 Azure 活動記錄匯出至儲存體或 Azure 事件中樞
+
+> [!NOTE]
+> 您現在可以使用與收集資源記錄的方式類似的診斷設定，將活動記錄收集到 Log Analytics 工作區。 請參閱[在 Azure 監視器中收集和分析 Log Analytics 工作區中的 Azure 活動記錄](activity-log-collect.md)。
+
 [Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 除了在 Azure 入口網站中查看活動記錄，或將它複製到 Log Analytics 工作區，您可以使用 Azure 監視器收集的其他資料進行分析，您可以建立記錄設定檔，將活動記錄封存至 Azure 儲存體帳戶，或將其串流至 事件中樞。
 
 ## <a name="archive-activity-log"></a>封存活動記錄
@@ -26,7 +30,7 @@ ms.locfileid: "72515777"
 * **串流至協力廠商記錄與遙測系統** – 隨著時間進展，「Azure 事件中樞」串流會成為將「活動記錄」輸送到協力廠商 SIEM 與記錄分析解決方案的機制。
 * **建置自訂遙測與記錄平台** – 如果您已經有自訂建置的遙測平台或正考慮建置一個，「事件中樞」所具備的高度可調整發佈訂閱特質將可讓您靈活擷取活動記錄。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="storage-account"></a>儲存體帳戶
 如果您要封存活動記錄檔，您必須[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)（如果您還沒有的話）。 您不應該使用已儲存其他非監視資料的現有儲存體帳戶，讓您可以更有效地控制監視資料的存取。 不過，如果您也將診斷記錄和計量封存到儲存體帳戶，您可以選擇使用相同的儲存體帳戶，將所有監視資料保留在中央位置。
@@ -107,13 +111,13 @@ ms.locfileid: "72515777"
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 屬性 | 必要項 | 描述 |
+    | 屬性 | 必要 | 描述 |
     | --- | --- | --- |
-    | Name |是 |記錄檔設定檔的名稱。 |
+    | 名稱 |yes |記錄檔設定檔的名稱。 |
     | StorageAccountId |否 |應儲存活動記錄之儲存體帳戶的資源識別碼。 |
     | serviceBusRuleId |否 |服務匯流排規則識別碼，您想要在其中建立事件中樞的服務匯流排命名空間。 這是具有下列格式的字串： `{service bus resource ID}/authorizationrules/{key name}`。 |
-    | Location |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
-    | RetentionInDays |是 |在儲存體帳戶中應保留事件的天數，介於1到365之間。 值為 0 會無限期地儲存記錄。 |
+    | 位置 |yes |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
+    | RetentionInDays |yes |在儲存體帳戶中應保留事件的天數，介於1到365之間。 值為 0 會無限期地儲存記錄。 |
     | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值為_Write_、 _Delete_和_Action_。 |
 
 ### <a name="example-script"></a>範例指令碼
@@ -150,14 +154,14 @@ ms.locfileid: "72515777"
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | 屬性 | 必要項 | 描述 |
+    | 屬性 | 必要 | 描述 |
     | --- | --- | --- |
-    | 名稱 |是 |記錄檔設定檔的名稱。 |
-    | storage-account-id |是 |資源識別碼，活動記錄應該要儲存至此儲存體帳戶。 |
-    | 位置 |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
-    | days |是 |應保留事件的天數，介於1到365之間。 值為 0 會無限期地 (永遠) 儲存記錄。  如果為零，則已啟用的參數應該設定為 false。 |
-    |啟用 | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
-    | categories |是 |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
+    | 名稱 |yes |記錄檔設定檔的名稱。 |
+    | storage-account-id |yes |資源識別碼，活動記錄應該要儲存至此儲存體帳戶。 |
+    | 位置 |yes |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
+    | days |yes |應保留事件的天數，介於1到365之間。 值為 0 會無限期地 (永遠) 儲存記錄。  如果為零，則已啟用的參數應該設定為 false。 |
+    |啟用 | yes |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
+    | 類別 |yes |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 
 
@@ -226,8 +230,8 @@ ms.locfileid: "72515777"
 
 | 元素名稱 | 描述 |
 | --- | --- |
-| time |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
-| ResourceId |受影響資源的資源識別碼。 |
+| 分析 |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| resourceId |受影響資源的資源識別碼。 |
 | operationName |作業名稱。 |
 | category |事件的類別，例如 寫入、讀取、動作。 |
 | resultType |結果的類型，例如 成功、失敗、開始 |

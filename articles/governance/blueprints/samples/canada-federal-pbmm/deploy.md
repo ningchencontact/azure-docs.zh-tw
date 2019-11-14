@@ -1,18 +1,14 @@
 ---
 title: 加拿大聯邦 PBMM 藍圖範例-部署步驟
 description: 加拿大聯邦 PBMM 藍圖範例的部署步驟，包括藍圖成品參數詳細資料。
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163335"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038405"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>部署加拿大聯邦 PBMM 藍圖範例
 
@@ -31,7 +27,7 @@ ms.locfileid: "73163335"
 
 1. 在左窗格中選取 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，選取 [藍圖]。
 
-1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] **下方的 [建立]** 按鈕。
+1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] _下方的 [建立]_ 按鈕。
 
 1. 在 [_其他範例_] 底下尋找**加拿大的美國聯邦 PBMM**藍圖範例，然後選取 [**使用此範例**]。
 
@@ -66,7 +62,7 @@ ms.locfileid: "73163335"
 
 1. 提供用於指派藍圖的參數值：
 
-   - 基本概念
+   - 基本
 
      - 訂用**帳戶：選取**您儲存藍圖範例複本的管理群組中的一或多個訂用帳戶。 如果您選取多個訂用帳戶，輸入的參數就會用來為每個訂用帳戶建立指派。
      - **指派名稱**：根據藍圖的名稱預先填入名稱。
@@ -103,9 +99,9 @@ ms.locfileid: "73163335"
 |\[預覽\]：部署 Windows VM 的 Log Analytics 代理程式 |原則指派 |Windows VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
 |\[預覽\]： Audit 加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應設定 VM 的 Log Analytics 工作區識別碼 |這是應設定 VM 的 Log Analytics 工作區識別碼 (GUID)。 |
 |\[預覽\]： Audit 加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應啟用診斷記錄的資源類型清單 |如果未啟用診斷記錄設定，要審核的資源類型清單。 您可以在 [Azure 監視器診斷記錄結構描述](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)中找到可用值。 |
-|\[預覽\]： Audit 加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |Administrators 群組 |小組. 範例：`Administrator; myUser1; myUser2` |
-|\[預覽\]： Audit 加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應納入 Windows VM 系統管理員群組中的使用者清單 |應納入系統管理員本機群組中之成員的分號分隔清單。 範例：`Administrator; myUser1; myUser2` |
-|在儲存體帳戶部署進階威脅防護 |原則指派 |影響 |如需原則效果的相關資訊，請參閱[瞭解 Azure 原則效果](../../../policy/concepts/effects.md)。 |
+|\[預覽\]： Audit 加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |Administrators 群組 |小組. 範例︰ `Administrator; myUser1; myUser2` |
+|\[預覽\]： Audit 加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應納入 Windows VM 系統管理員群組中的使用者清單 |應納入系統管理員本機群組中之成員的分號分隔清單。 範例︰ `Administrator; myUser1; myUser2` |
+|在儲存體帳戶部署進階威脅防護 |原則指派 |效果 |如需原則效果的相關資訊，請參閱[瞭解 Azure 原則效果](../../../policy/concepts/effects.md)。 |
 |在 SQL 伺服器上部署稽核 |原則指派 |保留期間天數中的值 (0 表示無保留天數限制) |保留天數（選擇性，如果未指定，則為_180_天） |
 |在 SQL 伺服器上部署稽核 |原則指派 |儲存體帳戶用於 SQL 伺服器稽核的資源群組名稱 |「審核」會將資料庫事件寫入您 Azure 儲存體帳戶中的 audit 記錄（系統會在每個區域中建立一個儲存體帳戶，而該區域中的所有伺服器都共用該地區的 SQL Server）。 重要-針對適當的審核作業，請勿刪除或重新命名資源群組或儲存體帳戶。 |
 |部署網路安全性群組的診斷設定 |原則指派 |網路安全性群組診斷的儲存體帳戶前置詞 |此首碼會與網路安全性群組位置結合，以形成所建立的儲存體帳戶名稱。 |
@@ -119,7 +115,7 @@ ms.locfileid: "73163335"
 > [加拿大聯邦 PBMM 藍圖-總覽](./index.md)
 > [加拿大聯邦 PBMM 藍圖-控制項對應](./control-mapping.md)
 
-藍圖和使用方式的其他相關文章：
+有關藍圖及其使用方式的其他文件：
 
 - 了解[藍圖生命週期](../../concepts/lifecycle.md)。
 - 了解如何使用[靜態與動態參數](../../concepts/parameters.md)。

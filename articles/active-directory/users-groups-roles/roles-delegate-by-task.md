@@ -1,11 +1,10 @@
 ---
-title: 依管理員工作委派最低特殊權限角色 - Azure Active Directory | Microsoft Docs
+title: 依系統管理員工作委派角色-Azure Active Directory |Microsoft Docs
 description: 在 Azure Active Directory 中針對身分識別工作委派的角色
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -15,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5933fdd9932bd8c13ab0f231d677ce06112662ed
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: b8ccd98553b06ef3fcd2241c8223889c0a86e331
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169764"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024663"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -146,7 +145,7 @@ ms.locfileid: "72169764"
 ## <a name="entitlement-management"></a>權利管理
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-將資源新增至目錄 | 使用者系統管理員 | 透過權利管理，您可以將這項工作委派給目錄擁有者（[請參閱檔](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)）
+將資源新增至目錄 | 使用者管理員 | 透過權利管理，您可以將這項工作委派給目錄擁有者（[請參閱檔](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)）
 將 SharePoint Online 網站新增至目錄 | 全域管理員
 
 
@@ -154,20 +153,20 @@ ms.locfileid: "72169764"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-指派授權 | 使用者系統管理員 | 
-建立群組 | 使用者系統管理員 | 
-建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者系統管理員 | 
-管理群組到期日 | 使用者系統管理員 | 
+指派授權 | 使用者管理員 | 
+建立群組 | 使用者管理員 | 
+建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者管理員 | 
+管理群組到期日 | 使用者管理員 | 
 管理群組設定 | 全域管理員 | 
 讀取所有設定 (隱藏的成員資格除外) | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 讀取隱藏的成員資格 | 群組成員 | 群組擁有者、密碼管理員、Exchange 系統管理員、SharePoint 管理員、小組系統管理員、使用者系統管理員
 讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 使用者系統管理員、小組系統管理員
-撤銷授權 | 授權管理員 | 使用者系統管理員
-更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者系統管理員
-更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者系統管理員
-更新群組屬性 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者系統管理員
+撤銷授權 | 授權管理員 | 使用者管理員
+更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
+更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
+更新群組屬性 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>身分識別保護
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -186,9 +185,9 @@ ms.locfileid: "72169764"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-指派授權 | 授權管理員 | 使用者系統管理員
+指派授權 | 授權管理員 | 使用者管理員
 讀取所有設定 | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-撤銷授權 | 授權管理員 | 使用者系統管理員
+撤銷授權 | 授權管理員 | 使用者管理員
 試用或購買訂用帳戶 | 計費管理員 | 
 
 
@@ -204,7 +203,7 @@ ms.locfileid: "72169764"
 ---- | --------------------- | ----------------
 讀取登入記錄 | 報表讀者 | 安全性讀取者、安全性系統管理員
 
-## <a name="multi-factor-authentication"></a>多重要素驗證
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -212,7 +211,7 @@ ms.locfileid: "72169764"
 停用 MFA | 全域管理員 | 
 啟用 MFA | 全域管理員 | 
 管理 MFA 服務設定 | 全域管理員 | 
-要求選取的使用者再次提供連絡方式 | 驗證系統管理員 | 
+要求選定使用者再次提供連絡方法 | 驗證系統管理員 | 
 在所有記住的裝置上還原多重要素驗證  | 驗證系統管理員 | 
 
 ## <a name="mfa-server"></a>MFA Server
@@ -325,21 +324,21 @@ ms.locfileid: "72169764"
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
 將使用者新增至目錄角色 | 特殊權限角色管理員 | 
-將使用者新增至群組 | 使用者系統管理員 | 
-指派授權 | 授權管理員 | 使用者系統管理員
-建立來賓使用者 | 來賓邀請者 | 使用者系統管理員
-建立使用者 | 使用者系統管理員 | 
-刪除使用者 | 使用者系統管理員 | 
-使受限制管理員的重新整理權杖失效 (請參閱文件) | 使用者系統管理員 | 
-使非管理員的重新整理權杖失效 (請參閱文件) | 密碼管理員 | 使用者系統管理員
+將使用者新增至群組 | 使用者管理員 | 
+指派授權 | 授權管理員 | 使用者管理員
+建立來賓使用者 | 來賓邀請者 | 使用者管理員
+建立使用者 | 使用者管理員 | 
+刪除使用者 | 使用者管理員 | 
+使受限制管理員的重新整理權杖失效 (請參閱文件) | 使用者管理員 | 
+使非管理員的重新整理權杖失效 (請參閱文件) | 密碼管理員 | 使用者管理員
 使具特殊權限管理員的重新整理權杖失效 (請參閱文件) | 全域管理員 | 
 讀取基本設定 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-為受限制的管理員重設密碼 (請參閱文件) | 使用者系統管理員 | 
-為非管理員重設密碼 (請參閱文件) | 密碼管理員 | 使用者系統管理員
+為受限制的管理員重設密碼 (請參閱文件) | 使用者管理員 | 
+為非管理員重設密碼 (請參閱文件) | 密碼管理員 | 使用者管理員
 為具特殊權限的管理員重設密碼 | 全域管理員 | 
-撤銷授權 | 授權管理員 | 使用者系統管理員
-更新使用者主體名稱以外的所有屬性 | 使用者系統管理員 | 
-更新適用於受限制管理員的使用者主體名稱 (請參閱文件) | 使用者系統管理員 | 
+撤銷授權 | 授權管理員 | 使用者管理員
+更新使用者主體名稱以外的所有屬性 | 使用者管理員 | 
+更新適用於受限制管理員的使用者主體名稱 (請參閱文件) | 使用者管理員 | 
 更新具特殊權限管理員上的使用者主體名稱屬性 (請參閱文件) | 全域管理員 | 
 更新使用者設定 | 全域管理員 | 
 

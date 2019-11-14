@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-ms.date: 12/19/2018
-ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/12/2019
+ms.openlocfilehash: a113ea3fd4828a498d1f53ea7604df7bc8588eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811394"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048416"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database 的效能建議
 
@@ -25,6 +25,17 @@ Azure SQL Database 會學習及適應您的應用程式。 它會提供自訂的
 > [!TIP]
 > [自動調整](sql-database-automatic-tuning.md)是自動調整一些最常見資料庫效能問題的建議方法。 [查詢效能深入解析](sql-database-query-performance.md)是基本 Azure SQL Database 效能監視需求的建議方法。 [Azure SQL 分析](../azure-monitor/insights/azure-sql.md) 是運用自動化效能疑難排解的內建智慧，執行資料庫效能大規模進階監視的建議方法。
 >
+
+## <a name="performance-recommendations-options"></a>效能建議選項
+
+Azure SQL Database 可用的效能建議選項如下：
+
+| 效能建議 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
+| :----------------------------- | ----- | ----- |
+| **建立索引建議**-建議建立可改善工作負載效能的索引。 | yes | 否 | 
+| 卸載**索引建議**-建議每天移除多餘和重複的索引，但不包括唯一索引，以及長時間未使用的索引（> 90 天）。 請注意，此選項與使用分割區切換和索引提示的應用程式不相容。 高階和商務關鍵服務層級不支援卸載未使用的索引。 | yes | 否 |
+| **參數化查詢建議（預覽）** -建議當您有一或多個查詢不斷重新編譯，但最後有相同的查詢執行計畫時，強制執行 parametrization。 | yes | 否 |
+| **修正架構問題建議（預覽）** -當 SQL Database 服務注意到 sql 資料庫上發生架構相關 SQL 錯誤數目的異常時，會顯示架構更正的建議。 Microsoft 即將淘汰「修正結構描述問題」的建議。 | yes | 否 |
 
 ## <a name="create-index-recommendations"></a>建立索引建議
 SQL Database 會持續監視正在執行的查詢，並找出可改善效能的索引。 確信遺漏特定索引之後，就會建立新的 [建立索引] 建議。
@@ -50,8 +61,7 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 
 卸除索引建議在實作後也會經過驗證。 如果效能提升，即可取得影響報告。 如果效能降低，則會還原建議。
 
-
-## <a name="parameterize-queries-recommendations"></a>參數化查詢建議
+## <a name="parameterize-queries-recommendations-preview"></a>參數化查詢建議（預覽）
 當您有一或多個查詢不斷被重新編譯，但結果都是相同的查詢執行計劃時，即會出現*參數化查詢*建議。 這種狀況會製造套用強制參數化的機會。 而強制參數化允許查詢計畫納入快取並在未來重複使用，以改善效能並減少資源使用量。 
 
 針對 SQL Server 發出的每個查詢一開始需要重新編譯，以產生執行計畫。 每個產生的計畫都會新增至計畫快取。 相同查詢的後續執行可以從快取中重複使用這個計畫，而不需要進一步編譯。 

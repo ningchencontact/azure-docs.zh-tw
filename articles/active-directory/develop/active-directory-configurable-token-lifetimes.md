@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473952"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046558"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory 中可設定的權杖存留期 (預覽)
 
@@ -53,11 +53,11 @@ ms.locfileid: "73473952"
 
 ### <a name="saml-tokens"></a>SAML 權杖
 
-SAML 權杖是由許多以 web 為基礎的 SAAS 應用程式所使用，而且是使用 Azure Active Directory 的 SAML2 通訊協定端點來取得。  應用程式也會使用 WS-同盟來取用它們。    權杖的預設存留期為1小時。 從和應用程式觀點來看，權杖的有效期間是由 < 條件的 NotOnOrAfter 值所指定 。token 中的 > 元素。  在權杖有效期間之後，用戶端必須起始新的驗證要求，而在單一登入（SSO）會話權杖的結果中，通常不需要互動式登入即可滿足。
+SAML 權杖是由許多以 web 為基礎的 SAAS 應用程式所使用，而且是使用 Azure Active Directory 的 SAML2 通訊協定端點來取得。 應用程式也會使用 WS-同盟來取用它們。 權杖的預設存留期為1小時。 從應用程式的觀點來看，權杖的有效期間是由權杖中 `<conditions …>` 元素的 NotOnOrAfter 值所指定。 在權杖的有效期間結束後，用戶端必須起始新的驗證要求，而不需要透過單一登入（SSO）會話權杖的互動登入，就能滿足這種情況。
 
-您可以使用 TokenLifetimePolicy 中的 AccessTokenLifetime 參數來變更 NotOnOrAfter 的值。  它會設定為原則中設定的存留期（如果有的話），再加上5分鐘的時鐘誤差因數。
+您可以使用 `TokenLifetimePolicy`中的 `AccessTokenLifetime` 參數來變更 NotOnOrAfter 的值。 它會設定為原則中設定的存留期（如果有的話），再加上5分鐘的時鐘誤差因數。
 
-請注意，在 <SubjectConfirmationData> 元素中指定的主旨確認 NotOnOrAfter 不會受到權杖存留期設定的影響。 
+請注意，在 `<SubjectConfirmationData>` 元素中指定的主旨確認 NotOnOrAfter 不會受到權杖存留期設定的影響。 
 
 ### <a name="refresh-tokens"></a>重新整理權杖
 
@@ -216,7 +216,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 * 針對呼叫 Web API 的原生應用程式建立原則
 * 管理進階原則
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在下列範例中，您建立、更新連結，並刪除應用程式、服務主體和您整體組織的原則。 如果您是 Azure AD 的新手，我們建議您先深入了解[如何取得 Azure AD 租用戶](quickstart-create-new-tenant.md)，然後再利用這些範例繼續進行。  
 
 若要開始使用，請執行下列步驟：
@@ -395,7 +395,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |字串化 JSON 的陣列，包含所有原則的規則。 | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |原則名稱的字串。 |`-DisplayName "MyTokenPolicy"` |
@@ -412,7 +412,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 Get-AzureADPolicy
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> [選用] |您想要之原則的**ObjectId （ID）** 。 |`-Id <ObjectId of Policy>` |
 
@@ -425,7 +425,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |您想要之原則的**ObjectId （ID）** 。 |`-Id <ObjectId of Policy>` |
 
@@ -438,7 +438,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |您想要之原則的**ObjectId （ID）** 。 |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |原則名稱的字串。 |`-DisplayName "MyTokenPolicy"` |
@@ -456,7 +456,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |您想要之原則的**ObjectId （ID）** 。 | `-Id <ObjectId of Policy>` |
 
@@ -472,7 +472,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |應用程式的**ObjectId （ID）** 。 | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |原則的 **ObjectId**。 | `-RefObjectId <ObjectId of Policy>` |
@@ -486,7 +486,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |應用程式的**ObjectId （ID）** 。 | `-Id <ObjectId of Application>` |
 
@@ -499,7 +499,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |應用程式的**ObjectId （ID）** 。 | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |原則的 **ObjectId**。 | `-PolicyId <ObjectId of Policy>` |
@@ -516,7 +516,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |應用程式的**ObjectId （ID）** 。 | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |原則的 **ObjectId**。 | `-RefObjectId <ObjectId of Policy>` |
@@ -530,7 +530,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |應用程式的**ObjectId （ID）** 。 | `-Id <ObjectId of Application>` |
 
@@ -543,7 +543,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| 參數 | 說明 | 範例 |
+| parameters | 描述 | 範例 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |應用程式的**ObjectId （ID）** 。 | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |原則的 **ObjectId**。 | `-PolicyId <ObjectId of Policy>` |

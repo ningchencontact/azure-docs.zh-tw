@@ -1,25 +1,25 @@
 ---
-title: 在 PIM 中設定 Azure AD 角色的安全性警示-Azure Active Directory |Microsoft Docs
-description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中設定 Azure AD 角色的安全性警示。
+title: PIM 中 Azure AD 角色的安全性警示-Azure AD |Microsoft Docs
+description: 在 Azure Active Directory 中設定 Azure AD 角色 Privileged Identity Management 的安全性警示。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e188ef651f6fe539932cf1670f914e8b57564567
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: e05502b40f7f917526b2514d83dcc58636ac06f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809079"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023049"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中設定 Azure AD 角色的安全性警示
 
@@ -57,12 +57,12 @@ ms.locfileid: "72809079"
 | **預護** | 針對每一個角色[要求 MFA](pim-how-to-change-default-settings.md)。  |
 | **入口網站內風險降低措施** | 進行特殊許可權角色的啟用所需的多重要素驗證。 |
 
-### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>租用戶不具 Azure AD Premium P2
+### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>組織沒有 Azure AD Premium P2
 
 | | |
 | --- | --- |
 | **嚴重性** | 低 |
-| **為什麼會收到此警示？** | 目前的租用戶不具 Azure AD Premium P2。 |
+| **為什麼會收到此警示？** | 目前的 Azure AD 組織沒有 Azure AD Premium P2。 |
 | **如何修正？** | 檢閱 [Azure AD 版本](../fundamentals/active-directory-whatis.md)的相關資訊。 升級至 Azure AD Premium P2。 |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>特殊權限角色中的潛在過時帳戶
@@ -74,7 +74,7 @@ ms.locfileid: "72809079"
 | **如何修正？** | 檢閱清單中的帳戶。 如果他們不再需要存取，請將它們從其特殊權限角色中移除。 |
 | **預護** | 確定共用帳戶會在知道密碼的使用者有所變更時，輪替使用強式密碼。 </br>使用[存取權檢閱](pim-how-to-start-security-review.md)功能定期檢閱具備特殊權限角色的帳戶，並移除不再需要的角色指派。 |
 | **入口網站內風險降低措施** | 從其特殊權限角色中移除帳戶。 |
-| **最佳做法** | 共用、服務和緊急存取帳戶會使用密碼進行驗證，並將其指派給高特殊許可權的系統管理角色（例如全域管理員或安全性系統管理員），以在下列情況中輪替其密碼：<ul><li>在涉及系統管理存取權限誤用或遭到入侵的安全性事件之後</li><li>在變更任意使用者的權限，使其不再為系統管理員之後 (例如，在先前為系統管理員的員工離開 IT 或離開組織之後)</li><li>定期 (例如每季或每年)，即使沒有任何已知的缺口或 IT 人員的變更也一樣</li></ul>由於多人有權存取這些帳戶的認證，因此，應該輪替認證，以確保已離開其角色的人員無法再存取帳戶。 [深入了解](https://aka.ms/breakglass) |
+| **最佳作法** | 共用、服務和緊急存取帳戶會使用密碼進行驗證，並將其指派給高特殊許可權的系統管理角色（例如全域管理員或安全性系統管理員），以在下列情況中輪替其密碼：<ul><li>在涉及系統管理存取權限誤用或遭到入侵的安全性事件之後</li><li>在變更任意使用者的權限，使其不再為系統管理員之後 (例如，在先前為系統管理員的員工離開 IT 或離開組織之後)</li><li>定期 (例如每季或每年)，即使沒有任何已知的缺口或 IT 人員的變更也一樣</li></ul>由於多人有權存取這些帳戶的認證，因此，應該輪替認證，以確保已離開其角色的人員無法再存取帳戶。 [深入了解](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>角色被指派在外部 Privileged Identity Management
 

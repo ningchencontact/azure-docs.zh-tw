@@ -1,10 +1,10 @@
 ---
-title: 在 Privileged Identity Management Azure Active Directory 中延長或更新 Azure 資源角色指派 |Microsoft Docs
+title: 更新 PIM 中的 Azure 資源角色指派-Azure AD |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中延長或更新 Azure 資源角色指派。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfe6a545aa9acae8045e9c9756fc2711504d75d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 577c028582bc3b23d13e71522bb83db558065ee2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895563"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022905"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>在 Privileged Identity Management 中延長或更新 Azure 資源角色指派
 
@@ -43,7 +43,7 @@ Privileged Identity Management 會將電子郵件通知傳送給系統管理員�
 
 ### <a name="self-extend-expiring-assignments"></a>自我延伸過期的指派
 
-指派給角色的使用者或群組可以直接從 Privileged Identity Management 入口網站的 [**我的角色**] 頁面上的 [**符合資格**] 或 **[作用中**] 索引標籤，延伸即將**到期的角色**指派.使用者或群組可以要求擴充合格和作用中（已指派）的角色，在接下來的14天內到期。
+指派給角色的使用者或群組可以直接從資源的 [**我的角色**] 頁面上的 [**合格**] 或 [作用中] 索引標籤，以及從 Privileged Identity Management 入口網站的最上層 [**我的角色**] 頁面，擴充**到期的角色**指派。使用者或群組可以要求擴充合格和作用中（已指派）的角色，在接下來的14天內到期。
 
 ![Azure 資源-[我的角色] 頁面，列出具有 [動作] 資料行的合格角色](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 

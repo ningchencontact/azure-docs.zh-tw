@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 003cc54a07455118969a2dd497e9b963c03f68f2
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: fb36387764efbdaa1ad3d164ba419bee49770871
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099497"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049012"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -38,7 +38,7 @@ ms.locfileid: "73099497"
 *  v3 是會統一的 API 表面為基礎，併公開建置於 Azure Resource Manager 上的管理和操作功能。 Azure Resource Manager 範本可用於建立及部署轉換、串流端點、即時事件等等。
 * [OpenAPI 規格（先前稱為 Swagger）](https://aka.ms/ams-v3-rest-sdk)檔。
     公開所有服務元件的結構描述，包括檔案型編碼。
-* SDK 適用於 [.NET](https://aka.ms/ams-v3-dotnet-ref)、.Net Core、[Node.js](https://aka.ms/ams-v3-nodejs-ref)、[Python](https://aka.ms/ams-v3-python-ref)、[Java](https://aka.ms/ams-v3-java-ref)、[Go](https://aka.ms/ams-v3-go-ref) 和 Ruby。
+* SDK 適用於 [.NET](https://aka.ms/ams-v3-dotnet-ref)、.Net Core、[Node.js](/javascript/api/overview/azure/mediaservices/management)、[Python](https://aka.ms/ams-v3-python-ref)、[Java](https://aka.ms/ams-v3-java-ref)、[Go](https://aka.ms/ams-v3-go-ref) 和 Ruby。
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) 整合，適用於簡單的指令碼支援。
 
 ### <a name="new-features"></a>新功能
@@ -72,7 +72,7 @@ ms.locfileid: "73099497"
     * 串流定位器取代了定位器。
     * 即時事件取代了通道。<br/>即時事件計費是以直播頻道計量為基礎。 如需詳細資訊，請參閱[計費](live-event-states-billing.md)和[定價](https://azure.microsoft.com/pricing/details/media-services/)。
     * 即時輸出取代了程式。
-* 即時輸出會在建立時開始，並在刪除時結束。 程式在 v2 API 中是以不同的方式運作，因此它們必須在建立後啟動。
+* 「實況輸出」會在建立時開始，並在刪除時結束。 程式在 v2 API 中是以不同的方式運作，因此它們必須在建立後啟動。
 * 若要取得作業的相關資訊，您必須知道用來建立作業的轉換名稱。 
 * 在 v2 中，會產生 XML[輸入](../previous/media-services-input-metadata-schema.md)和[輸出](../previous/media-services-output-metadata-schema.md)中繼資料檔案作為編碼作業的結果。 在 v3 中，元資料格式從 XML 變更為 JSON。 
 

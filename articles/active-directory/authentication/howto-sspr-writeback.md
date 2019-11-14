@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a16ad3c571086a73a2aae192fb2d00bce4d5f9
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 9e12fe38ba69f6ac8f27130e01baff0c358aa409
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808165"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021766"
 ---
 # <a name="how-to-configure-password-writeback"></a>如何：設定密碼回寫
 
@@ -65,8 +65,8 @@ ms.locfileid: "72808165"
 
 * **重設密碼** 
 * **變更密碼** 
-* `lockoutTime` 的**寫入權限**
-* `pwdLastSet` 的**寫入權限**
+* **的**寫入權限`lockoutTime`
+* **的**寫入權限`pwdLastSet`
 * 下列其中一項的**延伸權限**：
    * 該樹系中「每個網域」的根物件
    * 要在 SSPR 範圍中的使用者組織單位 (OU)
@@ -99,7 +99,7 @@ ms.locfileid: "72808165"
     * **寫入 pwdLastSet**
 9. 選取 [套用]/[確定] 以套用變更並結束任何開啟的對話方塊。
 
-由於授權來源是在內部部署，因此密碼複雜性原則會套用至相同的已連線資料來源。 請確定您已變更 [密碼長度下限] 的現有群組原則。 群組原則不應設定為1，這表示密碼必須至少為一天，才能進行更新。 您需要確定它是設定為0。 這些設定可在 電腦設定 > 原則 下的 `gpmc.msc` 中找到 **> Windows 設定 > 安全性設定 > 帳戶原則**。 執行 `gpupdate /force`，以確保變更會生效。 
+由於授權來源是在內部部署，因此密碼複雜性原則會套用至相同的已連線資料來源。 請確定您已變更「密碼最短使用期限」的現有群組原則。 群組原則不應設定為1，這表示密碼必須至少為一天，才能進行更新。 您需要確定它是設定為0。 這些設定可在 電腦設定 > 原則 下的 `gpmc.msc` 中找到 **> Windows 設定 > 安全性設定 > 帳戶原則**。 執行 `gpupdate /force`，以確保變更會生效。 
 
 ## <a name="next-steps"></a>後續步驟
 

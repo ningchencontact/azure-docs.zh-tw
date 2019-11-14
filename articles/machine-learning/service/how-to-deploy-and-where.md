@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4a0736267ca00b67f35abc7cf263e7cf19543d81
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6ab01cf42dac280e64470355f7ea5804cad669d7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932118"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048794"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -233,7 +233,7 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklea
 當您註冊模型時，會為它命名。 名稱會對應至模型的放置位置，不論是在本機或在服務部署期間。
 
 > [!IMPORTANT]
-> 如果您使用自動化機器學習來定型模型，則會使用 `model_id` 值做為模型名稱。 如需註冊和部署使用自動化機器學習服務定型之模型的範例，請參閱 GitHub 上的[Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) 。
+> 如果您使用自動化機器學習來定型模型，則會使用 `model_id` 值做為模型名稱。 如需註冊和部署使用自動化機器學習服務定型之模型的範例，請參閱 GitHub 上的[Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features) 。
 
 下列範例會傳回名為 `sklearn_mnist_model.pkl` 的單一檔案路徑（以 `sklearn_mnist`的名稱註冊）：
 
@@ -375,8 +375,8 @@ def run(data):
 
 如需更多範例，請參閱下列腳本：
 
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
@@ -572,7 +572,7 @@ print(profiling_results)
 如需詳細資訊，請參閱下列檔：
 
 * [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profile （）](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
+* [profile （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 * [推斷設定檔架構](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>部署至目標
@@ -584,7 +584,7 @@ print(profiling_results)
 若要在本機部署模型，您必須在本機電腦上安裝 Docker。
 
 #### <a name="using-the-sdk"></a>使用 SDK
-
+zzs
 ```python
 from azureml.core.webservice import LocalWebservice, Webservice
 

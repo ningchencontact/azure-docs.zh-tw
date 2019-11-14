@@ -1,6 +1,6 @@
 ---
-title: 使用雙步驟驗證或安全性資訊登入-Azure Active Directory |Microsoft Docs
-description: 了解如何使用安全性資訊中的各種身分識別驗證方法來登入。
+title: 使用您的身分識別驗證資訊登入-Azure AD
+description: 深入瞭解如何使用安全性資訊中的各種身分識別驗證方法進行登入。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382282"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028517"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>使用雙步驟驗證或安全性資訊登入
 
@@ -55,35 +55,35 @@ ms.locfileid: "68382282"
 
 ## <a name="sign-in-using-a-security-key-at-the-lock-screen"></a>在鎖定畫面上使用安全性金鑰登入
 
-1. 在您註冊安全性金鑰之後, 請從 Windows 10 鎖定畫面中選取安全性金鑰映射。
+1. 在您註冊安全性金鑰之後，請從 Windows 10 鎖定畫面中選取安全性金鑰映射。
 
-2. 將您的安全性金鑰插入裝置的 USB 埠, 並使用您的安全性金鑰 PIN 來登入 Windows。
+2. 將您的安全性金鑰插入裝置的 USB 埠，並使用您的安全性金鑰 PIN 來登入 Windows。
 
     ![Windows 10 鎖定畫面上的安全性金鑰登入](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
 
 ## <a name="sign-in-using-a-security-key-and-the-microsoft-edge-browser"></a>使用安全性金鑰和 Microsoft Edge 瀏覽器登入
 
-1. 在您註冊安全性金鑰之後, 請開啟 Microsoft Edge 瀏覽器。
+1. 在您註冊安全性金鑰之後，請開啟 Microsoft Edge 瀏覽器。
 
-2. 當系統提示您登入時, 請將您的安全性金鑰插入裝置的 USB 埠, 並使用您的安全性金鑰 PIN 碼登入 Windows。
+2. 當系統提示您登入時，請將您的安全性金鑰插入裝置的 USB 埠，並使用您的安全性金鑰 PIN 碼登入 Windows。
 
     ![使用 Microsoft Edge 瀏覽器的安全性金鑰登入](./media/security-info/security-info-edge-security-key.png)
 
     >[!NOTE]
-    >如需使用 Microsoft Authenticator 應用程式登入的詳細資訊, 請參閱[使用 Microsoft Authenticator 應用程式登入您的帳戶](user-help-auth-app-sign-in.md)一文。
+    >如需使用 Microsoft Authenticator 應用程式登入的詳細資訊，請參閱[使用 Microsoft Authenticator 應用程式登入您的帳戶](user-help-auth-app-sign-in.md)一文。
 
 ## <a name="sign-in-using-another-verification-method"></a>使用另一個驗證方法登入
 
-如果基於某些原因而無法使用您的主要登入方法, 您可以使用另一個先前設定的驗證方法。
+如果基於某些原因而無法使用您的主要登入方法，您可以使用另一個先前設定的驗證方法。
 
-1. 正常登入您的帳戶, 然後在**雙步驟驗證**頁面上選擇 [**以另一種方式登入**] 連結。
+1. 正常登入您的帳戶，然後在**雙步驟驗證**頁面上選擇 [**以另一種方式登入**] 連結。
 
     ![變更登入驗證方法](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >如果您沒有看到 [**以另一種方式登入**] 連結, 表示您尚未設定任何其他驗證方法, 而且您必須聯絡系統管理員, 以協助登入您的帳戶。 當您的系統管理員協助您登入之後, 請確定您已新增額外的驗證方法。 如需新增驗證方法的詳細資訊，請參閱[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)一文。
+    >如果您沒有看到 [**以另一種方式登入**] 連結，表示您尚未設定任何其他驗證方法，而且您必須聯絡系統管理員，以協助登入您的帳戶。 當您的系統管理員協助您登入之後，請確定您已新增額外的驗證方法。 如需新增驗證方法的詳細資訊，請參閱[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)一文。
     >
-    >如果您看到 [**以另一種方式登入**] 連結, 但仍看不到任何其他驗證方法, 則必須聯絡系統管理員, 以協助登入您的帳戶。
+    >如果您看到 [**以另一種方式登入**] 連結，但仍看不到任何其他驗證方法，則必須聯絡系統管理員，以協助登入您的帳戶。
 
 2. 選擇您的替代驗證方法，並繼續雙步驟驗證的程序。
 

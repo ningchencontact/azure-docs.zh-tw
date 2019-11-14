@@ -1,5 +1,5 @@
 ---
-title: 使用 Terraform 在 Azure 中建立完整的 Linux VM | Microsoft Docs
+title: 使用 Terraform 在 Azure 中建立完整的 Linux VM
 description: 了解如何使用 Terraform 在 Azure 中建立及管理完整的 Linux 虛擬機器環境
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: bb4628477719d0aa2f176c466047531b42d7cfc3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924879"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034710"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 建立完整的 Linux 虛擬機器基礎結構
 
@@ -44,7 +44,7 @@ provider "azurerm" {
 }
 ```
 
-下一節會在 `eastus` 位置建立名為 `myResourceGroup` 的資源群組：
+下一節會在 `myResourceGroup` 位置建立名為 `eastus` 的資源群組：
 
 ```hcl
 resource "azurerm_resource_group" "myterraformgroup" {

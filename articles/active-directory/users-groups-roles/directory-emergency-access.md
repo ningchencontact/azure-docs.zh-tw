@@ -1,10 +1,11 @@
 ---
-title: 管理緊急存取系統管理員帳戶-Azure Active Directory |Microsoft Docs
+title: 管理緊急存取系統管理員帳戶-Azure AD |Microsoft Docs
 description: 本文說明如何使用緊急存取帳戶，協助防止不小心鎖定您的 Azure Active Directory （Azure AD）組織。
 services: active-directory
 author: markwahl-msft
+manager: daveba
 ms.author: curtand
-ms.date: 09/09/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772443"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028136"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>在 Azure AD 中管理緊急存取帳戶
 
@@ -51,7 +52,7 @@ ms.locfileid: "70772443"
 
 若要降低因密碼洩漏而遭到攻擊的風險，Azure AD 建議您要求所有個別使用者使用多重要素驗證。 這個群組包含管理員和所有其他人員 (例如財務人員)，其遭洩漏的帳戶會造成重大影響。
 
-但是，至少有一個緊急存取帳戶不應該具有與其他非緊急帳戶相同的多重要素驗證機制。 這包括第三方多重要素驗證解決方案。 如果您有條件式存取原則需要 Azure AD 和其他連線的軟體即服務（SaaS）應用程式的[每個系統管理員都必須進行多重要素驗證](../authentication/howto-mfa-userstates.md)，您應該從這項需求排除緊急存取帳戶，並設定改為使用不同的機制。 此外，您應該確定帳戶沒有每位使用者的多重要素驗證原則。
+但是，至少有一個緊急存取帳戶不應該具有與其他非緊急帳戶相同的多重要素驗證機制。 這包括第三方多重要素驗證解決方案。 如果您有條件式存取原則需要 Azure AD 和其他連線的軟體即服務（SaaS）應用程式的[每個系統管理員都使用多重要素驗證](../authentication/howto-mfa-userstates.md)，您應該從這項需求排除緊急存取帳戶，並改為設定不同的機制。 此外，您應該確定帳戶沒有每位使用者的多重要素驗證原則。
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>從條件式存取原則中排除至少一個帳戶
 
@@ -71,14 +72,14 @@ ms.locfileid: "70772443"
 
 組織應監視來自緊急帳戶的登入和審核記錄活動，並觸發通知給其他系統管理員。 當您監視中斷玻璃帳戶的活動時，您可以確認這些帳戶僅用於測試或實際的緊急事件。 您可以使用 Azure Log Analytics 來監視登入記錄，並在每次中斷玻璃帳戶時，觸發電子郵件和 SMS 警示給您的系統管理員。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 1. [將 Azure AD 登入記錄傳送](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)到 Azure 監視器。
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>取得中斷玻璃帳戶的物件識別碼
 
 1. 使用指派給使用者系統管理員角色的帳戶登入[Azure 入口網站](https://portal.azure.com)。
-1. 選取 [ **Azure Active Directory**  > **使用者**]。
+1. 選取 [ **Azure Active Directory** > **使用者**]。
 1. 搜尋 [全選] 帳戶，然後選取使用者的名稱。
 1. 複製並儲存 [物件識別碼] 屬性，讓您稍後可以使用它。
 1. 針對第二個「中斷玻璃」帳戶重複上述步驟。
@@ -88,7 +89,7 @@ ms.locfileid: "70772443"
 1. 使用在 Azure 監視器中指派給 [監視參與者] 角色的帳戶登入[Azure 入口網站](https://portal.azure.com)。
 1. 選取 [**所有服務**]，在 [搜尋] 中輸入 "log analytics"，然後選取 [ **log analytics 工作區**]。
 1. 選取工作區。
-1. 在您的工作區中，選取 [**警示** > ] [**新增警示規則**]。
+1. 在您的工作區中，選取 [**警示**] > [**新增警示規則**]。
     1. 在 [**資源**] 底下，確認訂用帳戶是您要與警示規則產生關聯的訂閱。
     1. 在 [**條件**] 底下，選取 [**新增**]。
     1. 選取 [**信號名稱**] 底下的 [**自訂記錄搜尋**]。

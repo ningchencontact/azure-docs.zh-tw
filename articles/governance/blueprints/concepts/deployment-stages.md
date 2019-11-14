@@ -1,14 +1,14 @@
 ---
 title: 藍圖部署的階段
 description: 瞭解 Azure 藍圖服務在部署期間所經歷的步驟。
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
-ms.openlocfilehash: d0d97ed01c4ae2ef96da151e1ab4ddc13a4b1d3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b329613e4e4954a1ea1452017a6e6c8b7343f2d3
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960528"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048621"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>藍圖部署的階段
 
@@ -25,7 +25,7 @@ ms.locfileid: "73960528"
 
 ## <a name="blueprints-granted-owner-rights"></a>藍圖已授與擁有者許可權
 
-Azure 藍圖服務主體會被授與擁有者許可權給指派的訂用帳戶或訂閱。 授與的角色允許藍圖建立並于稍後撤銷[系統指派的受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)。
+當使用[系統指派的受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)受控識別時，Azure 藍圖服務主體會被授與指派的訂用帳戶或訂用帳戶的擁有者許可權。 授與的角色允許藍圖建立並于稍後撤銷**系統指派**的受控識別。 如果使用**使用者指派**的受控識別，則 Azure 藍圖服務主體不會取得訂用帳戶，也不需要訂閱的擁有者許可權。
 
 如果指派是透過入口網站完成，系統就會自動授與許可權。 不過，如果指派是透過 REST API 完成，則授與許可權需要使用個別的 API 呼叫來完成。 Azure 藍圖 AppId 是 `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`的，但服務主體會因租使用者而異。 使用[Azure Active Directory 圖形 API](../../../active-directory/develop/active-directory-graph-api.md)和 REST 端點[servicePrincipals](/graph/api/resources/serviceprincipal)來取得服務主體。 然後，透過[入口網站](../../../role-based-access-control/role-assignments-portal.md)、 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)、 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md)、 [REST API](../../../role-based-access-control/role-assignments-rest.md)或[Resource Manager 範本](../../../role-based-access-control/role-assignments-template.md)，將「_擁有_者」角色授與 Azure 藍圖。
 
@@ -35,7 +35,7 @@ Azure 藍圖服務主體會被授與擁有者許可權給指派的訂用帳戶�
 
 使用者、群組或服務主體會將藍圖指派給訂用帳戶。 指派物件存在於已指派藍圖的訂用帳戶層級。 部署所建立的資源不會在部署實體的內容中完成。
 
-建立藍圖指派時，會選取[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)的類型。 預設值是**系統指派**的受控識別。 可以選擇**使用者指派**的受控識別。 使用**使用者指派**的受控識別時，必須先定義並授與許可權，才能建立藍圖指派。
+建立藍圖指派時，會選取[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)的類型。 預設值是**系統指派**的受控識別。 可以選擇**使用者指派**的受控識別。 使用**使用者指派**的受控識別時，必須先定義並授與許可權，才能建立藍圖指派。 「[擁有](../../../role-based-access-control/built-in-roles.md#owner)者」和「[藍圖」操作員](../../../role-based-access-control/built-in-roles.md#blueprint-operator)內建角色都具有必要的 `blueprintAssignment/write` 許可權，可以建立使用**使用者指派**受控識別的指派。
 
 ## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>選擇性-藍圖會建立系統指派的受控識別
 

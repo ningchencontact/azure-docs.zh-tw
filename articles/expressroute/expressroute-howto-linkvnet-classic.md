@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路連結到 ExpressRoute 線路：PowerShell：傳統：Azure | Microsoft Docs
+title: ExpressRoute：將 VNet 連結到線路：傳統
 description: 本文提供以下內容的概觀：如何使用傳統部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。
 services: expressroute
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e02073e777c62be00b5c25c2242294e54795a0d4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748264"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031618"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 將虛擬網路連接到 ExpressRoute 線路 (傳統)
 > [!div class="op_single_selector"]
@@ -53,9 +53,9 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azur
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
 
-如需 Azure PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/overview)，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指導方針。
+如需 Azure PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/overview)，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。
 
-### <a name="sign-in"></a>Sign in
+### <a name="sign-in"></a>登入
 
 若要登入您的 Azure 帳戶，請使用下列範例：
 

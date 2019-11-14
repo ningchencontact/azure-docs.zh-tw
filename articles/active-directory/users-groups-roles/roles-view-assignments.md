@@ -1,24 +1,24 @@
 ---
-title: 在系統管理中心內查看管理員角色許可權-Azure Active Directory |Microsoft Docs
+title: 在 Azure AD 入口網站中，查看自訂角色指派 |Microsoft Docs
 description: 您現在可以在 [Azure AD 系統管理中心] 中，看到並管理 Azure AD 管理員角色的成員。
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d989a515a1a3c1dc12ca357a3ab2126e78800ffa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025547"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024423"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>查看 Azure Active Directory 中的自訂角色指派
 
@@ -31,7 +31,7 @@ ms.locfileid: "72025547"
 
 此程式說明如何以全組織範圍來查看角色的指派。
 
-1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com) with 特殊權限角色管理員或 Azure AD 組織中的全域管理員許可權。
+1. 使用 Azure AD 組織中的特殊權限角色管理員或全域管理員許可權登入 [Azure AD admin center](https://aad.portal.azure.com) 。
 1. 選取 [ **Azure Active Directory**]，選取 [**角色和系統管理員**]，然後選取要開啟的角色並查看其屬性。
 1. 選取 [**指派**] 以查看角色的指派。
 
@@ -88,7 +88,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -104,7 +104,7 @@ HTTP/1.1 200 OK
 
 本節說明如何使用單一應用程式範圍來查看角色的指派。 此功能目前為公開預覽狀態。
 
-1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com) with 特殊權限角色管理員或 Azure AD 組織中的全域管理員許可權。
+1. 使用 Azure AD 組織中的特殊權限角色管理員或全域管理員許可權登入 [Azure AD admin center](https://aad.portal.azure.com) 。
 1. 選取 [**應用程式註冊**]，然後選取 [應用程式註冊] 以查看其屬性。 您可能必須選取 [**所有應用程式**]，才能在您的 Azure AD 組織中查看應用程式註冊的完整清單。
 
     ![從 [應用程式註冊] 頁面建立或編輯應用程式註冊](./media/roles-create-custom/appreg-all-apps.png)

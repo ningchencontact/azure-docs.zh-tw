@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 0c21271eb19a8fd69cb42e30c6a45bd3af9a5600
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1f5f5f2064baa4b2821ccb7b9a2237e6aeeb86f5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820484"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048764"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中受控實例的連線架構
 
@@ -66,7 +66,7 @@ Microsoft 管理和部署服務會在虛擬網路外部執行。 受控實例和
 
 ![虛擬叢集的連線架構](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-用戶端會使用格式為 `<mi_name>.<dns_zone>.database.windows.net` 的主機名稱來連接到受控實例。 此主機名稱會解析為私人 IP 位址，雖然它是在公用網域名稱系統（DNS）區域中註冊，而且可公開解析。 當您建立叢集時，會自動產生 `zone-id`。 如果新建立的叢集裝載次要受控實例，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱[使用自動容錯移轉群組來啟用多個資料庫的透明和協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
+用戶端會使用格式為 `<mi_name>.<dns_zone>.database.windows.net`的主機名稱來連線到受控實例。 此主機名稱會解析為私人 IP 位址，雖然它是在公用網域名稱系統（DNS）區域中註冊，而且可公開解析。 當您建立叢集時，就會自動產生 `zone-id`。 如果新建立的叢集裝載次要受控實例，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱[使用自動容錯移轉群組來啟用多個資料庫的透明和協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
 
 此私人 IP 位址屬於受控實例的內部負載平衡器。 負載平衡器會將流量導向至受控實例的閘道。 因為多個受控實例可以在相同的叢集中執行，所以閘道會使用受控實例的主機名稱，將流量重新導向至正確的 SQL 引擎服務。
 
@@ -110,7 +110,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
 
 > [!IMPORTANT]
-> 請確定埠9000、9003、1438、1440、1452和一個用於埠80、443、12000的輸出規則都只有一個輸入規則。 如果為每個埠分別設定輸入和輸出規則，透過 Azure Resource Manager 部署的受控執行個體布建將會失敗。 如果這些埠是在不同的規則中，部署將會失敗，錯誤碼為 `VnetSubnetConflictWithIntendedPolicy`
+> 請確定埠9000、9003、1438、1440、1452和一個用於埠443、12000的輸出規則都只有一個輸入規則。 如果為每個埠分別設定輸入和輸出規則，透過 Azure Resource Manager 部署的受控執行個體布建將會失敗。 如果這些埠是在不同的規則中，部署將會失敗，並出現錯誤代碼 `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI 子網指的是子網的 IP 位址範圍，其格式為 10. x. x/y。 您可以在 [Azure 入口網站] 的 [子網] 屬性中找到這項資訊。
 

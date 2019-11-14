@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 26cd2ffc12dfb93f07c2e1755a0dc41cc90da252
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961626"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048181"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -51,7 +51,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 ## <a name="cluster-autoscaler"></a>叢集自動調整程式
 
-為了回應變更的 pod 需求，Kubernetes 有一個叢集自動調整程式（目前在 AKS 中為預覽狀態），它會根據節點集區中要求的計算資源來調整節點數目。 根據預設，叢集自動調整程式會每隔10秒檢查一次計量 API 伺服器，以取得節點計數中的任何必要變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
+為了回應變更的 pod 需求，Kubernetes 有一個叢集自動調整程式，可根據節點集區中要求的計算資源來調整節點數目。 根據預設，叢集自動調整程式會每隔10秒檢查一次計量 API 伺服器，以取得節點計數中的任何必要變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
 
 ![Kubernetes 叢集自動調整程式](media/concepts-scale/cluster-autoscaler.png)
 

@@ -11,16 +11,16 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 34172e313b537d59287a424683ea1555cbba9b99
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693078"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049150"
 ---
 # <a name="column-level-security"></a>資料行層級安全性
 資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。
-
+以下的影片更新-因為這段影片已張貼在 SQL 資料倉儲中，所以也提供了資料[列層級安全性](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017)。 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
 CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制來保護機密資料。 例如，確保特定使用者只能存取其部門相關資料表的特定資料行。 存取限制邏輯位於資料庫層，而不是遠離另一個應用程式層中的資料。 資料庫會在每次嘗試從任何層級存取該資料時套用存取限制。 此限制可藉由縮小整個安全性系統的介面區，讓安全性系統更加可靠和健全。 此外，CLS 也不需引進檢視以篩選出可用來將存取限制加諸於使用者的資料行。

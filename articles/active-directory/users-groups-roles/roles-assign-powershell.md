@@ -1,44 +1,44 @@
 ---
-title: 使用 Azure PowerShell Azure Active Directory, 將自訂角色指派給資源範圍 |Microsoft Docs
+title: 使用 Azure PowerShell Azure AD 來指派自訂角色 |Microsoft Docs
 description: 使用 Azure PowerShell 管理 Azure AD 系統管理員自訂角色的成員。
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3f590659017d2bb79c7445f6896817b8432f41
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0a2096b7899039e7a9d3455bc0c6fb3ec84ebd1a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880725"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025325"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>在 Azure Active Directory 中使用 PowerShell 指派具有資源範圍的自訂角色
 
-本文說明如何在 Azure Active Directory (Azure AD) 中的組織範圍內建立角色指派。 在整個組織範圍指派角色, 會授與 Azure AD 組織的存取權。 若要建立具有單一 Azure AD 資源範圍的角色指派, 請參閱[如何建立自訂角色, 並在資源範圍中指派](roles-create-custom.md)。本文使用[Azure Active Directory PowerShell 第2版](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)模組。
+本文說明如何在 Azure Active Directory （Azure AD）中的組織範圍內建立角色指派。 在整個組織範圍指派角色，會授與 Azure AD 組織的存取權。 若要建立具有單一 Azure AD 資源範圍的角色指派，請參閱[如何建立自訂角色，並在資源範圍中指派](roles-create-custom.md)。本文使用[Azure Active Directory PowerShell 第2版](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)模組。
 
-如需 Azure AD 管理員角色的詳細資訊, 請參閱 [在 Azure Active Directory 中指派系統管理員角色](directory-assign-admin-roles.md)。
+如需 Azure AD 管理員角色的詳細資訊，請參閱 [在 Azure Active Directory 中指派系統管理員角色](directory-assign-admin-roles.md)。
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>所需的權限
 
-使用全域系統管理員帳戶連接到您的 Azure AD 租使用者, 以指派或移除角色。
+使用全域系統管理員帳戶連接到您的 Azure AD 租使用者，以指派或移除角色。
 
 ## <a name="prepare-powershell"></a>準備 PowerShell
 
-從[PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)安裝 Azure AD PowerShell 模組。 然後使用下列命令匯入 Azure AD PowerShell 預覽模組:
+從[PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)安裝 Azure AD PowerShell 模組。 然後使用下列命令匯入 Azure AD PowerShell 預覽模組：
 
 ``` PowerShell
 import-module azureadpreview
 ```
 
-若要確認模組已備妥可供使用, 請將下列命令所傳回的版本與此處所列的版本進行比對:
+若要確認模組已備妥可供使用，請將下列命令所傳回的版本與此處所列的版本進行比對：
 
 ``` PowerShell
 get-module azureadpreview
@@ -47,12 +47,12 @@ get-module azureadpreview
   Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-現在您可以開始在模組中使用 Cmdlet。 如需 Azure AD 模組中 Cmdlet 的完整描述, 請參閱[Azure AD preview 模組](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)的線上參考檔。
+現在您可以開始在模組中使用 Cmdlet。 如需 Azure AD 模組中 Cmdlet 的完整描述，請參閱[Azure AD preview 模組](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)的線上參考檔。
 
 ## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>將角色指派給具有資源範圍的使用者或服務主體
 
 1. 開啟 Azure AD preview PowerShell 模組。
-1. 執行命令`Connect-AzureAD`以登入。
+1. 藉由執行命令 `Connect-AzureAD`來登入。
 1. 使用下列 PowerShell 腳本建立新的角色。
 
 ``` PowerShell
@@ -69,11 +69,11 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-若要將角色指派給服務主體, 而不是使用者, 請使用[AzureADMSServicePrincipal Cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)。
+若要將角色指派給服務主體，而不是使用者，請使用[AzureADMSServicePrincipal Cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)。
 
 ## <a name="operations-on-roledefinition"></a>RoleDefinition 上的作業
 
-角色定義物件包含內建或自訂角色的定義, 以及該角色指派所授與的許可權。 此資源會同時顯示自訂角色定義和內建 directoryRoles (以 roleDefinition 對應的形式顯示)。 目前, Azure AD 的組織最多隻能定義30個唯一的自訂 RoleDefinitions。
+角色定義物件包含內建或自訂角色的定義，以及該角色指派所授與的許可權。 此資源會同時顯示自訂角色定義和內建 directoryRoles （以 roleDefinition 對應的形式顯示）。 目前，Azure AD 的組織最多隻能定義30個唯一的自訂 RoleDefinitions。
 
 ### <a name="create-operations-on-roledefinition"></a>在 RoleDefinition 上建立作業
 
@@ -126,7 +126,7 @@ Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 
 ## <a name="operations-on-roleassignment"></a>RoleAssignment 上的作業
 
-角色指派包含將指定的安全性主體 (使用者或應用程式服務主體) 連結至角色定義的資訊。 如有需要, 您可以為指派的許可權新增單一 Azure AD 資源的範圍。  內建和自訂角色支援限制許可權的範圍。
+角色指派包含將指定的安全性主體（使用者或應用程式服務主體）連結至角色定義的資訊。 如有需要，您可以為指派的許可權新增單一 Azure AD 資源的範圍。  內建和自訂角色支援限制許可權的範圍。
 
 ### <a name="create-operations-on-roleassignment"></a>在 RoleAssignment 上建立作業
 
@@ -163,5 +163,5 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 ## <a name="next-steps"></a>後續步驟
 
 - 請在[Azure AD 系統管理角色論壇](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)與我們分享。
-- 如需角色和 azure AD 系統管理員角色指派的詳細資訊, 請參閱[指派系統管理員角色](directory-assign-admin-roles.md)。
+- 如需角色和 azure AD 系統管理員角色指派的詳細資訊，請參閱[指派系統管理員角色](directory-assign-admin-roles.md)。
 - 如需預設使用者權限，請參閱[預設來賓和成員使用者權限的比較](../fundamentals/users-default-permissions.md)。

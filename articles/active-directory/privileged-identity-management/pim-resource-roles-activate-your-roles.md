@@ -1,26 +1,26 @@
 ---
-title: 在 PIM 中啟用我的 Azure 資源角色-Azure Active Directory |Microsoft Docs
+title: 在 PIM 中啟用 Azure 資源角色-Azure AD |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中啟用 Azure 資源角色。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2062ece84676e0af37c79cf25d8662f186ab0a
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808992"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023140"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中啟用我的 Azure 資源角色
 

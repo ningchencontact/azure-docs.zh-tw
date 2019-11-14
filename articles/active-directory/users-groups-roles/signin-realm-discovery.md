@@ -1,24 +1,24 @@
 ---
-title: 在 登入驗證-Azure Active Directory 的使用者名稱查閱 |Microsoft Docs
-description: 如何螢幕上訊息會反映出在登入期間的使用者名稱查閱
+title: 登入期間的使用者名稱查閱-Azure Active Directory |Microsoft Docs
+description: 螢幕上的訊息在登入期間如何反映使用者名稱查閱 Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418187"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024257"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 登入頁面的主領域探索
 
@@ -26,35 +26,35 @@ ms.locfileid: "66418187"
 
 ## <a name="home-realm-discovery-behavior"></a>主領域探索行為
 
-在過去，提供在登入網域，或某些舊版的應用程式的主領域探索原則所控管主領域探索。 比方說，我們探索行為中的 Azure Active Directory 使用者可以輸入其使用者名稱，但仍會在其組織的認證集合畫面會送達。 發生這種情況的正確使用者提供的組織的網域名稱為"contoso.com"時。 這項行為並不允許個別使用者自訂體驗的細微性。
+在過去，主領域探索是由在登入時提供的網域，或由一些繼承應用程式的主領域探索原則所控管。 例如，在我們的探索行為中，Azure Active Directory 使用者可能會錯誤地輸入使用者名稱，但仍會抵達組織的認證集合畫面。 當使用者正確提供組織的功能變數名稱 "contoso.com" 時，就會發生這種情況。 這項行為並不允許個別使用者自訂體驗的細微性。
 
-若要支援較大範圍的認證，並增加可用性，現在會更新登入程序期間的 Azure Active Directory 的使用者名稱查閱行為。 新的行為就可以做出明智的決策讀取登入頁面上輸入的使用者名稱為基礎的租用戶和使用者層級的設定。 若要達到這個目的，Azure Active Directory 會檢查以查看登入頁面所輸入的使用者名稱是否存在於指定的網域，或者提供其認證的使用者重新導向。
+為了支援更廣泛的認證並增加可用性，在登入程式期間，Azure Active Directory 的使用者名稱查閱行為會立即更新。 新的行為會根據登入頁面上輸入的使用者名稱，來讀取租使用者和使用者層級設定，以做出明智的決策。 若要這麼做，Azure Active Directory 將會檢查登入頁面上所輸入的使用者名稱是否存在於其指定的網域中，或將使用者重新導向以提供其認證。
 
-這項工作的另一個優點是改良的錯誤訊息。 以下是錯誤的一些改良訊息時登入支援僅限 Azure Active Directory 使用者的應用程式的範例。
+這項工作的另一個優點是改善了錯誤訊息。 以下是在登入僅支援 Azure Active Directory 使用者的應用程式時，改善的錯誤訊息範例。
 
-- 輸入使用者名稱不正確，或使用者名稱已經不尚未同步處理至 Azure AD:
+- 使用者名稱不正確，或使用者名稱尚未同步到 Azure AD：
   
-    ![使用者名稱輸入錯誤，或是找不到](./media/signin-realm-discovery/typo-username.png)
+    ![使用者名稱不是輸入錯誤，或找不到](./media/signin-realm-discovery/typo-username.png)
   
-- 網域名稱會輸入錯誤：
+- 功能變數名稱輸入錯誤：
   
-    ![輸入不正確或找不到的網域名稱](./media/signin-realm-discovery/typo-domain.png)
+    ![功能變數名稱輸入錯誤或找不到](./media/signin-realm-discovery/typo-domain.png)
   
 - 使用者嘗試使用已知的取用者網域登入：
   
-    ![使用已知的取用者網域登入](./media/signin-realm-discovery/consumer-domain.png)
+    ![使用已知的取用者網域進行登入](./media/signin-realm-discovery/consumer-domain.png)
   
-- 密碼打錯了，但使用者名稱正確無誤：  
+- 密碼輸入錯誤，但使用者名稱是正確的：  
   
-    ![密碼是很好的使用者名稱輸入錯誤](./media/signin-realm-discovery/incorrect-password.png)
+    ![密碼輸入正確的使用者名稱](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> 這項功能可能會影響依賴舊的網域層級主領域探索來強制同盟的同盟網域。 更新會新增同盟的網域支援的時，請參閱 <<c0> [ 主領域探索 Microsoft 365 服務的登入期間](https://azure.microsoft.com/updates/signin-hrd/)。 在此同時，某些組織有訓練員工能夠使用 Azure Active Directory 中不存在，但是包含適當的網域名稱，使用者名稱登入，因為網域名稱將使用者路由目前到其組織的網域的端點。 新的登入行為不允許這樣做。 若要修正使用者名稱，會通知使用者，它們並不允許使用不存在於 Azure Active Directory 的使用者名稱登入。
+> 這項功能可能會影響依賴舊網域層級主領域探索來強制執行同盟的聯盟網域。 如需新增同盟網域支援時的更新，請參閱[Microsoft 365 服務登入期間的主領域探索](https://azure.microsoft.com/updates/signin-hrd/)。 在此同時，某些組織會使用不存在於 Azure Active Directory 中的使用者名稱來進行登入，但包含適當的功能變數名稱，因為功能變數名稱會將目前的使用者路由傳送到其組織的網域端點。 新的登入行為不允許這種情況。 系統會通知使用者，以更正使用者名稱，而且不允許使用 Azure Active Directory 中不存在的 username 登入。
 >
-> 如果您或貴組織有相依於舊版的行為的做法，請務必為組織系統管理員以更新員工的登入和驗證的文件，並訓練員工使用其 Azure Active Directory 使用者名稱登入。
+> 如果您或您的組織具有相依于舊行為的作法，組織系統管理員必須更新員工登入和驗證檔，並訓練員工使用他們的 Azure Active Directory 使用者名稱來登入。
   
-如果您有新的行為方面的疑慮，讓您的註解中**意見反應**一節。  
+如果您對新行為有疑慮，請在本文的**意見**反應一節中留下您的意見。  
 
 ## <a name="next-steps"></a>後續步驟
 
-[自訂您登入的品牌](../fundamentals/add-custom-domain.md)
+[自訂您的登入商標](../fundamentals/add-custom-domain.md)

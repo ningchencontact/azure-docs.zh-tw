@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中樞：常見問題集 | Microsoft Docs
+title: Azure 通知中樞：常見問題集 (FAQ) | Microsoft Docs
 description: 在通知中樞上設計/實作解決方案的常見問題集
 services: notification-hubs
 documentationcenter: mobile
@@ -13,18 +13,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213143"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048775"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
 
 ## <a name="general"></a>一般
 
@@ -46,8 +46,8 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 * **豐富的遙測**：您可以使用每個訊息遙測的通知中樞，來追蹤任何推播要求和平台通知系統的意見反應以進行偵錯。
 * **多租用戶**：您可以在命名空間層級上使用平台通知系統認證。 此選項可讓您在相同的命名空間內輕鬆地將租用戶分割成多個中樞。
-* **已排程的推播**：您可以排定在任何時間傳送通知。
-* **大量作業**：可使用註冊匯出/匯入功能，如[註冊匯出/匯入]文件中所述。
+* **排定推播**：您可以排定在任何時間傳送通知。
+* **大量作業**：啟用註冊匯出/匯入功能，如[註冊匯出/匯入]檔中所述。
 
 ### <a name="what-is-the-notification-hubs-sla"></a>什麼是通知中樞 SLA？
 
@@ -165,7 +165,7 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>我可以得到哪些災害復原支援？
 
-我們在我們這邊提供中繼資料災害復原範圍 (通知中樞名稱、連接字串和其他重要資訊)。 觸發災害復原案例後，註冊資料是通知中樞基礎結構中唯一會遺失的區段。 您必須實作解決方案，將此資料重新填入到復原後的新中樞：
+我們在我們這邊提供中繼資料災害復原範圍 (通知中樞名稱、連接字串和其他重要資訊)。 觸發災害復原案例後，註冊資料是通知中樞基礎結構中唯一會遺失的區段。 您必須執行解決方案，將此資料重新填入新的中樞後復原：
 
 1. 在不同的資料中心建立次要通知中樞。 我們建議您一開始就建立通知中樞，以避免災害復原事件和影響您的管理功能。 您也可以在災害復原事件發生時建立一個通知中樞。
 
@@ -183,9 +183,13 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 
 但如果裝置上有未開啟的應用程式時，會有一段期間收不到通知。
 
+### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>我所有的資料都是以加密形式儲存嗎？
+
+Azure 通知中樞會將待用的所有客戶資料加密，但註冊標記除外。 基於這個理由，您不應該使用標記來儲存個人或機密資料。
+
 ### <a name="is-there-audit-log-capability"></a>是否有稽核記錄功能？
 
-是的。 所有「通知中樞」管理作業都會更新在 [Azure 入口網站]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
+是。 所有「通知中樞」管理作業都會更新在 [Azure 入口網站]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
 
 ## <a name="monitoring-and-troubleshooting"></a>監視與疑難排解
 
@@ -197,7 +201,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 
 您可透過 Azure 通知中樞，在 [Azure 入口網站]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
 
-您也可以透過程式設計方式存取計量。 如需詳細資訊，請參閱下列文章：
+您也可以透過程式設計方式存取計量。 如需詳細資訊，請參閱下列文章。
 
 - [使用 .Net 取得 Azure 監視器計量](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)。 這個範例會使用使用者名稱和密碼。 若要使用憑證，請多載 FromServicePrincipal 方法以提供憑證，如[本範例](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)所示。 
 - [取得資源的計量和活動記錄](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)

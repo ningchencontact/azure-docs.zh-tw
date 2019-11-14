@@ -9,24 +9,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1ed57e30273c9ba3feb110e0e5acbd3bcc7ffd40
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990179"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062859"
 ---
-> [!IMPORTANT]
-> * 2019 年 5 月，新的 [Azure Active Directory] > [應用程式註冊] 刀鋒視窗會取代舊版的 [Azure Active Directory] > [應用程式註冊 (舊版)] 刀鋒視窗。
-> * 在舊版刀鋒視窗中建立或顯示的應用程式註冊，會自動出現在新的刀鋒視窗中。
-> * 如需遷移至新 Azure 應用程式註冊體驗的詳細資訊，請參閱 [Azure 應用程式註冊訓練指南](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide)和 [Azure Active Directory 快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
-
 1. 在 [Azure 入口網站](https://ms.portal.azure.com/)中，選取 [Azure Active Directory] > [應用程式註冊] > [新增註冊]。
 
    [![Azure Active Directory 中的新應用程式註冊](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > 新的 [Azure Active Directory 應用程式註冊] 面板可讓您選取 [擁有的應用程式] 以篩選顯示的應用程式。
 
     應用程式在註冊後便會在此列出。
 
@@ -51,7 +43,7 @@ ms.locfileid: "72990179"
 
    [![建立新的用戶端密碼](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   按一下 [儲存]。
+   按一下 [檔案]。
 
 1. 選取 [憑證 & 密碼]，接著 [新的用戶端密碼] 來建立應用程式密碼，以供用戶端用來證明其身分識別。
 

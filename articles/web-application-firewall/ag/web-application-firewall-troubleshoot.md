@@ -1,18 +1,18 @@
 ---
-title: 針對 Azure 應用程式閘道的 Web 應用程式防火牆進行疑難排解
+title: 疑難排解-Azure Web 應用程式防火牆
 description: 本文提供 Azure 應用程式閘道的 Web 應用程式防火牆（WAF）的疑難排解資訊
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/22/2019
+ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: fff50417bd7944e125ce1d7c1e1ae52ec22f806f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516561"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046200"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>針對 Azure 應用程式閘道的 Web 應用程式防火牆（WAF）進行疑難排解
 

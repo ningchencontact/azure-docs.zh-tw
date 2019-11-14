@@ -7,14 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 514dcf05eaa37bd338ef6359977b9a5508838459
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a53694f97da144f3932efe39941d3f22ef739c7b
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932856"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048217"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集並分析 Azure 活動記錄
+
+> [!NOTE]
+> 您現在可以使用與收集資源記錄的方式類似的診斷設定，將活動記錄收集到 Log Analytics 工作區。 請參閱[在 Azure 監視器中收集和分析 Log Analytics 工作區中的 Azure 活動記錄](activity-log-collect.md)。
+
 [Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 本文說明如何將活動記錄檔收集到 Log Analytics 工作區，以及如何使用活動記錄分析[監視解決方案](../insights/solutions.md)，以提供記錄查詢和用於分析此資料的視圖。 
 
 將活動記錄連接到 Log Analytics 工作區可提供下列優點：
@@ -64,9 +68,9 @@ Azure Log Analytics 監視解決方案包含多個記錄查詢和視圖，可用
 | 視覺效果元件 | 描述 |
 | --- | --- |
 | Azure 活動記錄項目 | 針對您所選取的日期範圍，顯示最上層 Azure 活動記錄專案記錄總計的橫條圖，並顯示前10個活動呼叫者的清單。 按一下長條圖即可執行 `AzureActivity` 的記錄搜尋。 按一下呼叫者專案來執行記錄搜尋，以傳回該專案的所有活動記錄專案。 |
-| 依狀態列出的活動記錄 | 顯示所選日期範圍的 Azure 活動記錄狀態的環圈圖，以及前十筆狀態記錄的清單。 按一下圖表以執行 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus` 的記錄查詢。 按一下狀態專案以執行記錄搜尋，以傳回該狀態記錄的所有活動記錄專案。 |
+| 依狀態列出的活動記錄 | 顯示所選日期範圍的 Azure 活動記錄狀態的環圈圖，以及前十筆狀態記錄的清單。 按一下圖表以執行 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`的記錄查詢。 按一下狀態專案以執行記錄搜尋，以傳回該狀態記錄的所有活動記錄專案。 |
 | 依資源列出的活動記錄 | 顯示具有活動記錄的總資源數，並列出每個資源具有記錄計數的前10個資源。 按一下總計區域即可執行 `AzureActivity | summarize AggregatedValue = count() by Resource` 的記錄搜尋，這會顯示解決方案可用的所有 Azure 資源。 按一下資源以執行記錄查詢，以傳回該資源的所有活動記錄。 |
-| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前十個。 按一下 [總計] 區域，以執行 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider` 的記錄查詢，這會顯示所有的 Azure 資源提供者。 按一下資源提供者以執行記錄查詢，以傳回提供者的所有活動記錄。 |
+| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前十個。 按一下 [總計] 區域，以執行 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`的記錄查詢，這會顯示所有的 Azure 資源提供者。 按一下資源提供者以執行記錄查詢，以傳回提供者的所有活動記錄。 |
 
 ## <a name="next-steps"></a>後續步驟
 

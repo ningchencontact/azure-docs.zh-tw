@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料 |Microsoft Docs
+title: 使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料
 description: 使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: dc5dc187bf23c9391108b24df9836645756fd62c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d3931d2affd77ce53b6ace9cc043e0272eaaf954
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165284"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040086"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料
 
-此腳本會建立一個 csv, 其中包含所提供訂用帳戶中的 VM 名稱、資源組名、區域、虛擬網路、子網、私人 IP 位址、OS 類型, 以及 Vm 的公用 IP 位址。
+此腳本會建立一個 csv，其中包含所提供訂用帳戶中的 VM 名稱、資源組名、區域、虛擬網路、子網、私人 IP 位址、OS 類型，以及 Vm 的公用 IP 位址。
 
 如果您沒有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
@@ -70,9 +70,9 @@ $report | Export-CSV "$home/$reportName"
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
-此腳本會使用下列命令, 在訂用帳戶中建立 Vm 詳細資料的 csv 匯出。 下表中的每個命令都會連結至命令特定的文件。
+此腳本會使用下列命令，在訂用帳戶中建立 Vm 詳細資料的 csv 匯出。 下表中的每個命令都會連結至命令特定的文件。
 
-|命令|注意|
+|命令|注意事項|
 |-|-|
 |[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|設定要在目前會話中使用之 Cmdlet 的租使用者、訂用帳戶和環境。|
 |[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|取得虛擬機器的屬性。|

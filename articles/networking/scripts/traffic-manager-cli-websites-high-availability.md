@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
-ms.openlocfilehash: fdd54039cd3e039439c70e02b962e56d72efa715
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2a083520a0da324d7033d4597a6b734b43c025b7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890252"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049263"
 ---
-# <a name="route-traffic-for-high-availability-of-applications"></a>路由傳送流量以達到應用程式的高可用性
+# <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>路由傳送流量以達到應用程式的高可用性-Azure CLI
 
 這個指令碼會建立一個資源群組、兩個 App Service 方案、兩個 Web 應用程式、一個流量管理員設定檔和兩個流量管理員端點。 流量管理員會將流量導向主要區域中的應用程式，然後當主要區域中的應用程式無法使用時，將流量導向至次要區域。 在執行指令碼之前，您必須將 MyWebApp、MyWebAppL1 和 MyWebAppL2 值都變更為整個 Azure 中的唯一值。 在執行指令碼之後，您可以透過 URL mywebapp.trafficmanager.net 來存取主要區域中的應用程式。
 

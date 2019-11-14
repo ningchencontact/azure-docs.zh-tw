@@ -1,5 +1,5 @@
 ---
-title: 將 Azure VM 移轉至受控磁碟 | Microsoft Docs
+title: 將 Azure Vm 遷移至受控磁碟
 description: 將使用儲存體帳戶中非受控磁碟建立的 Azure 虛擬機器移轉成使用受控磁碟。
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,28 +7,28 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7487d53195b45664b094ccc3a8418bd0c700e052
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7b907cf5bf64aa1a8a458a8d2b42c30dffd0dfd1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693489"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029786"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>將 Azure VM 移轉至 Azure 中的受控磁碟
 
-Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化儲存體管理。  您也可以將現有的 Azure VM 移轉至受控磁碟，以便受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中不同 Vm 的磁片彼此充分隔離, 以避免發生單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。
+Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化儲存體管理。  您也可以將現有的 Azure VM 移轉至受控磁碟，以便受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中不同 Vm 的磁片彼此充分隔離，以避免發生單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。
 根據您的需求，您可從四種類型的儲存體選項中選擇。 若要了解可用的磁碟類型，請參閱[選取磁碟類型](disks-types.md)一文
 
 ## <a name="migration-scenarios"></a>移轉案例
 
 您可以在下列案例中移轉到受控磁碟︰
 
-|狀況  |文章  |
+|案例  |文章  |
 |---------|---------|
 |將獨立 VM 和可用性設定組中的 VM 轉換成受控磁碟     |[將 VM 轉換成使用受控磁碟](convert-unmanaged-to-managed-disks.md)         |
 |將單一 VM 從傳統轉換成受控磁片上的 Resource Manager     |[從傳統 VHD 建立 VM](create-vm-specialized-portal.md)         |
 |將 vNet 中的所有 Vm 從傳統轉換成受控磁片上的 Resource Manager     |[將 IaaS 資源從傳統部署移轉至 Resource Manager 部署](migration-classic-resource-manager-ps.md)，然後[將 VM 從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)         |
-|將具有標準非受控磁片的 Vm 升級至具有受控 premium 磁片的 Vm     | 首先,[將 Windows 虛擬機器從非受控磁片轉換為受控磁片](convert-unmanaged-to-managed-disks.md)。 然後[更新受控磁片的儲存體類型](convert-disk-storage.md)。         |
+|將具有標準非受控磁片的 Vm 升級至具有受控 premium 磁片的 Vm     | 首先，[將 Windows 虛擬機器從非受控磁片轉換為受控磁片](convert-unmanaged-to-managed-disks.md)。 然後[更新受控磁片的儲存體類型](convert-disk-storage.md)。         |
 
 ## <a name="next-steps"></a>後續步驟
 

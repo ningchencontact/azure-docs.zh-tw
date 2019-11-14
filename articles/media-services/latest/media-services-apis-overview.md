@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820626"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049020"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -108,7 +108,7 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 
 成功提交長時間時，您會收到「202已接受」，而且必須使用傳回的作業識別碼來輪詢作業完成。
 
-[追蹤非同步 azure 作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)一文深入說明如何透過回應中傳回的值，追蹤非同步 azure 作業的狀態。
+[追蹤非同步 Azure 作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)一文會深入說明如何透過回應中傳回的值，追蹤非同步 Azure 作業的狀態。
 
 給定的即時事件或其任何相關聯的即時輸出僅支援一個長時間執行的作業。 啟動之後，長時間執行的作業必須先完成，才能在相同的 LiveEvent 或任何相關聯的即時輸出上啟動後續的長時間執行作業。 針對具有多個即時輸出的實況活動，您必須在對另一個即時輸出觸發長時間執行的作業之前，等待在一個即時輸出上完成長時間執行的作業。 
 
@@ -122,7 +122,7 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 參考](https://aka.ms/ams-v3-dotnet-ref)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 參考](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python 參考](https://aka.ms/ams-v3-python-ref)|
-|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 參考](/javascript/api/overview/azure/mediaservices/management)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go 參考](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 

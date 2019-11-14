@@ -1,18 +1,18 @@
 ---
-title: 將 Azure 應用程式閘道和 Web 應用程式防火牆從 v1 遷移至 v2
+title: 從 v1 遷移至 v2-Azure 應用程式閘道
 description: 本文說明如何將 Azure 應用程式閘道和 Web 應用程式防火牆從 v1 遷移至 v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: e32443e01e8b44ff5a891afc76378a53b13d7ddd
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 75d041f8ef0d6593a5ff1c696777b68c5f513bf5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833311"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047631"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>將 Azure 應用程式閘道和 Web 應用程式防火牆從 v1 遷移至 v2
 
@@ -174,7 +174,7 @@ ms.locfileid: "73833311"
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>Azure PowerShell 腳本是否也會將來自 v1 閘道的流量切換到新建立的 v2 閘道？
 
-不會。 Azure PowerShell 腳本只會遷移設定。 實際的流量遷移是您在控制中的責任。
+號 Azure PowerShell 腳本只會遷移設定。 實際的流量遷移是您在控制中的責任。
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Azure PowerShell 腳本所建立的新 v2 閘道是否會適當地調整大小，以處理我的 v1 閘道目前所提供的所有流量？
 
@@ -182,11 +182,11 @@ Azure PowerShell 腳本會建立具有適當大小的新 v2 閘道，以處理�
 
 ### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>我設定了 v1 閘道，以將記錄傳送至 Azure 儲存體。 腳本是否也會針對 v2 複寫此設定？
 
-不會。 此腳本不會複寫 v2 的此設定。 您必須將記錄檔設定分別新增至已遷移的 v2 閘道。
+號 此腳本不會複寫 v2 的此設定。 您必須將記錄檔設定分別新增至已遷移的 v2 閘道。
 
 ### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>此腳本是否支援將憑證上傳至 Azure KeyVault？
 
-不會。 目前腳本不支援 KeyVault 中的憑證。 不過，未來的版本將會考慮這一點。
+號 目前腳本不支援 KeyVault 中的憑證。 不過，未來的版本將會考慮這一點。
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>我在使用此腳本時遇到一些問題。 如何取得協助？
   

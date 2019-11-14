@@ -1,24 +1,24 @@
 ---
-title: 在 Azure AD 角色型存取控制中建立並指派自訂角色-Azure Active Directory |Microsoft Docs
+title: 在 Azure AD 以角色為基礎的存取控制中建立自訂角色 |Microsoft Docs
 description: 建立並指派 Azure Active Directory 資源上資源範圍的自訂 Azure AD 角色。
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026392"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025281"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>在 Azure Active Directory 中建立及指派自訂角色
 
@@ -30,8 +30,8 @@ ms.locfileid: "72026392"
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>建立新的自訂角色，以授與管理應用程式註冊的存取權
 
-1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com) with 特殊權限角色管理員或 Azure AD 組織中的全域管理員許可權。
-1. 選取**Azure Active Directory** >  個**角色和系統管理員** >  個**新的自訂角色**。
+1. 使用 Azure AD 組織中的特殊權限角色管理員或全域管理員許可權登入 [Azure AD admin center](https://aad.portal.azure.com) 。
+1. 選取 [ **Azure Active Directory** > **角色和系統管理員**] > 新的**自訂角色**。
 
    ![從 [角色和系統管理員] 頁面建立或編輯角色](./media/roles-create-custom/new-custom-role.png)
 
@@ -122,7 +122,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    本文
+    內文
 
     ``` HTTP
    {
@@ -151,7 +151,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    本文
+    內文
 
     ``` HTTP
    {

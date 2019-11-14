@@ -1,5 +1,5 @@
 ---
-title: 使用 Microsoft Graph API Azure Active Directory 來指派和移除自訂系統管理員角色 |Microsoft Docs
+title: 使用 Microsoft Graph API 指派 Azure AD 系統管理員角色 |Microsoft Docs
 description: 在 Azure Active Directory 中使用圖形 API 指派和移除 Azure AD 系統管理員角色
 services: active-directory
 author: curtand
@@ -8,25 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 898f444e868a469aed5358f49f48f5bcbfab4450
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707574"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025332"
 ---
 # <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>在 Azure Active Directory 中使用圖形 API 指派自訂系統管理員角色 
 
 您可以自動化將角色指派給使用者帳戶 Microsoft Graph API 的方式。 本文涵蓋 roleAssignments 上的 POST、GET 及 DELETE 作業。
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>所需的權限
 
-使用全域管理員帳戶或特殊許可權身分識別管理員連接到您的 Azure AD 租使用者, 以指派或移除角色。
+使用全域管理員帳戶或特殊許可權身分識別管理員連接到您的 Azure AD 租使用者，以指派或移除角色。
 
 ## <a name="post-operations-on-roleassignment"></a>RoleAssignment 上的 POST 作業
 
@@ -38,7 +38,7 @@ POST
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-本文
+內文
 
 ``` HTTP
 {
@@ -48,7 +48,7 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 }
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -62,7 +62,7 @@ POST
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-本文
+內文
 
 ``` HTTP
 {
@@ -72,7 +72,7 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 }
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -81,7 +81,7 @@ HTTP/1.1 404 Not Found
 在內建角色定義上建立單一資源範圍角色指派的 HTTP 要求。
 
 > [!NOTE] 
-> 現今的內建角色有限制, 其範圍僅限於「/」整個組織範圍或「/AU/*」範圍。 單一資源範圍不適用於內建角色, 但適用于自訂角色。
+> 現今的內建角色有限制，其範圍僅限於「/」整個組織範圍或「/AU/*」範圍。 單一資源範圍不適用於內建角色，但適用于自訂角色。
 
 POST
 
@@ -89,7 +89,7 @@ POST
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-本文
+內文
 
 ``` HTTP
 {
@@ -99,7 +99,7 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 }
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -133,7 +133,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -159,7 +159,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -179,7 +179,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -193,28 +193,28 @@ HTTP/1.1 200 OK
 
 ## <a name="delete-operations-on-roleassignment"></a>RoleAssignment 上的刪除作業
 
-HTTP 要求, 用以刪除使用者與角色定義之間的角色指派。
+HTTP 要求，用以刪除使用者與角色定義之間的角色指派。
 
-DELETE
+刪除
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-回應
+Response
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
 
 用來刪除不再存在之角色指派的 HTTP 要求
 
-DELETE
+刪除
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -222,13 +222,13 @@ HTTP/1.1 404 Not Found
 
 用來刪除自我和內建角色定義之間角色指派的 HTTP 要求
 
-DELETE
+刪除
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-回應
+Response
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

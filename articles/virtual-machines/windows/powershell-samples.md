@@ -1,5 +1,5 @@
 ---
-title: Azure 虛擬機器 PowerShell 範例 | Microsoft Docs
+title: Azure 虛擬機器 PowerShell 範例
 description: Azure 虛擬機器 PowerShell 範例
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c106ee2110a8c023ab3ed4f2ec9903fc5ca146b2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f068b79f1b1eaa9a11df70052619c8e3993101cb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088963"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033004"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虛擬機器 PowerShell 範例
 
@@ -49,5 +49,5 @@ ms.locfileid: "70088963"
 | [加密 VM 及其資料磁碟](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | 建立 Azure Key Vault、加密金鑰及服務主體，然後加密 VM。 |
 |**監視虛擬機器**||
 | [使用 Azure 監視器監視 VM](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 建立虛擬機器、安裝 Azure Log Analytics 代理程式，並在 Log Analytics 工作區中註冊 VM。  |
-| [使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 建立 csv, 其中包含所提供訂用帳戶中的 VM 名稱、資源組名、區域、虛擬網路、子網、私人 IP 位址、OS 類型, 以及 Vm 的公用 IP 位址。
+| [使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 建立 csv，其中包含所提供訂用帳戶中的 VM 名稱、資源組名、區域、虛擬網路、子網、私人 IP 位址、OS 類型，以及 Vm 的公用 IP 位址。
 | | |

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685474"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049123"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
@@ -60,7 +60,7 @@ ms.locfileid: "73685474"
 
 - 以簡單的起點開始使用時 (因為這是預設值)
 - 如果沒有明顯的聯結索引鍵
-- 如果沒有合適的候選資料行可供雜湊散發資料表
+- 如果沒有適當的候選資料行可供雜湊散發資料表
 - 如果資料表並未與其他資料表共用常見的聯結索引鍵
 - 如果此聯結比查詢中的其他聯結較不重要
 - 當資料表是暫存預備資料表時

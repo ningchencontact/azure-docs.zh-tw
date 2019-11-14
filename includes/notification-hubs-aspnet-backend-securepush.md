@@ -4,15 +4,15 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 3086d15ba541aa7f08f983dac4bc363f43248a9e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229333"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062862"
 ---
 ## <a name="webapi-project"></a>WebAPI 專案
-1. 在 Visual Studio 中，開啟您在 [通知使用者]  教學課程中所建立的 **AppBackend** 專案。
+1. 在 Visual Studio 中，開啟您在 [通知使用者] 教學課程中所建立的 **AppBackend** 專案。
 2. 在 Notifications.cs 中，使用下列程式碼來取代整個 **Notifications** 類別。 請確定使用通知中樞的連接字串 (包含完整存取權) 和中樞名稱來取代預留位置。 您可以從 [Azure 入口網站](https://portal.azure.com)取得這些值。 此模組現會顯示即將傳送的不同安全通知。 在完整的實作中，通知會儲存在資料庫中。為了本案例的方便起見，我們會將通知儲存在記憶體中。
    
         public class Notification
@@ -36,10 +36,11 @@ ms.locfileid: "68229333"
 
             public Notification CreateNotification(string payload)
             {
-                var notification = new Notification() {
-                Id = notifications.Count,
-                Payload = payload,
-                Read = false
+                var notification = new Notification
+                {
+                    Id = notifications.Count,
+                    Payload = payload,
+                    Read = false
                 };
 
                 notifications.Add(notification);
@@ -90,6 +91,6 @@ ms.locfileid: "68229333"
 
 請注意 `Post` 方法目前不會傳送快顯通知。 它會傳送只包含通知 ID 且非任何敏感內容的原始通知。 另外，針對您未在通知中樞上設定其認證的平台，請務必為傳送作業加上註解，因為他們將會導致錯誤。
 
-1. 為了可以從所有裝置存取此應用程式，我們現在可以將它重新部署到 Azure 網站。 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]  。
-2. 選取 Azure 網站作為您的發行目標。 使用您的 Azure 帳戶登入，並選取現有或新的網站，然後記下 [連線]  索引標籤中的 [目的地 URL]  屬性。我們後續將在本教學課程中參考此 URL 作為您的 *後端端點* 。 按一下 [發行]  。
+1. 為了可以從所有裝置存取此應用程式，我們現在可以將它重新部署到 Azure 網站。 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
+2. 選取 Azure 網站作為您的發行目標。 使用**您的 Azure**帳戶登入，並選取現有或新的網站，然後記下 [連線] 索引標籤中的 [**目的地 URL** ] 屬性。我們稍後會在本教學課程中將此 URL 稱為您的*後端端點*。 按一下 [發行]。
 
