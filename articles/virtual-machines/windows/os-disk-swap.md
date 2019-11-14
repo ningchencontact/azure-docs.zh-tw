@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 交換 Azure VM 的作業系統磁碟 | Microsoft Docs
+title: 使用 PowerShell 交換 Azure VM 的 OS 磁片
 description: 使用 PowerShell 變更 Azure 虛擬機器所使用的作業系統磁碟。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 50428f8f28a4211c54e7e3e9ee19421197490666
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ec66892804f3c2d1f831168a2955f2498462cbf3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749292"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033015"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>使用 PowerShell 變更 Azure VM 所使用的作業系統磁碟
 
@@ -62,4 +62,4 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 **後續步驟**
 
-若要建立磁碟複本，請參閱[製作磁碟的快照集](snapshot-copy-managed-disk.md)。
+若要建立磁碟複本，請參閱[製作磁碟的快照](snapshot-copy-managed-disk.md)。

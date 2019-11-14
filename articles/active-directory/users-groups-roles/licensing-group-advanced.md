@@ -1,26 +1,26 @@
 ---
-title: Azure Active Directory 群組型授權其他案例 | Microsoft Docs
+title: 以群組為基礎的授權其他案例-Azure AD |Microsoft Docs
 description: Azure Active Directory 群組型授權的更多案例
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cfdb8b979d20b77bcbf2f6b0d17855dfa0ac817
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034125"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025954"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題
 
@@ -112,7 +112,7 @@ ms.locfileid: "72034125"
 
 3. 移至 [[Azure Active Directory] > [授權] > [所有產品]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 刀鋒視窗並選取 [Office 365 企業版 E5]，然後選取 [經過授權的群組] 以檢視該產品的所有群組清單。
 
-4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」)。 這會開啟 [授權] 索引標籤。按一下 E5 授權會開啟刀鋒視窗，其中列出所有已啟用的服務。
+4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」)。 這會開啟 [**授權**] 索引標籤。按一下 E5 授權將會開啟一個分頁，其中列出所有已啟用的服務。
    > [!NOTE]
    > 在此群組中，除了 *Exchange Online* 服務，還會自動新增並啟用 *Microsoft Stream* 服務：
 
@@ -134,7 +134,7 @@ ms.locfileid: "72034125"
 
    ![Get-Msolaccountsku Cmdlet 的螢幕擷取畫面](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. 透過[此 PowerShell 指令碼](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)對您感興趣的授權使用 *AccountSkuId* 值。 這會產生具有此授權的使用者清單，並提供授權指派方式的相關資訊。
+3. 透過*此 PowerShell 指令碼*對您感興趣的授權使用 [AccountSkuId](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) 值。 這會產生具有此授權的使用者清單，並提供授權指派方式的相關資訊。
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>使用稽核記錄來監視群組型授權活動
 
@@ -224,7 +224,7 @@ ms.locfileid: "72034125"
 若要深入了解透過群組型授權來管理授權的其他案例，請參閱：
 
 * [什麼是 Azure Active Directory 中以群組為基礎的授權？](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
+* [將授權指派給 Azure Active Directory 中的群組 (英文)](licensing-groups-assign.md)
 * [識別及解決 Azure Active Directory 中群組的授權問題](licensing-groups-resolve-problems.md)
 * [如何將個別授權使用者移轉至 Azure Active Directory 中以群組為基礎的授權](licensing-groups-migrate-users.md)
 * [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](../users-groups-roles/licensing-groups-change-licenses.md)

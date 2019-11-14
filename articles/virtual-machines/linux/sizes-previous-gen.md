@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 大小 - 前幾代 | Microsoft Docs
+title: Azure Linux VM 大小-前幾代
 description: 列出 Azure 中可用的前幾代 Linux 虛擬機器大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: e56fb938ca8d45a148700a0a6b91e22a4f9034c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc64e5d15175e015f782e905d8a3135e4a0413bc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100855"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034866"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前幾代的虛擬機器大小
 

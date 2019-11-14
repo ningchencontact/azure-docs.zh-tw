@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513412"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023501"
 ---
 # <a name="azcopy-sync"></a>azcopy 同步
 
@@ -35,6 +35,13 @@ Sync 命令與 copy 命令的差異有好幾種：
 2. 在虛擬目錄之間進行同步處理時，如果有 blob 的名稱與其中一個虛擬目錄相同，請在路徑中加上尾端斜線（請參閱範例）。
 3. 如果 ' deleteDestination ' 旗標設為 true 或 prompt，則 sync 會刪除來源上不存在之目的地的檔案和 blob。
 
+## <a name="related-conceptual-articles"></a>相關的概念性文章
+
+- [開始使用 AzCopy](storage-use-azcopy-v10.md)
+- [使用 AzCopy 和 Blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
+- [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
+- [對 AzCopy 進行設定、最佳化及疑難排解](storage-use-azcopy-configure.md)
+
 ### <a name="advanced"></a>進階
 
 如果您未指定副檔名，則 AzCopy 會根據副檔名或內容（如果未指定副檔名）從本機磁片上傳時，自動偵測檔案的內容類型。
@@ -48,7 +55,7 @@ Sync 命令與 copy 命令的差異有好幾種：
 在 Windows 上，MIME 類型會從登錄中解壓縮。
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## <a name="examples"></a>範例
@@ -152,6 +159,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--cap-mbps uint32|上限（以每秒 mb 為單位）傳輸速率。 時間點的輸送量可能會與端點略有不同。 如果此選項設定為零或省略，則輸送量不會限制。|
 |--output-類型字串|命令輸出的格式。 選項包括： text、json。 預設值為 "text"。|
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [azcopy](storage-ref-azcopy.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure 流量管理員中的計量與警示
-description: 本文描述在 Azure 中的流量管理員可使用的計量。
+description: 在本文中，瞭解 Azure 中可供流量管理員的計量和警示。
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: allensu
-ms.openlocfilehash: e689398a38030a712ec6beb651131d0424e44476
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e374e11053f0a1baabed72fdb240b34e2107b2a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071125"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038075"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
 
@@ -33,30 +33,30 @@ ms.locfileid: "67071125"
   
 ![所有查詢的彙總檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*圖 1：所有查詢的彙總檢視*
+圖 1：所有查詢的彙總檢視
   
 圖 2 顯示相同的資訊，但是依端點分割。 因此，您可以查看傳回特定端點的查詢回應量。
 
 ![流量管理員計量 - 每個端點的查詢量分割檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*圖 2：顯示所傳回每個端點查詢量的分割檢視*
+圖 2：顯示所傳回每個端點查詢量的分割檢視
 
 ## <a name="endpoint-status-by-endpoint"></a>依端點的端點狀態
 使用[此計量](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles)來了解設定檔中端點的健全狀態。 它採用兩個值：
  - 如果端點已啟動，使用 **1**。
  - 如果端點已關閉，使用 **0**。
 
-此計量可以顯示為代表所有計量狀態的彙總值 (圖 3)，或者也可以分割 (參閱圖 4) 以顯示特定端點狀態。 在前者的情況下，如果彙總層級選取為 [平均]  ，則此計量值是所有端點狀態的算術平均值。 例如，如果設定檔有兩個端點，且只有一個健康情況良好，則此計量的值會是 **0.50**，如圖 3 中所示。 
+此計量可以顯示為代表所有計量狀態的彙總值 (圖 3)，或者也可以分割 (參閱圖 4) 以顯示特定端點狀態。 在前者的情況下，如果彙總層級選取為 [平均]，則此計量值是所有端點狀態的算術平均值。 例如，如果設定檔有兩個端點，且只有一個健康情況良好，則此計量的值會是 **0.50**，如圖 3 中所示。 
 
 
 ![流量管理員計量 - 端點狀態的複合檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*圖 3：端點狀態計量的複合檢視 - 已選取 [平均] 彙總*
+圖 3：端點狀態計量的複合檢視
 
 
 ![流量管理員計量 - 端點狀態的分割檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*圖 4：端點狀態計量的分割檢視*
+圖 4：端點狀態計量的分割檢視
 
 您可以透過 [Azure 監視器服務](../azure-monitor/platform/metrics-supported.md)的入口網站、[REST API](https://docs.microsoft.com/rest/api/monitor/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)，或流量管理員的入口網站體驗來取用這些計量。
 

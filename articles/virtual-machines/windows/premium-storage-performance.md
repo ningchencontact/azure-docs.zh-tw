@@ -1,5 +1,5 @@
 ---
-title: Azure 進階儲存體：專為 Windows VM 的效能而設計 | Microsoft Docs
+title: 'Azure 進階儲存體： Windows Vm 上的效能設計 '
 description: 使用 Azure 進階儲存體設計高效能應用程式。 「進階儲存體」可針對在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載，提供高效能、低延遲的磁碟支援。
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 073b0f0b0078f8e1159fad5e4eb6a70543c81700
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 584c69f4079eeebf04a0e40021bfc843b40e8b1b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012371"
+ms.locfileid: "74032963"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]

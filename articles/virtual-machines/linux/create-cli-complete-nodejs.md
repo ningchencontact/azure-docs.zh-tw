@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 傳統 CLI 建立完整的 Linux 環境 | Microsoft Docs
+title: 使用 Azure 傳統 CLI 建立完整的 Linux 環境
 description: 使用 Azure 傳統 CLI，從頭開始建立儲存體、Linux VM、虛擬網路與子網路、負載平衡器、NIC、公用 IP 以及網路安全性群組。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ee89ce18600685f3f82bfb49d4d8ecbaf192b04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083707"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036518"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立完整的 Linux 環境
 在這篇文章中，我們將建立一個簡單的網路，當中包含一個負載平衡器，以及一組對開發和簡單運算而言相當實用的 VM。 我們將以逐個命令的方式逐步完成程序命令，直到您具備兩個可供您透過網際網路從任何地方連線的有效、安全 Linux VM 為止。 然後您便可以繼續著手更複雜的網路和環境。
@@ -32,7 +32,7 @@ ms.locfileid: "70083707"
 * 一個在連接埠 80 有負載平衡規則的負載平衡器。
 * 可保護 VM 防止不必要流量的網路安全性群組 (NSG) 規則。
 
-若要建立此自訂環境，您需要處於 Resource Manager 模式 (`azure config mode arm`) 的最新 [Azure 傳統 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 您也需要 JSON 剖析工具。 此範例使用 [jq](https://stedolan.github.io/jq/)。
+若要建立此自訂環境，您需要處於 Resource Manager 模式 ([) 的最新 ](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)Azure 傳統 CLI`azure config mode arm`。 您也需要 JSON 剖析工具。 此範例使用 [jq](https://stedolan.github.io/jq/)。
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
@@ -53,7 +53,7 @@ azure config mode arm
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
-建立資源群組。 下列範例會在 `westeurope` 位置建立名為 `myResourceGroup` 的資源群組：
+建立資源群組。 下列範例會在 `myResourceGroup` 位置建立名為 `westeurope` 的資源群組：
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -278,7 +278,7 @@ azure config mode arm
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>建立資源群組並選擇部署位置
-Azure 資源群組是邏輯部署實體，當中包含用來啟用資源部署邏輯管理的組態資訊和中繼資料。 下列範例會在 `westeurope` 位置建立名為 `myResourceGroup` 的資源群組：
+Azure 資源群組是邏輯部署實體，當中包含用來啟用資源部署邏輯管理的組態資訊和中繼資料。 下列範例會在 `myResourceGroup` 位置建立名為 `westeurope` 的資源群組：
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope
@@ -513,7 +513,7 @@ azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
-現在，讓我們建立將指派給您負載平衡器的公用 IP 位址 (PIP)。 它可讓您使用 `azure network public-ip create` 命令從網際網路連線到您的 VM。 由於預設位址是動態位址，因此我們將使用 `--domain-name-label` 選項在 **cloudapp.azure.com** 網域中建立具名的 DNS 項目。 下列範例會建立名為 `myPublicIP` 的公用 IP，DNS 名稱為`mypublicdns`。 因為 DNS 名稱必須是唯一的，因此請提供您自己的唯一 DNS 名稱︰
+現在，讓我們建立將指派給您負載平衡器的公用 IP 位址 (PIP)。 它可讓您使用 `azure network public-ip create` 命令從網際網路連線到您的 VM。 由於預設位址是動態位址，因此我們將使用 **選項在**cloudapp.azure.com`--domain-name-label` 網域中建立具名的 DNS 項目。 下列範例會建立名為 `myPublicIP` 的公用 IP，DNS 名稱為`mypublicdns`。 因為 DNS 名稱必須是唯一的，因此請提供您自己的唯一 DNS 名稱︰
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \

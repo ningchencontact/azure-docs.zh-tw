@@ -1,5 +1,5 @@
 ---
-title: Azure 部署後工作中的 OpenShift 容器平臺 3.11 |Microsoft Docs
+title: Azure 中的 OpenShift 容器平臺3.11 部署後工作
 description: 部署 OpenShift 容器平臺3.11 叢集之後的其他工作。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: c1e04f048c081da4777045e5bee43991c95b4625
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392770"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035497"
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
 
@@ -202,7 +202,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 開啟 Service Broker for Azure (或稱 OSBA)，可讓您直接從 OpenShift 佈建 Azure 雲端服務。 Azure 的 Open Service Broker API 實作中的 OSBA。 Open Service Broker API 是一項規格，可為雲端提供者定義可供雲端原生應用程式直接用來管理雲端服務而不需要鎖定的通用語言。
 
-若要在 OpenShift 上安裝 OSBA，請遵循此處的指示： https://github.com/Azure/open-service-broker-azure#openshift-project-template 。 
+若要在 OpenShift 上安裝 OSBA，請遵循此處的指示： https://github.com/Azure/open-service-broker-azure#openshift-project-template。 
 > [!NOTE]
 > 僅完成 OpenShift 專案範本一節中的步驟，而不是整個安裝區段。
 

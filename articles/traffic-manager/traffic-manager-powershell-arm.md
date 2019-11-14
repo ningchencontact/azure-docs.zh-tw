@@ -1,6 +1,6 @@
 ---
 title: 使用 PowerShell 來管理 Azure 中的流量管理員
-description: 使用 PowerShell 透過 Azure Resource Manager 執行流量管理員
+description: 透過此學習路徑，開始使用流量管理員的 Azure PowerShell。
 services: traffic-manager
 documentationcenter: na
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: allensu
-ms.openlocfilehash: a2065ba51b74d7f55464a22df0f55cac4c6defcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071035"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038131"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
@@ -62,7 +62,7 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 | 參數 | 描述 |
 | --- | --- |
 | 名稱 |流量管理員設定檔資源的資源名稱。 相同資源群組中的設定檔必須有唯一的名稱。 這個名稱是從用於 DNS 查詢的 DNS 名稱分割而來。 |
-| ResourceGroupName |包含設定檔資源的資源群組名稱。 |
+| resourceGroupName |包含設定檔資源的資源群組名稱。 |
 | TrafficRoutingMethod |指定流量路由方法，用來決定回應 DNS 查詢時傳回哪一個端點。 可能的值為 'Performance'、'Weighted' 或 'Priority'。 |
 | RelativeDnsName |指定此流量管理員設定檔所提供之 DNS 名稱的主機名稱部分。 這個值會與由 Azure 流量管理員使用的 DNS 網域名稱結合，形成設定檔的完整網域名稱 (FQDN)。 例如，值設為 'contoso' 會變成 'contoso.trafficmanager.net'。 |
 | TTL |指定 DNS 存留時間 (TTL)，以秒為單位。 此 TTL 會通知本機 DNS 解析程式和 DNS 用戶端，以多長時間來快取此流量管理員設定檔的 DNS 回應。 |
@@ -125,7 +125,7 @@ Azure 端點會參考 Azure 中託管的服務。 支援兩種 Azure 端點：
 * 您可以選擇是否指定 'Weight'。 只有在設定檔已設定為使用「加權」流量路由方法時，才會使用加權， 否則會予以忽略。 如果指定，則值必須是 1 到 1000 之間的數字。 預設值為 '1'。
 * 您可以選擇是否指定 'Priority'。 只有在設定檔已設定為使用「優先順序」流量路由方法時，才會使用優先順序， 否則會予以忽略。 有效值從 1 到 1000，值越小代表優先順序越高。 如果對某個端點指定值，則所有端點也都必須進行指定。 如果省略，則會依端點列出順序，從 '1' 開始套用預設值。
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 新增 App Service 端點
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>範例1：使用 `Add-AzTrafficManagerEndpointConfig` 新增 App Service 端點
 
 在此範例中，我們使用 `Add-AzTrafficManagerEndpointConfig` Cmdlet 建立流量管理員設定檔，並新增兩個 App Service 端點。
 
@@ -137,7 +137,7 @@ $webapp2 = Get-AzWebApp -Name webapp2
 Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>範例 2：使用 `New-AzTrafficManagerEndpoint` 新增 publicIpAddress 端點
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>範例 2︰使用 `New-AzTrafficManagerEndpoint` 新增 publicIpAddress 端點
 
 此範例會在流量管理員設定檔中新增公用 IP 位址資源。 公用 IP 位址必須設定 DNS 名稱，而且可以繫結至 VM 的 NIC 或繫結至負載平衡器。
 
@@ -156,7 +156,7 @@ New-AzTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -Resource
 * 如果使用「效能」流量路由方法，則需要 'EndpointLocation'， 否則為選擇性。 值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。
 * 'Weight' 和 'Priority' 是選擇性。
 
-### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增外部端點
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1︰使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增外部端點
 
 在此範例中，我們會建立流量管理員設定檔、新增兩個外部端點，並認可變更。
 
@@ -167,7 +167,7 @@ Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProf
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>範例 2：使用 `New-AzTrafficManagerEndpoint` 新增外部端點
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>範例 2︰使用 `New-AzTrafficManagerEndpoint` 新增外部端點
 
 在此範例中，我們將外部端點新增至現有的設定檔。 使用設定檔和資源群組名稱來指定設定檔。
 
@@ -186,7 +186,7 @@ New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceG
 * 如同 Azure 端點一樣，'Weight' 和 'Priority' 是選擇性。
 * 'MinChildEndpoints' 參數是選擇性。 預設值為 '1'。 如果可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向父設定檔中的其他端點。
 
-### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增巢狀端點
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1︰使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增巢狀端點
 
 在此範例中，我們會建立新的流量管理員子設定檔和父設定檔、將子設定檔新增至父設定檔中做為巢狀端點，並認可變更。
 
@@ -199,7 +199,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $parent
 
 為了簡潔起見，在此範例中，我們並未將任何其他端點新增至子設定檔或父設定檔。
 
-### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>範例 2：使用 `New-AzTrafficManagerEndpoint` 新增巢狀端點
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>範例 2︰使用 `New-AzTrafficManagerEndpoint` 新增巢狀端點
 
 在此範例中，我們將現有的子設定檔新增至現有的父設定檔中做為巢狀端點。 使用設定檔和資源群組名稱來指定設定檔。
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>從另一個訂用帳戶新增端點
 
-流量管理員可以處理不同訂用帳戶的端點。 利用您想要新增的端點來切換至訂用帳戶，以擷取流量管理員所需的輸入。 然後，您需要切換到流量管理員設定檔中，訂用帳戶，並將端點新增至它。 下列範例會示範如何透過一個公用 IP 位址來完成此操作。
+流量管理員可以處理不同訂用帳戶的端點。 利用您想要新增的端點來切換至訂用帳戶，以擷取流量管理員所需的輸入。 接著，您必須切換至具有流量管理員設定檔的訂用帳戶，並將端點新增至其中。 下列範例會示範如何透過一個公用 IP 位址來完成此操作。
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
@@ -227,7 +227,7 @@ New-AzTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -Reso
 1. 使用 `Get-AzTrafficManagerProfile` 取得流量管理員設定檔、更新設定檔內的端點屬性，並使用 `Set-AzTrafficManagerProfile` 認可變更。 這個方法的優點是能夠在單一作業中更新多個端點。
 2. 使用 `Get-AzTrafficManagerEndpoint` 取得流量管理員端點、更新端點屬性，並使用 `Set-AzTrafficManagerEndpoint` 認可變更。 由於不需要在設定檔中編製索引為端點陣列，這個方法會比較簡單。
 
-### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Get-AzTrafficManagerProfile` 和 `Set-AzTrafficManagerProfile` 更新端點
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>範例 1︰使用 `Get-AzTrafficManagerProfile` 和 `Set-AzTrafficManagerProfile` 更新端點
 
 在此範例中，我們會修改現有設定檔中兩個端點的優先順序。
 
@@ -238,7 +238,7 @@ $TmProfile.Endpoints[1].Priority = 1
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>範例 2：使用 `Get-AzTrafficManagerEndpoint` 和 `Set-AzTrafficManagerEndpoint` 更新端點
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>範例 2︰使用 `Get-AzTrafficManagerEndpoint` 和 `Set-AzTrafficManagerEndpoint` 更新端點
 
 在此範例中，我們會修改現有設定檔中單一端點的加權。
 

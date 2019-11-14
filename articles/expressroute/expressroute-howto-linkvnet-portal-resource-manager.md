@@ -1,6 +1,6 @@
 ---
-title: 將虛擬網路連結到線路 - ExpressRoute：Azure 入口網站 | Microsoft Docs
-description: 將 VNet 連線到 Azure ExpressRoute 線路。 操作說明步驟。
+title: ExpressRoute：將 VNet 連結到線路： Azure 入口網站
+description: 將 VNet 連線至 Azure ExpressRoute 線路。 操作說明步驟。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6185540340bba4299eb9307432480c91d531779a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088907"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022196"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用入口網站將虛擬網路連線到 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "71088907"
 
 - 大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。
 - 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連線回內部部署網路。
-- 單一部門 (在此範例中為IT) 可擁有 ExpressRoute 線路。 組織內的其他訂用帳戶可以使用 ExpressRoute 線路以及與線路相關聯的授權，包括連結到其他 Azure Active Directory 租用戶的訂用帳戶和 Enterprise 合約的註冊項目。
+- 單一部門 (在此範例中：IT) 可以擁有 ExpressRoute 循環。 組織內的其他訂用帳戶可以使用 ExpressRoute 線路以及與線路相關聯的授權，包括連結到其他 Azure Active Directory 租用戶的訂用帳戶和 Enterprise 合約的註冊項目。
 
   > [!NOTE]
   > ExpressRoute 循環擁有者需支付專用循環的連線和頻寬費用。 所有虛擬網路都會共用相同的頻寬。

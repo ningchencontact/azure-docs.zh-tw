@@ -1,5 +1,5 @@
 ---
-title: Azure 必要條件中的 OpenShift 容器平臺 3.11 |Microsoft Docs
+title: Azure 必要條件中的 OpenShift 容器平臺3.11
 description: 在 Azure 中部署 OpenShift 容器平臺3.11 的必要條件。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 0b7eaaf68c1b0907b6d687b823ef71a7c9bd0102
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882405"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035463"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>在 Azure 中部署 OpenShift 容器平臺3.11 的常見必要條件
 
@@ -139,7 +139,7 @@ az ad sp create-for-rbac --name openshiftsp \
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>僅適用于 Resource Manager 範本的必要條件
 
-必須為 SSH 私密金鑰（**sshPrivateKey**）、Azure AD 用戶端密碼（**AadClientSecret**）、OpenShift 系統管理員密碼（**OpenshiftPassword**），以及 Red Hat 訂用帳戶管理員密碼或啟用金鑰建立秘密（**rhsmPasswordOrActivationKey**）。  此外，如果使用自訂 SSL 憑證，則必須建立六個額外的密碼- **routingcafile**、 **routingcertfile**、 **routingkeyfile**、 **mastercafile**、 **mastercertfile**和**masterkeyfile**。  這些參數將會更詳細地說明。
+必須為 SSH 私密金鑰（**sshPrivateKey**）、Azure AD 用戶端密碼（**AadClientSecret**）、OpenShift 系統管理員密碼（**OpenshiftPassword**），以及 Red Hat 訂用帳戶管理員密碼或啟用金鑰（**rhsmPasswordOrActivationKey**）建立秘密。  此外，如果使用自訂 SSL 憑證，則必須建立六個額外的密碼- **routingcafile**、 **routingcertfile**、 **routingkeyfile**、 **mastercafile**、 **mastercertfile**和**masterkeyfile**。  這些參數將會更詳細地說明。
 
 範本會參考特定的秘密名稱，因此您**必須**使用以上所列的粗體名稱（區分大小寫）。
 

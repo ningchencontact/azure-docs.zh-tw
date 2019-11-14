@@ -1,30 +1,29 @@
 ---
-title: 系統管理員接管非受控目錄-Azure Active Directory |Microsoft Docs
-description: 如何接管 Azure Active Directory 之非受控目錄 (影子租用戶) 中的 DNS 網域名稱。
+title: 管理接管非受控目錄-Azure AD |Microsoft Docs
+description: 如何接管非受控 Azure AD 組織（影子租使用者）中的 DNS 功能變數名稱。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315731"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027380"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
-本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](directory-self-service-signup.md)
+本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助或「病毒」註冊服務的詳細資訊，請參閱[什麼是適用于 Azure Active Directory 的自助式註冊？](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>決定要如何接管非受控目錄
 在管理員接管的過程中，您可以依照[將自訂網域名稱新增到 Azure AD](../fundamentals/add-custom-domain.md) 中所述，證明擁有權。 下一節會更詳細地說明管理員體驗，但其摘要如下：
@@ -58,13 +57,13 @@ ms.locfileid: "71315731"
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶
 
 1. 開啟[Microsoft 365 系統管理中心](https://admin.microsoft.com)。
-2. 選取 [**使用者**] 索引標籤，然後使用不使用自訂功能變數名稱的名稱（例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ）建立新的使用者帳戶。 
+2. 選取 [**使用者**] 索引標籤，然後使用不使用自訂功能變數名稱的名稱（例如*user\@fourthcoffeexyz.onmicrosoft.com* ）建立新的使用者帳戶。 
 3. 確定新使用者帳戶具有 Azure AD 租用戶的全域管理員權限。
 4. 在 Microsoft 365 系統管理中心中開啟 [**網域**] 索引標籤，選取功能變數名稱，然後選取 [**移除**]。 
   
    ![從 Office 365 移除網域名稱](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 如果您在 Office 365 中有任何使用者或群組參考已移除的網域名稱，就必須將他們重新命名為 .onmicrosoft.com 網域。 如果您強制刪除功能變數名稱，則會自動將所有使用者重新命名為，在此範例中為*使用者\@fourthcoffeexyz.onmicrosoft.com*。
+5. 如果您在 Office 365 中有任何使用者或群組參考已移除的網域名稱，就必須將他們重新命名為 .onmicrosoft.com 網域。 如果您強制刪除功能變數名稱，則會自動將所有使用者重新命名，在此範例中為*使用者\@fourthcoffeexyz.onmicrosoft.com*。
   
 6. 使用具備 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
   
@@ -73,7 +72,7 @@ ms.locfileid: "71315731"
    ![已將網域驗證為已新增至 Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須使用使用者名稱（例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ，而不是*使用者\@fourthcoffee*）來登入。
+> 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須使用使用者名稱（例如*user\@fourthcoffeexyz.onmicrosoft.com* ，而不是*使用者\@fourthcoffee*）來登入。
 
 ## <a name="external-admin-takeover"></a>外部管理員接管
 
@@ -81,8 +80,8 @@ ms.locfileid: "71315731"
 
 當您驗證網域名稱的擁有權時，Azure AD 會將網域名稱從非受控租用戶中移除，然後移至您現有的租用戶。 非受控目錄之外部管理員接管所需的 DNS TXT 驗證程序與內部管理員接管相同。 差異在於下列項目也會隨著網域名稱一起移過去：
 
-- 使用者人數
-- Subscriptions
+- 使用者
+- 訂用帳戶
 - 授權指派
 
 ### <a name="support-for-external-admin-takeover"></a>對外部管理員接管的支援
@@ -114,7 +113,7 @@ ms.locfileid: "71315731"
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD 的 ForceTakeover 選項 PowerShell Cmdlet
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。
 
-Cmdlet | 使用量
+Cmdlet | 使用方式
 ------- | -------
 `connect-msolservice` | 出現提示時，登入您的受控租用戶。
 `get-msoldomain` | 顯示與目前租用戶關聯的網域名稱。
@@ -150,7 +149,7 @@ Cmdlet | 使用量
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 複製從此命令傳回的值 (挑戰)。 例如:
+4. 複製從此命令傳回的值 (挑戰)。 例如︰
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -161,7 +160,7 @@ Cmdlet | 使用量
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   例如:
+   例如︰
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

@@ -1,18 +1,14 @@
 ---
 title: 英國官方 & 英國 NHS 藍圖範例-控制項對應
 description: 英國官方和英國 NHS 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162950"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037773"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>英國官方和英國 NHS 藍圖範例的控制項對應
 
@@ -48,7 +44,7 @@ ms.locfileid: "73162950"
 
 ## <a name="52-vulnerability-management"></a>5.2 弱點管理
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來監視遺失的 endpoint protection、遺失系統更新、作業系統弱點、SQL 弱點和虛擬，協助您執行資訊系統弱點電腦弱點。 這些深入解析可讓您即時檢視已部署資源的安全性狀態，並且可協助您排定補救措施的優先順序。
+此藍圖藉由指派監視遺失端點保護、遺失系統更新、作業系統弱點、SQL 弱點和虛擬機器弱點的[Azure 原則](../../../policy/overview.md)定義，協助您執行資訊系統弱點。 這些深入解析可讓您即時檢視已部署資源的安全性狀態，並且可協助您排定補救措施的優先順序。
 
 - 在 Azure 資訊安全中心中監視缺少的 Endpoint Protection
 - 您應在機器上安裝系統更新
@@ -67,7 +63,7 @@ ms.locfileid: "73162950"
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9安全的使用者管理/10 身分識別和驗證
 
-Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來審查具有擁有者和/或讀取/寫入權限的外部帳戶，以及具有擁有者、讀取和/或不含多重要素之寫入權限的帳戶，以協助您限制和控制存取權限已啟用驗證。
+Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來審查外部帳戶的擁有者和/或讀取/寫入權限，以及具有擁有者、讀取及/或寫入權限的帳戶（未啟用多重要素驗證），以協助您限制和控制存取權限。
 
 - 應在您訂用帳戶上具有擁有者權限的帳戶上啟用 MFA
 - MFA 應啟用具有您訂用帳戶寫入權限的帳戶
@@ -124,7 +120,7 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 
 ## <a name="12-secure-service-administration"></a>12安全服務管理
 
-Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖藉由指派五個[Azure 原則](../../../policy/overview.md)定義來審查外部帳戶的擁有者及/或寫入權限，以及具有擁有者及/或不具有之寫入權限的帳戶，以協助您限制及控制特殊許可權存取權限。已啟用多重要素驗證。
+Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖藉由指派五個[Azure 原則](../../../policy/overview.md)定義來審查外部帳戶的擁有者及/或寫入權限，以及具有擁有者和（或）未啟用多重要素驗證的寫入權限，以協助您限制及控制特殊許可權存取權限。
 
 用於雲端服務管理的系統將會有該服務的高度存取權限。 其洩露會有重大影響，包括規避安全性控制及竊取或操控大量資料。 服務提供者的系統管理員用來管理操作服務的方法，應該設計來降低可能會破壞服務安全性的任何入侵風險。 如果未實行此準則，攻擊者可能會有略過安全性控制項並竊取或操作大量資料的方法。
 
@@ -168,7 +164,7 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 > [英國官方和英國 NHS 藍圖-總覽](./index.md)
 > [英國官方和英國 NHS 藍圖-部署步驟](./deploy.md)
 
-藍圖和使用方式的其他相關文章：
+有關藍圖及其使用方式的其他文件：
 
 - 了解[藍圖生命週期](../../concepts/lifecycle.md)。
 - 了解如何使用[靜態與動態參數](../../concepts/parameters.md)。

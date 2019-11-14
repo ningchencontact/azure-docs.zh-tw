@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 受控磁片儲存體從標準轉換至 Premium 或 Premium 至標準 |Microsoft Docs
+title: 將 Azure 受控磁片儲存體從標準轉換至 Premium 或 Premium 至 Standard
 description: 如何使用 Azure PowerShell，將 Azure 受控磁片從 Standard 轉換為 Premium 或 Premium 至 Standard。
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b63d4d0247fd640e961d03d336d6b211473c48fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749558"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033932"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>更新受控磁碟的儲存體類型
 
@@ -22,7 +22,7 @@ Azure 受控磁片有四種磁片類型： Azure ultra Ssd （預覽）、premiu
 
  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 因為轉換需要重新開機虛擬機器（VM），所以您應該在預先存在的維護期間排程磁片儲存體的遷移。
 * 如果您的磁片未受管理，請先[將它轉換為受控磁片](convert-unmanaged-to-managed-disks.md)，以便在儲存體選項之間切換。

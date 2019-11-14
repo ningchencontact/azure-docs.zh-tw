@@ -1,37 +1,38 @@
 ---
-title: 在 Azure 中設定 Always On 可用性群組的 ILB 接聽程式 | Microsoft Docs
-description: 本教學課程使用以傳統部署模型建立的資源，並在 Azure 中建立使用內部負載平衡器的 Always On 可用性群組接聽程式。
+title: 設定可用性群組的 ILB 接聽程式（傳統）
+description: 本教學課程使用以傳統部署模型建立的資源，而且它會在 Azure 中使用內部負載平衡器的 SQL Server VM 建立 Always On 可用性群組接聽程式。
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101913"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032662"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中設定 Always On 可用性群組的 ILB 接聽程式
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>針對 Azure SQL Server Vm 上的可用性群組設定 ILB 接聽程式
 > [!div class="op_single_selector"]
 > * [內部接聽程式](../classic/ps-sql-int-listener.md)
 > * [外部接聽程式](../classic/ps-sql-ext-listener.md)
 >
 >
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 > [!IMPORTANT]
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Azure Resource Manager 和傳統模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋傳統部署模型的使用。 我們建議讓大部分的新部署使用 Resource Manager 模型。
+> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) 和傳統。 本文涵蓋傳統部署模型的使用。 我們建議讓大部分的新部署使用 Resource Manager 模型。
 
 若要在 Resource Manager 模型中設定 Always On 可用性群組的接聽程式，請參閱[在 Azure 中設定 Always On 可用性群組的負載平衡器](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 

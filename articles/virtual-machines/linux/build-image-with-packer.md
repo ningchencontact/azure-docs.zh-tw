@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Packer 來建立 Linux Azure VM 映像 | Microsoft Docs
+title: 如何使用 Packer 建立 Linux Azure VM 映射
 description: 了解如何在 Azure 中使用 Packer 建立 Linux 虛擬機器的映像
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 4dcf6f2e26a2cc589e350ee2b40c10b85786d4be
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a9f0750908123c236596683ec2ad6de505c46213
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671774"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036954"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像
 Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Linux 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的散發套件和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/)，在 Azure 中定義並建置自訂映像。
 
 > [!NOTE]
-> Azure 現在會有一項服務，Azure 映像產生器 （預覽），來定義和建立您自己的自訂映像。 Azure 映像產生器的基礎 Packer，因此您甚至可以使用現有的 Packer shell 佈建程式指令碼使用它。 若要開始使用 Azure 映像產生器，請參閱[使用 Azure 映像產生器中建立 Linux VM](image-builder.md)。
+> Azure 現在有一個服務，也就是 Azure 映射產生器（預覽），用來定義和建立您自己的自訂映射。 Azure 映射產生器是以 Packer 為基礎，因此您甚至可以搭配使用現有的 Packer shell 布建程式腳本。 若要開始使用 Azure 影像產生器，請參閱[使用 Azure 映射產生器建立 LINUX VM](image-builder.md)。
 
 
 ## <a name="create-azure-resource-group"></a>建立 Azure 資源群組
 建置程序進行期間，Packer 會在建置來源 VM 時建立暫存的 Azure 資源。 若要擷取該來源 VM 以作為映像，您必須定義資源群組。 Packer 建置程序所產生的輸出會儲存在此資源群組中。
 
-使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
+使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -70,16 +70,16 @@ az account show --query "{ subscription_id: id }"
 ## <a name="define-packer-template"></a>定義 Packer 範本
 若要建置映像，您可以將範本建立為 JSON 檔案。 在此範本中，您必須定義產生器和佈建程式，由它們執行實際的建置程序。 Packer 具有[適用於 Azure 的佈建程式](https://www.packer.io/docs/builders/azure.html)，以供您定義 Azure 資源，例如上述步驟所建立的服務主體認證。
 
-建立名為 ubuntu.json  的檔案，並貼入下列內容。 針對下列參數輸入您自己的值︰
+建立名為 ubuntu.json 的檔案，並貼入下列內容。 針對下列參數輸入您自己的值︰
 
 | 參數                           | 取得位置 |
 |-------------------------------------|----------------------------------------------------|
-| client_id                          | `az ad sp` 建立命令所產生之輸出的第一行 - appId  |
-| client_secret                      | `az ad sp` 建立命令所產生之輸出的第二行 - password  |
-| tenant_id                          | `az ad sp` 建立命令所產生之輸出的第三行 - tenant  |
-| *subscription_id*                   | `az account show` 命令所產生的輸出 |
-| managed_image_resource_group_name  | 您在第一個步驟中建立的資源群組名稱 |
-| managed_image_name                 | 所建立之受控磁碟映像的名稱 |
+| client_id                         | `az ad sp` 建立命令所產生之輸出的第一行 - appId |
+| client_secret                     | `az ad sp` 建立命令所產生之輸出的第二行 - password |
+| tenant_id                         | `az ad sp` 建立命令所產生之輸出的第三行 - tenant |
+| subscription_id                   | `az account show` 命令所產生的輸出 |
+| managed_image_resource_group_name | 您在第一個步驟中建立的資源群組名稱 |
+| managed_image_name                | 所建立之受控磁碟映像的名稱 |
 
 
 ```json
@@ -204,7 +204,7 @@ Packer 需要幾分鐘的時間來建置 VM、執行佈建程式並清除部署�
 
 
 ## <a name="create-vm-from-azure-image"></a>從 Azure 映像建立 VM
-您現在可以使用 [az vm create](/cli/azure/vm) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage  建立名為 myVM  的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
+您現在可以使用 [az vm create](/cli/azure/vm) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage 建立名為 myVM 的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
 
 ```azurecli
 az vm create \
@@ -235,4 +235,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>後續步驟
-您也可以使用現有的 Packer 佈建程式指令碼與[Azure 映像產生器](image-builder.md)。
+您也可以使用現有的 Packer 布建程式腳本搭配[Azure 映射](image-builder.md)產生器。

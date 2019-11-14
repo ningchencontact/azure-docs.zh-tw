@@ -1,5 +1,5 @@
 ---
-title: 使用 Chef 的 Azure 虛擬機器部署 | Microsoft Docs
+title: 使用 Chef 的 Azure 虛擬機器部署
 description: 了解如何使用 Chef 執行自動化的虛擬機器部署和設定 Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58642cdbf164523390d5e4925290b43f6c05549b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080130"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039550"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自動化 Azure 虛擬機器部署
 
@@ -36,7 +36,7 @@ Chef 是個很棒的工具，可提供自動化和所需狀態組態。
 
 ![][2]
 
-Chef 有三個主要的架構元件：Chef Server、Chef 用戶端 (節點) 及 Chef 工作站。
+Chef 有三個主要的架構元件：Chef 伺服器、Chef 用戶端 (節點) 和 Chef 工作站。
 
 Chef 伺服器是管理的重點，Chef 伺服器包含兩個選項：代管解決方案或內部部署解決方案。
 
@@ -59,7 +59,7 @@ Chef 工作站，它是您建立原則和執行管理命令的管理工作站以
 
 ## <a name="configure-azure-service-principal"></a>設定 Azure 服務主體
 
-最簡單的條款和 Azure 服務主體是服務帳戶。   我們將使用服務主體, 協助我們從我們的 Chef 工作站建立 Azure 資源。  若要建立具有必要許可權的相關服務主體, 我們需要在 PowerShell 中執行下列命令:
+最簡單的條款和 Azure 服務主體是服務帳戶。   我們將使用服務主體，協助我們從我們的 Chef 工作站建立 Azure 資源。  若要建立具有必要許可權的相關服務主體，我們需要在 PowerShell 中執行下列命令：
  
 ```powershell
 Login-AzureRmAccount
@@ -70,7 +70,7 @@ New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
 ```
 
-請記下您的 SubscriptionID、TenantID、ClientID 和用戶端密碼 (您在上面設定的密碼), 稍後將會用到。 
+請記下您的 SubscriptionID、TenantID、ClientID 和用戶端密碼（您在上面設定的密碼），稍後將會用到。 
 
 ## <a name="setup-chef-server"></a>設定 Chef 伺服器 URL
 
@@ -79,7 +79,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 如果您尚未使用 Chef 伺服器，則可以：
 
 * 註冊[受控 Chef](https://manage.chef.io/signup)，這是開始使用 Chef 的最快方式。
-* 按照 [Chef Docs](https://docs.chef.io/) 中的[安裝說明](https://docs.chef.io/install_server.html)，在 Linux 型電腦上安裝獨立的 Chef 伺服器。
+* 按照 [Chef Docs](https://docs.chef.io/install_server.html) 中的[安裝說明](https://docs.chef.io/)，在 Linux 型電腦上安裝獨立的 Chef 伺服器。
 
 ### <a name="creating-a-hosted-chef-account"></a>建立受控 Chef 帳戶
 
@@ -99,7 +99,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 此入門套件 zip 檔案包含 `.chef` 目錄中您的組織組態檔和使用者金鑰。
 
-`organization-validator.pem` 必須個別下載，因為它是私用金鑰，且私密金鑰不應該儲存在 Chef 伺服器上。 在 [ [Chef 管理](https://manage.chef.io/)] 中, 移至 [管理] 區段, 然後選取 [重設驗證金鑰], 它會提供檔案供您個別下載。 將檔案儲存至 c:\chef。
+`organization-validator.pem` 必須個別下載，因為它是私用金鑰，且私密金鑰不應該儲存在 Chef 伺服器上。 在 [ [Chef 管理](https://manage.chef.io/)] 中，移至 [管理] 區段，然後選取 [重設驗證金鑰]，它會提供檔案供您個別下載。 將檔案儲存至 c:\chef。
 
 ### <a name="configuring-your-chef-workstation"></a>設定 Chef 工作站
 
@@ -147,9 +147,9 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
 將下列資訊新增至 knife.rb：
 
-validation_client_name   "myorg-validator"
+validation_client_name "myorg-驗證"
 
-validation_key           "#{current_dir}/myorg.pem"
+validation_key "# {current_dir}/myorg.pem"
 
 knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
@@ -160,7 +160,7 @@ knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 knife[:azure_client_secret] =     "#1234p$wdchef19"
 
 
-這些行會確保刀行會參考 c:\chef\cookbooks 下的操作手冊目錄, 也會使用您在 Azure 作業期間建立的 Azure 服務主體。
+這些行會確保刀行會參考 c:\chef\cookbooks 下的操作手冊目錄，也會使用您在 Azure 作業期間建立的 Azure 服務主體。
 
 現在 knife.rb 檔案看起來應該會類似下列範例：
 
@@ -193,7 +193,7 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 接下來，[下載並安裝](https://downloads.chef.io/chef-workstation/) Chef 工作站。
 安裝 Chef 工作站的預設位置。 此安裝可能需要幾分鐘的時間。
 
-在桌面上，您將看到 "CW PowerShell"，這是一個載入與 Chef 產品互動所需之工具的環境。 CW PowerShell 會提供新的臨機操作命令, 例如`chef-run` , 以及傳統的 Chef CLI 命令`chef`(例如)。 使用 `chef -v` 查看已安裝的 Chef 工作站版本和 Chef 工具。 您還可以從 Chef 工作站應用程式中選取「關於 Chef 工作站 」，以檢查您的工作站的版本。
+在桌面上，您將看到 "CW PowerShell"，這是一個載入與 Chef 產品互動所需之工具的環境。 CW PowerShell 會提供新的特定命令，例如 `chef-run` 以及傳統的 Chef CLI 命令，例如 `chef`。 使用 `chef -v` 查看已安裝的 Chef 工作站版本和 Chef 工具。 您還可以從 Chef 工作站應用程式中選取「關於 Chef 工作站 」，以檢查您的工作站的版本。
 
 `chef --version` 應該會傳回類似下列內容：
 
@@ -289,7 +289,7 @@ Chef 會使用 Cookbook 來定義一組您想在受控用戶端上執行的命�
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>使用 Knife Azure 部署虛擬機器
 部署 Azure 虛擬機器，並套用 "Webserver" Cookbook，如此便會安裝 IIS Web 服務和預設網頁。
 
-若要這麼做, 請使用**刀 azurerm 伺服器 create**命令。
+若要這麼做，請使用**刀 azurerm 伺服器 create**命令。
 
 接下來會顯示此命令的範例。
 
@@ -309,10 +309,10 @@ Chef 會使用 Cookbook 來定義一組您想在受控用戶端上執行的命�
     -r "recipe[webserver]"
 
 
-上述範例會建立 Standard_DS2_v2 虛擬機器, 並在美國西部區域中安裝 Windows Server 2016。 替換特定變數並執行。
+上述範例會建立 Standard_DS2_v2 虛擬機器，並在美國西部區域中安裝 Windows Server 2016。 替換特定變數並執行。
 
 > [!NOTE]
-> 透過命令列，我還打算使用 -tcp-endpoints 參數將端點網路篩選規則自動化。 我已開啟埠80和 3389, 以提供網頁和 RDP 會話的存取權。
+> 透過命令列，我還打算使用 -tcp-endpoints 參數將端點網路篩選規則自動化。 我已開啟埠80和3389，以提供網頁和 RDP 會話的存取權。
 >
 >
 
@@ -324,7 +324,7 @@ Chef 會使用 Cookbook 來定義一組您想在受控用戶端上執行的命�
 
 ![][16]
 
-部署完成後, 新虛擬機器的公用 IP 位址將會在部署完成時顯示, 您可以複製並貼到網頁瀏覽器中, 並查看您所部署的網站。 當我們部署虛擬機器時, 我們開啟了埠 80, 讓它可以在外部使用。   
+部署完成後，新虛擬機器的公用 IP 位址將會在部署完成時顯示，您可以複製並貼到網頁瀏覽器中，並查看您所部署的網站。 當我們部署虛擬機器時，我們開啟了埠80，讓它可以在外部使用。   
 
 ![][11]
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 JAVA 來建立和管理 Azure 虛擬機器 | Microsoft Docs
+title: 使用 JAVA 建立和管理 Azure 虛擬機器
 description: 使用 JAVA 和 Azure Resource Manager 來部署虛擬機器及其所有支援的資源。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fa6c5115663d770f561764356129448af878668b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103029"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039728"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>在 Azure 中使用 JAVA 建立並管理 Windows VM
 
@@ -140,7 +140,7 @@ ms.locfileid: "70103029"
 
 ### <a name="create-the-management-client"></a>建立管理用戶端
 
-1. 在 `src\main\java\com\fabrikam` 下開啟 `App.java` 檔案，並確定此 package 陳述式位於最上方：
+1. 在 `App.java` 下開啟 `src\main\java\com\fabrikam` 檔案，並確定此 package 陳述式位於最上方：
 
     ```java
     package com.fabrikam.testAzureApp;

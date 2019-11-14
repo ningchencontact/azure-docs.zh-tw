@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887276"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023749"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>建立診斷設定以收集 Azure 中的平臺記錄和計量
 Azure 中的[平臺記錄](resource-logs-overview.md)會針對 azure 資源和它們所依賴的 azure 平臺，提供詳細的診斷和審核資訊。 本文提供有關建立及設定診斷設定的詳細資料，以將平臺記錄檔收集到不同的目的地。
@@ -42,7 +42,8 @@ Azure 中的[平臺記錄](resource-logs-overview.md)會針對 azure 資源和�
 | [Azure 儲存體帳戶](resource-logs-collect-storage.md) | 將記錄封存到 Azure 儲存體帳戶適用于 audit、靜態分析或備份。 |
 
 
-
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 帳戶目前不支援做為診斷設定的目的地，即使它們在 Azure 入口網站中可能列為有效的選項。
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>在 Azure 入口網站中建立診斷設定
 您可以從 [Azure 監視器] 功能表或從資源的功能表，設定 Azure 入口網站中的診斷設定。

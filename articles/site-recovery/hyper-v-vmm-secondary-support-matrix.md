@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 76b34e11bba00105792ac5163c5163184c185e09
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686160"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039613"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
@@ -22,7 +22,7 @@ ms.locfileid: "73686160"
 > 當您的 Hyper-V 主機是在 VMM 雲端中進行管理時，您只能複寫至次要網站。
 
 > [!WARNING]
-> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](scvmm-site-recovery-deprecation.md)繼續進行。
+> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](site-to-site-deprecation.md)繼續進行。
 
 
 ## <a name="host-servers"></a>主機伺服器
@@ -56,15 +56,15 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 
 **組態** | **支援**  
 --- | --- 
-主機 - NIC 小組 | 是 
-主機 - VLAN | 是 
-主機 - IPv4 | 是 
+主機 - NIC 小組 | yes 
+主機 - VLAN | yes 
+主機 - IPv4 | yes 
 主機 - IPv6 | 否 
 客體 VM - NIC 小組 | 否
-客體 VM - IPv4 | 是
+客體 VM - IPv4 | yes
 客體 VM - IPv6 | 否
-客體 VM - Windows/Linux - 靜態 IP 位址 | 是
-客體 VM - 多重 NIC | 是
+客體 VM - Windows/Linux - 靜態 IP 位址 | yes
+客體 VM - 多重 NIC | yes
 
 
 ## <a name="storage"></a>儲存體
@@ -74,9 +74,9 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 **儲存體 (主機)** | **支援**
 --- | --- 
 NFS | N/A
-SMB 3.0 |  是
-SAN (ISCSI) | 是
-多重路徑 (MPIO) | 是
+SMB 3.0 |  yes
+SAN (ISCSI) | yes
+多重路徑 (MPIO) | yes
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
@@ -84,23 +84,23 @@ SAN (ISCSI) | 是
 --- | --- | 
 VMDK |  N/A
 VHD/VHDX | 是 (最多 16 個磁碟)
-第 2 代 VM | 是
+第 2 代 VM | yes
 共用叢集磁碟 | 否
 已加密磁碟 | 否
 UEFI| N/A
 NFS | 否
 SMB 3.0 | 否
 RDM | N/A
-磁碟 > 1 TB | 是
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是
-儲存空間 | 是
+磁碟 > 1 TB | yes
+使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | yes
+儲存空間 | yes
 熱新增/移除磁碟 | 否
-排除磁碟 | 是
-多重路徑 (MPIO) | 是
+排除磁碟 | yes
+多重路徑 (MPIO) | yes
 
 ## <a name="vaults"></a>保存庫
 
-**動作** | **支援**
+**Action** | **支援**
 --- | --- 
 跨資源群組間移動保存庫 (在訂用帳戶之內或跨訂用帳戶) |  否
 跨資源群組間移動儲存體、網路、Azure VM (在訂用帳戶之內或跨訂用帳戶) | 否

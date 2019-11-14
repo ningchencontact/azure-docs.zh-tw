@@ -1,5 +1,5 @@
 ---
-title: 使用 C# 來建立和管理 Azure 虛擬機器 | Microsoft Docs
+title: 使用建立及管理 Azure 虛擬機器C#
 description: 使用 C# 和 Azure Resource Manager 來部署 Azure 虛擬機器及所有支援它的資源。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079599"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032778"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>在 Azure 中使用 C# 建立並管理 Windows VM #
 
@@ -84,7 +84,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ### <a name="create-the-management-client"></a>建立管理用戶端
 
-1. 開啟您所建立之專案的 Program.cs 檔案。 然後, 將這些 using 語句新增至檔案頂端的現有語句:
+1. 開啟您所建立之專案的 Program.cs 檔案。 然後，將這些 using 語句新增至檔案頂端的現有語句：
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -364,7 +364,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>將資料磁碟新增至 VM
 
-若要將資料磁片新增至虛擬機器, 請將此程式碼新增至 Main 方法。 這個範例會新增大小為 2 GB 的資料磁片, 並將 LUN 0 和快取類型為 ReadWrite:
+若要將資料磁片新增至虛擬機器，請將此程式碼新增至 Main 方法。 這個範例會新增大小為 2 GB 的資料磁片，並將 LUN 0 和快取類型為 ReadWrite：
 
 ```csharp
 Console.WriteLine("Adding data disk to vm...");

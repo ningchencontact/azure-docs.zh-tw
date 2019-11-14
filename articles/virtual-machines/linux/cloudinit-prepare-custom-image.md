@@ -1,5 +1,5 @@
 ---
-title: 準備 Azure 虛擬機器映像以搭配 cloud-init 使用 |Microsoft Docs
+title: 準備要與雲端 init 搭配使用的 Azure VM 映射
 description: 如何準備現有的 Azure 虛擬機器映像，以便使用 cloud-init 進行部署
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: 1f9f6042b52c722280a8227754960ffb270e94b8
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a75bceebe584522ee999f86664b8afb9fa00f17b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668256"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036739"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>準備現有的 Linux Azure 虛擬機器映像以搭配 cloud-init 使用
-本文會示範如何讓現有的 Azure 虛擬機器準備好進行重新部署，並且可使用 cloud-init。 所產生的映像可用來部署新的虛擬機器或虛擬機器擴展集 - 之後這兩者都可進一步使用 cloud-init 在部署期間進行自訂。  一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
+本文會示範如何讓現有的 Azure 虛擬機器準備好進行重新部署，並且可使用 cloud-init。 所產生的映像可用來部署新的虛擬機器或虛擬機器擴展集 - 之後這兩者都可進一步使用 cloud-init 在部署期間進行自訂。  一旦 Azure 佈建資源之後，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
 
 ## <a name="prerequisites"></a>先決條件
 本文件會假設您已經有正在執行的 Azure 虛擬機器，且執行著支援版本的 Linux 作業系統。 您已設定符合您需求的電腦、已安裝所有必要模組、已處理所有所需更新並且已經過測試，確定其符合您的需求。 
 
-## <a name="preparing-rhel-76--centos-76"></a>準備 7.6 RHEL / CentOS 7.6
+## <a name="preparing-rhel-76--centos-76"></a>準備 RHEL 7.6/CentOS 7。6
 您需要使用 SSH 連線至 Linux VM 並執行下列命令，才能安裝 cloud-init。
 
 ```bash
@@ -36,7 +36,7 @@ sudo yum install -y gdisk cloud-utils-growpart
 sudo yum install - y cloud-init 
 ```
 
-更新 `/etc/cloud/cloud.cfg` 中的 `cloud_init_modules` 區段以包含下列模組：
+更新 `cloud_init_modules` 中的 `/etc/cloud/cloud.cfg` 區段以包含下列模組：
 ```bash
 - disk_setup
 - mounts
@@ -68,7 +68,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-只要讓 Azure 作為資料來源的 Azure Linux 代理程式藉由建立新的檔案`/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg`您選擇的編輯器使用下面這一行：
+使用您選擇的編輯器來建立 `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` 新的檔案，以僅允許 Azure 做為 Azure Linux 代理程式的資料來源，如下所示：
 
 ```bash
 # Azure Data Source config

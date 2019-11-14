@@ -1,18 +1,14 @@
 ---
 title: PCI-DSS 3.2.1 藍圖範例-部署步驟
 description: 適用于付款卡產業資料安全標準 v2.0 藍圖範例的部署步驟，包括藍圖成品參數詳細資訊。
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: b765782adfa5fd63bc270ad28b74cf3bd1ca1d4a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b29a1a66b7407558769e506deed5e65f7ecb064c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163043"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037263"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>部署 PCI-DSS 3.2.1 藍圖範例
 
@@ -31,7 +27,7 @@ ms.locfileid: "73163043"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] **下方的 [建立]** 按鈕。
+1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] _下方的 [建立]_ 按鈕。
 
 1. 在 [_其他範例_] 底下尋找**PCI-DSS 3.2.1**藍圖範例，然後選取 [**使用此範例**]。
 
@@ -66,7 +62,7 @@ ms.locfileid: "73163043"
 
 1. 提供用於指派藍圖的參數值：
 
-   - 基本概念
+   - 基本
 
      - 訂用**帳戶：選取**您儲存藍圖範例複本的管理群組中的一或多個訂用帳戶。 如果您選取多個訂用帳戶，輸入的參數就會用來為每個訂用帳戶建立指派。
      - **指派名稱**：根據藍圖的名稱預先填入名稱。
@@ -111,7 +107,7 @@ ms.locfileid: "73163043"
 > [Pci-dss 3.2.1 藍圖-總覽](./index.md)
 > [PCI-dss v 3.2.1 藍圖-控制項對應](./control-mapping.md)
 
-藍圖和使用方式的其他相關文章：
+有關藍圖及其使用方式的其他文件：
 
 - 了解[藍圖生命週期](../../concepts/lifecycle.md)。
 - 了解如何使用[靜態與動態參數](../../concepts/parameters.md)。

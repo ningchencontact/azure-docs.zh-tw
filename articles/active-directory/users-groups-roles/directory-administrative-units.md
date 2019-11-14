@@ -1,26 +1,25 @@
 ---
-title: 管理單位管理 (預覽) - Azure Active Directory | Microsoft Docs
+title: 管理單位管理（預覽）-Azure AD |Microsoft Docs
 description: 使用管理單位在 Azure Active Directory 中進行更細微的權限委派
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b61186a876af90c812ec7faf41fa9f5b14bf4e
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 3c4958975a080a98fb900bf317229ba9eda795d5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336927"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028419"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Azure Active Directory 中的系統管理單位管理（預覽）
 
@@ -34,13 +33,13 @@ ms.locfileid: "71336927"
 
 ## <a name="license-requirements"></a>授權需求
 
-若要使用管理單位，每個管理單位系統管理員都需要 Azure Active Directory Premium 授權。如需詳細資訊，請參閱〈 [開始使用 Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)〉。
+若要使用管理單位，每個管理單位系統管理員都需要 Azure Active Directory Premium 授權。如需詳細資訊，請參閱[開始使用 Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)。
 
 ## <a name="managing-administrative-units"></a>管理管理單位
 
 在此預覽版本中，您可以建立和管理管理單位的唯一方式，就是使用適用于 Windows PowerShell Cmdlet 的 Azure Active Directory 模組，如使用系統[管理單位](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)中所述
 
-如需有關軟體需求和安裝 Azure AD 模組的詳細資訊，以及用於管理管理單位之 Azure AD 模組 Cmdlet 的參考資訊，包括語法、參數說明和範例，請參閱[Azure Active目錄 PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)。
+如需有關軟體需求和安裝 Azure AD 模組的詳細資訊，以及用於管理管理單位之 Azure AD 模組 Cmdlet 的參考資訊，包括語法、參數描述和範例，請參閱[Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)。
 
 ## <a name="next-steps"></a>後續步驟
 

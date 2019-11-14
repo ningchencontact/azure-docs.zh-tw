@@ -1,25 +1,25 @@
 ---
-title: 授權群組的 PowerShell 和圖形範例-Azure Active Directory |Microsoft Docs
+title: 群組授權的 PowerShell 和圖形範例-Azure AD |Microsoft Docs
 description: Azure Active Directory 以群組為基礎之授權的 PowerShell + Graph 範例和案例
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8965f4872ac88601a4a77dc48ba430c2f419250f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 52a741fd0616fc17ed133309ea6200dca43a83b7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160569"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025584"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中以群組為基礎之授權的 PowerShell 和圖形範例
 
@@ -624,9 +624,9 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 若要深入了解透過群組管理授權的功能集，請參閱下列文章：
 
 * [什麼是 Azure Active Directory 中以群組為基礎的授權？](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
+* [將授權指派給 Azure Active Directory 中的群組 (英文)](licensing-groups-assign.md)
 * [識別及解決 Azure Active Directory 中群組的授權問題](licensing-groups-resolve-problems.md)
-* [如何將個別的已授權使用者移轉成 Azure Active Directory 中的群組型授權 (英文)](licensing-groups-migrate-users.md)
+* [如何將個別授權使用者移轉至 Azure Active Directory 中以群組為基礎的授權](licensing-groups-migrate-users.md)
 * [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory 群組型授權其他案例 (英文)](licensing-group-advanced.md)
+* [Azure Active Directory 群組型授權其他案例](licensing-group-advanced.md)
 * [Azure Active Directory 群組型授權的 PowerShell 範例](../users-groups-roles/licensing-ps-examples.md)

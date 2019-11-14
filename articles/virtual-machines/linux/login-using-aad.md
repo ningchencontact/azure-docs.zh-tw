@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Active Directory 認證登入 Linux VM | Microsoft Docs
+title: 使用 Azure Active Directory 認證登入 Linux VM
 description: 瞭解如何建立和設定 Linux VM，以使用 Azure Active Directory authentication 進行登入。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327086"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035934"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>預覽：使用 Azure Active Directory authentication 登入 Azure 中的 Linux 虛擬機器
 
@@ -48,7 +48,7 @@ ms.locfileid: "71327086"
 
 以下是目前在這項功能的預覽期間支援的 Linux 發行版：
 
-| 發佈 | Version |
+| 配送映像 | 版本 |
 | --- | --- |
 | CentOS | CentOS 6、CentOS 7 |
 | Debian | Debian 9 |
@@ -66,7 +66,7 @@ ms.locfileid: "71327086"
 > 若要使用這項預覽功能，請您僅在支援的 Azure 區域中部署支援的 Linux 發行版。 Azure Government 或主權雲端不支援這項功能。
 
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-linux-virtual-machine"></a>建立 Linux 虛擬機器
 
@@ -149,11 +149,11 @@ ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 
 出現提示時，請在登入頁面上輸入您的 Azure AD 登入認證。 
 
-當您成功驗證之後，網頁瀏覽器中會顯示下列訊息：`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+當您成功驗證之後，網頁瀏覽器中會顯示下列訊息： `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 關閉瀏覽器視窗，返回 SSH 提示字元，然後按 **Enter** 鍵。 
 
-您此時會已使用指派的角色權限 (例如 [VM 使用者]或 [VM 系統管理員]) 登入 Azure Linux 虛擬機器。 如果您的使用者帳戶已獲指派*虛擬機器系統管理員登*入角色， `sudo`您可以使用來執行需要根許可權的命令。
+您此時會已使用指派的角色權限 (例如 [VM 使用者]或 [VM 系統管理員]) 登入 Azure Linux 虛擬機器。 如果您的使用者帳戶已獲指派*虛擬機器系統管理員登*入角色，您可以使用 `sudo` 來執行需要根許可權的命令。
 
 ## <a name="sudo-and-aad-login"></a>Sudo 和 AAD 登入
 
@@ -190,7 +190,7 @@ Access denied
 
 如果您已在網頁瀏覽器中成功完成驗證步驟，系統可能會立即提示您再次登入以全新的使用碼登入。 之所以發生此錯誤，通常是因為您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 若要更正此問題：
 
-- 確認在 SSH 提示字元中指定的登入名稱正確無誤。 登入名稱若有拼字錯誤，即可能導致您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 例如，您輸入*azuresuer\@contoso.onmicrosoft.com* ，而不*是\@azureuser contoso.onmicrosoft.com*。
+- 確認在 SSH 提示字元中指定的登入名稱正確無誤。 登入名稱若有拼字錯誤，即可能導致您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 例如，您輸入*azuresuer\@contoso.onmicrosoft.com* ，而不是*azureuser\@contoso.onmicrosoft.com*。
 - 如果您有多個使用者帳戶，請確定您在登入 Azure AD 時，並未在瀏覽器視窗中提供不同的使用者帳戶。
 - Linux 是區分大小寫的作業系統。 'Azureuser@contoso.onmicrosoft.com' 和 'azureuser@contoso.onmicrosoft.com' 之間的差異可能會導致不相符。 請確定您在 SSH 提示字元中指定 UPN 時使用的是正確的大小寫設定。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 中的 Linux VM 時間同步 | Microsoft Docs
+title: Azure 中的 Linux VM 時間同步
 description: Linux 虛擬機器的時間同步。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7e23b71edd05154f3c19a097ebf92c690426c777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e5d68a31db3797f9919d044eed284d0d09052390
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100792"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034653"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中的 Linux VM 時間同步
 
@@ -31,7 +31,7 @@ Azure 受到執行 Windows Server 2016 之基礎結構的支援。 Windows Serve
 >
 > 如需詳細資訊，請參閱 [Windows Server 2016 的準確時間](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 電腦時鐘精確度的衡量方式，是依據電腦時鐘與國際標準時間 (UTC) 時間標準的接近程度。 UTC 是由多國的精準原子鐘樣本所定義；原子鐘在 300 年內只會誤差一秒。 但是直接讀取 UTC 需使用專用的硬體。 替代方式為系統將時間伺服器同步為 UTC，並從其他電腦存取以提供延展性和強固性。 每部電腦都有持續運作的時間同步服務，知道需使用哪些時間伺服器，且會定期檢查電腦時鐘是否需要修正，並視需要調整時間。 
 
@@ -41,15 +41,15 @@ Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器
 
 虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)期間，VM 會暫停最多 30 秒。 比方說，維修開始之前 VM 時鐘顯示上午 10:00:00，並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為了進行補償需在 VM 上做的變更。
 
-若沒有時間同步功能，VM 上的時鐘將會累積錯誤。 若只有一部 VM，除非工作負載需要高度精準的計時功能，否則不會造成顯著的影響。 但是在多數情況下，我們都有多部互相連接並使用時間來追蹤交易的 VM，而且整個部署中的時間必須保持一致。 當 VM 之間的時間有所不同，可能會產生以下影響：
+若沒有時間同步功能，VM 上的時鐘將會累積錯誤。 若只有一部 VM，除非工作負載需要高度精準的計時功能，否則不會造成顯著的影響。 但是在多數情況下，我們都有多部互相連接並使用時間來追蹤交易的 VM，而且整個部署中的時間必須保持一致。 當 VM 之間的時間有所不同，可能會產生下列影響：
 
-- 驗證將會失敗。 Kerberos 這類安全性通訊協定或憑證相依的技術，仰賴整個系統中的時間維持一致。
+- 驗證將會失敗。 Kerberos 這類安全性通訊協定或憑證相依的技術仰賴整個系統中的時間維持一致。
 - 如果記錄 (或其他資料) 認知的時間有所差異，很難想像系統會發生什麼問題。 同一個事件看起來可能像發生在不同時間，導致難以建立相互關聯。
 - 當時鐘有所誤差，計費功能也可能會計算錯誤。
 
 
 
-## <a name="configuration-options"></a>設定選項
+## <a name="configuration-options"></a>組態選項
 
 您通常可透過三種方式來為裝載於 Azure 中的 Linux VM 設定時間同步：
 
@@ -71,7 +71,7 @@ Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器
 
 ### <a name="host-only"></a>僅限主機 
 
-由於 NTP 伺服器 (例如 time.windows.com 和 ntp.ubuntu.com) 為公用，與其同步時間需透過網際網路傳送流量。 不同的封包延遲可能會對時間同步的品質造成負面影響。切換為僅限主機同步以移除 NTP，可改善時間同步結果。
+由於 NTP 伺服器 (例如 time.windows.com 和 ntp.ubuntu.com) 為公用，與其同步時間需透過網際網路傳送流量。 不同的封包延遲可能會對時間同步的品質造成負面影響。藉由切換至僅限主機同步來移除 NTP，有時可以改善時間同步結果。
 
 如果在使用預設設定時發生時間同步問題，切換為僅限主機時間同步為合理的解決方式。 嘗試使用僅限主機同步，確認是否可改善您 VM 上的時間同步結果。 
 

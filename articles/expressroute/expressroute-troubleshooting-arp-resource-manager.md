@@ -1,5 +1,5 @@
 ---
-title: 取得 ARP 資料表-疑難排解-ExpressRoute： Azure |Microsoft Docs
+title: Azure ExpressRoute：取得 ARP 資料表-疑難排解
 description: 此頁面提供相關指示，協助您取得適用於 ExpressRoute 線路的 ARP 表格
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2410465052bd9ff83090c6f7122ffab2855af1d0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748155"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033425"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中取得 ARP 表格
 > [!div class="op_single_selector"]

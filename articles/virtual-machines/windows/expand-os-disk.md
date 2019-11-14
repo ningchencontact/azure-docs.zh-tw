@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中擴充 Windows VM 的 OS 磁碟機 | Microsoft Docs
+title: 在 Azure 中擴充 Windows VM 的 OS 磁片磁碟機
 description: 使用 Resource Manager 部署模型中的 Azure PowerShell，擴充虛擬機器的 OS 磁碟機大小。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 12fa8cb09a9864b49c9368462ae3d5ca1d88f2c9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749422"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033507"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何擴充虛擬機器的 OS 磁碟機
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中部署 OpenShift 容器平臺 3.11 |Microsoft Docs
+title: 在 Azure 中部署 OpenShift 容器平臺3.11
 description: 在 Azure 中部署 OpenShift 容器平臺3.11。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4320105c5411e8a01ff6c69bf7d87057c786d092
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392744"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035453"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>在 Azure 中部署 OpenShift 容器平臺3.11
 
@@ -59,7 +59,7 @@ ms.locfileid: "72392744"
 
 [OpenShift 容器平台範本](https://github.com/Microsoft/openshift-container-platform)有多個分支可用於不同版本的 OpenShift 容器平台。  根據您的需求，您可以直接從存放庫部署或可以分支處理存放庫，並且在部署前，先對範本或指令碼進行自訂變更。
 
-使用您稍早針對 `aadClientId` 參數所建立之服務主體中的 `appId` 值。
+使用您稍早針對 `appId` 參數所建立之服務主體中的 `aadClientId` 值。
 
 下列範例顯示名為 azuredeploy.parameters.json，且具有所有必要輸入的參數檔案。
 
@@ -250,7 +250,7 @@ ms.locfileid: "72392744"
 
 | 屬性 | 描述 | 有效的選項 | 預設值 |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | 成品的 URL （json、腳本等） |  |  HTTPs： \//githubusercontent .com/Microsoft/openshift-容器-平臺/主機  |
+| `_artifactsLocation`  | 成品的 URL （json、腳本等） |  |  HTTPs：\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 要部署資源的 Azure 區域 |  |  |
 | `masterVmSize` | 主要 VM 的大小。 從 azuredeploy.parameters.json」所列的其中一個允許的 VM 大小中選取 |  | Standard_E2s_v3 |
 | `infraVmSize` | 基礎 VM 的大小。 從 azuredeploy.parameters.json」所列的其中一個允許的 VM 大小中選取 |  | Standard_D4s_v3 |
@@ -281,13 +281,13 @@ ms.locfileid: "72392744"
 | `keyVaultName` | 您所建立 Key Vault 的名稱 |  |  |
 | `enableAzure` | 啟用 Azure 雲端提供者 | true <br> false | true |
 | `aadClientId` | Azure Active Directory 用戶端識別碼，也稱為服務主體的應用程式識別碼 |  |  |
-| `domainName` | 要使用的自訂功能變數名稱名稱（如果適用的話）。 如果未部署完整的私用叢集，則設定為 "none" |  | None |
+| `domainName` | 要使用的自訂功能變數名稱名稱（如果適用的話）。 如果未部署完整的私用叢集，則設定為 "none" |  | 無 |
 | `masterClusterDnsType` | OpenShift web 主控台的網欄位型別。 「預設」會使用主要基礎公用 IP 的 DNS 標籤。 「自訂」可讓您定義自己的名稱 | 預設值 <br> 客戶 | 預設值 |
-| `masterClusterDns` | 如果您已選取 [自訂] `masterClusterDnsType`，要用來存取 OpenShift web 主控台的自訂 DNS 名稱 |  | console.contoso.com |
-| `routingSubDomainType` | 如果設定為 ' nipio '，`routingSubDomain` 會使用 nip.io。  如果您有想要用於路由的自己網域，請使用 [自訂] | nipio <br> 客戶 | nipio |
+| `masterClusterDns` | 當您選取 [自訂] 進行 `masterClusterDnsType` 時，用來存取 OpenShift web 主控台的自訂 DNS 名稱 |  | console.contoso.com |
+| `routingSubDomainType` | 如果設定為 ' nipio '，`routingSubDomain` 將會使用 nip.io。  如果您有想要用於路由的自己網域，請使用 [自訂] | nipio <br> 客戶 | nipio |
 | `routingSubDomain` | 如果您已選取 [自訂] 做為 `routingSubDomainType`，您想要用於路由的萬用字元 DNS 名稱 |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | 選取要使用現有的虛擬網路還是建立新的虛擬網路 | 已 <br> 新功能 | 新功能 |
-| `virtualNetworkResourceGroupName` | 如果您已選取 [新增] 做為 `virtualNetworkNewOrExisting`，新虛擬網路的資源組名 |  | resourceGroup （）. name |
+| `virtualNetworkNewOrExisting` | 選取要使用現有的虛擬網路還是建立新的虛擬網路 | 已 <br> new | new |
+| `virtualNetworkResourceGroupName` | 如果您為 `virtualNetworkNewOrExisting` 選取了 [新增]，新虛擬網路的資源組名 |  | resourceGroup （）. name |
 | `virtualNetworkName` | 如果您為 `virtualNetworkNewOrExisting` 選取了 [新增]，要建立的新虛擬網路名稱 |  | openshiftvnet |
 | `addressPrefixes` | 新虛擬網路的位址首碼 |  | 10.0.0.0/14 |
 | `masterSubnetName` | 主要子網的名稱 |  | mastersubnet |
@@ -300,9 +300,9 @@ ms.locfileid: "72392744"
 | `existingInfraSubnetReference` | 基礎節點之現有子網的完整參考。 建立新的 vNet/子網時不需要 |  |  |
 | `existingCnsSubnetReference` | 對 CN 節點的現有子網的完整參考。 建立新的 vNet/子網時不需要 |  |  |
 | `existingNodeSubnetReference` | 計算節點之現有子網的完整參考。 建立新的 vNet/子網時不需要 |  |  |
-| `masterClusterType` | 指定叢集是否使用私用或公用主要節點。 如果選擇 [私人]，主要節點將不會透過公用 IP 向網際網路公開。 相反地，它會使用 @no__t 中指定的私人 IP-0 | 公開 <br> 私用 | 公開 |
+| `masterClusterType` | 指定叢集是否使用私用或公用主要節點。 如果選擇 [私人]，主要節點將不會透過公用 IP 向網際網路公開。 相反地，它會使用在 `masterPrivateClusterIp` 中指定的私人 IP。 | 公開 <br> 私用 | 公開 |
 | `masterPrivateClusterIp` | 如果選取私人主要節點，則必須指定私人 IP 位址，以供主要節點的內部負載平衡器使用。 此靜態 IP 必須位於主要子網的 CIDR 區塊內，而且尚未使用。 如果選取了 [公用主要節點]，則不會使用此值，但仍然必須指定 |  | 10.1.0.200 |
-| `routerClusterType` | 指定叢集是使用私用或公用基礎節點。 如果選擇 [私人]，則基礎節點將不會透過公用 IP 向網際網路公開。 相反地，它會使用 @no__t 中指定的私人 IP-0 | 公開 <br> 私用 | 公開 |
+| `routerClusterType` | 指定叢集是使用私用或公用基礎節點。 如果選擇 [私人]，則基礎節點將不會透過公用 IP 向網際網路公開。 相反地，它會使用在 `routerPrivateClusterIp` 中指定的私人 IP。 | 公開 <br> 私用 | 公開 |
 | `routerPrivateClusterIp` | 如果選取私人基礎節點，則必須指定私人 IP 位址，以供基礎節點的內部負載平衡器使用。 此靜態 IP 必須位於主要子網的 CIDR 區塊內，而且尚未使用。 如果選取公用基礎節點，則不會使用此值，但仍然必須指定 |  | 10.2.0.200 |
 | `routingCertType` | 將自訂憑證用於路由網域或預設的自我簽署憑證-遵循**自訂憑證**一節中的指示 | lnk-selfsigned 之類 <br> 客戶 | lnk-selfsigned 之類 |
 | `masterCertType` | 將自訂憑證用於主要網域或預設的自我簽署憑證-遵循**自訂憑證**一節中的指示 | lnk-selfsigned 之類 <br> 客戶 | lnk-selfsigned 之類 |

@@ -1,32 +1,32 @@
 ---
 title: 使用 Grafana 從 Azure 資料總管將資料視覺化
-description: 在此操作說明中，您將了解如何將 Azure 資料總管設定為 Grafana 的資料來源，然後從叢集範例中將資料視覺化。
+description: 在本文中，您將瞭解如何設定 Azure 資料總管做為 Grafana 的資料來源，然後將來自範例叢集的資料視覺化。
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 6/30/2019
-ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/13/2019
+ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581889"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037965"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>在 Grafana 中從 Azure 資料總管將資料視覺化
 
-Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的視覺效果建立並共用儀表板。 Grafana 提供 Azure 資料總管「外掛程式」，可讓您從 Azure 資料總管連線到資料並加以視覺化。 在本文中，您將了解如何將 Azure 資料總管設定為 Grafana 的資料來源，然後從叢集範例中將資料視覺化。
+Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的視覺效果建立並共用儀表板。 Grafana 提供 Azure 資料總管「外掛程式」，可讓您從 Azure 資料總管連線到資料並加以視覺化。 在本文中，您將瞭解如何設定 Azure 資料總管做為 Grafana 的資料來源，然後將來自範例叢集的資料視覺化。
 
-使用下列影片，您可以瞭解如何使用 Grafana 的 Azure 資料總管外掛程式、將 Azure 資料總管設定為 Grafana 的資料來源，然後將資料視覺化。 
+使用下列影片，以瞭解如何使用 Grafana 的 Azure 資料總管外掛程式、將 Azure 資料總管設定為 Grafana 的資料來源，然後將資料視覺化。 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
 或者，您可以[設定資料來源](#configure-the-data-source)，並將[資料視覺化](#visualize-data)，如下列文章中所述。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本操作說明，您需要下列項目：
+您需要下列專案才能完成這篇文章：
 
 * 適用於您作業系統的 [Grafana 5.3.0 版或更新版本](https://docs.grafana.org/installation/)
 
@@ -66,7 +66,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 1. 選取 [儲存並測試]。
 
-    如果測試成功，請移至下一節。 如果您遇到任何問題，請檢查您在 Grafana 中指定的值，並檢閱先前的步驟。
+    如果測試成功，請移至下一節。 如果您遇到任何問題，請檢查您在 Grafana 中指定的值，並查看先前的步驟。
 
 ## <a name="visualize-data"></a>顯現資料
 
@@ -109,10 +109,28 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
     ![已完成的圖表](media/grafana/finished-graph.png)
 
-1. 在最上層功能表中，選取儲存圖示： ![[儲存] 圖示](media/grafana/save-icon.png)》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。
+1. 在最上層功能表中，選取儲存圖示： ![[儲存] 圖示](media/grafana/save-icon.png)，通常您會使用 collectd。
+
+## <a name="create-alerts"></a>建立警示
+
+1. 在 [主儀表板] 中，選取 [**警示**] > **通知通道**以建立新的通知通道
+
+    ![建立通知通道](media/grafana/create-notification-channel.png)
+
+1. 建立新的**通知通道**，然後 [**儲存**]。
+
+    ![建立新的通知通道](media/grafana/new-notification-channel-adx.png)
+
+1. 在**儀表板**上，從下拉式清單中選取 [**編輯**]。
+
+    ![在儀表板中選取 [編輯]](media/grafana/edit-panel-4-alert.png)
+
+1. 選取 [警示鐘] 圖示以開啟 [**警示**] 窗格。 選取 [**建立警示**]。 在 [**警示**] 窗格中完成下列屬性。
+
+    ![警示屬性](media/grafana/alert-properties.png)
+
+1. 選取 [**儲存儀表板**] 圖示以儲存您的變更。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [撰寫 Azure 資料總管的查詢](write-queries.md)
-
-* [教學課程：在 Power BI 中將 Azure 資料總管的資料視覺化](visualize-power-bi.md)

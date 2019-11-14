@@ -1,10 +1,10 @@
 ---
-title: 在 PIM 中查看 Azure AD 角色的 audit 歷程記錄-Azure Active Directory |Microsoft Docs
+title: 在 PIM 中查看 Azure AD 角色的審核報表-Azure AD |Microsoft Docs
 description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中查看 Azure AD 角色的審核歷程記錄。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022071"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>在 PIM 中查看 Azure AD 角色的審核歷程記錄
 
@@ -29,7 +29,7 @@ ms.locfileid: "72808994"
 
 請遵循下列步驟來查看 Azure AD 角色的審核歷程記錄。
 
-1. 以屬於[特殊權限角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色一員的使用者身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 以屬於[特殊權限角色管理員](https://portal.azure.com/)角色一員的使用者身分登入 [Azure 入口網站](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)。
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
@@ -43,11 +43,11 @@ ms.locfileid: "72808994"
 
     在頁面底部，會顯示一個資料表，其中包含可用的審核歷程記錄中每個動作的相關資訊。 這些資料行具有下列意義：
 
-    | Column | 描述 |
+    | 資料欄 | 描述 |
     | --- | --- |
     | 時間 | 當動作發生時。 |
     | 申請者 | 要求啟用或變更角色的使用者。 如果值是**Azure 系統**，請查看 azure audit 歷程記錄以取得詳細資訊。 |
-    | 行動 | 要求者所採取的動作。 動作可以包含指派、解除指派、啟用、停用或 AddedOutsidePIM。 |
+    | 動作 | 要求者所採取的動作。 動作可以包含指派、解除指派、啟用、停用或 AddedOutsidePIM。 |
     | member | 啟用或指派給角色的使用者。 |
     | 角色 | 使用者指派或啟用的角色。 |
     | 推理 | 啟用期間輸入 [原因] 欄位中的文字。 |

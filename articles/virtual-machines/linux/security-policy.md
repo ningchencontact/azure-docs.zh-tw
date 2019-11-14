@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Linux VM 上保護及使用原則 | Microsoft Docs
+title: 在 Azure 中的 Linux Vm 上保護及使用原則
 description: 了解 Azure 中 Linux 和虛擬機器的安全性和原則。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 6f884d46db34dda5f3812efb3418bffdf3165941
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9cd31d39d2881aebf83d5b40aa826433de5d0993
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708317"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035065"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>在 Azure 中的虛擬機器上保護及使用原則
 

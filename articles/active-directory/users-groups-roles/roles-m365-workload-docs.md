@@ -1,26 +1,25 @@
 ---
-title: Microsoft 365 services 的系統管理員角色內容-Azure AD |Microsoft Docs
+title: 跨 Microsoft 365 服務的管理員角色檔-Azure AD |Microsoft Docs
 description: 在 Azure Active Directory 中尋找 Microsoft 365 服務之系統管理員角色的內容和 API 參考
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ffa1d4f3e802b3419b31844ddd8133ceab5086
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 430b65217da33185cd3b5c235fb148f3350e1bfe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304385"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024448"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Microsoft 365 服務的系統管理員角色
 
@@ -39,7 +38,7 @@ SharePoint Online | [Azure AD 管理員角色](directory-assign-admin-roles.md)<
 安全分數 | [Azure AD 管理員角色](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[擷取角色指派](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 合規性管理員 | [合規性管理員角色](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | 尚未提供
 Azure 資訊保護 | [Azure AD 管理員角色](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[擷取角色指派](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
-Microsoft Cloud App Security | [角色型存取控制](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API 參考](https://docs.microsoft.com/cloud-app-security/api-tokens) 
+Microsoft Cloud App Security | [角色型存取控制](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API 參考資料](https://docs.microsoft.com/cloud-app-security/api-tokens) 
 Azure 進階威脅防護 | [Azure ATP 角色群組](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | 尚未提供
 Windows Defender 進階威脅防護 | [Windows Defender ATP 角色型存取控制](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | 尚未提供
 Privileged Identity Management | [Azure AD 管理員角色](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[擷取角色指派](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

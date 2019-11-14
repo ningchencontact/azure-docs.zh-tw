@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684418"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038284"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>將內部部署 SSIS 工作負載遷移至 ADF 中的 SSIS
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 當您將資料庫工作負載從內部部署 SQL Server 遷移至 Azure 資料庫服務（亦即 Azure SQL Database 或 Azure SQL Database 受控實例）時，您的 ETL 工作負載會在 SQL Server Integration Services （SSIS）做為其中一個主要值-已新增服務也必須遷移。
 
@@ -48,7 +48,7 @@ Data Migration Assistant （DMA）是可免費下載的工具，適用于此用�
   - MSDB，這是 SQL Server 中用來儲存 SSIS 封裝的系統資料庫。
   - 受管理的檔案系統，這是用來儲存 SSIS 套件 SQL Server 安裝路徑中的特定資料夾。
 
-DMA 目前支援從**dma 4.5 版**起，儲存在**檔案系統**儲存體類型中的封裝批次評估。
+DMA 目前支援從**DMA 版本 v 5.0**開始，儲存在**檔案系統**、**封裝存放區**和**SSIS 目錄**中的封裝批次評估。
 
 取得[DMA](https://docs.microsoft.com/sql/dma/dma-overview)，並[使用它來執行您的套件評估](https://docs.microsoft.com/sql/dma/dma-assess-ssis)。
 
