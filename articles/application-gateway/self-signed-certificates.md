@@ -1,5 +1,6 @@
 ---
-title: 使用自訂根 CA 產生 Azure 應用程式閘道自我簽署憑證
+title: 產生具有自訂根 CA 的自我簽署憑證
+titleSuffix: Azure Application Gateway
 description: 瞭解如何使用自訂的根 CA 產生 Azure 應用程式閘道自我簽署憑證
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833376"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075079"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>使用自訂根 CA 產生 Azure 應用程式閘道自我簽署憑證
 
@@ -29,7 +30,7 @@ ms.locfileid: "73833376"
 - 建立由您的自訂 CA 簽署的自我簽署憑證
 - 將自我簽署的根憑證上傳至應用程式閘道以驗證後端伺服器
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - **在執行 Windows 或 Linux 的電腦上[OpenSSL](https://www.openssl.org/)** 
 

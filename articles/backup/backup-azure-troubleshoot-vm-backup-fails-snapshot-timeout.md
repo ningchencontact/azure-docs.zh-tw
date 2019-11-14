@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: b344af71eac04cc355ba157e18d9de9d84a9cc63
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969073"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074127"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -29,7 +29,7 @@ ms.locfileid: "72969073"
 
 Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或未安裝，並導致 Azure 備份服務觸發快照集。  
 
-- 如果 VM 代理程式已停止或處於不一致的狀態，請**重新開機代理程式**，然後重試備份作業（嘗試臨機操作備份）。 如需重新開機代理程式的步驟，請參閱[Windows vm](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)或[Linux vm](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。
+- 如果 VM 代理程式已停止或處於不一致的狀態，請**重新開機代理程式**，然後重試備份作業（嘗試隨選備份）。 如需重新啟動代理程式的步驟，請參閱 [Windows VM](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。
 - 如果 VM 代理程式未安裝或已過時，請安裝/更新 VM 代理程式，然後重試備份操作。 如需安裝/更新代理程式的步驟，請參閱[Windows vm](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)或[Linux vm](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 無法與 VM 代理程式通訊來取得快照集狀態
@@ -138,13 +138,13 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTPS URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 若要解決網路問題，請參閱[建立網路連線](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代理程式有助於取得最新版本。 也有助於重新開始與服務通訊。
 
@@ -160,7 +160,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM 中安裝的代理程式已過時 (適用於 Linux VM)
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 針對 Linux VM，與代理程式或擴充功能相關的多數失敗是由於會影響過時 VM 代理程式的問題所造成。 若要對此問題進行疑難排解，請遵循下列一般方針：
 
@@ -173,7 +173,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
    如果此程序不在執行中，請使用下列命令來重新啟動它：
 
-   - 針對 Ubuntu：`service walinuxagent start`
+   - 針對 Ubuntu： `service walinuxagent start`
    - 針對其他散發套件︰`service waagent start`
 
 3. [設定自動重新啟動代理程式](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash)。
@@ -193,11 +193,11 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
 VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失敗，因為它無權存取儲存體帳戶，或是因為快照集工作延遲執行。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 下列狀況可能導致快照集工作失敗：
 
-| 原因 | 方案 |
+| 原因 | 解決方案 |
 | --- | --- |
 | 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
 | VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態私人 IP，則應透過**Azure 入口網站**或**PowerShell**加以設定，並確定已啟用 VM 內的 DHCP 選項。 [深入瞭解](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何使用 PowerShell 設定靜態 IP 位址。
@@ -206,14 +206,14 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 如果無法載入延伸模組，備份就會因為無法取得快照集而失敗。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 將擴充功能解除安裝，以強制重新載入 VMSnapshot 擴充功能。 下一次備份嘗試會重新載入解除安裝。
 
 若要將解除安裝解除安裝：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，移至發生備份失敗的 VM。
-2. 選取 [Settings] \(設定)。
+2. 選取 [Settings] (設定)。
 3. 選取 [擴充功能]。
 4. 選取 [Vmsnapshot 解除安裝]。
 5. 選取 [解除安裝]。
@@ -239,15 +239,15 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 若要清除還原點，請遵循下列任一方法：<br>
 
-- [藉由執行臨機操作備份來清除還原點集合](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+- [藉由執行隨選備份來清除還原點集合](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [從 Azure 入口網站清除還原點集合](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>藉由執行臨機操作備份來清除還原點集合
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>藉由執行隨選備份來清除還原點集合
 
-移除鎖定之後，請觸發臨機操作/手動備份。 這可確保還原點會自動清除。 此臨機操作/手動作業會第一次失敗;不過，它會確保自動清除，而不是手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。
+移除鎖定之後，請觸發隨選備份。 這可確保還原點會自動清除。 預期此隨選作業會第一次失敗;不過，它會確保自動清除，而不是手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。
 
 > [!NOTE]
-> 在觸發臨機操作/手動備份的幾個小時後，將會自動清除。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
+> 在觸發隨選備份的幾個小時後，將會自動清除。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>從 Azure 入口網站清除還原點集合 <br>
 

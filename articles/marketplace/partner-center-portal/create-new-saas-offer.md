@@ -1,19 +1,19 @@
 ---
 title: 在商業 Marketplace 中建立新的 SaaS 供應專案
 description: 如何使用 Microsoft 合作夥伴中心的商業 Marketplace 入口網站，建立新的軟體即服務（SaaS）供應專案，以便在 Azure Marketplace、AppSource 或透過雲端解決方案提供者（CSP）方案中進行列出或銷售。
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825559"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076951"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -34,7 +34,6 @@ ms.locfileid: "73825559"
 
 ![[新增供應專案] 對話方塊](./media/new-offer-popup.png)
 
-
 ## <a name="offer-id-and-alias"></a>供應專案識別碼和別名
 
 - **供應專案 ID**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫、英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [*建立*] 之後無法變更。  
@@ -45,7 +44,7 @@ ms.locfileid: "73825559"
 
 <br>範例：測試供應專案1&#8482;
 
-選取 [ **建立**]。  系統會為此供應專案建立供應專案的 **[總覽**] 頁面。  
+選取 [建立]。  系統會為此供應專案建立供應專案的 **[總覽**] 頁面。  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -105,16 +104,6 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 > [!NOTE]
 > **減少 Marketplace 服務費用**：針對您在我們的商業 Marketplace 上發佈的特定 SaaS 供應專案，microsoft 會將其 Marketplace 服務費用從20% （如 Microsoft 發行者合約中所述）降至10%。 為了讓您的供應專案符合資格，至少必須將您的其中一個供應專案指定為 IP 共同銷售就緒或 IP 共同銷售優先。  至少必須符合每個行事曆月份結束前五（5）個工作天的資格，才能收到該月份的縮減 Marketplace 服務費用。  降低的 Marketplace 服務費用不適用於 Vm、受管理的應用程式，或透過我們的商業 Marketplace 提供的任何其他產品。  優惠的 Marketplace 服務費用僅適用于 Microsoft 在2019年5月1日到2020日之間所收集之授權費用的合格供應專案。  在這段時間之後，Marketplace 服務費用會回到其一般金額。 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>CSP 方案加入宣告
-[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案可讓軟體供應專案透過最少的行銷和銷售投資，觸及數百萬位合格的 Microsoft 客戶。
-
-- **頻道：在 CSP 方案中提供我的供應專案**（核取方塊）
-
-選取在 CSP 方案中提供您的供應專案，可讓雲端解決方案提供者銷售您的產品，做為其客戶配套解決方案的一部分。 
-
 ### <a name="list-through-microsoft"></a>透過 Microsoft 列出
 
 藉由建立 marketplace 清單，向 Microsoft 推廣您的業務。 選擇只列出您的供應專案，而不是透過 Microsoft，表示 Microsoft 不會直接參與軟體授權交易。 沒有相關聯的交易費用，發行者會保留從客戶收集之任何軟體授權費用的100%。 不過，發行者負責支援軟體授權交易的所有層面，包括但不限於：訂單履行、計量、帳單、發票、付款和集合。 
@@ -141,7 +130,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 試用產品是向潛在客戶展示您的供應專案的絕佳方式，方法是讓他們選擇「在購買前試用」，進而提升轉換並產生高度合格的潛在客戶。 [深入瞭解試用產品。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **啟用試用**產品（核取方塊） 
+- **啟用試用**產品（核取方塊）
 
 藉由啟用試用產品，系統會要求您設定示範環境，讓客戶可以在一段固定時間內試用您的供應專案。 
 
@@ -170,7 +159,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 繼續進行下一節之前，請記得先**儲存**！
 
-## <a name="properties"></a>屬性
+## <a name="properties"></a>properties
 [**屬性**] 索引標籤會要求您定義用來將您的供應專案分組在 marketplace 上的類別和產業、支援您供應專案的法律合約，以及您的應用程式版本。 
 
 完成這些欄位之後，請選取 [**儲存**]。 
@@ -221,7 +210,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 - **搜尋關鍵字**：輸入最多三個搜尋關鍵字，客戶可以用來在 marketplace 中尋找您的供應專案。
 - **快速入門指示**（必要）：說明如何設定及開始使用您的應用程式來取得潛在客戶。  本快速入門可以包含更詳細的線上檔連結。 最多可以在此欄位中輸入3000個字元的文字。 
 
-#### <a name="description"></a>**說明**
+#### <a name="description"></a>**描述**
 
 這是必要欄位。 要包含在描述中的專案： 
 
@@ -238,12 +227,12 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 若要讓您的供應專案描述更吸引人，您可以使用 HTML 標籤來設定描述的格式。 
 
-1. 如果您想要建立段落，請在文字的乞求加入 `<p>`，並在結尾加入 `</p>`。
+1. 如果您想要建立段落，請將 `<p>` 新增至文字的乞求，並在結尾加入 `</p>`。
 
     **範例**： 
 
-    `<p>`，這是我的第一個段落。 `</p>` <br>
-    `<p>`，這是我的第二段。 `</p>` <br>
+    `<p>` 這是我的第一個段落。 `</p>` <br>
+    `<p>` 這是我的第二段。 `</p>` <br>
 
     上述內容看起來像這樣：
 
@@ -277,17 +266,17 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
     **免費試用**
 
-1. 若要在您的內容之間新增**分行符號**，請在您想要在新行上啟動的內容之前新增 `<br>`。 如果您想要保留一個空格，並確定內容是從新的一行開始，請在內容前面加上 `<br><br>`。 
+1. 若要在您的內容之間新增**分行符號**，請在您想要在新行上啟動的內容之前新增 `<br>`。 如果您想要保留一個空格，並確定內容是從新的一行開始，請在內容之前新增 `<br><br>`。 
 
     **範例**：
 
-    這是文字行。 `<br>`，這是將在新行中啟動的文字行。 `<br><br>`，這是將從下面兩行開始的一行。 
+    這是文字行。 `<br>` 這是將在新行中啟動的文字行。 `<br><br>` 這行程式碼會在下面兩行開始。 
 
     上述內容看起來像這樣：
 
     這是文字行。 <br> 這是將在新行中啟動的文字行。 <br><br> 這是將在下面兩行開頭的一行。 
 
-1. 如果您想要**增加文字的大小**，請先選擇文字要多大。 使用下列範例。 選取文字大小之後，請將對應的 `<H*></H*>` 標記新增至文字的開頭和結尾。 
+1. 如果您想要**增加文字的大小**，請先選擇文字要多大。 使用下列範例。 選取文字大小之後，請將對應的 `<H*></H*>` 標記加入至文字的開頭和結尾。 
 
     **範例**：
 
@@ -331,7 +320,6 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 - [Marketplace 供應專案清單的最佳做法](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## <a name="preview"></a>預覽
 
 [**預覽**] 索引標籤可讓您定義有限的**預覽物件**，以便在將您的供應專案即時發佈到更廣泛的 marketplace 物件之前發行供應專案。
@@ -352,7 +340,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 - **登陸頁面 URL** （必要）：定義從 marketplace 取得您的供應專案之後，客戶將居住的網站 URL。 此 URL 會是當客戶路由傳送至頁面時，接收權杖的端點。 您可以在履行 Api 中使用 resolve，交換該權杖以提供布建詳細資料。 您所收集的這些詳細資料和任何其他專案，都可以用來作為您的經驗，以完成註冊並啟用其購買的客戶互動網頁的一部分。
 
-- **連接 webhook** （必要）：針對 Microsoft 需要代表客戶傳送給您的所有非同步事件（例如： SaaS 訂用帳戶已失效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽其張貼的任何事件，然後適當地處理（例如，HTTPs： \//1westus/生產環境。). 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
+- **連接 webhook** （必要）：針對 Microsoft 需要代表客戶傳送給您的所有非同步事件（例如： SaaS 訂用帳戶已失效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽張貼的任何事件，然後適當地處理（例如 HTTPs：\//prod-1westus.logic.azure.com:443/work）。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
 - **Azure AD 租使用者識別碼**（必要）：在 Azure 入口網站內，我們會要求您[建立 Azure Active Directory （AD）應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，以便驗證這兩個服務之間的連線是在驗證通訊之後。 若要尋找[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)，請移至您的 Azure Active Directory 並選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。
 
@@ -407,7 +395,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 >[!Note]
 >一旦您的 transactable 供應專案使用免費試用版發行後，就無法將該方案停用。 請確定第一次發行的此設定是正確的，以避免重新建立計畫。
 
-若要取得目前參與免費試用之客戶訂用帳戶的相關資訊，請使用新的 API 屬性 `isFreeTrial`，它會標示為 true 或 false。 如需詳細資訊，請參閱[SaaS 取得訂](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription)用帳戶 API。
+若要取得目前參與免費試用之客戶訂用帳戶的相關資訊，請使用新的 API 屬性 `isFreeTrial`，其將會標示為 true 或 false。 如需詳細資訊，請參閱[SaaS 取得訂](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription)用帳戶 API。
 
 >[!Note]
 >運用 marketplace 計量服務的方案不支援免費試用。
@@ -416,12 +404,11 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 - **編輯市場**（選擇性）
 
-必須至少有一個市場提供每個方案。 選取您想要讓此方案可供使用的任何市場位置的核取方塊。 包含一個搜尋方塊和按鈕，用於選取「稅金已匯款」的國家/地區，其中 Microsoft 免除銷售並代表您使用稅額，以協助。 
-
+必須至少有一個市場提供每個方案。 選取您想要讓此方案可供使用的任何市場位置的核取方塊。 包含一個搜尋方塊和按鈕，用於選取「稅金已匯款」的國家/地區，其中 Microsoft 免除銷售並代表您使用稅額，以協助。
 
 如果您已經在美國美元（USD）中設定方案的價格，並新增另一個市場位置，新市場的價格將會根據目前的匯率計算。 在發佈之前，您應該一律檢查每個市場的價格。 儲存變更之後，您可以使用 [匯出價格（.xlsx）] 連結來檢查定價。
 
-#### <a name="pricing"></a>價格
+#### <a name="pricing"></a>定價
 
 - **計價模式**：以一般費率或基座為基礎
 
@@ -475,11 +462,15 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## <a name="publish"></a>發佈
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>雲端解決方案提供者（CSP）轉銷商物件
+
+選取在 CSP 方案中提供您的供應專案，可讓雲端解決方案提供者銷售您的產品，做為其客戶配套解決方案的一部分。 如需詳細資訊，請參閱[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md)。
+
+## <a name="publish"></a>Publish
+
+當您完成供應專案的所有必要區段之後，請選取入口網站右上角的 [**發佈**]。 系統會將您重新導向至 [**審查及發佈**] 頁面。
 
 #### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
-
-當您完成供應專案的所有必要區段之後，請選取入口網站右上角的 [**發佈**]。 系統會將您重新導向至 [**審查及發佈**] 頁面。 
 
 如果這是您第一次發佈此供應專案，您可以：
 

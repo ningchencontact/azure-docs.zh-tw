@@ -1,7 +1,6 @@
 ---
 title: 針對 Azure Load Balancer 進行疑難排解
-titlesuffix: Azure Load Balancer
-description: 針對 Azure Load Balancer 的已知問題進行疑難排解
+description: 瞭解如何對 Azure Load Balancer 的已知問題進行疑難排解。
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154931"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076914"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -29,7 +28,7 @@ ms.locfileid: "71154931"
 - 負載平衡器後方的 VM 未回應健康狀態探查 
 - 負載平衡器後方的 VM 未回應設定連接埠的流量
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>徵兆：負載平衡器後方的 VM 未回應健康狀態探查
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>徵兆：負載平衡器後方的 VM 都沒有回應健康狀態探查
 如果後端伺服器要參與負載平衡器集合，就必須通過探查檢查。 如需健康狀態探查的詳細資訊，請參閱[了解負載平衡器探查](load-balancer-custom-probe-overview.md)。 
 
 負載平衡器後端集區 VM 可能因為下列任何一個原因未回應探查︰ 
@@ -38,7 +37,7 @@ ms.locfileid: "71154931"
 - 防火牆或網路安全性群組封鎖負載平衡器後端集區 VM 上的連接埠 
 - 負載平衡器中的其他設定錯誤
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>原因 1：負載平衡器後端集區 VM 的健康狀態不良 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>原因 1︰負載平衡器後端集區 VM 的健康狀態不良 
 
 **驗證和解決方式**
 
@@ -81,7 +80,7 @@ ms.locfileid: "71154931"
     - 確認探查封包是否在到達負載平衡器之前被強制傳送到另一個目的地 (可能是透過 UDR 設定)。 這可能會導致流量永遠都無法到達後端 VM。 
 * 變更探查類型 (例如，將 HTTP 變更為 TCP)，並在網路安全性群組 ACL 和防火牆中設定對應的連接埠以驗證探查回應的組態是否有問題。 如需健康狀態探查組態的詳細資訊，請參閱[端點負載平衡健康狀態探查組態 (英文)](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)。
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>徵兆：負載平衡器後方的 VM 未回應所設定資料連接埠上的流量
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>徵兆：負載平衡器後方的 VM 未回應設定資料連接埠的流量
 
 如果後端集區 VM 列為健康狀態良好，而且會回應健康狀態探查，但仍未參與負載平衡，或未回應資料流量，可能是因為下列其中一個原因︰ 
 * 負載平衡器後端集區 VM 未接聽資料連接埠 

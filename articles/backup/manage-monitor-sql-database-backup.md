@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b9a292d06ce68d211b5c758e287f2935411c6f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968358"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074771"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和監視備份的 SQL Server 資料庫
 
@@ -117,7 +117,7 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 - 差異備份
 - 記錄備份
 
-雖然您需要指定只複製完整備份的保留期限，但臨機操作完整備份的保留範圍會自動從目前的時間設定為45天。
+雖然您需要指定只複製完整備份的保留期限，但隨選完整備份的保留範圍會自動從目前的時間設定為45天。
 
 如需詳細資訊，請參閱[SQL Server 備份類型](backup-architecture.md#sql-server-backup-types)。
 

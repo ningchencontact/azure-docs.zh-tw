@@ -1,5 +1,5 @@
 ---
-title: 適用于 Windows 的 Azure 監視器相依性虛擬機器擴充功能 |Microsoft Docs
+title: 適用于 Windows 的 Azure 監視器相依性虛擬機器擴充功能
 description: 使用虛擬機器擴充功能，在 Windows 虛擬機器上部署 Azure 監視器 Dependency agent。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750108"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073256"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>適用于 Windows 的 Azure 監視器相依性虛擬機器擴充功能
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 8aeef72c23f3ed40a7f187c976c67c2ae117189a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958485"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069636"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight 支援高可用性服務
 
@@ -123,7 +123,7 @@ Apache 提供 HDFS NameNode、YARN ResourceManager 和 HBase Master 的高可用
 
 以 Apache Hadoop 2.4 或更高版本為基礎的 HDInsight 叢集，支援 YARN ResourceManager 高可用性。 有兩個 ResourceManagers （rm1 和 rm2）分別在前端節點0和前端節點1上執行。 如同 NameNode，YARN ResourceManager 也設定為自動容錯移轉。 當目前的作用中 ResourceManager 關閉或沒有回應時，會自動將另一個 ResourceManager 選擇為作用中狀態。
 
-YARN ResourceManager 會使用其內嵌*ActiveStandbyElector*作為失敗偵測器和領導者 elector。 不同于 HDFS NodeManager，YARN ResourceManager 不需要個別的 ZKFC daemon。 Active ResourceManager 會將其狀態寫入 Apache Zookeeper。
+YARN ResourceManager 會使用其內嵌*ActiveStandbyElector*作為失敗偵測器和領導者 elector。 不同于 HDFS NameNode，YARN ResourceManager 不需要個別的 ZKFC daemon。 Active ResourceManager 會將其狀態寫入 Apache Zookeeper。
 
 YARN ResourceManager 的高可用性與 NameNode 和其他 HDInsight HA 服務無關。 Active ResourceManager 可能無法在使用中的前端節點或作用中 NameNode 執行所在的前端節點上執行。 如需 YARN ResourceManager 高可用性的詳細資訊，請參閱[Resourcemanager 高可用性](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html)。
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 備份：建立復原服務保存庫
-description: 建立可儲存備份和復原點的復原服務保存庫
+description: 在本文中，您將瞭解如何建立復原服務保存庫，以儲存備份和復原點。
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688552"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074884"
 ---
 # <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
@@ -43,8 +43,8 @@ ms.locfileid: "68688552"
     ![設定復原服務保存庫](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **名稱**：輸入可識別保存庫的易記名稱。 該名稱必須是 Azure 訂用帳戶中唯一的名稱。 指定的名稱至少要有兩個字元，但不能超過 50 個字元。 名稱開頭必須是字母，且只能包含字母、數字和連字號。
-   - 訂用帳戶：選擇要使用的訂用帳戶。 如果您是唯一一個訂用帳戶的成員，就會看到該名稱。 如果您不確定要使用哪個訂用帳戶，請使用預設 (建議) 的訂用帳戶。 只有在您的公司或學校帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。
-   - **资源组**：使用現有的資源群組或建立新群組。 若要查看您訂用帳戶中可用的資源群組清單，請選取 [使用現有的]﹐然後從下拉式清單方塊中選取資源。 若要建立新的資源群組，請選取 [新建]，然後輸入名稱。 如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
+   - **訂用帳戶**：選擇要使用的訂用帳戶。 如果您是唯一一個訂用帳戶的成員，就會看到該名稱。 如果您不確定要使用哪個訂用帳戶，請使用預設 (建議) 的訂用帳戶。 只有在您的公司或學校帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。
+   - **資源群組**：使用現有資源群組，或建立新的群組。 若要查看您訂用帳戶中可用的資源群組清單，請選取 [使用現有的]﹐然後從下拉式清單方塊中選取資源。 若要建立新的資源群組，請選取 [新建]，然後輸入名稱。 如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
    - **位置**：選取保存庫的地理區域。 若要要建立保存庫來保護虛擬機器，則保存庫**必須**與虛擬機器位於相同區域。
 
       > [!IMPORTANT]
@@ -64,19 +64,19 @@ ms.locfileid: "68688552"
 
 Azure 備份會自動處理保存庫的儲存體。 您必須指定該儲存體的複寫方式。
 
-1. 從 [復原服務保存庫] 刀鋒視窗，按一下 [新增保存庫]。 在 [**設定**] 區段下, 按一下 [**屬性**]。
-2. 在 [**屬性**] 的 [**備份**設定] 底下, 按一下 [**更新**]。
+1. 從 [復原服務保存庫] 刀鋒視窗，按一下 [新增保存庫]。 在 [**設定**] 區段下，按一下 [**屬性**]。
+2. 在 [**屬性**] 的 [**備份**設定] 底下，按一下 [**更新**]。
 
-3. 選取 [儲存體] 複寫類型, 然後按一下 [儲存]。
+3. 選取 [儲存體] 複寫類型，然後**按一下 [儲存]** 。
 
      ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - 如果您使用 Azure 做為主要的備份儲存體端點, 我們建議您繼續使用預設的**異地多餘**設定。
+   - 如果您使用 Azure 做為主要的備份儲存體端點，我們建議您繼續使用預設的**異地多餘**設定。
    - 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。
    - 深入瞭解[地理](../storage/common/storage-redundancy-grs.md)和[本機](../storage/common/storage-redundancy-lrs.md)冗余。
 
 > [!NOTE]
-> 您必須先變更復原服務保存庫的**儲存體複寫類型**(本機-多餘/異地), 才能在保存庫中進行備份。 一旦您設定備份, [修改] 選項就會停用, 而且您無法變更**儲存體複寫類型**。 
+> 您必須先變更復原服務保存庫的**儲存體複寫類型**（本機-多餘/異地），才能在保存庫中進行備份。 一旦您設定備份，[修改] 選項就會停用，而且您無法變更**儲存體複寫類型**。
 
 ## <a name="next-steps"></a>後續步驟
 

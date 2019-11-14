@@ -1,5 +1,5 @@
 ---
-title: Azure 中 Windows VM 的已排定事件 | Microsoft Docs
+title: 適用于 Azure 中 Windows Vm 的 Scheduled Events
 description: 針對您的 Windows 虛擬機器，使用 Azure 中繼資料服務排定事件。
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 087f27b3857363c0b5f244ecd52ebd64105626b5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7889ee66ec80ee0b77b92efc5755e1a84a5cbf04
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102391"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073273"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
@@ -28,7 +28,7 @@ ms.locfileid: "70102391"
 如需 Linux 上已排定事件的資訊，請參閱 [Linux VM 的已排定事件](../linux/scheduled-events.md)。
 
 > [!Note] 
-> 已排定事件已在所有 Azure 區域中正式推出。 請參閱[版本和區域可用性](#version-and-region-availability)以取得最新的版本資訊。
+> 「已排定的事件」已在所有 Azure 區域中正式推出。 請參閱[版本和區域可用性](#version-and-region-availability)以取得最新的版本資訊。
 
 ## <a name="why-scheduled-events"></a>為什麼要使用排定的事件？
 
@@ -44,7 +44,7 @@ ms.locfileid: "70102391"
 使用排程的事件，應用程式就可以探索維護所發生的時間，以及限制其影響的觸發工作。 啟用已排定事件可讓您的虛擬機器在執行維護活動之前有最短的時間。 如需詳細資料，請參閱下面的＜事件排程＞一節。
 
 排程的事件會提供下列使用案例中的事件：
-- [平臺起始的維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)(例如, VM 重新開機、即時移轉或保留主機的記憶體更新)
+- [平臺起始的維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)（例如，VM 重新開機、即時移轉或保留主機的記憶體更新）
 - 降低的硬體
 - 使用者起始的維護 (例如，使用者重新啟動或重新部署 VM)
 - 擴展集中的[低優先順序 VM](https://azure.microsoft.com/blog/low-priority-scale-sets)收回
@@ -54,7 +54,7 @@ ms.locfileid: "70102391"
 如果您是使用可由 VM 內存取的 REST 端點來執行虛擬機器，Azure 中繼資料服務會公開這類相關資訊。 這項資訊是透過無法路由傳送的 IP 取得，因此不會在 VM 之外公開。
 
 ### <a name="endpoint-discovery"></a>端點探索
-針對已啟用 VNET 的 VM，中繼資料服務可以從靜態非可路由 IP `169.254.169.254` 取得。 最新版已排定事件的完整端點為： 
+針對已啟用 VNET 的 VM，中繼資料服務可以從靜態非可路由 IP `169.254.169.254` 取得。 最新版「已排定的事件」的完整端點為： 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
@@ -63,7 +63,7 @@ ms.locfileid: "70102391"
 ### <a name="version-and-region-availability"></a>版本和區域可用性
 排程的事件服務已進行版本設定。 版本是必要項目，且目前版本為 `2017-11-01`。
 
-| Version | 版本類型 | Regions | 版本資訊 | 
+| 版本 | 版本類型 | 區域 | 版本資訊 | 
 | - | - | - | - |
 | 2017-11-01 | 正式運作 | 全部 | <li> 已新增對低優先順序 VM 收回事件 ' Preempt ' 的支援<br> | 
 | 2017-08-01 | 正式運作 | 全部 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 
@@ -84,7 +84,7 @@ ms.locfileid: "70102391"
 
 ## <a name="using-the-api"></a>使用 API
 
-### <a name="headers"></a>標頭
+### <a name="headers"></a>headers
 查詢中繼資料服務時，您必須提供 `Metadata:true` 標頭以免不小心重新導向要求。 所有排程的事件都需要 `Metadata:true` 標頭。 要求中未包含標頭會導致中繼資料服務不正確的要求回應。
 
 ### <a name="query-for-events"></a>查詢事件
@@ -118,10 +118,10 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 |屬性  |  描述 |
 | - | - |
 | EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`:虛擬機器已排程暫停幾秒鐘。 CPU 和網路連線可能會暫止, 但不會影響記憶體或開啟的檔案。 <li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 (暫時磁片會遺失)。|
+| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`：虛擬機器已排程暫停幾秒鐘。 CPU 和網路連線可能會暫止，但不會影響記憶體或開啟的檔案。 <li>`Reboot`：虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`︰虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`：正在刪除低優先順序虛擬機器（暫時磁片會遺失）。|
 | ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
+| 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`︰此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`︰已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
 | NotBefore| 自此之後可能會啟動此事件的時間。 <br><br> 範例： <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件排程
@@ -129,8 +129,8 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 
 |EventType  | 最短時間通知 |
 | - | - |
-| 凍結| 15 分鐘 |
-| 重新開機 | 15 分鐘 |
+| 凍結| 15 Minuten |
+| 重新啟動 | 15 Minuten |
 | 重新部署 | 10 分鐘 |
 | Preempt | 30 秒 |
 
@@ -145,7 +145,7 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 
 ### <a name="starting-an-event"></a>啟動事件 
 
-在您得知即將發生的事件，並完成正常關機邏輯之後，即可使用 `EventId` 向中繼資料服務進行 `POST` 呼叫，以核准未處理的事件。 對 Azure 來說，這意謂著它可以將通知時間縮到最短 (可能的話)。 
+在您得知即將發生的事件，並完成正常關機邏輯之後，即可使用 `POST` 向中繼資料服務進行 `EventId` 呼叫，以核准未處理的事件。 對 Azure 來說，這意謂著它可以將通知時間縮到最短 (可能的話)。 
 
 以下是 `POST` 要求本文中必須要有的 json。 要求需包含 `StartRequests` 清單。 每個 `StartRequest` 都包含您需要加速之事件的 `EventId`：
 ```

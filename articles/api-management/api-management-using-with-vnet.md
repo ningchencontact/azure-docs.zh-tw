@@ -10,17 +10,17 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: apimpm
-ms.openlocfilehash: cc4426ee1bb13eaf66e664c261c51f8893fdf10b
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4a188a8de4f1cbf9d5bc20f7e514e3f5a2c752dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129776"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074615"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
-Azure 虛擬網路（Vnet）可讓您將任何 Azure 資源放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
+「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
 Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取網路內的後端服務。 開發人員入口網站與 API 閘道，可設定為從網際網路存取或只從虛擬網路內存取。
 
@@ -31,7 +31,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要執行本文所述的步驟，您必須具有：
 
@@ -56,11 +56,11 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
    * **外部**：可透過外部負載平衡器，從公用網際網路存取「API 管理」閘道和開發人員入口網站。 閘道可以存取虛擬網路內的資源。
 
-     ![公用對等][api-management-vnet-public]
+     ![公用對等互連][api-management-vnet-public]
 
    * **內部**：只能透過內部負載平衡器，從虛擬網路內存取「API 管理」閘道和開發人員入口網站。 閘道可以存取虛擬網路內的資源。
 
-     ![私用對等][api-management-vnet-private]
+     ![私人對等互連][api-management-vnet-private]
 
      您現在會看見佈建 API 管理服務所在的所有區域的清單。 為每個區域選取 VNET 和子網路。 此清單中會同時填入傳統和 Resource Manager 虛擬網路，這些您要設定之區域中所設定 Azure 訂用帳戶可用的虛擬網路。
 
@@ -84,9 +84,9 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ## <a name="enable-vnet-powershell"> </a>使用 PowerShell cmdlet 來啟用 VNET 連線
 您也可以使用 PowerShell cmdlet 啟用 VNET 連線能力
 
-* **在 VNET 內建立 APIM 服務**：使用 Cmdlet [AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) ，在 VNET 內建立 Azure API 管理服務。
+* 在**vnet 內建立 API 管理服務**：使用 Cmdlet [AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement)在 VNET 內建立 Azure api 管理服務。
 
-* **在 VNET 內部署現有 APIM 服務**：使用 Cmdlet[更新-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) ，將現有的 Azure API 管理服務移至虛擬網路內。
+* 在**VNET 內部署現有的 Api 管理服務**：使用 Cmdlet[更新-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) ，將現有的 Azure api 管理服務移至虛擬網路內。
 
 ## <a name="connect-vnet"> </a>連接到裝載於虛擬網路內的 Web 服務
 在您的「API 管理」服務連接到 VNET 之後，存取 VNET 內的後端服務與存取公用服務便沒有差別。 只要在建立新 API 或編輯現有 API 時，於 [Web 服務 URL] 欄位中輸入您 Web 服務的本機 IP 位址或主機名稱 (如果為 VNET 設定了 DNS 伺服器) 即可。
@@ -96,54 +96,54 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ## <a name="network-configuration-issues"> </a>常見的網路組態問題
 以下是將 API 管理服務部署到虛擬網路時可能發生的常見錯誤設定問題清單。
 
-* **自訂 DNS 伺服器設定**：APIM 服務相依於數個 Azure 服務。 當「API 管理」是裝載於具有自訂 DNS 伺服器的 VNET 中時，它必須要解析這些 Azure 服務的主機名稱。 請遵循 [這份](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 有關自訂 DNS 設定的指引。 請參閱下方的連接埠資料表和參考的其他網路需求。
+* **自訂 DNS 伺服器安裝**：API 管理服務相依於數個 Azure 服務。 當「API 管理」是裝載於具有自訂 DNS 伺服器的 VNET 中時，它必須要解析這些 Azure 服務的主機名稱。 請遵循 [這份](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 有關自訂 DNS 設定的指引。 請參閱下方的連接埠資料表和參考的其他網路需求。
 
 > [!IMPORTANT]
 > 如果您打算針對 VNET 使用「自訂 DNS 伺服器」，在將 API 管理服務部署到該伺服器**之前**，應該先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都必須執行[套用網路設定作業](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
 
-* **APIM 所需的連接埠**︰您可以使用[網路安全性群組][Network Security Group]來控制在其中部署 API 管理的子網中的輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
+* **Api 管理所需的埠**：在部署 api 管理的子網中，輸入和輸出流量可以使用[網路安全性群組][Network Security Group]來控制。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
 <a name="required-ports"></a>當「API 管理」服務實例裝載于 VNET 時，會使用下表中的埠。
 
-| 來源 / 目的地連接埠 | Direction          | 傳輸通訊協定 |   [服務標記](../virtual-network/security-overview.md#service-tags) <br> 來源 / 目的地   | 目的 (*)                                                 | 虛擬網路類型 |
+| 來源 / 目的地連接埠 | 方向          | 傳輸通訊協定 |   [服務標記](../virtual-network/security-overview.md#service-tags) <br> 來源 / 目的地   | 目的 (*)                                                 | 虛擬網路類型 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | 傳入            | TCP                | INTERNET / VIRTUAL_NETWORK            | 與 API 管理的用戶端通訊                      | 外部             |
-| * / 3443                     | 傳入            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure 入口網站和 PowerShell 的管理端點         | 外部和內部  |
-| * / 80, 443                  | 傳出           | TCP                | VIRTUAL_NETWORK / Storage             | **與 Azure 儲存體的相依性**                             | 外部和內部  |
-| * / 80, 443                  | 傳出           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (如果適用)                   | 外部和內部  |
-| * / 1433                     | 傳出           | TCP                | VIRTUAL_NETWORK / SQL                 | **存取 Azure SQL 端點**                           | 外部和內部  |
-| * / 5672                     | 傳出           | TCP                | VIRTUAL_NETWORK / EventHub            | 「記錄到事件中樞」原則和監視代理程式的相依性 | 外部和內部  |
-| * / 445                      | 傳出           | TCP                | VIRTUAL_NETWORK / Storage             | 與「適用於 GIT 的 Azure 檔案共用」的相依性                      | 外部和內部  |
-| * / 1886                     | 傳出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 將健康情況狀態發佈至 [資源健康狀態] 時所需          | 外部和內部  |
-| * / 443                     | 傳出           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | 發佈診斷記錄和計量                        | 外部和內部  |
-| * / 25                       | 傳出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
-| * / 587                      | 傳出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
-| * / 25028                    | 傳出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
+| * / 80, 443                  | 輸入            | TCP                | INTERNET / VIRTUAL_NETWORK            | 與 API 管理的用戶端通訊                      | 外部             |
+| * / 3443                     | 輸入            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure 入口網站和 PowerShell 的管理端點         | 外部和內部  |
+| * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / Storage             | **與 Azure 儲存體的相依性**                             | 外部和內部  |
+| * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (如果適用)                   | 外部和內部  |
+| * / 1433                     | 輸出           | TCP                | VIRTUAL_NETWORK / SQL                 | **存取 Azure SQL 端點**                           | 外部和內部  |
+| */5671、5672、443          | 輸出           | TCP                | VIRTUAL_NETWORK / EventHub            | 「記錄到事件中樞」原則和監視代理程式的相依性 | 外部和內部  |
+| * / 445                      | 輸出           | TCP                | VIRTUAL_NETWORK / Storage             | 與「適用於 GIT 的 Azure 檔案共用」的相依性                      | 外部和內部  |
+| * / 1886                     | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 將健康情況狀態發佈至 [資源健康狀態] 時所需          | 外部和內部  |
+| * / 443                     | 輸出           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | 發佈診斷記錄和計量                        | 外部和內部  |
+| * / 25                       | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
+| * / 587                      | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
+| * / 25028                    | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
 | * / 6381 - 6383              | 輸入和輸出 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 針對 RoleInstances 之間的 Redis 執行個體存取 Azure 快取          | 外部和內部  |
-| * / *                        | 傳入            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 基礎結構負載平衡器                          | 外部和內部  |
+| * / *                        | 輸入            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 基礎結構負載平衡器                          | 外部和內部  |
 
 >[!IMPORTANT]
-> 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
+> 要成功部署 API 管理服務，就必須有以*粗體*表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
 
-+ **SSL 功能**：若要啟用 SSL 憑證鏈結建立和驗證，APIM 服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。 如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
++ **SSL 功能**︰若要啟用 SSL 憑證鏈結建立和驗證，API 管理服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。 如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
 
 + **DNS 存取**：需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從裝載 API 管理的子網路連接該 DNS 伺服器。
 
-+ **計量和健康情況監視**：對 Azure 監視端點 (解析為屬於下列網域) 的輸出網路連線能力︰
++ **計量和健康情況監視**︰對 Azure 監視端點 (解析為屬於下列網域) 的輸出網路連線能力︰
 
-    | Azure 環境 | 端點                                                                                                                                                                                                                                                                                                                                                              |
+    | Azure 環境 | Endpoints                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure 公用      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com，其中 `East US 2` 是 eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure 中國       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-+ **SMTP 轉送**：SMTP 轉送的輸出網路連線能力，它會`smtpi-co1.msn.com`在主機`smtpi-db3.msn.com`、 `smtpi-ch1.msn.com` `smtpi-sin.msn.com` 、和底下解析`ies.global.microsoft.com`
++ **Smtp 轉送**： smtp 轉送的輸出網路連線能力，它會在主機 `smtpi-co1.msn.com`、`smtpi-ch1.msn.com`、`smtpi-db3.msn.com`、`smtpi-sin.msn.com` 和 `ies.global.microsoft.com` 底下解析
 
-+ **開發人員入口網站 CAPTCHA**：開發人員入口網站 CAPTCHA 的輸出網路連線能力，它會在主機`client.hip.live.com`和`partner.hip.live.com`下解析。
++ **開發人員入口網站 CAPTCHA**：開發人員入口網站的 CAPTCHA 的輸出網路連線能力，它會在 `client.hip.live.com` 和 `partner.hip.live.com`的主機底下解析。
 
-+ **Azure 入口網站診斷**：從虛擬網路內部使用 APIM 延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
++ **Azure 入口網站診斷**：從虛擬網路內部使用 API 管理延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
 
-+ **使用 Express Route 或網路虛擬裝置來強制通道流量至內部內部部署防火牆**：常見的客戶設定是定義自己的預設路由（0.0.0.0/0），以強制所有來自 API 管理委派子網的流量流經內部部署防火牆或網路虛擬裝置。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方案會要求您執行幾項工作：
++ **使用 Express Route 或網路虛擬裝置強制通道流量至內部內部部署防火牆**：常見的客戶設定是定義自己的預設路由（0.0.0.0/0），以強制所有來自 API 管理委派子網的流量都能流經內部部署防火牆或網路虛擬裝置。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方案會要求您執行幾項工作：
 
   * 在 API 管理服務部署所在的子網上啟用服務端點。 您必須為 Azure Sql、Azure 儲存體、Azure EventHub 和 Azure 服務匯流排啟用[服務端點][ServiceEndpoints]。 從 API 管理委派子網直接啟用端點至這些服務，可讓他們使用 Microsoft Azure 骨幹網路，以提供最佳的服務流量路由。 如果您使用具有強制通道 Api 管理的服務端點，上述 Azure 服務流量不會強制通道處理。 另一個 API 管理服務相依性流量會被強制通道處理，且不能遺失，或 API 管理服務無法正常運作。
     
@@ -151,9 +151,9 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     
      | Azure 環境 | 管理 IP 位址                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure 公用      | 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、52.159.16.255/32、40.82.157.167/32、51.137.136.0/32、40.81.185.8/32、40.81.47.216/32、51.145.56.125/32、40.81.89.24/32、52.224.186.99/32、51.145.179.78/32、52.140.238.179/32、40.66.60.111/32、52.139.80.117/32、20.46.144.85/32、191.233.24.179/32、40.90.185.46/32、102.133.130.197/32、52.139.20.34/32、40.80.232.185/32、13.71.49.1/32、13.64.39.16/32、20.40.160.107/32、20.37.52.67/32、20.44.33.246/32、13.86.102.66/32、20.40.125.155/32、51.143.127.203/32、52.253.225.124/32、52.253.159.160/32、20.188.77.119/32、20.44.72.3/32、52.142.95.35/32、52.139.152.27/32、20.39.80.2/32、51.107.96.8/32、20.39.99.81/32、20.37.81.41/32、51.107.0.91/32、102.133.0.79/32、51.116.96.0/32、51.116.0.0/32 |
+    | Azure 公用      | 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、52.159.16.255/32、40.82.157.167/32、51.137.136.0/32、40.81.185.8/32、40.81.47.216/32、51.145.56.125/32、40.81.89.24/32、52.224.186.99/32、51.145.179.78/32、52.140.238.179/32、40.66.60.111/32、52.139.80.117/32、20.46.144.85/32、191.233.24.179/32、40.90.185.46/32、102.133.130.197/32、52.139.20.34/32、40.80.232.185/32、13.71.49.1/32、20.37.52.67/32、20.44.33.246/32、13.86.102.66/32、20.40.125.155/32、51.143.127.203/32、52.253.225.124/32、52.253.159.160/32、20.188.77.119/32、20.44.72.3/32、52.142.95.35/32、52.139.152.27/32、20.39.80.2/32、51.107.96.8/32、20.39.99.81/32、20.37.81.41/32、51.107.0.91/32、102.133.0.79/32 |
     | Azure Government  | 52.127.42.160/32、52.127.34.192/32 |
-    | Azure 中國       | 139.217.51.16/32、139.217.171.176/32 |
+    | Azure China       | 139.217.51.16/32、139.217.171.176/32 |
 
   * 對於其他以強制通道處理的 API 管理服務相依性，應該有方法可以解析主機名稱，並連到端點。 其中包括
       - 計量和健康情況監視
@@ -162,7 +162,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
       - 開發人員入口網站 CAPTCHA
 
 ## <a name="troubleshooting"> </a>疑難排解
-* **初始設定**：若未能成功地將 APIM 服務初始部署到子網路，建議您先將虛擬機器部署到相同的子網路。 接下來，再將桌面遠端連線到虛擬機器，並驗證您可以連線到 Azure 訂用帳戶中的下列其中一個資源
+* **初始安裝**：若未能成功地將 API 管理服務初始部署到子網路，建議您先將虛擬機器部署到相同的子網路。 接下來，再將桌面遠端連線到虛擬機器，並驗證您可以連線到 Azure 訂用帳戶中的下列其中一個資源
     * Azure 儲存體 Blob
     * Azure SQL Database
     * Azure 儲存體資料表
@@ -170,9 +170,9 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
   > [!IMPORTANT]
   > 驗證過連線能力後，請務必先移除子網路中部署的所有資源，再將 API 管理部署至子網路。
 
-* **累加式更新**：對您的網路進行變更時，請參閱[NETWORKSTATUS API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)，以確認 API 管理服務並未失去其所依賴之任何重要資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
+* 累加**式更新**：對您的網路進行變更時，請參閱[NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)，以確認 API 管理服務並未遺失任何重要資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
 
-* **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，APIM 會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。
+* **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，API 管理會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。
 
 ## <a name="subnet-size"> </a> 子網路大小需求
 Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 如需詳細資訊，請參閱 [在這些子網路內使用 IP 位址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7d09e7839356c040e6632ef728cc579abaa17268
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968356"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074070"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>有關在 Azure VM 備份上執行之 SQL Server 資料庫的常見問題
 
@@ -43,7 +43,7 @@ ms.locfileid: "72968356"
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>我可以控制 SQL server 上執行的並行備份數目嗎？
 
-可以。 您可以限制備份原則的執行速率，以儘量降低對 SQL Server 執行個體的影響。 變更設定：
+是。 您可以限制備份原則的執行速率，以儘量降低對 SQL Server 執行個體的影響。 變更設定：
 
 1. 在 SQL Server 實例的 [ *C:\Program Files\Azure 工作負載 Backup\bin* ] 資料夾中，建立*extensionsettingsoverrides.json json*檔案。
 2. 在*extensionsettingsoverrides.json json*檔案中，將**DefaultBackupTasksThreshold**設定變更為較低的值（例如，5）。 <br>
@@ -62,7 +62,7 @@ ms.locfileid: "72968356"
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>我可以保護內部部署的可用性群組嗎？
 
-不會。 Azure 備份保護在 Azure 中執行 SQL Server 資料庫。 如果可用性群組（AG）分散在 Azure 和內部部署機器之間，只有在主要複本在 Azure 中執行時，才可以保護 AG。 此外，Azure 備份只會保護在與復原服務保存庫相同的 Azure 區域中執行的節點。
+號 Azure 備份保護在 Azure 中執行 SQL Server 資料庫。 如果可用性群組（AG）分散在 Azure 和內部部署機器之間，只有在主要複本在 Azure 中執行時，才可以保護 AG。 此外，Azure 備份只會保護在與復原服務保存庫相同的 Azure 區域中執行的節點。
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>我可以跨區域保護可用性群組嗎？
 
@@ -70,11 +70,11 @@ Azure 備份復原服務保存庫可以偵測並保護與保存庫位於相同�
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>成功的備份作業是否會建立警示？
 
-不會。 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。 入口網站警示的詳細行為記載于[此處](backup-azure-monitoring-built-in-monitor.md)。 不過，如果您有興趣取得成功作業的警示，您可以使用 Azure 監視器來進行[監視](backup-azure-monitoring-use-azuremonitor.md)。
+號 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。 入口網站警示的詳細行為記載于[此處](backup-azure-monitoring-built-in-monitor.md)。 不過，如果您有興趣取得成功作業的警示，您可以使用 Azure 監視器來進行[監視](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>我可以在 [備份作業] 功能表中看到已排程的備份工作嗎？
 
-[**備份作業**] 功能表只會顯示特定的備份作業。 針對排程工作，使用[Azure 監視器的監視](backup-azure-monitoring-use-azuremonitor.md)。
+[**備份作業**] 功能表只會顯示隨選備份作業。 針對排程工作，使用[Azure 監視器的監視](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>未來的資料庫會自動加入以進行備份嗎？
 

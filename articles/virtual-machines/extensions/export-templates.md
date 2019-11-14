@@ -1,5 +1,5 @@
 ---
-title: 匯出包含 VM 擴充功能的 Azure 資源群組 | Microsoft Docs
+title: 匯出包含 VM 擴充功能的 Azure 資源群組
 description: 匯出包含虛擬機器擴充功能的 Resource Manager 範本。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169057"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073134"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>匯出包含 VM 擴充功能的資源群組
 
@@ -36,12 +36,12 @@ Azure 資源群組可以匯出到之後會重新部署的新 Resource Manager �
 | 擴充功能 ||||
 |---|---|---|---|
 | Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
-| Acronis Backup Linux | Docker 延伸模組 | Puppet Agent |
+| Acronis Backup Linux | Docker 擴充功能 | Puppet Agent |
 | Bg Info | DSC 延伸模組 | Site 24x7 Apm Insight |
 | BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
 | BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef Client | HPE Security Application Defender | Trend Micro DSA |
-| 自訂指令碼 | IaaS Antimalware | Trend Micro DSA Linux |
+| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
 | 自訂指令碼延伸模組 | IaaS Diagnostics | VM Access For Linux |
 | Custom Script for Linux | Linux Chef Client | VM Access For Linux |
 | Datadog Linux Agent | Linux Diagnostic | VM Snapshot |

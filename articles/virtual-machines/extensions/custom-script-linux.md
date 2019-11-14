@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Linux VM 上執行自訂指令碼 | Microsoft Docs
+title: 在 Azure 中的 Linux Vm 上執行自訂腳本
 description: 使用自訂指令碼延伸模組 v2，將 Linux VM 設定工作自動化
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: akjosh
-ms.openlocfilehash: 86c05519e7027ec8b7434919bf43f9b4602b0300
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789964"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073236"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -70,7 +70,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 您可將敏感性資料儲存在受保護的組態中，此組態會經過加密，並且只會在虛擬機器內解密。 當執行命令包含機密資料 (例如密碼) 時，受保護的組態會相當有用。
 
-這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。
+這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能的受保護設定資料會經過加密，而只有在目標虛擬機器上才會解密。
 
 ```json
 {
@@ -106,19 +106,19 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 | 
+| 名稱 | 值 / 範例 | 資料類型 | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
-| publisher | Microsoft.Compute.Extensions | string |
-| 類型 | CustomScript | string |
+| apiVersion | 2019-03-01 | 日期 |
+| publisher | Microsoft.Compute.Extensions | 字串 |
+| 類型 | CustomScript | 字串 |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | 字串 |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 字串 |
 | skipDos2Unix (範例) | false | 布林值 |
 | timestamp (範例) | 123456789 | 32 位元整數 |
-| storageAccountName (例如) | examplestorageacct | string |
-| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName (例如) | examplestorageacct | 字串 |
+| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字串 |
 
 ### <a name="property-value-details"></a>屬性值詳細資料
 * `skipDos2Unix`：(選擇性，布林值) 略過指令碼型檔案 URL 或指令碼的 dos2unix 轉換。

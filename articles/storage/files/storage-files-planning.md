@@ -1,20 +1,20 @@
 ---
 title: 規劃 Azure 檔案服務部署 | Microsoft Docs
-description: 了解規劃 Azure 檔案部署時的考量事項。
+description: 了解規劃 Azure 檔案服務部署時的考量事項。
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 33fa474d719ec8a20142f35f56cc697c11e03e86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0dd2ca35453859dcc16ef78ef4845a4198aad95
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926639"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066349"
 ---
-# <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
+# <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案部署
 
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
 
@@ -124,12 +124,12 @@ Azure 備份適用于 premium 檔案共用，Azure Kubernetes Service 支援1.13
 |---------|---------|---------|---------|---------|
 |100         | 100     | 最多 300     | 66   | 44   |
 |500         | 500     | 最多1500   | 90   | 60   |
-|1,024       | 1,024   | 最多3072   | 122   | 81   |
+|1024       | 1024   | 最多3072   | 122   | 81   |
 |5,120       | 5,120   | 最多15360  | 368   | 245   |
 |10240      | 10240  | 最多30720  | 675 | 450   |
 |33792      | 33792  | 最多100000 | 2088 | 1392   |
 |51200      | 51200  | 最多100000 | 3,132 | 2088   |
-|102400     | 100,000 家 | 最多100000 | 6204 | 4136   |
+|102400     | 100,000 | 最多100000 | 6204 | 4136   |
 
 > [!NOTE]
 > 檔案共用效能受限於機器網路限制、可用的網路頻寬、IO 大小、平行處理，還有許多其他因素。 若要達到最大效能等級，請將負載分散到多個 Vm。 請參閱[疑難排解指南](storage-troubleshooting-files-performance.md)，以瞭解一些常見的效能問題和因應措施。
@@ -203,16 +203,20 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 標準檔案共用適用于最多 5 TiB 的所有區域。 在特定區域中，這些區域會以 100 TiB 限制提供，下表列出這些地區：
 
-|地區 |支援的冗余 |
+|區域 |支援的冗余 |
 |-------|---------|
-|澳大利亞東部 |LRS     |
-|澳大利亞東南部|LRS |
+|澳洲東部 |LRS     |
+|澳洲東南部|LRS |
 |加拿大中部  |LRS     |
+|加拿大東部     |LRS     |
 |印度中部  |LRS     |
+|美國中部 *   |LRS     |
 |東亞      |LRS     |
 |美國東部 *        |LRS     |
+|美國東部 2 *      |LRS     |
 |法國中部 |LRS、ZRS|
 |法國南部   |LRS     |
+|北歐   |LRS     |
 |印度南部    |LRS     |
 |東南亞 |LRS、ZRS|
 |美國中西部|LRS     |
@@ -240,10 +244,10 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 * **Azure 檔案同步**：在 Azure 檔案共用 (雲端端點) 和 Windows 目錄命名空間 (伺服器端點) 之間的初次同步處理中，Azure 檔案同步會從現有檔案共用將所有資料複寫至 Azure 檔案服務。
 * **[Azure 匯入/匯出](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：Azure 匯入/匯出服務可讓您將硬碟寄送到 Azure 資料中心，以便將大量資料安全地傳入 Azure 檔案共用。 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是知名的複製工具，隨附於 Windows 和 Windows Server。 Robocopy 可在本機掛接檔案共用，然後將該掛接位置作為 Robocopy 命令中的目的地，以將資料傳輸到 Azure 檔案服務中。
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是知名的複製工具，隨附於 Windows 和 Windows Server。 Robocopy 可在本機掛接檔案共用，然後將掛接位置作為 Robocopy 命令中的目的地使用，以將資料傳輸到 Azure 檔案服務中。
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：AzCopy 是命令列公用程式，設計為使用最佳效能的簡單命令，將資料複製到 Azure 檔案服務與 Azure Blob 儲存體，以及從其中複製資料。
 
 ## <a name="next-steps"></a>後續步驟
 * [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)
-* [部署 Azure 檔案](storage-files-deployment-guide.md)
+* [部署 Azure 檔案服務](storage-files-deployment-guide.md)
 * [部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)

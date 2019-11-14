@@ -1,24 +1,25 @@
 ---
-title: 使用 Azure PowerShell 在應用程式閘道自訂規則上設定 Web 應用程式防火牆 v2
+title: 使用 PowerShell 設定 v2 自訂規則
+titleSuffix: Azure Web Application Firewall
 description: 瞭解如何使用 Azure PowerShell 設定 WAF v2 自訂規則
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 48f45629b82e63dfc3f098b68e1be2523a3a0e5c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516795"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075390"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>使用 Azure PowerShell 以自訂規則在應用程式閘道上設定 Web 應用程式防火牆 v2
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-自訂規則可讓您建立自己的規則，以針對通過 Web 應用程式防火牆（WAF） v2 的每個要求進行評估。 這些規則的優先順序高於受管理規則集的其餘規則。 自訂規則具有動作（允許或封鎖）、比對條件，以及允許完整自訂的運算子。
+自訂規則可讓您建立自己的規則，以針對通過 Web 應用程式防火牆（WAF） v2 的每個要求進行評估。 這些規則的優先順序會高於受控規則集中的其餘規則。 自訂規則具有動作（允許或封鎖）、比對條件，以及允許完整自訂的運算子。
 
 本文會建立使用自訂規則應用程式閘道 WAF v2。 如果要求標頭包含使用者代理程式 *evilbot*，則自訂規則會封鎖流量。
 
@@ -26,7 +27,7 @@ ms.locfileid: "73516795"
 
 如果您想要在可複製、貼上及執行的一個連續腳本中執行本文中的 Azure PowerShell，請參閱[Azure 應用程式閘道 PowerShell 範例](powershell-samples.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 模組
 

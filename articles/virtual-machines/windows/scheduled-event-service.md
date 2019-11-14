@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中監視 Windows Vm 的已排程事件 |Microsoft Docs
+title: 在 Azure 中監視 Windows Vm 的已排程事件
 description: 瞭解如何監視 Azure 虛擬機器的已排程事件。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376205"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073322"
 ---
 # <a name="monitoring-scheduled-events"></a>監視 Scheduled Events
 
@@ -32,7 +32,7 @@ Scheduled Events 是[azure Instance Metadata Service](instance-metadata-service.
 
 ![顯示事件生命週期的圖表](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在此範例中，您將需要[在可用性設定組中建立 Windows 虛擬機器](tutorial-availability-sets.md)。 Scheduled Events 提供可能會影響可用性設定組、雲端服務、虛擬機器擴展集或獨立 Vm 中任何虛擬機器之變更的相關通知。 我們將執行一項[服務](https://github.com/microsoft/AzureScheduledEventsService)，以輪詢做為收集器的其中一個 vm 上已排程的事件，以取得可用性設定組中所有其他 vm 的事件。    
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 從[GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip)下載專案的安裝 .zip 檔案。
 
-連接到**myCollectorVM** ，並將 .zip 檔案複製到虛擬機器，並將所有檔案解壓縮。 在您的 VM 上，開啟 PowerShell 提示字元。 將您的提示移至包含 `SchService.ps1` 的資料夾，例如： `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`，並設定服務。
+連接到**myCollectorVM** ，並將 .zip 檔案複製到虛擬機器，並將所有檔案解壓縮。 在您的 VM 上，開啟 PowerShell 提示字元。 將您的提示移至包含 `SchService.ps1`的資料夾，例如： `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`，然後設定服務。
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -98,7 +98,7 @@ New-AzVm `
 >
 > 針對我們的設定，我們選擇 Windows，但您可以在 Linux 上設計類似的解決方案。
 
-在任何時候，您都可以使用參數 `–stop` 並 `–remove`，來停止/移除排定的事件服務。
+在任何時候，您都可以使用參數 `–stop` 和 `–remove`來停止/移除排定的事件服務。
 
 ## <a name="connect-to-the-workspace"></a>連接到工作區
 
@@ -157,9 +157,9 @@ New-AzVm `
 
     ![儲存查詢](./media/notifications/save-query.png)
 
-1. 選取 [**新增警示規則**]。 
-1. 在 [**建立規則**] 頁面中，將 `collectorworkspace` 保留為**資源**。
-1. 在 [**條件**] 底下，*每當客戶記錄搜尋為 <login undefined> 時*，選取專案。 [**設定信號邏輯**] 頁面隨即開啟。
+1. 選取 [新增警示規則]。 
+1. 在 [**建立規則**] 頁面中，保留 `collectorworkspace` 做為**資源**。
+1. 在 [**條件**] 底下，*只要 <login undefined>客戶記錄搜尋*，請選取專案。 [**設定信號邏輯**] 頁面隨即開啟。
 1. 在 [**臨界值**] 下輸入*0* ，然後選取 [**完成**]。
 1. 在 [**動作**] 底下，選取 [**建立動作群組**]。 [**新增動作群組**] 頁面隨即開啟。
 1. 在 [**動作組名**] 中，輸入*myActionGroup*。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ee9594e7aa3b55f7eb6fc7ba41783708555bd15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513766"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075278"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>在 Azure API 管理中布建自我裝載閘道
 
@@ -26,19 +26,20 @@ ms.locfileid: "73513766"
 > [!NOTE]
 > 自我裝載閘道功能目前為預覽狀態。 在預覽期間，自我裝載閘道僅適用于開發人員和進階層，不需要額外付費。 開發人員層僅限於單一自我裝載的閘道部署。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="provision-a-self-hosted-gateway"></a>布建自我裝載閘道
+## <a name="provision-a-self-hosted-gateway"></a>佈建自我裝載閘道
 
 1. 從 [**設定**] 底下選取**閘道**。
 2. 按一下 [+ 新增]。
 3. 輸入閘道的 [**名稱**] 和 [**區域**]。
 > [!TIP]
 > **區域**指定將與此閘道資源相關聯之閘道節點的預定位置。 它在語義上相當於與任何 Azure 資源相關聯的類似屬性，但可以指派任一字元串值。
+
 4. （選擇性）輸入閘道資源的**描述**。
 5. （選擇性）選取 [ **api** ] 底下的 **+** ，將一個或多個 api 與此閘道資源建立關聯。
 > [!TIP]
@@ -46,6 +47,7 @@ ms.locfileid: "73513766"
 
 > [!IMPORTANT]
 > 根據預設，不會有任何現有的 Api 與新的閘道資源相關聯。 因此，透過新的閘道嘗試叫用它們會導致 `404 Resource Not Found` 回應。
+
 6. 按一下 [新增]。
 
 閘道資源現在已布建在您的 API 管理實例中。 您可以繼續部署閘道。

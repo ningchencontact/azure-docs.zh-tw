@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 使用 VM 平衡流量負載以達到高可用性 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 使用 VM 平衡流量負載以達到高可用性
+title: 將流量負載平衡至 Vm 以進行 HA-Azure CLI Azure Load Balancer
+description: 在此範例中，開始將流量負載平衡至 Vm 以獲得高可用性。
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
-ms.openlocfilehash: bf5f4bb6bd15fa1fd440e679913a370bbe30b663
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8712cd1cff9e3a6623b67e1b39a19df7c6d0172e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890302"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067067"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>為目標為 VM 的流量進行負載平衡以達到高可用性
 

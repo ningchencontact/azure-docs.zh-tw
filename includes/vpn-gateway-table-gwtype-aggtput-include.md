@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495691"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075446"
 ---
 |**VPN<br>閘道<br>世代** |**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br> SSTP 連線** | **P2S<br> IKEv2/OpenVPN 連線** | **彙總<br>輸送量基準測試** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -46,7 +46,7 @@ ms.locfileid: "73495691"
 
 * 在單一通道上，可以達到最多 1 Gbps 的輸送量。 上表中的「彙總輸送量基準測試」是以透過單一閘道所彙總多個通道的量值為基礎。 VPN 閘道的彙總輸送量基準是 S2S + P2S 的組合。 **如果您有許多 P2S 連線，S2S 連線即可能因為輸送量限制而受到負面影響。** 由於網際網路流量條件和您的應用程式行為，彙總輸送量基準測試不是保證的輸送量。
 
-* 為了協助我們的客戶了解 SKU 使用不同演算法的相對效能，我們使用了可公開取得的 iPerf 和 CTSTraffic 工具來測量效能。 下表列出第 1 代、VpnGw SKU 的效能測試結果。 如您所見，當我們針對 IPsec 加密和完整性使用 GCMAES256 演算法時，將會取得最佳效能。 當您針對 IPsec 加密和完整性使用 AES256 和 SHA256 時，我們會取得平均效能。 當您針對 IPsec 加密和完整性使用 DES3 和 SHA256 時，我們會取得最低效能。
+為了協助我們的客戶了解 SKU 使用不同演算法的相對效能，我們使用了可公開取得的 iPerf 和 CTSTraffic 工具來測量效能。 下表列出第 1 代、VpnGw SKU 的效能測試結果。 如您所見，當我們針對 IPsec 加密和完整性使用 GCMAES256 演算法時，將會取得最佳效能。 當您針對 IPsec 加密和完整性使用 AES256 和 SHA256 時，我們會取得平均效能。 當您針對 IPsec 加密和完整性使用 DES3 和 SHA256 時，我們會取得最低效能。
 
 |**世代**|**SKU**   | **使用的<br>演算法** | **觀察到的<br>輸送量** | **觀察到的<br>每秒封包數** |
 |---           |---       | ---                 | ---            | ---                    |

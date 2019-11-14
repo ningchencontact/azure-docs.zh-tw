@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 驅動程式擴充功能 - Azure Windows VM |Microsoft Docs
+title: NVIDIA GPU 驅動程式擴充功能-Azure Windows Vm
 description: 在執行 Windows 的 N 系列計算 VM 上用來安裝 NVIDIA GPU 驅動程式的 Microsoft Azure 擴充功能。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,35 +13,35 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 13a7189d9758fd6d1e7daac38e948e1b482a019b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686768"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073029"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>適用於 Windows 的 NVIDIA GPU 驅動程式擴充功能
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 此擴充功能可在 Windows N 系列虛擬機器上安裝 NVIDIA GPU 驅動程式。 視虛擬機器系列而定，擴充功能會安裝 CUDA 或 GRID 驅動程式。 若您使用此擴充功能安裝 NVIDIA 驅動程式，即表示您接受並同意 [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330) (NVIDIA 使用者授權合約) 的條款。 在安裝過程中，VM 可能會重新開機以便完成驅動程式設定。
 
 如需手動安裝驅動程式和目前支援版本的指示，請參閱[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup)。
 在 [Linux N 系列 VM](hpccompute-gpu-linux.md) 上也有擴充功能可用來安裝 NVIDIA GPU 驅動程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
 此擴充功能支援下列作業系統：
 
-| 發佈 | Version |
+| 配送映像 | 版本 |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| Windows 10 | 核心 |
+| Windows Server 2016 | 核心 |
+| Windows Server 2012 R2 | 核心 |
 
-### <a name="internet-connectivity"></a>網際網路的連線能力
+### <a name="internet-connectivity"></a>網際網路連線
 
 適用於 NVIDIA GPU 驅動程式的 Microsoft Azure 擴充功能會要求目標 VM 需連線到網際網路並擁有存取權。
 
@@ -69,13 +69,13 @@ ms.locfileid: "71686768"
 }
 ```
 
-### <a name="properties"></a>屬性
+### <a name="properties"></a>properties
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| 型別 | NvidiaGpuDriverWindows | string |
+| apiVersion | 2015-06-15 | 日期 |
+| publisher | Microsoft.HpcCompute | 字串 |
+| 類型 | NvidiaGpuDriverWindows | 字串 |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -161,9 +161,9 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 | 錯誤碼 | 意義 | 可能的動作 |
 | :---: | --- | --- |
-| 0 | 作業成功 |
+| 0 | 作業已順利完成 |
 | 1 | 作業成功。 需要重新開機。 |
-| 100 | 不支援或無法完成作業。 | 可能的原因：PowerShell 版本不受支援、VM 大小不是 N 系列 VM、資料下載失敗。 請檢查記錄檔，以判斷錯誤的成因。 |
+| 100 | 不支援或無法完成作業。 | 可能原因：PowerShell 版本不受支援、VM 大小不是 N 系列 VM、資料下載失敗。 請檢查記錄檔，以判斷錯誤的成因。 |
 | 240、840 | 作業逾時。 | 重試作業。 |
 | -1 | 發生例外狀況。 | 請檢查記錄檔，以判斷例外狀況的成因。 |
 | -5x | 作業因重新開機擱置而中斷。 | 重新啟動 VM。 重新開機後將會繼續安裝。 解除安裝應以手動方式叫用。 |

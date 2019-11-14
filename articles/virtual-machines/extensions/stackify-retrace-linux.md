@@ -1,5 +1,5 @@
 ---
-title: Stackify Retrace Azure Linux 代理程式擴充功能 | Microsoft Docs
+title: Stackify 回溯 Azure Linux 代理程式擴充功能
 description: 將 Stackify Retrace Linux 代理程式部署在 Linux 虛擬機器上。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173969"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073629"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 代理程式擴充功能
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 Stackify 提供可追蹤您應用程式詳細資料的產品，幫助您快速找到問題並修正。 對於開發人員小組而言，Retrace 是適用於多重環境、完全整合且效能強大的應用程式， 結合了每個開發小組都需要的多種工具。
 
@@ -37,20 +37,20 @@ Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工
 
 此擴充功能提供 Linux Agent for Retrace 的安裝路徑。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統 
 
 可以針對這些 Linux 散發套件執行 Retrace 代理程式
 
-| 發佈 | Version |
+| 配送映像 | 版本 |
 |---|---|
 | Ubuntu | 16.04 LTS、14.04 LTS、16.10 及 17.04 |
 | Debian | 7.9+ 和 8.2+、9 |
 | Red Hat | 6.7+、7.1+ |
 | CentOS | 6.3+、7.0+ |
 
-### <a name="internet-connectivity"></a>網際網路的連線能力
+### <a name="internet-connectivity"></a>網際網路連線
 
 適用於 Linux 的 Stackify 代理程式擴充功能會要求目標虛擬機器連接到網際網路。 
 
@@ -191,11 +191,11 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | 安裝錯誤 | activationKey 為必要項目 |
 | 51 | 安裝錯誤 | 不支援 OS distro |
 | 60 | 安裝錯誤 | environment 為必要項目 |
-| 70 | 安裝錯誤 | 未知 |
+| 70 | 安裝錯誤 | 不明 |
 | 80 | 啟用錯誤 | 服務安裝失敗 |
 | 90 | 啟用錯誤 | 服務啟動失敗 |
 | 100 | 停用錯誤 | 服務停止失敗 |
 | 110 | 停用錯誤 | 服務移除失敗 |
 | 120 | 解除安裝發生錯誤 | 服務停止失敗 |
 
-如果您需要更多協助，請連絡 Stackify 支援部門： https://support.stackify.com 。
+如果您需要更多協助，請連絡 Stackify 支援部門： https://support.stackify.com。

@@ -1,19 +1,19 @@
 ---
-title: Azure Resource Manager 範本
-description: 說明如何使用 Azure Resource Manager 的範本來部署資源。
+title: Azure Resource Manager 範本總覽
+description: 說明使用 Azure Resource Manager 範本來部署資源的優點。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300160"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074393"
 ---
-# <a name="azure-resource-manager-templates"></a>Azure Resource Manager 範本
+# <a name="azure-resource-manager-templates-overview"></a>Azure Resource Manager 範本總覽
 
 隨著移至雲端，許多小組都採用 agile 開發方法。 這些小組會快速地反復查看。 他們需要將其解決方案重複部署至雲端，並知道其基礎結構處於可靠的狀態。 由於基礎結構已成為反復程式的一部分，因此作業與開發之間的劃分已消失。 小組必須透過統一的程式來管理基礎結構和應用程式程式碼。
 
@@ -125,5 +125,6 @@ REQUEST BODY
 
 ## <a name="next-steps"></a>後續步驟
 
+* 如需逐步教學課程，引導您完成建立範本的程式，請參閱[教學課程：建立及部署您的第一個 Azure Resource Manager 範本](template-tutorial-create-first-template.md)。
 * 如需範本檔案中屬性的相關資訊，請參閱[瞭解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
 * 若要瞭解如何匯出範本，請參閱[快速入門：使用 Azure 入口網站建立和部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)。

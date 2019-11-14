@@ -1,18 +1,19 @@
 ---
-title: 使用 Azure PowerShell 以 Key Vault 憑證設定 SSL 終止
+title: 使用 Key Vault 憑證設定 SSL 終止-PowerShell
+titleSuffix: Azure Application Gateway
 description: 瞭解如何將 Azure 應用程式閘道與連結到啟用 HTTPS 的接聽程式之伺服器憑證的 Key Vault 整合。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: b7408d6169e1cf42bcda8855a19076c739d086dd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001000"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074589"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>使用 Azure PowerShell 以 Key Vault 憑證設定 SSL 終止
 
@@ -22,11 +23,11 @@ ms.locfileid: "71001000"
 
 本文說明如何使用 Azure PowerShell 腳本，將您的金鑰保存庫與您的應用程式閘道整合，以取得 SSL 終止憑證。
 
-本文需要 Azure PowerShell 模組1.0.0 版或更新版本。 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 若要執行本文中的命令，您也必須執行來建立與 Azure `Connect-AzAccount`的連線。
+本文需要 Azure PowerShell 模組1.0.0 版或更新版本。 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 若要執行本文中的命令，您也需要藉由執行 `Connect-AzAccount`來建立與 Azure 的連線。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，您必須先安裝 ManagedServiceIdentity 模組：
 

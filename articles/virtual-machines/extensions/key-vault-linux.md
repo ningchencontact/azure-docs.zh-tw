@@ -1,5 +1,5 @@
 ---
-title: 適用于 Linux 的 Azure Key Vault VM 擴充功能 |Microsoft Docs
+title: 適用于 Linux 的 Azure Key Vault VM 擴充功能
 description: 使用虛擬機器擴充功能來部署代理程式，以在虛擬機器上執行 Key Vault 憑證的自動重新整理。
 services: virtual-machines-linux
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584370"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073012"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>適用于 Linux 的 Key Vault 虛擬機器擴充功能
 
@@ -59,7 +59,7 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
 ```
 
 > [!NOTE]
-> 您觀察到的憑證 Url 的格式應為 `https://myVaultName.vault.azure.net/secrets/myCertName`。
+> 您觀察到的憑證 Url 的格式應該是 `https://myVaultName.vault.azure.net/secrets/myCertName`。
 > 
 > 這是因為 `/secrets` 路徑會傳回完整憑證，包括私密金鑰，而 `/certificates` 路徑則不會。 如需憑證的詳細資訊，請參閱： [Key Vault 憑證](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
@@ -84,7 +84,7 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署一或多部需要部署後重新整理憑證的虛擬機器時，很適合使用範本。 擴充功能可以部署到個別的 Vm 或虛擬機器擴展集。 結構描述與組態對於這兩種範本類型都是通用的。 
 
-虛擬機器擴充功能的 JSON 設定必須嵌套在範本的虛擬機器資源片段中，特別是針對虛擬機器範本 `"resources": []` 物件，以及在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 物件下的虛擬機器擴展集案例中。
+虛擬機器擴充功能的 JSON 設定必須嵌套在範本的虛擬機器資源片段中，特別是 `"resources": []` 虛擬機器範本的物件，以及在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 物件下的虛擬機器擴展集案例中。
 
 ```json
     {

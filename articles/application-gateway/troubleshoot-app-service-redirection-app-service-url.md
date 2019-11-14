@@ -1,24 +1,25 @@
 ---
-title: 針對具有 App Service 的 Azure 應用程式閘道進行疑難排解-重新導向至 App Service URL
+title: 針對重新導向至 App Service URL 進行疑難排解
+titleSuffix: Azure Application Gateway
 description: 本文提供有關如何在搭配 Azure App Service 使用 Azure 應用程式閘道時，針對重新導向問題進行疑難排解的資訊。
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833182"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074486"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>針對應用程式閘道中的 App Service 問題進行疑難排解
 
 瞭解如何診斷並解決當您使用 Azure App Service 做為 Azure 應用程式閘道的後端目標時可能會遇到的問題。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 在本文中，您將瞭解如何針對下列問題進行疑難排解：
 

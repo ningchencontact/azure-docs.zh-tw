@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888493"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074354"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 備份架構和元件
 
@@ -134,7 +134,7 @@ Azure Vm 需要網際網路存取才能進行控制命令。 如果您要備份 
     - MARS 代理程式只會使用 Windows 系統寫入作業來捕捉快照集。
     - 由於代理程式不會使用任何應用程式 VSS 寫入器，因此它不會捕捉應用程式一致的快照集。
 1. 使用 VSS 建立快照集之後，MARS 代理程式會在您設定備份時所指定的快取資料夾中建立虛擬硬碟（VHD）。 代理程式也會儲存每個資料區塊的總和檢查碼。
-1. 增量備份會根據您指定的排程執行，除非您執行臨機操作備份。
+1. 增量備份會根據您指定的排程執行，除非您執行隨選備份。
 1. 執行增量備份時，會識別已變更的檔案，並建立新的 VHD。 VHD 會經過壓縮和加密，然後傳送到保存庫。
 1. 增量備份完成之後，新的 VHD 會與初始複寫後建立的 VHD 合併。 這個合併的 VHD 會提供最新的狀態，以用於進行中的備份比較。
 
@@ -148,7 +148,7 @@ Azure Vm 需要網際網路存取才能進行控制命令。 如果您要備份 
     - 使用 DPM/MABS 時，您可以保護備份磁片區、共用、檔案和資料夾。 您也可以保護電腦的系統狀態（裸機），而且您可以使用應用程式感知備份設定來保護特定應用程式。
 1. 當您在 DPM/MABS 中設定機器或應用程式的保護時，您選擇備份至 MABS/DPM 本機磁片以進行短期儲存，並針對線上保護使用 Azure。 您也可以指定備份至本機 DPM/MABS 儲存體的時間，以及執行線上備份至 Azure 的時機。
 1. 受保護工作負載的磁片會根據您指定的排程備份至本機 MABS/DPM 磁片。
-4. Dpm/MABS 磁片會由在 DPM/MABS 伺服器上執行的 MARS 代理程式備份到保存庫。
+1. Dpm/MABS 磁片會由在 DPM/MABS 伺服器上執行的 MARS 代理程式備份到保存庫。
 
 ![備份受 DPM 或 MABS 保護的機器和工作負載](./media/backup-architecture/architecture-dpm-mabs.png)
 

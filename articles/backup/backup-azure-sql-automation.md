@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012824"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074121"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫
 
@@ -460,7 +460,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-臨機操作備份命令會傳回要追蹤的作業。
+隨選備份命令會傳回要追蹤的作業。
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -541,13 +541,13 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 請務必注意，Azure 備份只會在 SQL 備份中追蹤使用者觸發的作業。 已排程的備份（包括記錄備份）不會顯示在入口網站/powershell 中。 不過，如果有任何排程工作失敗，則會產生[備份警示](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)，並顯示在入口網站中。 [使用 Azure 監視器](backup-azure-monitoring-use-azuremonitor.md)來追蹤所有排程工作和其他相關資訊。
 
-使用者可以追蹤臨機操作/使用者觸發的作業，以及在非同步工作（例如備份）的[輸出](#on-demand-backup)中傳回的 JobID。 使用[AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS Cmdlet 來追蹤作業及其詳細資料。
+使用者可以使用在非同步作業（例如備份）[輸出](#on-demand-backup)中傳回的 JobID，追蹤隨選/使用者觸發的作業。 使用[AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS Cmdlet 來追蹤作業及其詳細資料。
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-若要從 Azure 備份服務取得臨機操作作業及其狀態的清單，請使用[AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS Cmdlet。 下列範例會傳回所有進行中的 SQL 作業。
+若要從 Azure 備份服務取得隨選作業及其狀態的清單，請使用[AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS Cmdlet。 下列範例會傳回所有進行中的 SQL 作業。
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
@@ -570,4 +570,4 @@ Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWo
 
 當[備份容器列出](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0)時，sql-server-0、sql-server-1 也會列為 "AzureVMAppContainer"。
 
-只要提取相關的 SQL 資料庫，即可[啟用備份](#configuring-backup)，而臨機操作[備份](#on-demand-backup)和[還原 PS Cmdlet](#restore-sql-dbs)則相同。
+只要提取相關的 SQL 資料庫，即可[啟用備份](#configuring-backup)，而[隨選備份](#on-demand-backup)和[還原 PS Cmdlet](#restore-sql-dbs)則相同。

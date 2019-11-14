@@ -1,153 +1,150 @@
 ---
-title: 設計災害復原與 Azure ExpressRoute |Microsoft Docs
-description: 此頁面提供使用 Azure ExpressRoute 時的災害復原的架構性建議。
-documentationcenter: na
-services: networking
+title: Azure ExpressRoute：針對嚴重損壞修復進行設計
+description: 此頁面提供使用 Azure ExpressRoute 時的嚴重損壞修復架構建議。
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: cf2b4e385de901254fde3c3d3e807feda98d5b41
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466078"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076695"
 ---
-# <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>ExpressRoute 私人對等互連的災害復原的設計
+# <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>使用 ExpressRoute 私用對等互連設計災難復原
 
-ExpressRoute 被設計為高可用性，以提供貨運公司客戶級 Microsoft 資源的私人網路連線。 換句話說，沒有單一的 Microsoft 網路內的 ExpressRoute 路徑中的失敗點。 若要最大化可用性的 ExpressRoute 線路的設計考量，請參閱[設計與 ExpressRoute 的高可用性][HA]。
+ExpressRoute 是專為高可用性所設計，可提供與 Microsoft 資源的電訊公司私人網路連線能力。 換句話說，在 Microsoft network 內的 ExpressRoute 路徑中，沒有單一失敗點。 如需將 ExpressRoute 線路的可用性最大化的設計考慮，請參閱[使用 ExpressRoute 設計高可用性][HA]。
 
-不過，採用 Murphy 的熱門諺語-*如果任何項目可能發生錯誤，則會*-納入考量，本文中告訴我們專注於解決方案，超越可以使用單一 ExpressRoute 電路來處理的失敗。 換句話說，在這篇文章中讓我們深入建置強固的後端進行災害復原使用異地備援的 ExpressRoute 線路的網路連線的網路架構考量。
+不過，採取 Murphy 的熱門」古訓--*如果發生任何問題，請將其*納入考慮，在本文中，我們將著重于超越無法使用單一 ExpressRoute 線路解決之失敗的解決方案。 換句話說，在本文中，我們將探討使用異地多餘的 ExpressRoute 線路，針對嚴重損壞修復建立穩固的後端網路連線能力的網路架構考慮。
 
-## <a name="need-for-redundant-connectivity-solution"></a>需要備援連線解決方案
+## <a name="need-for-redundant-connectivity-solution"></a>需要重複的連接解決方案
 
-有一些可能性和取得在已降級 （也就是網路服務提供者、 客戶或其他雲端服務提供者，Microsoft，是） 的整個區域服務的執行個體。 這類寬項區域性服務影響的根本原因包括自然遭遇災難。 因此，業務持續性和任務關鍵應用程式務必要規劃嚴重損壞修復。   
+在某些情況下，整個區域服務（Microsoft、網路服務提供者、客戶或其他雲端服務提供者）都會變得降低。 這類地區性服務影響的根本原因包括天然遭遇災難。 因此，針對商務持續性和任務關鍵性應用程式，請務必規劃嚴重損壞修復。   
 
-無論您是否執行您任務關鍵性應用程式中的 Azure 區域或內部部署或任何其他位置，您可以使用另一個 Azure 區域作為您的容錯移轉網站。 下列文章位址災害復原應用程式與前端存取檢視方塊：
+不論您是在 Azure 區域或內部部署或其他任何地方執行任務關鍵性應用程式，您都可以使用另一個 Azure 區域作為容錯移轉網站。 下列文章說明從應用程式和前端存取角度的嚴重損壞修復：
 
-- [企業級災害復原][Enterprise DR]
-- [使用 Azure Site Recovery 的 SMB 災害復原][SMB DR]
+- [企業規模的嚴重損壞修復][Enterprise DR]
+- [使用 Azure Site Recovery 的 SMB 嚴重損壞修復][SMB DR]
 
-如果您依賴您的內部部署網路與 Microsoft 之間的任務關鍵作業的 ExpressRoute 連線能力時，您的災害復原計劃也應該包括異地備援的網路連線。 
+如果您依賴內部部署網路與 Microsoft 之間的 ExpressRoute 連線來進行任務關鍵性作業，則您的嚴重損壞修復計畫也應該包含異地多餘的網路連線能力。 
 
 ## <a name="challenges-of-using-multiple-expressroute-circuits"></a>使用多個 ExpressRoute 線路的挑戰
 
-當您的相互連接同一組使用多個連線的網路時、 您引入網路之間的平行 path。 平行未正確架構時，可能會導致非對稱路由的路徑。 如果您在路徑中有具狀態的實體 （例如，NAT、 防火牆），非對稱路由可能會封鎖流量。  一般而言，透過 ExpressRoute 私人對等互連路徑不會遇到具狀態的實體，例如 NAT 或防火牆。 因此，非對稱路由，透過 ExpressRoute 私人對等互連不一定是封鎖流量。
+當您使用一個以上的連線來互連相同的一組網路時，您會在網路之間引進平行路徑。 平行路徑若未正確架構，可能會導致非對稱路由。 如果您的路徑中有具狀態實體（例如，NAT、防火牆），非對稱路由可能會封鎖流量。  一般而言，透過 ExpressRoute 私人對等互連路徑，您將不會遇到可設定狀態的實體，例如 NAT 或防火牆。 因此，透過 ExpressRoute 私用對等互連的非對稱式路由不一定會封鎖流量。
  
-不過，如果您流量的負載平衡跨異地備援的平行 path，無論您是否有可設定狀態的實體或不是，您會遇到不一致的網路效能。 在本文中，讓我們討論如何解決這些挑戰。
+不過，如果您將流量負載平衡到異地多餘的平行路徑，不論您是否有具狀態實體，都可能會遇到不一致的網路效能。 在本文中，我們將討論如何解決這些挑戰。
 
-## <a name="small-to-medium-on-premises-network-considerations"></a>小型至中型在內部部署網路考量
+## <a name="small-to-medium-on-premises-network-considerations"></a>中小型內部部署網路考慮
 
-我們來看一下範例網路，如下圖所示。 在範例中，Contoso 的內部部署位置與 Azure 區域中的 Contoso 的 VNet 之間建立異地備援的 ExpressRoute 連線能力。 在圖表中，綠色實線表示 （透過 ExpressRoute 1) 的慣用的路徑而虛線的則表示待命 （透過 ExpressRoute 2) 的路徑。
+讓我們來看下圖所示的範例網路。 在此範例中，Contoso 的內部部署位置與 Contoso 在 Azure 區域中的 VNet 之間會建立異地冗余 ExpressRoute 連線能力。 在圖表中，實心綠色線條表示慣用的路徑（透過 ExpressRoute 1），而虛線則代表待命路徑（透過 ExpressRoute 2）。
 
 [![1]][1]
 
-當您在設計災害復原的 ExpressRoute 連線能力時，您需要考慮：
+當您針對嚴重損壞修復設計 ExpressRoute 連線能力時，您需要考慮：
 
-- 使用異地備援的 ExpressRoute 線路
-- 針對不同的 ExpressRoute 線路使用不同的服務提供者網路
-- 每個 ExpressRoute 線路的設計[高可用性][HA]
-- 終止客戶網路上的不同位置的不同 ExpressRoute 線路
+- 使用異地多餘的 ExpressRoute 線路
+- 針對不同的 ExpressRoute 線路使用多樣化的服務提供者網路
+- 設計每個 ExpressRoute 線路以提供[高可用性][HA]
+- 在客戶網路上的不同位置終止不同的 ExpressRoute 線路
 
-根據預設，如果您的路由通告相同的所有 ExpressRoute 路徑，透過 Azure 將流量負載平衡內部繫結之間使用相同成本多路徑 (ECMP) 路由的所有 ExpressRoute 路徑。
+根據預設，如果您通告所有 ExpressRoute 路徑的路由都相同，Azure 會使用相同的多重路徑（ECMP）路由，對所有 ExpressRoute 路徑的內部部署系結流量進行負載平衡。
 
-不過，使用異地備援的 ExpressRoute 線路我們需要列入考量不同的網路效能與不同的網路路徑 （特別是針對網路延遲）。 若要取得更一致的網路效能，在正常作業期間，您可能要想提供最低延遲的 ExpressRoute 線路。
+不過，使用異地多餘的 ExpressRoute 線路時，我們必須考慮不同網路路徑的不同網路效能（特別是針對網路延遲）。 若要在正常作業期間取得更一致的網路效能，您可能會想要使用提供最低延遲的 ExpressRoute 線路。
 
-您可能會影響 Azure ExpressRoute 線路，而不用另一個使用其中一種 （效率順序列出） 的下列技術：
+您可以使用下列其中一種技術來影響 Azure，使其優先于另一個 ExpressRoute 線路（以有效的順序列出）：
 
-- 廣告慣用相較於其他 ExpressRoute 線路的 ExpressRoute 線路上的更特定的路由
-- 連線到慣用的 ExpressRoute 線路連結虛擬網路上設定較高的連線權數
-- 透過較慣用的 ExpressRoute 循環，較長的 AS 路徑 （如路徑前面加上） 中通告的路由
+- 與其他 ExpressRoute 線路相比，在慣用的 ExpressRoute 線路上通告更具體的路由
+- 在連接上設定更高的連線權數，以將虛擬網路連結至慣用的 ExpressRoute 線路
+- 以較不常用的 ExpressRoute 線路，以較長的路徑（如路徑前置）來公告路由
 
-### <a name="more-specific-route"></a>更明確的路由
+### <a name="more-specific-route"></a>更特定的路由
 
-下圖說明影響使用更明確的路由通告的 ExpressRoute 路徑選取範圍。 在此所示的範例中，Contoso 內部/24 的 IP 範圍會通告為慣用的路徑 (ExpressRoute 1) 透過兩個/25 位址範圍，以及透過獨立的路徑 (ExpressRoute 2) / 24。
+下圖說明使用更明確的路由通告來影響 ExpressRoute 路徑選取專案。 在說明的範例中，Contoso 內部部署/24 IP 範圍會透過慣用路徑（ExpressRoute 1）和 as/24 透過待命路徑（ExpressRoute 2）公告為兩個/25 位址範圍。
 
 [![2]][2]
 
-/ 25 是更具體的因為相較於/24，Azure 會將流量傳送流向 10.1.11.0/24 透過 ExpressRoute 1 處於正常狀態。 如果這兩個連線的 ExpressRoute 1 當機，然後 VNet 會看到 10.1.11.0/24 路由通告，只能透過 ExpressRoute 2;因此待命線路用在這種失敗狀態。
+相較于/24，因為/25 更具體，所以 Azure 會透過 ExpressRoute 1，將目的地為 10.1.11.0/24 的流量傳送至正常狀態。 如果 ExpressRoute 1 的兩個連線都已關閉，則 VNet 只會透過 ExpressRoute 2 查看 10.1.11.0/24 路由通告;因此，待命電路會在此失敗狀態下使用。
 
-### <a name="connection-weight"></a>連線權數
+### <a name="connection-weight"></a>連接權數
 
-下列螢幕擷取畫面說明如何設定 Azure 入口網站透過 ExpressRoute 連線的權數。
+下列螢幕擷取畫面說明如何透過 Azure 入口網站來設定 ExpressRoute 連接的權數。
 
 [![3]][3]
 
-下圖說明使用連線權數的影響 ExpressRoute 路徑選取。 預設連線權數為 0。 在下列範例中，ExpressRoute 1 的連線的權數設定為 100。 當 VNet 收到公告透過多個 ExpressRoute 線路的路由前置詞時，VNet 會偏好與最高權數的連線。
+下圖說明使用連接權數影響 ExpressRoute 路徑選取範圍。 預設連接權數為0。 在下列範例中，ExpressRoute 1 的連線權數設定為100。 當 VNet 收到透過多個 ExpressRoute 線路所公告的路由前置詞時，VNet 會偏好具有最高權數的連接。
 
-[![4]][4]
+[![4gb]][4]
 
-如果這兩個連線的 ExpressRoute 1 當機，然後 VNet 會看到 10.1.11.0/24 路由通告，只能透過 ExpressRoute 2;因此待命線路用在這種失敗狀態。
+如果 ExpressRoute 1 的兩個連線都已關閉，則 VNet 只會透過 ExpressRoute 2 查看 10.1.11.0/24 路由通告;因此，待命電路會在此失敗狀態下使用。
 
-### <a name="as-path-prepend"></a>為路徑前面加上
+### <a name="as-path-prepend"></a>做為路徑的前置
 
-下圖說明影響 ExpressRoute 路徑選取項目路徑前面加上使用。 在圖表中，路由通告，透過 ExpressRoute 1 表示 eBGP 的預設行為。 透過 ExpressRoute 2 路由公告，在內部部署網路的 ASN 前面會加上此外路由上作為路徑。 當透過多個 ExpressRoute 線路，每個 eBGP 路由選取程序中，接收相同的路由 VNet 偏好較短的路徑的路由。 
+下圖說明使用做為路徑前面的來影響 ExpressRoute 路徑選取專案。 在圖表中，透過 ExpressRoute 1 的路由通告會指出 eBGP 的預設行為。 在透過 ExpressRoute 2 的路由通告上，內部部署網路的 ASN 會在路由的 AS 路徑前面加上。 透過多個 ExpressRoute 線路接收相同的路由時，根據 eBGP 路由選取程式，VNet 會偏好具有最短路徑的路由。 
 
-[![5]][5]
+[![第]][5]
 
-如果這兩個連線的 ExpressRoute 1 停機時，VNet 會看到只透過 ExpressRoute 2 10.1.11.0/24 路由通告。 因此，路徑會變得無關的時間。 因此，待命的線路會用於這種失敗狀態。
+如果 ExpressRoute 1 的兩個連線都已關閉，則 VNet 只會透過 ExpressRoute 2 查看 10.1.11.0/24 路由通告。 Consequentially，path 較長的路徑會變得不相關。 因此，待命線路會在此失敗狀態下使用。
 
-使用任何技術，如果您在影響偏好其中一個 ExpressRoute 於其他 Azure，您也需要確保內部部署網路的 Azure 繫結來避免非對稱流量的流量也偏好相同的 ExpressRoute 路徑。 一般而言，會使用本機喜好設定值，來影響來偏好兩條 ExpressRoute 線路高於其他內部部署網路。 本機喜好設定是內部的 BGP (iBGP) 計量。 最好使用具有最高的本機喜好設定值的 BGP 路由。
+使用任何一種技術時，如果您將 Azure 影響到其他人的其中一個 ExpressRoute，您也必須確保內部部署網路也偏好 Azure 系結流量的相同 ExpressRoute 路徑，以避免非對稱流量。 一般而言，本機喜好設定值是用來影響內部部署網路，以優先使用一個 ExpressRoute 線路。 本機喜好設定是內部 BGP （iBGP）度量。 較高的本機喜好設定值是慣用的 BGP 路由。
 
 > [!IMPORTANT]
-> 當您使用特定 ExpressRoute 線路為待命時，您需要主動管理它們，並定期測試容錯移轉作業。 
+> 當您使用特定 ExpressRoute 線路作為待命時，您需要主動管理它們，並定期測試容錯移轉作業。 
 > 
 
-## <a name="large-distributed-enterprise-network"></a>大型分散式的企業網路
+## <a name="large-distributed-enterprise-network"></a>大型分散式商業網路
 
-當您有大型的分散式的企業網路時，您可能會有多個 ExpressRoute 線路。 在本節中，我們看看如何設計使用主動-主動的 ExpressRoute 線路，而不需要額外的待命線路進行災害復原。 
+當您有大型的分散式商業網路時，可能會有多個 ExpressRoute 線路。 在本節中，我們將瞭解如何使用主動-主動 ExpressRoute 線路設計嚴重損壞修復，而不需要額外的待命線路。 
 
-我們來看下圖所示的範例。 在範例中，contoso 公司有兩個內部部署位置連接到兩個 Contoso IaaS 部署，透過在兩個不同的對等互連位置的 ExpressRoute 線路的兩個不同 Azure 區域中。 
+讓我們來看看下圖所說明的範例。 在此範例中，Contoso 有兩個內部部署位置連線到兩個不同 Azure 區域中的兩個 Contoso IaaS 部署，透過 ExpressRoute 線路位於兩個不同的對等互連位置。 
 
-[![6]][6]
+[![7]][6]
 
-我們設計災害復原的架構會影響在跨地區位置 (region1/到 location2/location1 的 region2) 的流量路由方式。 我們來看一下將跨區域位置的流量路由傳送不同的兩個不同的嚴重損壞架構。
+我們架構嚴重損壞修復的方式，會影響跨區域（region1/region2 至 location2/location1）如何路由傳送流量。 讓我們假設有兩個不同的嚴重損壞架構會以不同的方式路由跨區域位置的流量。
 
 ### <a name="scenario-1"></a>案例 1
 
-在第一個案例中，讓我們來設計災害復原的 Azure 區域與內部部署網路之間的所有流量都流經本機 ExpressRoute 線路處於穩定狀態。 如果在本機的 ExpressRoute 線路故障時，然後遠端 ExpressRoute 線路用於 Azure 之間的所有流量並在內部部署網路。
+在第一個案例中，我們將設計嚴重損壞修復，讓 Azure 區域與內部部署網路之間的所有流量，透過本機 ExpressRoute 線路在穩定狀態下流動。 如果本機 ExpressRoute 線路失敗，則遠端 ExpressRoute 線路會用於 Azure 與內部部署網路之間的所有流量。
 
-案例 1 以下圖所示。 在圖表中，綠線表示 VNet1 和內部部署網路之間流量的路徑。 藍線表示 VNet2 和內部部署網路之間流量的路徑。 實線表示在穩定狀態所需的路徑和虛線的線條表示路徑中的對應的 ExpressRoute 線路，具有穩定的流量流程失敗。 
+下圖說明案例1。 在圖表中，綠色線條表示 VNet1 與內部部署網路之間流量的路徑。 藍色線表示 VNet2 與內部部署網路之間流量的路徑。 實線表示在穩定狀態中所需的路徑，而虛線表示在具有穩定狀態流量流量的對應 ExpressRoute 電路失敗時的流量路徑。 
 
-[![7]][7]
+[![utf-7]][7]
 
-您可以設計架構，來影響偏好本機對等互連位置 ExpressRoute 內部部署網路連線繫結流量的 Vnet 中使用連線權數的案例。 若要完成此解決方案，您需要確保對稱的反向流量。 您可以使用本機喜好設定 iBGP 工作階段上您 （在其的 ExpressRoute 線路會在內部部署端終止） 的 BGP 路由器之間偏好的 ExpressRoute 線路。 下圖說明解決方案。 
+您可以使用連線權數來架構案例，以影響 Vnet，以將內部部署網路系結流量連線到本機對等互連位置 ExpressRoute。 若要完成此解決方案，您必須確定對稱的反向流量流程。 您可以將本機喜好設定用於 BGP 路由器（在內部部署端上已終止 ExpressRoute 線路）上的 iBGP 會話，以偏好使用 ExpressRoute 線路。 下圖說明此解決方案。 
 
 [![8]][8]
 
 ### <a name="scenario-2"></a>案例 2
 
-下圖說明案例 2。 在圖表中，綠線表示 VNet1 和內部部署網路之間流量的路徑。 藍線表示 VNet2 和內部部署網路之間流量的路徑。 在穩定狀態 （圖表中的實心線條），所有 Vnet 和內部部署位置之間的流量流程，是透過 Microsoft 骨幹大部分的情況下，以及透過之間的互相連線內部部署位置只能在失敗的狀態 （虛線中圖表中） 的 ExpressRoute。
+下圖說明案例2。 在圖表中，綠色線條表示 VNet1 與內部部署網路之間流量的路徑。 藍色線表示 VNet2 與內部部署網路之間流量的路徑。 在穩定狀態（圖中的實線）中，Vnet 與內部部署位置之間的所有流量，都是透過 Microsoft 骨幹流動，而且只會在失敗狀態下通過內部部署位置間的相互連線（點線圖表）。
 
 [![9]][9]
 
-下圖說明解決方案。 如所述，您也可以架構案例中使用更明確的路由 (選項 1) 或 AS 路徑前面加上 (選項 2) 會影響 VNet 路徑選取項目。 若要影響內部部署網路路由選取項目給 Azure 的繫結流量，您需要設定內部部署位置之間的互相連線，較不適合。 您設定為 偏好的互相連線的連結羅豪取決於內部部署網路內使用的路由通訊協定。 您可以使用本機喜好設定與 iBGP 或度量 IGP （OSPF 或 IS IS）。
+下圖說明此解決方案。 如圖所示，您可以使用更明確的路由（選項1）或路徑前置（選項2）來設計案例，以影響 VNet 路徑選取。 若要影響 Azure 系結流量的內部部署網路路由選取，您需要設定內部部署位置之間的相互連線，這不是較理想的方式。 羅豪您視需要設定互連連結，視內部部署網路內使用的路由通訊協定而定。 您可以搭配使用本機喜好設定與 iBGP 或公制搭配 IGP （OSPF 或 IS-IS）。
 
-[![10]][10]
+[![十大]][10]
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，我們會討論如何設計災害復原的 ExpressRoute 線路的私人對等互連連線。 下列文章位址災害復原應用程式與前端存取檢視方塊：
+在本文中，我們討論了如何針對 ExpressRoute 線路私用對等互連連線的嚴重損壞修復進行設計。 下列文章說明從應用程式和前端存取角度的嚴重損壞修復：
 
-- [企業級災害復原][Enterprise DR]
-- [使用 Azure Site Recovery 的 SMB 災害復原][SMB DR]
+- [企業規模的嚴重損壞修復][Enterprise DR]
+- [使用 Azure Site Recovery 的 SMB 嚴重損壞修復][SMB DR]
 
 <!--Image References-->
-[1]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png "小型到中型大小的內部部署網路考量"
-[2]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/specificroute.png "影響使用更明確的路由路徑選取項目"
-[3]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png "設定透過 Azure 入口網站的連線權數"
-[4]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/connectionweight.png "影響路徑選取項目使用連線權數"
-[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png "影響使用為路徑的路徑選取在前面加上"
-[6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "大型分散式內部部署網路考量"
+[1]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png "個小型到中型的內部部署網路考慮"
+[2]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/specificroute.png "使用更特定的路由來影響路徑選取"
+[3]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png透過 "Azure 入口網站設定連接權數"
+[4]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/connectionweight.png "使用連接權數影響路徑選取"
+[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png "使用做為路徑前置的方式來影響路徑選取"
+[6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "大型分散式內部部署網路考慮"
 [7]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png "案例 1"
-[8]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "主動-主動 ExpressRoute 線路的解決方案 1"
-[9]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png "scenario 2"
-[10]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "主動-主動 ExpressRoute 線路的解決方案 2"
+[8 個]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "主動-主動 ExpressRoute 線路解決方案 1"
+[9]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png "案例 2"
+[10 個]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "主動-主動 ExpressRoute 線路解決方案 2"
 
 <!--Link References-->
 [HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute

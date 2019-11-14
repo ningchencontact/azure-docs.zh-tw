@@ -1,22 +1,23 @@
 ---
-title: 監視 Azure 應用程式閘道的存取記錄、效能記錄、後端健康情況及計量
+title: 後端健康情況和診斷記錄
+titleSuffix: Azure Application Gateway
 description: 了解如何啟用和管理應用程式閘道的存取記錄和效能記錄
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958269"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075306"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>應用程式閘道的後端健康情況和診斷記錄
 
-使用 Azure 應用程式閘道，您可以下列方式監視資源：
+您可以透過下列方式監視 Azure 應用程式閘道資源：
 
 * [後端健康情況](#back-end-health)：應用程式閘道提供透過 Azure 入口網站和 PowerShell 監視後端集區中伺服器健康情況的功能。 您也可以透過效能診斷記錄找到後端集區的健康情況。
 

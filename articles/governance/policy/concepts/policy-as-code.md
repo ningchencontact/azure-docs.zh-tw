@@ -1,20 +1,16 @@
 ---
-title: 設計原則作為程式碼工作流程
+title: 設計原則即程式碼工作流程
 description: 瞭解如何設計工作流程，將您的 Azure 原則定義部署為程式碼，並自動驗證資源。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e3fcb9996266af7e952538c7c92c665929bb9492
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518693"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072079"
 ---
-# <a name="design-policy-as-code-workflows"></a>設計原則作為程式碼工作流程
+# <a name="design-policy-as-code-workflows"></a>設計原則即程式碼工作流程
 
 當您透過雲端治理進行旅程時，您會想要從手動管理 Azure 入口網站中的每個原則定義，或透過各種 Sdk 來進行，以在企業規模更容易管理且可重複使用。 在雲端大規模管理系統的主要方法有兩種：
 
