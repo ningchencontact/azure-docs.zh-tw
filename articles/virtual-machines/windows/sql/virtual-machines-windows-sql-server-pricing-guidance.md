@@ -1,10 +1,9 @@
 ---
-title: 有效地管理 Azure 虛擬機器上 SQL Server 的成本 | Microsoft Docs
+title: 價格指引 & 管理成本
 description: 提供選擇正確 SQL Server 虛擬機器定價模型的最佳做法。
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028620"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038867"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Azure SQL Server Vm 的定價指導方針
 
 本文提供 Azure 中 [SQL Server 虛擬機器](virtual-machines-windows-sql-server-iaas-overview.md)的定價指導方針。 影響成本的選項有數個，而挑選平衡成本和業務需求的正確映像相當重要。
 
@@ -91,7 +91,7 @@ ms.locfileid: "72028620"
 >不包含其他 SQL Server 的 Web、Standard 和 Enterprise 版本的授權成本。 若要取得最精確的定價估計，請在 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 適用的定價頁面上，選取您的作業系統和 SQL Server 版本。
 
 > [!NOTE]
-> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模型](virtual-machines-windows-sql-ahb.md)。 
+> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md)。 
 
 ## <a id="byol"></a> 自備授權 (BYOL)
 
@@ -113,7 +113,7 @@ ms.locfileid: "72028620"
 
 | BYOL 優點 | 描述 |
 |-----|-----|
-| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供 55% 的節約。 如需詳細資訊，請參閱[交換器授權模型](virtual-machines-windows-sql-ahb.md) |
+| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供55% 的節約。 如需詳細資訊，請參閱[交換器授權模型](virtual-machines-windows-sql-ahb.md) |
 | **免費的被動次要複本** | 自備授權的另一個優點是每一 SQL Server 可享有[一個免費的被動次要複本授權](https://azure.microsoft.com/pricing/licensing-faq/)，以用於提供高可用性。 這讓高可用性 SQL Server 部署 (例如使用「永遠開啟可用性群組」) 的授權費用得以砍半。 執行被動次要複本的權限是透過「容錯移轉伺服器軟體保證」權益來提供。 |
 
 若要使用上述其中一個自備授權映像來建立 SQL Server 2017 Azure VM，請查看前面帶有 "{BYOL}" 的 VM：
@@ -125,7 +125,7 @@ ms.locfileid: "72028620"
 > 請在 10 天內告訴我們您將在 Azure 中使用多少個 SQL Server 授權。 上述映像的連結包含如何這麼做的相關指示。
 
 > [!NOTE]
-> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模型](virtual-machines-windows-sql-ahb.md)。 
+> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md)。 
 
 
 

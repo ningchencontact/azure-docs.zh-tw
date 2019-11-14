@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上最佳化 Linux VM | Microsoft Docs
+title: 在 Azure 上最佳化 Linux VM
 description: 了解一些最佳化提示，確保 Azure 上的 Linux VM 設定可獲得最佳效能。
 keywords: linux 虛擬機器,虛擬機器 linux,ubuntu 虛擬機器
 services: virtual-machines-linux
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091690"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035379"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
 您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。 本教學課程示範如何在 Microsoft Azure 平台上設定，以確保將其效能最佳化。 本主題會使用 Ubuntu Server VM，但您也可以使用 [自己的映像做為範本](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來建立 Linux 虛擬機器。  
 
-## <a name="prerequisites"></a>必要條件
-本主題假設您已具備有效的 Azure 訂用帳戶 ([註冊免費試用版](https://azure.microsoft.com/pricing/free-trial/))，並且已在 Azure 訂用帳戶中佈建 VM。 在[建立 VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 之前，請先確定您已安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並已使用 [az login](/cli/azure/reference-index) 登入 Azure 訂用帳戶。
+## <a name="prerequisites"></a>先決條件
+本主題假設您已具備有效的 Azure 訂用帳戶 ([註冊免費試用版](https://azure.microsoft.com/pricing/free-trial/))，並且已在 Azure 訂用帳戶中佈建 VM。 在[建立 VM](/cli/azure/install-az-cli2) 之前，請先確定您已安裝最新的 [Azure CLI](/cli/azure/reference-index)，並已使用 [az login](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 登入 Azure 訂用帳戶。
 
 ## <a name="azure-os-disk"></a>Azure 作業系統磁碟
 在 Azure 中建立 Linux VM 後，它有兩個相關聯的磁碟。 **/dev/sda** 是作業系統磁碟， **/dev/sdb** 是暫存磁碟。  請勿將主要作業系統磁碟 ( **/dev/sda**) 用於作業系統以外的用途，因為它已針對快速開啟 VM 進行最佳化，無法為工作負載提供良好的效能。 您會想要將一或多個磁碟連接至 VM，以取得具永續性且經過最佳化的資料儲存空間。 
@@ -59,9 +59,9 @@ ms.locfileid: "70091690"
 
 對於沒有 cloud-init 支援的映像，從 Azure Marketplace 部署的 VM 映像具有與作業系統整合的 VM Linux 代理程式。 此代理程式可讓 VM 與各種 Azure 服務進行互動。 假設您從 Azure Marketplace 部署標準映像，需要執行以下操作來正確配置 Linux 交換檔設定︰
 
-找出並修改 **/etc/waagent.conf** 檔案中的兩個項目。 它們控制專用交換檔案的存在和交換檔的大小。 您需要驗證`ResourceDisk.EnableSwap`的參數為和`ResourceDisk.SwapSizeMB` 
+找出並修改 **/etc/waagent.conf** 檔案中的兩個項目。 它們控制專用交換檔案的存在和交換檔的大小。 您需要驗證的參數是 `ResourceDisk.EnableSwap` 和 `ResourceDisk.SwapSizeMB` 
 
-若要啟用已正確啟用的磁片和掛接的交換檔, 請確定參數具有下列設定:
+若要啟用已正確啟用的磁片和掛接的交換檔，請確定參數具有下列設定：
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={符合您需求的大小 (MB)} 
@@ -127,7 +127,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>使用軟體 RAID 來達到更高的 I/Ops
 如果工作負載所需的 IOps 超過單一磁碟可提供的極限，您便需要使用由多個磁碟組成的軟體 RAID 組態。 因為 Azure 已在本機網狀架構層級執行磁碟恢復功能，因此您可以從 RAID-0 等量組態獲得最高層級的效能。  先在 Azure 環境中佈建及建立磁碟、將它們連結至 Linux VM，然後再分割、格式化及掛接磁碟機。  如需在 Azure 中針對 Linux VM 配置軟體 RAID 設定的詳細資訊，請參閱 **[在 Linux 上設定軟體 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 文件。
 
-作為傳統 RAID 設定的替代方案, 您也可以選擇安裝邏輯磁片區管理員 (LVM), 以將多個實體磁片設定為單一等量邏輯存放磁片區。 在此設定中, 會將讀取和寫入分散到磁片區群組中包含的多個磁片 (類似于 RAID0)。 基於效能考量，您可能希望建立等量邏輯磁碟區，如此一來，讀取和寫入就能利用您所有已連結的資料磁碟。  如需在 Azure 中的 Linux VM 上設定等量邏輯磁片區的詳細資訊, 請參閱在 **[azure 中的 LINUX vm 上設定 LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 檔。
+作為傳統 RAID 設定的替代方案，您也可以選擇安裝邏輯磁片區管理員（LVM），以將多個實體磁片設定為單一等量邏輯存放磁片區。 在此設定中，會將讀取和寫入分散到磁片區群組中包含的多個磁片（類似于 RAID0）。 基於效能考量，您可能希望建立等量邏輯磁碟區，如此一來，讀取和寫入就能利用您所有已連結的資料磁碟。  如需在 Azure 中的 Linux VM 上設定等量邏輯磁片區的詳細資訊，請參閱在 **[azure 中的 LINUX vm 上設定 LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 檔。
 
 ## <a name="next-steps"></a>後續步驟
 請記住，如同所有最佳化討論內容所述，您需要在變更前後執行測試，以測量變更所造成的影響。  最佳化是需要逐步進行的程序，這些程序會對環境中不同的機器產生不同的結果。  對某項組態有用的做法不見得適用於其他組態。

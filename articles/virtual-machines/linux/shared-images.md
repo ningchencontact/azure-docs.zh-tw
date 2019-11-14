@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 建立共用映射資源庫 |Microsoft Docs
+title: 使用 Azure CLI 建立共用映射資源庫
 description: 在本文中，您將了解如何使用 Azure CLI，在 Azure 中建立 VM 的共用映像。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: ea884b80698fb257106ef68d293f350b2f55dc06
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de1afa2367afcb78e8ca68e518acc93e33f61c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103563"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034953"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>使用 Azure CLI 建立共用映像資源庫
 
@@ -33,7 +33,7 @@ ms.locfileid: "70103563"
 
 共用映像庫具有多個資源類型。 我們將在這篇文章中使用或建置這些資源類型：
 
-| Resource | 描述|
+| 資源 | 描述|
 |----------|------------|
 | **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |
@@ -56,14 +56,14 @@ az vm create\
    --generate-ssh-keys
 ```
 
-您也可以使用`--image`參數的映射版本識別碼來使用特定版本。 例如, 若要使用 image *1.0.0*版的型`--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`別:。
+您也可以使用 `--image` 參數的映射版本識別碼來使用特定版本。 例如，若要使用 image *1.0.0*版的型別： `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`。
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>後續步驟
-[Azure 映射產生器 (預覽)](image-builder-overview.md)可協助自動建立映射版本, 您甚至可以使用它來更新和[建立現有映射版本的新映射版本](image-builder-gallery-update-image-version.md)。 
+[Azure 映射產生器（預覽）](image-builder-overview.md)可協助自動建立映射版本，您甚至可以使用它來更新和[建立現有映射版本的新映射版本](image-builder-gallery-update-image-version.md)。 
 
 您也可以使用範本建立共用映射庫資源。 有數個 Azure 快速入門範本可以使用： 
 

@@ -138,6 +138,8 @@
         - name: 時間轉移和即時 VOD
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: 即時轉譯
+          href: live-transcription.md
         - name: 功能比較
           href: live-event-types-comparison.md
         - name: 狀態與計費

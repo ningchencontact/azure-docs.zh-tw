@@ -1,5 +1,5 @@
 ---
-title: '將 VM 的 D: 磁碟機設為資料磁碟 | Microsoft Docs'
+title: '將 VM 的 D：磁片磁碟機設為數據磁片 '
 description: '說明如何為 Windows VM 變更磁碟機代號，讓您能夠使用 D: 磁碟機做為資料磁碟機。'
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 846bb7a5ea6c3f363a2811cf3feb30e37ff30504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079865"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033659"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>使用 D: 磁碟機作為 Windows VM 上的資料磁碟機
 如果您的應用程式需要使用 D 磁碟機來儲存資料，請遵循下列指示，使用不同的磁碟機代號來代表暫存磁碟。 切勿使用暫存磁碟儲存需要保留的資料。
@@ -59,7 +59,7 @@ ms.locfileid: "70079865"
 5. 在 [虛擬記憶體] 區段中，選取 [變更]。
 6. 選取作業系統磁碟機 **C**，然後依序按一下 [沒有分頁檔] 和 [設定]。
 7. 選取暫存磁碟機 **T**，然後依序按一下 [系統管理大小] 和 [設定]。
-8. 按一下 **[套用]** 。 您將會收到一則警告，表示電腦必須重新啟動，才能讓變更生效。
+8. 按一下 [Apply (套用)]。 您將會收到一則警告，表示電腦必須重新啟動，才能讓變更生效。
 9. 重新啟動虛擬機器。
 
 ## <a name="next-steps"></a>後續步驟

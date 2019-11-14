@@ -1,5 +1,5 @@
 ---
-title: 將資料磁碟連結到 Linux VM | Microsoft Docs
+title: 將資料磁片連結至 Linux VM
 description: 使用入口網站將新的或現有的資料磁碟附加至 Linux VM。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f63648f63d6154b89f641cdc4d2657e0396a8c66
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036369"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037055"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用入口網站將資料磁碟附加至 Linux VM 
 本文示範如何透過 Azure 入口網站將新的及現有的磁碟連結到 Linux 虛擬機器。 您也可以[在 Azure 入口網站中將資料磁碟連結到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -70,7 +70,7 @@ ms.locfileid: "71036369"
    
    ![儲存 Azure 受控磁碟更新](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. Azure 將磁碟連接至虛擬機器之後，該磁碟會列在虛擬機器磁碟設定中的 [資料磁碟] 下面。
+4. Azure 將磁碟連接至虛擬機器之後，該磁碟會列在虛擬機器磁碟設定中的 [資料磁碟]下面。
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>連接到 Linux VM 以掛接新磁碟
 若要分割、格式化和掛接新磁碟以供 Linux VM 使用，請使用 SSH 登入您的 VM。 如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](mac-create-ssh-keys.md)。 下列範例會以 azureuser 這個使用者名稱，利用 mypublicdns.westus.cloudapp.azure.com 的公用 DNS 項目來連線至 VM： 
@@ -103,7 +103,7 @@ dmesg | grep SCSI
 > [!NOTE]
 > 建議您使用可供您的散發版本使用的最新 fdisk 或 parted 版本。
 
-使用 `fdisk` 分割磁碟。 如果磁碟大小為 2 Tebi 位元組 (TiB) 或以上，則您必須使用 GPT 磁碟分割，您可以使用 `parted` 來執行 GPT 磁碟分割。 如果磁碟大小低於 2 TiB，您就能使用 MBR 或 GPT 磁碟分割。 將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc 上啟動 `fdisk` 程序：
+使用 `fdisk` 分割磁碟。 如果磁碟大小為 2 Tebi 位元組 (TiB) 或以上，則您必須使用 GPT 磁碟分割，您可以使用 `parted` 來執行 GPT 磁碟分割。 如果磁碟大小低於 2 TiB，您就能使用 MBR 或 GPT 磁碟分割。 將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc`fdisk`*上啟動* 程序：
 
 ```bash
 sudo fdisk /dev/sdc
@@ -235,7 +235,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-* 在 /etc/fstab 中使用 `discard` 掛接選項，例如：
+* 在 /etc/fstab`discard`*中使用* 掛接選項，例如：
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure PowerShell 部署 Azure 專用主機 |Microsoft Docs
+title: 使用 Azure PowerShell 部署 Azure 專用主機
 description: 使用 Azure PowerShell 將 Vm 部署到專用主機。
 services: virtual-machines-windows
 author: cynthn
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261701"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033360"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>預覽：使用 Azure PowerShell 將 Vm 部署到專用主機
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>預覽：使用 Azure PowerShell 將 Vm 部署至專用主機
 
 本文會引導您瞭解如何建立 Azure[專用主機](dedicated-hosts.md)來裝載您的虛擬機器（vm）。 
 
-請確定您已安裝 Azure PowerShell 2.4.2 或更新版本，且已使用`Connect-AzAccount`登入 Azure 帳戶。 若要安裝版本2.4.2，請開啟 PowerShell 提示字元，然後輸入：
+請確定您已安裝 Azure PowerShell 2.4.2 或更新版本，且已使用 `Connect-AzAccount`登入 Azure 帳戶。 若要安裝版本2.4.2，請開啟 PowerShell 提示字元，然後輸入：
 
 ```powershell
 Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
@@ -42,7 +42,7 @@ Install-Module -Name PowerShellGet -Repository PSGallery -Force
 >
 > **已知的預覽限制**
 > - 專用主機目前不支援虛擬機器擴展集。
-> - 預覽初始版本支援下列 VM 系列：DSv3 和 ESv3。 
+> - 預覽初始版本支援下列 VM 系列： DSv3 和 ESv3。 
 
 
 
@@ -72,7 +72,7 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>建立主機
 
-現在讓我們在主機群組中建立專用主機。 除了主機的名稱之外，您還必須提供主機的 SKU。 主機 SKU 會捕捉支援的 VM 系列，以及專用主機的硬體世代。  在預覽期間，我們將支援下列主機 SKU 值：DSv3_Type1 和 ESv3_Type1。
+現在讓我們在主機群組中建立專用主機。 除了主機的名稱之外，您還必須提供主機的 SKU。 主機 SKU 會捕捉支援的 VM 系列，以及專用主機的硬體世代。  在預覽期間，我們將支援下列主機 SKU 值： DSv3_Type1 和 ESv3_Type1。
 
 
 如需主機 Sku 和定價的詳細資訊，請參閱[Azure 專用主機定價](https://aka.ms/ADHPricing)。
@@ -115,7 +115,7 @@ New-AzVM `
 
 ## <a name="check-the-status-of-the-host"></a>檢查主機的狀態
 
-您可以使用[GetAzHost](/powershell/module/az.compute/get-azhost) `-InstanceView`搭配參數，檢查主機健全狀況狀態，以及您仍然可以部署到主機的虛擬機器數目。
+您可以使用[GetAzHost](/powershell/module/az.compute/get-azhost)搭配 `-InstanceView` 參數，檢查主機健全狀況狀態，以及您仍然可以部署到主機的虛擬機器數目。
 
 ```
 Get-AzHost `

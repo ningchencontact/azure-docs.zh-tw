@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262553"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030880"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>將 Azure 資源記錄封存到儲存體帳戶
 Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資源內部作業的豐富、經常性資料。 本文說明如何將資源記錄檔收集至 Azure 儲存體帳戶，以保留資料以供封存。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您還沒有[Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)，您必須建立它。 儲存體帳戶不一定要與資源傳送記錄位於相同的訂用帳戶中，前提是設定此設定的使用者具有這兩個訂用帳戶的適當 RBAC 存取權。
+
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 帳戶目前不支援做為診斷設定的目的地，即使它們在 Azure 入口網站中可能列為有效的選項。
+
 
 您不應該使用已儲存其他非監視資料的現有儲存體帳戶，讓您可以更有效地控制監視資料的存取。 不過，如果您也將[活動記錄](activity-logs-overview.md)檔封存至儲存體帳戶，您可以選擇使用相同的儲存體帳戶，將所有監視資料保留在中央位置。
 

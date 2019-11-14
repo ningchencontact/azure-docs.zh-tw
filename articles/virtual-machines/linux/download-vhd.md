@@ -1,5 +1,5 @@
 ---
-title: 從 Azure 下載 Linux VHD | Microsoft Docs
+title: 從 Azure 下載 Linux VHD
 description: 使用 Azure CLI 和 Azure 入口網站來下載 Linux VHD。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: ed79df03a42c1558b975cd1c21c79716d50d4616
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 257f3f723fc8a971b8253699f4beb002cf46ce52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083495"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036280"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>從 Azure 下載 Linux VHD
 
@@ -59,7 +59,7 @@ ms.locfileid: "70083495"
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 2.  在左功能表上，選取 [虛擬機器]。
 3.  從清單中選取 VM。
-4.  在 VM 的頁面上, 選取 [**停止**]。
+4.  在 VM 的頁面上，選取 [**停止**]。
 
     ![停止 VM](./media/download-vhd/export-stop.png)
 
@@ -67,19 +67,19 @@ ms.locfileid: "70083495"
 
 若要下載 VHD 檔案，您需要產生[共用存取簽章 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL。 產生 URL 時，會將到期時間指派給 URL。
 
-1.  在 VM 頁面的功能表上, 選取 [**磁片**]。
-2.  選取 VM 的作業系統磁片, 然後選取 [**磁片匯出**]。
+1.  在 VM 頁面的功能表上，選取 [**磁片**]。
+2.  選取 VM 的作業系統磁片，然後選取 [**磁片匯出**]。
 3.  選取 [**產生 URL**]。
 
     ![產生 URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>下載 VHD
 
-1.  在產生的 URL 底下, 選取 [**下載 VHD**檔案]。
+1.  在產生的 URL 底下，選取 [**下載 VHD**檔案]。
 **
     ![下載 VHD](./media/download-vhd/export-download.png)
 
-2.  您可能需要在瀏覽器中選取 [**儲存**], 才能開始下載。 VHD 檔案的預設名稱是 *abcd*。
+2.  您可能需要在瀏覽器中選取 [**儲存**]，才能開始下載。 VHD 檔案的預設名稱是 *abcd*。
 
     ![在瀏覽器中選取 [儲存]](./media/download-vhd/export-save.png)
 

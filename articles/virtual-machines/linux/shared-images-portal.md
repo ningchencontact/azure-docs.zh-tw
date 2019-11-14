@@ -1,5 +1,5 @@
 ---
-title: 使用入口網站建立適用于 Linux 的共用 Azure 虛擬機器映射 |Microsoft Docs
+title: 使用入口網站建立適用于 Linux 的共用 Azure 虛擬機器映射
 description: 瞭解如何使用 Azure 入口網站來建立及共用虛擬機器映射。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a56b34318725667a9eef143bbf2be90f411b74a1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 89c98379a8e79d1b00db47021ae737ae471f79b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904956"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035020"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>使用 Azure 入口網站建立共用映射資源庫
 

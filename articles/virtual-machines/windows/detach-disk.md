@@ -1,5 +1,5 @@
 ---
-title: 將資料磁碟與 Windows VM 中斷連結 - Azure | Microsoft Docs
+title: 從 Windows VM 卸離資料磁片-Azure
 description: 使用 Resource Manger 部署模型，將資料磁碟與 Azure 中的虛擬機器中斷連結。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93db2935fdc41787bb1820d1f8ce85ac05ef0863
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749483"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033350"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何從 Windows 虛擬機器卸離資料磁碟
 
@@ -53,7 +53,7 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 2. 選取含有您想要中斷連結之資料磁碟的虛擬機器，然後按一下 [停止] 以將該 VM 解除配置。
 3. 在 [虛擬機器] 窗格中，選取 [磁碟]。
 4. 在 [磁碟] 窗格頂端，選取 [編輯]。
-5. 在 [磁碟] 窗格中，在您想要中斷連結的資料磁碟最右側，按一下 ![[中斷連結] 按鈕影像](./media/detach-disk/detach.png) [中斷連結] 按鈕。
+5. 在 [磁碟] 窗格中，在您想要中斷連結的資料磁碟最右側，按一下 [中斷連結按鈕影像]![](./media/detach-disk/detach.png) 中斷連結按鈕。
 5. 移除磁碟之後，按一下窗格頂端的 [儲存]。
 6. 在 [虛擬機器] 窗格中，按一下 [概觀]，然後按一下窗格頂端的 [啟動] 按鈕以重新啟動 VM。
 

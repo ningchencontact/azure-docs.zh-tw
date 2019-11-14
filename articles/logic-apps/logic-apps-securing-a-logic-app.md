@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57bea93fd03dc19caa1ce29a34a40bc3cff06209
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499929"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039065"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>保護 Azure Logic Apps 中的存取和資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "73499929"
 
 * [產生共用存取簽章](#sas)
 * [限制輸入 IP 位址](#restrict-inbound-ip-addresses)
-* [新增 Azure Active Directory、OAuth 或其他安全性](#add-authentication)
+* [新增 Azure Active Directory OAuth 或其他安全性](#add-authentication)
 
 <a name="sas"></a>
 
@@ -48,7 +48,7 @@ ms.locfileid: "73499929"
 
 每個 URL 都包含 `sp`、`sv`和 `sig` 查詢參數，如下表所述：
 
-| 查詢參數 | 說明 |
+| 查詢參數 | 描述 |
 |-----------------|-------------|
 | `sp` | 指定允許的 HTTP 方法所要使用的許可權。 |
 | `sv` | 指定要用於產生簽章的 SAS 版本。 |
@@ -163,9 +163,9 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>新增 Azure Active Directory、OAuth 或其他安全性
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>新增 Azure Active Directory OAuth 或其他安全性
 
-若要將更多授權通訊協定新增至邏輯應用程式，請考慮使用[AZURE API 管理](../api-management/api-management-key-concepts.md)服務。 此服務可協助您將邏輯應用程式公開為 API，並為任何端點提供豐富的監視、安全性、原則和檔。 API 管理可以公開您邏輯應用程式的公用或私用端點。 接著，您可以使用 Azure Active Directory、OAuth、憑證或其他安全性標準來授權存取該端點。 當 API 管理收到要求時，服務會傳送要求至您的邏輯應用程式，也會在過程中進行任何必要的轉換或限制。 若要只讓 API 管理觸發邏輯應用程式，您可以使用邏輯應用程式的輸入 IP 範圍設定。
+若要將更多授權通訊協定新增至邏輯應用程式，請考慮使用[AZURE API 管理](../api-management/api-management-key-concepts.md)服務。 此服務可協助您將邏輯應用程式公開為 API，並為任何端點提供豐富的監視、安全性、原則和檔。 API 管理可以公開您邏輯應用程式的公用或私用端點。 若要授與此端點的存取權，您可以使用[Azure Active Directory OAuth](#azure-active-directory-oauth-authentication)、[用戶端憑證](#client-certificate-authentication)或其他安全性標準來授權該端點的存取權。 當 API 管理收到要求時，服務會傳送要求至您的邏輯應用程式，也會在過程中進行任何必要的轉換或限制。 若要只讓 API 管理觸發邏輯應用程式，您可以使用邏輯應用程式的輸入 IP 範圍設定。
 
 <a name="secure-operations"></a>
 
@@ -361,7 +361,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 如果您在不同的環境之間部署，請考慮將工作流程定義中的值參數化，這會根據這些環境而有所不同。 如此一來，您可以使用[Azure Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)來部署邏輯應用程式、藉由定義安全的參數來保護機密資料，並透過[範本的參數](../azure-resource-manager/template-parameters.md)將該資料當做個別輸入傳遞，藉此避免硬式編碼的資料，方法是使用[參數](../azure-resource-manager/resource-manager-parameter-files.md)檔案。
 
-例如，如果您使用[Azure Active Directory](#azure-active-directory-oauth-authentication)來驗證 HTTP 動作，您可以定義並保護接受用於驗證之用戶端識別碼和用戶端密碼的參數。 若要在邏輯應用程式中定義這些參數，請使用邏輯應用程式的工作流程定義中的 `parameters` 區段，並 Resource Manager 範本進行部署。 若要隱藏編輯邏輯應用程式或查看執行歷程記錄時不想顯示的參數值，請使用 `securestring` 或 `secureobject` 類型來定義參數，並視需要使用編碼方式。 具有此類型的參數不會隨資源定義一起傳回，而且在部署之後查看資源時無法存取。 若要在執行時間期間存取這些參數值，請使用工作流程定義內的 `@parameters('<parameter-name>')` 運算式。 此運算式只會在執行時間評估，並由[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所描述。
+例如，如果您使用[Azure Active Directory OAuth](#azure-active-directory-oauth-authentication)來驗證 HTTP 動作，您可以定義並保護接受用於驗證之用戶端識別碼和用戶端密碼的參數。 若要在邏輯應用程式中定義這些參數，請使用邏輯應用程式的工作流程定義中的 `parameters` 區段，並 Resource Manager 範本進行部署。 若要隱藏編輯邏輯應用程式或查看執行歷程記錄時不想顯示的參數值，請使用 `securestring` 或 `secureobject` 類型來定義參數，並視需要使用編碼方式。 具有此類型的參數不會隨資源定義一起傳回，而且在部署之後查看資源時無法存取。 若要在執行時間期間存取這些參數值，請使用工作流程定義內的 `@parameters('<parameter-name>')` 運算式。 此運算式只會在執行時間評估，並由[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所描述。
 
 > [!NOTE]
 > 如果您在要求標頭或本文中使用參數，當您查看邏輯應用程式的執行歷程記錄和傳出 HTTP 要求時，可能會顯示該參數。 請確定您也會據以設定您的內容存取原則。 您也可以使用[混淆](#obfuscate)來隱藏執行歷程記錄中的輸入和輸出。 授權標頭絕對不會透過輸入或輸出來顯示。 如此一來如果該處有使用密碼，就無法擷取密碼。
@@ -440,7 +440,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 這個範例範本具有多個使用 `securestring` 類型的安全參數定義：
 
-| 參數名稱 | 說明 |
+| 參數名稱 | 描述 |
 |----------------|-------------|
 | `TemplatePasswordParam` | 此範本參數會接受密碼，然後傳遞至工作流程定義的 `basicAuthPasswordParam` 參數 |
 | `TemplateUsernameParam` | 此範本參數會接受使用者名稱，然後傳遞至工作流程定義的 `basicAuthUserNameParam` 參數 |
@@ -573,7 +573,17 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 * 將驗證新增至輸出要求。
 
-  當您使用以 HTTP 為基礎的觸發程式或動作來進行撥出電話（例如 HTTP、HTTP + Swagger 或 Webhook）時，您可以將驗證新增至邏輯應用程式所傳送的要求。 例如，您可以使用基本驗證、用戶端憑證驗證、 [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md)驗證或受控識別。 如需詳細資訊，請參閱本主題稍後的[將驗證新增至輸出呼叫](#add-authentication-outbound)。
+  當您使用以 HTTP 為基礎的觸發程式或動作來進行撥出電話（例如 HTTP、HTTP + Swagger 或 Webhook）時，您可以將驗證新增至邏輯應用程式所傳送的要求。 例如，您可以使用下列驗證類型：
+
+  * [基本驗證](#basic-authentication)
+
+  * [用戶端憑證驗證](#client-certificate-authentication)
+
+  * [Active Directory OAuth 驗證](#azure-active-directory-oauth-authentication)
+
+  * [受控識別驗證](#managed-identity-authentication)
+  
+  如需詳細資訊，請參閱本主題稍後的[將驗證新增至輸出呼叫](#add-authentication-outbound)。
 
 * 限制來自邏輯應用程式 IP 位址的存取。
 
@@ -615,11 +625,11 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 
 如果 [[基本](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md)] 選項可供使用，請指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 描述 |
 |---------------------|-----------------|----------|-------|-------------|
-| **驗證** | `type` | 是 | 基本 | 要使用的驗證類型 |
-| **使用者名稱** | `username` | 是 | <*使用者名稱*>| 用來驗證存取目標服務端點的使用者名稱 |
-| **密碼** | `password` | 是 | <*密碼*> | 用來驗證存取目標服務端點的密碼 |
+| **驗證** | `type` | yes | 基本 | 要使用的驗證類型 |
+| **使用者名稱** | `username` | yes | <*使用者名稱*>| 用來驗證存取目標服務端點的使用者名稱 |
+| **密碼** | `password` | yes | <*密碼*> | 用來驗證存取目標服務端點的密碼 |
 ||||||
 
 當您使用[安全的參數](#secure-action-parameters)來處理和保護機密資訊時（例如，在[用於自動化部署的 Azure Resource Manager 範本](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)中），您可以在執行時間使用運算式來存取這些參數值。 這個 HTTP 動作定義範例會將驗證 `type` 指定為 `Basic`，並使用[parameters （）](../logic-apps/workflow-definition-language-functions-reference.md#parameters)函式來取得參數值：
@@ -646,11 +656,11 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 
 如果 [[用戶端憑證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)] 選項可供使用，請指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 描述 |
 |---------------------|-----------------|----------|-------|-------------|
-| **驗證** | `type` | 是 | **用戶端憑證** <br>或 <br>`ClientCertificate` | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
-| **Pfx** | `pfx` | 是 | <*編碼-pfx-檔案內容*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
-| **密碼** | `password`| 是 | <*pfx-檔案> 的密碼* | 用於存取 PFX 檔案的密碼 |
+| **驗證** | `type` | yes | **用戶端憑證** <br>或 <br>`ClientCertificate` | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
+| **Pfx** | `pfx` | yes | <*編碼-pfx-檔案內容*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
+| **密碼** | `password`| 請參閱描述 | <*pfx-檔案> 的密碼* | 用於存取 PFX 檔案的密碼。 <p><p>**注意**：當您在邏輯應用程式設計工具中工作時，此屬性值是必要的，而且當您在程式碼視圖中工作時，*不*需要使用。 |
 |||||
 
 當您使用[安全的參數](#secure-action-parameters)來處理和保護機密資訊時（例如，在[用於自動化部署的 Azure Resource Manager 範本](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)中），您可以在執行時間使用運算式來存取這些參數值。 這個 HTTP 動作定義範例會將驗證 `type` 指定為 `ClientCertificate`，並使用[parameters （）](../logic-apps/workflow-definition-language-functions-reference.md#parameters)函式來取得參數值：
@@ -685,13 +695,13 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 
 如果[Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md)選項可供使用，請指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 描述 |
 |---------------------|-----------------|----------|-------|-------------|
-| **驗證** | `type` | 是 | **Active Directory OAuth** <br>或 <br>`ActiveDirectoryOAuth` | 要使用的驗證類型。 Logic Apps 目前遵循[OAuth 2.0 通訊協定](../active-directory/develop/v2-overview.md)。 |
-| **出租** | `tenant` | 是 | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 |
-| **目標對象** | `audience` | 是 | <*resource-to-authorize*> | 您希望用於授權的資源，例如，`https://management.core.windows.net/` |
-| **用戶端識別碼** | `clientId` | 是 | <*client-ID*> | 要求授權的應用程式用戶端識別碼 |
-| **認證類型** | `credentialType` | 是 | 憑證 <br>或 <br>Secret | 用戶端用來要求授權的認證類型。 這個屬性和值不會出現在邏輯應用程式的基礎定義中，而是會決定針對所選認證類型所顯示的屬性。 |
+| **驗證** | `type` | yes | **Active Directory OAuth** <br>或 <br>`ActiveDirectoryOAuth` | 要使用的驗證類型。 Logic Apps 目前遵循[OAuth 2.0 通訊協定](../active-directory/develop/v2-overview.md)。 |
+| **出租** | `tenant` | yes | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 |
+| **目標對象** | `audience` | yes | <*resource-to-authorize*> | 您希望用於授權的資源，例如，`https://management.core.windows.net/` |
+| **用戶端識別碼** | `clientId` | yes | <*client-ID*> | 要求授權的應用程式用戶端識別碼 |
+| **認證類型** | `credentialType` | yes | 憑證 <br>或 <br>Secret | 用戶端用來要求授權的認證類型。 這個屬性和值不會出現在邏輯應用程式的基礎定義中，而是會決定針對所選認證類型所顯示的屬性。 |
 | **祕密** | `secret` | 是，但僅適用于 "Secret" 認證類型 | <*用戶端密碼*> | 要求授權用的用戶端密碼 |
 | **Pfx** | `pfx` | 是，但僅適用于 "Certificate" 認證類型 | <*編碼-pfx-檔案內容*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
 | **密碼** | `password` | 是，但僅適用于 "Certificate" 認證類型 | <*pfx-檔案> 的密碼* | 用於存取 PFX 檔案的密碼 |
@@ -739,10 +749,10 @@ Authorization: OAuth realm="Photos",
 
 在支援原始驗證的觸發程式或動作中，指定下列屬性值：
 
-| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
+| 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 描述 |
 |---------------------|-----------------|----------|-------|-------------|
-| **驗證** | `type` | 是 | 原始 | 要使用的驗證類型 |
-| **值** | `value` | 是 | <*授權-標頭-值*> | 要用於驗證的授權標頭值 |
+| **驗證** | `type` | yes | 原始 | 要使用的驗證類型 |
+| **值** | `value` | yes | <*授權-標頭-值*> | 要用於驗證的授權標頭值 |
 ||||||
 
 當您使用[安全的參數](#secure-action-parameters)來處理和保護機密資訊時（例如，在[用於自動化部署的 Azure Resource Manager 範本](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)中），您可以在執行時間使用運算式來存取這些參數值。 這個 HTTP 動作定義範例會將驗證 `type` 指定為 `Raw`，並使用[parameters （）](../logic-apps/workflow-definition-language-functions-reference.md#parameters)函式來取得參數值：
@@ -774,10 +784,10 @@ Authorization: OAuth realm="Photos",
 
 3. 在您要使用受控識別的觸發程式或動作中，指定下列屬性值：
 
-   | 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 說明 |
+   | 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 描述 |
    |---------------------|-----------------|----------|-------|-------------|
-   | **驗證** | `type` | 是 | **受控身分識別** <br>或 <br>`ManagedServiceIdentity` | 要使用的驗證類型 |
-   | **目標對象** | `audience` | 是 | <*目標-資源識別碼*> | 您想要存取之目標資源的資源識別碼。 <p>例如，`https://storage.azure.com/` 會使存取權杖對所有儲存體帳戶都是有效的。 不過，您也可以指定根服務 URL，例如特定儲存體帳戶的 `https://fabrikamstorageaccount.blob.core.windows.net`。 <p>**注意**：在某些觸發程式或動作中，此屬性可能會隱藏。 若要顯示此屬性，請在 [觸發程式] 或 [動作] 中開啟 [**加入新的參數**] 清單，然後選取 [**物件**]。 <p><p>**重要**事項：請確定此目標資源識別碼完全符合 Azure AD 預期的值，包括任何必要的尾端斜線。 因此，所有 Azure Blob 儲存體帳戶的 `https://storage.azure.com/` 資源識別碼都需要尾端斜線。 不過，特定儲存體帳戶的資源識別碼不需要尾端斜線。 若要尋找這些資源識別碼，請參閱[支援 Azure AD 的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。 |
+   | **驗證** | `type` | yes | **受控身分識別** <br>或 <br>`ManagedServiceIdentity` | 要使用的驗證類型 |
+   | **目標對象** | `audience` | yes | <*目標-資源識別碼*> | 您想要存取之目標資源的資源識別碼。 <p>例如，`https://storage.azure.com/` 會使存取權杖對所有儲存體帳戶都是有效的。 不過，您也可以指定根服務 URL，例如特定儲存體帳戶的 `https://fabrikamstorageaccount.blob.core.windows.net`。 <p>**注意**：在某些觸發程式或動作中，此屬性可能會隱藏。 若要顯示此屬性，請在 [觸發程式] 或 [動作] 中開啟 [**加入新的參數**] 清單，然後選取 [**物件**]。 <p><p>**重要**事項：請確定此目標資源識別碼完全符合 Azure AD 預期的值，包括任何必要的尾端斜線。 因此，所有 Azure Blob 儲存體帳戶的 `https://storage.azure.com/` 資源識別碼都需要尾端斜線。 不過，特定儲存體帳戶的資源識別碼不需要尾端斜線。 若要尋找這些資源識別碼，請參閱[支援 Azure AD 的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。 |
    |||||
 
    當您使用[安全的參數](#secure-action-parameters)來處理和保護機密資訊時（例如，在[用於自動化部署的 Azure Resource Manager 範本](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)中），您可以在執行時間使用運算式來存取這些參數值。 這個 HTTP 動作定義範例會將驗證 `type` 指定為 `ManagedServiceIdentity`，並使用[parameters （）](../logic-apps/workflow-definition-language-functions-reference.md#parameters)函式來取得參數值：

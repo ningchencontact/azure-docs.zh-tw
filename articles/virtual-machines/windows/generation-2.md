@@ -1,5 +1,5 @@
 ---
-title: 第2代 Vm 的 Azure 支援 |Microsoft Docs
+title: 第2代 Vm 的 Azure 支援
 description: 第2代 Vm 的 Azure 支援總覽
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f17ec7179413bebb8260089abc46856412b78ab5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891490"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038642"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 上第2代 Vm 的支援
 
@@ -122,7 +122,7 @@ Windows 和 SLES 的第2代映射包含在與 Gen1 映射相同的伺服器供�
 
 您也可以使用 PowerShell 直接參考第1代或第2代 SKU 來建立 VM。
 
-例如，使用下列 PowerShell Cmdlet 取得 `WindowsServer` 供應專案中的 Sku 清單。
+例如，使用下列 PowerShell Cmdlet 來取得 `WindowsServer` 供應專案中的 Sku 清單。
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer

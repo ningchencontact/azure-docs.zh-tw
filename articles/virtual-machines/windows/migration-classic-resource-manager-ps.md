@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 移轉到 Resource Manager | Microsoft Docs
+title: 使用 PowerShell 遷移至 Resource Manager
 description: 本文逐步解說使用 Azure PowerShell 命令進行平台支援之 IaaS 資源 (例如虛擬機器 (VM)、虛擬網路 (VNET) 和儲存體帳戶) 移轉 (從傳統移轉至 Azure Resource Manager (ARM))
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 99650b090a84fd417fca5bbeb1ce3f58d32729bb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749337"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033217"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 將 IaaS 資源從傳統移轉至 Azure Resource Manager
 以下步驟說明如何使用 Azure PowerShell 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。
@@ -33,7 +33,7 @@ ms.locfileid: "73749337"
 <br>
 下列流程圖會識別在移轉程序期間執行步驟所需的順序
 
-![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
+![顯示移轉步驟的螢幕擷取畫面](media/migration-classic-resource-manager/migration-flow.png)
 
  
 

@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路連結到 ExpressRoute 線路：PowerShell：Azure | Microsoft Docs
+title: ExpressRoute：將 VNet 連結到線路： Azure PowerShell
 description: 本文提供以下內容的概觀：如何使用 Resource Manager 部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: d4b746a245fc1ee2b0d3532bfabc973f513c7661
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 22e235b16f834198f5edc2f9365d2b13e1e9c49f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748286"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031724"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>將虛擬網路連線到 ExpressRoute 電路
 > [!div class="op_single_selector"]

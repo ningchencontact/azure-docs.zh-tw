@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure IoT Central 文件 (預覽功能)
-summary: Azure IoT Central 是完全受控的 SaaS (軟體即服務) 解決方案，可讓您輕鬆地大規模連線、監視和管理 IoT 資產。 Azure IoT Central 可簡化 IoT 解決方案的初始設定並減少管理負擔、營運成本以及一般 IoT 專案的額外負荷。 了解如何透過快速入門和教學課程，建立、自訂、管理以及使用的 Azure IoT Central 應用程式。
+summary: Azure IoT Central 是 IoT 應用程式平台，可簡化 IoT 解決方案的建立流程。 Azure IoT Central 可簡化 IoT 解決方案的初始設定並減少管理負擔、營運成本以及一般 IoT 專案的額外負荷。 了解如何透過快速入門和教學課程，建立、自訂、管理以及使用的 Azure IoT Central 應用程式。
 metadata:
   title: Azure IoT Central 文件
-  description: Azure IoT Central 是完全受控的 SaaS (軟體即服務) 解決方案，可讓您輕鬆地大規模連線、監視和管理 IoT 資產。 Azure IoT Central 可簡化 IoT 解決方案的初始設定並減少管理負擔、營運成本以及一般 IoT 專案的額外負荷。 了解如何透過快速入門和教學課程，建立、自訂、管理以及使用的 Azure IoT Central 應用程式。
+  description: Azure IoT Central 是 IoT 應用程式平台，可簡化 IoT 解決方案的建立流程。 Azure IoT Central 可簡化 IoT 解決方案的初始設定並減少管理負擔、營運成本以及一般 IoT 專案的額外負荷。 了解如何透過快速入門和教學課程，建立、自訂、管理以及使用的 Azure IoT Central 應用程式。
   services: iot-central
   ms.service: iot-central
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 90faa0b7422814011096a10164a6f2bdfceba4d5
-  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+  ms.openlocfilehash: 97a378eaab323391ccfcc0b03f337f6693a2a761
+  ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73929854"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74048316"
 landingContent:
 - title: 關於 Azure IoT Central (預覽功能)
   linkLists:

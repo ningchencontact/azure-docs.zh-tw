@@ -1,5 +1,5 @@
 ---
-title: 使用 REST API 取得 Azure 虛擬機器使用量資料 | Microsoft Docs
+title: 使用 REST API 取得 Azure 虛擬機器使用量資料
 description: 使用 Azure REST API 來收集虛擬機器的使用量計量。
 services: virtual-machines
 author: rloutlaw
@@ -10,16 +10,16 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667446"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035815"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>使用 REST API 來取得虛擬機器的使用量計量
 
-此範例說明如何使用 [Azure REST API](/rest/api/azure/) 來擷取 [Linux 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/monitor)的 CPU 使用量。
+此範例說明如何使用 [Azure REST API](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) 來擷取 [Linux 虛擬機器](/rest/api/azure/)的 CPU 使用量。
 
 REST API 的完整參考文件和其他範例可於 [Azure 監視器 REST 參考](/rest/api/monitor)中取得。 
 
@@ -49,10 +49,10 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | vmname | Azure 虛擬機器的名稱。 |
 | metricnames | 以逗號分隔的有效 [Load Balancer 計量](/azure/load-balancer/load-balancer-standard-diagnostics)清單。 |
 | api-version | 要用於要求的 API 版本。<br /><br /> 本文件涵蓋 api-version `2018-01-01`，內含於上述 URL 中。  |
-| 時間範圍 | 具有 `startDateTime_ISO/endDateTime_ISO` 格式的字串，可定義所傳回計量的時間範圍。 此選用參數會設定為傳回此範例中一天份的資料。 |
+| timespan | 具有 `startDateTime_ISO/endDateTime_ISO` 格式的字串，可定義所傳回計量的時間範圍。 此選用參數會設定為傳回此範例中一天份的資料。 |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 這項作業不需要要求本文。
 

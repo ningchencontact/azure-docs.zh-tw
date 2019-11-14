@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中選取 Linux VM 映像 | Microsoft Docs
+title: 在 Azure 中選取 Windows VM 映射
 description: 使用 Azure PowerSHell 來判斷 Marketplace VM 映像的發行者、供應項目、SKU 及版本。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749577"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039528"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像
 
@@ -184,7 +184,7 @@ Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku 
 
 ### <a name="view-plan-properties"></a>檢視方案屬性
 
-若要檢視映像的購買方案資訊，請執行 `Get-AzVMImage` Cmdlet。 如果輸出中的 `PurchasePlan` 屬性不是 `null`，此映像具有您必須在以程式設計方式部署之前接受的條款。  
+若要檢視映像的購買方案資訊，請執行 `Get-AzVMImage` Cmdlet。 如果輸出中的 `PurchasePlan` 屬性不是 `null`，在以程式設計方式部署之前，必須接受映像包含的條款。  
 
 例如，*Windows Server 2016 Datacenter* 映像並沒有額外的條款，因此 `PurchasePlan` 資訊為 `null`：
 

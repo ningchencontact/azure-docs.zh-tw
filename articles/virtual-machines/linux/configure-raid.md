@@ -1,5 +1,5 @@
 ---
-title: 在執行 Linux 的虛擬機器上設定軟體 RAID | Microsoft Docs
+title: 在執行 Linux 的虛擬機器上設定軟體 RAID
 description: 了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。
 services: virtual-machines-linux
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: d0658af090d9a3f39bee69f5103a78a329fe189c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083799"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036667"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。 相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
@@ -112,7 +112,7 @@ ms.locfileid: "70083799"
     ```
 
 ## <a name="create-the-raid-array"></a>建立 RAID 陣列
-1. 下列範例將「分割」(RAID 層級 0) 位於三個不同資料磁碟 (sdc1、sdd1、sde1) 的三個磁碟分割。  執行此命令之後，即會建立一個名為 **/dev/md127** 的新 RAID 裝置。 同時請注意，如果這些資料磁碟先前是另一個無用 RAID 陣列的一部分，則您可能需要在 `mdadm` 命令中加上 `--force` 參數：
+1. 下列範例將「分割」(RAID 層級 0) 位於三個不同資料磁碟 (sdc1、sdd1、sde1) 的三個磁碟分割。  執行此命令之後，即會建立一個名為 **/dev/md127** 的新 RAID 裝置。 同時請注意，如果這些資料磁碟先前是另一個無用 RAID 陣列的一部分，則您可能需要在 `--force` 命令中加上 `mdadm` 參數：
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -219,7 +219,7 @@ ms.locfileid: "70083799"
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-- 在 `/etc/fstab` 中使用 `discard` 掛接選項，例如：
+- 在 `discard` 中使用 `/etc/fstab` 掛接選項，例如：
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2

@@ -3,12 +3,12 @@ title: 節流要求指引
 description: 瞭解如何建立更好的查詢，以避免要求受到節流處理 Azure Resource Graph。
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 46af11bfea47e37b97fa9492f71be8b5fe1817e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959210"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038335"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph 中的節流要求指引
 
@@ -215,11 +215,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   當您使用 Azure CLI 或 Azure PowerShell 時，Azure Resource Graph 的查詢會自動編頁以提取最多5000個專案。 查詢結果會從所有分頁呼叫傳回結合的專案清單。 在此情況下，視查詢結果中的專案數而定，單一分頁查詢可能會耗用一個以上的查詢配額。 例如，在下列範例中，查詢的單一執行可能會耗用最多五個查詢配額：
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>仍會受到節流？

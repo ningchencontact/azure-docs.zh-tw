@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0772446b0259b12d3f76b2020eeed4c9c2de1119
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882211"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038097"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -25,6 +25,13 @@ AzCopy 是一種命令列工具，可將資料移入和移出 Azure 儲存體。
 
 若要報告問題或深入瞭解此工具，請參閱[https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)。
 
+## <a name="related-conceptual-articles"></a>相關的概念性文章
+
+- [開始使用 AzCopy](storage-use-azcopy-v10.md)
+- [使用 AzCopy 和 Blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
+- [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
+- [對 AzCopy 進行設定、最佳化及疑難排解](storage-use-azcopy-configure.md)
+
 ## <a name="options"></a>選項
 
 **--cap-mbps uint32**  上限（以每秒 mb 為單位）傳輸速率。 時間點的輸送量可能會與端點略有不同。 如果此選項設定為零或省略，則輸送量不會限制。
@@ -33,7 +40,7 @@ AzCopy 是一種命令列工具，可將資料移入和移出 Azure 儲存體。
       
 **--output-類型** 命令輸出的格式。 選項包括： text、json。 預設值為「文字」。 （預設值為 "text"）
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [開始使用 AzCopy](storage-use-azcopy-v10.md)
 - [azcopy 工作臺](storage-ref-azcopy-bench.md)

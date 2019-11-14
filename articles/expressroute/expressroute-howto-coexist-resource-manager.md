@@ -1,5 +1,5 @@
 ---
-title: 設定 ExpressRoute 和站對站 VPN 連線-並存： PowerShell： Azure |Microsoft Docs
+title: 設定 ExpressRoute 和 S2S VPN 並存連接： Azure PowerShell
 description: 使用 PowerShell 為 Resource Manager 模型設定可以並存的 ExpressRoute 和站對站 VPN 連線。
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8a89c5121d5010245ce16cade921bb96346fcbf5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e25d6ff0bf0c27926040fcfe190724a666713a05
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748311"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031755"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 設定 ExpressRoute 和站對站並存連線
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ ms.locfileid: "73748311"
 * 我沒有 VNet 且需要建立一個。
   
     如果您還沒有虛擬網路，這個程序將引導您使用 Resource Manager 部署模型來建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。 若要設定虛擬網路，請依照[建立新的虛擬網路和並存的連線](#new)中的步驟進行。
-* 我已經有一個 Resource Manager 部署模型 VNet。
+* 我已經有一個資源管理員部署模型 VNet。
   
     您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。 在這個案例中，如果閘道子網路遮罩是 /28 或更小 (/28、/29 等等)，您就必須刪除現有的閘道。 [為已經存在的 VNet 設定並存的連線](#add)一節會引導您刪除閘道，然後建立新的 ExpressRoute 和站對站 VPN 連線。
   

@@ -1,5 +1,5 @@
 ---
-title: 適用於 Linux 的 Azure N 系列 GPU 驅動程式設定 | Microsoft Docs
+title: 適用于 Linux 的 Azure N 系列 GPU 驅動程式設定
 description: 如何針對 Azure 中執行 Linux 的 N 系列 VM 設定 NVIDIA GPU 驅動程式
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035013"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035617"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -159,7 +159,7 @@ sudo reboot
 
 可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或 VM 擴展集的單一放置群組中的 NC24r) 上啟用 RDMA 網路連線能力。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
 
-### <a name="distributions"></a>分佈
+### <a name="distributions"></a>散發
 
 從 Azure Marketplace 中支援 N 系列 VM 上 RDMA 連線的其中一個映像，部署支援 RDMA 的 N 系列 VM：
   
@@ -190,7 +190,7 @@ sudo reboot
    
    sudo apt-get install linux-azure -y
    ```
-3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NVv2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請使用下列內容，在名為 `nouveau.conf` 的 `/etc/modprobe.d` 中建立檔案：
+3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 （僅在 NV 或 NVv2 Vm 上使用 NVIDIA 驅動程式。）若要這麼做，請使用下列內容，在名為 `nouveau.conf` 的 `/etc/modprobe.d` 中建立檔案：
 
    ```
    blacklist nouveau
@@ -230,7 +230,7 @@ sudo reboot
    EnableUI=FALSE
    ```
    
-9. 從 `/etc/nvidia/gridd.conf` 中移除下列內容（如果有的話）：
+9. 從 `/etc/nvidia/gridd.conf` 移除下列內容（如果有的話）：
  
    ```
    FeatureType=0
@@ -254,7 +254,7 @@ sudo reboot
    sudo yum install hyperv-daemons
    ```
 
-2. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NV2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請使用下列內容，在名為 `nouveau.conf` 的 `/etc/modprobe.d` 中建立檔案：
+2. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 （僅在 NV 或 NV2 Vm 上使用 NVIDIA 驅動程式。）若要這麼做，請使用下列內容，在名為 `nouveau.conf` 的 `/etc/modprobe.d` 中建立檔案：
 
    ```
    blacklist nouveau
@@ -302,7 +302,7 @@ sudo reboot
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. 從 `/etc/nvidia/gridd.conf` 中移除下列內容（如果有的話）：
+9. 從 `/etc/nvidia/gridd.conf` 移除下列內容（如果有的話）：
  
    ```
    FeatureType=0

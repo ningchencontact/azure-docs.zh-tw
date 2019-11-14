@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 建立分區 Linux VM | Microsoft Docs
+title: 使用 Azure CLI 建立分區 Linux VM
 description: 使用 Azure CLI 在可用性區域中建立 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: e732693a63b3c866dc767e98bbe298474286f178
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1cb8222b5e7bf2efee36673f9b80738500345754
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173882"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036553"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>使用 Azure CLI 在可用性區域中建立 Linux 虛擬機器
 
@@ -101,7 +101,7 @@ az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 -
 
 在可用性區域中部署 VM 時，會在相同的可用性區域中部署 VM 的受控磁碟。 根據預設，也會在該區域中建立公用 IP 位址。 在下列範例中會取得這些資源的相關資訊。
 
-若要確認 VM 的受控磁片位於可用性區域中, 請使用[az VM show](/cli/azure/vm)命令傳回磁片識別碼。 在此範例中, 磁片識別碼會儲存在稍後步驟中使用的變數中。 
+若要確認 VM 的受控磁片位於可用性區域中，請使用[az VM show](/cli/azure/vm)命令傳回磁片識別碼。 在此範例中，磁片識別碼會儲存在稍後步驟中使用的變數中。 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

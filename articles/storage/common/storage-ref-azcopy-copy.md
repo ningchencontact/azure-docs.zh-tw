@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926658"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029990"
 ---
 # <a name="azcopy-copy"></a>azcopy 複製
 
@@ -33,6 +33,13 @@ ms.locfileid: "72926658"
   - AWS S3 （存取金鑰）-> Azure 區塊 Blob （SAS 或 OAuth 驗證）
 
 如需詳細資訊，請參閱範例。
+
+## <a name="related-conceptual-articles"></a>相關的概念性文章
+
+- [開始使用 AzCopy](storage-use-azcopy-v10.md)
+- [使用 AzCopy 和 Blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
+- [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
+- [對 AzCopy 進行設定、最佳化及疑難排解](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>進階
 
@@ -140,25 +147,25 @@ azcopy copy [source] [destination] [flags]
 
 使用存取金鑰和 SAS 權杖，將單一物件從 Amazon Web Services （AWS） S3 複製到 Blob 儲存體。 首先，設定 AWS S3 來源的環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
   
-- azcopy cp "https://s3.amazonaws.com/ [bucket]/[物件]" "HTTPs：//[destcontainer]. p. p. p. p. p. p. p. p. l/[container]/[path/to blob]？[SAS] "
+- azcopy cp "https://s3.amazonaws.com/[bucket]/[物件]" "HTTPs：//[destcontainer]. p. p. p. p. p. p. p. p. l/[container]/[path/to blob]？[SAS] "
 
 使用存取金鑰和 SAS 權杖，將整個目錄複寫到 AWS S3 的 Blob 儲存體。 首先，設定 AWS S3 來源的環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
 
-- azcopy cp "https://s3.amazonaws.com/ [bucket]/[folder]" "HTTPs：//[destcontainer]. net/[container]/[路徑/到/目錄]？[SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "HTTPs：//[destcontainer]. net/[container]/[路徑/到/目錄]？[SAS] "--recursive = true
 
-請參閱 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html ，以進一步瞭解 [資料夾] 預留位置。
+請參閱 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html，以進一步瞭解 [資料夾] 預留位置。
 
 使用存取金鑰和 SAS 權杖，將所有值區複製到 Amazon Web Services （AWS）中的 Blob 儲存體。 首先，設定 AWS S3 來源的環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
 
-- azcopy cp "https://s3.amazonaws.com/ " "HTTPs：//[destcontainer]. .net？[SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/" "HTTPs：//[destcontainer]. .net？[SAS] "--recursive = true
 
 使用存取金鑰和 SAS 權杖，從 Amazon Web Services （AWS）區域將所有 bucket 複製到 Blob 儲存體。 首先，設定 AWS S3 來源的環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
 
-- azcopy cp "https://s3- [region]. amazonaws .com/" "HTTPs：//[destcontainer]. core. net？[SAS] "--recursive = true
+- azcopy cp "https://s3-[region]. amazonaws .com/" "HTTPs：//[destcontainer]. core. net？[SAS] "--recursive = true
 
 使用值區名稱中的萬用字元符號（*），複製值區的子集。 如同先前的範例，您將需要存取金鑰和 SAS 權杖。 請務必為 AWS S3 來源設定環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
 
-- azcopy cp "https://s3.amazonaws.com/ [bucket * name]/" "HTTPs：//[destcontainer]. .net？[SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/[bucket * name]/" "HTTPs：//[destcontainer]. .net？[SAS] "--recursive = true
 
 ## <a name="options"></a>選項
 
@@ -234,6 +241,6 @@ azcopy copy [source] [destination] [flags]
 
 **--輸出-** 命令輸出的類型字串格式。 選項包括： text、json。 預設值為「文字」。 （預設值為 "text"）
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [azcopy](storage-ref-azcopy.md)

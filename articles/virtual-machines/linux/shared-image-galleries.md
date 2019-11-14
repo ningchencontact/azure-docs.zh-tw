@@ -1,5 +1,5 @@
 ---
-title: 使用共用資源庫共用 VM 映像 | Microsoft Docs
+title: 使用共用資源庫共用 VM 映射
 description: 了解如何使用共用映像資源庫，跨組織共用 VM 映像。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.date: 11/02/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: e4849b12d81413de8c79adceb7e8bb9af2f0476e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b79abeffffd7dc1bb54e828823aa909216508496
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905011"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035036"
 ---
 # <a name="shared-image-galleries-overview"></a>共用映像資源庫概觀
 

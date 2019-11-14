@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 建立 Linux 環境 | Microsoft Docs
+title: 使用 Azure CLI 建立 Linux 環境
 description: 使用 Azure CLI 從頭開始建立儲存體、Linux VM、虛擬網路和子網路、負載平衡器、NIC、公用 IP 以及網路安全性群組。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bcaa3ae105490fe4f38a9de47ba0450c33da5ee1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 56b476c431ed8b41f04b1a1c11c730e5260ade8d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671641"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036539"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 來建立完整的 Linux 虛擬機器
 若要在 Azure 中快速建立虛擬機器 (VM)，您可以使用單一的 Azure CLI 命令，此命令會使用預設值來建立任何必要的支援資源。 系統會自動建立虛擬網路、公用 IP 位址及網路安全性群組規則等資源。 若要在生產環境使用案例中對您的環境進行更多控制，您可以預先建立這些資源，然後再將 VM 新增到這些資源中。 本文將引導您了解如何建立 VM 及逐一建立每個支援資源。
@@ -30,7 +30,7 @@ ms.locfileid: "67671641"
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 ## <a name="create-resource-group"></a>建立資源群組
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 您必須在建立虛擬機器和支援虛擬網路支援之前，先建立資源群組。 使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 您必須在建立虛擬機器和支援虛擬網路支援之前，先建立資源群組。 使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -150,7 +150,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-您需定義允許或拒絕特定流量的規則。 若要允許連接埠 22 上的輸入連線 (以支援 SSH 存取)，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 建立輸入規則。 下列範例會建立名為 myNetworkSecurityGroupRuleSSH  的規則：
+您需定義允許或拒絕特定流量的規則。 若要允許連接埠 22 上的輸入連線 (以支援 SSH 存取)，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 建立輸入規則。 下列範例會建立名為 myNetworkSecurityGroupRuleSSH 的規則：
 
 ```azurecli
 az network nsg rule create \
@@ -445,7 +445,7 @@ az network nic create \
 
 將多個 VM 放在一個可用性設定組中時，Azure 會自動將它們分散到容錯和更新網域。 如需詳細資訊，請參閱[管理 VM 的可用性](manage-availability.md)。
 
-請使用 [az vm availability-set create](/cli/azure/vm/availability-set) 來建立 VM 的可用性設定組。 下列範例會建立名為 myAvailabilitySet  的可用性設定組：
+請使用 [az vm availability-set create](/cli/azure/vm/availability-set) 來建立 VM 的可用性設定組。 下列範例會建立名為 myAvailabilitySet 的可用性設定組：
 
 ```azurecli
 az vm availability-set create \
@@ -482,7 +482,7 @@ az vm availability-set create \
 
 指定要用於驗證的 SSH 金鑰。 如果您沒有 SSH 公開金鑰組，則可以[建立 SSH 公開金鑰組](mac-create-ssh-keys.md)，或使用 `--generate-ssh-keys` 參數來為您建立這些金鑰組。 如果您已經有金鑰組，此參數就會使用 `~/.ssh` 中的現有金鑰。
 
-請使用 [az vm create](/cli/azure/vm) 命令將我們的所有資源和資訊結合在一起來建立 VM。 下列範例會建立名為 myVM  的 VM。
+請使用 [az vm create](/cli/azure/vm) 命令將我們的所有資源和資訊結合在一起來建立 VM。 下列範例會建立名為 myVM 的 VM：
 
 ```azurecli
 az vm create \

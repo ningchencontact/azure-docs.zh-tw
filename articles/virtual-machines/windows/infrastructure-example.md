@@ -1,5 +1,5 @@
 ---
-title: 範例 Azure 基礎結構逐步解說 | Microsoft Docs
+title: 範例 Azure 基礎結構逐步解說
 description: 了解適合用來在 Azure 中部署範例基礎結構的關鍵設計和實作指導方針。
 documentationcenter: ''
 services: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4191015ee4dc7eb753c70f23be242f2ca88dcc3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079395"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038572"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>適用於 Windows VM 的範例 Azure 基礎結構逐步解說
 本文將逐步解說建置範例應用程式基礎結構的方法。 我們會詳述設計簡單線上商店基礎結構的方式，此線上商店能將所有命名慣例、可用性設定組、虛擬網路及負載平衡器的指導方針和決定集合在一起，並實際部署您的虛擬機器 (VM)。
@@ -72,10 +72,10 @@ Adventure Works Cycles 決定他們應該使用 Azure 受控磁碟。 建立 VM 
 他們透過 Azure 入口網站，使用下列設定來建立僅限雲端的虛擬網路：
 
 * 名稱：AZOS-USE-VN01
-* 位置：美國東部 2
+* 位置：East US 2
 * 虛擬網路位址空間：10.0.0.0/8
 * 第一個子網路：
-  * 名稱：前端
+  * 名稱：FrontEnd
   * 位址空間：10.0.1.0/24
 * 第二個子網路：
   * 名稱：BackEnd

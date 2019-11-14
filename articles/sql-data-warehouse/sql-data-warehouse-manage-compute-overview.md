@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 11/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692624"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039091"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
 了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 
@@ -34,19 +34,23 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 下表顯示當資料倉儲單位變更時，每個計算節點的發佈數目如何隨之變更。  DWU6000 會提供 60 個計算節點，並達到比 DWU100 更高的查詢效能。 
 
 | 資料倉儲單位  | \# 個計算節點 | 每節點 \# 個散發 |
-| ---- | ------------------ | ---------------------------- |
-| 100  | 1                  | 60                           |
-| 200  | 2                  | 30                           |
-| 300  | 3                  | 20                           |
-| 400  | 4                  | 15                           |
-| 500  | 5                  | 12                           |
-| 600  | 6                  | 10                           |
-| 1000 | 10                 | 6                            |
-| 1200 | 12                 | 5                            |
-| 1500 | 15                 | 4                            |
-| 2000 | 20                 | 3                            |
-| 3000 | 30                 | 2                            |
-| 6000 | 60                 | 1                            |
+| -------- | ---------------- | -------------------------- |
+| DW100c   | 1                | 60                         |
+| DW200c   | 1                | 60                         |
+| DW300c   | 1                | 60                         |
+| DW400c   | 1                | 60                         |
+| DW500c   | 1                | 60                         |
+| DW1000c  | 2                | 30                         |
+| DW1500c  | 3                | 20                         |
+| DW2000c  | 4                | 15                         |
+| DW2500c  | 5                | 12                         |
+| DW3000c  | 6                | 10                         |
+| DW5000c  | 10               | 6                          |
+| DW6000c  | 12               | 5                          |
+| DW7500c  | 15               | 4                          |
+| DW10000c | 20               | 3                          |
+| DW15000c | 30               | 2                          |
+| DW30000c | 60               | 1                          |
 
 
 ## <a name="finding-the-right-size-of-data-warehouse-units"></a>尋找適當大小的資料倉儲單位
@@ -110,7 +114,7 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 若要檢查資料倉儲狀態，請參閱 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 來查看資料倉儲狀態。
 
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 調整資料倉儲時需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 中所述的權限。  暫停和繼續則需要 [SQL DB 參與者](../role-based-access-control/built-in-roles.md#sql-db-contributor)權限，特別是 Microsoft.Sql/servers/databases/action。
 

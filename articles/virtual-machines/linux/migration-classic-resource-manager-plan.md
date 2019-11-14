@@ -1,5 +1,5 @@
 ---
-title: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃 | Microsoft Docs
+title: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 description: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8dc1ee85b9d17824898de80562ea5bfb251a2c41
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165333"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035708"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。 
@@ -31,7 +31,7 @@ ms.locfileid: "70165333"
 
 ![移轉階段](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>方案
+## <a name="plan"></a>規劃
 
 ### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 
@@ -154,7 +154,7 @@ ms.locfileid: "70165333"
 - 請勿採取捷徑而略過驗證/準備/中止試執行移轉。
 - 在驗證/準備/中止步驟期間，您可能發生的問題，幾乎全都會浮現。
 
-## <a name="migration"></a>遷移
+## <a name="migration"></a>移轉
 
 ### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 

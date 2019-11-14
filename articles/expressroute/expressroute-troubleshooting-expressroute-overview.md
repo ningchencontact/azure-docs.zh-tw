@@ -1,5 +1,5 @@
 ---
-title: 確認連線能力-ExpressRoute 疑難排解指南： Azure |Microsoft Docs
+title: Azure ExpressRoute：驗證連線能力-疑難排解指南
 description: 此頁面提供 ExpressRoute 路線的端對端連線確認和疑難排解的指示。
 services: expressroute
 author: rambk
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: c5001e884047fc6078faf3a8de0e45b7e30e1038
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580311"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033794"
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
 本文將協助您確認 ExpressRoute 連線及針對連線問題進行疑難排解。 ExpressRoute 透過連線提供者經常提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 ExpressRoute 連線通常牽涉到三個不同的網路區域，如下所示：
@@ -34,7 +34,7 @@ ms.locfileid: "73580311"
 >
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 下圖顯示使用 ExpressRoute 從客戶網路連至 Microsoft 網路的邏輯連線。
 [![1]][1]
 

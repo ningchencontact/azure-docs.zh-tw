@@ -1,5 +1,5 @@
 ---
-title: 設定 Always On 可用性群組的外部接聽程式 | Microsoft Docs
+title: 設定可用性群組的外部接聽程式
 description: 本教學課程將逐步引導您完成建立 Azure 中 Always On 可用性群組接聽程式的步驟，並且可使用相關聯雲端服務的公用虛擬 IP 位址從外部存取。
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 78881830d4e558daaad6e1929b30287e2731fb1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d2dce6875ec39810a81bb5ae454d953a7b7ab0a9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100402"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032709"
 ---
-# <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>設定 Azure 中 Always On 可用性群組的外部接聽程式
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>針對 Azure SQL Server Vm 上的可用性群組設定外部接聽程式
 > [!div class="op_single_selector"]
 > * [內部接聽程式](../classic/ps-sql-int-listener.md)
 > * [外部接聽程式](../classic/ps-sql-ext-listener.md)
@@ -31,7 +32,7 @@ ms.locfileid: "70100402"
 本主題說明如何設定 Always On 可用性群組的接聽程式，並且能夠在網際網路上從外部存取。 如此可將雲端服務的 **公用虛擬 IP (VIP)** 位址與接聽程式建立關聯。
 
 > [!IMPORTANT] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
 
 您的可用性群組可包含的複本為僅限內部部署、僅限 Azure，或同時跨內部部署和 Azure 的混合式組態。 Azure 複本可位於相同區域內，或使用多個虛擬網路 (VNet) 跨多個區域。 下列步驟假設您已 [設定可用性群組](../classic/portal-sql-alwayson-availability-groups.md)，但尚未設定接聽程式。
 
@@ -122,11 +123,11 @@ ms.locfileid: "70100402"
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>測試可用性群組接聽程式 (位於網際網路)
-若要從虛擬網路外部存取接聽程式, 您必須使用外部/公用負載平衡 (如本主題中所述), 而不是 ILB, 這只能在相同的 VNet 中存取。 在連接字串中，您將指定雲端服務名稱。 例如，如果您雲端服務的名稱為 *mycloudservice*，sqlcmd 陳述式便如下所示：
+若要從虛擬網路外部存取接聽程式，您必須使用外部/公用負載平衡（如本主題中所述），而不是 ILB，這只能在相同的 VNet 中存取。 在連接字串中，您將指定雲端服務名稱。 例如，如果您雲端服務的名稱為 *mycloudservice*，sqlcmd 陳述式便如下所示：
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-不同於先前範例，必須使用 SQL 驗證，因為呼叫端無法透過網際網路使用 Windows 驗證。 如需詳細資訊, [請參閱 Azure VM 中的 Always On 可用性群組:用戶端連線](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)能力案例。 使用 SQL 驗證時，請確定您在兩個複本上建立相同的登入。 如需有關使用可用性群組疑難排解登入的詳細資訊，請參閱 [如何對應登入或使用包含的 SQL Database 使用者以連線到其他複本並對應到可用性資料庫](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
+不同於先前範例，必須使用 SQL 驗證，因為呼叫端無法透過網際網路使用 Windows 驗證。 如需詳細資訊，請參閱 [Azure VM 中的 Always On 可用性群組：用戶端連線能力情況](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)。 使用 SQL 驗證時，請確定您在兩個複本上建立相同的登入。 如需有關使用可用性群組疑難排解登入的詳細資訊，請參閱 [如何對應登入或使用包含的 SQL Database 使用者以連線到其他複本並對應到可用性資料庫](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
 
 如果 Always On 複本位於其他子網路中，用戶端必須在連接字串中指定 **MultisubnetFailover=True** 。 這會導致對於不同子網路中的複本進行平行連接嘗試。 請注意，此情況包含跨區域的 Always On 可用性群組部署。
 

@@ -1,5 +1,5 @@
 ---
-title: Linux VM 在 Azure 中的生命週期和狀態 | Microsoft Docs
+title: Azure 中 Linux VM 的生命週期和狀態
 description: 概述 Linux VM 在 Azure 中的生命週期，其中會說明 VM 在各個階段所處的不同狀態。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: ba78990402ebe5dc29e50bf98a795e728cec7996
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ddd245b03d8886d686daba34a00c63ec64ffb07
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081875"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034771"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>虛擬機器的生命週期和狀態
 

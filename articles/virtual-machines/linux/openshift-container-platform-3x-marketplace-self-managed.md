@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中部署 OpenShift Container Platform 3.11 自我管理的 Marketplace 供應專案 |Microsoft Docs
+title: 在 Azure 中部署 OpenShift Container Platform 3.11 自我管理的 Marketplace 供應專案
 description: 在 Azure 中部署 OpenShift Container Platform 3.11 自我管理的 Marketplace 供應專案。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791620"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035530"
 ---
 # <a name="configure-prerequisites"></a>設定必要條件
 
@@ -67,9 +67,9 @@ ms.locfileid: "72791620"
 |-----------------------|-----------------|
 | VM 系統管理員使用者名稱 | 要在所有 VM 實例上建立的系統管理員使用者 |
 | 管理使用者的 SSH 公開金鑰 | 用來登入 VM 的 SSH 公用金鑰-不能有複雜密碼 |
-| Subscription | 要在其中部署叢集的 Azure 訂用帳戶 |
+| 訂閱 | 要在其中部署叢集的 Azure 訂用帳戶 |
 | 資源群組 | 為叢集資源建立新的資源群組，或選取現有的空白資源群組 |
-| Location | 要在其中部署叢集的 Azure 區域 |
+| 位置 | 要在其中部署叢集的 Azure 區域 |
 
    ![供應專案基本功能分頁](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -172,7 +172,7 @@ ms.locfileid: "72791620"
    ![提供額外的 cn 安裝](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**總結**
+**摘要**
 
 此階段會進行驗證，以檢查核心配額是否足以部署為叢集選取的 Vm 總數。  檢查所有輸入的參數。  如果可以接受輸入，請按一下 **[確定]** 繼續進行。
 

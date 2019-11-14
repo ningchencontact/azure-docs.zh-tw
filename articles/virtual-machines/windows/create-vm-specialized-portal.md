@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中從特製化 VHD 建立 Windows VM | Microsoft Docs
+title: 從 Azure 入口網站中的特製化 VHD 建立 Windows VM
 description: 在 Azure 入口網站中從 VHD 建立新的 Windows VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 587acd37f465dda7e514b595f8451afe3d259dea
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390493"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039135"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>使用 Azure 入口網站從 VHD 建立 VM
 

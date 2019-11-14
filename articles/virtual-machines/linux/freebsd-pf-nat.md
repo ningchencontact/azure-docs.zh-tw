@@ -1,5 +1,5 @@
 ---
-title: 使用 FreeBSD 的封包篩選器在 Azure 中建立防火牆 | Microsoft Docs
+title: 在 Azure 中使用 FreeBSD 的封包篩選器建立防火牆
 description: 了解如何使用 FreeBSD 的 PF 在 Azure 中部署 NAT 防火牆。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8f06762fd84767ac4c6dfce67d547a1f311afcba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5daceeb2c8f2497288c7891dbe3fb3e0771b2ed5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083232"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036106"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的「封包篩選器」在 Azure 中建立安全防火牆
 本文介紹如何透過 Azure Resource Manager 範本，針對常見的 Web 伺服器案例，使用 FreeBSD 的「封包篩選器」來部署 NAT 防火牆。
@@ -34,13 +34,13 @@ Azure Resource Manager 範本會設定一部 FreeBSD 虛擬機器，此虛擬機
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>透過 Azure CLI 進行部署
-您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。 使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 `West US` 位置建立名為 `myResourceGroup` 的資源群組。
+您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。 使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 `myResourceGroup` 位置建立名為 `West US` 的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-接著，使用 [az group deployment create](/cli/azure/group/deployment) 來部署 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 範本。 下載相同路徑下的 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json)，並定義您自己的資源值，例如 `adminPassword`、`networkPrefix` 及 `domainNamePrefix`。 
+接著，使用 [az group deployment create](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 來部署 [pf-freebsd-setup](/cli/azure/group/deployment) 範本。 下載相同路徑下的 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json)，並定義您自己的資源值，例如 `adminPassword`、`networkPrefix` 及 `domainNamePrefix`。 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

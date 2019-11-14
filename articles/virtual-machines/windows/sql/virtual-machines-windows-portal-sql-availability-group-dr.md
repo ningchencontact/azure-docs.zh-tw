@@ -1,5 +1,5 @@
 ---
-title: SQL Server 可用性群組 - Azure 虛擬機器 - 災害復原 | Microsoft Docs
+title: 設定跨不同區域的可用性群組
 description: 本文說明如何在於不同區域中有複本的 Azure 虛擬機器上設定 SQL Server 可用性群組。
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159737"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037544"
 ---
-# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>在不同區域中的 Azure SQL Server 虛擬機器上設定可用性群組
 
 本文說明如何在遠端 Azure 位置的「Azure 虛擬機器」上設定「SQL Server Always On 可用性群組」複本。 您可以使用此組態來支援災害復原。
 
@@ -164,7 +164,7 @@ ms.locfileid: "73159737"
 
 測試完連線之後，請將主要複本移回到您的主要資料中心，並將可用性模式設定回其一般作業設定。 下表顯示本文件所述架構的一般作業設定：
 
-| Location | 伺服器執行個體 | 角色 | 可用性模式 | 容錯移轉模式
+| 位置 | 伺服器執行個體 | 角色 | 可用性模式 | 容錯移轉模式
 | ----- | ----- | ----- | ----- | -----
 | 主要資料中心 | SQL-1 | 主要 | 同步 | 自動
 | 主要資料中心 | SQL-2 | 次要 | 同步 | 自動

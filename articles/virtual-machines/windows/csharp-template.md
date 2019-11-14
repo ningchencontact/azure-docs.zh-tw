@@ -1,5 +1,5 @@
 ---
-title: 使用 C# 和 Resource Manager 範本部署 VM | Microsoft Docs
+title: 使用C#和 Resource Manager 範本部署 VM
 description: 了解如何使用 C# 和 Resource Manager 範本來部署 Azure VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 65ce7711786e15a5455d91ce829a3bc0bdf4317d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c88b060104a4c17e3edad2e23cfb23a54661b969
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103236"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033803"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>利用 C# 和 Resource Manager 範本來部署 Azure 虛擬機器
 
@@ -165,7 +165,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ### <a name="create-the-parameters-file"></a>建立參數檔案
 
-若要在範本中指定資源參數的值, 請建立包含值的參數檔案。
+若要在範本中指定資源參數的值，請建立包含值的參數檔案。
 
 1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *Parameters.json*，然後按一下 [新增]。
 2. 將此 JSON 程式碼新增到您建立的檔案中：
@@ -204,7 +204,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
     以您的訂用帳戶 ID 取代 **&lt;subscription-id&gt;** 、以 Active Directory 應用程式識別碼取代 **&lt;application-id&gt;** 、以應用程式金鑰取代 **&lt;authentication-key&gt;** ，以及以租用戶識別碼取代 **&lt;tenant-id&gt;** 。
 
 3. 儲存 azureauth.properties 檔案。
-4. 在名為 AZURE_AUTH_LOCATION 的 Windows 中, 使用您所建立之授權檔案的完整路徑來設定環境變數, 例如, 您可以使用下列 PowerShell 命令:
+4. 設定 Windows 中名為 AZURE_AUTH_LOCATION 的環境變數，以及您所建立之授權檔案的完整路徑，例如，您可以使用下列 PowerShell 命令：
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -214,7 +214,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ## <a name="create-the-management-client"></a>建立管理用戶端
 
-1. 開啟您所建立之專案的 Program.cs 檔案。 然後, 將這些 using 語句新增至檔案頂端的現有語句:
+1. 開啟您所建立之專案的 Program.cs 檔案。 然後，將這些 using 語句新增至檔案頂端的現有語句：
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -331,5 +331,5 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如果部署有問題，下一個步驟就是查看[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](../../resource-manager-common-deployment-errors.md)。
+* 如果部署有問題，下一個步驟就是查看[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解 (英文)](../../resource-manager-common-deployment-errors.md)。
 * 檢閱[使用 C# 來部署 Azure 虛擬機器](csharp.md)，以了解如何部署虛擬機器及支援它的資源。

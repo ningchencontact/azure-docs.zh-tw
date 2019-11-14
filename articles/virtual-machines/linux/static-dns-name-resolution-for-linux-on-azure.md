@@ -1,5 +1,5 @@
 ---
-title: 搭配 Azure CLI 使用內部 DNS 進行 VM 名稱解析 | Microsoft Docs
+title: 使用內部 DNS 進行 VM 名稱解析與 Azure CLI
 description: 如何搭配 Azure CLI 在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: b143a28216d0d8417615ad2c40a3b66c9c5d1be2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173880"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034736"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 
@@ -34,7 +34,7 @@ ms.locfileid: "71173880"
 ## <a name="quick-commands"></a>快速命令
 如果您需要快速完成工作，接下來這一節將詳細說明所需的命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，從[這裡](#detailed-walkthrough)開始。 若要執行這些步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
 
-預先需求：資源群組、虛擬網路與子網路、具有 SSH 輸入的網路安全性群組。
+先決條件︰資源群組、虛擬網路與子網路、具有 SSH 輸入的網路安全性群組。
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>使用靜態內部 DNS 名稱來建立虛擬網路介面卡
 使用 [az network nic create](/cli/azure/network/nic) 來建立 vNic。 `--internal-dns-name` CLI 旗標是用來設定 DNS 標籤，可為虛擬網路介面卡 (vNic) 提供靜態 DNS 名稱。 下列範例會建立名為 `myNic` 的 vNic、將它連接到 `myVnet` 虛擬網路，以及建立名為 `jenkins` 的內部 DNS 名稱記錄：
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>部署 VM 並連接 vNic
-使用 [az vm create](/cli/azure/vm) 建立 VM。 在部署至 Azure 的期間，`--nics` 旗標會將 vNic 連接到 VM。 下列範例會使用「Azure 受控磁碟」建立名為 `myVM` 的 VM，然後連結上一步驟中名為 `myNic` 的 vNic：
+使用 [az vm create](/cli/azure/vm) 來建立 VM。 在部署至 Azure 的期間，`--nics` 旗標會將 vNic 連接到 VM。 下列範例會使用「Azure 受控磁碟」建立名為 `myVM` 的 VM，然後連結上一步驟中名為 `myNic` 的 vNic：
 
 ```azurecli
 az vm create \
@@ -70,7 +70,7 @@ Azure 上完整的連續整合和連續部署 (CiCd) 基礎結構需要特定的
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 `myResourceGroup`、`myNic` 和 `myVM`。
 
 ## <a name="create-the-resource-group"></a>建立資源群組
-首先，使用 [az group create](/cli/azure/group)建立資源群組。 下列範例會在 `westus` 位置建立名為 `myResourceGroup` 的資源群組：
+首先，使用 [az group create](/cli/azure/group)建立資源群組。 下列範例會在 `myResourceGroup` 位置建立名為 `westus` 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>將 VM 部署至虛擬網路基礎結構
 我們現在有一個虛擬網路和子網路、一個作為防火牆而會封鎖所有輸入流量 (用於 SSH 的連接埠 22 除外) 來保護子網路的「網路安全性群組」，以及一個 vNic。 您現在可以在這個現有的網路基礎結構內部署 VM。
 
-使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會使用「Azure 受控磁碟」建立名為 `myVM` 的 VM，然後連結上一步驟中名為 `myNic` 的 vNic：
+使用 [az vm create](/cli/azure/vm) 來建立 VM。 下列範例會使用「Azure 受控磁碟」建立名為 `myVM` 的 VM，然後連結上一步驟中名為 `myNic` 的 vNic：
 
 ```azurecli
 az vm create \

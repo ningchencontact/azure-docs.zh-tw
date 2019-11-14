@@ -1,18 +1,14 @@
 ---
 title: 英國官方 & 英國 NHS 藍圖範例-部署步驟
 description: 英國官方和英國 NHS 藍圖範例的部署步驟，包括藍圖成品參數詳細資料。
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 1898820276d1906a49a95bc513a6689fce177f7d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1905e5fee894575d5ee85ce1bffb536813d34287
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162928"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037742"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>部署英國官方和英國 NHS 藍圖範例
 
@@ -31,7 +27,7 @@ ms.locfileid: "73162928"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] **下方的 [建立]** 按鈕。
+1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] _下方的 [建立]_ 按鈕。
 
 1. 在 [_其他範例_] 底下尋找**英國官方**或**英國 NHS**藍圖範例，然後選取 [**使用此範例**]。
 
@@ -66,7 +62,7 @@ ms.locfileid: "73162928"
 
 1. 提供用於指派藍圖的參數值：
 
-   - 基本概念
+   - 基本
 
      - 訂用**帳戶：選取**您儲存藍圖範例複本的管理群組中的一或多個訂用帳戶。 如果您選取多個訂用帳戶，輸入的參數就會用來為每個訂用帳戶建立指派。
      - **指派名稱**：根據藍圖的名稱預先填入名稱。
@@ -109,7 +105,7 @@ ms.locfileid: "73162928"
 > [英國官方和英國 NHS 藍圖-總覽](./index.md)
 > [英國官方和英國 NHS 藍圖-控制項對應](./control-mapping.md)
 
-藍圖和使用方式的其他相關文章：
+有關藍圖及其使用方式的其他文件：
 
 - 了解[藍圖生命週期](../../concepts/lifecycle.md)。
 - 了解如何使用[靜態與動態參數](../../concepts/parameters.md)。

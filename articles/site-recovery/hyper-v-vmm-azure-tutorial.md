@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953959"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039680"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>將 VMM 雲端中 Hyper-V VM 的災害復原設定至 Azure
 
@@ -32,8 +32,6 @@ ms.locfileid: "73953959"
 > [!NOTE]
 > 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 **Site Recovery 文件**的[操作指南](https://docs.microsoft.com/azure/site-recovery)一節中的文章。
 
-> [!WARNING]
-> 使用 System Center VMM 的 Hyper-v Vm 的嚴重損壞修復支援將在不久的將來淘汰。 我們建議您先閱讀[淘汰詳細資料](scvmm-site-recovery-deprecation.md)，再繼續進行。
 
 
 ## <a name="before-you-begin"></a>開始之前

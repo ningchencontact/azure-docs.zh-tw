@@ -1,5 +1,5 @@
 ---
-title: Azure 中的 Red Hat Enterprise Linux 映像 | Microsoft Docs
+title: Azure 中的 Red Hat Enterprise Linux 映像
 description: 了解 Microsoft Azure 中的 Red Hat Enterprise Linux 映像
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: eaabe9da20c22dd3e4d924887adcbc7081857e91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764310"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035107"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure 中的 Red Hat Enterprise Linux 映像
 本文說明 Azure Marketplace 中所提供的 Red Hat Enterprise Linux (RHEL) 映像，以及與其命名和保留期相關的原則。
@@ -88,7 +88,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7.4:7.4.2019041718
 ```
-在此情況下`RedHat:RHEL:7.4:7.4.2019041718` ，預設會附加至 EUS 存放庫，且`RedHat:RHEL:7-RAW:7.4.2018010506`預設會附加至非 EUS 存放庫。
+在此情況下，預設會將 `RedHat:RHEL:7.4:7.4.2019041718` 附加至 EUS 存放庫，`RedHat:RHEL:7-RAW:7.4.2018010506` 預設會附加至非 EUS 存放庫。
 
 ### <a name="for-customers-that-dont-want-to-use-eus-images"></a>針對不想使用 EUS 映射的客戶：
 如果您不想要使用預設連接到 EUS 的映射，請使用不包含 SKU 中次要版本號碼的映射進行部署。
@@ -104,15 +104,15 @@ RedHat:RHEL:7.4:7.4.2019041718
 次要版本 |EUS 影像範例              |EUS 狀態                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7。4      |RedHat： RHEL：7.4：7.4.2019041718 | 預設會 EUS 2019 年4月發行的映射|
-RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | 預設會 EUS 在2019年6月發佈的映射 |
-RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | 預設會 EUS 已發佈的映射2019和更新版本  |
+RHEL 7.5      |RedHat： RHEL：7.5：7.5.2019060305 | 預設會 EUS 在2019年6月發佈的映射 |
+RHEL 7。6      |RedHat： RHEL：7.6：7.6.2019052206 | 預設會 EUS 已發佈的映射2019和更新版本  |
 RHEL 8。0      |N/A                            | Red Hat 中沒有可用的 EUS                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>可用的 RHEL 映射清單
 下列供應項目為目前可供一般使用的 SKU：
 
-供應項目| SKU | 分割 | 佈建 | 注意
+供應項目| SKU | 分割 | 佈建 | 注意事項
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Linux 代理程式 | RHEL 7.x 系列映射。 <br> 預設不會附加至 EUS 存放庫。
 |             | 7-LVM    | LVM    | Linux 代理程式 | RHEL 7.x 系列映射。 <br> 預設不會附加至 EUS 存放庫。

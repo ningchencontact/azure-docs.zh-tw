@@ -1,5 +1,5 @@
 ---
-title: Windows 中虛擬機器磁碟的延展性和效能目標 - Microsoft Azure | Microsoft Docs
+title: Windows 上 VM 磁片的擴充性和效能目標-Microsoft Azure
 description: 針對連結至執行 Windows 之虛擬機器的虛擬機器磁碟，深入了解其延展性和效能目標。
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 9b89cbab450e74a75a63d54ca3b327da622a78c3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c525ec4becbfda305343a3c7244d5975d60604a3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698780"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039751"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Windows 中虛擬機器磁碟的延展性和效能目標
 

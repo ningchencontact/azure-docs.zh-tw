@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 中的 OpenShift 容器平臺3.11 部署進行疑難排解 |Microsoft Docs
+title: 針對 Azure 中的 OpenShift 容器平臺3.11 部署進行疑難排解
 description: 針對 Azure 中的 OpenShift 容器平臺3.11 部署進行疑難排解。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4301d81a4d14c36c34d29a54bc146bc8985dfc00
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392757"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035481"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>針對 Azure 中的 OpenShift 容器平臺3.11 部署進行疑難排解
 
@@ -41,9 +41,9 @@ ms.locfileid: "72392757"
 
 ## <a name="log-files"></a>記錄檔
 
-主機準備腳本的記錄檔（stderr 和 stdout）位於所有主機的 `/var/lib/waagent/custom-script/download/0` 中。 如果在準備主機期間發生錯誤，請檢視這些記錄檔以判斷錯誤。
+主機準備腳本的記錄檔（stderr 和 stdout）位於所有主機上的 `/var/lib/waagent/custom-script/download/0`。 如果在準備主機期間發生錯誤，請檢視這些記錄檔以判斷錯誤。
 
-如果準備腳本成功執行，則必須檢查 ansible 腳本主機的 `/var/lib/waagent/custom-script/download/1` 目錄中的記錄檔。 如果在 OpenShift 實際安裝期間發生錯誤，則 stdout 檔案會顯示錯誤。 使用此資訊來連絡支援人員，以尋求進一步的協助。
+如果準備腳本成功執行，則必須檢查 ansible 腳本主機之 `/var/lib/waagent/custom-script/download/1` 目錄中的記錄檔。 如果在 OpenShift 實際安裝期間發生錯誤，則 stdout 檔案會顯示錯誤。 使用此資訊來連絡支援人員，以尋求進一步的協助。
 
 範例輸出
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 對於某些錯誤，您也可以使用下列命令來取得詳細資訊：
 
-1. systemctl 狀態 \<service >
+1. systemctl 狀態 \<服務 >
 2. journalctl -xe
