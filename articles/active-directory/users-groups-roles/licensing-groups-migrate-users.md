@@ -1,31 +1,31 @@
 ---
-title: 將個別授權的使用者新增至以群組為基礎的授權-Azure Active Directory |Microsoft Docs
+title: 將具有直接授權的使用者新增至群組授權-Azure AD |Microsoft Docs
 description: 如何使用 Azure Active Directory，從個別使用者授權遷移至群組型授權
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/26/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034731"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025672"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何將具有個別授權的使用者遷移至群組以進行授權
 
-您可能會透過「直接指派」將現有授權部署給組織中的使用者，也就是，使用 PowerShell 指令碼或其他工具來指派個別使用者授權。 開始使用以群組為基礎的授權來管理組織中的授權之前，您可以使用此遷移計畫，順暢地將現有的解決方案取代為以群組為基礎的授權。
+您可能會透過直接指派，將現有的授權部署給組織中的使用者。也就是，使用 PowerShell 腳本或其他工具來指派個別使用者授權。 開始使用以群組為基礎的授權來管理組織中的授權之前，您可以使用此遷移計畫，順暢地將現有的解決方案取代為以群組為基礎的授權。
 
 要謹記在心最重要的事情是，您應該避免移轉到以群組為基礎的授權會導致使用者暫時遺失其目前獲得指派授權的情況。 應避免可能造成授權移除的任何處理，以便移除使用者失去服務及其資料存取權的風險。
 
@@ -82,8 +82,8 @@ ms.locfileid: "72034731"
 深入瞭解群組授權管理的其他案例：
 
 - [什麼是 Azure Active Directory 中以群組為基礎的授權？](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-- [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
+- [將授權指派給 Azure Active Directory 中的群組 (英文)](licensing-groups-assign.md)
 - [識別及解決 Azure Active Directory 中群組的授權問題](licensing-groups-resolve-problems.md)
 - [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](licensing-groups-change-licenses.md)
-- [Azure Active Directory 群組型授權其他案例 (英文)](licensing-group-advanced.md)
+- [Azure Active Directory 群組型授權其他案例](licensing-group-advanced.md)
 - [Azure Active Directory 群組型授權的 PowerShell 範例](licensing-ps-examples.md)

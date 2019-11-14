@@ -1,6 +1,6 @@
 ---
 title: Azure 流量管理員中的流量檢視
-description: 流量管理員流量檢視簡介
+description: 在此簡介中，瞭解「流量管理員」流量視圖的運作方式。
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1cdad5873ea0f6d2fab129aef7be012ea11e8a60
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035470"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023250"
 ---
 # <a name="traffic-manager-traffic-view"></a>流量管理員流量檢視
 
@@ -36,7 +36,7 @@ ms.locfileid: "69035470"
 流量檢視的運作方式是讓流量管理員查看在過去七天內針對已啟用此功能之設定檔所收到的連入查詢。 流量檢視會根據連入查詢資訊擷取 DNS 解析程式的來源 IP，然後用來作為使用者位置的代表。 然後會在 DNS 解析程式層級資料粒度群組在一起，藉由使用由流量管理員維護之 IP 位址的地理資訊，來建立使用者群體區域。 流量管理員接著會查看查詢路由前往的 Azure 區域，並且為這些區域的使用者建構流量流程對應。  
 在下一個步驟中，流量管理員會將 Azure 區域對應的使用者群組區域與它為不同使用者網路維護的網路智慧延遲資料表相互關聯，以了解當連接到 Azure 區域時，這些區域的使用者所體驗的平均延遲。 所有這些計算接著會在呈現給您之前，在每個本機 DNS 解析程式 IP 層級上合併。 您可以用各種方式使用該資訊。
 
-流量視圖資料更新的頻率取決於多個內部服務變數。 不過, 資料通常會每隔24小時更新一次。
+流量視圖資料更新的頻率取決於多個內部服務變數。 不過，資料通常會每隔24小時更新一次。
 
 >[!NOTE]
 >流量檢視中所述的延遲是使用者與已連線 Azure 區域間的代表性延遲，不是 DNS 查詢延遲。 流量檢視對本機 DNS 解析程式與查詢路由前往的 Azure 區域之間的延遲進行最佳投入量估算，如果資料不足，則傳回的延遲將為 Null。 
@@ -66,7 +66,7 @@ ms.locfileid: "69035470"
 
 您可以在 Azure 入口網站中以表格形式檢視流量檢視資料。 每個 DNS 解析程式 IP / 端點配對都有一個項目會顯示 DNS 解析程式的 IP 位置、端點所在位置 (如果有的話) 的 Azure 區域名稱與地理位置、與 DNS 解析程式到該端點相關聯的要求數量，以及與使用 DNS 的使用者相關聯的代表性延遲 (如果有的話)。 您也可以將流量檢視資料下載為 CSV 檔案，這可作為所選分析流程的一部分使用。
 
-## <a name="billing"></a>帳務
+## <a name="billing"></a>計費
 
 當您使用流量檢視時，您會根據用來建立呈現之深入資訊的資料點數目收到帳單。 目前，唯一使用的資料點類型是流量管理員設定檔收到的查詢。 如需價格的詳細資訊，請瀏覽[流量管理員定價分頁](https://azure.microsoft.com/pricing/details/traffic-manager/)。
 
