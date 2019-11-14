@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7e98fd089ce8ec1285232840a40bb42ac5b81446
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026024"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795432"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>疑難排解 QnA Maker
 
@@ -26,7 +26,7 @@ ms.locfileid: "72026024"
 
 ## <a name="how-to-get-the-qnamaker-service-endpoint"></a>如何取得 QnAMaker 服務端點
 
-當您聯繫 QnAMaker 支援或 UserVoice 時，QnAMaker 服務端點適用于偵錯工具。 端點是下列格式的 URL： https://your-resource-name.azurewebsites.net 。
+當您聯繫 QnAMaker 支援或 UserVoice 時，QnAMaker 服務端點適用于偵錯工具。 端點是下列格式的 URL： https://your-resource-name.azurewebsites.net。
     
 1. 在 [Azure 入口網站](https://portal.azure.com)中移至 QnAMaker 服務 (資源群組)
 
@@ -117,11 +117,11 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot，協助您。 您
 
 ### <a name="when-should-i-restart-my-app-service"></a>何時應該重新啟動我的應用程式服務？ 
 
-在 [使用者設定][ 頁面](https://www.qnamaker.ai/UserSettings)上的 [端點金鑰] 資料表中，當注意圖示出現在知識庫的版本值旁邊時，重新整理您的應用程式服務。
+在 [使用者設定] **頁面**上的 [端點金鑰][](https://www.qnamaker.ai/UserSettings) 資料表中，當注意圖示出現在知識庫的版本值旁邊時，重新整理您的應用程式服務。
 
 ### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>我刪除了現有的搜尋服務。 我該怎麼辦？
 
-刪除 Azure 搜尋服務索引是不可逆的作業，因此索引無法復原。 
+如果您刪除 Azure 認知搜尋索引，此作業會是最終的，而且無法復原索引。 
 
 ### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>我在搜尋服務中刪除了我的 `testkb` 索引。 我該怎麼辦？ 
 
@@ -131,13 +131,13 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot，協助您。 您
 
 若您懷疑端點金鑰已遭入侵，請加以重新整理。
 
-### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>我是否可以針對使用多種語言的知識庫使用相同的 Azure 搜尋服務資源？
+### <a name="can-i-use-the-same-azure-cognitive-search-resource-for-knowledge-bases-using-multiple-languages"></a>我可以使用相同的 Azure 認知搜尋資源來取得使用多種語言的知識庫嗎？
 
 若要使用多種語言和多個知識庫，使用者必須針對每個語言建立 QnA Maker 資源。 這會為每個語言建立個別的 Azure 搜尋服務。 在單一 Azure 搜尋服務中混用不同的語言知識庫，將會使結果的相關性降低。
 
-### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>如何變更 QnA Maker 使用之 Azure 搜尋服務資源的名稱？
+### <a name="how-can-i-change-the-name-of-the-azure-cognitive-search-resource-used-by-qna-maker"></a>如何變更 QnA Maker 所使用的 Azure 認知搜尋資源名稱？
 
-Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在結尾的隨機字母。 這讓您難以區別 QnA Maker 的多個搜尋服務資源。 建立個別的 Azure 搜尋服務 (以您想要的方式為它命名) 並將它連結到您的 QnA Service。 這些步驟類似于[升級 Azure 搜尋](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service)服務所需執行的步驟。
+Azure 認知搜尋資源的名稱是 QnA Maker 資源名稱，並在結尾附加一些隨機字母。 這讓您難以區別 QnA Maker 的多個搜尋服務資源。 建立個別的搜尋服務（以您想要的方式命名），並將它連線到您的 QnA 服務。 這些步驟類似于[升級 Azure 搜尋](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service)服務所需執行的步驟。
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>當 QnA Maker 傳回時 `Runtime core is not initialized,` 如何修正此問題？
 
@@ -174,7 +174,7 @@ Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在
 您需要有下列有關知識庫的資訊：
 
 * 知識庫識別碼。
-* 在您發佈之後，會在 [**設定**] 頁面上找到知識庫的已發佈端點自訂子功能變數名稱稱（稱為 `host`）。
+* 在您發佈之後，知識庫的已發佈端點自訂子功能變數名稱稱（稱為 `host`）會在 [**設定**] 頁面上找到。
 * 知識庫的已發佈端點金鑰-發行後，在 [**設定**] 頁面上找到。 
 
 透過這項資訊，請移至 Azure 入口網站中 bot 的 app service。 在 設定 底下 > 設定 下 **> 應用程式設定**，變更這些值。  
