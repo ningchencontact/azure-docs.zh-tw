@@ -229,8 +229,6 @@
       href: migrate-v1-v2.md
 - name: 參考
   items:
-    - name: CRS 規則
-      href: application-gateway-crs-rulegroups-rules.md
     - name: AKS 註釋的輸入
       href: ingress-controller-annotations.md
     - name: Azure CLI
