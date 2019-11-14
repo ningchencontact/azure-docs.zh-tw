@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048775"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066867"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
 
@@ -30,9 +30,7 @@ ms.locfileid: "74048775"
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>通知中樞的資源結構為何？
 
-Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單一推播資源，可包含一個應用程式的跨平台推播資訊。 命名空間是一個區域中多個中樞的集合。
-
-建議對應是一個應用程式搭配一個命名空間。 在命名空間內，您可以有一個生產中樞來與生產應用程式搭配運作，以及一個測試中樞來與測試應用程式搭配運作，依此類推。
+Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單一推播資源，可包含一個應用程式的跨平台推播資訊。 命名空間是一個區域中多個中樞的集合。 建議對應是一個應用程式搭配一個命名空間。 在命名空間內，您可以有一個生產中樞來與生產應用程式搭配運作，以及一個測試中樞來與測試應用程式搭配運作，依此類推。
 
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>「通知中樞」的價格模式為何？
 
@@ -45,7 +43,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 標準層級功能：
 
 * **豐富的遙測**：您可以使用每個訊息遙測的通知中樞，來追蹤任何推播要求和平台通知系統的意見反應以進行偵錯。
-* **多租用戶**：您可以在命名空間層級上使用平台通知系統認證。 此選項可讓您在相同的命名空間內輕鬆地將租用戶分割成多個中樞。
+* **多**租使用者：您可以在命名空間層級上使用平臺通知系統認證。 此選項可讓您在相同的命名空間內輕鬆地將租用戶分割成多個中樞。
 * **排定推播**：您可以排定在任何時間傳送通知。
 * **大量作業**：啟用註冊匯出/匯入功能，如[註冊匯出/匯入]檔中所述。
 
@@ -54,7 +52,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 以基本和標準通知中樞層級來說，若應用程式已正確設定，則可傳送推播通知或執行註冊管理作業的時間至少有 99.9 %。 若要深入了解 SLA，請前往[通知中樞 SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 頁面。
 
 > [!NOTE]
-> 因為推播通知依存於第三方平台通知系統 (如 Apple APNS 和 Google FCM)，因此這些訊息的傳遞沒有 SLA 保證。 通知中樞將批次傳送至平台通知系統 (SLA 保證) 後，就由平台通知系統負責傳遞推播 (無 SLA 保證)。
+> 因為推播通知依存于協力廠商平臺通知系統（例如 Apple 的推播通知服務（APNs）和 Google 的 Firebase 雲端通訊（FCM）），所以傳遞這些訊息沒有 SLA 保證。 通知中樞將批次傳送至平台通知系統 (SLA 保證) 後，就由平台通知系統負責傳遞推播 (無 SLA 保證)。
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>如何將中樞或命名空間升級或降級為不同層級？
 
@@ -75,13 +73,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>你們是否支援簡訊、電子郵件、或 Web 通知？
 
-通知中樞主要是設計來傳送通知給行動裝置應用程式。 不提供電子郵件或簡訊功能。 但是您可以將提供這些功能的第三方平台與「通知中樞」整合，以使用 [Mobile Apps] 來傳送原生推播通知。
-
-通知中樞也不提供現成可用的瀏覽器中推播通知傳送服務。 客戶可以在支援的伺服器端平台上，使用 SignalR 來實作此功能。 
-
-### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Mobile Apps 和 Azure 通知中樞如何相關？以及何時使用這兩者？
-
-如果您有現有的行動裝置應用程式後端，而且您只想要新增傳送推播通知的功能，則您可以使用 Azure 通知中樞。 如果您想要從頭開始設定行動裝置應用程式後端，請考慮使用 Azure App Service 的 Mobile Apps 功能。 行動裝置應用程式會自動佈建通知中樞，讓您能夠輕鬆地從行動裝置應用程式後端傳送推播通知。 Mobile Apps 的價格包括通知中樞的基本費用。 只有超過包含的推播時才需付費。 如需費用的詳細資訊，請移至[App Service 價格]頁面。
+通知中樞會將通知傳送至執行 mobile apps 的裝置。 不提供電子郵件或簡訊功能。 通知中樞也不提供現成可用的瀏覽器中推播通知傳送服務。 客戶可以在支援的伺服器端平台上，使用 SignalR 來實作此功能。 
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>如果透過通知中樞傳送推播通知，可以支援多少個裝置？
 
@@ -94,7 +86,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 端視選取的層次而定，Azure 通知朱書會自動根據通知數目相應增加透過系統傳送的通知數目。
 
 > [!NOTE]
-> 整體使用成本可能會根據目前提供的推播通知數目而增加。 請務必留意[通知中樞價格]頁面上概述的層級限制。
+> 整體使用成本可能會根據傳送的推播通知數目而增加。 請務必留意[通知中樞價格]頁面上概述的層級限制。
 
 我們的客戶每天使用通知中樞來傳送數百萬則推播通知。 只要使用 Azure 通知中樞，您就不需要採取任何特別動作來調整推播通知可及範圍。
 
@@ -135,7 +127,7 @@ PNS 不保證任何傳送通知的 SLA。 不過，大部分的推播通知皆�
 
 #### <a name="geo-distribution"></a>地理分散
 
-在推播通知案例中，地理分散不一定是關鍵。 傳送推播通知至裝置的不同 PNS (例如 APNS 或 FCM) 並非平均分散。
+在推播通知案例中，地理分散不一定是關鍵。 將推播通知傳遞至裝置的各種 Pns （例如 APNs 或 FCM）不會平均分散。
 
 如果您有一個在全球使用的應用程式，您可以透過在世界上不同的 Azure 區域中使用通知中樞，以在不同命名空間中建立中樞。
 
@@ -157,7 +149,7 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 傳送者與 Azure 通知中樞之間的連線以及 Azure 通知中樞與 PNS 之間的連線都使用 HTTPS。
 
 > [!NOTE]
-> Azure 通知中樞不會以任何方式記錄訊息的承載。
+> Azure 通知中樞不會記錄訊息的承載。
 
 若要傳送機密乘載，我們建議您使用「安全推播」模式。 傳送者會傳送 Ping 通知與訊息識別碼給裝置 (不含機密承載)。 當裝置上的應用程式收到此承載時，就能夠直接呼叫安全 API 以擷取訊息詳細資料。 您可以在[通知中樞安全推播教學課程]頁面上，取得如何實作此模式的指南。
 
@@ -207,9 +199,8 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 - [取得資源的計量和活動記錄](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
 - [Azure 監視 REST API 逐步解說](../azure-monitor/platform/rest-api-walkthrough.md)
 
-
 > [!NOTE]
-> 成功通知就是表示推播通知已傳送到外部 PNS (例如 Apple 的 APNS 或 Google 的 FCM)。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
+> 成功的通知表示已將推播通知傳遞至外部 PNS （例如，適用于 iOS 的 APNs，以及適用于 Android 裝置的 macOS 或 FCM）。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
 
 [Azure 入口網站]: https://portal.azure.com
 [通知中樞價格]: https://azure.microsoft.com/pricing/details/notification-hubs/
@@ -226,5 +217,4 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 [註冊匯出/匯入]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure 入口網站]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
-[App Service 價格]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

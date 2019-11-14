@@ -6,18 +6,18 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 065f392f3089f4d6872cd39c6aaab2098afc6c90
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8fe665ed9a9c580f5ce7d7bf43e71b9672a2bc5b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012165"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075038"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。
 
-本文適用于熟悉 Resource Manager 範本的使用者。 它會提供有關範本結構的詳細資訊。 如果您想要建立範本的簡介，請參閱[Azure Resource Manager 範本](template-deployment-overview.md)。
+本文適用于熟悉 Resource Manager 範本的使用者。 它會提供有關範本結構的詳細資訊。 如需逐步教學課程，引導您完成建立範本的程式，請參閱[教學課程：建立及部署您的第一個 Azure Resource Manager 範本](template-tutorial-create-first-template.md)。
 
 ## <a name="template-format"></a>範本格式
 

@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路連結至 ExpressRoute 線路：CLI：Azure | Microsoft Docs
+title: Azure ExpressRoute：將 VNet 連結至線路： CLI
 description: 本文說明如何使用 Resource Manager 部署模型和 CLI 將虛擬網路 (VNet) 連結至 Azure ExpressRoute 線路。
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
-ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621068"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076547"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 將虛擬網路連線到 ExpressRoute 線路
 
@@ -58,7 +56,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 您可以讓多個訂用帳戶共用 ExpressRoute 線路。 下圖顯示簡單的圖解，示範多個訂用帳戶共用 ExpressRoute 線路的方式。
 
-大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連接回內部部署網路。 單一部門 (在此範例中為IT) 可擁有 ExpressRoute 線路。 組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
+大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。 組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 線路，以連接回內部部署網路。 單一部門 (在此範例中：IT) 可以擁有 ExpressRoute 循環。 組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
 
 > [!NOTE]
 > ExpressRoute 線路擁有者需支付專用線路的連線和頻寬費用。 所有虛擬網路都會共用相同的頻寬。
@@ -154,11 +152,11 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 *RoutingWeight* 的範圍是從 0 到 32000。 預設值為 0。
 
-## <a name="configure-expressroute-fastpath"></a>設定 ExpressRoute 快速 
-您可以讓[ExpressRoute 快速](expressroute-about-virtual-network-gateways.md)如果您的 ExpressRoute 線路位於[ExpressRoute 直接](expressroute-erdirect-about.md)和您的虛擬網路閘道是超級效能或 ErGw3AZ。 快速提升資料路徑效能，例如每秒封包及每秒在內部部署網路與虛擬網路之間的連線。 
+## <a name="configure-expressroute-fastpath"></a>設定 ExpressRoute FastPath 
+如果您的 ExpressRoute 線路位於[Expressroute Direct](expressroute-erdirect-about.md) ，而您的虛擬網路閘道是 Ultra 效能或 ErGw3AZ，您可以啟用[expressroute FastPath](expressroute-about-virtual-network-gateways.md) 。 FastPath 可改善資料路徑效能，例如每秒封包數和內部部署網路與虛擬網路之間的每秒連線數。 
 
 > [!NOTE] 
-> 如果您已經有虛擬網路連線，但您尚未啟用快速您要刪除虛擬網路連線，建立新密碼。 
+> 如果您已經有虛擬網路連線，但尚未啟用 FastPath，您必須刪除虛擬網路連線，並建立一個新的連接。 
 > 
 >  
 

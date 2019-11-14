@@ -856,11 +856,20 @@
             - name: 追蹤概觀
               href: /azure/databricks/applications/mlflow/tracking
               maintainContext: true
-            - name: MLflow 追蹤範例
-              href: /azure/databricks/applications/mlflow/  tracking-examples
+            - name: 將 scikit-learn-學習模型定型
+              href: /azure/databricks/applications/mlflow/tracking-ex-scikit
+              maintainContext: true
+            - name: 將 PyTorch 模型定型
+              href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
+              maintainContext: true
+            - name: 將 PySpark 模型定型並以 MLeap 格式儲存
+              href: /azure/databricks/applications/mlflow/tracking-ex-pyspark
+              maintainContext: true
+            - name: 使用 Delta Lake 追蹤 ML 模型訓練資料
+              href: /azure/databricks/applications/mlflow/tracking-ex-delta
               maintainContext: true
             - name: 外部的存取追蹤
-              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
         - name: 儲存、載入和部署模型
           items:
@@ -911,6 +920,9 @@
             - name: 腫瘤/一般管線
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
+            - name: 使用管道轉換器的變異註解
+              href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
+              maintainContext: true
             - name: 變異註解方法
               href: /azure/databricks/applications/genomics/secondary/annotate-variants
               maintainContext: true
@@ -920,26 +932,6 @@
             - name: Vep 管線
               href: /azure/databricks/applications/genomics/secondary/vep-pipeline
               maintainContext: true
-        - name: ETL
-          items:
-            - name: Genomics ETL 概觀
-              href: /azure/databricks/applications/genomics/etl/index
-              maintainContext: true
-            - name: 搭配 Apache Spark SQL 的變異 IO
-              href: /azure/databricks/applications/genomics/etl/variant-data
-              maintainContext: true
-            - name: 建立基因體學 Delta Lake
-              href: /azure/databricks/applications/genomics/etl/vcf2delta
-              maintainContext: true
-            - name: 變異品質控制
-              href: /azure/databricks/applications/genomics/etl/variant-qc
-              maintainContext: true
-            - name: 樣本品質控制
-              href: /azure/databricks/applications/genomics/etl/sample-qc
-              maintainContext: true
-            - name: 抬升
-              href: /azure/databricks/applications/genomics/etl/lift-over
-              maintainContext: true
         - name: 三級分析
           items:
             - name: 三級分析概觀
@@ -947,18 +939,6 @@
               maintainContext: true
             - name: 聯合基因型分型管線
               href: /azure/databricks/applications/genomics/tertiary/joint-genotyping-pipeline
-              maintainContext: true
-            - name: 使用管道轉換器平行處理命令列工具
-              href: /azure/databricks/applications/genomics/tertiary/pipe-transformer
-              maintainContext: true
-            - name: 變異正規化
-              href: /azure/databricks/applications/genomics/tertiary/variant-normalization
-              maintainContext: true
-            - name: 迴歸測試
-              href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: Python 統計資料庫
-              href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
             - name: SAIGE
               href: /azure/databricks/applications/genomics/tertiary/saige
@@ -1228,7 +1208,10 @@
               maintainContext: true
             - name: 無法偵測 JSON 的編碼
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true j
+              maintainContext: true
+            - name: 無法在 WASB 中讀取檔案
+              href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
         - name: DBFS
           items:
             - name: 無法讀取儲存在 DBFS 根目錄中的物件
@@ -1550,6 +1533,9 @@
           items:
             - name: 平台版本資訊
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: 2019 年 11 月
+              href: /azure/databricks/release-notes/product/2019/november
               maintainContext: true
             - name: 2019 年 10 月
               href: /azure/databricks/release-notes/product/2019/october

@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 5a357a246f2ba6c294b107e447218f386623f5c5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/13/2019
+ms.openlocfilehash: 8967b61115d2e2e644dea93cb236f8a7cdfcfcbd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014187"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072311"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -58,14 +58,9 @@ ms.locfileid: "74014187"
 
     [![系統管理員同意核准](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+1. 設定 `https://www.getpostman.com/oauth2/callback`的第二個重新**導向 URI** 。
 
-1. 選取 [**資訊清單**] 以開啟應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
-
-    [![Azure Active Directory 隱含流程](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
-
-1. 將**回覆 URL** 設定為`https://www.getpostman.com/oauth2/callback`。
-
-    [![Azure Active Directory 回復 URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![新增 Postman 重新導向 URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. 複製並保存 Azure Active Directory 應用程式的**應用程式識別碼**。 用於後續的步驟中。
 
@@ -106,10 +101,6 @@ ms.locfileid: "74014187"
     [![Postman 用戶端範例](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. 選取 [要求權杖]。
-
-    >[!TIP]
-    >如果您收到錯誤訊息「無法完成 OAuth 2」，請嘗試下列方法：
-    > * 關閉 Postman 後重新開啟，然後再試一次。
   
 1. 向下捲動，然後選取 [使用權杖]。
 
@@ -117,13 +108,13 @@ ms.locfileid: "74014187"
 
 完成先前的步驟之後，設定 Postman 以提出已驗證的 HTTP 多部分 POST 要求：
 
-1. 在 [標頭] 索引標籤下，新增 HTTP 要求標頭索引鍵 **Content-Type** 且其值為 `multipart/mixed`。
+1. 在 [**標頭**] 索引標籤下，新增 HTTP 要求標頭索引鍵**content-type** ，其值為 `multipart/mixed`。
 
    [![內容類型多部分/混合](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. 將非文字資料序列化到檔案。 JSON 資料會儲存為 JSON 檔案。
 1. 在 [**主體**] 索引標籤底下，選取 [`form-data`]。 
-1. 藉由指派索引**鍵**名稱，然後選取 [`file`] 來新增每個檔案。
+1. 藉由指派索引**鍵**名稱，然後選取 [`File`] 來新增每個檔案。
 1. 接著，透過 [選擇檔案] 按鈕選取每個檔案。
 
    [![Postman 用戶端範例](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
@@ -133,7 +124,7 @@ ms.locfileid: "74014187"
    > * 您不需要為每個部分指定這些標頭。
    > * 您必須針對整個要求選取 `multipart/mixed` 或其他適當的 **Content-type**。
 
-1. 最後，選取 [**傳送**] 以提交多部分 HTTP POST 要求。
+1. 最後，選取 [**傳送**] 以提交多部分 HTTP POST 要求。 `200` 或 `201` 的狀態碼表示成功的要求。 您也會看到適當的回應訊息。
 
 ## <a name="next-steps"></a>後續步驟
 

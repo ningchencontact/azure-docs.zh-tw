@@ -1,7 +1,7 @@
 ---
 title: 部署採用 IPv6 的網際網路對應負載平衡器 - Azure 範本
 titleSuffix: Azure Load Balancer
-description: 如何部署 Azure Load Balancer 和負載平衡 VM 的 IPv6 支援。
+description: 瞭解如何使用 Azure 範本來部署 Azure Load Balancer 和負載平衡 Vm 的 IPv6 支援。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: e5cfc980387b63701fb3ff36e7fa8ac43800ecce
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f92011a6955398ef85e44fae1ce8f782cc9cc12c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048436"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075993"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>使用範本部署配置有 IPv6 的網際網路面向負載平衡器解決方案
 

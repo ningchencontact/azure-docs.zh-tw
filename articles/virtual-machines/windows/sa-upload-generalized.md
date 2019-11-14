@@ -1,5 +1,5 @@
 ---
-title: 上傳一般化的 VHD 以在 Azure 中建立多部 VM| Microsoft Docs
+title: 上傳一般化 VHD，在 Azure 中建立多個 Vm
 description: 將一般化 VHD 上傳至 Azure 儲存體帳戶，建立搭配 Resource Manager 部署模型使用的 Windows VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 933b648f15418c4838d3da1ea8379267765c784b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749169"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073333"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>將一般化 VHD 上傳至 Azure，以建立新的 VM。
 
@@ -224,7 +224,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>建立 VM
-下列 PowerShell 指令碼示範如何設定虛擬機器組態，以及使用已上傳的 VM 映像作為新安裝的來源。
+下列 PowerShell 指令碼示範如何設定虛擬機器組態，以及使用已上傳的 VM 映像做為新安裝的來源。
 
 
 

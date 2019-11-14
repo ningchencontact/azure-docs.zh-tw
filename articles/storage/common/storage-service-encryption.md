@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cfac7fdbbdbf06ae74385fbc33e61d11cb99ff87
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795703"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066305"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體加密
 
 Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密可保護您的資料，並協助您符合組織的安全性和合規性承諾。 Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)（可用的最強區塊密碼之一），以透明的方式進行加密和解密，且符合 FIPS 140-2 標準。 Azure 儲存體加密類似于 Windows 上的 BitLocker 加密。
 
-已針對所有新的和現有的儲存體帳戶啟用 Azure 儲存體加密，且無法停用。 因為預設會保護您的資料，所以您不需要修改程式碼或應用程式，就能利用 Azure 儲存體加密。
+已為所有新的儲存體帳戶啟用 Azure 儲存體加密，且無法停用。 因為預設會保護您的資料，所以您不需要修改程式碼或應用程式，就能利用 Azure 儲存體加密。
 
 無論儲存體帳戶的效能層級（標準或高階）或部署模型（Azure Resource Manager 或傳統），都會進行加密。 所有 Azure 儲存體的冗余選項都支援加密，而且儲存體帳戶的所有複本都會加密。 所有 Azure 儲存體資源都會加密，包括 blob、磁片、檔案、佇列和資料表。 所有物件中繼資料也會加密。
 
@@ -41,7 +41,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    加密/解密作業    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    支援的 Azure 儲存體服務    |    全部                                                |    Blob 儲存體，Azure 檔案儲存體                                                                                                               |    Blob 儲存體                                                                  |
-|    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure 金鑰保存庫                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
+|    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure Key Vault                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
 |    金鑰輪替責任         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    金鑰使用量                           |    Microsoft                                          |    Azure 入口網站，儲存體資源提供者 REST API，Azure 儲存體管理程式庫，PowerShell，CLI        |    Azure 儲存體 REST API （Blob 儲存體），Azure 儲存體用戶端程式庫    |
 |    金鑰存取                          |    僅限 Microsoft                                     |    Microsoft、客戶                                                                                                                    |    僅限客戶                                                                 |
@@ -105,7 +105,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 針對 REST 呼叫，用戶端可以使用下列標頭，安全地將要求的加密金鑰資訊傳遞至 Blob 儲存體：
 
-|要求標頭 | 說明 |
+|要求標頭 | 描述 |
 |---------------|-------------|
 |`x-ms-encryption-key` |寫入和讀取要求都需要。 Base64 編碼的 AES-256 加密金鑰值。 |
 |`x-ms-encryption-key-sha256`| 寫入和讀取要求都需要。 加密金鑰的 Base64 編碼 SHA256。 |
@@ -194,7 +194,7 @@ public static void UploadBlobWithClientKey(CloudBlobContainer container)
 
 ## <a name="azure-storage-encryption-versus-disk-encryption"></a>Azure 儲存體加密與磁片加密
 
-使用 Azure 儲存體加密，所有 Azure 儲存體帳戶及其包含的資源都會加密，包括備份 Azure 虛擬機器磁片的分頁 blob。 此外，您可以使用[Azure 磁碟加密](../../security/azure-security-disk-encryption-overview.md)來加密 Azure 虛擬機器磁片。 Azure 磁碟加密在 Windows 上使用業界標準的[BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) ，而在 Linux 上則為[DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt) ，以提供與 Azure Key Vault 整合之以作業系統為基礎的加密解決方案。
+Azure 儲存體加密會加密備份 Azure 虛擬機器磁片的分頁 blob。 此外，所有的 Azure 虛擬機器磁片（包括本機暫存磁片）都可以選擇性地使用[Azure 磁碟加密](../../security/azure-security-disk-encryption-overview.md)進行加密。 Azure 磁碟加密在 Windows 上使用業界標準的[BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) ，而在 Linux 上則為[DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt) ，以提供與 Azure Key Vault 整合之以作業系統為基礎的加密解決方案。
 
 ## <a name="next-steps"></a>後續步驟
 

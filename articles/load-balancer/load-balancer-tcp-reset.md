@@ -1,7 +1,7 @@
 ---
 title: Azure 中的 Load Balancer 閒置 TCP 重設
-titlesuffix: Azure Load Balancer
-description: 具有閒置逾時雙向 TCP RST 封包的 Load Balancer
+titleSuffix: Azure Load Balancer
+description: 在本文中，您將瞭解在閒置超時時，使用雙向 TCP RST 封包的 Azure Load Balancer。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b37253f37043d902d33504b99401781eb1c761c5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274165"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075925"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>具有閒置 TCP 重設的負載平衡器 (公開預覽)
 

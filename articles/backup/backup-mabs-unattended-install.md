@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210160"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074785"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>執行 Azure 備份伺服器 2018 年 9 月2 的自動安裝
 
@@ -22,7 +22,7 @@ ms.locfileid: "70210160"
 
 ## <a name="install-backup-server"></a>安裝備份伺服器
 
-1. 在裝載 Azure 備份伺服器 V2 或更新版本的伺服器上建立文字檔。 (您可以在記事本或其他文字編輯器中建立檔案)。將檔案儲存為 MABSSetup.ini。
+1. 在裝載 Azure 備份伺服器 V2 或更新版本的伺服器上建立文字檔。 （您可以在 [記事本] 或其他文字編輯器中建立檔案）。將檔案儲存為 Mabssetup.ini。
 
 2. 在 MABSSetup.ini 檔案中貼上下列程式碼。 以您的環境值取代括號內的文字 (\< \>)。 範例如下列文字：
 
@@ -55,11 +55,12 @@ ms.locfileid: "70210160"
 
 您可以使用下列旗標來進行安裝：</br>
 **/f**：.ini 檔案路徑</br>
-**/l**:記錄檔路徑</br>
-**/i**:安裝路徑</br>
-**/x**:卸載路徑</br>
+**/l**：記錄路徑</br>
+**/i**：安裝路徑</br>
+**/x**：解除安裝路徑</br>
 
 ## <a name="next-steps"></a>後續步驟
+
 在安裝備份伺服器之後，請了解如何準備您的伺服器或開始保護工作負載。
 
 - [準備備份伺服器工作負載](backup-azure-microsoft-azure-backup.md)

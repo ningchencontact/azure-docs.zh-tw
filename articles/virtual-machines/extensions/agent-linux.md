@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 代理程式概觀 | Microsoft Docs
+title: Azure Linux VM 代理程式總覽
 description: 了解如何安裝和設定 Linux 代理程式 (waagent)，來管理虛擬機器與 Azure 網狀架構控制器之間的互動。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169156"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073859"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解與使用 Azure Linux 代理程式
 
@@ -107,12 +107,12 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 ## <a name="command-line-options"></a>命令列選項
 ### <a name="flags"></a>旗標
-* 冗余增加指定命令的詳細資訊
-* 使略過某些命令的互動式確認
+* verbose：提高指定命令的詳細程度
+* force：略過某些命令的互動式確認
 
 ### <a name="commands"></a>命令
-* 説明：列出支援的命令和旗標。
-* 取消布建嘗試清理系統，使其適用于重新布建。 下列作業會刪除：
+* help：列出支援的命令和旗標。
+* deprovision：嘗試清理系統，使之適合重新佈建。 下列作業會刪除：
   
   * 所有 SSH 主機金鑰 (如果組態檔中的 Provisioning.RegenerateSshHostKeyPair 是 'y')
   * /etc/resolv.conf 中的名稱伺服器設定
@@ -125,11 +125,11 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 > 
 > 
 
-* 取消布建 + 使用者：執行-取消布建（如上）中的所有專案，同時刪除最後布建的使用者帳戶（從/var/lib/waagent 取得）和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
-* 版本：顯示 waagent 的版本
-* serialconsole:設定 GRUB 以將 ttyS0 （第一個序列埠）標示為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
-* 便執行 waagent 作為背景程式，以管理與平臺的互動。 此引數是在 waagent init 指令碼中指定給 waagent。
-* 「以背景進程方式執行 waagent
+* deprovision+user：執行 -deprovision (上述) 中的一切動作，並刪除最後佈建的使用者帳戶 (取自於 /var/lib/waagent) 和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
+* version：顯示 waagent 的版本
+* serialconsole：設定 GRUB，以將 ttyS0 (第一個序列埠) 標示為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
+* daemon：以精靈方式執行 waagent 來管理與平台之間的互動。 此引數是在 waagent init 指令碼中指定給 waagent。
+* 開始︰以背景處理序方式執行 waagent
 
 ## <a name="configuration"></a>組態
 組態檔 (/etc/waagent.conf) 控制 waagent 的動作。 以下顯示的是範例組態檔：
@@ -343,6 +343,6 @@ Ubuntu 雲端映像會利用 [cloud-init](https://launchpad.net/ubuntu/+source/c
 
 * 如需詳細資訊，請參閱下列資源，以便在佈建期間，於 Ubuntu 雲端映像上設定資源磁碟掛接點和交換空間：
   
-  * [Ubuntu Wiki：設定交換磁碟分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki：設定交換資料分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [將自訂資料插入 Azure 虛擬機器](../windows/classic/inject-custom-data.md)
 

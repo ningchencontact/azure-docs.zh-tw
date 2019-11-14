@@ -1,6 +1,6 @@
 ---
-title: 使用 Data Factory 從 Azure SQL Database 複製資料
-description: 了解如何使用 Data Factory 將資料從支援的來源資料存放區複製到 Azure SQL Database，或從 SQL Database 複製到支援的接收資料存放區。
+title: 使用 Data Factory 複製和轉換 Azure SQL Database 中的資料
+description: 瞭解如何在 Azure SQL Database 中複製資料，以及如何使用 Azure Data Factory 在 Azure SQL Database 中轉換資料。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ef47bc1064c095792a90ed69880106af77e9dfd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681115"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075585"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
+# <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 複製和轉換 Azure SQL Database 中的資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本："]
 > * [第 1 版](v1/data-factory-azure-sql-connector.md)
 > * [目前的版本](connector-azure-sql-database.md)
 
-本文概述如何在 Azure SQL Database 之間複製資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
+本文概述如何使用 Azure Data Factory 中的複製活動，從 Azure SQL Database 複製資料，以及使用資料流程來轉換 Azure SQL Database 中的資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -35,7 +35,7 @@ ms.locfileid: "73681115"
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
 
-具體而言，這個 Azure SQL Database 連接器支援下列功能：
+針對複製活動，此 Azure SQL Database 連接器支援下列功能：
 
 - 使用 SQL 驗證和 Azure Active Directory （Azure AD）應用程式權杖驗證搭配服務主體或 Azure 資源的受控識別來複製資料。
 - 作為來源，使用 SQL 查詢或預存程式來抓取資料。
@@ -58,10 +58,10 @@ ms.locfileid: "73681115"
 
 以下是支援 Azure SQL Database 已連結服務的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | **type** 屬性必須設為 **AzureSqlDatabase**。 | 是 |
-| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL Database 執行個體所需的資訊。 <br/>將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼或服務主體金鑰放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 | 是 |
+| 類型 | **type** 屬性必須設為 **AzureSqlDatabase**。 | yes |
+| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL Database 執行個體所需的資訊。 <br/>將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼或服務主體金鑰放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 | yes |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是，當您搭配服務主體使用 Azure AD 驗證時 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中，或[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 | 是，當您搭配服務主體使用 Azure AD 驗證時 |
 | 租用戶 | 指定租使用者資訊，例如您的應用程式所在的功能變數名稱或租使用者識別碼。 將滑鼠游標暫留在 Azure 入口網站的右上角來取出。 | 是，當您搭配服務主體使用 Azure AD 驗證時 |
@@ -227,16 +227,16 @@ ms.locfileid: "73681115"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。 本節提供 Azure SQL Database 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。 
 
-若要將資料從或複製到 Azure SQL Database，支援下列屬性：
+Azure SQL Database 資料集支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 **type** 屬性必須設定為 **AzureSqlTable**。 | 是 |
+| 類型 | 資料集的 **type** 屬性必須設定為 **AzureSqlTable**。 | yes |
 | 結構描述 | 架構的名稱。 |否 (用於來源)；是 (用於接收)  |
 | 資料表 | 資料表/視圖的名稱。 |否 (用於來源)；是 (用於接收)  |
-| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 並 `table`。 | 否 (用於來源)；是 (用於接收) |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 和 `table`。 | 否 (用於來源)；是 (用於接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
 
@@ -267,9 +267,9 @@ ms.locfileid: "73681115"
 
 若要從 Azure SQL Database 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的**類型**屬性必須設定為**AzureSqlSource**。 "SqlSource" 類型仍然支援回溯相容性。 | 是 |
+| 類型 | 複製活動來源的**類型**屬性必須設定為**AzureSqlSource**。 "SqlSource" 類型仍然支援回溯相容性。 | yes |
 | sqlReaderQuery | 此屬性使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否 |
 | storedProcedureParameters | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程式參數的名稱和大小寫。 | 否 |
@@ -373,17 +373,17 @@ GO
 
 若要將資料複製到 Azure SQL Database，複製活動的 [**接收**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的**type**屬性必須設定為**AzureSqlSink**。 "SqlSink" 類型仍然支援回溯相容性。 | 是 |
+| 類型 | 複製活動接收器的**type**屬性必須設定為**AzureSqlSink**。 "SqlSink" 類型仍然支援回溯相容性。 | yes |
 | writeBatchSize | 要插入 SQL 資料表中*每個批次*的資料列數目。<br/> 允許的值為**整數** (資料列數目)。 根據預設，Azure Data Factory 會依據資料列大小，以動態方式決定適當的批次大小。 | 否 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/> 允許的值為**時間範圍**。 例如，"00:30:00" （30分鐘）。 | 否 |
 | preCopyScript | 指定要在將資料寫入 Azure SQL Database 之前，要執行之複製活動的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 使用此屬性來清除預先載入的資料。 | 否 |
-| sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 <br/>此預存程序將會*依批次叫用*。 對於只執行一次且與來源資料無關的作業（例如，delete 或截斷），請使用 `preCopyScript` 屬性。 | 否 |
+| sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 <br/>此預存程序將會*依批次叫用*。 對於只執行一次且與來源資料無關的作業（例如，刪除或截斷），請使用 `preCopyScript` 屬性。 | 否 |
 | storedProcedureTableTypeParameterName |預存程式中指定之資料表類型的參數名稱。  |否 |
 | sqlWriterTableType |要在預存程式中使用的資料表類型名稱。 複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。 然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱和值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
-| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 當 sink 指定了複製活動中所設定的預存程式或分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設值），`autoCreate`。 |否 |
+| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 當 sink 指定了複製活動中所設定的預存程式或分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設），`autoCreate`。 |否 |
 | disableMetricsCollection | Data Factory 會收集統計資料，例如複製效能優化和建議的 Azure SQL Database Dtu。 如果您擔心此行為，請指定 `true` 將其關閉。 | 否 (預設值為 `false`) |
 
 **範例1：附加資料**
@@ -538,7 +538,7 @@ END
     )
     ```
 
-2. 在資料庫中，使用與 **SqlWriterStoredProcedureName** 相同的名稱來定義預存程序。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 預存程式中資料表類型的參數名稱與資料集中定義的**tableName**相同。
+2. 在您的資料庫中，使用與**sqlWriterStoredProcedureName**相同的名稱來定義預存程式。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 預存程式中資料表類型的參數名稱與資料集中定義的**tableName**相同。
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -560,9 +560,9 @@ END
     ```json
     "sink": {
         "type": "AzureSqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"
@@ -583,32 +583,32 @@ END
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |布林值 |
 | char |String, Char[] |
 | 日期 |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| DECIMAL |DECIMAL |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |DECIMAL |
 | nvarchar |String, Char[] |
 | real |單一 |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Object |
+| smallmoney |DECIMAL |
+| sql_variant |物件 |
 | 文字 |String, Char[] |
 | 分析 |TimeSpan |
 | timestamp |Byte[] |
-| tinyint |位元組 |
+| tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |

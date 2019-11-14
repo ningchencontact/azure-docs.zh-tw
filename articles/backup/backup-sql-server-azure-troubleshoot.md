@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e600fdb882294d14bb9f9216ac8d621ba5254170
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614389"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074721"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>使用 Azure 備份對 SQL Server 資料庫備份進行疑難排解
 
@@ -29,9 +29,9 @@ ms.locfileid: "73614389"
 
 ### <a name="backup-type-unsupported"></a>不支援的備份類型
 
-| 嚴重性 | 說明 | 可能的原因 | 建議的動作 |
+| Severity | 描述 | 可能的原因 | 建議的動作 |
 |---|---|---|---|
-| 警告 | 此資料庫的目前設定不支援相關聯原則中存在的特定備份類型。 | <li>只有完整資料庫備份作業可以在 master 資料庫上執行。 差異備份或交易記錄備份都不可行。 </li> <li>簡單復原模式中的任何資料庫都不允許備份交易記錄。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，將目前的原則變更為僅包含支援的備份類型。 否則，在排程備份期間將會略過不支援的備份類型，否則臨機操作備份的備份作業將會失敗。
+| 警告 | 此資料庫的目前設定不支援相關聯原則中存在的特定備份類型。 | <li>只有完整資料庫備份作業可以在 master 資料庫上執行。 差異備份或交易記錄備份都不可行。 </li> <li>簡單復原模式中的任何資料庫都不允許備份交易記錄。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，將目前的原則變更為僅包含支援的備份類型。 否則，在排程備份期間將會略過不支援的備份類型，否則備份作業將會因為隨選備份而失敗。
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -50,7 +50,7 @@ ms.locfileid: "73614389"
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 記錄鏈結中斷。 | 資料庫或 VM 會透過另一個備份解決方案進行備份，這會截斷記錄鏈。|<ul><li>檢查是否有其他備份解決方案或指令碼正在使用中。 如果有，請停止其他備份解決方案。 </li><li>如果備份是臨機操作的記錄備份，請觸發完整備份來啟動新的記錄檔鏈。 針對排定的記錄備份，不需要採取任何動作，因為 Azure 備份服務會自動觸發完整備份以修正此問題。</li>|
+| 記錄鏈結中斷。 | 資料庫或 VM 會透過另一個備份解決方案進行備份，這會截斷記錄鏈。|<ul><li>檢查是否有其他備份解決方案或指令碼正在使用中。 如果有，請停止其他備份解決方案。 </li><li>如果備份是隨選記錄備份，請觸發完整備份以啟動新的記錄鏈。 針對排定的記錄備份，不需要採取任何動作，因為 Azure 備份服務會自動觸發完整備份以修正此問題。</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -62,7 +62,7 @@ ms.locfileid: "73614389"
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 此資料來源的第一個完整備份遺失。 | 資料庫的完整備份遺失。 記錄和差異備份是完整備份的父系，因此請務必在觸發差異或記錄備份之前，先進行完整備份。 | 觸發特定的完整備份。   |
+| 此資料來源的第一個完整備份遺失。 | 資料庫的完整備份遺失。 記錄和差異備份是完整備份的父系，因此請務必在觸發差異或記錄備份之前，先進行完整備份。 | 觸發隨選完整備份。   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
@@ -80,7 +80,7 @@ ms.locfileid: "73614389"
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 還原失敗，原因是無法讓資料庫離線。 | 當您執行還原時，目標資料庫必須離線。 Azure 備份無法使此資料離線。 | 使用 [Azure 入口網站錯誤] 功能表上的 [其他詳細資料] 來縮小根本原因。 如需詳細資訊，請參閱[SQL Server 檔](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)。 |
+| 還原失敗，原因是無法讓資料庫離線。 | 當您執行還原時，目標資料庫必須離線。 Azure 備份無法使此資料離線。 | 使用 [Azure 入口網站錯誤] 功能表上的 [其他詳細資料] 來縮小根本原因。 如需詳細資訊，請參閱 [SQL Server 文件](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)。 |
 
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 原則來限制 VM 延伸模組安裝 | Microsoft Docs
+title: 使用 Azure 原則來限制 VM 延伸模組安裝
 description: 使用 Azure 原則來限制 VM 延伸模組部署。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 20099bb32a1984be0bfbbaaa4e7bc6cd4481a806
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 113736198f40510981c80909c862282fa07ac68d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174023"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073780"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure 原則來限制 Linux VM 上的延伸模組安裝
 
 如果您想要防止在 Linux VM 上使用或安裝特定的延伸模組，便可以使用 CLI 來建立 Azure 原則，以限制某個資源群組內 VM 的延伸模組。 
 
-本教學課程會使用 Azure Cloud Shell 內的 CLI，這會不斷更新至最新版本。 如果您想要在本機執行 Azure CLI，則必須安裝 2.0.26 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+本教學課程會使用 Azure Cloud Shell 內的 CLI，這會不斷更新至最新版本。 如果您想要在本機執行 Azure CLI，則必須安裝 2.0.26 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="create-a-rules-file"></a>建立規則檔
 

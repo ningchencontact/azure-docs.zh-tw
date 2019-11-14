@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961669"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076899"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
 
@@ -164,12 +164,12 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 
 ## <a name="debug-locally"></a>在本機執行偵錯
 
-如果您在將模型部署至 ACI 或 AKS 時遇到問題，請嘗試將它部署為本機。 使用本機可讓您更輕鬆地針對問題進行疑難排解。 包含模型的 Docker 映射會下載並在您的本機系統上啟動。
+如果您在將模型部署至 ACI 或 AKS 時遇到問題，請嘗試將它部署為本機 web 服務。 使用本機 web 服務可讓您更輕鬆地針對問題進行疑難排解。 包含模型的 Docker 映射會下載並在您的本機系統上啟動。
 
 > [!WARNING]
-> 針對生產案例，不支援本機部署。
+> 針對生產案例，不支援本機 web 服務部署。
 
-若要在本機部署，請修改您的程式碼，以使用 `LocalWebservice.deploy_configuration()` 建立部署設定。 然後使用 `Model.deploy()` 來部署服務。 下列範例會將模型（包含在 `model` 變數中）部署為本機：
+若要在本機部署，請修改您的程式碼，以使用 `LocalWebservice.deploy_configuration()` 建立部署設定。 然後使用 `Model.deploy()` 來部署服務。 下列範例會將模型（包含在 `model` 變數中）部署為本機 web 服務：
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -180,14 +180,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the  endpoint
+# Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the  is available on
+# Display the port that the web service is available on
 print(service.port)
 ```
 
@@ -297,7 +297,7 @@ Azure Kubernetes Service 部署支援自動調整，這可讓您新增複本以�
     > [!IMPORTANT]
     > 這種變更並不會讓複本的建立*速度更快*。 相反地，它們會以較低的使用率閾值來建立。 若不等到服務已使用70%，將值變更為30%，會在30% 使用率發生時建立複本。
     
-    如果已經在使用目前的最大複本，而您仍看到503狀態碼，請增加 `autoscale_max_replicas` 值，以增加複本的最大數目。
+    如果 web 服務已在使用目前的最大複本，而您仍看到503狀態碼，請增加 `autoscale_max_replicas` 值以增加複本的最大數目。
 
 * 變更複本的最小數目。 增加最小複本可提供較大的集區來處理傳入尖峰。
 
@@ -333,7 +333,7 @@ Azure Kubernetes Service 部署支援自動調整，這可讓您新增複本以�
 > [!IMPORTANT]
 > 使用 `Model.deploy()` 和 `LocalWebservice.deploy_configuration` 在本機部署模型時，這種調試方法無法運作。 相反地，您必須使用[install-containerimage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)類別來建立映射。 
 
-本機部署需要在您的本機系統上執行正常的 Docker 安裝。 如需使用 Docker 的詳細資訊，請參閱[Docker 檔](https://docs.docker.com/)。
+本機 web 服務部署需要在您的本機系統上執行正常的 Docker 安裝。 如需使用 Docker 的詳細資訊，請參閱[Docker 檔](https://docs.docker.com/)。
 
 ### <a name="configure-development-environment"></a>設定開發環境
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019076"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074835"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>在 Azure 備份伺服器中新儲存體
 
@@ -27,13 +27,13 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
 
 備份伺服器 V2 和更新版本接受儲存體磁碟區。 當您新增磁碟區時，備份伺服器會將磁碟區格式化為新式備份儲存體所需要的復原檔案系統 (ReFS)。 若要新增磁碟區，並於稍後需要時加以擴充，建議您使用此工作流程：
 
-1.  在 VM 上設定備份伺服器。
-2.  在儲存集區的虛擬磁碟上建立磁碟區：
-    1.  在儲存集區中新增磁碟，並建立簡單配置的虛擬磁碟。
-    2.  新增其他磁碟，並擴充虛擬磁碟。
-    3.  在虛擬磁碟上建立磁碟區。
-3.  在備份伺服器中新增磁碟區。
-4.  設定可感知工作負載的儲存體。
+1. 在 VM 上設定備份伺服器。
+2. 在儲存集區的虛擬磁碟上建立磁碟區：
+    1. 在儲存集區中新增磁碟，並建立簡單配置的虛擬磁碟。
+    2. 新增其他磁碟，並擴充虛擬磁碟。
+    3. 在虛擬磁碟上建立磁碟區。
+3. 在備份伺服器中新增磁碟區。
+4. 設定可感知工作負載的儲存體。
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>為新式備份儲存體建立磁碟區
 
@@ -75,7 +75,7 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-您可以使用 PowerShell Cmdlet 更新-Update-dpmdiskstorage 來設定工作負載感知存放裝置, 這會在 Azure 備份伺服器上更新存放集區中的磁片區屬性。 
+您可以使用 PowerShell Cmdlet 更新-Update-dpmdiskstorage 來設定工作負載感知存放裝置，這會在 Azure 備份伺服器上更新存放集區中的磁片區屬性。
 
 語法：
 
@@ -84,6 +84,7 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
 ```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+
 下列螢幕擷取畫面會顯示 PowerShell 視窗中的 Update-DPMDiskStorage Cmdlet。
 
 ![PowerShell 視窗中的 Update-DPMDiskStorage 命令](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
@@ -92,8 +93,8 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 ![管理員主控台中的磁碟和磁碟區](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>將舊式儲存體移轉至新式備份儲存體
+
 在安裝或升級為備份伺服器 V2，並將作業系統升級為 Windows Server 2016 之後，請將您的保護群組更新為使用新式備份儲存體。 根據預設，系統不會變更保護群組。 保護群組會繼續依照一開始的設定方式運作。
 
 您可以選擇是否將保護群組更新為使用新式備份儲存體。 若要更新保護群組，請使用保留資料選項來停止保護所有資料來源。 然後，將資料來源新增至新的保護群組。
@@ -120,11 +121,12 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
     ![[新增磁碟儲存體] 對話方塊](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. 在 [新增磁碟儲存體] 對話方塊中選取 [新增磁碟]。
+2. 在 [新增磁碟儲存體] 對話方塊中選取 [新增磁碟]。
 
-5. 在可用磁碟清單中選取您要新增的磁碟，選取 [新增]，然後選取 [確定]。
+3. 在可用磁碟清單中選取您要新增的磁碟，選取 [新增]，然後選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
+
 在安裝備份伺服器之後，請了解如何準備您的伺服器或開始保護工作負載。
 
 - [準備備份伺服器工作負載](backup-azure-microsoft-azure-backup.md)

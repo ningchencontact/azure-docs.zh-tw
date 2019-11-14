@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 53d7cb125f59491190aadb07755954ade78356fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813181"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075532"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>合作夥伴中心的商業 Marketplace 分析
 
-瞭解如何在 Microsoft 合作夥伴中心存取分析報告，以監視銷售、評估效能，以及在 marketplace 中優化您的供應專案。 身為合作夥伴，您可以使用合作夥伴中心所支援的資料視覺效果和深入解析圖形來監視您的供應專案清單，並尋找最大化銷售的方法。 改良的分析工具可讓您對效能結果採取行動，並與客戶和轉銷商保持更好的關係。 
+瞭解如何在 Microsoft 合作夥伴中心存取分析報告，以監視銷售、評估效能，以及在 marketplace 中優化您的供應專案。 身為合作夥伴，您可以使用合作夥伴中心所支援的資料視覺效果和深入解析圖形來監視您的供應專案清單，並尋找最大化銷售的方法。 改良的分析工具可讓您對效能結果採取行動，並與客戶和轉銷商保持更好的關係。
 
 若要存取合作夥伴中心分析工具，請開啟 [商業 Marketplace] 底下的 **[分析](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 儀表板。
 
 |**儀表板**|**顯示的內容**|
 |:---|:---|
-|[總結](#summary-dashboard)|摘要說明您供應專案 marketplace 活動的圖表、趨勢和匯總資料的值|
+|[摘要](#summary-dashboard)|摘要說明您供應專案 marketplace 活動的圖表、趨勢和匯總資料的值|
 |[訂單](#orders-dashboard)|具有圖形化和可下載格式之訂單的相關資訊|
 |[客戶](#customer-dashboard)|您的客戶相關資訊，包括成長趨勢，以圖形化且可下載的格式呈現|
 |[下載次數](#downloads-dashboard)|過去30天內的下載要求清單|
@@ -141,7 +141,7 @@ ms.locfileid: "73813181"
 - **透過 Azure 計費**：當您選擇透過此授權類型向[Microsoft 銷售您的供應](./create-new-saas-offer.md#sell-through-microsoft)專案時，Microsoft 會代表您帳單給客戶。 付款類型包含透過信用卡或企業發票的隨用隨付。
 - 自備授權： Microsoft 不會**向**客戶收取這類 marketplace 供應專案的使用量。 在 marketplace 中列為 **[立即取得（免費）](./create-new-saas-offer.md#get-it-now-free)** 。
 - **免費**： Microsoft 不會向客戶收取這類 marketplace 供應專案的使用量。 列為 marketplace 中的 **[免費試用版](./create-new-saas-offer.md##free-trial-listing)** 。
-- **Microsoft as 轉銷商**：代表 microsoft 轉售商在 **[雲端解決方案提供者（CSP）計畫](./create-new-saas-offer.md#csp-program-opt-in)** 中銷售的優惠。
+- **Microsoft as 轉銷商**：代表 microsoft 轉售商在 **[雲端解決方案提供者（CSP）計畫](./create-new-saas-offer.md)** 中銷售的優惠。
 
 ![合作夥伴中心依授權類型分析訂單](./media/analyze-license-type.png)
 

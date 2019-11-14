@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: beac49585239a1ecc15588a6c8160bc34c84c6ad
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5fc9eb5a85b5ce834060f3f35e89ebc2acea2244
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210309"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074218"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
@@ -25,8 +25,8 @@ ms.locfileid: "70210309"
 
 2. 將還原的系統狀態檔案套用到 Windows Server。
 
-
 ## <a name="recover-system-state-files-to-the-same-server"></a>將系統狀態檔案復原到相同伺服器
+
 下列步驟說明如何將 Windows Server 組態復原到先前的狀態。 將伺服器組態復原到已知的穩定狀態是非常有價值的作業。 下列步驟會從復原服務保存庫還原伺服器的系統狀態。
 
 1. 開啟 **Microsoft Azure 備份**嵌入式管理單元。 如果您不知道快照安裝的位置，請在電腦或伺服器上搜尋 **Microsoft Azure 備份**。
@@ -37,9 +37,9 @@ ms.locfileid: "70210309"
 
     ![復原資料](./media/backup-azure-restore-windows-server/recover.png)
 
-3. 在 [開始使用] 窗格中，若要將資料還原至同一台伺服器或電腦，請選取 [這台伺服器 (`<server name>`)] 並按一下 [下一步]。
+3. 在 [開始使用] 窗格中，若要將資料還原至同一台伺服器或電腦，請選取 [這台伺服器 ( **)]`<server name>`** 並按一下 [下一步]。
 
-    ![選擇 [這台伺服器] 選項以將資料還原到同一台電腦](./media/backup-azure-restore-system-state/samemachine.png)
+    ![選擇此伺服器選項可將資料還原至同一部電腦](./media/backup-azure-restore-system-state/samemachine.png)
 
 4. 在 [選取復原模式] 窗格上，選擇 [系統狀態]，然後按 [下一步]。
 
@@ -73,9 +73,9 @@ ms.locfileid: "70210309"
 
 這些步驟中所使用的術語包含：
 
-- – 用來進行備份且目前無法使用的的原始電腦。
-- – 復原資料時的目標電腦。
-- 「範例保存庫」–「來源電腦」和「目標電腦」註冊的復原服務保存庫。 <br/>
+* – 用來進行備份且目前無法使用的的原始電腦。
+* – 復原資料時的目標電腦。
+* 「範例保存庫」–「來源電腦」和「目標電腦」註冊的復原服務保存庫。 <br/>
 
 > [!NOTE]
 > 從某個電腦擷取的備份無法還原到執行舊版作業系統的電腦上。 例如，從 Windows Server 2016 電腦擷取的備份便無法還原到 Windows Server 2012 R2。 不過，反過來則可行。 您可以使用 Windows Server 2012 R2 的備份來還原 Windows Server 2016。
@@ -114,9 +114,6 @@ ms.locfileid: "70210309"
 12. 將 WindowsImageBackup 目錄複製到伺服器的非重要磁碟區 (例如 D:\)。 Windows 作業系統磁碟區通常是重要磁碟區。
 
 13. 若要完成復原程序，請使用下一節的步驟[將還原的系統狀態檔案套用到 Windows Server 上](#apply-restored-system-state-on-a-windows-server)。
-
-
-
 
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>將還原的系統狀態套用到 Windows Server 上
 
@@ -168,10 +165,9 @@ ms.locfileid: "70210309"
 1. 將網域控制站重新啟動為目錄服務還原模式 (DSRM)。
 2. 遵循[此處](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx)的步驟，以使用 Windows Server Backup Cmdlet 來復原 AD DS。
 
-
 ## <a name="troubleshoot-failed-system-state-restore"></a>針對失敗的系統狀態還原進行疑難排解
 
-如果先前用來套用系統狀態的程序未順利完成，請使用 Windows 修復環境 (Win RE) 來復原您的 Windows Server。 下列步驟說明如何使用 Win RE 來進行復原。 只有當 Windows Server 在系統狀態還原之後無法正常開機時, 才使用此選項。 下列程序會清除非系統資料，請小心使用。
+如果先前用來套用系統狀態的程序未順利完成，請使用 Windows 修復環境 (Win RE) 來復原您的 Windows Server。 下列步驟說明如何使用 Win RE 來進行復原。 只有當 Windows Server 在系統狀態還原之後無法正常開機時，才使用此選項。 下列程序會清除非系統資料，請小心使用。
 
 1. 將您的 Windows Server 開機到 Windows 修復環境 (Win RE)。
 
@@ -192,6 +188,7 @@ ms.locfileid: "70210309"
     ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
+
     ![取得系統狀態備份版本](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. 執行下列命令以取得備份中可用的所有磁碟區。
@@ -207,9 +204,9 @@ ms.locfileid: "70210309"
     ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
+
      ![取得系統狀態備份版本](./media/backup-azure-restore-system-state/winre-6.png)
 
-
-
 ## <a name="next-steps"></a>後續步驟
+
 * 現在您已復原檔案和資料夾，接下來您可以 [管理您的備份](backup-azure-manage-windows-server.md)。

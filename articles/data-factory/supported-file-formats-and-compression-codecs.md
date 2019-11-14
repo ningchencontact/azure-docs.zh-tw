@@ -7,30 +7,23 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4a81cc9887610036007b92e43b8bd44f0a8b7740
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683970"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075540"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
 *本文適用于下列連接器： [Amazon S3](connector-amazon-simple-storage-service.md)、 [azure Blob](connector-azure-blob-storage.md)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、Azure 檔案[儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、 [FTP](connector-ftp.md)、 [Google 雲端儲存體](connector-google-cloud-storage.md)、 [HDFS](connector-hdfs.md)、 [HTTP](connector-http.md)和[SFTP](connector-sftp.md)。*
 
-如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 如果您想要**剖析或產生特定格式的檔案**，Azure Data Factory 支援下列檔案格式類型：
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-* [文字格式](#text-format)
-* [JSON 格式](#json-format)
-* [Parquet 格式](#parquet-format)
-* [ORC 格式](#orc-format)
-* [Avro 格式](#avro-format)
-* [二進位格式](#binary-format)
-
-> [!TIP]
-> 瞭解「複製活動」如何從[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md)，將來源資料對應至接收。
+>[!NOTE]
+>Data Factory 導入了以格式為基礎的新資料集模型，請參閱上方連結的對應格式文章與詳細資訊。 這篇文章中所述之以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。 
 
 ## <a name="text-format"></a>文字格式
 
@@ -39,7 +32,7 @@ ms.locfileid: "73683970"
 
 如果您想要從文字檔讀取或寫入至文字檔，請將資料集之 `type` 區段中的 `format` 屬性設定成 **TextFormat**。 您也可以在  **區段中指定下列**選擇性`format`屬性。 關於如何設定，請參閱 [TextFormat 範例](#textformat-example)一節。
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | columnDelimiter |用來分隔檔案中的資料行的字元。 您可以考慮使用資料中不太可能存在的罕見不可列印字元。 例如，指定 "\u0001"，這代表「標題開頭」(SOH)。 |只允許一個字元。 **預設值**是**逗號 (',')** 。 <br/><br/>若要使用 Unicode 字元，請參考 [Unicode 字元 (英文)](https://en.wikipedia.org/wiki/List_of_Unicode_characters) 以取得其對應的代碼。 |否 |
 | rowDelimiter |用來分隔檔案中的資料列的字元。 |只允許一個字元。 **預設值**是下列任一個值： **["\r\n", "\r", "\n"]** (讀取時) 與 **"\r\n"** (寫入時)。 |否 |
@@ -47,9 +40,9 @@ ms.locfileid: "73683970"
 | quoteChar |用來引用字串值的字元。 引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。 這個屬性同時適用於輸入和輸出資料集。<br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>例如，如果您以逗號 (',') 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello, world>)，您可以定義 " (雙引號) 做為引用字元，並在來源中使用字串 "Hello, world"。 |否 |
 | nullValue |用來代表 null 值的一個或多個字元。 |一或多個字元。 **預設值**為 **"\N" 和 "NULL"** (讀取時) 及 **"\N"** (寫入時)。 |否 |
 | encodingName |指定編碼名稱。 |有效的編碼名稱。 請參閱 [Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。 例如：windows-1250 或 shift_jis。 **預設值**為 **UTF-8**。 |否 |
-| firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |是<br/><b>False (預設值)</b> |否 |
-| skipLineCount |指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |Integer |否 |
-| treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>否 |否 |
+| firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |true<br/><b>False (預設值)</b> |否 |
+| skipLineCount |指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |整數， |否 |
+| treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>False |否 |
 
 ### <a name="textformat-example"></a>TextFormat 範例
 
@@ -95,7 +88,7 @@ ms.locfileid: "73683970"
 
 如果您想要剖析 JSON 檔案，或以 JSON 格式寫入資料，請將 `type` 區段中的 `format` 屬性設定成 **JsonFormat**。 您也可以在  **區段中指定下列**選擇性`format`屬性。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 | --- | --- | --- |
 | filePattern |表示每個 JSON 檔案中儲存的資料模式。 允許的值為︰**setOfObjects** 和 **arrayOfObjects**。 **預設值**為 **setOfObjects**。 關於這些模式的詳細資訊，請參閱 [JSON 檔案模式](#json-file-patterns)一節。 |否 |
 | jsonNodeReference | 如果您想要逐一查看陣列欄位內相同模式的物件並擷取資料，請指定該陣列的 JSON 路徑。 **從** JSON 檔案複製資料時，才支援這個屬性。 | 否 |
@@ -452,18 +445,18 @@ ms.locfileid: "73683970"
 
 | Data Factory 過渡期資料類型 | Parquet 基本類型 | Parquet 原始類型 (還原序列化) | Parquet 原始類型 (序列化) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | N/A | N/A |
+| 布林值 | 布林值 | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
-| 位元組 | Int32 | UInt8 | Int16 |
+| Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/二進位 | UInt64 | Decimal |
+| UInt64 | Int64/二進位 | UInt64 | DECIMAL |
 | 單一 | Float | N/A | N/A |
 | Double | Double | N/A | N/A |
-| Decimal | Binary | Decimal | Decimal |
+| DECIMAL | Binary | DECIMAL | DECIMAL |
 | 字串 | Binary | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
@@ -505,18 +498,18 @@ ms.locfileid: "73683970"
 
 | Data Factory 過渡期資料類型 | ORC 類型 |
 |:--- |:--- |
-| Boolean | Boolean |
-| SByte | 位元組 |
-| 位元組 | 簡短 |
+| 布林值 | 布林值 |
+| SByte | Byte |
+| Byte | 簡短 |
 | Int16 | 簡短 |
-| UInt16 | Int |
-| Int32 | Int |
+| UInt16 | int |
+| Int32 | int |
 | UInt32 | long |
 | Int64 | long |
 | UInt64 | 字串 |
 | 單一 | Float |
 | Double | Double |
-| Decimal | Decimal |
+| DECIMAL | DECIMAL |
 | 字串 | 字串 |
 | DateTime | Timestamp |
 | Datetimeoffset | Timestamp |

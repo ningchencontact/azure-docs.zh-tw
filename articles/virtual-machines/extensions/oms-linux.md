@@ -1,5 +1,5 @@
 ---
-title: 適用于 Linux 的 Azure 監視器虛擬機器擴充功能 |Microsoft Docs
+title: 適用于 Linux 的 Azure 監視器虛擬機器擴充功能
 description: 使用虛擬機器擴充功能在 Linux 虛擬機器上部署 Log Analytics 代理程式。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: 75f659f9559703cedccef0d8e726b5c8c5bb49be
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a021c76eb973eba11e1dc1ee89f3d7f829a53f70
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435834"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073066"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>適用于 Linux 的 Azure 監視器虛擬機器擴充功能
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 Azure 監視器記錄可提供跨雲端和內部部署資產的監視、警示和警示補救功能。 Microsoft 已發佈和支援適用於 Linux 的 Log Analytics 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Log Analytics 工作區中註冊虛擬機器。 本檔詳述適用于 Linux 的 Azure 監視器虛擬機器擴充功能所支援的平臺、設定和部署選項。
 
@@ -32,7 +32,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視、警示�
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -71,7 +71,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示 Log Analytics 代理程式擴充功能的結構描述。 此擴充功能需要來自目標 Log Analytics 工作區的工作區 ID 和工作區金鑰，這些值可於 Azure 入口網站中[在 Log Analytics 工作區尋找](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key)。 由於工作區金鑰應視為敏感性資料，因此應儲存在受保護的設定組態中。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。 請注意，**workspaceId** 和 **workspaceKey** 區分大小寫。
+下列 JSON 顯示 Log Analytics 代理程式擴充功能的結構描述。 此擴充功能需要來自目標 Log Analytics 工作區的工作區 ID 和工作區金鑰，這些值可於 Azure 入口網站中[在 Log Analytics 工作區尋找](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key)。 由於工作區金鑰應視為敏感性資料，因此應儲存在受保護的設定組態中。 Azure VM 擴充功能的受保護設定資料會經過加密，而只有在目標虛擬機器上才會解密。 請注意，**workspaceId** 和 **workspaceKey** 區分大小寫。
 
 ```json
 {
@@ -103,7 +103,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 |
+| 名稱 | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

@@ -1,6 +1,6 @@
 ---
-title: 建立採用 IPv6 的網際網路對應負載平衡器 - PowerShell
-titlesuffix: Azure Load Balancer
+title: 建立具有 IPv6 Azure PowerShell 的網際網路面向負載平衡器
+titleSuffix: Azure Load Balancer
 description: 了解如何使用 PowerShell 在 Resource Manager 中建立配置有 IPv6 的網際網路面向負載平衡器
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 9f2bd24955cc378deed5dbc0423488645632a958
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: fb697003da8c0604b2ce1e8956fcd434014b5b82
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025797"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077061"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>開始使用 PowerShell 在 Resource Manager 中建立配置有 IPv6 的網際網路面向負載平衡器
 
@@ -28,7 +28,7 @@ ms.locfileid: "73025797"
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [範本](load-balancer-ipv6-internet-template.md)
 
->[!注意：適用于 IPv6 的最佳作法變更此文章說明可讓基本負載平衡器同時提供 IPv4 和 IPv6 連線的入門 IPv6 功能。  [Ipv6 For Azure vnet](../virtual-network/ipv6-overview.md)現在提供更完整的 ipv6 連線能力，其整合了 ipv6 連線與您的虛擬網路，並包含 Ipv6 網路安全性群組規則、ipv6 使用者定義路由、ipv6 基本和等重要功能標準負載平衡等等。  適用于 azure Vnet 的 IPv6 是 Azure 中的 IPv6 應用程式建議的最佳作法。 
+>[!注意：適用于 IPv6 的最佳作法變更此文章說明可讓基本負載平衡器同時提供 IPv4 和 IPv6 連線的入門 IPv6 功能。  [Ipv6 For Azure vnet](../virtual-network/ipv6-overview.md)現在提供更完整的 ipv6 連線能力，其整合了 ipv6 連線與您的虛擬網路，並包含 Ipv6 網路安全性群組規則、ipv6 使用者定義的路由、ipv6 基本和標準負載平衡等主要功能。  適用于 azure Vnet 的 IPv6 是 Azure 中的 IPv6 應用程式建議的最佳作法。 
 >請參閱[適用于 AZURE VNET Powershell 部署的 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡器可藉由在負載平衡器集合中，將連入流量分散於雲端服務或虛擬機器中狀況良好的服務執行個體之間，來提供高可用性。 Azure Load Balancer 也會在多個連接埠、多個 IP 位址或兩者上顯示這些服務。
@@ -67,7 +67,7 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡
 
 請確定您擁有適用於 PowerShell 的 Azure Resource Manager 模組最新生產版本。
 
-1. 登入 Azure
+1. Sign into Azure
 
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -81,7 +81,7 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡
     Get-AzSubscription
     ```
 
-3. 選擇其中一個要使用的 Azure 訂用帳戶。
+3. 選擇要使用哪一個 Azure 訂用帳戶。
 
     ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionId 'GUID of subscription'

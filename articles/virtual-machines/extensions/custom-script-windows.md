@@ -1,5 +1,5 @@
 ---
-title: Windows 的 Azure 自訂指令碼延伸模組 | Microsoft Docs
+title: 適用于 Windows 的 Azure 自訂腳本擴充功能
 description: 使用「自訂指令碼擴充功能」來自動執行 Windows VM 組態工作
 services: virtual-machines-windows
 manager: carmonm
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204195"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073832"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -23,7 +23,7 @@ ms.locfileid: "71204195"
 
 本文件詳細說明如何透過 Azure PowerShell 模組、Azure Resource Manager 範本使用自訂指令碼擴充功能，同時也詳細說明 Windows 系統上的疑難排解步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!NOTE]  
 > 請勿使用自訂指令碼擴充功能以相同的 VM 執行 Update-AzVM 作為其參數，因為它會等候其本身。  
@@ -63,7 +63,7 @@ ms.locfileid: "71204195"
 
 您可將敏感性資料儲存在受保護的組態中，此組態會經過加密，並且只會在虛擬機器內解密。 當執行命令包含機密資料 (例如密碼) 時，受保護的組態會相當有用。
 
-這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。
+這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能的受保護設定資料會經過加密，而只有在目標虛擬機器上才會解密。
 
 ```json
 {
@@ -106,17 +106,17 @@ ms.locfileid: "71204195"
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | string |
-| 型別 | CustomScriptExtension | string |
+| apiVersion | 2015-06-15 | 日期 |
+| publisher | Microsoft.Compute | 字串 |
+| 類型 | CustomScriptExtension | 字串 |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (例如) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (範例) | 123456789 | 32 位元整數 |
-| commandToExecute (例如) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| storageAccountName (例如) | examplestorageacct | string |
-| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (例如) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 字串 |
+| storageAccountName (例如) | examplestorageacct | 字串 |
+| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字串 |
 
 >[!NOTE]
 >這些屬性名稱會區分大小寫。 為了避免發生部署問題，請使用如下所示的名稱。
@@ -161,7 +161,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>使用多個腳本
 
-在此範例中，您有三個用來建立伺服器的腳本。 **CommandToExecute**會呼叫第一個腳本，然後您就可以選擇其他的呼叫方式。 例如，您可以擁有控制執行的主要腳本，其中包含正確的錯誤處理、記錄和狀態管理。 腳本會下載到本機電腦，以便執行。 例如，在`1_Add_Tools.ps1`中，您`2_Add_Features.ps1`可以藉`.\2_Add_Features.ps1`由將加入至腳本來呼叫，並針對您在中`$settings`定義的其他腳本重複此程式。
+在此範例中，您有三個用來建立伺服器的腳本。 **CommandToExecute**會呼叫第一個腳本，然後您就可以選擇其他的呼叫方式。 例如，您可以擁有控制執行的主要腳本，其中包含正確的錯誤處理、記錄和狀態管理。 腳本會下載到本機電腦，以便執行。 例如，在 `1_Add_Tools.ps1` 您會藉由將 `.\2_Add_Features.ps1` 新增至腳本來呼叫 `2_Add_Features.ps1`，並針對您在 `$settings`中定義的其他腳本重複此程式。
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -215,7 +215,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-invoke-webrequest"></a>使用 Invoke-WebRequest
 
-如果您在腳本中使用[WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) ，您必須指定參數`-UseBasicParsing` ，否則當您檢查詳細狀態時，將會收到下列錯誤：
+如果您在腳本中使用[WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) ，您必須 `-UseBasicParsing` 指定參數，否則當您檢查詳細狀態時，將會收到下列錯誤：
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -255,7 +255,7 @@ $vm | Update-AzureVM
 
 ### <a name="troubleshoot"></a>疑難排解
 
-使用 Azure PowerShell 模組，就可以從 Azure 入口網站擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請執行下列命令：
+從 Azure 入口網站及透過使用 Azure PowerShell 模組，都可擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請執行下列命令：
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name myExtensionName
@@ -277,13 +277,13 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 執行 `commandToExecute` 命令時，擴充功能會將此目錄 (例如 `...\Downloads\2`) 設定為目前的工作目錄。 此程序可讓您使用相對路徑找出透過 `fileURIs` 屬性下載的檔案位置。 如需範例，請參閱下表。
 
-由於絕對下載路徑會隨時間而改變，最好盡可能在 `commandToExecute` 字串中選擇相對的指令碼/檔案路徑。 例如:
+由於絕對下載路徑會隨時間而改變，最好盡可能在 `commandToExecute` 字串中選擇相對的指令碼/檔案路徑。 例如︰
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-第一個 URI 區段之後的路徑資訊會保留給透過`fileUris`屬性清單下載的檔案。  如下表所示，下載的檔案會對應到下載的子目錄，以反映 `fileUris` 值結構。  
+第一個 URI 區段之後的路徑資訊會保留給透過 `fileUris` 屬性清單下載的檔案。  如下表所示，下載的檔案會對應到下載的子目錄，以反映 `fileUris` 值結構。  
 
 #### <a name="examples-of-downloaded-files"></a>下載檔案的範例
 

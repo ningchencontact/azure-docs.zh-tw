@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792846"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074228"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure 監視器進行大規模監視
 
@@ -209,7 +209,7 @@ Azure Resource Manager 資源（例如復原服務保存庫）會記錄排程作
 保存庫中的診斷資料會抽出至 Log Analytics 工作區，並有一些延遲。 每個事件從復原服務保存庫推送後的*20 到30分鐘*都會抵達 Log Analytics 工作區。 以下是延遲的進一步詳細資料：
 
 - 在所有解決方案中，備份服務的內建警示會在建立後立即推送。 因此，它們通常會在20到30分鐘後出現在 Log Analytics 工作區中。
-- 在所有解決方案中，臨機操作備份作業和還原作業會在*完成*時立即推送。
+- 在所有解決方案中，隨選備份作業和還原作業會在*完成*時立即推送。
 - 對於 SQL 備份以外的所有解決方案，排程的備份作業會在*完成*時立即推送。
 - 針對 SQL 備份，因為記錄備份可能每隔15分鐘發生一次，所以所有已完成的排程備份作業（包括記錄）的資訊每隔6小時會進行批次處理和推送。
 - 在所有解決方案中，其他資訊（例如備份專案、原則、復原點、儲存體等等）都會一次推送至少*一次。*

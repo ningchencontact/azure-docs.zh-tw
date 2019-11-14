@@ -1,26 +1,19 @@
 ---
-title: 建立自訂探查 Azure 應用程式閘道-Azure 入口網站 |Microsoft Docs
+title: 使用入口網站建立自訂探查
+titleSuffix: Azure Application Gateway
 description: 了解如何使用入口網站建立應用程式閘道的自訂探查
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 18799d928f7239eea311aa39159bfa0b5416ca1a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821122"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074599"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用入口網站建立應用程式閘道的自訂探查
 

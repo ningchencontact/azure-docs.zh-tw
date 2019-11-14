@@ -1,5 +1,5 @@
 ---
-title: Azure 中的 Windows VM 大小 | Microsoft Docs
+title: Azure 中的 Windows VM 大小
 description: 列出 Azure 中 Windows 虛擬機器的不同可用大小。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 0553255cdcdc37aad4e996e2c6cb22d17e336ef3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3a091b22e09c581f80f5de98ee06335faa596e56
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721525"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066071"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虛擬機器的大小
 
 本文說明可用於執行 Windows 應用程式與工作負載之 Azure 虛擬機器的可用大小及選項。 同時也提供當您規劃使用這些資源時所需注意的部署考量。  本文也適用於 [Linux 虛擬機器](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 
-| 類型                     | 大小           |    說明       |
+| 在系統提示您進行確認時，輸入                     | 大小           |    描述       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [一般用途](sizes-general.md)          | B、Dsv3、Dv3、Dasv4、Dav4、DSv2、Dv2、Av2、DC  | CPU 與記憶體的比例平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 |
 | [計算最佳化](sizes-compute.md)        | Fsv2           | CPU 與記憶體的比例高。 適用於中流量 Web 伺服器、網路設備、批次處理，以及應用程式伺服器。        |

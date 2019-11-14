@@ -1,5 +1,5 @@
 ---
-title: 適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能 | Microsoft Docs
+title: 適用于 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能
 description: 使用虛擬機器擴充功能在 Linux 虛擬機器上部署網路監看員代理程式。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b59e4c570032bdd3341dc7d519f23f4cd86984c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084436"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073041"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>適用於 Linux 的網路監看員代理程式虛擬機器擴充功能
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 [Azure 網路監看員](/azure/network-watcher/)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 Azure 虛擬機器 (VM) 上某些網路監看員功能 (如依需求擷取網路流量) 及其他進階功能，均需要網路監看員代理程式虛擬機器擴充功能。
 
 本文詳述適用於 Linux 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。 安裝代理程式不會讓虛擬機器中斷或需要重新開機。 您可以將延伸模組部署到您部署的虛擬機器中。 若虛擬機器是由 Azure 服務所部署，請檢查服務文件以判斷它是否允許在虛擬機器中安裝延伸模組。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
 下列 Linux 散發套件可設定網路監看員代理程式擴充功能：
 
-| 發佈 | Version |
+| 配送映像 | 版本 |
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 和 8 |
@@ -47,7 +47,7 @@ ms.locfileid: "70084436"
 | CoreOS | 899.17.0+ |
 
 
-### <a name="internet-connectivity"></a>網際網路的連線能力
+### <a name="internet-connectivity"></a>網際網路連線
 
 網路監看員代理程式的某些功能需要虛擬機器連線到網際網路。 若沒有建立傳出的連線，網路監看員代理程式的某些功能可能會有問題或者無法使用。 有關需要代理程式的網路監看員功能詳細資訊，請參閱[網路監看員文件](/azure/network-watcher/)。
 
@@ -75,11 +75,11 @@ ms.locfileid: "70084436"
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 |
+| 名稱 | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| Type | NetworkWatcherAgentLinux |
+| 類型 | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>範本部署

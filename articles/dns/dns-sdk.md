@@ -1,10 +1,11 @@
 ---
-title: 使用 .NET SDK 在 Azure DNS 中建立 DNS 區域和記錄集 | Microsoft Docs
+title: 使用 .NET SDK 建立 DNS 區域和記錄集
+titleSuffix: Azure DNS
 description: 如何使用 .NET SDK 在 Azure DNS 中建立 DNS 區域和記錄集。
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: asudbring
+manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
 ms.devlang: na
@@ -12,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: victorh
-ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: b51dd4ea3b36a9d0420a60883ebc29276a7d6b8a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308938"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076712"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 建立 DNS 區域和記錄集
 
@@ -42,10 +43,10 @@ ms.locfileid: "60308938"
 若要使用 Azure DNS .NET SDK，您需要安裝 **Azure DNS 管理程式庫** NuGet 封裝以及其他必要的 Azure 封裝。
 
 1. 在 **Visual Studio**中，開啟專案或新專案。
-2. 移至 [工具]  **>** [NuGet 封裝管理員]  **>** [管理解決方案的 NuGet 封裝...]  。
-3. 按一下 [瀏覽]  ，啟用 [包括發行前版本]  核取方塊，然後在搜尋方塊中輸入 **Microsoft.Azure.Management.Dns**。
-4. 選取封裝，然後按一下 [安裝]  將它加入至您的 Visual Studio 專案。
-5. 重複上述程序來也會安裝下列套件：**Microsoft.Rest.ClientRuntime.Azure.Authentication**並**Microsoft.Azure.Management.ResourceManager**。
+2. 移至 [工具] **>** [NuGet 封裝管理員] **>** [管理解決方案的 NuGet 封裝...]。
+3. 按一下 [瀏覽]，啟用 [包括發行前版本] 核取方塊，然後在搜尋方塊中輸入 **Microsoft.Azure.Management.Dns**。
+4. 選取封裝，然後按一下 [安裝] 將它加入至您的 Visual Studio 專案。
+5. 重複上述程序以便一併安裝下列封裝︰**Microsoft.Rest.ClientRuntime.Azure.Authentication** 和 **Microsoft.Azure.Management.ResourceManager**。
 
 ## <a name="add-namespace-declarations"></a>新增命名空間宣告
 
@@ -145,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>列出區域和記錄集
 
-若要列出區域，請使用*DnsManagementClient.Zones.List...* 方法，其支援列出指定資源群組中的所有區域，或是指定 Azure 訂用帳戶中的所有區域 (跨資源群組)。若要列出記錄集，請使用 *DnsManagementClient.RecordSets.List...* 方法，其支援列出指定區域中的所有記錄集，或只列出特定類型的記錄集。
+若要列出區域，請使用*DnsManagementClient*方法，其支援列出指定資源群組中的所有區域，或指定 Azure 訂用帳戶中的所有區域（跨資源群組）。若要列出記錄集，請使用*DnsManagementClient*方法，其支援列出指定區域中的所有記錄集，或只有特定類型的記錄集。
 
 請注意，在列出區域和記錄集時，其結果可能會分頁。  下列範例示範如何逐一查看結果頁面 (範例中使用了 '2' 的人為小型頁面大小來強制分頁；實際上應該忽略此參數並使用預設頁面大小)。
 

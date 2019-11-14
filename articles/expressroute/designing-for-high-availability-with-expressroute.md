@@ -1,21 +1,18 @@
 ---
-title: 使用 Azure ExpressRoute 設計高可用性 |Microsoft Docs
+title: Azure ExpressRoute：高可用性的設計
 description: 此頁面提供使用 Azure ExpressRoute 時的高可用性架構建議。
-documentationcenter: na
-services: networking
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
-ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67466655"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076687"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>使用 ExpressRoute 設計高可用性
 
@@ -88,7 +85,7 @@ ExpressRoute 支援透過私用對等互連的 BFD。 BFD 會將 Microsoft Enter
 
 <!--Image References-->
 [1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "使用 ExpressRoute 連接的建議方式"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "次佳的最後英里連線能力"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "最新的最後英里 連線"
 [3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "NAT 選項"
 
 

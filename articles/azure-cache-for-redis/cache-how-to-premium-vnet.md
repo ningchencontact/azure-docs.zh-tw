@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815676"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075052"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Cache for Redis 的虛擬網路支援
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 VNet 是雲端中的私人網路。 當 Azure Cache for Redis 執行個體是以 VNet 設定時，它將無法公開定址，而只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Cache for Redis 執行個體的虛擬網路支援。
@@ -104,24 +104,27 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 #### <a name="outbound-port-requirements"></a>輸出連接埠需求
 
-有七項輸出連接埠需求。
+有九個輸出埠需求。
 
 - 網際網路的所有輸出連線都可以透過用戶端的內部部署審核裝置來進行。
 - 其中的三個連接埠會將流量路由至提供 Azure 儲存體與 Azure DNS 的 Azure 端點。
 - 剩餘的連接埠有數種範圍，且適用於內部 Redis 子網域通訊。 內部 Redis 子網域通訊不需要子網路 NSG 規則。
 
-| 連接埠 | Direction | 傳輸通訊協定 | 用途 | 本機 IP | 遠端 IP |
+| 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
-| 80、443 |傳出 |TCP |Azure 儲存體/PKI 上 Redis 的相依項目 (網際網路) | (Redis 子網路) |* |
-| 53 |傳出 |TCP/UDP |DNS 上 Redis 的相依項目 (網際網路/VNet) | (Redis 子網路) | 168.63.129.16 和 169.254.169.254 <sup>1</sup> ，以及子網<sup>3</sup>的任何自訂 DNS 伺服器 |
-| 8443 |傳出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
-| 10221-10231 |傳出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
-| 20226 |傳出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 13000-13999 |傳出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 15000-15999 |傳出 |TCP |Redis 和異地複寫的內部通訊 | (Redis 子網路) |（Redis 子網）（異地複本對等子網） |
-| 6379-6380 |傳出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 80、443 |輸出 |TCP |Azure 儲存體/PKI 上 Redis 的相依項目 (網際網路) | (Redis 子網路) |* |
+| 443 | 輸出 | TCP | Azure Key Vault 的 Redis 相依性 | (Redis 子網路) | AzureKeyVault <sup>1</sup> |
+| 53 |輸出 |TCP/UDP |DNS 上 Redis 的相依項目 (網際網路/VNet) | (Redis 子網路) | 168.63.129.16 和 169.254.169.254 <sup>2</sup>以及子網<sup>3</sup>的任何自訂 DNS 伺服器 |
+| 8443 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
+| 10221-10231 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
+| 20226 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 13000-13999 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 15000-15999 |輸出 |TCP |Redis 和異地複寫的內部通訊 | (Redis 子網路) |（Redis 子網）（異地複本對等子網） |
+| 6379-6380 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
 
-<sup>1</sup>這些由 Microsoft 所擁有的 IP 位址是用來處理 Azure DNS 的主機 VM。
+<sup>1</sup>您可以使用服務標記 ' AzureKeyVault ' 搭配 Resource Manager 網路安全性群組。
+
+<sup>2</sup>這些由 Microsoft 所擁有的 IP 位址可用來處理 Azure DNS 的主機 VM。
 
 <sup>3</sup>不需要有自訂 dns 伺服器的子網，或忽略自訂 dns 的較新 redis 快取。
 
@@ -133,18 +136,18 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 有八項輸入連接埠範圍需求。 在這些範圍的輸入要求如下：從相同 VNET 中裝載的其他服務輸入，或是 Redis 子網路內部通訊。
 
-| 連接埠 | Direction | 傳輸通訊協定 | 用途 | 本機 IP | 遠端 IP |
+| 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |傳入 |TCP |對 Redis 進行的用戶端通訊，Azure 負載平衡 | (Redis 子網路) | （Redis 子網），虛擬網路，Azure Load Balancer <sup>2</sup> |
-| 8443 |傳入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 8500 |傳入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure Load Balancer |
-| 10221-10231 |傳入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路)，Azure Load Balancer |
-| 13000-13999 |傳入 |TCP |對 Redis 叢集的用戶端通訊，Azure 負載平衡 | (Redis 子網路) |虛擬網路，Azure Load Balancer |
-| 15000-15999 |傳入 |TCP |Redis 叢集、Azure 負載平衡和異地複寫的用戶端通訊 | (Redis 子網路) |虛擬網路、Azure Load Balancer、（異地複本對等子網） |
-| 16001 |傳入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure Load Balancer |
-| 20226 |傳入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 6379, 6380 |輸入 |TCP |對 Redis 進行的用戶端通訊，Azure 負載平衡 | (Redis 子網路) | （Redis 子網），虛擬網路，Azure Load Balancer <sup>1</sup> |
+| 8443 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 8500 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure 負載平衡器 |
+| 10221-10231 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路)，Azure Load Balancer |
+| 13000-13999 |輸入 |TCP |對 Redis 叢集的用戶端通訊，Azure 負載平衡 | (Redis 子網路) |虛擬網路，Azure Load Balancer |
+| 15000-15999 |輸入 |TCP |Redis 叢集、Azure 負載平衡和異地複寫的用戶端通訊 | (Redis 子網路) |虛擬網路、Azure Load Balancer、（異地複本對等子網） |
+| 16001 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure 負載平衡器 |
+| 20226 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
 
-<sup>2</sup>您可以使用服務標記 ' AzureLoadBalancer ' （Resource Manager）（或適用于傳統的 ' AZURE_LOADBALANCER '）來撰寫 NSG 規則。
+<sup>1</sup>您可以使用服務標記 ' AzureLoadBalancer ' （Resource Manager）（或傳統的 ' AZURE_LOADBALANCER '）來撰寫 NSG 規則。
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>其他 VNET 網路連線需求
 
@@ -166,7 +169,7 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 - [重新啟動](cache-administration.md#reboot)所有的快取節點。 如果無法觸達所有必要的快取相依性連線 (如[輸入連接埠需求](cache-how-to-premium-vnet.md#inbound-port-requirements)和[輸出連接埠需求](cache-how-to-premium-vnet.md#outbound-port-requirements)中所述)，快取將無法順利重新啟動。
 - 一旦快取節點重新啟動 (如 Azure 入口網站中的快取狀態所報告) 後，您可以執行下列測試：
-  - 使用 [tcping](https://www.elifulkerson.com/projects/tcping.php)，從與快取位於相同 VNET 中的電腦偵測快取端點 (使用連接埠 6380)。 例如:
+  - 使用 [tcping](https://www.elifulkerson.com/projects/tcping.php)，從與快取位於相同 VNET 中的電腦偵測快取端點 (使用連接埠 6380)。 例如︰
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -189,7 +192,7 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-如果您無法解析 DNS 名稱，某些用戶端程式庫就會包含像是 `sslHost` 的設定選項，其是由 StackExchange.Redis 用戶端所提供的。 這可讓您覆寫用於憑證驗證的主機名稱。 例如:
+如果您無法解析 DNS 名稱，某些用戶端程式庫就會包含像是 `sslHost` 的設定選項，其是由 StackExchange.Redis 用戶端所提供的。 這可讓您覆寫用於憑證驗證的主機名稱。 例如︰
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -254,4 +257,3 @@ Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使�
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
-

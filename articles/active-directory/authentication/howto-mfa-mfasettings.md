@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569881"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066046"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
 本文可協助您在 Azure 入口網站中管理 Multi-Factor Authentication 設定。 本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。 並非所有功能都適用于每個 Azure 多重要素驗證版本。
 
-藉由流覽至**Azure Active Directory** > **MFA**，您可以從 Azure 入口網站存取 Azure 多重要素驗證的相關設定。
+您可以流覽至**Azure Active Directory** > 的**安全性** > **MFA**，以從 Azure 入口網站存取 Azure 多重要素驗證的相關設定。
 
 ![Azure 入口網站 - Azure AD Multi-Factor Authentication 設定](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -30,12 +30,12 @@ ms.locfileid: "73569881"
 
 其中某些設定適用於 MFA 伺服器、Azure MFA 或兩者。
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | ------- | ----------- |
 | 帳戶鎖定 | 如果連續太多次驗證嘗試都遭到拒絕，就會在 Multi-Factor Authentication 服務中暫時鎖定帳戶。 這項功能僅適用於輸入 PIN 以進行驗證的使用者。 (MFA 伺服器) |
 | [封鎖/解除封鎖使用者](#block-and-unblock-users) | 用來封鎖特定使用者無法接收多重要素驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者自封鎖的時刻起，將持續封鎖 90 天。 |
 | [詐騙警示](#fraud-alert) | 設定使用者報告詐騙驗證要求的能力相關設定 |
-| [Notifications](#notifications) | 啟用 MFA 伺服器中事件的通知。 |
+| [通知](#notifications) | 啟用 MFA 伺服器中事件的通知。 |
 | [OATH 權杖](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 用於雲端式 Azure MFA 環境，以管理使用者的 OATH 權杖。 |
 | [通話設定](#phone-call-settings) | 設定雲端和內部部署環境之通話和問候語相關的設定。 |
 | 提供者 | 這會顯示任何可能已與您帳戶建立關聯的現有驗證提供者。 自 2018 年 9 月 1 日起，可能無法建立新的驗證提供者 |
@@ -44,7 +44,7 @@ ms.locfileid: "73569881"
 
 本節中的設定僅適用於 MFA 伺服器。
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | ------- | ----------- |
 | 伺服器設定 | 下載 MFA 伺服器並產生啟用認證，以初始化您的環境 |
 | [一次性略過](#one-time-bypass) | 允許使用者在有限時間內不需要執行雙步驟驗證即可驗證。 |
@@ -62,7 +62,7 @@ ms.locfileid: "73569881"
 ### <a name="block-a-user"></a>封鎖使用者
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA] > [封鎖/解除封鎖使用者]。
+2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **封鎖/解除封鎖使用者**。
 3. 選取 [新增] 以封鎖使用者。
 4. 選取 [複寫群組]。 將 [封鎖的使用者名稱] 輸入為**username\@domain.com**。 在 [原因] 欄位中輸入註解。
 5. 選取 [新增] 以完成封鎖使用者。
@@ -70,7 +70,7 @@ ms.locfileid: "73569881"
 ### <a name="unblock-a-user"></a>解除封鎖使用者
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA] > [封鎖/解除封鎖使用者]。
+2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **封鎖/解除封鎖使用者**。
 3. 在要解除封鎖之使用者旁的 [動作] 資料行中，選取 [解除封鎖]。
 4. 在 [解除封鎖的原因] 欄位中輸入註解。
 5. 選取 [解除封鎖] 以完成解除封鎖使用者。
@@ -82,7 +82,7 @@ ms.locfileid: "73569881"
 ### <a name="turn-on-fraud-alerts"></a>開啟詐騙警示
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA] > [詐騙警示]。
+2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **詐騙警示**。
 3. 將 [允許使用者提交詐騙警示] 設定設為 [開啟]。
 4. 選取 [ **儲存**]。
 
@@ -124,7 +124,7 @@ ms.locfileid: "73569881"
 開始之前，請留意下列限制：
 
 * 支援的檔案格式為 .wav 和 .mp3。
-* 檔案大小限制為 5 MB。
+* 檔案大小限制為 1 MB。
 * 驗證訊息應該少於 20 秒。 超過 20 秒的訊息可能會導致驗證失敗。 在訊息結束且驗證逾時之前，使用者可能無法回應。
 
 ### <a name="custom-message-language-behavior"></a>自訂訊息語言行為
@@ -145,7 +145,7 @@ ms.locfileid: "73569881"
 ### <a name="set-up-a-custom-message"></a>設定自訂訊息
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至 [Azure Active Directory] > [MFA] > [通話設定]。
+1. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **撥打電話設定**。
 1. 選取 [新增問候語]。
 1. 選擇問候語的類型。
 1. 選擇語言。
@@ -184,7 +184,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 ### <a name="create-a-one-time-bypass"></a>建立單次許可
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA] > [單次許可]。
+2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **一次性略過**。
 3. 選取 [新增]。
 4. 如有必要，請選取此許可的複寫群組。
 5. 在 [使用者**名稱]\@domain.com**中輸入使用者名稱。 輸入許可需持續的秒數。 輸入許可的原因。
@@ -193,7 +193,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA] > [單次許可]。
+2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **一次性略過**。
 
 ## <a name="caching-rules"></a>快取規則
 
@@ -205,7 +205,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 ### <a name="set-up-caching"></a>設定快取
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA] > [快取規則]。
+2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > 快取**規則**。
 3. 選取 [新增]。
 4. 從下拉式清單中選取 [快取類型]。 輸入**快取秒數**的最大數目。
 5. 如有必要，選取驗證類型並指定應用程式。
@@ -213,9 +213,11 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 
 ## <a name="mfa-service-settings"></a>MFA 服務設定
 
-Azure Multi-Factor Authentication 的應用程式密碼、受信任的 IP、驗證選項和成員多重要素驗證等設定，位於服務設定中。 瀏覽至 [Azure Active Directory] > [MFA] > [開始] > [設定] > [其他雲端式 MFA 設定]，以存取 Azure 入口網站中的服務設定。
+Azure Multi-Factor Authentication 的應用程式密碼、受信任的 IP、驗證選項和成員多重要素驗證等設定，位於服務設定中。 藉由流覽至**Azure Active Directory** > **安全性** > **MFA** ** > 開始使用 > ** **設定** > **其他雲端式 MFA 設定**，即可從 Azure 入口網站存取服務設定。
 
 ![Azure Multi-Factor Authentication 服務設定](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+
+信任的 IP 位址範圍可以是私用或公用。
 
 ## <a name="app-passwords"></a>應用程式密碼
 
@@ -321,7 +323,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 4. 輸入位置的名稱。
 5. 選取 [標記為受信任的位置]。
 6. 輸入 CIDR 表示法中的 IP 範圍，例如 **192.168.1.1/24**。
-7. 選取 [ **建立**]。
+7. 選取 [建立]。
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>使用條件式存取啟用信任的 Ip 功能
 
@@ -366,7 +368,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 使用者將其帳戶註冊進行 Azure Multi-Factor Authentication 時，會在您已啟用的選項中選擇慣用驗證方法。 [對我的帳戶進行雙步驟驗證設定](../user-help/multi-factor-authentication-end-user-first-time.md)中會提供使用者註冊程序的指引。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |:--- |:--- |
 | 電話通話 |撥打自動語音電話。 使用者可接聽電話並按電話鍵盤上的 # 進行驗證。 此電話號碼不會同步到內部部署 Active Directory。 |
 | 電話簡訊 |傳送包含驗證碼的簡訊。 系統會提示使用者在登入介面中輸入這個驗證碼。 此程序稱為「單向 SMS」。 雙向 SMS 表示使用者必須以簡訊回傳特定驗證碼。 雙向 SMS 已淘汰，且在 2018 年 11 月 14 之後不支援。 屆時，已設定雙向 SMS 的使用者將自動切換成_電話通話_驗證。|
@@ -380,7 +382,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面的 [驗證選項] 下，選取/取消選取要提供給使用者的方法。
-6. 按一下 [儲存]。
+6. 按一下 [檔案]。
 
 其他的驗證方法使用方式詳細資料，可在[驗證的方法](concept-authentication-methods.md)一文中找到。
 

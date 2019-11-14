@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720747"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072340"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>開始使用 Azure 成本管理合作夥伴
 
-Azure 成本管理原本就可供已上架客戶至 Microsoft 客戶合約的合作夥伴使用。 本文說明合作夥伴如何使用[Azure 成本管理](https://docs.microsoft.com/azure/cost-management/)功能。 它也會說明合作夥伴如何為其客戶啟用成本管理存取。 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。
+Azure 成本管理原本就適用于已將客戶上架至 Microsoft 客戶合約並已購買 Azure 方案的合作夥伴。 本文說明合作夥伴如何使用[Azure 成本管理](https://docs.microsoft.com/azure/cost-management/)功能。 它也會說明合作夥伴如何為其客戶啟用成本管理存取。 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。
 
 CSP 合作夥伴會使用成本管理來執行下列動作：
 
@@ -37,7 +37,7 @@ CSP 合作夥伴會使用成本管理來執行下列動作：
 
 Azure 成本管理中提供的所有功能也適用于 REST Api。 使用 Api 將成本管理工作自動化。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。 您可以在資源的任何層級上授與存取權，從帳單帳戶或管理群組到您管理應用程式的個別資源群組。 如需啟用和指派帳單帳戶 Azure 成本管理存取權的詳細資訊，請參閱[指派使用者角色和許可權](/partner-center/permissions-overview)。 **全域管理員**和**管理員代理程式**角色可以管理帳單帳戶的成本。
 
@@ -84,7 +84,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。 您�
 
 - 特定篩選的發票
 - Customer
-- 訂用帳戶
+- 訂閱
 - 資源群組
 - 資源
 - Azure 服務
@@ -151,7 +151,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。 您�
 
 下欄欄位可在使用量詳細資料檔案和成本管理 Api 中找到。 您可以使用 [成本分析] 中的 [篩選] 和 [群組依據] 功能，依多個欄位來分析成本。 若要查看完整的欄位清單，請參閱[成本管理資料欄位](understand-cost-mgt-data.md#cost-management-data-fields)。
 
-| 欄位名稱 | 說明 |
+| 欄位名稱 | 描述 |
 | --- | --- |
 | CustomerTenantID | 客戶的訂用帳戶之 Azure Active Directory 租&#39;使用者的識別碼。 |
 | CustomerName | 客戶的訂用帳戶 Azure Active Directory 租使用者&#39;的名稱。 |
@@ -286,7 +286,7 @@ GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccou
 POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-然後，呼叫非同步作業屬性值。 例如：
+然後，呼叫非同步作業屬性值。 例如︰
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview

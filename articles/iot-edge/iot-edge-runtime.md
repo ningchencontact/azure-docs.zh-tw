@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4bdf496995e8b466f1346bfe16365b251c6853c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490428"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076044"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 執行階段和架構
 
@@ -98,6 +98,9 @@ IoT Edge 代理程式是另一個組成 Azure IoT Edge 執行階段的模組。 
    * `on-failure`-如果模組損毀，IoT Edge 代理程式就會重新開機它。 如果模組完全關閉，IoT Edge 代理程式就不會重新啟動它。
    * `on-unhealthy`-如果模組損毀或被視為狀況不良，IoT Edge 代理程式就會重新開機它。
    * `always`-如果模組損毀、被視為狀況不良，或以任何方式關閉，IoT Edge 代理程式就會重新開機它。 
+* **imagePullPolicy** -IoT Edge 代理程式是否會嘗試自動提取模組的最新影像。 如果您未指定值，則預設值為*onCreate*。 可能的值包括： 
+   * `on-create`-啟動模組或根據新的部署資訊清單更新模組時，IoT Edge 代理程式會嘗試從容器登錄提取模組映射。
+   * `never`-IoT Edge 代理程式永遠不會嘗試從容器登錄提取模組映射。 預期的情況是模組映射會在裝置上快取，而任何模組映射更新則會手動進行，或由協力廠商解決方案管理。 
 
 IoT Edge 代理程式會將執行階段回應傳送到 IoT 中樞。 以下是可能回應的清單：
   * 200 - 確定
@@ -109,7 +112,7 @@ IoT Edge 代理程式會將執行階段回應傳送到 IoT 中樞。 以下是�
 
 如需詳細資訊，請參閱[瞭解如何在 IoT Edge 中部署模組及建立路由](module-composition.md)。   
 
-### <a name="security"></a>安全性
+### <a name="security"></a>Security
 
 IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 例如，它會執行像是啟動前先驗證模組映像的動作。 
 

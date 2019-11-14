@@ -1,5 +1,5 @@
 ---
-title: 適用於 Windows 的 Azure 磁碟加密 | Microsoft Docs
+title: Windows 適用的 Azure 磁碟加密
 description: 使用虛擬機器擴充功能將 Azure 磁碟加密部署至 Windows 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 056bd1293e0593a7fb7f9909cfd85043577686c4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901342"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073217"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>適用於 Windows 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 Azure 磁碟加密會利用 BitLocker 在執行 Windows 的 Azure 虛擬機器上提供完整的磁碟加密。  此解決方案與 Azure Key Vault 整合，可讓您管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與祕密。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如需必要條件的完整清單，請參閱[適用于 Linux vm 的 Azure 磁碟加密](../linux/disk-encryption-overview.md)，特別是下列各節：
 
@@ -134,23 +134,23 @@ Windows AzureDiskEncryption 擴充功能有兩個架構：2.2 版，這是較新
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| 類型 | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1.1、2。2 | string |
-| （1.1 架構）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| （1.1 架構）AADClientSecret | password | string |
-| （1.1 架構）AADClientCertificate | thumbprint | string |
+| apiVersion | 2015-06-15 | 日期 |
+| publisher | Microsoft.Azure.Security | 字串 |
+| 類型 | AzureDiskEncryptionForLinux | 字串 |
+| typeHandlerVersion | 1.1、2。2 | 字串 |
+| （1.1 架構）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| （1.1 架構）AADClientSecret | password | 字串 |
+| （1.1 架構）AADClientCertificate | thumbprint | 字串 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 字典 |
-| EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | string |
-| KeyEncryptionKeyURL | URL | string |
-| KeyVaultURL | URL | string |
-| 選擇性通行 | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | 作業系統、資料、全部 | string |
+| EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | 字串 | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | 字串 |
+| KeyEncryptionKeyURL | url | 字串 |
+| KeyVaultURL | url | 字串 |
+| (選擇性) Passphrase | password | 字串 | 
+| SequenceVersion | uniqueidentifier | 字串 |
+| VolumeType | 作業系統、資料、全部 | 字串 |
 
 ## <a name="template-deployment"></a>範本部署
 如需範本部署的範例，請參閱[從資源庫映像建立新的加密 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)。

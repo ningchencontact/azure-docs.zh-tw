@@ -1,5 +1,5 @@
 ---
-title: 針對 Windows VM 擴充功能的失敗進行疑難排解s | Microsoft Docs
+title: 針對 Windows VM 擴充功能失敗進行疑難排解
 description: 了解如何針對 Azure Windows VM 擴充功能的失敗進行疑難排解
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 6108b3c8d4f4c5c93bc2543042294bc8167d4dd9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084300"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073662"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>針對 Azure Windows VM 擴充功能的失敗進行疑難排解
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "70084300"
 ## <a name="viewing-extension-status"></a>檢視擴充功能狀態
 Azure Resource Manager 範本可以從 Azure PowerShell 執行。 一旦執行範本之後，就可以從 Azure 資源總管或命令列工具檢視延伸模組狀態。
 
-請看以下範例：
+下列是一個範例：
 
 Azure PowerShell：
 
@@ -61,7 +61,7 @@ Azure PowerShell：
 ## <a name="troubleshooting-extension-failures"></a>針對擴充功能失敗進行疑難排解
 ### <a name="rerun-the-extension-on-the-vm"></a>在 VM 上重新執行擴充功能
 如果您使用自訂指令碼擴充功能在 VM 上執行指令碼，有時候可能會遇到雖然成功建立了 VM 但指令碼卻失敗的錯誤。 在這樣的情況下，若要從此錯誤中復原，建議您移除延伸模組並再次重新執行範本。
-注意:未來將增強這項功能，以移除對解除安裝延伸模組的需求。
+請注意：未來將增強這項功能，以移除對解除安裝延伸模組的需求。
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>從 Azure PowerShell 移除擴充功能
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"

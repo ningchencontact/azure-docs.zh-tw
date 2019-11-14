@@ -1,7 +1,7 @@
 ---
-title: 使用 REST API 建立 Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: 了解如何使用 REST API 建立 Azure Load Balancer。
+title: 使用 REST API 建立負載平衡器
+titleSuffix: Azure Load Balancer
+description: 在本文中，您將瞭解如何使用 REST API 建立 Azure Load Balancer。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275549"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077083"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>使用 REST API 建立 Azure 基本負載平衡器
 
-Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡器前端的新輸入流程，分送給各個後端集區執行個體。 Load Balancer 有兩種 SKU：基本和標準。 若要了解兩個 SKU 版本之間的差異，請參閱 [Load Balancer SKU 比較](load-balancer-overview.md#skus)。
+Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡器前端的新輸入流程，分送給各個後端集區執行個體。 負載平衡器有兩種 SKU：基本和標準。 若要了解兩個 SKU 版本之間的差異，請參閱 [Load Balancer SKU 比較](load-balancer-overview.md#skus)。
  
 此操作說明示範如何使用 [Azure REST API](/rest/api/azure/) 建立 Azure 基本負載平衡器，協助在 Azure 虛擬網路內的多個 VM 間平衡連入要求的負載。 在 [Azure Load Balancer REST 參考](/rest/api/load-balancer/)中可取得完整參考文件和其他範例。
  
@@ -33,38 +33,38 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```
 ### <a name="uri-parameters"></a>URI 參數
 
-|名稱  |在  |必要項 |Type |描述 |
+|名稱  |在  |必要 |在系統提示您進行確認時，輸入 |描述 |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   string      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
-|resourceGroupName     |     path    | True        |  string       |   資源群組的名稱。     |
-|loadBalancerName     |  path       |      True   |    string     |    負載平衡器的名稱。    |
-|api-version    |   query     |  True       |     string    |  用戶端 API 版本。      |
+|subscriptionId   |  路徑       |  true       |   字串      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
+|resourceGroupName     |     路徑    | true        |  字串       |   資源群組的名稱。     |
+|loadBalancerName     |  路徑       |      true   |    字串     |    負載平衡器的名稱。    |
+|api-version    |   query     |  true       |     字串    |  用戶端 API 版本。      |
 
 
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 唯一必要的參數是 `location`。 如果您未定義 *SKU* 版本，預設會建立基本負載平衡器。  使用[選擇性參數](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)來自訂負載平衡器。
 
-| 名稱 | Type | 描述 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
 | :--- | :--- | :---------- |
-| location | string | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
+| location | 字串 | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>範例：建立及更新基本負載平衡器
 
 在此範例中，請先建立基本負載平衡器及其資源。 接下來，您會設定負載平衡器資源，包括前端 IP 組態、後端位址集區、負載平衡規則、健康情況探查，以及輸入 NAT 規則。
 
-使用以下範例建立負載平衡器之前，請先建立名為 vnetlb  的虛擬網路，其在 [美國東部]  位置名為 rg1  的資源群組中有一個名為 subnetlb  的子網路。
+使用以下範例建立負載平衡器之前，請先建立名為 vnetlb 的虛擬網路，其在 [美國東部] 位置名為 rg1 的資源群組中有一個名為 subnetlb 的子網路。
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>步驟 1. 建立基本負載平衡器
-在此步驟中，您會在 [美國東部]  位置的 rg1  資源群組中建立名為 lb  的基本負載平衡器。
+在此步驟中，您會在 [美國東部] 位置的 rg1 資源群組中建立名為 lb 的基本負載平衡器。
 #### <a name="sample-request"></a>範例要求
 
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
-#### <a name="request-body"></a>Request body
+#### <a name="request-body"></a>要求本文
 
   ```JSON
    {
@@ -72,13 +72,13 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
    }
   ```
 ### <a name="step-2-configure-load-balancer-resources"></a>步驟 2. 設定負載平衡器資源
-在這個步驟中，您會設定負載平衡器 Ib  資源，包括前端 IP 組態 (fe-lb  )、後端位址集區 (be-lb  )、負載平衡規則 (rulelb  )、健康情況探查 (probe-lb  )，以及輸入 NAT 規則 (in-nat-rule  )。
+在這個步驟中，您會設定負載平衡器 Ib 資源，包括前端 IP 組態 (fe-lb)、後端位址集區 (be-lb)、負載平衡規則 (rulelb)、健康情況探查 (probe-lb)，以及輸入 NAT 規則 (in-nat-rule)。
 #### <a name="sample-request"></a>範例要求
 
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
-#### <a name="request-body"></a>Request body
+#### <a name="request-body"></a>要求本文
 
   ```JSON
 {

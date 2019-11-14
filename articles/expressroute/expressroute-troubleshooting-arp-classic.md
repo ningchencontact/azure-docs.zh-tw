@@ -1,5 +1,5 @@
 ---
-title: 取得 ARP 資料表- 針對 ExpressRoute 問題進行疑難排解：傳統：Azure | Microsoft Docs
+title: Azure ExpressRoute： ARP 資料表-疑難排解：傳統
 description: 此頁面提供指示，說明如何取得適用於 ExpressRoute 線路 的 ARP 資料表 - 傳統部署模型。
 services: expressroute
 author: ganesr
@@ -7,17 +7,16 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.custom: seodec18
-ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c223e3802d499e002b12580b17cb9ee3f1bea97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883091"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076619"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>在傳統部署模型中取得 ARP 表格
 > [!div class="op_single_selector"]
-> * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - 資源管理員](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - 傳統](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
@@ -54,7 +53,7 @@ ARP 表格可協助您驗證第 2 層組態，並針對基本的第 2 層連線�
 繼續操作之前，請確定您已備妥以下必要條件：
 
 * 至少使用一個對等互連設定的有效 ExpressRoute 線路。 線路必須由連線提供者完全設定。 您 (或您的連線提供者) 必須在這個線路上至少設定一個對等互連 (Azure 私用、Azure 公用或 Microsoft)。
-* 用來設定對等互連 (Azure 私用、Azure 公用和 Microsoft) 的 IP 位址範圍。 檢閱中的 IP 位址指派範例[ExpressRoute 路由需求頁面](expressroute-routing.md)以了解如何將 IP 位址對應到在您這端和 ExpressRoute 端上的介面。 您可以藉由檢閱 [ExpressRoute 對等互連組態頁面](expressroute-howto-routing-classic.md)來取得對等互連組態的相關資訊。
+* 用來設定對等互連 (Azure 私用、Azure 公用和 Microsoft) 的 IP 位址範圍。 請參閱[expressroute 路由需求頁面](expressroute-routing.md)中的 ip 位址指派範例，以瞭解如何將 ip 位址對應到您端和 ExpressRoute 端上的介面。 您可以藉由檢閱 [ExpressRoute 對等互連組態頁面](expressroute-howto-routing-classic.md)來取得對等互連組態的相關資訊。
 * 由網路團隊或連線提供者所提供的資訊，其與這些 IP 位址搭配使用之介面的 MAC 位址相關。
 * 適用於 Azure 的最新 Windows PowerShell 模組 (1.50 或更新版本)。
 

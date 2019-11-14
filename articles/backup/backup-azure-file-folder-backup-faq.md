@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c65c04a67b92642d3664293dd666236919142f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012144"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074202"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>備份檔案和資料夾的相關常見問題
 
@@ -130,7 +130,7 @@ MARS 代理程式依賴 NTFS，並允許檔案名/路徑中[支援的字元](/wi
   Net start obengine
   ```
 
-6. 執行臨機操作備份。 使用新位置成功完成備份之後，您就可以移除原始的快取資料夾。
+6. 執行隨選備份。 使用新位置成功完成備份之後，您就可以移除原始的快取資料夾。
 
 ### <a name="where-should-the-cache-folder-be-located"></a>快取資料夾的所在位置？
 

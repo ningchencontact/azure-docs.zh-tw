@@ -1,24 +1,25 @@
 ---
-title: 使用 Azure 應用程式閘道來管理多租使用者應用程式（例如 App service web apps）的流量-入口網站
+title: 使用入口網站管理多租使用者應用程式的流量
+titleSuffix: Azure Application Gateway
 description: 本文提供如何在現有或新的應用程式閘道上，將 Azure App 服務 web 應用程式設定為後端集區成員的指導方針。
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68370422"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075169"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>透過應用程式閘道設定 App Service
 
-由於 app service 是多租使用者服務，而不是專用的部署，因此它會在連入要求中使用主機標頭，以將要求解析為正確的 app service 端點。 通常，應用程式的 DNS 名稱（也就是與 app service 面向的應用程式閘道相關聯的 DNS 名稱）與後端 app 服務的功能變數名稱不同。 因此, 應用程式閘道收到的原始要求中的主機標頭與後端服務的主機名稱不同。 因此, 除非從應用程式閘道到後端的要求中的主機標頭變更為後端服務的主機名稱, 否則多租使用者後端無法將要求解析為正確的端點。
+由於 app service 是多租使用者服務，而不是專用的部署，因此它會在連入要求中使用主機標頭，以將要求解析為正確的 app service 端點。 通常，應用程式的 DNS 名稱（也就是與 app service 面向的應用程式閘道相關聯的 DNS 名稱）與後端 app 服務的功能變數名稱不同。 因此，應用程式閘道收到的原始要求中的主機標頭與後端服務的主機名稱不同。 因此，除非從應用程式閘道到後端的要求中的主機標頭變更為後端服務的主機名稱，否則多租使用者後端無法將要求解析為正確的端點。
 
-應用程式閘道提供一個稱為`Pick host name from backend address`的交換器，其會在要求從應用程式閘道路由傳送至後端時，以後端的主機名稱覆寫要求中的主機標頭。 這項功能可支援多租使用者後端，例如 Azure app service 和 API 管理。 
+應用程式閘道提供稱為 `Pick host name from backend address` 的交換器，會在要求從應用程式閘道路由傳送至後端時，以後端的主機名稱覆寫要求中的主機標頭。 這項功能可支援多租使用者後端，例如 Azure app service 和 API 管理。 
 
 在本文中，您將了解：
 
@@ -27,7 +28,7 @@ ms.locfileid: "68370422"
 > - 建立後端集區，並在其中新增 App Service
 > - 建立 HTTP 設定和自訂探查並啟用「挑選主機名稱」交換器
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 應用程式閘道：如果您沒有現有的應用程式閘道，請參閱如何[建立應用程式閘道](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 - App service：如果您沒有現有的 App service，請參閱[app service 檔](https://docs.microsoft.com/azure/app-service/)。
@@ -47,7 +48,7 @@ ms.locfileid: "68370422"
    ![App service 後端](./media/configure-web-app-portal/backendpool.png)
    
    > [!NOTE]
-   > 下拉式清單只會填入與您的應用程式閘道位於相同訂用帳戶中的應用程式服務。 如果您想要使用的應用程式服務與應用程式閘道的訂用帳戶不同**應用程式服務**，請選擇 [ **IP 位址或主機名稱**] 選項，然後在 [**目標**] 下拉式清單中輸入下列主機名稱（範例）。 azurewebsites.net）。
+   > 下拉式清單只會填入與您的應用程式閘道位於相同訂用帳戶中的應用程式服務。 如果您想要使用的應用程式服務與應用程式閘道的訂用帳戶不同，請選擇 [ **IP 位址或主機名稱**] 選項並輸入主機名稱（例如，），而不是在 [**目標**] 下拉式清單中選擇 [**應用程式服務**]。 azurewebsites.net）。
 
 ## <a name="create-http-settings-for-app-service"></a>建立 App service 的 HTTP 設定
 
@@ -60,11 +61,11 @@ ms.locfileid: "68370422"
    > [!NOTE]
    > 如果您選取 [HTTPS]，則不需要上傳任何驗證憑證或受信任的根憑證，即可將 app service 後端列入允許清單，因為 app service 是受信任的 Azure 服務。
 
-4. 勾選 用於**App Service**的方塊。 請注意，和`Create a probe with pick host name from backend address` `Pick host name from backend address`參數會自動啟用。`Pick host name from backend address` 將要求從應用程式閘道路由傳送至後端時，會以後端的主機名稱覆寫要求中的主機標頭。  
+4. 勾選 用於**App Service**的方塊。 請注意，`Create a probe with pick host name from backend address` 和 `Pick host name from backend address` 參數會自動啟用。`Pick host name from backend address` 將要求從應用程式閘道路由傳送至後端時，會以後端的主機名稱覆寫要求中的主機標頭。  
 
-   `Create a probe with pick host name from backend address`會自動建立健康狀態探查，並將其與此 HTTP 設定產生關聯。 您不需要為此 HTTP 設定建立任何其他健全狀況探查。 您可以檢查是否已在健康情況探查清單<HTTP Setting name>中新增名稱<Unique GUID>為的新探查，而且它已經有參數`Pick host name from backend http settings enabled`。
+   `Create a probe with pick host name from backend address` 會自動建立健康狀態探查，並將其與此 HTTP 設定產生關聯。 您不需要為此 HTTP 設定建立任何其他健全狀況探查。 您可以檢查是否已在健康狀態探查清單中新增名稱為 <HTTP Setting name><Unique GUID> 的新探查，而且已經有參數 `Pick host name from backend http settings enabled`。
 
-   如果您已經有一或多個用於 App service 的 HTTP 設定，而這些 HTTP 設定使用的通訊協定與您在所建立的相同， `Create a probe with pick host name from backend address`則您會看到一個下拉式清單，供您選取其中一個 c自訂探查。 這是因為應用程式服務已經有 HTTP 設定，因此也有一個具有交換器`Pick host name from backend http settings enabled`的健全狀況探查。 從下拉式清單中選擇自訂探查。
+   如果您已經有一或多個用於 App service 的 HTTP 設定，而且這些 HTTP 設定使用的通訊協定與您在所建立的相同，而不是 `Create a probe with pick host name from backend address` 參數，則您會看到一個下拉式清單，供您選取其中一個自訂探查。 這是因為應用程式服務已有 HTTP 設定，因此也會存在具有參數 `Pick host name from backend http settings enabled` 的健全狀況探查。 從下拉式清單中選擇自訂探查。
 
 5. 按一下 **[確定]** 以建立 HTTP 設定。
 
@@ -90,7 +91,7 @@ ms.locfileid: "68370422"
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>重新導向至 app service 的相對路徑時的其他設定
 
-當 app service 將重新導向回應傳送至用戶端以重新導向至其相對路徑（例如，從 contoso.azurewebsites.net/path1 重新導向至 contoso.azurewebsites.net/path2）時，它會在其回應的位置標頭中使用相同的主機名稱從應用程式閘道收到要求中的一個。 因此，用戶端會直接向 contoso.azurewebsites.net/path2 提出要求，而不是透過應用程式閘道（contoso.com/path2）。 不需要略過應用程式閘道。
+當 app service 將重新導向回應傳送至用戶端以重新導向至其相對路徑（例如，從 contoso.azurewebsites.net/path1 重新導向至 contoso.azurewebsites.net/path2）時，它會在其回應的位置標頭中使用相同的主機名稱，如同它從應用程式閘道收到的要求。 因此，用戶端會直接向 contoso.azurewebsites.net/path2 提出要求，而不是透過應用程式閘道（contoso.com/path2）。 不需要略過應用程式閘道。
 
 如果您使用的是，應用程式服務必須將重新導向回應傳送至用戶端的案例，請執行[額外的步驟來重寫 location 標頭](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration)。
 

@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure VM 的 Chef 擴充功能 | Microsoft Docs
+title: 適用于 Azure Vm 的 Chef 擴充功能
 description: 使用 Chef VM Extension，將 Chef Client 部署至虛擬機器。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169139"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073193"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Chef VM Extension
 
 Chef 軟體是適用於 Linux 和 Windows 的 DevOps 自動化平台，而 Windows 同時啟用實體和虛擬伺服器組態的管理。 Chef VM Extension 是可以在虛擬機器上啟用 Chef 的擴充功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
 Chef VM Extension 在 Azure 中所有[擴充功能支援的作業系統](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)上，都獲得支援。
 
-### <a name="internet-connectivity"></a>網際網路的連線能力
+### <a name="internet-connectivity"></a>網際網路連線
 
 Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從內容傳遞網路 (CDN) 擷取 Chef Client 承載。  
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 會顯示 Chef VM Extension 的結構描述。 擴充功能至少需要 Chef Server URL、驗證用戶端名稱和 Chef Server 的驗證金鑰；您可以在 starter-kit.zip (安裝 [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) 時下載的檔案) 中的 `knife.rb` 檔案或獨立 [Chef Server](https://downloads.chef.io/chef-server) 中找到這些值。 因為驗證金鑰應該視為機密資料，所以應該在 **protectedSettings** 元素底下設定驗證金鑰，這表示它只能在目標虛擬機器上解密。
+下列 JSON 會顯示 Chef VM Extension 的結構描述。 擴充功能至少需要 Chef Server URL、驗證用戶端名稱和 Chef Server 的驗證金鑰；您可以在 starter-kit.zip (安裝 `knife.rb`Chef Automate[ 時下載的檔案) 中的 ](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) 檔案或獨立 [Chef Server](https://downloads.chef.io/chef-server) 中找到這些值。 因為驗證金鑰應該視為機密資料，所以應該在 **protectedSettings** 元素底下設定驗證金鑰，這表示它只能在目標虛擬機器上解密。
 
 ```json
 {
@@ -67,26 +67,26 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ### <a name="core-property-values"></a>核心屬性值
 
-| Name | 值 / 範例 | 資料類型
+| 名稱 | 值 / 範例 | 資料類型
 | ---- | ---- | ----
-| apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| 型別 | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | string (double) |
+| apiVersion | `2017-12-01` | 字串 (日期) |
+| publisher | `Chef.Bootstrap.WindowsAzure` | 字串 |
+| 類型 | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | 字串 |
+| typeHandlerVersion | `1210.12` | 字串 (雙精確度) |
 
 ### <a name="settings"></a>設定
 
-| Name | 值 / 範例 | 資料類型 | 必要項？
+| 名稱 | 值 / 範例 | 資料類型 | 必要？
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
-| settings/runlist | `recipe[mycookbook::default]` | string | Y |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 字串 (url) | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | 字串 | Y |
+| settings/runlist | `recipe[mycookbook::default]` | 字串 | Y |
 
 ### <a name="protected-settings"></a>受保護的設定
 
-| Name | 範例 | 資料類型 | 必要項？
+| 名稱 | 範例 | 資料類型 | 必要？
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 字串 | Y |
 
 <!--
 ### Linux-specific settings
@@ -110,7 +110,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-Azure CLI 可以用來將 Chef VM Extension 部署到現有的 VM。 使用您驗證金鑰的內容 (此檔案的副檔名是 `.pem`) 來取代 **validation_key**。  使用入門套件中 `knife.rb` 檔案的值，來取代 **validation_client_name**、**chef_server_url** 和 **run_list**。
+Azure CLI 可以用來將 Chef VM Extension 部署到現有的 VM。 使用您驗證金鑰的內容 (此檔案的副檔名是 **) 來取代** validation_key`.pem`。  使用入門套件中 **檔案的值，來取代**validation_client_name **、** chef_server_url**和**run_list`knife.rb`。
 
 ```azurecli
 az vm extension set \

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中跨租使用者共用資源庫映射 |Microsoft Docs
+title: 在 Azure 中跨租使用者共用資源庫映射
 description: 瞭解如何使用共用映射資源庫跨 Azure 租使用者共用 VM 映射。
 services: virtual-machines-windows
 author: cynthn
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: 6bf627b5456cbd878580d7b346536c98a513ca6a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903699"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065507"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>跨 Azure 租使用者共用資源庫 VM 映射
 

@@ -1,7 +1,6 @@
 ---
-title: Azure Load Balancer 中的輸出規則
-titlesuffix: Azure Load Balancer
-description: 使用輸出規則來定義輸出網路位址轉譯
+title: 輸出規則-Azure Load Balancer
+description: 透過此學習路徑，開始使用輸出規則來定義輸出網路位址轉譯。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497988"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075893"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -148,7 +147,7 @@ disableOutboundSNAT 參數預設為 false，這表示負載平衡規則**確實*
 
 ### <a name="groom"></a> 清理與一組特定公用 IP 位址的輸出連線
 
-您可以使用輸出規則來清理似乎源自一組特定公用 IP 位址的輸出連線，以簡化白名單情節。  此來源公用 IP 位址可以與負載平衡規則所使用的來源公用 IP 位址相同，或與負載平衡規則所使用的一組不同公用 IP 位址。  
+您可以使用輸出規則來清理似乎源自一組特定公用 IP 位址的輸出連線，以簡化允許清單情節。  此來源公用 IP 位址可以與負載平衡規則所使用的來源公用 IP 位址相同，或與負載平衡規則所使用的一組不同公用 IP 位址。  
 
 1. 建立[公用 IP 首碼](https://aka.ms/lbpublicipprefix) (或從公用 IP 首碼的公用 IP 位址)
 2. 建立公用標準 Load Balancer

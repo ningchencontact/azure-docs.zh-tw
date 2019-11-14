@@ -1,19 +1,20 @@
 ---
-title: 快速入門-使用 Azure 應用程式閘道設定端對端 SSL 加密-Azure 入口網站 |Microsoft Docs
+title: 使用入口網站設定端對端 SSL 加密
+titleSuffix: Azure Application Gateway
 description: 瞭解如何使用 Azure 入口網站來建立具有端對端 SSL 加密的應用程式閘道。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243674"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075131"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>透過入口網站使用應用程式閘道設定端對端 SSL
 
@@ -22,7 +23,7 @@ ms.locfileid: "72243674"
 > [!NOTE]
 > 應用程式閘道 v2 SKU 需要受信任的根憑證，才能啟用端對端設定。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -66,7 +67,7 @@ ms.locfileid: "72243674"
 
    ![根憑證](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
-8. 選取 [儲存]。
+8. 選取 [ **儲存**]。
 
 ## <a name="enable-end-to-end-ssl-for-an-existing-application-gateway"></a>針對現有的應用程式閘道啟用端對端 SSL
 
@@ -118,9 +119,9 @@ ms.locfileid: "72243674"
 
    ![新增受信任的根憑證](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-8. 選取 [儲存]。
+8. 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 以應用程式閘道管理網路流量](./tutorial-manage-web-traffic-cli.md)
+> [使用 Azure CLI 透過應用程式閘道管理網路流量](./tutorial-manage-web-traffic-cli.md)

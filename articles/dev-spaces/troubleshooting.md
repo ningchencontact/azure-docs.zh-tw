@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 0afdc0ac246e4cacbd4f45cca36c3c57b1c26e02
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005983"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072200"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -94,9 +94,13 @@ azure-cli                         2.0.60 *
 
 若要修正此問題，請將[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)安裝更新至2.0.63 或更新版本。 此更新將會解決您在執行 `az aks use-dev-spaces`時所收到的錯誤訊息。 或者，您可以繼續使用目前版本的 Azure CLI 和 Azure Dev Spaces CLI。
 
-### <a name="aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>已啟用 API 伺服器授權 IP 位址範圍的 AKS 叢集
+### <a name="error-unable-to-reach-kube-apiserver"></a>「無法到達 kube-kube-apiserver」錯誤
 
-如果您的 AKS 叢集已啟用[API 伺服器授權的 IP 位址範圍](../aks/api-server-authorized-ip-ranges.md)，您也必須[建立](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled)或[更新](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges)叢集，以[允許根據您的區域的其他範圍](https://github.com/Azure/dev-spaces/tree/master/public-ips)。
+當 Azure Dev Spaces 無法連接到 AKS 叢集的 API 伺服器時，您可能會看到此錯誤。 
+
+如果您的 AKS 叢集 API 伺服器的存取權已遭鎖定，或您已為您的 AKS 叢集啟用[API 伺服器授權的 IP 位址範圍](../aks/api-server-authorized-ip-ranges.md)，則您也必須[建立](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled)或[更新](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges)叢集，以[允許根據您的區域的其他範圍](https://github.com/Azure/dev-spaces/tree/master/public-ips)。
+
+執行 kubectl 命令以確定 API 伺服器可供使用。 如果 API 伺服器無法使用，請洽詢 AKS 支援服務，並在 API 伺服器運作時再試一次。
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>準備專案以進行 Azure Dev Spaces 時常見的問題
 

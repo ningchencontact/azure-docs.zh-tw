@@ -1,5 +1,5 @@
 ---
-title: 備份 Azure Stack Vm 中的檔
+title: 備份 Azure Stack Vm 中的檔-Azure 備份
 description: 使用 Azure 備份可備份 Azure Stack 檔案和應用程式，並復原到 Azure Stack 環境。
 ms.reviewer: adigan
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210222"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074101"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>備份 Azure Stack 上的檔案和應用程式
 
@@ -128,7 +128,7 @@ ms.locfileid: "70210222"
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>使用保存庫來檢視 Azure 備份伺服器
 
-若要在 Azure 入口網站中查看 Azure 備份伺服器的實體, 您可以依照下列步驟執行:
+若要在 Azure 入口網站中查看 Azure 備份伺服器的實體，您可以依照下列步驟執行：
 
 1. 開啟復原服務保存庫。
 2. 按一下備份基礎結構。

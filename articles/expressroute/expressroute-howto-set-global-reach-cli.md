@@ -1,5 +1,5 @@
 ---
-title: 設定 ExpressRoute Global Reach：Azure CLI | Microsoft Docs
+title: Azure ExpressRoute：設定 ExpressRoute 全球範圍： CLI
 description: 本文可協助您將 ExpressRoute 線路連結在一起，在內部部署網路之間產生私人網路，並使觸角擴及全球。
 services: expressroute
 author: jaredr80
@@ -7,15 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eda0011ea4d259d0e60cb894c2b42325ddfc2eb7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869973"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076622"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>使用 Azure CLI 中設定 ExpressRoute 觸及全球範圍
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>使用 Azure CLI 來設定 ExpressRoute Global 觸及
 
 本文可協助您使用 Azure CLI 設定 Azure ExpressRoute Global Reach。 如需詳細資訊，請參閱 [ExpressRoute Global Reach](expressroute-global-reach.md)。
  
@@ -48,13 +47,13 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>識別要設定的 ExpressRoute 線路
 
-您可以啟用 ExpressRoute 觸及全球範圍之間的任何兩個 ExpressRoute 線路，前提是它們位於支援的國家/地區，以及在不同的對等互連位置建立。 如果這兩個線路皆為您的訂用帳戶所擁有，您可以選擇任一線路來執行設定，如本文稍後所述。 如果這兩個線路位於不同的 Azure 訂用帳戶，您就必須具備其中一個 Azure 訂用帳戶的授權，並在您於另一個 Azure 訂用帳戶中執行設定命令時傳入它的授權金鑰。
+您可以在任何兩個 ExpressRoute 線路之間啟用 ExpressRoute 全域觸達，只要它們位於支援的國家/地區，並建立于不同的對等互連位置即可。 如果這兩個線路皆為您的訂用帳戶所擁有，您可以選擇任一線路來執行設定，如本文稍後所述。 如果這兩個線路位於不同的 Azure 訂用帳戶，您就必須具備其中一個 Azure 訂用帳戶的授權，並在您於另一個 Azure 訂用帳戶中執行設定命令時傳入它的授權金鑰。
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>在內部部署網路之間啟用連線
 
 執行命令以啟用連線時，請注意下列參數值的需求：
 
-* *peer-circuit* 應該是完整的資源識別碼。 例如:
+* *peer-circuit* 應該是完整的資源識別碼。 例如︰
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

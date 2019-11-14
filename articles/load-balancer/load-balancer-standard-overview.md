@@ -1,7 +1,7 @@
 ---
 title: 什麼是 Azure 標準 Load Balancer？
 titlesuffix: Azure Load Balancer
-description: Azure 標準 Load Balancer 功能概觀
+description: 透過此學習路徑，您可以開始使用 Azure Standard Load Balancer 功能的總覽。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: allensu
-ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c14cf572410d02892aa8a2b3e9f0f42fce46d411
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274388"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068770"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
@@ -75,7 +75,7 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 ### <a name="az"></a>可用性區域
 
 >[!IMPORTANT]
->請參閱相關主題的[可用性區域](../availability-zones/az-overview.md), 包括任何區域特定資訊。
+>請參閱相關主題的[可用性區域](../availability-zones/az-overview.md)，包括任何區域特定資訊。
 
 標準 Load Balancer 在可使用「可用性區域」的區域中可支援較多功能。  這些功能會累加於所有標準 Standard Load Balancer 所提供的功能之上。  公用和內部標準 Load Balancer 皆可進行可用性區域設定。
 
@@ -91,7 +91,7 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 
 標準 Load Balancer 可透過 Azure 監視器提供多維度計量。  您可針對指定維度篩選、分組及劃分這些計量，  且您可深入檢視服務目前和過去的效能和健康情況。  此外也支援資源健康情況。  以下將簡單說明支援的診斷：
 
-| 計量 | 描述 |
+| 度量 | 描述 |
 | --- | --- |
 | VIP 可用性 | Standard Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。|
 | DIP 可用性 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供 Load Balancer 集區中每個個別執行個體端點的彙總檢視，或各端點篩選過的檢視。  您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。
@@ -180,7 +180,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Standard 資源。 重新建立您的規則和探查定義。  如果您先前使用對 443/tcp 的 TCP 探查，請考慮將此探查通訊協定變更為 HTTPS 探查並新增路徑。
 
-2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入允許清單。
+2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入白名單。
 
 3. 從所有 VM 執行個體中移除 Basic SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
 
@@ -212,7 +212,7 @@ Standard Load Balancer 目前已在所有公用雲端地區推出。
 
 標準 Load Balancer 提供 99.99% SLA。  如需詳細資訊，請檢閱[標準 Load Balancer SLA](https://aka.ms/lbsla)。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 使用 Standard Load Balancer 需要付費。
 
@@ -228,8 +228,8 @@ Standard Load Balancer 目前已在所有公用雲端地區推出。
 - Load Balancer 規則無法跨越兩個虛擬網路。  前端和其相關的後端執行個體必須位於相同的虛擬網路。  
 - 標準 SKU LB 與 PIP 資源不支援[移動訂用帳戶作業](../azure-resource-manager/resource-group-move-resources.md)。
 - 由於預先 VNet 服務和其他平台服務的運作方式產生副作用，而只使用內部標準 Load Balancer 時，才可存取沒有 VNet 和其他 Microsoft 平台服務的 Web 背景工作角色。 請勿以此作為個別服務本身，否則基礎平台可能會在不經通知的情況下變更。 如果在只使用內部標準 Load Balancer 時有需要，請一律假設您需要明確建立[輸出連線](load-balancer-outbound-connections.md)。
-- Load Balancer 是一款 TCP 或 UDP 產品，用於針對特定的 IP 通訊協定，進行負載平衡和連接埠轉送作業。  負載平衡規則和 NAT 傳入規則均支援 TCP 和 UDP ，但不支援包含 ICMP 在內的其他 IP 通訊協定。 Load Balancer 並不會終止、回應或與 UDP 或 TCP 流程的承載互動。 Load Balancer 並非 Proxy。 前端連線能力必須在與負載平衡或是 NAT 傳入規則 (TCP 或 UDP) 所使用的相同通訊協定中，成功進行頻內驗證，而且至少要有一個虛擬機器必須對用戶端產生回應，以查看來自前端的回應。   未從 Load Balancer 前端接收到頻內回應，即表示沒有任何虛擬機器能夠回應。  在虛擬機器未回應的情況下，無法和 Load Balancer 前端互動。  這也適用於傳出連線，其中[連接埠偽裝 SNAT](load-balancer-outbound-connections.md#snat) 僅支援 TCP 和 UDP，包括 ICMP 在內的任何其他 IP 通訊協定也會失敗。  指派執行個體層級的公用 IP 可減輕負擔。
-- 公用 Load Balancer 從虛擬網路內的私人 IP 位址轉換至公用 IP 位址時會提供[傳出連線](load-balancer-outbound-connections.md)，但是內部 Load Balancers 與公用 Load Balancer 不同，不會將傳出的起源連線轉譯至內部 Load Balancer，因為兩者都位於私人 IP 位址空間內。  如此可避免在無需轉譯的專屬內部 IP 位址空間中將 SNAT 耗盡。  副作用是，如果後端集區 VM 的傳出流程嘗試將流程傳送到其所在集區之內部 Load Balancer 前端的，並且  對應回本身，則這兩個流程互不相符，而且流程會失敗。  如果流程未對應回建立流程至前端之後端集區中的相同 VM，則流程將會成功。   當流程對應回本身時，傳出流程似乎是來自 VM 而傳至前端，而對應的傳入流程似乎來自 VM 至而傳至本身。 以客體作業系統來看，相同流程的傳入和傳出部分在虛擬機器內部不相符。 由於來源和目的地不同，TCP 堆疊無法將其中半數的流程視為相同流程的一部分。  當流程對應至後端集區中的任何其他 VM 時，半數流程將會相符，而 VM 就能成功回應流程。  此案例的症狀是間歇性出現連線逾時。 有數個常見的因應措施能夠可靠地實現此情節 (將來自後端集區的流程產生至個別內部 Load Balancer 前端的後端集區)，包括在內部 Load Balancer 後插入協力廠商 Proxy 或[使用 DSR 樣式規則](load-balancer-multivip-overview.md)。  儘管可以使用公用 Load Balancer 來減輕負擔，但產生的情節容易造成 [SNAT 耗盡](load-balancer-outbound-connections.md#snat)，除非謹慎控管，否則應該避免。
+- Load Balancer 是一款 TCP 或 UDP 產品，用於針對特定的 IP 通訊協定，進行負載平衡和連接埠轉送作業。  負載平衡規則和 NAT 傳入規則均支援 TCP 和 UDP ，但不支援包含 ICMP 在內的其他 IP 通訊協定。 Load Balancer 並不會終止、回應或與 UDP 或 TCP 流程的承載互動。 Load Balancer 並非 Proxy。 前端連線能力必須在與負載平衡或是 NAT 傳入規則 (TCP 或 UDP) 所使用的相同通訊協定中，成功進行頻內驗證，而且至少要有一個虛擬機器必須對用戶端產生回應，以查看來自前端的回應。  未從 Load Balancer 前端接收到頻內回應，即表示沒有任何虛擬機器能夠回應。  在虛擬機器未回應的情況下，無法和 Load Balancer 前端互動。  這也適用於傳出連線，其中[連接埠偽裝 SNAT](load-balancer-outbound-connections.md#snat) 僅支援 TCP 和 UDP，包括 ICMP 在內的任何其他 IP 通訊協定也會失敗。  指派執行個體層級的公用 IP 可減輕負擔。
+- 公用 Load Balancer 從虛擬網路內的私人 IP 位址轉換至公用 IP 位址時會提供[傳出連線](load-balancer-outbound-connections.md)，但是內部 Load Balancers 與公用 Load Balancer 不同，不會將傳出的起源連線轉譯至內部 Load Balancer，因為兩者都位於私人 IP 位址空間內。  如此可避免在無需轉譯的專屬內部 IP 位址空間中將 SNAT 耗盡。  副作用是，如果後端集區 VM 的傳出流程嘗試將流程傳送到其所在集區之內部 Load Balancer 前端的，並且對應回本身，則這兩個流程互不相符，而且流程會失敗。  如果流程未對應回建立流程至前端之後端集區中的相同 VM，則流程將會成功。   當流程對應回本身時，傳出流程似乎是來自 VM 而傳至前端，而對應的傳入流程似乎來自 VM 至而傳至本身。 以客體作業系統來看，相同流程的傳入和傳出部分在虛擬機器內部不相符。 由於來源和目的地不同，TCP 堆疊無法將其中半數的流程視為相同流程的一部分。  當流程對應至後端集區中的任何其他 VM 時，半數流程將會相符，而 VM 就能成功回應流程。  此案例的症狀是間歇性出現連線逾時。 有數個常見的因應措施能夠可靠地實現此情節 (將來自後端集區的流程產生至個別內部 Load Balancer 前端的後端集區)，包括在內部 Load Balancer 後插入協力廠商 Proxy 或[使用 DSR 樣式規則](load-balancer-multivip-overview.md)。  儘管可以使用公用 Load Balancer 來減輕負擔，但產生的情節容易造成 [SNAT 耗盡](load-balancer-outbound-connections.md#snat)，除非謹慎控管，否則應該避免。
 
 ## <a name="next-steps"></a>後續步驟
 

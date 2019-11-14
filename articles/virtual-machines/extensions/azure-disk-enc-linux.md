@@ -1,5 +1,5 @@
 ---
-title: 適用於 Linux 的 Azure 磁碟加密 | Microsoft Docs
+title: 適用于 Linux 的 Azure 磁碟加密
 description: 使用虛擬機器擴充功能將 Azure 磁碟加密部署至 Linux 的虛擬機器。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597860"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073799"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>適用於 Linux 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 Azure 磁碟加密會使用 Linux 中的 dm-crypt 子系統在[選取的 Azure Linux 發行版本](https://aka.ms/adelinux)上提供完整的磁碟加密。  此解決方案會與 Azure Key Vault 整合，以管理磁碟加密金鑰和祕密。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如需必要條件的完整清單，請參閱[適用于 Linux vm 的 Azure 磁碟加密](../linux/disk-encryption-overview.md)，特別是下列各節：
 
@@ -132,23 +132,23 @@ Azure 磁碟加密有兩個架構： v1.1，這是較新的建議架構，不會
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| 類型 | AzureDiskEncryptionForLinux | string |
+| apiVersion | 2015-06-15 | 日期 |
+| publisher | Microsoft.Azure.Security | 字串 |
+| 類型 | AzureDiskEncryptionForLinux | 字串 |
 | typeHandlerVersion | 0.1、1。1 | int |
-| （0.1 架構）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| （0.1 架構）AADClientSecret | password | string |
-| （0.1 架構）AADClientCertificate | thumbprint | string |
+| (0.1 schema)AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (0.1 schema)AADClientSecret | password | 字串 |
+| (0.1 schema)AADClientCertificate | thumbprint | 字串 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 字典 |
-| EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | string |
-| KeyEncryptionKeyURL | URL | string |
-| 選擇性KeyVaultURL | URL | string |
-| 複雜密碼 | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | 作業系統、資料、全部 | string |
+| EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | 字串 | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | 字串 |
+| KeyEncryptionKeyURL | url | 字串 |
+| 選擇性KeyVaultURL | url | 字串 |
+| 複雜密碼 | password | 字串 | 
+| SequenceVersion | uniqueidentifier | 字串 |
+| VolumeType | 作業系統、資料、全部 | 字串 |
 
 ## <a name="template-deployment"></a>範本部署
 

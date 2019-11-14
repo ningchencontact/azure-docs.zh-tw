@@ -1,17 +1,14 @@
 ---
 title: 瞭解適用于 AKS 引擎的 Azure 原則
 description: 瞭解 Azure 原則如何使用 CustomResourceDefinitions，並從閘道管理員 v3 開啟原則代理程式，以使用 AKS 引擎來管理叢集。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 71f3f26b9ea7f24d674c911e18c785b0798a072c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512128"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072056"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>瞭解 AKS 引擎 Azure 原則
 
@@ -23,7 +20,7 @@ Azure 原則與[AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs
 > [!IMPORTANT]
 > 若要取得 AKS 引擎、AKS 引擎或閘道管理員 v3 Azure 原則的支援，請在 AKS 引擎 GitHub 存放庫中建立[新的問題](https://github.com/Azure/aks-engine/issues/new/choose)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 若要在 Azure 上以自我管理的 Kubernetes 叢集啟用和使用 Azure 原則 for AKS Engine，請採取下列動作：
 
@@ -32,7 +29,7 @@ Azure 原則與[AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs
 - [指派 AKS 引擎的原則定義](#built-in-policies)
 - [等待驗證](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在安裝 Azure 原則附加元件或啟用任何服務功能之前，您的訂用帳戶必須啟用**microsoft.policyinsights**資源提供者，並建立叢集服務主體的角色指派。 
 

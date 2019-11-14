@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建立一般化 VM 非受控映像 | Microsoft Docs
+title: 在 Azure 中建立一般化 VM 的非受控映射
 description: 建立一般化的 Windows VM 未受管理的映像，在 Azure 中用以建立多個 VM 複本。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f25968fb74f0f10b1d498866c036dd04d4d5d134
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749206"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073386"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立非受控 VM 映像
 

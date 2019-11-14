@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a24f670314d2f6679e37b438a74421e0e84604e2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075494"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>在 Service Fabric 應用程式中管理已加密的祕密
 本指南將逐步引導您完成管理 Service Fabric 應用程式中密碼的步驟。 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。
@@ -37,7 +37,7 @@ ms.locfileid: "71973427"
 ## <a name="specify-encrypted-secrets-in-an-application"></a>指定應用程式中已加密的祕密
 上一個步驟說明了如何以憑證對祕密進行加密，並產生要在應用程式中使用的 base-64 編碼字串。 這個 base-64 編碼的字串可以指定為服務的 config.xml 中的加密[參數][parameters-link]，或當做服務 ServiceManifest 中的加密[環境變數][environment-variables-link]。
 
-在服務的設定 .xml 設定檔中指定已加密的[參數][parameters-link]，並將 `IsEncrypted` 屬性設定為 `true`：
+在服務的設定 .xml 設定檔中指定已加密的[參數][parameters-link]，並將 `IsEncrypted` 屬性設為 `true`：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -47,7 +47,7 @@ ms.locfileid: "71973427"
   </Section>
 </Settings>
 ```
-在服務的 ServiceManifest 中指定已加密的[環境變數][environment-variables-link]，並將 `Type` 屬性設定為 `Encrypted`：
+在服務的 ServiceManifest 中指定已加密的[環境變數][environment-variables-link]，並將 `Type` 屬性設為 `Encrypted`：
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -147,10 +147,12 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[應用程式及服務安全性](service-fabric-application-and-service-security.md)
+* Service Fabric[秘密存放區](service-fabric-application-secret-store.md) 
+* 深入了解[應用程式及服務安全性](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md
 [secret-management-windows-specific-link]: service-fabric-application-secret-management-windows.md
 [secret-management-linux-specific-link]: service-fabric-application-secret-management-linux.md
+[service fabric secrets store]: service-fabric-application-secret-store.md

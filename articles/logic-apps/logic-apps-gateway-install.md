@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 6daf9351e48603824aa6cec30adb4a6b82349784
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049030"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076928"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
 [從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部[部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以將相同的閘道安裝與其他雲端服務搭配使用，例如 Power BI、電源自動化、Power Apps 和 Azure Analysis Services。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
 
-* [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Power Apps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [自動執行內部部署資料閘道的電源](/power-automate/gateway-reference)
+* [Microsoft Power 自動化內部部署資料閘道](/power-automate/gateway-reference)
+* [Microsoft Power BI 內部部署資料閘道](/power-bi/service-gateway-onprem)
+* [Microsoft Power Apps 內部部署資料閘道](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
 本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。 如需閘道的詳細資訊，請參閱[什麼是內部部署閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)？

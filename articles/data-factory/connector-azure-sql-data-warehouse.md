@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 從 Azure SQL 資料倉儲複製資料
-description: 了解如何使用 Data Factory 將資料從支援的來源存放區複製到「Azure SQL 資料倉儲」，或從「SQL 資料倉儲」複製到支援的接收存放區。
+title: 使用 Azure Data Factory 複製和轉換 Azure SQL 資料倉儲中的資料
+description: 瞭解如何在 Azure SQL 資料倉儲中複製資料，以及如何使用 Data Factory 在 Azure SQL 資料倉儲中轉換資料。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681157"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076757"
 ---
-# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
+# <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 複製和轉換 Azure SQL 資料倉儲中的資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [目前的版本](connector-azure-sql-data-warehouse.md)
 
-本文概述如何在 Azure SQL 資料倉儲之間複製資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
+本文概述如何使用 Azure Data Factory 中的複製活動，從 Azure SQL 資料倉儲複製資料，以及使用資料流程來轉換 Azure Data Lake Storage Gen2 中的資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -35,7 +35,7 @@ ms.locfileid: "73681157"
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
 
-具體而言，這個「Azure SQL 資料倉儲」連接器支援下列功能：
+針對複製活動，此 Azure SQL 資料倉儲連接器支援下列功能：
 
 - 使用 SQL 驗證和 Azure Active Directory (Azure AD) 應用程式權杖驗證搭配服務主體或 Azure 資源的受控識別來複製資料。
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
@@ -58,14 +58,14 @@ ms.locfileid: "73681157"
 
 以下是 Azure SQL 資料倉儲連結服務支援的屬性：
 
-| 屬性            | 說明                                                  | 必要                                                     |
+| 屬性            | 描述                                                  | 必要                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| 類型                | 類型屬性必須設為 **AzureSqlDW**。             | 是                                                          |
-| connectionString    | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | 是                                                          |
+| 類型                | 類型屬性必須設為 **AzureSqlDW**。             | yes                                                          |
+| connectionString    | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | yes                                                          |
 | servicePrincipalId  | 指定應用程式的用戶端識別碼。                         | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | 租用戶              | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
-| connectVia          | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                                           |
+| connectVia          | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的「Azure 整合執行階段」。 | 否                                                           |
 
 針對不同的驗證類型，請分別參閱下列有關先決條件和 JSON 範例的章節：
 
@@ -132,7 +132,7 @@ ms.locfileid: "73681157"
 
 若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
-1. **[從 Azure 入口網站建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** 。 請記下應用程式名稱，以及下列可定義連結服務的值：
+1. 從 Azure 入口網站 **[建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** 。 請記下應用程式名稱，以及下列可定義連結服務的值：
 
     - 應用程式識別碼
     - 應用程式金鑰
@@ -204,7 +204,7 @@ ms.locfileid: "73681157"
 
 5. 在 Azure Data Factory 中，**設定 Azure SQL 資料倉儲連結服務**。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -227,16 +227,16 @@ ms.locfileid: "73681157"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供「Azure SQL 資料倉儲」資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-若要將資料從或複製到 Azure SQL 資料倉儲，支援下列屬性：
+Azure SQL 資料倉儲資料集支援下列屬性：
 
-| 屬性  | 說明                                                  | 必要                    |
+| 屬性  | 描述                                                  | 必要                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| 類型      | 資料集的**類型**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
+| 類型      | 資料集的**類型**屬性必須設定為 **AzureSqlDWTable**。 | yes                         |
 | 結構描述 | 架構的名稱。 |否 (用於來源)；是 (用於接收)  |
 | 資料表 | 資料表/視圖的名稱。 |否 (用於來源)；是 (用於接收)  |
-| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 並 `table`。 | 否 (用於來源)；是 (用於接收) |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 和 `table`。 | 否 (用於來源)；是 (用於接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
 
@@ -267,16 +267,16 @@ ms.locfileid: "73681157"
 
 若要從「Azure SQL 資料倉儲」複製資料，請將複製活動來源中的**類型**屬性設定為 **SqlDWSource**。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性                     | 說明                                                  | 必要 |
+| 屬性                     | 描述                                                  | 必要 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| 類型                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是      |
-| sqlReaderQuery               | 使用自訂 SQL 查詢來讀取資料。 範例：`select * from MyTable`. | 否       |
+| 類型                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | yes      |
+| sqlReaderQuery               | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否       |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否       |
 | storedProcedureParameters    | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否       |
 
 ### <a name="points-to-note"></a>注意事項
 
-- 如果已為 **SqlSource** 指定 **sqlReaderQuery**，「複製活動」就會針對「Azure SQL 資料倉儲」來源執行這項查詢以取得資料。 或者，您可以指定預存程序。 指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數)。
+- 如果已為 **SqlSource** 指定 **sqlReaderQuery**，「複製活動」就會針對「Azure SQL 資料倉儲」來源執行這項查詢以取得資料。 您也可以指定預存程序。 指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數)。
 - 如果您未指定 **sqlReaderQuery** 或 **sqlReaderStoredProcedureName**，就會使用資料集 JSON **structure** 區段中定義的資料行來建構查詢。 `select column1, column2 from mytable` 會針對 Azure SQL 資料倉儲執行。 如果資料集定義沒有 **structure**，則會從資料表中選取所有資料行。
 
 #### <a name="sql-query-example"></a>SQL 查詢範例
@@ -370,9 +370,9 @@ GO
 
 若要將資料複製到「Azure SQL 資料倉儲」，請將複製活動中的接收類型設定為 **SqlDWSink**。 複製活動的 [接收] 區段支援下列屬性：
 
-| 屬性          | 說明                                                  | 必要                                      |
+| 屬性          | 描述                                                  | 必要                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| 類型              | 複製活動接收端的**類型**屬性必須設定為 **SqlDWSink**。 | 是                                           |
+| 類型              | 複製活動接收端的**類型**屬性必須設定為 **SqlDWSink**。 | yes                                           |
 | allowPolyBase     | 指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse)一節中的條件約束和詳細資料。<br/><br/>允許的值為 **True** 和 **False** (預設值)。 | 否                                            |
 | polyBaseSettings  | 可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 | 否                                            |
 | rejectValue       | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 | 否                                            |
@@ -382,7 +382,7 @@ GO
 | writeBatchSize    | 要插入 SQL 資料表中**每個批次**的資料列數目。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 根據預設，Data Factory 會依據資料列大小，以動態方式決定適當的批次大小。 | 否                                            |
 | writeBatchTimeout | 批次插入作業在超時之前完成的等候時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否                                            |
 | preCopyScript     | 指定一個供「複製活動」在每次執行時將資料寫入到「Azure SQL 資料倉儲」前執行的 SQL 查詢。 使用此屬性來清除預先載入的資料。 | 否                                            |
-| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 在複製活動中設定分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設值），`autoCreate`。 |否 |
+| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 在複製活動中設定分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設），`autoCreate`。 |否 |
 | disableMetricsCollection | Data Factory 會收集計量，例如複製效能優化和建議的 SQL 資料倉儲 Dwu。 如果您擔心此行為，請指定 `true` 將其關閉。 | 否 (預設值為 `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL 資料倉儲接收範例
@@ -603,28 +603,28 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binary                                | Byte[]                         |
-| bit                                   | Boolean                        |
+| bit                                   | 布林值                        |
 | char                                  | String, Char[]                 |
 | 日期                                  | DateTime                       |
 | Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | Datetimeoffset                        | Datetimeoffset                 |
-| Decimal                               | Decimal                        |
+| DECIMAL                               | DECIMAL                        |
 | FILESTREAM 屬性 (varbinary(max)) | Byte[]                         |
 | Float                                 | Double                         |
 | image                                 | Byte[]                         |
 | int                                   | Int32                          |
-| money                                 | Decimal                        |
+| money                                 | DECIMAL                        |
 | nchar                                 | String, Char[]                 |
-| numeric                               | Decimal                        |
+| numeric                               | DECIMAL                        |
 | nvarchar                              | String, Char[]                 |
 | real                                  | 單一                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |
-| smallmoney                            | Decimal                        |
+| smallmoney                            | DECIMAL                        |
 | 分析                                  | TimeSpan                       |
-| tinyint                               | 位元組                           |
+| tinyint                               | Byte                           |
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |

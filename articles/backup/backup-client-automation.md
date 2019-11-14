@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78b83eb725da09dc98df05865ba4d41c505f0f4c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bf79957bec4b330ca9acce3f8b92aab1a0944440
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747255"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074863"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 
@@ -25,7 +25,7 @@ ms.locfileid: "73747255"
 
 若要開始使用，請[安裝最新的 PowerShell 版本](/powershell/azure/install-az-ps)。
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
+## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
 下列步驟將引導您完成建立復原服務保存庫。 復原服務保存庫不同於備份保存庫。
 
@@ -547,9 +547,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>執行臨機操作備份
+### <a name="performing-an-on-demand-backup"></a>執行隨選備份
 
-一旦設定備份原則之後，就會依排程進行備份。 您也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) Cmdlet 來觸發臨機操作備份：
+一旦設定備份原則之後，就會依排程進行備份。 也可以使用[start-obbackup 來](https://technet.microsoft.com/library/hh770426)Cmdlet 來觸發隨選備份：
 
 ```powershell
 Get-OBPolicy | Start-OBBackup

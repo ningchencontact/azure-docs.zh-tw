@@ -9,35 +9,27 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086416"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074410"
 ---
 # <a name="using-the-azure-function-return-value"></a>使用 Azure 函數傳回值
 
 本文說明傳回值在函式內的運作方式。
 
-在具有傳回值的語言中, 您可以將函式[輸出](./functions-triggers-bindings.md#binding-direction)系結系結至傳回值:
+在具有傳回值的語言中，您可以將函式[輸出](./functions-triggers-bindings.md#binding-direction)系結系結至傳回值：
 
 * 在 C# 類別庫中，將輸出繫結屬性套用至方法傳回值。
-* 在其他語言中，將 function.json 中的 `name` 屬性設定為 `$return`。
+* 在其他語言中，將 function.json`name`*中的* 屬性設定為 `$return`。
 
 如果有多個輸出繫結，請只對其中一個使用傳回值。
 
 在 C# 和 C# 指令碼中，傳送資料到輸出繫結的方式可以是 `out` 參數和[收集器物件](functions-reference-csharp.md#writing-multiple-output-values)。
 
-請參閱示範傳回值用法的特定語言範例：
-
-* [C#](#c-example)
-* [C# 指令碼 (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## <a name="c-example"></a>C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 以下是使用輸出繫結傳回值的 C# 程式碼，接著則是非同步範例：
 
@@ -63,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 以下是 function.json 檔案中的輸出繫結：
 
@@ -96,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>F# 範例
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 以下是 function.json 檔案中的輸出繫結：
 
@@ -118,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 以下是 function.json 檔案中的輸出繫結：
 
@@ -141,7 +133,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="python-example"></a>Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 以下是 function.json 檔案中的輸出繫結：
 
@@ -163,6 +155,8 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+---
 
 ## <a name="next-steps"></a>後續步驟
 
