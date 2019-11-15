@@ -4,16 +4,16 @@ description: 本文將說明系統管理員在 Azure EA 入口網站中完成的
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3c992274ba8ff82795e9a4f917c67e7ef379d13e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329345"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888450"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA 入口網站系統管理員
 
@@ -25,13 +25,55 @@ ms.locfileid: "72329345"
 
 ## <a name="update-user-state-from-pending-to-active"></a>將使用者狀態從擱置更新為作用中
 
-當新的帳戶擁有者 (AO) 第一次新增至 Azure EA 註冊時，其狀態會顯示為 [擱置]  。 當新的帳戶擁有者收到用於啟用的歡迎電子郵件時，他們就可以登入來啟用其帳戶。 當他們啟用帳戶時，帳戶狀態會從 [擱置]  更新為 [作用中]  。 系統可能會提示新使用者輸入其名字和姓氏，以建立商務帳戶。 若是如此，他們必須新增必要的資訊才能繼續，然後帳戶才會啟用。
+當新的帳戶擁有者 (AO) 第一次新增至 Azure EA 註冊時，其狀態會顯示為 [擱置]  。 當新的帳戶擁有者收到用於啟用的歡迎電子郵件時，他們就可以登入來啟用其帳戶。 當他們啟用帳戶時，帳戶狀態會從 [擱置]  更新為 [作用中]  。 帳戶擁有者必須閱讀「警告」訊息，然後按一下 [繼續]  。 系統可能會提示新使用者輸入其名字和姓氏，以建立商務帳戶。 若是如此，他們必須新增必要的資訊才能繼續，然後帳戶才會啟用。
 
 ## <a name="add-a-department-admin"></a>新增部門系統管理員
 
 Azure EA 系統管理員建立部門之後，Azure 企業系統管理員就可以新增部門系統管理員，並將其與部門產生關聯。 部門系統管理員可以建立新的帳戶。 必須有新帳戶，才能建立 Azure EA 訂用帳戶。
 
 如需新增部門管理員的詳細資訊，請參閱[建立 Azure EA 部門管理員](billing-ea-portal-get-started.md#add-a-department-admin)。
+
+## <a name="associate-an-account-to-a-department"></a>將帳戶與部門建立關聯
+
+企業系統管理員可將註冊下的現有帳戶與部門產生關聯。
+
+### <a name="to-associate-an-account-to-a-department"></a>將帳戶與部門產生關聯
+
+1. 以企業系統管理員身分登入 Azure EA 入口網站。
+1. 按一下左側導覽區上的 [管理]  。
+1. 按一下 [部門]  。
+1. 將滑鼠停留在包含所需帳戶的資料列上方，然後按一下右側的鉛筆圖示。
+1. 從下拉式功能表中選取所需的部門。
+1. 按一下 [檔案]  。
+
+## <a name="department-spending-quotas"></a>部門支出配額
+
+EA 客戶可為註冊下的每個部門設定或變更支出配額。 系統會針對目前的承諾用量期間設定支出配額金額。 在目前的承諾用量期間結束時，系統會將現有的支出配額延長到下一個承諾用量期間，除非值有所更新。
+
+部門系統管理員可檢視支出配額，但只有企業系統管理員可更新配額金額。 當配額達到 50%、75%、90% 和 100% 時，企業系統管理員和部門系統管理員將會收到通知。
+
+### <a name="enterprise-administrator-to-set-the-quota"></a>企業系統管理員若要設定配額：
+
+ 1. 開啟 Azure EA 入口網站。
+ 1. 按一下左側導覽區上的 [管理]  。
+ 1. 按一下 [部門]  索引標籤。
+ 1. 按一下所需的部門。
+ 1. 按一下 [部門詳細資料] 區段上的鉛筆圖示，或按一下 [+ 新增部門]  按鈕，以新增支出配額和新部門。
+ 1. 在 [部門詳細資料] 下的 [支出配額金額] 方塊中，以註冊的貨幣輸入支出配額金額 (必須大於 0)。
+    - [部門名稱] 和 [成本中心] 也可在此時編輯。
+ 1. 按 [儲存]  。
+
+部門的支出配額此時會顯示在 [部門清單] 檢視中的 [部門] 索引標籤下。在目前的承諾用量期間結束時，Azure EA 入口網站將會維護下一個承諾用量期限的支出配額。
+
+部門配額金額獨立於目前的承諾用量金額外，且配額金額和警示僅適用於第一方使用量。 部門支出配額僅供參考之用，不會強制執行支出限制。
+
+### <a name="department-administrator-to-view-the-quota"></a>部門系統管理員若要檢視配額：
+
+1. 開啟 Azure EA 入口網站。
+1. 按一下左側導覽區上的 [管理]  。
+1. 按一下 [部門]  索引標籤，並檢視含有支出配額的 [部門清單] 檢視。
+
+如果您是間接客戶，則必須由通路合作夥伴為您啟用成本功能。
 
 ## <a name="enterprise-user-roles"></a>企業使用者角色
 
@@ -43,13 +85,35 @@ Azure EA 入口網站可協助您管理您的 Azure EA 成本和使用量。 Azu
 
 每個角色都有不同層級的存取權和授權。
 
-如需有關使用者角色的詳細資訊，請參閱＜企業使用者角色＞。
+如需使用者角色的詳細資訊，請參閱[企業使用者角色](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles)。
 
 ## <a name="add-an-azure-ea-account"></a>新增 Azure EA 帳戶
 
 Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單位，並且也會用於報告。 若要存取及使用 Azure 服務，您需要建立一個帳戶或讓人為您建立一個帳戶。
 
 如需有關 Azure 帳戶的詳細資訊，請參閱＜新增帳戶＞。
+
+## <a name="enterprise-devtest-offer"></a>Enterprise 開發/測試供應項目
+
+身為 Azure 企業系統管理員，您現在可以讓組織的帳戶擁有者根據 EA 開發/測試供應項目建立訂用帳戶。 若要這麼做，您可以在 Azure EA 入口網站中勾選該帳戶擁有者的 [開發/測試] 方塊。
+
+勾選 [開發/測試] 方塊後，請讓帳戶擁有者得知，他們才能夠設定其開發/測試訂閱者的小組所需的 EA 開發/測試訂用帳戶。
+
+此供應項目可讓作用中的 Visual Studio 訂閱者以特殊的開發/測試費率在 Azure 上執行開發和測試工作負載，並可存取完整的開發/測試映像資源庫，包括 Windows 8.1 和 Windows 10。
+
+### <a name="to-set-up-the-enterprise-devtest-offer"></a>若要設定 Enterprise 開發/測試供應項目：
+
+1. 以企業系統管理員身分登入。
+1. 按一下左側導覽區上的 [管理]  。
+1. 按一下 [帳戶]  索引標籤。
+1. 按一下您要啟用開發/測試存取之帳戶的資料列。
+1. 按一下資料列右側的鉛筆圖示。
+1. 選取 [開發/測試] 核取方塊。
+1. 按 [儲存]  。
+
+當使用者透過 Azure EA 入口網站新增為帳戶擁有者時，任何與該帳戶擁有者相關聯，且以 PAYG 開發/測試供應項目或 Visual Studio 訂閱者的每月點數供應項目為基礎的 Azure 訂用帳戶，都會轉換為 EA 開發/測試供應項目。 以其他供應項目類型 (例如 PAYG) 為基礎的訂用帳戶，將會轉換為 Microsoft Azure 企業版供應項目。
+
+開發/測試供應項目目前不適用於 Azure Gov 客戶。
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>將企業帳戶轉移至新的註冊
 
@@ -85,7 +149,6 @@ Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單�
 帳戶轉移之前要記住的其他幾點：
 
 - 目標和來源註冊都需要 EA 系統管理員的核准
-  - 在某些情況下，Microsoft 可能會向來源註冊的 EA 系統管理員要求額外核准
 - 如果帳戶轉移不符合您的需求，請考慮註冊轉移。
 - 帳戶移轉會移轉與特定帳戶相關的所有服務和訂閱。
 - 移轉完成之後，已移轉帳戶在來源註冊下會顯示為非使用中。
@@ -102,6 +165,9 @@ Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單�
 - 註冊狀態會設定為 [已轉移]  。 已轉移的註冊僅限用於報告使用量記錄。
 - 您無法將角色或訂用帳戶新增至已轉移的註冊。 已轉移狀態可防止以該註冊產生其他使用量。
 - 合約中任何剩餘的預付金餘額都會遺失，其中也包括未來的期限。
+-   如果您要轉移的註冊有 RI 購買，RI 購買費用將保留在來源註冊中，但所有 RI 權益都將轉移供新註冊使用。
+-   舊註冊上已產生的 Marketplace 一次性購買費用和任何每月固定費用，都不會轉移到新的註冊。 依使用量的 Marketplace 費用將會轉移。
+-   在回溯日期的註冊轉移之後，購買所產生的任何一次性費用都會保留在來源註冊中。
 
 ### <a name="effective-transfer-date"></a>有效的轉移日期
 
@@ -132,7 +198,6 @@ Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單�
 註冊轉移之前要記住的其他幾點：
 
 - 目標和來源註冊都需要 EA 系統管理員的核准。
-  - 在某些情況下，Microsoft 可能會向來源註冊的 EA 系統管理員要求額外核准。
 - 如果註冊轉移不符合您的需求，請考慮帳戶轉移。
 - 只有您指定的帳戶會轉移。 您可以要求轉移所有帳戶。
 - 來源註冊會將其狀態保持為 [作用中]/[已擴充]。 您可以繼續使用註冊，直到到期為止。
@@ -164,14 +229,26 @@ Azure EA 入口網站可以將訂用帳戶從一個帳戶擁有者轉移至另�
 3. 選取資源。
 4. 在資源頁面上按一下 [設定]  ，即可檢視並更新現有的秘密。
 
+## <a name="delete-subscription"></a>刪除訂用帳戶
 
+若要刪除以您作為帳戶擁有者的訂用帳戶：
 
-## <a name="close-an-azure-enterprise-enrollment"></a>關閉 Azure 企業註冊
+1. 使用與您的帳戶相關聯的認證登入 Azure 入口網站。
+1. 在 [中樞] 功能表中，選取 [訂用帳戶]  。
+1. 在頁面左上角的 [訂用帳戶] 索引標籤中，選取您要取消的訂用帳戶，然後按一下 [取消訂用帳戶]  以啟動 [取消] 索引標籤。
+1. 輸入訂用帳戶名稱並選擇取消原因，然後按一下 [取消訂用帳戶]  按鈕。
 
-如果您想要關閉 Azure EA 註冊，您可以：
+請注意，只有帳戶管理員可以取消訂用帳戶。
 
-- 在 Azure 入口網站上取消與您 Azure EA 相關聯的所有訂用帳戶。
-- 洽詢您的客戶軟體顧問或合作夥伴，並要求他們關閉您的 Azure Enterprise 合約。
+## <a name="delete-an-account"></a>刪除帳戶
+
+只有作用中的帳戶沒有作用中的訂用帳戶時，才能完成帳戶移除。
+
+1. 在企業版入口網站中，選取左側導覽區中的 [管理]  。
+1. 按一下 [帳戶]  索引標籤。
+1. 從 [帳戶] 資料表中，選取您要刪除的帳戶。
+1. 按一下 [帳戶] 資料列右側的 X 圖示。
+1. 在帳戶下沒有作用中的訂用帳戶後，按一下 [帳戶] 資料列下的 [是]  按鈕，以確認帳戶已移除。
 
 ## <a name="update-notification-settings"></a>更新通知設定
 
@@ -195,6 +272,31 @@ Azure EA 入口網站可以將訂用帳戶從一個帳戶擁有者轉移至另�
 
 您可以隱藏「逼近範圍期間的結束日期」  及「停用和取消佈建日期逼近」  的生命週期通知。 停用生命週期通知會隱藏範圍期間和合約結束日期的相關通知。
 
+## <a name="manage-partner-administrators"></a>管理夥伴管理員
+
+Azure EA 入口網站中的每個夥伴管理員都能夠新增或移除其他合作管理員。 夥伴管理員會與間接註冊的夥伴組織相關聯，而不會直接與註冊相關聯。
+
+### <a name="add-a-partner-administrator"></a>新增夥伴管理員
+
+若要檢視與目前使用者相同的夥伴組織相關聯的所有註冊清單，請按一下 [註冊]  索引標籤，然後選取所需的註冊方塊。
+
+1. 以夥伴管理員身分登入。
+1. 按一下左側導覽區上的 [管理]  。
+1. 按一下 [夥伴]  索引標籤。
+1. 按一下 [+ 新增系統管理員]  並填入電子郵件地址、通知連絡人，以及通知詳細資料。
+1. 點擊 [新增]  。
+
+### <a name="remove-a-partner-administrator"></a>移除夥伴管理員
+
+若要檢視與目前使用者相同的夥伴組織相關聯的所有註冊清單，請按一下 [註冊]  索引標籤，然後選取所需的註冊方塊。
+
+1. 以夥伴管理員身分登入。
+1. 按一下左側導覽區上的 [管理]  。
+1. 按一下 [夥伴]  索引標籤。
+1. 在 [系統管理員] 區段下，為您要移除的管理員選取適當的資料列。
+1. 點擊右側的 X 圖示。
+1. 確認您要進行刪除。
+
 ## <a name="manage-partner-notifications"></a>管理合作夥伴通知
 
 合作夥伴系統管理員可以管理接收其註冊使用通知的頻率。 他們會自動收到未開立帳單餘額的每週通知。 他們可以將個別通知的頻率變更為每月、每週、每日，或完全關閉。
@@ -203,7 +305,7 @@ Azure EA 入口網站可以將訂用帳戶從一個帳戶擁有者轉移至另�
 
 1. 以合作夥伴系統管理員身分登入 Azure EA 入口網站。
 2. 按一下 [管理]  ，然後按一下 [合作夥伴]  索引標籤。
-3. 在 [系統管理員]  區段下，檢視系統管理員清單。
+3. 在 [系統管理員] 區段下，檢視系統管理員清單。
 4. 若要編輯通知喜好設定，請將滑鼠停留在適當的系統管理員上，然後按一下鉛筆符號。
 5. 視需要設定通知頻率和生命週期通知。
 6. 視需要新增連絡人，然後按一下 [新增]  。
@@ -211,14 +313,75 @@ Azure EA 入口網站可以將訂用帳戶從一個帳戶擁有者轉移至另�
 
 ![顯示 [新增連絡人] 方塊的範例 ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
+## <a name="view-enrollments-for-partner-administrators"></a>檢視夥伴管理員的註冊
+
+夥伴管理員可以在 Azure EA 入口網站中查看其所有直接和間接註冊的清單檢視。 各方塊會包含每個註冊的概觀，並且顯示註冊號碼、註冊名稱、餘額和超額金額。
+
+### <a name="view-a-list-of-enrollments"></a>檢視註冊清單
+
+1. 以夥伴管理員身分登入。
+1. 在頁面左側的導覽區上，按一下 [管理]  。
+1. 按一下 [註冊]  索引標籤。
+1. 選取所需註冊的方塊。
+
+所有註冊的檢視會保留在頁面頂端，並且顯示每個註冊的方塊。 此外，您可以在頁面左側的導覽區上按一下目前的註冊號碼，以瀏覽各個註冊。 此時會出現一個快顯視窗，讓您搜尋註冊，或按一下適當的方塊以選取不同的註冊。
+
 ## <a name="azure-sponsorship-offer"></a>Azure 贊助供應項目
 
 Azure 贊助供應項目是有贊助限制的 Microsoft Azure 帳戶。 只有 Microsoft 所選的限定客戶，才能收到電子郵件邀請。 若您獲選參加 Microsoft Azure 贊助供應項目，您將會收到屬於您帳戶識別碼的電子郵件邀請。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請建立[贊助啟用的支援要求](https://aka.ms/azrsponsorship)。
 
-- 贊助啟用的支援要求 - http://aka.ms/azrsponsorship
+## <a name="conversion-to-work-or-school-account-authentication"></a>轉換為公司或學校帳戶驗證
+
+Azure 企業版使用者可以從 Microsoft 帳戶 (MSA 或 Live ID) 轉換為工作或學校帳戶 (使用 Azure 中的 Active Directory) 驗證類型。
+
+開始：
+
+1. 將公司或學校帳戶新增至 Azure EA 入口網站中所需的角色。
+1. 如果發生錯誤，表示該帳戶在 Active Directory 中可能無效。  Azure 會使用使用者主體名稱 (UPN)，此名稱不一定會與電子郵件地址相同。
+1. 使用公司或學校帳戶對 Azure EA 入口網站進行驗證。
+
+### <a name="to-convert-subscriptions-from-microsoft-accounts-to-work-or-school-accounts"></a>若要將訂用帳戶從 Microsoft 帳戶轉換為公司或學校帳戶：
+
+1. 使用擁有訂用帳戶的 Microsoft 帳戶登入管理入口網站。
+1. 使用帳戶擁有權轉移功能移至新帳戶。
+1. 現在，Microsoft 帳戶應可供任何作用中的訂用帳戶使用，且可以刪除。
+1. 任何已刪除的帳戶都會在入口網站中保持非作用中狀態，以供歷史帳單使用。  您可以選取核取方塊以將其從檢視中篩選掉，而僅顯示作用中的帳戶。
+
+## <a name="account-subscription-ownership-faq"></a>帳戶訂用帳戶擁有權常見問題集
+
+本文件將解答帳戶訂用帳戶擁有權的相關常見問題。
+
+### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>您的每個訂用帳戶可以有多少個 Azure 帳戶擁有者？
+
+每個訂用帳戶只能有一個帳戶擁有者。  您可以在 [portal.azure.com] (https://portal.azure.com) 頁面左上角的 [訂用帳戶] 索引標籤中，使用角色型存取或 (存取控制 (IAM)) 來新增其他角色。
+
+### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>一個 Azure 帳戶擁有者是否可列在多個部門下？
+
+一個帳戶擁有者只能與單一部門相關聯。  這是為了確保在 Azure EA 入口網站中，能夠正確地監視和分配該擁有者在 EA 註冊下對應的部門所產生的相關成本/支出
+
+### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Azure 帳戶擁有者是否可以列為安全性群組？
+
+否，訂用帳戶擁有者必須是唯一的 Microsoft 帳戶 (MSA) 或 Azure Active Directory (AAD) 驗證。 若要顧及組織內的延續性，您可以考慮建立一般帳戶，並使用 AAD 來管理訂用帳戶存取。
+
+### <a name="can-an-individual-user-own-multiple-subscriptions"></a>個別使用者可以擁有多個訂用帳戶嗎？
+
+Azure 帳戶擁有者可以建立及管理不限數量的訂用帳戶。
+
+### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>如何存取/檢視組織的所有訂用帳戶？
+
+目前，這必須使用原則來完成；也就是說，對於每個建立的訂用帳戶，您都必須要求使用角色型存取將您的帳戶新增至訂用帳戶角色。
+
+### <a name="where-do-i-go-to-create-a-subscription"></a>我應在何處建立訂用帳戶？
+
+EA 註冊的系統管理員必須先將您的帳戶新增至 Azure EA 入口網站中的帳戶擁有者角色，您才能建立 Enterprise Azure (EA) 供應項目訂用帳戶。 接著，您必須登入 Azure EA 入口網站，以取得建立 EA 供應項目類型訂用帳戶的權利。 建議您使用 EA 入口網站，從 [訂用帳戶] 索引標籤中的 [+ 新增訂用帳戶] 連結建立第一個 EA 訂用帳戶。  不過，在您的帳戶獲得授權後，經由 portal.azure.com，在頁面左上角的 [訂用帳戶] 索引標籤中建立訂用帳戶，可能會比較容易，因為在此處您可以用單一步驟建立及重新命名您的訂用帳戶。
+
+### <a name="who-can-create-a-subscription"></a>誰可以建立訂用帳戶？
+
+若要建立 Enterprise Azure 供應項目類型訂用帳戶，您必須獲得 [EA 入口網站](https://ea.azure.com)上的帳戶擁有者角色。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 了解[虛擬機器保留](billing-ea-portal-vm-reservations.md)如何協助您節省成本。
 - 如果您需要 Azure EA 入口網站問題的疑難排解協助，請參閱[針對 Azure EA 入口網站的存取進行疑難排解](billing-ea-portal-troubleshoot.md)。

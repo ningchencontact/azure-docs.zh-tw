@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325de36f3aa480847bc647827260f7f65765b5d7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: beef37b0ece9cf57c86927b9f57d85ad4a25dbd1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103756"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746328"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的帳單擁有權轉移給另一個帳戶
 
@@ -202,6 +202,10 @@ VM、磁碟和網站等所有資源都會轉移給新的帳戶。 不過，如�
 ### <a name="can-i-use-a-different-payment-method"></a>我可以使用不同的付款方式嗎？
 
 是。 接受轉移要求時，您可以選取連結至您帳戶的現有付款方式，或新增付款方式。
+
+### <a name="how-can-i-transfer-ownership-of-my-enterprise-agreement-ea-subscription-account-ownership-if-the-original-account-owner-is-no-longer-with-the-organization"></a>如果原始帳戶擁有者已離開組織，如何才能轉移 Enterprise 合約 (EA) 訂用帳戶擁有權？
+
+即使原始帳戶擁有者不再屬於組織，Enterprise 系統管理員也可以更新任何帳戶的帳戶擁有權。 只要遵循在 EA 入口網站中[轉移所有訂用帳戶的帳戶擁有權](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription)指示，即可達成。
 
 ## <a name="troubleshooting"></a>疑難排解
 

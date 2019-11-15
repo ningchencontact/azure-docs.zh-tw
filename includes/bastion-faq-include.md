@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4f49220da5d996615c9f8ef7cad2b6c6793866b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466262"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850292"
 ---
 ### <a name="regions"></a>哪些區域可用？
 
@@ -50,3 +50,8 @@ ms.locfileid: "73466262"
 ### <a name="session"></a>為何在 Bastion 工作階段開始之前，收到「您的工作階段已過期」錯誤訊息？
 
 您應該只能從 Azure 入口網站起始工作階段。 登入 Azure 入口網站並再次開始您的工作階段。 如果您直接從另一個瀏覽器工作階段或索引標籤移至 URL，則預計會發生此錯誤。 這有助於確保您的工作階段更加安全，而且只能透過 Azure 入口網站存取工作階段。
+
+### <a name="keyboard"></a>Bastion 遠端工作階段期間支援哪些鍵盤配置？
+
+Azure Bastion 目前在 VM 內支援 en-us-qwerty 鍵盤配置。  鍵盤配置的其他地區設定支援正在進行中。
+

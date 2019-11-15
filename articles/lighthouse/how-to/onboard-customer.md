@@ -4,15 +4,15 @@ description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 882afb83aa2a9bad9633df43b29e00b43162bf87
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1d5e9c44fe7669a89c52d2ac14299c2687f11dc5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595650"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827244"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -66,12 +66,9 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>定義角色與權限
 
-身為服務提供者，您可以對單一客戶使用多個供應項目，每個都要求存取不同範圍。
+身為服務提供者，您可以對單一客戶執行多個工作，每個都要求存取不同範圍。 您可以定義所需數量的授權，以便將[角色型存取控制 (RBAC) 內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)指派給租用戶中的使用者。
 
-若要讓管理工作更容易，我們建議針對每個角色使用 Azure AD 使用者群組，而不是將權限直接指派給該使用者，讓您可將個別使用者新增至群組或從中移除。 您也可以將角色指派給服務主體。 請務必遵循最少特殊權限準則，讓使用者只具備完成其工作所需的權限，以協助減少發生意外錯誤的機會。 如需詳細資訊，請參閱[建議的安全性作法](../concepts/recommended-security-practices.md)。
-
-> [!NOTE]
-> 角色指派必須使用角色型存取控制 (RBAC) [內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) \(部分機器翻譯\)。 除了「擁有者」和具有 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) \(部分機器翻譯\) 權限的任何內建角色以外，所有內建角色目前都支援 Azure 委派的資源管理。 「使用者存取系統管理員」內建角色支援下述有限使用方式。 自訂角色和[傳統訂用帳戶管理員角色](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) \(部分機器翻譯\) 也未受支援。
+若要讓管理工作更容易，我們建議針對每個角色使用 Azure AD 使用者群組，而不是將權限直接指派給該使用者，讓您可將個別使用者新增至群組或從中移除。 您也可以將角色指派給服務主體。 請務必遵循最少特殊權限準則，讓使用者只具備完成其工作所需的權限。 如需有關所支援角色的建議和資訊，請參閱 [Azure Lighthouse 中的租用戶、使用者和角色案例](../concepts/tenants-users-roles.md)。
 
 為了定義授權，您必須知道要授與存取權的每個使用者、使用者群組或服務主體的識別碼值。 您也會需要所要指派每個內建角色的角色定義識別碼。 如果您還沒有這些資訊，您可以使用下列其中一種方式來擷取這些資訊。
 
@@ -110,6 +107,8 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+> [!TIP]
+> 建議您在讓客戶上線時，指派[受控服務註冊指派刪除角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)，讓您租用戶中的使用者之後可以視需要，[移除委派的存取權](#remove-access-to-a-delegation)。 如果未指派此角色，則只有客戶租用戶中的使用者可以移除委派的資源。
 
 ## <a name="create-an-azure-resource-manager-template"></a>建立 Azure Resource Manager 範本
 
@@ -124,7 +123,7 @@ az role definition list --name "<roleName>" | grep name
 
 若要讓客戶的訂用帳戶上線，請使用我們在[範例存放庫](https://github.com/Azure/Azure-Lighthouse-samples/) \(英文\) 中提供的適當 Azure Resource Manager 範本，以及修改為符合您設定並定義您授權的相對應參數檔案。 取決於您是否是讓整個訂用帳戶、資源群組或訂用帳戶內多個資源群組上線，您必須提供個別範本。 如果您偏好使用範本讓已購買受控服務供應項目 (您發佈至 Azure Marketplace) 的客戶上線，我們也提供可用於此情況的範本。
 
-|**若要讓項目上線**  |**使用此 Azure Resource Manager 範本**  |**並修改此參數檔案** |
+|若要讓項目上線  |使用此 Azure Resource Manager 範本  |並修改此參數檔案 |
 |---------|---------|---------|
 |訂用帳戶   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |資源群組   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
@@ -188,15 +187,18 @@ az role definition list --name "<roleName>" | grep name
     }
 }
 ```
-上述範例的最後一個授權會新增具有「使用者存取系統管理員」角色 (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9) 的 **principalId**。 當您指派此角色時，必須包含 **delegatedRoleDefinitionIds** 屬性與一或多個內建角色。 在此授權中建立的使用者將能夠將這些內建角色指派至[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。
+上述範例的最後一個授權會新增具有「使用者存取系統管理員」角色 (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9) 的 **principalId**。 當您指派此角色時，必須包含 **delegatedRoleDefinitionIds** 屬性與一或多個內建角色。 在此授權中建立的使用者將能夠將這些內建角色指派至[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 通常與「使用者存取系統管理員」角色相關聯的其他權限都不會套用至此使用者。
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>部署 Azure Resource Manager 範本
 
-更新您的參數檔案之後，客戶必須將其客戶租用戶中的資源管理範本部署為訂用帳戶層級部署。 您要上線至 Azure 委派的資源管理的每個訂用帳戶 (或包含您要上線之資源群組的每個訂用帳戶)，都需要個別部署。
+更新您的參數檔案之後，客戶必須將其客戶租用戶中的 Azure Resource Manager 範本部署為訂用帳戶層級部署。 您要上線至 Azure 委派的資源管理的每個訂用帳戶 (或包含您要上線之資源群組的每個訂用帳戶)，都需要個別部署。
+
+這是訂用帳戶層級部署，因此無法在 Azure 入口網站中起始。 您可以使用 PowerShell 或 Azure CLI 完成部署，如下所示。
 
 > [!IMPORTANT]
 > 部署必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) \(部分機器翻譯\) (或包含要上線的資源群組)。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]  ，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
 
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -248,6 +250,9 @@ az deployment create –-name <deploymentName \
 2. 選取 [客戶]  。
 3. 請確認您可以看到訂用帳戶顯示為您在 Resource Manager 範本中所提供的名稱。
 
+> [!IMPORTANT]
+> 若要查看 [我的客戶](view-manage-customers.md)中的委派訂用帳戶，當訂用帳戶上線以進行 Azure 委派的資源管理時，服務提供者租使用者中的使用者必須已獲授與[讀取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)角色 (或包含讀取器存取權的其他內建角色)。
+
 在客戶租用戶中：
 
 1. 瀏覽至 [[服務提供者] 頁面](view-manage-service-providers.md)。
@@ -271,6 +276,70 @@ Get-AzContext
 # Log in first with az login if you're not using Cloud Shell
 
 az account list
+```
+
+## <a name="remove-access-to-a-delegation"></a>移除委派的存取權
+
+根據預設，客戶租用戶中擁有適當權限的使用者可以在 Azure 入口網站的 [服務提供者](view-manage-service-providers.md#add-or-remove-service-provider-offers) 頁面中，移除已委派給服務提供者之資源的存取權。
+
+如果在讓客戶上線以進行 Azure 委派的資源管理時，已為使用者納入[受控服務註冊指派刪除角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)，則您租用戶中的那些使用者也可以移除委派。 當您這麼做時，服務提供者租用戶中的任何使用者都無法存取先前已委派的資源。
+
+下列範例顯示的指派會授與可包含在參數檔案中的**受控服務註冊指派刪除角色**：
+
+```json
+    "authorizations": [ 
+        { 
+            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
+            "principalIdDisplayName": "MSP Operators", 
+            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
+        } 
+    ] 
+```
+
+擁有此權限的使用者可以使用下列其中一種方式移除委派。
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory 
+
+Login-AzAccount
+
+# Select the subscription that is delegated - or contains the delegated resource group(s)
+
+Select-AzSubscription -SubscriptionName "<subscriptionName>"
+
+# Get the registration assignment
+
+Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
+
+# Delete the registration assignment
+
+Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory
+
+az login
+
+# Select the subscription that is delegated – or contains the delegated resource group(s)
+
+az account set -s <subscriptionId/name>
+
+# List registration assignments
+
+az managedservices assignment list
+
+# Delete the registration assignment
+
+az managedservices assignment delete –assignment <id or full resourceId>
 ```
 
 ## <a name="next-steps"></a>後續步驟

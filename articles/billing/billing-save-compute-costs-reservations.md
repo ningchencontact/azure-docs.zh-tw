@@ -5,18 +5,18 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499246"
+ms.locfileid: "73580100"
 ---
 # <a name="what-are-azure-reservations"></a>什麼是 Azure 保留項目？
 
-Azure Reservations 可協助您透過承諾一年或三年的虛擬機器、SQL 資料庫計算容量、Azure Cosmos DB 輸送量或其他 Azure 資源的費用來節省成本。 承諾可讓您在所用的資源上取得折扣。 與隨用隨付價格相比，Reservations 可以大幅降低虛擬機器、SQL 資料庫計算、Azure Cosmos DB 或其他資源的成本，最高可達 72%。 保留會提供計費折扣，且不會影響資源的執行階段狀態。
+Azure Reservations 可協助您透過承諾虛擬機器、Azure Blob 儲存體或 Azure Data Lake Storage Gen2、SQL Database 計算容量、Azure Cosmos DB 輸送量或其他 Azure 資源的一年或三年期方案來節省成本。 承諾可讓您在所用的資源上取得折扣。 對於隨用隨付，Reservations 可以大幅減少 72% 的資源成本。 保留會提供計費折扣，且不會影響資源的執行階段狀態。
 
 您可以預先或每月支付保留費用。 預付和每月付款的保留總費用是相同的，當您選擇按月支付時，您不需要支付任何額外費用。 每月付款僅適用於 Azure 保留，而不是第三方產品。
 
@@ -24,13 +24,14 @@ Azure Reservations 可協助您透過承諾一年或三年的虛擬機器、SQL 
 
 ## <a name="why-buy-a-reservation"></a>為何要購買保留？
 
-如果您有長期執行的虛擬機器、Azure Cosmos DB 或 SQL 資料庫，則購買保留可提供您最符合成本效益的選項。 例如，當您持續在未使用保留的情況下執行某個服務的四個執行個體時，必須以隨用隨付費率支付費用。 當您針對那些資源購買保留時，您會立即取得保留折扣。 那些資源將不再以隨用隨付費率計費。
+如果您有使用大量容量或輸送量或者長期執行的虛擬機器、Blob 儲存體資料、Azure Cosmos DB 或 SQL 資料庫，則購買保留可提供給您最符合成本效益的選項。 例如，當您持續在未使用保留的情況下執行某個服務的四個執行個體時，必須以隨用隨付費率支付費用。 當您針對那些資源購買保留時，您會立即取得保留折扣。 那些資源將不再以隨用隨付費率計費。
 
 ## <a name="charges-covered-by-reservation"></a>保留所涵蓋的費用
 
 服務方案：
 
 - **保留的虛擬機器執行個體**：保留僅涵蓋虛擬機器計算成本。 它不會涵蓋其他軟體、網路或儲存體費用。
+- **Azure 儲存體保留容量** - 保留涵蓋 Blob 儲存體或 Azure Data Lake Gen2 儲存體的標準儲存體帳戶儲存容量。 保留並未涵蓋頻寬或交易速率。
 - **Azure Cosmos DB 保留容量**：保留涵蓋針對資源所佈建的輸送量。 它未涵蓋儲存體和網路費用。
 - **SQL Database 保留的 vCore**：保留僅包含計算成本。 授權為分開計費。
 - **SQL 資料倉儲**：保留涵蓋 cDWU 使用量。 但未涵蓋與 SQL 資料倉儲使用量相關的儲存或網路費用。
@@ -134,6 +135,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 服務方案：
 
 - 保留的 VM 執行個體：當您購買保留並選取 [針對執行個體大小彈性最佳化]  時，折扣涵蓋範圍會取決於您選取的 VM 大小。 此保留可適用於相同大小系列群組中的虛擬機器 (VM) 大小。 如需詳細資訊，請參閱[利用保留的 VM 執行個體獲得虛擬機器大小彈性](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)。
+- Azure 儲存體保留容量：您可以為標準 Azure 儲存體帳戶購買保留容量 (以每個月 100 TiB 或 1 PiB 為單位)。 Azure 儲存體保留容量適用於所有區域中的任何存取層 (經常性、非經常性或封存) 和任何複寫選項 (LRS、GRS 或 ZRS)。
 - SQL Database 保留容量：折扣涵蓋範圍取決於您挑選的效能層級。 如需詳細資訊，請參閱[了解如何套用 Azure 保留折扣](billing-understand-reservation-charges.md)。
 - Azure Cosmos DB 保留容量：折扣涵蓋範圍取決於所佈建的輸送量。 如需詳細資訊，請參閱[了解如何套用 Azure Cosmos DB 保留折扣](billing-understand-cosmosdb-reservation-charges.md)。
 
