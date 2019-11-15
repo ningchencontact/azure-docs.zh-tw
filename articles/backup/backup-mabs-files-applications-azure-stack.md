@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 70da426f1dff843f1e2515052431f54f8ea83780
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074101"
+ms.locfileid: "74091573"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>備份 Azure Stack 上的檔案和應用程式
 
@@ -134,7 +134,7 @@ ms.locfileid: "74074101"
 2. 按一下備份基礎結構。
 3. 檢視備份管理伺服器。
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 如需使用 Azure 備份伺服器保護其他工作負載的資訊，請參閱下列文章：
 

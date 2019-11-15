@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074121"
+ms.locfileid: "74090938"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫
 
@@ -254,7 +254,7 @@ Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDat
 提取相關的可保護專案之後，請依照[上一節](#configuring-backup)中的指示啟用備份。
 如果您不想要手動偵測新的 Db, 他們可以選擇 start-autoprotection, [如下](#enable-autoprotection)所述。
 
-## <a name="enable-autoprotection"></a>啟用 Start-autoprotection
+## <a name="enable-autoprotection"></a>啟用 start-autoprotection
 
 使用者可以設定備份，如此一來，未來新增的所有資料庫都會以特定原則自動受到保護。 若要啟用 start-autoprotection，請使用[AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS Cmdlet。
 

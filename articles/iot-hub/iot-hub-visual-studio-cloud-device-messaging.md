@@ -1,5 +1,5 @@
 ---
-title: 使用適用於 Visual Studio 的 Cloud Explorer 管理 Azure IoT 中樞雲端服務傳訊 | Microsoft Docs
+title: 使用 VS Cloud Explorer 管理 Azure IoT 中樞裝置訊息
 description: 了解如何使用適用於 Visual Studio 的 Cloud Explorer，在 Azure IoT 中樞監視裝置到雲端訊息和雲端到裝置訊息。
 author: shizn
 ms.service: iot-hub
@@ -7,28 +7,28 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: b8ea705b55c1485cab2e1478d2d455f1d4a427d3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050240"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079484"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio 的 Cloud Explorer，在您的裝置和 IoT 中樞之間傳送及接收訊息
 
 ![端對端圖表](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
-[Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) 是非常有用的 Visual Studio 延伸模組，可讓您在 Visual Studio 內檢視您的 Azure 資源、檢查其屬性，以及執行重要的開發人員動作。 本文著重于如何使用 Cloud Explorer, 在您的裝置與中樞之間傳送和接收訊息。
+[Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) 是非常有用的 Visual Studio 延伸模組，可讓您在 Visual Studio 內檢視您的 Azure 資源、檢查其屬性，以及執行重要的開發人員動作。 本文著重于如何使用 Cloud Explorer，在您的裝置與中樞之間傳送和接收訊息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-learn"></a>您學到什麼
 
-在本文中, 您將瞭解如何使用 Visual Studio 的 Cloud Explorer 來監視裝置到雲端訊息, 以及傳送雲端到裝置的訊息。 裝置到雲端的訊息可能是您的裝置所收集，然後傳送到 IoT 中樞的感應器資料。 雲端到裝置訊息可能是您的 IoT 中樞傳送到裝置的命令。 例如，閃爍連接到您裝置的 LED。
+在本文中，您將瞭解如何使用 Visual Studio 的 Cloud Explorer 來監視裝置到雲端訊息，以及傳送雲端到裝置的訊息。 裝置到雲端的訊息可能是您的裝置所收集，然後傳送到 IoT 中樞的感應器資料。 雲端到裝置訊息可能是您的 IoT 中樞傳送到裝置的命令。 例如，閃爍連接到您裝置的 LED。
 
 ## <a name="what-you-do"></a>您要做什麼
 
-在本文中, 您會執行下列工作:
+在本文中，您會執行下列工作：
 
 - 使用適用於 Visual Studio 的 Cloud Explorer 來監視裝置到雲端訊息。
 
@@ -36,7 +36,7 @@ ms.locfileid: "70050240"
 
 ## <a name="what-you-need"></a>您需要什麼
 
-您需要下列必要條件:
+您必須符合下列必要條件：
 
 - 有效的 Azure 訂用帳戶。
 
@@ -44,27 +44,27 @@ ms.locfileid: "70050240"
 
 - Microsoft Visual Studio 2017 Update 9 或更新版本。 本文使用[Visual Studio 2019](https://www.visualstudio.com/vs/)。
 
-- Visual Studio 安裝程式的 Cloud Explorer 元件, 預設會使用 Azure 工作負載來選取。
+- Visual Studio 安裝程式的 Cloud Explorer 元件，預設會使用 Azure 工作負載來選取。
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>將 Cloud Explorer 更新至最新版本
 
-來自 Visual Studio 2017 Visual Studio 安裝程式的 Cloud Explorer 元件僅支援監視裝置到雲端和雲端到裝置的訊息。 若要使用 Visual Studio 2017, 請下載並安裝最新的[Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)。
+來自 Visual Studio 2017 Visual Studio 安裝程式的 Cloud Explorer 元件僅支援監視裝置到雲端和雲端到裝置的訊息。 若要使用 Visual Studio 2017，請下載並安裝最新的[Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)。
 
 ## <a name="sign-in-to-access-your-hub"></a>登入以存取您的中樞
 
-若要存取您的中樞, 請遵循下列步驟:
+若要存取您的中樞，請遵循下列步驟：
 
-1. 在 Visual Studio 中, 選取 [ **View**  >  **Cloud Explorer** ] 以開啟 Cloud Explorer。
+1. 在 Visual Studio 中，選取 [ **View** > **Cloud Explorer** ] 以開啟 Cloud Explorer。
 
-1. 選取 [帳戶管理] 圖示, 以顯示您的訂閱。
+1. 選取 [帳戶管理] 圖示，以顯示您的訂閱。
 
     ![帳戶管理圖示](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-1. 如果您已登入 Azure, 就會顯示您的帳戶。 若要第一次登入 Azure, 請選擇 [**新增帳戶**]。
+1. 如果您已登入 Azure，就會顯示您的帳戶。 若要第一次登入 Azure，請選擇 [**新增帳戶**]。
 
-1. 選取您想要使用的 Azure 訂用帳戶, 然後選擇 [套用]。
+1. 選取您想要使用的 Azure 訂用帳戶，然後選擇 [套用 **]。**
 
-1. 依序展開您的訂用帳戶和 [ **IoT 中樞**]。  在每個中樞底下, 您可以看到該中樞的裝置。
+1. 依序展開您的訂用帳戶和 [ **IoT 中樞**]。  在每個中樞底下，您可以看到該中樞的裝置。
 
     ![裝置清單](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 

@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 8967b61115d2e2e644dea93cb236f8a7cdfcfcbd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072311"
+ms.locfileid: "74090488"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -61,6 +61,12 @@ ms.locfileid: "74072311"
 1. 設定 `https://www.getpostman.com/oauth2/callback`的第二個重新**導向 URI** 。
 
     [![新增 Postman 重新導向 URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+
+1. 若要確定[應用程式已註冊為**公用用戶端**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)，請開啟應用程式註冊的 [**驗證**] 窗格，然後在該窗格中向下移動。 在 [**預設用戶端類型**] 區段中，針對 [將**應用程式視為公用用戶端**] 選擇 [**是]** ，然後點擊 [**儲存**]。
+
+    檢查**存取權杖**，以啟用您的資訊清單中的**oauth2AllowImplicitFlow**設定。
+
+    [![的公用用戶端設定](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. 複製並保存 Azure Active Directory 應用程式的**應用程式識別碼**。 用於後續的步驟中。
 

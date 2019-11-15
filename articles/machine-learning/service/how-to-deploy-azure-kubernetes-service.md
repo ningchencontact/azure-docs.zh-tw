@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 9055223d1e4ed056ad606533219925972b623f86
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de746d0b370de2d238c1143c48b75c1505cd9dc0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682096"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091491"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "73682096"
 - __硬體加速__選項，例如 GPU 和可現場程式化閘道陣列（FPGA）。
 
 > [!IMPORTANT]
-> 叢集調整不會透過 Azure Machine Learning SDK 提供。 如需有關在 AKS 叢集中調整節點的詳細資訊，請參閱[調整 AKS 叢集中的節點計數](../../aks/scale-cluster.md)。
+> 不會透過 Azure Machine Learning SDK 來提供叢集調整。 如需有關在 AKS 叢集中調整節點的詳細資訊，請參閱[調整 AKS 叢集中的節點計數](../../aks/scale-cluster.md)。
 
 部署到 Azure Kubernetes Service 時，您會部署到__連線到工作區__的 AKS 叢集。 有兩種方式可以將 AKS 叢集連線到您的工作區：
 
@@ -37,7 +37,7 @@ ms.locfileid: "73682096"
 > [!IMPORTANT]
 > 建立或附加程式是一次性的工作。 一旦 AKS 叢集連線到工作區，您就可以將它用於部署。 如果您不再需要 AKS 叢集，您可以卸離或刪除該叢集。 一旦 detatched 或刪除之後，您就無法再部署到叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
@@ -47,8 +47,8 @@ ms.locfileid: "73682096"
 
 - 本文中的__Python__程式碼片段假設已設定下列變數：
 
-    * `ws`-設定為您的工作區。
-    * `model`-設定為您已註冊的模型。
+    * `ws`-設定至您的工作區。
+    * `model`-設定為您的已註冊模型。
     * `inference_config`-設為模型的推斷設定。
 
     如需有關設定這些變數的詳細資訊，請參閱[如何和在何處部署模型](how-to-deploy-and-where.md)。
@@ -126,7 +126,7 @@ az ml computetarget create aks -n myaks
 
 如果您未設定 `cluster_purpose` 參數，或設定 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`，則叢集必須至少有12個可用的虛擬 Cpu。
 
-如果您設定 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，則叢集不需要有12個虛擬 Cpu。 針對開發/測試，我們建議至少要有2個虛擬 Cpu。 不過，針對「開發/測試」設定的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
+如果您設定 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，叢集就不需要有12個虛擬 Cpu。 針對開發/測試，我們建議至少要有2個虛擬 Cpu。 不過，針對「開發/測試」設定的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
 
 > [!WARNING]
 > 請勿從您的工作區，同時建立多個同時附加至相同 AKS 叢集的附件。 例如，使用兩個不同的名稱，將一個 AKS 叢集附加至工作區。 每個新的附件都會中斷先前現有的附件。
@@ -177,7 +177,7 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 /subscriptions/{GUID}/resourcegroups/{myresourcegroup}/providers/Microsoft.ContainerService/managedClusters/{myexistingcluster}
 ```
 
-若要將現有的叢集附加至您的工作區，請使用下列命令。 以上一個命令所傳回的值取代 `aksresourceid`。 以包含您工作區的資源群組取代 `myresourcegroup`。 以您的工作區名稱取代 `myworkspace`。
+若要將現有的叢集附加至您的工作區，請使用下列命令。 以上一個命令所傳回的值取代 `aksresourceid`。 將 `myresourcegroup` 取代為包含您工作區的資源群組。 將 `myworkspace` 取代為您的工作區名稱。
 
 ```azurecli
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
@@ -215,7 +215,7 @@ print(service.get_logs())
 
 ### <a name="using-the-cli"></a>使用 CLI
 
-若要使用 CLI 進行部署，請使用下列命令。 以 AKS 計算目標的名稱取代 `myaks`。 以已註冊模型的名稱和版本取代 `mymodel:1`。 以提供此服務的名稱取代 `myservice`：
+若要使用 CLI 進行部署，請使用下列命令。 將 `myaks` 取代為 AKS 計算目標的名稱。 將 `mymodel:1` 取代為已註冊模型的名稱和版本。 以名稱取代 `myservice` 以授與此服務：
 
 ```azurecli-interactive
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json

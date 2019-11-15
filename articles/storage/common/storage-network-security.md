@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a02e690e344678b512503f8c3beb57023a838ac0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c4ce0d4ecd64273bcb3226b4b543ba378aad538c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686650"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078943"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -358,14 +358,14 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 
 ## <a name="exceptions"></a>例外狀況
 
-網路規則有助於建立安全的環境，以便在您的應用程式與資料之間，針對大部分案例進行連接。 不過，有些應用程式會使用無法透過虛擬網路或 IP 位址規則來唯一隔離的服務。 但是，您必須將這類服務授與儲存體，才能啟用完整的應用程式功能。 在這種情況下，您可以使用 [***允許信任的 Microsoft 服務 ...*** ] 設定來啟用資料、記錄或分析的存取權。
+網路規則有助於建立安全的環境，以便在您的應用程式與資料之間，針對大部分案例進行連接。 不過，某些應用程式相依于無法透過虛擬網路或 IP 位址規則來唯一隔離的 Azure 服務。 但是，您必須將這類服務授與儲存體，才能啟用完整的應用程式功能。 在這種情況下，您可以使用 [***允許信任的 Microsoft 服務 ...*** ] 設定來啟用這類服務，以存取您的資料、記錄或分析。
 
 ### <a name="trusted-microsoft-services"></a>受信任的 Microsoft 服務
 
-某些 Microsoft 服務是從無法包含在網路規則中的網路進行操作。 您可以將這類受信任的 Microsoft 服務存取權授與儲存體帳戶，同時維護其他應用程式的網路規則。 這些受信任的服務接著可以使用增強式驗證，安全地連線到您的儲存體帳戶。 我們為 Microsoft 服務啟用了兩種類型的受信任存取。
+某些 Microsoft 服務是從無法包含在網路規則中的網路進行操作。 您可以將這類受信任的 Microsoft 服務存取權授與儲存體帳戶，同時維護其他應用程式的網路規則。 這些信任的服務接著會使用增強式驗證來安全地連線到您的儲存體帳戶。 我們已為 Microsoft 服務啟用兩種受信任的存取模式。
 
 - 某些服務的資源在**您的訂用帳戶中註冊時**，可以存取**相同訂**用帳戶中的儲存體帳戶來進行選取作業，例如寫入記錄或備份。
-- 某些服務的資源可以藉由將[**RBAC 角色指派**](storage-auth-aad.md#assign-rbac-roles-for-access-rights)給資源實例，來授與對您儲存體帳戶的明確存取權。
+- 某些服務的資源可以藉由將**RBAC 角色指派**給其系統指派的受控識別，來授與對您儲存體帳戶的明確存取權。
 
 
 當您啟用 [**允許受信任的 Microsoft 服務 ...** ] 設定時，在與儲存體帳戶相同的訂用帳戶中註冊的下列服務資源，會被授與存取權給一組有限的作業，如下所述：
@@ -383,15 +383,15 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 | Azure 網路         | Microsoft.Network          | 儲存及分析網路流量記錄。 [詳細資訊](/azure/network-watcher/network-watcher-packet-capture-overview)。 |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 當使用已啟用防火牆的快取、來源或目標儲存體帳戶時，啟用複寫以進行 Azure IaaS 虛擬機器的嚴重損壞修復。  [詳細資訊](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。 |
 
-如果您明確地將 RBAC 角色指派給該資源實例的[系統指派受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[**允許受信任的 Microsoft 服務**] 設定可讓下列服務的特定實例存取儲存體帳戶。
+如果您明確地[將 RBAC 角色指派](storage-auth-aad.md#assign-rbac-roles-for-access-rights)給該資源實例的[系統指派受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[**允許受信任的 Microsoft 服務**] 設定也會允許下列服務的特定實例存取儲存體帳戶。 在此情況下，實例的存取範圍會對應至指派給受控識別的 RBAC 角色。
 
 | 服務                        | 資源提供者名稱          | 目的                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft.DataFactory/factories | 允許透過 ADF 執行時間存取儲存體帳戶。 |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | 讓邏輯應用程式能夠存取儲存體帳戶。 [詳細資訊](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md)。 |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | 讓邏輯應用程式能夠存取儲存體帳戶。 [詳細資訊](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity)。 |
 | Azure Machine Learning 服務 | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [詳細資訊](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。 | 
 | Azure SQL 資料倉儲       | Microsoft.Sql                   | 允許使用 PolyBase 從特定的 SQL Database 實例匯入和匯出資料。 [詳細資訊](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。 |
-| Azure 串流分析         | Microsoft.StreamAnalytics       | 允許將串流作業中的資料寫入 Blob 儲存體。 此功能目前為預覽狀態。 [詳細資訊](/azure/stream-analytics/blob-output-managed-identity.md)。 |
+| Azure 串流分析         | Microsoft.StreamAnalytics       | 允許將串流作業中的資料寫入 Blob 儲存體。 這項功能目前只能預覽。 [詳細資訊](/azure/stream-analytics/blob-output-managed-identity)。 |
 
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取

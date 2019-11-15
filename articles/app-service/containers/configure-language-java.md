@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886053"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081479"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -239,9 +239,9 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 若要將這些秘密插入您的春季或 Tomcat 設定檔中，請使用環境變數插入語法（`${MY_ENV_VAR}`）。 如需春季設定檔，請參閱這[外部化](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)設定的相關檔。
 
-## <a name="using-the-java-key-store"></a>使用 JAVA 金鑰存放區
+### <a name="using-the-java-key-store"></a>使用 JAVA 金鑰存放區
 
-根據預設，任何[上傳至 App Service Linux](../configure-ssl-certificate.md)的公用或私用憑證，都會在容器啟動時載入至 JAVA 金鑰存放區。 這表示在進行輸出 TLS 連線時，您上傳的憑證將會在線上內容中提供。
+根據預設，任何[上傳至 App Service Linux](../configure-ssl-certificate.md)的公用或私用憑證，都會在容器啟動時載入至 JAVA 金鑰存放區。 這表示在進行輸出 TLS 連線時，您上傳的憑證將會在線上內容中提供。 上傳您的憑證之後，您必須重新開機您的 App Service，才能將其載入至 JAVA 金鑰存放區。
 
 您可以藉由開啟與 App Service 的[SSH](app-service-linux-ssh-support.md)連線，並執行命令 `keytool`，來互動或調試 JAVA 金鑰工具。 如需命令清單，請參閱[重要工具檔](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html)。 憑證會儲存在 JAVA 的預設金鑰存放區檔案位置，`$JAVA_HOME/jre/lib/security/cacerts`。
 
@@ -251,7 +251,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 
-### <a name="manually-initialize-and-load-the-key-store"></a>手動初始化和載入金鑰存放區
+#### <a name="manually-initialize-and-load-the-key-store"></a>手動初始化和載入金鑰存放區
 
 您可以初始化金鑰存放區，並手動新增憑證。 建立應用程式設定，`SKIP_JAVA_KEYSTORE_LOAD`，並將值設為 `1`，以停用 App Service 自動將憑證載入金鑰存放區。 透過 Azure 入口網站上傳至 App Service 的所有公用憑證都會儲存在 `/var/ssl/certs/`之下。 私人憑證會儲存在 `/var/ssl/private/`之下。
 

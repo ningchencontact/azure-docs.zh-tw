@@ -1,5 +1,5 @@
 ---
-title: 透過 ExpressRoute 設定 BFD - Azure | Microsoft Docs
+title: Azure ExpressRoute：設定 BFD
 description: 本文提供如何透過 ExpressRoute 線路的私人對等互連設定 BFD (雙向轉送偵測) 的相關指示。
 services: expressroute
 author: rambk
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
-ms.custom: seodec18
-ms.openlocfilehash: a24e021c34fe1ad315ca7f75f9bfdb29d94b253a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 608b5e0011d4ed656ff61fec84a23f2fb22373b3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494999"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080787"
 ---
 # <a name="configure-bfd-over-expressroute"></a>透過 ExpressRoute 設定 BFD
 

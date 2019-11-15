@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 和 Azure Resource Manager 來為 Hyper-V VM 設定 Azure 災害復原 | Microsoft Docs
+title: 使用 Azure Site Recovery 和 PowerShell 的 hyper-v VM 嚴重損壞修復
 description: 使用 PowerShell 和 Azure Resource Manager，透過 Azure Site Recovery 服務自動將 Hyper-V VM 災害復原至 Azure。
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200529"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082685"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>針對 Hyper-V VM，使用 PowerShell 和 Azure Resource Manager 設定至 Azure 的災害復原
 
@@ -47,9 +47,9 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>步驟 1：登入您的 Azure 帳戶
 
-1. 開啟 PowerShell 主控台並執行這個命令，登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證：**連接-disconnect-azaccount**。
+1. 開啟 PowerShell 主控台並執行這個命令，登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入您的帳號憑證：**連接-disconnect-azaccount**。
     - 或者，您可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Connect-AzAccount** Cmdlet。
-    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如: **Connect-AzAccount -Tenant "fabrikam.com"**
+    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如： **Connect-disconnect-azaccount-Tenant "fabrikam.com"**
 2. 由於一個帳戶可以有多個訂用帳戶，因此您必須將要使用的訂用帳戶與帳戶建立關聯：
 
     `Select-AzSubscription -SubscriptionName $SubscriptionName`
@@ -66,7 +66,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-## <a name="step-2-set-up-the-vault"></a>步驟 2:設定保存庫
+## <a name="step-2-set-up-the-vault"></a>步驟 2：設定保存庫
 
 1. 建立將在其中建立保存庫的 Azure Resource Manager 資源群組，或使用現有的資源群組。 建立新的資源群組，如下所示。 $ResourceGroupName 變數包含您想要建立的資源群組名稱，而 $Geo 變數包含要在其中建立資源群組的 Azure 區域 (例如：巴西南部)。
 
@@ -104,7 +104,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
 5. 將下載的金鑰複製到 Hyper-V 主機。 您需要金鑰向網站註冊 Hyper-V 主機。
 
-## <a name="step-5-install-the-provider-and-agent"></a>步驟 5：安裝 Provider 和代理程式
+## <a name="step-5-install-the-provider-and-agent"></a>步驟 5：安裝提供者和代理程式
 
 1. 從 [Microsoft](https://aka.ms/downloaddra)下載最新版提供者的安裝程式。
 2. 在 Hyper-v 主機上執行安裝程式。
@@ -115,8 +115,8 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 如果您執行的是 Hyper-V 核心伺服器，請下載安裝檔案並執行下列步驟：
-1. 執行下列命令，將檔案從 Azuresiterecoveryprovider.exe 解壓縮至本機目錄：```AzureSiteRecoveryProvider.exe /x:. /q```
-2. 執行```.\setupdr.exe /i```結果會記錄到%Programdata%\ASRLogs\DRASetupWizard.log。
+1. 執行下列命令，將檔案從 Azuresiterecoveryprovider.exe 解壓縮至本機目錄： ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 執行 ```.\setupdr.exe /i``` 結果會記錄到%Programdata%\ASRLogs\DRASetupWizard.log。
 
 3. 執行下列命令以註冊伺服器：
 

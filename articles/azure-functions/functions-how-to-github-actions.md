@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8decf4622c4043cbac0f2e2f6e2ad59f1b5baaae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 681d7a5eab3306a4067ea49bcf8a038e8627f60e
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074004"
+ms.locfileid: "74091390"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 GitHub 動作進行持續傳遞
 
@@ -215,7 +215,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要查看完整的 yaml，請參閱[Azure GitHub 動作工作流程範例](https://github.com/Azure/actions-workflow-samples)存放庫中的其中一個檔案，其名稱中有 `functionapp`。 您可以使用這些範例做為工作流程的起點。
+若要查看完整的 yaml，請參閱[Azure GitHub 動作工作流程範例](https://aka.ms/functions-actions-samples)存放庫中的其中一個檔案，其名稱中有 `functionapp`。 您可以使用這些範例做為工作流程的起點。
 
 > [!div class="nextstepaction"]
 > [深入瞭解 GitHub 動作](https://help.github.com/en/articles/about-github-actions)

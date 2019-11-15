@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285925"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091789"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
 
@@ -26,7 +26,7 @@ Azure 資料總管資料管理服務負責資料擷取，並提供下列功能�
 
 1. **批次處理**：批次處理流向相同資料庫和資料表的資料，將擷取輸送量最佳化。
 
-1. **驗證**：若有需要則進行初步驗證和格式轉換。
+1. **驗證**：必要時的初步驗證和格式轉換。
 
 1. **資料操作**：比對結構描述、組織、編製索引、編碼以及壓縮資料。
 
@@ -88,7 +88,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 
 **不同方法的延遲**：
 
-| 方法 | 延遲 |
+| 方法 | Latency |
 | --- | --- |
 | **內嵌擷取** | 立即 |
 | **從查詢擷取** | 查詢時間 + 處理時間 |
@@ -117,11 +117,9 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 
 ## <a name="supported-data-formats"></a>支援的資料格式
 
-對於從查詢內嵌以外的所有擷取方法，請設定資料格式，Azure 資料總管才能剖析它。 支援的資料格式如下：
-
-* TXT、CSV、TSV、TSVE、PSV、SCSV、SOH
-* JSON (以行分隔、多行)、Avro
-* ZIP 和 GZIP 
+對於從查詢內嵌以外的所有擷取方法，請設定資料格式，Azure 資料總管才能剖析它。 
+* 支援的資料格式包括： TXT、CSV、TSV、TSVE、PSV、SCSV、SOH、JSON （以行分隔、多行）、Avro 和 Parquet。 
+* 支援 ZIP 和 GZIP 壓縮。
 
 > [!NOTE]
 > 正在擷取資料時，會根據目標資料表資料行推斷資料類型。 如果記錄不完整或無法將欄位剖析為所需的資料類型，則會將對應的資料表資料行填入 null 值。

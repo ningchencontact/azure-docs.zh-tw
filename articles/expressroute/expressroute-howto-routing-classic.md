@@ -1,5 +1,5 @@
 ---
-title: 設定線路的對等互連-ExpressRoute： Azure：傳統 |Microsoft Docs
+title: Azure ExpressRoute：設定對等互連：傳統
 description: 本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。 本文也示範如何檢查狀態、更新或刪除線路的對等。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748188"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083450"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -52,7 +51,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 如需詳細資訊，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/overview) 中的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指導方針。
 
-### <a name="sign-in"></a>Sign in
+### <a name="sign-in"></a>登入
 
 若要登入您的 Azure 帳戶，請使用下列範例：
 
@@ -122,7 +121,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
    * 次要連結的 /30 子網路。 這不能在保留給虛擬網路的任何位址空間中。
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
-   * MD5 雜湊 (如果選擇使用)。 **選用**。
+   * MD5 雜湊 (如果選擇使用)。 **選擇性**。
      
    您可以使用下列範例來為線路設定 Azure 私用對等互連：
 
@@ -229,7 +228,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
    * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-   * MD5 雜湊 (如果選擇使用)。 **選用**。
+   * MD5 雜湊 (如果選擇使用)。 **選擇性**。
 
    > [!IMPORTANT]
    > 請確定您將 AS 編號指定為對等 ASN，而不是客戶 ASN。
@@ -334,7 +333,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
    * 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。 只接受公用 IP 位址首碼。 如果您打算傳送一組首碼，您可以傳送逗號分隔清單。 這些首碼必須在 RIR / IRR 中註冊給您。
-   * 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。 **選用**。
+   * 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。 **選擇性**。
    * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
    * MD5 雜湊 (如果選擇使用)。 **選用。**
      

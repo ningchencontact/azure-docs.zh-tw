@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 範例 | Microsoft Docs
+title: Azure CLI 範例-網路
 description: Azure CLI 範例
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: c612cdefa3f915212c43d7bdc4d48b10a593150b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae8ea3db10f1a40fe4d3bbca94db61d425b6092d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705575"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091471"
 ---
 # <a name="azure-cli-samples-for-networking"></a>網路功能的 Azure CLI 範例
 

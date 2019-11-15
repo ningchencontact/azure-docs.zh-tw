@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea174de04d0e75bc996c6f692edd474a9396346a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9ae7390afead843fa0784454f7e0374bedf735ad
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474274"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081540"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -219,7 +219,7 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 
 如果這裡沒有您問題的解答，請將它留在頁面底部的註解中。 或者，以下是取得協助的一些其他選項︰
 
-* 在 [Microsoft 支援知識庫](https://www.microsoft.com/en-us/search?form=mssupport&q=phonefactor&rtc=1)搜尋常見技術問題的解決方案。
+* 在 [Microsoft 支援知識庫](https://support.microsoft.com)搜尋常見技術問題的解決方案。
 * 在 [Azure Active Directory 論壇](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)中，搜尋及瀏覽來自社群的技術問題與解答，或是提出您的問題。
 * 如果您是舊版 PhoneFactor 的客戶且有問題或需要協助重設密碼，請使用 [重設密碼](mailto:phonefactorsupport@microsoft.com) 連結來建立支援案例。
 * 請透過 [Azure Multi-Factor Authentication Server (PhoneFactor) 支援](https://support.microsoft.com/oas/default.aspx?prid=14947)連絡支援專業人員。 連絡我們時，請盡量包含有關問題的最多資訊，這樣會十分有幫助。 您可以提供的資訊包含您看到錯誤的頁面、特定錯誤碼、特定工作階段識別碼，以及看到錯誤的使用者的識別碼。

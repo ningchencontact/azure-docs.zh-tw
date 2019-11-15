@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70673dc7d42a0c7d9b60f3c3f877c1985dac3c98
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 238afdf9e50eaccba51d996ce6e9cfd06ea36899
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097800"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091987"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
 [Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [SMB 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用裝載在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
@@ -34,7 +34,7 @@ ms.locfileid: "73097800"
 uname -r
 ```
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**確定已安裝 cifs utils 套件。**  
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    在較舊版本的**Red Hat Enterprise Linux**和**CentOS**上，使用 `dnf` 套件管理員：
+    在較舊版本的**Red Hat Enterprise Linux**和**CentOS**上，使用 `yum` 套件管理員：
 
     ```bash
     sudo yum install cifs-utils 
@@ -173,7 +173,7 @@ uname -r
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **使用下列命令將下面這一行附加至 `/etc/fstab`** ：在下列範例中，本機 Linux 檔案和資料夾許可權預設為0755，這表示擁有者（根據檔案/目錄 Linux 擁有者）的讀取、寫入和執行功能，請參閱和針對 [擁有者] 群組中的使用者執行，並針對系統上的其他人進行讀取和執行。 您可以使用 [`uid`] 和 [`gid` 掛接] 選項來設定掛接的使用者識別碼和群組識別碼。 您也可以使用 `dir_mode` 和 `file_mode` 來設定所需的自訂許可權。 如需如何設定許可權的詳細資訊，請參閱維琪百科上的[UNIX 數值標記法](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation)。
+1. **使用下列命令將下面這一行附加至 `/etc/fstab`** ：在下列範例中，本機 Linux 檔案和資料夾許可權預設為0755，這表示擁有者（根據檔案/目錄 Linux 擁有者）的讀取、寫入和執行、對擁有者群組中的使用者進行讀取和執行，以及對系統上的其他人進行讀取和執行。 您可以使用 [`uid`] 和 [`gid` 掛接] 選項來設定掛接的使用者識別碼和群組識別碼。 您也可以使用 `dir_mode` 和 `file_mode` 來設定所需的自訂許可權。 如需如何設定許可權的詳細資訊，請參閱維琪百科上的[UNIX 數值標記法](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation)。
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -199,21 +199,21 @@ uname -r
 
 從 Linux 核心4.18 開始，SMB 核心模組（稱為 `cifs` 的舊版原因）會公開新的模組參數（通常稱為「各種」外部檔的*parm* ），稱為 `disable_legacy_dialects`。 雖然是在 Linux 核心4.18 中引進，但部分廠商已將這項變更 backport 到其支援的舊版核心。 為了方便起見，下表詳細說明通用 Linux 散發套件上此模組參數的可用性。
 
-| 通路業 | 可以停用 SMB 1 |
+| 配送映像 | 可以停用 SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | 否 |
-| Ubuntu 18.04 | 是 |
-| Ubuntu 19.04 + | 是 |
+| Ubuntu 18.04 | yes |
+| Ubuntu 19.04 + | yes |
 | Debian 8-9 | 否 |
-| Debian 10 + | 是 |
-| Fedora 29 + | 是 |
+| Debian 10 + | yes |
+| Fedora 29 + | yes |
 | CentOS 7 | 否 | 
-| CentOS 8 + | 是 |
+| CentOS 8 + | yes |
 | Red Hat Enterprise Linux 6.x-7. x | 否 |
-| Red Hat Enterprise Linux 8 + | 是 |
+| Red Hat Enterprise Linux 8 + | yes |
 | openSUSE Leap 15。0 | 否 |
-| openSUSE Leap 15.1 + | 是 |
-| openSUSE Tumbleweed | 是 |
+| openSUSE Leap 15.1 + | yes |
+| openSUSE Tumbleweed | yes |
 | SUSE Linux Enterprise 11. x-12. x | 否 |
 | SUSE Linux Enterprise 15 | 否 |
 | SUSE Linux Enterprise 15。1 | 否 |

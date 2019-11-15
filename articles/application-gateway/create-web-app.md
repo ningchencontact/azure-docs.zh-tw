@@ -1,20 +1,21 @@
 ---
-title: 使用 Azure 應用程式閘道保護 Web 應用程式 - PowerShell
+title: 使用 PowerShell 設定 App Service
+titleSuffix: Azure Application Gateway
 description: 本文提供如何在現有或新的應用程式閘道上將網頁設定為後端主機的指引。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122212"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089520"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>透過應用程式閘道設定 App Service
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>使用 PowerShell 設定應用程式閘道的 App Service
 
 應用程式閘道可讓您以 Azure App Service 應用程式或其他多租用戶的服務作為後端集區成員。 在本文中，您將了解如何透過應用程式閘道設定 App Service 應用程式。 第一個範例示範如何將現有的應用程式閘道設定為以 Web 應用程式作為後端集區成員。 第二個範例示範如何建立新的應用程式閘道，並以 Web 應用程式作為後端集區成員。
 
@@ -165,4 +166,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何藉由瀏覽下列項目來設定重新導向：[使用 PowerShell 在 Azure 應用程式閘道上設定重新導向](redirect-overview.md)。
+如需了解如何設定重新導向，請參閱[使用 PowerShell 在 Azure 應用程式閘道上設定重新導向](redirect-overview.md)。

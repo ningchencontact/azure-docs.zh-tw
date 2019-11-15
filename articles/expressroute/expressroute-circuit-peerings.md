@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute 線路和對等互連 | Microsoft Docs
+title: Azure ExpressRoute：線路和對等互連
 description: 此頁面提供 ExpressRoute 線路和路由網域/對等互連的概觀。
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6673e114c249cb86c648155b889e925554e9458
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123484"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083627"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 線路和對等互連
 
@@ -31,7 +30,7 @@ ExpressRoute 線路代表您的內部部署基礎結構與 Microsoft 雲端服�
 
 ExpressRoute 線路不對應至任何實體裝置。 線路由一個稱為服務金鑰 (s 金鑰) 的標準 GUID 唯一識別。 服務金鑰是 Microsoft、連線提供者與您之間唯一會交換的資訊。 S 金鑰不是安全性用途的密碼。 ExpressRoute 線路與 s 金鑰之間存在 1:1 對應。
 
-新的 ExpressRoute 線路可以包含兩個獨立的對等互連：私人對等互連和 Microsoft 對等互連。 然而，現有的 ExpressRoute 線路可能包含三個對等互連：Azure 公用、Azure 私人和 Microsoft。 每個對等互連均為一對獨立的 BGP 工作階段，其中每一個都會重複設定，以確保高可用性。 ExpressRoute 線路與路由網域之間存在 1:N (1 <= N <= 3) 對應。 每個 ExpressRoute 電路可以啟用任何一個、兩個或全部三個對等。
+新的 ExpressRoute 線路可以包含兩個獨立的對等互連：私用對等互連和 Microsoft 對等互連。 然而，現有的 ExpressRoute 線路可能包含三個對等互連：Azure 公用、Azure 私用和 Microsoft。 每個對等互連均為一對獨立的 BGP 工作階段，其中每一個都會重複設定，以確保高可用性。 ExpressRoute 線路與路由網域之間存在 1:N (1 <= N <= 3) 對應。 每個 ExpressRoute 電路可以啟用任何一個、兩個或全部三個對等。
 
 每個電路有固定的頻寬 (50 Mbps、100 Mbps、200 Mbps、500 Mbps、1 Gbps、10 Gbps)，而且對應至連線提供者和對等位置。 您選取的頻寬會在所有線路對等互連中共用
 
@@ -41,7 +40,7 @@ ExpressRoute 線路不對應至任何實體裝置。 線路由一個稱為服務
 
 ## <a name="routingdomains"></a>ExpressRoute 對等互連
 
-ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用、Azure 私人和 Microsoft。 每個對等互連在一對路由器上的設定完全相同 (使用主動-主動或載入共用設定)，以確保高可用性。 Azure 服務分成 *Azure 公用*和 *Azure 私用*兩類來代表 IP 定址配置。
+ExpressRoute 線路有多個相關聯的路由網域/對等互連： Azure 公用、Azure 私用和 Microsoft。 每個對等互連在一對路由器上的設定完全相同 (使用主動-主動或載入共用設定)，以確保高可用性。 Azure 服務分成 *Azure 公用*和 *Azure 私用*兩類來代表 IP 定址配置。
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
@@ -84,7 +83,7 @@ Microsoft 線上服務（Office 365 和 Azure PaaS 服務）的連線會透過 M
 | **AS 編號需求** |私密和公用 AS 編號。 您必須擁有公用 AS 編號，才能選擇使用其中一個編號。 |私密和公用 AS 編號。 不過，您必須證明公用 IP 位址的擁有權。 |私密和公用 AS 編號。 不過，您必須證明公用 IP 位址的擁有權。 |
 | **支援的 IP 通訊協定**| IPv4 |  IPv4、IPv6 | IPv4 |
 | **路由介面 IP 位址** |RFC1918 和公用 IP 位址 |在路由註冊中向您註冊的公用 IP 位址。 |在路由註冊中向您註冊的公用 IP 位址。 |
-| **MD5 雜湊支援** |是 |是 |是 |
+| **MD5 雜湊支援** |yes |yes |yes |
 
 您可能會啟用一或多個路由網域作為 ExpressRoute 線路的一部分。 如果想要將所有路由網域合併成單一路由網域，您可以選擇將所有路由網域放在相同的 VPN。 您也可以將他們放在不同的路由網域，類似上圖。 建議的設定是將私用對等直接連線到核心網路，而將公用和 Microsoft 對等連結連線到您的 DMZ。
 

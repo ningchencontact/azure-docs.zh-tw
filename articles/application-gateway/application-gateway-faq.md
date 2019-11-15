@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f2cf69b456aeccd6da5ac393b88171fb3bb03cf2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470066"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082538"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -105,7 +105,7 @@ Azure 應用程式閘道會以服務形式提供應用程式傳遞控制器（AD
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>我可以使用 Exchange Server 做為應用程式閘道的後端嗎？
 
-不會。 應用程式閘道不支援電子郵件通訊協定，例如 SMTP、IMAP 和 POP3。 
+號 應用程式閘道不支援電子郵件通訊協定，例如 SMTP、IMAP 和 POP3。 
 
 ## <a name="performance"></a>效能
 
@@ -125,7 +125,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>手動相應增加或相應減少會造成停機時間嗎？
 
-不會。 執行個體已分散於升級網域和容錯網域。
+號 執行個體已分散於升級網域和容錯網域。
 
 ### <a name="does-application-gateway-support-connection-draining"></a>應用程式閘道是否支援連線清空？
 
@@ -147,7 +147,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>是否可以在應用程式閘道子網路中部署其他任何項目？
 
-不會。 但是，您可以在子網中部署其他應用程式閘道。
+號 但是，您可以在子網中部署其他應用程式閘道。
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>應用程式閘道子網是否支援網路安全性群組？
 
@@ -179,7 +179,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>自訂探查在回應資料上是否支援萬用字元或 RegEx？
 
-不會。 
+號 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>應用程式閘道中的路由規則如何處理？
 
@@ -195,7 +195,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>公用和私用的接聽程式是否可以使用相同的埠？
 
-不會。
+號
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有可從 v1 SKU 遷移至 v2 SKU 的指導方針？
 
@@ -290,17 +290,13 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 是。 WAF 支援標準 SKU 中的所有功能。
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>應用程式閘道支援哪些 CRS 版本？
-
-應用程式閘道支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 和 CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)。
-
 ### <a name="how-do-i-monitor-waf"></a>如何監視 WAF？
 
 透過診斷記錄來監視 WAF。 如需詳細資訊，請參閱[應用程式閘道的診斷記錄和計量](application-gateway-diagnostics.md)。
 
 ### <a name="does-detection-mode-block-traffic"></a>偵測模式是否會封鎖流量？
 
-不會。 偵測模式只會記錄觸發 WAF 規則的流量。
+號 偵測模式只會記錄觸發 WAF 規則的流量。
 
 ### <a name="can-i-customize-waf-rules"></a>我可以自訂 WAF 規則嗎？
 
@@ -308,7 +304,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>哪些規則目前可供 WAF？
 
-WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229)和[3.0](application-gateway-crs-rulegroups-rules.md#owasp30)。 這些規則會針對開啟 Web 應用程式安全性專案（OWASP）識別的大多數前10大弱點，提供基準安全性： 
+WAF 目前支援 CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229)、 [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)和[3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31)。 這些規則會針對開啟 Web 應用程式安全性專案（OWASP）識別的大多數前10大弱點，提供基準安全性： 
 
 * SQL 插入式攻擊保護
 * 跨網站腳本保護

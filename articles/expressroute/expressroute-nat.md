@@ -1,5 +1,5 @@
 ---
-title: 線路的 NAT 需求 - ExpressRoute：Azure | Microsoft Docs
+title: Azure ExpressRoute：線路的 NAT 需求
 description: 此頁面提供為 ExpressRoute 線路設定和管理 NAT 的詳細需求。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: d2879b6830a5c793358cc2200485ed971c5f3c48
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123314"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083384"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理 NAT。 有些連線提供者會以受控服務來支援設定和管理路由。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵守以下所述的需求。 

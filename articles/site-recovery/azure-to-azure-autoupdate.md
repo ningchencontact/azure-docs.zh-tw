@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 中的行動服務自動更新至 Azure 嚴重損壞修復 |Microsoft Docs
+title: 自動更新 Azure Site Recovery 中的行動服務
 description: 使用 Azure Site Recovery 複寫 Azure Vm 時，自動更新行動服務的總覽。
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0a8f47e0eea8908fcf6aa11c694e09efef14bbf1
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 9479ccce534f9c9d48a0aa08d4ea887bc4f30acb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053538"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078876"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 到 Azure 複寫中的行動服務自動更新
 
@@ -55,7 +55,7 @@ Azure Site Recovery 會使用每月發行頻率來修正任何問題，並增強
 
 1. 在保存庫中，移至 [**管理** > **Site Recovery 基礎結構**]。
 2. 在 [ **Azure 虛擬機器** > **延伸模組更新設定**] 底下，開啟 [**允許 Site Recovery 管理**切換]。 若要手動管理，請將它關閉。 
-3. 選取 [儲存]。
+3. 選取 [ **儲存**]。
 
 ![延伸模組更新設定](./media/azure-to-azure-autoupdate/vault-toggle.png)
 

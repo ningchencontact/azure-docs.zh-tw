@@ -1,5 +1,5 @@
 ---
-title: 分析 Azure Site Recovery 部署規劃工具針對 Hyper-V VM 至 Azure 的災害復原所做的報告 | Microsoft Docs
+title: 分析 Azure Site Recovery 中的 Hyper-v 部署規劃工具報表
 description: 本文說明如何分析 Azure Site Recovery 部署規劃工具針對「Hyper-V VM 至 Azure 的災害復原」所產生的報告。
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: aafeeb59446ac914bba25874f74871fc5f189498
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693578"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084953"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署規劃工具報告
 本文討論 Azure Site Recovery 部署規劃工具針對 Hyper-V 到 Azure 的案例產生的 Excel 報告所包含的工作表。

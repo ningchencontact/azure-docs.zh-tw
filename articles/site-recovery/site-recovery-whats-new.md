@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery 的新功能
-description: 提供 Azure Site Recovery 引進的新功能摘要
+description: 提供新功能的摘要，以及 Azure Site Recovery 服務中的最新更新。
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 19bf79cdb6bcdc0c20d47c698647383b758338db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961325"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091708"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 

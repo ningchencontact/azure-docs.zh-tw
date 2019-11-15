@@ -1,5 +1,5 @@
 ---
-title: 關於 ExpressRoute Direct - Azure | Microsoft Docs
+title: 關於 Azure ExpressRoute Direct
 description: 本頁提供 ExpressRoute Direct 的總覽
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123390"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083596"
 ---
 # <a name="about-expressroute-direct"></a>關於 ExpressRoute Direct
 
@@ -22,7 +21,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
 ExpressRoute Direct 提供的主要功能包括但不限於：
 
 * 將資料大量擷取至儲存體與 Cosmos DB 等服務
-* 適用於受規範而需要專用隔離連線之產業的實體隔離，例如下列產業：銀行、政府機構及零售業
+* 實體隔離，適用於銀行、政府與零售等受規範且需要專用、隔離之連線的產業
 * 根據業務單位決定的細微線路分散控制
 
 ## <a name="onboard-to-expressroute-direct"></a>上架至 ExpressRoute Direct
@@ -57,7 +56,7 @@ ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨�
 
 | **100 Gbps ExpressRoute Direct** | **10 Gbps ExpressRoute Direct** | 
 | --- | --- |
-| 已**訂閱的頻寬**：200 Gbps | 已**訂閱的頻寬**：20 Gbps |
+| **訂閱的頻寬**： 200 Gbps | **訂閱的頻寬**： 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 
 ## <a name="technical-requirements"></a>技術需求
@@ -73,7 +72,7 @@ ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨�
     * Ethertype = 0x8100
     * 必須根據 Microsoft 所指定的 VLAN ID 新增外部 VLAN 標記（STAG）-*僅適用于 QinQ*
     * 必須支援每個埠和裝置有多個 BGP 會話（Vlan）
-    * IPv4 和 IPv6 連線能力。 *若為 IPv6，將不會建立額外的子介面。IPv6 位址將會新增至現有的子介面*。 
+    * IPv4 和 IPv6 連線能力。 若*為 IPv6，將不會建立額外的子介面。IPv6 位址將會新增至現有的子介面*。 
     * 選擇性：[雙向轉送偵測（BFD）](https://docs.microsoft.com/azure/expressroute/expressroute-bfd)支援，預設會在 ExpressRoute 線路上的所有私用對等互連上設定。
 
 ## <a name="vlan-tagging"></a>VLAN 標記
@@ -86,7 +85,7 @@ ExpressRoute Direct 支援 QinQ 與 Dot1Q VLAN 標記。
 
 ## <a name="workflow"></a>工作流程
 
-[![流會](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![工作流程](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 

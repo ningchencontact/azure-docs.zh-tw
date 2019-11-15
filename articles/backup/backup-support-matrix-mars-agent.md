@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 57e8eab6413efa25eb03c48a968ca2b671b8c8d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162128"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090558"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -48,7 +48,7 @@ Azure 備份使用 MARS 代理程式，將資料從內部部署機器和 Azure V
 **快取** | **詳細資料**
 --- | ---
 大小 |  快取資料夾中的可用空間至少應為備份資料整體大小的5% 到10%。
-Location | 快取資料夾必須存放在要備份的電腦上，而且必須在線上。 快取資料夾不可以在網路共用、卸載式媒體或離線磁片區上。
+位置 | 快取資料夾必須存放在要備份的電腦上，而且必須在線上。 快取資料夾不可以在網路共用、卸載式媒體或離線磁片區上。
 資料夾 | 快取資料夾應該在已重復資料刪除的磁片區上，或是在壓縮、稀疏或具有重新分析點的資料夾中加密。
 位置變更 | 您可以藉由停止備份引擎（`net stop bengine`），並將快取資料夾複製到新的磁片磁碟機，來變更快取位置。 （請確認新的磁片磁碟機具有足夠的空間。）然後將**HKLM\SOFTWARE\Microsoft\Windows Azure 備份**（**config/ScratchLocation**和**config/CloudBackupProvider/ScratchLocation**）下的兩個登錄專案更新為新位置，然後重新開機引擎。
 
@@ -58,7 +58,7 @@ Location | 快取資料夾必須存放在要備份的電腦上，而且必須在
 
 MARS 伺服器需要存取這些 URL：
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
@@ -73,21 +73,24 @@ MARS 伺服器需要存取這些 URL：
 
 ## <a name="support-for-direct-backups"></a>直接備份的支援
 
+>[!NOTE]
+> MARS 代理程式不支援 Windows Server Core Sku。
+
 在內部部署機器和 Azure Vm 上執行的某些作業系統上，您可以使用 MARS 代理程式直接備份至 Azure。 作業系統必須是64位，且應執行最新的服務套件和更新。 下表摘要說明這些作業系統：
 
 **作業系統** | **檔案/資料夾** | **系統狀態** | **軟體/模組需求**
 --- | --- | --- | ---
-Windows 10 (企業版、專業版、家用版) | 是 | 否 |  檢查對應的伺服器版本是否有軟體/模組需求
-Windows 8.1 (企業版、專業版)| 是 |否 | 檢查對應的伺服器版本是否有軟體/模組需求
-Windows 8 (企業版、專業版) | 是 | 否 | 檢查對應的伺服器版本是否有軟體/模組需求
-Windows 7 (Ultimate、企業版、專業版、家用進階版/基本版、入門版) | 是 | 否 | 檢查對應的伺服器版本是否有軟體/模組需求
-Windows Server 2016 (Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
-Windows Server 2012 R2(Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
-Windows Server 2012 (Standard、Datacenter、Essentials) | 是 | 是 |-.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0 <br> -部署映射服務與管理（DISM.EXE）
-Windows Server 2008 R2 (Standard、Enterprise、Datacenter、Foundation) | 是 | 是 | -.NET 3.5、.Net 4。5 <br> -Windows PowerShell <br> -相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0 <br> -部署映射服務與管理（DISM.EXE）
-Windows Server 2008 SP2 (Standard、Datacenter、Foundation) | 是 | 否 | -.NET 3.5、.Net 4。5 <br> -Windows PowerShell <br> -相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0 <br> -部署映射服務與管理（DISM.EXE） <br> -Virtual Server 2005 基底 + KB KB948515
-Windows Storage Server 2016/2012 R2/2012 （Standard、Workgroup） | 是 | 否 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
-Windows Server 2019 (Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
+Windows 10 (企業版、專業版、家用版) | yes | 否 |  檢查對應的伺服器版本是否有軟體/模組需求
+Windows 8.1 (企業版、專業版)| yes |否 | 檢查對應的伺服器版本是否有軟體/模組需求
+Windows 8 (企業版、專業版) | yes | 否 | 檢查對應的伺服器版本是否有軟體/模組需求
+Windows 7 (Ultimate、企業版、專業版、家用進階版/基本版、入門版) | yes | 否 | 檢查對應的伺服器版本是否有軟體/模組需求
+Windows Server 2016 (Standard、Datacenter、Essentials) | yes | yes | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
+Windows Server 2012 R2(Standard、Datacenter、Essentials) | yes | yes | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
+Windows Server 2012 (Standard、Datacenter、Essentials) | yes | yes |-.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0 <br> -部署映射服務與管理（DISM.EXE）
+Windows Server 2008 R2 (Standard、Enterprise、Datacenter、Foundation) | yes | yes | -.NET 3.5、.Net 4。5 <br> -Windows PowerShell <br> -相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0 <br> -部署映射服務與管理（DISM.EXE）
+Windows Server 2008 SP2 (Standard、Datacenter、Foundation) | yes | 否 | -.NET 3.5、.Net 4。5 <br> -Windows PowerShell <br> -相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0 <br> -部署映射服務與管理（DISM.EXE） <br> -Virtual Server 2005 基底 + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 （Standard、Workgroup） | yes | 否 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
+Windows Server 2019 (Standard、Datacenter、Essentials) | yes | yes | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console （MMC）3。0
 
 如需詳細資訊，請參閱[支援的 MABS 和 DPM 作業系統](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)。
 
@@ -107,7 +110,7 @@ Windows 7| 1700 GB
 
 **類型** | **支援**
 --- | ---
-加密| 支援。
+已加密| 支援。
 已壓縮 | 支援。
 疏鬆 | 支援。
 已壓縮和疏鬆 |支援。
@@ -128,7 +131,7 @@ OneDrive （已同步處理的檔案為稀疏資料流程）| 不支援。
 受 BitLocker 保護的磁片區| 不支援 |必須先解除鎖定磁片區，才能開始備份。
 檔案系統識別| 不支援 |僅支援 NTFS。
 卸除式媒體| 不支援 |所有備份專案來源都必須具有*固定*狀態。
-刪除重複資料的磁碟機 | 支援的 | Azure 備份會將刪除重複資料的資料轉換成一般資料。 它會將資料優化、加密、儲存和傳送至保存庫。
+刪除重複資料的磁碟機 | 支援 | Azure 備份會將刪除重複資料的資料轉換成一般資料。 它會將資料優化、加密、儲存和傳送至保存庫。
 
 ## <a name="support-for-initial-offline-backup"></a>支援初始離線備份
 

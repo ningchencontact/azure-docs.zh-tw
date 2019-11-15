@@ -12,34 +12,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515558"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084702"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-了解如何建立和刪除虛擬網路以及變更現有虛擬網路的設定，例如 DNS 伺服器和 IP 位址空間。 如果您不熟悉虛擬網路，則可以在[虛擬網路概觀](virtual-networks-overview.md)中或透過完成[教學課程](quick-create-portal.md)來深入了解。 虛擬網路包含子網路。 若要了解如何建立、變更和刪除子網路，請參閱[管理子網路](virtual-network-manage-subnet.md)。
+了解如何建立和刪除虛擬網路以及變更現有虛擬網路的設定，例如 DNS 伺服器和 IP 位址空間。 如果您不熟悉虛擬網路，您可以在[虛擬網路概觀](virtual-networks-overview.md)中或透過完成[教學課程](quick-create-portal.md)來深入了解。 虛擬網路包含子網路。 若要了解如何建立、變更和刪除子網路，請參閱[管理子網路](virtual-network-manage-subnet.md)。
 
 ## <a name="before-you-begin"></a>開始之前
 
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
-- 如果使用入口網站，請開啟 https://portal.azure.com ，並使用您的 Azure 帳戶來登入。
+- 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
 - 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
-- 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中所列適當動作的[自訂角色](#permissions)。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
 1. 選取 [+ 建立資源] > [網路] > [虛擬網路]。
 2. 輸入或選取下列設定的值，然後選取 [建立]：
-   - **名稱**：您選取用來建立虛擬網路的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)名稱必須是唯一的。 虛擬網路建立後，就不能再變更其名稱。 您可以隨著時間建立多個虛擬網路。 如需命名建議，請參閱[命名慣例](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming)。 下列命名慣例有協助於輕鬆管理多個虛擬網路。
+   - **名稱**：您選取用來建立虛擬網路的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)名稱必須是唯一的。 虛擬網路建立後，就不能再變更其名稱。 您可以隨著時間建立多個虛擬網路。 如需命名建議，請參閱[命名慣例](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)。 下列命名慣例有協助於輕鬆管理多個虛擬網路。
    - **位址空間**：虛擬網路的位址空間由一或多個以 CIDR 標記法指定的非重疊位址範圍所組成。 您可以定義公用或私人的位址範圍 (RFC 1918)。 不論您定義的是公用或私人的位址範圍，您都只能從虛擬網路、互連的虛擬網路，以及任何已連線到虛擬網路的內部部署網路來連線到位址空間。 您無法新增下列位址範圍︰
      - 224.0.0.0/4 (多點傳送)
      - 255.255.255.255/32 (廣播)
@@ -60,7 +60,7 @@ ms.locfileid: "72515558"
        >有時候，系統管理員會建立不同的子網路來篩選或控制在子網路之間傳送的流量。 在定義子網路之前，請先考慮您想要如何篩選和路由傳送子網路之間的流量。 若要深入了解如何篩選子網路之間的流量，請參閱[網路安全性群組](security-overview.md)。 Azure 會自動路由傳送子網路之間的流量，但您可以覆寫 Azure 預設路由。 若要深入了解 Azures 預設子網路流量路由，請參閱[路由概觀](virtual-networks-udr-overview.md)。
        >
 
-     - **子網路位址範圍**︰此範圍必須位於您針對虛擬網路輸入的位址空間內。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，使用 /29 子網路位址範圍的虛擬網路只有三個可用的 IP 位址。 如果您打算將虛擬網路連線至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路建立好之後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱[管理子網路](virtual-network-manage-subnet.md)。
+     - **子網路位址範圍**︰此範圍必須位於您針對虛擬網路輸入的位址空間內。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，使用 /29 子網路位址範圍的虛擬網路只有三個可用的 IP 位址。 如果您打算將虛擬網路連接至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路建立好之後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱[管理子網路](virtual-network-manage-subnet.md)。
      - **訂用帳戶**︰選取[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)。 您無法在多個 Azure 訂用帳戶中使用相同的虛擬網路。 不過，您可以利用[虛擬網路對等互連](virtual-network-peering-overview.md)，將某個訂用帳戶中的虛擬網路連線至其他訂用帳戶中的虛擬網路。 您連線到虛擬網路的任何 Azure 資源必須與虛擬網路位於相同的訂用帳戶中。
      - **資源群組**：選取現有[資源群組](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups)或建立新的資源群組。 您連線到虛擬網路的 Azure 資源，可以位於與虛擬網路相同或不同的資源群組中。
      - **位置**︰選取 Azure [位置](https://azure.microsoft.com/regions/) (也稱為區域)。 虛擬網路只能位於一個 Azure 位置。 不過，您可以使用 VPN 閘道，將某個位置的虛擬網路連線至其他位置的虛擬網路。 您連線到虛擬網路的任何 Azure 資源必須與虛擬網路位於相同的位置。
@@ -123,7 +123,7 @@ ms.locfileid: "72515558"
 4. 完成下列其中一個選項：
     - **新增位址範圍**︰輸入新的位址範圍。 此位址範圍不能與虛擬網路已定義的現有位址範圍重疊。
     - **移除位址範圍**：在您想要移除的位址範圍的右側，選取 [...]，然後選取 [移除]。 如果位址範圍有現存的子網路，您就無法移除該位址範圍。 若要移除位址範圍，您必須先刪除位址範圍中存在的任何子網路 (以及子網路中的任何資源)。
-5. 選取 [儲存]。
+5. 選取 [ **儲存**]。
 
 **命令**
 
@@ -144,7 +144,7 @@ ms.locfileid: "72515558"
    - **移除位址**︰在您想要移除的伺服器旁，選取 [...]，然後選取 [移除]。 刪除伺服器只會從此虛擬網路清單中移除伺服器。 DNS 伺服器會在 Azure 中保持登錄狀態，以便您其他的虛擬網路使用。
    - **將 DNS 伺服器位址重新排序**︰請務必要確認，您為環境所列出的 DNS 伺服器順序是正確的。 DNS 伺服器清單會依其指定的順序來使用。 它們不會當作循環配置資源設定運作。 如果清單上的第一部 DNS 伺服器是可以連線的，用戶端就會使用該 DNS 伺服器，而不管該 DNS 伺服器是否有正常運作。 請移除所有列出的 DNS 伺服器，再以您想要的順序重新新增。
    - **變更位址**：將清單中的 DNS 伺服器醒目提示，然後輸入新位址。
-5. 選取 [儲存]。
+5. 選取 [ **儲存**]。
 6. 將連線到虛擬網路的 VM 重新啟動，讓這些 VM 獲得新的 DNS 伺服器設定。 這些 VM 會繼續使用其目前的 DNS 設定，直到您將其重新啟動。
 
 **命令**
@@ -167,11 +167,11 @@ ms.locfileid: "72515558"
 - Azure CLI：[azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell：[移除-new-azvirtualnetwork](/powershell/module/az.network/remove-azvirtualnetwork)
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 若要針對虛擬網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-| 行動                                  |   Name                                |
+| 動作                                  |   名稱                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   讀取虛擬網路              |
 |Microsoft.Network/virtualNetworks/write  |   建立或更新虛擬網路  |

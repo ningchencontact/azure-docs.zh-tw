@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器 | Microsoft Docs
+title: 在 Azure Site Recovery 中部署設定伺服器
 description: 本文說明如何使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 92b51b3955833bac6f87457a19e4d6359600a25a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747853"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084150"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "73747853"
 
 設定伺服器必須設定為具有特定最低硬體和大小需求的高可用性 VMware VM。 為了方便且輕鬆地部署，Site Recovery 提供可下載的開放式虛擬化應用程式（OVA）範本，以設定符合此處所列所有規定需求的設定伺服器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 下列各節將摘要說明設定伺服器的最低硬體需求。
 
@@ -150,10 +150,10 @@ ms.locfileid: "73747853"
 
 * 可以針對不同用途使用設定伺服器安裝所在的 VM 嗎？
 
-    不會。 將 VM 用於設定伺服器的唯一用途。 請確定您遵循[必要條件](#prerequisites)中所述的所有規格，以有效率地管理嚴重損壞修復。
+    號 將 VM 用於設定伺服器的唯一用途。 請確定您遵循[必要條件](#prerequisites)中所述的所有規格，以有效率地管理嚴重損壞修復。
 * 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
 
-    不會。 在設定伺服器註冊保存庫之後，就無法變更。
+    號 在設定伺服器註冊保存庫之後，就無法變更。
 * 我可以使用相同的設定伺服器來保護實體和虛擬機器嗎？
 
     是。 您可以使用相同的設定伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
@@ -168,17 +168,17 @@ ms.locfileid: "73747853"
     若要下載複雜密碼，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)。
 * 我可以變更複雜密碼嗎？
 
-    不會。 請勿變更設定伺服器的複雜密碼。 複雜密碼的變更會中斷受保護機器的複寫，並導致嚴重的健全狀況狀態。
+    號 請勿變更設定伺服器的複雜密碼。 複雜密碼的變更會中斷受保護機器的複寫，並導致嚴重的健全狀況狀態。
 * 哪裡可以下載保存庫註冊金鑰？
 
     在 [復原**服務保存庫**] 中，選取 [**管理** > **Site Recovery 基礎結構** > 設定**伺服器**]。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
 * 我可以複製現有的設定伺服器，並將它用於複寫協調流程嗎？
 
-    不會。 不支援使用複製的設定伺服器元件。 複製相應放大進程伺服器也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
+    號 不支援使用複製的設定伺服器元件。 複製相應放大進程伺服器也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
 
 * 我可以變更設定伺服器的 IP 嗎？
 
-    不會。 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 Ip 都是靜態 Ip，而不是 DHCP Ip。
+    號 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 Ip 都是靜態 Ip，而不是 DHCP Ip。
 * 我可以在 Azure 上設定設定伺服器嗎？
 
     在內部部署環境中設定一部設定伺服器，並可透過 v 中心直接進行連線，並將資料傳輸延遲降到最低。 您可以對設定伺服器建立排程的備份，以實現[容錯回復目的](vmware-azure-manage-configuration-server.md#failback-requirements)。

@@ -1,5 +1,5 @@
 ---
-title: 如何設定線路 ExpresssRoute 的對等互連： Azure CLI |Microsoft Docs
+title: Azure ExpressRoute：設定對等互連： CLI
 description: 本文將協助您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等互連。 本文也示範如何檢查狀態、更新或刪除線路的對等。
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 8d6b361bf7e1b18c44719a8cdbe2e958ac63006d
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 1683b57aa50cff00d26cc3400b8ab7a903a2c8e0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965760"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083249"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路的對等互連
 
@@ -44,7 +44,7 @@ ms.locfileid: "72965760"
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Microsoft 對等互連設定。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。 如需詳細資訊，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-powershell.md)。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。 如需詳細資訊，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-powershell.md)。
 > 
 > 
 
@@ -100,7 +100,7 @@ ms.locfileid: "72965760"
    "type": "Microsoft.Network/expressRouteCircuits]
    ```
 
-4. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊。
+4. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊：
 
    * 主要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
    * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
@@ -304,7 +304,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 }
 ```
 
-### <a name="updateprivate"></a>更新 Azure 私用對等互連設定
+### <a name="updateprivate"></a>更新 Azure 私用對等組態
 
 您可以使用下列範例來更新設定的任何部分。 在此範例中，線路的 VLAN ID 從 100 更新為 500。
 
@@ -443,7 +443,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 }
 ```
 
-### <a name="updatepublic"></a>更新 Azure 公用對等互連設定
+### <a name="updatepublic"></a>更新 Azure 公用對等組態
 
 您可以使用下列範例來更新設定的任何部分。 在此範例中，線路的 VLAN ID 從 200 更新為 600。
 

@@ -1,20 +1,18 @@
 ---
-title: Azure ExpressRoute 的安全性控制
+title: Azure ExpressRoute：安全性控制
 description: 評估 Azure ExpressRoute 的安全性控制清單
 services: expressroute
 ms.service: expressroute
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ab73ba6dd4b78d3cd0be5f4c7f7a502e5c58e08
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886708"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079921"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Azure ExpressRoute 的安全性控制
 
@@ -24,44 +22,44 @@ ms.locfileid: "70886708"
 
 ## <a name="network"></a>網路
 
-| 安全性控制 | 是/否 | 注意 |
+| 安全性控制 | 是/否 | 注意事項 |
 |---|---|--|
 | 服務端點支援| N/A |  |
 | VNet 插入支援| N/A | |
-| 網路隔離和防火牆支援| 是 | 每個客戶都包含在自己的路由網域中, 並通道傳送至自己的 VNet |
-| 強制通道支援| N/A | Via 邊界閘道協定 (BGP)。 |
+| 網路隔離和防火牆支援| yes | 每個客戶都包含在自己的路由網域中，並通道傳送至自己的 VNet |
+| 強制通道支援| N/A | Via 邊界閘道協定（BGP）。 |
 
 ## <a name="monitoring--logging"></a>監視 & 記錄
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
-| Azure 監視支援 (Log analytics、App insights 等)| 是 | 請參閱[ExpressRoute 監視、計量和警示](expressroute-monitoring-metrics-alerts.md)。|
-| 控制和管理平面記錄和審核| 是 |  |
+| Azure 監視支援（Log analytics、App insights 等）| yes | 請參閱[ExpressRoute 監視、計量和警示](expressroute-monitoring-metrics-alerts.md)。|
+| 控制和管理平面記錄和審核| yes |  |
 | 資料平面記錄和審核| 否 |   |
 
 ## <a name="identity"></a>身分識別
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
-| 驗證| 是 | 適用于 Microsoft 的閘道服務帳戶 (GWM) (控制器);適用于 Dev 和 OP 的即時 (JIT) 存取。 |
-| Authorization|  是 |適用于 Microsoft 的閘道服務帳戶 (GWM) (控制器);適用于 Dev 和 OP 的即時 (JIT) 存取。 |
+| 驗證| yes | 適用于 Microsoft 的閘道服務帳戶（GWM）（控制器）;適用于 Dev 和 OP 的即時（JIT）存取。 |
+| 授權|  yes |適用于 Microsoft 的閘道服務帳戶（GWM）（控制器）;適用于 Dev 和 OP 的即時（JIT）存取。 |
 
 ## <a name="data-protection"></a>資料保護
 
-| 安全性控制 | 是/否 | 注意 |
+| 安全性控制 | 是/否 | 注意事項 |
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 |  N/A | ExpressRoute 不會儲存客戶資料。 |
+| 待用的伺服器端加密： Microsoft 管理的金鑰 |  N/A | ExpressRoute 不會儲存客戶資料。 |
 | 待用的伺服器端加密：客戶管理的金鑰（BYOK） | N/A |  |
-| 資料行層級加密 (Azure 資料服務)| N/A | |
+| 資料行層級加密（Azure 資料服務）| N/A | |
 | 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 否 | |
-| API 呼叫加密| 是 | 透過[Azure Resource Manager](../azure-resource-manager/index.yml)和 HTTPS。 |
+| API 呼叫加密| yes | 透過[Azure Resource Manager](../azure-resource-manager/index.yml)和 HTTPS。 |
 
 
 ## <a name="configuration-management"></a>設定管理
 
-| 安全性控制 | 是/否 | 注意|
+| 安全性控制 | 是/否 | 注意事項|
 |---|---|--|
-| 設定管理支援 (設定的版本設定等)| 是 | 透過網路資源提供者 (NRP)。 |
+| 設定管理支援（設定的版本設定等）| yes | 透過網路資源提供者（NRP）。 |
 
 ## <a name="next-steps"></a>後續步驟
 

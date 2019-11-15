@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 64c99c6e7e33be5856e67db0500bf48123cdcf09
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: cf78712515ab91c66161d04dac0df601c5dcb625
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614488"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082777"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -323,7 +323,7 @@ def main(msg: func.ServiceBusMessage):
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `ServiceBusTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設定為 "serviceBusTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
@@ -363,7 +363,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 服務匯流排觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 類別的屬性。
 
-|屬性|類型|說明|
+|屬性|在系統提示您進行確認時，輸入|描述|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|傳遞數目。|
 |`DeadLetterSource`|`string`|無效信件來源。|
@@ -381,26 +381,6 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 > 目前，服務匯流排觸發程式適用于已啟用會話的佇列和訂用帳戶。 請追蹤[此專案](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458)，以取得與此相關的任何進一步更新。 
 
 請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
-
-## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
-
-[host.json](functions-host-json.md#servicebus) 檔案包含可控制服務匯流排觸發程序行為的設定。
-
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "maxAutoRenewDuration": "00:05:00"
-    }
-}
-```
-
-|屬性  |預設值 | 說明 |
-|---------|---------|---------|
-|maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 |
-|prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
-|maxAutoRenewDuration|00:05:00|將自動更新訊息鎖定的最大持續時間。|
 
 ## <a name="output"></a>輸出
 
@@ -690,7 +670,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `ServiceBus` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 "serviceBus"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "out"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
@@ -757,7 +737,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|將自動更新訊息鎖定的最大持續時間。|
 |autoComplete|true|無論觸發程序是否應立即標示為完成 (自動完成) 或等待呼叫完成處理。|

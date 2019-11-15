@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 48339addf6020a7a95e1c0b650bfcb43e1898483
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 940ac4d94bf39583fad828545a45cbb033908f15
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747488"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091646"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure 備份伺服器和 DPM-常見問題
 
@@ -27,11 +27,11 @@ ms.locfileid: "73747488"
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>是否可以向多個保存庫註冊伺服器？
 
-不會。 只能向一個保存庫註冊 DPM 或「Azure 備份」伺服器。
+號 只能向一個保存庫註冊 DPM 或「Azure 備份」伺服器。
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 備份 Azure Stack 中的應用程式嗎？
 
-不會。 雖然您可以使用 Azure 備份來保護 Azure Stack，但 Azure 備份不支援使用 DPM 來備份 Azure Stack 中的應用程式。
+號 雖然您可以使用 Azure 備份來保護 Azure Stack，但 Azure 備份不支援使用 DPM 來備份 Azure Stack 中的應用程式。
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>如果我已安裝「Azure 備份」代理程式來保護檔案和資料夾，是否可以安裝 System Center DPM 將內部部署工作負載備份至 Azure？
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 57bea93fd03dc19caa1ce29a34a40bc3cff06209
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c9dfc4ed6fce186fea9474222875a072edb32f59
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084733"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>保護 Azure Logic Apps 中的存取和資料
 
@@ -659,7 +659,7 @@ HTTP 和 HTTPS 端點支援各種類型的驗證。 根據您用來進行輸出�
 | 屬性（設計工具） | 屬性（JSON） | 必要 | 值 | 描述 |
 |---------------------|-----------------|----------|-------|-------------|
 | **驗證** | `type` | yes | **用戶端憑證** <br>或 <br>`ClientCertificate` | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
-| **Pfx** | `pfx` | yes | <*編碼-pfx-檔案內容*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
+| **Pfx** | `pfx` | yes | <*編碼-pfx-檔案內容*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 <p><p>若要將 PFX 檔案轉換成 base64 編碼格式，您可以依照下列步驟使用 PowerShell： <p>1. 將憑證內容儲存至變數： <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. 使用 `ToBase64String()` 函式來轉換憑證內容，並將該內容儲存至文字檔： <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **密碼** | `password`| 請參閱描述 | <*pfx-檔案> 的密碼* | 用於存取 PFX 檔案的密碼。 <p><p>**注意**：當您在邏輯應用程式設計工具中工作時，此屬性值是必要的，而且當您在程式碼視圖中工作時，*不*需要使用。 |
 |||||
 

@@ -1,5 +1,5 @@
 ---
-title: 在從 VMware VM 至 Azure 的災害復原期間使用 Azure Site Recovery 從 Azure 進行容錯回復 | Microsoft Docs
+title: 使用 Azure Site Recovery 從 Azure 容錯回復 VMware Vm/實體伺服器
 description: 了解如何在從 VMware VM 和實體伺服器至 Azure 的災害復原期間，在容錯移轉至 Azure 後容錯回復至內部部署網站。
 author: mayurigupta13
 manager: rochakm
@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ec2a4a91f4de0761f631bec393bb90c3feb82b9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318116"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084064"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>將 VMware VM 和實體伺服器從 Azure 容錯回復至內部部署網站
 
 本文說明如何將虛擬機器從 Azure 虛擬機器容錯回復到內部部署 VMware 環境。 遵循本文中的指示，使用[在 Azure Site Recovery 中容錯移轉](site-recovery-failover.md)教學課程，將已從內部部署網站容錯移轉至 Azure 的 VMware 虛擬機器或 Windows/Linux 實體伺服器容錯回復。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 請確定您已閱讀[不同類型容錯回復](concepts-types-of-failback.md)的相關詳細資料和對應的須知。
 
 > [!WARNING]
@@ -63,10 +63,10 @@ ms.locfileid: "60318116"
 > [!IMPORTANT]
 > 啟動容錯回復之前，請確定您已完成虛擬機器的重新保護。 虛擬機器應該處於受保護狀態，且其健康狀態應該是**良好**。 若要重新保護虛擬機器，請參閱[如何重新保護](vmware-azure-reprotect.md)。
 
-1. 在複寫的項目頁面上，選取虛擬機器。 以滑鼠右鍵按一下以選取 [未規劃的容錯移轉]  。
-2. 在 [確認容錯移轉]  中，確認容錯移轉方向 (以 Azure 為來源)。 然後選取您想要用來進行容錯移轉的復原點 (最近的復原點或最近的應用程式一致復原點)。 應用程式一致復原點會在最近的復原點之後，並造成部分資料遺失。
+1. 在複寫的項目頁面上，選取虛擬機器。 以滑鼠右鍵按一下以選取 [未規劃的容錯移轉]。
+2. 在 [確認容錯移轉] 中，確認容錯移轉方向 (以 Azure 為來源)。 然後選取您想要用來進行容錯移轉的復原點 (最近的復原點或最近的應用程式一致復原點)。 應用程式一致復原點會在最近的復原點之後，並造成部分資料遺失。
 3. 在容錯移轉期間，Site Recovery 會將 Azure 上的虛擬機器關閉。 在確認容錯回復已如預期完成後，您可以確認 Azure 上的虛擬機器是否已關閉。
-4. 需要**認可**，以便從 Azure 移除容錯移轉的虛擬機器。 請以滑鼠右鍵按一下受保護的項目，然後選取 [認可]  。 此時會有作業移除 Azure 中已容錯移轉的虛擬機器。
+4. 需要**認可**，以便從 Azure 移除容錯移轉的虛擬機器。 請以滑鼠右鍵按一下受保護的項目，然後選取 [認可]。 此時會有作業移除 Azure 中已容錯移轉的虛擬機器。
 
 
 ## <a name="to-what-recovery-point-can-i-fail-back-the-virtual-machines"></a>我可以將虛擬機器容錯回復至哪個復原點？
@@ -91,9 +91,9 @@ ms.locfileid: "60318116"
 ## <a name="reprotect-from-on-premises-to-azure"></a>從內部部署移至 Azure 來重新保護
 在容錯回復完成且您已啟動認可之後，會刪除 Azure 中復原的虛擬機器。 現在，虛擬機器會回到內部部署網站上，但不會受到保護。 若要再次開始複寫至 Azure，請執行下列動作：
 
-1. 選取 [保存庫]   > [設定]   > [已複寫的項目]  後，選取已容錯回復的虛擬機器，然後選取 [重新保護]  。
+1. 選取 [保存庫] > [設定] > [已複寫的項目] 後，選取已容錯回復的虛擬機器，然後選取 [重新保護]。
 2. 輸入必須用來將資料傳送回 Azure 之處理伺服器的值。
-3. 選取 [確定]  以開始重新保護作業。
+3. 選取 [確定] 以開始重新保護作業。
 
 > [!NOTE]
 > 在內部部署虛擬機器啟動之後，需要經過一些時間，代理程式才會註冊回到組態伺服器中 (最多 15 分鐘)。 在這段時間，重新保護會失敗，並傳回錯誤訊息以指出未安裝代理程式。 請等候幾分鐘，然後再次嘗試重新保護。

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 進行從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣 | Microsoft Docs
+title: Azure Site Recovery 中 VMware/實體嚴重損壞修復的支援矩陣
 description: 摘要說明使用 Azure Site Recovery 對 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復支援。
 author: rayne-wiselman
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9125c69f9d2f4d7289120f86059ffab3b7f9228a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961287"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082204"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 

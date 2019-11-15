@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743233"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081528"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>部署 Azure AD 自助式密碼重設
+
+> [!NOTE]
+> 本指南說明自助式密碼重設和如何部署。 如果您要尋找自助式密碼重設工具來取回您的帳戶，請移至[https://aka.ms/sspr](https://aka.ms/sspr)。 
 
 自助式密碼重設（SSPR）是一項 Azure Active Directory 的功能，可讓員工重設其密碼，而不需要洽詢 IT 人員。 員工必須註冊或註冊自助式密碼重設，才能使用服務。 在註冊期間，員工會選擇其組織所啟用的一或多個驗證方法。
 
@@ -53,19 +56,19 @@ Microsoft 建議組織啟用 SSPR 和多重要素驗證的結合註冊體驗。 
 
 若要啟用 SSPR 以及建議的值，需要下列設定。
 
-| 區域 | 設定 | 值 |
+| 領域 | 設定 | 值 |
 | --- | --- | --- |
 | **SSPR 屬性** | 已啟用自助式密碼重設 | 針對生產環境**選取**的試驗/ **All**群組 |
 | **驗證方法** | 註冊所需的驗證方法 | 重設所需的一律為1 |
 |   | 重設所需的驗證方法 | 一或兩個 |
-| **註冊** | 登入時要求使用者註冊 | 是 |
+| **註冊** | 登入時要求使用者註冊 | yes |
 |   | 要求使用者重新確認其驗證資訊之前的天數 | 90–180天 |
-| **通知** | 通知使用者密碼重設 | 是 |
-|   | 當其他系統管理員重設其密碼時通知所有系統管理員 | 是 |
-| **自訂** | 自訂技術服務人員連結 | 是 |
-|   | 自訂的技術服務人員電子郵件或 URL | 支援網站或電子郵件地址 |
-| **內部部署整合** | 將密碼寫回內部部署 AD | 是 |
-|   | 允許使用者在不重設密碼的情況下解除鎖定帳戶 | 是 |
+| **通知** | 通知使用者密碼重設 | yes |
+|   | 當其他系統管理員重設其密碼時通知所有系統管理員 | yes |
+| **自訂** | 自訂技術服務人員連結 | yes |
+|   | 自訂技術服務人員電子郵件或 URL | 支援網站或電子郵件地址 |
+| **內部部署整合** | 將密碼寫回內部部署 AD | yes |
+|   | 允許使用者在不重設密碼的情況下解除鎖定帳戶 | yes |
 
 ### <a name="sspr-properties-recommendations"></a>SSPR 屬性建議
 
@@ -136,7 +139,7 @@ Microsoft 建議組織啟用 SSPR 和多重要素驗證的結合註冊體驗。 
 | 在使用者註冊後，從 Windows 10 AADJ 或 H + AADJ 裝置鎖定畫面重設使用者密碼 | 使用者可以重設密碼 |
 | SSPR 註冊和使用方式資料可供系統管理員近乎即時地使用 | 可透過 audit 記錄取得 |
 
-### <a name="support-plan"></a>支援方案
+### <a name="support-plan"></a>支援計劃
 
 雖然 SSPR 通常不會造成使用者的問題，但請務必讓支援人員準備好處理可能發生的問題。
 
@@ -206,7 +209,7 @@ Microsoft 建議組織啟用 SSPR 和多重要素驗證的結合註冊體驗。 
 
 ### <a name="configure-password-writeback"></a>設定密碼回寫
 
-為貴組織設定密碼回寫的步驟可在下列文章[中找到：如何：設定密碼回](howto-sspr-writeback.md)寫。
+您可以在[如何設定密碼回寫一](howto-sspr-writeback.md)文中找到為貴組織設定密碼回寫的步驟。
 
 ## <a name="manage-sspr"></a>管理 SSPR
 
@@ -215,7 +218,7 @@ Microsoft 建議組織啟用 SSPR 和多重要素驗證的結合註冊體驗。 
 | 商務角色/角色 | Azure AD 角色（如有必要） |
 | :---: | :---: |
 | 層級1技術服務人員 | 密碼管理員 |
-| 層級2技術服務人員 | 使用者系統管理員 |
+| 層級2技術服務人員 | 使用者管理員 |
 | SSPR 系統管理員 | 全域管理員 |
 
 ### <a name="support-scenarios"></a>支援案例

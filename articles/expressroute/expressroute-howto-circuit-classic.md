@@ -1,5 +1,5 @@
 ---
-title: 修改 ExpressRoute 線路︰PowerShell：Azure 傳統| Microsoft Docs
+title: Azure ExpressRoute：修改線路： PowerShell：傳統
 description: 本文將逐步引導您檢查狀態、更新或刪除，以及取消佈建 ExpressRoute 傳統部署模型線路。
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f1c05b85fac6dd0168d9c2b2944326800e90493
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643679"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083590"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -136,7 +136,7 @@ Status                           : Enabled
 >
 >
 
-#### <a name="considerations"></a>考量
+#### <a name="considerations"></a>注意事項
 
 * 從高階降級為標準之前，請確定連結至線路的虛擬網路數目小於 10。 如果您不這樣做，更新要求就會失敗，且會被以進階費率計費。
 * 您必須取消連結其他地理政治區域中的所有虛擬網路。 如果您不這樣做，更新要求就會失敗，且會被以進階費率計費。
@@ -204,7 +204,7 @@ At line:1 char:1
 
 ## <a name="deprovision-and-delete-a-circuit"></a>取消佈建及刪除線路
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 * 您必須取消連結 ExpressRoute 線路的所有虛擬網路，此作業才會成功。 如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 * 如果 ExpressRoute 線路服務提供者佈建狀態為 **Provisioning** 或 **Provisioned**，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。

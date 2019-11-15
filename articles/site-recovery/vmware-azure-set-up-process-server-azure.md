@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 在 Azure 中設定處理序伺服器用於 VMware VM 和實體伺服器的容錯回復 | Microsoft Docs
+title: 在 Azure Site Recovery 中設定進程伺服器 VMware/實體容錯回復
 description: 本文說明如何在 Azure 中設定處理序伺服器，用於 Azure VMs 到 VMware 的容錯回復。
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968844"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083960"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>在 Azure 中設定容錯回復的處理序伺服器
 

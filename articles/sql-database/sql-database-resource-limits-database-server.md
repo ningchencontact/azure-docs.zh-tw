@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 04/18/2019
-ms.openlocfilehash: 907fc89c0d9af01865037f650c407edd97e96645
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 52e7a3408c231ba8a38fdc22c2fcac65ee26bb82
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821147"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082516"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -41,11 +41,13 @@ ms.locfileid: "73821147"
 > 若要獲得大於預設數量的 DTU/eDTU 配額、vCore 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。
 > [!IMPORTANT]
 > 每當資料庫數量接近每台 SQL Database 伺服器的限制時，可能會出現下列情況：
+>
 > - 使用 master 資料庫執行查詢時，延遲狀況增加。  這包含資源使用率統計資料的檢視，例如 sys.resource_stats。
 > - 管理作業以及涉及列舉伺服器中資料庫入口網站檢視點的轉譯作業，皆增加延遲狀況。
 
 ### <a name="storage-size"></a>儲存體大小
-- 針對單一資料庫 rources，請參閱以[DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md)或以[vCore 為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)，以瞭解每個定價層的儲存體大小限制。
+
+- 如需單一資料庫的資源儲存體大小，請參閱以[DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md)或以[vCore 為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)，以瞭解每個定價層的儲存體大小限制。
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>達到資料庫資源限制時，會發生什麼事？
 
@@ -59,7 +61,7 @@ ms.locfileid: "73821147"
 
 ### <a name="storage"></a>儲存體
 
-當使用的資料庫空間達到大小上限，若資料庫的插入和更新作業會增加資料大小，動作即會失敗，且用戶端會收到[錯誤訊息](sql-database-develop-error-messages.md)。 資料庫 SELECTS 與 DELETES 會繼續執行下去。
+當使用的資料庫空間達到大小上限，若資料庫的插入和更新作業會增加資料大小，動作即會失敗，且用戶端會收到[錯誤訊息](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)。 資料庫 SELECTS 與 DELETES 會繼續執行下去。
 
 遇到高空間使用率時，緩和選項包括：
 
@@ -76,17 +78,18 @@ ms.locfileid: "73821147"
 - 提高資料庫或彈性集區的服務層級或計算大小。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
-## <a name="transaction-log-rate-governance"></a>交易記錄速率治理 
-交易記錄速率治理是 Azure SQL Database 中的程式，用來限制大量插入、選取 INTO 和索引組建等工作負載的高內嵌速率。 這些限制會在子秒層級追蹤並強制執行，以產生記錄檔記錄的速率，而不論可能針對資料檔案發出多少 Io，都能限制輸送量。  交易記錄產生速率目前已線性相應增加至與硬體相依的點，且最大記錄速率允許使用 vCore 購買模型 96 MB/s。 
+## <a name="transaction-log-rate-governance"></a>交易記錄速率治理
+
+交易記錄速率治理是 Azure SQL Database 中的程式，用來限制大量插入、選取 INTO 和索引組建等工作負載的高內嵌速率。 這些限制會在次秒層級追蹤並強制執行，以產生記錄檔記錄的速率、限制輸送量，而不論可能針對資料檔案發出多少 Io。  交易記錄產生速率目前已線性相應增加至與硬體相依的點，而且記錄速率上限為 96 MB/s，並具有 vCore 購買模型。
 
 > [!NOTE]
-> 實際的實體 IOs 到交易記錄檔不受管理或限制。 
+> 實際的實體 IOs 到交易記錄檔不受管理或限制。
 
 記錄速率的設定可讓您在各種情況下達成和持續，而整體系統可以維持其功能，並將對使用者負載的影響降至最低。 記錄速率治理可確保交易記錄備份保留在已發佈的復原能力 Sla 內。  這種治理也會防止次要複本上有過多的待處理專案。
 
 產生記錄檔記錄時，系統會評估每個作業並評估是否應延遲，以維持最大所需的記錄速率（每秒 MB/秒）。 當記錄檔記錄排清至儲存體時，不會新增延遲，而是在產生記錄速率時套用記錄速率治理。
 
-在執行時間加諸的實際記錄產生速率可能也會受到意見反應機制的影響，暫時減少允許的記錄檔速率，讓系統能夠穩定。 記錄檔空間管理，避免遇到記錄空間不足的情況，以及可用性群組複寫機制，可以暫時降低整體系統限制。 
+在執行時間加諸的實際記錄產生速率可能也會受到意見反應機制的影響，暫時減少允許的記錄檔速率，讓系統能夠穩定。 記錄檔空間管理，避免遇到記錄空間不足的情況，以及可用性群組複寫機制，可以暫時降低整體系統限制。
 
 記錄速率管理員流量成形是透過下列等候類型（在[dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV 中公開）來呈現：
 
@@ -100,9 +103,10 @@ ms.locfileid: "73821147"
 |||
 
 當遇到阻礙所需擴充性的記錄速率限制時，請考慮下列選項：
-- 相應增加至較大的層級，以取得最大 96 MB/秒的記錄速率。 
-- 如果載入的資料是暫時性的，也就是在 ETL 進程中暫存資料，則可以將其載入至 tempdb （這是最低限度記錄）。 
-- 針對分析案例，載入叢集資料行存放區涵蓋的資料表。 這會減少因為壓縮而需要的記錄速率。 這項技術會增加 CPU 使用率，而且僅適用于從叢集資料行存放區索引獲益的資料集。 
+
+- 相應增加至較大的層級，以取得最大 96 MB/秒的記錄速率。
+- 如果載入的資料是暫時性的，也就是在 ETL 進程中暫存資料，則可以將其載入至 tempdb （這是最低限度記錄）。
+- 針對分析案例，載入叢集資料行存放區涵蓋的資料表。 這會減少因為壓縮而需要的記錄速率。 這項技術會增加 CPU 使用率，而且僅適用于從叢集資料行存放區索引獲益的資料集。
 
 ## <a name="next-steps"></a>後續步驟
 

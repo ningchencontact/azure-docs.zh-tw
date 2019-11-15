@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603482"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081567"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>啟用無密碼安全性金鑰登入 Windows 10 裝置（預覽）
 
@@ -27,7 +27,7 @@ ms.locfileid: "73603482"
 | FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="requirements"></a>要求
+## <a name="requirements"></a>需求
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [結合的安全性資訊註冊預覽](concept-registration-mfa-sspr-combined.md)
@@ -88,7 +88,7 @@ ms.locfileid: "73603482"
 
 ### <a name="enable-with-a-provisioning-package"></a>使用布建套件啟用
 
-對於不受 Intune 管理的裝置，可以安裝布建套件來啟用此功能。 您可以從[Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22)安裝 Windows 設定設計工具應用程式。
+對於不受 Intune 管理的裝置，可以安裝布建套件來啟用此功能。 您可以從[Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22)安裝 Windows 設定設計工具應用程式。
 
 1. 啟動 Windows 設定設計工具。
 1. 選取 **[** 檔案] > [**新增專案**]。

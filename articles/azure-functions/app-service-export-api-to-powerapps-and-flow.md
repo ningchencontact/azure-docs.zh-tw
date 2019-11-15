@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087684"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082854"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -24,13 +24,13 @@ ms.locfileid: "70087684"
 同樣地，想要在組織內廣泛公開 API 的開發人員，可以讓應用程式和流程建置者使用他們的 API。 本主題說明如何匯出以 [Azure Functions](../azure-functions/functions-overview.md) 或 [Azure App Service](../app-service/overview.md)API。 匯出的 API 能成為「自訂連接器」，它在 PowerApps and Microsoft Flow just 中的使用方法就像內建連接器一樣。
 
 > [!IMPORTANT]
-> 只有 1.x[版的 Azure Functions 運行](functions-versions.md#creating-1x-apps)時間和應用程式服務應用程式才支援本文中所示的 API 定義功能。 2\.x 版的函式會與 API 管理整合, 以建立和維護 OpenAPI 定義。 若要深入瞭解, 請參閱[使用 AZURE API 管理為函式建立 OpenAPI 定義](functions-openapi-definition.md)。 
+> 只有 1.x[版的 Azure Functions 運行](functions-versions.md#creating-1x-apps)時間和應用程式服務應用程式才支援本文中所示的 API 定義功能。 2\.x 版的函式會與 API 管理整合，以建立和維護 OpenAPI 定義。 若要深入瞭解，請參閱[使用 AZURE API 管理為函式建立 OpenAPI 定義](functions-openapi-definition.md)。 
 
 ## <a name="create-and-export-an-api-definition"></a>建立及匯出 API 定義
 在匯出 API 之前，您必須使用 OpenAPI 定義 (前身為 [Swagger](https://swagger.io/) 檔案) 描述 API。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。 PowerApps 和 Microsoft Flow 可以為任何 OpenAPI 2.0 定義建立自訂連接器。 Azure Functions 和 Azure App Service 有內建支援，可供建立、裝載及管理 OpenAPI 定義。 如需詳細資訊，請參閱[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
 
 > [!NOTE]
-> 您也可以不使用 OpenAPI 定義在 PowerApps 和 Microsoft Flow 中建置自訂連接器。 如需詳細資訊，請參閱[註冊及使用自訂連接器 (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 和[註冊及使用自訂連接器 (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/)。
+> 您也可以不使用 OpenAPI 定義在 PowerApps 和 Microsoft Flow 中建置自訂連接器。 如需詳細資訊，請參閱[註冊及使用自訂連接器 (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 和[註冊及使用自訂連接器 (Microsoft Flow)](/power-automate/developer/register-custom-api)。
 
 若要匯出 API 定義，請遵循以下步驟：
 
@@ -113,7 +113,7 @@ ms.locfileid: "70087684"
 
 4. 在 [General] \(一般\) 索引標籤上，檢閱來自 OpenAPI 定義的資訊。
 
-5. 在 [安全性] 索引標籤上，如果系統提示您提供驗證詳細資訊，請輸入適當的驗證類型值。 按一下 [ **繼續**]。
+5. 在 [安全性] 索引標籤上，如果系統提示您提供驗證詳細資訊，請輸入適當的驗證類型值。 按一下 [繼續]。
 
     ![[安全性] 索引標籤](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "70087684"
 
 7. 按一下頁面頂端的 [建立連接器]。
 
-您現在可以在 PowerApps 和 Microsoft Flow 中連接自訂連接器了。 如需在 PowerApps 和 Microsoft Flow 入口網站中建立連接器的詳細資訊，請參閱[註冊自訂連接器 (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) 和[註冊自訂連接器 (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)。
+您現在可以在 PowerApps 和 Microsoft Flow 中連接自訂連接器了。 如需在 PowerApps 和 Microsoft Flow 入口網站中建立連接器的詳細資訊，請參閱[註冊自訂連接器 (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) 和[註冊自訂連接器 (Microsoft Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector)。
 
 <a name="auth"></a>
 ## <a name="specify-authentication-type"></a>指定驗證類型
@@ -146,7 +146,7 @@ PowerApps 和 Microsoft Flow 支援一系列提供自訂連接器驗證的識別
 ``` 
 在匯出期間，您需要提供設定值，允許 PowerApps 和 Microsoft Flow 驗證使用者。
 
-本節涵蓋的驗證類型是**快速**模式所支援的類型：API 金鑰、Azure Active Directory，以及 Generic OAuth 2.0。 對於 Dropbox、Facebook 及 SalesForce 等特定服務，PowerApps 和 Microsoft Flow 亦支援基本驗證和 OAuth 2.0。
+本節涵蓋的驗證類型是**快速**所支援的類型：API 金鑰、Azure Active Directory 和 Generic OAuth 2.0。 對於 Dropbox、Facebook 及 SalesForce 等特定服務，PowerApps 和 Microsoft Flow 亦支援基本驗證和 OAuth 2.0。
 
 ### <a name="api-key"></a>API 金鑰
 在使用 API 金鑰時，當連接器的使用者建立連線時，系統會提示他們提供金鑰。 您可以指定 API 金鑰名稱，協助他們了解所需的金鑰為何。 在先前的範例中，我們使用 `API Key (contact meganb@contoso.com)` 的名稱，讓使用者知道該去哪裡取得 API 金鑰的相關資訊。 針對 Azure Functions，金鑰通常是涵蓋函式應用程式內幾種功能的其中一個主機金鑰。
@@ -158,7 +158,7 @@ PowerApps 和 Microsoft Flow 支援一系列提供自訂連接器驗證的識別
 
 - 若要設定連接器的註冊，請依照[新增 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)中的步驟執行。 註冊必須具有 API 和 `https://msmanaged-na.consent.azure-apim.net/redirect` 之回覆 URL 的委派存取權。 
 
-如需詳細資訊，請參閱 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 和 [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/) 中的 Azure AD 註冊範例。 這些範例將 Azure Resource Manager 當作 API。如果您遵循這些步驟，請替換 API。
+如需詳細資訊，請參閱 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 和 [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication) 中的 Azure AD 註冊範例。 這些範例將 Azure Resource Manager 當作 API。如果您遵循這些步驟，請替換 API。
 
 下列設定值是必要的：
 - **用戶端識別碼**：連接器 Azure AD 註冊的用戶端識別碼

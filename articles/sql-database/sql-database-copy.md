@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 09/04/2019
-ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 0b8bfff03414dd02360cab1957ea2205e392235d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826644"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082470"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
 Azure SQL Database 提供數種方法，可在相同伺服器或不同的伺服器上，建立現有 Azure SQL 資料庫（[單一資料庫](sql-database-single-database.md)）的交易一致複本。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 資料庫複本是發生複製要求時的來源資料庫快照集。 您可以選取相同的伺服器或不同的伺服器。 此外，您也可以選擇保留其服務層級和計算大小，或在相同的服務層級（版本）中使用不同的計算大小。 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 此複本是使用異地複寫技術所建立，一旦植入完成，異地複寫連結就會自動終止。 使用異地複寫的所有需求都適用于資料庫複製作業。 如需詳細資訊，請參閱[主動式異地複寫總覽](sql-database-active-geo-replication.md)。
 
@@ -156,6 +156,26 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 新資料庫中的所有使用者都保有其在來源資料庫中原有的權限。 起始資料庫複製的使用者會變成新資料庫的資料庫擁有者，並且被指派新的安全性識別碼 (SID)。 在複製成功之後，重新對應其他使用者之前，只有起始複製的登入 (也就是資料庫擁有者) 可以登入新的資料庫。
 
 若要了解將資料庫複製到不同的邏輯 SQL Database 伺服器時如何管理使用者與登入，請參閱[如何管理災害復原後的 Azure SQL 資料庫安全性](sql-database-geo-replication-security-config.md)。
+
+## <a name="database-copy-errors"></a>資料庫複製錯誤
+
+在 Azure SQL Database 中複製資料庫時，可能會發生下列錯誤。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md)。
+
+| 錯誤碼 | Severity | 描述 |
+| ---:| ---:|:--- |
+| 40635 |16 |IP 位址 '%.&#x2a;ls' 的用戶端已暫時停用。 |
+| 40637 |16 |建立資料庫副本目前已停用。 |
+| 40561 |16 |資料庫複製失敗。 來源或目標資料庫不存在。 |
+| 40562 |16 |資料庫複製失敗。 已經卸除來源資料庫。 |
+| 40563 |16 |資料庫複製失敗。 已經卸除目標資料庫。 |
+| 40564 |16 |資料庫複製因內部錯誤而失敗。 請卸除目標資料庫並再試一次。 |
+| 40565 |16 |資料庫複製失敗。 不允許從相同來源進行超過 1 個並行資料庫複製。 請卸除目標資料庫並稍後再試一次。 |
+| 40566 |16 |資料庫複製因內部錯誤而失敗。 請卸除目標資料庫並再試一次。 |
+| 40567 |16 |資料庫複製因內部錯誤而失敗。 請卸除目標資料庫並再試一次。 |
+| 40568 |16 |資料庫複製失敗。 來源資料庫已變成無法使用。 請卸除目標資料庫並再試一次。 |
+| 40569 |16 |資料庫複製失敗。 目標資料庫已變成無法使用。 請卸除目標資料庫並再試一次。 |
+| 40570 |16 |資料庫複製因內部錯誤而失敗。 請卸除目標資料庫並稍後再試一次。 |
+| 40571 |16 |資料庫複製因內部錯誤而失敗。 請卸除目標資料庫並稍後再試一次。 |
 
 ## <a name="next-steps"></a>後續步驟
 

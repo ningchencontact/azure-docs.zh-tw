@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a6629db50d0cec13d866d28a0823ccd3ed43f42
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6ab9d0ae07978e69bebb0fc24c8965cce971cfd5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014204"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082364"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -181,8 +181,6 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 最後，[cURL](https://curl.haxx.se/) 使用者可以相同的方式提出多部分表單要求：
 
-[![捲曲範例](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
-
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -H "Authorization: Bearer YOUR_TOKEN" \
@@ -198,7 +196,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | 要與 Blob 產生關聯的空間其識別碼 |
 | PATH_TO_FILE | 文字檔案的路徑 |
 
-成功 POST 傳回新 Blob 的識別碼 (先前以紅色醒目提示)。
+[![捲曲範例](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+
+成功的 POST 會傳回新 blob 的識別碼。
 
 ## <a name="api-endpoints"></a>API 端點
 

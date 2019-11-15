@@ -1,18 +1,18 @@
 ---
 title: 疑難排解 Microsoft Azure Site Recovery 提供者的升級
-description: 解決升級 Microsoft Azure Site Recovery 提供者時的常見問題
+description: 解決升級 Microsoft Azure Site Recovery 提供者時所發生的常見問題。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 73309103d422391aae3d72e3b0267d5d5a85515a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953761"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083915"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>對 Microsoft Azure Site Recovery Provider 升級失敗進行疑難排解
 

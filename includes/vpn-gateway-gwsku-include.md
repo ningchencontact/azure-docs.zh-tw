@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495734"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085226"
 ---
 建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 如需 Azure 可用性區域中的虛擬網路閘道 Sku，請參閱[Azure 可用性區域閘道 sku](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)。
 
@@ -21,7 +21,11 @@ ms.locfileid: "73495734"
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+> [!NOTE]
+> 只有 Resource Manager 部署模型支援 VpnGw Sku （VpnGw1、VpnGw1AZ、VpnGw2、VpnGw2AZ、VpnGw3、VpnGw3AZ、VpnGw4、VpnGw4AZ、VpnGw5 和 VpnGw5AZ）。 傳統虛擬網路應該繼續使用舊式 (舊版) SKU。
+>  * 如需舊版閘道 SKU (基本、標準、高效能) 使用上的相關資訊，請參閱[使用 VPN 閘道 SKU (舊版 SKU)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)。
+>  * 關於 ExpressRoute 閘道 SKU，請參閱 [ExpressRoute 的虛擬網路閘道](../articles/expressroute/expressroute-about-virtual-network-gateways.md)。
+>
 
 ###  <a name="feature"></a>依功能集區分的閘道 SKU
 

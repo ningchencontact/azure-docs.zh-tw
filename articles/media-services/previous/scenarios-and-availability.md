@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991438"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083201"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>跨資料中心的媒體服務功能情節和可用性
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure 媒體服務 (AMS) 可讓您安全地上傳、儲存、編碼和封裝視訊或音訊內容，以用於隨選和即時串流傳遞給各種用戶端 (例如電視、電腦和行動裝置)。
 
@@ -31,17 +31,17 @@ AMS 在世界各地多個資料中心運作。 這些資料中心會依據地理
 
 本主題說明[即時](#live_scenarios)傳遞內容或隨選傳遞內容的常見情節。 本主題也會詳述跨資料中心的媒體功能和服務可用性。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 若要開始使用 Azure 媒體服務，您應該具備下列項目：
 
-* 一個 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com)。
-* Azure 媒體服務帳戶。 如需詳細資訊，請參閱[建立帳戶](media-services-portal-create-account.md)。
-* 您想要串流內容的串流端點必須處於 [執行中]  狀態。
+* 一個 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com)。
+* Azure 媒體服務帳戶。 如需詳細資訊，請參閱 [建立帳戶](media-services-portal-create-account.md)。
+* 您想要串流內容的串流端點必須處於 [執行中] 狀態。
 
-    建立 AMS 帳戶時，會將**預設**串流端點新增至處於 [已停止]  狀態的帳戶。 若要開始串流處理您的內容並利用動態封裝和動態加密功能，串流端點必須處於 [執行中]  狀態。
+    建立 AMS 帳戶時，會將**預設**串流端點新增至處於 [已停止] 狀態的帳戶。 若要開始串流處理您的內容並利用動態封裝和動態加密功能，串流端點必須處於 [執行中] 狀態。
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>針對 AMS OData 模型開發時常用的物件
 
@@ -149,7 +149,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
 * 媒體服務客戶可以選擇一個**標準**串流端點或一個**進階**串流端點。 大多數的串流工作負載都適合使用**標準**串流端點。 其所含的功能與**進階**串流端點相同，並會自動調整輸出頻寬。 
 
-    **進階**串流端點適合進階工作負載，提供專用並能靈活調整的頻寬容量。 擁有**進階**串流端點的客戶預設會取得一個串流單位 (SU)。 藉由新增 SU 可以調整串流端點。 每個 SU 都可為應用程式提供額外的頻寬容量。 如需調整**進階**串流端點的詳細資訊，請參閱[調整串流端點](media-services-portal-scale-streaming-endpoints.md)主題。
+    **進階**串流端點適合進階工作，提供專用並能靈活調整的頻寬容量。 擁有**進階**串流端點的客戶預設會取得一個串流單位 (SU)。 藉由新增 SU 可以調整串流端點。 每個 SU 可為應用程式提供額外的頻寬容量。 如需調整**進階**串流端點的詳細資訊，請參閱[調整串流端點](media-services-portal-scale-streaming-endpoints.md)主題。
 
 * 媒體服務帳戶是與保留單元類型相關聯，後者決定媒體處理工作的速度。 您可以選擇下列的保留單元類型：**S1**、**S2** 或 **S3**。 例如，在執行相同編碼作業的前提下，使用 **S2** 保留單元類型的速度會比 **S1** 類型快。
 
@@ -177,16 +177,16 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
 #### <a name="availability"></a>可用性
 
-|名稱|狀態|資料中心
+|名稱|Status|資料中心
 |---|---|---|
 |標準|GA|全部|
-|進階|GA|全部|
+|高階|GA|全部|
 
 ### <a name="live-encoding"></a>即時編碼
 
 #### <a name="availability"></a>可用性
 
-所有資料中心內都提供，下列除外：德國、巴西南部、印度西部、印度南部和印度中部。 
+所有資料中心內都提供，但不含：德國、巴西南部、印度西部、印度南部和印度中部。 
 
 ### <a name="encoding-media-processors"></a>編碼媒體處理器
 
@@ -194,10 +194,10 @@ AMS 提供兩個隨選編碼器：**媒體編碼器標準**和**媒體編碼器�
 
 #### <a name="availability"></a>可用性
 
-|媒體處理器名稱|狀態|資料中心
+|媒體處理器名稱|Status|資料中心
 |---|---|---|
 |Media Encoder Standard|GA|全部|
-|媒體編碼器高階工作流程|GA|所有區域 (中國除外)|
+|Media Encoder Premium Workflow|GA|所有區域 (中國除外)|
 
 ### <a name="analytics-media-processors"></a>分析媒體處理器
 
@@ -205,14 +205,13 @@ AMS 提供兩個隨選編碼器：**媒體編碼器標準**和**媒體編碼器�
 
 #### <a name="availability"></a>可用性
 
-|媒體處理器名稱|狀態|資料中心
+|媒體處理器名稱|Status|資料中心
 |---|---|---|
 |Azure 媒體臉部偵測器|預覽|全部|
 |Azure Media Indexer|GA|全部|
 |Azure 媒體動作偵測器|預覽|全部|
 |Azure 媒體 OCR|預覽|全部|
 |Azure 媒體Media Redactor|預覽|全部|
-|Azure Media Stabilizer|預覽|全部|
 |Azure 媒體視訊縮圖|預覽|全部|
 |Azure 媒體索引器 2|預覽|所有區域 (中國和美國聯邦政府區域除外)|
 
@@ -222,7 +221,7 @@ Microsoft Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存�
 
 #### <a name="availability"></a>可用性
 
-|加密|狀態|資料中心|
+|加密|Status|資料中心|
 |---|---|---| 
 |儲存體|GA|全部|
 |AES-128 金鑰|GA|全部|
@@ -248,7 +247,7 @@ Microsoft Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存�
 
 #### <a name="availability"></a>可用性
 
-|RU 類型名稱|狀態|資料中心
+|RU 類型名稱|Status|資料中心
 |---|---|---|
 |S1|GA|全部|
 |S2|GA|全部，但不含巴西南部和印度西部|

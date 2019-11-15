@@ -1,5 +1,5 @@
 ---
-title: 在 Azure VPN 閘道上設定 BGP：Resource Manager：PowerShell | Microsoft Docs
+title: '在 Azure VPN 閘道上設定 BGP：Resource Manager: PowerShell | Microsoft Docs'
 description: 本文將逐步引導您使用 Azure Resource Manager 和 PowerShell 來設定 BGP 與 Azure VPN 閘道。
 services: vpn-gateway
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: d7a84bfda06b5db30afff6322c63a056a414357b
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 195a6887696bbb8681cdd187a4c03df2ade7e2c0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626569"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091922"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 閘道上設定 BGP
 本文將逐步引導您進行使用 Resource Manager 部署模型和 PowerShell 在跨單位網站間 (S2S) VPN 連線和 VNet 對 VNet 連線上啟用 BGP 的步驟。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="about-bgp"></a>關於 BGP
+## <a name="about-bgp"></a>有關 BGP
 BGP 是常用於網際網路的標準路由通訊協定，可交換兩個或多個網路之間的路由和可執行性資訊。 BGP 會啟用 Azure VPN 閘道，以及內部部署 VPN 裝置 (稱為 BGP 對等或鄰近項目) 來交換「路由」，其會通知這兩個閘道對要通過閘道的首碼或所涉及之路由器的可用性和可執行性。 BGP 也可以傳播從一個 BGP 對等互連到所有其他 BGP 對等所識別的 BGP 閘道，來啟用多個網路之間的傳輸路由。
 
 如需 BGP 優點的討論並了解使用 BGP 的技術需求和考量，請參閱 [BGP 與 Azure VPN 閘道的概觀](vpn-gateway-bgp-overview.md)。
@@ -56,7 +56,7 @@ BGP 是常用於網際網路的標準路由通訊協定，可交換兩個或多�
 * 您必須安裝 Azure Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。 
 
 ### <a name="step-1---create-and-configure-vnet1"></a>步驟 1 - 建立及設定 VNet1
-#### <a name="1-declare-your-variables"></a>1.宣告變數
+#### <a name="1-declare-your-variables"></a>1. 宣告變數
 對於此練習，我們一開始先宣告我們的變數。 下列範例會使用此練習中的值來宣告變數。 請務必在設定生產環境時，使用您自己的值來取代該值。 若您執行這些步驟是為了熟悉此類型的設定，則可以使用這些變數。 修改變數，然後將其複製並貼到您的 PowerShell 主控台中。
 
 ```powershell
@@ -81,7 +81,7 @@ $Connection12 = "VNet1toVNet2"
 $Connection15 = "VNet1toSite5"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.連接至您的訂用帳戶並建立新的資源群組
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. 連接到您的訂用帳戶，並建立新的資源群組
 請確定您切換為 PowerShell 模式，以使用 Resource Manager Cmdlet。 如需詳細資訊，請參閱 [搭配使用 Windows PowerShell 與 Resource Manager](../powershell-azure-resource-manager.md)。
 
 開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
@@ -92,18 +92,19 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-testvnet1"></a>3.建立 TestVNet1
+#### <a name="3-create-testvnet1"></a>3. 建立 TestVNet1
 下列範例會建立一個名為 TestVNet1 的虛擬網路和三個子網路：一個名為 GatewaySubnet、一個名為 FrontEnd，另一個名為 Backend。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。
 
 ```powershell
-$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1 $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
 $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
 
 New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
 ### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>步驟 2 - 使用 BGP 參數建立 TestVNet1 的 VPN 閘道
-#### <a name="1-create-the-ip-and-subnet-configurations"></a>1.建立 IP 和子網路組態
+#### <a name="1-create-the-ip-and-subnet-configurations"></a>1. 建立 IP 和子網設定
 要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。 您也會定義必要的子網路和 IP 組態。
 
 ```powershell
@@ -114,14 +115,14 @@ $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwor
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2.透過 AS 號碼建立 VPN 閘道
+#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. 使用 AS 號碼建立 VPN 閘道
 建立 TestVNet1 的虛擬網路閘道。 BGP 需要路由式 VPN 閘道，以及額外參數 (-Asn) 才能設定 TestVNet1 的 ASN (AS 號碼)。 如果您沒有設定 ASN 參數，系統會指派 ASN 65515。 建立閘道可能需要花費一段時間 (30 分鐘或更久)。
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
 ```
 
-#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3.取得 Azure BGP 對等 IP 位址
+#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. 取得 Azure BGP 對等互連 IP 位址
 建立閘道後，您必須取得 Azure VPN 閘道上的 BGP 對等 IP 位址。 需要有此位址，才能將 Azure VPN 閘道設定為您的內部部署 VPN 裝置的 BGP 對等。
 
 ```powershell
@@ -152,7 +153,7 @@ $vnet1gw.BgpSettingsText
 
 ### <a name="step-1---create-and-configure-the-local-network-gateway"></a>步驟 1 - 建立及設定區域網路閘道
 
-#### <a name="1-declare-your-variables"></a>1.宣告變數
+#### <a name="1-declare-your-variables"></a>1. 宣告變數
 
 本練習將繼續建置圖中所示的組態。 請務必使用您想用於設定的值來取代該值。
 
@@ -174,9 +175,9 @@ $BGPPeerIP5 = "10.52.255.254"
 
 繼續之前，請先確定您仍然與訂用帳戶 1 保持連線。
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2.建立 Site5 的區域網路閘道
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. 建立 Site5 的局域網路閘道
 
-如果尚未建立資源群組，請務必加以建立，才能建立區域網路閘道。 請注意區域網路閘道的兩個額外參數︰Asn 和 BgpPeerAddress。
+如果尚未建立資源群組，請務必加以建立，才能建立區域網路閘道。 請注意，區域網路閘道的兩個額外參數︰Asn 與 BgpPeerAddress。
 
 ```powershell
 New-AzResourceGroup -Name $RG5 -Location $Location5
@@ -186,14 +187,14 @@ New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Loc
 
 ### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>步驟 2 - 連接 VNet 閘道與區域網路閘道
 
-#### <a name="1-get-the-two-gateways"></a>1.取得兩個閘道
+#### <a name="1-get-the-two-gateways"></a>1. 取得兩個閘道
 
 ```powershell
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 ```
 
-#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2.建立 TestVNet1 至 Site5 的連線
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. 建立 TestVNet1 至 Site5 的連線
 
 在此步驟中，您將建立從 TestVNet1 至 Site5 的連線。 您必須指定 "-EnableBGP $True" 才能為此連線啟用 BGP。 如先前所討論，相同的 Azure VPN 閘道可以同時有 BGP 和非 BGP 連線。 除非已在連接屬性中啟用 BGP，否則即使已在兩個閘道上設定 BGP 參數，Azure 也不會為此連線啟用 BGP。
 
@@ -230,7 +231,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG
 
 在此範例中，虛擬網路屬於相同的訂用帳戶。 您可以設定不同訂用帳戶之間的 VNet 對 VNet 連線。 如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。 請務必在建立連線時新增 "-EnableBgp $True"，才能啟用 BGP。
 
-#### <a name="1-declare-your-variables"></a>1.宣告變數
+#### <a name="1-declare-your-variables"></a>1. 宣告變數
 
 請務必使用您想用於設定的值來取代該值。
 
@@ -255,7 +256,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2.在新的資源群組中建立 TestVNet2
+#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. 在新的資源群組中建立 TestVNet2
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -267,7 +268,7 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3.使用 BGP 參數建立 TestVNet2 的 VPN 閘道
+#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3. 使用 BGP 參數建立 TestVNet2 的 VPN 閘道
 
 要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道，並定義必要的子網路和 IP 組態。
 
@@ -289,7 +290,7 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 在此範例中，兩個閘道位於相同的訂用帳戶。 您可以在相同的 PowerShell 工作階段中完成此步驟。
 
-#### <a name="1-get-both-gateways"></a>1.取得兩個閘道
+#### <a name="1-get-both-gateways"></a>1. 取得兩個閘道
 
 請確定您已登入並連接到訂用帳戶 1。
 
@@ -298,7 +299,7 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $vnet2gw = Get-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 ```
 
-#### <a name="2-create-both-connections"></a>2.建立兩個連線
+#### <a name="2-create-both-connections"></a>2. 建立這兩個連接
 
 在此步驟中，您要建立從 TestVNet1 到 TestVNet2 的連線，以及從 TestVNet2 到 TestVNet1 的連線。
 

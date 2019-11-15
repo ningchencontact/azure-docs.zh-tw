@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 在 VMware VM 嚴重損壞修復期間，針對內部部署的容錯回復進行疑難排解
-description: 本文說明對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所發生的容錯回復和重新保護問題進行疑難排解的方式。
+title: 針對 Azure Site Recovery 中的 VMware vCenter discovery 失敗進行疑難排解
+description: 本文說明如何針對 Azure Site Recovery 中的 VMware vCenter 探索失敗進行疑難排解。
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053857"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091245"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>對 vCenter 探索進行疑難排解失敗
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>針對 vCenter Server 探索失敗進行疑難排解
 
 本文可協助您針對 VMware vCenter 探索失敗所發生的問題進行疑難排解。
 

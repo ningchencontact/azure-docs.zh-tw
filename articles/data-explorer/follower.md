@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828561"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083198"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>使用在 Azure 資料總管中的資料，來連接資料庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "73828561"
 * 單一叢集可以遵循來自多個領導者叢集的資料庫。 
 * 叢集可以同時包含進行中的資料庫和領導者資料庫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 1. 為領導者和進行中[建立叢集和資料庫](/azure/data-explorer/create-cluster-database-portal)。
@@ -163,7 +163,7 @@ var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseCo
    ![範本部署](media/follower/template-deployment.png)
 
 
-|**設定**  |**說明**  |
+|**設定**  |**描述**  |
 |---------|---------|
 |進行中的叢集名稱     |  進行中的叢集名稱       |
 |附加的資料庫設定名稱    |    附加的資料庫設定物件的名稱。 名稱在叢集層級必須是唯一的。     |
@@ -242,15 +242,15 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>管理主體
 
-附加資料庫時，請指定**預設的主體修改種類**。 預設會保留已[授權主體](/azure/kusto/management/access-control/index.md#authorization)的領導者資料庫集合
+附加資料庫時，請指定**預設的主體修改種類**。 預設會保留已[授權主體](/azure/kusto/management/access-control/index#authorization)的領導者資料庫集合
 
-|**種類** |**說明**  |
+|**種類** |**描述**  |
 |---------|---------|
 |**並**     |   附加的資料庫主體一律會包含原始資料庫主體，加上加入至資料後資料庫的額外新主體。      |
 |**Replace**   |    不會繼承原始資料庫的主體。 必須為附加的資料庫建立新的主體。 至少必須將一個主體新增至區塊主體繼承。     |
 |**None**   |   附加的資料庫主體只包含原始資料庫的主體，且沒有其他主體。      |
 
-如需使用控制命令來設定授權主體的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower.md)中叢集的命令。
+如需使用控制命令來設定授權主體的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower)中叢集的命令。
 
 ### <a name="manage-permissions"></a>管理許可權
 
@@ -258,7 +258,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="configure-caching-policy"></a>設定快取原則
 
-「後向資料庫管理員」可以在主控叢集上修改附加資料庫或其任何資料表的快取[原則](/azure/kusto/management/cache-policy)。 預設值是保留資料庫和資料表層級快取原則的領導者資料庫集合。 例如，您可以在領導者資料庫上有30天的快取原則來執行每月報表，並在執行者資料庫上使用三天的快取原則，只查詢最近的資料進行疑難排解。 如需使用控制命令在資料後資料庫或資料表上設定快取原則的詳細資訊，請參閱[控制用於管理](/azure/kusto/management/cluster-follower.md)資料型叢集的命令。
+「後向資料庫管理員」可以在主控叢集上修改附加資料庫或其任何資料表的快取[原則](/azure/kusto/management/cache-policy)。 預設值是保留資料庫和資料表層級快取原則的領導者資料庫集合。 例如，您可以在領導者資料庫上有30天的快取原則來執行每月報表，並在執行者資料庫上使用三天的快取原則，只查詢最近的資料進行疑難排解。 如需使用控制命令在資料後資料庫或資料表上設定快取原則的詳細資訊，請參閱[控制用於管理](/azure/kusto/management/cluster-follower)資料型叢集的命令。
 
 ## <a name="limitations"></a>限制
 
@@ -270,4 +270,4 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需有關「進行中」叢集設定的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower.md)中叢集的命令。
+* 如需有關「進行中」叢集設定的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower)中叢集的命令。

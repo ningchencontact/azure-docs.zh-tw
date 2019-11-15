@@ -5,18 +5,18 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 09/18/2019
+ms.date: 11/12/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 967263bde459739482100524e5f85bed96cee6f9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 468a61c83948033905b3727add528520611b8bd4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824288"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092253"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
@@ -26,13 +26,27 @@ ms.locfileid: "73824288"
 
 當新功能推出至所有區域時，請檢查部署至您實例的版本，以及最新的 Azure SQL DW 版本資訊，以取得功能可用性。 若要檢查您的 Azure SQL DW 版本，請透過 SQL Server Management Studio （SSMS）連線到您的資料倉儲，然後執行 `SELECT @@VERSION;` 以傳回目前版本的 Azure SQL DW。
 
-範例輸出︰
+範例輸出：
 
-![SQL 資料倉儲版本](./media/release-notes/sql_data_warehouse_version.png)
+![SQL 資料倉儲版本](./media/release-notes/t47-1-version.png)
 
-使用識別的日期來確認哪個發行已套用至您的 Azure SQL DW。
+使用已識別的版本來確認已套用至您 Azure SQL DW 的發行。
 
-## <a name="september-2019"></a>2019年9月
+## <a name="october-2019"></a>2019 年 10 月
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+|**複製（預覽）**|我們很高興宣佈公開預覽，提供簡單且彈性的資料內嵌複製語句。 只有一個語句，您現在可以使用額外的彈性順暢地內嵌資料，而不需要高許可權的使用者。 如需詳細資訊，請參閱[複製命令檔](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)。|
+|**工作負載隔離（預覽）**|為了支援客戶將大眾化其資料倉儲，我們宣佈推出智慧型工作負載管理的新功能。 新的[工作負載隔離](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation)功能可讓您管理異類工作負載的執行，同時提供資料倉儲資源的彈性和控制權。 這會提升執行可預測性，並增強滿足預先定義之 Sla 的能力。 </br>除了工作負載隔離之外，其他選項現在也可用於[工作負載分類](/azure/sql-data-warehouse/sql-data-warehouse-workload-classification)。  除了登入分類之外，[建立工作負載分類器](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)語法可讓您根據查詢標籤、會話內容和當日時間來分類要求。|
+|**預測（預覽）**|您現在可以對資料倉儲內的機器學習模型進行評分，以避免需要進行大型且複雜的資料移動。 T-sql PREDICT 函數依賴開放式模型架構，並採用資料和機器學習模型做為輸入來產生預測。
+|**SSDT CI/CD （GA）**|今天，我們很高興宣佈 SQL 資料倉儲– SQL Server Data Tools （SSDT）資料庫專案的[最高要求功能](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247--in-preview-database-project-from-visual-studio-t)正式推出。 此版本包含 SSDT 與 Visual Studio 2019 的支援，以及原生平臺整合與 Azure DevOps，為企業層級部署提供內建的持續整合和部署（CI/CD）功能。 |
+|**具體化視圖（GA）**|具體化視圖會保存從 View definition 查詢傳回的資料，並在基礎資料表中的資料變更時自動更新。 它可以改善複雜查詢（通常是具有聯結和匯總的查詢）的效能，同時提供簡單的維護作業。 如需詳細資訊，請參閱[使用具體化視圖進行效能微調](/azure/sql-data-warehouse/performance-tuning-materialized-views)。  安裝[SQL Server Management Studio 18.4 或更新版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)，以編寫具體化視圖的腳本。|
+|**動態資料遮罩（GA）**|動態資料遮罩 (DDM) 可防止其他人未經授權存取您資料倉儲中的敏感性資料，做法是根據您定義的遮罩規則，即時在查詢結果中混淆這項資料。 如需詳細資訊，請參閱[SQL Database 動態資料遮罩](/azure/sql-database/sql-database-dynamic-data-masking-get-started)。|
+|**讀取認可的快照集隔離（GA）**|您可以使用 ALTER database 來啟用或停用使用者資料庫的快照集隔離。 若要避免影響目前的工作負載，您可能會想要在資料庫維護期間設定此選項，或等到沒有其他作用中的資料庫連接。 如需詳細資訊，請參閱[Alter database set 選項](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)。|
+|**已排序的叢集資料行存放區索引（GA）**|資料行存放區對於儲存及有效率地查詢大量資料至關重要。 已排序叢集資料行存放區索引透過有效率地刪除分割，進一步將查詢執行最佳化。   如需詳細資訊，請參閱使用已排序的叢集資料行存放區[索引進行效能微調](/azure/sql-data-warehouse/performance-tuning-ordered-cci)。|
+|**結果集快取（GA）**|啟用結果集快取時，Azure SQL 資料倉儲會自動快取使用者資料庫中的查詢結果，以供重複使用。 這可讓後續的查詢執行直接從持續性快取取得結果，因此不需要重新計算。 結果集快取可改善查詢效能並減少計算資源使用量。 此外，使用快取結果集的查詢不會使用任何平行存取插槽，因此不會計算現有的並行限制。 基於安全性，如果使用者與建立快取結果的使用者具有相同的資料存取權限，則只能存取快取的結果。 如需詳細資訊，請參閱[使用結果集](/azure/sql-data-warehouse/performance-tuning-result-set-caching)快取進行效能微調。 適用于10.0.10783.0 或更高版本。|
+
+## <a name="september-2019"></a>2019 年 9 月
 
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
@@ -43,7 +57,7 @@ ms.locfileid: "73824288"
 |**EXECUTE AS （Transact-sql）**| [執行](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest)身分T-sql 支援現已提供 SQL 資料倉儲，讓客戶能夠將會話的執行內容設定為指定的使用者。|
 |**其他 T-sql 支援**|SQL 資料倉儲的 T-sql 語言介面區已擴充為包含的支援： </br> - [格式（transact-sql）](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE （transact-sql）](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST （transact-sql）](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT （transact-sql）](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [sys.databases user_token （transact-sql）](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
 
-## <a name="july-2019"></a>2019年7月
+## <a name="july-2019"></a>2019 年 7 月
 
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
@@ -96,7 +110,7 @@ ms.locfileid: "73824288"
 
 | 文件改進功能 | 詳細資料 |
 | --- | --- |
-|None | |
+|無 | |
 | | |
 
 ## <a name="december-2018"></a>2018 年 12 月
@@ -106,8 +120,8 @@ ms.locfileid: "73824288"
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
 |**虛擬網路服務端點已正式運作**|此版本具有所有 Azure 區域內 Azure SQL 資料倉儲虛擬網路 (VNet) 服務端點的一般可用性。 VNet 服務端點讓您可隔離連線，從虛擬網路內的指定子網路或一組子網路連線到邏輯伺服器。 從 VNet 傳送至 Azure SQL 資料倉儲的流量一律會保留在 Azure 骨幹網路中。 這會優先使用此直接路由，而不是透過虛擬設備或內部部署傳送網際網路流量的任何特定路由。 透過服務端點存取虛擬網路並不會額外收費。 [Azure SQL 資料倉儲](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/)的目前定價模型照常適用。<br/><br/>透過此版本，我們也讓 PolyBase 能夠透過 [Azure Blob File System](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (ABFS) 驅動程式連線到 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-abfs-driver) (ADLS)。 Azure Data Lake Storage Gen2 所具備的品質，足以滿足 Azure 儲存體分析資料完整生命週期的一切所需。 兩個現有 Azure 儲存體服務 (Azure Blob 儲存體與 Azure Data Lake Storage Gen1) 的功能均涵蓋在內。 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index) 的功能 (例如檔案系統語意、檔案層級安全性和級別) 結合了 [Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)的低成本、分層式儲存體、高可用性/災害復原功能。<br/><br/>透過使用 Polybase，您也可將資料從固定於 VNet 的 Azure 儲存體匯入到 Azure SQL 資料倉儲。 同樣的，也支援經由 PolyBase 將資料從 Azure SQL 資料倉儲匯出至固定於 VNet 的 Azure 儲存體。<br/><br/>如需 Azure SQL 資料倉儲中 VNet 服務端點的詳細資訊，請參閱完整的[部落格文章](https://azure.microsoft.com/blog/general-availability-of-vnet-service-endpoints-for-azure-sql-data-warehouse/) (英文) 或[文件](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json)。|
-|**自動效能監視（預覽）**|[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-2017)目前已可在 Azure SQL 資料倉儲預覽版中使用。 查詢存放區的設計目的是透過追蹤查詢、查詢計劃、執行階段統計資料以及查詢記錄等方式，協助您監視資料倉儲的活動與效能，藉此排解查詢效能的問題。 查詢存放區是一組內容存放區與「動態管理檢視」(DMV)，具備以下功能：<br/><br/>&bull; &nbsp; 識別並調整熱門資源取用查詢<br/>&bull; &nbsp; 識別並改善非計畫的工作負載<br/>&bull; &nbsp; 依據統計資料、索引或系統大小（DWU 設定）中的變更，評估計畫的查詢效能和影響<br/>&bull; &nbsp; 查看所有已執行查詢的完整查詢文字<br/><br/>查詢存放區包含三個實際存放區：<br/>&bull; &nbsp; 計畫存放區以保存執行計畫資訊<br/>&bull; &nbsp; 執行時間統計資料存放區，以保存執行統計資料資訊<br/>&bull; &nbsp; 等候統計資料存放區以保存等候統計資料資訊。<br/><br/>SQL 資料倉儲會自動管理這些存放區，並在過去七天內無需額外費用，即可 storied 不限數目的查詢。 啟用查詢存放區很簡單，只要執行 ALTER DATABASE T-SQL 陳述式即可： <br/>sql----ALTER DATABASE [DatabaseName] 設定 QUERY_STORE = ON;-------如需 Azure SQL 資料倉儲中查詢存放區的詳細資訊，請參閱[使用查詢存放區監視效能](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)和查詢存放區 dmv （例如 SYS）一文[。 query_store_查詢](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql)。 以下是版本發佈的[部落格文章](https://azure.microsoft.com/blog/automatic-performance-monitoring-in-azure-sql-data-warehouse-with-query-store/) (英文)。|
-|**Azure SQL 資料倉儲 Gen2 的較低計算層級**|Azure SQL 資料倉儲 Gen2 現可支援較低的支援層級。 客戶可從 100 cDWU ([資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)) 開始使用，在數分鐘內調整為 30,000 cDWU，體驗 Azure SQL 資料倉儲卓越的效能、彈性及安全性功能。 自 2018 年 12 月中起，這些[地區](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)的客戶即可在較低的運算層級享有 Gen2 的效能和彈性，其餘地區則會在 2019 年跟進。<br/><br/>注重價值的客戶希望能全面評估安全的高效能資料倉儲的所有益處，且不想要猜測決定最適合的試用環境，而 Microsoft 降低了次世代資料倉儲服務的入門門檻，對這些客戶敞開了大門。 客戶最低可從 100 cDWU 開始，比目前 500 cDWU 的入門門檻更低。 SQL 資料倉儲 Gen2 會繼續支援暫停和繼續作業，超出只是計算的彈性。 Gen2 也支援無限制資料行存放區的儲存體容量，每個查詢的記憶體增加 2.5 倍，最多可達 128 個並行查詢，還具備[調適性快取](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/)功能。 與同價格的 Gen1 一樣的資料倉儲單位相比，上述功能的效能平均高出五倍。 異地備援備份是內建保證資料保護之 Gen2 的標準功能。 Azure SQL Data Warehouse Gen2 時刻做好充足準備，只待您開始調整級別。|
+|**自動效能監視（預覽）**|[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-2017)目前已可在 Azure SQL 資料倉儲預覽版中使用。 查詢存放區的設計目的是透過追蹤查詢、查詢計劃、執行階段統計資料以及查詢記錄等方式，協助您監視資料倉儲的活動與效能，藉此排解查詢效能的問題。 查詢存放區是一組內容存放區與「動態管理檢視」(DMV)，具備以下功能：<br/><br/>&bull; &nbsp; 識別並調整熱門資源取用查詢<br/>&bull; &nbsp; 識別並改善非計畫的工作負載<br/>&bull; &nbsp; 依據統計資料、索引或系統大小（DWU 設定）中的變更，評估計畫的查詢效能和影響<br/>&bull; &nbsp; 查看所有已執行查詢的完整查詢文字<br/><br/>查詢存放區包含三個實際存放區：<br/>&bull; &nbsp; 計畫存放區以保存執行計畫資訊<br/>&bull; &nbsp; 執行時間統計資料存放區，以保存執行統計資料資訊<br/>&bull; &nbsp; 等候統計資料存放區以保存等候統計資料資訊。<br/><br/>SQL 資料倉儲會自動管理這些存放區，並在過去七天內無需額外費用，即可 storied 不限數目的查詢。 啟用查詢存放區很簡單，只要執行 ALTER DATABASE T-SQL 陳述式即可： <br/>sql----ALTER DATABASE [DatabaseName] 設定 QUERY_STORE = ON;-------如需 Azure SQL 資料倉儲中查詢存放區的詳細資訊，請參閱[使用查詢存放區監視效能](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)和查詢存放區 dmv （例如[sys. query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql)）一文。 以下是版本發佈的[部落格文章](https://azure.microsoft.com/blog/automatic-performance-monitoring-in-azure-sql-data-warehouse-with-query-store/) (英文)。|
+|**Azure SQL 資料倉儲 Gen2 的較低計算層級**|Azure SQL 資料倉儲 Gen2 現可支援較低的支援層級。 客戶可從 100 cDWU ([資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)) 開始使用，在數分鐘內調整為 30,000 cDWU，體驗 Azure SQL 資料倉儲卓越的效能、彈性及安全性功能。 自 2018 年 12 月中起，這些[地區](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)的客戶即可在較低的運算層級享有 Gen2 的效能和彈性，其餘地區則會在 2019 年跟進。<br/><br/>Microsoft 透過卸除下一代資料倉儲進入點，為想要評估一個安全、高效能資料倉儲所有益處的價值導向客戶打開一扇大門，讓他們無須猜測哪一個試用環境最適合他們。 客戶最低可從 100 cDWU 開始，比目前 500 cDWU 的入門門檻更低。 SQL 資料倉儲 Gen2 會繼續支援暫停和繼續作業，超出只是計算的彈性。 Gen2 也支援無限制資料行存放區的儲存體容量，每個查詢的記憶體增加 2.5 倍，最多可達 128 個並行查詢，還具備[調適性快取](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/)功能。 與同價格的 Gen1 一樣的資料倉儲單位相比，上述功能的效能平均高出五倍。 異地備援備份是內建保證資料保護之 Gen2 的標準功能。 Azure SQL 資料倉儲 Gen2 已準備好為您調整。|
 |**資料行存放區背景合併**|根據預設，Azure SQL 資料倉儲 (Azure SQL DW) 會使用稱為[資料列群組](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)的微型分割，以資料行格式儲存資料。 有時候，因為在建置索引或載入資料時記憶體受到限制，資料列群組可能會經過壓縮，且使用的壓縮大小低於最佳的 1 百萬個資料列。 資料列群組也可能會因為刪除操作而變得零碎。 小型或零碎的資料列群組會耗用更高的記憶體，執行查詢時的效率也不好。 使用這一版的 Azure SQL DW 時，資料行存放區的背景維護工作會合併經過壓縮的小型資料列群組，以建立較大型的資料列群組，從而更加充分地利用記憶體並加快查詢的執行速度。
 | | |
 

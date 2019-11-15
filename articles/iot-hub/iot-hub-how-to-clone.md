@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: robinsh
-ms.openlocfilehash: 8d071d4cd6ae3f9a52433104075e396d70d5bc57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828691"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083275"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>如何將 Azure IoT 中樞複製到另一個區域
 
@@ -359,7 +359,7 @@ ms.locfileid: "73828691"
 
 1. 在搜尋方塊中，放入「範本部署」，然後選取 Enter。
 
-1. 選取**範本部署（使用自訂範本部署）** 。 這會帶您前往範本部署的畫面。 選取 [ **建立**]。 您會看到這個畫面：
+1. 選取**範本部署（使用自訂範本部署）** 。 這會帶您前往範本部署的畫面。 選取 [建立]。 您會看到這個畫面：
 
    ![顯示用來建立自己範本之命令的螢幕擷取畫面](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -391,7 +391,7 @@ ms.locfileid: "73828691"
 
 現在您已啟動並執行您的複製，您需要將所有裝置從原始中樞複製到複本。 
 
-有多種方法可以完成這項操作。 您原本使用的是裝置布建[服務（DPS）](/azure/iot-dps/about-iot-dps.md)來布建裝置，或您沒有這麼做。 如果您這樣做，這並不容易。 如果您沒有這麼做，這可能非常複雜。 
+有多種方法可以完成這項操作。 您原本使用的是裝置布建[服務（DPS）](/azure/iot-dps/about-iot-dps)來布建裝置，或您沒有這麼做。 如果您這樣做，這並不容易。 如果您沒有這麼做，這可能非常複雜。 
 
 如果您未使用 DPS 來布建您的裝置，可以略過下一節，並開始[使用匯入/匯出將裝置移至新的中樞](#using-import-export-to-move-the-devices-to-the-new-hub)。
 

@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881701"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084806"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒體視訊縮圖建立視訊摘要  
+ 
+## <a name="overview"></a>Overview
 
-> [!IMPORTANT]
-> 查看一些媒體處理器的[淘汰計畫](media-services-analytics-overview.md#retirement-plans)。
-
-## <a name="overview"></a>概觀
 **Azure 媒體視訊縮圖** 媒體處理器 (MP) 可讓您建立視訊的摘要；當視訊較長而客戶只想預覽摘要時，就非常實用。 例如，客戶可能會想在將滑鼠移至縮圖上時，查看簡短的「視訊摘要」。 透過設定預設值，調整 **Azure 媒體視訊縮圖** 的參數，您即可使用 MP 強大的拍攝偵測和串連技術，以演算法來產生描述性的子剪輯。  
 
 **Azure 媒體視訊縮圖** MP 目前為預覽功能。
@@ -106,7 +104,7 @@ ms.locfileid: "72881701"
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
 
 #### <a name="example"></a>範例
 

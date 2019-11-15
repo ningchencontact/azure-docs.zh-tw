@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961574"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091635"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -66,17 +66,13 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
     如果您在具有限制存取的電腦上執行指令碼，請確定可存取︰
 
     - download.microsoft.com
-    - 復原服務 URL (geo-name 是指復原服務保存庫所在的區域)
-        - HTTPs：\//pod01-rec2.geo-name.backup.windowsazure.com （適用于 Azure 公用地區）
-        - HTTPs：\//pod01-rec2.geo-name.backup.windowsazure.cn （適用于 Azure 中國世紀）
-        - HTTPs：\//pod01-rec2.geo-name.backup.windowsazure.us （適用于 Azure 美國政府）
-        - HTTPs：\//pod01-rec2.geo-name.backup.windowsazure.de （適用于 Azure 德國）
+    - 復原服務 Url （地理名稱是指復原服務保存庫所在的區域） - <https://pod01-rec2.geo-name.backup.windowsazure.com> （適用于 azure 地區） - <https://pod01-rec2.geo-name.backup.windowsazure.cn> （適用于 azure 中國世紀） - <https://pod01-rec2.geo-name.backup.windowsazure.us> （適用于美國政府） - <https://pod01-rec2.geo-name.backup.windowsazure.de> （適用于 Azure 德國）
     - 輸出連接埠 3260
 
 > [!Note]
 >
-> - 下載的指令檔名將會在 URL 中填入**地區名稱**。 例如：下載的腳本名稱開頭為 \'VMname\'\_\'geoname\'_\'GUID\'，例如 ContosoVM_wcus_12345678 ....。<br><br>
-> - URL 會是 "HTTPs：\//pod01-rec2.wcus.backup.windowsazure.com"
+> - 下載的指令檔名將會在 URL 中填入**地區名稱**。 例如：下載的腳本名稱開頭為 \'VMname\'\_\'geoname\'_\'GUID\'，例如 ContosoVM_wcus_12345678
+> - URL 會是 <https://pod01-rec2.wcus.backup.windowsazure.com>」
 
    若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果元件不存在於執行指令碼的電腦上，則指令碼會要求安裝元件的權限。 同意安裝必要的元件。
 
@@ -84,7 +80,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
    您可以在任何具有與備份 VM 相的 (或相容) 作業系統的電腦上執行指令碼。 請參閱[相容作業系統資料表](backup-azure-restore-files-from-vm.md#system-requirements)以查看相容的作業系統。 如果受保護的 Azure 虛擬機器使用 Windows 儲存空間 (適用於 Windows Azure 虛擬機器) 或 LVM/RAID 陣列 (適用於 Linux 虛擬機器)，則您無法在同一部虛擬機器上執行可執行檔或指令碼。 請改為在其他具有相容作業系統的電腦上執行可執行或指令碼。
 
-### <a name="identifying-volumes"></a>識別磁碟區
+### <a name="identifying-volumes"></a>識別磁片區
 
 #### <a name="for-windows"></a>若為 Windows
 
@@ -135,36 +131,36 @@ Windows 儲存空間是一種可將儲存體虛擬化的 Windows 技術。 您�
 
 若要讓這些磁碟分割上線，請執行以下小節中的命令。
 
-#### <a name="for-lvm-partitions"></a>若為 LVM 磁碟分割
+#### <a name="for-lvm-partitions"></a>針對 LVM 磁碟分割
 
 列出實體磁碟區之下的磁碟區群組名稱。
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 列出磁碟區群組中的所有邏輯磁碟區、名稱及其路徑。
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 若要掛接邏輯磁碟區至您所選擇的路徑。
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
-#### <a name="for-raid-arrays"></a>若為 RAID 陣列
+#### <a name="for-raid-arrays"></a>適用于 RAID 陣列
 
 下列命令會顯示所有 RAID 磁碟的詳細資料。
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  相關的 RAID 磁碟將顯示為 `/dev/mdm/<RAID array name in the protected VM>`
@@ -173,7 +169,7 @@ $ mdadm –detail –scan
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 如果 RAID 磁碟上有設定其他 LVM，則請使用上述適用於 LVM 磁碟分割的程序，但將 RAID 磁碟名稱改為磁碟區名稱

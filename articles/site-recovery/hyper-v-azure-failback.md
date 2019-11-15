@@ -1,5 +1,5 @@
 ---
-title: 在災害期間將 Hyper-V VM 從 Azure 容錯回復到內部部署 | Microsoft Docs
+title: 使用 Azure Site Recovery 從 Azure 容錯回復 Hyper-v Vm
 description: 了解如何在災害復原期間使用 Azure Site Recovery 服務將 Hyper-V VM 從 Azure 容錯回復至內部部署網站。
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
-ms.openlocfilehash: 07ecc8547ab155600bccfd1ad8f1ecbb58a18fa3
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b924c1424a309fb61f690c21e5665a70356c7a62
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931836"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084235"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>執行 Hyper-V VM 的容錯回復
 
 本文說明如何容錯回復 Site Recovery 所保護的 Hyper-V 虛擬機器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 請確定您已閱讀[不同類型容錯回復](concepts-types-of-failback.md)的相關詳細資料和對應的須知。
 - 請確定主要網站 VMM 伺服器或 Hyper-V 主機伺服器已連線至 Azure。
@@ -29,7 +29,7 @@ ms.locfileid: "70931836"
 ## <a name="perform-failback"></a>執行容錯回復
 從主要位置容錯移轉至次要位置之後，複寫的虛擬機器就不會受到 Site Recovery 所保護，而次要位置現在會成為使用中位置。 若要在復原計劃中容錯回復 VM，執行從次要網站到主要網站的計劃容錯移轉，如下所示。 
 1. 選取 [復原方案]  >  *recoveryplan_name*。 按一下 [容錯移轉] **容錯移轉** > **Planned 容錯移轉**中張貼意見或問題。
-2. 在 [確認計劃的容錯移轉] 分頁上，選擇來源與目標位置。 記下容錯移轉方向。 如果來自主要位置的容錯移轉會如預期般運作，且所有虛擬機器均位於次要位置，則這僅供參考。
+2. 在 [確認計劃性容錯移轉] 頁面上，選擇來源與目標位置。 記下容錯移轉方向。 如果來自主要位置的容錯移轉會如預期般運作，且所有虛擬機器均位於次要位置，則這僅供參考。
 3. 如果您正從 Azure 進行容錯回復，請選取 [資料同步處理]中的設定：
     - **在容錯移轉前同步處理資料 (僅同步處理差異變更)** - 這個選項可將虛擬機器的停機時間縮到最短，因為不需關閉虛擬機器即可進行同步處理。 它具有下列步驟：
         - 階段 1：在 Azure 中取得虛擬機器的快照，並將其複製到內部部署的 HYPER-V 主機。 機器會繼續在 Azure 中執行。
@@ -51,12 +51,12 @@ ms.locfileid: "70931836"
 請遵循這些程序，以容錯回復到原始的主要站台。 此程序說明如何針對復原方案執行計劃性容錯移轉。 或者，您可以在 [虛擬機器] 索引標籤上針對單一虛擬機器執行容錯移轉。
 
 
-## <a name="failback-to-an-alternate-location-in-hyper-v-environment"></a>容錯回復到 Hyper-V 環境中的替代位置
+## <a name="failback-to-an-alternate-location-in-hyper-v-environment"></a>容錯回復到 HYPER-V 環境中的替代位置
 如果您已經在 [HYPER-V 站台和 Azure](site-recovery-hyper-v-site-to-azure.md) 之間部署保護，就能夠從 Azure 容錯回復到替代的內部部署位置。 如果您需要設定新的內部部署硬體，這相當實用。 以下是執行此動作的方式。
 
 1. 如果您正在設定新硬體，請在伺服器上安裝 Windows Server 2012 R2 和 Hyper-V 角色。
 2. 使用您在原始伺服器上所擁有的相同名稱來建立虛擬網路交換器。
-3. 選取 [**受保護的專案** -> ] [**保護群組** ->  \<] ProtectionGroupName >-> \<VirtualMachineName > 您想要容錯回復，然後選取 [規劃的**容錯移轉**]。
+3. 選取**受保護的專案** -> **保護群組** -> \<ProtectionGroupName >-> \<VirtualMachineName > 您想要容錯回復，然後選取 [**規劃的容錯移轉**]。
 4. 在 [記事] select中張貼意見或問題。
 5. 在 [主機名稱] 中，**選取要放置虛擬機器的新 Hyper-V 主機伺服器。
 6. 在 [資料同步處理] 中，建議您選取在容錯移轉前同步處理資料的選項。 這個選項可以將虛擬機器的停機時間降至最低，因為不需關閉虛擬機器即可進行同步處理。 它具有下列功能：
@@ -65,7 +65,7 @@ ms.locfileid: "70931836"
     - 階段 2：關閉 Azure 中的虛擬機器，如此一來，虛擬機器上就不會有任何新的變更。 最後一組變更會傳送到內部部署伺服器，並啟動內部部署虛擬機器。
     
 7. 按一下勾號以開始容錯移轉 (容錯回復)。
-8. 完成初始同步處理且您已準備好關閉 Azure 中的虛擬機器之後，請按一下 **工作** >  \< 規劃的容錯移轉工作，> >**完成容錯移轉**。 這會將 Azure 機器關機、將最新變更傳送到內部部署虛擬機器，然後啟動它。
+8. 完成初始同步處理且您已經準備好關閉 Azure 中的虛擬機器之後，請按一下 [**作業**] > \<規劃的容錯移轉作業 > >**完成容錯移轉**。 這會將 Azure 機器關機、將最新變更傳送到內部部署虛擬機器，然後啟動它。
 9. 您可以登入內部部署虛擬機器，確認一切均可正常運作。 然後按一下 [認可] 以完成容錯移轉。 認可會刪除 Azure 虛擬機器和其磁碟，並準備要再次保護的 VM。
 10. 按一下 [反向複寫] ，開始保護內部部署虛擬機器。
 

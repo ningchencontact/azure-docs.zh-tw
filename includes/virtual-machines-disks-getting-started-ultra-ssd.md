@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3525edb2a73811254b2a4dce70ce3edb58988492
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 63045bf1b836215b00b9b7c1b46dd208152fa772
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012451"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74100765"
 ---
 Azure ultra 磁片提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體，適用于 Azure IaaS 虛擬機器（Vm）。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra 磁片的一個主要優點是能夠以動態方式變更 SSD 的效能和您的工作負載，而不需要重新開機您的 Vm。 Ultra 磁片適用于資料密集的工作負載，例如 SAP Hana、最上層資料庫，以及高交易量的工作負載。
 
@@ -133,7 +133,7 @@ az disk update `
 
 ## <a name="deploy-an-ultra-disk-using-powershell"></a>使用 PowerShell 部署 ultra 磁片
 
-首先，決定要部署的 VM 大小。 如需支援的 VM 大小清單，請參閱[GA 範圍和限制](#ga-scope-and-limitations)一節。 如需這些 VM 大小的其他詳細資料。
+首先，決定要部署的 VM 大小。 如需支援的 VM 大小清單，請參閱[GA 範圍和限制](#ga-scope-and-limitations)一節。
 
 若要使用 ultra 磁片，您必須建立能夠使用 ultra 磁片的 VM。 以您自己的值取代或設定 **$resourcegroup**和 **$vmName**變數。 將 **$zone**設定為您從本文[開頭](#determine-vm-size-and-region-availability)處獲得的可用性區域值。 然後執行下列[update-azvm](/powershell/module/az.compute/new-azvm)命令，以建立已啟用 ULTRA 的 VM：
 

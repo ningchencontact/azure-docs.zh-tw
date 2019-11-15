@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 在災害復原期間將複寫的 Hyper-V VM 容錯移轉及容錯回復至次要資料中心 | Microsoft Docs
+title: 使用 Azure Site Recovery 設定容錯移轉/容錯回復至次要 Hyper-v 網站
 description: 了解如何使用 Azure Site Recovery 在災害復原期間將 Hyper-V VM 容錯移轉至次要內部部署網站，以及容錯回復至主要網站。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813695"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082592"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 
@@ -35,7 +35,7 @@ ms.locfileid: "70813695"
 3. 在計劃性容錯移轉後，選擇性地再次開始從主要網站複寫至次要網站。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 確定您已完成[災害復原演練](hyper-v-vmm-test-failover.md)，檢查一切是否如預期般運作。
 - 若要完成容錯回復，請確定主要和次要 VMM 伺服器已連線至 Site Recovery。
@@ -58,7 +58,7 @@ ms.locfileid: "70813695"
 3. 驗證 VM 之後，請 [認可] 容錯移轉。 這會刪除所有可用的復原點。
 
 > [!WARNING]
-> **請勿取消正在進行中的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。  
+> **不要取消正在進行的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。  
 
 
 ## <a name="reverse-replicate-and-failover"></a>反向複寫和容錯移轉

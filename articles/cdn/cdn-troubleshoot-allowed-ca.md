@@ -1,5 +1,5 @@
 ---
-title: 可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位 | Microsoft Docs
+title: 允許在 Azure CDN 上啟用自訂 HTTPS 的 CA
 description: 如果您使用自己的憑證來啟用自訂網域上的 HTTPS，就必須使用允許的憑證授權單位 (CA) 來建立它。
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 754941163ddce9512870f0b76a96207472e5b2aa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5462502514a3e327913122fe99fd699856891216
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593351"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083110"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位
 

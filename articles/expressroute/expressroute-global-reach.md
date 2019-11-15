@@ -1,5 +1,5 @@
 ---
-title: 使用 Global Reach 將內部部署網路連線至 Microsoft Cloud - Azure ExpressRoute | Microsoft Docs
+title: Azure ExpressRoute：連接到使用全球範圍的 Microsoft Cloud
 description: 此文章說明 ExpressRoute Global Reach。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: e522c7ea306667f675af4bbe7486e25fb7f4ec9f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e01b311d10dcf4216bfeea77ce8919f64ea2ef28
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122793"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080334"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute 是私人且有彈性的方式，可讓您將內部部署網路連線到 Microsoft Cloud。 您可以從私人資料中心或公司網路存取許多 Microsoft 雲端服務（例如 Azure）和 Office 365。 例如，您在舊金山分公司的 ExpressRoute 線路可能在美國矽谷，而另一家倫敦分公司的 ExpressRoute 線路則位於同一座城市。 這兩家分公司都具備可連至美國西部和英國南部之 Azure 資源的高速連線能力。 不過，這些分公司彼此無法直接交換資料。 換句話說，10.0.1.0/24 可以將資料傳送到 10.0.3.0/24 和 10.0.4.0/24，但不能傳送到 10.0.2.0/24。
@@ -39,7 +38,7 @@ ExpressRoute Global Reach 是設計來補充您服務提供者的 WAN 實作，�
 * 香港特別行政區
 * 愛爾蘭
 * 日本
-* 韓國
+* 南韓
 * 荷蘭
 * 新加坡
 * 瑞士

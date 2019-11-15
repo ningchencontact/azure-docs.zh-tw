@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/14/2019
-ms.openlocfilehash: 24b40e5dfdef7bde65d326cb0d054365f730477e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 25e9848124b84822749d3be4d1ead7b86e6e584e
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555271"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091781"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>使用 Azure PowerShell 或 Resource Manager 範本啟用適用於 VM 的 Azure 監視器（預覽）
 
@@ -183,7 +183,7 @@ provisioningState       : Succeeded
 - *ResourceGroup*所指定的範圍資源群組。 
 - 依*名稱*指定的單一 VM 或虛擬機器擴展集。
 
-針對每個 VM 或虛擬機器擴展集，指令碼會確認是否已經安裝 VM 延伸模組。 如果未安裝 VM 延伸模組，腳本會嘗試重新安裝它。 如果已安裝 VM 延伸模組，指令碼會安裝 Log Analytics 和 Dependency Agent VM 延伸模組。
+針對每個 VM 或虛擬機器擴展集，指令碼會確認是否已經安裝 VM 延伸模組。 如果已安裝 VM 延伸模組，腳本會嘗試重新安裝它。 如果未安裝 VM 延伸模組，腳本會安裝 Log Analytics 和 Dependency agent VM 延伸模組。
 
 確認您使用的是已啟用 `Enable-AzureRM` 相容性別名的 Azure PowerShell 模組 Az 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 

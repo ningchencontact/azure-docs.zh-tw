@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747435"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091135"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -98,10 +98,10 @@ ms.locfileid: "73747435"
 * 警示
 * 備份項目
 * 受保護的伺服器
-* 嚴重性
+* Severity
 * 持續時間
 * 建立時間
-* 狀態
+* Status
 * 最新發生時間
 
 ### <a name="change-the-details-in-alerts-report"></a>變更警示報告中的詳細資料
@@ -219,14 +219,14 @@ ms.locfileid: "73747435"
 您可以檢視一項作業或所有作業。 您無法選取兩項或三項作業。 可用的作業如下：
 
 * 所有作業
-* Register
+* 註冊
 * 設定備份
 * 備份
 * 還原
 * 停用備份
 * 刪除備份資料
 
-#### <a name="status"></a>狀態
+#### <a name="status"></a>Status
 
 您可以檢視 [所有狀態] 或一個狀態。 您無法選取兩個或三個狀態。 可用的狀態如下：
 
@@ -258,7 +258,7 @@ ms.locfileid: "73747435"
 * 與保存庫相關聯的雲端 LRS 儲存體使用量
 * 與保存庫相關聯的雲端 GRS 儲存體使用量
 
-## <a name="troubleshooting-monitoring-issues"></a>疑難排解監視問題
+## <a name="troubleshooting-monitoring-issues"></a>監視問題疑難排解
 
 **問題︰** 來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
 

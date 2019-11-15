@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4c8f123eb8c32362219f21dc70d137f2cc9b4b1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802074"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078830"
 ---
-# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD Graph API
+# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
 Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數百萬個使用者。 這表示許多常見的租用戶管理工作需要以程式設計方式執行。 使用者管理是主要範例。
 
@@ -31,9 +31,9 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 在本文中，您將瞭解如何執行自動化使用案例。 您將建置 .NET 4.5 `B2CGraphClient` 來執行使用者建立、讀取、更新和刪除 (CRUD) 作業。 用戶端會有 Windows 命令列介面讓您叫用各種方法。 不過，程式碼是以非互動式、自動化的方式來撰寫的行為。
 
 >[!IMPORTANT]
-> 您**必須**使用[Azure AD 圖形 API](../active-directory/develop/active-directory-graph-api-quickstart.md)來管理 Azure AD B2C 目錄中的使用者。 Azure AD 圖形 API 與 Microsoft Graph API 不同。 在此 MSDN blog 文章中深入瞭解：[Microsoft Graph 或 Azure AD 圖形](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)。
+> 您**必須**使用[Azure AD 圖形 API](../active-directory/develop/active-directory-graph-api-quickstart.md)來管理 Azure AD B2C 目錄中的使用者。 Azure AD 圖形 API 與 Microsoft Graph API 不同。 在此 MSDN blog 文章中深入瞭解： [Microsoft Graph 或 Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要有 Azure AD B2C 租用戶，才能建立應用程式或使用者。 如果您還沒有帳戶，請[建立一個 Azure Active Directory B2C 的租](tutorial-create-tenant.md)使用者。
 
@@ -77,7 +77,7 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 
 此程式碼範例是一個 .NET 主控台應用程式，它會使用[Active Directory 驗證程式庫（ADAL）](../active-directory/develop/active-directory-authentication-libraries.md)與 Azure AD 圖形 API 進行互動。 其程式碼示範如何呼叫 API，以程式設計方式管理 Azure AD B2C 租使用者中的使用者。
 
-您可以[下載範例](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)封存檔案\*（.zip）或複製 GitHub 存放庫：
+您可以[下載範例](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)封存（\*.zip）或複製 GitHub 存放庫：
 
 ```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
@@ -87,7 +87,7 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 
 1. 在 Visual Studio 中開啟 `B2CGraphClient\B2CGraphClient.sln` 解決方案。
 1. 在**B2CGraphClient**專案中，開啟*app.config*檔案。
-1. 以下列 XML 取代區段。`<appSettings>` 然後， `{your-b2c-tenant}`將取代為您的租使用者名稱`{Application ID}` ， `{Client secret}`並以您先前記錄的值取代。
+1. 以下列 XML 取代 `<appSettings>` 區段。 然後，將 `{your-b2c-tenant}` 取代為您的租使用者名稱，並以您先前記錄的值 `{Application ID}` 和 `{Client secret}`。
 
     ```xml
     <appSettings>
@@ -99,29 +99,29 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 
 1. 建置方案。 以滑鼠右鍵按一下 方案總管中的  **B2CGraphClient**  方案，然後選取 **重建方案**。
 
-如果組建成功，則`B2C.exe`可以在中`B2CGraphClient\bin\Debug`找到主控台應用程式。
+如果組建成功，可以在 `B2CGraphClient\bin\Debug`中找到 `B2C.exe` 主控台應用程式。
 
 ## <a name="review-the-sample-code"></a>檢閱範例程式碼
 
-若要使用 B2CGraphClient，請開啟命令提示字元`cmd.exe`（），並變更為`Debug`專案的目錄。 然後，執行`B2C Help`命令。
+若要使用 B2CGraphClient，請開啟命令提示字元（`cmd.exe`），然後變更為專案的 `Debug` 目錄。 然後，執行 `B2C Help` 命令。
 
 ```cmd
 cd B2CGraphClient\bin\Debug
 B2C Help
 ```
 
-此`B2C Help`命令會顯示可用子命令的簡短描述。 每當您叫用其中一個子命令時`B2CGraphClient` ，就會將要求傳送至 Azure AD 圖形 API。
+`B2C Help` 命令會顯示可用子命令的簡短描述。 每當您叫用其中一個子命令時，`B2CGraphClient` 會將要求傳送至 Azure AD 圖形 API。
 
 下列各節將討論應用程式的程式碼對 Azure AD 圖形 API 的呼叫。
 
 ### <a name="get-an-access-token"></a>取得存取權杖
 
-Azure AD 圖形 API 的任何要求都需要存取權杖以進行驗證。 `B2CGraphClient`會使用開放原始碼 Active Directory 驗證程式庫（ADAL）來協助取得存取權杖。 ADAL 藉由提供 helper API 並處理一些重要的細節，例如快取存取權杖，讓權杖取得變得更容易。 不過，您不需要使用 ADAL 來取得權杖。 您可以改為手動製作 HTTP 要求來取得權杖。
+Azure AD 圖形 API 的任何要求都需要存取權杖以進行驗證。 `B2CGraphClient` 會使用開放原始碼 Active Directory 驗證程式庫（ADAL）來協助取得存取權杖。 ADAL 藉由提供 helper API 並處理一些重要的細節，例如快取存取權杖，讓權杖取得變得更容易。 不過，您不需要使用 ADAL 來取得權杖。 您可以改為手動製作 HTTP 要求來取得權杖。
 
 > [!NOTE]
 > 您必須使用 ADAL v2 或更新版本，取得可與 Azure AD 圖形 API 搭配使用的存取權杖。 您無法使用 ADAL v1。
 
-當`B2CGraphClient`執行時，它會建立`B2CGraphClient`類別的實例。 此類別的函式會設定 ADAL 驗證樣板：
+當 `B2CGraphClient` 執行時，它會建立 `B2CGraphClient` 類別的實例。 此類別的函式會設定 ADAL 驗證樣板：
 
 ```csharp
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
@@ -140,9 +140,9 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-讓我們使用`B2C Get-User`命令做為範例。
+讓我們使用 `B2C Get-User` 命令做為範例。
 
-`B2C Get-User` 當`B2CGraphClient.GetAllUsers()`叫用但沒有其他引數時，應用程式會呼叫方法。 `GetAllUsers()`接著會`B2CGraphClient.SendGraphGetRequest()`呼叫，這會將 HTTP GET 要求提交至 Azure AD 圖形 API。 在`B2CGraphClient.SendGraphGetRequest()`傳送 GET 要求之前，它會先使用 ADAL 取得存取權杖：
+叫用不含其他引數的 `B2C Get-User` 時，應用程式會呼叫 `B2CGraphClient.GetAllUsers()` 方法。 `GetAllUsers()` 接著會呼叫 `B2CGraphClient.SendGraphGetRequest()`，這會將 HTTP GET 要求提交至 Azure AD 圖形 API。 在 `B2CGraphClient.SendGraphGetRequest()` 傳送 GET 要求之前，它會先使用 ADAL 取得存取權杖：
 
 ```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -157,7 +157,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ### <a name="read-users"></a>讀取使用者
 
-當您想要取得使用者清單，或從 Azure AD 圖形 API 取得特定使用者時，您可以將 HTTP `GET`要求傳送`/users`至端點。 要求取得租用戶中所有使用者時，情況如下：
+當您想要取得使用者清單，或從 Azure AD 圖形 API 取得特定使用者時，您可以將 HTTP `GET` 要求傳送至 `/users` 端點。 要求取得租用戶中所有使用者時，情況如下：
 
 ```HTTP
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -172,7 +172,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 有兩個重點值得注意：
 
-* 使用 ADAL 取得的存取權杖會`Authorization` `Bearer`使用配置新增至標頭。
+* 使用 ADAL 取得的存取權杖會使用 `Bearer` 配置新增至 `Authorization` 標頭。
 * 對於 B2C 租用戶，您必須使用查詢參數 `api-version=1.6`。
 
 這兩個細節都在 `B2CGraphClient.SendGraphGetRequest()` 方法中處理：
@@ -200,9 +200,9 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ### <a name="create-consumer-user-accounts"></a>建立取用者的使用者帳戶
 
-當您在 B2C 租使用者中建立使用者帳戶時，您可以將`POST` HTTP 要求傳送`/users`至端點。 下列 HTTP `POST`要求會顯示要在租使用者中建立的範例使用者。
+當您在 B2C 租使用者中建立使用者帳戶時，您可以將 HTTP `POST` 要求傳送至 `/users` 端點。 下列 HTTP `POST` 要求會顯示要在租使用者中建立的範例使用者。
 
-建立取用者使用者時，需要下列要求中的大部分屬性。 `//`批註已包含在說明中，請勿將它們包含在實際的要求中。
+建立取用者使用者時，需要下列要求中的大部分屬性。 `//` 批註已包含在說明中，請勿將它們包含在實際的要求中。
 
 ```HTTP
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -238,22 +238,22 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-此`Create-User`命令會使用 json 檔案作為輸入參數，其中包含使用者物件的 json 標記法。 程式碼範例中有兩個範例 JSON 檔案： `usertemplate-email.json`和`usertemplate-username.json`。 您可以修改這些檔案以符合您的需求。 除了上述必要欄位以外，檔案中還包含數個選擇性欄位。
+`Create-User` 命令會採用 JSON 檔案作為輸入參數，其中包含使用者物件的 JSON 標記法。 程式碼範例中有兩個範例 JSON 檔案： `usertemplate-email.json` 和 `usertemplate-username.json`。 您可以修改這些檔案以符合您的需求。 除了上述必要欄位以外，檔案中還包含數個選擇性欄位。
 
 如需必要和選擇性欄位的詳細資訊，請參閱[實體和複雜型別參考 |圖形 API 參考](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference)。
 
-您可以在中`B2CGraphClient.SendGraphPostRequest()`查看 POST 要求的建立方式：
+您可以在 `B2CGraphClient.SendGraphPostRequest()`中查看 POST 要求的結構：
 
 * 它會將存取權杖附加至要求的 `Authorization` 標頭。
 * 它會設定 `api-version=1.6`。
 * 它會將 JSON 使用者物件加入要求主體中。
 
 > [!NOTE]
-> 如果您想要從現有使用者存放區遷移的帳戶，其密碼強度比[Azure AD B2C 強制執行的強式密碼強度](active-directory-b2c-reference-password-complexity.md)還低，您可以使用中`DisableStrongPassword` `passwordPolicies`的值來停用強式密碼需求。屬性。 例如，您可以修改先前的建立使用者要求，如下所示`"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`：。
+> 如果您想要從現有使用者存放區遷移的帳戶，其密碼強度比[Azure AD B2C 強制執行的強式密碼強度](active-directory-b2c-reference-password-complexity.md)還低，您可以使用 `passwordPolicies` 屬性中的 `DisableStrongPassword` 值來停用強式密碼需求。 例如，您可以修改先前的建立使用者要求，如下所示： `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`。
 
 ### <a name="update-consumer-user-accounts"></a>更新取用者的使用者帳戶
 
-當您更新使用者物件時，此程式類似于您用來建立使用者物件的進程，但會使用 HTTP `PATCH`方法：
+當您更新使用者物件時，此程式類似于您用來建立使用者物件的進程，但會使用 HTTP `PATCH` 方法：
 
 ```HTTP
 PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
@@ -266,7 +266,7 @@ Content-Length: 37
 }
 ```
 
-請嘗試修改 JSON 檔案中的某些值來更新使用者，然後使用`B2CGraphClient`來執行下列其中一個命令：
+嘗試藉由修改 JSON 檔案中的某些值來更新使用者，然後使用 `B2CGraphClient` 執行下列其中一個命令：
 
 ```cmd
 B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
@@ -277,10 +277,11 @@ B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 
 ### <a name="search-users"></a>搜尋使用者
 
-您可以透過兩種方式搜尋 B2C 租使用者中的使用者：
+您可以透過下列方式在 B2C 租使用者中搜尋使用者：
 
 * 參考使用者的**物件識別碼**。
-* 參考其登入識別碼，也就`signInNames`是屬性。
+* 參考其登入識別碼，也就是 `signInNames` 屬性。
+* 參考任何有效的 OData 參數，例如 givenName、姓氏、displayName 等等。
 
 執行下列其中一個命令來搜尋使用者：
 
@@ -289,16 +290,19 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-例如:
+例如︰
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
 B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27consumer@fabrikam.com%27)
+B2C get-user $filter=givenName%20eq%20%27John%27
+B2C get-user $filter=surname%20eq%20%27Doe%27
+B2C get-user $filter=displayName%20eq%20%27John%20Doe%27
 ```
 
 ### <a name="delete-users"></a>刪除使用者
 
-若要刪除使用者，請使用`DELETE` HTTP 方法，並以使用者的物件識別碼來建立 URL：
+若要刪除使用者，請使用 HTTP `DELETE` 方法，並以使用者的物件識別碼來建立 URL：
 
 ```HTTP
 DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
@@ -321,14 +325,14 @@ B2C Delete-User <object-id-of-user>
 
 若要在 B2C 租用戶中定義自訂屬性，請參閱 [B2C 自訂屬性參考](active-directory-b2c-reference-custom-attr.md)。
 
-您可以使用下列`B2CGraphClient`命令來查看 B2C 租使用者中定義的自訂屬性：
+您可以使用下列 `B2CGraphClient` 命令來查看 B2C 租使用者中定義的自訂屬性：
 
 ```cmd
 B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-輸出會顯示每個自訂屬性的詳細資料。 例如:
+輸出會顯示每個自訂屬性的詳細資料。 例如︰
 
 ```json
 {

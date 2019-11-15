@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 90b7d79cd2a0e215af17856796bcdda2fbabb43f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 00805d6284c166d0ec03b9fe88482377a9488314
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693627"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084855"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Azure Blob 儲存體中的處理變更摘要（預覽）
 
@@ -26,7 +26,7 @@ ms.locfileid: "73693627"
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>取得 blob 變更摘要處理器程式庫
 
-1. 在 Visual Studio 中，將 URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` 新增至您的 NuGet 套件來源。 
+1. 在 Visual Studio 中，將 URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` 新增至您的 NuGet 套件來源。 
 
    若要瞭解作法，請參閱[套件來源](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)。
 

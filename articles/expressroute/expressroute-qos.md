@@ -1,5 +1,5 @@
 ---
-title: QoS 需求 - ExpressRoute：Azure | Microsoft Docs
+title: Azure ExpressRoute： QoS 需求
 description: 此頁面提供設定及管理 QoS 的詳細需求。 討論範圍包括「商務用 Skype」/語音服務。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: debc5d91478d0a5c3cc16c7b09f5713ba09b467e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385131"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080090"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 需求
 商務用 Skype 具有各種工作負載，其所要求的 QoS 處理方式各有差異。 如果您打算透過 ExpressRoute 取用語音服務，應遵守以下所述的需求。
@@ -45,5 +44,5 @@ ms.locfileid: "68385131"
   
   * [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
   * [設定路由](expressroute-howto-routing-classic.md)
-  * [將 VNet 連結到 ExpressRoute 循環](expressroute-howto-linkvnet-classic.md)
+  * [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 

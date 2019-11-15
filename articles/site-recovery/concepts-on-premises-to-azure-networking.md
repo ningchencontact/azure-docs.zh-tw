@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 從內部部署容錯移轉至 Azure 之後，連接至 Azure Vm
+title: 使用 Azure Site Recovery 連接到 Azure Vm 內部部署容錯移轉
 description: 說明如何使用 Azure Site Recovery，在從內部部署容錯移轉至 Azure 之後連線至 Azure Vm
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333038"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084256"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>從內部部署容錯移轉之後連線至 Azure Vm 
 
@@ -62,7 +62,7 @@ ms.locfileid: "72333038"
 
 1. 若要透過網際網路連線至 VM，請將公用 IP 位址指派給 VM。 您無法針對用於內部部署電腦的 Azure VM 使用相同的公用 IP 位址。 [深入了解](../virtual-network/virtual-network-public-ip-address.md)
 2. 檢查 VM 上的網路安全性群組 (NSG) 規則是否允許連至 RDP 或 SSH 連接埠的連入連線。
-3. 檢查 [[開機診斷]](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 以檢視 VM。
+3. 檢查 [的開機診斷](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 以查看 VM。
 
 
 > [!NOTE]

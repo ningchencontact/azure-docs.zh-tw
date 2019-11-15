@@ -1,5 +1,5 @@
 ---
-title: 監視、計量和警示 - Azure ExpressRoute | Microsoft Docs
+title: Azure ExpressRoute：監視、計量和警示
 description: 此頁面提供有關 ExpressRoute 監視的資訊
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672072"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083421"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
@@ -30,18 +29,18 @@ ms.locfileid: "71672072"
 選取度量之後，將會套用預設匯總。 （選擇性）您可以套用 [分割]，這將會顯示具有不同維度的度量。
 
 ### <a name="available-metrics"></a>可用的計量
-|**度量**|**分類**|**維度**|**功能**|
+|**計量**|**類別**|**維度**|**功能**|
 | --- | --- | --- | --- |
 |ARP 可用性|可用性|<ui><li>對等（主要/次要 ExpressRoute 路由器）</ui></li><ui><li> 對等互連類型（私用/公用/Microsoft）</ui></li>|ExpressRoute|
 |Bgp 可用性|可用性|<ui><li> 對等（主要/次要 ExpressRoute 路由器）</ui></li><ui><li> 對等互連類型</ui></li>|ExpressRoute|
-|BitsInPerSecond|流量|<ui><li> 對等互連類型（ExpressRoute）</ui></li><ui><li>連結（ExpressRoute Direct）</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|流量| <ui><li>對等互連類型（ExpressRoute）</ui></li><ui><li> 連結（ExpressRoute Direct） | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|GlobalReachBitsInPerSecond|流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
+|BitsInPerSecond|交通流量|<ui><li> 對等互連類型（ExpressRoute）</ui></li><ui><li>連結（ExpressRoute Direct）</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|交通流量| <ui><li>對等互連類型（ExpressRoute）</ui></li><ui><li> 連結（ExpressRoute Direct） | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|交通流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|交通流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
 |AdminState|實體連線能力|連結|ExpressRoute Direct|
 |LineProtocol|實體連線能力|連結|ExpressRoute Direct|
-|RxLightLevel|實體連線能力|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
-|TxLightLevel|實體連線能力|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|RxLightLevel|實體連線能力|<ui><li>連結</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|TxLightLevel|實體連線能力|<ui><li>連結</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >只有在至少建立了一個全域連線時，才會顯示使用*GlobalGlobalReachBitsInPerSecond*和*GlobalGlobalReachBitsOutPerSecond* 。
 >
@@ -112,11 +111,11 @@ ms.locfileid: "71672072"
 
 1. 若要設定警示，請瀏覽至 [Azure 監視器]，然後按一下 [警示]。
 
-   ![警示](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. 按一下 [+ 選取目標]，然後選取 ExpressRoute 閘道連線資源。
 
-   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![目標]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 定義警示詳細資料。
 
    ![動作群組](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

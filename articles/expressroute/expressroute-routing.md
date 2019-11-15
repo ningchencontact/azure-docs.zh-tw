@@ -1,5 +1,5 @@
 ---
-title: 路由需求 - ExpressRoute：Azure | Microsoft Docs
+title: Azure ExpressRoute：路由需求
 description: 此頁面提供用來設定和管理 ExpressRoute 循環路由的詳細需求。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029031"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083318"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -80,10 +79,10 @@ ms.locfileid: "72029031"
 
 ## <a name="public-ip-address-requirement"></a>公用 IP 位址需求
 
-### <a name="private-peering"></a>私用對等
+### <a name="private-peering"></a>私人對等互連
 您可以選擇使用公用或私人 IPv4 位址進行私人對等互連。 我們會提供流量的端對端隔離，因此在私人對等互連的情況下不可能發生位址與其他客戶重疊。 這些位址不會向網際網路公告。 
 
-### <a name="microsoft-peering"></a>Microsoft 對等
+### <a name="microsoft-peering"></a>Microsoft 對等互連
 Microsoft 對等路徑可讓您連線到 Microsoft 雲端服務。 服務清單包括 Office 365 服務，例如 Exchange Online、SharePoint Online、商務用 Skype 和 Microsoft 團隊。 Microsoft 支援在 Microsoft 對等上的雙向連線能力。 以 Microsoft 雲端服務為目的地的流量，必須使用有效的公用 IPv4 位址，才能進入 Microsoft 網路。
 
 確定已在下列其中一個登錄中註冊您的 IP 位址和 AS 號碼：
@@ -157,7 +156,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | **Microsoft Azure 區域** | **區域 BGP 社區** | **儲存體 BGP 社區** | **SQL BGP 社區** | **Cosmos DB BGP 社區** |
 | --- | --- | --- | --- | --- |
 | **北美洲** | |
-| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| 美國東部 | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | 美國東部 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | 美國西部 | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | 美國西部 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
@@ -184,7 +183,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | 日本西部 | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **澳大利亞** | |
 | 澳洲東部 | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| 澳大利亞東南部 | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| 澳洲東南部 | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **澳洲政府** | |
 | 澳大利亞中部 | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
 | 澳大利亞中部 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |

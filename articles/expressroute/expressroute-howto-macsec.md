@@ -1,5 +1,5 @@
 ---
-title: 設定 MACsec-ExpressRoute： Azure |Microsoft Docs
+title: Azure ExpressRoute：設定 MACsec
 description: 本文可協助您設定 MACsec，以保護您的邊緣路由器與 Microsoft 邊緣路由器之間的連線。
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748284"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083556"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>在 ExpressRoute Direct 埠上設定 MACsec
 

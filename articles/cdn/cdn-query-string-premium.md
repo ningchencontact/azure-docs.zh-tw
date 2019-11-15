@@ -1,5 +1,5 @@
 ---
-title: 使用查詢字串來控制 Azure CDN 快取行為 - 進階層 | Microsoft Docs
+title: 使用查詢字串來控制 Azure CDN 快取行為 - 進階層
 description: Azure CDN 查詢字串快取可控制當 Web 要求包含查詢字串時，要如何快取檔案。 本文說明「來自 Verizon 的進階 Azure CDN」產品中的查詢字串快取。
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
-ms.openlocfilehash: 2bea8aa06daef5d119b4cbfc4853a2d6ab07ddb7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 365c52840d281c0f48d17aacc358e4cce513e3b4
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593508"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083081"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 進階層
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "67593508"
 > * [進階層](cdn-query-string-premium.md)
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 使用 Azure 內容傳遞網路 (CDN)，可以控制 Web 要求內含查詢字串時的檔案快取方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如 http:\//www.contoso.com/content.mov?field1=value1&field2=value2。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。 
 
 > [!IMPORTANT]
@@ -37,30 +37,30 @@ ms.locfileid: "67593508"
 
 查詢字串模式有三種：
 
-- **標準快取**:預設模式。 在此模式中，CDN 存在點 (POP) 節點會在發生第一次要求時，將來自要求者的查詢字串傳遞給原始伺服器並快取資產。 所有後續對該資產提出並由 POP 伺服器提供服務的要求則會忽略查詢字串，直到所快取的資產到期為止。
+- **標準快取**：預設模式。 在此模式中，CDN 存在點 (POP) 節點會在發生第一次要求時，將來自要求者的查詢字串傳遞給原始伺服器並快取資產。 所有後續對該資產提出並由 POP 伺服器提供服務的要求則會忽略查詢字串，直到所快取的資產到期為止。
 
     >[!IMPORTANT] 
     > 如果已針對此帳戶上的任何路徑啟用權杖授權，則標準快取模式就會是唯一可使用的模式。 
 
-- **無快取**:在此模式中，包含查詢字串的要求不會在 CDN POP 節點快取。 POP 節點會直接從原始伺服器擷取資產，然後隨著每個要求將其傳遞給要求者。
+- **無快取**：在此模式中，系統不會在 CDN POP 節點快取包含查詢字串的要求。 POP 節點會直接從原始伺服器擷取資產，然後隨著每個要求將其傳遞給要求者。
 
-- **唯一快取**:在此模式下，每個具有唯一 URL (包含查詢字串) 的要求都會被視為具有專屬快取的唯一資產。 例如，系統會將原始伺服器對 example.ashx?q=test1 要求做出的回應快取在 POP 節點，然後針對後續具有相同查詢字串的快取傳回此回應。 針對 example.ashx?q=test2 的要求，系統會將其快取為具有專屬存留時間設定的個別資產。
+- **唯一快取**：在此模式中，每個要求都有一個唯一 URL (包含查詢字串)，會被視為具有專屬快取的唯一資產。 例如，系統會將原始伺服器對 example.ashx?q=test1 要求做出的回應快取在 POP 節點，然後針對後續具有相同查詢字串的快取傳回此回應。 針對 example.ashx?q=test2 的要求，系統會將其快取為具有專屬存留時間設定的個別資產。
    
     >[!IMPORTANT] 
     > 當查詢字串包含會隨著每個要求變更的參數 (例如工作階段識別碼或使用者名稱) 時，請勿使用此模式，因為這會造成快取命中率偏低。
 
 ## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>變更進階 CDN 設定檔的查詢字串快取設定
-1. 開啟 CDN 設定檔，然後按一下 [管理]  。
+1. 開啟 CDN 設定檔，然後按一下 [管理]。
    
     ![CDN 設定檔 [管理] 按鈕](./media/cdn-query-string-premium/cdn-manage-btn.png)
    
-    隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [HTTP 大型]  索引標籤上，然後將滑鼠移至 [快取設定]  飛出功能表上。 按一下 [查詢字串快取]  。
+    CDN 管理入口網站隨即開啟。
+2. 將滑鼠移至 [HTTP 大型] 索引標籤上，然後將滑鼠移至 [快取設定] 飛出功能表上。 按一下 [查詢字串快取]。
    
     查詢字串快取選項隨即顯示。
    
     ![CDN 查詢字串快取選項](./media/cdn-query-string-premium/cdn-query-string.png)
-3. 選取查詢字串模式，然後按一下 [更新]  。
+3. 選取查詢字串模式，然後按一下 [更新]。
 
 > [!IMPORTANT]
 > 因為註冊資訊需要一段時間才能傳遍 CDN，快取字串設定的變更可能無法立即看見。 傳播通常會在 10 分鐘內完成。

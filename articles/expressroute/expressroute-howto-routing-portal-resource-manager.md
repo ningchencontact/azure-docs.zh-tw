@@ -1,5 +1,5 @@
 ---
-title: 設定線路的對等互連-ExpressRoute： Azure |Microsoft Docs
+title: Azure ExpressRoute：設定對等互連
 description: 本文記載建立和布建 ExpressRoute 私用和 Microsoft 對等互連的步驟。 本文也會示範如何檢查線路的狀態、更新或刪除對等互連。
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 30b330d60d75896406cbdf2d1eb41537960c5be5
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 5fb728cccd77d0cefd10c124cb7215dc3b880fe3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965296"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083529"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路的對等互連
 
@@ -49,7 +48,7 @@ ms.locfileid: "72965296"
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Microsoft 對等互連設定。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。 如需詳細資訊，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-powershell.md)。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。 如需詳細資訊，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-powershell.md)。
 > 
 > 
 
@@ -66,7 +65,7 @@ ms.locfileid: "72965296"
    **線路-提供者狀態：已布建**
 
    [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
-2. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊。
+2. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊：
 
    * 主要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
    * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
@@ -156,7 +155,7 @@ ms.locfileid: "72965296"
 
 [![查看私用對等互連屬性](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "查看私用對等互連屬性")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
-### <a name="updateprivate"></a>更新 Azure 私用對等互連設定
+### <a name="updateprivate"></a>更新 Azure 私用對等組態
 
 您可以選取對等的資料列並修改對等屬性。 更新之後，請儲存您的變更。
 
@@ -185,7 +184,7 @@ ms.locfileid: "72965296"
 
 選取 [對等互連] 來查看 Azure 公用對等互連的屬性。
 
-### <a name="updatepublic"></a>更新 Azure 公用對等互連設定
+### <a name="updatepublic"></a>更新 Azure 公用對等組態
 
 選取對等互連的資料列，然後修改對等互連屬性。
 

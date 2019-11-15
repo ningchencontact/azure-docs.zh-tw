@@ -1,21 +1,21 @@
 ---
-title: 使用角色型存取控制 (RBAC) 管理 Azure Site Recovery 存取 | Microsoft Docs
+title: 在 Azure Site Recovery 中管理 Azure 角色型存取控制
 description: 此文章說明如何套用角色型存取控制 (RBAC) 來管理 Azure Site Recovery 存取。
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929225"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083768"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>使用角色型存取控制 (RBAC) 管理 Site Recovery 存取
 
-Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 您可以使用 RBAC 劃分小組責任，並只將特定存取權限授與需要執行特定工作的使用者。
+Azure 角色型存取控制（RBAC）可為 Azure 提供更細緻的存取權管理。 您可以使用 RBAC 劃分小組責任，並只將特定存取權限授與需要執行特定工作的使用者。
 
 Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作業。 深入了解 [Azure RBAC 內建角色](../role-based-access-control/built-in-roles.md)
 
@@ -43,7 +43,7 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 
 | **資源類型** | **部署模型** | **權限** |
 | --- | --- | --- |
-| 運算 | Resource Manager | Microsoft.Compute/availabilitySets/read |
+| 計算 | 資源管理員 | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -53,7 +53,7 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| 網路 | Resource Manager | Microsoft.Network/networkInterfaces/read |
+| 網路 | 資源管理員 | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -62,11 +62,11 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | 傳統 | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| 儲存體 | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| 儲存體 | 資源管理員 | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | 傳統 | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| 資源群組 | Resource Manager | Microsoft.Resources/deployments/* |
+| 資源群組 | 資源管理員 | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 請考慮分別為 Resource Manager 與傳統部署模型使用「虛擬機器參與者」與「傳統虛擬機器參與者」[內建角色](../role-based-access-control/built-in-roles.md)。

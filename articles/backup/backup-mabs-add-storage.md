@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92717e704fb3f9e79b364fcf47bbcc096c5dd1d0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074835"
+ms.locfileid: "74090749"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>在 Azure 備份伺服器中新儲存體
 
@@ -22,6 +22,8 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
 > [!NOTE]
 > 若要使用新式備份儲存體，您必須在 Windows Server 2016 上執行備份伺服器 V2 或 V3 或在 Windows Server 2019 上執行 V3。
 > 如果您在舊版 Windows Server 上執行備份伺服器 V2，Azure 備份伺服器將無法利用新式備份儲存體。 相反地，它保護工作負載的方式會和備份伺服器 V1 一樣。 如需詳細資訊，請參閱備份伺服器版本[保護對照表](backup-mabs-protection-matrix.md)。
+>
+> 為了達到增強的備份效能，我們建議您在 Windows Server 2019 上部署 MABS v3 與分層式存放裝置。 如需設定階層式儲存區的步驟，請參閱 DPM 文章「[使用分層式儲存體設定 mb](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)」。
 
 ## <a name="volumes-in-backup-server"></a>備份伺服器中的磁碟區
 
@@ -64,6 +66,11 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
     ![選取伺服器和磁碟](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## <a name="add-volumes-to-backup-server-disk-storage"></a>在備份伺服器磁碟儲存體中新增磁碟區
+
+> [!NOTE]
+>
+> - 只在集區中新增一個磁片，讓資料行計數保持為1。 之後，您就可以視需要新增磁片。
+> - 如果您將多個磁片新增至存放集區，則磁片數目會儲存為數據行數目。 新增更多磁片時，它們只能是資料行數目的倍數。
 
 若要在備份伺服器中新增磁碟區，請於 [管理] 窗格重新掃描儲存體，然後選取 [新增]。 隨即會出現可供為備份伺服器儲存體新增的所有磁碟區清單。 在可用的磁碟區新增到已選取的磁碟區清單後，您可以為他們提供易記名稱，以方便您管理這些磁碟區。 若要將這些磁碟區格式化為 ReFS，讓備份伺服器可以利用新式備份儲存體的好處，請選取 [確定]。
 

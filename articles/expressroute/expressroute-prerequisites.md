@@ -1,5 +1,5 @@
 ---
-title: 先決條件 - ExpressRoute：Azure | Microsoft Docs
+title: Azure ExpressRoute：必要條件
 description: 本頁面提供在您可以訂購 Azure ExpressRoute 電路之前必須符合的需求清單。 其中包含一份檢查清單。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123301"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083364"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。
@@ -30,11 +29,11 @@ ms.locfileid: "71123301"
 * 如果您的提供者不是 ExpressRoute 連線合作夥伴，您仍可透過 [雲端交換服務提供者](expressroute-locations.md#connectivity-through-exchange-providers)連線到 Microsoft Cloud。
 
 ## <a name="network-requirements"></a>網路需求
-* **每個對等互連位置的冗余**：Microsoft 需要在 Microsoft 的路由器與每個 ExpressRoute 線路上的對等路由器之間設定多餘的 BGP 會話（即使您只有[一個與雲端交換的實體](expressroute-faqs.md#onep2plink)連線時）。
-* 嚴重損壞**修復的冗余**：Microsoft 強烈建議您在不同的對等互連位置中至少設定兩個 ExpressRoute 線路，以避免發生單一失敗點。
+* **每個對等互連位置的冗余**： microsoft 需要在 microsoft 的路由器與每個 ExpressRoute 線路上的對等路由器之間設定多餘的 BGP 會話（即使您只有[一個與雲端交換的實體](expressroute-faqs.md#onep2plink)連線時）。
+* 嚴重損壞**修復的冗余**： Microsoft 強烈建議您在不同的對等互連位置中至少設定兩個 ExpressRoute 線路，以避免發生單一失敗點。
 * **路由**︰根據您連線到 Microsoft Cloud 的方式，您或您的提供者需要設定及管理用於[路由網域](expressroute-circuit-peerings.md)的 BGP 工作階段。 某些乙太網路連線服務提供者或雲端交換服務提供者可能會提供 BGP 管理功能做為附加價值服務。
 * **NAT**：Microsoft 只接受透過 Microsoft 對等互連的公用 IP 位址。 如果您在內部部署網路中使用私人 IP 位址，您或您的提供者必須[使用 NAT](expressroute-nat.md) 將私人 IP 位址轉譯成公用 IP 位址。
-* **QoS**：「商務用 Skype」具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。
+* **QoS**：商務用 Skype 具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。
 * **網路安全性**︰透過 ExpressRoute 連線到 Microsoft Cloud 時，請考慮[網路安全性](../best-practices-network-security.md)。
 
 ## <a name="office-365"></a>Office 365

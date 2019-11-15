@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821217"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091956"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>使用自動資料庫備份來復原 Azure SQL 資料庫
 
@@ -108,11 +108,13 @@ ms.locfileid: "73821217"
 
 若要使用 Azure 入口網站復原單一或集區刪除的資料庫，請開啟 [伺服器總覽] 頁面，然後選取 [**已刪除的資料庫**]。 選取您想要還原的已刪除資料庫，然後輸入將使用從備份還原之資料所建立的新資料庫名稱。
 
-  ![[已刪除的資料庫] 選項的螢幕擷取畫面](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![還原已刪除 Azure SQL database 的螢幕擷取畫面](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="managed-instance-database"></a>受控實例資料庫
 
-您無法使用 Azure 入口網站在受控實例上還原已刪除的資料庫。 您可以使用 PowerShell 來實現此目的。 
+若要使用 Azure 入口網站復原受控資料庫，請開啟 [受控實例總覽] 頁面，然後選取 [**已刪除的資料庫**]。 選取您想要還原的已刪除資料庫，然後輸入將使用從備份還原之資料所建立的新資料庫名稱。
+
+  ![還原已刪除的 Azure SQL 實例資料庫的螢幕擷取畫面](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>使用 PowerShell 刪除資料庫還原
 
@@ -198,7 +200,7 @@ ms.locfileid: "73821217"
 
 若要還原獨立或集區資料庫，請參閱[restore-set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)。
 
-  | Cmdlet | 說明 |
+  | Cmdlet | 描述 |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |取得一或多個資料庫。 |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 取得可還原的已刪除資料庫。 |
@@ -212,7 +214,7 @@ ms.locfileid: "73821217"
 
 若要還原受控實例資料庫，請參閱[AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)。
 
-  | Cmdlet | 說明 |
+  | Cmdlet | 描述 |
   | --- | --- |
   | [AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |取得一或多個受控實例。 |
   | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 取得實例資料庫。 |
@@ -222,7 +224,7 @@ ms.locfileid: "73821217"
 
 若要使用 REST API 來還原單一或集區資料庫：
 
-| API | 說明 |
+| API | 描述 |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |還原資料庫。 |
 | [取得建立或更新資料庫狀態](https://docs.microsoft.com/rest/api/sql/operations) |傳回還原作業期間的狀態。 |
@@ -237,7 +239,7 @@ ms.locfileid: "73821217"
 
 若要使用 Azure CLI 來還原受控實例資料庫，請參閱[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>Summary
 
 自動備份可在發生使用者和應用程式錯誤、意外刪除資料庫和長時間中斷時保護您的資料庫。 所有服務層級和計算大小都可以取得此內建功能。
 

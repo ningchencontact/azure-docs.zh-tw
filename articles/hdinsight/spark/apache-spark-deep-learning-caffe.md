@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: e0490913029efc17d12139378369646c286a276c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e5988bf1955502d89cc31bcc30672de983a399ec
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145716"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083352"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -21,7 +21,7 @@ ms.locfileid: "71145716"
 
 深入學習的影響遍及醫療保健到傳輸到製造商等等。 公司轉型為深度學習來解決艱難的問題，例如[影像分類](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/)、[語音辨識](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)、物件辨識和機器翻譯。
 
-有[許多受歡迎的架構](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，包括 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)、[Apache MXNet](https://mxnet.apache.org/)、Theano 等等。[Caffe](https://caffe.berkeleyvision.org/) 是其中一個最著名的非符號 (命令式) 類神經網路架構，並廣泛用在許多方面，包括電腦視覺。 此外，[CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 使用 Apache Spark 結合了 Caffe，這樣的深入學習可以輕鬆地使用在現有的 Hadoop 叢集。 您可以使用結合 Spark ETL 管線的深入學習，降低系統複雜性和延遲，以學習完整的解決方案。
+有[許多熱門](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)的架構，包括[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、 [Tensorflow](https://www.tensorflow.org/)、 [Apache MXNet](https://mxnet.apache.org/)、Theano 等， [Caffe](https://caffe.berkeleyvision.org/)是其中一個最著名的非符號（命令式）類神經網路架構，並廣泛用於許多方面，包括電腦視覺。 此外，[CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark) 使用 Apache Spark 結合了 Caffe，這樣的深入學習可以輕鬆地使用在現有的 Hadoop 叢集。 您可以使用結合 Spark ETL 管線的深入學習，降低系統複雜性和延遲，以學習完整的解決方案。
 
 [HDInsight](https://azure.microsoft.com/services/hdinsight/) 是雲端 Apache Hadoop 供應項目，為 Apache Spark、Apache Hive、Apache Hadoop、Apache HBase、Apache Storm、Apache Kafka 和 ML 服務提供最佳化開放原始碼分析叢集。 HDInsight 受 99.9% SLA 的支援。 每個巨量資料技術及 ISV 應用程式都可輕鬆部署為受控叢集，以提供企業所需的安全性和監視功能。
 
@@ -36,7 +36,7 @@ ms.locfileid: "71145716"
 
 由於 HDInsight 是 PaaS 的解決方案，它提供絕佳的平台功能 - 因此可以輕鬆執行某些工作。 在此部落格文章中經常使用的其中一個功能稱為[指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)，您可以用來執行 shell 命令以自訂叢集節點 (前端節點、背景工作角色節點或邊緣節點)。
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>步驟 1:在所有節點上安裝必要的相依性
+## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>步驟 1︰在所有節點上安裝必要的相依性
 
 若要開始，您必須安裝相依性。 Caffe 網站和 [CaffeOnSpark 網站](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\) 提供了一些有用的 wiki，可安裝 Spark on YARN 模式的相依性。 HDInsight 也使用 Spark on YARN 模式。 不過，您必須為 HDInsight 平台再加入些許相依性。 因此，您會使用指令碼動作，並在所有的前端節點和背景工作角色節點上執行。 此指令碼動作需要大約 20 分鐘，因為這些相依性也取決於其他封裝。 您應該將它放在 HDInsight 叢集可以存取的某個位置，例如 GitHub 位置或預設 BLOB 儲存體帳戶。
 
@@ -66,7 +66,7 @@ ms.locfileid: "71145716"
 
 ![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
-## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2:在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2︰在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
 
 第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。
 
@@ -112,7 +112,7 @@ ms.locfileid: "71145716"
 - 將資料集放到 Blob 儲存體，也就是可以存取所有背景工作角色節點以供稍後使用的共用位置。
 - 將已編譯的 Caffe 程式庫放至 Blob 儲存體，稍後您會將這些程式庫複製到使用指令碼動作以避免額外編譯時間的所有節點。
 
-### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>疑難排解：發生 Ant BuildException：exec 傳回：2
+### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>疑難排解︰發生 Ant BuildException︰exec 傳回︰2
 
 當第一次嘗試建置 CaffeOnSpark 時，有時它會說
 
@@ -120,7 +120,7 @@ ms.locfileid: "71145716"
 
 藉由 "make clean" 清除程式碼儲存機制，然後執行 "make build" 即可解決此問題，只要您有正確的相依性。
 
-### <a name="troubleshooting-maven-repository-connection-time-out"></a>疑難排解：Maven 存放庫連線逾時
+### <a name="troubleshooting-maven-repository-connection-time-out"></a>疑難排解︰Maven 儲存機制連線逾時
 
 有時候 Maven 會顯示連線逾時錯誤，看起來如以下程式碼片段︰
 
@@ -131,7 +131,7 @@ ms.locfileid: "71145716"
 
 您必須在幾分鐘後重試。
 
-### <a name="troubleshooting-test-failure-for-caffe"></a>疑難排解：Caffe 測試失敗
+### <a name="troubleshooting-test-failure-for-caffe"></a>疑難排解︰Caffe 測試失敗
 
 您可能會在進行 CaffeOnSpark 最終檢查時看到測試失敗。 這可能與 UTF-8 編碼方式相關，但應該不會影響 Caffe 的使用方式
 
@@ -141,7 +141,7 @@ ms.locfileid: "71145716"
     Tests: succeeded 6, failed 1, canceled 0, ignored 0, pending 0
     *** 1 TEST FAILED ***
 
-## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>步驟 3：將所需的程式庫分散至所有背景工作角色節點
+## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>步驟 3︰將所需的程式庫分散至所有背景工作角色節點
 
 下一步是將程式庫 (基本上為 CaffeOnSpark/caffe-public/distribute/lib/ 和 CaffeOnSpark/caffe-distri/distribute/lib/ 中的程式庫) 分散至所有節點。 在步驟 2 中，您會將這些程式庫放在 BLOB 儲存體，且在此步驟中，您會使用指令碼動作，將它複製到所有的前端節點和背景工作角色節點。
 
@@ -164,7 +164,7 @@ Caffe 是使用「快速架構」，其中針對撰寫模型，您只需要定�
 
 CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不錯的網路架構 (網路的拓撲) 分割設計和最佳化。 在此情況下，需要兩個檔案︰
 
-"Solver" 檔案 (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) 用於監視最佳化並產生參數更新。 例如，它會定義要使用 CPU 還是 GPU、趨勢為何，以及有多少反覆運算等等。它也會定義程式應該使用哪個神經網路拓撲 (也就是您需要的第二個檔案)。 如需 Solver 的詳細資訊，請參閱 [Caffe 文件](https://caffe.berkeleyvision.org/tutorial/solver.html) \(英文\)。
+"Solver" 檔案 (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) 用於監視最佳化並產生參數更新。 例如，它會定義要使用 CPU 或 GPU、什麼是動量、有多少次反覆運算等等。它也會定義程式應該使用哪個神經網路拓撲（這是您所需的第二個檔案）。 如需 Solver 的詳細資訊，請參閱 [Caffe 文件](https://caffe.berkeleyvision.org/tutorial/solver.html) \(英文\)。
 
 在此範例中，因為您要使用 CPU 而不是 GPU，應該將最後一行變更為︰
 
@@ -289,8 +289,8 @@ SampleID 代表 MNIST 資料集的識別碼，且標籤是此模型識別的數�
 
 ### <a name="scenarios"></a>案例
 
-* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>管理資源
 

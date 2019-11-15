@@ -1,18 +1,18 @@
 ---
 title: 監視 Azure Site Recovery 進程伺服器
-description: 本文說明如何監視 Azure Site Recovery 進程伺服器。
+description: 本文說明如何監視用於 VMware VM/實體伺服器嚴重損壞修復的 Azure Site Recovery 進程伺服器
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383215"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082235"
 ---
 # <a name="monitor-the-process-server"></a>監視處理序伺服器
 
@@ -53,17 +53,17 @@ ms.locfileid: "70383215"
 
 **警示類型** | **詳細資料**
 --- | ---
-![狀況良好][green] | 進程伺服器已連線且狀況良好。
+![Healthy][green] | 進程伺服器已連線且狀況良好。
 ![警告][yellow] | 過去15分鐘內的 CPU 使用率 > 80%
 ![警告][yellow] | 過去15分鐘內記憶體使用量 > 80%
 ![警告][yellow] | 過去15分鐘內快取資料夾可用空間 < 30%
 ![警告][yellow] | Site Recovery 會每隔五分鐘監視擱置/傳出資料，並估計在30分鐘內無法將進程伺服器快取中的資料上傳至 Azure。
 ![警告][yellow] | 進程伺服器服務未在過去15分鐘內執行
-![重大][red] | 過去15分鐘內的 CPU 使用率 > 95%
-![重大][red] | 過去15分鐘內記憶體使用量 > 95%
-![重大][red] | 過去15分鐘內快取資料夾可用空間 < 25%
-![重大][red] | Site Recovery 會每隔五分鐘監視擱置/傳出資料，並估計進程伺服器快取中的資料在45分鐘內無法上傳至 Azure。
-![重大][red] | 進程伺服器沒有15分鐘的任何心跳。
+![重要][red] | 過去15分鐘內的 CPU 使用率 > 95%
+![重要][red] | 過去15分鐘內記憶體使用量 > 95%
+![重要][red] | 過去15分鐘內快取資料夾可用空間 < 25%
+![重要][red] | Site Recovery 會每隔五分鐘監視擱置/傳出資料，並估計進程伺服器快取中的資料在45分鐘內無法上傳至 Azure。
+![重要][red] | 進程伺服器沒有15分鐘的任何心跳。
 
 ![資料表索引鍵](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 

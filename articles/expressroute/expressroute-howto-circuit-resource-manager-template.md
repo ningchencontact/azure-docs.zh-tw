@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: d6d9a3b472e2a40bfacf25a0b8fe0accb7d62cb8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031962"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083518"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立 ExpressRoute 線路
 
@@ -64,8 +64,8 @@ ms.locfileid: "74031962"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * 決定是否啟用 ExpressRoute 標準或 ExpressRoute 進階附加元件。 您可以指定 [標準] 來取得標準 SKU，或指定 [進階] 來取得進階附加元件。
-
+   * **SKU 層**會決定 ExpressRoute 線路為 [[本機](expressroute-faqs.md#expressroute-local)]、[標準] 或 [ [Premium](expressroute-faqs.md#expressroute-premium)]。 您可以指定*Local*、 *Standard*或*Premium*。
+   * **SKU 系列**會決定計費類型。 您可以指定 [Metereddata] 以採用計量付費數據傳輸方案，選取 [Unlimiteddata] 以採用無限行動數據方案。 您可以將計費類型從 *Metereddata* 變更為 *Unlimiteddata*，但無法將類型從 *Unlimiteddata* 變更為 *Metereddata*。 *本機*線路僅供*Unlimiteddata* 。
    * [對等位置] 是您與 Microsoft 對等互連的實體位置。
 
      > [!IMPORTANT]
