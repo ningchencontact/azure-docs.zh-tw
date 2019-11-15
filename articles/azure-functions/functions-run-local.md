@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 72abfef1f86fe47eb7817241a674741f56817f24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469091"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082714"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -175,14 +175,21 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` 支援下列選項 (僅限用於 2.x 版，除非另有指定)：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
-| **`--csx`** | 初始化 C# 指令碼 (.csx) 專案。 您必須在後續的命令中指定 `--csx`。 |
+| **`--csharp`**<br/> **`--dotnet`** | 初始化[ C#類別庫（.cs）專案](functions-dotnet-class-library.md)。 |
+| **`--csx`** | 初始化[ C#腳本（. .csx）專案](functions-reference-csharp.md)。 您必須在後續的命令中指定 `--csx`。 |
 | **`--docker`** | 使用以選擇的 `--worker-runtime` 為基礎的基底映像，為容器建立 Dockerfile。 如果您要發佈至自訂 Linux 容器，請使用此選項。 |
+| **`--docker-only`** |  將 Dockerfile 加入至現有的專案。 如果未指定或設定于 [本機]，則會提示您輸入背景工作執行時間。 當您打算將現有的專案發行至自訂的 Linux 容器時，請使用此選項。 |
 | **`--force`** | 即使專案中有現有的檔案，仍初始化專案。 此設定會以相同的名稱覆寫現有的檔案。 專案資料夾中的其他檔案不會受到影響。 |
-| **`--no-source-control -n`** | 在 1.x 版中防止依預設建立 Git 存放庫。 在 2.x 版中，依預設不會建立 Git 存放庫。 |
+| **`--java`**  | 初始化[JAVA 專案](functions-reference-java.md)。 |
+| **`--javascript`**<br/>**`--node`**  | 初始化[JavaScript 專案](functions-reference-node.md)。 |
+| **`--no-source-control`**<br/>**`-n`** | 在 1.x 版中防止依預設建立 Git 存放庫。 在 2.x 版中，依預設不會建立 Git 存放庫。 |
+| **`--powershell`**  | 初始化[PowerShell 專案](functions-reference-powershell.md)。 |
+| **`--python`**  | 初始化[Python 專案](functions-reference-python.md)。 |
 | **`--source-control`** | 控制是否要建立 Git 存放庫。 依預設不會建立存放庫。 設為 `true` 時，就會建立存放庫。 |
-| **`--worker-runtime`** | 設定專案的語言執行階段。 支援的值為 `dotnet`、`node` (JavaScript) `java` 和 `python`。 未設定此選項時，系統會在初始化期間提示您選擇執行階段。 |
+| **`--typescript`**  | 初始化[TypeScript 專案](functions-reference-node.md#typescript)。 |
+| **`--worker-runtime`** | 設定專案的語言執行階段。 支援的值為： `csharp`、`dotnet`、`java`、`javascript`、`node` （JavaScript）、`powershell`、`python`和 `typescript`。 未設定此選項時，系統會在初始化期間提示您選擇執行階段。 |
 
 > [!IMPORTANT]
 > 根據預設，2.x 版的 Core Tools 會建立適用於 .NET 執行階段的函數應用程式專案作為 [C# 類別專案](functions-dotnet-class-library.md) (.csproj)。 這些 C# 專案可以與 Visual Studio 或 Visual Studio Code 搭配使用，並在測試期間以及發佈至 Azure 時進行編譯。 如果您想要改為建立和使用在 1.x 版中以及在入口網站中建立的相同 C# 指令碼 (.csx) 檔案，當您建立及部署函式時，必須包含 `--csx` 參數。
@@ -269,7 +276,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 您也可以使用下列引數，在命令中指定這些選項：
 
-| 引數     | 說明                            |
+| 引數     | 描述                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (2.x 版) 產生 1.x 版中和入口網站中所使用的相同 C# 指令碼 (.csx) 範本。 |
 | **`--language -l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中請勿使用此選項，或選擇符合背景工作執行階段的語言。 |
@@ -302,7 +309,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 func start --build
 ```
 
-#### <a name="javascript"></a>JavaScript
+#### <a name="javascript"></a>Javascript
 
 ```command
 func start
@@ -325,7 +332,7 @@ func host start
 
 `func start` 支援下列選項：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 執行前請勿建置目前的專案。 僅適用於 dotnet 專案。 預設會設定為 false。 僅限 2.x 版。 |
 | **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 |
@@ -415,7 +422,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run` 支援下列選項：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | 內嵌內容。 |
 | **`--debug -d`** | 在執行函式之前，請先將偵錯工具附加到主機處理序。|
@@ -451,25 +458,25 @@ func azure functionapp publish <FunctionAppName>
 
 下列發行選項適用于1.x 和2.x 版：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，請先將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 在使用 `--publish-local-settings -i` 時隱藏覆寫應用程式設定的提示。|
 
 下列發佈選項僅在 2.x 版中受到支援：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  僅發佈設定而略過內容。 預設值為提示。 |
 |**`--list-ignored-files`** | 顯示在發佈期間忽略的檔案清單，以 .funcignore 檔案為準。 |
 | **`--list-included-files`** | 顯示要發佈的檔案清單，以 .funcignore 檔案為準。 |
 | **`--nozip`** | 關閉預設 `Run-From-Package` 模式。 |
 | **`--build-native-deps`** | 發行 python 函式應用程式時，略過產生 .wheels 資料夾。 |
-| **`--build [-b]`** | 部署至 Linux 函式應用程式時執行組建動作。 （接受：遠端、本機） |
+| **`--build`**<br/>**`-b`** | 部署至 Linux 函式應用程式時執行組建動作。 接受： `remote` 和 `local`。 |
 | **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev`。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |
 | **`--csx`** | 發佈 C# 指令碼 (.csx) 專案。 |
-| **`--no-build`** | 略過建置 dotnet 函式的作業。 |
+| **`--no-build`** | 不要建立 .NET 類別庫函式。 |
 | **`--dotnet-cli-params`** | 發佈已編譯的 C# (.csproj) 函式時，Core Tools 會呼叫 'dotnet build --output bin/publish'。 傳至此處的任何參數都會附加至命令列。 |
 
 ### <a name="deployment-custom-container"></a>部署（自訂容器）
@@ -482,7 +489,7 @@ func deploy
 
 以下是可用的自訂容器部署選項：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 目前的使用者所登入的 Docker 登錄名稱。 |
 | **`--platform`** | 函式應用程式的裝載平台。 有效選項為 `kubernetes` |

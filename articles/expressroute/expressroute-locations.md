@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0a918c4276ced878bb3cbfc4362817cd975b99d7
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 397e4215e32ee5d9bf5eced60b456c26fa80c901
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901638"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083391"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -239,7 +239,7 @@ Azure 國家/地區雲端會彼此隔離，並從全球商業 Azure。 一個 Az
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | 阿姆斯特丹 | 
 | **[CMC 電信](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | 新加坡 | 
 | **[Aptum 技術](https://aptum.com/services/cloud/managed-azure/)**| Equinix | 蒙特婁、多倫多 |
-| **[CoreAzure](https://coreazure.com/expressroute)**| Equinix | 倫敦 |
+| **[CoreAzure](http://www.coreazure.com/expressroute/)**| Equinix | 倫敦 |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | 達拉斯、矽谷、華盛頓特區 |
 | **[Crown Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | 亞特蘭大、芝加哥、達拉斯、洛杉磯、紐約、華盛頓特區 |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | 達拉斯 |
@@ -336,7 +336,7 @@ Azure 國家/地區雲端會彼此隔離，並從全球商業 Azure。 一個 Az
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | 歐洲 |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 北美洲 |
 | **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 北美洲 |
-| **[sol-tec](https://www.sol-tec.com/services)** | 歐洲 |
+| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | 歐洲 |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | 南美洲 |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | 澳大利亞 |
 

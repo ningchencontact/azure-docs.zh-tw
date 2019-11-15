@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715365"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091898"
 ---
-# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>實體伺服器評估與遷移的支援矩陣
+# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>實體伺服器評量和移轉的支援矩陣
 
 您可以使用[Azure Migrate 服務](migrate-overview.md)來評估電腦，並將機器遷移至 Microsoft Azure 雲端。 本文摘要說明評估和遷移內部部署實體伺服器的支援設定和限制。
 
@@ -28,7 +28,7 @@ ms.locfileid: "73715365"
 
 **部署** | **詳細資料***
 --- | ---
-**評估內部部署實體伺服器** | [設定](tutorial-prepare-physical.md)您的第一個評估。
+**評估內部部署實體伺服器** | [設定](tutorial-prepare-physical.md)您的第一個評估。<br/><br/> [執行](tutorial-assess-physical.md)評量。
 **將實體伺服器移轉至 Azure** | [嘗試](tutorial-migrate-physical-virtual-machines.md)遷移至 Azure。
 
 
@@ -37,7 +37,7 @@ ms.locfileid: "73715365"
 **支援** | **詳細資料**
 --- | ---
 **Azure 許可權** | 您需要訂用帳戶中的「參與者」或「擁有者」許可權，才能建立 Azure Migrate 專案。
-**實體伺服器** | 在單一專案中評估最多250個實體伺服器。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含實體伺服器、VMware Vm 和 Hyper-v Vm，最多可達評量限制。
+**實體伺服器** | 在單一專案中評估最多35000個實體伺服器。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含實體伺服器、VMware Vm 和 Hyper-v Vm，最多可達評量限制。
 **地理位置** | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定地區建立專案，但您可以針對其他目標位置評估或遷移電腦。 專案地理位置只會用來儲存探索到的資料。
 
   **地理位置** | **中繼資料儲存位置**
@@ -66,7 +66,7 @@ ms.locfileid: "73715365"
 | :-------------------       | :------------------- |
 | **實體伺服器部署**       | 實體伺服器可以是獨立或部署在叢集中。 |
 | **權限**           | **Windows：** 在您要包含在探索中的所有 Windows 伺服器上設定本機使用者帳戶。使用者帳戶必須新增至這些群組-遠端桌面使用者、效能監視器使用者和效能記錄使用者。 <br/> **Linux：** 您在要探索的 Linux 伺服器上需要根帳號。 |
-| **作業系統** | Azure 支援的所有[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統。 |
+| **作業系統** | 除了下列以外，所有的[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統都受到支援：<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>評量-設備需求
@@ -75,9 +75,9 @@ ms.locfileid: "73715365"
 
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
-| **設備部署**   |  您可以在實體伺服器或 VM 上部署設備。<br/>  主機電腦必須執行 Windows Server 2012 R2 或更新版本。<br/> 主機需要足夠的空間來配置 16 GB RAM、8個 vcpu、大約 80 GB 的儲存空間，以及適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址，以及網際網路存取。
+| **設備部署**   |  您可以在實體伺服器或虛擬機器上部署設備。<br/>  主機電腦必須執行 Windows Server 2012 R2 或更新版本。<br/> 主機需要足夠的空間來配置 16 GB RAM、8個 vcpu、大約 80 GB 的儲存空間，以及適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址，以及網際網路存取。
 | **Azure Migrate 專案**  |  應用裝置可以與單一專案相關聯。<br/> 任何數目的設備都可以與單一專案相關聯。<br/> 您可以在專案中評估最多35000部機器。
-| **探索**              | 單一設備可以探索最多200部伺服器。
+| **探索**              | 單一設備可以探索最多250部伺服器。
 | **評量群組**       | 您最多可以在單一群組中新增35000部電腦。
 | **評量**             | 您可以在單一評估中評估多達35000部機器。
 

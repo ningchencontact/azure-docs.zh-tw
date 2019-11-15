@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: helohr
-ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c482291e665656bf16f28cd114a9cb8141ae77c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931713"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084022"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 虛擬桌面合作夥伴整合
 
@@ -133,6 +133,16 @@ Nerdio 藉由輕鬆布建 Azure 資源並簡化部署，來擴充 Windows 虛擬
 - [請參閱聯合解決方案簡介](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)。
 - [前往合作夥伴網站](https://getnerdio.com/windows-virtual-desktop/)。
 
+## <a name="numecent"></a>Numecent
+
+![Numecent 標誌](./media/partners/numecent.png)
+
+Numecent 是 Windows 虛擬桌面增值的服務提供者，透過在 Windows 虛擬桌面環境中快速上架及遷移複雜或不相容的 Windows 應用程式，大幅降低總營運成本。 Numecent 也可將使用者需要執行的設定量減到最少、減少應用程式更新，並簡化複雜的進程。 由於 Numecent Cloudpaging 支援的應用程式比其他任何應用程式傳遞工具更順暢，因此它會在具有一組多樣化應用程式的環境中減少時間和 IT 工作負載。 
+
+與 Windows 虛擬桌面搭配使用時，Cloudpaging 可透過從部署到升級、計量和移除應用程式的方式來完成軟體資產生命週期，以進一步降低成本。 Cloudpaging 會視需要以動態方式將應用程式布建到 Windows 虛擬桌面部署，以簡化映射管理。 Cloudpaging 可協助應用程式在沒有系統管理或介入的情況下，透過週期性 Windows 10 更新執行。 Cloudpaging 也可讓您更有效率地部署和使用這些應用程式，以減少昂貴應用程式的授權成本。 
+
+- [前往合作夥伴網站](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)。
+
 ## <a name="policypak"></a>PolicyPak
 
 ![PolicyPak 標誌](./media/partners/policypak.png)
@@ -147,21 +157,22 @@ PolicyPak 的首要使用案例是移除本機系統管理員許可權，並克�
 
 ![PrinterLogic 標誌](./media/partners/printerlogic.png)
 
-PrinterLogic 是一個 Windows 虛擬桌面增值的服務提供者平臺，可讓 IT 專業人員排除所有列印伺服器，並提供高可用性的無伺服器列印基礎結構。 PrinterLogic 擴充了 Windows 虛擬桌面和 Azure 的價值，讓您輕鬆地集中管理並將印表機物件部署到任何印表機或端點作業系統。   
+PrinterLogic 是一個 Windows 虛擬桌面增值的服務提供者平臺，可讓 IT 專業人員排除所有列印伺服器，並提供高可用性的無伺服器列印基礎結構。 PrinterLogic 擴充了 Windows 虛擬桌面和 Azure 的價值，讓您輕鬆地集中管理並將印表機物件部署到任何印表機或端點作業系統。 
 
-PrinterLogic 平臺可在您自己的私人雲端中以 SaaS 或 web 堆疊的形式提供，以根據使用者識別碼、裝置名稱或位置，確保使用者在其虛擬會話中一律擁有所需的適當印表機。 這項功能是透過一組完整的企業列印管理功能（例如列印追蹤和報告、行動列印，以及安全徽章版本列印）來獲得補充。 
+PrinterLogic 平臺可在您自己的私人雲端中以 SaaS 或 web 堆疊的形式提供，以根據使用者識別碼、裝置名稱或位置，確保使用者在其虛擬會話中一律擁有所需的適當印表機。 這項功能是透過一組完整的企業列印管理功能（例如列印追蹤和報告、行動列印，以及安全徽章版本列印）來獲得補充。 
 
 - [前往合作夥伴網站](https://www.printerlogic.com)。
 
-## <a name="numecent"></a>Numecent
+## <a name="printix"></a>Printix
 
-![Numecent 標誌](./media/partners/numecent.png)
+![Printix 標誌](./media/partners/printix.png)
 
-Numecent 是 Windows 虛擬桌面增值的服務提供者，透過在 Windows 虛擬桌面環境中快速上架及遷移複雜或不相容的 Windows 應用程式，大幅降低總營運成本。 Numecent 也可將使用者需要執行的設定量減到最少、減少應用程式更新，並簡化複雜的進程。 由於 Numecent Cloudpaging 支援的應用程式比其他任何應用程式傳遞工具更順暢，因此它會在具有一組多樣化應用程式的環境中減少時間和 IT 工作負載。 
+Printix 是一種 Windows 虛擬桌面值新增的服務提供者，可將使用者與 office 列印資源的連接自動化。 作為客戶 Azure 遷移的遺漏部分，Printix 是最符合成本效益的服務，可用來移除與支援和優化每個使用者的列印工作流程相關聯的基礎結構和 IT 工作，無論位置為何。
 
-與 Windows 虛擬桌面搭配使用時，Cloudpaging 可透過從部署到升級、計量和移除應用程式的方式來完成軟體資產生命週期，以進一步降低成本。 Cloudpaging 會視需要以動態方式將應用程式布建到 Windows 虛擬桌面部署，以簡化映射管理。 Cloudpaging 可協助應用程式在沒有系統管理或介入的情況下，透過週期性 Windows 10 更新執行。 Cloudpaging 也可讓您更有效率地部署和使用這些應用程式，以減少昂貴應用程式的授權成本。 
+列印是幾乎每個辦公室和小型企業環境中的基本工作。 為了充分利用 Windows 虛擬桌面並提供絕佳的使用者體驗，請務必確保您的使用者可以使用最少的工作和最大的可靠性來連線到印表機。 有了 Printix，您可以透過單一登入（SSO）、無訊息設定、定期更新，以及持續監視您的列印環境，來充分利用 Windows 虛擬桌面。
 
-- [前往合作夥伴網站](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)。
+- [請參閱聯合解決方案簡介](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
+- [前往合作夥伴網站](https://www.printix.net/printix-for-windows-virtual-desktop)
 
 ## <a name="rdpsoft"></a>RDPSoft
 

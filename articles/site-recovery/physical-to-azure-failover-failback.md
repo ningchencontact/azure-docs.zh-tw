@@ -1,18 +1,19 @@
 ---
-title: 容錯移轉及容錯回復實體伺服器以使用 Site Recovery 進行 Azure 災害復原 | Microsoft Docs
+title: 使用 Site Recovery 設定實體伺服器的容錯移轉和容錯回復
 description: 了解如何將實體伺服器容錯移轉到 Azure，然後容錯回復到內部部署網站，以使用 Azure Site Recovery 進行災害復原
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 49b61423b33282be7f0ace52c2a164d52ba20314
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2c0d2e57a34286f65be45a95403a32de42c51908
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814423"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084576"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>將複寫的實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -35,7 +36,7 @@ ms.locfileid: "70814423"
 
 1. 在 [受保護的項目]中，按一下 [複寫的項目]，然後選取機器。
 
-2. 在 [複寫的項目] 窗格中，將會呈現機器資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
+2. 在 [複寫的項目] 窗格中，將會呈現機器資訊、健康情況狀態，以及最新可用復原點的摘要。 若要檢視其他詳細資料，請按一下 [屬性]。
 3. 在 [計算與網路] 中，您可以修改 Azure 名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)及受控磁碟設定。
 4. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 5. 在 [磁碟] 中，您可以看見機器作業系統和資料磁碟的相關資訊。
@@ -101,7 +102,7 @@ ms.locfileid: "70814423"
 
 若要複寫回到內部部署環境，則需使用容錯回復原則。 此原則會在您建立可供複寫至 Azure 的複寫原則時自動建立：
 
-- 此原則會自動與組態伺服器產生關聯。
+- 此原則會自動與設定伺服器產生關聯。
 - 無法修改此原則。
 - 此原則的值如下：
     - RPO 臨界值 = 15 分鐘

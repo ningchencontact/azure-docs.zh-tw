@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 設定多層式 Citrix XenDesktop 和 XenApp 部署的災害復原 | Microsoft Docs
+title: 使用 Azure Site Recovery 設定 Citrix XenDesktop/XenApp 嚴重損壞修復
 description: 本文說明如何使用 Azure Site Recovery 來設定 Citrix XenDesktop 和 XenApp 部署的災害復原。
 author: ponatara
 manager: abhemraj
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038194"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084545"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>設定多層式 Citrix XenApp 和 XenDesktop 部署的災害復原
 
@@ -56,9 +56,9 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | 不在範圍中 | 是
-**VMware** | 不在範圍中 | 是
-**實體伺服器** | 不在範圍中 | 是
+**Hyper-V** | 不在範圍中 | yes
+**VMware** | 不在範圍中 | yes
+**實體伺服器** | 不在範圍中 | yes
 
 ### <a name="versions"></a>版本
 客戶可以部署 XenApp 元件成為 Hyper-V 或 VMware 上執行的虛擬機器，或成為實體伺服器。 Azure Site Recovery 可以保護 Azure 的實體與虛擬部署。
@@ -106,7 +106,7 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 在 [計算和網路] > [計算屬性] 中，您可以指定 Azure VM 名稱和目標大小。
 視需要修改名稱以符合 Azure 需求。 您也可以檢視和加入目標網路、子網路的相關資訊，以及將指派給 Azure VM 的 IP 位址。
 
-請注意下列事項：
+請注意：
 
 * 您可以設定目標 IP 位址。 如果您未提供地址，則容錯移轉的機器會使用 DHCP。 如果您設定的位址在容錯移轉時無法使用，則容錯移轉會失敗。 如果位址可用於測試容錯移轉網路，則相同的目標 IP 位址可用於測試容錯移轉。
 
@@ -121,7 +121,7 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 *   如果虛擬機器具有多個網路介面卡，則清單中顯示的第一個介面卡會變成 Azure 虛擬機器中的「預設」網路介面卡。
 
 
-## <a name="creating-a-recovery-plan"></a>建立復原計劃
+## <a name="creating-a-recovery-plan"></a>建立復原方案
 
 啟用 XenApp 元件 VM 的複寫之後，下一個步驟是建立復原計畫。
 復原計畫群組會將有類似需求的虛擬機器分組，以便進行容錯移轉和復原。  
@@ -130,8 +130,8 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 
 1. 在復原計畫中加入 XenApp 元件虛擬機器。
 2. 按一下 [復原計畫] -> [+ 復原計畫]。 為復原計畫取個直覺式名稱。
-3. 針對 VMware 虛擬機器：選取 VMware 處理序伺服器做為來源，選取 Microsoft Azure 做為目標，並選取資源管理員做為部署模型，然後按一下 [選取項目]。
-4. 針對 Hyper-V 虛擬機器：選取 VMM 伺服器做為來源，選取 Microsoft Azure 做為目標，選取資源管理員做為部署模型，並按一下 [選取項目]，然後選取 XenApp 部署 VM。
+3. 對於 VMware 虛擬機器：選取 VMware 處理序伺服器做為來源，選取 Microsoft Azure 做為目標，並選取資源管理員做為部署模型，然後按一下 [選取項目]。
+4. 對於 Hyper-V 虛擬機器：選取 VMM 伺服器做為來源，選取 Microsoft Azure 做為目標，選取資源管理員做為部署模型，並按一下 [選取項目]，然後選取 XenApp 部署 VM。
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>將虛擬機器新增至容錯移轉群組
 
@@ -156,7 +156,7 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
    >[!NOTE]     
    >包含手動或指令碼動作的步驟 4、6 和 7 僅適用於有 MCS/PV 目錄的內部部署 XenApp 環境。
 
-4. 群組 3 手動或指令碼動作：關閉主要 VDA VM。
+4. 群組3手動或腳本動作：關閉主要 VDA VM。
 主要 VDA VM 在容錯移轉至 Azure 時將處於執行中狀態。 若要使用 Azure 裝載建立新的 MCS 目錄，主要 VDA VM 需要處於已停止 (已解除配置) 狀態。 從 Azure 入口網站關閉 VM。
 
 5. 容錯移轉群組 4：傳遞控制站和 StoreFront 伺服器 VM

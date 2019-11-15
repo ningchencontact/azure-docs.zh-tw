@@ -1,19 +1,18 @@
 ---
-title: Azure 至 Azure 複寫錯誤的 Azure Site Recovery 疑難排解 |Microsoft Docs
+title: 針對 Azure Site Recovery 中的 Azure VM 複寫進行疑難排解
 description: 針對損毀修復複寫 Azure 虛擬機器時的錯誤進行疑難排解。
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: baf7a21d04e8f9bcf86c67abde302a558dfba01c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910387"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084914"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>針對 Azure 至 Azure VM 複寫錯誤進行疑難排解
 
@@ -81,7 +80,7 @@ ms.locfileid: "70910387"
 
 1. 如果找不到 Symantec 根 CA 憑證，請執行下列命令來下載檔案。 檢查是否有任何錯誤，並遵循建議的網路失敗動作。
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5 pem**
 
 1. 檢查巴爾的摩根 CA 憑證是否存在：
 
@@ -89,7 +88,7 @@ ms.locfileid: "70910387"
 
 1. 如果找不到巴爾的摩根 CA 憑證，請執行下列命令來下載憑證：
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root pem**
 
 1. 檢查 DigiCert_Global_Root_CA 憑證是否存在：
 
@@ -137,17 +136,17 @@ ms.locfileid: "70910387"
 
         `-rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem`
 
-1. 建立檔案名為 b204d74a 的 VeriSign_Class_3_Public_Primary_Certification_Authority_G5 檔案複本。0：
+1. VeriSign_Class_3_Public_Primary_Certification_Authority_G5 檔案名建立檔案名為 b204d74a 的檔案複本：
 
-    **# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem b204d74a. 0**
+    **# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5 pem b204d74a 0**
 
-1. 建立檔案名為653b494a 的 Baltimore_CyberTrust_Root 檔案複本。0：
+1. Baltimore_CyberTrust_Root 檔案名建立檔案名為653b494a 的檔案複本：
 
-    **# cp Baltimore_CyberTrust_Root. pem 653b494a. 0**
+    **# cp Baltimore_CyberTrust_Root pem 653b494a 0**
 
-1. 建立檔案名為3513523f 的 DigiCert_Global_Root_CA 檔案複本。0：
+1. DigiCert_Global_Root_CA 檔案名建立檔案名為3513523f 的檔案複本：
 
-    **# cp DigiCert_Global_Root_CA. pem 3513523f. 0**
+    **# cp DigiCert_Global_Root_CA pem 3513523f 0**
 
 1. 檢查檔案是否存在：
 
@@ -155,7 +154,7 @@ ms.locfileid: "70910387"
 
         **# ls-l 653b494a 0 b204d74a. 0 3513523f**
 
-    - Output
+    - 輸出
 
         `-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0`
 
@@ -167,7 +166,7 @@ ms.locfileid: "70910387"
 
 若要讓 Site Recovery 複寫能夠正常執行，從 VM 到特定的 Url 或 IP 範圍都需要輸出連線能力。 如果您的 VM 位於防火牆後方，或使用網路安全性群組 (NSG) 規則控制輸出連線能力，您可能會遇到下列其中一個問題。
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>問題 1：無法向 Site Recovery 註冊 Azure 虛擬機器（錯誤碼151195）
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>問題1：無法向 Site Recovery 註冊 Azure 虛擬機器（錯誤碼151195）
 
 #### <a name="possible-cause"></a>可能的原因 
 
@@ -177,13 +176,13 @@ ms.locfileid: "70910387"
 
 #### <a name="fix-the-problem"></a>修正問題
 
-如果您使用的是自訂 DNS，請確定 DNS 伺服器可從故障復原區域存取。 若要瞭解您是否有自訂 DNS，請在 VM 上移至 [嚴重損壞修復] [*網路* > ] [**DNS 伺服器**]。
+如果您使用的是自訂 DNS，請確定 DNS 伺服器可從故障復原區域存取。 若要瞭解您是否有自訂 DNS，請在 VM 上移至 [嚴重損壞*修復網路*] > [ **DNS 伺服器**]。
 
 ![自訂 DNS 伺服器清單](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
 嘗試從虛擬機器存取 DNS 伺服器。 如果無法存取伺服器，可透過容錯移轉 DNS 伺服器，或在 DR 網路和 DNS 之間建立這一行的網站，讓它可以存取。
 
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>問題 2：Site Recovery 設定失敗（錯誤碼151196）
+### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>問題2： Site Recovery 設定失敗（錯誤碼151196）
 
 #### <a name="possible-cause"></a>可能的原因
 
@@ -197,7 +196,7 @@ Site Recovery 需要存取 Office 365 IP 範圍以進行驗證。
 > [!NOTE]
 > 如果 Vm 位於*標準*內部負載平衡器後方，則預設負載平衡器無法存取 OFFICE 365 IP 範圍（也就是 login.microsoftonline.com）。 將 [內部負載平衡器類型] 變更為 [*基本*] 或 [建立輸出存取]，如[設定負載平衡和輸出規則](https://aka.ms/lboutboundrulescli)一文所述。
 
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>問題 3：Site Recovery 設定失敗（錯誤碼151197）
+### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>問題3： Site Recovery 設定失敗（錯誤碼151197）
 
 #### <a name="possible-cause"></a>可能的原因
 
@@ -207,7 +206,7 @@ Site Recovery 需要存取 Office 365 IP 範圍以進行驗證。
 
 Site Recovery 需要[SITE RECOVERY IP 範圍](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)的存取權，視區域而定。 請確定可從虛擬機器存取所需的 IP 範圍。
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>問題 4：當網路流量通過內部部署 proxy 伺服器時，azure 到 Azure 的複寫失敗（錯誤碼151072）
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>問題4：當網路流量通過內部部署 proxy 伺服器時，Azure 到 Azure 的複寫失敗（錯誤碼151072）
 
 #### <a name="possible-cause"></a>可能的原因
 
@@ -220,7 +219,7 @@ Site Recovery 需要[SITE RECOVERY IP 範圍](https://docs.microsoft.com/azure/s
 如果您只想要為行動服務設定 proxy，您可以在下列位置的 Proxyinfo.conf 檔案中提供 proxy 詳細資料：
 
 - **Linux**：/usr/local/InMage/config/
-- **Windows**：C:\ProgramData\Microsoft Azure Site Recovery\Config
+- **Windows**： C:\ProgramData\Microsoft Azure Site Recovery\Config
 
 在 Proxyinfo.conf 中，以下列初始化檔案格式提供 proxy 設定：
 
@@ -253,9 +252,9 @@ Site Recovery 需要[SITE RECOVERY IP 範圍](https://docs.microsoft.com/azure/s
 
 請確定資料磁片已初始化，然後再次嘗試操作。
 
-- **Windows**：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。
+- **Windows**：[附加並初始化新的磁片](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。
 
-- **Linux**：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
+- **Linux**：[在 linux 中初始化新的資料磁片](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 若問題持續發生，請連絡支援服務。
 
@@ -272,14 +271,14 @@ Site Recovery 需要[SITE RECOVERY IP 範圍](https://docs.microsoft.com/azure/s
 
 #### <a name="to-protect-the-disks"></a>保護磁片
 
-1. 移至 [複寫的**專案** > ] [*VM 名稱* > ] [**磁片**]。
+1. 移至 已複寫的**專案** > *VM 名稱* > **磁片**。
 1. 選取未受保護的磁片，然後選取 [**啟用**複寫]：
 
     ![在 VM 磁片上啟用複寫](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
 #### <a name="to-dismiss-the-warning"></a>若要關閉警告
 
-1. 移至 [已複寫的**專案** > ]*VM 名稱*。
+1. 移至 已複寫的**專案** > *VM 名稱*。
 1. 在 [**總覽**] 區段中選取警告，然後選取 **[確定]** 。
 
     ![關閉新的磁片警告](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
@@ -294,7 +293,7 @@ Site Recovery 需要[SITE RECOVERY IP 範圍](https://docs.microsoft.com/azure/s
 > 如果您不進行清除：
 >
 > - 當您透過復原服務保存庫來啟用複寫時，將不會列出虛擬機器。
-> - 如果您嘗試使用「**虛擬機器** > **設定** > 」嚴重損壞**修復**來保護 VM，此作業將會失敗，並顯示「無法啟用複寫，因為現有的過時資源連結VM。」
+> - 如果您嘗試使用**虛擬機器** > **設定** > 嚴重損壞**修復**來保護 VM，此作業將會失敗，並顯示「無法啟用複寫，因為 VM 上的現有過時資源連結」。
 
 ### <a name="fix-the-problem"></a>修正問題
 
@@ -336,17 +335,17 @@ Site Recovery 需要[SITE RECOVERY IP 範圍](https://docs.microsoft.com/azure/s
 
 ## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>在「啟用複寫」作業中，無法看到選取的 Azure VM 或資源群組
 
-### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>原因 1：資源群組和來源虛擬機器位於不同的位置
+### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>原因1：資源群組和來源虛擬機器位於不同的位置
 
 Site Recovery 目前需要來源區域資源群組和虛擬機器位於相同的位置。 如果不是，當您嘗試套用保護時，將無法找到虛擬機器或資源群組。
 
-因應措施是，您可以從 VM 啟用複寫，而不是復原服務保存庫。 移至**來源 VM**  > 的 [**屬性** > ] [嚴重損壞**修復**] 並啟用複寫。
+因應措施是，您可以從 VM 啟用複寫，而不是復原服務保存庫。 移至 [**來源 VM** ] > [**屬性**] > 嚴重損壞**修復**並啟用複寫。
 
-### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>原因 2：資源群組不屬於所選訂用帳戶
+### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>原因2：資源群組不屬於所選訂用帳戶
 
 如果資源群組不屬於所選的訂用帳戶，您可能會在保護時找不到資源群組。 請確定資源群組屬於您所使用的訂用帳戶。
 
-### <a name="cause-3-stale-configuration"></a>原因 3：過時的設定
+### <a name="cause-3-stale-configuration"></a>原因3：過時的設定
 
 如果 Azure VM 上已有過時的 Site Recovery 設定，您可能看不到想要啟用複寫的 VM。 如果您使用 Site Recovery 來啟用 Azure VM 的複寫，則會發生此狀況，然後：
 
@@ -369,11 +368,11 @@ Site Recovery 目前需要來源區域資源群組和虛擬機器位於相同的
 
 ## <a name="unable-to-select-a-virtual-machine-for-protection"></a>無法選取要保護的虛擬機器
 
-### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>原因 1：虛擬機器在失敗或沒有回應的狀態中安裝了擴充功能
+### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>原因1：虛擬機器在失敗或沒有回應的狀態中安裝了擴充功能
 
-移至 [**虛擬機器** > ] [**設定** > ] [**擴充**功能]，並檢查處于 [失敗] 狀態的任何延伸模組 請卸載任何失敗的延伸模組，然後再試一次來保護虛擬機器。
+移至 [**虛擬機器**] > **設定** > **延伸**模組，並檢查是否有任何處于失敗狀態的延伸模組。 請卸載任何失敗的延伸模組，然後再試一次來保護虛擬機器。
 
-### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>原因 2：VM 的布建狀態無效
+### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>原因2： VM 的布建狀態無效
 
 請參閱本文稍後的[VM](#the-vms-provisioning-state-is-not-valid-error-code-150019)布建狀態中的疑難排解步驟無效。
 
@@ -394,15 +393,15 @@ Site Recovery 目前需要來源區域資源群組和虛擬機器位於相同的
 
 ## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>無法選取目標 VM （無法使用 [網路選取] 索引標籤）
 
-### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>原因 1：您的 VM 已連接到已對應到目標網路的網路
+### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>原因1：您的 VM 已連接到已對應到目標網路的網路
 
 如果來源 VM 是虛擬網路的一部分，而且來自相同虛擬網路的另一個 VM 已與目標資源群組中的網路對應，則 [網路選取] 下拉式清單方塊預設為 [無法使用] （呈現暗灰色）。
 
 ![網路選取清單無法使用](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>原因 2：您先前已使用 Site Recovery 來保護 VM，然後停用複寫
+### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>原因2：您先前使用 Site Recovery 來保護 VM，然後停用複寫
 
-停用 VM 的複寫不會刪除網路對應。 必須從已保護 VM 的復原服務保存庫中刪除對應。 前往復原*服務保存庫* >  **Site Recovery 基礎結構** > **網路對應**。
+停用 VM 的複寫不會刪除網路對應。 必須從已保護 VM 的復原服務保存庫中刪除對應。 前往 復原*服務保存庫* > **Site Recovery 基礎結構** > **網路對應**。
 
 ![刪除網路對應](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
@@ -456,7 +455,7 @@ Linux GRUB 設定檔（/boot/grub/menu.lst "、/boot/grub/grub.cfg、/boot/grub2
 
 - 檔案/boot/grub2/grub.cfg
 
-  > linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts
+  > linux/boot/vmlinuz-3.12.49-11-default**根目錄 =/dev/sda2** $ {extra_cmdline} **resume =/dev/sda1**啟動顯示 = 無訊息安靜 showopts
 
 - 檔案：/boot/grub/menu.lst
 
@@ -467,7 +466,7 @@ Linux GRUB 設定檔（/boot/grub/menu.lst "、/boot/grub/grub.cfg、/boot/grub2
 
 將每個裝置名稱取代為對應的 UUID：
 
-1. 執行命令**blkid** ***device name***來尋找裝置的 UUID。 例如:
+1. 執行命令**blkid** ***device name***來尋找裝置的 UUID。 例如︰
 
     ```
     blkid /dev/sda1
@@ -476,7 +475,7 @@ Linux GRUB 設定檔（/boot/grub/menu.lst "、/boot/grub/grub.cfg、/boot/grub2
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. 將裝置名稱取代為其 UUID，格式為**root = UUID** = *uuid*和**resume = uuid** = *uuid*。 例如，在取代之後，來自/boot/grub/menu.lst 的程式列（稍早討論）看起來會像這樣：
+1. 將裝置名稱取代為其 UUID，格式為**root = UUID**=*UUID*和**resume = uuid**=*uuid*。 例如，在取代之後，來自/boot/grub/menu.lst 的程式列（稍早討論）看起來會像這樣：
 
     > kernel/boot/vmlinuz-3.0.101-63-default **root = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b**啟動顯示 = 無訊息 crashkernel = 256M-： 128M showopts vga = 0x314
 
@@ -490,15 +489,15 @@ GRUB 設定檔案（/boot/grub/menu.lst、/boot/grub/grub.cfg、/boot/grub2/grub
 
 - File：/boot/grub2/grub.cfg on RHEL7：
 
-    > linux16/vmlinuz-3.10.0-957.el7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@ed-64m **rd. lv = rootvg/root/。 lv = rootvg/swap** rhgb quiet LANG = en_US。UTF-8
+    > linux16/vmlinuz-3.10.0-957.el7. x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@Ed-64m 的**rd. lv = rootvg/root rd。 lv = rootvg/swap** RHGB quiet LANG = en_US。UTF-8
 
 - File：/etc/default/grub on RHEL7：
 
-    > GRUB_CMDLINE_LINUX = "crashkernel = auto 的**rd. lv = rootvg/root rd. lv = rootvg/swap** rhgb quiet"
+    > GRUB_CMDLINE_LINUX = "crashkernel = auto **-lvm. lv = rootvg/root rd。 lv = rootvg/swap** rhgb quiet"
 
 - File：/boot/grub/menu.lst on RHEL6：
 
-    > 核心/vmlinuz-2.6.32-754.el6.x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US。UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = pc KEYTABLE = us **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
+    > 核心/vmlinuz-2.6.32-754.el6. x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US。UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = pc KEYTABLE = us **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
 
 在每個範例中，以粗體顯示的部分，就表示 GRUB 必須從磁片區群組 "rootvg" 偵測名為 "root" 和 "swap" 的兩個 LVM 裝置。
 
