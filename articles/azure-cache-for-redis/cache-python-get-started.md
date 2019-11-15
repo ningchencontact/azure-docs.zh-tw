@@ -1,6 +1,6 @@
 ---
 title: 快速入門：建立可使用 Azure Cache for Redis 的 Python 應用程式
-description: 在本快速入門中，您將了解如何建立可使用 Azure Cache for Redis 的 Python 應用程式
+description: 在此快速入門中，您將了解如何建立可使用 Azure Cache for Redis 的 Python 應用程式。
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -12,17 +12,17 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: cache
 ms.workload: tbd
-ms.date: 05/11/2018
+ms.date: 11/05/2019
 ms.author: yegu
 ms.custom:
 - mvc
 - seo-python-october2019
-ms.openlocfilehash: 5367896c931bf7c5f52b0874d49ede2fc78614ab
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8cb5a47e884400f09111c6e40b387deea4fb158e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435508"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720458"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>快速入門：建立可使用 Azure Cache for Redis 的 Python 應用程式
 
@@ -33,31 +33,26 @@ ms.locfileid: "72435508"
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [Python 2 或3](https://www.python.org/downloads/)
 
-## <a name="create-an-azure-cache-for-redis-on-azure"></a>在 Azure 上建立 Azure Cache for Redis
+## <a name="create-an-azure-cache-for-redis-instance"></a>建立 Azure Cache for Redis 執行個體
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="install-redis-py"></a>安裝 redis-py
 
-[redis-py](https://github.com/andymccurdy/redis-py) \(英文\) 是 Azure Cache for Redis 的 Python 介面。 使用 Python 的套件工具 *pip* 安裝 redis-py 套件。 
+[redis-py](https://github.com/andymccurdy/redis-py) \(英文\) 是 Azure Cache for Redis 的 Python 介面。 使用 Python 套件工具 *pip*，從命令提示字元中安裝 *redis-py* 套件。 
 
-以下範例使用適用於 Python3 的 *pip3*，透過 Visual Studio 2019 開發人員命令提示字元搭配提高權限的系統管理員權限，在 Windows 10 上安裝 redis-py 套件。
-
-```python
-    pip3 install redis
-```
+下列範例使用 Python 3 的 *pip3*，在 Windows 10 上，從系統管理員命令提示字元中安裝 *redis-py*。
 
 ![將 redis-py Python 介面安裝至 Azure Cache for Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
-
 ## <a name="read-and-write-to-the-cache"></a>讀取和寫入快取
 
-從命令列執行 Python 並使用快取進行測試。 將 `<Your Host Name>` 和 `<Your Access Key>` 取代為 Azure Cache for Redis 的值。 
+從命令列中執行 Python，然後使用下列程式碼來測試您的快取。 將 `<Your Host Name>` 和 `<Your Access Key>` 取代為您 Azure Cache for Redis 執行個體的值。 您的主機名稱格式為 *\<DNS name>.redis.cache.windows.net*。
 
 ```python
 >>> import redis
->>> r = redis.StrictRedis(host='<Your Host Name>.redis.cache.windows.net',
+>>> r = redis.StrictRedis(host='<Your Host Name>',
         port=6380, db=0, password='<Your Access Key>', ssl=True)
 >>> r.set('foo', 'bar')
 True
@@ -66,18 +61,16 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> 若為 Redis 3.0 版或更新版本，系統會強制執行 SSL 憑證檢查。 連線至 Redis 時，必須明確設定 ssl_ca_certs。 如果是 RH Linux，則可於 "/etc/pki/tls/certs/ca-bundle.crt" 憑證模組中找到 ssl_ca_certs。
+> 如果是 Azure Cache for Redis 3.0 版或更新版本，即會強制執行 SSL 憑證檢查。 連線至 Azure Cache for Redis 時，必須明確設定 ssl_ca_certs。 如果是 RH Linux，則可於 */etc/pki/tls/certs/ca-bundle.crt* 憑證模組中找到 ssl_ca_certs。
 
-## <a name="create-a-python-script"></a>建立 Python 指令碼
+## <a name="create-a-python-sample-app"></a>建立 Python 範例應用程式
 
-建立新的指令碼文字檔案，命名為 PythonApplication1.py  。
-
-在 PythonApplication1.py  中新增下列指令碼並儲存檔案。 此指令碼會測試快取存取。 將 `<Your Host Name>` 和 `<Your Access Key>` 取代為 Azure Cache for Redis 的值。 
+建立新的文字檔、新增下列指令碼，然後將檔案儲存為 *PythonApplication1.py*。 將 `<Your Host Name>` 和 `<Your Access Key>` 取代為您 Azure Cache for Redis 執行個體的值。 您的主機名稱格式為 *\<DNS name>.redis.cache.windows.net*。
 
 ```python
 import redis
 
-myHostname = "<Your Host Name>.redis.cache.windows.net"
+myHostname = "<Your Host Name>"
 myPassword = "<Your Access Key>"
 
 r = redis.StrictRedis(host=myHostname, port=6380,
@@ -98,36 +91,28 @@ for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
-使用 Python 執行指令碼。
+使用 Python 執行 *PythonApplication1.py*。 您應該會看到類似下列範例的結果：
 
-![執行 Python 指令碼在 Azure Cache for Redis 中測試快取存取](./media/cache-python-get-started/cache-python-completed.png)
-
+![執行 Python 指令碼以測試快取存取](./media/cache-python-get-started/cache-python-completed.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您準備繼續進行其他教學課程，則可以保留在本快速入門中所建立的資源並重複使用。
-
-否則，如果您已完成快速入門範例應用程式，便可以將在此快速入門中所建立的 Azure 資源刪除，以避免衍生費用。 
+如果您已完成此快速入門中所建立的 Azure 資源群組和資源，則您可刪除它們以避免衍生費用。
 
 > [!IMPORTANT]
-> 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
->
+> 刪除資源群組是無法回復的動作，而資源群組及其中的所有資源都會永久刪除。 如果您在想要保留的現有資源群組中建立了 Azure Cache for Redis 執行個體，您可從快取的 [概觀]  頁面中選取 [刪除]  ，只刪除快取。 
 
-登入 [Azure 入口網站](https://portal.azure.com)，然後選取 [資源群組]  。
+刪除資源群組及其 Azure 執行個體的 Redis 快取：
 
-在 [依名稱篩選]  文字方塊中，輸入您資源群組的名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，選取 **...** ，然後按一下 [刪除資源群組]  。
-
-![刪除 Azure Cache for Redis 的快速入門資源群組](./media/cache-web-app-howto/delete-your-resource-group-for-azure-cache-for-redis.png)
-
-系統將會要求您確認是否刪除資源。 輸入您資源群組的名稱以進行確認，然後選取 [刪除]  。
-
-片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+1. 從 [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 [資源群組]  。
+1. 在 [依名稱篩選]  文字方塊中，輸入包含您快取執行個體的資源群組名稱，然後從搜尋結果中選取它。 
+1. 在資源群組頁面上，選取 [刪除資源群組]  。
+1. 輸入資源群組名稱，然後選取 [刪除]  。
+   
+   ![刪除 Azure Cache for Redis 的資源群組](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
 > [建立可使用 Azure Cache for Redis 的簡單 ASP.NET Web 應用程式。](./cache-web-app-howto.md)
 
-<!--Image references-->
-[1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
-[2]: ./media/cache-python-get-started/redis-cache-cache-create.png

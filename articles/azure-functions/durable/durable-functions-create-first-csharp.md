@@ -8,18 +8,20 @@ manager: jeconnoc
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
 ms.service: azure-functions
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933962"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615000"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 建立第一個耐久函式
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 在本文中，您將了解如何使用 Visual Studio 2019，在本機建立及測試 "hello world" 耐久函式。  此函式會協調對其他函式的呼叫並鏈結在一起。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2019 的 Azure 開發工作負載中取得。
 
@@ -53,7 +55,7 @@ Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案
 
     | 設定      | 建議的值  | 說明                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **版本** | Azure Functions 2.x <br />(.NET Core) | 建立函式專案，該專案會使用可支援 .NET Core 的 Azure Functions 2.x 版執行階段。 Azure Functions 1.x 支援 .NET Framework。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](../functions-versions.md)。   |
+    | **版本** | Azure Functions 2.0 <br />(.NET Core) | 建立函式專案，該專案會使用支援 .NET Core 的 Azure Functions 2.0 版執行階段。 Azure Functions 1.0 支援 .NET Framework。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](../functions-versions.md)。   |
     | **範本** | 空白 | 建立空白的函式應用程式。 |
     | **儲存體帳戶**  | 儲存體模擬器 | 需要儲存體帳戶，才能管理耐久函式應用程式狀態。 |
 
@@ -73,12 +75,15 @@ Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案
 
     ![選取耐久範本](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
+> [!NOTE]
+> 此範本目前使用較舊的 1.x 版擴充功能來建立耐久函式。 如需如何升級至較新的 2.x 版 Durable Functions 的相關資訊，請參閱 [Durable Functions 版本](durable-functions-versions.md) 一文。
+
 新的耐久函式會新增至應用程式。  開啟新的 .cs 檔案以檢視內容。 此耐久函式是簡單的函式鏈結範例，包含下列方法：  
 
 | 方法 | FunctionName | 說明 |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | 管理耐久協調流程。 在此情況下，協調流程會啟動、建立清單，以及將三個函式呼叫的結果新增至清單。  完成三個函式呼叫後，它會傳回清單。 |
-| **`SayHello`** | `<file-name>_Hello` | 此函數會傳回 hello。 這個函式包含要進行協調的商務邏輯。 |
+| **`SayHello`** | `<file-name>_Hello` | 此函數會傳回 hello。 此函式包含要進行協調的商務邏輯。 |
 | **`HttpStart`** | `<file-name>_HttpStart` | [HTTP 觸發的函式](../functions-bindings-http-webhook.md)，該函式會啟動協調流程執行個體並傳回檢查狀態回應。 |
 
 您現在已建立函式專案和耐久函式，可以在本機電腦上進行測試。
@@ -101,7 +106,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 4. 複製 `statusQueryGetUri` 的 URL 值並將它貼在瀏覽器的網址列中，然後執行要求。
 
-    此要求會查詢協調流程執行個體的狀態。 您應會取得如下所示的最終回應。  這表示執行個體已完成，而且包含耐久函式的輸出或結果。
+    此要求會查詢協調流程執行個體的狀態。 您應會取得如下所示的最終回應。  此輸出顯示執行個體已完成，而且會包含耐久函式的輸出或結果。
 
     ```json
     {
@@ -114,8 +119,8 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2019-11-02T07:07:40Z",
+        "lastUpdatedTime": "2019-11-02T07:07:52Z"
     }
     ```
 

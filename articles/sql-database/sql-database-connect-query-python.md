@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Python 查詢 Azure SQL Database
+title: 快速入門：使用 Python 查詢
 description: 本主題說明如何使用 Python 來建立連線到 Azure SQL 資料庫的程式，並使用 Transact-SQL 陳述式查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 32861fa8f8756c4e8d30c055582789d41a92fe7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 42d5b500a48e427aad2372710597e0266b2e80aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331866"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826986"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入門：使用 Python 查詢 Azure SQL 資料庫
 

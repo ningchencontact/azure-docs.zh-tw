@@ -1,18 +1,18 @@
 ---
-title: 快速入門 - 使用 Azure 入口網站建立 Analysis Services 伺服器 | Microsoft Docs
-description: 瞭解如何在 Azure 中建立 Analysis Services 伺服器執行個體。
+title: 快速入門 - 在 Azure 入口網站建立 Analysis Services 伺服器 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站，快速建立 Azure Analysis Services 伺服器執行個體。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e6973ee311f1d3f5ba19714695f67bd321d953b7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cfd624ce49add0f8fd04bfccca9d6b7c3f1f71bd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295047"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573074"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入門：建立伺服器 - 入口網站
 
@@ -45,7 +45,7 @@ ms.locfileid: "72295047"
    * **備份儲存體設定**：選用。 如果您已經有[儲存體帳戶](../storage/common/storage-introduction.md)，您可以將它指定為模型資料庫備份的預設值。 您也可以稍後指定[備份和還原](analysis-services-backup.md)設定。
    * **儲存體金鑰到期日**：選用。 指定儲存體金鑰到期期間。
 
-建立伺服器通常不到一分鐘即可完成。 如果您選取 [新增到入口網站]  ，請瀏覽至您的入口網站來查看新的伺服器。 或者，導覽至 [所有服務]   > [Analysis Services]  ，以查看您的伺服器是否就緒。 伺服器支援 1200 或更高相容性層級的表格式模型。 模型相容性層級指定於 SSDT 或 SSMS 中。
+建立伺服器通常不到一分鐘即可完成。 如果您選取 [新增到入口網站]  ，請瀏覽至您的入口網站來查看新的伺服器。 或者，導覽至 [所有服務]   > [Analysis Services]  ，以查看您的伺服器是否就緒。 伺服器支援 1200 或更高相容性層級的表格式模型。 模型相容性層級指定於 Visual Studio 或 SSMS 中。
 
 ## <a name="clean-up-resources"></a>清除資源
 

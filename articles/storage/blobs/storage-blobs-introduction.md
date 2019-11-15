@@ -1,19 +1,19 @@
 ---
-title: Blob 儲存體簡介 - Azure 中的物件儲存體
+title: Blob (物件) 儲存體簡介 - Azure 儲存體
 description: Azure Blob 儲存體可儲存大量的非結構化物件資料，例如文字或二進位資料。 Azure Blob 儲存體具有高度擴充性與可用性。 用戶端可從 PowerShell 或 Azure CLI、以程式設計方式透過 Azure 儲存體用戶端程式庫，或使用 REST 來存取 Blob 儲存體中的資料物件。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b54f69edfebca2786ec996b1ca71cea933179b58
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641018"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615611"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 儲存體簡介
 

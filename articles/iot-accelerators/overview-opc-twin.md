@@ -1,6 +1,6 @@
 ---
 title: 什麼是 OPC 對應項 - Azure | Microsoft Docs
-description: OPC 對應項概觀
+description: 此文章提供 OPC 對應項的概觀。 OPC 對應項可透過 REST API 提供對產業裝置的探索、註冊和遠端控制等功能。
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815950"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826230"
 ---
 # <a name="what-is-opc-twin"></a>什麼是 OPC 對應項？
 

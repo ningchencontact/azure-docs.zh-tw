@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 12df79696033e69abbf48f053c1a594be9409cda
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327148"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721119"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
 
@@ -96,34 +96,47 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 函式：
 
 ## <a name="cassandra-api-limits"></a>Cassandra API 限制
 
-Azure Cosmos DB Cassandra API 在資料表中存放的資料大小沒限制。 可以儲存數百 TB 或 PB 的資料，同時確保遵守資料分割金鑰。 同樣地，每個實體或資料列對等項在資料行數目上沒有任何限制，不過，實體的總大小不應該超過 2 MB。如同在其他所有 API 中，每個資料分割索引鍵的資料不能超過 10 GB。
+Azure Cosmos DB Cassandra API 在資料表中存放的資料大小沒限制。 可以儲存數百 TB 或 PB 的資料，同時確保遵守資料分割金鑰。 同樣地，每個實體或資料列對等項在資料行數目上沒有任何限制。 不過，實體的總大小不應該超過 2 MB。 就像所有其他 API 一樣，每個分割區索引鍵的資料不能超過 10 GB。
 
 ## <a name="tools"></a>工具 
 
 Azure Cosmos DB Cassandra API 是受控服務平台。 它不會造成任何管理額外負荷，也不會使用記憶體回收行程、Java 虛擬機器 (JVM) 與 nodetool 等公用程式來管理叢集。 它支援 cqlsh 之類的工具，cqlsh 利用 Binary CQLv4 相容性。 
 
-* Azure 入口網站的資料總管、計量、記錄診斷、PowerShell 與 cli 是其他支援的帳戶管理機制。
+* Azure 入口網站的資料總管、計量、記錄診斷、PowerShell 及 CLI 均為其他支援管理帳戶的機制。
 
 ## <a name="cql-shell"></a>CQL Shell  
 
-CQLSH 命令列公用程式隨附 Apache Cassandra 3.1.1，而且只要啟用下列環境變數即可運作，不需要進行額外的設定：
+CQLSH 命令列公用程式隨附 Apache Cassandra 3.1.1，而且只需設定一些環境變數即可立即運作。
 
-在執行下列命令之前，請[在 cacerts 存放區新增 Baltimore 根憑證](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store)。 
+**Windows：**
 
-**Windows：** 
+如果使用 Windows，建議您啟用[適用於 Linux 的 Windows 檔案系統](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux)。 您接著可遵循以下的 Linux 命令。
 
-```bash
-set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to Baltimore root ca cert>
-set CQLSH_PORT=10350 
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
-```
 **Unix/Linux/Mac：**
 
 ```bash
-export SSL_VERSION=TLSv1_2 
-export SSL_CERTFILE=<path to Baltimore root ca cert>
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
+# Install default-jre and default-jdk
+sudo apt install default-jre
+sudo apt-get update
+sudo apt install default-jdk
+
+# Import the Baltimore CyberTrust root certificate:
+curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
+keytool -importcert -alias bc2025ca -file bc2025.crt
+
+# Install the Cassandra libraries in order to get CQLSH:
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install cassandra
+
+# Export the SSL variables:
+export SSL_VERSION=TLSv1_2
+export SSL_VALIDATE=false
+
+# Connect to Azure Cosmos DB API for Cassandra:
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+
 ```
 
 ## <a name="cql-commands"></a>CQL 命令
@@ -140,7 +153,8 @@ Azure Cosmos DB 支援在 Cassandra API 帳戶上使用下列資料庫命令。
 * BATCH - 只支援未記錄的命令 
 * 刪除
 
-透過 CQLV4 相容 SDK 執行的所有 crud 作業將會傳回有關錯誤、已取用的要求單位等額外資訊。 刪除及更新命令必須以考慮中的資源管控機制來處理，以避免適度使用佈建的輸送量。 
+透過 CQL v4 相容 SDK 執行的所有 CRUD 作業，將傳回有關錯誤及已取用的要求單位等額外資訊。 DELETE 和 UPDATE 命令應使用納入考慮的資源管理來處理，確保會以最有效率的方式使用佈建的輸送量。
+
 * 請注意，所指定的 gc_grace_seconds 值必須是零。
 
 ```csharp
@@ -151,13 +165,13 @@ foreach (string key in insertResult.Info.IncomingPayload)
         { 
             byte[] valueInBytes = customPayload[key]; 
             double value = Encoding.UTF8.GetString(valueInBytes); 
-            Console.WriteLine($“CustomPayload:  {key}: {value}”); 
+            Console.WriteLine($"CustomPayload:  {key}: {value}"); 
         } 
 ```
 
 ## <a name="consistency-mapping"></a>一致性對應 
 
-Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。  一致性對應[在此](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping)有詳細說明。
+Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。  一致性對應[在此](consistency-levels-across-apis.md#cassandra-mapping)有詳細說明。
 
 ## <a name="permission-and-role-management"></a>權限與角色管理
 
@@ -165,9 +179,9 @@ Azure Cosmos DB 支援角色型存取控制 (RBAC) 來佈建、輪替金鑰、�
 
 ## <a name="keyspace-and-table-options"></a>Keyspace 和資料表選項
 
-目前已忽略 "Create Keyspace" 命令中區域名稱、類別、replication_factor 和資料中心的選項。 系統會使用基礎 Azure Cosmos DB 的[全域散發](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood)複寫方法來新增區域。 如果您需要資料跨區域存在，您可以使用 PowerShell、CLI 或入口網站在帳戶層級加以啟用。若要深入了解，請參閱[如何新增區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)一文。 無法停用 Durable_writes，因為 Azure Cosmos DB 可確保每次寫入都是持久的。 在每個區域中，Azure Cosmos DB 會將資料複寫到由 4 個複本組成的複本集，而此複本集[設定](global-dist-under-the-hood.md)無法加以修改。
+目前已忽略 "Create Keyspace" 命令中區域名稱、類別、replication_factor 和資料中心的選項。 系統會使用基礎 Azure Cosmos DB 的[全域散發](global-dist-under-the-hood.md)複寫方法來新增區域。 如果您需要資料跨區域存在，可以使用 PowerShell、CLI 或入口網站在帳戶層級加以啟用。若要深入了解，請參閱[如何新增區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)一文。 無法停用 Durable_writes，因為 Azure Cosmos DB 可確保每次寫入都是持久的。 在每個區域中，Azure Cosmos DB 會將資料複寫到由四個複本組成的複本集，而此複本集[設定](global-dist-under-the-hood.md)無法加以修改。
  
-建立資料表時會忽略所有的選項，但應設定為零的 gc_grace_seconds 除外。
+建立資料表時會忽略所有選項，但應設定為零的 gc_grace_seconds 除外。
 Keyspace 和資料表有一個名為 "cosmosdb_provisioned_throughput" 的額外選項，其最小值為 400 RU/秒。 Keyspace 輸送量可讓您跨多個資料表共用輸送量，而當所有資料表均未使用佈建的輸送量時就很有用。 Alter Table 命令可讓您變更跨區域佈建的輸送量。 
 
 ```

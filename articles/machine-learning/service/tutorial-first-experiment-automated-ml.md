@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 98ebc8d9408d937730643056f65c3d8011c1fdc4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493427"
+ms.locfileid: "73581567"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>教學課程：使用自動化機器學習建立第一個分類模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -171,18 +171,21 @@ Azure Machine Learning Studio 中的自動化機器學習可讓您透過幾個�
 
 1. 選取左下角的 [部署最佳模型]  按鈕。
 
-1. 填入 [部署最佳模型]  窗格，如下所示：
+1. 填入 [部署模型]  窗格，如下所示：
 
     欄位| 值
     ----|----
     部署名稱| my-automl-deploy
     部署描述| 我的第一個自動化機器學習實驗部署
-    評分指令碼| 自動產生
-    環境指令碼| 自動產生
+    計算類型 | 選取 Azure 計算執行個體 (ACI)
+    啟用驗證| 停用。 
+    使用自訂部署| 停用。 允許自動產生預設驅動程式檔案 (計分指令碼) 和環境檔案。 
     
+    在此範例中，我們使用 [進階]  功能表中提供的預設值。 
+
 1. 選取 [部署]  。  
 
-    在 [建議的模型]  窗格中，當部署完成時，[部署狀態]  下會出現部署成功訊息。 定期選取 [重新整理]  以檢查部署狀態。
+    [執行]  畫面頂端會出現綠色成功訊息，而在 [建議的模型]  窗格中，狀態訊息會顯示在 [部署狀態]  底下。 定期選取 [重新整理]  以檢查部署狀態。
     
 現在您已有可運作的 Web 服務，可用來產生預測。 
 

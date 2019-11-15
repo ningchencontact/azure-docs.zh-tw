@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c2aa393f04a8db470dd8b739c0ed003477df0221
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286628"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615423"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 委派的資源管理
 
@@ -23,7 +23,7 @@ Azure 委派的資源管理是 Azure Lighthouse 的重要元件之一。 透過 
 Azure 委派的資源管理可讓使用者以邏輯方式將資源從某個租用戶投影至另一個。 這可讓某個 Azure Active Directory (Azure AD) 租用戶中的授權使用者，在屬於其客戶的不同 Azure AD 租用戶上執行管理作業。 服務提供者可以登入自己的 Azure AD 租用戶，並取得在委派的客戶訂用帳戶與資源群組中作業的授權。 這可讓他們代表其客戶執行管理作業，而不需要登入每個個別的客戶租用戶。
 
 > [!NOTE]
-> Azure 委派的資源管理也可以用於擁有多個 Azure AD 租用戶的企業內，以簡化跨租用戶管理。
+> Azure 委派的資源管理也可以用於[擁有多個 Azure AD 租用戶的企業內](enterprise.md)，以簡化跨租用戶管理。
 
 透過 Azure 委派的資源管理，授權使用者可以直接在客戶訂用帳戶的內容中作業，而不需要在該客戶租用戶中擁有帳戶，或是成為該客戶租用戶的共同擁有者。 他們也可以在 Azure 入口網站[新的 [我的客戶]  頁面中檢視及管理所有委派的客戶訂用帳戶](../how-to/view-manage-customers.md)。
 

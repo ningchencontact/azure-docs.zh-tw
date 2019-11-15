@@ -1,5 +1,5 @@
 ---
-title: Azure 資訊安全中心快速入門 - 將您的 Linux 電腦上架到資訊安全中心 | Microsoft Docs
+title: 將 Linux 電腦登入 Azure 資訊安全中心 | Microsoft Docs
 description: 本快速入門說明如何將您的 Linux 電腦上架到資訊安全中心。
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202896"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664487"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>快速入門：將 Linux 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建代理程式，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的 Linux 資源啟用資訊安全中心。 代理程式的名稱為 Microsoft Monitoring Agent (MMA)，但其另稱為「OMS 代理程式」。

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 04/19/2019
+ms.date: 11/04/2019
 ms.author: nitinme
-ms.openlocfilehash: 5337f2d3df395650c65ae4a12cbdf4f8ba90ca3d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 081951e2e77c7fdd077dc92fe0368423db85f641
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840403"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606963"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
@@ -26,20 +26,20 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |服務名稱|服務描述|
 |:-----------|:------------------|
 |[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "電腦視覺")|電腦視覺服務可供您存取進階演算法，以處理影像及傳回資訊。|
-|[自訂視覺服務](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "自訂視覺服務")|自訂視覺服務可讓您建置自訂影像分類器。|
-|[人臉識別 API](https://docs.microsoft.com/azure/cognitive-services/face/ "人臉識別 API")|人臉識別 API 提供進階的臉部識別演算法，以偵測和辨識臉部特徵。|
-|[表單辨識器](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "表單辨識器") (預覽)|表單辨識器會從表單文件中識別並擷取索引鍵/值組和資料表資料；然後輸出結構化資料，包括原始檔案中的關聯性。|
-|[筆跡辨識器](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "") (預覽)|筆跡辨識器可讓您辨識並分析數位筆跡的筆觸資料、圖形和手寫內容，以及輸出包含所有已辨識實體的文件結構。|
-|[影片索引器](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引器")|影片索引器可讓您從影片中擷取深入解析。|
+|[自訂視覺服務](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "自訂辨識服務")|自訂視覺服務可讓您建置自訂影像分類器。|
+|[臉部 API](https://docs.microsoft.com/azure/cognitive-services/face/ "人臉識別 API")|人臉識別 API 提供進階的臉部識別演算法，以偵測和辨識臉部特徵。|
+|[表單辨識器](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "表單辨識器") \(預覽\)|表單辨識器會從表單文件中識別並擷取索引鍵/值組和資料表資料；然後輸出結構化資料，包括原始檔案中的關聯性。|
+|[筆跡辨識器](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "筆跡辨識器") \(預覽\)|筆跡辨識器可讓您辨識並分析數位筆跡的筆觸資料、圖形和手寫內容，以及輸出包含所有已辨識實體的文件結構。|
+|[影片索引子](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引子")|影片索引器可讓您從影片中擷取深入解析。|
 
 ## <a name="speech-apis"></a>語音識別 API
 
 |服務名稱|服務描述|
 |:-----------|:------------------|
 |[語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "語音服務")|語音服務會將語音啟用功能加入應用程式。|
-|[說話者辨識 API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "說話者辨識 API") (預覽)|說話者辨識 API 提供說話者辨識和驗證的演算法。|
-|[Bing 語音](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing 語音") (即將淘汰)|Bing 語音 API 可讓您輕鬆在應用程式中建立語音開啟功能。|
-|[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "翻譯工具語音") (即將淘汰)|翻譯工具語音是機器翻譯服務。|
+|[說話者辨識 API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "說話者辨識 API") \(預覽\)|說話者辨識 API 提供說話者辨識和驗證的演算法。|
+|[Bing 語音](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing 語音") \(即將淘汰\)|Bing 語音 API 可讓您輕鬆在應用程式中建立語音開啟功能。|
+|[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") \(即將淘汰\)|翻譯工具語音是機器翻譯服務。|
 
 ## <a name="language-apis"></a>語言 API
 
@@ -48,8 +48,8 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding 服務 (LUIS) 可讓應用程式了解人在文字中所表達的意思。|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker 可讓您從半結構化內容建置問題與解答服務。|
 |[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "文字分析")|文字分析可針對原始文字進行自然語言處理，進行情感分析、關鍵片語擷取和語言偵測。|
-|[翻譯工具文字](https://docs.microsoft.com/azure/cognitive-services/translator/ "翻譯工具文字")|翻譯工具文字提供幾乎即時的機器式文字翻譯。|
-|[影片索引器](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引器")|影片索引器可讓您從影片中擷取深入解析。|
+|[翻譯工具文字](https://docs.microsoft.com/azure/cognitive-services/translator/ "翻譯文字")|翻譯工具文字提供幾乎即時的機器式文字翻譯。|
+|[影片索引子](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引子")|影片索引器可讓您從影片中擷取深入解析。|
 
 ## <a name="search-apis"></a>搜尋 API
 
@@ -63,28 +63,28 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Bing 實體搜尋")|Bing 實體搜尋會傳回 Bing 判斷與使用者查詢相關的實體相關資訊。|
 |[Bing 影像搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing 影像搜尋")|Bing 影像搜尋會傳回與使用者查詢相關的影像。|
 |[Bing 圖像式搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing 圖像式搜尋")|Bing 圖像式搜尋會傳回深入解析的影像，例如視覺效果類似的影像、影像中找到的產品購物來源，以及相關搜尋。|
-|[Bing 當地企業搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing當地企業搜尋")| Bing 當地企業搜尋 API 可讓您的應用程式依搜尋查詢項目，尋找當地商家的連絡方式及位置資訊。|
+|[Bing 當地企業搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing 當地企業搜尋")| Bing 當地企業搜尋 API 可讓您的應用程式依搜尋查詢項目，尋找當地商家的連絡方式及位置資訊。|
 |[Bing 拼字檢查](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing 拼字檢查")|Bing 拼字檢查可讓您執行內容的文法與拼字檢查。|
 
 ## <a name="decision-apis"></a>決策 API
 
 |服務名稱|服務描述|
 |:-----------|:------------------|
-|[異常偵測器](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "異常偵測器") (預覽)|異常偵測器可讓您監視和偵測時間序列資料中的異常狀況。|
+|[異常偵測器](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "異常偵測器") \(預覽\)|異常偵測器可讓您監視和偵測時間序列資料中的異常狀況。|
 |[內容仲裁](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "內容仲裁")|內容仲裁可監視潛在的冒犯、惡意或具風險之內容。|
-|[個人化工具](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "個人化工具") (預覽)|個人化工具可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。|
+|[個人化工具](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "個人化工具")|個人化工具可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。|
 
 ## <a name="use-free-trials"></a>使用免費試用版
 
-[註冊免費試用版](https://azure.microsoft.com/try/cognitive-services/ "註冊說明")只需一封電子郵件和幾個簡單步驟即可完成。 您需要 Microsoft 帳戶 (如果您還沒有帳戶的話)。 您將會收到適用於每個要求 API 的唯一金鑰組。 第二個金鑰僅供備用。 請勿與任何人共用祕密金鑰。 就每秒或每分鐘的交易來說，試用會有速率限制，而且也有每月使用量上限。 一個交易就只是一個 API 呼叫。 您可以升級到付費層來解除鎖定限制。
+[註冊免費試用版](https://azure.microsoft.com/try/cognitive-services/ "註冊說明")只需一封電子郵件和數個簡單步驟即可完成。 您需要 Microsoft 帳戶 (如果您還沒有帳戶的話)。 您將會收到適用於每個要求 API 的唯一金鑰組。 第二個金鑰僅供備用。 請勿與任何人共用祕密金鑰。 就每秒或每分鐘的交易來說，試用會有速率限制，而且也有每月使用量上限。 一個交易就只是一個 API 呼叫。 您可以升級到付費層來解除鎖定限制。
 
 ## <a name="subscription-management"></a>訂用帳戶管理
 
-在您使用「Microsoft 帳戶」登入之後，就能存取[我的訂用帳戶](https://www.microsoft.com/cognitive-services/subscriptions "我的訂用帳戶")來顯示您目前使用的產品、剩餘的配額，以及是否能夠將其他產品新增至訂用帳戶。
+在您使用 Microsoft 帳戶登入之後，就能存取[我的訂用帳戶](https://www.microsoft.com/cognitive-services/subscriptions "我的訂用帳戶")，來顯示您目前使用的產品、剩餘的配額，以及是否能夠將其他產品新增至您的訂用帳戶。
 
 ## <a name="upgrade-to-unlock-limits"></a>升級以解除鎖定限制
 
-所有 API 都有免費試用方案，其中有使用量和輸送量的限制。  若要增加這些限制數量，當您在 Azure 入口網站中部署服務時，您可以使用付費供應項目並選取適當的定價層選項。 [深入了解供應項目及定價](https://azure.microsoft.com/pricing/details/cognitive-services/ "供應項目及定價")。 您必須設定含有信用卡和電話號碼的 Azure 訂閱者帳戶。 如果您有特殊需求，或者只想與銷售人員交談，請按一下[定價] 頁面頂端的 [與我們連絡] 按鈕。
+所有 API 都有免費試用方案，其中有使用量和輸送量的限制。  若要增加這些限制數量，當您在 Azure 入口網站中部署服務時，您可以使用付費供應項目並選取適當的定價層選項。 [深入了解供應項目和價格](https://azure.microsoft.com/pricing/details/cognitive-services/ "o供應項目和價格)。 您必須設定含有信用卡和電話號碼的 Azure 訂閱者帳戶。 如果您有特殊需求，或者只想與銷售人員交談，請按一下[定價] 頁面頂端的 [與我們連絡] 按鈕。
 
 ## <a name="regional-availability"></a>區域可用性
 

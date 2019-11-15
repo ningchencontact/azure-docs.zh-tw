@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: c2a8c60502aeb75173371d40475b5d2875417791
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808630"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622496"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
@@ -534,6 +534,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[查詢語言](../concepts/query-language.md)
-- 了解[探索資源](../concepts/explore-resources.md)
-- 請參閱[進階查詢](advanced.md)的範例
+- 深入了解[查詢語言](../concepts/query-language.md)。
+- 深入了解如何[探索資源](../concepts/explore-resources.md)。
+- 請參閱[進階查詢](advanced.md)的範例。

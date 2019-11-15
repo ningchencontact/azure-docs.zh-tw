@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 016fbc8808c11f861dd4388ea5fb062c840187ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a1f4addf9bb1fff34d99867fb3730a9197c9c05
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561986"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721233"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>註冊 Azure Active Directory Premium 版本
 您可以使用您的 Azure 訂用帳戶來購買 Azure Active Directory (Azure AD) Premium 版本並與其產生關聯。 如果您需要建立新的 Azure 訂用帳戶，您也需要啟用授權方案及 Azure AD 服務存取。
@@ -37,7 +37,7 @@ ms.locfileid: "68561986"
 使用具有先前已購買並啟用之 Azure AD 授權的 Azure 訂用帳戶註冊，將能自動在相同的目錄中啟用授權。 如果沒有自動啟用，您仍必須啟用您的授權方案和 Azure AD 存取。 如需啟用授權方案的詳細資訊，請參閱[啟用您的新授權方案](#activate-your-new-license-plan)。 如需啟用 Azure AD 存取的詳細資訊，請參閱[啟用您的 Azure AD 存取](#activate-your-azure-ad-access)。 
 
 ## <a name="sign-up-using-your-existing-azure-or-office-365-subscription"></a>使用現有的 Azure 或 Office 365 訂用帳戶註冊
-身為 Azure 或 Office 365 訂閱者，您可以在線上購買 Azure Active Directory Premium 版本。 如需詳細步驟，請參閱[如何購買 Azure Active Directory Premium - 現有客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer)或[如何購買 Azure Active Directory Premium - 新客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)。
+身為 Azure 或 Office 365 訂閱者，您可以在線上購買 Azure Active Directory Premium 版本。 如需詳細步驟，請參閱[如何購買 Azure Active Directory Premium - 新客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) \(英文\)。
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>使用 Enterprise Mobility + Security 授權方案註冊
 Enterprise Mobility + Security 是一個套件，其中包含 Azure AD Premium、Azure 資訊保護，以及 Microsoft Intune。 如果您已經擁有 EMS 授權，則可以利用下列其中一個授權選項開始使用 Azure AD：

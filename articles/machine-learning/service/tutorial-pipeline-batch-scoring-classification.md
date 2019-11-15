@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.date: 11/04/2019
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695621"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796702"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>建置 Azure Machine Learning 管線並用它進行批次評分
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 在本教學課程中，您會使用 Azure Machine Learning 中的管線執行批次評分作業。 此範例會使用預先定型的 [Inception-V3](https://arxiv.org/abs/1512.00567) 迴旋神經網路 Tensorflow 模型來分類未標記的影像。 在建置和發佈管線之後，您可以設定可讓您從任何平台上的任何 HTTP 程式庫觸發管線的 REST 端點。
 
@@ -292,7 +294,7 @@ if __name__ == "__main__":
 ```
 
 > [!TIP]
-> 本教學課程中的管線只有一個步驟，此步驟會將輸出寫入至檔案。 在有多個步驟的管線中，您也可以使用 `ArgumentParser` 來定義目錄以供寫入輸出資料，從而作為後續步驟的輸入。 如需使用 ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) 設計模式在多個管線步驟之間傳遞資料的範例，請參閱`ArgumentParser`筆記本[。
+> 本教學課程中的管線只有一個步驟，此步驟會將輸出寫入至檔案。 在有多個步驟的管線中，您也可以使用 `ArgumentParser` 來定義目錄以供寫入輸出資料，從而作為後續步驟的輸入。 如需使用 `ArgumentParser` 設計模式在多個管線步驟之間傳遞資料的範例，請參閱[筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb)。
 
 ## <a name="build-and-run-the-pipeline"></a>建置並執行管線
 
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>從 REST 端點發佈和執行
 
-執行下列程式碼將管線發佈到工作區。 在 Azure 入口網站的工作區中，您可以看到管線的中繼資料，包括執行歷程記錄和持續時間。 您也可以從入口網站手動執行管線。
+執行下列程式碼將管線發佈到工作區。 在 Azure Machine Learning Studio 的工作區中，您可以看到管線的中繼資料，包括執行歷程記錄和持續時間。 您也可以從 Studio 手動執行管線。
 
 發佈管線後，您即可使用 REST 端點從任何平台上的任何 HTTP 程式庫執行該管線。
 
@@ -478,7 +480,7 @@ published_pipeline
 
 若要使用服務主體驗證，必須在 *Azure Active Directory* 建立中*應用程式註冊*。 首先，您必須產生用戶端密碼，然後將您的服務主體*角色存取權*授與機器學習工作區。 請使用 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) 類別管理您的驗證流程。 
 
-`InteractiveLoginAuthentication` 和 `ServicePrincipalAuthentication` 都繼承自 `AbstractAuthentication`。 在這兩種情況下，均應以相同方式使用 `get_authentication_header()` 函式來擷取標頭：
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) 和 `ServicePrincipalAuthentication` 都繼承自 `AbstractAuthentication`。 在這兩種情況下，均應以相同方式使用 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) 函式來擷取標頭：
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -487,7 +489,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-從已發佈管線物件的 `endpoint` 屬性取得 REST URL。 您也可以在 Azure 入口網站的工作區中找到 REST URL。 
+從已發佈管線物件的 `endpoint` 屬性取得 REST URL。 您也可以在 Azure Machine Learning Studio 的工作區中找到 REST URL。 
 
 建置對端點的 HTTP POST 要求。 請在要求中指定您的驗證標頭。 新增具有實驗名稱和批次大小參數的 JSON 承載物件。 本教學課程先前曾提到，`param_batch_size` 會傳遞至 `batch_scoring.py` 指令碼，因為您已將其定義為步驟設定中的 `PipelineParameter` 物件。
 
@@ -522,12 +524,7 @@ RunDetails(published_pipeline_run).show()
 
 ### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
 
-如果您使用雲端 Notebook 伺服器，為了降低成本，當您不使用 VM 時，請停止該 VM：
-
-1. 在您的工作區中，選取 [Notebook VM]  。
-1. 在 VM 清單中，選取要停止的 VM。
-1. 選取 [停止]  。
-1. 當您準備好再次使用伺服器時，請選取 [啟動]  。
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>刪除所有內容
 

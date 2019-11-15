@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70744080"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622064"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 建立第一個函式
 
@@ -26,7 +26,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-擴充功能目前支援 C#、JavaScript、Java 和 Python 函式。 本文和後續文章中的步驟只支援 JavaScript 和 C# 函式。 若要了解如何使用 Visual Studio Code 來建立和發佈 Python 函式，請參閱[將 Python 部署至 Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。 若要了解如何使用 Visual Studio Code 來建立和發佈 PowerShell 函式，請參閱[在 Azure 中建立您的第一個 PowerShell 函式](functions-create-first-function-powershell.md)。 
+擴充功能目前支援 C#、JavaScript、Java 和 Python 函式。 本文和後續文章中的步驟只支援 JavaScript 和 C# 函式。 若要了解如何使用 Visual Studio Code 來建立和發佈 Python 函式，請參閱[使用 Visual Studio Code 在 Python 中建立和部署無伺服器 Azure Functions](/azure/python/tutorial-vs-code-serverless-python-01)。 若要了解如何使用 Visual Studio Code 來建立和發佈 PowerShell 函式，請參閱[在 Azure 中建立您的第一個 PowerShell 函式](functions-create-first-function-powershell.md)。 
 
 此擴充功能目前為預覽狀態。 若要進一步了解，請參閱[適用於 Visual Studio Code 的 Azure Functions 擴充功能]的擴充功能頁面。
 

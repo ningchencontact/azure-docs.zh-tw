@@ -15,6 +15,10 @@
   items:
     - name: 使用影片索引器 API
       href: video-indexer-use-apis.md
+- name: 範例
+  items:
+    - name: 即時串流分析
+      href: live-stream-analysis.md
 - name: 概念
   items:
     - name: 概觀

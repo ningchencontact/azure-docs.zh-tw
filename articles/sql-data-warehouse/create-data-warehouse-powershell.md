@@ -1,5 +1,5 @@
 ---
-title: 快速入門：建立 Azure SQL 資料倉儲 - Azure Powershell | Microsoft Docs
+title: 快速入門：建立倉儲 - Azure Powershell
 description: 快速使用 Azure PowerShell 建立 SQL Database 邏輯伺服器、伺服器層級防火牆規則及資料倉儲。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,18 +10,19 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574897"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693109"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入門：如何使用 Azure PowerShell 建立和查詢 Azure SQL 資料倉儲
 
 快速使用 Azure PowerShell 建立 Azure SQL 資料倉儲。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 > [!NOTE]
 > 建立 SQL 資料倉儲可能會導致新的可計費服務。  如需詳細資訊，請參閱 [SQL 資料倉儲價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)。
@@ -42,7 +43,7 @@ Connect-AzAccount
 Get-AzSubscription
 ```
 
-若要使用不同於預設值的訂用帳戶，請執行 [Set-AzContext](/powershell/module/az.accounts/set-azcontext)。
+如果需要使用不同於預設值的訂用帳戶，請執行 [Set-AzContext](/powershell/module/az.accounts/set-azcontext)。
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -119,7 +120,7 @@ New-AzSqlDatabase `
 
 必要參數如下：
 
-* **RequestedServiceObjectiveName**：您要求的[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)數量。 增加此數量會增加計算成本。 如需支援值的清單，請參閱[記憶體和並行存取限制](memory-and-concurrency-limits.md)。
+* **RequestedServiceObjectiveName**：您要求的[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)數量。 增加此數量會增加計算成本。 如需支援值的清單，請參閱 [記憶體和並行存取限制]memory-concurrency-limits.md)。
 * **DatabaseName**：您要建立之 SQL 資料倉儲的名稱。
 * **ServerName**：您用來建立的伺服器名稱。
 * **ResourceGroupName**：您使用的資源群組。 若要尋找訂用帳戶中可用的資源，請使用 Get-AzureResource。

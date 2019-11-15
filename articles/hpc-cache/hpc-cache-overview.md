@@ -1,19 +1,19 @@
 ---
-title: Azure HPC Cache 預覽概觀
+title: Azure HPC Cache 概觀
 description: 說明 Azure HPC Cache，這是高效能運算的檔案存取加速器解決方案
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: bfbbcd2d7d1bb44e260bedda54ca38ed6860ea67
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254494"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582136"
 ---
-# <a name="what-is-azure-hpc-cache-preview"></a>什麼是 Azure HPC Cache？ (預覽)
+# <a name="what-is-azure-hpc-cache"></a>什麼是 Azure HPC Cache？
 
 Azure HPC Cache 可加快資料存取速度，以進行高效能運算 (HPC) 工作。 藉由在 Azure 中快取檔案，Azure HPC Cache 會將雲端運算的延展性帶入您現有的工作流程。 這項服務甚至可用於透過 WAN 連結儲存資料的工作流程，例如在您的本機資料中心網路連接儲存裝置 (NAS) 環境中。
 
@@ -54,13 +54,17 @@ Azure HPC Cache 可在下列 Azure 區域使用：
 * 北歐
 * 西歐
 * 東南亞
+* 雪梨
 * 美國西部 2
+* 南韓中部
 
 如需最新的可用性資訊 ，請查看 [Azure HPC Cache 產品頁面](https://azure.microsoft.com/services/hpc-cache)。
 
-## <a name="preview-availability"></a>預覽可用性
+## <a name="service-availability"></a>服務可用性
 
-Azure HPC Cache 公開預覽限於確保服務品質。 填寫[這份表單](https://aka.ms/onboard-hpc-cache)以要求存取權。 將訂用帳戶新增至存取清單之後，即可建立測試快取。
+您必須針對每個將與 Azure HPC Cache 搭配使用的訂用帳戶要求存取權。 此限制有助於在正式運作的最初幾個月中確保服務品質。
+
+填寫[這份表單](https://aka.ms/onboard-hpc-cache)以要求存取權。 將訂用帳戶新增至存取清單之後，即可建立快取。
 
 ## <a name="next-steps"></a>後續步驟
 

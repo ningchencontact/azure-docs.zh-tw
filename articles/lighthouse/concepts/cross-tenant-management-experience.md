@@ -4,19 +4,19 @@ description: Azure 委派的資源管理能提供跨租用戶管理體驗。
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/18/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825812"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租用戶管理體驗
 
-此文章說明身為服務提供者的您可以搭配 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)來從您位於 [Azure 入口網站](https://portal.azure.com)的租用戶內管理多個客戶的 Azure 資源的案例。
+身為服務提供者的您可以使用 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)，從您位於 [Azure 入口網站](https://portal.azure.com)的租用戶內管理多個客戶的 Azure 資源。 大部分的工作和服務都可以對受控租用戶中委派的 Azure 資源執行。 此文章說明一些可讓 Azure 委派的資源管理生效的增強案例。
 
 > [!NOTE]
 > Azure 委派的資源管理也可以用於擁有多個租用戶的企業內，以簡化跨租用戶管理。
@@ -37,9 +37,20 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 ![透過其中一個服務提供者租用戶進行管理的客戶資源](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="supported-services-and-scenarios"></a>支援的服務與案例
+## <a name="apis-and-management-tool-support"></a>API 和管理工具支援
 
-目前，跨租用戶管理體驗支援搭配委派之客戶資源的下列案例：
+您可以直接在入口網站中，或是使用 API 與管理工具 (例如 Azure CLI 和 Azure PowerShell)，對委派的資源執行管理工作。 所有現有的 API 都可以在使用委派的資源時使用，但前提是，此功能支援跨租用戶管理，且使用者擁有適當的權限。
+
+我們也會提供 API 來執行 Azure 委派的資源管理工作。 如需詳細資訊，請參閱**參考**一節。
+
+## <a name="enhanced-services-and-scenarios"></a>增強的服務與案例
+
+大部分的工作和服務都可以對受控租用戶中委派的資源執行。 以下是跨租用戶管理適用的一些主要案例。
+
+[適用於伺服器的 Azure Arc (預覽)](https://docs.microsoft.com/azure/azure-arc/servers/overview)：
+
+- [將 Azure 外部的 Windows Server 或 Linux 電腦連線](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal)到 Azure 中委派的訂用帳戶和/或資源群組
+- 使用 Azure 結構管理已連線的電腦，例如 Azure 原則和標記
 
 [Azure 自動化](https://docs.microsoft.com/azure/automation/)：
 
@@ -55,7 +66,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/)：
 
-- 在 Azure 入口網站中或透過 REST API 呼叫以程式設計方式來檢視委派之訂用帳戶的警示，同時能夠檢視所有訂用帳戶上的警示
+- 檢視委派之訂用帳戶的警示，並能夠在所有訂用帳戶之間檢視警示
 - 檢視委派之訂用帳戶的活動記錄詳細資料
 - 記錄分析：來自多個租用戶中的遠端客戶工作區的查詢資料
 - 在客戶租用戶中建立警示，以透過 Webhook 在服務提供者租用戶中觸發自動化 (例如 Azure 自動化 Runbook 或 Azure Functions)
@@ -121,16 +132,9 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 在所有案例中，請留意下列目前限制：
 
 - 由 Azure Resource Manager 所處理的要求可以使用 Azure 委派的資源管理來執行。 這些要求的作業 URI 會以 `https://management.azure.com` 作為開頭。 不過，由某個資源類型 (例如 KeyVault 祕密存取或儲存體資料存取) 的執行個體所處理的要求，並不支援 Azure 委派的資源管理。 這些要求的作業 URI 通常會以您執行個體特有的位址作為開頭，例如 `https://myaccount.blob.core.windows.net` 或 `https://mykeyvault.vault.azure.net/`。 此外，後者通常是資料作業，而非管理作業。 
-- 角色指派必須使用角色型存取控制 (RBAC) [內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) \(部分機器翻譯\)。 除了「擁有者」、「使用者存取系統管理員」，或是具有 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) \(部分機器翻譯\) 權限的任何內建角色以外，所有內建角色目前都支援 Azure 委派的資源管理。 此外，也不支援自訂角色與[傳統訂用帳戶管理員角色](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) \(部分機器翻譯\)。
-- 目前，如果訂用帳戶是使用 Azure Databricks，您便無法將該訂用帳戶 (或資源群組內的訂用帳戶) 上線以用於 Azure 委派的資源管理。 同樣地，如果訂用帳戶已向 **Microsoft.ManagedServices** 資源提供者註冊要上線，您目前無法為該訂用帳戶建立 Databricks 工作區。
+- 角色指派必須使用角色型存取控制 (RBAC) [內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) \(部分機器翻譯\)。 除了「擁有者」或具有 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) \(部分機器翻譯\) 權限的任何內建角色以外，Azure 委派的資源管理目前支援所有內建角色。 只有在[將角色指派給受控識別](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)時，才支援「使用者存取系統管理員」角色的有限用途。  此外，不支援自訂角色與[傳統訂用帳戶管理員角色](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) \(部分機器翻譯\)。
+- 目前，如果訂用帳戶使用 Azure Databricks，您無法將訂用帳戶 (或資源群組內的訂用帳戶) 上線至 Azure 委派的資源管理。 同樣地，如果訂用帳戶已向 **Microsoft.ManagedServices** 資源提供者註冊要上線，您目前無法為該訂用帳戶建立 Databricks 工作區。
 - 雖然您可以將訂用帳戶和資源群組上線，以進行 Azure 委派的資源管理來鎖定資源，但這些鎖定無法防止管理租用戶中的使用者執行動作。 [拒絕指派](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)可保護系統管理的資源，例如由 Azure 管理的應用程式或 Azure 藍圖所建立的資源 (系統指派的拒絕指派)，因此可防止管理租用戶中的使用者在這些資源上執行動作；不過，目前客戶租用戶中的使用者無法建立自己的拒絕指派 (使用者指派的拒絕指派)。
-
-## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>搭配跨租用戶管理使用 API 與管理工具
-
-針對以上所列的支援服務與案例，您可以直接在入口網站中，或是使用 API 與管理工具 (例如 Azure CLI 和 Azure PowerShell) 來執行管理工作。 處理委派的資源時，將可以 (針對所支援的服務) 使用所有現有的 API。
-
-此外還有專門用來執行 Azure 委派的資源管理工作的 API。 如需詳細資訊，請參閱**參考**一節。
-
 
 ## <a name="next-steps"></a>後續步驟
 

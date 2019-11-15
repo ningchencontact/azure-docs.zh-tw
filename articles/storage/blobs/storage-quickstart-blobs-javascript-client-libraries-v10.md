@@ -2,19 +2,19 @@
 title: 快速入門 - 在瀏覽器中使用 JavaScript 和 HTML 建立 Azure 儲存體中的 Blob
 description: 了解如何在 HTML 網頁中使用 JavaScript 上傳、列出及刪除 Blob。
 services: storage
-author: KarlErickson
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
-ms.author: karler
+ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172859"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686679"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -168,23 +168,23 @@ npx http-server
 
 ### <a name="add-the-blob-storage-client-library"></a>新增 Blob 儲存體用戶端程式庫
 
-若要對 Blob 儲存體 API 啟用呼叫，請先[下載適用於 JavaScript 的 Azure 儲存體 SDK - Blob 用戶端程式庫](https://aka.ms/downloadazurestoragejsblob)，將 zip 內容解壓縮，然後將 azure-storage.blob.js  檔案放在 azure-blobs-javascript  資料夾中。
+若要對 Blob 儲存體 API 啟用呼叫，請先[下載適用於 JavaScript 的 Azure 儲存體 SDK - Blob 用戶端程式庫](https://aka.ms/downloadazurestoragejsblob)、將 zip 內容解壓縮，然後將 *azure-storage-blob.js* 檔案放在 *azure-blobs-javascript* 資料夾中。
 
 接下來，將下列 HTML 貼到 index.html  的 `</body>` 結尾標記後面，並取代預留位置註解。
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-此程式碼會將參考新增至指令碼檔案，並為您自己的 JavaScript 程式碼提供位置。 基於本快速入門的目的，我們會使用 azure-storage.blob.js  指令碼檔案，因此，您可以在 VS Code 中將其開啟，然後讀取內容及設定中斷點。 在生產環境中，您應該使用較精簡的 *azure-storage.blob.min.js* 檔案，這也會以 zip 檔案提供。
+此程式碼會將參考新增至指令碼檔案，並為您自己的 JavaScript 程式碼提供位置。 基於本快速入門的目的，我們會使用 *azure-storage-blob.js* 指令碼檔案，讓您可以在 VS Code 中將其開啟、讀取其內容，然後設定中斷點。 在生產環境中，您應該使用較精簡的 *azure-storage.blob.min.js* 檔案，這也會以 zip 檔案提供。
 
 您可以在[參考文件](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index)中深入了解每個 Blob 儲存體函式。 請注意，SDK 中的某些函式只適用於 Node.js，或是僅適用於瀏覽器。
 
-azure-storage.blob.js  中的程式碼會匯出名為 `azblob` 的全域變數，您將會在 JavaScript 程式碼中使用此變數來存取 Blob 儲存體 API。
+*azure-storage-blob.js* 中的程式碼會匯出名為 `azblob` 的全域變數，您將會在 JavaScript 程式碼中使用此變數來存取 Blob 儲存體 API。
 
 ### <a name="add-the-initial-javascript-code"></a>新增最初的 JavaScript 程式碼
 

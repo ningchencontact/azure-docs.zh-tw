@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 11/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330826"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796216"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure 前端服務是什麼？
 Azure Front Door Service 可讓您針對最佳效能和立即全域容錯移轉以獲得高可用性最佳化，定義、管理及監視網路流量的全域路由。 透過 Front Door，您可以將全球 (多區域) 消費者和企業應用程式轉換成健全、高效能的個人化新式應用程式、API，以及觸及 Azure 全球對象的內容。
@@ -57,7 +57,7 @@ Front Door 在邊緣支援 SSL 終止，也就是個別使用者可以設定與 
 Front Door 也支援自訂網域名稱使用 HTTPS。 針對您的流量選擇受 Front Door 管理的憑證，或上傳您自己的自訂 SSL 憑證，即可使用此功能。
 
 ## <a name="application-layer-security"></a>應用程式層安全性
-Azure Front Door 可讓您撰寫自訂 Web 應用程式防火牆 (WAF) 規則進行存取控制，以保護您的 HTTP/HTTPS 工作負載，免於遭受以用戶端 IP 位址、國家/地區代碼及 http 參數為基礎的攻擊。 此外，Front Door 也可讓您建立速率限制規則來對抗惡意 Bot 流量。 
+Azure Front Door 可讓您撰寫自訂 Web 應用程式防火牆 (WAF) 規則進行存取控制，以保護您的 HTTP/HTTPS 工作負載，免於遭受以用戶端 IP 位址、國家/地區代碼及 http 參數為基礎的攻擊。 此外，Front Door 也可讓您建立速率限制規則來對抗惡意 Bot 流量。 如需有關 Web 應用程式防火牆的詳細資訊，請參閱[什麼是 Azure Web 應用程式防火牆？](../web-application-firewall/overview.md)
 
 Front Door 本身受到基本 [Azure DDoS 保護](../virtual-network/ddos-protection-overview.md)所保護。 如需進一步保護，可在您的 VNET 啟用標準 Azure DDoS 保護，以透過自動調整和風險降低，保護資源免於遭受網路層 (TCP/UDP) 攻擊。 Front Door 是第 7 層反向 Proxy，只允許 Web 流量傳遞到後端，且預設會封鎖其他類型的流量。
 

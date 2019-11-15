@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029725"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571210"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>快速入門：將功能旗標新增至 ASP.NET Core 應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "72029725"
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)。
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -79,7 +79,7 @@ ms.locfileid: "72029725"
 
 1. 儲存檔案。
 
-## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
 1. 藉由執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` 和 `Microsoft.FeatureManagement.AspNetCore` NuGet 套件：
 
@@ -115,6 +115,11 @@ ms.locfileid: "72029725"
     ```
 
 1. 藉由呼叫 `config.AddAzureAppConfiguration()` 方法將 `CreateWebHostBuilder` 方法更新為使用應用程式設定。
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` 會取代 .NET Core 3.0 中的 `CreateWebHostBuilder`。  根據您的環境選取正確的語法。
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>更新 .NET Core 2.x 的 `CreateWebHostBuilder`
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -124,11 +129,27 @@ ms.locfileid: "72029725"
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
+                            .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
     ```
+
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>更新 .NET Core 3.x 的 `CreateHostBuilder`
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
+                .UseFeatureFlags();
+        })
+        .UseStartup<Startup>());
+    ```
+
 
 1. 開啟 Startup.cs  ，並將參考新增至 .NET Core 功能管理員：
 
@@ -267,7 +288,7 @@ ms.locfileid: "72029725"
     |---|---|
     | Beta | 另一 |
 
-1. 切換回命令提示字元，然後按 `Ctrl-C` 取消執行 `dotnet` 的程序，然後重新執行 `dotnet run`，以重新啟動您的應用程式。
+1. 切換回命令提示字元，然後按 `Ctrl-C` 以取消執行中 `dotnet` 程序，然後重新執行 `dotnet run`，藉以重新啟動您的應用程式。
 
 1. 重新整理瀏覽器頁面，以查看新的組態設定。
 

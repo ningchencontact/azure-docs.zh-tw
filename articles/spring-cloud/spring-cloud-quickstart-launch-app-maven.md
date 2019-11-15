@@ -1,27 +1,34 @@
 ---
 title: 快速入門：使用 Maven 啟動應用程式 - Azure Spring Cloud
 description: 使用 Maven 啟動範例應用程式
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/05/2019
-ms.author: v-vasuke
-ms.openlocfilehash: e773b997cca3fa9a1f11fec2ac449e1fc11c5364
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: cb6032938379b632b743827153c61fd3e18c1cfe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554565"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721593"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-app-by-using-the-maven-plug-in"></a>快速入門：使用 Maven 外掛程式啟動 Azure Spring Cloud 應用程式
+# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>快速入門：使用 Maven 外掛程式啟動 Azure Spring Cloud 應用程式
 
-您可以使用 Azure Spring Cloud 的 Maven 外掛程式來輕鬆地建立及更新 Azure Spring Cloud 服務應用程式。 藉由預先定義設定，您可以將應用程式部署到現有 Azure Spring Cloud 服務。 在此文章中，您將使用稱為 PiggyMetrics 的範例應用程式來示範此功能。
+您可以使用 Azure Spring Cloud 的 Maven 外掛程式，輕鬆地建立及更新 Azure Spring Cloud 應用程式。 藉由預先定義設定，您可以將應用程式部署到現有 Azure Spring Cloud 服務。 在此文章中，您將使用稱為 PiggyMetrics 的範例應用程式來示範此功能。
+
+透過遵循本快速入門，您將能了解如何：
+
+> [!div class="checklist"]
+> * 佈建服務執行個體
+> * 設定執行個體的設定伺服器
+> * 在本機複製並建置微服務應用程式
+> * 部署每個微服務
+> * 為您的應用程式指派公用端點
 
 >[!Note]
-> 開始本快速入門之前，請確定您的 Azure 訂用帳戶可以存取 Azure Spring Cloud。 作為預覽服務，我們邀請您與我們聯繫，讓我們可以將您的訂用帳戶新增至我們的允許清單。 如果您想要探索 Azure Spring Cloud 的功能，請填寫並提交 [Azure Spring Cloud (個人預覽版) - 意願表單](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u)。
+> Azure Spring Cloud 目前提供公開預覽版。 公開預覽版供應項目可讓客戶在其正式發行前，先試驗新功能。  公開預覽功能和服務不適用於生產環境。  如需有關預覽期間支援的詳細資訊，請參閱我們的[常見問題集](https://azure.microsoft.com/support/faq/)或提出[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)以深入了解。
+
 
 >[!TIP]
 > Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的命令。 其中已預先安裝常用的 Azure 工具，包括 Git、Java 開發套件 (JDK)、Maven 和 Azure CLI 的最新版本。 如果您已登入 Azure 訂用帳戶，請啟動 [Azure Cloud Shell](https://shell.azure.com)。 如需詳細資訊，請參閱 [Azure Cloud Shell 概觀](../cloud-shell/overview.md)。
@@ -31,7 +38,7 @@ ms.locfileid: "72554565"
 1. [安裝 Git](https://git-scm.com/)。
 2. [安裝 JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。
 3. [安裝 Maven 3.0 或更新版本](https://maven.apache.org/download.cgi)。
-4. [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+4. [安裝 Azure CLI 2.0.67 版或更新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 5. [註冊免費的 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="install-the-azure-cli-extension"></a>安裝 Azure CLI 擴充功能
@@ -39,32 +46,39 @@ ms.locfileid: "72554565"
 使用下列命令安裝適用於 Azure CLI 的 Azure Spring Cloud 擴充功能：
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>在 Azure 入口網站上佈建服務執行個體
 
-1. 在網頁瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)並登入您的帳戶。
+1. 在網頁瀏覽器中，開啟 [Azure 入口網站中 Azure Spring Cloud 的這個連結](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)，並登入您的帳戶。
 
-1. 搜尋 **Azure Spring Cloud** 並加以選取。 
-1. 在 [概觀] 頁面上選取 [建立]  ，然後執行下列動作：  
+1. 在 [概觀]  頁面上選取 [建立]  ，以開啟 [建立] 對話方塊。
 
-    a. 在 [服務名稱]  方塊中，指定您服務執行個體的名稱。 名稱長度必須為 4 到 32 個字元，且只能包含小寫字母、數字及連字號。 服務名稱的第一個字元必須是字母，且最後一個字元必須是字母或數字。  
+1. 提供範例應用程式的**專案詳細資料**，如下所示：
 
-    b. 在 [訂用帳戶]  下拉式清單中，選取您希望用來支付此資源的訂用帳戶。 請確定此訂用帳戶已新增至我們的 Azure Spring Cloud 允許清單。  
+    1. 選取將與應用程式建立關聯的 [訂用帳戶]  。
+    1. 選取或建立應用程式的資源群組。 建議您建立新的資源群組。  下列範例顯示一個名為 `myspringservice` 的新資源群組。
+    1. 為新的 Azure Spring Cloud 服務提供一個名稱。  名稱長度必須為 4 到 32 個字元，且只能包含小寫字母、數字及連字號。 服務名稱的第一個字元必須是字母，且最後一個字元必須是字母或數字。  下列範例中服務的名稱為 `contosospringcloud`。
+    1. 從提供的選項中選取您應用程式的位置。  在此範例中，我們選取 `East US`。
+    1. 選取 [檢閱 + 建立]  來檢閱新服務的摘要。  如果一切看起來都正確，請選取 [建立]  。
 
-    c. 在 [資源群組]  方塊中，建立新的資源群組。 為新資源建立資源群組是最佳做法。  
+    > [!div class="mx-imgBorder"]
+    > ![選取 [檢閱 + 建立]](media/maven-qs-review-create.jpg)
 
-    d. 在 [位置]  下拉式清單中，選取服務執行個體的位置。 目前支援的位置包括美國東部、美國西部 2、歐洲西部和東南亞。
-    
-部署服務需要約 5 分鐘。 部署好服務之後，服務執行個體的 [概觀]  頁面會隨即出現。
+部署服務需要約 5 分鐘。 部署服務之後，選取 [前往資源]  ，服務執行個體的 [概觀]  頁面隨即出現。
 
 ## <a name="set-up-your-configuration-server"></a>設定您的設定伺服器
 
 1. 在服務的 [概觀]  頁面上選取 [設定伺服器]  。
 1. 在 [預設存放庫]  區段中，將 [URI]  設定為 **https://github.com/Azure-Samples/piggymetrics** ，將 [標籤]  設定為 **config**，然後選取 [套用]  以儲存變更。
 
+    > [!div class="mx-imgBorder"]
+    > ![定義並套用組態設定](media/maven-qs-apply-config.jpg)
+
 ## <a name="clone-and-build-the-sample-application-repository"></a>複製並建置範例應用程式存放庫
+
+1. 啟動 [Azure Cloud Shell](https://shell.azure.com)。
 
 1. 執行下列命令以複製 Git 存放庫：
 
@@ -75,34 +89,16 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 1. 變更目錄，並執行下列命令來建置專案：
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
-## <a name="generate-and-deploy-the-azure-spring-cloud-configuration"></a>產生並部署 Azure Spring Cloud 設定
+## <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>產生設定並部署至 Azure Spring Cloud
 
-1. 若要讓 Maven 能夠與 Azure Spring Cloud 搭配使用，請將下列程式碼新增至您的 pom.xml  或 settings.xml  檔案。
-
-    ```xml
-    <pluginRepositories>
-      <pluginRepository>
-        <id>maven.snapshots</id>
-        <name>Maven Central Snapshot Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <releases>
-          <enabled>false</enabled>
-        </releases>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </pluginRepository>
-    </pluginRepositories>
-    ```
-
-1. 執行下列命令來產生設定：
+1. 在包含父系 POM 的 PiggyMetrics 根資料夾中執行下列命令，以產生設定：
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
     a. 選取模組 `gateway`、`auth-service` 和 `account-service`。
@@ -113,13 +109,13 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
     
     d. 確認設定。
 
-1. 使用下列命令來部署應用程式：
+1. POM 現在包含外掛程式相依性和設定。 使用下列命令部署應用程式：
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
+   mvn azure-spring-cloud:deploy
    ```
 
-1. 您可以使用上述命令輸出中提供的 URL 來存取 PiggyMetrics。
+1. 部署完成後，您可以使用上述命令輸出中提供的 URL 存取 PiggyMetrics。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -127,3 +123,4 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 > [!div class="nextstepaction"]
 > [準備您的 Azure Spring Cloud 應用程式以進行部署](spring-cloud-tutorial-prepare-app-deployment.md)
+> [深入了解適用於 Azure 的 Maven 外掛程式](https://github.com/microsoft/azure-maven-plugin)

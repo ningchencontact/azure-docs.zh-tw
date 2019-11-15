@@ -1,32 +1,31 @@
 ---
 title: 快速入門 - 在 Azure 入口網站中建立 Linux VM | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 Azure 入口網站來建立 Linux 虛擬機器
+description: 在本快速入門中，您將了解如何使用 Azure 入口網站來建立 Linux 虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091557"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693283"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Linux 虛擬機器
 
 您可以透過 Azure 入口網站建立 Azure 虛擬機器 (VM)。 Azure 入口網站是以瀏覽器為基礎的使用者介面，可用來建立 Azure 資源。 本快速入門說明如何使用 Azure 入口網站，來部署執行 Ubuntu 18.04 LTS 的 Linux 虛擬機器 (VM)。 為了查看作用中的 VM，您還會以 SSH 連線至 VM，並安裝 NGINX 網頁伺服器。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-ssh-key-pair"></a>建立 SSH 金鑰組
 
@@ -50,15 +49,14 @@ ms.locfileid: "70091557"
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
-1. 選擇 Azure 入口網站左上角的 [建立資源]  。
-
-1. 在 [熱門]  中，選取 [Ubuntu Server 18.04 LTS]  。
-
-1. 在 [基本資料]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶，然後在 [資源群組]  下方選擇 [新建]  。 輸入 myResourceGroup  作為資源群組的名稱，然後選擇 [確定]  。 
+1. 在搜尋中輸入**虛擬機器**。
+1. 在 [服務]  底下，選取 [虛擬機器]  。
+1. 在 [虛擬機器]  頁面中，選取 [新增]  。 [建立虛擬機器]  頁面隨即開啟。
+1. 在 [基本資料]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶，然後選擇 [新建]  資源群組。 輸入 *myResourceGroup* 作為名稱*。 
 
     ![為您的 VM 建立新的資源群組](./media/quick-create-portal/project-details.png)
 
-1. 在 [執行個體詳細資料]  底下，輸入 myVM  作為 [虛擬機器名稱]  ，然後選擇 [美國東部]  作為您的 [區域]  。 其他部分保留預設值。
+1. 在 [執行個體詳細資料]  底下，輸入 *myVM* 作為 [虛擬機器名稱]  、然後選擇 [美國東部]  作為您的 [區域]  ，然後選擇 [Ubuntu 18.04 LTS]  作為您的 [映像]  。 其他部分保留預設值。
 
     ![執行個體詳細資料區段](./media/quick-create-portal/instance-details.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 將帳戶新增至 Microsoft Authenticator 應用程式的概觀 - Azure Active Directory | Microsoft Docs
-description: 如何將工作和個人帳戶新增至 Microsoft Authenticator 應用程式以進行雙因素驗證的概觀。
+title: 將帳戶新增至驗證器應用程式的概觀 - Azure AD
+description: 有關如何將工作和個人帳戶新增至 Microsoft Authenticator 應用程式以進行雙重要素驗證的內容連結。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382643"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820270"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>將帳戶新增至 Microsoft Authenticator 應用程式的概觀
 
@@ -43,7 +43,7 @@ ms.locfileid: "68382643"
 | 工作或學校帳戶 | 公司或學校組織提供給您的帳戶，例如 alain@contoso.com。 |
 | 個人帳戶 | 您個人開啟的 Microsoft 和非 Microsoft 帳戶，例如 Outlook.com、Xbox LIVE、Google、Facebook 等等。 |
 
-## <a name="in-this-section"></a>本節內容
+## <a name="articles-about-how-to-add-different-accounts"></a>有關如何新增不同帳戶的文章
 
 | 文章 |說明 |
 | ------|------------|

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815759"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Python Web 應用程式
 
@@ -74,6 +74,13 @@ ms.locfileid: "72240189"
 >      - 選取 [1 年]  作為 [金鑰持續時間]。
 >      - 當您按一下 [新增]  時，金鑰值會隨即顯示。
 >      - 複製金鑰的值。 稍後您將會用到此資訊。
+> 1. 選取 [API 權限]  區段
+>
+>      - 按一下 [新增權限]  按鈕，然後
+>      - 確定已選取 [Microsoft API]  索引標籤
+>      - 在 [常用的 Microsoft API]  區段中，按一下 [Microsoft Graph] 
+>      - 在 [委派的權限]  區段中，請確定已選取正確的權限：**User.ReadBasic.All**。 如有需要請使用搜尋方塊。
+>      - 選取 [新增權限]  按鈕
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -83,9 +90,10 @@ ms.locfileid: "72240189"
 >
 > 1. 新增回覆 URL 作為 `http://localhost:5000/getAToken`。
 > 1. 建立用戶端密碼。
+> 1. 新增 Microsoft Graph API 的 User.ReadBasic.All 委派權限。
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [為我進行這項變更]()
+> > [為我進行這些變更]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已設定](media/quickstart-v2-aspnet-webapp/green-check.png) 您的應用程式已設定了這個屬性
 
@@ -100,8 +108,9 @@ ms.locfileid: "72240189"
 1. 開啟 **app_config.py** 檔案，其位於根資料夾並取代為下列程式碼片段：
 
 ```python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
@@ -109,6 +118,7 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 >
 > - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的應用程式識別碼。
 > - `Enter_the_Client_Secret_Here` - 您在 [憑證與祕密]  中為您所註冊的應用程式建立的 [用戶端密碼]  。
+> - `Enter_the_Tenant_Name_Here` - 是您所註冊之應用程式的 [目錄 (租用戶) 識別碼]  值。
 
 #### <a name="step-4-run-the-code-sample"></a>步驟 4：執行程式碼範例
 
@@ -123,6 +133,25 @@ CLIENT_ID = "Enter_the_Application_Id_here"
    ```Shell
    python app.py
    ```
+   > [!IMPORTANT]
+   > 此快速入門應用程式會使用用戶端密碼，將自己識別為機密用戶端。 由於用戶端密碼會以純文字形式新增至您的專案檔，因此，基於安全考量，在考慮將應用程式當作生產應用程式之前，建議您使用憑證，而非用戶端密碼。 如需如何使用憑證的詳細資訊，請參閱[這些指示](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials) \(部分機器翻譯\)。
+
+## <a name="more-information"></a>詳細資訊
+
+### <a name="getting-msal"></a>取得 MSAL
+MSAL 是用來登入使用者並要求權杖的程式庫，該權杖可用來存取受 Microsoft 身分識別平台保護的 API。
+您可以使用 PIP 來將 MSAL Python 新增至應用程式。
+
+```Shell
+pip install msal
+```
+
+### <a name="msal-initialization"></a>MSAL 初始化
+您可以藉由將下列程式碼新增至您將使用 MSAL 的檔案頂端，以將參考新增至 MSAL Python：
+
+```Python
+import msal
+```
 
 ## <a name="next-steps"></a>後續步驟
 

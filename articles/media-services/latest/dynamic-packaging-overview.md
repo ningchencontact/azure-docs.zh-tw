@@ -1,6 +1,7 @@
 ---
-title: Azure 媒體服務動態封裝概觀 | Microsoft Docs
-description: 此文章能提供 Azure 媒體服務中動態封裝的概觀。
+title: 媒體服務中的動態封裝
+titleSuffix: Azure Media Services
+description: Azure 媒體服務中動態封裝的概觀。
 author: Juliako
 manager: femila
 editor: ''
@@ -13,22 +14,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574881"
 ---
-# <a name="dynamic-packaging"></a>動態封裝
+# <a name="dynamic-packaging-in-media-services"></a>媒體服務中的動態封裝
 
-Microsoft Azure 媒體服務可用來編碼許多媒體來源檔案格式，並透過不同的串流通訊協定來傳遞這些檔案 (不論是否有內容保護)，以連線至所有主要裝置 (例如 iOS 和 Android 裝置)。 這些用戶端了解不同的通訊協定，例如 iOS 需要以 HTTP 即時串流 (HLS) 格式傳遞串流，而 Android 裝置可支援 HLS 和 MPEG DASH。 
+Microsoft Azure 媒體服務可以用來為許多媒體來源檔案格式編碼。 它會透過不同的串流通訊協定 (不論是否有內容保護) 來傳遞這些格式，以聯繫所有主要裝置 (例如 iOS 和 Android 裝置)。 這些用戶端了解不同的通訊協定。 例如，iOS 需要以 HTTP 即時串流 (HLS) 格式傳遞串流，而 Android 裝置則支援 HLS 和 MPEG DASH。
 
-在媒體服務中，[串流端點](streaming-endpoint-concept.md)代表動態 (Just-In-Time) 封裝及原始服務，其可使用下節中所述之其中一種常見的串流媒體通訊協定來為您提供即時且隨選的內容，並直接傳遞至用戶端播放應用程式。 動態封裝是所有串流端點 (標準或進階) 均隨附的標準功能之一。 
+在媒體服務中，[串流端點](streaming-endpoint-concept.md)代表動態 (Just-In-Time) 封裝及原始服務，其可將即時且隨選的內容直接傳遞至用戶端播放應用程式。 它會使用下節中所述的其中一種常見串流媒體通訊協定。 動態封裝是所有串流端點 (標準或進階) 均隨附的標準功能之一。
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>準備來源檔案以進行傳遞
 
-若要利用動態封裝功能，您必須將您的夾層 (來源) 檔案[編碼](encoding-concept.md)成一組多位元速率 MP4 (ISO 基礎媒體 14496-12) 檔案。 您必須具有內含經過編碼的 MP4 檔案的[資產](assets-concept.md)，以及媒體服務動態封裝所需的串流設定檔。 從這組 MP4 檔案中，您可以使用動態封裝透過以下串流媒體通訊協定來傳遞影片：
+若要利用動態封裝功能，您必須將您的夾層 (來源) 檔案[編碼](encoding-concept.md)成一組多位元速率 MP4 (ISO 基礎媒體 14496-12) 檔案。 您必須具有內含經過編碼的 MP4 的[資產](assets-concept.md)，以及媒體服務動態封裝所需的串流設定檔。 從這組 MP4 檔案中，您可以使用動態封裝透過以下串流媒體通訊協定來傳遞影片：
 
 |通訊協定|範例|
 |---|---|
@@ -46,14 +47,14 @@ Microsoft Azure 媒體服務可用來編碼許多媒體來源檔案格式，並�
 
 若要讓已編碼資產中的視訊可供用戶端播放，您必須建立[串流定位器](streaming-locators-concept.md)並建置串流 URL。 接著，根據串流用戶端資訊清單中指定的格式 (HLS、MPEG DASH 或 Smooth Streaming)，您會以您所選擇的通訊協定接收資料流。
 
-因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 
+因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。
 
 ## <a name="on-demand-streaming-workflow"></a>隨選資料流處理工作流程
 
-以下是常見的媒體服務串流工作流程，其中動態封裝會與 Azure 媒體服務中的標準編碼器一起使用。
+下列步驟示範常見的媒體服務串流工作流程，其中動態封裝會與 Azure 媒體服務中的標準編碼器一起使用。
 
-1. 上傳輸入檔，例如 QuickTime/MOV 或 MXF 檔案 (如需支援格式清單，請參閱[媒體編碼器標準所支援的格式](media-encoder-standard-formats.md))。 這也稱為夾層檔或來源檔案。
-1. 將夾層檔[編碼](#encode-to-adaptive-bitrate-mp4s)為 H.264/AAC MP4 自適性位元速率集。 
+1. 上傳輸入檔，例如 QuickTime/MOV 或 MXF 檔案。 此檔案也稱為夾層檔或來源檔案。 如需支援格式的清單，請參閱[媒體編碼器標準所支援的格式](media-encoder-standard-formats.md)。
+1. 將夾層檔[編碼](#encode-to-adaptive-bitrate-mp4s)為 H.264/AAC MP4 自適性位元速率集。
 1. 發佈包含自適性位元速率 MP4 集的輸出資產。 您會透過建立串流定位器來發佈。
 1. 建置以不同格式 (HLS、MPEG-DASH 及 Smooth Streaming) 為目標的 URL。 **串流端點**會負責處理這所有不同格式的正確資訊清單和要求。
 
@@ -65,9 +66,9 @@ Microsoft Azure 媒體服務可用來編碼許多媒體來源檔案格式，並�
 
 下列文章會示範[如何使用媒體服務來對視訊進行編碼](encoding-concept.md)：
 
-* [使用內建預設從 HTTPS URL 進行編碼](job-input-from-http-how-to.md)
-* [使用內建預設對本機檔案進行編碼](job-input-from-local-file-how-to.md)
-* [建置自訂預設來以特定案例或裝置需求為目標](customize-encoder-presets-how-to.md)
+* [使用內建預設從 HTTPS URL 進行編碼](job-input-from-http-how-to.md)。
+* [使用內建預設對本機檔案進行編碼](job-input-from-local-file-how-to.md)。
+* [建置自訂預設來以特定案例或裝置需求為目標](customize-encoder-presets-how-to.md)。
 
 請參閱媒體編碼器標準[格式和轉碼器](media-encoder-standard-formats.md)的清單。
 
@@ -124,10 +125,10 @@ Microsoft Azure 媒體服務可用來編碼許多媒體來源檔案格式，並�
 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (此為舊版的轉碼器)。
 
 > [!NOTE]
-> [進階編碼器](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)支援透過舊版 v2 API 編碼成 Dolby Digital Plus。 
+> [進階編碼器](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)支援透過舊版 v2 API 編碼成 Dolby Digital Plus。
 
-## <a name="manifests"></a>資訊清單 
- 
+## <a name="manifests"></a>資訊清單
+
 在媒體服務動態封裝中，適用於 HLS、MPEG-DASH 及 Smooth Streaming 的串流用戶端資訊清單會根據 URL 中的格式選取器以動態方式產生。  
 
 資訊清單檔案包含串流中繼資料，例如資料軌類型 (音訊、視訊或文字)、資料軌名稱、開始和結束時間、位元速率 (品質)、資料軌語言、簡報視窗 (持續時間固定的滑動視窗)，以及視訊轉碼器 (FourCC)。 此檔案也會透過提供下一個可播放視訊片段及其位置的相關資訊，來指示播放程式擷取下一個片段。 片段 (或區段) 實際上是視訊內容的「區塊」。
@@ -236,7 +237,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 ### <a name="signaling-audio-description-tracks"></a>傳送音訊描述曲目訊號
 
-您可以在影片中加入旁白曲目，協助視障用戶藉由聽取旁白來追蹤錄影。 您必須在資訊清單中將曲目標註為音訊描述。 若要這麼做，將 “accessibility” 和 “role” 參數新增至 .ism 檔案。 您需負責正確設定這些參數，才能將以音訊描述形式傳送曲目訊號。 例如，將 `<param name="accessibility" value="description" />` 和 `<param name="role" value="alternate"` 新增至特定曲目的 .ism 檔案。 
+您可以在影片中加入旁白曲目，協助視障用戶藉由聽取旁白來追蹤錄影。 您必須在資訊清單中將曲目標註為音訊描述。 若要這麼做，將 “accessibility” 和 “role” 參數新增至 .ism 檔案。 您要負責正確設定這些參數，才能將以音訊描述形式傳送曲目訊號。 例如，將 `<param name="accessibility" value="description" />` 和 `<param name="role" value="alternate"` 新增至特定曲目的 .ism 檔案。 
 
 如需詳細資訊，請參閱[如何傳送描述性曲目訊號](signal-descriptive-audio-howto.md)範例。
 
@@ -275,7 +276,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 ## <a name="need-help"></a>需要協助嗎？
 
-您可以藉由瀏覽至[新增支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)來開啟支援票證
+您可以藉由瀏覽至[新增支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)來開啟支援票證。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -283,4 +284,3 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
 了解如何[上傳、編碼和串流影片](stream-files-tutorial-with-api.md)。
-

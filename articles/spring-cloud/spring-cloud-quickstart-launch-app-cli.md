@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure CLI 來啟動 Java Spring 應用程式
+title: 快速入門：使用 Azure CLI 來啟動 Java Spring 應用程式
 description: 在本快速入門中，您會在 Azure CLI 上將範例應用程式部署到 Azure Spring Cloud。
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 6d399f04015140477af17f718c3e2205b8c3855f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170547"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721603"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>快速入門：使用 Azure CLI 來啟動 Java Spring 應用程式
 
@@ -34,8 +31,7 @@ Azure Spring Cloud 可讓您輕鬆地在 Azure 上執行以 Spring Boot 為基�
 ## <a name="prerequisites"></a>必要條件
 
 >[!Note]
-> 開始本快速入門之前，請確定您的 Azure 訂用帳戶可以存取 Azure Spring Cloud。  作為預覽服務，我們要求您與我們聯繫，讓我們可以將您的訂用帳戶新增至我們的允許清單。  如果您想要探索 Azure Spring Cloud 的功能，請[填寫此表單](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-) \(英文\)。
+> Azure Spring Cloud 目前提供公開預覽版。 公開預覽版供應項目可讓客戶在其正式發行前，先試驗新功能。  公開預覽功能和服務不適用於生產環境。  如需有關預覽期間支援的詳細資訊，請參閱我們的[常見問題集](https://azure.microsoft.com/support/faq/)或提出[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)以深入了解。
 
 >[!TIP]
 > Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。  它已預先安裝常用的 Azure 工具，包括 Git、JDK、Maven 和 Azure CLI 的最新版本。 如果您已登入 Azure 訂用帳戶，請從 shell.azure.com 啟動您的 [Azure Cloud Shell](https://shell.azure.com) \(英文\)。  您可以[閱讀我們的文件](../cloud-shell/overview.md)，以深入了解 Azure Cloud Shell
@@ -45,7 +41,7 @@ Azure Spring Cloud 可讓您輕鬆地在 Azure 上執行以 Spring Boot 為基�
 1. [安裝 Git](https://git-scm.com/)
 2. [安裝 JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [安裝 Maven 3.0 或更新版本](https://maven.apache.org/download.cgi) \(英文\)
-4. [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [安裝 Azure CLI 2.0.67 版或更新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [註冊 Azure 訂用帳戶](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>安裝 Azure CLI 擴充功能
@@ -53,7 +49,7 @@ Azure Spring Cloud 可讓您輕鬆地在 Azure 上執行以 Spring Boot 為基�
 使用下列命令安裝適用於 Azure CLI 的 Azure Spring Cloud 擴充功能
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-cli"></a>在 Azure CLI 上佈建服務執行個體
@@ -110,7 +106,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. 變更目錄並建置專案。
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 
@@ -125,9 +121,6 @@ az spring-cloud app create --name gateway
 az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
 ```
-
->[!NOTE]
-> 應用程式名稱必須完全符合 JAR 的名稱，所提供的設定伺服器才能正常運作。
 
 ## <a name="deploy-applications-and-set-environment-variables"></a>部署應用程式並設定環境變數
 

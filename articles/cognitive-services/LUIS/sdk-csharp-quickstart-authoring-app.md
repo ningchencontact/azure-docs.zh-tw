@@ -1,7 +1,7 @@
 ---
 title: 快速入門：適用於 .NET 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 開始使用適用於 .NET 的 Language Understanding (LUIS) 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。  Language Understanding (LUIS) 可讓您將自訂機器學習智慧套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。
+description: 開始使用適用於 .NET 的 LUIS 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258774"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672098"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>快速入門：適用於 .NET 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 

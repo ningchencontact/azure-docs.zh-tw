@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 使用 Azure 入口網站建立服務匯流排主題和訂用帳戶 | Microsoft Docs
-description: 在本快速入門中，您會了解如何使用 Azure 入口網站來建立服務匯流排主題和該主題的訂用帳戶。
+title: 快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶
+description: 快速入門：在本快速入門中，您會了解如何使用 Azure 入口網站來建立服務匯流排主題和該主題的訂用帳戶。
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a392f8b11a7ab1ad72f4da289c54e34b022f1ea6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 6788bf43ef97daf5ef2f823a502c223d718abaac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990301"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718874"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶
 在本快速入門中，您會使用 Azure 入口網站來建立服務匯流排主題，然後建立該主題的訂用帳戶。 

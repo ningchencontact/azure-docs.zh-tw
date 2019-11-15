@@ -1,20 +1,19 @@
 ---
 title: Azure 快速入門 - 使用 Azure CLI 在物件儲存體中建立 Blob | Microsoft Docs
-description: 在本快速入門中，您會在物件 (Blob) 儲存體中使用 Azure CLI。 然後，使用 CLI 將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
+description: 在本快速入門中，您將了解如何使用 Azure CLI 將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 11/06/2019
 ms.author: tamram
-ms.reviewer: seguler
-ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565950"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747944"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入門：使用 Azure CLI 上傳、下載及列出 Blob
 
@@ -39,30 +38,26 @@ Blob 一律會上傳到容器中。 您可以組織 Blob 群組，方式如同�
 使用 [az storage container create](/cli/azure/storage/container) 命令，建立用於儲存 Blob 的容器。
 
 ```azurecli-interactive
-az storage container create --name mystoragecontainer
+az storage container create --name sample-container
 ```
 
 ## <a name="upload-a-blob"></a>上傳 Blob
 
-Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 儲存在 Blob 儲存體中的大部分檔案是以區塊 Blob 儲存。 當資料必須新增到現有的 Blob，但不修改其現有的內容 (例如用於記錄) 時，則使用附加 Blob。 分頁 Blob 支援 IaaS 虛擬機器的 VHD 檔案。
+Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 本快速入門中的範例示範如何使用區塊 Blob。
 
-首先，建立要上傳至 blob 的檔案。
-如果您是使用 Azure Cloud Shell，請使用下列命令來建立檔案：`vi helloworld` 當檔案開啟時，請按下**插入**，輸入 "Hello world"，然後按 **Esc**，並輸入 `:x`，然後按 **Enter**。
+首先，建立一個要上傳至區塊 Blob 的檔案。 如果您使用的是 Azure Cloud Shell，請使用下列命令建立檔案：
 
-在此範例中，您要將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob) 命令最後一個步驟所建立的容器。
-
-```azurecli-interactive
-az storage blob upload \
-    --container-name mystoragecontainer \
-    --name blobName \
-    --file ~/path/to/local/file
+```bash
+vi helloworld
 ```
 
-如果您在 Azure Cloud Shell 中使用先前所述的方法來建立檔案，可以改用此 CLI 命令 (請注意，您不需要指定路徑，因為該檔案是建立於基底目錄，您通常需要指定路徑)：
+當檔案開啟時，請按 **insert**。 輸入 *Hello world*，然後按 **Esc**。接著，輸入 *:x*，然後按 **Enter**。
+
+在此範例中，您要將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob) 命令最後一個步驟所建立的容器。 您不需要指定檔案路徑，因為檔案是在根目錄建立的：
 
 ```azurecli-interactive
 az storage blob upload \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --name helloworld \
     --file helloworld
 ```
@@ -77,7 +72,7 @@ az storage blob upload \
 
 ```azurecli-interactive
 az storage blob list \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --output table
 ```
 
@@ -87,36 +82,36 @@ az storage blob list \
 
 ```azurecli-interactive
 az storage blob download \
-    --container-name mystoragecontainer \
-    --name blobName \
+    --container-name sample-container \
+    --name helloworld \
     --file ~/destination/path/for/file
 ```
 
 ## <a name="data-transfer-with-azcopy"></a>使用 AzCopy 進行資料轉送
 
-[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 公用程式是適用於 Azure 儲存體的高效能可編寫指令碼資料轉送的另一個選項。 您可以使用 AzCopy 在 Blob、檔案和表格儲存體之間傳送資料。
+[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 公用程式是適用於 Azure 儲存體的高效能可編寫指令碼資料轉送的另一個選項。 您可以使用 AzCopy 在 Blob、檔案和表格儲存體之間傳輸資料。
 
-這裡提供一個快速範例，利用 AzCopy 命令將名稱為 *myfile.txt* 的檔案上傳至 *mystoragecontainer* 容器。
+下列範例會使用 AzCopy，將名為 *myfile.txt* 的檔案上傳至 *sample-container* 容器。 請記得以您自己的值取代角括號中的預留位置值：
 
 ```bash
 azcopy \
     --source /mnt/myfiles \
-    --destination https://mystorageaccount.blob.core.windows.net/mystoragecontainer \
-    --dest-key <storage-account-access-key> \
+    --destination https://<account-name>.blob.core.windows.net/sample-container \
+    --dest-key <account-key> \
     --include "myfile.txt"
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group) 命令刪除資源群組。
+如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group) 命令刪除資源群組。 請記得以您自己的值取代角括號中的預留位置值：
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name <resource-group-name>
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您已了解如何在本機磁碟和 Azure Blob 儲存體中的容器之間傳輸檔案。 若要深入了解在 Azure 儲存體中使用 Blob，請繼續進行使用 Azure Blob 儲存體的教學課程。
+在本快速入門中，您已經了解如何在本機檔案系統和 Azure Blob 儲存體中的容器之間傳輸檔案。 若要深入了解在 Azure 儲存體中使用 Blob，請繼續進行使用 Azure Blob 儲存體的教學課程。
 
 > [!div class="nextstepaction"]
 > [操作說明：使用 Azure CLI 的 Blob 儲存體作業](storage-how-to-use-blobs-cli.md)

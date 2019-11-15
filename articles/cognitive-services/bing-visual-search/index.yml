@@ -5,7 +5,7 @@ metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
   title: Bing 圖像式搜尋 API 文件 - 教學課程、快速入門和 API 參考
   titleSuffix: Azure Cognitive Services
-  description: 了解如何使用 Bing 圖像式搜尋 API 取得深入解析的影像。
+  description: 上傳影像或提供影像 URL，此 API 即可識別各種不同的詳細資料，包括外觀類似的影像、購物來源和網頁等等。
   services: cognitive-services
   author: swhite-msft
   manager: nitinme

@@ -1,5 +1,5 @@
 ---
-title: Azure 資訊安全中心快速入門 - 將 Azure Stack 虛擬機器登入至資訊安全中心 | Microsoft Docs
+title: 將 Azure Stack 虛擬機器登入至 Azure 資訊安全中心
 description: 此快速入門說明如何在 Azure Stack 虛擬機器上佈建 Azure 監視器、更新和組態管理虛擬機器擴充功能。
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686518"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入門：將 Azure Stack 虛擬機器登入至資訊安全中心
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入門：將 Azure Stack 虛擬機器登入至資訊安全中心
 將您的 Azure 訂用帳戶登入後，您即可從 Azure Stack Marketplace 新增 **Azure 監視器、更新和組態管理**虛擬機器擴充功能，讓資訊安全中心保護您在 Azure Stack 上執行的虛擬機器。
 
 此快速入門說明如何在執行於 Azure Stack 的虛擬機器 (同時支援 Linux 和 Windows) 上新增 **Azure 監視器、更新和組態管理**虛擬機器擴充功能。
@@ -69,7 +69,7 @@ ms.locfileid: "71202861"
 > 如果您沒有看到 **Azure Monitor, Update and Configuration Management** 擴充在市集中列出，請洽詢您的 Azure Stack 操作員以使該擴充可供取得。
 
 6. 在 [安裝擴充功能]  組態刀鋒視窗上，貼上您在先前程序中複製到「記事本」中的 [工作區識別碼]  和 [工作區金鑰 (主要金鑰)]  。
-7.  提供必要的組態設定後，請按一下 [確定]  。
+7. 提供必要的組態設定後，請按一下 [確定]  。
 8. 擴充功能安裝完成後，其狀態會顯示為 [佈建成功]  。 虛擬機器最多可能需要一小時才會出現在資訊安全中心入口網站中。
 
 如需為 Windows 安裝及設定代理程式的詳細資訊，請參閱[連線到 Windows 電腦](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)。

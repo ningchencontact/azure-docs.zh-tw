@@ -1,5 +1,5 @@
 ---
-title: 使用 Go 查詢 Azure SQL Database | Microsoft Docs
+title: 使用 Go 查詢
 description: 使用 Go 來建立連線到 Azure SQL Database 的程式，並使用 Transact-SQL 陳述式查詢並修改資料。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569256"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827070"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>快速入門：使用 Golang 查詢 Azure SQL 資料庫
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 82c4a27ac2491e668c1d99e2a14b870e82ec5665
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 4e11070f4e766f83b0e7ead7757c675de3fef33f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935416"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614763"
 ---
 # <a name="durable-orchestrations"></a>長期協調流程
 
@@ -64,7 +64,7 @@ Durable Functions 會以透明的方式使用事件來源。 實際上，協調�
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
@@ -133,7 +133,7 @@ module.exports = df.orchestrator(function*(context) {
 
 * **PartitionKey**：包含協調流程的執行個體識別碼。
 * **EventType**：代表事件的類型。 可以是下列其中一個類型：
-  * **OrchestrationStarted**：協調器函式會從等候繼續運作或是第一次執行。 `Timestamp` 資料行是用來填入 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的決定性值。
+  * **OrchestrationStarted**：協調器函式會從等候繼續運作或是第一次執行。 `Timestamp` 資料行可用來填入 `CurrentUtcDateTime` (.NET) 和 `currentUtcDateTime` (JavaScript) API 的決定性值。
   * **ExecutionStarted**：協調器函式第一次開始執行。 此事件也包含 `Input` 資料行中的函式輸入。
   * **TaskScheduled**：活動函式已排程。 活動函式的名稱是在 `Name` 資料行中擷取。
   * **TaskCompleted**：活動函式已完成。 函式的結果是在 `Result` 資料行中。
@@ -186,7 +186,7 @@ module.exports = df.orchestrator(function*(context) {
 
 如需詳細資訊和範例，請參閱[錯誤處理](durable-functions-error-handling.md)一文。
 
-### <a name="critical-sections"></a>重要區段
+### <a name="critical-sections-durable-functions-2x"></a>重要區段 (Durable Functions 2.x)
 
 協調流程執行個體為單一執行緒，因此不需要擔心協調流程內  的競爭情況。 不過，當協調流程與外部系統互動時，可能會發生競爭情況。 若要減輕與外部系統互動時的競爭情況，協調器函式可以在 .NET 中使用 `LockAsync` 方法來定義「重要區段」  。
 
@@ -212,7 +212,7 @@ public static async Task Synchronize(
 > [!NOTE]
 > 重要區段可在 Durable Functions 2.0 和更新版本中取得。 目前，只有 .NET 協調流程會實作這項功能。
 
-### <a name="calling-http-endpoints"></a>呼叫 HTTP 端點
+### <a name="calling-http-endpoints-durable-functions-2x"></a>呼叫 HTTP 端點 (Durable Functions 2.x)
 
 如[協調器函式程式碼條件約束](durable-functions-code-constraints.md)所述，系統不允許協調器函式進行 I/O。 此限制的一般因應措施是將任何需要在活動函式中進行 I/O 的程式碼包裝起來。 與外部系統互動的協調流程經常使用活動函式來進行 HTTP 呼叫，並將結果傳回協調流程。
 
@@ -236,10 +236,22 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
 如需詳細資訊和詳細範例，請參閱 [HTTP 功能](durable-functions-http-features.md)一文。
 
 > [!NOTE]
-> Durable Functions 2.0 和更新版本中提供直接從協調器函式呼叫 HTTP 端點的功能。 目前，只有 .NET 協調流程會實作這項功能。
+> Durable Functions 2.0 和更新版本中提供直接從協調器函式呼叫 HTTP 端點的功能。
 
 ### <a name="passing-multiple-parameters"></a>傳遞多個參數。
 
@@ -250,7 +262,7 @@ public static async Task CheckSiteAvailable(
 ```csharp
 [FunctionName("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string major = "ComputerScience";
     int universityYear = context.GetInput<int>();
@@ -262,7 +274,7 @@ public static async Task<object> RunOrchestrator(
 }
 
 [FunctionName("CourseRecommendations")]
-public static async Task<object> Mapper([ActivityTrigger] DurableActivityContext inputs)
+public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContext inputs)
 {
     // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();

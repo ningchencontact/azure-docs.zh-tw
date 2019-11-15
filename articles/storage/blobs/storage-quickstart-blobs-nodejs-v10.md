@@ -1,20 +1,20 @@
 ---
-title: 使用適用於 JavaScript 的 Azure 儲存體 v10 SDK 上傳、下載、列出及刪除 Blob
-description: 使用 Azure 儲存體，在 Node.js 中建立、上傳及刪除 Blob 和容器
+title: 快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v10
+description: 使用適用於 JavaScript 的 Azure 儲存體用戶端程式庫 v10，在 Node.js 中建立、上傳及刪除 Blob 和容器
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f8c7de63f2bd4b7329e8ae6a53123c9c1ea035af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: b909da5da0d7352d4086222fe0411ac37668bd92
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825329"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>快速入門：使用適用於 JavaScript 的 Azure 儲存體 v10 SDK 上傳、下載、列出及刪除 Blob
+# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v10
 
 在本快速入門中，您將了解如何在 Node.js 中，使用[適用於 JavaScript 的 Azure 儲存體 v10 SDK](https://github.com/Azure/azure-sdk-for-js) \(英文\)，來上傳、下載、列出及刪除 Blob，以及管理容器。
 

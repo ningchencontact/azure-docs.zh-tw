@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建立 HTTP 觸發的函式
+title: 在 Azure 中建立 HTTP 觸發的 Python 函式
 description: 了解如何使用 Azure Functions Core Tools 和 Azure CLI 在 Azure 中建立您的第一個 Python 函式。
 author: ggailey777
 ms.author: glenga
@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693340"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622040"
 ---
-# <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
+# <a name="create-an-http-triggered-python-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的 Python 函式
 
 本文說明如何使用命令列工具建立在 Azure Functions 中執行的 Python 專案。 您也可以建立一個由 HTTP 要求所觸發的函式。 最後，您會在 Azure 中發行專案，使其以[無伺服器函式](functions-scale.md#consumption-plan)的形式執行。
 

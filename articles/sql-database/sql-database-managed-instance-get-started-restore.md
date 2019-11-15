@@ -1,5 +1,5 @@
 ---
-title: 將備份還原至 Azure SQL Database 受控執行個體 | Microsoft Docs
+title: 將備份還原到受控執行個體
 description: 使用 SSMS 將資料庫備份還原至 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514017"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825699"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入門：將資料庫還原到受控執行個體
 
@@ -35,12 +35,12 @@ ms.locfileid: "72514017"
 - 使用[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門的資源。
 - 需要您的電腦已安裝最新的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)。
 - 需要使用 SSMS 以連線到您的受控執行個體。 請參閱這些快速入門以了解如何連線：
+  - 在受控執行個體上[啟用公用端點](sql-database-managed-instance-public-endpoint-configure.md) - 這是本教學課程建議的方法。
   - [從 Azure VM 連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-configure-vm.md)
   - [設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)。
-- 需要**公用 IP** 上以 **SAS 認證**保護的 Azure Blob 儲存體帳戶 (例如 Standard_LRSV2) 具有 `rw` 權限。 目前不支援[由防火牆所保護之 Blob 儲存體的私人 IP](https://docs.microsoft.com/azure/storage/common/storage-network-security) 和 Azure Blob 儲存體服務端點。
 
 > [!NOTE]
-> 如需有關使用 Azure Blob 儲存體和[共用存取簽章 (SAS) 金鑰](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)來備份和還原 SQL Server 資料庫的詳細資訊，請參閱 [SQL Server 備份到 URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)。
+> 如需有關使用 Azure Blob 儲存體和[共用存取簽章 (SAS) 金鑰](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)來備份和還原 SQL Server 資料庫的詳細資訊，請參閱 [SQL Server 備份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)。
 
 ## <a name="restore-the-database-from-a-backup-file"></a>從備份檔案還原資料庫
 
@@ -86,7 +86,11 @@ ms.locfileid: "72514017"
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. 當還原完成時，請在 [物件總管] 加以檢視。
+7. 當還原完成時，請在 [物件總管] 中檢視資料庫。 您可以使用 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 檢視來確認資料庫還原已完成。
+
+> [!NOTE]
+> 資料庫還原作業是非同步的，而且可以重試。 如果連線中斷或某些逾時已過期，您可能會收到 SQL Server Management Studio 的錯誤。 Azure SQL Database 將會繼續嘗試在背景還原資料庫，而且您可以使用 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 和 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 檢視追蹤還原進度。
+> 在還原程序的某些階段中，您將會在系統檢視中看到唯一識別碼，而不是實際的資料庫名稱。 在[這裡](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement)了解 `RESTORE` 陳述式行為差異。
 
 ## <a name="next-steps"></a>後續步驟
 

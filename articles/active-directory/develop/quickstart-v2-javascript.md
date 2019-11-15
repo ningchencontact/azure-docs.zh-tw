@@ -1,5 +1,6 @@
 ---
-title: Microsoft 身分識別平台 JavaScript 快速入門 - Azure
+title: 登入使用者並取得 JavaScript SPA 中的存取權杖 | Azure
+titleSuffix: Microsoft identity platform
 description: 深入了解 JavaScript 應用程式如何藉由使用 Microsoft 身分識別平台，呼叫需要存取權杖的 API。
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,7 +9,7 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +17,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827121"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795603"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>快速入門：登入使用者及從 JavaScript 單頁應用程式取得存取權杖
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>快速入門：登入使用者並取得 JavaScript SPA 中的存取權杖
 
 在本快速入門中，您會使用程式碼範例了解 JavaScript 單頁應用程式 (SPA) 如何讓使用者登入個人帳戶、公司帳戶和學校帳戶。 JavaScript SPA 也可以取得呼叫 Microsoft Graph API 或任何 Web API 的存取權杖。 (如需圖例，請參閱[此範例的運作方式](#how-the-sample-works)。)
 
@@ -79,12 +80,11 @@ ms.locfileid: "71827121"
 
 * (選擇性) 若要搭配 IIS 伺服器來執行專案，請[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)。 將 zip 檔案解壓縮至本機資料夾 (例如 *C:\Azure-Samples*)。
 
-#### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
-
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
 > 在 [JavaScriptSPA]  資料夾中，編輯 *index.html*，於 `msalConfig` 下設定 `clientID` 與 `authority` 值。
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > 在 [JavaScriptSPA]  資料夾中，編輯 *index.html*，並將 `msalConfig` 取代為下列程式碼：
 
 ```javascript
@@ -101,10 +101,6 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > 本快速入門支援 Enter_the_Supported_Account_Info_Here。
-
 
 > [!div renderon="docs"]
 >
@@ -119,7 +115,12 @@ var msalConfig = {
 > > 若要尋找 [應用程式 (用戶端) 識別碼]  、[目錄 (租用戶) 識別碼]  和 [支援的帳戶類型]  的值，請在 Azure 入口網站中移至應用程式的 [概觀]  頁面。
 >
 
-#### <a name="step-4-run-the-project"></a>步驟 4：執行專案
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>步驟 3：您的應用程式已設定並準備好執行
+> 我們已使用您的應用程式屬性值來設定您的專案。 
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>步驟 4：執行專案
 
 * 如果您使用 [Node.js](https://nodejs.org/en/download/)：
 

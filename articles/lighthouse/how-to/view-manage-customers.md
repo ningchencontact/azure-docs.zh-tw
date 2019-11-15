@@ -4,15 +4,15 @@ description: 身為使用 Azure 委派的資源管理的服務提供者，您可
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302738"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615528"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>檢視及管理客戶與委派的資源
 
@@ -20,7 +20,7 @@ ms.locfileid: "72302738"
 
 若要存取 Azure 入口網站中的 [我的客戶]  頁面，請選取 [所有服務]  ，然後搜尋**我的客戶**並選取它。 您也可以在靠近 Azure 入口網站頂端的搜尋方塊中輸入「我的客戶」來找到它。
 
-請記住，[我的客戶]  頁面只會顯示委派的訂用帳戶或資源群組之客戶的資訊。 如果您還有其他客戶 (例如透過[雲端解決方案提供者計畫](https://docs.microsoft.com/partner-center/csp-overview)所取得的客戶)，您將無法在此看見那些客戶的資訊，除非您將其資源上線以進行委派的資源管理。
+請記住，[我的客戶]  頁面最上方的區段只會顯示委派的訂用帳戶或資源群組之客戶的資訊。 如果您還有其他客戶 (例如透過[雲端解決方案提供者計畫](https://docs.microsoft.com/partner-center/csp-overview)所取得的客戶)，您將無法在此看見那些客戶的資訊，除非您將其資源上線以進行委派的資源管理。 在此頁面下方，[雲端解決方案提供者 (預覽)]  區段會針對已[簽署 Microsoft 客戶合約 (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) 且加入 Azure 方案的 CSP 客戶，顯示帳單資訊和資源 (不論他們是否已經上線以進行 Azure 委派的資源管理)。 如需詳細資訊，請參閱[開始使用您的 Microsoft 合作夥伴合約計費帳戶](https://docs.microsoft.com/azure/billing/mpa-overview)。
 
 > [!NOTE]
 > 您的客戶可以在 Azure 入口網站中瀏覽至 [服務提供者]  ，來檢視服務提供者的相關資訊。 如需詳細資訊，請參閱[檢視和管理服務提供者](view-manage-service-providers.md)。
@@ -30,6 +30,9 @@ ms.locfileid: "72302738"
 若要檢視客戶詳細資料，請選取位於 [我的客戶]  頁面左側的 [客戶]  。
 
 針對每個客戶，您將會看見該客戶的名稱、客戶識別碼 (租用戶識別碼)，以及與此業務開發相關聯的供應項目。 在 [委派]  欄中，您將會看見委派的訂用帳戶和/或資源群組的數目。
+
+> [!IMPORTANT]
+> 若要查看委派，使用者必須在上線程序中，獲授與[讀取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)角色 (或包含讀取者存取權的其他內建角色)。
 
 頁面頂端的篩選可讓您對客戶資訊進行排序及分組，或是依特定客戶、供應項目或關鍵字進行篩選。
 

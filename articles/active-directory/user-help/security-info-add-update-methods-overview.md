@@ -1,6 +1,6 @@
 ---
-title: 概述如何變更安全性資訊 (預覽) 方法和資訊 - Azure Active Directory | Microsoft Docs
-description: 概述如何新增、更新和刪除雙因素驗證和自助式密碼重設的安全性資訊方法。
+title: 概述如何變更安全性資訊 (預覽) - Azure AD
+description: 有關如何新增、更新和刪除雙重要素驗證和自助式密碼重設之安全性資訊方法的文章連結。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b781cd30bc5f63199ef9bff45670fa618e2ca17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382878"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803814"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>概述如何變更安全性資訊 (預覽) 方法和資訊
 

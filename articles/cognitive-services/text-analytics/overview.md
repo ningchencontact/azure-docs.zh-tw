@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032682"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827308"
 ---
 # <a name="what-is-the-text-analytics-api"></a>什麼是文字分析 API？
 
@@ -25,7 +25,7 @@ ms.locfileid: "70032682"
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下所述。 您可以將這些功能與 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 搭配使用，或是與 [.NET](quickstarts/csharp.md)、[Python](quickstarts/python-sdk.md)、[Node.js](quickstarts/nodejs-sdk.md)、[Go](quickstarts/go-sdk.md) 或 [Ruby](quickstarts/ruby-sdk.md) 搭配使用。
+文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下所述。 您可以將這些功能與 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) \(英文\) 或[用戶端程式庫](quickstarts/text-analytics-sdk.md)搭配使用。
 
 ## <a name="sentiment-analysis"></a>情感分析
 使用[情感分析](how-tos/text-analytics-how-to-sentiment-analysis.md)可藉由分析原始文字而獲得有關於正面或負面情感的線索，來了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。
@@ -110,7 +110,7 @@ ms.locfileid: "70032682"
 
 + [建立文字分析的 Azure 資源](../cognitive-services-apis-create-account.md)，以取得應用程式的金鑰和端點。
 
-+ [快速入門](quickstarts/csharp.md)是以 C# 撰寫的 REST API 的呼叫適用的逐步解說。 請了解如何以最少的程式碼提交文字、選擇分析，以及檢視結果。 如有需要，您可以改為從 [Python 快速入門](quickstarts/python.md)來開始。
++ 使用[快速入門](quickstarts/text-analytics-sdk.md)以開始傳送 API 呼叫。 請了解如何以最少的程式碼提交文字、選擇分析，以及檢視結果。
 
 + 如需新版本和功能的詳細資訊，請參閱[文字分析 API 的新功能](whats-new.md)。
 

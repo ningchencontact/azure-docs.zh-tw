@@ -1,5 +1,5 @@
 ---
-title: 快速入門：建立及查詢 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs
+title: 快速入門：建立和查詢資料倉儲 - Azure 入口網站
 description: 在 Azure 入口網站中透過 Azure SQL 資料倉儲建立和查詢資料倉儲。
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: sqlfreshmay19
-ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 46b413d3fb2a27e724bcb2faa3306416e7f5abc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375844"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824852"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -37,7 +37,7 @@ ms.locfileid: "70375844"
 
 ## <a name="create-a-data-warehouse"></a>建立資料倉儲
 
-Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-logical-servers.md)內。 
+Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-logical-servers.md)內。 
 
 依照下列步驟來建立包含 AdventureWorksDW 範例資料的 SQL 資料倉儲。 
 
@@ -53,7 +53,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
     | :------ | :-------------- | :---------- |
     | **資料庫名稱** | mySampleDataWarehouse | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 請注意，資料倉儲是一種資料庫。|
     | **訂用帳戶** | 您的訂用帳戶 | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
-    | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
+    | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
     | **選取來源** | 範例 | 指定要載入範例資料庫。 請注意，資料倉儲是一種資料庫。 |
     | **選取範例** | AdventureWorksDW | 指定要載入 AdventureWorksDW 範例資料庫。 |
     ||||
@@ -64,7 +64,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
     | 設定 | 建議的值 | 說明 |
     | :------ | :-------------- | :---------- |
-    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
+    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
     | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
     | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
@@ -76,7 +76,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 6. 按一下 [效能等級]  以指定資料倉儲的效能設定。
 
-7. 針對此教學課程，請選取 [Gen2]  。 根據預設，滑桿會設定為 [DW1000c]  。 請嘗試向上和向下移動以查看其運作方式。 
+7. 針對本教學課程，請選取 [Gen2]  。 根據預設，滑桿會設定為 [DW1000c]  。 請嘗試向上和向下移動以查看其運作方式。 
 
     ![設定效能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -144,7 +144,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆。 此防火牆會防
    | :------ | :-------------- | :---------- |
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 以下是範例：**mynewserver-20180430.database.windows.net**。 |
-   | Authentication | SQL Server 驗證 | SQL 驗證是此教學課程中設定的唯一驗證類型。 |
+   | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
    | 登入 | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
    ||||

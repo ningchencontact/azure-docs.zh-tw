@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: overview
-ms.date: 08/31/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e3a83730e47686e9d4757f057d2e8da4629fdd7a
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 62ca71e1b42e000f7528a2963793f9bf40663bf3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312131"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818507"
 ---
-# <a name="entity-functions-preview"></a>實體函式 (預覽)
+# <a name="entity-functions"></a>實體函式
 
 實體函式會定義用於讀取和更新一小段狀態 (稱為「持久性實體」  ) 的作業。 和協調器函式一樣，實體函式也是具有特殊觸發程序類型 (「實體觸發程序」  ) 的函式。 不同於協調器函式，實體函式會明確管理實體的狀態，而不是透過控制流程來隱含表示狀態。
 實體提供一個方法來擴充應用程式，方法是將工作分散到許多實體，而每個實體都有適度大小的狀態。
 
 > [!NOTE]
-> 只有 Durable Functions 2.0 和更新版本有提供實體函式和相關功能。 實體函式目前為公開預覽狀態。
+> 只有 Durable Functions 2.0 和更新版本有提供實體函式和相關功能。
 
 ## <a name="general-concepts"></a>一般概念
 
@@ -58,7 +58,7 @@ ms.locfileid: "72312131"
 
 **以類別為基礎的語法**，其中實體和作業是由類別和方法表示。 此語法會產生更易讀取的程式碼，並允許以型別安全的方式叫用作業。 以類別為基礎的語法只是以函式為基礎的語法之上的精簡層，因此這兩個變體可以在相同的應用程式中交替使用。
 
-### <a name="example-function-based-syntax"></a>範例：以函式為基礎的語法
+### <a name="example-function-based-syntax---c"></a>範例：以函式為基礎的語法 - C#
 
 下列程式碼會舉例說明實作為持久函式的簡單「計數器」  實體。 此函式會定義三個作業 (`add`、`reset` 和 `get`)，每個作業都會以整數狀態運作。
 
@@ -75,7 +75,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
     }
 }
@@ -83,7 +83,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 如需以函式為基礎的語法及其使用方式的詳細資訊，請參閱[以函式為基礎的語法](durable-functions-dotnet-entities.md#function-based-syntax)。
 
-### <a name="example-class-based-syntax"></a>範例：以類別為基礎的語法
+### <a name="example-class-based-syntax---c"></a>範例：以類別為基礎的語法 - C#
 
 下列範例等同於使用類別和方法來實作 `Counter` 實體。
 
@@ -109,6 +109,45 @@ public class Counter
 此實體的狀態是 `Counter` 類型的物件，其中包含可儲存計數器目前值的欄位。 為了將此物件保存在儲存體中，該物件會由 [Json.NET](https://www.newtonsoft.com/json) 程式庫進行序列化和還原序列化。 
 
 如需以類別為基礎的語法及其使用方式的詳細資訊，請參閱[定義實體類別](durable-functions-dotnet-entities.md#defining-entity-classes)。
+
+### <a name="example-javascript-entity"></a>範例：JavaScript 實體
+
+從 `durable-functions` npm 套件 **1.3.0** 版開始，JavaScript 提供了耐久性實體。 下列程式碼是實作為以 JavaScript 撰寫的耐久函式的「計數器」  實體。
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
 
 ## <a name="accessing-entities"></a>存取實體
 
@@ -145,6 +184,16 @@ public static Task Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
 「訊號」  一詞表示實體 API 的叫用是單向且非同步的。 「用戶端函式」  不可能知道實體處理作業的時間。 此外，用戶端函式無法觀察到任何結果值或例外狀況。 
 
 ### <a name="example-client-reads-an-entity-state"></a>範例：用戶端讀取實體狀態
@@ -163,6 +212,16 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    return context.df.readEntityState(entityId);
+};
+```
+
 實體狀態查詢會傳送至持久性追蹤存放區，並傳回實體最近的「持久性」  狀態。 此狀態一律是「已認可」狀態，也就是在執行作業的過程中，永遠不會有暫時的中繼狀態。 不過，相較於實體的記憶體內部狀態，此狀態可能會過時。 只有協調流程可以讀取實體的記憶體內部狀態，下一節會有相關說明。
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>範例：協調流程傳送訊號並呼叫實體
@@ -176,7 +235,7 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-   // Two-way call to the entity which returns a value - awaits the response
+    // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
@@ -184,6 +243,21 @@ public static async Task Run(
         context.SignalEntity(entityId, "Add", 1);
     }
 }
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const entityId = new df.EntityId("Counter", "myCounter");
+
+    // Two-way call to the entity which returns a value - awaits the response
+    currentValue = yield context.df.callEntity(entityId, "get");
+    if (currentValue < 10) {
+        // One-way signal to the entity which updates the value - does not await a response
+        yield context.df.signalEntity(entityId, "add", 1);
+    }
+});
 ```
 
 只有協調流程能夠呼叫實體並取得回應，而此回應可能是傳回值或例外狀況。 使用[用戶端繫結](durable-functions-bindings.md#entity-client)的用戶端函式只能進行實體的「訊號發送」  。
@@ -198,82 +272,33 @@ public static async Task Run(
 
 ```csharp
    case "add":
+        var currentValue = ctx.GetState<int>();
         var amount = ctx.GetInput<int>();
         if (currentValue < 100 && currentValue + amount >= 100)
         {
             ctx.SignalEntity(new EntityId("MonitorEntity", ""), "milestone-reached", ctx.EntityKey);
         }
-        currentValue += amount;
+
+        ctx.SetState(currentValue + amount);
         break;
 ```
 
-下列程式碼片段會示範如何將插入的服務併入到實體類別。
-
-```csharp
-public class HttpEntity
-{
-    private readonly HttpClient client;
-
-    public HttpEntity(IHttpClientFactory factory)
-    {
-        this.client = factory.CreateClient();
-    }
-
-    public async Task<int> GetAsync(string url)
-    {
-        using (var response = await this.client.GetAsync(url))
-        {
-            return (int)response.StatusCode;
+```javascript
+    case "add":
+        const amount = context.df.getInput();
+        if (currentValue < 100 && currentValue + amount >= 100) {
+            const entityId = new df.EntityId("MonitorEntity", "");
+            context.df.signalEntity(entityId, "milestone-reached", context.df.instanceId);
         }
-    }
-
-    // The function entry point must be declared static
-    [FunctionName(nameof(HttpEntity))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<HttpEntity>();
-}
+        context.df.setState(currentValue + amount);
+        break;
 ```
-
-> [!NOTE]
-> 不同於在一般的 .NET Azure Functions 中使用建構函式插入時，以類別為基礎的實體「必須」  將函式進入點方法宣告為 `static`。 宣告非靜態函式進入點可能會導致一般 Azure Functions 物件初始設定式與持久性實體物件初始設定式之間發生衝突。
-
-### <a name="bindings-in-entity-classes-net"></a>實體類別中的繫結 (.NET)
-
-不同於一般函式，實體類別方法無法直接存取輸入和輸出繫結。 相反地，其必須在進入點函式宣告中擷取繫結資料，然後再傳遞至 `DispatchAsync<T>` 方法。 任何傳遞至 `DispatchAsync<T>` 的物件都會自動以引數的形式傳遞至實體類別建構函式。
-
-下列範例會說明如何讓以類別為基礎的實體可以使用來自 [Blob 輸入繫結](../functions-bindings-storage-blob.md#input)的 `CloudBlobContainer` 參考。
-
-```csharp
-public class BlobBackedEntity
-{
-    private readonly CloudBlobContainer container;
-
-    public BlobBackedEntity(CloudBlobContainer container)
-    {
-        this.container = container;
-    }
-
-    // ... entity methods can use this.container in their implementations ...
-    
-    [FunctionName(nameof(BlobBackedEntity))]
-    public static Task Run(
-        [EntityTrigger] IDurableEntityContext context,
-        [Blob("my-container", FileAccess.Read)] CloudBlobContainer container)
-    {
-        // passing the binding object as a parameter makes it available to the
-        // entity class constructor
-        return context.DispatchAsync<BlobBackedEntity>(container);
-    }
-}
-```
-
-如需 Azure Functions 中繫結的詳細資訊，請參閱 [Azure Functions 觸發程序和繫結](../functions-triggers-bindings.md)文件。
 
 ## <a name="entity-coordination"></a>實體協調
 
 有時候您可能需要協調多個實體的作業。 例如，在銀行應用程式中，您可能有代表個別銀行帳戶的實體。 將資金從某個帳戶轉移到另一個帳戶時，您必須確定「來源」  帳戶具有足夠的資金，而且會以交易一致的方式同時完成「來源」  和「目的地」  帳戶的更新。
 
-### <a name="example-transfer-funds"></a>範例：轉移資金
+### <a name="example-transfer-funds-c"></a>範例：轉移資金 (C#)
 
 下列程式碼範例會使用協調器函式，在兩個「帳戶」  實體之間傳輸資金。 若要協調實體更新，就必須使用 `LockAsync` 方法在協調流程中建立「重要區段」  ：
 
@@ -322,7 +347,7 @@ public static async Task<bool> TransferFundsAsync(
 
 在 .NET 中，`LockAsync` 會傳回 `IDisposable` 以在完成處置時結束重要區段。 這個 `IDisposable` 結果可以與 `using` 區塊一起使用，以獲得用語法表示的重要區段。
 
-在上述範例中，協調器函式會將資金從「來源」  實體轉移到「目的地」  實體。 `LockAsync` 方法已鎖定「來源」  和「目的地」  帳戶實體。 此鎖定確保了在協調流程邏輯於 `using` 陳述式結束而離開「重要區段」  之前，其他所有用戶端皆無法查詢或修改任一帳戶的狀態。 這可以有效防止「來源」  帳戶產生透支的可能性。
+在上述範例中，協調器函式會將資金從「來源」  實體轉移到「目的地」  實體。 `LockAsync` 方法已鎖定「來源」  和「目的地」  帳戶實體。 此鎖定確保了在協調流程邏輯於 `using` 陳述式結束而離開「重要區段」  之前，其他所有用戶端皆無法查詢或修改任一帳戶的狀態。 此行為可以防止「來源」  帳戶產生透支的可能性。
 
 > [!NOTE] 
 > 當協調流程終止 (按慣例或因為錯誤) 時，任何進行中的關鍵區段都會隱含地結束，而且會釋放所有的鎖定。

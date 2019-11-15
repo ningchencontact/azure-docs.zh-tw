@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: a917a823d47d6a072cf5a3ee5d636b432913df9a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0b85d6fbe8e66b94bad372ccb29e5489dd81587b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299432"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614790"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions 是什麼？
 
@@ -57,7 +57,7 @@ Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀�
 ```csharp
 [FunctionName("Chaining")]
 public static async Task<object> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     try
     {
@@ -73,7 +73,7 @@ public static async Task<object> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,10 +88,10 @@ module.exports = df.orchestrator(function*(context) {
 
 在此範例中，`F1`、`F2`、`F3` 和 `F4`值是函式應用程式中其他函式的名稱。 您可以使用一般命令式編碼建構來實作控制流程。 程式碼會由上而下地執行。 程式碼可包含現有語言的控制流程語意，例如條件和迴圈。 您可以在 `try`/ `catch`/`finally` 區塊中包含錯誤處理邏輯。
 
-您可以使用 `context` 參數 [DurableOrchestrationContext] \(.NET\) 和 `context.df` 物件 (JavaScript)，依名稱叫用其他函式、傳遞參數，以及傳回函式輸出。 每當程式碼呼叫 `await` (C#) 或 `yield` (JavaScript) 時，Durable Functions 架構便會對目前函式執行個體的進度設定檢查點。 如果處理序或 VM 在執行途中回收，函式執行個體便會從先前的 `await` 或 `yield` 呼叫繼續執行。 如需詳細資訊，請參閱下一節，模式 #2：展開傳送/收合傳送。
+您可以使用 `context` 參數 [IDurableOrchestrationContext] \(.NET\) 和 `context.df` 物件 (JavaScript)，依名稱叫用其他函式、傳遞參數，以及傳回函式輸出。 每當程式碼呼叫 `await` (C#) 或 `yield` (JavaScript) 時，Durable Functions 架構便會對目前函式執行個體的進度設定檢查點。 如果處理序或 VM 在執行途中回收，函式執行個體便會從先前的 `await` 或 `yield` 呼叫繼續執行。 如需詳細資訊，請參閱下一節，模式 #2：展開傳送/收合傳送。
 
 > [!NOTE]
-> JavaScript 中的 `context` 物件代表整個[函式內容](../functions-reference-node.md#context-object)，而不只是 [DurableOrchestrationContext] 參數。
+> JavaScript 中的 `context` 物件代表整個[函式內容](../functions-reference-node.md#context-object)，而不只是 [IDurableOrchestrationContext] 參數。
 
 ### <a name="fan-in-out"></a>模式 #2：展開傳送/收合傳送。
 
@@ -108,7 +108,7 @@ Durable Functions 擴充功能會以較簡單的程式碼處理此模式：
 ```csharp
 [FunctionName("FanOutFanIn")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
@@ -128,7 +128,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,7 +204,7 @@ Durable Functions 擴充功能會公開內建 HTTP API，該 API 可管理長時
 
 ![監視模式的圖表](./media/durable-functions-concepts/monitor.png)
 
-在幾行程式碼中，您可以使用 Durable Functions 建立可觀察任意端點的多個監視器。 監視器可以在符合條件時結束執行，或 [DurableOrchestrationClient](durable-functions-instance-management.md) 可以終止監視器。 您可以根據特定條件 (例如，指數輪詢) 來變更監視器的 `wait` 間隔時間。 
+在幾行程式碼中，您可以使用 Durable Functions 建立可觀察任意端點的多個監視器。 監視器可以在符合條件時結束執行，或者 `IDurableOrchestrationClient` 可以終止監視器。 您可以根據特定條件 (例如，指數輪詢) 來變更監視器的 `wait` 間隔時間。 
 
 下列程式碼會實作基本的監視器：
 
@@ -213,7 +213,7 @@ Durable Functions 擴充功能會公開內建 HTTP API，該 API 可管理長時
 ```csharp
 [FunctionName("MonitorJobStatus")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int jobId = context.GetInput<int>();
     int pollingInterval = GetPollingInterval();
@@ -238,7 +238,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -285,7 +285,7 @@ module.exports = df.orchestrator(function*(context) {
 ```csharp
 [FunctionName("ApprovalWorkflow")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
@@ -307,7 +307,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -331,13 +331,13 @@ module.exports = df.orchestrator(function*(context) {
 
 若要建立長期計時器，請呼叫 `context.CreateTimer` (.NET) 或 `context.df.createTimer` (JavaScript)。 通知則由 `context.WaitForExternalEvent` (.NET) 或 `context.df.waitForExternalEvent` (JavaScript) 接收。 接著，還會呼叫 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 以決定是要向上呈報 (先發生逾時) 還是處理核准 (逾時前收到核准)。
 
-外部用戶端可以從另一個函式使用[內建 HTTP API](durable-functions-http-api.md#raise-event) 或使用 [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API，將事件通知傳遞至等候的協調器函式：
+外部用戶端可以使用[內建的 HTTP API](durable-functions-http-api.md#raise-event) 或從另一個函式中使用 `RaiseEventAsync` (.NET) 或 `raiseEvent` (JavaScript) 方法，將事件通知傳遞至等候中的協調器函式：
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
 public static async Task Run(
     [HttpTrigger] string instanceId,
-    [OrchestrationClient] DurableOrchestrationClient client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
@@ -358,7 +358,7 @@ module.exports = async function (context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-### <a name="aggregator"></a>模式 #6：彙總工具 (預覽)
+### <a name="aggregator"></a>模式 #6：匯總工具
 
 第六個模式是關於將一段時間的事件資料彙總成單一可定址的「實體」  。 在此模式中，所彙總的資料可能來自多個來源、可分批傳遞，或可散佈於長期的時間。 彙總工具可能需要在事件資料送達時對其採取動作，而外部用戶端可能需要查詢所彙總的資料。
 
@@ -366,33 +366,50 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 嘗試使用一般無狀態函式來實作此模式的弔詭之處在於，並行控制會變成一大挑戰。 您不只需要擔心多個執行緒同時修改相同的資料，也需要擔心如何確保彙總工具一次只在單一 VM 上執行。
 
-使用[長期實體函式](durable-functions-preview.md#entity-functions)，可以輕鬆地將此模式當作單一函式實作。
+您可以使用[耐久性實體](durable-functions-entities.md)，輕鬆地將此模式實作為單一函式。
 
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += amount;
+            ctx.SetState(currentValue + amount);
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
             ctx.Return(currentValue);
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-長期實體也可以模型化為 .NET 類別。 如果作業清單固定且變得很大，此模型會很實用。 下列範例等同於使用 .NET 類別和方法來實作 `Counter` 實體。
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+耐久性實體也可以模型化為 .NET 中的類別。 如果作業清單固定且變得很大，此模型會很實用。 下列範例等同於使用 .NET 類別和方法來實作 `Counter` 實體。
 
 ```csharp
 public class Counter
@@ -418,7 +435,7 @@ public class Counter
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableOrchestrationClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -429,10 +446,21 @@ public static async Task Run(
 }
 ```
 
-動態產生的 Proxy 也適用於以型別安全方式進行實體訊號處理。 除了訊號處理外，用戶端也可以在協調流程用戶端繫結上使用[型別安全方法](durable-functions-bindings.md#entity-client-usage)來查詢實體函式的狀態。
-
 > [!NOTE]
-> 實體函式目前僅作為 [Durable Functions 2.0 預覽](durable-functions-preview.md)的一部分在 .NET 中提供。
+> 動態產生的 Proxy 也適用於在 .NET 中以型別安全方式進行實體訊號處理。 除了訊號處理外，用戶端也可以在協調流程用戶端繫結上使用[型別安全方法](durable-functions-bindings.md#entity-client-usage)來查詢實體函式的狀態。
+
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+實體函式可在 [Durable Functions 2.0](durable-functions-versions.md) 和更新版本中取得。
 
 ## <a name="the-technology"></a>技術
 

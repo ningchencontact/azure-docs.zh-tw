@@ -1,7 +1,7 @@
 ---
 title: 範例：將臉部新增至 PersonGroup - 臉部 API
 titleSuffix: Azure Cognitive Services
-description: 使用臉部 API 新增影像中的人臉。
+description: 本指南示範如何使用 Azure 認知服務臉部 API，將大量的人員和臉部新增至 PersonGroup 物件。
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 0415dcae08c188c1758150c4b8b0df4dee014ce6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2f8a6272b02aea5948be79ddf72d105c4f72bb33
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448611"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744255"
 ---
 # <a name="add-faces-to-a-persongroup"></a>將臉部新增至 PersonGroup
 
