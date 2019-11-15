@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242078"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614386"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>教學課程：使用 Ansible 在 Azure 中設定 Azure Kubernetes Service (AKS) 叢集
 
@@ -54,7 +54,8 @@ AKS 可設定為使用 [Azure Active Directory (AD)](/azure/active-directory/) �
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ AKS 可設定為使用 [Azure Active Directory (AD)](/azure/active-directory/) �
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -84,6 +86,7 @@ AKS 可設定為使用 [Azure Active Directory (AD)](/azure/active-directory/) �
 - `tasks` 內的第一個區段會定義名為 `myResourceGroup` 且位於 `eastus` 位置內的資源群組。
 - `tasks` 內的第二個區段會定義名為 `myAKSCluster` 且位於 `myResourceGroup` 資源群組內的 AKS 叢集。
 - 針對 `your_ssh_key` 預留位置，以單行格式且開頭為 "ssh-rsa" (不含引號) 的方式輸入 RSA 公開金鑰。
+- 針對 `aks_version` 預留位置，請使用 [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) 命令。
 
 使用 `ansible-playbook` 命令執行劇本：
 

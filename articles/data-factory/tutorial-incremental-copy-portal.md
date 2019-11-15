@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 以累加方式複製資料表 | Microsoft Docs
-description: 在此教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL 資料庫複製到 Azure Blob 儲存體。
+title: '使用 Azure Data Factory 以累加方式複製資料表 '
+description: 在本教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL 資料庫複製到 Azure Blob 儲存體。
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 3626e68c8cedfdd2d22f47cd92d6e7c4b8b5d180
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: a446574f0a6b2b18959f1a3c3e9a02a0a97e9f6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806428"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683387"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體
-在此教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
+在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
 
-您會在此教學課程中執行下列步驟：
+您會在本教學課程中執行下列步驟：
 
 > [!div class="checklist"]
 > * 準備資料存放區來儲存水位線值。
@@ -48,7 +48,7 @@ ms.locfileid: "70806428"
 1. **選取水位線資料行**。
     選取來源資料存放區中的一個資料行，可用於切割每次執行時新增或更新的記錄。 一般來說，當建立或更新資料列時，這個選取的資料行 (例如，last_modify_time 或 ID) 中的資料會持續增加。 此資料行中的最大值就作為水位線。
 
-2. **準備資料存放區來儲存水位線值**。 在此教學課程中，您會將水位線值儲存在 SQL 資料庫中。
+2. **準備資料存放區來儲存水位線值**。 在本教學課程中，您會將水位線值儲存在 SQL 資料庫中。
     
 3. **使用下列工作流程建立管線**： 
     
@@ -87,7 +87,7 @@ ms.locfileid: "70806428"
     (4, 'dddd','9/4/2017 3:21:00 AM'),
     (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-    在此教學課程中，您會使用 LastModifytime 作為水位線資料行。 下表顯示資料來源存放區中的資料：
+    在本教學課程中，您會使用 LastModifytime 作為水位線資料行。 下表顯示資料來源存放區中的資料：
 
     ```
     PersonID | Name | LastModifytime
@@ -110,7 +110,7 @@ ms.locfileid: "70806428"
     WatermarkValue datetime,
     );
     ```
-2. 使用來源資料存放區的資料表名稱來設定高水位線的預設值。 在此教學課程中，資料表名稱是 data_source_table。
+2. 使用來源資料存放區的資料表名稱來設定高水位線的預設值。 在本教學課程中，資料表名稱是 data_source_table。
 
     ```sql
     INSERT INTO watermarktable
@@ -174,7 +174,7 @@ END
 10. 按一下 [撰寫與監視]  圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 
 ## <a name="create-a-pipeline"></a>建立管線
-在此教學課程中，您會建立具有兩個查閱活動、一個複製活動和一個 StoredProcedure 活動的管線，這些活動都在一個管線中鏈結。 
+在本教學課程中，您會建立具有兩個查閱活動、一個複製活動和一個 StoredProcedure 活動的管線，這些活動都在一個管線中鏈結。 
 
 1. 在 Data Factory 使用者介面的 [開始使用]  頁面中，按一下 [建立管線]  圖格。 
 
@@ -213,7 +213,7 @@ END
 
 13. 在 [新增資料集]  視窗中選取 [Azure SQL Database]  ，然後按一下 [繼續]  。 
 14. 在 [設定屬性]  視窗中，輸入 [SourceDataset]  作為 [名稱]  。 選取 [AzureSqlDatabaseLinkedService]  作為 [連結服務]  。
-15. 選取 **[dbo].[data_source_table]** 作為 [資料表]。 您稍後可在此教學課程中指定對此資料集的查詢。 查詢會優先於您在此步驟中指定的資料表。
+15. 選取 **[dbo].[data_source_table]** 作為 [資料表]。 您稍後可在本教學課程中指定對此資料集的查詢。 查詢會優先於您在此步驟中指定的資料表。
 16. 選取 [完成]  。 
 17. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到管線編輯器。 在 [查閱]  活動的 [屬性] 視窗中，確認已為 [來源資料集]  欄位選取 [SourceDataset]  。 
 18. 為[使用查詢]  欄位選取 [查詢]  ，並輸入下列查詢：您從 **data_source_table** 中選取的只有 **LastModifytime** 的最大值。 請確定您也已勾選 [僅限第一列]  。
@@ -243,7 +243,7 @@ END
         ![複製活動 - 來源](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. 切換至 [接收]  索引標籤，然後按一下 [接收資料集]  欄位的 [+ 新增]  。 
 
-24. 在此教學課程中，接收資料存放區是 Azure Blob 儲存體類型。 因此，選取 [Azure Blob 儲存體]  ，然後按一下 [新增資料集]  視窗中的 [繼續]  。 
+24. 在本教學課程中，接收資料存放區是 Azure Blob 儲存體類型。 因此，選取 [Azure Blob 儲存體]  ，然後按一下 [新增資料集]  視窗中的 [繼續]  。 
 25. 在 [選取格式]  視窗中，選取您資料的格式類型，然後按一下 [繼續]  。
 25. 在 [設定屬性]  視窗中，輸入 **SinkDataset** 作為 [名稱]  。 為 [已連結的服務]  選取 [+ 新增]  。 在此步驟中，您將建立與 **Azure Blob 儲存體**的連線 (連結的服務)。
 26. 在 [新增連結服務 (Azure Blob 儲存體)]  視窗中，執行下列步驟： 
@@ -269,7 +269,7 @@ END
     1. 針對 [預存程序名稱]  ，選取 **usp_write_watermark**。 
     2. 若要指定預存程序參數的值，請按一下 [匯入參數]  ，然後輸入參數的下列值： 
 
-        | Name | 類型 | 值 | 
+        | 名稱 | 類型 | 值 | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 字串 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -359,7 +359,7 @@ PersonID | Name | LastModifytime
 
 ## <a name="verify-the-second-output"></a>確認第二個輸出
 
-1. 在 blob 儲存體中，您會看到已建立另一個檔案。 在此教學課程中，新的檔案名稱是 `Incremental-<GUID>.txt`。 開啟該檔案，您會在其中看到兩列記錄。
+1. 在 blob 儲存體中，您會看到已建立另一個檔案。 在本教學課程中，新的檔案名稱是 `Incremental-<GUID>.txt`。 開啟該檔案，您會在其中看到兩列記錄。
 
     ```
     6,newdata,2017-09-06 02:23:00.0000000
@@ -379,7 +379,7 @@ PersonID | Name | LastModifytime
 
      
 ## <a name="next-steps"></a>後續步驟
-在此教學課程中，您已執行下列步驟： 
+在本教學課程中，您已執行下列步驟： 
 
 > [!div class="checklist"]
 > * 準備資料存放區來儲存水位線值。
@@ -395,7 +395,7 @@ PersonID | Name | LastModifytime
 > * 監視第二次管線執行
 > * 檢閱第二次執行的結果
 
-在此教學課程中，管線已從 SQL 資料庫中的單一資料表將資料複製到 Blob 儲存體。 請前進到下列教學課程，了解如何將資料從內部部署 SQL Server 資料庫中的多個資料表複製到 SQL 資料庫。 
+在本教學課程中，管線已從 SQL 資料庫中的單一資料表將資料複製到 Blob 儲存體。 請前進到下列教學課程，了解如何將資料從內部部署 SQL Server 資料庫中的多個資料表複製到 SQL 資料庫。 
 
 > [!div class="nextstepaction"]
 >[以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

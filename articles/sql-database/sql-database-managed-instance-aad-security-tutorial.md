@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure AD 伺服器主體 (登入) 的 Azure SQL Database 受控執行個體安全性 | Microsoft Docs
+title: 使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 description: 了解可對 Azure SQL Database 中的受控執行個體提供保護的技術和功能，以及如何使用 Azure AD 伺服器主體 (登入)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 02/20/2019
-ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+author: GitHubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 11/06/2019
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230995"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822798"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 
@@ -25,7 +25,7 @@ ms.locfileid: "70230995"
 - 使用授權搭配角色型成員資格和權限
 - 啟用安全性功能
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > - 為受控執行個體建立 Azure Active Directory (AD) 伺服器主體 (登入)
@@ -35,9 +35,6 @@ ms.locfileid: "70230995"
 > - 對 Azure AD 使用者使用模擬功能
 > - 對 Azure AD 使用者使用跨資料庫查詢
 > - 了解安全性功能，例如威脅防護、稽核、資料遮罩和加密
-
-> [!NOTE]
-> 受控執行個體的 Azure AD 伺服器主體 (登入) 處於**公開預覽**狀態。
 
 若要深入了解，請參閱 [Azure SQL Database 受控執行個體概觀](sql-database-managed-instance-index.yml)和[功能](sql-database-managed-instance.md)文章。
 
@@ -64,15 +61,14 @@ ms.locfileid: "70230995"
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>使用 SSMS 為受控執行個體建立 Azure AD 伺服器主體 (登入)
 
-第一個 Azure AD 伺服器主體 (登入) 必須由屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 建立。 請參閱下列文章來取得連線到受控執行個體的範例：
+第一個 Azure AD 伺服器主體 (登入) 可以由作為 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 建立，或由佈建程式期間建立的受控執行個體 Azure AD 管理員來建立。 如需詳細資訊，請參閱[為受控執行個體佈建 Azure Active Directory 系統管理員](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。 此功能已在 [Azure AD 伺服器主體正式推出](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi)後變更。
+
+請參閱下列文章來取得連線到受控執行個體的範例：
 
 - [快速入門：設定 Azure VM 以連線到受控執行個體](sql-database-managed-instance-configure-vm.md)
 - [快速入門：設定從內部部署連線至受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)
 
-> [!IMPORTANT]
-> 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-
-1. 使用 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)，透過屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 來登入受控執行個體。
+1. 使用 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)，透過屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 或 MI 的 Azure AD 管理員來登入受控執行個體。
 
 2. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 
@@ -125,7 +121,7 @@ ms.locfileid: "70230995"
 
 若要將登入新增至 `sysadmin` 伺服器角色：
 
-1. 再次登入受控執行個體，或使用現有連往 SQL 主體 (屬於 `sysadmin`) 的連線。
+1. 再次登入受控執行個體，或使用現有連往 Azure AD 管理員或 SQL 主體 (屬於 `sysadmin`) 的連線。
 
 1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 
@@ -425,7 +421,7 @@ ms.locfileid: "70230995"
 
     您應該會看到來自 **TestTable2** 的資料表結果。
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Azure AD 伺服器主體 (登入) (公開預覽) 的其他支援案例 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Azure AD 伺服器主體 (登入) 的其他支援案例
 
 - Azure AD 伺服器主體 (登入) 支援 SQL 代理程式管理和作業執行功能。
 - Azure AD 伺服器主體 (登入) 可以執行資料庫備份和還原作業。

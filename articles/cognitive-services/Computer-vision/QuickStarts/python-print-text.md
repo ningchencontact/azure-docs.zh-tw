@@ -11,14 +11,17 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cbc1fc01663dd2425f5cf3481a936d94f6f7cd71
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d092756e24c4510b7ac5060ed3a4d035704b522f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177132"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613382"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>快速入門：使用電腦視覺 REST API 和 Python 擷取印刷文字 (OCR)
+
+> [!NOTE]
+> 如果您要擷取英文文字，請考慮使用新的[讀取作業](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) \(部分機器翻譯\)。 目前已有 [Python 快速入門](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text)可供使用。 
 
 在此快速入門中，您將使用電腦視覺的 REST API，利用光學字元辨識 (OCR) 來擷取影像中的印刷文字。 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，您可以偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 

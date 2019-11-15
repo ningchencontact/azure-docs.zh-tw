@@ -1,21 +1,24 @@
 ---
-title: 使用 REST 建立知識存放區
+title: 使用 REST 建立知識存放區 (預覽)
 titleSuffix: Azure Cognitive Search
-description: 使用 REST API 和 Postman 建立 Azure 認知搜尋知識存放區，以保存來自 AI 擴充管線的擴充。
-author: lobrien
+description: 使用 REST API 和 Postman 建立 Azure 認知搜尋知識存放區，以保存來自 AI 擴充管線的擴充。 此功能目前為公開預覽狀態。
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790019"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720076"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>使用 REST 建立 Azure 認知搜尋知識存放區
+
+> [!IMPORTANT] 
+> 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
 Azure 認知搜尋中的知識存放區功能可保存 AI 擴充管線的輸出，以便進行後續分析或其他下游處理。 AI 擴充管線可接受影像檔案或非結構化文字檔、使用 Azure 認知搜尋編製其索引、從 Azure 認知服務 (例如影像分析和自然語言處理) 套用 AI 擴充，然後將結果儲存至 Azure 儲存體中的知識存放區。 您可以在 Azure 入口網站中使用 Power BI 或儲存體總管之類的工具來探索知識存放區。
 

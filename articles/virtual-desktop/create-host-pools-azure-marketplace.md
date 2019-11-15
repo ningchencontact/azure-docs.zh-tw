@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Marketplace 建立 Windows 虛擬桌面主機集區 - Azure
+title: Windows 虛擬桌面主機集區 Azure Marketplace - Azure
 description: 如何使用 Azure Marketplace 建立 Windows 虛擬桌面主機集區。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757512"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605574"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>教學課程：使用 Azure Marketplace 建立主機集區
 
@@ -40,7 +40,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 若要執行 Azure Marketplace 供應項目來佈建新的主機集區：
 
-1. 選取 **+** 或 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。
 2. 在 Marketplace 搜尋視窗中輸入 **Windows 虛擬桌面**。
 3. 選取 [Windows 虛擬桌面 - 佈建主機集區]  ，然後選取 [建立]  。
 
@@ -73,7 +73,9 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 針對 [虛擬機器設定]  刀鋒視窗：
 
 >[!NOTE]
-> 如果您要將 VM 加入 Azure Active Directory Domain Services (Azure AD DS) 環境，請確定您的網域加入使用者也是 [AAD DC 系統管理員群組](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)的成員。
+> 如果您要將 VM 加入 Azure Active Directory Domain Services (Azure AD DS) 環境，請確定您的網域加入使用者是 [AAD DC 系統管理員群組](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)的成員。
+>
+> 帳戶也必須是 Azure AD DS 受控網域的一部分，或 Azure AD 租用戶。與您的 Azure AD 租用戶相關聯之外部目錄中的帳戶，在網域加入程序期間無法正確地進行驗證。 
 
 1. 針對 [映像來源]  ，選取來源並輸入如何進行尋找及儲存的相關資訊。 如果您選擇不使用受控磁碟，請選取包含 .vhd 檔案的儲存體帳戶。
 2. 針對會將 VM 加入至 Active Directory 網域的網域帳戶，輸入使用者主體名稱和密碼。 此相同使用者名稱和密碼將會建立於虛擬機器作為本機帳戶。 您稍後可以重設這些本機帳戶。

@@ -1,6 +1,6 @@
 ---
 title: 快速入門：透過 Python 使用 Azure 服務匯流排佇列
-description: 快速入門：了解如何從 Python 使用 Azure 服務匯流排佇列。
+description: 了解如何透過 Python 使用 Azure 服務匯流排佇列。
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -15,88 +15,83 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 4319299eabb57451e3a25a69196a63094f66ab9b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0f579fcd82860380f1aaa651a61c0259d075a0d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721634"
+ms.locfileid: "73748537"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>快速入門：透過 Python 使用 Azure 服務匯流排佇列
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-在本教學課程中，您將了解如何建立 Python 應用程式以對服務匯流排佇列傳送和接收訊息。 
+本文示範如何使用 Python 建立、傳送及接收 Azure 服務匯流排中的訊息。 
+
+如需有關 Python Azure 服務匯流排程式庫的詳細資訊，請參閱 [適用於 Python 的服務匯流排程式庫](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 執行[使用 Azure 入口網站建立服務匯流排佇列](service-bus-quickstart-portal.md)一文中的步驟。
-    1. 閱讀服務匯流排**佇列**的快速**概觀**。 
-    2. 建立服務匯流排**命名空間**。 
-    3. 取得**連接字串**。 
-
-        > [!NOTE]
-        > 您將在本教學課程中使用 Python，在服務匯流排命名空間中建立**佇列**。 
-1. 安裝 Python 或 [Python Azure 服務匯流排套件][Python Azure Service Bus package]，請參閱 [Python 安裝指南](/azure/python/python-sdk-azure-install)。 請在[這裡](/python/api/overview/azure/servicebus?view=azure-python)參閱服務匯流排 Python SDK 的完整文件。
+- Azure 訂用帳戶。 您可以啟用自己的 [Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- 服務匯流排命名空間，遵循[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)中的步驟加以建立。 從 [共用存取原則]  畫面複製主要連接字串，以供本文稍後使用。 
+- Python 3.4x 或更新版本，已安裝 [Python Azure 服務匯流排][Python Azure Service Bus package]套件。 如需詳細資訊，請參閱 [Python 安裝指南](/azure/python/python-sdk-azure-install)。 
 
 ## <a name="create-a-queue"></a>建立佇列
-**ServiceBusClient** 物件可讓您使用佇列。 將下列程式碼新增至您想要在其中以程式設計方式存取服務匯流排之任何 Python 檔案內的頂端附近：
+
+**ServiceBusClient** 物件可讓您操作佇列。 若要以程式設計方式存取服務匯流排，請在 Python 檔案的頂端附近新增下列程式碼行：
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-下列程式碼將建立 **ServiceBusClient** 物件。 請將 `<CONNECTION STRING>` 取代為您的匯流排連接字串。
+新增下列程式碼以建立 **ServiceBusClient** 物件。 使用您的服務匯流排主要連接字串值取代 `<connectionstring>`。 您可以在 [Azure 入口網站][Azure portal]中，於服務匯流排命名空間的 [共用存取原則]  之下找到此值。
 
 ```python
-sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
+sb_client = ServiceBusClient.from_connection_string('<connectionstring>')
 ```
 
-SAS 金鑰名稱和值的值可以在 [Azure 入口網站][Azure portal]連線資訊中找到，或在 Visual Studio 的 [伺服器總管] 中選取「服務匯流排」命名空間時於 [屬性]  窗格中找到 (如上一節所示)。
+下列程式碼會使用 **ServiceBusClient** 的 `create_queue` 方法，以預設設定建立名為 `taskqueue` 的佇列：
 
 ```python
 sb_client.create_queue("taskqueue")
 ```
 
-`create_queue` 方法也支援其他選項，而可讓您覆寫訊息存留時間 (TTL) 或佇列大小上限等預設佇列設定。 下列範例會將佇列大小上限設為 5GB，並將 TTL 時間設為 1 分鐘：
+您可以使用選項來覆寫預設佇列設定，例如訊息存留時間 (TTL) 或主題大小上限。 下列程式碼會建立名為 `taskqueue` 的佇列，其佇列大小上限為 5 GB 且 TTL 值為 1 分鐘：
 
 ```python
 sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
                        default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
-如需詳細資訊，請參閱 [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
-
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-若要將訊息傳送至服務匯流排佇列，應用程式會對 `ServiceBusClient` 物件呼叫 `send` 方法。
 
-下列範例示範如何使用 `send_queue_message` 將測試訊息傳送至名為 `taskqueue` 的佇列：
+為了將訊息傳送至服務匯流排佇列，應用程式會在 **ServiceBusService** 物件上呼叫 `send` 方法。 下列程式碼範例會建立佇列用戶端，並將測試訊息傳送至 `taskqueue` 佇列。 使用您的服務匯流排主要連接字串值取代 `<connectionstring>`。 
 
 ```python
 from azure.servicebus import QueueClient, Message
 
 # Create the QueueClient
-queue_client = QueueClient.from_connection_string(
-    "<CONNECTION STRING>", "<QUEUE NAME>")
+queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
 queue_client.send(msg)
 ```
 
-服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 此佇列大小會在建立時定義，上限是 5 GB。 如需有關配額的詳細資訊，請參閱 [服務匯流排配額][Service Bus quotas]。
+### <a name="message-size-limits-and-quotas"></a>訊息大小限制和配額
 
-如需詳細資訊，請參閱 [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
+服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列可保存的訊息數目沒有限制，但佇列所保存的總訊息大小有最高限制。 您可以在建立佇列時定義其大小，其上限為 5 GB。 
+
+如需有關配額的詳細資訊，請參閱 [服務匯流排配額][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
-對 `ServiceBusService` 物件使用 `get_receiver` 方法，即可從佇列接收訊息：
+
+佇列用戶端會在 **ServiceBusClient** 物件上使用 `get_receiver` 方法，接收來自佇列的訊息。 下列程式碼範例會建立佇列用戶端，並接收來自 `taskqueue` 佇列的訊息。 使用您的服務匯流排主要連接字串值取代 `<connectionstring>`。 
 
 ```python
 from azure.servicebus import QueueClient, Message
 
 # Create the QueueClient
-queue_client = QueueClient.from_connection_string(
-    "<CONNECTION STRING>", "<QUEUE NAME>")
+queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
 
 # Receive the message from the queue
 with queue_client.get_receiver() as queue_receiver:
@@ -106,36 +101,30 @@ with queue_client.get_receiver() as queue_receiver:
         message.complete()
 ```
 
-如需詳細資訊，請參閱 [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
+### <a name="use-the-peek_lock-parameter"></a>使用 peek_lock 參數
 
+`get_receiver` 的選擇性 `peek_lock` 參數會決定在讀取訊息後，服務匯流排是否會從佇列中刪除訊息。 預設的訊息接收模式為 *PeekLock*，或設為 **True** 的 `peek_lock`，其會讀取 (預覽) 並鎖定訊息，而不需從佇列中刪除訊息。 接著，必須明確地完成每則訊息，才能將它從佇列中移除。
 
-如果將 `peek_lock` 參數設為 **False**，則當讀取訊息後，訊息便會從佇列中刪除。 您可以將參數 `peek_lock` 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+若要在讀取訊息後將其從佇列中刪除，您可將 `get_receiver` 的 `peek_lock` 參數設定為 **False**。 在接收作業中刪除訊息是最簡單的模型，但只有應用程式可在發生失敗時容忍遺失訊息才能運作。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 如果訊息在收到時遭到刪除，當應用程式重新啟動並再度開始取用訊息時，其會在當機前遺失所收到的訊息。
 
-隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+如果應用程式無法容忍遺失訊息，則接收會是兩階段的作業。 PeekLock 會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回到應用程式。 在處理或儲存此訊息之後，應用程式會在 **Message** 物件上呼叫 `complete` 方法，以完成接收程序的第二個階段。  `complete` 方法會將訊息標示為已取用，並將其從佇列中移除。
 
-如果您將 `peek_lock` 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **delete** 方法，以完成接收程序的第二個階段。 **delete** 方法會將訊息標示為已取用，並將其從佇列中移除。
+## <a name="handle-application-crashes-and-unreadable-messages"></a>處理應用程式當機與無法讀取的訊息
 
-```python
-msg.delete()
-```
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因而無法處理訊息，其可在 **Message** 物件上呼叫 `unlock` 方法。 服務匯流排會將佇列中的訊息解除鎖定，讓此訊息可由相同或其他取用應用程式重新接收。
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何處理應用程式當機與無法讀取的訊息
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以在 **Message** 物件上呼叫 **unlock** 方法。 這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+佇列內鎖定的訊息也會逾時。 如果應用程式無法在鎖定逾時到期前處理訊息 (例如，若應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓系統可以重新接收訊息。
 
-與在佇列內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
+如果應用程式在處理訊息後但呼叫 `complete` 方法前當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這種行為通常稱為「至少處理一次」  。 每則訊息至少會處理一次；但在特定狀況下，可能會重新傳遞相同訊息。 如果您的案例無法容許重複處理，您可以使用訊息的 **MessageId** 屬性，其會在各傳遞嘗試中保持不變，以處理重複的訊息傳遞。 
 
-如果應用程式在處理訊息之後，尚未呼叫 **delete** 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
-
-> [!NOTE]
-> 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
+> [!TIP]
+> 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓您連線到服務匯流排命名空間，並輕鬆地管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能)，以及測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。
 
 ## <a name="next-steps"></a>後續步驟
-既然您已經了解「服務匯流排」佇列的基本概念，您現在可以閱讀下列文章來深入了解。
 
-* [佇列、主題和訂用帳戶][Queues, topics, and subscriptions]
+您現已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][Queues, topics, and subscriptions]以取得詳細資訊。
 
 [Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-

@@ -1,7 +1,7 @@
 ---
 title: 快速入門：適用於 Python 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 開始使用適用於 Python 的 Language Understanding (LUIS) 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。  Language Understanding (LUIS) 可讓您將自訂機器學習智慧套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。
+description: 開始使用適用於 Python 的 LUIS 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258755"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672008"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入門：適用於 Python 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 

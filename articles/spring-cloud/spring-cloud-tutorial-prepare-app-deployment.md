@@ -1,20 +1,17 @@
 ---
 title: 準備 Spring 應用程式以部署到 Azure Spring Cloud | Microsoft Docs
 description: 在本快速入門中，您會準備 Java Spring 應用程式以進行部署。
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 98d9f3f656cff84cec8d223ed535255157155bd2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038327"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721243"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>教學課程：準備 Java Spring 應用程式以部署到 Azure Spring Cloud
 
@@ -93,27 +90,27 @@ Azure Spring Cloud 會為您裝載及管理 Spring Cloud 元件，例如 Spring 
 
 Spring Boot 版本 | Spring Cloud 版本 | Azure Spring Cloud 版本
 ---|---|---
-2.0.x | Finchley.RELEASE | 2.0.0-SNAPSHOT
-2.1.x | Greenwich.RELEASE | 2.1.0-SNAPSHOT
+2.0.x | Finchley.RELEASE | 2.0.x
+2.1.x | Greenwich.RELEASE | 2.1.x
 
-將此程式碼片段包含在您的 `pom.xml` 中，同時在 'dependency' 中包含正確的 Azure Spring Cloud 版本：
+在您的 `pom.xml` 中包含下列其中一個程式碼片段。  選取其版本符合您自己版本的程式碼片段。
 
+### <a name="version-20x"></a>2\.0.x 版：
 ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <dependency>
+<dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
-    </dependency>
+        <version>2.0.0</version>
+</dependency>
+```
+
+### <a name="version-21x"></a>2\.1.x 版：
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.1.0</version>
+</dependency>
 ```
 
 ## <a name="other-required-dependencies"></a>其他必要的相依性

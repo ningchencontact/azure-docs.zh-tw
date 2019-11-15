@@ -1,5 +1,5 @@
 ---
-title: 使用 REST API 建立 Azure 資料處理站 | Microsoft Docs
+title: 使用 REST API 建立 Azure 資料處理站
 description: 建立 Azure 資料處理站，以將資料從 Azure Blob 儲存體中的某個位置複製到另一個位置。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 4668a9a012b2e379d532091deec832d5f99dd1fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1145490ba5e48216e25a094cbbced3da7b07c701
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990634"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684459"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>快速入門：使用 REST API 建立 Azure 資料處理站和管線
 

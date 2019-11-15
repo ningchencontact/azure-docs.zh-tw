@@ -1,22 +1,22 @@
 ---
 title: 快速入門：辨識語音、意圖和實體 - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: 在本快速入門中，您會使用語音 SDK，以互動方式從麥克風擷取的音訊資料中辨識語音。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5ef0f77ea3798e626b03fadfbfe7a3b55edd378
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0ae332bf08a0e45dd0c2f380ef41bbaf2202b5fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500742"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682024"
 ---
 # <a name="quickstart-recognize-speech-intents-and-entities-with-luis"></a>快速入門：使用 LUIS 辨識語音、意圖和實體
 

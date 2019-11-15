@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309416"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720183"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>將 VMware VM 遷移至 Azure (代理程式型)
 
@@ -22,7 +22,7 @@ ms.locfileid: "70309416"
 [Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載及 AWS/GCP VM 執行個體的探索、評量和移轉 (以 Azure 為目標)。 該中樞能提供 Azure Migrate 工具以進行評量和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 設定來源環境，並部署 Azure Migrate 複寫設備以進行代理程式型移轉。
 > * 設定移轉的目標環境。
@@ -34,7 +34,7 @@ ms.locfileid: "70309416"
 > [!NOTE]
 > 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱 VMware 評量和移轉的操作說明。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -424,7 +424,19 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
 ## <a name="post-migration-best-practices"></a>移轉後的最佳做法
 
-- 針對提升復原能力：
+- 內部部署
+    - 將應用程式流量移至在已移轉之 Azure VM 執行個體上執行的應用程式。
+    - 從您的本機 VM 清查中移除內部部署 VM。
+    - 從本機備份中移除內部部署 VM。
+    - 更新任何內部文件，以顯示 Azure VM 的新位置和 IP 位址。
+- 在移轉之後調整 Azure VM 設定：
+    - [Azure VM 代理程式](../virtual-machines/extensions/agent-windows.md)可管理 VM 與「Azure 網狀架構控制器」之間的互動。 它對某些 Azure 服務 (例如 Azure 備份、Site Recovery 及 Azure 安全性) 來說是必要的。 當您使用代理程式型移轉來遷移 VMare VM 時，行動服務安裝程式會在 Windows 電腦上安裝 Azure VM 代理程式。 在 Linux VM 上，建議您在移轉後安裝代理程式。
+    - 在移轉之後，手動將行動服務從 Azure VM 解除安裝。
+    - 在移轉之後手動將 VMware 工具解除安裝。
+- 在 Azure 中：
+    - 執行任何移轉後應用程式調整，例如更新資料庫連接字串和 Web 伺服器設定。
+    - 在現在於 Azure 中執行的已移轉應用程式上，執行最終的應用程式和移轉接受度測試。
+- 商務持續性/災害復原
     - 使用「Azure 備份」服務來備份 Azure VM 以維護資料安全。 [深入了解](../backup/quick-backup-vm-portal.md)。
     - 使用 Site Recovery 將 Azure VM 複寫至次要區域，讓工作負載保持執行且持續可供使用。 [深入了解](../site-recovery/azure-to-azure-tutorial-enable-replication.md)。
 - 針對提升安全性：
@@ -433,9 +445,11 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
     - 部署 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)以協助保護磁碟，以及防止資料遭到竊取和受到未經授權的存取。
     - 深入了解如何[保護 IaaS 資源](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)，並瀏覽 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)。
 - 針對監視及管理：
--  可考慮部署 [Azure 成本管理](https://docs.microsoft.com/azure/cost-management/overview)來監視資源使用情況和花費。
+    - 可考慮部署 [Azure 成本管理](https://docs.microsoft.com/azure/cost-management/overview)來監視資源使用情況和花費。
 
 
-## <a name="next-steps"></a>後續步驟
+
+
+ ## <a name="next-steps"></a>後續步驟
 
 調查 Azure 雲端採用架構中的[雲端移轉旅程](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)。

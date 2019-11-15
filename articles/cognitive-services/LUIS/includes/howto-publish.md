@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: f833ded4467da1f129b1ea7f858ae8bdd9c2048e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495315"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647430"
 ---
 若要在聊天機器人或其他應用程式中收到 LUIS 預測，您必須將應用程式發佈到端點。 
 
@@ -31,4 +31,4 @@ ms.locfileid: "73495315"
 
     ![LUIS 發佈到端點](../media/howto-publish/publish-endpoint-success.png)
 
-4. 選取綠色狀態列中的 [端點]  連結，以移至 [金鑰和端點]  頁面。 端點 URL 會列在底部。
+4. 選取通知中的 [存取您的端點 URL]  連結，以移至 [Azure 資源]  頁面。 端點 URL 會列為 [範例查詢]  。

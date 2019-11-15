@@ -1,6 +1,6 @@
 ---
 title: 快速入門：適用於 Python 的臉部用戶端程式庫 | Microsoft Docs
-description: 開始使用適用於 Python 的臉部用戶端程式庫...
+description: 本文將協助您開始使用適用於 Python 的臉部用戶端程式庫來進行偵測、尋找類似項目、識別和驗證等等。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: b265ec68039f03c09d45c9605965de8ce0baba99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9728ff86de8561c463886847494ecc4c1c007851
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935864"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743205"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>快速入門：適用於 Python 的臉部用戶端程式庫
 

@@ -1,18 +1,18 @@
 ---
-title: 教學課程 - 設定 Azure Analysis Services 管理員和使用者角色 | Microsoft Docs
-description: 了解如何設定 Azure Analysis Services 角色。
+title: 教學課程 - 設定 Azure Analysis Services 角色 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站或 SQL Server Management Studio 來設定 Azure Analysis Services 系統管理員和使用者角色。
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: b70d1502985a1ffc0ebdf6fcb487cda3992d1c19
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294427"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572380"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教學課程：設定伺服器管理員和使用者角色
 

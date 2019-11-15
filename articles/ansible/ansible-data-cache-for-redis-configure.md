@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 使用 Ansible 在 Azure Cache for Redis 中設定快取
-description: 了解如何使用 Ansible 建立、調整及重新啟動 Azure Cache for Redis
+description: 了解如何使用 Ansible 建立、調整、重新啟動及新增 Azure Cache for Redis 的防火牆規則
 keywords: ansible, azure, devops, bash, 劇本, 快取, redis
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95b42bc9539c36a533eb528c3c26ade89e99290b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241801"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614354"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>教學課程：使用 Ansible 在 Azure Cache for Redis 中設定快取
 

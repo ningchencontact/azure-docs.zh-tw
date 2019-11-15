@@ -1,5 +1,5 @@
 ---
-title: Azure 入口網站：使用查詢編輯器查詢 Azure SQL Database | Microsoft Docs
+title: Azure 入口網站：使用查詢編輯器進行查詢
 description: 了解如何使用 SQL 查詢編輯器在 Azure 入口網站中與 SQL Database 連線。 然後，執行 TRANSACT-SQL (T-SQL) 陳述式來查詢和編輯資料。
 keywords: 連線至 SQL Database、Azure 入口網站、入口網站、查詢編輯器
 services: sql-database
@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 433f2a190cf24a7e59dcd1d5a5aba0d3aa4e8588
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827103"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>快速入門：使用 Azure 入口網站的 SQL 查詢編輯器進行連線並查詢資料
 

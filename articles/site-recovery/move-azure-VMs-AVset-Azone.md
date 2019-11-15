@@ -1,6 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 服務將 Azure IaaS VM 移至其他 Azure 區域作為區域固定的 VM | Microsoft Docs
-description: 使用 Azure Site Recovery 將 Azure IaaS VM 移至其他 Azure 區域，作為區域固定的 VM。
+title: 使用 Azure Site Recovery 將 VM 移至具有可用性區域的 Azure 區域
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375733"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693193"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>將 Azure VM 移至可用性區域中
 Azure 中的可用性區域有助於讓應用程式和資料不受資料中心故障的影響。 每個可用性區域由一或多個資料中心組成，配備了電力、冷卻系統及網路系統。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 某個地區內可用性區域的實體區隔可保護應用程式和資料不受資料中心故障影響。 搭配可用性區域後，Azure 提供虛擬機器 (VM) 運作時間達 99.99% 的服務等級協定 (SLA)。 可用性區域可在選定區域中受到支援，如[哪些是 Azure 中的可用性區域？](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)中所述。

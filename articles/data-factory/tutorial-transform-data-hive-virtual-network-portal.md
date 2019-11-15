@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs
+title: '在 Azure 虛擬網路中使用 Hive 來轉換資料 '
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 73a43bdb859d39bd0cb8e3d4a3ed3f114fb2c156
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277465"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683422"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：

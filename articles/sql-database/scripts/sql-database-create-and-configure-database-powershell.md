@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 在 Azure SQL Database 中建立單一資料庫 | Microsoft Docs
+title: PowerShell 範例 - 在 Azure SQL Database 中建立單一資料庫
 description: 在 Azure SQL Database 中建立單一資料庫的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7aa38f61d74a5418b4c33fef550f70ba4254e00d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1311c14e95e709ef522fe13ce30786ce0d8fb0a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570009"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691674"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>使用 PowerShell 建立單一 Azure SQL 資料庫並設定 SQL Database 伺服器防火牆規則
 

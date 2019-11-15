@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 移動 Azure SQL 資料庫 - 彈性集區 | Microsoft Docs
+title: PowerShell 範例 - 移動 Azure SQL 資料庫 - 彈性集區
 description: 使用 PowerShell 在彈性集區之間移動 SQL 資料庫的 Azure PowerShell 指令碼範例
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.reviewer: ''
 ms.author: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 3e43a027507a52965dd56bbf6015f18d2b2ebc2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f4465201d93f5bd48bda82b1d3b7e1ebcdc950e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569873"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691577"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>使用 PowerShell 建立彈性集區並在彈性集區之間移動資料庫
 

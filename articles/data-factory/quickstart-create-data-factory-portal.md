@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory UI 建立 Azure 資料處理站 | Microsoft Docs
+title: 使用 Azure Data Factory UI 建立 Azure 資料處理站
 description: 使用會將資料從 Azure Blob 儲存體中的某個位置複製到另一個位置的管線建立資料處理站。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077054"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684490"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>快速入門：使用 Azure Data Factory UI 建立資料處理站
 
@@ -39,7 +39,10 @@ ms.locfileid: "70077054"
 
 1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 
-1. 選取左側功能表上的 [建立資源]  、選取 [分析]  ，然後選取 [資料處理站]  。 
+1. 從 Azure 入口網站功能表選取 [建立資源]  。
+   
+   ![從 Azure 入口網站功能表選取 [建立資源]](./media/doc-common-process/create-a-resource.png)
+1. 選取 [Analytics]  ，然後選取 [Data Factory]  。 
    
    ![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. 在 [新增資料處理站]  頁面上，輸入 **ADFTutorialDataFactory** 作為 [名稱]  。 

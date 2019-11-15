@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a5f8c8c00a9f63558043167c5cf8269f9e139d54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483893"
+ms.locfileid: "73584886"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -92,6 +92,11 @@ ms.locfileid: "73483893"
     2. 若要一次啟動所有 VM，請選取工具列上的 [全部啟動]  。 
     3. 若要啟動特定 VM，請選取 [狀態]  中的向下箭號，然後選取 [啟動]  。 您也可以在第一個資料行中選取 VM，然後選取工具列上的 [啟動]  來啟動 VM。
 
+    如需建立和管理範本，以及設定和管理學生虛擬機器的詳細資訊，請參閱下列文章： 
+    
+    - [建立和管理教室實驗室範本](how-to-create-manage-template.md)
+    - [設定和管理虛擬機器集區](how-to-set-virtual-machine-passwords.md)
+
 ## <a name="add-users-to-the-lab"></a>將使用者新增至實驗室
 
 1. 選取左側功能表上的 [使用者]  。 預設會啟用 [限制存取]  選項。 當此設定為開啟時，即使使用者有註冊連結，除非使用者位於使用者清單中，否則也無法向實驗室註冊。 只有清單中的使用者可以使用您傳送的註冊連結，向實驗室註冊。 在此程序中，您會在清單中新增使用者。 或者，您可以關閉 [限制存取]  ，讓使用者能向實驗室註冊 (只要他們有註冊連結)。 
@@ -105,29 +110,40 @@ ms.locfileid: "73483893"
 
     ![使用者清單](../media/how-to-configure-student-usage/users-list-new.png)
 
+    在使用者向實驗室註冊後，您會在清單中看到使用者的名稱。 
+    
 ## <a name="set-a-schedule-for-the-lab"></a>設定實驗室的排程
 建立實驗室的排程事件，讓實驗室中的 VM 在特定時間自動啟動/停止。 您稍早指定的使用者配額，便是會在此排程時間以外指派給每位使用者的額外時間。 
 
 1. 切換至 [排程]  頁面，然後選取工具列上的 [新增已排定事件]  。 
 
     ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/add-schedule-button.png)
-2. 確認已選取 [標準]  作為 [事件類型]  。 您可以選取 [僅啟動]  ，以便僅指定 VM 的啟動時間。 您可以選取 [僅停止]  ，以便僅指定 VM 的停止時間。 
-3. 在 [重複]  區段中，選取目前的排程。 
-
-    ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/select-current-schedule.png)
-4. 選取排程將會開啟 [重複]  對話方塊。 在此對話方塊中，執行下列步驟：
-    1. 確認已為 [重複]  欄位設定 [每週]  。 
-    3. 指定 [啟動日期]  。
+2. 在 [新增已排定事件]  頁面上，執行下列步驟：
+    1. 確認已為 [事件類型]  選取 [標準]  。  
+    2. 指定班級的**開始日期**。 
     4. 指定您想要讓 VM 啟動的 [啟動時間]  。
     5. 指定要關閉 VM 的 [停止時間]  。 
     6. 針對您指定的啟動和停止時間指定 [時區]  。 
-    2. 選取您想要讓排程生效的日期。 下列範例中選取了星期一至星期四。 
+3. 在相同的 [新增已排定事件]  頁面上，選取 [重複]  區段中的目前排程。  
+
+    ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/select-current-schedule.png)
+5. 在 [重複]  對話方塊中，執行下列步驟：
+    1. 確認已為 [重複]  欄位設定 [每週]  。 
+    2. 選取您想要讓排程生效的日期。 下列範例中選取了星期一至星期五。 
+    3. 選取排程的**結束日期**。
     8. 選取 [儲存]  。 
 
-5. 現在，在 [新增已排定事件]  頁面上的 [附註 (選擇性)]  中，輸入排程的描述或附註。 
-6. 在 [新增已排定事件]  頁面上，選取 [儲存]  。 
+        ![設定重複排程](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. 現在，在 [新增已排定事件]  頁面上的 [附註 (選擇性)]  中，輸入排程的描述或附註。 
+4. 在 [新增已排定事件]  頁面上，選取 [儲存]  。 
 
     ![每週排程](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+5. 瀏覽至行事曆中的開始日期，確認已設定排程。
+    
+    ![行事曆中的排程](../media/how-to-create-schedules/schedule-calendar.png)
+
+    如需建立和管理班級排程的詳細資訊，請參閱[建立和管理教室實驗室的排程](how-to-create-schedules.md)。
 
 ## <a name="send-invitation-emails-to-students"></a>傳送邀請電子郵件給學生
 
@@ -139,6 +155,8 @@ ms.locfileid: "73483893"
 
     ![透過電子郵件傳送註冊連結](../media/tutorial-setup-classroom-lab/send-email.png)
 4. 您會在 [使用者]  清單中看到 [邀請]  的狀態。 其狀態應該會依序變更為 [傳送中]  和 [已於 &lt;date&gt; 傳送]  。 
+
+    如需將學生新增到班級及管理其實驗室使用方式的詳細資訊，請參閱[如何設定學生使用方式](how-to-configure-student-usage.md)。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已建立教室實驗室並已設定實驗室。 若要了解學生可以如何使用註冊連結，來存取實驗室中的 VM，請前往下一個教學課程：

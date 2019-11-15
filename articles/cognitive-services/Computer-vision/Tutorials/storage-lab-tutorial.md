@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057731"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604663"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教學課程：使用電腦視覺在 Azure 儲存體中產生影像中繼資料
 
-在本教學課程中，您將了解如何將 Azure 電腦視覺服務整合到 Web 應用程式中，為上傳的影像產生中繼資料。 您可以在 GitHub 上的 [Azure 儲存體和認知服務實驗室](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)中找到完整的應用程式指南；本教學課程主要將說明實驗室的練習 5。 您可能會想要依照每個步驟來建立端對端應用程式，但如果您只想了解如何將電腦視覺整合到現有的 Web 應用程式中，請參閱這裡的步驟。
+在本教學課程中，您將了解如何將 Azure 電腦視覺服務整合到 Web 應用程式中，為上傳的影像產生中繼資料。 這適用於[數位資產管理 (DAM)](../Home.md#computer-vision-for-digital-asset-management) 案例，例如公司想要快速為其所有影像產生描述性標題或可搜尋的關鍵字。
+
+您可以在 GitHub 上的 [Azure 儲存體和認知服務實驗室](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)中找到完整的應用程式指南；本教學課程主要將說明實驗室的練習 5。 您可能會想要依照每個步驟來建立端對端應用程式，但如果您只想了解如何將電腦視覺整合到現有的 Web 應用程式中，請參閱這裡的步驟。
 
 本教學課程說明如何：
 

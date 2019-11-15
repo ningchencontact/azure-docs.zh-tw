@@ -5,19 +5,23 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf1b9859bf3dc4b8ac14d01b2bb6c8cf9c9899ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: df425f723aa6a5e261ed6dcd15abfe87b367ad68
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520876"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747965"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>準備評估實體伺服器並將其移轉至 Azure
 
 本文將說明如何使用 [Azure Migrate](migrate-services-overview.md) 來準備評估內部部署實體伺服器。
+
+
+> [!NOTE]
+> 如果您還沒在 Azure Migrate 入口網站中看到某些功能，請稍候。 它們將會在下週前後出現。
 
 [Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
 

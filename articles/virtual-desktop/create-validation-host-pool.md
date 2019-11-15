@@ -1,5 +1,5 @@
 ---
-title: 建立 Windows 虛擬桌面主機集區來驗證服務更新 - Azure
+title: Windows 虛擬桌面主機集區服務更新 - Azure
 description: 將更新推展到生產環境之前，如何建立驗證主機集區來監視服務更新。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676667"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606923"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>教學課程：建立主機集區以驗證服務更新
 

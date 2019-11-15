@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 在 Blob 儲存體中複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 在 Blob 儲存體中複製資料
 description: 建立 Azure 資料處理站，以將資料從 Azure Blob 儲存體中的某個位置複製到另一個位置。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 06171dbedb55b4a80e2b27b9314247331d65ed97
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 564076a0df8ab993796dde3d134a9461ab03e050
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286470"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684493"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>快速入門：使用 PowerShell 建立 Azure 資料處理站
 

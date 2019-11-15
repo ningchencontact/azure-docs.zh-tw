@@ -1,5 +1,5 @@
 ---
-title: 使用變更追蹤和 Azure Data Factory 以累加方式複製資料 | Microsoft Docs
+title: '使用變更追蹤和 Azure Data Factory 以累加方式複製資料 '
 description: '在本教學課程中，您會建立 Azure Data Factory 管線，透過累加方式將差異資料從內部部署 SQL Server 資料庫中的多個資料表，複製到 Azure SQL 資料庫。 '
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c754b5755cbab3720ca0ffebc891ce76ce7aebc5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140813"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683510"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL 資料庫中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -413,7 +413,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     2. 選取 [匯入參數]  。 
     3. 在 [預存程序參數]  區段中，指定參數的下列值： 
 
-        | Name | 類型 | 值 | 
+        | 名稱 | 類型 | 值 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 字串 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 

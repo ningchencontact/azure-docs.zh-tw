@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 複製資料工具複製資料 | Microsoft Docs
+title: 使用 Azure 複製資料工具複製資料
 description: 建立 Azure 資料處理站，然後使用「複製資料」工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827975"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683596"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]

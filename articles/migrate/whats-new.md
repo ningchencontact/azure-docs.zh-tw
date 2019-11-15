@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1ecd15b36b677e65eadbe4e979925723c9eedd51
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498419"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715386"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate 中的新功能
 
@@ -22,7 +22,12 @@ ms.locfileid: "73498419"
 
 ## <a name="update-november-2019"></a>更新 (2019 年 11 月)
 
+
+
 Azure Migrate 加入了一些新功能：
+
+> [!NOTE]
+> 如果您還沒在 Azure Migrate 入口網站中看到某些功能，請稍候。 它們將會在下週前後出現。
 
 - **實體伺服器評量**。 除了已支援的實體伺服器移轉之外，現在也支援內部部署實體伺服器的評量。
 - **以匯入為基礎的評量**。 現在支援使用 CSV 檔案中提供的中繼資料和效能資料來進行機器評量。
@@ -30,6 +35,13 @@ Azure Migrate 加入了一些新功能：
 - **無代理程式的相依性視覺效果**：您不再需要明確安裝代理程式來取得相依性視覺效果。 目前支援無代理程式和代理程式型。
 - **虛擬桌面**：使用 ISV 工具來評定內部部署虛擬桌面基礎結構 (VDI)，並將其移轉移至 Azure 中的 Windows 虛擬桌面。
 - **Web 應用程式**：用於評定和移轉 Web 應用程式的 Azure App Service 移轉小幫手現在已與 Azure Migrate 整合。
+
+Azure Migrate 新增了新的評量和移轉工具：
+
+- **Rackware**：供應項目雲端移轉。
+- **Movere**：供應項目評量。
+
+[深入了解](migrate-services-overview.md)如何使用工具和 ISV 供應項目在 Azure Migrate 中進行評量和移轉。
 
 ## <a name="release-version-july-2019"></a>發行版本 (2019 年 7 月)
 

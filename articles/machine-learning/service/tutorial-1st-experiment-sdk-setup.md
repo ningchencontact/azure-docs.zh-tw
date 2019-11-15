@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476014"
+ms.locfileid: "73582486"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>教學課程：使用 Python SDK 開始建立您的第一個 ML 實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "73476014"
 > [!div class="checklist"]
 > * 建立要在下一個教學課程中使用的 [Azure Machine Learning 工作區](concept-workspace.md)。
 > * 將教學課程 Notebook 複製到工作區中的資料夾。
-> * 建立已安裝並預先設定 Azure Machine Learning Python SDK 的雲端式計算執行個體。
+> * 建立已安裝並預先設定 Azure Machine Learning Python SDK 的雲端式 Notebook VM。
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
@@ -79,7 +79,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
     
 1. 在 **tutorials** 資料夾中選取 **tutorial-1st-experiment-sdk-train.ipynb** 檔案。
 
-1. 在頂端列上，選取要用來執行筆記本的計算執行個體。 這些 VM 已預先設定[執行 Azure Machine Learning 所需的一切](concept-compute-instance.md#contents)。 您可以選取您工作區的任何使用者所建立的 VM。 
+1. 在頂端列中，選取要用來執行 Notebook 的 Notebook VM。 這些 VM 已預先設定執行 Azure Machine Learning 所需的一切。 您可以選取您工作區的任何使用者所建立的 VM。 
 
 1. 如果找不到任何 VM，請選取 [+ 新增計算]  來建立 VM。
 
@@ -89,9 +89,6 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 1. VM 可供使用後，會顯示在頂端工具列中。  您現在可以使用工具列中的 [全部執行]  來執行 Notebook，或在 Notebook 的程式碼資料格中使用 **Shift+Enter** 來執行。
 
-> [!NOTE]
-> 計算執行個體僅適用於區域為 [美國中北部]  或 [英國南部]  的工作區。
->如果您的工作區位於任何其他區域，您可繼續建立並使用 [Notebook VM](concept-compute-instance.md#notebookvm)。  您可使用 Notebook VM 或計算執行個體來執行您的筆記本。
 
 ## <a name="next-steps"></a>後續步驟
 

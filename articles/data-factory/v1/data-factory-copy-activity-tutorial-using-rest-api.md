@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 REST API 建立 Azure Data Factory 管線 |Microsoft Docs
+title: '教學課程：使用 REST API 建立 Azure Data Factory 管線 '
 description: 在本教學課程中，您會使用 REST API 建立具有複製活動的 Azure Data Factory 管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f9cead45066fb7bf4a96332710fdd8f3cd5a094
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 860b2f20b4ffda0a1a588ed5d5893ad2c0521a43
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146211"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682838"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>教學課程：使用 REST API 建立 Azure Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]

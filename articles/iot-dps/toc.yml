@@ -145,6 +145,8 @@
       href: how-to-send-additional-data.md
     - name: 疑難排解
       href: how-to-troubleshoot-dps.md
+    - name: 使用 MQTT 通訊協定與 DPS 通訊
+      href: iot-dps-mqtt-support.md
 - name: 參考
   items:
     - name: REST API

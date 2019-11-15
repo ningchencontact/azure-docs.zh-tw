@@ -1,37 +1,42 @@
 ---
-title: 使用 Power BI 連線至知識存放區
+title: 使用 Power BI 連線至知識存放區 (預覽)
 titleSuffix: Azure Cognitive Search
-description: 使用 Power BI 連接 Azure 認知搜尋知識存放區，以進行分析和探索。
+description: 使用 Power BI 連接 Azure 認知搜尋知識存放區 (預覽)，以進行分析和探索。
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485148"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715484"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>使用 Power BI 連線到知識存放區
 
-> [!Note]
-> 知識存放區處於預覽狀態，不應用於生產環境。 入口網站和[搜尋服務 REST API 版本 2019-05-06-Preview](search-api-preview.md) 會提供此功能。 目前沒有 .NET SDK 支援。
->
+> [!IMPORTANT] 
+> 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
 在本文中，了解如何使用 Power BI Desktop 應用程式中的 Power Query 來連線及探索知識存放區。 您可以透過範本更快地開始使用，或從頭開始建立自訂儀表板。
 
-## <a name="prerequisites"></a>必要條件
++ 遵循[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)或[使用 REST 建立 Azure 認知搜尋知識存放區](knowledge-store-create-rest.md)中的步驟，建立本逐步解說中所使用的知識存放區範例。 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
 
 + [安裝 Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-+ 您將需要一個知識存放區，具有 Azure 資料表儲存體的投影。 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
+## <a name="sample-power-bi-template---azure-portal-only"></a>範例 Power BI 範本 - 僅限 Azure 入口網站
 
-如果您想要使用範例知識存放區，請遵循相關指示來[建立知識存放區](knowledge-store-create-portal.md)。
+如果您[使用 Azure 入口網站建立知識存放區](knowledge-store-create-portal.md)，您可以使用 [Azure 認知搜尋 Power BI 範本範例](https://github.com/Azure-Samples/cognitive-search-templates)來檢視和實驗 Power BI 視覺效果。 當您逐步執行 [匯入資料]  精靈時，此範本也可供下載。
 
-## <a name="create-a-custom-report"></a>建立自訂報告
+範例範本會自動執行本文其餘部分所述的設定步驟。 不過，如果您使用 REST API 建立知識存放區，請略過此範本並使用本文中的其餘章節，將知識存放區連線到 Power BI。 從[與 Power BI 連線](#connect-with-power-bi)開始著手。
+
+範例範本包含數個視覺效果，例如 WordCloud 和 Network Navigator。 範本中的某些視覺效果 (例如位置對應和實體圖表檢視器) 不會顯示[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)中所建立範例知識存放區的資料。 這是因為已使用 [匯入資料]  精靈中僅提供的 AI 擴充子集。
+
+![範例 Azure 認知搜尋 Power BI 範本](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "範例 Power BI 範本")
+
+## <a name="connect-with-power-bi"></a>使用 Power BI 進行連接
 
 1. 啟動 Power BI Desktop 並按一下 [取得資料]  。
 

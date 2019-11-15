@@ -1,20 +1,21 @@
 ---
-title: 快速入門：適用於 Java 的 Content Moderator 用戶端程式庫 | Microsoft Docs
-description: 開始使用適用於 Java 的 Content Moderator 用戶端程式庫。
+title: 快速入門：適用於 Java 的 Content Moderator 用戶端程式庫
+titleSuffix: Azure Cognitive Services
+description: 了解如何開始使用適用於 Java 的 Azure 認知服務 Content Moderator 用戶端程式庫。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d1575818ac35c45af8a7df59c0853389d01031c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699911"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744448"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>快速入門：適用於 Java 的 Content Moderator 用戶端程式庫
 
@@ -24,7 +25,7 @@ ms.locfileid: "68699911"
 
 * 仲裁成人或猥褻內容、文字或人臉的影像。
 
-[參考文件](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [成品 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [範例](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=0)
+[參考文件](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [成品 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [範例](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -94,7 +95,7 @@ mkdir -p src/main/java
 
 下列類別會處理 Content Moderator Java SDK 的一些主要功能。
 
-|Name|說明|
+|名稱|說明|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|所有 Content Moderator 功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。|
 |[ImageModeration](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|此類別提供對成人內容、個人資訊或人臉的影像進行分析的功能。|
@@ -125,14 +126,14 @@ mkdir -p src/main/java
 
 ### <a name="get-images"></a>取得影像
 
-在專案的 **src/main/** 資料夾中建立 **resources** 資料夾，並瀏覽至該資料夾。 然後，建立新的文字檔 *ImageFiles.txt*。 在此檔案中，您會新增要分析之影像的 URL &mdash; 每行一個 URL。 您可以使用下列範例內容：
+在專案的 **src/main/** 資料夾中建立 **resources** 資料夾，並瀏覽至該資料夾。 然後，建立新的文字檔 *ImageFiles.txt*。 在此檔案中，您會新增要分析之影像的 URL &mdash; 每行一個 URL。 您可以使用下列範例影像：
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### <a name="use-helper-class"></a>使用 Helper 類別
+### <a name="define-helper-class"></a>定義協助程式類別
 
 然後，在您的 *ContentModeratorQuickstart.java* 檔案中，將下列類別定義新增至 **ContentModeratorQuickstart** 類別內。 影像仲裁程序後續將會使用此內部類別。
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163869"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583128"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CI Microsoft Azure 基礎基準測試藍圖範例的建議對應。
 
@@ -360,7 +360,7 @@ ms.locfileid: "73163869"
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure 基礎基準測試藍圖 - 概觀](./index.md)
-> [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [CIS Microsoft Azure 基礎基準測試藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

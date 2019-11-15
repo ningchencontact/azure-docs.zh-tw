@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750256"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685121"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST
 
@@ -258,34 +258,36 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ### <a name="create-a-streaming-locator"></a>建立串流定位器
 
-編碼作業完成後，下一個步驟是要讓用戶端可播放輸出**資產**中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
+編碼作業完成後，下一個步驟是要讓用戶端可播放輸出**資產**中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
 
-建立 [串流定位器]  的程序稱為發佈。 根據預設，[串流定位器]  會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
+建立串流定位器的程序稱為發佈。 根據預設，串流定位器會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
-建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)時，您必須指定所需的 **StreamingPolicyName**。 在此範例中，您將串流處理乾淨 (或未加密的) 內容，而使用預先定義的乾淨串流原則 "Predefined_ClearStreamingOnly"。
+建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 時，您必須指定需要的 **StreamingPolicyName**。 在此範例中，您將串流處理乾淨 (或未加密的) 內容，而使用預先定義的乾淨串流原則 "Predefined_ClearStreamingOnly"。
 
 > [!IMPORTANT]
 > 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 
 
-媒體服務帳戶有**串流原則**項目的數量配額。 不建議您對每個 [串流定位器]  建立新的 [串流原則]  。
+媒體服務帳戶有**串流原則**項目的數量配額。 不建議您對每個串流定位器建立新的**串流原則**。
 
-1. 在 Postman 應用程式的左側視窗中，選取 [串流原則]。
-2. 然後，選取 [建立串流定位器]。
+1. 在 Postman 應用程式的左側視窗中，選取 [串流原則和定位器]。
+2. 然後，選取 [建立串流定位器 (乾淨狀態)]。
 3. 按 [傳送]  。
 
     * 此時會傳送下列 **PUT** 作業。
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * 作業會具有下列主體：
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

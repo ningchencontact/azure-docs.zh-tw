@@ -1,6 +1,6 @@
 ---
 title: 大規模備份 Azure 虛擬機器
-description: 同時備份多部虛擬機器至 Azure
+description: 在本教學課程中，您將了解如何建立復原服務保存庫、定義備份原則，以及同時備份多部虛擬機器。
 keywords: 虛擬機器備份; 虛擬機器備份; 備份 VM; 備份 VM; 備份 Azure VM; 備份與災害復原
 author: dcurwin
 manager: carmonm
@@ -9,24 +9,25 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688440"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747026"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 
 當您使用 Azure 備份資料時，該資料會儲存在稱為復原服務保存庫的 Azure 資源中。 大部分 Azure 服務的 [設定] 功能表都提供復原服務保存庫資源。 將復原服務保存庫整合至大部分 Azure 服務 [設定] 功能表的好處是，備份資料變得很容易。 不過，個別處理您企業中的每個資料庫或虛擬機器實在很費時。 如果想要將所有虛擬機器的資料備份在一個部門或一個位置，該怎麼辦？ 只要建立備份原則，並將該原則套用至所要的虛擬機器，即可輕鬆備份多部虛擬機器。 本教學課程說明如何：
 
 > [!div class="checklist"]
+>
 > * 建立復原服務保存庫
 > * 定義備份原則
 > * 套用備份原則以保護多部虛擬機器
 > * 觸發受保護虛擬機器的隨選備份作業
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -44,11 +45,11 @@ ms.locfileid: "68688440"
 
 3. 在 [復原服務保存庫] 功能表中，
 
-    - 在 [名稱]  中鍵入 *myRecoveryServicesVault*。
-    - 目前的訂用帳戶識別碼會出現在 [訂用帳戶]  中。 如果您有其他的訂用帳戶，可為新的保存庫選擇其他訂用帳戶。
-    - 針對**資源群組**：選取 [使用現有]  並選擇 [myResourceGroup]  。 如果 [myResourceGroup]  不存在，請選取 [新建]  並鍵入 *myResourceGroup*。
-    - 從 [位置]  下拉式功能表中，選擇 [西歐]  。
-    - 按一下 [建立]  建立您的復原服務保存庫。
+    * 在 [名稱]  中鍵入 *myRecoveryServicesVault*。
+    * 目前的訂用帳戶識別碼會出現在 [訂用帳戶]  中。 如果您有其他的訂用帳戶，可為新的保存庫選擇其他訂用帳戶。
+    * 針對**資源群組**：選取 [使用現有]  並選擇 [myResourceGroup]  。 如果 [myResourceGroup]  不存在，請選取 [新建]  並鍵入 *myResourceGroup*。
+    * 從 [位置]  下拉式功能表中，選擇 [西歐]  。
+    * 按一下 [建立]  建立您的復原服務保存庫。
 
 復原服務保存庫必須和受保護的虛擬機器位在相同地區。 如果您在多個區域中有虛擬機器，請在每個區域中建立復原服務保存庫。 本教學課程會在「西歐」  建立復原服務保存庫，因為這是 *myVM* (使用快速入門步驟建立之虛擬機器) 的建立位置。
 
@@ -77,12 +78,12 @@ ms.locfileid: "68688440"
     ![選取工作負載](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. 在 [備份原則]  功能表上，針對 [原則名稱]  鍵入 *Finance*。 輸入備份原則的下列變更：
-   - 針對 [備份頻率]  將時區設定為 [美國中部時間]  。 因為運動休閒中心位在德州，所以業主希望使用本地時間。 [備份頻率] 保持設定為 [每天] 上午 3:30 執行。
-   - 針對 [每日備份點保留期]  ，將期限設定為 90 天。
-   - 針對 [每週備份點保留期]  ，還原點使用 [星期一]  並保留 52 週。
-   - 針對 [每月備份點保留期]  ，還原點使用每月第一個星期日並保留 36 個月。
-   - 取消選取 [每年備份點保留期]  選項。 財務部主管不希望資料保留期限超過 36 個月。
-   - 按一下 [確定]  可建立備份原則。
+   * 針對 [備份頻率]  將時區設定為 [美國中部時間]  。 因為運動休閒中心位在德州，所以業主希望使用本地時間。 [備份頻率] 保持設定為 [每天] 上午 3:30 執行。
+   * 針對 [每日備份點保留期]  ，將期限設定為 90 天。
+   * 針對 [每週備份點保留期]  ，還原點使用 [星期一]  並保留 52 週。
+   * 針對 [每月備份點保留期]  ，還原點使用每月第一個星期日並保留 36 個月。
+   * 取消選取 [每年備份點保留期]  選項。 財務部主管不希望資料保留期限超過 36 個月。
+   * 按一下 [確定]  可建立備份原則。
 
      ![選取工作負載](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
@@ -142,7 +143,6 @@ ms.locfileid: "68688440"
 
     ![設定圖示](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
-
 2. 在 [備份項目]  功能表上，按一下 [Azure 虛擬機器]  開啟與保存庫相關聯的虛擬機器清單。
 
     ![設定圖示](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
@@ -171,12 +171,12 @@ ms.locfileid: "68688440"
 
     刪除保存庫後，您就會回到復原服務保存庫的清單。
 
-
 ## <a name="next-steps"></a>後續步驟
 
-在這篇教學中，您使用了 Azure 入口網站來：
+在本教學課程中，您已使用 Azure 入口網站來：
 
 > [!div class="checklist"]
+>
 > * 建立復原服務保存庫
 > * 設定保存庫以保護虛擬機器
 > * 建立自訂的備份和保留原則

@@ -1,20 +1,21 @@
 ---
-title: 使用 T-SQL DDL 語法，將 SQL Server 內部部署 Windows 使用者和群組遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
+title: 使用 T-SQL 將 SQL ServerWindows 使用者和群組遷移至受控執行個體
 description: 了解如何將 SQL Server 內部部署 Windows 使用者和群組 SQL Server 遷移至受控執行個體
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: 3ed4e4b1d37a9705378281ca74b53a6b60713d97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795059"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807165"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>教學課程：使用 T-SQL DDL 語法，將 SQL Server 內部部署 Windows 使用者和群組遷移至 Azure SQL Database 受控執行個體
 
@@ -41,6 +42,8 @@ ms.locfileid: "72795059"
 - 可存取 Active Directory 以建立使用者/群組。
 - 內部部署環境中的現有 SQL Server。
 - 現有的受控執行個體。 請參閱[快速入門：建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-get-started.md)。
+  - 受控執行個體中的 `sysadmin` 必須用來建立 Azure AD 登入。
+- [為受控執行個體建立 Azure AD 管理員](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。
 - 您可以連線至您網路內的受控執行個體。 如需詳細資訊，請參閱下列文章： 
     - [將您的應用程式連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-connect-app.md)
     - [快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)
@@ -212,9 +215,12 @@ go
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>第 4 部分：將使用者遷移至受控執行個體
 
+> [!NOTE]
+> 建立完成後的受控執行個體 Azure AD 管理員已變更。 如需詳細資訊，請參閱 [MI 的新 Azure AD 管理員功能](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi)。
+
 執行 ALTER USER 命令，以在受控執行個體上完成遷移程序。
 
-1. 使用受控執行個體的 SQL 管理員帳戶登入您的受控執行個體。 然後，使用下列語法，在受控執行個體中建立您的 Azure AD 登入：
+1. 使用受控執行個體的 Azure AD 管理員帳戶登入您的受控執行個體。 然後，使用下列語法，在受控執行個體中建立您的 Azure AD 登入。 如需詳細資訊，請參閱[教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性](sql-database-managed-instance-aad-security-tutorial.md)。
 
     ```sql
     use master 

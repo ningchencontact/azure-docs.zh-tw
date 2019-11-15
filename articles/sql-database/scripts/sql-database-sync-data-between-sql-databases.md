@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 在多個 Azure SQL 資料庫之間進行同步處理 | Microsoft Docs
+title: PowerShell 範例 - 在多個 Azure SQL 資料庫之間進行同步
 description: 在多個 Azure SQL 資料庫之間進行同步處理的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: db81238ca3622c0a45d5af567f9899701c068178
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 743c717108f7b9312b93be1eca1e9a4cfeb86819
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569775"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691458"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多個 SQL Database 之間進行同步處理
  

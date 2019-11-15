@@ -4,15 +4,15 @@ description: 本文將概述應用程式閘道上的 Web 應用程式防火牆 (
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 3cc0af122143d2ee702f1f16ee26c010befa1155
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495597"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607293"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure 應用程式閘道上的 Web 應用程式防火牆
 
@@ -20,10 +20,10 @@ Azure 應用程式閘道上的 Azure Web 應用程式防火牆 (WAF) 可為 Web 
 
 應用程式閘道上的 WAF 會以 Open Web Application Security Project (OWASP) 的[核心規則集 (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1、3.0 或 2.2.9 為基礎。 WAF 會自動更新以加入對新弱點的保護，而不需要額外的設定。 
 
-下面列出的所有 WAF 功能都會存在 WAF 原則中。 您可以根據需求，對個別接聽程式或應用程式閘道上的路徑型路由規則建立任意數量的原則，並且可以將這些原則與應用程式閘道建立關聯。 如此一來，您就可以為應用程式閘道背後的每個網站提供個別原則 (如果有需要的話)。 如需有關 WAF 原則的詳細資訊，請參閱[建立 WAF 原則](create-waf-policy-ag.md)。
+下面列出的所有 WAF 功能都會存在 WAF 原則中。 您可以對個別接聽程式，或應用程式閘道上的路徑型路由規則，建立多個原則，並可將這些原則與應用程式閘道建立關聯。 如此一來，您就可以為應用程式閘道背後的每個網站提供個別原則 (如果有需要的話)。 如需有關 WAF 原則的詳細資訊，請參閱[建立 WAF 原則](create-waf-policy-ag.md)。
 
    > [!NOTE]
-   > 以每個網站和每個 URI 為主的 WAF 原則都處於公開預覽狀態。 這表示此功能受限於 Microsoft 的補充使用規定。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)。
+   > 以每個網站和每個 URI 為主的 WAF 原則都處於公開預覽狀態。 這表示此功能受限於 Microsoft 的補充使用規定。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ![應用程式閘道 WAF 圖表](../media/ag-overview/waf1.png)
 
@@ -39,9 +39,11 @@ Azure 應用程式閘道上的 Azure Web 應用程式防火牆 (WAF) 可為 Web 
 
 * 不需修改後端程式碼就能保護 Web 應用程式不受 Web 弱點和攻擊的威脅。
 
-* 同時保護多個 Web 應用程式。 應用程式閘道的執行個體最多可以裝載 100 個由 Web 應用程式防火牆所保護的網站。
+* 同時保護多個 Web 應用程式。 應用程式閘道的執行個體最多可以裝載 40 個由 Web 應用程式防火牆所保護的網站。
 
-* 使用 IP 信譽規則集防止 Web 應用程式遭受惡意 Bot 的威脅
+* 針對相同 WAF 後方的不同網站建立自訂 WAF 原則 
+
+* 使用 IP 信譽規則集 (預覽) 防止 Web 應用程式遭受惡意 Bot 的威脅
 
 ### <a name="monitoring"></a>監視
 
@@ -51,9 +53,11 @@ Azure 應用程式閘道上的 Azure Web 應用程式防火牆 (WAF) 可為 Web 
 
 ### <a name="customization"></a>自訂
 
-* 您可以自訂 WAF 規則和規則群組，以符合您的應用程式需求並消除誤判。
+* 自訂 WAF 規則和規則群組，以符合您的應用程式需求並消除誤判。
 
-* 您可以為 WAF 後面的每個網站建立相關聯的 WAF 原則，以允許專屬於網站的設定
+* 為 WAF 後面的每個網站建立相關聯的 WAF 原則，以允許專屬於網站的設定
+
+* 建立自訂規則以符合您應用程式的需求
 
 ## <a name="features"></a>特性
 
@@ -62,10 +66,13 @@ Azure 應用程式閘道上的 Azure Web 應用程式防火牆 (WAF) 可為 Web 
 - 抵禦其他常見 Web 攻擊，例如命令插入、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊。
 - 防範 HTTP 通訊協定違規。
 - 防範 HTTP 通訊協定異常 (例如遺漏主機使用者代理程式和接受標頭)。
-- 防範 Bot、編目程式和掃描器。
+- 防範編目程式和掃描器。
 - 偵測一般應用程式錯誤組態 (例如 Apache 和 IIS)。
 - 可設定要求大小限制，包含上限與下限。
 - 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。
+- 建立自訂規則以符合您應用程式的特定需求。
+- 進行流量的地理篩選，以允許或阻止特定國家/地區取得應用程式的存取權。 (預覽)
+- 使用 Bot 風險降低規則集，保護您的應用程式不受 Bot 影響。 (預覽)
 
 ## <a name="waf-policy"></a>WAF 原則
 
@@ -138,6 +145,15 @@ OWASP 有兩種可用來決定是否要封鎖流量的模式：傳統模式和�
 
 ![資訊安全中心概觀視窗](../media/ag-overview/figure1.png)
 
+#### <a name="azure-sentinel"></a>Azure Sentinel
+
+Microsoft Azure Sentinel 是可調整的雲端原生安全性資訊事件管理 (SIEM) 和安全性協調流程自動化回應 (SOAR) 解決方案。 Azure Sentinel 提供整個企業的智慧型安全性分析和威脅情報，並針對警示偵測、威脅可見性、主動式搜捕及回應威脅提供單一解決方案。
+
+透過內建 Azure WAF 防火牆事件活頁簿，您可以在 WAF 上取得安全性事件的概觀。 這包括事件、相符和封鎖的規則，以及其他記錄在防火牆記錄中的一切。 如需詳細資訊，請參閱下面的記錄。 
+
+
+![Sentinel](../media/ag-overview/sentinel.png)
+
 #### <a name="logging"></a>記錄
 
 應用程式閘道 WAF 會針對其偵測到的每個威脅提供詳細報告。 記錄會與 Azure 診斷記錄整合。 警示會以 .json 格式記錄。 這些記錄可以與 [Azure 監視器記錄](../../azure-monitor/insights/azure-networking-analytics.md)整合。
@@ -186,4 +202,8 @@ WAF_v1 和 WAF_v2 SKU 的定價模式不同。 若要深入了解，請參閱[�
 
 ## <a name="next-steps"></a>後續步驟
 
+- 從[建立 WAF 原則](create-waf-policy-ag.md)開始著手
+- 深入了解 [WAF 受控規則](application-gateway-crs-rulegroups-rules.md)
+- 深入了解[自訂規則](custom-waf-rules-overview.md)
 - 深入了解 [Azure Front Door 上的 Web 應用程式防火牆](../afds/afds-overview.md)
+

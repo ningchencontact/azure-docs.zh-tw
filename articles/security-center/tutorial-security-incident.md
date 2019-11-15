@@ -1,5 +1,5 @@
 ---
-title: Azure 資訊安全中心教學課程 - 回應安全性事件 | Microsoft Docs
+title: 事件回應教學課程 - Azure 資訊安全中心
 description: Azure 資訊安全中心教學課程 - 回應安全性事件
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200617"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663650"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>教學課程：回應安全性事件
 資訊安全中心會使用進階的分析和威脅情報，持續分析混合式雲端工作負載，提醒您發生惡意活動。 此外，您可以將警示從其他的安全性產品和服務整合到資訊安全中心，並以您自己的指標或情報來源作為基礎建立自訂警示。 一旦有警示產生，您便需要迅速採取行動來進行調查並加以修復。 在本教學課程中，您將了解如何：
@@ -66,7 +66,7 @@ Sam 是安全性分析師，他們的職責包括︰
 
 1. 在 [資訊安全中心] 主功能表上，選取 [偵測]  下的 [安全性警訊]  ：
 
-   ![安全性警示](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![安全性警示](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. 在警示清單中對某個安全性事件 (此為警示集合) 按一下，以深入了解此事件。 [偵測到安全性事件]  隨即開啟。
 

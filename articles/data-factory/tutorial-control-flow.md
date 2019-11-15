@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 管道中分支 | Microsoft Docs
+title: '在 Azure Data Factory 管線中分支 '
 description: 了解如何將活動分支和鏈結來控制 Azure Data Factory 中的資料流程。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0a7e5f56fe71c174c78f1363e403ae41a2ec90a6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72175997"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683668"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 

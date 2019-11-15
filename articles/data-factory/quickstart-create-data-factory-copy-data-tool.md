@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 複製資料工具複製資料 | Microsoft Docs
+title: 使用 Azure 複製資料工具複製資料
 description: 建立 Azure 資料處理站，然後使用「複製資料」工具將資料從 Azure Blob 儲存體中的某個位置複製到另一個位置。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
-ms.openlocfilehash: 22ff4adfa3cbb8ead500e817620b9236fe32ed0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 64f2c989d6ccb4b3ade96065836e1b1f2439e6f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490832"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684544"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>快速入門：使用複製資料工具複製資料
 

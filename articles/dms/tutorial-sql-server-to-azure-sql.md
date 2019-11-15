@@ -10,17 +10,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/22/2019
-ms.openlocfilehash: 7e5b4a3cb04215504c4fd4fd1ebfcbcbe8c3f9f8
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.date: 11/05/2019
+ms.openlocfilehash: 46d5754d046284ae42da91c2eb08bfe709e7e372
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179114"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582345"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態從 SQL Server 遷移至 Azure SQL Database 中的單一資料庫或集區資料庫
 
-您可以使用 Azure 資料庫移轉服務，將資料庫從內部部署 SQL Server 執行個體移轉到 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2016 (或更新版本) 內部部署執行個體的 **Adventureworks2012** 資料庫遷移到 Azure SQL Database 中的單一資料庫或集區資料庫。
+您可以使用 Azure 資料庫移轉服務，將資料庫從內部部署 SQL Server 執行個體遷移至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2016 (或更新版本) 內部部署執行個體的 **Adventureworks2012** 資料庫遷移至 Azure SQL Database 中的單一資料庫或集區資料庫。
 
 在本教學課程中，您會了解如何：
 > [!div class="checklist"]
@@ -58,10 +58,12 @@ ms.locfileid: "71179114"
     > - 服務匯流排端點
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。
+    >
+    >如果您沒有內部部署網路與 Azure 之間的站對站連線，或是您的站對站連線頻寬有限，請考慮在混合模式 (預覽) 中使用 Azure 資料庫移轉服務。 混合模式會搭配使用內部部署移轉背景工作角色與雲端中執行的 Azure 資料庫移轉服務執行個體。 若要在混合模式中建立 Azure 資料庫移轉服務的執行個體，請參閱[使用 Azure 入口網站在混合模式中建立 Azure 資料庫移轉服務執行個體](https://aka.ms/dms-hybrid-create)一文。
 
 - 確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-- 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
+- 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server (依預設會使用 TCP 連接埠 1433)。
 - 如果您使用動態連接埠執行多個具名 SQL Server 執行個體，您可以啟用 SQL Browser 服務並允許通過防火牆存取 UDP 連接埠 1434，讓 Azure 資料庫移轉服務連線來源伺服器上的具名執行個體。
 - 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 - 針對 Azure SQL Database 伺服器建立伺服器層級的 IP [防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNet 的子網路範圍。
@@ -125,7 +127,7 @@ ms.locfileid: "71179114"
 
     ![Data Migration Assistant 來源連線詳細資料](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
-6. 在 [連線到目標伺服器]  下選取 [下一步]  ，指定 Azure SQL 資料庫的目標連線詳細資料、選取 [連線]  ，然後選取您已在 Azure SQL 資料庫中預先佈建的 [AdventureWorksAzure]  資料庫。
+6. 在 [連線到目標伺服器]  下方選取 [下一步]  ，指定 Azure SQL 資料庫的目標連線詳細資料、選取 [連線]  ，然後選取您已在 Azure SQL Database 中預先佈建的 [AdventureWorksAzure]  資料庫。
 
     ![Data Migration Assistant 目標連線詳細資料](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
@@ -195,7 +197,7 @@ ms.locfileid: "71179114"
 
 2. 在 [Azure 資料庫移轉服務]  畫面上，搜尋您建立的 Azure 資料庫移轉服務執行個體名稱，然後選取該執行個體。
 
-    ![找出您的 Azure 資料庫移轉服務執行個體](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+    ![找出 Azure 資料庫移轉服務的執行個體](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
 3. 選取 [+ 新增移轉專案]  。
 4. 在 [新增移轉專案]  畫面上指定專案名稱、在 [來源伺服器類型]  文字方塊中選取 [SQL Server]  、在 [目標伺服器類型]  文字方塊中選取 [Azure SQL Database]  ，然後針對 [選擇活動類型]  ，選取 [離線資料移轉]  。
@@ -270,7 +272,7 @@ ms.locfileid: "71179114"
 
 ### <a name="additional-resources"></a>其他資源
 
-- [使用 Azure 資料移轉服務 (DMS) 移轉 SQL](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) 實際操作實驗室。
+- [使用 Azure 資料移轉服務 (DMS) 移轉 SQL](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) 實作教室。
 - 如需執行線上移轉至 Azure SQL Database 時的已知問題和限制，請參閱 [Azure SQL Database 線上移轉的已知問題和因應措施](known-issues-azure-sql-online.md)一文。
 - 如需 Azure 資料庫移轉服務的相關資訊，請參閱[什麼是 Azure 資料庫移轉服務？](https://docs.microsoft.com/azure/dms/dms-overview)一文。
 - 如需 Azure SQL Database 的相關資訊，請參閱[什麼是 Azure SQL Database 服務？](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)。

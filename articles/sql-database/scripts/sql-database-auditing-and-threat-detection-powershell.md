@@ -1,5 +1,5 @@
 ---
-title: 稽核和進階威脅防護的 PowerShell 範例 - Azure SQL 資料庫 | Microsoft Docs
+title: 稽核和進階威脅防護的 PowerShell 範例 - Azure SQL 資料庫
 description: 在 Azure SQL Database 中用來設定稽核與進階威脅偵測的 Azure PowerShell 指令碼範例
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 1dee8031b00e7d291844790fb86efd4d00075d87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816698"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691736"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>使用 PowerShell 設定 SQL Database 稽核與進階威脅防護
 

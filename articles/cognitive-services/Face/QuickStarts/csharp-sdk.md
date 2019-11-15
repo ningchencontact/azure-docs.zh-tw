@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 4f06e423c6dcc561ef8e51c33f24cd9f88a681b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1848f7230ed189f139a223020f08db150295132d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935896"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647492"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>快速入門：適用於 .NET 的臉部用戶端程式庫
 
@@ -144,9 +144,17 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
-在此案例中，`DetectFaceExtract` 方法會偵測指定 URL 上三個影像中的臉部，並在程式記憶體中建立 [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) 物件的清單。 [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) 值的清單會指定要擷取的特徵。 請參閱 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs) 上的範例程式碼，以取得可透過直覺方式列印此資料的協助程式碼。
+### <a name="get-detected-face-objects"></a>取得偵測到的臉部物件
+
+在下一個程式碼區塊中，`DetectFaceExtract` 方法會偵測指定 URL 上三個影像中的臉部，並在程式記憶體中建立 [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) 物件的清單。 [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) 值的清單會指定要擷取的特徵。 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
+
+### <a name="display-detected-face-data"></a>顯示偵測到的臉部資料
+
+`DetectFaceExtract` 方法的其餘部分會剖析每個偵測到的臉部，並列印屬性資料。 每個屬性都必須在原始的臉部偵測 API 呼叫中分別指定 (在 [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) 清單中)。 下列程式碼會處理每個屬性，但您可能只需要使用一個或幾個屬性。
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_parse)]
 
 ## <a name="find-similar-faces"></a>尋找類似臉部
 

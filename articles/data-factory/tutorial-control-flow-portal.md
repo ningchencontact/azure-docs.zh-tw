@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 管道中分支 | Microsoft Docs
+title: '在 Azure Data Factory 管線中分支 '
 description: 了解如何將活動分支和鏈結來控制 Azure Data Factory 中的資料流程。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: aada9d02c624785750c3064b7ca31a863d4080c1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140916"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683823"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，管線會在成功電子郵件中傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，管線會在失敗電子郵件中傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。

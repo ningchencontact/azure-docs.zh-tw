@@ -57,6 +57,20 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: 使用 C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
+    - name: 使用裝置上的感應器來探索附近的錨點
+      items:
+        - name: '使用 C#/Unity'
+          href: how-tos/set-up-coarse-reloc-unity.md
+        - name: 使用 Objective-C
+          href: how-tos/set-up-coarse-reloc-objc.md
+        - name: 使用 Swift
+          href: how-tos/set-up-coarse-reloc-swift.md
+        - name: 使用 Java
+          href: how-tos/set-up-coarse-reloc-java.md
+        - name: 使用 C++/NDK
+          href: how-tos/set-up-coarse-reloc-cpp-ndk.md
+        - name: 使用 C++/WinRT
+          href: how-tos/set-up-coarse-reloc-cpp-winrt.md
 - name: 範例
   items:
     - name: Azure Spatial Anchors 範例 (GitHub)
@@ -71,6 +85,8 @@
       href: concepts/guidelines-effective-anchor-experiences.md
     - name: 記錄和診斷
       href: concepts/logging-diagnostics.md
+    - name: 粗略地重新當地語系化
+      href: concepts/coarse-reloc.md
 - name: 參考
   items:
     - name: 適用於 Unity 的 SDK

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd215e754b7e72c9ac424a53015955332068558e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493561"
+ms.locfileid: "73581534"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning，搭配 MNIST 資料和 scikit-learn 定型映像分類模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "73493561"
 * 完成[教學課程：開始建立您的第一個 ML 實驗](tutorial-1st-experiment-sdk-setup.md)，以便：
     * 建立工作區
     * 將教學課程 Notebook 複製到工作區中的資料夾。
-    * 建立雲端式計算執行個體。
+    * 建立雲端式 Notebook VM。
 
 * 在複製的 [教學課程]  資料夾中，開啟 **img-classification-part1-training.ipynb** 筆記本。 
 

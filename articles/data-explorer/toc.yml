@@ -180,6 +180,8 @@
       items:
         - name: Azure Data Factory
           items:
+            - name: 與 Data Factory 整合
+              href: data-factory-integration.md
             - name: 使用 Azure Data Factory 範本大量複製資料
               href: data-factory-template.md
             - name: 使用 Azure Data Factory 執行控制項

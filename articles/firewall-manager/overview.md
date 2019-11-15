@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 3e19a2a45dde8a951e0ae3a4bd3c8d019609a5e1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501082"
+ms.locfileid: "73580196"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>什麼是 Azure 防火牆管理員預覽？
 
@@ -20,7 +20,7 @@ ms.locfileid: "73501082"
 
 Azure 防火牆管理員預覽是一種安全性管理服務，能為雲端式安全性周邊提供集中的安全性原則及路由管理。 它適用於 [Azure 虛擬 WAN 中樞](../virtual-wan/virtual-wan-about.md#resources)，這是一項由 Microsoft 管理的資源，可讓您輕鬆建立中樞和輪輻架構。 當安全性和路由原則與這類中樞相關聯時，我們即稱之為 *[安全虛擬中樞](secured-virtual-hub.md)* 。 
 
-![防火牆管理員](media/overview/firewall-manager-conceptual.png)
+![防火牆管理員](media/overview/firewallmanagerv3.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Azure 防火牆管理員預覽功能
 
@@ -70,7 +70,7 @@ Azure 防火牆管理員預覽有下列已知問題：
 
 |問題  |說明  |緩和  |
 |---------|---------|---------|
-|不支援手動建立的中央 Vnet|目前，Azure 防火牆管理員支援使用虛擬中樞建立的網路。 尚不支援使用您自己手動建立的中樞 VNet。|目前，請搭配使用 Azure 防火牆管理員與使用虛擬中樞建立的中樞和輪輻網路<br>目前正在調查中。
+|不支援手動建立的中央 Vnet|目前，Azure 防火牆管理員支援使用虛擬中樞建立的網路。 尚不支援使用您自己手動建立的中樞 VNet。|目前，請搭配使用 Azure 防火牆管理員與使用虛擬中樞建立的中樞和輪輻網路。<br>目前正在調查中。
 |第三方篩選限制|不支援將第三方提供者的 V2I 流量篩選與 Azure 防火牆 B2V 和 V2V 搭配使用。|目前正在調查中。|
 |目前不支援流量分割|目前不支援 Office 365 和 Azure 公用 PaaS 流量分割。 因此，若為 V2I 或 B2I 選取第三方提供者，也會透過合作夥伴服務傳送所有的 Azure 公用 PaaS 和 Office 365 流量。|目前正在調查中樞的流量分割。
 |每個區域一個中樞|每個區域不能有超過一個中樞|在區域中建立多個虛擬 WAN。|

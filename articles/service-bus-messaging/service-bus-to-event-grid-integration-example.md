@@ -1,6 +1,6 @@
 ---
-title: Azure 服務匯流排與 Event Grid 的整合範例 | Microsoft Docs
-description: 本文提供服務匯流排傳訊與 Event Grid 的整合範例。
+title: 教學課程：Azure 服務匯流排與事件方格的整合範例
+description: 教學課程：本文提供服務匯流排傳訊與 Event Grid 的整合範例。
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304244"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719016"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>教學課程：使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件
 在本教學課程中，您將了解如何使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件。 您將會執行下列步驟：
  
 - 建立測試用的 Azure 函式，以便偵錯及檢視來自事件方格的初始事件流程。

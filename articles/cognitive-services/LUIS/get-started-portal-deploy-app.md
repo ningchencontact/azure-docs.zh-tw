@@ -1,26 +1,25 @@
 ---
 title: 快速入門：使用 LUIS 入口網站部署應用程式
 titleSuffix: Azure Cognitive Services
-description: 了解如何在應用程式準備將表達預測傳回用戶端應用程式 (例如聊天機器人) 後，將r LUIS 應用程式部署至預測端點。 此快速入門將逐步引導您透過建立預測端點資源、將資源指派給應用程式、將應用程式定型，以及發佈應用程式，了解如何部署應用程式。
+description: 此快速入門說明如何藉由建立預測端點資源、指派資源、訓練及發佈應用程式來部署應用程式。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: ecae5c7db02436fe34fec19989f174504fd1e03a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488712"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669430"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入門：在 LUIS 入口網站中部署應用程式
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天機器人) 後，您必須將應用程式部署至預測端點。
 
@@ -35,22 +34,23 @@ LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天�
 
 您將在 Azure 入口網站中建立預測端點資源。 此資源僅適用於端點預測查詢。 請勿使用此資源撰寫應用程式的變更。
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
-
-1. 在左上方面板中選取綠色 **+** 記號。 在市集中搜尋並選取 `Cognitive Services`。
+1. 在 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)中登入和建立資源。
 
 1. 使用下列設定來設定訂用帳戶：
 
    |設定|值|目的|
    |--|--|--|
-   |名稱|`my-cognitive-service-resource`|Azure 資源的名稱。 當您將資源指派給 LUIS 入口網站中的應用程式時，會需要此名稱。|
+   |名稱|`my-luis-resource`|Azure 資源的名稱。 當您將資源指派給 LUIS 入口網站中的應用程式時，會需要此名稱。|
    |訂用帳戶|您的訂用帳戶|選取其中一個與您的帳戶相關聯的訂用帳戶。|
-   |位置|美國西部 |此資源的 Azure 區域。|
-   |定價層|**S0**|此資源的預設定價層。|
-   |資源群組|`my-cognitive-service-resource-group`|為所有認知服務資源，建立新的資源群組。 當您完成使用資源後，可以刪除資源群組來清除您的訂用帳戶。 |
+   |資源群組|`my-resource-group`|為所有認知服務資源，建立新的資源群組。 當您完成使用資源後，可以刪除資源群組來清除您的訂用帳戶。 |
+   |製作位置|美國西部 |可供製作的 Azure 區域。|
+   |製作定價層|**F0**|可供製作的預設定價層。|
+   |執行階段位置|美國西部 |適用於預測端點查詢的 Azure 區域。|
+   |執行階段定價層|**S0**|此定價層提供高流量網站。|
    | | | |
 
-   ![Azure API 選擇](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
+
+   ![Azure API 選擇](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
 1. 選取 [建立]  以建立 Azure 資源。
 
@@ -66,31 +66,27 @@ LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天�
 
 1. 若要新增 LUIS，請選取 [新增預測資源]  。
 
-    <!-- TBD: get screenshot-->
+    ![若要新增 LUIS 預測資源，請選取 [新增預測資源]。](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
 1. 選取您的租用戶、訂用帳戶和資源群組。 選取 [指派資源]  。
 
    ![將資源指派給應用程式](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. 在資料表中尋找新的資料列並複製端點 URL。 以正確方式建構，可對 LUIS API 端點提出 `HTTP GET` 要求進行預測。
+1. 完成相同的步驟，將製作金鑰新增至您的應用程式。
 
-## <a name="train-and-publish-the-app"></a>將應用程式定型並發佈
+1. 在新預測資源的資料表中尋找新的資料列並複製端點 URL。 以正確方式建構，可對 LUIS API 端點提出 `HTTP GET` 要求進行預測。
 
-您準備測試應用程式時，請定型應用程式。 每當您想讓用戶端應用程式從查詢預測端點執行階段使用目前定型的版本時，請發佈應用程式。
+## <a name="train-the-app"></a>進行應用程式定型
 
-1. 如果應用程式仍未定型，請從右上方的功能表中選取 [定型]  。
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-1. 從上方功能表中選取 [發佈]  。 選取生產位置，然後發佈。
+## <a name="publish-the-app-to-the-prediction-endpoint"></a>將應用程式發佈至預測端點
 
-1. 出現通知列時，發佈便已完成。
-
-1. 在 [管理] 區段的 [Azure 資源]  頁面上，找到已指派的資源和對應端點 URL 的清單。
-
-1. 將範例查詢複製到瀏覽器視窗，然後將您的使用者表達新增為 `query` 參數。
+[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>預測端點要求
 
-URL 結尾的 `query=` 是 **query** 的縮寫，而使用者會在此將其表達附加至 GET 要求。 在 `query=` 後面，輸入於先前快速入門結尾使用的相同使用者表達：
+URL 結尾的 `query=` 是使用者的語句附加至 GET 要求的所在。 在 `query=` 後面，輸入於先前快速入門結尾使用的相同使用者表達：
 
 ```Is there a form named hrf-234098```
 
@@ -138,15 +134,13 @@ URL 結尾的 `query=` 是 **query** 的縮寫，而使用者會在此將其表�
 }
 ```
 
-若要在 [測試] 窗格中看到和此相同層級的資訊，您必須發佈應用程式。 發佈應用程式之後，請選取[測試] 窗格中的 [與已發行比較]  。 在發佈的測試窗格中，使用 [顯示 JSON 檢視]  ，即可查看和上一個步驟相同的 JSON。 如此一來，您即可比較目前正在處理的應用程式和已發佈至端點的應用程式。
+若要在 [測試] 窗格中看到和此相同層級的資訊，您必須發佈應用程式。 發佈應用程式之後，請選取[測試] 窗格中的 [與已發行比較]  。 在發佈的測試窗格中，使用 [顯示 JSON 檢視]  ，即可查看和上一個步驟相同的 JSON。 如此一來，您即可比較目前作業所在應用程式的變更與已發佈至端點的應用程式。
 
 [![比較目前正在編輯與已發佈的應用程式版本](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>清除資源
 
 您完成本快速入門時，請從頂端導覽功能表中，選取 [我的應用程式]  。 從清單中選取應用程式的核取方塊，再從清單上方的內容工具列中選取 [刪除]  。
-
-[![刪除 [我的應用程式] 清單中的應用程式](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

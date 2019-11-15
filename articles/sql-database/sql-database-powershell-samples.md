@@ -1,5 +1,5 @@
 ---
-title: 適用於 SQL Database 的 Azure PowerShell 指令碼範例 | Microsoft Docs
+title: Azure PowerShell 指令碼範例
 description: Azure PowerShell 指令碼範例可協助您建立和管理 Azure SQL Database 伺服器、彈性集區、資料庫和防火牆。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 998497d3e790ba501ac5cdeb4974bf7ee9ea6a54
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059267"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821407"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure PowerShell 範例
 
@@ -41,6 +41,7 @@ Azure SQL Database 可讓您使用 Azure PowerShell 來設定資料庫、執行�
 | [使用作用中異地複寫設定集區資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會為 SQL 彈性集區中的 Azure SQL 資料庫設定作用中異地複寫，並將其容錯移轉到次要複本。 |
 |**設定容錯移轉群組**||
 | [設定單一資料庫的容錯移轉群組](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會建立資料庫和容錯移轉群組，將資料庫新增至容錯移轉群組，並測試容錯移轉至次要伺服器。 | 
+| [設定彈性集區的容錯移轉群組](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會建立資料庫、將其新增至彈性集區、將彈性集區新增至容錯移轉群組，然後測試是否能容錯移轉至次要伺服器。 | 
 |**調整單一資料庫和彈性集區**||
 | [調整單一資料庫](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會監視 Azure SQL 資料庫的效能計量，並將其調整為較高的計算大小，然後對其中一個效能計量建立警示規則。 |
 | [調整彈性集區](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會監視 Azure SQL Database 彈性集區的效能計量，並將其調整為較高的計算大小，然後對其中一個效能計量建立警示規則。 |
@@ -70,6 +71,8 @@ Azure SQL Database 可讓您使用 Azure PowerShell 來設定資料庫、執行�
 | [將資料庫還原到另一個地理區域中的 受控執行個體](scripts/sql-managed-instance-restore-geo-backup.md) | 此 PowerShell 指令碼會製作一個資料庫的備份，並將它還原到另一個區域。 這稱為異地還原災害復原案例。 |
 | **設定透明資料加密 (TDE)**||
 | [從 Azure Key Vault 使用自己的金鑰管理受控執行個體中的透明資料加密](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會使用來自 Azure Key Vault 的金鑰，在Azure SQL 受控執行個體的「攜帶您自己的金鑰」案例中設定透明資料加密 (TDE)。|
+|**設定容錯移轉群組**||
+| [設定受控執行個體的容錯移轉群組](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會建立兩個受控執行個體，並將其新增至容錯移轉群組，然後測試是否能從主要受控執行個體容錯移轉到次要受控執行個體。 | 
 |||
 
 深入了解[受控執行個體 Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances)。

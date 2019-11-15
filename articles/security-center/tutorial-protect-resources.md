@@ -1,5 +1,5 @@
 ---
-title: Azure 資訊安全中心教學課程 - 使用 Azure 資訊安全中心保護您的資源 | Microsoft Docs
+title: 存取與應用程式控制教學課程 - Azure 資訊安全中心
 description: 此教學課程說明如何設定 Just-in-Time VM 存取原則和應用程式控制原則。
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996332"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686343"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>教學課程：使用 Azure 資訊安全中心保護您的資源
 資訊安全中心使用存取和應用程式控制原則來阻擋惡意活動，以限制您暴露於威脅的風險。 Just-in-Time (JIT) 虛擬機器 (VM) 存取透過讓您拒絕對 VM 的持續存取，進而減少您暴露於攻擊的風險。 不過，您可以只在需要的時候，提供對 VM 的受控制及稽核的存取。 自適性應用程式控制透過控制可在 VM 上執行的應用程式，進而協助強化 VM 以抵禦惡意軟體。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。
@@ -29,8 +29,6 @@ ms.locfileid: "71996332"
 > [!div class="checklist"]
 > * 設定 Just-In-Time VM 存取原則
 > * 設定應用程式控制原則
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本教學課程中涵蓋的功能，您必須是在資訊安全中心的標準定價層。 您可以免費試用資訊安全中心標準層。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)快速入門會為您逐步解說如何升級至「標準」定價層。

@@ -1,26 +1,26 @@
 ---
 title: 快速入門：建立專案
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: 在本快速入門中，您將為慣用的程式設計語言建立空的專案，而您會使用該專案來完成快速入門或建立應用程式。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 25d6e8f7642db05663082414f013b2b11bff46da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276dbcdfe3f40122b6a7a14e78aeee4d6ab2fbe9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500792"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721005"
 ---
-# <a name="quickstart-create-an-empty-project"></a>快速入門：建立空的專案。
+# <a name="quickstart-create-a-project"></a>快速入門：建立專案
 
-本指南會示範如何建立空的專案以用於其他快速入門。
+在本快速入門中，您將為慣用的程式設計語言建立空的專案，而您會使用該專案來完成快速入門或建立應用程式。
 
 ::: zone pivot="programming-language-csharp"
 **選擇您的目標環境**
@@ -54,6 +54,9 @@ ms.locfileid: "73500792"
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+針對以 Python 為基礎的快速入門，您只需要使用慣用的文字編輯器或 IDE 建立名為 `helloworld.py` 的檔案即可。
+
 ::: zone-end
 
 ## <a name="next-steps"></a>後續步驟
@@ -63,4 +66,3 @@ ms.locfileid: "73500792"
 - [快速入門：翻譯語音轉換文字](translate-speech-to-text.md)
 - [快速入門：合成語音轉換文字](text-to-speech.md)
 - [快速入門：辨識意圖](intent-recognition.md)
-

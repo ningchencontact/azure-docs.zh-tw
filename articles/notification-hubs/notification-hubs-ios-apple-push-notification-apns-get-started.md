@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0335f5c71f99e6c7a90ce920c25e6bb7e9b4a08f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 452ccfc796fcd2a390c7380f4c6b2ced2057dc3b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211940"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822343"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 iOS 應用程式
 
@@ -31,8 +31,7 @@ ms.locfileid: "71211940"
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
 > * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
 
-
-在本教學課程中，您會使用 Azure 通知中樞將通知推送至 iOS 應用程式。 您會使用 [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)，建立可接收推播通知的空白 iOS 應用程式。
+在本教學課程中，您會使用 Azure 通知中樞將推播通知傳送至 iOS 應用程式。 您會使用 [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)，建立可接收推播通知的空白 iOS 應用程式。
 
 在本教學課程中，您會執行下列步驟：
 
@@ -45,14 +44,16 @@ ms.locfileid: "71211940"
 > * 傳送測試推播通知
 > * 確認您的應用程式可接收通知
 
-您可以在 [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)上找到本教學課程的完整程式碼。 
+您可以在 [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples) 上找到本教學課程的完整程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以[建立免費 Azure 帳戶](https://azure.microsoft.com/free)。
+若要完成本教學課程，您需要下列必要條件：
+
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，可以[建立一個免費 Azure 帳戶](https://azure.microsoft.com/free)。
 * [Windows Azure 傳訊架構]
 * 最新版的 [Xcode]
-* 支援 iOS 10 (或更新版本) 的裝置
+* 能使用 iOS 版本10 (或更新版本) 的裝置
 * [Apple Developer Program](https://developer.apple.com/programs/) 成員資格。
   
   > [!NOTE]
@@ -97,7 +98,7 @@ ms.locfileid: "71211940"
      執行 `pod install` 來安裝新定義的 Pod，並開啟您的 `.xcworkspace`。
 
      > [!NOTE]
-     > 如果您在執行 `pod install` 時看到類似 ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` 的錯誤，請執行 `pod repo update` 以從 Cocoapods 存放庫取得最新的 Pod，然後執行 `pod install`。
+     > 如果您在執行 `pod install` 時看到 **找不到 AzureNotificationHubs-iOS 規格**之類的錯誤，請執行 `pod repo update`，以從 Cocoapods 存放庫取得最新的 Pod，然後執行 `pod install`。
 
    - 透過 Carthage 整合
 
@@ -129,8 +130,8 @@ ms.locfileid: "71211940"
     #ifndef HubInfo_h
     #define HubInfo_h
 
-        #define HUBNAME @"<Enter the name of your hub>"
-        #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+    #define HUBNAME @"<Enter the name of your hub>"
+    #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
 
     #endif /* HubInfo_h */
     ```
@@ -142,11 +143,11 @@ ms.locfileid: "71211940"
     #import <UserNotifications/UserNotifications.h>
     #import "HubInfo.h"
     ```
+
 8. 根據您的 iOS 版本，在 `AppDelegate.m` 檔案的 `didFinishLaunchingWithOptions` 方法中新增下列程式碼。 此程式碼會向 APN 註冊裝置控制代碼：
 
     ```objc
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-        UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
 
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
@@ -155,21 +156,21 @@ ms.locfileid: "71211940"
 9. 在相同檔案中新增下列方法：
 
     ```objc
-        - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-        SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                    notificationHubPath:HUBNAME];
+    (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+     SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+                                 notificationHubPath:HUBNAME];
 
-        [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-            if (error != nil) {
-                NSLog(@"Error registering for notifications: %@", error);
-            }
-            else {
-                [self MessageBox:@"Registration Status" message:@"Registered"];
-            }
-        }];
-        }
+     [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
+         if (error != nil) {
+             NSLog(@"Error registering for notifications: %@", error);
+         }
+         else {
+             [self MessageBox:@"Registration Status" message:@"Registered"];
+         }
+     }];
+     }
 
-    -(void)MessageBox:(NSString *) title message:(NSString *)messageText
+    (void)MessageBox:(NSString *) title message:(NSString *)messageText
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -183,9 +184,9 @@ ms.locfileid: "71211940"
 10. 如果應用程式在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert** ：
 
     ```objc
-    - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
-        NSLog(@"%@", userInfo);
-        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
+    (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
+      NSLog(@"%@", userInfo);
+      [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
     }
     ```
 

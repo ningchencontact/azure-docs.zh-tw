@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs
+title: '在 Azure 虛擬網路中使用 Hive 來轉換資料 '
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 667835605cfaf4fced10b07f05028bcfa11f64da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263eb243ea45963757c50aa031cc17e318d70d98
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336058"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683318"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -91,7 +91,7 @@ ms.locfileid: "60336058"
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. 啟動 **PowerShell**。 保持開啟 Azure PowerShell，直到本快速入門結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+2. 啟動 **PowerShell**。 保持開啟 Azure PowerShell，直到本快速入門結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
     執行下列命令，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
         
@@ -187,7 +187,7 @@ ms.locfileid: "60336058"
 }
 ```
 
-以您的 Azure 儲存體帳戶名稱和金鑰取代 **&lt;accountname&gt; 和 &lt;accountkey&gt;**。
+以您的 Azure 儲存體帳戶名稱和金鑰取代 **&lt;accountname&gt; 和 &lt;accountkey&gt;** 。
 
 ### <a name="hdinsight-linked-service"></a>HDInsight 連結服務
 

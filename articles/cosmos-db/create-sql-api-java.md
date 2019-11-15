@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ab3d2c0e73a5fd52e4659e38cb80c5e18d334caa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d5a32780f8598c0843958b99f02cd18aa33bea2e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466197"
+ms.locfileid: "73582854"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>快速入門：建置 JAVA 應用程式來管理 Azure Cosmos DB SQL API 資料
 
@@ -69,92 +69,36 @@ ms.locfileid: "73466197"
 1. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
 此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或是，您可以直接跳到[執行應用程式](#run-the-app)。 
 
-* `AsyncDocumentClient` 初始化。 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) 提供適用於 Azure Cosmos 資料庫服務的用戶端邏輯表示法。 此用戶端會用於設定和執行針對服務的要求。
-
-    ```java
-    client = new AsyncDocumentClient.Builder()
-             .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
-             .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
-             .withConnectionPolicy(ConnectionPolicy.GetDefault())
-             .withConsistencyLevel(ConsistencyLevel.Eventual)
-             .build();
-    ```
-
-* [資料庫](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database)建立。
-
-    ```java
-    Database databaseDefinition = new Database();
-    databaseDefinition.setId(databaseName);
+* `CosmosClient` 初始化。 `CosmosClient` 提供適用於 Azure Cosmos 資料庫服務的用戶端邏輯表示法。 此用戶端會用於設定和執行針對服務的要求。
     
-    client.createDatabase(databaseDefinition, null)
-            .toCompletable()
-            .await();
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) 建立。
+* 建立 CosmosDatabase。
 
-    ```java
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.setId(collectionName);
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
-    //...
+* 建立 CosmosContainer。
 
-    client.createCollection(databaseLink, collectionDefinition, requestOptions)
-            .toCompletable()
-            .await();
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
-* 使用 [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) 方法建立文件。
+* 使用 `createItem` 方法建立項目。
 
-    ```java
-    // Any Java object within your code
-    // can be serialized into JSON and written to Azure Cosmos DB
-    Family andersenFamily = new Family();
-    andersenFamily.setId("Andersen.1");
-    andersenFamily.setLastName("Andersen");
-    // More properties
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
+   
+* 端點讀取是使用 `getItem` 和 `read` 方法來執行
 
-    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    client.createDocument(collectionLink, family, null, true)
-            .toCompletable()
-            .await();
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
-    ```
+* 使用 `queryItems` 方法，透過 JSON 執行 SQL 查詢。
 
-* 使用 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) 方法，透過 JSON 執行 SQL 查詢。
-
-    ```java
-    FeedOptions queryOptions = new FeedOptions();
-    queryOptions.setPageSize(-1);
-    queryOptions.setEnableCrossPartitionQuery(true);
-    queryOptions.setMaxDegreeOfParallelism(-1);
-
-    String collectionLink = String.format("/dbs/%s/colls/%s",
-            databaseName,
-            collectionName);
-    Iterator<FeedResponse<Document>> it = client.queryDocuments(
-            collectionLink,
-            "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
-            queryOptions).toBlocking().getIterator();
-
-    System.out.println("Running SQL query...");
-    while (it.hasNext()) {
-        FeedResponse<Document> page = it.next();
-        System.out.println(
-                String.format("\tRead a page of results with %d items",
-                        page.getResults().size()));
-        for (Document doc : page.getResults()) {
-            System.out.println(String.format("\t doc %s", doc));
-        }
-    }
-    ```    
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
 ## <a name="run-the-app"></a>執行應用程式
 
@@ -164,7 +108,7 @@ ms.locfileid: "73466197"
 1. 在 git 終端機視窗中，`cd` 至範例程式碼資料夾。
 
     ```bash
-    cd azure-cosmos-db-sql-api-async-java-getting-started/azure-cosmosdb-get-started
+    cd azure-cosmos-java-getting-started
     ```
 
 2. 在 git 終端機視窗中，使用下列命令來安裝必要的 Java 套件。
@@ -182,18 +126,12 @@ ms.locfileid: "73466197"
 
     終端機視窗會顯示已建立 FamilyDB 資料庫的通知。 
     
-4. 請按任一按鍵來建立資料庫，然後按下另一個按鍵來建立集合。 
-
-    切換回瀏覽器中的資料總管，您會看到資料總管中現在已包含 FamilyDB 資料庫和 FamilyCollection 集合。
-
-5. 切換至 [主控台] 視窗，然後按下任一按鍵來建立第一個文件，然後按下另一個按鍵以建立第二個文件。 然後切換回資料總管以檢視這些文件。 
-
-6. 按下任一按鍵以執行查詢，並在 [主控台] 視窗中查看輸出。 
+4. 此應用程式會建立名稱為 `AzureSampleFamilyDB` 的資料庫
+5. 此應用程式會建立名稱為 `FamilyContainer` 的容器
+6. 此應用程式會使用物件識別碼和分割索引鍵值 (在我們的範例中為 lastName) 來執行端點讀取。 
+7. 此應用程式會查詢項目，以擷取姓氏屬於 ('Andersen', 'Wakefield', 'Johnson') 的所有家族
 
 7. 應用程式並不會刪除已建立的資源。 切換回入口網站，從您的帳戶中[清除資源](#clean-up-resources)，  以免產生費用。
-
-    ![在主控台視窗中檢視輸出](./media/create-sql-api-java/rxjava-console-output.png)
-
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 

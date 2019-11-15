@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932669"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569629"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>建置可供認證的 IoT 隨插即用預覽版裝置
 
@@ -111,26 +111,17 @@ ms.locfileid: "70932669"
 
 1. 選擇 [ANSI C]  作為語言。
 
-1. 選擇 [CMake 專案]  作為您的專案類型。
-
 1. 選擇 [透過 DPS (裝置佈建服務) 對稱金鑰]  作為連線方法。
+
+1. 根據您的裝置作業系統，選擇 **Windows 上的 CMake 專案**或 **Linux 上的 CMake 專案**作為專案範本。
 
 1. VS Code 會開啟新視窗，其中包含產生的裝置程式碼 Stub 檔案。
 
-1. 開啟 `main.c`，填入您備妥的 **dpsIdScope**、**sasKey** 和 **registrationId**。 您可以從認證入口網站取得這項資訊。 如需詳細資訊，請參閱[連接和測試您的IoT 隨插即用裝置](tutorial-certification-test.md#connect-and-discover-interfaces)。
+1. 建置程式碼之後，請輸入 DPS 認證 (**DPS 識別碼範圍**、**DPS 對稱金鑰**、**裝置識別碼**) 作為應用程式的參數。 若要從憑證入口網站取得認證，請參閱[連線並測試您的 IoT 隨插即用裝置](tutorial-certification-test.md#connect-and-discover-interfaces)。
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+    ```cmd/sh
+    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
     ```
-
-1. 儲存檔案。
 
 ### <a name="implement-standard-interfaces"></a>實作標準介面
 

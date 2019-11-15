@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493688"
+ms.locfileid: "73582463"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教學課程：使用自動化機器學習預測計程車車資
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1062,7 +1062,7 @@ print(1 - mean_abs_percent_error)
 
 如果您打算執行其他 Azure Machine Learning 教學課程，請不要完成本節。
 
-### <a name="stop-the-compute-instance"></a>停止計算執行個體
+### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

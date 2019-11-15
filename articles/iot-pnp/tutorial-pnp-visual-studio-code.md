@@ -9,20 +9,20 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569891"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>教學課程：使用 Visual Studio Code 建立和測試裝置功能模型
 
-此教學課程說明如何以裝置開發人員的身分使用 Visual Studio Code 建立_裝置功能模型_。 您可以使用此模型產生基本架構程式碼，以在連線至雲端中的 Azure IoT 中樞執行個體的裝置上執行。
+本教學課程說明如何以裝置開發人員的身分使用 Visual Studio Code 建立_裝置功能模型_。 您可以使用此模型產生基本架構程式碼，以在連線至雲端中的 Azure IoT 中樞執行個體的裝置上執行。
 
-此教學課程中的相關章節在說明如何建置產生的基本架構程式碼時，會假設您使用的是 Windows。
+本教學課程中的相關章節在說明如何建置產生的基本架構程式碼時，會假設您使用的是 Windows。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立裝置功能模型
@@ -32,7 +32,7 @@ ms.locfileid: "70858876"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用此教學課程中的裝置功能模型，您需要：
+若要使用本教學課程中的裝置功能模型，您需要：
 
 * [Visual Studio Code](https://code.visualstudio.com/download)：VS Code 適用於多個平台
 * [適用於 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) \(英文\) 擴充套件。 請使用下列步驟，在 VS Code 中安裝擴充套件：
@@ -41,21 +41,16 @@ ms.locfileid: "70858876"
     1. 搜尋 **Azure IoT Tools**。
     1. 選取 [安裝]  。
 
-在此教學課程中，若要在 Windows 上建置產生的 C 程式碼，您需要：
+在本教學課程中，若要在 Windows 上建置產生的 C 程式碼，您需要：
 
-* [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) - 在安裝 Visual Studio 時，請確實包含 **NuGet 套件管理員**元件和**使用 C++ 的桌面開發**工作負載。
+* 具有 **C++ 建置工具**和 **NuGet 套件管理員元件**工作負載的 [Visual Studio 建置工具](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)。 或是，您的 [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019、2017 或 2015 已安裝相同工作負載。
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* Azure IoT C SDK 的本機複本：
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
-
-若要在此教學課程中測試您的裝置程式碼，您需要：
+若要在本教學課程中測試您的裝置程式碼，您需要：
 
 * [Azure IoT 檔案總管](https://github.com/Azure/azure-iot-explorer/releases)。
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -176,7 +171,7 @@ ms.locfileid: "70858876"
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -310,9 +305,11 @@ ms.locfileid: "70858876"
 
 1. 選擇 [ANSI C]  作為語言。
 
-1. 選擇 [CMake 專案]  作為目標。
-
 1. 選擇 [透過 IoT 中樞裝置連接字串]  作為連線的方式。
+
+1. 選擇 [Windows 上 CMake 專案]  作為專案範本。
+
+1. 選擇 [透過 Vcpkg]  作為包含裝置 SDK 的方式。
 
 VS Code 會產生基本架構 C 程式碼，並將檔案儲存在 **modelcode** 資料夾的 **sensorbox_app** 資料夾中。 VS Code 會開啟新視窗，其中包含產生的程式碼檔案。
 

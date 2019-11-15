@@ -1,7 +1,7 @@
 ---
-title: Machine Learning Workbench 發生什麼事？
+title: Workbench 有什麼改變？
 titleSuffix: Azure Machine Learning
-description: 了解 Machine Learning Workbench 應用程式發生什麼事、Azure Machine Learning 中有什麼變更，以及支援時間表為何。
+description: 了解沒有 Workbench 應用程式的可能情況，以及支援時程表為何。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c98da50d0c50a7fdb94f579444f3c09c1096d18
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476418"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647109"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -64,12 +64,6 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 開始使用新的 CLI 和 SDK 來訓練模型以及追蹤執行歷程記錄。 您可以了解如何使用[教學課程：使用 Azure Machine Learning 訓練模型](tutorial-train-models-with-aml.md)。
 
-## <a name="can-i-still-prep-data"></a>我是否仍可以準備資料？
-
-您現有的資料準備檔案無法攜帶到最新的版本，因為我們已經沒有 Machine Learning Workbench。 但您仍可準備任何規模的資料集來進行模型化。
-
-對於任何規模的資料集，您可以藉由撰寫 Python 程式碼，使用 [Azure Machine Learning 資料準備套件](https://aka.ms/data-prep-sdk)，在模型化之前快速準備您的資料。
-
 ## <a name="will-projects-persist"></a>專案是否會保存？
 
 您不會遺失任何程式碼或作品。 在舊版中，專案是具有本機目錄的雲端實體。 在最新版中，您將使用本機設定檔將本機目錄連結到 Azure Machine Learning 工作區。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。
@@ -98,22 +92,6 @@ run = exp.submit(source_directory=script_folder,
 + [部署模型的位置和方式](how-to-deploy-and-where.md)
 + [教學課程：使用 Azure Machine Learning 部署模型](tutorial-deploy-models-with-aml.md)
 
-## <a name="what-about-the-old-sdk-and-cli"></a>那麼舊的 SDK 和 CLI 呢？
-
-請參閱上述的[時間表](#timeline)。 建議您開始使用最新的 SDK 或 CLI 來建立新的實驗和模型。
-
-藉由使用最新版本中的新 Python SDK，您可以在任何 Python 環境中與 Azure Machine Learning 互動。 了解如何安裝最新的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>。 您也可以使用更新的 [Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure Cloud Shell) 中與服務互動。
-
-## <a name="what-about-visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools for AI 有何改變？
-
-在這個最新版本中，擴充功能已重新命名為「適用於 Visual Studio Code 的 Azure Machine Learning」，並已經過擴充和改善，可與上述新功能搭配運作。
-
-[![適用於 Visual Studio Code 的 Azure Machine Learning](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
-
-## <a name="what-about-domain-packages"></a>那麼領域套件呢？
-
-適用於電腦視覺、文字分析和預測的領域套件無法與最新版的 Azure Machine Learning 搭配使用。 不過，您仍然可以使用最新版的 Azure Machine Learning Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> 來建置電腦視覺、文字和預測模型，以及將它們定型。
-
 ## <a name="next-steps"></a>後續步驟
 
 了解 [Azure Machine Learning 的最新架構](concept-azure-machine-learning-architecture.md)。
@@ -124,5 +102,5 @@ run = exp.submit(source_directory=script_folder,
   + [使用 Python 筆記本來定型和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用 R Markdown 來定型和部署 ML 模型]( tutorial-1st-r-experiment.md) 
   + [使用自動化機器學習來定型和部署 ML 模型](ui-tutorial-automobile-price-train-score.md) 
-  + [使用設計工具的拖放功能進行訓練和部署](tutorial-first-experiment-automated-ml.md) 
+  + [使用設計工具的拖放功能進行定型和部署](tutorial-first-experiment-automated-ml.md) 
   + [使用機器學習 CLI 來定型和部署模型](tutorial-train-deploy-model-cli.md)

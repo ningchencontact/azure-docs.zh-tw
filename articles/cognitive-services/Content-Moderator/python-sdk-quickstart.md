@@ -1,20 +1,21 @@
 ---
 title: 快速入門：適用於 Python 的 Content Moderator 用戶端程式庫 | Microsoft Docs
-description: 開始使用適用於 Python 的 Content Moderator 用戶端程式庫。
+titleSuffix: Azure Cognitive Services
+description: 了解如何開始使用適用於 Python 的 Azure 認知服務 Content Moderator 用戶端程式庫。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755261"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744403"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>快速入門：適用於 Python 的 Content Moderator 用戶端程式庫
 
@@ -295,7 +296,7 @@ This text contains the terms "term1" and "term2".
 
 ## <a name="create-a-review"></a>建立審核
 
-您可以使用 Content Moderator Python SDK 將內容送至[審核工具](https://contentmoderator.cognitive.microsoft.com)，讓人力仲裁者進行審核。 若要深入了解審核工具，請參閱[概念指南](./review-tool-user-guide/human-in-the-loop.md)。
+您可以使用 Content Moderator Python SDK 將內容送至[審核工具](https://contentmoderator.cognitive.microsoft.com)，讓人力仲裁者進行審核。 若要深入了解審核工具，請參閱[審核工具概念指南](./review-tool-user-guide/human-in-the-loop.md)。
 
 下列程式碼會使用 [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) 類別建立審核、擷取其識別碼，並在透過審核工具的 Web 入口網站接收人工輸入之後，檢查其詳細資料。
 
@@ -312,7 +313,7 @@ This text contains the terms "term1" and "term2".
 
 ### <a name="get-review-details"></a>取得審核詳細資料
 
-使用下列程式碼，檢查指定審核的詳細資料。 建立審核之後，您可以自行前往審核工具並與內容互動。 完成作業後，您可以再次執行此程式碼，它將會擷取審核程序的結果。
+使用下列程式碼，檢查指定審核的詳細資料。 建立審核之後，您可以自行前往審核工具並與內容互動。 如需如何執行此動作的詳細資訊，請參閱[檢閱操作指南](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images)。 完成作業後，您可以再次執行此程式碼，它將會擷取審核程序的結果。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 

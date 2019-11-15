@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 44fe7d4e51e50cdb3d1f1ed598f760113fb623bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490157"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716685"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Azure Machine Learning 與 ML Studio (傳統) 有何不同
 
@@ -40,7 +40,7 @@ Azure Machine Learning 設計工具會對 Studio (傳統) 提供類似的拖放�
 ||設計工具目前處於預覽階段，Azure Machine Learning 則為 GA|正式上市 (GA) | 
 |拖放介面| yes | yes|
 |實驗| 使用計算目標進行調整|調整 (有 10 GB 的訓練資料限制) | 
-|介面適用的模組|  許多熱門模組|多種 |
+|介面適用的模組| [許多熱門模組](algorithm-module-reference/module-reference.md) | 多種 |
 |定型計算目標| AML 計算 (GPU/CPU)|專屬計算目標，僅限 CPU|
 |推斷計算目標| 適用於即時推斷的 Azure Kubernetes Service <br/>適用於批次推斷的 AML Compute|專屬 Web 服務格式 (不可自訂) | 
 |ML 管線| 管線撰寫 <br/> 已發佈的管線 <br/> 管線端點 <br/> [深入了解 ML 管線](service/concept-ml-pipelines.md)|不支援 | 
@@ -48,7 +48,7 @@ Azure Machine Learning 設計工具會對 Studio (傳統) 提供類似的拖放�
 |模型| 標準格式 (可能會因為定型作業不同而有所差異)|專屬且非可攜式格式。| 
 |自動化模型定型|設計工具中尚未提供，但能透過介面和 SDK 取得。| 否 | 
 
-## <a name="get-started-with-azure-machine-learning-designer"></a>開始使用 Azure Machine Learning 設計工具
+## <a name="get-started-with-azure-machine-learning"></a>開始使用 Azure Machine Learning
 
 下列資源可協助您開始使用 Azure Machine Learning
 
@@ -56,14 +56,13 @@ Azure Machine Learning 設計工具會對 Studio (傳統) 提供類似的拖放�
 
 - [建立您的第一個設計工具管線](service/tutorial-designer-automobile-price-train-score.md)來預測汽車價格。
 
-
-![Azure Machine Learning 設計工具範例](service/media/concept-ml-pipelines/visual-design-surface.gif)
+![Azure Machine Learning 設計工具範例](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>後續步驟
 
 除了設計工具中的拖放功能之外，Azure Machine Learning 還有其他可用的工具：  
-  + [使用 Python 筆記本來定型 & 部署 ML 模型](./service/tutorial-1st-experiment-sdk-setup.md)
-  + [使用 R Markdown 來定型 & 部署 ML 模型](./service/tutorial-1st-r-experiment.md) 
+  + [使用 Python 筆記本來定型和部署 ML 模型](./service/tutorial-1st-experiment-sdk-setup.md)
+  + [使用 R Markdown 來定型和部署 ML 模型](./service/tutorial-1st-r-experiment.md) 
   + [使用自動化機器學習來定型 & 部署 ML 模型](./service/tutorial-designer-automobile-price-train-score.md) 
   + [使用機器學習 CLI 來定型 & 部署 ML 模型](./service/tutorial-train-deploy-model-cli.md)
 

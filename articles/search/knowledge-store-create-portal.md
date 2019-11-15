@@ -1,25 +1,24 @@
 ---
-title: 在 Azure 入口網站中建立知識存放區
+title: 在 Azure 入口網站中建立知識存放區 (預覽)
 titleSuffix: Azure Cognitive Search
-description: 使用「匯入資料」精靈建立用來保存擴充內容的知識存放區。 連線至知識存放區以進行其他應用程式的分析，或將擴充的內容傳送到下游程序。
+description: 使用「匯入資料」精靈建立用來保存擴充內容的知識存放區。 連線至知識存放區以進行其他應用程式的分析，或將擴充的內容傳送到下游程序。 此功能目前為公開預覽狀態。
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56053a942604a6f1cb935e6bddcae85ffc5a9e54
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485177"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720101"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋知識存放區
 
-> [!Note]
-> 知識存放區處於預覽狀態，不應用於生產環境。 Azure 入口網站和[搜尋 REST API 版本 2019-05-06-Preview](search-api-preview.md) 均提供此功能。 目前沒有 .NET SDK 支援。
->
+> [!IMPORTANT] 
+> 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 知識存放區是 Azure 認知搜尋的一項功能，可保存認知技能管線的輸出，以進行後續的分析或其他下游處理。 
 
@@ -87,7 +86,7 @@ ms.locfileid: "73485177"
 1. 展開 [連結認知服務]  。 預設會選取 [免費 (有限的擴充)]  。 您可以使用此資源，因為 HotelReviews-Free.csv 中的記錄筆數是 19，而此免費資源一天最多允許 20 筆交易。
 1. 展開 [新增認知技能]  。
 1. 針對 [技能集名稱]  輸入 `hotel-reviews-ss`。
-1. 針對 [來源資料欄位]  ，選取 **reviews_text*。
+1. 針對 [來源資料欄位]  ，選取 **reviews_text**。
 1. 針對 [擴充細微性層級]  ，選取 [頁面 (5000 個字元區塊)]  。
 1. 選取這些認知技能：
     + **擷取關鍵片語**

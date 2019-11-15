@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/31/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469755"
+ms.locfileid: "73572040"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -47,11 +47,11 @@ Standard_v2 或 WAF_v2 SKU 上的應用程式閘道 VIP 支援獨佔的靜態 VI
 
 ## <a name="web-application-firewall"></a>Web 應用程式防火牆
 
-Web 應用程式防火牆 (WAF) 是一項應用程式閘道功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。 WAF 會根據 [OWASP (Open Web Application Security Project) 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (僅限 WAF_v2)、3.0 或 2.2.9 中的規則提供保護。 
+Web 應用程式防火牆 (WAF) 是可集中保護 Web 應用程式的服務，使其免於遭遇常見的攻擊和弱點。 WAF 會根據 [OWASP (Open Web Application Security Project) 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (僅限 WAF_v2)、3.0 或 2.2.9 中的規則提供保護。 
 
 Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對許多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
-如需詳細資訊，請參閱[應用程式閘道中的 Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview) \(機器翻譯\)。
+如需詳細資訊，請參閱[什麼是 Azure Web 應用程式防火牆？](../web-application-firewall/overview.md)。
 
 ## <a name="ingress-controller-for-aks"></a>AKS 的輸入控制器
 應用程式閘道輸入控制器 (AGIC) 可讓您使用應用程式閘道作為 [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) 叢集的輸入。 

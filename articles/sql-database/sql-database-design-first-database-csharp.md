@@ -1,20 +1,21 @@
 ---
-title: 設計您的第一個關聯式資料庫 - C# - Azure SQL Database | Microsoft Docs
+title: 使用 C# 設計您的第一個關聯式資料庫
 description: 了解如何使用 ADO.NET 搭配 C# 在 Azure SQL Database 的單一資料庫中設計您的第一個關聯式資料庫。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 201f90ae1ee7309f0271d046f341729c79749421
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640108"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825193"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>教學課程：使用 C&#x23; 和 ADO.NET 在 Azure SQL Database 的單一資料庫中設計關聯式資料庫
 

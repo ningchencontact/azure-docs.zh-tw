@@ -10,12 +10,12 @@ keywords: Azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 91d8ddf7d8051baeb42ceb58673c93555908f03a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddade9472517d080d01b04c853db9dd1848fe0f3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488174"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668451"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>快速入門：使用適用於伺服器的 Azure Arc 將機器連線至 Azure - PowerShell
 
@@ -198,6 +198,29 @@ Restart-Service -Name himds
 
 1. 在[入口網站](https://aka.ms/hybridmachineportal)中選取機器，按一下省略符號 (`...`)，然後選取 [刪除]  。
 1. 將代理程式從機器解除安裝。
+
+   在 Windows 上，您可以使用 [應用程式與功能] 控制台來解除安裝代理程式。
+  
+  ![應用程式與功能](./media/quickstart-onboard/apps-and-features.png)
+
+   如果您想要透過指令碼進行解除安裝，您可以使用下列範例來擷取 **PackageId**，並使用 `msiexec /X` 來解除安裝代理程式。
+
+   在登錄機碼 `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`之下查看並尋找 **PackageId**。 然後，您可以使用 `msiexec` 來解除安裝代理程式。
+
+   下列範例示範如何解除安裝代理程式。
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   在 Linux 上，執行下列命令來解除安裝代理程式。
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 

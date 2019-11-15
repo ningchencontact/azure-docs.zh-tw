@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309458"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605541"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>將實體或虛擬化伺服器遷移至 Azure 
 
@@ -29,7 +29,7 @@ ms.locfileid: "70309458"
 [Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載以及雲端 VM 執行個體的探索、評量和移轉 (以 Azure 為目標)。 該中樞提供的 Azure Migrate 工具可進行評量和移轉，也提供第三方獨立軟體廠商 (ISV) 的供應項目。
 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 使用 Azure Migrate 伺服器移轉工具進行 Azure 的移轉準備。
 > * 對您要遷移的機器檢查需求，並備妥 Azure Migrate 複寫設備的機器，用以探索機器並將其遷移至 Azure。
@@ -43,7 +43,7 @@ ms.locfileid: "70309458"
 > [!NOTE]
 > 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程在情況允許時都會使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 Azure Migrate 的操作說明。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -135,7 +135,7 @@ ms.locfileid: "70309458"
 - **組態伺服器**︰組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
 - **處理序伺服器**：處理序伺服器可作為複寫閘道。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將其傳送至 Azure 中的快取儲存體帳戶。 
 
-開始之前，您必須準備用來裝載複寫設備的 Windows Server 2016 機器。 此機器應符合[這些需求](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements)。
+開始之前，您必須準備用來裝載複寫設備的 Windows Server 2016 機器。 此機器應符合[這些需求](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements)。 設備不應該安裝在您想要保護的來源機器上。
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>新增 Azure Migrate 伺服器移轉工具

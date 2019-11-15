@@ -1,5 +1,5 @@
 ---
-title: 使用 NOAA 開放資料集的 Jupyter Notebook 範例
+title: 使用 NOAA 資料的 Jupyter Notebook 範例
 titleSuffix: Azure Open Datasets
 description: 使用 Azure 開放資料集的 Jupyter Notebook 範例，了解如何載入開放資料集，並使用它們擴充示範資料。 這些技術包括使用 Spark 和 Pandas 處理資料。
 ms.service: open-datasets
@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ccdb7adcae40d22a36fbfb47fba6e4c87b3349a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496572"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606151"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>顯示如何運用開放資料集擴充資料的 Jupyter Notebook 範例 
 Azure 開放資料集的 Jupyter Notebook 範例會示範如何載入開放資料集，並使用它們擴充示範資料。 這些技術包括使用 Apache Spark 和 Pandas 處理資料。
@@ -40,6 +40,6 @@ Azure 開放資料集的 Jupyter Notebook 範例會示範如何載入開放資�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [教學課程：使用自動化機器學習和開放資料集來建置迴歸模型](tutorial-opendatasets-automl.md)
+* [教學課程：使用自動化機器學習和開放資料集來建置迴歸模型](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [適用於開放資料集的 Python SDK](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Azure 開放資料集目錄](https://azure.microsoft.com/services/open-datasets/catalog/) \(英文\)

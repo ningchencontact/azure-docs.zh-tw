@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 建立 Windows 虛擬桌面服務主體和角色指派 - Azure
+title: Windows 虛擬桌面服務主體角色指派 - Azure
 description: 如何在 Windows 虛擬桌面中使用 PowerShell 建立服務主體及指派角色。
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679625"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606945"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>教學課程：使用 PowerShell 建立服務主體和角色指派
 

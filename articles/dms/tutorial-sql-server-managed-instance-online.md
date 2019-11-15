@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: e1120abb06ec2c777114703cfe3fc7334477aecc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/06/2019
+ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592933"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646954"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 SQL Server 線上移轉至 Azure SQL Database 受控執行個體
 
@@ -30,11 +30,11 @@ ms.locfileid: "72592933"
 > * 建立 Azure 資料庫移轉服務的執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案並啟動線上移轉。
 > * 監視移轉。
-> * 在您準備好時進行完全移轉。
+> * 在您準備好時執行完全移轉。
 
 > [!IMPORTANT]
 > 若要使用 Azure 資料庫移轉服務從 SQL Server 線上移轉至 SQL Database 受控執行個體，您必須在可供此服務用來遷移資料庫的 SMB 網路共用中，提供完整的資料庫備份及後續的記錄備份。 在移轉時，Azure 資料庫移轉服務不會起始任何備份，而是會使用現有備份 (您可能已在災害復原方案中備妥)。
-> 請務必[使用 WITH CHECKSUM 選項來製作備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)。 此外，請務必不要將多個備份 (也就是完整和交易記錄) 附加到單一備份媒體中；請在不同的備份檔案中製作每個備份。
+> 請務必[使用 WITH CHECKSUM 選項來製作備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)。 此外，請務必不要將多個備份 (也就是完整和交易記錄) 附加到單一備份媒體中；請在不同的備份檔案中製作每個備份。 最後，您可以使用壓縮的備份，以減少遷移大型備份時可能發生的潛在問題。
 
 > [!NOTE]
 > 若要使用「Azure 資料庫移轉服務」來執行線上移轉，必須根據「進階」定價層建立執行個體。
@@ -44,7 +44,7 @@ ms.locfileid: "72592933"
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-本文說明如何在線上從 SQL Server 遷移至 SQL Database 受控執行個體。 若要進行離線移轉，請參閱[使用 DMS 從 SQL Server 離線移轉至 Azure SQL Database 受控執行個體](tutorial-sql-server-to-managed-instance.md)。
+本文說明如何在線上從 SQL Server 遷移至 SQL Database 受控執行個體。 若要進行離線移轉，請參閱[使用 DMS 在將 SQL Server 離線遷移至 SQL Database 受控執行個體](tutorial-sql-server-to-managed-instance.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -60,6 +60,8 @@ ms.locfileid: "72592933"
     > * 服務匯流排端點
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。
+    >
+    >如果您沒有內部部署網路與 Azure 之間的站對站連線，或是您的站對站連線頻寬有限，請考慮在混合模式 (預覽) 中使用 Azure 資料庫移轉服務。 混合模式會搭配使用內部部署移轉背景工作角色與雲端中執行的 Azure 資料庫移轉服務執行個體。 若要在混合模式中建立 Azure 資料庫移轉服務的執行個體，請參閱[使用 Azure 入口網站在混合模式中建立 Azure 資料庫移轉服務執行個體](https://aka.ms/dms-hybrid-create)一文。
 
     > [!IMPORTANT]
     > 關於移轉過程中使用的儲存體帳戶，您必須執行下列其中一個動作：
@@ -79,7 +81,7 @@ ms.locfileid: "72592933"
 * 建立 Azure Active Directory 應用程式識別碼，以產生應用程式識別碼金鑰，讓 Azure 資料庫移轉服務可用它來連線至目標 Azure Database 受控執行個體和 Azure 儲存體容器。 如需詳細資訊，請參閱[使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)一文。
 
   > [!NOTE]
-  > Azure 資料庫移轉服務需要訂用帳戶的「參與者」權限，以取得指定的應用程式識別碼。 我們正在積極努力減少這些權限需求。
+  > Azure 資料庫移轉服務需要訂用帳戶的「參與者」權限，以取得指定的應用程式識別碼。 或者，您可以建立自訂角色，以授與 Azure 資料庫移轉服務所需的特定權限。 如需使用自訂角色的逐步指引，請參閱[自訂 SQL Server 角色以進行 SQL Database 受控執行個體的線上移轉](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance)一文。
 
 * 建立或記下 Azure 儲存體帳戶的**標準效能層**，這可讓 DMS 服務將資料庫備份檔案上傳至該處，並用於遷移資料庫。  請務必在建立 Azure 資料庫移轉服務執行個體的相同區域中建立 Azure 儲存體帳戶。
 

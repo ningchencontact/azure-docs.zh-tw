@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: c927ef071dec6e87e82a9634ccfc7097f2f187e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488314"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796102"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>快速入門：使用 .Net V4 SDK 建置主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶資源。
 
@@ -33,6 +33,8 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 * 將範例資料新增至容器
 * 查詢資料 
 * 刪除資料庫
+
+[程式庫原始程式碼](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [套件 (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
 ## <a name="prerequisites"></a>必要條件
 

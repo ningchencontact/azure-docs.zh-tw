@@ -1,22 +1,22 @@
 ---
 title: 什麼是開放資料集？ 策劃的公用資料集
-titleSuffix: Azure Open Datasets (preview)
-description: 了解 Azure 開放資料集 (預覽)，也就是準備在機器學習與分析解決方案中使用且來自公用網域的策劃資料集。 資料集包含公用資料，例如天氣、人口普查、假日和位置，以協助您擴充預測性解決方案。
+titleSuffix: Azure Open Datasets
+description: 了解 Azure 開放資料集，這些是從公開網域 (例如氣象、人口普查、節日和位置) 策劃的資料集，能夠充實預測性解決方案。
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.date: 11/04/2019
+ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213586"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606163"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>什麼是 Azure 開放資料集 (預覽)，以及如何使用它們？
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>什麼是 Azure 開放資料集，以及如何使用它們？
 
-[Azure 開放資料集](https://azure.microsoft.com/services/open-datasets/)是策劃的公用資料集，您可以使用這些公用資料集，將案例專有的功能新增至機器學習解決方案，以獲得更準確的模型。 開放資料集位於 Microsoft Azure 的雲端，而且立即可供 Azure Databricks、機器學習服務和 Machine Learning Studio 使用。 您也可以透過 API 存取資料集，並在其他產品 (例如 Power BI 和 Azure Data Factory) 中使用它們。
+[Azure 開放資料集](https://azure.microsoft.com/services/open-datasets/)是策劃的公用資料集，您可以使用這些公用資料集，將案例專有的功能新增至機器學習解決方案，以獲得更準確的模型。 開放資料集位於 Microsoft Azure 的雲端並整合於 Azure Machine Learning，而且立即可供 Azure Databricks 和 Machine Learning Studio (傳統) 使用。 您也可以透過 API 存取資料集，並在其他產品 (例如 Power BI 和 Azure Data Factory) 中使用它們。
 
 資料集包含用於天氣、人口普查、假日、公共安全和位置的公用領域資料，可協助您將機器學習模型定型並擴充預測性解決方案。 您也可以在 Azure 開放資料集上共用公用資料集。 
 
@@ -25,7 +25,7 @@ ms.locfileid: "70213586"
 ## <a name="curated-prepared-datasets"></a>經過策劃、準備的資料集
 Azure 開放資料集中經過策劃的開放式公用資料集已針對機器學習工作流程的取用進行最佳化。 
 
-資料科學家通常會花費大部分的時間在清除和準備資料以進行進階分析。 開放資料集會複製到 Azure 雲端進行前置處理，以節省時間。 資料會定期從來源 (例如，透過 FTP 連線至美國國家海洋與大氣層管理局 (NOAA)) 提取、剖析成結構化格式，然後使用最接近的天氣觀測站的郵遞區號或位置等功能適當地擴充。
+資料科學家通常會花費大部分的時間在清除和準備資料以進行進階分析。 開放資料集會複製到 Azure 雲端進行前置處理，以節省時間。 系統會定期從來源提取資料，例如經由與美國國家海洋暨大氣總署 (NOAA) 的 FTP 連線。 接下來，會將資料剖析成結構化格式，然後使用一些特性 (例如最接近氣象站的郵遞區號或位置) 適度擴充。
 
 資料集在 Azure 中與雲端運算共同裝載，讓存取和操作更容易。  
 
@@ -47,7 +47,7 @@ Azure 開放資料集中經過策劃的開放式公用資料集已針對機器�
 ## <a name="access-to-datasets"></a>資料集的存取  
 您可以使用 Azure 帳戶，利用程式碼或透過 Azure 服務介面來存取開放資料集。 資料會與 Azure 雲端運算資源共置，以便用於機器學習解決方案。  
 
-開放資料集提供 Azure Notebooks 與 Azure Databricks 筆記本，可用來將資料連線至 Azure Machine Learning 服務與 Azure Databricks。 您也可以透過 Python SDK 存取資料集。 
+開啟資料集可透過 Azure Machine Learning UI 和 SDK 取得。 開放資料集也提供 Azure Notebooks 與 Azure Databricks 筆記本，可用來將資料連線至 Azure Machine Learning 與 Azure Databricks。 您也可以透過 Python SDK 存取資料集。 
 
 不過，您不需要有 Azure 帳戶，就可以存取開放資料集；無論是否有 Spark，都可以從任何 Python 環境存取開放資料集。
 
@@ -57,5 +57,5 @@ Azure 開放資料集中經過策劃的開放式公用資料集已針對機器�
 
 ## <a name="next-steps"></a>後續步驟
 * [範例筆記本](samples.md)
-* [教學課程：含紐約計程車資料的迴歸模型](tutorial-opendatasets-automl.md)
+* [教學課程：含紐約計程車資料的迴歸模型](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [適用於開放資料集的 Python SDK](/python/api/azureml-opendatasets/?view=azure-ml-py)

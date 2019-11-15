@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 683ea55bdc9eb878f7bcbe832d5364d50a6b23e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509002"
+ms.locfileid: "73572159"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>在 Azure App Service 中新增 SSL 憑證
 
@@ -65,6 +65,7 @@ ms.locfileid: "73509002"
 
 免費 App Service 受控憑證是現成的解決方案，可在 App Service 中保護您的自訂 DNS 名稱。 它是一個功能完整的 SSL 憑證，由 App Service 管理且會自動更新。 此免費憑證有下列限制：
 
+- 不支援萬用字元憑證。
 - 不支援裸網域。
 - 不可匯出。
 
@@ -281,7 +282,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![在 App Service 中上傳公開憑證](./media/configure-ssl-certificate/upload-public-cert.png)
 
-憑證一旦上傳後，請複製憑證指紋，並請參閱[讓憑證可供存取](configure-ssl-certificate-in-code.md#load-the-certificate)。
+憑證一旦上傳後，請複製憑證指紋，並請參閱[讓憑證可供存取](configure-ssl-certificate-in-code.md#make-the-certificate-accessible)。
 
 ## <a name="manage-app-service-certificates"></a>管理 App Service 憑證
 

@@ -1,22 +1,22 @@
 ---
-title: 將事件資料遷移至 SQL 資料倉儲 - Azure 事件中樞 | Microsoft Docs
-description: 本教學課程說明如何使用由事件格線觸發的 Azure 函式，將資料從事件中樞擷取到 SQL 資料倉儲中。
+title: 教學課程：將事件資料遷移至 SQL 資料倉儲 - Azure 事件中樞
+description: 教學課程：本教學課程說明如何使用由事件格線觸發的 Azure 函式，將資料從事件中樞擷取到 SQL 資料倉儲中。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604286"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718880"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>使用事件方格和 Azure Functions 將擷取的事件中樞資料遷移至 SQL 資料倉儲
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>教學課程：使用事件方格和 Azure Functions 將擷取的事件中樞資料遷移至 SQL 資料倉儲
 
 要將事件中樞內的串流資料自動傳遞至 Azure Blob 儲存體或 Azure Data Lake Store，事件中樞[擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)是最簡單的方式。 接著，您將可處理這些資料，並將其傳遞至您所選擇的任何其他儲存體目的地，例如 SQL 資料倉儲或 Cosmos DB。 在本教學課程中，您將了解如何使用由[事件格線](https://docs.microsoft.com/azure/event-grid/overview)觸發的 Azure 函式，將資料從事件中樞擷取到 SQL 資料倉儲中。
 

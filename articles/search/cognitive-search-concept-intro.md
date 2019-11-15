@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466864"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720154"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure 認知搜尋中的 AI 簡介
 
@@ -25,7 +25,7 @@ AI 擴充是 Azure 認知搜尋服務索引的功能，可用來從影像、Blob
 
 ![擴充管線圖表](./media/cognitive-search-intro/cogsearch-architecture.png "擴充管線概觀")
 
-Azure 認知搜尋服務中的認知技術是以認知服務 API 中的機器學習模型為基礎：[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)和[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)。 
+Azure 認知搜尋服務中的認知技術是以認知服務 API 中預先訓練的機器學習模型為基礎：[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)和[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)。 
 
 在資料擷取階段中會套用自然語言和影像處理，且其結果會在 Azure 認知搜尋服務的可搜尋索引中成為文件撰寫的一部分。 資料會作為 Azure 資料集的來源，然後使用您所需的[內建技能](cognitive-search-predefined-skills.md)透過索引管線推送出去。 其架構是可延伸的，因此如果內建技能不敷使用，您可以建立及附加[自訂技能](cognitive-search-create-custom-skill-example.md)，以整合自訂處理。 其範例包括以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
 
@@ -79,7 +79,7 @@ Azure 認知搜尋服務中的認知技術是以認知服務 API 中的機器學
 
 ![擴充階段](./media/cognitive-search-intro/enrichment-phase-blowup.png "擴充階段")
 
-技能集以您所提供並連線至技能集的[預先定義的認知技能](cognitive-search-predefined-skills.md)或[自訂技能](cognitive-search-create-custom-skill-example.md)為基礎。 技能集可以是基本或高度複雜的，而且不但會決定處理類型，作業的順序也取決於它。 技能集加上定義為索引子一部分的欄位對應，即可完整指定擴充管線。 如需關於彙整前述各項組件的詳細資訊，請參閱[定義技能集](cognitive-search-defining-skillset.md)。
+技能集以您所提供並連線至技能集的[內建認知技能](cognitive-search-predefined-skills.md)或[自訂技能](cognitive-search-create-custom-skill-example.md)為基礎。 技能集可以是基本或高度複雜的，而且不但會決定處理類型，作業的順序也取決於它。 技能集加上定義為索引子一部分的欄位對應，即可完整指定擴充管線。 如需關於彙整前述各項組件的詳細資訊，請參閱[定義技能集](cognitive-search-defining-skillset.md)。
 
 就內部而言，管線會產生擴充文件的集合。 您可以決定擴充文件的哪些部分應對應至搜尋索引中可編製索引的欄位。 例如，如果您套用關鍵片語擷取和實體辨識技能，則這些新欄位將會成為擴充文件的一部分，並且可對應至索引上的欄位。 若要深入了解輸入/輸出格式，請參閱[註解](cognitive-search-concept-annotations-syntax.md)。
 
@@ -107,13 +107,13 @@ Azure 認知搜尋服務中的認知技術是以認知服務 API 中的機器學
 |---------|------------|-------|
 | 技能集 | 包含技能集合的最上層具名資源。 技能集是擴充管線。 在索引子編製索引期間，即會叫用技能集。 | 請參閱[定義技能集](cognitive-search-defining-skillset.md) |
 | 認知技能 | 擴充管線中不可部分完成的轉換。 它通常是一種擷取或推斷結構的元件，因此能提高我們對輸入資料的了解。 輸出幾乎都是以文字為基礎，而處理則是自然語言處理，或是從影像輸入擷取或產生的文字的影像處理。 技能的輸出可以對應至索引中的欄位，或作為下游擴充的輸入。 技能可以是 Microsoft 預先定義並提供的，或是自訂的：由您建立和部署。 | [內建認知技能](cognitive-search-predefined-skills.md) |
-| 資料擷取 | 涵蓋多種形式的處理 (但與 AI 擴充有關)，實體辨識技能最常用來從原本未提供具體資訊的來源擷取資料 (實體)。 | 請參閱[實體辨識技能](cognitive-search-skill-entity-recognition.md)| 
+| 資料擷取 | 涵蓋多種形式的處理 (但與 AI 擴充有關)，實體辨識技能最常用來從原本未提供具體資訊的來源擷取資料 (實體)。 | 請參閱[實體辨識技能](cognitive-search-skill-entity-recognition.md)和[文件擷取技能 (預覽)](cognitive-search-skill-document-extraction.md)| 
 | 影像處理 | 從影像推斷文字 (例如辨識地標的能力)，或從影像擷取文字。 常見的範例包括從掃描的文件 (JPEG) 檔案中挑取字元的 OCR，或是在包含路標的相片中辨識街道名稱。 | 請參閱[影像分析技能](cognitive-search-skill-image-analysis.md)或 [OCR 技能](cognitive-search-skill-ocr.md)
-| 自然語言處理 | 文字輸入的相關深入解析和資訊的文字處理。 語言偵測、情感分析和關鍵片語擷取都是屬於自然語言處理的技能。  | 請參閱[關鍵片語擷取技能](cognitive-search-skill-keyphrases.md)、[語言偵測技能](cognitive-search-skill-language-detection.md)、[情感分析技能](cognitive-search-skill-sentiment.md) |
+| 自然語言處理 | 文字輸入的相關深入解析和資訊的文字處理。 語言偵測、情感分析和關鍵片語擷取都是屬於自然語言處理的技能。  | 請參閱[關鍵片語擷取技能](cognitive-search-skill-keyphrases.md)、[語言偵測技能](cognitive-search-skill-language-detection.md)、[文字翻譯技能 (預覽)](cognitive-search-skill-text-translation.md)、[情感分析技能](cognitive-search-skill-sentiment.md) |
 | 文件萃取 | 在索引編製期間從非文字來源擷取或建立文字內容的程序。 光學字元辨識 (OCR) 也是範例之一，但它通常指涉索引子核心功能，因為索引子會從應用程式檔案中擷取內容。 提供來源檔案位置的資料來源，與提供欄位對應的索引子定義，都是文件萃取的關鍵因素。 | 請參閱[索引子概觀](search-indexer-overview.md) |
 | 塑形 | 將文字片段合併成較大的結構，或者反向將較大的文字區塊分解成可管理的大小，以進行進一步的下游處理。 | 請參閱[塑形器技能](cognitive-search-skill-shaper.md)、[文字合併技能](cognitive-search-skill-textmerger.md)、[文字分割技能](cognitive-search-skill-textsplit.md) |
 | 擴充的文件 | 在處理期間產生的暫時性內部結構，包含搜尋索引中反映的最後輸出。 技能集會決定要執行哪些擴充。 欄位對應將決定哪些資料元素會新增至索引。 (選擇性) 您可以建立知識存放區，以使用儲存體總管、Power BI 或連結到 Azure Blob 儲存體的任何其他工具來保存及探索擴充的文件。 | 請參閱[知識存放區 (預覽)](knowledge-store-concept-intro.md) |
-| 索引器 |  一種編目程式，可從外部資料來源擷取可搜尋的資料和中繼資料，並根據索引和資料來源之間的欄位對欄位對應填入索引，以進行文件萃取。 在進行 AI 擴充時，索引子會叫用技能集，並且包含將擴充輸出與索引中的目標欄位產生關聯的欄位對應。 索引子定義中包含管線作業的所有指示和參考，當您執行索引子時，即會叫用管線。 | [索引子](search-indexer-overview.md) |
+| 索引器 |  一種編目程式，可從外部資料來源擷取可搜尋的資料和中繼資料，並根據索引和資料來源之間的欄位對欄位對應填入索引，以進行文件萃取。 在進行 AI 擴充時，索引子會叫用技能集，並且包含將擴充輸出與索引中的目標欄位產生關聯的欄位對應。 索引子定義中包含管線作業的所有指示和參考，當您執行索引子時，即會叫用管線。 透過額外設定，您可以重複使用現有的處理，且只執行已變更的步驟和技能。 | 請參閱[索引子](search-indexer-overview.md)和[累加式索引編製 (預覽)](cognitive-search-incremental-indexing-conceptual.md)。 |
 | 資料來源  | 索引子用來與 Azure 上支援的外部資料來源類型連線的物件。 | 請參閱[索引子概觀](search-indexer-overview.md) |
 | 索引 | 從定義欄位結構和使用方式的索引結構描述建置，並保存在 Azure 認知搜尋服務中的搜尋索引。 | 請參閱[建立基本索引](search-what-is-an-index.md) | 
 

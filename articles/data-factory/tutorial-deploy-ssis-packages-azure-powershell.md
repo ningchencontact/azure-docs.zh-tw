@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 佈建 Azure-SSIS 整合執行階段 | Microsoft Docs
+title: 使用 PowerShell 佈建 Azure-SSIS Integration Runtime
 description: 了解如何使用 PowerShell 在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段，讓您可以在 Azure 部署並執行 SSIS 套件。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7a4ae2198653ea8adab136caef0f812019efd998
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 594cdd848a3712d2164616e38f7b75a01a21b7f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326113"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683579"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>使用 PowerShell 在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段
 

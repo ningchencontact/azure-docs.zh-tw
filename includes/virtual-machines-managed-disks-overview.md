@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522430"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796270"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -55,7 +55,7 @@ ms.locfileid: "73522430"
 
 ### <a name="server-side-encryption"></a>伺服器端加密
 
-[Azure 伺服器端加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有受控磁碟可供使用的區域中，所有受控磁碟、快照集和映像預設都會啟用伺服器端加密。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+[Azure 伺服器端加密](../articles/virtual-machines/windows/disk-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有受控磁碟可供使用的區域中，所有受控磁碟、快照集和映像預設都會啟用伺服器端加密。 您可以允許 Azure 為您管理金鑰 (這些屬於平台管理的金鑰)，您也可以自行管理金鑰 (這些屬於客戶管理的金鑰 (預覽))。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
 ### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 
@@ -85,7 +85,7 @@ Azure 中有三個主要磁碟角色：資料磁碟、OS 磁碟和暫存磁碟�
 
 受控磁碟快照集是受控磁碟的絕對一致完整唯讀複本，預設會儲存為標準受控磁碟。 快照集可讓您在任何時間點備份受控磁碟。 這些快照集可在來源磁碟外獨立存在，還能用來建立新的受控磁碟。 
 
-快照集會根據使用的大小來計費。 例如，如果建立佈建容量為 64 GiB 的受控磁碟快照集，而實際使用資料大小為 10 GiB，則只會對已使用的 10 GiB 資料大小收取快照集費用。 您可以藉由檢查 [Azure 使用量報表](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill)來查看已使用的快照大小。 例如，如果快照集的已使用資料大小為 10 GiB，則**每日**使用量報表會顯示已使用數量為 10 GiB/(31 天) = 0.3226。
+快照集會根據使用的大小來計費。 例如，如果建立佈建容量為 64 GiB 的受控磁碟快照集，而實際使用資料大小為 10 GiB，則只會對已使用的 10 GiB 資料大小收取快照集費用。 您可以藉由檢查 [Azure 使用量報表](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)來查看已使用的快照大小。 例如，如果快照集的已使用資料大小為 10 GiB，則**每日**使用量報表會顯示已使用數量為 10 GiB/(31 天) = 0.3226。
 
 若要深入了解如何建立受控磁碟的快照集，請參閱下列資源︰
 

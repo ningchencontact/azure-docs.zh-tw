@@ -1,7 +1,7 @@
 ---
 title: 程式碼範例 - Content Moderator (.NET)
 titleSuffix: Azure Cognitive Services
-description: 透過 SDK 在 .NET 應用程式中使用 Content Moderator。
+description: 了解如何透過 SDK 在您的 .NET 應用程式中使用 Azure 認知服務的 Content Moderator。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 23ef7b515f5391a30f6d1fa9fce1dcb856643c69
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 930571c841146e0b12efbf7325915ba2b23a7efa
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757270"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744339"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK 範例
 
@@ -23,15 +23,15 @@ ms.locfileid: "72757270"
 
 ## <a name="moderation"></a>審核
 
-- **影像審核**：[評估影像中是否有成人或猥褻內容、文字及臉部](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs)。 請參閱[快速入門](image-moderation-quickstart-dotnet.md)。
-- **自訂影像**：[使用自訂影像清單進行審核](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs)。 請參閱[快速入門](image-lists-quickstart-dotnet.md)。
+- **影像審核**：[評估影像中是否有成人或猥褻內容、文字及臉部](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs)。 請參閱 [.NET SDK 快速入門](dotnet-sdk-quickstart.md)。
+- **自訂影像**：[使用自訂影像清單進行審核](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs)。 請參閱 [.NET SDK 快速入門](dotnet-sdk-quickstart.md)。
 
 > [!NOTE]
 > 上限是 **5 個影像清單**，其中每個清單**不可超過 10,000 個影像**。
 >
 
-- **文字審核**：[過濾粗話和個人資料的文字](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 請參閱[快速入門](text-moderation-quickstart-dotnet.md)。
-- **自訂字詞**：[使用自訂字詞清單進行審核](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs)。 請參閱[快速入門](term-lists-quickstart-dotnet.md)。
+- **文字審核**：[過濾粗話和個人資料的文字](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 請參閱 [.NET SDK 快速入門](dotnet-sdk-quickstart.md)。
+- **自訂字詞**：[使用自訂字詞清單進行審核](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs)。 請參閱 [.NET SDK 快速入門](dotnet-sdk-quickstart.md)。
 
 > [!NOTE]
 > 上限是 **5 個字詞清單**，其中每個清單**不可超過 10,000 個字詞**。
@@ -42,7 +42,7 @@ ms.locfileid: "72757270"
 ## <a name="review"></a>審核
 
 - **影像作業**：[啟動一個會掃描並建立審核項目的審核作業](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs)。 請參閱[快速入門](moderation-jobs-quickstart-dotnet.md)。
-- **影像審核**：[建立人在迴路 (human-in-the-loop) 的審核項目](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs)。 請參閱[快速入門](moderation-reviews-quickstart-dotnet.md)。
+- **影像審核**：[建立人在迴路 (human-in-the-loop) 的審核項目](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs)。 請參閱[快速入門](dotnet-sdk-quickstart.md)。
 - **影片審核**：[建立人在迴路 (human-in-the-loop) 的影片審核項目](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs)。 請參閱[快速入門](video-reviews-quickstart-dotnet.md)
 - **影片文字記錄審核**：[建立人在迴路 (human-in-the-loop) 的影片文字記錄審核項目](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs)。請參閱[快速入門](video-reviews-quickstart-dotnet.md)
 

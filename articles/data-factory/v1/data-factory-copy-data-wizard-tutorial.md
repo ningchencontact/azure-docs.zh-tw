@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用複製精靈建立管線 | Microsoft Docs
+title: '教學課程：使用複製精靈建立管線 '
 description: 在本教學課程中，您會使用 Data Factory 所支援的複製精靈，建立具有複製活動的 Azure Data Factory 管線。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa5e7735d122dcf06b9b9692abb23441752082fa
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3afe58baa083ccbfe075476f9a7a8b36c30ca9c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140359"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682824"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>教學課程：使用 Data Factory 複製精靈建立具有複製活動的管線
 > [!div class="op_single_selector"]

@@ -1,20 +1,17 @@
 ---
 title: 如何將 Azure Cache for Redis 繫結至您的 Azure Spring Cloud 應用程式 | Microsoft Docs
 description: 了解如何將 Azure Cache for Redis 繫結至您的 Azure Spring Cloud 應用程式
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d8fa31207baecc80674fb11b492927800676b8a2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: tutorial
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: a901e4194909df85f53799d5937515e42ea87a69
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038237"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607563"
 ---
 # <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-cache-for-redis"></a>教學課程：將 Azure 服務繫結至您的 Azure Spring Cloud 應用程式：Azure Cache for Redis
 
@@ -26,14 +23,7 @@ Azure Spring Cloud 可讓您將特定的 Azure 服務自動繫結至您的應用
 * Azure Cache for Redis 服務執行個體
 * 適用於 Azure CLI 的 Azure Spring Cloud 擴充功能
 
-若有必要，請使用下列命令安裝適用於 Azure CLI 的 Azure Spring Cloud 擴充功能：
-
-```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
-```
-
->[!TIP]
-> Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。  它已預先安裝常用的 Azure 工具，包括 Git、JDK、Maven 和 Azure CLI 的最新版本。 如果您已登入 Azure 訂用帳戶，請從 shell.azure.com 啟動您的 [Azure Cloud Shell](https://shell.azure.com) \(英文\)。  您可以[閱讀我們的文件](../cloud-shell/overview.md)，以深入了解 Azure Cloud Shell
+如果您沒有已部署好的 Azure Spring Cloud 執行個體，請遵循此[快速入門](spring-cloud-quickstart-launch-app-portal.md)中的步驟，來部署您的第一個 Spring Cloud 應用程式。
 
 ## <a name="bind-azure-cache-for-redis"></a>繫結 Azure Cache for Redis
 

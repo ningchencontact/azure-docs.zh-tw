@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 更新 SQL 資料同步的同步結構描述 | Microsoft Docs
+title: PowerShell 範例 - 更新 SQL 資料同步的同步結構描述
 description: 更新 SQL 資料同步之同步結構描述的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 2bf782e1241f4d88beb3d52eefe80511375e800a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d8c4f21630afa4a57d3c3886819ec2842e3cb681
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569739"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691477"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新現有同步群組中的同步結構描述
 

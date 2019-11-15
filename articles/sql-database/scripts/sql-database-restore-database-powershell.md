@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 備份 - 還原 - Azure SQL 資料庫 | Microsoft Docs
+title: PowerShell 範例 - 還原 - 備份 - Azure SQL 資料庫
 description: 可將 Azure SQL 單一資料庫還原到自動備份中較早時間短的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 8a34e2607a957f9af3756818bce9b2dd77541e85
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: da4236e138bd75237ca10b85dc1586fecd1cece4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569846"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691547"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>使用 PowerShell 將單一 Azure SQL 資料庫還原到較早的時間點
 

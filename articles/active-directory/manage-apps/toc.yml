@@ -24,6 +24,8 @@
 - name: 概念
   expanded: true
   items:
+    - name: 應用程式管理最佳做法
+      href: application-management-fundamentals.md
     - name: 雲端應用程式和單一登入
       items:
         - name: 規劃雲端應用程式整合

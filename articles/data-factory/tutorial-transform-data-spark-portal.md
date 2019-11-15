@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 中的 Spark 轉換資料 | Microsoft Docs
-description: 此教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Spark 活動來轉換資料。
+title: '使用 Azure Data Factory 中的 Spark 來轉換資料 '
+description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Spark 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,17 +11,17 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b0df6264eb38cbbacd5f624b634eea5f742adbc7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812273"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683335"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
-在此教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
+在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
 
-您會在此教學課程中執行下列步驟：
+您會在本教學課程中執行下列步驟：
 
 > [!div class="checklist"]
 > * 建立資料處理站。 
@@ -29,7 +29,7 @@ ms.locfileid: "70812273"
 > * 觸發管線執行。
 > * 監視管道執行。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 

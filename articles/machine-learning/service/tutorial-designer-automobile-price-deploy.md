@@ -9,52 +9,50 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fba508eac4b778dcd72371fd1471625ecb8c1a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5fa1557999ae851bccafbf8ee7c41f0b3614614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509592"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715925"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>教學課程：透過設計工具部署機器學習模型 (預覽)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-為了讓其他人有機會使用[教學課程第一部分](tutorial-designer-automobile-price-train-score.md)中開發的預測模型，您可以將其部署為即時端點。 在第一部分中，您已將模型定型。 現在，是時候根據使用者輸入來產生新預測了。 在教學課程的這個部分中，您將：
+您可以部署在[教學課程第一部分](tutorial-designer-automobile-price-train-score.md)中開發的預測模型，讓其他人有機會加以使用。 在第一部分中，您已將模型定型。 現在，是時候根據使用者輸入來產生新預測了。 在教學課程的這個部分中，您會：
 
 > [!div class="checklist"]
-> * 部署即時端點
+> * 建立即時推斷管線
 > * 建立推斷叢集
+> * 部署即時端點
 > * 測試即時端點
 
 ## <a name="prerequisites"></a>必要條件
 
 完成[教學課程的第一個部分](tutorial-designer-automobile-price-train-score.md)，了解如何在設計工具中定型和評分機器學習模型。
 
-## <a name="deploy-a-real-time-endpoint"></a>部署即時端點
+## <a name="create-a-real-time-inference-pipeline"></a>建立即時推斷管線
 
-若要部署管線，您必須：
-
-1. 將訓練管線轉換成即時推斷管線，這會移除訓練模組，並新增推斷要求的輸入和輸出。
-1. 部署推斷管線。
+若要部署您的管線，您必須先將訓練管線轉換成即時推斷管線。 此程序會移除訓練模組，並新增推斷要求的輸入和輸出。
 
 ### <a name="create-a-real-time-inference-pipeline"></a>建立即時推斷管線
 
-1. 在管線畫布頂端，選取 [建立推斷管線]   > [即時推斷管線] 
-
-    當您選取 [建立推斷管線]  時，會發生若干情況：
-    
-    * 定型的模型會儲存為模組選擇區中的**資料集**模組。 您可以在 [我的資料集]  下方找到該項目。
-    * 用於定型的模組 (例如**訓練模型**和**分割資料**) 會被移除。
-    * 儲存的定型模型會加回管線中。
-    * 會新增 **Web 服務輸入**和 **Web 服務輸出**模組。 這些模組會識別使用者資料將在何處輸入模型，以及資料會傳回何處。
-
-    > [!Note]
-    > **訓練管線**會儲存在管線畫布頂端的新索引標籤下。 它也可在設計工具中呈現為已發佈的管線。
-    >
+1. 在管線畫布上方，選取 [建立推斷管線]   > [即時推斷管線] 
 
     您的管線此時應會顯示如下：  
 
    ![此螢幕擷取畫面顯示管線在做好部署準備後的預期組態](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+
+    當您選取 [建立推斷管線]  時，會發生若干情況：
+    
+    * 定型的模型會儲存為模組選擇區中的**資料集**模組。 您可以在 [我的資料集]  下方找到該項目。
+    * 訓練模組 (例如**訓練模型**和**分割資料**) 會被移除。
+    * 儲存的定型模型會加回管線中。
+    * 會新增 **Web 服務輸入**和 **Web 服務輸出**模組。 這些模組會顯示使用者資料將在何處輸入模型，以及資料會傳回何處。
+
+    > [!Note]
+    > **訓練管線**會儲存在管線畫布頂端的新索引標籤下。 它也可在設計工具中呈現為已發佈的管線。
+    >
 
 1. 選取 [執行]  ，並使用您在第一部分中使用的相同計算目標和實驗。
 
@@ -64,11 +62,11 @@ ms.locfileid: "73509592"
 
 1. 選取 [部署]  。
 
-### <a name="create-an-inferencing-cluster"></a>建立推斷叢集
+## <a name="create-an-inferencing-cluster"></a>建立推斷叢集
 
-在出現的對話方塊中，您可以從工作區中現有的 Azure Kubernetes Service (AKS) 叢集進行選取，以部署您的模型。 如果您沒有 AKS 叢集，請使用下列步驟建立一個。
+在出現的對話方塊中，您可以從任何現有的 Azure Kubernetes Service (AKS) 叢集進行選取，以將模型部署至其中。 如果您沒有 AKS 叢集，請使用下列步驟建立一個。
 
-1. 在對話方塊中選取 [計算]  ，以瀏覽至 [計算]  頁面。
+1. 在出現的對話方塊中選取 [計算]  ，以瀏覽至 [計算]  頁面。
 
 1. 在導覽功能區中，選取 [推斷叢集]   > [+ 新增]  。
 
@@ -86,7 +84,7 @@ ms.locfileid: "73509592"
     > 建立新的 AKS 服務需要約 15 分鐘。 您可以在 [推斷叢集]  頁面上查看佈建狀態
     >
 
-### <a name="deploy-the-real-time-endpoint"></a>部署即時端點
+## <a name="deploy-the-real-time-endpoint"></a>部署即時端點
 
 在您的 AKS 服務完成佈建後，請回到即時推斷管線以完成部署。
 
@@ -104,7 +102,7 @@ ms.locfileid: "73509592"
 
 ## <a name="test-the-real-time-endpoint"></a>測試即時端點
 
-您可以在左側的工作區導覽窗格中瀏覽至 [端點]  頁面，以測試您的即時端點。
+部署完成後，您即可瀏覽至 [端點]  頁面，以測試您的即時端點。
 
 1. 在 [端點]  頁面上，選取您部署的端點。
 
@@ -112,9 +110,9 @@ ms.locfileid: "73509592"
 
 1. 選取 [測試]  。
 
-1. 輸入測試資料或使用自動填入的範例資料，然後選取 [測試]  。
+1. 您可以手動輸入測試資料或使用自動填入的範例資料，然後選取 [測試]  。
 
-    測試要求會提交至端點，而結果會顯示在頁面上。 雖然對輸入資料會產生價格值，但該值並不會用來產生預測值。
+    入口網站會將測試要求提交至端點，並顯示結果。 雖然對輸入資料會產生價格值，但該值並不會用來產生預測值。
 
     ![顯示如何測試即時端點的螢幕擷取畫面，其中醒目提示了價格的評分標籤](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 

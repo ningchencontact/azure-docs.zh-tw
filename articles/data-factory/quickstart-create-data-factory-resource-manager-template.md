@@ -1,5 +1,5 @@
 ---
-title: 使用 Resource Manager 範本建立 Azure Data Factory | Microsoft Docs
+title: 使用 Resource Manager 範本建立 Azure Data Factory
 description: 在本教學課程中，您會使用 Azure Resource Manager 範本來建立範例 Azure Data Factory 管線。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 8766ff461227a749a432771dfe7dbe96a291109a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6bba764060c243417711205083bf02f84a68fed1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008682"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684519"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 

@@ -1,23 +1,25 @@
 ---
 title: 快速入門：在 LUIS 入口網站中建立新的應用程式
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將在 LUIS 入口網站中建立新的應用程式。 建立應用程式、意圖和實體的基本部分。 藉由在互動式測試面板中提供範例使用者語句進行測試，以取得預測意圖。 建置應用程式是免費的，且不需要 Azure 訂用帳戶。
+description: 在本快速入門中，您會建立應用程式、意圖和實體的基本部分，以及在 LUIS 入口網站中使用範例語句進行測試。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307742"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669670"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入門：在 LUIS 入口網站中建立新的應用程式
+
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 在本快速入門中，會請您在 [LUIS 入口網站](https://www.luis.ai)中建立新的應用程式。 首先要建立應用程式、**意圖**和**實體**的基本部分。 然後藉由在互動式測試面板中提供範例使用者語句進行測試，以取得預測意圖。
 
@@ -27,18 +29,18 @@ ms.locfileid: "70307742"
 
 ## <a name="create-an-app"></a>建立應用程式
 
-1. 從內容工具列中選取 [建立新的應用程式]  。
+1. 從內容工具列中選取 [+ 建立]  。
 
-   [![在 LUIS 入口網站中建立新的應用程式](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![在 LUIS 入口網站中建立新的應用程式](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. 在快顯視窗中，使用下列設定進行應用程式設定，然後選取 [完成]  。
 
    |設定名稱| 值 | 目的|
    |--|--|--|
-   |Name|`myEnglishApp`|唯一的 LUIS 應用程式名稱<br>必要|
+   |名稱|`myEnglishApp`|唯一的 LUIS 應用程式名稱<br>必要|
    |文化特性|**英文**|使用者語句的語言 **en-us**<br>必要|
-   |說明|`App made with LUIS Portal`|應用程式的描述<br>選用|
-   | | | |
+   |說明 (選擇性)|`App made with LUIS Portal`|應用程式的描述<br>選用|
+   |預測資源 (選擇性) |-  |請勿選取。 LUIS 提供入門金鑰，可免費用於製作 1000 個預測端點要求。 |
 
    ![輸入新的應用程式設定](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -58,13 +60,11 @@ ms.locfileid: "70307742"
 
 若要建立意圖，請完成下列步驟：
 
-1. 應用程式建立後，您會在 [建置]  區段的 [意圖]  頁面上。 選取 [Create new intent] \(建立新意圖\)  。
+1. 應用程式建立後，您會在 [建置]  區段的 [意圖]  頁面上。 選取 [建立]  。
 
-   [![選取建立新的意圖按鈕](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![選取建立以建立新的意圖](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. 輸入意圖名稱 `FindForm`，然後選取 [完成]  。
-
-   ![輸入 FindForm 的意圖名稱](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>新增範例語句
 
@@ -110,13 +110,16 @@ ms.locfileid: "70307742"
 
 1. 從左側的功能表中選取 [實體]  。
 
-1. 選取 [實體]  頁面上的 [建立新的實體]  。
+1. 選取 [實體]  頁面上的 [建立]  。
 
-1. 輸入名稱 `Human Resources Form Number`，選取 **Regex** 實體類型，然後輸入規則運算式 `hrf-[0-9]{6}`。 這個實體會比對出常值字元 `hrf-`，並僅允許 6 個數字。
+1. 輸入名稱 `Human Resources Form Number`，選取 [Regex]  實體類型，然後選取 [下一步]  。
 
-   ![輸入規則運算式實體的實體資訊](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![建立規則運算式實體](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. 選取 [完成]  。
+1. 輸入規則運算式 (**RegEx**) 運算式 `hrf-[0-9]{6}`。 這個實體會比對出常值字元 `hrf-`，且僅允許 6 個數字，然後選取 [建立]  。
+
+   ![輸入實體的規則運算式](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖
 
@@ -134,11 +137,11 @@ ms.locfileid: "70307742"
    |幫我訂披薩|
    |海裡面的企鵝|
 
-   在此人力資源應用程式中，這些範例語句不在定義域內。 如果您的人力資源定義域包含動物、食物或海洋，請對 [None]  意圖使用不同的範例語句。
+   在此應用程式中，這些範例語句不在定義域內。 如果您的定義域包含動物、食物或海洋，請對 [None]  意圖使用不同的範例語句。
 
 ## <a name="train-the-app"></a>進行應用程式定型
 
-在右上方的功能表中選取 [定型]  ，以將意圖和實體模型的變更套用至目前的應用程式版本。
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>查看範例語句中的規則運算式實體
 
@@ -165,8 +168,6 @@ ms.locfileid: "70307742"
 ## <a name="clean-up-resources"></a>清除資源
 
 在完成本快速入門後，若您不繼續進行下一個快速入門，請從頂端導覽功能表中選取 [我的應用程式]  。 然後，從清單中選取應用程式左側的核取方塊，再從清單上方的內容工具列中選取 [刪除]  。
-
-[![刪除 [我的應用程式] 清單中的應用程式](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

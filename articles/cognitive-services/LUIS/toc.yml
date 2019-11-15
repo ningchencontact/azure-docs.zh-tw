@@ -337,8 +337,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
         - name: V2 預測 REST API
           href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
-        - name: 端點 V3 REST API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: HTTP 代碼
           displayName: '400, 401, 403, 409, 410, 414, 429'
           href: luis-reference-response-codes.md

@@ -10,12 +10,12 @@ keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0178f27c39c065399208e7fc5afe7352ba4f8e30
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488214"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606092"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>什麼是適用於伺服器的 Azure Arc
 
@@ -83,7 +83,7 @@ Linux：
 
 ## <a name="register-the-required-resource-providers"></a>註冊所需的資源提供者
 
-一旦「功能旗標」註冊經過核准，您就必須註冊所需的資源提供者。
+若要使用適用於伺服器的 Azure Arc，您必須註冊所需的資源提供者。
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

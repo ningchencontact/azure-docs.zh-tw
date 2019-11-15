@@ -1,5 +1,5 @@
 ---
-title: 什麼是電腦視覺 API？ - 電腦視覺
+title: 什麼是電腦視覺？ - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。
 services: cognitive-services
@@ -8,21 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719548"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794968"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
-Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理影像並傳回資訊。 若要分析影像，您可以上傳影像或指定影像 URL。 影像處理演算法可根據您感興趣的視覺化功能，以不同的方式分析內容。 例如，電腦視覺可判斷影像中是否包含成人內容，也可以尋找影像中的所有人臉。
+Azure 的電腦視覺服務可供開發人員存取進階演算法，以根據您感興趣的視覺功能來處理影像並傳回資訊。 例如，電腦視覺可判斷影像中是否包含成人內容，也可以尋找影像中的所有人臉。
 
-您可以藉由使用原生 SDK 或直接叫用 REST API，在應用程式中使用電腦視覺。 本頁會廣泛說明電腦視覺的功用。
+您可以藉由原生 SDK 或直接叫用 REST API，在應用程式中使用電腦視覺。 本頁會廣泛說明電腦視覺的功用。
+
+## <a name="computer-vision-for-digital-asset-management"></a>用於管理數位資產的電腦視覺
+
+電腦視覺可以支援許多數位資產管理 (DAM) 案例。 DAM 是組織、儲存和抓取多媒體資產，以及管理數位權利和權限的商務程序。 例如，公司可以根據可見的標誌、臉部、物件或色彩等項目來分組和識別影像。 或者，您可以自動[產生影像的標題](./Tutorials/storage-lab-tutorial.md)並附加關鍵字，讓這些影像可供搜尋。 如需可使用認知服務、Azure 認知搜尋和智慧型報告的全能 DAM 解決方案，請參閱 GitHub 上的[知識採礦解決方案加速器指南](https://github.com/Azure-Samples/azure-search-knowledge-mining)。 如需其他 DAM 範例，請參閱[電腦視覺解決方案範本](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates)存放庫。
 
 ## <a name="analyze-images-for-insight"></a>深入分析影像
 
@@ -47,8 +51,6 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 您可以使用電腦視覺[閱讀 API](concept-recognizing-text.md#read-api)，將影像中列印和手寫文字擷取到電腦可讀取的字元資料流中。 讀取 API 會使用最新的模型並處理各種表層和背景上的文字，例如收據、海報、名片、信件和白板等。 目前，英文是唯一支援的語言。
 
 您也可以使用[光學字元辨識 (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API，以數種語言擷取列印的文字。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
-
-
 
 ## <a name="moderate-content-in-images"></a>調節影像中的內容
 

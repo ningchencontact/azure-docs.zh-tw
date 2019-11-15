@@ -1,5 +1,5 @@
 ---
-title: 建置您的第一個 Data Factory (Visual Studio) | Microsoft Docs
+title: 建置第一個資料處理站 (Visual Studio)
 description: 在本教學課程中，您會使用 Visual Studio，建立範例 Azure Data Factory 管線。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 39b640a64cf93a7a9cbb0565084b238891e880c1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 888f3b1a53ba2e31195e3b9d577a475df441e972
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140556"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683013"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>教學課程：使用 Visual Studio 建立資料處理站
 > [!div class="op_single_selector" title="Tools/SDKs"]

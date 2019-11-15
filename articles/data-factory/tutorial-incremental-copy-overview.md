@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 以累加方式複製資料 | Microsoft Docs
+title: '使用 Azure Data Factory 以累加方式複製資料 '
 description: 這些教學課程會說明，如何以累加方式將資料從來源資料存放區複製到目的地資料存放區。 第一個教學課程會從一個資料表複製資料。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 15ff84bf8a194c6172864601e3aefe78f9cc13a3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9cbe9dfea116df30f49b89e2e59886f2f112487c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140590"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683355"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>以累加方式將資料從來源資料存放區載入到目的地資料存放區
 
