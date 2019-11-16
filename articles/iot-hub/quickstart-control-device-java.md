@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: eee8a3b17a23d34610951db8b881397a0649b53a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6ac102fa52977d3f9e07de1666dd98e8c2a31673
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516726"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890555"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>快速入門：使用 Java 來控制連線到 Azure IoT 中樞的裝置
 
@@ -37,7 +37,7 @@ IoT 中樞是一項 Azure 服務，可讓您從雲端管理您的 IoT 裝置，�
 
 您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8。
 
-您可以從[適用於 Azure 和 Azure Stack 的 Java 長期支援](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable)下載適用於多個平台的 Java SE 開發套件 8。 請務必選取 [長期支援]  下的 [Java 8]  ，以取得 JDK 8 的下載。
+您可以從[適用於 Azure 和 Azure Stack 的 Java 長期支援](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)下載適用於多個平台的 Java SE 開發套件 8。 請務必選取 [長期支援]  下的 [Java 8]  ，以取得 JDK 8 的下載。
 
 您可以使用下列命令，以確認開發電腦上目前的 Java 版本：
 

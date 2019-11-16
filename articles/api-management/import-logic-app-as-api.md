@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072065"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108404"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>匯入 Logic App 作為 API
 
@@ -59,7 +59,7 @@ ms.locfileid: "70072065"
 
 7. 選取 [建立]  。
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>在 Azure 入口網站中測試匯入的 API
+## <a name="test-the-api-in-the-azure-portal"></a>在 Azure 入口網站中測試 API
 
 您可以從 Azure 入口網站直接呼叫作業，以便檢視和測試 API 的作業。
 
@@ -72,22 +72,6 @@ ms.locfileid: "70072065"
 4. 按 [傳送]  。
 
     後端會回應 **200 確定**與部分資料。
-
-## <a name="call-operation"> </a>從開發人員入口網站呼叫作業
-
-您也可以在**開發人員入口網站**呼叫作業來測試 API。
-
-1. 選取您在「匯入和發佈後端 API」步驟中建立的 API。
-2. 按 [開發人員入口網站]  。
-
-    「開發人員入口網站」隨即開啟。
-
-3. 選取您所建立的 **API**。
-4. 按一下您想要測試的作業。
-5. 按 [試試看]  。
-6. 按 [傳送]  。
-
-    叫用作業之後，開發人員入口網站會顯示 [回應狀態]  、[回應標頭]  ，以及任何的 [回應內容]  。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

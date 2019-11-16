@@ -1,18 +1,14 @@
 ---
 title: CAF 移轉登陸區域藍圖範例 - 部署步驟
 description: CAF 移轉登陸區域藍圖範例的部署步驟，其中包括藍圖成品參數的詳細資料。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
-ms.openlocfilehash: 4693959a2b4f0638caea57fb97796faf62aba9a0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 67dabde6afe2dbc17a5ca2bd32534108b8008a8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163559"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038450"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>部署適用於適用於 Azure 的 Microsoft 雲端採用架構的移轉登陸區域藍圖範例
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500800"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111785"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 建立語音助理
 
@@ -30,9 +30,9 @@ ms.locfileid: "73500800"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)或 [Azure 入口網站](https://portal.azure.com)上建立金要。
-* 先前建立且使用 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)設定的 Bot
-* [Android Studio](https://developer.android.com/studio/) v3.3 或更新版本
+- 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)或 [Azure 入口網站](https://portal.azure.com)上建立金要。
+- 先前建立且使用 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)設定的 Bot
+- [Android Studio](https://developer.android.com/studio/) v3.3 或更新版本
 
     > [!NOTE]
     > 請參閱[語音助理支援的區域清單](regions.md#voice-assistants)，並確定您的資源已部署於其中一個區域。
@@ -96,9 +96,9 @@ ms.locfileid: "73500800"
 
 此 XML 會定義一個與您的 Bot 互動的簡單 UI。
 
-* `button` 元素經點按後即會起始互動並叫用 `onBotButtonClicked` 方法。
-* `recoText` 元素會在您與 Bot 交談時顯示語音轉文字的結果。
-* `activityText` 元素會針對來自 Bot 的最新 Bot Framework 活動顯示 JSON 承載。
+- `button` 元素經點按後即會起始互動並叫用 `onBotButtonClicked` 方法。
+- `recoText` 元素會在您與 Bot 交談時顯示語音轉文字的結果。
+- `activityText` 元素會針對來自 Bot 的最新 Bot Framework 活動顯示 JSON 承載。
 
 UI 的文字表現方式和畫面現在應會如下：
 

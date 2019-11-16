@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c82edde98242ffe130c2022c428c86de80e3b034
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719200"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111774"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>快速入門：如何透過 Node.js 和 azure-sb 套件使用服務匯流排主題和訂用帳戶
 > [!div class="op_multi_selector" title1="程式設計語言" title2="Node.js 套件"]
@@ -150,7 +150,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 > [!NOTE]
 > 根據預設，訂用帳戶是持續性的，會持續到本身或其相關聯的主題遭到刪除為止。 如果應用程式含有建立訂用帳戶的邏輯，它應該會先使用 `getSubscription` 方法檢查訂用帳戶是否存在。
 >
-> 您可以藉由設定 [AutoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)，將訂用帳戶自動刪除。
+> 您可以藉由設定 [AutoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle)，將訂用帳戶自動刪除。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶
 **MatchAll** 篩選器是訂用帳戶建立時使用的預設篩選器。 使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。 下列範例將建立名為 AllMessages 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
@@ -314,7 +314,7 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 如果應用程式在處理訊息之後，尚未呼叫 `deleteMessage` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這種行為通常稱為*至少處理一次*。 也就是說，每則訊息至少會處理一次；但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則您應在應用程式中加入邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性，該屬性在各個傳遞嘗試中會保持不變。
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
-主題和訂用帳戶在未設定 [autoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)的情況下是持續性的，且必須透過 [Azure 入口網站][Azure portal]或以程式設計方式明確地刪除。
+主題和訂用帳戶在未設定 [autoDeleteOnIdle 屬性](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle)的情況下是持續性的，且必須透過 [Azure 入口網站][Azure portal]或以程式設計方式明確地刪除。
 下列範例示範如何刪除名為 `MyTopic` 的主題：
 
 ```javascript

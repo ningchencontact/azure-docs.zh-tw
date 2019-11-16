@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 7da5d7b80dfd07b742af5ff6225f26207747e58c
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 7f82e2a539c968d0dde44cbc2ed411710054c290
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615330"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890697"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>使用 Azure IoT Central 建置零售解決方案
 
@@ -150,4 +150,4 @@ IoT Central 的店內分析結帳應用程式範本可供解決方案建置者�
 * 了解如何部署[連線物流解決方案範本](./tutorial-iot-central-connected-logistics-pnp.md)
 * 了解如何部署[數位配送中心範本](./tutorial-iot-central-digital-distribution-center-pnp.md)
 * 了解如何部署[智慧庫存管理範本](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* 若要深入了解 IoT Central，請參閱 [IoT Central 概觀](../core/overview-iot-central-pnp.md)
+* 若要深入了解 IoT Central，請參閱 [IoT Central 概觀](../preview/overview-iot-central.md)

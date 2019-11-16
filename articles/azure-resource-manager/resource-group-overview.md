@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 525271fdc94e0fd1b2cafe4a5a222ce9100156ef
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338215"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888483"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -87,7 +87,7 @@ Azure 提供四個範圍層級：[管理群組](../governance/management-groups/
 
 建立資源群組時，您需要提供該資源群組的位置。 您可能會想：「為什麼資源群組需要位置？ 而且，如果資源可以有不同於資源群組的位置，為什麼資源群組位置這麼重要？」 資源群組會儲存資源相關中繼資料。 當您指定資源群組的位置時，您便是指定中繼資料的儲存位置。 基於相容性理由，您可能需要確保您的資料存放在特定區域中。
 
-如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 如需如何建置可靠應用程式的詳細資訊，請參閱[設計可靠的 Azure 應用程式](/azure/architecture/reliability/)。
+如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 如需如何建置可靠應用程式的詳細資訊，請參閱[設計可靠的 Azure 應用程式](/azure/architecture/checklist/resiliency-per-service)。
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager 的復原
 

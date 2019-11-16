@@ -1,17 +1,14 @@
 ---
 title: Azure Resource Graph 概觀
 description: 了解 Azure Resource Graph 服務如何能夠大規模進行複雜的資源查詢。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
-ms.service: resource-graph
-ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: f75a2b65b59a9f0367a6c52c2a1cf058df5b59c3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622540"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958736"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 

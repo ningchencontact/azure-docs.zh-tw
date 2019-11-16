@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab3fa02f7285fdbde918f9e365d1ee96ba5e71a1
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 7650dce9a3ef494815b8d7a326eb07e1e25f2da2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802981"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123102"
 ---
 # <a name="quickstart-qna-maker-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的 QnA Maker 用戶端程式庫
 
@@ -27,7 +27,7 @@ ms.locfileid: "71802981"
 * 管理知識庫
 * 發佈知識庫
 
-[參考文件](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [套件 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 範例](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
+[參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [套件 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 範例](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

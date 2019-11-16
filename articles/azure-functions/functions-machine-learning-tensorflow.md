@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817451"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082735"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教學課程：在 Azure Functions 中使用 Python 和 TensorFlow 來套用機器學習模型
 
@@ -100,7 +100,7 @@ func init --worker-runtime python
 
 - [local.settings.json  ](functions-run-local.md#local-settings-file)：包含用於本機開發的應用程式設定
 - [host.json  ](functions-host-json.md)：包含 Azure Functions 主機和擴充功能的設定
-- [requirements.txt  ](functions-reference-python.md#python-version-and-package-management)：包含此應用程式所需的 Python 套件
+- [requirements.txt  ](functions-reference-python.md#package-management)：包含此應用程式所需的 Python 套件
 
 ## <a name="create-an-http-function"></a>建立 HTTP 函式
 

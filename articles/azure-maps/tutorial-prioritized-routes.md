@@ -1,24 +1,24 @@
 ---
-title: Azure 地圖服務的多個路線 | Microsoft Docs
-description: 使用 Azure 地圖服務尋找不同行進模式的路線
+title: 教學課程：Azure 地圖服務的多個路線
+description: 教學課程：使用 Azure 地圖服務尋找不同行進模式的路線
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916314"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106716"
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
+# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>教學課程：使用 Azure 地圖服務尋找不同行進模式的路線
 
-此教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務來尋找景點路線 (依行進模式設定優先順序)。 您會在地圖上顯示兩條不同的路線，一條是汽車專用，一條則是可能會因為載送貨物的高度、重量或危險性而導致路線受限的卡車專用。 在此教學課程中，您了解如何：
+本教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務來尋找景點路線 (依行進模式設定優先順序)。 您會在地圖上顯示兩條不同的路線，一條是汽車專用，一條則是可能會因為載送貨物的高度、重量或危險性而導致路線受限的卡車專用。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁
@@ -124,7 +124,7 @@ ms.locfileid: "70916314"
 
 ## <a name="define-how-the-route-will-be-rendered"></a>定義呈現路線的方式
 
-在此教學課程中，會在地圖上計算並呈現兩個路線。 一個路線使用供汽車行駛的道路，另一個路線則使用供卡車行駛的道路。 在呈現時，我們將為路線的起點和終點顯示符號圖示，並以不同的彩色線條表示每個路線的路徑。
+在本教學課程中，會在地圖上計算並呈現兩個路線。 一個路線使用供汽車行駛的道路，另一個路線則使用供卡車行駛的道路。 在呈現時，我們將為路線的起點和終點顯示符號圖示，並以不同的彩色線條表示每個路線的路徑。
 
 1. 在初始化地圖後，請在地圖 `ready` 事件處理常式中新增下列 JavaScript 程式碼。
 
@@ -275,7 +275,7 @@ ms.locfileid: "70916314"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁

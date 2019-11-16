@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd12b0c47dc587153df51d4d30eb2abe4cc2657
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092807"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>教學課程：Azure Active Directory 與 Replicon Gateway 整合
 
@@ -124,7 +124,7 @@ ms.locfileid: "67092807"
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 若要取得這些值，在 Reward Manager 入口網站上開始設定整合。 在 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication 可以找到詳細資訊。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 若要取得這些值，在 Reward Manager 入口網站上開始設定整合。 在 https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication 可以找到詳細資訊。
 
 5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -142,7 +142,7 @@ ms.locfileid: "67092807"
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>設定 Reward Gateway 單一登入
 
-若要在 **Reward Gateway** 端設定單一登入，在 Reward Manager入口網站上開始設定整合。 使用下載的中繼資料取得簽署憑證，並在設定期間上傳。 在 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication 可以找到詳細資訊。
+若要在 **Reward Gateway** 端設定單一登入，在 Reward Manager入口網站上開始設定整合。 使用下載的中繼資料取得簽署憑證，並在設定期間上傳。 在 https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication 可以找到詳細資訊。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

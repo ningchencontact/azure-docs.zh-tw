@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716685"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084768"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Azure Machine Learning 與 ML Studio (傳統) 有何不同
 
 此文章會將 Azure Machine Learning 的特性、功能及介面與 ML Studio (傳統) 進行比較。 
 
 ## <a name="about-ml-studio-classic"></a>關於 ML Studio (傳統)
-[ML Studio (傳統)](/studio/what-is-ml-studio.md) 是可進行共同作業的拖放式視覺化工作區，您可於該處建置、測試及部署機器學習解決方案，而無須撰寫任何程式碼。 它會使用預先建置且預先設定的機器學習演算法和資料處理模組，以及專屬計算平台。
+[ML Studio (傳統)](studio/what-is-ml-studio.md) 是可進行共同作業的拖放式視覺化工作區，您可於該處建置、測試及部署機器學習解決方案，而無須撰寫任何程式碼。 它會使用預先建置且預先設定的機器學習演算法和資料處理模組，以及專屬計算平台。
 
 ## <a name="about-azure-machine-learning"></a>關於 Azure Machine Learning
 
-同時，[Azure Machine Learning](/service/overview-what-is-azure-ml.md) 會提供稱為設計工具 (預覽) 的 Web 介面**與**數個 SDK 和 CLI，可快速準備資料、定型及部署機器學習模型。 利用 Azure Machine Learning，您就能進行規模調整、取得多個架構支援、進階的 ML 功能 (例如自動化機器學習) 及管線支援。
+同時，[Azure Machine Learning](service/overview-what-is-azure-ml.md) 會提供稱為設計工具 (預覽) 的 Web 介面**與**數個 SDK 和 CLI，可快速準備資料、定型及部署機器學習模型。 利用 Azure Machine Learning，您就能進行規模調整、取得多個架構支援、進階的 ML 功能 (例如自動化機器學習) 及管線支援。
 
 Azure Machine Learning 設計工具會對 Studio (傳統) 提供類似的拖放體驗。 不過，不同於 Studio (傳統) 專屬的計算平台，此設計工具會使用您自己的計算資源、可調整規模，並與 Azure Machine Learning 完全整合。  
 

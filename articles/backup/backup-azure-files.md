@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747473"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091100"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>備份和還原 Azure 檔案共用
 
@@ -201,7 +201,7 @@ Azure 備份提供在 Azure 入口網站中瀏覽還原點的功能。 若要還
 
 下列程序假設虛擬機器的備份作業已停止。 一旦備份作業停止，備份項目儀表板便會提供 [繼續備份] 和 [刪除備份資料] 選項。 按一下 [刪除備份資料] 並輸入檔案共用的名稱，以確認刪除。 選擇性地提供刪除 [原因] 或 [註解]。
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 如需 Azure 檔案共用的詳細資訊，請參閱
 

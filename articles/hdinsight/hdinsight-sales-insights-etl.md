@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d662ad59722658ed888aa732c1f45afdf48f850c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178017"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889197"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>教學課程：建立端對端資料管線以衍生 Sales Insights
 
@@ -124,7 +124,7 @@ az storage blob upload-batch -d rawdata \
 
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 
-Azure Data Factory 是有助於自動執行 Azure Pipelines 的工具。 它並非完成這些工作的唯一方法，但它是將這些程序自動化的絕佳途徑。 如需有關 Azure Data Factory 的詳細資訊，請參閱 [Azure Data Factory 文件](https://azure.microsoft.com/en-us/services/data-factory/)。 
+Azure Data Factory 是有助於自動執行 Azure Pipelines 的工具。 它並非完成這些工作的唯一方法，但它是將這些程序自動化的絕佳途徑。 如需有關 Azure Data Factory 的詳細資訊，請參閱 [Azure Data Factory 文件](https://azure.microsoft.com/services/data-factory/)。 
 
 此 Data Factory 會有一個具有兩項活動的管線： 
 

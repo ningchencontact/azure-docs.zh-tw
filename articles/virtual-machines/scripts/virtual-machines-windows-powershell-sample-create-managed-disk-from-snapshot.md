@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 從快照集建立受控磁碟 | Microsoft Docs
+title: Azure PowerShell 指令碼範例 - 從快照集建立受控磁碟
 description: Azure PowerShell 指令碼範例 - 從快照集建立受控磁碟
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 5ccff2a503994a4c1001148c371a007c63b13106
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: da6c9d376c432580d8d0765f5c3288fcdfe0abff
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748752"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037163"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>使用 PowerShell 從快照集建立受控磁碟
 

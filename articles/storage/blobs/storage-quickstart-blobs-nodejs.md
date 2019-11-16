@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825312"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130702"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12
 
@@ -205,7 +205,7 @@ const CONNECT_STR = process.env.CONNECT_STR;
 > [!IMPORTANT]
 > 容器名稱必須是小寫字母。 如需為容器和 Blob 命名的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
-呼叫 [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--newpipelineoptions-) 方法以建立 [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) 類別的執行個體。 接著，呼叫 [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) 方法以取得容器的參考。 最後，呼叫 [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)，以實際在您的儲存體帳戶中建立容器。
+呼叫 [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) 方法以建立 [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) 類別的執行個體。 接著，呼叫 [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) 方法以取得容器的參考。 最後，呼叫 [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)，以實際在您的儲存體帳戶中建立容器。
 
 將此程式碼加入到 `main` 函式的結尾處：
 
@@ -351,7 +351,7 @@ Done
 若要查看 Blob 儲存體範例應用程式，請繼續查看：
 
 > [!div class="nextstepaction"]
-> [Azure Blob 儲存體 SDK v12 JavaScript 範例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Azure Blob 儲存體 SDK v12 JavaScript 範例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 * 若要深入了解，請參閱[適用於 JavaScript 的 Azure SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md) \(英文\)。
 * 如需教學課程、範例、快速入門及其他文件，請瀏覽 [Azure SDK for JavaScript 文件](/azure/javascript/)。

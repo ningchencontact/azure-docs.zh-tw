@@ -1,7 +1,7 @@
 ---
 title: 快速入門：Bing 圖像式搜尋 SDK Python
 titleSuffix: Azure Cognitive Services
-description: 設定圖像式搜尋 SDK Python 主控台應用程式。
+description: 使用本快速入門，開始使用 Python SDK 從 Bing 圖像式搜尋服務取得影像見解。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4d5679e75f0feb4fd502abc92fc7c1de16b53bc8
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204024"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111579"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 圖像式搜尋 SDK 來取得影像見解
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure IoT Central 中建立店內分析應用程式 | Microsoft Docs
+title: 教學課程：在 Azure IoT Central 中建立店內分析應用程式
 description: 本教學課程說明如何在 IoT Central 中建立店內分析零售應用程式。 您將會建立此應用程式、加以自訂，並新增感應器裝置。
 services: iot-central
 ms.service: iot-central
@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 10/03/2019
-ms.openlocfilehash: a662201823808c9e2e34e9210096cb081e1b9430
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.date: 11/12/2019
+ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615318"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112893"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>教學課程：在 Azure IoT Central 中建立店內分析應用程式
 
@@ -75,7 +75,7 @@ ms.locfileid: "73615318"
 
 1. 如果您有 Azure 訂用帳戶，請輸入您的 [目錄]、[Azure 訂用帳戶] 和 [區域]  。 如果您沒有訂用帳戶，則可以啟用 [7 天免費試用]  並填妥必要的連絡人資訊。  
 
-    如需關於目錄和訂用帳戶的詳細資訊，請參閱[建立應用程式快速入門](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
+    如需關於目錄和訂用帳戶的詳細資訊，請參閱[建立應用程式快速入門](../preview/quick-deploy-iot-central.md)。
 
 1. 選取 [建立]  。
 
@@ -160,7 +160,7 @@ ms.locfileid: "73615318"
 
 第三，您可以藉由建置自訂檢視來自訂裝置範本。 檢視讓操作員有辦法以視覺方式呈現裝置的遙測資料和中繼資料，例如裝置的計量和健康情況。
 
-在這裡，您會使用前兩種方式來自訂 RuuviTag 感應器的裝置範本。 如需如何為感應器建立檢視的相關資訊，請參閱[將模擬裝置新增至 IoT Central 應用程式](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)快速入門。
+在這裡，您會使用前兩種方式來自訂 RuuviTag 感應器的裝置範本。 如需如何為感應器建立檢視的相關資訊，請參閱[將模擬裝置新增至 IoT Central 應用程式](../preview/quick-create-pnp-device.md)快速入門。
 
 若要自訂 RuuviTag 裝置範本的內建介面：
 
@@ -227,8 +227,8 @@ ms.locfileid: "73615318"
 
 完成下列兩篇文章中的步驟，與實際的 Rigado 閘道和 RuuviTag 感應器連線。 完成之後，請返回本教學課程。 因為您已經在本教學課程中建立好裝置範本，所以不需要在下列這組指示中再次建立。
 
-- 若要與 Rigado 閘道連線，請參閱[將 Rigado Cascade 500 連線到 Azure IoT Central 應用程式](../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)。
-- 若要與 RuuviTag 感應器連線，請參閱[將 RuuviTag 感應器連線到 Azure IoT Central 應用程式](../core/howto-connect-ruuvi-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)。 如有需要，您也可以使用這兩個指示來建立兩個模擬感應器。
+- 若要與 Rigado 閘道連線，請參閱[將 Rigado Cascade 500 連線到 Azure IoT Central 應用程式](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)。
+- 若要與 RuuviTag 感應器連線，請參閱[將 RuuviTag 感應器連線到 Azure IoT Central 應用程式](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)。 如有需要，您也可以使用這兩個指示來建立兩個模擬感應器。
 
 ## <a name="add-rules-and-actions"></a>新增規則和動作
 在使用 Azure IoT Central 應用程式中的感應器來監視狀況的過程中，您可以建立規則以在符合特定狀況時執行動作。 規則會與裝置範本以及一或多個裝置相關聯，並包含根據裝置的遙測資料或事件所必須符合的狀況。 規則也會有一或多個相關聯的動作。 這些動作可能包括傳送電子郵件通知，或觸發 Webhook 動作以將資料傳送到其他服務。 **店內分析 - 結帳**應用程式範本包含應用程式裝置的一些預先定義規則。

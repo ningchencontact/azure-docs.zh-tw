@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d55eca3df8897650f78a6bd85b649349c806e95
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 17d429444b81746a5c5082b8310c5208bc35f3d2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615259"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889032"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>教學課程：部署並逐步執行聯網物流應用程式範本
 
@@ -25,7 +25,7 @@ ms.locfileid: "73615259"
 * 逐步執行應用程式 
 
 ## <a name="prerequisites"></a>必要條件
-* 部署此應用程式不需要特定的必要條件
+* 部署此應用程式不需要特定的先決條件
 * 建議具備 Azure 訂用帳戶，但您甚至不需訂用帳戶就能試用
 
 ## <a name="create-connected-logistics-application-template"></a>建立聯網物流應用程式範本
@@ -109,4 +109,4 @@ ms.locfileid: "73615259"
 ## <a name="next-steps"></a>後續步驟
 * 深入了解[聯網物流概念](./architecture-connected-logistics-pnp.md)
 * 深入了解其他 [IoT Central 零售範本](./overview-iot-central-retail-pnp.md)
-* 深入了解 [IoT Central 概觀](../core/overview-iot-central-pnp.md)
+* 深入了解 [IoT Central 概觀](../preview/overview-iot-central.md)

@@ -1,17 +1,14 @@
 ---
 title: 範例 - 禁止使用者定義的路由表
 description: 此原則定義範例會禁止使用使用者定義的路由表來部署虛擬網路。
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 783ee6916b4ecfb792a7b86cdd84aee08de223f5
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 2cc5b78a774a9c50c31738e5043b20d7a4cd59b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976908"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069942"
 ---
 # <a name="sample---no-user-defined-route-table"></a>範例 - 禁止使用者定義的路由表
 

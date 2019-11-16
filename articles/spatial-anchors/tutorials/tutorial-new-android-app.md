@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6386ef775f897ca56d2660adf72a885672c8dfd2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562386"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092070"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>教學課程：使用 Azure Spatial Anchors 新建 Android 應用程式的逐步指示
 
@@ -36,7 +36,7 @@ ms.locfileid: "68562386"
 
 若要測試新的應用程式，請使用 USB 纜線，將已啟用開發人員功能的裝置連線至開發電腦。 按一下 [執行]  ->[執行「應用程式」]  。 在 [選取部署目標]  視窗中選取您的裝置，然後按一下 [確定]  。 Android Studio 會在您連線的裝置上安裝應用程式，並加以啟動。 此時您應該會看到 "Hello World!" 顯示於您的裝置所執行的應用程式中。 按一下 [執行]  ->[停止「應用程式」]  。
 
-## <a name="integrating-arcore"></a>整合 _ARCore_
+## <a name="integrating-_arcore_"></a>整合 _ARCore_
 
 <a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_</a> 是 Google 的平台，用以建置擴增實境體驗，讓您的裝置能夠在移動時追蹤本身的位置，並產生它對於實際環境的了解。
 
@@ -62,12 +62,12 @@ ms.locfileid: "68562386"
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.8.0'
+    implementation 'com.google.ar:core:1.11.0'
     ...
 }
 ```
 
-## <a name="integrating-sceneform"></a>整合 _Sceneform_
+## <a name="integrating-_sceneform_"></a>整合 _Sceneform_
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> 可讓您輕鬆地在擴增實境應用程式中呈現逼真的 3D 場景，而不需要學習 OpenGL。
 
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
     ...
 }
 ```

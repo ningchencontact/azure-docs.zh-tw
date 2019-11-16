@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1940f02fdf9badcf99ef85a2ab02ac9099cc1775
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 797488632f04af9a170f05590154e50310570b28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615385"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890711"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>IoT Central 聯網物流應用程式範本的架構
 
@@ -42,9 +42,9 @@ IoT 標籤提供實體、周遭及環境感應器功能，例如溫度、濕度�
 Azure IoT Central 是一個解決方案開發平台，能簡化 IoT 裝置的連線能力、設定和管理。 此平台可大幅降低 IoT 裝置管理、作業及相關開發的負擔和成本。 客戶與夥伴可以建置端對端企業解決方案，以在物流中達成數位意見反應迴圈。
 
 ## <a name="business-insights--actions-via-data-egress"></a>透過資料輸出的商業見解與動作 
-IoT Central 平台會透過連續資料匯出 (CDE) 和 API 來提供豐富的擴充性選項。 以遙測資料處理或原始遙測為基礎的商業見解，通常會匯出到慣用的企業營運應用程式。 這可透過 Webhook、服務匯流排、事件中樞或 Blob 儲存體來達成，以建置、定型和部署機器學習模型，並取得進一步的豐富見解。
+IoT Central 平台透過連續資料匯出 (CDE) 和 API 來提供豐富的擴充性選項。 以遙測資料處理或原始遙測為基礎的商業見解，通常會匯出到慣用的企業營運應用程式。 這可透過 Webhook、服務匯流排、事件中樞或 Blob 儲存體來達成，以建置、定型和部署機器學習模型，並取得進一步的豐富見解。
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何部署[聯網物流解決方案範本](./tutorial-iot-central-connected-logistics-pnp.md)
 * 深入了解 [IoT Central 零售範本](./overview-iot-central-retail-pnp.md)
-* 若要深入了解 IoT Central，請參閱 [IoT Central 概觀](../core/overview-iot-central-pnp.md)
+* 若要深入了解 IoT Central，請參閱 [IoT Central 概觀](../preview/overview-iot-central.md)

@@ -1,17 +1,14 @@
 ---
 title: 範例 - 確保儲存體帳戶使用 HTTPS 流量
 description: 此原則定義範例會要求儲存體帳戶使用 HTTPS 流量。
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 41e752d3b88a7b36dbe7d9200ad6de42ab9d563f
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: c61ccecb72d568ff3a1f4bfce542a2cbbf7d8330
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255758"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076246"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>範例 - 針對儲存體帳戶確保只允許 HTTPS 流量
 

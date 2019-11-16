@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 46b413d3fb2a27e724bcb2faa3306416e7f5abc7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824852"
+ms.locfileid: "73839931"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -53,7 +53,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
     | :------ | :-------------- | :---------- |
     | **資料庫名稱** | mySampleDataWarehouse | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 請注意，資料倉儲是一種資料庫。|
     | **訂用帳戶** | 您的訂用帳戶 | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
-    | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
+    | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
     | **選取來源** | 範例 | 指定要載入範例資料庫。 請注意，資料倉儲是一種資料庫。 |
     | **選取範例** | AdventureWorksDW | 指定要載入 AdventureWorksDW 範例資料庫。 |
     ||||
@@ -64,7 +64,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
     | 設定 | 建議的值 | 說明 |
     | :------ | :-------------- | :---------- |
-    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
+    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
     | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
     | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |

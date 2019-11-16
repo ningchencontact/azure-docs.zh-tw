@@ -1,17 +1,14 @@
 ---
 title: 範例 - 儲存體帳戶上未使用非經常性存取層的分層處理
 description: 此原則定義範例會針對 Blob 儲存體帳戶禁止使用非經常性存取層處理。
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: a686126d0f164df2df224ced2e16f03a0a9bb283
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 6e22519eecc6db8ddccccbdb7f6bbbee622cc803
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255792"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076327"
 ---
 # <a name="sample---deny-cool-access-tiering-for-storage-accounts"></a>範例 - 針對儲存體帳戶拒絕使用非經常性存取層處理
 

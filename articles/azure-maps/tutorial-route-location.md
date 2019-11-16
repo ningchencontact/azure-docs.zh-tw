@@ -1,24 +1,24 @@
 ---
-title: 使用 Azure 地圖服務尋找路線 | Microsoft Docs
-description: 使用 Azure 地圖服務的景點路線
+title: 教學課程：使用 Azure 地圖服務尋找路線
+description: 教學課程：使用 Azure 地圖服務的景點路線
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 52355a8896f4891e99d07e2b4106cede77a1f8df
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: c9e407b271fd77397723ee49f530339847096749
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916213"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106629"
 ---
-# <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
+# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>教學課程：使用 Azure 地圖服務的景點路線
 
-此教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務 SDK，來尋找景點路線。 在此教學課程中，您了解如何：
+本教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務 SDK，來尋找景點路線。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁
@@ -104,7 +104,7 @@ ms.locfileid: "70916213"
 
 ## <a name="define-how-the-route-will-be-rendered"></a>定義呈現路線的方式
 
-在此教學課程中，將使用路線起點和終點的符號圖示以及路線路徑的線條來呈現簡易路線。
+在本教學課程中，將使用路線起點和終點的符號圖示以及路線路徑的線條來呈現簡易路線。
 
 1. 在地圖完成初始化後，請新增下列 JavaScript 程式碼。
 
@@ -211,7 +211,7 @@ ms.locfileid: "70916213"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁

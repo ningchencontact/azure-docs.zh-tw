@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9724e54b03e5de065b8b39cb57c6a9880cf37cc6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9ef939d46a02b8aa6b0b7f481fec9e30edf53fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827198"
+ms.locfileid: "73839198"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 
@@ -72,7 +72,7 @@ Get-Module Az.Sql
 
 *下列指令碼會建立新的資源群組、伺服器，以及作為作業資料庫的資料庫。下列指令碼也會建立含有兩個空白資料庫的第二個伺服器，以對其執行作業。*
 
-彈性作業沒有特定的命名需求，因此，您可以使用您所需的任何命名慣例，只要它們符合 [Azure 需求](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)即可。
+彈性作業沒有特定的命名需求，因此，您可以使用您所需的任何命名慣例，只要它們符合 [Azure 需求](/azure/architecture/best-practices/resource-naming)即可。
 
 ```powershell
 # Sign in to your Azure account

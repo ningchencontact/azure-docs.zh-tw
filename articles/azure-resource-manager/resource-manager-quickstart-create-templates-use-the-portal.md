@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4bdf482357789b71b2f87bb74afd76d9ebc7f7d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 299e1f3bc5915d547c4b463e770427d480836179
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476808"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834279"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本
 
@@ -49,7 +49,7 @@ ms.locfileid: "73476808"
     |名稱|值|
     |----|----|
     |**資源群組**|選取 [新建]  並指定您所選擇的資源群組名稱。 在螢幕擷取畫面上，資源群組名稱為 mystorage1016rg  。 資源群組是 Azure 資源的容器。 資源群組可讓您更輕鬆地管理 Azure 資源。 |
-    |**名稱**|為儲存體帳戶指定唯一名稱。 儲存體帳戶名稱必須是整個 Azure 中的唯一名稱，並只包含小寫字母和數字。 名稱必須介於 3 到 24 個字元之間。 如果您收到錯誤訊息指出「儲存體帳戶名稱 'mystorage1016' 已有人使用"」，請嘗試使用 **&lt;您的名稱>storage&lt;MMDD 格式的今天日期>** ，例如 **johndolestorage1016**。 如需詳細資訊，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming)。|
+    |**名稱**|為儲存體帳戶指定唯一名稱。 儲存體帳戶名稱必須是整個 Azure 中的唯一名稱，並只包含小寫字母和數字。 名稱必須介於 3 到 24 個字元之間。 如果您收到錯誤訊息指出「儲存體帳戶名稱 'mystorage1016' 已有人使用"」，請嘗試使用 **&lt;您的名稱>storage&lt;MMDD 格式的今天日期>** ，例如 **johndolestorage1016**。 如需詳細資訊，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。|
 
     您可以對其餘屬性使用預設值。
 

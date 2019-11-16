@@ -1,17 +1,14 @@
 ---
 title: 使用 Azure Resource Graph Explorer 執行您的第一個查詢
 description: 本文會逐步引導您完成相關步驟，以便使用 Azure Resource Graph Explorer 從 Azure 入口網站執行您的第一個查詢。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622594"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958833"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入門：使用 Azure Resource Graph Explorer 執行您的第一個 Resource Graph 查詢
 

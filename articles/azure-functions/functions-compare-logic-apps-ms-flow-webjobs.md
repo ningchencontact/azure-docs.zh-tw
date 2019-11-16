@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597447"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082756"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？
 
@@ -123,12 +123,12 @@ Microsoft Flow、Logic Apps 和 Functions 之間的整合會隨時間持續改�
 * [利用 Azure Functions 和 Azure App Service 來進行整合案例 - 主講人：Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [整合變得簡單，主講人：Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 即時網路廣播](https://aka.ms/logicappslive)
-* [Microsoft Flow 常見問題集](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Microsoft Flow 常見問題集](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>後續步驟
 
 開始建立您的第一個資料流程、邏輯應用程式或函式應用程式。 選取下列任何連結︰
 
-* [開始使用 Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [開始使用 Microsoft Flow](/power-automate/getting-started)
 * [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [建立您的第一個 Azure 函式](functions-create-first-azure-function.md)

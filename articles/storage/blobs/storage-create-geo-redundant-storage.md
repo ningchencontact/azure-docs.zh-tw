@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: c010b1acbf1b8f0a05ffda05bddfd8a9145dee8d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825436"
+ms.locfileid: "73838563"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -79,7 +79,7 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
    | **效能** | 標準 | 標準便足供此案例範例使用。 |
    | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 這是讓範例起作用的必要項目。 |
    |**訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions)。 |
-   |**ResourceGroup** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
+   |**ResourceGroup** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
    |**位置** | 美國東部 | 選擇位置。 |
 
 ![建立儲存體帳戶](media/storage-create-geo-redundant-storage/createragrsstracct.png)

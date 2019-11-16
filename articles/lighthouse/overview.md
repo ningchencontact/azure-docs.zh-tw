@@ -3,16 +3,16 @@ title: 什麼是 Azure Lighthouse ？
 description: Azure Lighthouse 能讓服務提供者以高度自動化且有效率的方式為其客戶傳遞受控服務。
 author: JnHs
 ms.author: jenhayes
-ms.date: 08/22/2019
+ms.date: 11/11/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: ae8194e6d5764769019ac803a52cd54497a618c1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011889"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929575"
 ---
 # <a name="what-is-azure-lighthouse"></a>什麼是 Azure Lighthouse ？
 
@@ -39,9 +39,6 @@ Azure Lighthouse 包含多種方法，可協助簡化客戶業務開發及管理
 - **Azure Resource Manager 範本**：更輕鬆地執行管理工作，包括針對 Azure 委派的資源管理對客戶進行上線。 如需詳細資訊，請參閱我們的[範例存放庫](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) \(英文\)，以及[讓客戶在 Azure 委派的資源管理中上線](how-to/onboard-customer.md)。
 - **Azure Marketplace 中的受控服務供應項目**：透過私人或公用供應項目來將服務提供給客戶，並讓系統將他們自動上線至 Azure 委派的資源管理，作為使用 Azure Resource Manager 範本進行上線的替代方案。 如需詳細資訊，請參閱 [Azure Marketplace 中的受控服務供應項目](./concepts/managed-services-offers.md)。
 - **Azure 受控應用程式**：封裝並交付客戶能輕鬆部署，並用於其訂用帳戶的應用程式。 應用程式會被部署至您可從自己的租用戶存取的資源群組中，這能讓您以和整體 Azure Lighthouse 體驗整合在一起的形式來管理該服務。 如需詳細資訊，請參閱 [Azure 受控應用程式概觀](https://docs.microsoft.com/azure/managed-applications/overview)。
-
-> [!NOTE]
-> 上述功能目前已在公用雲端中提供。 針對個別服務的區域可用性，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。
 
 ## <a name="next-steps"></a>後續步驟
 

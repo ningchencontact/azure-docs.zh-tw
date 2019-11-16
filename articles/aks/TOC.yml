@@ -216,6 +216,8 @@
         - name: 使用 Kubernetes RBAC 搭配 Azure AD 整合
           href: azure-ad-rbac.md
           maintainContext: true
+        - name: 輪替憑證
+          href: certificate-rotation.md
     - name: 監視和記錄
       items:
         - name: 適用於容器的 Azure 監視器

@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure 地圖服務實作 IoT 空間分析 | Microsoft Docs
-description: 整合 IoT 中樞與 Azure 地圖服務 API。
+title: 教學課程：使用 Azure 地圖服務執行 IoT 空間分析
+description: 教學課程：整合 IoT 中樞與 Azure 地圖服務 API。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933210"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107050"
 ---
-# <a name="implement-iot-spatial-analytics-using-azure-maps"></a>使用 Azure 地圖服務執行 IoT 空間分析
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>教學課程：使用 Azure 地圖服務執行 IoT 空間分析
 
 追蹤和擷取在空間和時間中發生的相關事件，是常見的 IoT 案例。 例如，在車隊管理、資產追蹤、行動和智慧城市應用程式中執行這些動作。 本教學課程將引導您完成下列作業的解決方案模式：使用事件方格所提供的事件訂閱模型，對 IoT 中樞所擷取的相關事件使用 Azure 地圖服務 API。
 

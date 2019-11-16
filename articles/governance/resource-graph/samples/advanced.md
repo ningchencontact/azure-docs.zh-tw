@@ -1,17 +1,14 @@
 ---
 title: 進階查詢範例
 description: 使用 Azure Resource Graph 來執行某些進階查詢，包括虛擬機器擴展集容量、列出所有標記，以及透過規則運算式來比對虛擬機器。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 6310e13508c1c789c410f1954a2ac0dbf480a2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e09db4630fd1ef8acc06538c7599feddbe991900
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622512"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958716"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 

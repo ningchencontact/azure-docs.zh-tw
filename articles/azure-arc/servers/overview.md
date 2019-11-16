@@ -10,12 +10,12 @@ keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606092"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122831"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>什麼是適用於伺服器的 Azure Arc
 
@@ -132,7 +132,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 - 已安裝 MMA 代理程式的機器將透過更新的管理組件啟用 **Azure Arc** 功能。
 - 整合適用於伺服器的 Azure Arc 需要 [MMA 代理程式版本 10.20.18011 或更新版本](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version)。
-- 查詢 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries)中的記錄資料時，傳回的資料結構描述會包含 `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>` 形式的混合式 **ResourceId**。
+- 查詢 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)中的記錄資料時，傳回的資料結構描述會包含 `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>` 形式的混合式 **ResourceId**。
 
 如需詳細資訊，請參閱[開始使用 Azure 監視器中的 Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)。
 

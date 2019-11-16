@@ -1,7 +1,7 @@
 ---
 title: 快速入門 - 使用 Java 向 Bing 當地企業搜尋 API 傳送查詢
 titleSuffix: Azure Cognitive Services
-description: 使用本文開始使用以 Java 撰寫的 Bing 當地商家搜尋 API。
+description: 使用此快速入門開始向 Bing 當地商家搜尋 API 傳送要求，該 API 是 Azure 認知服務。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 3e71268004ca8fd171835adf289436a65d866fdc
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: eee5bc8d9d2587251b5564ecbd9f0ab1eaa44fcc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994420"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075670"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>快速入門：使用 Java 向 Bing 當地商家搜尋 API 傳送查詢
 

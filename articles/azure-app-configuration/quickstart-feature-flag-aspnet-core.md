@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a203aa3a2df7e61c43f895849afa38b56ebea441
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571210"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091256"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>快速入門：將功能旗標新增至 ASP.NET Core 應用程式
 
@@ -144,8 +144,11 @@ ms.locfileid: "73571210"
         webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
-                .UseFeatureFlags();
+            config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .UseFeatureFlags();
+            });
+
         })
         .UseStartup<Startup>());
     ```

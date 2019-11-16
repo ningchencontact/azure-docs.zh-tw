@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 018a0405215d084962f6c107a607c8f82fae2500
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686679"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132011"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -254,7 +254,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-此程式碼會呼叫 ContainerURL 的[建立](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-)和[刪除](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-)函式，無須使用 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 執行個體。 為了簡化本快速入門，此程式碼會假設您已建立並啟用儲存體帳戶。 在生產環境的程式碼中，請使用 Aborter 執行個體來新增逾時功能。
+此程式碼會呼叫 ContainerURL 的[建立](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)和[刪除](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-)函式，無須使用 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 執行個體。 為了簡化本快速入門，此程式碼會假設您已建立並啟用儲存體帳戶。 在生產環境的程式碼中，請使用 Aborter 執行個體來新增逾時功能。
 
 ### <a name="list-blobs"></a>列出 Blob
 
@@ -290,7 +290,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-此程式碼會在迴圈中呼叫 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) 函式，以確保擷取所有區段。 該函式會針對每個區段，在所包含的 Blob 項目清單上循環，並更新**檔案**清單。
+此程式碼會在迴圈中呼叫 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 函式，以確保擷取所有區段。 該函式會針對每個區段，在所包含的 Blob 項目清單上循環，並更新**檔案**清單。
 
 ### <a name="upload-blobs"></a>上傳 Blob
 
@@ -318,7 +318,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-此程式碼會將 [選取並上傳檔案]  按鈕連結到隱藏的 `file-input` 元素。 如此一來，`click` 按鈕事件會觸發 `click` 檔案輸入事件，並顯示檔案選擇器。 當您選取檔案並關閉對話方塊後，`input` 事件就會發生，並呼叫 `uploadFiles` 函式。 此函式會針對您選取的每個檔案呼叫瀏覽器專用的 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) 函式。 每個呼叫都會傳回可新增至清單的 Promise，讓所有檔案同時一起等候，這麼一來，檔案就能平行地上傳。
+此程式碼會將 [選取並上傳檔案]  按鈕連結到隱藏的 `file-input` 元素。 如此一來，`click` 按鈕事件會觸發 `click` 檔案輸入事件，並顯示檔案選擇器。 當您選取檔案並關閉對話方塊後，`input` 事件就會發生，並呼叫 `uploadFiles` 函式。 此函式會針對您選取的每個檔案呼叫瀏覽器專用的 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) 函式。 每個呼叫都會傳回可新增至清單的 Promise，讓所有檔案同時一起等候，這麼一來，檔案就能平行地上傳。
 
 ### <a name="delete-blobs"></a>刪除 Blob
 

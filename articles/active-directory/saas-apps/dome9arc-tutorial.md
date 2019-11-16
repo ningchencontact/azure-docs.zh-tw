@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533088"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885356"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Check Point CloudGuard Dome9 Arc 整合
 
@@ -78,7 +78,7 @@ ms.locfileid: "72533088"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Check Point CloudGuard Dome9 Arc]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -107,7 +107,7 @@ ms.locfileid: "72533088"
     | memberof | user.assignedroles |
 
     >[!NOTE]
-    >請按一下[此處](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial)來了解如何在 Azure AD 中建立角色。
+    >請按一下[此處](https://docs.microsoft.com/azure/active-directory/saas-apps/apptio-tutorial)來了解如何在 Azure AD 中建立角色。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 

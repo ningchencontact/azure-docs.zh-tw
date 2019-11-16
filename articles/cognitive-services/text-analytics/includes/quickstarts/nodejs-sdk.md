@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: 5c5c2ed6b7806095dada40cc921a773d28421424
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 54aadd22b8f2bbccaa4c5e4f1444aa08279a4773
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750193"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125427"
 ---
 <a name="HOLTop"></a>
 
-[參考文件](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [套件 (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [套件 (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -62,7 +62,7 @@ npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 
 ## <a name="object-model"></a>物件模型
 
-文字分析用戶端是一個 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) 物件，會使用您的金鑰向 Azure 進行驗證。 此用戶端提供數種用來分析文字 (以單一字串或批次的形式) 的方法。
+文字分析用戶端是一個 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) 物件，會使用您的金鑰向 Azure 進行驗證。 此用戶端提供數種用來分析文字 (以單一字串或批次的形式) 的方法。
 
 文字會以 `documents` 清單的形式傳送至 API，而此清單中列載 `id`、`text` 和 `language` 屬性的組合 (視使用的方法而定) 所屬的 `dictionary` 物件。 `text` 屬性會儲存要在原始 `language` 中分析的文字，而 `id` 可以是任何值。 
 
@@ -79,14 +79,14 @@ npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 
 ## <a name="authenticate-the-client"></a>驗證用戶端
 
-以 `credentials` 和 `endpoint` 作為參數來建立新的 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) 物件。
+以 `credentials` 和 `endpoint` 作為參數來建立新的 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) 物件。
 
 [!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
 
 ## <a name="sentiment-analysis"></a>情感分析
 
-建立字典物件清單，其中包含您要分析的文件。 呼叫用戶端的 [sentiment()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#sentiment-object-) 方法，並取得傳回的 [SentimentBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/sentimentbatchresult?view=azure-node-latest)。 逐一查看結果清單，並列印每份文件的識別碼和人氣分數。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
+建立字典物件清單，其中包含您要分析的文件。 呼叫用戶端的 [sentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) 方法，並取得傳回的 [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult)。 逐一查看結果清單，並列印每份文件的識別碼和人氣分數。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
 
 [!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
 
@@ -103,7 +103,7 @@ npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 
 ## <a name="language-detection"></a>語言偵測
 
-建立字典物件清單，其中包含您的文件。 呼叫用戶端的 [detectLanguage()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#detectlanguage-object-) 方法，並取得傳回的 [LanguageBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/languagebatchresult?view=azure-node-latest)。 接著逐一查看結果，並列印每份文件的識別碼和語言。
+建立字典物件清單，其中包含您的文件。 呼叫用戶端的 [detectLanguage()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) 方法，並取得傳回的 [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult)。 接著逐一查看結果，並列印每份文件的識別碼和語言。
 
 [!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
 
@@ -119,7 +119,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="entity-recognition"></a>實體辨識
 
-建立物件清單，其中包含您的文件。 呼叫用戶端的 [entities()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#entities-object-) 方法，並取得 [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/entitiesbatchresult?view=azure-node-latest) 物件。 逐一查看結果清單，並列印每份文件的識別碼。 對於每個偵測到的實體，列印其維基百科名稱、類型和子類型 (如果存在) 以及原始文字中的位置。
+建立物件清單，其中包含您的文件。 呼叫用戶端的 [entities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) 方法，並取得 [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) 物件。 逐一查看結果清單，並列印每份文件的識別碼。 對於每個偵測到的實體，列印其維基百科名稱、類型和子類型 (如果存在) 以及原始文字中的位置。
 
 [!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
 
@@ -157,7 +157,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>關鍵片語擷取
 
-建立物件清單，其中包含您的文件。 呼叫用戶端的 [keyPhrases()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#keyphrases-object-) 方法，並取得傳回的 [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/keyphrasebatchresult?view=azure-node-latest) 物件。 逐一查看結果，並列印每份文件的識別碼，以及任何偵測到的關鍵片語。
+建立物件清單，其中包含您的文件。 呼叫用戶端的 [keyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) 方法，並取得傳回的 [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) 物件。 逐一查看結果，並列印每份文件的識別碼，以及任何偵測到的關鍵片語。
 
 [!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
 

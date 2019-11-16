@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c118a74e273e153746240465692b1c712bd25f47
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499433"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953614"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>教學課程：搭配 Pattern.any 實體擷取自由格式的資料
 
@@ -138,7 +138,7 @@ Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式�
 
 ## <a name="using-an-explicit-list"></a>使用明確的清單
 
-如果您發現模式在包含 Pattern.any 時所擷取的實體不正確，請使用[明確清單](luis-concept-patterns.md#explicit-lists)來更正此問題。
+如果您發現模式在包含 Pattern.any 時所擷取的實體不正確，請使用[明確清單](reference-pattern-syntax.md#explicit-lists)來更正此問題。
 
 
 ## <a name="clean-up-resources"></a>清除資源

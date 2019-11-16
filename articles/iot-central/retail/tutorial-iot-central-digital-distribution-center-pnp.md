@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1965cc17f3d58932321c3ff14c99a962830d07b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615244"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890666"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>教學課程：部署及逐步執行數位配送中心應用程式範本
 
@@ -113,4 +113,4 @@ ms.locfileid: "73615244"
 ## <a name="next-steps"></a>後續步驟
 * 深入了解數位配送中心解決方案架構[數位配送中心概念](./architecture-digital-distribution-center-pnp.md)
 * 深入了解其他 [IoT Central 零售範本](./overview-iot-central-retail-pnp.md)
-* 若要深入了解 IoT Central，請參閱 [IoT Central 概觀](../core/overview-iot-central-pnp.md)
+* 若要深入了解 IoT Central，請參閱 [IoT Central 概觀](../preview/overview-iot-central.md)

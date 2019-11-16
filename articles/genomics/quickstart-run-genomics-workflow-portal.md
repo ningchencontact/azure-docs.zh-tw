@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 47043b9f4416ec61cf25ea92504c0c653b7d5408
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819209"
+ms.locfileid: "73838719"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -39,8 +39,8 @@ ms.locfileid: "73819209"
  |**設定**          |  **建議的值**  | **欄位描述** |
  |:-------------       |:-------------         |:----------            |
  |訂用帳戶         | 您的訂用帳戶名稱|這是您 Azure 服務的計費單位 - 如需關於您訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions) |      
- |資源群組       | MyResourceGroup       |  資源群組可讓您將多個 Azure 資源 (儲存體帳戶、Genomics 帳戶等) 群組為單一群組來簡化管理。 如需詳細資訊，請參閱[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。 如需有效的資源群組名稱，請參閱[命名規則](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
- |帳戶名稱         | MyGenomicsAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
+ |資源群組       | MyResourceGroup       |  資源群組可讓您將多個 Azure 資源 (儲存體帳戶、Genomics 帳戶等) 群組為單一群組來簡化管理。 如需詳細資訊，請參閱[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。 如需有效的資源群組名稱，請參閱[命名規則](/azure/architecture/best-practices/resource-naming) |
+ |帳戶名稱         | MyGenomicsAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](/azure/architecture/best-practices/resource-naming) |
  |位置                   | 美國西部 2                    |    可在美國西部 2、西歐和東南亞提供服務 |
 
 
@@ -118,8 +118,8 @@ Microsoft Genomics 服務預期會輸入儲存為 Azure 儲存體帳戶中的區
  |**設定**          |  **建議的值**  | **欄位描述** |
  |:-------------------------       |:-------------         |:----------            |
  |訂用帳戶         | 您的 Azure 訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions) |      
- |資源群組       | MyResourceGroup       |  您可以選取相同的資源群組作為 Genomics 帳戶。 如需有效的資源群組名稱，請參閱[命名規則](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
- |儲存體帳戶名稱         | MyStorageAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
+ |資源群組       | MyResourceGroup       |  您可以選取相同的資源群組作為 Genomics 帳戶。 如需有效的資源群組名稱，請參閱[命名規則](/azure/architecture/best-practices/resource-naming) |
+ |儲存體帳戶名稱         | MyStorageAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](/azure/architecture/best-practices/resource-naming) |
  |位置                  | 美國西部 2                  | 使用相同位置作為 Genomics 帳戶的位置，可減少輸出費用並降低延遲。  | 
  |效能                  | 標準                   | 預設值是 [標準]。 如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |帳戶類型       | Blob 儲存體       |  Blob 儲存體的下載及上傳速度可能比一般用途的快 2-5 倍。 |

@@ -1,17 +1,14 @@
 ---
 title: NIST SP 800-53 R4 藍圖範例 - 控制項對應
 description: NIST SP 800-53 R4 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 016d4a8e0f7bc71a7db01426eb514db32bd5624a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1197c6153c0252d8b6738f0e4909e32ca2ddf94e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161419"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037847"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>NIST SP 800-53 R4 藍圖範例的控制措施對應
 
