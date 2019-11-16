@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure 地圖服務建立商店定位器 | Microsoft Docs
-description: 使用 Azure 地圖服務建立商店定位器。
+title: 教學課程：使用 Azure 地圖服務建立商店定位器
+description: 教學課程：使用 Azure 地圖服務建立商店定位器。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933073"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107080"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>教學課程：使用 Azure 地圖服務建立商店定位器
 
 本教學課程將引導您完成使用 Azure 地圖服務建立簡單商店定位器的程序。 商店定位器是通用的。 這類應用程式中使用的概念大多也都適用於許多其他類型的應用程式。 大多數直接對消費者進行銷售的企業，都有需要為客戶提供商店定位器。 在本教學課程中，您會了解如何：
     

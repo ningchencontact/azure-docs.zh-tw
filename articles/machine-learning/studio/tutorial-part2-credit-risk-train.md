@@ -1,6 +1,6 @@
 ---
 title: 教學課程 2：訓練信用風險模型
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 一個詳盡的教學課程，說明如何在傳統版本的 Azure Machine Learning Studio 中建立適用於信用風險評估的預測性分析解決方案。 本教學課程是三部分教學課程系列的第二部分。 其內容會說明如何訓練和評估模型。
 keywords: 信用風險, 預測性分析解決方案, 風險評估
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 375fdf9b64afcce2d521008d353949e650f9df5e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b3f0ebe2cad68759e7feeb7a7cc3dadbbd03ee7e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622067"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838663"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>教學課程 2：訓練信用風險模型 - Azure Machine Learning Studio (傳統)
 

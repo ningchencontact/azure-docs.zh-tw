@@ -1,17 +1,14 @@
 ---
 title: 範例 - 稽核 DB 層級威脅偵測設定
 description: 此原則定義範例會稽核 SQL 資料庫安全性警示原則是否未設定成指定的狀態。
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7c8c5f4530f6f34cfe94143fa03c89647369f5b7
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 77a3865c04ee9bc5a1cab9b51f503f71daf74435
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977552"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071500"
 ---
 # <a name="sample---audit-db-level-threat-detection-setting"></a>範例 - 稽核 DB 層級威脅偵測設定
 

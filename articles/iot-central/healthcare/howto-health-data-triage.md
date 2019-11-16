@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499947"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132275"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>教學課程：建置 Power BI 提供者儀表板
 
@@ -51,7 +51,7 @@ ms.locfileid: "73499947"
 * Power BI 服務帳戶。 如果您還沒有帳戶，可以[為 Power BI 服務建立免費的試用帳戶](https://app.powerbi.com/)。 如果您之前未曾用過 Power BI，瀏覽[開始使用 Power BI](https://docs.microsoft.com/power-bi/service-get-started) 可能會很有幫助。
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>設定 Azure 事件中樞的連續資料匯出
-您將必須先設定從 Azure IoT Central 應用程式範本到訂用帳戶中的 Azure 事件中樞的連續資料匯出。 您可以遵循本 Azure IoT Central 教學課程中的步驟，[匯出至事件中樞](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp)。 基於此教學課程的目的，您只需要針對遙測匯出。
+您將必須先設定從 Azure IoT Central 應用程式範本到訂用帳戶中的 Azure 事件中樞的連續資料匯出。 您可以遵循本 Azure IoT Central 教學課程中的步驟，[匯出至事件中樞](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data)。 基於此教學課程的目的，您只需要針對遙測匯出。
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>建立 Power BI 串流資料集
 
@@ -91,7 +91,7 @@ ms.locfileid: "73499947"
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>從邏輯應用程式將資料串流至 Power BI
 下一個步驟將要剖析來自事件中樞的資料，將其串流至您先前建立的 Power BI 資料集。
 
-1. 在執行此動作之前，您將必須了解從裝置傳送到事件中樞的 JSON 承載。 方法是，查看此[範例結構描述](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry)並加以修改，以符合您的結構描述，或使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer)檢查訊息。 如果您使用的是持續性患者監視應用程式，您的訊息看起來會像這樣：
+1. 在執行此動作之前，您將必須了解從裝置傳送到事件中樞的 JSON 承載。 方法是，查看此[範例結構描述](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry)並加以修改，以符合您的結構描述，或使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer)檢查訊息。 如果您使用的是持續性患者監視應用程式，您的訊息看起來會像這樣：
 
 **Smart Vitals Patch 遙測**
 

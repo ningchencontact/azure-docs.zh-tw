@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼範例 - 使用 WordPress 建立 Linux VM | Microsoft Docs
+title: Azure CLI 指令碼範例 - 使用 WordPress 建立 Linux VM
 description: Azure CLI 指令碼範例 - 使用 WordPress 建立 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1956ade75bab3d819c92ce7bc7be966c1a23d708
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b25dde1ee36d325585be427dbef04fb39755473e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709467"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037571"
 ---
 # <a name="create-a-vm-with-wordpress"></a>建立含 WordPress 的 VM
 

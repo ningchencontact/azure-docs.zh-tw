@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼範例 - 將 Windows VM 加密 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 將 Windows VM 加密
 description: Azure CLI 指令碼範例 - 將 Windows VM 加密
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 4b6cf773069582e8164a86b37bdb669b71e2f2da
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f37288cb028a3965dfa5b880f0f8c7de35728ba9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703270"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039851"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中將 Windows 虛擬機器加密
 

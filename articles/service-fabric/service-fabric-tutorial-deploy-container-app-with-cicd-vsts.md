@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68598905"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832733"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
 
@@ -147,7 +147,7 @@ Azure DevOps 發行定義描述將應用程式封裝部署到叢集的工作流�
 
 選取 [+ 發行]   -> [建立發行]   -> [建立]  可手動建立發行。 您可以在 [發行]  索引標籤中監視發行進度。
 
-確認部署成功，而且應用程式在叢集中執行。  開啟瀏覽器並巡覽至 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是「1.0.0.20170616.3」。
+確認部署成功，而且應用程式在叢集中執行。  開啟 web 瀏覽器並巡覽至 `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`。  請注意應用程式版本，在此範例中是「1.0.0.20170616.3」。
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>認可並推送變更，觸發發行程序
 
@@ -167,7 +167,7 @@ Azure DevOps 發行定義描述將應用程式封裝部署到叢集的工作流�
 
 若要檢查組建進度，請切換到 **Team Explorer** Visual Studio 中的 [組建]  索引標籤。  您確認組建執行成功，請定義將應用程式部署至叢集的發行定義。
 
-確認部署成功，而且應用程式在叢集中執行。  開啟瀏覽器並巡覽至 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是 "1.0.0.20170815.3"。
+確認部署成功，而且應用程式在叢集中執行。  開啟 web 瀏覽器並巡覽至 `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`。  請注意應用程式版本，在此範例中是 "1.0.0.20170815.3"。
 
 ![Service Fabric Explorer][sfx1]
 

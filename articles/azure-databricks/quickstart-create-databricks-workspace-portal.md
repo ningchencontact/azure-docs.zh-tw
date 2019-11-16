@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 16de2054864a42d978d149353a89d65e8de7d155
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 004557ab3eb73f3f793b0514913260a414645d40
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605680"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129380"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -164,7 +164,7 @@ ms.locfileid: "73605680"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已經在 Azure Databricks 中建立一個 Spark 叢集，並從 Azure 開放資料集使用資料來執行 Spark 作業。 您也可以查看 [Spark 資料來源](/azure/databricks/data/data-sources/index.html)，以了解如何從其他資料來源將資料匯入到 Azure Databricks。 前往下一篇文章，以了解如何使用 Azure Databricks 執行 ETL 作業 (擷取、轉換及載入資料)。
+在本文中，您已經在 Azure Databricks 中建立一個 Spark 叢集，並從 Azure 開放資料集使用資料來執行 Spark 作業。 您也可以查看 [Spark 資料來源](/azure/databricks/data/data-sources/index)，以了解如何從其他資料來源將資料匯入到 Azure Databricks。 前往下一篇文章，以了解如何使用 Azure Databricks 執行 ETL 作業 (擷取、轉換及載入資料)。
 
 > [!div class="nextstepaction"]
 >[使用 Azure Databrick 擷取、轉換和載入資料](databricks-extract-load-sql-data-warehouse.md)

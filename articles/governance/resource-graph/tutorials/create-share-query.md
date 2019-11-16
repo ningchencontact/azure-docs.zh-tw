@@ -1,17 +1,14 @@
 ---
 title: 在 Azure 入口網站中建立和共用查詢
 description: 在本教學課程中，您將了解如何建立 Resource Graph 查詢，並在 Azure 入口網站中與其他人共用該查詢。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/23/2019
 ms.topic: tutorial
-ms.service: resource-graph
-ms.openlocfilehash: e49cff5a9b9b2c8841b6cc685d4778688c214d26
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622475"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958564"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>教學課程：在 Azure 入口網站中建立和共用 Azure Resource Graph 查詢
 

@@ -1,6 +1,6 @@
 ---
 title: 註冊 Video Indexer 並上傳您的第一支影片 - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 了解如何使用 Video Indexer 入口網站，註冊及上傳您的第一支影片。
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372338"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839549"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>快速入門：如何註冊及上傳您的第一支影片
 

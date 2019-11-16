@@ -1,22 +1,22 @@
 ---
-title: 為裝置設定 Azure IoT 中樞裝置佈建服務
-description: 在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建
+title: 教學課程：為裝置設定 Azure IoT 中樞裝置佈建服務
+description: 教學課程：在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65911690"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112769"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>教學課程：將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
 在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 本教學課程示範如何在製造過程中設定您的裝置，讓它能透過 IoT 中樞自動佈建。 第一次開機並連線至佈建服務時，您的裝置會根據其[證明機制](concepts-device.md#attestation-mechanism)進行佈建。 本教學課程涵蓋下列工作：
 

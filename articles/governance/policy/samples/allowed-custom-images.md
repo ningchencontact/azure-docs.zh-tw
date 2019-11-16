@@ -1,17 +1,14 @@
 ---
 title: 範例 - 已核准的 VM 映像
 description: 此原則定義範例會要求只能在環境中部署已核准的自訂映像。
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 34a3cf54879dcf6fc25fab50bcbabde28fff653a
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: f8b5911cfa7700ef14dfac610ab4533c57f22e76
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980836"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076484"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>範例 - 已核准的虛擬機器映像
 

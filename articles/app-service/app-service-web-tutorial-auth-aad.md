@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471293"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961963"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-新的變更會新增呼叫 `/.auth/me` 和設定存取權杖的 `revolve` 對應。 它可確保您在具現化 `todoListCtrl` 控制器之前具有存取權杖。 如此，該控制器所發出的所有 API 呼叫都會包含權杖。
+新的變更會新增呼叫 `/.auth/me` 和設定存取權杖的 `resolve` 對應。 它可確保您在具現化 `todoListCtrl` 控制器之前具有存取權杖。 如此，該控制器所發出的所有 API 呼叫都會包含權杖。
 
 ### <a name="deploy-updates-and-test"></a>部署更新和測試
 

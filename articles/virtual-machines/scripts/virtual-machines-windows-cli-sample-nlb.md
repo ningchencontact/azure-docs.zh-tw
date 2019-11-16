@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼範例 - 建立具有 NLB 的 Windows Server 2016 VM | Microsoft Docs
+title: Azure CLI 指令碼範例 - 建立具有 NLB 的 Windows Server 2016 VM
 description: Azure CLI 指令碼範例 - 建立具有 NLB 的 Windows Server 2016 VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: b1cbb48bc6dcfcaf20d4331b93ba61e57979692c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: eab50ec5bbd6fa3942cf4845a556779da047b02f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703242"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039821"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>對高可用性虛擬機器之間的流量進行負載平衡
 

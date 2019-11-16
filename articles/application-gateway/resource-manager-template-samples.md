@@ -1,18 +1,19 @@
 ---
-title: 適用於 Azure 應用程式閘道的 Azure Resource Manager 範本
+title: Azure 資源管理員範本
+titleSuffix: Azure Application Gateway
 description: 適用於 Azure 應用程式閘道的 Azure Resource Manager 範本
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-ms.date: 08/13/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 4f147e67789349b489674af33d7f04041662660e
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 7353601ac6b624b2adf216d17638fe7b6198eec4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991091"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074511"
 ---
 # <a name="azure-resource-manager-templates-for-azure-application-gateway"></a>適用於 Azure 應用程式閘道的 Azure Resource Manager 範本
 
