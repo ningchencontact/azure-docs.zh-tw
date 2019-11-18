@@ -1,23 +1,18 @@
 ---
-title: Azure Cache for Redis 文件 - 教學課程和 API 參考 | Microsoft Docs
+title: Azure Cache for Redis 文件 - 教學課程和 API 參考
 description: 了解如何使用安全的資料快取和訊息代理程式 Azure Cache for Redis，讓應用程式快速存取資料。 教學課程、API 參考等等。
-services: cache
 author: yegu-ms
-manager: jubbard
 layout: LandingPage
-ms.assetid: ''
 ms.service: cache
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: c5de77f3862f3ca315c586e1ec1cbfc7b5b453a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d28874d18debc73054ad47fe1604e21dd44d85
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829883"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122551"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>Azure Cache for Redis 文件
 
