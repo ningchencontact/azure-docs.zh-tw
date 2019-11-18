@@ -171,6 +171,8 @@
           displayName: 'roles, import'
         - name: 使用預先建置的模型
           href: howto-add-prebuilt-models.md
+        - name: 語句中的標籤實體
+          href: label-entity-example-utterance.md
         - name: 使用 REST API
           items:
             - name: 使用 Node.js 以程式設計方式建置應用程式
@@ -188,8 +190,8 @@
         - name: 使用儀表板
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: 新增片語清單
-          displayName: 'synonym, interchange'
+        - name: 新增描述項
+          displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
         - name: 檢閱端點語句
           displayName: active learning

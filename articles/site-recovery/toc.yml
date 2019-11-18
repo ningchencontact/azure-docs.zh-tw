@@ -361,8 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: 管理
           items:
-            - name: 客戶擁有的網站間的災害復原淘汰
-              href: site-to-site-deprecation.md
+            - name: 取代 Site Recovery 資料加密
+              href: encryption-feature-deprecation.md
             - name: 將透過 Site Recovery 設定的 Windows Servers 進行升級
               href: upgrade-2012R2-to-2016.md
             - name: 移除伺服器並停用保護

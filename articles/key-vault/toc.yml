@@ -58,8 +58,6 @@
       href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
     - name: 設定金鑰輪換和稽核
       href: key-vault-key-rotation-log-monitoring.md
-    - name: 使用事件方格監視 Key Vault 事件
-      href: event-grid-overview.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -114,6 +112,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: 使用事件方格路由金鑰保存庫通知
       href: event-grid-tutorial.md
+    - name: 透過事件方格和 Logic Apps 接收通知
+      href: event-grid-logicapps.md
     - name: 與 Azure 原則整合
       href: azure-policy.md
     - name: Azure Key Vault 記錄

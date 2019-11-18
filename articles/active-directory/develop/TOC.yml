@@ -241,7 +241,9 @@
                   href: migrate-android-adal-msal.md
                 - name: 遷移到 MSAL.iOS 和 MacOS
                   href: migrate-objc-adal-msal.md
-                - name: 遷移到 MSAL Java
+                - name: 遷移到 MSAL Python
+                  href: migrate-python-adal-msal.md
+                - name: 遷移到適用於 Java 的 MSAL
                   href: migrate-adal-msal-java.md
                 - name: 使用訊息代理程式將 Xamarin 應用程式遷移到 MSAL.NET
                   href: msal-net-migration-ios-broker.md
@@ -452,7 +454,11 @@
                   href: request-custom-claims.md
                 - name: 重新導向 URI 組態
                   href: redirect-uris-ios.md
-            - name: MSAL Java
+            - name: 適用於 Python 的 MSAL
+              items:
+                - name: 權杖快取序列化
+                  href: msal-python-token-cache-serialization.md
+            - name: 適用於 Java 的 MSAL
               items:
                 - name: 權杖快取序列化
                   href: msal-java-token-cache-serialization.md

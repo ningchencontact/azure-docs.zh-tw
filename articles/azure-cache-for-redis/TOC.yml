@@ -7,17 +7,17 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立 ASP.NET 應用程式
+    - name: ASP.NET 應用程式
       href: cache-web-app-howto.md
-    - name: 建立 .NET 應用程式
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: 建立 .NET Core 應用程式
+    - name: .NET Core 應用程式
       href: cache-dotnet-core-quickstart.md
-    - name: 建立 Node.js 應用程式
-      href: cache-nodejs-get-started.md
-    - name: 建立 Java 應用程式
+    - name: .NET 應用程式
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: JAVA 應用程式
       href: cache-java-get-started.md
-    - name: 建立 Python 應用程式
+    - name: Node.js 應用程式
+      href: cache-nodejs-get-started.md
+    - name: Python 應用程式
       href: cache-python-get-started.md
 - name: 教學課程
   items:
@@ -33,10 +33,10 @@
       href: cli-samples.md
 - name: 概念
   items:
-    - name: 最佳作法
-      href: cache-best-practices.md
     - name: 容錯移轉和修補
       href: cache-failover.md
+    - name: 最佳作法
+      href: cache-best-practices.md
     - name: 適用於快取的 Architecture 最佳做法
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: 使用說明指南
@@ -45,12 +45,14 @@
       items:
         - name: 選擇快取層
           href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+        - name: 利用叢集來散發您的快取
+          href: cache-how-to-premium-clustering.md
         - name: 利用 Redis 資料永續性來留存您的快取
           href: cache-how-to-premium-persistence.md
         - name: 使用虛擬網路保護快取
           href: cache-how-to-premium-vnet.md
-        - name: 利用叢集來散發您的快取
-          href: cache-how-to-premium-clustering.md
+        - name: 設定異地複寫
+          href: cache-how-to-geo-replication.md
         - name: 從受控快取服務遷移
           href: cache-migrate-to-redis.md
     - name: 自動化
@@ -79,8 +81,6 @@
       items:
         - name: 在 Azure 入口網站中設定
           href: cache-configure.md
-        - name: 設定異地複寫
-          href: cache-how-to-geo-replication.md
         - name: 匯入/匯出資料
           href: cache-how-to-import-export-data.md
         - name: 重新啟動
