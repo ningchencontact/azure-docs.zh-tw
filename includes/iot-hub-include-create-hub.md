@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 1bcab7c0d23aab6a21e845d1402daa001dcb63a1
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161941"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151282"
 ---
 本節將說明如何使用 [Azure 入口網站](https://portal.azure.com)建立 IoT 中樞。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選擇 [建立資源]  ，然後在 [搜尋 Marketplace]  欄位中輸入「IoT 中樞」  。
+1. 從 Azure 首頁中選擇 [+建立資源]  按鈕，然後在 [搜尋 Marketplace]  欄位中輸入「IoT 中樞」  。
 
 1. 從搜尋結果中選取 [IoT 中樞]  ，然後選取 [建立]  。
 
@@ -43,7 +43,7 @@ ms.locfileid: "70161941"
 
     此畫面可讓您設定下列值：
 
-    - **定價與級別層**：您選取的階層。 您可以依據所需的功能多寡，以及每天透過解決方案傳送的訊息多寡，從數個層級中做選擇。 免費層適用於測試和評估。 它可允許 500 個裝置連接到中樞，每天最多可允許 8,000 則訊息。 每個 Azure 訂用帳戶可以在免費層建立一個「IoT 中樞」。
+    - **定價與級別層**：您選取的階層。 您可以依據所需的功能多寡，以及每天透過解決方案傳送的訊息多寡，從數個層級中做選擇。 免費層適用於測試和評估。 它可允許 500 個裝置連接到中樞，每天最多可允許 8,000 則訊息。 每個 Azure 訂用帳戶可以在免費層建立一個 IoT 中樞。
 
     - **IoT 中樞單位**：每天每單位允許的訊息數目取決於您的中樞定價層。 例如，如果您想要中樞支援 700,000 封訊息的輸入，您可以選擇 2 個 S1 層單位。
     如需有關其他層級選項的詳細資料，請參閱[選擇適合的 IoT 中樞層](../articles/iot-hub/iot-hub-scaling.md)。
