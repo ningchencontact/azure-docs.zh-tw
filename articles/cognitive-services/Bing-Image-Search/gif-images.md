@@ -1,7 +1,7 @@
 ---
 title: 使用 Bing 影像搜尋 API 來搜尋 GIF 影像
 titleSuffix: Azure Cognitive Services
-description: 使用 Bing 影像搜尋 API 來搜尋 Web 中的 .gif 影像。
+description: Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a8c9afa618df468e038c80f72713b12c7f6ee226
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882283"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072646"
 ---
 # <a name="search-for-gif-images"></a>搜尋 GIF 影像 
 
-Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。  開發人員可以在各種交談情節中整合吸引人的 GIF。 
+Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。  開發人員可以將吸引人的 gif 整合到各種對話案例中。 
 
 下列 URL 是用於動畫 .gif 影像的查詢。
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ```
-[q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 參數指定搜尋字詞。  上述查詢還使用 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) 篩選參數來指定 `animatedGif`。
+[q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 參數指定搜尋字詞。  上述查詢還使用 `animatedGif`imageType[ 篩選參數來指定 ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)。
 
 若要查看結果的範例，請使用下列 URL 來搜尋 bing.com。
 ```

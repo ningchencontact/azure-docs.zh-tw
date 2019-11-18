@@ -1,21 +1,21 @@
 ---
 title: 搭配文字分析 API 使用實體辨識
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用文字分析 REST API 辨識實體。
+description: 瞭解如何使用文字分析 REST API 識別並區分文字中找到的實體識別。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488639"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031432"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文字分析中使用已命名的實體識別
 
@@ -33,14 +33,14 @@ ms.locfileid: "73488639"
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>命名實體辨識 v3 公開預覽
 
-[下一版的命名實體](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console)辨識現已提供公開預覽。 它提供實體連結和命名實體辨識的更新。 
+[下一版的命名實體]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)辨識現已提供公開預覽。 它提供實體連結和命名實體辨識的更新。 
 
 :::row:::
     :::column span="":::
         **功能**
     :::column-end:::
     ::: column span="":::
-        **說明** 
+        **描述** 
     :::column-end:::
 :::row-end:::
 <!-- expanded types and subtypes row-->
@@ -99,12 +99,12 @@ NER
 > [!NOTE]
 > 命名實體識別（NER）第2版支援下列實體。 [NER v3](#named-entity-recognition-v3-public-preview)處於公開預覽狀態，可大幅擴充文字中辨識之實體的數目和深度。   
 
-| 類型  | SubType | 範例 |
+| 在系統提示您進行確認時，輸入  | SubType | 範例 |
 |:-----------   |:------------- |:---------|
 | Person        | N/A\*         | "Jeff"、"Bill Gates"     |
 | 位置      | N/A\*         | "Redmond, Washington"、"Paris"  |
 | 組織  | N/A\*         | "Microsoft"   |
-| 數量      | Number        | "6"、"six"     |
+| 數量      | 數字        | "6"、"six"     |
 | 數量      | 百分比    | "50%"、"fifty percent"|
 | 數量      | 序數       | "2nd"、"second"     |
 | 數量      | 年齡           | "90 day old"、"30 years old"    |
@@ -112,12 +112,12 @@ NER
 | 數量      | 維度     | "10 miles"、"40 cm"     |
 | 數量      | 溫度   | "32 degrees"    |
 | DateTime      | N/A\*         | "6:30PM February 4, 2012"      |
-| DateTime      | 日期          | "May 2nd, 2017"、"05/02/2017"   |
+| DateTime      | Date          | "May 2nd, 2017"、"05/02/2017"   |
 | DateTime      | 時間          | "8am"、"8:00"  |
 | DateTime      | 日期範圍     | "May 2nd to May 5th"    |
 | DateTime      | 時間範圍     | "6pm to 7pm"     |
 | DateTime      | 持續時間      | "1 minute and 45 seconds"   |
-| DateTime      | 設定           | "every Tuesday"     |
+| DateTime      | Set           | "every Tuesday"     |
 | URL           | N/A\*         | "HTTPs：\//www.bing.com"    |
 | 電子郵件         | N/A\*         | "support@contoso.com" |
 
@@ -337,7 +337,7 @@ NER
     }
 ```
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>Summary
 
 在本文中，您已了解在認知服務中使用文字分析的實體連結概念和工作流程。 摘要說明：
 

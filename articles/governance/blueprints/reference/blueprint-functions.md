@@ -1,14 +1,14 @@
 ---
 title: Azure 藍圖函式
-description: 描述搭配 Azure 藍圖定義和指派使用的函數。
+description: 描述可用於 Azure 藍圖定義和指派中藍圖成品的函式。
 ms.date: 04/15/2019
 ms.topic: reference
-ms.openlocfilehash: 5f4948b55b8889094570574647b7a35ce08f5c12
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960301"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128763"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>搭配 Azure 藍圖使用的函數
 

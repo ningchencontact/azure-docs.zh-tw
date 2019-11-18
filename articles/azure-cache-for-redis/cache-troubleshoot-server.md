@@ -1,25 +1,17 @@
 ---
-title: 針對 Azure Cache for Redis 伺服器端問題進行疑難排解 |Microsoft Docs
+title: 針對 Azure Cache for Redis 伺服器端問題進行疑難排解
 description: 瞭解如何解決 Azure Cache for Redis 的一般伺服器端問題
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4310c31f2a59ae30b7317d043dc6d92b93fee050
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819613"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122568"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>針對 Azure Cache for Redis 伺服器端問題進行疑難排解
 
@@ -41,7 +33,7 @@ ms.locfileid: "72819613"
 - 快取會填入接近其最大容量的資料。
 - Redis 看到較高的記憶體片段。 此片段最常見的原因是儲存大型物件，因為 Redis 已針對小型物件進行優化。
 
-Redis 會透過[INFO](https://redis.io/commands/info)命令公開兩個統計資料，可協助您識別此問題： "used_memory" 和 "used_memory_rss"。 您可以使用入口網站來[查看這些計量](cache-how-to-monitor.md#view-metrics-with-azure-monitor)。
+Redis 會透過[INFO](https://redis.io/commands/info)命令公開兩個統計資料，協助您找出此問題：「used_memory」和「used_memory_rss」。 您可以使用入口網站來[查看這些計量](cache-how-to-monitor.md#view-metrics-with-azure-monitor)。
 
 您可以進行幾項可能的變更，以協助保持記憶體使用量良好：
 

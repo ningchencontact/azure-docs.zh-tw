@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: a599a7cbb1ceff165d7bde77ba4bf797d66b5026
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048236"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131895"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>背景工作服務應用程式的 Application Insights （非 HTTP 應用程式）
 
@@ -406,7 +406,7 @@ Application Insights SDK for Worker 服務同時支援固定速率和調適型�
 
 ### <a name="adding-telemetry-processors"></a>新增遙測處理器
 
-您可以使用 `IServiceCollection`上 `AddApplicationInsightsTelemetryProcessor` 的擴充方法，將自訂遙測處理器新增至 `TelemetryConfiguration`。 您可以在「[高級篩選」案例](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中使用遙測處理器，以更直接控制您傳送至 Application Insights 服務的遙測資料所包含或排除的內容。 請使用下列範例。
+您可以使用 `IServiceCollection`上 `AddApplicationInsightsTelemetryProcessor` 的擴充方法，將自訂遙測處理器新增至 `TelemetryConfiguration`。 您可以在「[高級篩選」案例](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer)中使用遙測處理器，以更直接控制您傳送至 Application Insights 服務的遙測資料所包含或排除的內容。 請使用下列範例。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)

@@ -1,7 +1,7 @@
 ---
 title: 使用離線評估方法-個人化工具
 titleSuffix: Azure Cognitive Services
-description: 使用個人化工具服務在此 C# 快速入門中建立意見反應迴圈。
+description: 本文將說明如何使用離線評估來測量應用程式的有效性，並分析您的學習迴圈。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515578"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953082"
 ---
 # <a name="offline-evaluation"></a>離線評估
 

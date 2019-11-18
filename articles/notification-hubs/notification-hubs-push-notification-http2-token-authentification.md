@@ -1,6 +1,6 @@
 ---
 title: 適用於 Azure 通知中樞 APNS 的權杖型 (HTTP/2) 驗證 | Microsoft Docs
-description: 本主題說明如何運用適用於 APNS 的新權杖驗證
+description: 本主題說明如何使用適用于 APNS 的新權杖驗證
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -11,118 +11,81 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: a7fdaae33e28bd543b44c54868324339d1269bc2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213131"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111905"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>適用於 APNS 的權杖型 (HTTP/2) 驗證
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
-本文說明如何將新的 APNS HTTP/2 通訊協定與權杖型驗證搭配使用。
+本文說明如何使用新的 APNS HTTP/2 通訊協定搭配以權杖為基礎的驗證。
 
 使用新通訊協定的主要優點包括：
 
-* 產生權杖相對輕而易舉 (相較於憑證)
+* 權杖產生相當簡單（相較于憑證）
 * 不再需要顧慮到期日 – 您可以控制驗證權杖及其撤銷
 * 目前的承載上限為 4 KB
 * 同步的意見反應
-* 您會使用 Apple 的最新通訊協定 – 憑證仍使用已遭淘汰的二進位通訊協定
+* 您使用的是 Apple 的最新通訊協定–憑證仍然會使用已標示為即將淘汰的二進位通訊協定
 
-在幾分鐘內透過兩個步驟完成使用此新機制的動作：
+使用這項新機制可以透過兩個步驟來執行：
 
-1. 從 Apple 開發人員帳戶入口網站取得必要資訊
-2. 使用新資訊設定您的通知中樞
+* 從 Apple 開發人員帳戶入口網站取得必要的資訊。
+* 使用新資訊設定您的通知中樞。
 
-通知中樞目前已準備就緒，可將新驗證系統與 APNS 搭配使用。
+通知中樞現在已設定為搭配 APNS 使用新的驗證系統。
 
-請注意，如果您從使用適用於 APNS 的憑證認證進行移轉：
-
-* 權杖屬性會在我們的系統覆寫您的憑證，
-* 但您的應用程式仍可順利接收通知。
+請注意，如果您使用 APNS 的憑證認證進行遷移，權杖屬性會覆寫系統中的憑證，但您的應用程式會繼續順暢地接收通知。
 
 ## <a name="obtaining-authentication-information-from-apple"></a>從 Apple 取得驗證資訊
 
-若要啟用權杖型驗證，您需要從 Apple 開發人員帳戶取得下列屬性：
+若要啟用權杖型驗證，您需要 Apple 開發人員帳戶的下列屬性：
 
 ### <a name="key-identifier"></a>金鑰識別碼
 
-您可以從 Apple 開發人員帳戶中的 [Keys]\(金鑰\) 頁面取得金鑰識別碼
+您可以在 Apple 開發人員帳戶中，從 [**憑證]、[識別碼 & 設定檔**] 底下的 [**金鑰**] 頁面取得金鑰識別碼：
+
+![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
-### <a name="application-identifier--application-name"></a>應用程式識別碼和應用程式名稱
+### <a name="application-identifier-and-application-name"></a>應用程式識別碼和應用程式名稱
 
-您可以透過開發人員帳戶中的 [App IDs]\(應用程式識別碼\) 頁面取得應用程式名稱。
+應用程式名稱和識別碼也可在開發人員帳戶的 [**憑證]、[識別碼 & 設定檔**] 頁面中取得：
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-您可以透過開發人員帳戶中的成員資格詳細資料頁面取得應用程式識別碼。
+### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>透過 .NET SDK 或 Azure 入口網站設定
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/app-id.png)
+您可以使用[最新的用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)或 Azure 入口網站中的，將您的中樞設定為使用權杖型驗證。 若要在入口網站中啟用權杖型驗證，請登入 Azure 入口網站並移至您的通知中樞**設定 > Apple （APNS）**  面板。 從 [**驗證模式]** 屬性選取 [**權杖**]，以使用所有相關的權杖屬性來更新您的中樞。
 
-### <a name="authentication-token"></a>驗證權杖
+![設定權杖](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-為應用程式產生權杖之後，您便可以下載該驗證權杖。 如需有關如何產生此權杖的詳細資訊，請參閱 [Apple 開發人員文件](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1) (英文)。
+* 輸入您從 Apple 開發人員帳戶取得的屬性。
+* 選擇應用程式模式（「**生產**」或「**沙箱**」）。
+* 按一下 [**儲存**] 按鈕以更新您的 APNS 認證。
 
-## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>將您的通知中樞設定為使用權杖型驗證
+以權杖為基礎的認證是由下欄欄位組成：
 
-### <a name="configure-via-the-azure-portal"></a>透過 Azure 入口網站進行設定
+* **金鑰**識別碼：在 Apple 開發人員入口網站中產生之私密金鑰的識別碼;例如，`2USFGKSKLT`。
+* **小組識別碼**：也稱為「前置詞」或「應用程式前置詞」。 這是 Apple 開發人員入口網站中組織的識別碼;例如，`S4V3D7CHJR`。
+* 套件組合**識別碼**：也稱為「應用程式識別碼」。 這是應用程式的套件組合識別碼;例如，`com.microsoft.nhubsample2019`。 請注意，您可以針對許多應用程式使用一個金鑰。 這個值會在傳送通知時對應至 `apns-topic` HTTP 標頭，並用來將特定應用程式設為目標。
+* **Token**：也稱為「金鑰」或「私密金鑰」。 這是從 Apple 開發人員入口網站上產生的 p8 檔案取得。 金鑰必須啟用 APNS （產生金鑰時，在 Apple 開發人員入口網站上選取此項）。 當您將此值提供給 NH 入口網站/API 時，該值必須從中移除 PEM 標頭/頁尾。
+* **端點**：這是 [通知中樞入口網站] 分頁中的切換，以及 API 中的字串欄位。 有效值為 `https://api.push.apple.com` 或 `https://api.sandbox.push.apple.com`。 通知中樞在生產或沙箱環境中使用此值來傳送通知。 這必須符合應用程式中的 `aps-environment` 權利，否則產生的 APNS 裝置權杖不符合環境，而且通知無法傳送。
 
-若要在入口網站中啟用權杖型驗證，請登入 Azure 入口網站，並移至 [通知中樞] > [Notification Services] > [APNS] 面板。
-
-我們已提供新屬性 – 驗證模式。 選取權杖可讓您透過所有相關的權杖屬性更新您的中樞。
-
-![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
-
-* 輸入您從 Apple 開發人員帳戶擷取的屬性
-* 選擇您的應用程式模式 (「生產」或「沙箱」)
-* 按一下 [儲存] 按鈕以更新 APNS 認證
-
-### <a name="configure-via-management-api-rest"></a>透過管理 API (REST) 進行設定
-
-您可以使用我們的[管理 API](https://msdn.microsoft.com/library/azure/dn495827.aspx)，將您的通知中樞更新為使用權杖型驗證。
-根據您設定的是的「沙箱」或「生產」應用程式 (在 Apple 開發人員帳戶中指定)，使用其中一個對應端點：
-
-* 沙箱端點：[https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
-* 生產環境端點： [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
-
-> [!IMPORTANT]
-> 權杖型驗證所需的 API 版本：**2017-04 或更新版本**。
-
-透過權杖型驗證更新中樞的 PUT 要求範例如下：
-
-    ```text
-    PUT https://{namespace}.servicebus.windows.net/{Notification Hub}?api-version=2017-04
-      "Properties": {
-        "ApnsCredential": {
-          "Properties": {
-            "KeyId": "<Your Key Id>",
-            "Token": "<Your Authentication Token>",
-            "AppName": "<Your Application Name>",
-            "AppId": "<Your Application Id>",
-            "Endpoint":"<Sandbox/Production Endpoint>"
-          }
-        }
-      }
-    ```
-
-### <a name="configure-via-the-net-sdk"></a>透過 .NET SDK 進行設定
-
-您可以使用我們的[最新用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.8)，將中樞設定為使用權杖型驗證。
-
-示範正確使用方式的程式碼範例如下：
+以下是說明正確使用方式的程式碼範例：
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
-string token = "YOUR TOKEN HERE";
+string token = "YOUR PRIVATE KEY HERE";
 string keyId = "YOUR KEY ID HERE";
 string appName = "YOUR APP NAME HERE";
 string appId = "YOUR APP ID HERE";
@@ -132,6 +95,7 @@ desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/de
 nm.UpdateNotificationHubAsync(desc);
 ```
 
-## <a name="reverting-to-using-certificate-based-authentication"></a>還原為使用憑證式驗證
+## <a name="next-steps"></a>後續步驟
 
-您可以使用任何上述方法並傳遞憑證而不是權杖屬性，隨時還原為使用憑證式驗證。 該動作會覆寫先前儲存的認證。
+* [在 Azure 入口網站中建立 Azure 通知中樞](create-notification-hub-portal.md)
+* [在 Azure 入口網站中設定通知中樞](create-notification-hub-portal.md)

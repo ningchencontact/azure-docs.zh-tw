@@ -1,5 +1,5 @@
 ---
-title: 使用技能集
+title: 技能集概念和工作流程
 titleSuffix: Azure Cognitive Search
 description: 技能集是您在 Azure 認知搜尋中撰寫 AI 擴充管線的位置。 瞭解技能集組合的重要概念和詳細資料。
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890154"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113638"
 ---
-# <a name="working-with-skillsets-in-azure-cognitive-search"></a>使用 Azure 認知搜尋中的技能集
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Azure 認知搜尋中的技能集概念和組合
 
 本文適用于需要深入瞭解擴充管線運作方式的開發人員，並假設您已瞭解 AI 擴充程式的概念。 如果您是這個概念的新手，請從下列開始：
 + [Azure 認知搜尋中的 AI 擴充](cognitive-search-concept-intro.md)

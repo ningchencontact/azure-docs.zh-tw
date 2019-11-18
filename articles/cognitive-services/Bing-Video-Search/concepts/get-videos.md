@@ -1,7 +1,7 @@
 ---
 title: 使用 Bing 影片搜尋 API 搜尋影片
 titleSuffix: Azure Cognitive Services
-description: 了解如何將搜尋查詢傳送至 Bing 影片搜尋 API。
+description: Bing 影片搜尋從 web APIfinds 並傳回相關的影片，它提供了幾項功能，可讓您在網路上進行智慧型且專注的影片抓取。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512411"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111430"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>使用 Bing 影片搜尋 API 來搜尋影片
 

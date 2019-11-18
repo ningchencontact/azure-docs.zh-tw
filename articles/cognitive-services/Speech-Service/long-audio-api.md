@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 391cddbbd1b69fb7cb5422adbaea2f3378e273bf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f03e32eb17c7c02d8969ea6f79663a5c99196d7b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580167"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931942"
 ---
 # <a name="long-audio-api-preview"></a>長音訊 API （預覽）
 
@@ -25,6 +25,9 @@ ms.locfileid: "73580167"
 
 * 服務所傳回的合成語音會使用類神經語音，以確保高精確度的音訊輸出。
 * 由於不支援即時回應，因此不需要部署語音端點。
+
+> [!NOTE]
+> 長音訊 API 現在僅支援[自訂類神經語音](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices)。
 
 ## <a name="workflow"></a>工作流程
 

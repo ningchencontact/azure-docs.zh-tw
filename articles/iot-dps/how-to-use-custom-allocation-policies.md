@@ -3,17 +3,17 @@ title: 如何將自訂配置原則用於 Azure IoT 中樞裝置佈建服務 | Mi
 description: 如何將自訂配置原則用於 Azure IoT 中樞裝置佈建服務
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 11872f8efcebf39edef2f97cd30c225edbe74bb4
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8f9cc48384e6e1e85a92b3f23c3a362db0df98e0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903576"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108230"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自訂配置原則
 
@@ -42,125 +42,141 @@ ms.locfileid: "73903576"
 
 ## <a name="prerequisites"></a>先決條件
 
-* 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-two-divisional-iot-hubs"></a>建立兩個部門 IoT 中樞
+## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>建立布建服務和兩個部門 IoT 中樞
 
-在本節中，您會使用 Azure Cloud Shell 來建立兩個新的 IoT 中樞，代表**Contoso 烤箱部門**和**contoso 熱泵部門**。
+在本節中，您會使用 Azure Cloud Shell 來建立布建服務，以及兩個代表**Contoso 烤箱部門**和**contoso 熱泵部門**的 IoT 中樞。
+
+> [!TIP]
+> 本文中使用的命令會建立「美國西部」位置的布建服務和其他資源。 我們建議您在最接近支援裝置布建服務的區域中建立資源。 執行 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 命令，或移至 [Azure 狀態](https://azure.microsoft.com/status/)頁面並搜尋「裝置佈建服務」，即可檢視可用的位置清單。 在命令中，可以用一個單字或多字格式來指定位置。例如： westus、美國西部、美國西部等等。此值不區分大小寫。 如果您使用多字格式來指定位置，此值會用引號括住；例如 `-- location "West US"`。
+>
 
 1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 當您完成之後，這種方法會讓清理變得更容易。
+    下列範例會在*westus*區域中建立名為*contoso-us 資源群組*的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 當您完成之後，這種方法會讓清理變得更容易。
 
     ```azurecli-interactive 
-    az group create --name contoso-us-resource-group --location eastus
+    az group create --name contoso-us-resource-group --location westus
     ```
 
-2. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 烤箱部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
+2. 使用 Azure Cloud Shell，透過[az iot dps create](/cli/azure/iot/dps#az-iot-dps-create)命令來建立裝置布建服務。 布建服務會加入至*contoso-資源群組*。
 
-    下列範例會在 eastus 位置中建立名為 contoso-toasters-hub-1098 的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-toasters-`。
+    下列範例會在*westus*位置中建立名為 contoso-布建服務 *-1098*的布建服務。 您必須使用唯一的服務名稱。 在服務名稱中加上您自己的尾碼，以取代**1098**。
 
     ```azurecli-interactive 
-    az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
+    az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
     ```
 
     此命令可能需要數分鐘才能完成。
 
-3. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 熱泵部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
+3. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 烤箱部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
 
-    下列範例會在 eastus 位置中建立名為 contoso-heatpumps-hub-1098 的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-heatpumps-`。
+    下列範例會在*westus*位置中建立名為*contoso-烤箱-hub-1098*的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-toasters-`。
 
     ```azurecli-interactive 
-    az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
+    az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
-    此命令可能也需要數分鐘才能完成。
+    此命令可能需要數分鐘才能完成。
 
-## <a name="create-the-enrollment"></a>建立註冊
+4. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 熱泵部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
 
-在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+    下列範例會在*westus*位置中建立名為*contoso-heatpumps-hub-1098*的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-heatpumps-`。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
+    ```azurecli-interactive 
+    az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
+    ```
 
-2. 選取 [管理註冊] 索引標籤，然後按一下頁面頂端的 [新增註冊群組] 按鈕。 
+    此命令可能需要數分鐘才能完成。
 
-3. 在 [新增註冊群組] 上輸入下列資訊，然後按一下 [儲存] 按鈕。
+## <a name="create-the-custom-allocation-function"></a>建立自訂配置函數
 
-    **群組名稱**：輸入 **contoso-custom-allocated-devices**。
+在本節中，您會建立可執行自訂配置原則的 Azure 函式。 此函式會根據其註冊識別碼是否包含**contoso-tstrsd-007-007**或 **-contoso-contoso-hpsd-088**，決定裝置應註冊到哪個部門 IoT 中樞。 它也會根據裝置是 toaster 或熱泵，設定裝置對應項的初始狀態。
 
-    **證明類型**：選取 [對稱金鑰]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 從您的首頁選取 [ **+ 建立資源**]。
 
-    **自動產生金鑰**：此核取方塊應已勾選。
+2. 在 [*搜尋 Marketplace* ] 搜尋方塊中，輸入 "函數應用程式"。 從下拉式清單中選取 [**函數應用程式**]，然後選取 [**建立**]。
 
-    **選取要如何將裝置指派給中樞**：選取 [自訂 (使用 Azure 函式)]。
+3. 在**函數應用程式**建立 頁面的 **基本** 索引標籤下，為新的函式應用程式輸入下列設定，然後選取 **審查 + 建立**：
 
-    ![為對稱金鑰證明新增自訂配置註冊群組](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+    **資源群組**：選取 [ **contoso-us-資源群組**]，將本文中建立的所有資源一起保留在一起。
 
-4. 在 [新增註冊群組] 上按一下 [連結新的 IoT 中樞]，以連結您新的部門 IoT 中樞。 
+    **函數應用程式名稱**：輸入唯一的函式應用程式名稱。 這個範例會使用**contoso-function-應用程式-1098**。
 
-    針對這兩個部門 IoT 中樞執行此步驟。
+    **Publish**：確認已選取 [程式**代碼**]。
 
-    **訂用帳戶**：如果您有多個訂用帳戶，請選擇您用來建立部門 IoT 中樞的訂用帳戶。
+    **執行時間堆疊**：從下拉式選單選取 [ **.net Core** ]。
 
-    **IoT 中樞**：選取您建立的其中一個部門中樞。
+    **區域**：選取與您的資源群組相同的區域。 這個範例會使用**美國西部**。
 
-    **存取原則**：選擇 [iothubowner]。
+    > [!NOTE]
+    > 預設會啟用 Application Insights。 這篇文章並不需要 Application Insights，但它可能會協助您瞭解並調查您使用自訂配置時遇到的任何問題。 如果您想要的話，可以藉由選取 **監視** 索引標籤，然後針對 **啟用 Application Insights**選取 **否** 來停用 Application Insights。
 
-    ![連結部門 IoT 中樞與佈建服務](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+    ![建立 Azure 函數應用程式以裝載自訂配置函式](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-5. 在 [新增註冊群組] 上，在兩個部門 IoT 中樞都已連結後，您必須以 IoT 中樞群組的形式將其選取作為註冊群組，如下所示：
+4. 在 [**摘要**] 頁面上，選取 [**建立**] 以建立函數應用程式。 部署可能需要幾分鐘的時間。 完成時，選取 [**移至資源**]。
 
-    ![建立註冊的部門中樞群組](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+5. 在 [函數應用程式**總覽**] 頁面的左窗格中，選取 [函式] 旁邊的 [ **+** ] **，以加入**新的函數。
 
-6. 在 [新增註冊群組] 上向下捲動至 [選取 Azure 函式] 區段，然後按一下 [建立新的函式應用程式]。
+    ![將函式新增至函數應用程式](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-7. 在開啟的 [函式應用程式] 建立頁面上，為您的新函式輸入下列設定，然後按一下 [建立]：
+6. 在 [**適用于 .net 的 Azure Functions-開始**使用] 頁面的 [**選擇部署環境**] 步驟中，選取 [**入口網站內**] 磚，然後選取 [**繼續**]。
 
-    **應用程式名稱**：輸入唯一的函式應用程式名稱。 在此範例中顯示為 **contoso-function-app-1098**。
+    ![選取入口網站開發環境](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
-    **資源群組**：選取 [使用現有的] 和**contoso-us-resource-group**，以將本文中建立的所有資源保存在一起。
+7. 在下一個頁面上，針對 [**建立**函式] 步驟選取 [ **Webhook + API** ] 磚，然後選取 [**建立**]。 隨即建立名為**HttpTrigger1**的函式，入口網站會顯示 **.csx**程式碼檔案的內容。
 
-    **Application Insights**：在此練習中，您可以關閉此功能。
+8. 參考所需的 Nuget 套件。 若要建立初始裝置對應項，自訂配置函式會使用必須載入至裝載環境的兩個 Nuget 套件中所定義的類別。 使用 Azure Functions，Nuget 套件會使用*函數. 主機*檔案來參考。 在此步驟中，您會儲存並上傳*函數. 主機*檔案。
 
-    ![建立函式應用程式](./media/how-to-use-custom-allocation-policies/function-app-create.png)
+    1. 將下列幾行複製到您慣用的編輯器，並將該檔案儲存在您的電腦上做為*function. host*。
 
-8. 回到您的 [新增註冊群組] 頁面，確定已選取新的函式應用程式。 您可能必須重新選擇訂用帳戶，才能重新整理函數應用程式清單。
+        ```xml
+        <Project Sdk="Microsoft.NET.Sdk">  
+            <PropertyGroup>  
+                <TargetFramework>netstandard2.0</TargetFramework>  
+            </PropertyGroup>  
+            <ItemGroup>  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+            </ItemGroup>  
+        </Project>
+        ```
 
-    在選取新的函式應用程式之後，請按一下 [建立新的函式]。
+    2. 在**HttpTrigger1**函式中，展開視窗右側的 [ **View Files** ] 索引標籤。
 
-    ![建立函式應用程式](./media/how-to-use-custom-allocation-policies/click-create-new-function.png)
+        ![開啟 view files](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
 
-    您新的函式應用程式將會開啟。
+    3. 選取 [**上傳**]，流覽至**函數 proj**檔案，然後選取 [**開啟**] 以上傳檔案。
 
-9. 在您的函數應用程式上，按一下 [ **+** ] 以建立新的函式
+        ![選取上傳檔案](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
-    ![建立函式應用程式](./media/how-to-use-custom-allocation-policies/new-function.png)
-
-    針對新的函式，使用 **CSharp** 語言以預設設定建立新的 **Webhook + API**。 按一下 [建立此函式]。
-
-    這會建立新的 C# 函式，名為 **HttpTriggerCSharp1**。
-
-10. 將新 C# 函式的程式碼取代為下列程式碼，然後按一下 [儲存]：
+9. 使用下列程式碼取代**HttpTrigger1**函式的程式碼，然後選取 [**儲存**]：
 
     ```csharp
     #r "Newtonsoft.Json"
+
     using System.Net;
-    using System.Text;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
 
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    using Microsoft.Azure.Devices.Shared;               // For TwinCollection
+    using Microsoft.Azure.Devices.Provisioning.Service; // For TwinState
+
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        // Just some diagnostic logging
-        log.Info("C# HTTP trigger function processed a request.");
-        log.Info("Request.Content:...");
-        log.Info(req.Content.ReadAsStringAsync().Result);
+        log.LogInformation("C# HTTP trigger function processed a request.");
 
         // Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+        log.LogInformation("Request.Body:...");
+        log.LogInformation(requestBody);
 
         // Get registration ID of the device
         string regId = data?.deviceRuntimeContext?.registrationId;
@@ -172,7 +188,7 @@ ms.locfileid: "73903576"
         if (regId == null)
         {
             message = "Registration ID not provided for the device.";
-            log.Info("Registration ID : NULL");
+            log.LogInformation("Registration ID : NULL");
             fail = true;
         }
         else
@@ -183,7 +199,7 @@ ms.locfileid: "73903576"
             if (hubs == null)
             {
                 message = "No hub group defined for the enrollment.";
-                log.Info("linkedHubs : NULL");
+                log.LogInformation("linkedHubs : NULL");
                 fail = true;
             }
             else
@@ -201,8 +217,23 @@ ms.locfileid: "73903576"
                     if (obj.iotHubHostName == null)
                     {
                         message = "No toasters hub found for the enrollment.";
-                        log.Info(message);
+                        log.LogInformation(message);
                         fail = true;
+                    }
+                    else
+                    {
+                        // Specify the initial tags for the device.
+                        TwinCollection tags = new TwinCollection();
+                        tags["deviceType"] = "toaster";
+
+                        // Specify the initial desired properties for the device.
+                        TwinCollection properties = new TwinCollection();
+                        properties["state"] = "ready";
+                        properties["darknessSetting"] = "medium";
+
+                        // Add the initial twin state to the response.
+                        TwinState twinState = new TwinState(tags, properties);
+                        obj.initialTwin = twinState;
                     }
                 }
                 // This is a Contoso Heat pump Model 008
@@ -218,8 +249,23 @@ ms.locfileid: "73903576"
                     if (obj.iotHubHostName == null)
                     {
                         message = "No heat pumps hub found for the enrollment.";
-                        log.Info(message);
+                        log.LogInformation(message);
                         fail = true;
+                    }
+                    else
+                    {
+                        // Specify the initial tags for the device.
+                        TwinCollection tags = new TwinCollection();
+                        tags["deviceType"] = "heatpump";
+
+                        // Specify the initial desired properties for the device.
+                        TwinCollection properties = new TwinCollection();
+                        properties["state"] = "on";
+                        properties["temperatureSetting"] = "65";
+
+                        // Add the initial twin state to the response.
+                        TwinState twinState = new TwinState(tags, properties);
+                        obj.initialTwin = twinState;
                     }
                 }
                 // Unrecognized device.
@@ -227,41 +273,67 @@ ms.locfileid: "73903576"
                 {
                     fail = true;
                     message = "Unrecognized device registration.";
-                    log.Info("Unknown device registration");
+                    log.LogInformation("Unknown device registration");
                 }
             }
         }
 
-        return (fail)
-            ? req.CreateResponse(HttpStatusCode.BadRequest, message)
-            : new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
-            };
-    }
+        log.LogInformation("\nResponse");
+        log.LogInformation((obj.iotHubHostName != null) ? JsonConvert.SerializeObject(obj) : message);
 
-    public class DeviceTwinObj
-    {
-        public string deviceId {get; set;}
+        return (fail)
+            ? new BadRequestObjectResult(message) 
+            : (ActionResult)new OkObjectResult(obj);
     }
 
     public class ResponseObj
     {
         public string iotHubHostName {get; set;}
-        public string IoTHub {get; set;}
-        public DeviceTwinObj initialTwin {get; set;}
-        public string[] linkedHubs {get; set;}
-        public string enrollment {get; set;}
+        public TwinState initialTwin {get; set;}
     }
     ```
 
-11. 回到您的 [新增註冊群組] 頁面，並確定已選取新函式。 您可能必須重新選擇函式應用程式，才能重新整理函式清單。
+## <a name="create-the-enrollment"></a>建立註冊
 
-    在選取新的函式後，請按一下 [儲存] 以儲存註冊群組。
+在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
-    ![最後，儲存註冊群組](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+1. 仍在[Azure 入口網站](https://portal.azure.com)上，開啟您的布建服務。
 
-12. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
+2. 在左窗格中選取 [**管理**註冊]，然後選取頁面頂端的 [**新增註冊群組**] 按鈕。
+
+3. 在 [**新增註冊群組**] 上，輸入下列資訊，然後選取 [**儲存**] 按鈕。
+
+    **群組名稱**：輸入 **contoso-custom-allocated-devices**。
+
+    **證明類型**：選取 [對稱金鑰]。
+
+    **自動產生金鑰**：此核取方塊應已勾選。
+
+    **選取要如何將裝置指派給中樞**：選取 [自訂 (使用 Azure 函式)]。
+
+    ![為對稱金鑰證明新增自訂配置註冊群組](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+
+4. 在 [新增**註冊群組**] 上，選取 [**連結新的 iot 中樞**]，以連結您的新部門 IoT 中樞。
+
+    針對這兩個部門 IoT 中樞執行此步驟。
+
+    **訂用帳戶**：如果您有多個訂用帳戶，請選擇您用來建立部門 IoT 中樞的訂用帳戶。
+
+    **IoT 中樞**：選取您建立的其中一個部門中樞。
+
+    **存取原則**：選擇 [iothubowner]。
+
+    ![連結部門 IoT 中樞與佈建服務](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+
+5. 在 [新增註冊群組] 上，在兩個部門 IoT 中樞都已連結後，您必須以 IoT 中樞群組的形式將其選取作為註冊群組，如下所示：
+
+    ![建立註冊的部門中樞群組](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+
+6. 在 [**新增註冊群組**] 上，向下卷到 [**選取 Azure**函式] 區段中，選取您在上一節中建立的函數應用程式。 然後選取您所建立的函式，並選取 [儲存] 以儲存註冊群組。
+
+    ![選取函式並儲存註冊群組](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+
+7. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
 
 ## <a name="derive-unique-device-keys"></a>衍生唯一的裝置金鑰
 
@@ -390,7 +462,7 @@ ms.locfileid: "73903576"
 2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應位於下列位置：
 
     ```
-    \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
+    azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
 3. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]，然後開啟 **prov\_dev\_client\_sample.c**。
@@ -410,7 +482,7 @@ ms.locfileid: "73903576"
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
+6. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。
 
 ### <a name="simulate-the-contoso-toaster-device"></a>模擬 Contoso 烤箱裝置
 
@@ -430,12 +502,12 @@ ms.locfileid: "73903576"
 
     儲存檔案。
 
-2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在重建專案的提示中，選取 **[是]** ，以在執行之前重建專案。
 
     下列輸出是模擬 toaster 裝置成功開機並聯機至布建服務實例的範例，其由自訂配置原則指派給烤箱 IoT 中樞：
 
     ```cmd
-    Provisioning API Version: 1.2.9
+    Provisioning API Version: 1.3.6
 
     Registering Device
 
@@ -459,12 +531,12 @@ ms.locfileid: "73903576"
 
     儲存檔案。
 
-2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在重建專案的提示中，按一下 **[是]** 以在執行之前重建專案。
+2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在重建專案的提示中，選取 **[是]** 以在執行之前重建專案。
 
     下列輸出是模擬的熱泵裝置的範例，其已成功開機並聯機至布建服務實例，以透過自訂配置原則指派給 Contoso 熱泵 IoT 中樞：
 
     ```cmd
-    Provisioning API Version: 1.2.9
+    Provisioning API Version: 1.3.6
 
     Registering Device
 
@@ -502,13 +574,13 @@ ms.locfileid: "73903576"
 
 依名稱刪除資源群組：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取 [資源群組]。
 
 2. 在 [依名稱篩選] 文字方塊中，輸入您的資源所屬的資源群組名稱 **contoso-us-resource-group**。 
 
-3. 在結果清單中的資源群組右側，按一下 **...** ，然後按一下 [刪除資源群組]。
+3. 在結果清單中的資源群組右側，選取 [...]，然後按一下 [刪除資源群組]。
 
-4. 系統會要求您確認刪除資源群組。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+4. 系統會要求您確認刪除資源群組。 再次輸入您的資源群組名稱以進行確認，然後選取 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 為 Azure Cosmos DB 資料來源編制索引
+title: 搜尋 Azure Cosmos DB 的資料
 titleSuffix: Azure Cognitive Search
 description: 在 Azure 認知搜尋中，將 Azure Cosmos DB 資料來源編目，並將資料內嵌在全文檢索搜尋索引中。 索引子可為選取的資料來源 (例如 Azure Cosmos DB) 將資料擷取自動化。
 author: mgottein
@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889900"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112747"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
 > [!IMPORTANT] 
 > SQL API 已正式推出。
-> MongoDB API、Gremlin API 和 Cassandra API 支援目前處於公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 您可以填寫[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)來要求預覽的存取權。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前有有限的入口網站支援，而且沒有 .NET SDK 支援。
+> MongoDB API、Gremlin API 和 Cassandra API 支援目前處於公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 您可以填寫[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)來要求預覽的存取權。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
 本文說明如何設定 Azure Cosmos DB[索引子](search-indexer-overview.md)來解壓縮內容，並讓它在 Azure 認知搜尋中可供搜尋。 此工作流程會建立 Azure 認知搜尋索引，並使用從 Azure Cosmos DB 解壓縮的現有文字來載入它。 
 

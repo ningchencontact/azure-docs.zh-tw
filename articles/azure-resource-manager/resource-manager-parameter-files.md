@@ -1,17 +1,14 @@
 ---
-title: 建立 Azure Resource Manager 參數檔案
+title: 建立參數檔案
 description: 建立在 Azure Resource Manager 範本部署期間傳入值的參數檔案
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: tomfitz
-ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7333e33af90ff7883b53a24bacdc63b42bf107ee
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983940"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149461"
 ---
 # <a name="create-resource-manager-parameter-file"></a>建立 Resource Manager 參數檔案
 
@@ -200,7 +197,7 @@ ms.locfileid: "70983940"
 
 ## <a name="parameter-name-conflicts"></a>參數名稱衝突
 
-如果您範本所含的參數名稱與 PowerShell 命令中的其中一個參數一樣，PowerShell 會以加上後置 **FromTemplate** 的方式呈現您範本中的參數。 例如，範本中名為 **ResourceGroupName** 的參數會與 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) Cmdlet 中的 **ResourceGroupName** 參數發生衝突。 系統會提示您為 **ResourceGroupNameFromTemplate** 提供值。 您可以使用未用於部署命令的參數名稱來避免這種混淆。
+如果您範本所含的參數名稱與 PowerShell 命令中的其中一個參數一樣，PowerShell 會以加上後置 **FromTemplate** 的方式呈現您範本中的參數。 例如，範本中名為 **ResourceGroupName** 的參數會與 **New-AzResourceGroupDeployment** Cmdlet 中的 [ResourceGroupName](/powershell/module/az.resources/new-azresourcegroupdeployment) 參數發生衝突。 系統會提示您為 **ResourceGroupNameFromTemplate** 提供值。 您可以使用未用於部署命令的參數名稱來避免這種混淆。
 
 ## <a name="next-steps"></a>後續步驟
 

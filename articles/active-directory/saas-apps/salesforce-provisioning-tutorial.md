@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f095c962f08ab0207ffc51d1c898570d9be7ea9a
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047242"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120545"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動佈建使用者
 
@@ -55,7 +55,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="enable-automated-user-provisioning"></a>啟用自動使用者佈建
 
-本節會引導您將 Azure AD 連接至 Salesforce 的使用者帳戶佈建 API，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 Salesforce 中建立、更新和停用指派的使用者帳戶。
+本節會引導您將 Azure AD 連接到[salesforce 的使用者帳戶布建 API-v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm)，以及根據 Azure AD 中的使用者和群組指派，設定布建服務以在 Salesforce 中建立、更新和停用指派的使用者帳戶。
 
 > [!Tip]
 > 您也可以選擇啟用 Salesforce 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
@@ -120,7 +120,16 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="common-issues"></a>常見問題
-* 布建至 Salesforce 的預設屬性對應包含 SingleAppRoleAssignments 運算式，可將使用者角色布建至 Salesforce。 請確定使用者未在應用程式上指派多個角色，因為屬性對應僅支援布建一個角色。 
+* 如果您在授權存取 Salesforce 時遇到問題，請確定下列事項：
+    * 使用的認證具有 Salesforce 的系統管理員存取權。
+    * 您所使用的 Salesforce 版本支援 Web 存取（例如開發人員、企業版、沙箱和無限制的 Salesforce 版本）。
+    * 已為使用者啟用 Web API 存取。
+* Azure AD 布建服務支援提供使用者的語言、地區設定和時區。 這些屬性是在預設的屬性對應中，但沒有預設的 source 屬性。 請確定您選取 [預設來源] 屬性，而且 [來源] 屬性採用 SalesForce 所預期的格式。 例如，localeSidKey for 英文（美國）是 en_US。 請參閱[此處](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5)提供的指引，以判斷適當的 localeSidKey 格式。 您可以在[這裡](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5)找到 languageLocaleKey 格式。 除了確保格式正確，您可能需要確定已為您的使用者啟用語言，如[這裡](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5)所述。 
+* **SalesforceLicenseLimitExceeded：** 無法在目標應用程式中建立使用者，因為此使用者沒有可用的授權。 針對目標應用程式購買額外的授權，或檢查您的使用者指派和屬性對應設定，以確保使用正確的屬性來指派正確的使用者。
+* **SalesforceDuplicateUserName：** 無法布建使用者，因為它具有在另一個 Salesforce.com 租使用者中重複的 Salesforce.com ' Username '。  在 Salesforce.com 中，' Username ' 屬性的值在所有 Salesforce.com 租使用者中必須是唯一的。  根據預設，使用者在 Azure Active Directory 中的 userPrincipalName 會變成其在 Salesforce.com 中的「使用者名稱」。   您有兩個選項。  其中一個選項是在另一個 Salesforce.com 租使用者中，尋找並重新命名具有重複的「使用者名稱」的使用者（如果您也要管理該其他租使用者）。  另一個選項是移除 Azure Active Directory 使用者對您的目錄整合所在的 Salesforce.com 租使用者的存取權。 我們會在下一次嘗試同步處理時重試此操作。 
+* **SalesforceRequiredFieldMissing：** Salesforce 要求使用者必須要有某些屬性，才能 succesfuly 建立或更新使用者。 此使用者缺少其中一個必要的屬性。 確定在您想要布建至 Salesforce 的所有使用者上，都已填入電子郵件和別名等屬性。 您可以使用以[屬性為基礎的範圍篩選器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)，來界定不具有這些屬性的使用者範圍。 
+* 布建至 Salesforce 的預設屬性對應包含 SingleAppRoleAssignments 運算式，可將 Azure AD 中的 appRoleAssignments 對應至 Salesforce 中的 ProfileName。 請確定使用者在 Azure AD 中沒有多個應用程式角色指派，因為屬性對應僅支援布建一個角色。 
+
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 177d8e6e9d4393df785f2caf55bf6cbe895bc640
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6209d899131a91754c200da831b3739833ade22c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667901"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132236"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -41,6 +41,7 @@ const appInsights = new ApplicationInsights({ config: {
   /* ...Other Configuration Options... */
 } });
 appInsights.loadAppInsights();
+appInsights.trackPageView(); // Manually call trackPageView to establish the current user/session/pageview
 ```
 
 ### <a name="snippet-based-setup"></a>以程式碼片段為基礎的設定
@@ -59,7 +60,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>將遙測傳送至 Azure 入口網站
 
-根據預設，Application Insights JavaScript SDK 會 autocollects 一些遙測專案，這有助於判斷應用程式的健康情況和基礎使用者體驗。 這些區域包括：
+根據預設，Application Insights JavaScript SDK 會 autocollects 一些遙測專案，這有助於判斷應用程式的健康情況和基礎使用者體驗。 其中包含：
 
 - 應用程式中未攔截到的**例外**狀況，包括的相關資訊
     - 堆疊追蹤
@@ -96,7 +97,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>組態
 大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了 `instrumentationKey`以外，所有欄位都是選擇性的。
 
-| 名稱 | 預設值 | 說明 |
+| 名稱 | 預設值 | 描述 |
 |------|---------|-------------|
 | instrumentationKey | null | **必要**<br>從 Azure 入口網站取得的檢測金鑰。 |
 | accountId | null | 選擇性的帳戶識別碼，如果您的應用程式將使用者群組為帳戶。 不含空格、逗號、分號、等於或分隔號 |
@@ -148,7 +149,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 | 擴充功能 |
 |---------------|
-| [反應](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md) \(英文\)|
 
 ## <a name="explore-browserclient-side-data"></a>探索瀏覽器/用戶端資料
@@ -167,11 +168,11 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>分析 
+### <a name="analytics"></a>Analytics 
 
 若要查詢 JavaScript SDK 所收集的遙測資料，請選取 [**記錄（分析）** ] 按鈕中的 [查看]。 藉由新增 `client_Type == "Browser"`的 `where` 語句，您只會看到來自 JavaScript SDK 的資料，而其他 Sdk 所收集的任何伺服器端遙測也會被排除。
  

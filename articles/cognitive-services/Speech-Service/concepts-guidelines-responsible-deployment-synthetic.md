@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: fe8730b0d97ae3783282cdd401fd5889ed08ad9a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500912"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836772"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>綜合語音技術的責任部署指導方針
 以下是使用綜合語音技術的 Microsoft 一般設計方針。 這些是在 Microsoft 與配音人員、取用者以及具有語音 disorders 的個人進行的研究中開發，以引導綜合語音的負責開發。
@@ -39,7 +39,7 @@ ms.locfileid: "73500912"
 使用語音配音員（例如語音執行者）來建立綜合語音時，適用下列指導方針。
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>向配音人才取得有意義的同意
-配音員希望能夠控制其聲音音調（使用方式和位置），並在使用時隨時補償。 因此，系統擁有者應該會向配音人員取得明確的書面許可權，並針對使用案例、使用期間、補償等等提供清楚的合約規格。 有些配音員並不知道可能的惡意使用技術，而且應該由系統擁有者對技術的功能進行教育。 如需有關配音員和同意的詳細資訊，請閱讀我們的[透明度注意事項](https://aka.ms/neural-tts-transparency-note)。
+配音員希望能夠控制其聲音音調（使用方式和位置），並在使用時隨時補償。 因此，系統擁有者應該會向配音人員取得明確的書面許可權，並針對使用案例、使用期間、補償等等提供清楚的合約規格。 有些配音員並不知道可能的惡意使用技術，而且應該由系統擁有者對技術的功能進行教育。 如需有關配音員和同意的詳細資訊，請閱讀我們[的配音人員洩漏](https://aka.ms/disclosure-voice-talent)。
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>使用語音 disorders 的考慮
@@ -57,13 +57,13 @@ ms.locfileid: "73500912"
 
 ## <a name="reference-docs"></a>參考文件
 
-* [透明度注意事項](https://aka.ms/neural-tts-transparency-note)
+* [對配音人才的洩漏](https://aka.ms/disclosure-voice-talent)
 * [管制總覽](concepts-gating-overview.md)
 * [如何公開](concepts-disclosure-guidelines.md)
 * [公開設計模式](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [透明度注意事項](https://aka.ms/neural-tts-transparency-note)
+* [對配音人才的洩漏](https://aka.ms/disclosure-voice-talent)
 * [如何公開](concepts-disclosure-guidelines.md)
 * [公開設計模式](concepts-disclosure-patterns.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 442ceab68851dc108d327cdf212dcf58d5b31084
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 17906a7d0953d8b320301d74cda81d14c9ad340f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008570"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123441"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>透過 Azure 事件中樞在 Azure Blob 儲存體或 Azure Data Lake Storage 中擷取事件
 Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-scalability.md#throughput-units)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
@@ -33,7 +33,7 @@ Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選�
 
 事件中樞擷取可讓您指定自己的 Azure Blob 儲存體帳戶和容器，或是 Azure Data Lake Store 帳戶，可用來儲存擷取的資料。 這些帳戶可以和事件中樞位於相同區域，也可以位於另一個區域，從而新增至事件中樞擷取功能的彈性。
 
-已捕獲的資料會以[Apache Avro][Apache Avro]格式寫入: 精簡、快速、二進位格式, 可提供具有內嵌架構的豐富資料結構。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。 關於使用 Avro 的詳細資訊可在本文稍後看到。
+已捕獲的資料會以[Apache Avro][Apache Avro]格式寫入：精簡、快速、二進位格式，可提供具有內嵌架構的豐富資料結構。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。 關於使用 Avro 的詳細資訊可在本文稍後看到。
 
 ### <a name="capture-windowing"></a>擷取範圍
 
@@ -49,17 +49,17 @@ Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選�
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
-如果您的 Azure 儲存體 blob 暫時無法使用, 事件中樞 Capture 會保留您的資料, 以供您的事件中樞上所設定的資料保留期間使用, 然後在您的儲存體帳戶再次可用時, 再填滿資料。
+如果您的 Azure 儲存體 blob 暫時無法使用，事件中樞 Capture 會保留您的資料，以供您的事件中樞上所設定的資料保留期間使用，然後在您的儲存體帳戶再次可用時，再填滿資料。
 
 ### <a name="scaling-to-throughput-units"></a>調整至輸送量單位
 
-事件中樞的流量會受到 [輸送量單位](event-hubs-scalability.md#throughput-units)控制。 單一輸送量單位可允許每秒 1 MB 或每秒 1000 個事件的輸入，輸出則為此數量的兩倍。 標準事件中樞可以使用1-20 輸送量單位來設定, 而且您可以購買更多的配額增加[支援要求][support request]。 超過所購買輸送量單位的使用量將遭到節流。 事件中樞擷取會直接從內部的事件中樞儲存體複製資料，略過輸送量單位輸出配額，並將輸出節省下來以供串流分析或 Spark 等其他處理讀取器使用。
+事件中樞的流量會受到 [輸送量單位](event-hubs-scalability.md#throughput-units)控制。 單一輸送量單位可允許每秒 1 MB 或每秒 1000 個事件的輸入，輸出則為此數量的兩倍。 標準事件中樞可以使用1-20 輸送量單位來設定，而且您可以購買更多的配額增加[支援要求][support request]。 超過所購買輸送量單位的使用量將遭到節流。 事件中樞擷取會直接從內部的事件中樞儲存體複製資料，略過輸送量單位輸出配額，並將輸出節省下來以供串流分析或 Spark 等其他處理讀取器使用。
 
 一旦設定，事件中樞擷取會在您傳送第一個事件時自動執行，並且持續執行。 為了讓下游處理更輕鬆地知道處理程序正在運作，事件中樞會在沒有資料時寫入空白檔案。 這個程序會提供可預測的頻率和標記，以供饋送給批次處理器。
 
 ## <a name="setting-up-event-hubs-capture"></a>設定事件中樞擷取
 
-您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本，在建立事件中樞時設定擷取功能。 如需詳細資訊，請參閱下列文章：
+您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本，在建立事件中樞時設定擷取功能。 如需詳細資訊，請參閱下列文章。
 
 - [使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
 - [使用 Azure Resource Manager 範本建立含有一個事件中樞的事件中樞命名空間並啟用擷取](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
@@ -77,11 +77,11 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ### <a name="use-apache-drill"></a>使用 Apache Drill
 
-[Apache 演練][Apache Drill]是「大型資料探索的開放原始碼 SQL 查詢引擎」, 可以隨時查詢結構化和半結構化資料。 引擎可以獨立節點或大型叢集形式執行，以獲得絕佳的效能。
+[Apache 演練][Apache Drill]是「大型資料探索的開放原始碼 SQL 查詢引擎」，可以隨時查詢結構化和半結構化資料。 引擎可以獨立節點或大型叢集形式執行，以獲得絕佳的效能。
 
 Azure Blob 儲存體的原生支援可以使用，使得在 Avro 檔案中查詢資料變得容易，如文件中所述：
 
-[Apache Drill：Azure Blob 儲存體外掛程式][Apache Drill: Azure Blob Storage Plugin]
+[Apache 演練： Azure Blob 儲存體外掛程式][Apache Drill: Azure Blob Storage Plugin]
 
 若要輕鬆地查詢擷取的檔案，您可以透過容器建立和執行已啟用 Apache Drill 的 VM，以存取 Azure Blob 儲存體：
 
@@ -89,14 +89,14 @@ https://github.com/yorek/apache-drill-azure-blob
 
 在大規模串流存放庫中可以使用完整端對端範例：
 
-[大規模串流：事件中樞擷取]
+[大規模串流：事件中樞 Capture]
 
 ### <a name="use-apache-spark"></a>使用 Apache Spark
 
 [Apache Spark][Apache Spark]是「適用于大規模資料處理的整合分析引擎」。 它支援不同的語言 (包括 SQL)，而且可以輕鬆地存取 Azure Blob 儲存體。 有兩個選項可以在 Azure 中執行 Apache Spark，兩者都提供 Azure Blob 儲存體的輕鬆存取：
 
-- [HDInsight：Azure 儲存體中的位址檔案][HDInsight: Address files in Azure storage]
-- [Azure Databricks：Azure Blob 儲存體][Azure Databricks: Azure Blob Storage]
+- [HDInsight： Azure 儲存體中的位址檔案][HDInsight: Address files in Azure storage]
+- [Azure Databricks： Azure Blob 儲存體][Azure Databricks: Azure Blob Storage]
 
 ### <a name="use-avro-tools"></a>使用 Avro Tools
 
@@ -135,11 +135,11 @@ Apache Avro 已完成適用于[JAVA][Java]和[Python][Python]的消費者入門�
 
 事件中樞擷取的計量方式類似輸送量單位，屬於每小時的費用。 其費用與命名空間所購買的輸送量單位數目成正比。 當輸送量單位增加和減少時，事件中樞擷取也會增加和減少以提供相符的效能。 計量會串聯地發生。 如需定價詳細資訊，請參閱[事件中樞定價](https://azure.microsoft.com/pricing/details/event-hubs/)。 
 
-請注意, Capture 不會耗用輸出配額, 因為它會分開計費。 
+請注意，Capture 不會耗用輸出配額，因為它會分開計費。 
 
 ## <a name="integration-with-event-grid"></a>事件格線整合 
 
-您可以使用事件中樞命名空間作為其來源，建立 Azure 事件格線訂用帳戶。 下列教學課程說明如何使用事件中樞作為來源、Azure Functions 應用程式作為接收，來建立事件方格訂用帳戶：[使用事件方格和 Azure Functions 將擷取的事件中樞資料處理並移轉至 SQL 資料倉儲](store-captured-data-data-warehouse.md)。
+您可以使用事件中樞命名空間作為其來源，建立 Azure 事件格線訂用帳戶。 下列教學課程會示範如何使用事件中樞作為來源、Azure Functions 應用程式作為接收，建立事件格線訂用帳戶：[使用事件格線和 Azure Functions 將擷取的事件中樞資料處理並移轉至 SQL 資料倉儲](store-captured-data-data-warehouse.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -160,7 +160,7 @@ Apache Avro 已完成適用于[JAVA][Java]和[Python][Python]的消費者入門�
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
+[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[大規模串流：事件中樞擷取]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[大規模串流：事件中樞 Capture]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

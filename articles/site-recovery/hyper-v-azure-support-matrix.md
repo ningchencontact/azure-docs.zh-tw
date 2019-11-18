@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9c0ed5a28f865d5dd53b01f22eb69c7d1b332ecf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030103"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133022"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -25,7 +25,7 @@ ms.locfileid: "74030103"
 
 **案例** | **詳細資料**
 --- | ---
-Hyper-V (含 Virtual Machine Manager) <br> **此案例是在淘汰的路徑中。** <br>| 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](hyper-v-vmm-disaster-recovery.md)。
+Hyper-V (含 Virtual Machine Manager) <br> <br>| 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](hyper-v-vmm-disaster-recovery.md)。
 Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual Machine Manager 管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。
 
 ## <a name="on-premises-servers"></a>內部部署伺服器

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 031482fc0b87e095fcb19046564e15642050f261
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0ed0bd3544fff89c8230267e3d6d8826c5ae3c7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820808"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114611"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>使用 Azure 監視器記錄監視 SQL 資料同步 
 
@@ -61,7 +61,7 @@ ms.locfileid: "73820808"
 
 -   [資料同步 Azure 監視器視圖](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確定您已設定下列項目：
 
@@ -85,7 +85,7 @@ ms.locfileid: "73820808"
 
 4.  在 [Runbook 檔案] 下方，使用指定的 `DataSyncLogPowerShellRunbook` 檔案。 將 [Runbook 類型] 設為 `PowerShell`。 為 Runbook 指定名稱。
 
-5.  選取 [ **建立**]。 現在您已有 Runbook。
+5.  選取 [建立]。 現在您已有 Runbook。
 
 6.  在您的 Azure 自動化帳戶中，選取 [共用資源] 下方的 [變數] 索引標籤。
 
@@ -123,7 +123,7 @@ ms.locfileid: "73820808"
 
 5.  將 [週期] 設為 [週期性] 並設定所要的間隔。 在這裡、腳本和 Azure 監視器記錄中使用相同的間隔。
 
-6.  選取 [ **建立**]。
+6.  選取 [建立]。
 
 ### <a name="check-the-automation"></a>檢查自動化
 
@@ -135,9 +135,9 @@ ms.locfileid: "73820808"
 
 1.  在 Azure 入口網站中，選取 [記錄搜尋]。
 
-2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如：
+2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如︰
 
-    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
+    `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 
 3.  執行查詢之後，選取代表**警示**的鈴鐺圖示。
 
@@ -149,7 +149,7 @@ ms.locfileid: "73820808"
 
 5.  在 [動作] 下方，將 [電子郵件通知] 設為 [是]。 輸入所需的電子郵件收件者。
 
-6.  按一下 [儲存]。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
+6.  按一下 [檔案]。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>建立用於監視的 Azure 監視器 View
 
@@ -206,7 +206,7 @@ ms.locfileid: "73820808"
     - 透過 PowerShell
         -  [使用 PowerShell 在多個 Azure SQL 資料庫之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](sql-database-data-sync-agent.md)
+-   Data Sync Agent - [適用於 Azure SQL Data Sync Agent 的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
 -   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 -   更新同步結構描述

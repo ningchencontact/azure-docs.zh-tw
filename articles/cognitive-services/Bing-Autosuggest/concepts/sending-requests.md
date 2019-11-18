@@ -1,7 +1,7 @@
 ---
 title: 將要求傳送至 Bing 自動建議 API
 titleSuffix: Azure Cognitive Services
-description: 了解如何將要求傳送至 Bing 自動建議 API。
+description: Bing 自動建議 API 會根據搜尋方塊中的部分查詢字串，傳回建議的查詢清單。 深入瞭解傳送要求。
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072855"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>將要求傳送至 Bing 自動建議 API。
 
@@ -25,7 +25,7 @@ ms.locfileid: "68882427"
 
 **Bing 自動建議 API** 內含一個端點，會根據部份搜尋字詞傳回建議的查詢清單。
 
-若要使用 Bing API 取得建議的查詢，請傳送 `GET` 要求到下列端點。 使用標頭和 URL 參數以進一步定義規格。
+若要使用 Bing API 取得建議的查詢，請傳送 `GET` 要求到下列端點。 使用標頭和 URL 參數以定義進一步的規格。
 
 **端點：** 以 JSON 結果的形式，傳回根據 `?q=""` 之定義與使用者輸入內容相關的搜尋建議。
 
@@ -35,10 +35,10 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 如需標頭、參數、市場代碼、回應物件、錯誤等詳細資料，請參閱 [Bing 自動建議 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) (英文)。
 
-**Bing** API 支援根據類型傳回結果的搜尋動作。 所有搜尋端點會傳回作為 JSON 回應物件的結果。
+**Bing** API 支援根據類型傳回結果的搜尋動作。 所有搜尋端點都會以 JSON 回應物件的形式傳回結果。
 所有端點均可支援依照經度、緯度和搜尋半徑傳回特定語言及/或位置的查詢。
 
-如需每個端點支援之參數的完整相關資訊，請參閱每種類型的參考頁面。
+如需每個端點支援的參數完整相關資訊，請參閱每種類型的參考頁面。
 如需使用自動建議 API 之基本要求的範例，請參閱[自動建議快速入門](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest) (英文)。
 
 ## <a name="bing-autosuggest-api-requests"></a>Bing 自動建議 API 要求
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 > [!NOTE]
 > * 對 Bing 自動建議 API 的要求必須使用 HTTPS 通訊協定。
 
-建議讓所有要求來自伺服器。 將金鑰作為用戶端應用程式的一部份散佈，會讓惡意第三方有更多機會存取金鑰。 此外，從伺服器進行呼叫，未來就能以單一升級點進行更新。
+我們建議所有要求均應來自伺服器。 將金鑰作為用戶端應用程式的一部份散佈，會讓惡意第三方有更多機會存取金鑰。 此外，從伺服器進行呼叫，未來就能以單一升級點進行更新。
 
 要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) 查詢參數，其包含使用者的部份搜尋字詞。 雖是選擇性，但請在要求中指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) 查詢參數，其可識別您希望從哪個市場取得結果。 如需選用查詢參數的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters)。 所有查詢參數值均須為 URL 編碼。
 
@@ -66,7 +66,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 若要解決此問題，您可以透過 CORS Proxy 提出 Bing 自動建議 API 要求。 來自這類 Proxy 的回應包含 `Access-Control-Expose-Headers` 標頭，可將回應標頭列入允許清單並提供給 JavaScript 使用。
 
-您可以輕鬆地安裝 CORS Proxy，讓我們的[教學課程應用程式](../tutorials/autosuggest.md)存取選擇性用戶端標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (如果尚未安裝)。 在命令提示字元中，輸入下列命令。
+您可以輕鬆地安裝 CORS Proxy，讓我們的[教學課程應用程式](../tutorials/autosuggest.md)存取選擇性用戶端標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (若尚未安裝)。 在命令提示字元中，輸入下列命令。
 
     npm install -g cors-proxy-server
 
@@ -78,7 +78,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開之 [HTTP 標頭] 區段的搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 要求應該包含所有建議的查詢參數和標頭。 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Container Instances 容器群組
-description: 瞭解多容器群組在 Azure 容器實例中的工作方式
+description: 瞭解 Azure 容器實例中的容器群組，這是共用生命週期和資源（例如儲存體和網路）的實例集合
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ef6745e18a0df3ee0a572f106d1507d0fca32ac2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904456"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150199"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
 在 Azure Container Instances 中，最上層的資源就是容器群組。 本文說明容器群組為何，以及這些群組能夠實現的案例類型。
 
-## <a name="how-a-container-group-works"></a>容器群組的運作方式
+## <a name="what-is-a-container-group"></a>什麼是容器群組？
 
 容器群組是容器的集合，這些容器會排程在相同的主機電腦上。 容器群組中的容器會共用生命週期、資源、區域網路和存放磁片區。 它在概念上類似于[Kubernetes][kubernetes-pod]中的*pod* 。
 

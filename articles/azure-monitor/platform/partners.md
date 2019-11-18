@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827447"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144464"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 
@@ -35,12 +35,6 @@ Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄以進�
 AppDynamics 應用程式效能管理 (APM) 可讓應用程式擁有者快速針對效能瓶頸進行疑難排解，並將其在 Azure 環境中執行的應用程式效能進行最佳化。 它可以監視 Azure 雲端服務 (PaaS)、Web 和背景工作角色、虛擬機器 (IaaS)、遠端服務偵測 (Microsoft Azure 服務匯流排)、Microsoft Azure 佇列 Microsoft Azure 遠端服務 (Azure Blob)、Azure 佇列 (Microsoft 服務匯流排)、資料儲存體及 Microsoft Azure Blob 儲存體。 Azure Marketplace 現已提供 AppDynamics APM。
 
 [請移至檔。][appdynamics-doc]
-
-## <a name="microfocus-arcsight"></a>Microfocus ArcSight
-
-ArcSight 具有適用於「Azure 監視器」事件中樞的智慧型連接器。
-
-[深入了解。][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
@@ -69,7 +63,7 @@ Circonus 是針對內部部署或 SaaS 部署建置的微服務監視和分析�
 
 使用建置來節省時間和金錢的平台聯集並自動化您的雲端。 CloudHealth 提供雲端管理的可見性、直覺式最佳化和穩固控管的做法。 CloudHealth 平臺可讓企業和 Msp 將雲端投資的報酬率最大化。 對成本、使用方式、效能和安全性進行有信心的決策。
 
-[深入了解。][cloudhealth-doc]
+[深入了解][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -128,6 +122,31 @@ LogicMonitor® 是領先業界的 SaaS 型效能監視平台，適用於複雜�
 
 [請移至檔。][logicmonitor-doc]
 
+## <a name="logrhythm"></a>LogRhythm
+
+![LogRhythm 標誌](./media/partners/logrhythm.png)
+
+LogRhythm 是 NextGen SIEM 的領導者，讓組織能夠透過快速偵測、回應和抵銷網路威脅，來顯著提升降低風險。 LogRhythm 的威脅生命週期管理（TLM）工作流程是安全性營運中心的基礎，可協助客戶保護其雲端、實體和虛擬基礎結構的 IT 和環境。 如果您是 LogRhythm 客戶，而且已準備好開始 Azure 旅程，您將需要安裝並設定 LogRhythm 開啟收集器和 EventHub 整合。 您可以在[這裡](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)找到更多詳細資料，包括設定 Azure 監視器和開啟收集器的檔。 
+
+
+
+## <a name="microfocus"></a>Microfocus
+
+![Microfocus 標誌](./media/partners/microfocus.png)     
+
+Microfocus **ArcSight**具有 Azure 監視器事件中樞的智慧型連接器。
+
+[深入了解](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 檔。")
+
+Microfocus**作業橋接器**會自動監視所有的混合式 IT 資源–任何裝置、作業系統、資料庫、應用程式或服務（不論其執行位置為何），並將 aiops 會套用至所有資料類型–事件、計量、記錄和相依性。 它提供了一組獨特的服務監視功能，結合了深度應用程式健康情況分析，並包含 Microsoft Azure 服務的完整效能和可用性監視。 「作業橋接器」可讓客戶在任何裝置上使用瀏覽器提供單一的半透明窗格，以供企業和 IT 專案關係人瞭解。
+
+詳細資訊
+- [OB 套件總覽](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [下載](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope 是作業橋接器套件中的元件。
+
+
+
 ## <a name="moogsoft"></a>Moogsoft
 
 ![Moogsoft](./media/partners/moogsoft.png)
@@ -159,7 +178,7 @@ OpsGenie 作為由 Azure 所產生警示發送器。 OpsGenie 會根據待命排
 
 [請移至檔。][opsgenie-doc]
 
-## <a name="pagerduty"></a>PagerDuty
+## <a name="pagerduty"></a>Pagerduty
 
 ![PagerDuty 標誌](./media/partners/pagerduty.png)
 
@@ -243,7 +262,6 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 文件。"
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 文件。"
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 文件。"
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 簡介。"
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 

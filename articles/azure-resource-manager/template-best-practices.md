@@ -1,29 +1,26 @@
 ---
-title: Azure Resource Manager 範本最佳做法
+title: 範本的最佳做法
 description: 說明用於製作 Azure Resource Manager 範本的建議方法。 提供建議來避免使用範本時的常見問題。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
-ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983812"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150310"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
 
 本文提供有關如何建構 Resource Manager 範本的建議。 這些建議可協助您避免使用範本來部署解決方案時的常見問題。
 
-如需如何管理 Azure 訂用帳戶的建議，請參閱[Azure 企業 Scaffold：規定的訂用帳戶治理](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)。
+如需如何管理 Azure 訂用帳戶的建議，請參閱[azure enterprise scaffold：規定的訂](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)用帳戶治理。
 
 如需相關建議以了解如何建置適用於所有 Azure 雲端環境的範本，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。
 
 ## <a name="template-limits"></a>範本限制
 
-將您的範本大小限制為 4 MB, 並將每個參數檔案限制為 64 KB。 4 MB 的限制適用于已展開反復資源定義的範本最終狀態, 以及變數和參數的值。 
+將您的範本大小限制為 4 MB，並將每個參數檔案限制為 64 KB。 4 MB 的限制適用于已展開反復資源定義的範本最終狀態，以及變數和參數的值。 
 
 您也受限於：
 
@@ -37,11 +34,11 @@ ms.locfileid: "70983812"
 
 ## <a name="resource-group"></a>資源群組
 
-當您將資源部署至資源群組時, 資源群組會儲存資源的相關中繼資料。 中繼資料會儲存在資源群組的位置。
+當您將資源部署至資源群組時，資源群組會儲存資源的相關中繼資料。 中繼資料會儲存在資源群組的位置。
 
 如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
 
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 
 本節資訊對您在使用[參數](template-parameters.md)時會有幫助。
 
@@ -98,7 +95,7 @@ ms.locfileid: "70983812"
 
 * 請謹慎使用 `allowedValues`。 只有當您必須確保允許的選項中不會包含某些值時才可使用。 如果您廣泛使用 `allowedValues`，可能會因為未能讓清單保持最新狀態而導致有效的部署遭到封鎖。
 
-* 當範本中的參數名稱與 PowerShell 部署命令中的參數相符時，Resource Manager 會在範本參數加上後置詞 **FromTemplate** 以避免命名衝突。 例如，如果您在範本中包含名為 **ResourceGroupName** 的參數，它會與 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) Cmdlet 中的 **ResourceGroupName** 參數發生衝突。 部署期間，系統會提示您為 **ResourceGroupNameFromTemplate** 提供值。
+* 當範本中的參數名稱與 PowerShell 部署命令中的參數相符時，Resource Manager 會在範本參數加上後置詞 **FromTemplate** 以避免命名衝突。 例如，如果您在範本中包含名為 **ResourceGroupName** 的參數，它會與 **New-AzResourceGroupDeployment** Cmdlet 中的 [ResourceGroupName](/powershell/module/az.resources/new-azresourcegroupdeployment) 參數發生衝突。 部署期間，系統會提示您為 **ResourceGroupNameFromTemplate** 提供值。
 
 ### <a name="security-recommendations-for-parameters"></a>參數的安全性建議
 
@@ -155,7 +152,7 @@ ms.locfileid: "70983812"
 
 * 針對資源上的 `apiVersion`，請勿使用變數。 API 版本會決定資源的結構描述。 變更版本往往就必須變更資源的屬性。
 
-* 您不能在範本的 **variables** 區段使用 [reference](resource-group-template-functions-resource.md#reference) 函式。 **reference** 函式的值是從資源的執行階段狀態所衍生。 不過，將範本初始剖析時，會將變數加以解析。 請直接在範本的 **resources** 或 **outputs** 區段中，建構需要 **reference** 函式的值。
+* 您不能在範本的 [variables](resource-group-template-functions-resource.md#reference) 區段使用 **reference** 函式。 **reference** 函式的值是從資源的執行階段狀態所衍生。 不過，將範本初始剖析時，會將變數加以解析。 請直接在範本的 **resources** 或 **outputs** 區段中，建構需要 **reference** 函式的值。
 
 * 包含變數以用於必須是唯一的資源名稱。
 
@@ -280,7 +277,7 @@ ms.locfileid: "70983812"
    > 
    > 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>reference
 
 如果您使用範本來建立公用 IP 位址，請包含 [outputs 區段](template-outputs.md)，以傳回 IP 位址和完整網域名稱 (FQDN) 的詳細資料。 您可以使用輸出值，輕鬆在部署後擷取公用 IP 位址和 FQDN 的相關詳細資料。
 

@@ -10,30 +10,23 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
-ms.openlocfilehash: 32728b5c1ede303cc4000ef8c10e4456e784df9b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882454"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012015"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Anomaly Detector API 中由使用者產生的主要內容
 
-使用本文探索其他客戶對 Anomaly Detector API 的看法和使用情形。 下列資源由 Anomaly Detector 的使用者社群所建立。 其中包括技術部落格、開放原始碼專案，以及其他由 Microsoft 和第三方使用者產生的貢獻。 以下有部分連結裝載於 Microsoft 外部的網站上，Microsoft 對其內容概不負責。 參考這些資源時請多加留意。
-
-## <a name="demos"></a>示範
-
-* [動畫的互動式示範](https://aka.ms/adDemo)
-* [Azure 筆記本示範](https://aka.ms/adNotebook)
+使用本文探索其他客戶對 Anomaly Detector API 的看法和使用情形。 下列資源由 Anomaly Detector 的使用者社群所建立。 其中包括開放原始碼專案，以及由 Microsoft 和協力廠商使用者所建立的其他投稿。 以下有部分連結裝載於 Microsoft 外部的網站上，Microsoft 對其內容概不負責。 參考這些資源時請多加留意。
 
 ## <a name="technical-blogs"></a>技術部落格
 
-* [介紹 Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
-* [試用認知服務：Anomaly Detector API (日文)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* [試用認知服務：異常偵測器 API （日文）](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 
 ## <a name="open-source-projects"></a>開放原始碼專案
 
-* [Anomaly Detector API 和 SDK 的官方程式碼範例](https://github.com/Azure-Samples/AnomalyDetector)
 * [示範異常偵測和串流到 Power BI 的 Jupyter Notebook](https://github.com/marvinbuss/MS-AnomalyFinder)
 
 如果您想要指定資源，請填入[簡短形式](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u)。

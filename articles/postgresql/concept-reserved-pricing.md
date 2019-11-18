@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 795ca6f1ee45f11fe44f9c14efda1d3463dc9e7c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 753d962cbefd38ec991fb9e63805760fe07a8f2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076820"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123884"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>預付以保留容量適用於 PostgreSQL 的 Azure 資料庫計算資源
 
@@ -20,7 +20,7 @@ ms.locfileid: "74076820"
 您不需要將保留指派給特定的適用於 PostgreSQL 的 Azure 資料庫伺服器。 已執行適用於 PostgreSQL 的 Azure 資料庫或新部署的，將會自動獲得保留定價的權益。 藉由購買保留，您會預先支付一年中計算成本的費用。 一旦您購買保留，符合保留屬性的 Azure database for 于 postgresql 計算費用將不再以隨用隨付費率計費。 保留專案並不涵蓋與于 postgresql 資料庫伺服器相關聯的軟體、網路或儲存體費用。 在保留期限結束時，計費權益會到期，而適用於 PostgreSQL 的 Azure 資料庫會以隨用隨付價格計費。 保留不會自動更新。 如需定價資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫保留容量](https://azure.microsoft.com/pricing/details/postgresql/)供應專案。 </br>
 
 > [!IMPORTANT]
-> 保留容量定價僅適用于適用於 PostgreSQL 的 Azure 資料庫[單一伺服器](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)部署，不適用於[超大規模資料庫 Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus-preview)部署。
+> 保留容量定價僅適用于適用於 PostgreSQL 的 Azure 資料庫[單一伺服器](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)部署，不適用於[超大規模資料庫 Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus)部署。
 
 您可以在[Azure 入口網站](https://portal.azure.com/)中購買適用於 PostgreSQL 的 Azure 資料庫保留容量。 若要購買保留容量：
 

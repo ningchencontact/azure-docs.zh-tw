@@ -1,7 +1,7 @@
 ---
 title: 語言支援 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 翻譯工具文字 API 支援的自然語言清單。
+description: 翻譯工具文字 API 支援下列使用類神經機器翻譯（NMT）之文字到文字翻譯的語言。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909987"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837337"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -23,7 +23,7 @@ ms.locfileid: "70909987"
 
 [深入了解機器翻譯的運作方式](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>轉譯
+## <a name="translation"></a>翻譯
 
 **V2 Translator API**
 
@@ -31,9 +31,9 @@ ms.locfileid: "70909987"
 > V2 已于2018年4月30日淘汰。 請將您的應用程式遷移至 V3，以利用在 V3 中專門提供的新功能。
 
 * 僅限統計：此語言沒有可用的類神經系統。
-* 可使用類神經：可以使用類神經系統。 使用 `category=generalnn` 參數來存取類神經系統。
-* 類神經預設值：類神經是預設翻譯系統。 使用 `category=smt` 參數存取搭配 Microsoft Translator Hub 使用的統計系統。
-* 僅限類神經：僅可使用類神經翻譯。
+* 可用的類神經：可用的類神經系統。 使用 `category=generalnn` 參數來存取類神經系統。
+* 類神經預設值：類神經是預設的轉譯系統。 使用 `category=smt` 參數存取搭配 Microsoft Translator Hub 使用的統計系統。
+* 僅類神經：僅可使用類神經轉譯。
 
 **V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。
 
@@ -49,13 +49,13 @@ ms.locfileid: "70909987"
 |保加利亞文| `bg`    |可使用類神經|  類神經|
 |粵語 (繁體中文)|   `yue`   |僅限統計|  統計|
 |卡達隆尼亞文|   `ca`    |僅限統計|  統計|
-|中文 (簡體)|    `zh-Hans`   |類神經預設值 |類神經|
+|簡體中文|    `zh-Hans`   |類神經預設值 |類神經|
 |繁體中文|   `zh-Hant`   |類神經預設值 |類神經|
 |克羅埃西亞文|  `hr`    |可使用類神經|  類神經|
 |捷克文| `cs`    |可使用類神經|  類神經|
 |丹麥文|    `da`    |可使用類神經   |類神經|
 |荷蘭文| `nl`    |可使用類神經|  類神經|
-|英文|   `en`    |可使用類神經|  類神經|
+|English|   `en`    |可使用類神經|  類神經|
 |愛沙尼亞文|  `et`    |可使用類神經|  類神經|
 |斐濟文|    `fj`    |僅限統計|  統計|
 |菲律賓文|  `fil`   |僅限統計|  統計|
@@ -64,15 +64,15 @@ ms.locfileid: "70909987"
 |德文|    `de`    |可使用類神經|  類神經|
 |希臘文| `el`    |可使用類神經|  類神經|
 |海地克裏奧爾文|    `ht`    |僅限統計   |統計|
-|Hebrew |`he`   |可使用類神經   |類神經|
-|Hindi| `hi`    |類神經預設值|    類神經|
+|希伯來文 |`he`   |可使用類神經   |類神經|
+|北印度文| `hi`    |類神經預設值|    類神經|
 |白苗文| `mww`   |僅限統計|  統計|
 |匈牙利文| `hu`    |可使用類神經|  類神經|
 |冰島文| `is`    |僅限類神經|   類神經|
 |印尼文|    `id`    |僅限統計|  統計|
 |義大利文|   `it`    |可使用類神經|  類神經|
 |日文|  `ja`    |可使用類神經|  類神經|
-|斯瓦希里文| `sw`    |僅限統計|  統計|
+|史瓦希里文| `sw`    |僅限統計|  統計|
 |克林貢文|   `tlh`   |僅限統計|  統計|
 |克林貢文 (plqaD)|   `tlh-Qaak`  |僅限統計|  統計|
 |韓文 |`ko`   |可使用類神經|  類神經|
@@ -97,7 +97,7 @@ ms.locfileid: "70909987"
 |瑞典文|   `sv`    |可使用類神經   |類神經|
 |大溪地文|  `ty`    |僅限統計|  統計|
 |坦米爾文| `ta`    |僅限統計|  統計|
-|特拉古文|    `te`    |僅限類神經|   類神經|
+|泰盧固文|    `te`    |僅限類神經|   類神經|
 |泰文|  `th`    |可使用類神經|  類神經|
 |東加文|    `to`    |僅限統計|  統計|
 |土耳其文|   `tr`    |可使用類神經   |類神經|
@@ -120,18 +120,18 @@ ms.locfileid: "70909987"
 | 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 拉丁文 `Latn` |
 | 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 簡體中文 `Hans` |
 | 古吉拉特文 | `gu`  | 古吉拉特文 `Gujr` | --> | 拉丁文 `Latn` |
-| Hebrew | `he` | 希伯來文 `Hebr` | <--> | 拉丁文 `Latn` |
-| Hindi | `hi` | 梵文字母 `Deva` | <--> | 拉丁文 `Latn` |
+| 希伯來文 | `he` | 希伯來文 `Hebr` | <--> | 拉丁文 `Latn` |
+| 北印度文 | `hi` | 梵文字母 `Deva` | <--> | 拉丁文 `Latn` |
 | 日文 | `ja` | 日文 `Jpan` | <--> | 拉丁文 `Latn` |
 | 坎那達文 | `kn` | 坎那達文 `Knda` | --> | 拉丁文 `Latn` |
 | 馬來亞拉姆文 | `ml` | 馬來亞拉姆文 `Mlym` | --> | 拉丁文 `Latn` |
-| 馬拉提文 | `mr` | 梵文字母 `Deva` | --> | 拉丁文 `Latn` |
+| 馬拉地文 | `mr` | 梵文字母 `Deva` | --> | 拉丁文 `Latn` |
 | 歐利亞文 | `or` | 歐利亞文 `Orya` | <--> | 拉丁文 `Latn` |
 | 旁遮普文 | `pa` | 古木基文 `Guru`  | <--> | 拉丁文 `Latn`  |
 | 塞爾維亞文 (斯拉夫) | `sr-Cyrl` | 斯拉夫文 `Cyrl`  | --> | 拉丁文 `Latn` |
 | 塞爾維亞文 (拉丁) | `sr-Latn` | 拉丁文 `Latn` | --> | 斯拉夫文 `Cyrl`|
 | 坦米爾文 | `ta` | 坦米爾文 `Taml` | --> | 拉丁文 `Latn` |
-| 特拉古文 | `te` | 泰盧固文 `Telu` | --> | 拉丁文 `Latn` |
+| 泰盧固文 | `te` | 泰盧固文 `Telu` | --> | 拉丁文 `Latn` |
 | 泰文 | `th` | 泰文 `Thai` | <--> | 拉丁文 `Latn` |
 
 ## <a name="dictionary"></a>字典
@@ -146,7 +146,7 @@ ms.locfileid: "70909987"
 | 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
 | 卡達隆尼亞文      | `ca`          |
-| 中文 (簡體)      | `zh-Hans`          |
+| 簡體中文      | `zh-Hans`          |
 | 克羅埃西亞文      | `hr`          |
 | 捷克文      | `cs`          |
 | 丹麥文      | `da`          |
@@ -157,15 +157,15 @@ ms.locfileid: "70909987"
 | 德文      | `de`          |
 | 希臘文      | `el`          |
 | 海地克裏奧爾文      | `ht`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
+| 希伯來文      | `he`          |
+| 北印度文      | `hi`          |
 | 白苗文      | `mww`          |
 | 匈牙利文      | `hu`          |
 | 冰島文    | `is`  |
 | 印尼文      | `id`          |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
-| 斯瓦希里文      | `sw`          |
+| 史瓦希里文      | `sw`          |
 | 克林貢文      | `tlh`          |
 | 韓文      | `ko`          |
 | 拉脫維亞文      | `lv`          |
@@ -212,27 +212,27 @@ ms.locfileid: "70909987"
 | 孟加拉文      | `bn`          |
 | 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
-| 中文 (簡體)      | `zh-Hans`          |
+| 簡體中文      | `zh-Hans`          |
 |繁體中文|   `zh-Hant`   |
 | 克羅埃西亞文      | `hr`          |
 | 捷克文      | `cs`          |
 | 丹麥文      | `da`          |
 | 荷蘭文      | `nl`          |
-| 英文    | `en`     |
+| English    | `en`     |
 | 愛沙尼亞文      | `et`          |
 | 芬蘭文      | `fi`          |
 | 法文      | `fr`          |
 | 德文      | `de`          |
 | 希臘文      | `el`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
+| 希伯來文      | `he`          |
+| 北印度文      | `hi`          |
 | 匈牙利文      | `hu`          |
 | 冰島文 | `is` |
 | 印尼文|   `id`    |
 | 愛爾蘭文 | `ga`  |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
-|斯瓦希里文| `sw`    |
+|史瓦希里文| `sw`    |
 | 韓文      | `ko`          |
 | 拉脫維亞文      | `lv`          |
 | 立陶宛文      | `lt`          |
@@ -257,6 +257,6 @@ ms.locfileid: "70909987"
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>存取 Microsoft Translator 網站上的清單
 
-為了方便快速一覽所有語言，Microsoft Translator 網站會顯示 Translator 文字與語音 API 支援的所有語言。 這份清單不含開發人員特定資訊，例如語言代碼。
+如需快速一覽所有語言，Microsoft Translator 網站顯示了翻譯工具文字與語音 API 支援的所有語言。 這份清單不含開發人員特定資訊，例如語言代碼。
 
-[參閱語言清單](https://www.microsoft.com/translator/languages.aspx)
+[查看語言清單](https://www.microsoft.com/translator/languages.aspx) \(英文\)

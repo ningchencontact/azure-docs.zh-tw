@@ -1,7 +1,7 @@
 ---
 title: 新功能-Language Understanding （LUIS）
 titleSuffix: Azure Cognitive Services
-description: 本文包含 Language Understanding 的相關新聞。
+description: 本文會定期更新 Azure 認知服務 Language Understanding API 的相關新聞。
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -9,18 +9,18 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498932"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953364"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding 的新功能
 
-瞭解服務的新功能。 這些專案包括版本資訊、影片、blog 文章和其他類型的資訊。 將此頁面加入書簽，以掌握服務的最新狀態。  
+了解該服務的新功能。 這些專案包括版本資訊、影片、blog 文章和其他類型的資訊。 將此頁面加入書簽，以掌握服務的最新狀態。  
 
 ## <a name="release-notes"></a>版本資訊 
 
@@ -31,11 +31,13 @@ ms.locfileid: "73498932"
     * 能夠以 lu （[LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)）格式匯入和匯出應用程式。 這鋪路了有效 CI/CD 程式的方式。 
 * 語言擴充
     * [阿拉伯文和印度](luis-language-support.md)文（公開預覽）。
-* 建置前模型
+* 預先建置的模型
     * [預先](luis-reference-prebuilt-domains.md)建立的網域現已正式推出（GA）
     * 在 V3 中，日文預先建立的[實體](luis-reference-prebuilt-entities.md#japanese-entity-support)不支援年齡、貨幣、數位、百分比。
     * 義大利[建實體](luis-reference-prebuilt-entities.md#italian-entity-support)-年齡、貨幣、維度、數位、百分比解析已從 V2 變更。
-* 增強[preview.luis.ai 入口網站](https://preview.luis.ai)中的使用者體驗-改頭換面標記體驗，以啟用建立和調試複雜模型。
+* 增強[preview.luis.ai 入口網站](https://preview.luis.ai)中的使用者體驗-改頭換面標記體驗，以啟用建立和調試複雜模型。 試用預覽入口網站教學課程：
+    * [僅意圖](tutorial-intents-only.md)
+    * [分解機器學習的實體](tutorial-machine-learned-entity.md) 
 * 預先語言理解功能-以較少的方式[建立複雜的語言模型](luis-concept-entity-types.md)。 
 * 在模型層級定義機器學習功能，並讓模型用來做為其他模型的信號，例如使用實體做為意圖和其他實體的功能。
 * 新的擴充[限制](luis-boundaries.md)-片語清單的最大上限和片語總計、新模型做為功能限制
@@ -88,4 +90,4 @@ ms.locfileid: "73498932"
 
 ## <a name="service-updates"></a>服務更新
 
-[適用于認知服務的 Azure 更新公告](https://azure.microsoft.com/updates/?product=cognitive-services)
+[認知服務的 Azure 更新公告](https://azure.microsoft.com/updates/?product=cognitive-services)

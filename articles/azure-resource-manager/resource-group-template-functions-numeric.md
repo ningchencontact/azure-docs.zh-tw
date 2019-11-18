@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 範本函式 - 數值 | Microsoft Docs
+title: 範本函式-數值
 description: 描述 Azure Resource Manager 範本中用來使用數值的函式。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b663f27d48e3ee4e7ee2a96794015555417b3608
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194326"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149629"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的數值函式
 
@@ -32,17 +29,17 @@ ms.locfileid: "70194326"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>新增
+## <a name="add"></a>add
 `add(operand1, operand2)`
 
 傳回兩個所提供整數加總後的數字。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- | 
-|operand1 |是 |int |要新增的第一個數字。 |
-|operand2 |是 |int |要新增的第二個數字。 |
+|operand1 |yes |int |要新增的第一個數字。 |
+|operand2 |yes |int |要新增的第二個數字。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -83,11 +80,11 @@ ms.locfileid: "70194326"
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| addResult | Int | 8 |
+| addResult | int | 8 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -108,12 +105,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 傳回反覆項目迴圈的索引。 
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| loopName | 否 | string | 用來取得反覆項目的迴圈名稱。 |
-| offset |否 |int |要加入到以零為起始之反覆項目值的數字。 |
+| loopName | 否 | 字串 | 用來取得反覆項目的迴圈名稱。 |
+| Offset |否 |int |要加入到以零為起始之反覆項目值的數字。 |
 
 ### <a name="remarks"></a>備註
 
@@ -154,12 +151,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 傳回兩個所提供整數相除後的商。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |被除數。 |
-| operand2 |是 |int |除數。 不能為 0。 |
+| operand1 |yes |int |被除數。 |
+| operand2 |yes |int |除數。 不能為 0。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -200,11 +197,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| divResult | Int | 2 |
+| divResult | int | 2 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -225,11 +222,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 將值轉換為浮點數。 您只會在將自訂參數傳遞給應用程式 (例如邏輯應用程式) 時使用這個函式。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串或整數 |要轉換為浮點數的值。 |
+| arg1 |yes |字串或整數 |要轉換為浮點數的值。 |
 
 ### <a name="return-value"></a>傳回值
 浮點數。
@@ -259,11 +256,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 將指定的值轉換成整數。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |是 |字串或整數 |要轉換成整數的值。 |
+| valueToConvert |yes |字串或整數 |要轉換成整數的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -294,11 +291,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| intResult | Int | 4 |
+| intResult | int | 4 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -314,16 +311,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>上限
+## <a name="max"></a>max
 `max (arg1)`
 
 傳回整數陣列的最大值，或以逗號分隔的整數清單。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
+| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -357,12 +354,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 5 |
-| intOutput | Int | 5 |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -378,16 +375,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>分鐘
+## <a name="min"></a>min
 `min (arg1)`
 
 傳回整數陣列的最小值，或以逗號分隔的整數清單。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
+| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -421,12 +418,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 0 |
-| intOutput | Int | 0 |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -447,12 +444,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 傳回兩個所提供整數相除後的餘數。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |被除數。 |
-| operand2 |是 |int |除數，不能為 0。 |
+| operand1 |yes |int |被除數。 |
+| operand2 |yes |int |除數，不能為 0。 |
 
 ### <a name="return-value"></a>傳回值
 代表餘數的整數。
@@ -492,11 +489,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| modResult | Int | 1 |
+| modResult | int | 1 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -517,12 +514,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 傳回兩個所提供整數相乘後的數字。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |要相乘的第一個數字。 |
-| operand2 |是 |int |要相乘的第二個數字。 |
+| operand1 |yes |int |要相乘的第一個數字。 |
+| operand2 |yes |int |要相乘的第二個數字。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -563,11 +560,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| mulResult | Int | 15 |
+| mulResult | int | 15 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -588,12 +585,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 傳回兩個所提供整數相減後的數字。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |減數。 |
-| operand2 |是 |int |被減數。 |
+| operand1 |yes |int |減數。 |
+| operand2 |yes |int |被減數。 |
 
 ### <a name="return-value"></a>傳回值
 代表減法的整數。
@@ -633,11 +630,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| subResult | Int | 4 |
+| subResult | int | 4 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 

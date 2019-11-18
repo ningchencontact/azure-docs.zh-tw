@@ -1,7 +1,7 @@
 ---
 title: 案例可用性-語音服務
 titleSuffix: Azure Cognitive Services
-description: 「語音服務」區域的參考。
+description: 語音 SDK 具有各種不同程式設計語言和環境的多種案例。 並非所有的案例都適用于所有的程式設計語言或所有環境。 以下列出每個案例的可用性。
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491344"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075767"
 ---
 # <a name="scenario-availability"></a>案例可用性
 
-語音服務 SDK 具有各種不同程式設計語言和環境的多種案例。  並非所有的案例目前都適用于所有的程式設計語言或所有環境。  以下列出每個案例的可用性。
+語音 SDK 具有各種不同程式設計語言和環境的多種案例。 並非所有的案例都適用于所有的程式設計語言或所有環境。 以下列出每個案例的可用性。
 
 - **語音辨識（SR）、片語清單、意圖、翻譯和內部部署容器**
   - 具有箭號連結的所有程式設計語言/環境 <img src="media/index/link.jpg" height="15" width="15"></img> 在[這裡](https://aka.ms/csspeech)的快速入門表中。

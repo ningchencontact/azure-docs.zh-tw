@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797968"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128668"
 ---
-# <a name="manage-farms"></a>管理伺服器陣列
+# <a name="manage-farms"></a>管理農場
 
 您可以在 Azure FarmBeats 中管理您的伺服器陣列。 本文提供如何建立伺服器陣列、安裝裝置、感應器和無人機的相關資訊，以協助您管理伺服器陣列。
 
@@ -58,7 +58,7 @@ ms.locfileid: "73797968"
 [**伺服器**陣列] 頁面會顯示已建立之伺服器陣列的清單。
 
 1.  選取要查看和編輯服務器陣列的伺服器陣列。
-2.  選取 [**編輯服務器**陣列] 以編輯服務器陣列資訊。 在 [**伺服器陣列詳細資料**] 視窗中，您可以編輯**名稱**、**裁剪**、**位址**和**伺服器陣列界限**欄位。
+2.  選取 [**編輯服務器**陣列] 以編輯服務器陣列資訊。 在 [**伺服器陣列詳細資料**] 視窗中，您可以編輯**名稱**、**裁剪**、**位址**和定義**伺服器陣列界限**欄位。
 
     ![專案伺服器陣列的節拍](./media/create-farms/edit-farm-1.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 重建 Azure 認知搜尋索引
+title: 重建搜尋索引
 titleSuffix: Azure Cognitive Search
 description: 加入新的專案、更新現有的專案或檔，或刪除完整重建或部分累加式索引編制中的過時檔，以重新整理 Azure 認知搜尋索引。
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466436"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112961"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>如何重建 Azure 認知搜尋索引
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中重建索引
 
 本文說明如何重建 Azure 認知搜尋索引、需要重建的情況，以及減輕重建對進行中查詢要求之影響的建議。
 
@@ -25,7 +25,7 @@ ms.locfileid: "73466436"
 
 ## <a name="rebuild-conditions"></a>重建條件
 
-| 條件 | 說明 |
+| 條件 | 描述 |
 |-----------|-------------|
 | 變更欄位定義 | 修改欄位名稱、資料類型或特定[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) (可搜尋、可篩選、可排序、可面向化) 需要完整重建。 |
 | 將分析器指派給欄位 | [分析器](search-analyzers.md)定義在索引中，之後指派給欄位。 您可以隨時將新分析器定義新增至索引，但當欄位建立後，您只能*指派*分析器。 這適用於 **analyzer** 和 **indexAnalyzer** 屬性。 **searchAnalyzer** 屬性是例外狀況 (您可以將此屬性指派給現有欄位)。 |

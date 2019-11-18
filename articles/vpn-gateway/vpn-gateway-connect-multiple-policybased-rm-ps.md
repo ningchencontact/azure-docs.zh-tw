@@ -1,5 +1,5 @@
 ---
-title: 將 Azure VPN 閘道連線至多個內部部署以原則為基礎的 VPN 裝置：Azure Resource Manager：PowerShell | Microsoft Docs
+title: Azure VPN 閘道：將閘道連接到多個內部部署以原則為基礎的 VPN 裝置
 description: 使用 Azure Resource Manager 和 PowerShell，將以 Azure 路由為基礎的 VPN 閘道設定為多個以原則為基礎的 VPN 裝置。
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495664"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146710"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 將 Azure VPN 閘道連線至多個內部部署以原則為基礎的 VPN 裝置
 

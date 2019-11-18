@@ -1,17 +1,14 @@
 ---
-title: 金鑰保存庫密碼與 Azure Resource Manager 範本 | Microsoft Docs
+title: 使用範本 Key Vault 秘密
 description: 示範如何在部署期間從金鑰保存庫中傳遞密碼做為參數。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 489b09d2523393ae67668ed13c651c9b7b0217b4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 37d21e295eca2b40e91f92d65d6e927ee6857d0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998895"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149484"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署期間使用 Azure Key Vault 以傳遞安全的參數值
 
@@ -19,7 +16,7 @@ ms.locfileid: "70998895"
 
 ## <a name="deploy-key-vaults-and-secrets"></a>部署金鑰保存庫和祕密
 
-若要在範本部署期間存取金鑰保存庫`enabledForTemplateDeployment` ，請將金鑰保存`true`庫上的設定為。
+若要在範本部署期間存取金鑰保存庫，請將金鑰保存庫上的 `enabledForTemplateDeployment` 設定為 `true`。
 
 下列 Azure CLI 和 Azure PowerShell 範例會示範如何建立金鑰保存庫，以及如何新增秘密。
 
@@ -72,7 +69,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ## <a name="grant-access-to-the-secrets"></a>授與祕密的存取權
 
-部署範本的使用者必須具有`Microsoft.KeyVault/vaults/deploy/action`資源群組和金鑰保存庫範圍的許可權。 [擁有者](../role-based-access-control/built-in-roles.md#owner)和[參與者](../role-based-access-control/built-in-roles.md#contributor)角色皆可授與此權限。 如果您已建立金鑰保存庫，則您是擁有者，因此您擁有該許可權。
+部署範本的使用者必須具有資源群組和金鑰保存庫範圍的 [`Microsoft.KeyVault/vaults/deploy/action`] 許可權。 [擁有者](../role-based-access-control/built-in-roles.md#owner)和[參與者](../role-based-access-control/built-in-roles.md#contributor)角色皆可授與此權限。 如果您已建立金鑰保存庫，則您是擁有者，因此您擁有該許可權。
 
 下列程序說明如何建立具有最低權限的角色，以及如何指派使用者
 
@@ -124,7 +121,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ![Resource Manager 金鑰保存庫整合靜態識別碼圖表](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)會使用此方法。
+[教學課程：將 Azure Key Vault 整合 Resource Manager 範本部署](./resource-manager-tutorial-use-key-vault.md)使用此方法。
 
 下列範本會部署包含系統管理員密碼的 SQL server。 密碼參數會設定為安全字串。 但範本並不會指定該值來自何處。
 

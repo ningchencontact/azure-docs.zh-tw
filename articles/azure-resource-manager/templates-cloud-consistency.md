@@ -1,23 +1,17 @@
 ---
-title: 跨雲端重複使用範本 - Azure Resource Manager
+title: 跨雲端重複使用範本
 description: 開發在不同雲端環境能一致運行的 Azure Resource Manager 範本。 建立新的或更新現有的 Azure Stack 範本。
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2964bb4365a2c153e7bc82c3292545ad4de985eb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164758"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143782"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
 
@@ -473,7 +467,7 @@ API 設定檔不是範本中的必要項目。 即使您新增項目，它也只
 }
 ```
 
-然後，您可以使用 `reference` 範本函式內的 `resourceId` 函式擷取資料庫的屬性。 傳回的物件包含保留完整端點值的 `fullyQualifiedDomainName` 屬性。 此值是在執行階段擷取，提供雲端環境專屬的端點命名空間。 若要定義連接字串，但不硬式編碼端點命名空間，您可以直接參考連接字串中的傳回物件屬性，如下所示：
+然後，您可以使用 `resourceId` 範本函式內的 `reference` 函式擷取資料庫的屬性。 傳回的物件包含保留完整端點值的 `fullyQualifiedDomainName` 屬性。 此值是在執行階段擷取，提供雲端環境專屬的端點命名空間。 若要定義連接字串，但不硬式編碼端點命名空間，您可以直接參考連接字串中的傳回物件屬性，如下所示：
 
 ```json
 "[concat('Server=tcp:', reference(resourceId('sql', 'Microsoft.Sql/servers', parameters('test')), '2015-05-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('database'),';User ID=', parameters('username'), ';Password=', parameters('pass'), ';Encrypt=True;')]"
@@ -493,7 +487,7 @@ Azure 提供豐富的 VM 映像選項。 這些映像是由 Microsoft 和合作�
 az vm image list -all
 ```
 
-您可以使用 Azure PowerShell Cmdlet [Get-azurermvmimagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) 擷取相同的清單，並使用 `-Location` 參數指定您想要的位置。 例如:
+您可以使用 Azure PowerShell Cmdlet [Get-azurermvmimagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) 擷取相同的清單，並使用 `-Location` 參數指定您想要的位置。 例如︰
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +590,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-您也可以執行 Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Cmdlet，使用 `-Location` 指定虛擬機器映像的位置。 例如:
+您也可以執行 Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Cmdlet，使用 `-Location` 指定虛擬機器映像的位置。 例如︰
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

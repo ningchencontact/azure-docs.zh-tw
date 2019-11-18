@@ -1,5 +1,5 @@
 ---
-title: 將資料內嵌至搜尋索引的資料匯入
+title: 在搜尋索引中匯入和資料內嵌
 titleSuffix: Azure Cognitive Search
 description: 從外部資料源填入資料，並將其上傳至 Azure 認知搜尋中的索引。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a05291012bcf44b1a07d9b451eef1302862b2fce
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794146"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113789"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>資料匯入總覽-Azure 認知搜尋
 
@@ -48,7 +48,7 @@ ms.locfileid: "72794146"
 在 .NET SDK 中，將您的資料封裝到 `IndexBatch` 物件中。 `IndexBatch` 封裝 `IndexAction` 物件的集合，其中每一個都包含一個檔，以及一個屬性，告訴 Azure 認知搜尋要對該檔執行什麼動作。 如需程式碼範例，請參閱[ C#快速入門](search-get-started-dotnet.md)。
 
 
-| @search.action | 描述 | 每個文件的必要欄位 | 注意 |
+| @search.action | 描述 | 每個文件的必要欄位 | 注意事項 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 動作類似「upsert」，如果是新文件，就會插入該文件，如果文件已經存在，就會更新/取代它。 |索引鍵以及其他任何您想要定義的欄位 |在更新/取代現有文件時，要求中未指定的欄位會將其欄位設定為 `null`。 即使先前已將欄位設定為非 null 值也是一樣。 |
 | `merge` |使用指定的欄位更新現有文件。 如果文件不存在於索引中，合併就會失敗。 |索引鍵以及其他任何您想要定義的欄位 |您在合併中指定的任何欄位將取代文件中現有的欄位。 在 .NET SDK 中，這包括 `DataType.Collection(DataType.String)`類型的欄位。 在 REST API 中，這包括 `Collection(Edm.String)`類型的欄位。 例如，如果文件包含欄位 `tags` 且值為 `["budget"]`，而您使用值 `["economy", "pool"]` 針對 `tags` 執行合併，則 `tags` 欄位最後的值會是 `["economy", "pool"]`。 而不會是 `["budget", "economy", "pool"]`。 |
@@ -93,7 +93,7 @@ POST 的格式同上，但查詢字串參數中只有 API 版本。
 > [!TIP]
 > 許多[Azure 認知搜尋程式碼範例](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)都包含內嵌或立即可用的資料集，並提供簡單的方法來開始著手。 入口網站也會提供範例索引子和資料來源 (由稱為 "realestate-us-sample" 的小型不動產資料集所組成)。 當您在範例資料來源上執行預先設定的索引子時，系統會建立索引並隨著文件載入，而後即可在 [搜尋總管] 中或由您撰寫的程式碼查詢索引。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [索引子概觀](search-indexer-overview.md)
 + [入口網站逐步解說：建立、載入、查詢索引](search-get-started-portal.md)

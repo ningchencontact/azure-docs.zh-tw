@@ -1,18 +1,15 @@
 ---
 title: 跨區域的安全部署-Azure Deployment Manager
 description: 描述如何使用 Azure 部署管理員在許多區域中部署服務。 它會顯示安全部署實務，以便在推出到所有區域之前確認部署的穩定性。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 6cbbd2aef1911bdfe64e781a7cad64a64722192d
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532307"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147184"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>使用 Azure Deployment Manager 啟用安全部署實務（公開預覽）
 
@@ -33,12 +30,12 @@ Azure Deployment Manager 處於預覽狀態。 提供[意見](https://aka.ms/adm
 
 其他資源：
 
-- [Azure Deployment Manager REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
+- [Azure 部署管理員 REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
 - [教學課程：使用 Azure Deployment Manager 搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
 - [教學課程：在 Azure Deployment Manager 中使用健康情況檢查](./deployment-manager-tutorial-health-check.md)。
 - [Azure 部署管理員範例](https://github.com/Azure-Samples/adm-quickstart)。
 
-## <a name="identity-and-access"></a>身分識別和存取
+## <a name="identity-and-access"></a>身分識別與存取
 
 透過部署管理員，[user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) 會執行部署動作。 在開始部署之前，您要建立此身分識別。 此身分識別必須可存取其中將部署服務的訂用帳戶，並且有足夠的權限可完成部署。 如需透過角色所授與的動作相關資訊，請參閱[適用於 Azure 資源的內建角色](../role-based-access-control/built-in-roles.md)。
 

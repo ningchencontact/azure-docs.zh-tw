@@ -1,5 +1,5 @@
 ---
-title: 在入口網站中進行 Azure 認知搜尋的服務管理
+title: 入口網站中的服務管理
 titleSuffix: Azure Cognitive Search
 description: 使用 Azure 入口網站，在 Microsoft Azure 上管理 Azure 認知搜尋服務（託管的雲端搜尋服務）。
 manager: nitinme
@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793508"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113280"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure 入口網站中的 Azure 認知搜尋服務管理
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Azure 訂用帳戶管理員或共同管理員可以佈建或解除委任服務�
 
 在服務中，任何有服務 URL 和系統管理 API 金鑰存取權的人員，都有服務的讀寫存取權限。 讀寫存取權限提供新增、刪除或修改伺服器物件的能力，這些物件包含 API 金鑰、索引、索引子、資料來源、排程，以及透過 [RBAC 定義的角色](search-security-rbac.md)實作的角色指派。
 
-所有使用者與 Azure 認知搜尋的互動都屬於下列其中一種模式：服務的讀寫存取權（系統管理員許可權），或服務（查詢許可權）的唯讀存取權。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
+所有使用者與 Azure 認知搜尋的互動都屬於下列其中一種模式：服務的讀寫存取權（系統管理員許可權），或服務（查詢許可權）的唯讀存取權。 如需詳細資訊，請參閱 [管理 API 金鑰](search-security-api-keys.md)。
 
 <a id="sys-info"></a>
 
@@ -75,7 +75,7 @@ Azure 認知搜尋不會透過入口網站或程式設計介面來公開個別�
 
 若不使用索引子，您可以使用應用程式程式碼將物件和資料平行推送到不同的搜尋服務。 如需詳細資訊，請參閱[Azure 認知搜尋中的效能和優化](search-performance-optimization.md)。
 
-## <a name="backup-and-restore"></a>備份及還原
+## <a name="backup-and-restore"></a>備份與還原
 
 因為 Azure 認知搜尋並非主要的資料儲存體解決方案，所以我們不提供自助備份和還原的正式機制。 不過，您可以使用此[Azure 認知搜尋 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原**範例程式碼，將您的索引定義和快照集備份至一系列 JSON 檔案，然後視需要使用這些檔案來還原索引。 此工具也可以在服務層之間移動索引。
 
@@ -83,15 +83,15 @@ Azure 認知搜尋不會透過入口網站或程式設計介面來公開個別�
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>向上或向下擴充
+## <a name="scale-up-or-down"></a>擴大或縮小規模
 每個搜尋服務都會以一個複本和一個資料分割的最小值開始執行。 如果您註冊的[層提供專用資源](search-limits-quotas-capacity.md)，請按一下服務儀表板中的 [級別] 圖格來調整資源使用量。
 
-當您透過任何資源加入處理能力時，服務即會自動使用這些資源。 您無須再執行其他動作，但在新資源產生作用前，會有些許的延遲。 佈建其他資源需要 15 分鐘或更久的時間。
+當您透過任何資源加入容量時，服務即會自動使用這些資源。 您無須再執行其他動作，但在新資源產生作用前，會有些許的延遲。 佈建其他資源需要 15 分鐘或更久的時間。
 
  ![][10]
 
 ### <a name="add-replicas"></a>新增複本
-系統會藉由新增複本來增加每秒查詢 (QPS) 數量或達到高可用性。 每個複本都有一個索引的副本，因此再新增一個複本就會轉譯出可用來處理服務查詢要求的索引。 高可用性至少需要 3 個複本 (如需詳細資訊，請參閱[容量規劃](search-capacity-planning.md) )。
+系統會藉由新增複本來增加每秒查詢 (QPS) 數量或達到高可用性。 每個複本都有一個索引的副本，因此再新增一個複本就會轉譯出可用來處理服務查詢要求的索引。 高可用性至少需要 3 個複本 (如需詳細資訊，請參閱 [容量規劃](search-capacity-planning.md) )。
 
 有許多複本的搜尋服務可透過大量索引來達到查詢要求的負載平衡。 假設有一定等級的查詢量，當有愈多服務要求可用的索引副本時，查詢輸送量的速度就會愈快。 如果您有查詢延遲的經驗，可以期待線上有其他複本時，對效能所造成的正面影響。
 
@@ -110,7 +110,7 @@ Azure 認知搜尋不會透過入口網站或程式設計介面來公開個別�
 
 沒有任何偵測方法可告訴您哪個索引分區儲存在哪個特定資料分割中。 每個資料分割提供大約 25 GB 的儲存體，因此您需要將儲存體減少至可讓您擁有的資料分割數量所能容納的大小。 如果您想還原成一個資料分割，所有 12 個分區皆要能符合。
 
-若要協助進行未來規劃，您可能需要檢查儲存體 (使用[取得索引統計資料](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) 以了解實際上您可以使用的空間大小。 
+若要協助進行未來規劃，您可能需要檢查儲存體 (使用 [取得索引統計資料](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) 以了解實際上您可以使用的空間大小。 
 
 <a id="next-steps"></a>
 

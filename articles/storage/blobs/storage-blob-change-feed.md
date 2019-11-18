@@ -8,23 +8,20 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c4669809f1efa1f69081da17bf5ccbeddc39a716
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077137"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112832"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 儲存體中的變更摘要支援（預覽）
 
 變更摘要的目的是要為儲存體帳戶中 blob 和 blob 中繼資料所發生的所有變更提供交易記錄。 變更摘要會提供這些變更的已**排序**、**保證**、**持久**、**不可變**、**唯讀**記錄。 用戶端應用程式可以隨時在串流處理或批次模式中讀取這些記錄。 變更摘要可讓您建立有效率且可調整的解決方案，以低成本處理 Blob 儲存體帳戶中發生的變更事件。
 
-> [!NOTE]
-> 變更摘要處於公開預覽狀態，並可在**westcentralus**和**westus2**區域中使用。 請參閱本文的[條件](#conditions)一節。 若要註冊預覽，請參閱本文的[註冊您的訂](#register)用帳戶一節。
-
 變更摘要會以[blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)的形式儲存在儲存體帳戶的特殊容器中，以標準[blob 定價](https://azure.microsoft.com/pricing/details/storage/blobs/)成本為限。 您可以根據您的需求來控制這些檔案的保留期限（請參閱目前版本的[條件](#conditions)）。 變更事件會以[Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html)格式規格的記錄形式附加至變更摘要，這是精簡、快速的二進位格式，可使用內嵌架構提供豐富的資料結構。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。
 
-您可以非同步或完整地處理這些記錄。 任何數目的用戶端應用程式都可以依自己的步調，以平行方式獨立讀取變更摘要。 [Apache](https://drill.apache.org/docs/querying-avro-files/)切入或[Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html)之類的分析應用程式可以直接取用記錄檔，其為 Avro 檔案，可讓您以低成本的方式處理這些檔案，且具有高頻寬，而不需要撰寫自訂應用程式。
+您可以非同步或完整地處理這些記錄。 任何數目的用戶端應用程式都可以依自己的步調，以平行方式獨立讀取變更摘要。 [Apache](https://drill.apache.org/docs/querying-avro-files/)切入或[Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html)之類的分析應用程式可以直接取用記錄檔（例如 Avro 檔案），讓您以低成本的方式處理這些檔案，並具有高頻寬，而不需要撰寫自訂應用程式。
 
 變更摘要支援非常適用于根據已變更物件來處理資料的案例。 例如，應用程式可以：
 
@@ -54,6 +51,9 @@ ms.locfileid: "74077137"
 - 變更摘要會針對帳戶上發生的所有可用事件，捕捉*所有*的變更。 用戶端應用程式可以視需要篩選掉事件種類。 （請參閱目前版本的[條件](#conditions)）。
 
 - 只有 GPv2 和 Blob 儲存體帳戶可以啟用變更摘要。 目前不支援 GPv1 儲存體帳戶、Premium BlockBlobStorage 帳戶，以及已啟用階層命名空間的帳戶。
+
+> [!IMPORTANT]
+> 變更摘要處於公開預覽狀態，並可在**westcentralus**和**westus2**區域中使用。 請參閱本文的[條件](#conditions)一節。 若要註冊預覽，請參閱本文的[註冊您的訂](#register)用帳戶一節。 您必須先註冊您的訂用帳戶，才能在您的儲存體帳戶上啟用變更摘要。
 
 ### <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
@@ -244,7 +244,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - `storageDiagnonstics` 屬性包中的值僅供內部使用，不適合應用程式使用。 您的應用程式不應對該資料具有合約相關性。 您可以放心地忽略這些屬性。
 
-- 區段所表示的時間**大約**為15分鐘的界限。 因此，為了確保在指定的時間內取用所有記錄，會耗用連續的上一個和下一個小時區段。
+- 區段所表示的時間**大約**為15分鐘的界限。 因此，為了確保在指定的時間內，所有記錄的耗用量，會耗用連續的上一個和下一個小時區段。
 
 - 每個區段可以有不同數目的 `chunkFilePaths`。 這是由於記錄資料流程的內部資料分割，用來管理發佈輸送量。 每個 `chunkFilePath` 中的記錄檔一定會包含互斥的 blob，而且可以平行取用和處理，而不會違反反覆運算期間每個 blob 的修改順序。
 
@@ -302,7 +302,16 @@ az provider register --namespace 'Microsoft.Storage'
 - 記錄檔的 `url` 屬性一律是空的。
 - 區段. json 檔案的 `LastConsumable` 屬性不會列出變更摘要最終完成的第一個區段。 只有在第一個區段完成後，才會發生此問題。 第一個小時之後的所有後續區段會正確地在 `LastConsumable` 屬性中捕捉。
 
+## <a name="faq"></a>常見問題集
+
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>變更摘要和儲存體分析記錄之間的差異為何？
+變更摘要已針對應用程式開發優化，因為只會在變更摘要記錄中記錄成功的 blob 建立、修改和刪除事件。 分析記錄會記錄所有作業的成功和失敗要求，包括讀取和列出作業。 藉由利用變更摘要，您不需要擔心在交易繁重的帳戶上篩選出記錄雜訊，而且只著重于 blob 變更事件。
+
+### <a name="should-i-use-change-feed-or-storage-events"></a>我應該使用變更摘要或儲存體事件嗎？
+您可以同時利用這兩個功能，因為變更摘要和[Blob 儲存體事件](storage-blob-event-overview.md)本質上很相似，主要差異在於事件記錄的延遲、排序和儲存。 變更摘要會每隔幾分鐘將記錄寫入變更摘要記錄，並確保 blob 變更作業的順序。 儲存體事件會即時推送，而且可能不會進行排序。 變更摘要事件會永久儲存在您的儲存體帳戶內，而儲存體事件則是暫時性的，而事件處理常式會使用它們，除非您明確地加以儲存。
+
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱如何使用 .NET 用戶端應用程式讀取變更摘要的範例。 請參閱[Azure Blob 儲存體中的處理變更摘要記錄](storage-blob-change-feed-how-to.md)。
 - 深入瞭解如何即時回應事件。 請參閱[回應 Blob 儲存體事件](storage-blob-event-overview.md)
+- 深入瞭解所有要求的成功和失敗作業的詳細記錄資訊。 請參閱[Azure 儲存體分析記錄](../common/storage-analytics-logging.md)

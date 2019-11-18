@@ -1,5 +1,5 @@
 ---
-title: 在擴充管線中處理影像中的文字並加以解壓縮
+title: 擷取影像中的文字
 titleSuffix: Azure Cognitive Search
 description: 處理和解壓縮 Azure 認知搜尋管線中影像的文字和其他資訊。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787747"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113846"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>如何在 AI 擴充案例中處理和解壓縮影像中的資訊
 
@@ -213,7 +213,7 @@ Azure 認知搜尋有數個功能可處理影像和影像檔案。 在文件破�
         }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 + [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)(英文)
 + [分析影像技術](cognitive-search-skill-image-analysis.md) (英文)
 + [OCR 技術](cognitive-search-skill-ocr.md) (英文)

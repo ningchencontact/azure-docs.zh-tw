@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961843"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122917"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>對應資料流程中的聯結轉換
 
@@ -68,7 +68,7 @@ ms.locfileid: "73961843"
 
 在 debug 模式中使用資料預覽來測試聯結轉換時，請使用一小組已知的資料。 從大型資料集取樣資料列時，您無法預測要讀取哪些資料列和索引鍵進行測試。 結果是不具決定性的，這表示您的聯結條件可能不會傳回任何相符專案。
 
-## <a name="data-flow-script"></a>資料流程腳本
+## <a name="data-flow-script"></a>資料流程指令碼
 
 ### <a name="syntax"></a>語法
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>交叉聯結範例
 
-下列範例是名為 `CartesianProduct` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。 這項轉換會接受兩個數據流，並傳回其資料列的笛卡兒乘積。 聯結條件是 `true()` 的，因為它會輸出完整的笛卡兒乘積。 `cross`中的 `joinType`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
+下列範例是名為 `CartesianProduct` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。 這項轉換會接受兩個數據流，並傳回其資料列的笛卡兒乘積。 聯結條件是 `true()` 的，因為它會輸出完整的笛卡兒乘積。 `joinType` 為 `cross`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 

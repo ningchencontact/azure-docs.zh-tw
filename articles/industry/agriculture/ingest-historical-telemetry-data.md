@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e721a7818c5f2fcea23263b296912edf164036b2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927806"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128774"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -74,7 +74,7 @@ ms.locfileid: "73927806"
 - /**感應器**-感應器會對應到記錄值的實體感應器。 感應器通常會連接到裝置識別碼為的裝置。  
 
 
-|        裝置模式   |  建議   |
+|        裝置型號   |  建議   |
 | ------- | -------             |
 |     類型（節點、閘道）        |          1 顆星      |
 |          製造商            |         2 顆星     |

@@ -1,7 +1,7 @@
 ---
 title: 疑難排解 OData 集合篩選
 titleSuffix: Azure Cognitive Search
-description: 針對 Azure 認知搜尋查詢中的 OData 集合篩選錯誤進行疑難排解。
+description: 瞭解解決 Azure 認知搜尋查詢中 OData 集合篩選錯誤的方法。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793179"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113087"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的 OData 集合篩選進行疑難排解
 
@@ -64,7 +64,7 @@ ms.locfileid: "72793179"
 在字串集合的 lambda 運算式內部，唯一可以使用的比較運算子 `eq` 和 `ne`。
 
 > [!NOTE]
-> Azure 認知搜尋不支援 `lt`/`le`/`gt`/的字串`ge` 運算子，不論是在 lambda 運算式內部或外部。
+> Azure 認知搜尋不支援 `lt`/`le`/`gt`/的字串 `ge` 運算子，不論是在 lambda 運算式內部或外部。
 
 `any` 的主體只能測試是否相等，而 `all` 的主體只能測試是否不相等。
 
@@ -171,10 +171,10 @@ ms.locfileid: "72793179"
 
     雖然此運算式是允許的，但它並不實用，因為條件重迭：
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - 包括 `eq`、`lt`、`le`、`gt`或 `ge` 的簡單比較運算式，可以與 `and`/`or`結合。 例如：
+  - 包括 `eq`、`lt`、`le`、`gt`或 `ge` 的簡單比較運算式，可以與 `and`/`or`結合。 例如︰
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - 與 `and` （連接詞）結合的比較運算式可以使用 `or`進一步結合。 這個表單在布林邏輯中是所謂的「[Disjunctive Normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)」（DNF）。 例如：
+  - 與 `and` （連接詞）結合的比較運算式可以使用 `or`進一步結合。 這個表單在布林邏輯中是所謂的「[Disjunctive Normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)」（DNF）。 例如︰
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
 - `all`的規則：
   - 簡單的等號比較運算式無法常見與任何其他運算式合併使用。 例如，允許使用此運算式：
@@ -185,10 +185,10 @@ ms.locfileid: "72793179"
 
     雖然此運算式是允許的，但它並不實用，因為條件重迭：
     - `ratings/all(r: r eq 5 and r le 7)`
-  - 包括 `ne`、`lt`、`le`、`gt`或 `ge` 的簡單比較運算式，可以與 `and`/`or`結合。 例如：
+  - 包括 `ne`、`lt`、`le`、`gt`或 `ge` 的簡單比較運算式，可以與 `and`/`or`結合。 例如︰
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - 與 `or` （disjunctions）結合的比較運算式可以使用 `and`進一步結合。 這個表單在布林邏輯中是所謂的「[組成 Normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)」（my.cnf）。 例如：
+  - 與 `or` （disjunctions）結合的比較運算式可以使用 `and`進一步結合。 這個表單在布林邏輯中是所謂的「[組成 Normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)」（my.cnf）。 例如︰
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>

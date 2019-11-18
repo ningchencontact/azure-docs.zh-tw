@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578391"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132622"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝和執行語音服務容器
 
@@ -26,7 +26,7 @@ ms.locfileid: "73578391"
 > [!IMPORTANT]
 > 所有語音容器目前都是[公開「閘道」預覽](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)的一部分。 當語音容器進行公開上市（GA）時，將會發出公告。
 
-| 函式 | 特性 | 新版 |
+| 函數 | 特性 | 新版 |
 |--|--|--|
 | 語音轉文字 | 使用中繼結果，將連續即時語音或批次音訊錄音可將成文字。 | 2.0.0 |
 | 自訂語音轉換文字 | 使用自[定義語音入口網站](https://speech.microsoft.com/customspeech)中的自訂模型，將連續即時語音或批次錄音可將為具有中繼結果的文字。 | 2.0.0 |
@@ -35,7 +35,7 @@ ms.locfileid: "73578391"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 使用語音容器之前的必要條件如下：
 
@@ -151,7 +151,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> `latest` 標記會提取 `en-US` 地區設定和 `jessarus` 的聲音。 如需其他地區設定，請參閱[語音轉換文字地區](#speech-to-text-locales)設定。
+> `latest` 標記會提取 `en-US` 地區設定。 如需其他地區設定，請參閱[語音轉換文字地區](#speech-to-text-locales)設定。
 
 #### <a name="speech-to-text-locales"></a>語音轉換文字地區設定
 
@@ -167,7 +167,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 2.0.0-amd64-en-us-preview
 ```
 
-如需**語音轉換文字**容器的2.0.0 版本中所有支援的地區設定，租用，請參閱[語音轉換文字語言支援](language-support.md#speech-to-text)資料表的**容器支援**資料行。
+如需**語音轉換文字**容器的所有支援地區設定，請參閱[語音轉換文字影像標記](../containers/container-image-tags.md#speech-to-text)。
 
 # <a name="custom-speech-to-texttabcstt"></a>[自訂語音轉換文字](#tab/cstt)
 
@@ -209,7 +209,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-如需**文字轉換語音**容器的1.3.0 版本中所有支援的地區設定和對應的語音，請參閱[標準語音語言支援](language-support.md#standard-voices)表格的**容器支援**資料行。
+如需所有支援的地區設定和**文字轉換語音**容器的對應語音，請參閱[文字轉換語音影像標記](../containers/container-image-tags.md#text-to-speech)。
 
 > [!IMPORTANT]
 > 當您建立*標準的文字轉換語音*HTTP POST 時，[語音合成標記語言（SSML）](speech-synthesis-markup.md)訊息需要具有 `name` 屬性的 `voice` 元素。 值是對應的容器地區設定和語音，也稱為「[簡短名稱](language-support.md#standard-voices)」。 例如，`latest` 標記的語音名稱會是 `en-US-JessaRUS`。
@@ -273,7 +273,7 @@ ApiKey={API_KEY}
 
 下表代表各種 `docker run` 參數及其對應的描述：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker 用來保存自訂模型的主機電腦[磁片區掛接](https://docs.docker.com/storage/volumes/)。 例如， *C:\CustomSpeech* ，其中*C 磁片磁碟機*位於主機電腦上。 |
 | `{MODEL_ID}` | 自訂語音入口網站的 [**訓練**] 頁面中的自訂語音**模型識別碼**。 |
@@ -335,7 +335,7 @@ ApiKey={API_KEY}
 
 下表代表各種 `docker run` 參數及其對應的描述：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker 用來保存自訂模型的主機電腦[磁片區掛接](https://docs.docker.com/storage/volumes/)。 例如， *C:\CustomSpeech* ，其中*C 磁片磁碟機*位於主機電腦上。 |
 | `{MODEL_ID}` | 自訂語音入口網站的 [**訓練**] 頁面中的自訂語音**模型識別碼**。 |
@@ -371,12 +371,12 @@ ApiKey={API_KEY}
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
-| 容器 | 端點 | 通訊協定 |
+| 容器 | Endpoint | 通訊協定 |
 |--|--|--|
 | 語音轉文字 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
 | 自訂語音轉換文字 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| 文字轉換語音 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| 自訂文字轉換語音 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| 文字轉換語音 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
+| 自訂文字轉換語音 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
 
 如需有關使用 WSS 和 HTTPS 通訊協定的詳細資訊，請參閱[容器安全性](../cognitive-services-container-support.md#azure-cognitive-services-container-security)。
 
@@ -416,7 +416,7 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>Summary
 
 在本文中，您已瞭解下載、安裝及執行語音容器的概念和工作流程。 摘要說明：
 
@@ -426,7 +426,7 @@ ApiKey={API_KEY}
   * *文字轉換語音*
   * *自訂文字轉換語音*
 * 容器映射是從 Azure 中的 container registry 下載。
-* 容器映像在 Docker 中執行。
+* 容器映像是在 Docker 中執行。
 * 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫語音容器中的作業。
 * 當具現化容器時，您必須提供帳單資訊。
 

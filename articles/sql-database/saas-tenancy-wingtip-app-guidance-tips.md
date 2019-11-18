@@ -11,22 +11,22 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3589310ff93aca3cec735d6b2f1609ee3d1d2e68
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825789"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132289"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>使用 Wingtip Tickets 範例 SaaS 應用程式的一般指導方針
 
-本文包含執行使用 Azure SQL Database 的 Wingtip Tickets 範例 SaaS 應用程式之一般指引。 
+本文包含執行使用 Azure SQL Database 的 Wingtip Tickets 範例 SaaS 應用程式之一般指引。
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>下載並解除封鎖 Wingtip Tickets SaaS 指令碼
 
 從外部來源下載 zip 檔案並進行解壓縮時，Windows 可能會封鎖可執行的內容 (指令碼、dll)。 從 zip 檔案解壓縮指令碼時，**請遵循下列步驟先解除封鎖 .zip 檔案，再進行解壓縮**。 這可確保允許執行指令碼。
 
-1. 瀏覽至您要探索資料庫租用戶模式的 Wingtip Tickets SaaS GitHub 存放庫： 
+1. 瀏覽至您要探索資料庫租用戶模式的 Wingtip Tickets SaaS GitHub 存放庫：
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
@@ -37,18 +37,18 @@ ms.locfileid: "73825789"
 6. 按一下 [確定]。
 7. 將檔案解壓縮。
 
-指令碼檔案位於 ..*學習模組\\* 資料夾中。
+指令碼檔案位於 *..\\學習模組*資料夾中。
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>使用 Wingtip Tickets PowerShell 指令碼
 
-若要充分利用此範例，您必須深入了解所提供的指令碼。 使用中斷點和逐步執行指令碼，因為它們會執行及檢查不同 SaaS 模式的實作方式。 若要輕鬆地逐步執行所提供的指令碼和模組，以獲得充分瞭解，我們建議使用 [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise)。
+若要充分利用此範例，您必須深入了解所提供的指令碼。 使用中斷點和逐步執行指令碼，因為它們會執行及檢查不同 SaaS 模式的實作方式。 若要輕鬆地逐步執行所提供的指令碼和模組，以獲得充分瞭解，我們建議使用 [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise)。
 
 ### <a name="update-the-configuration-file-for-your-deployment"></a>更新部署的組態檔
 
 使用您在部署期間設定的資源群組和使用者值，編輯 **UserConfig.psm1** 檔案：
 
-1. 開啟 PowerShell ISE 並載入...\\Learning Modules\\*UserConfig.psm1* 
+1. 開啟 PowerShell ISE 並載入...\\Learning Modules\\*UserConfig.psm1*
 2. 將 ResourceGroupName 和 Name 更新為您部署的特定值 (只在第 10 行和第 11 行)。
 3. 儲存變更！
 
@@ -76,7 +76,7 @@ ms.locfileid: "73825789"
 
 使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 來連線及瀏覽應用程式伺服器和資料庫。
 
-部署一開始都有租用戶與目錄 SQL Database 伺服器加以連線。 伺服器的命名取決於資料庫租用戶模式 (如需詳細資訊，請參閱下方)。 
+部署一開始都有租用戶與目錄 SQL Database 伺服器加以連線。 伺服器的命名取決於資料庫租用戶模式 (如需詳細資訊，請參閱下方)。
 
    - **獨立應用程式：** 每個租用戶的伺服器 (例如 contosoconcerthall-*User&lt;&gt;* 伺服器) 和 catalog-sa-*User&lt;&gt;*
    - **每一租用戶一個資料庫：** tenants1-dpt-*User&lt;&gt;* 和 catalog-dpt-*User&lt;&gt;* 伺服器
@@ -86,19 +86,19 @@ ms.locfileid: "73825789"
 
 
 1. 開啟 *SSMS* 並連線到租用戶。 伺服器名稱取決於您所選取 (如需詳細資訊，請參閱下方) 的租用戶資料庫模式：
-    - **獨立應用程式：** 個別租用戶的伺服器 (例如 contosoconcerthall-*User&lt;.database.windows.net&gt;* ) 
+    - **獨立應用程式：** 個別租用戶的伺服器 (例如 contosoconcerthall-*User&lt;.database.windows.net&gt;* )
     - **每一租用戶一個資料庫：** tenants1-dpt-*User&lt;.database.windows.net&gt;*
-    - **多租用戶資料庫：** tenants1-mt-*User&lt;.database.windows.net&gt;* 
+    - **多租用戶資料庫：** tenants1-mt-*User&lt;.database.windows.net&gt;*
 2. 按一下 [連線] >  **[資料庫引擎...]** ：
 
    ![目錄伺服器](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
 3. 示範認證包括：登入 = *developer*、Password = *P\@ssword1*
 
-    下圖會示範*每一租用戶一個資料庫*模式的登入。 
+    下圖會示範*每一租用戶一個資料庫*模式的登入。
     ![連接](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
-    
-   
+
+
 
 4. 重複步驟 2-3，並連線到目錄伺服器 (請參閱下方以選取之資料庫租用戶模式作為基礎的特定伺服器名稱)
     - **獨立應用程式：** catalog-sa-*User&lt;.database.windows.net&gt;*

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492836"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961944"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3 的預測端點變更
 
@@ -73,7 +73,7 @@ V3 進行下列變更，做為移至 GA 的一部分：
 
 ## <a name="v2-api-deprecation"></a>V2 API 淘汰 
 
-2020年6月8rd 日之後，V2 預測 API 將不會被淘汰至少9個月。 
+2020年6月8日之後，V2 預測 API 將不會被淘汰至少9個月。 
 
 ## <a name="endpoint-url-changes"></a>端點 URL 變更 
 
@@ -101,7 +101,7 @@ V3 端點 HTTP 呼叫的格式已變更。
 
 V3 API 有不同的查詢字串參數。
 
-|參數名稱|類型|版本|預設值|目的|
+|參數名稱|在系統提示您進行確認時，輸入|版本|預設值|目的|
 |--|--|--|--|--|
 |`log`|布林值|V2 & V3|false|將查詢儲存在記錄檔中。 預設值為 false。| 
 |`query`|字串|僅限第 3 版|無預設值-GET 要求中需要它|**在 V2 中**，要預測的語句是在 `q` 參數中。 <br><br>**在 V3**中，此功能會在 `query` 參數中傳遞。|
@@ -125,7 +125,7 @@ V3 API 有不同的查詢字串參數。
 }
 ```
 
-|屬性|類型|版本|預設值|目的|
+|屬性|在系統提示您進行確認時，輸入|版本|預設值|目的|
 |--|--|--|--|--|
 |`dynamicLists`|array|僅限第 3 版|不需要。|[動態清單](#dynamic-lists-passed-in-at-prediction-time)可讓您擴充現有的已定型和已發佈清單實體（已在 LUIS 應用程式中）。|
 |`externalEntities`|array|僅限第 3 版|不需要。|[外部實體](#external-entities-passed-in-at-prediction-time)可讓您的 LUIS 應用程式在執行時間中識別實體並為其加上標籤，以做為現有實體的功能。 |

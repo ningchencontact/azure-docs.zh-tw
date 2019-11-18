@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039743"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132934"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>執行從 Hyper-V VM 到次要網站的 DR 演練
 
@@ -20,10 +20,6 @@ ms.locfileid: "74039743"
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 執行從 System Center Virtual Machine Manager V(MM) 雲端中管理的 Hyper-V VM 到次要內部部署網站的災害復原 (DR) 演練。
 
 您可以執行測試容錯移轉來驗證您的複寫策略，以及在沒有資料遺失或停機時間的情況下執行 DR 演練。 測試容錯移轉不會影響任何正在進行的複寫或生產環境。 
-
-> [!WARNING]
-> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](site-to-site-deprecation.md)繼續進行。
-
 
 ## <a name="how-do-test-failovers-work"></a>測試容錯移轉如何運作？
 

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 986e146e2129d26aa6accd747c89e12462d46667
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: cf9a57b58740d1a759e00f10f6f327d605e91148
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931130"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123635"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
@@ -228,7 +228,7 @@ SDK 的主要功能包括：
     + 已將 psutil 新增為 `automl` 和內含 psutil 的相依性，做為 amlcompute 中的 conda 相依性。
     + 已修正預測資料集上的啟發式延遲和滾動視窗大小的問題，這可能會造成線性代數錯誤
       + 已針對預測執行中啟發式決定的參數新增 print out。
-  + **[azureml-contrib-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
+  + **azureml-contrib-datadrift**
     + 如果資料集層級漂移不在第一節中，則會在建立輸出計量時新增保護。
   + **azureml-contrib-解讀**
     + azureml-contrib-說明-模型套件已重新命名為 azureml-contrib-解讀
@@ -280,16 +280,16 @@ SDK 的主要功能包括：
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        實驗上的靜態方法[清單（）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly--)可以接受名稱篩選和 ViewType 篩選。 ViewType 值為 "ACTIVE_ONLY"、"ARCHIVED_ONLY" 和 "ALL"。 範例： 
+        實驗上的靜態方法[清單（）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-)可以接受名稱篩選和 ViewType 篩選。 ViewType 值為 "ACTIVE_ONLY"、"ARCHIVED_ONLY" 和 "ALL"。 範例： 
         
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + 支援使用環境進行模型部署和服務更新。
-  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
-    + [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector)類別的 show 屬性不會再支援選擇性的引數 ' with_details '。 Show 屬性只會呈現資料漂移係數和特徵資料行的資料漂移比重。
-    + DataDriftDetector 函數[get_output](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector#get-output-start-time--end-time--run-id-none--daily-latest-only-true-)行為變更：
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
+    + [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector)類別的 show 屬性不會再支援選擇性的引數 ' with_details '。 Show 屬性只會呈現資料漂移係數和特徵資料行的資料漂移比重。
+    + DataDriftDetector 函數 [get_output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) 行為變更：
       + 輸入參數 start_time，end_time 是選擇性的，而不是強制性;
       + 在相同叫用中使用特定 run_id 輸入特定 start_time 和/或 end_time，會導致值錯誤例外狀況，因為它們互斥。 
       + 藉由輸入特定 start_time 和/或 end_time，只會傳回排程執行的結果; 
@@ -909,7 +909,7 @@ SDK 的主要功能包括：
 + **預覽功能**
     + 透過 azureml MLflow 套件（[範例筆記本](https://aka.ms/azureml-mlflow-examples)）與[MLflow](https://mlflow.org) 1.0.0 追蹤進行整合。
     + 提交 Jupyter 筆記本作為執行。 [API 參考檔](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + 透過 azureml-contrib-datadrift package （[範例筆記本](https://aka.ms/azureml-datadrift-example)）公開預覽[資料漂移](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py)偵測器。 資料漂移是模型精確度隨著時間而下降的其中一個主要原因。 在生產環境中提供模型的資料與定型模型的資料不同時，就會發生此情況。 AML 資料漂移偵測器可協助客戶監視資料漂移，並在偵測到漂移時傳送警示。 
+    + 透過 azureml-contrib-datadrift package （[範例筆記本](https://aka.ms/azureml-datadrift-example)）公開預覽[資料漂移](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class))偵測器。 資料漂移是模型精確度隨著時間而下降的其中一個主要原因。 在生產環境中提供模型的資料與定型模型的資料不同時，就會發生此情況。 AML 資料漂移偵測器可協助客戶監視資料漂移，並在偵測到漂移時傳送警示。 
 
 + **重大變更**
 

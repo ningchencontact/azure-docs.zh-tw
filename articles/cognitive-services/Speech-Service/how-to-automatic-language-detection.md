@@ -1,5 +1,5 @@
 ---
-title: 如何：使用語音轉換文字語音服務的自動語言偵測
+title: 如何使用語音轉換文字的自動語言偵測
 titleSuffix: Azure Cognitive Services
 description: 語音 SDK 支援語音轉換文字的自動語言偵測。 使用這項功能時，所提供的音訊會與提供的語言清單進行比較，並決定最可能的相符項。 然後，傳回的值可以用來選取用於語音轉換文字的語言模型。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500876"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110173"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>語音轉換文字的自動語言偵測
 
@@ -30,7 +30,7 @@ ms.locfileid: "73500876"
 
 自動語言偵測目前在每次偵測時有兩種語言的服務端限制。 在建設您的 `AudoDetectSourceLanguageConfig` 物件時，請記住這項限制。 在下列範例中，您將建立 `AutoDetectSourceLanguageConfig`，然後使用它來建立 `SpeechRecognizer`。
 
->[!TIP]
+> [!TIP]
 > 您也可以指定要在執行語音轉換文字時使用的自訂模型。 如需詳細資訊，請參閱[使用自訂模型進行自動語言偵測](#use-a-custom-model-for-automatic-language-detection)。
 
 下列程式碼片段說明如何在您的應用程式中使用自動語言偵測：
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>後續步驟
 
-* [語音 SDK 參考檔](speech-sdk.md)
+- [語音 SDK 參考檔](speech-sdk.md)

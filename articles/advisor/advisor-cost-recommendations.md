@@ -3,29 +3,29 @@ title: 使用 Azure Advisor 降低服務成本 | Microsoft Docs
 description: 使用 Azure Advisor 程式將 Azure 部署的成本最佳化。
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.author: sagupt
+ms.openlocfilehash: cae16430ce933b8d071696377b22f10c15b5eae5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703039"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145383"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>使用 Azure Advisor 降低服務成本
 
-Advisor 可找出閒置和未充分利用的資源，協助您減少 Azure 的整體費用並加以最佳化。 您可以從 Advisor 儀表板上的 [成本] 索引標籤取得成本建議。
+建議程式可找出閒置和未充分利用的資源，協助您最佳化並減少 Azure 整體費用。 您可以從 Advisor 儀表板上的 [**成本**] 索引標籤取得成本建議。
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>關閉使用量過低的執行個體，或者重新調整其大小或，從而將虛擬機器的費用最佳化 
 
-雖然特定應用程式的設計情境可能導致低使用率，但您通常可以藉由調整虛擬機器的大小和數量來節省費用。 當 CPU 使用率的最大值上限低於 3% 且網路使用率在7天期間內低於 2% 時，Advisor advanced 評估模型會將虛擬機器視為關機。 當可能符合較小 SKU （在相同 SKU 系列內）的目前負載，或較小的實例數目時，會將虛擬機器視為正確大小，如此一來，當非使用者面向的工作負載時，目前的負載不會超過 80% 的使用率當使用者面向的工作負載時，高於 40%。 在這裡，工作負載的類型是藉由分析工作負載的 CPU 使用率特性來決定。
+雖然特定應用程式案例的設計可能導致低使用率，但您通常可藉由管理虛擬機器的大小和數目來節省金錢。 當 CPU 使用率的最大值上限低於3% 且網路使用率在7天期間內低於2% 時，Advisor advanced 評估模型會將虛擬機器視為關機。 當可能符合較小 SKU （在相同 SKU 系列內）的目前負載，或較小的實例數目時，會將虛擬機器視為正確的大小，如此一來，當非使用者面向的工作負載時，目前的負載不會超過80% 的使用率，而當使用者對應的工作負載時，則不超過40%。 在這裡，工作負載的類型是藉由分析工作負載的 CPU 使用率特性來決定。
 
 建議的動作是 [關閉] 或 [調整大小]，特別是建議的資源。 Advisor 會顯示建議動作的預估成本節約-調整大小或關機。 此外，若要調整建議的動作大小，Advisor 會提供目前和目標的 SKU 資訊。 
 
-如果您想要更積極地找出使用量過低的虛擬機器, 您可以根據每個訂用帳戶來調整 CPU 使用率規則。
+如果您想要更積極地找出使用量過低的虛擬機器，您可以根據每個訂用帳戶來調整 CPU 使用率規則。
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>移除未佈建的 ExpressRoute 線路來降低成本
 
@@ -39,18 +39,18 @@ Advisor 會識別已閒置超過90天的虛擬網路閘道。 由於這些閘道
 
 Advisor 會檢閱您的虛擬機器在過去 30 天的使用量，並判斷購買 Azure 保留是否可為您節省成本。 Advisor 會顯示可能省下最多成本的區域和大小，並顯示購買保留估計省下的成本。 有了 Azure 保留，您可以預先購買基本數量的虛擬機器。 針對其大小和區域與您保留相同的新建或現有 VM，會自動套用折扣。 [深入了解 Azure 保留的 VM 執行個體。](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Advisor 也會通知您, 您擁有的保留實例將在接下來的30天內過期。 建議您購買新的保留實例, 以避免付費隨用隨付定價。
+Advisor 也會通知您，您擁有的保留實例將在接下來的30天內過期。 建議您購買新的保留實例，以避免付費隨用隨付定價。
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>刪除未關聯的公用 IP 位址以節省成本
 
-Advisor 會識別目前未與 Azure 資源相關聯的公用 IP 位址, 例如負載平衡器或 Vm。 這些公用 IP 位址附有名義費用。 如果您不打算使用它們, 將其刪除可能會導致成本節約。
+Advisor 會識別目前未與 Azure 資源相關聯的公用 IP 位址，例如負載平衡器或 Vm。 這些公用 IP 位址附有名義費用。 如果您不打算使用它們，將其刪除可能會導致成本節約。
 
 ## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>刪除失敗 Azure Data Factory 管線
 
-Azure Advisor 會偵測重複失敗的 Azure Data Factory 管線, 並建議您解決問題, 或在不再需要失敗的管線時將其刪除。 這些管線即使在失敗時仍未提供服務, 也會向您收取費用。 
+Azure Advisor 會偵測重複失敗的 Azure Data Factory 管線，並建議您解決問題，或在不再需要失敗的管線時將其刪除。 這些管線即使在失敗時仍未提供服務，也會向您收取費用。 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>使用受控磁碟的標準快照集
-若要節省 60% 的成本，建議您將快照集儲存在標準儲存體中，不論父磁片的儲存體類型為何。 這是受控磁碟快照集的預設選項。 Azure Advisor 會識別儲存進階儲存體的快照集, 並建議您將快照集從 Premium 遷移至標準儲存體。 [深入瞭解受控磁片定價](https://aka.ms/aa_manageddisksnapshot_learnmore)
+若要節省60% 的成本，建議您將快照集儲存在標準儲存體中，不論父磁片的儲存體類型為何。 這是受控磁碟快照集的預設選項。 Azure Advisor 會識別儲存進階儲存體的快照集，並建議您將快照集從 Premium 遷移至標準儲存體。 [深入瞭解受控磁片定價](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>如何存取 Azure Advisor 中的成本建議
 
@@ -61,8 +61,9 @@ Azure Advisor 會偵測重複失敗的 Azure Data Factory 管線, 並建議您�
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Advisor 建議，請參閱：
-* [Advisor 簡介](advisor-overview.md)
-* [快速入門](advisor-get-started.md)
-* [Advisor 效能建議](advisor-cost-recommendations.md)
-* [Advisor 高可用性建議](advisor-cost-recommendations.md)
-* [Advisor 安全性建議](advisor-cost-recommendations.md)
+* [建議程式簡介](advisor-overview.md)
+* [開始使用](advisor-get-started.md)
+* [建議程式效能建議](advisor-cost-recommendations.md)
+* [建議程式高可用性建議](advisor-cost-recommendations.md)
+* [建議程式安全性建議](advisor-cost-recommendations.md)
+* [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)

@@ -3,7 +3,7 @@ title: 利用 Azure Advisor 讓資源變得更安全 | Microsoft Docs
 description: 使用 Azure 建議程式協助改善 Azure 部署的安全性。
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 manager: ''
 ms.assetid: ''
 ms.service: advisor
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.author: sagupt
+ms.openlocfilehash: 8392e3b74677a8977684300d33ceb663c4e2fe81
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772287"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145327"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>利用 Azure Advisor 讓資源變得更安全
 
@@ -36,11 +36,11 @@ Azure Advisor 可針對所有的 Azure 資源提供一致的合併建議檢視�
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Advisor 建議，請參閱：
-* [Advisor 簡介](advisor-overview.md)
+* [建議程式簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [Advisor 成本建議](advisor-cost-recommendations.md)
-* [Advisor 效能建議](advisor-performance-recommendations.md)
-* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
-
+* [建議程式成本建議](advisor-cost-recommendations.md)
+* [建議程式效能建議](advisor-performance-recommendations.md)
+* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)
 
  

@@ -1,25 +1,25 @@
 ---
 title: 翻譯工具文字 API V3.0 參考
 titleSuffix: Azure Cognitive Services
-description: 翻譯工具文字 API V3.0 參考文件。
+description: 翻譯工具文字 API V3.0 參考文件。 第 3 版翻譯工具文字 API 提供最新 JSON 型 Web API。
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252965"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123053"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
-## <a name="whats-new"></a>新增功能？
+## <a name="whats-new"></a>新功能
 
 第 3 版翻譯工具文字 API 提供最新 JSON 型 Web API。 其藉由將現有功能合併成較少的作業來提升可用性和效能，並提供新功能。
 
@@ -48,7 +48,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 目前位�
 |Azure|歐洲|  api-eur.cognitive.microsofttranslator.com|
 |Azure|亞太地區|    api-apc.cognitive.microsofttranslator.com|
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 訂閱翻譯工具文字 API 或在 Azure 認知服務中[認知服務多服務](https://azure.microsoft.com/pricing/details/cognitive-services/)，並使用您的訂用帳戶金鑰（可在 Azure 入口網站中取得）來進行驗證。 
 
@@ -57,7 +57,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 目前位�
 |headers|描述|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
-|Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
+|授權|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
 |Ocp-Apim-Subscription-Region|*如果您要傳遞多服務秘密金鑰，請搭配使用與認知服務多服務訂用帳戶。*<br/>此值是多服務訂用帳戶的區域。 當不使用多服務訂用帳戶時，這個值是選擇性的。|
 
 ###  <a name="secret-key"></a>祕密金鑰
@@ -66,7 +66,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 目前位�
 ### <a name="authorization-token"></a>授權權杖
 或者，您可以用秘密金鑰交換存取權杖。 此權杖會隨附在每個要求中作為 `Authorization` 標頭。 若要取得授權權杖，請對下列 URL 提出 `POST` 要求：
 
-| 環境     | 驗證服務 URL                                |
+| Environment     | 驗證服務 URL                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
@@ -98,14 +98,14 @@ Authorization: Bearer <Base64-access_token>
 
 多服務文字 API 訂用帳戶需要區域。 您選取的區域是您在使用多服務訂用帳戶金鑰時，可以用於文字翻譯的唯一區域，而且必須是您透過 Azure 入口網站註冊多服務訂用帳戶時所選取的相同區域。
 
-可用的區域為 `australiaeast`，`brazilsouth`，`canadacentral`、`centralindia`、`centralus`、`centraluseuap`、`eastasia`、`eastus`、`eastus2`、`francecentral`、0、1、2、3、7、5、9、0、@no__tt-21 和 2。
+可用的區域為 `australiaeast`、`brazilsouth`、`canadacentral`、`centralindia`、`centralus`、`centraluseuap`、`eastasia`、`eastus`、`eastus2`、`francecentral`、`japaneast`、`japanwest`、`koreacentral`、`northcentralus`、`northeurope`、`southcentralus`、`southeastasia`、`uksouth`、`westcentralus`、`westeurope`、`westus`、`westus2`和 `southafricanorth`。
 
 如果您在查詢字串中使用參數 `Subscription-Key` 傳遞祕密金鑰，則必須使用查詢參數 `Subscription-Region` 來指定區域。
 
 如果您使用持有人權杖，則必須從區域端點取得權杖：`https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`。
 
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>錯誤數
 
 標準錯誤回應是名稱/值組為 `error` 的 JSON 物件。 此值也可以是具有下列屬性的 JSON 物件：
 
@@ -124,7 +124,7 @@ Authorization: Bearer <Base64-access_token>
 ```
 錯誤碼是 6 位數的數字，其中結合了 3 位數的 HTTP 狀態碼，後面接著將錯誤進一步分類的 3 位數數字。 常見的錯誤碼包括：
 
-| 程式碼 | 描述 |
+| 代碼 | 描述 |
 |:----|:-----|
 | 400000| 其中一個要求輸入無效。|
 | 400001| "scope" 參數無效。|
@@ -165,3 +165,21 @@ Authorization: Bearer <Base64-access_token>
 | 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 | 503000| 服務暫時無法使用。 請再試一次。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 
+## <a name="metrics"></a>度量 
+計量可讓您在 Azure 入口網站的 [計量] 區段下，查看 translator 的使用方式和可用性資訊，如下列螢幕擷取畫面所示。 如需詳細資訊，請參閱[資料和平臺計量](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)。
+
+![翻譯工具計量](../media/translatormetrics.png)
+
+下表列出可用的計量，並說明如何使用它們來監視轉譯 API 呼叫。
+
+| 度量 | 描述 |
+|:----|:-----|
+| TotalCalls| API 呼叫總數。|
+| TotalTokenCalls| 透過權杖服務使用驗證權杖的 API 呼叫總數。|
+| SuccessfulCalls| 成功的呼叫數。|
+| TotalErrors| 具有錯誤回應的呼叫數目。|
+| BlockedCalls| 超過速率或配額限制的呼叫數目。|
+| ServerErrors| 伺服器內部錯誤（5XX）的呼叫次數。|
+| ClientErrors| 用戶端錯誤（4XX）的呼叫次數。|
+| Latency| 完成要求的持續時間（以毫秒為單位）。|
+| CharactersTranslated| 傳入文字要求中的字元總數。|

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中建立 Azure 認知搜尋索引
+title: 在 Azure 入口網站中建立搜尋索引
 titleSuffix: Azure Cognitive Search
 description: 瞭解如何使用內建入口網站索引設計工具，建立 Azure 認知搜尋的索引。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f2e875c625431867e6e83cfd1e0b2c6d7a2781f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792447"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112839"
 ---
 # <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>在入口網站中建立 Azure 認知搜尋索引
 
@@ -80,7 +80,7 @@ Azure 認知搜尋包含入口網站中的內建索引設計工具，適用于�
 
 或者，您可能也需要[深入探討索引](search-what-is-an-index.md)。 除了欄位集合之外，索引也會指定分析器、建議工具、評分設定檔和 CORS 設定。 入口網站提供索引標籤頁面來定義最常見的元素：欄位、分析器及建議工具。 若要建立或修改其他元素，您可以使用 REST API 或 .NET SDK。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
  [全文檢索搜尋如何運作](search-lucene-query-architecture.md)  
  [搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

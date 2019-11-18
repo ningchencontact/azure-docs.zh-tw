@@ -1,7 +1,7 @@
 ---
 title: 翻譯工具文字 API BreakSentence 方法
 titleSuffix: Azure Cognitive Services
-description: 使用翻譯工具文字 API BreakSentence 方法。
+description: 翻譯工具文字 API BreakSentence 方法會識別句子界限在一段文字中的位置。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934046"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835879"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>翻譯工具文字 API 3.0：BreakSentence
 
@@ -38,14 +38,14 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td>*必要查詢參數*。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>*必要查詢參數*。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
   </tr>
   <tr>
-    <td>language</td>
+    <td>語言</td>
     <td>*選擇性的查詢參數*。<br/>識別輸入文字語言的語言標記。 如果未指定代碼，將會套用自動語言偵測。</td>
   </tr>
   <tr>
-    <td>指令碼</td>
+    <td>script</td>
     <td>*選擇性的查詢參數*。<br/>識別輸入文字所使用指令碼的指令碼標記。 如果未指定指令碼，將會假設語言的預設指令碼。</td>
   </tr>
 </table> 
@@ -53,7 +53,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">標頭</th>
+  <th width="20%">headers</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -75,7 +75,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="request-body"></a>要求本文
 
-要求的本文是 JSON 陣列。 每個陣列項目都是具有字串屬性 `Text` 的 JSON 物件。 會針對 `Text` 屬性的值計算句子界限。 具有一段文字的要求本文範例看起來像這樣：
+要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件。 會針對 `Text` 屬性的值計算句子界限。 具有一段文字的要求本文範例看起來像這樣：
 
 ```json
 [
@@ -94,13 +94,13 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `sentLen`:整數陣列，代表文字項目中的句子長度。 陣列長度就是句子數目，而值是每個句子的長度。 
+  * `sentLen`：整數陣列，代表文字項目中的句子長度。 陣列長度就是句子數目，而值是每個句子的長度。 
 
-  * `detectedLanguage`:物件，透過下列屬性描述偵測到的語言：
+  * `detectedLanguage`：物件，透過下列屬性描述偵測到的語言：
 
-     * `language`:代碼，代表偵測到的語言。
+     * `language`：代碼，代表偵測到的語言。
 
-     * `score`:浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
+     * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，低分數表示信賴度徧低。
      
     請注意，只有在要求自動偵測語言時，`detectedLanguage` 屬性才會存在於結果物件中。
 
@@ -121,7 +121,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">標頭</th>
+  <th width="20%">headers</th>
   <th>描述</th>
   <tr>
     <td>X-RequestId</td>
@@ -131,7 +131,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求傳回的可能 HTTP 狀態碼。 
+以下是要求可能會傳回的 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -142,27 +142,27 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
+    <td>缺少其中一個查詢參數或無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+    <td>此要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>伺服器已拒絕要求, 因為用戶端已超過要求限制。</td>
+    <td>伺服器已拒絕要求，因為用戶端已超過要求限制。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>暫時無法使用伺服器。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>伺服器暫時無法使用。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
 </table> 
 

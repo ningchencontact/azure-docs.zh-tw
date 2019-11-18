@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: fde4a73dd4a95028f23563fb6a8ae36c0142fd39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500940"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836987"
 ---
 # <a name="disclosure-design-patterns"></a>公開設計模式
 既然您&#39;已經決定綜合語音體驗的正確[洩漏層級](concepts-disclosure-guidelines.md#disclosure-assessment)，那就&#39;是探索潛在設計模式的好時機。
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 您可以將各種公開的設計模式套用到您的綜合語音體驗。 如果您的洩漏評估結果是「高洩漏」，我們建議[**明確洩漏**](#explicit-disclosure)，這表示會立即溝通綜合語音的來源。 [**隱含洩漏**](#implicit-disclosure)包含提示和互動模式，無論所需的洩漏層級是高或低，都能受益于語音體驗。
 ![的洩漏模式種類](media/responsible-ai/disclosure-patterns/affordances.png)
 
@@ -247,11 +247,11 @@ Anthropomorphism 可以用不同的方式來資訊清單，從代理程式的實
 
 ## <a name="reference-docs"></a>參考文件
 
-* [透明度注意事項](https://aka.ms/neural-tts-transparency-note)
+* [對配音人才的洩漏](https://aka.ms/disclosure-voice-talent)
 * [綜合語音技術的責任部署指導方針](concepts-guidelines-responsible-deployment-synthetic.md)
 * [管制總覽](concepts-gating-overview.md)
 * [如何公開](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [透明度注意事項](https://aka.ms/neural-tts-transparency-note)
+* [對配音人才的洩漏](https://aka.ms/disclosure-voice-talent)

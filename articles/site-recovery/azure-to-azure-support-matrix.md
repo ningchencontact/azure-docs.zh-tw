@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961516"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123839"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 區域之間的 Azure VM 嚴重損壞修復支援矩陣
 
@@ -73,7 +73,7 @@ Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞�
 --- | --- | ---
 一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 支援 | 不建議使用 GPv2，因為 V2 的交易成本明顯高於 V1 儲存體帳戶。
 進階儲存體 | 不支援 | 標準儲存體帳戶會用於快取儲存體，以協助將成本優化。
-適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果您使用啟用防火牆的快取儲存體帳戶或目標儲存體帳戶，請確定您[「允許信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
+適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果您使用啟用防火牆的快取儲存體帳戶或目標儲存體帳戶，請確定您[「允許信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。<br></br>此外，請確定您允許存取至少一個來源 Vnet 的子網。
 
 
 ## <a name="replicated-machine-operating-systems"></a>複寫的機器作業系統

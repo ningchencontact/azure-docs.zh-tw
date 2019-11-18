@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b0c3487bb77f32483d6d65cd0a4b1f637267eabf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012953"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144346"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
@@ -81,12 +81,16 @@ ms.locfileid: "74012953"
 
 ## <a name="add-an-external-azure-ad-group"></a>新增外部 Azure AD 群組
 
-在您讓 Azure AD 執行個體中的使用者可以存取之後，即可在 API 管理中新增 Azure AD 群組。 之後，您就可以更輕鬆地管理群組中開發人員與產品之間的關聯。
+在為 Azure AD 租使用者中的使用者啟用存取之後，您可以將 Azure AD 群組新增至 API 管理。 因此，您可以使用 Azure AD 群組來控制產品可見度。
 
- > [!IMPORTANT]
- > 若要加入外部 Azure AD 群組，您必須先遵循上一節**中的程式，在 [身分**識別] 索引標籤上設定 Azure AD 實例。 此外，應用程式必須被授與具有 `Directory.Read.All` 許可權之 Azure AD 圖形 API 的存取權。 
+若要將外部 Azure AD 群組新增至 APIM，您必須先完成上一節。 此外，您所註冊的應用程式必須使用下列步驟，以 `Directory.ReadAll` 許可權授與 Azure Active Directory 圖形 API 的存取權： 
 
-您可以從 API 管理執行個體的 [群組] 索引標籤來新增外部 Azure AD 群組。
+1. 返回您在上一節中建立的應用程式註冊
+2. 按一下 [ **API 許可權**] 索引標籤，然後按一下 [ **+ 新增許可權**] 按鈕 
+3. 在 [**要求 API 許可權**] 窗格中，選取 [ **Microsoft api** ] 索引標籤，然後前往底部，尋找 [支援的舊版 api] 區段底下的 [ **Azure Active Directory 圖形**] 磚，然後按一下它。 然後按一下 [**應用程式許可權**] 按鈕，並選取 [ **ReadAll**許可權]，然後使用底部的按鈕來新增該許可權。 
+4. 按一下 [**為 {tenantname} 授與系統管理員同意**] 按鈕，以授與此目錄中所有使用者的存取權。 
+
+現在您可以從 API 管理實例的 [**群組**] 索引標籤新增外部 Azure AD 群組。
 
 1. 選取 [群組] 索引標籤。
 2. 選取 [新增 AAD 群組] 按鈕。

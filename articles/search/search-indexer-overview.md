@@ -1,5 +1,5 @@
 ---
-title: 在編制索引期間用於編目資料來源的索引子
+title: 匯入期間用於編目資料的索引子
 titleSuffix: Azure Cognitive Search
 description: 爬網 Azure SQL database、Azure Cosmos DB 或 Azure 儲存體，以將可搜尋的資料解壓縮並填入 Azure 認知搜尋索引。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1fd667e14501355f2567712d13b10dd7fbc7ee19
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793666"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112700"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure 認知搜尋中的索引子
 
@@ -35,7 +35,7 @@ Azure 認知搜尋中的*索引子*是一種編目程式，它會從外部 Azure
 
 一開始，會宣布新的索引子作為預覽功能。 預覽功能會在 API (REST 和 .NET) 中引進，然後在准許正式推出之後整合到入口網站中。 如果您正在評估新的索引子，您應該計劃撰寫程式碼。
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 與索引子相關的所有作業（包括狀態或定義的 GET 要求）都需要系統[管理員 api 金鑰](search-security-api-keys.md)。 
 

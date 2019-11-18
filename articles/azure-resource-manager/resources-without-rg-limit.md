@@ -1,17 +1,14 @@
 ---
-title: 沒有800計數限制的 Azure 資源
+title: 沒有800計數限制的資源
 description: 列出資源群組中可有超過800個實例的 Azure 資源類型。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: c08b80a841199ed2737f6fe8d7f2b76943c5b269
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ad0a3d83738a5bd51d9c2833a71d09038bd97116
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795662"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150351"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>每個資源群組的資源不限於800實例
 
@@ -36,7 +33,7 @@ ms.locfileid: "73795662"
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* 磁碟
+* disks
 * images
 * snapshots
 * virtualMachines

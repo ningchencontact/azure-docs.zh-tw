@@ -1,5 +1,5 @@
 ---
-title: 快速入門：建立自訂命令（預覽）
+title: 快速入門：建立自訂命令（預覽）-語音服務
 titleSuffix: Azure Cognitive Services
 description: 在本文中，您會建立並測試託管的自訂命令應用程式。
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500984"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111359"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>快速入門：建立自訂命令（預覽）
 
 在本文中，您將瞭解如何建立和測試託管的自訂命令應用程式。
 應用程式會辨識「開啟電視」之類的語句，並以簡單的訊息回應「正常，開啟電視」。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 語音訂用帳戶。 [免費試用語音服務](~/articles/cognitive-services/speech-service/get-started.md)。
 
@@ -58,7 +58,7 @@ ms.locfileid: "73500984"
 1. 選取 [**新增專案**] 以建立新的專案
 
    > [!div class="mx-imgBorder"]
-   > ![建立新的專案](media/custom-speech-commands/create-new-project.png)
+   > ![建立新專案](media/custom-speech-commands/create-new-project.png)
 
 1. 輸入 [專案名稱] 和 [語言]，然後選取 **[下一步]** 以繼續。
 1. 輸入您的 LUIS 撰寫金鑰
@@ -78,10 +78,10 @@ ms.locfileid: "73500984"
 
 命令是一組：
 
-| 群組            | 說明                                                                                                                 |
+| 群組            | 描述                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 範例句子 | 使用者可以說觸發此命令的範例語句                                                                 |
-| 參數       | 完成命令所需的資訊                                                                                |
+| parameters       | 完成命令所需的資訊                                                                                |
 | 完成規則 | 要用來完成命令的動作。 例如，回應使用者或與另一個 web 服務通訊 |
 | Advanced 規則   | 處理更具體或複雜情況的其他規則                                                              |
 
@@ -102,10 +102,10 @@ turn on the tv
 > [!div class="mx-imgBorder"]
 > ![建立完成規則](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-| 設定    | 建議的值                        | 說明                                        |
+| 設定    | 建議的值                        | 描述                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | 規則名稱  | "ConfirmationResponse"                 | 描述規則用途的名稱          |
-| 條件 | None                                   | 判斷規則何時可執行檔條件    |
+| 條件 | 無                                   | 判斷規則何時可執行檔條件    |
 | 動作    | SpeechResponse 「確定，開啟電視」 | 規則條件為 true 時要採取的動作 |
 
 ## <a name="try-it-out"></a>立即試用

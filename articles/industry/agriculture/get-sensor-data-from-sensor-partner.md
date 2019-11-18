@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889663"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128837"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>從感應器合作夥伴取得感應器資料
 
@@ -86,7 +86,7 @@ Azure FarmBeats 可協助您將 IoT 裝置和感應器的串流資料帶入資�
 目前 FarmBeats 支援下列裝置：
 
 - **節點**：一或多個感應器所連接的裝置。
-- **閘道**：一或多個感應器所連接的裝置。
+- **閘道**：一或多個節點所連接的目標裝置。
 
 請使用下列步驟：
 

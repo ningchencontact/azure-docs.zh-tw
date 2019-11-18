@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882502"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111765"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -98,8 +98,8 @@ tar -xf azcopy.tar.gz
 
 - 容器（檔案系統）
 - 儲存體帳戶
-- Resource group
-- Subscription
+- 資源群組
+- 訂閱
 
 若要瞭解如何驗證和指派角色，請參閱[在 Azure 入口網站中使用 RBAC 授與 Azure blob 和佇列資料的存取權](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
@@ -305,16 +305,9 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>在儲存體總管中使用 AzCopy
+## <a name="use-azcopy-in-azure-storage-explorer"></a>在 Azure 儲存體總管中使用 AzCopy
 
-如果您想要利用 AzCopy 的效能優勢，但想要使用儲存體總管而不是命令列來與您的檔案互動，請在儲存體總管中啟用 AzCopy。
-
-在儲存體總管中，選擇 [**預覽**] ->**使用 AzCopy 來改善 Blob 上傳和下載**。
-
-![在 Azure 儲存體總管中啟用 AzCopy 作為傳輸引擎](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> 如果您已在儲存體帳戶上啟用階層式命名空間，則不需要啟用此設定。 這是因為儲存體總管會在具有階層命名空間的儲存體帳戶上自動使用 AzCopy。  
+[儲存體總管](https://azure.microsoft.com/features/storage-explorer/)使用 AzCopy 來執行其所有的資料傳輸作業。 如果您想要利用 AzCopy 的效能優勢，可以使用[儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，但是您想要使用圖形化使用者介面，而不是命令列來與您的檔案互動。
 
 儲存體總管會使用您的帳戶金鑰來執行作業，因此當您登入儲存體總管之後，就不需要提供額外的授權認證。
 

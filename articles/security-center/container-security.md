@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 41332a76c3c4e8228e6827e1553d73da3a85fc09
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522134"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123965"
 ---
 # <a name="container-security-in-security-center"></a>資訊安全中心中的容器安全性
 
@@ -59,7 +59,7 @@ AKS 提供安全性控制和叢集安全性狀態的可見度。 資訊安全中
 
 資訊安全中心為您的容器化環境提供即時威脅偵測，並產生可疑活動的警示。 您可以使用這項資訊來快速修復安全性問題，並改善您容器的安全性。
 
-我們偵測到主機和 AKS 叢集層級的威脅。 如需完整詳細資料，請參閱[Azure container service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-container-service-)。
+我們偵測到主機和 AKS 叢集層級的威脅。 如需完整詳細資料，請參閱[Azure container service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)。
 
 
 ## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>若要查看容器相關資源的安全性狀態

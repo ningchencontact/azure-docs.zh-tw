@@ -11,18 +11,18 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817934"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133142"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
 本文涵蓋在「多租用戶分區化資料庫」模型或模式中，對新的租用戶進行佈建和編目。
 
-本文有兩個主要部分：
+本文包含兩個主要部分：
 
 - 對新租用戶進行佈建和編目的[概念討論](#goto_2_conceptual)。
 
@@ -63,11 +63,11 @@ ms.locfileid: "73817934"
 - 資料庫的服務層級或版本。
 - 資料庫結構描述的版本。
 - 租用戶名稱及其 SLA (服務等級協定)。
-- 啟用應用程式管理、客戶支援或 DevOps 程序的資訊。  
+- 啟用應用程式管理、客戶支援或 DevOps 程序的資訊。
 
-目錄也可用來就分析目的啟用跨租用戶報表、結構描述管理並擷取資料。 
+目錄也可用來就分析目的啟用跨租用戶報表、結構描述管理並擷取資料。
 
-### <a name="elastic-database-client-library"></a>彈性資料庫用戶端程式庫 
+### <a name="elastic-database-client-library"></a>彈性資料庫用戶端程式庫
 
 在 Wingtip 中，目錄會在 *tenantcatalog* 資料庫中實作。 *tenantcatalog* 是使用[彈性資料庫用戶端程式庫 (EDCL)](sql-database-elastic-database-client-library.md) 的分區管理功能來建立的。 此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的「分區對應」。 分區對應會使用其分區來對租用戶金鑰進行交互參照，這表示它的分區化資料庫。
 
@@ -108,13 +108,13 @@ ms.locfileid: "73817934"
 - 將租用戶佈建到與其他租用戶共用的現有資料庫。
 - 將租用戶佈建到它自己的資料庫中。
 
-然後會將租用戶資料初始化，並在目錄分區對應中加以註冊。 在範例應用程式中，包含多個租用戶的資料庫會被指定通用名稱，例如 *tenants1* 或 *tenants2*。 包含單一租用戶的資料庫會被賦予該租用戶的名稱。 範例中使用的特定命名慣例並非模式中的重要部分，因為使用目錄可允許將任何名稱指派給資料庫。  
+然後會將租用戶資料初始化，並在目錄分區對應中加以註冊。 在範例應用程式中，包含多個租用戶的資料庫會被指定通用名稱，例如 *tenants1* 或 *tenants2*。 包含單一租用戶的資料庫會被賦予該租用戶的名稱。 範例中使用的特定命名慣例並非模式中的重要部分，因為使用目錄可允許將任何名稱指派給資料庫。
 
 <a name="goto_1_tutorial"/>
 
 ## <a name="tutorial-begins"></a>教學課程開始
 
-在本教學課程中，您了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 將租用戶佈建到多租用戶資料庫
@@ -122,7 +122,7 @@ ms.locfileid: "73817934"
 > * 將一批租用戶佈建到多租用戶和單一租用戶資料庫
 > * 在目錄中註冊資料庫和租用戶對應
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，請確定已完成下列必要條件：
 
@@ -132,7 +132,7 @@ ms.locfileid: "73817934"
 
 - 取得 Wingtip 指令碼和原始程式碼：
     - 可在 [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。
-    - 如需下載 Wingtip 指令碼以及將該指令碼解除封鎖的步驟，請參閱[一般指導方針](saas-tenancy-wingtip-app-guidance-tips.md)。 
+    - 如需下載 Wingtip 指令碼以及將該指令碼解除封鎖的步驟，請參閱[一般指導方針](saas-tenancy-wingtip-app-guidance-tips.md)。
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>在與其他租用戶「共用」的資料庫中佈建租用戶
 
@@ -144,12 +144,12 @@ ms.locfileid: "73817934"
 
 - **計算新的租用戶金鑰**：使用雜湊函式，從租用戶名稱建立租用戶金鑰。
 - **檢查租用戶金鑰是否已經存在**：檢查目錄以確保尚未註冊金鑰。
-- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。  
-- **在目錄中註冊租用戶**：將新租用戶金鑰與現有 tenants1 資料庫之間的對應新增至目錄。 
+- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。
+- **在目錄中註冊租用戶**：將新租用戶金鑰與現有 tenants1 資料庫之間的對應新增至目錄。
 - **將租用戶的名稱新增至目錄延伸模組資料表**：將場地名稱新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
 - **開啟新租用戶的事件頁面**：*Bushwillow Blues* 事件頁面隨即在瀏覽器中開啟。
 
-   ![活動](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -172,7 +172,7 @@ ms.locfileid: "73817934"
 
 5. 使用 [偵錯] 功能表選項、**F10** 和 **F11** 追蹤指令碼的執行，可以跳過或進入呼叫的函式。
 
-如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
+如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>在它「自己」的資料庫中佈建租用戶
 
@@ -184,12 +184,12 @@ ms.locfileid: "73817934"
 - **檢查租用戶金鑰是否已經存在**：檢查目錄以確保尚未註冊金鑰。
 - **建立新的租用戶資料庫**：使用 Resource Manager 範本複製 *basetenantdb* 資料庫以建立資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
 - **新增要編目的資料庫**：新的租用戶資料庫會在目錄中註冊為分區。
-- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。  
+- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。
 - **在目錄中註冊租用戶**：將新租用戶金鑰與 *sequoiasoccer* 資料庫之間的對應新增至目錄。
 - **將租用戶名稱新增至目錄**：將場地名稱新增至目錄中的租用戶延伸模組資料表。
 - **開啟新租用戶的事件頁面**：*Sequoia Soccer* 事件頁面隨即在瀏覽器中開啟。
 
-   ![活動](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
+   ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -217,7 +217,7 @@ ms.locfileid: "73817934"
 
 2. 按 **F5** 並執行指令碼。
 
-### <a name="verify-the-deployed-set-of-tenants"></a>驗證租用戶的已部署集合 
+### <a name="verify-the-deployed-set-of-tenants"></a>驗證租用戶的已部署集合
 
 在這個階段中，您要將混合的租用戶部署到共用資料庫，並將租用戶部署到其自己的資料庫。 Azure 入口網站可以用來檢查所建立的資料庫。 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 SQL 伺服器的清單以開啟 **tenants1-mt-\<USER\>** 伺服器。  **SQL 資料庫**清單應該包括共用的 **tenants1** 資料庫，以及位於其自己資料庫中的租用戶之資料庫：
 
@@ -227,7 +227,7 @@ ms.locfileid: "73817934"
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>使用 Wingtip Tickets 事件中樞頁面
 
-在瀏覽器中開啟 [事件中樞] 頁面 (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+在瀏覽器中開啟 [事件中樞] 頁面 (http:events.wingtip-mt.\<USER\>.trafficmanager.net)
 
 #### <a name="using-catalog-database"></a>使用目錄資料庫
 
@@ -245,7 +245,7 @@ ms.locfileid: "73817934"
 3. 以滑鼠右鍵按一下 *TenantsExtended* 檢視並選擇 [選取前 1000 個資料列]。 請注意租用戶名稱與不同租用戶的資料庫之間的對應。
 
     ![SSMS 中的 ExtendedTenants 檢視](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## <a name="other-provisioning-patterns"></a>其他佈建模式
 
 本節將討論其他有趣的佈建模式。
@@ -264,7 +264,7 @@ ms.locfileid: "73817934"
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)
-- [如何在 Windows PowerShell ISE 中針對指令碼進行偵錯](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [如何在 Windows PowerShell ISE 中針對指令碼進行偵錯](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>後續步驟

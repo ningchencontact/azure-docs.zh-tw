@@ -1,7 +1,7 @@
 ---
 title: 定義自訂自動建議的建議 - Bing 自訂搜尋
 titleSuffix: Azure Cognitive Services
-description: 描述如何使用自訂的建議設定自訂自動建議
+description: 自訂自動建議會傳回與您的搜尋體驗相關之建議的搜尋查詢字串。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405113"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072812"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>設定您的自訂自動建議體驗
 
@@ -83,7 +83,7 @@ GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 
 每個建議都包含 `displayText` 和 `query` 欄位。 `displayText` 欄位包含建議的查詢字串，您可以用來填入搜尋方塊的下拉式清單。
 
-如果使用者從下拉式清單中選取建議的查詢字串，請在呼叫 [Bing 自訂搜尋 API](overview.md) 時，在 `query` 欄位中使用該查詢字串。
+如果使用者從下拉式清單中選取建議的查詢字串，請在呼叫 `query`Bing 自訂搜尋 API[ 時，在 ](overview.md) 欄位中使用該查詢字串。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681890"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930583"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>快速入門：在 Python 中針對長格式音訊進行非同步合成（預覽）
 
 在本快速入門中，您將使用長音訊 API 以非同步方式將文字轉換成語音，並從服務所提供的 URI 中取出音訊輸出。 此 REST API 適用于需要將大於10000個字元或50個段落的文字檔轉換成合成語音的內容提供者。 如需詳細資訊，請參閱[長音訊 API](../../long-audio-api.md)。
 
-## <a name="prerequisites"></a>必要條件
+> [!NOTE]
+> 適用于長格式音訊的非同步合成僅能與[自訂類神經語音](../../how-to-custom-voice.md#custom-neural-voices)搭配使用。
+
+## <a name="prerequisites"></a>先決條件
 
 本快速入門需要：
 

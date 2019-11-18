@@ -1,7 +1,7 @@
 ---
 title: 單字對齊方式 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 從翻譯工具文字 API 接收單字對齊方式資訊。
+description: 若要收到對齊方式資訊，請使用 Translate 方法並包含選擇性的 includeAlignment 參數。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594790"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837236"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>如何接收單字對齊方式資訊
 
@@ -30,7 +30,7 @@ ms.locfileid: "68594790"
 
 範例對齊方式字串："0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21"。
 
-換句話說，冒號會分隔開始與結束索引、虛線會分隔語言，而空格則分隔單字。 一個單字可能會與另一種語言中的零個、一個或多個單字對齊，而對齊的單字可能不連續。 沒有對齊方式資訊可用時，Alignment 元素便會空白。 在該情況下，方法不會傳回任何錯誤。
+換句話說，冒號會分隔開始與結束索引、虛線會分隔語言，而空格則分隔單字。 一個字組可能符合另一種語言的零、一或多個字組，而且符合的字組可能未連續。 沒有對齊方式資訊可用時，Alignment 元素便會空白。 在該情況下，方法不會傳回任何錯誤。
 
 ## <a name="restrictions"></a>限制
 目前，只會傳回一部分語言組的對齊方式：

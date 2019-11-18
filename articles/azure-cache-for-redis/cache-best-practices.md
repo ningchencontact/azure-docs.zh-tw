@@ -1,25 +1,17 @@
 ---
 title: Azure Cache for Redis 的最佳做法
 description: 藉由遵循這些最佳作法，瞭解如何有效地使用 Azure Cache for Redis。
-services: cache
-documentationcenter: na
 author: joncole
-manager: jhubbard
-editor: tysonn
-ms.assetid: 3e4905e3-89e3-47f7-8cfb-12caf1c6e50e
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 136c29245c63b2f2feed79a10a09fb57a379736f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785877"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122389"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Azure Cache for Redis 的最佳做法 
 藉由遵循這些最佳作法，您可以協助最大化 Azure Cache for Redis 實例的效能和符合成本效益的使用。
@@ -67,7 +59,7 @@ ms.locfileid: "72785877"
 ## <a name="when-is-it-safe-to-retry"></a>何時可以安全地重試？
 可惜的是，沒有任何簡單的答案。  每個應用程式都必須決定哪些作業可以重試，哪些則不能。  每項作業都有不同的需求和金鑰間相依性。  以下是您可以考慮的一些事項：
 
- * 您可以取得用戶端錯誤，即使 Redis 已成功執行您要求它執行的命令也一樣。  例如：
+ * 您可以取得用戶端錯誤，即使 Redis 已成功執行您要求它執行的命令也一樣。  例如︰
      - 「超時」是一種用戶端概念。  如果作業已到達伺服器，伺服器將會執行此命令，即使用戶端放棄等候也一樣。  
      - 當通訊端連接發生錯誤時，無法得知作業是否確實在伺服器上執行。  例如，在伺服器處理要求之後，但是在用戶端收到回應之前，會發生連接錯誤。
  *  如果我不小心執行相同的作業兩次，我的應用程式會如何回應？  比方說，如果我遞增整數兩次，而不是只是一次，該怎麼辦？  我的應用程式是否會從多個位置寫入相同的金鑰？  如果我的重試邏輯覆寫應用程式中其他部分所設定的值，該怎麼辦？

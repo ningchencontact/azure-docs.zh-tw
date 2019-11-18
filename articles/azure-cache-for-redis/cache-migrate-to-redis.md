@@ -1,25 +1,17 @@
 ---
-title: 將受控快取服務應用程式移轉至 Redis - Azure | Microsoft Docs
+title: 將受控快取服務應用程式遷移至 Redis-Azure
 description: 了解如何將受控快取服務和 In-Role Cache 應用程式移轉至 Azure Cache for Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315960"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122679"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>從受控快取服務移轉至 Azure Cache for Redis
 若想將使用 Azure 受控快取服務的應用程式移轉至 Azure Cache for Redis，您幾乎不需要變更應用程式就可達成，詳細情形取決於快取應用程式所使用的受控快取服務功能。 API 雖非完全相同，但卻極為類似，而且您現有使用受控快取服務來存取快取的程式碼，大多只需要略做變更即可重複使用。 本文說明如何對設定和應用程式進行必要的變更，以將受控快取服務應用程式移轉為使用 Azure Cache for Redis，並說明如何使用 Azure Cache for Redis 的某些功能，來實作受控快取服務快取的功能。
@@ -47,7 +39,7 @@ Azure 受控快取服務與 Azure Cache for Redis 類似，但兩者在實作某
 
 | 受控快取服務功能 | 受控快取服務支援 | Azure Cache for Redis 支援 |
 | --- | --- | --- |
-| 具名快取 |會設定預設快取，而在標準版和進階版快取供應項目中，還可以視需要額外設定多達 9 個具名快取。 |Azure Cache for Redis 具有可用來對具名快取實作類似功能的可設定數目資料庫 (預設為 16 個)。 如需詳細資訊，請參閱 [Redis 資料庫是什麼？](cache-faq.md#what-are-redis-databases)和[預設 Redis 伺服器組態](cache-configure.md#default-redis-server-configuration)。 |
+| 具名快取 |會設定預設快取，而在標準版和進階版快取供應項目中，還可以視需要額外設定多達 9 個具名快取。 |Azure Cache for Redis 具有可用來對具名快取實作類似功能的可設定數目資料庫 (預設為 16 個)。 如需詳細資訊，請參閱[什麼是 Redis 資料庫？](cache-faq.md#what-are-redis-databases)和[預設 Redis 伺服器組態](cache-configure.md#default-redis-server-configuration)。 |
 | 高可用性 |在標準版和進階版快取供應項目中，會針對快取中的項目提供高可用性。 如果因為失敗而導致項目遺失，快取中的項目仍有備份複本可供使用。 次要快取的寫入作業是以同步方式進行。 |標準版和進階版快取供應項目有提供高可用性，其具有雙節點的主要/複本設定 (進階版快取的每個分區都有主要/複本配對)。 複本的寫入作業是以非同步方式進行。 如需詳細資訊，請參閱 [Azure Cache for Redis 價格](https://azure.microsoft.com/pricing/details/cache/)。 |
 | 通知 |當具名快取上發生各種快取作業時，允許用戶端接收非同步通知。 |用戶端應用程式可以使用 Redis 發行/訂閱或 [Keyspace 通知](cache-configure.md#keyspace-notifications-advanced-settings) 來達成和通知類似的功能。 |
 | 本機快取 |在用戶端本機上儲存快取物件的複本，以利快速存取。 |用戶端應用程式必須使用字典或類似的資料結構來實作這項功能。 |
@@ -80,13 +72,13 @@ Microsoft Azure Cache for Redis 可在以下層級使用：
 ### <a name="remove-the-managed-cache-service-configuration"></a>移除受控快取服務設定
 要將用戶端應用程式設定為使用 Azure Cache for Redis，必須先解除安裝受控快取服務 NuGet 套件，以移除現有受控快取服務組態和組件參考。
 
-若要解除安裝受控快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)] \(或 [Windows Azure 快取 (Windows Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
+若要解除安裝受控快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)] (或 [Windows Azure 快取 (Windows Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
 
 ![解除安裝 Azure 受控快取服務 NuGet 套件](./media/cache-migrate-to-redis/IC757666.jpg)
 
 解除安裝受控快取服務 NuGet 封裝，會移除用戶端應用程式的 app.config 或 web.config 中的受控快取服務組件和受控快取服務項目。 解除安裝 NuGet 套件時可能不會移除部分自訂的設定，因此請開啟 web.config 或 app.config，確定已移除下列項目。
 
-確定已從 `configSections` 項目移除 `dataCacheClients` 項目。 請勿移除整個 `configSections` 項目，只需移除 `dataCacheClients` 項目 (若存在)。
+確定已從 `dataCacheClients` 項目移除 `configSections` 項目。 請勿移除整個 `configSections` 項目，只需移除 `dataCacheClients` 項目 (若存在)。
 
 ```xml
 <configSections>
@@ -130,7 +122,7 @@ StackExchange.Azure Cache for Redis 用戶端的 API 類似於受控快取服務
 using StackExchange.Redis
 ```
 
-如果此命名空間並未解析，請確定您已如下列文章的說明新增 StackExchange.Redis NuGet 套件：[快速入門：搭配使用 Azure Cache for Redis 與 .NET 應用程式](cache-dotnet-how-to-use-azure-redis-cache.md)。
+如果此命名空間並未解析，請確定您已如[快速入門：搭配使用 Azure Cache For Redis 與 .net 應用程式](cache-dotnet-how-to-use-azure-redis-cache.md)中所述，新增 stackexchange.redis NuGet 套件。
 
 > [!NOTE]
 > 請注意，StackExchange.Redis 用戶端需要 .NET Framework 4 或更高版本。
@@ -175,9 +167,9 @@ StackExchange.Redis 用戶端會使用 `RedisKey` 和 `RedisValue` 型別來對�
 
 `StringSet` 和 `StringGet` 類似受控快取服務的 `Put` 和 `Get` 方法，其中最主要的不同點在於，若要設定 .NET 物件並將其放到快取中，您必須先將其序列化。 
 
-呼叫 `StringGet` 時，如果物件已存在，即會傳回，如果物件不存在，則會傳回 Null。 在此情況下，您可以從需要的資料來源中擷取值，並將它儲存在快取中供後續使用。 這種模式稱為另行快取模式。
+呼叫 `StringGet`時，如果物件已存在，即會傳回，如果物件不存在，則會傳回 Null。 在此情況下，您可以從需要的資料來源中擷取值，並將它儲存在快取中供後續使用。 這種模式稱為另行快取模式。
 
-若要指定快取中項目的到期時間，請使用 `StringSet` 的 `TimeSpan` 參數。
+若要指定快取中項目的到期時間，請使用 `TimeSpan` 的 `StringSet` 參數。
 
 ```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));

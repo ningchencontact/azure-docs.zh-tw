@@ -1,22 +1,19 @@
 ---
-title: 刪除資源群組和資源 - Azure Resource Manager
-description: 說明如何刪除資源群組和資源。 其中說明如何 Azure Resource Manager 在刪除資源群組時, 對資源的刪除進行排序。 其會描述回應碼和資源管理員的處理方式，以判斷刪除作業是否成功。
-author: tfitzmac
-ms.service: azure-resource-manager
+title: 刪除資源群組和資源
+description: 說明如何刪除資源群組和資源。 其中說明如何 Azure Resource Manager 在刪除資源群組時，對資源的刪除進行排序。 其會描述回應碼和資源管理員的處理方式，以判斷刪除作業是否成功。
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c84dcf64555f40f45dbdaeedb05d4cc461f2cbb7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275079"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150806"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager 資源群組和資源刪除
 
-本文說明如何刪除資源群組和資源。 其中說明當您刪除資源群組時, Azure Resource Manager 如何排序資源刪除。
+本文說明如何刪除資源群組和資源。 其中說明當您刪除資源群組時，Azure Resource Manager 如何排序資源刪除。
 
 ## <a name="how-order-of-deletion-is-determined"></a>如何判斷刪除的順序
 
@@ -75,13 +72,13 @@ az group delete --name ExampleResourceGroup
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
-1. 在[入口網站](https://portal.azure.com)中, 選取您想要刪除的資源群組。
+1. 在[入口網站](https://portal.azure.com)中，選取您想要刪除的資源群組。
 
 1. 選取 [刪除資源群組]。
 
    ![刪除資源群組](./media/resource-group-delete/delete-group.png)
 
-1. 若要確認刪除, 請輸入資源群組的名稱
+1. 若要確認刪除，請輸入資源群組的名稱
 
 ---
 
@@ -109,7 +106,7 @@ az resource delete \
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
-1. 在[入口網站](https://portal.azure.com)中, 選取您想要刪除的資源。
+1. 在[入口網站](https://portal.azure.com)中，選取您想要刪除的資源。
 
 1. 選取 [刪除]。 下列螢幕擷取畫面顯示虛擬機器的管理選項。
 

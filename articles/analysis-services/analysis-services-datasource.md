@@ -4,15 +4,15 @@ description: 描述 Azure Analysis Services 中表格式1200和更高資料模�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572968"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120014"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -22,20 +22,20 @@ ms.locfileid: "73572968"
 
 |資料來源  |記憶體內  |直接連接  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
-|Azure SQL 資料倉儲     |   是      |   是       |
-|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   是       |    否      |
-|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   是       |    否      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   是       |    否      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   是       |   否       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   yes      |    yes      |
+|Azure SQL 資料倉儲     |   yes      |   yes       |
+|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   yes       |    否      |
+|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   yes       |    否      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  yes        |  否        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   yes       |    否      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     yes     |   否       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   yes       |   否       |
 ||||
 
 <a name="tab1400a">1</a> - 僅限 Tabular 1400 和更高模型。   
 <a name="azsqlmanaged">2</a> - 支援 Azure SQL Database 受控執行個體。 因為受控實例會在具有私人 IP 位址的 Azure VNet 中執行，所以必須在實例上啟用公用端點。 如果未啟用，則需要內部部署資料閘道。    
 <a name="databricks">3</a> - 目前不支援使用 Spark 連接器的 Azure Databricks。   
-<a name="gen2">4</a> - 目前不支援 ADLS Gen2。
+<a name="gen2">4</a> -ADLS Gen2 連接器目前不受支援，但 Blob 儲存體連接器可以與 ADLS Gen2 資料來源搭配使用。
 
 
 **提供者**   
@@ -43,14 +43,14 @@ ms.locfileid: "73572968"
 
 ## <a name="other-data-sources"></a>其他資料來源
 
-從 Azure AS 伺服器連線至內部部署資料來源需要內部部署閘道。 使用閘道時，需要 64 位元的提供者。
+從 Azure Analysis Services 伺服器連接到內部部署資料來源需要內部部署閘道。 使用閘道時，需要 64 位元的提供者。
 
 ### <a name="in-memory-and-directquery"></a>記憶體內部和 DirectQuery
 
 |資料來源 | 記憶體內部提供者 | DirectQuery 提供者 |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| SQL Server 資料倉儲 |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server |適用于 SQL Server 內含 MSOLEDBSQL.H 的 Microsoft OLE DB 驅動程式（建議）、SQL Server Native Client 11.0、.NET Framework Data Provider 的 SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server 資料倉儲 |適用于 SQL Server 內含 MSOLEDBSQL.H 的 Microsoft OLE DB 驅動程式（建議）、SQL Server Native Client 11.0、.NET Framework Data Provider 的 SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle | 適用于 Oracle、Oracle Data Provider for .NET 的 OLE DB 提供者 |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata、Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
@@ -91,7 +91,7 @@ ms.locfileid: "73572968"
 
 ## <a name="specifying-a-different-provider"></a>指定不同提供者
 
-Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用原生提供者 (例如 SQL Server Native Client (SQLNCLI11)) 連接到資料來源的表格式模型可能會傳回錯誤。 如果使用 SQLOLEDB 以外的原生提供者，您可能會看到錯誤訊息：**未註冊 'SQLNCLI11.1' 提供者**。 或者，如果您有連接到內部部署資料來源的 DirectQuery 模型，而且您使用原生提供者，您可能會看到錯誤訊息：**建立 OLE DB 資料列集時發生錯誤。接近 ' LIMIT ' 的語法不正確**。
+Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用如 SQL Server Native Client (SQLNCLI11) 等原生提供者連線至資料來源的表格式模型可能會傳回錯誤。 如果使用 SQLOLEDB 以外的原生提供者，您可能會看到錯誤訊息：**未註冊 'SQLNCLI11.1' 提供者**。 或者，如果您有連接到內部部署資料來源的 DirectQuery 模型，而且您使用原生提供者，您可能會看到錯誤訊息：**建立 OLE DB 資料列集時發生錯誤。接近 ' LIMIT ' 的語法不正確**。
 
 將內部部署 SQL Server Analysis Services 表格式模型移轉至 Azure Analysis Services 時，可能需要變更提供者。
 

@@ -1,5 +1,5 @@
 ---
-title: 在您的虛擬網路中部署 Azure Databricks
+title: 在虛擬網路中部署 Azure Databricks
 description: 本文說明如何將 Azure Databricks 部署至您的虛擬網路，也稱為 VNet Injection。
 services: azure-databricks
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3894904575d545aed0dbfce470247afb145b7590
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605674"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129300"
 ---
-# <a name="deploy-azure-databricks-in-your-virtual-network"></a>在您的虛擬網路中部署 Azure Databricks
+# <a name="deploy-azure-databricks-in-your-virtual-network"></a>在虛擬網路中部署 Azure Databricks
 
 Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資料平面資源 (包括虛擬網路 (VNet)) 都會部署至已鎖定的資源群組。 不過，如果您需要網路自訂，則可以在自己的虛擬網路 (也稱為 VNet Inection) 中部署 Azure Databricks 資源，以讓您：
 
@@ -61,7 +61,7 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
 本節說明如何在 Azure 入口網站中建立 Azure Databricks 工作區，並將它部署在您自己現有的虛擬網路中。 Azure Databricks 使用您所提供的 CIDR 範圍，以兩個新的子網路和網路安全性群組更新虛擬網路、將輸入和輸出子網路流量列入允許清單，並將工作區部署到更新的虛擬網路。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須要有一個虛擬網路，您將在其中部署 Azure Databricks 工作區。 您可以使用現有的虛擬網路或建立一個新的，但是虛擬網路必須與您打算建立的 Azure Databricks 工作區位於相同的區域。 虛擬網路需要/16-/24 之間的 CIDR 範圍。
 
@@ -119,7 +119,7 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
 ## <a name="whitelisting-subnet-traffic"></a>允許清單子網流量
 
-如果您未使用[Azure 入口網站](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal)或[Azure Resource Manager 範本](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced)來建立網路安全性群組，您必須手動將子網上的下列流量列入允許清單。
+如果您未使用[Azure 入口網站](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal)或[Azure Resource Manager 範本](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-advanced)來建立網路安全性群組，您必須手動將子網上的下列流量列入允許清單。
 
 |方向|通訊協定|來源|來源連接埠|目的地|目的地連接埠|
 |---------|--------|------|-----------|-----------|----------------|
@@ -154,7 +154,7 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 |東南亞|控制平面 NAT </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |東亞|控制平面 NAT </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |澳洲東部|控制平面 NAT </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|澳大利亞東南部|控制平面 NAT </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|澳洲東南部|控制平面 NAT </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |澳大利亞中部|控制平面 NAT </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |澳大利亞中部 2|控制平面 NAT </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |日本東部|控制平面 NAT </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|

@@ -1,125 +1,126 @@
 ---
-title: Azure 春季雲端的常見問題 |Microsoft Docs
-description: 回顧 Azure 春季雲端的常見問題
+title: 關於 Azure 春季雲端的常見問題 |Microsoft Docs
+description: 本文會回答有關 Azure 春季雲端的常見問題。
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 1fb241ab1335e6b9c9be55acbbe2e21378831b69
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 40275b3f643517236db26be8c2784144526fb7a1
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607234"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151754"
 ---
-# <a name="frequently-asked-questions"></a>常見問題集
+# <a name="azure-spring-cloud-faq"></a>Azure 春季雲端常見問題
 
-本文說明 Azure 春季雲端的常見問題。 
+本文會回答有關 Azure 春季雲端的常見問題。 
 
 ## <a name="general"></a>一般
 
-### <a name="why-azure-spring-cloud"></a>為何選擇 Azure 春季雲端？
+### <a name="why-azure-spring-cloud"></a>為何選擇 Azure Spring Cloud？
 
-Azure 春季雲端為春天開發人員提供平臺即服務（PaaS）。 Azure 春季雲端會管理您的應用程式基礎結構，讓您可以專注于應用程式的程式碼和商務邏輯。 Azure 春季雲端內建的核心功能，包括 Eureka、設定伺服器、服務登錄伺服器、Pivotal 組建服務、藍綠部署等等。 此服務也可讓開發人員將其應用程式與 Azure 服務（例如 CosmosDB、MySQL 和 Azure Cache for Redis）系結。
+Azure 春季雲端為雲端開發人員提供了平臺即服務（PaaS）。 Azure 春季雲端會管理您的應用程式基礎結構，讓您可以專注于應用程式的程式碼和商務邏輯。 Azure 春季雲端內建的核心功能包括 Eureka、設定伺服器、服務登錄伺服器、Pivotal 組建服務、藍綠部署等等。 此服務也可讓開發人員將其應用程式與其他 Azure 服務（例如 Azure Cosmos DB、適用於 MySQL 的 Azure 資料庫和 Azure Cache for Redis）系結。
 
 Azure 春季雲端藉由整合 Azure 監視器、Application Insights 和 Log Analytics，為開發人員和操作員增強應用程式診斷體驗。
 
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Azure 春季雲端提供哪些服務方案？
+### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Azure Spring Cloud 提供哪些服務方案？
 
-Azure 春季雲端會在預覽期間提供一個服務方案。  春季雲端部署包含16個 vCPU 核心和32GB 的記憶體。  部署中每個微服務實例的上限是4個具有 8 GB 記憶體的 vCPU 核心。
+Azure Spring Cloud 會在預覽期間提供一個服務方案。  春季雲端部署包含16個 vCPU 核心和 32 gb 的記憶體。  部署中每個微服務實例的上限是4個具有 8 GB 記憶體的 vCPU 核心。
 
 資源 | Amount
 ------- | -------
-每次春季應用程式的應用程式實例 | 20
-每個 Azure 春季雲端服務實例的應用程式實例總數 | 50 *
-每個訂用帳戶每個區域的 Azure 春季雲端服務實例 | 2
-永續性磁碟區 | 10 x 50 Gb
+每次春季雲端應用程式的應用程式實例 | 20
+總應用程式執行個體 (每個 Azure Spring Cloud 服務執行個體) | 50*
+Azure Spring Cloud 服務執行個體 (每個訂用帳戶在每個區域) | 2*
+永續性磁碟區 | 10 x 50 GB
 
-*_開啟[支援票證](https://azure.microsoft.com/support/faq/)來提高限制。_
+\*_若要提高限制，請開啟[支援票證](https://azure.microsoft.com/support/faq/)。_
 
 如需詳細資訊，請參閱[Azure 支援常見問題](https://azure.microsoft.com/support/faq/)。
 
-### <a name="how-secure-is-azure-spring-cloud"></a>Azure 春季雲端有多安全？
+### <a name="how-secure-is-azure-spring-cloud"></a>Azure Spring Cloud 的安全性如何？
 
-安全性和隱私權是 Azure 和 Azure 春季雲端客戶的首要優先順序之一。 Azure 會確保只有客戶可以透過安全地加密所有的資料、記錄或設定來存取應用程式資料、記錄或設定。 Azure 春季雲端中的所有服務實例會彼此隔離。
+安全性和隱私權是 Azure 和 Azure 春季雲端客戶的最高優先順序。 Azure 可透過安全地加密所有資料，協助確保只有客戶可以存取應用程式資料、記錄或設定。 Azure Spring Cloud 中的所有服務執行個體都彼此互相隔離。
 
-Azure 春季雲端提供完整的 SSL 和憑證管理。
+Azure Spring Cloud 提供完整的 SSL 和憑證管理。
 
-OpenJDK 和春季雲端執行時間的重大安全性修補程式會儘快套用至 Azure 春季雲端。
+OpenJDK 和 Spring Cloud 執行階段的重大安全性修補，都會盡快套用至 Azure Spring Cloud。
 
-### <a name="which-regions-azure-spring-cloud-are-available"></a>Azure 春季雲端有哪些區域可供使用？
+### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure 春季雲端有哪些區域可供使用？
 
-美國東部、美國西部2、西歐和東南亞。
+美國東部、美國西部 2、歐洲西部和東南亞。
 
-### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure 春季雲端的已知限制為何
+### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure 春季雲端的已知限制為何？
 
-以下是 Azure 春季雲端在服務處於預覽狀態時的已知限制。
+在預覽版本中，Azure 春季雲端具有下列已知限制：
 
 * `spring.application.name` 將會被用來建立每個應用程式的應用程式名稱覆寫。
-* Git 存放庫的設定檔中不允許 `server.port`。 將它新增至設定檔，可能會導致無法從其他應用程式或網際網路連線到您的應用程式。
-* Azure 入口網站和 Resource Manager 範本不支援上傳應用程式套件。 這只能透過 Azure CLI 的應用程式部署來完成。
-* 如需配額限制，請參閱[Azure 春季雲端供應專案的服務方案](#what-service-plans-does-azure-spring-cloud-offer)。
+* Git 存放庫的設定檔中不允許 `server.port`。 將它新增至設定檔，可能會導致您的應用程式無法從其他應用程式或網際網路連線。
+* Azure 入口網站和 Azure Resource Manager 範本不支援上傳應用程式套件。 您只能透過 Azure CLI 部署應用程式來上傳應用程式套件。
+* 若要瞭解配額限制，請參閱[Azure 春季雲端供應專案有哪些服務方案？](#what-service-plans-does-azure-spring-cloud-offer)。
 
-### <a name="how-can-i-provide-feedback-and-report-issues"></a>如何提供意見反應和報告問題？
+### <a name="how-can-i-provide-feedback-and-report-issues"></a>如何提供意見反應和回報問題？
 
-如果您遇到 Azure 春季雲端的任何問題，請建立[Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 如需功能要求，請前往[Azure 意見](https://feedback.azure.com/forums/34192--general-feedback)反應以要求功能或提供意見反應。
+如果您遇到 Azure 春季雲端的任何問題，請建立[Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 若要提交功能要求或提供意見反應，請前往[Azure 意見](https://feedback.azure.com/forums/34192--general-feedback)反應。
 
 ## <a name="development"></a>開發
 
-### <a name="i-am-a-spring-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-aazure-spring-cloud-application"></a>我是春季的開發人員，但剛開始使用 Azure，我最快的方法是瞭解如何開發 Azure 春季雲端應用程式？
+### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>我是雲端開發人員，而不是 Azure 的新手。 若要瞭解如何開發 Azure 春季雲端應用程式，最快的方式是？
 
-開始使用 Azure 春季雲端最快速的方式是遵循[此快速入門](spring-cloud-quickstart-launch-app-portal.md)。
+如需開始使用 Azure 春季雲端的最快速方式，請遵循[快速入門：使用 Azure 入口網站啟動 Azure 春季雲端應用程式](spring-cloud-quickstart-launch-app-portal.md)中的指示。
 
-### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure 春季雲端支援的 JAVA 執行時間為何？
+### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud 支援的 Java 執行階段為何？
 
-Azure 春季雲端支援 JAVA 8 和11。
+Azure Spring Cloud 支援 Java 8 和 11。
 
-### <a name="where-can-i-see-my-spring-application-logs-and-metrics"></a>我可以在哪裡看到春季應用程式記錄和計量？
+### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>我可以在哪裡查看春季雲端應用程式記錄和計量？
 
-在 [應用程式總覽] 索引標籤和 [ [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics)] 索引標籤中尋找計量。
+在 [應用程式概觀] 索引標籤和 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) \(部分機器翻譯\) 索引標籤中尋找計量。
 
-Azure 春季雲端支援將您的春季應用程式記錄和計量匯出至 Azure 儲存體、EventHub 和[Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries)。 Log Analytics 中的資料表名稱是 `AppPlatformLogsforSpring`。 若要啟用它，請參閱這篇有關我們的[診斷服務](diagnostic-services.md)的文章。
+Azure 春季雲端支援將春季雲端應用程式記錄和計量匯出至 Azure 儲存體、EventHub 和[Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries)。 Log Analytics 中的資料表名稱是*AppPlatformLogsforSpring*。 若要瞭解如何啟用它，請參閱[診斷服務](diagnostic-services.md)。
 
-### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure 春季雲端是否支援分散式追蹤？
+### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud 是否支援分散式追蹤？
 
-是，如需詳細資訊，請造訪[分散式追蹤](spring-cloud-tutorial-distributed-tracing.md)。
+是。 如需詳細資訊，請參閱[教學課程：搭配 Azure 春季雲端使用分散式追蹤](spring-cloud-tutorial-distributed-tracing.md)。
 
-### <a name="what-resource-types-does-service-binding-support"></a>服務系結支援哪些資源類型？
+### <a name="what-resource-types-does-service-binding-support"></a>服務繫結支援的資源類型為何？
 
 目前支援三項服務： Azure Cosmos DB、適用於 MySQL 的 Azure 資料庫和 Azure Cache for Redis。
 
-### <a name="can-i-viewaddmove-persistent-volumes-from-inside-my-applications"></a>我可以從應用程式內查看/新增/移動持續性磁片區嗎？
+### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>我可以從應用程式內查看、新增或移動持續性磁片區嗎？
+
 是。
 
 ## <a name="deployment"></a>部署
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Azure 春季雲端是否支援藍綠部署？
-是，請造訪[預備環境指南](spring-cloud-howto-staging-environment.md)以取得詳細資料。
+是。 如需詳細資訊，請參閱[設定預備環境](spring-cloud-howto-staging-environment.md)。
 
-### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>我可以存取 Kubernetes 來操作我的應用程式容器嗎？
+### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>我是否可以存取 Kubernetes 來操作我的應用程式容器？
 
-不會。  Azure 春季雲端會從基礎架構抽象化開發人員，讓您能夠專注于應用程式的程式碼和商務邏輯。
+號  Azure Spring Cloud 將基礎架構對開發人員抽象化，讓您能夠專注於應用程式程式碼和商務邏輯。
 
-### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure 春季雲端支援從來源建立容器嗎？
+### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud 是否支援從來源建立容器？
 
-是，如需詳細資訊，請流覽[從來源部署](spring-cloud-launch-from-source.md)。
+是。 如需詳細資訊，請參閱[從原始程式碼啟動您的春天雲端應用程式](spring-cloud-launch-from-source.md)。
 
-### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure 春季雲端是否支援在應用程式實例中自動調整？
+### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud 是否支援應用程式執行個體自動調整？
 
-不會。
+號
 
-### <a name="what-are-the-best-practices-for-migrating-existing-spring-microservices-to-azure-spring-cloud"></a>將現有的春季微服務遷移至 Azure 春季雲端的最佳作法為何？
+### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>將現有的春季 Cloud 微服務遷移至 Azure 春季雲端的最佳作法為何？
 
-將現有的春季微服務遷移至 Azure 春季雲端之前，
-* 所有的應用程式相依性都必須加以解析。
+當您將現有的春季 Cloud 微服務遷移至 Azure 春季雲端時，最好先觀察下列最佳作法：
+* 必須解析所有應用程式相依性。
 * 準備您的設定專案、環境變數及 JVM 參數，讓您可以將它們與 Azure 春季雲端中的部署進行比較。
 * 如果您想要使用服務系結，請流覽您的 Azure 服務，並確定您已設定適當的存取權限。
-* 我們建議您移除或停用可能與 Azure 春季雲端管理的服務（例如我們的服務探索服務、設定伺服器等）發生衝突的內嵌服務。
-*-* 建議您使用官方和穩定的 Pivotal 彈簧程式庫。 非官方、搶鮮版（Beta）或分支版的 Pivotal 春季程式庫不提供 SLA 支援。
+* 建議您移除或停用任何可能與 Azure 春季雲端所管理的服務發生衝突的內嵌服務，例如我們的服務探索服務、設定伺服器等等。
+* 建議您使用官方、穩定的 Pivotal 彈簧程式庫。 非官方、搶鮮版（Beta）或分支版的 Pivotal 春季程式庫沒有服務等級協定（SLA）支援。
 
-在遷移之後，監視 CPU/RAM 計量和網路流量，以確保應用程式實例會適當地調整。
+在遷移之後，請監視 CPU/RAM 計量和網路流量，以確保應用程式實例會適當地調整。
 
 ## <a name="next-steps"></a>後續步驟
 
-[如果您有其他問題，請參閱疑難排解指南](spring-cloud-troubleshoot.md)。
+如果您有進一步的問題，請參閱[Azure 春季雲端疑難排解指南](spring-cloud-troubleshoot.md)。

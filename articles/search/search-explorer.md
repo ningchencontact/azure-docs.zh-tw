@@ -1,5 +1,5 @@
 ---
-title: 使用搜尋瀏覽器工具來查詢 Azure 入口網站中的資料
+title: Azure 入口網站中的搜尋瀏覽器查詢工具
 titleSuffix: Azure Cognitive Search
 description: 搜尋瀏覽器內建于 Azure 入口網站中，適用于在 Azure 認知搜尋中探索內容和驗證查詢。 輸入詞彙或片語搜尋的字串，或使用 advanced 語法的完整搜尋運算式。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff2986c4e90cb997df250d647bdfbd068d70e51f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792954"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112105"
 ---
 # <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>在 Azure 入口網站中使用搜尋瀏覽器來查詢 Azure 認知搜尋中的檔 
 

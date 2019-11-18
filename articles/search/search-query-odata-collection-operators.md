@@ -1,7 +1,7 @@
 ---
 title: OData 集合運算子參考
 titleSuffix: Azure Cognitive Search
-description: Azure 認知搜尋查詢中的 OData 集合運算子、any 和 all 和 lambda 運算式。
+description: 在「Azure 認知搜尋」查詢中建立篩選條件運算式時，如果篩選是在集合或複雜集合欄位上，請使用 lambda 運算式中的「任何」和「所有」運算子。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793408"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113245"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Azure 認知搜尋中的 OData 集合運算子-`any` 和 `all`
 

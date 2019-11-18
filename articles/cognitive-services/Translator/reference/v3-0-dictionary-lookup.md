@@ -1,7 +1,7 @@
 ---
 title: 翻譯工具文字 API 字典查閱方法
 titleSuffix: Azure Cognitive Services
-description: 使用翻譯工具文字 API 字典查閱方法。
+description: 字典查閱方法提供單字和少量慣用片語的替代翻譯。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 0bbdba343888bc91521245d0c9a0e4eaa87c5538
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bd725d41f75bdfb1048b5bee7e8224679dbece4c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932013"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837260"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0：字典查閱
+# <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0 字典查閱
 
 提供字組和少數慣用語的替代翻譯。 每個翻譯都有一個詞性和一份反向翻譯清單。 反向翻譯可讓使用者了解內容的翻譯。 [字典範例](./v3-0-dictionary-examples.md)作業允許進一步向下鑽研，以查看每組翻譯配對的範例用法。
 
@@ -38,22 +38,22 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>*必要參數*。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
   </tr>
   <tr>
-    <td>寄件者</td>
-    <td>必要參數。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>從</td>
+    <td>*必要參數*。<br/>指定輸入文字的語言。 來源語言必須是 [ 範圍內包含的](./v3-0-languages.md)支援語言`dictionary`之一。</td>
   </tr>
   <tr>
-    <td>to</td>
-    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>收件人</td>
+    <td>*必要參數*。<br/>指定輸出文字的語言。 目標語言必須是 [ 範圍內包含的](./v3-0-languages.md)支援語言`dictionary`之一。</td>
   </tr>
 </table>
 
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">標頭</th>
+  <th width="20%">headers</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -92,17 +92,17 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `normalizedSource`:一個字串，指定來源字詞的標準化形式。 例如，若要求是 "JOHN"，標準化形式將是 "john"。 這個欄位的內容會變成[查閱範例](./v3-0-dictionary-examples.md)的輸入。
+  * `normalizedSource`：字串，指定來源字詞的標準化形式。 例如，若要求是 "JOHN"，標準化形式將是 "john"。 這個欄位的內容會變成[查閱範例](./v3-0-dictionary-examples.md)的輸入。
     
-  * `displaySource`:字串，以最適合終端使用者顯示的形式指定來源字詞。 例如，若輸入為 "JOHN"，顯示形式會反映慣用的名稱拼字："John"。 
+  * `displaySource`：字串，以最適合終端使用者顯示的形式指定來源字詞。 例如，若輸入為 "JOHN"，顯示形式會反映慣用的名稱拼字："John"。 
 
-  * `translations`:清單，包含來源字詞的翻譯。 清單的每個項目是具有下列屬性的物件：
+  * `translations`：清單，包含來源字詞的翻譯。 清單的每個項目是具有下列屬性的物件：
 
-    * `normalizedTarget`:字串，指定這個字詞在目標語言中的的標準化形式。 這個值應該作為[查閱範例](./v3-0-dictionary-examples.md)的輸入。
+    * `normalizedTarget`：字串，指定這個字詞在目標語言中的的標準化形式。 這個值應該作為[查閱範例](./v3-0-dictionary-examples.md)的輸入。
 
-    * `displayTarget`:字串，以目標語言和最適合終端使用者顯示的形式指定字詞。 一般來說，這僅在大小寫方面不同於 `normalizedTarget`。 例如，對於 "Juan" 之類的專有名詞，其 `normalizedTarget = "juan"` 且 `displayTarget = "Juan"`。
+    * `displayTarget`：字串，以目標語言和最適合終端使用者顯示的形式指定字詞。 一般來說，這僅在大小寫方面不同於 `normalizedTarget`。 例如，對於 "Juan" 之類的專有名詞，其 `normalizedTarget = "juan"` 且 `displayTarget = "Juan"`。
 
-    * `posTag`:字串，將這個字詞與詞性標籤建立關聯。
+    * `posTag`：字串，將這個字詞與詞性標籤建立關聯。
 
         | 標籤名稱 | 描述  |
         |----------|--------------|
@@ -119,19 +119,19 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
         作為實作注意事項，這些標籤是透過標記英文端的詞性來決定，然後針對每個來源/目標配對採用最常見的標籤。 因此，若人們經常將西班牙文字組翻譯成英文中的不同詞性標籤，則標籤最後可能會發生錯誤 (相對於西班牙文字組)。
 
-    * `confidence`:介於 0.0 與 1.0 之間的值，表示該翻譯配對的「信賴度」(或者可能更準確地說，「訓練資料中的機率」)。 某個來源字組的信賴度分數總和不一定加總為 1.0。 
+    * `confidence`：介於 0.0 與 1.0 之間的值，表示該翻譯配對的「信賴度」(或者可能更準確地說，「訓練資料中的機率」)。 某個來源字組的信賴度分數總和不一定加總為 1.0。 
 
-    * `prefixWord`:字串，指定要顯示為翻譯前置詞的字組。 目前在具有性別限定詞的語言中，這是名詞的性別限定詞。 例如，西班牙文字組 "mosca" 的前置詞是 "la"，因為 "mosca" 是西班牙文中的女性名詞。 這只取決於翻譯，而非來源。 若沒有前置詞，它將會是空字串。
+    * `prefixWord`：字串，指定要顯示為翻譯前置詞的字組。 目前在具有性別限定詞的語言中，這是名詞的性別限定詞。 例如，西班牙文字組 "mosca" 的前置詞是 "la"，因為 "mosca" 是西班牙文中的女性名詞。 這只取決於翻譯，而非來源。 若沒有前置詞，它將會是空字串。
     
-    * `backTranslations`:清單，包含目標的「反向翻譯」。 例如，目標可翻譯成的來源字組。 此清單保證包含所要求的來源字組 (例如，若所要查閱的來源字組是 "fly"，則保證 "fly" 將會在 `backTranslations` 清單中)。 不過，不保證它位在第一個位置，通常也不會在該位置。 `backTranslations` 清單的每個項目都是以下列屬性描述的物件：
+    * `backTranslations`：清單，包含目標的「反向翻譯」。 例如，目標可翻譯成的來源字組。 此清單保證包含所要求的來源字組 (例如，若所要查閱的來源字組是 "fly"，則保證 "fly" 將會在 `backTranslations` 清單中)。 不過，不保證它位在第一個位置，通常也不會在該位置。 `backTranslations` 清單的每個項目都是以下列屬性描述的物件：
 
-        * `normalizedText`:字串，指定來源字詞的標準化形式，其為目標的反向翻譯。 這個值應該作為[查閱範例](./v3-0-dictionary-examples.md)的輸入。        
+        * `normalizedText`：字串，指定來源字詞的標準化形式，其為目標的反向翻譯。 這個值應該作為[查閱範例](./v3-0-dictionary-examples.md)的輸入。        
 
-        * `displayText`:字串，以最適合終端使用者顯示的形式指定其為目標反向翻譯的來源字詞。
+        * `displayText`：字串，以最適合終端使用者顯示的形式指定其為目標反向翻譯的來源字詞。
 
-        * `numExamples`:整數，代表可供此翻譯配對使用的範例數目。 您必須透過個別呼叫[查閱範例](./v3-0-dictionary-examples.md)來擷取實際範例。 此數目主要是為了方便在 UX 中顯示。 比方說，若範例數目大於零，使用者介面可能會新增反向翻譯的超連結；若沒有任何範例，則會以純文字格式顯示反向翻譯。 請注意，[查閱範例](./v3-0-dictionary-examples.md)呼叫所傳回的實際範例數目可能會小於 `numExamples`，因為可能會即時套用其他篩選來移除「不良」的範例。
+        * `numExamples`：整數，代表可供此翻譯配對使用的範例數目。 您必須透過個別呼叫[查閱範例](./v3-0-dictionary-examples.md)來擷取實際範例。 此數目主要是為了方便在 UX 中顯示。 比方說，若範例數目大於零，使用者介面可能會新增反向翻譯的超連結；若沒有任何範例，則會以純文字格式顯示反向翻譯。 請注意，[查閱範例](./v3-0-dictionary-examples.md)呼叫所傳回的實際範例數目可能會小於 `numExamples`，因為可能會即時套用其他篩選來移除「不良」的範例。
         
-        * `frequencyCount`:整數，代表這個翻譯配對在資料中的頻率。 此欄位的主要用途是為使用者介面提供排序反向翻譯的方法，讓最常用的字詞成為第一個。
+        * `frequencyCount`：整數，代表這個翻譯配對在資料中的頻率。 此欄位的主要用途是為使用者介面提供排序反向翻譯的方法，讓最常用的字詞成為第一個。
 
     > [!NOTE]
     > 若所要查詢的字詞不存在於字典中，回應會是 200 (良好)，但 `translations` 清單卻是空清單。

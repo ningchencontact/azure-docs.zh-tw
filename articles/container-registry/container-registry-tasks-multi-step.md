@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 06bdcc1cd4f9bfcb1a77140d70435545fbe01079
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931501"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148762"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
 
@@ -84,7 +84,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-如需數個案例，請參閱工作[範例][task-examples]，以取得完整的多步驟工作 YAML 檔案和 dockerfile。
+如需數個案例，請參閱多步驟工作 YAML 檔案和 Dockerfile 的工作[範例](container-registry-tasks-samples.md)。
 
 ## <a name="run-a-sample-task"></a>執行範例工作
 
@@ -155,7 +155,7 @@ Run ID: yd14 was successful after 19s
 您可以在下列位置找到多步驟工作參考和範例：
 
 * [工作參考](container-registry-tasks-reference-yaml.md) - 工作步驟類型、其屬性及使用方式。
-* 工作[範例][task-examples]-適用于數個案例的範例 `task.yaml` 檔案，簡單到複雜。
+* 工作[範例](container-registry-tasks-samples.md)-適用于數個案例的範例 `task.yaml` 和 Docker 檔案，簡單到複雜。
 * [Cmd 存放庫](https://github.com/AzureCR/cmd) - 作為 ACR 工作命令的容器集合。
 
 <!-- IMAGES -->

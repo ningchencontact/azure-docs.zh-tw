@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0a28292ac95dca7b46d9f82c32b9881c18d74b87
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582896"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123538"
 ---
 # <a name="monitoring-azure-machine-learning"></a>監視 Azure Machine Learning
 
@@ -38,7 +38,7 @@ Azure Machine Learning 使用 Azure 監視器來記錄監視資料，這是 Azur
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>監視 Azure Machine Learning 的資料
 
-Azure Machine Learning 會收集與其他 Azure 資源相同的監視資料類型，如[從 Azure 資源監視資料](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources)中所述。 如需 Azure Machine Learning 所建立之記錄和計量的詳細參考，請參閱[Azure Machine Learning 監視資料參考](monitor-resource-reference.md)。
+Azure Machine Learning 會收集與其他 Azure 資源相同的監視資料類型，如[從 Azure 資源監視資料](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data)中所述。 如需 Azure Machine Learning 所建立之記錄和計量的詳細參考，請參閱[Azure Machine Learning 監視資料參考](monitor-resource-reference.md)。
 
 ## <a name="analyzing-metric-data"></a>分析度量資料
 
@@ -62,7 +62,7 @@ Azure Machine Learning 的所有計量都在命名空間**Machine Learning 服�
 
 下表列出 Azure Machine Learning 的一般和建議計量警示規則：
 
-| 警示類型 | 條件 | 說明 |
+| 警示類型 | 條件 | 描述 |
 |:---|:---|:---|
 | 模型部署失敗 | 匯總類型： Total、Operator：大於、臨界值：0 | 當一或多個模型部署失敗時 |
 | 配額使用量百分比 | 匯總類型：平均值，運算子：大於，臨界值：90| 當配額使用率百分比大於90% 時 |
@@ -85,7 +85,7 @@ Azure Machine Learning 的所有計量都在命名空間**Machine Learning 服�
 
 您可以為 Azure Machine Learning 設定下列記錄：
 
-| 類別 | 說明 |
+| 類別 | 描述 |
 |:---|:---|
 | AmlComputeClusterEvent | 來自 Azure Machine Learning 計算叢集的事件。 |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 計算叢集中的節點事件。 |
@@ -100,7 +100,7 @@ Azure Machine Learning 的所有計量都在命名空間**Machine Learning 服�
 
 Azure 監視器記錄檔中的資料會儲存在資料表中，而且每個資料表都有一組專屬的唯一屬性。 Azure Machine Learning 會將資料儲存在下列資料表中：
 
-| 資料表 | 說明 |
+| 資料表 | 描述 |
 |:---|:---|
 | AmlComputeClusterEvent | 來自 Azure Machine Learning 計算叢集的事件。 |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 計算叢集中的節點事件。 |

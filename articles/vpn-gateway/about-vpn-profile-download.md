@@ -1,5 +1,5 @@
 ---
-title: 關於點對站 VPN 用戶端設定檔： Azure VPN 閘道 |Microsoft Docs
+title: Azure VPN 閘道：關於 P2S VPN 用戶端設定檔
 description: 這可協助您使用用戶端設定檔
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 340ff6d9b112f4ff04950499b2708d8882fa6120
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960638"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151632"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>關於 P2S VPN 用戶端設定檔
 

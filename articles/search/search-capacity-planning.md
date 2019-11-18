@@ -1,5 +1,5 @@
 ---
-title: 相應增加資料分割和複本，以增加查詢和索引工作負載的容量
+title: 調整查詢和索引工作負載的容量
 titleSuffix: Azure Cognitive Search
 description: 調整 Azure 認知搜尋中的磁碟分割和複本電腦資源，其中每個資源都是以可計費的搜尋單位計價。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792511"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112140"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>相應增加資料分割和複本，以在 Azure 認知搜尋中新增查詢和索引工作負載的容量
 

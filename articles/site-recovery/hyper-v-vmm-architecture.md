@@ -7,19 +7,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f7fa5d7ef68613301c30e26d21f69a80559dbcb9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030021"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133006"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>架構 - Hyper-V 複寫至次要網站
 
 本文說明在 Azure 入口網站中使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中的內部部署 Hyper-V 虛擬機器 (VM) 複寫至次要 VMM 網站時所涉及的元件和程序。
-
-> [!WARNING]
-> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](site-to-site-deprecation.md)繼續進行。
+a
 
 ## <a name="architectural-components"></a>架構元件
 

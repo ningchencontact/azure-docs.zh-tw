@@ -1,21 +1,18 @@
 ---
-title: 在 Azure 部署成功時回復錯誤
+title: 發生錯誤時回復至部署成功
 description: 指定失敗的部署應回復至成功部署。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 035b684bb9f5fbc10eb13e642c3fd5945b85c561
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0978d2547e23a9ac6f920c76be3e877ec236d9ed
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975442"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150339"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>發生錯誤時回復至部署成功
 
-當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 如果您的基礎結構部署有已知的良好狀態，而且想要還原為此狀態，此功能就很有用。 有一些警告和限制：
+當部署失敗時，您可以從部署歷程記錄自動重新部署先前成功的部署。 如果您的基礎結構部署有已知的良好狀態，而且想要還原為此狀態，此功能就很有用。 有一些警告和限制：
 
 - 重新部署的執行方式與先前使用相同參數執行的完全相同。 您無法變更參數。
 - 先前的部署是使用[完整模式](./deployment-modes.md#complete-mode)來執行。 先前部署中未包含的任何資源都會刪除，而且任何資源設定都會設為先前的狀態。 請確定您完全瞭解[部署模式](./deployment-modes.md)。

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2019
+ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 97ea1c5260d1082619d59a2b8614a0ba7e9181a8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902911"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145179"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 應用程式中的記錄
 
@@ -41,6 +41,10 @@ MSAL 提供數種層級的記錄詳細資料：
 ## <a name="personal-and-organizational-data"></a>個人和組織資料
 
 根據預設，MSAL 記錄器不會捕捉任何高度敏感的個人或組織資料。 如果您決定要這麼做，程式庫會提供啟用記錄個人和組織資料的選項。
+
+如需以特定語言 MSAL 記錄的詳細資訊，請選擇符合您語言的索引標籤：
+
+## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>MSAL.NET 中的記錄
 
@@ -80,6 +84,8 @@ class Program
   }
  }
  ```
+
+## <a name="androidtabandroid"></a>[Android](#tab/android)
 
 ## <a name="logging-in-msal-for-android-using-java"></a>使用 JAVA 登入適用于 Android 的 MSAL
 
@@ -123,7 +129,7 @@ Logger.getInstance().setEnablePII(false);
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## <a name="logging-in-msaljs"></a>MSAL.js 中的記錄
+## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
  藉由在建立 `UserAgentApplication` 實例的設定期間傳遞記錄器物件，在 MSAL 中啟用記錄功能。 此記錄器物件具有下列屬性：
 
@@ -155,7 +161,9 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="logging-in-msal-for-ios-and-macos"></a>適用于 iOS 和 macOS 的 MSAL 登入
+## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+
+## <a name="msal-for-ios-and-macos-logging-objc"></a>適用于 iOS 和 macOS 記錄的 MSAL-ObjC
 
 設定回呼來捕捉 MSAL 記錄，並將它併入您自己的應用程式記錄中。 回呼的簽章看起來像這樣：
 
@@ -176,7 +184,6 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
 
 例如︰
 
-Objective-C
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
     {
@@ -190,7 +197,71 @@ Objective-C
     }];
 ```
 
-Swift
+### <a name="personal-data"></a>個人資料
+
+根據預設，MSAL 不會捕捉或記錄任何個人資料（PII）。 程式庫可讓應用程式開發人員透過 MSALLogger 類別中的屬性來開啟此功能。 藉由開啟 `pii.Enabled`，應用程式會負責安全地處理高度敏感的資料，並遵循法規需求。
+
+```objc
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = YES;
+
+// PII will NOT be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = NO;
+```
+
+### <a name="logging-levels"></a>記錄層級
+
+若要在使用 iOS 和 macOS 的 MSAL 記錄時設定記錄層級，請使用下列其中一個值：
+
+|等級  |描述 |
+|---------|---------|
+| `MSALLogLevelNothing`| 停用所有記錄 |
+| `MSALLogLevelError` | 預設層級，只有在發生錯誤時才會列印資訊 |
+| `MSALLogLevelWarning` | 消息 |
+| `MSALLogLevelInfo` |  程式庫進入點，包含參數和各種 keychain 作業 |
+|`MSALLogLevelVerbose`     |  API 追蹤 |
+
+例如︰
+
+```objc
+MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
+ ```
+
+ ### <a name="log-message-format"></a>記錄訊息格式
+
+MSAL 記錄訊息的訊息部分格式為 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+
+例如︰
+
+`TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
+
+提供相互關聯識別碼和時間戳記有助於追蹤問題。 時間戳記和相互關聯識別碼資訊可在記錄訊息中取得。 唯一可取得的可靠位置是從 MSAL 記錄訊息。
+
+## <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+## <a name="msal-for-ios-and-macos-logging-swift"></a>適用于 iOS 和 macOS 記錄的 MSAL-Swift
+
+設定回呼來捕捉 MSAL 記錄，並將它併入您自己的應用程式記錄中。 回呼的簽章（以目標-C 表示）如下所示：
+
+```objc
+/*!
+    The LogCallback block for the MSAL logger
+ 
+    @param  level           The level of the log message
+    @param  message         The message being logged
+    @param  containsPII     If the message might contain Personally Identifiable Information (PII)
+                            this will be true. Log messages possibly containing PII will not be
+                            sent to the callback unless PIllLoggingEnabled is set to YES on the
+                            logger.
+
+ */
+typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
+```
+
+例如︰
+
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
     if let message = message, !containsPII
@@ -207,18 +278,6 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 根據預設，MSAL 不會捕捉或記錄任何個人資料（PII）。 程式庫可讓應用程式開發人員透過 MSALLogger 類別中的屬性來開啟此功能。 藉由開啟 `pii.Enabled`，應用程式會負責安全地處理高度敏感的資料，並遵循法規需求。
 
-Objective-C
-```objc
-// By default, the `MSALLogger` doesn't capture any PII
-
-// PII will be logged
-MSALGlobalConfig.loggerConfig.piiEnabled = YES;
-
-// PII will NOT be logged
-MSALGlobalConfig.loggerConfig.piiEnabled = NO;
-```
-
-Swift
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
 
@@ -243,12 +302,6 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 例如︰
 
-Objective-C
-```objc
-MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
- ```
- 
- Swift
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
@@ -263,9 +316,11 @@ MSAL 記錄訊息的訊息部分格式為 `TID = <thread_id> MSAL <sdk_ver> <OS>
 
 提供相互關聯識別碼和時間戳記有助於追蹤問題。 時間戳記和相互關聯識別碼資訊可在記錄訊息中取得。 唯一可取得的可靠位置是從 MSAL 記錄訊息。
 
-## <a name="logging-in-msal-for-java"></a>適用于 JAVA 的 MSAL 記錄
+## <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL for JAVA （MSAL4J）可讓您使用已在應用程式中使用的記錄程式庫，前提是它與 SLF4J 相容。 MSAL4j 會使用 JAVA （SLF4J）的[簡單記錄外觀](http://www.slf4j.org/)作為各種記錄架構的簡單外觀或抽象概念，例如[util。記錄](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html)、 [Logback](http://logback.qos.ch/)和[Log4j](https://logging.apache.org/log4j/2.x/)。 SLF4J 可讓終端使用者在部署階段插入所需的記錄架構。
+## <a name="msal-for-java-logging"></a>適用于 JAVA 記錄的 MSAL
+
+MSAL for JAVA （MSAL4J）可讓您使用已在應用程式中使用的記錄程式庫，前提是它與 SLF4J 相容。 MSAL4j 會使用 JAVA （SLF4J）的[簡單記錄外觀](http://www.slf4j.org/)作為各種記錄架構的簡單外觀或抽象概念，例如[util。記錄](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html)、 [Logback](http://logback.qos.ch/)和[Log4j](https://logging.apache.org/log4j/2.x/)。 SLF4J 可讓使用者在部署階段插入所需的記錄架構。
 
 例如，若要在您的應用程式中使用 Logback 作為記錄架構，請將 Logback 相依性新增至應用程式的 Maven pom 檔案：
 
@@ -310,3 +365,35 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .logPii(true)
         .build();
 ```
+
+## <a name="pythontabpython"></a>[Python](#tab/python)
+
+## <a name="msal-for-python-logging"></a>適用于 Python 記錄的 MSAL
+
+MSAL Python 中的記錄會使用標準的 Python 記錄機制，例如 `logging.info("msg")` 您可以依照下列方式設定 MSAL 記錄（並在[username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)中查看其運作方式）：
+
+### <a name="enable-debug-logging-for-all-modules"></a>啟用所有模組的偵錯工具記錄
+
+根據預設，會關閉任何 Python 腳本中的記錄功能。 如果您想要針對整個 Python 腳本中的所有模組啟用 debug 記錄，請使用：
+
+```python
+logging.basicConfig(level=logging.DEBUG)
+```
+
+### <a name="silence-only-msal-logging"></a>僅無聲 MSAL 記錄
+
+若只要 MSAL 程式庫記錄，同時在 Python 腳本的所有其他模組中啟用 debug 記錄，請關閉 MSAL Python 所使用的記錄器：
+
+```Python
+logging.getLogger("msal").setLevel(logging.WARN)
+```
+
+### <a name="personal-and-organizational-data-in-python"></a>Python 中的個人和組織資料
+
+適用于 Python 的 MSAL 不會記錄個人資料或組織資料。 沒有可開啟或關閉個人或組織資料記錄的屬性。
+
+您可以使用標準的 Python 記錄來記錄任何您想要的內容，但您必須負責安全地處理敏感性資料及遵循法規需求。
+
+如需有關在 Python 中進行記錄的詳細資訊，請參閱 Python 的[記錄做法](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)。
+
+---

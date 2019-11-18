@@ -1,19 +1,16 @@
 ---
 title: 管理資源群組-Azure 入口網站
 description: 使用 Azure 入口網站透過 Azure Resource Manager 管理您的資源群組。 說明如何建立、列出和刪除資源群組。
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: b0fac4f618f742a13633473f00dbd24ff8411c44
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e3402f496371fe89c832dc22c8288a1b94378c82
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528550"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147150"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure Resource Manager 資源群組
 
@@ -109,7 +106,7 @@ ms.locfileid: "72528550"
 
 ## <a name="manage-access-to-resource-groups"></a>管理資源群組的存取權
 
-[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您管理 Azure 資源存取權的手段。 如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。
+[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您對 Azure 中的資源存取進行管理的機制。 如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

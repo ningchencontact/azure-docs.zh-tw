@@ -1,19 +1,18 @@
 ---
 title: Azure 應用程式閘道的健全狀況監視概觀
-description: 了解 Azure 應用程式閘道的監視功能
+description: Azure 應用程式閘道會監視其後端集區中所有資源的健全狀況，並自動從集區中移除任何被視為狀況不良的資源。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2938665aa0c0a3df66b6ddcfd1c8c5fbc4598319
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135199"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130675"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>應用程式閘道健全狀況監視概觀
 
@@ -29,13 +28,13 @@ Azure 應用程式閘道預設會監視其後端集區中所有資源的健康�
 
 如果您沒有設定任何自訂探查組態，應用程式閘道就會自動設定預設健全狀況探查。 監視行為的運作方式是對後端集區所設定的 IP 位址提出 HTTP 要求。 針對預設探查，如果後端 http 設定設為使用 HTTPS，探查也會使用 HTTPS 測試後端的健康狀態。
 
-例如: 您將應用程式閘道設定為使用 A、B 和 C 後端伺服器來接收連接埠 80 上的 HTTP 網路流量。 預設健全狀況監視每 30 秒就會對三部伺服器進行一次測試，以取得狀況良好的 HTTP 回應。 狀況良好的 HTTP 回應具有 200 到 399 之間的 [狀態碼](https://msdn.microsoft.com/library/aa287675.aspx) 。
+例如：您將應用程式閘道設定為使用 A、B 和 C 後端伺服器來接收連接埠 80 上的 HTTP 網路流量。 預設健全狀況監視每 30 秒就會對三部伺服器進行一次測試，以取得狀況良好的 HTTP 回應。 狀況良好的 HTTP 回應具有 200 到 399 之間的 [狀態碼](https://msdn.microsoft.com/library/aa287675.aspx) 。
 
 如果伺服器 A 的預設探查檢查失敗，應用程式閘道就會將其從後端集區中移除，網路流量也不會再流向此伺服器。 預設探查仍會繼續每 30 秒檢查一次伺服器 A。 當伺服器 A 成功回應預設健全狀態探查所提出的要求時，就會變為狀況良好並重新回到後端集區中，而流量也會開始再次流向該伺服器。
 
 ### <a name="probe-matching"></a>探查比對
 
-根據預設，狀態碼 200 和 399 之間的 HTTP (S) 回應會視為狀況良好。 自訂的健全狀況探查額外支援兩個比對準則。 比對準則可用來選擇性地修改其預設解譯會構成狀況良好回應的項目。
+根據預設，狀態碼介於200和399之間的 HTTP （S）回應視為狀況良好。 自訂的健全狀況探查額外支援兩個比對準則。 比對準則可用來選擇性地修改其預設解譯會構成狀況良好回應的項目。
 
 以下為比對準則： 
 
@@ -44,7 +43,7 @@ Azure 應用程式閘道預設會監視其後端集區中所有資源的健康�
 
 比對準則是使用 `New-AzApplicationGatewayProbeHealthResponseMatch` Cmdlet 來指定的。
 
-例如:
+例如︰
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -57,14 +56,14 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 | 探查屬性 | 值 | 描述 |
 | --- | --- | --- |
 | 探查 URL |http://127.0.0.1:\<port\>/ |URL 路徑 |
-| Interval |30 |在傳送下一個健康情況探查之前的等候時間，以秒為單位。|
+| 間隔 |30 |在傳送下一個健康情況探查之前的等候時間，以秒為單位。|
 | 逾時 |30 |應用程式閘道在將探查標示為狀況不良之前等待探查回應的時間，以秒為單位。 如果傳回狀況良好的探查，則對應的後端會立即標示為狀況良好。|
 | 狀況不良臨界值 |3 |控管在定期健康情況探查失敗時所要傳送的探查數量。 這些額外的健康情況探查會緊密地連續傳送，以快速判斷後端的健康情況，而不等待探查間隔。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
 > [!NOTE]
 > 連接埠會是和後端 HTTP 設定相同的連接埠。
 
-預設探查只會查看 http:\//127.0.0.1:\<連接埠\>來判斷健全狀況狀態。 如果您需要設定健康情況探查，使其移至自訂 URL 或修改任何其他設定，則必須使用自訂探查。
+預設探查只會查看 HTTP：\//127.0.0.1：\<埠\> 來判斷健全狀況狀態。 如果您需要設定健康情況探查，使其移至自訂 URL 或修改任何其他設定，則必須使用自訂探查。
 
 ### <a name="probe-intervals"></a>探查間隔
 
@@ -83,10 +82,10 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 | 探查屬性 | 描述 |
 | --- | --- |
 | 名稱 |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
-| Protocol |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
+| 通訊協定 |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
 | Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用，否則請使用 '127.0.0.1'。 此值與 VM 主機名稱不同。 |
-| `Path` |探查的相對路徑。 有效路徑的開頭為 '/'。 |
-| Interval |探查間隔 (秒)。 這個值是兩個連續探查之間的時間間隔。 |
+| Path |探查的相對路徑。 有效路徑的開頭為 '/'。 |
+| 間隔 |探查間隔 (秒)。 這個值是兩個連續探查之間的時間間隔。 |
 | 逾時 |探查逾時 (秒)。 如果在這個逾時期間內未收到有效的回應，則會將探查標示為失敗。  |
 | 狀況不良臨界值 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 

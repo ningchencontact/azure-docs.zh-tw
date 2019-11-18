@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472919"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120605"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
 隨著應用程式開發進入以容器為基礎的方法，協調和管理資源的需求很重要。 Kubernetes 是領先的平台，可用來提供容錯應用程式工作負載的可靠排程。 Azure Kubernetes Service (AKS) 是受管理的 Kubernetes 供應項目，可進一步簡化容器型應用程式的部署和管理。
 
-本文介紹核心 Kubernetes 基礎結構元件，例如*叢集主機*、*節點*和*節點集區*。 此外也介紹 *Pod*、*部署*和*集合*等工作負載資源，並說明如何將資源分組到*命名空間*中。
+本文介紹核心 Kubernetes 基礎結構元件，例如*控制平面*、*節點*和*節點*集區。 此外也介紹 *Pod*、*部署*和*集合*等工作負載資源，並說明如何將資源分組到*命名空間*中。
 
 ## <a name="what-is-kubernetes"></a>什麼是 Kubernetes？
 
@@ -28,33 +28,33 @@ Kubernetes 是一個快速發展中的平台，可管理容器型應用程式及
 
 Kubernetes 屬於開放式平台，可讓您使用慣用的程式設計語言、作業系統、程式庫或訊息匯流排來建置您的應用程式。 現有的持續整合與持續傳遞 (CI/CD) 工具可與 Kubernetes 整合，以排程及部署發行。
 
-Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 建置於開放原始碼 Azure Kubernetes Service 引擎（[AKS 引擎][aks-engine]）之上。
+Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 控制平面是由 Azure 平臺所管理，而您只需為執行應用程式的 AKS 節點付費。 AKS 建置於開放原始碼 Azure Kubernetes Service 引擎（[AKS 引擎][aks-engine]）之上。
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 叢集架構
 
 Kubernetes 叢集分成兩個元件：
 
-- *叢集主機*節點提供核心 Kubernetes 服務和應用程式工作負載的協調流程。
+- *控制平面*節點提供應用程式工作負載的核心 Kubernetes 服務和協調流程。
 - *節點*會執行您的應用程式工作負載。
 
-![Kubernetes 叢集主機和節點元件](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Kubernetes 控制平面和節點元件](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="cluster-master"></a>叢集主機
+## <a name="control-plane"></a>控制平面
 
-當您建立 AKS 叢集時，就會自動建立並設定叢集主機。 此叢集主機會以受控 Azure 資源的形式提供，使用者無需加以管理。 叢集主機不會產生任何費用，只有屬於 AKS 叢集的節點。
+當您建立 AKS 叢集時，系統會自動建立並設定控制平面。 這個控制平面是以受控 Azure 資源的形式提供，可從使用者抽象化。 控制平面不會產生任何費用，只有屬於 AKS 叢集的節點。
 
-叢集主機包含下列核心 Kubernetes 元件：
+控制平面包含下列核心 Kubernetes 元件：
 
 - *kube-apiserver* - API 伺服器是基礎 Kubernetes API 得以公開的途徑。 此元件可提供管理工具的互動，例如 `kubectl` 或 Kubernetes 儀表板。
 - *etcd* - 具有高可用性的 *etcd* 是 Kubernetes 中的金鑰值存放區，用以維護 Kubernetes 叢集和設定的狀態。
 - *kube-scheduler* - 當您建立或調整應用程式時，排程器會判斷哪些節點可執行工作負載，並加以啟動。
 - *kube-controller-manager* - 控制器管理員會監看較小型的，這些控制器負責執行複寫 Pod 和處理節點作業之類的動作。
 
-AKS 提供單一租使用者叢集主機，其中包含專用的 API 伺服器、排程器等。您可以定義節點的數目和大小，而 Azure 平臺會設定叢集主機與節點之間的安全通訊。 與叢集主機之間的互動可透過 Kubernetes API 進行，例如 `kubectl` 或 Kubernetes 儀表板。
+AKS 提供單一租使用者控制平面，其中包含專用的 API 伺服器、排程器等。您可以定義節點的數目和大小，而 Azure 平臺會設定控制平面與節點之間的安全通訊。 與控制平面的互動會透過 Kubernetes Api （例如 `kubectl` 或 Kubernetes 儀表板）進行。
 
-此受控叢集主機表示您不需要設定高可用性*etcd*存放區之類的元件，但這也表示您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄檢閱叢集主機記錄。
+這個受控控制平面表示您不需要設定高可用性*etcd*存放區之類的元件，但這也表示您無法直接存取控制平面。 升級至 Kubernetes 會透過 Azure CLI 或 Azure 入口網站進行協調，這會升級控制平面和節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄來檢查控制平面記錄。
 
-如果您需要以特定方式設定叢集主機，或需要直接存取它們，您可以使用[aks-engine][aks-engine]來部署您自己的 Kubernetes 叢集。
+如果您需要以特定方式設定控制平面，或需要直接存取它，您可以使用[aks-engine][aks-engine]來部署您自己的 Kubernetes 叢集。
 
 如需相關的最佳作法，請參閱[AKS 中叢集安全性和升級的最佳做法][operator-best-practices-cluster-security]。
 
@@ -62,7 +62,7 @@ AKS 提供單一租使用者叢集主機，其中包含專用的 API 伺服器�
 
 若要執行應用程式和支援的服務，您必須要有 Kubernetes *節點*。 AKS 叢集中有一或多個節點，而此類節點是可執行 Kubernetes 節點元件和容器執行階段的 Azure 虛擬機器 (VM)：
 
-- `kubelet` 是 Kubernetes 代理程式，負責處理來自叢集主機的協調流程要求，和處理相關排程以執行要求的容器。
+- `kubelet` 是 Kubernetes 代理程式，可處理來自控制平面的協調流程要求，以及排程執行要求的容器。
 - 虛擬網路由每個節點上的 *kube-proxy* 負責處理。 Proxy 會路由網路流量，以及管理服務和 Pod 的 IP 定址。
 - *容器執行階段*這項元件可讓容器化應用程式執行其他資源並與其互動，例如虛擬網路和儲存體。 在 AKS 中，Moby 會當做容器執行時間使用。
 
@@ -87,7 +87,7 @@ kubectl describe node [NODE_NAME]
 為了維護節點的效能和功能，AKS 會在每個節點上保留資源。 當節點在資源中變大時，資源保留會因為需要管理的使用者部署的 pod 數量增加而增加。
 
 >[!NOTE]
-> 使用 OMS 之類的附加元件將會耗用其他節點資源。
+> 使用 AKS 附加元件（例如容器深入解析（OMS））將會使用其他節點資源。
 
 - **Cpu**保留的 cpu 取決於節點類型和叢集設定，這可能會因為執行其他功能而造成較少的 allocatable CPU
 
@@ -95,16 +95,24 @@ kubectl describe node [NODE_NAME]
 |---|---|---|---|---|---|---|---|
 |Kube-reserved （millicore）|60|100|140|180|260|420|740|
 
-- **記憶體保留**的記憶體會遵循漸進速率
-  - 前 4 GB 記憶體的25%
-  - 接下來 4 GB 記憶體的20% （最多 8 GB）
-  - 下一個 8 GB 記憶體的10% （最多 16 GB）
-  - 下一個 112 GB 記憶體的6% （最多 128 GB）
-  - 128 GB 以上任何記憶體的2%
+- **記憶體**保留的記憶體包含兩個值的總和
 
-保留這些資源代表應用程式可用的 CPU 和記憶體數量，看起來可能會小於節點本身所含的資源數量。 如果由於所執行的應用程式數量導致資源受限，則所保留的這些資源可確保仍有 CPU 和記憶體可供核心 Kubernetes 元件使用。 無法變更資源保留。
+1. Kubelet daemon 會安裝在所有 Kubernetes 代理程式節點上，以管理容器的建立和終止。 根據預設，在 AKS 上，此 daemon 具有下列收回規則：記憶體。可用 < 750Mi，這表示節點隨時都必須至少有 750 Mi allocatable。  當主機低於可用記憶體的閾值時，kubelet 將會終止其中一個執行中的 pod，以釋放主機電腦上的記憶體並加以保護。
 
-基礎節點 OS 也需要一定數量的 CPU 和記憶體資源，才能完成它自己的核心功能。
+2. 第二個值是保留給 kubelet daemon 的記憶體漸進速率，可正常運作（kube 保留）。
+    - 前 4 GB 記憶體的25%
+    - 接下來 4 GB 記憶體的20% （最多 8 GB）
+    - 下一個 8 GB 記憶體的10% （最多 16 GB）
+    - 下一個 112 GB 記憶體的6% （最多 128 GB）
+    - 128 GB 以上任何記憶體的2%
+
+由於這兩個已定義的規則會導致 Kubernetes 和代理程式節點狀況良好，因此 allocatable 的 CPU 和記憶體數量會比節點本身所能提供的還要少。 無法變更以上所定義的資源保留專案。
+
+例如，如果節點提供 7 GB，將會報告34% 的記憶體未 allocatable：
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+除了 Kubernetes 的保留，基礎節點 OS 也會保留大量 CPU 和記憶體資源，以維護 OS 功能。
 
 如需相關的最佳作法，請參閱[AKS 中基本排程器功能的最佳做法][operator-best-practices-scheduler]。
 

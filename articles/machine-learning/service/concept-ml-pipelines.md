@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: c42d2d308398d548df4b1c088819c024ff613564
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832493"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112411"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>什麼是 Azure Machine Learning 管線？
 
@@ -50,10 +50,10 @@ Azure 雲端提供數個其他管線，各有不同的用途。 下表列出不�
 
 Azure Machine Learning 管線是一項完整機器學習工作的獨立可執行工作流程。 子工作會封裝成管線內的一系列步驟。 Azure Machine Learning 管線就像呼叫 Python 腳本一樣簡單，因此_可能會_執行任何動作。 管線_應該_著重在機器學習工作，例如：
 
-+ 資料準備，包括匯入、驗證和清除、改寫和轉換、正規化和暫存
-+ 訓練設定，包括參數化引數、filepaths，以及記錄/報告設定
-+ 有效率地訓練及驗證可重複之，其中可能包括指定特定的資料子集、不同的硬體計算資源、分散式處理和進度監視
-+ 部署，包括版本控制、調整、布建和存取控制 
++ 資料準備，包括匯入、驗證和清除、改寫和轉換、正規化以及暫存
++ 訓練組態，包括參數化引數、檔案路徑，以及記錄/報告組態
++ 有效而重複地定型和驗證，其中可能包括指定特定的資料子集、不同的硬體計算資源、分散式處理和進度監視
++ 部署，包括版本控制、調整、佈建和存取控制 
 
 獨立步驟可讓多個資料科學家同時在相同的管線上工作，而不會有過度負擔的計算資源。 個別的步驟也可讓您輕鬆地針對每個步驟使用不同的計算類型/大小。
 
@@ -85,7 +85,7 @@ Azure ML 管線會以已排序的步驟順序來執行完整的邏輯工作流�
 
 此外，如果您選擇，步驟的輸出可能會重複使用。 如果您指定重複使用，而且沒有任何上游相依性觸發重新計算，則管線服務會使用此步驟結果的快取版本。 這類重複使用可能會大幅減少開發時間。 如果您有複雜的資料準備工作，您可能會比絕對必要來重新執行它。 管線可減輕您的煩惱：如有必要，步驟將會執行，如果不是，則不會。
 
-當您具現化[管線](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py)物件、將它傳遞給 `Experiment`，並呼叫 `submit()`時，Azure Machine Learning 會處理所有此相依性分析、協調流程和啟用。 
+當您具現化[管線](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py)物件、將它傳遞給 `Experiment`，並呼叫 `submit()`時，Azure Machine Learning 會處理所有此相依性分析、協調流程和啟用。 
 
 ### <a name="coordinating-the-steps-involved"></a>協調所需的步驟
 
@@ -107,7 +107,7 @@ Azure ML 管線會以已排序的步驟順序來執行完整的邏輯工作流�
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>使用 Python SDK 建立管線
 
-在[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)中，管線是定義于 `azureml.pipeline.core` 模組中的 Python 物件。 [管線](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)物件包含一或多個[PipelineStep](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py)物件的已排序序列。 `PipelineStep` 類別是抽象的，而實際的步驟則是子類別，例如[EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py)、 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)或[DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)。 [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py)類別會保存可重複使用的步驟順序，以在管線之間共用。 `Pipeline` 會當做 `Experiment`的一部分來執行。
+在[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)中，管線是定義于 `azureml.pipeline.core` 模組中的 Python 物件。 [管線](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)物件包含一或多個[PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py)物件的已排序序列。 `PipelineStep` 類別是抽象的，而實際的步驟則是子類別，例如[EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py)、 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)或[DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)。 [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py)類別會保存可重複使用的步驟順序，以在管線之間共用。 `Pipeline` 會當做 `Experiment`的一部分來執行。
 
 Azure ML 管線會與 Azure Machine Learning 工作區相關聯，而管線步驟會與該工作區中可用的計算目標相關聯。 如需詳細資訊，請參閱[建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace)或[Azure Machine Learning 中的計算目標？](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)。
 
@@ -125,14 +125,14 @@ Azure ML 管線會與 Azure Machine Learning 工作區相關聯，而管線步�
 
 管線內的步驟可能會相依于其他步驟。 Azure ML 管線服務會執行分析和協調這些相依性的工作。 產生的「執行圖形」中的節點是處理步驟。 每個步驟都可能牽涉到建立或重複使用硬體和軟體的特定組合，重複使用快取的結果等等。 此執行圖形的服務協調流程和優化，可以大幅加速 ML 階段並降低成本。 
 
-因為步驟會獨立執行，所以必須在外部定義物件，以保存在步驟之間流動的輸入和輸出資料。 這是[DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)、 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)和相關類別的角色。 這些資料物件會與封裝其儲存體設定[的資料存放區物件相關](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py)聯。 `PipelineStep` 的基類一律會使用 `name` 字串、`inputs`清單和 `outputs`清單來建立。 通常，它也會有 `arguments` 的清單，而且通常會有 `resource_inputs` 的清單。 子類別通常也會有額外的引數（例如，`PythonScriptStep` 需要執行腳本的檔案名和路徑）。 
+因為步驟會獨立執行，所以必須在外部定義物件，以保存在步驟之間流動的輸入和輸出資料。 這是[DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)、 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)和相關類別的角色。 這些資料物件會與封裝其儲存體設定[的資料存放區物件相關](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py)聯。 `PipelineStep` 的基類一律會使用 `name` 字串、`inputs`清單和 `outputs`清單來建立。 通常，它也會有一份 `arguments` 清單，而且通常會有一份 `resource_inputs`清單。 子類別通常也會有額外的引數（例如，`PythonScriptStep` 需要執行腳本的檔案名和路徑）。 
 
 執行圖形是非迴圈的，但是管線可以按照週期性排程執行，而且可以執行可將狀態資訊寫入檔案系統的 Python 腳本，讓您能夠建立複雜的設定檔。 如果您設計管線，讓某些步驟可以平行或非同步方式執行，Azure Machine Learning 會以透明的方式處理展開與傳出的相依性分析和協調。 您通常不需要擔心執行圖形的詳細資料，但可透過 [[管線]](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes)屬性取得。 
 
 
 ### <a name="a-simple-python-pipeline"></a>簡單的 Python 管線
 
-此程式碼片段會顯示建立及執行基本 `Pipeline` 所需的物件和呼叫：
+此程式碼片段會顯示建立和執行基本 `Pipeline`所需的物件和呼叫：
 
 ```python
 ws = Workspace.from_config() 
@@ -165,7 +165,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-此程式碼片段會從一般 Azure Machine Learning 物件、`Workspace`、`Datastore`、 [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)和 `Experiment`開始。 然後，程式碼會建立物件，以保存 `input_data` 並 `output_data`。 陣列 `steps` 會保存單一專案，這是將使用資料物件並在 `compute_target` 上執行的 `PythonScriptStep`。 然後，程式碼會具現化 `Pipeline` 物件本身，傳入工作區和步驟陣列。 `experiment.submit(pipeline)` 的呼叫會開始執行 Azure ML 管線。 呼叫 `wait_for_completion()` 會封鎖，直到管線完成為止。 
+此程式碼片段會從一般 Azure Machine Learning 物件、`Workspace`、`Datastore`、 [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)和 `Experiment`開始。 然後，程式碼會建立物件以保存 `input_data` 和 `output_data`。 陣列 `steps` 保留單一專案，這是將使用資料物件並在 `compute_target`上執行的 `PythonScriptStep`。 然後，程式碼會具現化 `Pipeline` 物件本身，傳入工作區和步驟陣列。 `experiment.submit(pipeline)` 的呼叫會開始執行 Azure ML 管線。 `wait_for_completion()` 的呼叫會封鎖，直到管線完成為止。 
 
 ## <a name="best-practices-when-using-pipelines"></a>使用管線時的最佳作法
 
@@ -193,7 +193,7 @@ pipeline_run.wait_for_completion()
 
 針對您的機器學習工作流程使用管線的主要優點如下：
 
-|主要優點|說明|
+|主要優點|描述|
 |:-------:|-----------|
 |**自動&nbsp;執行**|以可靠且自動的方式，以平行或依序執行排程步驟。 資料準備和模型化可以過去數天或數周，而管線可讓您在進程執行時，將焦點放在其他工作上。 |
 |**異構計算**|使用多個在異類和可擴充的計算資源和儲存位置之間可靠地協調的管線。 在不同的計算目標（例如 HDInsight、GPU 資料科學 Vm 和 Databricks）上執行個別的管線步驟，以有效率地使用可用的計算資源。|

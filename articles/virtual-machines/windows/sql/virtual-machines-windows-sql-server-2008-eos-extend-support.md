@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d1b3961b61d45718e726b31ec406445b202a0adf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034181"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132768"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>使用 Azure 擴充 SQL Server 2008 和 SQL Server 2008 R2 的支援
 
@@ -64,7 +64,7 @@ SQL Server 需要應用程式一致的 Azure Site Recovery 快照集，以確保
 
 Azure VM 上的 EOS SQL Server 的嚴重損壞修復解決方案如下：
 
-- **SQL Server 備份**：使用 Azure 備份協助保護您的 EOS SQL Server 免于勒索軟體、意外刪除和損毀。 此解決方案目前針對 EOS SQL Server 處於預覽狀態，並支援在 Windows 2008 R2 SP1 上執行 SQL Server 2008 和 2008 R2。 如需詳細資訊，請參閱[這篇文章](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2)。
+- **SQL Server 備份**：使用 Azure 備份協助保護您的 EOS SQL Server 免于勒索軟體、意外刪除和損毀。 此解決方案目前針對 EOS SQL Server 處於預覽狀態，並支援在 Windows 2008 R2 SP1 上執行 SQL Server 2008 和 2008 R2。 如需詳細資訊，請參閱[這篇文章](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support)。
 - **記錄傳送**：您可以在另一個區域或 Azure 區域中建立記錄傳送複本，並持續還原以減少 RTO。 您需要手動設定記錄傳送。
 - **Azure Site Recovery**：您可以透過 Azure Site Recovery 複寫，在區域和區域之間複寫您的 VM。 SQL Server 需要應用程式一致的快照集，以確保在發生嚴重損壞時進行復原。 Azure Site Recovery 提供最少1小時的 RPO 和2小時（加上 SQL Server 復原時間） RTO 來進行 EOS SQL Server 嚴重損壞修復。
 

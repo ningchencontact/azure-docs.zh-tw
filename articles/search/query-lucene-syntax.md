@@ -1,7 +1,7 @@
 ---
 title: Lucene 查詢語法
 titleSuffix: Azure Cognitive Search
-description: 完整 Lucene 語法的參考，與 Azure 認知搜尋搭配使用。
+description: 完整 Lucene 查詢語法的參考，如 Azure 認知搜尋萬用字元、模糊搜尋、RegEx 和其他先進查詢結構中所使用。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786276"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112180"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure 認知搜尋中的 Lucene 查詢語法
 
@@ -71,7 +71,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 例如，在 Lucene 完整語法中，波狀符號 (~) 可用於模糊搜尋與鄰近搜尋。 ~ 放在加上引號的片語後面時，將會叫用鄰近搜尋。 ~ 放在字詞結尾處時，則會叫用模糊搜尋。
 
-放在字詞內時 (例如 "business~analyst")，該字元並不會評估為運算子。 在此情況下，假設查詢是字詞或片語查詢，會進行[語彙分析](search-lucene-query-architecture.md#stage-2-lexical-analysis)的[全文檢索搜尋](search-lucene-query-architecture.md)將會去除 ~ 並將 "business~analyst" 一詞拆分為二：business OR analyst。
+放在字詞內時 (例如 "business~analyst")，該字元並不會評估為運算子。 在此情況下，假設查詢是字詞或片語查詢，會進行[語彙分析](search-lucene-query-architecture.md)的[全文檢索搜尋](search-lucene-query-architecture.md#stage-2-lexical-analysis)將會去除 ~ 並將 "business~analyst" 一詞拆分為二：business OR analyst。
 
 上述範例說明的是波狀符號 (~)，但每個運算子都適用相同原則。
 
@@ -114,7 +114,7 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 
 使用 `searchMode=any` 會包含較多結果而提高查詢的召回率，且依預設 - 會解譯為 "OR NOT"。 例如，`wifi -luxury` 會比對出包含 *wifi* 一詞的文件，或不含 *luxury* 一詞的文件。
 
-使用 `searchMode=all` 則會包含較少結果而提高查詢的精確度，且依預設 - 會解譯為 "AND NOT"。 例如，`wifi -luxury` 會比對出包含 `wifi` 一詞且不含 `luxury` 一詞的文件。 就 - 運算子而言，這算是較直覺化的行為。 因此，如果您想要最佳化搜尋的精確度而不是召回率，*且*您的使用者在搜尋中經常使用 `-` 運算子，您即應考慮選擇 `searchMode=all` 而非 `searchMode=any`。
+使用 `searchMode=all` 則會包含較少結果而提高查詢的精確度，且依預設 - 會解譯為 "AND NOT"。 例如，`wifi -luxury` 會比對出包含 `wifi` 一詞且不含 `luxury` 一詞的文件。 就 - 運算子而言，這算是較直覺化的行為。 因此，如果您想要最佳化搜尋的精確度而不是召回率，`searchMode=all`且`searchMode=any`您的使用者在搜尋中經常使用 *運算子，您即應考慮選擇* 而非 `-`。
 
 ##  <a name="bkmk_querysizelimits"></a>查詢大小限制  
  您可以傳送至 Azure 認知搜尋的查詢大小有限制。 具體來說，您最多可以有 1024 個子句 (以 AND、OR 等運算子分隔的運算式)。 此外，查詢中任何個別字詞的大小也有約 32 KB 的限制。 如果您的應用程式以程式設計方式產生搜尋查詢，建議您依照此方式設計，以避免產生無大小限制的查詢。  
@@ -151,7 +151,7 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 ##  <a name="bkmk_termboost"></a>字詞提升  
  提升一詞指的是如果文件包含提升詞彙，則將其評等提高，高於不包含該詞彙的文件。 這與評分設定檔的不同之處在於評分設定檔會提升特定欄位，而不是特定詞彙。  
 
-下列範例可協助說明差異。 假設有一個評分設定檔可提升特定欄位中的相符項目，例如 [musicstoreindex 範例](index-add-scoring-profiles.md#bkmk_ex)中的 *genre*。 詞彙提升可用來進一步提升某些搜尋詞彙，使其高於其他詞彙。 例如，`rock^2 electronic` 可提升包含搜尋字詞的文件﹐使其在 genre 欄位中高於索引中的其他可搜尋欄位。 此外，包含搜尋字詞 *rock* 的文件排名會比另一個搜尋字詞 *electronic* 還高，此為字詞提升值 (2) 的結果。  
+下列範例可協助說明差異。 假設有一個評分設定檔可提升特定欄位中的相符項目，例如 *musicstoreindex 範例*中的 [genre](index-add-scoring-profiles.md#bkmk_ex)。 詞彙提升可用來進一步提升某些搜尋詞彙，使其高於其他詞彙。 例如，`rock^2 electronic` 可提升包含搜尋字詞的文件﹐使其在 genre 欄位中高於索引中的其他可搜尋欄位。 此外，包含搜尋字詞 *rock* 的文件排名會比另一個搜尋字詞 *electronic* 還高，此為字詞提升值 (2) 的結果。  
 
  若要提升字詞，請使用插入號 "^"，並在搜尋字詞的結尾加上提升係數 (數字)。 您也可以提升片語。 提升係數越高，該詞彙相對於其他搜尋詞彙的關聯性也越高。 根據預設，提升係數為 1。 雖然提升係數必須是正數，但是它可能會小於 1 (例如，0.20)。  
 
@@ -169,7 +169,7 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 >  您無法使用 * 或 ? 符號做為搜尋的第一個字元。  
 >  對萬用字元搜尋查詢不會執行文字分析。 在查詢時，萬用字元查詢字詞將會與搜尋索引中已分析的字詞進行比對，並進行擴充。
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 + [搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [篩選和排序的 OData 運算式語法](query-odata-filter-orderby-syntax.md)   

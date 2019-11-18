@@ -3,17 +3,17 @@ title: 利用 Azure Advisor 改善 Azure 應用程式的效能 | Microsoft Docs
 description: 使用 Advisor 將 Azure 部署的效能最佳化。
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.author: sagupt
+ms.openlocfilehash: 08af119e7f9e72de4a8ae4a1842289a4fd5d925e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885744"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144142"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
@@ -125,3 +125,4 @@ Azure Advisor 會識別使用100查詢頁面大小的 Azure Cosmos DB 容器，�
 * [建議程式成本建議](advisor-performance-recommendations.md)
 * [建議程式高可用性建議](advisor-high-availability-recommendations.md)
 * [建議程式安全性建議](advisor-security-recommendations.md)
+* [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)

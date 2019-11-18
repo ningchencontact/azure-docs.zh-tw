@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: a550643640afeefeb4cf79e35265f13557b6ffb0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014685"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112304"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的時間序列模型
 
@@ -100,10 +100,10 @@ ms.locfileid: "74014685"
 | --- | ---|
 | timeSeriesId | 與實例相關聯之時間序列的 UUID。 |
 | typeId | 與實例相關聯之時間序列模型類型的 UUID。 根據預設，所有探索到的新實例都會與預設類型建立關聯。
-| 名稱 | name 屬性是選擇性的，而且區分大小寫。 如果 [**名稱**] 無法使用，則預設為 [ **timeSeriesId**]。 如果[提供了名稱](time-series-insights-update-explorer.md#preview-well)， **timeSeriesId**仍然可供使用。 |
+| 名稱 | name 屬性是選擇性的，而且區分大小寫。 如果 [**名稱**] 無法使用，則預設為 [ **timeSeriesId**]。 如果[提供了名稱](time-series-insights-update-explorer.md#4-time-series-well)， **timeSeriesId**仍然可供使用。 |
 | Description | 實例的文字描述。 |
 | hierarchyIds | 定義實例所屬的階層。 |
-| Instancefields 定義 | **instanceFields** 是執行個體的屬性，以及定義執行個體的任何靜態資料。 它們定義階層或非階層的值，同時也支援建立索引以執行搜尋作業。 |
+| Instancefields 定義 | 實例的屬性，以及定義實例的任何靜態資料。 它們定義階層或非階層的值，同時也支援建立索引以執行搜尋作業。 |
 
 > [!NOTE]
 > 階層是使用實例欄位所建立。 可以針對進一步的實例屬性定義加入額外的**instancefields 定義**。

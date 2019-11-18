@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 202267d4fffc7c6f0d99cd2a6ef3bbee82947a81
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821798"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132402"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>將受 TDE 保護之資料庫的憑證移轉到 Azure SQL Database 受控執行個體
 
@@ -32,7 +32,7 @@ ms.locfileid: "73821798"
 > [!IMPORTANT]
 > 移轉的憑證僅適用於還原受 TDE 保護的資料庫。 還原完成後，已遷移的憑證會由不同的保護裝置（服務管理的憑證或金鑰保存庫中的非對稱金鑰）取代，視您在實例上設定的透明資料加密類型而定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -41,7 +41,7 @@ ms.locfileid: "73821798"
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 命令列工具會安裝在內部部署伺服器或其他電腦上，可以存取匯出為檔案的憑證。 Pvk2Pfx 工具屬於[企業 Windows 驅動程式套件](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)，這是一個獨立式命令列環境。
-- 已安裝 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 5.0 版或更新版本。
+- 已安裝 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) 5.0 版或更新版本。
 - [已安裝並更新](https://docs.microsoft.com/powershell/azure/install-az-ps)Azure PowerShell 模組。
 - [Az .sql module](https://www.powershellgallery.com/packages/Az.Sql)。
   在 PowerShell 中執行下列命令以安裝/更新 PowerShell 模組：

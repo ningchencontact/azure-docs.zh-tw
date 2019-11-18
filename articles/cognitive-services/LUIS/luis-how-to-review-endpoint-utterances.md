@@ -9,88 +9,48 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 4a77ac26076fc1b1e4e94ee24dafb28a0e88c858
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 67953f552b5b2bcdd7d13253548227e57dab8548
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669368"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132663"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>如何在 LUIS 入口網站中審查用於主動式學習的端點語句
+# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>如何藉由審查端點語句來改善 LUIS 應用程式
 
-[主動式學習](luis-concept-review-endpoint-utterances.md)會捕捉端點查詢，並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖，並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更，然後進行定型和發佈。 然後，LUIS 會更準確地識別語句。
+針對正確的預測來審查端點語句的程式稱為[主動式學習](luis-concept-review-endpoint-utterances.md)。 主動式學習會捕捉端點查詢，並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖，並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更，然後進行定型和發佈。 然後，LUIS 會更準確地識別語句。
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+如果您有許多人參與 LUIS 應用程式， 
+
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="enable-active-learning"></a>啟用主動式學習
 
-若要啟用主動式學習，請記錄使用者查詢。 這是藉由使用 `log=true` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)來完成。
+若要啟用主動式學習，您必須記錄使用者查詢。 這是藉由呼叫具有 `log=true` querystring 參數和值的[端點查詢](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint)來完成。
 
-## <a name="disable-active-learning"></a>停用主動式學習
-
-若要停用主動式學習，請不要記錄使用者查詢。 這是藉由使用 `log=false` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)來完成。
-
-## <a name="filter-utterances"></a>篩選語句
-
-1. 在 [我的應用程式] 頁面上選取您的應用程式名稱加以開啟 (例如，TravelAgent)，然後選取頂端列中的 [建置]。
-
-1. 在 [改善應用程式效能] 之下，選取 [檢閱端點意圖]。
-
-1. 在 [檢閱端點意圖] 頁面上，選取 [依意圖或實體篩選器清單] 文字方塊。 此下拉式清單包含 [意圖] 之下的所有意圖，以及 [實體] 之下的所有實體。
-
-    ![語句篩選條件](./media/label-suggested-utterances/filter.png)
-
-1. 在下拉式清單中選取類別 (意圖或實體) 並檢閱意圖。
-
-    ![意圖語句](./media/label-suggested-utterances/intent-utterances.png)
-
-## <a name="label-entities"></a>標示實體
-LUIS 會以藍色醒目提示的實體名稱取代實體語彙基元 (字組)。 如果語句有未標示的實體，請在語句中加以標示。 
-
-1. 在語句中選取字組。 
-
-1. 從清單中選取實體。
-
-    ![標示實體](./media/label-suggested-utterances/label-entity.png)
-
-## <a name="align-single-utterance"></a>對齊單一語句
+## <a name="correct-intent-predictions-to-align-utterances"></a>更正意圖預測以對齊語句
 
 每個意圖都有建議的意圖顯示在 [一致的意圖] 資料行中。 
 
-1. 如果您同意該建議，請選取核取記號。
+> [!div class="mx-imgBorder"]
+> [![審查 LUIS 不確定的端點語句](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-    ![保留一致的意圖](./media/label-suggested-utterances/align-intent-check.png)
+如果您同意該意圖，請選取核取記號。 如果您不同意該建議，請從一致的意圖下拉式清單中選取正確的意圖，然後選取一致的意圖右邊的核取記號。 在您選取核取記號之後，語句會移至意圖，並從 [**審核端點語句**] 清單中移除。 
 
-1. 如果您不同意該建議，請從一致的意圖下拉式清單中選取正確的意圖，然後選取一致的意圖右邊的核取記號。 
-
-    ![對齊意圖](./media/label-suggested-utterances/align-intent.png)
-
-1. 在您選取核取記號之後，語句就會從清單中移除。 
-
-## <a name="align-several-utterances"></a>對齊數個語句
-
-若要對齊數個語句，請核取語句左邊的方塊，然後選取 [新增所選] 按鈕。 
-
-![對齊數個](./media/label-suggested-utterances/add-selected.png)
-
-## <a name="verify-aligned-intent"></a>驗證一致的意圖
-
-您可以移至 [意圖] 頁面，選取意圖名稱，然後檢閱意圖，以確認語句與正確的意圖一致。 [檢閱端點意圖] 中的意圖會位於清單中。
+> [!TIP]
+> 請務必移至意圖詳細資料頁面，以從**審核端點語句**清單中的所有範例語句來審查和更正實體預測。
 
 ## <a name="delete-utterance"></a>刪除語句
 
 您可以從檢閱清單中刪除每個語句。 刪除後，它就不再出現於清單中。 即使使用者從端點輸入相同意圖，情況也是如此。 
 
-如果您不確定是否應該刪除意圖，請將它移至 [無] 意圖，或建立新意圖 (例如「其他」) 並將語句移至該意圖。 
+如果您不確定是否應該刪除語句，請將它移至 [無] 意圖，或建立新的意圖（例如 `miscellaneous`，並將語句移至該意圖。 
 
-## <a name="delete-several-utterances"></a>刪除數個語句
+## <a name="disable-active-learning"></a>停用主動式學習
 
-若要刪除數個語句，請選取每個項目並選取 [新增所選] 按鈕右側的垃圾桶。
-
-![刪除數個](./media/label-suggested-utterances/delete-several.png)
-
+若要停用主動式學習，請不要記錄使用者查詢。 這是藉由使用 `log=false` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)，或不使用 querystring 值來完成，因為預設值為 false。
 
 ## <a name="next-steps"></a>後續步驟
 

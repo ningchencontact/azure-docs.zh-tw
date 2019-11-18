@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825690"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108602"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>壓縮 CloudSimple 私用雲端
 
@@ -24,7 +24,8 @@ CloudSimple 提供動態縮減私用雲端的彈性。  私人雲端是由一或
 若要壓縮私人雲端，必須符合下列條件。  無法刪除建立私人雲端時所建立的管理叢集（第一個叢集）。
 
 * VSphere 叢集必須有三個節點。  只有三個節點的叢集無法壓縮。
-* 已耗用的總儲存體不應超過叢集壓縮後的總容量。 
+* 已耗用的總儲存體不應超過叢集壓縮後的總容量。
+* 檢查是否有任何分散式資源排程器（DRS）規則會阻止虛擬機器的 vMotion。  如果有規則存在，請停用或刪除規則。  DRS 規則包含虛擬機器以裝載相似性規則。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -55,7 +56,8 @@ CloudSimple 提供動態縮減私用雲端的彈性。  私人雲端是由一或
 開始壓縮私用雲端。  您可以在 [工作] 中監視進度。  壓縮程式可能需要幾個小時的時間，視資料而定，這需要在 vSAN 上 resynced。
 
 > [!NOTE]
-> 如果您藉由刪除資料中心內的最後一個或唯一的叢集來縮小私人雲端，資料中心將不會被刪除。  
+> 1. 如果您藉由刪除資料中心內的最後一個或唯一的叢集來縮小私人雲端，資料中心將不會被刪除。
+> 2. 如果發生任何 DRS 規則違規，節點將不會從叢集移除，而且工作描述會顯示移除節點會違反叢集上的 DRS 規則。    
 
 
 ## <a name="next-steps"></a>後續步驟

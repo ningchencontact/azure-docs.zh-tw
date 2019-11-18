@@ -1,7 +1,7 @@
 ---
 title: OData 篩選參考
 titleSuffix: Azure Cognitive Search
-description: Azure 認知搜尋查詢中篩選語法的 OData 語言參考。
+description: 用來在 Azure 認知搜尋查詢中建立篩選條件運算式的 OData 語言參考和完整語法。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793362"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113210"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure 認知搜尋中的 OData $filter 語法
 
@@ -174,7 +174,7 @@ variable ::= identifier | field_path
 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-尋找含有「海濱」一詞的文件。 此篩選查詢等同於使用 `search=waterfront` 的[搜尋要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
+尋找含有「海濱」一詞的文件。 此篩選查詢等同於使用 [ 的](https://docs.microsoft.com/rest/api/searchservice/search-documents)搜尋要求`search=waterfront`。
 
     $filter=search.ismatchscoring('waterfront')
 

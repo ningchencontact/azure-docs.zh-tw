@@ -1,7 +1,7 @@
 ---
-title: 從 Azure Blob 索引子將一個 blob 索引到許多搜尋索引檔以進行全文檢索搜尋
+title: 包含多個檔的索引 blob
 titleSuffix: Azure Cognitive Search
-description: 使用 Azure 識別搜尋 Blob 索引子來編目適用于文字內容的 Azure blob。 每個 blob 可能會產生一或多個搜尋索引檔。
+description: 使用 Azure 識別搜尋 Blob 索引子來編目適用于文字內容的 Azure blob，其中每個 blob 可能會產生一或多個搜尋索引檔。
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818551"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112275"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>編制 blob 的索引以產生多個搜尋檔
 根據預設，blob 索引子會將 blob 的內容視為單一搜尋檔。 某些**parsingMode**值支援個別 blob 可能會導致多個搜尋檔的案例。 不同類型的**parsingMode**可讓索引子從 blob 解壓縮一個以上的搜尋檔，如下所示：

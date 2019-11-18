@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070465"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130599"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本部署 Web 應用程式的指引
 
@@ -46,7 +46,7 @@ ms.locfileid: "70070465"
 **第 3 層**
 * 原始檔控制 - 視 Web 應用程式而定。
 * MSDeploy 網站延伸模組 - 視 Web 應用程式而定。
-* 以伺服器陣列為目標的 Application Insights 執行個體 - 視 Web 應用程式而定。
+* 以 web 應用程式為目標的 Azure 應用程式 Insights 實例-視 web 應用程式而定。
 
 **第 4 層**
 * App Service 憑證 - 取決於存在的原始檔控制或 MSDeploy。 若都不存在，則視 Web 應用程式而定。

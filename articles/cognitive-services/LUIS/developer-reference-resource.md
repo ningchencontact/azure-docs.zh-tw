@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d59646a87727409d759cc1903046fb3cdeade2e0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465738"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847381"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding 的開發人員資源
 
@@ -41,8 +41,10 @@ Language Understanding 服務會從您需要建立的 Azure 資源進行存取�
 
 撰寫和預測端點 API 都可從 REST Api 取得：
 
-* 撰寫[參考檔](https://go.microsoft.com/fwlink/?linkid=2092087)
-* 預測執行時間[參考檔](https://go.microsoft.com/fwlink/?linkid=2092356)
+|在系統提示您進行確認時，輸入|版本|
+|--|--|
+|編寫|[2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[預覽 V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|預測|[2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>以語言為基礎的 Sdk
 

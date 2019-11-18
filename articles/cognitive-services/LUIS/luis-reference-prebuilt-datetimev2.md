@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465071"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837358"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
@@ -147,7 +147,7 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
 |--|--|
 |timex|以遵循 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601)的 TIMEX 格式表示的時間、日期或日期範圍，並對註解的 TIMEX3 屬性使用 TimeML 語言。 此註解會在 [TIMEX 指導方針](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf) \(英文\) 中說明。|
 |類型|子類型，可以是下列其中一個專案： `datetime`、`date`、`time`、`daterange`、`timerange`、`datetimerange`、`duration`、`set`。|
-|value|**選用。** 使用 yyyy:MM:dd (date)，HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) 格式的 datetime 物件。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
+|值|**選用。** Datetime 物件，格式為 yyyy-mm-dd （日期）、HH： MM： ss （time） yyyy-mm-dd HH： MM： ss （datetime）。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
 
 ## <a name="valid-date-values"></a>有效的日期值
 
@@ -681,7 +681,7 @@ API V2 的變更：
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
+深入了解 [V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [dimension](luis-reference-prebuilt-dimension.md)、[email](luis-reference-prebuilt-email.md) 實體與 [number](luis-reference-prebuilt-number.md) 的相關資訊。 
 

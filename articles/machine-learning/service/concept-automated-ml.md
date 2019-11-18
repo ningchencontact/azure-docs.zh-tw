@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 5c8ce6a588fd630f69d8ffc682b611baba3afdd4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497562"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133079"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -40,8 +40,8 @@ ms.locfileid: "73497562"
 
 分類| 迴歸 | 時間序列預測
 ---|---|---
-[詐騙偵測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[CPU 效能預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) |[需求預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
-[行銷預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)|[材質耐久性預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[銷售預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
+[詐騙偵測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[CPU 效能預測](https://github.com/Azure/MachineLearningNotebooks/blob/37541b10714f9337dbbae721bea494272dc7d151/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) |[需求預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+[行銷預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[材質耐久性預測](https://github.com/Azure/MachineLearningNotebooks/blob/37541b10714f9337dbbae721bea494272dc7d151/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[銷售預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
 
 ## <a name="how-automated-ml-works"></a>自動化 ML 的運作方式
 
@@ -82,7 +82,7 @@ ms.locfileid: "73497562"
 
 在每個自動化機器學習實驗中，您的資料都會自動調整或正規化，以協助演算法執行得很好。  在模型定型期間，下列其中一個調整或正規化技術將會套用至每個模型。
 
-|調整&nbsp;&&nbsp;正規化| 說明 |
+|調整&nbsp;&&nbsp;正規化| 描述 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 藉由移除平均值並調整為單位變異數，將功能標準化  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 藉由依該資料行的最小值和最大值調整每項功能來轉換功能  |
@@ -142,7 +142,7 @@ ms.locfileid: "73497562"
 
 此外，自動化 ML 執行會自動產生下列圖表，這可協助您瞭解模型分類的正確性，並識別可能受到不平衡資料影響的模型。
 
-圖表| 說明
+圖表| 描述
 ---|---
 [混淆矩陣](how-to-understand-automated-ml.md#confusion-matrix)| 針對資料的實際標籤，評估正確分類的標籤。 
 [精確度-召回](how-to-understand-automated-ml.md#precision-recall-chart)| 根據找到的標籤實例的比率，評估正確標籤的比率 
@@ -164,7 +164,7 @@ ms.locfileid: "73497562"
 
 自動化 ML 也適用于其他 Microsoft 解決方案，例如：
 
-|整合|說明|
+|整合|描述|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|使用 Visual Studio 和 Visual Studio Code 搭配 ML.NET 自動化 ML （預覽），在 .NET 應用程式中自動選取和定型模型。|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|以平行方式在 HDInsight 叢集中的 Spark 上相應放大您的自動化 ML 訓練作業。|

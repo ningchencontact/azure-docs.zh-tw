@@ -1,5 +1,5 @@
 ---
-title: 如何排程索引子
+title: 排程索引子執行
 titleSuffix: Azure Cognitive Search
 description: 排程 Azure 認知搜尋索引子，以定期或在特定時間為內容編制索引。
 author: HeidiSteen
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793702"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112956"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中排程索引子
 

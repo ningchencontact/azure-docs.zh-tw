@@ -1,5 +1,5 @@
 ---
-title: 關於跨單位 Azure 連接的 VPN 裝置 | Microsoft Docs
+title: Azure VPN 閘道：關於連線的 VPN 裝置
 description: 本文討論 S2S VPN 閘道跨單位連接的 VPN 裝置和 IPsec 參數。 其中提供設定指示和範例的連結。
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c945fa7e2e8eccb12cc105610adee3d25a5e5316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58278e241df3d9242c1cb3ad5d6e931c9c4ca701
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495797"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150907"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -73,7 +73,7 @@ ms.locfileid: "73495797"
 >
 > (*) Cisco ASA 8.4 版以上新增了 IKEv2 支援，可使用自訂 IPsec/IKE 原則並搭配 "UsePolicyBasedTrafficSelectors" 選項來連線到 Azure VPN 閘道。 請參閱這篇[操作說明文章](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 >
-> (\*\*) ISR 7200 系列路由器僅支援原則式 VPN。
+> (**) ISR 7200 系列路由器僅支援原則式 VPN。
 
 ## <a name="configscripts"></a>從 Azure 下載 VPN 裝置設定指令碼
 
@@ -126,7 +126,7 @@ ms.locfileid: "73495797"
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 階段 1 (主要模式) 參數
 
-| **屬性**          |**原則式**    | **路由式**    |
+| **屬性**          |**PolicyBased**    | **RouteBased**    |
 | ---                   | ---               | ---               |
 | IKE 版本           |IKEv1              |IKEv1 和 IKEv2    |
 | Diffie-Hellman 群組  |群組 2 (1024 位元) |群組 2 (1024 位元) |
@@ -136,7 +136,7 @@ ms.locfileid: "73495797"
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 階段 2 (快速模式) 參數
 
-| **屬性**                  |**原則式**| **路由式**                              |
+| **屬性**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | IKE 版本                   |IKEv1          |IKEv1 和 IKEv2                              |
 | 加密與雜湊演算法 |1. AES256，SHA256<br>2. AES256，SHA1<br>3. AES128，SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
@@ -154,24 +154,24 @@ ms.locfileid: "73495797"
 
 |-  |**加密**|**驗證**|**PFS 群組**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
-| 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
+| 1 |GCM AES256    |GCM (AES256)      |無         |
+| 2 |AES256        |SHA1              |無         |
+| 3 |3DES          |SHA1              |無         |
+| 4 |AES256        |SHA256            |無         |
+| 5 |AES128        |SHA1              |無         |
+| 6 |3DES          |SHA256            |無         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure 閘道器為回應者
 
 |-  |**加密**|**驗證**|**PFS 群組**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
-| 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
-| 7 |DES           |SHA1              |None         |
+| 1 |GCM AES256    |GCM (AES256)      |無         |
+| 2 |AES256        |SHA1              |無         |
+| 3 |3DES          |SHA1              |無         |
+| 4 |AES256        |SHA256            |無         |
+| 5 |AES128        |SHA1              |無         |
+| 6 |3DES          |SHA256            |無         |
+| 7 |DES           |SHA1              |無         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -186,7 +186,7 @@ ms.locfileid: "73495797"
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |None         |
+| 22|AES128        |SHA256            |無         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

@@ -1,5 +1,6 @@
 ---
-title: 為您的 VPN 閘道設定 Always On VPN 使用者通道
+title: 設定 Always On VPN 使用者通道
+titleSuffix: Azure VPN Gateway
 description: 本文說明如何為您的 VPN 閘道設定 Always On VPN 使用者通道
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9aa1f951add5b79eab12f4957be05a42bbdd4434
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 099ed3c3c0ac2abe034388849385a45b44b32b34
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299919"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145944"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>設定 Always On VPN 使用者通道
 
@@ -22,7 +23,7 @@ Windows 10 VPN 用戶端 Always On 的新功能，就是維護 VPN 連線的能�
 
 Always On VPN 連線包含兩種通道類型之一：
 
-* **裝置**通道：在使用者登入裝置之前，連線到指定的 VPN 伺服器。 登入前的連線案例和裝置管理使用裝置通道。
+* **裝置**通道：在使用者登入裝置之前，會連線到指定的 VPN 伺服器。 登入前的連線案例和裝置管理使用裝置通道。
 
 * **使用者**通道：只有在使用者登入裝置之後，才會連線。 藉由使用使用者通道，您可以透過 VPN 伺服器存取組織資源。
 
@@ -30,11 +31,11 @@ Always On VPN 連線包含兩種通道類型之一：
 
 在下列各節中，您會設定 VPN 閘道和使用者通道。
 
-## <a name="step-1-configure-a-vpn-gateway"></a>步驟 1:設定 VPN 閘道
+## <a name="step-1-configure-a-vpn-gateway"></a>步驟1：設定 VPN 閘道
 
 您可以遵循此[點對站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)文章中的指示，將 VPN 閘道設定為使用 IKEv2 和憑證型驗證。
 
-## <a name="step-2-configure-a-user-tunnel"></a>步驟 2:設定使用者通道
+## <a name="step-2-configure-a-user-tunnel"></a>步驟2：設定使用者通道
 
 1. 在 Windows 10 用戶端上安裝用戶端憑證，如此[點對站 VPN 用戶端一](point-to-site-how-to-vpn-client-install-azure-cert.md)文所示。 憑證必須位於 [目前使用者] 存放區中。
 

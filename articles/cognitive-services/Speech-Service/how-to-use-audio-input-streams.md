@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: e00feed416eb3e06b703a2ef4fe040f0c815716e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464296"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109945"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>關於語音 SDK 音訊輸入資料流 API
 
-語音 SDK 的**音訊輸入資料流** API 提供將音訊資料流串流到辨識器中的方法，而不需使用麥克風或輸入檔 API。
+語音 SDK 的**音訊輸入資料流程**API 提供將音訊串流至辨識器的方式，而不是使用麥克風或輸入檔 api。
 
 使用音訊輸入資料流時，必須執行下列步驟：
 
@@ -29,7 +29,7 @@ ms.locfileid: "73464296"
 
   SDK 中用於建立音訊格式相對應程式碼看起來像這樣：
 
-  ```
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
   int samplesPerSecond = 16000;
@@ -40,7 +40,7 @@ ms.locfileid: "73464296"
 
 - 建立自己衍生自 `PullAudioInputStreamCallback` 的音訊輸入資料流類別。 實作`Read()` 和 `Close()` 成員。 確切的函式簽章視語言而定，但程式碼看起來類似此程式碼範例：
 
-  ```
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -59,9 +59,9 @@ ms.locfileid: "73464296"
    };
   ```
 
-- 根據您的音訊格式與輸入資料流建立音訊設定。 在建立自己的辨識器時，請傳入一般語音設定和音訊輸入設定。 例如：
+- 根據您的音訊格式與輸入資料流建立音訊設定。 在建立自己的辨識器時，請傳入一般語音設定和音訊輸入設定。 例如︰
 
-  ```
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);
@@ -75,5 +75,5 @@ ms.locfileid: "73464296"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)
+- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)

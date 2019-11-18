@@ -1,5 +1,5 @@
 ---
-title: 擴充管線中的自訂 Web API 技能
+title: 技能集中的自訂 Web API 技能
 titleSuffix: Azure Cognitive Search
 description: 藉由向外呼叫 Web Api 來擴充 Azure 認知搜尋技能集的功能。 使用自訂 Web API 技能來整合您的自訂程式碼。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466729"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113805"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure 認知搜尋擴充管線中的自訂 Web API 技能
 
@@ -34,9 +34,9 @@ Microsoft.Skills.Custom.WebApiSkill
 
 這些參數會區分大小寫。
 
-| 參數名稱     | 說明 |
+| 參數名稱     | 描述 |
 |--------------------|-------------|
-| uri | 要將_JSON_承載傳送至其中的 WEB API URI。 僅允許 **https** URI 配置 |
+| Uri | 要將_JSON_承載傳送至其中的 WEB API URI。 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
 | timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 [超時] 可以設定為最大值230秒，最小值為1秒。 |
@@ -203,6 +203,6 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="see-also"></a>另請參閱
 
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [如何定義技能集](cognitive-search-defining-skillset.md)
 + [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
 + [範例：建立 AI 擴充的自訂技能（認知-搜尋-建立-自訂技能-example.md）

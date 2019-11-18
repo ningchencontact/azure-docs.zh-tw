@@ -11,12 +11,12 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685335"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133156"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 
@@ -95,7 +95,7 @@ SQL 分析是一種向外延展系統，可以布建大量的計算和查詢相�
 >
 > 如果工作可以在計算節點之間分割，則查詢效能只會隨更多的平行處理增加。 如果您發現調整並未變更效能，則可能需要調整資料表設計和/或您的查詢。 如需查詢微調指引，請參閱[管理使用者查詢](sql-data-warehouse-overview-manage-user-queries.md)。
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 變更資料倉儲單位需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) 中所述的權限。
 
@@ -128,7 +128,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 2. 在 [調整] 下方，將滑桿向左或右移動來變更 DWU 設定。
 
-3. 按一下 [儲存]。 確認訊息隨即出現。 按一下 [是] 以確認或 [否] 以取消。
+3. 按一下 [檔案]。 確認訊息隨即出現。 按一下 [是] 以確認或 [否] 以取消。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -159,7 +159,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST API
 
-若要變更 DWU，請使用[建立或更新資料庫](/rest/api/sql/databases/createorupdate) REST API。 下列範例會將資料庫 MySQLDW 的服務層級目標設定為 DW1000，該資料庫會裝載在伺服器 MyServer 上。 此伺服器位於 ResourceGroup1 這個 Azure 資源群組。
+若要變更 DWU，請使用 [建立或更新資料庫](/rest/api/sql/databases/createorupdate) REST API。 下列範例會將資料庫 MySQLDW 的服務層級目標設定為 DW1000，該資料庫會裝載在伺服器 MyServer 上。 此伺服器位於 ResourceGroup1 這個 Azure 資源群組。
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -215,4 +215,4 @@ DWU 變更可能需要幾分鐘的時間才能完成。 如果正在進行自動
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解如何管理效能，請參閱[適用于工作負載管理的資源類別](resource-classes-for-workload-management.md)和 [記憶體和並行限制] 記憶體並行-limits.md）。
+若要深入了解管理效能，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)和[記憶體和並行存取限制](memory-concurrency-limits.md)。

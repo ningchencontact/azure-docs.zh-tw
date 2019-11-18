@@ -1,5 +1,5 @@
 ---
-title: 如何：指定語音轉換文字的來來源語言-語音服務
+title: 如何指定語音轉換文字的來來源語言
 titleSuffix: Azure Cognitive Services
 description: 語音 SDK 可讓您在將語音轉換成文字時，指定來源語言。 本文說明如何使用 FromConfig 和 SourceLanguageConfig 方法，讓語音服務知道來源語言，並提供自訂模型目標。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3c2503d2f341b4cdf90f7f7690fed897412a9614
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500864"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109948"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>指定語音轉換文字的來來源語言
 

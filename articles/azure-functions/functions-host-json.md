@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575885"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129061"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -48,6 +48,10 @@ ms.locfileid: "73575885"
         "queues": {},
         "sendGrid": {},
         "serviceBus": {}
+    },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -111,7 +115,7 @@ ms.locfileid: "73575885"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|20|取樣的開始臨界值。| 
@@ -134,6 +138,12 @@ ms.locfileid: "73575885"
 ## <a name="extensions"></a>擴充功能
 
 傳回包含所有繫結特定設定 (例如 [http](#http) 和 [eventHub](#eventhub)) 之物件的屬性。
+
+## <a name="extensionbundle"></a>extensionBundle 
+
+擴充功能套件可讓您將一組相容的函式系結延伸模組，新增至函式應用程式。 若要深入瞭解，請參閱[本機開發的延伸](functions-bindings-register.md#extension-bundles)模組組合。
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 ## <a name="functions"></a>functions
 
@@ -172,9 +182,9 @@ ms.locfileid: "73575885"
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|已啟用|true|指定是否已啟用此功能。 | 
+|啟用|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -204,7 +214,7 @@ ms.locfileid: "73575885"
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
@@ -227,7 +237,7 @@ ms.locfileid: "73575885"
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |isEnabled|false|啟用或停用主控台記錄。| 
 
@@ -271,7 +281,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 

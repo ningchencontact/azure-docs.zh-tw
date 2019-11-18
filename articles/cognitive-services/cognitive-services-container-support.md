@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: 958acd042acba2a8c6c38ad1e6bac614db509da8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2b6118930626ce753060addcf64c568c7c086efb
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604430"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091236"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -29,26 +29,27 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 > * [Language Understanding (LUIS)][lu-containers]
 > * [語音服務 API][sp-containers]
 > * [文字分析][ta-containers]
-> * [翻譯工具文字][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
-容器化是散發軟體的方法，它會將應用程式或服務 (包括其相依性及設定) 一起封裝成容器映像。 在只需要小幅修改或不修改的情況下，便可將容器映像部署在容器主機上。 容器之間會彼此隔離，也會與基礎作業系統隔離，這使其磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
+容器化是散發軟體的方法，它會將應用程式或服務 (包括其相依性及設定) 一起封裝成容器映像。 在只需要小幅修改或不修改的情況下，便可將容器映像部署在容器主機上。 容器之間會彼此隔離，也會與基礎作業系統隔離，這使其磁碟使用量比虛擬機器更小。 容器可以從容器將映像具現化以進行短期工作，並於不再需要時移除。
 
 [Microsoft Azure](https://azure.microsoft.com)上提供認知服務資源。 請登入 [Azure 入口網站](https://portal.azure.com/)以建立並探索適用於這些服務的 Azure 資源。
 
 ## <a name="features-and-benefits"></a>功能與優點
 
+- **不可變的基礎結構**：讓 DevOps 小組能夠運用一組一致且可靠的已知系統參數，同時也能適應變更。 容器提供彈性，可在可預測的生態系統內進行資料透視，並避免設定漂移。
 - **控制資料**：允許客戶選擇這些認知服務處理其資料的位置。 這對於無法將資料傳送到雲端，但需要存取認知服務技術的客戶來說，這是不可或缺的。 支援混合式環境中的一致性，橫跨資料、管理、身分識別及安全性。
 - **對模型更新的控制**：為客戶針對部署於其解決方案中的模型，提供版本控制和更新上的彈性。
 - **可移植的架構**：啟用可移植的應用程式架構，以部署在 Azure、內部部署和邊緣上。 您可以將容器直接部署至 [Azure Kubernetes Service](../aks/index.yml)、[Azure 容器執行個體](../container-instances/index.yml)，或是已部署至 [Azure Stack](https://kubernetes.io/) 的 [Kubernetes](/azure-stack/operator) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
-- **高輸送量/低延遲**：讓客戶能夠針對高輸送量和低延遲需求進行調整，方法是讓認知服務實際地靠近其應用程式邏輯和資料執行。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。 
+- **高輸送量/低延遲**：讓客戶能夠針對高輸送量和低延遲需求進行調整，方法是讓認知服務實際地靠近其應用程式邏輯和資料執行。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。
+- 擴充**性**：隨著容器化和容器協調流程軟體的熱門普及，例如 Kubernetes;擴充性是技術進步的 forefront。 以可擴充的 cluster foundation 為基礎，應用程式開發已經考慮高可用性。
 
 ## <a name="containers-in-azure-cognitive-services"></a>Azure 認知服務中的容器
 
 Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包含 Azure 認知服務中服務之功能的子集：
 
-| 服務 | 支援的定價層 | 容器 | 說明 |
+| 服務 | 支援的定價層 | 容器 | 描述 |
 |---------|----------|----------|-------------|
 |[異常偵測器][ad-containers] |F0，S0|**異常-偵測器** |Anomaly Detector API 可讓您透過機器學習，監視和偵測時間序列資料中的異常狀況。<br>[要求存取](https://aka.ms/adcontainer)|
 |[電腦視覺][cv-containers] |F0，S1|**讀取** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。 讀取容器也會偵測影像中的*手寫文字*，並提供 PDF/TIFF/多頁支援。<br/><br/>**重要事項：** 讀取容器目前僅適用于英文。|
@@ -62,7 +63,6 @@ Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包
 |[文字分析][ta-containers] |F0、S|**關鍵片語擷取** ([影像](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |擷取關鍵片語來識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 |
 |[文字分析][ta-containers]|F0、S|**語言偵測** ([影像](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 |
 |[文字分析][ta-containers]|F0、S|**情感分析** ([影像](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型的。 針對[選取的語言](./text-analytics/language-support.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
-|[翻譯工具文字][tt-containers]| **N/A** | **翻譯工具文字** | 翻譯工具文字是雲端式機器翻譯服務，可讓您透過 REST API 呼叫，近乎即時地翻譯文字。<br>[要求存取](https://aka.ms/translatorcontainerform) |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -86,11 +86,10 @@ Azure 認知服務容器可透過您的 Azure 訂用帳戶公開取得，而 Doc
 > * [表單辨識器](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [讀取](computer-vision/computer-vision-how-to-install-containers.md)
 > * [語音轉換文字和文字轉換語音](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
-> * [翻譯工具文字](translator/how-to-install-containers.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須滿足下列必要條件才能使用 Azure 認知服務容器：
 
@@ -121,7 +120,6 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 * [Language Understanding （LUIS）容器][lu-containers]
 * [語音服務 API 容器][sp-containers]
 * [文字分析容器][ta-containers]
-* [翻譯工具文字容器][tt-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -137,4 +135,3 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-[tt-containers]: translator/how-to-install-containers.md

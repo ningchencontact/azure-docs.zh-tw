@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/09/2019
-ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/14/2019
+ms.openlocfilehash: 3ab3164db7702566e62b2eedf2a9a03e9f7fb55c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553812"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109146"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>啟用適用於 VM 的 Azure 監視器（預覽）以進行評估
 
@@ -33,7 +33,7 @@ ms.locfileid: "72553812"
 
 1. 在 [Insights (預覽)] 頁面上，選取 [立即試用]。
 
-    ![為 VM 啟用適用於 VM 的 Azure 監視器](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![為 VM 啟用適用於 VM 的 Azure 監視器](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 1. 在 [將 Azure 監視器 Insights 上線] 頁面上，如果您目前在同一個訂用帳戶中有 Log Analytics 工作區，請在下拉式清單中選取它。  
 
@@ -62,7 +62,7 @@ ms.locfileid: "72553812"
 
     此清單會會預先選取訂用帳戶中部署 VM 的預設工作區和位置。 
 
-    ![啟用虛擬機器擴展集的適用於 VM 的 Azure 監視器](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![啟用虛擬機器擴展集的適用於 VM 的 Azure 監視器](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal.png)
 
     >[!NOTE]
     >若要建立新的 Log Analytics 工作區以儲存來自虛擬機器擴展集的監視資料，請參閱[建立 Log analytics 工作區](../learn/quick-create-workspace.md)。 您的 Log Analytics 工作區必須屬於其中一個[支援的區域](vminsights-enable-overview.md#log-analytics)。
@@ -78,6 +78,5 @@ ms.locfileid: "72553812"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要瞭解如何使用健康情況功能，請參閱[瞭解 Azure 監視器 vm 的健全狀況](vminsights-health.md)。 
 * 若要查看探索到的應用程式相依性，請參閱[使用適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。 
 * 若要找出瓶頸、整體使用率和 VM 的效能，請參閱[查看 AZURE VM 效能](vminsights-performance.md)。

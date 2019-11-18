@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d2f4dbcaf593cb52cb4b101e0c087179d3fd48b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496976"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123563"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>將模型部署到 Azure 容器實例
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "73496976"
 
 如需有關 ACI 配額和區域可用性的詳細資訊，請參閱[Azure 容器實例的配額和區域可用性](https://docs.microsoft.com/azure/container-instances/container-instances-quotas)一文。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
@@ -37,8 +37,8 @@ ms.locfileid: "73496976"
 
 - 本文中的__Python__程式碼片段假設已設定下列變數：
 
-    * `ws`-設定為您的工作區。
-    * `model`-設定為您已註冊的模型。
+    * `ws`-設定至您的工作區。
+    * `model`-設定為您的已註冊模型。
     * `inference_config`-設為模型的推斷設定。
 
     如需有關設定這些變數的詳細資訊，請參閱[如何和在何處部署模型](how-to-deploy-and-where.md)。
@@ -64,12 +64,12 @@ print(service.state)
 如需此範例中使用之類別、方法和參數的詳細資訊，請參閱下列參考檔：
 
 * [AciWebservice。 deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-)
-* [模型。部署](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
+* [模型。部署](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>使用 CLI
 
-若要使用 CLI 進行部署，請使用下列命令。 以已註冊模型的名稱和版本取代 `mymodel:1`。 以提供此服務的名稱取代 `myservice`：
+若要使用 CLI 進行部署，請使用下列命令。 將 `mymodel:1` 取代為已註冊模型的名稱和版本。 以名稱取代 `myservice` 以授與此服務：
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json

@@ -1,5 +1,5 @@
 ---
-title: 撰寫和執行時間金鑰-LUIS
+title: 如何搭配 LUIS 使用撰寫和執行時間金鑰
 titleSuffix: Azure Cognitive Services
 description: LUIS 使用兩個金鑰，也就是撰寫金鑰來建立您的模型和執行時間索引鍵，以使用使用者語句查詢預測端點。
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487495"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901693"
 ---
-# <a name="authoring-and-runtime-keys"></a>撰寫和執行時間金鑰
+# <a name="authoring-and-runtime-keys"></a>撰寫和執行階段金鑰
 
 Language Understanding （LUIS）有兩個服務和 API 集： 
 
@@ -123,9 +123,9 @@ LUIS 執行時間端點接受兩種查詢樣式，兩者都使用預測端點執
 |匯入版本||
 |將應用程式設定為公用|當應用程式為公用時，任何具有撰寫或端點金鑰的使用者都可查詢該應用程式。|
 |修改模型|
-|發佈|
+|Publish|
 |檢閱用於[主動式學習](luis-how-to-review-endpoint-utterances.md)的端點語句|
-|定型|
+|訓練|
 
 <a name="prediction-endpoint-runtime-key"></a>
 

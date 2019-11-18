@@ -1,7 +1,7 @@
 ---
 title: 如何篩選搜尋結果 - Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
-description: 了解如何從 Bing Web 搜尋 API 顯示篩選和搜尋結果。
+description: 您可以使用 ' responseFilter ' 查詢參數來篩選 Bing 包含在回應中的答案類型（例如影像、影片和新聞）。
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626010"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111425"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>篩選搜尋回應所包含的答案  
 
@@ -47,13 +47,13 @@ ms.locfileid: "67626010"
 
 ## <a name="query-parameters"></a>查詢參數
 
-若要篩選傳回的 Bing 解答，請使用以下查詢參數呼叫 API 時。  
+若要篩選 Bing 傳回的答案，請在呼叫 API 時使用下列查詢參數。  
 
 ### <a name="responsefilter"></a>ResponseFilter
 
-您可以使用，以篩選類型的回應 （例如影像、 影片和新聞） 中包含的 Bing 解答[responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)查詢參數，也就是答案的逗號分隔清單。 回應將包含在回應中，如果 Bing 找到它的相關內容。 
+您可以使用[responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)查詢參數（以逗號分隔的答案清單）來篩選 Bing 在回應中包含的答案類型（例如影像、影片和新聞）。 如果 Bing 找到相關內容，回應就會包含在回應中。 
 
-若要排除的回應，例如影像中的特定解答，請在前面加上`-`答案類型字元。 例如:
+若要從回應中排除特定答案（例如影像），請在答案類型前面加上 `-` 字元。 例如︰
 
 ```
 &responseFilter=-images,-videos
@@ -102,7 +102,7 @@ Host: api.cognitive.microsoft.com
 
 ### <a name="site"></a>網站
 
-若要取得特定網域中的搜尋結果，包括`site:`查詢的查詢字串中的參數。  
+若要從特定網域取得搜尋結果，請在查詢字串中包含 `site:` 查詢參數。  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -113,25 +113,25 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 
 ### <a name="freshness"></a>更新時間
 
-若要限制在特定期間探索到的 Bing 的網頁的 web 回應結果，請設定[有效期限](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness)查詢下列的不區分大小寫值的其中一個參數：
+若要將 web 回應結果限制在特定期間內 Bing 發現的網頁，請將 [[時效性](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness)查詢參數] 設定為下列其中一個不區分大小寫值：
 
-* `Day` -傳回過去 24 小時內探索到的 Bing 的網頁
-* `Week` -傳回在過去 7 天內探索到的 Bing 的網頁
-* `Month` -傳回過去 30 天內探索到的網頁
+* `Day`-傳回 Bing 在過去24小時內探索到的網頁
+* `Week`-傳回在過去7天內 Bing 探索到的網頁
+* `Month`-傳回在過去30天內探索到的網頁
 
-您也可以設定此參數，以在表單中，自訂日期範圍`YYYY-MM-DD..YYYY-MM-DD`。 
+您也可以將此參數設定為表單中的自訂日期範圍，`YYYY-MM-DD..YYYY-MM-DD`。 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
-若要將結果限制為單一的日期，有效期限將參數設定為特定的日期：
+若要將結果限制為單一日期，請將 [時效性] 參數設定為特定日期：
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
 
-結果可能包含比對您的篩選準則的 Bing 的網頁數目是否小於您要求的網頁 （或 Bing 會傳回預設數字） 的數目超出一段指定的網頁。
+如果 Bing 符合篩選準則的網頁數目小於您要求的網頁數目（或 Bing 傳回的預設號碼），結果可能會包含超出指定期間的網頁。
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>限制回應中的答案數目
 
-Bing 可以 JSON 回應中傳回多個回應類型。 例如，如果您查詢*sailing + dinghies*，Bing 可能會傳回`webpages`， `images`， `videos`，和`relatedSearches`。
+Bing 可以在 JSON 回應中傳回多個答案類型。 例如，如果您查詢*sailing + dinghies*，Bing 可能會傳回 `webpages`、`images`、`videos`和 `relatedSearches`。
 
 ```json
 {
@@ -219,4 +219,4 @@ Host: api.cognitive.microsoft.com
 
 您想要提升的答案不會計入 `answerCount` 限制。 例如，如果已設為順位的答案為 news、images 及 videos，而且您將 `answerCount` 設為 1 並將 `promote` 設為 news，回應就會包含 news 和 images。 或者，如果已設為順位的答案為 videos、images 及 news，則回應會包含 videos 和 news。
 
-只有當您指定 `answerCount` 查詢參數時，才能使用 `promote`。
+只有當您指定 `promote` 查詢參數時，才能使用 `answerCount`。

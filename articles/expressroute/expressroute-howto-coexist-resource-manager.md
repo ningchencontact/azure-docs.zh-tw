@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: e25d6ff0bf0c27926040fcfe190724a666713a05
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 84c4d466a820616b8f8dfa69cfa149cb86006f49
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031755"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132865"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 設定 ExpressRoute 和站對站並存連線
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.locfileid: "74031755"
 ## <a name="limits-and-limitations"></a>限制
 * **不支援傳輸路由。** 您無法在透過站對站 VPN 連線的區域網路與透過 ExpressRoute 連線的區域網路之間，進行路由傳送 (透過 Azure)。
 * **不支援基本 SKU 閘道。** 您必須對 [ExpressRoute 閘道](expressroute-about-virtual-network-gateways.md)和 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)使用非基本 SKU 閘道。
-* **僅支援路由式 VPN 閘道。** 您必須使用路由式 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
+* **僅支援路由式 VPN 閘道。** 您必須使用以路由為基礎的[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 您也可以使用路由式 VPN 閘道，並針對 [以原則為基礎的流量選取器] 設定 VPN 連線，如連線[到多個原則式 vpn 裝置](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)中所述。
 * **應該為 VPN 閘道設定靜態路由。** 如果您的區域網路連線到 ExpressRoute 和站對站 VPN，您必須在區域網路中設定靜態路由，才能將站對站 VPN 連線路由傳送到公用網際網路。
 * **VPN 閘道若未指定會預設為 ASN 65515。** Azure VPN 閘道支援 BGP 路由通訊協定。 您可以加入 -Asn 參數，為虛擬網路指定 ASN (AS 號碼)。 若未指定此參數，預設 AS 號碼將是 65515。 您可以在組態中使用任何 ASN，但若選取 65515 以外的值，則必須重設閘道，設定才會生效。
 

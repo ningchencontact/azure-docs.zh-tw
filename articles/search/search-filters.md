@@ -1,5 +1,5 @@
 ---
-title: 在索引中設定搜尋結果範圍的篩選準則
+title: 篩選搜尋結果
 titleSuffix: Azure Cognitive Search
 description: 依使用者安全性身分識別、語言、地理位置或數值進行篩選，以減少 Azure 認知搜尋（Microsoft Azure 上託管的雲端搜尋服務）中查詢的搜尋結果。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 960f6f0de94c6bb4fc6b03c31740b63270cf9e14
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792866"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132921"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure 認知搜尋中的篩選 
 
@@ -157,7 +157,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ### <a name="approaches-for-filtering-on-text"></a>篩選文字的方法
 
-| 方法 | 描述 | When to use |
+| 方法 | 描述 | 使用時機 |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | 符合欄位的函式，可針對字串的分隔清單。 | 建議用於[安全性篩選](search-security-trimming-for-azure-search.md)和任何篩選準則，其中有許多原始文字值需要與字串欄位相符。 **Search.in**函數是針對速度而設計的，比使用 `eq` 和 `or`，針對每個字串明確地比較欄位更快。 | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 | 當您想要在一個要求中有多個搜尋篩選器組合時，請使用**ismatch** （或其評分對等的**ismatchscoring**）。 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 若要使用更多範例，請參閱 [OData 篩選條件運算式語法 > 範例](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) \(英文\)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [全文檢索搜尋在 Azure 認知搜尋中的運作方式](search-lucene-query-architecture.md)
 + [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

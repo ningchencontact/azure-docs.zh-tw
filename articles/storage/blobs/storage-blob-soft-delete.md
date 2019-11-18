@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f53bf023346c4f494de5ab50e8beb185d9f97c91
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882647"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113723"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 
@@ -41,7 +41,7 @@ Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用�
 
 虛刪除會在 Blob 或 Blob 快照集遭到刪除或覆寫的多種情況下保存您的資料。
 
-在使用**放置 Blob**、**放置區塊**、**放置區塊清單**或**複製 Blob** 覆寫 Blob 時，將會自動產生該 Blob 在寫入作業之前所處狀態的快照集。 此快照集是虛刪除快照集；除非明確列出虛刪除的物件，否則看不見此快照集。 請參閱[復原](#recovery)一節，以了解如何列出虛刪除的物件。
+使用**放置 blob**、**放置區塊**、**放置區塊清單**或**複製 blob**覆寫 blob 時，會自動產生該 blob 在寫入作業之前所處狀態的快照集。 此快照集是虛刪除快照集；除非明確列出虛刪除的物件，否則看不見此快照集。 請參閱[復原](#recovery)一節，以了解如何列出虛刪除的物件。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -76,12 +76,12 @@ Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用�
 |--------------------|---------------|-------------|--------------------|
 | [刪除](/rest/api/storagerp/StorageAccounts/Delete) | 帳戶 | 刪除儲存體帳戶，包括其中包含的所有容器和 Blob。                           | 無變更。 已刪除之帳戶中的容器和 Blob 無法復原。 |
 | [刪除容器](/rest/api/storageservices/delete-container) | 容器 | 刪除容器，包括其中包含的所有 Blob。 | 無變更。 已刪除之容器中的 Blob 無法復原。 |
-| [Put Blob](/rest/api/storageservices/put-blob) \(英文\) | 區塊、附加和分頁 Blob | 建立新的 Blob，或取代容器內現有的 Blob | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 若且唯若以同類型 (區塊、附加或分頁) 的 Blob 取代先前已虛刪除的 Blob，則也會產生前述的快照集。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
+| [Put Blob](/rest/api/storageservices/put-blob) \(英文\) | 區塊、附加和分頁 Blob | 建立新的 Blob，或取代容器內現有的 Blob | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 這也適用于先前已虛刪除的 blob，但只有在已由相同類型（區塊、附加或分頁）的 blob 取代時。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
 | [刪除 Blob](/rest/api/storageservices/delete-blob) | 區塊、附加和分頁 Blob | 將 Blob 或 Blob 快照集標示為要刪除。 Blob 或快照集會在後續的記憶體回收期間刪除 | 如果用來刪除 Blob 快照集，該快照集將會標示為已虛刪除。 如果用來刪除 Blob，該 Blob 將會標示為已虛刪除。 |
-| [複製 Blob](/rest/api/storageservices/copy-blob) | 區塊、附加和分頁 Blob | 將來源 Blob 複製到相同儲存體帳戶或其他儲存體帳戶中的目的地 Blob。 | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 若且唯若以同類型 (區塊、附加或分頁) 的 Blob 取代先前已虛刪除的 Blob，則也會產生前述的快照集。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
-| [放置區塊](/rest/api/storageservices/put-block) | 區塊 Blob | 建立要認可作為區塊 Blob 一部分的新區塊。 | 如果用來將區塊認可為作用中 Blob 的區塊，則沒有任何變更。 如果用來認可區塊，且其目標 Blob 已虛刪除，則會建立新的 Blob，並自動產生快照集，以擷取已虛刪除之 Blob 的狀態。 |
+| [複製 Blob](/rest/api/storageservices/copy-blob) | 區塊、附加和分頁 Blob | 將來源 Blob 複製到相同儲存體帳戶或其他儲存體帳戶中的目的地 Blob。 | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 這也適用于先前已虛刪除的 blob，但只有在已由相同類型（區塊、附加或分頁）的 blob 取代時。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
+| [放置區塊](/rest/api/storageservices/put-block) | 區塊 Blob | 建立要認可作為區塊 Blob 一部分的新區塊。 | 如果用來認可區塊至作用中的 blob，則不會有任何變更。 如果用來認可區塊，且其目標 Blob 已虛刪除，則會建立新的 Blob，並自動產生快照集，以擷取已虛刪除之 Blob 的狀態。 |
 | [Put Block List](/rest/api/storageservices/put-block-list) \(英文\) | 區塊 Blob | 藉由指定包含區塊 Blob 的區塊集識別碼來認可 Blob。 | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 先前已虛刪除的 Blob 若是區塊 Blob (這也是唯一前提)，也會產生前述的快照集。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
-| [放置頁面](/rest/api/storageservices/put-page) | Page Blobs | 將某範圍的頁面寫入分頁 Blob。 | 無變更。 使用此作業覆寫或清除的分頁 Blob 資料並不會儲存，且無法復原。 |
+| [放置頁面](/rest/api/storageservices/put-page) | 分頁 Blob | 將某範圍的頁面寫入分頁 Blob。 | 無變更。 使用此作業覆寫或清除的分頁 Blob 資料並不會儲存，且無法復原。 |
 | [附加區塊](/rest/api/storageservices/append-block) | 附加 Blob | 將資料區塊寫入至附加 Blob 結尾 | 無變更。 |
 | [Set Blob Properties](/rest/api/storageservices/set-blob-properties) \(英文\) | 區塊、附加和分頁 Blob | 設定為 Blob 定義之系統屬性的值。 | 無變更。 覆寫的 Blob 屬性無法復原。 |
 | [設定 Blob 中繼資料](/rest/api/storageservices/set-blob-metadata) | 區塊、附加和分頁 Blob | 將指定 Blob 的使用者定義中繼資料設為一或多個名稱/值配對。 | 無變更。 覆寫的 Blob 中繼資料無法復原。 |
@@ -293,9 +293,9 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>使用虛刪除是否有任何特殊考慮？
+## <a name="special-considerations"></a>特殊考量
 
-如果應用程式或其他儲存體帳戶使用者意外地修改或刪除您的資料，建議您開啟虛刪除。 為經常覆寫的資料啟用虛刪除，可能會導致儲存體容量費用增加，並在列出 blob 時增加延遲。 您可以藉由將經常覆寫的資料儲存在已停用虛刪除的個別儲存體帳戶中，以減輕這項額外成本。 
+如果應用程式或其他儲存體帳戶使用者意外地修改或刪除您的資料，建議您開啟虛刪除。 為經常覆寫的資料啟用虛刪除，可能會導致儲存體容量費用增加，並在列出 blob 時增加延遲。 您可以藉由將經常覆寫的資料儲存在已停用虛刪除的個別儲存體帳戶中，以減輕這項額外的成本和延遲。 
 
 ## <a name="faq"></a>常見問題集
 
@@ -309,11 +309,11 @@ blockBlob.StartCopy(copySource);
 
 ### <a name="is-soft-delete-available-for-all-storage-tiers"></a>虛刪除是否適用于所有儲存層？
 
-是，虛刪除適用於所有儲存層，包括經常性儲存層、非經常性儲存層和封存層。 不過，虛刪除不會為封存層中的 Blob 提供覆寫保護。
+是，虛刪除適用于所有儲存層，包括經常性存取、非經常性存取和封存。 不過，虛刪除不會為封存層中的 Blob 提供覆寫保護。
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>我可以使用設定 Blob 層 API 將 blob 與已虛刪除的快照集分層嗎？
 
-可以。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
+是。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
 
 ### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>Premium 儲存體帳戶的每個 blob 快照集限制為100。 虛刪除的快照集會計入此限制嗎？
 

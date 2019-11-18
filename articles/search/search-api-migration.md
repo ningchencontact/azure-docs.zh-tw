@@ -1,5 +1,5 @@
 ---
-title: 升級至最新的 Azure 認知搜尋服務 REST API 版本
+title: 升級 REST API 版本
 titleSuffix: Azure Cognitive Search
 description: 審查 API 版本的差異，並瞭解將現有的程式碼遷移至最新的 Azure 認知搜尋服務 REST API 版本所需的動作。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9bffb41cce030b7a63e600e5ffaf65130261b4c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: edb45eebc2c4eacc2f30d13988943f097a7190fa
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791163"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112163"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>升級至最新的 Azure 認知搜尋服務 REST API 版本
 
@@ -66,7 +66,7 @@ ms.locfileid: "72791163"
 
 * 您的程式碼在 API 回應中傳回無法辨認的屬性時失敗。 您的應用程式預設應該會略過不了解的屬性。
 
-* 您的程式碼仍然存在 API 要求，並嘗試將它們重新傳送給新的 API 版本。 例如，發生原因可能是您的應用程式持續保存搜尋服務 API 所傳回的接續 Token (如需詳細資訊，請在[搜尋服務 API 參考](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)) 中查找 `@search.nextPageParameters`。
+* 您的程式碼仍然存在 API 要求，並嘗試將它們重新傳送給新的 API 版本。 例如，發生原因可能是您的應用程式持續保存搜尋服務 API 所傳回的接續 Token (如需詳細資訊，請在`@search.nextPageParameters`搜尋服務 API 參考[) 中查找 ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
 
 如果下列其中一種情況適用您的情況，您可能需要據此變更程式碼。 否則，除非您想要開始使用版本2019-05-06 的[新功能](#WhatsNew)，否則不需要進行任何變更。
 

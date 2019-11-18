@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606664"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132429"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>在 Azure 中選擇正確的 MySQL 伺服器選項
 
@@ -38,7 +38,7 @@ ms.locfileid: "73606664"
 | MySQL 修補     | 自動  | 由客戶管理 |
 | 高可用性 | 高可用性（HA）模型是根據發生節點層級中斷時的內建容錯移轉機制。 在這種情況下，服務會自動建立新的實例，並將儲存體附加至這個實例。 | 客戶架構設計、實施、測試及維護高可用性。 功能可能包括 always on 容錯移轉叢集、always on 群組複寫、記錄傳送或異動複寫。|
 | 區域備援 | 目前不支援 | Azure Vm 可設定為在不同的可用性區域中執行。 針對內部部署解決方案，客戶必須建立、管理及維護自己的次要資料中心。|
-| 混合式案例 | 使用[資料](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)輸入複寫時，您可以將外部 MySQL 伺服器的資料同步處理到適用於 MySQL 的 Azure 資料庫服務。 外部伺服器可以位於內部部署環境、虛擬機器中或其他雲端提供者所裝載的資料庫服務內。<br/><br/> 使用 [[讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)] 功能，您可以將資料從適用於 MySQL 的 Azure 資料庫主伺服器複寫到最多五部唯讀複本伺服器。 複本位於相同的 Azure 區域內或跨區域。 唯讀複本會使用 binlog 複寫技術以非同步方式更新。| 由客戶管理
+| 混合式案例 | 使用[資料](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)輸入複寫時，您可以將外部 MySQL 伺服器的資料同步處理到適用於 MySQL 的 Azure 資料庫服務。 外部伺服器可以位於內部部署環境、虛擬機器中或其他雲端提供者所裝載的資料庫服務內。<br/><br/> 使用 [[讀取複本](https://docs.microsoft.com/azure/mysql/concepts-read-replicas)] 功能，您可以將資料從適用於 MySQL 的 Azure 資料庫主伺服器複寫到最多五部唯讀複本伺服器。 複本位於相同的 Azure 區域內或跨區域。 唯讀複本會使用 binlog 複寫技術以非同步方式更新。| 由客戶管理
 | 備份與還原 | 會自動建立[伺服器備份](https://docs.microsoft.com/azure/mysql/concepts-backup#backups)，並將它們儲存在使用者設定的儲存體中，這可能是本機的冗余或異地多餘的。 此服務會取得完整、差異和交易記錄備份 | 由客戶管理 |
 | 監視資料庫作業 | 讓客戶能夠設定資料庫作業的[警示](https://docs.microsoft.com/azure/mysql/concepts-monitoring)，並在達到臨界值時採取行動。 | 由客戶管理 |
 | 進階威脅防護 | 提供[先進的威脅防護](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal)。 這種保護會偵測異常活動，指出不尋常且可能有害的存取或惡意探索資料庫嘗試。 | 客戶必須自行建立此保護。
@@ -85,7 +85,7 @@ ms.locfileid: "73606664"
   - 索引微調
   - 查詢微調
   - 稽核
-  - 安全性
+  - Security
 
   此外，將高可用性設定為另一個資料中心，幾乎不需要進行任何設定或管理。
 

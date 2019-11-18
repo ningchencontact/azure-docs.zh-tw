@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
-ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/15/2019
+ms.openlocfilehash: ab3667d79827e9548338b5beda00c9992f100deb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821780"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132412"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -63,16 +63,17 @@ ms.locfileid: "73821780"
 
 | 監視資料庫的遙測 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
 | :------------------- | ----- | ----- |
-| [基本計量](#basic-metrics)：包含 DTU/cpu 百分比、DTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆連線、會話百分比、背景工作百分比、儲存體、儲存體百分比和 XTP儲存體百分比。 | 是 | 否 |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含查詢執行時間統計資料的相關資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含查詢等候統計資料的相關資訊（您的查詢等候的時間），例如 CPU、記錄和鎖定。 | 是 | 是 |
-| [錯誤](#errors-dataset)：包含有關資料庫上 SQL 錯誤的資訊。 | 是 | 是 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | 是 | 否 |
-| [超時](#time-outs-dataset)：包含資料庫上之超時的相關資訊。 | 是 | 否 |
-| [封鎖](#blockings-dataset)：包含有關資料庫上封鎖事件的資訊。 | 是 | 否 |
-| [鎖死](#deadlocks-dataset)：包含有關資料庫上之鎖死事件的資訊。 | 是 | 否 |
-| [AutomaticTuning](#automatic-tuning-dataset)：包含資料庫之自動調整建議的相關資訊。 | 是 | 否 |
-| [SQLInsights](#intelligent-insights-dataset)：包含資料庫的效能 Intelligent Insights。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
+| [基本計量](#basic-metrics)：包含 DTU/cpu 百分比、DTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆連線、會話百分比、背景工作百分比、儲存體、儲存體百分比和 XTP儲存體百分比。 | yes | 否 |
+| [實例和應用程式 Advanced](#advanced-metrics)：包含 tempdb 系統資料庫資料和記錄檔大小，以及所使用的 tempdb 百分比記錄檔。 | yes | 否 |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含查詢執行時間統計資料的相關資訊，例如 CPU 使用率和查詢持續時間統計資料。 | yes | yes |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含查詢等候統計資料的相關資訊（您的查詢等候的時間），例如 CPU、記錄和鎖定。 | yes | yes |
+| [錯誤](#errors-dataset)：包含有關資料庫上 SQL 錯誤的資訊。 | yes | yes |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | yes | 否 |
+| [超時](#time-outs-dataset)：包含資料庫上之超時的相關資訊。 | yes | 否 |
+| [封鎖](#blockings-dataset)：包含有關資料庫上封鎖事件的資訊。 | yes | 否 |
+| [鎖死](#deadlocks-dataset)：包含有關資料庫上之鎖死事件的資訊。 | yes | 否 |
+| [AutomaticTuning](#automatic-tuning-dataset)：包含資料庫之自動調整建議的相關資訊。 | yes | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：包含資料庫的效能 Intelligent Insights。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | yes | yes |
 
 > [!IMPORTANT]
 > 彈性集區和受控實例有自己的個別診斷遙測，其來自其所包含的資料庫。 這一點很重要，因為診斷遙測會針對每個資源分別設定，如下所述。
@@ -429,18 +430,28 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |---|---|
 |Azure SQL 資料庫|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
 
+## <a name="advanced-metrics"></a>Advanced 計量
+
+如需有關 advanced 計量的詳細資訊，請參閱下表。
+
+|**計量**|**計量顯示名稱**|**描述**|
+|---|---|---|
+|tempdb_data_size| Tempdb 資料檔案大小 Kb |Tempdb 資料檔案大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。 |
+|tempdb_log_size| Tempdb 記錄檔大小 Kb |Tempdb 記錄檔大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。 |
+|tempdb_log_used_percent| 使用的 Tempdb 百分比記錄 |使用的 Tempdb 百分比記錄。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。 |
+
 ## <a name="basic-logs"></a>基本記錄
 
 適用于所有記錄的遙測詳細資料記載于下表中。 請參閱[支援的診斷記錄](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases)，以瞭解特定資料庫類別支援哪些記錄-Azure SQL 單一、集區或實例資料庫。
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>受控實例的資源使用狀況統計資料
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure|
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：ResourceUsageStats |
 |資源|資源名稱 |
@@ -460,12 +471,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-runtime-statistics"></a>查詢存放區執行階段統計資料
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：QueryStoreRuntimeStatistics |
 |OperationName|作業名稱。 一律：QueryStoreRuntimeStatisticsEvent |
@@ -511,12 +522,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-wait-statistics"></a>查詢存放區等候統計資料
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：QueryStoreWaitStatistics |
 |OperationName|作業名稱。 一律：QueryStoreWaitStatisticsEvent |
@@ -549,12 +560,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="errors-dataset"></a>錯誤資料集
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Errors |
 |OperationName|作業名稱。 一律：ErrorEvent |
@@ -569,7 +580,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |訊息|純文字的錯誤訊息 |
 |user_defined_b|錯誤是否為使用者定義的位元 |
 |error_number_d|錯誤碼 |
-|嚴重性|錯誤的嚴重性 |
+|Severity|錯誤的嚴重性 |
 |state_d|錯誤的狀態 |
 |query_hash_s|失敗查詢的查詢雜湊 (如果有) |
 |query_plan_hash_s|失敗查詢的查詢計劃雜湊 (如果有) |
@@ -578,12 +589,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="database-wait-statistics-dataset"></a>資料庫等候統計資料資料集
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：DatabaseWaitStatistics |
 |OperationName|作業名稱。 一律：DatabaseWaitStatisticsEvent |
@@ -607,12 +618,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="time-outs-dataset"></a>逾時資料集
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Timeouts |
 |OperationName|作業名稱。 一律：TimeoutEvent |
@@ -630,12 +641,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="blockings-dataset"></a>封鎖資料集
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Blocks |
 |OperationName|作業名稱。 一律：BlockEvent |
@@ -654,12 +665,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="deadlocks-dataset"></a>死結 (Deadlock) 資料集
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC] |記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Deadlocks |
 |OperationName|作業名稱。 一律：DeadlockEvent |
@@ -675,12 +686,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="automatic-tuning-dataset"></a>自動調整資料集
 
-|屬性|說明|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：AutomaticTuning |
 |資源|資源名稱 |

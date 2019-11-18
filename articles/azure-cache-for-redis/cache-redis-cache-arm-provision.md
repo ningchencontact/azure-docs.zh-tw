@@ -1,25 +1,18 @@
 ---
-title: 使用 Azure Resource Manager 佈建 Azure Cache for Redis | Microsoft Docs
+title: 使用 Azure Resource Manager 布建 Azure Cache for Redis
 description: 使用 Azure 資源管理員範本來部署 Azure Cache for Redis。
 services: app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
-ms.workload: web
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f215cb79adc02da857f7aa93d8933bd12c06818a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132785"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121793"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>使用範本來建立 Azure Cache for Redis
 
@@ -38,7 +31,7 @@ ms.locfileid: "66132785"
 > 
 > * [建立具有叢集的進階 Azure Cache for Redis](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [建立具有資料持續性的進階 Azure Cache for Redis](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [建立進階 Redis 快取部署到虛擬網路](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [建立部署到虛擬網路的 Premium Redis 快取](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > 若要查看最新的範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)並搜尋 `Azure Cache for Redis`。
 > 
@@ -51,7 +44,7 @@ ms.locfileid: "66132785"
 
 [![部署至 Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 Parameters 區段，內含所有參數值。
 您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 請不要為永遠保持不變的值定義參數。 每個參數值都可在範本中用來定義所部署的資源。 
 

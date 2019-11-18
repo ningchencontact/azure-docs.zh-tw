@@ -4,18 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799735"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897472"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>向 Azure Active Directory 進行驗證
 
 > [!IMPORTANT]
 > 1. 目前，**只有**電腦視覺 API、臉部 API、文字分析 API、沉浸式讀取程式、表單辨識器、異常偵測器和所有 Bing 服務，但 Bing 自訂搜尋支援使用 AZURE ACTIVE DIRECTORY （AAD）進行驗證。
-> 2. AAD 驗證必須一律與您 Azure 資源的自訂子功能變數名稱稱一起使用。 [區域端點](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints)不支援 AAD 驗證。
+> 2. AAD 驗證必須一律與您 Azure 資源的自訂子功能變數名稱稱一起使用。 [區域端點](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints)不支援 AAD 驗證。
 
 在前面幾節中，我們示範了如何使用單一服務或多服務訂用帳戶金鑰，針對 Azure 認知服務進行驗證。 雖然這些索引鍵提供快速且簡單的途徑來開始開發，但它們在需要角色型存取控制的更複雜案例中很短暫。 讓我們看看使用 Azure Active Directory （AAD）進行驗證所需的內容。
 

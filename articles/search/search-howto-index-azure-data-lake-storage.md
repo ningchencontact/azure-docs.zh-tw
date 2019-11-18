@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Lake Storage Gen2 中編制檔的索引（預覽）
+title: 搜尋 Azure Data Lake Storage Gen2 （預覽）
 titleSuffix: Azure Cognitive Search
 description: 瞭解如何在 Azure Data Lake Storage Gen2 中編制內容和中繼資料的索引。 這項功能目前為公開預覽狀態
 manager: nitinme
@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 390f45ce874e4e64d3a7b9a6c3944983e0ba9028
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 628b8bb5c3cb83ae6038a7150420893d7abe61d5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719929"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112278"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>在 Azure Data Lake Storage Gen2 中編制檔的索引
 
 > [!IMPORTANT] 
-> Azure Data Lake Storage Gen2 支援目前處於公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 您可以填寫[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)來要求預覽的存取權。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
+> Azure Data Lake Storage Gen2 支援目前處於公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 您可以填寫[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)來要求預覽的存取權。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
 
 
 設定 Azure 儲存體帳戶時，您可以選擇啟用[階層式命名空間](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)。 這可讓您將帳戶中的內容集合組織成目錄和嵌套子目錄的階層結構。 藉由啟用階層命名空間，您就可以啟用[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)。

@@ -1,129 +1,126 @@
 ---
 title: 如何建立 Azure 支援要求 | Microsoft Docs
-description: 如何建立 Azure 支援要求。
+description: 需要協助的客戶可以使用 Azure 入口網站來尋找自助式解決方案，以及建立和管理支援要求。
 services: Azure Supportability
 author: ganganarayanan
 manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: gangan
-ms.openlocfilehash: 0195cc86875b075e00e9305d803b8d637905db78
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/13/2019
+ms.author: kfollis
+ms.openlocfilehash: fbcf534b549a12887732ce5ae4db1e4d45692791
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248701"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131112"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>如何建立 Azure 支援要求
-## <a name="summary"></a>總結
-Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://portal.azure.com)) 中建立和管理支援要求。
+
+## <a name="overview"></a>Overview
+
+Azure 客戶可以在[Azure 入口網站](https://portal.azure.com)中建立和管理支援要求。
 
 > [!NOTE]
-> 適用于商業的 Azure 入口網站是德國的[https://portal.azure.com](https://portal.azure.com) Azure 入口網站[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> 美國政府的 Azure 入口網站[https://portal.azure.us](https://portal.azure.us)
-
+> Azure 入口網站 URL 專屬於您的組織部署所在的 Azure 雲端。 
+>* 商業用途的 Azure 入口網站為： [https://portal.azure.com](https://portal.azure.com)
+>* 適用于德國的 Azure 入口網站為： [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>* 美國政府的 Azure 入口網站為： [https://portal.azure.us](https://portal.azure.us)
+>
+>
 
 根據客戶的意見反應，我們已更新支援要求體驗，著重在三個主要目標︰
 
-* **簡化**：減少點擊和分葉，以輕鬆提交支援要求。
-* **整合**式：當您針對 Azure 資源的問題進行疑難排解時，不需要切換內容，就能輕鬆開啟該資源的支援要求。
-* **效率**：收集支援工程師所需的重要資訊，以有效率地解決您的問題。
+* **簡化**：讓您輕鬆尋找並簡化您提交支援要求的方式。
+* **整合**. 當您在疑難排解 Azure 資源的問題時，您可以輕鬆地開啟支援要求，而不需要切換內容。
+* **有效率**：收集支援代理程式所需的重要資訊，以有效率地解決您的問題。
 
-## <a name="getting-started"></a>使用者入門
-您可以從頂端導覽功能表或直接從資源刀鋒視窗中建立支援要求。
+## <a name="getting-started"></a>快速入門
 
-**從頂端導覽列**
+您可以在 Azure 入口網站中取得**協助 + 支援**。 它可從全域標頭或從服務的 [資源] 功能表取得。
 
-![說明與支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
+### <a name="go-to-help--support-from-the-global-header"></a>前往全域標頭中的 [說明 + 支援]
 
-在 [說明 + 支援] 頁面中選取 [新增支援要求]。
+若要從 Azure 入口網站中的任何位置啟動支援要求：
 
-![新的支援要求](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+1. 選取 [ **？** ] 在全域標頭中。 然後選取 [說明 **+ 支援**]。
 
-**從資源刀鋒視窗**
+   ![說明與支援](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-![在內容中](./media/how-to-create-azure-support-request/Incontext.png)
+2. 選取 [ **+ 新增支援要求**]。 遵循提示，為我們提供您問題的相關資訊。 我們會建議一些可能的解決方案、收集問題的詳細資料，並協助您提交和追蹤支援要求。
 
-## <a name="basics"></a>基本知識
+   ![新的支援要求](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
+
+### <a name="go-to-help--support-from-a-resource-menu"></a>前往資源功能表中的 [說明 + 支援]
+
+若要在資源的內容中啟動支援要求，您目前使用的是：
+
+1. 從 [資源] 功能表的 [**支援 + 疑難排解**] 區段中，選取 [**新增支援要求**]。
+
+   ![在內容中](./media/how-to-create-azure-support-request/incontext2lower.png)
+
+2. 遵循提示，為我們提供您所遇到之問題的相關資訊。 當您從資源啟動支援要求程式時，會為您預先選取一些選項。
+
+## <a name="create-a-support-request"></a>建立支援要求
+
+我們會引導您完成一些步驟，以收集問題的相關資訊，並協助您解決問題。 下列各節將說明每個步驟。
+
+### <a name="basics"></a>基本
+
 支援要求程序的第一個步驟會收集您的問題和支援計劃的基本資訊。
 
-讓我們來看一個範例：您遇到虛擬機器的技術問題，並懷疑發生網路連線問題。
-選取服務 (「執行 Windows 的虛擬機器」)，精靈的第一個步驟中的資源 (您的虛擬機器的名稱) 會啟動取得此問題協助的程序。
+在**新支援要求**的 [**基本**] 索引標籤上，使用選取器來啟動，以告訴我們問題所在。 首先，您會識別問題類型的一些一般分類，然後選擇相關的訂用帳戶。 選取服務（例如「執行 Windows 的虛擬機器」）和資源（虛擬機器的名稱）是取得協助的下一個步驟。 以您自己的單字簡短描述問題，然後**選取 [問題類型**] 以取得更具體的資訊。
 
-![基本概念刀鋒視窗](./media/how-to-create-azure-support-request/Basics.png)
+![基本概念刀鋒視窗](./media/how-to-create-azure-support-request/basics2lower.png)
 
 > [!NOTE]
 > Azure 提供無限制的訂用帳戶管理支援 (例如帳單、配額調整和帳戶轉換)。 如需技術支援，您必須加入支援計劃。 [深入了解支援計劃](https://azure.microsoft.com/support/plans)。
 >
 >
 
-## <a name="problem"></a>問題
-精靈的第二個步驟會收集問題的相關額外詳細資料。 在此步驟中提供精確的詳細資料，可讓我們將您的案例路由傳送至最佳的問題支援工程師，並且儘速開始診斷問題。
+### <a name="solutions"></a>方案
 
-![問題刀鋒視窗](./media/how-to-create-azure-support-request/Problem01.png)
+收集基本資訊之後，接下來我們會向您示範可自行嘗試的解決方案。 在某些情況下，我們甚至可能會執行快速診斷。 解決方案是由 Azure 工程師撰寫，並可解決最常見的問題。
 
-繼續上述的虛擬機器連接範例，您需要填寫此表單以指出是網路連接問題，提供問題的進一步詳細資料，包括當您遇到問題時的大約時間。
+### <a name="details"></a>詳細資料
 
-![問題刀鋒視窗 2](./media/how-to-create-azure-support-request/Problem02.png)
+接下來，我們會收集有關問題的其他詳細資料。 在此步驟中提供完整且詳細的資訊可協助我們將您的支援要求路由至正確的代理程式，並讓他們開始診斷問題。
 
-## <a name="related-help"></a>相關說明
-我們會根據問題類型和您選取的類別，提供可協助您解決問題的解決方案。
+建議您讓我們知道問題的開始時間，以及重現它的任何步驟。 您也可以選擇上傳檔案，例如記錄檔或診斷的輸出。
 
-![相關說明](./media/how-to-create-azure-support-request/RelatedHelp.png)
+取得您所遇到之問題的所有相關資訊之後，您可以選擇如何取得支援。 在 [**詳細資料**] 索引標籤的 [**支援方法**] 區段中，選取影響的嚴重性。 提供您偏好的連絡人方法，這是聯繫您的好時機，以及您的支援語言。
 
-我們也會根據您問題的文字描述，提供內容相關的自助解決方案。
+接下來，請完成 [**連絡人資訊**] 區段，以瞭解如何與您聯絡。
 
-![相關說明 2](./media/how-to-create-azure-support-request/RelatedHelp02.png)
+### <a name="review--create"></a>檢閱 + 建立
 
-如果建議的解決方案沒有幫助，您可以繼續進行建立支援要求的程序。
+在每個索引標籤上完成所有必要的資訊，然後選取 [**審查 + 建立**]。 請檢查您將傳送給支援的詳細資料。 回到任何索引標籤，視需要進行變更。 當您滿意支援要求完成時，請選取 [**建立**]。
 
-![問題刀鋒視窗 3](./media/how-to-create-azure-support-request/Problem03.png)
-
-## <a name="contact-information"></a>連絡人資訊
-精靈的最後一個步驟是確認您的連絡人選項和連絡人資訊，讓我們知道要如何與您連絡。
-
-![連絡人資訊](./media/how-to-create-azure-support-request/ContactInformation.png)
-
-根據您的問題的嚴重性，可能會要求您指出要在營業時間與您連絡，或者您希望全天候回應，這表示我們可能會隨時與您連絡。
-
-![全天候連絡人資訊](./media/how-to-create-azure-support-request/ContactInformation-2.png)
+支援代理程式會使用您所指定的方法來聯絡您。 如需初始回應時間的詳細資訊，請參閱[支援範圍和回應](https://azure.microsoft.com/support/plans/response/)性。
 
 ## <a name="all-support-requests"></a>所有支援要求
-建立支援要求之後，您可以從 [所有支援要求] 頁面檢視詳細資料。
 
-**從頂端導覽列**
+您可以前往 [說明 **+ 支援**] >  [**所有支援要求**]，來查看支援要求的詳細資料和狀態。
 
-![說明與支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![所有支援要求](./media/how-to-create-azure-support-request/allrequestslower.png)
 
-從 [說明與支援] 頁面，選取左功能表中的 [所有支援要求]。
+在此頁面上，您可以依訂用帳戶、建立日期（UTC）和狀態來篩選支援要求。 此外，您可以在此頁面上排序和搜尋支援要求。
 
-![所有支援要求連結](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
+選取支援要求以查看詳細資料，包括嚴重性以及支援代理程式回應所需的預期時間。
 
-在 [所有支援要求] 頁面上，您可以檢視所有的支援要求及其狀態。
-
-![所有支援要求](./media/how-to-create-azure-support-request/AllSupportRequest.png)
-
-支援要求頁面，可供客戶依照訂用帳戶、建立日期 (UTC) 和狀態來篩選案例。
-此外，您可以在此頁面上排序和搜尋支援要求。
-
-選取支援要求以檢視詳細資料，包括嚴重性和支援工程師回應的預期時間。
-![VID](./media/how-to-create-azure-support-request/VID.png)
-
-如果您想要變更要求的嚴重性，請按一下 [業務衝擊] 圖格。 在先前範例中，要求目前設為嚴重性 C。
-
-按一下圖格會顯示可以指派給開啟支援要求的嚴重性清單。
+如果您想要變更要求的嚴重性，請選取 [**業務影響**]。 可供指派的嚴重性清單隨即顯示。
 
 > [!NOTE]
 > 最高嚴重性層級取決於您的支援計劃。 [深入了解支援計劃](https://azure.microsoft.com/support/plans)。
 >
 >
+若要深入瞭解 Azure 中的自助支援選項，請觀看這段影片：
 
-![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
+> [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
-## <a name="feedback"></a>意見反應
-我們歡迎意見反應和建議！ 請將您的 [建議](https://feedback.azure.com/forums/266794-support-feedback)傳送給我們。 此外，您可以透過 [Twitter](https://twitter.com/azuresupport) 或 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure)與我們連絡。
-
-## <a name="learn-more"></a>深入了解
-[Azure 支援常見問題集](https://azure.microsoft.com/support/faq)
+## <a name="next-steps"></a>後續步驟
+* [將您的意見反應和建議傳送給我們](https://feedback.azure.com/forums/266794-support-feedback)
+* 在[Twitter](https://twitter.com/azuresupport)上與我們互動
+* 在[MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure)中取得對等的協助
+* 在[Azure 支援常見問題](https://azure.microsoft.com/support/faq)中深入瞭解

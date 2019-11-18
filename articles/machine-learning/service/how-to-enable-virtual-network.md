@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/25/2019
-ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 11/13/2019
+ms.openlocfilehash: c5d0c517e7a3d4c011d66925b8db0c4d09dd34ca
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932095"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123585"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源�
 >
 > 當您建立工作區時，會自動布建預設儲存體帳戶。
 >
-> 針對非預設儲存體帳戶， [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)函式中的 `storage_account` 參數可讓您依 AZURE 資源識別碼指定自訂儲存體帳戶。
+> 針對非預設儲存體帳戶， [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)函式中的 `storage_account` 參數可讓您依 AZURE 資源識別碼指定自訂儲存體帳戶。
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>搭配您的工作區使用 key vault 實例
 
@@ -244,8 +244,18 @@ except ComputeTargetException:
 
 當建立程式完成時，您可以在實驗中使用叢集來定型模型。 如需詳細資訊，請參閱[選取與使用定型的計算目標](how-to-set-up-training-targets.md)。
 
-<a id="vmorhdi"></a>
+## <a name="use-azure-databricks"></a>使用 Azure Databricks
 
+若要在虛擬網路中使用 Azure Azure Databricks 搭配您的工作區，必須符合下列需求：
+
+> [!div class="checklist"]
+> * 虛擬網路必須位於與 Azure Machine Learning 工作區相同的訂用帳戶和區域中。
+> * 如果工作區的 Azure 儲存體帳戶也在虛擬網路中受到保護，它們必須位於與 Azure Databricks 叢集相同的虛擬網路中。
+> * 除了 Azure Databricks 使用的__databricks-私__用和__databricks-public__子網之外，也需要為虛擬網路建立的__預設__子網。
+
+如需搭配虛擬網路使用 Azure Databricks 的特定資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)。
+
+<a id="vmorhdi"></a>
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>使用虛擬機器或 HDInsight 叢集
 

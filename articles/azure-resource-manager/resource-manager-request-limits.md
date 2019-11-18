@@ -1,18 +1,15 @@
 ---
-title: 要求限制和節流設定 - Azure Resource Manager
+title: 要求限制和節流
 description: 描述如何在到達訂用帳戶限制時，對 Azure Resource Manager 要求使用節流。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b47943d69d209f5a0406c293b5a24c6ac0ad0c10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965556"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150466"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
 
@@ -28,11 +25,11 @@ ms.locfileid: "72965556"
 
 下表顯示每小時的預設節流限制。
 
-| Scope | Dynamics 365 | 限制 |
+| 範圍 | 作業 | 限制 |
 | ----- | ---------- | ------- |
-| Subscription | 顯示 | 12000 |
-| Subscription | 刪除 | 15000 |
-| Subscription | 寫入 | 1200 |
+| 訂閱 | 顯示 | 12000 |
+| 訂閱 | 刪除 | 15000 |
+| 訂閱 | 寫入 | 1200 |
 | 租用戶 | 顯示 | 12000 |
 | 租用戶 | 寫入 | 1200 |
 

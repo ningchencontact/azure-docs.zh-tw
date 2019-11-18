@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f497bd06868d586f8378cb81e870a750b8a1670
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684038"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122892"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory 中的原始檔控制
 
@@ -71,14 +71,14 @@ Azure Data Factory 的使用者介面體驗（UX）有兩種適用于視覺製�
 
 [設定] 窗格會顯示下列 Azure Repos 程式碼存放庫設定：
 
-| 設定 | 說明 | 值 |
+| 設定 | 描述 | 值 |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/> | Azure DevOps Git 或 GitHub |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | `<your tenant name>` |
 | **Azure Repos 組織** | 您的 Azure Repos 組織名稱。 您可以在 `https://{organization name}.visualstudio.com` 找到您的 Azure Repos 組織名稱。 您可以[登入您的 Azure Repos 組織](https://www.visualstudio.com/team-services/git/)，以存取 Visual Studio 設定檔和查看您的存放庫與專案。 | `<your organization name>` |
 | **ProjectName** | 您的 Azure Repos 專案名稱。 您可以在 `https://{organization name}.visualstudio.com/{project name}` 找到您的 Azure Repos 專案名稱。 | `<your Azure Repos project name>` |
 | **RepositoryName** | 您的 Azure Repos 程式碼存放庫名稱。 Azure Repos 專案包含 Git 存放庫，可隨著您的專案成長管理原始程式碼。 您可以建立新的存放庫，或使用專案中既有的存放庫。 | `<your Azure Repos code repository name>` |
-| **共同作業分支** | 用於進行發佈的 Azure Repos 共同作業分支。 根據預設，其 `master`。 如果您想要從其他分支發行資源，請變更此設定。 | `<your collaboration branch name>` |
+| **共同作業分支** | 用於進行發佈的 Azure Repos 共同作業分支。 根據預設，它是 `master`。 如果您想要從其他分支發行資源，請變更此設定。 | `<your collaboration branch name>` |
 | **根資料夾** | 在您 Azure Repos 共同作業分支中的根資料夾。 | `<your root folder name>` |
 | **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布**將現有的資料處理站資源匯入到 Azure Repos Git 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 | **要匯入資源的分支** | 指定要匯入資料處理站資源 (管線、資料集、連結服務等等) 的分支。 您可以將資源匯入下列其中一個分支：a. 共同作業 b. 新建 c. 使用現有的 |  |
@@ -138,7 +138,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 [設定] 窗格會顯示下列 GitHub 存放庫設定：
 
-| **設定** | **說明**  | **值**  |
+| **設定** | **描述**  | **值**  |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。 | GitHub |
 | **使用 GitHub Enterprise** | 選取 GitHub Enterprise 的核取方塊 | 未選取（預設值） |
@@ -186,7 +186,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 ### <a name="configure-publishing-settings"></a>設定發佈設定
 
-若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如：
+若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如︰
 
 ```json
 {
@@ -194,7 +194,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 }
 ```
 
-當您指定新的發佈分支時，Data Factory 並不會刪除先前的發佈分支。 如果您想要從遠端處理先前的發佈分支，請手動刪除它。
+當您指定新的發佈分支時，Data Factory 並不會刪除先前的發佈分支。 如果您想要移除先前的發佈分支，請以手動方式刪除它。
 
 > [!NOTE]
 > Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔案。 如果您已經在入口網站中載入處理站，請重新整理瀏覽器以讓變更生效。
@@ -225,7 +225,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 ## <a name="best-practices-for-git-integration"></a>Git 整合的最佳做法
 
-### <a name="permissions"></a>使用權限
+### <a name="permissions"></a>權限
 
 通常您不會希望每個小組成員都擁有更新處理站的許可權。 建議使用下列許可權設定：
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c4c8f123eb8c32362219f21dc70d137f2cc9b4b1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078830"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119980"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -281,7 +281,7 @@ B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 
 * 參考使用者的**物件識別碼**。
 * 參考其登入識別碼，也就是 `signInNames` 屬性。
-* 參考任何有效的 OData 參數，例如 givenName、姓氏、displayName 等等。
+* 參考任何有效的 OData 參數。 例如，「givenName」、「姓氏」、「displayName」等等。
 
 執行下列其中一個命令來搜尋使用者：
 

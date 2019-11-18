@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601755"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129336"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 叢集的區域性災害復原
 
@@ -90,7 +90,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
    > [!NOTE]
    > 程式庫不會在此步驟中複製，因為基礎 API 不支援這些程式庫。
 
-   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如， `python scriptname.py`。
+   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py` 。
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
    下列提供的指令碼會列印新舊叢集識別碼的對應，其稍後會使用於作業移轉 (適用於設定為使用現有叢集的作業)。
 
-   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如， `python scriptname.py`。
+   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py` 。
 
    ```python
    from subprocess import call, check_output
@@ -286,7 +286,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 8. **遷移 Azure blob 儲存體和 Azure Data Lake Storage 裝載**
 
-   使用以筆記本為基礎的解決方案，手動重新掛接所有[Azure Blob 儲存體](/azure/databricks/data/data-sources/azure/azure-storage.html)和[Azure Data Lake Storage （Gen 2）](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html)掛接點。 儲存體資源會已掛接在主要工作區中，而且必須在次要工作區中重複。 沒有外部 API 可供掛接使用。
+   使用以筆記本為基礎的解決方案，手動重新掛接所有[Azure Blob 儲存體](/azure/databricks/data/data-sources/azure/azure-storage)和[Azure Data Lake Storage （Gen 2）](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)掛接點。 儲存體資源會已掛接在主要工作區中，而且必須在次要工作區中重複。 沒有外部 API 可供掛接使用。
 
 9. **遷移叢集 init 指令碼**
 

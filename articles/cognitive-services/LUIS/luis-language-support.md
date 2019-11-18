@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500213"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904214"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -30,7 +30,7 @@ LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的�
 
 LUIS 可理解下列語言的語句：
 
-| 語言 |Locale  |  預建網域 | 預先建置的實體 | 片語清單建議 | **[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
+| 語言 |地區設定  |  預建網域 | 預先建置的實體 | 片語清單建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
 | *[中文](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -98,7 +98,7 @@ LUIS 可理解下列語言的語句：
 
 |文化特性|版本|目的|
 |--|--|--|
-|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們，以嘗試將複合單字細分成單一元件，以 token 化單字。<br>如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，則會變成 `Ich fahre einen kranken wagen`。 允許將 `kranken` 和 `wagen` 分別作為不同的實體標記。|
+|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們，以嘗試將複合單字細分成單一元件，以 token 化單字。<br>如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，就會變成 `Ich fahre einen kranken wagen`。 允許標記 `kranken`，並獨立 `wagen` 為不同的實體。|
 |德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，它會保持為單一權杖。 因此 `krankenwagen` 會標示為單一實體。 |
 
 ### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之間遷移
@@ -206,4 +206,4 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 
 Token 化會在應用層級發生。 不支援版本層級 token 化。 
 
-將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼，但使用檔案中指定的 tokenizer 版本。 
+將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md)，而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼，但使用檔案中指定的 tokenizer 版本。 

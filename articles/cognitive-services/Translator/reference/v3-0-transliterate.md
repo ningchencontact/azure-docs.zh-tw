@@ -1,7 +1,7 @@
 ---
 title: 翻譯文字 API 轉換方法
 titleSuffix: Azure Cognitive Services
-description: 使用翻譯文字 API 轉換方法。
+description: 使用翻譯工具文字 API 直譯方法，將文字轉換成另一種語言的腳本。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931990"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837286"
 ---
-# <a name="translator-text-api-30-transliterate"></a>翻譯工具文字 API 3.0：Transliterate
+# <a name="translator-text-api-30-transliterate"></a>翻譯文字 API 3.0：轉換
 
 將某種語言的文字從某個指令碼轉換成另一個指令碼。
 
@@ -38,26 +38,26 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>*必要參數*。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
   </tr>
   <tr>
-    <td>language</td>
-    <td>必要參數。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其[支援語言](./v3-0-languages.md)而取得的 `transliteration` 範圍列出可能的語言。</td>
+    <td>語言</td>
+    <td>*必要參數*。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其`transliteration`支援語言[而取得的 ](./v3-0-languages.md) 範圍列出可能的語言。</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*必要參數*。<br/>指定輸入文字所使用的指令碼。 使用 `transliteration` 範圍查閱[支援語言](./v3-0-languages.md)，以尋找可用於所選取語言的輸入指令碼。</td>
+    <td>*必要參數*。<br/>指定輸入文字所使用的指令碼。 使用 [ 範圍查閱](./v3-0-languages.md)支援語言`transliteration`，以尋找可用於所選取語言的輸入指令碼。</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*必要參數*。<br/>指定輸出指令碼。 使用 `transliteration` 範圍查閱[支援的語言](./v3-0-languages.md)，以尋找可用於所選取之輸入語言和輸入指令碼組合的輸出指令碼。</td>
+    <td>*必要參數*。<br/>指定輸出指令碼。 使用 [ 範圍查閱](./v3-0-languages.md)支援的語言`transliteration`，以尋找可用於所選取之輸入語言和輸入指令碼組合的輸出指令碼。</td>
   </tr>
 </table> 
 
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">標頭</th>
+  <th width="20%">headers</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -98,9 +98,9 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `text`:字串，這是將輸入字串轉換成輸出指令碼的結果。
+  * `text`：字串，這是將輸入字串轉換成輸出指令碼的結果。
   
-  * `script`:字串，指定在輸出中所使用的指令碼。
+  * `script`：字串，指定在輸出中所使用的指令碼。
 
 範例 JSON 回應如下：
 
@@ -114,7 +114,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">標頭</th>
+  <th width="20%">headers</th>
   <th>描述</th>
   <tr>
     <td>X-RequestId</td>
@@ -124,7 +124,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求傳回的可能 HTTP 狀態碼。 
+以下是要求可能會傳回的 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -135,27 +135,27 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
+    <td>缺少其中一個查詢參數或無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+    <td>此要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>伺服器已拒絕要求, 因為用戶端已超過要求限制。</td>
+    <td>伺服器已拒絕要求，因為用戶端已超過要求限制。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>暫時無法使用伺服器。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>伺服器暫時無法使用。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
 </table> 
 

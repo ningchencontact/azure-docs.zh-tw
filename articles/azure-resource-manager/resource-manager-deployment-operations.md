@@ -1,64 +1,61 @@
 ---
-title: 部署歷程記錄與 Azure Resource Manager |Microsoft Docs
+title: 部署歷程記錄
 description: 說明如何使用入口網站、PowerShell、Azure CLI 及 REST API 來檢視 Azure Resource Manager 部署作業。
 tags: top-support-issue
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8daf7191bb22f7c7057f6ef6b220a18868872cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605988"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149579"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>檢視部署記錄與 Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>使用 Azure Resource Manager 來查看部署歷程記錄
 
-Azure Resource Manager 可讓您檢視您的部署歷程記錄，並檢查在過去的部署中的特定作業。 您可以看到已部署的資源，並取得任何錯誤的相關資訊。
+Azure Resource Manager 可讓您查看部署歷程記錄，並檢查過去部署中的特定作業。 您可以查看已部署的資源，並取得任何錯誤的相關資訊。
 
 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 
 ## <a name="portal"></a>入口網站
 
-若要從部署歷程記錄中取得部署的相關詳細資料。
+從部署歷程記錄取得部署的相關詳細資料。
 
 1. 選取您想要檢查的資源群組。
 
-1. 選取下方的連結**部署**。
+1. 選取 [**部署**] 底下的連結。
 
    ![選取部署歷程記錄](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. 您可以選取其中一個部署從部署歷程記錄。
+1. 從部署歷程記錄中選取其中一個部署。
 
    ![選取部署](./media/resource-manager-deployment-operations/select-details.png)
 
-1. 部署的摘要隨即顯示，包括一份已部署的資源。
+1. 隨即會顯示部署的摘要，包括已部署的資源清單。
 
     ![部署摘要](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. 若要檢視部署所用的範本，請選取**範本**。 您可以下載範本來重複使用它。
+1. 若要查看用於部署的範本，請選取 [**範本**]。 您可以下載範本來重複使用它。
 
     ![顯示範本](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. 如果您的部署失敗，您會看到一則錯誤訊息。 選取 更多詳細資料的錯誤訊息。
+1. 如果您的部署失敗，您會看到一則錯誤訊息。 選取錯誤訊息以取得更多詳細資料。
 
-    ![檢視失敗的部署](./media/resource-manager-deployment-operations/show-error.png)
+    ![View 失敗的部署](./media/resource-manager-deployment-operations/show-error.png)
 
 1. 會顯示詳細的錯誤訊息。
 
-    ![檢視錯誤詳細資料](./media/resource-manager-deployment-operations/show-details.png)
+    ![查看錯誤詳細資料](./media/resource-manager-deployment-operations/show-details.png)
 
-1. 相互關聯識別碼用來追蹤相關的事件，並使用技術支援，針對部署進行疑難排解時很有幫助。
+1. 相互關聯識別碼是用來追蹤相關的事件，並且在與技術支援人員合作來疑難排解部署時非常有用。
 
     ![取得相互關聯識別碼](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. 若要深入了解失敗的步驟，請選取**作業詳細資料**。
+1. 若要深入瞭解失敗的步驟，請選取 [作業**詳細資料**]。
 
-    ![選取的部署作業](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![選取部署作業](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. 您會看到該部署的步驟詳細資料。
+1. 您會看到該部署步驟的詳細資料。
 
     ![顯示作業詳細資料](./media/resource-manager-deployment-operations/show-operation-details.png)
 
@@ -78,7 +75,7 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-相互關聯識別碼用來追蹤相關的事件，並使用技術支援，針對部署進行疑難排解時很有幫助。 若要取得相互關連識別碼，請使用：
+相互關聯識別碼是用來追蹤相關的事件，並且在與技術支援人員合作來疑難排解部署時非常有用。 若要取得相互關連識別碼，請使用：
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -102,7 +99,7 @@ PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisio
                 serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
 ```
 
-若要取得有關失敗作業的詳細資訊，請擷取具有 [失敗]  狀態的作業屬性。
+若要取得有關失敗作業的詳細資訊，請擷取具有 [失敗] 狀態的作業屬性。
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -DeploymentName azuredeploy -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -124,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-請記下此作業的 serviceRequestId 和 trackingId。 與技術支援人員合作來排解部署問題時，serviceRequestId 會相當有用。 您將使用下一個步驟中的 trackingId 將重點放在特定的作業。
+請記下此作業的 serviceRequestId 和 trackingId。 與技術支援人員合作來排解部署問題時，serviceRequestId 會相當有用。 您將使用下一個步驟中的 trackingId，將焦點放在特定的作業上。
 
 若要取得特定失敗作業的狀態訊息，請使用下列命令︰
 
@@ -140,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Azure 中的每個部署作業包含要求和回應內容。 在部署期間，您可以使用**DeploymentDebugLogLevel**參數來指定記錄要求和/或回應。
+Azure 中的每個部署作業包含要求和回應內容。 在部署期間，您可以使用**DeploymentDebugLogLevel**參數來指定要記錄要求和/或回應。
 
 您會使用下列 PowerShell 命令從記錄檔取得該資訊，並將它儲存在本機︰
 
@@ -152,13 +149,13 @@ Azure 中的每個部署作業包含要求和回應內容。 在部署期間，�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要取得部署的整體狀態，請使用**azure 群組的部署顯示**命令。
+若要取得部署的整體狀態，請使用**azure group deployment show**命令。
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-相互關聯識別碼用來追蹤相關的事件，並使用技術支援，針對部署進行疑難排解時很有幫助。
+相互關聯識別碼是用來追蹤相關的事件，並且在與技術支援人員合作來疑難排解部署時非常有用。
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -172,7 +169,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-若要取得部署的相關資訊，請使用[取得範本部署的相關資訊](https://docs.microsoft.com/rest/api/resources/deployments)作業。
+若要取得部署的相關資訊，請使用[取得範本部署作業的相關資訊](https://docs.microsoft.com/rest/api/resources/deployments)。
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}

@@ -1,25 +1,17 @@
 ---
-title: 設定進階 Azure Cache for Redis 的虛擬網路 | Microsoft Docs
+title: 設定高階 Azure Cache for Redis 的虛擬網路
 description: 了解如何建立和管理進階層 Azure Cache for Redis 執行個體的虛擬網路支援
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b2ddac9439183321691104d4eedccb0c971d19c9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075052"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129411"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Cache for Redis 的虛擬網路支援
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 VNet 是雲端中的私人網路。 當 Azure Cache for Redis 執行個體是以 VNet 設定時，它將無法公開定址，而只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Cache for Redis 執行個體的虛擬網路支援。
@@ -161,7 +153,7 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何確認我的快取是在 VNET 中運作？
 
 >[!IMPORTANT]
->連線到裝載在 VNET 中的 Azure Cache for Redis 執行個體時，快取用戶端必須位於相同的 VNET，或是已啟用 VNET 對等互連的 VNET。 這包括任何測試應用程式或診斷 Ping 工具。 不論用戶端應用程式裝載在哪個位置，都必須設定網路安全性群組以允許用戶端的網路流量觸達 Redis 執行個體。
+>連線到裝載在 VNET 中的 Azure Cache for Redis 實例時，您的快取用戶端必須位於相同的 VNET 中，或位於相同 Azure 區域內已啟用 VNET 對等互連的 VNET 中。 目前不支援全域 VNET 對等互連。 這包括任何測試應用程式或診斷 Ping 工具。 不論用戶端應用程式裝載在哪個位置，都必須設定網路安全性群組以允許用戶端的網路流量觸達 Redis 執行個體。
 >
 >
 

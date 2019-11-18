@@ -1,5 +1,5 @@
 ---
-title: 在搜尋服務布建期間選擇定價層或 SKU
+title: 選擇定價層或 SKU
 titleSuffix: Azure Cognitive Search
 description: Azure 認知搜尋可以在這些 Sku 中布建：免費、基本和標準，而標準則適用于各種資源設定和容量層級。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 249ce8e51ff61bac5d418d9e173ec2caed24e0e5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9caadddf281c6df29f6e36057c7b28abcef0e1c4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794259"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112519"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>選擇 Azure 認知搜尋的定價層
 

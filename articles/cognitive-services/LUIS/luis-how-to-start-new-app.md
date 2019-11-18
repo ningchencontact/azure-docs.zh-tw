@@ -9,33 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 227efcdbcb7d8e776dd77b38c5d1dedd54d71b6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500290"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904248"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
-有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
+有好幾種方法可建立 LUIS 應用程式。 您可以在 LUIS 入口網站中，或透過 LUIS 撰寫[api](developer-reference-resource.md)來建立 LUIS 應用程式。
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="using-the-luis-portal"></a>使用 LUIS 入口網站
 
-您可在 LUIS 入口網站中以數種方式建立新的應用程式：
+您可以透過數種方式在預覽入口網站中建立新的應用程式：
 
 * 從空的應用程式著手，並建立意圖、語句和實體。
 * 從空的應用程式著手，並新增[預建網域](luis-how-to-use-prebuilt-domains.md)。
-* 從已經包含意圖、語句和實體的 JSON 檔案匯入 LUIS 應用程式。
+* 從已經包含意圖、語句和實體的 `.lu` 或 `.json` 檔案匯入 LUIS 應用程式。
 
 ## <a name="using-the-authoring-apis"></a>使用撰寫 API
 您可使用撰寫 API 以數種方式建立新的應用程式：
 
-* 從空的應用程式[著手](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)，並建立意圖、語句和實體。
-* 從預建網域[開始](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5)。  
+* [新增應用程式](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)-以空白應用程式開始，並建立意圖、語句和實體。
+* [新增預先建立的應用程式](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5)-開始使用預建的網域，包括意圖、語句和實體。  
 
 
 <a name="export-app"></a>
@@ -47,51 +47,36 @@ ms.locfileid: "73500290"
 
 ## <a name="create-new-app-in-luis"></a>在 LUIS 中建立新的應用程式
 
-1. 在**我的應用程式** 頁面上，選取  **+ 建立**。
+1. 在**我的應用程式** 頁面上，選取您的訂用帳戶並撰寫資源，然後按  **+ 建立**。 如果您使用免費試用金鑰，請瞭解如何[建立撰寫資源](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)。
 
-    ![LUIS 應用程式清單](./media/luis-create-new-app/apps-list.png)
+    ![LUIS 應用程式清單](./media/create-app-in-portal.png)
 
 
-2. 在對話方塊中，將您的應用程式命名為 "TravelAgent"。
+1. 在對話方塊中，輸入應用程式的名稱，例如 `Pizza Tutorial`。
 
-    ![建立新的應用程式對話方塊](./media/luis-create-new-app/create-app.png)
+    ![建立新的應用程式對話方塊](./media/create-pizza-tutorial-app-in-portal.png)
 
-3. 選擇您的應用程式文化特性 (對於 TravelAgent 應用程式，選擇 [英文])，然後選取 [完成]。 
+1. 選擇您的應用程式文化特性，然後選取 [**完成**]。 此時，描述和預測資源是選擇性的。 您可以隨時在入口網站的 [**管理**] 區段中設定。
 
     > [!NOTE]
     > 建立應用程式之後便無法變更文化特性 (Culture)。 
 
-## <a name="import-an-app-from-file"></a>從檔案匯入應用程式
+    建立應用程式之後，LUIS 入口網站會顯示已為您建立 [`None`] 意圖的 **[意圖] 清單。** 您現在有一個空的應用程式。 
+    
+    > [!div class="mx-imgBorder"]
+    > ![意圖清單，其中不含任何範例語句。](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-1. 在 [我的應用程式] 頁面上，選取 [匯入新的應用程式]。
-1. 在快顯視窗中，選取有效的應用程式 JSON 檔案，然後選取 [**完成**]。
+## <a name="other-actions-available"></a>其他可用的動作
 
-### <a name="import-errors"></a>匯入錯誤
+內容工具列提供其他動作：
 
-可能的錯誤包括： 
-
-* 具有該名稱的應用程式已經存在。 若要修正此問題，請重新匯入應用程式，並將**選擇性名稱**設定為新名稱。 
-
-## <a name="export-app-for-backup"></a>匯出應用程式以進行備份
-
-1. 在**我的應用程式** 頁面上，選取 **匯出**。
-1. 選取 [**匯出為 JSON**]。 您的瀏覽器會下載應用程式的作用中版本。
-1. 將此檔案新增至您的備份系統以封存模型。
-
-## <a name="export-app-for-containers"></a>匯出容器的應用程式
-
-1. 在**我的應用程式** 頁面上，選取 **匯出**。
-1. 選取 [**匯出為容器**]，然後選取您想要匯出的已發佈位置（生產或階段）。
-1. 將此檔案與您的[LUIS 容器](luis-container-howto.md)搭配使用。 
-
-    如果您想要匯出已定型但尚未發行的模型以與 LUIS 容器搭配使用，請移至 [**版本**] 頁面，並從該處匯出。 
-
-## <a name="delete-app"></a>刪除應用程式
-
-1. 在 [我的應用程式] 頁面上，選取應用程式資料列結尾的三個點 (...)。
-1. 從功能表中選取 [刪除]。
-1. 在確認視窗中選取 [確定]。
+* 將應用程式重新命名
+* 使用 `.lu` 或 `.json` 從檔案匯入
+* 將應用程式匯出為 `.lu` （適用于[LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)）、`.json`或 `.zip` （適用于[LUIS 容器](luis-container-howto.md)）
+* 匯入容器端點記錄以審查端點語句
+* 以 `.csv`的形式匯出端點記錄，以進行離線分析
+* 刪除應用程式
 
 ## <a name="next-steps"></a>後續步驟
 
-您在應用程式中的第一項工作是[新增對應方式](luis-how-to-add-intents.md)。
+如果您的應用程式設計包含意圖偵測，請[建立新的意圖](luis-how-to-add-intents.md)，並新增範例語句。 如果您的應用程式設計只是資料解壓縮，請將範例語句新增至 [無] 意圖，然後[建立實體](luis-how-to-add-example-utterances.md)，並將範例語句加上這些實體的標籤。 

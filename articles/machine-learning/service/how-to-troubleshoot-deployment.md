@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076899"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123221"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
 
@@ -56,7 +56,7 @@ ms.locfileid: "74076899"
 
 如果您遇到任何問題時，首先要做的事就是將部署工作 (先前所述) 分成個別步驟，以將問題隔離。
 
-如果您使用[webservice （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) Api 或[webservice. deploy_from_model （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) api，將部署中斷至工作會很有説明，因為這兩個函式都會以單一動作執行上述步驟。 這些 Api 通常很方便，但使用下列 API 呼叫來取代它們，有助於在進行疑難排解時分解步驟。
+如果您使用[webservice （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) Api 或[webservice. deploy_from_model （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-) api，將部署中斷至工作會很有説明，因為這兩個函式都會以單一動作執行上述步驟。 這些 Api 通常很方便，但使用下列 API 呼叫來取代它們，有助於在進行疑難排解時分解步驟。
 
 1. 註冊模型。 以下是一些範例程式碼：
 

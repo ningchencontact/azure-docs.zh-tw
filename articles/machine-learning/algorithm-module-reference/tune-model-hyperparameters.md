@@ -1,5 +1,5 @@
 ---
-title: 微調模型超參數
+title: 調整模型超參數
 titleSuffix: Azure Machine Learning service
 description: 瞭解如何使用 Azure Machine Learning 服務中的微調模型超參數模組，在模型上執行參數清除，以判斷最佳的參數設定。
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: fd796297bafeb437b55eca7f38cbd7ae55e19b93
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716712"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131217"
 ---
-# <a name="tune-model-hyperparameters"></a>微調模型超參數
+# <a name="tune-model-hyperparameters"></a>調整模型超參數
 
 本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用微調模型超參數模組。 目標是要判斷機器學習模型的最佳超參數。 此模組會使用不同的設定組合來建立及測試多個模型。 它會比較所有模型的計量，以取得設定的組合。 
 

@@ -1,5 +1,5 @@
 ---
-title: 在擴充管線中建立技能集
+title: 建立技能集
 titleSuffix: Azure Cognitive Search
 description: 定義資料提取、自然語言處理或影像分析步驟，以從您的資料擴充及解壓縮結構化資訊，以在 Azure 認知搜尋中使用。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787477"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114546"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋的 AI 擴充管線中建立技能集 
 
@@ -163,7 +163,7 @@ Content-Type: application/json
     }
 ```
 
-* 每個內建技能都有 `odata.type`、`input` 和 `output` 屬性。 技能特有的屬性可提供適用於該技能的其他資訊。 就實體辨識而言，`categories` 是預先定型的模型可從一組固定的實體類型中辨識出來的實體。
+* 每個內建技能都有 `odata.type`、`input`和 `output` 屬性。 技能特有的屬性可提供適用於該技能的其他資訊。 就實體辨識而言，`categories` 是預先定型的模型可從一組固定的實體類型中辨識出來的實體。
 
 * 每項技能都應有 ```"context"```。 內容表示作業執行的層級。 在上述技能中，內容是整份檔，這表示每份檔會呼叫一次實體辨識技能。 輸出也會在該層級上產生。 更具體來說，```"organizations"``` 會產生作為 ```"/document"``` 的成員。 在下游技能中，您可以將這項新建立的資訊稱為 ```"/document/organizations"```。  如果 ```"context"``` 欄位未明確設定，預設內容將是文件。
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 * 技能會有一個名為 ```"organizations"``` 的輸出。 只有在處理期間才會有輸出。 若要將此輸出鏈結至下游技能的輸入，請將輸出作為 ```"/document/organizations"``` 來參考。
 
-* 對於特定文件，```"/document/organizations"``` 的值是從文字中擷取的組織陣列。 例如：
+* 對於特定文件，```"/document/organizations"``` 的值是從文字中擷取的組織陣列。 例如︰
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -229,7 +229,7 @@ Content-Type: application/json
 
 此定義是一種[自訂技能](cognitive-search-custom-skill-web-api.md)，會在擴充的過程中呼叫 Web API。 針對實體辨識所識別的每個組織，這項技能會呼叫 Web API 來尋找該組織的描述。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
 
-請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對 ```"/document/organizations"``` 下的「每個」組織而呼叫的。 
+請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對  *下的「每個」* ```"/document/organizations"```組織而呼叫的。 
 
 系統會為所識別的每個組織產生輸出 (在此案例中為公司說明)。 在下游步驟中參照說明時 (例如，在擷取關鍵片語時)，您會使用路徑 ```"/document/organizations/*/description"``` 來執行。 
 

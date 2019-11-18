@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5c20c280fdc9097692f98c83dcb3d310e9914ecf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082204"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133375"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -208,7 +208,7 @@ Docker 磁碟設定 | 否
 客體/伺服器多重路徑 (MPIO) | 否
 來賓/伺服器 GPT 磁碟分割 | [更新彙總套件 37](https://support.microsoft.com/help/4508614/) （行動服務版本9.25）支援五個磁碟分割。 先前只支援四個。
 參照 | 行動服務9.23 版或更高版本支援復原檔案系統
-來賓/伺服器 EFI/UEFI 開機 | -支援 Windows Server 2012 或更新版本、SLES SP4 和 RHEL 8。0 <br/> -不支援安全 UEFI 開機類型。 
+來賓/伺服器 EFI/UEFI 開機 | -支援 Windows Server 2012 或更新版本、SLES 12 SP4 和 RHEL 8.0 （搭配行動代理程式版本9.30）<br/> -不支援安全 UEFI 開機類型。 
 
 ## <a name="replication-channels"></a>複寫通道
 

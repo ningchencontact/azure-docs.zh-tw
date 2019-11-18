@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487593"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013507"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>實體及其在 LUIS 中的用途
 
@@ -91,11 +91,11 @@ ms.locfileid: "73487593"
 
 |實體類型|目的|
 |--|--|
-|[**機器學習**](#composite-entity)|實體的父群組，不論實體類型為何。 機器學習實體會從語句中的內容學習。 這會使位置變得語句顯著。 |
-|[**清單**](#list-entity)|以**完全相符文字**解壓縮的專案及其同義字清單。|
-|[**Pattern.any**](#patternany-entity)|難以判斷實體結尾的實體。 |
-|[**預建**](#prebuilt-entity)|已定型，可將特定類型的資料（例如 URL 或電子郵件）解壓縮。 在開放原始碼 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 專案中已定義部分這些預建實體。 如果目前不支援您的特定文化特性或實體，請向專案提出。|
-|[**規則運算式**](#regular-expression-entity)|會使用正則運算式來比對**完全相符的文字**。|
+|[**機器學習**](tutorial-machine-learned-entity.md)|實體的父群組，不論實體類型為何。 機器學習實體會從語句中的內容學習。 這會使位置變得語句顯著。 |
+|[**清單**](reference-entity-list.md)|以**完全相符文字**解壓縮的專案及其同義字清單。|
+|[**Pattern.any**](reference-entity-pattern-any.md)|難以判斷實體結尾的實體。 |
+|[**預建**](luis-reference-prebuilt-entities.md)|已定型，可將特定類型的資料（例如 URL 或電子郵件）解壓縮。 在開放原始碼 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 專案中已定義部分這些預建實體。 如果目前不支援您的特定文化特性或實體，請向專案提出。|
+|[**規則運算式**](reference-entity-regular-expression.md)|會使用正則運算式來比對**完全相符的文字**。|
 
 ### <a name="entity-role-defines-context"></a>實體角色定義內容
 

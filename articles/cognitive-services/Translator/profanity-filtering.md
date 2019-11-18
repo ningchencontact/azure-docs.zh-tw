@@ -1,7 +1,7 @@
 ---
 title: 粗話篩選功能 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 使用翻譯工具文字 API 中的粗話篩選功能。
+description: 使用 [不雅內容篩選] 來判斷您在 Azure 認知服務翻譯工具文字 API 的文字中翻譯的不雅內容層級。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595187"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836236"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>使用翻譯工具文字 API 新增粗話篩選功能
 
@@ -26,9 +26,9 @@ Translator 服務通常會在翻譯中保留存在於來源中的粗話。 粗�
 Translate() 方法會接受 “options” 參數，其中包含了新的元素 “ProfanityAction”。 可接受的 ProfanityAction 值包括 “NoAction”、“Marked” 及 “Deleted”。
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>可接受的 ProfanityAction 值和範例
-|ProfanityAction 值 | Action | 範例:來源 - 日文 | 範例:目標 - 英文|
+|ProfanityAction 值 | 動作 | 範例：來源 - 日文 | 範例：目標 - 英文|
 | :---|:---|:---|:---|
-| NoAction | 預設值。 與未設定此選項時相同。 粗話會從來源傳遞到目標。 | 彼は変態です。 | He is a jerk. |
+| NoAction | 預設值。 與未設定此選項相同。 粗話會從來源傳遞到目標。 | 彼は変態です。 | He is a jerk. |
 | Marked | 不雅的單字會括上 XML 標籤 \<profanity> ... \</profanity>。 | 彼は変態です。 | He is a \<profanity>jerk\</profanity>. |
 | Deleted | 將會從輸出中移除不雅單字，而不予以取代。 | 彼は。 | He is a. |
 

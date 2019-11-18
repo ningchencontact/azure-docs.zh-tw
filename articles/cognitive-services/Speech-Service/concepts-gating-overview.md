@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: c0a097c17a24c68f7ebe4ec06a01b9ab7d9943b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500908"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836778"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>自訂類神經語音管制總覽
 
@@ -28,7 +28,7 @@ ms.locfileid: "73500908"
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>部署自訂類神經語音的指引
 
 - [負責部署的指導方針](concepts-guidelines-responsible-deployment-synthetic.md)：根據我們的研究的最佳建議
-- 類[神經文字轉換語音的透明度注意事項](https://aka.ms/neural-tts-transparency-note)：您必須知道的技術，才能將其用於責任
+- [對配音](https://aka.ms/disclosure-voice-talent)人員的洩漏：您需要知道的知識，並向配音人員通知技術使用 it 責任
 - [公開設計](concepts-disclosure-guidelines.md)：如何設計體驗，讓使用者知道何時使用綜合語音並信任您的服務
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>為何自訂類神經語音是閘道技術
@@ -41,11 +41,11 @@ ms.locfileid: "73500908"
 
 自訂類神經語音服務的存取權會根據我們的資格準則、調查程式和可用性，自行決定是否要在此閘道預覽期間支援數量有限的客戶。
 
-在應用程式過程中，您必須承諾在建立語音字型之前，從配音員取得明確的書面許可權，其中包括共用[神經 TTS 透明度便箋](https://aka.ms/neural-tts-transparency-note)。 您也必須同意，在部署語音字型時，您的實行會向使用者[公開服務的綜合特性](concepts-disclosure-guidelines.md)，並在您的服務條款中提供 Microsoft 綜合語音服務的屬性，並支援意見反應通道這可讓服務的使用者報告問題，並與 Microsoft 共用詳細資料。 [在這裡](https://aka.ms/neural-tts-transparency-note)深入瞭解我們的使用規定。
+在應用程式過程中，您必須在建立語音字型之前，先承諾從配音員取得明確的書面許可權，這包括分享配音員的[洩漏](https://aka.ms/disclosure-voice-talent)。 您也必須同意，在部署語音字型時，您的實行會向使用者[公開服務的綜合特性](concepts-disclosure-guidelines.md)，並在您的服務條款中提供 Microsoft 綜合語音服務的屬性，並支援意見反應通道這可讓服務的使用者報告問題，並與 Microsoft 共用詳細資料。 [在這裡](https://aka.ms/custom-neural-code-of-conduct)深入瞭解我們的使用規定。
 
 ## <a name="reference-docs"></a>參考文件
 
-* [透明度注意事項](https://aka.ms/neural-tts-transparency-note)
+* [對配音人才的洩漏](https://aka.ms/disclosure-voice-talent)
 * [綜合語音技術的責任部署指導方針](concepts-guidelines-responsible-deployment-synthetic.md)
 * [如何公開](concepts-disclosure-guidelines.md)
 

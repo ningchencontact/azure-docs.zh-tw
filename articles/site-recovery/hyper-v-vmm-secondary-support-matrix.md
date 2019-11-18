@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 76b34e11bba00105792ac5163c5163184c185e09
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039613"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132956"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
@@ -20,9 +20,6 @@ ms.locfileid: "74039613"
 
 > [!NOTE]
 > 當您的 Hyper-V 主機是在 VMM 雲端中進行管理時，您只能複寫至次要網站。
-
-> [!WARNING]
-> 請注意，使用 SCVMM 設定的 ASR 支援即將淘汰，因此建議您先閱讀[取代的詳細資料，再](site-to-site-deprecation.md)繼續進行。
 
 
 ## <a name="host-servers"></a>主機伺服器

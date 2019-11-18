@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681501"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122937"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -79,6 +79,9 @@ Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效�
 > [!NOTE] 
 > 使用自我裝載整合執行時間來支援需要自備驅動程式（例如 SAP Hana、MySQL 等）的資料存放區。 如需詳細資訊，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
 
+> [!NOTE] 
+> JAVA Runtime Environment （JRE）是自我裝載 IR 的相依性。 請確認您已在相同的主機上安裝 JRE。
+
 ### <a name="self-hosted-ir-network-environment"></a>自我裝載 IR 網路環境
 如果想要在私人網路環境 (無法從公用雲端環境直接存取) 中安全地執行資料整合，您可以在內部部署環境、公司防火牆後方或虛擬私人網路內安裝自我裝載 IR。  自我裝載整合執行階段對於開放網際網路，只會建立以 HTTP 為基礎的輸出連線。
 
@@ -102,7 +105,7 @@ Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您�
 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL 資料庫裝載 SSIS 目錄。 
 - [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 
-- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
+- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 這篇文章會示範如何在傳回的資訊中擷取 Azure SSIS IR 的相關資訊和狀態的描述。 
 - [管理 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
 - [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路的概念資訊。 它也提供使用 Azure 入口網站來設定虛擬網路，好讓 Azure SSIS IR 可加入虛擬網路的步驟。 
 

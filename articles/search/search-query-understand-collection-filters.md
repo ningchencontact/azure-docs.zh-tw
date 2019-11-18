@@ -1,7 +1,7 @@
 ---
 title: 瞭解 OData 集合篩選
 titleSuffix: Azure Cognitive Search
-description: 瞭解 OData 集合篩選在 Azure 認知搜尋查詢中的使用方式。
+description: 瞭解 OData 集合篩選如何在 Azure 認知搜尋查詢中運作的機制，包括集合特有的限制和行為。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794398"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113063"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>瞭解 Azure 認知搜尋中的 OData 集合篩選
 
@@ -101,9 +101,9 @@ ms.locfileid: "72794398"
 | 處 | 1、2 |
 | 標準 | 1 |
 | 整套 | 1 |
-| 檢視 | 1 |
+| view | 1 |
 
-因此，與上方的篩選器不同的是，基本上會說「比對房間有 `Type` 等於 ' Deluxe 室 ' 的檔，而且**相同的房間**`BaseRate` 小於100」，搜尋查詢會顯示「比對檔，其中 `Rooms/Type` 的字詞為 "Deluxe"，`Rooms/Description`具有「城市視圖」片語。 不會有個別房間的概念，其欄位可以在後者的情況下相互關聯。
+因此，與上方的篩選器不同的是，這基本上會顯示「比對房間 `Type` 等於 ' Deluxe 室 ' 的檔，且**相同的房間**`BaseRate` 小於100」，搜尋查詢會顯示「比對檔，其中 `Rooms/Type` 的字詞為 "Deluxe"，`Rooms/Description` 會有「城市視圖」片語。 不會有個別房間的概念，其欄位可以在後者的情況下相互關聯。
 
 > [!NOTE]
 > 如果您想要查看已新增至 Azure 認知搜尋的相互關聯搜尋支援，請投票[此使用者的語音專案](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections)。
@@ -138,7 +138,7 @@ ms.locfileid: "72794398"
 
 [`seasons`] 欄位的值會儲存在稱為**反向索引**的結構中，如下所示：
 
-| 條款 | 檔識別碼 |
+| 詞彙 | 檔識別碼 |
 | --- | --- |
 | 裝有 | 1、2 |
 | 夏令時 | 1 |

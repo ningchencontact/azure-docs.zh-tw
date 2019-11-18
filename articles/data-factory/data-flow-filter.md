@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1daff431fc217c08f3bc3c5aeb3b4711691909c0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676164"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132530"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>對應資料流程中的篩選轉換
 
@@ -24,7 +24,7 @@ ms.locfileid: "73676164"
 
 ![篩選轉換](media/data-flow/filter1.png "篩選轉換")
 
-## <a name="data-flow-script"></a>資料流程腳本
+## <a name="data-flow-script"></a>資料流程指令碼
 
 ### <a name="syntax"></a>語法
 
@@ -37,7 +37,7 @@ ms.locfileid: "73676164"
 
 ### <a name="example"></a>範例
 
-下列範例是一個名為 `FilterBefore1960` 的條件式分割轉換，它會接受傳入的資料流程 `CleanData`。 篩選準則是運算式 `year <= 1960`。
+下列範例是一個篩選器轉換，名為 `FilterBefore1960`，接受傳入串流 `CleanData`。 篩選準則是運算式 `year <= 1960`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 

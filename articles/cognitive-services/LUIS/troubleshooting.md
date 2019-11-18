@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488691"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123106"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -24,7 +24,7 @@ ms.locfileid: "73488691"
 
 ## <a name="whats-new"></a>新功能
 
-[深入瞭解](whats-new.md)Language Understanding 的新功能。
+[深入瞭解](whats-new.md)Language Understanding 的新功能（LUIS）。
 
 <a name="luis-authoring"></a>
 
@@ -50,7 +50,7 @@ ms.locfileid: "73488691"
 請參閱 [Bing 拼字檢查 API V7](luis-tutorial-bing-spellcheck.md) 教學課程。 LUIS 會強制執行 Bing 拼字檢查 API V7 所公開的限制。
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>如何以程式設計方式編輯 LUIS 應用程式？
-若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./luis-quickstart-node-add-utterance.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#azure-resources-for-luis)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
+若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./get-started-get-model-rest-apis.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#azure-resources-for-luis)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>提供規則運算式比對的模式功能位置為何？
 先前的**模式功能**目前已淘汱，並取代為 **[模式](luis-concept-patterns.md)** 。
@@ -74,7 +74,7 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入應用程式或版本檔案，但收到錯誤訊息，發生了什麼事？ 
 
-深入瞭解[版本匯入錯誤](luis-how-to-manage-versions.md#import-errors)和[應用程式匯入錯誤](luis-how-to-start-new-app.md#import-errors)。
+深入閱讀[版本匯入錯誤](luis-how-to-manage-versions.md#import-errors)。
 
 <a name="luis-collaborating"></a>
 
@@ -86,7 +86,7 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>端點
+## <a name="endpoint"></a>Endpoint
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>我收到 HTTP 403 錯誤狀態碼。 如何修正問題？
 

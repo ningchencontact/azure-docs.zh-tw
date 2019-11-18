@@ -1,17 +1,14 @@
 ---
-title: 具有 Azure Pipelines 和 Resource Manager 範本的 CI/CD
+title: 具有 Azure Pipelines 和範本的 CI/CD
 description: 說明如何使用 Visual Studio 中的 Azure 資源群組部署專案來部署 Resource Manager 範本，以在 Azure Pipelines 中設定持續整合。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 51122e314ebd0a97647fc4026b1f49619950c351
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597503"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143761"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>整合 Resource Manager 範本與 Azure Pipelines
 
@@ -125,7 +122,7 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
        azurePowerShellVersion: LatestVersion
    ```
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
    ![儲存管線](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
 
@@ -157,7 +154,7 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
     sasTokenTimeOutInMinutes: '240'
 ```
 
-此工作有數個部分可針對您的環境進行修訂。 @No__t_0 表示成品相對於管線檔案的位置。 在此範例中，檔案存在於名為 `AzureResourceGroup1` 的資料夾中，也就是專案的名稱。
+此工作有數個部分可針對您的環境進行修訂。 `SourcePath` 表示成品相對於管線檔案的位置。 在此範例中，檔案存在於名為 `AzureResourceGroup1` 的資料夾中，也就是專案的名稱。
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -197,7 +194,7 @@ ContainerName: '<container-name>'
 
 此工作有數個部分可針對您的環境進行修訂。
 
-- `deploymentScope`：從選項中選取部署範圍： [`Management Group`]、[`Subscription`] 和 [`Resource Group`]。 在本逐步解說中使用**資源群組**。 若要深入瞭解範圍，請參閱[部署範圍](./resource-group-template-deploy-rest.md#deployment-scope)。
+- `deploymentScope`：從選項中選取部署範圍： [`Management Group`]、[`Subscription`] 和 [`Resource Group`]。 在本逐步解說中使用**資源群組**。 若要深入了解範圍，請參閱[部署範圍](./resource-group-template-deploy-rest.md#deployment-scope)。
 
 - `ConnectedServiceName`：提供您所建立之服務連線的名稱。
 
@@ -252,7 +249,7 @@ ContainerName: '<container-name>'
         deploymentMode: 'Incremental'
    ```
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 1. 提供認可的訊息，並直接認可到**master**。
 

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/29/2019
-ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/14/2019
+ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162252"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109189"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用適用於 VM 的 Azure 監視器（預覽）總覽
 
@@ -25,7 +25,7 @@ ms.locfileid: "73162252"
 * 使用 PowerShell，跨指定的訂用帳戶或資源群組啟用兩個或多個 Azure VM 或虛擬機器擴展集。
 * 啟用適用於 VM 的 Azure 監視器來監視在公司網路或其他雲端環境中裝載的 Vm 或實體電腦。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您了解下列各節中的資訊。 
 
@@ -37,25 +37,23 @@ ms.locfileid: "73162252"
 適用於 VM 的 Azure 監視器支援下欄區域中的 Log Analytics 工作區：
 
 - 美國中西部
-- 美國西部<sup>1</sup>
-- 美國西部 2<sup>1</sup>
-- 美國中南部<sup>1</sup>
+- 美國西部
+- 美國西部 2
+- 美國中南部
 - 美國東部
-- 東部美國 2<sup>1</sup>
-- 美國中部<sup>1</sup>
-- 美國中北部<sup>1</sup>
+- 美國東部 2
+- 美國中部
+- 美國中北部
 - 加拿大中部
 - 英國南部
-- 北歐<sup>1</sup>
+- 北歐
 - 西歐
-- 東亞<sup>1</sup>
+- 東亞
 - 東南亞
-- 印度中部<sup>1</sup>
-- 日本東部<sup>1</sup>
-- 澳大利亞東部<sup>1</sup>
-- 澳大利亞東南部<sup>1</sup>
-
-<sup>1</sup> 此區域目前不支援適用於 VM 的 Azure 監視器的健康情況功能。
+- 印度中部
+- 日本東部
+- 澳洲東部
+- 澳洲東南部
 
 >[!NOTE]
 >您可以從任何區域部署 Azure Vm。 這些 Vm 不限於 Log Analytics 工作區支援的區域。
@@ -83,29 +81,25 @@ ms.locfileid: "73162252"
 
 下表列出適用於 VM 的 Azure 監視器支援的 Windows 和 Linux 作業系統。 在本節稍後，您會看到完整的清單，詳述主要和次要 Linux OS 版本，以及支援的核心版本。
 
-|作業系統版本 |效能 |地圖 |醫療業 |
-|-----------|------------|-----|-------|
-|Windows Server 2019 | X | X | X |
-|Windows Server 2016 1803 | X | X | X |
-|Windows Server 2016 | X | X | X |
-|Windows Server 2012 R2 | X | X | X |
-|Windows Server 2012 | X | X | |
-|Windows Server 2008 R2 | X | X|  |
-|Windows 10 1803 | X | X | |
-|Windows 8.1 | X | X | |
-|Windows 8 | X | X | |
-|Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux （RHEL）6、7| X | X| X |
-|Ubuntu 18.04、16.04 | X | X | X |
-|CentOS Linux 7、6 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 9.4、8 | X<sup>1</sup> | | X |
+|作業系統版本 |效能 |地圖 |
+|-----------|------------|-----|
+|Windows Server 2019 | X | X |
+|Windows Server 2016 1803 | X | X |
+|Windows Server 2016 | X | X |
+|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 | X | X |
+|Windows Server 2008 R2 | X | X|
+|Windows 10 1803 | X | X |
+|Windows 8.1 | X | X |
+|Windows 8 | X | X |
+|Windows 7 SP1 | X | X |
+|Red Hat Enterprise Linux （RHEL）6、7| X | X| 
+|Ubuntu 18.04、16.04 | X | X |
+|CentOS Linux 7、6 | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X |
+|Debian 9.4、8 | X<sup>1</sup> | |
 
 <sup>1</sup> 適用於 VM 的 Azure 監視器的效能功能僅能從 Azure 監視器使用。 它無法直接從 Azure VM 的左窗格中使用。
-
->[!NOTE]
->適用於 VM 的 Azure 監視器的健全狀況功能不支援 Azure VM 中的「[嵌套虛擬化](../../virtual-machines/windows/nested-virtualization.md)」。
->
 
 >[!NOTE]
 >在 Linux 作業系統中：
@@ -141,7 +135,7 @@ ms.locfileid: "73162252"
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| 18.04 | 5.0 （包含 Azure 微調的核心）<br>4.18 *<br>4. 15* |
+| 18.04 | 5.0 （包含 Azure 微調的核心）<br>4.18 *<br>4.15* |
 | 16.04.3 | 4.15. * |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
@@ -172,15 +166,15 @@ ms.locfileid: "73162252"
 
 下表說明對應功能在混合式環境中支援的連線來源。
 
-| 連線的來源 | 支援的 | 描述 |
+| 連線的來源 | 支援 | 描述 |
 |:--|:--|:--|
-| Windows 代理程式 | 是 | 除了[適用于 windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)，windows 代理程式還需要 Dependency agent。 如需詳細資訊，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| Linux 代理程式 | 是 | 除了適用于[linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)，linux 代理程式還需要 Dependency agent。 如需詳細資訊，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| Windows 代理程式 | yes | 除了[適用于 windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)，windows 代理程式還需要 Dependency agent。 如需詳細資訊，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| Linux 代理程式 | yes | 除了適用于[linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)，linux 代理程式還需要 Dependency agent。 如需詳細資訊，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | System Center Operations Manager 管理群組 | 否 | |
 
 您可以從下列位置下載 Dependency agent：
 
-| 檔案 | OS | 版本 | SHA-256 |
+| 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
@@ -200,7 +194,7 @@ ms.locfileid: "73162252"
 | 單一 Azure VM 或虛擬機器擴展集 | [從 VM 啟用](vminsights-enable-single-vm.md) | 您可以直接從 VM 或虛擬機器擴展集選取 [ **Insights （預覽）** ] 來啟用單一 Azure VM。 |
 | 多個 Azure Vm 或虛擬機器擴展集 | [透過 Azure 原則啟用](vminsights-enable-at-scale-policy.md) | 您可以使用 Azure 原則和可用的原則定義來啟用多個 Azure Vm。 |
 | 多個 Azure Vm 或虛擬機器擴展集 | [透過 Azure PowerShell 或 Azure Resource Manager 範本啟用](vminsights-enable-at-scale-powershell.md) | 您可以使用 Azure PowerShell 或 Azure Resource Manager 範本，在指定的訂用帳戶或資源群組上啟用多個 Azure Vm 或虛擬機器擴展集。 |
-| 混合雲 | [針對混合式環境啟用](vminsights-enable-hybrid-cloud.md) | 您可以部署至您的資料中心或其他雲端環境中裝載的 Vm 或實體電腦。 |
+| 混合式雲端 | [針對混合式環境啟用](vminsights-enable-hybrid-cloud.md) | 您可以部署至您的資料中心或其他雲端環境中裝載的 Vm 或實體電腦。 |
 
 ## <a name="performance-counters-enabled"></a>已啟用效能計數器 
 
@@ -266,4 +260,4 @@ ms.locfileid: "73162252"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解如何使用健康情況功能，請參閱[檢視適用於 VM 的 Azure 監視器健康情況](vminsights-health.md)。 若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。
+若要瞭解如何使用效能監視功能，請參閱[View 適用於 VM 的 Azure 監視器 performance](vminsights-performance.md)。 若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。

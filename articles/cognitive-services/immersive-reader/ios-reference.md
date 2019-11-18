@@ -1,7 +1,7 @@
 ---
 title: 沉浸式讀取器 iOS SDK 參考
 titleSuffix: Azure Cognitive Services
-description: 沉浸式讀取器 iOS SDK 的參考
+description: 沉浸式讀取器 iOS SDK 是一個 Swift CocoaPod，可讓您將沉浸式讀者整合到您的 iOS 應用程式。
 services: cognitive-services
 author: metanMSFT
 ms.service: cognitive-services
@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 67d6b8c22c5635bd789078a7f91b02f8b07e5e70
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388124"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903130"
 ---
 # <a name="immersive-reader-sdk-reference-for-ios"></a>適用于 iOS 的沉浸式讀取器 SDK 參考
 
 沉浸式讀取器 iOS SDK 是一個 Swift CocoaPod，可讓您將沉浸式讀者整合到您的 iOS 應用程式。
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 SDK 會公開單一函式 `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`。
 
@@ -32,9 +32,9 @@ SDK 會公開單一函式 `launchImmersiveReader(navController, token, subdomain
 public func launchImmersiveReader(navController: UINavigationController, token: String, subdomain: String, content: Content, options: Options?, onSuccess: @escaping () -> Void, onFailure: @escaping (_ error: Error) -> Void)
 ```
 
-#### <a name="parameters"></a>參數
+#### <a name="parameters"></a>parameters
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | 要從中呼叫函式之 iOS 應用程式的流覽控制器。 |
 | `token` | 字串 | Azure AD 驗證 token。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
@@ -59,7 +59,7 @@ struct Content: Encodable {
 
 #### <a name="supported-mime-types"></a>支援的 MIME 類型
 
-| MIME 類型 | 說明 |
+| MIME 類型 | 描述 |
 | --------- | ----------- |
 | text/plain | 純文字。 |
 | application/mathml + xml | 數學標記語言（MathML）。 [詳細資訊](https://developer.mozilla.org/en-US/docs/Web/MathML)。
@@ -88,7 +88,7 @@ struct Error {
 
 #### <a name="error-codes"></a>錯誤碼
 
-| 代碼 | 說明 |
+| 代碼 | 描述 |
 | ---- | ----------- |
 | BadArgument | 提供的引數無效。如需詳細資料，請參閱 `message`。 |
 | 逾時 | 沉浸式讀取器無法在指定的超時時間內載入。 |

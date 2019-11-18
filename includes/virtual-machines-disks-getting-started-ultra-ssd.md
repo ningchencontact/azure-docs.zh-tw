@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 63045bf1b836215b00b9b7c1b46dd208152fa772
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5751ed33673ca859ba1aed54cfc7c2e7ecc8e495
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74100765"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124187"
 ---
 Azure ultra 磁片提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體，適用于 Azure IaaS 虛擬機器（Vm）。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra 磁片的一個主要優點是能夠以動態方式變更 SSD 的效能和您的工作負載，而不需要重新開機您的 Vm。 Ultra 磁片適用于資料密集的工作負載，例如 SAP Hana、最上層資料庫，以及高交易量的工作負載。
 
@@ -23,7 +23,7 @@ Azure ultra 磁片提供高輸送量、高 IOPS 以及一致的低延遲磁片�
 
 ## <a name="determine-vm-size-and-region-availability"></a>判斷 VM 大小和區域可用性
 
-若要利用 ultra 磁片，您需要判斷您所在的可用性區域。 並非每個區域都支援具有 ultra 磁片的每個 VM 大小。 若要判斷您的區域、區域和 VM 大小是否支援 ultra 磁片，請執行下列其中一個命令，請務必先取代**region**、 **vmSize**和**訂**用帳戶值：
+若要利用 ultra 磁片，您需要判斷您所在的可用性區域。 並非每個區域都支援具有 ultra 磁片的每個 VM 大小。 若要判斷您的區域、區域和 VM 大小是否支援 ultra 磁片，請執行下列其中一個命令，並務必先取代**region**、 **vmSize**和**訂**用帳戶值：
 
 CLI：
 
@@ -67,6 +67,75 @@ $vmSize = "Standard_E64s_v3"
 將磁片 sku 設定為**UltraSSD_LRS**，然後設定磁片容量、IOPS、可用性區域和輸送量（以 MBps 為單位），以建立 ultra 磁片。
 
 一旦佈建 VM，您就可以將資料磁碟分割和格式化，並針對你的工作負載設定它們。
+
+
+## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>使用 Azure 入口網站部署 ultra 磁片
+
+本節說明如何部署配備 ultra 磁片做為資料磁片的虛擬機器。 它假設您已熟悉部署虛擬機器，如果沒有，請參閱我們[的快速入門：在 Azure 入口網站中建立 Windows 虛擬機器](../articles/virtual-machines/windows/quick-create-portal.md)。
+
+- 登入[Azure 入口網站](https://portal.azure.com/)，然後流覽至 [部署虛擬機器（VM）]。
+- 請務必選擇支援的[VM 大小和區域](#ga-scope-and-limitations)。
+- 在 [**可用性選項**] 中選取 [**可用性區域**]。
+- 以您選擇的選項填入其餘專案。
+- 選取 [磁碟]。
+
+![create-ultra-disk-enabled-vm .png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+
+- 在 [磁片] 分頁上，針對 [**啟用 Ultra 磁片相容性** **] 選取 [是]** 。
+- 選取 [**建立] 並連接新的磁片**，以立即連接 ultra 磁片。
+
+![enable-and-attach-ultra-disk .png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+
+- 在 [**建立新的磁片**] 分頁上，輸入名稱，然後選取 [**變更大小**]。
+- 將**帳戶類型**變更為 [ **Ultra 磁片**]。
+- 將 [**自訂磁片大小（GiB）** ]、[**磁片 IOPS**] 和 [**磁片輸送量**] 的值變更為您選擇的值。
+- 在兩個 blade 中選取 **[確定]** 。
+- 繼續進行 VM 部署，它會與部署任何其他 VM 相同。
+
+![create-ultra-disk .png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+
+## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>使用 Azure 入口網站連接 ultra 磁片
+
+或者，如果您現有的 VM 位於能夠使用 ultra 磁片的區域/可用性區域中，您可以使用 ultra 磁片，而不需要建立新的 VM。 藉由在現有的 VM 上啟用 ultra 磁片，然後將它們附加為數據磁片。
+
+- 流覽至您的 VM，然後選取 [**磁片**]。
+- 選取 [編輯]。
+
+![options-selector-ultra-disks .png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+
+- 針對 [**啟用 Ultra 磁片相容性** **] 選取 [是]** 。
+
+![ultra-options-yes-enable .png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+
+- 選取 [ **儲存**]。
+- 選取 [**新增資料磁片**]，然後在 [**名稱**] 的下拉式清單中選取 [**建立磁片**]。
+
+![create-and-attach-new-ultra-disk .png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+
+- 填入新磁片的名稱，然後選取 [**變更大小**]。
+- 將**帳戶類型**變更為 [ **Ultra 磁片**]。
+- 將 [**自訂磁片大小（GiB）** ]、[**磁片 IOPS**] 和 [**磁片輸送量**] 的值變更為您選擇的值。
+- 選取 **[確定]** ，然後選取 [**建立**]。
+
+![making-a-new-ultra-disk .png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+
+- 回到磁片的分頁之後，請選取 [**儲存**]。
+
+![saving-and-attaching-new-ultra-disk .png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+
+### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>使用 Azure 入口網站調整 ultra 磁片的效能
+
+Ultra 磁片提供獨特的功能，可讓您調整其效能。 您可以從 Azure 入口網站的磁片本身進行調整。
+
+- 流覽至您的 VM，然後選取 [**磁片**]。
+- 選取您想要修改其效能的 ultra 磁片。
+
+![selecting-ultra-disk-to-modify .png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+
+- 選取 [設定] **，然後進行**修改。
+- 選取 [ **儲存**]。
+
+![configuring-ultra-disk-performance-and-size .png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>使用 CLI 部署 ultra 磁片
 

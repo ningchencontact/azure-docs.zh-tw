@@ -8,16 +8,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: dda074d81857247a922eb7a179b33aa2593e5bf8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb6f1772c7c6f9abd268a8cb58550b253f095dbf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824481"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132452"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>取得 VM 映像的共用存取簽章 URI
 
-在發行過程中，您必須為每個與 SKU 相關聯的虛擬硬碟 (VHD) 提供統一資源識別項 (URI)。 Microsoft 需要在認證程序期間存取這些 VHD。 本文說明如何為每個 VHD 產生共用存取簽章 (SAS) URI。 請在 Cloud Partner 入口網站的 [SKU] 索引標籤中，輸入此 URI。 
+在發行過程中，您必須為每個與 SKU 相關聯的虛擬硬碟 (VHD) 提供統一資源識別項 (URI)。 Microsoft 需要在認證程序期間存取這些 VHD。 本文說明如何為每個 VHD 產生共用存取簽章 (SAS) URI。 請在 Cloud Partner 入口網站的 [SKU] 索引標籤中，輸入此 URI。
 
 產生 VHD 的 SAS URI 時，請遵守下列需求：
 
@@ -38,35 +38,35 @@ ms.locfileid: "73824481"
 
 請使用下列步驟，透過 Azure CLI 來產生 SAS URI。
 
-1. 下載並安裝 [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)。  版本可供 Windows、macOS 和 Linux 的各種發佈。 
+1. 下載並安裝 [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)。  版本可供 Windows、macOS 和 Linux 的各種發佈。
 2. 建立 PowerShell 檔案 (`.ps1` 副檔名)、複製下列程式碼，然後將其儲存到本機。
 
    ``` powershell
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
-    
+
 3. 編輯檔案，以提供下列參數值。  應該以 UTC 日期時間格式提供日期，例如 `2016-10-25T00:00:00Z`。
    - `<account-name>` - Azure 儲存體帳戶名稱
    - `<account-key>` - Azure 儲存體帳戶金鑰
    - `<vhd-name>` - VHD 名稱
-   - `<start-date>` - VHD 存取的權限開始日期。 提供目前日期前一天的日期。 
-   - `<expiry-date>` - VHD 存取的權限到期日。  提供至少超過目前日期三週的日期。 
- 
+   - `<start-date>` - VHD 存取的權限開始日期。 提供目前日期前一天的日期。
+   - `<expiry-date>` - VHD 存取的權限到期日。  提供至少超過目前日期三週的日期。
+
    下列範例顯示適當的參數值 (在撰寫本文時)。
 
    ``` powershell
        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
    ```
- 
+
 4. 將變更儲存到此 PowerShell 指令碼。
 5. 使用系統管理權限執行此指令碼，以產生適用於容器層級存取的 *SAS 連接字串*。  可以使用兩種基本方法：
    - 從主控台執行指令碼。  例如，在 Windows 中，在指令碼上按一下右鍵，然後選取**系統管理員身分執行**。
-   - 使用管理權限從 PowerShell 指令碼編輯器 (例如 [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise)) 執行指令碼。 
-     以下示範這個編輯器內所產生的 SAS 連接字串。 
+   - 使用管理權限從 PowerShell 指令碼編輯器 (例如 [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise)) 執行指令碼。
+     以下示範這個編輯器內所產生的 SAS 連接字串。
 
      ![在 PowerShell ISE 中產生 SAS URI](./media/publishvm_032.png)
 
-6. 複製產生的 SAS 連接字串，並將其儲存到安全位置的文字檔。  請編輯此字串，以將關聯的 VHD 位置資訊新增到字串中，以建立最終的 SAS URI。 
+6. 複製產生的 SAS 連接字串，並將其儲存到安全位置的文字檔。  請編輯此字串，以將關聯的 VHD 位置資訊新增到字串中，以建立最終的 SAS URI。
 7. 在 Azure 入口網站中，瀏覽至內有與新產生 URI 相關聯之 VHD 的 blob 儲存體。
 8. 複製 **Blob 服務端點**的 URL 值，如下所示。
 
@@ -91,19 +91,19 @@ ms.locfileid: "73824481"
 2. 開啟 [Explorer]，並在左側的功能表列中，按一下 [新增帳戶] 圖示。  隨即顯示 [連線至 Azure 儲存體] 對話方塊。
 3. 選取 [新增 Azure 帳戶]，然後按一下 [登入]。  繼續執行所需的步驟以登入 Azure 帳戶。
 4. 在左側 [Explorer] 窗格中，瀏覽至您的 [儲存體帳戶]，並展開此節點。
-5. 以滑鼠右鍵按一下 VHD，然後從快顯功能表選取 [取得共用存取簽章]。 
+5. 以滑鼠右鍵按一下 VHD，然後從快顯功能表選取 [取得共用存取簽章]。
 
     ![在 [Azure 總管] 中取得 SAS 項目](./media/publishvm_034.png)
 
 6. 隨即顯示 [共用存取簽章] 對話方塊。 為下列欄位輸入值︰
    - **開始時間** - VHD 存取的權限開始時間。 提供目前日期前一天的日期。
    - **到期時間** - VHD 存取的權限到期日。  提供至少超過目前日期三週的日期。
-   - **權限** - 選取 `Read` 和 `List` 權限。 
+   - **權限** - 選取 `Read` 和 `List` 權限。
 
      ![Azure 總管中的 SAS 對話方塊](./media/publishvm_035.png)
 
-7. 按一下 [建立]，以建立此 VHD 相關聯的 SAS URI。  對話方塊會立即顯示此作業的相關詳細資料。 
-8. 複製 **URL** 值，並將該值儲存到安全位置的文字檔中。 
+7. 按一下 [建立]，以建立此 VHD 相關聯的 SAS URI。  對話方塊會立即顯示此作業的相關詳細資料。
+8. 複製 **URL** 值，並將該值儲存到安全位置的文字檔中。
 
     ![在 [Azure 總管] 中建立 SAS URI](./media/publishvm_036.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e8205497262c2c7a500769f32a473d628974220c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832591"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151791"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files
 
@@ -86,7 +86,7 @@ ms.locfileid: "73832591"
 * [SUSE 高可用性擴充功能 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
 * [使用 Azure NetApp Files 在 Microsoft Azure 的 NetApp SAP 應用程式][anf-sap-applications-azure]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 SAP Netweaver 中央服務的高可用性（HA）需要共用儲存體。
 若要在 SUSE Linux 上達到此目的，您必須建立個別的高可用性 NFS 叢集。 
@@ -172,11 +172,10 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
 在針對 SUSE 高可用性架構的 SAP Netweaver 考慮 Azure NetApp Files 時，請注意下列重要考慮：
 
-- 最小容量集區為 4 TiB。 容量集區大小必須是 4 TiB 的倍數。
+- 最小容量集區為 4 TiB。 容量集區大小可以增加 1 TiB 增量。
 - 最小磁片區為 100 GiB
 - Azure NetApp Files 和所有虛擬機器（將裝載 Azure NetApp Files 磁片區）必須位於相同的 Azure 虛擬網路或相同區域的[對等互連虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)中。 現在支援透過相同區域中的 VNET 對等互連來存取 Azure NetApp Files。 尚不支援透過全球對等互連進行 Azure NetApp 存取。
 - 選取的虛擬網路必須有委派給 Azure NetApp Files 的子網。
-- Azure NetApp Files 目前僅支援 NFSv3 
 - Azure NetApp Files 提供[匯出原則](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)：您可以控制允許的用戶端、存取類型（讀取 & 寫入、唯讀等等）。 
 - Azure NetApp Files 功能尚無法感知區域。 Azure NetApp Files 功能目前不會部署在 Azure 區域中的所有可用性區域。 請留意某些 Azure 區域中可能的延遲含意。 
 
@@ -403,7 +402,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    </code></pre>
    
    > [!NOTE]
-   > 目前，Azure NetApp Files 僅支援 NFSv3。 不要省略 nfsvers = 3 參數。
+   > 裝載磁片區時，請務必符合 Azure NetApp Files 磁片區的 NFS 通訊協定版本。 在此範例中，Azure NetApp Files 磁片區已建立為 NFSv3 磁片區。  
    
    重新開機 `autofs` 以掛接新的共用
     <pre><code>

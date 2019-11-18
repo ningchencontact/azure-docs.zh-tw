@@ -1,30 +1,20 @@
 ---
-title: Azure 儲存體帳戶名稱錯誤 | Microsoft Docs
+title: 儲存體帳戶名稱錯誤
 description: 描述當指定儲存體帳戶名稱時，可能會遇到的錯誤。
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.author: tomfitz
-ms.openlocfilehash: c3d4d764b1076c8705cfa64d6c0b38e3b8c1a801
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af75470ebab61a1eaf7afd0bf946564c5300611
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716399"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149419"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>解決儲存體帳戶名稱的錯誤
 
 本文描述當部署儲存體帳戶時，可能會遇到的命名錯誤。
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 如果您的儲存體帳戶名稱包含禁止的字元，您會收到如下的錯誤：
 
@@ -47,7 +37,7 @@ Message=The storage account named mystorage is already taken.
 
 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能使用數字和小寫字母。 名稱必須是唯一的。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 請確定儲存體帳戶名稱是唯一的。 您可以將您的命名慣例與 [uniqueString](resource-group-template-functions-string.md#uniquestring) 函式的結果串連，以建立一個唯一名稱。
 

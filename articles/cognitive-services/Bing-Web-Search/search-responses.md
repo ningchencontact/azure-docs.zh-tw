@@ -1,7 +1,7 @@
 ---
 title: Bing Web 搜尋 API 回應結構和回應類型
 titleSuffix: Azure Cognitive Services
-description: 深入了解 Bing Web 搜尋 API 所使用的回答類型和回應。
+description: 當您傳送 Bing Web 搜尋搜尋要求時，會在回應主體中傳回 `SearchResponse` 物件。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854734"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110625"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 
@@ -224,7 +224,7 @@ The following shows an example of how you might display articles in a search res
 
 單位轉換查詢是將一個單位轉換為另一個單位。 例如，「10 公尺是多少英吋？」或「1/4 杯是多少茶匙？」
 
-以下顯示針對「10 公尺是多少英吋？」的 `computation` 回答
+以下顯示針對「10 公尺是多少英吋？」`computation`*的*  回答
 
 ```json
 "computation": {
@@ -292,13 +292,13 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 |符號|描述|
 |------------|-----------------|
-|+|新增|
+|+|加法|
 |-|減法|
 |/|除法|
 |*|乘法|
 |^|乘冪|
 |!|階乘|
-|.|Decimal|
+|，通常您會使用 collectd。|DECIMAL|
 |()|優先順序群組|
 |[]|函數|
 
@@ -332,7 +332,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 `timeZone` 回答可提供位置的名稱、指定位置目前的 UTC 日期和時間，以及 UTC 時差。 如果位置的界限在多個時區內，則回答會包含目前的 UTC 日期和時間以及界限內的所有時區。 例如，因為佛羅里達州位於兩個時區內，回應會包含兩個時區的當地日期和時間。  
 
-如果查詢要求的是州或國家/地區的時間, Bing 會判斷位置地理界限內的主要城市, 並在`primaryCityTime`欄位中傳回。 如果界限包含多個時區，其餘時區會在 `otherCityTimes` 欄位中傳回。
+如果查詢要求的是州或國家/地區的時間，Bing 會判斷位置地理界限內的主要城市，並將其傳回 `primaryCityTime` 欄位中。 如果界限包含多個時區，其餘時區會在 `otherCityTimes` 欄位中傳回。
 
 以下顯示查詢傳回 `timeZone` 回答的範例。
 
@@ -447,7 +447,7 @@ Query: What time is it in the U.S.
 
 若要取得標頭的存取權，您可以透過 CORS Proxy 提出 Bing Web 搜尋 API 要求。 來自這類 Proxy 的回應包含 `Access-Control-Expose-Headers` 標頭，可將回應標頭列入允許清單並提供給 JavaScript 使用。
 
-您可以輕鬆地安裝 CORS Proxy，讓我們的[教學課程應用程式](tutorial-bing-web-search-single-page-app.md)存取選擇性用戶端標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (如果尚未安裝)。 在命令提示字元中，輸入下列命令。
+您可以輕鬆地安裝 CORS Proxy，讓我們的[教學課程應用程式](tutorial-bing-web-search-single-page-app.md)存取選擇性用戶端標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (若尚未安裝)。 在命令提示字元中，輸入下列命令。
 
     npm install -g cors-proxy-server
 
@@ -459,7 +459,7 @@ Query: What time is it in the U.S.
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開之 [HTTP 標頭] 區段的搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 ## <a name="response-headers-in-production"></a>生產環境中的回應標頭
 

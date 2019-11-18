@@ -1,5 +1,5 @@
 ---
-title: 搜尋索引中多語言內容的語言篩選
+title: 依搜尋索引中的語言篩選
 titleSuffix: Azure Cognitive Search
 description: 篩選準則，以支援多重語言搜尋，將查詢執行範圍設定為語言特定欄位。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2762ce42f0d3f5829682e0910c452746a65ef2f3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792878"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112057"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的語言進行篩選 
 
@@ -21,7 +21,7 @@ ms.locfileid: "72792878"
 
 要求上的查詢參數可用來設定搜尋作業的範圍，接著如果欄位未提供與您想要傳遞之搜尋體驗相容的內容，則可調整所有這類欄位的結果。
 
-| 參數 | 目的 |
+| parameters | 目的 |
 |-----------|--------------|
 | **searchFields** | 限制只對具名欄位清單進行全文檢索搜尋。 |
 | **$select** | 調整回應，只包含您指定的欄位。 預設會傳回所有可擷取的欄位。 **$Select** 參數可讓您選擇要傳回哪些欄位。 |
@@ -60,7 +60,7 @@ parameters =
 > [!Note]
 > 雖然查詢中沒有 $filter 引數，但這個使用案例與篩選概念具有強烈的關聯性，因此，我們將它作為篩選案例。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 認知搜尋中的篩選](search-filters.md)
 + [語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)

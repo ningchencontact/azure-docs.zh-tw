@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/08/2019
+ms.date: 11/13/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fe8483bd6055acb0a2c741192ec80211b9969a16
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5bfc5e6471d768b89a66610a2618bc1a44cf709d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175876"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145925"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>處理 MSAL 的例外狀況和錯誤
 
@@ -40,7 +40,7 @@ Microsoft 驗證程式庫 (MSAL) 中的例外狀況僅供應用程式開發人�
 
 錯誤的完整清單會列在[MSALError 列舉](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128)中。
 
-所有 MSAL 產生的錯誤都會以 `MSALErrorDomain` 網域傳回。 
+所有 MSAL 產生的錯誤都會以 `MSALErrorDomain` 網域傳回。
 
 對於系統錯誤，MSAL 會從系統 API 傳回原始 `NSError`。 例如，如果權杖取得因為缺少網路連線而失敗，MSAL 會傳回錯誤，其中包含 `NSURLErrorDomain` 網域和 `NSURLErrorNotConnectedToInternet` 程式碼。
 
@@ -242,6 +242,17 @@ Swift
     application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
+## <a name="msal-for-python-error-handling"></a>適用于 Python 錯誤處理的 MSAL
+
+在適用于 Python 的 MSAL 中，大部分的錯誤都是以 API 呼叫的傳回值來傳達。 此錯誤會以包含來自 Microsoft 身分識別平臺的 JSON 回應的字典來表示。
+
+* 成功的回應會包含 `"access_token"` 鍵。 回應的格式是由 OAuth2 通訊協定所定義。 如需詳細資訊，請參閱[5.1 成功回應](https://tools.ietf.org/html/rfc6749#section-5.1)
+* 錯誤回應包含 `"error"`，通常 `"error_description"`。 回應的格式是由 OAuth2 通訊協定所定義。 如需詳細資訊，請參閱[5.2 錯誤回應](https://tools.ietf.org/html/rfc6749#section-5.2)
+
+傳回錯誤時，`"error_description"` 金鑰會包含人們可讀取的訊息;而這通常包含 Microsoft 身分識別平臺錯誤碼。 如需各種錯誤碼的詳細資訊，請參閱[驗證和授權錯誤碼](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes)。
+
+在 Python 的 MSAL 中，例外狀況很罕見，因為大部分的錯誤都是藉由傳回錯誤值來處理。 只有當您嘗試使用程式庫的方式發生問題時（例如，當 API 參數的格式不正確時），才會擲回 `ValueError` 例外狀況。
+
 ## <a name="net-exceptions"></a>.NET 例外狀況
 
 在處理例外狀況時，您可以使用例外狀況類型本身和 `ErrorCode` 成員來區別例外狀況。 `ErrorCode` 值是[MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet)類型的常數。
@@ -256,7 +267,7 @@ Swift
 
 | 例外狀況 | 錯誤碼 | 緩和|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員尚未同意使用識別碼為 ' {appId} ' 且名為 ' {appName} ' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core （不具有任何 Web UI），請呼叫（僅限一次） `AcquireTokeninteractive`。 如果您使用 .NET core 或不想要執行 `AcquireTokenInteractive`，使用者可以流覽至 URL 以提供同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 。 若要呼叫 `AcquireTokenInteractive`： `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員尚未同意使用識別碼為 ' {appId} ' 且名為 ' {appName} ' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core （不具有任何 Web UI），請呼叫（僅限一次） `AcquireTokeninteractive`。 如果您使用 .NET core 或不想要執行 `AcquireTokenInteractive`，使用者可以流覽至 URL 以提供同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read。 若要呼叫 `AcquireTokenInteractive`： `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079：使用者必須使用多重要素驗證（MFA）。| 不會降低風險。 如果已為您的租使用者設定 MFA，而 Azure Active Directory （AAD）決定強制執行，則您必須回到互動式流程，例如 `AcquireTokenInteractive` 或 `AcquireTokenByDeviceCode`。|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010：不支援 */common*或 */Consumers*端點上的授與類型。 請使用 */organizations* 或租用戶專屬端點。 您使用的是 */common*。| 如 Azure AD 的訊息所說明，授權單位必須有一個租用戶或 */organizations*。|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002：要求主體必須包含下列參數： `client_secret or client_assertion`。| 如果您的應用程式未在 Azure AD 中註冊為公用用戶端應用程式，則會擲回這個例外狀況。 在 Azure 入口網站中，編輯應用程式的資訊清單，並將 `allowPublicClient` 設定為 `true`。 |
@@ -284,7 +295,7 @@ MSAL 會公開 `Classification` 欄位，您可以加以閱讀以提供更佳的
 | UserPasswordExpired | 使用者的密碼已過期。 | 呼叫 AcquireTokenInteractively （），讓使用者可以重設其密碼。 |
 | PromptNeverFailed| 呼叫互動式驗證時，參數提示 = 永不，強制 MSAL 依賴瀏覽器 cookie，而不是顯示瀏覽器。 這是失敗的。 | 呼叫 AcquireTokenInteractively （）而不提示。無 |
 | AcquireTokenSilentFailed | MSAL SDK 沒有足夠的資訊可從快取中提取權杖。 這可能是因為快取中沒有任何權杖，或找不到帳戶。 錯誤訊息有更多詳細資料。  | 呼叫 AcquireTokenInteractively （）。 |
-| None    | 未提供進一步的詳細資料。 在互動式驗證流程期間，使用者互動可能會解決條件。 | 呼叫 AcquireTokenInteractively （）。 |
+| 無    | 未提供進一步的詳細資料。 在互動式驗證流程期間，使用者互動可能會解決條件。 | 呼叫 AcquireTokenInteractively （）。 |
 
 ## <a name="code-example"></a>程式碼範例
 
@@ -344,7 +355,6 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
  }
 }
 ```
-
 
 ## <a name="javascript-errors"></a>JavaScript 錯誤
 
@@ -449,7 +459,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 
 ### <a name="net"></a>.NET
 
-從 MSAL.NET 呼叫需要條件式存取的 API 時，您的應用程式將必須處理宣告挑戰例外狀況。 此例外狀況會呈現為[宣告](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)屬性非空白的 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)。
+從 MSAL.NET 呼叫需要條件式存取的 API 時，您的應用程式將必須處理宣告挑戰例外狀況。 此例外狀況會呈現為[宣告](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)屬性非空白的 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)。
 
 若要處理索賠挑戰，您必須使用 `PublicClientApplicationBuilder` 類別的 `.WithClaim()` 方法。
 

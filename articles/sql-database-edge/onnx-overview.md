@@ -10,12 +10,12 @@ author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/07/2019
-ms.openlocfilehash: 744ac9f8526b7d65709d3627a5f90b31d234b2cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bdb602598f3d8b4aaed5d6061542d540a82ebc75
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009084"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114590"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>SQL Database Edge 預覽版中的機器學習服務和 AI 搭配 ONNX
 
@@ -46,7 +46,7 @@ Azure SQL Database Edge 預覽版中的機器學習支援[Open Neural Network Ex
 
 目前，Azure SQL Database Edge 並不支援所有的 ONNX 模型。 支援僅限於具有**數值資料類型**的模型：
 
-- [int 和 Bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int 和 Bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real 和 float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql)。
   
 您可以使用[CAST 和 CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)，將其他數數值型別轉換成支援的類型。

@@ -1,7 +1,7 @@
 ---
 title: 動態字典 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 如何使用翻譯工具文字 API 的動態字典功能。
+description: 本文說明如何使用 Azure 認知服務翻譯工具文字 API 的動態字典功能。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c268616c015c1c8735b2bdddc057f235d02cdc2a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5f007660b98a22ff9ffad072991a39cf59518b6a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161754"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837345"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>如何使用動態字典
 
-若您已經知道您想要套用至字組或片語的翻譯，則可以提供它作為要求內的標記。 動態字典僅適用於正確名稱和產品名稱這類複合名詞。
+如果已經知道想要套用至單字或片語的翻譯，則可以在要求內以標記來提供。 動態字典僅適用於專有名稱和產品名稱這類複合名詞。
 
 **語法：**
 

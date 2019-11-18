@@ -1,5 +1,5 @@
 ---
-title: AI 擴充管線中的參考輸入和輸出
+title: 參考技能集中的輸入和輸出
 titleSuffix: Azure Cognitive Search
 description: 說明注釋語法，以及如何在 Azure 認知搜尋中的 AI 擴充管線中，參考技能集的輸入和輸出中的注釋。
 manager: nitinme
@@ -8,24 +8,24 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787767"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113862"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>如何參考 Azure 認知搜尋技能集中的批註
 
 在本文中，我們將使用範例說明各種案例，讓您了解如何參考技能定義中的註解。 當文件內容流經技能集時，將會增添註解而有所擴充。 註解可以作為進一步下游擴充的輸入，或對應至索引中的輸出欄位。 
  
-本文中的範例，以 [Azure Blob 索引子](search-howto-indexing-azure-blob-storage.md)在文件萃取階段的執行過程中自動產生的*內容*欄位為基礎。 從 Blob 容器參照文件時，請使用 `"/document/content"` 之類的格式，其中，*內容*欄位是*文件*的一部分。 
+本文中的範例，以 *Azure Blob 索引子*在文件萃取階段的執行過程中自動產生的[內容](search-howto-indexing-azure-blob-storage.md)欄位為基礎。 從 Blob 容器參照文件時，請使用 `"/document/content"` 之類的格式，其中，*內容*欄位是*文件*的一部分。 
 
 ## <a name="background-concepts"></a>背景概念
 
 在檢閱語法之前，讓我們先回顧幾個重要的概念，以深入了解本文稍後所提供的範例。
 
-| 條款 | 描述 |
+| 詞彙 | 描述 |
 |------|-------------|
 | 擴充的文件 | 擴充的文件是管線所建立及使用的內部結構，用來保存與文件相關的所有註解。 請將擴充的文件設想為註解的樹狀結構。 一般而言，從上一個註解建立的註解將會成為其子系。<p/>只有在技能集執行期間，才會有擴充的文件。 在內容對應至搜尋索引後，即不再需要擴充的文件。 雖然您無法直接擴充的文件互動，但在建立技能集時，具有文件的心智模型將有所幫助。 |
 | 擴充內容 | 執行擴充所在的內容，以擴充何種元素的觀點來表示。 根據預設，擴充內容會在 `"/document"` 層級上，其範圍僅限於個別文件。 當技能執行時，該技能的輸出會成為[已定義內容的屬性](#example-2)。|
@@ -120,7 +120,7 @@ ms.locfileid: "72787767"
 
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 + [如何將自訂技能整合到擴充管線中](cognitive-search-custom-skill-interface.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

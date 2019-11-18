@@ -1,5 +1,5 @@
 ---
-title: 如何監視索引子狀態和結果
+title: 監視索引子狀態和結果
 titleSuffix: Azure Cognitive Search
 description: 使用 REST API 或 .NET SDK，在 Azure 入口網站中監視 Azure 認知搜尋索引子的狀態、進度和結果。
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793792"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112987"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>如何監視 Azure 認知搜尋索引子的狀態和結果
 
@@ -180,6 +180,6 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 
 如需有關狀態碼和索引子監視資訊的詳細資訊，請參閱 REST API 中的[GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) 。
 
-您可以藉由列舉 `IndexerExecutionResult.Errors` 和 `IndexerExecutionResult.Warnings` 的清單來抓取檔特定錯誤或警告的詳細資料。
+您可以藉由列舉 `IndexerExecutionResult.Errors` 和 `IndexerExecutionResult.Warnings`的清單來抓取檔特定錯誤或警告的詳細資料。
 
 如需用來監視索引子之 .NET SDK 類別的詳細資訊，請參閱[IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet)和[IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)。

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802211"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120330"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
@@ -35,7 +35,7 @@ ms.locfileid: "72802211"
 - 已更新 G Suite 目標屬性名稱，以符合[這裡](/azure/active-directory/manage-apps/customize-application-attributes)定義的內容。
 - 已更新預設屬性對應。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 G Suite 整合，您需要下列項目：
 
@@ -157,11 +157,11 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
 7. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
 
-8. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
+8. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-8. 按一下 [儲存]。
+8. 按一下 [檔案]。
 
 9. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者到 G Suite**]。
 
@@ -183,15 +183,15 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
 14. 若要啟用 G Suite 的 Azure AD 布建服務，請在 [**設定**] 區段中，將 [布建**狀態**] 變更為 [**開啟**]。
 
-    ![布建狀態已切換為開啟](common/provisioning-toggle-on.png)
+    ![佈建狀態已切換為開啟](common/provisioning-toggle-on.png)
 
 15. 在 [**設定**] 區段的 [**範圍**] 中選擇所需的值，以定義您想要布建至 G Suite 的使用者和/或群組。
 
-    ![布建範圍](common/provisioning-scope.png)
+    ![佈建範圍](common/provisioning-scope.png)
 
 16. 當您準備好要佈建時，按一下 [儲存]。
 
-    ![正在儲存布建設定](common/provisioning-configuration-save.png)
+    ![儲存雲端佈建設定](common/provisioning-configuration-save.png)
 
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度，並遵循連結來布建活動報告，其中描述 G Suite 上的 Azure AD 布建服務所執行的所有動作。
 
@@ -199,6 +199,12 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
 > [!NOTE]
 > 自動化使用者布建至 G Suite 的另一個可行選項是使用[Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en)。此選項會將您的內部部署 Active Directory 身分識別布建至 G Suite。
+
+## <a name="common-issues"></a>常見問題
+* G Suite 要求所有已布建的使用者都必須來自已驗證的網域。 請確定您想要布建的任何使用者在 G Suite 的已驗證網域中都有 UPN。 如果未驗證網域中的使用者在布建範圍內，您會在布建[記錄](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)中看到錯誤，例如 "GoogleAppsInvalidDomain"。 您可以使用[範圍篩選器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)來防止這些錯誤，並確保來自未驗證網域的使用者不在範圍內。
+    * 目標屬性： userPrincipalName
+    * 運算子： REGEX 比對或不符合 REGEX 比對
+    * 值：. *@domain.com
 
 ## <a name="additional-resources"></a>其他資源
 

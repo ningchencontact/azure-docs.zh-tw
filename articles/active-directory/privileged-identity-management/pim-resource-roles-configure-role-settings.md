@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022946"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144282"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>在 Privileged Identity Management 中設定 Azure 資源角色設定
 
@@ -48,11 +48,19 @@ ms.locfileid: "74022946"
 
     ![列出數個指派和啟用設定的角色設定詳細資料頁面](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. 選取 [**編輯**] 以開啟 [角色設定] 窗格。
+1. 選取 [**編輯**] 以開啟 [**角色設定**] 窗格。 第一個索引標籤可讓您更新 Privileged Identity Management 中角色啟用的設定。
 
-    ![[編輯角色設定] 頁面，其中包含更新指派和啟用設定的選項](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![開啟啟用索引標籤的 [編輯角色設定] 頁面](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    在每個角色的 [角色設定] 窗格上，有許多您可以設定的設定。
+1. 選取頁面底部的 [**指派**] 索引標籤或 [**下一步：指派**] 按鈕，以開啟 [指派設定] 索引標籤。這些設定會控制在 Privileged Identity Management 介面內進行的角色指派。
+
+    ![[角色設定] 頁面中的 [角色指派] 索引標籤](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. 使用頁面底部的 [**通知**] 索引標籤或 [**下一步：啟用**] 按鈕，以前往此角色的 [通知設定] 索引標籤。 這些設定會控制與此角色相關的所有電子郵件通知。
+
+    ![[角色設定] 頁面中的 [角色通知] 索引標籤](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. 隨時選取 [**更新**] 按鈕以更新角色設定。
 
 ## <a name="assignment-duration"></a>指派持續時間
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: b0d7286d96d2fbfa35eb7ce9079413dfd186288c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 52c65bced1d78a4fdad1fbfd59c7a8d6d99d0c4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496965"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123290"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>將機器學習模型部署到 Azure App Service （預覽）
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "73496965"
 > [!IMPORTANT]
 > 如果您需要記錄已部署模型所使用之計分資料的功能，或評分的結果，您應該改為部署到 Azure Kubernetes Service。 如需詳細資訊，請參閱[收集生產環境模型的資料](how-to-enable-data-collection.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)文章。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
@@ -97,7 +97,7 @@ ms.locfileid: "73496965"
 
 ## <a name="create-the-image"></a>建立映像
 
-若要建立部署到 Azure App Service 的 Docker 映射，請使用 [ [Model. package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-)]。 下列程式碼片段示範如何從模型和推斷設定建立新的影像：
+若要建立部署到 Azure App Service 的 Docker 映射，請使用 [ [Model. package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)]。 下列程式碼片段示範如何從模型和推斷設定建立新的影像：
 
 > [!NOTE]
 > 此程式碼片段假設 `model` 包含已註冊的模型，而且該 `inference_config` 包含推斷環境的設定。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
@@ -111,7 +111,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-當 `show_output=True`時，會顯示 Docker 組建進程的輸出。 程式完成後，就會在您工作區的 Azure Container Registry 中建立映射。 建立映射之後，就會顯示 Azure Container Registry 中的位置。 傳回的位置格式為 `<acrinstance>.azurecr.io/package:<imagename>`。 例如， `myml08024f78fd10.azurecr.io/package:20190827151241`。
+當 `show_output=True`時，會顯示 Docker 組建進程的輸出。 程式完成後，就會在您工作區的 Azure Container Registry 中建立映射。 建立映射之後，就會顯示 Azure Container Registry 中的位置。 傳回的位置格式為 `<acrinstance>.azurecr.io/package:<imagename>`。 例如： `myml08024f78fd10.azurecr.io/package:20190827151241` 。
 
 > [!IMPORTANT]
 > 儲存位置資訊，因為它會在部署映射時使用。
@@ -243,7 +243,7 @@ az webapp show --name <app-name> --resource-group myresourcegroup
 
 ## <a name="use-the-web-app"></a>使用 Web 應用程式
 
-將要求傳遞至模型的 web 服務位於 `{baseurl}/score`。 例如， `https://<app-name>.azurewebsites.net/score`。 下列 Python 程式碼示範如何將資料提交至 URL，並顯示回應：
+將要求傳遞至模型的 web 服務位於 `{baseurl}/score`。 例如： `https://<app-name>.azurewebsites.net/score` 。 下列 Python 程式碼示範如何將資料提交至 URL，並顯示回應：
 
 ```python
 import requests

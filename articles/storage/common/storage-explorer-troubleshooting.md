@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694706"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124018"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -29,7 +29,7 @@ Microsoft Azure 儲存體總管是獨立應用程式，可讓您輕鬆地使用 
 
 如果您在透過 RBAC 存取儲存體資源時遇到問題，您可能未獲指派適當的角色。 下列各節說明目前存取儲存體資源所需的許可權儲存體總管。 如果您不確定您擁有適當的角色或許可權，請洽詢您的 Azure 帳戶管理員。
 
-#### <a name="read-listget-storage-accounts-permissions-issue"></a>閱讀文章列出/取得儲存體帳戶的許可權問題
+#### <a name="read-listget-storage-accounts-permissions-issue"></a>「讀取：列出/取得儲存體帳戶」許可權問題
 
 您必須擁有列出儲存體帳戶的許可權。 若要取得此許可權，您必須獲指派「_讀者_」角色。
 
@@ -58,9 +58,9 @@ RBAC 角色可以包含管理或資料層存取的許可權。 例如，「讀�
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我無法取得系統管理員所需的管理層許可權，該怎麼辦？
 
-我們目前沒有適用于此問題的 RBAC 相關解決方案。 因應措施是，您可以要求 SAS URI 以[附加至您的資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri)。
+我們目前沒有適用于此問題的 RBAC 相關解決方案。 因應措施是，您可以要求 SAS URI 以[附加至您的資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)。
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error:憑證鏈中的自我簽署憑證（和類似的錯誤）
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>錯誤：憑證鏈中的自我簽署憑證（和類似的錯誤）
 
 憑證錯誤通常會在下列其中一種情況下發生：
 
@@ -70,24 +70,24 @@ RBAC 角色可以包含管理或資料層存取的許可權。 例如，「讀�
 當儲存體總管看到自我簽署或未受信任的憑證時，就不會再知道接收的 HTTPS 訊息是否已改變。 如果您有一份自我簽署憑證，您可以依照下列步驟指示儲存體總管信任它：
 
 1. 取得憑證的 Base-64 編碼 x.509 （.cer）複本。
-2. 移至 [**編輯** >  **SSL 憑證** > ] [匯**入憑證**]，然後使用檔案選擇器來尋找、選取及開啟 .cer 檔案。
+2. 移至 **編輯** >  **SSL 憑證** > 匯**入憑證**，然後使用檔案選擇器來尋找、選取及開啟 .cer 檔案。
 
 如果有多個憑證（root 和中級），也可能會發生此問題。 若要修正此錯誤，必須新增這兩個憑證。
 
 如果您不確定憑證的來源，請遵循下列步驟來尋找：
 
 1. 安裝 OpenSSL。
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html)：任何一個 light 版本應該就足夠了。
-    * Mac 及 Linux：應包含在您的作業系統中。
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html)：任何 light 版本應該就足夠了。
+    * Mac 和 Linux：應該包含在作業系統中。
 2. 執行 OpenSSL。
-    * Windows:開啟安裝目錄，選取 [ **/bin/** ]，然後按兩下 [ **openssl**]。
-    * Mac 及 Linux：從`openssl`終端機執行。
+    * Windows：開啟安裝目錄，選取 [ **/bin/** ]，然後按兩下 [ **openssl**]。
+    * Mac 和 Linux：從終端機執行 `openssl`。
 3. 執行 `s_client -showcerts -connect microsoft.com:443`。
-4. 尋找自我簽署憑證。 如果您不確定哪些是自我簽署的憑證，請記下主體`("s:")`和發行者`("i:")`相同的任何位置。
-5. 當您找到自我簽署的憑證時，請將其從（和包含） `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----`複製並貼到新的 .cer 檔案。
-6. 開啟儲存體總管並移至 [**編輯** >  **SSL 憑證** > ] [匯**入憑證**]。 然後使用檔案選擇器來尋找、選取及開啟您所建立的 .cer 檔案。
+4. 尋找自我簽署憑證。 如果您不確定哪些是自我簽署的憑證，請記下主體 `("s:")` 和簽發者 `("i:")` 相同的任何位置。
+5. 當您找到自我簽署的憑證時，請為每個憑證複製並貼上（並包含） `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 到新的 .cer 檔案。
+6. 開啟儲存體總管並移至 [**編輯** > **SSL 憑證**] > [匯**入憑證**]。 然後使用檔案選擇器來尋找、選取及開啟您所建立的 .cer 檔案。
 
-如果您遵循下列步驟找不到任何自我簽署的憑證，請透過意見反應工具與我們聯繫。 您也可以使用`--ignore-certificate-errors`旗標，從命令列開啟儲存體總管。 使用此旗標開啟時，儲存體總管會忽略憑證錯誤。
+如果您遵循下列步驟找不到任何自我簽署的憑證，請透過意見反應工具與我們聯繫。 您也可以使用 `--ignore-certificate-errors` 旗標，從命令列開啟儲存體總管。 使用此旗標開啟時，儲存體總管會忽略憑證錯誤。
 
 ## <a name="sign-in-issues"></a>登入問題
 
@@ -95,7 +95,7 @@ RBAC 角色可以包含管理或資料層存取的許可權。 例如，「讀�
 
 當 Active Directory 同盟服務（AD FS）提示儲存體總管執行重新導向（Electron 不支援）時，就會出現空白登入對話方塊。 若要解決此問題，您可以嘗試使用裝置程式碼流程來進行登入。 若要這樣做，請依照下列步驟執行：
 
-1. 在功能表上，移至 [**預覽** > ] [**使用裝置程式碼登入**]。
+1. 在功能表上，移至 **預覽** > **使用裝置程式碼登入**。
 2. 開啟 [**連接**] 對話方塊（透過左側分隔號的插頭圖示，或選取 [帳戶] 面板上的 [**新增帳戶**]）。
 3. 選擇您想要登入的環境。
 4. 選取 [登入]。
@@ -165,7 +165,7 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
 > 在您刪除這些資料夾之前，請先關閉儲存體總管。
 
 > [!NOTE]
-> 如果您曾匯入任何 SSL 憑證，請備份`certs`目錄的內容。 稍後，您可以使用備份來重新匯入 SSL 憑證。
+> 如果您曾匯入任何 SSL 憑證，請備份 `certs` 目錄的內容。 稍後，您可以使用備份來重新匯入 SSL 憑證。
 
 ## <a name="proxy-issues"></a>Proxy 問題
 
@@ -193,7 +193,7 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
 
 * 如果必須透過 proxy 工作，您可能必須設定網路工具透過 proxy 連線。
 * 檢查網路工具使用的連接埠號碼。
-* 輸入本機主機 URL 和網路工具的連接埠號碼，當做儲存體總管的 proxy 設定。 當您正確地執行此動作時，您的網路工具就會開始記錄儲存體總管對管理和服務端點提出的網路要求。 例如，在流覽`https://cawablobgrs.blob.core.windows.net/`器中輸入 blob 端點，您會收到類似下列的回應：
+* 輸入本機主機 URL 和網路工具的連接埠號碼，當做儲存體總管的 proxy 設定。 當您正確地執行此動作時，您的網路工具就會開始記錄儲存體總管對管理和服務端點提出的網路要求。 例如，在瀏覽器中輸入 blob 端點的 `https://cawablobgrs.blob.core.windows.net/`，您會收到類似下列的回應：
 
   ![程式碼範例](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -216,11 +216,11 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
 
 如果您看到帳戶金鑰，請在 GitHub 中提出問題，讓我們可以協助您解決問題。
 
-## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>加入新連接時發生錯誤：TypeError無法讀取未定義的屬性 ' version '
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>加入新的連接時發生錯誤： TypeError：無法讀取未定義的屬性 ' version '
 
 如果您在嘗試新增自訂連線時收到此錯誤訊息，則儲存在本機認證管理員中的連接資料可能已損毀。 若要解決此問題，請嘗試刪除已損毀的本機連接，然後重新加入它們：
 
-1. 啟動儲存體總管。 從功能表中，**移至** > [說明] [**切換開發人員工具**]。
+1. 啟動儲存體總管。 從功能表中，移至 說明 ** > ** **切換開發人員工具**。
 2. 在開啟的視窗的 **應用程式** 索引標籤上，移至 **本機儲存體** （左側） > **file://** 。
 3. 視您遇到問題的連線類型而定，尋找其金鑰，然後將其值複製到文字編輯器中。 值是自訂連接名稱的陣列，如下所示：
     * 儲存體帳戶
@@ -234,7 +234,7 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
         * `StorageExplorer_CustomConnections_Queues_v1`
     * 資料表
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. 儲存目前的連接名稱之後，請將 [開發人員工具] 中`[]`的值設定為。
+4. 儲存目前的連接名稱之後，請將 [開發人員工具] 中的值設定為 [`[]`]。
 
 如果您想要保留未損毀的連線，您可以使用下列步驟來找出損毀的連接。 如果您不介意遺失所有現有的連線，您可以略過這些步驟，並遵循平臺特定的指示來清除您的連接資料。
 
@@ -248,13 +248,13 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
 
 1. 在 [**開始**] 功能表上，搜尋 [**認證管理員**] 並開啟它。
 2. 移至 [ **Windows 認證**]。
-3. `<connection_type_key>/<corrupted_connection_name>`在 **[一般認證**] 下，尋找具有索引鍵的專案（例如）。`StorageExplorer_CustomConnections_Accounts_v1/account1`
+3. 在 [**一般認證**] 下，尋找具有 `<connection_type_key>/<corrupted_connection_name>` 索引鍵的專案（例如，`StorageExplorer_CustomConnections_Accounts_v1/account1`）。
 4. 刪除這些專案，然後重新加入連接。
 
 # <a name="macostabmacos"></a>[macOS](#tab/macOS)
 
 1. 開啟 [焦點] （命令 + 空格鍵），並搜尋 [ **Keychain 存取**]。
-2. 尋找具有`<connection_type_key>/<corrupted_connection_name>`索引鍵的專案（ `StorageExplorer_CustomConnections_Accounts_v1/account1`例如）。
+2. 尋找具有 `<connection_type_key>/<corrupted_connection_name>` 索引鍵的專案（例如，`StorageExplorer_CustomConnections_Accounts_v1/account1`）。
 3. 刪除這些專案，然後重新加入連接。
 
 # <a name="linuxtablinux"></a>[Linux](#tab/Linux)
@@ -262,7 +262,7 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
 本機認證管理會依據 Linux 散發套件而有所不同。 如果您的 Linux 散發套件未提供內建的 GUI 工具來管理本機認證，您可以安裝協力廠商工具來管理本機認證。 例如，您可以使用[Seahorse](https://wiki.gnome.org/Apps/Seahorse/)，這是用來管理 Linux 本機認證的開放原始碼 GUI 工具。
 
 1. 開啟您的本機認證管理工具，並尋找您儲存的認證。
-2. 尋找具有`<connection_type_key>/<corrupted_connection_name>`索引鍵的專案（ `StorageExplorer_CustomConnections_Accounts_v1/account1`例如）。
+2. 尋找具有 `<connection_type_key>/<corrupted_connection_name>` 索引鍵的專案（例如，`StorageExplorer_CustomConnections_Accounts_v1/account1`）。
 3. 刪除這些專案，然後重新加入連接。
 ---
 
@@ -279,7 +279,7 @@ MacOS Keychain 有時可能會進入導致儲存體總管 authentication 程式�
 如果您不小心使用不正確 SAS URL 來附加，而且現在無法中斷連結，請遵循下列步驟：
 
 1. 當您執行儲存體總管時，請按 F12 開啟 [開發人員工具] 視窗。
-2. 在 [**應用程式**] 索引標籤上，選取左側樹狀目錄中的 [**本機儲存體** >  **file://** ]。
+2. 在 [**應用程式**] 索引標籤上，選取左側樹狀目錄中的 [**本機儲存體**] > **file://** 。
 3. 尋找與有問題的 SAS URI 服務類型相關聯的索引鍵。 例如，如果是 Blob 容器的 SAS URI 不正確，請尋找名為 `StorageExplorer_AddStorageServiceSAS_v1_blob` 的索引鍵。
 4. 索引鍵的值應該是 JSON 陣列。 尋找與錯誤 URI 相關聯的物件，然後將它刪除。
 5. 按下 Ctrl+R，重新載入儲存體總管。
@@ -351,10 +351,10 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 針對儲存體總管1.7.0 或更早版本，您可能必須修補儲存體總管所使用的 .NET Core 版本：
 
 1. [從 NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)下載 StreamJsonRpc 版本1.5.43。 在頁面右側尋找 [下載套件] 連結。
-2. 在您下載套件之後，請將其副檔名從`.nupkg`變更`.zip`為。
+2. 下載套件之後，請將其副檔名從 `.nupkg` 變更為 `.zip`。
 3. 將封裝解壓縮。
 4. 開啟 `streamjsonrpc.1.5.43/lib/netstandard1.1/` 資料夾。
-5. 複製`StreamJsonRpc.dll`到 [儲存體總管] 資料夾中的下列位置：
+5. 將 `StreamJsonRpc.dll` 複製到儲存體總管資料夾中的下列位置：
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
@@ -370,4 +370,4 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 如果這些解決方案都不適用，請[在 GitHub 中開啟問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。 您也可以在左下角選取 [**向 GitHub 回報問題**] 按鈕來執行這項操作。
 
-![意見](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![意見反應](./media/storage-explorer-troubleshooting/feedback-button.PNG)

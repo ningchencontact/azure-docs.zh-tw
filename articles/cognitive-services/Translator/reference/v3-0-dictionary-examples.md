@@ -1,7 +1,7 @@
 ---
 title: 翻譯工具文字 API 字典範例方法
 titleSuffix: Azure Cognitive Services
-description: 使用翻譯工具文字 API 字典範例方法。
+description: 翻譯工具文字 API 字典範例方法提供範例，示範如何在內容中使用字典中的詞彙。
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa3ff7cb9006a0ec940a57a4db31746dcb0550a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934024"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888106"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>翻譯工具文字 API 3.0：字典範例
 
@@ -38,22 +38,22 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>*必要參數*。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
   </tr>
   <tr>
-    <td>寄件者</td>
-    <td>必要參數。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>從</td>
+    <td>*必要參數*。<br/>指定輸入文字的語言。 來源語言必須是 [ 範圍內包含的](./v3-0-languages.md)支援語言`dictionary`之一。</td>
   </tr>
   <tr>
-    <td>to</td>
-    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>收件人</td>
+    <td>*必要參數*。<br/>指定輸出文字的語言。 目標語言必須是 [ 範圍內包含的](./v3-0-languages.md)支援語言`dictionary`之一。</td>
   </tr>
 </table>
 
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">標頭</th>
+  <th width="20%">headers</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -77,9 +77,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 要求的本文是 JSON 陣列。 每個陣列元素都是具有下列屬性的 JSON 物件：
 
-  * `Text`:一個字串，指定要查閱的字詞。 此屬性應為先前[字典查閱](./v3-0-dictionary-lookup.md)要求的反向翻譯中的 `normalizedText` 欄位值。 它也可以是 `normalizedSource` 欄位的值。
+  * `Text`：一個字串，指定要查閱的字詞。 此屬性應為先前`normalizedText`字典查閱[要求的反向翻譯中的 ](./v3-0-dictionary-lookup.md) 欄位值。 它也可以是 `normalizedSource` 欄位的值。
 
-  * `Translation`:一個字串，指定[字典查閱](./v3-0-dictionary-lookup.md)作業先前傳回的翻譯文字。 此屬性應為[字典查閱](./v3-0-dictionary-lookup.md)回應的 `translations` 清單中包含的 `normalizedTarget` 欄位值。 服務會傳回特定的來源-目標字組配對的範例。
+  * `Translation`：一個字串，指定[字典查閱](./v3-0-dictionary-lookup.md)作業先前傳回的翻譯文字。 此屬性應為`normalizedTarget`字典查閱`translations`回應的 [ 清單中包含的 ](./v3-0-dictionary-lookup.md) 欄位值。 服務會傳回特定的來源-目標字組配對的範例。
 
 範例如下：
 
@@ -98,23 +98,23 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `normalizedSource`:一個字串，指定來源字詞的標準化形式。 一般而言，此屬性應等同於要求本文中位於相符清單索引上的 `Text` 欄位值。
+  * `normalizedSource`：字串，指定來源字詞的標準化形式。 一般而言，此屬性應等同於要求本文中位於相符清單索引上的 `Text` 欄位值。
     
-  * `normalizedTarget`:一個字串，指定目標字詞的標準化形式。 一般而言，此屬性應等同於要求本文中位於相符清單索引上的 `Translation` 欄位值。
+  * `normalizedTarget`：一個字串，指定目標字詞的標準化形式。 一般而言，此屬性應等同於要求本文中位於相符清單索引上的 `Translation` 欄位值。
   
-  * `examples`:(來源字詞、目標字詞) 配對的範例清單。 清單的每個項目是具有下列屬性的物件：
+  * `examples`：(來源字詞、目標字詞) 配對的範例清單。 清單的每個項目是具有下列屬性的物件：
 
-    * `sourcePrefix`:要在 `sourceTerm` 的值之前串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
+    * `sourcePrefix`：要在  _的值之前_`sourceTerm`串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 
-    * `sourceTerm`:與查閱的實際字詞等同的字串。 此字串可透過 `sourcePrefix` 和 `sourceSuffix` 來新增，以形成完整範例。 其值會分隔以便標示於使用者介面中，例如藉由粗體來標示。
+    * `sourceTerm`：與查閱的實際字詞等同的字串。 此字串可透過 `sourcePrefix` 和 `sourceSuffix` 來新增，以形成完整範例。 其值會分隔以便標示於使用者介面中，例如藉由粗體來標示。
 
-    * `sourceSuffix`:要在 `sourceTerm` 的值之後串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
+    * `sourceSuffix`：要在  _的值之後_`sourceTerm`串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 
-    * `targetPrefix`:一個類似於 `sourcePrefix` 但用於目標的字串。
+    * `targetPrefix`：一個類似於 `sourcePrefix` 但用於目標的字串。
 
-    * `targetTerm`:一個類似於 `sourceTerm` 但用於目標的字串。
+    * `targetTerm`：一個類似於 `sourceTerm` 但用於目標的字串。
 
-    * `targetSuffix`:一個類似於 `sourceSuffix` 但用於目標的字串。
+    * `targetSuffix`：一個類似於 `sourceSuffix` 但用於目標的字串。
 
     > [!NOTE]
     > 如果字典中沒有範例，回應會是 200 (良好)，但 `examples` 清單卻是空白清單。
@@ -127,7 +127,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
 
-回應本文 (為了清楚起見已縮減) 如下：
+回應本文 (為了清楚緣故已縮減) 如下：
 
 ```
 [

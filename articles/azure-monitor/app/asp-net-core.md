@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 8a87335dba237e8088275706f7dcc2eb7f34831a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8f39556fcffea5f254e5362dbb1b55762f60c9b3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887567"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131932"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的 Application Insights
 
@@ -249,7 +249,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="adding-telemetry-processors"></a>新增遙測處理器
 
-您可以使用 `IServiceCollection`上 `AddApplicationInsightsTelemetryProcessor` 的擴充方法，將自訂遙測處理器新增至 `TelemetryConfiguration`。 您在[advanced 篩選案例](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中使用遙測處理器。 請使用下列範例。
+您可以使用 `IServiceCollection`上 `AddApplicationInsightsTelemetryProcessor` 的擴充方法，將自訂遙測處理器新增至 `TelemetryConfiguration`。 您在[advanced 篩選案例](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer)中使用遙測處理器。 請使用下列範例。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

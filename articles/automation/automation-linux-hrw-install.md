@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240310"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129844"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合式 Runbook 背景工作角色
 
@@ -54,7 +54,7 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 |Python-ctypes | 需要 Python 2。x |
 |PAM | 插入式驗證模組|
 | **選用套件** | **描述** | **最低版本**|
-| PowerShell Core | 若要執行 PowerShell Runbook，則必須安裝 PowerShell，請參閱[在 Linux 上安裝 PowerShell Core](/powershell/scripting/setup/installing-powershell-core-on-linux) 以了解其安裝方式。  | 6.0.0 |
+| PowerShell Core | 若要執行 PowerShell Runbook，則必須安裝 PowerShell，請參閱[在 Linux 上安裝 PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux) 以了解其安裝方式。  | 6.0.0 |
 
 ### <a name="installation"></a>安裝
 
@@ -86,7 +86,7 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 1. 命令完成之後，Azure 入口網站中的 [混合式背景工作角色群組] 頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。
 
 > [!NOTE]
-> 如果您針對 Azure VM 使用適用于 Linux 的 Azure 監視器虛擬機器擴充功能，建議您`autoUpgradeMinorVersion`將設定為 false，因為自動升級版本可能會導致混合式 Runbook 背景工作角色發生問題。 若要瞭解如何手動升級延伸模組，請參閱[Azure CLI 部署](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)。
+> 如果您針對 Azure VM 使用適用于 Linux 的 Azure 監視器虛擬機器擴充功能，建議您將 `autoUpgradeMinorVersion` 設定為 false，因為自動升級版本可能會導致混合式 Runbook 背景工作角色發生問題。 若要瞭解如何手動升級延伸模組，請參閱[Azure CLI 部署](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)。
 
 ## <a name="turning-off-signature-validation"></a>關閉簽章驗證
 
@@ -106,7 +106,7 @@ Linux 混合式 Runbook 背景工作角色不支援 自動化中整組的 Runboo
 * PowerShell
 
   > [!NOTE]
-  > PowerShell Runbook 要求在 Linux 機器上安裝 PowerShell Core。 請參閱[在 Linux 上安裝 PowerShell Core](/powershell/scripting/setup/installing-powershell-core-on-linux) 以了解其安裝方式。
+  > PowerShell Runbook 要求在 Linux 機器上安裝 PowerShell Core。 請參閱[在 Linux 上安裝 PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux) 以了解其安裝方式。
 
 下列 Runbook 類型不會在 Linux 混合式背景工作角色運作：
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 9625870132d088bf1de6df06f05f0cac41a1e7fa
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081479"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144227"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -293,7 +293,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 根據預設，App Service 會預期您的 JAR 應用程式會命名為*app.config*。 如果它有此名稱，則會自動執行。 針對 Maven 使用者，您可以在*pom*的 `<build>` 區段中包含 `<finalName>app</finalName>`，以設定 JAR 名稱。 您可以藉由設定 `archiveFileName` 屬性，[在 Gradle 中執行相同](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName)的動作。
 
-如果您想要為 JAR 使用不同的名稱，您也必須提供可執行 JAR 檔案的[啟動命令](app-service-linux-faq.md#built-in-images)。 例如， `java -jar my-jar-app.jar`。 您可以在入口網站中的 [設定] > [一般設定] 底下，或使用名為 `STARTUP_COMMAND`的應用程式設定，設定啟動命令的值。
+如果您想要為 JAR 使用不同的名稱，您也必須提供可執行 JAR 檔案的[啟動命令](app-service-linux-faq.md#built-in-images)。 例如： `java -jar my-jar-app.jar` 。 您可以在入口網站中的 [設定] > [一般設定] 底下，或使用名為 `STARTUP_COMMAND`的應用程式設定，設定啟動命令的值。
 
 ### <a name="server-port"></a>伺服器埠
 
@@ -363,40 +363,79 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 
 #### <a name="shared-server-level-resources"></a>共用伺服器層級資源
 
-1. 如果您還沒有設定，請使用 SSH 將 */usr/local/tomcat/conf*的內容複寫到您 App Service Linux 實例上的 */home/tomcat/conf* 。
+新增共用的伺服器層級資料來源，會要求您編輯 Tomcat 的 server .xml。 首先，上傳[啟動腳本](app-service-linux-faq.md#built-in-images)，並在**Configuration** > **啟動 命令**中設定腳本的路徑。 您可以使用[FTP](../deploy-ftp.md)上傳啟動腳本。
 
-    ```bash
-    mkdir -p /home/tomcat
-    cp -a /usr/local/tomcat/conf /home/tomcat/conf
-    ```
+您的啟動腳本會對 server .xml 檔案進行[xsl 轉換](https://www.w3schools.com/xml/xsl_intro.asp)，並將產生的 xml 檔輸出到 `/usr/local/tomcat/conf/server.xml`。 啟動腳本應該透過 apk 安裝 libxslt。 您可以透過 FTP 上傳您的 xsl 檔案和啟動腳本。 以下是啟動腳本範例。
 
-2. 在您的*server .xml*中，于 `<Server>` 專案內加入 CoNtext 元素。
+```sh
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+apk add --update libxslt
 
-    ```xml
-    <Server>
-    ...
-    <Context>
-        <Resource
-            name="jdbc/dbconnection"
-            type="javax.sql.DataSource"
-            url="${dbuser}"
-            driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
-        />
-    </Context>
-    ...
-    </Server>
-    ```
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+```
 
-3. 更新應用程式的*web.config* ，以在您的應用程式中使用資料來源。
+以下提供範例 xsl 檔案。 範例 xsl 檔案會將新的連接器節點加入至 Tomcat server .xml。
 
-    ```xml
-    <resource-env-ref>
-        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
-        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
-    </resource-env-ref>
-    ```
+```xml
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" indent="yes"/>
+
+  <xsl:template match="@* | node()" name="Copy">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="@* | node()" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                 contains(., '&lt;Connector') and
+                                 (contains(., 'scheme=&quot;https&quot;') or
+                                  contains(., &quot;scheme='https'&quot;))]">
+    <xsl:value-of select="." disable-output-escaping="yes" />
+  </xsl:template>
+
+  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                   comment()[contains(., '&lt;Connector') and
+                                             (contains(., 'scheme=&quot;https&quot;') or
+                                              contains(., &quot;scheme='https'&quot;))]
+                                  )]
+                      ">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add the new connector after the last existing Connnector if there is one -->
+  <xsl:template match="Connector[last()]" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+
+    <xsl:call-template name="AddConnector" />
+  </xsl:template>
+
+  <!-- ... or before the first Engine if there is no existing Connector -->
+  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                mode="insertConnector">
+    <xsl:call-template name="AddConnector" />
+
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template name="AddConnector">
+    <!-- Add new line -->
+    <xsl:text>&#xa;</xsl:text>
+    <!-- This is the new connector -->
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+               maxThreads="150" scheme="https" secure="true" 
+               keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               clientAuth="false" sslProtocol="TLS" />
+  </xsl:template>
+  
+</xsl:stylesheet>
+```
 
 #### <a name="finalize-configuration"></a>完成設定
 

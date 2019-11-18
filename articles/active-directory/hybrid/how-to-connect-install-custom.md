@@ -10,16 +10,16 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2711127c7bdf58e61f2d688c51e0e639d00cda5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 80b90a22a793c15104bba3eb91e88f851158e13f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883079"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106953"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](how-to-connect-install-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -87,7 +87,9 @@ ms.locfileid: "73883079"
 ![連線目錄](./media/how-to-connect-install-custom/connectdir02.png)
 
 #### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>不支援企業系統管理員和網域系統管理員帳戶
-從 build 1.4. # # #. #，不再支援使用企業系統管理員或網域管理員帳戶作為 AD DS 連接器帳戶。  如果您在指定 [**使用現有的帳戶**] 時，嘗試輸入屬於企業系統管理員或網域管理員的帳戶，您將會收到錯誤。
+在組建1.4.18.0 時，不再支援使用企業系統管理員或網域系統管理員帳戶作為 AD DS 連接器帳戶。  如果您在指定 [**使用現有的帳戶**] 時，嘗試輸入屬於企業系統管理員或網域管理員的帳戶，您將會收到下列錯誤：
+
+  **「不允許為您的 AD 樹系帳戶使用企業或網域系統管理員帳戶。 讓 Azure AD Connect 為您建立帳戶，或指定具有正確許可權的同步處理帳戶。 &lt;深入瞭解&gt;」**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 登入組態
 此頁面可讓您檢閱內部部署 AD DS 中存在的 UPN 網域，以及已在 Azure AD 中驗證的 UPN 網域。 此頁面也可讓您設定要用於 userPrincipalName 的屬性。

@@ -1,7 +1,7 @@
 ---
 title: OData search.in 函數參考
 titleSuffix: Azure Cognitive Search
-description: Azure 認知搜尋查詢中的 OData search.in 函數。
+description: 在 Azure 認知搜尋查詢中使用 search.in 函數的語法和參考檔。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f641e50554e720d273735fd20032e60444cb198a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793288"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113115"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Azure 認知搜尋中的 OData `search.in` 函式
 
@@ -70,7 +70,7 @@ search_in_call ::=
 
 參數定義于下表中：
 
-| 參數名稱 | Type | 描述 |
+| 參數名稱 | 在系統提示您進行確認時，輸入 | 描述 |
 | --- | --- | --- |
 | `variable` | `Edm.String` | 字串欄位參考（或字串集合欄位的範圍變數，在 `any` 或 `all` 運算式中使用 `search.in` 的情況下）。 |
 | `valueList` | `Edm.String` | 字串，包含要比對 `variable` 參數之值的分隔清單。 如果未指定 `delimiters` 參數，則預設的分隔符號為空格和逗號。 |

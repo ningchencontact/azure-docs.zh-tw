@@ -7,15 +7,15 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 1e3e198c38215ceacbe43961bf93ab906e5ccc09
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 335df16e6a6436485521611aee0f0a62edca8a3b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846268"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123445"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>具備 AI 能力的雲端服務與 Azure 認知搜尋
-[Azure 認知搜尋](https://azure.microsoft.com/services/search/)是一個搜尋即服務雲端解決方案，可為開發人員提供 api 和工具，以在 web、行動和企業應用程式中，為私人、異類內容新增豐富的搜尋體驗。 您的自訂程式碼會叫用資料擷取 (索引編制) 來建立和載入索引。 另一方面，應用程式的程式碼會發出查詢要求和處理回應。 搜尋體驗是在您的用戶端使用 Azure 認知搜尋的功能來定義，其中查詢會透過您建立、擁有並儲存在服務中的持續性索引執行。
+[Azure 認知搜尋](https://azure.microsoft.com/services/search/)是一個搜尋即服務雲端解決方案，可為開發人員提供 api 和工具，以在 web、行動和企業應用程式中，為私人、異類內容新增豐富的搜尋體驗。 您的自訂程式碼會叫用資料擷取 (索引編制) 來建立和載入索引。 另一方面，應用程式的程式碼會發出查詢要求和處理回應。 搜尋體驗會透過 Azure 認知搜尋的功能，在您的用戶端中進行定義，而查詢會針對您在服務上建立、擁有及儲存的持續性索引執行。
 
 ## <a name="azure-cognitive-search-features"></a>Azure 認知搜尋功能
 - 使用全文檢索搜尋、簡單查詢語法和 lucene 查詢語法的**自由格式文字搜尋**。
@@ -33,7 +33,7 @@ ms.locfileid: "73846268"
 - [Azure 入口網站](https://portal.azure.com) 
 - [文件](/azure/search/)
 - [開發人員指南](https://azure.microsoft.com/resources/iot-developers-guide/)
-- [如何使用 Azure 認知搜尋](/azure/search/search-what-is-azure-search#how-to-use-azure-search)
+- [如何使用 Azure 認知搜尋](/azure/search/search-what-is-azure-search#how-to-use-azure-cognitive-search)
 - [快速入門](/azure/search/search-create-service-portal)
 
   

@@ -1,5 +1,5 @@
 ---
-title: REST 教學課程：為 JSON Blob 中的半結構化資料編製索引
+title: 教學課程：索引 JSON blob 中的半 strutured 資料
 titleSuffix: Azure Cognitive Search
 description: 了解如何使用 Azure 認知搜尋 REST API 和 Postman，為半結構化 Azure JSON Blob 編製索引及加以搜尋。
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794297"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112244"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 教學課程：在 Azure 認知搜尋中為半結構化資料 (JSON Blob) 編製索引及加以搜尋
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 教學課程：在 Azure 認知搜尋中編制索引和搜尋半結構化資料（JSON blob）
 
 Azure 認知搜尋可以在 Azure Blob 儲存體中，使用[索引子](search-indexer-overview.md)為 JSON 文件和陣列編製索引，以了解如何讀取半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料會將不同的內容區分為必須完整編製索引的未結構化資料，以及遵循資料模型 (例如關聯式資料庫結構描述) 且可依據欄位逐一編製索引的正式結構化資料。
 
@@ -27,7 +27,7 @@ Azure 認知搜尋可以在 Azure Blob 儲存體中，使用[索引子](search-i
 > * 設定並執行索引子以讀取容器，並從 Azure Blob 儲存體擷取可搜尋的內容
 > * 搜尋剛剛建立的索引
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本快速入門會使用下列服務、工具和資料。 
 
@@ -43,9 +43,9 @@ Azure 認知搜尋可以在 Azure Blob 儲存體中，使用[索引子](search-i
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務時需要這兩項資料，因此如果您將 Azure 認知搜尋新增至您的訂用帳戶，請依照下列步驟來取得必要的資訊：
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-1. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-get-started-postman/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -53,15 +53,15 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務
 
 ## <a name="prepare-sample-data"></a>準備範例資料
 
-1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]  ，然後按一下 [+ 容器]  。
+1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]，然後按一下 [+ 容器]。
 
 1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 您可以將公用存取層級設定為任何有效值。
 
-1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]  。
+1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]。
 
    ![使用命令列上傳](media/search-semi-structured-data/upload-command-bar.png "使用命令列上傳")
 
-1. 瀏覽至包含範例檔案的資料夾。 全部選取，然後按一下 [上傳]  。
+1. 瀏覽至包含範例檔案的資料夾。 全部選取，然後按一下 [上傳]。
 
    ![上傳檔案](media/search-semi-structured-data/clinicalupload.png "上傳檔案")
 
@@ -261,15 +261,15 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 建立搜尋服務
 
 第一個文件載入後，您就可以開始查詢。 針對此工作，在入口網站中使用[**搜尋總管**](search-explorer.md)。
 
-在 Azure 入口網站中，開啟搜尋服務 [概觀]  頁面，尋找您在 [索引]  清單中建立的索引。
+在 Azure 入口網站中，開啟搜尋服務 [概觀] 頁面，尋找您在 [索引] 清單中建立的索引。
 
 請務必選擇您剛才建立的索引。 
 
-  ![非結構化搜尋](media/search-semi-structured-data/indexespane.png)
+  ![未結構化搜尋](media/search-semi-structured-data/indexespane.png)
 
 ### <a name="user-defined-metadata-search"></a>使用者定義的中繼資料搜尋
 
-如前所述，您可以使用數種方式來查詢資料：全文檢索搜尋、系統內容或使用者定義的中繼資料。 如果已在建立目標索引期間將系統內容和使用者定義的中繼資料標記為 **retrievable**，就只能使用 `$select` 參數來搜尋它們。 索引中的參數一旦建立之後，就無法改變。 不過，可以新增其他參數。
+如前所述，您可以使用數種方式來查詢資料：全文檢索搜尋、系統內容或使用者定義的中繼資料。 如果已在建立目標索引期間將系統內容和使用者定義的中繼資料標記為 `$select`retrievable **，就只能使用**  參數來搜尋它們。 索引中的參數一旦建立之後，就無法改變。 不過，可以新增其他參數。
 
 有一個基本查詢範例是 `$select=Gender,metadata_storage_size`，它會將傳回限制為這兩個參數。
 

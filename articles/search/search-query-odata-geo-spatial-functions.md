@@ -1,7 +1,7 @@
 ---
 title: OData 地理空間函數參考
 titleSuffix: Azure Cognitive Search
-description: Azure 認知搜尋查詢中的 OData 地理空間函式、地理距離和地理交集。
+description: 在 Azure 認知搜尋查詢中使用 OData 地理空間函式、地理距離和地理交集的語法和參考檔。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09034423e16c652cf6994b38f8d92574abc0ce55
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793330"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113171"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Azure 認知搜尋中的 OData 地理空間函數-`geo.distance` 和 `geo.intersects`
 

@@ -1,18 +1,18 @@
 ---
 title: 應用程式閘道的運作方式
-description: 本文提供應用程式閘道運作方式的相關資訊
+description: 本文提供應用程式閘道如何接受傳入要求並將其路由傳送至後端的相關資訊。
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 5cb7473b309e1aefe6237671fac73c042b33f2cf
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d9d7ae3bc321f1f000fac1a875589df352077f33
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326878"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129817"
 ---
 # <a name="how-an-application-gateway-works"></a>應用程式閘道的運作方式
 

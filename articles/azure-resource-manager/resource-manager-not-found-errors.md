@@ -1,17 +1,14 @@
 ---
-title: 找不到 Azure 資源錯誤 | Microsoft Docs
+title: 找不到資源的錯誤
 description: 描述當使用 Azure Resource Manager 範本部署時，找不到資源時，如何解決錯誤。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 06/06/2018
-ms.author: tomfitz
-ms.openlocfilehash: 4db50bbb3073fe98599923843e6afdded3a8ca62
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c6dbe0e494e59017cda166c0785a187ab07c3b54
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390284"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150600"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解決找不到 Azure 資源的錯誤
 

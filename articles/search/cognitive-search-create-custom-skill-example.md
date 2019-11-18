@@ -1,5 +1,5 @@
 ---
-title: 範例：使用 Bing 實體搜尋 API 建立自訂認知技能
+title: 使用 Bing 實體搜尋 API 的自訂技能範例
 titleSuffix: Azure Cognitive Search
 description: 示範如何在 Azure 認知搜尋中對應至 AI 擴充索引管線的自訂技能中使用 Bing 實體搜尋服務。
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466826"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113810"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>範例：使用 Bing 實體搜尋 API 建立自訂技能
 
 在此範例中，您將瞭解如何建立 Web API 的自訂技能。 這項技能將接受位置、公用圖表和組織，並傳回其描述。 此範例會使用[Azure](https://azure.microsoft.com/services/functions/)函式來包裝[Bing 實體搜尋 API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) ，使其可執行自訂技能介面。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 如果您不熟悉自訂技能應實行的輸入/輸出介面，請閱讀[自訂技能介面](cognitive-search-custom-skill-interface.md)一文。
 
@@ -325,7 +325,7 @@ namespace SampleSkills
 POST https://localhost:7071/api/EntitySearch
 ```
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 ```json
 {
     "values": [
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>回應
+### <a name="response"></a>Response
 您應該會看到類似於以下範例的回應：
 
 ```json
@@ -480,6 +480,6 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 
 + [電力技能：自訂技能的存放庫](https://github.com/Azure-Samples/azure-search-power-skills)
 + [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [如何定義技能集](cognitive-search-defining-skillset.md)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)

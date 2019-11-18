@@ -1,7 +1,7 @@
 ---
 title: 使用語音 SDK 開發應用程式-語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音 SDK 建立應用程式。
+description: 瞭解如何在支援的平臺上部署使用語音 SDK 的應用程式。
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 166ae00085f07ef24d746b60947a31e7680a0f00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0bcfd40510352abc9e64782255d3c8349b8ad87e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491008"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072412"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -39,15 +39,15 @@ ms.locfileid: "73491008"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| 名稱 | 函式
-|:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需
+| 名稱 | 函數 |
+| :--- | :------- |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | 核心 SDK (原生和受控部署所需) |
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需                      |
 
->[!NOTE]
+> [!NOTE]
 > 從 release 1.3.0 開始，不再需要檔案 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` （在先前的版本中隨附）。 此功能現在已整合到 core SDK 中。
 
->[!NOTE]
+> [!NOTE]
 > 針對 Windows Forms 應用程式（.NET Framework） C#專案，請確定程式庫已包含在專案的部署設定中。 您可以在 [`Properties -> Publish Section`] 底下進行檢查。 按一下 [`Application Files`] 按鈕，並從 [向下] 清單尋找對應的程式庫。 請確定 [值] 設定為 [`Included`]。 當發行/部署專案時，Visual Studio 將會包含該檔案。
 
 ## <a name="linux"></a>Linux
@@ -56,9 +56,9 @@ ms.locfileid: "73491008"
 對於原生應用程式，您需要提供語音 SDK 程式庫 `libMicrosoft.CognitiveServices.Speech.core.so`。
 確定您選取與您的應用程式相符的版本 (x86、x64)。 視 Linux 版本而定，您可能也需要包含下列相依性：
 
-* GNU C 程式庫的共用程式庫 (包括 POSIX 執行緒程式設計程式庫 `libpthreads`)
-* OpenSSL 程式庫（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
-* ALSA 應用程式的共用程式庫 (`libasound.so.2`)
+- GNU C 程式庫的共用程式庫 (包括 POSIX 執行緒程式設計程式庫 `libpthreads`)
+- OpenSSL 程式庫（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
+- ALSA 應用程式的共用程式庫 (`libasound.so.2`)
 
 在 Ubuntu 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
 
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)
+- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)

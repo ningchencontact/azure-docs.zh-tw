@@ -1,5 +1,5 @@
 ---
-title: 從 Azure 資料表儲存體編制內容的索引以進行全文檢索搜尋
+title: 搜尋 Azure 資料表儲存體內容
 titleSuffix: Azure Cognitive Search
 description: 瞭解如何使用 Azure 認知搜尋索引子來編制 Azure 資料表儲存體中儲存的資料索引。
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793744"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112992"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>如何使用 Azure 認知搜尋為 Azure 資料表儲存體中的資料表編制索引
 
@@ -37,7 +37,7 @@ ms.locfileid: "72793744"
 若要為資料表編製索引，資料來源必須具有下列屬性︰
 
 - **name** 是搜尋服務中資料來源的唯一名稱。
-- **type** 必須是 `azuretable`。
+- **類型**必須是 `azuretable`。
 - **credentials** 參數包含儲存體帳戶連接字串。 請參閱[指定認證](#Credentials)一節了解詳細資訊。
 - **container** 設定資料表名稱和選擇性查詢。
     - 使用 `name` 參數指定資料表名稱。
@@ -148,7 +148,7 @@ ms.locfileid: "72793744"
     }   
 
 <a name="Performance"></a>
-## <a name="performance-considerations"></a>效能注意事項
+## <a name="performance-considerations"></a>效能考量
 
 根據預設，Azure 認知搜尋會使用下列查詢篩選準則： `Timestamp >= HighWaterMarkValue`。 因為 Azure 資料表的 `Timestamp` 欄位沒有次要索引，這種類型的查詢需要完整的資料表掃描，因此若是大型資料表就會變慢。
 

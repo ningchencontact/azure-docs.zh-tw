@@ -1,5 +1,5 @@
 ---
-title: 語音助理的相關常見問題
+title: 語音助理的常見問題
 titleSuffix: Azure Cognitive Services
 description: 使用自訂命令（預覽）或 Direct Line 語音訊道，取得語音助理最熱門問題的解答。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579675"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110354"
 ---
-# <a name="voice-assistants-frequently-asked-questions"></a>語音助理：常見問題
+# <a name="voice-assistants-frequently-asked-questions"></a>語音助理的常見問題
 
 如果您在本檔中找不到問題的解答，請參閱[其他支援選項](support.md)。
 
@@ -35,9 +35,9 @@ ms.locfileid: "73579675"
 
 **答：** 開始建立自訂命令（預覽）應用程式或基本 Bot Framework bot 的最佳方式。
 
-* [建立自訂命令（預覽）應用程式](quickstart-custom-speech-commands-create-new.md)
-* [建立基本的 Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [將 bot 連線至 Direct Line 語音訊道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [建立自訂命令（預覽）應用程式](quickstart-custom-speech-commands-create-new.md)
+- [建立基本的 Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [將 bot 連線至 Direct Line 語音訊道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Debugging
 
@@ -47,14 +47,13 @@ ms.locfileid: "73579675"
 
 最新版的 Direct Line Speech 可簡化從裝置聯繫 bot 的程式。 在 [通道註冊] 頁面上，頂端的下拉式會將您的 Direct Line 語音通道註冊與語音資源產生關聯。 一旦建立關聯之後，1.8 版語音 SDK 會包含一個 `BotFrameworkConfig::FromSubscription` factory 方法，可將 `DialogServiceConnector` 設定為與您的訂用帳戶相關聯的 bot。
 
-如果您仍在將用戶端應用程式從1.7 版遷移至1.8 版，`DialogServiceConfig::FromBotSecret` 可能會繼續使用非空白的非 null 值作為其通道秘密參數，例如先前使用的秘密。 使用與較新頻道註冊相關聯的語音訂用帳戶時，只會略過此功能。 請注意，此值*必須*為非 null 且不是空的，因為在服務端關聯相關之前，會在裝置上檢查這些值。
-
+如果您仍在將用戶端應用程式從1.7 版遷移至1.8 版，`DialogServiceConfig::FromBotSecret` 可能會繼續使用非空白的非 null 值作為其通道秘密參數，例如先前使用的秘密。 使用與較新頻道註冊相關聯的語音訂用帳戶時，只會略過此功能。 請注意，此值_必須_為非 null 且不是空的，因為在服務端關聯相關之前，會在裝置上檢查這些值。
 
 如需更詳細的指南，請參閱逐步解說通道註冊的[教學課程一節](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel)。
 
 **問：我在連接時收到401錯誤，沒有任何作用。我知道我的語音訂用帳戶金鑰有效。這是怎麼回事？**
 
-**答：** 在 Azure 入口網站上管理您的訂用帳戶時，請確定您使用的是**語音**資源（CognitiveServicesSpeechServices，"speech"），而*不*是**認知服務**資源（CognitiveServicesAllInOne，"All 認知服務"）。 此外，請檢查[語音服務區域的語音助理支援](regions.md#voice-assistants)。
+**答：** 在 Azure 入口網站上管理您的訂用帳戶時，請確定您使用的是**語音**資源（CognitiveServicesSpeechServices，"speech"），而_不_是**認知服務**資源（CognitiveServicesAllInOne，"All 認知服務"）。 此外，請檢查[語音服務區域的語音助理支援](regions.md#voice-assistants)。
 
 ![direct line speech 的正確訂用帳戶](media/voice-assistants/faq-supported-subscription.png "相容語音訂用帳戶的範例")
 
@@ -62,8 +61,8 @@ ms.locfileid: "73579675"
 
 **答：** 此錯誤表示您的助理與語音助理服務之間發生通訊問題。
 
-* 若為自訂命令（預覽），請確定您的自訂命令（預覽）應用程式已發佈
-* 針對 Direct Line 語音，請確定您已將[bot 連線至 Direct Line 語音通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)、將[串流通訊協定支援新增](https://aka.ms/botframework/addstreamingprotocolsupport)至您的 bot （具有相關的 Web 通訊端支援），然後檢查您的 bot 是否回應傳入的要求從通道。
+- 若為自訂命令（預覽），請確定您的自訂命令（預覽）應用程式已發佈
+- 針對 Direct Line 語音，請確定您已將[bot 連線至 Direct Line 語音通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)、將[串流通訊協定支援新增](https://aka.ms/botframework/addstreamingprotocolsupport)至您的 bot （具有相關的 Web 通訊端支援），然後檢查您的 bot 是否回應傳入的要求從通道。
 
 **問：此程式碼仍然無法正常執行，並（或）在使用 `DialogServiceConnector`時收到不同的錯誤。我該怎麼做？**
 
@@ -71,5 +70,5 @@ ms.locfileid: "73579675"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [疑難排解](troubleshooting.md)
-* [版本資訊](releasenotes.md)
+- [疑難排解](troubleshooting.md)
+- [版本資訊](releasenotes.md)

@@ -1,17 +1,14 @@
 ---
-title: 匯出 Resource Manager 範本-Azure 入口網站
+title: Azure 入口網站中匯出範本
 description: 使用 Azure 入口網站從您的訂用帳戶中的資源匯出 Azure Resource Manager 範本。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0605e24590fa2d702a1385429a7808a7e1226809
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 6e05a8bff27e56bc5942a7c16ab63921c489f44c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532338"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149863"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>單一和多重資源匯出至 Azure 入口網站中的範本
 

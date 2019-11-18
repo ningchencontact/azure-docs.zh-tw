@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Key Vault 中使用客戶管理的金鑰進行待用加密（預覽）
+title: 使用客戶管理的金鑰進行待用加密（預覽）
 titleSuffix: Azure Cognitive Search
 description: 在您于 Azure Key Vault 中建立及管理的金鑰，透過 Azure 認知搜尋中的索引和同義字對應來補充伺服器端加密。 此功能目前為公開預覽狀態。
 manager: nitinme
@@ -8,17 +8,17 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721745"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112931"
 ---
-# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理的金鑰來加密 Azure 認知搜尋的內容
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理的金鑰，在 Azure 認知搜尋中進行內容的待用加密
 
 > [!IMPORTANT] 
-> 待用加密的支援目前處於公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)和[.net SDK 版本 8.0-preview](search-dotnet-sdk-migration-version-9.md)提供這項功能。 目前沒有入口網站支援。
+> 待用加密的支援目前處於公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)和[.net SDK 版本 8.0-preview](search-dotnet-sdk-migration-version-9.md)提供這項功能。 目前沒有入口網站支援。
 
 根據預設，Azure 認知搜尋會使用[服務管理的金鑰](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models)來加密靜止的使用者內容。 您可以使用您在 Azure Key Vault 中建立和管理的金鑰，以額外的加密層補充預設加密。 本文會逐步引導您完成這些步驟。
 
@@ -28,11 +28,11 @@ ms.locfileid: "73721745"
 
 您可以使用不同金鑰保存庫中的不同金鑰。 這表示單一搜尋服務可以裝載多個已加密的 indexes\synonym 對應，每個都有可能使用不同的客戶管理金鑰，以及未使用客戶管理的金鑰加密的 indexes\synonym 對應。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此範例會使用下列服務。 
 
-+ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有的服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
 + [建立 Azure Key Vault 資源](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault)，或在您的訂用帳戶下尋找現有的保存庫。
 

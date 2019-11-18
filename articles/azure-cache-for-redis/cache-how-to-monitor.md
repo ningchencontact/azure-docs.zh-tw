@@ -1,25 +1,17 @@
 ---
-title: 如何監視 Azure Cache for Redis | Microsoft Docs
+title: 如何監視 Azure Cache for Redis
 description: 了解如何監視 Azure Cache for Redis 執行個體的健全狀況和效能
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 5ae1827c7af3346a9197a9e28ee442d8aca0e38f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73e1e3bfbc84e6264897d571fca1bf31061d7ab6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299527"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122762"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何監視 Azure Cache for Redis
 Azure Cache for Redis 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Cache for Redis 執行個體的健康情況，並協助您管理快取應用程式。
@@ -70,7 +62,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 3. 勾選 [封存至儲存體帳戶]。
 4. 選取要儲存快取計量的儲存體帳戶。
 5. 勾選 [1 分鐘] 核取方塊，並指定 [保留天數] 原則。 如果您不想要套用任何保留期原則，也不想永久保留資料，請將 [保留天數] 設為 **0**。
-6. 按一下 [儲存]。
+6. 按一下 [檔案]。
 
 ![Redis 診斷](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
@@ -98,28 +90,28 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 
 | 度量 | 描述 |
 | --- | --- |
-| 快取命中 |所指定報告間隔期間的成功金鑰查閱數目。 這會對應至 Redis [INFO](https://redis.io/commands/info) 命令的 `keyspace_hits` 。 |
+| 快取點擊 |所指定報告間隔期間的成功金鑰查閱數目。 這會對應至 Redis `keyspace_hits`INFO[ 命令的 ](https://redis.io/commands/info) 。 |
 | 快取延遲 (預覽) | 根據快取的內部節點延遲計算的快取延遲。 此計量會以微秒測量，並有三個維度：「平均」、「最小」和「最大」，分別代表在指定的報告間隔期間內快取的平均、最小和最大延遲。 |
 | 快取遺漏 |所指定報告間隔期間的失敗金鑰查閱數目。 這會對應至 Redis INFO 命令的 `keyspace_misses` 。 快取遺漏不一定表示快取發生問題。 例如，使用另行快取程式設計模式時，應用程式會先在快取中尋找項目。 如果項目不存在 (快取遺漏)，項目會從資料庫中擷取，並在下次新增至快取中。 快取遺漏是另行快取程式設計模式的正常行為。 如果快取遺漏數目高於預期，請檢查可填入且讀取自快取的應用程式邏輯。 如果因記憶體壓力而正在收回快取中的項目，則可能會有一些快取遺漏，但監視記憶體壓力的較佳度量是 `Used Memory` 或 `Evicted Keys`。 |
-| 快取讀取 |所指定報告間隔期間，從快取讀取的資料量 (以 MB/s 為單位)。 這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 **這個值對應於此快取所使用的網路頻寬。如果您想要設定伺服器端網路頻寬限制的警示，則可使用此 `Cache Read` 計數器加以建立。如需所觀察到適用於各種快取定價層和大小的頻寬限制，請參閱[這個表格](cache-faq.md#cache-performance)。** |
+| 快取讀取 |所指定報告間隔期間，從快取讀取的資料量 (以 MB/s 為單位)。 這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 **這個值對應于此快取所使用的網路頻寬。如果您想要設定伺服器端網路頻寬限制的警示，請使用此 `Cache Read` 計數器加以建立。如需各種快取定價層和大小的觀察頻寬限制，請參閱[此表格](cache-faq.md#cache-performance)。** |
 | 快取寫入 |所指定報告間隔期間，寫入至快取的資料量 (以 MB/s 為單位)。 這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 此值對應從用戶端傳送給快取之資料的網路頻寬。 |
-| 已連接的用戶端 |所指定報告間隔期間的快取用戶端連線數目。 這會對應至 Redis INFO 命令的 `connected_clients` 。 一旦達到 [連接限制](cache-configure.md#default-redis-server-configuration) 之後，後續對快取所做的連接嘗試都將失敗。 請注意，因為內部處理序和連線，所以即使沒有作用中用戶端應用程式，可能還是會有一些連線的用戶端執行個體。 |
+| 連線的用戶端 |所指定報告間隔期間的快取用戶端連線數目。 這會對應至 Redis INFO 命令的 `connected_clients` 。 一旦達到 [連接限制](cache-configure.md#default-redis-server-configuration) 之後，後續對快取所做的連接嘗試都將失敗。 請注意，因為內部處理序和連線，所以即使沒有作用中用戶端應用程式，可能還是會有一些連線的用戶端執行個體。 |
 | CPU |所指定報告間隔期間的 Azure Cache for Redis 伺服器 CPU 使用率 (百分比)。 這個值會對應至作業系統 `\Processor(_Total)\% Processor Time` 效能計數器。 |
-| 錯誤 | 在指定的報告間隔期間，快取可能遇到的特定失敗和效能問題。 此計量有八個代表不同錯誤類型的維度，但未來可能新增更多。 現在代表的錯誤類型如下所示： <br/><ul><li>**容錯移轉**–當快取容錯移轉時（從屬升級至主要）</li><li>**資料遺失** – 當快取有資料遺失時</li><li>**UnresponsiveClients** – 當用戶端無法從速度夠快的伺服器讀取資料時</li><li>**AOF** – 有 AOF 持續性相關的問題時</li><li>**RDB** – 有 RDB 持續性相關的問題時</li><li>**匯入**– 有匯入 RDB 相關的問題時</li><li>**匯出**– 有匯出 RDB 相關的問題時</li></ul> |
-| 已收回的金鑰 |因 `maxmemory` 限制，在所指定報告間隔期間從快取收回的項目數。 這會對應至 Redis INFO 命令的 `evicted_keys` 。 |
-| 已逾時的金鑰 |所指定報告間隔期間的快取到期項目數。 這個值會對應至 Redis INFO 命令的 `expired_keys` 。|
+| 錯誤數 | 在指定的報告間隔期間，快取可能遇到的特定失敗和效能問題。 此計量有八個代表不同錯誤類型的維度，但未來可能新增更多。 現在代表的錯誤類型如下所示： <br/><ul><li>**容錯移轉**–當快取容錯移轉時（從屬升級至主要）</li><li>**資料遺失** – 當快取有資料遺失時</li><li>**UnresponsiveClients** – 當用戶端無法從速度夠快的伺服器讀取資料時</li><li>**AOF** – 有 AOF 持續性相關的問題時</li><li>**RDB** – 有 RDB 持續性相關的問題時</li><li>**匯入**– 有匯入 RDB 相關的問題時</li><li>**匯出**– 有匯出 RDB 相關的問題時</li></ul> |
+| 收回的金鑰 |因 `maxmemory` 限制，在所指定報告間隔期間從快取收回的項目數。 這會對應至 Redis INFO 命令的 `evicted_keys` 。 |
+| 到期的金鑰 |所指定報告間隔期間的快取到期項目數。 這個值會對應至 Redis INFO 命令的 `expired_keys` 。|
 | 取得 |所指定報告間隔期間的快取 get 作業數目。 這個值是 Redis INFO all 命令的下列值總和：`cmdstat_get`、`cmdstat_hget``cmdstat_hgetall`、`cmdstat_hmget``cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，而且等於報告期間的快取點擊和遺漏。 |
 | 每秒的作業數 | 在指定的報告間隔期間，快取伺服器每秒所處理的命令總數。  這個值會對應至 Redis INFO 命令中的 "instantaneous_ops_per_sec"。 |
 | Redis 伺服器負載 |Redis 伺服器忙著處理訊息且非訊息等候閒置之循環的百分比。 如果這個計數器達到 100，表示 Redis 伺服器已經達到效能上限，而且 CPU 處理工作的速度不能再更快。 如果您看到高「Redis 伺服器負載 (Redis Server Load)」，則會看到用戶端中的逾時例外狀況。 在此情況下，您應該考慮向上延展，或將資料分割成多個快取。 |
-| 集合 |所指定報告間隔期間的快取 set 作業數目。 這個值是 Redis INFO all 命令的下列值總和：`cmdstat_set`、`cmdstat_hset``cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx` |
+| 設定 |所指定報告間隔期間的快取 set 作業數目。 這個值是 Redis INFO all 命令的下列值總和：`cmdstat_set`、`cmdstat_hset``cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx` |
 | 索引鍵總計  | 快取中的索引鍵在過去報告時段內的數目上限。 這會對應至 Redis INFO 命令的 `keyspace` 。 因為基礎計量系統的限制，凡是啟用叢集化的快取，[索引鍵總計] 都會傳回分區的索引鍵數目上限，該分區於報告間隔期間曾有過索引鍵的最大數目。  |
-| 作業總計 |所指定報告間隔期間，快取伺服器所處理命令的總數。 這個值會對應至 Redis INFO 命令的 `total_commands_processed` 。 請注意，Azure Cache for Redis 純粹用於發佈/訂閱時，則沒有 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的計量但是會有 `Total Operations` 計量可反映發佈/訂閱作業的快取使用量。 |
-| 已使用記憶體 |在指定的報告間隔期間，針對快取中金鑰/值組使用的快取記憶體數量 (MB)。 這個值會對應至 Redis INFO 命令的 `used_memory` 。 這不包括中繼資料或片段。 |
+| 總作業數 |所指定報告間隔期間，快取伺服器所處理命令的總數。 這個值會對應至 Redis INFO 命令的 `total_commands_processed` 。 請注意，Azure Cache for Redis 純粹用於發佈/訂閱時，則沒有 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的計量但是會有 `Total Operations` 計量可反映發佈/訂閱作業的快取使用量。 |
+| 已使用的記憶體 |在指定的報告間隔期間，針對快取中金鑰/值組使用的快取記憶體數量 (MB)。 這個值會對應至 Redis INFO 命令的 `used_memory` 。 這不包括中繼資料或片段。 |
 | 已用的記憶體百分比 | 在指定的報告間隔期間，正在使用的總記憶體百分比。  這會參照 Redis INFO 命令中的 "used_memory" 值來計算百分比。 |
 | 已用的記憶體 RSS |在指定的報告間隔期間使用的快取記憶體數量 (MB)，包括片段和中繼資料。 這個值會對應至 Redis INFO 命令的 `used_memory_rss` 。 |
 
 <a name="operations-and-alerts"></a>
-## <a name="alerts"></a>警示
+## <a name="alerts"></a>Alerts
 您可以進行設定來收到以計量和活動記錄為基礎的警示。 Azure 監視器可讓您將警示設定為在觸發時執行下列動作︰
 
 * 傳送電子郵件通知
@@ -128,7 +120,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 
 若要設定快取警示規則，請按一下 [資源] 功能表的 [警示規則]。
 
-![監視](./media/cache-how-to-monitor/redis-cache-monitoring.png)
+![監控](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
 如需設定和使用警示的詳細資訊，請參閱[警示概觀](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 

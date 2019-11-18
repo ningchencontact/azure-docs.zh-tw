@@ -1,5 +1,5 @@
 ---
-title: AI 擴充的疑難排解秘訣
+title: AI 擴充設計的秘訣
 titleSuffix: Azure Cognitive Search
 description: 在 Azure 認知搜尋中設定 AI 擴充管線的秘訣和疑難排解。
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787710"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113838"
 ---
-# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure 認知搜尋中 AI 擴充的疑難排解秘訣
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure 認知搜尋中的 AI 擴充秘訣
 
 本文包含秘訣和訣竅清單，可讓您在開始使用 Azure 認知搜尋中的 AI 擴充功能時進行移動。 
 
@@ -60,7 +60,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 請新增 ```enriched``` 欄位作為索引定義的一部分，以供偵錯之用：
 
-#### <a name="request-body-syntax"></a>要求本文語法
+#### <a name="request-body-syntax"></a>要求本文的語法
 ```json
 {
   "fields": [
@@ -103,7 +103,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 對於[平行索引編製](search-howto-large-index.md)，請將您的資料放入多個容器中，或是相同容器內的多個虛擬資料夾中。 接著，請建立多個資料來源和索引子配對。 所有索引子將可使用相同的技能集，並寫入至相同的目標搜尋索引，而讓您的搜尋應用程式無須辨識此分割。
 如需詳細資訊，請參閱[為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 + [快速入門：在入口網站中建立 AI 擴充管線](cognitive-search-quickstart-blob.md)
 + [教學課程：瞭解 AI 擴充 REST Api](cognitive-search-tutorial-blob.md)
 + [指定資料來源認證](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

@@ -1,5 +1,5 @@
 ---
-title: 新增評分設定檔以提升搜尋結果中的相關檔
+title: 使用評分設定檔來提升搜尋排名
 titleSuffix: Azure Cognitive Search
 description: 藉由新增評分設定檔，來提升 Azure 認知搜尋結果的搜尋排名分數。
 manager: nitinme
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2b92f8031a0d35696447f8ab796d24c504d57457
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790130"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113614"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>將評分設定檔新增至 Azure 認知搜尋索引
 
@@ -169,7 +169,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |||  
 |-|-|  
 |**權數**|指定將相對權數指派給欄位的名稱值組。 在[範例](#bkmk_ex)中，albumTitle、內容類型和 artistName 欄位分別會提升 1.5、5 和 2。 為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 ’genre')，則相對加權可能需要較大的變異數。 例如，在 `musicstoreindex`中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。 如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。|  
-|**函式**|在特定內容需要額外計算時使用。 有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有對其唯一的參數。<br /><br /> -   `freshness` 應使用於當您想要依項目的新舊程度進行提升時。 此函式僅適用於 `datetime` 欄位 (edm.DataTimeOffset)。 請注意，`boostingDuration` 屬性僅適用于 `freshness` 函數。<br />-   `magnitude` 應使用於當您想要依數值的高低程度進行提升時。 呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。 此函數僅可用於雙精度浮點數和整數欄位。<br />     針對 `magnitude` 函式，若您想要反轉高至低的模式 (例如，比高價格項目優先提升低價格的項目)，則可將範圍反轉。 假設價格範圍為 $100 美元到 $1 美元，您會將 `boostingRangeStart` 設定為 100，並將 `boostingRangeEnd` 設定為 1，以在較低的價格項目提升。<br />-   `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。 此函數只能搭配使用 `Edm.GeographyPoint` 欄位。<br />-   `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。<br /><br /> **使用函式的規則**<br /><br /> 函式類型 (`freshness`、`magnitude`、`distance`)、`tag` 必須是小寫。<br /><br /> 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。<br /><br /> 函數只能套用至可篩選的欄位。 如需可篩選欄位的詳細資訊，請參閱[建立索引&#40;Azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index) 。<br /><br /> 函數只能套用至索引的欄位集合中定義的欄位。|  
+|**函式**|在特定內容需要額外計算時使用。 有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有其獨特的參數。<br /><br /> -   `freshness` 應使用於當您想要依項目的新舊程度進行提升時。 此函式僅適用於 `datetime` 欄位 (edm.DataTimeOffset)。 請注意，`boostingDuration` 屬性僅適用于 `freshness` 函數。<br />-   `magnitude` 應使用於當您想要依數值的高低程度進行提升時。 呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。 此函數僅適用於雙精確度浮點數和整數欄位。<br />     針對 `magnitude` 函式，若您想要反轉高至低的模式 (例如，比高價格項目優先提升低價格的項目)，則可將範圍反轉。 假設價格範圍為 $100 美元到 $1 美元，您會將 `boostingRangeStart` 設定為 100，並將 `boostingRangeEnd` 設定為 1，以在較低的價格項目提升。<br />-   `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。 此函數僅適用於 `Edm.GeographyPoint` 欄位。<br />-   `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。<br /><br /> **使用函式的規則**<br /><br /> 函式類型 (`freshness`、`magnitude`、`distance`)、`tag` 必須是小寫。<br /><br /> 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。<br /><br /> 函數只能套用至可篩選的欄位。 如需可篩選欄位的詳細資訊，請參閱[建立索引&#40;Azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index) 。<br /><br /> 函數只能套用至索引的欄位集合中定義的欄位。|  
 
  索引定義之後，請上傳索引結構描述 (接著上傳文件)，以建置索引。 如需這些作業的指示，請參閱[建立索引&#40;azure 認知搜尋&#41; REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)以及[新增、更新或刪除檔&#40;azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 。 索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。  
 
@@ -275,16 +275,16 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  下表提供數個範例。  
 
-|課程時間|boostingDuration|  
+|持續時間|boostingDuration|  
 |--------------|----------------------|  
 |1 天|"P1D"|  
 |2 天又 12 個小時|"P2DT12H"|  
-|15 分鐘|"PT15M"|  
+|15 Minuten|"PT15M"|  
 |30 天 5 小時 10 分鐘又 6.334 秒|"P30DT5H10M6.334S"|  
 
  如需更多範例，請參閱 [XML 結構描述：資料類型 (W3.org 網站)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)。  
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
  [Azure 認知搜尋 REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [建立索引&#40;Azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure 認知搜尋 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

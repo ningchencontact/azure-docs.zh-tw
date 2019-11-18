@@ -1,17 +1,14 @@
 ---
-title: 在管理群組-Azure Resource Manager 範本建立資源
+title: 將資源部署至管理群組
 description: 說明如何在 Azure Resource Manager 範本的管理群組範圍中部署資源。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: 82990ab7baa8ea9f2dfc3c2d2b346e348e6bd490
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ed8ae20192599ff7cda691429230d8c2a104fc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840154"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149916"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>在管理群組層級建立資源
 

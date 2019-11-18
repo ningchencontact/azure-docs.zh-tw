@@ -1,5 +1,5 @@
 ---
-title: 如何：使用語音 SDK 滿足用戶端上的自訂命令（預覽）
+title: 如何使用語音 SDK 滿足用戶端上的自訂命令
 titleSuffix: Azure Cognitive Services
 description: 在本文中，使用語音 SDK 處理用戶端上的自訂命令活動
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: a986da74a668075457e28a9a37b6a11fd04a84e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500886"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110082"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>如何：使用語音 SDK 完成用戶端上的命令（預覽）
 
@@ -26,15 +26,15 @@ ms.locfileid: "73500886"
 - 從您的自訂命令應用程式定義和傳送自訂 JSON 承載
 - 從C# UWP 語音 SDK 用戶端應用程式接收並視覺化自訂 JSON 承載內容
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - 適用于語音服務的 Azure 訂用帳戶金鑰
-   - [免費取得一個](get-started.md)或在[Azure 入口網站](https://portal.azure.com)上建立
+  - [免費取得一個](get-started.md)或在[Azure 入口網站](https://portal.azure.com)上建立
 - 先前建立的自訂命令應用程式
-   - [快速入門：使用參數來建立自訂命令（預覽）](./quickstart-custom-speech-commands-create-parameters.md)
+  - [快速入門：使用參數來建立自訂命令（預覽）](./quickstart-custom-speech-commands-create-parameters.md)
 - 啟用語音 SDK 的用戶端應用程式
-   - [快速入門：使用語音 SDK 連接到自訂命令應用程式（預覽）](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [快速入門：使用語音 SDK 連接到自訂命令應用程式（預覽）](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>選擇性：快速入門
 
@@ -45,14 +45,15 @@ ms.locfileid: "73500886"
 1. 從[語音 Studio](https://speech.microsoft.com/)開啟您先前建立的自訂命令應用程式
 1. 請檢查 [**完成規則**] 區段，以確定您先前建立的規則會回應給使用者
 1. 若要將承載直接傳送至用戶端，請使用「傳送活動」動作建立新的規則
+
    > [!div class="mx-imgBorder"]
    > ![傳送活動完成規則](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | 設定    | 建議的值                                  | 說明                                        |
-   | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | 規則名稱  | UpdateDeviceState                                | 描述規則用途的名稱          |
-   | 條件 | 必要參數-`OnOff` 和 `SubjectDevice` | 判斷規則何時可執行檔條件    |
-   | 動作    | `SendActivity` （請參閱下文）                        | 規則條件為 true 時要採取的動作 |
+   | 設定 | 建議的值 | 描述 |
+   | ------- | --------------- | ----------- |
+   | 規則名稱 | UpdateDeviceState | 描述規則用途的名稱 |
+   | 條件 | 必要參數-`OnOff` 和 `SubjectDevice` | 判斷規則何時可執行檔條件 |
+   | 動作 | `SendActivity` （請參閱下文） | 規則條件為 true 時要採取的動作 |
 
    > [!div class="mx-imgBorder"]
    > ![傳送活動承載](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -139,6 +140,6 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. 電視的視覺狀態應該變更為「開啟」
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"]
 > [如何：將驗證新增至自訂命令參數（預覽）](./how-to-custom-speech-commands-validations.md)
-

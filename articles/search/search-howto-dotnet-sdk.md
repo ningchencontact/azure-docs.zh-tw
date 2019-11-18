@@ -1,5 +1,5 @@
 ---
-title: 如何從 .NET 應用程式使用 Azure 認知搜尋
+title: 在 .NET 中使用 Azure 認知搜尋
 titleSuffix: Azure Cognitive Search
 description: 瞭解如何在 .NET 應用程式中使用C#和 .net SDK 來使用 Azure 認知搜尋。 以程式碼為基礎的工作包括連線至服務、為內容編製索引，以及查詢索引。
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792128"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112587"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 認知搜尋
 
@@ -31,7 +31,7 @@ SDK 中還有其他 NuGet 套件：
   - `Microsoft.Azure.Search.Service`：如果您是在 .NET 中開發自動化來管理 Azure 認知搜尋索引、同義字地圖、索引子、資料來源或其他服務層級資源，請使用此套件。 如果您只需要查詢或更新索引中的文件，請改用 `Microsoft.Azure.Search.Data` 套件。 如果您需要 Azure 認知搜尋的所有功能，請改用 `Microsoft.Azure.Search` 的套件。
   - `Microsoft.Azure.Search.Common`： Azure 認知搜尋 .NET 程式庫所需的一般類型。 您不需要直接在應用程式中使用此套件。 它只是用來做為相依性。
 
-各種用戶端程式庫會定義類別，例如 `Index`、`Field` 及 `Document`，以及定義作業，例如 `SearchServiceClient` 和 `SearchIndexClient` 類別上的 `Indexes.Create` 和 `Documents.Search`。 這些類別可編成以下命名空間：
+各種用戶端程式庫會定義類別，例如 `Index`、`Field` 及 `Document`，以及定義作業，例如 `Indexes.Create` 和 `Documents.Search` 類別上的 `SearchServiceClient` 和 `SearchIndexClient`。 這些類別可編成以下命名空間：
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
@@ -61,7 +61,7 @@ Azure 認知搜尋 .NET SDK 支援以 .NET Framework 4.5.2 和更新版本，以
 
 下列範例程式碼說明每個案例。 歡迎在您的應用程式中使用這些程式碼片段。
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>Overview
 我們將探索的範例應用程式，會建立名為 "hotels" 的新索引，並透過一些文件填入索引，然後執行一些搜尋查詢。 以下是主要程式，該程式顯示了整體流程：
 
 ```csharp
@@ -100,7 +100,7 @@ static void Main(string[] args)
 > 
 >
 
-我們會逐步說明， 首先必須建立新的 `SearchServiceClient`。 此物件可讓您管理索引。 若要建立一個，您必須提供您的 Azure 認知搜尋服務名稱，以及系統管理員 API 金鑰。 您可以在[範例應用程式](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)的 `appsettings.json` 檔案中輸入這項資訊。
+我們會逐步說明， 首先必須建立新的 `SearchServiceClient`。 此物件可讓您管理索引。 若要建立一個，您必須提供您的 Azure 認知搜尋服務名稱，以及系統管理員 API 金鑰。 您可以在`appsettings.json`範例應用程式[的 ](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 檔案中輸入這項資訊。
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -114,7 +114,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 ```
 
 > [!NOTE]
-> 如果提供不正確的金鑰 (例如，需要系統管理金鑰卻提供查詢金鑰)，則 `SearchServiceClient` 會在您第一次用它呼叫作業方法時 (例如 `Indexes.Create`) 擲回 `CloudException`，並附上「禁止」的錯誤訊息。 如果遇到此情況，請按兩下我們的 API 金鑰。
+> 如果提供不正確的金鑰 (例如，需要系統管理金鑰卻提供查詢金鑰)，則 `SearchServiceClient` 會在您第一次用它呼叫作業方法時 (例如 `CloudException`) 擲回 `Indexes.Create`，並附上「禁止」的錯誤訊息。 如果遇到此情況，請按兩下我們的 API 金鑰。
 > 
 > 
 
@@ -128,7 +128,7 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateIndex(indexName, serviceClient);
 ```
 
-接著必須填入索引。 為了填入索引，我們需要一個 `SearchIndexClient`。 取得的方式有兩種：建構該項目，或用 `SearchServiceClient` 呼叫 `Indexes.GetClient`。 為方便起見，我們使用後者。
+接著必須填入索引。 為了填入索引，我們需要一個 `SearchIndexClient`。 取得的方式有兩種：建構該項目，或用 `Indexes.GetClient` 呼叫 `SearchServiceClient`。 為方便起見，我們使用後者。
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
@@ -167,7 +167,7 @@ private static SearchIndexClient CreateSearchIndexClient(string indexName, IConf
 }
 ```
 
-這次我們使用查詢金鑰，因為我們不需要索引的寫入存取權。 您可以在[範例應用程式](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)的 `appsettings.json` 檔案中輸入這項資訊。
+這次我們使用查詢金鑰，因為我們不需要索引的寫入存取權。 您可以在`appsettings.json`範例應用程式[的 ](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 檔案中輸入這項資訊。
 
 如果您使用有效的服務名稱和 API 金鑰執行此應用程式，輸出應該會如下列範例所示：（某些主控台輸出已取代為 "..."供說明之用）。
 
@@ -251,7 +251,7 @@ private static void CreateIndex(string indexName, SearchServiceClient serviceCli
 }
 ```
 
-此方法會以定義新索引結構描述的 `Field` 物件清單，建立新的 `Index` 物件。 每個欄位均有一個名稱、資料類型和一些屬性，以用於定義欄位的搜尋行為。 `FieldBuilder` 類別會檢查指定 `Hotel` 模型類別的公用屬性 (property) 和屬性 (attribute)，進而使用反映來建立索引的 `Field` 物件清單。 我們稍後會仔細查看 `Hotel` 類別。
+此方法會以定義新索引結構描述的 `Index` 物件清單，建立新的 `Field` 物件。 每個欄位均有一個名稱、資料類型和一些屬性，以用於定義欄位的搜尋行為。 `FieldBuilder` 類別會檢查指定 `Field` 模型類別的公用屬性 (property) 和屬性 (attribute)，進而使用反映來建立索引的 `Hotel` 物件清單。 我們稍後會仔細查看 `Hotel` 類別。
 
 > [!NOTE]
 > 如有需要，您永遠可以直接建立 `Field` 物件清單，而不是使用`FieldBuilder`。 例如，您可能不想使用模型類別，或您可能需要使用不想藉由新增屬性來修改的現有模型類別。

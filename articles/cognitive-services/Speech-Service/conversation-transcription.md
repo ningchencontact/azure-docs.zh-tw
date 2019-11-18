@@ -1,7 +1,7 @@
 ---
 title: 什麼是對話轉譯（預覽）-語音服務
 titleSuffix: Azure Cognitive Services
-description: 對話轉譯是一種語音轉換文字的解決方案，可將語音辨識、說話者識別和句子屬性結合到每個說話者（也稱為 diarization），以提供即時和/或非同步轉譯任何轉換. 對話轉譯讓所有人都能參與交談，像是失聰和聽力困難的出席者。
+description: 對話轉譯是一種語音轉換文字的解決方案，可將語音辨識、說話者識別和句子屬性結合到每個說話者（也稱為 diarization），以提供即時和/或非同步轉譯任何轉換.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f4b7591d5ddb138db0abbdb673cadc6afd71f315
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608069"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075853"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>什麼是對話轉譯（預覽）？
 

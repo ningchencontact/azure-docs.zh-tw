@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821107"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123696"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -114,7 +114,7 @@ Azure 儲存體包含資料庫中的所有資料檔案。 頁面伺服器會將 
 
 可以使用 [Azure 入口網站](https://portal.azure.com)、[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)、[Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 或是 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) 來建立超大規模資料庫。 超大規模資料庫僅在使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)時才提供。
 
-下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。 如需有效服務目標的清單，請參閱[資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute)。
+下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。 如需有效服務目標的清單，請參閱[資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5)。
 
 ```sql
 -- Create a HyperScale Database
@@ -167,7 +167,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 
 - 澳洲東部
-- 澳大利亞東南部
+- 澳洲東南部
 - 巴西南部
 - 加拿大中部
 - 美國中部
@@ -236,7 +236,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 ## <a name="known-limitations"></a>已知限制
 這些是超大規模資料庫服務層級目前對正式推出的限制。  我們正努力盡可能移除這些限制。
 
-| 問題 | 說明 |
+| 問題 | 描述 |
 | :---- | :--------- |
 | 邏輯伺服器的 [管理備份] 窗格不會顯示超大規模資料庫資料庫將會從 SQL server 篩選  | 超大規模資料庫有不同的管理備份方法，因此長期保留和時間點備份保留設定不會套用/失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
 | 還原時間點 | 一旦將資料庫移轉至超大規模資料庫服務層級之後，就不支援在遷移之前還原至時間點。|

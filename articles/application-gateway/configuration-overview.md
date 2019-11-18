@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389963"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108734"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定總覽
 
@@ -20,19 +20,19 @@ Azure 應用程式閘道是由數個元件所組成，您可以在不同的案�
 
 ![應用程式閘道元件流程圖](./media/configuration-overview/configuration-overview1.png)
 
-此圖說明具有三個接聽程式的應用程式。 前兩個分別為 `http://acme.com/*` 和 `http://fabrikam.com/*` 的多網站接聽程式。 兩者都在埠80上接聽。 第三個是具有端對端安全通訊端層（SSL）終止的基本接聽程式。
+此圖說明具有三個接聽程式的應用程式。 前兩個分別是 `http://acme.com/*` 和 `http://fabrikam.com/*`的多網站接聽程式。 兩者都在埠80上接聽。 第三個是具有端對端安全通訊端層（SSL）終止的基本接聽程式。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 虛擬網路和專用子網
 
 應用程式閘道是您虛擬網路中的專用部署。 在您的虛擬網路中，應用程式閘道需要專用的子網。 在子網中，您可以有多個指定應用程式閘道部署的實例。 您也可以在子網中部署其他應用程式閘道。 但是，您無法在應用程式閘道子網中部署任何其他資源。
 
 > [!NOTE]
-> 您無法在相同的子網上混合使用 Standard_v2 和 Standard Azure 應用程式閘道。
+> 您無法在相同的子網上混用 Standard_v2 和標準 Azure 應用程式閘道。
 
 #### <a name="size-of-the-subnet"></a>子網路的大小
 
@@ -42,7 +42,7 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 請考慮有27個應用程式閘道實例的子網，以及私人前端 IP 的 IP 位址。 在此情況下，您需要33個 IP 位址：27個用於應用程式閘道實例，1個用於私人前端，而5個供內部使用。 因此，您需要/26 個子網大小或更大。
 
-我們建議使用至少為/28 的子網大小。 此大小會提供您11個可用的 IP 位址。 如果您的應用程式負載需要超過10個 IP 位址，請考慮使用/27 或/26 子網大小。
+我們建議使用至少為/28 的子網大小。 此大小會提供您11個可用的 IP 位址。 如果您的應用程式負載需要10個以上的應用程式閘道實例，請考慮使用/27 或/26 子網大小。
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>應用程式閘道子網上的網路安全性群組
 
@@ -61,7 +61,7 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 針對此案例，請在應用程式閘道子網上使用 Nsg。 依照優先順序，將下列限制放在子網上：
 
-1. 允許來自來源 IP/IP 範圍和整個應用程式閘道子網的連入流量，或特定設定的私人前端 IP。 NSG 無法在公用 IP 上作用。
+1. 允許來自來源 IP 或 IP 範圍和目的地的連入流量作為整個應用程式閘道子網，或設定為特定的私人前端 IP。 NSG 無法在公用 IP 上作用。
 2. 允許應用程式閘道 v1 SKU 的所有來源的連入要求到埠65503-65534，以及 v2 SKU 的埠65200-65535 以進行[後端健康情況通訊](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 若沒有適當的憑證，外部實體就無法在這些端點上起始變更。
 3. 允許[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview)上的傳入 Azure Load Balancer 探查（*AzureLoadBalancer*標記）和輸入虛擬網路流量（*VirtualNetwork*標記）。
 4. 使用「全部拒絕」規則封鎖所有其他連入流量。
@@ -83,13 +83,13 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 您可以將應用程式閘道設定為具有公用 IP 位址、私人 IP 位址或兩者。 當您裝載的後端必須透過網際網路對向的虛擬 IP （VIP）來存取用戶端時，就需要公用 IP。 
 
-不會對網際網路公開的內部端點，不需要公用 IP。 這稱為*內部負載平衡器*（ILB）端點。 應用程式閘道 ILB 適用于不會向網際網路公開的內部企業營運系統應用程式。 對於不會公開至網際網路，但需要迴圈配置資源負載分配、會話粘性或 SSL 終止的安全性界限內的服務和層級，它也很有用。
+不會對網際網路公開的內部端點，不需要公用 IP。 這稱為*內部負載平衡器*（ILB）端點或私人前端 IP。 應用程式閘道 ILB 適用于不會向網際網路公開的內部企業營運系統應用程式。 對於不會公開至網際網路，但需要迴圈配置資源負載分配、會話粘性或 SSL 終止的安全性界限內的服務和層級，它也很有用。
 
 僅支援1個公用 IP 位址或1個私人 IP 位址。 當您建立應用程式閘道時，請選擇前端 IP。
 
-- 針對公用 IP，您可以建立新的公用 IP 位址，或使用與應用程式閘道位於相同位置的現有公用 IP。 如果您建立新的公用 IP，您所選取的 IP 位址類型（靜態或動態）稍後就無法變更。 如需詳細資訊，請參閱[靜態與動態公用 IP 位址](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)。
+- 針對公用 IP，您可以建立新的公用 IP 位址，或使用與應用程式閘道位於相同位置的現有公用 IP。 如需詳細資訊，請參閱[靜態與動態公用 IP 位址](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)。
 
-- 若是私人 IP，您可以從建立應用程式閘道的子網指定私人 IP 位址。 如果您未指定，則會自動從子網中選取任意 IP 位址。 如需詳細資訊，請參閱[建立具有內部負載平衡器的應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)。
+- 若是私人 IP，您可以從建立應用程式閘道的子網指定私人 IP 位址。 如果您未指定，則會自動從子網中選取任意 IP 位址。 您選取的 IP 位址類型（靜態或動態）稍後無法變更。 如需詳細資訊，請參閱[建立具有內部負載平衡器的應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)。
 
 前端 IP 位址會與接聽程式相關*聯，以*檢查前端 ip 上的傳入要求。
 
@@ -97,19 +97,19 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 接聽程式是一個邏輯實體，會使用埠、通訊協定、主機和 IP 位址來檢查傳入的連線要求。 當您設定接聽程式時，必須輸入這些值，以符合閘道上傳入要求中的對應值。
 
-當您使用 Azure 入口網站建立應用程式閘道時，也會藉由選擇接聽項的通訊協定和埠來建立預設接聽項。 您可以選擇是否要在接聽程式上啟用 HTTP2 支援。 建立應用程式閘道之後，您可以編輯該預設接聽項的設定（[*appGatewayHttpListener*/*appGatewayHttpsListener*）] 或 [建立新的接聽程式]。
+當您使用 Azure 入口網站建立應用程式閘道時，也會藉由選擇接聽項的通訊協定和埠來建立預設接聽項。 您可以選擇是否要在接聽程式上啟用 HTTP2 支援。 建立應用程式閘道之後，您可以編輯該預設接聽項的設定（*appGatewayHttpListener*），或建立新的接聽程式。
 
 ### <a name="listener-type"></a>接聽程式類型
 
 當您建立新的接聽程式時，您可以選擇 [ [*基本*] 和 [*多網站*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners)]。
 
-- 如果您要在應用程式閘道後方裝載單一網站，請選擇 [基本]。 瞭解[如何建立具有基本接聽程式的應用程式閘道](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)。
+- 如果您想要接受所有要求（適用于任何網域）並轉送至後端集區，請選擇 [基本]。 瞭解[如何建立具有基本接聽程式的應用程式閘道](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)。
 
-- 如果您要在同一個應用程式閘道實例上設定多個 web 應用程式或相同父系網域的多個子域，請選擇 [多網站接聽程式]。 針對多網站接聽程式，您也必須輸入主機名稱。 這是因為應用程式閘道依賴 HTTP 1.1 主機標頭，在同一個公用 IP 位址和埠上裝載多個網站。
+- 如果您想要根據*主機*標頭或主機名稱，將要求轉送至不同的後端集區，請選擇 [多網站接聽程式]，您也必須指定符合連入要求的主機名稱。 這是因為應用程式閘道依賴 HTTP 1.1 主機標頭，在同一個公用 IP 位址和埠上裝載多個網站。
 
 #### <a name="order-of-processing-listeners"></a>處理接聽程式的順序
 
-針對 v1 SKU，接聽程式會依照其列出的順序進行處理。 如果基本接聽程式符合傳入的要求，接聽程式會先處理該要求。 因此，請在基本接聽程式之前設定多網站接聽程式，以確保流量會路由傳送至正確的後端。
+對於 v1 SKU，要求會根據規則的順序和接聽程式的類型來進行比對。 如果具有基本接聽程式的規則第一次出現在順序中，則會先處理它，而且會接受該埠和 IP 組合的任何要求。 若要避免這個情況，請先設定具有多網站接聽程式的規則，並將具有基本接聽程式的規則推送至清單中的最後一個。
 
 針對 v2 SKU，多網站接聽程式會在基本接聽程式之前處理。
 
@@ -165,7 +165,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 您可以集中管理 SSL 憑證，並減少後端伺服器陣列的加密解密額外負荷。 集中式 SSL 處理也可讓您指定適合您安全性需求的中央 SSL 原則。 您可以選擇 [*預設*]、[*預先定義*] 或 [*自訂*SSL 原則]。
 
-您可以設定 SSL 原則來控制 SSL 通訊協定版本。 您可以將應用程式閘道設定為拒絕 TLS 1.0、TLS 1.1 和 TLS 1.2。 預設會停用 SSL 2.0 和3.0，且無法設定。 如需詳細資訊，請參閱[應用程式閘道 SSL 原則總覽](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview)。
+您可以設定 SSL 原則來控制 SSL 通訊協定版本。 您可以設定應用程式閘道使用最低通訊協定版本，從 TLS 1.0、TLS 1.1 和 TLS 1.2 進行 TLS 交握。 預設會停用 SSL 2.0 和3.0，且無法設定。 如需詳細資訊，請參閱[應用程式閘道 SSL 原則總覽](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview)。
 
 建立接聽程式之後，您可以將它與要求路由規則產生關聯。 該規則會決定如何將接聽程式收到的要求路由傳送至後端。
 
@@ -199,10 +199,6 @@ Set-AzApplicationGateway -ApplicationGateway $gw
  - 如需以路徑為基礎的規則，請新增多個對應至每個 URL 路徑的後端集區。 符合所輸入 URL 路徑的要求會轉送到對應的後端集區。 此外，新增預設後端集區。 不符合規則中任何 URL 路徑的要求會轉送到該集區。
 
 ### <a name="associated-back-end-http-setting"></a>相關聯的後端 HTTP 設定
-
-為每個規則新增後端 HTTP 設定。 系統會使用此設定中指定的埠號碼、通訊協定和其他資訊，從應用程式閘道將要求路由傳送至後端目標。
-
-針對基本規則，只允許一個後端 HTTP 設定。 相關聯接聽程式上的所有要求都會使用此 HTTP 設定轉送到對應的後端目標。
 
 為每個規則新增後端 HTTP 設定。 系統會使用此設定中指定的埠號碼、通訊協定和其他資訊，從應用程式閘道將要求路由傳送至後端目標。
 
@@ -245,10 +241,10 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 #### <a name="rewrite-the-http-header-setting"></a>重寫 HTTP 標頭設定
 
-此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 您只能透過 PowerShell 設定此功能。 Azure 入口網站和 CLI 支援尚無法使用。 如需詳細資訊，請參閱
+此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 如需詳細資訊，請參閱：
 
  - [重寫 HTTP 標頭總覽](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
+ - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 
 ## <a name="http-settings"></a>HTTP 設定
 
@@ -260,7 +256,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### <a name="connection-draining"></a>清空連線
 
-清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例都不會收到任何新的要求。 同時，可以在設定的時間限制內完成現有的要求。 連線清空會套用至透過 API 呼叫從後端集區明確移除的後端實例。 它也適用于健康情況探查回報為狀況*不良*的後端實例。
+清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例都不會收到任何新的要求。 同時，可以在設定的時間限制內完成現有的要求。 清空連接會套用至從後端集區明確移除的後端實例。
 
 ### <a name="protocol"></a>通訊協定
 
@@ -268,13 +264,13 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 這項設定與接聽程式中的 HTTPS 結合，[可支援端對端 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 這可讓您安全地將加密的機密資料傳輸至後端。 後端集區中已啟用端對端 SSL 的每部後端伺服器，都必須使用憑證來設定，以允許安全通訊。
 
-### <a name="port"></a>連接埠
+### <a name="port"></a>Port
 
 此設定會指定後端伺服器用來接聽來自應用程式閘道之流量的埠。 您可以設定範圍從1到65535的埠。
 
 ### <a name="request-timeout"></a>要求逾時
 
-此設定是應用程式閘道在傳回「連線超時」錯誤訊息之前，等待接收來自後端集區回應的秒數。
+此設定是應用程式閘道等候從後端伺服器接收回應的秒數。
 
 ### <a name="override-back-end-path"></a>覆寫後端路徑
 
@@ -301,7 +297,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### <a name="use-for-app-service"></a>針對 app service 使用
 
-這是一個 UI 快捷方式，可選取 Azure App Service 後端所需的兩個設定。 它會啟用**從後端位址挑選主機名稱**，並建立新的自訂探查。 （如需詳細資訊，請參閱本文的[從後端位址設定挑選主機名稱](#pick)一節）。隨即會建立新的探查，並從後端成員的位址中挑選探查標頭。
+這是僅限 UI 的快捷方式，可選取 Azure App Service 後端所需的兩個設定。 它會啟用**從後端位址挑選主機名稱**，如果您還沒有自訂探查，則會建立新的。 （如需詳細資訊，請參閱本文的[從後端位址設定挑選主機名稱](#pick)一節）。隨即會建立新的探查，並從後端成員的位址中挑選探查標頭。
 
 ### <a name="use-custom-probe"></a>使用自訂探查
 
@@ -310,26 +306,26 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 > [!NOTE]
 > 自訂探查不會監視後端集區的健康情況，除非對應的 HTTP 設定已明確與接聽程式相關聯。
 
-### <a id="pick"/> @ no__t-從後端位址1Pick 主機名稱
+### <a id="pick"/></a>從後端位址挑選主機名稱
 
 這項功能會將要求中的*主機*標頭動態設定為後端集區的主機名稱。 它會使用 IP 位址或 FQDN。
 
-當後端的功能變數名稱與應用程式閘道的 DNS 名稱不同，而且後端依賴特定主機標頭或伺服器名稱指示（SNI）延伸模組來解析為正確的端點時，這項功能會很有説明。
+當後端的功能變數名稱與應用程式閘道的 DNS 名稱不同，而且後端依賴特定主機標頭來解析為正確的端點時，這項功能會有説明。
 
 範例案例是多租使用者服務，做為後端。 App service 是一種多租使用者服務，它會使用具有單一 IP 位址的共用空間。 因此，應用程式服務只能透過自訂網域設定中設定的主機名稱來存取。
 
-根據預設，自訂功能變數名稱為*azurewebsites。<i> </i>net*。 若要透過未在 app service 中明確註冊的主機名稱，或透過應用程式閘道的 FQDN，使用應用程式閘道來存取您的 app service，您可以將原始要求中的主機名稱覆寫至 app service 的主機名稱。 若要這麼做，請啟用 [**從後端位址挑選主機名稱**] 設定。
+根據預設，自訂功能變數名稱為*example.azurewebsites.net*。 若要透過未在 app service 中明確註冊的主機名稱，或透過應用程式閘道的 FQDN，使用應用程式閘道來存取您的 app service，您可以將原始要求中的主機名稱覆寫至 app service 的主機名稱。 若要這麼做，請啟用 [**從後端位址挑選主機名稱**] 設定。
 
 針對現有自訂 DNS 名稱對應至 app service 的自訂網域，您不需要啟用此設定。
 
 > [!NOTE]
-> PowerApps 的 App Service 環境不需要此設定，這是專用的部署。
+> App Service 環境（這是專用部署）不需要此設定。
 
 ### <a name="host-name-override"></a>主機名稱覆寫
 
 這項功能會以您指定的主機名稱取代應用程式閘道上的傳入要求中的*主機*標頭。
 
-例如，如果在 [**主機名稱**] 設定中指定了 [ *www. contoso<i></i>.com* ]，當您發生此情況時，原始要求 HTTPs：/  *<i> </i>/appgw.eastus.cloudapp.net/path1*會變更為 HTTPs：/  *<i> </i>/www.contoso.com/path1*要求會轉送到後端伺服器。
+例如，如果在 [**主機名稱**] 設定中指定*www.contoso.com* ，則將要求轉寄至後端伺服器時，原始要求 * https://appgw.eastus.cloudapp.azure.com/path1 會變更為 * https://www.contoso.com/path1。
 
 ## <a name="back-end-pool"></a>後端集區
 
@@ -342,7 +338,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 應用程式閘道預設會監視其後端中所有資源的健全狀況。 但強烈建議您為每個後端 HTTP 設定建立自訂探查，以進一步掌控健全狀況監視。 若要瞭解如何設定自訂探查，請參閱[自訂健康情況探查設定](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings)。
 
 > [!NOTE]
-> 建立自訂健康情況探查之後，您必須將它與後端 HTTP 設定產生關聯。 自訂探查不會監視後端集區的健康情況，除非對應的 HTTP 設定已明確與接聽程式相關聯。
+> 建立自訂健康情況探查之後，您必須將它與後端 HTTP 設定產生關聯。 自訂探查不會監視後端集區的健康情況，除非對應的 HTTP 設定已明確與使用規則的接聽程式相關聯。
 
 ## <a name="next-steps"></a>後續步驟
 

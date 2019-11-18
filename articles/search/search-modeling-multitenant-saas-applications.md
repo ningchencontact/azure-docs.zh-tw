@@ -1,5 +1,5 @@
 ---
-title: 在一個服務中將內容隔離的多租使用者模型化
+title: 多組織使用者和內容隔離
 titleSuffix: Azure Cognitive Search
 description: 瞭解使用 Azure 認知搜尋時，多租使用者 SaaS 應用程式的常見設計模式。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0332443997fbc58781f99e3b4e6d9776dd23926b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793521"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113266"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>多租使用者 SaaS 應用程式和 Azure 認知搜尋的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本檔討論使用 Azure 認知搜尋所建立之多租使用者應用程式的租使用者隔離策略。
@@ -42,8 +42,8 @@ Azure 認知搜尋中有幾個不同的[定價層](https://azure.microsoft.com/p
 | 每項服務的複本數目上限 |3 |12 |12 |12 |12 |
 | 每項服務的資料分割數目上限 |1 |12 |12 |12 |3 |
 | 每項服務的搜尋單位數目上限 (複本數*資料分割數) |3 |36 |36 |36 |36 (最多 3 個資料分割) |
-| 每項服務的儲存體上限 |2GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| 每個資料分割的儲存體上限 |2GB |25 GB |100 GB |200 GB |200 GB |
+| 每項服務的儲存體上限 |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
+| 每個資料分割的儲存體上限 |2 GB |25 GB |100 GB |200 GB |200 GB |
 | 每項服務的索引數目上限 |5 |50 |200 |200 |3000 (最多 1000 個索引/資料分割) |
 
 #### <a name="s3-high-density"></a>S3 高密度
@@ -125,7 +125,7 @@ Azure 認知搜尋允許個別索引的規模，以及要成長的總索引數�
 > 
 
 ## <a name="next-steps"></a>後續步驟
-Azure 認知搜尋是許多應用程式的絕佳選擇。 評估多租使用者應用程式的各種設計模式時，請考慮[各種定價層](https://azure.microsoft.com/pricing/details/search/)和個別的[服務限制](search-limits-quotas-capacity.md)，以充分量身打造 Azure 認知搜尋，以符合所有大小的應用程式工作負載和架構.
+Azure 認知搜尋是許多應用程式的絕佳選擇。 評估多租使用者應用程式的各種設計模式時，請考慮[各種定價層](https://azure.microsoft.com/pricing/details/search/)和個別的[服務限制](search-limits-quotas-capacity.md)，以充分量身打造 Azure 認知搜尋，以符合各種大小的應用程式工作負載和架構。
 
 任何關於 Azure 認知搜尋和多租使用者案例的問題，都可以導向 azuresearch_contact@microsoft.com。
 

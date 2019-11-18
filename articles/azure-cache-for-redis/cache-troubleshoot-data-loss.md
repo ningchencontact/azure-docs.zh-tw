@@ -1,25 +1,17 @@
 ---
-title: 針對 Azure Cache for Redis 中的資料遺失進行疑難排解 |Microsoft Docs
+title: 針對 Azure Cache for Redis 中的資料遺失進行疑難排解
 description: 瞭解如何使用 Azure Cache for Redis 解決資料遺失問題
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 8165ce3195c12af52cfee2fff598d9417697f4cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806564"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121504"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>針對 Azure Cache for Redis 中的資料遺失進行疑難排解
 
@@ -35,7 +27,7 @@ Azure Cache for Redis 在儲存于記憶體後不會隨機刪除金鑰。 不過
 
 如果您發現金鑰已從快取中消失，請檢查下列可能的原因：
 
-| 原因 | 說明 |
+| 原因 | 描述 |
 |---|---|
 | [金鑰到期](#key-expiration) | 已移除索引鍵，因為它們已設定超時。 |
 | [金鑰收回](#key-eviction) | 在記憶體壓力下，會移除索引鍵。 |
@@ -94,7 +86,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 如果您的快取中大部分或所有金鑰都消失，請檢查下列可能的原因：
 
-| 原因 | 說明 |
+| 原因 | 描述 |
 |---|---|
 | [金鑰排清](#key-flushing) | 已手動清除金鑰。 |
 | [不正確的資料庫選取專案](#incorrect-database-selection) | Azure Cache for Redis 設定為使用非預設的資料庫。 |

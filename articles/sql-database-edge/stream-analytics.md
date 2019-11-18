@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514988"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108755"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>使用 SQL Database DAC 封裝和串流分析作業搭配 SQL Database Edge
 
@@ -34,10 +34,10 @@ Azure SQL Database Edge 會透過 IoT Edge 模組之模組對應項*的 [所需�
 }
 ```
 
-|欄位 | 說明 |
+|欄位 | 描述 |
 |------|-------------|
 | SQLPackage | 包含 SQL Database DAC 封裝的 * .zip 檔案 Azure Blob 儲存體 URI。
-| ASAJobInfo | ASA Edge 作業的 Azure Blob 儲存體 URI。 如需發佈 ASA Edge 作業的詳細資訊，請參閱[發佈適用于 SQL Database 邊緣的 Asa edge 作業]()。
+| ASAJobInfo | ASA Edge 作業的 Azure Blob 儲存體 URI。 如需發佈 ASA Edge 作業的詳細資訊，請參閱[發佈適用于 SQL Database 邊緣的 Asa edge 作業](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge)。
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>搭配 SQL Database Edge 使用 SQL Database DAC 封裝
 
@@ -75,7 +75,7 @@ Azure SQL Database Edge 會透過 IoT Edge 模組之模組對應項*的 [所需�
             }
         ```
 
-    7. 按一下 [儲存]。
+    7. 按一下 [檔案]。
 
     8. 在 [**設定模組**] 頁面上，按 *[下一步]* 。
 
@@ -97,7 +97,7 @@ Azure SQL Database Edge 有串流分析執行時間的原生執行。 這可讓�
 
     *輸出-選取 [SQL Database 做為輸出]、[手動提供 SQL Database 設定]，並提供資料庫和資料表的設定詳細資料。*
 
-    |欄位      | 說明 |
+    |欄位      | 描述 |
     |---------------|-------------|
     |輸出別名 | 輸出別名的名稱。|
     |資料庫 | SQL Database 的名稱。 這必須是有效的資料庫名稱，存在於 SQL Database Edge 實例上。|
@@ -166,7 +166,7 @@ Azure SQL Database Edge 有串流分析執行時間的原生執行。 這可讓�
         }
     ```
 
-7. 按一下 [儲存]。
+7. 按一下 [檔案]。
 
 8. 在 [**設定模組**] 頁面上，按 *[下一步]* 。
 

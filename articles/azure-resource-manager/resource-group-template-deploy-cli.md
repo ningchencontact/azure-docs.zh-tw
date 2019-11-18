@@ -1,17 +1,14 @@
 ---
-title: 使用 Azure CLI 與範本部署資源 | Microsoft Docs
+title: 使用 Azure CLI 和範本部署資源
 description: 使用 Azure Resource Manager 和 Azure CLI，將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c31a139e40953bf3b652af2172cd5c51578c45cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834468"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149738"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
@@ -72,9 +69,9 @@ az group deployment create \
 
 ## <a name="deploy-remote-template"></a>部署遠端範本
 
-您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，以在組織內共用存取。
+您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，讓組織共用存取。
 
-若要部署外部範本，請使用 **template-uri** 參數。 在範例中使用 URI 以部署來自 GitHub 的範例範本。
+若要部署外部範本，請使用 **template-uri** 參數。 使用範本中的 URI 部署 GitHub 上的範例範本。
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -98,7 +95,7 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 
 若要傳遞參數值，您可以使用內嵌參數或參數檔案。
 
@@ -153,7 +150,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>處理延伸 JSON 格式
 
-若要部署含有多行字串或批註的範本，您必須使用 `--handle-extended-json-format` 參數。  例如：
+若要部署含有多行字串或批註的範本，您必須使用 `--handle-extended-json-format` 參數。  例如︰
 
 ```json
 {

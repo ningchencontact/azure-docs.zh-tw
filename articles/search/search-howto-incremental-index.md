@@ -1,5 +1,5 @@
 ---
-title: 設定擴充內容式變更追蹤的累加編制索引（預覽）
+title: 新增累加式索引編制（預覽）
 titleSuffix: Azure Cognitive Search
 description: 啟用變更追蹤，並保留擴充內容的狀態，以在認知技能集中進行控制處理。 此功能目前為公開預覽狀態。
 author: vkurpad
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719933"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112567"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中設定擴充檔的增量編制索引
 

@@ -1,5 +1,5 @@
 ---
-title: 將語言分析器新增至索引中的字串欄位
+title: 將語言分析器新增至字串欄位
 titleSuffix: Azure Cognitive Search
 description: Azure 認知搜尋中非英文查詢和索引的多語言詞法文字分析。
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790146"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111801"
 ---
-# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>將語言分析器新增至 Azure 認知搜尋索引
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>將語言分析器新增至 Azure 認知搜尋索引中的字串欄位
 
 「語言分析器」是特定類型的[文字分析器](search-analyzers.md)，能使用目標語言的語言規則來執行語彙分析。 每個可搜尋的欄位都會有 **analyzer** 屬性。 如果您的索引包含已翻譯的字串 (例如適用於英文和中文文字的個別欄位)，您可以在每個欄位上指定語言分析器，以存取由那些分析器所提供的豐富語言功能。  
 
@@ -73,7 +73,7 @@ Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing
 |捷克文|cs.microsoft|cs.lucene|  
 |丹麥文|da.microsoft|da.lucene|  
 |荷蘭文|nl.microsoft|nl.lucene|  
-|繁體中文|en.microsoft|en.lucene|  
+|English|en.microsoft|en.lucene|  
 |愛沙尼亞文|et.microsoft||  
 |芬蘭文|fi.microsoft|fi.lucene|  
 |法文|fr.microsoft|fr.lucene|  
@@ -120,7 +120,7 @@ Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing
 
  所有名稱加上 **Lucene** 註解的分析器都是由 [Apache Lucene 的語言分析器](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ) \(英文\) 所提供。
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 + [建立索引&#40;Azure 認知搜尋 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

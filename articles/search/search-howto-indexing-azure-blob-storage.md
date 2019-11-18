@@ -1,5 +1,5 @@
 ---
-title: 為 Azure Blob 儲存體內容編制索引以進行全文檢索搜尋
+title: 搜尋 Azure Blob 儲存體內容
 titleSuffix: Azure Cognitive Search
 description: 瞭解如何使用 Azure 認知搜尋來編制 Azure Blob 儲存體的索引，以及從檔中將文字解壓縮。
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b093525fcabc31074b398444a2fceffd0f6d3493
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791782"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113018"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>如何使用 Azure 認知搜尋在 Azure Blob 儲存體中編制檔的索引
 
@@ -46,7 +46,7 @@ blob 索引子可以從下列文件格式擷取文字：
 若要為 Blob 編製索引，資料來源必須具有下列必要屬性︰
 
 * **名稱**是搜尋服務中資料來源的唯一名稱。
-* **type** 必須是 `azureblob`。
+* **類型**必須是 `azureblob`。
 * **認證**可提供儲存體帳戶連接字串來做為 `credentials.connectionString` 參數。 請參閱下面的[如何指定認證](#Credentials)了解詳細資訊。
 * **容器**會指定儲存體帳戶中的容器。 根據預設，容器內的所有 Blob 都可擷取。 如果您只想要在特定虛擬目錄為 Blob 編製索引，您可以使用選擇性的**查詢**參數指定該目錄。
 
@@ -70,7 +70,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 您可以採取下列其中一種方式提供 blob 容器的認證︰
 
-- **完整存取儲存體帳戶連接字串**： `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 您可以從 Azure 入口網站取得連接字串，方法是流覽至儲存體帳戶分頁 > 設定 > 金鑰（適用于傳統儲存體帳戶）或設定 > 存取金鑰（適用于 AzureResource Manager 儲存體帳戶）。
+- **完整存取儲存體帳戶連接字串**： `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 您可以從 Azure 入口網站取得連接字串，方法是流覽至儲存體帳戶分頁 > 設定 > 金鑰（適用于傳統儲存體帳戶）或設定 > 存取金鑰（適用于 Azure Resource Manager 儲存體帳戶）。
 - **儲存體帳戶共用存取簽章** (SAS) 連接字串：`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS 應該有容器和物件 (在此案例中為 Blob) 上的列出和讀取權限。
 -  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS 應該有容器上的列出和讀取權限。
 
@@ -140,7 +140,7 @@ blob 索引子可以從下列文件格式擷取文字：
 * 標準 blob 中繼資料屬性會擷取到下列欄位：
 
   * **metadata\_storage\_name** (Edm.String) - blob 的檔案名稱。 例如，如果您有 blob /my-container/my-folder/subfolder/resume.pdf，這個欄位的值是 `resume.pdf`。
-  * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如，`https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如， `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String) - 內容類型，如同您用來上傳 blob 的程式碼所指定。 例如： `application/octet-stream` 。
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - 上次修改 blob 的時間戳記。 Azure 認知搜尋會使用此時間戳記來識別已變更的 blob，以避免在初始編制索引之後重新編制所有的專案。
   * **metadata\_storage\_size** (Edm.Int64) - blob 大小 (位元組)。
@@ -256,7 +256,7 @@ blob 索引子可以從下列文件格式擷取文字：
 | 屬性名稱 | 屬性值 | 說明 |
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |指示 blob 索引子以完全略過 blob。 不會嘗試擷取中繼資料或內容。 當特定 blob 一直失敗，並且中斷編製索引程序時，這非常有用。 |
-| AzureSearch_SkipContent |"true" |這是相當於[上方](#PartsOfBlobToIndex)所描述之範圍設定為特定 blob 的 `"dataToExtract" : "allMetadata"` 設定。 |
+| AzureSearch_SkipContent |"true" |這是相當於`"dataToExtract" : "allMetadata"`上方[所描述之範圍設定為特定 blob 的 ](#PartsOfBlobToIndex) 設定。 |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>處理錯誤
@@ -280,7 +280,7 @@ Azure 認知搜尋會限制已編制索引的 blob 大小。 這些限制記載�
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如：
+如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如︰
 
     {
       ... other parts of indexer definition
@@ -299,7 +299,7 @@ Azure 認知搜尋會限制已編制索引的 blob 大小。 這些限制記載�
 2. 在資料來源上設定虛刪除偵測原則
 3. 索引子處理過 blob 後 (如索引子狀態 API 所示)，您就可以實際刪除 blob
 
-例如，如果 blob 有值為 `true` 的中繼資料屬性 `IsDeleted`，則下列原則會認為 blob 已刪除：
+例如，如果 blob 有值為 `IsDeleted` 的中繼資料屬性 `true`，則下列原則會認為 blob 已刪除：
 
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json

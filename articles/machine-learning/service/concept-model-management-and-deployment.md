@@ -1,7 +1,7 @@
 ---
-title: MLOps：管理、部署 & 監視 ML 模型
+title: MLOps： ML 模型管理
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用 Azure Machine Learning MLOps：部署、管理及監視模型，以持續改進它們。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。
+description: '瞭解 Azure Machine Learning 的模型管理（MLOps）。 部署、管理及監視您的模型，以持續改進它們。 '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716592"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123613"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 來管理、部署及監視模型
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 進行模型管理、部署和監視
 
 在本文中，您將瞭解如何使用 Azure Machine Learning 來管理模型的生命週期。 Azure Machine Learning 使用 Machine Learning 作業（MLOps）方法，可改善機器學習解決方案的品質和一致性。 
 
@@ -121,7 +121,7 @@ Azure Machine Learning 可以流量分析來判斷部署模型時所要使用的
 
 如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md)。
 
-### <a name="analytics"></a>分析
+### <a name="analytics"></a>Analytics
 
 Microsoft Power BI 支援使用機器學習模型來進行資料分析。 如需詳細資訊，請參閱[Power BI 中的 Azure Machine Learning 整合（預覽）](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。
 

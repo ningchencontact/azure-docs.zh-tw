@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430072"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131028"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -38,7 +38,7 @@ Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理
 
 這個練習需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
-在此練習中，您可以將命令鍵入一般 PowerShell 視窗中，或者使用 [Windows PowerShell 整合指令碼環境 (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)，並在編輯器中鍵入命令，然後在您瀏覽範例時一次測試一或多個命令。 您可以反白顯示您要執行的資料列，然後按一下 [執行選取項目] 只執行這些命令。
+在此練習中，您可以將命令鍵入一般 PowerShell 視窗中，或者使用 [Windows PowerShell 整合指令碼環境 (ISE)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise)，並在編輯器中鍵入命令，然後在您瀏覽範例時一次測試一或多個命令。 您可以反白顯示您要執行的資料列，然後按一下 [執行選取項目] 只執行這些命令。
 
 如需儲存體帳戶的詳細資訊，請參閱[儲存體簡介](storage-introduction.md)和[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。
 
@@ -131,7 +131,7 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 * 指派給儲存體帳戶的**標記**。 標記通常用來分類資源以進行計費。
 
-* **SKU** 是儲存體帳戶的複寫設定，例如 LRS 代表「本地備援儲存體」。 例如，您可能會從標準\_LRS 變更為標準\_GRS 或標準\_RAGRS。 請注意，您無法將標準 @ no__t-0ZRS、standard @ no__t-1GZRS、Standard @ no__t-2RAGZRS 或 Premium @ no__t-3LRS 變更為其他 Sku，或將其他 Sku 變更為這些。
+* **SKU** 是儲存體帳戶的複寫設定，例如 LRS 代表「本地備援儲存體」。 例如，您可能會從標準\_LRS 變更為標準\_GRS 或標準\_RAGRS。 請注意，您無法將 Standard\_ZRS、Standard\_切換、Standard\_RAGZRS 或 Premium\_LRS 變更為其他 Sku，或將其他 Sku 變更為這些。
 
 * Blob 儲存體帳戶的**存取層**。 存取層的值設為**經常性**或**非經常性**，並可讓您選取符合您如何使用儲存體帳戶的存取層來減少成本。 如需詳細資訊，請參閱[經常性、非經常性和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
@@ -185,7 +185,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule) \(英文\)
 
-## <a name="use-storage-analytics"></a>使用儲存體分析  
+## <a name="use-storage-analytics"></a>使用儲存體分析
 
 [Azure 儲存體分析](storage-analytics.md)包含[儲存體分析計量](/rest/api/storageservices/about-storage-analytics-metrics)和[儲存體分析記錄](/rest/api/storageservices/about-storage-analytics-logging)。
 
@@ -252,4 +252,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Azure 儲存體控制層 PowerShell Cmdlet](/powershell/module/az.storage/)
 * [Azure 儲存體資料層 PowerShell Cmdlet](/powershell/module/azure.storage/)
-* [Windows PowerShell 參考](/powershell/scripting/developer/windows-powershell)
+* [Windows PowerShell 參考](/powershell/scripting/overview)

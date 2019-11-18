@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b9b58c9b5f32d6ca714ac3ac940b91643fa8020c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73957850"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123560"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>重複使用環境，以 Azure Machine Learning 訓練 & 部署。
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -333,7 +333,7 @@ run = experiment.submit(sk_est)
 
 將您的模型部署為 web 服務時，您可以使用環境。 這會啟用可重現且已連線的工作流程，讓您在定型和推斷計算中使用完全相同的程式庫來定型、測試及部署模型。
 
-若要部署 web 服務，請在您的部署物件中結合環境、推斷計算、評分腳本和已註冊的模型、[部署（）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)。 深入瞭解如何[部署 web 服務](how-to-deploy-and-where.md)。
+若要部署 web 服務，請在您的部署物件中結合環境、推斷計算、評分腳本和已註冊的模型、[部署（）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)。 深入瞭解如何[部署 web 服務](how-to-deploy-and-where.md)。
 
 在此範例中，假設您已完成定型回合，並想要將該模型部署到 Azure 容器實例（ACI）。 建立 web 服務時，會將模型和計分檔案掛接在影像上，並將 Azure Machine Learning 推斷堆疊加入至映射。
 

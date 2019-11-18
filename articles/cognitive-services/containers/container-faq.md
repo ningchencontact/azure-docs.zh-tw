@@ -7,22 +7,22 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: 6e218f33bdc33708cef0c94eb85298abf2b8927c
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316633"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961885"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure 認知服務容器的常見問題（FAQ）
 
 ## <a name="general-questions"></a>一般問題
 
-**問：有哪些可用功能？**
+**問：什麼是可用的？**
 
-**答：** [Azure 認知服務中的容器支援](../cognitive-services-container-support.md)可讓開發人員使用 azure 中可用的相同智慧型 api，但具有容器化的[優點](../cognitive-services-container-support.md#features-and-benefits)。 容器支援目前以預覽形式提供給 Azure 認知服務的一部分，包括下列各部分：
+**答：** [azure 認知服務中的容器支援](../cognitive-services-container-support.md)可讓開發人員使用 azure 中可用的相同智慧型 api，但具有容器化的[優點](../cognitive-services-container-support.md#features-and-benefits)。 容器支援目前以預覽形式提供給 Azure 認知服務的一部分，包括下列各部分：
 
 > [!div class="checklist"]
 > * [異常偵測器][ad-containers]
@@ -32,13 +32,12 @@ ms.locfileid: "71316633"
 > * [Language Understanding (LUIS)][lu-containers]
 > * [語音服務 API][sp-containers]
 > * [文字分析][ta-containers]
-<!-- > * [Translator Text][tt-containers] -->
 
-**問：認知服務雲端與容器之間有任何差異嗎？**
+**問：認知服務雲端與容器之間是否有任何差異？**
 
 **答：** 認知服務容器是認知服務雲端的替代方案。 容器提供的功能與對應的雲端服務相同。 客戶可以將容器部署在內部部署或 Azure 中。 在容器和對應的雲端服務之間，核心 AI 技術、定價層、API 金鑰和 API 簽章都相同。 以下是在其雲端服務對等的情況中選擇容器的[功能和優點](../cognitive-services-container-support.md#features-and-benefits)。
 
-**問：容器是否適用于所有認知服務，以及下一組應該會預期的容器為何？**
+**問：容器是否適用于所有的認知服務，以及下一組預期的容器是什麼？**
 
 **答：** 我們想要將更多認知服務提供給容器供應專案。 請洽詢您的本機 Microsoft 帳戶管理員，以取得新容器版本和其他認知服務宣告的更新。
 
@@ -69,7 +68,7 @@ ms.locfileid: "71316633"
 
 **答：** 將支援容器的目前和最後一個主要版本。 不過，我們鼓勵客戶隨時保持最新的技術。
  
-**問：如何設定版本的更新？**
+**問：更新的版本如何？**
 
 **答：** 主要版本變更表示 API 簽章有中斷性變更。 我們預期這通常會與對應認知服務雲端供應專案的主要版本變更一致。 次要版本變更表示 bug 修正、模型更新，或不會對 API 簽章進行重大變更的新功能。
 
@@ -83,7 +82,7 @@ ms.locfileid: "71316633"
 
 **答：** 我們鼓勵客戶以公開的方式對[他們的顧慮進行語音](https://cognitive.uservoice.com/)處理，並將在潛在問題重迭的其他人投票。 使用者語音工具可用於產品意見反應和功能建議。
 
-**問：我該如何聯絡支援？**
+**問：誰可以尋求支援？**
 
 **答：** 客戶支援通道與認知服務雲端供應專案相同。 所有認知服務容器都包含記錄功能，可協助我們和「社區」支援客戶。 如需其他支援，請參閱下列選項。
 
@@ -95,7 +94,7 @@ ms.locfileid: "71316633"
 
 客戶可以免費探索[Azure 知識中心](https://azure.microsoft.com/resources/knowledge-center/)，以回答問題和支援問題。
 
-### <a name="stack-overflow"></a>Stack Overflow
+### <a name="stack-overflow"></a>堆疊溢位
 
 > [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow)是專業和愛好者程式設計人員的問答網站。
 
@@ -115,7 +114,6 @@ ms.locfileid: "71316633"
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [語音服務 API][sp-containers-billing]
 * [文字分析][ta-containers-billing]
-<!-- * [Translator Text][tt-containers-billing] -->
 
 > [!IMPORTANT]
 > 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料傳送至 Microsoft。
@@ -128,7 +126,7 @@ ms.locfileid: "71316633"
 
 **答：** 未連線至 Azure 以進行計量的情況下，認知服務容器*未獲授權*可執行。 客戶必須讓容器能夠隨時與計量服務進行通訊。
 
-**問：容器在不連線至 Azure 的情況下可運作多久？**
+**問：容器在未連線至 Azure 的情況下可運作多久？**
 
 **答：** 未連線至 Azure 以進行計量的情況下，認知服務容器*未獲授權*可執行。 客戶必須讓容器能夠隨時與計量服務進行通訊。
  
@@ -143,9 +141,8 @@ ms.locfileid: "71316633"
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [語音服務 API][sp-containers-recommendations]
 * [文字分析][ta-containers-recommendations]
-<!-- * [Translator Text][tt-containers-recommendations] -->
  
-**問：Windows 上目前支援這些容器嗎？**
+**問：這些容器目前是否支援 Windows？**
 
 **答：** 認知服務容器是 Linux 容器，但在 Windows 上有一些 Linux 容器的支援。 如需 Windows 上 Linux 容器的詳細資訊，請參閱[Docker 檔](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/)。
  
@@ -161,7 +158,7 @@ ms.locfileid: "71316633"
 
 **答：** 認知服務容器沒有任何合規性認證
 
-**問：哪些區域可供使用認知服務容器？**
+**問：哪些區域是可用的認知服務容器？**
 
 **答：** 容器可以在任何區域中的任何位置執行，但它們需要金鑰，並回呼至 Azure 以進行計量。 容器計量呼叫支援雲端服務的所有支援區域。
 
@@ -174,7 +171,6 @@ ms.locfileid: "71316633"
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-containers]: ../speech-service/speech-container-howto.md
 [ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-<!-- [tt-containers]: ../translator/how-to-install-containers.md -->
 
 [ad-containers-billing]: ../anomaly-Detector/anomaly-detector-container-howto.md#billing
 [cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
@@ -183,7 +179,6 @@ ms.locfileid: "71316633"
 [lu-containers-billing]: ../luis/luis-container-howto.md#billing
 [sp-containers-billing]: ../speech-service/speech-container-howto.md#billing
 [ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
-<!-- [tt-containers-billing]: ../translator/how-to-install-containers.md#billing -->
 
 [ad-containers-recommendations]: ../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations
 [cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
@@ -192,4 +187,3 @@ ms.locfileid: "71316633"
 [lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
 [sp-containers-recommendations]: ../speech-service/speech-container-howto.md#container-requirements-and-recommendations
 [ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations
-<!-- [tt-containers-recommendations]: ../translator/how-to-install-containers.md#container-requirements-and-recommendations -->

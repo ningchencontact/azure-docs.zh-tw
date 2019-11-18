@@ -1,25 +1,17 @@
 ---
-title: 在 Azure Cache for Redis 中匯入與匯出資料 | Microsoft Docs
+title: 在 Azure Cache for Redis 中匯入與匯出資料
 description: 了解如何使用進階 Azure Cache for Redis 執行個體將資料匯入至 Blob 儲存體並從其中匯出資料
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: fda366f631e392379bd52b4bba728d0373f3e75e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756750"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122772"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>在 Azure Cache for Redis 中匯入與匯出資料
 「匯入/匯出」是 Azure Cache for Redis 的資料管理作業，可讓您從進階快取將「Azure Cache for Redis 資料庫」(RDB) 快照集匯入和匯出至 Azure 儲存體帳戶中的 Blob，以將資料匯入 Azure Cache for Redis 或從 Azure Cache for Redis 匯出資料。 
@@ -27,7 +19,7 @@ ms.locfileid: "72756750"
 - **匯出** - 您可以將您的 Azure Cache for Redis RDB 快照集匯出至分頁 Blob。
 - **匯入** - 您可以從分頁 Blob 或區塊 Blob 匯入您的 Azure Cache for Redis RDB 快照集。
 
-「匯入/匯出」可讓您在不同的「Azure Redis 快取」執行個體之間移轉，或在使用前將資料填入快取。
+「匯入/匯出」可讓您在不同的 Azure Cache for Redis 執行個體之間移轉，或在使用前將資料填入快取。
 
 本文提供使用 Azure Cache for Redis 匯入和匯出資料的指南，並提供常見問題的解答。
 
@@ -70,7 +62,7 @@ ms.locfileid: "72756750"
     ![匯入進度](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
 ## <a name="export"></a>匯出
-匯出可讓您將儲存在 Azure Cache for Redis 中的資料匯出至與 Redis 相容的 RDB 檔案。 您可以使用這項功能，將資料從一個「Azure Redis 快取」執行個體移到另一個執行個體，或移到另一個 Redis 伺服器。 在進行匯出程序的期間，會在裝載 Azure Cache for Redis 伺服器執行個體的 VM 上建立暫存檔案，然後將檔案上傳至指定的儲存體帳戶。 當匯出作業完成時的狀態為成功或失敗時，都會刪除暫存檔案。
+匯出可讓您將儲存在 Azure Cache for Redis 中的資料匯出至與 Redis 相容的 RDB 檔案。 您可以使用這項功能，將資料從一個 Azure Cache for Redis 執行個體移到另一個執行個體，或移到另一個 Redis 伺服器。 在進行匯出程序的期間，會在裝載 Azure Cache for Redis 伺服器執行個體的 VM 上建立暫存檔案，然後將檔案上傳至指定的儲存體帳戶。 當匯出作業完成時的狀態為成功或失敗時，都會刪除暫存檔案。
 
 1. 若要將目前的快取內容匯出至儲存體，請[瀏覽至 Azure 入口網站中的快取](cache-configure.md#configure-azure-cache-for-redis-settings)，然後從 [資源功能表] 按一下 [匯出資料]。
 

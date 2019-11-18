@@ -1,5 +1,5 @@
 ---
-title: 使用索引子進行自動編制索引的欄位對應
+title: 索引器中的欄位對應
 titleSuffix: Azure Cognitive Search
 description: 在索引子中設定欄位對應，以考慮功能變數名稱和資料表示的差異。
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786962"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124003"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>使用 Azure 認知搜尋索引子的欄位對應和轉換
 
@@ -175,11 +175,14 @@ Azure 認知搜尋支援兩種不同的 Base64 編碼。 編碼和解碼相同�
 
 #### <a name="base64-encoding-options"></a>base64 編碼選項
 
-Azure 認知搜尋支援兩種不同的 Base64 編碼： **HTTPSERVERUTILITY URL 權杖**，以及**不含填補的 url 安全 Base64 編碼**。 在編制索引期間以 base64 編碼的字串，稍後應使用相同的編碼選項進行解碼，否則結果不會符合原始的。
+Azure 認知搜尋支援 URL 安全的 base64 編碼和一般 base64 編碼。 在編制索引期間以 base64 編碼的字串應該在之後使用相同的編碼選項進行解碼，否則結果不會符合原始的。
 
 如果分別用於編碼和解碼的 `useHttpServerUtilityUrlTokenEncode` 或 `useHttpServerUtilityUrlTokenDecode` 參數設定為 `true`，則 `base64Encode` 的行為會像是[HttpServerUtility](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) ，而 `base64Decode` 的行為就像[HttpServerUtility UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)。
 
-如果您不是使用完整的 .NET Framework （也就是您使用 .NET Core 或其他架構）來產生金鑰值來模擬 Azure 認知搜尋行為，則應該將 `useHttpServerUtilityUrlTokenEncode` 和 `useHttpServerUtilityUrlTokenDecode` 設定為 `false`。 根據您使用的程式庫，base64 編碼和解碼功能可能與 Azure 認知搜尋所使用的不同。
+> [!WARNING]
+> 如果 `base64Encode` 用來產生索引鍵值，`useHttpServerUtilityUrlTokenEncode` 必須設定為 true。 只有 URL 安全的 base64 編碼可以用於索引鍵值。 如需金鑰值中字元的完整限制，請參閱[命名規則&#40;Azure 認知搜尋&#41; ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 。
+
+Azure 認知搜尋中的 .NET 程式庫會假設完整的 .NET Framework，它會提供內建的編碼方式。 `useHttpServerUtilityUrlTokenEncode` 和 `useHttpServerUtilityUrlTokenDecode` 選項會利用此內建功能。 如果您使用 .NET Core 或其他架構，建議您將這些選項設定為 `false`，並直接呼叫您架構的編碼和解碼函數。
 
 下表比較 `00>00?00` 字串的不同 base64 編碼。 若要判斷您的 base64 函式需要的額外處理 (如果有的話)，將您的程式庫編碼函式套用在 `00>00?00` 字串，然後比較輸出與預期的輸出 `MDA-MDA_MDA`。
 
@@ -188,7 +191,7 @@ Azure 認知搜尋支援兩種不同的 Base64 編碼： **HTTPSERVERUTILITY URL
 | Base64 加填補 | `MDA+MDA/MDA=` | 使用 URL 安全的字元，並移除填補 | 使用標準 base64 字元，並加上填補 |
 | Base64 無填補 | `MDA+MDA/MDA` | 使用 URL 安全的字元 | 使用標準 base64 字元 |
 | URL 安全的 base64 填補加填補 | `MDA-MDA_MDA=` | 移除填補 | 加上填補 |
-| URL 安全的 base64 無填補 | `MDA-MDA_MDA` | None | None |
+| URL 安全的 base64 無填補 | `MDA-MDA_MDA` | 無 | 無 |
 
 <a name="extractTokenAtPositionFunction"></a>
 

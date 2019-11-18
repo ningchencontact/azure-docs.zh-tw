@@ -1,5 +1,5 @@
 ---
-title: 將認知服務資源附加至技能集
+title: 將認知服務附加至技能集
 titleSuffix: Azure Cognitive Search
 description: 如何在 Azure 認知搜尋中將認知服務的多個訂用帳戶附加至 AI 擴充管線的指示。
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788036"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113939"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>將認知服務資源連結至 Azure 認知搜尋中的技能集 
 
-AI 演算法會在 Azure 認知搜尋中驅動用於內容轉換的[擴充管線](cognitive-search-concept-intro.md)。 這些演算法是以 Azure 認知服務資源為基礎，包括影像分析和光學字元辨識（OCR）的[電腦視覺](https://azure.microsoft.com/services/cognitive-services/computer-vision/)，以及實體辨識、關鍵字組解壓縮和其他擴充的[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 如同 Azure 認知搜尋用於檔擴充的用途，演算法會包裝在*技能*內，放在*技能集*中，並在索引編制期間由*索引子*所參考。
+AI 演算法會在 Azure 認知搜尋中驅動用於內容轉換的[擴充管線](cognitive-search-concept-intro.md)。 這些演算法是以 Azure 認知服務資源為基礎，包括影像分析和光學字元辨識（OCR）的[電腦視覺](https://azure.microsoft.com/services/cognitive-services/computer-vision/)，以及實體辨識、關鍵字組解壓縮和其他擴充的[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)。 如同 Azure 認知搜尋用於檔擴充的用途，演算法會包裝在*技能*內，放在*技能集*中，並在索引編制期間由*索引子*所參考。
 
 您可以免費充實有限數目的檔。 或者，您可以針對較大型且較頻繁的工作負載，將可計費的認知服務資源附加至*技能集*。 在本文中，您將瞭解如何附加可計費的認知服務資源，以在 Azure 認知搜尋[索引編制](search-what-is-an-index.md)期間擴充檔。
 

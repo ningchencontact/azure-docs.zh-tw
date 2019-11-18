@@ -1,5 +1,5 @@
 ---
-title: 公告點對站 VPN 用戶端的自訂路由 |Azure |Microsoft Docs
+title: Azure VPN 閘道：公告 P2S VPN 用戶端的自訂路由
 description: 將自訂路由公告至您的點對站用戶端的步驟
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6678efd04125e6ae0e0b66e8bcc011c0f319c0fb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 7a904857b8aa0ed2aa18fc2a1b81fe31541e6f9e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954291"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151902"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>公告 P2S VPN 用戶端的自訂路由
 

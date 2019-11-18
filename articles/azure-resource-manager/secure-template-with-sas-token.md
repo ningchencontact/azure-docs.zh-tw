@@ -1,22 +1,18 @@
 ---
-title: 使用 SAS 權杖安全地部署 Azure Resource Manager 範本
-description: 使用受到 SAS 權杖保護的 Azure Resource Manager 範本, 將資源部署至 Azure。 顯示 Azure PowerShell 和 Azure CLI。
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
+title: 使用 SAS 權杖安全地部署範本
+description: 使用受到 SAS 權杖保護的 Azure Resource Manager 範本，將資源部署至 Azure。 顯示 Azure PowerShell 和 Azure CLI。
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.author: tomfitz
-ms.openlocfilehash: f396618350e4f4a9be09db421d073aec6ba52b65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8138563211cae12cc38f0e737be49b32204dc243
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036952"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150312"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token"></a>使用 SAS 權杖來部署私用 Resource Manager 範本
 
-當您的範本位於儲存體帳戶時, 您可以限制對範本的存取, 以避免公開公開。 您可以藉由建立範本的共用存取簽章 (SAS) 權杖, 並在部署期間提供該權杖, 來存取受保護的範本。 本文說明如何使用 Azure PowerShell 或 Azure CLI 來部署具有 SAS 權杖的範本。
+當您的範本位於儲存體帳戶時，您可以限制對範本的存取，以避免公開公開。 您可以藉由建立範本的共用存取簽章（SAS）權杖，並在部署期間提供該權杖，來存取受保護的範本。 本文說明如何使用 Azure PowerShell 或 Azure CLI 來部署具有 SAS 權杖的範本。
 
 ## <a name="create-storage-account-with-secured-container"></a>建立具有安全容器的儲存體帳戶
 
@@ -67,7 +63,7 @@ az storage container create \
 
 ## <a name="upload-template-to-storage-account"></a>將範本上傳至儲存體帳戶
 
-現在, 您已經準備好將範本上傳至儲存體帳戶。 提供您想要使用之範本的路徑。
+現在，您已經準備好將範本上傳至儲存體帳戶。 提供您想要使用之範本的路徑。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -94,7 +90,7 @@ az storage blob upload \
 若要在儲存體帳戶中部署私人範本，請產生 SAS Token 並將它包含在範本的 URI 中。 設定到期時間，以允許足夠的時間來完成部署。
 
 > [!IMPORTANT]
-> 包含範本的 blob 只能供帳戶擁有者存取。 不過，當您建立 Blob 的 SAS Token 時，具備該 URI 的任何人都可以存取該 Blob。 如果另一位使用者攔截了 URI，該使用者也能存取範本。 SAS 權杖是限制存取您的範本的好方法, 但您不應直接在範本中包含機密資料 (例如密碼)。
+> 包含範本的 blob 只能供帳戶擁有者存取。 不過，當您建立 Blob 的 SAS Token 時，具備該 URI 的任何人都可以存取該 Blob。 如果另一位使用者攔截了 URI，該使用者也能存取範本。 SAS 權杖是限制存取您的範本的好方法，但您不應直接在範本中包含機密資料（例如密碼）。
 >
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

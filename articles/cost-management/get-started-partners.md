@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7ae388488de32bb106ae29f975302953cfcb2e9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072340"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123018"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>開始使用 Azure 成本管理合作夥伴
 
-Azure 成本管理原本就適用于已將客戶上架至 Microsoft 客戶合約並已購買 Azure 方案的合作夥伴。 本文說明合作夥伴如何使用[Azure 成本管理](https://docs.microsoft.com/azure/cost-management/)功能。 它也會說明合作夥伴如何為其客戶啟用成本管理存取。 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。
+Azure 成本管理原本就適用于已將客戶上架至 Microsoft 客戶合約並已[購買 Azure 方案](/partner-center/purchase-azure-plan)的合作夥伴。 本文說明合作夥伴如何使用[Azure 成本管理](index.yml)功能來查看 Azure 方案中訂用帳戶的成本。 它也會說明合作夥伴如何為其客戶啟用成本管理存取。 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。
 
 CSP 合作夥伴會使用成本管理來執行下列動作：
 
@@ -147,25 +147,81 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。 您�
 
 ## <a name="analyze-costs-in-cost-analysis"></a>在成本分析中分析成本
 
-合作夥伴可以針對特定客戶或發票，探索並分析客戶在成本分析中的成本。
+合作夥伴可以針對特定客戶或發票，探索並分析客戶在成本分析中的成本。 在[成本分析](quick-acm-cost-analysis.md)視圖中，您也可以[儲存視圖](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)，並將資料匯出至[CSV 和 PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis)檔案。
 
-下欄欄位可在使用量詳細資料檔案和成本管理 Api 中找到。 您可以使用 [成本分析] 中的 [篩選] 和 [群組依據] 功能，依多個欄位來分析成本。 若要查看完整的欄位清單，請參閱[成本管理資料欄位](understand-cost-mgt-data.md#cost-management-data-fields)。
+您可以使用 [成本分析] 中的 [篩選] 和 [群組依據] 功能，依多個欄位來分析成本。 下一節會顯示合作夥伴特定的欄位。
 
-| 欄位名稱 | 描述 |
-| --- | --- |
-| CustomerTenantID | 客戶的訂用帳戶之 Azure Active Directory 租&#39;使用者的識別碼。 |
-| CustomerName | 客戶的訂用帳戶 Azure Active Directory 租使用者&#39;的名稱。 |
-| CustomerTenantDomainName | 客戶的訂用帳戶之 Azure Active Directory 租使用者&#39;的功能變數名稱。 |
-| PartnerTenantID | 夥伴&#39;s Azure Active Directory 租使用者的識別碼。 |
-| PartnerName | 合作夥伴 Azure Active Directory 租使用者的名稱。 |
-| ResellerMPNID | 與訂用帳戶相關聯之轉售商的 MPNID。 |
-| costinUSD | 以美元為單位的預估 ExtendedCost 或混合成本。 |
-| paygCostInBillingCurrency | 如果定價是零售價格，則會顯示成本。 以計費貨幣顯示隨用隨付價格。 僅適用于 RBAC 範圍。 |
-| paygCostInUSD | 如果定價是零售價格，則會顯示成本。 顯示隨用隨付價格，以美元為單位。 僅適用于 RBAC 範圍。 |
-| partnerEarnedCreditRate | 當合作夥伴以合作夥伴系統管理員連結存取為基礎時，適用的折扣率。 |
-| partnerEarnedCreditApplied | 指出是否已套用合作夥伴的點數。 |
+## <a name="data-fields"></a>資料欄位
 
-在[成本分析](quick-acm-cost-analysis.md)視圖中，您也可以[儲存視圖](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)，並將資料匯出至[CSV 和 PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis)檔案。
+在使用量詳細資料檔和成本管理 Api 中可找到下列資料欄位。 如果可以使用，則會顯示合作夥伴中心對等資訊。 對於下列粗體欄位，合作夥伴可以使用 [成本分析] 中的 [篩選] 和 [群組依據] 功能，依多個欄位來分析成本。 粗體欄位僅適用于合作夥伴支援的 Microsoft 客戶合約。
+
+| **欄位名稱** | **描述** | **合作夥伴中心對等** |
+| --- | --- | --- |
+| invoiceId | 針對特定交易顯示在發票上的發票識別碼。 | 顯示交易的發票號碼。 |
+| previousInvoiceID | 參考原始發票會有退款（負成本）。 只有在有退款時才會填入。 | N/A |
+| billingAccountName | 代表合作夥伴之帳單帳戶的名稱。 它會在上架至 Microsoft 客戶合約的客戶和已進行權利購買的 CSP 客戶（如 SaaS、Azure Marketplace 和保留專案）中，產生所有成本。 | N/A |
+| billingAccountID | 代表合作夥伴之帳單帳戶的識別碼。 | MCAPI 合作夥伴商務根識別碼。 用於要求中，但未包含在回應中。|
+| billingProfileID | 帳單設定檔的識別碼，會在上架至 Microsoft 客戶合約的客戶與已進行權利購買的 CSP 客戶（例如 SaaS、Azure Marketplace 和）之間，以單一計費貨幣來分組發票的成本。能. | MCAPI 合作夥伴計費群組識別碼。 用於要求中，但未包含在回應中。 |
+| billingProfileName | 帳單設定檔的名稱，會在上架至 Microsoft 客戶合約的客戶與已進行權利購買的 CSP 客戶（例如 SaaS、Azure Marketplace 和）之間，以單一計費貨幣來分組發票的成本。能. | N/A |
+| invoiceSectionName | 在發票中計費的專案名稱。 不適用於合作夥伴所上架的 Microsoft 客戶合約。 | N/A |
+| invoiceSectionID | 要在發票中計費之專案的識別碼。 不適用於合作夥伴所上架的 Microsoft 客戶合約。 | N/A |
+| **CustomerTenantID** | 客戶訂用帳戶的 Azure Active Directory 租使用者識別碼。 | 客戶的組織識別碼-客戶的 Azure Active Directory TenantID。 |
+| **CustomerName** | 客戶訂用帳戶的 Azure Active Directory 租使用者名稱。 | 客戶的組織名稱，如合作夥伴中心所示。 將發票與系統資訊協調的重要事項。 |
+| **CustomerTenantDomainName** | 客戶訂用帳戶之 Azure Active Directory 租使用者的功能變數名稱。 | 客戶 Azure Active Directory 租使用者網域。 |
+| **PartnerTenantID** | 合作夥伴的 Azure Active Directory 租使用者識別碼。 | 合作夥伴 Azure Active Directory 名為合作夥伴識別碼的租使用者識別碼（以 GUID 格式）。 |
+| **PartnerName** | 合作夥伴 Azure Active Directory 租使用者的名稱。 | 合作夥伴名稱。 |
+| **ResellerMPNID** | 與訂用帳戶相關聯之轉售商的 MPNID。 | 訂用帳戶的轉售商記錄 MPN 識別碼。 目前的活動無法使用。 |
+| costCenter | 與訂用帳戶相關聯的成本中心。 | N/A |
+| billingPeriodStartDate | 計費循環開始日期，如發票所示。 | N/A |
+| billingPeriodEndDate | 計費循環結束日期，如發票所示。 | N/A |
+| servicePeriodStartDate | 評等計費期間的開始日期。 Azure 服務的價格會在評等期間決定。 | 合作夥伴中心內的 ChargeStartDate。 計費循環開始日期，但向先前的計費週期中呈現先前不收費潛在使用量資料的日期除外。 時間一律為0:00 的第一天開始。 |
+| servicePeriodEndDate | 服務使用量針對費用進行評分時的結束日期。 Azure 服務的價格取決於評等期間。 | N/A |
+| 日期 | 針對 Azure 耗用量資料，它會以分級顯示使用量的日期。 針對 [保留實例]，它會顯示 [已購買] 日期。 針對週期性費用和一次費用（例如 Marketplace 和支援），它會顯示購買日期。 | N/A |
+| productID | 依耗用量或購買而產生的產品識別碼。 這是 productID 和 SKuID 的串連索引鍵，如合作夥伴中心所示。 | 產品的識別碼。 |
+| product | 依耗用量或購買而產生的產品名稱（如發票所示）。 | 目錄中的產品名稱。 |
+| serviceFamily | 顯示購買或收費產品的服務系列。 例如，儲存體或計算。 | N/A |
+| productOrderID | 訂用帳戶所屬資產或 Azure 方案名稱的識別碼。 例如，Azure 方案。 | N/A |
+| productOrderName | 訂用帳戶所屬的 Azure 方案名稱。 例如，Azure 方案。 | N/A|
+| consumedService | 傳統 EA 使用量詳細資料中使用的已取用服務（舊版分類法）。 | [合作夥伴中心] 中顯示的服務。 例如，Microsoft 儲存體、Microsoft Compute 和 microsoft.operationalinsights。 |
+| meterID | 測量耗用量的計量識別碼。 | 已使用之計量的識別碼。 |
+| meterName | 識別測量耗用量的計量名稱。 | 已使用計量的名稱。 |
+| meterCategory | 識別最上層服務的使用方式。 | 使用的最上層服務。 |
+| meterSubCategory | 定義可能會影響費率的 Azure 服務類型或子類別。 | 可能會影響費率的 Azure 服務類型。|
+| meterRegion | 針對根據資料中心位置定價的某些服務，識別資料中心的位置。 | 適用且已填入之服務的資料中心地區位置。 |
+| 訂用帳戶識別碼 | Microsoft 針對 Azure 訂用帳戶所產生的唯一識別碼。 | N/A |
+| subscriptionName | Azure 訂用帳戶的名稱。 | N/A |
+| 詞彙 | 顯示供應項目有效性的詞彙。 例如，保留實例會顯示保留實例的每年12個月。 針對一次性購買或週期性購買，此一詞彙會針對 SaaS、Azure Marketplace 和支援顯示一個月。 不適用於 Azure 耗用量。 | N/A |
+| publisherType （firstParty，thirdPartyReseller，thirdPartyAgency） | 發行者的類型，可將發行者識別為第一方、協力廠商轉銷商或協力廠商機關。 | N/A |
+| partNumber | 未使用的保留實例和 Azure Marketplace 服務的元件編號。 | N/A |
+| publisherName | 服務發行者的名稱，包括 Microsoft 或協力廠商發行者。 | 產品發行者的名稱。|
+| reservationId | 購買之保留實例的識別碼。 | N/A |
+| reservationName | 保留實例的名稱。 | N/A |
+| reservationOrderId | 保留實例的「訂單」。 | N/A |
+| frequency | 保留實例的付款頻率。 | N/A |
+| resourceGroup | 用於生命週期資源管理的 Azure 資源組名。 | 資源群組的名稱。 |
+| instanceID （或） ResourceID | 資源實例的識別碼。 | 顯示為包含完整資源屬性的 ResourceURI。 |
+| resourceLocation | 資源位置的名稱。 | 資源的位置。 |
+| 位置 | 資源的正規化位置。 | N/A |
+| effectivePrice | 服務的有效單位價格（以定價貨幣表示）。 產品、服務系列、計量及供應專案都是唯一的。 在計費帳戶的價位表中搭配定價使用。 當有階層式定價或包含的數量時，會顯示耗用量的混合價格。 | 進行調整後的單位價格。 |
+| 數量 | 已購買或耗用的測量數量。 計費期間所使用的計量數量。 | 單位數。 請確定它符合您在對帳期間計費系統中的資訊。 |
+| unitOfMeasure | 識別服務的計費單位。 例如，GB 和小時。 | 識別服務的計費單位。 例如，GB、小時和10，萬為單位。 |
+| pricingCurrency | 定義單位價格的貨幣。 | 價目表中的貨幣。|
+| billingCurrency | 定義計費成本的貨幣。 | 客戶地理區域的貨幣。 |
+| chargeType | 定義成本在 Azure 成本管理中所代表的費用類型，例如購買和退款。 | 費用或調整的類型。 目前的活動無法使用。 |
+| costinBillingCurrency | 計費貨幣中的稅金前的 ExtendedCost 或混合成本。 | N/A |
+| costinPricingCurrency | 使用定價貨幣來與價格相互關聯的 ExtendedCost 或混合成本。 | N/A |
+| **costinUSD** | 以美元為單位的預估 ExtendedCost 或混合成本。 | N/A |
+| **paygCostInBillingCurrency** | 如果定價是零售價格，則會顯示成本。 以計費貨幣顯示隨用隨付價格。 僅適用于 RBAC 範圍。 | N/A |
+| **paygCostInUSD** | 如果定價是零售價格，則會顯示成本。 顯示隨用隨付價格，以美元為單位。 僅適用于 RBAC 範圍。 | N/A |
+| exchangeRate | 用來從定價貨幣轉換為計費貨幣的匯率。 | 在合作夥伴中心稱為 PCToBCExchangeRate。 用來計費貨幣匯率的定價貨幣。|
+| exchangeRateDate | 用來從定價貨幣轉換成計費貨幣的匯率日期。 | 在合作夥伴中心稱為 PCToBCExchangeRateDat。 計費貨幣匯率日期的定價貨幣。|
+| isAzureCreditEligible | 指出成本是否符合 Azure 點數的付款資格。 | N/A |
+| serviceInfo1 | 舊版欄位，可擷取選擇性的服務特定中繼資料。 | 內部 Azure 服務中繼資料。 |
+| serviceInfo2 | 舊版欄位，可擷取選擇性的服務特定中繼資料。 | 服務資訊。 例如，虛擬機器的映像類型和 ExpressRoute 的 ISP 名稱。|
+| additionalInfo | 服務專屬的中繼資料。 例如，虛擬機器的影像類型。 | 其他資料行中未涵蓋的任何其他資訊。 服務特定的中繼資料。 例如，虛擬機器的影像類型。|
+| 標籤 | 您指派給計量的標記。 使用標記為帳單記錄分組。 例如，您可以使用標記，根據使用計量的部門散發成本。 | 客戶新增的標記。|
+| **partnerEarnedCreditRate** | 當合作夥伴以合作夥伴系統管理員連結存取為基礎時，適用的折扣率。 | 合作夥伴獲點數（PEC）的速率。 例如，0% 或15%。 |
+| **partnerEarnedCreditApplied** | 指出是否已套用合作夥伴的點數。 | N/A |
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>觀看合作夥伴的點數（PEC）資源成本
 

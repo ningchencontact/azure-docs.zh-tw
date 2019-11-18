@@ -1,7 +1,7 @@
 ---
 title: 沉浸式讀取器 SDK 參考
 titleSuffix: Azure Cognitive Services
-description: 沉浸式讀取器 SDK 的參考
+description: 沉浸式讀取器 SDK 是一個 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的 web 應用程式中。
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388099"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903117"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>沉浸式讀取器 SDK 參考指南
 
 沉浸式讀取器 SDK 是一個 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的 web 應用程式中。
 
-# <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 SDK 會公開函式：
 
@@ -39,12 +39,12 @@ SDK 會公開函式：
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
 | ---- | ---- |------------ |
-| `token` | string | Azure AD 驗證 token。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
-| `subdomain` | string | Azure 中您的沉浸式讀取器資源的自訂子域。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
+| `token` | 字串 | Azure AD 驗證 token。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
+| `subdomain` | 字串 | Azure 中您的沉浸式讀取器資源的自訂子域。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
 | `content` | [內容](#content) | 物件，包含要在沉浸式讀取器中顯示的內容。 |
 | `options` | [選項](#options) | 設定沉浸式讀取器特定行為的選項。 選用。 |
 
@@ -78,9 +78,9 @@ close(): void;
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | 設定 renderButtons 函數之特定行為的選項。 選用。 |
 
@@ -111,7 +111,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="supported-mime-types"></a>支援的 MIME 類型
 
-| MIME 類型 | 說明 |
+| MIME 類型 | 描述 |
 | --------- | ----------- |
 | text/plain | 純文字。 |
 | text/html | HTML 內容。 [深入了解](#html-support)|
@@ -168,7 +168,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="error-codes"></a>錯誤碼
 
-| 代碼 | 說明 |
+| 代碼 | 描述 |
 | ---- | ----------- |
 | BadArgument | 提供的引數無效。如需詳細資料，請參閱 `message`。 |
 | 逾時 | 沉浸式讀取器無法在指定的超時時間內載入。 |
@@ -187,7 +187,7 @@ SDK 會為啟動沉浸式讀取器的按鈕提供預設樣式。 請使用 `imme
 
 使用下列屬性來設定按鈕的外觀與風格。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --------- | ----------- |
 | `data-button-style` | 設定按鈕的樣式。 可以是 `icon`、`text` 或 `iconAndText`。 預設為 `icon`。 |
 | `data-locale` | 設定地區設定。 例如，`en-US` 或 `fr-FR`。 預設為英文 `en`。 |

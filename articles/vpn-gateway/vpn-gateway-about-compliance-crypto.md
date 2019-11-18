@@ -1,5 +1,5 @@
 ---
-title: 關於密碼編譯需求和 Azure VPN 閘道 | Microsoft Docs
+title: Azure VPN 閘道：密碼編譯需求
 description: 本文說明密碼編譯需求與 Azure VPN 閘道。
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f2fd68871a329f7ff04f90d8166cb1fa58a512c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f18e5dbdc257aa1ae647505c323c17f9f197d360
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495826"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150980"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>關於密碼編譯需求和 Azure VPN 閘道
 
@@ -28,7 +28,7 @@ ms.locfileid: "73495826"
 
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>關於 Azure VPN 閘道的 IPsec 和 IKE 原則參數
 
-IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各種組合。 如果您不要求特定的密碼編譯演算法和參數組合，Azure VPN 閘道會使用一組預設提案。 選擇預設原則集的用意，是要在預設設定中將與各種協力廠商 VPN 裝置的互通性最大化。 如此一來，原則和提案數目就無法涵蓋所有可用的密碼編譯演算法和金鑰長度組合。
+IPsec 和 IKE 通訊協定標準支援多種不同密碼編譯演算法的各種組合。 如果您不要求特定的密碼編譯演算法和參數組合，Azure VPN 閘道會使用一組預設提案。 選擇預設原則集的用意，是要在預設設定中將與各種協力廠商 VPN 裝置的互通性最大化。 如此一來，原則和提案數目就無法涵蓋所有可用的密碼編譯演算法和金鑰長度組合。
 
 針對 Azure VPN 閘道所設定的預設原則列于：[關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數](vpn-gateway-about-vpn-devices.md)一文中。
 

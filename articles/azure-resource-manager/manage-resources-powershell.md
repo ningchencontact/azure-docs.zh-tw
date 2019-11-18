@@ -1,19 +1,16 @@
 ---
-title: 使用 Azure PowerShell 來管理 Azure 資源 |Microsoft Docs
+title: 管理資源-Azure PowerShell
 description: 使用 Azure PowerShell 和 Azure Resource Manager 來管理您的資源。 說明如何部署和刪除資源。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: aa215555fdd39e9d756d5fc925282b1eaffc9ebf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d9714c90af326c34a64ac13b0d10e21fbe5469d4
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390358"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146508"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 來管理 Azure 資源
 
@@ -128,7 +125,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName $resourceGroupName -ResourceNam
 Remove-AzResourceLock -LockId $lockId
 ```
 
-如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](resource-group-lock-resources.md)。
+如需詳細資訊，請參閱 [使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
 
 ## <a name="tag-resources"></a>標記資源
 
@@ -136,7 +133,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="manage-access-to-resources"></a>管理對資源的存取
 
-[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您管理 Azure 資源存取權的手段。 如需詳細資訊，請參閱[使用 RBAC 和 Azure PowerShell 來管理存取權](../role-based-access-control/role-assignments-powershell.md)。
+[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您對 Azure 中的資源存取進行管理的機制。 如需詳細資訊，請參閱[使用 RBAC 和 Azure PowerShell 來管理存取權](../role-based-access-control/role-assignments-powershell.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

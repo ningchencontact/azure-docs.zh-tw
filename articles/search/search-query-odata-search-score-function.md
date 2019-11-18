@@ -1,7 +1,7 @@
 ---
 title: OData 搜尋。計分函數參考
 titleSuffix: Azure Cognitive Search
-description: Azure 認知搜尋查詢中的 OData 搜尋。
+description: 使用 Azure 認知搜尋查詢中的搜尋. 計分函數的語法和參考檔。
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 500ac4f3a44d54e367ddc4ee5efc9514d603cab6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793260"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113131"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Azure 認知搜尋中的 OData `search.score` 函式
 

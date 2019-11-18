@@ -1,5 +1,5 @@
 ---
-title: '在 Azure VPN 閘道上設定 BGP：Resource Manager: PowerShell | Microsoft Docs'
+title: Azure VPN 閘道：設定 BGP： PowerShell
 description: 本文將逐步引導您使用 Azure Resource Manager 和 PowerShell 來設定 BGP 與 Azure VPN 閘道。
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 195a6887696bbb8681cdd187a4c03df2ade7e2c0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f4c5e3ddb5a7f5c9a21d29aa24fe28e095123836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091922"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151388"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 閘道上設定 BGP
 本文將逐步引導您進行使用 Resource Manager 部署模型和 PowerShell 在跨單位網站間 (S2S) VPN 連線和 VNet 對 VNet 連線上啟用 BGP 的步驟。

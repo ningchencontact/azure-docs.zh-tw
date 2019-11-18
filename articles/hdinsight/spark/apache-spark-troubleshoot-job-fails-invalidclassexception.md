@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: ad9ec8e97827fb6158476165a610c9d69b12a528
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 124d5586180258589c5db17454b8fbf1e465fc24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241158"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106482"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark 作業失敗，InvalidClassException，類別版本不符，Azure HDInsight
 
@@ -34,9 +34,12 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>原因
 
-此錯誤的原因可能是將額外的 jar 新增至 `spark.yarn.jars` config，這是一個「陰影」 jar，其中包含不同版本的 `commons-lang3` 套件，並引進了類別不符的情況。 根據預設，Spark 2.1/2/3 會使用3.5 版的 `commons-lang3`。
+此錯誤的原因可能是將額外的 jar 新增至 `spark.yarn.jars` config，特別是包含不同版本之 `commons-lang3` 套件的陰影 jar，並引進了類別不符的情況。 根據預設，Spark 2.1/2/3 會使用3.5 版的 `commons-lang3`。
 
-## <a name="resolution"></a>解析度
+> [!TIP]
+> 若要為文件庫加上陰影，請將其內容放入您自己的 jar 中，變更其套件。 這與封裝程式庫不同，因為它會將程式庫放入您自己的 jar，而不需要重新封裝。
+
+## <a name="resolution"></a>解決方案
 
 請移除 jar，或重新編譯自訂的 jar （AzureLogAppender），並使用[maven-陰影-外掛程式](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html)來重新放置類別。
 
@@ -48,4 +51,4 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 * 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 訂用帳戶包括訂用帳戶管理及帳務支援的存取權，而技術支援由其中一項 [Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

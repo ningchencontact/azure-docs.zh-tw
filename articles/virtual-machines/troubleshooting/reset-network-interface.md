@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058470"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111716"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何重設 Azure Windows VM 的網路介面 
 
@@ -50,7 +50,7 @@ ms.locfileid: "71058470"
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
 1. 確定您已安裝[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行下列命令：
+2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行以下命令：
 
     ```powershell
     #Set the variables 
@@ -68,7 +68,7 @@ ms.locfileid: "71058470"
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. 嘗試使用 RDP 連線到您的電腦。  如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。
 
@@ -84,14 +84,14 @@ ms.locfileid: "71058470"
 4.  選取 [IP 位址]。
 5.  如果 [私人 IP 指派] 不是 [靜態]，請將它變更為 [靜態]。
 6.  將 [IP 位址] 變更為子網路中可用的其他 IP 位址。
-7.  選取 [儲存]。
+7.  選取 [ **儲存**]。
 8.  虛擬機器會重新啟動，以便對系統初始化新的 NIC。
 9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以選擇將私人 IP 位址還原回原始位址。  
 
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
 1. 確定您已安裝[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行下列命令：
+2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行以下命令：
 
     ```powershell
     #Set the variables 
@@ -109,7 +109,7 @@ ms.locfileid: "71058470"
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. 嘗試使用 RDP 連線到您的電腦。 如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
 
@@ -120,7 +120,7 @@ ms.locfileid: "71058470"
 2.  選取 [檢視] > [顯示隱藏的裝置]。
 3.  選取 [網路介面卡]。 
 4.  檢查名稱為「Microsoft Hyper-V 網路介面卡」的介面卡。
-5.  無法使用的介面卡會以灰色來顯示。以滑鼠右鍵按一下介面卡，然後選取 [解除安裝]。
+5.  您可能會看到顯示為灰色的無法使用介面卡。在介面卡上按一下滑鼠右鍵，然後選取 [卸載]。
 
     ![NIC 的影像](media/reset-network-interface/nicpage.png)
 

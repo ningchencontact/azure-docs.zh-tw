@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 06de71776cdf503ff0df9fbf3b28cf9e01a12e01
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0b48652f7b181f1254a4b20af75b83593c2aba05
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575278"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147603"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上佈建輸送量
 
 本文說明如何在 Azure Cosmos DB 中佈建容器 (集合、圖表或資料表) 的輸送量。 您可以佈建單一容器的輸送量，或[佈建資料庫的輸送量](how-to-provision-database-throughput.md)，並在資料庫內的容器之間共用。 您可以使用 Azure 入口網站、Azure CLI 或 Azure CosmosDB SDK 來佈建容器的輸送量。
 
-## <a name="provision-throughput-using-azure-portal"></a>使用 Azure 入口網站佈建輸送量
+## <a name="azure-portal"></a>Azure 入口網站
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -33,7 +33,7 @@ ms.locfileid: "73575278"
 
     ![醒目提示 [新增集合] 的資料總管螢幕擷取畫面](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli-or-powershell"></a>使用 Azure CLI 或 PowerShell 布建輸送量
+## <a name="azure-cli-or-powershell"></a>Azure CLI 或 PowerShell
 
 若要建立具有專用輸送量的容器，請參閱
 
@@ -43,7 +43,7 @@ ms.locfileid: "73575278"
 > [!Note]
 > 如果您要在使用適用於 MongoDB 的 Azure Cosmos DB API 設定的 Azure Cosmos 帳戶中佈建容器的輸送量，請使用分割區索引鍵路徑的 `/myShardKey`。 如果您要在使用 Cassandra API 設定的 Azure Cosmos 帳戶中佈建容器的輸送量，請使用分割區索引鍵路徑的 `/myPrimaryKey`。
 
-## <a name="provision-throughput-by-using-net-sdk"></a>使用 .NET SDK 佈建輸送量
+## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
 > 使用適用於 SQL API 的 Cosmos SDK 來為 Cassandra API 以外的所有 Cosmos DB API 佈建輸送量。
@@ -66,7 +66,37 @@ await client.CreateDocumentCollectionAsync(
 ### <a name="net-v3-sdk"></a>.Net V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
+## <a name="javascript-sdk"></a>JavaScript SDK
+
+```javascript
+// Create a new Client
+const client = new CosmosClient({ endpoint, key });
+
+// Create a database
+const { database } = await client.databases.createIfNotExists({ id: "databaseId" });
+
+// Create a container with the specified throughput
+const { resource } = await database.containers.createIfNotExists({
+id: "contaierId ",
+throughput: 1000
+});
+
+// To update an existing container or databases throughput, you need to user the offers API
+// Get all the offers
+const { resources: offers } = await client.offers.readAll().fetchAll();
+
+// Find the offer associated with your container or the database
+const offer = offers.find((_offer) => _offer.offerResourceId === resource._rid);
+
+// Change the throughput value
+offer.content.offerThroughput = 2000;
+
+// Replace the offer.
+await client.offer(offer.id).replace(offer);
+```
+
 ### <a id="dotnet-cassandra"></a>Cassandra API
+
 類似的命令可以透過任何符合 CQL 規範的驅動程式來發出。
 
 ```csharp
