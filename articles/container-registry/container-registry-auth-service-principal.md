@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 853b9bdb771fb08185670e13ec85a45028f9a145
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681836"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150136"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服務主體進行 Azure Container Registry 驗證
 
@@ -33,7 +33,7 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 ## <a name="when-to-use-a-service-principal"></a>何時使用服務主體
 
-您應該使用服務主體來提供**無周邊案例**中的登錄存取權。 也就是，任何必須以自動化或其他自動方式發送或提取容器映像的應用程式、服務或指令碼。 例如：
+您應該使用服務主體來提供**無周邊案例**中的登錄存取權。 也就是，任何必須以自動化或其他自動方式發送或提取容器映像的應用程式、服務或指令碼。 例如︰
 
   * *Pull*：將容器從登錄部署至協調流程系統，包括 KUBERNETES、DC/OS 和 Docker Swarm。 您也可以從容器登錄提取到相關的 Azure 服務，例如[Azure Kubernetes Service （AKS）](../aks/cluster-container-registry-integration.md)、 [Azure 容器實例](container-registry-auth-aci.md)、 [App Service](../app-service/index.yml)、[批次](../batch/index.yml)、 [Service Fabric](/azure/service-fabric/)及其他專案。
 
@@ -57,7 +57,7 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 * **使用者名稱**-服務主體應用程式識別碼（也稱為*用戶端識別碼*）
 * **密碼**-服務主體密碼（也稱為*用戶端秘密*）
 
-每個值都是 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 格式的 GUID。 
+每個值都是 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`格式的 GUID。 
 
 > [!TIP]
 > 您可以執行 [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 命令來重新產生服務主體的密碼。
@@ -71,7 +71,7 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 ### <a name="use-with-docker-login"></a>搭配 docker 登入使用
 
-您可以使用服務主體來執行 `docker login`。 在下列範例中，服務主體應用程式識別碼會在環境變數中傳遞 `$SP_APP_ID`，而變數中的密碼 `$SP_PASSWD`。 如需管理 Docker 認證的最佳作法，請參閱[Docker login](https://docs.docker.com/engine/reference/commandline/login/)命令參考。
+您可以使用服務主體來執行 `docker login`。 在下列範例中，服務主體應用程式識別碼會在環境變數 `$SP_APP_ID`中傳遞，而變數中的密碼 `$SP_PASSWD`。 如需管理 Docker 認證的最佳作法，請參閱[Docker login](https://docs.docker.com/engine/reference/commandline/login/)命令參考。
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -113,4 +113,4 @@ CLI 會使用您執行 `az login` 時所建立的權杖，以向登錄驗證您�
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

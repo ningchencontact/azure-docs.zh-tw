@@ -1,18 +1,14 @@
 ---
-title: 部署 Azure 資源的多個執行個體 | Microsoft Docs
+title: 部署資源的多個實例
 description: 使用「Azure 資源管理員」範本中的複製作業和陣列，並在部署資源時多次逐一執行。
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3ee4b47dd6cb9043a4100d114c483d1feadbde38
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675094"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150798"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的資源、屬性或變數反復專案
 
@@ -57,7 +53,7 @@ ms.locfileid: "71675094"
 
 ## <a name="resource-iteration"></a>資源反覆項目
 
-如果您想要在部署中建立一個以上的資源實例，請將 `copy` 元素新增至資源類型。 在 copy 元素中，指定反覆運算次數和這個迴圈的名稱。
+如果您想要在部署中建立多個資源實例，請將 `copy` 元素新增至資源類型。 在 copy 元素中，指定反覆運算次數和這個迴圈的名稱。
 
 要多次建立的資源會採用下列格式：
 

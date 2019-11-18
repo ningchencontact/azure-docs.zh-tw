@@ -1,17 +1,14 @@
 ---
-title: 使用 REST API 和範本部署資源 | Microsoft Docs
+title: 使用 REST API 和範本部署資源
 description: 使用 Azure Resource Manager 和 Resource Manager REST API 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0472510801f5827327ac06a3927ca597b6caa612
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3b4242e1fec98b583d5204904bc1adbd388f7955
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834363"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149653"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 範本和 Resource Manager REST API 部署資源
 
@@ -49,9 +46,9 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 ## <a name="deploy-with-the-rest-api"></a>使用 REST API 部署
 
-1. 設定[一般參數和標頭](/rest/api/azure/) (包括驗證權杖)。
+1. 設定 [一般參數和標頭](/rest/api/azure/)(包括驗證權杖)。
 
-1. 如果您沒有現有資源群組，請建立新的資源群組。 提供您的訂用帳戶識別碼、新資源群組的名稱，以及需要解決方案的位置。 如需詳細資訊，請參閱[建立資源群組](/rest/api/resources/resourcegroups/createorupdate)。
+1. 如果您沒有現有資源群組，請建立新的資源群組。 提供您的訂用帳戶識別碼、新資源群組的名稱，以及需要解決方案的位置。 如需詳細資訊，請參閱 [建立資源群組](/rest/api/resources/resourcegroups/createorupdate)。
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
@@ -68,7 +65,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
    }
    ```
 
-1. 請先執行[驗證範本部署作業](/rest/api/resources/deployments/validate)來驗證部署，然後再執行部署。 測試部署時，請提供與執行部署時完全一致的參數 (如下個步驟所示)。
+1. 請先執行 [驗證範本部署作業](/rest/api/resources/deployments/validate) 來驗證部署，然後再執行部署。 測試部署時，請提供與執行部署時完全一致的參數 (如下個步驟所示)。
 
 1. 若要部署範本，請在要求 URI 中提供您的訂用帳戶 ID、資源群組的名稱、部署的名稱。 
 
@@ -117,7 +114,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
    }
    ```
 
-    您可以設定儲存體帳戶以使用共用存取簽章 (SAS) Token。 如需詳細資訊，請參閱[使用共用存取簽章委派存取](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)。
+    您可以設定儲存體帳戶以使用共用存取簽章 (SAS) Token。 如需詳細資訊，請參閱 [使用共用存取簽章委派存取](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)。
 
     如果您需要提供參數機密的值 (例如密碼)，請將該值加入金鑰保存庫。 在部署期間擷取金鑰保存庫，如先前範例所示。 如需詳細資訊，請參閱 [在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。 
 

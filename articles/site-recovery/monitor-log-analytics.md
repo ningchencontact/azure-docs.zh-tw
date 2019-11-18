@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936079"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133411"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>透過 Azure 監視器記錄監視 Site Recovery
 
@@ -28,7 +28,7 @@ Azure 監視器記錄檔所提供的記錄檔資料平臺，會收集活動和�
 **Azure 至 azure**複寫和**VMware VM/實體伺服器至 azure**的複寫支援搭配使用 Azure 監視器記錄與 Site Recovery。
 
 > [!NOTE]
-> 流失的資料記錄和上傳速率記錄僅適用于複寫到次要 Azure 區域的 Azure Vm。
+> 若要取得 VMware 和實體機器的流失資料記錄和上傳速率記錄，您需要在進程伺服器上安裝 Microsoft monitoring agent。 此代理程式會將複寫電腦的記錄傳送至工作區。 這項功能僅適用于9.30 行動代理程式的版本。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -54,6 +54,24 @@ Azure 監視器記錄檔所提供的記錄檔資料平臺，會收集活動和�
     ![選取工作區](./media/monitoring-log-analytics/select-workspace.png)
 
 Site Recovery 記錄會開始饋送至所選工作區中的資料表（**AzureDiagnostics**）。
+
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>在進程伺服器上設定 Microsoft monitoring agent，以傳送流失和上傳速率記錄
+
+您可以在內部部署中，針對 VMware/實體機器，捕獲資料變換率資訊和來源資料上傳速率資訊。 若要啟用這種情況，必須在進程伺服器上安裝 Microsoft monitoring agent。
+
+1. 移至 Log Analytics 工作區，然後按一下 [ **Advanced Settings**]。
+2. 按一下 [**連線的來源**] 頁面，然後再選取 [ **Windows 伺服器**]。
+3. 在進程伺服器上下載 Windows 代理程式（64位）。 
+4. [取得工作區識別碼和金鑰](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+5. [將代理程式設定為使用 TLS 1。2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. 藉由提供取得的工作區識別碼和金鑰來[完成代理程式安裝](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)。
+7. 安裝完成後，請移至 Log Analytics 工作區，然後按一下 [ **Advanced Settings**]。 移至 [**資料**] 頁面，然後再按一下 [ **Windows 效能計數器**]。 
+8. 按一下 [ **+** ] 以新增下列兩個取樣間隔為300秒的計數器：
+
+        ASRAnalytics(*)\SourceVmChurnRate 
+        ASRAnalytics(*)\SourceVmThrpRate 
+
+變換和上傳速率資料會開始放入工作區中。
 
 
 ## <a name="query-the-logs---examples"></a>查詢記錄-範例
@@ -174,12 +192,9 @@ AzureDiagnostics  
 ```
 ![查詢機器 RPO](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>查詢 VM 的資料變更率（變換）
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>查詢 Azure VM 的資料變更率（變換）和上傳速率
 
-> [!NOTE] 
-> 變換資訊僅適用于複寫到次要 Azure 區域的 Azure Vm。
-
-此查詢會繪製特定 Azure VM （ContosoVM123）的趨勢圖，以追蹤資料變更率（每秒寫入位元組）和資料上傳速率。 
+此查詢會繪製特定 Azure VM （ContosoVM123）的趨勢圖，其代表資料變更率（每秒寫入位元組）和資料上傳速率。 
 
 ```
 AzureDiagnostics   
@@ -193,6 +208,23 @@ Category contains "Upload", "UploadRate", "none") 
 | render timechart  
 ```
 ![查詢資料變更](./media/monitoring-log-analytics/example3.png)
+
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>查詢 VMware 或實體機器的資料變更率（變換）和上傳速率
+
+> [!Note]
+> 請確定您已在進程伺服器上設定監視代理程式，以提取這些記錄檔。 請參閱[設定監視代理程式的步驟](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs)。
+
+此查詢會繪製**9r7sfh9qlru**複寫專案之特定磁片**disk0.vhdx**的趨勢圖，其代表資料變更率（每秒寫入位元組）和資料上傳速率。 您可以在復原服務保存庫中，于複寫專案的 [**磁片**] 分頁上找到磁片名稱。 要在查詢中使用的實例名稱是電腦的 DNS 名稱，後面接著 _ 和磁片名稱，如下列範例所示。
+
+```
+Perf
+| where ObjectName == "ASRAnalytics"
+| where InstanceName contains "win-9r7sfh9qlru_disk0"
+| where TimeGenerated >= ago(4h) 
+| project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
+| render timechart
+```
+進程伺服器會每隔5分鐘將此資料推送至 Log Analytics 工作區。 這些資料點代表5分鐘計算的平均值。
 
 ### <a name="query-disaster-recovery-summary-azure-to-azure"></a>查詢嚴重損壞修復摘要（Azure 至 Azure）
 

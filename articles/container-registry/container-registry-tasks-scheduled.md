@@ -1,6 +1,6 @@
 ---
 title: 排程 Azure Container Registry 工作
-description: 瞭解如何設定一或多個計時器觸發程式，以定義的排程執行 Azure Container Registry 工作
+description: 在本教學課程中，您將瞭解如何藉由設定一或多個計時器觸發程式，以定義的排程執行 Azure Container Registry 工作。
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ae36b8d67d02f8cae0007b7b06485932db851af5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931457"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148633"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>依定義的排程執行 ACR 工作
 
-本文說明如何依排程執行[ACR](container-registry-tasks-overview.md)工作。 藉由設定一或多個*計時器觸發*程式來排程工作。
+本教學課程說明如何依排程執行[ACR](container-registry-tasks-overview.md)工作。 藉由設定一或多個*計時器觸發*程式來排程工作。 計時器觸發程式可以單獨使用，或與其他工作觸發程式搭配使用。
+
+在本教學課程中，您將瞭解如何排程工作和：
+
+> [!div class="checklist"]
+> * 建立具有計時器觸發程式的工作
+> * 管理計時器觸發程式
 
 排程工作適用于如下的案例：
 
@@ -199,9 +205,11 @@ ACR 工作使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解�
 
 ## <a name="next-steps"></a>後續步驟
 
+在本教學課程中，您已瞭解如何建立由計時器自動觸發的 Azure Container Registry 工作。 
+
 如需使用排定的工作來清除登錄中存放庫的範例，請參閱[從 Azure container Registry 自動清除映射](container-registry-auto-purge.md)。
 
-如需原始碼認可或基底映射更新所觸發之工作的範例，請參閱[ACR 工作教學課程系列](container-registry-tutorial-quick-task.md)。
+如需原始碼認可或基底映射更新所觸發之工作的範例，請參閱[ACR 工作教學課程系列](container-registry-tutorial-quick-task.md)中的其他文章。
 
 
 

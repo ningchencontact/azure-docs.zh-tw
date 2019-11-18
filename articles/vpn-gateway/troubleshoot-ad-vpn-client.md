@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure AD authentication VPN 用戶端進行疑難排解： Azure VPN 閘道 |Microsoft Docs
+title: VPN 閘道：對 VPN 用戶端 Azure AD 驗證進行疑難排解
 description: 針對 VPN 閘道 P2S Azure AD authentication 用戶端進行疑難排解
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: e239f283d5065e032e98e87a72a4bfe9fbafbdb1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517276"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151966"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>針對 Azure AD 驗證 VPN 用戶端進行疑難排解
 

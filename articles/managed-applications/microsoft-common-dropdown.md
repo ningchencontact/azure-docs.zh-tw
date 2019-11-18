@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5784b5df9b522f0489ca1f6087627b45cec5349d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e1db91362d17d9100199f0b30119f8024f00a903
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331732"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151333"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 元素
+
 下拉式清單中的選取控制項。
 
 ## <a name="ui-sample"></a>UI 範例
+
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
 
 ## <a name="schema"></a>結構描述
+
 ```json
 {
   "name": "element1",
@@ -51,6 +54,12 @@ ms.locfileid: "72331732"
 }
 ```
 
+## <a name="sample-output"></a>範例輸出
+
+```json
+"two"
+```
+
 ## <a name="remarks"></a>備註
 
 - `constraints.allowedValues` 的標籤是項目的顯示文字，其值為選取時的元素輸出值。
@@ -58,11 +67,7 @@ ms.locfileid: "72331732"
 - `constraints.allowedValues` 必須有至少一個項目。
 - 若要模擬不需要的值，將包含標籤和 `""` (空字串) 值的項目新增至 `constraints.allowedValues`。
 
-## <a name="sample-output"></a>範例輸出
-```json
-"two"
-```
-
 ## <a name="next-steps"></a>後續步驟
+
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

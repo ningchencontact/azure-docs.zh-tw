@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 範本函式 - 邏輯 | Microsoft Docs
+title: 範本函式-邏輯
 description: 描述 Azure Resource Manager 範本中用來決定邏輯值的函式。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: tomfitz
-ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: df8433d167a166fe94d965f81e42cd0b3e8f0e54
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194798"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150701"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
 
@@ -29,13 +26,13 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 檢查所有參數值是否為 true。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
-| arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
-| 其他引數 |否 |boolean |要檢查是否為 true 的其他引數。 |
+| arg1 |yes |布林值 |要檢查是否為 ture 的第一個值。 |
+| arg2 |yes |布林值 |要檢查是否為 ture 的第二個值。 |
+| 其他引數 |否 |布林值 |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -69,23 +66,23 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | 偽 |
-| orExampleOutput | Bool | 真 |
-| notExampleOutput | Bool | 偽 |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | true |
+| notExampleOutput | Bool | False |
 
-## <a name="bool"></a>bool
+## <a name="bool"></a>布林
 
 `bool(arg1)`
 
 將參數轉換為布林值。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串或整數 |要轉換為布林值的值。 |
+| arg1 |yes |字串或整數 |要轉換為布林值的值。 |
 
 ### <a name="return-value"></a>傳回值
 轉換值的布林值。
@@ -120,14 +117,14 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| trueString | Bool | 真 |
-| falseString | Bool | 偽 |
-| trueInt | Bool | 真 |
-| falseInt | Bool | 偽 |
+| trueString | Bool | true |
+| falseString | Bool | False |
+| trueInt | Bool | true |
+| falseInt | Bool | False |
 
 ## <a name="if"></a>if
 
@@ -135,13 +132,13 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 根據條件是 true 或 false 傳回值。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| condition (條件) |是 |boolean |要檢查其是否為 true 或 false 的值。 |
-| trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
-| falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
+| condition |yes |布林值 |要檢查其是否為 true 或 false 的值。 |
+| trueValue |yes | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
+| falseValue |yes | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -149,7 +146,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="remarks"></a>備註
 
-當條件為**true**時, 只會評估真正的值。 當條件為**false**時, 只會評估 false 值。 使用**if**函式時, 您可以包含只有條件式有效的運算式。 例如, 您可以參考存在於某個條件下但不在其他條件下的資源。 下一節會顯示有條件地評估運算式的範例。
+當條件為**true**時，只會評估真正的值。 當條件為**false**時，只會評估 false 值。 使用**if**函式時，您可以包含只有條件式有效的運算式。 例如，您可以參考存在於某個條件下但不在其他條件下的資源。 下一節會顯示有條件地評估運算式的範例。
 
 ### <a name="examples"></a>範例
 
@@ -180,10 +177,10 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| yesOutput | String | 是 |
-| noOutput | String | 否 |
+| yesOutput | 字串 | 是 |
+| noOutput | 字串 | no |
 | objectOutput | 物件 | { "test": "value1" } |
 
 下列[範例範本](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json)顯示如何使用此函式搭配僅有條件地有效的運算式。
@@ -240,11 +237,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 將布林值轉換為其相反值。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |boolean |要轉換的值。 |
+| arg1 |yes |布林值 |要轉換的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -278,11 +275,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | 偽 |
-| orExampleOutput | Bool | 真 |
-| notExampleOutput | Bool | 偽 |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | true |
+| notExampleOutput | Bool | False |
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)使用 **not** 搭配 [equals](resource-group-template-functions-comparison.md#equals)。
 
@@ -302,9 +299,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | 真 |
+| checkNotEquals | Bool | true |
 
 ## <a name="or"></a>或
 
@@ -312,13 +309,13 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 檢查任何參數值是否為 true。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
-| arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
-| 其他引數 |否 |boolean |要檢查是否為 true 的其他引數。 |
+| arg1 |yes |布林值 |要檢查是否為 ture 的第一個值。 |
+| arg2 |yes |布林值 |要檢查是否為 ture 的第二個值。 |
+| 其他引數 |否 |布林值 |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -352,11 +349,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | 偽 |
-| orExampleOutput | Bool | 真 |
-| notExampleOutput | Bool | 偽 |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | true |
+| notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>後續步驟
 

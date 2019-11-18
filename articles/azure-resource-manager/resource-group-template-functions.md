@@ -1,17 +1,14 @@
 ---
-title: Resource Manager 範本函數 | Microsoft Docs
+title: 範本函式
 description: 描述要在 Azure 資源管理員範本中用來擷取值、搭配字串和數字使用，並擷取部署資訊的函數。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a9501517672d3ea80a29979ce6b1439c4cc0010e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894169"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150652"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
 
@@ -65,7 +62,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>比較函式
-Resource Manager 提供了幾個可在範本中進行比較的函式。
+Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 * [equals](resource-group-template-functions-comparison.md#equals)
 * [less](resource-group-template-functions-comparison.md#less)

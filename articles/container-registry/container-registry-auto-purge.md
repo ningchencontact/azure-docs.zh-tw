@@ -6,25 +6,25 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 08/14/2019
 ms.author: danlep
-ms.openlocfilehash: 4fb9eb8a3ef937ce5ed222c7814a8f191e3874f2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6841bf18f57f514455f7680126c3cc58e7ebd7b1
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803592"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148929"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>自動清除 Azure container registry 中的映射
 
 當您使用 Azure container registry 做為開發工作流程的一部分時，登錄可以快速填滿一小段時間後不需要的影像或其他成品。 您可能想要刪除比特定期間還舊的所有標記，或符合指定的名稱篩選器。 為了快速刪除多個成品，本文會介紹您可以視需要或[排定](container-registry-tasks-scheduled.md)的 ACR 工作來執行的 `acr purge` 命令。 
 
-`acr purge` 命令目前是散發在公用容器映射（`mcr.microsoft.com/acr/acr-cli:0.1`）中，從 GitHub 中的[acr-cli](https://github.com/Azure/acr-cli)存放庫中的原始程式碼所建立。 在 ACR 工作中，使用 `acr purge`[別名](container-registry-tasks-reference-yaml.md#aliases)來執行命令。
+`acr purge` 命令目前是散發在公用容器映射（`mcr.microsoft.com/acr/acr-cli:0.1`）中，從 GitHub 中的[acr-cli](https://github.com/Azure/acr-cli)存放庫中的原始程式碼所建立。
 
-您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的 ACR 工作範例。 如果您想要在本機使用，則需要2.0.76 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。 
+您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的 ACR 工作範例。 如果您想要在本機使用，則需要2.0.69 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。 
 
 > [!IMPORTANT]
-> 此功能目前為預覽狀態。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 這項功能目前只能預覽。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 > [!WARNING]
 > 請小心使用 `acr purge` 命令--已刪除的映射資料無法復原。 如果您有依資訊清單摘要提取映射的系統（相對於映射名稱），則不應清除未標記的映射。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用*唯一的標記*配置，這是[建議的最佳作法](container-registry-image-tag-version.md)，而不是依資訊清單提取。
@@ -40,7 +40,7 @@ ms.locfileid: "73803592"
 
 `acr purge` 是設計成在[ACR](container-registry-tasks-overview.md)工作中以容器命令的形式執行，因此它會使用工作執行所在的登錄自動進行驗證。 
 
-當您執行 `acr purge` 時，請至少指定下列內容：
+當您執行 `acr purge`時，請至少指定下列內容：
 
 * `--registry`-您執行命令所在的 Azure container registry。 
 * `--filter`-存放庫和*正則運算式*來篩選儲存機制中的標記。 範例： `--filter "hello-world:.*"` 符合 `hello-world` 存放庫中的所有標記，而且 `--filter "hello-world:^1.*"` 符合以 `1`開頭的標記。 傳遞多個 `--filter` 參數來清除多個存放庫。
@@ -63,8 +63,8 @@ ms.locfileid: "73803592"
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
-  filter 'hello-world:.*' --untagged --ago 1d"
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --untagged --ago 1d"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -78,8 +78,8 @@ az acr run \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
-  --filter 'hello-world:.*' --ago 7d"
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 7d"
 
 az acr task create --name purgeTask \
   --cmd "$PURGE_CMD" \
@@ -98,8 +98,8 @@ az acr task create --name purgeTask \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
-  --filter 'hello-world:.*' --ago 1d --untagged"
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 1d --untagged"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -120,7 +120,8 @@ az acr run \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
@@ -160,7 +161,8 @@ Number of deleted manifests: 4
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry $Registry \
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged"
 

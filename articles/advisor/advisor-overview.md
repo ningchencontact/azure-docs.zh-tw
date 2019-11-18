@@ -3,19 +3,19 @@ title: Azure 建議程式簡介 | Microsoft Docs
 description: 使用 Azure 建議程式將 Azure 部署最佳化。
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sagupt
+ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069695"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145360"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 建議程式簡介
 
@@ -29,14 +29,15 @@ Advisor 是個人化的雲端顧問，可協助您依最佳做法來最佳化您
 * 改善資源的效能、安全性及高可用性，同時尋找降低整體 Azure 費用的機會。
 * 取得內嵌了提議動作的建議。
 
-您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]  ，或在 [所有服務]  功能表中搜尋它。
+您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [所有服務] 功能表中搜尋它。
 
 Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以套用篩選來顯示適用於特定訂用帳戶和資源類型的建議。  建議分為四個類別： 
 
-* **高可用性**：可確保和改善商務關鍵應用程式的持續性。 如需詳細資訊，請參閱[建議程式高可用性的建議](advisor-high-availability-recommendations.md)。
-* **安全性**：可偵測可能導致安全性漏洞的威脅和弱點。 如需詳細資訊，請參閱[建議程式安全性建議](advisor-security-recommendations.md)。
-* **效能**：可提升應用程式的速度。 如需詳細資訊，請參閱[建議程式效能建議](advisor-performance-recommendations.md)。
-* **成本**：可最佳化並降低整體 Azure 費用。 如需詳細資訊，請參閱[建議程式成本建議](advisor-cost-recommendations.md)。
+* **高可用性**：確保和改善業務關鍵應用程式的持續性。 如需詳細資訊，請參閱[建議程式高可用性的建議](advisor-high-availability-recommendations.md)。
+* **安全性**偵測可能導致安全性漏洞的威脅和弱點。 如需詳細資訊，請參閱[建議程式安全性建議](advisor-security-recommendations.md)。
+* **效能**提升應用程式的速度。 如需詳細資訊，請參閱[建議程式效能建議](advisor-performance-recommendations.md)。
+* **成本**：最佳化並降低整體 Azure 費用。 如需詳細資訊，請參閱[建議程式成本建議](advisor-cost-recommendations.md)。
+* **卓越操作**：協助您達成流程和工作流程效率、資源管理能力和部署最佳作法。 ，通常您會使用 collectd。 如需詳細資訊，請參閱[Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)。
 
   ![建議程式建議類型](./media/advisor-overview/advisor-dashboard.png)
 
@@ -51,23 +52,23 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="how-do-i-access-advisor"></a>如何存取建議程式？
-您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]  ，或在 [所有服務]  功能表中搜尋它。
+您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [所有服務] 功能表中搜尋它。
 
 您也可以透過虛擬機器資源介面檢視 Advisor 建議。 選擇虛擬機器，然後捲動至功能表中的建議程式建議。 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>我需要哪些權限才能存取建議程式？
  
-您能夠以訂用帳戶的「擁有者」  、「參與者」  或「讀取者」  身分存取 Advisor 建議。
+您能夠以訂用帳戶的「擁有者」、「參與者」或「讀取者」身分存取 Advisor 建議。
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>建議程式可提供哪些資源的建議？
 
-Advisor 可提供建議應用程式閘道，應用程式服務的可用性設定組，Azure 快取，Azure Data Factory、 Azure Database for MySQL、 PostgreSQL、 MariaDB、 Azure ExpressRoute、 Azure Cosmos DB 的 Azure 資料庫的 Azure 資料庫 Azure 公用IP 位址、 SQL 資料倉儲、 SQL 伺服器、 儲存體帳戶、 流量管理員設定檔和虛擬機器。
+Advisor 提供應用程式閘道、應用程式服務、可用性設定組、Azure 快取、Azure Data Factory、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、適用於 MariaDB 的 Azure 資料庫、Azure ExpressRoute、Azure Cosmos DB、Azure 公用的建議IP 位址、SQL 資料倉儲、SQL server、儲存體帳戶、流量管理員設定檔和虛擬機器。
 
-Azure Advisor 也會包含您的建議事項[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-recommendations)其中可能包含其他資源類型的建議。
+Azure Advisor 也包含來自[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-recommendations)的建議，其中可能包括其他資源類型的建議。
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>是否可以延期或解除建議？
 
-若要延期或關閉建議，請按一下 [延期]  連結。 您可以指定延期週期，或選取 [永不]  來解除建議。
+若要延期或關閉建議，請按一下 [延期] 連結。 您可以指定延期週期，或選取 [永不] 來解除建議。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -75,6 +76,6 @@ Azure Advisor 也會包含您的建議事項[Azure 資訊安全中心](https://d
 
 * [開始使用 Advisor](advisor-get-started.md)
 * [建議程式高可用性建議](advisor-high-availability-recommendations.md)
-* [Advisor 安全性建議](advisor-security-recommendations.md)
-* [Advisor 效能建議](advisor-performance-recommendations.md)
-* [Advisor 成本建議](advisor-cost-recommendations.md)
+* [建議程式安全性建議](advisor-security-recommendations.md)
+* [建議程式效能建議](advisor-performance-recommendations.md)
+* [建議程式成本建議](advisor-cost-recommendations.md)

@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: da2453889f04352dbabe182772312d70deec4464
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1dbef1e43d9f970665a31f0e4e9270d3193edaba
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331616"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151727"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI 元素
+
 可用來將文字新增至入口網站介面的控制項。
 
 ## <a name="ui-sample"></a>UI 範例
+
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
 ## <a name="schema"></a>結構描述
+
 ```json
 {
   "name": "text1",
@@ -49,5 +52,6 @@ ms.locfileid: "72331616"
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

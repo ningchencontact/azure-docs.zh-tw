@@ -1,5 +1,6 @@
 ---
-title: 建立和安裝適用于 Azure 憑證驗證的 P2S VPN 用戶端設定檔： Azure
+title: 建立 & 安裝 P2S VPN 用戶端設定檔：憑證驗證
+titleSuffix: Azure VPN Gateway
 description: 建立和安裝 Windows、Linux、Linux (strongSwan) 及 Mac OS X VPN 用戶端組態檔以進行 P2S 憑證驗證。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063126"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143789"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -81,7 +82,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 使用下列步驟，在 Mac 上設定用於憑證驗證的原生 VPN 用戶端。 您必須在將會連線到 Azure 的每部 Mac 上，完成下列步驟：
 
-1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。 按一下 [新增] 進行匯入。
+1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。 按一下 [新增] 來進行匯入。
 
    ![新增憑證](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
   
@@ -201,7 +202,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 ## <a name="next-steps"></a>後續步驟
 
-回到本文以[完成 P2S 設定](vpn-gateway-howto-point-to-site-rm-ps.md)。
+返回文章以[完成 P2S 組態](vpn-gateway-howto-point-to-site-rm-ps.md)。
 
 若要對 P2S 連線進行疑難排解，請參閱下列文章：
 

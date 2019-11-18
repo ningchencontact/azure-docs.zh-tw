@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure 監視器記錄的容器執行個體記錄
-description: 了解如何將來自 Azure 容器執行個體的記錄傳送至 Azure 監視器記錄。
+title: 容器群組的資源記錄-Azure 容器實例
+description: 瞭解如何從 Azure 容器實例中的容器群組，將資源記錄和事件資料傳送至 Azure 監視器記錄
 services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
-ms.translationtype: HT
+ms.openlocfilehash: c9b986376884bf1536567d7b5211d93191ec7cc0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258493"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150168"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>使用 Azure 監視器記錄的容器執行個體記錄
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>具有 Azure 監視器記錄的容器群組和實例記錄
 
 Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將記錄和事件資料傳送至 Azure 監視器記錄的內建支援。
 
@@ -26,7 +26,7 @@ Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源�
 > [!NOTE]
 > 目前，您只能將來自 Linux 容器執行個體的事件資料傳送至 Log Analytics。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要在您的容器執行個體中啟用記錄，您必須具備下列項目：
 
@@ -40,8 +40,8 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 若要取得記錄分析工作區識別碼和主要金鑰：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [設定]  下，選取 [進階設定] 
-1. 選取 [連線的來源]   > [Windows 伺服器]  (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
+1. 在 [設定] 下，選取 [進階設定]
+1. 選取 [連線的來源] > [Windows 伺服器] (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
 1. 記下：
    * **工作區識別碼**
    * **主要金鑰**
@@ -50,11 +50,11 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 
 現在您已有記錄分析工作區識別碼和主要金鑰，接下來即可建立已啟用記錄的容器群組。
 
-下列範例示範兩種以單一 [fluentd][fluentd] 容器建立容器群組的方式：Azure CLI，以及包含 YAML 範本的 Azure CLI。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
+下列範例示範兩種使用單一[fluentd][fluentd]容器建立容器群組的方式： Azure CLI，以及具有 YAML 範本的 Azure CLI。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
 
 ### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
 
-若要使用 Azure CLI 進行部署，請在 [az container create][az-container-create] 命令中指定 `--log-analytics-workspace` 和 `--log-analytics-workspace-key` 參數。 在執行下列命令之前，請先將兩個工作區值取代為您在先前的步驟中取得的值 (並更新資源群組名稱)。
+若要使用 Azure CLI 進行部署，請在 `--log-analytics-workspace`az container create`--log-analytics-workspace-key` 命令中指定 [ 和 ][az-container-create] 參數。 在執行下列命令之前，請先將兩個工作區值取代為您在先前的步驟中取得的值 (並更新資源群組名稱)。
 
 ```azurecli-interactive
 az container create \
@@ -107,11 +107,11 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要在 `ContainerInstanceLog_CL` 資料表中檢視容器群組的記錄：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [一般]  之下，選取 [記錄]   
+1. 在 [一般] 之下，選取 [記錄]  
 1. 執行下列查詢：`ContainerInstanceLog_CL | limit 50`
-1. 選取 [執行] 
+1. 選取 [執行]
 
-您應該會看到查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行]  按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表]  格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
+您應該會看到查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行] 按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表] 格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
 
 ![Azure 入口網站中的記錄搜尋結果][log-search-01]
 
@@ -120,11 +120,11 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 您也可以在 Azure 入口網站中，檢視容器執行個體的事件。 事件包括執行個體的建立時間和啟動時間。 若要在 `ContainerEvent_CL` 資料表中檢視事件資料：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [一般]  之下，選取 [記錄]   
+1. 在 [一般] 之下，選取 [記錄]  
 1. 執行下列查詢：`ContainerEvent_CL | limit 50`
-1. 選取 [執行] 
+1. 選取 [執行]
 
-您應該會看到查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行]  按鈕重新執行查詢。 根據預設，項目會以 [資料表]  格式顯示。 接著，您可以展開資料列來查看個別項目的內容。
+您應該會看到查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行] 按鈕重新執行查詢。 根據預設，項目會以 [資料表] 格式顯示。 接著，您可以展開資料列來查看個別項目的內容。
 
 ![Azure 入口網站中的事件搜尋結果][log-search-02]
 
@@ -134,7 +134,7 @@ Azure 監視器記錄包含涵蓋範圍廣大的[查詢語言][query_lang]，可
 
 查詢的基本結構是一個來源資料表 (在本文為 `ContainerInstanceLog_CL` 或 `ContainerEvent_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
 
-若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中，然後選取 [執行]  按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
+若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中，然後選取 [執行] 按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
 
 ```query
 ContainerInstanceLog_CL

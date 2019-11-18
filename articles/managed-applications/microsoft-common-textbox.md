@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b72bfcf06f4c7e256dd227e4edf781c4500c7b19
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: a5f28b763023bb60bca8f79bcaa9f2169281e466
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331596"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151105"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI 元素
+
 可以用來編輯未格式化文字的控制項。
 
 ## <a name="ui-sample"></a>UI 範例
+
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
 
 ## <a name="schema"></a>結構描述
+
 ```json
 {
   "name": "element1",
@@ -43,18 +46,20 @@ ms.locfileid: "72331596"
 }
 ```
 
-## <a name="remarks"></a>備註
-- 如果將 `constraints.required` 設為 **true**，則文字方塊必須有值，才能順利通過驗證。 預設值為 **false**。
-- `constraints.regex` 是 JavaScript 規則運算式模式。 如果指定，文字方塊的值就必須符合模式，才能順利通過驗證。 預設值為 **null**。
-- 當文字方塊的值無法通過驗證時，就會顯示 `constraints.validationMessage` 字串。 如果未指定，則會使用文字方塊的內建的驗證訊息。 預設值為 **null**。
-- 當 `constraints.required` 設為 **false** 時，您可指定 `constraints.regex` 的值。 在此案例中，文字方塊不需要值，即可順利通過驗證。 如果指定的話，它必須符合規則運算式模式。
-
 ## <a name="sample-output"></a>範例輸出
 
 ```json
 "my text value"
 ```
 
+## <a name="remarks"></a>備註
+
+- 如果將 `constraints.required` 設為 **true**，則文字方塊必須有值，才能順利通過驗證。 預設值為 **false**。
+- `constraints.regex` 是 JavaScript 規則運算式模式。 如果指定，文字方塊的值就必須符合模式，才能順利通過驗證。 預設值為 **null**。
+- 當文字方塊的值無法通過驗證時，就會顯示 `constraints.validationMessage` 字串。 如果未指定，則會使用文字方塊的內建的驗證訊息。 預設值為 **null**。
+- 當 `constraints.regex` 設為 `constraints.required`false**時，您可指定** 的值。 在此案例中，文字方塊不需要值，即可順利通過驗證。 如果指定的話，它必須符合規則運算式模式。
+
 ## <a name="next-steps"></a>後續步驟
+
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

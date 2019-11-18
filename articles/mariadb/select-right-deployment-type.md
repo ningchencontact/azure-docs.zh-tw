@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 819b8551650f2e0b484021638ab5554cb557a750
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/15/2019
+ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330041"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151994"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>在 Azure 中選擇正確的適用于 mariadb 伺服器選項
 
@@ -33,12 +33,12 @@ ms.locfileid: "72330041"
 
 |            | 適用於 MariaDB 的 Azure 資料庫 | Azure Vm 上的適用于 mariadb    |
 |:-------------------|:-----------------------------|:--------------------|
-| 服務等級協定 (SLA)                | 提供 99.99% 可用性的 SLA| 同一個可用性設定組中有兩個或多個實例，最高可達 99.95% 的可用性。<br/><br/>使用 premium 儲存體的單一實例 VM，99.9% 的可用性。<br/><br/>99.99% 搭配多個可用性設定組中的多個實例使用可用性區域。<br/><br/>請參閱[虛擬機器 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)。 |
+| 服務等級協定 (SLA)                | 提供99.99% 可用性的 SLA| 同一個可用性設定組中有兩個或多個實例，最高可達99.95% 的可用性。<br/><br/>使用 premium 儲存體的單一實例 VM，99.9% 的可用性。<br/><br/>99.99% 搭配多個可用性設定組中的多個實例使用可用性區域。<br/><br/>請參閱[虛擬機器 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)。 |
 | 作業系統修補        | 自動  | 由客戶管理 |
 | 適用于 mariadb 修補     | 自動  | 由客戶管理 |
 | 高可用性 | 高可用性（HA）模型是根據發生節點層級中斷時的內建容錯移轉機制。 在這種情況下，服務會自動建立新的實例，並將儲存體附加至這個實例。 | 客戶架構設計、實施、測試及維護高可用性。 功能可能包括 always on 容錯移轉叢集、always on 群組複寫、記錄傳送或異動複寫。|
 | 區域備援 | 目前不支援 | Azure Vm 可設定為在不同的可用性區域中執行。 針對內部部署解決方案，客戶必須建立、管理及維護自己的次要資料中心。|
-| 混合式案例 | 使用[資料](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)輸入複寫時，您可以將外部適用于 mariadb 伺服器的資料同步處理到適用於 MariaDB 的 Azure 資料庫服務。 外部伺服器可以位於內部部署環境、虛擬機器中或其他雲端提供者所裝載的資料庫服務內。<br/><br/> 使用 [[讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)] 功能，您可以將資料從適用於 MariaDB 的 Azure 資料庫主伺服器複寫到最多五部唯讀複本伺服器。 複本位於相同的 Azure 區域內或跨區域。 唯讀複本會使用 binlog 複寫技術以非同步方式更新。<br/><br/>跨區域讀取複寫目前為公開預覽狀態。| 由客戶管理
+| 混合式案例 | 使用[資料](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)輸入複寫時，您可以將外部適用于 mariadb 伺服器的資料同步處理到適用於 MariaDB 的 Azure 資料庫服務。 外部伺服器可以位於內部部署環境、虛擬機器中或其他雲端提供者所裝載的資料庫服務內。<br/><br/> 使用 [[讀取複本](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas)] 功能，您可以將資料從適用於 MariaDB 的 Azure 資料庫主伺服器複寫到最多五部唯讀複本伺服器。 複本位於相同的 Azure 區域內或跨區域。 唯讀複本會使用 binlog 複寫技術以非同步方式更新。<br/><br/>跨區域讀取複寫目前為公開預覽狀態。| 由客戶管理
 | 備份與還原 | 會自動建立[伺服器備份](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups)，並將它們儲存在使用者設定的儲存體中，這可能是本機的冗余或異地多餘的。 此服務會取得完整、差異和交易記錄備份 | 由客戶管理 |
 | 監視資料庫作業 | 讓客戶能夠設定資料庫作業的[警示](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring)，並在達到臨界值時採取行動。 | 由客戶管理 |
 | 進階威脅防護 | 提供[先進的威脅防護](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal)。 這種保護會偵測異常活動，指出不尋常且可能有害的存取或惡意探索資料庫嘗試。<br/><br/>先進的威脅防護目前為公開預覽版。| 客戶必須自行建立此保護。
@@ -59,7 +59,7 @@ ms.locfileid: "72330041"
 
 透過適用於 MariaDB 的 Azure 資料庫，Microsoft 會自動設定、修補和升級資料庫軟體。 這些自動化動作會降低您的系統管理成本。 此外，適用於 MariaDB 的 Azure 資料庫具有[內建的備份](https://docs.microsoft.com/azure/MariaDB/concepts-backup)功能。 這些功能可協助您大幅節省成本，特別是當您有大量資料庫時。 相反地，透過 Azure Vm 上的適用于 mariadb，您可以選擇並執行任何適用于 mariadb 版本。 無論您使用何種適用于 mariadb 版本，您都必須支付已布建 VM 的費用，以及所使用之特定適用于 mariadb 授權類型的成本。
 
-適用於 MariaDB 的 Azure 資料庫為任何種類的節點層級中斷提供內建的高可用性，同時仍保有服務的 99.99% SLA 保證。 不過，針對 Vm 內的資料庫高可用性，客戶應使用高可用性選項，例如適用于 mariadb 資料庫上可用的[適用于 mariadb](https://mariadb.com/kb/en/library/setting-up-replication/)複寫。 使用支援的高可用性選項不會提供額外的 SLA。 但它可以讓您以額外的成本和管理額外負荷達到超過 99.99% 的資料庫可用性。
+適用於 MariaDB 的 Azure 資料庫為任何種類的節點層級中斷提供內建的高可用性，同時仍保有服務的 99.99% SLA 保證。 不過，針對 Vm 內的資料庫高可用性，客戶應使用高可用性選項，例如適用于 mariadb 資料庫上可用的[適用于 mariadb](https://mariadb.com/kb/en/library/setting-up-replication/)複寫。 使用支援的高可用性選項不會提供額外的 SLA。 但它可以讓您以額外的成本和管理額外負荷達到超過99.99% 的資料庫可用性。
 
 如需價格的詳細資訊，請參閱下列文章：
 * [適用於 MariaDB 的 Azure 資料庫定價](https://azure.microsoft.com/pricing/details/MariaDB/)
@@ -85,7 +85,7 @@ ms.locfileid: "72330041"
   - 索引微調
   - 查詢微調
   - 稽核
-  - 安全性
+  - Security
 
   此外，將高可用性設定為另一個資料中心，幾乎不需要進行任何設定或管理。
 

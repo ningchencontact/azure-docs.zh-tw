@@ -1,19 +1,19 @@
 ---
 title: Azure IoT 中樞和事件格線 | Microsoft Docs
 description: 使用「Azure 事件格線」以根據「IoT 中樞」中發生的動作來觸發程序。
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.author: robinsh
+ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906771"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151307"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -176,13 +176,21 @@ devices/{deviceId}
 
 事件方格也允許篩選每個事件的屬性，包括資料內容。 這可讓您根據遙測訊息的內容來選擇要傳遞的事件。 請參閱[advanced 篩選](../event-grid/event-filtering.md#advanced-filtering)以觀看範例。 若要篩選遙測訊息本文，您必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中，將 contentType 設定為**application/json**並 contentEncoding 為**utf-8** 。 這兩個屬性都不區分大小寫。
 
-針對非遙測事件（例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted），您可以在建立訂閱時使用事件方格篩選。 對於遙測事件，除了事件方格中的篩選之外，使用者也可以透過訊息路由查詢來篩選裝置 twins、訊息屬性和主體。 我們會根據您的「裝置遙測」的事件方格訂用帳戶，在 IoT 中樞中建立預設[路由](iot-hub-devguide-messages-d2c.md)。 這個單一路由可以處理您的所有事件方格訂用帳戶。 若要在傳送遙測資料之前篩選訊息，您可以更新您的[路由查詢](iot-hub-devguide-routing-query-syntax.md)。 請注意，只有在主體是 JSON 時，才可以將路由查詢套用至訊息本文。 您也必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中，將 contentType 設定為**application/json**並 contentEncoding 為**utf-8** 。
+針對非遙測事件（例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted），您可以在建立訂閱時使用事件方格篩選。 對於遙測事件，除了事件方格中的篩選之外，使用者也可以透過訊息路由查詢來篩選裝置 twins、訊息屬性和主體。 
+
+當您透過事件方格訂閱遙測事件時，IoT 中樞會建立預設的訊息路由，以將資料來源類型的裝置訊息傳送至事件方格。 如需訊息路由的詳細資訊，請參閱[IoT 中樞訊息路由](iot-hub-devguide-messages-d2c.md)。 此路由將會顯示在入口網站的 [IoT 中樞 > 訊息路由] 底下。 無論針對遙測事件所建立的「訂用帳戶」數目為何，只會建立一個「事件方格」的路由。 因此，如果您需要多個具有不同篩選的訂用帳戶，您可以在相同的路由上使用這些查詢中的 OR 運算子。 建立和刪除路由是透過「事件方格」的遙測事件訂用帳戶來控制。 您無法使用 IoT 中樞訊息路由來建立或刪除事件方格的路由。
+
+若要在傳送遙測資料之前篩選訊息，您可以更新您的[路由查詢](iot-hub-devguide-routing-query-syntax.md)。 請注意，只有在主體是 JSON 時，才可以將路由查詢套用至訊息本文。 您也必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中，將 contentType 設定為**application/json**並 contentEncoding 為**utf-8** 。
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>裝置連線和裝置中斷連線事件的限制
 
 若要接收裝置連線和裝置中斷連線事件，您必須為裝置開啟 D2C 連結或 C2D 連結。 如果您的裝置使用 MQTT 通訊協定，則 IoT 中樞會讓 C2D 連結保持開啟。 針對 AMQP，您可以藉由呼叫[Receive ASYNC API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)來開啟 C2D 連結。
 
-如果您要傳送遙測資料，應開啟 D2C 連結。 如果裝置連線閃爍，這表示裝置經常連接和中斷連線，我們不會傳送每個單一線上狀態，但會發佈每分鐘建立快照集的連接狀態。 IoT 中樞運作中斷時，我們將在中斷狀況結束後隨即發佈裝置連線狀態。 如果裝置在這段停止運作期間中斷連線，裝置中斷連線事件將在 10 分鐘內發佈。
+如果您要傳送遙測資料，應開啟 D2C 連結。 
+
+如果裝置連線閃爍，這表示裝置經常連線和中斷連線，我們將不會傳送每個單一線上狀態，但會發佈*最後*的線上狀態，這最終是一致的。 例如，如果您的裝置一開始已處於 [已連線] 狀態，則連線會閃爍幾秒鐘，然後再回到 [已連線] 狀態。 自初始線上狀態之後，將不會發佈任何新的裝置線上狀態事件。 
+
+IoT 中樞運作中斷時，我們將在中斷狀況結束後隨即發佈裝置連線狀態。 如果裝置在這段停止運作期間中斷連線，裝置中斷連線事件將在 10 分鐘內發佈。
 
 ## <a name="tips-for-consuming-events"></a>取用事件的秘訣
 

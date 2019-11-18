@@ -12,20 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 875c73c546fa52642959e2593d41f9af82c13797
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 47dff5fb23da7bf816e46cf8e3e5696faadc7409
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331585"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151504"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI 元素
+
 使用 Windows 和 Linux 使用者名稱內建驗證的文字方塊控制項。
 
 ## <a name="ui-sample"></a>UI 範例
+
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
 
 ## <a name="schema"></a>結構描述
+
 ```json
 {
   "name": "element1",
@@ -43,18 +46,21 @@ ms.locfileid: "72331585"
 }
 ```
 
-## <a name="remarks"></a>備註
-- 如果將 `constraints.required` 設為 **true**，則文字方塊必須有值，才能順利通過驗證。 預設值為 **true**。
-- 必須指定 `osPlatform`，且可以是 **Windows** 或 **Linux**。
-- `constraints.regex` 是 JavaScript 規則運算式模式。 如果指定，文字方塊的值就必須符合模式，才能順利通過驗證。 預設值為 **null**。
-- 當文字方塊的值無法通過 `constraints.regex` 驗證時，就會顯示 `constraints.validationMessage` 字串。 如果未指定，則會使用文字方塊的內建的驗證訊息。 預設值為 **null**。
-- 這個元素具有根據 `osPlatform` 指定值的內建驗證。 內建驗證可以與自訂規則運算式搭配使用。 如果指定了 `constraints.regex` 值，就會觸發內建和自訂驗證。
-
 ## <a name="sample-output"></a>範例輸出
+
 ```json
 "Example name"
 ```
 
+## <a name="remarks"></a>備註
+
+- 如果將 `constraints.required` 設為 **true**，則文字方塊必須有值，才能順利通過驗證。 預設值為 **true**。
+- 必須指定 `osPlatform`，且可以是 **Windows** 或 **Linux**。
+- `constraints.regex` 是 JavaScript 規則運算式模式。 如果指定，文字方塊的值就必須符合模式，才能順利通過驗證。 預設值為 **null**。
+- 當文字方塊的值無法通過 `constraints.validationMessage` 驗證時，就會顯示 `constraints.regex` 字串。 如果未指定，則會使用文字方塊的內建的驗證訊息。 預設值為 **null**。
+- 這個元素具有根據 `osPlatform` 指定值的內建驗證。 內建驗證可以與自訂規則運算式搭配使用。 如果指定了 `constraints.regex` 值，就會觸發內建和自訂驗證。
+
 ## <a name="next-steps"></a>後續步驟
+
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

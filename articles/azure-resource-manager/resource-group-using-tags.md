@@ -1,17 +1,14 @@
 ---
-title: 針對邏輯組織標記 Azure 資源 | Microsoft Docs
+title: 邏輯組織的標記資源
 description: 示範如何套用標籤以針對計費及管理來組織 Azure 資源。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: tomfitz
-ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b332ae86e714d4b642f921d217d80e802fa60572
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199167"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149582"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -78,7 +75,7 @@ Environment                    Test
 
 每當您將標記套用到資源或資源群組時，即會覆寫該資源或資源群組上現有的標記。 因此，您必須視該資源或資源群組是否具備現有標籤來使用不同的方法。
 
-若要將標籤新增至*不具現有標籤的資源群組*，請使用：
+若要將標籤新增至*沒有現有標籤的資源群組*，請使用：
 
 ```azurepowershell-interactive
 Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
@@ -92,7 +89,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-若要將標籤新增至*不具現有標籤的資源*，請使用：
+若要將標籤新增至*沒有現有標籤的資源*，請使用：
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -194,13 +191,13 @@ az resource list --tag Dept=Finance
 
 每當您將標記套用到資源或資源群組時，即會覆寫該資源或資源群組上現有的標記。 因此，您必須視該資源或資源群組是否具備現有標籤來使用不同的方法。
 
-若要將標籤新增至*不具現有標籤的資源群組*，請使用：
+若要將標籤新增至*沒有現有標籤的資源群組*，請使用：
 
 ```azurecli
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-若要將標籤新增至*不具現有標籤的資源*，請使用：
+若要將標籤新增至*沒有現有標籤的資源*，請使用：
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"

@@ -1,17 +1,14 @@
 ---
 title: 移動 Azure App Service 資源
 description: 使用 Azure Resource Manager 將 App Service 資源移到新的資源群組或訂用帳戶。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: dca9b3a8f328192683cfde586f0ccdb01e84dc16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533570"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150890"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>App Service 資源的移動指引
 
@@ -63,9 +60,9 @@ ms.locfileid: "72533570"
 
 若要判斷可以移動的 App Service 資源，請參閱的移動支援狀態：
 
-- [AppService](../move-support-resources.md#microsoftappservice)
-- [CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
-- [DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
+- [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
+- [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
+- [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
 - [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
 ## <a name="next-steps"></a>後續步驟

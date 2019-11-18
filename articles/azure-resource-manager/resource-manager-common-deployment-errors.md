@@ -1,19 +1,15 @@
 ---
-title: 針對常見的 Azure 部署錯誤進行疑難排解 | Microsoft Docs
+title: 針對一般部署錯誤進行疑難排解
 description: 說明如何解決使用 Azure Resource Manager 將資源部署至 Azure 時的常見錯誤。
 tags: top-support-issue
-author: tfitzmac
-keywords: 部署錯誤, azure 部署, 部署至 azure
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 27f3b9db40e00ea0a00e50333fe86248906d8560
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263032"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150645"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -252,6 +248,6 @@ az group deployment operation list \
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要進行疑難排解教學課程，請參閱 [Tutorial：對 Resource Manager 範本部署進行疑難排解](./resource-manager-tutorial-troubleshoot.md)
+* 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](./resource-manager-tutorial-troubleshoot.md)
 * 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](resource-group-audit.md)。
 * 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](resource-manager-deployment-operations.md)。

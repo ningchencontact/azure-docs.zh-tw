@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810175"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151426"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights 使用 AI 來針對資料庫的效能進行監視和疑難排解
 
@@ -65,6 +65,17 @@ Intelligent Insights 會藉由將最後一小時的資料庫工作負載與過�
 >
 
 Intelligent Insights 在發現和針對 SQL Database 效能問題進行疑難排解方面表現出色。 若要使用 Intelligent Insights 來針對 SQL Database 和受控執行個體資料庫效能問題進行疑難排解，請參閱[使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
+
+## <a name="intelligent-insights-options"></a>Intelligent Insights 選項
+
+Azure SQL Database 提供的 Intelligent Insights 選項包括：
+
+| Intelligent Insights 選項 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
+| :----------------------------- | ----- | ----- |
+| **設定 Intelligent Insights** -為您的資料庫設定 Intelligent Insights 分析。 | yes | yes | 
+| **串流深入解析至 Azure SQL 分析**--串流深入解析，以 Azure SQL 分析監視 Azure SQL Database 的解決方案。 | yes | yes | 
+| **將見解串流至事件中樞**-串流深入解析以事件中樞，以進行進一步的自訂整合。 | yes | yes | 
+| **串流深入解析至 Azure 儲存體**串流深入解析，以 Azure 儲存體進行進一步的分析和長期封存。 | yes | yes |
 
 ## <a name="configure-intelligent-insights"></a>設定 Intelligent Insights
 

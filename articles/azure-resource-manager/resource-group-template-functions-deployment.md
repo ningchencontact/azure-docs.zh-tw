@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 範本函式 - 部署 | Microsoft Docs
+title: 範本函式-部署
 description: 描述 Azure Resource Manager 範本中用來擷取部署資訊的函式。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983982"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149632"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
 
@@ -25,7 +22,7 @@ ms.locfileid: "70983982"
 
 <a id="deployment" />
 
-## <a name="deployment"></a>deployment
+## <a name="deployment"></a>部署
 `deployment()`
 
 傳回目前部署作業的相關資訊。
@@ -143,11 +140,11 @@ ms.locfileid: "70983982"
 
 傳回參數值。 指定的參數名稱必須定義於範本的 parameters 區段中。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |string |要傳回的參數名稱。 |
+| parameterName |yes |字串 |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -230,30 +227,30 @@ ms.locfileid: "70983982"
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | string | option 1 |
-| intOutput | Int | 1 |
+| stringOutput | 字串 | 選項 1 |
+| intOutput | int | 1 |
 | objectOutput | 物件 | {"one": "a", "two": "b"} |
-| arrayOutput | Array | [1, 2, 3] |
-| crossOutput | string | option 1 |
+| arrayOutput | 陣列 | [1, 2, 3] |
+| crossOutput | 字串 | 選項 1 |
 
 如需使用參數的詳細資訊，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。
 
 <a id="variables" />
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>變數
 `variables(variableName)`
 
 傳回變數的值。 指定的變數名稱必須定義於範本的 variables 區段中。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| variableName |是 |string |要傳回的變數名稱。 |
+| variableName |yes |字串 |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -323,13 +320,13 @@ ms.locfileid: "70983982"
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| exampleOutput1 | string | myVariable |
-| exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | string | myVariable |
+| exampleOutput1 | 字串 | myVariable |
+| exampleOutput2 | 陣列 | [1, 2, 3, 4] |
+| exampleOutput3 | 字串 | myVariable |
 | exampleOutput4 |  物件 | {"property1": "value1", "property2": "value2"} |
 
 如需使用變數的詳細資訊，請參閱[Azure Resource Manager 範本中的變數](template-variables.md)。

@@ -1,27 +1,18 @@
 ---
-title: Azure 資源提供者和資源類型 | Microsoft Docs
+title: 資源提供者和資源類型
 description: 說明支援資源管理員、其結構描述及可用 API 版本的資源提供者，以及可裝載資源的區域。
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2019
-ms.author: tomfitz
-ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 01550adbce51e3498f1167f6a4ebfd846ec316f3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164811"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149394"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 資源提供者和類型
 
-部署資源時，您經常需要擷取有關資源提供者和類型的資訊。 例如, 如果您想要儲存金鑰和密碼, 您可以使用 KeyVault 資源提供者。 此資源提供者會提供名為保存庫的資源類型來建立金鑰保存庫。
+部署資源時，您經常需要擷取有關資源提供者和類型的資訊。 例如，如果您想要儲存金鑰和密碼，您可以使用 KeyVault 資源提供者。 此資源提供者會提供名為保存庫的資源類型來建立金鑰保存庫。
 
 資源類型名稱的格式： **{resource-provider}/{resource-type}** 。 金鑰保存庫的資源類型是 **Microsoft.KeyVault/vaults**。
 
@@ -36,7 +27,7 @@ ms.locfileid: "70164811"
 
 您可以透過 [Azure 入口網站]、[Azure PowerShell] 或 [Azure CLI] 執行這些步驟。
 
-如需將資源提供者對應至 Azure 服務的清單, 請參閱[azure 服務的資源提供者](azure-services-resource-providers.md)。
+如需將資源提供者對應至 Azure 服務的清單，請參閱[azure 服務的資源提供者](azure-services-resource-providers.md)。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -52,9 +43,9 @@ ms.locfileid: "70164811"
 
     ![顯示資源提供者](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者, 您必須有權執行`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
+6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
 
-    當您的訂用帳戶中仍有該資源提供者的資源類型時, 您無法取消註冊該資源提供者。
+    當您的訂用帳戶中仍有該資源提供者的資源類型時，您無法取消註冊該資源提供者。
 
 若要查看特定資源提供者的資訊：
 
@@ -102,7 +93,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者, 您必須有權執行`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -117,7 +108,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-當您的訂用帳戶中仍有該資源提供者的資源類型時, 您無法取消註冊該資源提供者。
+當您的訂用帳戶中仍有該資源提供者的資源類型時，您無法取消註冊該資源提供者。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -207,7 +198,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者, 您必須有權執行`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -215,7 +206,7 @@ az provider register --namespace Microsoft.Batch
 
 它會傳回一則訊息說明註冊持續進行中。
 
-當您的訂用帳戶中仍有該資源提供者的資源類型時, 您無法取消註冊該資源提供者。
+當您的訂用帳戶中仍有該資源提供者的資源類型時，您無法取消註冊該資源提供者。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -297,5 +288,5 @@ West US
 
 * 若要了解如何建立資源管理員範本，請參閱 [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。 
 * 若要檢視資源提供者範本結構描述，請參閱[範本參考](/azure/templates/)。
-* 如需將資源提供者對應至 Azure 服務的清單, 請參閱[azure 服務的資源提供者](azure-services-resource-providers.md)。
+* 如需將資源提供者對應至 Azure 服務的清單，請參閱[azure 服務的資源提供者](azure-services-resource-providers.md)。
 * 若要檢視資源提供者的作業，請參閱 [Azure REST API](/rest/api/)。

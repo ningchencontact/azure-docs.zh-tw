@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 範本函式 - 資源 | Microsoft Docs
+title: 範本函式-資源
 description: 描述 Azure Resource Manager 範本中用來擷取資源相關值的函式。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
-ms.openlocfilehash: dc39c727526f55039a5e18a8fd2aeeb4f25234a6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965639"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150675"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -37,14 +34,14 @@ extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ..
 
 傳回[擴充資源](extension-resource-types.md)的資源識別碼，這是套用至另一個資源以加入其功能的資源類型。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| ResourceId |是 |string |要套用延伸模組資源之資源的資源識別碼。 |
-| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |是 |string |資源的名稱。 |
-| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
+| resourceId |yes |字串 |要套用延伸模組資源之資源的資源識別碼。 |
+| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |yes |字串 |資源的名稱。 |
+| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
@@ -117,13 +114,13 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 此函式的語法因清單作業的名稱而異。 每項實作會對支援 list 作業的資源類型傳回值。 此作業必須以 `list` 開頭。 常見使用方式為 `listKeys` 和 `listSecrets`。 
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |是 |string |資源的唯一識別碼。 |
-| apiVersion |是 |string |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
-| functionValues |否 |object | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
+| resourceName 或 resourceIdentifier |yes |字串 |資源的唯一識別碼。 |
+| apiVersion |yes |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
+| functionValues |否 |物件 | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
 
 ### <a name="valid-uses"></a>有效用法
 
@@ -136,25 +133,25 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 | 資源類型 | 函式名稱 |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| AppConfiguration/configurationStores | ListKeys |
+| Microsoft.AppConfiguration/configurationStores | ListKeys |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
-| 區塊鏈/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
-| 區塊鏈/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
-| BotService/botServices/通道 | listChannelWithKeys |
+| Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
+| Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.BotService/botServices/channels | listChannelWithKeys |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
-| ContainerRegistry/registry/執行 | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
-| ContainerRegistry/registry/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
+| Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
+| Microsoft.ContainerRegistry/registries/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
 | Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
-| Microsoft.containerservice/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
-| DataBox/作業 | listCredentials |
+| Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
+| Microsoft.DataBox/jobs | listCredentials |
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
@@ -169,14 +166,14 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| EventGrid/網域 | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
-| LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
+| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -186,8 +183,8 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 | Microsoft.Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
 | Microsoft.Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
 | Microsoft.Logic/workflows | [listSwagger](/rest/api/logic/workflows/listswagger) |
-| Microsoft. 邏輯/工作流程/觸發程式 | [listCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
-| Microsoft. 邏輯/工作流程/版本/觸發程式 | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
+| Microsoft.Logic/workflows/triggers | [listCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
+| Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
 | Microsoft.MachineLearningServices/workspaces/computes | listKeys |
@@ -197,12 +194,12 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
 | Microsoft.Media/mediaservices/streamingLocators | [listContentKeys](/rest/api/media/streaminglocators/listcontentkeys) |
 | Microsoft.Media/mediaservices/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
-| Microsoft 網路/applicationSecurityGroups | listIpConfigurations |
+| Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
-| Microsoft 轉送/命名空間/disasterRecoveryConfigs/authorizationRules | listkeys |
+| Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
@@ -223,8 +220,8 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 | microsoft.web/connections | listconsentlinks |
 | Microsoft.Web/customApis | listWsdlInterfaces |
 | microsoft.web/locations | listwsdlinterfaces |
-| microsoft web/apimanagementaccounts/api/連線 | listconnectionkeys |
-| microsoft web/apimanagementaccounts/api/連線 | listsecrets |
+| microsoft.web/apimanagementaccounts/apis/connections | listconnectionkeys |
+| microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
 | microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/webapps/listhybridconnectionkeys) |
 | microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
@@ -350,12 +347,12 @@ providers(providerNamespace, [resourceType])
 
 傳回資源提供者和其所支援資源類型的相關資訊。 如果未提供資源類型，則函式會傳回資源提供者所有的支援類型。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |是 |string |提供者的命名空間 |
-| resourceType |否 |string |所指定命名空間內的資源類型。 |
+| providerNamespace |yes |字串 |提供者的命名空間 |
+| resourceType |否 |字串 |所指定命名空間內的資源類型。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -427,13 +424,13 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 傳回代表資源執行階段狀態的物件。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |是 |string |資源的名稱或唯一識別碼。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 參考先前部署的資源時，請提供資源識別碼。 |
-| apiVersion |否 |string |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 如需適用于您資源的有效 API 版本，請參閱[範本參考](/azure/templates/)。 |
-| 'Full' |否 |string |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
+| resourceName 或 resourceIdentifier |yes |字串 |資源的名稱或唯一識別碼。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 參考先前部署的資源時，請提供資源識別碼。 |
+| apiVersion |否 |字串 |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 如需適用于您資源的有效 API 版本，請參閱[範本參考](/azure/templates/)。 |
+| 'Full' |否 |字串 |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -518,7 +515,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 **{資源提供者-namespace}/{parent-resource-type}/{parent-resource-name} [/{child-resource-type}/{child-resource-name}]**
 
-例如：
+例如︰
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 為正確 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 為不正確
 
@@ -723,7 +720,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 }
 ```
 
-## <a name="resourceid"></a>ResourceId
+## <a name="resourceid"></a>resourceId
 
 ```json
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
@@ -731,15 +728,15 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 傳回資源的唯一識別碼。 如果資源名稱不確定或未佈建在相同的範本內，請使用此函數。 
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceGroupName |否 |string |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |是 |string |資源的名稱。 |
-| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
+| resourceGroupName |否 |字串 |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
+| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |yes |字串 |資源的名稱。 |
+| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
@@ -867,12 +864,12 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 先前範例中具有預設值的輸出如下：
 
-| Name | Type | Value |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | 字串 | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>訂用帳戶
 
@@ -921,14 +918,14 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 
 傳回部署于訂用帳戶層級之資源的唯一識別碼。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串（GUID 格式） |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |是 |string |資源的名稱。 |
-| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
+| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |yes |字串 |資源的名稱。 |
+| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
@@ -1005,13 +1002,13 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 傳回部署于租使用者層級之資源的唯一識別碼。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |是 |string |資源的名稱。 |
-| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
+| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |yes |字串 |資源的名稱。 |
+| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
