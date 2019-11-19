@@ -1,18 +1,14 @@
 ---
 title: 備份和還原 Azure 檔案共用
 description: 本文詳細說明如何備份及還原 Azure 檔案共用，並且說明管理工作。
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 59dd46c42cdf94f06709d95f68cfb8d8693b9cce
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091100"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173085"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>備份和還原 Azure 檔案共用
 
@@ -47,7 +43,7 @@ Azure 檔案共用的備份處於預覽階段。 支援一般用途 v1 和一般
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>設定 Azure 檔案共用備份
 
-本教學課程假設您已經建立了 Azure 檔案共用。 若要備份 Azure 檔案共用：
+本文假設您已經建立了 Azure 檔案共用。 若要備份 Azure 檔案共用：
 
 1. 在與您的檔案共用相同的區域中建立復原服務保存庫。 如果您已經有保存庫，請開啟保存庫的 [概觀] 頁面，然後按一下 [備份]  。
 

@@ -40,6 +40,8 @@
   items:
     - name: 開啟支援票證
       href: hpc-cache-support-ticket.md
+    - name: 解決 Blob 儲存體帳戶防火牆設定問題
+      href: hpc-cache-blob-firewall-fix.md
     - name: 從區域性中斷復原
       href: hpc-region-recovery.md
     - name: 使用 Azure NetApp Files 搭配 Azure HPC Cache

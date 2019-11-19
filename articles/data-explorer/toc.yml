@@ -21,7 +21,7 @@
           href: end-to-end-csharp.md
         - name: Python
           href: end-to-end-python.md
-    - name: 無需使用程式碼也能內嵌資料
+    - name: 內嵌和查詢監視資料
       href: ingest-data-no-code.md
     - name: 將 Power BI 中的資料視覺化
       href: visualize-power-bi.md

@@ -331,6 +331,14 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: 原則定義
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - name: 適用於 Python 的 Azure SDK
+      items:
+        - name: 原則
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+        - name: 原則用戶端
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+        - name: Policy Insights
+          href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
         - name: 活動

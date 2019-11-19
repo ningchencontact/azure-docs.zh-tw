@@ -1,8 +1,8 @@
-- name: CDN 文件
+- name: 內容傳遞網路文件
   href: index.yml
 - name: 概觀
   items:
-    - name: 什麼是 Azure CDN？
+    - name: 什麼是 Azure 內容傳遞網路 (Azure CDN)？
       href: cdn-overview.md
     - name: 比較產品功能
       href: cdn-features.md
@@ -42,7 +42,7 @@
       href: cdn-http2.md
     - name: 取出 Verizon POP 清單
       href: cdn-pop-list-api.md
-    - name: 從標準 Verizon 標準移轉至進階 Verizon
+    - name: 從標準 Verizon 遷移至進階 Verizon
       href: cdn-migrate.md
     - name: DDoS 保護
       href: cdn-ddos.md
@@ -61,15 +61,15 @@
       items:
         - name: 建立端點
           href: cdn-create-endpoint-how-to.md
-        - name: 使用 Azure PowerShell 管理
+        - name: 使用 Azure PowerShell 進行管理
           href: cdn-manage-powershell.md
-        - name: 依國家/地區限制存取
+        - name: 依國家或地區限制存取
           href: cdn-restrict-access-by-country.md
         - name: 藉由壓縮檔案來改善效能
           href: cdn-improve-performance.md
         - name: 控制快取行為
           items:
-            - name: 透過快取規則控制快取行為
+            - name: 透過使用快取規則控制快取行為
               href: cdn-caching-rules.md
             - name: 依查詢字串區分的快取內容
               items:
@@ -81,7 +81,7 @@
               href: cdn-purge-endpoint.md
             - name: 預先載入快取資產
               href: cdn-preload-endpoint.md
-        - name: 設定存留時間
+        - name: 設定存留時間 (TTL)
           items:
             - name: Azure 網頁內容
               href: cdn-manage-expiration-of-cloud-service-content.md
@@ -89,7 +89,7 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: 權杖驗證
           href: cdn-token-auth.md
-        - name: SAS 儲存體支援
+        - name: 共用存取簽章儲存體支援
           href: cdn-sas-storage-support.md
         - name: 跨原始資源共用
           href: cdn-cors.md
@@ -110,7 +110,7 @@
               href: cdn-analyze-usage-patterns.md
             - name: 來自 Verizon 的自訂報告
               href: cdn-verizon-custom-reports.md
-        - name: 來自 Verizon 的 Azure CDN Premium 分析工具
+        - name: 來自 Verizon 的進階 Azure CDN 分析工具
           items:
             - name: 產生進階 HTTP 報告
               href: cdn-advanced-http-reports.md
@@ -136,7 +136,7 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: 參考
   items:
-    - name: Microsoft 標準規則引擎參考
+    - name: 標準規則引擎參考
       href: cdn-standard-rules-engine-reference.md
       items:
         - name: 標準規則引擎比對條件
@@ -177,7 +177,7 @@
           href: cdn-pop-locations.md
         - name: 依縮寫的 POP 位置
           href: cdn-pop-abbreviations.md
-    - name: 了解 Azure CDN 計費
+    - name: Azure 內容傳遞網路帳單
       href: cdn-billing.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
