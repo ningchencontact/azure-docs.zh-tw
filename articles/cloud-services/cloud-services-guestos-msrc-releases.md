@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 11/15/2019
 ms.author: raiye
-ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fd4936357035d8163130064bd6f0600c9d2b08bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888315"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150004"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain]，一律會繼續進行更新。
+
+## <a name="november-2019-guest-os"></a>2019年11月的客體作業系統
+
+>[!NOTE]
+>我們目前正在將 11 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 11 月客體 OS 中。 此清單會隨時變動。
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  2.92  |  2019年11月12日  |
+|  Rel 19-11   |  [4525233]  |  Windows 安全性   |  2.92  |  2019年11月12日  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  3.79  |  2019年11月12日  |
+|  Rel 19-11   |  [4525253]  |  Windows 安全性   |  3.79  |  2019年11月12日  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  4.72  |  2019年11月12日  |
+|  Rel 19-11   |  [4525250]  |  Windows 安全性   |  4.72  |  2019年11月12日  |
+|  Rel 19-11   |  [4525236]  |  最新累計更新   |  5.37  |  2019年11月12日  |
+|  Rel 19-11   |  [4523205]  |  最新累計更新   |  6.13  |  2019年11月12日  |
+|  Rel 19-11   |  [4519976]  |  非安全性   |  2.92  |  2019年10月8日  |
+|  Rel 19-11   |  [4520007]  |  非安全性   |  3.79  |  2019年10月8日  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  3.79  |  2019年10月8日  |
+|  Rel 19-11   |  [4520005]  |  非安全性   |  4.72  |  2019年10月8日  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  4.72  |  2019年10月8日  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  5.37  |  2019年10月8日  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  6.13  |  2019年10月8日  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+
 
 ## <a name="october-2019-guest-os"></a>2019年10月的客體作業系統
 

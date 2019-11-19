@@ -1,18 +1,14 @@
 ---
 title: 備份 Azure 檔案服務常見問題集
 description: 在本文中，您可以針對如何使用 Azure 備份服務來保護 Azure 檔案共用的常見問題，找到相關解答。
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747468"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173100"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 
@@ -127,9 +123,9 @@ Azure 檔案共用的備份可讓您設定保留期最高達 180 天的原則。
 
 在檔案共用上套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除並刪除。
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
-此資訊僅只關於備份 Azure 檔案，若要深入了解 Azure 備份的其他領域，請參閱其他備份常見問題集：
+若要深入了解 Azure 備份的其他領域，請參閱其他備份常見問題集：
 
 - [復原服務保存庫常見問題集](backup-azure-backup-faq.md)
 - [Azure VM 備份常見問題集](backup-azure-vm-backup-faq.md)
