@@ -1,19 +1,15 @@
 ---
-title: 使用 Azure 備份匯入/匯出服務植入離線備份
+title: 使用匯入/匯出服務植入離線備份
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968527"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173293"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 
@@ -40,13 +36,13 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > * 使用 Microsoft Azure 復原服務 (MARS) 代理程式 (也稱為 Azure 備份代理程式) 來備份檔案和資料夾。
 > * 使用 System Center Data Protection Manager (SC DPM) 來備份所有工作負載和檔案
 > * 使用「Microsoft Azure 備份伺服器」來備份所有工作負載和檔案
-
+ 
    > [!NOTE]
    > 針對使用「Azure 備份」代理程式來執行的「系統狀態」備份，不支援「離線備份」。
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
   > [!NOTE]
   > 下列必要條件和工作流程僅適用於使用[最新 MARS 代理程式](https://aka.ms/azurebackup_agent)進行檔案和資料夾的離線備份。 若要使用 System Center DPM 或 Azure 備份伺服器執行工作負載離線備份，請參閱[這篇文章](backup-azure-backup-server-import-export-.md)。
@@ -109,7 +105,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 *AzureOfflineBackupDiskPrep* 公用程式會準備要送到最鄰近之 Azure 資料中心的 SATA 磁碟機。 此公用程式位於 Azure 備份代理程式的安裝目錄 (以下路徑中)：
 
-   *\Microsoft Azure Recovery Services Agent\Utils\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. 移至該目錄，然後將 **AzureOfflineBackupDiskPrep** 目錄複製到已連接 SATA 磁碟機的另一部電腦。 在已連接 SATA 磁碟機的電腦上，請確定：
 
@@ -126,7 +122,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | 參數 | 說明 |
+    | 參數 | 描述 |
     | --- | --- |
     | s:&lt;*預備位置路徑*&gt; |強制性輸入用來提供在**起始離線備份**工作流程中所輸入的暫存位置路徑。 |
     | p:&lt;*PublishSettingsFile 的路徑*&gt; |選擇性輸入內容，用來提供在**起始離線備份**工作流程中所輸入的 **Azure 發佈設定**檔案路徑。 |

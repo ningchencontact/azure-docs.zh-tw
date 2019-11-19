@@ -4,19 +4,19 @@ description: 內部部署 Azure AD 密碼保護常見問題集
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 473fe43bb4cf18c61f30d9b7e057da888dc6da62
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71268630"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167914"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -58,7 +58,7 @@ Active Directory 支援測試密碼的能力，以查看是否通過網域目前
 
 **問：是否支援與其他以密碼篩選器為基礎的產品並存安裝 Azure AD 密碼保護？**
 
-可以。 核心 Windows 功能之一就是支援多個已註冊的密碼篩選 dll，因此並不限於 Azure AD 密碼保護。 所有註冊的密碼篩選 dll 必須先同意才能接受密碼。
+是。 核心 Windows 功能之一就是支援多個已註冊的密碼篩選 dll，因此並不限於 Azure AD 密碼保護。 所有註冊的密碼篩選 dll 必須先同意才能接受密碼。
 
 **問：如何在我的 Active Directory 環境中部署和設定 Azure AD 密碼保護，而不使用 Azure？**
 
@@ -95,13 +95,13 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 **問：是否有任何方法可將 DC 代理程式設定為使用特定 Proxy 伺服器？**
 
-不會。 由於 Proxy 伺服器是無狀態的，因此使用哪一個特定 Proxy 伺服器並不重要。
+號 由於 Proxy 伺服器是無狀態的，因此使用哪一個特定 Proxy 伺服器並不重要。
 
 **問：是否可以將 Azure AD 的密碼保護 Proxy 服務與其他服務（例如 Azure AD Connect）並存部署？**
 
-可以。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
+是。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
 
-可惜的是，在 Azure AD 密碼保護 Proxy 軟體所安裝的 Microsoft Azure AD Connect 代理程式更新程式服務版本與 Azure Active 的所安裝的服務版本之間，發現不相容[目錄應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)軟體。 此不相容可能會導致代理程式更新者服務無法連線到 Azure 進行軟體更新。 不建議您在同一部電腦上安裝 Azure AD 密碼保護 Proxy 和 Azure Active Directory 應用程式 Proxy。
+可惜的是，在 Azure AD 密碼保護 Proxy 軟體所安裝的 Microsoft Azure AD Connect 代理程式更新程式服務版本與[Azure Active Directory 應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)軟體所安裝的服務版本之間，發現不相容的情況。 此不相容可能會導致代理程式更新者服務無法連線到 Azure 進行軟體更新。 不建議您在同一部電腦上安裝 Azure AD 密碼保護 Proxy 和 Azure Active Directory 應用程式 Proxy。
 
 **問： DC 代理程式和 proxy 的安裝和註冊順序為何？**
 
@@ -117,13 +117,13 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 **問：我想要在網域中的幾個 Dc 上測試 Azure AD 的密碼保護。是否可以強制使用者密碼變更以使用這些特定的 Dc？**
 
-不會。 使用者變更其密碼時，Windows 用戶端 OS 會控制要使用哪一個網域控制站。 網域控制站是根據 Active Directory 網站和子網指派、環境特定網路設定等因素來選取。Azure AD 密碼保護並不會控制這些因素，而且也不會影響選取哪個網域控制站來變更使用者的密碼。
+號 使用者變更其密碼時，Windows 用戶端 OS 會控制要使用哪一個網域控制站。 網域控制站是根據 Active Directory 網站和子網指派、環境特定網路設定等因素來選取。Azure AD 密碼保護並不會控制這些因素，而且也不會影響選取哪個網域控制站來變更使用者的密碼。
 
 可部分達成此目標的方法之一是，在指定 Active Directory 站台中的所有網域控制站上部署 Azure AD 密碼保護。 此方法合理地將指派至該站台的 Windows 用戶端涵蓋在一個範圍內，因此也涵蓋登入這些用戶端並變更其密碼的使用者。
 
 **問：如果我只在網域主控站（PDC）上安裝 Azure AD 密碼保護 DC 代理程式服務，網域中的其他所有網域控制站也會受到保護嗎？**
 
-不會。 當非 PDC 網域控制站上的使用者密碼變更時，純文字密碼永遠不會傳送到 PDC (這是常見的錯誤觀念)。 當指定 DC 接受新密碼後，此 DC 會使用該密碼來建立該密碼的各種驗證通訊協定特有雜湊，然後在目錄中保存這些雜湊。 純文字密碼不會保存。 已更新的雜湊接著會複寫到 PDC。 在某些情況下，使用者密碼可能會直接在 PDC 上變更，這也是取決於各種因素，例如網路拓樸和 Active Directory 站台的設計。 (請參閱上一個問題。)
+號 當非 PDC 網域控制站上的使用者密碼變更時，純文字密碼永遠不會傳送到 PDC (這是常見的錯誤觀念)。 當指定 DC 接受新密碼後，此 DC 會使用該密碼來建立該密碼的各種驗證通訊協定特有雜湊，然後在目錄中保存這些雜湊。 純文字密碼不會保存。 已更新的雜湊接著會複寫到 PDC。 在某些情況下，使用者密碼可能會直接在 PDC 上變更，這也是取決於各種因素，例如網路拓樸和 Active Directory 站台的設計。 (請參閱上一個問題。)
 
 總之，在 PDC 上部署 Azure AD 密碼保護 DC 代理程式服務時，就必須達到此功能在網域間的 100% 安全性涵蓋範圍。 只在 PDC 上部署此功能並不會使網域中其他 DC 享有 Azure AD 密碼保護安全性的優勢。
 
@@ -133,7 +133,7 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 **問：是否有 System Center Operations Manager 管理元件可用於 Azure AD 密碼保護？**
 
-不會。
+號
 
 **問：即使我已將原則設定為處於 Audit 模式，為什麼 Azure AD 仍會拒絕弱式密碼？**
 
@@ -141,7 +141,7 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 **問：我的使用者在 Azure AD 密碼保護拒絕密碼時，會看到傳統的 Windows 錯誤訊息。是否可以自訂此錯誤訊息，讓使用者知道究竟發生什麼事？**
 
-不會。 當網域控制站拒絕密碼時，使用者所看到的錯誤訊息是由用戶端電腦控制，而不是網域控制站。 當預設 Active Directory 密碼原則或密碼篩選器式解決方案（例如 Azure AD 密碼保護）拒絕密碼時，就會發生這種行為。
+號 當網域控制站拒絕密碼時，使用者所看到的錯誤訊息是由用戶端電腦控制，而不是網域控制站。 當預設 Active Directory 密碼原則或密碼篩選器式解決方案（例如 Azure AD 密碼保護）拒絕密碼時，就會發生這種行為。
 
 ## <a name="additional-content"></a>其他內容
 

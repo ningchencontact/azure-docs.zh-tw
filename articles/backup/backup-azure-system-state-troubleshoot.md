@@ -1,20 +1,15 @@
 ---
-title: 使用 Azure 備份進行系統狀態備份的疑難排解
+title: 針對系統狀態備份進行疑難排解
 description: 在本文中，您將瞭解如何針對內部部署 Windows 伺服器的系統狀態備份中的問題進行疑難排解。
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-keywords: 如何備份;備份系統狀態
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5901cbe1e30eb1ce2334a7b935a3629c66c24b8a
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 116f8f40193ea276c6150452b0aa6f2d2ce5bc6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091578"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172612"
 ---
 # <a name="troubleshoot-system-state-backup"></a>針對系統狀態備份進行疑難排解
 

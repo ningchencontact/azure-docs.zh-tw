@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822834"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159140"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -54,6 +54,9 @@ ms.locfileid: "73822834"
 - 可以建立、改變和卸除 master 中的資料庫、登入、使用者，以及伺服器層級 IP 防火牆規則。
 - 可以新增和移除 `dbmanager` 和 `loginmanager` 角色的成員。
 - 可以檢視 `sys.sql_logins` 系統資料表。
+- 無法重新命名。
+- 若要變更 Azure AD 系統管理員帳戶，請使用入口網站或 Azure CLI。
+- 之後就無法變更伺服器管理帳戶。
 
 ### <a name="configuring-the-firewall"></a>設定防火牆
 

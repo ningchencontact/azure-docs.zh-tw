@@ -1,18 +1,14 @@
 ---
-title: Microsoft Azure 復原服務代理程式的支援矩陣
+title: MARS 代理程式的支援矩陣
 description: 本文摘要說明當您備份執行 Microsoft Azure 復原服務（MARS）代理程式的電腦時的 Azure 備份支援。
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090558"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172041"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -54,7 +50,7 @@ Azure 備份使用 MARS 代理程式，將資料從內部部署機器和 Azure V
 
 ## <a name="networking-and-access-support"></a>網路功能與存取支援
 
-### <a name="url-access"></a>URL 存取
+### <a name="url-and-ip-access"></a>URL 和 IP 存取
 
 MARS 伺服器需要存取這些 URL：
 
@@ -63,6 +59,11 @@ MARS 伺服器需要存取這些 URL：
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+和這些 IP 位址：
+
+- 20.190.128.0/18
+- 40.126.0.0/18
 
 ### <a name="throttling-support"></a>節流支援
 
@@ -76,7 +77,12 @@ MARS 伺服器需要存取這些 URL：
 >[!NOTE]
 > MARS 代理程式不支援 Windows Server Core Sku。
 
-在內部部署機器和 Azure Vm 上執行的某些作業系統上，您可以使用 MARS 代理程式直接備份至 Azure。 作業系統必須是64位，且應執行最新的服務套件和更新。 下表摘要說明這些作業系統：
+在下列執行的作業系統上，您可以使用 MARS 代理程式直接備份至 Azure：
+
+1. 內部部署 Windows 伺服器
+2. 執行 Windows 的 Azure VM
+
+作業系統必須是64位，且應執行最新的服務套件和更新。 下表摘要說明這些作業系統：
 
 **作業系統** | **檔案/資料夾** | **系統狀態** | **軟體/模組需求**
 --- | --- | --- | ---
@@ -128,7 +134,7 @@ OneDrive （已同步處理的檔案為稀疏資料流程）| 不支援。
 唯讀磁碟區| 不支援 | 磁片區複製陰影服務（VSS）只有在磁片區可寫入時才會運作。
 離線磁碟區| 不支援 |只有當磁片區在線上時，VSS 才會運作。
 網路共用| 不支援 |磁片區必須是伺服器上的本機。
-受 BitLocker 保護的磁片區| 不支援 |必須先解除鎖定磁片區，才能開始備份。
+BitLocker 鎖定的磁片區| 不支援 |必須先解除鎖定磁片區，才能開始備份。
 檔案系統識別| 不支援 |僅支援 NTFS。
 卸除式媒體| 不支援 |所有備份專案來源都必須具有*固定*狀態。
 刪除重複資料的磁碟機 | 支援 | Azure 備份會將刪除重複資料的資料轉換成一般資料。 它會將資料優化、加密、儲存和傳送至保存庫。

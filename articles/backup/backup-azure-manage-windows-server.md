@@ -1,18 +1,14 @@
 ---
 title: 管理 Azure 復原服務保存庫與伺服器
 description: 在本文中，您將瞭解如何使用復原服務保存庫總覽儀表板來監視和管理您的復原服務保存庫。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091135"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173033"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 

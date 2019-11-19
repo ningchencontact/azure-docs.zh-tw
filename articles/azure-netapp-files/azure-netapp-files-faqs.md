@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298481"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173597"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>關於 Azure NetApp Files 的常見問題
 
@@ -29,7 +29,7 @@ ms.locfileid: "72298481"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 資料路徑是否經過網際網路？  
 
-資料分割 NFS 資料路徑不會經過網際網路。 Azure NetApp Files 是一種 Azure 原生服務，可部署到提供服務的 Azure 虛擬網路（VNet）中。 Azure NetApp Files 會使用委派的子網，並直接在 VNet 上布建網路介面。 
+號 NFS 資料路徑不會經過網際網路。 Azure NetApp Files 是一種 Azure 原生服務，可部署到提供服務的 Azure 虛擬網路（VNet）中。 Azure NetApp Files 會使用委派的子網，並直接在 VNet 上布建網路介面。 
 
 如需詳細資訊，請參閱[Azure NetApp Files 網路規劃的指導方針](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)。  
 
@@ -105,14 +105,7 @@ Azure NetApp Files 提供磁片區效能計量。 您也可以使用 Azure 監�
 
 若要讓 NFS 磁片區在 VM 啟動或重新開機時自動掛接，請將專案新增至主機上的 `/etc/fstab` 檔案。 
 
-例如：`$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    在 [磁片區內容] 分頁中找到之 Azure NetApp Files 磁片區的 IP 位址
-- $FILEPATH  
-    Azure NetApp Files 磁片區的匯出路徑
-- $MOUNTPOINT  
-    在 Linux 主機上建立的目錄，用來裝載 NFS 匯出
+如需詳細資訊，請參閱[掛接或卸載 Windows 或 Linux 虛擬機器的磁片](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)區。  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>為什麼 NFS 用戶端上的 DF 命令不會顯示已布建的磁片區大小？
 
@@ -123,7 +116,7 @@ DF 報告的磁片區大小是 Azure NetApp Files 磁片區可以成長的大小
 Azure NetApp Files 支援 NFSv3 和 NFSv 4.1。 您可以使用任何一個 NFS 版本來建立磁片區。 
 
 > [!IMPORTANT] 
-> NFSv 4.1 功能的存取權需要允許清單。  若要要求允許清單，請將要求提交給 <anffeedback@microsoft.com>。 
+> 需要列入允許清單，才能存取 NFSv4.1 功能。  若要要求列入允許清單，請將要求提交至 <anffeedback@microsoft.com>。 
 
 
 ### <a name="how-do-i-enable-root-squashing"></a>如何? 啟用根抓？
@@ -144,7 +137,7 @@ Azure NetApp Files 目前支援每個訂用帳戶有一個 Active Directory 連�
 
 同時支援[Azure Active Directory （AD）網域服務](https://docs.microsoft.com/azure/active-directory-domain-services/overview)和[Active Directory Domain Services （AD DS）](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 。 您可以使用現有的 Active Directory 網域控制站搭配 Azure NetApp Files。 網域控制站可位於 Azure 中做為虛擬機器，或透過 ExpressRoute 或 S2S VPN 在內部部署。 Azure NetApp Files 目前不支援[Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/)的 AD 聯結。
 
-如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp 帳戶的 Active Directory 時，組織單位路徑會 `OU=AADDC Computers`。
+如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp 帳戶的 Active Directory 時，會 `OU=AADDC Computers` 組織單位路徑。
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>支援哪些版本的 Windows Server Active Directory？
 
@@ -158,14 +151,14 @@ Azure NetApp Files 提供容量集區和磁片區使用計量。 您也可以使
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>我可以透過 Azure 儲存體總管來管理 Azure NetApp Files 嗎？
 
-資料分割 Azure 儲存體總管不支援 Azure NetApp Files。
+號 Azure 儲存體總管不支援 Azure NetApp Files。
 
 ## <a name="data-migration-and-protection-faqs"></a>資料移轉和保護常見問題
 
 ### <a name="how-do-i-migrate-data-to-azure-netapp-files"></a>如何? 將資料移轉至 Azure NetApp Files？
 Azure NetApp Files 提供 NFS 和 SMB 磁片區。  您可以使用任何以檔案為基礎的複製工具，將資料移轉至服務。 
 
-NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)。解決方案可讓您將 NFS 或 SMB 資料複寫至 Azure NetApp Files NFS 匯出或 SMB 共用。 
+NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)。 解決方案可讓您將 NFS 或 SMB 資料複寫至 Azure NetApp Files NFS 匯出或 SMB 共用。 
 
 您也可以使用各式各樣的免費工具來複製資料。 針對 NFS，您可以使用工作負載工具（例如[rsync](https://rsync.samba.org/examples.html) ），將來源資料複製並同步處理至 Azure NetApp Files 磁片區。 針對 SMB，您可以使用相同的方式來使用工作負載[robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 。  這些工具也可以複寫檔案或資料夾許可權。 
 
@@ -180,7 +173,7 @@ NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://
     
 Azure NetApp Files 提供 NFS 和 SMB 磁片區。  任何以檔案為基礎的複製工具都可用來在 Azure 區域之間複寫資料。 
 
-NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)。解決方案可讓您將 NFS 或 SMB 資料複寫至 Azure NetApp Files NFS 匯出或 SMB 共用。 
+NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)。 解決方案可讓您將 NFS 或 SMB 資料複寫至 Azure NetApp Files NFS 匯出或 SMB 共用。 
 
 您也可以使用各式各樣的免費工具來複製資料。 針對 NFS，您可以使用工作負載工具（例如[rsync](https://rsync.samba.org/examples.html) ），將來源資料複製並同步處理至 Azure NetApp Files 磁片區。 針對 SMB，您可以使用相同的方式來使用工作負載[robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 。  這些工具也可以複寫檔案或資料夾許可權。 
 
@@ -192,11 +185,11 @@ NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>是否支援使用 Azure 資料箱進行遷移？
 
-資料分割 Azure 資料箱目前不支援 Azure NetApp Files。 
+號 Azure 資料箱目前不支援 Azure NetApp Files。 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>是否支援使用 Azure 匯入/匯出服務進行遷移？
 
-資料分割 Azure 匯入/匯出服務目前不支援 Azure NetApp Files。
+號 Azure 匯入/匯出服務目前不支援 Azure NetApp Files。
 
 ## <a name="next-steps"></a>後續步驟  
 

@@ -6,19 +6,19 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: MT
+ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907174"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158356"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>設定實體伺服器的設備
 
 本文說明當您使用 Azure Migrate： Server 評估工具來評估實體伺服器時，如何設定 Azure Migrate 設備。
 
 > [!NOTE]
-> 如果此處提及您尚未在 Azure Migrate 入口網站中看到的功能，請稍候。 它們將會在下一周出現。
+> 如果此處提及您尚未在 Azure Migrate 入口網站中看到的功能，請稍候。 它們將會在下週前後出現。
 
 Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執行下列動作：
 
@@ -55,14 +55,15 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
 2. 執行下列命令以產生 VHD 的雜湊
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  針對 1.19.05.10 版的設備，產生的雜湊應符合這些設定。
+3.  針對最新的設備版本，產生的雜湊應符合這些設定。
 
   **演算法** | **雜湊值**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 5b98cf68dad495696c789bdad8f0d91b
+  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
 
 
-  
+
 ## <a name="run-the-azure-migrate-installer-script"></a>執行 Azure Migrate 安裝程式指令碼
 = 此安裝程式指令碼會執行下列作業︰
 
@@ -110,7 +111,7 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
 ### <a name="register-the-appliance-with-azure-migrate"></a>向 Azure Migrate 註冊設備
 
 1. 按一下 [登入]。 如果未出現，請確定您已在瀏覽器中停用快顯封鎖程式。
-2. 在新的索引標籤上，使用您的 Azure 認證登入。 
+2. 在新的索引標籤上，使用您的 Azure 認證登入。
     - 使用您的使用者名稱和密碼登入。
     - 不支援使用 PIN 登入。
 3. 成功登入後，返回 Web 應用程式。
@@ -132,14 +133,14 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
     - 若要移除伺服器，請選取 > [刪除]。
 4. 驗證之後，按一下 [儲存並開始探索] 來開始探索程序。
 
-這會開始探索。 所探索到 VM 的中繼資料會在大約 15 分鐘後出現在 Azure 入口網站中。 
+這會開始探索。 所探索到 VM 的中繼資料會在大約 15 分鐘後出現在 Azure 入口網站中。
 
 ## <a name="verify-servers-in-the-portal"></a>在入口網站中驗證伺服器
 
 探索完成之後，您可以確認伺服器是否出現在入口網站中。
 
 1. 開啟 Azure Migrate 儀表板。
-2. 在 [Azure Migrate - 伺服器] > [Azure Migrate：伺服器評估] 頁面中，按一下圖示以顯示 [探索到的伺服器] 計數。 
+2. 在 [Azure Migrate - 伺服器] > [Azure Migrate：伺服器評估] 頁面中，按一下圖示以顯示 [探索到的伺服器] 計數。
 
 
 ## <a name="next-steps"></a>後續步驟

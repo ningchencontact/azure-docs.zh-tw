@@ -5,22 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2019
+ms.date: 11/16/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 0c7e178d520084dbf963c4c7ebaf9b8873a36938
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9caa63972c58defe2e8e2b33b6c2d29b15c7ce84
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521061"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168390"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>在 Azure Blob 儲存體, 中儲存業務關鍵資料 
 
 Azure Blob 儲存體的固定儲存體可讓使用者以 WORM （一次寫入，多次讀取）狀態儲存業務關鍵資料物件。 此狀態讓資料在使用者指定的間隔內不可清除，也不可修改。 在保留間隔的持續期間內，可以建立和讀取 Blob 物件，但不能加以修改或刪除。 在所有 Azure 區域中，一般用途 v2 和 Blob 儲存體帳戶都會啟用固定儲存體。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 固定儲存體可協助醫療保健組織、金融機構和相關產業（特別是經紀商組織）安全地儲存資料。 也可以在任何案例中運用它來保護重要資料，以防止修改或刪除。 
 
@@ -80,8 +80,8 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 |---------|---------|---------|
 |Blob 上的有效保留間隔尚未過期及/或已設定合法保存     |固定：防刪與防寫保護         | 放置 Blob<sup>1</sup>、放置區塊<sup>1</sup>、放置區塊清單<sup>1</sup>、刪除容器、刪除 blob、設定 Blob 中繼資料、放置分頁、設定 blob 屬性、快照集 Blob、累加複製 Blob、附加區塊         |
 |Blob 上的有效保留間隔已過期     |僅限防寫保護 (允許刪除作業)         |放置 Blob<sup>1</sup>、放置區塊<sup>1</sup>、放置區塊清單<sup>1</sup>、設定 Blob 中繼資料、放置分頁、設定 Blob 屬性、快照集 Blob、累加複製 Blob、附加區塊         |
-|所有合法保存都已清除，且容器上未設定任何以時間為基礎的保留原則     |可變動         |None         |
-|未建立任何 WORM 原則 (以時間為基礎的保留或合法保存)     |可變動         |None         |
+|所有合法保存都已清除，且容器上未設定任何以時間為基礎的保留原則     |可變動         |無         |
+|未建立任何 WORM 原則 (以時間為基礎的保留或合法保存)     |可變動         |無         |
 
 <sup>1</sup>應用程式允許這些作業一次建立新的 blob。 不允許不可變容器中現有 blob 路徑上的所有後續覆寫作業。
 
@@ -99,11 +99,11 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 - 合法保存標記的最小長度為3個英數位元。 最大長度為23個英數位元。
 - 針對容器，原則期間會保留最多10個合法保存原則的 audit 記錄。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 使用這項功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>快速入門
 不可變的儲存體僅適用于一般用途 v2 和 Blob 儲存體帳戶。 這些帳戶必須透過[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)來管理。 如需升級現有一般用途 v1 儲存體帳戶的相關資訊，請參閱[升級儲存體帳戶](../common/storage-account-upgrade.md)。
 
 最新版本的[Azure 入口網站](https://portal.azure.com)、 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)和[Azure PowerShell](https://github.com/Azure/azure-powershell/releases)支援 Azure Blob 儲存體的固定儲存體。 也提供[用戶端程式庫支援](#client-libraries)。
@@ -238,47 +238,28 @@ $container = "<Enter your container name>"
 $container2 = "<Enter another container name>”
 $location = "<Enter the storage account location>"
 
-# Log in to the Azure Resource Manager account
-Login-AzAccount
+# Log in to Azure
+Connect-AzAccount
 Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 
 # Create your Azure resource group
 New-AzResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
-New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
     $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
-# Create a new container
-New-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container
-
-# Create Container 2 with a storage account object
-$accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount
-New-AzStorageContainer -StorageAccount $accountObject -Name $container2
+# Create a new container using the context
+New-AzStorageContainer -Name $container -Context $account.Context
 
 # Get a container
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container
-
-# Get a container with an account object
-$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
+$container = Get-AzStorageContainer -Name $container -Context $account.Context
 
 # List containers
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount
+Get-AzStorageContainer -Context $account.Context
 
-# Remove a container (add -Force to dismiss the prompt)
-Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container2
-
-# Remove a container with an account object
-Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
-
-# Remove a container with a container object
-$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzStorageContainer -InputObject $containerObject2
+# Remove a container
+Remove-AzStorageContainer -Name $container -Context $account.Context
 ```
 
 設定及清除法務保存措施：

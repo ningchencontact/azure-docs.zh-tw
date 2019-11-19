@@ -1,18 +1,14 @@
 ---
-title: 使用 Azure 備份搭配 PowerShell 來備份和復原 Azure Vm
+title: 使用 PowerShell 來備份和復原 Azure Vm
 description: 說明如何使用 Azure 備份搭配 PowerShell 來備份和復原 Azure Vm
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969065"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172555"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm
 
@@ -21,6 +17,7 @@ ms.locfileid: "72969065"
 在本文中，您將了解如何：
 
 > [!div class="checklist"]
+>
 > * 建立復原服務保存庫並設定保存庫內容。
 > * 定義備份原則
 > * 套用備份原則以保護多部虛擬機器
@@ -29,7 +26,7 @@ ms.locfileid: "72969065"
 ## <a name="before-you-start"></a>開始之前
 
 * [深入瞭解](backup-azure-recovery-services-vault-overview.md)復原服務保存庫。
-* 請[參閱](backup-architecture.md#architecture-direct-backup-of-azure-vms)Azure VM 備份的架構、[瞭解](backup-azure-vms-introduction.md)備份程式，並[查看](backup-support-matrix-iaas.md)支援、限制和必要條件。
+* 請[參閱](backup-architecture.md#architecture-built-in-azure-vm-backup)Azure VM 備份的架構、[瞭解](backup-azure-vms-introduction.md)備份程式，並[查看](backup-support-matrix-iaas.md)支援、限制和必要條件。
 * 請參閱復原服務的 PowerShell 物件階層。
 
 ## <a name="recovery-services-object-hierarchy"></a>復原服務物件階層
@@ -666,7 +663,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
    * **含 Azure AD 的受控已加密 VM (BEK 與 KEK)** - 對於含 Azure AD 的受控已加密的 VM (使用 BEK 與 KEK 加密)，請連結已還原的受控磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md)。
 
-   * **受管理和已加密的 vm 沒有 Azure AD （僅限 BEK）** -適用于未 Azure AD 的受控、已加密的 vm （僅使用 BEK 加密），如果無法使用來源**keyVault/密碼**，請使用還原 a 中的程式將密碼還原至金鑰保存庫[來自 Azure 備份復原點的未加密虛擬機器](backup-azure-restore-key-secret.md)。 然後執行下列指令碼，對於還原的 OS 磁碟設定加密詳細資料 (資料磁碟不需要此步驟)。 可以從還原的 keyVault 擷取 $dekurl。
+   * 未使用**Azure AD 的受控和加密 vm （僅限 BEK）** -適用于未 Azure AD 的受控、已加密的 vm （僅使用 BEK 加密），如果無法使用來源**keyVault/機密**，請使用[從 Azure 備份復原點還原非加密的虛擬機器](backup-azure-restore-key-secret.md)中的程式，將秘密還原至金鑰保存庫。 然後執行下列指令碼，對於還原的 OS 磁碟設定加密詳細資料 (資料磁碟不需要此步驟)。 可以從還原的 keyVault 擷取 $dekurl。
 
      只有在沒有來源 keyVault/密碼可用時，才需要執行下列指令碼。  
 
@@ -680,7 +677,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
      有密碼可用，而且也對於 OS 磁碟設定加密詳細資料後，若要附加已還原的受控磁碟，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md)。
 
-   * 未使用**Azure AD （BEK 和 KEK）的受控和加密 vm** -適用于未 Azure AD 的受控、已加密的 vm （使用 BEK & KEK 加密），如果無法取得來源**keyVault/金鑰/密碼**，請使用中的程式將金鑰和秘密還原至金鑰保存庫[從 Azure 備份復原點還原未加密的虛擬機器](backup-azure-restore-key-secret.md)。 然後執行下列指令碼，對於還原的 OS 磁碟設定加密詳細資料 (資料磁碟不需要此步驟)。 可以從還原的 keyVault 擷取 $dekurl 和 $kekurl。
+   * **受控和加密的 vm （不含 Azure AD （BEK 和 KEK））** -適用于未 Azure AD 的受控、加密 vm （使用 BEK & KEK），如果無法使用來源**keyVault/金鑰/密碼**，請使用[從 Azure 備份復原點還原未加密的虛擬機器](backup-azure-restore-key-secret.md)中的程式，將金鑰和秘密還原至金鑰保存庫。 然後執行下列指令碼，對於還原的 OS 磁碟設定加密詳細資料 (資料磁碟不需要此步驟)。 可以從還原的 keyVault 擷取 $dekurl 和 $kekurl。
 
    只有在沒有來源 keyVault/金鑰/密碼可用時，才需要執行下列指令碼。
 

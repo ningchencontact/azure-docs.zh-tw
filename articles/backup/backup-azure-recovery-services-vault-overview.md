@@ -1,18 +1,14 @@
 ---
 title: 復原服務保存庫概觀
 description: 復原服務保存庫和 Azure 備份保存庫之間的概觀與比較。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.author: dacurwin
-ms.openlocfilehash: e61949dc739230382fab4cfaad53a6cb449de79a
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 886c63856d3be78c241289caf5abbe73ebeda63f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091613"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172840"
 ---
 # <a name="recovery-services-vaults-overview"></a>復原服務保存庫概觀
 

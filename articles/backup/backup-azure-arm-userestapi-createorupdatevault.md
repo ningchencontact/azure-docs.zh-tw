@@ -1,21 +1,15 @@
 ---
-title: Azure 備份：使用 REST API 建立復原服務保存庫
+title: 使用 REST API 建立復原服務保存庫
 description: 在本文中，您將瞭解如何使用 REST API 來管理 Azure VM 備份的備份和還原作業。
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM 備份; Azure VM 還原;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747557"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173406"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 建立 Azure 復原服務保存庫
 
@@ -33,7 +27,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 以下是必要標頭：
 
-| 要求標頭   | 說明 |
+| 要求標頭   | 描述 |
 |------------------|-----------------|
 | *Content-Type:*  | 必要。 設定為 `application/json`。 |
 | *Authorization:* | 必要。 設定為無效的 `Bearer` [存取權杖](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |
@@ -44,13 +38,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 以下是用來建立要求本文的常用定義：
 
-|名稱  |必要  |類型  |說明  |
+|名稱  |必要  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|---------|
 |etag     |         |   字串      |  選擇性 eTag       |
 |location     |  true       |字串         |   資源位置      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  保存庫的屬性       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    識別每個 Azure 資源的唯一系統識別碼     |
-|tags     |         | Object        |     資源標籤    |
+|標籤     |         | 物件        |     資源標籤    |
 
 請注意，保存庫名稱和資源群組名稱會在 PUT URI 中提供。 要求本文會定義位置。
 
@@ -72,7 +66,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 建立或更新復原服務保存庫的作業會有兩個成功的回應：
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |200 確定     |   [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Created     | [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   建立時間      |

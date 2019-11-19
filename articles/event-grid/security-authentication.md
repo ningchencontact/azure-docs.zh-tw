@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825776"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169568"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -102,6 +102,11 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
 ### <a name="event-delivery-security"></a>事件傳遞安全性
 
+#### <a name="azure-ad"></a>Azure AD
+
+您可以使用 Azure Active Directory 來驗證並授權事件方格，將事件發佈到您的端點，藉此保護您的 webhook 端點。 您必須建立 Azure Active Directory 應用程式、在應用程式授權事件方格中建立角色和服務主體，並將事件訂閱設定為使用 Azure AD 應用程式。 [瞭解如何使用事件方格設定 AAD](secure-webhook-delivery.md)。
+
+#### <a name="query-parameters"></a>查詢參數
 您可以在建立事件訂閱時將查詢參數新增至 Webhook URL，以保護您的 Webhook 端點。 將這些查詢參數中的其中一個設定為祕密，例如[存取權杖](https://en.wikipedia.org/wiki/Access_token)。 Webhook 可以使用秘密來辨識事件是否來自「事件方格」且具有有效的權限。 事件格線會在傳遞至 Webhook 的每個事件中包含這些查詢參數。
 
 編輯事件訂閱時，除非在 Azure [CLI](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) 中使用 [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 參數，否則不會顯示或傳回查詢參數。

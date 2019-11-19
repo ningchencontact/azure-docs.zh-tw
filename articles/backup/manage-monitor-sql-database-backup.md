@@ -1,18 +1,14 @@
 ---
-title: 管理和監視 Azure VM 上的 SQL Server Db-Azure 備份
+title: 管理和監視 Azure VM 上的 SQL Server Db
 description: 本文說明如何管理和監視在 Azure VM 上執行的 SQL Server 資料庫。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1aba8777a5b0f5851922e292004a74d74065eabf
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090539"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172149"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和監視備份的 SQL Server 資料庫
 

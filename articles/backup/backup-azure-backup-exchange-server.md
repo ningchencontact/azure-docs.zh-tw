@@ -1,19 +1,15 @@
 ---
-title: 透過 System Center DPM 將 Exchange server 備份至 Azure 備份
+title: 透過 System Center DPM 備份 Exchange server
 description: 了解如何使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: dacurwin
-ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b2231fcadc3e0cb591302ba47572627ae3a17e58
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968496"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173270"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 
@@ -28,7 +24,7 @@ ms.locfileid: "72968496"
 >
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 繼續之前，請確定符合使用 Microsoft Azure 備份保護工作負載的所有 [必要條件](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 。 這些先決條件包含下列各項：
 
@@ -87,10 +83,10 @@ ms.locfileid: "72968496"
 11. 檢閱可用的磁碟空間，然後按 [下一步]。
 12. 選取 DPM 伺服器將建立初始複寫的時間，然後按 [下一步]。
 13. 選取一致性檢查選項，然後按 [下一步]。
-14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]。 例如：
+14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]。 例如︰
 
     ![指定線上保護資料](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如：
+15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如︰
 
     ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

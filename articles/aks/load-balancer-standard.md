@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929127"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171397"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器（AKS）
 
-若要在 Azure Kubernetes Service （AKS）中提供應用程式的存取權，您可以建立和使用 Azure Load Balancer。 在 AKS 上執行的負載平衡器可做為內部或外部負載平衡器使用。 內部負載平衡器可讓 Kubernetes 服務僅供在與 AKS 叢集相同的虛擬網路中執行的應用程式存取。 外部負載平衡器會接收一或多個公用 Ip 進行輸入，並使用公用 Ip 讓 Kubernetes 服務可從外部進行存取。
+若要透過 Azure Kubernetes Service （AKS）中 `LoadBalancer` 類型的 Kubernetes 服務來提供應用程式的存取權，您可以使用 Azure Load Balancer。 在 AKS 上執行的負載平衡器可做為內部或外部負載平衡器使用。 內部負載平衡器可讓 Kubernetes 服務僅供在與 AKS 叢集相同的虛擬網路中執行的應用程式存取。 外部負載平衡器會接收一或多個公用 Ip 進行輸入，並使用公用 Ip 讓 Kubernetes 服務可從外部進行存取。
 
 Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設，當您建立 AKS 叢集時，會使用*標準*SKU。 使用*標準*SKU 負載平衡器提供額外的特性和功能，例如較大的後端集區大小和可用性區域。 請務必先瞭解*標準*和*基本*負載平衡器之間的差異，再選擇要使用哪一個。 建立 AKS 叢集之後，您就無法變更該叢集的負載平衡器 SKU。 如需*基本*和*標準*sku 的詳細資訊，請參閱[Azure 負載平衡器 sku 比較][azure-lb-comparison]。
 
@@ -29,9 +29,18 @@ Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設�
 如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 版2.0.74 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="before-you-begin"></a>開始之前
+
 本文假設您有一個 AKS 叢集，其中具有*標準*SKU Azure Load Balancer。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli]或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
 如果您使用現有的子網或資源群組，則 AKS 叢集服務主體也需要管理網路資源的許可權。 一般來說，請將「*網路參與者*」角色指派給委派資源上的服務主體。 如需許可權的詳細資訊，請參閱[將 AKS 存取權委派給其他 Azure 資源][aks-sp]。
+
+### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>從基本 SKU Load Balancer 移至標準 SKU
+
+如果您現有的叢集具有基本 SKU Load Balancer，則在遷移以使用具有標準 SKU Load Balancer 的叢集時，有重要的行為差異需要注意。
+
+例如，讓藍色/綠色部署遷移叢集是一種常見的作法，因為叢集的 `load-balancer-sku` 類型只能在叢集建立時定義。 不過，*基本 sku*負載平衡器會使用與*標準*sku 負載平衡器不相容的*基本 sku* Ip 位址，因為它們需要*標準 sku* ip 位址。 當遷移叢集以 Load Balancer Sku 升級時，將需要具有相容 IP 位址 SKU 的新 IP 位址。
+
+如需有關如何遷移叢集的詳細考慮，請流覽[有關遷移考慮的檔](acs-aks-migration.md)，以查看遷移時要考慮的重要主題清單。 下列限制也是在 AKS 中使用標準 SKU 負載平衡器時，所要注意的重要行為差異。
 
 ### <a name="limitations"></a>限制
 
@@ -41,9 +50,10 @@ Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設�
     * 提供您自己的公用 Ip。
     * 提供您自己的公用 IP 首碼。
     * 指定最多100的數位，以允許 AKS 叢集在建立為 AKS 叢集的相同資源群組中建立許多*標準*SKU 公用 ip，這通常會在一開始就使用*MC_* 來命名。 AKS 會將公用 IP 指派給*標準*SKU 負載平衡器。 根據預設，如果未指定公用 IP、公用 IP 首碼或 Ip 數目，則會在與 AKS 叢集相同的資源群組中自動建立一個公用 IP。 您也必須允許公用位址，並避免建立 ban IP 建立的任何 Azure 原則。
-* 使用負載平衡器的*標準*SKU 時，您必須使用 Kubernetes 1.13 或更高版本。
+* 使用負載平衡器的*標準*SKU 時，您必須使用 Kubernetes *1.13 或更高*版本。
 * 只有當您建立 AKS 叢集時，才可以定義負載平衡器 SKU。 建立 AKS 叢集之後，您就無法變更負載平衡器 SKU。
-* 您只能在單一叢集中使用一個負載平衡器 SKU。
+* 在單一叢集中，您只能使用一種類型的負載平衡器 SKU （基本或標準）。
+* *標準*SKU 負載平衡器只支援*標準*SKU IP 位址。
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>將負載平衡器設定為內部
 

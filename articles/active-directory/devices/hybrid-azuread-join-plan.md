@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882819"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167325"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory 聯結執行
 
@@ -93,7 +93,8 @@ ms.locfileid: "73882819"
 - 您可以新增下列登錄機碼-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin、"BlockAADWorkplaceJoin" = dword：00000001，以防止加入網域的裝置 Azure AD 註冊。
 - 在 Windows 10 1803 中，如果您已設定 Windows Hello 企業版，則使用者必須在雙重狀態清除之後重新設定 Windows Hello 企業版。KB4512509 已解決此問題
 
-
+> [!NOTE]
+> 如果 Azure AD 已註冊的裝置受 Intune 管理，則不會自動移除。
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>審查混合式 Azure AD 聯結的受控制驗證
 

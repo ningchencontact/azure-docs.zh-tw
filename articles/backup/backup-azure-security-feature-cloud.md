@@ -1,18 +1,14 @@
 ---
-title: 協助保護使用 Azure 備份之雲端工作負載的安全性功能
+title: 協助保護雲端工作負載的安全性功能
 description: 瞭解如何使用 Azure 備份中的安全性功能，讓備份更加安全。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621983"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172710"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>協助保護使用 Azure 備份之雲端工作負載的安全性功能
 
@@ -24,7 +20,7 @@ ms.locfileid: "73621983"
 
 ## <a name="soft-delete"></a>虛刪除
 
-### <a name="supported-regions"></a>支援區域
+### <a name="supported-regions"></a>支援的區域
 
 美國中西部、東亞、加拿大中部、加拿大東部、法國中部、法國南部、韓國中部、南韓南部、英國南部、英國西部、澳大利亞東部、澳大利亞東南部、北歐、美國西部、West 美國2、美國中部、南部，目前支援虛刪除東亞、美國中北部、美國中南部、日本東部、日本西部、印度南部、印度中部、印度西部、美國東部2、瑞士北部、瑞士西部和所有國家地區。
 
@@ -147,7 +143,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>刪除之後，我可以刪除14天之前的資料嗎？
 
-不會。 您不能強制刪除虛刪除的專案，它們會在14天之後自動刪除。 這項安全性功能可防止意外或惡意刪除已備份的資料。  在 VM 上執行任何其他動作之前，您應該先等待14天。  虛刪除的專案將不會收費。  如果您需要在14天內重新保護標示為要虛刪除的 Vm 至新的保存庫，請洽詢 Microsoft 支援服務。
+號 您不能強制刪除虛刪除的專案，它們會在14天之後自動刪除。 這項安全性功能可防止意外或惡意刪除已備份的資料。  在 VM 上執行任何其他動作之前，您應該先等待14天。  虛刪除的專案將不會收費。  如果您需要在14天內重新保護標示為要虛刪除的 Vm 至新的保存庫，請洽詢 Microsoft 支援服務。
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>可以在 PowerShell 或 CLI 中執行虛刪除作業嗎？
 
@@ -155,7 +151,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 #### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>是否支援其他雲端工作負載的虛刪除，例如 Azure Vm 中的 SQL Server 和 Azure Vm 中的 SAP Hana？
 
-不會。 目前只有 Azure 虛擬機器支援虛刪除。
+號 目前只有 Azure 虛擬機器支援虛刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

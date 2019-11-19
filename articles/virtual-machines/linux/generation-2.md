@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 7747d1b5e2b18ddf02403ad21fe875c498e43820
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02ab7cdcbf0f150157eb44ef5e28e8284621b813
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036043"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173962"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 上第2代 Vm 的支援
 
@@ -91,7 +91,7 @@ Azure 目前不支援內部部署 Hyper-v 針對第2代 Vm 所支援的部分功
 | OS 磁片 > 2 TB                    | :x:                | :heavy_check_mark: |
 | 自訂磁片/映射/交換 OS         | :heavy_check_mark: | :heavy_check_mark: |
 | 虛擬機器擴展集支援 | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 備份/還原                    | :heavy_check_mark: | :heavy_check_mark: |
 | 共用映射資源庫              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure 磁碟加密             | :heavy_check_mark: | :x:                |

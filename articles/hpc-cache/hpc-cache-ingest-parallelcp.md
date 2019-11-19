@@ -6,40 +6,40 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 0bb74dcd683145fbae22cf0b6d2827ad9e16de0e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582701"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166891"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC 快取資料內嵌-平行複製腳本方法
 
 本文提供相關指示，說明如何建立 ``parallelcp`` 腳本，並使用它將資料移至 Blob 儲存體容器，以與 Azure HPC 快取搭配使用。
 
-若要深入瞭解如何將資料移至 Azure HPC 快取的 Blob 儲存體，請參閱[將資料移至 Azure blob 儲存體以進行 AZURE hpc](hpc-cache-ingest.md)快取。
+若要深入瞭解如何將資料移至 Azure HPC 快取的 Blob 儲存體，請參閱[將資料移至 Azure blob 儲存體](hpc-cache-ingest.md)。
 
 ## <a name="create-the-parallelcp-script"></a>建立 parallelcp 腳本
 
 下方指令碼會新增 `parallelcp` 可執行檔。 (此指令碼是專為 Ubuntu 而設計的；如果使用另一個散發套件，則必須個別安裝 ``parallel``)。
 
 ```bash
-sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM 
+sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
 #!/bin/bash
 
-display_usage() { 
-    echo -e "\nUsage: \$0 SOURCE_DIR DEST_DIR\n" 
-} 
+display_usage() {
+    echo -e "\nUsage: \$0 SOURCE_DIR DEST_DIR\n"
+}
 
-if [  \$# -le 1 ] ; then 
+if [  \$# -le 1 ] ; then
     display_usage
     exit 1
-fi 
- 
-if [[ ( \$# == "--help") ||  \$# == "-h" ]] ; then 
+fi
+
+if [[ ( \$# == "--help") ||  \$# == "-h" ]] ; then
     display_usage
     exit 0
-fi 
+fi
 
 SOURCE_DIR="\$1"
 DEST_DIR="\$2"
@@ -79,7 +79,7 @@ EOM
 
 來源檔案會在 Azure HPC 快取掛接點中快取，而物件檔案則會儲存在本機硬碟上。
 
-這個範例會使用平行複製腳本搭配選項 ``-j``，並 ``make`` 來取得並行處理。
+這個範例會使用平行複製腳本搭配選項 ``-j`` 和 ``make`` 來取得平行處理。
 
 ```bash
 sudo apt-get update

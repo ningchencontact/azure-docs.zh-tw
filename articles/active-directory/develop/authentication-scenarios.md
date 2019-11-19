@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927103"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167780"
 ---
 # <a name="authentication-basics"></a>驗證基本概念
 
@@ -148,7 +148,7 @@ Web 應用程式開發人員可以指出所有或只是特定頁面都需要驗�
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Web 應用程式如何委派登入 Azure AD 並取得權杖
 
 使用者驗證會透過瀏覽器進行。 OpenID 通訊協定會使用標準的 HTTP 通訊協定訊息。
-- Web 應用程式會將 HTTP 202 （重新導向）傳送至瀏覽器，以使用 Azure AD。
+- Web 應用程式會將 HTTP 302 （重新導向）傳送至瀏覽器，以使用 Azure AD。
 - 當使用者通過驗證時，Azure AD 會透過瀏覽器使用重新導向，將權杖傳送至 web 應用程式。
 - 重新導向是由 web 應用程式以重新導向 URI 的形式提供。 此重新導向 URI 會向 Azure AD 應用程式物件註冊。 可能會有數個重新導向 Uri，因為應用程式可以部署在數個 Url 上。 因此，web 應用程式也需要指定要使用的重新導向 URi。
 - Azure AD 確認 web 應用程式所傳送的重新導向 URI 是應用程式的其中一個已註冊的重新導向 uri。
@@ -159,7 +159,7 @@ Web 應用程式開發人員可以指出所有或只是特定頁面都需要驗�
 
 桌面和行動應用程式可以使用內嵌的 Web 控制項或系統瀏覽器來進行驗證。 下圖顯示桌面或行動應用程式如何使用 Microsoft 驗證程式庫（MSAL）來取得存取權杖和呼叫 web Api。
 
-![桌面應用程式的外觀](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![桌面應用程式的外觀](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL 會使用瀏覽器來取得權杖，並在 web 應用程式中將驗證委派給 Azure AD。
 

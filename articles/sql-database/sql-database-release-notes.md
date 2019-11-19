@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821189"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166250"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -68,7 +68,7 @@ ms.locfileid: "73821189"
 
 下列功能已在 H1 2019 中的受控實例部署模型中啟用：
   - 支援訂用帳戶的訂用帳戶， <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Visual Studio 訂閱者的每月點數</a>，以及增加的[地區限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)。
-  - 支援<a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 和 sharepoint 2019</a>和<a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central</a>
+  - 對 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a> 的支援
   - 建立具有<a href="https://aka.ms/managed-instance-collation">伺服器層級定序</a>和您所選擇<a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">時區</a>的實例。
   - 受控實例現在會受到<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
   - 將實例設定為使用[公用端點](sql-database-managed-instance-public-endpoint-configure.md)、 [Proxy 覆寫](sql-database-connectivity-architecture.md#connection-policy)連線以取得更佳的網路效能、 <a href="https://aka.ms/four-cores-sql-mi-update">4 虛擬核心在第5代硬體產生</a>，或<a href="https://aka.ms/managed-instance-configurable-backup-retention">將備份保留設定為35天</a>以進行時間點還原。 長期備份保留期（最多10年）仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">僅限複本備份</a>做為替代方案。
@@ -79,6 +79,8 @@ ms.locfileid: "73821189"
 ## <a name="fixed-known-issues"></a>已修正的已知問題
 
 - **8 月 2019** -受控實例中完全支援自主資料庫。
+- **Oct 2019** -如果源資料庫包含記憶體內部 OLTP 物件，從業務關鍵層到一般用途層的內建時間點資料庫還原將不會成功。
+- **11 月 2019** -從 Azure Blob 儲存體還原資料庫之後，使用 `DBCC CHECKDB` 來確認資料庫一致性。
 
 ## <a name="updates"></a>更新
 

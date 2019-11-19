@@ -1,19 +1,14 @@
 ---
-title: 使用 Azure 備份伺服器，將工作負載備份至 Azure
+title: 使用 Azure 備份伺服器備份工作負載
 description: 在本文中，您將瞭解如何準備您的環境，以使用 Microsoft Azure 備份 Server （MABS）來保護和備份工作負載。
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012919"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172982"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 
@@ -335,8 +330,6 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
    > [!NOTE]
    >
    > 請勿在升級 SQL 執行個體時結束，結束會將 SQL 報告執行個體解除安裝，因而使重新升級 MABS 的嘗試失敗。
-
-
 
    > [!IMPORTANT]
    >

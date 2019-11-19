@@ -1,18 +1,14 @@
 ---
-title: Azure 備份架構
+title: 架構概觀
 description: 概略說明 Azure 備份服務所使用的架構、元件和程序。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074354"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173512"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 備份架構和元件
 
@@ -96,7 +92,7 @@ Azure 備份提供不同的備份代理程式，視要備份的機器類型而�
 
 下表摘要說明不同備份類型的支援功能：
 
-**功能** | **內部部署 Windows Server 機器（direct）** | **Azure VM** | **具有 DPM/MABS 的機器或應用程式**
+**功能** | **直接備份檔案和資料夾（使用 MARS 代理程式）** | **Azure VM 備份** | **具有 DPM/MABS 的機器或應用程式**
 --- | --- | --- | ---
 備份至保存庫 | ![yes][green] | ![yes][green] | ![yes][green]
 備份至 DPM/MABS 磁片，到 Azure | | | ![yes][green]
@@ -106,7 +102,7 @@ Azure 備份提供不同的備份代理程式，視要備份的機器類型而�
 
 ![資料表索引鍵](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>架構：直接備份 Azure Vm
+## <a name="architecture-built-in-azure-vm-backup"></a>架構：內建的 Azure VM 備份
 
 1. 當您啟用 Azure VM 的備份時，備份會根據您指定的排程執行。
 1. 第一次備份時，如果 VM 正在執行，則會在 VM 上安裝備份擴充功能。

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: e276340041e69101190645caad9dbf6de57abd95
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 11/17/2019
+ms.openlocfilehash: 5d3d752f549fe336f584fa3534b61cb5a009c3bd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996501"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158813"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>讀取適用於 PostgreSQL 的 Azure 資料庫中的複本-單一伺服器
 
@@ -85,7 +85,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 
 [**跨越複本的最大延遲**] 計量會顯示主伺服器和最延遲複本之間的延遲（以位元組為單位）。 此計量僅適用於主要伺服器。
 
-[**複本延遲**] 度量會顯示上次重新執行交易之後的時間。 如果主要伺服器上沒有發生交易，計量會反映此時間延隔。 此度量僅適用于複本伺服器。 複本延遲是從`pg_stat_wal_receiver` view 計算而來：
+[**複本延遲**] 度量會顯示上次重新執行交易之後的時間。 如果主要伺服器上沒有發生交易，計量會反映此時間延隔。 此度量僅適用于複本伺服器。 複本 Lag 會從 `pg_stat_wal_receiver` 視圖計算：
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -142,11 +142,11 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 一旦您的應用程式成功處理讀取和寫入，您就已完成容錯移轉。 您的應用程式體驗所需的停機時間將取決於您偵測到問題，並完成上述步驟1和2。
 
 
-## <a name="considerations"></a>考量
+## <a name="considerations"></a>注意事項
 
 本節將摘要說明有關讀取複本功能的考量。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 建立讀取複本之前，`azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 變更此參數後，必須重新啟動伺服器，才能讓變更生效。 `azure.replication_support` 參數僅適用於「一般用途」和「記憶體最佳化」層級。
 
 ### <a name="new-replicas"></a>新複本
@@ -160,10 +160,12 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 PostgreSQL 會要求讀取複本上的 `max_connections` 參數值大於或等於主要伺服器的值，否則讀取複本將不會啟動。 在適用於 PostgreSQL 的 Azure 資料庫中，`max_connections` 參數值會以 SKU 作為基礎。 如需詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫限制](concepts-limits.md)。 
 
-如果您嘗試更新伺服器的值，但並未遵循這些限制，則您會收到錯誤。
+如果您嘗試更新上述的伺服器值，但未遵守限制，您會收到錯誤。
+
+建立複本或之後，防火牆規則、虛擬網路規則和參數設定不會從主伺服器繼承到複本。
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[于 postgresql 要求](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)讀取複本上的`max_prepared_transactions`參數值必須大於或等於主要值，否則複本將不會啟動。 如果您想要在`max_prepared_transactions`主伺服器上變更，請先在複本上變更它。
+[于 postgresql 要求](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)讀取複本上的 `max_prepared_transactions` 參數值必須大於或等於主要值;否則，複本將不會啟動。 如果您想要變更主機上的 `max_prepared_transactions`，請先在複本上變更它。
 
 ### <a name="stopped-replicas"></a>已停止的複本
 如果您停止主要伺服器和讀取複本之間的複寫，複本將會重新啟動以套用變更。 停止的複本會變成支接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。

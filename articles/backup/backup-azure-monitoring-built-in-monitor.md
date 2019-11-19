@@ -1,21 +1,15 @@
 ---
-title: Azure 備份：監視 Azure 備份受保護的工作負載
+title: 監視 Azure 備份受保護的工作負載
 description: 在本文中，您將瞭解使用 Azure 入口網站 Azure 備份工作負載的監視和通知功能。
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure 備份;Alerts
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: cd9e4e14771744b6275bb1dfe0a96bbef475a123
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090950"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172868"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>監視 Azure 備份工作負載
 
@@ -63,7 +57,7 @@ Azure 備份針對受 Azure 備份保護的工作負載，提供內建的監視�
 
 上述例外狀況的設計來自于瞭解這些作業的結果（主要由使用者觸發）會立即顯示在入口網站/PS/CLI 用戶端上。 因此，使用者會立即察覺並不需要通知。
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>下列 Azure 備份解決方案的警示如下所示：
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>下列 Azure 備份解決方案的警示如下所示
 
 - Azure VM 備份
 - Azure 檔案備份

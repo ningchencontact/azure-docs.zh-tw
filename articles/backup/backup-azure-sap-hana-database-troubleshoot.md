@@ -1,25 +1,20 @@
 ---
-title: 針對 SAP Hana 資料庫備份錯誤進行疑難排解-Azure 備份
+title: 針對 SAP Hana 資料庫備份錯誤進行疑難排解
 description: 說明如何針對使用 Azure 備份備份 SAP Hana 資料庫時可能發生的常見錯誤進行疑難排解。
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: cbffa7415f315fd396e57afa355d2415c4612eb5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968444"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172755"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>針對 Azure 上 SAP Hana 資料庫的備份進行疑難排解
 
 本文提供在 Azure 虛擬機器上備份 SAP Hana 資料庫的疑難排解資訊。 下一節涵蓋診斷 SAP Hana 備份中常見錯誤所需的重要概念資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 作為[必要條件](backup-azure-sap-hana-database.md#prerequisites)的一部分，請確定已在安裝 HANA 的虛擬機器上執行 preregistration 腳本。
 
@@ -82,12 +77,12 @@ Preregistration 腳本的作用：
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-data| 錯誤訊息 | 可能的原因 | 建議動作 |
+data| 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | 無法連接到 HANA 系統。 確認您的系統已啟動且正在執行。| Azure 備份服務無法連接到 HANA，因為 HANA 資料庫已關閉。 或 HANA 正在執行，但不允許 Azure 備份服務連接。 | 檢查 HANA 資料庫或服務是否已關閉。 如果 HANA 資料庫或服務已啟動且正在執行，請檢查是否[已設定擁有權限](#setting-up-permissions)。 如果金鑰遺失，請重新執行 preregistration 腳本以建立新的金鑰。 |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| 錯誤訊息 | 可能的原因 | 建議動作 |
+| 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | 偵測到不正確 Backint 設定。 停止保護並重新設定資料庫。| 未正確地指定 Azure 備份的 backInt 參數。 | 檢查是否[已設定參數](#setting-up-backint-parameters)。 如果主機中有以 backInt 為基礎的參數，請將它們移除。 如果主機層級沒有參數，但已在資料庫層級手動修改，請將它們還原為適當的值，如先前所述。 或者，執行 [**停止保護] 並保留**Azure 入口網站中的備份資料，然後選取 [**繼續備份**]。|

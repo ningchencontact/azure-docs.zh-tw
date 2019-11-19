@@ -1,18 +1,14 @@
 ---
-title: 當您使用 Azure 備份建立 Azure VM 時啟用備份
+title: 建立 Azure VM 時啟用備份
 description: 說明當您使用 Azure 備份建立 Azure VM 時，如何啟用備份。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: e873980ce7aab1c5454a28e88df24bdb189c4860
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074838"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172365"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>建立 Azure VM 時啟用備份
 

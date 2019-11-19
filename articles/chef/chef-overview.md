@@ -1,19 +1,15 @@
 ---
 title: 搭配 Azure 使用 Chef
 description: 使用 Chef 來設定及測試 Azure 基礎結構的簡介
-ms.service: virtual-machines-linux
 keywords: azure, chef, devops, 虛擬機器, 概觀, 自動化
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ad8b79b42c9d8d7942f391223c052f63579b11b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656569"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158000"
 ---
 # <a name="using-chef-with-azure"></a>搭配 Azure 使用 Chef
 [Chef](https://www.chef.io) 是個功能強大的自動化平台，可將 Azure 上的虛擬機器基礎結構轉換為程式碼。 無論您網路之間的基礎結構設定大小，Chef 都會將其設定、部署及受控方式自動化。

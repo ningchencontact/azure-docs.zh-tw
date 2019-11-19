@@ -1,19 +1,15 @@
 ---
-title: Azure 備份監視警示常見問題
+title: 監視警示和報告常見問題
 description: 在本文中，您可以找到有關 Azure 備份監視警示和 Azure 備份報告的常見問題解答。
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: dc0225092d23371ca97dfedd48a2d3ffcf85a9be
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747392"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172919"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure 備份監視警示-常見問題
 

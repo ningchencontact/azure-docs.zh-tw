@@ -10,20 +10,26 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: e369067a3ff61ffefe1758f6fa8b4acdce4bb2e2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134433"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173642"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>瞭解適用于容器 Azure 監視器的 Kubernetes 叢集健康情況
 
 使用容器的 Azure 監視器，它會監視並報告受管理基礎結構元件的健全狀況狀態，以及針對容器 Azure 監視器所支援的任何 Kubernetes 叢集上執行的所有節點。 此體驗延伸超過叢集健全狀況狀態，並會在[多叢集視圖](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)上進行計算並回報，現在您可以瞭解叢集中的一或多個節點是否受資源限制，或節點或 pod 是否無法使用，而可能會影響叢集中的執行中應用程式（以策劃的計量為基礎）。 
 
 如需如何啟用容器 Azure 監視器的詳細資訊，請參閱將[容器上架 Azure 監視器](container-insights-onboard.md)。
+
+>[!NOTE]
+>若要支援 AKS Engine 叢集，請確認它符合下列內容：
+>- 它使用最新版的[HELM 用戶端](https://helm.sh/docs/using_helm/)。
+>- 容器化代理程式版本為*microsoft/oms： ciprod11012019*。 若要升級代理程式，請參閱[升級 Kubernetes 叢集上的代理程式](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster)。
+>
 
 ## <a name="overview"></a>Overview
 

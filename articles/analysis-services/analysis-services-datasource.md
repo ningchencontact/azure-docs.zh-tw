@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120014"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170667"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -91,7 +91,7 @@ ms.locfileid: "74120014"
 
 ## <a name="specifying-a-different-provider"></a>指定不同提供者
 
-Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用如 SQL Server Native Client (SQLNCLI11) 等原生提供者連線至資料來源的表格式模型可能會傳回錯誤。 如果使用 SQLOLEDB 以外的原生提供者，您可能會看到錯誤訊息：**未註冊 'SQLNCLI11.1' 提供者**。 或者，如果您有連接到內部部署資料來源的 DirectQuery 模型，而且您使用原生提供者，您可能會看到錯誤訊息：**建立 OLE DB 資料列集時發生錯誤。接近 ' LIMIT ' 的語法不正確**。
+Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用如 SQL Server Native Client (SQLNCLI11) 等原生提供者連線至資料來源的表格式模型可能會傳回錯誤。 如果使用內含 MSOLEDBSQL.H 以外的原生提供者，您可能會看到錯誤訊息：**未註冊提供者 ' sqlncli 11.1 '** 。 或者，如果您有連接到內部部署資料來源的 DirectQuery 模型，而且您使用原生提供者，您可能會看到錯誤訊息：**建立 OLE DB 資料列集時發生錯誤。接近 ' LIMIT ' 的語法不正確**。
 
 將內部部署 SQL Server Analysis Services 表格式模型移轉至 Azure Analysis Services 時，可能需要變更提供者。
 

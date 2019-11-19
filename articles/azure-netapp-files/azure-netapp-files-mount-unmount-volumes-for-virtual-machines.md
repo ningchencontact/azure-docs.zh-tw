@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 4cd3bc7e4f95869d3efd2d92a7cdf1addc7ce5b2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953105"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173591"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>對 Windows 或 Linux 虛擬機器掛接或取消掛接磁碟區 
 
@@ -32,11 +32,17 @@ ms.locfileid: "73953105"
 
     ![裝載指示 SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-如果您使用 NFSv 4.1，請使用下列命令來掛接檔案系統：  
+    如果您使用 NFSv 4.1，請使用下列命令來掛接檔案系統： `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+3. 如果您想要在 Azure VM 啟動或重新開機時自動掛接 NFS 磁片區，請將專案新增至主機上的 `/etc/fstab` 檔案。 
+
+    例如：`$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
+
+    * `$ANFIP` 是在 [磁片區屬性] 分頁中找到之 Azure NetApp Files 磁片區的 IP 位址。
+    * `$FILEPATH` 是 Azure NetApp Files 磁片區的匯出路徑。
+    * `$MOUNTPOINT` 是在用來裝載 NFS 匯出的 Linux 主機上建立的目錄。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [針對 Azure NetApp Files 設定 NFSv 4.1 預設網域](azure-netapp-files-configure-nfsv41-domain.md)
-* 請參閱[Nfs 常見問題](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)，瞭解如何在 Azure VM 啟動或重新開機時，自動裝載 nfs 磁片區。
+* [NFS 常見問題](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

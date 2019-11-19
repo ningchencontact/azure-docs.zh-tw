@@ -1,20 +1,15 @@
 ---
-title: Azure 備份：建立復原服務保存庫
+title: 建立復原服務保存庫
 description: 在本文中，您將瞭解如何建立復原服務保存庫，以儲存備份和復原點。
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: 復原服務保存庫;Azure VM 備份;Azure VM 還原;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074884"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172435"
 ---
 # <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 

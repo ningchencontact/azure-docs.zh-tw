@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511916"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167571"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的驗證技術設定檔
 
@@ -39,20 +39,23 @@ ms.locfileid: "66511916"
 
 自我判斷的驗證技術設定檔可定義驗證技術設定檔用於驗證部分或全部輸出宣告。 參考驗證技術設定檔的所有輸入宣告必須出現在參考技術設定檔的輸出宣告中。
 
+> [!NOTE]
+> 只有自我判斷技術設定檔可以使用驗證技術設定檔。 如果您需要驗證來自非自我判斷技術設定檔的輸出宣告，請考慮在使用者旅程圖中使用額外的協調流程步驟，以配合驗證所需的技術設定檔。    
+
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 **ValidationTechnicalProfiles** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 技術設定檔可用於驗證參考技術設定檔的部分或所有輸出宣告。 |
 
 **ValidationTechnicalProfile** 元素包含下列屬性：
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要 | 描述 |
 | --------- | -------- | ----------- |
-| ReferenceId | 是 | 已在原則或父原則中定義之技術設定檔的識別碼。 |
-|ContinueOnError|否| 表示驗證的任何後續的驗證技術設定檔是否應該繼續如果這個驗證技術設定檔就會引發錯誤。 可能的值：`true` 或 `false` (預設值，進一步驗證設定檔的處理將停止，並傳回錯誤)。 |
+| ReferenceId | yes | 已在原則或父原則中定義之技術設定檔的識別碼。 |
+|ContinueOnError|否| 指出當此驗證技術設定檔引發錯誤時，是否應該繼續進行任何後續驗證技術設定檔的驗證。 可能的值：`true` 或 `false` (預設值，進一步驗證設定檔的處理將停止，並傳回錯誤)。 |
 |ContinueOnSuccess | 否 | 表示如果此驗證設定檔成功，任何後續驗證技術設定檔的驗證是否應該繼續。 可能的值：`true` 或 `false`。 預設值是 `true`，表示進一步驗證設定檔的處理會繼續。 |
 
 **ValidationTechnicalProfile** 元素包含下列元素：
@@ -63,10 +66,10 @@ ms.locfileid: "66511916"
 
 **Precondition** 元素包含下列屬性：
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要 | 描述 |
 | --------- | -------- | ----------- |
-| `Type` | 是 | 要針對此先決條件執行的檢查或查詢類型。 `ClaimsExist` 指定如果指定的宣告存在於使用者目前的宣告組中，就應執行動作，或 `ClaimEquals` 指定如果指定宣告存在且其值等於指定的值，就應執行動作。 |
-| `ExecuteActionsIf` | 是 | 指出如果測試為 True 或 False，是否應執行先決條件中的動作。 |
+| `Type` | yes | 要針對此先決條件執行的檢查或查詢類型。 `ClaimsExist` 指定如果指定的宣告存在於使用者目前的宣告組中，就應執行動作，或 `ClaimEquals` 指定如果指定宣告存在且其值等於指定的值，就應執行動作。 |
+| `ExecuteActionsIf` | yes | 指出如果測試為 True 或 False，是否應執行先決條件中的動作。 |
 
 **Precondition** 元素包含下列元素：
 

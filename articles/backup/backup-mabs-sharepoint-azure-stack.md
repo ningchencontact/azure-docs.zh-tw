@@ -1,19 +1,14 @@
 ---
 title: 備份 Azure Stack 上的 SharePoint 伺服器陣列
 description: 使用 Azure 備份伺服器來備份和還原 Azure Stack 上的 SharePoint 資料。 本文提供設定 SharePoint 伺服器陣列，讓所需的資料可以儲存在 Azure 中的相關資訊。 您可以從磁碟或 Azure 還原受保護的 SharePoint 資料。
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: c15f3f899b856cb715406bf0e2f95914cd58cca0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 06d64be4f09c6fb6ed9dee34a0c7ba0b1bd785e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091678"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172500"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>備份 Azure Stack 上的 SharePoint 伺服器陣列
 

@@ -1,21 +1,15 @@
 ---
-title: Azure 備份︰使用 REST API 管理備份作業
+title: 使用 REST API 管理備份作業
 description: 在本文中，您將瞭解如何使用 REST API 來追蹤和管理 Azure 備份的備份和還原作業。
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM 備份; Azure VM 還原;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929108"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173402"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>使用 REST API 追蹤備份和還原
 

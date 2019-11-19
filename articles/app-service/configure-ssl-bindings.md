@@ -70,7 +70,7 @@ ms.locfileid: "73509052"
 
 在 [自訂網域]  中，選取要新增繫結的自訂網域。
 
-如果您的應用程式已有所選自訂網域的憑證，請直接移至 [建立繫結][](#create-binding)。 否則，請繼續進行。
+如果您的應用程式已經有所選自訂網域的憑證，請移至 [直接建立系結](#create-binding)。 否則，請繼續進行。
 
 ### <a name="add-a-certificate-for-custom-domain"></a>新增自訂網域的憑證
 

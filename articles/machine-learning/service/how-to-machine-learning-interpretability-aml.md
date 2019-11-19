@@ -1,7 +1,7 @@
 ---
 title: 本機和遠端執行的模型 interpretability
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用 Azure Machine Learning SDK 來說明您的模型為何會進行預測。 它可以在定型和推斷期間使用，以瞭解您的模型如何判斷特徵重要性並做出預測。
+description: 瞭解如何在使用 Azure Machine Learning SDK 時，取得機器學習服務模型判斷功能重要性及進行預測的說明。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,31 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: a2b71a10606b7cd20f06b2497515b758426833a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ffb9e0547c44ee47a43de00e51933ce7d0584759
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515300"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158718"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>本機和遠端執行的模型 interpretability
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將瞭解如何使用 Azure Machine Learning Python SDK 的 interpretability 套件，來說明您的模型為何進行預測。 您將瞭解下列工作：
+在本文中，您將瞭解如何使用 Azure Machine Learning Python SDK 的 interpretability 套件，來瞭解模型為何進行預測。 您會了解如何：
 
-* 解讀在本機和遠端計算資源上定型的機器學習模型
-* 在 Azure 執行歷程記錄上儲存本機和全域說明
-* 在[Azure Machine Learning studio](https://ml.azure.com)中觀看 interpretability 視覺效果
-* 使用您的模型部署評分說明
+* 解讀在本機和遠端計算資源上定型的機器學習模型。
+* 在 Azure 執行歷程記錄上儲存本機和全域說明。
+* 在[Azure Machine Learning studio](https://ml.azure.com)中觀看 interpretability 視覺效果。
+* 使用您的模型部署評分說明。
 
-若要深入瞭解模型 interpretability，請參閱[概念文章](how-to-machine-learning-interpretability.md)。
+如需詳細資訊，請參閱[Azure Machine Learning 服務中的模型 interpretability](how-to-machine-learning-interpretability.md)。
 
 ## <a name="local-interpretability"></a>本機 interpretability
 
-下列範例會示範如何在本機使用解讀套件，而不需要聯絡 Azure 服務。 執行 `pip install azureml-interpret` 以取得 interpretability 套件。
+下列範例會示範如何在本機使用 interpretability 套件，而不需要聯絡 Azure 服務。
+
+1. 如有需要，請使用 `pip install azureml-interpret` 來取得 interpretability 套件。
 
 1. 在本機 Jupyter 筆記本中訓練範例模型。
 
@@ -54,7 +56,13 @@ ms.locfileid: "73515300"
     model = clf.fit(x_train, y_train)
     ```
 
-2. 在本機呼叫說明：若要初始化說明物件，您必須將您的模型和一些定型資料傳遞至說明的函式。 您也可以選擇性地傳入功能名稱和輸出類別名稱（如果執行分類），這將會用來讓您的說明和視覺效果更具資訊。 以下說明如何使用 `TabularExplainer`、`MimicExplainer`和在本機 `PFIExplainer`，將說明物件具現化。 `TabularExplainer` 會呼叫底下三個 SHAP explainers 的其中一個（`TreeExplainer`、`DeepExplainer`或 `KernelExplainer`），並自動為您的使用案例選取最適合的一個。 不過，您可以直接呼叫它的三個基礎 explainers。
+1. 在本機呼叫說明。
+   * 若要初始化說明物件，請將您的模型和一些定型資料傳遞至說明的函式。
+   * 若要讓您的說明和視覺效果更具資訊性，您可以在執行分類時選擇傳入功能名稱和輸出類別名稱。
+
+   下列程式碼區塊示範如何使用 `TabularExplainer`、`MimicExplainer`和在本機 `PFIExplainer` 來具現化說明物件。
+   * `TabularExplainer` 會呼叫底下三個 SHAP explainers 的其中一個（`TreeExplainer`、`DeepExplainer`或 `KernelExplainer`）。
+   * `TabularExplainer` 會自動為您的使用案例選取最適合的一個，但是您可以直接呼叫它的三個基礎 explainers。
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -80,7 +88,7 @@ ms.locfileid: "73515300"
     from interpret.ext.glassbox import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
-    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns. 
+    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns.
     # max_num_of_augmentations is optional and defines max number of times we can increase the input data size.
     # LGBMExplainableModel can be replaced with LinearExplainableModel, SGDExplainableModel, or DecisionTreeExplainableModel
     explainer = MimicExplainer(model, 
@@ -91,21 +99,22 @@ ms.locfileid: "73515300"
                                features=breast_cancer_data.feature_names, 
                                classes=classes)
     ```
-   或
+
+    或
 
     ```python
-    from interpret.ext.blackbox import PFIExplainer 
-    
+    from interpret.ext.blackbox import PFIExplainer
+
     # "features" and "classes" fields are optional
-    explainer = PFIExplainer(model, 
+    explainer = PFIExplainer(model,
                              features=breast_cancer_data.feature_names, 
                              classes=classes)
     ```
 
-### <a name="overall-global-feature-importance-values"></a>整體（全域）功能重要性值
+### <a name="overall-global-feature-importance-values"></a>整體，全域功能重要性值
 
-取得全域功能重要性值。
-    
+請參閱下列範例，以協助您取得全域功能的重要性值。
+
 ```python
 
 # you can use the training data or the test data here
@@ -123,12 +132,14 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### <a name="instance-level-local-feature-importance-values"></a>實例層級（本機）功能重要性值
+### <a name="instance-level-local-feature-importance-values"></a>實例層級、區域功能重要性值
 
-取得本機功能重要性值：使用下列函式呼叫來說明個別實例或實例群組。 請注意，PFIExplainer 不支援本機說明。
+藉由呼叫個別實例或實例群組的說明，取得本機功能重要性值。
+> [!NOTE]
+> `PFIExplainer` 不支援本機說明。
 
 ```python
-# explain the first data point in the test set
+# get explanation for the first data point in the test set
 local_explanation = explainer.explain_local(x_test[0:5])
 
 # sorted feature importance values and feature names
@@ -138,9 +149,14 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ## <a name="interpretability-for-remote-runs"></a>遠端執行的 Interpretability
 
-這個範例示範如何使用 `ExplanationClient` 類別來啟用遠端執行的模型 interpretability。 概念與上一節類似，但您使用遠端執行中的 `ExplanationClient` 來上傳 interpretability 內容，然後您可以稍後在本機環境中下載內容。 使用 `pip install azureml-contrib-interpret` 來取得必要的套件。
+下列範例會示範如何使用 `ExplanationClient` 類別來啟用遠端執行的模型 interpretability。 它在概念上類似于本機進程，不同之處在于：
 
-1. 在本機 Jupyter 筆記本中建立定型腳本（例如，train_explain. .py）。
+* 使用遠端執行中的 `ExplanationClient` 來上傳 interpretability 內容。
+* 稍後在本機環境中下載內容。
+
+1. 如有需要，請使用 `pip install azureml-contrib-interpret` 來取得必要的套件。
+
+1. 在本機 Jupyter Notebook 中建立定型指令碼。 例如， `train_explain.py`。
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -171,7 +187,7 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. 請遵循[設定模型定型的計算目標](how-to-set-up-training-targets.md#amlcompute)的指示，以瞭解如何設定 Azure Machine Learning 計算作為計算目標並提交定型回合。 您也可以查看[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)。
+1. 設定 Azure Machine Learning 計算作為計算目標，並提交定型回合。 如需相關指示，請參閱為[模型定型設定計算目標](how-to-set-up-training-targets.md#amlcompute)。 您可能也會發現[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)很有用。
 
 1. 在您的本機 Jupyter 筆記本中下載說明。
 
@@ -193,12 +209,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ## <a name="raw-feature-transformations"></a>原始功能轉換
 
-（選擇性）您可以將功能轉換管線傳遞至說明（在 train_explain. .py 中），以在轉換之前（而非設計的功能）接收原始功能的說明。 如果您略過這種情況，說明會提供工程化功能的說明。
+您可以選擇根據原始的未轉換功能，而不是設計的功能來取得說明。 在此選項中，您會將功能轉換管線傳遞至 `train_explain.py`中的說明。 否則，說明會提供工程化功能的說明。
 
-支援的轉換格式與[sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas)中所述相同。 一般而言，只要作業在單一資料行上運作，就可以支援任何轉換，因此很明顯地會有一個。 
+支援的轉換格式與[sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas)中所述相同。 一般而言，只要作業在單一資料行上運作，就可以支援任何轉換，讓它們清楚地是一對多的。
 
-使用 `sklearn.compose.ColumnTransformer` 或合適的轉換器元組清單來說明原始功能。 下列程式碼使用 `sklearn.compose.ColumnTransformer`。 
-
+藉由使用 `sklearn.compose.ColumnTransformer` 或搭配合適的轉換器元組清單來取得原始功能的說明。 下列範例會使用 `sklearn.compose.ColumnTransformer`。
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -232,7 +247,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-如果您想要以合適的轉換器元組清單來執行範例，請使用下列程式碼。
+如果您想要以合適的轉換器元組清單來執行範例，請使用下列程式碼：
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -274,24 +289,24 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 下圖提供已定型模型的全域觀點，以及其預測和說明。
 
-|標|說明|
+|標|描述|
 |----|-----------|
-|資料探索| 資料集和預測值的總覽。|
-|全球重要性|顯示全域的前 K 個（可設定的 K）重要功能。 此圖表適合用來瞭解基礎模型的全域行為。|
-|說明探索|示範功能如何負責在模型的預測值（或預測值的機率）中進行變更。 它也會示範兩個功能如何互動，以影響預測。|
-|摘要重要性| 在所有資料點上使用帶正負號的區域功能重要性值，以顯示每項功能對預測值的影響分佈。|
+|資料探索| 顯示資料集和預測值的總覽。|
+|全球重要性|全域顯示前 K 個（可設定的 K）重要功能。 協助您瞭解基礎模型的全域行為。|
+|說明探索|示範功能如何影響模型預測值的變更，或預測值的機率。 顯示功能互動的影響。|
+|摘要重要性|使用區域，所有資料點上的功能重要性值，顯示每項功能對預測值的影響分佈。|
 
 [![視覺效果儀表板全域](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>本機視覺效果
 
-在上圖中隨時按一下任何個別的資料點，以載入指定資料點的區域功能重要性圖。
+您可以藉由選取繪圖中的個別資料點，為任何資料點載入區域的功能重要性圖。
 
-|標|說明|
+|標|描述|
 |----|-----------|
-|本機重要性|顯示全域的前 K 個（可設定的 K）重要功能。 此圖表有助於瞭解特定資料點上基礎模型的本機行為。|
-|Perturbation 探索|可讓您變更所選資料點的功能值，並觀察這些變更將如何影響預測值。|
-|個別條件式預期（ICE）| 可讓您將最小值的功能值變更為最大值，以查看當功能變更時，資料點的預測如何變更。|
+|本機重要性|顯示全域的前 K 個（可設定的 K）重要功能。 協助說明特定資料點上基礎模型的本機行為。|
+|Perturbation 探索|允許變更所選資料點的功能值，並觀察對預測值所產生的變更。|
+|個別條件式預期（ICE）| 允許將功能值從最小值變更為最大值。 協助說明當功能變更時，資料點的預測如何改變。|
 
 [![視覺效果儀表板區域功能重要性](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
@@ -301,7 +316,8 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 [![視覺效果儀表板 ICE 繪圖](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
 
-注意：啟動 Jupyter 核心之前，您必須先啟用視覺效果儀表板的 widget 延伸模組。
+> [!NOTE]
+> 在 Jupyter 核心啟動之前，請確定您已啟用視覺效果儀表板的 widget 延伸模組。
 
 * Jupyter Notebook
 
@@ -310,16 +326,14 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
     ```
 
-
-
-* Jupyter Labs
+* JupyterLab
 
     ```shell
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
 
-若要載入視覺效果儀表板，請使用下列程式碼。
+若要載入視覺效果儀表板，請使用下列程式碼：
 
 ```python
 from azureml.contrib.interpret.visualize import ExplanationDashboard
@@ -329,31 +343,33 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Azure Machine Learning studio 中的視覺效果
 
-藉由完成[遠端 interpretability](how-to-machine-learning-interpretability-aml.md#interpretability-for-remote-runs)一節中的步驟，您可以在[Azure Machine Learning studio](https://ml.azure.com)中檢查視覺效果儀表板。 Azure Machine Learning studio 中所顯示的儀表板是較簡單的視覺效果儀表板版本，並僅支援下列兩個索引標籤。
+如果您完成[遠端 interpretability](#interpretability-for-remote-runs)步驟，您可以在[Azure Machine Learning studio](https://ml.azure.com)中查看視覺效果儀表板。 此儀表板是較簡單的視覺效果儀表板版本，如上所述。 它只支援兩個索引標籤：
 
-|標|說明|
+|標|描述|
 |----|-----------|
-|全球重要性|顯示全域的前 K 個（可設定的 K）重要功能。 此圖表適合用來瞭解基礎模型的全域行為。|
-|摘要重要性| 在所有資料點上使用帶正負號的區域功能重要性值，以顯示每項功能對預測值的影響分佈。|
+|全球重要性|全域顯示前 K 個（可設定的 K）重要功能。 協助您瞭解基礎模型的全域行為。|
+|摘要重要性|使用區域，所有資料點上的功能重要性值，顯示每項功能對預測值的影響分佈。|
 
-如果全域和本機說明都可以使用，這兩個索引標籤都會填入資料。 如果只有全域說明可供使用，則會停用第二個索引標籤。
+如果全域和本機說明都可供使用，則資料會填入這兩個索引標籤。 如果只有全域說明可供使用，則會停用 [摘要重要性] 索引標籤。
 
-若要存取 Azure Machine Learning studio 中的視覺效果儀表板，您可以流覽下列其中一個路徑：
+遵循下列其中一個路徑來存取 Azure Machine Learning studio 中的視覺效果儀表板：
 
-1. 實驗索引標籤（預覽）：按一下 [實驗] 索引標籤，您會看到您在 Azure Machine Learning 服務上執行的實驗清單。 從該清單中，您可以選取要重新導向至具有所選實驗名稱下所有執行之頁面的特定實驗。 藉由按一下每個回合和其 [說明] 索引標籤，您會看到說明視覺效果儀表板。
+* **實驗**窗格（預覽）
+  1. 在左窗格中選取 [**實驗**]，以查看您在 Azure Machine Learning 服務上執行的實驗清單。
+  1. 選取特定的實驗，以在該實驗中查看所有執行。
+  1. 依序選取 [執行] 和 [說明] 視覺效果儀表板的 [**說明**] 索引標籤。
 
+   [![視覺效果儀表板區域功能重要性](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png)](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png#lightbox)
 
-[![視覺效果儀表板區域功能重要性](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png)](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png#lightbox)
-
-
-2. 模型索引標籤：如果您已使用 [使用[Azure Machine Learning 部署模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)] 中的步驟來註冊原始模型，您的模型就會顯示在 [模型] 索引標籤的清單中。藉由按一下每個模型和其 [說明] 索引標籤，您會看到說明視覺效果儀表板。
+* **模型**窗格
+  1. 如果您[依照使用 Azure Machine Learning 部署模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)中的步驟來註冊原始模型，您可以選取左窗格中的 [**模型**] 來進行查看。
+  1. 選取模型，然後選取 [**說明**] 索引標籤，以查看說明視覺效果儀表板。
 
 ## <a name="interpretability-at-inference-time"></a>在推斷階段 Interpretability
 
-說明可以與原始模型一起部署，並可在推斷時用來提供本機說明資訊。 我們也提供較輕量的評分 explainers，以在推斷階段改善 interpretability 的效能。 部署較輕量計分說明的程式類似于部署模型，並包含下列步驟：
+您可以部署說明以及原始模型，並在推斷階段使用它來提供本機說明資訊。 我們也提供較輕量的評分 explainers，以在推斷階段改善 interpretability 效能。 部署較輕量計分說明的程式類似于部署模型，並包含下列步驟：
 
-
-1. 建立說明物件（例如，使用 TabularExplainer）：
+1. 建立說明物件。 例如，您可以使用 `TabularExplainer`：
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -366,7 +382,7 @@ ExplanationDashboard(global_explanation, model, x_test)
                                 transformations=transformations)
    ```
 
-1. 使用說明物件建立評分說明：
+1. 使用說明物件建立評分說明。
 
    ```python
    from azureml.contrib.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -392,7 +408,7 @@ ExplanationDashboard(global_explanation, model, x_test)
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. 選擇性從雲端取出評分說明並測試說明
+1. 您可以選擇從雲端抓取評分說明並測試說明，這是選擇性步驟。
 
    ```python
    from azureml.contrib.interpret.scoring.scoring_explainer import load
@@ -409,26 +425,28 @@ ExplanationDashboard(global_explanation, model, x_test)
    print(preds)
    ```
 
-1. 將映射部署到計算目標：
+1. 依照下列步驟，將映射部署到計算目標：
 
-   1. 建立評分檔案（在此步驟之前，請遵循[使用 Azure Machine Learning 部署模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)中的步驟來註冊您的原始預測模型）
+   1. 如有需要，請遵循[使用 Azure Machine Learning 部署模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)中的步驟來註冊您的原始預測模型。
 
-        ```python
-        %%writefile score.py
-        import json
-        import numpy as np
-        import pandas as pd
-        import os
-        import pickle
-        from sklearn.externals import joblib
-        from sklearn.linear_model import LogisticRegression
-        from azureml.core.model import Model
+   1. 建立評分檔案。
 
-        def init():
-
+         ```python
+         %%writefile score.py
+         import json
+         import numpy as np
+         import pandas as pd
+         import os
+         import pickle
+         from sklearn.externals import joblib
+         from sklearn.linear_model import LogisticRegression
+         from azureml.core.model import Model
+          
+         def init():
+         
             global original_model
             global scoring_model
-
+             
             # retrieve the path to the model file using the model name
             # assume original model is named original_prediction_model
             original_model_path = Model.get_model_path('original_prediction_model')
@@ -437,7 +455,7 @@ ExplanationDashboard(global_explanation, model, x_test)
             original_model = joblib.load(original_model_path)
             scoring_explainer = joblib.load(scoring_explainer_path)
 
-        def run(raw_data):
+         def run(raw_data):
             # get predictions and explanations for each data point
             data = pd.read_json(raw_data)
             # make prediction
@@ -446,73 +464,76 @@ ExplanationDashboard(global_explanation, model, x_test)
             local_importance_values = scoring_explainer.explain(data)
             # you can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
-        ```
+         ```
+   1. 定義部署設定。
 
-   1. 定義部署設定（此設定取決於模型的需求而定）。 下列範例會定義使用一個 CPU 核心和 1 GB 記憶體的設定
+         此設定取決於您模型的需求。 下列範例會定義使用一個 CPU 核心和一個 GB 記憶體的設定。
 
-        ```python
-        from azureml.core.webservice import AciWebservice
+         ```python
+         from azureml.core.webservice import AciWebservice
 
-        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
-                                                       memory_gb=1,
-                                                       tags={"data": "NAME_OF_THE_DATASET",
-                                                             "method" : "local_explanation"},
-                                                       description='Get local explanations for NAME_OF_THE_PROBLEM')
-        ```
+          aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                                    memory_gb=1,
+                                                    tags={"data": "NAME_OF_THE_DATASET",
+                                                          "method" : "local_explanation"},
+                                                    description='Get local explanations for NAME_OF_THE_PROBLEM')
+         ```
 
-   1. 建立具有環境相依性的檔案
+   1. 建立具有環境相依性的檔案。
 
-        ```python
-        from azureml.core.conda_dependencies import CondaDependencies
+         ```python
+         from azureml.core.conda_dependencies import CondaDependencies
 
-        # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
+         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
-        azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
+         azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
  
 
-        # specify CondaDependencies obj
-        myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
-                                         pip_packages=['sklearn-pandas'] + azureml_pip_packages,
-                                         pin_sdk_version=False)
+         # specify CondaDependencies obj
+         myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
+                                          pip_packages=['sklearn-pandas'] + azureml_pip_packages,
+                                          pin_sdk_version=False)
 
 
-        with open("myenv.yml","w") as f:
+         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
 
-        with open("myenv.yml","r") as f:
+         with open("myenv.yml","r") as f:
             print(f.read())
-        ```
+         ```
 
-   1. 建立已安裝 g + + 的自訂 dockerfile
+   1. 建立已安裝 g + + 的自訂 dockerfile。
 
-        ```python
-        %%writefile dockerfile
-        RUN apt-get update && apt-get install -y g++
-        ```
+         ```python
+         %%writefile dockerfile
+         RUN apt-get update && apt-get install -y g++
+         ```
 
-   1. 部署已建立的映射（時間估計：5分鐘）
+   1. 部署所建立的映射。
+   
+         此程式大約需要五分鐘的時間。
 
-        ```python
-        from azureml.core.webservice import Webservice
-        from azureml.core.image import ContainerImage
+         ```python
+         from azureml.core.webservice import Webservice
+         from azureml.core.image import ContainerImage
 
-        # use the custom scoring, docker, and conda files we created above
-        image_config = ContainerImage.image_configuration(execution_script="score.py",
-                                                        docker_file="dockerfile",
-                                                        runtime="python",
-                                                        conda_file="myenv.yml")
+         # use the custom scoring, docker, and conda files we created above
+         image_config = ContainerImage.image_configuration(execution_script="score.py",
+                                                         docker_file="dockerfile",
+                                                         runtime="python",
+                                                         conda_file="myenv.yml")
 
-        # use configs and models generated above
-        service = Webservice.deploy_from_model(workspace=ws,
-                                            name='model-scoring-service',
-                                            deployment_config=aciconfig,
-                                            models=[scoring_explainer_model, original_model],
-                                            image_config=image_config)
+         # use configs and models generated above
+         service = Webservice.deploy_from_model(workspace=ws,
+                                             name='model-scoring-service',
+                                             deployment_config=aciconfig,
+                                             models=[scoring_explainer_model, original_model],
+                                             image_config=image_config)
 
-        service.wait_for_deployment(show_output=True)
-        ```
+         service.wait_for_deployment(show_output=True)
+         ```
 
-1. 測試部署
+1. 測試部署。
 
     ```python
     import requests
@@ -531,8 +552,10 @@ ExplanationDashboard(global_explanation, model, x_test)
     print("prediction:", resp.text)
     ```
 
-1. 清理：若要刪除已部署的 web 服務，請使用 `service.delete()`。
+1. 清除。
+
+   若要刪除已部署的 Web 服務，請使用 `service.delete()`。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解模型 interpretability，請參閱[概念性文章](how-to-machine-learning-interpretability.md)。
+[深入瞭解模型 interpretability](how-to-machine-learning-interpretability.md)

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f87d835973410a7d8e134c676530a9476cd3c2fe
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9e731ff55aa4b37d0777cf9eefb14bb111b73070
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012740"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173995"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -404,7 +404,7 @@ pipeline_run1.wait_for_completion()
  
 1. 選取特定管線以查看執行結果。
 
-## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
+## <a name="git-tracking-and-integration"></a>Git 追蹤與整合
 
 當您啟動定型回合，其中來原始目錄是本機 Git 存放庫時，儲存機制的相關資訊會儲存在執行歷程記錄中。 如需詳細資訊，請參閱[Azure Machine Learning 的 Git 整合](concept-train-model-git-integration.md)。
 
@@ -459,6 +459,39 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
+## <a name="create-a-versioned-pipeline-endpoint"></a>建立已設定版本的管線端點
+您可以建立管線端點，其中包含多個已發佈的管線。 這可以像已發佈的管線一樣使用，但會在您逐一查看並更新 ML 管線時提供固定的 REST 端點。
+
+```python
+from azureml.pipeline.core import PipelineEndpoint
+
+published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
+                                            pipeline=published_pipeline, description="Test description Notebook")
+```
+
+### <a name="submit-a-job-to-a-pipeline-endpoint"></a>將作業提交至管線端點
+您可以將作業提交至管線端點的預設版本：
+```python
+pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
+print(run_id)
+```
+您也可以將作業提交至特定版本：
+```python
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline_version="0")
+print(run_id)
+```
+
+您可以使用 REST API 來完成相同動作：
+```python
+rest_endpoint = pipeline_endpoint_by_name.endpoint
+response = requests.post(rest_endpoint, 
+                         headers=aad_token, 
+                         json={"ExperimentName": "PipelineEndpointExperiment",
+                               "RunSource": "API",
+                               "ParameterAssignments": {"1": "united", "2":"city"}})
+```
 
 ### <a name="use-published-pipelines-in-the-studio"></a>在 studio 中使用已發佈的管線
 

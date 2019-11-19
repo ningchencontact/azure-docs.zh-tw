@@ -1,19 +1,14 @@
 ---
-title: 保護系統狀態 & 裸機還原-Azure 備份伺服器
+title: 系統狀態和裸機復原保護
 description: 使用 Azure 備份伺服器來備份系統狀態及提供裸機復原 (BMR) 保護。
-author: dcurwin
-manager: carmonm
-keywords: ''
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dacurwin
-ms.openlocfilehash: 50f534a5a682cd9e4f6aeb040b897e7aae48dddd
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969021"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172255"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份系統狀態及還原為裸機
 
@@ -28,7 +23,7 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 
 下表摘要說明您可以備份及復原的項目。 如需可使用系統狀態和 BMR 來加以保護之應用程式版本的詳細資訊，請參閱 [Azure 備份伺服器會備份哪些項目？](backup-mabs-protection-matrix.md)。
 
-|Backup|問題|從 Azure 備份伺服器的備份進行復原|從系統狀態的備份進行復原|BMR|
+|備份|問題|從 Azure 備份伺服器的備份進行復原|從系統狀態的備份進行復原|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**檔案資料**<br /><br />一般資料備份<br /><br />BMR/系統狀態備份|遺失檔案資料|Y|N|N|
 |**檔案資料**<br /><br />Azure 備份伺服器的檔案資料備份<br /><br />BMR/系統狀態備份|作業系統遺失或損毀|N|Y|Y|
@@ -95,7 +90,7 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 
 ## <a name="before-you-begin"></a>開始之前
 
-1. **部署 Azure 備份伺服器**。 請確認您是否已正確地部署備份伺服器。 如需詳細資訊，請參閱
+1. **部署 Azure 備份伺服器**。 請確認您是否已正確地部署備份伺服器。 如需詳細資訊，請參閱：
     * [Azure 備份伺服器的系統需求](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [備份伺服器保護對照表](backup-mabs-protection-matrix.md)
 

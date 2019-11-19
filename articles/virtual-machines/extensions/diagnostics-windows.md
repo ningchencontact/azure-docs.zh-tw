@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: d43859de71b6e41d5df444716b5504ca6b78400b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 09aaa998bf011561bd73ad87eda6a2e211ffaa72
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073149"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158936"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷
 
@@ -71,9 +71,9 @@ Cmdlet 會傳回包含診斷設定的 *PublicSettings*。 系統支援兩種設�
 
 若要在透過傳統部署模型所建立的現有 VM 上啟用診斷擴充功能，請先使用 [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) Cmdlet 來取得 VM 組態。 然後更新 VM 組態，以使用 [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) Cmdlet 納入診斷擴充功能。 最後，使用 [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm)將更新後的組態套用至 VM。
 
-    $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
-    $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
+    $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
+    $VM_Update = Set-AzureVMDiagnosticsExtension  -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>範例診斷組態
 下列 XML 可用於具有上述指令碼的診斷公用組態。 此範例組態會連同 Windows 事件記錄中的應用程式、安全性和系統通道的錯誤和診斷基礎結構記錄中的任何錯誤，將各種效能計數器一併移轉至診斷儲存體帳戶。

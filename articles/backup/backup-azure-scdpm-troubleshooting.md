@@ -1,19 +1,14 @@
 ---
-title: 針對 System Center Data Protection Manager-Azure 備份進行疑難排解
+title: 針對 System Center Data Protection Manager 疑難排解
 description: 在本文中，探索您在使用 System Center Data Protection Manager 時可能會遇到之問題的解決方案。
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1ff6db463821780975f855488c51663c6a75f83a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8ecd2f469c8fcaea9761a1a3033fa0c44a255ae7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747319"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172704"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>針對 System Center Data Protection Manager 疑難排解
 

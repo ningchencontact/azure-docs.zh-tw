@@ -1,18 +1,14 @@
 ---
-title: Azure VM 備份的 Azure 備份支援矩陣
+title: Azure VM 備份的支援矩陣
 description: 摘要說明使用 Azure 備份服務來備份 Azure VM 時的支援設定和限制。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f699315855dc27fd70fdb60574414ef87037671f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 8f84d7fefd2affc3a3c47227ab6f2a2d0b325f4e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953257"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172080"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 
@@ -65,6 +61,8 @@ ms.locfileid: "73953257"
 使用 Azure VM 代理程式擴充功能進行備份 | -Windows 10 用戶端（僅限64位） <br/><br/>-Windows Server 2019 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2016 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2012 R2 （Datacenter/Standard） <br/><br/> -Windows Server 2008 R2 （RTM 和 SP1 標準）
 使用 MARS 代理程式進行備份 | [支援的](backup-support-matrix-mars-agent.md#support-for-direct-backups)作業系統。
 使用 DPM/MABS 備份 | 使用 [MABS](backup-mabs-protection-matrix.md) 和 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) 進行備份時支援的作業系統。
+
+Azure 備份不支援 32 位元作業系統。
 
 ## <a name="support-for-linux-backup"></a>Linux 備份的支援
 

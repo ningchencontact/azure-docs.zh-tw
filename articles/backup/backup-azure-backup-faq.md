@@ -1,18 +1,14 @@
 ---
-title: Azure 備份功能的常見問題解答
+title: 常見問題的解答
 description: '有關以下常見問題的解答：包括復原服務保存庫、可以備份的項目、其運作方式、加密和限制等 Azure 備份功能。 '
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: efd2959547e13872bfa73a0a8e4b9fda62ea5728
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074310"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173233"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 
@@ -96,6 +92,8 @@ Windows Storage Server 2012 R2 64 位元 | Standard、Workgroup、Essential | �
 Windows Storage Server 2012 64 位元 | Standard、Workgroup | 含最新的服務套件/更新。
 Windows Server 2008 R2 SP1 64 位元 | Standard、Enterprise、Datacenter、Foundation | 含最新的更新。
 Windows Server 2008 64 位元 | Standard、Enterprise、Datacenter | 含最新的更新。
+
+Azure 備份不支援 32 位元作業系統。
 
 針對 Azure VM Linux 備份，Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 和 32 位元作業系統除外。 只要 VM 上有 VM 代理程式可用並可支援 Python，其他自備的 Linux 散發套件便可能可以運作。
 

@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70130070"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74174928"
 ---
-| Resource | 預設/最大限制 | 注意 |
+| 資源 | 預設/最大限制 | 注意 |
 | --- | --- | --- |
 | Azure 應用程式閘道 |每個訂用帳戶1000 | |
 | 前端 IP 設定 |2 |公用 1 個和私用 1 個 |
@@ -28,12 +28,13 @@ ms.locfileid: "70130070"
 | 受信任的根憑證 |100 | |
 | 要求超時下限 |1 秒 | |
 | 要求超時上限 |24 小時 | |
-| 網站數目 |100<sup>1</sup> |每個 HTTP 接聽程式1個 |
+| 站台數目 |100<sup>1</sup> |每個 HTTP 接聽程式1個 |
 | 每個接聽程式的 URL 對應 |1 | |
 | 每個 URL 對應的路徑型規則數上限|100||
 | 重新導向組態 |100<sup>1</sup>| |
 | 並行的 WebSocket 連線 |中型閘道20k<br> 大型閘道50k| |
-| URL 長度上限|8,000||
+| URL 長度上限|32KB| |
+| HTTP/2 的標頭大小上限 |4KB| |
 | 檔案上傳大小上限，標準 |2 GB | |
 | WAF 檔案上傳大小上限 |中型 WAF 閘道，100 MB<br>大型 WAF 閘道，500 MB| |
 | WAF 的主體大小限制，不含檔案|128 KB||

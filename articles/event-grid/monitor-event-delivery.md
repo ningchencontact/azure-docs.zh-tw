@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
-ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824091"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170019"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>監視事件格線訊息傳遞 
 
@@ -29,8 +29,8 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 對於主題，計量為：
 
-* **發佈成功**：已將事件成功傳送至主題，並以 2xx 回應來處理。
-* **發佈失敗**：已將事件傳送至主題，但遭到拒絕且有錯誤碼。
+* **發行成功**：已將事件成功傳送至主題，並以 2xx 回應來處理。
+* **發行失敗**：已將事件傳送至主題，但遭到拒絕且有錯誤碼。
 * **不相符**：已將事件成功發佈至主題，但與事件訂閱不符。 已捨棄事件。
 
 對於訂閱，計量為：
@@ -38,21 +38,21 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 * **傳遞成功**：已將事件成功傳遞至訂閱的端點，並已收到 2xx 回應。
 * **傳遞失敗**：已將事件傳送至訂閱的端點，但收到了 4xx 或 5xx 回應。
 * **已過期事件**：事件並未傳遞且已傳送所有的重試嘗試。 已捨棄事件。
-* **相符的事件**：主題中的事件已由事件訂閱加以比對。
+* **已比對的事件**：主題中的事件已由事件訂閱加以比對。
 
 ## <a name="event-subscription-status"></a>事件訂閱狀態
 
 若要查看事件訂閱的計量，您可以依訂閱類型或特定資源的訂閱搜尋。
 
-若要依事件訂閱類型搜尋，請選取 [所有服務]  。
+若要依事件訂閱類型搜尋，請選取 [所有服務]。
 
 ![選取 [所有服務]](./media/monitor-event-delivery/all-services.png)
 
-搜尋 [事件格線]  ，然後從可用的選項選取 [事件格線訂閱]  。
+搜尋 [事件格線]，然後從可用的選項選取 [事件格線訂閱]。
 
 ![搜尋事件訂閱](./media/monitor-event-delivery/search-and-select.png)
 
-依事件的類型、訂閱及位置進行篩選。 針對要檢視的訂閱選取 [計量]  。
+依事件的類型、訂閱及位置進行篩選。 針對要檢視的訂閱選取 [計量]。
 
 ![篩選事件訂閱](./media/monitor-event-delivery/filter-events.png)
 
@@ -60,7 +60,7 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 ![檢視事件計量](./media/monitor-event-delivery/subscription-metrics.png)
 
-若要尋找特定資源的計量，請選取該資源。 然後，選取 [事件]  。
+若要尋找特定資源的計量，請選取該資源。 然後，選取 [事件]。
 
 ![選取資源的事件](./media/monitor-event-delivery/select-events.png)
 
@@ -75,6 +75,12 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 檢視自訂事件主題的計量。
 
 ![檢視事件計量](./media/monitor-event-delivery/custom-topic-metrics.png)
+
+## <a name="set-alerts"></a>設定警示
+
+您可以針對自訂主題和事件網域，設定主題和網域層級計量上的警示。 在的 [總覽] 分頁中，從左側的 [具有資源] 功能表選取 [**警示**]，以查看、管理和建立警示規則。 [深入瞭解 Azure 監視器警示](../azure-monitor/platform/alerts-overview.md)
+
+![檢視事件計量](./media/monitor-event-delivery/select-alerts.png)
 
 ## <a name="next-steps"></a>後續步驟
 

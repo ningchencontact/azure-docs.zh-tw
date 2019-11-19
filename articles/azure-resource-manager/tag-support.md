@@ -2,13 +2,13 @@
 title: 資源的標記支援
 description: 顯示哪些 Azure 資源類型支援標記。 提供所有 Azure 服務的詳細資料。
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: c0f36568bbbf824285cfaa3385d2225e0a989639
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/18/2019
+ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149221"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173557"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。 標記為 [**支援標記**] 的資料行指出資源類型是否有標記的屬性。 [**成本報表] 中**標示為 [標記] 的資料行指出該資源類型是否會將標記傳遞至成本報表。
@@ -1364,14 +1364,12 @@ ms.locfileid: "74149221"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 支援標記 | 成本報告中的標記 |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | yes | yes |
-> | netAppAccounts/backupPolicies | yes | yes |
-> | netAppAccounts/capacityPools | yes | yes |
-> | netAppAccounts/capacityPools/磁片區 | yes | yes |
-> | netAppAccounts/capacityPools/磁片區/備份 | 否 | 否 |
-> | netAppAccounts/capacityPools/磁片區/mountTargets | yes | yes |
-> | netAppAccounts/capacityPools/磁片區/快照集 | yes | yes |
-> | netAppAccounts/保存庫 | 否 | 否 |
+> | netAppAccounts | yes | 否 |
+> | netAppAccounts/capacityPools | yes | 否 |
+> | netAppAccounts/capacityPools/磁片區 | yes | 否 |
+> | netAppAccounts/capacityPools/磁片區/mountTargets | yes | 否 |
+> | netAppAccounts/capacityPools/磁片區/快照集 | yes | 否 |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]

@@ -4,14 +4,14 @@ description: 如何使用 Azure 入口網站來管理及更新 Azure HPC 快取
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582208"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166761"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>從 Azure 入口網站管理您的快取
 
@@ -19,7 +19,7 @@ Azure 入口網站中的 快取總覽 頁面會顯示您快取的專案詳細資
 
 若要開啟 總覽 頁面，請在 Azure 入口網站中選取您的快取資源。 例如，載入 [**所有資源**] 頁面，然後按一下快取名稱。
 
-![Azure HPC 快取實例 [總覽] 頁面的螢幕擷取畫面](media/hpc-cache-overview.png) <!-- placeholder is identical to hpc-cache-new-overview.png; replace with better image (showing graphs, full sidebar) when available -->
+![Azure HPC 快取實例 [總覽] 頁面的螢幕擷取畫面](media/hpc-cache-overview.png)
 
 頁面頂端的按鈕可協助您管理快取：
 
@@ -37,15 +37,17 @@ Azure 入口網站中的 快取總覽 頁面會顯示您快取的專案詳細資
 > [!NOTE]
 > 在清除程式期間，快取無法服務用戶端要求。 在作業完成之後，快取存取已暫停並繼續。
 
+![反白顯示醒目提示的頂端按鈕螢幕擷取畫面，以及描述清除動作並詢問「您要繼續嗎？」的快顯訊息 具有 [是] （預設值）和 [無] 按鈕](media/hpc-cache-flush.png)
+
 當您啟動快取排清作業時，快取會停止接受用戶端要求，而且 [總覽] 頁面上的快取狀態會變更為 [排清 **]。**
 
-快取中的資料會儲存至適當的儲存體目標。 此程式可能需要幾分鐘的時間，否則可能需要一個小時以上，視最近寫入快取的資料量而定。
+快取中的資料會儲存至適當的儲存體目標。 視需要排清的資料量而定，此程式可能需要幾分鐘或一小時的時間。
 
 將所有資料儲存至儲存體目標之後，快取會自動開始再次取得用戶端要求。 快取狀態會恢復為**狀況良好**。
 
 ## <a name="upgrade-cache-software"></a>升級快取軟體
 
-如果有新的軟體版本可用，[**升級**] 按鈕就會變成作用中狀態。 您也可能會在頁面頂端看到關於更新軟體的訊息。
+如果有新的軟體版本可用，[**升級**] 按鈕就會變成作用中狀態。 您也應該會在頁面頂端看到關於更新軟體的訊息。
 
 ![已啟用 [升級] 按鈕之按鈕頂端列的螢幕擷取畫面](media/hpc-cache-upgrade-button.png)
 
@@ -53,7 +55,7 @@ Azure 入口網站中的 快取總覽 頁面會顯示您快取的專案詳細資
 
 軟體更新可能需要數小時的時間。 以較高的輸送量設定的快取所需的升級時間比具有較低尖峰輸送量值的快取記憶體長。
 
-當軟體升級可供使用時，您有幾天的時間可以手動套用。 [結束日期] 會列在 [升級] 訊息中。 如果您在這段時間內未升級，Azure 會自動將更新套用至您的快取。 自動升級的時間無法設定。 如果您擔心會影響快取效能，則應該在期間到期之前自行升級軟體。
+當軟體升級可供使用時，您將會有一周的時間，或以手動方式套用。 [結束日期] 會列在 [升級] 訊息中。 如果您在這段時間內未升級，Azure 會自動將更新套用至您的快取。 自動升級的時間無法設定。 如果您擔心快取效能的影響，您應該在時間週期到期之前自行升級軟體。
 
 按一下 [**升級**] 按鈕以開始軟體更新。 快取狀態會變更為 [**升級**]，直到作業完成為止。
 

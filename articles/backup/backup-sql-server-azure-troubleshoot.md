@@ -1,19 +1,14 @@
 ---
-title: 使用 Azure 備份對 SQL Server 資料庫備份進行疑難排解 |Microsoft Docs
+title: 針對 SQL Server 資料庫備份進行疑難排解
 description: 適用於在 Azure VM 上執行並使用 Azure 備份進行備份之 SQL Server 資料庫的疑難排解資訊。
-ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.author: dacurwin
-ms.openlocfilehash: 635476ed5ca6440995fff743b7eb8f70a66768b4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091515"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172114"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>使用 Azure 備份對 SQL Server 資料庫備份進行疑難排解
 

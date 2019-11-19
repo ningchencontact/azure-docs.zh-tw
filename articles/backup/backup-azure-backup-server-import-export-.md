@@ -1,19 +1,15 @@
 ---
-title: Azure 備份 - 適用於 DPM 和 Azure 備份伺服器的離線備份
+title: 適用於 DPM 和 Azure 備份伺服器的離線備份
 description: Azure 備份可讓您使用 Azure 匯入/匯出服務從網路傳送資料。 本文說明 DPM 和 Azure 備份伺服器的離線備份工作流程（MABS）。
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074296"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173236"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 
@@ -108,7 +104,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 *AzureOfflineBackupDiskPrep* 公用程式可用來準備要送到最鄰近之 Azure 資料中心的 SATA 磁碟機。 此公用程式位於「復原服務」代理程式之安裝目錄的以下路徑中：
 
-*\\Microsoft Azure 復原服務代理程式\\Utils\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. 移至該目錄，然後將 [AzureOfflineBackupDiskPrep] 目錄複製到已連接要準備之 SATA 磁碟機的複本電腦。 確認下列與複本電腦有關的事項：
 

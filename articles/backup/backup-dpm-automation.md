@@ -1,19 +1,14 @@
 ---
-title: Azure 備份 - 使用 PowerShell 備份 DPM 工作負載
+title: 使用 PowerShell 備份 DPM 工作負載
 description: 了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: dacurwin
-ms.openlocfilehash: ef20de40433542c1ed0780f198b10d6a1fb78789
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3a8b2ff95957b69bab4932ce8a7e5a1ab4bfa44
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162133"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172410"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
 
@@ -52,7 +47,7 @@ PowerShell 可以自動化下列設定和註冊工作：
 * 網路設定
 * 加密設定
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
+## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
 下列步驟將引導您完成建立復原服務保存庫。 復原服務保存庫不同於備份保存庫。
 
@@ -106,7 +101,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>在 DPM 伺服器上安裝 Azure 備份代理程式
 
 在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。 您可以從 [Microsoft 下載中心](https://aka.ms/azurebackup_agent) 或從復原服務保存庫的 [儀表板] 頁面取得最新版的安裝程式。 請將安裝程式儲存至容易存取的位置，例如 *C:\Downloads\*。
@@ -125,7 +119,7 @@ MARSAgentInstaller.exe /q
 
 ### <a name="installation-options"></a>安裝選項
 
-若要查看所有可透過命令列執行的選項，請使用下列命令：
+若要查看所有可透過命令列取得的選項，請使用下列命令：
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -189,7 +183,7 @@ $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
 如果 DPM 機器對在網際網路上的 Azure 備份服務的連線是透過 Proxy 伺服器，則應該提供 Proxy 伺服器設定，備份才能成功。 這是使用 ```-ProxyServer```、```-ProxyPort```、```-ProxyUsername``` 及 ```ProxyPassword``` 參數搭配 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 來完成。 本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
 
@@ -211,7 +205,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。 請確保指定的資料夾已經存在，否則訂用帳戶設定的最終認可將會失敗。
+在上述範例中，臨時區域將在 PowerShell 物件 *中設定為*C:\StagingArea```$setting```。 請確保指定的資料夾已經存在，否則訂用帳戶設定的最終認可將會失敗。
 
 ### <a name="encryption-settings"></a>加密設定
 
@@ -274,7 +268,7 @@ $MPG = Get-ModifiableProtectionGroup $PG
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-現在使用 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) Cmdlet 擷取 ```$server``` 上的資料來源清單。 在此範例中，我們會篩選要設定備份的磁片區*D：\\* 。 然後此資料來源會使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) Cmdlet 新增至保護群組。 記得使用 *「可修改的」* 保護群組物件 ```$MPG``` 來進行新增。
+現在使用 ```$server```Get-DPMDatasource[ Cmdlet 擷取 ](https://technet.microsoft.com/library/hh881605) 上的資料來源清單。 在此範例中，我們會篩選要設定備份的磁片區*D：\\* 。 然後此資料來源會使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) Cmdlet 新增至保護群組。 記得使用 *「可修改的」* 保護群組物件 ```$MPG``` 來進行新增。
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }

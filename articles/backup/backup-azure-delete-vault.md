@@ -1,18 +1,14 @@
 ---
-title: 刪除 Microsoft Azure 備份復原服務保存庫
+title: 刪除 Microsoft Azure 復原服務保存庫
 description: 在本文中，瞭解如何移除相依性，然後刪除 Microsoft Azure 備份復原服務（MARS）保存庫。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: dacurwin
-ms.openlocfilehash: 469d6532449df8327389b8117904b078d9340e5b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747583"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173180"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>刪除 Azure 備份復原服務保存庫
 
@@ -62,7 +58,7 @@ ms.locfileid: "73747583"
 
         ![[停止備份] 窗格。](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - 如果出現 [**刪除備份資料**] 窗格，請輸入備份專案的名稱（此欄位會區分大小寫），然後從下拉式功能表中選取原因。 輸入您的批註（如果有的話）。 然後選取 [**刪除**]。
+    - 如果出現 [**刪除備份資料**] 窗格，請輸入備份專案的名稱（此欄位會區分大小寫），然後從下拉式功能表中選取原因。 輸入您的批註（如果有的話）。 然後，選取 [刪除]。
 
          ![[刪除備份資料] 窗格。](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 

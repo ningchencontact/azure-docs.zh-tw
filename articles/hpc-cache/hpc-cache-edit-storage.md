@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: rohogue
-ms.openlocfilehash: 757fbc166687110b9061ab95e96b0182e0ad3774
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622764"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168510"
 ---
 # <a name="edit-storage-targets"></a>編輯儲存體目標
 
@@ -47,7 +47,7 @@ ms.locfileid: "73622764"
 
 ## <a name="update-an-azure-blob-storage-target"></a>更新 Azure Blob 儲存體目標
 
-Blob 儲存體目標的 [詳細資料] 頁面可讓您修改虛擬命名空間路徑。 
+Blob 儲存體目標的 [詳細資料] 頁面可讓您修改虛擬命名空間路徑。
 
 ![blob 儲存體目標之 [編輯] 頁面的螢幕擷取畫面](media/hpc-cache-edit-storage-blob.png)
 

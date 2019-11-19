@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 3e5937a036763fab57f9e37494ace33e8452b1f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582261"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168434"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC 快取資料內嵌-msrsync 方法
 
 本文提供詳細指示，說明如何使用 ``msrsync`` 公用程式，將資料複製到 Azure Blob 儲存體容器，以與 Azure HPC 快取搭配使用。
 
-若要深入瞭解如何將資料移至 Azure HPC 快取的 Blob 儲存體，請參閱[將資料移至 Azure blob 儲存體以進行 AZURE hpc](hpc-cache-ingest.md)快取。
+若要深入瞭解如何將資料移至 Azure HPC 快取的 Blob 儲存體，請參閱[將資料移至 Azure blob 儲存體](hpc-cache-ingest.md)。
 
 ``msrsync`` 工具可以用來將資料移至 Azure HPC 快取的後端儲存體目標。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync。
 
@@ -27,12 +27,12 @@ ms.locfileid: "73582261"
 
 請注意，``msrsync`` 只能在本機磁碟區寫入和寫出。 來源和目的地必須可在用來發出命令的工作站上以本機掛接的形式存取。
 
-遵循這些指示，使用 ``msrsync`` 來填入 Azure Blob 儲存體與 Azure HPC 快取：
+遵循這些指示，使用 ``msrsync`` 以 Azure HPC 快取填入 Azure Blob 儲存體：
 
 1. 安裝 ``msrsync`` 及其必要條件（``rsync`` 和 Python 2.6 或更新版本）
 1. 決定要複製的檔案和目錄總數。
 
-   例如，使用公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` （可透過下載 <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> 取得）。
+   例如，使用公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` （可透過下載 <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>取得）。
 
    如果未使用 ``prime.py``，您可以使用 GNU ``find`` 工具來計算專案數，如下所示：
 

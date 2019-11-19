@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970389"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158306"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -36,7 +36,7 @@ ms.locfileid: "71970389"
 
 您可以在任何[適用於 MySQL 的 Azure 資料庫區域](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)中擁有主伺服器。  主伺服器的配對區域或通用複本區域中可以有複本。 下圖顯示哪些複本區域可供使用，視您的主要區域而定。
 
-[@no__t 1Read 的複本區域](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![讀取複本區域](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>通用複本區域
 無論您的主伺服器位於何處，您都可以在下列任何區域中建立讀取複本。 支援的通用複本區域包括：
@@ -69,7 +69,7 @@ ms.locfileid: "71970389"
 
 ## <a name="connect-to-a-replica"></a>連線到複本
 
-當您建立複本時，其不會繼承主要伺服器的防火牆規則或 VNet 服務端點。 您必須個別針對複本設定這些規則。
+在建立時，複本會繼承主伺服器的防火牆規則或 VNet 服務端點。 之後，這些規則與主伺服器無關。
 
 複本會從主要伺服器繼承系統管理員帳戶。 系統會將主要伺服器上的所有使用者帳戶複寫到讀取複本。 您只能使用主要伺服器上可用的使用者帳戶來連線到讀取複本。
 
@@ -85,7 +85,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 適用於 MySQL 的 Azure 資料庫在 Azure 監視器中提供複寫**延遲（以秒為單位）** 度量。 此計量僅適用於複本。
 
-此度量計算方式是使用 MySQL 的 @no__t 1 命令中提供的 `seconds_behind_master` 計量。
+此度量計算方式是使用 MySQL 的 `SHOW SLAVE STATUS` 命令中提供的 `seconds_behind_master` 計量。
 
 設定警示，以在複寫延遲到達您的工作負載無法接受的值時通知您。
 
@@ -122,6 +122,8 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 > [!IMPORTANT]
 > 在將主要伺服器設定更新為新值之前，應將複本的設定更新為相等或更大的值。 此動作可確保複本可以跟上主要伺服器上所做的變更。
 
+建立複本時，防火牆規則、虛擬網路規則和參數設定會從主伺服器繼承到複本。 之後，複本的規則就是獨立的。
+
 ### <a name="stopped-replicas"></a>已停止的複本
 
 如果您停止主伺服器和讀取複本之間的複寫，已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
@@ -142,13 +144,13 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-複本伺服器上的[@no__t 1](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)參數已鎖定。 
+複本伺服器上的[`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)參數已鎖定。 
 
 ### <a name="other"></a>其他
 
 - 不支援全域交易識別碼 (GTID)。
 - 不支援建立複本的複本。
-- 記憶體內資料表可能會導致複本不同步。這是 MySQL 複寫技術的限制。 如需詳細資訊，請參閱 [MySQL 參考文件](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) \(英文\)。
+- 記憶體中的資料表可能會導致複本不同步。這是 MySQL 複寫技術的限制。 如需詳細資訊，請參閱 [MySQL 參考文件](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) \(英文\)。
 - 請確定主要伺服器資料表有主索引鍵。 缺少主索引鍵可能會造成主體和複本之間產生複寫延遲。
 - 檢閱 [MySQL 文件](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) \(英文\) 中的完整 MySQL 複寫限制清單
 

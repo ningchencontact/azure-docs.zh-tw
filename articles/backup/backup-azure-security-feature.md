@@ -1,23 +1,19 @@
 ---
-title: 使用 Azure 備份保護混合式備份的安全性功能
+title: 保護混合式備份的安全性功能
 description: 了解如何使用 Azure 備份的安全性功能，讓備份更安全
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
-ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968427"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172686"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>利用安全性功能協助保護使用 Azure 備份的混合式備份
 
-諸如惡意程式碼、勒索軟體及入侵等安全性問題，現在愈來愈受到重視。 這些安全性問題就成本面與資料面來說，代價都十分高昂。 為了防範這類攻擊，Azure 備份現在提供安全性功能來協助保護混合式備份。 本文說明如何使用 Azure 復原服務代理程式和 Azure 備份伺服器以啟用及使用這些功能。 這些功能包括：
+現在越來越重視安全性問題，例如惡意程式碼、勒索軟體和入侵。 這些安全性問題在成本和資料方面付出的代價很高。 為了防範這類攻擊，Azure 備份現在提供安全性功能來協助保護混合式備份。 本文說明如何使用 Azure 復原服務代理程式和 Azure 備份伺服器以啟用及使用這些功能。 這些功能包括：
 
 - **預護**。 每當執行重要作業 (如變更複雜密碼) 時，就會多一道驗證。 這項驗證用來確保只有具備有效 Azure 認證的使用者，才能執行這類作業。
 - **警示**。 每當執行重要作業 (如刪除備份資料) 時，就會傳送電子郵件通知給訂用帳戶管理員。 這封電子郵件可確保使用者迅速獲知這類動作。
@@ -114,7 +110,7 @@ ms.locfileid: "72968427"
 
 ## <a name="troubleshooting-errors"></a>錯誤疑難排解
 
-| 作業 | 錯誤詳細資料 | 解析度 |
+| 作業 | 錯誤詳細資料 | 解決方案 |
 | --- | --- | --- |
 | 原則變更 |無法修改備份原則。 錯誤：由於發生內部服務錯誤 [0x29834]，導致目前的作業失敗。 請稍後再重試操作。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>當安全性設定已啟用，而您嘗試將保留範圍縮減至低於上面指定的最小值，且您使用不受支援的版本 (本文的第一個附註會指出支援的版本) 時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 在此情況下，您應該將保留期限設定為高於指定的最小保留期限 (若是每日則 7 天、若是每週則 4 週、若是每月則 3 個月，若是每年則 1 年)，以繼續進行與原則有關的更新。 (選擇性) 較好的方法是更新備份代理程式、Azure 備份伺服器和/或 DPM UR，以利用所有安全性更新。 |
 | 變更複雜密碼 |輸入的安全性 PIN 碼不正確。 (識別碼：100130) 請提供正確的安全性 PIN 碼以完成此作業。 |**原因：**<br/> 當您在執行重要作業 (例如變更複雜密碼) 時輸入無效或已到期的安全性 PIN 碼時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 若要完成作業，您必須輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站並流覽至復原服務保存庫 > 設定 > 屬性 > 產生安全性 PIN 碼。 請使用這個 PIN 碼來變更複雜密碼。 |

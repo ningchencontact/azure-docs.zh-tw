@@ -1,25 +1,21 @@
 ---
-title: 使用 Azure 備份伺服器將 Exchange server 備份到 Azure 備份
+title: 使用 Azure 備份伺服器備份 Exchange server
 description: 了解如何使用 Azure 備份伺服器將 Exchange Server 備份至 Azure 備份
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: dacurwin
-ms.openlocfilehash: ed88f069c110795c2c5561196c41d3d75640bd53
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 73dcc190446a71498dee3f12a5225a56c9f4ddc7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968472"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173132"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 Exchange Server 備份至 Azure
 
 本文說明如何設定 Microsoft Azure 備份伺服器 (MABS)，以將 Microsoft Exchange Server 備份至 Azure。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 繼續之前，請確定已[安裝並備妥](backup-azure-microsoft-azure-backup.md) Azure 備份伺服器。
 
@@ -72,10 +68,10 @@ ms.locfileid: "72968472"
 11. 檢閱可用的磁碟空間，然後按 [下一步]。
 12. 選取 MAB 伺服器將建立初始複寫的時間，然後按 [下一步]。
 13. 選取一致性檢查選項，然後按 [下一步]。
-14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]。 例如：
+14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]。 例如︰
 
     ![指定線上保護資料](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如：
+15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如︰
 
     ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

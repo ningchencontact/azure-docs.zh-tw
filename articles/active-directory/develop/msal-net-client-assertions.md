@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802842"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168120"
 ---
 # <a name="confidential-client-assertions"></a>機密用戶端判斷提示
+
 為了證明其身分識別，機密用戶端應用程式會以 Azure AD 交換秘密。 秘密可以是：
 - 用戶端秘密（應用程式密碼）。
 - 憑證，用來建立包含標準宣告的帶正負號的判斷提示。
@@ -37,6 +38,9 @@ MSAL.NET 有四種方法可將認證或判斷提示提供給機密用戶端應�
 - `.WithCertificate()`
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
+
+> [!NOTE]
+> 雖然您可以使用 `WithClientAssertion()` API 來取得機密用戶端的權杖，但我們不建議預設使用它，因為它更先進，而且是設計用來處理不常見的非常特定案例。 使用 `.WithCertificate()` API 可讓 MSAL.NET 為您處理這種情況。 此 api 可讓您視需要自訂驗證要求，但 `.WithCertificate()` 所建立的預設判斷提示將足以滿足大部分的驗證案例。 在某些情況下，如果 MSAL.NET 無法在內部執行簽署作業，此 API 也可作為因應措施。
 
 ### <a name="signed-assertions"></a>帶正負號的判斷提示
 
@@ -51,7 +55,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD 所需的宣告為：
 
-宣告類型 | Value | 描述
+宣告類型 | 值 | 描述
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" （物件）宣告可識別 JWT 適用的收件者（此處 Azure AD），請參閱 [RFC 7519，區段 4.1.3]
 exp | 星期四6月 27 2019 15:04:17 GMT + 0200 （羅馬日光節約時間） | "exp" (到期時間) 宣告會識別到期時間，等於或晚於此時間都不得接受 JWT 以進行處理。 請參閱 [RFC 7519，第4.1.4 節]
@@ -66,9 +70,9 @@ sub | ClientID | "Sub" （subject）宣告會識別 JWT 的主旨。 JWT 中的�
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
-      string aud = "https://login.microsoftonline.com/72f988bf-86f1-41af-hd4m-2d7cd011db47/v2.0";
+      string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
 
-      string ConfidentialClientID = "61dab2ba-145d-4b1b-8569-bf4b9aed5dhb" //client id
+      string ConfidentialClientID = "00000000-0000-0000-0000-000000000000" //client id
       const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
       DateTime validFrom = DateTime.UtcNow;
       var nbf = ConvertToTimeT(validFrom);
@@ -105,11 +109,11 @@ string Encode(byte[] arg)
     return s;
 }
 
-string GetAssertion()
+string GetSignedClientAssertion()
 {
     //Signing with SHA-256
     string rsaSha256Signature = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
-    X509Certificate2 certificate = ReadCertificate(config.CertificateName);
+     X509Certificate2 certificate = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
 
     //Create RSACryptoServiceProvider
     var x509Key = new X509AsymmetricSecurityKey(certificate);
@@ -129,9 +133,55 @@ string GetAssertion()
     string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims())));
 
     string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
-    string SignedAssertion = string.Concat(token, ".", signature);
-    return SignedAssertion;
+    string signedClientAssertion = string.Concat(token, ".", signature);
+    return signedClientAssertion;
 }
+```
+
+### <a name="alternative-method"></a>替代方法
+
+您也可以選擇使用[Microsoft.identitymodel jsonwebtoken](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/)來為您建立判斷提示。 這段程式碼會更簡潔，如下列範例所示：
+
+```CSharp
+        string GetSignedClientAssertion()
+        {
+            var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
+
+            //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
+            string aud = $"https://login.microsoftonline.com/{tenantID}/v2.0";
+
+            // client_id
+            string confidentialClientID = "00000000-0000-0000-0000-000000000000";
+
+            // no need to add exp, nbf as JsonWebTokenHandler will add them by default.
+            var claims = new Dictionary<string, object>()
+            {
+                { "aud", aud },
+                { "iss", confidentialClientID },
+                { "jti", Guid.NewGuid().ToString() },
+                { "sub", confidentialClientID }
+            };
+
+            var securityTokenDescriptor = new SecurityTokenDescriptor
+            {
+                Claims = claims,
+                SigningCredentials = new X509SigningCredentials(cert)
+            };
+
+            var handler = new JsonWebTokenHandler();
+            var signedClientAssertion = handler.CreateToken(securityTokenDescriptor);
+        }
+```
+
+一旦您擁有已簽署的用戶端判斷提示之後，您就可以將它與 MSAL api 搭配使用，如下所示。
+
+```CSharp
+            string signedClientAssertion = GetSignedClientAssertion();
+
+            var confidentialApp = ConfidentialClientApplicationBuilder
+                .Create(ConfidentialClientID)
+                .WithClientAssertion(signedClientAssertion)
+                .Build();
 ```
 
 ### <a name="withclientclaims"></a>WithClientClaims

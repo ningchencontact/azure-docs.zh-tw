@@ -1,19 +1,15 @@
 ---
-title: SharePoint 伺服器陣列至 Azure 的 DPM/Azure 備份伺服器保護
+title: 使用 DPM 將 SharePoint 伺服器陣列備份至 Azure
 description: 這篇文章概述 SharePoint 伺服器陣列至 Azure 的 DPM/Azure 備份伺服器保護
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968551"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173328"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>使用 DPM 將 SharePoint 伺服器陣列備份至 Azure
 
@@ -31,7 +27,7 @@ DPM 的 Azure 備份支援下列案例：
 
 您需要先確定幾件事，再將 SharePoint 伺服器陣列備份至 Azure。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 繼續之前，請確定 [使用 Microsoft Azure 備份來保護工作負載的所有必要條件](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 已滿足。 一些滿足必要條件的工作包括︰建立備份保存庫、下載保存庫認證、安裝 Azure 備份代理程式，以及向保存庫註冊 DPM/Azure 備份伺服器。
 
@@ -153,7 +149,7 @@ DPM 會以 LocalSystem 帳戶身分執行。 若要備份 SQL Server 資料庫�
     ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 13. 在 [摘要] 頁面上檢閱您選取的設定，然後按一下 [建立群組]。 建立保護群組之後，您會看到成功訊息。
 
-    ![總結](./media/backup-azure-backup-sharepoint/summary.png)
+    ![Summary](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-dpm"></a>使用 DPM 從磁碟還原 SharePoint 項目
 
@@ -242,7 +238,7 @@ DPM 會以 LocalSystem 帳戶身分執行。 若要備份 SQL Server 資料庫�
 4. 按一下 DPM [復原] 索引標籤中顯示的 SharePoint 物件，以取得內容資料庫結構。 在項目上按一下滑鼠右鍵，然後按一下 [復原]。
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. 此時，依照本文前述的復原步驟，從磁碟復原 Sharepoint 內容資料庫。
+5. 此時，依照本文前述的復原步驟，從磁碟復原 SharePoint 內容資料庫。
 
 ## <a name="next-steps"></a>後續步驟
 

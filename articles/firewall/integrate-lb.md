@@ -1,24 +1,24 @@
 ---
 title: 整合 Azure 防火牆與 Azure Standard Load Balancer
-description: 了解如何整合 Azure 防火牆與 Azure Standard Load Balancer
+description: 您可以將 Azure 防火牆整合到具有 Azure Standard Load Balancer (公用或內部) 的虛擬網路。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193754"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167067"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>整合 Azure 防火牆與 Azure Standard Load Balancer
 
 您可以將 Azure 防火牆整合到具有 Azure Standard Load Balancer (公用或內部) 的虛擬網路。 
 
-慣用的設計是將內部負載平衡器整合您 Azure 的防火牆，因為這是更簡單的設計。 如果您已經有一個部署，而且您想要保留在位置中，您可以使用公用負載平衡器。 不過您必須了解在公用負載平衡器案例中可能會中斷功能的非對稱式路由問題。
+慣用的設計是將內部負載平衡器與您的 Azure 防火牆整合，因為這是更簡單的設計。 如果您已經部署了公用負載平衡器，而且想要將它保留在原處，您可以使用它。 不過您必須了解在公用負載平衡器案例中可能會中斷功能的非對稱式路由問題。
 
 如需 Azure Load Balancer 的詳細資訊，請參閱[什麼是 Azure Load Balancer？](../load-balancer/load-balancer-overview.md)
 

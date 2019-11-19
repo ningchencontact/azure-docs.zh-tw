@@ -1,18 +1,14 @@
 ---
-title: 使用 Azure 備份來取代您的磁帶基礎結構
+title: 如何取代您的磁帶基礎結構
 description: 瞭解 Azure 備份如何提供類似磁帶的語義，讓您在 Azure 中備份和還原資料
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.author: dacurwin
-ms.openlocfilehash: 2850fab3a5639673008a7433db48911ced832401
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091111"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173319"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>將您的長期儲存空間從磁帶移至 Azure 雲端
 

@@ -4,27 +4,25 @@ description: 說明如何以無代理程式的方式，使用機器相依性建�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720262"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158429"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>設定無代理程式相依性視覺效果以進行評量
-
-> [!NOTE]
-> 如果您在 Azure Migrate 入口網站中還沒有看到這項功能，請稍候。 它會出現在下一周或之後。
 
 本文說明如何在 Azure Migrate：伺服器評估中設定無代理程式相依性對應。 這項功能目前可供使用 Azure Migrate 設備探索到的 VMware 機器預覽。 
 
 > [!IMPORTANT]
 > 無代理程式相依性視覺效果目前為使用 Azure Migrate 設備探索到的 Azure VMware Vm 預覽。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="about-dependency-mapping"></a>關於相依性對應 
+## <a name="about-dependency-mapping"></a>關於相依性對應
 
 相依性對應可協助您將要評估和遷移之電腦的相依性視覺化。 當您想要評估具有較高層級信賴度的電腦時，通常會使用相依性對應。
 
@@ -41,12 +39,12 @@ ms.locfileid: "73720262"
     - TCP 連線
     - 具有使用中連接的進程名稱
     - 執行上述進程的已安裝應用程式名稱
-    - 不會。 在每個輪詢間隔偵測到的連線數
+    - 號 在每個輪詢間隔偵測到的連線數
 
 ## <a name="current-limitations"></a>目前的限制
 
 - 無代理程式相依性視覺效果目前僅適用于 VMware Vm。
-- 目前您無法在 [相依性分析] 視圖中，從群組新增或移除伺服器。 
+- 目前您無法在 [相依性分析] 視圖中，從群組新增或移除伺服器。
 - 伺服器群組的相依性對應目前無法使用。
 - 目前，無法以表格格式下載相依性資料。
 
@@ -60,12 +58,12 @@ ms.locfileid: "73720262"
 
 
 ### <a name="supported-operating-systems"></a>受支援的作業系統
- 
+
 無代理程式相依性視覺效果的支援作業系統如下所示。
 
 **類型** | **受支援的作業系統**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 （64位） 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 （64位）
 **Linux** | Red Hat Enterprise Linux 7、6、5 <br/> Ubuntu Linux 14.04、16.04 <br/> Debian 7、8 <br/> Oracle Linux 6、7 <br/> CentOS 5、6、7  
 
 
@@ -84,10 +82,10 @@ ms.locfileid: "73720262"
 
 1. 開啟 [裝置管理] 應用程式。 流覽至 [**提供 vCenter 詳細資料**] 面板。
 2. 在 [**探索 vm 上的應用程式和**相依性] 區段中，按一下 [**新增認證**]
-3. 選擇**作業系統**。 
+3. 選擇**作業系統**。
 4. 提供帳戶的易記名稱。
 5. 提供**使用者名稱**和**密碼**
-6. 按一下 [儲存]。
+6. 按一下 [檔案]。
 7. 按一下 [**儲存並啟動探索**]。
 
     ![新增 VM 使用者帳戶](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -113,8 +111,8 @@ ms.locfileid: "73720262"
 2. 搜尋您要查看其相依性對應的電腦。
 3. 按一下 **[相依性] 資料**行中的 [查看相依性 **]** 。
 4. 使用 [**持續**時間] 下拉式清單，變更您想要查看對應的時間週期。
-5. 展開**用戶端**群組，列出相依于所選電腦的電腦。 
-6. 展開**埠**群組，列出與所選機器具有相依性的電腦。 
+5. 展開**用戶端**群組，列出相依于所選電腦的電腦。
+6. 展開**埠**群組，列出與所選機器具有相依性的電腦。
 7. 若要流覽至任何相依電腦的地圖視圖，請按一下電腦名稱稱，然後按一下 [**載入伺服器對應**]
 
     ![展開伺服器埠群組和載入伺服器對應](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

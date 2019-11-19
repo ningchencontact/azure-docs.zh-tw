@@ -1,19 +1,15 @@
 ---
-title: 將 Azure 中的資料還原至 Windows server-Azure 備份
+title: 將 Azure 中的資料還原至 Windows server
 description: 在本文中，您將瞭解如何將儲存在 Azure 中的資料還原至具有 Microsoft Azure 復原服務（MARS）代理程式的 Windows server 或 Windows 電腦。
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: dacurwin
-ms.openlocfilehash: 4d9ab47d83caadda9046481c15dfb6af18aee146
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012199"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172792"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型將檔案還原至 Windows
 

@@ -1,19 +1,15 @@
 ---
-title: 備份 Azure Vm 中的 SQL Server 資料庫 |Microsoft Docs
+title: 備份 Azure VM 中的 SQL Server 資料庫
 description: 在本文中，您將瞭解如何使用 Azure 備份來備份 Azure 虛擬機器上的 SQL Server 資料庫。
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: a6752ffcf434b81c3013a2bd43c784bc92a8c1fe
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747168"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172109"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -29,7 +25,7 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
 > * 探索資料庫並設定備份。
 > * 為資料庫設定自動保護。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在備份 SQL Server 資料庫之前，請先檢查下列準則：
 

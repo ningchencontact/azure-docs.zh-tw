@@ -1,21 +1,15 @@
 ---
-title: Azure 備份︰使用 REST API 建立備份原則
+title: 使用 REST API 建立備份原則
 description: 在本文中，您將瞭解如何使用 REST API 來建立和管理備份原則（排程和保留）。
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM 備份; Azure VM 還原;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747603"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173428"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 建立 Azure 復原服務備份原則
 
@@ -50,10 +44,10 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 例如，若要建立 Azure VM 備份的原則，以下是要求本文的元件。
 
-|名稱  |必要  |類型  |說明  |
+|名稱  |必要  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
-|tags     |         | Object        |  資源標籤       |
+|properties     |   true      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
+|標籤     |         | 物件        |  資源標籤       |
 
 如需要求本文中的完整定義清單，請參閱[備份原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)。
 
@@ -158,7 +152,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 它會傳回兩個回應：在建立另一個作業時，202（已接受），然後在該作業完成時傳回200（確定）。
 
-|名稱  |類型  |說明  |
+|名稱  |在系統提示您進行確認時，輸入  |描述  |
 |---------|---------|---------|
 |200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
 |202 已接受     |         |     已接受    |
@@ -185,7 +179,7 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 *GET* 命令，來追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13

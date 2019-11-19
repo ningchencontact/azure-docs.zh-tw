@@ -1,20 +1,15 @@
 ---
-title: Azure 備份：使用 Azure 入口網站還原 Vm
+title: 使用 Azure 入口網站還原 Vm
 description: 使用 Azure 入口網站從復原點還原 Azure 虛擬機器
 ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-keywords: 還原備份；如何還原；復原點；
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 16017f00282729361a0489214c941e824042060e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 8b84c7f89c88b54e90a8e1af1236bf205e12cfe6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044154"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173465"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 入口網站中還原 Azure VM 資料
 

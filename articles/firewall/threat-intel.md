@@ -1,22 +1,22 @@
 ---
 title: 以 Azure 防火牆威脅情報為基礎的篩選
-description: 瞭解 Azure 防火牆威脅情報篩選
+description: 您可為防火牆啟用威脅情報型篩選，以警示並拒絕來自/傳向已知惡意 IP 位址和網域的流量。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f6a60d7c29fc7e482e32233aa86d65a801e3f55c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582259"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168666"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>以 Azure 防火牆威脅情報為基礎的篩選
 
-您可為防火牆啟用威脅情報型篩選，以警示並拒絕來自/傳向已知惡意 IP 位址和網域的流量。 IP 位址和網域來自 Microsoft 威脅情報摘要。 [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence)支援 Microsoft 威脅情報，並由多項服務所使用，包括 Azure 資訊安全中心。
+您可為防火牆啟用威脅情報型篩選，以警示並拒絕來自/傳向已知惡意 IP 位址和網域的流量。 IP 位址和網域來自 Microsoft 威脅情報摘要。 包括 Azure 資訊安全中心在內的多項服務皆使用 [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence)，其同時也支援 Microsoft 威脅情報的運作。
 
 ![防火牆威脅情報](media/threat-intel/firewall-threat.png)
 

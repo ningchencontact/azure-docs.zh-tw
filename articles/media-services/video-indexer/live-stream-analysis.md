@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f34aad4a8590c71f926d12d201f9a614afaa127
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
+ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114925"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153550"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>使用影片索引子進行即時串流分析
 
-Azure 媒體服務影片索引子是一種 Azure 服務，專門用來從影片和音訊檔案離線提取深入解析。 這是為了分析已事先建立的指定媒體檔案。 不過，在某些使用案例中，請務必快速地從即時摘要取得媒體深入解析，以將作業和其他使用案例按時間釋放。 例如，內容產生者可以使用即時資料流上的這類豐富中繼資料來自動化電視生產。 例如，Endemol 的「[照射」群組](https://customers.microsoft.com/story/esg-media-telecommunications-azure)，其中新聞編輯部的新聞工作者會搜尋即時摘要以根據內容建立通知服務。
+Azure 媒體服務影片索引子是一種 Azure 服務，專門用來從影片和音訊檔案離線提取深入解析。 這是為了分析已事先建立的指定媒體檔案。 不過，在某些使用案例中，請務必快速地從即時摘要取得媒體深入解析，以將作業和其他使用案例按時間釋放。 例如，內容產生者可以使用即時資料流上的這類豐富中繼資料來自動化電視生產。
 
 這篇文章中所述的解決方案可讓客戶以近乎即時的即時摘要解決方案來使用影片索引子。 根據要編制索引的資料區塊、輸入解析度、內容類型，以及此程式所使用的計算，此解決方案的延遲時間最少可達四分鐘。
 

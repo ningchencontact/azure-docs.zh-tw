@@ -4,14 +4,14 @@ description: 說明如何使用 Azure Migrate Server 評估/遷移，為 VMware 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467117"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158606"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>設定適用于 VMware Vm 的應用裝置
 
@@ -48,11 +48,12 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 2. 執行下列命令，以產生 OVA 的雜湊：
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 針對 [設備版本 1.0.0.5]，產生的雜湊應符合這些設定。
+3. 針對最新的設備版本，產生的雜湊應符合這些設定。
 
   **演算法** | **雜湊值**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>建立設備 VM
@@ -99,7 +100,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 
 1. 按一下 [登入]。 如果未出現，請確定您已在瀏覽器中停用快顯封鎖程式。
 2. 在新的索引標籤上，使用您的 Azure 認證登入。
-    - 以您的使用者名稱和密碼登入。
+    - 使用您的使用者名稱和密碼登入。
     - 不支援使用 PIN 登入。
 3. 成功登入後，返回 Web 應用程式。
 2. 選取 Azure Migrate 專案建立所在的訂用帳戶。 然後選取專案。
@@ -109,7 +110,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 
 ## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>藉由提供 vCenter Server 和 VM 認證來開始連續探索
 
-設備必須連接到 vCenter Server，才能探索 Vm 的設定和效能資料。
+設備必須連線到 vCenter Server，才能探索 VM 的設定與效能資料。
 
 ### <a name="specify-vcenter-server-details"></a>指定 vCenter Server 詳細資料
 1. 在 [指定 vCenter Server 詳細資料] 中，指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。 您可以保留預設的連接埠，或指定您 vCenter Server 接聽的自訂連接埠。
@@ -117,20 +118,20 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 3. 按一下 [驗證連線] 以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證
-若要探索應用程式、角色和功能，以及視覺化 Vm 的相依性，您可以提供可存取 VMware Vm 的 VM 認證。 您可以新增一個適用于 Windows Vm 的認證，以及一個 Linux Vm 的認證。 [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions)所需的存取權限。
+若要探索應用程式、角色和功能，以及視覺化 VM 的相依性，您可以提供可存取 VMware VM 的 VM 認證。 您可以新增一個適用於 Windows VM 的認證，以及一個適用於 Linux VM 的認證。 [深入了解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions)所需的存取權限。
 
 > [!NOTE]
 > 這是選擇性的輸入，而且是啟用應用程式探索和無代理程式相依性視覺效果的必要項。
 
-1. 在 [**探索 vm 上的應用程式和**相依性] 中，按一下 [**新增認證**]。
-2. 選取**作業系統**。
-3. 為認證提供易記的名稱。
-4. 在 [使用者**名稱**] 和 [**密碼**] 中，指定至少具有 vm 之來賓存取權的帳戶。
+1. 在 [探索 VM 上的應用程式和相依性] 中，按一下 [新增認證]。
+2. 選取 [作業系統]。
+3. 為認證提供易記名稱。
+4. 在 [使用者名稱] 與 [密碼] 中，指定至少在 VM 上具有來賓存取權的帳戶。
 5. 按一下 [新增]。
 
-一旦您指定了 vCenter Server 和 VM 認證（選擇性）後，請按一下 [**儲存並啟動探索**]，開始探索內部部署環境。
+一旦指定 vCenter Server 與 VM 認證 (選擇性)，請按一下 [儲存並開始探索] 以開始探索內部部署環境。
 
-所探索到 VM 的中繼資料會在大約 15 分鐘後出現在入口網站中。 探索已安裝的應用程式、角色和功能需要一些時間，持續時間取決於所探索到的 Vm 數目。 針對 500 Vm，應用程式清查大約需要1小時才會出現在 Azure Migrate 入口網站中。
+所探索到 VM 的中繼資料會在大約 15 分鐘後出現在入口網站中。 探索已安裝的應用程式、角色和功能需要一些時間，持續時間取決於所探索到的 VM 數目。 針對 500 部 VM，應用程式清查大約需要 1 小時才會出現在 Azure Migrate 入口網站中。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f1b2bdcecac0aade21c6c770b2495a1e15ba9bc5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882575"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174011"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -30,6 +30,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 一般用途 v2 儲存體帳戶能支援最新的 Azure 儲存體功能，而且包含一般用途 v1 與 Blob 儲存體帳戶的所有功能。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般用途 v2 儲存體帳戶支援這些 Azure 儲存體服務：
 
 - Blob (所有類型：區塊、附加、分頁)
+- Data Lake Gen2
 - 檔案
 - 磁碟
 - 佇列

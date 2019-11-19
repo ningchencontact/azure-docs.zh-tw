@@ -1,18 +1,18 @@
 ---
 title: Azure 防火牆服務標籤概觀
-description: 本文會概略說明 Azure 防火牆服務標籤。
+description: 服務標籤表示一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d0ac36e415c056dffc9c75d00968ff74c2156e63
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450160"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168684"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure 防火牆服務標籤
 
@@ -22,7 +22,7 @@ ms.locfileid: "67450160"
 
 ## <a name="supported-service-tags"></a>支援的服務標籤
 
-請參閱[安全性群組](../virtual-network/security-overview.md#service-tags)取得一份可供 Azure 防火牆網路規則中使用的服務標籤。
+如需可在 Azure 防火牆網路規則中使用的服務標記清單，請參閱[安全性群組](../virtual-network/security-overview.md#service-tags)。
 
 ## <a name="next-steps"></a>後續步驟
 

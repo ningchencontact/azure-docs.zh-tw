@@ -1,19 +1,14 @@
 ---
-title: 使用 Azure 備份備份和還原已加密的 Azure Vm
+title: 備份和還原已加密的 Azure Vm
 description: 說明如何使用 Azure 備份服務來備份和還原已加密的 Azure Vm。
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074936"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172530"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>備份和還原已加密的 Azure VM
 
@@ -21,7 +16,7 @@ ms.locfileid: "74074936"
 
 如果您想要深入瞭解 Azure 備份在開始之前如何與 Azure Vm 互動，請參閱下列資源：
 
-- 請[參閱](backup-architecture.md#architecture-direct-backup-of-azure-vms)Azure VM 備份架構。
+- 請[參閱](backup-architecture.md#architecture-built-in-azure-vm-backup)Azure VM 備份架構。
 - [深入瞭解](backup-azure-vms-introduction.md)Azure VM 備份和 Azure 備份延伸模組。
 
 ## <a name="encryption-support"></a>加密支援

@@ -4,25 +4,22 @@ description: 說明如何使用 Azure Migrate Server 評估，探索內部部署
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/18/2019
 ms.author: snehaa
-ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715778"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158645"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>探索機器應用程式、角色和功能 
-
-> [!NOTE]
-> 如果您在 Azure Migrate 入口網站中還沒有看到這項功能，請稍候。 它會出現在下一周或之後。
+# <a name="discover-machine-apps-roles-and-features"></a>探索機器應用程式、角色和功能
 
 本文說明如何使用 Azure Migrate： Server 評定，探索內部部署伺服器上的應用程式、角色和功能。
 
-探索應用程式的清查，以及在您的內部部署機器上執行的角色/功能，可協助您識別並規劃針對您的工作負載量身打造的 Azure 遷移路徑。 
+探索應用程式的清查，以及在您的內部部署機器上執行的角色/功能，可協助您識別並規劃針對您的工作負載量身打造的 Azure 遷移路徑。
 
-使用 Azure Migrate 進行應用程式探索：伺服器評估是無代理程式。 電腦和 Vm 上都不需要安裝任何內容。 伺服器評估會使用 Azure Migrate 設備，搭配電腦來賓認證來執行探索。 設備會使用 WMI 和 SSH 呼叫從遠端存取電腦。 
+使用 Azure Migrate 進行應用程式探索：伺服器評估是無代理程式。 電腦和 Vm 上都不需要安裝任何內容。 伺服器評估會使用 Azure Migrate 設備，搭配電腦來賓認證來執行探索。 設備會使用 WMI 和 SSH 呼叫從遠端存取電腦。
 
 > [!NOTE]
 > 目前僅支援 VMware Vm 的應用程式探索，而且僅限探索。 我們尚未提供以應用程式為基礎的評量。  目前，伺服器評量目前會評估機器層級的內部部署 VMware Vm、Hyper-v Vm 和實體伺服器，以進行隨即轉移。
@@ -50,7 +47,7 @@ ms.locfileid: "73715778"
 
 ## <a name="review-and-export-the-inventory"></a>審查和匯出清查
 
-探索完成後，如果您為應用程式探索提供認證，您可以在 Azure 入口網站中檢查並匯出應用程式清查。 
+探索完成後，如果您為應用程式探索提供認證，您可以在 Azure 入口網站中檢查並匯出應用程式清查。
 
 1. 在 [ **Azure Migrate-伺服器** > **Azure Migrate：伺服器評估**] 中，按一下顯示的計數以開啟 [探索到的**伺服器**] 頁面。
 

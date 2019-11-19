@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1a9cebe334b266dfcf7f06608fd6a526ded7179b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0c0f1f4dfd873c8c9a18d300b249ace0295e450e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73987669"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174027"
 ---
 Azure 儲存體提供數種類型的儲存體帳戶。 每個類型都支援不同的功能，而且都有自己的計價模式。 您在建立儲存體帳戶之前請先考量這些差異，以判斷您的應用程式最適用的帳戶類型。 儲存體帳戶的類型如下：
 
@@ -27,7 +27,7 @@ Azure 儲存體提供數種類型的儲存體帳戶。 每個類型都支援不�
 
 | 儲存體帳戶類型 | 支援的服務                       | 支援的效能層級      | 支援的存取層         | 複寫選項               | 部署模型<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | 加密<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| 一般用途 V2   | Blob、檔案、佇列、資料表及磁碟       | 標準、進階<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | 經常性存取、非經常性存取、封存<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS、GRS、RA-GRS、ZRS、切換（預覽）、RA-切換（預覽）<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | 資源管理員             | 已加密              |
+| 一般用途 V2   | Blob、檔案、佇列、資料表、磁片和 Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | 標準、進階<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | 經常性存取、非經常性存取、封存<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS、GRS、RA-GRS、ZRS、切換（預覽）、RA-切換（預覽）<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | 資源管理員             | 已加密              |
 | 一般用途 V1   | Blob、檔案、佇列、資料表及磁碟       | 標準、進階<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS、GRS、RA-GRS                  | Resource Manager、傳統    | 已加密              |
 | BlockBlobStorage   | Blob (僅限區塊 Blob 和附加 Blob) | 高階                       | N/A                            | LRS、ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | 資源管理員             | 已加密              |
 | FileStorage   | 僅限檔案 | 高階                       | N/A                            | LRS、ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | 資源管理員             | 已加密              |
@@ -41,4 +41,6 @@ Azure 儲存體提供數種類型的儲存體帳戶。 每個類型都支援不�
 
 <div id="zone-redundant-storage"><sup>4</sup>區域冗余儲存體（ZRS）和地理區域冗余儲存體（切換/RA-切換）（預覽）僅適用于特定區域中的標準一般用途 V2、BlockBlobStorage 和 FileStorage 帳戶。 如需 ZRS 的詳細資訊，請參閱<a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式</a>。 如需切換/RA-切換的詳細資訊，請參閱<a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">高可用性和最大持久性（預覽）的異地區域冗余儲存體</a>。 如需其他複寫選項的詳細資訊，請參閱 <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure 儲存體複寫</a>。</div>
 
-<div id="premium-performance"><sup>5</sup>一般用途 v2 和一般用途 v1 帳戶的 Premium 效能僅適用于磁片和分頁 blob。</div>
+<div id="premium-performance"><sup>5</sup>一般用途 v2 和一般用途 v1 帳戶的 Premium 效能僅適用于磁片和分頁 blob。 「封鎖」或「附加」 blob 的 Premium 效能僅適用于 BlockBlobStorage 帳戶。 檔案的 Premium 效能僅適用于 FileStorage 帳戶。</div>
+
+<div id="data-lake-gen2"><sup>6</sup>Azure Data Lake Storage Gen2 是一組專供大型資料分析使用的功能，建置於 Azure Blob 儲存體上。 只有在啟用階層命名空間的一般用途 V2 儲存體帳戶上，才支援 Data Lake Storage Gen2。 如需 Data Lake Storage Gen2 的詳細資訊，請參閱<a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2 簡介</a>。</div>

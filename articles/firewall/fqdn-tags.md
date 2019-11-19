@@ -1,18 +1,18 @@
 ---
 title: Azure 防火牆的 FQDN 標籤概觀
-description: 了解 Azure 防火牆中的 FQDN 標籤
+description: FQDN 標籤代表一群與知名 Microsoft 服務相關聯的完整網域名稱 (FQDN)。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/23/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665551"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169043"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 標籤概觀
 
@@ -28,7 +28,7 @@ FQDN 標籤代表一群與知名 Microsoft 服務相關聯的完整網域名稱 
 
 ## <a name="current-fqdn-tags"></a>目前的 FQDN 標記
 
-|FQDN 標籤  |說明  |
+|FQDN 標籤  |描述  |
 |---------|---------|
 |Windows Update     |允許對 Microsoft Update 進行輸出存取，如[如何為軟體更新設定防火牆](https://technet.microsoft.com/library/bb693717.aspx)中所述。|
 |Windows 診斷|允許對所有 [Windows 診斷端點](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)進行輸出存取。|

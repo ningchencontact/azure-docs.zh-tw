@@ -1,20 +1,15 @@
 ---
-title: Azure 備份：Linux VM 的應用程式一致備份
+title: Linux Vm 的應用程式一致備份
 description: 在 Azure 建立 Linux 虛擬機器的應用程式一致備份。 本文說明如何設定指令碼架構，備份以 Azure 部署的 Linux VM。 本文另包含疑難排解資訊。
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: 應用程式一致備份; 應用程式一致 Azure VM 備份; Linux VM 備份; Azure 備份
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
-ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375938"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173014"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的應用程式一致備份
 
@@ -76,7 +71,7 @@ ms.locfileid: "72375938"
 
 確定您在寫入前置指令碼和後置指令碼時新增適當的記錄，並檢閱您的指令碼記錄以修正任何指令碼的問題。 如果仍有執行指令碼的問題，請參閱下列表格以取得詳細資訊。
 
-| Error | 錯誤訊息 | 建議動作 |
+| 錯誤 | 錯誤訊息 | 建議的動作 |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |前置指令碼傳回錯誤，所以備份可能無法應用程式一致。| 查看您指令碼的失敗記錄來修正此問題。|  
 |Post-ScriptExecutionFailed |後置指令碼傳回可能會影響應用程式狀態的錯誤。 |查看您指令碼的失敗記錄並檢查應用程式狀態來修正此問題。 |

@@ -1,18 +1,18 @@
 ---
 title: Azure 防火牆 log analytics 範例
-description: Azure 防火牆 log analytics 範例
+description: 您可以使用 Azure 監視器記錄來分析 Azure 防火牆。 範例檔案在 Azure 監視器中是內建的視圖設計工具。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033988"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168899"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆 log analytics 範例
 
@@ -30,7 +30,7 @@ ms.locfileid: "71033988"
 2. 開啟位於 [一般] 底下的 [檢視設計工具]。
 3. 按一下 [匯入]。
 4. 瀏覽並選取您之前所下載的 **AzureFirewall.omsview** 檔案。
-5. 按一下 [儲存]。
+5. 按一下 [檔案]。
 
 以下是針對應用程式規則記錄資料的檢視外觀：
 
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解 Azure 防火牆監視和診斷， [請參閱教學課程：監視 Azure 防火牆記錄和計量](tutorial-diagnostics.md)。
+若要了解 Azure 防火牆監視與診斷，請參閱[教學課程：監視 Azure 防火牆記錄和計量](tutorial-diagnostics.md)。

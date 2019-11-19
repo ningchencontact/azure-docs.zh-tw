@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: cd15b562c3707a28b54bc59166d54871120909e2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084942"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159106"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>移轉至 Azure 之後，設定 Azure VM 的災害復原 
 
@@ -30,7 +30,7 @@ ms.locfileid: "74084942"
 
 每個 Azure VM 都必須安裝[AZURE vm 代理程式](../virtual-machines/extensions/agent-windows.md)。 若要複寫 Azure Vm，Site Recovery 在代理程式上安裝擴充功能。
 
-- 如果機器執行的是 Site Recovery 行動服務的9.7.0.0 開始或更新版本，則 Windows Vm 上的行動服務會自動安裝 Azure VM 代理程式。 在舊版的行動服務中，您需要手動安裝代理程式。
+- 如果機器執行的是 Site Recovery 行動服務的9.7.0.0 開始或更新版本，則 Windows Vm 上的行動服務會自動安裝 Azure VM 代理程式。 在舊版的行動服務中，您將會手動安裝代理程式。
 - 針對 Linux Vm，您必須手動安裝 Azure VM 代理程式。 僅在移轉後的機器上安裝之行動服務是 9.6 版或更早版本時，才需要安裝 Azure VM 代理程式。
 
 

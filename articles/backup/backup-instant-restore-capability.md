@@ -2,18 +2,14 @@
 title: Azure 立即還原功能
 description: Azure 立即還原功能和 VM 備份堆疊、Azure Resource Manager 部署模型的常見問題集
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1faa8efc5cbb39f94a390a0cf32dd2cd1ef0793c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012101"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172336"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 

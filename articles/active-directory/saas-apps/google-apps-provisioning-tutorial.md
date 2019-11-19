@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120330"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167872"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
@@ -32,7 +32,7 @@ ms.locfileid: "74120330"
 > [!NOTE]
 > G Suite 連接器最近已于2019年10月更新。 對 G Suite 連接器所做的變更包括：
 - 已新增對其他 G Suite 使用者和群組屬性的支援。 
-- 已更新 G Suite 目標屬性名稱，以符合[這裡](/azure/active-directory/manage-apps/customize-application-attributes)定義的內容。
+- 已更新 G Suite 目標屬性名稱，以符合[這裡](https://developers.google.com/admin-sdk/directory)定義的內容。
 - 已更新預設屬性對應。
 
 ## <a name="prerequisites"></a>先決條件
@@ -129,6 +129,9 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 > [!TIP]
 > 您也可以選擇啟用 G Suite 的 SAML 型單一登入，請遵循[g Suite 單一登入教學](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
 
+> [!NOTE]
+> 若要深入瞭解 G Suite 的目錄 API 端點，請參閱[目錄 api](https://developers.google.com/admin-sdk/directory)。
+
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>若要在 Azure AD 中設定 G Suite 的自動使用者布建：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**]，然後選取 [**所有應用程式**]。
@@ -196,15 +199,6 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度，並遵循連結來布建活動報告，其中描述 G Suite 上的 Azure AD 布建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
-
-> [!NOTE]
-> 自動化使用者布建至 G Suite 的另一個可行選項是使用[Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en)。此選項會將您的內部部署 Active Directory 身分識別布建至 G Suite。
-
-## <a name="common-issues"></a>常見問題
-* G Suite 要求所有已布建的使用者都必須來自已驗證的網域。 請確定您想要布建的任何使用者在 G Suite 的已驗證網域中都有 UPN。 如果未驗證網域中的使用者在布建範圍內，您會在布建[記錄](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)中看到錯誤，例如 "GoogleAppsInvalidDomain"。 您可以使用[範圍篩選器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)來防止這些錯誤，並確保來自未驗證網域的使用者不在範圍內。
-    * 目標屬性： userPrincipalName
-    * 運算子： REGEX 比對或不符合 REGEX 比對
-    * 值：. *@domain.com
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,19 +1,14 @@
 ---
-title: Azure 備份的 Azure 監視器記錄資料模型
+title: Azure 監視器記錄資料模型
 description: 在本文中，您將瞭解 Azure 備份資料的 Azure 監視器 Log Analytics 資料模型詳細資料。
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: dacurwin
-ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 055a36fb2aa8e9048089a338f57555242e8eb754
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074939"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173019"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>適用於 Azure 備份資料的 Log Analytics 資料模型
 

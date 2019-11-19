@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: glenga
-ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3b8294c7bd91bcd6a2e0e533f5903f44e8aaea
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515661"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173668"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 開發人員指南
 
 本文提供有關如何使用 PowerShell 撰寫 Azure Functions 的詳細資料。
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 PowerShell Azure 函式（函式）會以 PowerShell 腳本的形式表示，並在觸發時執行。 每個函式腳本都有相關的 `function.json` 檔案，可定義函式的行為，例如觸發程式的方式，以及其輸入和輸出參數。 若要深入瞭解，請參閱[觸發程式和](functions-triggers-bindings.md)系結一文。 
 
@@ -73,17 +71,17 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 
 ### <a name="triggermetadata-parameter"></a>TriggerMetadata 參數
 
-@No__t_0 參數是用來提供觸發程式的其他相關資訊。 其他中繼資料會因系結而有所不同，但它們全都包含包含下列資料的 `sys` 屬性：
+`TriggerMetadata` 參數是用來提供觸發程式的其他相關資訊。 其他中繼資料會因系結而有所不同，但它們全都包含包含下列資料的 `sys` 屬性：
 
 ```powershell
 $TriggerMetadata.sys
 ```
 
-| 屬性   | 描述                                     | Type     |
+| 屬性   | 描述                                     | 在系統提示您進行確認時，輸入     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | 當函式在 UTC 時間內觸發時        | 日期時間 |
-| 名稱 | 已觸發之函式的名稱     | string   |
-| RandGuid   | 此函式執行的唯一 guid | string   |
+| UtcNow     | 當函式在 UTC 時間內觸發時        | DateTime |
+| 名稱 | 已觸發之函式的名稱     | 字串   |
+| RandGuid   | 此函式執行的唯一 guid | 字串   |
 
 每個觸發程式類型都有一組不同的中繼資料。 例如，`QueueTrigger` 的 `$TriggerMetadata` 包含 `InsertionTime`、`Id`、`DequeueCount`，還有其他專案。 如需佇列觸發程式中繼資料的詳細資訊，請移至[佇列觸發程式的官方檔](functions-bindings-storage-queue.md#trigger---message-metadata)。 請查看您正在使用之[觸發](functions-triggers-bindings.md)程式的相關檔，以查看觸發程式中繼資料內有哪些內容。
 
@@ -93,7 +91,7 @@ $TriggerMetadata.sys
 
 ### <a name="reading-trigger-and-input-data"></a>讀取觸發程序和輸入資料
 
-觸發程式和輸入系結會讀取為傳遞至您函式的參數。 在函數. json 中，輸入系結的 `direction` 設定為 `in`。 @No__t_1 中定義的 `name` 屬性是 `param` 區塊中參數的名稱。 由於 PowerShell 會使用具名引數進行系結，因此參數的順序並不重要。 不過，最佳做法是遵循 `function.json` 中定義的系結順序。
+觸發程式和輸入系結會讀取為傳遞至您函式的參數。 在函數. json 中，輸入系結的 `direction` 設定為 `in`。 `function.json` 中定義的 `name` 屬性是 `param` 區塊中參數的名稱。 由於 PowerShell 會使用具名引數進行系結，因此參數的順序並不重要。 不過，最佳做法是遵循 `function.json`中定義的系結順序。
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
@@ -119,7 +117,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding` 會根據針對 `-Name` 指定的值而有不同的行為：
+`Push-OutputBinding` 會根據針對 `-Name`指定的值而有不同的行為：
 
 * 當指定的名稱無法解析為有效的輸出系結時，就會擲回錯誤。
 
@@ -129,12 +127,12 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 #### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` 語法
 
-以下是用來呼叫 `Push-OutputBinding` 的有效參數：
+以下是用來呼叫 `Push-OutputBinding`的有效參數：
 
-| Name | Type | 位置 | 描述 |
+| 名稱 | 在系統提示您進行確認時，輸入 | 位置 | 描述 |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | 您想要設定的輸出系結名稱。 |
-| **`-Value`** | Object | 2 | 您想要設定的輸出系結值，這是從管線 ByValue 接受的。 |
+| **`-Name`** | 字串 | 1 | 您想要設定的輸出系結名稱。 |
+| **`-Value`** | 物件 | 2 | 您想要設定的輸出系結值，這是從管線 ByValue 接受的。 |
 | **`-Clobber`** | SwitchParameter | 已命名 | 選擇性當指定時，會強制針對指定的輸出系結設定值。 | 
 
 也支援下列一般參數： 
@@ -152,7 +150,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 #### <a name="push-outputbinding-example-http-responses"></a>推播-OutputBinding 範例： HTTP 回應
 
-HTTP 觸發程式會使用名為 `response` 的輸出系結來傳迴響應。 在下列範例中，`response` 的輸出系結具有 "output #1" 的值：
+HTTP 觸發程式會使用名為 `response`的輸出系結來傳迴響應。 在下列範例中，`response` 的輸出系結具有 "output #1" 的值：
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -218,7 +216,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding` 也包含稱為 `-Name` 的參數，可以用來篩選傳回的系結，如下列範例所示：
+`Get-OutputBinding` 也包含稱為 `-Name`的參數，可以用來篩選傳回的系結，如下列範例所示：
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -230,7 +228,7 @@ Name                           Value
 MyQueue                        myData
 ```
 
-@No__t_0 支援萬用字元（*）。
+`Get-OutputBinding`支援萬用字元（*）。
 
 ## <a name="logging"></a>記錄
 
@@ -238,7 +236,7 @@ PowerShell 函式中的記錄運作方式與一般 PowerShell 記錄類似。 �
 
 | 函數記錄層級 | 記錄 Cmdlet |
 | ------------- | -------------- |
-| Error | **`Write-Error`** |
+| 錯誤 | **`Write-Error`** |
 | 警告 | **`Write-Warning`**  | 
 | 資訊 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 資訊 | 寫入_資訊_層級記錄。 |
 | 偵錯 | **`Write-Debug`** |
@@ -253,7 +251,7 @@ PowerShell 函式中的記錄運作方式與一般 PowerShell 記錄類似。 �
 
 Azure Functions 可讓您定義閾值層級，讓您輕鬆控制函數寫入記錄的方式。 若要為寫入主控台的所有追蹤設定閾值，請使用[`host.json`]檔案[主機. json 參考]中的 `logging.logLevel.default` 屬性。 這個設定會套用到函式應用程式中的所有函式。
 
-下列範例會設定閾值以啟用所有函式的詳細資訊記錄，但設定閾值以啟用名為 `MyFunction` 之函式的偵錯工具記錄功能：
+下列範例會設定閾值以啟用所有函式的詳細資訊記錄，但設定閾值以啟用名為 `MyFunction`之函式的偵錯工具記錄功能：
 
 ```json
 {
@@ -281,10 +279,10 @@ Azure Functions 可讓您定義閾值層級，讓您輕鬆控制函數寫入記�
 所有的觸發程式和系結都是以程式碼表示，做為幾個實際的資料類型：
 
 * 雜湊表
-* string
+* 字串
 * byte[]
 * int
-* 兩倍
+* double
 * HttpRequestCoNtext
 * HttpResponseCoNtext
 
@@ -298,27 +296,27 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 #### <a name="request-object"></a>要求物件
 
-傳入腳本的要求物件屬於 `HttpRequestContext` 類型，其具有下列屬性：
+傳入腳本的要求物件屬於 `HttpRequestContext`類型，其具有下列屬性：
 
-| 屬性  | 描述                                                    | Type                      |
+| 屬性  | 描述                                                    | 在系統提示您進行確認時，輸入                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 包含要求本文的物件。 `Body` 會根據資料序列化為最佳類型。 例如，如果資料是 JSON，則會以雜湊表的形式傳入。 如果資料是字串，則會以字串的形式傳入。 | object |
-| **`Headers`** | 包含要求標頭的字典。                | 字典 < 字串，字串 ><sup> *</sup> |
-| **`Method`** | 要求的 HTTP 方法。                                | string                    |
-| **`Params`**  | 包含要求之路由傳送參數的物件。 | 字典 < 字串，字串 ><sup> *</sup> |
-| **`Query`** | 包含查詢參數的物件。                  | 字典 < 字串，字串 ><sup> *</sup> |
-| **`Url`** | 要求的 URL。                                        | string                    |
+| **`Body`**    | 包含要求本文的物件。 `Body` 會根據資料序列化為最佳類型。 例如，如果資料是 JSON，則會以雜湊表的形式傳入。 如果資料是字串，則會以字串的形式傳入。 | 物件 |
+| **`Headers`** | 包含要求標頭的字典。                | 字典 < 字串，字串 ><sup>*</sup> |
+| **`Method`** | 要求的 HTTP 方法。                                | 字串                    |
+| **`Params`**  | 包含要求之路由傳送參數的物件。 | 字典 < 字串，字串 ><sup>*</sup> |
+| **`Query`** | 包含查詢參數的物件。                  | 字典 < 字串，字串 ><sup>*</sup> |
+| **`Url`** | 要求的 URL。                                        | 字串                    |
 
 <sup>*</sup>所有 `Dictionary<string,string>` 的索引鍵都不區分大小寫。
 
 #### <a name="response-object"></a>回應物件
 
-您應該傳回的回應物件屬於 `HttpResponseContext` 類型，其具有下列屬性：
+您應該傳回的回應物件屬於 `HttpResponseContext`類型，其具有下列屬性：
 
-| 屬性      | 描述                                                 | Type                      |
+| 屬性      | 描述                                                 | 在系統提示您進行確認時，輸入                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 包含回應本文的物件。           | object                    |
-| **`ContentType`** | 設定回應內容類型的簡短手勢。 | string                    |
+| **`Body`**  | 包含回應本文的物件。           | 物件                    |
+| **`ContentType`** | 設定回應內容類型的簡短手勢。 | 字串                    |
 | **`Headers`** | 包含回應標頭的物件。               | 字典或雜湊表   |
 | **`StatusCode`**  | 回應的 HTTP 狀態碼。                       | 字串或整數             |
 
@@ -424,17 +422,17 @@ param([string] $myBlob)
 > [!NOTE]
 > 受控相依性需要存取 www.powershellgallery.com 才能下載模組。 在本機執行時，請確定執行時間可以藉由新增任何必要的防火牆規則來存取此 URL。 
 
-下列應用程式設定可以用來變更如何下載和安裝受控相依性。 您的應用程式升級會在 `MDMaxBackgroundUpgradePeriod` 內開始，且升級程式會在大約的 `MDNewSnapshotCheckPeriod` 內完成。
+下列應用程式設定可以用來變更如何下載和安裝受控相依性。 您的應用程式升級會在 `MDMaxBackgroundUpgradePeriod`內開始，且升級程式會在大約的 `MDNewSnapshotCheckPeriod`內完成。
 
 | 函數應用程式設定              | 預設值             | 描述                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` （7天）     | 每個 PowerShell 工作者進程都會在進程啟動時，起始檢查 PowerShell 資源庫上的模組升級，而每個 `MDMaxBackgroundUpgradePeriod` 之後。 當 PowerShell 資源庫中有新的模組版本可用時，它會安裝到檔案系統，並提供給 PowerShell 背景工作。 降低此值可讓您的函數應用程式更快取得較新的模組版本，但它也會增加應用程式資源使用量（網路 i/o、CPU、儲存體）。 增加此值會減少應用程式的資源使用量，但它也可能會延遲傳遞新的模組版本至您的應用程式。 | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` （1小時）       | 將新的模組版本安裝至檔案系統後，必須重新開機每個 PowerShell 背景工作進程。 重新開機 PowerShell 背景工作會影響您的應用程式可用性，因為它可以中斷目前的函式執行。 在重新開機所有 PowerShell 背景工作進程之前，函式呼叫可能會使用舊的或新的模組版本。 在 `MDNewSnapshotCheckPeriod` 內重新開機所有的 PowerShell 背景工作角色。 增加這個值會減少中斷的頻率，但也可能會增加函式呼叫使用舊或新模組版本不具決定性的時間長度。 |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` （1天）     | 若要避免在頻繁的工作者重新開機時進行過多的模組升級，當任何工作者已經起始該簽入最後一個 `MDMinBackgroundUpgradePeriod` 時，不會執行檢查模組升級。 |
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` （1小時）       | 將新的模組版本安裝至檔案系統後，必須重新開機每個 PowerShell 背景工作進程。 重新開機 PowerShell 背景工作會影響您的應用程式可用性，因為它可以中斷目前的函式執行。 在重新開機所有 PowerShell 背景工作進程之前，函式呼叫可能會使用舊的或新的模組版本。 在 `MDNewSnapshotCheckPeriod`內重新開機所有的 PowerShell 背景工作角色。 增加這個值會減少中斷的頻率，但也可能會增加函式呼叫使用舊或新模組版本不具決定性的時間長度。 |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` （1天）     | 若要避免在頻繁的工作者重新開機時進行過多的模組升級，當任何工作者已經起始該簽入最後一個 `MDMinBackgroundUpgradePeriod`時，不會執行檢查模組升級。 |
 
 利用您自己的自訂模組，與一般做法稍有不同。
 
-在您的本機電腦上，模組會安裝在 `$env:PSModulePath` 中的其中一個全域可用資料夾中。 在 Azure 中執行時，您無法存取電腦上所安裝的模組。 這表示 PowerShell 函數應用程式的 `$env:PSModulePath` 與一般 PowerShell 腳本中的 `$env:PSModulePath` 不同。
+在您的本機電腦上，模組會安裝在 `$env:PSModulePath`中的其中一個全域可用資料夾中。 在 Azure 中執行時，您無法存取電腦上所安裝的模組。 這表示 PowerShell 函數應用程式的 `$env:PSModulePath` 與一般 PowerShell 腳本中的 `$env:PSModulePath` 不同。
 
 在 [函數] 中，`PSModulePath` 包含兩個路徑：
 
@@ -475,18 +473,18 @@ PSFunctionApp
 
 ### <a name="language-worker-level-modules-folder"></a>語言背景工作角色層級 `Modules` 資料夾
 
-PowerShell 語言背景工作角色通常會使用數個模組。 這些模組定義于 `PSModulePath` 的最後一個位置。 
+PowerShell 語言背景工作角色通常會使用數個模組。 這些模組定義于 `PSModulePath`的最後一個位置。 
 
 目前的模組清單如下所示：
 
-* [ [Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)]：用來處理封存的模組，例如 `.zip`、`.nupkg` 及其他。
+* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)：用來處理封存的模組， `.zip`例如、 `.nupkg`和其他。
 * **ThreadJob**： PowerShell 作業 api 的執行緒型執行。
 
 根據預設，函數會使用這些模組的最新版本。 若要使用特定的模組版本，請將該特定版本放在函式應用程式的 [`Modules`] 資料夾中。
 
 ## <a name="environment-variables"></a>環境變數
 
-在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `$env:NAME_OF_ENV_VAR` 來存取這些設定，如下列範例所示：
+在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `$env:NAME_OF_ENV_VAR`來存取這些設定，如下列範例所示：
 
 ```powershell
 param($myTimer)
@@ -525,9 +523,9 @@ Azure PowerShell 的並行處理有極大的價值，因為有些作業可能需
 
 ## <a name="configure-function-scriptfile"></a>設定函數 `scriptFile`
 
-根據預設，PowerShell 函式會從 `run.ps1` 執行，這是共用相同上層目錄做為其對應 `function.json` 的檔案。
+根據預設，PowerShell 函式會從 `run.ps1`執行，這是共用相同上層目錄做為其對應 `function.json`的檔案。
 
-@No__t_1 中的 `scriptFile` 屬性可以用來取得如下列範例所示的資料夾結構：
+`function.json` 中的 `scriptFile` 屬性可以用來取得如下列範例所示的資料夾結構：
 
 ```
 FunctionApp
@@ -554,7 +552,7 @@ FunctionApp
 本文已在範本所產生的預設 `run.ps1` 腳本檔案中顯示 PowerShell 函式。
 不過，您也可以在 PowerShell 模組中包含函數。 您可以使用函式. json ' 設定檔中的 `scriptFile` 和 `entryPoint` 欄位來參考模組中的特定函式程式碼。
 
-在此情況下，`entryPoint` 是 `scriptFile` 中所參考的 PowerShell 模組中的函式或 Cmdlet 的名稱。
+在此情況下，`entryPoint` 是 `scriptFile`中所參考的 PowerShell 模組中的函式或 Cmdlet 的名稱。
 
 請考慮下列資料夾結構：
 
@@ -579,7 +577,7 @@ function Invoke-PSTestFunc {
 Export-ModuleMember -Function "Invoke-PSTestFunc"
 ```
 
-在此範例中，`myFunction` 的設定包含參考 `PSFunction.psm1` 的 `scriptFile` 屬性，這是另一個資料夾中的 PowerShell 模組。  @No__t_0 屬性會參考 `Invoke-PSTestFunc` 函數，也就是模組中的進入點。
+在此範例中，`myFunction` 的設定包含參考 `PSFunction.psm1`的 `scriptFile` 屬性，這是另一個資料夾中的 PowerShell 模組。  `entryPoint` 屬性會參考 `Invoke-PSTestFunc` 函數，也就是模組中的進入點。
 
 ```json
 {
