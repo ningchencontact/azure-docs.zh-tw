@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 web 應用程式 (程式碼設定)-Microsoft 身分識別平臺
-description: 瞭解如何建立呼叫 web Api 的 Web 應用程式 (應用程式的程式碼設定)
+title: 呼叫 web Api 的 web 應用程式（程式碼設定）-Microsoft 身分識別平臺
+description: 瞭解如何建立呼叫 web Api 的 Web 應用程式（應用程式的程式碼設定）
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1131cba204b7b7af33cc0441ee455b6e333aba20
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 231ecdb6afae1fc36d11b2c12aa82c7e860bb708
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310087"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175310"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 web 應用程式-程式碼設定
 
@@ -35,20 +35,20 @@ ms.locfileid: "71310087"
 
 支援 web 應用程式之授權碼流程的程式庫如下：
 
-| MSAL 程式庫 | 描述 |
+| MSAL 程式庫 | 說明 |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支援的平臺為 .NET Framework 和 .NET Core 平臺 (而不是 UWP、Xamarin 和 Xamarin, 因為這些平臺是用來建立公用用戶端應用程式) |
-| ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進行中的開發-現已公開預覽 |
-| ![MSAL.Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 進行中的開發-現已公開預覽 |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支援的平臺為 .NET Framework 和 .NET Core 平臺（而不是 UWP、Xamarin 和 Xamarin，因為這些平臺是用來建立公用用戶端應用程式） |
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 進行中的開發-現已公開預覽 |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 進行中的開發-現已公開預覽 |
 
 選取對應至您感興趣之平臺的索引標籤：
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 假設使用者登入已委派給 Open ID connect （OIDC）中介軟體，您想要在 OIDC 流程中連結。 執行此動作的方式會根據您使用的架構而有所不同。
-在 ASP.NET Core 的情況下，您會訂閱中介軟體 OIDC 事件。 原則是:
+在 ASP.NET Core 的情況下，您會訂閱中介軟體 OIDC 事件。 原則是：
 
-- 您將透過 Open ID connect 中介軟體，讓 ASP.NET core 要求授權碼。 藉由執行此 ASP.NET/ASP.NET 核心, 可讓使用者登入和同意,
+- 您將透過 Open ID connect 中介軟體，讓 ASP.NET core 要求授權碼。 藉由執行此 ASP.NET/ASP.NET 核心，可讓使用者登入和同意，
 - 您將會訂閱 Web 應用程式接收授權碼。 此訂用C#帳戶是透過委派完成。
 - 收到驗證碼時，您會使用 MSAL 程式庫來兌換程式碼，而產生的存取權杖和重新整理權杖會儲存在權杖快取中。 從該處，快取可以用於應用程式的其他部分（例如，在控制器中），以無訊息方式取得其他標記。
 
@@ -60,9 +60,9 @@ ms.locfileid: "71310087"
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 假設使用者登入已委派給 Open ID connect （OIDC）中介軟體，您想要在 OIDC 流程中連結。 執行此動作的方式會根據您使用的架構而有所不同。
-在 ASP.NET 的案例中，您會訂閱中介軟體 OIDC 事件。 原則是:
+在 ASP.NET 的案例中，您會訂閱中介軟體 OIDC 事件。 原則是：
 
-- 您將透過 Open ID connect 中介軟體，讓 ASP.NET core 要求授權碼。 藉由執行此 ASP.NET/ASP.NET 核心, 可讓使用者登入和同意,
+- 您將透過 Open ID connect 中介軟體，讓 ASP.NET core 要求授權碼。 藉由執行此 ASP.NET/ASP.NET 核心，可讓使用者登入和同意，
 - 您將會訂閱 Web 應用程式接收授權碼。 這是C#委派。
 - 收到驗證碼時，您將使用 MSAL 程式庫來兌換程式碼。 產生的存取權杖和重新整理權杖會儲存在權杖快取中。 從該處，快取可以用於應用程式的其他部分（例如，在控制器中），以無訊息方式取得其他標記。
 
@@ -70,8 +70,8 @@ ms.locfileid: "71310087"
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-本文和下列的程式碼片段會從呼叫 Microsoft graph msal4j web 應用程式範例的[JAVA web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)中解壓縮。
-此範例目前可讓 msal4j 產生授權碼 URL，並處理流覽至 Microsoft 身分識別平臺授權端點。 也可以使用短期衝刺安全性來登入使用者。 如需完整的執行詳細資料，您可以參考此範例。
+本文和下列的程式碼片段會從呼叫 Microsoft graph MSAL JAVA web 應用程式範例的[java web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)中解壓縮。
+此範例目前可讓 MSAL JAVA 產生授權碼 URL，並處理流覽至 Microsoft 身分識別平臺授權端點。 也可以使用短期衝刺安全性來登入使用者。 如需完整的執行詳細資料，您可以參考此範例。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -86,11 +86,11 @@ ms.locfileid: "71310087"
 
 ### <a name="startupcs"></a>Startup.cs
 
-在 ASP.NET Core 中，原則是在檔案中`Startup.cs` 。 您會想要訂閱`OnAuthorizationCodeReceived` open ID connect 事件，而在此事件中，請呼叫 MSAL。NET 的方法`AcquireTokenFromAuthorizationCode`，其具有將儲存在權杖快取中的效果、所要求`scopes`的存取權杖，以及將在接近到期時用來重新整理存取權杖的重新整理權杖，或代表相同的使用者取得權杖，但適用于不同的資源。
+在 ASP.NET Core 中，原則是在 `Startup.cs` 檔案中。 您會想要訂閱 `OnAuthorizationCodeReceived` open ID connect 事件，而在此事件中，請呼叫 MSAL。NET 的方法 `AcquireTokenFromAuthorizationCode`，其具有將儲存在權杖快取中的效果、要求之 `scopes`的存取權杖，以及在接近過期時用來重新整理存取權杖的重新整理權杖，或代表相同的使用者取得權杖，但適用于不同的資源。
 
 實際上， [ASP.NET Core web 應用程式教學](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)課程會嘗試為您的 web 應用程式提供可重複使用的程式碼。
 
-以下是[L40 的 L42 程式](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42)代碼，其中的呼叫`AddMicrosoftIdentityPlatformAuthentication`會將驗證新增至 web 應用程式的方法，並`AddMsal`新增呼叫 web api 的功能。 對的呼叫`AddInMemoryTokenCaches`是關於在可能的情況下選擇權杖快取實作為：
+以下是[L40 的 L42 程式](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42)代碼，其 `AddMicrosoftIdentityPlatformAuthentication` 方法的呼叫會將驗證新增至 web 應用程式，並 `AddMsal` 新增呼叫 web api 的功能。 `AddInMemoryTokenCaches` 的呼叫是關於在可能的情況下選擇權杖快取實作為：
 
 ```CSharp
 public class Startup
@@ -110,7 +110,7 @@ public class Startup
 }
 ```
 
-`Constants.ScopeUserRead`定義于[常數中。 cs # L5](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Infrastructure/Constants.cs#L5)
+`Constants.ScopeUserRead` 是在常數中定義[。 cs # L5](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Infrastructure/Constants.cs#L5)
 
 ```CSharp
 public static class Constants
@@ -119,11 +119,11 @@ public static class Constants
 }
 ```
 
-您已經研究過`AddMicrosoftIdentityPlatformAuthentication` [Web 應用程式中登入使用者-程式碼](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore#initialization-code)設定的內容
+您已經研究過[Web 應用程式中登入使用者-程式碼](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore#initialization-code)設定的 `AddMicrosoftIdentityPlatformAuthentication` 內容
 
 ### <a name="the-addmsal-method"></a>AddMsal 方法
 
-的`AddMsal`程式碼位於[Microsoft. Identity. Web/WebAppServiceCollectionExtensions .cs # L108-L159](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159)。
+`AddMsal` 的程式碼位於 WebAppServiceCollectionExtensions 中，則位於[L108-L159](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159)。
 
 ```CSharp
 
@@ -182,21 +182,21 @@ public static class WebAppServiceCollectionExtensions
 }
 ```
 
-`AddMsal`方法可確保：
+`AddMsal` 方法可確保：
 
 - ASP.NET Core Web 應用程式會要求使用者的 IDToken 和驗證碼（`options.ResponseType = OpenIdConnectResponseType.CodeIdToken`）
-- 已`offline_access`加入範圍。 使用者必須同意，讓應用程式取得重新整理權杖。
-- 應用程式會訂閱 OIDC `OnAuthorizationCodeReceived`事件，並使用 MSAL.NET 贖回呼叫，這會封裝成可重複使用的`ITokenAcquisition`元件。
+- 已新增 `offline_access` 範圍。 使用者必須同意，讓應用程式取得重新整理權杖。
+- 應用程式會訂閱 OIDC `OnAuthorizationCodeReceived` 事件，並使用 MSAL.NET 贖回呼叫，這會封裝到可重複使用的元件來執行 `ITokenAcquisition`。
 
 ### <a name="the-tokenacquisitionaddaccounttocachefromauthorizationcodeasync-method"></a>TokenAcquisition. AddAccountToCacheFromAuthorizationCodeAsync 方法
 
-此`TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync`方法位於 TokenAcquisition 中，也就是[L101-L145](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L101-L145)。 它可確保：
+`TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync` 的方法位於 TokenAcquisition 的[L145 # L101-](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L101-L145)。 它可確保：
 
 - ASP.NET 不會嘗試以平行方式將驗證碼兌換為 MSAL.NET （`context.HandleCodeRedemption();`）
 - IDToken 中的宣告可供 MSAL 計算使用者帳戶的權杖快取金鑰
 - 如有需要，MSAL.NET 應用程式會具現化
 - MSAL.NET 應用程式會兌換此代碼
-- 新的識別碼權杖會與 ASP.NET Core 共用（在呼叫`context.HandleCodeRedemption(null, result.IdToken);`期間）。 存取權杖不會與 ASP.NET Core 共用。 它會保留在與使用者相關聯的 MSAL.NET token 快取中，並可供在 ASP.NET Core 控制器中使用。
+- 新的識別碼權杖會與 ASP.NET Core 共用（在呼叫 `context.HandleCodeRedemption(null, result.IdToken);`期間）。 存取權杖不會與 ASP.NET Core 共用。 它會保留在與使用者相關聯的 MSAL.NET token 快取中，並可供在 ASP.NET Core 控制器中使用。
 
 ```csharp
 public class TokenAcquisition : ITokenAcquisition
@@ -246,12 +246,12 @@ public class TokenAcquisition : ITokenAcquisition
 
 ### <a name="the-tokenacquisitionbuildconfidentialclientapplication-method"></a>TokenAcquisition. BuildConfidentialClientApplication 方法
 
-在 ASP.NET Core 中, 建立機密用戶端應用程式會使用 HttpCoNtext 中的資訊。 透過`CurrentHttpContext`屬性（HttpCoNtext）存取與要求相關聯的、知道 Web 應用程式的 URL，以及登入的使用者（ `ClaimsPrincipal`在中）。 `BuildConfidentialClientApplication`也會使用 ASP.NET Core 設定，其具有 "AzureAD" 區段，且兩者系結至：
+在 ASP.NET Core 中，建立機密用戶端應用程式會使用 HttpCoNtext 中的資訊。 透過 `CurrentHttpContext` 屬性（HttpCoNtext）存取與要求相關聯的、知道 Web 應用程式的 URL，以及登入的使用者（在 `ClaimsPrincipal`中）。 `BuildConfidentialClientApplication` 也會使用 ASP.NET Core 設定，其具有 "AzureAD" 區段，且兩者系結至：
 
-- [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) `_applicationOptions`類型的資料結構
-- ASP.NET Core `azureAdOptions` 中`Authentication.AzureAD.UI`所定義之類型[AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs)的實例。 最後, 應用程式必須維護權杖快取。 您將在下一節中深入瞭解這項功能。
+- `_applicationOptions`ConfidentialClientApplicationOptions[ ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet)類型的資料結構
+- ASP.NET Core `Authentication.AzureAD.UI`中定義之[AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs)類型的 `azureAdOptions` 實例。 最後，應用程式必須維護權杖快取。 您將在下一節中深入瞭解這項功能。
 
-`GetOrBuildConfidentialClientApplication()`方法的程式碼位於 TokenAcquisition 中。 [.cs # L290-L333](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333)。 它會使用由相依性插入所插入的成員（以 TokenAcquisition 中的函式在[L47](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59)中傳遞）。
+`GetOrBuildConfidentialClientApplication()` 方法的程式碼位於 TokenAcquisition 中。 [L333 # L290-](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333)。 它會使用由相依性插入所插入的成員（以 TokenAcquisition 中的函式在[L47](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59)中傳遞）。
 
 ```CSharp
 public class TokenAcquisition : ITokenAcquisition
@@ -314,13 +314,13 @@ public class TokenAcquisition : ITokenAcquisition
 
 ```
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>摘要
 
-若要加總， `AcquireTokenByAuthorizationCode`請確實贖回 ASP.NET 所要求的授權碼，並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
+為了加總，`AcquireTokenByAuthorizationCode` 確實贖回了 ASP.NET 所要求的授權碼，並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET 處理專案的方式與 ASP.NET Core 相似，不同之處在于 OpenIdConnect 的設定和`OnAuthorizationCodeReceived`事件的訂用帳戶會在[App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs)檔案中發生。 您可以在 ASP.NET Core 中找到類似的概念，但在 ASP.NET 中，您必須在 web.config [# L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15)中指定 RedirectUri。 相較于 ASP.NET Core 中的設定，此設定比在中執行的設定來得低，因為您必須在部署應用程式時加以變更。
+ASP.NET 處理專案的方式與 ASP.NET Core 相似，不同之處在于 OpenIdConnect 的設定和 `OnAuthorizationCodeReceived` 事件的訂用帳戶會在[App_Start \startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs)檔案中發生。 您可以在 ASP.NET Core 中找到類似的概念，但在 ASP.NET 中，您必須在 web.config [# L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15)中指定 RedirectUri。 相較于 ASP.NET Core 中的設定，此設定比在中執行的設定來得低，因為您必須在部署應用程式時加以變更。
 
 ```CSharp
 public partial class Startup
@@ -370,14 +370,14 @@ public partial class Startup
         }
       });
   }
-  
+
   private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
   {
       // Upon successful sign in, get the access token & cache it using MSAL
       IConfidentialClientApplication clientApp = MsalAppBuilder.BuildConfidentialClientApplication(new ClaimsPrincipal(context.AuthenticationTicket.Identity));
       AuthenticationResult result = await clientApp.AcquireTokenByAuthorizationCode(new[] { "Mail.Read" }, context.Code).ExecuteAsync();
   }
-  
+
   private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
   {
       notification.HandleResponse();
@@ -389,7 +389,7 @@ public partial class Startup
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-請參閱[登入使用者程式碼設定的 Web 應用程式](scenario-web-app-sign-user-app-configuration.md?tabs=java#initialization-code)中的，以瞭解 JAVA 範例如何取得授權碼。 一旦應用程式收到， [AuthFilter # L51-L56](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java#L51-L56)會委派至`AuthHelper.processAuthenticationCodeRedirect` [AuthHelper](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L67-L97)中的方法，然後呼叫`getAuthResultByAuthCode`：
+請參閱[登入使用者程式碼設定的 Web 應用程式](scenario-web-app-sign-user-app-configuration.md?tabs=java#initialization-code)中的，以瞭解 JAVA 範例如何取得授權碼。 應用程式收到後， [AuthFilter](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java#L51-L56)會委派至[AuthHelper](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L67-L97)中的 `AuthHelper.processAuthenticationCodeRedirect` 方法，然後再呼叫 `getAuthResultByAuthCode`的動作：
 
 ```Java
 class AuthHelper {
@@ -411,7 +411,7 @@ class AuthHelper {
 }
 ```
 
-方法定義于[AuthHelper # L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176)中。 `getAuthResultByAuthCode` 它會建立 MSAL `ConfidentialClientApplication` ，並`acquireToken()`使用`AuthorizationCodeParameters`從授權碼建立的呼叫。
+`getAuthResultByAuthCode` 方法定義于[AuthHelper # L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176)中。 它會建立 MSAL `ConfidentialClientApplication`，並使用從授權碼建立的 `AuthorizationCodeParameters` 呼叫 `acquireToken()`。
 
 ```Java
    private IAuthenticationResult getAuthResultByAuthCode(
@@ -455,7 +455,7 @@ class AuthHelper {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-在[登入使用者程式碼設定的 Web 應用程式](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code)中要求授權碼流程之後，就會在 Flask 從/getAToken URL 路由的函`authorized`式上收到授權碼。 請參閱[.py # L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44)
+在[登入使用者程式碼設定的 Web 應用程式](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code)中要求授權碼流程之後，會在 Flask 從/getAToken URL 路由的 `authorized` 函式上收到授權碼。 請參閱[.py # L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44)
 
 ```python
  @app.route("/getAToken")  # Its absolute URL must match your app's redirect_uri set in AAD
@@ -478,7 +478,7 @@ def authorized():
 ---
 
 機密用戶端應用程式也可以使用用戶端憑證或用戶端判斷提示來證明其身分識別，而不是用戶端密碼。
-使用用戶端判斷提示是一個先進的案例,[用戶端判斷](msal-net-client-assertions.md)提示中有詳細說明
+使用用戶端判斷提示是一個先進的案例，[用戶端判斷](msal-net-client-assertions.md)提示中有詳細說明
 
 ## <a name="token-cache"></a>權杖快取
 
@@ -521,7 +521,7 @@ services.AddDistributedSqlServerCache(options =>
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-在 web 應用程式 (或 web Api) 中, 權杖快取的執行方式與桌面應用程式權杖快取實現不同 (通常是以檔案為[基礎](scenario-desktop-acquire-token.md#file-based-token-cache))。 它可以使用 ASP.NET 會話或伺服器記憶體。 如需相關範例，請參閱在 MsalAppBuilder 中建立 MSAL.NET 應用程式之後，如何連結快取實作為[L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51)
+在 web 應用程式（或 web Api）中，權杖快取的執行方式與桌面應用程式權杖快取實現不同（通常是以檔案為[基礎](scenario-desktop-acquire-token.md#file-based-token-cache)）。 它可以使用 ASP.NET 會話或伺服器記憶體。 如需相關範例，請參閱在 MsalAppBuilder 中建立 MSAL.NET 應用程式之後，如何連結快取實作為[L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51)
 
 ```csharp
 public static class MsalAppBuilder
@@ -534,17 +534,17 @@ public static class MsalAppBuilder
             .WithRedirectUri(AuthenticationConfig.RedirectUri)
             .WithAuthority(new Uri(AuthenticationConfig.Authority))
             .Build();
-  
+
       // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation
       MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
-  
+
       return clientapp;
   }
 ```
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-msal4j 提供序列化和還原序列化權杖快取的方法。 JAVA 範例會處理來自會話的序列化，如 AuthHelper 中的`getAuthResultBySilentFlow`方法中所述（如[JAVA # L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122)
+MSAL JAVA 提供序列化和還原序列化權杖快取的方法。 JAVA 範例會處理來自會話的序列化，如 AuthHelper 中的 `getAuthResultBySilentFlow` 方法中所述（如 [java # L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122)中所示）。
 
 ```Java
 IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, HttpServletResponse httpResponse)
@@ -560,7 +560,7 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
   }
 
   SilentParameters parameters = SilentParameters.builder(
-          Collections.singleton("User.ReadBasic.All"),
+          Collections.singleton("User.Read"),
           result.account()).build();
 
   CompletableFuture<IAuthenticationResult> future = app.acquireTokenSilently(parameters);
@@ -612,7 +612,7 @@ def _build_msal_app(cache=None):
 
 ## <a name="next-steps"></a>後續步驟
 
-此時, 當使用者登入時, 權杖會儲存在權杖快取中。 讓我們看看它如何用於 Web 應用程式的其他部分。
+此時，當使用者登入時，權杖會儲存在權杖快取中。 讓我們看看它如何用於 Web 應用程式的其他部分。
 
 > [!div class="nextstepaction"]
 > [登入 Web 應用程式](scenario-web-app-call-api-sign-in.md)

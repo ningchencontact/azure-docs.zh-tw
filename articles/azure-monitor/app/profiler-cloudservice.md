@@ -1,39 +1,35 @@
 ---
 title: 使用 Application Insights 來分析即時 Azure 雲端服務 | Microsoft Docs
 description: 啟用 Azure 雲端服務的 Application Insights Profiler。
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737222"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820507"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 來分析即時 Azure 雲端服務
 
 您也可以在這些服務上部署 Application Insights Profiler：
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric 應用程式](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 虛擬機器](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您只需要設定 Azure 診斷，以便安裝 Profiler 並將設定檔傳送至 Application Insights 資源。
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>針對 Azure 雲端服務啟用 Profiler
-1. 檢查以確定您使用的是[.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)或更新版本。 如果您使用的是 OS 系列 4, 就必須使用[啟動](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet)工作來安裝 .NET Framework 4.6.1 或更新版本。 作業系統系列5預設包含相容版本的 .NET Framework。 
+1. 檢查以確定您使用的是[.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)或更新版本。 如果您使用的是 OS 系列4，就必須使用[啟動](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet)工作來安裝 .NET Framework 4.6.1 或更新版本。 作業系統系列5預設包含相容版本的 .NET Framework。 
 
 1. [將 Application Insights SDK 新增至 Azure 雲端服務](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)。
 
-    **已修正 WAD 中隨附于雲端服務的 profiler 中的 bug。** 適用于雲端服務的最新版本 WAD (1.12.2.0) 適用于所有最新版本的 App Insights SDK。 雲端服務主機會自動升級 WAD, 但不會立即進行。 若要強制升級, 您可以重新部署您的服務, 或重新開機節點。
+    **已修正 WAD 中隨附于雲端服務的 profiler 中的 bug。** 適用于雲端服務的最新版本 WAD （1.12.2.0）適用于所有最新版本的 App Insights SDK。 雲端服務主機會自動升級 WAD，但不會立即進行。 若要強制升級，您可以重新部署您的服務，或重新開機節點。
 
 1. 使用 Application Insights 來追蹤要求：
 
@@ -41,7 +37,7 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
 
     * 若為背景工作角色，請[新增程式碼來追蹤要求。](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)
 
-1. 設定 Azure 診斷擴充功能以啟用 Profiler:
+1. 設定 Azure 診斷擴充功能以啟用 Profiler：
 
     a. 針對您的應用程式角色找出 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx 檔案，如下所示：  
 
@@ -69,7 +65,7 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
     > * ApplicationInsights 接收使用的金鑰。 
     > * ApplicationInsightsProfiler 接收使用的金鑰。 
     >
-    > 您可以在 ServiceConfiguration.\*.cscfg 檔案中找到 `ApplicationInsights` 接收所使用的實際檢測金鑰值。 
+    > 您可以在 ServiceConfiguration.`ApplicationInsights`.cscfg *\* 檔案中找到*  接收所使用的實際檢測金鑰值。 
     > Visual Studio 15.5 Azure SDK 發行之後，只有應用程式和 ApplicationInsightsProfiler 接收所使用的檢測金鑰必須彼此相符。
 
 1. 使用新的診斷設定部署服務，然後 Application Insights Profiler 就會設定為在服務上執行。

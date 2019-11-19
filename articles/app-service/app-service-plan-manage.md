@@ -5,22 +5,22 @@ keywords: App Service, Azure App Service, 級別, App Service方案, 變更, 建
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067216"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898969"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
@@ -33,23 +33,17 @@ ms.locfileid: "70067216"
 
 您可建立空白的 App Service 方案，或是在應用程式建立期間建立方案。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增] > [Web + 行動]，然後選取 [Web 應用程式] 或其他 App Service 應用程式種類。
-
-2. 選取現有的 App Service 方案或為新應用程式建立方案。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，選取 **新增** > **Web 應用程式**] 或其他類型的 App Service 應用程式。
 
    ![在 Azure 入口網站中建立應用程式。][createWebApp]
 
-   若要建立方案：
+2. 請先設定 [**實例詳細資料**] 區段，再設定 App Service 計畫。 **發佈**和**作業系統**等設定可以變更 App Service 方案的可用定價層。 **區域**決定您的 App Service 方案的建立位置。
+   
+3. 在 [ **App Service 計畫**] 區段中，選取現有的方案，或選取 **[新建]** 來建立方案。
 
-   a. 選取[[+] 建立新項目]。
+   ![建立 App Service 方案。][createASP] 
 
-      ![建立 App Service 方案。][createASP] 
-
-   b. 針對 [App Service 方案]，輸入方案的名稱。
-
-   c. 針對 [位置]，選取適當的位置。
-
-   d. 針對 [定價層]，為服務選取適當的定價層。 選取 [檢視全部] 以檢視其他價格選項，例如 [免費] 和 [共用]。 選取定價層後，請按一下 [選取] 按鈕。
+4. 在建立方案時，您可以選取新方案的定價層。 在 [ **Sku 和大小**] 中，選取 [**變更大小**] 以變更定價層。 
 
 <a name="move"></a>
 
@@ -65,25 +59,20 @@ ms.locfileid: "70067216"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您要移動的應用程式。
 
-1. 在功能表中，尋找 [App Service 方案] 區段。
+2. 從左側功能表中，選取 [**變更 App Service 方案**]。
 
-1. 選取 [變更 App Service 方案] 以開啟 [App Service 方案] 選取器。
+3. 在 [ **App Service 方案**] 下拉式清單中，選取要將應用程式移至其中的現有方案。 下拉式清單只會顯示與目前 App Service 方案位於相同資源群組和地理區域中的方案。 如果沒有這類計畫，它可讓您依預設建立計畫。 您也**可以選取 [新建]** ，以手動方式建立新的方案。
 
+4. 如果您建立方案，則可以選取新方案的定價層。 在 [**定價層**] 中，選取要變更的現有層。 
+   
+   > [!IMPORTANT]
+   > 如果您要將應用程式從較高層級的方案移至較低層的方案（例如從**D1**到**F1**），應用程式可能會遺失目標方案中的某些功能。 例如，如果您的應用程式使用 SSL 憑證，您可能會看到此錯誤訊息：
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+5. 完成後，選取 [確定]。
+   
    ![App Service 方案選取器。][change] 
-
-1. 在 [App Service 方案] 選取器中，選取現有的方案以移動此應用程式。   
-
-[選取 App Service 方案] 頁面只會顯示與目前應用程式的 App Service 方案位於相同資源群組和地理區域的方案。
-
-每個方案都有其專屬定價層。 例如，如果將網站從**免費**層移至**標準**層，則所有指派給它的應用程式都可以使用**標準**層的功能和資源。 不過，將應用程式從較高層的方案移至較低層的方案，表示您無法再存取特定功能。 如果您的應用程式使用目標方案未提供的功能，您會收到顯示哪些使用中功能無法使用的錯誤。 
-
-例如，如果您其中一個應用程式使用 SSL 憑證，您可能會看到此錯誤訊息：
-
-`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
-
-在此情況下，在您將應用程式移至目標方案之前，必須執行下列其中一個動作：
-- 將目標方案的定價層規模調升為**基本**或更高。
-- 移除應用程式的所有 SSL 連線。
 
 ## <a name="move-an-app-to-a-different-region"></a>將應用程式移到不同的區域
 

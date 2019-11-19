@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169975"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150885"
 ---
 # <a name="conditional-access-block-access-by-location"></a>條件式存取：依位置封鎖存取
 
@@ -33,7 +33,7 @@ ms.locfileid: "72169975"
       * 如果您選擇 [國家/地區]，您可以選擇包含未知區域。
 1. 選擇 [**儲存**]
 
-如需有關條件式存取中位置條件的詳細資訊，請參閱 <<c0>條件式存取中的位置條件 Azure Active Directory
+如需有關條件式存取中位置條件的詳細資訊，請參閱 >條件式存取中的位置條件 Azure Active Directory[](location-condition.md)
 
 ## <a name="create-a-conditional-access-policy"></a>建立條件式存取原則
 
@@ -44,13 +44,13 @@ ms.locfileid: "72169975"
 1. 在 [**指派**] 底下，選取 [**使用者和群組**]
    1. 在 [**包含**] 底下，選取 [**所有使用者**]。
    1. 選取 [完成]。
-1. 在 [**雲端應用程式] 或 [動作**]  > ，選取 [**所有雲端應用程式** **]，然後**選取 [**完成**]。
-1. 在 [**條件** > **位置**] 底下。
+1. 在 [**雲端應用程式] 或 [動作** > **包括**] 底下，選取 [**所有雲端應用程式**] 並選取 [**完成**]
+1. 在 **條件** > **位置** 底下。
    1. 將 **[** 設定] 設為 **[是]**
    1. **包含**選取選取的**位置**
    1. 選取您為組織建立的已封鎖位置。
-   1. 按一下 [**選取** > **完成**@no__t-**3 完成**]。
-1. 在 [**存取控制** >  個**區塊**] 底下，選取 [**選取**]。
+   1. 按一下 [**選取** > 完成 ** > 完成**]。
+1. 在 [**存取控制**] 底下 > [**封鎖**]，然後選取 [**選取**]。
 1. 確認您的設定，並將 [**啟用原則**] 設為 [**開啟**]。
 1. 選取 [**建立**] 以建立以啟用您的原則。
 

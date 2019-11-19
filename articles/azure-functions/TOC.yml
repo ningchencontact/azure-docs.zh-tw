@@ -137,8 +137,6 @@
       href: functions-networking-options.md
     - name: IP 位址
       href: ip-addresses.md
-    - name: Kubernetes 中的函式
-      href: functions-kubernetes-keda.md
 - name: 使用說明指南
   items:
     - name: 開發
@@ -228,6 +226,9 @@
           href: deployment-zip-push.md
         - name: 從套件執行
           href: run-functions-from-deployment-package.md
+        - name: Kubernetes 中的函式
+          href: functions-kubernetes-keda.md
+          displayName: keda
         - name: 自動資源部署
           href: functions-infrastructure-as-code.md
         - name: 內部部署函式

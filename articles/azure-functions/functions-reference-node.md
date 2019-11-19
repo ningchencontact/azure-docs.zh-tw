@@ -5,25 +5,25 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
+keywords: azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 86bacbe22ce23fc4b0355374d81a96310e59178a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fbecb1d02c2d262487683cb493db2d5a8f0d1c3e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255011"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898934"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
 本指南包含使用 JavaScript 撰寫 Azure Functions 的複雜性相關資訊。
 
-JavaScript 函式是匯出的 `function`，會在觸發時執行 ([觸發程序是在 function.json 中設定](functions-triggers-bindings.md))。 傳遞至每個函式的第一個引數是 @no__t 0 物件，用來接收和傳送系結資料、記錄，以及與執行時間通訊。
+JavaScript 函式是匯出的 `function`，會在觸發時執行 ([觸發程序是在 function.json 中設定](functions-triggers-bindings.md))。 傳遞至每個函式的第一個引數是一個 `context` 物件，用來接收和傳送系結資料、記錄，以及與執行時間進行通訊。
 
 本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 完成函數快速入門，以使用[Visual Studio Code](functions-create-first-function-vs-code.md)或[在入口網站中](functions-create-first-azure-function.md)建立您的第一個函式。
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 在專案根目錄中，有共用的 [host.json](functions-host-json.md) 檔案可用來設定函式應用程式。 每個函式都有本身程式碼檔案 (.js) 和繫結設定檔 (function.json) 的資料夾。 `function.json` 的父目錄名稱一律是函式的名稱。
 
-在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `extensions.csproj` 資料夾中的實際程式庫檔案在 `bin` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 ## <a name="exporting-a-function"></a>匯出函數
 
@@ -83,7 +83,7 @@ module.exports = async function (context) {
 
 在匯出非同步函式時，您也可以將輸出繫結設定為採用 `return` 值。 如果您只有一個輸出繫結，建議使用此方式。
 
-若要使用 `return` 來指派輸出，請在 `function.json` 中將 `name` 屬性變更為 `$return`。
+若要使用 `return` 來指派輸出，請在 `name` 中將 `$return` 屬性變更為 `function.json`。
 
 ```json
 {
@@ -116,7 +116,7 @@ module.exports = async function (context, req) {
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **作為 [`context.bindings`](#contextbindings-property) 物件的成員。** 每個成員都會由 *function.json* 中定義的 `name` 屬性命名。
+ - **作為 [`context.bindings`](#contextbindings-property) 物件的成員。** 每個成員都會由 `name`function.json*中定義的* 屬性命名。
  
    ```javascript
    module.exports = async function(context) { 
@@ -136,8 +136,8 @@ module.exports = async function (context, req) {
    };
    ```
 
-### <a name="outputs"></a>outputs
-函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 *function.json* 中為繫結定義的 `name` 屬性都會對應至在您的函式中寫入的物件成員名稱。 
+### <a name="outputs"></a>輸出
+函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 `name`function.json*中為繫結定義的* 屬性都會對應至在您的函式中寫入的物件成員名稱。 
 
 您可以用下列其中一種方式將資料指派給輸出系結（請勿結合這些方法）：
 
@@ -172,7 +172,7 @@ module.exports = async function (context, req) {
 
 ### <a name="bindings-data-type"></a>繫結資料類型
 
-若要定義輸入繫結的資料類型，請使用繫結定義中的 `dataType` 屬性。 例如，若要以二進位格式讀取 HTTP 要求的內容，請使用類型 `binary`：
+若要定義輸入繫結的資料類型，請使用繫結定義中的 `dataType` 屬性。 例如，若要以二進位格式讀取 HTTP 要求的內容，請使用類別 `binary`：
 
 ```json
 {
@@ -206,7 +206,7 @@ context.bindings
 
 傳回用來讀取或指派系結資料的已命名物件。 藉由讀取 `context.bindings` 的屬性，即可存取輸入和觸發程式系結資料。 藉由將資料新增至 `context.bindings`，可以指派輸出系結資料
 
-例如，function.json 中的下列繫結定義可讓您使用 `context.bindings.myOutput` 從 `context.bindings.myInput` 存取佇列的內容並且將輸出指派到佇列。
+例如，function.json 中的下列繫結定義可讓您使用 `context.bindings.myInput` 從 `context.bindings.myOutput` 存取佇列的內容並且將輸出指派到佇列。
 
 ```json
 {
@@ -273,7 +273,7 @@ context.log(message)
 可讓您寫入預設追蹤層級的資料流函式記錄。 `context.log` 上有其他可用的記錄方法，可讓您在其他追蹤層級寫入函式記錄︰
 
 
-| 方法                 | 描述                                |
+| 方法                 | 說明                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | 寫入錯誤層級或更低層級的記錄。   |
 | **warn(_message_)**    | 寫入警告層級或更低層級的記錄。 |
@@ -350,14 +350,14 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.req` (要求) 物件具有下列屬性：
 
-| 屬性      | 描述                                                    |
+| 屬性      | 說明                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 包含要求本文的物件。               |
 | _headers_     | 包含要求標頭的物件。                   |
 | _method_      | 要求的 HTTP 方法。                                |
 | _originalUrl_ | 要求的 URL。                                        |
 | _params_      | 包含要求之路由傳送參數的物件。 |
-| _query_       | 包含查詢參數的物件。                  |
+| _查詢_       | 包含查詢參數的物件。                  |
 | _rawBody_     | 字串格式的訊息內文。                           |
 
 
@@ -365,7 +365,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.res` (回應) 物件具有下列屬性：
 
-| 屬性  | 描述                                               |
+| 屬性  | 說明                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 包含回應本文的物件。         |
 | _headers_ | 包含回應標頭的物件。             |
@@ -376,7 +376,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 使用 HTTP 觸發程序時，您可以使用許多方式來存取 HTTP 要求和回應物件︰
 
-+ **從 `context` 物件的 `req` 和 `res` 屬性中。** 如此一來，您可以使用傳統模式來存取內容物件中的 HTTP 資料，而不需使用完整 `context.bindings.name` 模式。 下列範例示範如何存取 `context` 上的 `req` 和 `res` 物件：
++ **從 `req` 物件的 `res` 和 `context` 屬性中。** 如此一來，您可以使用傳統模式來存取內容物件中的 HTTP 資料，而不需使用完整 `context.bindings.name` 模式。 下列範例示範如何存取 `req` 上的 `res` 和 `context` 物件：
 
     ```javascript
     // You can access your http request off the context ...
@@ -460,12 +460,12 @@ module.exports = function(context) {
 3. 移至 `D:\home\site\wwwroot`，然後將 package.json 檔案拖曳至頁面上半部的 **wwwroot** 資料夾。  
     您也可以使用其他方法將檔案上傳至函數應用程式。 如需詳細資訊，請參閱[如何更新函式應用程式檔案](functions-reference.md#fileupdate)。 
 
-4. 上傳 package.json 檔案之後，請在 **Kudu 遠端執行主控台**中執行 `npm install` 命令。  
+4. 上傳 package.json 檔案之後，請在 `npm install`Kudu 遠端執行主控台**中執行**  命令。  
     此動作會下載 package.json 檔案中指出的套件，並重新啟動函數應用程式。
 
 ## <a name="environment-variables"></a>環境變數
 
-在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `process.env` 來存取這些設定，如下所示，在第二個和第三個呼叫中，我們會記錄 `AzureWebJobsStorage` 和 @no__t 3 環境變數的 `context.log()`：
+在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `process.env`來存取這些設定，如下所示，在第二次和第三次呼叫中，`context.log()` 記錄 `AzureWebJobsStorage` 和 `WEBSITE_SITE_NAME` 環境變數的位置：
 
 ```javascript
 module.exports = async function (context, myTimer) {
@@ -479,7 +479,7 @@ module.exports = async function (context, myTimer) {
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-在本機執行時，應用程式設定會讀取自 [local.settings.json](functions-run-local.md#local-settings-file) 專案檔。
+在本機執行時，應用程式設定會讀取自 local.settings.json[](functions-run-local.md#local-settings-file) 專案檔。
 
 ## <a name="configure-function-entry-point"></a>設定函式進入點
 
@@ -503,7 +503,7 @@ FunctionApp
  | - package.json
 ```
 
-`myNodeFunction` 的 `function.json` 應該包含 `scriptFile` 屬性，這個屬性指向有匯出的函式要執行的檔案。
+`function.json` 的 `myNodeFunction` 應該包含 `scriptFile` 屬性，這個屬性指向有匯出的函式要執行的檔案。
 
 ```json
 {
@@ -518,7 +518,7 @@ FunctionApp
 
 在 `scriptFile` (或 `index.js`) 中，必須使用 `module.exports` 匯出函式，才能找到並執行該函式。 觸發時執行的函式預設是僅來自該檔案的匯出，名為 `run` 的匯出，或名為 `index` 的匯出。
 
-這可以在 `function.json` 中使用 `entryPoint` 設定，如下列範例所示：
+這可以在 `entryPoint` 中使用 `function.json` 設定，如下列範例所示：
 
 ```json
 {
@@ -553,7 +553,7 @@ module.exports = myObj;
 
 以 `--inspect` 參數啟動時，node.js 進程會在指定的埠上接聽偵錯工具用戶端。 在 Azure Functions 2.x 中，您可以指定引數來傳入 node.js 進程，藉由新增環境變數或應用程式設定 `languageWorkers:node:arguments = <args>` 來執行程式碼。 
 
-若要在本機進行調試，請在您的[本機. settings. json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file)檔案中，于 `Values` 下新增 `"languageWorkers:node:arguments": "--inspect=5858"`，並將偵錯工具附加至埠5858。
+若要在本機進行調試，請在您的[本機. settings. json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file)檔案中的 `Values` 下新增 `"languageWorkers:node:arguments": "--inspect=5858"`，並將偵錯工具附加至埠5858。
 
 使用 VS Code 進行偵錯工具時，會使用專案的啟動 json 檔案中的 `port` 值，自動加入 `--inspect` 參數。
 
@@ -561,11 +561,11 @@ module.exports = myObj;
 
 ## <a name="typescript"></a>TypeScript
 
-當您以2.x 版的函式執行時間為目標時，Visual Studio Code 和[Azure Functions Core Tools](functions-run-local.md)的[Azure Functions](functions-create-first-function-vs-code.md)都可讓您使用支援 TypeScript 函數應用程式專案的範本來建立函數應用程式。 範本會產生 `package.json` 和 @no__t 1 專案檔，讓您可以使用這些工具，輕鬆地從 TypeScript 程式碼轉換、執行及發佈 JavaScript 函式。
+當您以2.x 版的函式執行時間為目標時，Visual Studio Code 和[Azure Functions Core Tools](functions-run-local.md)的[Azure Functions](functions-create-first-function-vs-code.md)都可讓您使用支援 TypeScript 函數應用程式專案的範本來建立函數應用程式。 此範本會產生 `package.json` 和 `tsconfig.json` 專案檔，讓您可以使用這些工具，輕鬆地從 TypeScript 程式碼轉換、執行及發佈 JavaScript 函式。
 
 產生的 `.funcignore` 檔案是用來指出將專案發佈至 Azure 時要排除的檔案。  
 
-TypeScript 檔案（. ts）會轉換到 `dist` 輸出目錄中的 JavaScript 檔案（.js）。 TypeScript 範本會使用 `function.json` 中的[`scriptFile` 參數](#using-scriptfile)，指出對應的 .js 檔案在 `dist` 資料夾中的位置。 輸出位置是由範本使用 `tsconfig.json` 檔案中的 `outDir` 參數所設定。 如果您變更此設定或資料夾的名稱，執行時間就無法找到要執行的程式碼。
+TypeScript 檔案（. ts）會轉換到 `dist` 輸出目錄中的 JavaScript 檔案（.js）。 TypeScript 範本會使用 `function.json` 中的[`scriptFile` 參數](#using-scriptfile)，在 `dist` 資料夾中指出對應 .js 檔案的位置。 輸出位置是由範本使用 `tsconfig.json` 檔案中的 `outDir` 參數所設定。 如果您變更此設定或資料夾的名稱，執行時間就無法找到要執行的程式碼。
 
 > [!NOTE]
 > TypeScript 的實驗性支援已存在版本1.x 的函式執行時間。 當叫用函式時，實驗版本會將 TypeScript 檔案 transpiles 至 JavaScript 檔案。 在2.x 版中，這個實驗性支援已由工具驅動的方法所取代，此方法會在主控制項初始化之前，以及在部署過程中進行轉譯。
@@ -603,7 +603,7 @@ npm install
 npm start
 ```
 
-@No__t-0 命令相當於下列命令：
+`npm start` 命令相當於下列命令：
 
 - `npm run build`
 - `func extensions install`
@@ -612,7 +612,7 @@ npm start
 
 #### <a name="publish-to-azure"></a>發佈至 Azure
 
-使用[@no__t 1]命令部署至 Azure 之前，您可以從 TypeScript 來源檔案建立已準備好用於生產環境的 JavaScript 檔案組建。 
+使用[`func azure functionapp publish`]命令部署至 Azure 之前，您可以從 TypeScript 來源檔案建立已準備好用於生產環境的 JavaScript 檔案組建。 
 
 下列命令會使用 Core Tools 來準備及發佈您的 TypeScript 專案： 
 
@@ -641,7 +641,7 @@ func azure functionapp publish <APP_NAME>
 
 ### <a name="use-async-and-await"></a>使用 `async` 和 `await`
 
-以 JavaScript 撰寫 Azure Functions 時，您應該使用 `async` 和 `await` 關鍵字來撰寫程式碼。 使用 `async` 和 `await` 來撰寫程式碼，而不是回呼，或 `.then` 和具有承諾的 @no__t 3，有助於避免兩個常見的問題：
+以 JavaScript 撰寫 Azure Functions 時，您應該使用 `async` 和 `await` 關鍵字來撰寫程式碼。 使用 `async` 和 `await` 來撰寫程式碼，而不是回呼或 `.then`，以及 `.catch` 與承諾，有助於避免兩個常見的問題：
  - 擲回無法攔截[的](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)例外狀況，而導致 node.js 進程損毀，可能會影響其他函數的執行。
  - 非預期的行為，例如來自 coNtext .log 的遺漏記錄，因為未正確等待的非同步呼叫所造成。
 
@@ -666,9 +666,9 @@ module.exports = function (context) {
 }
 ```
 
-使用 `async` 和 @no__t 1 關鍵字有助於避免這兩個錯誤。 您應該使用 node.js 公用程式函數[`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) ，將錯誤優先的回呼樣式函式轉換成可等候函數。
+使用 `async` 和 `await` 關鍵字有助於避免這兩個錯誤。 您應該使用 node.js 公用程式函式[`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) ，將錯誤優先的回呼樣式函數轉換成可等候函數。
 
-在下列範例中，函式執行期間擲回的任何未處理例外狀況，只會使引發例外狀況的個別調用失敗。 @No__t-0 關鍵字表示，只有在完成 `readFile` 之後，才會執行下列 `readFileAsync` 的步驟。 使用 `async` 和 `await` 時，您也不需要呼叫 `context.done()` 回呼。
+在下列範例中，函式執行期間擲回的任何未處理例外狀況，只會使引發例外狀況的個別調用失敗。 `await` 關鍵字表示下列步驟 `readFileAsync` 只在 `readFile` 完成後才執行。 使用 `async` 和 `await` 時，您也不需要呼叫 `context.done()` 回呼。
 
 ```javascript
 // Recommended pattern
@@ -677,8 +677,9 @@ const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 module.exports = async function (context) {
+    let data;
     try {
-        const data = await readFileAsync('./hello.txt');
+        data = await readFileAsync('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation

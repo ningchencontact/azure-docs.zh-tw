@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2ed488f5f4380c44772d63d208e2c7a68934aca8
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7bafcb1508cdb01c4fe27a9d02db63c4f00efd74
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757644"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172528"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>教學課程：建立並設定包含進階設定選項的 Azure Active Directory Domain Services 執行個體
 
@@ -88,7 +88,11 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 在 Azure 入口網站中完成 [基本資料]  視窗中的欄位，以建立 Azure AD DS 執行個體：
 
 1. 輸入受控網域的 **DNS 網域名稱**，並將前面幾項列入考慮。
-1. 選擇應該在其中建立受控網域的 Azure**位置**。
+1. 選擇應該在其中建立受控網域的 Azure**位置**。 如果您選擇支援可用性區域的區域，Azure AD DS 資源會跨區域分散，以供額外的備援。
+
+    「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。
+
+    您不需要針對要跨區域分散的 Azure AD DS 進行設定。 Azure 平台會自動處理在區域之間分散資源。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]
 
     ![設定 Azure AD Domain Services 執行個體的基本設定](./media/tutorial-create-instance-advanced/basics-window.png)
 
@@ -167,7 +171,7 @@ Azure AD DS 可讓您同步 Azure AD 中的「所有」  使用者和群組，�
 
     ![成功布建後的 Domain Services 狀態](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-在佈建過程中，Azure AD DS 會在您的目錄中建立名為 Domain Controller Services  和 AzureActiveDirectoryDomainControllerServices  的兩個企業應用程式。 處理受控網域時需要這些企業應用程式。 這些應用程式絕對不能刪除。
+受控網域與 Azure AD 租用戶相關聯。 在佈建程序中，Azure AD DS 會在 Azure AD 租用戶中建立名為 *Domain Controller Services* 與 *AzureActiveDirectoryDomainControllerServices* 的兩個企業應用程式。 處理受控網域時需要這些企業應用程式。 不要刪除這些應用程式。
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>更新 Azure 虛擬網路的 DNS 設定
 
@@ -238,6 +242,7 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

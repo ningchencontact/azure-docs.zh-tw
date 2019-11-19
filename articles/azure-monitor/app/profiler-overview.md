@@ -1,23 +1,19 @@
 ---
 title: 使用 Application Insights Profiler 來分析 Azure 中的生產應用程式 | Microsoft Docs
 description: 使用低資源使用量的分析工具來找出 Web 伺服器程式碼中的最忙碌路徑。
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338069"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820513"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 來分析 Azure 中的生產應用程式
 ## <a name="enable-application-insights-profiler-for-your-application"></a>為您的應用程式啟用 Application Insights Profiler
@@ -26,7 +22,7 @@ Azure Application Insights Profiler 可為在 Azure 生產環境中執行的應�
 
 Profiler 可與部署於下列 Azure 服務的 .NET 應用程式搭配運作。 以下連結提供為每個服務類型啟用 Profiler 的特定指示。
 
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 雲端服務](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 虛擬機器和虛擬機器擴展集](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -36,7 +32,7 @@ Profiler 可與部署於下列 Azure 服務的 .NET 應用程式搭配運作。 
 
 ## <a name="view-profiler-data"></a>檢視 Profiler 資料
 
-若要讓 Profiler 上傳追蹤，應用程式必須主動處理要求。 如果您要進行實驗，可以使用 [Application Insights 效能測試](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)產生對 Web 應用程式的要求。 如果您剛剛啟用 Profiler，則可以執行簡短的負載測試。 在負載測試執行時，選取 [[Profiler 設定] 窗格](profiler-settings.md)上的 [立即分析] 按鈕。 Profiler 開始執行後，大約每隔一小時就會隨機分析一次，時間會持續兩分鐘。 如果應用程式所處理的是穩定不斷的要求，則 Profiler 會每小時上傳追蹤。
+若要讓 Profiler 上傳追蹤，應用程式必須主動處理要求。 如果您要進行實驗，可以使用 [Application Insights 效能測試](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)產生對 Web 應用程式的要求。 如果您剛剛啟用 Profiler，則可以執行簡短的負載測試。 在負載測試執行時，選取 **[Profiler 設定] 窗格**[**上的 [立即分析]** ](profiler-settings.md) 按鈕。 Profiler 開始執行後，大約每隔一小時就會隨機分析一次，時間會持續兩分鐘。 如果應用程式所處理的是穩定不斷的要求，則 Profiler 會每小時上傳追蹤。
 
 在應用程式收到某些流量，且 Profiler 有時間上傳追蹤後，您應該就會有可供檢視的追蹤。 此程序可能需要 5 到 10 分鐘的時間。 若要檢視追蹤，請在 [效能] 窗格中選取 [採取動作]，然後選取 [Profiler 追蹤] 按鈕。
 
@@ -48,7 +44,7 @@ Profiler 可與部署於下列 Azure 服務的 .NET 應用程式搭配運作。 
 
 追蹤總管會顯示下列資訊：
 
-* **顯示最忙碌路徑**：開啟最大的分葉節點，或至少是類似的節點。 在大部分情況下，這個節點會接近效能瓶頸。
+* [顯示最忙碌路徑]：會開啟最大的分葉節點，或至少是類似的節點。 在大部分情況下，這個節點會接近效能瓶頸。
 * **標籤**︰函式或事件的名稱。 樹狀結構會混合顯示程式碼和發生的事件，例如 SQL 和 HTTP 事件。 最上層事件代表要求整體的持續時間。
 * **經過時間**︰作業開始和作業結束之間的時間間隔。
 * **何時**︰顯示函式或事件相對於其他函式的執行時間。
@@ -95,7 +91,7 @@ Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分�
 
 **BLOCKED_TIME** 表示程式碼正在等候另一個資源可供使用。 例如，它可能正在等候同步處理物件、等候執行緒可供使用，或等候要求完成。
 
-### <a name="unmanaged-async"></a>非受控的非同步
+### <a name="unmanaged-async"></a>非受控非同步
 
 .NET framework 會發出 ETW 事件並線上程之間傳遞活動識別碼，以便線上程間追蹤非同步呼叫。 非受控碼（機器碼）和一些較舊的非同步程式碼樣式遺漏了這些事件和活動識別碼，因此分析工具無法判斷線程上正在執行的是哪個執行緒和哪些函式。 這在呼叫堆疊中標示為「非受控非同步」。 如果您下載 ETW 檔案，您可以使用[PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)來深入瞭解發生的狀況。
 

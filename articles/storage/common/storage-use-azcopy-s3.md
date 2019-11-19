@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 73eed48bd34a8c8d81a66872888ebf5481074648
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274095"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821391"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>使用 AzCopy 從 Amazon S3 bucket 來複製資料
 
@@ -34,7 +34,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製 blob �
 >
 > 如果您想要使用 SAS 權杖來授權 blob 資料的存取權，您可以在每個 AzCopy 命令中，將該權杖附加至資源 URL。
 >
-> 例如： `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>` 。
+> 例如： `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`。
 
 ### <a name="authorize-with-aws-s3"></a>使用 AWS S3 授權
 
@@ -53,6 +53,9 @@ AzCopy 會使用[來自 URL API 的 Put 區塊](https://docs.microsoft.com/rest/
 > [!IMPORTANT]
 > 此功能目前為預覽狀態。 如果您決定在複製作業之後移除 S3 bucket 的資料，請務必先確認資料已正確複製到儲存體帳戶，然後再移除資料。
 
+> [!TIP]
+> 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
+
 ### <a name="copy-an-object"></a>複製物件
 
 |    |     |
@@ -65,7 +68,7 @@ AzCopy 會使用[來自 URL API 的 Put 區塊](https://docs.microsoft.com/rest/
 >
 > 您也可以使用虛擬主控樣式的 Url （例如： `http://bucket.s3.amazonaws.com`）。 
 >
-> 若要深入瞭解值區的虛擬裝載，請參閱 [主機 Bucket 的虛擬裝載]] （ https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 。
+> 若要深入瞭解值區的虛擬裝載，請參閱 [主機 Bucket 的虛擬裝載]] （ https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)。
 
 ### <a name="copy-a-directory"></a>複製目錄
 
@@ -109,11 +112,11 @@ AWS S3 和 Azure 允許在物件索引鍵的名稱中有不同的字元集。 �
 
 做為 AzCopy `copy` 命令的一部分，您可以提供選擇性的 `s2s-invalid-metadata-handle` 旗標值，指定您要如何處理檔案的中繼資料包含不相容的索引鍵名稱的檔案。 下表描述每個旗標值。
 
-| 旗標值 | 描述  |
+| 旗標值 | 說明  |
 |--------|-----------|
 | **ExcludeIfInvalid** | （預設選項）中繼資料不會包含在傳送的物件中。 AzCopy 會記錄一則警告。 |
 | **FailIfInvalid** | 不會複製物件。 AzCopy 會記錄錯誤，並在傳輸摘要中出現的失敗計數中包含該錯誤。  |
-| **RenameIfInvalid**  | AzCopy 會解析不正確中繼資料索引鍵，並使用已解析的中繼資料金鑰值組，將物件複製到 Azure。 若要確切瞭解 AzCopy 重新命名物件索引鍵所需的步驟，請參閱下面的 <<c0>如何將物件金鑰重新命名一節。 如果 AzCopy 無法重新命名索引鍵，則不會複製物件。 |
+| **RenameIfInvalid**  | AzCopy 會解析不正確中繼資料索引鍵，並使用已解析的中繼資料金鑰值組，將物件複製到 Azure。 若要確切瞭解 AzCopy 重新命名物件索引鍵所需的步驟，請參閱下面的 >如何將物件金鑰重新命名一節。[](#rename-logic) 如果 AzCopy 無法重新命名索引鍵，則不會複製物件。 |
 
 <a id="rename-logic" />
 
