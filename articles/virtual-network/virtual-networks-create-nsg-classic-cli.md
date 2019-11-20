@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 傳統 CLI 建立網路安全性群組 (傳統) | Microsoft Docs
+title: 使用 Azure 傳統 CLI 建立網路安全性群組（傳統）
 description: 了解如何使用 Azure 傳統 CLI 建立及部署網路安全性群組 (傳統)。
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: be63cdc3df5752f73b21bb5adc5fffaa364e7f43
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c17e75849d1127c9c1001fd87af64e3ffe0eba14
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056716"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196723"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立網路安全性群組 (傳統)
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

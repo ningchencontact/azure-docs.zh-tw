@@ -1,6 +1,6 @@
 ---
 title: 使用 Power BI 將遠端監視資料視覺化 - Azure | Microsoft Docs
-description: 本教學課程使用 Power BI Desktop 和 Cosmos DB，將來自遠端監視解決方案的資料整合為自訂的視覺效果。 如此能讓使用者建置自己的自訂儀表板，並與不在解決方案上的使用者共用它們。
+description: 本教學課程使用 Power BI Desktop 和 Cosmos DB，將遠端監視解決方案中的資料整合到自訂的視覺效果中。 如此能讓使用者建置自己的自訂儀表板，並與不在解決方案上的使用者共用它們。
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 13b10aa4f40b7c4b62b35e8580c2826c10e6683f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166292"
+ms.locfileid: "74184247"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>使用 Power BI 將遠端監視資料視覺化
 
@@ -22,13 +22,13 @@ ms.locfileid: "74166292"
 ## <a name="prerequisites"></a>先決條件
 
 - 您必須具有正在執行中的遠端監視解決方案
-- 您必須能夠存取 [Azure 入口網站](https://portal.azure.com)，以及正在執行 IoT 中樞與解決方案的訂用帳戶
+- 您必須能夠存取執行 IoT 中樞和解決方案的[Azure 入口網站](https://portal.azure.com)和訂用帳戶
 - 您必須已安裝 [Power BI Desktop](https://powerbi.microsoft.com) (任何版本均可)
 
 
-## <a name="information-needed-from-azure-portal"></a>需要從 Azure 入口網站取得的資訊
+## <a name="information-needed-from-azure-portal"></a>Azure 入口網站所需的資訊
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)並視需要登入
+1. 流覽至[Azure 入口網站](https://portal.azure.com)並視需要登入
 
 2. 在左側面板上，按一下 [資源群組]
 

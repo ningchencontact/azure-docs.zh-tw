@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 9d53f8eff53a875a7a37d1ee1986e94405a24485
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 7e390ed1151c45ca9a325b1795a8fbcad74cdfdb
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144957"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74194736"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用靜態公用 IP 位址建立輸入控制器
 
@@ -125,7 +125,7 @@ kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cer
 kubectl create namespace cert-manager
 
 # Label the cert-manager namespace to disable resource validation
-kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
+kubectl label namespace cert-manager cert-manager.io/disable-validation=true
 
 # Add the Jetstack Helm repository
 helm repo add jetstack https://charts.jetstack.io
@@ -150,7 +150,7 @@ helm install \
 使用下列範例資訊清單來建立叢集簽發者，例如 `cluster-issuer.yaml`。 利用您組織中的有效電子郵件地址來更新電子郵件地址：
 
 ```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
@@ -169,7 +169,7 @@ spec:
 ```
 $ kubectl apply -f cluster-issuer.yaml
 
-clusterissuer.certmanager.k8s.io/letsencrypt-staging created
+clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
 
 ## <a name="run-demo-applications"></a>執行示範應用程式
@@ -213,7 +213,7 @@ metadata:
   namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
@@ -264,7 +264,7 @@ Type    Reason          Age   From          Message
 如果您需要建立額外的憑證資源，可以使用下列範例資訊清單來執行該動作。 將 *dnsNames* 和 *domains* 更新為您在上一個步驟中建立的 DNS 名稱。 如果您使用僅供內部使用的輸入控制器，請為您的服務指定內部 DNS 名稱。
 
 ```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: tls-secret
@@ -289,7 +289,7 @@ spec:
 ```
 $ kubectl apply -f certificates.yaml
 
-certificate.certmanager.k8s.io/tls-secret created
+certificate.cert-manager.io/tls-secret created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>測試輸入組態

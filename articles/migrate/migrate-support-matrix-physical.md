@@ -1,25 +1,23 @@
 ---
-title: 實體伺服器評估與遷移的 Azure Migrate 支援對照表
-description: 摘要說明使用 Azure Migrate 服務進行實體伺服器評估和遷移的設定和限制。
+title: 支援使用 Azure Migrate 進行實體伺服器評估/遷移
+description: 摘要說明使用 Azure Migrate 進行實體伺服器評量/遷移的支援。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091898"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196343"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>實體伺服器評量和移轉的支援矩陣
 
 您可以使用[Azure Migrate 服務](migrate-overview.md)來評估電腦，並將機器遷移至 Microsoft Azure 雲端。 本文摘要說明評估和遷移內部部署實體伺服器的支援設定和限制。
 
-> [!NOTE]
-> 如果此處提及您尚未在 Azure Migrate 入口網站中看到的功能，請稍候。 它們將會在下一周出現。
 
 
 ## <a name="physical-server-scenarios"></a>實體伺服器案例

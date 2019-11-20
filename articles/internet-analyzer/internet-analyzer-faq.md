@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 61cb6003549530f381b9cbbed74c1cb62c91431c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512895"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184261"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Azure 網際網路分析器常見問題（預覽）
 
@@ -41,19 +41,19 @@ ms.locfileid: "73512895"
 
 ## <a name="what-scenarios-is-internet-analyzer-designed-to-address"></a>什麼是 Internet Analyzer 設計用來處理的案例？
 
-Internet Analyzer 的設計目的是要根據您的使用者群體提供網路效能深入解析。 為了協助您為使用者做出最佳的效能決策，Internet Analyzer 會使用您的不同使用者人數來比較兩個網際網路端點的效能。 雖然網際網路分析器可以回答許多問題，但其中一些最常見的就是：
+Internet Analyzer 的設計目的是要根據您的使用者群體提供網路效能深入解析。 為了協助您為使用者做出最佳的效能決策，Internet Analyzer 會使用您的不同使用者人數來比較兩個網際網路端點的效能。 雖然 Internet Analyzer 可以回答許多問題，但其中一些最常見的問題如下：
 
-* 遷移至雲端的效能影響為何？ 
+* 遷移至雲端有何效能影響？ 
     * *建議的測試：自訂（您目前的內部部署基礎結構）與 Azure （任何預先設定的端點）*
-* 將我的資料放在邊緣和資料中心的值為何？ 
+* 將資料放在邊緣與放在資料中心有何價值？ 
     *  *建議的測試： Azure 與 Azure Front 門板、Azure 與來自 Microsoft 的 Azure CDN*
-* Azure Front 的效能優勢為何？
+* Azure Front 有何效能優勢？
     *  *建議的測試：自訂/Azure/CDN 與 Azure Front 門*
-* Microsoft 的 Azure CDN 有哪些效能優勢？ 
+* 來自 Microsoft 的 Azure CDN 有何效能優勢？ 
     *  *建議的測試：自訂/Azure/AFD 與來自 Microsoft 的 Azure CDN*
-* Azure CDN 如何從 Microsoft stack 啟動？ 
+* 來自 Microsoft 的 Azure CDN 如何堆疊？ 
     *  *建議的測試：自訂（其他 CDN 端點）與來自 Microsoft 的 Azure CDN*
-* 您在每個區域中的使用者人口最佳的雲端為何？ 
+* 在每個區域中何種雲端最適合您的終端使用者群體？ 
     *  *建議的測試：自訂（其他雲端服務）與 Azure （任何預先設定的端點）*
 
 ## <a name="which-tests-can-i-run-in-preview"></a>我可以在預覽中執行哪些測試？
@@ -84,20 +84,24 @@ Internet Analyzer 的設計目的是要根據您的使用者群體提供網路�
     * 美國東部、東亞
     * 西歐、巴西南部
     * 西歐、東南亞
-    * 西歐，阿拉伯聯合大公國北部
+    * 西歐、阿拉伯聯合大公國北部
     * 美國西部、美國東部
     * 美國西部、西歐
     * 美國西部、阿拉伯聯合大公國北部
     * 西歐、阿拉伯聯合大公國北部、東南亞
     * 美國西部、西歐、東亞
     * 美國西部、北歐、東南亞、阿拉伯聯合大公國北部、南非北部 
-* **Azure + Azure Front** -部署在上列的任何單一或多個 Azure 區域組合上
-* **Azure + 來自 Microsoft 的 AZURE CDN** -部署于上列任何單一 Azure 區域的組合上
-* **Azure + azure 流量管理員**-部署于上列任何多個 Azure 區域組合上
+* **Azure 與 Azure Front Door** - 部署於上列任意一個或多個 Azure 區域組合上
+* **Azure 與來自 Microsoft 的 Azure CDN** - 部署於上列任意一個 Azure 區域組合上
+* **Azure 與 Azure 流量管理員** - 部署於上列任意多個 Azure 區域組合上
 
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>Internet Analyzer 與 Azure 所提供的其他監視服務有何不同？
 
 Internet Analyzer 可協助您瞭解使用者的效能，並協助您制定決策來改善其效能。 雖然其他 Azure 監視工具可讓您深入瞭解您的 Azure 服務，但 Internet Analyzer 著重于測量使用者的端對端網際網路效能。
+
+## <a name="how-is-measurement-data-handled-by-internet-analyzer"></a>如何透過 Internet Analyzer 處理測量資料？
+
+Azure 有[嚴密的安全性程序，並符合各種法規遵循標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它會在傳輸中和待用時加密。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,10 +1,10 @@
 ---
-title: 限制對 PaaS 資源的網路存取 - Azure PowerShell | Microsoft Docs
+title: 限制對 PaaS 資源的網路存取-Azure PowerShell
 description: 在本文中，您會了解如何透過使用 Azure PowerShell 和虛擬網路服務端點來限制對 Azure 資源 (例如 Azure 儲存體和 Azure SQL Database) 的網路存取。
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b76256ef70b85df0c504427179518d175f08b645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727664"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185530"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>透過使用 PowerShell 和虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -37,7 +37,7 @@ ms.locfileid: "66727664"
 * 確認從子網路對資源的存取
 * 確認從子網路和網際網路對資源的存取遭到拒絕
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-建立的子網路設定[新增 AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)。 下列範例會建立名為 Public 之子網路的子網路組態：
+使用[new-azvirtualnetworksubnetconfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)建立子網設定。 下列範例會建立名為 Public 之子網路的子網路組態：
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -70,7 +70,7 @@ $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-藉由將子網路組態寫入虛擬網路建立虛擬網路中的子網路[組 AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+藉由使用[New-azvirtualnetwork 將](/powershell/module/az.network/Set-azVirtualNetwork)子網設定寫入至虛擬網路，在虛擬網路中建立子網：
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>啟用服務端點
 
-您只能針對支援服務端點的服務啟用服務端點。 檢視與 Azure 位置中所提供服務端點已啟用服務[Get AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice)。 下列範例會傳回 eastus 區域中所提供且已啟用服務端點的服務。 隨著更多 Azure 服務啟用服務端點，所傳回的服務清單會隨著時間成長。
+您只能針對支援服務端點的服務啟用服務端點。 在 Azure 位置中，使用[AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice)來查看已啟用服務端點的服務。 下列範例會傳回 eastus 區域中所提供且已啟用服務端點的服務。 隨著更多 Azure 服務啟用服務端點，所傳回的服務清單會隨著時間成長。
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -98,7 +98,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-for-a-subnet"></a>限制子網路的網路存取
 
-建立網路安全性群組安全性規則具有[新增 AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)。 下列規則允許對指派給 Azure 儲存體服務之公用 IP 位址的輸出存取： 
+使用[new-aznetworksecurityruleconfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)建立網路安全性群組安全性規則。 下列規則允許對指派給 Azure 儲存體服務之公用 IP 位址的輸出存取： 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -153,7 +153,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-網路安全性群組，若要建立關聯*私人*子網路[組 AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) ，然後將子網路組態寫入虛擬網路。 下列範例會將 myNsgPrivate 網路安全性群組與「私人」子網路建立關聯：
+將網路安全性群組與 New-azvirtualnetworksubnetconfig 的*私人*子網建立關聯，然後將子網[設定](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)寫入至虛擬網路。 下列範例會將 myNsgPrivate 網路安全性群組與「私人」子網路建立關聯：
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -172,7 +172,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-建立 Azure 儲存體帳戶[新增 AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)。 請將 `<replace-with-your-unique-storage-account-name>` 取代為在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。
+使用[new-azstorageaccount](/powershell/module/az.storage/new-azstorageaccount)建立 Azure 儲存體帳戶。 請將 `<replace-with-your-unique-storage-account-name>` 取代為在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。
 
 ```azurepowershell-interactive
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
@@ -185,7 +185,7 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-建立儲存體帳戶之後，會擷取儲存體帳戶的金鑰到與變數[Get AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
+建立儲存體帳戶之後，請使用[AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey)將儲存體帳戶的金鑰取出至變數：
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzStorageAccountKey `
@@ -197,19 +197,19 @@ $storageAcctKey = (Get-AzStorageAccountKey `
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>在儲存體帳戶中建立檔案共用
 
-建立儲存體帳戶的內容及金鑰搭配[新增 AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext)。 內容包含儲存體帳戶名稱和帳戶金鑰：
+使用[AzStorageCoNtext](/powershell/module/az.storage/new-AzStoragecontext)建立儲存體帳戶和金鑰的內容。 內容包含儲存體帳戶名稱和帳戶金鑰：
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-建立包含的檔案共用[新增 AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+使用[AzStorageShare](/powershell/module/az.storage/new-azstorageshare)建立檔案共用：
 
-$share = New-AzStorageShare my-file-share -Context $storageContext
+$share = AzStorageShare my-檔案共用-內容 $storageCoNtext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>拒絕所有對儲存體帳戶的網路存取
 
-根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若要限制對選取網路的存取權，變更預設動作來*Deny*具有[更新 AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)。 一旦網路存取遭到拒絕後，就無法從任何網路存取儲存體帳戶。
+根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若要限制對所選網路的存取，請使用[AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)將預設動作變更為 [*拒絕*]。 一旦網路存取遭到拒絕後，就無法從任何網路存取儲存體帳戶。
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -220,7 +220,7 @@ Update-AzStorageAccountNetworkRuleSet  `
 
 ### <a name="enable-network-access-from-a-subnet"></a>啟用子網路的網路存取
 
-擷取與建立的虛擬網路[Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) ，然後再擷取放入變數中使用的私人子網路物件[Get AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+使用[new-azvirtualnetwork](/powershell/module/az.network/get-azvirtualnetwork)取出已建立的虛擬網路，然後使用[new-azvirtualnetworksubnetconfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig)將私用子網物件取出至變數：
 
 ```azurepowershell-interactive
 $privateSubnet = Get-AzVirtualNetwork `
@@ -230,7 +230,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   -Name "Private"
 ```
 
-允許從儲存體帳戶的網路存取權*私人*子網路[新增 AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig)。
+允許透過[AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig)從*私人*子網對儲存體帳戶進行網路存取。
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -245,7 +245,7 @@ Add-AzStorageAccountNetworkRule `
 
 ### <a name="create-the-first-virtual-machine"></a>建立第一部虛擬機器
 
-建立中的虛擬機器*公開金鑰*子網路[New-azvm](/powershell/module/az.compute/new-azvm)。 執行接下來的命令時，系統會提示您輸入認證。 您輸入的值會設定為 VM 的使用者名稱和密碼。 `-AsJob` 選項會在背景建立 VM，以便您繼續進行下一步。
+使用[update-azvm](/powershell/module/az.compute/new-azvm)在「*公用*」子網中建立虛擬機器。 執行接下來的命令時，系統會提示您輸入認證。 您輸入的值會設定為 VM 的使用者名稱和密碼。 `-AsJob` 選項會在背景建立 VM，以便您繼續進行下一步。
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-存取遭到拒絕，且您收到*Get AzStorageFile:遠端伺服器傳回錯誤：(403) 禁止。HTTP 狀態碼：403 - HTTP錯誤訊息：此要求未獲授權執行此作業*」錯誤，因為您的電腦不在 MyVirtualNetwork 虛擬網路的「私人」子網路中。
+存取遭到拒絕，而且您收到*AzStorageFile：遠端伺服器傳回錯誤：（403）禁止。HTTP 狀態碼： 403-HTTP 錯誤訊息：此要求未獲授權，無法執行此*作業錯誤，因為您的電腦不在*MyVirtualNetwork*虛擬網路的*私人*子網中。
 
 ## <a name="clean-up-resources"></a>清除資源
 

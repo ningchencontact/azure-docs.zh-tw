@@ -4,15 +4,18 @@ description: 使用 Azure 儲存體分析記錄來識別和疑難排解延遲問
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/21/2019
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: f8ec8e3f27e74f442f314d4c812908888598244c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+services: storage
+tags: ''
+ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180624"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196512"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>使用儲存體分析記錄來疑難排解延遲
 
@@ -96,10 +99,10 @@ ms.locfileid: "73180624"
 
    |   |RequestStatus =<br>成功|RequestStatus =<br>SASNetworkError|建議|
    |---|---|---|---|
-   |GetBlob|是|否|[**GetBlob 作業：** RequestStatus = 成功](#getblob-operation-requeststatus--success)|
-   |GetBlob|否|是|[**GetBlob 作業：** RequestStatus = （SAS） NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|是|否|[**Put 作業：** RequestStatus = 成功](#put-operation-requeststatus--success)|
-   |PutBlob|否|是|[**Put 作業：** RequestStatus = （SAS） NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|yes|否|[**GetBlob 作業：** RequestStatus = 成功](#getblob-operation-requeststatus--success)|
+   |GetBlob|否|yes|[**GetBlob 作業：** RequestStatus = （SAS） NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|yes|否|[**Put 作業：** RequestStatus = 成功](#put-operation-requeststatus--success)|
+   |PutBlob|否|yes|[**Put 作業：** RequestStatus = （SAS） NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>狀態結果
 

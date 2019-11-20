@@ -1,7 +1,7 @@
 ---
-title: 設計工具：分類、預測航班延誤
+title: 設計工具：預測航班延誤範例
 titleSuffix: Azure Machine Learning
-description: 本文說明如何使用拖放設計工具和自訂 R 程式碼，建立機器學習模型來預測航班延誤。
+description: 建立分類器，並使用自訂 R 程式碼來預測 Azure Machine Learning 設計工具的航班延誤。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 06d158fb228ea82e61e785407fc0c59d66c2de15
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647187"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196028"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>範例 6-分類：使用 R 預測航班延誤
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>建立分類器 & 使用 R 來預測 Azure Machine Learning 設計工具的飛行延遲
+
+**設計工具（預覽）範例6**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 此管線會使用歷程記錄和天氣資料來預測排程的乘客航班是否會延遲超過15分鐘。 這個問題可以做為分類問題來進行，預測兩個類別：延遲或準時。
@@ -26,7 +29,7 @@ ms.locfileid: "73647187"
 
 [管線![圖形](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

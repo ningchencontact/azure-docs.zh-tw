@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a24ebd8aca3cebab7898689b00e590298a8d1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144749"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195459"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>使用 Azure Active Directory （Azure AD） SCIM 使用者布建
 
@@ -1306,6 +1306,24 @@ Azure AD 可以設定為將已指派的使用者和群組自動布建至應用�
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>步驟5：將您的應用程式發佈至 Azure AD 應用程式庫
 
 如果您要建立的應用程式將由多個租使用者使用，您可以在 Azure AD 應用程式資源庫中使用它。 這可讓組織輕鬆地探索應用程式並設定布建。 在 Azure AD 資源庫中發佈您的應用程式，並將布建提供給其他人很容易。 請在 [這裡](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)查明步驟。 Microsoft 會與您合作，將您的應用程式整合到我們的資源庫、測試您的端點，以及發行登入[檔](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)供客戶使用。 
+
+
+### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>在應用程式資源庫中布建連接器的授權
+SCIM 規格不會定義驗證和授權的 SCIM 特定配置。 它依賴現有的業界標準。 Azure AD 布建用戶端對資源庫中的應用程式支援兩種授權方法。 
+
+**OAuth 授權碼授與流程：** 布建服務支援[授權碼授](https://tools.ietf.org/html/rfc6749#page-24)與。 提交您在資源庫中發佈應用程式的要求之後，我們的小組會與您一起收集下列資訊：
+*  授權 URL：用戶端用來透過使用者代理程式重新導向取得資源擁有者授權的 URL。 使用者會重新導向至此 URL 以授與存取權。 
+*  權杖交換 URL：用戶端的 URL，用來交換存取權杖的授權授與，通常是透過用戶端驗證。
+*  用戶端識別碼：授權伺服器會向已註冊的用戶端發出用戶端識別碼，這是代表用戶端所提供之註冊資訊的唯一字串。  用戶端識別碼不是秘密;它會公開給資源擁有者，而且**不得**單獨用於用戶端驗證。  
+*  用戶端密碼：用戶端密碼是由授權伺服器產生的秘密。 它應該是只有授權伺服器才知道的唯一值。 
+
+最佳做法（建議使用，但非必要）：
+* 支援多個重新導向 Url。 系統管理員可以從 "portal.azure.com" 和 "aad.portal.azure.com" 設定布建。 支援多個重新導向 Url 可確保使用者可以從任一入口網站授與存取權。
+* 支援多個秘密，以確保順暢地更新秘密，而不需要停機。 
+
+**長期的 OAuth 持有人權杖：** 如果您的應用程式不支援 OAuth 授權碼授與流程，您也可以產生長時間的 OAuth 持有人權杖，而不是系統管理員可用來設定布建整合。 權杖應該是永久的，否則當令牌過期時，將會[隔離](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)布建作業。 此權杖的大小必須低於1KB。  
+
+如需其他驗證和授權方法，請在[UserVoice](https://aka.ms/appprovisioningfeaturerequest)上讓我們知道。
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>允許 Azure AD 布建服務所使用的 IP 位址進行 SCIM 要求
 

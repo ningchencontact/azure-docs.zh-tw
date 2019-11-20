@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 11/17/2019
+ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388057"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184703"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>對應資料流程運算式產生器
 
@@ -77,6 +77,40 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 當您有包含特殊字元或空格的資料行名稱時，請以大括弧括住名稱。
 * ```{[dbo].this_is my complex name$$$}```
+
+## <a name="keyboard-shortcuts"></a>鍵盤快速鍵
+
+* ```Ctrl-K Ctrl-C```：批註整行
+* ```Ctrl-K Ctrl-U```：取消批註
+* ```F1```：提供編輯器説明命令
+* ```Alt-Down Arrow```：下移目前的行
+* ```Alt-Up Arrow```：向上移動目前的一行
+* ```Cntrl-Space```：顯示內容說明
+
+## <a name="manual-comments"></a>手動留言
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+如果您將批註放在運算式的頂端，它就會出現在 [轉換] 文字方塊中，以記錄轉換運算式：
+
+![註解](media/data-flow/comments2.png "註解")
+
+## <a name="convert-to-dates-or-timestamps"></a>轉換成日期或時間戳記
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+請注意，若要在時間戳記輸出中包含字串常值，您必須將轉換包裝在 toString （）內。
+
+## <a name="handling-column-names-with-special-characters"></a>處理含有特殊字元的資料行名稱
+
+當您有包含特殊字元或空格的資料行名稱時，請以大括弧括住名稱。
+
+```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>後續步驟
 

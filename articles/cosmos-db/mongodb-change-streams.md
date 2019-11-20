@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
-ms.openlocfilehash: b32eb7a7236871a06e1fbed5b9f1aac91675c6f3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: fbfce1c107fcf4b6f7d0b5f590a8ddfa64e69190
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174729"
+ms.locfileid: "74184729"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>變更 Azure Cosmos DB 的 MongoDB API 中的資料流程
 
@@ -35,7 +35,7 @@ while (!cursor.isExhausted()) {
 }
 ```
 
-下列範例示範如何在單一分區中取得專案的變更，例如分區 "a"，其中包含值為 "1" 的專案。
+下列範例顯示如何在單一分區中取得專案的變更。 這個範例會取得分區索引鍵等於 "a" 且分區索引鍵值等於 "1" 之專案的變更。
 
 ```javascript
 var cursor = db.coll.watch(

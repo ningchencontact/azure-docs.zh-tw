@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111851"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186604"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -29,6 +29,7 @@ Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能�
 
 切換和 RA-切換目前在下欄區域提供預覽：
 
+- 東南亞
 - 北歐
 - 西歐
 - 英國南部

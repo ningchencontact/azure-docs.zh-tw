@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: b6647c1b850b7678944edbc899f0727f8e10db08
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076914"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184338"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -27,6 +27,8 @@ ms.locfileid: "74076914"
 此頁面提供 Azure Load Balancer 常見問題的疑難排解資訊。 當負載平衡器的連線無法使用時，最常見的徵兆如下︰ 
 - 負載平衡器後方的 VM 未回應健康狀態探查 
 - 負載平衡器後方的 VM 未回應設定連接埠的流量
+
+當後端 Vm 的外部用戶端通過負載平衡器時，用戶端的 IP 位址將會用於通訊。 請確定用戶端的 IP 位址已新增至 NSG 允許清單。 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>徵兆：負載平衡器後方的 VM 都沒有回應健康狀態探查
 如果後端伺服器要參與負載平衡器集合，就必須通過探查檢查。 如需健康狀態探查的詳細資訊，請參閱[了解負載平衡器探查](load-balancer-custom-probe-overview.md)。 
@@ -96,18 +98,20 @@ ms.locfileid: "74076914"
 1. 登入後端 VM。 
 2. 開啟命令提示字元並執行下列命令，以驗證是否有應用程式正在接聽資料連接埠︰  netstat -an 
 3. 如果連接埠未列為 “LISTENING” 狀態，請設定正確的接聽程式連接埠。 
-4. 如果連接埠標示為 LISTENING，則請檢查該連接埠上的目標應用程式是否有任何可能的問題。 
+4. 如果連接埠標示為 LISTENING，則請檢查該連接埠上的目標應用程式是否有任何可能的問題。
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>原因 2：網路安全性群組封鎖負載平衡器後端集區 VM 上的連接埠  
 
 如果在子網路或 VM 上設定的一或多個網路安全性群組封鎖來源 IP 或連接埠，VM 就無法回應。
 
-* 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)。
-* 從網路安全性群組的清單中，檢查︰
+對於公用負載平衡器，網際網路用戶端的 IP 位址將會用於用戶端與負載平衡器後端 Vm 之間的通訊。 請確定後端 VM 的網路安全性群組中允許用戶端的 IP 位址。
+
+1. 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)
+1. 從網路安全性群組的清單中，檢查︰
     - 資料連接埠上的傳入或傳出流量是否有干擾。 
-    - VM 之 NIC 上或子網路上的 [全部拒絕] 網路安全性群組規則的優先順序是否高於允許負載平衡器探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP，亦即探查連接埠)。 
-* 如果有任何規則封鎖流量，請移除並重新設定這些規則以允許資料流量。  
-* 測試 VM 現在是否已開始回應健康狀態探查。
+    - VM 之 NIC 上或子網路上的 [全部拒絕] 網路安全性群組規則的優先順序是否高於允許負載平衡器探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP，亦即探查連接埠)。
+1. 如果有任何規則封鎖流量，請移除並重新設定這些規則以允許資料流量。  
+1. 測試 VM 現在是否已開始回應健康狀態探查。
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>原因 3：從相同的 VM 和網路介面存取負載平衡器 
 

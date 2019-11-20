@@ -1,5 +1,5 @@
 ---
-title: Azure SDK 可用來以 Azure 資源管理的受控識別設定 VM
+title: 使用 SDK 在 VM 上設定受控識別-Azure AD
 description: 使用 Azure SDK 在 Azure VM 上設定和使用 Azure 資源的受控識別適用的逐步指示。
 services: active-directory
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 09/28/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b4f5a26f240656911fb9627d273de8b69edff6a
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d11cd51984f82bc20c02669e796d9ba21b9ed5d7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809163"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183467"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>使用 Azure SDK 以 Azure 資源管理的受控識別設定 VM
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-適用於 Azure 資源的受控識別會在 Azure Active Directory (AD) 中為 Azure 服務提供自動的受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+適用於 Azure 資源的受控識別會在 Azure Active Directory (AD) 中為 Azure 服務提供自動的受控識別。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您將了解如何使用 Azure SDK 來啟用和移除 Azure VM 的 Azure 資源受控識別。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -44,7 +44,7 @@ Azure 透過一系列的 [Azure SDK](https://azure.microsoft.com/downloads) 來�
 | Java   | [從 Azure 資源的受控識別啟用的虛擬機器管理儲存體](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [建立已啟用系統指派受控識別的虛擬機器](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [建立已啟用系統指派受控識別的虛擬機器](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| 拼音   | [建立已啟用系統指派身分識別的 Azure VM](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
+| Ruby   | [建立已啟用系統指派身分識別的 Azure VM](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>後續步驟
 

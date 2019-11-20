@@ -1,5 +1,5 @@
 ---
-title: 疑難排解 - 針對 Azure Front Door Service 組態的問題進行疑難排解 | Microsoft Docs
+title: 針對 Azure Front 門板服務設定問題進行疑難排解
 description: 在本教學課程中，您會了解如何自行排解您可能會面臨的一些 Front Door 常見問題。
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335890"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184566"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>針對常見路由問題進行疑難排解
 本文說明如何排解您可能在 Azure Front Door Service 組態中面臨的一些常見路由問題。 
@@ -25,7 +25,7 @@ ms.locfileid: "68335890"
 ## <a name="hostname-not-routing-to-backend-and-returns-400-status-code"></a>主機名稱無法路由傳送至後端並傳回 400 狀態碼
 
 
-### <a name="symptom"></a>徵兆
+### <a name="symptom"></a>徵狀
 - 您已建立 Front Door，但前端主機的要求會傳回 HTTP 400 狀態碼。
 
   - 您已建立從自訂網域到您所設定前端主機的 DNS 對應。 不過，將要求傳送至自訂網域主機名稱會傳回 HTTP 400 狀態碼，而且似乎不會路由傳送至您已設定的後端。
@@ -38,7 +38,7 @@ ms.locfileid: "68335890"
 
 ## <a name="request-to-frontend-hostname-returns-404-status-code"></a>對前端主機名稱的要求會傳回 404 狀態碼
 
-### <a name="symptom"></a>徵兆
+### <a name="symptom"></a>徵狀
 - 您已建立 Front Door，並設定了前端主機、至少有一個後端的後端集區，以及可將前端主機連到後端集區的路由規則。 將要求傳送至已設定的前端主機時，您的內容似乎無法使用，因為傳回了 HTTP 404 狀態碼。
 
 ### <a name="cause"></a>原因
@@ -62,7 +62,7 @@ ms.locfileid: "68335890"
 
 
 3. 檢查路由規則設定
-     - 瀏覽到應會從有問題的前端主機名稱路由傳送至後端集區的路由規則。 確定接受的通訊協定設定正確，若非如此，請確定已正確設定 Front Door 在轉送要求時會使用的通訊協定。 _接受的通訊協定_會決定 front 門板應接受的要求, 而_轉送通訊協定_會決定 front 門板應使用哪一個通訊協定來將要求轉送至後端。
+     - 瀏覽到應會從有問題的前端主機名稱路由傳送至後端集區的路由規則。 確定接受的通訊協定設定正確，若非如此，請確定已正確設定 Front Door 在轉送要求時會使用的通訊協定。 _接受的通訊協定_會決定 front 門板應接受的要求，而_轉送通訊協定_會決定 front 門板應使用哪一個通訊協定來將要求轉送至後端。
           - 例如，如果後端只接受 HTTP 要求，則下列組態會有效：
                - [接受的通訊協定] 為 HTTP 和 HTTPS。 [轉送通訊協定] 為 HTTP。 比對要求無法運作，因為 HTTPS 是允許的通訊協定，而如果要求以 HTTPS 形式傳入，Front Door 會嘗試使用 HTTPS 轉送它。
 

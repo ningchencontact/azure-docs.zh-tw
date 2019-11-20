@@ -1,23 +1,23 @@
 ---
-title: Azure Migrate 設備架構 |Microsoft Docs
-description: 提供 Azure Migrate 設備的總覽
+title: Azure Migrate 設備架構
+description: 提供伺服器評估和遷移中所使用的 Azure Migrate 設備的總覽。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: bdc81820b1ac9867d45fd26e26d24c65e20641e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685090"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185825"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 設備
 
 本文說明 Azure Migrate 設備。 當您使用 Azure Migrate 評估和遷移工具來探索、評估和遷移要 Microsoft Azure 的應用程式、基礎結構和工作負載時，您可以部署設備。 
 
-[Azure Migrate](migrate-services-overview.md)提供中央中樞，以追蹤內部部署應用程式和工作負載的探索、評估和遷移，以及私人/公用雲端 Vm 至 Azure。 該中樞能提供 Azure Migrate 工具以進行評量和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
+[Azure Migrate](migrate-services-overview.md)提供中央中樞，以追蹤內部部署應用程式和工作負載的探索、評估和遷移，以及私人/公用雲端 Vm 至 Azure。 該中樞提供的 Azure Migrate 工具可進行評量和移轉，也提供第三方獨立軟體廠商 (ISV) 的供應項目。
 
 
 
@@ -162,7 +162,7 @@ VM 可以使用的最大記憶體 | Msvm_MemorySettingData | 限制
 VM 電源狀態 | Msvm_ComputerSystem | EnabledState
 **每個磁片詳細資料** | 
 磁片識別碼 | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-虛擬硬碟類型 | Msvm_VirtualHardDiskSettingData | 類型
+虛擬硬碟類型 | Msvm_VirtualHardDiskSettingData | 在系統提示您進行確認時，輸入
 虛擬硬碟大小 | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 虛擬硬碟父系 | Msvm_VirtualHardDiskSettingData | ParentPath
 **每個 NIC 詳細資料** | 

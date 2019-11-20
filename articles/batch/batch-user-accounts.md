@@ -11,18 +11,18 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 11/18/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820e979c41ddc1c1cf14456ed77a4a55e353ab12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094270"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74194962"
 ---
 > [!NOTE] 
-> 本文中討論的使用者帳戶與用於遠端桌面通訊協定 (RDP) 或安全殼層 (SSH) 的使用者帳戶不同, 基於安全考慮。 
+> 本文中討論的使用者帳戶與用於遠端桌面通訊協定（RDP）或安全殼層（SSH）的使用者帳戶不同，基於安全考慮。 
 >
 > 若要連線到透過 SSH 執行 Linux 虛擬機器設定的節點，請參閱[在 Azure 中使用 Linux VM 的遠端桌面](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)。 若要連線到透過 RDP 執行 Windows 的節點，請參閱[連線到 Windows Server VM](../virtual-machines/windows/connect-logon.md)。<br /><br />
 > 若要連線到透過 RDP 執行雲端服務設定的節點，請參閱[在 Azure 雲端服務中啟用角色的遠端桌面連線](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)。
@@ -60,7 +60,7 @@ Azure Batch 提供執行工作所需的兩種使用者帳戶類型︰
 使用者帳戶的提高權限層級會表示工作是否使用提高權限的存取權來執行。 自動使用者帳戶和具名的使用者帳戶都可以使用提高權限的存取權來執行。 提高權限層級的兩個選項如下︰
 
 - **NonAdmin：** 工作是以標準使用者身分執行，沒有提高權限的存取權。 Batch 使用者帳戶的預設提高權限層級一律為 **NonAdmin**。
-- **Admin：** 工作是以具有提高權限存取權的使用者身分執行，並以完整系統管理員權限運作。 
+- **系統管理員︰** 工作是以具有提高權限存取權的使用者身分執行，並以完整系統管理員權限運作。 
 
 ## <a name="auto-user-accounts"></a>自動使用者帳戶
 
@@ -280,7 +280,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -329,7 +329,7 @@ Batch 服務版本 2017-01-01.4.0 導入重大變更，將舊版中的 **runElev
 | 如果您的程式碼使用...                      | 將它更新為...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` 未指定 | 不需要更新                                                                                                                                  |
 
 

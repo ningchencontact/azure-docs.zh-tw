@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555441"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195024"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何在容器的 Azure 監視器中設定效能問題的警示
 適用于容器的 Azure 監視器會監視部署至 Azure 容器實例或裝載于 Azure Kubernetes Service （AKS）之受管理 Kubernetes 叢集的容器工作負載效能。
@@ -102,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->下列查詢會使用 \<your 叢集名稱 > 和 \<your 控制器名稱 > 的預留位置值來代表您的叢集和控制器。 當您設定警示時，請以您環境特定的值取代它們。
+>下列查詢會使用 \<您的叢集名稱 > 的預留位置值，並 \<您的-控制器名稱 > 來代表您的叢集和控制器。 當您設定警示時，請以您環境特定的值取代它們。
 
 下列查詢會計算控制器中所有容器的平均 CPU 使用率，做為控制器中每個容器實例的平均 CPU 使用率（每分鐘）。 量測是為容器設定的限制百分比。
 
@@ -250,7 +250,7 @@ let endDateTime = now();
 >[!NOTE]
 >若要針對特定 pod 階段（例如 [*擱置*]、[*失敗*] 或 [*未知*]）發出警示，請修改查詢的最後一行。 例如，若要在*failedcount 個*時發出警示，請使用： <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-下列查詢傳回的叢集節點磁片超過 90% 的可用空間。 若要取得叢集識別碼，請先執行下列查詢，並複製 `ClusterId` 屬性的值：
+下列查詢傳回的叢集節點磁片超過90% 的可用空間。 若要取得叢集識別碼，請先執行下列查詢，並複製 `ClusterId` 屬性的值：
 
 ```kusto
 InsightsMetrics
@@ -289,7 +289,7 @@ InsightsMetrics
 3. 在 [**受監視**的叢集] 索引標籤上，從清單中選取叢集。
 4. 在左側窗格中的 [**監視**] 底下，選取 [**記錄**] 以開啟 [Azure 監視器記錄] 頁面。 您可以使用此頁面來撰寫及執行 Azure Log Analytics 查詢。
 5. 在 [**記錄**] 頁面上，選取 [ **+ 新增警示規則**]。
-6. 在 [**條件**] 區段中，選取 [**每當自訂記錄搜尋 \<logic 未定義的 >** 預先定義的自訂記錄條件]。 系統會自動選取**自訂記錄搜尋**信號類型，因為我們會直接從 [Azure 監視器記錄] 頁面建立警示規則。  
+6. 在 [**條件**] 區段中，選取 [**每當自訂記錄搜尋 \<邏輯未定義 >** 預先定義的自訂記錄條件]。 系統會自動選取**自訂記錄搜尋**信號類型，因為我們會直接從 [Azure 監視器記錄] 頁面建立警示規則。  
 7. 將稍早提供的其中一個[查詢](#resource-utilization-log-search-queries)貼入 [**搜尋查詢**] 欄位中。
 8. 設定警示，如下所示：
 
@@ -308,4 +308,4 @@ InsightsMetrics
 ## <a name="next-steps"></a>後續步驟
 
 - 查看[記錄查詢範例](container-insights-log-search.md#search-logs-to-analyze-data)，以查看預先定義的查詢和範例，以評估或自訂警示、視覺化或分析您的叢集。
-- 若要深入瞭解 Azure 監視器以及如何監視 AKS 叢集的其他層面，請參閱[View Azure Kubernetes Service health](container-insights-analyze.md)。
+- 若要深入瞭解 Azure 監視器以及如何監視 Kubernetes 叢集的其他層面，請參閱[View Kubernetes cluster performance](container-insights-analyze.md)和[view Kubernetes cluster health](container-insights-health.md)。

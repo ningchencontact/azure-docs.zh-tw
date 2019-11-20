@@ -1,5 +1,5 @@
 ---
-title: Azure 資訊安全中心和 Azure Container Registry |Microsoft Docs
+title: Azure 資訊安全中心和 Azure Container Registry
 description: 瞭解 Azure 資訊安全中心與 Azure Container Registry 的整合
 services: security-center
 documentationcenter: na
@@ -10,22 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: f0de56f968488f0e5d551ad705cc6f8ca6e7bc47
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: MT
+ms.openlocfilehash: f2a07774fa23173738bc33907dd00017ca260fd9
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521861"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196371"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry 與資訊安全中心整合（預覽）
 
 Azure Container Registry （ACR）是受控的私用 Docker Registry 服務，可在中央登錄中儲存及管理 Azure 部署的容器映射。 它是以開放原始碼的 Docker Registry 2.0 為基礎。
 
-搭配使用 ACR 與 Azure 資訊安全中心的標準層（請參閱[定價](security-center-pricing.md)）時，您可以更深入瞭解登錄和映射的弱點。
+若要深入瞭解您的登錄和映射弱點，Azure 資訊安全中心的標準層使用者可以啟用選用的容器登錄套件組合。 如需詳細資訊，請參閱[定價](security-center-pricing.md)。 啟用配套時，資訊安全中心會在每次將映射推送至登錄時，自動掃描您 ACR 服務中的影像。 當掃描完成時（通常在大約10分鐘之後），資訊安全中心中會提供結果，如下所示：
 
-[Azure 資訊安全中心內的 ![Azure Container Registry （ACR）建議](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![範例 Azure 資訊安全中心有關在 Azure Container Registry （ACR）主控映射中探索到的弱點的建議](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>整合的優點
 

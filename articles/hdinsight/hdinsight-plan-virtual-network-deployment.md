@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 8d89031a3b27742149d450ab79c9febf0aaef1ff
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498172"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185616"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>為 Azure HDInsight 規劃虛擬網路
 
@@ -221,7 +221,7 @@ HDInsight 是受控服務，針對來自 VNET 的傳入和傳出流量，需要�
 
 1. 識別您要用於 HDInsight 的 Azure 區域。
 
-2. 識別 HDInsight 所需的 IP 位址。 如需詳細資訊，請參閱[HDInsight 管理 IP 位址](hdinsight-management-ip-addresses.md)。
+2. 識別 HDInsight 針對您的區域所需的服務標記。 如需詳細資訊，請參閱[Azure HDInsight 的網路安全性群組（NSG）服務標記](hdinsight-service-tags.md)。
 
 3. 建立或修改您打算安裝 HDInsight 之子網的網路安全性群組。
 
@@ -259,6 +259,6 @@ HDInsight 是受控服務，針對來自 VNET 的傳入和傳出流量，需要�
 * 如需設定 HDInsight 連線至內部部署網路的端對端範例，請參閱[將 HDInsight 連線至內部部署網路](./connect-on-premises-network.md)。
 * 如需在 Azure 虛擬網路中設定 Apache HBase 叢集，請參閱[在 azure 中的 HDInsight 上建立 Apache hbase 叢集虛擬網路](hbase/apache-hbase-provision-vnet.md)。
 * 如需設定 Apache HBase 異地複寫，請參閱[設定 Azure 虛擬網路中的 Apache HBase 叢集複寫](hbase/apache-hbase-replication.md)。
-* 如需 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
+* 如需有關 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 * 如需網路安全性群組的詳細資訊，請參閱[網路安全性群組](../virtual-network/security-overview.md)。
 * 如需使用者定義路由的詳細資訊，請參閱[使用者定義路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)。

@@ -6,15 +6,15 @@ keywords: encoding;encoders;media;編碼;編碼器;媒體
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300938"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186027"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -25,7 +25,7 @@ ms.locfileid: "72300938"
   > [!NOTE]
   > 使用傳遞方法是進行即時串流的最經濟實惠方式。
  
-* 內部部署即時編碼器會將單一位元速率串流傳送至即時編碼，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 即時事件接著會執行即時編碼，將內送單一位元速率資料流編碼成多位元速率 (自適性) 視訊資料流。
+* 內部部署即時編碼器會將單一位元速率串流傳送至即時事件，而此活動已啟用為使用下列其中一種格式的媒體服務執行即時編碼： RTMP 或 Smooth Streaming （分散的專案類型）。 即時事件接著會執行即時編碼，將內送單一位元速率資料流編碼成多位元速率 (自適性) 視訊資料流。
 
 如需媒體服務即時編碼的詳細資訊，請參閱[使用媒體服務 v3 進行即時串流](live-streaming-overview.md)。
 
@@ -49,6 +49,9 @@ ms.locfileid: "72300938"
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming)主圖7和主圖8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>輸出分散式 MP4 的即時編碼器
 
@@ -60,9 +63,11 @@ ms.locfileid: "72300938"
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  如果您要以多種語言（例如，一個英文音訊軌和一個西班牙文音訊播放軌）串流處理實況活動，您可以使用已設定的 Media Excel live 編碼器來完成這項工作，以將即時摘要傳送至傳遞實況活動。
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>設定內部部署即時編碼器設定
 

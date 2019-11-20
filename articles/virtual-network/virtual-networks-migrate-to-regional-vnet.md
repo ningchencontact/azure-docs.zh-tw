@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 虛擬網路 (傳統) 從同質群組移轉至區域 | Microsoft Docs
+title: 將 Azure 虛擬網路（傳統）從同質群組遷移至區域
 description: 了解如何將虛擬網路 (傳統) 從同質群組移轉至區域。
 services: virtual-network
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: d33d9ec4eadeaa3a082103f1ad699e2fc3010e3b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 57e6c551e1377425dab5509a886a0454b9410a32
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058387"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196704"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>將虛擬網路 (傳統) 從同質群組移轉至區域
 
 > [!IMPORTANT]
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署都使用 Resource Manager 部署模型。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署都使用 Resource Manager 部署模型。
 
 同質群組確保在相同同質群組內建立的資源均由伺服器所實際主控，這些伺服器彼此鄰近，可讓這些資源進行更快速的通訊。 在過去，建立虛擬網路 (傳統) 需要同質群組。 當時，管理虛擬網路 (傳統) 的網路管理員服務僅能在一組實體伺服器或縮放單位內工作。 架構改進則增加區域的網路管理範圍。
 
@@ -41,7 +41,7 @@ ms.locfileid: "71058387"
 ## <a name="edit-the-network-configuration-file"></a>編輯網路組態檔
 
 1. 匯出網路組態檔。 若要了解如何使用 PowerShell 或 Azure 命令列介面 (CLI) 1.0 匯出網路組態檔，請參閱[使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md#export)。
-2. 編輯網路組態檔，使用 **Location** 取代 **AffinityGroup**。 您需針對 **Location** 指定 Azure [區域](https://azure.microsoft.com/regions)。
+2. 編輯網路組態檔，使用 **Location** 取代 **AffinityGroup**。 您需針對 [Location](https://azure.microsoft.com/regions) 指定 Azure **區域**。
    
    > [!NOTE]
    > **Location** 是您所指定與您虛擬網路 (傳統) 相關聯之同質群組的區域。 例如，如果您的虛擬網路 (傳統) 與位於美國西部的同質群組相關聯，則當移轉時，您的 **Location** 必須指向 West US (美國西部)。 
@@ -50,9 +50,9 @@ ms.locfileid: "71058387"
    
     在網路組態檔中編輯下列幾行，並取代為您需要的值： 
    
-    **舊值：** \<VirtualNetworkSitename = "VNetUSWest" AffinityGroup = "VNetDemoAG"\> 
+    **舊值：** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **新值：** \<VirtualNetworkSitename = "VNetUSWest" Location = "美國西部"\>
+    **新值：** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. 儲存您的變更並網路組態 [匯入](virtual-networks-using-network-configuration-file.md#import) 至 Azure。
 
 > [!NOTE]

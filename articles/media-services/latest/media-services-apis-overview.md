@@ -1,6 +1,7 @@
 ---
-title: 使用 v3 Api 進行開發-Azure |Microsoft Docs
-description: 本文討論使用媒體服務 v3 進行開發時，適用于實體和 Api 的規則。
+title: 使用 v3 Api 進行開發
+titleSuffix: Azure Media Services
+description: 瞭解使用媒體服務 v3 進行開發時，適用于實體和 Api 的規則。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,48 +13,48 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049020"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186136"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
+# <a name="develop-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
 身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
-本文討論使用媒體服務 v3 進行開發時，適用于實體和 Api 的規則。
+本文討論當您使用媒體服務 v3 進行開發時，適用于實體和 Api 的規則。
 
 ## <a name="accessing-the-azure-media-services-api"></a>存取 Azure 媒體服務 API
 
 在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 媒體服務支援以[Azure Active Directory （Azure AD）為基礎的](../../active-directory/fundamentals/active-directory-whatis.md)驗證。 兩個常見的驗證選項如下：
  
-* **服務主體驗證**-用來驗證服務（例如： web 應用程式、函數應用程式、邏輯應用程式、API 和微服務）。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 例如，對於 Web 應用程式，應該一律是連接至服務主體媒體服務的中介層。
-* **使用者驗證**-用來驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
+* **服務主體驗證**：用來驗證服務（例如： web 應用程式、函數應用程式、邏輯應用程式、API 和微服務）。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 例如，對於 web 應用程式，應該一律是連接至服務主體媒體服務的中介層。
+* **使用者驗證**：用來驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
 
 媒體服務 API 需要讓 REST API 要求的使用者或應用程式能夠存取媒體服務帳戶資源，並使用**參與者**或**擁有**者角色。 您可以使用**讀取器**角色來存取 API，但只能使用**取得**或**列出**作業。 如需詳細資訊，請參閱[媒體服務帳戶的角色型存取控制](rbac-overview.md)。
 
 請考慮使用 Azure 資源的受控識別，透過 Azure Resource Manager 存取媒體服務 API，而不是建立服務主體。 若要深入瞭解 Azure 資源的受控識別，請參閱[什麼是適用于 azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
 
-### <a name="azure-ad-service-principal"></a>Azure AD 服務主體 
+### <a name="azure-ad-service-principal"></a>Azure AD 服務主體
 
-如果您要建立 Azure AD 應用程式和服務主體，應用程式必須位於自己的租使用者中。 建立應用程式之後，請將媒體服務帳戶的存取權授與應用程式**參與者**或**擁有**者角色。 
+如果您要建立 Azure AD 應用程式和服務主體，應用程式必須位於自己的租使用者中。 建立應用程式之後，請將媒體服務帳戶的 [**參與者**] 或 [**擁有**者] 角色存取權授與應用程式。
 
 如果您不確定您是否有建立 Azure AD 應用程式的許可權，請參閱[必要許可權](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 在下圖中，數位代表依時間順序排列的要求流程：
 
-![中介層應用程式](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![從 Web API 使用 AAD 進行中介層應用程式驗證](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. 中介層應用程式會要求具有下列參數的 Azure AD 存取權杖：  
 
    * Azure AD 租用戶端點。
    * 媒體服務資源 URI。
    * REST 媒體服務的資源 URI。
-   * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
-   
-   若要取得所有需要的值，請參閱[使用 Azure CLI 存取 AZURE 媒體服務 API](access-api-cli-how-to.md)
+   * Azure AD 應用程式值：用戶端識別碼和用戶端密碼。
+
+   若要取得所有需要的值，請參閱[使用 Azure CLI 存取 AZURE 媒體服務 API](access-api-cli-how-to.md)。
 
 2. Azure AD 存取權杖會傳送至中介層。
 4. 中介層使用該 Azure AD 權杖傳送要求至 Azure 媒體 REST API。
@@ -71,11 +72,11 @@ ms.locfileid: "74049020"
 
 ## <a name="naming-conventions"></a>命名慣例
 
-Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Azure Resource Manager 命名規則的約束。 根據 Azure Resource Manager，資源名稱永遠是唯一的。 因此，您可以對資源名稱使用任何唯一識別碼字串 (例如，GUID)。 
+Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Azure Resource Manager 命名規則的約束。 根據 Azure Resource Manager，資源名稱永遠是唯一的。 因此，您可以對資源名稱使用任何唯一識別碼字串 (例如，GUID)。
 
-媒體服務資源名稱不可包含：'<'、'>'、'%'、'&'、':'、'&#92;'、'?'、'/'、'*'、'+'、'.'、單引號字元或任何控制字元。 允許所有其他字元。 資源名稱的長度上限是 260 個字元。 
+媒體服務資源名稱不能包含： ' < '、' > '、'% '、' & '、'： '、&#92;' '、'？ '、'/'、' * '、' + '、'. '、單引號字元或任何控制字元。 允許所有其他字元。 資源名稱的長度上限是 260 個字元。
 
-如需 Azure Resource Manager 命名規則的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。
+如需 Azure Resource Manager 命名的詳細資訊，請參閱[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>資產內的檔案/blob 名稱
 
@@ -106,7 +107,7 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 * [停止 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
 * [調整 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
-成功提交長時間時，您會收到「202已接受」，而且必須使用傳回的作業識別碼來輪詢作業完成。
+成功提交長的作業時，您會收到「202已接受」，而且必須使用傳回的作業識別碼來輪詢作業完成。
 
 [追蹤非同步 Azure 作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)一文會深入說明如何透過回應中傳回的值，追蹤非同步 Azure 作業的狀態。
 
@@ -115,7 +116,7 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 ## <a name="sdks"></a>SDK
 
 > [!NOTE]
-> Azure 媒體服務 v3 SDK 不一定是安全執行緒。 在開發多執行緒應用程式時，您應新增本身的執行緒同步處理邏輯以保護用戶端，或為每個執行緒使用新的 AzureMediaServicesClient 物件。 您也應留意程式碼提供給用戶端 (例如 .NET 中的 HttpClient 執行個體) 的選擇性物件所引起的多執行緒處理問題。
+> 不保證 Azure 媒體服務 v3 Sdk 是安全線程。 開發多執行緒應用程式時，您應該新增自己的執行緒同步處理邏輯來保護用戶端，或針對每個執行緒使用新的 AzureMediaServicesClient 物件。 您也應留意程式碼提供給用戶端 (例如 .NET 中的 HttpClient 執行個體) 的選擇性物件所引起的多執行緒處理問題。
 
 |SDK|參考|
 |---|---|
@@ -135,11 +136,11 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 
 [Azure 媒體服務總管](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) 是想要了解媒體服務的 Windows 客戶可用的工具。 AMSE 是 Winforms/C# 應用程式，可利用媒體服務上傳、下載、編碼、串流 VOD 和即時內容。 AMSE 工具適用於想要測試媒體服務，而不要撰寫任何程式碼的用戶端。 AMSE 程式碼會當作資源提供給想要使用媒體服務開發的客戶。
 
-AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報給 https://github.com/Azure/Azure-Media-Services-Explorer/issues)。 此專案採用 [Microsoft 開放原始碼管理辦法](https://opensource.microsoft.com/codeofconduct/)。 如需詳細資訊，請參閱[管理辦法常見問題集](https://opensource.microsoft.com/codeofconduct/faq/)，如有任何其他問題或意見請連絡 opencode@microsoft.com。
+AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報給 https://github.com/Azure/Azure-Media-Services-Explorer/issues)。 此專案採用 [Microsoft 開放原始碼管理辦法](https://opensource.microsoft.com/codeofconduct/)。 如需詳細資訊，請參閱管理辦法[常見問題](https://opensource.microsoft.com/codeofconduct/faq/)或聯絡 opencode@microsoft.com，並提供任何其他問題或意見。
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序、分頁
 
-請參閱[Azure 媒體服務實體的篩選、排序、分頁](entities-overview.md)
+請參閱[Azure 媒體服務實體的篩選、排序和分頁](entities-overview.md)。
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 

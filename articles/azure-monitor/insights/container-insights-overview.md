@@ -6,17 +6,24 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: 906ae92b0018430bdda02639642dd66ae2231dce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/18/2019
+ms.openlocfilehash: 97aad6f3853de07a3c4d2fc694c1dcefbd0e82a4
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477054"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195128"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
 
-適用于容器的 Azure 監視器是一項功能，其設計目的是要監視部署至 Azure 容器實例的容器工作負載效能、裝載于 Azure Kubernetes Service （AKS）的受控 Kubernetes 叢集，或裝載的自我管理 Kubernetes 叢集在 Azure Stack 上。 監視容器很重要，尤其在您使用多個應用程式大規模執行生產環境叢集時。
+容器的 Azure 監視器是一項功能，其設計是用來監視部署到的容器工作負載效能：
+
+- 裝載于 Azure Kubernetes Service （AKS）上的受控 Kubernetes 叢集
+- Azure Container Instances
+- 裝載于 Azure Stack 或內部部署環境的自我管理 Kubernetes 叢集
+- Azure Red Hat OpenShift
+
+監視容器很重要，尤其在您使用多個應用程式大規模執行生產環境叢集時。
 
 適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 容器記錄也會一併收集。  當您從 Kubernetes 叢集啟用監視之後，系統會透過適用于 Linux 的 Log Analytics 代理程式容器化版本自動收集計量和記錄。 計量會寫入計量存放區，並將記錄資料寫入與您的[Log Analytics](../log-query/log-query-overview.md)工作區相關聯的記錄存放區。 
 
@@ -31,7 +38,7 @@ ms.locfileid: "73477054"
 * 識別容器在控制器或 Pod 中的所在位置。 此知識可協助您檢視控制器或 Pod 的整體效能。 
 * 檢閱在和支援 Pod 的標準程序無關之主機上執行的工作負載的資源使用率。
 * 了解叢集在平均負載和最高負載之下的行為。 此知識可協助您識別所需的容量，並判斷叢集可承受的負載上限。 
-* 設定警示，以主動通知您，或在節點或容器上的 CPU 和記憶體使用率超過閾值時，或在基礎結構、節點或工作負載健全狀況匯總套件中發生健全狀況狀態變更時加以記錄。
+* 設定警示，以主動通知您，或在節點或容器上的 CPU 和記憶體使用率超過閾值時，或在基礎結構或節點健全狀況匯總套件中發生健全狀況狀態變更時加以記錄。
 * 與[Prometheus](https://prometheus.io/docs/introduction/overview/)整合，以查看它從節點和 Kubernetes 收集的應用程式和工作負載計量使用[查詢](container-insights-log-search.md)來建立自訂警示、儀表板，以及詳細的執行詳細分析。
 
     >[!NOTE]
@@ -39,6 +46,7 @@ ms.locfileid: "73477054"
     >
 
 * 監視[部署至 AKS 引擎](https://github.com/microsoft/OMS-docker/tree/aks-engine)內部部署的容器工作負載，以及 Azure Stack 上的[AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
+* 監視[部署至 Azure Red Hat OpenShift](../../openshift/intro-openshift.md)的容器工作負載。
 
 查看下列提供中繼層級深入探討的影片，以協助您瞭解如何使用容器的 Azure 監視器監視 AKS 叢集。
 
@@ -54,6 +62,4 @@ ms.locfileid: "73477054"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要開始監視您的 AKS 叢集，請參閱[如何啟用容器的 Azure 監視器](container-insights-onboard.md)，以瞭解啟用監視的需求和可用方法。 
-
-- 若要開始監視內部部署 Azure Stack 或 Kubernetes 上的 AKS 引擎，請參閱[使用容器的 Azure 監視器設定混合式 Kubernetes](container-insights-hybrid-setup.md)叢集。  
+若要開始監視您的 Kubernetes 叢集，請參閱[如何啟用容器的 Azure 監視器](container-insights-onboard.md)，以瞭解啟用監視的需求和可用方法。 

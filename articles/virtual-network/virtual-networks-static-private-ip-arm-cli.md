@@ -1,5 +1,5 @@
 ---
-title: 設定 VM 的私人 IP 位址 - Azure CLI | Microsoft Docs
+title: 設定 Vm 的私人 IP 位址-Azure CLI
 description: 了解如何使用 Azure 命令列介面 (CLI) 設定虛擬機器的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1b39196c489927474c0912b316de5ff3b3dbb956
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5734b96466801efaa991a971bd87f60aafc9df32
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681400"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196620"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -70,9 +70,9 @@ ms.locfileid: "64681400"
     }
     ```
 
-   * `--resource-group`:要在其中建立公用 IP 之資源群組的名稱。
-   * `--name`:公用 IP 的名稱。
-   * `--location`:要在其中建立公用 IP 的 Azure 區域。
+   * `--resource-group`︰要在其中建立公用 IP 之資源群組的名稱。
+   * `--name`：公用 IP 的名稱。
+   * `--location`：要在其中建立公用 IP 的 Azure 區域。
 
 3. 執行 [az network nic create](/cli/azure/network/nic) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
    
@@ -122,9 +122,9 @@ ms.locfileid: "64681400"
     
     參數：
 
-    * `--private-ip-address`:NIC 的靜態私人 IP 位址
-    * `--vnet-name`:要在其中建立 NIC 之 VNet 的名稱。
-    * `--subnet`:要在其中建立 NIC 之子網路的名稱。
+    * `--private-ip-address`：NIC 的靜態私人 IP 位址。
+    * `--vnet-name`：要在其中建立 NIC 之 VNet 的名稱。
+    * `--subnet`：要在其中建立 NIC 之子網路的名稱。
 
 4. 執行 [azure vm create](/cli/azure/vm/nic) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
    
@@ -156,13 +156,13 @@ ms.locfileid: "64681400"
    
    基本 [az vm create](/cli/azure/vm) 參數以外的參數。
 
-   * `--nics`:VM 所連接至之 NIC 的名稱。
+   * `--nics`︰VM 所連接至之 NIC 的名稱。
    
 建議您不要靜態指派在 VM 作業系統內已指派給 Azure 虛擬機器的私人 IP，除非必要，例如[將多個 IP 位址指派給 Windows VM](virtual-network-multiple-ip-addresses-cli.md) 時。 如果您確實手動設定作業系統內的私人 IP 位址，請確保它的位址與指派給 Azure [網路介面](virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](virtual-network-network-interface-addresses.md#private)設定。
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>擷取 VM 的靜態私人 IP 位址資訊
 
-執行下列 Azure CLI 命令，以觀察私人 IP 配置方法  和私人 IP 位址  的值：
+執行下列 Azure CLI 命令，以觀察私人 IP 配置方法和私人 IP 位址的值：
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'

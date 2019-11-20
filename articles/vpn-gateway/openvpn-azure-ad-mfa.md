@@ -7,18 +7,19 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: alzam
-ms.openlocfilehash: 3f407ecfcbfdff72b79bfe6b5bc3e6b7606b1cf0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1b506f8439deabd110daaefab36442140e20d0d4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174625"
+ms.locfileid: "74185361"
 ---
 # <a name="enable-multi-factor-authentication-mfa-for-vpn-users"></a>為 VPN 使用者啟用多重要素驗證（MFA）
 
 您可以為 Azure AD 租使用者中的使用者啟用 MFA，以便在授與存取權之前，先提示使用者進行第二因素驗證。
 
-> [!必要條件] 您已依照「設定租使用者」檔中所述的方式設定 Azure AD 租使用者。
+> [!NOTE]
+> 必要條件：您已依照「設定租使用者」檔中所述的方式設定 Azure AD 租使用者。
 >
 
 ### <a name="tenant"></a>1. 登入 Azure 入口網站並流覽至 [ **Azure Active Directory** ]、[**所有使用者**]，然後按一下 [**多重要素驗證**]

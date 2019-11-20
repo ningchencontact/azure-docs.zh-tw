@@ -1,7 +1,7 @@
 ---
-title: 設計工具：預測汽車價格（回歸）
+title: 設計工具：預測汽車價格（advanced）範例
 titleSuffix: Azure Machine Learning
-description: 本文說明如何使用設計工具（預覽）來建立複雜的機器學習管線，而不需要撰寫任何一行程式碼。 瞭解如何定型和比較多個回歸模型，以根據技術功能來預測汽車的價格
+description: Build & 根據 Azure Machine Learning 設計師的技術功能，比較多個 ML 回歸模型來預測汽車的價格。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5eb701af90125e2654d6f908b28512aba3ad37aa
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647959"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196070"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>範例 2-回歸：預測價格和比較演算法
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>使用 Azure Machine Learning 設計師訓練 & 比較多個回歸模型來預測汽車價格
+
+**設計工具（預覽）範例2**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 瞭解如何使用設計工具（預覽）來建立機器學習管線，而不需要撰寫任何一行程式碼。 這個範例會訓練並比較多個回歸模型，以根據其技術功能來預測汽車的價格。 我們將提供此管線中所做選擇的基本原理，讓您可以處理自己的機器學習服務問題。
@@ -28,7 +31,7 @@ ms.locfileid: "73647959"
 
 [管線![圖形](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

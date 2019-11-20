@@ -1,11 +1,11 @@
 ---
-title: 在 Azure 中使用基本 Load Balancer 部署 IPv6 雙重堆疊應用程式-CLI
+title: 部署 IPv6 雙重堆疊應用程式-基本 Load Balancer-CLI
 titlesuffix: Azure Virtual Network
 description: 本文說明如何使用 Azure CLI 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式。
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: d4ca26606eb8be5b9092f40b70b57b9d5d85385c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b8440efa08e47685d21b0222861f749e8bdffbc9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804011"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186389"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>使用基本 Load Balancer-CLI 部署 IPv6 雙重堆疊應用程式（預覽）
 
@@ -35,7 +35,7 @@ ms.locfileid: "72804011"
 
 如果您決定在本機安裝和使用 Azure CLI，本快速入門會要求您使用 Azure CLI 版本2.0.49 或更新版本。 若要尋找您安裝的版本，請執行 `az --version`。 如需安裝或升級的資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 IPv6 for Azure 虛擬網路功能，您必須使用 Azure CLI 設定訂用帳戶，如下所示：
 
 ```azurecli
@@ -64,7 +64,7 @@ az group create \
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>建立負載平衡器的 IPv4 和 IPv6 公用 IP 位址
-若要存取網際網路上的 IPv4 和 IPv6 端點，您需要有適用于負載平衡器的 IPv4 和 IPv6 公用 IP 位址。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立公用 IP 位址。 下列範例會在*DsResourceGroup01*資源群組中建立名為*dsPublicIP_v4*和*dsPublicIP_v6*的 IPv4 和 IPv6 公用 IP 位址：
+若要存取網際網路上的 IPv4 和 IPv6 端點，您需要有適用于負載平衡器的 IPv4 和 IPv6 公用 IP 位址。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立公用 IP 位址。 下列範例會建立名為*dsPublicIP_v4*的 IPv4 和 IPV6 公用 IP 位址，並在*DsResourceGroup01*資源群組中*dsPublicIP_v6* ：
 
 ```azurecli
 # Create an IPV4 IP address
@@ -115,7 +115,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>建立負載平衡器
 
-使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)建立名為**dsLB**的基本 Load Balancer，其中包含名為**dsLbFrontEnd_v4**的前端集區、名為**dsLbBackEndPool_v4**的後端集區，與 IPv4 公用 IP 位址**相關聯**您在上一個步驟中建立的 dsPublicIP_v4。 
+使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)建立名為**dsLB**的基本 Load Balancer，其中包含名為**dsLbFrontEnd_v4**的前端集區、名為**dsLbBackEndPool_v4**的後端集區，與您在上一個步驟中建立的 IPv4 公用 IP 位址**dsPublicIP_v4**相關聯。 
 
 ```azurecli
 az network lb create \
@@ -156,7 +156,7 @@ az network lb address-pool create \
 
 負載平衡器規則用來定義如何將流量分散至 VM。 您可定義連入流量的前端 IP 組態及後端 IP 集區來接收流量，以及所需的來源和目的地連接埠。 
 
-使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 建立負載平衡器規則。 下列範例會建立名為*dsLBrule_v4*和*dsLBrule_v6*的負載平衡器規則，並將*TCP*埠*80*上的流量平衡至 IPv4 和 IPv6 前端 IP 設定：
+使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 建立負載平衡器規則。 下列範例會建立名為*dsLBrule_v4*的負載平衡器規則，並*DsLBrule_v6*並將*TCP*埠*80*上的流量平衡至 IPv4 和 IPv6 前端 IP 設定：
 
 ```azurecli
 az network lb rule create \
@@ -270,7 +270,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create) 建立虛擬網路。 下列範例會建立名為*dsVNET*的虛擬網路，其中包含子網*dsSubNET_v4*和*dsSubNET_v6*：
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create) 建立虛擬網路。 下列範例會建立名為*dsVNET*的虛擬網路，其中包含*dsSubNET_v4*和*dsSubNET_v6*的子網：
 
 ```azurecli
 # Create the virtual network

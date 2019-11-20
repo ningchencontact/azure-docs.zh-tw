@@ -1,5 +1,5 @@
 ---
-title: 設定 Front 門板的 Web 應用程式防火牆速率限制規則-Azure PowerShell
+title: 設定 Front 門板的 WAF 速率限制規則-Azure PowerShell
 description: 瞭解如何設定現有 Front 入口端點的速率限制規則。
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: ce9ace445d87479da4047da205b59e79402ece07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517133"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186615"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>使用 Azure PowerShell 設定 Web 應用程式防火牆速率限制規則
 Azure Front 門板的 Azure Web 應用程式防火牆（WAF）速率限制規則會控制一分鐘期間內，單一用戶端 IP 允許的要求數。
@@ -20,7 +20,7 @@ Azure Front 門板的 Azure Web 應用程式防火牆（WAF）速率限制規則
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始設定速率限制原則之前，請先設定您的 PowerShell 環境，並建立 Front profile。
 ### <a name="set-up-your-powershell-environment"></a>設定 PowerShell 環境
 Azure PowerShell 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 模型來管理 Azure 資源。 

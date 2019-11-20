@@ -1,5 +1,5 @@
 ---
-title: vCore 模型總覽
+title: 虛擬核心模型概觀
 description: VCore 購買模型可讓您獨立調整計算和儲存體資源、符合內部部署效能，並將價格優化。
 services: sql-database
 ms.service: sql-database
@@ -9,14 +9,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1bdd14841fc1c537046ee8dc3d0d6dc63b88ea25
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821067"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196538"
 ---
-# <a name="vcore-model-overview"></a>vCore 模型總覽
+# <a name="vcore-model-overview"></a>虛擬核心模型概觀
 
 虛擬核心（vCore）模型提供數個優點：
 
@@ -134,7 +134,7 @@ VCore 模型中的硬體產生選項包括 Gen 4/5、M 系列（預覽）和 Fsv
 
 ### <a name="hardware-availability"></a>硬體可用性
 
-#### <a name="gen4gen5"></a>第4代/第5代
+#### <a name="gen4gen5-1"></a>第4代/第5代
 
 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。 
 

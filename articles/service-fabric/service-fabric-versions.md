@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6b29eb31f5d425fc063c8c42e7911272e63167c8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2453167bbdabbb201f2463e1eec8206be6d4223
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331090"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186485"
 ---
 # <a name="supported-service-fabric-versions"></a>支援的 Service Fabric 版本
 
@@ -47,8 +47,8 @@ ms.locfileid: "72331090"
 | 6.2.* | 6.0.232.* |小於或等於 3.1 版 |2018年10月26日   |
 | 6.3.* | 6.1.480.* |小於或等於 3.2 版 |2019年3月31日  |
 | 6.4.* | 6.2.301.* |小於或等於 3.3 版 |2019年9月15日 |
-| 6.5. * | 6.4.617.* |小於或等於版本3。4 |目前的版本，因此沒有結束日期 |
-
+| 6.5. * | 6.4.617.* |小於或等於版本3。4 |2020 5 月1日 |
+| 7.0. * | 6.4.664.# |小於或等於版本4。0 |目前的版本，因此沒有結束日期 |
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 
 下表列出支援的 Service Fabric 版本所支援的作業系統。
@@ -110,3 +110,4 @@ ms.locfileid: "72331090"
 | 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
 | 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 | 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
+| 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |

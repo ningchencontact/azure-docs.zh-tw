@@ -1,7 +1,7 @@
 ---
-title: 設計師&#58;分類書籍評論
+title: 設計工具：分類書籍審查範例
 titleSuffix: Azure Machine Learning
-description: 建立機器學習模型將書籍審查分類成不同的類別。
+description: 建立多元羅吉斯回歸分類器，使用 Azure Machine Learning 設計工具，以維琪百科 SP 500 資料集來預測公司類別目錄。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 43545c2d3bb3afe4e1c458f14c1ba30e41eea721
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647134"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195998"
 ---
-# <a name="sample-7---text-classification-predict-company-category"></a>範例 7-文字分類：預測公司類別 
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>使用 Azure Machine Learning 設計工具建立分類器來預測公司類別目錄。
+
+**設計工具（預覽）範例7**
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 這個範例會示範如何使用文字分析模組，在 Azure Machine Learning 設計工具（預覽）中建立文字分類管線。
 
 文字分類的目標是要將某個文字片段指派給一或多個預先定義的類別或類別。 文字片段可以是檔、新聞文章、搜尋查詢、電子郵件、推文、支援票證、客戶意見反應、使用者產品評論等等。文字分類的應用程式包括將報紙文章和新聞內容分類為主題、將網頁組織成階層式類別、篩選垃圾郵件、情感分析、從搜尋查詢預測使用者意圖、路由支援票證，以及分析客戶的意見反應。 
 
-此管線會訓練**多元羅吉斯回歸分類器**，以從維琪百科衍生的維琪百科 SP 500 資料集預測公司類別。  
+此管線會訓練**多元羅吉斯回歸分類器**，以**從維琪百科衍生的維琪百科 SP 500 資料集**預測公司類別。  
 
 訓練機器學習模型與文字資料的基本步驟如下：
 

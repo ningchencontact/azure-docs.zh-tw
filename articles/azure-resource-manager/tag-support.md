@@ -3,12 +3,12 @@ title: 資源的標記支援
 description: 顯示哪些 Azure 資源類型支援標記。 提供所有 Azure 服務的詳細資料。
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: MT
+ms.openlocfilehash: 2799784ad449304a7790ad5f83d8ed1c94dd3547
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173557"
+ms.locfileid: "74194988"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。 標記為 [**支援標記**] 的資料行指出資源類型是否有標記的屬性。 [**成本報表] 中**標示為 [標記] 的資料行指出該資源類型是否會將標記傳遞至成本報表。
@@ -1818,7 +1818,7 @@ ms.locfileid: "74173557"
 > | 資源類型 | 支援標記 | 成本報告中的標記 |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | yes | yes |
-> | managedInstances/databases | 是（請參閱[下面的附注](#sqlnote)） | yes |
+> | managedInstances/databases | 否 | 否 |
 > | managedInstances/databases/backupShortTermRetentionPolicies | 否 | 否 |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | 否 | 否 |
 > | managedInstances/databases/vulnerabilityAssessments | 否 | 否 |

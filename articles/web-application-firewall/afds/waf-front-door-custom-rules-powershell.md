@@ -1,5 +1,5 @@
 ---
-title: 設定具有自訂規則的 Web 應用程式防火牆（WAF）原則和針對 Front 門的預設 Ruse 集-Azure PowerShell
+title: 設定 WAF 自訂規則 & Azure 前門的預設規則集
 description: 瞭解如何設定 WAF 原則，其包含現有 Front 入口端點的自訂和受控規則。
 services: web-application-firewall
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: fec1ed5d51c4afe43df513b54595b4ce1e2f4bbb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512544"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186641"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>使用 Azure PowerShell 設定 Web 應用程式防火牆原則
 
@@ -21,7 +21,7 @@ Azure Web 應用程式防火牆（WAF）原則會定義當要求到達 Front 時
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始設定速率限制原則之前，請先設定您的 PowerShell 環境，並建立 Front profile。
 

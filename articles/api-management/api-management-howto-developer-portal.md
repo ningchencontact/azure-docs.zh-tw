@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 377ed8f17cfcf67f10cbdec77199c69c606afa3e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011489"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180680"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理開發人員入口網站總覽
 
@@ -142,6 +142,14 @@ ms.locfileid: "74011489"
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> 如果您在產品範圍中套用 CORS 原則，而不是在 API 範圍內套用，而您的 API 會透過標頭使用訂用帳戶金鑰驗證，則您的主控台將無法使用。
+>
+> 瀏覽器會自動發出選項 HTTP 要求，其中未包含含有訂用帳戶金鑰的標頭。 由於遺漏了訂用帳戶金鑰，因此 API 管理無法將選項呼叫與產品產生關聯，因此無法套用 CORS 原則。
+>
+> 因應措施是，您可以在查詢參數中傳遞訂用帳戶金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,12 +3,12 @@ title: MARS 代理程式的支援矩陣
 description: 本文摘要說明當您備份執行 Microsoft Azure 復原服務（MARS）代理程式的電腦時的 Azure 備份支援。
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172041"
+ms.locfileid: "74194993"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -64,6 +64,8 @@ MARS 伺服器需要存取這些 URL：
 
 - 20.190.128.0/18
 - 40.126.0.0/18
+
+對上述所有 Url 和 IP 位址的存取，都會使用埠443上的 HTTPS 通訊協定。
 
 ### <a name="throttling-support"></a>節流支援
 

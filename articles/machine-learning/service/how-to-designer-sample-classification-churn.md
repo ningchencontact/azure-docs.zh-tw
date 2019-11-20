@@ -1,7 +1,7 @@
 ---
-title: 設計工具：分類、預測流失
+title: 設計工具：預測流失的範例
 titleSuffix: Azure Machine Learning
-description: 這個設計工具（預覽）範例管線會顯示變換的二元分類器預測，這是客戶關係管理（CRM）的一般工作。
+description: 遵循此分類範例，利用 Azure Machine Learning 設計工具 & 促進式決策樹來預測流失。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5cf61d3446f960b65eb85538be9ea020671cced2
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647183"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196031"
 ---
-# <a name="sample-5---classification-predict-churn"></a>範例 5-分類：預測流失
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>使用促進式決策樹，利用 Azure Machine Learning 設計工具來預測流失
+
+**設計工具（預覽）範例5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 瞭解如何使用設計工具（預覽）來建立複雜的機器學習管線，而不需要撰寫任何一行程式碼。
@@ -30,7 +33,7 @@ ms.locfileid: "73647183"
 
 ![管線圖表](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

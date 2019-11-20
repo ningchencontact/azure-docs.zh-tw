@@ -1,6 +1,7 @@
 ---
-title: 媒體服務實體的篩選、排序和分頁-Azure |Microsoft Docs
-description: 本文討論 Azure 媒體服務實體的篩選、排序、分頁。
+title: 媒體服務實體的篩選、排序和分頁
+titleSuffix: Azure Media Services
+description: 瞭解 Azure 媒體服務實體的篩選、排序和分頁。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,18 +13,18 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693317"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186254"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序和分頁
 
 本主題討論當您在列出 Azure 媒體服務 v3 實體時可用的 OData 查詢選項和分頁支援。
 
-## <a name="considerations"></a>考量
+## <a name="considerations"></a>注意事項
 
 * 屬於 `Datetime` 類型之實體的屬性一律為 UTC 格式。
 * 在您傳送要求之前，查詢字串中的空白字元應以 URL 編碼。
@@ -41,10 +42,10 @@ ms.locfileid: "72693317"
 
 - `gt`：測試欄位是否*大於*常數值。
 - `lt`：測試欄位是否*小於*常數值。
-- `ge`：測試欄位是否*大於或等於*常數。 value
+- `ge`：測試欄位是否*大於或等於*常數值。
 - `le`：測試欄位是否*小於或等於*常數值。
 
-## <a name="filter"></a>Filter
+## <a name="filter"></a>篩選器
 
 使用 `$filter` 提供 OData 篩選參數，只尋找您感興趣的物件。
 
@@ -59,11 +60,11 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>排序依據
 
-使用 `$orderby`，依據指定的參數排序傳回的物件。 例如：    
+使用 `$orderby`，依據指定的參數排序傳回的物件。 例如︰  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -77,7 +78,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 在媒體服務 v3 中，您無法設定頁面大小。 頁面大小會因實體的類型而異。 閱讀下列各節以取得詳細資料。
 
-當您在分頁時建立或刪除實體時，這些變更會反映在傳回的結果中（如果這些變更屬於尚未下載的集合部分）。 
+當您在分頁時建立或刪除實體時，這些變更會反映在傳回的結果中（如果這些變更是在尚未下載之集合的部分中）。
 
 > [!TIP]
 > 您應該一律使用 `nextLink` 來列舉集合，而不是相依于特定頁面大小。
@@ -94,7 +95,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-您會收到類似下面的回應：
+您會得到類似下面的回應：
 
 ```
 HTTP/1.1 200 OK
@@ -155,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 下表顯示如何將篩選和排序選項套用至不同的實體：
 
-|實體名稱|屬性名稱|Filter|順序|
+|實體名稱|屬性名稱|篩選器|順序|
 |---|---|---|---|
 |[資產](https://docs.microsoft.com/rest/api/media/assets/)|名稱|`eq`、`gt`、`lt`、`ge`、`le`|`asc`和`desc`|
 ||properties.alternateId |`eq`||
@@ -171,7 +172,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 ||properties.created      | `gt`、`ge`、`lt`、`le`| `asc`和`desc`|
 ||properties.lastModified | `gt`、`ge`、`lt`、`le` | `asc`和`desc`| 
 |[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.created    |`eq`，`ne`，`ge`，`le`，`gt`，`lt`|`asc`和`desc`|
+||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
 ||properties.endTime    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
 |[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
 ||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|

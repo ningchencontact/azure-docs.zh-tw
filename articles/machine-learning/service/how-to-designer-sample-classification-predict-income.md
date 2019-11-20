@@ -1,7 +1,7 @@
 ---
-title: 設計工具：分類、預測收入
+title: 設計工具：分類、預測收入範例
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用設計工具（預覽）來建立機器學習分類器，而不需撰寫任何一行程式碼。
+description: 遵循此範例建立一個無程式碼分類器，使用 Azure Machine Learning 設計工具來預測收入。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 527db89be85cc5b095d33ba89c776a077119f08a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647970"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196059"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>範例 3-使用特徵選取進行分類：收入預測
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>建立分類器 & 使用特徵選取來預測具有 Azure Machine Learning 設計工具的收入
+
+**設計工具（預覽）範例3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 瞭解如何使用設計工具（預覽）來建立機器學習分類器，而不需撰寫任何一行程式碼。 這個範例會訓練二元促進**式決策樹**來預測成人人口普查收入（> = 50K 或 < = 50K）。
@@ -28,7 +31,7 @@ ms.locfileid: "73647970"
 
 ![管線的圖形](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

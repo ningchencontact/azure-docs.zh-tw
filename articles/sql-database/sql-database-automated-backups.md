@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1cdd8fdac03c25bf28db94867891fef4c2846fcd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821936"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196543"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -46,7 +46,7 @@ SQL Database 使用 SQL Server 的技術，每週建立[完整備份](https://do
 
 | | Azure 入口網站 | Azure PowerShell |
 |---|---|---|
-| 變更備份保留期 | [單一資料庫](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [受控執行個體](sql-database-automated-backups.md#managed-instance-database) | [單一資料庫](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| 變更備份保留期 | [單一資料庫](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [受控執行個體](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [單一資料庫](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | 變更長期備份保留期 | [單一資料庫](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>受控執行個體-N/A  | [單一資料庫](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>受控執行個體-N/A  |
 | 從時間點還原資料庫 | [單一資料庫](sql-database-recovery-using-backups.md#point-in-time-restore) | [單一資料庫](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | 還原已刪除的資料庫 | [單一資料庫](sql-database-recovery-using-backups.md) | [單一資料庫](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
@@ -84,6 +84,15 @@ PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../stora
 ## <a name="storage-costs"></a>儲存成本
 針對單一資料庫和受控實例，會免費提供等於100% 資料庫大小的備份儲存體數量下限。 若為彈性集區，則會免費提供等於為集區配置之資料儲存體的100% 的最小備份儲存體數量。 備份儲存體的額外使用量會按每月每 GB 來收費。 這項額外的耗用量將取決於個別資料庫的工作負載和大小。
 
+您可以使用 Azure 訂用帳戶成本分析來判斷您目前的備份儲存體費用。
+
+![備份儲存體成本分析](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+
+如果您移至訂用帳戶並開啟 [成本分析] 分頁，則可以選取 [計量子類別 mi] [ **pitr 備份儲存體**]，以查看目前的備份成本和費用預測。 您也可以包含其他計量子類別，例如**受控實例一般目的儲存體**或**受控實例一般目的儲存體**，以比較備份儲存體成本與其他成本類別。
+
+> [!Note]
+> 您可以[將保留期限變更為7天](#change-pitr-backup-retention-period-using-azure-portal)，以降低備份儲存體成本。
+
 如需儲存體價格的詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/sql-database/single/)頁面。 
 
 ## <a name="are-backups-encrypted"></a>備份是否已加密
@@ -118,17 +127,19 @@ Azure SQL Database 工程小組會持續自動測試在邏輯伺服器和彈性�
 
 若要使用 Azure 入口網站來變更 PITR 備份保留期限，請流覽至您想要在入口網站中變更其保留期限的伺服器物件，然後根據您要修改的伺服器物件，選取適當的選項。
 
-#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+#### <a name="single-database--elastic-poolstabsingle-database"></a>[單一資料庫與彈性集區](#tab/single-database)
 
 單一 Azure SQL 資料庫的 PITR 備份保留變更會在伺服器層級執行。 在伺服器層級進行的變更會套用至該伺服器上的資料庫。 若要從 Azure 入口網站變更 Azure SQL Database server 的 PITR，請流覽至 [伺服器總覽] 分頁，按一下導覽功能表上的 [管理備份]，然後按一下巡覽列上的 [設定保留]。
 
 ![變更 PITR Azure 入口網站](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instance-database"></a>受控實例資料庫
+#### <a name="managed-instancetabmanaged-instance"></a>[受控執行個體](#tab/managed-instance)
 
 SQL Database 受控實例的 PITR 備份保留變更會在個別資料庫層級執行。 若要從 Azure 入口網站變更實例資料庫的 PITR 備份保留，請流覽至 [個別資料庫總覽] 分頁，然後按一下巡覽列上的 [設定備份保留]。
 
 ![變更 PITR Azure 入口網站](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+---
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>使用 PowerShell 變更 PITR 備份保留期間
 

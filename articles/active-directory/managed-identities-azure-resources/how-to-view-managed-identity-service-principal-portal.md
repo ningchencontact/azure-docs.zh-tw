@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure 入口網站中檢視受控識別的服務主體
+title: 在 Azure 入口網站 Azure AD 中，查看受控識別的服務主體
 description: 逐步指導您如何在 Azure 入口網站中檢視受控識別的服務主體。
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a8db0254f85980022115cab5d73f7f329b57001
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b51aeabaa4bb7fa9884c95cf0da2dc68ba5b64b0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827558"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184107"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>在 Azure 入口網站中檢視受控識別的服務主體
 
-Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+適用於 Azure 資源的受控識別會在 Azure Active Directory 中為 Azure 服務提供自動的受控識別。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您會了解如何使用 Azure 入口網站來檢視受控識別的服務主體。
 
  > [!NOTE] 
  > 服務主體是企業應用程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。
 - 如果您還沒有 Azure 帳戶，請[註冊免費帳戶](https://azure.microsoft.com/free/)。

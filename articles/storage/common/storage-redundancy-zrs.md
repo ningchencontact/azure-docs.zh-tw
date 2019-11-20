@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0196e6fb4b2cd52fd66a26e07e8d4ce71983bc16
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013200"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186669"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>用來建立高可用性 Azure 儲存體應用程式的區域冗余儲存體（ZRS）
 
@@ -29,8 +29,8 @@ ZRS 適用于區塊 blob、非磁片分頁 blob、標準檔案共用、資料表
 針對一般用途 v2 帳戶，ZRS 已在下欄區域正式推出：
 
 - 東南亞
-- 西歐
 - 北歐
+- 西歐
 - 法國中部
 - 日本東部
 - 英國南部

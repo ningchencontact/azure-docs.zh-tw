@@ -1,17 +1,17 @@
 ---
-title: 使用 Azure Migrate Server 評估來設定設備以評估實體伺服器
-description: 說明如何設定應用裝置，以使用 Azure Migrate Server 評估來評估實體伺服器。
+title: 設定實體伺服器的 Azure Migrate 設備
+description: 瞭解如何設定適用于實體伺服器評估的 Azure Migrate 設備。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: ade2a76c168002e573a6504e31769b83f0c6eb37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158356"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185896"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>設定實體伺服器的設備
 

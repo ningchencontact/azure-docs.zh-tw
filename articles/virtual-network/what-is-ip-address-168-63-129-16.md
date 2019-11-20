@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 0ea8a8ec1a92a7dbc01dddc175f7116825ba00f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e061d503254ba7aa7735a97a060fc63f96b3fb61
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067770"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196659"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 位址 168.63.129.16 是什麼？
 
@@ -35,6 +35,7 @@ IP 位址 168.63.129.16 是虛擬公用 IP 位址，有助於建構 Azure 平台
 ## <a name="scope-of-ip-address-1686312916"></a>IP 位址 168.63.129.16 的範圍
 
 公用 IP 位址168.63.129.16 用於所有區域和所有國家雲端。 這個特殊的公用 IP 位址是由 Microsoft 所擁有，不會變更。 預設網路安全性群組規則允許此位址。 我們建議您在輸入和輸出方向的任何本機防火牆原則中允許此 IP 位址。 此特殊 IP 位址與資源之間的通訊是安全的，因為只有內部 Azure 平台才可獲得來自此 IP 位址的訊息。 如果此位址遭到封鎖，可能在各種情況下發生非預期的行為。
+至少必須開啟下列埠，才能允許與 WireServer：80、443和32526的通訊。
 
 [Azure Load Balancer 健康情況探查](../load-balancer/load-balancer-custom-probe-overview.md)源自于此 IP 位址。 如果您封鎖此 IP 位址，您的探查將會失敗。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 資源適用受控識別的常見問題集與已知問題
+title: 受控識別的常見問題和已知問題-Azure AD
 description: Azure 資源適用受控識別的已知問題。
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d882b34bc4f057035a16b7916249cfe8f0b8d0b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983423"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183878"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -64,23 +64,23 @@ ms.locfileid: "70983423"
 適用于 Azure 資源的受控識別 VM 擴充功能仍可供使用;不過，我們不會再開發新功能。 我們建議切換為使用 IMDS 端點。 
 
 使用 VM 擴充功能端點的一些限制如下：
-- 有限的 Linux 散發版本支援：CoreOS 穩定、CentOS 7.1、Red Hat 7.2、Ubuntu 15.04、Ubuntu 16.04
+- 有限的 Linux 發行版本支援： CoreOS 穩定、CentOS 7.1、Red Hat 7.2、Ubuntu 15.04、Ubuntu 16.04
 - 只有32使用者指派的受控識別可以指派給 VM。
 
 
-注意：適用于 Azure 資源的受控識別 VM 擴充功能將在2019年1月不支援。 
+注意： Azure 資源的受控識別 VM 擴充功能將在2019年1月不支援。 
 
 如需 Azure Instance Metadata Service 的詳細資訊，請參閱 [IMDS 文件](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>如果我將訂用帳戶移到另一個目錄，系統是否會自動重新建立受控識別？
 
-資料分割 如果您將訂用帳戶移到另一個目錄，則必須手動重新建立受控識別，並重新授與 Azure RBAC 角色指派。
+號 如果您將訂用帳戶移到另一個目錄，則必須手動重新建立受控識別，並重新授與 Azure RBAC 角色指派。
 - 若為系統指派的受控識別：停用然後重新啟用。 
 - 若為使用者指派的受控識別：加以刪除、重新建立，然後重新連結至所需的資源 (例如虛擬機器)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>可以使用受控識別來存取不同目錄/租用戶中的資源嗎？
 
-資料分割 受控識別目前不支援跨目錄案例。 
+號 受控識別目前不支援跨目錄案例。 
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>資源上的受控識別需要哪些 Azure RBAC 許可權？ 
 

@@ -1,17 +1,17 @@
 ---
-title: 針對 VMware Vm 設定適用于 Azure Migrate 伺服器評估/遷移的設備 |Microsoft Docs
-description: 說明如何使用 Azure Migrate Server 評估/遷移，為 VMware Vm 設定探索、評估和無代理程式遷移的應用裝置。
+title: 設定 VMware 的 Azure Migrate 設備
+description: 瞭解如何設定 Azure Migrate 設備，以評估和遷移 VMware Vm。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158606"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185865"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>設定適用于 VMware Vm 的應用裝置
 

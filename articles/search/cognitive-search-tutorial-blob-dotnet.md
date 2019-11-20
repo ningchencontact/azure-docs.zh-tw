@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111742"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185682"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>教學課程：使用C#和 .Net SDK 建立 AI 擴充管線
 
@@ -103,7 +103,7 @@ ms.locfileid: "74111742"
 
 若要連線到您的 Azure 認知搜尋服務，您必須將搜尋服務資訊新增至專案。 在 [方案總管] 中以滑鼠右鍵按一下您的專案，然後選取 [新增] > [新增項目]。 將檔案命名為 `appsettings.json`，然後選取 [新增]。 
 
-此檔案必須包含於您的輸出目錄中。 若要執行此動作，請以滑鼠右鍵按一下 `appsettings.json`，然後選取 [屬性]。 將 [複製到輸出目錄] 的值變更為 [有更新時才複製]。
+此檔案必須包含於您的輸出目錄中。 若要執行此動作，請以滑鼠右鍵按一下 `appsettings.json`，然後選取 [屬性]。 將 [**複製到輸出目錄**] 的值變更為 [**有更新時才複製**]。
 
 將下列 JSON 複製到新的 JSON 檔案。
 

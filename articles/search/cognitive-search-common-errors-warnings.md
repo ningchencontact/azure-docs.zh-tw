@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b51581b5a8f94419dba60eee72669a3e1261b24
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151585"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185711"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -29,6 +29,16 @@ ms.locfileid: "74151585"
 本文中的錯誤資訊可協助您解決錯誤，讓索引繼續進行。
 
 警告不會停止編制索引，但會指出可能導致未預期結果的狀況。 無論您採取動作與否，都取決於資料和您的案例。
+
+從 API 版本 `2019-05-06`開始，專案層級的索引子錯誤和警告是結構化的，可讓您更清楚地解決原因和後續步驟。 其中包含下列屬性：
+
+| 屬性 | 描述 | 範例 |
+| --- | --- | --- |
+| 金鑰 | 受錯誤或警告影響之檔的檔識別碼。 | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| 名稱 | 描述發生錯誤或警告之位置的作業名稱。 這是由下列結構所產生： [category]。[子類別]。[resourceType]。ResourceName | DocumentExtraction azureblob. myBlobContainerName 擴充. WebApiSkill. mySkillName. SearchIndex. OutputFieldMapping。 myOutputFieldNameKnowledgeStore. Table. myTableName |
+| 訊息 | 錯誤或警告的高層級描述。 | 因為 Web Api 要求失敗，所以無法執行技能。 |
+| 詳細資料 | 可能有助於診斷問題的任何其他詳細資料，例如執行自訂技能失敗時的 WebApi 回應。 | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 來源，Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` 。堆疊追蹤的其餘部分 。 |
+| documentationLink | 相關檔的連結，其中包含用來偵測及解決問題的詳細資訊。 此連結通常會指向此頁面上的下列其中一節。 | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
 
@@ -73,8 +83,6 @@ ms.locfileid: "74151585"
 
 | 原因 | 詳細資料/範例 | 解決方案 |
 | --- | --- | --- |
-| 欄位包含太大的詞彙 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
-| 檔太大，無法編制索引 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | [如何為大型資料集編制索引](search-howto-large-index.md)
 | 暫時性連線問題 | 發生暫時性錯誤。 請稍後再試一次。 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
 | 潛在的產品 bug | 發生意外錯誤。 | 這表示不明的失敗類別，可能表示有產品錯誤。 請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)以取得協助。 |
 | 技能在執行期間發生錯誤 | （來自合併技能）有一或多個位移值無效，無法剖析。 專案已插入至文字結尾 | 請使用錯誤訊息中的資訊來修正問題。 這種失敗會需要採取動作來解決。 |
@@ -96,6 +104,8 @@ ms.locfileid: "74151585"
 
 ### <a name="built-in-cognitive-service-skills"></a>內建認知服務技能
 認知服務 API 端點支援許多內建的認知技能，例如語言偵測、實體辨識或 OCR。 有時候這些端點有暫時性問題，而要求將會超時。針對暫時性問題，除了等待並再試一次以外，沒有任何補救措施。 作為緩和措施，請考慮將您的索引子設定為依[排程執行](search-howto-schedule-indexers.md)。 排定的編制索引會從停止的地方繼續進行。 假設暫時性問題已解決，則索引和認知技能的處理應該能夠在下一次排程執行時繼續進行。
+
+如果您在內建認知技能的同一份檔上繼續看到此錯誤，請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)以取得協助，因為這不是預期的情況。
 
 ### <a name="custom-skills"></a>自訂技能
 如果您所建立的自訂技能遇到逾時錯誤，您可以嘗試幾件事。 首先，請檢查您的自訂技能，並確保它不會停滯在無限迴圈中，而且會以一致的方式傳回結果。 一旦您確認是這種情況，請判斷技能的執行時間。 如果您未在自訂技能定義上明確設定 `timeout` 值，則預設 `timeout` 為30秒。 如果30秒不夠長，無法讓您的技能執行，您可以在自訂技能定義上指定較高的 `timeout` 值。 以下是自訂技能定義的範例，其中的 timeout 設定為90秒：
@@ -132,8 +142,8 @@ ms.locfileid: "74151585"
 
 | 原因 | 詳細資料/範例 | 解決方案 |
 | --- | --- | --- |
-| 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 欄位包含太大的詞彙 | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
-| 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | 檔太大，無法編制索引 | [如何為大型資料集編制索引](search-howto-large-index.md)
+| 欄位包含太大的詞彙 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
+| 檔太大，無法編制索引 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | [如何為大型資料集編制索引](search-howto-large-index.md)
 | 檔在集合中包含太多物件 | 檔中的集合超過[所有複雜集合限制的元素上限](search-limits-quotas-capacity.md#index-limits) | 我們建議您將檔中複雜集合的大小縮減為低於限制，並避免高儲存體使用率。
 | 無法連接到目標索引（在重試後仍會繼續），因為服務正在進行其他負載，例如查詢或索引。 | 無法建立連接以更新索引。 搜尋服務正在負荷過重。 | [相應增加您的搜尋服務](search-capacity-planning.md)
 | 搜尋服務正在修補以進行服務更新，或處於拓撲重新設定的過程中。 | 無法建立連接以更新索引。 搜尋服務目前已關閉/搜尋服務正在進行轉換。 | 以至少3個複本設定服務，每個[SLA 檔](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的可用性99.9%

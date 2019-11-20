@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a53f2a0e5927a75c4d22ada5837da26bd8deeda
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc9565f44fdb868bc45d2f99de1d4036e1d5d123
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028275"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181151"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -51,9 +51,14 @@ ms.locfileid: "74028275"
 
 此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 請注意，在建立新的應用程式註冊或企業應用程式時，指派給此角色的使用者不會新增為擁有者。
 
-> [!IMPORTANT]
-> 此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
+應用程式系統管理員可以管理應用程式認證，讓他們模擬應用程式。 因此，指派給這個角色的使用者只能管理未指派給任何 Azure AD 角色或指派給下列系統管理員角色之應用程式的應用程式認證：
+* 應用程式系統管理員
+* 應用程式開發人員
+* 雲端應用程式系統管理員
+* 目錄讀取器
 
+如果將應用程式指派給上述未提及的任何其他角色，則應用程式系統管理員將無法管理該應用程式的認證。 
+ 
 此角色也會授與_同意_委派許可權和應用程式許可權的能力，但 Microsoft Graph 和 Azure AD 圖形上的許可權除外。
 
 > [!IMPORTANT]
@@ -122,8 +127,12 @@ ms.locfileid: "74028275"
 
 此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
 
-> [!IMPORTANT]
-> 此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將雲端應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
+雲端應用程式系統管理員可以管理應用程式認證，讓他們模擬應用程式。 因此，指派給這個角色的使用者只能管理未指派給任何 Azure AD 角色或指派給下列系統管理員角色之應用程式的應用程式認證：
+* 應用程式開發人員
+* 雲端應用程式系統管理員
+* 目錄讀取器
+
+如果將應用程式指派給上述未提及的任何其他角色，則雲端應用程式系統管理員無法管理該應用程式的認證。
 
 ### <a name="cloud-device-administratorcloud-device-administrator-permissions"></a>[雲端裝置管理員](#cloud-device-administrator-permissions)
 

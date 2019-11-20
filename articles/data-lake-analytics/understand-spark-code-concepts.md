@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 4ed23beae6edb13efabf034c1e87b9cb76048f82
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3d15afc26c876c6e4d2d7244e26f0b13ced59a58
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648463"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184749"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>瞭解適用于 U-SQL 開發人員的 Apache Spark 程式碼
 
@@ -143,13 +143,13 @@ Spark 分別提供自己的 Python 和 R 整合、pySpark 和 SparkR，並提供
 
 這種行為不同于 SQL-DMO，其遵循C#的語義是 `null` 與任何值不同，但等於其本身。  
 
-因此，即使 `column_name`中有 Null 值，使用 `WHERE column_name = NULL` 的 SparkSQL `SELECT` 語句也會傳回零個數據列，而在 U-SQL 中，它會傳回 `column_name` 設定為 `null`的資料列。 同樣地，使用 `WHERE column_name != NULL` 的 Spark `SELECT` 語句也會傳回零個數據列，即使 `column_name`中有非 null 值，但在 U-SQL 中，它會傳回具有非 null 的資料列。 因此，如果您想要 U-SQL null 檢查的語義，您應該分別使用[isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)）和[isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) （或其對等的 DSL）。
+因此，即使 `column_name`中有 Null 值，使用 `WHERE column_name = NULL` 的 SparkSQL `SELECT` 語句也會傳回零個數據列，而在 U-SQL 中，它會傳回 `column_name` 設定為 `null`的資料列。 同樣地，使用 `WHERE column_name != NULL` 的 Spark `SELECT` 語句也會傳回零個數據列，即使 `column_name`中有非 null 值，但在 U-SQL 中，它會傳回具有非 null 的資料列。 因此，如果您想要使用 U-SQL null 檢查的語義，您應該分別使用[isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)和[isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) （或其對等的 DSL）。
 
 ## <a name="transform-u-sql-catalog-objects"></a>轉換 U-SQL 目錄物件
 
 其中一個主要差異在於，U-SQL 腳本可以利用它的目錄物件，其中有許多都不具有直接的 Spark 對等用法。
 
-Spark 支援 Hive 中繼存放區概念（主要是資料庫和資料表），因此您可以將 U-SQL 資料庫和架構對應至 Hive 資料庫，並將 U-SQL 資料表對應至 Spark 資料表（請參閱[移動儲存在 U-sql 資料表中的資料](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)），但不支援 views。資料表值函式（Tvf）、預存程式、U-SQL 元件、外部資料源等等。
+Spark 確實支援 Hive 中繼存放區概念，主要是資料庫和資料表，因此您可以將 U-SQL 資料庫和架構對應至 Hive 資料庫，並將 U-SQL 資料表對應至 Spark 資料表（請參閱[移動儲存在 u-sql 資料表中的資料](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)，但不支援 views、資料表值函式（tvf）、預存程式、U-SQL 元件、外部資料源等）。
 
 您可以透過 Spark 中的程式碼函式和程式庫來模型化 tvf、預存程式和元件之類的 U-SQL 程式碼物件，並使用主語言的函式和程式性抽象機器制來參考（例如，透過匯入Python 模組或參考 Scala 函數）。
 

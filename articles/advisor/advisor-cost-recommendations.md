@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: sagupt
-ms.openlocfilehash: cae16430ce933b8d071696377b22f10c15b5eae5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145383"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180593"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>使用 Azure Advisor 降低服務成本
 
@@ -63,7 +63,7 @@ Azure Advisor 會偵測重複失敗的 Azure Data Factory 管線，並建議您�
 若要深入了解 Advisor 建議，請參閱：
 * [建議程式簡介](advisor-overview.md)
 * [開始使用](advisor-get-started.md)
-* [建議程式效能建議](advisor-cost-recommendations.md)
-* [建議程式高可用性建議](advisor-cost-recommendations.md)
-* [建議程式安全性建議](advisor-cost-recommendations.md)
+* [建議程式效能建議](advisor-performance-recommendations.md)
+* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
+* [建議程式安全性建議](advisor-security-recommendations.md)
 * [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)

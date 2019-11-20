@@ -1,5 +1,5 @@
 ---
-title: Azure Front 門板服務-Front 的常見問題 |Microsoft Docs
+title: Azure Front 門板服務-常見問題
 description: 此頁面提供 Azure Front 服務常見問題的解答
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809730"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184647"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 開門服務的常見問題
 
@@ -79,7 +79,7 @@ Azure Front 門板服務是全域散發的多租使用者服務。 因此，Fron
 
 ### <a name="is-http-https-redirection-supported"></a>是否支援 HTTP->HTTPS 重新導向？
 
-可以。 事實上，Azure Front 門板服務支援主機、路徑和查詢字串重新導向，以及 URL 重新導向的一部分。 深入瞭解[URL](front-door-url-redirect.md)重新導向。 
+是。 事實上，Azure Front 門板服務支援主機、路徑和查詢字串重新導向，以及 URL 重新導向的一部分。 深入瞭解[URL](front-door-url-redirect.md)重新導向。 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>路由規則的處理順序為何？
 

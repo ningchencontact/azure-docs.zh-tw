@@ -1,7 +1,7 @@
 ---
-title: 設計工具：預測信用風險（區分成本）
+title: 設計工具：預測信用風險範例
 titleSuffix: Azure Machine Learning
-description: 本文說明如何使用設計工具（預覽）來建立複雜的機器學習管線。 您將瞭解如何執行自訂 Python 腳本和比較多個模型，以選擇最佳選項。
+description: 建立分類器並使用自訂 Python 腳本，利用 Azure Machine Learning 設計工具來預測信用風險。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 0bf69683fc5afe24e0e7977b05892c3c10b0cd46
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647978"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196095"
 ---
-# <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>範例 4-使用自訂 Python 腳本進行分類：預測信用風險
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>建立分類器 & 使用 Python 腳本來預測使用 Azure Machine Learning 設計工具的信用風險
+
+**設計工具（預覽）範例4**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 本文說明如何使用設計工具（預覽）來建立複雜的機器學習管線。 您將瞭解如何使用 Python 腳本來執行自訂邏輯，並比較多個模型來選擇最佳選項。
@@ -28,7 +31,7 @@ ms.locfileid: "73647978"
 
 [管線![圖形](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

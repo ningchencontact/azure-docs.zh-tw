@@ -1,5 +1,5 @@
 ---
-title: 如何使用 PowerShell 在 Azure VM 上設定 Azure 資源受控識別
+title: 使用 PowerShell 在 Azure VM 上設定受控識別-Azure AD
 description: 使用 PowerShell 在 Azure VM 上設定 Azure 資源受控識別的逐步指示。
 services: active-directory
 documentationcenter: ''
@@ -15,24 +15,24 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ba8ce6fb8147736c8265148a9f3576390dcccc6
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6e17b4a3f71e67b99bfbd4c52edc00f98d549ef2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309770"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183701"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>使用 PowerShell 在 Azure VM 上設定 Azure 資源受控識別
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+適用於 Azure 資源的受控識別會在 Azure Active Directory 中為 Azure 服務提供自動的受控識別。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證，不需要任何您程式碼中的認證。 
 
 在本文中，藉由使用 PowerShell，您將了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業。
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -69,7 +69,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    Connect-AzAccount
    ```
 
-2. 先使用 `Get-AzVM` Cmdlet 擷取 VM 屬性。 然後在 [Update-AzVM](/powershell/module/az.compute/update-azvm) Cmdlet 上使用 `-AssignIdentity` 參數來啟用系統指派的受控識別：
+2. 先使用 `Get-AzVM` Cmdlet 擷取 VM 屬性。 然後在 `-AssignIdentity`Update-AzVM[ Cmdlet 上使用 ](/powershell/module/az.compute/update-azvm) 參數來啟用系統指派的受控識別：
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -144,7 +144,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 1. 請參閱下列其中一個 Azure VM 快速入門，只完成必要的區段（「登入 Azure」、「建立資源群組」、「建立網路群組」、「建立 VM」）。 
   
-    當您參閱「建立 VM」一節時，請稍微修改一下 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm)Cmdlet 語法。 新增 `-IdentityType UserAssigned` 和 `-IdentityID` 參數，以佈建具有使用者所指派身分識別的 VM。  以您自己的值取代 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>`。  例如:
+    當您參閱「建立 VM」一節時，請稍微修改一下 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm)Cmdlet 語法。 新增 `-IdentityType UserAssigned` 和 `-IdentityID` 參數，以佈建具有使用者所指派身分識別的 VM。  以您自己的值取代 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>`。  例如︰
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
@@ -168,12 +168,12 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 2. 請使用 [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) Cmdlet 來建立使用者指派的受控識別。  請記下輸出中的 `Id`，因為下一個步驟 會需要此項目。
 
    > [!IMPORTANT]
-   > 建立使用者指派的受控識別僅支援英數位元、底線和連字號（0-9 或 a-z 或 a-z 或\_ -）字元。 此外，名稱應限制為3到128個字元長度，才能讓指派給 VM/VMSS 正常運作。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
+   > 建立使用者指派的受控識別僅支援英數位元、底線和連字號（0-9 或 a-z 或 a-z、\_ 或-）字元。 此外，名稱應限制為3到128個字元長度，才能讓指派給 VM/VMSS 正常運作。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
    ```
-3. 使用 `Get-AzVM` Cmdlet 擷取 VM 屬性。 然後使用 [Update-AzVM](/powershell/module/az.compute/update-azvm) Cmdlet 上的 `-IdentityType` 和 `-IdentityID` 參數，將使用者指派的受控識別新增至 Azure VM。  `-IdentityId` 參數的值是您在上一個步驟中記下的 `Id`。  以您自己的值取代 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>`。
+3. 使用 `Get-AzVM` Cmdlet 擷取 VM 屬性。 然後使用 `-IdentityType`Update-AzVM`-IdentityID` Cmdlet 上的 [ 和 ](/powershell/module/az.compute/update-azvm) 參數，將使用者指派的受控識別新增至 Azure VM。  `-IdentityId` 參數的值是您在上一個步驟中記下的 `Id`。  以您自己的值取代 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>`。
 
    > [!WARNING]
    > 若要保留任何使用者先前指派給 VM 的受控識別，請查詢 `Identity`VM 物件的屬性 (例如 `$vm.Identity`)。  如果已傳回任何使用者指派的受控識別，請在下列命令中包含這些受控識別，以及您想要指派給 VM 的使用者所指派受控識別。

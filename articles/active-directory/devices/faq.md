@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: f593d5ea621ad450eb82388416534e40df36e2d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809250"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184181"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -69,7 +69,7 @@ ms.locfileid: "72809250"
 
 ---
 
-### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>問：我已在 Azure 入口網站中停用或刪除我的裝置，或使用 Windows PowerShell。 但是裝置上的本機狀態會顯示為 [已註冊]。 我該怎麼做？
+### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>問：我已在 Azure 入口網站中停用或刪除我的裝置，或使用 Windows PowerShell。 但是裝置上的本機狀態會顯示為 [已註冊]。 我該怎麼辦？
 
 **答：** 這項作業是依設計進行。 在此情況下，裝置無法存取雲端中的資源。 系統管理員可以針對過時、遺失或遭竊的裝置執行此動作，以防止未經授權的存取。 如果不小心執行此動作，您必須重新啟用或重新註冊裝置，如下所述
 
@@ -82,14 +82,14 @@ ms.locfileid: "72809250"
       若要重新註冊已加入混合式 Azure AD Windows 10 和 Windows Server 2016/2019 裝置，請執行下列步驟：
 
       1. 以系統管理員身分開啟命令提示字元。
-      1. 輸入 `dsregcmd.exe /debug /leave` 。
+      1. 輸入 `dsregcmd.exe /debug /leave`。
       1. 登出後再登入，以觸發向 Azure AD 重新註冊裝置的排定工作。 
 
       針對已加入混合式 Azure AD 的舊版 Windows OS 版本，請執行下列步驟：
 
       1. 以系統管理員身分開啟命令提示字元。
-      1. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` 。
-      1. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` 。
+      1. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`。
+      1. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`。
 
       若為已加入 Azure AD 的裝置 Windows 10 裝置，請執行下列步驟：
 
@@ -119,7 +119,7 @@ ms.locfileid: "72809250"
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>問： Windows 10 裝置是否會在 Azure AD 支援 FIPS 模式中進行 Tpm？
 
-**答：** 否，目前裝置在 Windows 10 上註冊所有裝置狀態-混合式 Azure AD 聯結、Azure AD 聯結，以及已註冊 Azure AD，不支援在 FIPS 模式中 Tpm。 若要成功加入或註冊 Azure AD，必須關閉這些裝置上 Tpm 的 FIPS 模式
+**答：** 只有符合 FIPS 規範的 TPM 2.0 才支援 Windows 10 裝置註冊，TPM 1.2 則不支援。 如果您的裝置具有 FIPS 相容的 TPM 1.2，您必須先停用它們，再繼續進行 Azure AD 聯結或混合式 Azure AD 聯結。 請注意，Microsoft 不會提供任何工具來停用 Tpm 的 FIPS 模式，因為它相依于 TPM 製造商。 請洽詢您的硬體 OEM 以取得支援。 
 
 ---
 

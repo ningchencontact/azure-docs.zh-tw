@@ -1,17 +1,17 @@
 ---
-title: 準備來源機器以透過推送安裝來安裝行動服務, 以進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復 |Microsoft Docs
-description: 瞭解如何準備您的伺服器, 透過推送安裝來安裝行動代理程式, 以使用 Azure Site Recovery 服務進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復。
+title: 準備來源機器以透過推送安裝來安裝行動服務，以進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復 |Microsoft Docs
+description: 瞭解如何準備您的伺服器，透過推送安裝來安裝行動代理程式，以使用 Azure Site Recovery 服務進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016357"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186459"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>準備行動代理程式的推入安裝的來源機器
 
@@ -32,7 +32,7 @@ ms.locfileid: "69016357"
    ![防火牆設定](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. 新增您在 CSPSConfigtool 中建立的帳戶。 若要這樣做，請登入您的設定伺服器。
-5. 開啟 **cspsconfigtool.exe**。 它會是桌面上可用的捷徑，位於 %ProgramData%\home\svsystems\bin 資料夾中。
+5. 開啟 **cspsconfigtool.exe**。 它可以在桌面和%ProgramData%\ASR\home\svsystems\bin 資料夾中作為快捷方式。
 6. 在 [管理帳戶] 索引標籤上，選取 [新增帳戶]。
 7. 加入您所建立的帳戶。
 8. 輸入您為電腦啟用複寫時使用的認證。

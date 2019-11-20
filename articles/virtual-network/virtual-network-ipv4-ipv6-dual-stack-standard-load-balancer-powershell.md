@@ -1,11 +1,11 @@
 ---
-title: 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式-PowerShell
+title: 部署 IPv6 雙重堆疊應用程式-Standard Load Balancer-PowerShell
 titlesuffix: Azure Virtual Network
 description: 本文說明如何使用 Azure Powershell，在 Azure 虛擬網路中部署具有 Standard Load Balancer 的 IPv6 雙重堆疊應用程式。
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: c924e59a50994827eb2e9be40caa7021c7e4ac3c
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b1506c40d83e1483980c368db1659c9470b9a46a
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174473"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185462"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>在 Azure 中部署 IPv6 雙重堆疊應用程式-PowerShell （預覽）
 
@@ -31,7 +31,7 @@ ms.locfileid: "72174473"
 
 如果您選擇在本機安裝和使用 PowerShell，本文會要求 Azure PowerShell 模組版本6.9.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在 Azure 中部署雙重堆疊應用程式之前，您必須使用下列 Azure PowerShell 來設定此預覽功能的訂用帳戶：
 
 如下所示進行註冊：
@@ -61,7 +61,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>建立 IPv4 和 IPv6 公用 IP 位址
-若要從網際網路存取您的虛擬機器，您需要有適用于負載平衡器的 IPv4 和 IPv6 公用 IP 位址。 使用[get-azpublicipaddress](/powershell/module/az.network/new-azpublicipaddress)建立公用 IP 位址。 下列範例會在*dsRG1*資源群組中建立名為*dsPublicIP_v4*和*dsPublicIP_v6*的 IPv4 和 IPv6 公用 IP 位址：
+若要從網際網路存取您的虛擬機器，您需要有適用于負載平衡器的 IPv4 和 IPv6 公用 IP 位址。 使用[get-azpublicipaddress](/powershell/module/az.network/new-azpublicipaddress)建立公用 IP 位址。 下列範例會建立名為*dsPublicIP_v4*的 IPv4 和 IPV6 公用 IP 位址，並在*dsRG1*資源群組中*dsPublicIP_v6* ：
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -121,7 +121,7 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ### <a name="configure-back-end-address-pool"></a>設定後端位址集區
 
-使用 [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 建立後端位址集區。 在其餘步驟中，VM 會連結至此後端集區。 下列範例會建立名為*dsLbBackEndPool_v4*和*dsLbBackEndPool_v6*的後端位址集區，以包含具有 IPV4 和 IPv6 NIC 設定的 vm：
+使用 [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 建立後端位址集區。 在其餘步驟中，VM 會連結至此後端集區。 下列範例會建立名為*dsLbBackEndPool_v4*的後端位址集區，並*dsLbBackEndPool_v6*以包含具有 IPV4 和 IPv6 NIC 設定的 vm：
 
 ```azurepowershell-interactive
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
@@ -135,7 +135,7 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 
 負載平衡器規則用來定義如何將流量分散至 VM。 您可定義連入流量的前端 IP 組態及後端 IP 集區來接收流量，以及所需的來源和目的地連接埠。 若要確保只有狀況良好的 Vm 會接收流量，您可以選擇性地定義健康情況探查。 基本負載平衡器會使用 IPv4 探查來評估 Vm 上 IPv4 和 IPv6 端點的健康情況。 標準負載平衡器包含對明確 IPv6 健全狀況探查的支援。
 
-使用 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) 建立負載平衡器規則。 下列範例會建立名為*dsLBrule_v4*和*dsLBrule_v6*的負載平衡器規則，並將*TCP*埠*80*上的流量平衡至 IPv4 和 IPv6 前端 IP 設定：
+使用 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) 建立負載平衡器規則。 下列範例會建立名為*dsLBrule_v4*的負載平衡器規則，並*DsLBrule_v6*並將*TCP*埠*80*上的流量平衡至 IPv4 和 IPv6 前端 IP 設定：
 
 ```azurepowershell-interactive
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -323,7 +323,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>判斷 IPv4 和 IPv6 端點的 IP 位址
-取得資源群組中的所有網路介面物件，以使用 `get-AzNetworkInterface` 來匯總此部署中使用的 IP。 此外，使用 `get-AzpublicIpAddress` 取得 IPv4 和 IPv6 端點的 Load Balancer 前端位址。
+取得資源群組中的所有網路介面物件，以使用 `get-AzNetworkInterface`匯總此部署中所使用的 IP。 此外，使用 `get-AzpublicIpAddress`取得 Load Balancer 的 IPv4 和 IPv6 端點的前端位址。
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"

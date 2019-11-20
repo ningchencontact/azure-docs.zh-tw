@@ -6,16 +6,16 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: azure-policy
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: b6ce20196b6ffdcd6699611998260dc981cc4f44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818336"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185031"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，清單就會展開並更新，以涵蓋更多服務。
@@ -63,7 +63,7 @@ ms.locfileid: "73818336"
 * [Azure 原則](#azure-policy-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
 * [備份](#backup-limits)
-* [Batch](#batch-limits)
+* [批次](#batch-limits)
 * [BizTalk 服務](#biztalk-services-limits)
 * [Container Instances](#container-instances-limits)
 * [容器登錄](#container-registry-limits)

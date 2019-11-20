@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
-ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
-ms.translationtype: HT
+ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153550"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186004"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>使用影片索引子進行即時串流分析
 
@@ -27,7 +27,7 @@ Azure 媒體服務影片索引子是一種 Azure 服務，專門用來從影片�
 
 *圖1–顯示即時串流上影片索引子中繼資料的範例播放機*
 
-「[串流分析」解決方案](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md)會使用 Azure Functions 和兩個 Logic Apps，以使用影片索引子 Azure 媒體服務中的即時頻道處理即時程式，並顯示結果，Azure 媒體播放機顯示近乎即時的產生串流。
+「[串流分析」解決方案](https://aka.ms/livestreamanalysis)會使用 Azure Functions 和兩個 Logic Apps，以使用影片索引子 Azure 媒體服務中的即時頻道處理即時程式，並顯示結果，Azure 媒體播放機顯示近乎即時的產生串流。
 
 在高層級中，它是由兩個主要步驟組成。 第一個步驟每隔60秒會執行一次，並取得最後一次60秒的子剪輯，並從其建立資產，並透過影片索引子編制索引。 然後在索引完成後呼叫第二個步驟。 系統會處理所捕捉到的見解，並將其傳送至 Azure Cosmos DB，並刪除子剪輯索引。
 

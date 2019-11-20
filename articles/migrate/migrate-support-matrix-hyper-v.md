@@ -1,18 +1,18 @@
 ---
-title: Hyper-v 評估和遷移的 Azure Migrate 支援對照表
-description: 摘要說明使用 Azure Migrate 服務進行 Hyper-v 評估和遷移的設定和限制。
+title: 支援 Azure Migrate 中的 Hyper-v 評估/遷移
+description: 瞭解 Azure Migrate 的 Hyper-v 評估/遷移支援。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6562d3f15d080a3bbc54a9985c12eae5908a9980
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498702"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186663"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -35,7 +35,7 @@ ms.locfileid: "73498702"
 --- | ---
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權，才能建立 Azure Migrate 專案。
 Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm，最多可達評量限制。
-[地理位置] | [審查](migrate-support-matrix.md#supported-geographies)支援的地理位置。
+[地理位置] | [檢閱](migrate-support-matrix.md#supported-geographies)支援的地理位置。
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>評量-Hyper-v 主機需求
@@ -44,7 +44,7 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 | :-------------------       | :------------------- |
 | **主機部署**       | Hyper-v 主機可以是獨立或部署在叢集中。 |
 | **權限**           | 您需要 Hyper-v 主機的系統管理員許可權。 <br/> 或者，如果您不想要指派系統管理員許可權，請建立本機或網域使用者帳戶，並將使用者新增至這些群組-遠端系統管理使用者、Hyper-v 系統管理員和效能監視器使用者。 |
-| **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2012 的 Hyper-v 主機上的 Vm。 |
+| **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2012 的 Hyper-V 主機上的 VM。 |
 | **PowerShell 遠端處理**   | 必須在每部主機上啟用。 |
 | **Hyper-v 複本**       | 如果您使用 Hyper-v 複本（或您有多個 vm 具有相同的 VM 識別碼），並使用 Azure Migrate 探索原始和複寫的 Vm，則 Azure Migrate 所產生的評量可能不正確。 |
 
@@ -122,7 +122,7 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 | **作業系統** | Azure 支援的所有[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統。 |
 | **權限**           | 您需要您想要評估的每部 Hyper-v VM 上的系統管理員許可權。 |
 | **Integration Services**       | [Hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)必須在您評估的 vm 上執行，才能捕捉作業系統資訊。 |
-| **Azure 的必要變更** | 有些 Vm 可能需要變更，才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更：<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統，您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
+| **Azure 的必要變更** | 有些 VM 可能需要變更，才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更：<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統，您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
 | **Linux 開機**                 | 如果/boot 是在專用磁碟分割上，它應該位於 OS 磁片上，而不會散佈到多個磁片上。<br/> 如果/boot 是根（/）分割區的一部分，則 '/' 磁碟分割應該位於 OS 磁片上，而不是跨越其他磁片。 |
 | **UEFI 開機**                  | Azure 中已遷移的 VM 會自動轉換為 BIOS 開機 VM。 VM 應僅執行 Windows Server 2012 和更新版本。 OS 磁片最多隻能有五個磁碟分割或更少，且 OS 磁片的大小應小於 300 GB。
   |

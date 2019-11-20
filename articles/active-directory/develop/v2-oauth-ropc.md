@@ -17,16 +17,19 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fb475a5d88547cc5f39cb269cc1cbf72fcd25b3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
-ms.translationtype: MT
+ms.openlocfilehash: 322e0e5f740bd416c7831f32e0d74f9290335fe3
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295407"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195757"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 身分識別平臺和 OAuth 2.0 資源擁有者密碼認證
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Microsoft 身分識別平臺和 OAuth 2.0 資源擁有者密碼認證
 
-Microsoft 身分識別平臺支援[資源擁有者密碼認證（ROPC）授](https://tools.ietf.org/html/rfc6749#section-4.3)與，讓應用程式可以直接處理其密碼來登入使用者。 ROPC 流程需要高程度的信任和使用者暴露，而且您應該只在有其他、更安全的流程無法使用時，才使用此流程。
+Microsoft 身分識別平臺支援[OAuth 2.0 資源擁有者密碼認證（ROPC）授](https://tools.ietf.org/html/rfc6749#section-4.3)與，可讓應用程式藉由直接處理其密碼來登入使用者。
+
+> [!WARNING]
+> Microsoft 建議您不要_使用 ROPC_流程。 在大部分的情況下，也會提供更安全的替代方案和建議。 此流程在應用程式中需要非常高的信任度，並承擔其他流程中不存在的風險。 只有在無法使用其他更安全的流程時，您才應該使用此流程。
 
 > [!IMPORTANT]
 >
@@ -48,7 +51,7 @@ ROPC 流程是單一要求：它會將用戶端識別和使用者的認證傳送
 
 > [!TIP]
 > 嘗試在 Postman 中執行這項要求！
-> [@no__t 1Try 在 Postman 中執行此要求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![嘗試在 Postman 中執行此要求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
@@ -67,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| `tenant` | 必要項 | 您想要將使用者登入的目標目錄租用戶。 這可以採用 GUID 或易記名稱格式。 此參數無法設為 `common` 或 `consumers`，但可設定為 `organizations`。 |
-| `client_id` | 必要項 | 指派給您應用程式的[Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面的應用程式（用戶端）識別碼。 | 
-| `grant_type` | 必要項 | 必須設為 `password`。 |
-| `username` | 必要項 | 使用者的電子郵件地址。 |
-| `password` | 必要項 | 使用者的密碼。 |
+| `tenant` | 必要 | 您想要將使用者登入的目標目錄租用戶。 這可以採用 GUID 或易記名稱格式。 此參數無法設為 `common` 或 `consumers`，但可設定為 `organizations`。 |
+| `client_id` | 必要 | 指派給您應用程式的[Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面的應用程式（用戶端）識別碼。 | 
+| `grant_type` | 必要 | 必須設為 `password`。 |
+| `username` | 必要 | 使用者的電子郵件地址。 |
+| `password` | 必要 | 使用者的密碼。 |
 | `scope` | 建議 | 以空格分隔的[範圍](v2-permissions-and-consent.md)清單或應用程式所需的權限。 在互動式流程中，系統管理員或使用者必須事先同意這些範圍。 |
 | `client_secret`| 有時需要 | 如果您的應用程式是公用用戶端，則不能包含 `client_secret` 或 `client_assertion`。  如果應用程式是機密用戶端，則必須包含它。 | 
 | `client_assertion` | 有時需要 | 不同形式的 `client_secret`，使用憑證產生。  如需詳細資訊，請參閱[憑證](active-directory-certificate-credentials.md)認證。 | 
@@ -106,12 +109,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 如果使用者未提供正確的使用者名稱或密碼，或用戶端未收到所要求的同意，驗證將會失敗。
 
-| Error | 描述 | 用戶端動作 |
+| 錯誤 | 描述 | 用戶端動作 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 驗證失敗 | 認證不正確，或用戶端沒有同意所要求的範圍。 如果未授與範圍，則會傳回 `consent_required` 錯誤。 如果發生這種情況，用戶端應使用 WebView 或瀏覽器將使用者傳送至互動式提示。 |
-| `invalid_request` | 要求未正確建構 | @No__t-0 或 @no__t 1 驗證內容不支援授與類型。  請改用 `/organizations` 或租使用者識別碼。 |
+| `invalid_request` | 要求未正確建構 | `/common` 或 `/consumers` 驗證內容不支援授與類型。  請改用 `/organizations` 或租使用者識別碼。 |
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>詳細資訊
 
 * 使用[範例主控台應用程式](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)自行試用 ROPC。
 * 若要判斷您是否應該使用 v2.0 端點，請參閱[Microsoft 身分識別平臺限制](active-directory-v2-limitations.md)。

@@ -1,17 +1,17 @@
 ---
-title: 第一次在 Azure Migrate 中新增評量/遷移工具 |Microsoft Docs
+title: 在 Azure Migrate 中新增評量/遷移工具
 description: 說明如何建立 Azure Migrate 專案，以及新增評量/遷移工具。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720236"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185943"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>第一次使用請新增評量/移轉工具
 
@@ -25,7 +25,7 @@ Azure Migrate 提供中央中樞，以追蹤內部部署應用程式和工作負
 - Azure Migrate 專案用來儲存從您要評估或遷移的環境中收集到的探索、評估和遷移中繼資料。 
 - 在專案中，您可以追蹤探索到的資產，並協調評估和遷移。
 
-1. 在 Azure 入口網站 > [所有服務] 中搜尋 **Azure Migrate**。
+1. 在 Azure 入口網站 > [所有服務] 中，搜尋 **Azure Migrate**。
 2. 在 [服務] 下，選取 [Azure Migrate]。
 
     ![設定 Azure Migrate](./media/how-to-add-tool-first-time/azure-migrate-search.png)

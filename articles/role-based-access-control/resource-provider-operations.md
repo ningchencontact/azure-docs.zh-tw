@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ca9b0289fbc8dd01427de38e0e7b30eec266bb12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c413c03c000ef9ff1ebf742359551567d488584b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818598"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185721"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
-本文會列出每個 Azure Resource Manager 資源提供者可用的作業。 這些作業可用在[自訂角色](custom-roles.md)中，以對 Azure 中的資源提供細微的[角色型存取控制 (RBAC)](overview.md)。 作業字串的格式如下：`{Company}.{ProviderName}/{resourceType}/{action}`
+本文會列出每個 Azure Resource Manager 資源提供者可用的作業。 這些作業可用在[自訂角色](custom-roles.md)中，以對 Azure 中的資源提供細微的[角色型存取控制 (RBAC)](overview.md)。 作業字串的格式如下： `{Company}.{ProviderName}/{resourceType}/{action}`。 如需資源提供者命名空間如何對應至 Azure 服務的清單，請參閱[將資源提供者與服務比對](../azure-resource-manager/azure-services-resource-providers.md)。
 
 資源提供者作業會不斷發展。 若要取得最新的作業，請使用 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 或 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.AAD/domainServices/delete | 刪除網域服務 |
 > | 動作 | Microsoft.AAD/domainServices/oucontainer/delete | 刪除 Ou 容器 |
@@ -50,7 +50,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | microsoft.aadiam/diagnosticsettings/delete | 正在刪除診斷設定 |
 > | 動作 | microsoft.aadiam/diagnosticsettings/read | 正在讀取診斷設定 |
@@ -60,7 +60,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Addons/operations/read | 取得支援的 RP 作業。 |
 > | 動作 | Microsoft.Addons/register/action | 向 Microsoft.Addons 註冊指定的訂用帳戶 |
@@ -72,7 +72,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ADHybridHealthService/addsservices/action | 為租用戶建立新的樹系。 |
 > | 動作 | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | 取得指定服務名稱的所有伺服器。 |
@@ -146,7 +146,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Advisor/configurations/read | 取得組態 |
 > | 動作 | Microsoft.Advisor/configurations/write | 建立/更新設定 |
@@ -168,7 +168,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.AlertsManagement/actionRules/delete | 在指定的訂用帳戶中刪除動作規則。 |
 > | 動作 | Microsoft.AlertsManagement/actionRules/read | 取得輸入篩選的所有動作規則。 |
@@ -193,7 +193,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.AnalysisServices/locations/checkNameAvailability/action | 確認給定的 Analysis Server 名稱有效，且並非使用中。 |
 > | 動作 | Microsoft.AnalysisServices/locations/operationresults/read | 擷取指定作業結果的資訊。 |
@@ -212,7 +212,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ApiManagement/checkNameAvailability/read | 檢查所提供的服務名稱是否可用 |
 > | 動作 | Microsoft.ApiManagement/operations/read | 讀取可供 Microsoft.ApiManagement 資源使用的所有 API 作業 |
@@ -415,7 +415,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Authorization/classicAdministrators/delete | 從訂用帳戶中移除系統管理員。 |
 > | 動作 | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 取得訂用帳戶的系統管理員作業狀態。 |
@@ -454,7 +454,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Automation/automationAccounts/agentRegistrationInformation/read | 讀取 Azure Automation DSC 的註冊資訊 |
 > | 動作 | Microsoft.Automation/automationAccounts/agentRegistrationInformation/regenerateKey/action | 寫入要求以重新產生 Azure Automation DSC 金鑰 |
@@ -576,7 +576,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.AzureActiveDirectory/b2cDirectories/delete | 刪除 B2C 目錄資源 |
 > | 動作 | Microsoft.AzureActiveDirectory/b2cDirectories/read | 檢視 B2C 目錄資源 |
@@ -588,7 +588,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.AzureStack/Operations/read | 取得資源提供者作業的屬性 |
 > | 動作 | Microsoft.AzureStack/register/action | 向 Microsoft.AzureStack 資源提供者註冊訂用帳戶 |
@@ -606,7 +606,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Batch/batchAccounts/applications/delete | 刪除應用程式 |
 > | 動作 | Microsoft.Batch/batchAccounts/applications/read | 列出應用程式，或取得應用程式的屬性 |
@@ -649,7 +649,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft 帳單/billingAccounts/合約/讀取 |  |
 > | 動作 | Microsoft 帳單/billingAccounts/billingPermissions/read |  |
@@ -687,7 +687,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.BingMaps/mapApis/Delete | 刪除作業 |
 > | 動作 | Microsoft.BingMaps/mapApis/listSecrets/action | 列出祕密 |
@@ -700,7 +700,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | 區塊鏈/blockchainMembers/delete | 刪除現有的區塊鏈成員。 |
 > | 動作 | 區塊鏈/blockchainMembers/listApiKeys/action | 取得或列出現有的區塊鏈成員 Api 金鑰。 |
@@ -719,7 +719,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | 讀取任何藍圖成品 |
 > | 動作 | Microsoft.Blueprint/blueprintAssignments/delete | 刪除任何藍圖成品 |
@@ -741,7 +741,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.BotService/botServices/channels/delete | 刪除 Bot 服務 |
 > | 動作 | Microsoft.BotService/botServices/channels/read | 讀取 Bot 服務 |
@@ -758,7 +758,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Cache/checknameavailability/action | 檢查名稱是否可用於新的 Redis 快取 |
 > | 動作 | Microsoft.Cache/locations/operationresults/read | 取得先前已將 'Location' 標頭傳回用戶端之長時間執行作業的結果 |
@@ -790,7 +790,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Capacity/appliedreservations/read | 讀取所有保留項目 |
 > | 動作 | Microsoft。容量/calculateexchange/動作 | 計算新購買的交換金額和價格，並傳回原則錯誤。 |
@@ -825,7 +825,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Cdn/CheckNameAvailability/action |  |
 > | 動作 | Microsoft.Cdn/CheckResourceUsage/action |  |
@@ -888,7 +888,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.CertificateRegistration/certificateOrders/certificates/Delete | 刪除現有憑證 |
 > | 動作 | Microsoft.CertificateRegistration/certificateOrders/certificates/Read | 取得憑證清單 |
@@ -912,7 +912,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ClassicCompute/capabilities/read | 顯示功能 |
 > | 動作 | Microsoft.ClassicCompute/checkDomainNameAvailability/action | 檢查給定網域名稱的可用性。 |
@@ -1027,7 +1027,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read | 取得 Express Route 交叉連線作業狀態。 |
 > | 動作 | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete | 刪除 Express Route 交叉連線對等互連。 |
@@ -1104,7 +1104,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ClassicStorage/capabilities/read | 顯示功能 |
 > | 動作 | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | 檢查儲存體帳戶的可用性。 |
@@ -1167,7 +1167,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | DataAction | CognitiveServices/帳戶/自動建議/搜尋/動作 | 這種作業會提供給定查詢或部分查詢的建議。 |
 > | DataAction | CognitiveServices/accounts/ComputerVision/分析/動作 | 這項作業會根據影像內容來解壓縮一組豐富的視覺功能。  |
@@ -1261,7 +1261,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Commerce/RateCard/read | 傳回給定訂用帳戶的供應項目資料、資源/計量中繼資料和速率。 |
 > | 動作 | Microsoft.Commerce/UsageAggregates/read | 擷取訂用帳戶的 Microsoft Azure 耗用量。 結果會包含特定時間範圍內的彙總使用量資料、訂用帳戶和資源相關資訊。 |
@@ -1269,7 +1269,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Compute/availabilitySets/delete | 刪除可用性設定組 |
 > | 動作 | Microsoft.Compute/availabilitySets/read | 取得可用性設定組的屬性 |
@@ -1409,7 +1409,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Consumption/balances/read | 針對管理群組列出計費期的使用率摘要。 |
 > | 動作 | Microsoft.Consumption/budgets/delete | 依訂用帳戶或管理群組刪除預算。 |
@@ -1439,7 +1439,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ContainerInstance/containerGroups/containers/exec/action | 執行至特定容器內。 |
 > | 動作 | Microsoft.ContainerInstance/containerGroups/containers/logs/read | 取得特定容器的記錄。 |
@@ -1465,7 +1465,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ContainerRegistry/checkNameAvailability/read | 檢查容器登錄名稱是否可供使用。 |
 > | 動作 | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | 讓 Microsoft.ContainerRegistry 知道虛擬網路或子網路即將刪除 |
@@ -1532,7 +1532,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ContainerService/containerServices/delete | 刪除容器服務 |
 > | 動作 | Microsoft.ContainerService/containerServices/read | 取得容器服務 |
@@ -1570,7 +1570,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ContentModerator/applications/delete | 刪除作業 |
 > | 動作 | Microsoft.ContentModerator/applications/listSecrets/action | 列出祕密 |
@@ -1585,7 +1585,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | CostManagement/cloudConnectors/delete | 刪除指定的 Cloudconnector 為必要。 |
 > | 動作 | CostManagement/cloudConnectors/read | 列出已驗證之使用者的 cloudConnectors。 |
@@ -1610,7 +1610,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataBox/jobs/bookShipmentPickUp/action | 允許預約退貨商品的取貨。 |
 > | 動作 | Microsoft.DataBox/jobs/cancel/action | 取消進行中的訂單。 |
@@ -1633,7 +1633,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 列出或取得警示 |
 > | 動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 列出或取得警示 |
@@ -1696,7 +1696,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Databricks/位置/getNetworkPolicies/動作 | 根據 NRP 所使用的位置，取得子網的網路意圖原則 |
 > | 動作 | Microsoft.Databricks/register/action | 註冊 Databricks。 |
@@ -1710,7 +1710,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataCatalog/catalogs/delete | 刪除資料目錄資源提供者的目錄資源。 |
 > | 動作 | Microsoft.DataCatalog/catalogs/read | 讀取資料目錄資源提供者的目錄資源。 |
@@ -1726,7 +1726,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataFactory/checkazuredatafactorynameavailability/read | 檢查 Data Factory 名稱是否可供使用。 |
 > | 動作 | Microsoft.DataFactory/datafactories/activitywindows/read | 使用指定參數讀取 Data Factory 中的活動視窗。 |
@@ -1842,7 +1842,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataLakeAnalytics/accounts/computePolicies/delete | 刪除計算原則。 |
 > | 動作 | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | 取得計算原則的相關資訊。 |
@@ -1877,7 +1877,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataLakeStore/accounts/delete | 刪除 DataLakeStore 帳戶。 |
 > | 動作 | Microsoft.DataLakeStore/accounts/enableKeyVault/action | 針對 DataLakeStore 帳戶啟用 KeyVault。 |
@@ -1910,7 +1910,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DataMigration/locations/operationResults/read | 取得與「202 已接受」回應相關且長時間執行之作業的狀態 |
 > | 動作 | Microsoft.DataMigration/locations/operationStatuses/read | 取得與「202 已接受」回應相關且長時間執行之作業的狀態 |
@@ -1950,7 +1950,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | DBforMariaDB/checkNameAvailability/action | 確認指定的伺服器名稱是否可用來針對指定的訂用帳戶進行全球佈建。 |
 > | 動作 | DBforMariaDB/位置/azureAsyncOperation/讀取 | 傳回適用于 mariadb 伺服器操作結果 |
@@ -2006,7 +2006,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.dbformysql/checkNameAvailability/action | 確認指定的伺服器名稱是否可用來針對指定的訂用帳戶進行全球佈建。 |
 > | 動作 | Microsoft.dbformysql/位置/azureAsyncOperation/讀取 | 傳回 MySQL 伺服器操作結果 |
@@ -2062,7 +2062,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | DBforPostgreSQL/checkNameAvailability/action | 確認指定的伺服器名稱是否可用來針對指定的訂用帳戶進行全球佈建。 |
 > | 動作 | DBforPostgreSQL/位置/azureAsyncOperation/讀取 | 傳回于 postgresql 伺服器操作結果 |
@@ -2138,7 +2138,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft. 裝置/帳戶/diagnosticSettings/讀取 | 取得資源的診斷設定 |
 > | 動作 | Microsoft。裝置/帳戶/diagnosticSettings/寫入 | 建立或更新資源的診斷設定 |
@@ -2236,7 +2236,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DevSpaces/controllers/delete | 刪除 Azure Dev Spaces 控制器與資料平面服務 |
 > | 動作 | Microsoft.DevSpaces/controllers/listConnectionDetails/action | 列出 Azure Dev Spaces 控制器基礎結構的連接詳細資料 |
@@ -2249,7 +2249,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DevTestLab/labCenters/delete | 刪除實驗室中心。 |
 > | 動作 | Microsoft.DevTestLab/labCenters/read | 讀取實驗室中心。 |
@@ -2366,7 +2366,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DocumentDB/databaseAccountNames/read | 檢查名稱可用性。 |
 > | 動作 | Microsoft DocumentDB/databaseAccounts/api/資料庫/集合/刪除 | 刪除集合。 僅適用于 API 類型： ' mongodb '。 |
@@ -2470,7 +2470,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.DomainRegistration/checkDomainAvailability/Action | 檢查網域是否可供購買 |
 > | 動作 | Microsoft.DomainRegistration/domains/Delete | 刪除現有網域。 |
@@ -2495,7 +2495,7 @@ ms.locfileid: "73818598"
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.EventGrid/domains/delete | 刪除網域 |
 > | 動作 | Microsoft.EventGrid/domains/listKeys/action | 列出網域的金鑰 |
@@ -2541,7 +2541,7 @@ ms.locfileid: "73818598"
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft EventHub/availableClusterRegions/read | 讀取作業，以列出 Azure 區域可用的預先布建叢集。 |
 > | 動作 | Microsoft.EventHub/checkNameAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 |
@@ -2613,7 +2613,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Features/features/read | 取得訂用帳戶的功能。 |
 > | 動作 | Microsoft.Features/operations/read | 取得作業的清單。 |
@@ -2625,7 +2625,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | GuestConfiguration/guestConfigurationAssignments/delete | 刪除來賓設定指派。 |
 > | 動作 | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 取得來賓組態指派。 |
@@ -2637,7 +2637,7 @@ ms.locfileid: "73818598"
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.HDInsight/clusters/applications/delete | 刪除 HDInsight 叢集的應用程式 |
 > | 動作 | Microsoft.HDInsight/clusters/applications/read | 取得 HDInsight 叢集的應用程式 |
@@ -2666,7 +2666,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ImportExport/jobs/delete | 刪除現有作業。 |
 > | 動作 | Microsoft.ImportExport/jobs/listBitLockerKeys/action | 取得指定作業的 BitLocker 金鑰。 |
@@ -2679,7 +2679,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Insights/ActionGroups/Delete | 刪除動作群組 |
 > | 動作 | Microsoft.Insights/ActionGroups/Read | 讀取動作群組 |
@@ -2962,7 +2962,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Intune/diagnosticsettings/delete | 正在刪除診斷設定 |
 > | 動作 | Microsoft.Intune/diagnosticsettings/read | 正在讀取診斷設定 |
@@ -2972,7 +2972,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | IoTCentral/appTemplates/action | 取得 Azure 上所有可用的應用程式範本 IoT Central |
 > | 動作 | Microsoft.IoTCentral/checkNameAvailability/action | 檢查 IoT Central 應用程式名稱是否可用 |
@@ -2986,7 +2986,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.IoTSpaces/Graph/delete | 刪除 Microsoft.IoTSpaces Graph 資源 |
 > | 動作 | Microsoft.IoTSpaces/Graph/read | 取得 Microsoft.IoTSpaces Graph 資源 |
@@ -2996,7 +2996,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.KeyVault/checkNameAvailability/read | 確認 Key Vault 名稱有效，且並非使用中 |
 > | 動作 | Microsoft.KeyVault/deletedVaults/read | 檢視虛刪除之 Key Vault 的屬性 |
@@ -3025,7 +3025,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Kusto/叢集/啟動/動作 | 啟動叢集。 |
 > | 動作 | Kusto/叢集/AttachedDatabaseConfigurations/delete | 刪除附加的資料庫設定 resourceCopy。 |
@@ -3067,7 +3067,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.LabServices/labAccounts/CreateLab/action | 在實驗室帳戶中建立實驗室。 |
 > | 動作 | Microsoft.LabServices/labAccounts/delete | 刪除實驗室帳戶。 |
@@ -3122,7 +3122,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Logic/integrationAccounts/agreements/delete | 刪除整合帳戶中的合約。 |
 > | 動作 | Microsoft.Logic/integrationAccounts/agreements/listContentCallbackUrl/action | 取得整合帳戶中合約內容的回呼 URL。 |
@@ -3219,7 +3219,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | 移動任何 Machine Learning 承諾用量方案關聯 |
 > | 動作 | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | 讀取任何 Machine Learning 承諾用量方案關聯 |
@@ -3246,7 +3246,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.machinelearningservices/位置/computeoperationsstatus/讀取 | 取得特定計算作業的狀態 |
 > | 動作 | Microsoft.MachineLearningServices/locations/usages/read | 訂用帳戶中的 aml 計算資源的使用量報告 |
@@ -3269,7 +3269,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.managedidentity/身分識別/讀取 | 取得現有系統指派的身分識別 |
 > | 動作 | Microsoft.ManagedIdentity/register/action | 為受控識別資源提供者註冊訂用帳戶 |
@@ -3281,7 +3281,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmanagedservices"></a>ManagedServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | ManagedServices/marketplaceRegistrationDefinitions/read | 抓取受控服務註冊定義的清單。 |
 > | 動作 | ManagedServices/作業/讀取 | 抓取受控服務作業的清單。 |
@@ -3298,7 +3298,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Management/checkNameAvailability/action | 檢查指定的管理群組名稱是否有效且唯一。 |
 > | 動作 | Microsoft.Management/getEntities/action | 列出已驗證之使用者的所有實體 (管理群組、訂用帳戶等)。 |
@@ -3312,7 +3312,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | DataAction | Microsoft.Maps/accounts/data/read | 將資料讀取權限授與地圖服務帳戶。 |
 > | 動作 | Microsoft.Maps/accounts/delete | 刪除地圖服務帳戶。 |
@@ -3329,7 +3329,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | 傳回協議。 |
 > | 動作 | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | 接受已簽署的協議。 |
@@ -3341,7 +3341,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.MarketplaceApps/ClassicDevServices/delete | 在傳統開發服務資源上進行 DELETE 作業。 |
 > | 動作 | Microsoft.MarketplaceApps/ClassicDevServices/listSecrets/action | 取得傳統開發服務資源管理金鑰。 |
@@ -3353,7 +3353,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.MarketplaceOrdering/agreements/offers/plans/cancel/action | 取消給定 Marketplace 項目的合約 |
 > | 動作 | Microsoft.MarketplaceOrdering/agreements/offers/plans/read | 傳回給定 Marketplace 項目的合約 |
@@ -3366,7 +3366,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Media/checknameavailability/action | 檢查媒體服務帳戶名稱是否可供使用 |
 > | 動作 | Microsoft.Media/locations/checkNameAvailability/action | 檢查媒體服務帳戶名稱是否可供使用 |
@@ -3433,7 +3433,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft. 遷移/assessmentprojects/assessmentOptions/讀取 | 取得可在指定位置使用的評定選項 |
 > | 動作 | Microsoft. 遷移/assessmentprojects/評量/讀取 | 列出專案內的評定 |
@@ -3493,7 +3493,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftmixedreality"></a>MixedReality
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | MixedReality/register/action | 為混合現實資源提供者註冊訂用帳戶。 |
 > | DataAction | MixedReality/SpatialAnchorsAccounts/create/action | 建立空間錨點 |
@@ -3510,7 +3510,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft NetApp/位置/checkfilepathavailability/動作 | 檢查檔案路徑是否可用 |
 > | 動作 | Microsoft NetApp/位置/checknameavailability/動作 | 檢查資源名稱是否可用 |
@@ -3536,7 +3536,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | 取得應用程式閘道可用的要求標頭 |
 > | 動作 | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | 取得應用程式閘道可用的回應標頭 |
@@ -3989,7 +3989,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | 檢查在 NotificationHub 服務內，給定的命名空間資源名稱是否可供使用。 |
 > | 動作 | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | 取得命名空間授權規則描述的清單。 |
@@ -4022,7 +4022,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.OffAzure/HyperVSites/clusters/read | 取得 Hyper-V 叢集的屬性 |
 > | 動作 | Microsoft.OffAzure/HyperVSites/clusters/write | 建立或更新 Hyper-V 叢集 |
@@ -4067,7 +4067,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.OperationalInsights/linkTargets/read | 列出未與 Azure 訂用帳戶相關聯的現有帳戶。 若要將此 Azure 訂用帳戶連結到工作區，請在「建立工作區」作業的客戶識別碼屬性中，使用這項作業所傳回的客戶識別碼。 |
 > | 動作 | microsoft.operationalinsights/operations/read | 列出所有可用的 OperationalInsights Rest API 作業。 |
@@ -4362,7 +4362,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.OperationsManagement/managementAssociations/delete | 刪除現有的管理關聯 |
 > | 動作 | Microsoft.OperationsManagement/managementAssociations/read | 取得現有的管理關聯 |
@@ -4378,7 +4378,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.PolicyInsights/asyncOperationResults/read | 取得非同步作業結果。 |
 > | DataAction | Microsoft.policyinsights/checkDataPolicyCompliance/action | 根據資料原則檢查給定元件的相容性狀態。 |
@@ -4403,7 +4403,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Portal/consoles/delete | 移除 Cloud Shell 實例。 |
 > | 動作 | Microsoft 入口網站/主控台/讀取 | 讀取 Cloud Shell 實例。 |
@@ -4419,7 +4419,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.PowerBIDedicated/capacities/delete | 刪除 Power BI 專用容量。 |
 > | 動作 | Microsoft.PowerBIDedicated/capacities/read | 擷取指定 Power BI 專用容量的資訊。 |
@@ -4437,7 +4437,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
 > | 動作 | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp 是服務所使用的內部作業 |
@@ -4629,7 +4629,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Relay/checkNameAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 |
 > | 動作 | Microsoft.Relay/checkNamespaceAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
@@ -4683,7 +4683,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | 取得指定資源的可用性狀態 |
 > | 動作 | Microsoft.ResourceHealth/AvailabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
@@ -4703,7 +4703,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft .Resources/calculateTemplateHash/action | 計算提供的範本雜湊。 |
 > | 動作 | Microsoft.Resources/checkPolicyCompliance/action | 檢查指定的資源是否符合資源原則，以了解合規性狀態。 |
@@ -4752,7 +4752,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Scheduler/jobcollections/delete | 刪除作業集合。 |
 > | 動作 | Microsoft.Scheduler/jobcollections/disable/action | 停用作業集合。 |
@@ -4769,7 +4769,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Search/checkNameAvailability/action | 檢查服務名稱的可用性。 |
 > | 動作 | Microsoft.Search/operations/read | 列出 Microsoft.Search 提供者的所有可用作業。 |
@@ -4789,15 +4789,15 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft. Security/adaptiveNetworkHardenings/強制執行/動作 | 藉由在指定的網路安全性群組上建立相符的安全性規則，強制執行指定的流量強化規則 |
 > | 動作 | Microsoft. Security/adaptiveNetworkHardenings/read | 取得 Azure 受保護資源的彈性網路強化建議 |
 > | 動作 | Microsoft.Security/advancedThreatProtectionSettings/read | 取得資源的進階威脅防護設定 |
 > | 動作 | Microsoft.Security/advancedThreatProtectionSettings/write | 更新資源的進階威脅防護設定 |
 > | 動作 | Microsoft.Security/alerts/read | 取得所有可用的安全性警訊 |
-> | 動作 | Microsoft.Security/applicationWhitelistings/read | 取得應用程式白名單 |
-> | 動作 | Microsoft.Security/applicationWhitelistings/write | 建立新的應用程式允許清單，或更新現有的應用程式允許清單 |
+> | 動作 | Microsoft.Security/applicationWhitelistings/read | 取得應用程式允許清單 |
+> | 動作 | Microsoft.Security/applicationWhitelistings/write | 建立新的應用程式白名單，或更新現有的應用程式白名單 |
 > | 動作 | Microsoft. Security/assessmentMetadata/read | 取得您訂用帳戶的可用安全性評量中繼資料 |
 > | 動作 | Microsoft. Security/assessmentMetadata/write | 建立或更新安全性評量中繼資料 |
 > | 動作 | Microsoft. 安全性/評量/讀取 | 取得訂用帳戶的安全性評量 |
@@ -4806,7 +4806,7 @@ ms.locfileid: "73818598"
 > | 動作 | Microsoft.Security/informationProtectionPolicies/read | 取得資源的資訊保護原則 |
 > | 動作 | Microsoft.Security/informationProtectionPolicies/write | 更新資源的資訊保護原則 |
 > | 動作 | Microsoft.Security/locations/alerts/activate/action | 啟動安全性警訊 |
-> | 動作 | Microsoft.Security/locations/alerts/dismiss/action | 關閉安全性警訊 |
+> | 動作 | Microsoft.Security/locations/alerts/dismiss/action | 關閉安全性警示 |
 > | 動作 | Microsoft.Security/locations/alerts/read | 取得所有可用的安全性警訊 |
 > | 動作 | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | 刪除 Just-in-Time 網路存取原則 |
 > | 動作 | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | 起始 Just-in-Time 網路存取原則要求 |
@@ -4848,7 +4848,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.SecurityGraph/diagnosticsettings/delete | 正在刪除診斷設定 |
 > | 動作 | Microsoft.SecurityGraph/diagnosticsettings/read | 正在讀取診斷設定 |
@@ -4858,7 +4858,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ServiceBus/checkNameAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 |
 > | 動作 | Microsoft.ServiceBus/checkNamespaceAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
@@ -4945,7 +4945,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.ServiceFabric/clusters/applications/delete | 刪除任何應用程式 |
 > | 動作 | Microsoft.ServiceFabric/clusters/applications/read | 讀取任何應用程式 |
@@ -4977,7 +4977,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.SignalRService/locations/checknameavailability/action | 檢查名稱是否可用於新的 SignalR 服務 |
 > | 動作 | Microsoft.SignalRService/locations/operationresults/signalr/read | 查詢非同步作業的狀態 |
@@ -5001,7 +5001,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft 解決方案/applicationDefinitions/applicationArtifacts/read | 列出應用程式定義的應用程式構件。 |
 > | 動作 | Microsoft.Solutions/applicationDefinitions/delete | 移除應用程式定義。 |
@@ -5023,7 +5023,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Sql/checkNameAvailability/action | 確認指定的伺服器名稱是否可用來針對指定的訂用帳戶進行全球佈建。 |
 > | 動作 | Microsoft.Sql/instancePools/delete | 刪除執行個體集區 |
@@ -5389,7 +5389,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Storage/checknameavailability/read | 確認帳戶名稱有效，且並非使用中。 |
 > | 動作 | Microsoft. Storage/位置/checknameavailability/read | 確認帳戶名稱有效，且並非使用中。 |
@@ -5480,7 +5480,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftstoragesync"></a>microsoft.storagesync
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | microsoft.storagesync/locations/checkNameAvailability/action | 確認儲存體同步服務名稱有效，且並非使用中。 |
 > | 動作 | microsoft.storagesync/locations/workflows/operations/read | 取得非同步作業的狀態 |
@@ -5520,7 +5520,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.StorSimple/managers/accessControlRecords/delete | 刪除存取控制記錄 |
 > | 動作 | Microsoft.StorSimple/managers/accessControlRecords/operationResults/read | 列出或取得作業結果 |
@@ -5695,7 +5695,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.StreamAnalytics/locations/quotas/Read | 讀取串流分析訂用帳戶配額 |
 > | 動作 | Microsoft.StreamAnalytics/operations/Read | 讀取串流分析作業 |
@@ -5735,7 +5735,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft 訂用帳戶/取消/動作 | 取消訂用帳戶 |
 > | 動作 | Microsoft.Subscription/CreateSubscription/action | 建立 Azure 訂用帳戶 |
@@ -5747,7 +5747,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.Support/register/action | 支援資源提供者的暫存器 |
 > | 動作 | Microsoft.Support/supportTickets/read | 取得支援票證的詳細資料 (包括狀態、嚴重性、連絡人詳細資料和通訊)，或取得跨訂用帳戶之支援票證的清單。 |
@@ -5756,7 +5756,7 @@ ms.locfileid: "73818598"
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.TimeSeriesInsights/environments/accesspolicies/delete | 刪除存取原則。 |
 > | 動作 | Microsoft.TimeSeriesInsights/environments/accesspolicies/read | 取得存取原則的屬性。 |
@@ -5776,7 +5776,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.VisualStudio/Account/Delete | 刪除帳戶 |
 > | 動作 | Microsoft.VisualStudio/Account/Extension/Read | 讀取帳戶/擴充功能 |
@@ -5795,7 +5795,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftweb"></a>microsoft.web
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | microsoft.web/apimanagementaccounts/apiacls/read | 取得 API 管理帳戶 Apiacl。 |
 > | 動作 | microsoft.web/apimanagementaccounts/apis/apiacls/delete | 刪除 API 管理帳戶 API Apiacl。 |
@@ -6221,7 +6221,7 @@ ms.locfileid: "73818598"
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
+> | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > | 動作 | Microsoft.WorkloadMonitor/components/read | 取得資源的元件 |
 > | 動作 | Microsoft.WorkloadMonitor/componentsSummary/read | 取得元件的摘要 |
@@ -6235,5 +6235,6 @@ ms.locfileid: "73818598"
 
 ## <a name="next-steps"></a>後續步驟
 
+- [將資源提供者與服務比對](../azure-resource-manager/azure-services-resource-providers.md)
 - [適用於 Azure 資源的自訂角色](custom-roles.md)
 - [適用於 Azure 資源的內建角色](built-in-roles.md)

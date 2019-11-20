@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure CLI 為受控識別指派對 Azure 資源的存取權
+title: 使用 Azure CLI Azure AD，為受控識別指派對資源的存取權
 description: 以下逐步指示說明如何使用 Azure CLI 為一項資源的受控識別指派對另一項資源的存取權。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fb16b1762f1e5330cf058c37a6b7e0f008eb447
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4153e038228d7ec4631fc5fec81303966a12b01b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290973"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184091"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>使用 Azure CLI 為受控識別指派對資源的存取權
 
@@ -28,7 +28,7 @@ ms.locfileid: "60290973"
 
 以受控識別設定 Azure 資源後，您可以為此受控識別提供對另一項資源的存取權，就像任何安全性主體一樣。 此範例說明如何使用 Azure CLI 為 Azure 虛擬機器或虛擬機器擴展集的受控識別提供對 Azure 儲存體帳戶的存取權。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -68,6 +68,6 @@ ms.locfileid: "60290973"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 資源受控識別概觀](overview.md)
+- [適用於 Azure 資源的受控識別概觀](overview.md)
 - 若要在 Azure 虛擬機器上啟用受控識別，請參閱[使用 Azure CLI 在 Azure VM 上設定 Azure 資源的受控識別](qs-configure-cli-windows-vm.md)。
 - 若要在 Azure 虛擬機器擴展集上啟用受控識別，請參閱[使用 Azure CLI 在虛擬機器擴展集上設定 Azure 資源的受控識別](qs-configure-cli-windows-vmss.md)。

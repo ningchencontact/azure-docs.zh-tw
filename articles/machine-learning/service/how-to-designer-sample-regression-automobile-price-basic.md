@@ -1,7 +1,7 @@
 ---
-title: 設計工具：預測價格（回歸）
+title: 設計工具：預測汽車價格（基本）範例
 titleSuffix: Azure Machine Learning
-description: 瞭解如何建立機器學習模型來預測汽車的價格，而不需要撰寫任何一行程式碼。
+description: 建立 ML 回歸模型來預測汽車的價格，而不需要使用 Azure Machine Learning 設計工具撰寫一行程式碼。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: ab922733133856409e7c91ee7b216fdc5a341c06
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647160"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196147"
 ---
-# <a name="sample-1---regression-predict-price"></a>範例 1-回歸：預測價格
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>透過 Azure Machine Learning 設計工具使用回歸來預測汽車價格
+
+**設計工具（預覽）範例1**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 瞭解如何使用設計工具（預覽）來建立機器學習回歸模型，而不需要撰寫任何一行程式碼。
@@ -35,7 +38,7 @@ ms.locfileid: "73647160"
 
 ![管線的圖形](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

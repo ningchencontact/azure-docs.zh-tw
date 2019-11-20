@@ -1,6 +1,7 @@
 ---
-title: Azure 媒體服務中的資產 |Microsoft Docs
-description: 本文解釋資產是什麼，以及 Azure 媒體服務用它們來做什麼。
+title: 資產
+titleSuffix: Azure Media Services
+description: 瞭解什麼是資產，以及它們如何由 Azure 媒體服務使用。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +13,20 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3dc1866a3c0339bca0c27fb53894a14581e88490
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390488"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186321"
 ---
-# <a name="assets"></a>資產
+# <a name="assets-in-azure-media-services"></a>Azure 媒體服務中的資產
 
-在 Azure 媒體服務中，[資產](https://docs.microsoft.com/rest/api/media/assets)會包含儲存在 Azure 儲存體中之數位檔案（包括影片、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案）的相關資訊。 
+在 Azure 媒體服務中，[資產](https://docs.microsoft.com/rest/api/media/assets)會包含儲存在 Azure 儲存體中之數位檔案（包括影片、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案）的相關資訊。
 
-資產會對應到 [Azure 儲存體帳戶](storage-account-concept.md)中的 Blob 容器，且資產中的檔案會儲存為該容器中的區塊 Blob。 當帳戶使用一般用途 v2 (GPv2) 儲存體時，媒體服務支援 Blob 層。 您可以利用 GPv2，將檔案移至[非經常性存取儲存體或封存儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)。 來源檔案不再需要時，很適合放到**封存**儲存體中保管 (例如，在檔案已編碼之後)。
+資產會對應到 [Azure 儲存體帳戶](storage-account-concept.md)中的 Blob 容器，且資產中的檔案會儲存為該容器中的區塊 Blob。 當帳戶使用一般用途 v2 (GPv2) 儲存體時，媒體服務支援 Blob 層。 您可以利用 GPv2，將檔案移至[非經常性存取儲存體或封存儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)。 封存儲存體適用于在不再需要時**保存**原始程式檔（例如，在編碼之後）。
 
-**封存**儲存層只建議用於經過編碼，且編碼作業輸出已放在輸出 Blob 容器的極大型來源檔案。 如果您要讓輸出容器中的 Blob 與資產建立關聯，並且用來串流或分析您的內容，則該 Blob 必須位在**經常性存取**或**非經常性存取**儲存層。
+**封存**儲存層只建議用於經過編碼，且編碼作業輸出已放在輸出 Blob 容器的極大型來源檔案。 輸出容器中您想要與資產建立關聯，並用於串流或分析內容的 blob，必須**存在於經常性存取或非**經常性**存取儲存層**中。
 
 ### <a name="naming-blobs"></a>命名 blob
 
@@ -33,26 +34,28 @@ ms.locfileid: "70390488"
 
 ## <a name="upload-digital-files-into-assets"></a>將數位檔案上傳到資產
 
-將數位檔案上傳到儲存體並與資產相關聯之後，就可以在媒體服務編碼、串流處理、分析內容工作流程中使用這些檔案。 其中一個常見的媒體服務工作流程是上傳、編碼和串流檔案。 本節將概述一般步驟。
+將數位檔案上傳到儲存體並與資產相關聯之後，就可以在媒體服務編碼、串流和分析內容工作流程中使用這些檔案。 其中一個常見的媒體服務工作流程是上傳、編碼和串流檔案。 本節將概述一般步驟。
 
 > [!TIP]
-> 在您開始開發之前，請先參閱[使用媒體服務 V3 api 進行開發](media-services-apis-overview.md)（包含存取 api、命名慣例等的資訊）。
+> 在您開始開發之前，請先參閱[使用媒體服務 V3 api 進行開發](media-services-apis-overview.md)（包含存取 api、命名慣例等等的資訊）。
 
 1. 使用媒體服務 v3 API 建立新的「輸入」資產。 這項作業會在與您媒體服務帳戶相關聯的儲存體帳戶中建立容器。 此 API 會傳回容器名稱 (例如 `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`)。
-   
-    如果您已經有要與資產建立關聯的 Blob 容器，您可以在建立資產時指定容器名稱。 媒體服務目前僅支援根目錄中的 Blob 容器，且檔案名稱中不能有路徑。 如此一來，檔案名稱為 "input.mp4" 的容器可運作。 而檔案名稱為 "videos/inputs/input.mp4" 的容器將無法運作。
 
-    您可以使用 Azure CLI，直接上傳至訂用帳戶中任何您有權存取的儲存體帳戶和容器。 <br/>容器名稱必須是唯一的，並且必須遵循儲存體命名指引。 名稱不需要遵循媒體服務資產容器名稱 (資產-GUID) 的格式。 
-    
+    如果您已經有想要與資產相關聯的 blob 容器，您可以在建立資產時指定容器名稱。 媒體服務目前僅支援根目錄中的 Blob 容器，且檔案名稱中不能有路徑。 如此一來，檔案名稱為 "input.mp4" 的容器可運作。 不過，具有 "影片/輸入/輸入檔案名稱" 檔案名的容器將無法使用。
+
+    您可以使用 Azure CLI，直接上傳至訂用帳戶中任何您有權存取的儲存體帳戶和容器。
+
+    容器名稱必須是唯一的，並且必須遵循儲存體命名指引。 名稱不需要遵循媒體服務資產容器名稱 (資產-GUID) 的格式。
+
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. 以讀寫權限取得 SAS URL，這將用來將數位檔案上傳到資產容器。 您可以使用媒體服務 API 來[列出資產容器 URL](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。
-3. 使用 Azure 儲存體 Api 或 Sdk （例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)或[.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)）將檔案上傳到資產容器中。 
+3. 使用 Azure 儲存體 Api 或 Sdk （例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)或[.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)）將檔案上傳到資產容器中。
 4. 使用媒體服務 v3 API 建立可處理「輸入」資產的轉換和作業。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。
 5. 串流來自「輸出」資產的內容。
 
-如需完整的 .NET 範例 (其中會示範如何建立資產、取得儲存體中資產容器的可寫入 SAS URL、使用 SAS URL 將檔案上傳到儲存體的容器)，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。
+如需示範如何建立資產的完整 .NET 範例，請在儲存體中取得資產容器的可寫入 SAS URL，並使用 SAS URL 將檔案上傳到儲存體中的容器，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。
 
 ### <a name="create-a-new-asset"></a>建立新的資產
 
@@ -67,7 +70,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 如需 REST 範例，請參閱[使用 REST 建立資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples)。
 
-此範例會示範如何建立**要求本文**，您可以在其中指定有用的資訊，例如描述、容器名稱、儲存體帳戶和其他資訊。
+此範例示範如何建立**要求**本文，您可以在其中指定描述、容器名稱、儲存體帳戶和其他有用的資訊。
 
 #### <a name="curl"></a>cURL
 
@@ -97,16 +100,16 @@ curl -X PUT \
 
 |v3 屬性|v2 屬性|
 |---|---|
-|識別碼-（唯一）完整 Azure Resource Manager 路徑，請參閱[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate)中的範例||
-|名稱-（唯一）請參閱[命名慣例](media-services-apis-overview.md#naming-conventions) ||
-|alternateId|AlternateId|
-|assetId|識別碼-（唯一）值的`nb:cid:UUID:`開頭為前置詞。|
-|已建立|建立日期|
-|description|Name|
-|lastModified|LastModified|
-|storageAccountName|StorageAccountName|
-|storageEncryptionFormat| 選項（建立選項）|
-|Type||
+|`id`-（唯一）完整 Azure Resource Manager 路徑，請參閱[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate)中的範例||
+|`name`-（唯一）請參閱[命名慣例](media-services-apis-overview.md#naming-conventions) ||
+|`alternateId`|`AlternateId`|
+|`assetId`|`Id`-（唯一）值的開頭為 `nb:cid:UUID:` 前置詞。|
+|`created`|`Created`|
+|`description`|`Name`|
+|`lastModified`|`LastModified`|
+|`storageAccountName`|`StorageAccountName`|
+|`storageEncryptionFormat`| `Options` （建立選項）|
+|`type`||
 
 ## <a name="storage-side-encryption"></a>儲存端加密
 
@@ -114,13 +117,13 @@ curl -X PUT \
 
 |加密選項|描述|媒體服務 v2|媒體服務 v3|
 |---|---|---|---|
-|媒體服務的儲存體加密|AES-256 加密，由媒體服務管理金鑰|支援<sup>(1)</sup>|不支援<sup>(2)</sup>|
-|[待用資料的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure 儲存體提供的伺服器端加密，由 Azure 或客戶管理金鑰|支援|支援|
-|[儲存體用戶端加密](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure 儲存體提供的用戶端加密，由客戶管理 Key Vault 中的金鑰|不支援|不支援|
+|媒體服務的儲存體加密|AES-256 加密，媒體服務管理的金鑰。|支援<sup>(1)</sup>|不支援<sup>(2)</sup>|
+|[待用資料的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure 儲存體提供的伺服器端加密、由 Azure 或客戶管理的金鑰。|支援|支援|
+|[儲存體用戶端加密](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure 儲存體所提供的用戶端加密、由客戶在 Key Vault 中管理的金鑰。|不支援|不支援|
 
-<sup>1</sup> 雖然媒體服務支援處理乾淨/不含任何加密形式的內容，但不建議您這麼做。
+<sup>1</sup>雖然媒體服務支援以清除/不使用任何形式的加密來處理內容，但並不建議這麼做。
 
-<sup>2</sup> 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 可用於現有的儲存體加密資產，但不允許建立新的。
+<sup>2</sup> 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 適用于現有的儲存體加密資產，但不允許建立新的資產。
 
 ## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
 

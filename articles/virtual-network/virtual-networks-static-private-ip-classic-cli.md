@@ -1,5 +1,5 @@
 ---
-title: 設定 VM (傳統) 的私人 IP 位址 - Azure 傳統 CLI
+title: 設定 Vm 的私人 IP 位址（傳統）-CLI
 titlesuffix: Azure Virtual Network
 description: 了解如何使用 Azure 傳統命令列介面 (CLI) 設定虛擬機器 (傳統) 的私人 IP 位址。
 services: virtual-network
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 64342c6dcf4c9a052442a6f4b0afb7a56994f496
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9deaf4b1d80ad4e55e7c971998e8b1f5ea562257
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059229"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196588"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 設定虛擬機器 (傳統) 的私人 IP 位址
 
@@ -35,7 +35,7 @@ ms.locfileid: "71059229"
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時如何指定靜態私人 IP 位址
 若要根據上述案例，在名為 TestService 的雲端服務中建立名為 DNS01 的新 VM，請遵循下列步驟：
 
-1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](/cli/azure/install-cli-version-1.0) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
+1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](/cli/azure/install-cli-version-1.0) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 2. 執行 **azure service create** 命令來建立雲端服務。
    
         azure service create TestService --location uscentral
@@ -65,7 +65,7 @@ ms.locfileid: "71059229"
         info:    OK
         info:    vm create command OK
    
-   * **-l (或 --location)** 。 將要建立 VM 的 Azure 區域。 在本文案例中為 *centralus*。
+   * **-l (or --location)** 。 將要建立 VM 的 Azure 區域。 在本文案例中為 *centralus*。
    * **-n (或 --vm-name)** 。 要建立之 VM 的名稱。
    * **-w (或 --virtual-network-name)** 。 將建立 VM 之 VNet 的名稱。 
    * **-S (或 --static-ip)** 。 VM 的靜態私人 IP 位址

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
+title: 部署 & 使用 PowerShell 在混合式網路中設定 Azure 防火牆
 description: 在本文中，您將瞭解如何使用 Azure PowerShell 來部署和設定 Azure 防火牆。
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a5a008a795b88dbcb72ed9fba869e5251fd93567
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163528"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195769"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -47,7 +47,7 @@ ms.locfileid: "73163528"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文會要求您在本機執行 PowerShell。 您必須已安裝 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
