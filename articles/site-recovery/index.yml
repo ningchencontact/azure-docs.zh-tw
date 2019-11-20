@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Site Recovery 文件
-summary: 使用 Azure Site Recovery 進行內部部署機器和 Azure 工作負載的災害復原，以及 Azure VM 至次要 Azure 區域的災害復原。 就地複寫至 Azure 時，您可以在發生中斷時協調容錯移轉，並繼續存取 Azure 中的工作負載和應用程式。 當主要位置恢復可用狀態時，您就可以依需求進行容錯回復。
+summary: 使用 Azure Site Recovery 進行內部部署工作負載和 Azure VM 的災害復原。
 metadata:
   title: Azure Site Recovery 文件
-  description: 使用 Azure Site Recovery 進行內部部署機器和 Azure 工作負載的災害復原，以及 Azure VM 至次要 Azure 區域的災害復原。 就地複寫至 Azure 時，您可以在發生中斷時協調容錯移轉，並繼續存取 Azure 中的工作負載和應用程式。 當主要位置恢復可用狀態時，您就可以依需求進行容錯回復。
+  description: 為內部部署工作負載和 Azure VM 設定災害復原至 Azure。
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: ccbc4c92a6d0db9d5baf8a226ba79405a2b824ff
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001086"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74186592"
 landingContent:
 - title: 關於 Site Recovery
   linkLists:

@@ -798,12 +798,14 @@
               items:
                 - name: 啟用監視概觀
                   href: insights/container-insights-onboard.md
-                - name: 針對新的叢集啟用
+                - name: 針對新的 AKS 叢集啟用
                   href: insights/container-insights-enable-new-cluster.md
-                - name: 針對現有叢集啟用
+                - name: 針對現有的 AKS 叢集啟用
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: 針對混合式叢集啟用
                   href: insights/container-insights-hybrid-setup.md
+                - name: 針對 Azure Red Hat OpenShift 啟用
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: 區域對應
                   href: insights/container-insights-region-mapping.md
             - name: 監視效能

@@ -974,21 +974,19 @@
       items:
         - name: 從備份還原資料
           href: how-to-backup-and-restore.md
-    - name: 記錄
+    - name: 監視
       items:
-        - name: 診斷記錄
-          href: logging.md
+        - name: 監視 Cosmos DB
+          href: monitor-cosmos-db.md
+        - name: 適用於 Cosmos 的 Azure 監視器 (預覽)
+          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+        - name: 從 Cosmos DB 帳戶檢視計量
+          href: use-metrics.md
         - name: 使用 Logic Apps 進行應用程式記錄
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: 透過計量監視
-      items:
-        - name: 從 Cosmos DB 帳戶檢視計量
-          href: use-metrics.md
-        - name: 從 Azure 監視器檢視計量
-          href: cosmos-db-azure-monitor-metrics.md
-        - name: 監視 SLA
-          href: monitor-accounts.md
+        - name: 監視資料參考
+          href: monitor-cosmos-db-reference.md
     - name: 本機開發
       items:
         - name: 使用模擬器

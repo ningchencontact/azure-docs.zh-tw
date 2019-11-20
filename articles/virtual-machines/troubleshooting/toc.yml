@@ -125,6 +125,8 @@
       href: serial-console-power-options.md
     - name: 常見的序列主控台錯誤
       href: serial-console-errors.md
+    - name: 序列主控台 Grub 主動式設定
+      href: serial-console-grub-proactive-configuration.md
 - name: 刪除儲存體資源時發生錯誤
   href: storage-resource-deletion-errors.md
 - name: 刪除傳統儲存體資源時發生錯誤

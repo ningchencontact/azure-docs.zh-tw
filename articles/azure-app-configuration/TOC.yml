@@ -17,8 +17,8 @@
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
-        - name: .NET Core 中的 Azure 函式
-          href: quickstart-azure-function-csharp.md
+        - name: .NET Core 中的 Azure Functions
+          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
     - name: 功能管理
@@ -37,6 +37,8 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: 啟用 .NET Framework 中的動態組態
       href: enable-dynamic-configuration-dotnet.md
+    - name: 啟用 Azure Functions 中的動態組態
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: 在 .NET Core 應用程式中使用功能旗標
       href: use-feature-flags-dotnet-core.md
     - name: 在 Spring Boot 應用程式中使用功能旗標
@@ -67,7 +69,7 @@
           href: concept-disaster-recovery.md
 - name: 使用說明指南
   items:
-    - name: 與 Azure 受控服務識別整合
+    - name: 與 Azure 受控識別整合
       href: howto-integrate-azure-managed-service-identity.md
     - name: 匯入或匯出設定資料
       href: howto-import-export-data.md

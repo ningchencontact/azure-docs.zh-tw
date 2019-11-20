@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Migrate 文件
-summary: 使用 Azure Migrate 遷移到 Azure 雲端。 Azure Migrate 提供集中式中樞，可探索、評量並將內部部署工作負載移轉到 Azure。 中樞提供 Azure Migrate 工具，以及來自獨立軟體廠商 (ISV) 的整合工具。
+summary: Azure Migrate 提供集中式中樞工具，可探索、評量並將內部部署工作負載移轉到 Azure。
 metadata:
   title: Azure Migrate 文件
-  description: 使用 Azure Migrate 遷移到 Azure 雲端。 Azure Migrate 提供集中式中樞，可探索、評量並將內部部署工作負載移轉到 Azure。 中樞提供 Azure Migrate 工具，以及來自獨立軟體廠商 (ISV) 的整合工具。
+  description: 使用 Azure Migrate 將內部部署工作負載遷移至 Azure。
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 494bb2f7ec6076bbc7b3b891cd0cb525ae53c5d1
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: e49bfdefe08b3a8f4598e809fd44b57f3f93de67
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001149"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74185842"
 landingContent:
 - title: 關於 Azure Migrate
   linkLists:
@@ -35,6 +35,10 @@ landingContent:
       url: ./tutorial-prepare-vmware.md
     - text: 透過伺服器評量評估 Hyper-V
       url: ./tutorial-prepare-hyper-v.md
+    - text: 使用伺服器評量來評估實體伺服器
+      url: ./tutorial-prepare-physical.md
+    - text: 使用匯入的資料評估伺服器
+      url: tutorial-assess-import.md
     - text: 使用伺服器移轉來遷移 VMware VM
       url: ./server-migrate-overview.md
     - text: 使用伺服器移轉來遷移 Hyper-V VM
@@ -52,13 +56,19 @@ landingContent:
     - text: 檢閱 Azure Migrate 支援矩陣
       url: migrate-support-matrix.md
     - text: 檢閱 VMware 支援矩陣
-      url: migrate-support-matrix-vmware.md
+      url: ./migrate-support-matrix-vmware.md
     - text: 檢閱 Hyper-V 支援矩陣
-      url: migrate-support-matrix-hyper-v.md
+      url: ./migrate-support-matrix-hyper-v.md
+    - text: 檢閱實體伺服器支援矩陣
+      url: ./migrate-support-matrix-physical.md
 - title: 管理
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: 新增評量工具
+      url: ./how-to-assess.md
+    - text: 探索應用程式清查
+      url: ./how-to-discover-applications.md
     - text: 新增移轉工具
       url: ./how-to-migrate.md
     - text: 調整 VMware 評量
@@ -71,9 +81,9 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: VMware 代理程式型移轉架構
+    - text: 了解 VMware/實體代理程式型的移轉
       url: ./agent-based-migration-architecture.md
-    - text: Hyper-V 移轉架構
+    - text: 了解 Hyper-V 移轉
       url: ./hyper-v-migration-architecture.md
     - text: 了解評量
       url: ./concepts-assessment-calculation.md
