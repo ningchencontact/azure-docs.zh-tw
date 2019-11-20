@@ -198,6 +198,8 @@
               href: sap-high-availability-installation-wsfc-shared-disk.md
             - name: Windows 和適用於 (A)SCS 執行個體的檔案共用
               href: sap-high-availability-installation-wsfc-file-share.md
+            - name: Windows 上的適用於 SAP NetWeaver 的 HA 搭配 Azure NetApp Files (SMB)
+              href: high-availability-guide-windows-netapp-files-smb.md
             - name: SUSE Linux 和適用於 (A)SCS 執行個體
               href: high-availability-guide-suse.md
             - name: 適用於 (A)SCS 執行個體的 SUSE Linux 和 NFS 搭配 Azure NetApp Files

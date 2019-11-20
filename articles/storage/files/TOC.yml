@@ -183,6 +183,8 @@
           href: storage-sync-files-troubleshoot.md
         - name: 針對 刪除 Azure 檔案儲存體進行疑難排解
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: 復原已刪除的儲存體帳戶
+          href: storage-how-to-recover-deleted-account.md
 - name: 參考
   items:
     - name: Azure PowerShell
