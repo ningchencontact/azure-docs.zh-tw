@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638284"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499561"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>常用詞彙和概念的語言理解詞彙
 Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇到的字詞。
 
 ## <a name="active-version"></a>使用中版本
 
-使用中的 LUIS 版本是收到模型任何變更的版本。 在[LUIS](luis-reference-regions.md)入口網站中, 如果您想要變更不是作用中版本的版本, 您必須先將該版本設定為使用中。
+使用中的 LUIS 版本是收到模型任何變更的版本。 在[LUIS](luis-reference-regions.md)入口網站中，如果您想要變更不是作用中版本的版本，您必須先將該版本設定為使用中。
 
 ## <a name="authoring"></a>編寫
 
@@ -39,16 +39,20 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 另請參閱： 
 * [概念](luis-concept-batch-test.md)
 * [如何](luis-how-to-batch-test.md)
-* [教學課程] luis-教學課程-批次 testing.md)
+* [教學課程](luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>共同作業者
 
-共同作業者不是應用程式的[擁有者](#owner)，但是擁有相同的權限可新增、編輯和刪除意圖、實體、語句。
+共同作業者/參與者不是應用程式的[擁有](#owner)者，但具備新增、編輯和刪除意圖、實體、語句的相同許可權。
 
-## <a name="currently-editing"></a>目前編輯中
+## <a name="contributor"></a>資料流程
 
-與[使用中版本](#active-version)相同
+參與者與共同作業者是[相同的事。](#collaborator)
+
+## <a name="descriptor"></a>描述項
+
+描述項是在定型時間套用至模型的[功能](#features)，包括[片語清單](#phrase-list)和[實體](#entity)。 
 
 ## <a name="domain"></a>領域
 
@@ -56,19 +60,7 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="endpoint"></a>端點
 
-[LUIS 端點](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的[金鑰和端點](luis-how-to-azure-subscription.md)  頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
-
-範例端點看起來像：
-
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
-
-|查詢字串參數|description|
-|--|--|
-|地區| [發佈的區域](luis-reference-regions.md#publishing-regions) |
-|appID | LUIS 應用程式識別碼 |
-|subscriptionID | 在 Azure 入口網站中建立的 LUIS 端點 (訂用帳戶) 金鑰 |
-|q | 語句 |
-|timezoneOffset| 分鐘|
+[LUIS 端點](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的**[金鑰和端點](luis-how-to-azure-subscription.md)** 頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
 
 ## <a name="entity"></a>實體
 
@@ -78,11 +70,11 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 在[批次測試](luis-interactive-test.md#batch-testing)中，是指測試精確度的量值。
 
-## <a name="false-negative"></a>誤否定 (FN)
+## <a name="false-negative"></a>誤否定（FN）
 
 在[批次測試](luis-interactive-test.md#batch-testing)中，資料點代表您的應用程式不正確預測了不存在目標意圖/實體的語句。
 
-## <a name="false-positive"></a>錯誤正面 (FP)
+## <a name="false-positive"></a>錯誤正面（FP）
 
 在[批次測試](luis-interactive-test.md#batch-testing)中，資料點代表您的應用程式不正確預測了存在目標意圖/實體的語句。
 
@@ -96,11 +88,11 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="labeling"></a>加上標籤
 
-標記或標示, 是將意圖[語句](#utterance)中的單字或片語與[實體](#entity)(資料類型) 產生關聯的程式。
+標記或標示，是將意圖[語句](#utterance)中的單字或片語與[實體](#entity)（資料類型）產生關聯的程式。
 
 ## <a name="luis-app"></a>LUIS 應用程式
 
-LUIS 應用程式是一種適用於自然語言處理的定型資料模型，包括[意圖](#intent)、[實體](#entity)和加上標籤的[語句](#utterance)。
+LUIS 應用程式是自然語言處理的語言模型集合，包括[意圖](#intent)、[實體](#entity)和標示的[語句](#utterance)。
 
 ## <a name="owner"></a>擁有者
 
@@ -111,7 +103,7 @@ LUIS 應用程式是一種適用於自然語言處理的定型資料模型，包
 
 ## <a name="phrase-list"></a>片語清單
 
-[片語清單](luis-concept-feature.md#what-is-a-phrase-list-feature)包含一組屬於相同類別的值 (單字或片語)，而且必須以類似的方式處理 (例如城市或產品的名稱)。 可互換的清單會被視為同義字。
+[片語清單](luis-concept-feature.md)包含一組屬於相同類別的值 (單字或片語)，而且必須以類似的方式處理 (例如城市或產品的名稱)。 可互換的清單會被視為同義字。
 
 ## <a name="prebuilt-domains"></a>預先建置的領域
 
@@ -130,7 +122,7 @@ LUIS 應用程式是一種適用於自然語言處理的定型資料模型，包
 
 ## <a name="publish"></a>發佈
 
-發佈表示讓 LUIS [使用中版本](#active-version)在暫存或生產環境[端點](#endpoint)上可用。  
+發行表示在預備或生產[端點](#endpoint)上提供 LUIS 的作用中版本。  
 
 ## <a name="quota"></a>配額
 
@@ -155,11 +147,15 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="starter-key"></a>入門金鑰
 
-與[程式設計金鑰](#programmatic-key)相同，已重新命名為編寫金鑰。
+第一次開始使用 LUIS 時要使用的免費金鑰。
+
+## <a name="structure"></a>表示
+
+將結構新增至機器學習的實體，以提供具有描述項（功能）和條件約束（正則運算式或清單實體）的子元件。
 
 ## <a name="subscription-key"></a>訂用帳戶金鑰
 
-訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS](luis-reference-regions.md) 網站中[金鑰和端點  頁面](luis-how-to-azure-subscription.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。
+訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**預測端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS **網站中**金鑰和端點](luis-how-to-azure-subscription.md)[頁面](luis-reference-regions.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。
 
 ## <a name="test"></a>測試
 
@@ -176,7 +172,7 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="train"></a>定型
 
-定型是教導 LUIS 自最後一次定型後[使用中版本](#active-version)任何變更的程序。
+定型是一種 LUIS 的程式，可在上一次訓練之後，對作用中版本的任何變更進行教學。
 
 ## <a name="true-negative"></a>真否定 (TN)
 

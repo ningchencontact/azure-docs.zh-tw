@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 775b50c4735115dde8ae936c4d06b087d58683b1
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619790"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486677"
 ---
 # <a name="testing-example-utterances-in-luis"></a>在 LUIS 中測試範例語句
 
 測試是一個程序，其中您會將範例語句提供給 LUIS，然後獲得 LUIS 所辨識意圖和實體的回應。 
 
-您可以一次使用一個語句，或是提供[一批](luis-concept-batch-test.md)語句，來反覆[測試](luis-interactive-test.md) LUIS。 藉由測試，您便可以將目前[作用中](luis-concept-version.md#active-version)模型與已發佈的模型做比較。 
+您可以互動方式測試 LUIS，一次一個語句，或提供語句的。 在測試時，您可以比較目前作用中模型的預測回應與已發行模型的預測回應。 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -32,7 +32,7 @@ ms.locfileid: "68619790"
 請參閱[預測分數](luis-concept-prediction-score.md)概念，以深入了解預測分數。
 
 ## <a name="interactive-testing"></a>互動式測試
-執行互動式測試時，會從網站的 [Test] \(測試\)  面板執行。 您可以輸入語句來查看意圖和實體的識別與評分情況。 如果 LUIS 並未如您所預期在測試窗格中針對語句預測意圖和實體，請將其複製到 [Intent] \(意圖\)  頁面中作為新語句。 然後標記該語句的組件，並進行 LUIS 定型。 
+互動式測試是從 LUIS 入口網站的 [**測試**] 面板中完成。 您可以輸入語句來查看意圖和實體的識別與評分情況。 如果 LUIS 未在 [測試] 面板中以您預期的方式預測意圖和實體，請將它複製到 [**意圖**] 頁面，做為新的語句。 然後為實體標記該語句的各個部分，並將 LUIS 定型。 
 
 ## <a name="batch-testing"></a>批次測試
 如果您要一次測試多個語句，請參閱[批次測試](luis-concept-batch-test.md)。
@@ -46,16 +46,14 @@ ms.locfileid: "68619790"
 如果您對端點進行測試，而不想要記錄語句，請記得使用 `logging=false` 查詢字串設定。
 
 ## <a name="where-to-find-utterances"></a>語句尋找位置
-LUIS 會將所有已記錄的語句儲存在查詢記錄中，從 [LUIS](luis-reference-regions.md) 網站的 [應用程式]  清單頁面以及 LUIS [撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087) 都可下載此記錄。 
+LUIS 會將所有記錄的語句儲存在查詢記錄檔中，並可從**應用程式**清單頁面上的 LUIS 入口網站下載，以及 LUIS[撰寫 api](https://go.microsoft.com/fwlink/?linkid=2092087)。 
 
-任何 LUIS 不確定的語句都會列在 [LUIS](luis-reference-regions.md) 網站的[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)  頁面中。 
+任何 LUIS 不確定的語句都會列在 **[ 網站的](luis-how-to-review-endpoint-utterances.md)檢閱端點語句**[LUIS](luis-reference-regions.md) 頁面中。 
 
-![檢閱端點語句](./media/luis-concept-test/review-endpoint-utterances.png)
- 
 ## <a name="remember-to-train"></a>請務必定型
 在您對模型進行變更之後，請務必進行 LUIS [定型](luis-how-to-train.md)。 對 LUIS 應用程式所做的變更必須等到應用程式進行定型之後，才會顯示。 
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 了解[最佳做法](luis-concept-best-practices.md)。
 
 ## <a name="next-steps"></a>後續步驟
