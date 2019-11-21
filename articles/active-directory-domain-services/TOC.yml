@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: 建立進階受控網域
       href: tutorial-create-instance-advanced.md
+    - name: 建立樹系信任 (預覽)
+      href: tutorial-create-forest-trust.md
 - name: 範例
   items:
     - name: 使用 Azure PowerShell 建立受控網域
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: 一般部署案例
       href: scenarios.md
+    - name: 樹系和信任
+      items:
+        - name: 資源樹系
+          href: concepts-resource-forest.md
+        - name: 樹系信任
+          href: concepts-forest-trust.md
     - name: Azure AD DS 同步處理的運作方式
       href: synchronization.md
     - name: 密碼雜湊同步處理如何運作

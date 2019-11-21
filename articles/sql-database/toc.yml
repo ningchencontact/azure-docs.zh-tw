@@ -112,14 +112,6 @@
               items:
                 - name: 開始使用 SQL Database 稽核
                   href: sql-database-auditing.md
-        - name: 網路安全性
-          items:
-            - name: 虛擬網路端點
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: 虛擬網路端點 - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: 私人連結
-              href: sql-database-private-endpoint-overview.md
         - name: 安全性管理
           items:
             - name: 進階資料安全性
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: 單一資料庫安全性
           items:
+            - name: 網路存取控制
+              href: sql-database-networkaccess-overview.md
+            - name: IP 型防火牆
+              href: sql-database-firewall-configure.md
+            - name: vNet 防火牆規則
+              items:
+                - name: vNet 端點
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: vNet 端點 - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: 私人連結
+              href: sql-database-private-endpoint-overview.md
             - name: 稽核記錄檔格式
               href: sql-database-audit-log-format.md
             - name: 條件式存取
               href: sql-database-conditional-access.md
-            - name: 伺服器層級 IP 防火牆規則
-              items:
-                - name: 建立和管理
-                  href: sql-database-firewall-configure.md
         - name: 受控執行個體安全性
           items:
             - name: 保護公用端點

@@ -355,7 +355,7 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: 使用 cell magic 搭配 Jupyter 使用外部套件
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: 使用指令碼動作搭配 Jupyter 使用外部套件
+                - name: 使用指令碼動作在 Azure HDInsight 上安全地管理 Python 環境
                   href: ./spark/apache-spark-python-package-installation.md
                 - name: 使用 Apache Zeppelin Notebook
                   href: ./spark/apache-spark-zeppelin-notebook.md

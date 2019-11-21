@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure IoT 中樞裝置佈建服務文件
 metadata:
-  title: Azure IoT 中樞裝置佈建服務文件 - 教學課程及 API 參考
+  title: Azure IoT 中樞裝置佈建服務文件
   description: Azure IoT 中樞裝置佈建服務 - 教學課程、快速入門、做法及 API 參考
   author: nberdy
   ms.service: iot-dps
@@ -11,7 +11,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: IoT 中樞裝置佈建服務是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。 了解如何透過快速入門、教學課程及範例，將裝置佈建至您的 IoT 中樞。
+  description: IoT 中樞裝置佈建服務 (DPS) 是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。 了解如何透過快速入門、教學課程及範例，將裝置佈建至您的 IoT 中樞。
 sections:
   - title: 5 分鐘快速入門
     items:

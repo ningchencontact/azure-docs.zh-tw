@@ -168,6 +168,8 @@
           href: howto-configure-ssl.md
         - name: Web 應用程式
           href: howto-connect-webapp.md
+        - name: 使用重新導向連線
+          href: howto-redirection.md
     - name: 設定伺服器參數
       items:
         - name: Azure 入口網站

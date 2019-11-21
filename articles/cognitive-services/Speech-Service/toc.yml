@@ -427,6 +427,33 @@
           href: 'https://aka.ms/csspeech/pythonref'
         - name: 語音 SDK 版本資訊
           href: releasenotes.md
+- name: 裝置
+  exanded: false
+  items:
+    - name: 概觀
+      items:
+        - name: 關於語音裝置 SDK
+          href: speech-devices-sdk.md
+        - name: 取得語音裝置 SDK
+          href: get-speech-devices-sdk.md
+    - name: 硬體
+      items:
+        - name: 麥克風陣列建議
+          href: speech-devices-sdk-microphone.md
+        - name: Roobo v1 套件
+          href: speech-devices-sdk-roobo-v1.md
+    - name: 快速入門
+      items:
+        - name: Windows
+          href: speech-devices-sdk-windows-quickstart.md
+        - name: Linux
+          href: speech-devices-sdk-linux-quickstart.md
+        - name: Android
+          href: speech-devices-sdk-android-quickstart.md
+    - name: 資源
+      items:
+        - name: 針對語音裝置 SDK 進行疑難排解
+          href: speech-devices-sdk-troubleshooting.md
 - name: 移轉
   exanded: false
   items:
